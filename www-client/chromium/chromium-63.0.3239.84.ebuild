@@ -16,7 +16,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~x86"
 IUSE="component-build cups gnome-keyring +hangouts kerberos neon pic +proprietary-codecs pulseaudio selinux +suid +system-ffmpeg +system-icu +system-libvpx +tcmalloc widevine"
 RESTRICT="!system-ffmpeg? ( proprietary-codecs? ( bindist ) )"
 
@@ -537,9 +537,10 @@ src_configure() {
 	"$@" || die
 }
 
-host_binary() {
+src_compile() {
+	# Build mksnapshot and pax-mark it.
 	local x
-	for x; do
+	for x in mksnapshot v8_context_snapshot_generator; do
 		if tc-is-cross-compiler; then
 			eninja -C out/Release "host/${x}"
 			pax-mark m "out/Release/host/${x}"
@@ -548,11 +549,6 @@ host_binary() {
 			pax-mark m "out/Release/${x}"
 		fi
 	done
-}
-
-src_compile() {
-	# Build mksnapshot and pax-mark it.
-	host_binary mksnapshot v8_context_snapshot_generator
 
 	# Work around circular dep issue
 	# https://chromium-review.googlesource.com/c/chromium/src/+/617768
