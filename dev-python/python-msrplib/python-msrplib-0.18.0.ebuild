@@ -21,6 +21,5 @@ RDEPEND="
 	dev-python/python-application[${PYTHON_USEDEP}]
 	dev-python/python-eventlib[${PYTHON_USEDEP}]
 	dev-python/python-gnutls[${PYTHON_USEDEP}]
-	dev-python/twisted-core[${PYTHON_USEDEP}]
-	dev-python/twisted-names[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]
 "
