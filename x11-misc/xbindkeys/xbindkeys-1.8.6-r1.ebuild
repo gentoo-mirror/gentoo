@@ -19,7 +19,6 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
 
 PATCHES=(
-
 	"${FILESDIR}/${PN}-apply-mask-on-release-event-status.patch"
 )
 
