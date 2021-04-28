@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit toolchain-funcs
 
@@ -11,20 +11,22 @@ SRC_URI="http://www.isthe.com/chongo/src/calc/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="LGPL-2"
-KEYWORDS="~alpha amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	sys-libs/ncurses:0=
 	sys-libs/readline:0="
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${P}-as-needed.patch"
+	"${FILESDIR}"/${PN}-2.13.0.1-RPATH.patch
+	"${FILESDIR}"/${PN}-2.13.0.1-respect-LDFLAGS.patch
 )
 
 src_prepare() {
 	default
+
 	ln -sf libcustcalc.so.${PV} custom/libcustcalc.so || die
 	sed -i -e "/DIR/s:/usr:${EPREFIX}/usr:g" Makefile || die
 }
@@ -35,6 +37,7 @@ src_compile() {
 		CC="$(tc-getCC)" \
 		DEBUG="${CFLAGS}" \
 		LDFLAGS="${LDFLAGS}" \
+		EXTRA_LDFLAGS="${LDFLAGS}" \
 		CALCPAGER="${PAGER}" \
 		USE_READLINE="-DUSE_READLINE" \
 		READLINE_LIB="-lreadline -lhistory $($(tc-getPKG_CONFIG) --libs ncurses) -L\"${S}\"/custom -lcustcalc" \
@@ -54,5 +57,6 @@ src_install() {
 		T="${D}" \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
 		install
-	dodoc BUGS CHANGES LIBRARY README
+
+	dodoc BUGS CHANGES LIBRARY
 }
