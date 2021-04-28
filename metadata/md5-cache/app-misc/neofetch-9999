@@ -1,13 +1,11 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install prepare unpack
+DEFINED_PHASES=install postinst prepare unpack
 DESCRIPTION=Simple information system script
 EAPI=7
 HOMEPAGE=https://github.com/dylanaraps/neofetch
-INHERIT=prefix git-r3
-IUSE=X
+INHERIT=optfeature prefix git-r3
 LICENSE=MIT-with-advertising
 PROPERTIES=live
-RDEPEND=sys-apps/pciutils X? ( media-gfx/imagemagick media-libs/imlib2 www-client/w3m[imlib] x11-apps/xprop x11-apps/xrandr x11-apps/xwininfo )
 SLOT=0
-_eclasses_=prefix	de7d8e2b10085ed5ff09ad70e4753e5c	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=34ed9ea2f8a273f0f29abaa7c15ef0b8
+_eclasses_=optfeature	e142388219c7fee6ff016fe1c78a10a5	prefix	de7d8e2b10085ed5ff09ad70e4753e5c	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=1b05c42110c33ce92d06d467c29618ec
