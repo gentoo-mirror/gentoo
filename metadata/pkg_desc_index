@@ -5081,7 +5081,7 @@ dev-java/jnlp-api 6.0.18: JNLP API classes, repackaged from the icedtea-web fork
 dev-java/jnr-constants 0.8.6: A set of platform constants (e.g. errno values)
 dev-java/jnr-enxio 0.7-r1: Java Native Runtime Enhanced X-platform I/O
 dev-java/jnr-ffi 2.0.2: An abstracted interface to invoking native functions from java
-dev-java/jnr-netdb 1.1.4: Network services database access for java
+dev-java/jnr-netdb 1.1.4-r1: Network services database access for java
 dev-java/jnr-posix 3.0.10: Lightweight cross-platform POSIX emulation layer for Java
 dev-java/jnr-unixsocket 0.6-r1: Unix sockets for Java
 dev-java/jnr-x86asm 1.0.2-r1: A pure-java port of asmjit
@@ -5112,7 +5112,7 @@ dev-java/jsr67 1.3-r1: SAAJ 1.3 (AKA JSR-67 MR3) API
 dev-java/jss 4.3.2: Network Security Services for Java (JSS)
 dev-java/jssc 2.8.0-r1: Java Simple Serial Connector
 dev-java/jstun 0.7.3: Java-based STUN implementation
-dev-java/jta 1.1: The Java Transaction API
+dev-java/jta 1.1-r1: The Java Transaction API
 dev-java/jtds 1.3.1: jTDS - SQL Server and Sybase JDBC driver
 dev-java/jtidy 1.0: Java port of HTML Tidy, an HTML syntax checker and pretty printer
 dev-java/jtreemap 1.1.0-r1: Java library for treemapping data
@@ -8578,6 +8578,7 @@ dev-python/jaraco-packaging 8.2.1: Tools to supplement packaging Python releases
 dev-python/jaraco-path 3.3.1: Miscellaneous path functions
 dev-python/jaraco-stream 3.0.0-r1 3.0.2: Routines for handling streaming data
 dev-python/jaraco-text 3.5.0: Text utilities used by other projects by developer jaraco
+dev-python/jc 1.15.3: Converts the output of popular command-line tools and file-types to JSON
 dev-python/jdcal 1.4.1: Julian dates from proleptic Gregorian and Julian calendars
 dev-python/jedi 0.17.2-r1 0.18.0: Autocompletion library for Python
 dev-python/jeepney 0.6.0: Low-level, pure Python DBus protocol wrapper
@@ -17787,7 +17788,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 3.5.3.3 4.0.10 4.1.2-r3 4.2.1-r1 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.109 5.4.111 5.4.112 5.4.113 5.4.114 5.10.27 5.10.29 5.10.30 5.10.31 5.10.32 5.11.13 5.11.14 5.11.15 5.11.16: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.109 5.4.109-r1 5.4.111 5.4.111-r1 5.4.112 5.4.112-r1 5.4.113 5.4.113-r1 5.4.114 5.4.114-r2 5.10.27 5.10.27-r1 5.10.29 5.10.29-r1 5.10.30 5.10.30-r1 5.10.31 5.10.31-r1 5.10.32 5.10.32-r2 5.11.13 5.11.13-r1 5.11.14 5.11.14-r1 5.11.15 5.11.15-r1 5.11.16 5.11.16-r2: Pre-built Linux kernel with genpatches
-sys-kernel/gentoo-sources 4.4.257 4.4.261 4.4.262 4.4.263 4.4.264 4.4.265 4.4.266 4.4.267 4.4.268 4.9.257 4.9.261 4.9.262 4.9.263 4.9.264 4.9.265 4.9.266 4.9.267 4.9.268 4.14.221 4.14.225 4.14.226 4.14.227 4.14.228 4.14.229 4.14.230 4.14.231 4.14.232 4.19.175 4.19.181 4.19.182 4.19.183 4.19.184 4.19.185 4.19.186 4.19.187 4.19.188 4.19.189 5.4.97 5.4.105 5.4.106 5.4.107 5.4.108 5.4.109 5.4.110 5.4.111 5.4.112 5.4.113 5.4.114 5.10.24 5.10.25 5.10.26 5.10.27 5.10.28 5.10.29 5.10.30 5.10.31 5.10.32 5.11.6 5.11.7 5.11.8-r1 5.11.9 5.11.10 5.11.11 5.11.12 5.11.13 5.11.14 5.11.15 5.11.16 5.12.0: Full sources including the Gentoo patchset for the 5.12 kernel tree
+sys-kernel/gentoo-sources 4.4.257 4.4.261 4.4.262 4.4.263 4.4.264 4.4.265 4.4.266 4.4.267 4.4.268 4.9.257 4.9.261 4.9.262 4.9.263 4.9.264 4.9.265 4.9.266 4.9.267 4.9.268 4.14.221 4.14.225 4.14.226 4.14.227 4.14.228 4.14.229 4.14.230 4.14.231 4.14.232 4.19.175 4.19.181 4.19.182 4.19.183 4.19.184 4.19.185 4.19.186 4.19.187 4.19.188 4.19.189 5.4.97 5.4.105 5.4.106 5.4.107 5.4.108 5.4.109 5.4.110 5.4.111 5.4.112 5.4.113 5.4.114 5.4.115 5.10.24 5.10.25 5.10.26 5.10.27 5.10.28 5.10.29 5.10.30 5.10.31 5.10.32 5.10.33 5.11.6 5.11.7 5.11.8-r1 5.11.9 5.11.10 5.11.11 5.11.12 5.11.13 5.11.14 5.11.15 5.11.16 5.12.0: Full sources including the Gentoo patchset for the 5.12 kernel tree
 sys-kernel/git-sources 5.12_rc2 5.12_rc3 5.12_rc4 5.12_rc5 5.12_rc6 5.12_rc7 5.12_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 0: Wrap kernel-install from systemd-boot as installkernel
