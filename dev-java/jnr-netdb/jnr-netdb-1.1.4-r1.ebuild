@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=7
 
 JAVA_PKG_IUSE="doc source test"
 
@@ -19,16 +19,17 @@ COMMON_DEP="
 	dev-java/jnr-ffi:2"
 
 RDEPEND="${COMMON_DEP}
-	>=virtual/jre-1.5"
+	>=virtual/jre-1.8:*"
 
 DEPEND="${COMMON_DEP}
-	>=virtual/jdk-1.5
+	>=virtual/jdk-1.8:*
 	test? (
 		dev-java/ant-junit
 		dev-java/junit:4
 	)"
 
-java_prepare() {
+src_prepare() {
+	default
 	find -name '*.jar' -exec rm -v {} + || die
 
 	cp "${FILESDIR}"/${PN}_maven-build.xml build.xml || die

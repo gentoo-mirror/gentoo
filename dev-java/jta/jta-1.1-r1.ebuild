@@ -1,21 +1,23 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 JTA_ZIP="jta-1_1-classes.zip"
 
 inherit java-pkg-2
 
 DESCRIPTION="The Java Transaction API"
-HOMEPAGE="http://www.oracle.com/technetwork/java/javaee/jta/index.html"
+HOMEPAGE="https://www.oracle.com/java/technologies/jta.html"
 SRC_URI="${JTA_ZIP}"
+
 LICENSE="sun-bcla-jta"
 SLOT=0
 KEYWORDS="amd64 ppc64 x86 ~amd64-linux ~x86-linux"
 
-DEPEND=" >=virtual/jdk-1.5"
-RDEPEND=">=virtual/jre-1.5"
+DEPEND=">=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
+BDEPEND="app-arch/unzip"
 
 RESTRICT="fetch"
 
