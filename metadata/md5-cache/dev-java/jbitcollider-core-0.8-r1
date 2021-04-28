@@ -1,6 +1,6 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.5 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Core classes of jBitcollider: org.bitpedia.collider.core
 EAPI=7
 HOMEPAGE=http://bitcollider.sourceforge.net/
@@ -8,8 +8,8 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=elibc_FreeBSD doc source elibc_FreeBSD
 KEYWORDS=amd64 x86
 LICENSE=public-domain
-RDEPEND=>=virtual/jre-1.5 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
-SRC_URI=mirror://sourceforge/bitcollider/jBitcollider-0.8.zip
+SRC_URI=mirror://sourceforge/project/bitcollider/jBitcollider%20%28Java%29/0.8/jBitcollider-0.8.zip -> jBitcollider-0.8.zip
 _eclasses_=java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	java-pkg-simple	c85bf2d75a5f53e7b39fc9104701ebfb
-_md5_=4f59420f4d25cebd8bb2db8d59feb70d
+_md5_=3fff6cb049aee9bfe2c097b3cf1b94af
