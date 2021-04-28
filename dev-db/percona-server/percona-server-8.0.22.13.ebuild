@@ -17,7 +17,7 @@ MY_MAJOR_PV=$(ver_cut 1-2)
 MY_RELEASE_NOTES_URI="https://www.percona.com/doc/percona-server/${MY_MAJOR_PV}/"
 
 # Patch version
-PATCH_SET="https://dev.gentoo.org/~whissi/dist/percona-server/${PN}-8.0.22.13-patches-01.tar.xz"
+PATCH_SET="https://dev.gentoo.org/~whissi/dist/percona-server/${PN}-8.0.22.13-patches-02.tar.xz"
 
 SRC_URI="https://www.percona.com/downloads/${MY_PN}-${MY_MAJOR_PV}/${MY_PN}-${MY_PV}/source/tarball/${PN}-${MY_PV}.tar.gz
 	https://dl.bintray.com/boostorg/release/${MY_BOOST_VERSION}/source/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION}).tar.bz2
@@ -309,6 +309,7 @@ src_configure() {
 	if use server ; then
 		mycmakeargs+=(
 			-DWITH_AUTHENTICATION_LDAP=$(usex ldap system OFF)
+			-DWITH_COREDUMPER=OFF
 			-DWITH_EXTRA_CHARSETS=all
 			-DWITH_DEBUG=$(usex debug)
 			-DWITH_MECAB=$(usex cjk system OFF)
