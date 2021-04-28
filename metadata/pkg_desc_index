@@ -2947,7 +2947,7 @@ app-portage/gander 0.0.1: Statistic submission client for Goose (anser.gentoo.or
 app-portage/gemato 15.2 16.1 16.2 9999: Stand-alone Manifest generation & verification tool
 app-portage/genlop 0.30.10-r2 9999: A nice emerge.log parser
 app-portage/gentoolkit 0.5.0-r2 0.5.1 9999: Collection of administration scripts for Gentoo
-app-portage/gentoopm 0.3.2-r2 0.3.3 9999: A common interface to Gentoo package managers
+app-portage/gentoopm 0.3.3 9999: A common interface to Gentoo package managers
 app-portage/getdelta 0.7.9-r2: dynamic deltup client
 app-portage/golop 0.0.1 0.0.1-r1 9999: A pure Go re-implementation of genlop
 app-portage/gpyutils 0.4.5 9999: Utitilies for maintaining Python packages
@@ -3370,7 +3370,7 @@ app-vim/frawor 0.2.3 0.2.3-r1: vim plugin: modular vim framework
 app-vim/fugitive 2.4 2.5 3.1 3.2 9999: vim plugin: a git wrapper for vim
 app-vim/fuzzyfinder 4.2.2: vim plugin: buffer/file/command/tag/etc explorer with fuzzy matching
 app-vim/genindent 1.1-r1: vim plugin: library for simplifying indent files
-app-vim/gentoo-syntax 20201216 99999999: vim plugin: Gentoo and Portage syntax highlighting
+app-vim/gentoo-syntax 20201216 20210428 99999999: vim plugin: Gentoo and Portage syntax highlighting
 app-vim/genutils 2.5-r1: vim plugin: library with various useful functions
 app-vim/gist 7.3: vim plugin: interact with gists (gist.github.com)
 app-vim/git-patch-tags 0.2: vim plugin: add git patch tags as used in linux kernel development
@@ -8124,7 +8124,7 @@ dev-python/aiorpcX 0.18.5 0.19 0.19.1 0.20.1 0.20.2 0.21.0 0.21.1 0.22.0: Generi
 dev-python/aiosmtpd 1.2 1.2.2 1.2.4 1.3.2 1.4.0 1.4.1 1.4.2: asyncio based SMTP server
 dev-python/alabaster 0.7.12: A configurable sidebar-enabled Sphinx theme
 dev-python/alagitpull 0.0.23-r1: alabaster sub-theme used on git-pull docs
-dev-python/alembic 1.5.7 1.5.8: database migrations tool, written by the author of SQLAlchemy
+dev-python/alembic 1.5.8: database migrations tool, written by the author of SQLAlchemy
 dev-python/ament_package 0.9.2: Parser for the manifest files in the ament buildsystem
 dev-python/amodem 1.15.1-r1: Transmit data between two computers using audio
 dev-python/aniso8601 9.0.1: A library for parsing ISO 8601 strings
@@ -8143,7 +8143,7 @@ dev-python/argh 0.26.2-r2: A simple argparse wrapper
 dev-python/argon2-cffi 20.1.0: CFFI bindings to the Argon2 password hashing library
 dev-python/argparse-manpage 1.4 1.5: Automatically build man-pages for your Python project
 dev-python/arpeggio 1.10.0 1.10.2: Parser interpreter based on PEG grammars
-dev-python/arrow 1.0.3: Better dates and times for Python
+dev-python/arrow 1.0.3 1.1.0: Better dates and times for Python
 dev-python/asgiref 3.3.1 3.3.2 3.3.4: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.4.0: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.21 0.9.22 0.9.23: Evaluator of Python expression using ast module
@@ -8166,7 +8166,7 @@ dev-python/automaton 1.12.1 2.2.0: Friendly state machines for python.
 dev-python/autopep8 1.5.5 1.5.6 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 1.0.2 2.0.0 2.1.0 2.1.1 2.2.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.35.0: A library that transform SAM templates into AWS CloudFormation templates
-dev-python/aws-xray-sdk-python 2.6.0 2.7.0: AWS X-Ray SDK for Python
+dev-python/aws-xray-sdk-python 2.7.0: AWS X-Ray SDK for Python
 dev-python/awscli 1.19.3 1.19.47: Universal Command Line Environment for AWS
 dev-python/awxkit 19.0.0-r1: Command line interface for Ansible AWX
 dev-python/babelfish 0.5.5-r1 9999: Python library to work with countries and languages
@@ -8189,7 +8189,7 @@ dev-python/bibtexparser 1.1.0: A BibTeX parser written in python
 dev-python/binaryornot 0.4.4-r2: Ultra-lightweight pure Python package to guess whether a file is binary or text
 dev-python/bitarray 1.7.1 1.9.2 2.0.0 2.0.1: Efficient arrays of booleans -- C extension
 dev-python/bitstring 3.1.7: A pure Python module for creation and analysis of binary data
-dev-python/black 20.8_beta1 21.4_beta0: The uncompromising Python code formatter
+dev-python/black 20.8_beta1 21.4_beta0 21.4_beta1: The uncompromising Python code formatter
 dev-python/bleach 3.3.0: an easy whitelist-based HTML-sanitizing tool
 dev-python/blessed 1.17.11 1.17.12 1.18.0: Library for making terminal apps using colors, keyboard input and positioning
 dev-python/blessings 1.7-r1: A thin, practical wrapper around terminal coloring, styling, and positioning
@@ -8200,8 +8200,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.17.33 1.17.44 1.17.49 1.17.50 1.17.51 1.17.52 1.17.53 1.17.54 1.17.55 1.17.56 1.17.57 1.17.58 9999: The AWS SDK for Python
-dev-python/botocore 1.20.33 1.20.44 1.20.49 1.20.50 1.20.51 1.20.52 1.20.53 1.20.54 1.20.55 1.20.56 1.20.57 1.20.58 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.17.33 1.17.44 1.17.49 1.17.50 1.17.51 1.17.52 1.17.53 1.17.54 1.17.55 1.17.56 1.17.57 1.17.58 1.17.59 9999: The AWS SDK for Python
+dev-python/botocore 1.20.33 1.20.44 1.20.49 1.20.50 1.20.51 1.20.52 1.20.53 1.20.54 1.20.55 1.20.56 1.20.57 1.20.58 1.20.59 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8214,7 +8214,7 @@ dev-python/brython 3.7.3 3.7.4: A Python 3 implementation for client-side web pr
 dev-python/bsddb3 6.2.9: Python bindings for Berkeley DB
 dev-python/cached-property 1.5.2: A cached-property for decorating methods in classes
 dev-python/cachelib 0.1.1: Collection of cache libraries in the same API interface. Extracted from werkzeug
-dev-python/cachetools 4.2.1: Extensible memoizing collections and decorators
+dev-python/cachetools 4.2.1 4.2.2: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.2.0: CFFI-based drop-in replacement for Pycairo
 dev-python/cangjie 1.3-r1: Python wrapper for libcangjie
 dev-python/capturer 3.0: Easily capture stdout/stderr of the current process and subprocesses
@@ -8228,7 +8228,7 @@ dev-python/cbor2 5.1.2 5.2.0: Pure Python CBOR (de)serializer with extensive tag
 dev-python/certifi 10001-r1: Thin replacement for certifi using system certificate store
 dev-python/cffi 1.14.5: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.2.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-python-lint 0.47.2 0.48.1 0.48.2 0.48.3: CloudFormation Linter
+dev-python/cfn-python-lint 0.47.2 0.48.1 0.48.2 0.48.3 0.49.0: CloudFormation Linter
 dev-python/cftime 1.4.1: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8: Tools and libraries for control groups of Linux
 dev-python/chai 1.1.2: Easy to use mocking, stubbing and spying framework
@@ -8516,7 +8516,7 @@ dev-python/httpbin 0.7.0-r2: HTTP Request and Response Service
 dev-python/httpcore 0.12.3 0.13.0: A minimal low-level HTTP client
 dev-python/httplib2 0.19.0-r1 0.19.1: A comprehensive HTTP client library
 dev-python/httpretty 1.0.5: HTTP client mock for Python
-dev-python/httpx 0.16.1 0.17.0 0.17.1: Fully-featured HTTP client which provides sync and async APIs
+dev-python/httpx 0.16.1 0.17.0 0.17.1 0.18.0: Fully-featured HTTP client which provides sync and async APIs
 dev-python/huawei-lte-api 1.4.17: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 8.2 9.1: Human friendly output for text interfaces using Python
 dev-python/humanize 3.3.0 3.4.1: Common humanization utilities
@@ -8852,7 +8852,7 @@ dev-python/pickleshare 0.7.5: A small 'shelve' like datastore with concurrency s
 dev-python/pid 3.0.4: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.1.0: Pure-Python implementation of the AMQP
-dev-python/pikepdf 2.10.0 2.11.0 2.11.1 2.11.2: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 2.10.0 2.11.0 2.11.1 2.11.2 2.11.3: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 8.2.0: Python Imaging Library (fork)
 dev-python/pip 21.0.1 21.1: Installs python packages -- replacement for easy_install
@@ -9083,7 +9083,7 @@ dev-python/pytest-freezegun 0.4.2: Easily freeze time in pytest test + fixtures
 dev-python/pytest-helpers-namespace 2019.1.8-r1: Provides a helpers pytest namespace
 dev-python/pytest-html 1.22.1: Plugin for generating HTML reports for py.test results
 dev-python/pytest-httpbin 1.0.0-r1: Easily test your HTTP library against a local copy of httpbin
-dev-python/pytest-httpx 0.10.1 0.11.0: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.10.1 0.11.0 0.12.0: Send responses to HTTPX using pytest
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localserver 0.5.0: Py.test plugin to test server connections locally
 dev-python/pytest-metadata 1.8.0: A plugin for pytest that provides access to test session metadata
@@ -9248,7 +9248,7 @@ dev-python/requests-cache 0.5.2 0.6.0 0.6.1 0.6.2 0.6.3: Persistent cache for re
 dev-python/requests-credssp 1.1.1 1.2.0: HTTPS CredSSP authentication with the requests library
 dev-python/requests-file 1.4.3: File transport adapter for Requests
 dev-python/requests-kerberos 0.12.0-r1: A Kerberos authentication handler for python-requests
-dev-python/requests-mock 1.8.0: Mock out responses from the requests package
+dev-python/requests-mock 1.8.0 1.9.0: Mock out responses from the requests package
 dev-python/requests-ntlm 1.1.0-r1: HTTP NTLM authentication using the requests library
 dev-python/requests-oauthlib 1.3.0: This project provides first-class OAuth library support for Requests
 dev-python/requests-toolbelt 0.9.1: A utility belt for advanced users of python-requests
@@ -9256,7 +9256,7 @@ dev-python/requests-unixsocket 0.2.0: Use requests to talk HTTP via a UNIX domai
 dev-python/requests_download 0.1.2: A convenient function to download to a file using requests
 dev-python/requests_pkcs12 1.7: Adds PKCS#12 support to the Python requests library in a clean way
 dev-python/requestsexceptions 1.4.0: Finds the correct path to exceptions in the requests library.
-dev-python/responses 0.13.1 0.13.2: Utility for mocking out the Python Requests library
+dev-python/responses 0.13.1 0.13.2 0.13.3: Utility for mocking out the Python Requests library
 dev-python/restructuredtext-lint 1.3.0: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1: Decorator for retrying when exceptions occur
 dev-python/retrying 1.3.3: General-purpose retrying library
@@ -9455,7 +9455,7 @@ dev-python/tqdm 4.59.0 4.60.0: Add a progress meter to your loops in a second
 dev-python/traceback2 1.4.0-r1: Backports of the traceback module
 dev-python/traitlets 4.3.3 5.0.5: A configuration system for Python applications
 dev-python/transitions 0.8.7 0.8.8: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.3.3 3.3.4: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.3.3 3.3.4 3.3.5: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.2.1 0.2.2 0.19.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 20.9.0 21.1.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trustme 0.7.0: #1 quality TLS certs while you wait, for the discerning tester
@@ -17673,7 +17673,7 @@ sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration file
 sys-fs/cramfs 1.1 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.10.2: Encrypted FUSE filesystem that conceals metadata
 sys-fs/cryptmount 5.3.3: A utility for management and user-mode mounting of encrypted filesystems
-sys-fs/cryptsetup 2.3.4 2.3.5: Tool to setup encrypted devices with dm-crypt
+sys-fs/cryptsetup 2.3.4-r1 2.3.5-r1: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
 sys-fs/dd-rescue 1.99.8-r1 1.99.9 1.99.10: Similar to dd but can copy from source with errors
