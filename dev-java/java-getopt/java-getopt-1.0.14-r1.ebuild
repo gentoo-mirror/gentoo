@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 JAVA_PKG_IUSE="doc source"
 
@@ -14,14 +14,14 @@ SRC_URI="https://www.urbanophile.com/arenn/hacking/getopt/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="1"
 KEYWORDS="amd64 ~arm ~arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris ~x86-solaris"
-IUSE=""
 
-DEPEND=">=virtual/jdk-1.4"
-RDEPEND=">=virtual/jre-1.4"
+DEPEND=">=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
 
 S="${WORKDIR}"
 
-java_prepare() {
+src_prepare() {
+	default
 	mv gnu/getopt/buildx.xml build.xml || die
 }
 
