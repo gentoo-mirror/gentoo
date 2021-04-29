@@ -24,30 +24,30 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.99.9-musl-r2.patch
+	"${FILESDIR}"/${PN}-1.99.11-musl-r2.patch
 )
 
 src_prepare() {
 	default
 
-	sed -i \
-		-e 's:-ldl:$(LDFLAGS) -ldl:' \
-		-e 's:-shared:$(CFLAGS) $(LDFLAGS) -shared:' \
-		Makefile || die
-
 	if ! use cpu_flags_x86_sse4_2; then
 		sed -i \
 			-e 's:^CC_FLAGS_CHECK(-msse4.2,SSE42):#&:' \
-			configure.in || die
+			configure.ac || die
 	fi
 
 	if ! use cpu_flags_x86_avx2; then
 		sed -i \
 			-e 's:^CC_FLAGS_CHECK(-mavx2,AVX2):#&:' \
-			configure.in || die
+			configure.ac || die
 	fi
 
 	eautoreconf
+
+	sed -i \
+		-e 's:\(-ldl\):$(LDFLAGS) \1:' \
+		-e 's:\(-shared\):$(CFLAGS) $(LDFLAGS) \1:' \
+		Makefile || die
 }
 
 src_configure() {
