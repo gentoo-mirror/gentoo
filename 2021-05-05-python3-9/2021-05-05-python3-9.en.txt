@@ -1,0 +1,119 @@
+Title: Python 3.9 to become the default on 2021-06-01
+Author: Michał Górny <mgorny@gentoo.org>
+Posted: 2021-05-05
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: dev-lang/python:3.7
+Display-If-Installed: dev-lang/python:3.8
+
+We are planning to switch the default Python target of Gentoo systems
+on 2021-06-01, from Python 3.8 to Python 3.9.  If you have not changed
+the values of PYTHON_TARGETS or PYTHON_SINGLE_TARGET, the change will
+have immediate effect on your system and the package manager will try
+to switch automatically on the next upgrade following the change.
+
+If you did change the values, prefer a safer approach or have problems
+with the update, read on.
+
+Please note that the default upgrade method switches packages to the new
+Python versions as they are rebuilt.  This means that all interdependent
+packages have to support the new version for the upgrade to proceed,
+and that some programs may temporarily fail to find their dependencies
+throughout the upgrade (although programs that are already started
+are unlikely to be affected).
+
+
+If you have PYTHON_TARGETS or PYTHON_SINGLE_TARGET declared
+in make.conf, please remove these declarations as they will interfere
+with the package.use samples provided below.  Using make.conf for Python
+targets is discouraged as it prevents package defaults from applying
+when necessary.  This news item assumes using /etc/portage/package.use
+or your package manager's equivalent file for configuration.
+
+
+At this point, you have a few configuration options to choose from:
+
+1. If you wish Python upgrades to apply automatically, you can remove
+   PYTHON_TARGETS and PYTHON_SINGLE_TARGET declarations.  When
+   the defaults change, your package manager should handle the upgrade
+   automatically.  However, you may still need to run the update
+   commands if any problems arise.
+
+2. If you wish to defer the upgrade for the time being, you can
+   explicitly set the old values in package.use.
+
+3. If you wish to force the upgrade earlier, you can explicitly set
+   the new values and run the upgrade commands.
+
+4. If you wish to use a safer approach (i.e. less likely to temporarily
+   break packages during the upgrade), you can perform a multi-step
+   upgrade as outlined below.
+
+5. Finally, you can use an arbitrary combination of PYTHON_TARGETS
+   and PYTHON_SINGLE_TARGET.
+
+
+Deferring the upgrade
+=====================
+To defer the upgrade, explicitly set the old targets:
+
+    */* PYTHON_TARGETS: -* python3_8
+    */* PYTHON_SINGLE_TARGET: -* python3_8
+
+This will enforce Python 3.8 and block any future updates.  However,
+please note that this solution will only be suitable for a few more
+months and you will eventually need to perform the migration.
+
+
+Forcing the upgrade
+===================
+To force the upgrade earlier, explicitly set Python 3.9 targets:
+
+    */* PYTHON_TARGETS: -* python3_9
+    */* PYTHON_SINGLE_TARGET: -* python3_9
+
+However, it is important to remember to remove this after the defaults
+change, as it will interfere with the automatic switch to the next
+Python version in the future.
+
+
+Safer upgrade procedure
+=======================
+A safer approach is to add Python 3.9 support to your system first,
+and only then remove Python 3.8.  However, note that involves two
+rebuilds of all the affected packages, so it will take noticeably
+longer.
+
+First, enable both Python 3.8 and Python 3.9, and then run the upgrade
+commands:
+
+    */* PYTHON_TARGETS: -* python3_8 python3_9
+    */* PYTHON_SINGLE_TARGET: -* python3_8
+
+Then switch PYTHON_SINGLE_TARGET and run a second batch of upgrades:
+
+    */* PYTHON_TARGETS: -* python3_8 python3_9
+    */* PYTHON_SINGLE_TARGET: -* python3_9
+
+Finally, switch to the final version and upgrade:
+
+    */* PYTHON_TARGETS: -* python3_9
+    */* PYTHON_SINGLE_TARGET: -* python3_9
+
+You may wish to remove the target overrides after the defaults switch.
+Alternatively, you can keep them to block the next automatic upgrade
+to Python 3.10, and upgrade manually then.
+
+
+Upgrade commands
+================
+The Python 3.8 cleanup requires that Python 3.8 is removed from complete
+dependency trees in batch.  If some of the installed packages using
+an older Python version are not triaged for the upgrade, the package
+manager will throw dependency conflicts.  This makes it important that
+the upgrade is carried via a --deep --changed-use @world upgrade,
+as well as that any stray packages are removed prior to it, e.g.:
+
+    emerge --depclean
+    emerge -1vUD @world
+    emerge --depclean
