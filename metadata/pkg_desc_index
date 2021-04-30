@@ -198,6 +198,7 @@ acct-group/nzbget 0: Group for net-nntp/nzbget
 acct-group/oidentd 0-r1: System group: oidentd
 acct-group/openct 0-r1: System group: openct
 acct-group/opendkim 0-r1: Group for OpenDKIM
+acct-group/opendmarc 0: Group for mail-filter/opendmarc
 acct-group/openntpd 0-r1: System group: openntpd
 acct-group/openrct2 0-r1: A group for the OpenRCT2 dedicated server
 acct-group/openvpn 0-r1: System group: openvpn
@@ -538,6 +539,7 @@ acct-user/nzbget 0: User for net-nntp/nzbget
 acct-user/oidentd 0-r1: System user: oidentd
 acct-user/openctd 0: User for dev-libs/openct
 acct-user/opendkim 0-r1: User for OpenDKIM
+acct-user/opendmarc 0: User for mail-filter/opendmarc
 acct-user/openntpd 0-r1: user for openntpd daemon
 acct-user/openrct2 0-r1: A user for the OpenRCT2 dedicated server
 acct-user/openvpn 0-r1: User for net-vpn/openvpn
@@ -12698,7 +12700,7 @@ mail-filter/milter-regex 2.7: A milter-based regular expression filter
 mail-filter/mimedefang 2.84: Antispam, antivirus and other customizable filters for MTAs with Milter support
 mail-filter/normalizemime 1.19: Helper program to normalize MIME encoded messages
 mail-filter/opendkim 2.10.3-r26: A milter providing DKIM signing and verification
-mail-filter/opendmarc 1.3.3: Open source DMARC implementation
+mail-filter/opendmarc 1.3.3 1.4.1: Open source DMARC implementation
 mail-filter/opensmtpd-filter-rspamd 0.1.6: OpenSMTPD filter for putting emails through rspamd
 mail-filter/policyd 1.82-r4: Policy daemon for postfix and other MTAs
 mail-filter/policyd-weight 0.1.15.2-r3: Weighted Policy daemon for Postfix
@@ -12731,7 +12733,7 @@ mail-mta/netqmail 1.06-r14: qmail -- a secure, reliable, efficient, simple messa
 mail-mta/notqmail 1.08-r3 9999: qmail -- a secure, reliable, efficient, simple message transfer agent
 mail-mta/nullmailer 2.2-r1: Simple relay-only local mail transport agent
 mail-mta/opensmtpd 6.7.1_p1 6.8.0_p2: Lightweight but featured SMTP daemon from OpenBSD
-mail-mta/postfix 3.5.8-r1 3.5.9-r1 3.5.10 3.6.0_rc1 3.7_pre20210424: A fast and secure drop-in replacement for sendmail
+mail-mta/postfix 3.5.8-r1 3.5.9-r1 3.5.10 3.6.0 3.7_pre20210424: A fast and secure drop-in replacement for sendmail
 mail-mta/protonmail-bridge 1.6.6 1.6.9: Serves ProtonMail to IMAP/SMTP clients
 mail-mta/qpsmtpd 0.95-r1 9999: qpsmtpd is a flexible smtpd daemon written in Perl
 mail-mta/sendmail 8.15.2-r2 8.16.1: Widely-used Mail Transport Agent (MTA)
