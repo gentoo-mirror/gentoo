@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 JAVA_PKG_IUSE="doc source"
 
@@ -21,19 +21,26 @@ CDEPEND="dev-java/jdom:2"
 
 RDEPEND="
 	${CDEPEND}
-	>=virtual/jre-1.5"
+	>=virtual/jre-1.8:*"
 
 DEPEND="
 	${CDEPEND}
-	app-arch/unzip
 	dev-java/ant-core:0
 	test? ( dev-java/junit:4 )
-	>=virtual/jdk-1.5"
+	>=virtual/jdk-1.8:*"
+
+BDEPEND="
+	app-arch/unzip"
 
 JAVA_SRC_DIR="src/main/java"
 JAVA_GENTOO_CLASSPATH="jdom-2"
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-tests.patch"
+)
+
 src_prepare() {
+	default
 	# Don't require default.xml to be in the current directory.
 	sed -i "s:\"default\.xml\":\"${JAVA_PKG_SHAREPATH}/default.xml\":g" \
 		src/main/java/org/htmlcleaner/ConfigFileTagProvider.java || die

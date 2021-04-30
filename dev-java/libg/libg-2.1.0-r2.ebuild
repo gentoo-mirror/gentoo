@@ -1,14 +1,14 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=7
 
 JAVA_PKG_IUSE="test"
 
 inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Lots of small utilities for bndlib, a swiss army knife for OSGi"
-HOMEPAGE="http://www.aqute.biz/Bnd/Bnd"
+HOMEPAGE="https://bnd.bndtools.org/"
 SRC_URI="https://github.com/bndtools/bnd/archive/${PV}.REL.tar.gz -> bndlib-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
@@ -22,14 +22,15 @@ KEYWORDS="amd64 ~ppc64 x86"
 # build biz.aquite.bndlib and biz.aqute.junit in this package.
 RESTRICT="test"
 
-DEPEND=">=virtual/jdk-1.5"
-RDEPEND=">=virtual/jre-1.5"
+DEPEND=">=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
 
 S="${WORKDIR}/bnd-${PV}.REL/aQute.${PN}"
 
 EANT_BUILD_TARGET="build"
 
-java_prepare() {
+src_prepare() {
+	default
 	# Move the correct build.xml into place, needed for testing.
 	cp ../cnf/build.xml . || die "Failed to move build file into the right place."
 
