@@ -5664,7 +5664,7 @@ dev-libs/libical 3.0.8 3.0.9 3.0.10: An implementation of basic iCAL protocols
 dev-libs/libiconv 1.15: GNU charset conversion library for libc which doesn't implement it
 dev-libs/libindicate 12.10.1-r3: Library to raise flags on DBus for other components of the desktop
 dev-libs/libindicator 12.10.1-r201 12.10.1-r301: A set of symbols and convience functions that all indicators would like to use
-dev-libs/libinput 1.17.1: Library to handle input devices in Wayland
+dev-libs/libinput 1.17.1 1.17.2: Library to handle input devices in Wayland
 dev-libs/libintl 0.21: the GNU international library (split out of gettext)
 dev-libs/libisoburn 1.5.2 1.5.4: Creation/expansion of ISO-9660 filesystems on CD/DVD media supported by libburn
 dev-libs/libisofs 1.5.2 1.5.4: Open-source library for reading, mastering and writing optical discs
@@ -8167,7 +8167,7 @@ dev-python/authres 1.2.0: Parse and generate Authentication-Results headers
 dev-python/autobahn 20.7.1 20.12.2 20.12.3 21.1.1 21.2.1 21.2.2 21.3.1: WebSocket and WAMP for Twisted and Asyncio
 dev-python/automat 20.2.0: Self-service finite-state machines for the programmer on the go
 dev-python/automaton 1.12.1 2.2.0: Friendly state machines for python.
-dev-python/autopep8 1.5.5 1.5.6 9999: Automatically formats Python code to conform to the PEP 8 style guide
+dev-python/autopep8 1.5.5 1.5.6 1.5.7 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 1.0.2 2.0.0 2.1.0 2.1.1 2.2.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.35.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk-python 2.7.0 2.8.0: AWS X-Ray SDK for Python
@@ -8204,8 +8204,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.17.33 1.17.44 1.17.49 1.17.50 1.17.51 1.17.52 1.17.53 1.17.54 1.17.55 1.17.56 1.17.57 1.17.58 1.17.59 1.17.60 9999: The AWS SDK for Python
-dev-python/botocore 1.20.33 1.20.44 1.20.49 1.20.50 1.20.51 1.20.52 1.20.53 1.20.54 1.20.55 1.20.56 1.20.57 1.20.58 1.20.59 1.20.60 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.17.33 1.17.44 1.17.49 1.17.50 1.17.51 1.17.52 1.17.53 1.17.54 1.17.55 1.17.56 1.17.57 1.17.58 1.17.59 1.17.60 1.17.61 9999: The AWS SDK for Python
+dev-python/botocore 1.20.33 1.20.44 1.20.49 1.20.50 1.20.51 1.20.52 1.20.53 1.20.54 1.20.55 1.20.56 1.20.57 1.20.58 1.20.59 1.20.60 1.20.61 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8850,7 +8850,7 @@ dev-python/pep8 1.7.1: Python style guide checker
 dev-python/pexpect 4.8.0-r1: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 1.12.1: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.12.20 8.12.21: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.12.20 8.12.21 8.12.22: Python port of Google's libphonenumber
 dev-python/phply 1.2.5: Lexer and parser for PHP source implemented using PLY
 dev-python/picklemagic 0.0_pre20160415: A library for analysing python pickles safely
 dev-python/pickleshare 0.7.5: A small 'shelve' like datastore with concurrency support
@@ -9253,7 +9253,7 @@ dev-python/requests-cache 0.5.2 0.6.0 0.6.1 0.6.2 0.6.3: Persistent cache for re
 dev-python/requests-credssp 1.1.1 1.2.0: HTTPS CredSSP authentication with the requests library
 dev-python/requests-file 1.4.3: File transport adapter for Requests
 dev-python/requests-kerberos 0.12.0-r1: A Kerberos authentication handler for python-requests
-dev-python/requests-mock 1.8.0 1.9.0 1.9.1: Mock out responses from the requests package
+dev-python/requests-mock 1.8.0 1.9.0 1.9.1 1.9.2: Mock out responses from the requests package
 dev-python/requests-ntlm 1.1.0-r1: HTTP NTLM authentication using the requests library
 dev-python/requests-oauthlib 1.3.0: This project provides first-class OAuth library support for Requests
 dev-python/requests-toolbelt 0.9.1: A utility belt for advanced users of python-requests
@@ -9393,7 +9393,7 @@ dev-python/spyder-notebook 0.3.2: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 0.5.0: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.4.1: Plugin for Spyder to run tests and view the results
 dev-python/spyder-vim 0_pre20201026: Plugin for Spyder to enable Vim keybindings
-dev-python/sqlalchemy 1.3.24 1.4.11: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.3.24 1.4.11 1.4.12: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-migrate 0.13.0: SQLAlchemy Schema Migration Tools
 dev-python/sqlalchemy-rqlite 1.1: A SQLAlchemy dialect for rqlite
 dev-python/sqlparse 0.3.1 0.4.1: A non-validating SQL parser module for Python
