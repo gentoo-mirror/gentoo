@@ -12,7 +12,6 @@ DESCRIPTION="GTK Instant Messenger client"
 HOMEPAGE="https://pidgin.im/"
 SRC_URI="
 	mirror://sourceforge/${PN}/${P}.tar.bz2
-	https://dev.gentoo.org/~polynomial-c/${PN}-eds-3.6.patch.bz2
 	https://gist.githubusercontent.com/imcleod/77f38d11af11b2413ada/raw/46e9d6cb4d2f839832dad2d697bb141a88028e04/pidgin-irc-join-sleep.patch -> ${PN}-2.10.9-irc_join_sleep.patch"
 
 LICENSE="GPL-2"
@@ -101,7 +100,7 @@ REQUIRED_USE="
 "
 
 # Enable Default protocols
-DYNAMIC_PRPLS="irc,jabber,oscar,simple"
+DYNAMIC_PRPLS="irc,jabber,simple"
 
 # List of plugins
 #   app-accessibility/pidgin-festival
@@ -135,14 +134,9 @@ DYNAMIC_PRPLS="irc,jabber,oscar,simple"
 #	x11-plugins/pidgimpd
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.14.0-gold.patch"
-	"${WORKDIR}/${PN}-eds-3.6.patch"
-	"${FILESDIR}/${PN}-2.10.9-fix-gtkmedia.patch"
-	"${FILESDIR}/${PN}-2.10.10-eds-3.6-configure.ac.patch"
 	"${FILESDIR}/${PN}-2.10.11-tinfo.patch"
 	"${DISTDIR}/${PN}-2.10.9-irc_join_sleep.patch" # 577286
 	"${FILESDIR}/${PN}-2.13.0-disable-one-jid-test.patch" # 593338
-	"${FILESDIR}/${PN}-2.13.0-metainfo.patch"
 )
 
 pkg_pretend() {
@@ -261,7 +255,7 @@ src_install() {
 	fi
 	use perl && perl_delete_localpod
 
-	if use python && use dbus ; then
+	if use python || use dbus ; then
 		python_fix_shebang "${ED}"
 		python_optimize
 	fi
