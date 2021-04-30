@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,8 +15,6 @@ LICENSE="Apache-2.0"
 SLOT="1.0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE=""
-
-RDEPEND=">=virtual/jre-1.5"
-DEPEND=">=virtual/jdk-1.5
-	app-arch/unzip"
+DEPEND=">=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
+BDEPEND="app-arch/unzip"
