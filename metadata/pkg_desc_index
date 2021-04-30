@@ -6416,7 +6416,7 @@ dev-perl/Convert-ASN1 0.270.0-r1: Standard en/decode of ASN.1 structures
 dev-perl/Convert-BER 1.320.0-r1 1.320.0-r2: Class for encoding/decoding BER messages
 dev-perl/Convert-Base32 0.60.0: Encoding and decoding of base32 strings
 dev-perl/Convert-BinHex 1.125.0: Extract data from Macintosh BinHex files
-dev-perl/Convert-Binary-C 0.780.0-r1 0.790.0: Binary Data Conversion using C Types
+dev-perl/Convert-Binary-C 0.780.0-r1 0.790.0 0.840.0: Binary Data Conversion using C Types
 dev-perl/Convert-Color 0.110.0: Color space conversions and named lookups
 dev-perl/Convert-PEM 0.80.0-r1 0.80.0-r2: Read/write encrypted ASN.1 PEM files
 dev-perl/Convert-TNEF 0.180.0-r2 0.180.0-r3: A Perl module for reading TNEF files
@@ -9251,6 +9251,7 @@ dev-python/requests 2.25.1-r1: HTTP library for human beings
 dev-python/requests-cache 0.5.2 0.6.0 0.6.1 0.6.2 0.6.3: Persistent cache for requests library
 dev-python/requests-credssp 1.1.1 1.2.0: HTTPS CredSSP authentication with the requests library
 dev-python/requests-file 1.4.3: File transport adapter for Requests
+dev-python/requests-futures 1.0.0: Asynchronous Python HTTP for Humans
 dev-python/requests-kerberos 0.12.0-r1: A Kerberos authentication handler for python-requests
 dev-python/requests-mock 1.8.0 1.9.0 1.9.1 1.9.2: Mock out responses from the requests package
 dev-python/requests-ntlm 1.1.0-r1: HTTP NTLM authentication using the requests library
@@ -12052,7 +12053,7 @@ gnome-base/gnome-settings-daemon 3.38.1 40.0 40.0.1: Gnome Settings Daemon
 gnome-base/gnome-shell 3.36.7 3.38.4 3.38.4-r1 40.0: Provides core UI functions for the GNOME 3 desktop
 gnome-base/gnome-vfs 2.24.4-r5: Gnome Virtual Filesystem
 gnome-base/gsettings-desktop-schemas 3.38.0 40.0: Collection of GSettings schemas for GNOME desktop
-gnome-base/gvfs 1.44.1 1.48.0: Virtual filesystem implementation for GIO
+gnome-base/gvfs 1.44.1 1.48.0 1.48.1: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r3: Library to construct graphical interfaces at runtime
 gnome-base/libgnomecanvas 2.30.3-r1: The Gnome 2 Canvas library
 gnome-base/libgnomekbd 3.26.1: Gnome keyboard configuration library
@@ -12075,7 +12076,7 @@ gnome-extra/evolution-ews 3.38.4 3.40.0 3.40.1: Evolution module for connecting 
 gnome-extra/filemanager-actions 3.2.4 3.4: File manager extension which offers user configurable context menu actions
 gnome-extra/gconf-editor 3.0.1-r1: An editor to the GNOME config system
 gnome-extra/gnome-boxes 3.36.6-r1 40.0-r1: Simple GNOME 3 application to access remote or virtual systems
-gnome-extra/gnome-calculator 3.38.2 40.0: A calculator application for GNOME
+gnome-extra/gnome-calculator 3.38.2 40.0 40.1: A calculator application for GNOME
 gnome-extra/gnome-calendar 3.38.2 40.0: Manage your online calendars with simple and modern interface
 gnome-extra/gnome-characters 3.34.0 40.0: Unicode character map viewer and library
 gnome-extra/gnome-clocks 3.38.0 40.0: Clocks application for GNOME
@@ -13526,7 +13527,7 @@ media-libs/plib 1.8.5-r2 1.8.5-r3: multimedia library used by many games
 media-libs/plotutils 2.6-r2: Powerful C/C++ function library for exporting 2-D vector graphics
 media-libs/pnglite 0.1.17: Small and simple library for loading and writing PNG images
 media-libs/portaudio 19.06.00-r3: A free, cross-platform, open-source, audio I/O library
-media-libs/portmidi 217-r3: Library for real time MIDI input and output
+media-libs/portmidi 217-r3 234: Library for real time MIDI input and output
 media-libs/ptex 2.3.2: Per-Face Texture Mapping for Production Rendering
 media-libs/pulseaudio-qt 1.2: Qt bindings for libpulse
 media-libs/qhull 2020.2-r3: Geometry library
@@ -17649,7 +17650,7 @@ sys-firmware/iwl8000-ucode 16.242414.0: Firmware for Intel (R) Wireless 8260 and
 sys-firmware/midisport-firmware 1.2-r1: Firmware for M-Audio/Midiman USB MIDI devices
 sys-firmware/nvidia-firmware 340.32-r1: Kernel and mesa firmware for nouveau (video accel and pgraph)
 sys-firmware/raspberrypi-wifi-ucode 20190114.1_p9 20190114.1_p10: Most up-to-date uCode for the Broadcom wifi chips on Raspberry Pi SBCs
-sys-firmware/seabios 1.12.0 1.12.0-r1 1.14.0: Open Source implementation of a 16-bit x86 BIOS
+sys-firmware/seabios 1.12.0 1.12.0-r1 1.14.0 1.14.0-r1: Open Source implementation of a 16-bit x86 BIOS
 sys-firmware/sgabios 0.1_pre8-r1 0.1_pre10: serial graphics adapter bios option rom for x86
 sys-firmware/sigrok-firmware-fx2lafw 0.1.7-r1 9999: Firmware for Cypress FX2 chips for use as simple logic analyzer hardware
 sys-firmware/sof-firmware 1.4.2 1.5.1: Sound Open Firmware (SOF) binary files
@@ -18429,7 +18430,7 @@ x11-apps/xwud 1.0.5-r1: image displayer for X
 x11-base/xcb-proto 1.14.1: X C-language Bindings protocol headers
 x11-base/xorg-drivers 1.20-r2 9999: Meta package containing deps on all xorg drivers
 x11-base/xorg-proto 2020.1 2021.3 2021.4 9999: X.Org combined protocol headers
-x11-base/xorg-server 1.20.10-r2 1.20.10-r3 1.20.11 9999: X.Org X servers
+x11-base/xorg-server 1.20.11 9999: X.Org X servers
 x11-base/xorg-x11 7.4-r3: An X11 implementation maintained by the X.Org Foundation (meta package)
 x11-drivers/nvidia-drivers 390.141-r2 390.143-r1 450.102.04-r1 450.119.03 460.67 460.73.01 465.24.02: NVIDIA Accelerated Graphics Driver
 x11-drivers/xf86-input-elographics 1.4.2: Elographics input driver
