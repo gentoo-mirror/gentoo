@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 inherit bash-completion-r1 estack llvm toolchain-funcs prefix python-r1 linux-info
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
@@ -46,7 +46,9 @@ BDEPEND="
 		app-text/sgml-common
 		app-text/xmlto
 		sys-process/time
-	)"
+	)
+	${PYTHON_DEPS}
+"
 
 RDEPEND="audit? ( sys-process/audit )
 	crypt? ( dev-libs/openssl:0= )
@@ -88,6 +90,9 @@ pkg_pretend() {
 
 pkg_setup() {
 	use clang && LLVM_MAX_SLOT=9 llvm_pkg_setup
+	# We enable python unconditionally as libbpf always generates
+	# API headers using python script
+	python_setup
 }
 
 src_unpack() {
@@ -200,6 +205,7 @@ perf_make() {
 		WERROR=0 \
 		LIBDIR="/usr/libexec/perf-core" \
 		libdir="${EPREFIX}/usr/$(get_libdir)" \
+		plugindir="${EPREFIX}/usr/$(get_libdir)/perf/plugins" \
 		"$@"
 }
 
