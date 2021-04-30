@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=gtk? ( dev-libs/atk dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) firebird? ( dev-db/firebird ) gcrypt? ( dev-libs/libgcrypt ) idn? ( net-dns/libidn:0= ) !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) memcached? ( dev-libs/libmemcached[sasl] ) mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:0= ) ncurses? ( sys-libs/ncurses:= ) oracle? ( dev-db/oracle-instantclient-basic ) pcre? ( dev-libs/libpcre ) postgres? ( dev-db/postgresql:* ) rdp? ( net-misc/freerdp ) libssh? ( >=net-libs/libssh-0.4.0 ) subversion? ( dev-vcs/subversion ) zlib? ( sys-libs/zlib )
+DEPEND=gtk? ( dev-libs/atk dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) firebird? ( dev-db/firebird ) gcrypt? ( dev-libs/libgcrypt ) idn? ( net-dns/libidn:0= ) dev-libs/openssl:0= memcached? ( dev-libs/libmemcached[sasl] ) mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:0= ) ncurses? ( sys-libs/ncurses:= ) oracle? ( dev-db/oracle-instantclient-basic ) pcre? ( dev-libs/libpcre ) postgres? ( dev-db/postgresql:* ) rdp? ( net-misc/freerdp ) libssh? ( >=net-libs/libssh-0.4.0 ) subversion? ( dev-vcs/subversion ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Parallelized network login hacker
 EAPI=7
 HOMEPAGE=https://github.com/vanhauser-thc/thc-hydra
 INHERIT=git-r3 toolchain-funcs
-IUSE=debug firebird gcrypt gtk idn libressl memcached mongodb mysql ncurses oracle pcre postgres rdp libssh subversion zlib
+IUSE=debug firebird gcrypt gtk idn memcached mongodb mysql ncurses oracle pcre postgres rdp libssh subversion zlib
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=gtk? ( dev-libs/atk dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) firebird? ( dev-db/firebird ) gcrypt? ( dev-libs/libgcrypt ) idn? ( net-dns/libidn:0= ) !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) memcached? ( dev-libs/libmemcached[sasl] ) mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:0= ) ncurses? ( sys-libs/ncurses:= ) oracle? ( dev-db/oracle-instantclient-basic ) pcre? ( dev-libs/libpcre ) postgres? ( dev-db/postgresql:* ) rdp? ( net-misc/freerdp ) libssh? ( >=net-libs/libssh-0.4.0 ) subversion? ( dev-vcs/subversion ) zlib? ( sys-libs/zlib )
+RDEPEND=gtk? ( dev-libs/atk dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) firebird? ( dev-db/firebird ) gcrypt? ( dev-libs/libgcrypt ) idn? ( net-dns/libidn:0= ) dev-libs/openssl:0= memcached? ( dev-libs/libmemcached[sasl] ) mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:0= ) ncurses? ( sys-libs/ncurses:= ) oracle? ( dev-db/oracle-instantclient-basic ) pcre? ( dev-libs/libpcre ) postgres? ( dev-db/postgresql:* ) rdp? ( net-misc/freerdp ) libssh? ( >=net-libs/libssh-0.4.0 ) subversion? ( dev-vcs/subversion ) zlib? ( sys-libs/zlib )
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=b00cb8d403dec2554eccf6913ce3dbe9
+_md5_=dcc3d71a828c533fdf6fdba119976661
