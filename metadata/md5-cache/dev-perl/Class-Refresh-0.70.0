@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp dev-perl/Class-Load dev-perl/Class-Unload dev-perl/Devel-OverrideGlobalRequire dev-perl/Try-Tiny >=virtual/perl-ExtUtils-MakeMaker-6.300.0 test? ( virtual/perl-Exporter virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.880.0 dev-perl/Test-Requires ) dev-lang/perl
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Refresh your classes during runtime
+EAPI=7
+HOMEPAGE=https://metacpan.org/release/Class-Refresh
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp dev-perl/Class-Load dev-perl/Class-Unload dev-perl/Devel-OverrideGlobalRequire dev-perl/Try-Tiny dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/D/DO/DOY/Class-Refresh-0.07.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	6ec4c4d8fc8324200f1c14e8d158c59b	perl-module	58b5d72d607014c48b5a1e106318d584
+_md5_=e0505d6d736c6aafccf9fd6ae487b8ca
