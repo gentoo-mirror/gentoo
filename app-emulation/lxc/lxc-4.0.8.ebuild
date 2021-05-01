@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 LICENSE="LGPL-3"
 SLOT="0"
-IUSE="apparmor +caps doc examples man pam selinux +ssl +tools verify-sig"
+IUSE="apparmor +caps doc man pam selinux +ssl +tools verify-sig"
 
 RDEPEND="acct-group/lxc
 	acct-user/lxc
@@ -117,7 +117,7 @@ src_configure() {
 		$(use_enable apparmor)
 		$(use_enable caps capabilities)
 		$(use_enable doc api-docs)
-		$(use_enable examples)
+		$(use_enable doc examples)
 		$(use_enable man doc)
 		$(use_enable pam)
 		$(use_enable selinux)
