@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst unpack
-DEPEND=acct-group/turnserver acct-user/turnserver || ( dev-libs/libevent[-ssl,libressl] dev-libs/libevent[ssl,-libressl] >dev-libs/libevent-2.1.8[ssl,libressl] ) mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis ) sqlite? ( dev-db/sqlite )
+DEPEND=acct-group/turnserver acct-user/turnserver >dev-libs/libevent-2.1.8 mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis ) sqlite? ( dev-db/sqlite )
 DESCRIPTION=coturn TURN server project
 EAPI=7
 HOMEPAGE=https://github.com/coturn/coturn
@@ -8,7 +8,7 @@ INHERIT=systemd tmpfiles git-r3
 IUSE=mongodb mysql postgres redis sqlite
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=acct-group/turnserver acct-user/turnserver || ( dev-libs/libevent[-ssl,libressl] dev-libs/libevent[ssl,-libressl] >dev-libs/libevent-2.1.8[ssl,libressl] ) mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis ) sqlite? ( dev-db/sqlite ) virtual/tmpfiles
+RDEPEND=acct-group/turnserver acct-user/turnserver >dev-libs/libevent-2.1.8 mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis ) sqlite? ( dev-db/sqlite ) virtual/tmpfiles
 SLOT=0
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=167b3cbc5748e3236e950af7033dcd93
+_md5_=7f8355352d329d156c9619150517ab79
