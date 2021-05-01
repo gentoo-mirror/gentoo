@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-02">
+  <title>X.Org X Server: Privilege escalation</title>
+  <synopsis>A vulnerability in X.Org X Server may allow users to escalate
+    privileges.
+  </synopsis>
+  <product type="ebuild">xorg-server</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>782679</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="x11-base/xorg-server" auto="yes" arch="*">
+      <unaffected range="ge">1.20.11</unaffected>
+      <vulnerable range="lt">1.20.11</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The X Window System is a graphical windowing system based on a
+      client/server model.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that X.Org X Server did not sufficiently check the
+      length of the XInput extension’s ChangeFeedbackControl request.
+    </p>
+  </description>
+  <impact type="high">
+    <p>An authorized attacker could possibly escalate privileges, or cause a
+      Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All X.Org X Server users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=x11-base/xorg-server-1.20.11"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3472">CVE-2021-3472</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T21:51:09Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:45:08Z">whissi</metadata>
+</glsa>

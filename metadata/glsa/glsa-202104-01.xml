@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-01">
+  <title>Git: User-assisted execution of arbitrary code</title>
+  <synopsis>A vulnerability has been found in Git that could allow a remote
+    attacker to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">git</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>774678</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-vcs/git" auto="yes" arch="*">
+      <unaffected range="ge">2.26.3</unaffected>
+      <vulnerable range="lt">2.26.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Git is a distributed version control system designed.</p>
+  </background>
+  <description>
+    <p>It was discovered that Git could be fooled into running remote code
+      during a clone on case-insensitive file systems with support for symbolic
+      links, if Git is configured globally to apply delay-capable clean/smudge
+      filters (such as Git LFS).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to clone a specially crafted
+      repository, possibly resulting in the remote execution of arbitrary code
+      with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Git users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-vcs/git-2.26.3"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21300">CVE-2021-21300</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T22:21:04Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:44:55Z">whissi</metadata>
+</glsa>

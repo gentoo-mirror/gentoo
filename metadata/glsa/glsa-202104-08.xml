@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-08">
+  <title>Chromium, Google Chrome: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Chromium and Google
+    Chrome, the worst of which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">chromium,google-chrome</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>768459</bug>
+  <bug>768831</bug>
+  <bug>771012</bug>
+  <bug>774015</bug>
+  <bug>776181</bug>
+  <bug>779493</bug>
+  <bug>782802</bug>
+  <bug>782970</bug>
+  <bug>784554</bug>
+  <bug>785889</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="www-client/chromium" auto="yes" arch="*">
+      <unaffected range="ge">90.0.4430.93</unaffected>
+      <vulnerable range="lt">90.0.4430.93</vulnerable>
+    </package>
+    <package name="www-client/google-chrome" auto="yes" arch="*">
+      <unaffected range="ge">90.0.4430.93</unaffected>
+      <vulnerable range="lt">90.0.4430.93</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Chromium is an open-source browser project that aims to build a safer,
+      faster, and more stable way for all users to experience the web.
+    </p>
+    
+    <p>Google Chrome is one fast, simple, and secure browser for all your
+      devices.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Chromium and Google
+      Chrome. Please review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Chromium users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=www-client/chromium-90.0.4430.93"
+    </code>
+    
+    <p>All Google Chrome users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=www-client/google-chrome-90.0.4430.93"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21142">CVE-2021-21142</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21143">CVE-2021-21143</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21144">CVE-2021-21144</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21145">CVE-2021-21145</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21146">CVE-2021-21146</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21147">CVE-2021-21147</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21148">CVE-2021-21148</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21149">CVE-2021-21149</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21150">CVE-2021-21150</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21151">CVE-2021-21151</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21152">CVE-2021-21152</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21153">CVE-2021-21153</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21154">CVE-2021-21154</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21155">CVE-2021-21155</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21156">CVE-2021-21156</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21157">CVE-2021-21157</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21159">CVE-2021-21159</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21160">CVE-2021-21160</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21161">CVE-2021-21161</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21162">CVE-2021-21162</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21163">CVE-2021-21163</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21165">CVE-2021-21165</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21166">CVE-2021-21166</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21167">CVE-2021-21167</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21168">CVE-2021-21168</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21169">CVE-2021-21169</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21170">CVE-2021-21170</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21171">CVE-2021-21171</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21172">CVE-2021-21172</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21173">CVE-2021-21173</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21174">CVE-2021-21174</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21175">CVE-2021-21175</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21176">CVE-2021-21176</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21177">CVE-2021-21177</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21178">CVE-2021-21178</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21179">CVE-2021-21179</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21180">CVE-2021-21180</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21181">CVE-2021-21181</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21182">CVE-2021-21182</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21183">CVE-2021-21183</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21184">CVE-2021-21184</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21185">CVE-2021-21185</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21186">CVE-2021-21186</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21187">CVE-2021-21187</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21188">CVE-2021-21188</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21189">CVE-2021-21189</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2119">CVE-2021-2119</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21191">CVE-2021-21191</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21192">CVE-2021-21192</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21193">CVE-2021-21193</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21194">CVE-2021-21194</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21195">CVE-2021-21195</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21196">CVE-2021-21196</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21197">CVE-2021-21197</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21198">CVE-2021-21198</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21199">CVE-2021-21199</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21201">CVE-2021-21201</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21202">CVE-2021-21202</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21203">CVE-2021-21203</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21204">CVE-2021-21204</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21205">CVE-2021-21205</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21206">CVE-2021-21206</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21207">CVE-2021-21207</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21208">CVE-2021-21208</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21209">CVE-2021-21209</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21210">CVE-2021-21210</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21211">CVE-2021-21211</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21212">CVE-2021-21212</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21213">CVE-2021-21213</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21214">CVE-2021-21214</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21215">CVE-2021-21215</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21216">CVE-2021-21216</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21217">CVE-2021-21217</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21218">CVE-2021-21218</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21219">CVE-2021-21219</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21220">CVE-2021-21220</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21221">CVE-2021-21221</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21222">CVE-2021-21222</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21223">CVE-2021-21223</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21224">CVE-2021-21224</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21225">CVE-2021-21225</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21226">CVE-2021-21226</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21227">CVE-2021-21227</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21228">CVE-2021-21228</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21229">CVE-2021-21229</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21230">CVE-2021-21230</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21231">CVE-2021-21231</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21232">CVE-2021-21232</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21233">CVE-2021-21233</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T23:06:01Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:46:30Z">whissi</metadata>
+</glsa>

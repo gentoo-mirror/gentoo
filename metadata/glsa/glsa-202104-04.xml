@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-04">
+  <title>Python: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Python, the worst of
+    which might allow attackers to access sensitive information.
+  </synopsis>
+  <product type="ebuild">python</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>770853</bug>
+  <bug>779841</bug>
+  <bug>779844</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-lang/python" auto="yes" arch="*">
+      <unaffected range="ge" slot="2.7">2.7.18_p8</unaffected>
+      <unaffected range="ge" slot="3.6">3.6.13_p1</unaffected>
+      <unaffected range="ge" slot="3.7">3.7.10_p1</unaffected>
+      <unaffected range="ge" slot="3.8">3.8.8_p1</unaffected>
+      <unaffected range="ge" slot="3.9">3.9.2_p1</unaffected>
+      <vulnerable range="lt">3.9.2_p1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Python is an interpreted, interactive, object-oriented programming
+      language.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Python. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Python 2.7 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-2.7.18_p8"
+    </code>
+    
+    <p>All Python 3.6 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-3.6.13_p1"
+    </code>
+    
+    <p>All Python 3.7 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-3.7.10_p1"
+    </code>
+    
+    <p>All Python 3.8 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-3.8.8_p1"
+    </code>
+    
+    <p>All Python 3.9 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-3.9.2_p1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23336">CVE-2021-23336</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3426">CVE-2021-3426</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T23:29:13Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:45:38Z">whissi</metadata>
+</glsa>
