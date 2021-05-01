@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.tntnet.org/
 INHERIT=autotools
 IUSE=doc gnutls server ssl
-KEYWORDS=~amd64 ~sparc ~x86
+KEYWORDS=amd64 ~sparc ~x86
 LICENSE=LGPL-2.1
 RDEPEND=>=dev-libs/cxxtools-3.0 sys-libs/zlib[minizip] ssl? ( gnutls? ( >=net-libs/gnutls-1.2.0 dev-libs/libgcrypt:0 ) !gnutls? ( dev-libs/openssl:0= ) )
 SLOT=0
 SRC_URI=http://www.tntnet.org/download/tntnet-3.0.tar.gz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=c0229507451bd7a63743729df16bef73
+_md5_=082fbd50169e06e434b6c769f827e650
