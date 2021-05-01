@@ -99,6 +99,7 @@ acct-group/geneweb 0-r1: Group for geneweb daemon
 acct-group/geoclue 0: System group: geoclue
 acct-group/gerbera 0-r1: Gerbera UPnP Media Server group
 acct-group/git 0-r1: System group: git
+acct-group/github-exporter 0: System group: github-exporter
 acct-group/gkrellmd 0-r1: System group: gkrellmd
 acct-group/glance 0-r1: System group: glance
 acct-group/gluster 0-r1: System group: gluster
@@ -452,6 +453,7 @@ acct-user/geneweb 0-r1: user id for geneweb daemon
 acct-user/geoclue 0: User for running the GeoClue D-Bus geolocation service
 acct-user/gerbera 0-r1: Gerbera UPnP Media Server user
 acct-user/git 0-r1: Git repository hosting user
+acct-user/github-exporter 0: user for github-exporter
 acct-user/gkrellmd 0-r1: user for gkrellm daemon
 acct-user/glance 0-r1: user for the glance openstack service
 acct-user/gluster 0-r1: System user: gluster
@@ -2535,7 +2537,7 @@ app-metrics/consul_exporter 0.4.0 0.6.0 0.7.1: Prometheus exporter for consul me
 app-metrics/dnsmasq_exporter 0.2.0-r1: prometheus exporter for dnsmasq
 app-metrics/elasticsearch_exporter 1.0.2 1.0.4_rc1 1.1.0_rc1 1.1.0: Elasticsearch stats exporter for Prometheus
 app-metrics/fusioninventory-agent 2.5.2: The FusionInventory agent is a generic management agent
-app-metrics/github-exporter 04 04-r1 1.0.1: Github statistics exporter for prometheus
+app-metrics/github-exporter 1.0.1 1.0.2: Github statistics exporter for prometheus
 app-metrics/grok_exporter 0.2.6: Unstructured log data exporter for Prometheus
 app-metrics/memcached_exporter 0.5.0 0.6.0: Prometheus exporter for memcached
 app-metrics/mongodb_exporter 0.6.2-r1 0.11.0 0.11.1: Prometheus exporter for MongoDB
@@ -17657,7 +17659,7 @@ sys-firmware/iwl8000-ucode 16.242414.0: Firmware for Intel (R) Wireless 8260 and
 sys-firmware/midisport-firmware 1.2-r1: Firmware for M-Audio/Midiman USB MIDI devices
 sys-firmware/nvidia-firmware 340.32-r1: Kernel and mesa firmware for nouveau (video accel and pgraph)
 sys-firmware/raspberrypi-wifi-ucode 20190114.1_p9 20190114.1_p10: Most up-to-date uCode for the Broadcom wifi chips on Raspberry Pi SBCs
-sys-firmware/seabios 1.12.0 1.12.0-r1 1.14.0 1.14.0-r1: Open Source implementation of a 16-bit x86 BIOS
+sys-firmware/seabios 1.12.0 1.12.0-r1 1.14.0 1.14.0-r1 1.14.0-r2: Open Source implementation of a 16-bit x86 BIOS
 sys-firmware/sgabios 0.1_pre8-r1 0.1_pre10: serial graphics adapter bios option rom for x86
 sys-firmware/sigrok-firmware-fx2lafw 0.1.7-r1 9999: Firmware for Cypress FX2 chips for use as simple logic analyzer hardware
 sys-firmware/sof-firmware 1.4.2 1.5.1: Sound Open Firmware (SOF) binary files
