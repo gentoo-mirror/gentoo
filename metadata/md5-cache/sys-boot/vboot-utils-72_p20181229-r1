@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install prepare test
-DEPEND=!static? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) sys-apps/util-linux:= dev-libs/libzip:= !minimal? ( dev-libs/libyaml:= app-arch/xz-utils:= ) ) elibc_musl? ( sys-libs/fts-standalone ) static? ( !libressl? ( dev-libs/openssl:0=[static-libs(+)] ) libressl? ( dev-libs/libressl:0=[static-libs(+)] ) sys-apps/util-linux:=[static-libs(+)] dev-libs/libzip:=[static-libs(+)] !minimal? ( dev-libs/libyaml:=[static-libs(+)] app-arch/xz-utils:=[static-libs(+)] ) ) app-crypt/trousers virtual/pkgconfig
+DEPEND=!static? ( dev-libs/openssl:0= sys-apps/util-linux:= dev-libs/libzip:= !minimal? ( dev-libs/libyaml:= app-arch/xz-utils:= ) ) elibc_musl? ( sys-libs/fts-standalone ) static? ( dev-libs/openssl:0=[static-libs(+)] sys-apps/util-linux:=[static-libs(+)] dev-libs/libzip:=[static-libs(+)] !minimal? ( dev-libs/libyaml:=[static-libs(+)] app-arch/xz-utils:=[static-libs(+)] ) ) app-crypt/trousers virtual/pkgconfig
 DESCRIPTION=Chrome OS verified boot tools
 EAPI=6
 HOMEPAGE=https://chromium.googlesource.com/chromiumos/platform/vboot_reference/ http://dev.chromium.org/chromium-os/chromiumos-design-docs/verified-boot
 INHERIT=toolchain-funcs
-IUSE=libressl minimal static
+IUSE=minimal static
 KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
 LICENSE=BSD
-RDEPEND=!static? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) sys-apps/util-linux:= dev-libs/libzip:= !minimal? ( dev-libs/libyaml:= app-arch/xz-utils:= ) ) elibc_musl? ( sys-libs/fts-standalone )
+RDEPEND=!static? ( dev-libs/openssl:0= sys-apps/util-linux:= dev-libs/libzip:= !minimal? ( dev-libs/libyaml:= app-arch/xz-utils:= ) ) elibc_musl? ( sys-libs/fts-standalone )
 SLOT=0
 SRC_URI=mirror://gentoo/vboot-utils-72_p20181229.tar.xz https://dev.gentoo.org/~zmedico/dist/vboot-utils-72_p20181229.tar.xz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=8eeee9d309ecfbe3aee36b22cc4718f7
+_md5_=4a94a48dba3b5bd1328e918cdbaeedc1
