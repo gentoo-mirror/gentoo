@@ -36,7 +36,7 @@ RDEPEND="
 	media-fonts/liberation-fonts
 	media-libs/alsa-lib
 	media-libs/mesa[gbm]
-	net-misc/wget
+	net-misc/curl[ssl]
 	net-print/cups
 	sys-apps/dbus
 	sys-apps/util-linux
@@ -52,6 +52,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
+	x11-libs/libxshmfence
 	x11-libs/pango
 	x11-misc/xdg-utils
 "
