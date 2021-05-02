@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/CGI virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/URI x11-misc/xclip >=dev-perl/Module-Build-0.280.0 test? ( >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/Module-Build dev-lang/perl
+DESCRIPTION=Copy and paste with any OS
+EAPI=7
+HOMEPAGE=https://metacpan.org/release/Clipboard
+INHERIT=perl-module virtualx
+IUSE=test test
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/CGI virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/URI x11-misc/xclip dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/SH/SHLOMIF/Clipboard-0.28.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	6ec4c4d8fc8324200f1c14e8d158c59b	perl-module	58b5d72d607014c48b5a1e106318d584	virtualx	0a780e1ab49c75da33a78ede35ab8f9c
+_md5_=547e68fdf6a5cbfcbec4360bd3976131
