@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -24,6 +24,8 @@ LICENSE="vim"
 RDEPEND="app-vim/fugitive"
 
 VIM_PLUGIN_HELPFILES="${PN}"
+
+DOCS=( CHANGELOG.md )
 
 src_prepare() {
 	rm README.md || die
