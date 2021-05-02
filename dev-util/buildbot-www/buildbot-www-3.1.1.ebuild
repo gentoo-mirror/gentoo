@@ -9,8 +9,8 @@ DISTUTILS_USE_SETUPTOOLS="bdepend"
 
 inherit distutils-r1
 
-DESCRIPTION="Buildbot waterfall-view plugin"
-HOMEPAGE="https://buildbot.net/ https://github.com/buildbot/buildbot https://pypi.org/project/buildbot-waterfall-view/"
+DESCRIPTION="BuildBot base web interface, use with buildbot-{console-view,waterfall-view}..."
+HOMEPAGE="https://buildbot.net/ https://github.com/buildbot/buildbot https://pypi.org/project/buildbot-www/"
 
 MY_PV="${PV/_p/.post}"
 MY_P="${PN}-${MY_PV}"
@@ -19,16 +19,11 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~amd64-linux ~x86-linux"
 
-IUSE=""
-
-RDEPEND="
-	~dev-util/buildbot-${PV}[${PYTHON_USEDEP}]
-	dev-python/mock[${PYTHON_USEDEP}]
-	~dev-util/buildbot-www-${PV}[${PYTHON_USEDEP}]
+DEPEND="
+	~dev-util/buildbot-pkg-${PV}[${PYTHON_USEDEP}]
 "
-
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
