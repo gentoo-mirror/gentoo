@@ -1,12 +1,13 @@
 DEFINED_PHASES=install postinst postrm prepare
 DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 DESCRIPTION=vim plugin: TextMate-style snippets
-EAPI=5
+EAPI=7
 HOMEPAGE=https://www.vim.org/scripts/script.php?script_id=2540 https://github.com/garbas/vim-snipmate
+INHERIT=vim-plugin
 KEYWORDS=amd64 x86
 LICENSE=MIT
 RDEPEND=app-vim/vim-addon-mw-utils app-vim/tlib || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
 SRC_URI=https://github.com/garbas/vim-snipmate/archive/v0.87.tar.gz -> snipmate-0.87.tar.gz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	3160d9cb05ef44497be1485db0fe7590
-_md5_=b5ad62f2d6f1d418b3abbb37d4002ff8
+_eclasses_=vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f
+_md5_=8211bfe125ba55c528e2460d5add326c

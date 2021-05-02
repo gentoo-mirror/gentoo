@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=>=dev-libs/libowfat-0.32-r2[diet=] diet? ( dev-libs/dietlibc ) ssl? ( !libressl? ( dev-libs/openssl:0 ) libressl? ( dev-libs/libressl ) )
+DEPEND=>=dev-libs/libowfat-0.32-r2[diet=] diet? ( dev-libs/dietlibc ) ssl? ( dev-libs/openssl:0 )
 DESCRIPTION=High performance web server
 EAPI=7
 HOMEPAGE=https://www.fefe.de/gatling/
 INHERIT=toolchain-funcs
-IUSE=libressl ssl diet
+IUSE=ssl diet
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-libs/libowfat-0.32-r2[diet=] diet? ( dev-libs/dietlibc ) ssl? ( !libressl? ( dev-libs/openssl:0 ) libressl? ( dev-libs/libressl ) ) acct-group/gatling acct-user/gatling
+RDEPEND=>=dev-libs/libowfat-0.32-r2[diet=] diet? ( dev-libs/dietlibc ) ssl? ( dev-libs/openssl:0 ) acct-group/gatling acct-user/gatling
 REQUIRED_USE=ssl? ( !diet )
 SLOT=0
 SRC_URI=https://www.fefe.de/gatling/gatling-0.16.tar.xz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=06af0b0379e6adacbed91909da59452e
+_md5_=51476dc6528937fe5e7004f424b0fb53
