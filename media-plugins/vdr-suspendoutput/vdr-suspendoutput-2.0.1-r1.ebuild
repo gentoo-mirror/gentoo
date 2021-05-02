@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit vdr-plugin-2
 
@@ -23,5 +23,8 @@ src_prepare() {
 	# compile fix, wrt bug 574162
 	sed -e 246c"unsigned int TimeoutMs, bool runOnce)" \
 		-e 254c"unsigned int TimeoutMs, bool runOnce)" \
-		-i timer.h
+		-i timer.h || die
+
+	# gcc-11, bug 787506
+	sed -e "s|max|std::max|" -i timer.c || die
 }
