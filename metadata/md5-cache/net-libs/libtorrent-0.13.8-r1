@@ -1,15 +1,15 @@
 DEFINED_PHASES=configure install
-DEPEND=dev-util/cppunit:= sys-libs/zlib ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:= ) ) virtual/pkgconfig
+DEPEND=dev-util/cppunit:= sys-libs/zlib ssl? ( dev-libs/openssl:0= ) virtual/pkgconfig
 DESCRIPTION=BitTorrent library written in C++ for *nix
 EAPI=6
 HOMEPAGE=https://rakshasa.github.io/rtorrent/
 INHERIT=toolchain-funcs
-IUSE=debug libressl ssl test
+IUSE=debug ssl test
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris
 LICENSE=GPL-2
-RDEPEND=dev-util/cppunit:= sys-libs/zlib ssl? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:= ) )
+RDEPEND=dev-util/cppunit:= sys-libs/zlib ssl? ( dev-libs/openssl:0= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://rtorrent.net/downloads/libtorrent-0.13.8.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=50625b494922f38ac95ef0aee80f20a2
+_md5_=f5e5df250e5c03d100de07077960836f
