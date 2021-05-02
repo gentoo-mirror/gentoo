@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/automake:1.11 test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( app-crypt/openpgp-keys-alexbarton ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install postinst prepare unpack
-DEPEND=acct-user/ngircd acct-group/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
+DEPEND=acct-user/ngircd acct-group/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
 DESCRIPTION=An IRC server written from scratch
 EAPI=7
 HOMEPAGE=https://ngircd.barton.de/
 INHERIT=verify-sig
-IUSE=debug gnutls ident irc-plus +ipv6 libressl pam +ssl strict-rfc tcpd test zlib verify-sig
+IUSE=debug gnutls ident irc-plus +ipv6 pam +ssl strict-rfc tcpd test zlib verify-sig
 KEYWORDS=amd64 ~arm arm64 x86 ~x64-macos
 LICENSE=GPL-2
-RDEPEND=acct-user/ngircd acct-group/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
+RDEPEND=acct-user/ngircd acct-group/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.gz verify-sig? ( https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.gz.sig )
 _eclasses_=verify-sig	40b4f4f782cf67118f594ce604cc4c0a
-_md5_=3b2145fdf6145ecfc19c771461fc6c8d
+_md5_=08f1035800ef7fb21254206e0fb79c84
