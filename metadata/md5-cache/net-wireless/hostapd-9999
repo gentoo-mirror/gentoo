@@ -1,16 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare pretend unpack
-DEPEND=libressl? ( dev-libs/libressl:0= ) !libressl? ( internal-tls? ( dev-libs/libtommath ) !internal-tls? ( dev-libs/openssl:0=[-bindist] ) ) kernel_linux? ( dev-libs/libnl:3 crda? ( net-wireless/crda ) ) netlink? ( net-libs/libnfnetlink ) sqlite? ( >=dev-db/sqlite-3 )
+DEPEND=internal-tls? ( dev-libs/libtommath ) !internal-tls? ( dev-libs/openssl:0=[-bindist] ) kernel_linux? ( dev-libs/libnl:3 crda? ( net-wireless/crda ) ) netlink? ( net-libs/libnfnetlink ) sqlite? ( >=dev-db/sqlite-3 )
 DESCRIPTION=IEEE 802.11 wireless LAN Host AP daemon
 EAPI=7
 HOMEPAGE=https://w1.fi/ https://w1.fi/cgit/hostap/
 INHERIT=toolchain-funcs systemd savedconfig git-r3
-IUSE=internal-tls ipv6 libressl logwatch netlink sqlite +suiteb +wps +crda savedconfig
+IUSE=internal-tls ipv6 logwatch netlink sqlite +suiteb +wps +crda savedconfig
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=libressl? ( dev-libs/libressl:0= ) !libressl? ( internal-tls? ( dev-libs/libtommath ) !internal-tls? ( dev-libs/openssl:0=[-bindist] ) ) kernel_linux? ( dev-libs/libnl:3 crda? ( net-wireless/crda ) ) netlink? ( net-libs/libnfnetlink ) sqlite? ( >=dev-db/sqlite-3 )
-REQUIRED_USE=?? ( libressl suiteb )
+RDEPEND=internal-tls? ( dev-libs/libtommath ) !internal-tls? ( dev-libs/openssl:0=[-bindist] ) kernel_linux? ( dev-libs/libnl:3 crda? ( net-wireless/crda ) ) netlink? ( net-libs/libnfnetlink ) sqlite? ( >=dev-db/sqlite-3 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~andrey_utkin/distfiles/net-wireless_hostapd_2.7-r2_extras.tar.xz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	portability	c10bdc40668533b1faf15b1d89df0303	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=90c6e60c89bf0b07471419a9dbfa38d3
+_md5_=397b822940b0c546a198d193aefbbdca

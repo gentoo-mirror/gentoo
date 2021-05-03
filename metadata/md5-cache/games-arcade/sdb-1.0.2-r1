@@ -1,12 +1,13 @@
 DEFINED_PHASES=compile install prepare
 DEPEND=virtual/opengl media-libs/libsdl media-libs/sdl-image[png] media-libs/sdl-mixer
 DESCRIPTION=A 2D top-down action game; escape a facility full of walking death machines
-EAPI=6
+EAPI=7
 HOMEPAGE=http://sdb.gamecreation.org/
+INHERIT=desktop toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=virtual/opengl media-libs/libsdl media-libs/sdl-image[png] media-libs/sdl-mixer
 SLOT=0
 SRC_URI=http://gcsociety.sp.cs.cmu.edu/~frenzy/sdb-1.0.2.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=e32355ad287f5341d66f0fb43b4fda1f
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=924f2b37eaa12bbba3e83f3c72b6b624
