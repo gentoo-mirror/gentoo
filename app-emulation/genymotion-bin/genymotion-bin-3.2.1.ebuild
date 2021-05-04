@@ -22,11 +22,10 @@ RDEPEND="app-emulation/virtualbox
 		dev-libs/openssl-compat:1.0.0
 		=dev-libs/openssl-1.0*:0
 	)
-	dev-libs/hiredis:0/0.14
+	>=dev-libs/hiredis-1.0.0
 	sys-apps/util-linux
 	virtual/opengl
 "
-BDEPEND="dev-util/patchelf"
 
 RESTRICT="bindist fetch"
 S="${WORKDIR}"
@@ -68,11 +67,6 @@ src_prepare() {
 
 	# removed windows line for bashcompletion
 	sed -i "/complete -F _gmtool gmtool.exe/d" "${MY_PN}/completion/bash/gmtool.bash" || die "sed failed"
-
-	# patch to support newer hiredis version (0.14)
-	for i in genymotion genyshell gmtool player libcom.so.1.0.0 librendering.so.1.0.0 ; do
-		patchelf --replace-needed libhiredis.so.0.13 libhiredis.so.0.14 "${MY_PN}/${i}" || die "Unable to patch ${i} for hiredis"
-	done
 }
 
 src_install() {
