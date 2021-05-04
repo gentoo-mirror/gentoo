@@ -2009,6 +2009,7 @@ dev-libs/gmp:asm - Enable use of hand optimized assembly routines (faster execut
 dev-libs/gmp:pic - Force static libraries to be built as PIC to avoid TEXTRELs.
 dev-libs/gobject-introspection:doctool - Install g-ir-doc-tool for generating documentation from introspected data
 dev-libs/hidapi:fox - Build a x11-libs/fox GUI
+dev-libs/imath:large-stack - Enables code to take advantage of large stack support
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
 dev-libs/intel-neo:l0 - Install the oneAPI Level Zero driver alongside the OpenCL one
@@ -4030,7 +4031,6 @@ media-gfx/nomacs:plugins - Build officially support plugins
 media-gfx/nvidia-texture-tools:cg - Enable NVIDIA C graphics compiler toolkit plug-in
 media-gfx/nvidia-texture-tools:glew - Enable support for The OpenGL Extension Wrangler Library (media-libs/glew)
 media-gfx/openclipart:gzip - Compresses clip art using gzip
-media-gfx/openscad:ccache - Use dev-util/ccache to speed up rebuilds
 media-gfx/openscad:gamepad - Add support for gamepads through dev-qt/qtgamepad
 media-gfx/openscad:headless - Build a binary without GUI
 media-gfx/openscad:spacenav - Add support for space navigator devices through dev-libs/libspnav
@@ -4283,7 +4283,8 @@ media-libs/opencv:opencvapps - Enable compilation with opencvapps
 media-libs/opencv:tesseract - Use Google's OCR Engine
 media-libs/opencv:testprograms - Build and install programs for testing OpenCV (performance)
 media-libs/opencv:vtk - Build new 3D visualization module viz based on sci-libs/vtk
-media-libs/openexr:utils - Build several utility binaries for verifying and manipulating EXR files.
+media-libs/openexr:large-stack - Enables code to take advantage of large stack support.
+media-libs/openexr:utils - Build several binary tools for verifying and manipulating EXR files.
 media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with Mozilla packages
 media-libs/openh264:utils - Install the CLI encoder and decoder utilities
 media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
@@ -7314,9 +7315,10 @@ sci-libs/openblas:relapack - Build the ReLAPACK extension to OpenBLAS
 sci-libs/opencascade:freeimage - Enable support for image i/o via media-libs/freeimage
 sci-libs/opencascade:gles2 - Use OpenGL ES 2.0
 sci-libs/opencascade:inspector - Build the OCCT inspector tool for low-level data inspection
+sci-libs/opencascade:json - Enable JSON support through dev-libs/rapidjson
 sci-libs/opencascade:optimize - Don't clear allocated memory. Use optimized memory manager unless tbb USE flag is set.
 sci-libs/opencascade:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
-sci-libs/opencascade:vtk - Enable Visualization Toolkit
+sci-libs/opencascade:vtk - Enable Visualization Toolkit support via sci-libs/vtk
 sci-libs/orocos_kdl:models - Build models for some well known robots.
 sci-libs/p4est:romio - Build with support for the ROMIO MPI-IO component
 sci-libs/p4est:vtk-binary - Enable binary vtk output. If disabled vtk files will be written in ASCII text format.
