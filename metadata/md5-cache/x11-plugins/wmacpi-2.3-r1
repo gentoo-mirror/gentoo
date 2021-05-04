@@ -1,11 +1,13 @@
-DEFINED_PHASES=compile prepare
+DEFINED_PHASES=configure prepare
 DEPEND=>=x11-libs/libdockapp-0.7:= x11-libs/libX11
 DESCRIPTION=DockApp ACPI status monitor for laptops
 EAPI=7
 HOMEPAGE=https://www.dockapps.net/wmacpi
+INHERIT=toolchain-funcs
 KEYWORDS=amd64 -ppc -sparc x86
 LICENSE=GPL-2
+RDEPEND=>=x11-libs/libdockapp-0.7:= x11-libs/libX11
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~voyageur/distfiles/wmacpi-2.3.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=d33ce4956ebd928c623b6f327327ae8d
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=29bdecd6b082af87946c62b6c209697e
