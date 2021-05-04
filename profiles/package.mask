@@ -631,44 +631,17 @@ dev-java/slf4j-ext
 # Masked for removal in 30 days.
 dev-php/PEAR-Net_LDAP3
 
-# David Seifert <soap@gentoo.org> (2021-04-05)
-# Completely broken, unmaintained, does not build. Newer version
-# use Maven, good luck with that. Bugs #418625, #431644, #515816
-# #542940, #574632, #780396, removal in 30 days.
-sci-biology/gatk
-
-# David Seifert <soap@gentoo.org> (2021-04-05)
-# Tests broken since perl 5.22, last release in 2008,
-# Bug #625492, removal in 30 days.
-sci-biology/diya
-
 # Michał Górny <mgorny@gentoo.org> (2021-03-31)
 # New versions remove PORTAGE_CONFIGROOT support, breaking a lot
 # of scripts.
 >=dev-util/pkgdev-0.1.3
 >=sys-apps/pkgcore-0.11.7
 
-# Rick Farina <zerochaos@gentoo.org> (2021-03-30)
-# Gentoo doesn't use this package, and the one package which needs it now uses the bundled version
-# Masked for removal in 30 days
-dev-libs/go-usb
-
 # Sam James <sam@gentoo.org> (2021-03-30)
 # Seems to break dev-tex/culmus-latex
 # Masking until we can investigate & fix
 # bug #737406
 =media-fonts/culmus-0.133-r1
-
-# Jonas Stein <jstein@gentoo.org> (2021-03-29)
-# Depends on gtk-2, no release since 2010.
-# Removal on 2021-05-01.
-# Bug #779148.
-app-editors/beaver
-
-# Jonas Stein <jstein@gentoo.org> (2021-03-27)
-# Upstream is gone. Open bugs. Removal after 2021-05-01.
-# Bug #778800
-x11-themes/nimbus
 
 # Lars Wendler <polynomial-c@gentoo.org> (2021-03-22)
 # Has unidentified race condition on very fast CPUs that causes maintainer-
