@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,22 +15,23 @@ SRC_URI="http://www.caucho.com/download/resin-${PV}-src.zip
 LICENSE="GPL-2+"
 SLOT="2.4"
 KEYWORDS="amd64 ppc64 x86"
-IUSE=""
 
-RDEPEND=">=virtual/jre-1.4:*"
-DEPEND=">=virtual/jdk-1.4
-	app-arch/unzip"
+DEPEND=">=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
+BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}/resin-${PV}"
 
 EANT_BUILD_TARGET="jsdk"
 EANT_DOC_TARGET=""
 
+PATCHES=(
+	"${WORKDIR}/${PV}/resin-${PV}-build.xml.patch"
+)
+
 src_prepare() {
 	default
-
 	mkdir lib || die
-	eapply "${WORKDIR}/${PV}/resin-${PV}-build.xml.patch"
 }
 
 src_install() {
