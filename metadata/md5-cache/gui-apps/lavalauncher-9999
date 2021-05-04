@@ -1,6 +1,6 @@
-BDEPEND=dev-libs/wayland-protocols virtual/pkgconfig man? ( ~app-text/scdoc-9999 ) >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-libs/wayland-protocols virtual/pkgconfig man? ( >=app-text/scdoc-1.9.3 ) >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=dev-libs/wayland gnome-base/librsvg x11-libs/cairo
+DEPEND=dev-libs/wayland x11-libs/cairo x11-libs/libxkbcommon svg? ( gnome-base/librsvg )
 DESCRIPTION=Simple launcher for wayland
 EAPI=7
 HOMEPAGE=https://git.sr.ht/~leon_plickat/lavalauncher
@@ -8,7 +8,7 @@ INHERIT=meson git-r3
 IUSE=+svg man
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=dev-libs/wayland gnome-base/librsvg x11-libs/cairo
+RDEPEND=dev-libs/wayland x11-libs/cairo x11-libs/libxkbcommon svg? ( gnome-base/librsvg )
 SLOT=0
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	3adfe5c2e631d766ef8dc78901627084	meson	e43eef9331f54965a573ed380854ff47	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=02683ef320f727842235ee1b619aee5f
+_md5_=f4af2d398ab288a4d9f21a7a77119888
