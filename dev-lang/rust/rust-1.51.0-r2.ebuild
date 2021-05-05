@@ -147,6 +147,7 @@ PATCHES=(
 	"${FILESDIR}"/1.47.0-ignore-broken-and-non-applicable-tests.patch
 	"${FILESDIR}"/1.49.0-gentoo-musl-target-specs.patch
 	"${FILESDIR}"/1.51.0-bootstrap-panic.patch
+	"${FILESDIR}"/1.51.0-slow-doc-install.patch
 	"${FILESDIR}"/rustc-1.51.0-backport-pr81728.patch
 	"${FILESDIR}"/rustc-1.51.0-backport-pr81741.patch
 	"${FILESDIR}"/rustc-1.51.0-backport-pr82289.patch
@@ -468,8 +469,15 @@ src_configure() {
 	done
 	fi # I_KNOW_WHAT_I_AM_DOING_CROSS
 
-	einfo "Rust configured with the following settings:"
+	einfo "Rust configured with the following flags:"
+
+	echo "RUSTFLAGS=\"${RUSTFLAGS:-}\""
+	echo "RUSTFLAGS_BOOTSTRAP=\"${RUSTFLAGS_BOOTSTRAP:-}\""
+	echo "RUSTFLAGS_NOT_BOOTSTRAP=\"${RUSTFLAGS_NOT_BOOTSTRAP:-}\""
+	echo
+	einfo "config.toml contents:"
 	cat "${S}"/config.toml || die
+	echo
 }
 
 src_compile() {
