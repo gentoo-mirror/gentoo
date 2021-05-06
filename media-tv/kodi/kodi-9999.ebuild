@@ -102,7 +102,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	virtual/ttf-fonts
 	media-fonts/roboto
 	>=media-libs/freetype-2.10.1
-	>=media-libs/libass-0.13.4
+	>=media-libs/libass-0.15.1
 	!raspberry-pi? ( media-libs/mesa[egl] )
 	>=media-libs/taglib-1.11.1
 	system-ffmpeg? (
@@ -118,7 +118,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	>=net-misc/curl-7.68.0[http2]
 	nfs? ( >=net-fs/libnfs-2.0.0:= )
 	!gles? ( media-libs/glu )
-	>=dev-libs/openssl-1.0.2l:0=
+	>=dev-libs/openssl-1.1.0:0=
 	raspberry-pi? (
 		|| ( media-libs/raspberrypi-userland media-libs/raspberrypi-userland-bin media-libs/mesa[egl,gles2,video_cards_vc4] )
 	)
