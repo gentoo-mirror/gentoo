@@ -222,10 +222,22 @@ src_configure() {
 		# sub-packages will still be installed inside /usr/lib64/freecad
 		-DINSTALL_TO_SITEPACKAGES=ON
 
-		-DOCC_INCLUDE_DIR="${CASROOT}"/include/opencascade
-		-DOCC_LIBRARY_DIR="${CASROOT}"/$(get_libdir)
 		-DOCCT_CMAKE_FALLBACK=ON				# don't use occt-config which isn't included in opencascade for Gentoo
 	)
+
+	if has_version ">=sci-libs/opencascade-7.5"; then
+		# bug https://bugs.gentoo.org/788274
+		mycmakeargs+=(
+			-DOCC_INCLUDE_DIR="${CASROOT}"/include/opencascade-7.5.1
+			-DOCC_LIBRARY_DIR="${CASROOT}"/$(get_libdir)/opencascade-7.5.1
+		)
+	else
+		# <occ-7.5 uses different layout
+		mycmakeargs+=(
+			-DOCC_INCLUDEDIR="${CASROOT}"/include/opencascade
+			-DOCC_LIBRARY_DIR="${CASROOT}"/$(get_libdir)
+		)
+	fi
 
 	if use debug; then
 		mycmakeargs+=(
