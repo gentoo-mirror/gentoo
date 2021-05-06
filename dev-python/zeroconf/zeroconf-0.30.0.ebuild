@@ -18,7 +18,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND=">=dev-python/ifaddr-0.1.7[${PYTHON_USEDEP}]"
 
@@ -26,6 +26,8 @@ distutils_enable_tests pytest
 
 python_test() {
 	local excludes=(
+		# network
+		zeroconf/test.py::Framework::test_close_multiple_times
 		zeroconf/test.py::Framework::test_launch_and_close
 		zeroconf/test.py::Framework::test_launch_and_close_v4_v6
 		zeroconf/test.py::Framework::test_launch_and_close_v6_only
