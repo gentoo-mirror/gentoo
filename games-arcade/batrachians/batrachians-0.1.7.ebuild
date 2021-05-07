@@ -3,12 +3,11 @@
 
 EAPI=7
 
-GNOME2_EAUTORECONF="yes"
-inherit gnome2
+inherit autotools xdg
 
 DESCRIPTION="A fly-eating frog video game"
-HOMEPAGE="https://perso.b2b2c.ca/~sarrazip/dev/batrachians.html"
-SRC_URI="https://perso.b2b2c.ca/~sarrazip/dev/${P}.tar.gz"
+HOMEPAGE="http://perso.b2b2c.ca/~sarrazip/dev/batrachians.html"
+SRC_URI="http://perso.b2b2c.ca/~sarrazip/dev/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,15 +17,13 @@ RDEPEND="
 	>=dev-games/flatzebra-0.1.5
 	media-libs/libsdl
 	media-libs/sdl-image
-	media-libs/sdl-mixer
-"
+	media-libs/sdl-mixer"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}"/${P}-makefile.patch )
+PATCHES=( "${FILESDIR}"/${PN}-0.1.7-autotools.patch )
 
-src_install() {
-	emake -C src DESTDIR="${D}" install
-	doman doc/${PN}.6
-	einstalldocs
+src_prepare() {
+	default
+	eautoreconf
 }
