@@ -765,7 +765,7 @@ app-admin/ec2-ami-tools 1.5.7: Command-line tools that serve as client interface
 app-admin/eclean-kernel 0.4.3 1.99.4 2.99.1 2.99.2 9999: Remove outdated built kernels
 app-admin/elektra 0.8.20-r1: Framework to store config parameters in hierarchical key-value pairs
 app-admin/emacs-updater 1.16: Rebuild Emacs packages
-app-admin/entr 4.6 4.8: Run arbitrary commands when files change
+app-admin/entr 4.6 4.8 4.9: Run arbitrary commands when files change
 app-admin/eselect 1.4.16 1.4.17 9999: Gentoo's multi-purpose configuration and management tool
 app-admin/evtxtools 1.1.1-r1: Read, decode and dump Windows Vista/2008/7 event log file
 app-admin/exo 1.28.0: Command-line tool for everything at Exoscale: compute, storage, dns.
@@ -3034,7 +3034,7 @@ app-shells/thefuck 3.28 3.30: Magnificent app which corrects your previous conso
 app-shells/tmux-bash-completion 9999: bash-completion scripts for tmux
 app-shells/yash 2.50 2.51: Yash is a POSIX-compliant command line shell
 app-shells/zsh 5.8 9999: UNIX Shell similar to the Korn shell
-app-shells/zsh-completions 0.31.0 0.32.0 9999: Additional completion definitions for Zsh
+app-shells/zsh-completions 0.31.0 0.32.0 0.33.0 9999: Additional completion definitions for Zsh
 app-shells/zsh-syntax-highlighting 0.7.1: Fish shell like syntax highlighting for zsh
 app-text/XML-Schema-learner 1.0.1: Algorithmic inferencing of XML schema definitions and DTDs
 app-text/a2ps 4.14-r6: Any to PostScript filter
@@ -5280,8 +5280,8 @@ dev-java/tomcat-jstl-compat 1.2.5-r1: JSP Standard Tag Library (JSTL) - Compat j
 dev-java/tomcat-jstl-el 1.2.5-r1: JSP Standard Tag Library (JSTL) - EL jar
 dev-java/tomcat-jstl-impl 1.2.5-r1: JSP Standard Tag Library (JSTL) - Implementation jar
 dev-java/tomcat-jstl-spec 1.2.5-r1: JSP Standard Tag Library (JSTL) - Specification jar
-dev-java/tomcat-native 1.2.26 1.2.28: Allows Tomcat to use certain native resources for better performance
-dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.108 7.0.109 8.5.64 8.5.65 9.0.44 9.0.45 10.0.4 10.0.5: Tomcat's Servlet API 5.0/JSP API 3.0/EL API 4.0 implementation
+dev-java/tomcat-native 1.2.28: Allows Tomcat to use certain native resources for better performance
+dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.108 7.0.109 8.5.65 9.0.45 10.0.5: Tomcat's Servlet API 5.0/JSP API 3.0/EL API 4.0 implementation
 dev-java/toolbar 1.1.0-r2: An improved version of JToolBar
 dev-java/touchgraph-graphlayout 1.22-r1: TouchGraph provides a set of interfaces for graph visualization
 dev-java/treelayout 1.0.2: Efficiently create compact tree layouts in Java
@@ -15672,7 +15672,7 @@ net-p2p/eiskaltdcpp 2.4.2 9999: Qt/DC++ based client for DirectConnect and ADC p
 net-p2p/fms 0.3.82: A spam-resistant message board application for Freenet
 net-p2p/freenet 0.7.5_p1488: An encrypted network without censorship
 net-p2p/gnut 0.4.28-r1: Text-mode gnutella client
-net-p2p/go-ethereum 1.10.1 1.10.2: Official golang implementation of the Ethereum protocol
+net-p2p/go-ethereum 1.10.2 1.10.3: Official golang implementation of the Ethereum protocol
 net-p2p/go-ipfs 0.7.0 0.8.0: Main implementation of IPFS
 net-p2p/go-ipfs-bin 0.4.22 0.7.0: Main implementation of IPFS
 net-p2p/gtk-gnutella 1.2.0-r1: A GTK+ Gnutella client
@@ -16579,7 +16579,7 @@ sci-libs/plplot 5.15.0-r101: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r2: Small, fast library to generate primes in order
 sci-libs/profnet 1.0.22: Neural network architecture for profacc
 sci-libs/profphd-utils 1.0.10-r1: Additional utils for profphd
-sci-libs/proj 7.2.1 8.0.0: PROJ coordinate transformation software
+sci-libs/proj 7.2.1 8.0.1: PROJ coordinate transformation software
 sci-libs/punc 1.5: Portable Understructure for Numerical Computing
 sci-libs/pyshp 2.1.2 2.1.3: Pure Python read/write support for ESRI Shapefile format
 sci-libs/qd 2.3.22: Quad-double and double-double float arithmetics
@@ -18358,7 +18358,7 @@ www-servers/servefile 0.5.1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.0-r1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thttpd 2.27.1 9999: Fork of thttpd, a small, fast, multiplexing webserver
-www-servers/tomcat 7.0.108 7.0.109 8.5.64 8.5.65 9.0.44 9.0.45 10.0.4 10.0.5: Tomcat Servlet-5.0/JSP-3.0/EL-4.0/WebSocket-2.0/JASIC-2.0 Container
+www-servers/tomcat 7.0.108 7.0.109 8.5.65 9.0.45 10.0.5: Tomcat Servlet-5.0/JSP-3.0/EL-4.0/WebSocket-2.0/JASIC-2.0 Container
 www-servers/tornado 6.0.4 6.1: Python web framework and asynchronous networking library
 www-servers/uwsgi 2.0.19.1-r100 2.0.19.1-r101: uWSGI server for Python web applications
 www-servers/varnish 6.0.6 6.3.2 6.4.0 6.5.0 6.5.1: Varnish is a state-of-the-art, high-performance HTTP accelerator
