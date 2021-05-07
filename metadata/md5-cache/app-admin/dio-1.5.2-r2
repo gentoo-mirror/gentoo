@@ -1,12 +1,14 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
 DEPEND=sys-libs/ncurses:0=
 DESCRIPTION=A device I/O monitoring tool
 EAPI=7
 HOMEPAGE=https://github.com/donaldmcintosh/dio
+INHERIT=toolchain-funcs
 KEYWORDS=amd64 x86
 LICENSE=MIT
 RDEPEND=sys-libs/ncurses:0=
 SLOT=0
 SRC_URI=https://github.com/donaldmcintosh/dio/archive/1.5.2.tar.gz -> dio-1.5.2.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=3c763623380252961282bea71d32222c
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=5f23e16fca1e69b54399e98ce79bb090
