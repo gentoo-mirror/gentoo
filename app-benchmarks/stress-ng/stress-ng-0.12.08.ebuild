@@ -27,6 +27,13 @@ RDEPEND="${DEPEND}"
 
 DOCS=( "README" "README.Android" "TODO" "syscalls.txt" )
 
+src_prepare() {
+	default
+
+	# Don't reset build jobs to '-j0'
+	sed -e '/-f Makefile.config/s/-j//' -i Makefile || die
+}
+
 src_compile() {
 	export MAN_COMPRESS=0
 	export VERBOSE=1
