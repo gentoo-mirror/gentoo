@@ -5,10 +5,10 @@ EAPI=7
 HOMEPAGE=https://www.tarsnap.com/
 INHERIT=bash-completion-r1 toolchain-funcs
 IUSE=acl bzip2 lzma xattr
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=tarsnap
 RDEPEND=dev-libs/openssl:0= sys-libs/e2fsprogs-libs sys-libs/zlib acl? ( sys-apps/acl ) bzip2? ( app-arch/bzip2 ) lzma? ( app-arch/xz-utils ) xattr? ( sys-apps/attr )
 SLOT=0
 SRC_URI=https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908
-_md5_=fb198d5a6022d4397c03430b2612f559
+_md5_=fece46b0acef52b560c294b897dd78ff
