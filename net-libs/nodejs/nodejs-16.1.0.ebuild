@@ -10,11 +10,18 @@ inherit bash-completion-r1 flag-o-matic pax-utils python-any-r1 toolchain-funcs 
 
 DESCRIPTION="A JavaScript runtime built on Chrome's V8 JavaScript engine"
 HOMEPAGE="https://nodejs.org/"
-SRC_URI="https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz"
-
 LICENSE="Apache-1.1 Apache-2.0 BSD BSD-2 MIT"
-SLOT="0/$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x64-macos"
+
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/nodejs/node"
+	SLOT="0"
+else
+	SRC_URI="https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz"
+	SLOT="0/$(ver_cut 1)"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x64-macos"
+	S="${WORKDIR}/node-v${PV}"
+fi
 
 IUSE="cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax_kernel +snapshot +ssl system-icu +system-ssl systemtap test"
 REQUIRED_USE="inspector? ( icu ssl )
@@ -42,9 +49,8 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-12.22.1-uvwasi_shared_libuv.patch
 	"${FILESDIR}"/${PN}-15.2.0-global-npm-config.patch
+	"${FILESDIR}"/${PN}-16.1.0-test-repl-history-navigation.patch
 )
-
-S="${WORKDIR}/node-v${PV}"
 
 pkg_pretend() {
 	(use x86 && ! use cpu_flags_x86_sse2) && \
@@ -69,10 +75,6 @@ src_prepare() {
 	tc-export AR CC CXX PKG_CONFIG
 	export V=1
 	export BUILDTYPE=Release
-
-	# See https://github.com/nodejs/node/issues/38558
-	# FIXME: temporary, until we have figured out why that one single test fails.
-	rm -f test/parallel/test-repl-history-navigation.js
 
 	# fix compilation on Darwin
 	# https://code.google.com/p/gyp/issues/detail?id=260
@@ -99,6 +101,13 @@ src_prepare() {
 
 	# We need to disable mprotect on two files when it builds Bug 694100.
 	use pax_kernel && PATCHES+=( "${FILESDIR}"/${PN}-13.8.0-paxmarking.patch )
+
+	# All this test does is check if the npm CLI produces warnings of any sort,
+	# failing if it does. Overkill, much? Especially given one possible warning
+	# is that there is a newer version of npm available upstream (yes, it does
+	# use the network if available), thus making it a real possibility for this
+	# test to begin failing one day even though it was fine before.
+	rm -f test/parallel/test-release-npm.js
 
 	default
 }
