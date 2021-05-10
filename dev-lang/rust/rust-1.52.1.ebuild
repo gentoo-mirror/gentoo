@@ -155,7 +155,7 @@ toml_usex() {
 	usex "${1}" true false
 }
 
-boostrap_rust_version_check() {
+bootstrap_rust_version_check() {
 	# never call from pkg_pretend. eselect-rust may be not installed yet.
 	[[ ${MERGE_TYPE} == binary ]] && return
 	local rustc_wanted="$(ver_cut 1).$(($(ver_cut 2) - 1))"
@@ -223,7 +223,7 @@ pkg_setup() {
 
 	export LIBGIT2_NO_PKG_CONFIG=1 #749381
 
-	use system-bootstrap && boostrap_rust_version_check
+	use system-bootstrap && bootstrap_rust_version_check
 
 	if use system-llvm; then
 		llvm_pkg_setup
