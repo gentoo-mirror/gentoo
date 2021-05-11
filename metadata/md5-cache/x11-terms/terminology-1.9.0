@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 dev-lang/python:3.7 ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 dev-lang/python:3.7 ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=|| ( dev-libs/efl[gles2-only] dev-libs/efl[opengl] ) || ( dev-libs/efl[X] dev-libs/efl[wayland] ) app-arch/lz4 dev-libs/efl[eet,fontconfig]
 DESCRIPTION=Feature rich terminal emulator using the Enlightenment Foundation Libraries
@@ -12,4 +12,4 @@ RDEPEND=|| ( dev-libs/efl[gles2-only] dev-libs/efl[opengl] ) || ( dev-libs/efl[X
 SLOT=0
 SRC_URI=https://download.enlightenment.org/rel/apps/terminology/terminology-1.9.0.tar.xz https://downloads.terminolo.gy/terminology-1.9.0.tar.xz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	20c4a380a6193a089c8c432f3e5f8402	meson	00d6fba6e500964c50ba74d1d1fc2e6c	python-any-r1	17241a11501065ff3651350040875aa9	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=985356dee768da87f78c8aa51b2f964b
+_md5_=d3f48c003fa2227ab53b997942ae2e2e
