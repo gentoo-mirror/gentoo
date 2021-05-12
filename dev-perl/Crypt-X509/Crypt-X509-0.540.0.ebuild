@@ -4,14 +4,14 @@
 EAPI=7
 
 DIST_AUTHOR=MRSCOTTY
-DIST_VERSION=0.53
+DIST_VERSION=0.54
 inherit perl-module
 
 DESCRIPTION="Parse a X.509 certificate"
 
 LICENSE="Artistic-2"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 

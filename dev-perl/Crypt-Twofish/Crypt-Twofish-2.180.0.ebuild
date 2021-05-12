@@ -4,15 +4,13 @@
 EAPI=7
 
 DIST_AUTHOR=AMS
-DIST_VERSION=2.17
+DIST_VERSION=2.18
 inherit perl-module
 
 DESCRIPTION="The Twofish Encryption Algorithm"
 
 SLOT="0"
-KEYWORDS="amd64 ~ia64 ~ppc sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris"
-
-PATCHES=("${FILESDIR}/no-dot-inc.patch")
+KEYWORDS="~amd64 ~ia64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris"
 
 src_compile() {
 	mymake=(
