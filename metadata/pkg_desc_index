@@ -3773,7 +3773,7 @@ dev-db/mysql-connector-c 8.0.22 8.0.23-r1 8.0.24: C client library for MariaDB/M
 dev-db/mysql-connector-c++ 1.1.12-r1 8.0.19 8.0.20 8.0.21 8.0.22 8.0.23 8.0.24: MySQL database connector for C++ (mimics JDBC 4.0 API)
 dev-db/mysql-init-scripts 2.3-r3: Gentoo MySQL init scripts.
 dev-db/mysql-super-smack 1.3-r4: Benchmarking, stress testing, and load generation tool for MySQL & PostGreSQL
-dev-db/mysql-workbench 8.0.23 8.0.24: MySQL Workbench
+dev-db/mysql-workbench 8.0.23 8.0.24 8.0.25: MySQL Workbench
 dev-db/mysqltuner 1.7.21-r1: MySQLTuner is a high-performance MySQL tuning script
 dev-db/mytop 1.9.1: mytop - a top clone for mysql
 dev-db/ocp 0.2 0.3 9999: Oracle copy tool
@@ -10185,13 +10185,13 @@ dev-ruby/elasticsearch-api 6.8.0 6.8.1 6.8.2: Ruby integrations for ES, elastics
 dev-ruby/elasticsearch-transport 6.8.0 6.8.1 6.8.2: Ruby integrations for ES, elasticsearch-transport module
 dev-ruby/em-websocket 0.5.1 0.5.2: EventMachine based WebSocket server
 dev-ruby/equalizer 0.0.11 0.0.11-r1: Module to define equality, equivalence and inspection methods
-dev-ruby/equatable 0.6.1: Allows ruby objects to implement equality comparison and inspection methods
+dev-ruby/equatable 0.6.1 0.7.0: Allows ruby objects to implement equality comparison and inspection methods
 dev-ruby/erubi 1.9.0 1.10.0: a ERB template engine for ruby; a simplified fork of Erubis
 dev-ruby/erubis 2.7.0-r2: Erubis is an implementation of eRuby
 dev-ruby/ethon 0.12.0 0.13.0 0.14.0: Very lightweight libcurl wrapper
 dev-ruby/evented-spec 0.9.0: A set of helpers to help you test your asynchronous code
 dev-ruby/eventmachine 1.2.7: EventMachine is a fast, simple event-processing library for Ruby programs
-dev-ruby/execjs 2.7.0 2.7.0-r1: ExecJS lets you run JavaScript code from Ruby
+dev-ruby/execjs 2.7.0 2.7.0-r1 2.8.0: ExecJS lets you run JavaScript code from Ruby
 dev-ruby/exifr 1.3.8 1.3.9: A library to read EXIF info from JPEG and TIFF images
 dev-ruby/facter 3.14.16-r1 3.14.17: A cross-platform ruby library for retrieving facts from operating systems
 dev-ruby/factory_girl 4.8.1: factory_girl provides a framework and DSL for defining and using factories
@@ -13166,7 +13166,7 @@ media-gfx/photopc 3.07: Utility to control digital cameras based on Sierra Imagi
 media-gfx/photoqt 1.7.1-r1: Simple but powerful Qt-based image viewer
 media-gfx/phototonic 2.1: Image viewer and organizer
 media-gfx/pixels2pgf 0.1 9999: Convert pixel images (e.g. QRCode) to PGF/Tikz rectangles
-media-gfx/plantuml 1.2020.0: Draw UML diagrams using a simple and human readable text description
+media-gfx/plantuml 1.2020.0 1.2021.5: Draw UML diagrams using a simple and human readable text description
 media-gfx/png2ico 2002.12.08: PNG to icon converter
 media-gfx/pngcheck 3.0.2: Verifies the integrity of PNG, JNG and MNG files with internal checksums
 media-gfx/pngcrush 1.8.13: Portable Network Graphics (PNG) optimizing utility
@@ -15133,7 +15133,7 @@ net-libs/libsrtp 1.6.0-r1 2.2.0 2.3.0-r1: Open-source implementation of the Secu
 net-libs/libssh 0.9.5 9999: Access a working SSH implementation by means of a library
 net-libs/libssh2 1.9.0_p20200614-r1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23 9999: Simple RFC-compliant TELNET implementation as a C library
-net-libs/libtirpc 1.3.1: Transport Independent RPC library (SunRPC replacement)
+net-libs/libtirpc 1.3.1 1.3.2: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtorrent 0.13.7 0.13.7-r1 0.13.8-r1: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 1.2.6 1.2.9 1.2.10 1.2.11 1.2.12: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.15_p1 9999: A library and tools for trace processing
@@ -15632,7 +15632,7 @@ net-nds/led 1.111: A general purpose LDAP editor
 net-nds/nsscache 0.39: commandline tool to sync directory services to local cache
 net-nds/openldap 2.4.57 2.4.58 2.5.4: LDAP suite of application and development tools
 net-nds/phpldapadmin 1.2.5: phpLDAPadmin is a web-based tool for managing all aspects of your LDAP server
-net-nds/rpcbind 1.2.5 9999: portmap replacement which supports RPC over various protocols
+net-nds/rpcbind 1.2.5 1.2.6 9999: portmap replacement which supports RPC over various protocols
 net-nds/shelldap 1.5.1: A handy shell-like interface for browsing LDAP servers and editing their content
 net-nds/smbldap-tools 0.9.10-r1: Samba LDAP management tools
 net-nds/tac_plus 4.0.4.19-r4 4.0.4.27a 4.0.4.27a-r1: An updated version of Cisco's TACACS+ server
@@ -16757,6 +16757,7 @@ sci-physics/vmc 1.0_p3 9999: The Virtual Monte Carlo core library
 sci-physics/xfoil 6.99: Design and analysis of subsonic isolated airfoils
 sci-physics/yoda 1.8.5: Yet more Objects for (High Energy Physics) Data Analysis
 sci-visualization/circos 0.55-r1: Circular layout visualization of genomic and other data
+sci-visualization/dash-core-components 1.16.0: Core components suite for Dash
 sci-visualization/dash-html-components 1.1.3: Vanilla HTML components for Dash
 sci-visualization/dash-table 4.11.3: First-Class interactive DataTable for Dash
 sci-visualization/epix 1.2.11-r3: 2- and 3-D plotter for creating images (to be used in LaTeX)
@@ -17265,7 +17266,7 @@ sys-apps/restartd 0.2.2-r1: A daemon for checking your running and not running p
 sys-apps/restorecond 3.1 3.2 9999: Daemon to watch for creation and set default SELinux fcontexts
 sys-apps/ripgrep 12.1.1: a search tool that combines the usability of ag with the raw speed of grep
 sys-apps/rkflashtool 6.1: Tool for flashing Rockchip devices
-sys-apps/rng-tools 6.10-r1 6.11-r1: Daemon to use hardware random number generators
+sys-apps/rng-tools 6.10-r1 6.11-r1 6.12: Daemon to use hardware random number generators
 sys-apps/roccat-tools 5.9.0-r100: Utility for advanced configuration of Roccat devices
 sys-apps/rootlesskit 0.14.2: Linux-native "fake root" for implementing rootless containers
 sys-apps/rtl-entropy 0.1.2_p20180118-r1: An entropy generator using SDR peripherals, including rtl-sdr and BladeRF
@@ -17624,7 +17625,7 @@ sys-devel/prelink 20151030-r1 99999999: Modifies ELFs to avoid runtime symbol re
 sys-devel/qconf 2.5: ./configure like generator for qmake-based projects
 sys-devel/remake 4.2.1.1.4-r1 4.3.1.1.5: Patched version of GNU Make with improved error reporting, tracing, and debugging
 sys-devel/rust-std 1.51.0 1.52.1: Rust standard library, standalone (for crossdev)
-sys-devel/slibtool 0.5.32 0.5.33 9999: A skinny libtool implementation, written in C
+sys-devel/slibtool 0.5.32 0.5.33 0.5.34 9999: A skinny libtool implementation, written in C
 sys-devel/smatch 1.60 9999: static analysis tool for C
 sys-devel/sparse 0.6.3 9999: C semantic parser
 sys-devel/ucpp 1.3.4 1.3.5: Library for preprocessing C compliant to ISO-C99
@@ -18357,7 +18358,7 @@ www-servers/nginx 1.18.0-r2 1.19.9 1.19.10: Robust, small and high performance h
 www-servers/nginx-unit 1.22.0: Dynamic web and application server
 www-servers/pound 2.7f-r1: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.1: Pretty small HTTP server -- a command-line tool to share files
-www-servers/puma 3.12.5-r1 5.1.1 5.2.2 5.3.0: a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack
+www-servers/puma 3.12.5-r1 5.1.1 5.2.2 5.3.0 5.3.1: a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack
 www-servers/resin 4.0.48-r1: A fast Servlet and JSP engine
 www-servers/servefile 0.5.1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.0-r1: Proxies incoming HTTP and TLS connections based on the hostname
