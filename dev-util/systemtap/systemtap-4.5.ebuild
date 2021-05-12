@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit linux-info autotools python-single-r1
+inherit linux-info python-single-r1
 
 DESCRIPTION="A linux trace/probe tool"
 HOMEPAGE="https://www.sourceware.org/systemtap/"
@@ -13,7 +13,7 @@ SRC_URI="https://www.sourceware.org/${PN}/ftp/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="libvirt selinux sqlite +ssl test zeroconf"
 RESTRICT="!test? ( test )"
 
@@ -58,7 +58,6 @@ DOCS="AUTHORS HACKING NEWS README"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.1-ia64.patch
-	"${FILESDIR}"/${P}-configure.ac-non-posix-test.patch
 )
 
 pkg_setup() {
@@ -86,8 +85,6 @@ src_prepare() {
 		|| die "Failed to clean up sources"
 
 	default
-
-	eautoreconf
 }
 
 src_configure() {
