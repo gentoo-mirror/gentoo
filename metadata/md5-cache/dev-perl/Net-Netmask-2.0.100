@@ -1,0 +1,15 @@
+BDEPEND=!minimal? ( >=dev-perl/AnyEvent-7.140.0 ) virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-Math-BigInt-1.999.811 virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Test2-Suite-0.0.111 >=dev-perl/Test-UseAllModules-0.170.0 ) dev-lang/perl
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Parse, manipulate and lookup IP network blocks
+EAPI=7
+HOMEPAGE=https://metacpan.org/release/Net-Netmask
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=~amd64 ~mips ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=!minimal? ( >=dev-perl/AnyEvent-7.140.0 ) virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-Math-BigInt-1.999.811 dev-lang/perl:=
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/J/JM/JMASLAK/Net-Netmask-2.0001.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	6ec4c4d8fc8324200f1c14e8d158c59b	perl-module	58b5d72d607014c48b5a1e106318d584
+_md5_=ff9d4d1584f8ad0c69f245f9dfe447a0
