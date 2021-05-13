@@ -9,7 +9,7 @@ inherit perl-module
 DESCRIPTION="Self-contained crypto toolkit"
 LICENSE="|| ( Artistic GPL-1+ ) public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~ia64 ~x86"
+KEYWORDS="~amd64 ~hppa ~ia64 x86"
 IUSE="test minimal"
 RESTRICT="!test? ( test )"
 
@@ -25,7 +25,7 @@ RDEPEND="
 #	dev-libs/libtommath
 #	dev-libs/libtomcrypt
 
-BEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? (
 		>=virtual/perl-Test-Simple-0.880.0
