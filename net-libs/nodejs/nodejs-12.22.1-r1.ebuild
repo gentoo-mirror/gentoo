@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit bash-completion-r1 flag-o-matic pax-utils python-any-r1 toolchain-funcs xdg-utils
@@ -30,6 +30,8 @@ REQUIRED_USE="
 	system-ssl? ( ssl )
 "
 
+RESTRICT="!test? ( test )"
+
 RDEPEND="
 	>=app-arch/brotli-1.0.9
 	>=dev-libs/libuv-1.39.0:=
@@ -53,11 +55,11 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-10.3.0-global-npm-config.patch
 	"${FILESDIR}"/${PN}-12.20.1-fix_ppc64_crashes.patch
+	"${FILESDIR}"/${PN}-12.22.1-jinja_collections_abc.patch
 	"${FILESDIR}"/${PN}-12.22.1-uvwasi_shared_libuv.patch
 	"${FILESDIR}"/${PN}-12.22.1-v8_icu69.patch
 	"${FILESDIR}"/${PN}-99999999-llhttp.patch
 )
-RESTRICT="test"
 
 pkg_pretend() {
 	(use x86 && ! use cpu_flags_x86_sse2) && \
@@ -100,12 +102,8 @@ src_prepare() {
 
 	sed -i -e "/'-O3'/d" common.gypi node.gypi || die
 
-	# Avoid a test that I've only been able to reproduce from emerge. It doesnt
-	# seem sandbox related either (invoking it from a sandbox works fine).
-	# The issue is that no stdin handle is openened when asked for one.
-	# It doesn't really belong upstream , so it'll just be removed until someone
-	# with more gentoo-knowledge than me (jbergstroem) figures it out.
-	rm test/parallel/test-stdout-close-unref.js || die
+	# Known-to-fail test of a deprecated, legacy HTTP parser. Just don't bother.
+	rm -f test/parallel/test-http-transfer-encoding-smuggling-legacy.js
 
 	# debug builds. change install path, remove optimisations and override buildtype
 	if use debug; then
@@ -228,8 +226,14 @@ src_install() {
 }
 
 src_test() {
+	# parallel/test-fs-mkdir is known to fail with FEATURES=usersandbox
+	if has usersandbox ${FEATURES}; then
+		ewarn "You are emerging ${P} with 'usersandbox' enabled." \
+			"Expect some test failures or emerge with 'FEATURES=-usersandbox'!"
+	fi
+
 	out/${BUILDTYPE}/cctest || die
-	"${PYTHON}" tools/test.py --mode=${BUILDTYPE,,} -J message parallel sequential || die
+	"${PYTHON}" tools/test.py --mode=${BUILDTYPE,,} --flaky-tests=dontcare -J message parallel sequential || die
 }
 
 pkg_postinst() {
