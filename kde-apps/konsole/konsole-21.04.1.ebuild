@@ -3,64 +3,72 @@
 
 EAPI=7
 
-ECM_HANDBOOK="forceoptional"
-ECM_TEST="forceoptional"
-PVCUT=$(ver_cut 1-3)
+ECM_HANDBOOK="optional"
+ECM_TEST="true"
 KFMIN=5.80.0
 QTMIN=5.15.2
+VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="News feed aggregator"
-HOMEPAGE="https://apps.kde.org/en/akregator"
+DESCRIPTION="KDE's terminal emulator"
+HOMEPAGE="https://apps.kde.org/en/konsole https://konsole.kde.org"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="telemetry"
+IUSE="X"
 
-RDEPEND="
+DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtwebengine-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/messagelib-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
-	>=kde-frameworks/kcodecs-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kdbusaddons-${KFMIN}:5
+	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kinit-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
+	>=kde-frameworks/kpty-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/syndication-${KFMIN}:5
-	telemetry? ( dev-libs/kuserfeedback:5 )
+	X? ( x11-libs/libX11 )
 "
-DEPEND="${RDEPEND}
-	dev-libs/grantlee:5
-"
+RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-fix-dependencies.patch" ) # bug 783921
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 Completion
+}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package telemetry KUserFeedback)
+		$(cmake_use_find_package X X11)
 	)
 
 	ecm_src_configure
+}
+
+src_test() {
+	# drkonqi process interferes. bug 702690
+	local myctestargs=(
+		-E "(DBusTest)"
+	)
+
+	ecm_src_test
 }

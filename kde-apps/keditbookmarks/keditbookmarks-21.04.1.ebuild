@@ -3,35 +3,45 @@
 
 EAPI=7
 
-ECM_HANDBOOK="optional"
-ECM_TEST="forceoptional"
+ECM_HANDBOOK="forceoptional"
+ECM_TEST="true"
 KFMIN=5.80.0
 QTMIN=5.15.2
+VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="Visualise disk usage with interactive map of concentric, segmented rings"
-HOMEPAGE="https://apps.kde.org/en/filelight
-https://utils.kde.org/projects/filelight/"
+DESCRIPTION="Bookmarks editor based on KDE Frameworks"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE=""
+IUSE="+man"
 
 DEPEND="
+	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
+	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-kdoctools_install.patch" )
+src_prepare() {
+	ecm_src_prepare
+
+	if ! use man ; then
+		sed -i -e "/kdoctools_create_manpage/ s/^/#/" doc/CMakeLists.txt || die
+	fi
+}

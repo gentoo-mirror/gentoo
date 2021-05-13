@@ -28,5 +28,3 @@ DEPEND="
 	net-nds/openldap
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${P}-kdoctools_install.patch" )

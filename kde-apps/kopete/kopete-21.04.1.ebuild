@@ -124,6 +124,7 @@ RDEPEND="${COMMON_DEPEND}
 		virtual/latex-base
 	)
 	ssl? ( >=app-crypt/qca-2.3.0:2[ssl] )
+	xmpp? ( >=app-crypt/qca-2.3.0:2[ssl?] )
 "
 #	sms? ( app-mobilephone/smssend )
 #	winpopup? ( net-fs/samba )
@@ -166,17 +167,4 @@ src_configure() {
 	done
 
 	ecm_src_configure
-}
-
-pkg_postinst() {
-	ecm_pkg_postinst
-
-	if ! use ssl; then
-		if use xmpp ; then
-			if ! has_version "app-crypt/qca:2[ssl]" ; then
-				elog "In order to use ssl in xmpp you'll need to"
-				elog "install app-crypt/qca package with USE=ssl."
-			fi
-		fi
-	fi
 }

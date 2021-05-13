@@ -62,7 +62,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-implicit-dep.patch" ) # bug 785412, master/21.08
+PATCHES=(
+	# bug 785412, master/21.08
+	"${FILESDIR}/${PN}-21.04.0-implicit-dep.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare

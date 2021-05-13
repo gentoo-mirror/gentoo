@@ -8,7 +8,7 @@ ECM_TEST="true"
 KFMIN=5.80.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
-inherit ecm kde.org
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Non-linear video editing suite by KDE"
 HOMEPAGE="https://kdenlive.org/en/"
@@ -20,9 +20,6 @@ IUSE="gles2-only semantic-desktop share v4l"
 
 RESTRICT+=" test" # segfaults, bug 684132
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -58,7 +55,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-libs/mlt-6.26.0[ffmpeg,frei0r,kdenlive(+),melt(+),qt5,sdl,xml]
+	>=media-libs/mlt-6.26.0[ffmpeg,frei0r,qt5,sdl,xml]
 	semantic-desktop? ( >=kde-frameworks/kfilemetadata-${KFMIN}:5 )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:5 )
 	v4l? ( media-libs/libv4l )
@@ -67,6 +64,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	media-video/ffmpeg[encode,sdl,X]
 "
+BDEPEND="sys-devel/gettext"
 
 src_configure() {
 	local mycmakeargs=(
@@ -74,7 +72,6 @@ src_configure() {
 		$(cmake_use_find_package share KF5Purpose)
 		$(cmake_use_find_package v4l LibV4L2)
 	)
-
 	ecm_src_configure
 }
 
@@ -82,7 +79,5 @@ pkg_postinst() {
 	ecm_pkg_postinst
 
 	# Gentoo bug 603168
-	if ! has_version "media-libs/mlt[fftw]" ; then
-		elog "For 'Crop and Transform/Rotate and Shear' effect, please build media-libs/mlt with USE=fftw enabled."
-	fi
+	optfeature "Crop, Transform/Rotate and Shear effect" "media-libs/mlt[fftw]"
 }

@@ -54,7 +54,7 @@ RDEPEND="${DEPEND}
 	kipi? ( >=kde-apps/kipi-plugins-${PVCUT}:5 )
 "
 
-PATCHES=( "${FILESDIR}/${P}-implicit-dep.patch" ) # bug 785403
+PATCHES=( "${FILESDIR}/${PN}-21.04.0-implicit-dep.patch" ) # bug 785403
 
 src_prepare() {
 	ecm_src_prepare
