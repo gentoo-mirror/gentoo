@@ -1,10 +1,11 @@
-DEFINED_PHASES=prepare
+DEFINED_PHASES=configure
 DESCRIPTION=tools for ATA over Ethernet (AoE) network storage protocol
-EAPI=6
+EAPI=7
 HOMEPAGE=https://github.com/OpenAoE/aoetools
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=https://github.com/OpenAoE/aoetools/archive/aoetools-37.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=195a0a57e67496dc66636e2227c283d6
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=b19b9707f841c5e8925351ffdaee4e97
