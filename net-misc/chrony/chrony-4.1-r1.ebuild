@@ -97,7 +97,7 @@ src_configure() {
 
 	if ! use seccomp ; then
 		sed -i \
-			-e 's/ -F 0//' \
+			-e 's/ -F 2//' \
 			"${T}"/chronyd.conf examples/chronyd.service || die
 	fi
 
@@ -232,7 +232,7 @@ pkg_postinst() {
 	local show_seccomp_enable_msg=0
 
 	# Was seccomp disabled before and now enabled?
-    if [[ ${HAD_SECCOMP} -eq 0 ]] && use seccomp ; then
+	if [[ ${HAD_SECCOMP} -eq 0 ]] && use seccomp ; then
 		show_seccomp_enable_msg=1
 	fi
 

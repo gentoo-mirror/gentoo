@@ -3,18 +3,19 @@
 
 EAPI=7
 
+# Note: Please bump in sync with dev-libs/libxslt
+
 PYTHON_COMPAT=( python3_{7,8,9} )
 PYTHON_REQ_USE="xml"
 
 inherit autotools flag-o-matic prefix python-r1 multilib-minimal
 
-# Note: Please bump in sync with dev-libs/libxslt
 XSTS_HOME="http://www.w3.org/XML/2004/xml-schema-test-suite"
 XSTS_NAME_1="xmlschema2002-01-16"
 XSTS_NAME_2="xmlschema2004-01-14"
 XSTS_TARBALL_1="xsts-2002-01-16.tar.gz"
 XSTS_TARBALL_2="xsts-2004-01-14.tar.gz"
-XMLCONF_TARBALL="xmlts20080827.tar.gz"
+XMLCONF_TARBALL="xmlts20130923.tar.gz"
 DESCRIPTION="XML C parser and toolkit"
 HOMEPAGE="http://www.xmlsoft.org/ https://gitlab.gnome.org/GNOME/libxml2"
 SRC_URI="
@@ -22,7 +23,7 @@ SRC_URI="
 	test? (
 		${XSTS_HOME}/${XSTS_NAME_1}/${XSTS_TARBALL_1}
 		${XSTS_HOME}/${XSTS_NAME_2}/${XSTS_TARBALL_2}
-		http://www.w3.org/XML/Test/${XMLCONF_TARBALL}
+		https://www.w3.org/XML/Test/${XMLCONF_TARBALL}
 	)
 "
 S="${WORKDIR}/${PN}-${PV%_rc*}"
@@ -30,12 +31,9 @@ S="${WORKDIR}/${PN}-${PV%_rc*}"
 LICENSE="MIT"
 SLOT="2"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-
 IUSE="debug examples icu ipv6 lzma +python readline static-libs test"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-# Python tests are flaky in 2.9.11
-# TODO: skip?
-RESTRICT="test"
 
 BDEPEND="
 	dev-util/gtk-doc-am
@@ -75,7 +73,7 @@ PATCHES=(
 )
 
 src_unpack() {
-	# ${A} isn't used to avoid unpacking of test tarballs into $WORKDIR,
+	# ${A} isn't used to avoid unpacking of test tarballs into ${WORKDIR},
 	# as they are needed as tarballs in ${S}/xstc instead and not unpacked
 	unpack ${P/_rc/-rc}.tar.gz
 	cd "${S}" || die
