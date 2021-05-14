@@ -3,11 +3,12 @@
 
 EAPI=7
 
-DIST_AUTHOR=JV
-DIST_VERSION=1.00
-
+DIST_EXAMPLES='eg/*'
+DIST_AUTHOR=NEILB
+DIST_VERSION=0.04
 inherit perl-module
 
-DESCRIPTION="Perl extension for hexdumping arbitrary data"
+DESCRIPTION="Hexadecial Dumper"
+
 SLOT="0"
-KEYWORDS="amd64 ~arm ~mips x86 ~amd64-linux"
+KEYWORDS="~amd64 ~hppa ~sparc ~x86"

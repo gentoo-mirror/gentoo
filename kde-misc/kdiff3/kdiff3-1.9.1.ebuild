@@ -9,7 +9,7 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
-HOMEPAGE="https://apps.kde.org/en/kdiff3 https://userbase.kde.org/KDiff3"
+HOMEPAGE="https://apps.kde.org/kdiff3/ https://userbase.kde.org/KDiff3"
 SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
@@ -26,7 +26,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
@@ -40,4 +39,4 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/diffutils
 "
 
-PATCHES=( "${FILESDIR}/${P}-gcc11.patch" ) # bug 788058, git master
+PATCHES=( "${FILESDIR}/${PN}-1.9.0-gcc11.patch" ) # bug 788058, git master
