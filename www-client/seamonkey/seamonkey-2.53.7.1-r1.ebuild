@@ -49,7 +49,7 @@ LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 SLOT="0"
 SYSTEM_IUSE=( +system-{av1,harfbuzz,icu,jpeg,libevent,libvpx,sqlite} )
 IUSE="+chatzilla cpu_flags_arm_neon +crypt dbus debug +gmp-autoupdate +ipc jack
-lto minimal pulseaudio +roaming selinux startup-notification test wifi"
+lto pulseaudio +roaming selinux startup-notification test wifi"
 IUSE+=" ${SYSTEM_IUSE[@]}"
 KEYWORDS="amd64 ~ppc64 x86"
 
@@ -194,6 +194,8 @@ src_prepare() {
 
 	# https://github.com/JustOff/github-wc-polyfill/issues/10
 	eapply "${FILESDIR}/${PN}-2.53.7.1-cpu_hog_fix.patch"
+
+	eapply "${FILESDIR}/${PN}-2.53.7.1-rust-1.52.patch" #789981
 
 	# Shell scripts sometimes contain DOS line endings; bug 391889
 	grep -rlZ --include="*.sh" $'\r$' . |
@@ -497,10 +499,6 @@ src_install() {
 
 	# Required in order to use plugins and even run seamonkey on hardened.
 	pax-mark m "${ED}"/${MOZILLA_FIVE_HOME}/{seamonkey,seamonkey-bin,plugin-container}
-
-	if use minimal ; then
-		rm -r "${ED}"/usr/include "${ED}/${MOZILLA_FIVE_HOME}"/{idl,include,lib,sdk} || die
-	fi
 
 	if use chatzilla ; then
 		emid='{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}'
