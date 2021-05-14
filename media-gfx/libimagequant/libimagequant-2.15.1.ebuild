@@ -15,8 +15,8 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-l
 IUSE="cpu_flags_x86_sse2 openmp"
 
 PATCHES=(
-	"${FILESDIR}"/libimagequant-2.12.2-respect-CFLAGS.patch
-	"${FILESDIR}"/libimagequant-2.12.2-fix-pkgconfig.patch
+	"${FILESDIR}"/${PN}-2.12.2-respect-CFLAGS.patch
+	"${FILESDIR}"/${PN}-2.15.1-fix-pkgconfig.patch
 )
 
 pkg_pretend() {
@@ -25,7 +25,13 @@ pkg_pretend() {
 
 src_prepare() {
 	default
-	sed -i '/install.*STATICLIB/d' Makefile || die
+
+	# Avoid always building static library
+	# (Fixes side-effect of compiling in src_install too)
+	sed -i \
+		-e '/install.*STATICLIB/d' \
+		-e 's/all: static shared/all: shared/' \
+		Makefile || die
 }
 
 src_configure() {
