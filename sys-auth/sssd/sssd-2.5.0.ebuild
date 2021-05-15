@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="acl doc +locator +netlink nfsv4 nls +man pac python samba selinux sudo systemd test valgrind"
+IUSE="acl doc +locator +netlink nfsv4 nls +man pac python samba selinux sudo systemd systemtap test valgrind"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="pac? ( samba )
@@ -62,7 +62,8 @@ DEPEND="
 		dev-libs/jansson:0=
 		net-libs/http-parser:0=
 		net-misc/curl:0=
-	)"
+	)
+	systemtap? ( dev-util/systemtap )"
 RDEPEND="${DEPEND}
 	>=sys-libs/glibc-2.17[nscd]
 	selinux? ( >=sec-policy/selinux-sssd-2.20120725-r9 )"
@@ -104,12 +105,23 @@ pkg_setup() {
 }
 
 src_prepare() {
-	sed -i 's:/var/run:/run:' \
-		"${S}"/src/examples/logrotate || die
-
 	default
+
+	sed -i \
+		-e 's:/var/run:/run:' \
+		"${S}"/src/examples/logrotate \
+		|| die
+
+	# disable flaky test, see https://github.com/SSSD/sssd/issues/5631
+	sed -i \
+		-e '/^\s*pam-srv-tests[ \\]*$/d' \
+		"${S}"/Makefile.am \
+		|| die
+
 	eautoreconf
+
 	multilib_copy_sources
+
 	if use python && multilib_is_native_abi; then
 		python_setup
 	fi
@@ -142,6 +154,7 @@ multilib_src_configure() {
 		--with-nscd="${EPREFIX}"/usr/sbin/nscd
 		--with-unicode-lib="glib2"
 		--disable-rpath
+		--disable-static
 		--sbindir=/usr/sbin
 		--enable-local-provider
 		$(multilib_native_use_with systemd kcm)
@@ -160,6 +173,7 @@ multilib_src_configure() {
 		$(multilib_native_use_with sudo)
 		$(multilib_native_with autofs)
 		$(multilib_native_with ssh)
+		$(use_enable systemtap)
 		$(use_enable valgrind)
 		--without-python2-bindings
 		$(multilib_native_use_with python python3-bindings)
@@ -212,6 +226,13 @@ multilib_src_compile() {
 	fi
 }
 
+multilib_src_test() {
+	if multilib_is_native_abi; then
+		local -x CK_TIMEOUT_MULTIPLIER=10
+		emake check VERBOSE=yes
+	fi
+}
+
 multilib_src_install() {
 	if multilib_is_native_abi; then
 		emake -j1 DESTDIR="${D}" "${_at_args[@]}" install
@@ -219,7 +240,6 @@ multilib_src_install() {
 			python_optimize
 			python_fix_shebang "${ED}"
 		fi
-
 	else
 		# easier than playing with automake...
 		dopammod .libs/pam_sss.so
@@ -264,16 +284,12 @@ multilib_src_install_all() {
 	keepdir /var/log/sssd
 
 	# strip empty dirs
-	if ! use doc ; then
+	if ! use doc; then
 		rm -r "${ED}"/usr/share/doc/"${PF}"/doc || die
 		rm -r "${ED}"/usr/share/doc/"${PF}"/{hbac,idmap,nss_idmap,sss_simpleifp}_doc || die
 	fi
 
 	rm -r "${ED}"/run || die
-}
-
-multilib_src_test() {
-	multilib_is_native_abi && emake check
 }
 
 pkg_postinst() {
