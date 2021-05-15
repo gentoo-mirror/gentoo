@@ -5,7 +5,7 @@ EAPI=7
 
 USE_RUBY="ruby25 ruby26 ruby27 ruby30"
 
-RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md ROADMAP.md STANDARD_RESPONSES.md"
+RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md ROADMAP.md SECURITY.md"
 
 RUBY_FAKEGEM_EXTRAINSTALL="ext"
 
@@ -25,11 +25,11 @@ SLOT="0"
 IUSE=""
 
 RDEPEND="${RDEPEND}
-	>=dev-libs/libxml2-2.9.10:=
+	>=dev-libs/libxml2-2.9.12:=
 	>=dev-libs/libxslt-1.1.34
 	virtual/libiconv"
 DEPEND="${DEPEND}
-	>=dev-libs/libxml2-2.9.10
+	>=dev-libs/libxml2-2.9.12
 	>=dev-libs/libxslt-1.1.34
 	virtual/libiconv"
 
@@ -57,6 +57,9 @@ all_ruby_prepare() {
 		-i test/helper.rb || die
 
 	sed -i -e '/mini_portile2/ s:^:#:' ${RUBY_FAKEGEM_GEMSPEC} || die
+
+	# Account for fix making it upstream into our libxml2 system version
+	sed -i -e '116 s/using_packaged/using_system/ ; 131 s/if/if false and /' test/html/test_comments.rb || die
 }
 
 each_ruby_configure() {
