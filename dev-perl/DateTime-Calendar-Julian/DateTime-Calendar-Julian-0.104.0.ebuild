@@ -1,22 +1,24 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-DIST_AUTHOR=PIJLL
-DIST_VERSION=0.04
+DIST_AUTHOR=WYANT
+DIST_VERSION=0.104
 inherit perl-module
 
 DESCRIPTION="Dates in the Julian calendar"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-RDEPEND=">=dev-perl/DateTime-0.80.0"
-DEPEND="${RDEPEND}
+RDEPEND="
+	>=dev-perl/DateTime-0.80.0
+"
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? (
-		virtual/perl-Test-Simple
+		>=virtual/perl-Test-Simple-0.880.0
 	)
 "
