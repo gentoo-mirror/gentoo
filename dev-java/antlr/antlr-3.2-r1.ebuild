@@ -1,29 +1,37 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=7
 
-inherit epatch java-pkg-2 java-pkg-simple
+JAVA_PKG_IUSE="doc test"
+
+inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="A parser generator for many languages"
 HOMEPAGE="https://www.antlr3.org/"
 SRC_URI="https://www.antlr3.org/download/${P}.tar.gz
 	https://www.antlr3.org/download/${P}.jar" # Prebuilt version needed.
+
 LICENSE="BSD"
 SLOT="3"
 KEYWORDS="amd64 ~arm ~arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 CDEPEND=">=dev-java/antlr-2.7.7-r7:0
 	dev-java/stringtemplate:0"
 
 RDEPEND="${CDEPEND}
-	>=virtual/jre-1.6"
+	>=virtual/jre-1.8:*"
 
 DEPEND="${CDEPEND}
-	>=virtual/jdk-1.6
+	>=virtual/jdk-1.8:*
 	test? ( dev-java/junit:4 )"
+
+PATCHES=(
+	# These fixes have been applied in 3.5.
+	"${FILESDIR}/${PV}-test-fixes.patch"
+	"${FILESDIR}/${PV}-java-8.patch"
+)
 
 S="${WORKDIR}/${P}"
 JAVA_GENTOO_CLASSPATH_EXTRA="${S}/${PN}-runtime.jar"
@@ -33,12 +41,9 @@ src_unpack() {
 	unpack ${P}.tar.gz
 }
 
-java_prepare() {
+src_prepare() {
+	default
 	java-pkg_clean
-
-	# These fixes have been applied in 3.5.
-	epatch "${FILESDIR}/${PV}-test-fixes.patch"
-	epatch "${FILESDIR}/${PV}-java-8.patch"
 
 	# Some tests fail under Java 8 in ways that probably aren't limited
 	# to the tests. This is bad but upstream is never going to update
@@ -54,7 +59,7 @@ java_prepare() {
 
 src_compile() {
 	cd "${S}/runtime/Java/src/main" || die
-	JAVA_JAR_FILENAME="${S}/${PN}-runtime.jar" JAVA_PKG_IUSE="doc" java-pkg-simple_src_compile
+	JAVA_JAR_FILENAME="${S}/${PN}-runtime.jar" java-pkg-simple_src_compile
 
 	cd "${S}/tool/src/main" || die
 
