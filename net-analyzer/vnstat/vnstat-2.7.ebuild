@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit systemd user tmpfiles
+inherit systemd tmpfiles
 
 DESCRIPTION="Console-based network traffic monitor that keeps statistics of network usage"
 HOMEPAGE="https://humdi.net/vnstat/"
@@ -18,7 +18,7 @@ else
 	SRC_URI="https://humdi.net/vnstat/${P}.tar.gz"
 	SRC_URI+=" verify-sig? ( https://humdi.net/vnstat/${P}.tar.gz.asc )"
 
-	KEYWORDS="amd64 arm arm64 ~hppa ~mips ppc ppc64 sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86"
 
 	BDEPEND="verify-sig? ( app-crypt/openpgp-keys-teemutoivola )"
 fi
@@ -29,6 +29,8 @@ IUSE="gd selinux test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	acct-group/vnstat
+	acct-user/vnstat
 	dev-db/sqlite
 	gd? ( media-libs/gd[png] )
 "
@@ -44,13 +46,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.2-run.patch
 )
 
-pkg_setup() {
-	enewgroup vnstat
-	enewuser vnstat -1 -1 /var/lib/vnstat vnstat
-}
-
 src_compile() {
-	emake ${PN} ${PN}d $(usex gd ${PN}i '')
+	emake \
+		${PN} \
+		${PN}d \
+		$(usex gd ${PN}i '')
 }
 
 src_install() {
