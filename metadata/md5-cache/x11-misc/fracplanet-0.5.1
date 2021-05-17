@@ -1,13 +1,14 @@
 BDEPEND=dev-libs/libxslt
 DEFINED_PHASES=compile configure install
-DEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 virtual/glu virtual/opengl
+DEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5 virtual/glu virtual/opengl
 DESCRIPTION=Fractal planet and terrain generator
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/fracplanet/
+INHERIT=qmake-utils
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 virtual/glu virtual/opengl
+RDEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5 virtual/glu virtual/opengl
 SLOT=0
 SRC_URI=mirror://sourceforge/fracplanet/fracplanet-0.5.1.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=6e11e4b9d5462656d654cef61a32ef3f
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
+_md5_=443a5ad3960805d75115a0b110a7319d
