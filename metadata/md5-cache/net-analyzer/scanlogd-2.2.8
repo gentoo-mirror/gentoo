@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install postinst preinst prepare
+DEPEND=nids? ( net-libs/libnids ) pcap? ( net-libs/libpcap )
+DESCRIPTION=A port scan detection tool
+EAPI=7
+HOMEPAGE=https://www.openwall.com/scanlogd/
+INHERIT=savedconfig toolchain-funcs user
+IUSE=+nids pcap savedconfig
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=scanlogd GPL-2
+RDEPEND=nids? ( net-libs/libnids ) pcap? ( net-libs/libpcap )
+REQUIRED_USE=?? ( nids pcap )
+SLOT=0
+SRC_URI=https://www.openwall.com/scanlogd/scanlogd-2.2.8.tar.gz
+_eclasses_=portability	c10bdc40668533b1faf15b1d89df0303	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	user-info	a2abd4e2f4c3b9b06d64bf1329359a02	user	26d8ce6329c43cbac965617f1c0627e2
+_md5_=5c8dba41b576fb19f8aadf55a354995e
