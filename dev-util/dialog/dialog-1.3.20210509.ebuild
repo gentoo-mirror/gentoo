@@ -18,7 +18,8 @@ IUSE="examples minimal nls static-libs unicode"
 RDEPEND=">=sys-libs/ncurses-5.2-r5:=[unicode?]"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
-BDEPEND="!minimal? ( sys-devel/libtool )"
+BDEPEND="!minimal? ( sys-devel/libtool )
+	virtual/pkgconfig"
 
 src_prepare() {
 	default
@@ -34,6 +35,7 @@ src_configure() {
 
 	econf \
 		--disable-rpath-hack \
+		--with-pkg-config \
 		$(use_enable nls) \
 		$(use_with !minimal libtool) \
 		--with-libtool-opts=$(usex static-libs '' '-shared') \
