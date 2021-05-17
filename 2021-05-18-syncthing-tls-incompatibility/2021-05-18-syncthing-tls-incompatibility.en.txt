@@ -1,0 +1,16 @@
+Title: >=net-p2p/syncthing-1.17.0 incompatibility warning
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2021-05-18
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: net-p2p/syncthing
+
+Starting with version 1.17.0, net-p2p/syncthing by default only allows
+TLS 1.3 for sync connections - making it impossible to sync with devices
+not supporting it, i.e. running Syncthing versions older than 1.3.0.
+
+If you do require your Syncthing cluster to support TLS 1.2, you will have to
+explicitly allow it by enabling the option "insecureAllowOldTLSVersions".
+For details see:
+
+https://docs.syncthing.net/advanced/option-insecure-allow-old-tls-versions.html
