@@ -109,6 +109,14 @@ dev-perl/gtk2-spell
 ~virtual/perl-Archive-Tar-2.380.0
 ~virtual/perl-autodie-2.340.0
 ~virtual/perl-Carp-1.520.0
+~virtual/perl-Compress-Raw-Bzip2-2.101.0
+~virtual/perl-Compress-Raw-Zlib-2.101.0
+~virtual/perl-CPAN-2.280.0
+~virtual/perl-Data-Dumper-2.179.0
+~virtual/perl-DB_File-1.855.0
+~virtual/perl-Devel-PPPort-3.620.0
+~virtual/perl-Digest-1.190.0
+~virtual/perl-Digest-MD5-2.580.0
 
 # David Seifert <soap@gentoo.org> (2021-05-09)
 # All revdeps masked, last release in 1999, needs to do now.
@@ -650,50 +658,10 @@ net-nntp/pan
 # Removal on 2021-07-01.  Bug #784221.
 x11-apps/amlc
 
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-18)
-# our version is outdated with security issues, new version
-# uses gradle to build which we don't support atm,
-# also being a web framework deployable to application servers,
-# we have no usage for it, and nothing depends on it
-# removal in 30 days
-dev-java/tapestry
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-18)
-# the project has been abandoned and the developement
-# is now under name SpotBugs
-# see: https://github.com/findbugsproject/findbugs
-dev-util/findbugs
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-18)
-# obsolete deps, not used by any package
-# removal in 30 days
-dev-java/classmate
-dev-java/commons-configuration
-dev-java/commons-jelly
-dev-java/ezmorph
-dev-java/ical4j
-
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-04-18)
 # dev-java/xerces-2.12.1 depends on masked >=virtual/{jdk,jre}-11
 # https://bugs.gentoo.org/782697
 >=dev-java/xerces-2.12.1
-
-# Michał Górny <mgorny@gentoo.org> (2021-04-17)
-# Superseded by dev-python/pycodestyle.  Last revdep masked for removal.
-# Removal on 2021-05-17.  Bug #783369.
-dev-python/pep8
-
-# Michał Górny <mgorny@gentoo.org> (2021-04-17)
-# Dead.  Upstream repo gone.  Requires obsolete dev-python/pep8.
-# No revdeps.
-# Removal on 2021-05-17.  Bug #783366.
-dev-python/pytest-pep8
-
-# Bernard Cafarelli <voyageur@gentoo.org> (2021-04-15)
-# Abandoned upstream, does not work with current API,
-# does not compile with current mpv
-# Removal on 2021-05-15, bug #782601
-media-video/orion
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-04-15)
 # dev-java/jcodings-1.0.55 depends on masked >=virtual/{jdk,jre}-11
@@ -732,12 +700,6 @@ x11-misc/xstroke
 # Most likely caused by the following upstream commit:
 #   https://git.savannah.gnu.org/cgit/autoconf.git/commit/?id=aba75f6d4a9c875a9d5d90a07c6b3678db66a4bf
 sys-devel/autoconf:2.71
-
-# Göktürk Yüksek <gokturk@gentoo.org> (2021-03-14)
-# Dead upstream. No revdeps.
-# Removal in 60 days to allow people extra time
-# for transitioning out. Bug #776262.
-app-admin/lastpass-cli
 
 # Sam James <sam@gentoo.org> (2021-03-03)
 # Doesn't seem to sync clock correctly
