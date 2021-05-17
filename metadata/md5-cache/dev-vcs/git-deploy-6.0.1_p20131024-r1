@@ -3,6 +3,7 @@ DEPEND=dev-lang/perl test? ( dev-vcs/git virtual/perl-File-Spec virtual/perl-Get
 DESCRIPTION=make deployments so easy that you'll let new hires do them on their first day
 EAPI=5
 HOMEPAGE=https://github.com/git-deploy/git-deploy
+INHERIT=perl-functions
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
@@ -10,5 +11,5 @@ RDEPEND=dev-lang/perl:= dev-vcs/git virtual/perl-File-Spec virtual/perl-Getopt-L
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/git-deploy/git-deploy/archive/e9ef93debd12d85e70676dd79b4bd78ac2b05271.tar.gz -> git-deploy-6.0.1_p20131024.tar.gz
-_eclasses_=perl-functions	6ec4c4d8fc8324200f1c14e8d158c59b
+_eclasses_=perl-functions	f1ee42d38920b69fd6b6229cef80b7f4
 _md5_=9ff3454a8cf3fbefd76f31560b9c4c34
