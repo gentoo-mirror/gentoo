@@ -4,8 +4,6 @@
 EAPI=7
 USE_RUBY="ruby25 ruby26 ruby27 ruby30"
 
-RUBY_FAKEGEM_TASK_TEST="test:full"
-
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 
 RUBY_FAKEGEM_BINWRAP=""
@@ -20,13 +18,13 @@ SRC_URI="https://github.com/ammar/regexp_parser/archive/v${PV}.tar.gz -> ${P}.ta
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND+=" =dev-util/ragel-6*"
 
 ruby_add_bdepend "dev-ruby/rake
-	test? ( dev-ruby/regexp_property_values dev-ruby/rspec:3 )"
+	test? ( dev-ruby/ice_nine dev-ruby/regexp_property_values dev-ruby/rspec:3 )"
 
 all_ruby_prepare() {
 	sed -i -e '/bundler/I s:^:#:' Rakefile || die
@@ -34,4 +32,8 @@ all_ruby_prepare() {
 
 each_ruby_compile() {
 	${RUBY} -S rake ragel:rb || die
+}
+
+each_ruby_test() {
+	${RUBY} -S bin/test || die
 }
