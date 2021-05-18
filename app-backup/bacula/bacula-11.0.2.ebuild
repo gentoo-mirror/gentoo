@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/bacula/${MY_P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ppc ~sparc x86"
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 IUSE="acl bacula-clientonly bacula-nodir bacula-nosd +batch-insert examples ipv6 logwatch mysql postgres qt5 readline +sqlite ssl static tcpd vim-syntax X"
 
 DEPEND="
@@ -120,7 +120,7 @@ src_prepare() {
 	# bug #328701
 	eapply -p0 "${FILESDIR}"/5.2.3/${PN}-5.2.3-openssl-1.patch
 
-	eapply -p0 "${FILESDIR}"/9.6.3/${PN}-9.6.3-fix-static.patch
+	eapply -p0 "${FILESDIR}"/${P}-fix-static.patch
 
 	# fix soname in libbaccat.so bug #602952
 	eapply -p0 "${FILESDIR}/bacula-fix-sonames.patch"
@@ -130,7 +130,8 @@ src_prepare() {
 	sed -i -e "s/strip /# strip /" src/console/Makefile.in || die
 
 	# fix file not found error during make depend
-	eapply -p0 "${FILESDIR}"/7.0.2/${PN}-7.0.2-depend.patch
+	# drop not needed tool
+	rm src/tools/bsparse.c || die
 
 	eapply_user
 
@@ -159,9 +160,6 @@ src_prepare() {
 
 	# correct installation for plugins to mode 0755 (bug #725946)
 	sed -i -e "s/(INSTALL_PROGRAM) /(INSTALL_LIB) /" src/plugins/fd/Makefile.in ||die
-
-	# fix database locking code for bacula-9.6.4 ... -9.6.x (bug #766195)
-	eapply -p0 "${FILESDIR}"/${PN}-9.6.x-fix-race-condition.patch
 
 	# fix bundled libtool (bug 466696)
 	# But first move directory with M4 macros out of the way.
