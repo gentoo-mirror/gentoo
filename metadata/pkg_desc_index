@@ -5954,7 +5954,7 @@ dev-libs/yaz 3.0.53: C/C++ toolkit for Z39.50v3 clients and servers
 dev-libs/zlog 1.2.14-r1 1.2.15: A reliable, thread safe, clear-model, pure C logging library.
 dev-libs/zthread 2.3.2-r4: platform-independent multi-threading and synchronization library for C++
 dev-libs/zziplib 0.13.72: Lightweight library for extracting data from files archived in a single zip file
-dev-lisp/abcl 1.5.0 1.8.0: Armed Bear Common Lisp is a Common Lisp implementation for the JVM.
+dev-lisp/abcl 1.8.0: Armed Bear Common Lisp is a Common Lisp implementation for the JVM.
 dev-lisp/alexandria 20171029: A collection of portable utilities for Common Lisp
 dev-lisp/asdf 3.1.5 3.3.1 3.3.2 3.3.2-r1: ASDF is Another System Definition Facility for Common Lisp
 dev-lisp/c2ffi 11.0.0.20201113: Clang-based FFI wrapper generator for Common Lisp
@@ -8123,7 +8123,7 @@ dev-python/PySDL2 0.9.7: Python (ctypes) bindings for SDL2 libraries
 dev-python/PySensors 0.0.4: Python bindings to libsensors (via ctypes)
 dev-python/PySocks 1.7.1-r1: SOCKS client module
 dev-python/PyUtilib 5.7.2: A collection of Python utilities
-dev-python/QtPy 1.9.0-r2: Abstraction layer for PyQt5/PySide
+dev-python/QtPy 1.9.0-r2: Abstraction layer on top of PyQt5 and PySide2 and additional custom QWidgets
 dev-python/Rx 3.1.0 3.2.0: Reactive Extensions for Python
 dev-python/SaltTesting 2018.9.21: Required testing tools needed in the several Salt Stack projects
 dev-python/WSME 0.10.0: Simplify the writing of REST APIs, and extend them with additional protocols.
@@ -8218,8 +8218,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.17.54 1.17.62 1.17.64 1.17.65 1.17.67 1.17.68 1.17.69 1.17.70 1.17.71 1.17.72 1.17.73 9999: The AWS SDK for Python
-dev-python/botocore 1.20.54 1.20.62 1.20.64 1.20.65 1.20.67 1.20.68 1.20.69 1.20.70 1.20.71 1.20.72 1.20.73 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.17.54 1.17.62 1.17.64 1.17.65 1.17.67 1.17.68 1.17.69 1.17.70 1.17.71 1.17.72 1.17.73 1.17.74 9999: The AWS SDK for Python
+dev-python/botocore 1.20.54 1.20.62 1.20.64 1.20.65 1.20.67 1.20.68 1.20.69 1.20.70 1.20.71 1.20.72 1.20.73 1.20.74 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8242,10 +8242,10 @@ dev-python/castellan 1.2.2 3.6.0: Generic Key Manager interface for OpenStack
 dev-python/casttube 0.2.0: casttube provides a way to interact with the Youtube Chromecast api.
 dev-python/catkin_pkg 0.4.23-r1 9999: Standalone Python library for the catkin package system
 dev-python/cbor 1.0.0-r1: RFC 7049 - Concise Binary Object Representation
-dev-python/cbor2 5.2.0: Pure Python CBOR (de)serializer with extensive tag support
+dev-python/cbor2 5.2.0 5.3.0: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/certifi 10001-r1: Thin replacement for certifi using system certificate store
 dev-python/cffi 1.14.5: Foreign Function Interface for Python calling C code
-dev-python/cfgv 3.2.0: Validate configuration and produce human-readable error messages
+dev-python/cfgv 3.2.0 3.3.0: Validate configuration and produce human-readable error messages
 dev-python/cfn-python-lint 0.48.3 0.49.0 0.49.1: CloudFormation Linter
 dev-python/cftime 1.4.1: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8: Tools and libraries for control groups of Linux
@@ -8495,7 +8495,7 @@ dev-python/github3 1.3.0: A wrapper for the GitHub API written in python
 dev-python/glance_store 2.3.0: A library for glance
 dev-python/glooey 0.3.4-r1: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.0.8-r2 2.1.0_beta5: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 1.26.3: Core Library for Google Client Libraries
+dev-python/google-api-core 1.26.3 1.27.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.2.0 2.3.0 2.4.0: Google API Client for Python
 dev-python/google-apitools 0.5.31 0.5.32: Python library to manipulate Google APIs
 dev-python/google-auth 1.28.0 1.28.1 1.29.0 1.30.0: Google Authentication Library
@@ -8967,7 +8967,7 @@ dev-python/pydecomp 0.3-r1 9999: A python library of common (de)compression and 
 dev-python/pydiff 0.2-r1: Diffs two Python files at the bytecode level
 dev-python/pydispatcher 2.1.2: Multi-producer-multi-consumer signal dispatching mechanism
 dev-python/pydns 3.2.1: Python DNS (Domain Name System) library
-dev-python/pydocstyle 6.0.0: Python docstring style checker
+dev-python/pydocstyle 6.0.0 6.1.1: Python docstring style checker
 dev-python/pydot 1.4.2: Python interface to Graphviz's Dot language
 dev-python/pydotplus 2.0.2: Improved version of the old pydot project
 dev-python/pyelftools 0.27: pure-Python library for analyzing ELF files and DWARF debugging information
@@ -9283,7 +9283,7 @@ dev-python/rfc3339-validator 0.1.3 0.1.4: A pure python RFC3339 validator
 dev-python/rfc3986 1.4.0 1.5.0: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r1: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
-dev-python/rich 9.11.1 9.12.4 9.13.0 10.0.0 10.0.1 10.1.0 10.2.0: Python library for renrering rich text, tables, etc. to the terminal
+dev-python/rich 9.11.1 9.12.4 9.13.0 10.0.0 10.0.1 10.1.0 10.2.0 10.2.1: Python library for renrering rich text, tables, etc. to the terminal
 dev-python/rjsmin 1.1.0: Javascript minifier written in python.
 dev-python/robot-detection 0.4.0: Module to detect if a given HTTP User Agent is a web crawler.
 dev-python/roman 3.3: An Integer to Roman numerals converter
@@ -9582,7 +9582,7 @@ dev-python/yarl 1.6.3: Yet another URL library
 dev-python/yaswfp 0.9.3-r1: Yet Another SWF Parser
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-python/zc-lockfile 2.0: Basic inter-process locks
-dev-python/zconfig 3.5.0: A configuration library supporting a hierarchical schema-driven configuration model
+dev-python/zconfig 3.5.0 3.6.0: A configuration library supporting a hierarchical schema-driven configuration model
 dev-python/zeep 3.4.0: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zeroconf 0.29.0 0.30.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.4.1: Backport of pathlib-compatible object wrapper for zip files
