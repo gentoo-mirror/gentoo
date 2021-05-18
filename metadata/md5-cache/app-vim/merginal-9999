@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install postinst postrm prepare unpack
+DEFINED_PHASES=install postinst postrm unpack
 DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 DESCRIPTION=vim script: fugitive extension to manage and merge git branches
 EAPI=7
@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=app-vim/fugitive || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
 _eclasses_=vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=d2b3304467dc675389ca62f46963904b
+_md5_=5f5b2478e6533fb5c9f177a6fab8595c
