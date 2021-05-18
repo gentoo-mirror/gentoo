@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit pax-utils multilib
+inherit pax-utils toolchain-funcs
 
 DESCRIPTION="World's fastest and most advanced password recovery utility"
 HOMEPAGE="https://github.com/hashcat/hashcat"
@@ -20,6 +20,8 @@ fi
 IUSE="brain video_cards_nvidia"
 DEPEND="
 	app-arch/lzma
+	app-arch/unrar
+	sys-libs/zlib[minizip]
 	brain? ( dev-libs/xxhash )
 	video_cards_nvidia? ( >x11-drivers/nvidia-drivers-440.64
 						|| ( dev-util/nvidia-cuda-toolkit
@@ -29,24 +31,46 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	#remove bundled stuff
+	# remove bundled stuff
 	rm -r deps/OpenCL-Headers || die "Failed to remove bundled OpenCL Headers"
 	rm -r deps/xxHash || die "Failed to remove bundled xxHash"
+	# TODO: Gentoo's app-arch/lzma doesn't install the needed files
 	#rm -r deps/LZMA-SDK || die "Failed to remove bundled LZMA-SDK"
 	#rm -r deps || die "Failed to remove bundled deps"
-	#do not strip
+
+	# do not strip
 	sed -i "/LFLAGS                  += -s/d" src/Makefile
-	#do not add random CFLAGS
+	# do not add random CFLAGS
 	sed -i "s/-O2//" src/Makefile || die
-	sed -i "#LZMA_SDK_INCLUDE#d" src/Makefile || die
-	export PREFIX=/usr
+	#sed -i "#LZMA_SDK_INCLUDE#d" src/Makefile || die
+	# respect CC, CXX, AR
+	sed -i \
+		-e 's/:= gcc/:= $(CC)/' \
+		-e 's/:= g++/:= $(CXX)/' \
+		-e 's/:= ar/:= $(AR)/' \
+		src/Makefile || die
+
+	export PREFIX="${EPREFIX}"/usr
 	export LIBRARY_FOLDER="/usr/$(get_libdir)"
-	export DOCUMENT_FOLDER="/usr/share/doc/${P}"
+	export DOCUMENT_FOLDER="/usr/share/doc/${PF}"
+
 	default
 }
 
 src_compile() {
-	emake SHARED=1 PRODUCTION=1 ENABLE_BRAIN=$(usex brain 1 0) USE_SYSTEM_LZMA=0 USE_SYSTEM_OPENCL=1 USE_SYSTEM_XXHASH=1 VERSION_PURE="${PV}"
+	tc-export CC CXX AR
+
+	emake \
+		SHARED=1 \
+		PRODUCTION=1 \
+		ENABLE_BRAIN=$(usex brain 1 0) \
+		USE_SYSTEM_LZMA=0 \
+		USE_SYSTEM_OPENCL=1 \
+		USE_SYSTEM_UNRAR=1 \
+		USE_SYSTEM_ZLIB=1 \
+		USE_SYSTEM_XXHASH=1 \
+		VERSION_PURE="${PV}"
+
 	pax-mark -mr hashcat
 }
 
@@ -68,5 +92,16 @@ src_test() {
 }
 
 src_install() {
-	emake DESTDIR="${ED}" SHARED=1 PRODUCTION=1 ENABLE_BRAIN=$(usex brain 1 0) USE_SYSTEM_LZMA=0 USE_SYSTEM_OPENCL=1 USE_SYSTEM_XXHASH=1 VERSION_PURE="${PV}" install
+	emake \
+		DESTDIR="${ED}" \
+		SHARED=1 \
+		PRODUCTION=1 \
+		ENABLE_BRAIN=$(usex brain 1 0) \
+		USE_SYSTEM_LZMA=0 \
+		USE_SYSTEM_OPENCL=1 \
+		USE_SYSTEM_UNRAR=1 \
+		USE_SYSTEM_ZLIB=1 \
+		USE_SYSTEM_XXHASH=1 \
+		VERSION_PURE="${PV}" \
+		install
 }
