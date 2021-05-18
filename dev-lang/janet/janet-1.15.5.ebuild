@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -25,7 +25,7 @@ src_compile() {
 	# janet_build is the git hash of the commit related to the
 	# current release - it defines a constant which is then shown
 	# when starting janet
-	local janet_build='\"1.12.2\"'
+	local janet_build='\"1.15.5\"'
 	emake LIBDIR="/usr/$(get_libdir)" PREFIX="/usr" JANET_BUILD="${janet_build}"
 	emake LIBDIR="/usr/$(get_libdir)" PREFIX="/usr" build/janet.pc JANET_BUILD="${janet_build}"
 	emake LIBDIR="/usr/$(get_libdir)" PREFIX="/usr" docs JANET_BUILD="${janet_build}"
