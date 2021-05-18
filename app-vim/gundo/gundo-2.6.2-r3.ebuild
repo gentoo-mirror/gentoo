@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -27,6 +27,6 @@ VIM_PLUGIN_HELPFILES="${PN}.txt"
 PATCHES=( "${FILESDIR}"/${P}-python3.patch )
 
 src_prepare() {
-	rm -r .gitignore .hg* package.sh README* site tests || die
+	rm -r site tests || die
 	default
 }
