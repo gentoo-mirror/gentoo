@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=acct-user/iroffer chroot? ( dev-libs/nss ) curl? ( net-misc/curl[ssl?] gnutls? ( net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( ssl? ( net-misc/curl[curl_ssl_openssl] ) ) ) geoip? ( dev-libs/geoip ) gnutls? ( net-libs/gnutls ) ruby? ( dev-lang/ruby:* ) ssl? ( !gnutls? ( dev-libs/openssl:0= ) )
+DESCRIPTION=IRC fileserver using DCC
+EAPI=7
+HOMEPAGE=http://iroffer.dinoex.net/
+INHERIT=l10n toolchain-funcs
+IUSE=+admin +blowfish +chroot curl debug geoip gnutls +http kqueue +memsave ruby ssl +telnet upnp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-user/iroffer chroot? ( dev-libs/nss ) curl? ( net-misc/curl[ssl?] gnutls? ( net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( ssl? ( net-misc/curl[curl_ssl_openssl] ) ) ) geoip? ( dev-libs/geoip ) gnutls? ( net-libs/gnutls ) ruby? ( dev-lang/ruby:* ) ssl? ( !gnutls? ( dev-libs/openssl:0= ) )
+REQUIRED_USE=admin? ( http ) gnutls? ( ssl )
+SLOT=0
+SRC_URI=http://iroffer.dinoex.net/iroffer-dinoex-3.32.tar.gz http://iroffer.dinoex.net/HISTORY/iroffer-dinoex-3.32.tar.gz
+_eclasses_=l10n	8cdd85e169b835d518bc2fd59f780d8e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=f5483bd8273d62576b051c84acf068d0
