@@ -3,15 +3,13 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
-# The warning that this is wrong is a false positive
-# Spyder has setuptools in install_requires
+PYTHON_COMPAT=( python3_{7..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="78b25754c69a20643258821146e398ad5535c920"
+DOCS_PV="588cdf55cceffea7a3f31d98c0720bfe7df34b72"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -21,28 +19,21 @@ HOMEPAGE="
 "
 SRC_URI="
 	https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz -> ${PN}-docs-${DOCS_PV}.tar.gz
+	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz ->
+		${PN}-docs-${DOCS_PV}.tar.gz
 "
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# The test suite often hangs or does not work.
-# Technically spyder requires pyqt5<13, which
-# we do not have in ::gentoo any more. Likely
-# this is the reason many of the tests fail
-# or hang. RESTRICTing because IMO it is
-# not worth the several hours I spend every
-# single version bump checking which tests
-# do and do not work. Spyder itself works
-# fine with pyqt5>13.
+# The test suite often hangs or does not work. Technically spyder requires
+# pyqt5<13, which we do not have in ::gentoo any more. Likely this is the reason
+# many of the tests fail or hang. RESTRICTing because IMO it is not worth the
+# several hours I spend every single version bump checking which tests do and
+# do not work. Spyder itself works fine with pyqt5>13.
 RESTRICT="test"
 
-# White space separated deps are expansion of python-language-server[all] dep
-# As the pyls ebuild does not add flags for optional runtime dependencies
-# we have to manually specify these desp instead of just depending on the [all]
-# flag. The indentation allows us to distinguish them from spyders direct deps.
 RDEPEND="
 	>=dev-python/atomicwrites-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/chardet-2.0.0[${PYTHON_USEDEP}]
@@ -62,8 +53,29 @@ RDEPEND="
 	>=dev-python/psutil-5.3[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0[${PYTHON_USEDEP}]
 	>=dev-python/pylint-1.0[${PYTHON_USEDEP}]
+	>=dev-python/pyls-black-0.4.6[${PYTHON_USEDEP}]
+	>=dev-python/pyls-spyder-0.3.2[${PYTHON_USEDEP}]
+	<dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/python-language-server-0.36.2[${PYTHON_USEDEP}]
+	<dev-python/python-language-server-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-17[${PYTHON_USEDEP}]
+	~dev-python/qdarkstyle-3.0.2[${PYTHON_USEDEP}]
+	>=dev-python/qstylizer-0.1.10[${PYTHON_USEDEP}]
+	>=dev-python/qtawesome-1.0.2[${PYTHON_USEDEP}]
+	>=dev-python/qtconsole-5.1.0[${PYTHON_USEDEP}]
+	>=dev-python/QtPy-1.5.0[${PYTHON_USEDEP},svg,webengine]
+	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.0.3[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
+	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
+	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
+	<dev-python/watchdog-2.0.0[${PYTHON_USEDEP}]
+"
 
+# python-language-server[all] deps
+RDEPEND+="
 	dev-python/autopep8[${PYTHON_USEDEP}]
 	>=dev-python/flake8-3.8.0[${PYTHON_USEDEP}]
 	>=dev-python/mccabe-0.6.0[${PYTHON_USEDEP}]
@@ -73,55 +85,41 @@ RDEPEND="
 	>=dev-python/pydocstyle-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pyflakes-2.2.0[${PYTHON_USEDEP}]
 	<dev-python/pyflakes-2.3.0[${PYTHON_USEDEP}]
-	dev-python/pylint[${PYTHON_USEDEP}]
+	>=dev-python/pylint-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/rope-0.10.5[${PYTHON_USEDEP}]
 	dev-python/yapf[${PYTHON_USEDEP}]
+"
 
-	<dev-python/python-language-server-1.0.0[${PYTHON_USEDEP}]
-	>=dev-python/pyls-black-0.4.6[${PYTHON_USEDEP}]
-	>=dev-python/pyls-spyder-0.3.2[${PYTHON_USEDEP}]
-	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-17[${PYTHON_USEDEP}]
-	~dev-python/qdarkstyle-3.0.2[${PYTHON_USEDEP}]
-	>=dev-python/qstylizer-0.1.10[${PYTHON_USEDEP}]
-	>=dev-python/qtawesome-0.5.7[${PYTHON_USEDEP}]
-	>=dev-python/qtconsole-5.0.3[${PYTHON_USEDEP}]
-	>=dev-python/QtPy-1.5.0[${PYTHON_USEDEP},svg,webengine]
-	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.0.1[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-2.1.0[${PYTHON_USEDEP}]
-	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
-	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
-	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
-	<dev-python/watchdog-2.0.0[${PYTHON_USEDEP}]
-
+# currently does not work with pyside2
+RDEPEND+="
 	dev-python/PyQt5[${PYTHON_USEDEP}]
 	dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
 "
 
-BDEPEND="test? (
-	dev-python/cython[${PYTHON_USEDEP}]
-	dev-python/flaky[${PYTHON_USEDEP}]
-	dev-python/matplotlib[tk,${PYTHON_USEDEP}]
-	dev-python/pandas[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP}]
-	<dev-python/pytest-6.0[${PYTHON_USEDEP}]
-	dev-python/pytest-lazy-fixture[${PYTHON_USEDEP}]
-	dev-python/pytest-mock[${PYTHON_USEDEP}]
-	dev-python/pytest-ordering[${PYTHON_USEDEP}]
-	dev-python/pytest-qt[${PYTHON_USEDEP}]
-	dev-python/pytest-xvfb[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/scipy[${PYTHON_USEDEP}]
-	dev-python/sympy[${PYTHON_USEDEP}]
-)"
+BDEPEND="
+	test? (
+		dev-python/cython[${PYTHON_USEDEP}]
+		dev-python/flaky[${PYTHON_USEDEP}]
+		dev-python/matplotlib[tk,${PYTHON_USEDEP}]
+		dev-python/pandas[${PYTHON_USEDEP}]
+		dev-python/pillow[${PYTHON_USEDEP}]
+		<dev-python/pytest-6.0[${PYTHON_USEDEP}]
+		dev-python/pytest-lazy-fixture[${PYTHON_USEDEP}]
+		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		dev-python/pytest-ordering[${PYTHON_USEDEP}]
+		dev-python/pytest-qt[${PYTHON_USEDEP}]
+		dev-python/pytest-xvfb[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/scipy[${PYTHON_USEDEP}]
+		dev-python/sympy[${PYTHON_USEDEP}]
+	)"
 
 # Based on the courtesy of Arfrever
 # This patch removes a call to update-desktop-database during build
 # This fails because access is denied to this command during build
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.0-build.patch"
-	"${FILESDIR}/${PN}-4.1.5-doc-theme-renamed.patch"
+	"${FILESDIR}/${PN}-5.0.1-doc-theme-renamed.patch"
 )
 
 DOCS=(
@@ -136,13 +134,12 @@ DOCS=(
 )
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/doc dev-python/sphinx-panels dev-python/pydata-sphinx-theme dev-python/sphinx-multiversion
+distutils_enable_sphinx docs/doc \
+	dev-python/sphinx-panels \
+	dev-python/pydata-sphinx-theme \
+	dev-python/sphinx-multiversion
 
 python_prepare_all() {
-	# Fix detection of spyder-kernels
-	sed -i -e 's/>=2.0.1,<2.1.0/>=2.0.1;<2.1.0/g' \
-		spyder/dependencies.py || die
-
 	# move docs into workdir
 	mv ../spyder-docs-${DOCS_PV}* docs || die
 
@@ -150,7 +147,7 @@ python_prepare_all() {
 	#    dev-python/spyder-kernels,
 	#    dev-python/python-language-server,
 	#    dev-python/qdarkstyle
-	rm external-deps/* -r || die
+	rm -r external-deps/* || die
 	# runs against things packaged in external-deps dir
 	rm conftest.py || die
 
@@ -173,10 +170,10 @@ python_prepare_all() {
 }
 
 # Calling pytest directly makes the tests freeze after completing even if successful
-# Exit code is nonzero even upon success, so can't add || die here
-# test results should be checked for success manually
+# Exit code is nonzero even upon success, so can't add || die here test results
+# should be checked for success manually
 python_test() {
-	${EPYTHON} runtests.py
+	"${EPYTHON}" runtests.py
 }
 
 pkg_postinst() {
