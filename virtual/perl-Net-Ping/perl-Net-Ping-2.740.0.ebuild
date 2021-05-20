@@ -10,6 +10,6 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~
 RDEPEND="
 	|| ( =dev-lang/perl-5.34* ~perl-core/${PN#perl-}-${PV} )
 	dev-lang/perl:=
-	!<dev-perl/Test-Tester-0.114.0
-	!<dev-perl/Test-use-ok-0.160.0
+	!<perl-core/Net-Ping-${PV}
+	!>perl-core/Net-Ping-${PV}-r999
 "
