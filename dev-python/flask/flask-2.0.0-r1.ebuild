@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} pypy3 )
+PYTHON_COMPAT=( python3_{7..10} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="A microframework based on Werkzeug, Jinja2 and good intentions"
@@ -24,12 +24,17 @@ SLOT="0"
 IUSE="examples"
 
 RDEPEND="
-	>=dev-python/asgiref-3.2[${PYTHON_USEDEP}]
 	>=dev-python/click-7.1.2[${PYTHON_USEDEP}]
 	dev-python/blinker[${PYTHON_USEDEP}]
 	>=dev-python/itsdangerous-2.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
 	>=dev-python/werkzeug-2.0[${PYTHON_USEDEP}]"
+BDEPEND="
+	test? (
+		$(python_gen_cond_dep '
+			>=dev-python/asgiref-3.2[${PYTHON_USEDEP}]
+		' python3_{7..9} pypy3)
+	)"
 
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
