@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ SRC_URI="https://github.com/ubuntu/gnome-shell-extension-appindicator/archive/v$
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
@@ -20,6 +20,8 @@ RDEPEND="
 DEPEND=""
 BDEPEND=""
 
+extension_uuid="appindicatorsupport@rgcjonas.gmail.com"
+
 src_compile () { :; }
 
 src_install() {
@@ -27,7 +29,7 @@ src_install() {
 	dodoc AUTHORS.md
 	rm -f AUTHORS.md LICENSE Makefile README.md || die
 
-	insinto /usr/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com
+	insinto /usr/share/gnome-shell/extensions/"${extension_uuid}"
 	doins -r *
 }
 

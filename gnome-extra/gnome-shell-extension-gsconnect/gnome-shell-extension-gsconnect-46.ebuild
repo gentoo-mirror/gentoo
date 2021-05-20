@@ -5,19 +5,19 @@ EAPI=7
 inherit gnome2-utils meson readme.gentoo-r1 xdg
 
 DESCRIPTION="KDE Connect implementation for Gnome Shell"
-HOMEPAGE="https://github.com/andyholmes/gnome-shell-extension-gsconnect"
-SRC_URI="https://github.com/andyholmes/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/GSConnect/gnome-shell-extension-gsconnect"
+SRC_URI="https://github.com/GSConnect/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="nautilus"
 
 COMMON_DEPEND="dev-libs/glib:2"
 RDEPEND="${COMMON_DEPEND}
 	app-eselect/eselect-gnome-shell-extensions
-	>=dev-libs/gjs-1.48
-	=gnome-base/gnome-shell-3.38*
+	>=dev-libs/gjs-1.68
+	=gnome-base/gnome-shell-40*
 	gnome-base/gvfs
 	gnome-extra/evolution-data-server
 	|| ( media-libs/libcanberra media-libs/gsound )
