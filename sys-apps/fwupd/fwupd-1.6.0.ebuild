@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit linux-info meson python-single-r1 vala xdg toolchain-funcs
 
@@ -13,12 +13,15 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
-IUSE="agent amt dell gtk-doc elogind minimal introspection +man nvme redfish synaptics systemd test thunderbolt tpm uefi"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+IUSE="agent amt archive bluetooth dell gnutls gtk-doc gusb elogind flashrom lzma minimal introspection +man nvme policykit spi synaptics systemd test thunderbolt tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
 	dell? ( uefi )
 	minimal? ( !introspection )
+	spi? ( lzma )
+	synaptics? ( gnutls )
+	uefi? ( gnutls )
 "
 RESTRICT="!test? ( test )"
 
@@ -31,19 +34,17 @@ BDEPEND="$(vala_depend)
 		sys-apps/help2man
 	)
 	test? (
-		net-libs/gnutls[tools]
 		thunderbolt? ( dev-util/umockdev )
+		net-libs/gnutls[tools]
 	)
 "
-CDEPEND="${PYTHON_DEPS}
+COMMON_DEPEND="${PYTHON_DEPS}
 	>=app-arch/gcab-1.0
-	app-arch/libarchive:=
 	dev-db/sqlite
 	>=dev-libs/glib-2.45.8:2
 	dev-libs/json-glib
 	dev-libs/libgpg-error
 	dev-libs/libgudev:=
-	>=dev-libs/libgusb-0.2.9[introspection?]
 	>=dev-libs/libjcat-0.1.0[gpg,pkcs7]
 	>=dev-libs/libxmlb-0.1.13:=
 	$(python_gen_cond_dep '
@@ -52,50 +53,46 @@ CDEPEND="${PYTHON_DEPS}
 		dev-python/pygobject:3[cairo,${PYTHON_MULTI_USEDEP}]
 	')
 	>=net-libs/libsoup-2.51.92:2.4[introspection?]
+	net-misc/curl
 	virtual/libelf:0=
 	virtual/udev
-	dell? (
-		sys-libs/efivar
-		>=sys-libs/libsmbios-2.4.0
-	)
-	elogind? ( sys-auth/elogind )
-	!minimal? (
-		>=sys-auth/polkit-0.103
-	)
-	nvme? ( sys-libs/efivar )
-	redfish? ( sys-libs/efivar )
+	archive? ( app-arch/libarchive:= )
+	dell? ( >=sys-libs/libsmbios-2.4.0 )
+	elogind? ( >=sys-auth/elogind-211 )
+	flashrom? ( >=sys-apps/flashrom-1.2-r3 )
+	gnutls? ( net-libs/gnutls )
+	gusb? ( >=dev-libs/libgusb-0.3.5[introspection?] )
+	lzma? ( app-arch/xz-utils )
+	policykit? ( >=sys-auth/polkit-0.103 )
 	systemd? ( >=sys-apps/systemd-211 )
 	tpm? ( app-crypt/tpm2-tss )
 	uefi? (
-		app-crypt/tpm2-tss
-		media-libs/fontconfig
-		media-libs/freetype
 		sys-boot/gnu-efi
 		sys-boot/efibootmgr
-		>=sys-libs/efivar-33
-		x11-libs/cairo
+		sys-fs/udisks
+		sys-libs/efivar
 	)
 "
 # Block sci-chemistry/chemical-mime-data for bug #701900
 RDEPEND="
 	!<sci-chemistry/chemical-mime-data-0.1.94-r4
-	${CDEPEND}
+	${COMMON_DEPEND}
 	sys-apps/dbus
 "
 
 DEPEND="
-	${CDEPEND}
+	${COMMON_DEPEND}
 	x11-libs/pango[introspection]
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.3.9-logind_plugin.patch"
-	"${FILESDIR}/${PN}-1.4.4-help2man_var.patch" #728484
+	"${FILESDIR}/${PN}-1.5.7-logind_plugin.patch"
+	"${FILESDIR}/${PN}-1.6.0-gusb_deps.patch"
 )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
-	if use nvme; then
+	if use nvme ; then
 		kernel_is -ge 4 4 || die "NVMe support requires kernel >= 4.4"
 	fi
 }
@@ -105,35 +102,55 @@ src_prepare() {
 	# c.f. https://github.com/fwupd/fwupd/issues/1414
 	sed -e "/test('thunderbolt-self-test', e, env: test_env, timeout : 120)/d" \
 		-i plugins/thunderbolt/meson.build || die
+	sed '/platform-integrity/d' \
+		-i plugins/meson.build || die #753521
 	vala_src_prepare
 }
 
 src_configure() {
+	local plugins=(
+		$(meson_use amt plugin_amt)
+		$(meson_use dell plugin_dell)
+		$(meson_use flashrom plugin_flashrom)
+		$(meson_use gusb plugin_altos)
+		$(meson_use nvme plugin_nvme)
+		$(meson_use spi plugin_intel_spi)
+		$(meson_use synaptics plugin_synaptics_mst)
+		$(meson_use synaptics plugin_synaptics_rmi)
+		$(meson_use thunderbolt plugin_thunderbolt)
+		$(meson_use tpm plugin_tpm)
+		$(meson_use uefi plugin_uefi_capsule)
+		$(meson_use uefi plugin_uefi_capsule_splash)
+		$(meson_use uefi plugin_uefi_pk)
+
+		# Dependencies are not available (yet?)
+		-Dplugin_modem_manager="false"
+	)
+	use ppc64 && plugins+=( -Dplugin_msr="false" )
+
 	local emesonargs=(
 		--localstatedir "${EPREFIX}"/var
 		-Dbuild="$(usex minimal standalone all)"
 		$(meson_use agent)
-		$(meson_use amt plugin_amt)
-		$(meson_use dell plugin_dell)
+		$(meson_use archive libarchive)
+		$(meson_use bluetooth bluez)
 		$(meson_use elogind)
+		$(meson_use gnutls)
 		$(meson_use gtk-doc gtkdoc)
+		$(meson_use gusb)
+		$(meson_use lzma)
 		$(meson_use man)
-		$(meson_use nvme plugin_nvme)
 		$(meson_use introspection)
-		$(meson_use redfish plugin_redfish)
-		$(meson_use synaptics plugin_synaptics)
+		$(meson_use policykit polkit)
 		$(meson_use systemd)
 		$(meson_use test tests)
-		$(meson_use thunderbolt plugin_thunderbolt)
-		$(meson_use tpm plugin_tpm)
-		$(meson_use uefi plugin_uefi)
-		# Although our sys-apps/flashrom package now provides
-		# libflashrom.a, meson still can't find it
-		-Dplugin_flashrom="false"
-		# Dependencies are not available (yet?)
-		-Dplugin_modem_manager="false"
+		$(meson_use uefi efi_binary)
 		-Dconsolekit="false"
+		-Dcurl="true"
+
+		${plugins[@]}
 	)
+	use uefi && emesonargs+=( -Defi_os_dir="gentoo" )
 	export CACHE_DIRECTORY="${T}"
 	meson_src_configure
 }
@@ -142,10 +159,7 @@ src_install() {
 	meson_src_install
 
 	if ! use minimal ; then
-		sed "s@%SEAT_MANAGER%@elogind@" \
-			"${FILESDIR}"/${PN}-r2 \
-			> "${T}"/${PN} || die
-		doinitd "${T}"/${PN}
+		doinitd "${FILESDIR}"/${PN}-r2
 
 		if ! use systemd ; then
 			# Don't timeout when fwupd is running (#673140)
@@ -153,12 +167,4 @@ src_install() {
 				-i "${ED}"/etc/${PN}/daemon.conf || die
 		fi
 	fi
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-	elog "In case you are using openrc as init system"
-	elog "and you're upgrading from <fwupd-1.1.0, you"
-	elog "need to start the fwupd daemon via the openrc"
-	elog "init script that comes with this package."
 }
