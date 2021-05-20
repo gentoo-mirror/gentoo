@@ -9,7 +9,7 @@ DOWNLOAD_PAGE="http://download.oracle.com/otndocs/jcp/7542-jms-1.1-fr-doc-oth-JS
 At="jms-${PV/./_}-fr-apidocs.zip"
 
 DESCRIPTION="The Java Message Service (JMS) API"
-HOMEPAGE="http://java.sun.com/products/jms/"
+HOMEPAGE="https://www.oracle.com/java/technologies/java-message-service.html"
 SRC_URI="${At}"
 
 LICENSE="sun-bcla-jms"
@@ -17,9 +17,9 @@ SLOT=0
 KEYWORDS="amd64 arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris"
 IUSE="doc"
 
-RDEPEND=">=virtual/jre-1.3"
-DEPEND="app-arch/unzip
-	>=virtual/jdk-1.3"
+DEPEND=" >=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
+BDEPEND="app-arch/unzip"
 
 RESTRICT="bindist fetch"
 
