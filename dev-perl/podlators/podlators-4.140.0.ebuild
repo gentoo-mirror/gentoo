@@ -3,13 +3,19 @@
 
 EAPI=7
 
-DESCRIPTION="Virtual for ${PN#perl-}"
+DIST_AUTHOR=RRA
+DIST_VERSION=4.14
+inherit perl-module
+
+DESCRIPTION="Convert POD source into various output formats"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE=""
 
 RDEPEND="
-	|| ( =dev-lang/perl-5.32* ~perl-core/${PN#perl-}-${PV} )
-	dev-lang/perl:=
-	!<perl-core/${PN#perl-}-${PV}
-	!>perl-core/${PN#perl-}-${PV}-r999
+	>=virtual/perl-Pod-Simple-3.60.0
+	!perl-core/podlators
+"
+BDEPEND="${RDEPEND}
+	virtual/perl-ExtUtils-MakeMaker
 "
