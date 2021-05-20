@@ -3,6 +3,7 @@ DEPEND=virtual/tex-base doc? ( dev-texlive/texlive-plaingeneric )
 DESCRIPTION=Donald Knuth's MMIX Assembler and Simulator
 EAPI=7
 HOMEPAGE=https://www-cs-faculty.stanford.edu/~knuth/mmix.html http://mmix.cs.hm.edu
+INHERIT=toolchain-funcs
 IUSE=doc
 KEYWORDS=amd64 x86
 LICENSE=mmix

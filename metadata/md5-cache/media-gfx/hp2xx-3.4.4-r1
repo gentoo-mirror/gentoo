@@ -4,11 +4,12 @@ DEPEND=jpeg? ( virtual/jpeg ) png? ( media-libs/libpng:= sys-libs/zlib ) tiff? (
 DESCRIPTION=Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/hp2xx/
+INHERIT=toolchain-funcs
 IUSE=jpeg png tiff X
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=jpeg? ( virtual/jpeg ) png? ( media-libs/libpng:= sys-libs/zlib ) tiff? ( media-libs/tiff:= ) X? ( x11-libs/libX11 )
 SLOT=0
 SRC_URI=mirror://gnu/hp2xx/hp2xx-3.4.4.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=8b89aef1b6dc1e69557abc2dfc99c66d

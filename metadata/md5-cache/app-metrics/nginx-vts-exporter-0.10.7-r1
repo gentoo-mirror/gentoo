@@ -4,6 +4,7 @@ DEPEND=acct-group/nginx-vts-exporter acct-user/nginx-vts-exporter
 DESCRIPTION=Nginx virtual host traffic stats exporter for Prometheus
 EAPI=7
 HOMEPAGE=https://github.com/hnlq715/nginx-vts-exporter
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=MIT Apache-2.0 BSD
 RDEPEND=acct-group/nginx-vts-exporter acct-user/nginx-vts-exporter

@@ -3,10 +3,11 @@ DEPEND=dev-lang/perl >=media-libs/giflib-5:0= >=media-libs/libpng-1.4:0= virtual
 DESCRIPTION=a program for generating photomosaics
 EAPI=6
 HOMEPAGE=https://www.complang.tuwien.ac.at/schani/metapixel
+INHERIT=toolchain-funcs
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/perl >=media-libs/giflib-5:0= >=media-libs/libpng-1.4:0= virtual/jpeg:0
 SLOT=0
 SRC_URI=https://www.complang.tuwien.ac.at/schani/metapixel/files/metapixel-1.0.2.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=f8fb5fdb2879c9ffadea11cc16acf0f9

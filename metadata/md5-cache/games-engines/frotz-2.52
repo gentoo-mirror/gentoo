@@ -4,6 +4,7 @@ DEPEND=ncurses? ( sys-libs/ncurses:0=[unicode?] sound? ( media-libs/libao media-
 DESCRIPTION=Interpreter for Z-code based text games
 EAPI=7
 HOMEPAGE=https://661.org/proj/if/frotz/
+INHERIT=toolchain-funcs
 IUSE=ncurses sdl sound unicode
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
@@ -11,5 +12,5 @@ RDEPEND=ncurses? ( sys-libs/ncurses:0=[unicode?] sound? ( media-libs/libao media
 REQUIRED_USE=sound? ( || ( ncurses sdl ) )
 SLOT=0
 SRC_URI=https://gitlab.com/DavidGriffith/frotz/-/archive/2.52/frotz-2.52.tar.bz2
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=68e421b3f251349c7e67a8db511d6c3d

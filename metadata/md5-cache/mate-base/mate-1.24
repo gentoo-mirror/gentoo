@@ -2,6 +2,7 @@ DEFINED_PHASES=postinst
 DESCRIPTION=Meta ebuild for MATE, a traditional desktop environment
 EAPI=6
 HOMEPAGE=https://mate-desktop.org
+INHERIT=eapi7-ver
 IUSE=+base -bluetooth help +notification +themes +extras
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=metapackage

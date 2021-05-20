@@ -3,10 +3,11 @@ DEPEND=sys-libs/zlib app-arch/zopfli:= app-arch/unzip
 DESCRIPTION=create an APNG from a GIF
 EAPI=6
 HOMEPAGE=https://sourceforge.net/projects/gif2apng/
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=ZLIB LGPL-2.1
 RDEPEND=sys-libs/zlib app-arch/zopfli:=
 SLOT=0
 SRC_URI=mirror://sourceforge/gif2apng/1.9/gif2apng-1.9-src.zip
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=a616359bbd90aa1401fe670518ff4107

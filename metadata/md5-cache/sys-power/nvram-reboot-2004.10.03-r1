@@ -2,6 +2,7 @@ DEFINED_PHASES=install postinst postrm preinst prerm pretend
 DESCRIPTION=PowerOff Boot-Images for nvram-wakeup (not needed for GRUB)
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/nvram-wakeup/
+INHERIT=mount-boot
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 SLOT=0

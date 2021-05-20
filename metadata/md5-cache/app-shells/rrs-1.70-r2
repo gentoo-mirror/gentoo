@@ -3,11 +3,12 @@ DEPEND=ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Reverse Remote Shell
 EAPI=7
 HOMEPAGE=http://freshmeat.sourceforge.net/projects/rrs
+INHERIT=toolchain-funcs
 IUSE=ssl
 KEYWORDS=amd64 ppc x86
 LICENSE=MIT
 RDEPEND=ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=http://www.cycom.se/uploads/36/19/rrs-1.70.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=8fe4966098b11b46425ccfdf53b91b0e

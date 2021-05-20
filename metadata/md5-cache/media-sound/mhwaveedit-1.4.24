@@ -4,11 +4,12 @@ DEPEND=x11-libs/gtk+:2 x11-libs/pango alsa? ( media-libs/alsa-lib:= ) jack? ( vi
 DESCRIPTION=GTK+ Sound file editor (wav, and a few others.)
 EAPI=7
 HOMEPAGE=https://github.com/magnush/mhwaveedit/
+INHERIT=xdg
 IUSE=alsa jack ladspa libsamplerate nls oss pulseaudio sdl sndfile sox
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
 RDEPEND=x11-libs/gtk+:2 x11-libs/pango alsa? ( media-libs/alsa-lib:= ) jack? ( virtual/jack ) ladspa? ( media-libs/ladspa-sdk ) libsamplerate? ( media-libs/libsamplerate:= ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( media-libs/libsdl:= ) sndfile? ( media-libs/libsndfile:= ) sox? ( media-sound/sox:= )
 SLOT=0
 SRC_URI=https://github.com/magnush/mhwaveedit/archive/v1.4.24.tar.gz -> mhwaveedit-1.4.24.tar.gz
-_eclasses_=xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=7225f6913436a7ada1eedfda6aa93ace

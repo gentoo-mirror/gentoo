@@ -2,11 +2,12 @@ DEFINED_PHASES=configure install preinst
 DESCRIPTION=Displays the last new messages of a logfile
 EAPI=6
 HOMEPAGE=http://fetchlog.sourceforge.net/
+INHERIT=toolchain-funcs
 IUSE=snmp
 KEYWORDS=amd64 ppc ~ppc64 x86
 LICENSE=GPL-2
 RDEPEND=snmp? ( >=dev-perl/Net-SNMP-4.0.1-r2 >=net-analyzer/net-snmp-5.0.6 )
 SLOT=0
 SRC_URI=mirror://sourceforge/fetchlog/fetchlog-1.4.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=aba279ffba7cfe87b5217e20ab910041

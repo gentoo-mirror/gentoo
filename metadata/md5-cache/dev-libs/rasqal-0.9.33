@@ -4,6 +4,7 @@ DEPEND=>=media-libs/raptor-2.0.15 crypt? ( !mhash? ( dev-libs/libgcrypt:0 ) mhas
 DESCRIPTION=Library that handles Resource Description Framework (RDF)
 EAPI=7
 HOMEPAGE=http://librdf.org/rasqal/
+INHERIT=libtool
 IUSE=+crypt gmp kernel_linux +mhash pcre static-libs test xml
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=Apache-2.0 GPL-2 LGPL-2.1
@@ -11,5 +12,5 @@ RDEPEND=>=media-libs/raptor-2.0.15 crypt? ( !mhash? ( dev-libs/libgcrypt:0 ) mha
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://download.librdf.org/source/rasqal-0.9.33.tar.gz
-_eclasses_=libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96
 _md5_=3e2f813e54f81c7cca35956f07dbc8bd

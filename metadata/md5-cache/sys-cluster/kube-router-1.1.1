@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=A turnkey solution for Kubernetes networking
 EAPI=7
 HOMEPAGE=https://kube-router.io
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 MIT BSD BSD-2 MPL-2.0 ISC LGPL-3-with-linking-exception
 RDEPEND=net-firewall/iptables[conntrack] net-firewall/ipset sys-cluster/ipvsadm

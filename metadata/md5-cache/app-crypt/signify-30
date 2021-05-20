@@ -3,10 +3,11 @@ DEPEND=>=dev-libs/libbsd-0.7
 DESCRIPTION=Cryptographically sign and verify files
 EAPI=7
 HOMEPAGE=http://www.openbsd.org/ https://github.com/aperezdc/signify
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-1
 RDEPEND=>=dev-libs/libbsd-0.7
 SLOT=0
 SRC_URI=https://github.com/aperezdc/signify/archive/v30.tar.gz -> signify-30.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=43f0389cb4764623ed26ea319a67b0c0

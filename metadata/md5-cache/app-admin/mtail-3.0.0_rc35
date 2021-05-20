@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install postinst prepare unpack
 DESCRIPTION=A tool for extracting metrics from application logs
 EAPI=7
 HOMEPAGE=https://github.com/google/mtail
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 MPL-2.0 BSD BSD-2 MIT
 RDEPEND=!app-misc/mtail

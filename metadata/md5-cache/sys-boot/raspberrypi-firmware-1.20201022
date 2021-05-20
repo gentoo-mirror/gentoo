@@ -2,6 +2,7 @@ DEFINED_PHASES=install postinst postrm preinst prepare prerm pretend
 DESCRIPTION=Raspberry Pi (all versions) bootloader and GPU firmware
 EAPI=7
 HOMEPAGE=https://github.com/raspberrypi/firmware
+INHERIT=mount-boot readme.gentoo-r1
 KEYWORDS=-* arm arm64
 LICENSE=GPL-2 raspberrypi-videocore-bin
 RESTRICT=binchecks strip

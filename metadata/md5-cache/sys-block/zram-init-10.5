@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install postinst prepare
 DESCRIPTION=Scripts to support compressed swap devices or ramdisks with zRAM
 EAPI=7
 HOMEPAGE=https://github.com/vaeth/zram-init/
+INHERIT=prefix readme.gentoo-r1
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=>=app-shells/push-2.0 virtual/libintl || ( sys-apps/openrc sys-apps/systemd )

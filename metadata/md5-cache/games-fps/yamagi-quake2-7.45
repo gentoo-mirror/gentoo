@@ -3,6 +3,7 @@ DEPEND=client? ( media-libs/libsdl2[video] !openal? ( media-libs/libsdl2[sound] 
 DESCRIPTION=Quake 2 engine focused on single player
 EAPI=7
 HOMEPAGE=https://www.yamagi.org/quake2/
+INHERIT=desktop wrapper
 IUSE=+client ctf dedicated openal +opengl rogue softrender xatrix
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2

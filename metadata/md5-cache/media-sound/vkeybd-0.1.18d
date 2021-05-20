@@ -3,11 +3,12 @@ DEPEND=>=dev-lang/tk-8.3:= x11-libs/libX11 alsa? ( media-libs/alsa-lib:= ) lash?
 DESCRIPTION=A virtual MIDI keyboard for X
 EAPI=7
 HOMEPAGE=http://www.alsa-project.org/~iwai/alsa.html
+INHERIT=toolchain-funcs
 IUSE=alsa lash oss
 KEYWORDS=amd64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=>=dev-lang/tk-8.3:= x11-libs/libX11 alsa? ( media-libs/alsa-lib:= ) lash? ( media-sound/lash:= )
 SLOT=0
 SRC_URI=http://ftp.suse.com/pub/people/tiwai/vkeybd/vkeybd-0.1.18d.tar.bz2
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=6d6852240299ccc9ba9abbc330969282

@@ -2,6 +2,7 @@ DEFINED_PHASES=postinst
 DESCRIPTION=Symlinks and syncs browser profile dirs to RAM.
 EAPI=6
 HOMEPAGE=https://wiki.archlinux.org/index.php/Profile-sync-daemon
+INHERIT=versionator
 KEYWORDS=amd64 x86
 LICENSE=MIT
 RDEPEND=app-shells/bash net-misc/rsync[xattr] sys-apps/systemd

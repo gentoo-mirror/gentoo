@@ -3,11 +3,12 @@ DEPEND=bzip2? ( app-arch/bzip2:= ) curl? ( net-misc/curl ) lzma? ( app-arch/xz-u
 DESCRIPTION=C library for high-throughput sequencing data formats
 EAPI=7
 HOMEPAGE=http://www.htslib.org/
+INHERIT=toolchain-funcs
 IUSE=+bzip2 curl +lzma
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=bzip2? ( app-arch/bzip2:= ) curl? ( net-misc/curl ) lzma? ( app-arch/xz-utils:= )
 SLOT=0/3
 SRC_URI=mirror://sourceforge/samtools/1.10.2/htslib-1.10.2.tar.bz2
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=23b94cf7e1e965cd1a0196a498381a08

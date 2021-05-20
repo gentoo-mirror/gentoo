@@ -4,10 +4,11 @@ DEPEND=sys-libs/zlib:0= dev-libs/openssl:0=
 DESCRIPTION=A rewrite of CVSup
 EAPI=7
 HOMEPAGE=http://www.mu.org/~mux/csup.html
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=BSD
 RDEPEND=sys-libs/zlib:0= dev-libs/openssl:0=
 SLOT=0
 SRC_URI=http://mu.org/~mux/csup-snap-20060318.tgz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=7ef886a418963ac93ffbe1dda655b876

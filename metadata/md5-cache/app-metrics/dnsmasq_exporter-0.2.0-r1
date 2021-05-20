@@ -4,6 +4,7 @@ DEPEND=acct-group/dnsmasq_exporter acct-user/dnsmasq_exporter
 DESCRIPTION=prometheus exporter for dnsmasq
 EAPI=7
 HOMEPAGE=https://github.com/google/dnsmasq_exporter
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=BSD MIT Apache-2.0
 RDEPEND=acct-group/dnsmasq_exporter acct-user/dnsmasq_exporter

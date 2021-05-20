@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install postinst prepare unpack
 DESCRIPTION=Tool to move from docker-compose to Kubernetes
 EAPI=7
 HOMEPAGE=https://github.com/kubernetes/kompose https://kompose.io
+INHERIT=go-module
 IUSE=hardened
 KEYWORDS=~amd64
 LICENSE=Apache-2.0

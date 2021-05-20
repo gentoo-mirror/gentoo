@@ -3,6 +3,7 @@ DEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0= mysql? ( dev-db/mysql-connector-c:
 DESCRIPTION=Credential Validation Modules by Bruce Guenter
 EAPI=7
 HOMEPAGE=http://untroubled.org/cvm/
+INHERIT=toolchain-funcs
 IUSE=mysql postgres test vpopmail
 KEYWORDS=~amd64 ppc sparc x86
 LICENSE=GPL-2+
@@ -10,5 +11,5 @@ RDEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://untroubled.org/cvm/archive/cvm-0.97.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=f20940425821dc7cc9a52c850481755f

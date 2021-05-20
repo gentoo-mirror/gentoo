@@ -4,6 +4,7 @@ DEPEND=sys-libs/readline:0= blas? ( virtual/blas ) bzip2? ( app-arch/bzip2 ) glp
 DESCRIPTION=COIN-OR Matrix, Vector and other utility classes
 EAPI=7
 HOMEPAGE=https://github.com/coin-or/CoinUtils/
+INHERIT=toolchain-funcs
 IUSE=bzip2 doc glpk blas lapack static-libs test zlib
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=EPL-1.0
@@ -11,5 +12,5 @@ RDEPEND=sys-libs/readline:0= blas? ( virtual/blas ) bzip2? ( app-arch/bzip2 ) gl
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://github.com/coin-or/CoinUtils/archive/releases/2.11.4.tar.gz -> coinor-utils-2.11.4.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=b6f5c5ea445f5cb36ee31ab72f84e62e

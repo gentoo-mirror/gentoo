@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=A utility to convert markdown to man pages
 EAPI=7
 HOMEPAGE=https://github.com/cpuguy83/go-md2man
+INHERIT=go-module
 KEYWORDS=amd64 ~arm arm64 ppc64 ~x86
 LICENSE=BSD-2 MIT
 RESTRICT=strip test

@@ -3,10 +3,11 @@ DEPEND=app-arch/unzip >=sys-apps/sed-4
 DESCRIPTION=Network benchmark using TCP and UDP protocols
 EAPI=7
 HOMEPAGE=https://web.ars.de/netio/
+INHERIT=edos2unix toolchain-funcs
 KEYWORDS=~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=free-noncomm
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://www.ars.de/netio133.zip
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=f1b579eedcef7efe9284a6c66d80e86f

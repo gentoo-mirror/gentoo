@@ -4,11 +4,12 @@ DEPEND=sys-libs/ncurses:0= sys-libs/slang
 DESCRIPTION=a lightweight programmers editor
 EAPI=7
 HOMEPAGE=https://packages.qa.debian.org/l/lpe.html
+INHERIT=toolchain-funcs
 IUSE=nls
 KEYWORDS=amd64 ppc sparc x86 ~x86-linux
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:0= sys-libs/slang
 SLOT=0
 SRC_URI=mirror://debian/pool/main/l/lpe/lpe_1.2.6.13-0.1.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=f1865d6d0e771aa6f44f322a5422fac3

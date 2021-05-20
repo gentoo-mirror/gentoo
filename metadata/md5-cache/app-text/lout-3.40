@@ -3,11 +3,12 @@ DEPEND=zlib? ( >=sys-libs/zlib-1.1.4 )
 DESCRIPTION=High-level language for document formatting
 EAPI=6
 HOMEPAGE=http://savannah.nongnu.org/projects/lout
+INHERIT=toolchain-funcs
 IUSE=zlib doc
 KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3+
 RDEPEND=zlib? ( >=sys-libs/zlib-1.1.4 )
 SLOT=0
 SRC_URI=mirror://nongnu/lout/lout-3.40.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=6c3fccf23539419d0446f52ff2935a8f

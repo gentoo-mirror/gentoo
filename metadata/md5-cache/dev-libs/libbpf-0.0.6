@@ -3,11 +3,12 @@ DEPEND=virtual/libelf !<=dev-util/bcc-0.7.0 sys-kernel/linux-headers
 DESCRIPTION=Stand-alone build of libbpf from the Linux kernel
 EAPI=7
 HOMEPAGE=https://github.com/libbpf/libbpf
+INHERIT=toolchain-funcs
 IUSE=+static-libs
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=LGPL-2.1 BSD-2
 RDEPEND=virtual/libelf !<=dev-util/bcc-0.7.0
 SLOT=0/0.0.6
 SRC_URI=https://github.com/libbpf/libbpf/archive/v0.0.6.tar.gz -> libbpf-0.0.6.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=16c74a47ce15769f66d29b7485f3a591

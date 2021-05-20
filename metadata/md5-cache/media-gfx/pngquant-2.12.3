@@ -3,11 +3,12 @@ DEPEND=media-libs/libpng:0= media-gfx/libimagequant:= sys-libs/zlib:= lcms? ( me
 DESCRIPTION=command-line utility and library for lossy compression of PNG images
 EAPI=7
 HOMEPAGE=https://pngquant.org/
+INHERIT=toolchain-funcs
 IUSE=debug lcms openmp cpu_flags_x86_sse2
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3 HPND rwpng
 RDEPEND=media-libs/libpng:0= media-gfx/libimagequant:= sys-libs/zlib:= lcms? ( media-libs/lcms:2 )
 SLOT=0
 SRC_URI=https://pngquant.org/pngquant-2.12.3-src.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=a30869d1dc7870678121984c97ae04ab

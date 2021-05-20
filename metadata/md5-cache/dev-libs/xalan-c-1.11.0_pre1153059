@@ -4,11 +4,12 @@ DEPEND=>=dev-libs/xerces-c-2.8.0
 DESCRIPTION=XSLT processor for transforming XML into HTML, text, or other XML types
 EAPI=7
 HOMEPAGE=https://xml.apache.org/xalan-c/
+INHERIT=toolchain-funcs
 IUSE=doc examples nls threads
 KEYWORDS=amd64 ~ppc x86
 LICENSE=Apache-2.0
 RDEPEND=>=dev-libs/xerces-c-2.8.0
 SLOT=0
 SRC_URI=mirror://gentoo/Xalan-C_r1153059-src.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=e00df9abb91ee78563be84ff453f586b

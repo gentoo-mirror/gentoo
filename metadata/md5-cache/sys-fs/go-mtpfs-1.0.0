@@ -4,6 +4,7 @@ DEPEND=virtual/libusb:1 virtual/udev media-libs/libmtp
 DESCRIPTION=a simple FUSE filesystem for mounting Android devices as a MTP device
 EAPI=7
 HOMEPAGE=https://github.com/hanwen/go-mtpfs
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=virtual/libusb:1 virtual/udev

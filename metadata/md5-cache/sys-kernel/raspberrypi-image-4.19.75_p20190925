@@ -2,6 +2,7 @@ DEFINED_PHASES=install postinst postrm preinst prerm pretend
 DESCRIPTION=Raspberry Pi (all versions) kernel and modules
 EAPI=7
 HOMEPAGE=https://github.com/raspberrypi/firmware
+INHERIT=mount-boot
 KEYWORDS=-* ~arm
 LICENSE=GPL-2 raspberrypi-videocore-bin
 RDEPEND=>sys-boot/raspberrypi-firmware-1.20190709

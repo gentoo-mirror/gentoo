@@ -3,6 +3,7 @@ DEPEND=tcmalloc? ( dev-util/google-perftools ) snappy? ( app-arch/snappy:= )
 DESCRIPTION=a fast key-value storage library written at Google
 EAPI=7
 HOMEPAGE=http://leveldb.org/ https://github.com/google/leveldb
+INHERIT=multilib toolchain-funcs
 IUSE=+snappy static-libs kernel_FreeBSD +tcmalloc test
 KEYWORDS=amd64 arm arm64 ~mips ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD

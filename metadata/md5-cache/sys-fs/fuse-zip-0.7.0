@@ -3,11 +3,12 @@ DEPEND=dev-libs/libzip:= sys-fs/fuse:0
 DESCRIPTION=FUSE file system to navigate, extract, create and modify ZIP archives
 EAPI=7
 HOMEPAGE=https://bitbucket.org/agalanin/fuse-zip
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/libzip:= sys-fs/fuse:0
 RESTRICT=test
 SLOT=0
 SRC_URI=https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.7.0.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=286b1f9ea554467a79076495f0d50be2

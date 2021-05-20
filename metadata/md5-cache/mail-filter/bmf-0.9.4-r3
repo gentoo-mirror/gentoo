@@ -3,11 +3,12 @@ DEPEND=mysql? ( dev-db/mysql-connector-c:0= ) berkdb? ( >=sys-libs/db-3.2.9 )
 DESCRIPTION=A fast and small Bayesian spam filter
 EAPI=7
 HOMEPAGE=http://bmf.sourceforge.net/
+INHERIT=toolchain-funcs
 IUSE=mysql berkdb
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
 RDEPEND=mysql? ( dev-db/mysql-connector-c:0= ) berkdb? ( >=sys-libs/db-3.2.9 )
 SLOT=0
 SRC_URI=mirror://sourceforge/bmf/bmf-0.9.4.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
 _md5_=9e4ae8a7f65bc29a383359eb21963dc0
