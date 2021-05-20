@@ -23,10 +23,7 @@ DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	|| (
-		>=dev-qt/qtgui-${QTMIN}:5[X(-)]
-		>=dev-qt/qtgui-${QTMIN}:5[xcb(-)]
-	)
+	>=dev-qt/qtgui-${QTMIN}:5[X]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
@@ -58,4 +55,4 @@ RDEPEND="${DEPEND}
 
 DOCS=( CHANGELOG.md README.md )
 
-PATCHES=( "${FILESDIR}/${P}-kwindowsystem-5.82.patch" ) # bug 790185
+PATCHES=( "${FILESDIR}/${PN}-0.9.11-kwindowsystem-5.82.patch" ) # bug 790185
