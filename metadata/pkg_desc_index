@@ -3677,9 +3677,9 @@ dev-cpp/amqp-cpp 4.3.10: AMQP-CPP is a C++ library for communicating with a Rabb
 dev-cpp/antlr-cpp 2.7.7-r1 4.7.2: The ANTLR 4 C++ Runtime
 dev-cpp/argparse 2.1: Argument Parser for Modern C++
 dev-cpp/asio 1.10.8 1.17.0 1.18.1: Asynchronous Network Library
-dev-cpp/atkmm 2.28.1 2.36.0: C++ interface for the ATK library
+dev-cpp/atkmm 2.28.1 2.28.2 2.36.0 2.36.1: C++ interface for the ATK library
 dev-cpp/benchmark 1.5.3: A microbenchmark support library
-dev-cpp/cairomm 1.14.2 1.16.0: C++ bindings for the Cairo vector graphics library
+dev-cpp/cairomm 1.14.2 1.14.3 1.16.0 1.16.1: C++ bindings for the Cairo vector graphics library
 dev-cpp/catch 1.12.2 1.9999 2.13.4 9999: Modern C++ header-only framework for unit-tests
 dev-cpp/clucene 2.3.3.4-r6: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/commoncpp2 1.8.1-r4: C++ library offering portable support for system-related services
@@ -3689,11 +3689,11 @@ dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
 dev-cpp/eigen 3.3.7-r1 3.3.9: C++ template library for linear algebra
 dev-cpp/gconfmm 2.28.3-r1: C++ bindings for GConf
 dev-cpp/gflags 2.2.1-r1 9999: Google's C++ argument parsing library
-dev-cpp/glibmm 2.64.2 2.64.5 2.66.0 2.68.0: C++ interface for glib2
+dev-cpp/glibmm 2.64.2 2.64.5 2.66.0 2.66.1 2.68.0 2.68.1: C++ interface for glib2
 dev-cpp/glog 0.3.4-r1 0.4.0: Google's C++ logging library
 dev-cpp/gstreamermm 1.10.0: C++ interface for GStreamer
 dev-cpp/gtest 1.10.0_p20200702 9999: Google C++ Testing Framework
-dev-cpp/gtkmm 2.24.5-r1 3.24.3 3.24.4: C++ interface for GTK+
+dev-cpp/gtkmm 2.24.5-r1 3.24.3 3.24.4 3.24.5: C++ interface for GTK+
 dev-cpp/gtksourceviewmm 2.10.3-r2 3.18.0-r1: C++ bindings for gtksourceview
 dev-cpp/htmlcxx 0.87: A simple non-validating CSS 1 and HTML parser for C++
 dev-cpp/kokkos 3.0.00 3.1.01: C++ Performance Portability Programming EcoSystem
@@ -3714,7 +3714,7 @@ dev-cpp/ms-gsl 3.1.0 9999: Guideline Support Library implementation by Microsoft
 dev-cpp/muParser 2.2.6.1: Library for parsing mathematical expressions
 dev-cpp/nlohmann_json 3.9.1: JSON for Modern C++
 dev-cpp/notcurses 2.2.8: Blingful TUIs and character graphics
-dev-cpp/pangomm 2.42.2 2.48.0: C++ interface for pango
+dev-cpp/pangomm 2.42.2 2.48.0 2.48.1: C++ interface for pango
 dev-cpp/picojson 1.3.0: Header-file-only, JSON parser serializer in C++
 dev-cpp/pngpp 0.2.9: A simple but powerful C++ interface to libpng
 dev-cpp/popl 1.2.0 9999: Header-only C++ program options parser library
@@ -5455,7 +5455,7 @@ dev-libs/bitset 2.8.4-r1: A compressed bitset with supporting data structures an
 dev-libs/boehm-gc 8.0.4: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.75.0 1.76.0-r1: Boost Libraries for C++
 dev-libs/boost-mpl-cartesian_product 20161205: an extension to the Boost.MPL library
-dev-libs/botan 2.17.3 2.18.0 2.18.1: C++ crypto library
+dev-libs/botan 2.17.3 2.18.1: C++ crypto library
 dev-libs/boxfort 0.0.1_pre20200110 0.0.1_pre20200902: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.0: Blocking, shuffling and lossless compression library
@@ -5740,7 +5740,7 @@ dev-libs/libsavitar 4.8.0: C++ implementation of 3mf loading with SIP python bin
 dev-libs/libsecp256k1 0.1_pre20190401 0.1_pre20201028: Optimized C library for EC operations on curve secp256k1
 dev-libs/libserdes 5.4.0: Avro SerializationDeserialization w/ Confluent schema-registry support
 dev-libs/libserialport 0.1.1 9999: Cross platform serial port access library
-dev-libs/libsigc++ 2.10.6 3.0.6: Typesafe callback system for standard C++
+dev-libs/libsigc++ 2.10.6 2.10.7 3.0.6 3.0.7: Typesafe callback system for standard C++
 dev-libs/libsigsegv 2.12-r1 2.13: Library for handling page faults in user mode
 dev-libs/libslz 1.1.0 1.2.0: stateless, zlib-compatible, and very fast compression library
 dev-libs/libsodium 1.0.18 1.0.18_p20210421: A portable fork of NaCl, a higher-level cryptographic library
@@ -15083,7 +15083,7 @@ net-libs/libmirisdr 9999: Software for the Mirics MSi2500 + MSi001 SDR platform
 net-libs/libmnl 1.0.4: Minimalistic netlink library
 net-libs/libmrss 0.19.2-r1: A C-library for parsing and writing RSS 0.91/0.92/1.0/2.0 files or streams
 net-libs/libnatpmp 20150609: An alternative protocol to UPnP IGD specification
-net-libs/libndp 1.7: Library for Neighbor Discovery Protocol
+net-libs/libndp 1.7 1.8: Library for Neighbor Discovery Protocol
 net-libs/libnet 1.0.2a-r7 1.2 1.2.9999: library providing an API for commonly used low-level network functions
 net-libs/libnetconf2 1.1.36 1.1.43: C library for building NETCONF servers and clients
 net-libs/libnetfilter_acct 1.0.3: Library providing interface to extended accounting infrastructure
