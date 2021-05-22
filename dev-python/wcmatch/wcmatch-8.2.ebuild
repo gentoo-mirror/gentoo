@@ -7,31 +7,43 @@ PYTHON_COMPAT=( python3_{7..10} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
-	dev-python/mkdocs-git-revision-date-localized-plugin
+	~dev-python/mkdocs_pymdownx_material_extras-1.0.7
 	dev-python/mkdocs-material
+	dev-python/mkdocs-git-revision-date-localized-plugin
 	dev-python/mkdocs-minify-plugin
-	dev-python/mkdocs_pymdownx_material_extras
 	dev-python/pyspelling
 "
 
 inherit distutils-r1 docs
 
-DESCRIPTION="Bash style brace expansion for Python"
+DESCRIPTION="Wildcard/glob file name matcher"
 HOMEPAGE="
-	https://github.com/facelessuser/bracex/
-	https://pypi.org/project/bracex/
-"
+	https://github.com/facelessuser/wcmatch/
+	https://pypi.org/project/wcmatch/"
 SRC_URI="https://github.com/facelessuser/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND="test? ( dev-vcs/git )"
+RDEPEND="
+	>=dev-python/backrefs-4.1[${PYTHON_USEDEP}]
+	>=dev-python/bracex-2.0[${PYTHON_USEDEP}]
+"
+
+BDEPEND="
+	test? (
+		dev-python/mock[${PYTHON_USEDEP}]
+		dev-vcs/git
+	)"
 
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	# tests require some files in homedir
+	> "${HOME}"/test1.txt || die
+	> "${HOME}"/test2.txt || die
+
 	# mkdocs-git-revision-date-localized-plugin needs git repo
 	if use doc; then
 		git init || die
