@@ -6,18 +6,19 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7..9} )
 inherit gnome.org meson multilib-minimal python-any-r1
 
-DESCRIPTION="C++ interface for the ATK library"
+DESCRIPTION="C++ interface for pango"
 HOMEPAGE="https://www.gtkmm.org"
 
 LICENSE="LGPL-2.1+"
-SLOT="0"
+SLOT="2.48"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris"
 IUSE="doc"
 
 DEPEND="
-	>=dev-cpp/glibmm-2.46.2:2[doc?,${MULTILIB_USEDEP}]
-	>=dev-libs/atk-2.18.0[${MULTILIB_USEDEP}]
-	>=dev-libs/libsigc++-2.3.2:2[doc?,${MULTILIB_USEDEP}]
+	>=dev-cpp/cairomm-1.16.0:1.16[doc?,${MULTILIB_USEDEP}]
+	>=dev-cpp/glibmm-2.68.0:2.68[doc?,${MULTILIB_USEDEP}]
+	>=dev-libs/libsigc++-3:3[doc?,${MULTILIB_USEDEP}]
+	>=x11-libs/pango-1.48.0[${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
