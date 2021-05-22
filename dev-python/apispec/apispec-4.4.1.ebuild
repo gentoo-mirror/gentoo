@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7..9} )
+
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit distutils-r1
 
@@ -25,6 +26,9 @@ BDEPEND="${RDEPEND}
 	)"
 
 distutils_enable_tests pytest
+distutils_enable_sphinx docs \
+	dev-python/sphinx-issues \
+	dev-python/sphinx_rtd_theme
 
 python_test() {
 	local deselect=(
