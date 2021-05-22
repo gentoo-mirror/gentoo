@@ -1,0 +1,16 @@
+BDEPEND=>=media-libs/gd-2.2.3 png? ( media-libs/gd[png] media-libs/libpng:0 sys-libs/zlib ) jpeg? ( media-libs/gd[jpeg] virtual/jpeg:0 ) truetype? ( media-libs/gd[truetype] media-libs/freetype:2 ) xpm? ( media-libs/gd[xpm] x11-libs/libXpm ) fcgi? ( dev-libs/fcgi ) gif? ( media-libs/giflib ) >=virtual/perl-ExtUtils-Constant-0.230.0 dev-perl/ExtUtils-PkgConfig virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Test-Fork-0.20.0 >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=media-libs/gd-2.2.3 png? ( media-libs/gd[png] media-libs/libpng:0 sys-libs/zlib ) jpeg? ( media-libs/gd[jpeg] virtual/jpeg:0 ) truetype? ( media-libs/gd[truetype] media-libs/freetype:2 ) xpm? ( media-libs/gd[xpm] x11-libs/libXpm ) fcgi? ( dev-libs/fcgi ) gif? ( media-libs/giflib ) dev-lang/perl
+DESCRIPTION=Interface to Thomas Boutell's gd library
+EAPI=7
+HOMEPAGE=https://metacpan.org/release/GD
+INHERIT=perl-module
+IUSE=animgif fcgi gif jpeg png test truetype xpm examples
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=media-libs/gd-2.2.3 png? ( media-libs/gd[png] media-libs/libpng:0 sys-libs/zlib ) jpeg? ( media-libs/gd[jpeg] virtual/jpeg:0 ) truetype? ( media-libs/gd[truetype] media-libs/freetype:2 ) xpm? ( media-libs/gd[xpm] x11-libs/libXpm ) fcgi? ( dev-libs/fcgi ) gif? ( media-libs/giflib ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/R/RU/RURBAN/GD-2.73.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584
+_md5_=20715e69fff0ad5f511c9bc78c15eba3
