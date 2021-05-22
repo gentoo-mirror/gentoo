@@ -6,10 +6,10 @@ EAPI=7
 inherit kernel-build
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 3 ))
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 1 ))
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-CONFIG_VER=5.10.12
-CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
+CONFIG_VER=5.12.5
+CONFIG_HASH=17639df044f5f81bbf267f566426eae4a5187875
 GENTOO_CONFIG_VER=5.10.32
 
 DESCRIPTION="Linux kernel built with Gentoo patches"

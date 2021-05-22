@@ -6,25 +6,27 @@ EAPI=7
 inherit kernel-install toolchain-funcs
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 3 ))
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 1 ))
 BINPKG=${P/-bin/}-1
 
 DESCRIPTION="Pre-built Linux kernel with genpatches"
 HOMEPAGE="https://www.kernel.org/"
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.base.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
-	arm64? (
-		https://dev.gentoo.org/~sam/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
-			-> ${BINPKG}.arm64.xpak
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
+	amd64? (
+		https://dev.gentoo.org/~mgorny/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
+			-> ${BINPKG}.amd64.xpak
 	)
-"
-
+	x86? (
+		https://dev.gentoo.org/~mgorny/binpkg/x86/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
+			-> ${BINPKG}.x86.xpak
+	)"
 S=${WORKDIR}
 
 LICENSE="GPL-2"
-KEYWORDS="~arm64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}"
