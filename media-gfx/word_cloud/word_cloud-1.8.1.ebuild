@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS="rdepend"
 
 inherit distutils-r1
@@ -21,4 +21,4 @@ RDEPEND="dev-python/matplotlib[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	media-fonts/droid"
 
-PATCHES=( "${FILESDIR}"/${P}-bundled-font.patch )
+PATCHES=( "${FILESDIR}"/${PN}-1.6.0-bundled-font.patch )
