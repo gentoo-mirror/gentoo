@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtsvg:5 designer? ( dev-qt/designer:5 )
+DESCRIPTION=2D plotting library for Qt5
+EAPI=7
+HOMEPAGE=https://qwt.sourceforge.io/ https://github.com/SciDAVis/qwt5-qt5
+INHERIT=qmake-utils
+IUSE=designer examples
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+LICENSE=qwt
+RDEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtsvg:5 designer? ( dev-qt/designer:5 )
+SLOT=5
+SRC_URI=https://github.com/SciDAVis/qwt5-qt5/archive/2a9f1ae2f394abf3a000906b507a0d925b1e4b25.tar.gz -> qwt-5.2.3_p20210211.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
+_md5_=7f498d76272525c8cb4849b8a5cd4d57
