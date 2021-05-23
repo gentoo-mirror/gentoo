@@ -14,6 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~amd64-linux"
 IUSE="argon2 curl dar32 dar64 doc gcrypt gpg lzo nls rsync threads xattr"
 
+REQUIRED_USE="?? ( dar32 dar64 )
+		gpg? ( gcrypt )"
+
 RESTRICT="test" # need to be run as root
 
 RDEPEND="
@@ -40,9 +43,6 @@ BDEPEND="
 		virtual/libintl
 	)
 "
-
-REQUIRED_USE="?? ( dar32 dar64 )
-		gpg? ( gcrypt )"
 
 DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )
 
