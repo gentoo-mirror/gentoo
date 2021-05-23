@@ -561,73 +561,10 @@ dev-java/commons-fileupload
 # see bug: https://bugs.gentoo.org/785796
 dev-java/commons-el
 
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-04-25)
-# Broken, bug 616986; removal in 30 days
-dev-perl/HTTPD-User-Manage
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-04-25)
-# Broken, bug 663274; removal in 30 days
-dev-perl/Text-Unaccent
-
 # Jonas Stein <jstein@gentoo.org> (2021-04-25)
 # Bad SRC_URI, dead upstream.
 # Removal on 2021-06-01.  Bug #785736.
 app-misc/logitech-applet
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-25)
-# obsolete package, nothing depends on it
-# removal in 30 days
-# see bug: https://bugs.gentoo.org/785508
-dev-java/velocity-dvsl
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-25)
-# nothing depends on it
-# removal in 30 days
-# see bug: https://bugs.gentoo.org/785532
-dev-java/cdegroot-db
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-25)
-# uses depracated classes, not used by anything,
-# removal in 30 days
-# see bug: https://bugs.gentoo.org/785415
-dev-java/codemodel
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-04-25)
-# seems to be obsolete, nothing uses it
-# removal in 30 days
-dev-java/istack-commons-buildtools
-
-# David Seifert <soap@gentoo.org> (2021-04-24)
-# Doesn't build, live ebuild broken too, blocks wxwidgets.eclass
-# modernization, unmaintained, requires unreleased changes in
-# net-libs/liquid-dsp. Bug #777720, removal in 30 days.
-net-wireless/cubicsdr
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-04-24)
-# dev-dotnet/gtk-sharp is effectively unmaintained. Last upstream release
-# in 2016, version packaged in Gentoo from 2013. gtk-sharp-3 never made it
-# out of beta state. An actively developed fork that targets GTK3 exists:
-# https://github.com/GtkSharp/GtkSharp
-# Removal on 2021-05-24. Tracker bug #769041
-dev-dotnet/gtk-sharp
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-04-24)
-# Depends on deprecated dev-dotnet/gtk-sharp, bug #769077
-# Removal on 2021-05-24
-app-misc/gnutu
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-04-24)
-# Depends on deprecated dev-dotnet/gtk-sharp, bug #769083
-# Alternatives (all in app-editors category): curses-hexedit, dhex, ghex,
-# hexcurse, okteta, qhexedit2, shed, wxhexeditor
-# Removal on 2021-05-24
-dev-util/bless
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-04-24)
-# Unmaintained, depends on dev-dotnet/gtk-sharp which is dead upstream.
-# Removal on 2021-05-24; bugs #769050, #769059
-dev-dotnet/gkeyfile-sharp
-dev-dotnet/notify-sharp
 
 # Stephan Hartmann <sultan@gentoo.org> (2021-04-24)
 # Dev channel releases are only for people who
@@ -635,19 +572,9 @@ dev-dotnet/notify-sharp
 # and accept a more unstable release.
 >=www-client/chromium-92
 
-# Michał Górny <mgorny@gentoo.org> (2021-04-22)
-# py3.7 backport with no revdeps left.
-# Removal on 2021-05-22.  Bug #784983.
-dev-python/idna-ssl
-
 # Ulrich Müller <ulm@gentoo.org> (2021-04-20)
 # Version 3.15 is broken with Emacs 27.2.
 =app-emacs/mic-paren-3.15-r0
-
-# Matt Turner <mattst88@gentoo.org> (2021-04-18)
-# Pretty dead. Needs GTK+3 port. Doesn't build with glib-2.68.
-# Removal on 2021-05-19.  Bug #784266.
-net-nntp/pan
 
 # Jonas Stein <jstein@gentoo.org> (2021-04-19)
 # Bad SRC_URI, missing license files
