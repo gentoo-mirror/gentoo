@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -40,7 +40,6 @@ DEPEND="${RDEPEND}
 	)"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-run-tests.patch
 	"${FILESDIR}"/${PN}8209-root-noninteractive.patch
 )
 
@@ -60,43 +59,43 @@ src_prepare() {
 	default
 	# set datadir for xmldor in include file
 	sed -i \
-		-e "s:../share/Pythia8/xmldoc:${EPYTHIADIR}/xmldoc:" \
+		-e "s|../share/Pythia8/xmldoc|${EPYTHIADIR}/xmldoc|" \
 		include/Pythia8/Pythia.h || die
 	# respect libdir, prefix, flags
 	sed -i \
-		-e "s:/lib:/$(get_libdir):g" \
-		-e "s:/usr:${EPREFIX}/usr:g" \
-		-e "s:-O2:${CXXFLAGS}:g" \
-		-e "s:Cint:Core:g" \
+		-e "s|/lib|/$(get_libdir)|g" \
+		-e "s|/usr|${EPREFIX}/usr|g" \
+		-e "s|-O2|${CXXFLAGS}|g" \
+		-e "s|Cint|Core|g" \
 		configure || die
-	sed -i 's:$(CXX) $^ -o $@ $(CXX_COMMON) $(CXX_SHARED):$(CXX) $(LDFLAGS) $^ -o $@ $(CXX_COMMON) $(CXX_SHARED):g' \
+	sed -i 's|$(CXX) $^ -o $@ $(CXX_COMMON) $(CXX_SHARED)|$(CXX) $(LDFLAGS) $^ -o $@ $(CXX_COMMON) $(CXX_SHARED)|g' \
 		Makefile || die
-	sed -i 's:$(CXX):$(CXX) $(LDFLAGS):' examples/Makefile || die
+	sed -i 's|$(CXX)|$(CXX) $(LDFLAGS)|' examples/Makefile || die
 	# we use lhapdf6 instead of lhapdf5
 	# some PDFs changed, use something similar
 	sed -i \
-		-e "s:LHAPDF5:LHAPDF6:g" \
-		-e "s:\.LHgrid::g" \
-		-e "s:\.LHpdf::g" \
-		-e "s:MRST2001lo:MRST2007lomod:g" \
-		-e "s:cteq6ll:cteq6l1:g" \
-		-e "s:cteq6m:cteq66:g" \
+		-e "s|LHAPDF5|LHAPDF6|g" \
+		-e "s|\.LHgrid||g" \
+		-e "s|\.LHpdf||g" \
+		-e "s|MRST2001lo|MRST2007lomod|g" \
+		-e "s|cteq6ll|cteq6l1|g" \
+		-e "s|cteq6m|cteq66|g" \
 		examples/*.{cc,cmnd} || die
 	# After lhapdf5->6 migration PDFs are identical within ~1/1000
-	# https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/README
+	# https|//www.hepforge.org/archive/lhapdf/pdfsets/6.1/README
 	sed -i \
-		-e "s:1e-8:3e-1:g" \
-		-e "s:nlo_as_0119_qed:nlo_as_0119_qed_mc:g" \
-		-e "s:xmldoc:share/Pythia8/xmldoc:g" \
+		-e "s|1e-8|3e-1|g" \
+		-e "s|nlo_as_0119_qed|nlo_as_0119_qed_mc|g" \
+		-e "s|xmldoc|share/Pythia8/xmldoc|g" \
 		examples/main54.cc || die
 	# ask cflags from root
-	sed -i "s:root-config:root-config --cflags:g" examples/Makefile || die
+	sed -i "s|root-config|root-config --cflags|g" examples/Makefile || die
 
 	sed -i \
 		-e '/TARGETS=$(LOCAL_LIB)\/libpythia8\.a/d' \
-		-e 's:libpythia8\.a$:libpythia8$(LIB_SUFFIX):g' \
+		-e 's|libpythia8\.a$|libpythia8$(LIB_SUFFIX)|g' \
 		Makefile || die
-	sed -i 's:libpythia8\.a:libpythia8$(LIB_SUFFIX):g' \
+	sed -i 's|libpythia8\.a|libpythia8$(LIB_SUFFIX)|g' \
 		examples/Makefile || die
 }
 
@@ -126,8 +125,8 @@ src_configure() {
 
 	# fix pythia config script
 	sed -i \
-		-e 's:pythia8/examples/Makefile.inc:pythia8/Makefile.inc:' \
-		-e 's:LINE%=:LINE%%=:' \
+		-e 's|pythia8/examples/Makefile.inc|pythia8/Makefile.inc|' \
+		-e 's|LINE%=|LINE%%=|' \
 		bin/pythia8-config || die
 }
 
@@ -175,7 +174,7 @@ src_install() {
 	if use examples; then
 		# reuse system Makefile.inc
 		rm examples/Makefile.inc || die
-		sed -i "s:include Makefile.inc:include ${EPYTHIADIR}:" \
+		sed -i "s|include Makefile.inc|include ${EPYTHIADIR}|" \
 			examples/Makefile || die
 
 		insinto /usr/share/${PN}

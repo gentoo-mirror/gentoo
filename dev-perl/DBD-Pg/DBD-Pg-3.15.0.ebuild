@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DIST_AUTHOR=TURNSTEP
 inherit perl-module
@@ -9,17 +9,28 @@ inherit perl-module
 DESCRIPTION="PostgreSQL database driver for the DBI module"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	virtual/perl-version
 	>=dev-perl/DBI-1.614.0
 	dev-db/postgresql:*
 "
-DEPEND="${RDEPEND}
-	virtual/perl-ExtUtils-MakeMaker
+DEPEND="
+	dev-db/postgresql:*
 "
+BDEPEND="${RDEPEND}
+	virtual/perl-ExtUtils-MakeMaker
+	test? (
+		>=virtual/perl-Test-Simple-0.880.0
+		virtual/perl-Time-HiRes
+	)
+"
+PERL_RM_FILES=(
+	"t/00_signature.t"
+)
 src_prepare() {
 	postgres_include="$(readlink -f "${EPREFIX}"/usr/include/postgresql)"
 	postgres_lib="${postgres_include//include/lib}"
@@ -38,10 +49,16 @@ src_prepare() {
 	perl-module_src_prepare
 }
 
+src_compile() {
+	mymake=(
+		"OPTIMIZE=${CFLAGS}"
+	)
+	perl-module_src_compile
+}
+
 src_test() {
 	local MODULES=(
-		# Compile failure: https://rt.cpan.org/Ticket/Display.html?id=123218
-		# "Bundle::DBD::Pg v${PV}"
+		"Bundle::DBD::Pg v${PV}"
 		"DBD::Pg v${PV}"
 	)
 	local failed=()
@@ -74,9 +91,6 @@ src_test() {
 		"t/20savepoints.t"
 		"t/30unicode.t"
 	)
-	local SKIP_TESTS=(
-		"t/00_signature.t"
-	);
 	if [[ ! -v DBI_DSN ]]; then
 		ewarn "Functional database tests disabled due to lack of configuration."
 		ewarn "Please set the following environment variables values pertaining to a"
@@ -87,10 +101,9 @@ src_test() {
 		ewarn "  DBI_PASS - A Postgres Database Password"
 		ewarn ""
 		ewarn "For details, visit:"
-		ewarn "https://wiki.gentoo.org/wiki/Project:Perl/maint-notes/dev-perl/DBD-Pg"
-		SKIP_TESTS+=( "${LIVEDB_TESTS[@]}" )
+		ewarn " https://wiki.gentoo.org/wiki/Project:Perl/maint-notes/dev-perl/DBD-Pg"
+		perl_rm_files "${LIVEDB_TESTS[@]}"
 	fi
-	perl_rm_files "${SKIP_TESTS[@]}"
 	# Parallel testing breaks database access
 	DBDPG_TEST_ALWAYS_ENV=1 DIST_TEST="do" perl-module_src_test
 
