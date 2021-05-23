@@ -943,7 +943,7 @@ app-arch/funzix 1.0: unpacker for the bogus ZIX format
 app-arch/gcab 1.4: Library and tool for working with Microsoft Cabinet (CAB) files
 app-arch/gnome-autoar 0.3.1 0.3.2: Automatic archives creating and extracting library
 app-arch/gtk-splitter 2.2.1-r2: Split files into smaller pieces and combine them back together
-app-arch/gzip 1.9 1.10: Standard GNU compressor
+app-arch/gzip 1.10: Standard GNU compressor
 app-arch/hardlink 0.3.2: A tool which replaces copies of a file with hardlinks
 app-arch/innoextract 1.9: A tool to unpack installers created by Inno Setup
 app-arch/lbzip2 2.5_p20181227-r1: Parallel bzip2 utility
@@ -15034,7 +15034,7 @@ net-libs/glib-networking 2.66.0 2.68.0 2.68.1: Network-related giomodules for gl
 net-libs/gloox 1.0.24: A portable high-level Jabber/XMPP library for C++
 net-libs/gnet 2.0.8-r3: A simple network library
 net-libs/gnome-online-accounts 3.36.0 3.38.1 3.40.0: GNOME framework for accessing online accounts
-net-libs/gnutls 3.6.15 3.7.1: A secure communications library implementing the SSL, TLS and DTLS protocols
+net-libs/gnutls 3.7.1: A secure communications library implementing the SSL, TLS and DTLS protocols
 net-libs/google-cloud-cpp 0.2.0-r1 0.5.0 0.9.0 0.10.0 0.10.0-r1: Google Cloud Client Library for C++
 net-libs/grpc 1.28.1-r1 1.32.0 1.37.1-r1: Modern open source high performance RPC framework
 net-libs/gsnmp 0.3.0: An SNMP library based on glib and gnet
@@ -15359,7 +15359,7 @@ net-misc/datapipe 1.0-r2: bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
 net-misc/dhcp 4.4.2-r3: ISC Dynamic Host Configuration Protocol (DHCP) client/server
-net-misc/dhcpcd 8.1.9-r1 9.3.4 9.4.0 9.4.0-r1 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
+net-misc/dhcpcd 9.4.0-r1 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
 net-misc/dhcpcd-ui 0.7.8: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2: Utility to send DHCP requests to DHCP servers to see if responding
 net-misc/dibbler 1.0.1-r3: Portable DHCPv6 implementation (server, client and relay)
@@ -17467,7 +17467,7 @@ sys-block/storcli 1.19.04 1.20.15 1.21.06 1.23.02 7.0504 7.0606 7.0709-r1 7.1017
 sys-block/tapecat 1.0.0-r1: tapecat is a tape utility used to describe the physical content of a tape
 sys-block/targetcli-fb 2.1.53: Command shell for managing Linux LIO kernel target
 sys-block/tgt 1.0.79 1.0.80: Linux SCSI target framework (tgt)
-sys-block/thin-provisioning-tools 0.7.0 0.7.6 0.8.5 0.9.0 9999: A suite of tools for thin provisioning on Linux
+sys-block/thin-provisioning-tools 0.7.0 0.9.0 9999: A suite of tools for thin provisioning on Linux
 sys-block/tw_cli 10.2.2.1 10.2.2.1-r1: 3ware SATA/PATA/SAS RAID controller Command Line Interface tool
 sys-block/vblade 24: vblade exports a block device using AoE
 sys-block/viaideinfo 0.5-r1: Query VIA IDE controllers for various information
@@ -17484,7 +17484,7 @@ sys-boot/efibootmgr 14 15 16 17: User-space application to modify the EFI boot m
 sys-boot/elilo 3.16-r4: Linux boot loader for EFI-based systems such as IA-64
 sys-boot/gnu-efi 3.0.11 3.0.12: Library for build EFI Applications
 sys-boot/grub 2.06_rc1 9999: GNU GRUB boot loader
-sys-boot/lilo 24.0-r1 24.1 24.2: Standard Linux boot loader
+sys-boot/lilo 24.2: Standard Linux boot loader
 sys-boot/makebootfat 1.4: Command line utility able to create bootable USB disks
 sys-boot/mbr 1.1.11-r1: A replacement master boot record for IBM-PC compatible computers
 sys-boot/mbr-gpt 0.0.1-r1: An MBR that can handle BIOS-based boot on GPT
@@ -17733,14 +17733,14 @@ sys-fs/dmraid 1.0.0_rc16-r5: Device-mapper RAID tool and library
 sys-fs/dosfstools 4.2: DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat
 sys-fs/duperemove 0.11.2: Btrfs and xfs deduplication utility
 sys-fs/e2fsprogs 1.45.6 1.45.7 1.46.1 1.46.2: Standard EXT2/EXT3/EXT4 filesystem utilities
-sys-fs/e2tools 0.0.16.4 0.1.0: utilities to read, write, and manipulate files in an ext2/ext3 filesystem
+sys-fs/e2tools 0.1.0: utilities to read, write, and manipulate files in an ext2/ext3 filesystem
 sys-fs/e4rat 0.2.4_pre20141201-r1: Toolset to accelerate the boot process and application startup
 sys-fs/ecryptfs-utils 111_p20170609-r1: eCryptfs userspace utilities
 sys-fs/encfs 1.9.5 1.9.5-r1: An implementation of encrypted filesystem in user-space using FUSE
 sys-fs/etcd-fs 0_p20170517: Use etcd as a FUSE filesystem
 sys-fs/eudev 3.2.5 3.2.7-r2 3.2.8 3.2.9 3.2.10 4.9999 9999: Linux dynamic and persistent device naming support (aka userspace devfs)
 sys-fs/exfat-utils 1.3.0: exFAT filesystem utilities
-sys-fs/exfatprogs 1.1.0 1.1.1 1.1.2 9999: Userspace utilities for new exfat filesystem (kernel 5.7+)
+sys-fs/exfatprogs 1.1.1 1.1.2 9999: Userspace utilities for new exfat filesystem (kernel 5.7+)
 sys-fs/ext3grep 0.10.2: Recover deleted files on an ext3 file system
 sys-fs/ext4magic 0.3.2-r1: Tool for recovery of deleted or overwritten files on ext3/ext4 filesystems
 sys-fs/extundelete 0.2.4: A utility to undelete files from an ext3 or ext4 partition
@@ -17858,7 +17858,7 @@ sys-libs/compiler-rt-sanitizers 10.0.1-r1 11.1.0-r1 12.0.0 12.0.0.9999 13.0.0.99
 sys-libs/cracklib 2.9.7: Password Checking Library
 sys-libs/csu 79 85-r1: Darwin Csu (crt1.o) - Mac OS X 10.10 version
 sys-libs/cygwin-crypt 1.4: Cygwin Encryption/Decryption utility and library
-sys-libs/db 1.85-r5 3.2.9_p2-r2 4.2.52_p5-r4 4.3.29_p1-r4 4.4.20_p4-r4 4.5.20_p2-r5 4.5.20_p2-r6 4.6.21_p4-r4 4.6.21_p4-r5 4.7.25_p4-r4 4.7.25_p4-r5 4.8.30-r5 4.8.30-r6 5.1.29-r3 5.3.28-r6 5.3.28-r7 5.3.28-r8 6.0.35-r4 6.1.38-r1 6.2.38-r1 18.1.32-r1 18.1.40-r1: Oracle Berkeley DB
+sys-libs/db 1.85-r5 3.2.9_p2-r2 4.2.52_p5-r4 4.3.29_p1-r4 4.4.20_p4-r4 4.5.20_p2-r5 4.5.20_p2-r6 4.6.21_p4-r4 4.6.21_p4-r5 4.7.25_p4-r4 4.7.25_p4-r5 4.8.30-r5 4.8.30-r6 5.1.29-r3 5.3.28-r6 5.3.28-r7 5.3.28-r8 6.0.35-r4 6.1.38-r1 6.2.38-r1 18.1.40-r1: Oracle Berkeley DB
 sys-libs/e2fsprogs-libs 1.45.6 1.45.7 1.46.1 1.46.2: e2fsprogs libraries (common error and subsystem)
 sys-libs/efivar 37: Tools and library to manipulate EFI variables
 sys-libs/fortify-headers 0.6 0.7 9999: A standalone implementation of fortify source.
@@ -17888,7 +17888,7 @@ sys-libs/libomp 10.0.1 11.1.0 12.0.0 12.0.0.9999 13.0.0.9999: OpenMP runtime lib
 sys-libs/libosinfo 1.9.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r1: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
-sys-libs/libseccomp 2.4.3 2.4.4 2.5.0 2.5.1 9999: high level interface to Linux seccomp filter
+sys-libs/libseccomp 2.5.1 9999: high level interface to Linux seccomp filter
 sys-libs/libselinux 3.1-r1 3.2 9999: SELinux userland library
 sys-libs/libsemanage 3.1-r1 3.2 9999: SELinux kernel and policy management library
 sys-libs/libsepol 3.1 3.2 9999: SELinux binary policy representation library
@@ -17900,7 +17900,7 @@ sys-libs/libtermcap-compat 2.0.8-r4: Compatibility package for old termcap-based
 sys-libs/libudev-compat 186-r1: Wrapper around libudev.so.1 for packages needing the old libudev.so.0
 sys-libs/libunwind 1.5.0-r1: Portable and efficient API to determine the call-chain of a program
 sys-libs/liburing 0.7-r1 2.0 9999: Efficient I/O with io_uring
-sys-libs/libutempter 1.1.6-r3 1.2.0 1.2.1: Library that allows non-privileged apps to write utmp (login) info
+sys-libs/libutempter 1.1.6-r3 1.2.1: Library that allows non-privileged apps to write utmp (login) info
 sys-libs/libuuid 1.0.3: Portable uuid C library
 sys-libs/libvpd 2.2.8: Library implementation for listing Vital Product Data
 sys-libs/libxcrypt 4.4.16 4.4.17 4.4.19 4.4.20: Extended crypt library for descrypt, md5crypt, bcrypt, and others
@@ -17931,7 +17931,7 @@ sys-libs/tevent 0.10.2: Samba tevent library
 sys-libs/timezone-data 2021a: Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
 sys-libs/uclibc-ng 1.0.30-r1 1.0.32 1.0.33 1.0.35 9999: C library for developing embedded Linux systems
 sys-libs/uid_wrapper 1.2.7 1.2.8: Wrapper to fake privilege separation
-sys-libs/zlib 1.2.11-r3 1.2.11-r4: Standard (de)compression library
+sys-libs/zlib 1.2.11-r4: Standard (de)compression library
 sys-libs/zlib-ng 2.0.3: Fork of the zlib data compression library
 sys-power/RyzenAdj 0.8.1 0.8.2: The power management tool for mobile and desktop Ryzen APUs
 sys-power/acpi 1.7-r1: Displays information about ACPI devices
