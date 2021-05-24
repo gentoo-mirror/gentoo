@@ -4,8 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
-XPP_COMMIT="8c019e6d7fefd2468791bc1cbf90d68ff7c1ba33"
-I3IPCPP_COMMIT="21ce9060ac7c502225fdbd2f200b1cbdd8eca08d"
+XPP_COMMIT="044e69d05db7f89339bda1ccd1efe0263b01c8f6"
+I3IPCPP_COMMIT="86ddf7102c6903ae0cc543071e2d375403fc0727"
 
 inherit cmake python-single-r1
 
@@ -15,10 +15,10 @@ SRC_URI="https://github.com/polybar/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/polybar/xpp/archive/${XPP_COMMIT}.tar.gz -> xpp-${XPP_COMMIT}.tar.gz
 	https://github.com/polybar/i3ipcpp/archive/${I3IPCPP_COMMIT}.tar.gz -> i3ipcpp-${I3IPCPP_COMMIT}.tar.gz"
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"
 SLOT="0"
-IUSE="alsa curl i3wm ipc mpd network pulseaudio"
+IUSE="alsa curl doc i3wm ipc mpd network pulseaudio"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
@@ -31,6 +31,7 @@ DEPEND="
 	x11-libs/xcb-util-xrm
 	alsa? ( media-libs/alsa-lib )
 	curl? ( net-misc/curl )
+	doc? ( dev-python/sphinx )
 	i3wm? (
 		dev-libs/jsoncpp:=
 		|| ( x11-wm/i3 x11-wm/i3-gaps )
@@ -43,11 +44,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	rmdir "${S}"/lib/xpp || die
-	mv "${WORKDIR}"/xpp-$XPP_COMMIT "${S}"/lib/xpp || die
+	rmdir "${S}/lib/xpp" || die
+	mv "${WORKDIR}/xpp-${XPP_COMMIT}" "${S}/lib/xpp" || die
 
-	rmdir "${S}"/lib/i3ipcpp || die
-	mv "${WORKDIR}"/i3ipcpp-$I3IPCPP_COMMIT "${S}"/lib/i3ipcpp || die
+	rmdir "${S}/lib/i3ipcpp" || die
+	mv "${WORKDIR}/i3ipcpp-${I3IPCPP_COMMIT}" "${S}/lib/i3ipcpp" || die
 
 	cmake_src_prepare
 }
@@ -56,6 +57,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_ALSA="$(usex alsa)"
 		-DENABLE_CURL="$(usex curl)"
+		-DBUILD_DOC="$(usex doc)"
 		-DENABLE_I3="$(usex i3wm)"
 		-DBUILD_IPC_MSG="$(usex ipc)"
 		-DENABLE_MPD="$(usex mpd)"
