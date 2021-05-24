@@ -1,17 +1,17 @@
-BDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) test? ( dev-python/pytest )
+BDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) test? ( dev-python/pytest )
 DEFINED_PHASES=compile install postinst postrm setup test
 DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 DESCRIPTION=vim plugin: binding to the autocompletion library jedi
 EAPI=7
 HOMEPAGE=https://github.com/davidhalter/jedi-vim
 INHERIT=vim-plugin python-single-r1
-IUSE=test python_single_target_python3_7 python_single_target_python3_8
+IUSE=test python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=MIT
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( dev-python/jedi[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/jedi[python_targets_python3_8(-)] ) app-editors/vim[python] || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 )
+RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/jedi[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/jedi[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/jedi[python_targets_python3_9(-)] ) app-editors/vim[python] || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/davidhalter/jedi-vim/archive/0.10.0.tar.gz -> jedi-0.10.0.tar.gz
 _eclasses_=vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
-_md5_=c39d5f2eb1b7d850e60350dfeffd0a81
+_md5_=dcdd0eada1dfe3062b313fb13c24cdfb
