@@ -17,6 +17,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 
 RDEPEND="dev-lang/perl:=
 	dev-perl/Devel-Size
+	dev-perl/Text-CSV
 	virtual/perl-Data-Dumper
 	virtual/perl-File-Temp
 	virtual/perl-IO"
