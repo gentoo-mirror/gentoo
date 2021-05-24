@@ -34,17 +34,16 @@ SRC_URI="${KERNEL_URI}
 	https://github.com/pfactum/pf-kernel/compare/v${SHPV}...v${SHPV}-pf${PV/*_p/}.diff -> ${P}.patch
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz
-	https://dev.gentoo.org/~mpagano/genpatches/trunk/${SHPV}/5020_BMQ-and-PDS-io-scheduler-v${SHPV}-r2.patch
-	https://dev.gentoo.org/~mpagano/genpatches/trunk/${SHPV}/5021_BMQ-and-PDS-gentoo-defaults-v${SHPV}-r2.patch"
+	https://raw.githubusercontent.com/GKernelCI/linux-patches/${SHPV}/5020_BMQ-and-PDS-io-scheduler-v${SHPV}-r0.patch
+	https://raw.githubusercontent.com/GKernelCI/linux-patches/${SHPV}/5021_BMQ-and-PDS-gentoo-defaults-v${SHPV}-r0.patch"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 S="${WORKDIR}/linux-${PVR}-pf"
 
 PATCHES=( "${DISTDIR}/${P}.patch"
-	"${DISTDIR}/5020_BMQ-and-PDS-io-scheduler-v${SHPV}-r2.patch"
-	"${DISTDIR}/5021_BMQ-and-PDS-gentoo-defaults-v${SHPV}-r2.patch"
-)
+	"${DISTDIR}/5020_BMQ-and-PDS-io-scheduler-v${SHPV}-r0.patch"
+	"${DISTDIR}/5021_BMQ-and-PDS-gentoo-defaults-v${SHPV}-r0.patch" )
 
 K_EXTRAEINFO="For more info on pf-sources and details on how to report problems,
 	see: ${HOMEPAGE}."
