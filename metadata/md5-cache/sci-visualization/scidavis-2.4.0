@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/qtchooser test? ( dev-libs/unittest++ dev-cpp/gtest ) doc? ( app-doc/doxygen media-gfx/graphviz )
+BDEPEND=dev-qt/linguist-tools:5 test? ( dev-libs/unittest++ dev-cpp/gtest ) doc? ( app-doc/doxygen media-gfx/graphviz )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
 DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Application for Scientific Data Analysis and Visualization
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/SciDAVis/scidavis/archive/refs/tags/2.4.0.tar.gz -> scidavis-2.4.0-gh.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	docs	1541edddf7c7971612b5b9cec370f875	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=4c5b5c47603559b442842a349d2b41b3
+_md5_=5416b866563441857a3cc60b5a53a4cc

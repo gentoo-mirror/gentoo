@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install setup
+DEPEND=python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
+DESCRIPTION=C library to handle DWG files
+EAPI=7
+HOMEPAGE=https://www.gnu.org/software/libredwg/
+INHERIT=docs python-single-r1 perl-functions
+IUSE=debug python perl static-libs doc python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/LibreDWG/libredwg/releases/download/0.12.4/libredwg-0.12.4.tar.gz
+_eclasses_=docs	1541edddf7c7971612b5b9cec370f875	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4
+_md5_=7f104d22a27ad20b2da043b1794fc306
