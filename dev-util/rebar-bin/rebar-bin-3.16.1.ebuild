@@ -7,7 +7,7 @@ MY_PN=${P#-bin}
 MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="A sophisticated build-tool for Erlang projects that follows OTP principles"
-HOMEPAGE="https://github.com/erlang/rebar3"
+HOMEPAGE="https://rebar3.org https://github.com/erlang/rebar3"
 
 SRC_URI="https://github.com/erlang/rebar3/releases/download/${PV}/rebar3 -> ${P}"
 
