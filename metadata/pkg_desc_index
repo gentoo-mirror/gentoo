@@ -2284,7 +2284,7 @@ app-emulation/open-vm-tools 11.2.0_p16938113-r1 11.2.5_p17337674: Opensourced to
 app-emulation/pcem 17: A PC emulator that specializes in running old operating systems and software
 app-emulation/phpvirtualbox 5.2.1: Web-based administration for VirtualBox in PHP
 app-emulation/podman 3.1.2: Library and podman tool for running OCI-based containers in Pods
-app-emulation/protontricks 1.4.3 1.5.0: app-emulation/winetricks wrapper for Proton (Steam Play) games
+app-emulation/protontricks 1.4.3 1.5.0 1.5.1: app-emulation/winetricks wrapper for Proton (Steam Play) games
 app-emulation/punes 0.107: Nintendo Entertainment System (NES) emulator
 app-emulation/q4wine 1.3.12: Qt GUI configuration tool for Wine
 app-emulation/qemu 5.2.0-r2 5.2.0-r3 5.2.0-r50 6.0.0 9999: QEMU + Kernel-based Virtual Machine userland tools
@@ -9021,7 +9021,7 @@ dev-python/pynest2d 4.8.0-r1: Python bindings for libnest2d
 dev-python/pynput 1.6.8 9999: Sends virtual input commands
 dev-python/pynvim 0.4.3: Python client for Neovim
 dev-python/pyocr 0.7.2 0.8: An optical character recognition (OCR) tool wrapper
-dev-python/pyopencl 2021.1.3 2021.1.6: Python wrapper for OpenCL
+dev-python/pyopencl 2021.1.3 2021.2.2: Python wrapper for OpenCL
 dev-python/pyopengl 3.1.5: Python OpenGL bindings
 dev-python/pyopengl_accelerate 3.1.5: Accelerate module for PyOpenGL
 dev-python/pyopenssl 20.0.1: Python interface to the OpenSSL library
@@ -11101,7 +11101,7 @@ dev-util/perf 5.8 5.11 5.12: Userland tools for Linux Performance Counters
 dev-util/pkgcheck 0.9.7-r2 0.9.7-r3 0.10.0 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 1.6.3 1.7.3-r1 1.7.4 9999: pkg-config compatible replacement with no dependencies other than ANSI C89
 dev-util/pkgconfig 0.29.2 9999: Package config system that manages compile/link flags
-dev-util/pkgdev 0.1.2 0.1.3 9999: Collection of tools for Gentoo development
+dev-util/pkgdev 0.1.2 0.1.3 0.1.4-r1 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.7.2 9999: Package Changes Analyzer (pkgdiff)
 dev-util/plan9port 0_pre20200526 9999: Port of many Plan 9 programs and libraries
 dev-util/ply 2.1.1-r1: Dynamic instrumentation of the Linux kernel with BPF and kprobes
@@ -11264,7 +11264,7 @@ dev-vcs/lab 0.17.2 0.19.0: Lab wraps Git or Hub, making it simple to interact wi
 dev-vcs/mercurial 5.5.2 5.6.1-r1 5.7 9999: Scalable distributed SCM
 dev-vcs/mr 1.20170129 1.20171231 1.20180726 1.99999999: Multiple Repository management tool
 dev-vcs/notify-webhook 0.1.0: Git post-receive web hook notifier in Python.
-dev-vcs/pre-commit 2.12.1: A framework for managing and maintaining multi-language Git pre-commit hooks
+dev-vcs/pre-commit 2.12.1 2.13.0: A framework for managing and maintaining multi-language Git pre-commit hooks
 dev-vcs/python-gitlab 2.5.0 2.6.0: Python command line interface to gitlab API
 dev-vcs/qgit 2.9: Qt GUI for git repositories
 dev-vcs/rcs 5.9.3 5.9.4: Revision Control System
@@ -12756,7 +12756,7 @@ mail-mta/notqmail 1.08-r3 9999: qmail -- a secure, reliable, efficient, simple m
 mail-mta/nullmailer 2.2-r1: Simple relay-only local mail transport agent
 mail-mta/opensmtpd 6.7.1_p1 6.8.0_p2: Lightweight but featured SMTP daemon from OpenBSD
 mail-mta/postfix 3.5.8-r1 3.5.9-r1 3.5.10 3.6.0 3.7_pre20210424: A fast and secure drop-in replacement for sendmail
-mail-mta/protonmail-bridge 1.6.9: Serves ProtonMail to IMAP/SMTP clients
+mail-mta/protonmail-bridge 1.6.9 1.8.1: Serves ProtonMail to IMAP/SMTP clients
 mail-mta/qpsmtpd 0.95-r1 9999: qpsmtpd is a flexible smtpd daemon written in Perl
 mail-mta/sendmail 8.15.2-r2 8.16.1: Widely-used Mail Transport Agent (MTA)
 mail-mta/ssmtp 2.64-r4: Extremely simple MTA to get mail off the system to a Mailhub
@@ -16190,7 +16190,7 @@ sci-calculators/hexcalc 1.11-r3: A simple hex calculator for X
 sci-calculators/keurocalc 1.3.0: Universal currency converter and calculator
 sci-calculators/orpie 1.5.2-r1: A fullscreen RPN calculator for the console
 sci-calculators/pcalc 3-r1 4: the programmers calculator
-sci-calculators/qalculate-gtk 3.17.0 3.18.0: Modern multi-purpose calculator
+sci-calculators/qalculate-gtk 3.17.0 3.18.0 3.19.0: Modern multi-purpose calculator
 sci-calculators/speedcrunch 0.12.0-r1: Fast and usable calculator for power users
 sci-calculators/tiemu 3.03-r1: Texas Instruments hand-helds emulator
 sci-calculators/tilp2 1.18: Communication program for Texas Instruments calculators
@@ -16526,7 +16526,7 @@ sci-libs/libnova 0.16.0: Celestial Mechanics and Astronomical Calculation Librar
 sci-libs/liborigin 3.0.0 3.0.1: Library for reading OriginLab OPJ project files
 sci-libs/libpdb 991112-r1: PDB Record I/O Libraries -- c version
 sci-libs/libpdb++ 040728-r1: PDB Record I/O Libraries -- c++ version
-sci-libs/libqalculate 3.17.0 3.18.0: A modern multi-purpose calculator library
+sci-libs/libqalculate 3.17.0 3.18.0 3.19.0: A modern multi-purpose calculator library
 sci-libs/libsc 2.2-r100 9999: Support for parallel scientific applications
 sci-libs/libsigrok 0.5.2-r1 9999: Basic hardware drivers for logic analyzers and input/output file format support
 sci-libs/libsigrokdecode 0.5.3 9999: Provide (streaming) protocol decoding functionality
