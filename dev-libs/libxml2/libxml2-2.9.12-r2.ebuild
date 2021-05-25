@@ -5,7 +5,7 @@ EAPI=7
 
 # Note: Please bump in sync with dev-libs/libxslt
 
-PATCHSET_VERSION="2.9.12-r1-patchset"
+PATCHSET_VERSION="2.9.12-r2-patchset"
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 PYTHON_REQ_USE="xml"
