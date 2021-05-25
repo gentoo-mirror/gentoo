@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install postinst postrm prepare setup unpack
-DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( dev-python/autopep8[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/autopep8[python_targets_python3_8(-)] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/autopep8[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/autopep8[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/autopep8[python_targets_python3_9(-)] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 DESCRIPTION=Vim plugin for easy and fast outlining
 EAPI=6
 HOMEPAGE=https://github.com/vimoutliner/vimoutliner
 INHERIT=python-single-r1 vim-plugin vcs-snapshot
-IUSE=python_single_target_python3_7 python_single_target_python3_8
+IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=amd64 ~ia64 ppc sparc x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( dev-python/autopep8[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/autopep8[python_targets_python3_8(-)] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 )
+RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/autopep8[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/autopep8[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/autopep8[python_targets_python3_9(-)] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/vimoutliner/vimoutliner/archive/4f12628247940d98eedd594961695dc504261058.tar.gz -> vimoutliner-0.4.0_p20180301.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
-_md5_=2e938d11ecf3fcae510ea4703f62fd25
+_md5_=8257c24a25707c81f98eb1d827da6706
