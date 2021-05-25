@@ -1,10 +1,10 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DIST_AUTHOR=RJBS
-DIST_VERSION=6.010
+DIST_VERSION=6.017
 inherit perl-module
 
 DESCRIPTION="distribution builder; installer not included!"
@@ -14,9 +14,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="minimal test"
 RESTRICT="!test? ( test )"
 
-PATCHES=(
-	"${FILESDIR}/${P}-perl526.patch"
-)
 ## CPAN->Gentoo resolution map for grepping in case upstream split a dep
 # breaks: Dist::Zilla::App::Command::stale -> Dist-Zilla-Plugin-PromptIfStale
 # DZA:Command::xtest -> DZP:CheckExtraTests
@@ -86,7 +83,7 @@ RDEPEND="
 	virtual/perl-Carp
 	>=dev-perl/Class-Load-0.170.0
 	dev-perl/Config-INI
-	>=dev-perl/Config-MVP-2.200.10
+	>=dev-perl/Config-MVP-2.200.11
 	>=dev-perl/Config-MVP-Reader-INI-2.101.461
 	virtual/perl-Data-Dumper
 	>=dev-perl/Data-Section-0.200.2
@@ -94,9 +91,8 @@ RDEPEND="
 	virtual/perl-Digest-MD5
 	virtual/perl-Encode
 	>=virtual/perl-ExtUtils-Manifest-1.660.0
-	dev-perl/File-Copy-Recursive
+	>=dev-perl/File-Copy-Recursive-0.410.0
 	dev-perl/File-Find-Rule
-	dev-perl/File-HomeDir
 	virtual/perl-File-Path
 	dev-perl/File-ShareDir
 	>=dev-perl/File-ShareDir-Install-0.30.0
@@ -118,9 +114,9 @@ RDEPEND="
 	dev-perl/Params-Util
 	>=dev-perl/Path-Tiny-0.52.0
 	>=dev-perl/Perl-PrereqScanner-1.16.0
-	>=dev-perl/Pod-Eventual-0.91.480
+	virtual/perl-Pod-Simple
 	>=virtual/perl-Scalar-List-Utils-1.450.0
-	>=dev-perl/Software-License-0.101.370
+	>=dev-perl/Software-License-0.103.14
 	virtual/perl-Storable
 	>=dev-perl/String-Formatter-0.100.680
 	>=dev-perl/String-RewritePrefix-0.6.0
@@ -142,7 +138,7 @@ RDEPEND="
 "
 # t: Software::License::None -> Software-License 0.016
 # t: lib, utf8 -> perl
-DEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	>=dev-perl/File-ShareDir-Install-0.60.0
 	test? (
@@ -153,6 +149,9 @@ DEPEND="${RDEPEND}
 		>=virtual/perl-Test-Simple-0.960.0
 	)
 "
+PATCHES=(
+	"${FILESDIR}/${PN}-6.015-authordeps-missing.patch"
+)
 src_test() {
 	TZ=UTC perl-module_src_test
 }
