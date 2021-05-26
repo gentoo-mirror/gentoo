@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-21">
+  <title>Tcpreplay: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Tcpreplay, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">tcpreplay</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>750344</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-analyzer/tcpreplay" auto="yes" arch="*">
+      <unaffected range="ge">4.3.4</unaffected>
+      <vulnerable range="lt">4.3.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Tcpreplay is a suite of utilities for UNIX systems for editing and
+      replaying network traffic which was previously captured by tools like
+      tcpdump and ethereal/wireshark.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Tcpreplay. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could entice a user to open a specially crafted
+      network capture file using Tcpreplay, possibly resulting in a Denial of
+      Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Tcpreplay users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-analyzer/tcpreplay-4.3.4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24265">CVE-2020-24265</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24266">CVE-2020-24266</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T14:01:52Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T09:28:42Z">whissi</metadata>
+</glsa>

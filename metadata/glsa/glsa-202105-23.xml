@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-23">
+  <title>PHP: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in PHP, the worst of which
+    could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">php</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>764314</bug>
+  <bug>768756</bug>
+  <bug>788892</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-lang/php" auto="yes" arch="*">
+      <unaffected range="ge" slot="7.3">7.3.28</unaffected>
+      <unaffected range="ge" slot="7.4">7.4.19</unaffected>
+      <unaffected range="ge" slot="8.0">8.0.6</unaffected>
+      <vulnerable range="lt">8.0.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>PHP is an open source general-purpose scripting language that is
+      especially suited for web development.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in PHP. Please review the
+      CVE identifiers and bugs referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers and bugs for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All PHP 7.3.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/php-7.3.28:7.3"
+    </code>
+    
+    <p>All PHP 7.4.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/php-7.4.19:7.4"
+    </code>
+    
+    <p>All PHP 8.0.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/php-8.0.6:8.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-7071">CVE-2020-7071</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21702">CVE-2021-21702</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T13:47:47Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T09:29:31Z">whissi</metadata>
+</glsa>

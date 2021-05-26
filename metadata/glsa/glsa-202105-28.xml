@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-28">
+  <title>MariaDB: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in MariaDB, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">mariadb</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>777786</bug>
+  <bug>789240</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-db/mariadb" auto="yes" arch="*">
+      <unaffected range="ge" slot="10.2">10.2.38</unaffected>
+      <unaffected range="ge" slot="10.3">10.3.29</unaffected>
+      <unaffected range="ge" slot="10.4">10.4.19</unaffected>
+      <unaffected range="ge" slot="10.5">10.5.10</unaffected>
+      <vulnerable range="lt">10.5.10</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>MariaDB is an enhanced, drop-in replacement for MySQL.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in MariaDB. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All MariaDB 10.2.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/mariadb-10.2.38:10.2"
+    </code>
+    
+    <p>All MariaDB 10.3.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/mariadb-10.3.29:10.3"
+    </code>
+    
+    <p>All MariaDB 10.3.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/mariadb-10.4.19:10.4"
+    </code>
+    
+    <p>All MariaDB 10.5.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/mariadb-10.5.10:10.5"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2154">CVE-2021-2154</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2166">CVE-2021-2166</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2180">CVE-2021-2180</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27928">CVE-2021-27928</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T01:47:51Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T09:31:09Z">whissi</metadata>
+</glsa>
