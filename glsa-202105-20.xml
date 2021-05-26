@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-20">
+  <title>Dnsmasq: DNS cache poisoning</title>
+  <synopsis>Use of insufficient randomness in Dnsmasq might lead to DNS Cache
+    Poisoning.
+  </synopsis>
+  <product type="ebuild">dnsmasq</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>782130</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="net-dns/dnsmasq" auto="yes" arch="*">
+      <unaffected range="ge">2.85</unaffected>
+      <vulnerable range="lt">2.85</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Dnsmasq is a lightweight and easily-configurable DNS forwarder and DHCP
+      server.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that Dnsmasq, when configured with
+      --server=&lt;address&gt;@<interface> or similar (e.g. through dbus),
+        configured a fixed UDP port for all outgoing queries to the specified
+        upstream DNS server.
+      </interface>
+    </p>
+  </description>
+  <impact type="low">
+    <p>An attacker, by sending malicious crafted DNS responses, could perform a
+      DNS Cache Poisoning attack.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Dnsmasq users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-dns/dnsmasq-2.85"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3448">CVE-2021-3448</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T13:34:22Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:39:11Z">whissi</metadata>
+</glsa>
