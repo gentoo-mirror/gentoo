@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-16">
+  <title>X.Org X11 library: Denial of service</title>
+  <synopsis>A vulnerability in X.Org X11 library could lead to a Denial of
+    Service condition.
+  </synopsis>
+  <product type="ebuild">libx11</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>790824</bug>
+  <access>remote</access>
+  <affected>
+    <package name="x11-libs/libX11" auto="yes" arch="*">
+      <unaffected range="ge">1.7.1</unaffected>
+      <vulnerable range="lt">1.7.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>X.Org is an implementation of the X Window System. The X.Org X11 library
+      provides the X11 protocol library files.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that XLookupColor() and other X.Org X11 library
+      functions lacked proper validation of the length of their string
+      parameters.
+    </p>
+  </description>
+  <impact type="low">
+    <p>An attacker could emit arbitrary X protocol requests to the X server
+      through malicious crafted string parameters in applications linked
+      against X.Org X11 library.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All X.Org X11 library users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=x11-libs/libX11-1.7.1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31535">CVE-2021-31535</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T15:55:58Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:37:54Z">whissi</metadata>
+</glsa>
