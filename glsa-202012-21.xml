@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202012-21">
+  <title>Mozilla Network Security Service (NSS): Denial of service</title>
+  <synopsis>A vulnerability in NSS might allow remote attackers to cause a
+    Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">nss</product>
+  <announced>2020-12-23</announced>
+  <revised count="1">2020-12-23</revised>
+  <bug>750254</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/nss" auto="yes" arch="*">
+      <unaffected range="ge">3.58</unaffected>
+      <vulnerable range="lt">3.58</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The Mozilla Network Security Service (NSS) is a library implementing
+      security features like SSL v.2/v.3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS
+      #12, S/MIME and X.509 certificates.
+    </p>
+  </background>
+  <description>
+    <p>A flaw was found in the way Mozilla Network Security Service (NSS)
+      handled CCS (ChangeCipherSpec) messages in TLS 1.3.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could send multiple crafted CSS messages in row after
+      ClientHello message to a server application linked against NSS library,
+      possibly resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>Disable TLS 1.3 protocol.</p>
+  </workaround>
+  <resolution>
+    <p>All NSS users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/nss-3.58"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25648">CVE-2020-25648</uri>
+  </references>
+  <metadata tag="requester" timestamp="2020-12-22T23:13:35Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2020-12-23T19:58:04Z">whissi</metadata>
+</glsa>
