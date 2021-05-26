@@ -27,10 +27,13 @@ RESTRICT="test"
 
 # TODO: Could make pkgconfig conditional on selinux? bug #782829
 COMMON_DEPEND="!static? ( selinux? ( sys-libs/libselinux ) )
-	pam? ( sys-libs/pam )"
+	pam? ( sys-libs/pam )
+	virtual/libcrypt:="
 DEPEND="${COMMON_DEPEND}
-	virtual/pkgconfig
-	static? ( selinux? ( sys-libs/libselinux[static-libs(+)] ) )
+	static? (
+		virtual/libcrypt[static-libs]
+		selinux? ( sys-libs/libselinux[static-libs(+)] )
+	)
 	>=sys-kernel/linux-headers-2.6.39"
 BDEPEND="virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
@@ -216,6 +219,9 @@ src_compile() {
 	export SKIP_STRIP=y
 
 	emake V=1 busybox
+
+	# bug #701512
+	emake V=1 doc
 }
 
 src_install() {
@@ -287,7 +293,8 @@ src_install() {
 
 	dodoc AUTHORS README TODO
 
-	cd docs
+	cd docs || die
+	doman busybox.1
 	docinto txt
 	dodoc *.txt
 	docinto pod
@@ -295,7 +302,7 @@ src_install() {
 	docinto html
 	dodoc *.html
 
-	cd ../examples
+	cd ../examples || die
 	docinto examples
 	dodoc inittab depmod.pl *.conf *.script undeb unrpm
 }
