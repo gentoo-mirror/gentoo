@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-18">
+  <title>LittleCMS: User-assisted execution of arbitrary code</title>
+  <synopsis>A heap-based buffer overflow in LittleCMS might allow remote
+    attackers to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">lcms</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>761418</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="media-libs/lcms" auto="yes" arch="*">
+      <unaffected range="ge">2.10</unaffected>
+      <vulnerable range="lt">2.10</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>LittleCMS, or short lcms, is a color management system for working with
+      ICC profiles. It is used by many applications including GIMP, Firefox and
+      Chromium.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that LittleCMS (aka Little Color Management System)
+      had an integer overflow in the AllocateDataSet function in cmscgats.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user or automated system to open a
+      specially crafted file containing malicious color data, possibly
+      resulting in execution of arbitrary code with the privileges of the
+      process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All LittleCMS users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-libs/lcms-2.10"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-16435">CVE-2018-16435</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T14:14:12Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:38:28Z">whissi</metadata>
+</glsa>
