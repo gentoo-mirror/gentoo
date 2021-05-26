@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-39">
+  <title>Ceph: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Ceph, the worst of
+    which could result in privilege escalation.
+  </synopsis>
+  <product type="ebuild">ceph</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>760824</bug>
+  <bug>761969</bug>
+  <bug>783486</bug>
+  <bug>791253</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-cluster/ceph" auto="yes" arch="*">
+      <unaffected range="ge">14.2.21</unaffected>
+      <vulnerable range="lt">14.2.21</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Ceph is a distributed network file system designed to provide excellent
+      performance, reliability, and scalability.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Ceph. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Ceph users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-cluster/ceph-14.2.21"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-10753">CVE-2020-10753</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-1759">CVE-2020-1759</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-1760">CVE-2020-1760</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25660">CVE-2020-25660</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25678">CVE-2020-25678</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27781">CVE-2020-27781</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20288">CVE-2021-20288</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T14:51:24Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T20:56:21Z">whissi</metadata>
+</glsa>
