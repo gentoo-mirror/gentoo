@@ -1,10 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 JAVA_PKG_IUSE="doc source test"
-inherit epatch java-pkg-2 java-ant-2 toolchain-funcs
+inherit java-pkg-2 java-ant-2 toolchain-funcs
 
 MY_PN="wrapper"
 MY_P="${MY_PN}_${PV}_src"
@@ -17,9 +17,9 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 
 RDEPEND="
-	>=virtual/jre-1.4"
+	virtual/jre:1.8"
 DEPEND="
-	>=virtual/jdk-1.4
+	virtual/jdk:1.8
 	test? (
 		dev-java/ant-junit:0
 	)"
@@ -34,8 +34,8 @@ PATCHES=(
 	"${FILESDIR}"/${P}-testsuite.patch
 )
 
-java_prepare() {
-	epatch "${PATCHES[@]}"
+src_prepare() {
+	default
 
 	cp "${S}/src/c/Makefile-linux-armel-32.make" "${S}/src/c/Makefile-linux-arm-32.make"
 }
