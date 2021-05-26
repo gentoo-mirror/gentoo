@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=dev-libs/apr-1.5.0:1= dev-libs/apr-util:1= dev-libs/expat dev-libs/libpcre kernel_linux? ( sys-apps/util-linux ) ssl? ( dev-libs/openssl:0= ) sys-devel/libtool
+DESCRIPTION=Useful Apache tools - htdigest, htpasswd, ab, htdbm
+EAPI=7
+HOMEPAGE=https://httpd.apache.org/
+INHERIT=flag-o-matic multilib toolchain-funcs
+IUSE=ssl
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc64-solaris ~x64-solaris
+LICENSE=Apache-2.0
+RDEPEND=>=dev-libs/apr-1.5.0:1= dev-libs/apr-util:1= dev-libs/expat dev-libs/libpcre kernel_linux? ( sys-apps/util-linux ) ssl? ( dev-libs/openssl:0= )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://apache/httpd/httpd-2.4.48.tar.bz2
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
+_md5_=3b9134e93b7eee3fd071d1912566e6df
