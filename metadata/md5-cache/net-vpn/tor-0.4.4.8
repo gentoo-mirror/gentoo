@@ -1,10 +1,10 @@
 BDEPEND=verify-sig? ( app-crypt/openpgp-keys-tor ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
-DEFINED_PHASES=configure install unpack
-DEPEND=dev-libs/libevent:=[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) dev-libs/openssl:0=[-bindist] lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd )
+DEFINED_PHASES=configure install setup unpack
+DEPEND=dev-libs/libevent:=[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) dev-libs/openssl:0=[-bindist] lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) test? ( dev-libs/libevent:=[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) dev-libs/openssl:0=[-bindist] lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) || ( dev-lang/python:3.9 dev-lang/python:3.8 dev-lang/python:3.7 ) )
 DESCRIPTION=Anonymizing overlay network for TCP
 EAPI=7
 HOMEPAGE=http://www.torproject.org/
-INHERIT=flag-o-matic readme.gentoo-r1 systemd verify-sig
+INHERIT=flag-o-matic python-any-r1 readme.gentoo-r1 systemd verify-sig
 IUSE=caps doc lzma +man scrypt seccomp selinux +server systemd tor-hardening test zstd verify-sig
 KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~ppc-macos
 LICENSE=BSD GPL-2
@@ -12,5 +12,5 @@ RDEPEND=acct-user/tor acct-group/tor dev-libs/libevent:=[ssl] sys-libs/zlib caps
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.torproject.org/dist/tor-0.4.4.8.tar.gz https://archive.torproject.org/tor-package-archive/tor-0.4.4.8.tar.gz verify-sig? ( https://dist.torproject.org/tor-0.4.4.8.tar.gz.asc )
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	readme.gentoo-r1	22ae82e140bdd95d17a34fd5fd733190	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	verify-sig	40b4f4f782cf67118f594ce604cc4c0a
-_md5_=c2bd12ccbc05b9b0cc82bef1ad722f98
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-any-r1	17241a11501065ff3651350040875aa9	readme.gentoo-r1	22ae82e140bdd95d17a34fd5fd733190	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	verify-sig	40b4f4f782cf67118f594ce604cc4c0a
+_md5_=44e129f9e24a22aef52b124e1db826a5
