@@ -26,8 +26,6 @@ BDEPEND="
 	doc? ( app-doc/doxygen[dot] )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-cmake.patch )
-
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_BUILD_TESTS=$(usex test)
