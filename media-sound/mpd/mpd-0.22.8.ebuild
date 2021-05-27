@@ -284,9 +284,9 @@ src_install() {
 	keepdir /var/lib/mpd/music
 	keepdir /var/lib/mpd/playlists
 
-	rm -r "${ED}"/usr/share/doc/mpd || die
-
 	fowners mpd:audio -R /var/lib/mpd
+
+	rm -r "${ED}"/usr/share/doc/mpd || die
 
 }
 
