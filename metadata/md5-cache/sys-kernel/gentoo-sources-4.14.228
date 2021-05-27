@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=!build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 )
+DEPEND=!build? ( sys-apps/sed )
 DESCRIPTION=Full sources including the Gentoo patchset for the 4.14 kernel tree
 EAPI=6
 HOMEPAGE=https://dev.gentoo.org/~mpagano/genpatches
@@ -11,5 +11,5 @@ RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-
 RESTRICT=binchecks strip
 SLOT=4.14.228
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-4.14-238.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-4.14-238.base.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-4.14-238.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-4.14-238.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-4.14-238.extras.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-4.14-238.extras.tar.xz experimental? ( https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-4.14-238.experimental.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-4.14-238.experimental.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-4.14-238.experimental.tar.xz )
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	estack	055c42df72f76a4f45ec92b35e83cd56	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	kernel-2	5354799dd98f51be880d4f658e1bf57b
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	kernel-2	5edee241be57139e8d1fb1136f28712d
 _md5_=bae3253751071047e5198ee5bcb7791f

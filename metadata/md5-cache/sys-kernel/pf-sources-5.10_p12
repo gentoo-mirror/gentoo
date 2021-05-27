@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=!build? ( sys-apps/sed >=sys-devel/binutils-2.11.90.0.31 )
+DEPEND=!build? ( sys-apps/sed )
 DESCRIPTION=Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
 EAPI=6
 HOMEPAGE=https://gitlab.com/post-factum/pf-kernel/-/wikis/README https://dev.gentoo.org/~mpagano/genpatches/
@@ -11,5 +11,5 @@ RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-
 RESTRICT=binchecks strip
 SLOT=5.10_p12
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz https://github.com/pfactum/pf-kernel/compare/v5.10...v5.10-pf12.diff -> pf-sources-5.10_p12.patch https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.10-1.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.10-1.extras.tar.xz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	estack	055c42df72f76a4f45ec92b35e83cd56	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	kernel-2	5354799dd98f51be880d4f658e1bf57b	optfeature	e142388219c7fee6ff016fe1c78a10a5
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	kernel-2	5edee241be57139e8d1fb1136f28712d	optfeature	e142388219c7fee6ff016fe1c78a10a5
 _md5_=54a58c81dcab848f18df9010256f5264
