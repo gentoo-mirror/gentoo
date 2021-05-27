@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm
+DESCRIPTION=Sophisticated text editor for code, markup and prose
+EAPI=7
+HOMEPAGE=https://www.sublimetext.com
+INHERIT=desktop xdg-utils wrapper
+IUSE=dbus
+KEYWORDS=~amd64
+LICENSE=Sublime
+RDEPEND=dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/libX11 dbus? ( sys-apps/dbus )
+RESTRICT=bindist mirror strip
+SLOT=0
+SRC_URI=amd64? ( https://download.sublimetext.com/sublime_text_build_4107_x64.tar.xz )
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=ae45b1817f51b47777c168514552e551
