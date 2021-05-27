@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/storaged-project/libbytesize
 INHERIT=autotools python-r1
 IUSE=doc python test tools python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~sparc x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-2+
 RDEPEND=dev-libs/gmp:0= dev-libs/mpfr:= dev-libs/libpcre2 python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
 REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 ) ) tools? ( python )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
-_md5_=ef318ceaa054915dc8d01079acad41ed
+_md5_=370a3a2011bfbc4149652e82efdc74ee
