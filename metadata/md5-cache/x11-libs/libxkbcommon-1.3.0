@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://xkbcommon.org/ https://github.com/xkbcommon/libxkbcommon/
 INHERIT=meson multilib-minimal python-any-r1 virtualx
 IUSE=doc static-libs test wayland X abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 test
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=MIT
 RDEPEND=X? ( >=x11-libs/libxcb-1.10:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,xkb] ) wayland? ( >=dev-libs/wayland-1.2.0 ) dev-libs/libxml2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] x11-misc/compose-tables
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://xkbcommon.org/download/libxkbcommon-1.3.0.tar.xz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	meson	28cbb704f3b4e0481c4a5f22be635115	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	ac696f0bea6c503f5980bfd5a0f312e5	multilib-minimal	8bddda43703ba94d8341f4e247f97566	python-any-r1	17241a11501065ff3651350040875aa9	virtualx	0a780e1ab49c75da33a78ede35ab8f9c
-_md5_=d3da9e7f152c665eda85c0e68c00e019
+_md5_=8ce9042e444f79ee6e8c939666503bd2
