@@ -1,7 +1,7 @@
+BDEPEND=app-arch/xz-utils dev-lang/perl
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=app-arch/xz-utils dev-lang/perl
 DESCRIPTION=Linux system headers
-EAPI=6
+EAPI=7
 HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel
 INHERIT=kernel-2 toolchain-funcs
 IUSE=headers-only
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.12.tar.xz mirror://gentoo/gentoo-headers-5.12-1.tar.xz https://dev.gentoo.org/~slyfox/distfiles/gentoo-headers-5.12-1.tar.xz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	kernel-2	5edee241be57139e8d1fb1136f28712d
-_md5_=ebc39cb156ab9ab057f02ab71f5cfe21
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	kernel-2	5edee241be57139e8d1fb1136f28712d
+_md5_=7a3881cac1b5011cfe78f7b87b0a1dcd
