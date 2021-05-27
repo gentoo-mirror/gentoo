@@ -1,0 +1,16 @@
+BDEPEND=dev-util/patchutils sys-devel/bison sys-devel/flex doc? ( app-text/asciidoc app-text/sgml-common app-text/xmlto sys-process/time )
+DEFINED_PHASES=compile install prepare pretend setup test unpack
+DEPEND=audit? ( sys-process/audit ) crypt? ( dev-libs/openssl:0= ) clang? ( <sys-devel/clang-10:* <sys-devel/llvm-10:* ) demangle? ( sys-libs/binutils-libs:= ) gtk? ( x11-libs/gtk+:2 ) java? ( virtual/jre:* ) libpfm? ( dev-libs/libpfm ) lzma? ( app-arch/xz-utils ) numa? ( sys-process/numactl ) perl? ( dev-lang/perl:= ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) slang? ( sys-libs/slang ) systemtap? ( dev-util/systemtap ) unwind? ( sys-libs/libunwind ) zlib? ( sys-libs/zlib ) dev-libs/elfutils >=sys-kernel/linux-headers-4.19 java? ( virtual/jdk ) !!sys-devel/llvm:0
+DESCRIPTION=Userland tools for Linux Performance Counters
+EAPI=7
+HOMEPAGE=https://perf.wiki.kernel.org/
+INHERIT=bash-completion-r1 estack llvm toolchain-funcs prefix python-r1 linux-info
+IUSE=audit clang crypt debug +demangle +doc gtk java libpfm lzma numa perl python slang systemtap unwind zlib python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 kernel_linux
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=audit? ( sys-process/audit ) crypt? ( dev-libs/openssl:0= ) clang? ( <sys-devel/clang-10:* <sys-devel/llvm-10:* ) demangle? ( sys-libs/binutils-libs:= ) gtk? ( x11-libs/gtk+:2 ) java? ( virtual/jre:* ) libpfm? ( dev-libs/libpfm ) lzma? ( app-arch/xz-utils ) numa? ( sys-process/numactl ) perl? ( dev-lang/perl:= ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) slang? ( sys-libs/slang ) systemtap? ( dev-util/systemtap ) unwind? ( sys-libs/libunwind ) zlib? ( sys-libs/zlib ) dev-libs/elfutils
+REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 ) )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.16.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	estack	055c42df72f76a4f45ec92b35e83cd56	llvm	e00745e3b8d63dc13bfe5a2d7310ee6b	prefix	de7d8e2b10085ed5ff09ad70e4753e5c	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	linux-info	30ded7f9adbdd03d3e848cdd74f6c395
+_md5_=ff4b008c649a90f3a3d164f677b6eee8
