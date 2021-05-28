@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/inspircd/inspircd/archive/v${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug gnutls ldap maxminddb mbedtls mysql pcre postgres re2 regex-posix regex-stdlib sqlite ssl sslrehashsignal tre"
 
 RDEPEND="
@@ -32,7 +32,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=( docs/. )
-PATCHES=( "${FILESDIR}"/${PN}-3.7.0-fix-path-builds.patch )
+PATCHES=( "${FILESDIR}"/${P}-fix-path-builds.patch )
 
 src_prepare() {
 	default
