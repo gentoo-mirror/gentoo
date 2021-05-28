@@ -23,7 +23,7 @@ cfg-if-0.1.10
 cfg-if-1.0.0
 chrono-0.4.19
 clap-2.33.3
-console-0.14.0
+console-0.14.1
 crc32fast-1.2.1
 dirs-next-2.0.0
 dirs-sys-next-0.1.1
@@ -34,7 +34,7 @@ flate2-1.0.19
 fnv-1.0.7
 form_urlencoded-1.0.0
 getrandom-0.1.16
-git2-0.13.15
+git2-0.13.18
 hashbrown-0.8.2
 heck-0.3.2
 hermit-abi-0.1.17
@@ -46,7 +46,7 @@ jobserver-0.1.21
 lazycell-1.3.0
 lazy_static-1.4.0
 libc-0.2.81
-libgit2-sys-0.12.17+1.1.0
+libgit2-sys-0.12.19+1.1.0
 libz-sys-1.1.2
 line-wrap-0.1.1
 linked-hash-map-0.5.3
@@ -58,6 +58,7 @@ num-integer-0.1.44
 num-traits-0.2.14
 onig-6.1.1
 onig_sys-69.6.0
+pathdiff-0.2.0
 percent-encoding-2.1.0
 pkg-config-0.3.19
 plist-1.0.1
@@ -67,8 +68,8 @@ proc-macro-error-attr-1.0.4
 quote-1.0.8
 redox_syscall-0.1.57
 redox_users-0.3.5
-regex-1.4.2
-regex-syntax-0.6.21
+regex-1.4.6
+regex-syntax-0.6.22
 ryu-1.0.5
 safemem-0.3.3
 same-file-1.0.6
@@ -83,7 +84,6 @@ syn-1.0.57
 syntect-4.5.0
 terminal_size-0.1.15
 textwrap-0.11.0
-thread_local-1.0.1
 tinyvec-1.1.0
 tinyvec_macros-0.1.0
 unicode-bidi-0.3.4
@@ -96,7 +96,7 @@ utf8parse-0.2.0
 vcpkg-0.2.11
 vec_map-0.8.2
 version_check-0.9.2
-vte-0.9.0
+vte-0.10.0
 vte_generate_state_changes-0.1.1
 walkdir-2.3.1
 wasi-0.9.0+wasi-snapshot-preview1
@@ -104,6 +104,7 @@ winapi-0.3.9
 winapi-i686-pc-windows-gnu-0.4.0
 winapi-util-0.1.5
 winapi-x86_64-pc-windows-gnu-0.4.0
+xdg-2.2.0
 xml-rs-0.8.3
 yaml-rust-0.4.5
 "
@@ -118,7 +119,7 @@ S="${WORKDIR}/${P/git-/}"
 
 LICENSE="Apache-2.0 BSD-2 Boost-1.0 CC0-1.0 ISC LGPL-3+ MIT Unlicense ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="
