@@ -151,7 +151,6 @@ src_configure() {
 		--without-charls
 		--without-dods-root
 		--without-ecw
-		--without-epsilon
 		--without-fgdb
 		--without-fme
 		--without-gta
@@ -302,9 +301,6 @@ src_install() {
 		popd > /dev/null || die
 
 		newdoc swig/python/README.rst README-python.rst
-
-		insinto /usr/share/${PN}/samples
-		doins -r swig/python/samples/.
 	fi
 
 	doman "${S}"/man/man*/*
