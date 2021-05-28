@@ -11,14 +11,20 @@ SRC_URI="https://archive.mozilla.org/pub/opus/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 INTRINSIC_FLAGS="cpu_flags_x86_sse cpu_flags_arm_neon"
 IUSE="custom-modes doc static-libs ${INTRINSIC_FLAGS}"
 
-BDEPEND="doc? (
+BDEPEND="
+	doc? (
 		app-doc/doxygen
 		media-gfx/graphviz
-	)"
+	)
+"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.3.1-libdir-macro.patch
+)
 
 multilib_src_configure() {
 	local myeconfargs=(
@@ -28,12 +34,15 @@ multilib_src_configure() {
 	)
 
 	local i
-	for i in ${INTRINSIC_FLAGS} ; do
-		use ${i} && myeconfargs+=( --enable-intrinsics )
-	done
+	# We want to disable intrinsics if no flags are enabled
+	# (This is a fun Bash construct to do that!)
+	# bug #752069
+	for i in "${INTRINSIC_FLAGS}" ; do
+		use ${i} && myeconfargs+=( --enable-intrinsics ) && break
+	done || myeconfargs+=( --disable-intrinsics )
 
 	if is-flagq -ffast-math || is-flagq -Ofast; then
-		myeconfargs+=( "--enable-float-approx" )
+		myeconfargs+=( --enable-float-approx )
 	fi
 
 	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
