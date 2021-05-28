@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Full sources including the Gentoo patchset for the 5.4 kernel tree
+EAPI=7
+HOMEPAGE=https://dev.gentoo.org/~mpagano/genpatches
+INHERIT=kernel-2
+IUSE=experimental symlink build
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.4.123
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.4-126.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-126.base.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-5.4-126.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.4-126.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-126.extras.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-5.4-126.extras.tar.xz experimental? ( https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.4-126.experimental.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-126.experimental.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-5.4-126.experimental.tar.xz )
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	kernel-2	c2fd42f2d934e63b6fc62411049efaf5
+_md5_=b7d05f648834816e29bfb9d8354f9023
