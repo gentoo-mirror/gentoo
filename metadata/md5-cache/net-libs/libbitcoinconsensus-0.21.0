@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
 INHERIT=autotools
 IUSE=+asm knots
-KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=>dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr]
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/95ea54ba089610019a74c1176a2c7c0dba144b1c.tar.gz -> bitcoin-v0.21.0.tar.gz https://bitcoinknots.org/files/0.21.x/0.21.0.knots20210130/bitcoin-0.21.0.knots20210130.patches.txz -> bitcoin-0.21.0.knots20210130.patches.tar.xz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=f42925d1328ec20051abcef957a722e9
+_md5_=d2cbdad10d1f08f9aed2549e98430e38

@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/bitcoin-core/secp256k1
 INHERIT=autotools
 IUSE=+asm ecdh +experimental +extrakeys gmp lowmem precompute-ecmult +schnorr +recovery test test-openssl valgrind
-KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=gmp? ( dev-libs/gmp:0= )
 REQUIRED_USE=asm? ( || ( amd64 arm ) arm? ( experimental ) ) extrakeys? ( experimental ) ?? ( lowmem precompute-ecmult ) schnorr? ( experimental extrakeys ) test-openssl? ( test )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin-core/secp256k1/archive/3967d96bf184519eb98b766af665b4d4b072563e.tar.gz -> libsecp256k1-v0.1_pre20201028.tgz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=e954b8490e50d64b397f5d0d3c77ab43
+_md5_=3a28656bf430107777cede6b6a0892ff
