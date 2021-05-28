@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,7 @@ RDEPEND="!app-admin/graylog2
 	>=virtual/jdk-1.8:*"
 
 DOCS=(
-	README.markdown UPGRADING.rst
+	COPYING README.markdown UPGRADING.rst
 )
 
 GRAYLOG_DATA_DIR="/var/lib/graylog"
@@ -76,4 +76,8 @@ pkg_postinst() {
 	ewarn
 	ewarn "Please configure rc_need according to your binding address in:"
 	ewarn "/etc/conf.d/graylog"
+	ewarn
+	ewarn "Graylog requires Java >= 8"
+	ewarn "Elasticsearch 5.x or 6.x (does NOT work with 7.x)"
+	ewarn "and MongoDB 3.6, 4.0 or 4.2"
 }
