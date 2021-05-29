@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -26,6 +26,7 @@ RDEPEND="
 		X? ( x11-libs/libX11 )
 	)
 	server? (
+		dev-libs/jsoncpp:=
 		upnp? ( net-libs/miniupnpc:= )
 	)"
 DEPEND="${RDEPEND}"
@@ -34,12 +35,11 @@ BDEPEND="games-util/deutex"
 S="${WORKDIR}/${PN}-src-${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.8.1-miniupnpc.patch"
-	"${FILESDIR}/${P}-Use-C-11-on-odalaunch-target-for-wx-3.0.4-and-up.patch"
+	"${FILESDIR}/${PN}-0.9.0-Unbundle-miniupnpc.patch"
 )
 
 src_prepare() {
-	rm -r libraries/libminiupnpc wad/odamex.wad || die
+	rm -r libraries/libminiupnpc || die
 	hprefixify common/d_main.cpp
 
 	use odalaunch && setup-wxwidgets
@@ -50,10 +50,12 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_X11=$(usex !X)
+		-DUSE_INTERNAL_LIBS=0
 		-DBUILD_CLIENT=$(usex client)
+		-DBUILD_LAUNCHER=$(usex odalaunch)
 		-DBUILD_MASTER=$(usex master)
-		-DBUILD_ODALAUNCH=$(usex odalaunch)
 		-DBUILD_SERVER=$(usex server)
+		-DBUILD_OR_FAIL=1
 		-DENABLE_PORTMIDI=$(usex portmidi)
 		-DUSE_MINIUPNP=$(usex upnp)
 	)
