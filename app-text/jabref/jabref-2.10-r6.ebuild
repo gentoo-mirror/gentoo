@@ -10,7 +10,7 @@ inherit desktop java-pkg-2 java-ant-2 java-utils-2
 MY_PV="${PV/_beta/b}"
 
 DESCRIPTION="Java GUI for managing BibTeX and other bibliographies"
-HOMEPAGE="http://jabref.sourceforge.net/"
+HOMEPAGE="https://www.jabref.org/"
 SRC_URI="mirror://sourceforge/${PN}/JabRef-${MY_PV}-src.tar.bz2"
 
 LICENSE="GPL-2"
@@ -30,16 +30,23 @@ COMMON_DEP="
 	"
 
 DEPEND="
-	>=virtual/jdk-1.8:*
+	virtual/jdk:1.8
 	${COMMON_DEP}"
 
 RDEPEND="
-	>=virtual/jre-1.8:*
+	virtual/jre:1.8
 	${COMMON_DEP}"
 
 S="${WORKDIR}/${PN}-${MY_PV}"
 
-java_prepare() {
+src_prepare() {
+	default
+
+	# If we cleanup it complains about missing jarbundler
+	# BUILD FAILED
+	# taskdef class net.sourceforge.jarbundler.JarBundler cannot be found
+#	java-pkg_clean
+
 	# Remove bundled dependencies.
 	rm lib/antlr*.jar || die
 	rm lib/fontbox*.jar || die
