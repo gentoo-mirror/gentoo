@@ -1,7 +1,7 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=7
 
 JAVA_PKG_IUSE="doc source"
 
@@ -9,7 +9,7 @@ inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="A collection of powerful, useful, and just plain fun Swing components"
 HOMEPAGE="https://java.net/projects/swingx/"
-SRC_URI="https://java.net/projects/${PN}/downloads/download/releases/${PN}-all-${PV}-sources.jar
+SRC_URI="https://maven.java.net/service/local/repositories/releases/content/org/swinglabs/swingx/swingx-all/${PV}/swingx-all-${PV}-sources.jar
 	https://java.net/projects/${PN}/downloads/download/releases/${PN}-mavensupport-${PV}-sources.jar"
 
 LICENSE="LGPL-2.1"
@@ -18,17 +18,10 @@ KEYWORDS="~amd64 ~x86"
 
 CDEPEND="dev-java/metainf-services:0"
 
-RDEPEND=">=virtual/jre-1.5
+RDEPEND="virtual/jre:1.8
 	${CDEPEND}"
 
-DEPEND=">=virtual/jdk-1.5
+DEPEND="virtual/jdk:1.8
 	${CDEPEND}"
 
 JAVA_GENTOO_CLASSPATH="metainf-services"
-
-src_install() {
-	java-pkg_dojar ${PN}.jar
-
-	use doc && java-pkg_dojavadoc target/api
-	use source && java-pkg_dosrc org
-}
