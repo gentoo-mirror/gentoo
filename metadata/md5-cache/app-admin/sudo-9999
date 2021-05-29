@@ -1,6 +1,6 @@
-BDEPEND=sys-devel/bison virtual/pkgconfig >=app-portage/elt-patches-20170815 virtual/pkgconfig
+BDEPEND=sys-devel/bison virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare unpack
-DEPEND=sys-libs/zlib:= gcrypt? ( dev-libs/libgcrypt:= ) ldap? ( >=net-nds/openldap-2.1.30-r1 sasl? ( dev-libs/cyrus-sasl net-nds/openldap[sasl] ) ) pam? ( sys-libs/pam ) sasl? ( dev-libs/cyrus-sasl ) skey? ( >=sys-auth/skey-1.1.5-r1 ) ssl? ( dev-libs/openssl:0= ) sssd? ( sys-auth/sssd[sudo] ) dev-vcs/mercurial
+DEPEND=sys-libs/zlib:= gcrypt? ( dev-libs/libgcrypt:= ) ldap? ( >=net-nds/openldap-2.1.30-r1 sasl? ( dev-libs/cyrus-sasl net-nds/openldap[sasl] ) ) nls? ( virtual/libintl ) pam? ( sys-libs/pam ) sasl? ( dev-libs/cyrus-sasl ) skey? ( >=sys-auth/skey-1.1.5-r1 ) ssl? ( dev-libs/openssl:0= ) sssd? ( sys-auth/sssd[sudo] ) dev-vcs/mercurial
 DESCRIPTION=Allows users or groups to run commands as other users
 EAPI=7
 HOMEPAGE=https://www.sudo.ws/
@@ -8,8 +8,8 @@ INHERIT=pam multilib libtool systemd tmpfiles toolchain-funcs mercurial
 IUSE=gcrypt ldap nls offensive pam sasl +secure-path selinux +sendmail skey ssl sssd
 LICENSE=ISC BSD
 PROPERTIES=live
-RDEPEND=sys-libs/zlib:= gcrypt? ( dev-libs/libgcrypt:= ) ldap? ( >=net-nds/openldap-2.1.30-r1 sasl? ( dev-libs/cyrus-sasl net-nds/openldap[sasl] ) ) pam? ( sys-libs/pam ) sasl? ( dev-libs/cyrus-sasl ) skey? ( >=sys-auth/skey-1.1.5-r1 ) ssl? ( dev-libs/openssl:0= ) sssd? ( sys-auth/sssd[sudo] ) >=app-misc/editor-wrapper-3 virtual/editor ldap? ( dev-lang/perl ) pam? ( sys-auth/pambase ) selinux? ( sec-policy/selinux-sudo ) sendmail? ( virtual/mta ) virtual/tmpfiles
+RDEPEND=sys-libs/zlib:= gcrypt? ( dev-libs/libgcrypt:= ) ldap? ( >=net-nds/openldap-2.1.30-r1 sasl? ( dev-libs/cyrus-sasl net-nds/openldap[sasl] ) ) nls? ( virtual/libintl ) pam? ( sys-libs/pam ) sasl? ( dev-libs/cyrus-sasl ) skey? ( >=sys-auth/skey-1.1.5-r1 ) ssl? ( dev-libs/openssl:0= ) sssd? ( sys-auth/sssd[sudo] ) >=app-misc/editor-wrapper-3 virtual/editor ldap? ( dev-lang/perl ) pam? ( sys-auth/pambase ) selinux? ( sec-policy/selinux-sudo ) sendmail? ( virtual/mta ) virtual/tmpfiles
 REQUIRED_USE=?? ( pam skey ) ?? ( gcrypt ssl )
 SLOT=0
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	pam	b097695df28f3974e3af860d6704d4f2	libtool	f143db5a74ccd9ca28c1234deffede96	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	mercurial	9f2bfb53237de8f79541b5592ed52f7a
-_md5_=34c697579542fd59b1b69a9c4b1000b0
+_md5_=3af357d4c883b49ab847bbbb72206d5d

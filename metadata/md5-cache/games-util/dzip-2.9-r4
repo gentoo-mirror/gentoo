@@ -1,12 +1,14 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=configure install prepare
+DEPEND=sys-libs/zlib
 DESCRIPTION=compressor/uncompressor for demo recordings from id's Quake
 EAPI=7
 HOMEPAGE=http://speeddemosarchive.com/dzip/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=ZLIB
+RDEPEND=sys-libs/zlib
 SLOT=0
 SRC_URI=http://speeddemosarchive.com/dzip/dz29src.zip
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=d4a295b5b0deb020f5e860896e89483a
+_md5_=6ddbdc27da5a3bb7a69702b683f3ba6d

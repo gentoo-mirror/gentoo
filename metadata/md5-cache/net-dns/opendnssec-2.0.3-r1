@@ -1,6 +1,6 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=doc? ( app-doc/doxygen ) test? ( app-text/trang ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst prepare pretend setup
-DEPEND=dev-lang/perl dev-libs/libxml2 dev-libs/libxslt net-libs/ldns mysql? ( dev-db/mysql-connector-c:0= dev-perl/DBD-mysql ) opensc? ( dev-libs/opensc ) readline? ( sys-libs/readline:0 ) softhsm? ( dev-libs/softhsm:* ) sqlite? ( dev-db/sqlite:3 dev-perl/DBD-SQLite ) doc? ( app-doc/doxygen ) test? ( app-text/trang )
+DEPEND=dev-lang/perl dev-libs/libxml2 dev-libs/libxslt net-libs/ldns mysql? ( dev-db/mysql-connector-c:0= dev-perl/DBD-mysql ) opensc? ( dev-libs/opensc ) readline? ( sys-libs/readline:0 ) softhsm? ( dev-libs/softhsm:* ) sqlite? ( dev-db/sqlite:3 dev-perl/DBD-SQLite )
 DESCRIPTION=An open-source turn-key solution for DNSSEC
 EAPI=7
 HOMEPAGE=https://www.opendnssec.org/
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.opendnssec.org/files/source/opendnssec-2.0.3.tar.gz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	user-info	a2abd4e2f4c3b9b06d64bf1329359a02	user	26d8ce6329c43cbac965617f1c0627e2
-_md5_=7cd2f1b50a3e68f3347cc07f93d404b1
+_md5_=bf450f721f9aaa133cc5e1062c3207b9
