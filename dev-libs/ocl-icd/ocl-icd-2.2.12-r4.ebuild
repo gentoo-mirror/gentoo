@@ -11,17 +11,20 @@ HOMEPAGE="https://github.com/OCL-dev/ocl-icd"
 SRC_URI="https://github.com/OCL-dev/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 # Does nothing now but by keeping it here we avoid having to have virtual/opencl
 # handle ebuilds both with and without this flag.
 IUSE="+khronos-headers"
 
 BDEPEND="${RUBY_DEPS}"
-DEPEND=">=dev-util/opencl-headers-2020.12.18"
+DEPEND="~dev-util/opencl-headers-2020.06.16"
+DEPEND="dev-util/opencl-headers"
 RDEPEND="${DEPEND}
 	!app-eselect/eselect-opencl
 	!dev-libs/opencl-icd-loader"
+
+PATCHES=("${FILESDIR}"/${P}-gcc-10.patch)
 
 src_prepare() {
 	replace-flags -Os -O2 # bug 646122
