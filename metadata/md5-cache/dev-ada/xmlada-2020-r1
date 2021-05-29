@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install setup test
-DEPEND=ada_target_gnat_2016? ( dev-lang/gnat-gpl:4.9.4 ) ada_target_gnat_2017? ( dev-lang/gnat-gpl:6.3.0 ) ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) dev-ada/gprbuild[ada_target_gnat_2016(-)?,ada_target_gnat_2017(-)?,ada_target_gnat_2018(-)?,ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?]
+DEPEND=ada_target_gnat_2016? ( dev-lang/gnat-gpl:4.9.4 ) ada_target_gnat_2017? ( dev-lang/gnat-gpl:6.3.0 ) ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) dev-ada/gprbuild[ada_target_gnat_2016(-)?,ada_target_gnat_2017(-)?,ada_target_gnat_2018(-)?,ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,-ada_target_gnat_2021(-)]
 DESCRIPTION=Set of modules that provide a simple manipulation of XML streams
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing
-IUSE=+shared static-libs static-pic ada_target_gnat_2016 ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020
+IUSE=+shared static-libs static-pic ada_target_gnat_2016 ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020 -ada_target_gnat_2021
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2016? ( dev-lang/gnat-gpl:4.9.4 ) ada_target_gnat_2017? ( dev-lang/gnat-gpl:6.3.0 ) ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 )
 REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2016 ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/c799502295baf074ad17b48c50f621879c392c57?filename=xmlada-2020-20200429-19A99-src.tar.gz -> xmlada-2020-20200429-19A99-src.tar.gz
-_eclasses_=ada	f74396bdb52e86a692e8519a345ea27c	multiprocessing	cac3169468f893670dac3e7cb940e045
+_eclasses_=ada	ca27fbaa477c362dcc29965624d156d2	multiprocessing	cac3169468f893670dac3e7cb940e045
 _md5_=2b4efd12a9b57211d3c9e923a50b73ec
