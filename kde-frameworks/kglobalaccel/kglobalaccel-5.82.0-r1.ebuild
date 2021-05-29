@@ -30,6 +30,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-revert-prevent-activate-w-o-plasma.patch # KDE-bug 437034
+)
+
 src_test() {
 	XDG_CURRENT_DESKTOP="KDE" ecm_src_test # bug 789342
 }

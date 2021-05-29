@@ -20,11 +20,10 @@ IUSE=""
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kinit-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-plasma/kscreenlocker-${PVCUT}:5
 	x11-libs/libICE
 	x11-libs/libSM
@@ -32,12 +31,11 @@ RDEPEND="
 	x11-libs/libXau
 "
 DEPEND="${RDEPEND}
+	>=kde-frameworks/kinit-${KFMIN}:5
 	>=kde-plasma/kwin-${PVCUT}:5
 "
 
 S="${S}/${PN}"
-
-PATCHES=( "${FILESDIR}/${PN}-5.19.80-standalone.patch" )
 
 src_prepare() {
 	# delete colliding libkworkspace translations, let ecm_src_prepare do its magic
@@ -46,13 +44,11 @@ src_prepare() {
 		rm -rf po/*/docs || die
 		cp -a ../po ./ || die
 	fi
-	ecm_src_prepare
-	if [[ ${KDE_BUILD_TYPE} = release ]]; then
-		cat >> CMakeLists.txt <<- _EOF_ || die
-			ki18n_install(po)
-		_EOF_
-	fi
 
-	sed -e "/set/s/GENTOO_PV/$(ver_cut 1-3)/" \
-		-i CMakeLists.txt || die "Failed to prepare CMakeLists.txt"
+	eapply "${FILESDIR}/${P}-standalone.patch"
+	cat >> CMakeLists.txt <<- _EOF_ || die
+		ki18n_install(po)
+	_EOF_
+
+	ecm_src_prepare
 }

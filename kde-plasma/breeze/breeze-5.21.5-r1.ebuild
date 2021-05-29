@@ -43,6 +43,8 @@ PDEPEND="
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-splitter-proxy.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package X XCB)
