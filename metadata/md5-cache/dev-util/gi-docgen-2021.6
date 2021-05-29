@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gitlab.gnome.org/GNOME/gi-docgen https://pypi.org/project/gi-docgen/
 INHERIT=distutils-r1
 IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=~amd64 arm ~arm64 ~hppa ~ia64 ppc ~ppc64 sparc ~x86
+KEYWORDS=~amd64 arm ~arm64 ~hppa ~ia64 ppc ~ppc64 sparc x86
 LICENSE=|| ( Apache-2.0 GPL-3+ ) CC0-1.0 OFL-1.1 MIT
 RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( >=dev-python/markdown-3[python_targets_python3_7(-)] >=dev-python/markupsafe-1[python_targets_python3_7(-)] >=dev-python/pygments-2[python_targets_python3_7(-)] >=dev-python/jinja-2[python_targets_python3_7(-)] dev-python/toml[python_targets_python3_7(-)] >=dev-python/typogrify-2[python_targets_python3_7(-)] ) python_single_target_python3_8? ( >=dev-python/markdown-3[python_targets_python3_8(-)] >=dev-python/markupsafe-1[python_targets_python3_8(-)] >=dev-python/pygments-2[python_targets_python3_8(-)] >=dev-python/jinja-2[python_targets_python3_8(-)] dev-python/toml[python_targets_python3_8(-)] >=dev-python/typogrify-2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/markdown-3[python_targets_python3_9(-)] >=dev-python/markupsafe-1[python_targets_python3_9(-)] >=dev-python/pygments-2[python_targets_python3_9(-)] >=dev-python/jinja-2[python_targets_python3_9(-)] dev-python/toml[python_targets_python3_9(-)] >=dev-python/typogrify-2[python_targets_python3_9(-)] ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
 REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 ) ^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=mirror://pypi/g/gi-docgen/gi-docgen-2021.6.tar.gz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	distutils-r1	f0ca511df3fddd316b783632b804e8fb
-_md5_=cc28ed4bed435398ed54332733c7a66f
+_md5_=2b6bed120ee8663710065be5914fdc9f
