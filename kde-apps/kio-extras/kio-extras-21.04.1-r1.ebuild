@@ -70,6 +70,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( dev-util/gperf )"
 
+PATCHES=( "${FILESDIR}"/${PN}-20.12.3-thumbnail-check-shm-size.patch ) # KDE-bug 430862
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
