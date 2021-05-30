@@ -1,0 +1,55 @@
+Title: sys-libs/db old SLOT removal
+Author: David Seifert <soap@gentoo.org>
+Posted: 2021-05-30
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-libs/db:1
+Display-If-Installed: sys-libs/db:3
+Display-If-Installed: sys-libs/db:4.2
+Display-If-Installed: sys-libs/db:4.3
+Display-If-Installed: sys-libs/db:4.4
+Display-If-Installed: sys-libs/db:4.5
+Display-If-Installed: sys-libs/db:4.6
+Display-If-Installed: sys-libs/db:4.7
+Display-If-Installed: sys-libs/db:5.1
+
+On 2021-07-01, we will mask the following Berkeley DB (aka sys-libs/db)
+slots for removal from the tree within 90 days (bug #792222):
+
+- 1
+- 3
+- 4.2
+- 4.3
+- 4.4
+- 4.5
+- 4.6
+- 4.7
+- 5.1
+
+You should export your data first before rebuilding any applications
+against newer slots of sys-libs/db.
+
+Furthermore, the Gentoo Base System Team has decided to consider
+sys-libs/db a deprecated database backend. What this means for you is
+that we will slowly start deprecating optional use of sys-libs/db in
+consumers and mask their USE="berkdb" flags with the goal of eventual
+removal of berkdb support from those packages.
+
+Other distros such as Fedora have started a gradual phase-out of
+Berkeley DB too, given Oracle's strong-armed approach to community
+input and their arguably hostile switch to the AGPLv3
+(https://fedoraproject.org/wiki/Changes/Libdb_deprecated). Furthermore,
+Oracle is known for removing critical features from BDB in supposed
+patch releases, such as the removal of the client-server architecture
+and the SQL API between 18.1.32 and 18.1.40.
+
+To this end, we will also be removing USE="berkdb" from
+profiles/default/linux/make.defaults on 2021-07-01. If you implicitly
+depend on profiles enabling optional use of sys-libs/db, you will need
+to enable this USE flag yourself.
+
+From here on, you should be working under the assumption that the
+sys-libs/db package will be gone from the Gentoo repository within
+**two years** from the time of this news item. If you depend on BDB in
+a production environment, we strongly suggest you move to one of the
+modern replacements, such as GDBM, SQLite or LMDB.
