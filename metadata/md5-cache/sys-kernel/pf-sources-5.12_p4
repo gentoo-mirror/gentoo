@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
+EAPI=7
+HOMEPAGE=https://gitlab.com/post-factum/pf-kernel/-/wikis/README https://dev.gentoo.org/~mpagano/genpatches/
+INHERIT=kernel-2 optfeature
+IUSE=symlink build
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.12_p4
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.12.tar.xz https://github.com/pfactum/pf-kernel/compare/v5.12...v5.12-pf4.diff -> pf-sources-5.12_p4.patch https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.12-1.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.12-1.extras.tar.xz https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/5020_BMQ-and-PDS-io-scheduler-v5.12-r0.patch https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/5021_BMQ-and-PDS-gentoo-defaults-v5.12-r0.patch https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/1510_fs-enable-link-security-restrictions-by-default.patch -> 1510_fs-enable-link-security-restrictions-by-default-5.12.patch
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	kernel-2	c2fd42f2d934e63b6fc62411049efaf5	optfeature	e142388219c7fee6ff016fe1c78a10a5
+_md5_=28eb43615ee2e75fd85e2f5accb57740
