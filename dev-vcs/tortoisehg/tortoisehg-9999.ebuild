@@ -6,18 +6,19 @@ PYTHON_COMPAT=( python3_{7..9} )
 
 DISTUTILS_USE_SETUPTOOLS=no
 
-inherit desktop distutils-r1 xdg-utils
+inherit desktop distutils-r1 optfeature xdg-utils
 
 if [[ ${PV} != *9999* ]]; then
 	KEYWORDS="~amd64 ~arm64 ~x86"
-	SRC_URI="https://www.mercurial-scm.org/release/tortoisehg/targz/${P}.tar.gz"
-	HG_DEPEND=">=dev-vcs/mercurial-5.6[${PYTHON_USEDEP}]
-		<dev-vcs/mercurial-5.8[${PYTHON_USEDEP}]"
+	SRC_URI="https://foss.heptapod.net/mercurial/${PN}/thg/-/archive/${PV}/thg-${PV}.tar.gz -> ${P}.tar.gz"
+	HG_DEPEND=">=dev-vcs/mercurial-5.7[${PYTHON_USEDEP}]
+		<dev-vcs/mercurial-5.9[${PYTHON_USEDEP}]"
+	S="${WORKDIR}/thg-${PV}"
 else
 	inherit mercurial
-	EHG_REPO_URI="https://foss.heptapod.net/mercurial/tortoisehg/thg"
+	EHG_REPO_URI="https://foss.heptapod.net/mercurial/${PN}/thg"
 	EHG_REVISION="stable"
-	HG_DEPEND=">=dev-vcs/mercurial-5.6[${PYTHON_USEDEP}]"
+	HG_DEPEND=">=dev-vcs/mercurial-5.7[${PYTHON_USEDEP}]"
 fi
 
 DESCRIPTION="Set of graphical tools for Mercurial"
@@ -25,6 +26,8 @@ HOMEPAGE="https://tortoisehg.bitbucket.io/"
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${HG_DEPEND}
@@ -33,14 +36,27 @@ RDEPEND="
 	dev-python/PyQt5[network,svg,${PYTHON_USEDEP}]
 	>=dev-python/qscintilla-python-2.9.4[qt5(+),${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-python/mock
+		dev-python/pytest
+	)
+"
 
 distutils_enable_sphinx doc/source
 
 python_prepare_all() {
 	# Remove file that collides with >=mercurial-4.0 (bug #599266).
 	rm "${S}"/hgext3rd/__init__.py || die "can't remove /hgext3rd/__init__.py"
+
+	sed -i -e 's:share/doc/tortoisehg:share/doc/'"${PF}"':' setup.py || die
 	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	${EPYTHON} tests/run-tests.py -m 'not largefiles' --doctest-modules tests || die
+	${EPYTHON} tests/run-tests.py -m largefiles tests || die
 }
 
 python_install_all() {
@@ -55,6 +71,8 @@ pkg_postinst() {
 	elog "When startup of ${PN} fails with an API version mismatch error"
 	elog "between dev-python/sip and dev-python/PyQt5 please rebuild"
 	elog "dev-python/qscintilla-python."
+
+	optfeature "the core git extension support" dev-python/pygit2
 }
 
 pkg_postrm() {
