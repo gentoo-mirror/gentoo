@@ -10,12 +10,12 @@ inherit xdg distutils-r1 tmpfiles prefix udev
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
 HOMEPAGE="https://xpra.org/"
-SRC_URI="https://xpra.org/src/${P}.tar.xz"
+SRC_URI="https://xpra.org/src/${P}.tar.gz"
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="brotli +client +clipboard csc cups dbus doc ffmpeg jpeg +lz4 lzo minimal opengl pillow pulseaudio server sound test vpx webcam webp"
+IUSE="brotli +client +clipboard csc cups dbus doc ffmpeg jpeg ibus +lz4 lzo minimal opengl pillow pinentry pulseaudio server sound test vpx webcam webp"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	|| ( client server )
@@ -75,6 +75,8 @@ RDEPEND="
 	acct-group/xpra
 	virtual/ssh
 	x11-apps/xmodmap
+	ibus? ( app-i18n/ibus )
+	pinentry? ( app-crypt/pinentry )
 	server? (
 		x11-base/xorg-server[-minimal,xvfb]
 		x11-drivers/xf86-input-void
@@ -93,7 +95,7 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.2_ignore-gentoo-no-compile.patch
 	"${FILESDIR}"/${PN}-3.0.2-ldconfig.patch
-	"${FILESDIR}"/${PN}-4.0.3-suid-warning.patch
+	"${FILESDIR}"/${PN}-4.2-suid-warning.patch
 )
 
 pkg_postinst() {
