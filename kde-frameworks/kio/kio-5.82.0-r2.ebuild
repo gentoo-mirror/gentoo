@@ -77,6 +77,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.81.0-fix-qtconcurrent-private-link.patch # bug 784971
 	# upstream backport request - see also KDE-bug 398908
 	"${FILESDIR}"/${P}-MimeTypeFinderJob-memleak-{1,2,3,4}.patch
+	"${FILESDIR}"/${P}-fix-filenamesearch-crashes.patch # KDE-bug 437153
 	# git master/KIO 5.83:
 	"${FILESDIR}"/${P}-no-useragent-kcm.patch
 	"${FILESDIR}"/${P}-no-cache-kcm.patch
