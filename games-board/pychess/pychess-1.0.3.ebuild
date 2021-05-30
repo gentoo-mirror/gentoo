@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_REQ_USE="sqlite"
@@ -13,6 +13,7 @@ inherit xdg distutils-r1
 DESCRIPTION="A chess client for GNOME"
 HOMEPAGE="https://github.com/pychess/pychess"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.gz"
+S="${WORKDIR}/PyChess-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -43,14 +44,9 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-setup-no-display.patch
-	"${FILESDIR}"/${PN}-gtk-compat.patch
-)
-
 src_install() {
 	distutils-r1_src_install
 
-	mv -v "${ED}"/usr/share/{appdata,metainfo} || die
+	# https://github.com/pychess/pychess/pull/1825
 	gunzip -v "${ED}"/usr/share/man/man1/${PN}.1.gz || die
 }
