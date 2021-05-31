@@ -23,7 +23,7 @@ KEYWORDS="~amd64"
 SLOT="$(ver_cut 1)"
 IUSE=""
 
-ruby_add_rdepend "dev-ruby/execjs:*"
+ruby_add_rdepend "dev-ruby/execjs"
 
 ruby_add_bdepend "test? (
 	>=dev-ruby/rails-5.0.0
