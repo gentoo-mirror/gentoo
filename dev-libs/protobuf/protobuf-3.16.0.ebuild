@@ -21,8 +21,8 @@ else
 fi
 
 LICENSE="BSD"
-SLOT="0/26"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+SLOT="0/27"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="emacs examples static-libs test zlib"
 RESTRICT="!test? ( test )"
 
@@ -34,8 +34,8 @@ RDEPEND="emacs? ( app-editors/emacs:* )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.15.0-disable_no-warning-test.patch"
-	"${FILESDIR}/${PN}-3.15.0-system_libraries.patch"
-	"${FILESDIR}/${PN}-3.15.0-protoc_input_output_files.patch"
+	"${FILESDIR}/${PN}-3.16.0-system_libraries.patch"
+	"${FILESDIR}/${PN}-3.16.0-protoc_input_output_files.patch"
 )
 
 DOCS=(CHANGES.txt CONTRIBUTORS.txt README.md)
