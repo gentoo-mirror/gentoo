@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit toolchain-funcs
+inherit multilib toolchain-funcs
 
 DESCRIPTION="A set of utilities for converting to/from the netpbm (and related) formats"
 HOMEPAGE="http://netpbm.sourceforge.net/"
-SRC_URI="https://github.com/ceamac/netpbm-make-dist/releases/download/v10.86.21/${P}.tar.xz"
+SRC_URI="https://github.com/ceamac/netpbm-make-dist/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -36,6 +36,7 @@ PATCHES=(
 	"${FILESDIR}"/netpbm-10.86.21-test.patch #450530
 	"${FILESDIR}"/netpbm-10.86.21-misc-deps.patch
 	"${FILESDIR}"/netpbm-10.86.21-format-security.patch #517524
+	"${FILESDIR}"/netpbm-10.86.22-fix-ps-test.patch #670362
 )
 
 netpbm_libtype() {
@@ -92,9 +93,13 @@ src_prepare() {
 		sed -i -r \
 			-e 's:(pbmtextps|pnmtops|pstopnm).*::' \
 			test/all-in-place.{ok,test} || die
+		sed -i -e 's:lps-roundtrip.*::' test/Test-Order || die
 		sed -i -e '/^$/d' test/all-in-place.ok || die
 		sed -i '2iexit 80' test/ps-{alt-,flate-,}roundtrip.test || die
 	fi
+
+	# the new postscript test needs +x
+	chmod +x test/lps-roundtrip.test
 
 	# Do not test png if not built
 	if ! use png ; then
