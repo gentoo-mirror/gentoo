@@ -1,6 +1,6 @@
-BDEPEND=~dev-libs/protobuf-9999 >=virtual/jdk-1.7 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=~dev-libs/protobuf-9999 >=virtual/jdk-1.8:* >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install preinst prepare setup test unpack
-DEPEND=>=virtual/jdk-1.7 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Google's Protocol Buffers - Java bindings
 EAPI=7
 HOMEPAGE=https://developers.google.com/protocol-buffers/ https://github.com/protocolbuffers/protobuf
@@ -8,7 +8,7 @@ INHERIT=java-pkg-2 java-pkg-simple git-r3
 IUSE=elibc_FreeBSD doc source elibc_FreeBSD
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=>=virtual/jre-1.7 !<dev-libs/protobuf-3[java(-)] >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-SLOT=0/27
+RDEPEND=>=virtual/jre-1.8:* !<dev-libs/protobuf-3[java(-)] >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0/28
 _eclasses_=java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	java-pkg-simple	c85bf2d75a5f53e7b39fc9104701ebfb	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=1bfaa94339b3ec4f27c546aa5f83e4b6
+_md5_=ef50b5b0521f5143753a8b4c22599560
