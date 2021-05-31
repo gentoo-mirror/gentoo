@@ -3,16 +3,16 @@
 
 EAPI=7
 
-inherit autotools
+inherit cmake
 
 DESCRIPTION="Curses-based interpreter and dev tools for TADS 2 and TADS 3 text adventures"
 HOMEPAGE="http://www.tads.org/frobtads.htm"
-SRC_URI="https://github.com/realnc/${PN}/releases/download/${PV}/${P}.tar.bz2"
+SRC_URI="https://github.com/realnc/${PN}/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="TADS2 TADS3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug tads2compiler tads3compiler"
+IUSE="debug +tads2compiler +tads3compiler"
 
 RESTRICT="!tads3compiler? ( test )"
 
@@ -24,30 +24,19 @@ DEPEND="${RDEPEND}"
 
 DOCS=( doc/{AUTHORS,BUGS,ChangeLog.old,NEWS,README,SRC_GUIDELINES,THANKS} )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.2.4-tinfo.patch #602446
-)
-
-src_prepare() {
-	default
-
-	# bug #602446
-	eautoreconf
-}
-
 src_configure() {
-	local myeconfargs=(
-		$(use_enable debug error-checking)
-		$(use_enable debug t3debug)
-		$(use_enable tads2compiler t2-compiler)
-		$(use_enable tads3compiler t3-compiler)
+	local mycmakeargs=(
+		-DENABLE_T2_COMPILER=$(usex tads2compiler)
+		-DENABLE_T2_RUNTIME_CHECKS=$(usex debug)
+		-DENABLE_T3_COMPILER=$(usex tads3compiler)
+		-DENABLE_T3_DEBUG=$(usex debug)
 	)
-	econf "${myeconfargs[@]}"
+	cmake_src_configure
 }
 
 src_test() {
-	emake -j1 sample
-	./frob -i plain -p samples/sample.t3 <<- END_FROB_TEST
+	cmake_build sample
+	"${BUILD_DIR}"/frob -i plain -p "${BUILD_DIR}"/samples/sample.t3 <<- END_FROB_TEST
 		save
 		testsave.sav
 		restore
