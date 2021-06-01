@@ -14,13 +14,13 @@ if [[ "${PV}" == *_rc* ]] ; then
 	S="${WORKDIR}/${P/_/-}"
 else
 	SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
 fi
 # Only libasprintf is under the LGPL (and libintl is in a sep package),
 # so put that license behind USE=cxx.
 LICENSE="GPL-3+ cxx? ( LGPL-2.1+ )"
 SLOT="0"
-IUSE="acl -cvs +cxx doc emacs git java ncurses nls openmp static-libs"
+IUSE="acl cvs +cxx doc emacs git java ncurses nls openmp static-libs"
 
 # only runtime goes multilib
 # Note: The version of libxml2 corresponds to the version bundled via gnulib.
