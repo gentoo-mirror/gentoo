@@ -38,7 +38,7 @@
 =media-libs/alsa-lib-1.2.5
 =media-libs/alsa-topology-conf-1.2.5
 =media-libs/alsa-ucm-conf-1.2.5
-=media-sound/alsa-utils-1.2.45
+=media-sound/alsa-utils-1.2.5
 =sys-firmware/alsa-firmware-1.2.5
 
 # Michał Górny <mgorny@gentoo.org> (2021-05-31)
@@ -563,11 +563,6 @@ kde-apps/kdebase-meta:5
 # Ported to py3 but not yet released
 # Masked to allow py2.7 removal
 dev-lang/spark
-
-# Mart Raudsepp <leio@gentoo.org> (2020-06-06)
-# Meson port does not handle multilib yet and has issues
-# regarding runstatedir (not using /run).
-=net-misc/networkmanager-1.22*
 
 # Miroslav Šulc <fordfrog@gentoo.org> (2020-02-27)
 # >=dev-java/ant-eclipse-ecj-4.10 depends on masked >=virtual/{jdk,jre}-11
