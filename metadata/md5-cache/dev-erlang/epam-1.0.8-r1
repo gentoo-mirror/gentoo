@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=acct-group/epam >=dev-lang/erlang-17.1 sys-libs/pam dev-lang/erlang:= dev-util/rebar >=sys-apps/gawk-4.1
+DESCRIPTION=epam for ejabberd to help with PAM authentication support
+EAPI=6
+HOMEPAGE=https://github.com/processone/epam
+INHERIT=rebar
+KEYWORDS=amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86
+LICENSE=GPL-2
+RDEPEND=acct-group/epam >=dev-lang/erlang-17.1 sys-libs/pam dev-lang/erlang:=
+SLOT=0
+SRC_URI=https://github.com/processone/epam/archive/1.0.8.tar.gz -> epam-1.0.8.tar.gz
+_eclasses_=rebar	f13843e18f4ec00f45f7158bd3f3d3bb
+_md5_=95f5c2fbe170e72d1d32f752fd33659a

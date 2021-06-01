@@ -74,6 +74,7 @@ acct-group/docker_auth 0-r1: System group: docker_auth
 acct-group/dovecot 0-r1: System group: dovecot
 acct-group/dovenull 0-r1: System group: dovenull
 acct-group/elasticsearch 0-r1: Elasticsearch program group
+acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/epmd 0-r1: Group for Erlang Portmapper Daemon
 acct-group/err 0: System group: err
 acct-group/etcd 0-r1: System group: etcd
@@ -619,7 +620,7 @@ acct-user/shellinaboxd 0-r1: shellinabox user
 acct-user/sigh 0: System user: sigh
 acct-user/sks 0: User for the SKS OpenPGP keyserver
 acct-user/slurm 0-r1: User for the slurm - Highly Scalable Resource Manager
-acct-user/smmsp 0-r1: user for sendmail daemon
+acct-user/smmsp 0-r2: user for sendmail daemon
 acct-user/smsd 0: System user: smsd
 acct-user/smtpd 0-r1: daemon user for smtpd
 acct-user/smtpq 0-r1: queue user for smtpd
@@ -3900,41 +3901,41 @@ dev-embedded/usbprog 0.2.0-r1: flashtool for the multi purpose programming adapt
 dev-embedded/xa 2.3.10: High-speed, two-pass portable 6502 cross-assembler
 dev-embedded/zmac 1.3-r1: Z80 macro cross-assembler
 dev-erlang/base64url 1.0.1: URL safe base64-compatible codec
-dev-erlang/cache_tab 1.0.23 1.0.25: In-memory cache Erlang and Elixir library
-dev-erlang/eimp 1.0.15 1.0.17: Erlang Image Manipulation Process
-dev-erlang/epam 1.0.8 1.0.9: epam for ejabberd to help with PAM authentication support
+dev-erlang/cache_tab 1.0.23 1.0.25 1.0.28: In-memory cache Erlang and Elixir library
+dev-erlang/eimp 1.0.15 1.0.17 1.0.20: Erlang Image Manipulation Process
+dev-erlang/epam 1.0.8-r1 1.0.9-r1 1.0.10: epam for ejabberd to help with PAM authentication support
 dev-erlang/eredis 1.0.8 1.2.0: Erlang Redis client
-dev-erlang/esip 1.0.34 1.0.37: ProcessOne SIP server component
-dev-erlang/ezlib 1.0.7 1.0.8: Native zlib driver for Erlang and Elixir
-dev-erlang/fast_tls 1.1.6 1.1.8: TLS/SSL native driver for Erlang and Elixir
-dev-erlang/fast_xml 1.1.41 1.1.43: Fast Expat based Erlang XML parsing library
-dev-erlang/fast_yaml 1.0.25 1.0.27: Fast Yaml native library for Erlang and Elixir
+dev-erlang/esip 1.0.34 1.0.37 1.0.42: ProcessOne SIP server component
+dev-erlang/ezlib 1.0.7 1.0.8 1.0.9: Native zlib driver for Erlang and Elixir
+dev-erlang/fast_tls 1.1.6 1.1.8 1.1.12: TLS/SSL native driver for Erlang and Elixir
+dev-erlang/fast_xml 1.1.41 1.1.43 1.1.46: Fast Expat based Erlang XML parsing library
+dev-erlang/fast_yaml 1.0.25 1.0.27 1.0.31: Fast Yaml native library for Erlang and Elixir
 dev-erlang/goldrush 0.1.9 0.2.0: Small Erlang app that provides fast event stream processing
 dev-erlang/hamcrest 0.1.0_p20160709: Erlang port of Hamcrest
 dev-erlang/iconv 1.0.10: Fast encoding conversion library for Erlang and Elixir
-dev-erlang/idna 6.0.0: Erlang IDNA implementation
+dev-erlang/idna 6.0.0-r1: Erlang IDNA implementation
 dev-erlang/jiffy 0.14.9 0.14.11 1.0.1 1.0.4 1.0.5: JSON NIFs for Erlang
 dev-erlang/jose 1.9.0 1.10.1: JSON Object Signing and Encryption (JOSE) for Erlang and Elixir
 dev-erlang/lager 3.2.4 3.8.0 3.8.1: Logging framework for Erlang/OTP
 dev-erlang/luerl 0.2 0.3: Lua in Erlang
 dev-erlang/meck 0.8.4 0.8.12 0.8.13: Mocking library for Erlang
-dev-erlang/mqtree 1.0.7 1.0.10: Index tree for MQTT topic filters
-dev-erlang/p1_acme 1.0.5 1.0.8: ACME client library for Erlang
-dev-erlang/p1_mysql 1.0.15 1.0.16: Pure Erlang MySQL driver
-dev-erlang/p1_oauth2 0.6.6 0.6.7: Erlang OAuth 2.0 implementation
-dev-erlang/p1_pgsql 1.1.9 1.1.10: Pure Erlang PostgreSQL driver
-dev-erlang/p1_utils 1.0.19 1.0.20: Erlang utility modules from ProcessOne
+dev-erlang/mqtree 1.0.7 1.0.10 1.0.13: Index tree for MQTT topic filters
+dev-erlang/p1_acme 1.0.5 1.0.8 1.0.12: ACME client library for Erlang
+dev-erlang/p1_mysql 1.0.15 1.0.16 1.0.18: Pure Erlang MySQL driver
+dev-erlang/p1_oauth2 0.6.6 0.6.7 0.6.9: Erlang OAuth 2.0 implementation
+dev-erlang/p1_pgsql 1.1.9 1.1.10 1.1.11: Pure Erlang PostgreSQL driver
+dev-erlang/p1_utils 1.0.19 1.0.20 1.0.22: Erlang utility modules from ProcessOne
 dev-erlang/p1_xmlrpc 1.15.1: Erlang XMLRPC implementation with SSL, cookies, authentication
-dev-erlang/pkix 1.0.5 1.0.6: PKIX certificates management library for Erlang
+dev-erlang/pkix 1.0.5 1.0.6 1.0.7: PKIX certificates management library for Erlang
 dev-erlang/proper 1.2 1.3: QuickCheck-inspired property-based testing tool for Erlang
 dev-erlang/protobuffs 0.9.0: Google's Protocol Buffers for Erlang
 dev-erlang/riak_pb 2.2.0.2: Riak Protocol Buffers messages
 dev-erlang/riakc 2.4.2: Erlang clients for Riak
-dev-erlang/sqlite3 1.1.7 1.1.8: SQLite gen_server port for Erlang
-dev-erlang/stringprep 1.0.20 1.0.22: Fast Stringprep implementation for Erlang and Elixir
-dev-erlang/stun 1.0.33 1.0.38: STUN and TURN library for Erlang and Elixir
-dev-erlang/xmpp 1.4.7 1.4.9: XMPP parsing and serialization library on top of Fast XML
-dev-erlang/yconf 1.0.1 1.0.4 1.0.7: YAML configuration processor
+dev-erlang/sqlite3 1.1.7 1.1.8 1.1.12: SQLite gen_server port for Erlang
+dev-erlang/stringprep 1.0.20 1.0.22 1.0.25: Fast Stringprep implementation for Erlang and Elixir
+dev-erlang/stun 1.0.33 1.0.38 1.0.43: STUN and TURN library for Erlang and Elixir
+dev-erlang/xmpp 1.4.7 1.4.9 1.5.3: XMPP parsing and serialization library on top of Fast XML
+dev-erlang/yconf 1.0.1 1.0.4 1.0.7 1.0.11: YAML configuration processor
 dev-games/KXL 1.1.7-r3: Development Library for making games for X
 dev-games/aseprite 1.1.6 1.1.9: Animated sprite editor & pixel art tool
 dev-games/cardpics 0.4-r1: set of free cards sets
@@ -12655,7 +12656,7 @@ mail-filter/exim-geoip 0.1-r1: This is an IPv4 and IPv6 capable GeoIP dlfunc lib
 mail-filter/exim-p0f 0.1-r1: This is p0f version 3 dlfunc library for Exim
 mail-filter/gld 1.7-r4: A standalone anti-spam greylisting algorithm on top of Postfix
 mail-filter/imapfilter 2.7.5: An IMAP mail filtering utility
-mail-filter/libmilter 1.0.2 1.0.2_p1 1.0.2_p1-r1: The Sendmail Filter API (Milter)
+mail-filter/libmilter 1.0.2 1.0.2_p1 1.0.2_p1-r2: The Sendmail Filter API (Milter)
 mail-filter/libsieve 2.2.7: A library for parsing, sorting and filtering your mail
 mail-filter/libspf2 1.2.10: libspf2 implements the Sender Policy Framework, a part of the SPF/SRS protocols
 mail-filter/libsrs2 1.0.18-r1: libsrs2 is the next generation Sender Rewriting Scheme library
@@ -12703,7 +12704,7 @@ mail-mta/opensmtpd 6.8.0_p2: Lightweight but featured SMTP daemon from OpenBSD
 mail-mta/postfix 3.5.8-r1 3.5.9-r1 3.5.10 3.6.0 3.7_pre20210529: A fast and secure drop-in replacement for sendmail
 mail-mta/protonmail-bridge 1.6.9 1.8.1: Serves ProtonMail to IMAP/SMTP clients
 mail-mta/qpsmtpd 0.95-r1 9999: qpsmtpd is a flexible smtpd daemon written in Perl
-mail-mta/sendmail 8.15.2-r2 8.16.1: Widely-used Mail Transport Agent (MTA)
+mail-mta/sendmail 8.15.2-r2 8.16.1-r1: Widely-used Mail Transport Agent (MTA)
 mail-mta/ssmtp 2.64-r4: Extremely simple MTA to get mail off the system to a Mailhub
 mate-base/caja 1.24.0 1.24.0-r2: Caja file manager for the MATE desktop
 mate-base/libmatekbd 1.24.0-r1 1.24.1: MATE keyboard configuration library
@@ -14844,7 +14845,7 @@ net-im/cpop 0.0.4-r1: GTK+ network popup message client. Compatible with the jpo
 net-im/dianara 1.4.2: Qt-based client for the pump.io distributed social network
 net-im/dino 0.1.0 0.2.0 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord-bin 0.0.15: All-in-one voice and text chat for gamers
-net-im/ejabberd 20.04 20.07: Robust, scalable and extensible XMPP server
+net-im/ejabberd 20.04 20.07 21.04: Robust, scalable and extensible XMPP server
 net-im/ekg2 0.4_pre20190315 9999: Text-based, multi-protocol instant messenger
 net-im/element-desktop-bin 1.7.29: A glossy Matrix collaboration client for desktop (binary package)
 net-im/empathy 3.12.14: Telepathy instant messaging and video/audio call client for GNOME
@@ -17189,7 +17190,7 @@ sys-apps/pcsc-slb-rf72-drv 1.1.0-r2: Schlumberger Reflex 72 Serial Smartcard Rea
 sys-apps/pcsc-tools 1.5.6 1.5.7: PC/SC Architecture smartcard tools
 sys-apps/pick 4.0.0: A fuzzy search tool for the command-line
 sys-apps/pkgcore 0.11.6-r1 0.11.8-r3 0.12.0 0.12.1 9999: a framework for package management
-sys-apps/plocate 1.1.7: Posting locate is a much faster locate
+sys-apps/plocate 1.1.7-r1: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r6: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pmount-gui 0_pre20130806: A simple graphical frontend for pmount
 sys-apps/pnputils 0.1: Plug and Play BIOS utilities

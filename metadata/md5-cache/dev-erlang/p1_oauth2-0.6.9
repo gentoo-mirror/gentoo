@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-lang/erlang-17.1 test? ( >=dev-erlang/meck-0.8.7 >=dev-erlang/proper-1.3 ) dev-lang/erlang:= dev-util/rebar >=sys-apps/gawk-4.1
+DESCRIPTION=Erlang OAuth 2.0 implementation
+EAPI=6
+HOMEPAGE=https://github.com/processone/p1_oauth2
+INHERIT=rebar
+IUSE=test
+KEYWORDS=~amd64 ~arm ~ia64 ~ppc ~sparc ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/erlang-17.1 dev-lang/erlang:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/processone/p1_oauth2/archive/0.6.9.tar.gz -> p1_oauth2-0.6.9.tar.gz
+_eclasses_=rebar	f13843e18f4ec00f45f7158bd3f3d3bb
+_md5_=02925a75b83942541de9034f851bd4e5
