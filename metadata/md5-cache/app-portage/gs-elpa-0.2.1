@@ -1,16 +1,16 @@
-BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-portage/g-sorcery[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] dev-python/sexpdata[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+DEPEND=app-portage/g-sorcery[python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-)] dev-python/sexpdata[python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-)]
 DESCRIPTION=g-sorcery backend for elisp packages
 EAPI=7
 HOMEPAGE=https://gitweb.gentoo.org/proj/gs-elpa.git https://github.com/jauhien/gs-elpa
 INHERIT=distutils-r1
-IUSE=python_targets_python3_8
+IUSE=python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=app-portage/g-sorcery[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] dev-python/sexpdata[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
-REQUIRED_USE=|| ( python_targets_python3_8 )
+RDEPEND=app-portage/g-sorcery[python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-)] dev-python/sexpdata[python_targets_python3_8(-)?,-python_single_target_python3_8(-),python_targets_python3_9(-)?,-python_single_target_python3_9(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=https://gitweb.gentoo.org/proj/gs-elpa.git/snapshot/gs-elpa-0.2.1.tar.gz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb
-_md5_=eccdce79b83ba875027403f8076c0257
+_md5_=f2671fef02bb1750cee29c1bdb100a83
