@@ -1,16 +1,16 @@
 DEFINED_PHASES=compile configure install postinst prepare setup
-DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
+DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
 DESCRIPTION=Security sandbox for any type of processes
 EAPI=7
 HOMEPAGE=https://firejail.wordpress.com/
 INHERIT=toolchain-funcs python-single-r1 linux-info
-IUSE=X apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home +suid test +userns +whitelist python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 kernel_linux
+IUSE=X apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home +suid test +userns +whitelist python_single_target_python3_8 python_single_target_python3_9 kernel_linux
 KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
-RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
-REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 ) )
+RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
+REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.64.4/firejail-0.9.64.4.tar.xz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	linux-info	30ded7f9adbdd03d3e848cdd74f6c395
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	linux-info	30ded7f9adbdd03d3e848cdd74f6c395
 _md5_=cc669f2c61577aa5f48977a9510f949f

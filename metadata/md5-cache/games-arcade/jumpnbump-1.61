@@ -4,12 +4,12 @@ DESCRIPTION=A funny multiplayer game about cute little fluffy bunnies
 EAPI=7
 HOMEPAGE=https://libregames.gitlab.io/jumpnbump
 INHERIT=python-single-r1 flag-o-matic toolchain-funcs
-IUSE=gtk python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=gtk python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=media-libs/sdl2-mixer[mod] media-libs/libsdl2 media-libs/sdl2-net gtk? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/pygobject[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/pygobject[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject[python_targets_python3_9(-)] ) x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection] )
-REQUIRED_USE=gtk? ( ^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 ) )
+RDEPEND=media-libs/sdl2-mixer[mod] media-libs/libsdl2 media-libs/sdl2-net gtk? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/pygobject[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject[python_targets_python3_9(-)] ) x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection] )
+REQUIRED_USE=gtk? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
 SLOT=0
 SRC_URI=https://gitlab.com/LibreGames/jumpnbump/uploads/95acdae2a232513f068e260977371dcf/jumpnbump-1.61.tar.xz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
 _md5_=7df718bffc3c374add5785aeb5ff03cd

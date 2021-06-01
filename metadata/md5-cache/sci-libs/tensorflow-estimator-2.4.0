@@ -1,16 +1,16 @@
-BDEPEND=app-arch/unzip dev-java/java-config >=dev-util/bazel-3 >=dev-util/bazel-0.20 python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
+BDEPEND=app-arch/unzip dev-java/java-config >=dev-util/bazel-3 >=dev-util/bazel-0.20 python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sci-libs/tensorflow[python,python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
+DEPEND=sci-libs/tensorflow[python,python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
 DESCRIPTION=A high-level TensorFlow API that greatly simplifies machine learning programming
 EAPI=7
 HOMEPAGE=https://www.tensorflow.org/
 INHERIT=bazel distutils-r1 flag-o-matic toolchain-funcs
-IUSE=python_targets_python3_7 python_targets_python3_8
+IUSE=python_targets_python3_8
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=sci-libs/tensorflow[python,python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 )
+RDEPEND=sci-libs/tensorflow[python,python_targets_python3_8(-)?,-python_single_target_python3_8(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
 SRC_URI=https://github.com/tensorflow/estimator/archive/v2.4.0.tar.gz -> tensorflow-estimator-2.4.0.tar.gz https://github.com/bazelbuild/rules_cc/archive/0d5f3f2768c6ca2faca0079a997a97ce22997a0c.zip -> bazelbuild-rules_cc-0d5f3f2768c6ca2faca0079a997a97ce22997a0c.zip https://github.com/bazelbuild/rules_cc/archive/8bd6cd75d03c01bb82561a96d9c1f9f7157b13d0.zip -> bazelbuild-rules_cc-8bd6cd75d03c01bb82561a96d9c1f9f7157b13d0.zip https://github.com/bazelbuild/rules_java/archive/7cf3cefd652008d0a64a419c34c13bdca6c8f178.zip -> bazelbuild-rules_java-7cf3cefd652008d0a64a419c34c13bdca6c8f178.zip
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bazel	59a065fda63cffd0092d61c79599e1c2	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bazel	59a065fda63cffd0092d61c79599e1c2	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
 _md5_=a9b7a8dd7b7ba004de60c32790efdfce

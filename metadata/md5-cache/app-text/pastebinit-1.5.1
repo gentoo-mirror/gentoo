@@ -4,12 +4,12 @@ DESCRIPTION=A software that lets you send anything you want directly to a pasteb
 EAPI=7
 HOMEPAGE=https://launchpad.net/pastebinit
 INHERIT=python-single-r1
-IUSE=crypt python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=crypt python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7[xml] >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/configobj[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/configobj[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/configobj[python_targets_python3_9(-)] ) crypt? ( app-crypt/gnupg )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[xml] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/configobj[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/configobj[python_targets_python3_9(-)] ) crypt? ( app-crypt/gnupg )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=mirror://ubuntu/pool/main/p/pastebinit/pastebinit_1.5.1.orig.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
 _md5_=fb98a6e47b61da7a20b121d07d2afe8e

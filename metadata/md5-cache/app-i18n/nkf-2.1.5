@@ -1,16 +1,16 @@
 BDEPEND=dev-lang/perl
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] python_targets_python3_7? ( dev-python/setuptools[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)] ) python_targets_python3_8? ( dev-python/setuptools[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)] ) ) dev-lang/perl
+DEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] python_targets_python3_8? ( dev-python/setuptools[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] ) ) dev-lang/perl
 DESCRIPTION=Network Kanji code conversion Filter with UTF-8/16 support
 EAPI=7
 HOMEPAGE=https://osdn.net/projects/nkf/
 INHERIT=distutils-r1 perl-module toolchain-funcs vcs-snapshot
-IUSE=perl python l10n_ja python_targets_python3_7 python_targets_python3_8
+IUSE=perl python l10n_ja python_targets_python3_8
 KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=ZLIB python? ( BSD )
-RDEPEND=python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] python_targets_python3_7? ( dev-python/setuptools[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)] ) python_targets_python3_8? ( dev-python/setuptools[python_targets_python3_7(-)?,-python_single_target_python3_7(-),python_targets_python3_8(-)?,-python_single_target_python3_8(-)] ) ) dev-lang/perl:=
-REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 ) )
+RDEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] python_targets_python3_8? ( dev-python/setuptools[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] ) ) dev-lang/perl:=
+REQUIRED_USE=python? ( || ( python_targets_python3_8 ) )
 SLOT=0
 SRC_URI=mirror://sourceforge.jp/nkf/70406/nkf-2.1.5.tar.gz python? ( https://github.com/fumiyas/python-nkf/archive/c2c6724714b66f295137c8818dae4c09fc09e0a3.tar.gz -> python-nkf-0.2.0_p20191121.tar.gz )
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
 _md5_=3f0dab4b88ee6f40cf7fac5bf8d9361e

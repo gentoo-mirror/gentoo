@@ -1,16 +1,16 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/ncurses:0=[unicode] perl? ( dev-lang/perl:= ) ruby? ( dev-lang/ruby:* ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) perl? ( dev-lang/swig ) python? ( >=dev-lang/swig-1.3.40 ) ruby? ( dev-lang/swig )
+DEPEND=sys-libs/ncurses:0=[unicode] perl? ( dev-lang/perl:= ) ruby? ( dev-lang/ruby:* ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) perl? ( dev-lang/swig ) python? ( >=dev-lang/swig-1.3.40 ) ruby? ( dev-lang/swig )
 DESCRIPTION=A library which implements a curses-based widget set for text terminals
 EAPI=7
 HOMEPAGE=http://www.clifford.at/stfl/
 INHERIT=perl-module python-r1 toolchain-funcs
-IUSE=examples perl python ruby static-libs python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
+IUSE=examples perl python ruby static-libs python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 ~arm ppc ~ppc64 x86
 LICENSE=LGPL-3
-RDEPEND=sys-libs/ncurses:0=[unicode] perl? ( dev-lang/perl:= ) ruby? ( dev-lang/ruby:* ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
-REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 ) )
+RDEPEND=sys-libs/ncurses:0=[unicode] perl? ( dev-lang/perl:= ) ruby? ( dev-lang/ruby:* ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
+REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=http://www.clifford.at/stfl/stfl-0.24.tar.gz
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=24da50f81897046e40771f54d60467b4

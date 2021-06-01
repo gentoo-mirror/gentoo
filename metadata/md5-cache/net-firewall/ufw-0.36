@@ -1,16 +1,16 @@
-BDEPEND=sys-devel/gettext python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)] virtual/pkgconfig
+BDEPEND=sys-devel/gettext python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test
 DESCRIPTION=A program used to manage a netfilter firewall
 EAPI=7
 HOMEPAGE=https://launchpad.net/ufw
 INHERIT=bash-completion-r1 distutils-r1 linux-info systemd
-IUSE=examples ipv6 python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 kernel_linux
+IUSE=examples ipv6 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 kernel_linux
 KEYWORDS=amd64 ~arm ~arm64 ~ia64 ppc ppc64 sparc x86
 LICENSE=GPL-3
-RDEPEND=>=net-firewall/iptables-1.4[ipv6?] !<kde-misc/kcm-ufw-0.4.2 !<net-firewall/ufw-frontends-0.3.2 python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)]
-REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=>=net-firewall/iptables-1.4[ipv6?] !<kde-misc/kcm-ufw-0.4.2 !<net-firewall/ufw-frontends-0.3.2 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://launchpad.net/ufw/0.36/0.36/+download/ufw-0.36.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	multiprocessing	cac3169468f893670dac3e7cb940e045	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	multiprocessing	cac3169468f893670dac3e7cb940e045	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
 _md5_=e9d27fbc8c007d82598a32dca619993f

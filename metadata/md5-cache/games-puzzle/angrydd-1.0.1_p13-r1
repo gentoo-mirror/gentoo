@@ -1,15 +1,15 @@
 DEFINED_PHASES=install prepare setup
-DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/pygame[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/pygame[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygame[python_targets_python3_9(-)] )
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/pygame[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygame[python_targets_python3_9(-)] )
 DESCRIPTION=Angry, Drunken Dwarves, a falling blocks game similar to Puzzle Fighter
 EAPI=7
 HOMEPAGE=https://www.sacredchao.net/~piman/angrydd/
 INHERIT=desktop python-single-r1
-IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/pygame[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/pygame[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygame[python_targets_python3_9(-)] )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/pygame[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygame[python_targets_python3_9(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://www.sacredchao.net/~piman/angrydd/angrydd-1.0.1.tar.gz mirror://debian/pool/main/a/angrydd/angrydd_1.0.1-13.debian.tar.xz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
 _md5_=112b25a8faabcb804e3161365e53cd90

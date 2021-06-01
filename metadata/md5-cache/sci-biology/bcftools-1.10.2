@@ -1,15 +1,15 @@
 DEFINED_PHASES=configure prepare setup
-DEPEND=dev-lang/perl python_single_target_python3_7? ( dev-python/matplotlib[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/matplotlib[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[python_targets_python3_9(-)] ) =sci-libs/htslib-1.10.2*:= sys-libs/zlib:= python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+DEPEND=dev-lang/perl python_single_target_python3_8? ( dev-python/matplotlib[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[python_targets_python3_9(-)] ) =sci-libs/htslib-1.10.2*:= sys-libs/zlib:= python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
 DESCRIPTION=Utilities for variant calling and manipulating VCF and BCF files
 EAPI=7
 HOMEPAGE=http://www.htslib.org
 INHERIT=python-single-r1
-IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-lang/perl python_single_target_python3_7? ( dev-python/matplotlib[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/matplotlib[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[python_targets_python3_9(-)] ) =sci-libs/htslib-1.10.2*:= sys-libs/zlib:= python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=dev-lang/perl python_single_target_python3_8? ( dev-python/matplotlib[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[python_targets_python3_9(-)] ) =sci-libs/htslib-1.10.2*:= sys-libs/zlib:= python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/samtools/bcftools/releases/download/1.10.2/bcftools-1.10.2.tar.bz2
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
 _md5_=2fd4d2217632ea38f3b2adae16fec9fb

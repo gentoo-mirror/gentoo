@@ -1,16 +1,16 @@
 BDEPEND=dev-lang/perl:*
 DEFINED_PHASES=compile install prepare
-DEPEND=python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
+DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
 DESCRIPTION=Statistics generator for git
 EAPI=7
 HOMEPAGE=http://gitstats.sourceforge.net/
 INHERIT=python-r1
-IUSE=python_targets_python3_7 python_targets_python3_8
+IUSE=python_targets_python3_8
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( GPL-2 GPL-3 ) MIT
-RDEPEND=python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] sci-visualization/gnuplot[gd] dev-vcs/git
-REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 )
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] sci-visualization/gnuplot[gd] dev-vcs/git
+REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
 SRC_URI=https://github.com/gktrk/gitstats/archive/0_pre20201124.tar.gz -> gitstats-0_pre20201124.tar.gz
-_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=60aff74be40da6788e992418655fd57d

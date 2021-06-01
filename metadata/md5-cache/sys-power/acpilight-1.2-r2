@@ -4,12 +4,12 @@ DESCRIPTION=Replacement for xbacklight that uses the ACPI interface to set brigh
 EAPI=7
 HOMEPAGE=https://gitlab.com/wavexx/acpilight/
 INHERIT=python-single-r1 udev
-IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=virtual/udev acct-group/video python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) !x11-apps/xbacklight
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=virtual/udev acct-group/video python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) !x11-apps/xbacklight
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://gitlab.com/wavexx/acpilight/-/archive/v1.2/acpilight-v1.2.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	udev	452708c3f55cf6e918b045adb949a9e6
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	udev	452708c3f55cf6e918b045adb949a9e6
 _md5_=b2d38e0b202b7144aa3c6fa0805a0554

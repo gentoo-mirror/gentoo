@@ -1,4 +1,4 @@
-BDEPEND=|| ( ( dev-lang/python:3.9 dev-python/six[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/six[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/six[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) >=dev-libs/protobuf-3.0.0 dev-util/gyp dev-util/ninja virtual/pkgconfig emacs? ( app-editors/emacs:* ) fcitx4? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( ( dev-lang/python:3.9 dev-python/six[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/six[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ) >=dev-libs/protobuf-3.0.0 dev-util/gyp dev-util/ninja virtual/pkgconfig emacs? ( app-editors/emacs:* ) fcitx4? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=>=dev-cpp/abseil-cpp-20200923[cxx17(+)] >=dev-libs/protobuf-3.0.0:= fcitx4? ( app-i18n/fcitx:4 virtual/libintl ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) ibus? ( >=app-i18n/ibus-1.4.1 dev-libs/glib:2 x11-libs/libxcb ) renderer? ( dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango ) test? ( >=dev-cpp/gtest-1.8.0 dev-libs/jsoncpp )
 DESCRIPTION=Mozc - Japanese input method editor
@@ -12,5 +12,5 @@ RDEPEND=>=dev-cpp/abseil-cpp-20200923[cxx17(+)] >=dev-libs/protobuf-3.0.0:= emac
 REQUIRED_USE=|| ( emacs fcitx4 ibus )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=elisp-common	6bfea130fc0f2cbd4cbc23dc12992349	multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-any-r1	17241a11501065ff3651350040875aa9	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=elisp-common	6bfea130fc0f2cbd4cbc23dc12992349	multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=573905c3db4bc9adedf4b0cacefa8ea4

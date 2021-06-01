@@ -1,16 +1,16 @@
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) dev-libs/libnl:3= net-libs/libpcap
+DEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) dev-libs/libnl:3= net-libs/libpcap
 DESCRIPTION=A generic library for injecting 802.11 frames
 EAPI=7
 HOMEPAGE=https://github.com/kismetwireless/lorcon
 INHERIT=distutils-r1
-IUSE=python python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
+IUSE=python python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 arm ~arm64 ppc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) dev-libs/libnl:3= net-libs/libpcap
-REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 ) )
+RDEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) dev-libs/libnl:3= net-libs/libpcap
+REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/kismetwireless/lorcon/archive/7dbf24ee6f7c277240c0fbd988b6902850577772.tar.gz -> lorcon-0.0_p20200214.tar.gz
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb
 _md5_=183018b13a71b46e479438bf6b0fde7c

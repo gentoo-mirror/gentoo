@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://metacpan.org/release/GD
 INHERIT=perl-module
 IUSE=animgif fcgi gif jpeg png test truetype xpm examples
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~sparc
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~sparc
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=>=media-libs/gd-2.2.3 png? ( media-libs/gd[png] media-libs/libpng:0 sys-libs/zlib ) jpeg? ( media-libs/gd[jpeg] virtual/jpeg:0 ) truetype? ( media-libs/gd[truetype] media-libs/freetype:2 ) xpm? ( media-libs/gd[xpm] x11-libs/libXpm ) fcgi? ( dev-libs/fcgi ) gif? ( media-libs/giflib ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RU/RURBAN/GD-2.73.tar.gz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584
-_md5_=5db9cfeef6f8972d5dd0fbd99de2e9dd
+_md5_=571e790641e802f8d34b6ff54b2efc21

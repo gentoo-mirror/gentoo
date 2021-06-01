@@ -5,13 +5,13 @@ DESCRIPTION=Jens Axboe's Flexible IO tester
 EAPI=7
 HOMEPAGE=https://brick.kernel.dk/snaps/
 INHERIT=python-r1 toolchain-funcs
-IUSE=aio curl glusterfs gnuplot gtk io-uring numa python rbd rdma static tcmalloc test zbc zlib python_targets_python3_7 python_targets_python3_8
+IUSE=aio curl glusterfs gnuplot gtk io-uring numa python rbd rdma static tcmalloc test zbc zlib python_targets_python3_8
 KEYWORDS=amd64 arm ~arm64 ~ia64 ppc ppc64 x86
 LICENSE=GPL-2
-RDEPEND=!static? ( aio? ( dev-libs/libaio ) curl? ( net-misc/curl:= dev-libs/openssl:0= ) glusterfs? ( sys-cluster/glusterfs ) gtk? ( dev-libs/glib:2 ) io-uring? ( sys-libs/liburing:= ) numa? ( sys-process/numactl ) rbd? ( sys-cluster/ceph ) rdma? ( sys-fabric/libibverbs sys-fabric/librdmacm ) tcmalloc? ( dev-util/google-perftools:= ) zbc? ( >=sys-block/libzbc-5 ) zlib? ( sys-libs/zlib ) ) gtk? ( x11-libs/gtk+:2 ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] || ( ( dev-lang/python:3.8 dev-python/pandas[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/pandas[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) ) gnuplot? ( sci-visualization/gnuplot )
-REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 ) ) gnuplot? ( python ) io-uring? ( aio )
+RDEPEND=!static? ( aio? ( dev-libs/libaio ) curl? ( net-misc/curl:= dev-libs/openssl:0= ) glusterfs? ( sys-cluster/glusterfs ) gtk? ( dev-libs/glib:2 ) io-uring? ( sys-libs/liburing:= ) numa? ( sys-process/numactl ) rbd? ( sys-cluster/ceph ) rdma? ( sys-fabric/libibverbs sys-fabric/librdmacm ) tcmalloc? ( dev-util/google-perftools:= ) zbc? ( >=sys-block/libzbc-5 ) zlib? ( sys-libs/zlib ) ) gtk? ( x11-libs/gtk+:2 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] || ( ( dev-lang/python:3.8 dev-python/pandas[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ) ) gnuplot? ( sci-visualization/gnuplot )
+REQUIRED_USE=python? ( || ( python_targets_python3_8 ) ) gnuplot? ( python ) io-uring? ( aio )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://brick.kernel.dk/snaps/fio-3.20.tar.bz2
-_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=d11e04d8a1273370b13184a1f03c57da

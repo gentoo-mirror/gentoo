@@ -1,16 +1,16 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=install setup
-DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( dev-python/numpy[python_targets_python3_7(-)] dev-python/pygame[python_targets_python3_7(-)] dev-python/polib[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] dev-python/pygame[python_targets_python3_8(-)] dev-python/polib[python_targets_python3_8(-)] )
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] dev-python/pygame[python_targets_python3_8(-)] dev-python/polib[python_targets_python3_8(-)] )
 DESCRIPTION=Simulation of a true AI. Go from computer to computer, chased by the whole world
 EAPI=7
 HOMEPAGE=http://www.emhsoft.com/singularity/ https://github.com/singularity/singularity
 INHERIT=desktop python-single-r1 wrapper
-IUSE=python_single_target_python3_7 python_single_target_python3_8
+IUSE=+python_single_target_python3_8
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 CC-BY-SA-2.5
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_7? ( dev-python/numpy[python_targets_python3_7(-)] dev-python/pygame[python_targets_python3_7(-)] dev-python/polib[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] dev-python/pygame[python_targets_python3_8(-)] dev-python/polib[python_targets_python3_8(-)] ) media-libs/sdl-mixer[vorbis,wav] !sys-cluster/singularity
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] dev-python/pygame[python_targets_python3_8(-)] dev-python/polib[python_targets_python3_8(-)] ) media-libs/sdl-mixer[vorbis,wav] !sys-cluster/singularity
+REQUIRED_USE=^^ ( python_single_target_python3_8 )
 SLOT=0
 SRC_URI=https://github.com/singularity/singularity/releases/download/singularity-1.0a1/singularity-1.0a1.tar.gz http://emhsoft.com/singularity/endgame-singularity-music-007.zip
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	wrapper	4251d4c84c25f59094fd557e0063a974
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	wrapper	4251d4c84c25f59094fd557e0063a974
 _md5_=080a89a36e3221534f618e691c2ffc34

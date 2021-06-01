@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install preinst prepare setup
-DEPEND=java? ( >=virtual/jdk-1.4 ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=java? ( >=virtual/jdk-1.4 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Library for Support Vector Machines
 EAPI=7
 HOMEPAGE=https://www.csie.ntu.edu.tw/~cjlin/libsvm/
 INHERIT=flag-o-matic java-pkg-opt-2 python-r1 toolchain-funcs
-IUSE=java openmp python tools elibc_FreeBSD java python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
+IUSE=java openmp python tools elibc_FreeBSD java python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 ppc ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=java? ( >=virtual/jre-1.4 ) python? ( python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) tools? ( sci-visualization/gnuplot ) java? ( >=dev-java/java-config-2.2.0-r3 )
-REQUIRED_USE=python? ( || ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 ) )
+RDEPEND=java? ( >=virtual/jre-1.4 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) tools? ( sci-visualization/gnuplot ) java? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
 SLOT=0/2
 SRC_URI=https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.24.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-opt-2	77d2e22d0de7640f817d20e861c0ff3f	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-opt-2	77d2e22d0de7640f817d20e861c0ff3f	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=b4696aef806059dbc2bfcb11a9a82da6

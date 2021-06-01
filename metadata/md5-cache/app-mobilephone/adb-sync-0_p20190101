@@ -3,12 +3,12 @@ DESCRIPTION=Synchronize files between a PC and an Android device using ADB
 EAPI=7
 HOMEPAGE=https://github.com/google/adb-sync
 INHERIT=python-single-r1
-IUSE=+channel python_single_target_python3_7 python_single_target_python3_8
+IUSE=+channel +python_single_target_python3_8
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) dev-util/android-tools channel? ( net-misc/socat )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) dev-util/android-tools channel? ( net-misc/socat )
+REQUIRED_USE=^^ ( python_single_target_python3_8 )
 SLOT=0
 SRC_URI=https://github.com/google/adb-sync/archive/fb7c549753de7a5579ed3400dd9f8ac71f7bf1b1.tar.gz -> adb-sync-0_p20190101.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
 _md5_=f32133bf0d82d08ec12d48a7bcafeedd

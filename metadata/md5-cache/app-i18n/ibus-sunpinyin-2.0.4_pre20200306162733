@@ -1,16 +1,16 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig python_single_target_python3_7? ( dev-util/scons[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-util/scons[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-util/scons[python_targets_python3_9(-)] ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+BDEPEND=sys-devel/gettext virtual/pkgconfig python_single_target_python3_8? ( dev-util/scons[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-util/scons[python_targets_python3_9(-)] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=app-i18n/ibus ~app-i18n/sunpinyin-2.0.4_pre20200306162733 dev-libs/glib:2 virtual/libintl
 DESCRIPTION=Chinese SunPinyin engine for IBus
 EAPI=7
 HOMEPAGE=https://github.com/sunpinyin/sunpinyin
 INHERIT=python-single-r1 scons-utils toolchain-funcs
-IUSE=+gui python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=+gui python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( CDDL LGPL-2.1 )
-RDEPEND=app-i18n/ibus ~app-i18n/sunpinyin-2.0.4_pre20200306162733 dev-libs/glib:2 virtual/libintl app-i18n/sunpinyin-data gui? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( app-i18n/ibus[introspection,python,python_targets_python3_7(-)] dev-python/pygobject[python_targets_python3_7(-)] ) python_single_target_python3_8? ( app-i18n/ibus[introspection,python,python_targets_python3_8(-)] dev-python/pygobject[python_targets_python3_8(-)] ) python_single_target_python3_9? ( app-i18n/ibus[introspection,python,python_targets_python3_9(-)] dev-python/pygobject[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=app-i18n/ibus ~app-i18n/sunpinyin-2.0.4_pre20200306162733 dev-libs/glib:2 virtual/libintl app-i18n/sunpinyin-data gui? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( app-i18n/ibus[introspection,python,python_targets_python3_8(-)] dev-python/pygobject[python_targets_python3_8(-)] ) python_single_target_python3_9? ( app-i18n/ibus[introspection,python,python_targets_python3_9(-)] dev-python/pygobject[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/sunpinyin/sunpinyin/archive/f39c195db08661e894017507842991a1ef70bedf.tar.gz -> sunpinyin-2.0.4_pre20200306162733.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	multiprocessing	cac3169468f893670dac3e7cb940e045	scons-utils	fc8e53815030125602cc608cd1bff857
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	multiprocessing	cac3169468f893670dac3e7cb940e045	scons-utils	fc8e53815030125602cc608cd1bff857
 _md5_=03ec75813e88776a828a22a05b4fc15c

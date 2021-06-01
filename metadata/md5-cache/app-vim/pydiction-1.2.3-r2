@@ -4,12 +4,12 @@ DESCRIPTION=vim plugin: tab-complete your Python code
 EAPI=6
 HOMEPAGE=https://rkulla.github.io/pydiction/
 INHERIT=vim-plugin python-r1
-IUSE=python_targets_python3_7 python_targets_python3_8
+IUSE=python_targets_python3_8
 KEYWORDS=amd64 ppc ppc64 x86
 LICENSE=vim
-RDEPEND=python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
-REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 )
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~monsieurp/packages/pydiction-1.2.3.zip
-_eclasses_=vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=15d681e387439af9f1393a716bc03e93

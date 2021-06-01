@@ -1,17 +1,17 @@
-BDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=python_single_target_python3_7? ( dev-python/pygobject:3[python_targets_python3_7(-)] dev-python/pyxdg[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/pyxdg[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/pyxdg[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] x11-misc/xdg-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/pyxdg[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/pyxdg[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] x11-misc/xdg-utils dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=A desktop wiki
 EAPI=7
 HOMEPAGE=https://zim-wiki.org/ https://github.com/zim-desktop-wiki/zim-desktop-wiki
 INHERIT=distutils-r1 virtualx xdg
-IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 test
+IUSE=python_single_target_python3_8 python_single_target_python3_9 test
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=BSD GPL-2+
-RDEPEND=python_single_target_python3_7? ( dev-python/pygobject:3[python_targets_python3_7(-)] dev-python/pyxdg[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/pyxdg[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/pyxdg[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] x11-misc/xdg-utils python_single_target_python3_7? ( dev-lang/python:3.7[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_9] )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/pyxdg[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/pyxdg[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] x11-misc/xdg-utils python_single_target_python3_8? ( dev-lang/python:3.8[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[sqlite] >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/0.73.4.tar.gz -> zim-0.73.4.tar.gz
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	distutils-r1	f0ca511df3fddd316b783632b804e8fb	virtualx	0a780e1ab49c75da33a78ede35ab8f9c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	distutils-r1	f0ca511df3fddd316b783632b804e8fb	virtualx	0a780e1ab49c75da33a78ede35ab8f9c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=22bfb18a80f7b514f7acb04e71e831aa
