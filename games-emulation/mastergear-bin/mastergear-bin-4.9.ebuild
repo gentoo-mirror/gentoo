@@ -5,24 +5,28 @@ EAPI=7
 
 DESCRIPTION="SEGA Master System / Game Gear emulator"
 HOMEPAGE="https://fms.komkon.org/MG/"
-SRC_URI="https://fms.komkon.org/MG/MG${PV//\./}-Ubuntu-x86-bin.tgz"
+SRC_URI="https://fms.komkon.org/MG/MG${PV/./}-Ubuntu-x86-bin.tgz"
+S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64"
-RESTRICT="bindist mirror strip"
+KEYWORDS="-* ~amd64"
+RESTRICT="bindist mirror"
 
-RDEPEND=">=sys-libs/glibc-2.15
-	sys-libs/zlib
+RDEPEND="
+	|| (
+		media-sound/pulseaudio
+		media-sound/apulse[sdk]
+	)
+	sys-libs/zlib:=
 	x11-libs/libX11
-	x11-libs/libXext
-	|| ( media-sound/pulseaudio media-sound/apulse )"
+	x11-libs/libXext"
 
-S="${WORKDIR}"
 QA_PREBUILT="usr/bin/mastergear"
 
 src_install() {
 	newbin mg mastergear
+
 	docinto html
 	dodoc MG.html
 }
