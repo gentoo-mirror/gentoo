@@ -83,6 +83,7 @@ PATCHES=(
 	"${FILESDIR}/${PV}-0001-compatibility-with-breaking-changes-to-the-ast-modul.patch"
 	"${FILESDIR}/${PV}-0002-Disable-test_completion.patch"
 	"${FILESDIR}/${PV}-0003-Try-to-work-around-a-Werkzeug-change.patch"
+	"${FILESDIR}/${PV}-0004-Fix-3608-Replace-discogs-client-with-python3-discogs.patch"
 )
 
 DOCS=( README.rst docs/changelog.rst )

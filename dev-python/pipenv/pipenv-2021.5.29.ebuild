@@ -27,13 +27,12 @@ RDEPEND="
 	>=dev-python/virtualenv-20.0.35[${PYTHON_USEDEP}]
 	dev-python/virtualenv-clone[${PYTHON_USEDEP}]
 "
-
 BDEPEND="
 	${RDEPEND}
 	test? (
 		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
-		<dev-python/pytest-5[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
 	)
 "
