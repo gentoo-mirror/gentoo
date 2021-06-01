@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://docs.stevelosh.com/splice.vim/ https://github.com/sjl/splice.vim https://www.vim.org/scripts/script.php?script_id=4026
 INHERIT=vim-plugin python-single-r1
 IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=MIT
 RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) || ( app-editors/vim[python,python_single_target_python3_7(-)?,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] app-editors/gvim[python,python_single_target_python3_7(-)?,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/sjl/splice.vim/archive/v1.1.0.tar.gz -> splice-1.1.0-github.tar.gz
 _eclasses_=vim-doc	dd0828b15877b2a09c07f4719e45891f	vim-plugin	93be71a1efbbf62981fcd40ee0db6e3f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
-_md5_=061fccda239fbc81eca12ee7d3e4df86
+_md5_=e89095e029ecbfad83c16734601053a2
