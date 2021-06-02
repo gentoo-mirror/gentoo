@@ -1,0 +1,17 @@
+BDEPEND=test? ( ipython? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) python_single_target_python3_8? ( >=dev-python/pytest-4.5.0[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pytest-4.5.0[python_targets_python3_9(-)] ) ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) test? ( >=dev-vcs/pre-commit-0.7.0[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] )
+DESCRIPTION=change directory command that learns
+EAPI=7
+HOMEPAGE=https://github.com/wting/autojump
+INHERIT=distutils-r1 bash-completion-r1 vcs-snapshot prefix
+IUSE=ipython test test python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x64-macos
+LICENSE=GPL-3
+RDEPEND=ipython? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+REQUIRED_USE=ipython? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/wting/autojump/archive/release-v22.5.3.tar.gz -> autojump-22.5.3.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd	prefix	de7d8e2b10085ed5ff09ad70e4753e5c
+_md5_=1c1f9ec3d4926f8ac50d309d0aa0ebcd
