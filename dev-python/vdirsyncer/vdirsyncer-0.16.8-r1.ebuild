@@ -17,7 +17,7 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 SLOT="0"
 
-PATCHES=( "${FILESDIR}/${P}-click-7-compat.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.16.8-click-7-compat.patch" )
 
 RDEPEND="dev-python/click[${PYTHON_USEDEP}]
 	>=dev-python/click-log-0.3.0[${PYTHON_USEDEP}]
@@ -37,6 +37,15 @@ BDEPEND="${RDEPEND}
 DOCS=( AUTHORS.rst CHANGELOG.rst CONTRIBUTING.rst README.rst config.example )
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	default
+
+	# Replace getiterator with iter for python3.9.
+	# See https://github.com/pimutils/vdirsyncer/issues/880.
+	sed -i "s/rv.extend(item.getiterator())/rv.extend(iter(item))/" \
+		vdirsyncer/storage/dav.py || die
+}
 
 python_test() {
 	# skip tests needing servers running
