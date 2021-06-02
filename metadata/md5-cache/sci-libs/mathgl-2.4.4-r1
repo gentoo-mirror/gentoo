@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-text/texi2html virtual/texi2dvi ) octave? ( dev-lang/swig ) dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install postinst prepare prerm setup test unpack
-DEPEND=virtual/opengl fltk? ( x11-libs/fltk:1 ) gif? ( media-libs/giflib ) glut? ( media-libs/freeglut ) gsl? ( >=sci-libs/gsl-2 ) hdf? ( sci-libs/hdf ) hdf5? ( >=sci-libs/hdf5-1.8[mpi=] ) jpeg? ( virtual/jpeg:0 ) octave? ( >=sci-mathematics/octave-3.4.0 ) openmp? ( sys-cluster/openmpi ) pdf? ( media-libs/libharu ) png? ( media-libs/libpng:0 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ) wxwidgets? ( x11-libs/wxGTK:3.0[X] ) zlib? ( sys-libs/zlib )
+DEPEND=virtual/opengl fltk? ( x11-libs/fltk:1 ) gif? ( media-libs/giflib ) glut? ( media-libs/freeglut ) gsl? ( >=sci-libs/gsl-2:= ) hdf? ( sci-libs/hdf ) hdf5? ( >=sci-libs/hdf5-1.8[mpi=] ) jpeg? ( virtual/jpeg:0 ) octave? ( >=sci-mathematics/octave-3.4.0 ) openmp? ( sys-cluster/openmpi ) pdf? ( media-libs/libharu ) png? ( media-libs/libpng:0 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ) wxwidgets? ( x11-libs/wxGTK:3.0[X] ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Math Graphics Library
 EAPI=7
 HOMEPAGE=http://mathgl.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=cmake wxwidgets multilib flag-o-matic
 IUSE=doc fltk gif glut gsl hdf hdf5 jpeg mpi octave opengl openmp pdf png qt5 static-libs threads wxwidgets zlib l10n_ru
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-3
-RDEPEND=virtual/opengl fltk? ( x11-libs/fltk:1 ) gif? ( media-libs/giflib ) glut? ( media-libs/freeglut ) gsl? ( >=sci-libs/gsl-2 ) hdf? ( sci-libs/hdf ) hdf5? ( >=sci-libs/hdf5-1.8[mpi=] ) jpeg? ( virtual/jpeg:0 ) octave? ( >=sci-mathematics/octave-3.4.0 ) openmp? ( sys-cluster/openmpi ) pdf? ( media-libs/libharu ) png? ( media-libs/libpng:0 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ) wxwidgets? ( x11-libs/wxGTK:3.0[X] ) zlib? ( sys-libs/zlib )
+RDEPEND=virtual/opengl fltk? ( x11-libs/fltk:1 ) gif? ( media-libs/giflib ) glut? ( media-libs/freeglut ) gsl? ( >=sci-libs/gsl-2:= ) hdf? ( sci-libs/hdf ) hdf5? ( >=sci-libs/hdf5-1.8[mpi=] ) jpeg? ( virtual/jpeg:0 ) octave? ( >=sci-mathematics/octave-3.4.0 ) openmp? ( sys-cluster/openmpi ) pdf? ( media-libs/libharu ) png? ( media-libs/libpng:0 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ) wxwidgets? ( x11-libs/wxGTK:3.0[X] ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=mpi? ( hdf5 ) openmp? ( !threads ) png? ( zlib ) pdf? ( png )
 SLOT=0/7.5.0
 SRC_URI=mirror://sourceforge/mathgl/mathgl-2.4.4.tar.gz mirror://sourceforge/mathgl/STIX_font.tgz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	wxwidgets	41fd66c54c0faced4c91afc0ef1cc050
-_md5_=649702dd6b3096db56e7763f1310f01f
+_md5_=cedabd04922648ff77b7c22b2d8db32b

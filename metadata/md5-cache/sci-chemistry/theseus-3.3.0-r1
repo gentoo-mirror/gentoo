@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=sci-libs/gsl || ( sci-biology/muscle sci-biology/probcons sci-biology/mafft sci-biology/t-coffee sci-biology/kalign sci-biology/clustalw:2 ) virtual/pkgconfig
+DEPEND=sci-libs/gsl:= || ( sci-biology/muscle sci-biology/probcons sci-biology/mafft sci-biology/t-coffee sci-biology/kalign sci-biology/clustalw:2 ) virtual/pkgconfig
 DESCRIPTION=Maximum likelihood superpositioning and analysis of macromolecular structures
 EAPI=5
 HOMEPAGE=http://www.theseus3d.org/
@@ -7,8 +7,8 @@ INHERIT=multilib toolchain-funcs
 IUSE=examples
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3
-RDEPEND=sci-libs/gsl || ( sci-biology/muscle sci-biology/probcons sci-biology/mafft sci-biology/t-coffee sci-biology/kalign sci-biology/clustalw:2 )
+RDEPEND=sci-libs/gsl:= || ( sci-biology/muscle sci-biology/probcons sci-biology/mafft sci-biology/t-coffee sci-biology/kalign sci-biology/clustalw:2 )
 SLOT=0
 SRC_URI=http://www.theseus3d.org/src/theseus_3.3.0.tar.gz
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=8ed1ecf72e75b90d3f11fd91788f8430
+_md5_=09a083d9030e14c8ac0697ad448a962b
