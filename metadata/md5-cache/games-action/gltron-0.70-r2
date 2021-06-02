@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=media-libs/libmikmod media-libs/libpng:0 media-libs/libsdl[sound,video] media-libs/sdl-mixer[vorbis] media-libs/sdl-sound[vorbis,mikmod] media-libs/smpeg virtual/opengl
+DEPEND=media-libs/libmikmod media-libs/libpng:0 media-libs/libsdl[sound,video] media-libs/sdl-mixer[vorbis] media-libs/sdl-sound[vorbis,mikmod] media-libs/smpeg virtual/opengl virtual/glu
 DESCRIPTION=3d tron, just like the movie
-EAPI=6
+EAPI=7
 HOMEPAGE=http://gltron.sourceforge.net/
 INHERIT=desktop
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=media-libs/libmikmod media-libs/libpng:0 media-libs/libsdl[sound,video] media-libs/sdl-mixer[vorbis] media-libs/sdl-sound[vorbis,mikmod] media-libs/smpeg virtual/opengl
+RDEPEND=media-libs/libmikmod media-libs/libpng:0 media-libs/libsdl[sound,video] media-libs/sdl-mixer[vorbis] media-libs/sdl-sound[vorbis,mikmod] media-libs/smpeg virtual/opengl virtual/glu
 SLOT=0
 SRC_URI=mirror://sourceforge/gltron/gltron-0.70-source.tar.gz mirror://gentoo/gltron.png
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=369eaf2524700f1d2a1ba0c7cbc67487
+_md5_=98d3fc2cd314f662bdf0a3ccfa3fedac
