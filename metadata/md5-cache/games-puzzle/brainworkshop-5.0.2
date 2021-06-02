@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+DEFINED_PHASES=install prepare setup
+DESCRIPTION=Short-term-memory training N-Back game
+EAPI=7
+HOMEPAGE=https://github.com/brain-workshop/brainworkshop
+INHERIT=desktop python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-Sampling-Plus-1.0 GPL-2+
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( >=dev-python/pyglet-1.5[python_targets_python3_8(-),sound] ) python_single_target_python3_9? ( >=dev-python/pyglet-1.5[python_targets_python3_9(-),sound] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+SLOT=0
+SRC_URI=https://github.com/brain-workshop/brainworkshop/archive/refs/tags/v5.0.2.tar.gz -> brainworkshop-5.0.2.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_md5_=f8bf58d5321d68cfb8d0160d969221fe
