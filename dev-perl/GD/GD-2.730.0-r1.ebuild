@@ -12,19 +12,14 @@ DESCRIPTION="Interface to Thomas Boutell's gd library"
 
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~sparc"
-IUSE="animgif fcgi gif jpeg png test truetype xpm"
+IUSE="animgif fcgi test truetype xpm"
 
 RDEPEND="
-	>=media-libs/gd-2.2.3
-	png? (
-		media-libs/gd[png]
-		media-libs/libpng:0
-		sys-libs/zlib
-	)
-	jpeg? (
-		media-libs/gd[jpeg]
-		virtual/jpeg:0
-	)
+	>=media-libs/gd-2.2.3[png,jpeg]
+	media-libs/giflib
+	media-libs/libpng:0
+	sys-libs/zlib
+	virtual/jpeg:0
 	truetype? (
 		media-libs/gd[truetype]
 		media-libs/freetype:2
@@ -36,7 +31,6 @@ RDEPEND="
 	fcgi? (
 		dev-libs/fcgi
 	)
-	gif? ( media-libs/giflib )
 "
 DEPEND="${RDEPEND}
 "
@@ -61,12 +55,15 @@ src_prepare() {
 src_configure() {
 	local myconf
 	myconf="VERSION_33,GD_UNCLOSEDPOLY,GD_FTCIRCLE" # Per line 284 of Makefile.PL
+
+	# The following flags do not work properly. This is why we force-enable
+	# at least some of them. See bug 787404 as tracker.
 	use gif && use animgif && myconf+=",ANIMGIF"
-	use jpeg && myconf+=",JPEG"
+	myconf+=",JPEG"
 	use truetype && myconf+=",FT"
-	use png && myconf+=",PNG"
+	myconf+=",PNG"
 	use xpm && myconf+=",XPM"
-	use gif && myconf+=",GIF"
+	myconf+=",GIF"
 	myconf="-options '${myconf}'"
 	use fcgi && myconf+=" --fcgi"
 	perl-module_src_configure
