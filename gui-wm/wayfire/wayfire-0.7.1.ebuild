@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/WayfireWM/${PN}.git"
 else
-	SRC_URI="https://github.com/WayfireWM/${PN}/releases/download/${PV}/${P}.tar.xz"
+	SRC_URI="https://github.com/WayfireWM/${PN}/releases/download/v${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
@@ -36,9 +36,15 @@ DEPEND="
 	X? ( x11-libs/libxkbcommon:=[X] )
 	x11-libs/pixman
 	gles? ( media-libs/libglvnd[X?] )
-	system-wfconfig? ( >=gui-libs/wf-config-${PV%.*} )
+	system-wfconfig? (
+		>=gui-libs/wf-config-0.7.1
+		<gui-libs/wf-config-0.8.0
+	)
 	!system-wfconfig? ( !gui-libs/wf-config )
-	system-wlroots? ( >=gui-libs/wlroots-0.12.0[elogind=,systemd=,X?] )
+	system-wlroots? (
+		>=gui-libs/wlroots-0.13.0:=[elogind=,systemd=,X?]
+		<gui-libs/wlroots-0.14.0:=
+	)
 	!system-wlroots? ( !gui-libs/wlroots )
 "
 
