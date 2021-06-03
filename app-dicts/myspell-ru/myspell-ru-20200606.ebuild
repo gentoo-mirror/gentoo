@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,14 +9,9 @@ MYSPELL_THES=( ru_th_aot.{dat,idx} )
 
 inherit myspell-r2
 
-EXT="extensions"
-DICT="russian-dictionary-pack"
-MY_PN="dict_pack_ru-aot"
-MY_PV="0.4.3"
-
 DESCRIPTION="Russian spellcheck dictionary based on works of AOT group for myspell/hunspell"
 HOMEPAGE="https://extensions.libreoffice.org/extensions/russian-dictionary-pack"
-SRC_URI="https://extensions.libreoffice.org/${EXT}/${DICT}/0-4.3/@@download/file/${MY_PN}-${MY_PV//./-}.oxt"
+SRC_URI="https://extensions.libreoffice.org/assets/downloads/48/dict_pack_ru-aot-0.4.5.oxt"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
