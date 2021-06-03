@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.8 ) virtual/pkgconfig
+BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig
 DEFINED_PHASES=configure postinst prepare setup
 DEPEND=dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libX11 alsa? ( media-libs/alsa-lib ) x11-base/xorg-proto
 DESCRIPTION=light-weight X11 desktop panel
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libX11 al
 SLOT=0
 SRC_URI=https://aanatoly.github.io/fbpanel/archive/7.0.tar.gz -> fbpanel-7.0.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9
-_md5_=9d8094a8adeeadb76766df14d3d784ac
+_md5_=cd24949744f03c3bfb18ad093eded77c
