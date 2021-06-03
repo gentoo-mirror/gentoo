@@ -108,7 +108,6 @@ pkg_setup() {
 		nvidia-drm(video:kernel)
 		nvidia-modeset(video:kernel)
 		nvidia-uvm(video:kernel)"
-	# nvidia-peermem(video:kernel) - skipping unless there is a demand for it
 
 	linux-mod_pkg_setup
 
@@ -342,9 +341,9 @@ src_install() {
 
 	# install systemd sleep services
 	exeinto /lib/systemd/system-sleep
-	doexe systemd/system-sleep/nvidia
-	dobin systemd/nvidia-sleep.sh
-	systemd_dounit systemd/system/nvidia-{hibernate,resume,suspend}.service
+	doexe nvidia
+	dobin nvidia-sleep.sh
+	systemd_dounit nvidia-{hibernate,resume,suspend}.service
 
 	einstalldocs
 	readme.gentoo_create_doc
