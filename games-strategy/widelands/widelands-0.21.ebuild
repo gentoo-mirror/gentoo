@@ -7,24 +7,17 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit xdg cmake python-any-r1
 
+MY_PV="build$(ver_cut 2)"
+MY_P="${PN}-${MY_PV}"
+
 DESCRIPTION="Game similar to Settlers 2"
 HOMEPAGE="https://www.widelands.org/"
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/widelands/widelands.git"
-else
-	MY_PV="build$(ver_cut 2)"
-	MY_P="${PN}-${MY_PV}"
-
-	SRC_URI="https://launchpad.net/widelands/${MY_PV}/${MY_PV}/+download/${MY_P}-source.tar.gz"
-	S="${WORKDIR}/${MY_P}"
-
-	KEYWORDS="~amd64 ~x86"
-fi
+SRC_URI="https://launchpad.net/widelands/${MY_PV}/${MY_PV}/+download/${MY_P}-source.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="|| ( Apache-2.0 GPL-3 ) BitstreamVera CC-BY-SA-3.0 GPL-2 GPL-2+ MIT OFL-1.1 ZLIB"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -37,7 +30,6 @@ RDEPEND="
 	media-libs/sdl2-image[jpeg,png]
 	media-libs/sdl2-mixer[vorbis]
 	media-libs/sdl2-ttf
-	net-misc/curl
 	sys-libs/zlib:=
 	virtual/libintl"
 DEPEND="
