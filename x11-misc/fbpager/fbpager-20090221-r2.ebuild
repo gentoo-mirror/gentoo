@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit flag-o-matic
 
@@ -11,7 +11,7 @@ SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~mips ppc ~sparc x86"
+KEYWORDS="~amd64 ~mips ~ppc ~sparc ~x86"
 IUSE="+xrender"
 
 DEPEND="x11-libs/libX11
