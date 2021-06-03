@@ -6,7 +6,7 @@ inherit mount-boot savedconfig
 
 # In case this is a real snapshot, fill in commit below.
 # For normal, tagged releases, leave blank
-MY_COMMIT=
+MY_COMMIT="f8462923ed8fc874f770b8c6dfad49d39b381f14"
 
 if [[ ${PV} == 99999999* ]]; then
 	inherit git-r3
@@ -14,6 +14,7 @@ if [[ ${PV} == 99999999* ]]; then
 else
 	if [[ -n "${MY_COMMIT}" ]]; then
 		SRC_URI="https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/snapshot/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+		S="${WORKDIR}/${MY_COMMIT}"
 	else
 		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
 	fi
