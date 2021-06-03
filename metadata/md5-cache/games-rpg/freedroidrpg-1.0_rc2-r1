@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure postinst postrm preinst prepare setup
+DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/libpng:= media-libs/libsdl[opengl?,sound?,video] >=media-libs/sdl-gfx-2.0.21:= media-libs/sdl-image[jpeg,png] sys-libs/zlib:= devtools? ( media-libs/sdl-ttf ) nls? ( virtual/libintl ) opengl? ( media-libs/glew:0= virtual/opengl ) sound? ( media-libs/libogg media-libs/libvorbis media-libs/sdl-mixer[vorbis] ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Modification of the classical Freedroid engine into an RPG
+EAPI=7
+HOMEPAGE=https://www.freedroid.org
+INHERIT=lua-single python-any-r1 xdg
+IUSE=debug devtools nls opengl profile +sound +lua_single_target_lua5-3
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/libpng:= media-libs/libsdl[opengl?,sound?,video] >=media-libs/sdl-gfx-2.0.21:= media-libs/sdl-image[jpeg,png] sys-libs/zlib:= devtools? ( media-libs/sdl-ttf ) nls? ( virtual/libintl ) opengl? ( media-libs/glew:0= virtual/opengl ) sound? ( media-libs/libogg media-libs/libvorbis media-libs/sdl-mixer[vorbis] )
+REQUIRED_USE=^^ ( lua_single_target_lua5-3 )
+SLOT=0
+SRC_URI=ftp://ftp.osuosl.org/pub/freedroid/freedroidRPG-1.0/freedroidRPG-1.0rc2.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	lua-utils	736947973cfbc9de01fdb8548f942f82	lua-single	f91b5656f00869c220a6e35ae0521c54	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=fb9a29f2eec37b61f05d36a6ef1daac2
