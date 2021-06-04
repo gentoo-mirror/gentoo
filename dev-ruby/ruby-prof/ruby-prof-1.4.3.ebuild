@@ -10,6 +10,9 @@ RUBY_FAKEGEM_DOCDIR="doc"
 
 RUBY_FAKEGEM_GEMSPEC="ruby-prof.gemspec"
 
+RUBY_FAKEGEM_EXTENSIONS=(ext/ruby_prof/extconf.rb)
+RUBY_FAKEGEM_EXTENSION_LIBDIR="lib/ruby_prof"
+
 inherit multilib ruby-fakegem
 
 DESCRIPTION="A module for profiling Ruby code"
@@ -27,7 +30,7 @@ all_ruby_prepare() {
 	# Avoid bundler
 	sed -i -e '/bundler/I s:^:#:' -e '/:build/ s:^:#:' Rakefile || die
 
-	sed -i -e '2igem "test-unit"' test/test_helper.rb || die
+	sed -i -e '2igem "test-unit"' -e '/bundler/ s:^:#:' test/test_helper.rb || die
 
 	# We install the shared object in lib, not ext.
 	sed -i -e 's#../ext/ruby_prof#../lib/ruby_prof#' lib/ruby-prof.rb || die
@@ -35,17 +38,4 @@ all_ruby_prepare() {
 	# Avoid unneeded dependency on rake-compiler
 	sed -i -e '/extensiontask/ s:^:#:' \
 		-e '/ExtensionTask/,/end/ s:^:#:' Rakefile || die
-
-	# Create directory required for the test suite to pass
-	mkdir tmp || die
-}
-
-each_ruby_configure() {
-	${RUBY} -Cext/ruby_prof extconf.rb || die "extconf.rb failed"
-}
-
-each_ruby_compile() {
-	emake V=1 -Cext/ruby_prof
-
-	cp ext/ruby_prof/*$(get_modname) lib/ || die "copy of extension failed"
 }

@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,6 +17,8 @@ REQUIRED_USE="|| ( mysql postgres sqlite )"
 DEPEND=""
 RDEPEND=">=dev-lang/php-7.0[curl?,filter,gd,hash(+),intl,json,mysql?,pdo,posix,postgres?,session,simplexml,sqlite?,xmlreader,xmlwriter,zip]
 	virtual/httpd-php"
+
+PATCHES=( "${FILESDIR}"/${P}-share_data_exposure.patch )
 
 S=${WORKDIR}/${PN}
 
