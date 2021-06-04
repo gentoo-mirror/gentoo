@@ -4,7 +4,7 @@ DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/pyt
 DESCRIPTION=An object-oriented framework for creating UPnP devs and control points
 EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Projects/GUPnP
-INHERIT=gnome.org meson multilib-minimal python-single-r1 vala xdg
+INHERIT=gnome.org meson-multilib python-single-r1 vala xdg
 IUSE=connman gtk-doc +introspection kernel_linux networkmanager vala abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ~ia64 ~ppc ppc64 ~sparc x86
 LICENSE=LGPL-2+ GPL-2+
@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[xml] >=dev-lang/py
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ?? ( connman networkmanager )
 SLOT=0/1.2-0
 SRC_URI=mirror://gnome/sources/gupnp/1.2/gupnp-1.2.6.tar.xz
-_eclasses_=gnome.org	df5c6c53843e1be0aad724138e78bbc3	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	28cbb704f3b4e0481c4a5f22be635115	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	vala	167a20a57e4418cc17272186272b021a	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=6e657164f5a9e4684b76a20355fc66a0
+_eclasses_=gnome.org	df5c6c53843e1be0aad724138e78bbc3	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29	meson-multilib	485215fef459a86936e377c0eaa513a0	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	vala	167a20a57e4418cc17272186272b021a	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=b1941a75b0bab97468c7916daa96ab0b

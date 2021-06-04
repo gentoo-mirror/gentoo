@@ -4,7 +4,7 @@ DEPEND=>=sys-apps/util-linux-2.30[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,
 DESCRIPTION=Linux dynamic and persistent device naming support (aka userspace devfs)
 EAPI=7
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/systemd
-INHERIT=bash-completion-r1 linux-info meson ninja-utils multilib-minimal python-any-r1 toolchain-funcs udev usr-ldscript
+INHERIT=bash-completion-r1 linux-info meson-multilib ninja-utils python-any-r1 toolchain-funcs udev usr-ldscript
 IUSE=acl +kmod selinux static-libs kernel_linux abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
 LICENSE=LGPL-2.1 MIT GPL-2
@@ -13,5 +13,5 @@ RDEPEND=>=sys-apps/util-linux-2.30[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	28cbb704f3b4e0481c4a5f22be635115	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29	python-any-r1	17241a11501065ff3651350040875aa9	udev	452708c3f55cf6e918b045adb949a9e6	usr-ldscript	7c918d239d0f9098867d0c8e33348fc9
-_md5_=f7ed3f25061f37cd2cc708da92ba3323
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29	meson-multilib	485215fef459a86936e377c0eaa513a0	python-any-r1	17241a11501065ff3651350040875aa9	udev	452708c3f55cf6e918b045adb949a9e6	usr-ldscript	7c918d239d0f9098867d0c8e33348fc9
+_md5_=1ed2e67502af37e8719974286e82f3e4
