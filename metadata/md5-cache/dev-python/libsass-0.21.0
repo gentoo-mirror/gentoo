@@ -4,7 +4,7 @@ DEPEND=>=dev-libs/libsass-3.6.5
 DESCRIPTION=A straightforward binding of libsass for Python
 EAPI=7
 HOMEPAGE=https://github.com/sass/libsass-python/
-INHERIT=distutils-r1
+INHERIT=distutils-r1 toolchain-funcs
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 x86
 LICENSE=MIT
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sass/libsass-python/archive/0.21.0.tar.gz -> libsass-python-0.21.0.gh.tar.gz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
-_md5_=1b5ec1755ec97ae6b02d1efaf5d6ab50
+_md5_=2d0bccbd0fb64fad648955679a7e03e2
