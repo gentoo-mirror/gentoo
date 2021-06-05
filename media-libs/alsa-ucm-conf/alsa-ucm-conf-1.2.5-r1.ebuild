@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="ALSA ucm configuration files"
-HOMEPAGE="https://www.alsa-project.org"
+HOMEPAGE="https://alsa-project.org/wiki/Main_Page"
 SRC_URI="https://www.alsa-project.org/files/pub/lib/${P}.tar.bz2"
 LICENSE="BSD"
 SLOT="0"
@@ -16,6 +16,8 @@ RDEPEND="!<media-libs/alsa-lib-1.2.1"
 DEPEND="${RDEPEND}"
 MY_P="${PN}-1.2.4.81.g4884e"
 S="${WORKDIR}/${MY_P}"
+
+PATCHES=( "${FILESDIR}/${PN}-1.2.5-hda-Intel-the-lookups-are-supported-from-syntax-4.patch" ) # bug #793410
 
 src_install() {
 	insinto /usr/share/alsa

@@ -5,7 +5,7 @@ EAPI=7
 inherit systemd udev
 
 DESCRIPTION="Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)"
-HOMEPAGE="https://alsa-project.org/"
+HOMEPAGE="https://alsa-project.org/wiki/Main_Page"
 SRC_URI="https://www.alsa-project.org/files/pub/utils/${P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -24,6 +24,8 @@ RDEPEND="${CDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.5-fix-the-nested-iteration.patch # bug #793410
+	"${FILESDIR}"/${PN}-1.2.5-fix-potential-null-pointer-from-strchr.patch # bug #793410
 	"${FILESDIR}"/${PN}-1.1.8-missing_header.patch
 )
 
