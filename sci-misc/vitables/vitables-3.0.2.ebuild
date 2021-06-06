@@ -28,5 +28,12 @@ RDEPEND="
 		dev-python/QtPy[gui,${PYTHON_MULTI_USEDEP}]
 	')"
 DEPEND="${RDEPEND}"
+BDEPEND="
+	test? (
+		$(python_gen_cond_dep '
+			<dev-python/sip-5[${PYTHON_USEDEP}]
+	')
+	)
+"
 
 distutils_enable_tests pytest
