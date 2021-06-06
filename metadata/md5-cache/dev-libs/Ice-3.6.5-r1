@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://zeroc.com/products/ice
 INHERIT=db-use mono-env php-ext-source-r3 python-r1 ruby-ng toolchain-funcs
 IUSE=debug doc examples +readline mono php python ruby test php_targets_php7-4 python_targets_python3_8 python_targets_python3_9 ruby_targets_ruby26
-KEYWORDS=amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/expat-2.0.1 >=app-arch/bzip2-1.0.5 dev-libs/openssl:0= || ( sys-libs/db:6.2[cxx] sys-libs/db:6.1[cxx] sys-libs/db:5.3[cxx] sys-libs/db:5.1[cxx] sys-libs/db:4.8[cxx] ) dev-cpp/libmcpp python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) ruby? ( dev-lang/ruby:2.6 ) mono? ( dev-lang/mono ) php? ( php_targets_php7-4? ( dev-lang/php:7.4 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) ) php? ( || ( php_targets_php7-4 ) )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/36
 SRC_URI=https://github.com/zeroc-ice/ice/archive/v3.6.5.tar.gz -> Ice-3.6.5.tar.gz doc? ( https://download.zeroc.com/Ice/3.6/Ice-3.6.4.pdf )
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	db-use	063d3e7add942762a8203b52ec3066c2	mono-env	1e55da0e4d9f76af84ddc66821ab501e	gnuconfig	9f91b4b0c84e734a87492d4293f03de5	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	php-ext-source-r3	59705d3e8b4658c589d46b4c7f90150c	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	03dfa7f54d59d740c2964dc7256d2820	ruby-ng	b97a1a9a3103f9a66f622ea3eb2ce12b
-_md5_=5729d5879809a89e443d6a8b1a63c1b9
+_md5_=846358576df3bec24dcf390ad03033d8
