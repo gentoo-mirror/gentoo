@@ -4,32 +4,25 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
-DISTUTILS_USE_SETUPTOOLS=bdepend
 
 inherit distutils-r1
 
 DESCRIPTION="Model-driven deployment, config management, and command execution framework"
 HOMEPAGE="https://ansible.com/"
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/ansible/ansible.git"
-	EGIT_BRANCH="devel"
-else
-	SRC_URI="mirror://pypi/${PN:0:1}/${PN}-core/${PN}-core-${PV}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x64-macos"
-fi
-S="${WORKDIR}/${PN}-core-${PV}"
+SRC_URI="https://releases.ansible.com/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x64-macos"
 IUSE="test"
 RESTRICT="test"
+# doc removed due to https://github.com/ansible/ansible/issues/71395
 
 RDEPEND="
 	dev-python/paramiko[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/httplib2[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
@@ -37,10 +30,12 @@ RDEPEND="
 	dev-python/pexpect[${PYTHON_USEDEP}]
 	net-misc/sshpass
 	virtual/ssh
-	!app-admin/ansible-base
+	!<app-admin/ansible-2.10
 "
+# ansible-2.10 or above is needed for the collections
 DEPEND="
-	!app-admin/ansible-base
+	!<app-admin/ansible-2.10
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/packaging-16.6[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
@@ -53,10 +48,16 @@ DEPEND="
 	)"
 
 python_compile() {
+	# disable version checks on upgrade
 	export ANSIBLE_SKIP_CONFLICT_CHECK=1
 	distutils-r1_python_compile
 }
 
 python_test() {
 	nosetests -d -w test/units -v --with-coverage --cover-package=ansible --cover-branches || die
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+	dodoc -r examples
 }
