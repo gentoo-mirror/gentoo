@@ -7,6 +7,8 @@ WX_GTK_VER=3.0-gtk3
 FORTRAN_NEEDED=fortran
 LUA_COMPAT=( lua5-1 )
 PYTHON_COMPAT=( python3_{7,8,9} )
+# fails with ninja, due to USE=java missing swig output dependencies
+CMAKE_MAKEFILE_GENERATOR=emake
 
 inherit cmake flag-o-matic fortran-2 java-pkg-opt-2 lua-single python-single-r1 toolchain-funcs virtualx wxwidgets
 
@@ -36,7 +38,7 @@ RESTRICT="
 RDEPEND="
 	cairo? ( x11-libs/cairo:0=[svg?,X] )
 	gd? ( media-libs/gd:2=[jpeg?,png?] )
-	java? ( >=virtual/jre-1.5:* )
+	java? ( >=virtual/jre-1.8:* )
 	latex? (
 		app-text/ghostscript-gpl
 		virtual/latex-base
@@ -88,7 +90,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	java? (
-		>=virtual/jdk-1.5
+		>=virtual/jdk-1.8:*
 		dev-lang/swig
 	)
 	lua? ( dev-lang/swig )
@@ -294,6 +296,6 @@ src_install() {
 
 	if use java; then
 		java-pkg_dojar "${BUILD_DIR}"/examples/java/${PN}.jar
-		java-pkg_regso "${EPREFIX}"/usr/$(get_libdir)/jni/plplotjavac_wrap.so
+		java-pkg_regso "${EPREFIX}"/usr/$(get_libdir)/jni/libplplotjavac_wrap.so
 	fi
 }
