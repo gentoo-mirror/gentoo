@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+nss test"
 
-CDEPEND="dev-java/bcprov:1.54
+CDEPEND="dev-java/bcprov:0
 	dev-java/commons-compress:0
 	dev-java/fec:0
 	dev-java/java-service-wrapper:0
@@ -58,7 +58,7 @@ JAVA_ANT_ENCODING="utf8"
 EANT_BUILD_TARGET="package"
 EANT_TEST_TARGET="unit"
 EANT_BUILD_XML="build-clean.xml"
-EANT_GENTOO_CLASSPATH="bcprov-1.54,commons-compress,fec,java-service-wrapper,jbitcollider-core,jna-4,lzma,lzmajio,mersennetwister"
+EANT_GENTOO_CLASSPATH="bcprov,commons-compress,fec,java-service-wrapper,jbitcollider-core,jna-4,lzma,lzmajio,mersennetwister"
 EANT_EXTRA_ARGS="-Dsuppress.gjs=true -Dlib.contrib.present=true -Dlib.bouncycastle.present=true -Dlib.junit.present=true -Dtest.skip=true"
 
 S="${WORKDIR}/fred-build0${PV#*p}"
