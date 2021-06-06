@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
+DEPEND=media-libs/libsdl[joystick,sound,video] media-libs/sdl-gfx media-libs/sdl-image[jpeg,png] media-libs/sdl-mixer[mod,vorbis] media-libs/libpng media-libs/libvorbis sys-libs/zlib virtual/jpeg
+DESCRIPTION=The original Freedroid, a clone of the C64 classic Paradroid
+EAPI=7
+HOMEPAGE=https://github.com/ReinhardPrix/FreedroidClassic
+INHERIT=autotools desktop
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=media-libs/libsdl[joystick,sound,video] media-libs/sdl-gfx media-libs/sdl-image[jpeg,png] media-libs/sdl-mixer[mod,vorbis]
+SLOT=0
+SRC_URI=https://github.com/ReinhardPrix/FreedroidClassic/archive/refs/tags/release-1.2.1.tar.gz -> freedroid-1.2.1.tar.gz
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=5fd1fe2f75028b64497c6113a957641d
