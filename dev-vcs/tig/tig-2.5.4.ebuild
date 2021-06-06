@@ -58,8 +58,5 @@ src_install() {
 	dodoc doc/manual.html README.html NEWS.html
 	newbashcomp contrib/tig-completion.bash ${PN}
 
-	insinto /usr/share/zsh/site-functions
-	newins contrib/tig-completion.zsh _${PN}
-
 	dodoc contrib/*.tigrc
 }
