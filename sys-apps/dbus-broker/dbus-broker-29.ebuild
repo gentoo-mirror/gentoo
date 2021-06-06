@@ -12,13 +12,13 @@ else
 	KEYWORDS="~amd64 ~ppc64"
 	SRC_URI="https://github.com/bus1/dbus-broker/archive/v${PV}/${P}.tar.gz"
 	declare -Ag SUBPROJECTS=(
-		[c-dvar]=70f0f21e86a34577e674e202d5d09ef167102f02
-		[c-ini]=867f06a12a702c6869924575503877caa0adde75
-		[c-list]=96455db9f04a6c9101a00957161551aea700b6aa
-		[c-rbtree]=a3b1f80548d1c736208c55e9251c49ada649dd62
-		[c-shquote]=95e4713a0de475688a5727a5d776dccbc69d3d28
-		[c-stdaux]=346623b40eb8137cae7568a69ee42253ff098ff7
-		[c-utf8]=af5bf7f330078d285e5f58584abd6de01c4cfd7d
+		[c-dvar]=c8ea9712a94186512c22c32f32c421d6a2db6feb
+		[c-ini]=204410a08d3a6c8221f6f0baf0355ce5af0232ed
+		[c-list]=a0970f12f1f406a5578a5dedf3580cd682e55812
+		[c-rbtree]=8aa7bd1828eedb19960f9eef98d15543ec9f34eb
+		[c-shquote]=83ccc2893385fcca1424b188f0f6c45a62f2b38d
+		[c-stdaux]=8652c488b8f1c29629a5179d4551d0a691ae5901
+		[c-utf8]=0837214a9780b7d771a3b3ce9a49196ac0a9d52f
 	)
 	for sp in "${!SUBPROJECTS[@]}"; do
 		commit=${SUBPROJECTS[${sp}]}
@@ -36,14 +36,14 @@ IUSE="audit doc +launcher selinux"
 
 DEPEND="
 	audit? (
-		>=sys-process/audit-2.7
+		>=sys-process/audit-3.0
 		>=sys-libs/libcap-ng-0.6
 	)
 	launcher? (
 		>=dev-libs/expat-2.2
 		>=sys-apps/systemd-230:0=
 	)
-	selinux? ( sys-libs/libselinux )
+	selinux? ( >=sys-libs/libselinux-3.2 )
 "
 RDEPEND="${DEPEND}
 	launcher? ( sys-apps/dbus )"
