@@ -1,14 +1,14 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
-DEPEND=dev-libs/glib virtual/opengl x11-libs/cairo[X] x11-libs/pango
+DEPEND=dev-libs/glib media-libs/lv2 virtual/opengl x11-libs/cairo[X] x11-libs/pango
 DESCRIPTION=AVLinux Drumkits
 EAPI=7
 HOMEPAGE=http://x42-plugins.com/x42/x42-avldrums https://github.com/x42/avldrums.lv2
 INHERIT=git-r3
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-libs/glib virtual/opengl x11-libs/cairo[X] x11-libs/pango
+RDEPEND=dev-libs/glib media-libs/lv2 virtual/opengl x11-libs/cairo[X] x11-libs/pango
 RESTRICT=mirror
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=e85d51851b85fcdf912a497d2dc310bc
+_md5_=a2c4dee57a90082c1f777939031149e6
