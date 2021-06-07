@@ -4,7 +4,6 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
-DISTUTILS_USE_SETUPTOOLS=no
 
 inherit distutils-r1
 
@@ -14,7 +13,7 @@ SRC_URI="https://github.com/andreafrancia/${PN}/archive/${PV}.tar.gz -> ${P}.tar
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
@@ -25,4 +24,4 @@ RDEPEND="
 	dev-python/psutil[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
