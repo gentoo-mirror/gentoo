@@ -16,6 +16,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 
+RDEPEND="
+	dev-python/six[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
 		dev-python/diskcache[${PYTHON_USEDEP}]
@@ -24,9 +26,3 @@ BDEPEND="
 	)"
 
 distutils_enable_tests pytest
-
-python_install() {
-	# https://github.com/harlowja/fasteners/pull/70
-	rm -r "${BUILD_DIR}"/lib/tests || die
-	distutils-r1_python_install
-}

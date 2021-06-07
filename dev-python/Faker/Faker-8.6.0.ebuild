@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="A Python package that generates fake data for you"
@@ -20,6 +20,7 @@ RDEPEND=">=dev-python/python-dateutil-2.4.2[${PYTHON_USEDEP}]
 BDEPEND="
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
+		dev-python/pillow[${PYTHON_USEDEP},tiff]
 		dev-python/random2[${PYTHON_USEDEP}]
 		dev-python/validators[${PYTHON_USEDEP}]
 	)"
