@@ -1,7 +1,7 @@
-BDEPEND=!build? ( sys-apps/sed )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=!build? ( sys-apps/sed )
 DESCRIPTION=Kernel.org sources for MIPS-based machines
-EAPI=7
+EAPI=6
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:MIPS
 INHERIT=kernel-2
 IUSE=experimental ip27 ip28 ip30 symlink build
@@ -11,5 +11,5 @@ RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-
 RESTRICT=binchecks strip
 SLOT=4.19.193
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.19.193.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz https://dev.gentoo.org/~kumba/distfiles/mips-sources-4.19.0-patches-v3.tar.xz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	kernel-2	c2fd42f2d934e63b6fc62411049efaf5
-_md5_=46f3c84751e6de62d627e2c7095a117f
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	eapi7-ver	f9ec87e93172b25ce65a85303dc06964	kernel-2	c2fd42f2d934e63b6fc62411049efaf5
+_md5_=55bd8534fc23bc13622dbb2837220609
