@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Kernel.org sources for MIPS-based machines
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:MIPS
+INHERIT=kernel-2
+IUSE=experimental ip27 ip28 ip30 symlink build
+KEYWORDS=-* ~mips
+LICENSE=GPL-2
+RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.4.124
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.4.124.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://dev.gentoo.org/~kumba/distfiles/mips-sources-5.4-patches-v4.tar.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	kernel-2	c2fd42f2d934e63b6fc62411049efaf5
+_md5_=ee435604bfa065ddbb24e8b2f46fe0e7
