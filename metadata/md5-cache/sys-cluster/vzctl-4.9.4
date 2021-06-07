@@ -3,13 +3,13 @@ DEFINED_PHASES=configure install postinst prepare
 DEPEND=>=dev-libs/libcgroup-0.38 net-firewall/iptables sys-apps/attr sys-apps/ed >=sys-apps/iproute2-3.3.0 >=sys-fs/vzquota-3.1 virtual/udev ploop? ( dev-libs/libxml2 sys-block/parted >=sys-cluster/ploop-1.13 sys-fs/quota ) vzmigrate? ( app-arch/tar[xattr,acl] net-misc/openssh net-misc/rsync[xattr,acl] net-misc/bridge-utils virtual/awk )
 DESCRIPTION=OpenVZ ConTainers control utility
 EAPI=7
-HOMEPAGE=http://openvz.org/
-INHERIT=bash-completion-r1 toolchain-funcs optfeature udev
+HOMEPAGE=https://openvz.org/
+INHERIT=bash-completion-r1 optfeature udev
 IUSE=+ploop +vzmigrate
 KEYWORDS=amd64 ~ppc64 x86
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=>=dev-libs/libcgroup-0.38 net-firewall/iptables sys-apps/attr sys-apps/ed >=sys-apps/iproute2-3.3.0 >=sys-fs/vzquota-3.1 virtual/udev ploop? ( dev-libs/libxml2 sys-block/parted >=sys-cluster/ploop-1.13 sys-fs/quota ) vzmigrate? ( app-arch/tar[xattr,acl] net-misc/openssh net-misc/rsync[xattr,acl] net-misc/bridge-utils virtual/awk )
 SLOT=0
-SRC_URI=http://download.openvz.org/utils/vzctl/4.9.4/src/vzctl-4.9.4.tar.bz2
+SRC_URI=https://download.openvz.org/utils/vzctl/4.9.4/src/vzctl-4.9.4.tar.bz2
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	optfeature	e142388219c7fee6ff016fe1c78a10a5	udev	452708c3f55cf6e918b045adb949a9e6
-_md5_=5def098f5a98a8f244bb9e67b7c5db34
+_md5_=348bda5e701de72e6dbbc07e7d5aa657
