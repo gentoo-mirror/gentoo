@@ -1,13 +1,13 @@
 DEFINED_PHASES=install prepare
 DEPEND=>=dev-libs/libbulletml-0.0.3 media-libs/sdl-mixer[vorbis] virtual/opengl
 DESCRIPTION=Abstract Shooting Game
-EAPI=6
-HOMEPAGE=http://www.asahi-net.or.jp/~cs8k-cyu/windows/noiz2sa_e.html https://sourceforge.net/projects/noiz2sa/
-INHERIT=user
+EAPI=7
+HOMEPAGE=https://www.asahi-net.or.jp/~cs8k-cyu/windows/noiz2sa_e.html https://sourceforge.net/projects/noiz2sa/
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 RDEPEND=>=dev-libs/libbulletml-0.0.3 media-libs/sdl-mixer[vorbis] virtual/opengl
 SLOT=0
 SRC_URI=mirror://sourceforge/noiz2sa/noiz2sa-0.51a.tar.gz
-_eclasses_=user-info	a2abd4e2f4c3b9b06d64bf1329359a02	user	26d8ce6329c43cbac965617f1c0627e2
-_md5_=5f84afc62d0286d6899012525515c485
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=a84cb893c5bd68aa1a42d9c2b8ee01aa
