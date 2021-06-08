@@ -6,8 +6,8 @@ EAPI=7
 inherit go-module systemd
 
 DESCRIPTION="A modern IRC server written in Go"
-HOMEPAGE="https://oragono.io/ https://github.com/oragono/oragono"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://ergo.chat/ https://github.com/ergochat/ergo"
+SRC_URI="https://github.com/ergochat/ergo/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0"
 SLOT="0"
@@ -30,10 +30,11 @@ src_prepare() {
 
 	# Minor fiddling with paths
 	sed -i \
-		-e 's:/home/oragono/oragono:/usr/bin/oragono:' \
-		-e 's:/home/oragono:/var/lib/oragono:' \
-		-e 's:/var/lib/oragono/ircd.yaml:/etc/oragono/ircd.yaml:' \
-		distrib/systemd/oragono.service || die
+		-e 's:/home/ergo/ergo:/usr/bin/ergo:' \
+		-e 's:/home/ergo:/var/lib/ergo:' \
+		-e 's:/var/lib/ergo/ircd.yaml:/etc/ergo/ircd.yaml:' \
+		-e 's:User=ergo:User=oragono:' \
+		distrib/systemd/ergo.service || die
 }
 
 src_compile() {
@@ -43,26 +44,26 @@ src_compile() {
 src_install() {
 	einstalldocs
 
-	dobin oragono
+	dobin ergo
 
-	insinto /etc/oragono
+	insinto /etc/ergo
 	doins default.yaml
 
-	newinitd "${FILESDIR}"/oragono.initd oragono
-	newconfd "${FILESDIR}"/oragono.confd oragono
+	newinitd "${FILESDIR}"/ergo.initd ergo
+	newconfd "${FILESDIR}"/ergo.confd ergo
 
-	keepdir /var/lib/oragono
-	fowners oragono:oragono /var/lib/oragono
+	keepdir /var/lib/ergo
+	fowners oragono:oragono /var/lib/ergo
 
-	insinto /var/lib/oragono
+	insinto /var/lib/ergo
 	doins -r languages/
 
-	systemd_dounit distrib/systemd/oragono.service
+	systemd_dounit distrib/systemd/ergo.service
 }
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]] ; then
-		elog "Please copy the example config in ${EROOT}/etc/oragono:"
-		elog "e.g. cp ${EROOT}/etc/oragono/default.yaml ${EROOT}/etc/oragono/ircd.yaml"
+		elog "Please copy the example config in ${EROOT}/etc/ergo:"
+		elog "e.g. cp ${EROOT}/etc/ergo/default.yaml ${EROOT}/etc/ergo/ircd.yaml"
 	fi
 }
