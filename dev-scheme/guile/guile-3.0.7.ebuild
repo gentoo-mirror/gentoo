@@ -19,7 +19,6 @@ RDEPEND="
 	>=dev-libs/boehm-gc-7.0:=[threads?]
 	dev-libs/gmp:=
 	dev-libs/libffi:=
-	dev-libs/libltdl:=
 	dev-libs/libunistring:0=
 	sys-libs/ncurses:0=
 	sys-libs/readline:0="
@@ -44,7 +43,6 @@ src_configure() {
 		--without-libgmp-prefix \
 		--without-libiconv-prefix \
 		--without-libintl-prefix \
-		--without-libltdl-prefix \
 		--without-libreadline-prefix \
 		--without-libunistring-prefix \
 		$(use_enable debug guile-debug) \
