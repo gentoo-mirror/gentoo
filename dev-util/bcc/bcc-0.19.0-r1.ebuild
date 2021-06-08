@@ -1,11 +1,12 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
+LUA_COMPAT=( luajit )
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit cmake linux-info llvm python-r1
+inherit cmake linux-info llvm lua-single python-r1
 
 DESCRIPTION="Tools for BPF-based Linux IO analysis, networking, monitoring, and more"
 HOMEPAGE="https://iovisor.github.io/bcc/"
@@ -15,16 +16,17 @@ SRC_URI="https://github.com/iovisor/bcc/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="+luajit test"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="+lua test"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}
+	lua? ( ${LUA_REQUIRED_USE} )"
 
 RDEPEND="
-	>=dev-libs/libbpf-0.2[static-libs(-)]
+	~dev-libs/libbpf-0.3:=[static-libs(-)]
 	>=sys-kernel/linux-headers-4.14
 	>=dev-libs/elfutils-0.166:=
-	<=sys-devel/clang-12:=
-	<=sys-devel/llvm-12:=[llvm_targets_BPF(+)]
-	luajit? ( dev-lang/luajit )
+	<=sys-devel/clang-13:=
+	<=sys-devel/llvm-13:=[llvm_targets_BPF(+)]
+	lua? ( ${LUA_DEPS} )
 	${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}
@@ -87,16 +89,19 @@ src_configure() {
 		-DCMAKE_USE_LIBBPF_PACKAGE=ON
 		-DKERNEL_INCLUDE_DIRS="${KERNEL_DIR}"
 		-DPYTHON_CMD="${bcc_python_impls%;}"
-		$(usex luajit '-DWITH_LUAJIT=1')
+
 	)
+	if use lua && use lua_single_target_luajit; then
+		mycmakeargs+=( -DWITH_LUAJIT=1 )
+	fi
 
 	cmake_src_configure
 }
 
 src_install() {
 	cmake_src_install
-	python_foreach_impl python_optimize
 	python_replicate_script $(grep -Flr '#!/usr/bin/python' "${ED}/usr/share/bcc/tools")
+	python_foreach_impl python_optimize
 
 	newenvd "${FILESDIR}"/60bcc.env 60bcc.env
 }
