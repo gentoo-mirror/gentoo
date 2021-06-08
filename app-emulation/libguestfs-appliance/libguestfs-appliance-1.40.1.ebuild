@@ -29,8 +29,9 @@ src_unpack() {
 
 src_install() {
 	dodir /usr/share/guestfs
-	cd "${ED}"/usr/share/guestfs || die
+	cd "${ED}"/usr/share/guestfs || Die
 	unpack ${A}
+
 	cd appliance || die
 	dodoc README*
 	# Don't rm README.* here, at least README.fixed is needed for libguestfs, see
@@ -38,5 +39,5 @@ src_install() {
 	chmod 755 . || die
 	chmod 644 * || die
 
-	newenvd "${FILESDIR}"/env.file 99"${PN}"
+	newenvd "${FILESDIR}"/env.file 99${PN}
 }
