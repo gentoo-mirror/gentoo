@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) dev-util/glib-utils >=dev-util/intltool-0.40.1 >=sys-devel/gettext-0.17 virtual/pkgconfig >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=>=dev-libs/glib-2.44.0:2 >=gnome-base/libgnomekbd-3.0.0:0= >=gnome-extra/cinnamon-desktop-5.0:0= >=gnome-extra/cinnamon-menus-5.0:0= media-libs/fontconfig >=sys-auth/polkit-0.103 >=x11-libs/gdk-pixbuf-2.23.0:2 >=x11-libs/gtk+-3.16.0:3 >=x11-libs/libnotify-0.7.3:0= x11-libs/libX11 >=x11-libs/libxklavier-5.1 colord? ( >=x11-misc/colord-0.1.14:0= ) input_devices_wacom? ( >=dev-libs/libwacom-0.7 >=gnome-extra/cinnamon-settings-daemon-5.0:0= >=x11-libs/libXi-1.2 ) networkmanager? ( >=gnome-extra/nm-applet-1.2.0 >=net-misc/networkmanager-1.2.0:=[modemmanager?] modemmanager? ( >=net-misc/modemmanager-0.7 ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.18.0 ) app-text/iso-codes x11-base/xorg-proto dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Cinnamons's main interface to configure various aspects of the desktop
+EAPI=7
+HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-control-center
+INHERIT=meson gnome2-utils python-any-r1 xdg virtualx
+IUSE=+colord input_devices_wacom +networkmanager +modemmanager gnome-online-accounts systemd test test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.44.0:2 >=gnome-base/libgnomekbd-3.0.0:0= >=gnome-extra/cinnamon-desktop-5.0:0= >=gnome-extra/cinnamon-menus-5.0:0= media-libs/fontconfig >=sys-auth/polkit-0.103 >=x11-libs/gdk-pixbuf-2.23.0:2 >=x11-libs/gtk+-3.16.0:3 >=x11-libs/libnotify-0.7.3:0= x11-libs/libX11 >=x11-libs/libxklavier-5.1 colord? ( >=x11-misc/colord-0.1.14:0= ) input_devices_wacom? ( >=dev-libs/libwacom-0.7 >=gnome-extra/cinnamon-settings-daemon-5.0:0= >=x11-libs/libXi-1.2 ) networkmanager? ( >=gnome-extra/nm-applet-1.2.0 >=net-misc/networkmanager-1.2.0:=[modemmanager?] modemmanager? ( >=net-misc/modemmanager-0.7 ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.18.0 ) x11-themes/adwaita-icon-theme colord? ( >=gnome-extra/gnome-color-manager-3 ) input_devices_wacom? ( gnome-extra/cinnamon-settings-daemon[input_devices_wacom] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( app-admin/openrc-settingsd )
+REQUIRED_USE=modemmanager? ( networkmanager )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/linuxmint/cinnamon-control-center/archive/5.0.1.tar.gz -> cinnamon-control-center-5.0.1.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	gnome2-utils	c8e3fff820d850c0e003e22208d2eea3	python-any-r1	17241a11501065ff3651350040875aa9	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	virtualx	0a780e1ab49c75da33a78ede35ab8f9c
+_md5_=67ab9e871e5e2610c3a5c0d1498a9fc3
