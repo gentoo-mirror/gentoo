@@ -137,11 +137,6 @@ src_install() {
 pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
-
-	local FORCE_PRINT_ELOG v
-	for v in ${REPLACING_VERSIONS}; do
-		ver_test ${v} -le 5.0.403652.0509 && FORCE_PRINT_ELOG=1
-	done
 	readme.gentoo_print_elog
 }
 
