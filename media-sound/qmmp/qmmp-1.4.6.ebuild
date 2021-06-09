@@ -20,10 +20,9 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 # KEYWORDS further up
-IUSE="aac +alsa analyzer archive bs2b cdda cover crossfade cue curl +dbus enca
-ffmpeg flac game gnome jack ladspa lyrics +mad midi mms modplug mplayer musepack
-notifier opus oss pipewire projectm pulseaudio qsui qtmedia scrobbler shout sid
-sndfile soxr stereo tray udisks +vorbis wavpack"
+IUSE="aac +alsa analyzer archive bs2b cdda cover crossfade cue curl +dbus enca ffmpeg flac game
+gnome jack ladspa lyrics +mad midi mms modplug mplayer musepack notifier opus oss projectm
+pulseaudio qsui qtmedia scrobbler shout sid sndfile soxr stereo tray udisks +vorbis wavpack"
 
 REQUIRED_USE="
 	gnome? ( dbus )
@@ -69,7 +68,6 @@ RDEPEND="
 	mplayer? ( media-video/mplayer )
 	musepack? ( >=media-sound/musepack-tools-444 )
 	opus? ( media-libs/opusfile )
-	pipewire? ( media-video/pipewire )
 	projectm? (
 		dev-qt/qtgui:5[-gles2-only]
 		dev-qt/qtopengl:5
@@ -96,7 +94,7 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS ChangeLog README )
 
 src_prepare() {
-	if has_version dev-libs/libcdio-paranoia ; then
+	if has_version dev-libs/libcdio-paranoia; then
 		sed -i \
 			-e 's:cdio/cdda.h:cdio/paranoia/cdda.h:' \
 			src/plugins/Input/cdaudio/decoder_cdaudio.cpp || die
@@ -138,7 +136,6 @@ src_configure() {
 		-DUSE_NOTIFIER="$(usex notifier)"
 		-DUSE_OPUS="$(usex opus)"
 		-DUSE_OSS="$(usex oss)"
-		-DUSE_PIPEWIRE="$(usex pipewire)"
 		-DUSE_PROJECTM="$(usex projectm)"
 		-DUSE_PULSE="$(usex pulseaudio)"
 		-DUSE_QSUI="$(usex qsui)"
