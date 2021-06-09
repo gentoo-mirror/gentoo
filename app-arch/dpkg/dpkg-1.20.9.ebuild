@@ -1,8 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit eutils multilib autotools toolchain-funcs
+EAPI=7
+inherit multilib autotools toolchain-funcs
 
 DESCRIPTION="Package maintenance system for Debian"
 HOMEPAGE="https://packages.qa.debian.org/dpkg"
@@ -26,16 +26,18 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	app-arch/xz-utils
-	sys-devel/flex
 	virtual/pkgconfig
-	nls? (
-		app-text/po4a
-		>=sys-devel/gettext-0.18.2
-	)
 	test? (
 		dev-perl/IO-String
 		dev-perl/Test-Pod
 		virtual/perl-Test-Harness
+	)
+"
+BDEPEND="
+	sys-devel/flex
+	nls? (
+		app-text/po4a
+		>=sys-devel/gettext-0.18.2
 	)
 "
 DOCS=(
@@ -44,24 +46,24 @@ DOCS=(
 	TODO
 )
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.18.12-dpkg_buildpackage-test.patch
 	"${FILESDIR}"/${PN}-1.18.12-flags.patch
 	"${FILESDIR}"/${PN}-1.18.12-rsyncable.patch
+	"${FILESDIR}"/${PN}-1.20.5-dpkg_buildpackage-test.patch
 )
 
 src_prepare() {
-	use nls && strip-linguas -i po
-
 	default
+
+	sed -i -e 's|\<ar\>|${AR}|g' t-func/deb-format.at t-func/testsuite || die
 
 	eautoreconf
 }
 
 src_configure() {
-	tc-export CC
+	tc-export AR CC
+
 	econf \
 		$(use_enable nls) \
-		$(use_enable static-libs static) \
 		$(use_enable unicode) \
 		$(use_enable update-alternatives) \
 		$(use_with bzip2 libbz2) \
@@ -87,4 +89,8 @@ src_install() {
 		/var/lib/dpkg/{alternatives,info,parts,updates}
 
 	find "${ED}" -name '*.la' -delete || die
+
+	if ! use static-libs; then
+		find "${ED}" -name '*.a' -delete || die
+	fi
 }
