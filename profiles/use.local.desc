@@ -3567,8 +3567,8 @@ kde-plasma/kdeplasma-addons:comic - Enable comic applet (requires deprecated kde
 kde-plasma/kdeplasma-addons:share - Enable applet for quickly sharing data to a variety of sources
 kde-plasma/kdeplasma-addons:webengine - Enable dictionary and web browser applets using dev-qt/qtwebengine
 kde-plasma/kinfocenter:pci - Show advanced PCI information
-kde-plasma/ksysguard:network - Enable per-process network statistic collection using dev-libs/libnl
 kde-plasma/ksysguard:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
+kde-plasma/ksystemstats:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
 kde-plasma/kwin:multimedia - Enable effect video button in desktop effects KCM
 kde-plasma/kwin:screencast - Enable screencast portal using media-video/pipewire
 kde-plasma/libksysguard:designer - Build plugins for dev-qt/designer
@@ -3578,6 +3578,8 @@ kde-plasma/plasma-desktop:ibus - Use ibus input method via app-i18n/ibus
 kde-plasma/plasma-desktop:kaccounts - Build the OpenDesktop integration plugin
 kde-plasma/plasma-desktop:policykit - Build the Users KCM using sys-apps/accountsservice and sys-auth/polkit
 kde-plasma/plasma-desktop:scim - Enable applets that use app-i18n/scim
+kde-plasma/plasma-firewall:firewalld - Build net-firewall/firewalld backend
+kde-plasma/plasma-firewall:ufw - Build net-firewall/ufw backend
 kde-plasma/plasma-meta:browser-integration - Enable integration with Chrome/Firefox with browser extensions
 kde-plasma/plasma-meta:colord - Enable kde-plasma/kwin color management via x11-misc/colord
 kde-plasma/plasma-meta:crash-handler - Pull in kde-plasma/drkonqi for assisted upstream crash reports
@@ -3604,7 +3606,6 @@ kde-plasma/plasma-nm:teamd - Enable Teamd control support
 kde-plasma/plasma-workspace:appstream - Enable AppStream software metadata support
 kde-plasma/plasma-workspace:calculator - Enable calculator runner using sci-libs/libqalculate
 kde-plasma/plasma-workspace:geolocation - Enables dataengine providing location information
-kde-plasma/plasma-workspace:qalculate - Enable Qalculate runner using sci-libs/libqalculate
 kde-plasma/plasma-workspace:screencast - Enable screencast portal using media-video/pipewire
 kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for kde-plasma/systemsettings
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
