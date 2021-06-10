@@ -24,6 +24,7 @@ RDEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/tenacity[${PYTHON_USEDEP}]
 	dev-python/wcmatch[${PYTHON_USEDEP}]"
 BDEPEND="
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
