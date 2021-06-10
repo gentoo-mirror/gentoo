@@ -13,12 +13,17 @@ SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="debug dnstap snmp sodium systemd test"
-REQUIRED_USE="${LUA_REQUIRED_USE}"
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="debug dnstap protobuf snmp sodium systemd test"
+REQUIRED_USE="${LUA_REQUIRED_USE}
+	dnstap? ( protobuf )"
 RESTRICT="!test? ( test )"
 
 DEPEND="${LUA_DEPS}
+	protobuf? (
+		dev-libs/protobuf
+		>=dev-libs/boost-1.42:=
+	)
 	dnstap? ( dev-libs/fstrm )
 	systemd? ( sys-apps/systemd:0= )
 	snmp? ( net-analyzer/net-snmp )
@@ -50,6 +55,7 @@ src_configure() {
 		$(use_enable dnstap dnstap) \
 		$(use_enable test unit-tests) \
 		$(use_with sodium libsodium) \
+		$(use_with protobuf) \
 		$(use_with snmp net-snmp)
 }
 
