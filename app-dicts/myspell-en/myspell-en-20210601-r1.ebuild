@@ -19,10 +19,10 @@ REQUIRED_USE="|| ( ${IUSE[@]} )"
 
 src_prepare() {
 	if use l10n_en-GB || use l10n_en; then
-		MYSPELL_HYPH=( "hyph_en_GB.dic" )
+		MYSPELL_HYPH+=( "hyph_en_GB.dic" )
 	fi
 	if use l10n_en-US || use l10n_en; then
-		MYSPELL_THES=(
+		MYSPELL_THES+=(
 			"th_en_US_v2.dat"
 			"th_en_US_v2.idx"
 		)
