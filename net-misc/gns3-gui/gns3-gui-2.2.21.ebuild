@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
 
@@ -31,7 +31,7 @@ src_prepare() {
 	default
 
 	# newer python packages are fine
-	sed -i -e 's/[<>=].*//' requirements.txt || die "fixing requirements failed"
+	sed -i -e 's/[<>=].*//' requirements.txt || die
 }
 
 python_install_all() {

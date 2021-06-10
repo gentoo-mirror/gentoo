@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 systemd optfeature
@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/async_timeout-3.0.1[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.3.0[${PYTHON_USEDEP}]
-	>=dev-python/jinja-2.7.3[${PYTHON_USEDEP}]
+	>=dev-python/jinja-2.11.3[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.7.0[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-7.0.0[${PYTHON_USEDEP}]
@@ -35,7 +35,7 @@ src_prepare() {
 	default
 
 	# newer python packages are fine
-	sed -i -e 's/[<>=].*//' requirements.txt || die "fixing requirements failed"
+	sed -i -e 's/[<>=].*//' requirements.txt || die
 
 	# Remove Pre-built busybox binary
 	rm gns3server/compute/docker/resources/bin/busybox || die
@@ -54,11 +54,14 @@ python_install() {
 }
 
 pkg_postinst() {
+	elog "net-misc/gns3-server has several optional packages that must be merged manually for additional functionality."
+	elog ""
+	elog "The following is a list of packages that can be added:"
 	optfeature "QEMU Support" "app-emulation/qemu"
 	optfeature "Virtualbox Support" "app-emulation/virtualbox"
 	optfeature "Docker Support" "app-emulation/docker"
 	optfeature "Wireshark Support" "net-analyzer/wireshark"
-	elog
+	elog ""
 	elog "The following packages are currently unsupported:"
 	elog "iouyap and vpcs"
 }
