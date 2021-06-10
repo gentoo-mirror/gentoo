@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,27 +12,29 @@ SRC_URI="https://github.com/tpm2-software/${PN}/releases/download/${PV}/${P}.tar
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="doc +fapi  +openssl mbedtls static-libs test"
+IUSE="doc +fapi gcrypt +openssl static-libs test"
 
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="^^ ( mbedtls openssl )
-		fapi? ( openssl !mbedtls )"
+REQUIRED_USE="^^ ( gcrypt openssl )
+		fapi? ( openssl !gcrypt )"
 
 RDEPEND="acct-group/tss
 	acct-user/tss
-	fapi? ( dev-libs/json-c
-		net-misc/curl )
-	mbedtls? ( net-libs/mbedtls:= )
-	openssl? ( dev-libs/openssl:= )"
+	fapi? (
+		dev-libs/json-c
+		net-misc/curl
+	)
+	gcrypt? ( dev-libs/libgcrypt:0= )
+	openssl? ( dev-libs/openssl:0= )"
 DEPEND="${RDEPEND}
 	test? ( dev-util/cmocka )"
 BDEPEND="virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-3.0.0-Dont-run-systemd-sysusers-in-Makefile.patch"
-	"${FILESDIR}/${PN}-3.0.1-Fix-underquoting-in-configure-ac.patch"
+	"${FILESDIR}/${PN}-2.4.1-configure.ac-wrap-PKG_CHECK_MODULES-in-braces.patch"
+	"${FILESDIR}/${PN}-2.4.2-Dont-run-systemd-sysusers-in-Makefile.patch"
 )
 
 pkg_setup() {
@@ -58,7 +60,7 @@ src_configure() {
 		--disable-tcti-mssim \
 		--disable-defaultflags \
 		--disable-weakcrypto \
-		--with-crypto="$(usex mbedtls mbed ossl)" \
+		--with-crypto="$(usex gcrypt gcrypt ossl)" \
 		--with-runstatedir=/run \
 		--with-udevrulesdir="$(get_udevdir)/rules.d" \
 		--with-udevrulesprefix=60- \
