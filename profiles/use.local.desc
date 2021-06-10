@@ -3888,8 +3888,6 @@ media-gfx/asymptote:context - Enables support for ConTeXt format (dev-texlive/te
 media-gfx/asymptote:curl - Enables running remote programs via net-misc/curl
 media-gfx/asymptote:offscreen - Enables off-screen rendering
 media-gfx/asymptote:sigsegv - Enables using dev-libs/libsigsegv
-media-gfx/blender:abi6-compat - Build for OpenVDB ABI 6.
-media-gfx/blender:abi7-compat - Build for OpenVDB ABI 7.
 media-gfx/blender:alembic - Add support for Alembic through media-gfx/alembic.
 media-gfx/blender:bullet - Enable Bullet (Physics Engine).
 media-gfx/blender:collada - Add support for Collada interchange format through media-libs/opencollada.
@@ -3897,15 +3895,18 @@ media-gfx/blender:color-management - Enable color management via media-libs/open
 media-gfx/blender:cuda - Build cycles renderer with nVidia CUDA support.
 media-gfx/blender:cycles - Build cycles renderer (requires media-libs/openimageio and dev-libs/boost).
 media-gfx/blender:dds - Adds DDS textures support to Blender.
-media-gfx/blender:elbeem - Adds surface fluid simulation to Blender using El'Beem library.
+media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles render engine.
+media-gfx/blender:fluid - Adds fluid simulation support via the built-in Mantaflow library.
 media-gfx/blender:headless - Build without graphical support (renderfarm, server mode only).
-media-gfx/blender:llvm - Enable features depending on llvm.
 media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
+media-gfx/blender:oidn - Enable OpenImageDenoiser Support
 media-gfx/blender:opencl - Allow OpenCL Graphics Acceleration. This may require extra graphics card drivers.
 media-gfx/blender:openimageio - Enable OpenImageIO Support
 media-gfx/blender:opensubdiv - Add rendering support form OpenSubdiv from Dreamworks Animation through media-libs/opensubdiv.
 media-gfx/blender:openvdb - Add GPU preview rendering. Only works with nVidia cards.
 media-gfx/blender:osl - Add support for OpenShadingLanguage scripting.
+media-gfx/blender:potrace - Add support for converting bitmaps into Grease pencil line using the potrace library.
+media-gfx/blender:pugixml - Enable PugiXML support (Used for OpenImageIO, Grease Pencil SVG export)
 media-gfx/blender:standalone - Build the standalone version of Cycles.
 media-gfx/blender:system-numpy - Use the system numpy implementation rather than a local copy.
 media-gfx/blender:system-python - Use the system python implementation rather than a local copy.
@@ -4040,6 +4041,7 @@ media-gfx/openscad:spacenav - Add support for space navigator devices through de
 media-gfx/openvdb:abi5-compat - Disables newer features to maintain compatibility with ABI5.
 media-gfx/openvdb:abi6-compat - Disables newer features to maintain compatibility with ABI6.
 media-gfx/openvdb:abi7-compat - Disables newer features to maintain compatibility with ABI7.
+media-gfx/openvdb:abi8-compat - Disables newer features to maintain compatibility with ABI8.
 media-gfx/openvdb:numpy - Build pyopenvdb with support for dev-python/numpy
 media-gfx/openvdb:utils - Build utility binaries
 media-gfx/photoqt:devil - Support additional image formats using media-libs/devil
@@ -4096,6 +4098,12 @@ media-libs/dav1d:asm - Enable custom assembly for faster decoding.
 media-libs/devil:allegro - Add support for Allegro
 media-libs/devil:nvtt - Add support for media-gfx/nvidia-texture-tools
 media-libs/dumb:allegro - Add support for Allegro 4
+media-libs/embree:compact-polys - Enables double indexed poly layout.
+media-libs/embree:ispc - Build Embree with support for ISPC applications.
+media-libs/embree:raymask - Enables ray mask support.
+media-libs/embree:ssp - When enabled, Embree compiles with stack protection against return address overrides.
+media-libs/embree:tbb - Use TBB instead of the built-in Embree tasking system.
+media-libs/embree:tutorial - Enable to build Embree tutorials programs.
 media-libs/esdl:image - Enable image support
 media-libs/faad2:digitalradio - Digital Radio Mondiale (warning: disables other decoders)
 media-libs/flickcurl:raptor - Use media-libs/raptor for proper RDF serializing
