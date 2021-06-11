@@ -1,10 +1,10 @@
-BDEPEND=app-doc/xmltoman virtual/pkgconfig doc? ( app-doc/doxygen media-gfx/graphviz ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
-DEFINED_PHASES=compile configure install postinst prepare test
+BDEPEND=app-doc/xmltoman virtual/pkgconfig || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) doc? ( app-doc/doxygen media-gfx/graphviz ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=acct-group/audio media-libs/alsa-lib sys-apps/dbus[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] sys-libs/ncurses[unicode] virtual/libintl[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] virtual/libudev[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] bluetooth? ( aac? ( media-libs/fdk-aac ) aptx? ( media-libs/libopenaptx ) ldac? ( media-libs/libldac ) media-libs/sbc >=net-wireless/bluez-4.101:= ) extra? ( >=media-libs/libsndfile-1.0.20 ) gstreamer? ( >=dev-libs/glib-2.32.0:2 >=media-libs/gstreamer-1.10.0:1.0 media-libs/gst-plugins-base:1.0 ) jack-client? ( >=media-sound/jack2-1.9.10:2[dbus] ) jack-sdk? ( !media-sound/jack-audio-connection-kit !media-sound/jack2 ) pipewire-alsa? ( >=media-libs/alsa-lib-1.1.7[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] || ( media-plugins/alsa-plugins[-pulseaudio] !media-plugins/alsa-plugins ) ) !pipewire-alsa? ( media-plugins/alsa-plugins[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,pulseaudio] ) systemd? ( sys-apps/systemd ) v4l? ( media-libs/libv4l )
 DESCRIPTION=Multimedia processing graphs
 EAPI=7
 HOMEPAGE=https://pipewire.org/
-INHERIT=meson-multilib optfeature udev
+INHERIT=meson-multilib optfeature python-any-r1 udev
 IUSE=aac aptx bluetooth doc extra gstreamer jack-client jack-sdk ldac pipewire-alsa systemd test v4l abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT LGPL-2.1+ GPL-2
@@ -13,5 +13,5 @@ REQUIRED_USE=aac? ( bluetooth ) aptx? ( bluetooth ) jack-sdk? ( !jack-client ) l
 RESTRICT=!test? ( test )
 SLOT=0/0.3
 SRC_URI=https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/0.3.30/pipewire-0.3.30.tar.gz
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29	meson-multilib	485215fef459a86936e377c0eaa513a0	optfeature	e142388219c7fee6ff016fe1c78a10a5	udev	452708c3f55cf6e918b045adb949a9e6
-_md5_=513d19815ddd7c71a1d0ab38bef245d3
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29	meson-multilib	485215fef459a86936e377c0eaa513a0	optfeature	e142388219c7fee6ff016fe1c78a10a5	python-any-r1	17241a11501065ff3651350040875aa9	udev	452708c3f55cf6e918b045adb949a9e6
+_md5_=1fc8223f2fa9158c32e58166c1e77842
