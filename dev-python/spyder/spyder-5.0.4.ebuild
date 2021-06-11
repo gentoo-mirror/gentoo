@@ -9,7 +9,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="588cdf55cceffea7a3f31d98c0720bfe7df34b72"
+DOCS_PV="b317961de7600fc906d862238f344b3a315d28b1"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -19,8 +19,7 @@ HOMEPAGE="
 "
 SRC_URI="
 	https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz ->
-		${PN}-docs-${DOCS_PV}.tar.gz
+	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz -> ${PN}-docs-${DOCS_PV}.tar.gz
 "
 
 LICENSE="MIT"
@@ -67,12 +66,11 @@ RDEPEND="
 	>=dev-python/QtPy-1.5.0[${PYTHON_USEDEP},pyqt5(+),svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.0.3[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.0.4[${PYTHON_USEDEP}]
 	<dev-python/spyder-kernels-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
-	<dev-python/watchdog-2.0.0[${PYTHON_USEDEP}]
 "
 
 # python-language-server[all] deps
@@ -102,7 +100,7 @@ BDEPEND="
 		dev-python/pytest-lazy-fixture[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/pytest-ordering[${PYTHON_USEDEP}]
-		dev-python/pytest-qt[${PYTHON_USEDEP}]
+		<dev-python/pytest-qt-4[${PYTHON_USEDEP}]
 		dev-python/pytest-xvfb[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
