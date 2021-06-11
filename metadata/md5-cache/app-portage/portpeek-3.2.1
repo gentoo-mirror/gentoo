@@ -1,0 +1,15 @@
+DEFINED_PHASES=install
+DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+DESCRIPTION=A helper program for maintaining the package.keyword and package.unmask files
+EAPI=7
+HOMEPAGE=https://www.mpagano.com/blog/?page_id=3
+INHERIT=python-r1
+IUSE=python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=app-portage/gentoolkit-0.5.1 || ( >=sys-apps/portage-3.0.18[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+SRC_URI=https://www.mpagano.com/downloads/portpeek-3.2.1.tar.gz
+_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
+_md5_=878e71f15bb6bbbe6f8ff11465f9c118
