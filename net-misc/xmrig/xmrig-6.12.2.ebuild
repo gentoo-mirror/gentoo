@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake optfeature systemd
+inherit cmake systemd
 
 DESCRIPTION="RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner"
 HOMEPAGE="https://xmrig.com https://github.com/xmrig/xmrig"
@@ -16,7 +16,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="GPL-3+"
+LICENSE="Apache-2.0 GPL-3+ MIT"
 SLOT="0"
 IUSE="cpu_flags_x86_sse4_1 donate hwloc +ssl"
 
@@ -29,6 +29,8 @@ RDEPEND="
 	${DEPEND}
 	sys-apps/msr-tools
 "
+
+PATCHES=( "${FILESDIR}"/${PN}-6.12.2-nonotls.patch )
 
 src_prepare() {
 	if ! use donate ; then

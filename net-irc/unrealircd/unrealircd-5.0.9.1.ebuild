@@ -4,7 +4,7 @@
 EAPI=7
 
 SSL_CERT_MANDATORY=1
-inherit ssl-cert systemd
+inherit autotools ssl-cert systemd
 
 DESCRIPTION="An advanced Internet Relay Chat daemon"
 HOMEPAGE="https://www.unrealircd.org/"
@@ -43,7 +43,11 @@ src_prepare() {
 		sed -i -e 's:^//#undef\( FAKELAG_CONFIGURABLE\):#define\1:' include/config.h || die
 	fi
 
-	eapply_user
+	# File is missing from the 5.0.9.1 tarball
+	sed -i -e '/unrealircd-upgrade-script/d' configure.ac || die
+
+	default
+	eautoreconf
 }
 
 src_configure() {
@@ -118,8 +122,7 @@ src_install() {
 	# CONFDIR. #618066
 	dosym ../../ssl/certs/ca-certificates.crt /etc/${PN}/tls/curl-ca-bundle.crt
 
-	insinto $(systemd_get_systemunitdir)
-	doins "${FILESDIR}"/${PN}.service
+	systemd_dounit "${FILESDIR}"/${PN}.service
 }
 
 pkg_postinst() {
