@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="ftp://ftp.ntpsec.org/pub/releases/${PN}-${PV}.tar.gz"
 	RESTRICT="mirror"
-	KEYWORDS="amd64 arm arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="The NTP reference implementation, refactored"
@@ -68,6 +68,7 @@ WAF_BINARY="${S}/waf"
 
 src_prepare() {
 	default
+
 	# Remove autostripping of binaries
 	sed -i -e '/Strip binaries/d' wscript || die
 	if ! use libbsd ; then
@@ -98,7 +99,7 @@ src_configure() {
 		--nopyo
 		--enable-pylib ext
 		--refclock="${CLOCKSTRING}"
-		--build-epoch="$(date +%s)"
+		#--build-epoch="$(date +%s)"
 		$(use doc	|| echo "--disable-doc")
 		$(use early	&& echo "--enable-early-droproot")
 		$(use gdb	&& echo "--enable-debug-gdb")
