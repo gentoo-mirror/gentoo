@@ -13,7 +13,7 @@ SRC_URI="https://github.com/moby/moby/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ppc64 ~x86"
 IUSE="apparmor aufs btrfs +cli +container-init device-mapper hardened overlay seccomp"
 
 DEPEND="
@@ -55,7 +55,7 @@ RESTRICT="installsources strip test"
 S="${WORKDIR}/${P}/src/${EGO_PN}"
 
 # https://bugs.gentoo.org/748984 https://github.com/etcd-io/etcd/pull/12552
-PATCHES=( 
+PATCHES=(
 	"${FILESDIR}/etcd-F_OFD_GETLK-fix.patch"
 	"${FILESDIR}/ppc64-buildmode.patch"
 )
