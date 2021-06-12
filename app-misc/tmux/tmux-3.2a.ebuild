@@ -20,7 +20,7 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
-IUSE="debug selinux utempter vim-syntax kernel_FreeBSD kernel_linux"
+IUSE="debug selinux utempter vim-syntax"
 
 DEPEND="
 	dev-libs/libevent:0=
@@ -42,7 +42,6 @@ DOCS=( CHANGES README )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.4-flags.patch"
-	"${FILESDIR}/${PN}-fix-bindings.patch"
 
 	# upstream fixes (can be removed with next version bump)
 )
