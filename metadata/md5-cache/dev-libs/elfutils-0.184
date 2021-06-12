@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://elfutils.org/
 INHERIT=flag-o-matic multilib-minimal
 IUSE=bzip2 lzma nls static-libs test +threads +utils valgrind zstd abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )
 RDEPEND=>=sys-libs/zlib-1.2.8-r1[static-libs?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] bzip2? ( >=app-arch/bzip2-1.0.6-r4[static-libs?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) lzma? ( >=app-arch/xz-utils-5.0.5-r1[static-libs?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) zstd? ( app-arch/zstd:=[static-libs?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) !dev-libs/libelf
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://sourceware.org/elfutils/ftp/0.184/elfutils-0.184.tar.bz2
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
-_md5_=aa8c553848ebd2fa19b0e56af9a50c46
+_md5_=f95e21f3d2aa3e02cb87edafbd1cb094
