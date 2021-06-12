@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install preinst prepare setup test
+DEPEND=dev-libs/libffi virtual/jdk:1.8 x11-libs/libXt test? ( dev-java/ant-junit:0 dev-java/guava:20 dev-java/javassist:3 dev-java/reflections:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 >=dev-java/javatoolkit-0.3.0-r2
+DESCRIPTION=Java Native Access (JNA)
+EAPI=7
+HOMEPAGE=https://github.com/java-native-access/jna
+INHERIT=java-pkg-2 java-ant-2 toolchain-funcs
+IUSE=+awt +nio-buffers test elibc_FreeBSD doc source elibc_FreeBSD
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/libffi virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+REQUIRED_USE=test? ( awt nio-buffers )
+RESTRICT=test
+SLOT=4
+SRC_URI=https://github.com/java-native-access/jna/archive/4.2.2.tar.gz -> jna-4.2.2.tar.gz
+_eclasses_=java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	multilib	ebdbaed22e873a5abe6205f41349b479	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	java-ant-2	51fb0a4707d58382310390ad47ab0ab0
+_md5_=1c2593e1a7235570f8a97b7557ffa4c0
