@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( dev-ml/lablgtk:=[sourceview] ) emacs? ( app-editors/emacs:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= )
+DESCRIPTION=Platform for deductive program verification
+EAPI=7
+HOMEPAGE=http://why3.lri.fr/
+INHERIT=autotools
+IUSE=coq doc emacs gtk html +ocamlopt zarith zip
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( dev-ml/lablgtk:=[sourceview] ) emacs? ( app-editors/emacs:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= )
+REQUIRED_USE=html? ( doc )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://community.download.adacore.com/v1/dd74ae7ecfd7d56aff7b17cee7a35559384a600f?filename=why3-2021-20210519-19ADF-src.tar.gz -> why3-2021-20210519-19ADF-src.tar.gz
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_md5_=48b3fa8c968e73037af19a785bf4b086
