@@ -5,11 +5,11 @@ DESCRIPTION=IEEE 802.11 wireless LAN Host AP daemon
 EAPI=7
 HOMEPAGE=https://w1.fi/ https://w1.fi/cgit/hostap/
 INHERIT=toolchain-funcs systemd savedconfig git-r3
-IUSE=internal-tls ipv6 logwatch netlink sqlite +suiteb +wps +crda savedconfig
+IUSE=internal-tls ipv6 netlink sqlite +suiteb +wps +crda savedconfig
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=internal-tls? ( dev-libs/libtommath ) !internal-tls? ( dev-libs/openssl:0=[-bindist] ) kernel_linux? ( dev-libs/libnl:3 crda? ( net-wireless/crda ) ) netlink? ( net-libs/libnfnetlink ) sqlite? ( >=dev-db/sqlite-3 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~andrey_utkin/distfiles/net-wireless_hostapd_2.7-r2_extras.tar.xz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	portability	c10bdc40668533b1faf15b1d89df0303	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=06938cd320b4618baea4faaae2876f57
+_md5_=4e8e6cd381c1a0aff66fcf38a0aa2c51
