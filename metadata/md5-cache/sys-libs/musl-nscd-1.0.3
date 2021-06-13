@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DEPEND=!sys-libs/glibc !sys-libs/uclibc
+DESCRIPTION=musl-nscd is an implementation of the NSCD protocol for the musl libc
+EAPI=7
+HOMEPAGE=https://github.com/pikhq/musl-nscd
+INHERIT=systemd tmpfiles
+IUSE=minimal
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=virtual/tmpfiles
+SLOT=0
+SRC_URI=https://github.com/pikhq/musl-nscd/archive/v1.0.3.tar.gz -> musl-nscd-1.0.3.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
+_md5_=fcc7e44afb30f72793e6c139d378c912
