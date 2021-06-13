@@ -23,8 +23,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-joystick-invert.patch
-	"${FILESDIR}"/${P}-makefile.patch
+	"${FILESDIR}"/${PN}-4.6.0-makefile.patch
 )
 
 src_prepare() {
