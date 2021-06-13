@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) virtual/pkgconfig >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install setup test
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-libs/gobject-introspection >=dev-libs/libratbag-0.13 gnome-base/librsvg[introspection] x11-libs/gdk-pixbuf[introspection] x11-libs/gtk+:3[introspection] python_single_target_python3_8? ( dev-python/lxml[python_targets_python3_8(-)] dev-python/pycairo[python_targets_python3_8(-)] dev-python/pygobject:3[cairo,python_targets_python3_8(-)] dev-python/python-evdev[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/lxml[python_targets_python3_9(-)] dev-python/pycairo[python_targets_python3_9(-)] dev-python/pygobject:3[cairo,python_targets_python3_9(-)] dev-python/python-evdev[python_targets_python3_9(-)] ) dev-libs/libevdev virtual/libudev
+DESCRIPTION=GTK configuration application for libratbag
+EAPI=7
+HOMEPAGE=https://github.com/libratbag/piper
+INHERIT=meson python-single-r1 udev
+IUSE=python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-libs/gobject-introspection >=dev-libs/libratbag-0.13 gnome-base/librsvg[introspection] x11-libs/gdk-pixbuf[introspection] x11-libs/gtk+:3[introspection] python_single_target_python3_8? ( dev-python/lxml[python_targets_python3_8(-)] dev-python/pycairo[python_targets_python3_8(-)] dev-python/pygobject:3[cairo,python_targets_python3_8(-)] dev-python/python-evdev[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/lxml[python_targets_python3_9(-)] dev-python/pycairo[python_targets_python3_9(-)] dev-python/pygobject:3[cairo,python_targets_python3_9(-)] dev-python/python-evdev[python_targets_python3_9(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+SLOT=0
+SRC_URI=https://github.com/libratbag/piper/archive/0.5.1.tar.gz -> piper-0.5.1.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	udev	452708c3f55cf6e918b045adb949a9e6
+_md5_=77ee276f93c18afebc96f31f23e39dad
