@@ -7,8 +7,8 @@ INHERIT=findlib
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=dev-lang/ocaml:=
+RDEPEND=dev-lang/ocaml:=[ocamlopt?]
 SLOT=0
 SRC_URI=https://github.com/ocaml/num/archive/v1.4.tar.gz -> num-1.4.tar.gz
 _eclasses_=findlib	197b318e28cee28e11c2b474328b50dd
-_md5_=acf546296f2eb3c0fdd5bdf7bfcc5979
+_md5_=d56c7efce26f97cd9a24bd1fe631215a
