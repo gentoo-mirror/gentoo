@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/CSS-Packer-2.10.0 virtual/perl-Digest-SHA >=dev-perl/JavaScript-Packer-2.10.0 >=dev-perl/Regexp-RegGrp-1.1.1_rc virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Another HTML code cleaner
+EAPI=7
+HOMEPAGE=https://metacpan.org/release/HTML-Packer
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/CSS-Packer-2.10.0 virtual/perl-Digest-SHA >=dev-perl/JavaScript-Packer-2.10.0 >=dev-perl/Regexp-RegGrp-1.1.1_rc dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/L/LE/LEEJO/HTML-Packer-2.10.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	perl-functions	f1ee42d38920b69fd6b6229cef80b7f4	perl-module	58b5d72d607014c48b5a1e106318d584
+_md5_=714c7fced256ae6ec1bf298b60763a95
