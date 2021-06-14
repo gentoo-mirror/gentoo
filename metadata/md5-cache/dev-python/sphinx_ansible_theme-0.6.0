@@ -1,0 +1,15 @@
+BDEPEND=dev-python/setuptools_scm[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/setuptools_scm_git_archive[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A reusable Ansible Sphinx theme
+EAPI=7
+HOMEPAGE=https://github.com/ansible-community/sphinx_ansible_theme
+INHERIT=distutils-r1
+IUSE=python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-python/sphinx_rtd_theme[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+SRC_URI=mirror://pypi/s/sphinx_ansible_theme/sphinx_ansible_theme-0.6.0.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
+_md5_=7b789bfce12ece414d08d32e92094b08
