@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure install postinst postrm prepare
+DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/libxml2 !dedicated? ( media-libs/libpng:0= media-libs/libsdl[X,opengl,video,sound?] media-libs/sdl-image[jpeg,png] virtual/glu virtual/opengl sound? ( media-libs/sdl-mixer ) )
 DESCRIPTION=Fast-paced 3D lightcycle game based on Tron
 EAPI=7
 HOMEPAGE=http://armagetronad.org/
-INHERIT=autotools desktop xdg-utils
+INHERIT=autotools desktop
 IUSE=dedicated sound
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/libxml2 !dedicated? ( media-libs/libpng:0= media-libs/libsdl[X,opengl,video,sound?] media-libs/sdl-image[jpeg,png] virtual/glu virtual/opengl sound? ( media-libs/sdl-mixer ) )
 SLOT=0
 SRC_URI=https://launchpad.net/armagetronad/0.2.9/0.2.9.1.0/+download/armagetronad-0.2.9.1.0.tbz
-_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=3abe66306bad0b29a8caba00582c94e6
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=27c1e1155f44f61441f4c3f5be3f14fb
