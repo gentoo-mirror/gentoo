@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/tree-sitter/py-tree-sitter/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=dev-libs/tree-sitter:= python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tree-sitter/py-tree-sitter/archive/b4db17e4d43f27a040b4bf087695cc200512e4ea.tar.gz -> py-tree-sitter-b4db17e4d43f27a040b4bf087695cc200512e4ea.tar.gz test? ( https://github.com/tree-sitter/tree-sitter-javascript/archive/v0.19.0.tar.gz -> tree-sitter-javascript-0.19.0.tar.gz https://github.com/tree-sitter/tree-sitter-python/archive/v0.19.0.tar.gz -> tree-sitter-python-0.19.0.tar.gz )
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
-_md5_=59070f3a9bdeee9a53b3bc8839b47321
+_md5_=65dff75426bc925e2d723895124ebdfb

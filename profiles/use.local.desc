@@ -593,7 +593,6 @@ app-emulation/qemu:vte - Enable terminal support (x11-libs/vte) in the GTK+ inte
 app-emulation/qemu:xattr - Add support for getting and setting POSIX extended attributes, through sys-apps/attr. Requisite for the virtfs backend.
 app-emulation/qemu:xen - Enables support for Xen backends
 app-emulation/qemu:xfs - Support xfsctl() notification and syncing for XFS backed virtual disks.
-app-emulation/runc:ambient - Enable support for ambient capabilities set (Requires Linux kernel 4.3 or later).
 app-emulation/runc:apparmor - Enable AppArmor support.
 app-emulation/runc:kmem - Enable Kernel Memory Accounting.
 app-emulation/runv:libvirt - Enable support for KVM via libvirt
@@ -808,6 +807,7 @@ app-misc/graphlcd-base:freetype - Add support for media-libs/freetype.
 app-misc/graphlcd-base:graphicsmagick - Add support for media-gfx/graphicsmagick.
 app-misc/graphlcd-base:imagemagick - Add support for media-gfx/imagemagick.
 app-misc/irtrans-irserver:mono - Enable mono support
+app-misc/jpipe:jp-symlink - Install a jp symlink that points to jpipe.
 app-misc/jq:oniguruma - Use dev-libs/oniguruma for regular expression support
 app-misc/kryoflux-dtc:demos - Install example floppy game files.
 app-misc/kryoflux-dtc:fast-firmware - Install fast firmware instead of slow firmware.
@@ -8839,6 +8839,7 @@ x11-misc/xmobar:weather - Enable weather plugin
 x11-misc/xmobar:wifi - Wireless info support via nl80211. Required for the Wireless plugin on systems running Linux
 x11-misc/xmobar:xft - Use Xft to render text. UTF-8 support included
 x11-misc/xmobar:xpm - Enable usage of xpm for icons
+x11-misc/xscreensaver:fonts - Install the fonts shipped with XScreenSaver that have clear licensing
 x11-misc/xscreensaver:gdk-pixbuf - Include support for the x11-libs/gdk-pixbuf library in some demos, which will make it possible for them to read GIF, JPEG, and PNG files as well
 x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x11-misc/lightdm
 x11-misc/xscreensaver:locking - Compile in support for locking the display

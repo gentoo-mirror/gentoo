@@ -1,0 +1,12 @@
+BDEPEND=dev-texlive/texlive-bibtexextra >=dev-texlive/texlive-latexextra-2020-r2 dev-texlive/texlive-mathscience virtual/latex-base html? ( >=dev-tex/tex4ht-20090611_p1038-r11 )
+DEFINED_PHASES=compile install
+DESCRIPTION=Gentoo Package Manager Specification
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Package_Manager_Specification
+IUSE=html twoside
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt
+LICENSE=CC-BY-SA-4.0
+RDEPEND=!app-doc/pms-bin
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~ulm/distfiles/pms-8_p20210613.tar.xz
+_md5_=330309bb581931ff587a2cc2c552a6e2
