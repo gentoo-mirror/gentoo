@@ -4,19 +4,17 @@
 EAPI=7
 
 CRATES="
-addr2line-0.14.1
-adler-0.2.3
+adler-1.0.2
 aes-0.5.0
 aesni-0.8.0
 aes-soft-0.5.0
 aho-corasick-0.7.15
 ansi_term-0.11.0
-anyhow-1.0.38
+anyhow-1.0.40
 async-compression-0.3.7
 atty-0.2.14
 autocfg-0.1.7
 autocfg-1.0.1
-backtrace-0.3.56
 base64-0.12.3
 base64-0.13.0
 bitfield-0.13.2
@@ -28,7 +26,7 @@ block-padding-0.2.1
 blowfish-0.6.0
 buf_redux-0.8.4
 bumpalo-3.6.1
-byteorder-1.4.2
+byteorder-1.4.3
 bytes-1.0.1
 cast5-0.8.0
 cc-1.0.67
@@ -39,7 +37,6 @@ chrono-0.4.19
 circular-0.3.0
 clap-2.33.3
 clear_on_drop-0.2.4
-const_fn-0.4.5
 core-foundation-0.9.1
 core-foundation-sys-0.8.2
 cpuid-bool-0.1.2
@@ -47,10 +44,10 @@ crc24-0.1.6
 crc32fast-1.2.1
 crossbeam-channel-0.5.0
 crossbeam-deque-0.8.0
-crossbeam-epoch-0.9.1
-crossbeam-utils-0.8.1
-curl-0.4.34
-curl-sys-0.4.40+curl-7.75.0
+crossbeam-epoch-0.9.3
+crossbeam-utils-0.8.3
+curl-0.4.35
+curl-sys-0.4.41+curl-7.75.0
 curve25519-dalek-3.0.2
 darling-0.10.2
 darling_core-0.10.2
@@ -64,50 +61,48 @@ ed25519-dalek-1.0.1
 effective-limits-0.5.2
 either-1.6.1
 encoding_rs-0.8.28
+enum-map-1.1.0
+enum-map-derive-0.5.0
 env_proxy-0.4.1
-error-chain-0.12.4
 filetime-0.2.14
 flate2-1.0.20
 fnv-1.0.7
 foreign-types-0.3.2
 foreign-types-shared-0.1.1
 form_urlencoded-1.0.1
-futures-channel-0.3.12
-futures-core-0.3.12
-futures-io-0.3.12
-futures-macro-0.3.12
-futures-sink-0.3.12
-futures-task-0.3.12
-futures-util-0.3.12
+futures-channel-0.3.13
+futures-core-0.3.13
+futures-io-0.3.13
+futures-macro-0.3.13
+futures-sink-0.3.13
+futures-task-0.3.13
+futures-util-0.3.13
 generic-array-0.14.4
 getrandom-0.1.16
 getrandom-0.2.2
-gimli-0.23.0
 git-testament-0.1.9
 git-testament-derive-0.1.10
-glob-0.3.0
-h2-0.3.0
+h2-0.3.2
 hashbrown-0.9.1
 hermit-abi-0.1.18
-hex-0.4.2
+hex-0.4.3
 http-0.2.3
 httparse-1.3.5
-http-body-0.4.0
+http-body-0.4.1
 httpdate-0.3.2
-hyper-0.14.4
+hyper-0.14.5
 hyper-rustls-0.22.1
 hyper-tls-0.5.0
 ident_case-1.0.1
 idna-0.2.2
-indexmap-1.6.1
+indexmap-1.6.2
 ipnet-2.3.0
-itertools-0.9.0
 itoa-0.4.7
 jobserver-0.1.21
-js-sys-0.3.47
+js-sys-0.3.50
 keccak-0.1.0
 lazy_static-1.4.0
-libc-0.2.86
+libc-0.2.93
 libm-0.2.1
 libz-sys-1.1.2
 log-0.4.14
@@ -115,11 +110,11 @@ lzma-sys-0.1.17
 matches-0.1.8
 md-5-0.9.1
 memchr-2.3.4
-memoffset-0.6.1
+memoffset-0.6.3
 mime-0.3.16
-miniz_oxide-0.4.3
-mio-0.7.8
-miow-0.3.6
+miniz_oxide-0.4.4
+mio-0.7.11
+miow-0.3.7
 native-tls-0.2.7
 nom-4.2.3
 ntapi-0.3.6
@@ -130,25 +125,24 @@ num-derive-0.3.3
 num-integer-0.1.44
 num-iter-0.1.42
 num-traits-0.2.14
-object-0.23.0
-once_cell-1.5.2
+once_cell-1.7.2
 opaque-debug-0.3.0
 opener-0.4.1
-openssl-0.10.32
+openssl-0.10.33
 openssl-probe-0.1.2
-openssl-src-111.14.0+1.1.1j
-openssl-sys-0.9.60
+openssl-src-111.15.0+1.1.1k
+openssl-sys-0.9.61
 pem-0.8.3
 percent-encoding-2.1.0
 pest-2.1.3
 pgp-0.7.1
-pin-project-1.0.5
-pin-project-internal-1.0.5
-pin-project-lite-0.2.4
+pin-project-1.0.6
+pin-project-internal-1.0.6
+pin-project-lite-0.2.6
 pin-utils-0.1.0
 pkg-config-0.3.19
 ppv-lite86-0.2.10
-proc-macro2-1.0.24
+proc-macro2-1.0.26
 proc-macro-hack-0.5.19
 proc-macro-nested-0.1.7
 pulldown-cmark-0.8.0
@@ -164,17 +158,16 @@ rand_hc-0.3.0
 rayon-1.5.0
 rayon-core-1.9.0
 redox_syscall-0.2.5
-regex-1.4.3
-regex-syntax-0.6.22
+regex-1.4.5
+regex-syntax-0.6.23
 remove_dir_all-0.5.3
-remove_dir_all-0.6.1
-reqwest-0.11.1
-retry-1.2.0
+remove_dir_all-0.7.0
+reqwest-0.11.2
+retry-1.2.1
 ring-0.16.20
 ripemd160-0.9.1
 rsa-0.3.0
 rs_tracing-1.0.1
-rustc-demangle-0.1.18
 rustls-0.19.0
 rustls-native-certs-0.5.0
 ryu-1.0.5
@@ -183,29 +176,31 @@ same-file-1.0.6
 schannel-0.1.19
 scopeguard-1.1.0
 sct-0.6.0
-security-framework-2.0.0
-security-framework-sys-2.0.0
+security-framework-2.2.0
+security-framework-sys-2.2.0
 semver-0.11.0
 semver-parser-0.10.2
-serde-1.0.123
-serde_derive-1.0.123
-serde_json-1.0.62
+serde-1.0.125
+serde_derive-1.0.125
+serde_json-1.0.64
 serde_urlencoded-0.7.0
 sha-1-0.9.4
 sha2-0.9.3
 sha3-0.9.1
+sharded-slab-0.1.1
 signature-1.3.0
 simple_asn1-0.4.1
 slab-0.4.2
 smallvec-1.6.1
 socket2-0.3.19
+socket2-0.4.0
 spin-0.5.2
 stream-cipher-0.7.1
 strsim-0.10.0
 strsim-0.8.0
 strsim-0.9.3
 subtle-2.4.0
-syn-1.0.60
+syn-1.0.68
 synstructure-0.12.4
 sys-info-0.6.1
 tar-0.4.33
@@ -214,25 +209,23 @@ term-0.5.1
 textwrap-0.11.0
 thiserror-1.0.24
 thiserror-impl-1.0.24
-thread_local-1.1.3
 threadpool-1.8.1
 time-0.1.43
-tinyvec-1.1.1
+tinyvec-1.2.0
 tinyvec_macros-0.1.0
-tokio-1.2.0
+tokio-1.4.0
 tokio-native-tls-0.3.0
 tokio-rustls-0.22.0
 tokio-socks-0.5.1
-tokio-util-0.6.3
+tokio-util-0.6.5
 toml-0.5.8
 tower-service-0.3.1
-tracing-0.1.24
+tracing-0.1.25
 tracing-core-0.1.17
-tracing-futures-0.2.5
 try_from-0.3.2
 try-lock-0.2.3
 twofish-0.4.0
-typenum-1.12.0
+typenum-1.13.0
 ucd-trie-0.1.3
 unicase-2.6.0
 unicode-bidi-0.3.4
@@ -244,20 +237,20 @@ url-2.2.1
 vcpkg-0.2.11
 vec_map-0.8.2
 version_check-0.1.5
-version_check-0.9.2
+version_check-0.9.3
 wait-timeout-0.2.0
-walkdir-2.3.1
+walkdir-2.3.2
 want-0.3.0
 wasi-0.10.2+wasi-snapshot-preview1
 wasi-0.9.0+wasi-snapshot-preview1
-wasm-bindgen-0.2.70
-wasm-bindgen-backend-0.2.70
-wasm-bindgen-futures-0.4.20
-wasm-bindgen-macro-0.2.70
-wasm-bindgen-macro-support-0.2.70
-wasm-bindgen-shared-0.2.70
+wasm-bindgen-0.2.73
+wasm-bindgen-backend-0.2.73
+wasm-bindgen-futures-0.4.23
+wasm-bindgen-macro-0.2.73
+wasm-bindgen-macro-support-0.2.73
+wasm-bindgen-shared-0.2.73
 webpki-0.21.4
-web-sys-0.3.47
+web-sys-0.3.50
 winapi-0.3.9
 winapi-i686-pc-windows-gnu-0.4.0
 winapi-util-0.1.5
@@ -269,9 +262,9 @@ xattr-0.2.2
 xz2-0.1.6
 zeroize-1.2.0
 zeroize_derive-1.0.1
-zstd-0.6.0+zstd.1.4.8
-zstd-safe-3.0.0+zstd.1.4.8
-zstd-sys-1.4.19+zstd.1.4.8
+zstd-0.6.1+zstd.1.4.9
+zstd-safe-3.0.1+zstd.1.4.9
+zstd-sys-1.4.20+zstd.1.4.9
 "
 
 inherit bash-completion-r1 cargo prefix
@@ -363,11 +356,11 @@ src_install() {
 }
 
 pkg_postinst() {
-		einfo "No rustup toolchains installed by default"
-		einfo "eselect activated system rust toolchain can be added to rustup by running"
-		einfo "helper script installed as ${EPREFIX}/usr/bin/rustup-init-gentoo"
-		einfo "it will create symlinks to system-installed rustup in home directory"
-		einfo "and rustup updates will be managed by portage"
-		einfo "please delete current rustup binaries from ~/.cargo/bin/ (if any)"
-		einfo "before running rustup-init-gentoo"
+		elog "No rustup toolchains installed by default"
+		elog "eselect activated system rust toolchain can be added to rustup by running"
+		elog "helper script installed as ${EPREFIX}/usr/bin/rustup-init-gentoo"
+		elog "it will create symlinks to system-installed rustup in home directory"
+		elog "and rustup updates will be managed by portage"
+		elog "please delete current rustup binaries from ~/.cargo/bin/ (if any)"
+		elog "before running rustup-init-gentoo"
 }
