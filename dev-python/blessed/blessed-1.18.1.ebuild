@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python3_{7..9} )
+PYTHON_COMPAT=( pypy3 python3_{7..10} )
 
 inherit distutils-r1
 
@@ -44,6 +44,5 @@ python_test() {
 	# COLORTERM must not be truecolor
 	# See https://github.com/jquast/blessed/issues/162
 	# Ignore coverage options
-	COLORTERM= pytest -vv --override-ini="addopts=" \
-		|| die "tests failed with ${EPYTHON}"
+	COLORTERM= epytest --override-ini="addopts="
 }
