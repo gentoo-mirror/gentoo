@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cudf:= sci-mathematics/glpk:= test? ( dev-ml/extlib:= ) >=dev-lang/ocaml-4:=[ocamlopt?]
+DESCRIPTION=Multi Criteria CUDF Solver
+EAPI=7
+HOMEPAGE=http://www.i3s.unice.fr/~cpjm/misc/ https://github.com/AltGr/ocaml-mccs/issues
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=dev-ml/cudf:= sci-mathematics/glpk:= >=dev-lang/ocaml-4:=[ocamlopt?]
+RESTRICT=!test? ( test )
+SLOT=0/1.1.13
+SRC_URI=https://github.com/AltGr/ocaml-mccs/archive/1.1+13.tar.gz -> mccs-1.1.13.tar.gz
+_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_md5_=dbf636f6043967d001a6d2be63a4b823
