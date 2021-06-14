@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install test
+DEPEND=root? ( sci-physics/root:= )
+DESCRIPTION=Yet more Objects for (High Energy Physics) Data Analysis
+EAPI=7
+HOMEPAGE=https://yoda.hepforge.org/
+INHERIT=bash-completion-r1
+IUSE=root
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=root? ( sci-physics/root:= )
+SLOT=0/1.9.0
+SRC_URI=https://yoda.hepforge.org/downloads?f=YODA-1.9.0.tar.bz2 -> YODA-1.9.0.tar.bz2
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908
+_md5_=6801438f217c229a20376f506e25ad3f
