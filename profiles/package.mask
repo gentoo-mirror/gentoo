@@ -32,6 +32,30 @@
 
 #--- END OF EXAMPLES ---
 
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-06-14)
+# The original Python Language Server by Palantir is no longer actively
+# developed [1]. Development on a language server for Python is continued by
+# the Spyder IDE community under a new name and in a new package. To continue
+# using pyls, please switch to the maintained forks [2]:
+# dev-python/python-language-server --> dev-python/python-lsp-server
+# dev-python/python-jsonrpc-server --> dev-python/python-lsp-jsonrpc
+# dev-python/pyls-black --> dev-python/python-lsp-black
+#
+# Note that dev-python/pyls-spyder has already switched to the new language
+# server as of version 0.4.0. Users of the Spyder IDE will automatically
+# switch to the new language server when upgrading to version 4.2.5-r1 or
+# 5.0.4-r1. Manual adjustments to the settings may be required in certain
+# configurations [3].
+#
+# Masked for removal in 30 days (2021-07-14).
+#
+# [1] https://github.com/palantir/python-language-server/issues/935
+# [2] https://bugs.gentoo.org/795924
+# [3] https://bugs.gentoo.org/783615
+dev-python/python-language-server
+dev-python/python-jsonrpc-server
+dev-python/pyls-black
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-06-14)
 # DeprecatedDep jre-1.3, upstream dead,removal in 30 days
 # see bug: https://bugs.gentoo.org/787410
@@ -315,16 +339,6 @@ dev-java/squareness-jlf
 # see bug: https://bugs.gentoo.org/784065
 dev-java/werken-xpath
 
-# Zac Medico <zmedico@gentoo.org> (2021-05-16)
-# Obsoleted by go modules. Masked for removal in 30 days. Bug #790470.
-dev-go/godep
-
-# Miroslav Šulc <fordfrog@gentoo.org> (2021-05-16)
-# no consumer, does not compile, not with jdk-11
-# and not even with openjdk:8
-# see bug: https://bugs.gentoo.org/790551
-dev-java/freemarker
-
 # Sergei Trofimovich <slyfox@gentoo.org> (2021-05-16)
 # Mask gcc-7 branch (ended upstream support). Please switch
 # to a freshed gcc branch.
@@ -336,31 +350,6 @@ dev-java/freemarker
 # Mask gcc-6 branch (ended upstream support). Please switch
 # to a freshed gcc branch.
 <sys-devel/gcc-7
-
-# Michał Górny <mgorny@gentoo.org> (2021-05-15)
-# Relies on dev-python/astunparse that is broken with Python 3.8+
-# and abandoned upstream.  The current version is also broken
-# w/ sphinx-4 but with Python 3.7 being removed in half a month, bumping
-# makes little sense.  No reverse dependencies.
-# Removal on 2021-06-14.  Bug #743889.
-dev-python/sphinxcontrib-httpdomain
-dev-python/sphinxcontrib-httpexample
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-09)
-# Unmaintained, last revdep of dev-perl/gtk2-spell, bug #724796
-# Removal on 2021-06-08
-# Pending PR: https://github.com/gentoo/gentoo/pull/20763
-app-misc/gcstar
-
-# David Seifert <soap@gentoo.org> (2021-05-09)
-# All revdeps masked, last release in 1999, needs to do now.
-# Bug #772815, removal in 30 days.
-sci-libs/fftw:2.1
-
-# David Seifert <soap@gentoo.org> (2021-05-09)
-# Last consumer of sci-libs/fftw:2.1, last release over 20 years
-# ago, dead upstream. Bug #779421, removal in 30 days.
-media-sound/gramofile
 
 # Sam James <sam@gentoo.org> (2021-05-09)
 # Not working properly with cmake.eclass port
@@ -384,11 +373,6 @@ media-sound/gramofile
 # Ulrich Müller <ulm@gentoo.org> (2021-04-20)
 # Version 3.15 is broken with Emacs 27.2.
 =app-emacs/mic-paren-3.15-r0
-
-# Jonas Stein <jstein@gentoo.org> (2021-04-19)
-# Bad SRC_URI, missing license files
-# Removal on 2021-07-01.  Bug #784221.
-x11-apps/amlc
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-04-18)
 # dev-java/xerces-2.12.1 depends on masked >=virtual/{jdk,jre}-11
