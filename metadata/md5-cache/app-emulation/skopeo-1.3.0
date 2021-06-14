@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.12 app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=>=app-crypt/gpgme-1.5.5:= >=dev-libs/libassuan-2.4.3:= dev-libs/libgpg-error:= btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) >=sys-fs/lvm2-2.02.145:= dev-go/go-md2man
+DESCRIPTION=Command line utility foroperations on container images and image repositories
+EAPI=7
+HOMEPAGE=https://github.com/containers/skopeo
+INHERIT=go-module bash-completion-r1
+IUSE=btrfs
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT
+RDEPEND=>=app-crypt/gpgme-1.5.5:= >=dev-libs/libassuan-2.4.3:= dev-libs/libgpg-error:= btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) >=sys-fs/lvm2-2.02.145:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/containers/skopeo/archive/v1.3.0.tar.gz -> skopeo-1.3.0.tar.gz
+_eclasses_=go-module	bf028003684a8b018e4de9e3c272ed33	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908
+_md5_=98c9aaeca099a61cb0cef9d5e501d9d1
