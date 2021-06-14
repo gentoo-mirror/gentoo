@@ -37,22 +37,13 @@ RDEPEND="
 	>=dev-python/requests-2.8.1[${PYTHON_USEDEP}]
 	>=dev-python/six-1.12.0[${PYTHON_USEDEP}]
 	>=dev-python/tqdm-4.28.1[${PYTHON_USEDEP}]
-	>=dev-python/urllib3-1.25.7[${PYTHON_USEDEP}]
+	>=dev-python/urllib3-1.25.8[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests nose
-DEPEND+="
-	test? (
-		dev-lang/go
-		dev-vcs/git
-		dev-vcs/subversion
-		>=dev-python/mock-1.3.0[${PYTHON_USEDEP}]
-		>=dev-python/nose-1.3.7[${PYTHON_USEDEP}]
-		>=dev-python/parameterized-0.6.3[${PYTHON_USEDEP}]
-		>=dev-python/webtest-2.0.18[${PYTHON_USEDEP}]
-		dev-util/cmake
-	)
-"
+# Try to fix it if you're brave enough
+# Conan requires noumerous external toolchain dependencies with restricted
+# versions and cannot be managable outside of a pure CI environment.
+RESTRICT="test"
 
 src_prepare() {
 	default
@@ -61,15 +52,4 @@ src_prepare() {
 		-e 's:,[[:space:]]\?<=\?[[:space:]]\?[[:digit:]|.]*::g' \
 		-e 's:==:>=:g' \
 		conans/requirements{,_server}.txt || die
-}
-
-python_test() {
-	nosetests -v conans.test \
-		-e test_ftp.* -e modify_values_test.* -e test_pkg_config_path.* \
-		-e rpath_optin_test -e test_variables -e system_package_tool_installed_test \
-		-e virtualbuildenv_test -e scm_test -e test_git_shallow -e tools_test \
-		-e test_environment_nested -e devflow_test -e shared_chain_test \
-		-e test_toolchain_linux_0_Debug -e test_toolchain_linux_1_Release \
-		-e virtualenv_test -e link_order_test -e test_version \
-		-A "not rest_api and not local_bottle" || die
 }
