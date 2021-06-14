@@ -337,32 +337,6 @@ dev-java/freemarker
 # to a freshed gcc branch.
 <sys-devel/gcc-7
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
-# Dead upstream, dead downstream, GTK+2 based.  Bug #770898
-# Removal on 2021-06-14.
-app-editors/amyedit
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
-# Unmaintained, GTK+2-based, dubiously duplicating app-mobilephone/gnokii[X]
-# Removal on 2021-06-14. Bug #769032
-app-mobilephone/gnocky
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
-# Long-standing bugs, GTK+2-based, last revdep of media-libs/libexif-gtk.
-# Alternative: media-gfx/shotwell
-# Removal on 2021-06-14.  Bugs #560032, #740020, #769095
-media-gfx/gtkam
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
-# Unmaintained, pending version bump request since 2014, no revdeps.
-# Removal on 2021-06-14.  Bug #507760
-media-libs/libexif-gtk
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-05-15)
-# Unmaintained, dead upstream since 2004, no hope to port away from GTK+2.
-# Removal on 2021-06-14.  Bug #769110
-media-gfx/gimageview
-
 # Michał Górny <mgorny@gentoo.org> (2021-05-15)
 # Relies on dev-python/astunparse that is broken with Python 3.8+
 # and abandoned upstream.  The current version is also broken
@@ -373,10 +347,10 @@ dev-python/sphinxcontrib-httpdomain
 dev-python/sphinxcontrib-httpexample
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2021-05-09)
-# Unmaintained, last revdep of dev-perl/gtk2-spell, bugs #724796, #769296
+# Unmaintained, last revdep of dev-perl/gtk2-spell, bug #724796
 # Removal on 2021-06-08
+# Pending PR: https://github.com/gentoo/gentoo/pull/20763
 app-misc/gcstar
-dev-perl/gtk2-spell
 
 # David Seifert <soap@gentoo.org> (2021-05-09)
 # All revdeps masked, last release in 1999, needs to do now.
