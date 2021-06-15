@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic toolchain-funcs
+inherit autotools flag-o-matic toolchain-funcs
 
 MY_PN="ecm"
 MY_P="${MY_PN}-${PV}"
@@ -21,12 +21,36 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.0.4-openmp.patch
+	"${FILESDIR}"/${PN}-7.0.4-execstack.patch
 )
 
 S="${WORKDIR}/${MY_P}"
 
 pkg_pretend() {
 	use openmp && tc-check-openmp
+}
+
+src_prepare(){
+	default
+
+	# patch the asm files
+	# create a sample with the assembly code needed
+	# Quote around # are needed because the files will be processed by M4.
+	cat <<-EOF > "${T}/sample.asm"
+	
+	\`#'if defined(__linux__) && defined(__ELF__)
+	.section .note.GNU-stack,"",%progbits
+	\`#'endif
+	EOF
+
+	# patch the asm files
+	cat "${T}/sample.asm" >> x86_64/mulredc1.asm
+	for i in {2..20} ; do
+		cat "${T}/sample.asm" >> x86_64/mulredc"$i".asm
+		cat "${T}/sample.asm" >> x86_64/mulredc1_"$i".asm
+	done
+
+	eautoreconf
 }
 
 src_compile() {
