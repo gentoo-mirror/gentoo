@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=dev-libs/json-c net-libs/libpcap dev-libs/libuv mysql? ( dev-db/mysql-connector-c ) pcre? ( dev-libs/libpcre ) redis? ( dev-db/redis ) ssl? ( dev-libs/openssl:= )
+DESCRIPTION=100% Open-Source Packet Capture Agent for HEP
+EAPI=7
+HOMEPAGE=https://sipcapture.org/ https://github.com/sipcapture/captagent
+INHERIT=autotools
+IUSE=ipv6 mysql pcre redis ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/json-c net-libs/libpcap dev-libs/libuv mysql? ( dev-db/mysql-connector-c ) pcre? ( dev-libs/libpcre ) redis? ( dev-db/redis ) ssl? ( dev-libs/openssl:= )
+SLOT=0
+SRC_URI=https://github.com/sipcapture/captagent/archive/refs/tags/6.3.1.tar.gz -> captagent-6.3.1.tar.gz
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_md5_=de57c05ec4be7afa621b0313364bd505
