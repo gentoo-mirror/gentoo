@@ -4,7 +4,7 @@
 EAPI=7
 
 SSL_CERT_MANDATORY=1
-inherit ssl-cert systemd
+inherit autotools ssl-cert systemd
 
 DESCRIPTION="An advanced Internet Relay Chat daemon"
 HOMEPAGE="https://www.unrealircd.org/"
@@ -12,7 +12,7 @@ SRC_URI="https://www.unrealircd.org/downloads/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86 ~amd64-linux"
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux"
 IUSE="class-nofakelag curl +operoverride operoverride-verify +prefixaq showlistmodes"
 
 RDEPEND="
@@ -20,6 +20,7 @@ RDEPEND="
 	acct-user/unrealircd
 	>=app-crypt/argon2-20171227-r1:=
 	dev-libs/libpcre2
+	dev-libs/libsodium:=
 	>=net-dns/c-ares-1.7:=
 	dev-libs/openssl:0=
 	curl? ( net-misc/curl[adns] )
@@ -37,11 +38,17 @@ src_prepare() {
 	# bug 704444
 	echo "" > src/buildmod || die
 
+	sed -e 's/$(MODULEFLAGS)/$(LDFLAGS) &/' -i src/modules/{,*/}Makefile.in || die
+
 	if use class-nofakelag; then
-		sed -i -e 's:#undef\( FAKELAG_CONFIGURABLE\):#define\1:' include/config.h || die
+		sed -i -e 's:^//#undef\( FAKELAG_CONFIGURABLE\):#define\1:' include/config.h || die
 	fi
 
-	eapply_user
+	# File is missing from the 5.0.9.1 tarball
+	sed -i -e '/unrealircd-upgrade-script/d' configure.ac || die
+
+	default
+	eautoreconf
 }
 
 src_configure() {
@@ -116,8 +123,7 @@ src_install() {
 	# CONFDIR. #618066
 	dosym ../../ssl/certs/ca-certificates.crt /etc/${PN}/tls/curl-ca-bundle.crt
 
-	insinto $(systemd_get_systemunitdir)
-	doins "${FILESDIR}"/${PN}.service
+	systemd_dounit "${FILESDIR}"/${PN}.service
 }
 
 pkg_postinst() {
