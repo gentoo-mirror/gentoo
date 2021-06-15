@@ -67,7 +67,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	systemd? ( >=sys-apps/systemd-211 )
 	tpm? ( app-crypt/tpm2-tss )
 	uefi? (
-		sys-boot/gnu-efi
+		sys-apps/fwupd-efi
 		sys-boot/efibootmgr
 		sys-fs/udisks
 		sys-libs/efivar
@@ -87,7 +87,7 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.5.7-logind_plugin.patch
-	"${FILESDIR}"/${PN}-1.6.1-revert-Change-python-version-check-order.patch
+	"${FILESDIR}"/${P}-fix-python-detection.patch
 )
 
 pkg_setup() {
