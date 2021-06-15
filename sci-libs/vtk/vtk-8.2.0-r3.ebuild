@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 WEBAPP_OPTIONAL=yes
 WEBAPP_MANUAL_SLOT=yes
 
@@ -23,13 +23,13 @@ SRC_URI="
 
 LICENSE="BSD LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="all-modules aqua boost doc examples ffmpeg gdal imaging java json mpi
-	odbc offscreen postgres python qt5 R rendering tbb tcl theora tk
-	video_cards_nvidia views web +X xdmf2"
+	mysql odbc offscreen postgres python qt5 R rendering tbb tcl theora tk
+	video_cards_nvidia views web +X"
 
 REQUIRED_USE="
-	all-modules? ( python xdmf2 boost )
+	all-modules? ( boost ffmpeg gdal mpi mysql odbc postgres python qt5 )
 	java? ( qt5 )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	tcl? ( rendering )
@@ -46,7 +46,7 @@ RDEPEND="
 	dev-libs/expat
 	dev-libs/jsoncpp:=
 	dev-libs/libxml2:2
-	dev-libs/pugixml
+	>=dev-libs/pugixml-1.11
 	>=media-libs/freetype-2.5.4
 	media-libs/glew:0=
 	>=media-libs/libharu-2.3.0-r2
@@ -64,6 +64,11 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXmu
 	x11-libs/libXt
+	all-modules? (
+		!sci-libs/xdmf2
+		<dev-libs/pegtl-3
+		sci-libs/kissfft
+	)
 	boost? ( dev-libs/boost:=[mpi?] )
 	examples? (
 		dev-qt/qtcore:5
@@ -71,20 +76,21 @@ RDEPEND="
 	)
 	ffmpeg? ( media-video/ffmpeg )
 	gdal? ( sci-libs/gdal )
-	java? ( >=virtual/jdk-1.7:* )
+	java? ( >=virtual/jdk-1.8:* )
 	mpi? (
 		virtual/mpi[cxx,romio]
 		$(python_gen_cond_dep '
 			python? ( dev-python/mpi4py[${PYTHON_MULTI_USEDEP}] )
 		')
 	)
+	mysql? ( dev-db/mysql-connector-c )
 	odbc? ( dev-db/unixODBC )
 	offscreen? ( media-libs/mesa[osmesa] )
 	postgres? ( dev-db/postgresql:= )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
-			dev-python/sip[${PYTHON_MULTI_USEDEP}]
+			dev-python/sip:5[${PYTHON_MULTI_USEDEP}]
 		')
 	)
 	qt5? (
@@ -116,10 +122,12 @@ RDEPEND="
 			dev-python/zope-interface[${PYTHON_MULTI_USEDEP}]
 		')
 	)
-	xdmf2? ( sci-libs/xdmf2 )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="
+	doc? ( app-doc/doxygen )
+	mpi? ( app-admin/chrpath )
+"
 
 S="${WORKDIR}"/VTK-${PV}
 
@@ -130,6 +138,8 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fno-common.patch # bug 721048
 	"${FILESDIR}"/${P}-py38.patch
 	"${FILESDIR}"/${P}-freetype-2.10.3-provide-FT_CALLBACK_DEF.patch # bug #751088
+	"${FILESDIR}"/${P}-pugixml.patch
+	"${FILESDIR}"/${P}-0001-fix-library-installation-dir-for-xdmf3.patch
 )
 
 RESTRICT="test"
@@ -144,12 +154,18 @@ src_prepare() {
 	cmake_src_prepare
 
 	local x
-	# missing: VPIC freerange libproj4 mrmpi sqlite utf8 verdict xmdf2 xmdf3
-	for x in expat freetype hdf5 jpeg jsoncpp libharu libxml2 lz4 netcdf png tiff zlib; do
+	# missing: VPIC freerange libproj4 mrmpi sqlite utf8 verdict xmdf2 xmdf3 zfp
+	for x in expat freetype hdf5 jpeg jsoncpp kissfft libharu libxml2 lz4 netcdf pugixml png tiff zlib; do
 		ebegin "Dropping bundled ${x}"
 		rm -r ThirdParty/${x}/vtk${x} || die
 		eend $?
 	done
+
+	sed -i -e '/add_subdirectory(vtkpugixml)/d' ThirdParty/pugixml/CMakeLists.txt || die
+	sed -i -e '/vtk_target_export(vtkpugixml)/d' ThirdParty/pugixml/CMakeLists.txt || die
+
+	# my_bool is no longer used in MySQL and MariaDB isn't supported in vtk-8
+	sed -e 's/my_bool/bool/' -i IO/MySQL/vtkMySQL{Database,Query}.cxx || die
 
 	if use doc; then
 		einfo "Removing .md5 files from documents."
@@ -183,6 +199,7 @@ src_configure() {
 		-DVTK_USE_SYSTEM_LibXml2=ON
 		-DVTK_USE_SYSTEM_NETCDF=ON
 		-DVTK_USE_SYSTEM_OGGTHEORA=ON
+		-DVTK_USE_SYSTEM_PUGIXML=ON
 		-DVTK_USE_SYSTEM_PNG=ON
 		-DVTK_USE_SYSTEM_TIFF=ON
 		-DVTK_USE_SYSTEM_TWISTED=ON
@@ -210,7 +227,7 @@ src_configure() {
 		-DVTK_Group_Views=$(usex views)
 		-DVTK_Group_Web=$(usex web)
 		-DVTK_SMP_IMPLEMENTATION_TYPE="$(usex tbb TBB Sequential)"
-		-DVTK_WWW_DIR="${ED}/${MY_HTDOCSDIR}"
+		-DVTK_WWW_DIR="${EPREFIX}/${MY_HTDOCSDIR}"
 		-DVTK_WRAP_JAVA=$(usex java)
 		-DVTK_WRAP_PYTHON=$(usex python)
 		-DVTK_WRAP_PYTHON_SIP=$(usex python)
@@ -231,11 +248,19 @@ src_configure() {
 		-DVTK_USE_FFMPEG_ENCODER=$(usex ffmpeg)
 		-DModule_vtkIOGDAL=$(usex gdal)
 		-DModule_vtkIOGeoJSON=$(usex json)
-		-DModule_vtkIOXdmf2=$(usex xdmf2)
+		-DModule_vtkIOXdmf2=$(usex all-modules)
 		-DBUILD_TESTING=$(usex examples)
 	# Apple stuff, does it really work?
 		-DVTK_USE_COCOA=$(usex aqua)
 	)
+
+	if use all-modules; then
+		mycmakeargs+=(
+			-DVTK_MODULE_USE_EXTERNAL_VTK_pegtl=ON
+			# we don't have a package for zfp yet
+			-DVTK_USE_SYSTEM_ZFP=OFF
+		)
+	fi
 
 	if use java; then
 		local javacargs=$(java-pkg_javac-args)
@@ -255,7 +280,6 @@ src_configure() {
 			-DSIP_INCLUDE_DIR="$(python_get_includedir)"
 			-DVTK_PYTHON_INCLUDE_DIR="$(python_get_includedir)"
 			-DVTK_PYTHON_LIBRARY="$(python_get_library_path)"
-			-DVTK_PYTHON_SETUP_ARGS:STRING="--prefix=${EPREFIX} --root=${D}"
 			-DVTK_USE_SYSTEM_SIX=ON
 		)
 	fi
@@ -324,6 +348,17 @@ src_install() {
 		dodoc -r examples
 		docompress -x /usr/share/doc/${PF}/examples
 	fi
+
+	# with MPI, rpaths are not deleted properly
+	if use mpi; then
+		chrpath -d "${ED}"/usr/$(get_libdir)/*.so.* || die
+		if use python; then
+			chrpath -d "${ED}"/$(python_get_sitedir)/vtkmodules/*.so || die
+			chrpath -d "${ED}"/usr/bin/{,p}vtkpython || die
+		fi
+	fi
+
+	use python && python_optimize
 
 	# environment
 	cat >> "${T}"/40${PN} <<- EOF || die
