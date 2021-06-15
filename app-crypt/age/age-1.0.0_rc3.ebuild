@@ -10,6 +10,8 @@ HOMEPAGE="https://github.com/FiloSottile/age"
 MY_PV=$(ver_cut 1-3)-rc.$(ver_cut 5)
 
 EGO_SUM=(
+"filippo.io/edwards25519 v1.0.0-beta.3"
+"filippo.io/edwards25519 v1.0.0-beta.3/go.mod"
 "golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod"
 "golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad"
 "golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad/go.mod"
@@ -44,5 +46,6 @@ src_test() {
 
 src_install() {
 	dobin age age-keygen
+	doman doc/age.1 doc/age-keygen.1
 	dodoc README.md
 }
