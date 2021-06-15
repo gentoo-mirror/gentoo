@@ -7,7 +7,7 @@ inherit vdr-plugin-2
 
 DESCRIPTION="VDR plugin: create timers from epg content based on saved search expressions"
 HOMEPAGE="http://winni.vdr-developer.org/epgsearch/index_eng.html"
-GIT_COMMIT_ID="fc309e3841d204554dba001b6f01fcc4c4cc0fc6"
+GIT_COMMIT_ID="cff8dfe58853aa0cc4f6e9a8896104a920b98730"
 SRC_URI="https://projects.vdr-developer.org/git/vdr-plugin-epgsearch.git/snapshot/vdr-plugin-epgsearch-${GIT_COMMIT_ID}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/vdr-plugin-epgsearch-${GIT_COMMIT_ID}"
 
@@ -29,8 +29,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-2.4.0_makefile.patch"
 	"${FILESDIR}/${PN}-2.4.0_docsrc2man-no-gzip.patch"
-	"${FILESDIR}/${P}_gcc11-const.patch"
-	"${FILESDIR}/${P}_gcc11-warnings.patch"
 )
 
 QA_FLAGS_IGNORED="
