@@ -24,6 +24,11 @@ BDEPEND=""
 S="${WORKDIR}/bing-wallpaper-gnome-extension-${PV}"
 extension_uuid="BingWallpaper@ineffable-gmail.com"
 
+PATCHES=(
+	# https://github.com/neffo/bing-wallpaper-gnome-extension/issues/113
+	"${FILESDIR}/${P}-blur-enable-check.patch"
+)
+
 src_install() {
 	einstalldocs
 	rm -f README.md LICENSE || die
