@@ -25,7 +25,3 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
-
-PATCHES=(
-	"${FILESDIR}"/${P}-test-install.patch
-)
