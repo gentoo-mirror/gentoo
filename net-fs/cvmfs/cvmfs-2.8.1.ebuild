@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ LICENSE="BSD"
 SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
-IUSE="bash-completion doc server"
+IUSE="server"
 
 CDEPEND="
 	acct-group/cvmfs
@@ -42,14 +42,12 @@ RDEPEND="${CDEPEND}
 
 DEPEND="${CDEPEND}
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen[dot] )
 "
 
 PATCHES=(
-		"${FILESDIR}"/${P}-builtins.patch
-		"${FILESDIR}"/${P}-find-package.patch
-		"${FILESDIR}"/${P}-gcc-version.patch
-		"${FILESDIR}"/${P}-xattr.patch
+		"${FILESDIR}"/${PN}-2.7.2-builtins.patch
+		"${FILESDIR}"/${PN}-2.7.2-find-package.patch
+		"${FILESDIR}"/${PN}-2.7.2-xattr.patch
 )
 
 pkg_setup() {
@@ -75,7 +73,7 @@ src_configure() {
 		-DBUILTIN_EXTERNALS=OFF
 		-DBUILD_CVMFS=ON
 		-DBUILD_LIBCVMFS=OFF # static library used only for development
-		-DBUILD_DOCUMENTATION=$(usex doc)
+		-DBUILD_DOCUMENTATION=OFF
 		-DBUILD_GEOAPI=OFF # only used for stratum 1 servers
 		-DBUILD_LIBCVMFS_CACHE=OFF # for exotic cache configs
 		-DBUILD_PRELOADER=OFF # special purpose utility for HPCs
@@ -89,20 +87,13 @@ src_configure() {
 	cmake_src_configure
 }
 
-src_compile() {
-	cmake_src_compile
-	use doc && cmake_src_compile doc
-}
-
 src_install() {
 	cmake_src_install
-	use bash-completion && \
-		newbashcomp cvmfs/bash_completion/cvmfs.bash_completion cvmfs
+	newbashcomp cvmfs/bash_completion/cvmfs.bash_completion cvmfs_config
+	bashcomp_alias cvmfs_config cvmfs_server
 	dodoc doc/*.md
-	if use doc; then
-		dodoc -r "${BUILD_DIR}"/html
-		docompress -x /usr/share/doc/${PF}/html
-	fi
+	keepdir /var/lib/cvmfs
+	use server && keepdir /var/lib/cvmfs-server
 }
 
 pkg_config() {
