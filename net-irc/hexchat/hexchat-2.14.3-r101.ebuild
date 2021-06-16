@@ -16,7 +16,9 @@ if [[ "${PV}" == "9999" ]] ; then
 	SRC_URI=""
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
-	SRC_URI="https://dl.hexchat.net/${PN}/${P}.tar.xz"
+	SRC_URI="https://dl.hexchat.net/${PN}/${P}.tar.xz
+		https://github.com/hexchat/hexchat/commit/a25f2381689d2c2279a0e43b33f6c0ec8305a096.patch -> ${PN}-add-libera-chat.patch
+		https://github.com/hexchat/hexchat/commit/d3545f37cd5f551ed8bc0ab7b20e5c8140adc0a6.patch -> ${PN}-default-network.patch"
 	KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ppc ppc64 sparc x86 ~amd64-linux"
 fi
 
@@ -61,6 +63,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}-python38.patch" #758758
+	"${DISTDIR}/${PN}-add-libera-chat.patch"
+	"${DISTDIR}/${PN}-default-network.patch"
 )
 
 pkg_setup() {
@@ -98,7 +102,7 @@ src_configure() {
 src_install() {
 	meson_src_install
 	dodoc readme.md
-	find "${D}" -name '*.la' -delete || die
+	find "${ED}" -name '*.la' -delete || die
 }
 
 pkg_preinst() {
