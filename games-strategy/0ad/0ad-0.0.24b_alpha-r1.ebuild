@@ -77,6 +77,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.0.24_alpha_pre20210116040036-build.patch
 	"${FILESDIR}"/${PN}-0.0.24b_alpha-rust-1.50.patch
 	"${FILESDIR}"/${PN}-0.0.24b_alpha-respect-tc.patch
+	"${FILESDIR}"/${PN}-0.0.24b_alpha-fix-hang-on-quit-without-nvtt.patch
 )
 
 pkg_setup() {
