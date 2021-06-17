@@ -8,8 +8,8 @@ inherit systemd
 DESCRIPTION="Extensible continuous integration server"
 HOMEPAGE="https://jenkins.io/"
 LICENSE="MIT"
-SRC_URI="http://mirrors.jenkins-ci.org/war-stable/${PV}/${PN/-bin/}.war -> ${P}.war"
-SLOT="lts"
+SRC_URI="http://mirrors.jenkins-ci.org/war/${PV}/${PN/-bin/}.war -> ${P}.war"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux"
 IUSE=""
 
@@ -20,7 +20,7 @@ RDEPEND="acct-group/jenkins
 	acct-user/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
-	!dev-util/jenkins-bin:0
+	!dev-util/jenkins-bin:lts
 	>=virtual/jre-1.8.0"
 
 S="${WORKDIR}"
@@ -34,7 +34,7 @@ src_install() {
 	newins "${DISTDIR}"/${P}.war ${PN/-bin/}.war
 
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}"/${PN}-r1.logrotate ${PN/-bin/}
+	newins "${FILESDIR}"/${PN}-r2.logrotate ${PN/-bin/}
 
 	newinitd "${FILESDIR}"/${PN}-r2.init jenkins
 	newconfd "${FILESDIR}"/${PN}.confd jenkins
