@@ -777,7 +777,7 @@ app-admin/diradm 2.9.7.1: A nearly complete nss/shadow suite for managing POSIX 
 app-admin/doas 6.8.1: Run commands as super/another user (alt sudo) (unofficial port from OpenBSD)
 app-admin/docker-bench 0.2.2: Docker Bench for Security runs the CIS Docker Benchmark
 app-admin/doctl 1.57.0 9999: A command line tool for DigitalOcean services
-app-admin/drush 6.7.0-r1: Command line shell and scripting interface for Drupal
+app-admin/drush 6.7.0-r2: Command line shell and scripting interface for Drupal
 app-admin/ec2-ami-tools 1.5.7: Command-line tools that serve as client interface to the Amazon EC2 web service
 app-admin/eclean-kernel 0.4.3 1.99.4 2.99.1 2.99.2 9999: Remove outdated built kernels
 app-admin/emacs-updater 1.16: Rebuild Emacs packages
@@ -885,7 +885,7 @@ app-admin/rex 1.13.3 9999: (R)?ex, the friendly automation framework
 app-admin/rsyslog 8.2102.0 8.2104.0 8.2106.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/sagan 1.0.0_rc3-r1 2.0.1-r4: Sagan is a multi-threaded, real time system and event log monitoring system
 app-admin/sagan-rules 20140617 20210208 99999999: Rules for Sagan log analyzer
-app-admin/salt 3000.8 3000.9 3001.6 3002.5 3003: Salt is a remote execution and configuration manager
+app-admin/salt 3000.8-r1 3000.9-r1 3001.6-r1 3002.5-r1 3003-r1: Salt is a remote execution and configuration manager
 app-admin/selint 1.1.0 1.2.0 9999: Policy Analysis Tools for SELinux
 app-admin/serf 0.8.1-r1 0.8.2 0.9.5: Service orchestration and management tool
 app-admin/setools 4.3.0 4.4.0 9999: Policy Analysis Tools for SELinux
@@ -1314,7 +1314,7 @@ app-crypt/tpm2-tss-engine 1.1.0: OpenSSL Engine for TPM2 devices
 app-crypt/trousers 0.3.14-r3 0.3.15: An open-source TCG Software Stack (TSS) v1.1 implementation
 app-crypt/ubuntu-keyring 2020.02.11.2 2020.06.17.1 2021.03.26: GnuPG archive keys of the Ubuntu archive
 app-crypt/veracrypt 1.24_p8: Disk encryption with strong security based on TrueCrypt
-app-crypt/xca 2.1.2 2.1.2-r1 2.3.0: A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
+app-crypt/xca 2.1.2-r2 2.1.2-r3 2.3.0-r1: A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
 app-crypt/xor-analyze 0.5-r1: program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubikey-manager 3.1.2 4.0.0: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.1.5 1.2.2: Cross-platform application for configuring any YubiKey over all USB transports
@@ -2731,7 +2731,7 @@ app-misc/jot 9.0-r1: Print out increasing, decreasing, random, or redundant data
 app-misc/joy2key 1.6.3-r1: An application that translates joystick events to keyboard events
 app-misc/joymouse 0.5-r1: An application that translates joystick events to mouse events
 app-misc/jp 0.1.3.7: Command line interface to JMESPath
-app-misc/jpipe 0.1.3.4: A python implementation of the jp CLI for JMESPath
+app-misc/jpipe 0.1.3.7: A python implementation of the jp CLI for JMESPath
 app-misc/jq 1.6-r3 1.7_pre20201109: A lightweight and flexible command-line JSON processor
 app-misc/kanatest 0.4.8: Visual flashcard tool for memorizing the Japanese Hiragana and Katakana alphabet
 app-misc/khal 0.10.1-r1 0.10.2: A CalDAV based calendar
@@ -3816,7 +3816,7 @@ dev-db/pg_top 4.0.0-r1: 'top' for PostgreSQL
 dev-db/pgadmin4 4.29-r1 4.30-r1: GUI administration and development platform for PostgreSQL
 dev-db/pgagent 4.0.0-r1: pgAgent is a job scheduler for PostgreSQL
 dev-db/pgbadger 11.0 11.3 11.4 11.5: pgBadger is a PostgreSQL log analyzer.
-dev-db/pgbouncer 1.15.0: Lightweight connection pooler for PostgreSQL
+dev-db/pgbouncer 1.15.0-r1: Lightweight connection pooler for PostgreSQL
 dev-db/pgcli 3.1.0: CLI for Postgres with auto-completion and syntax highlighting
 dev-db/pgmemcache 2.3.0: A PostgreSQL API based on libmemcached to interface with memcached
 dev-db/pgmodeler 0.9.2: PostgreSQL Database Modeler
@@ -5410,7 +5410,7 @@ dev-libs/bitset 2.8.4-r1: A compressed bitset with supporting data structures an
 dev-libs/boehm-gc 8.0.4: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.75.0 1.76.0-r1: Boost Libraries for C++
 dev-libs/boost-mpl-cartesian_product 20161205: an extension to the Boost.MPL library
-dev-libs/botan 2.17.3 2.18.1: C++ crypto library
+dev-libs/botan 2.17.3-r1 2.18.1-r1: C++ crypto library
 dev-libs/boxfort 0.0.1_pre20200902 0.0.1_pre20200902-r1: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.0: Blocking, shuffling and lossless compression library
@@ -5666,7 +5666,7 @@ dev-libs/liboil 0.3.17-r3: Library of simple functions that are optimized for va
 dev-libs/liborcus 0.16.1 9999: Standalone file import filter library for spreadsheet documents
 dev-libs/libotf 0.9.16: Library for handling OpenType fonts (OTF)
 dev-libs/libowfat 0.31-r1 0.32-r1 0.32-r2: reimplement libdjb - excellent libraries from Dan Bernstein
-dev-libs/libp11 0.4.10 0.4.11: Abstraction layer to simplify PKCS#11 API
+dev-libs/libp11 0.4.10-r1 0.4.11-r1: Abstraction layer to simplify PKCS#11 API
 dev-libs/libparserutils 0.2.4-r3: C library for building efficient parsers
 dev-libs/libpcre 8.44 8.45: Perl-compatible regular expression library
 dev-libs/libpcre-debian 8-r2: libpcre(posix).so.3 symlinks for compatibility with Debian
@@ -5804,7 +5804,7 @@ dev-libs/pcc-libs 1.1.0 9999: pcc compiler support libs
 dev-libs/pcl 1.12-r1: Portable Coroutine Library
 dev-libs/pegtl 2.8.3-r1 3.2.0: Header-only library for creating parsers according to Parsing Expression Grammar
 dev-libs/pigpio 79: A library for the Raspberry which allows control of the GPIOs
-dev-libs/pkcs11-helper 1.25.1: PKCS#11 helper library
+dev-libs/pkcs11-helper 1.25.1-r1: PKCS#11 helper library
 dev-libs/plasma-wayland-protocols 1.3.0: Plasma Specific Protocols for Wayland
 dev-libs/pmdk 1.9.2: Persistent Memory Development Kit
 dev-libs/poco 1.9.0-r2 1.10.1: C++ libraries for building network-based applications
@@ -5855,7 +5855,7 @@ dev-libs/sink 0.8.0-r2: Data access layer handling synchronization, caching and 
 dev-libs/skalibs 2.3.2.0 2.6.1.0 2.6.3.0 2.6.4.0 2.7.0.0 2.8.1.0 2.9.1.0 2.9.3.0: General-purpose libraries from skarnet.org
 dev-libs/smack 0.5.0: low-level IO storage which packs data into sorted compressed blobs
 dev-libs/snowball-stemmer 0.20140325: All you need to include the snowball stemming algorithms into a C project
-dev-libs/softhsm 2.6.1: A software PKCS#11 implementation
+dev-libs/softhsm 2.6.1-r1: A software PKCS#11 implementation
 dev-libs/sord 0.16.8-r1 9999: Library for storing RDF data in memory
 dev-libs/spdlog 1.8.2 1.8.5 9999: Very fast, header only, C++ logging library
 dev-libs/spsdeclib 5.1-r1: Kryoflux SPS Decoder Library
@@ -5940,7 +5940,7 @@ dev-lua/lpeg 1.0.2-r101: Parsing Expression Grammars for Lua
 dev-lua/lua-argparse 0.7.1: Feature-rich command line parser for Lua
 dev-lua/lua-bit32 5.3.5.1: Backported Lua bit manipulation library
 dev-lua/lua-cjson 2.1.0.8-r100: A fast JSON encoding/parsing module for Lua
-dev-lua/lua-openssl 0.8.0_p6: OpenSSL binding for Lua
+dev-lua/lua-openssl 0.8.0_p6-r1: OpenSSL binding for Lua
 dev-lua/lua-term 0.7-r101: Terminal operations for Lua
 dev-lua/lua-utf8 0.1.3-r100: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r100: Simple streaming interface to zlib for Lua
@@ -5953,7 +5953,7 @@ dev-lua/luaexpat 1.3.0-r103: LuaExpat is a SAX XML parser based on the Expat lib
 dev-lua/luafilesystem 1.8.0-r101: File System Library for the Lua programming language
 dev-lua/luajson 1.3.4-r100: JSON Parser/Constructor for Lua
 dev-lua/lualdap 1.2.6: A lua binding for the OpenLDAP client libraries
-dev-lua/luaossl 20200709-r100: Most comprehensive OpenSSL module in the Lua universe
+dev-lua/luaossl 20200709-r101: Most comprehensive OpenSSL module in the Lua universe
 dev-lua/luaposix 35.0-r102: Bindings for POSIX APIs
 dev-lua/luarocks 3.7.0: A package manager for the Lua programming language
 dev-lua/luasec 1.0.1: Lua binding for OpenSSL library to provide TLS/SSL communication
@@ -8469,7 +8469,7 @@ dev-python/graph-tool 2.35-r1 9999: An efficient python module for manipulation 
 dev-python/graphviz 0.16: Simple Python interface for Graphviz
 dev-python/greenlet 1.0.0 1.1.0: Lightweight in-process concurrent programming
 dev-python/greenstalk 1.0.1: A Python 3 client for the beanstalkd work queue
-dev-python/grpcio 1.37.1 1.38.0: High-performance RPC framework (python libraries)
+dev-python/grpcio 1.37.1-r1 1.38.0-r1: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.37.1 1.38.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.37.1 1.38.0: Protobuf code generator for gRPC
 dev-python/gsd 2.4.1 2.4.2: GSD - file format specification and a library to read and write it
@@ -9608,7 +9608,7 @@ dev-qt/qtimageformats 5.15.2: Additional format plugins for the Qt image I/O sys
 dev-qt/qtlocation 5.15.2-r1: Location (places, maps, navigation) library for the Qt5 framework
 dev-qt/qtlockedfile 2.4.1_p20171024: QFile extension with advisory locking functions
 dev-qt/qtmultimedia 5.15.2: Multimedia (audio, video, radio, camera) library for the Qt5 framework
-dev-qt/qtnetwork 5.15.2-r1: Network abstraction library for the Qt5 framework
+dev-qt/qtnetwork 5.15.2-r2: Network abstraction library for the Qt5 framework
 dev-qt/qtnetworkauth 5.15.2: Network authorization library for the Qt5 framework
 dev-qt/qtopengl 5.15.2: OpenGL support library for the Qt5 framework (deprecated)
 dev-qt/qtpaths 5.15.2: Command line client to QStandardPaths
@@ -12716,7 +12716,7 @@ mail-filter/procmail 3.22-r15: Mail delivery agent/filter
 mail-filter/pyzor 1.0.0_p20200523: A distributed, collaborative spam detection and filtering network
 mail-filter/razor 2.85-r3: Distributed, collaborative spam detection and filtering network
 mail-filter/rblcheck 1.5-r2: Perform lookups in RBL-styles services
-mail-filter/rspamd 2.6-r100 2.7-r100 9999: Rapid spam filtering system
+mail-filter/rspamd 2.6-r101 2.7-r101 9999: Rapid spam filtering system
 mail-filter/scmail 1.3: a mail filter written in Scheme
 mail-filter/sieve-connect 0.90: Sieve Command Line Interface
 mail-filter/sigh 1607.1.6-r1: S/MIME signing milter
@@ -14629,7 +14629,7 @@ net-analyzer/pbnj 2.04-r1: A tool for running Nmap scans and diff'ing the result
 net-analyzer/pinger 0.33: Cyclic multi ping utility for selected adresses using GTK/ncurses
 net-analyzer/pktstat 1.8.5-r1: A network monitoring tool with bandwidth tracking
 net-analyzer/pmacct 1.7.6 1.7.6-r1 999999: A network tool to gather IP traffic information
-net-analyzer/pnp4nagios 0.6.26-r9: A performance data analyzer for nagios
+net-analyzer/pnp4nagios 0.6.26-r10: A performance data analyzer for nagios
 net-analyzer/poink 2.03: TCP/IP-based ping implementation
 net-analyzer/portmon 2.0-r1: Portmon is a network service monitoring daemon
 net-analyzer/portsentry 1.2-r1: Automated port scan detector and response tool
@@ -14714,7 +14714,7 @@ net-analyzer/wireshark 3.4.5 3.4.6 9999: A network protocol analyzer formerly kn
 net-analyzer/xnetload 1.11.3-r1: Displays a count and a graph of the traffic over a specified network connection
 net-analyzer/xprobe 0.3-r1: Active OS fingerprinting tool - this is Xprobe2
 net-analyzer/yersinia 0.8.2 9999: A framework for layer 2 attacks
-net-analyzer/zabbix 4.0.30 4.0.31 5.0.8 5.0.10 5.0.11 5.0.12 5.2.4 5.2.6 5.4.0 5.4.1: ZABBIX is software for monitoring of your applications, network and servers
+net-analyzer/zabbix 4.0.30-r1 4.0.31-r1 5.0.8-r1 5.0.10-r1 5.0.11-r1 5.0.12-r1 5.2.4-r1 5.2.6-r1 5.4.0-r1 5.4.1-r1: ZABBIX is software for monitoring of your applications, network and servers
 net-analyzer/zmap 2.1.1-r2 9999: Fast network scanner designed for Internet-wide network surveys
 net-analyzer/zniper 1.0-r1: Displays and kill active TCP connections seen by the selected interface
 net-dialup/accel-ppp 1.12.0_p20210430 9999: High performance PPTP, PPPoE and L2TP server
@@ -14723,7 +14723,7 @@ net-dialup/cutecom 0.51.0-r1: A serial terminal, like minicom, written in Qt
 net-dialup/dial 1.2-r2: A simple client for DWUN
 net-dialup/dwun 0.96e-r4: Dialer Without a Useful Name (DWUN)
 net-dialup/fbgetty 0.1.698-r1: An extended getty for the framebuffer console
-net-dialup/freeradius 3.0.20-r1 3.0.21-r1 3.0.22: Highly configurable free RADIUS server
+net-dialup/freeradius 3.0.20-r2 3.0.21-r2 3.0.22-r1: Highly configurable free RADIUS server
 net-dialup/freeradius-client 1.1.7-r1: FreeRADIUS Client framework
 net-dialup/isdn-firmware 2005.8.15.2: ISDN firmware for active ISDN cards (AVM, Eicon, etc.)
 net-dialup/kpnadsl4linux 1.11: ADSL4Linux, a PPTP start/stop/etc. program especially for Dutch users
@@ -14751,7 +14751,7 @@ net-dialup/wvdial 1.61: Excellent program to automatically configure PPP session
 net-dialup/xc 4.3.2-r4: Modem dialout & serial terminal program
 net-dialup/xl2tpd 1.3.15 1.3.16: A modern version of the Layer 2 Tunneling Protocol (L2TP) daemon
 net-dns/avahi 0.8-r4: System which facilitates service discovery on a local network
-net-dns/bind 9.16.15: Berkeley Internet Name Domain - Name Server
+net-dns/bind 9.16.15-r1: Berkeley Internet Name Domain - Name Server
 net-dns/bind-tools 9.16.15: bind tools: dig, nslookup, host, nsupdate, dnssec-keygen
 net-dns/c-ares 1.17.1: C library that resolves names asynchronously
 net-dns/coredns 1.6.9 1.7.0 1.8.3: A DNS server that chains middleware
@@ -14797,7 +14797,7 @@ net-dns/resolv_wrapper 1.1.7: Wrapper for DNS name resolving or DNS faking
 net-dns/resolvconf-symlink 0: Make /etc/resolv.conf a symlink to a runtime-writable location
 net-dns/s6-dns 2.2.0.1 2.3.0.0 2.3.0.1 2.3.0.2 2.3.1.1 2.3.3.0: Suite of DNS client programs and libraries for Unix systems
 net-dns/totd 1.5.1: Trick Or Treat Daemon, a DNS proxy for 6to4
-net-dns/unbound 1.13.0 1.13.0-r1 1.13.1: A validating, recursive and caching DNS resolver
+net-dns/unbound 1.13.0-r2 1.13.0-r3 1.13.1-r1: A validating, recursive and caching DNS resolver
 net-dns/updatedd 2.6-r5 2.6-r6: Dynamic DNS client with plugins for several dynamic dns services
 net-dns/valtz 0.8: Validation tool for tinydns-data zone files
 net-firewall/arno-iptables-firewall 2.1.1: Arno's iptables firewall script
@@ -14861,7 +14861,7 @@ net-ftp/linksys-tftp 1.2.1-r3: TFTP client suitable for uploading to the Linksys
 net-ftp/ncftp 3.2.6-r2: An extremely configurable ftp client
 net-ftp/proftpd 1.3.7a-r1 1.3.7b 1.3.8_rc1: An advanced and very configurable FTP server
 net-ftp/profxp 3_pre2-r2: FXP (server-to-server FTP) commandline client written in Perl
-net-ftp/pure-ftpd 1.0.49-r2 9999: Fast, production-quality, standard-conformant FTP server
+net-ftp/pure-ftpd 1.0.49-r3 9999: Fast, production-quality, standard-conformant FTP server
 net-ftp/pureadmin 0.4-r2: GUI tool used to make the management of Pure-FTPd a little easier
 net-ftp/tftp-hpa 5.2-r2: Port of the OpenBSD TFTP server
 net-ftp/tnftp 20141104 20151004: NetBSD FTP client with several advanced features
@@ -15007,7 +15007,7 @@ net-libs/gnet 2.0.8-r3: A simple network library
 net-libs/gnome-online-accounts 3.40.0: GNOME framework for accessing online accounts
 net-libs/gnutls 3.7.1 3.7.2: A secure communications library implementing the SSL, TLS and DTLS protocols
 net-libs/google-cloud-cpp 0.2.0-r1 0.5.0 0.9.0 0.10.0 0.10.0-r1: Google Cloud Client Library for C++
-net-libs/grpc 1.28.1-r1 1.32.0 1.37.1-r1 1.38.0: Modern open source high performance RPC framework
+net-libs/grpc 1.28.1-r2 1.32.0-r1 1.37.1-r2 1.38.0-r1: Modern open source high performance RPC framework
 net-libs/gsnmp 0.3.0: An SNMP library based on glib and gnet
 net-libs/gsoap 2.8.106 2.8.114: A cross-platform open source C and C++ SDK for SOAP/XML Web services
 net-libs/gssdp 1.0.3 1.2.2 1.2.3: GObject-based API for handling resource discovery and announcement over SSDP
@@ -15024,7 +15024,7 @@ net-libs/kdav2 0.3.0: KJob based DAV protocol implementation
 net-libs/kdsoap 1.10.0: Qt-based client-side and server-side SOAP component
 net-libs/kdsoap-ws-discovery-client 0.2_pre20200927: WS-Discovery client library based on KDSoap
 net-libs/kimap2 0.3.0: Library for interacting with IMAP servers - successor of kimap
-net-libs/ldns 1.7.1-r1 1.7.1-r2: a library with the aim to simplify DNS programming in C
+net-libs/ldns 1.7.1-r3 1.7.1-r4: a library with the aim to simplify DNS programming in C
 net-libs/libaccounts-glib 1.25-r2: Accounts SSO (Single Sign-On) management library for GLib applications
 net-libs/libad9361-iio 0.2 9999: IIO AD9361 library for filter design and handling, multi-chip sync, etc.
 net-libs/libasr 1.0.4: Async Resolver Library from OpenBSD/OpenSMTPD
@@ -15134,7 +15134,7 @@ net-libs/nativebiginteger 0.9.47 0.9.48: jbigi library used by net-vpn/i2p
 net-libs/neon 0.30.2 0.31.0 0.31.1 0.31.2: HTTP and WebDAV client library
 net-libs/net6 1.3.14-r2: Network access framework for IPv4/IPv6 written in C++
 net-libs/netwib 5.39.0: Library of Ethernet, IP, UDP, TCP, ICMP, ARP and RARP protocols
-net-libs/nghttp2 1.41.0 1.42.0 1.43.0 9999: HTTP/2 C Library
+net-libs/nghttp2 1.41.0-r1 1.42.0-r1 1.43.0-r1 9999: HTTP/2 C Library
 net-libs/nghttp3 0_pre20190912 9999: HTTP/3 library written in C
 net-libs/ngtcp2 0_pre20190912 9999: Implementation of the IETF QUIC Protocol
 net-libs/nodejs 12.22.1 12.22.1-r1 14.16.1 14.17.0 16.3.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
@@ -15189,7 +15189,7 @@ net-mail/checkpassword-pam 0.99-r1: checkpassword-compatible authentication prog
 net-mail/cmd5checkpw 0.30-r2 0.30-r3: A checkpassword compatible authentication program that used CRAM-MD5 authentication mode
 net-mail/courier-imap 4.18.2 5.1.2 5.1.3: An IMAP daemon designed specifically for maildirs
 net-mail/courierpassd 1.1.2-r1: Courierpassd is a utility for changing a user's password from across a network
-net-mail/cyrus-imapd 3.0.13 3.0.14 3.0.15 3.4.1: The Cyrus IMAP Server
+net-mail/cyrus-imapd 3.0.13-r1 3.0.14-r1 3.0.15-r1 3.4.1-r1: The Cyrus IMAP Server
 net-mail/dbmail 3.2.3-r3 3.2.5: Fast and scalable sql based email services
 net-mail/django-mailman3 1.3.4: Django-based interfaces interacting with Mailman 3
 net-mail/dot-forward 0.71-r4: reads sendmail's .forward files under qmail
@@ -15323,7 +15323,7 @@ net-misc/connman-notify 0_pre20191003-r2: Desktop notification integration for c
 net-misc/connman-ui 0_p20150622 9999: A full-featured GTK based trayicon UI for ConnMan
 net-misc/croc 9.1.5 9.1.6: Easily and securely send things from one computer to another
 net-misc/csync 0.50.0-r1: lightweight file synchronizer utility
-net-misc/curl 7.77.0: A Client that groks URLs
+net-misc/curl 7.77.0-r1: A Client that groks URLs
 net-misc/dahdi 3.1.0-r2 3.1.0-r3: Kernel modules for Digium compatible hardware (formerly known as Zaptel)
 net-misc/dahdi-tools 3.1.0 3.1.0-r1: Userspace tools to configure the kernel modules from net-misc/dahdi
 net-misc/datapipe 1.0-r2: bind a local port and connect it to a remote socket
@@ -15473,7 +15473,7 @@ net-misc/omniORB 4.2.2 4.2.4: A robust, high-performance CORBA 2 ORB
 net-misc/omnisync 1.0_p20200130: A driver for NTPd for people who are firewall-challenged
 net-misc/openntpd 6.2_p3-r2 6.8_p1 6.8_p1-r1: Lightweight NTP server ported from OpenBSD
 net-misc/openr2 1.3.0: An open implementation of the MFC/R2 telephony signaling protocol
-net-misc/openssh 8.5_p1-r1 8.6_p1-r1: Port of OpenBSD's free SSH release
+net-misc/openssh 8.5_p1-r2 8.6_p1-r2: Port of OpenBSD's free SSH release
 net-misc/openvswitch 2.14.1 2.15.0: Production quality, multilayer virtual switch
 net-misc/owncloud-client 2.7.6.3261 2.8.2.4246: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 2.1: Packet generator tool for ethernet
@@ -15572,7 +15572,7 @@ net-misc/ubridge 0.9.18: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfa
 net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redundancy Protocol (CARP)
 net-misc/udpcast 20200328: Multicast file transfer tool
 net-misc/udpxy 1.0.23.7-r2: Small daemon to relay multicast UDP traffic to client's TCP (HTTP) connection
-net-misc/uftp 4.10.1 5.0: Encrypted UDP based FTP with multicast
+net-misc/uftp 4.10.1-r1 5.0-r1: Encrypted UDP based FTP with multicast
 net-misc/unison 2.51.3_p20201127 2.51.4_rc2: Two-way cross-platform file synchronizer
 net-misc/unix2tcp 0.8.2-r1: a connection forwarder that converts Unix sockets into TCP sockets
 net-misc/usbip 4.13-r1: Userspace utilities for a general USB device sharing system over IP networks
@@ -15633,12 +15633,12 @@ net-news/yydecode 0.2.10-r1: A decoder for yENC format, popular on Usenet
 net-nntp/brag 1.4.3: Brag collects and assembles multipart binary attachments from newsgroups
 net-nntp/leafnode 1.11.11: A USENET software package designed for small sites
 net-nntp/newspost 2.1.1-r3: A usenet binary autoposter for unix
-net-nntp/nzbget 21.0-r1 21.1: A command-line based binary newsgrabber supporting .nzb files
+net-nntp/nzbget 21.0-r2 21.1-r1: A command-line based binary newsgrabber supporting .nzb files
 net-nntp/sabnzbd 3.2.1 3.3.0: Binary newsgrabber with web-interface
 net-nntp/slrn 1.0.3: A s-lang based newsreader
 net-nntp/suck 4.3.3-r1 4.3.4: Grab news from a remote NNTP server and feed them to another
 net-nntp/tin 2.4.5: A threaded NNTP and spool based UseNet newsreader
-net-p2p/airdcpp-webclient 2.10.1 2.11.0: Cross-platform Direct Connect client
+net-p2p/airdcpp-webclient 2.10.1-r1 2.11.0-r1: Cross-platform Direct Connect client
 net-p2p/amule 2.3.2-r5 2.3.3 9999: aMule, the all-platform eMule p2p client
 net-p2p/automatic 0.8.3 0.8.3-r1: RSS downloader for Tranmission
 net-p2p/bitcoin-cli 0.20.1 0.21.0: Command-line JSON-RPC client specifically for interfacing with bitcoind
@@ -15663,7 +15663,7 @@ net-p2p/go-ipfs-bin 0.4.22 0.7.0: Main implementation of IPFS
 net-p2p/gtk-gnutella 1.2.0-r1: A GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b: A GTK2-based viewer and editor for BitTorrent meta files
 net-p2p/ktorrent 20.12.3 21.04.2: Powerful BitTorrent client based on KDE Frameworks
-net-p2p/litecoind 0.10.4.0-r1: The offical daemon to run your own (full) Litecoin node
+net-p2p/litecoind 0.10.4.0-r2: The offical daemon to run your own (full) Litecoin node
 net-p2p/mktorrent 1.1_p20180912: Simple command line utility to create BitTorrent metainfo files
 net-p2p/mldonkey 3.1.7-r2: Multi-network P2P application written in Ocaml, with Gtk, web & telnet interface
 net-p2p/ncdc 1.22.1 9999: ncurses directconnect client
@@ -15752,9 +15752,9 @@ net-proxy/wwwoffle 2.9i-r2: Web caching proxy suitable for non-permanent Interne
 net-proxy/ziproxy 3.3.1-r2: A forwarding, non-caching, compressing web proxy server
 net-voip/captagent 6.3.1: 100% Open-Source Packet Capture Agent for HEP
 net-voip/sipvicious 0.3.0 0.3.3: SIPVicious is a SIP security package
-net-voip/telepathy-gabble 0.18.4-r2: A XMPP connection manager, handles single and multi user chats and voice calls
+net-voip/telepathy-gabble 0.18.4-r3: A XMPP connection manager, handles single and multi user chats and voice calls
 net-voip/telepathy-rakia 0.8.0-r1: A SIP connection manager for Telepathy based around the Sofia-SIP library
-net-voip/telepathy-salut 0.8.1-r3: A link-local XMPP connection manager for Telepathy
+net-voip/telepathy-salut 0.8.1-r4: A link-local XMPP connection manager for Telepathy
 net-voip/yate 6.2.0 9999: The Yate AV Suite
 net-vpn/6tunnel 0.13: TCP proxy for applications that don't speak IPv6
 net-vpn/badvpn 1.999.127 1.999.129 1.999.130: Peer-to-peer VPN, NCD scripting language, tun2socks proxifier
@@ -15763,7 +15763,7 @@ net-vpn/fp-multiuser 0.0.2: A frp server plugin to support multiple users for fr
 net-vpn/frp 0.36.0 0.36.2: A reverse proxy that exposes a server behind a NAT or firewall to the internet
 net-vpn/httptunnel 3.3_p20180119: httptunnel can create IP tunnels through firewalls/proxies using HTTP
 net-vpn/i2p 0.9.48: A privacy-centric, anonymous network
-net-vpn/i2pd 2.38.0-r1: A C++ daemon for accessing the I2P anonymous network
+net-vpn/i2pd 2.38.0-r2: A C++ daemon for accessing the I2P anonymous network
 net-vpn/iodine 0.7.0-r2: IP over DNS tunnel
 net-vpn/ipsec-tools 0.8.2-r6: A port of KAME's IPsec utilities to the Linux-2.6 IPsec implementation
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
@@ -15787,10 +15787,10 @@ net-vpn/openvpn 2.5.2 9999: Robust and highly flexible tunneling application com
 net-vpn/pptpd 1.4.0-r3: Linux Point-to-Point Tunnelling Protocol Server
 net-vpn/protonvpn-cli 2.2.6: A VPN command-line tool from protonvpn - python rewrite
 net-vpn/riseup-vpn 0.21.2_p20210517: Anonymous encrypted VPN client powered by Bitmask
-net-vpn/strongswan 5.9.0 5.9.1 5.9.2: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
+net-vpn/strongswan 5.9.2-r1: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.2.10-r1 1.4.0 1.4.1 1.4.5: Tailscale vpn client
 net-vpn/tinc 1.0.35-r2 1.0.36 1.1_pre17-r1: tinc is an easy to configure VPN implementation
-net-vpn/tor 0.4.4.9 0.4.5.7 0.4.5.9 0.4.6.5: Anonymizing overlay network for TCP
+net-vpn/tor 0.4.4.9-r1 0.4.5.7-r1 0.4.5.9-r1 0.4.6.5-r1: Anonymizing overlay network for TCP
 net-vpn/vpnc 0.5.3_p550-r2: Free client for Cisco VPN routing software
 net-vpn/vpncwatch 1.8.1: Keepalive daemon for vpnc on Linux systems
 net-vpn/vtun 3.0.3-r2: Create tunnels over TCP/IP networks with shaping, encryption, and compression
@@ -15832,7 +15832,7 @@ net-wireless/hackrf-tools 2021.03.1 9999: tools for communicating with HackRF SD
 net-wireless/hidclient 20120728: Use your machine as a bluetooh keyboard/mouse
 net-wireless/horst 5.1 9999: Small 802.11 wireless LAN analyzer
 net-wireless/hostap-utils 0.4.7-r1: Utilities for Intersil Prism2/2.5/3 based IEEE 802.11b wireless LAN products
-net-wireless/hostapd 2.9-r3 2.9-r4 9999: IEEE 802.11 wireless LAN Host AP daemon
+net-wireless/hostapd 2.9-r5 2.9-r6 9999: IEEE 802.11 wireless LAN Host AP daemon
 net-wireless/inspectrum 0.2.3 9999: Tool for analysing captured signals from software-defined radio receivers
 net-wireless/iw 5.9: nl80211 configuration utility for wireless devices using the mac80211 stack
 net-wireless/iwd 1.14 1.15 9999: Wireless daemon for linux
@@ -15891,7 +15891,7 @@ net-wireless/wepattack 0.1.3-r5: WLAN tool for breaking 802.11 WEP keys
 net-wireless/wepdecrypt 0.8-r2: Enhanced version of WepAttack a tool for breaking 802.11 WEP keys
 net-wireless/wireless-regdb 20201120 20210421: Binary regulatory database for CRDA
 net-wireless/wireless-tools 30_pre9-r1: A collection of tools to configure IEEE 802.11 wireless LAN cards
-net-wireless/wpa_supplicant 2.9-r2 2.9-r3 9999: IEEE 802.1X/WPA supplicant for secure wireless transfers
+net-wireless/wpa_supplicant 2.9-r4 2.9-r5 9999: IEEE 802.1X/WPA supplicant for secure wireless transfers
 net-wireless/yatebts 6.0.0-r1 9999: The Yate GSM base station
 perl-core/Archive-Tar 2.300.0: A Perl module for creation and manipulation of tar files
 perl-core/CPAN-Meta 2.150.1: The distribution metadata for a CPAN dist
@@ -17295,7 +17295,7 @@ sys-apps/toybox 0.8.4 0.8.5 9999: Common linux commands in a multicall binary
 sys-apps/tuned 2.15.0-r1: Daemon for monitoring and adaptive tuning of system devices
 sys-apps/uam 0.3.2-r1 9999: Simple udev-based automounter for removable USB media
 sys-apps/ucspi-proxy 1.1: Proxy program for two connections set up by a UCSPI server and a UCSPI client
-sys-apps/ucspi-ssl 0.99e: Command-line tools for building SSL client-server applications
+sys-apps/ucspi-ssl 0.99e-r1: Command-line tools for building SSL client-server applications
 sys-apps/ucspi-tcp 0.88-r18: Collection of tools for managing UNIX services
 sys-apps/ucspi-unix 1.0: A UCSPI implementation for Unix domain sockets
 sys-apps/udevil 0.4.4-r4: mount and unmount removable devices without a password
@@ -17376,7 +17376,7 @@ sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykneo-ccid-tools 0.0.0: Tools for Yubico's YubiKey NEO in CCID mode
 sys-auth/ykpers 1.20.0: Library and tool for personalization of Yubico's YubiKey
-sys-auth/yubico-piv-tool 2.2.0: Command-line tool and p11-kit module for the YubiKey PIV application
+sys-auth/yubico-piv-tool 2.2.0-r1: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-auth/yubikey-personalization-gui 3.1.25: GUI for personalization of Yubico's YubiKey
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
 sys-block/arcconf 2.01.22270-r1 3.04.23731: Microsemi Adaptec RAID Controller Command Line Utility
@@ -17470,7 +17470,7 @@ sys-boot/shim 15.5-r1: Fedora's signed UEFI shim
 sys-boot/silo 1.4.14_p20200602: SPARC/UltraSPARC Improved Loader, a boot loader for sparc
 sys-boot/syslinux 6.04_pre1-r2: SYSLINUX, PXELINUX, ISOLINUX, EXTLINUX and MEMDISK bootloaders
 sys-boot/systemd-boot 245: UEFI boot manager from systemd (formerly gummiboot)
-sys-boot/tboot 1.9.11: Performs a measured and verified boot using Intel Trusted Execution Technology
+sys-boot/tboot 1.9.11-r1: Performs a measured and verified boot using Intel Trusted Execution Technology
 sys-boot/unetbootin 700: UNetbootin installs Linux/BSD distributions to a partition or USB drive
 sys-boot/vboot-utils 72_p20181229-r1 80_p20200108: Chrome OS verified boot tools
 sys-boot/woeusb 3.3.1: Creates windows installer on usb media from an iso image
@@ -17492,9 +17492,9 @@ sys-cluster/drbd-utils 9.15.1-r1: mirror/replicate block-devices across a networ
 sys-cluster/fake 1.1.10: Switch in backup servers on a LAN
 sys-cluster/galera 25.3.28-r1 25.3.32 26.4.6 26.4.7 26.4.8: Synchronous multi-master replication engine that provides the wsrep API
 sys-cluster/ganglia 3.7.1-r2: A scalable distributed monitoring system for clusters and grids
-sys-cluster/ganglia-web 3.7.3-r1: Web frontend for sys-cluster/ganglia
+sys-cluster/ganglia-web 3.7.3-r2: Web frontend for sys-cluster/ganglia
 sys-cluster/gasnet 1.26.4 1.26.4-r1 1.28.0 1.28.2 1.30.0: Networking middleware for partitioned global address space (PGAS) language
-sys-cluster/glusterfs 7.9 8.3 8.4 8.5 9.1 9.2: GlusterFS is a powerful network/cluster filesystem
+sys-cluster/glusterfs 7.9-r1 8.3-r1 8.4-r1 8.5-r1 9.1-r1 9.2-r1: GlusterFS is a powerful network/cluster filesystem
 sys-cluster/gmqtt 0.3.0 0.3.1: MQTT broker library with cluster support that implements MQTT V5.0 and V3.1.1
 sys-cluster/heat 15.0.0 2020.2.9999: A CloudFormation-compatible openstack-native cloud orchestration engine.
 sys-cluster/hpl 2.0-r4 2.3: Portable Implementation of the Linpack Benchmark for Distributed-Memory Clusters
@@ -18233,8 +18233,8 @@ www-apps/liquid_feedback_core 2.2.6 3.0.4 3.2.2: Internet platforms for proposit
 www-apps/liquid_feedback_frontend 3.2.1: Internet platforms for proposition development and decision making
 www-apps/mediawiki 1.35.2 1.36.0: The MediaWiki wiki web application (as used on wikipedia.org)
 www-apps/mirmon 2.11-r2: Simple webapp to monitor the status of mirrors
-www-apps/moodle 3.5.18 3.8.9 3.9.6 3.10.3 3.11: The Moodle Course Management System
-www-apps/mythweb 0.28.1: PHP scripts intended to manage MythTV from a web browser
+www-apps/moodle 3.5.18-r1 3.8.9-r1 3.9.6-r1 3.10.3-r1 3.11-r1: The Moodle Course Management System
+www-apps/mythweb 0.28.1-r1: PHP scripts intended to manage MythTV from a web browser
 www-apps/nanoblogger 3.5_rc1-r1: Small and simple weblog engine written in Bash for the command-line
 www-apps/nanoc 4.11.10 4.11.11 4.11.12: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-core 4.11.10 4.11.11 4.11.12: nanoc is a simple but very flexible static site generator written in Ruby
@@ -18242,10 +18242,10 @@ www-apps/nextcloud 19.0.10 19.0.12 20.0.8 20.0.9 20.0.10 21.0.1 21.0.2: Personal
 www-apps/nextcloud-notify_push 0.1.7: Push daemon for Nextcloud clients
 www-apps/nikola 8.1.3: A static website and blog generator
 www-apps/novnc 1.2.0 9999: noVNC is a VNC client implemented using HTML5 technologies
-www-apps/owncloud 10.7.0: Web-based storage application where all your data is under your own control
+www-apps/owncloud 10.7.0-r1: Web-based storage application where all your data is under your own control
 www-apps/phpBB 3.3.4: An open-source PHP-based bulletin board package
 www-apps/phpsysinfo 3.3.2: A customizable PHP script that displays information about your system nicely
-www-apps/piwigo 11.5.0: a photo gallery software for the web
+www-apps/piwigo 11.5.0-r1: a photo gallery software for the web
 www-apps/postfixadmin 3.3.9: Web Based Management tool for Postfix style virtual domains and users
 www-apps/prewikka 5.2.0: Graphical front-end analysis console for the Prelude Framework
 www-apps/radicale 2.1.12 3.0.6-r3: A simple CalDAV calendar server
