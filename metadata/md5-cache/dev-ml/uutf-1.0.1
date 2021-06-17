@@ -7,10 +7,10 @@ INHERIT=findlib
 IUSE=doc utftrip +ocamlopt test
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=ISC
-RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= )
+RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-lang/ocaml:=[ocamlopt?]
 REQUIRED_USE=utftrip? ( ocamlopt )
 RESTRICT=!test? ( test )
 SLOT=0/1.0.1
 SRC_URI=https://erratique.ch/software/uutf/releases/uutf-1.0.1.tbz
-_eclasses_=findlib	197b318e28cee28e11c2b474328b50dd
+_eclasses_=findlib	34a4bb0c0d4e2f20b27aeadab3dc9641
 _md5_=7a9e33489e82758223d4b5bd464662e9

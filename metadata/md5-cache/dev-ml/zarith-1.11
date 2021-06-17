@@ -7,9 +7,9 @@ INHERIT=findlib toolchain-funcs
 IUSE=doc mpir +ocamlopt
 KEYWORDS=amd64 ~arm ~arm64 ppc x86
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] !mpir? ( dev-libs/gmp:0= ) mpir? ( sci-libs/mpir:= )
+RDEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] !mpir? ( dev-libs/gmp:0= ) mpir? ( sci-libs/mpir:= ) dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!ocamlopt? ( test )
 SLOT=0/1.11
 SRC_URI=https://github.com/ocaml/Zarith/archive/release-1.11.tar.gz -> zarith-1.11.tar.gz
-_eclasses_=findlib	197b318e28cee28e11c2b474328b50dd	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
+_eclasses_=findlib	34a4bb0c0d4e2f20b27aeadab3dc9641	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
 _md5_=6655366fb5950ec24ab1af21a7194873

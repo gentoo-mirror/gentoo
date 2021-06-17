@@ -7,9 +7,9 @@ INHERIT=findlib
 IUSE=+fmt cli +lwt test
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=ISC
-RDEPEND=dev-ml/result:=[ocamlopt] dev-lang/ocaml:=[ocamlopt] fmt? ( dev-ml/fmt:= ) cli? ( dev-ml/cmdliner:=[ocamlopt] ) lwt? ( dev-ml/lwt:= )
+RDEPEND=dev-ml/result:=[ocamlopt] dev-lang/ocaml:=[ocamlopt] fmt? ( dev-ml/fmt:= ) cli? ( dev-ml/cmdliner:=[ocamlopt] ) lwt? ( dev-ml/lwt:= ) dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/0.7.0
 SRC_URI=https://erratique.ch/software/logs/releases/logs-0.7.0.tbz
-_eclasses_=findlib	197b318e28cee28e11c2b474328b50dd
+_eclasses_=findlib	34a4bb0c0d4e2f20b27aeadab3dc9641
 _md5_=53ccdf8a3dc9e2760c83e61b09380f76
