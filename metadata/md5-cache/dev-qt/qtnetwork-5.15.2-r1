@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=~dev-qt/qtcore-5.15.2:5= sys-libs/zlib:= connman? ( ~dev-qt/qtdbus-5.15.2 ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( ~dev-qt/qtdbus-5.15.2 ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist=] ) test? ( ~dev-qt/qttest-5.15.2 )
+DEPEND=~dev-qt/qtcore-5.15.2:5= sys-libs/zlib:= connman? ( ~dev-qt/qtdbus-5.15.2 ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( ~dev-qt/qtdbus-5.15.2 ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist(-)=] ) test? ( ~dev-qt/qttest-5.15.2 )
 DESCRIPTION=Network abstraction library for the Qt5 framework
 EAPI=7
 HOMEPAGE=https://www.qt.io/
@@ -8,9 +8,9 @@ INHERIT=qt5-build
 IUSE=bindist connman gssapi libproxy networkmanager sctp +ssl debug test
 KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 ~sparc x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
-RDEPEND=~dev-qt/qtcore-5.15.2:5= sys-libs/zlib:= connman? ( ~dev-qt/qtdbus-5.15.2 ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( ~dev-qt/qtdbus-5.15.2 ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist=] ) connman? ( net-misc/connman ) networkmanager? ( net-misc/networkmanager )
+RDEPEND=~dev-qt/qtcore-5.15.2:5= sys-libs/zlib:= connman? ( ~dev-qt/qtdbus-5.15.2 ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) networkmanager? ( ~dev-qt/qtdbus-5.15.2 ) sctp? ( kernel_linux? ( net-misc/lksctp-tools ) ) ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist(-)=] ) connman? ( net-misc/connman ) networkmanager? ( net-misc/networkmanager )
 RESTRICT=test
 SLOT=5/5.15
 SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.2/submodules/qtbase-everywhere-src-5.15.2.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15.2-gcc11.patch.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	virtualx	0a780e1ab49c75da33a78ede35ab8f9c	qt5-build	38b512e3b15f0eedf687dd90839d1930
-_md5_=28b3cf04d6eafcb5ca09ba46a2f71375
+_md5_=ac95020f9306d6c1b989e407c31307da

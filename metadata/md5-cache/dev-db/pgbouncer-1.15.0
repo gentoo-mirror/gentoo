@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=>=dev-libs/libevent-2.0:= >=sys-libs/glibc-2.10 acct-user/pgbouncer c-ares? ( >=net-dns/c-ares-1.10 ) ssl? ( >=dev-libs/openssl-1.0.1:=[-bindist] ) systemd? ( sys-apps/systemd ) udns? ( >=net-libs/udns-0.1 )
+DEPEND=>=dev-libs/libevent-2.0:= >=sys-libs/glibc-2.10 acct-user/pgbouncer c-ares? ( >=net-dns/c-ares-1.10 ) ssl? ( >=dev-libs/openssl-1.0.1:=[-bindist(-)] ) systemd? ( sys-apps/systemd ) udns? ( >=net-libs/udns-0.1 )
 DESCRIPTION=Lightweight connection pooler for PostgreSQL
 EAPI=7
 HOMEPAGE=https://www.pgbouncer.org/
@@ -8,10 +8,10 @@ INHERIT=systemd
 IUSE=+c-ares debug doc pam ssl systemd udns
 KEYWORDS=amd64 x86
 LICENSE=BSD
-RDEPEND=>=dev-libs/libevent-2.0:= >=sys-libs/glibc-2.10 acct-user/pgbouncer c-ares? ( >=net-dns/c-ares-1.10 ) ssl? ( >=dev-libs/openssl-1.0.1:=[-bindist] ) systemd? ( sys-apps/systemd ) udns? ( >=net-libs/udns-0.1 )
+RDEPEND=>=dev-libs/libevent-2.0:= >=sys-libs/glibc-2.10 acct-user/pgbouncer c-ares? ( >=net-dns/c-ares-1.10 ) ssl? ( >=dev-libs/openssl-1.0.1:=[-bindist(-)] ) systemd? ( sys-apps/systemd ) udns? ( >=net-libs/udns-0.1 )
 REQUIRED_USE=?? ( c-ares udns )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.pgbouncer.org/downloads/files/1.15.0/pgbouncer-1.15.0.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
-_md5_=67b47f7eaa1ee391f9f13699ab97c10f
+_md5_=92adaf8a3857617b66d5369a746e9f7c
