@@ -1,0 +1,14 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup
+DESCRIPTION=A font for better emoji and unicode support
+EAPI=7
+HOMEPAGE=https://www.joypixels.com/
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=JoyPixels
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://cdn.joypixels.com/distributions/gentoo-linux/font/6.5.0/joypixels-android.ttf -> joypixels-6.5.0.ttf
+_eclasses_=font	0667878c2b594871023dd1833d05996f
+_md5_=6e634203a7d4339c1e270805e3a27c0e
