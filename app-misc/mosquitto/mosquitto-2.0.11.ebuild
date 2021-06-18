@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit python-any-r1 systemd toolchain-funcs
 
@@ -12,7 +12,7 @@ SRC_URI="https://mosquitto.org/files/source/${P}.tar.gz"
 
 LICENSE="EPL-1.0"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="bridge examples +persistence +srv ssl tcpd test websockets"
 RESTRICT="!test? ( test )"
 
@@ -21,6 +21,7 @@ REQUIRED_USE="test? ( bridge )"
 RDEPEND="
 	acct-user/mosquitto
 	acct-group/mosquitto
+	dev-libs/cJSON:=
 	srv? ( net-dns/c-ares:= )
 	ssl? (
 		dev-libs/openssl:0=
@@ -71,6 +72,10 @@ src_prepare() {
 	sed -i -e '/02-subscribe-qos1-async2.test/d' \
 		test/lib/Makefile || die
 
+	# Extend test timeout to prevent spurious failures
+	sed -i -e 's/SUB_TIMEOUT=1/SUB_TIMEOUT=3/' \
+		test/client/test.sh || die
+
 	python_setup
 	python_fix_shebang test
 }
@@ -87,10 +92,12 @@ src_install() {
 	_emake DESTDIR="${D}" prefix=/usr install
 	keepdir /var/lib/mosquitto
 	fowners mosquitto:mosquitto /var/lib/mosquitto
-	dodoc readme.md CONTRIBUTING.md ChangeLog.txt
+	dodoc README.md CONTRIBUTING.md ChangeLog.txt
 	doinitd "${FILESDIR}"/mosquitto
 	insinto /etc/mosquitto
 	doins mosquitto.conf
+	insinto /usr/share/mosquitto
+	doins misc/letsencrypt/mosquitto-copy.sh
 	systemd_dounit "${FILESDIR}/mosquitto.service"
 
 	if use examples; then
@@ -100,14 +107,17 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "The Python module has been moved out of mosquitto."
-		elog "See https://mosquitto.org/documentation/python/"
-	else
-		elog "To start the mosquitto daemon at boot, add it to the default runlevel with:"
-		elog ""
-		elog "    rc-update add mosquitto default"
-		elog "or"
-		elog "    systemctl enable mosquitto"
-	fi
+	for v in ${REPLACING_VERSIONS}; do
+		if [[ $(ver_cut 1 "$v") -lt 2 ]]; then
+			elog
+			elog "Please read the migration guide at:"
+			elog "https://mosquitto.org/documentation/migrating-to-2-0/"
+			elog
+			elog "If you use Lets Encrypt TLS certificates, take note of"
+			elog "the changes required to run the daemon as the unprivileged"
+			elog "mosquitto user. The mosquitto-copy.sh script has been"
+			elog "installed to /usr/share/mosquitto/ for your convenience."
+			elog
+		fi
+	done
 }
