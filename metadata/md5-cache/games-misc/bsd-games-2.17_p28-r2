@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig
+DEFINED_PHASES=compile install prepare test
+DEPEND=sys-apps/miscfiles sys-libs/ncurses:0= !app-misc/banner !games-misc/wtf !games-puzzle/hangman
+DESCRIPTION=Collection of games from NetBSD
+EAPI=7
+HOMEPAGE=https://www.polyomino.org.uk/computer/software/bsd-games/
+INHERIT=toolchain-funcs
+KEYWORDS=~alpha ~amd64 ~x86
+LICENSE=BSD
+RDEPEND=sys-apps/miscfiles sys-libs/ncurses:0= !app-misc/banner !games-misc/wtf !games-puzzle/hangman acct-group/gamestat
+SLOT=0
+SRC_URI=http://deb.debian.org/debian/pool/main/b/bsdgames/bsdgames_2.17.orig.tar.gz mirror://debian/pool/main/b/bsdgames/bsdgames_2.17-28.debian.tar.xz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
+_md5_=5d5c00cb1b7d32f45559bef0d08ca781

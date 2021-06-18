@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/extlib:= dev-ml/findlib:= dev-libs/glib:2 sys-libs/libunwind:= sys-libs/ncurses:= test? ( dev-ml/ounit2 ) dev-ml/ocamlbuild dev-lang/perl
+DESCRIPTION=Library to parse, pretty print, and evaluate CUDF documents
+EAPI=7
+HOMEPAGE=http://www.mancoosi.org/cudf/
+INHERIT=toolchain-funcs
+IUSE=+ocamlopt test
+KEYWORDS=amd64 arm arm64 ppc ppc64 x86
+LICENSE=LGPL-3
+RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/extlib:= dev-ml/findlib:= dev-libs/glib:2 sys-libs/libunwind:= sys-libs/ncurses:=
+RESTRICT=!test? ( test )
+SLOT=0/0.9
+SRC_URI=https://gforge.inria.fr/frs/download.php/file/36602/cudf-0.9.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
+_md5_=16db502c54f2df5834e7fdb5e602751a

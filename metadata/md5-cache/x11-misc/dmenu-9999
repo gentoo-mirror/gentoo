@@ -1,6 +1,6 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare unpack
-DEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama ) virtual/pkgconfig x11-base/xorg-proto
+DEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama ) x11-base/xorg-proto
 DESCRIPTION=a generic, highly customizable, and efficient menu for the X Window System
 EAPI=7
 HOMEPAGE=https://tools.suckless.org/dmenu/
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXft xinerama? ( x11-libs/libXinerama )
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52	portability	c10bdc40668533b1faf15b1d89df0303	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
-_md5_=74f318a3b01087437cb9299f45775262
+_md5_=b0e88cac89011c20cacc0ce695d7ce64

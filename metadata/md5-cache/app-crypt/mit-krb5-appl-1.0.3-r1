@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=>=app-crypt/mit-krb5-1.8.0 sys-libs/e2fsprogs-libs sys-libs/ncurses:=
+DESCRIPTION=Kerberized applications split from the main MIT Kerberos V distribution
+EAPI=7
+HOMEPAGE=http://web.mit.edu/kerberos/www/
+INHERIT=autotools flag-o-matic toolchain-funcs
+KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86
+LICENSE=openafs-krb5-a BSD
+RDEPEND=>=app-crypt/mit-krb5-1.8.0 sys-libs/e2fsprogs-libs sys-libs/ncurses:=
+SLOT=0
+SRC_URI=http://web.mit.edu/kerberos/dist/krb5-appl/1.0/krb5-appl-1.0.3-signed.tar
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
+_md5_=650df2793920baea5704b2e374e56c57

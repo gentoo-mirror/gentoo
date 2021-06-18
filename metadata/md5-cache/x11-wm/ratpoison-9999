@@ -1,6 +1,6 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare unpack
-DEPEND=emacs? ( >=app-editors/emacs-23.1:* ) history? ( sys-libs/readline:= ) xft? ( x11-libs/libXft ) xrandr? ( x11-libs/libXrandr ) virtual/perl-Pod-Parser x11-libs/libXtst virtual/pkgconfig x11-base/xorg-proto
+DEPEND=emacs? ( >=app-editors/emacs-23.1:* ) history? ( sys-libs/readline:= ) xft? ( x11-libs/libXft ) xrandr? ( x11-libs/libXrandr ) virtual/perl-Pod-Parser x11-libs/libX11 x11-libs/libXtst x11-base/xorg-proto
 DESCRIPTION=window manager without mouse dependency
 EAPI=7
 HOMEPAGE=https://www.nongnu.org/ratpoison/
@@ -8,7 +8,7 @@ INHERIT=autotools elisp-common git-r3 toolchain-funcs
 IUSE=debug emacs +history sloppy +xft +xrandr
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) history? ( sys-libs/readline:= ) xft? ( x11-libs/libXft ) xrandr? ( x11-libs/libXrandr ) virtual/perl-Pod-Parser x11-libs/libXtst
+RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) history? ( sys-libs/readline:= ) xft? ( x11-libs/libXft ) xrandr? ( x11-libs/libXrandr ) virtual/perl-Pod-Parser x11-libs/libX11 x11-libs/libXtst
 SLOT=0
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	elisp-common	6bfea130fc0f2cbd4cbc23dc12992349	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=cdb861ecefd8b274b54b2d8256be0f20
+_md5_=e44b6705591778453593e0586be72810

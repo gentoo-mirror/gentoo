@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile install prepare setup
 DEPEND=sys-apps/texinfo sys-devel/flex sys-devel/gettext virtual/pkgconfig || ( dev-util/byacc dev-util/yacc <sys-devel/bison-3.7 )
 DESCRIPTION=A makefile framework for writing simple makefiles for complex tasks
@@ -10,4 +10,4 @@ LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~polynomial-c/kbuild-0.1.9998.3407-src.tar.xz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=a6a2a9ebccc2bedf4156f8be3db83ba4
+_md5_=00b0d06785cd0f0fa3ec8dd80dddce1b

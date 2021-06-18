@@ -1,0 +1,13 @@
+DEFINED_PHASES=config install postinst prepare
+DEPEND=sys-libs/ncurses:= virtual/pkgconfig
+DESCRIPTION=TOMOYO Linux tools
+EAPI=5
+HOMEPAGE=http://tomoyo.sourceforge.jp/
+INHERIT=epatch multilib toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:= !sys-apps/ccs-tools
+SLOT=0
+SRC_URI=mirror://sourceforge.jp/tomoyo/53357/tomoyo-tools-2.5.0-20130214.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	multilib	ebdbaed22e873a5abe6205f41349b479	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=41cc08a23d949f68bb633b92eaf81e63

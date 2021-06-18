@@ -1,14 +1,15 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install postinst
 DEPEND=sdl? ( x11-libs/libX11 media-libs/libsdl[video] ) X? ( x11-libs/libX11 ) !sdl? ( !X? ( sys-libs/ncurses:0= ) )
 DESCRIPTION=Portable redcode simulator's sdl port for core war
-EAPI=6
+EAPI=7
 HOMEPAGE=https://corewar.co.uk/pihlaja/pmars-sdl/
-INHERIT=readme.gentoo-r1 toolchain-funcs
+INHERIT=flag-o-matic toolchain-funcs readme.gentoo-r1
 IUSE=sdl X
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD GPL-2
 RDEPEND=sdl? ( x11-libs/libX11 media-libs/libsdl[video] ) X? ( x11-libs/libX11 ) !sdl? ( !X? ( sys-libs/ncurses:0= ) )
 SLOT=0
 SRC_URI=https://corewar.co.uk/pihlaja/pmars-sdl/pmars-0.9.2-5.tar.gz
-_eclasses_=readme.gentoo-r1	22ae82e140bdd95d17a34fd5fd733190	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
-_md5_=61dcdf3abd8d346c3eac95af40b36147
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	readme.gentoo-r1	22ae82e140bdd95d17a34fd5fd733190
+_md5_=ee0125b50c8bbd3fa657d0e4778be885

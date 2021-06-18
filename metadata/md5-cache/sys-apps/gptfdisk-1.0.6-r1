@@ -1,5 +1,6 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=install prepare
-DEPEND=!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode] ) kernel_linux? ( sys-apps/util-linux ) ) static? ( dev-libs/popt[static-libs(+)] ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode,static-libs(+)] ) kernel_linux? ( sys-apps/util-linux[static-libs(+)] ) ) virtual/pkgconfig
+DEPEND=!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode] ) kernel_linux? ( sys-apps/util-linux ) ) static? ( dev-libs/popt[static-libs(+)] ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode,static-libs(+)] ) kernel_linux? ( sys-apps/util-linux[static-libs(+)] ) )
 DESCRIPTION=GPT partition table manipulator for Linux
 EAPI=7
 HOMEPAGE=https://www.rodsbooks.com/gdisk/
@@ -11,4 +12,4 @@ RDEPEND=!static? ( dev-libs/popt ncurses? ( >=sys-libs/ncurses-5.7-r7:0=[unicode
 SLOT=0
 SRC_URI=mirror://sourceforge/gptfdisk/gptfdisk-1.0.6.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
-_md5_=c5a62afa22c4b64d21defdd3ddf09f48
+_md5_=fcea1e7f0daa229a00f04c9a5726444b
