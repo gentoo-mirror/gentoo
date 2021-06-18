@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit elisp
 
@@ -11,11 +11,13 @@ SRC_URI="https://github.com/voxpupuli/puppet-mode/archive/${PV}.tar.gz -> ${P}.t
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~hppa ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86"
 
-DOCS="CHANGES.rst README.rst"
+DOCS="CHANGES.md README.md"
 SITEFILE="50${PN}-1-gentoo.el"
-ELISP_PATCHES=( "${FILESDIR}/${PN}-0.3-version.patch" )
+
+# Tests require unpackaged ert-runner
+RESTRICT="test"
 
 src_prepare() {
 	elisp_src_prepare
