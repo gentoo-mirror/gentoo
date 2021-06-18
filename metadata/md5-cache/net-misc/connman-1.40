@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://git.kernel.org/pub/scm/network/connman/connman.git/
 INHERIT=autotools systemd tmpfiles
 IUSE=bluetooth debug doc +ethernet examples iptables iwd l2tp networkmanager +nftables ofono openconnect openvpn policykit pptp tools vpnc +wifi wireguard wispr
-KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ppc ppc64 x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.16 >=sys-apps/dbus-1.2.24 sys-libs/readline:0= bluetooth? ( net-wireless/bluez ) iptables? ( >=net-firewall/iptables-1.4.8 ) iwd? ( net-wireless/iwd ) l2tp? ( net-dialup/xl2tpd ) nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) ofono? ( net-misc/ofono ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) policykit? ( sys-auth/polkit ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wifi? ( >=net-wireless/wpa_supplicant-2.0[dbus] ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) wispr? ( net-libs/gnutls ) virtual/tmpfiles
 REQUIRED_USE=^^ ( iptables nftables )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/network/connman/connman-1.40.tar.xz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=ac7b047bcd6127eb8e2ddcf293180f77
+_md5_=5f6d90ce28ed39eaf731f6a9174b8efc
