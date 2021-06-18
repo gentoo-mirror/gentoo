@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare pretend setup
-DEPEND=virtual/cblas virtual/blas virtual/lapack dev-libs/gmp[cxx] =sci-libs/givaro-4.1*
+DEPEND=virtual/cblas virtual/blas virtual/lapack dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.1*
 DESCRIPTION=Library for dense linear algebra over word-size finite fields
 EAPI=7
 HOMEPAGE=https://linbox-team.github.io/fflas-ffpack/
@@ -8,8 +8,8 @@ INHERIT=autotools toolchain-funcs
 IUSE=static-libs openmp cpu_flags_x86_fma3 cpu_flags_x86_fma4 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_avx512dq cpu_flags_x86_avx512vl
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=LGPL-2.1+
-RDEPEND=virtual/cblas virtual/blas virtual/lapack dev-libs/gmp[cxx] =sci-libs/givaro-4.1*
+RDEPEND=virtual/cblas virtual/blas virtual/lapack dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.1*
 SLOT=0
 SRC_URI=https://github.com/linbox-team/fflas-ffpack/releases/download/v2.4.3/fflas-ffpack-2.4.3.tar.gz
 _eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=8e63e1b81c1bbfa38b79359f58461bb9
+_md5_=ad04a89b70a2642592ec291b7a4faaf5
