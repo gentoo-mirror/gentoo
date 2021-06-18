@@ -21,12 +21,12 @@ RDEPEND="
 		media-libs/libpng:0=
 		media-libs/libsdl2[joystick,sound,video]
 		media-libs/sdl2-mixer
+		net-misc/curl
 		odalaunch? ( x11-libs/wxGTK:${WX_GTK_VER}[X] )
 		portmidi? ( media-libs/portmidi )
 		X? ( x11-libs/libX11 )
 	)
 	server? (
-		dev-libs/jsoncpp:=
 		upnp? ( net-libs/miniupnpc:= )
 	)"
 DEPEND="${RDEPEND}"
@@ -35,8 +35,7 @@ BDEPEND="games-util/deutex"
 S="${WORKDIR}/${PN}-src-${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-Unbundle-miniupnpc.patch"
-	"${FILESDIR}/${P}-Set-IMPORTED_LOCATION-for-jsoncpp.patch"
+	"${FILESDIR}/${PN}-0.9.0-Unbundle-miniupnpc.patch"
 )
 
 src_prepare() {
