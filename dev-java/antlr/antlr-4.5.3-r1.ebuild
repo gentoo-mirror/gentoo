@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=7
 
 JAVA_PKG_IUSE="source"
 MAVEN_ID="org.antlr:antlr4:4.5.3"
@@ -12,6 +12,7 @@ DESCRIPTION="A parser generator for many languages"
 HOMEPAGE="https://www.antlr.org/"
 SRC_URI="https://github.com/${PN}/${PN}4/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://www.antlr.org/download/${P}-complete.jar" # Prebuilt version needed.
+
 LICENSE="BSD"
 SLOT="4"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
@@ -23,10 +24,10 @@ CDEPEND="dev-java/antlr:3.5
 	dev-java/treelayout:0"
 
 RDEPEND="${CDEPEND}
-	>=virtual/jre-1.6"
+	>=virtual/jre-1.8:*"
 
 DEPEND="${CDEPEND}
-	>=virtual/jdk-1.6
+	>=virtual/jdk-1.8:*
 	test? (
 		dev-java/hamcrest-core:1.3
 		dev-java/junit:4
@@ -39,7 +40,8 @@ src_unpack() {
 	unpack ${P}.tar.gz
 }
 
-java_prepare() {
+src_prepare() {
+	default
 	java-pkg_clean
 }
 
