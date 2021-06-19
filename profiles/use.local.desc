@@ -64,7 +64,6 @@ app-admin/gkrellm:hddtemp - Enable monitoring harddrive temperatures via app-adm
 app-admin/gkrellm:lm-sensors - Enable monitoring sensors via sys-apps/lm-sensors
 app-admin/gkrellm:ntlm - Enable NTLM authentication for mail checking with net-libs/libntlm
 app-admin/gkrellm:ssl - Enable SSL support for mail checking with dev-libs/openssl
-app-admin/glance:swift - Adds swift storage support
 app-admin/gtkdiskfree:gtk2 - Support GTK+ 2.x instead of GTK+ 3.x
 app-admin/hddtemp:network-cron - Monthly cronjob to update hddtemp.db.
 app-admin/keepass:aot - Generate native code at build time, rather than runtime.
@@ -2402,9 +2401,6 @@ dev-python/cvxopt:glpk - Use GNU Linear Programming Kit sci-mathematics/glpk
 dev-python/drf-yasg:validation - Enable swagger spec validation using swagger-spec-validator
 dev-python/editorconfig-core-py:cli - Install command line interface as well as python library
 dev-python/falcon:cython - Build cython-based python modules
-dev-python/glance_store:cinder - enable cinder backend supprt
-dev-python/glance_store:swift - enable swift backend supprt
-dev-python/glance_store:vmware - enable vmware backend supprt
 dev-python/gmpy:mpir - Use sci-libs/mpir as gmp implementation
 dev-python/hiredis:system-libs - Use dev-libs/hiredis from system
 dev-python/hypothesis:cli - Install a CLI tool used to write tests.
@@ -2504,12 +2500,6 @@ dev-python/sympy:symengine - Add support for a dev-python/symengine backend
 dev-python/sympy:texmacs - Add app-office/texmacs interface
 dev-python/sympy:theano - Add support for dev-python/theano
 dev-python/tappy:yaml - Pull dependencies needed to support YAML blocks associated with test results.
-dev-python/tinyrpc:gevent - Add support for gevent
-dev-python/tinyrpc:httpclient - Add support for httpclient
-dev-python/tinyrpc:jsonext - Add support for jsonext
-dev-python/tinyrpc:websocket - Add support for websocket
-dev-python/tinyrpc:wsgi - Add support for wsgi
-dev-python/tinyrpc:zmq - Add support for zmq
 dev-python/translate-toolkit:html - Support conversion between po and html files
 dev-python/translate-toolkit:ical - Support conversion between po and ical files
 dev-python/translate-toolkit:ini - Support conversion between po and ini files
@@ -7862,8 +7852,6 @@ sys-apps/watchdog:nfs - enable support for checking nfs mounts
 sys-apps/xdg-desktop-portal:screencast - Enable screencast portal using media-video/pipewire
 sys-apps/xinetd:rpc - support RPC services
 sys-auth/google-authenticator-libpam-hardened:qrcode - Display QRcode after setup to accomodate automatic setup of OTP client apps.
-sys-auth/keystone:memcached - Installs dependencies needed for using memcached as a backend
-sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/munge:gcrypt - Use libgcrypt instead of openssl
 sys-auth/nss-pam-ldapd:pynslcd - Install the python implementation along with the standard implementation
 sys-auth/nss-pam-ldapd:utils - Install the command-line utilities
@@ -7986,15 +7974,6 @@ sys-cluster/charm:mlogft - Compile with Charm++ message logging fault tolerance 
 sys-cluster/charm:numa - Support memory affinity with NUMA
 sys-cluster/charm:syncft - Compile with Charm++ fault tolerance support
 sys-cluster/charm:tcp - Use TCP (instead of UPD) for socket communication
-sys-cluster/cinder:api - Installs the initscripts for the cinder api service
-sys-cluster/cinder:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
-sys-cluster/cinder:lvm - Allow using the Logical Volume Manager (sys-fs/lvm2) as pool for disk image storage
-sys-cluster/cinder:memcached - Installs the memcached server
-sys-cluster/cinder:rdma - Enable rdma storage backend support
-sys-cluster/cinder:scheduler - Installs the initscripts for the cinder scheduler service
-sys-cluster/cinder:tcp - Enables tcp support for the iscsi backend
-sys-cluster/cinder:tgt - Enable tgt storage backend support
-sys-cluster/cinder:volume - Installs the initscripts for the cinder volume service
 sys-cluster/cluster-glue:ipmilan - Install the ipmilan plugin (requires sys-libs/openipmi)
 sys-cluster/cluster-glue:libnet - Force use of net-libs/libnet
 sys-cluster/corosync:augeas - Enable augeas support
@@ -8008,7 +7987,6 @@ sys-cluster/glusterfs:infiniband - Add support for Infiniband ibverbs transport.
 sys-cluster/glusterfs:ipv6 - Use IPv6 by default, requires libtirpc
 sys-cluster/glusterfs:libtirpc - Build against net-libs/libtirpc for RPC support
 sys-cluster/glusterfs:rsyslog - Install configuration snippet for app-admin/rsyslog
-sys-cluster/heat:memcached - Installs the memcached server
 sys-cluster/hpx:papi - Use dev-libs/papi for NaCl
 sys-cluster/hpx:perftools - Use dev-util/google-perftools for memory allocation
 sys-cluster/hpx:tbb - Use dev-cpp/tbb for memory allocation
@@ -8035,22 +8013,7 @@ sys-cluster/mpich:mpi-threads - Enable MPI_THREAD_MULTIPLE
 sys-cluster/mpich:romio - Build the ROMIO MPI-IO component
 sys-cluster/mpich2:mpi-threads - Enable MPI_THREAD_MULTIPLE
 sys-cluster/mpich2:romio - Enable romio, a high-performance portable MPI-IO implementation
-sys-cluster/neutron:compute-only - Only install things needed on compute hosts
-sys-cluster/neutron:dhcp - Installs the initscripts for the neutron dhcp service
-sys-cluster/neutron:haproxy - haproxy backend support
-sys-cluster/neutron:l3 - Installs the initscripts for the neutron l3 agent service
-sys-cluster/neutron:linuxbridge - Installs the initscripts for the neutron linuxbridge agent service
-sys-cluster/neutron:metadata - Installs the initscripts for the neutron metadata agent service
-sys-cluster/neutron:openvswitch - Installs the initscripts for the neutron openvswitch agent service
-sys-cluster/neutron:server - Installs the initscripts for the neutron server service
 sys-cluster/nomad:nvidia - build with nvidia integration
-sys-cluster/nova:compute - Installs the initscripts for the nova volume service
-sys-cluster/nova:compute-only - only install stuff needed for a compute host
-sys-cluster/nova:iscsi - Installs iscsi helper udev scripts
-sys-cluster/nova:memcached - Installs the memcached server
-sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy service
-sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
-sys-cluster/nova:rabbitmq - Installs the rabbitmq server
 sys-cluster/openmpi:cma - Enable the CMA (Cross Memory Attach) MCA
 sys-cluster/openmpi:cuda - Add GPU direct support
 sys-cluster/openmpi:heterogeneous - Enable features required for heterogeneous platform support
@@ -8061,14 +8024,6 @@ sys-cluster/openmpi:pbs - Add support for the Portable Batch System (PBS)
 sys-cluster/openmpi:peruse - Enable PERUSE interface
 sys-cluster/openmpi:romio - Build the ROMIO MPI-IO component
 sys-cluster/openmpi:vt - Enable bundled VampirTrace support
-sys-cluster/openstack-meta:cinder - Installs Openstack Cinder
-sys-cluster/openstack-meta:glance - Installs Openstack Glance
-sys-cluster/openstack-meta:heat - Installs Openstack Heat
-sys-cluster/openstack-meta:keystone - Installs Openstack Keystone
-sys-cluster/openstack-meta:neutron - Installs Openstack Neutron
-sys-cluster/openstack-meta:nova - Installs Openstack Nova
-sys-cluster/openstack-meta:placement - Installs Openstack Placement
-sys-cluster/openstack-meta:swift - Installs Openstack Swift
 sys-cluster/pacemaker:smtp - Enable SMTP support via net-libs/libesmtp
 sys-cluster/pmix:munge - Enable authentication via munge
 sys-cluster/pmix:pmi - Build PMI1 and PMI2 interface
@@ -8092,11 +8047,6 @@ sys-cluster/slurm:torque - Enable perl scripts that emulates pbs (qstat, qsub et
 sys-cluster/slurm:ucx - Enable Unified Communication X library support
 sys-cluster/spark-bin:scala211 - Install Spark JARs pre-built with Scala 2.11.
 sys-cluster/spark-bin:scala212 - Install Spark JARs pre-built with Scala 2.12.
-sys-cluster/swift:account - adds swift account support
-sys-cluster/swift:container - adds swift container support
-sys-cluster/swift:memcached - adds memcached support
-sys-cluster/swift:object - adds swift object support
-sys-cluster/swift:proxy - adds swift proxy support
 sys-cluster/torque:autorun - Enable the AUTORUN_JOBS codebase
 sys-cluster/torque:cgroups - Enable pbs_mom to use linux cgroups to isolate jobs
 sys-cluster/torque:cpusets - Enable pbs_mom to utilize linux cpusets if available
