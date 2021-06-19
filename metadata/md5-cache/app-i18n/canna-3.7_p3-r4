@@ -1,0 +1,15 @@
+BDEPEND=x11-misc/gccmakedep x11-misc/imake canuum? ( virtual/pkgconfig ) doc? ( app-text/ghostscript-gpl dev-texlive/texlive-langjapanese dev-texlive/texlive-latexrecommended ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=canuum? ( dev-libs/libspt sys-libs/ncurses:= )
+DESCRIPTION=A client-server based Kana-Kanji conversion system
+EAPI=7
+HOMEPAGE=http://canna.osdn.jp/
+INHERIT=autotools cannadic toolchain-funcs
+IUSE=canuum doc ipv6
+KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ~ia64 ppc ppc64 sparc x86
+LICENSE=MIT GPL-2
+RDEPEND=canuum? ( dev-libs/libspt sys-libs/ncurses:= )
+SLOT=0
+SRC_URI=mirror://sourceforge.jp/canna/9565/Canna37p3.tar.bz2
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	cannadic	28161cc56c064ff1fc125b156737e30a
+_md5_=a2d6d0524f285b84b3c67e6472c7c600
