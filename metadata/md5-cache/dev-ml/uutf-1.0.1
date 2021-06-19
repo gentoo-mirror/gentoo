@@ -4,7 +4,7 @@ DESCRIPTION=Non-blocking streaming Unicode codec for OCaml
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/uutf
 INHERIT=findlib
-IUSE=doc utftrip +ocamlopt test
+IUSE=doc utftrip +ocamlopt test ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=ISC
 RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-lang/ocaml:=[ocamlopt?]
@@ -12,5 +12,5 @@ REQUIRED_USE=utftrip? ( ocamlopt )
 RESTRICT=!test? ( test )
 SLOT=0/1.0.1
 SRC_URI=https://erratique.ch/software/uutf/releases/uutf-1.0.1.tbz
-_eclasses_=findlib	34a4bb0c0d4e2f20b27aeadab3dc9641
+_eclasses_=findlib	5650c438662492e827d9f565d656ec5f
 _md5_=7a9e33489e82758223d4b5bd464662e9

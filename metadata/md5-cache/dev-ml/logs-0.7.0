@@ -4,12 +4,12 @@ DESCRIPTION=Logging infrastructure for OCaml
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/logs https://github.com/dbuenzli/logs
 INHERIT=findlib
-IUSE=+fmt cli +lwt test
+IUSE=+fmt cli +lwt test ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=ISC
 RDEPEND=dev-ml/result:=[ocamlopt] dev-lang/ocaml:=[ocamlopt] fmt? ( dev-ml/fmt:= ) cli? ( dev-ml/cmdliner:=[ocamlopt] ) lwt? ( dev-ml/lwt:= ) dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/0.7.0
 SRC_URI=https://erratique.ch/software/logs/releases/logs-0.7.0.tbz
-_eclasses_=findlib	34a4bb0c0d4e2f20b27aeadab3dc9641
+_eclasses_=findlib	5650c438662492e827d9f565d656ec5f
 _md5_=53ccdf8a3dc9e2760c83e61b09380f76
