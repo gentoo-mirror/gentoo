@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile install prepare
+DEPEND=media-libs/libsdl[opengl,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] virtual/glu virtual/opengl
+DESCRIPTION=A topdown shooter
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=autotools desktop toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libsdl[opengl,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] virtual/glu virtual/opengl
+SLOT=0
+SRC_URI=mirror://gentoo/shootingstar-1.2.0.tar.gz
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=4555180ec6f79a3738c266b0c2da5d00
