@@ -5,7 +5,7 @@ EAPI=7
 
 inherit vcs-snapshot
 
-COMMIT="f9b6b4c24786460a4ad12d39af4d7865ebdf2904"
+COMMIT="3ea070a8036e7262c6fdbd39bf2c7d6407a20f7c"
 
 DESCRIPTION="A collection of plugins for the Limnoria IRC bot."
 HOMEPAGE="https://github.com/jlu5/SupyPlugins"
