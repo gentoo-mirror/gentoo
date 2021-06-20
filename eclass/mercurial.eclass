@@ -8,19 +8,34 @@
 # Next gen author: Krzysztof Pawlik <nelchael@gentoo.org>
 # Original author: Aron Griffis <agriffis@gentoo.org>
 # @BLURB: This eclass provides generic mercurial fetching functions
+# @SUPPORTED_EAPIS: 7
 # @DESCRIPTION:
 # This eclass provides generic mercurial fetching functions. To fetch sources
 # from mercurial repository just set EHG_REPO_URI to correct repository URI. If
 # you need to share single repository between several ebuilds set EHG_PROJECT to
 # project name in all of them.
 
-inherit eutils
+case ${EAPI:-0} in
+	7) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
+esac
 
 EXPORT_FUNCTIONS src_unpack
 
+if [[ -z ${_MERCURIAL_ECLASS} ]] ; then
+_MERCURIAL_ECLASS=1
+
 PROPERTIES+=" live"
 
-DEPEND="dev-vcs/mercurial"
+case ${EAPI:-0} in
+	7)
+		# For compatibiilty only (indirect inherits).
+		# Eclass itself doesn't need it.
+		inherit eutils
+		;;
+esac
+
+BDEPEND="dev-vcs/mercurial"
 
 # @ECLASS-VARIABLE: EHG_REPO_URI
 # @DESCRIPTION:
@@ -202,3 +217,5 @@ function mercurial_src_unpack {
 	mercurial_fetch
 	mercurial_bootstrap
 }
+
+fi
