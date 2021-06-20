@@ -5,11 +5,11 @@ DESCRIPTION=Transforming XML documents into HTML, text, or other XML document ty
 EAPI=7
 HOMEPAGE=https://xalan.apache.org/
 INHERIT=java-pkg-2 java-ant-2
-IUSE=elibc_FreeBSD doc source elibc_FreeBSD
+IUSE=elibc_FreeBSD doc source
 KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=Apache-2.0
 RDEPEND=dev-java/javacup:0 dev-java/bcel:0 >=virtual/jre-1.8:* ~dev-java/xalan-serializer-2.7.2:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=mirror://apache/xalan/xalan-j/source/xalan-j_2_7_2-src.tar.gz doc? ( mirror://apache/xalan/xalan-j/binaries/xalan-j_2_7_2-bin.zip )
-_eclasses_=java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	multilib	ebdbaed22e873a5abe6205f41349b479	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	java-ant-2	51fb0a4707d58382310390ad47ab0ab0
+_eclasses_=java-utils-2	345da2ca0e9e678596a20dafad5e5522	java-pkg-2	212f9bd09ccbe61c46d3060a090c0f09	multilib	ba7da83f763a749a2870c28785c6dc0b	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	java-ant-2	14e4c57dfef324fd8ee8837ba1016285
 _md5_=51cdba989588670e28fdb87cf8f67551

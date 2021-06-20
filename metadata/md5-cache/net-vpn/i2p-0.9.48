@@ -5,12 +5,12 @@ DESCRIPTION=A privacy-centric, anonymous network
 EAPI=7
 HOMEPAGE=https://geti2p.net
 INHERIT=java-pkg-2 java-ant-2 systemd
-IUSE=nls test elibc_FreeBSD elibc_FreeBSD
+IUSE=nls test elibc_FreeBSD
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0 Artistic BSD CC-BY-2.5 CC-BY-3.0 CC-BY-SA-3.0 EPL-1.0 GPL-2 GPL-3 LGPL-2.1 LGPL-3 MIT public-domain WTFPL-2
 RDEPEND=dev-java/commons-logging:0 dev-java/java-service-wrapper:0 dev-java/tomcat-servlet-api:4.0 acct-user/i2p acct-group/i2p virtual/jre:1.8 net-libs/nativebiginteger:0 >=dev-java/java-config-2.2.0-r3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.i2p2.de/releases/0.9.48/i2psource_0.9.48.tar.bz2
-_eclasses_=java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	multilib	ebdbaed22e873a5abe6205f41349b479	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	java-ant-2	51fb0a4707d58382310390ad47ab0ab0	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
+_eclasses_=java-utils-2	345da2ca0e9e678596a20dafad5e5522	java-pkg-2	212f9bd09ccbe61c46d3060a090c0f09	multilib	ba7da83f763a749a2870c28785c6dc0b	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	java-ant-2	14e4c57dfef324fd8ee8837ba1016285	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
 _md5_=93ffb5572c8c4619019cff40203886bd

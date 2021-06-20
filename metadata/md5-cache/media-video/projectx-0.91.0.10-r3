@@ -4,11 +4,11 @@ DESCRIPTION=Converts, splits and demuxes DVB and other MPEG recordings
 EAPI=7
 HOMEPAGE=http://project-x.sourceforge.net/
 INHERIT=desktop eutils java-pkg-2 java-ant-2 toolchain-funcs xdg
-IUSE=X cpu_flags_x86_mmx cpu_flags_x86_sse elibc_FreeBSD doc source elibc_FreeBSD
+IUSE=X cpu_flags_x86_mmx cpu_flags_x86_sse elibc_FreeBSD doc source
 KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-java/commons-net:0 X? ( dev-java/browserlauncher2:1.0 ) >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~billie/distfiles/projectx-0.91.0.10.tar.xz https://dev.gentoo.org/~billie/distfiles/projectx-idctfast.tar.xz https://dev.gentoo.org/~billie/distfiles/xdg-20100731.java.xz https://dev.gentoo.org/~billie/distfiles/projectx-icon.png
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-2	45c44ec10db6affb3ebee1ac72039888	multilib	ebdbaed22e873a5abe6205f41349b479	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	java-ant-2	51fb0a4707d58382310390ad47ab0ab0	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	6da6797255ab7fb848a02afa0cbc406f	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	f93c6ebbcd4a4e3e3f2328a13511b73a	java-utils-2	345da2ca0e9e678596a20dafad5e5522	java-pkg-2	212f9bd09ccbe61c46d3060a090c0f09	multilib	ba7da83f763a749a2870c28785c6dc0b	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	java-ant-2	14e4c57dfef324fd8ee8837ba1016285	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=c9883061d1b26fb9169a643498fdbbbc

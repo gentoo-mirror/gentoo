@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=acct-group/crontab pam? ( sys-libs/pam ) anacron? ( !sys-process/anacron !sys-process/systemd-cron elibc_musl? ( sys-libs/obstack-standalone ) elibc_uclibc? ( sys-libs/obstack-standalone ) ) >=sys-apps/sed-4.0.5
+DEPEND=acct-group/crontab pam? ( sys-libs/pam ) anacron? ( !sys-process/anacron !sys-process/systemd-cron elibc_musl? ( sys-libs/obstack-standalone ) elibc_uclibc? ( sys-libs/obstack-standalone ) )
 DESCRIPTION=Cronie is a standard UNIX daemon cron based on the original vixie-cron
 EAPI=7
 HOMEPAGE=https://github.com/cronie-crond/cronie
@@ -11,5 +11,5 @@ LICENSE=ISC BSD BSD-2 GPL-2
 RDEPEND=acct-group/crontab pam? ( sys-libs/pam ) anacron? ( !sys-process/anacron !sys-process/systemd-cron elibc_musl? ( sys-libs/obstack-standalone ) elibc_uclibc? ( sys-libs/obstack-standalone ) ) sys-apps/debianutils >=sys-process/cronbase-0.3.2 !sys-process/vixie-cron !sys-process/bcron !sys-process/dcron !sys-process/fcron
 SLOT=0
 SRC_URI=https://github.com/cronie-crond/cronie/archive/cronie-1.5.6.tar.gz
-_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	cron	a1ce5d9cd4f46760d7a9dcc1494878ba	pam	b097695df28f3974e3af860d6704d4f2	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	6da6797255ab7fb848a02afa0cbc406f	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	f93c6ebbcd4a4e3e3f2328a13511b73a	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	cron	1621618e95ba4bfef95a90b575741a5f	pam	5b44e4c71b5f0edbd76c64128de0068e	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
 _md5_=44a01cc638265549f00254d8b3cb0868
