@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://zeromq.org/languages/python/ https://pypi.org/project/pyzmq/ https://github.com/zeromq/pyzmq/
 INHERIT=flag-o-matic distutils-r1 toolchain-funcs
 IUSE=+draft test doc python_targets_python3_8 python_targets_python3_9
-KEYWORDS=amd64 arm arm64 ~mips ~ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 arm arm64 ~mips ~ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=LGPL-3
 RDEPEND=>=net-libs/zeromq-4.2.2-r2:=[drafts] python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/zeromq/pyzmq/archive/v20.0.0.tar.gz -> pyzmq-20.0.0.gh.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	multiprocessing	cac3169468f893670dac3e7cb940e045	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
-_md5_=fbea4a43f79df5421fe0e74b41110a23
+_md5_=d4b44c8c5cb0f3c830464de215eecd06
