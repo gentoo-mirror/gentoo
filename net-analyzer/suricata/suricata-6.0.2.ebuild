@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{7..10} )
 inherit autotools linux-info lua-single python-single-r1 systemd tmpfiles
 
 DESCRIPTION="High performance Network IDS, IPS and Network Security Monitoring engine"
-HOMEPAGE="https://suricata-ids.org/"
+HOMEPAGE="https://suricata.io/"
 SRC_URI="https://www.openinfosecfoundation.org/download/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -51,7 +51,7 @@ RDEPEND="${PYTHON_DEPS}
 	redis?      ( dev-libs/hiredis )"
 DEPEND="${RDEPEND}
 	>=sys-devel/autoconf-2.69-r5
-	virtual/rust"
+	<virtual/rust-1.53.0"  # Bug #797370. Hopefully to be fixed come next release.
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.1_configure-no-lz4-automagic.patch"
