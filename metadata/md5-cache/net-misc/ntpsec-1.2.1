@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.ntpsec.org/
 INHERIT=distutils-r1 flag-o-matic waf-utils systemd
 IUSE=rclock_oncore rclock_trimble rclock_truetime rclock_gpsd rclock_jjy rclock_generic rclock_spectracom rclock_shm rclock_pps rclock_hpgps rclock_zyfer rclock_arbiter rclock_nmea rclock_neoclock rclock_modem rclock_local debug doc early gdb heat libbsd nist ntpviz samba seccomp smear tests python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm arm64 ~x86
 LICENSE=HPND MIT BSD-2 BSD CC-BY-SA-4.0
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] sys-libs/libcap dev-python/psutil[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] libbsd? ( dev-libs/libbsd:0= ) dev-libs/openssl:0= seccomp? ( sys-libs/libseccomp ) ntpviz? ( sci-visualization/gnuplot media-fonts/liberation-fonts ) !net-misc/ntp !net-misc/openntpd acct-group/ntp acct-user/ntp python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 ) nist? ( rclock_local ) || ( python_targets_python3_8 python_targets_python3_9 )
@@ -14,4 +14,4 @@ RESTRICT=mirror
 SLOT=0
 SRC_URI=ftp://ftp.ntpsec.org/pub/releases/ntpsec-1.2.1.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	waf-utils	6dce9ffe7d6fe961321a99f8da53a887	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
-_md5_=53be8215c50c99eeb9005c8ca4223019
+_md5_=34656f92622407c86fb75f61a8bc13ac
