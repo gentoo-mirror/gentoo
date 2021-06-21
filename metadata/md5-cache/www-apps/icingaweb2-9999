@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:5.6[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:7.1[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:7.2[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:7.3[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) apache2? ( =www-servers/apache-2* )
 REQUIRED_USE=( ^^ ( apache2-server nginx ) ) apache2? ( apache2-server )
 SLOT=0
-_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	multilib	6f710a580aea2e8c7f5be70f8912ad43	toolchain-funcs	7a9551c9a6680454019664620505375a	user-info	8eda7e0ed7acb4b9678bea151579e154	user	527b8f84a662e996f692f97ffd2c893a	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	multilib	f8d35c2432bb32c4f1e779c4287b31ec	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	user-info	8eda7e0ed7acb4b9678bea151579e154	user	527b8f84a662e996f692f97ffd2c893a	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=077901c4b288eb64db0c8b8628a7c6b5
