@@ -8,13 +8,13 @@ AssertPathIsReadWrite=/var/lib/gitea
 After=network.target
 Requires=network.target
 After=mysqld.service
-After=postgresql-9.3.service
-After=postgresql-9.4.service
 After=postgresql-9.5.service
 After=postgresql-9.6.service
 After=postgresql-10.service
 After=postgresql-11.service
 After=postgresql-12.service
+After=postgresql-13.service
+After=postgresql-14.service
 After=memcached.service
 After=redis.service
 

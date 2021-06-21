@@ -25,9 +25,6 @@ RDEPEND="net-misc/curl:=
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig
 	sys-devel/autoconf-archive"
-PATCHES=(
-	"${FILESDIR}/${PN}-4.3.0-Remove-WError.patch"
-)
 
 src_prepare() {
 	sed -i \
