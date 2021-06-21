@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-File-Spec dev-perl/File-Which virtual/perl-IO dev-perl/TermReadKey virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Exporter >=virtual/perl-Test-Simple-0.880.0 virtual/perl-File-Temp ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Select a pager, optionally pipe it output if destination is a TTY
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/IO-Pager
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-File-Spec dev-perl/File-Which virtual/perl-IO dev-perl/TermReadKey dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/J/JP/JPIERCE/IO-Pager-2.10.tgz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=e71933e8c49efd660491134d1772ec62
