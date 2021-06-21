@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://w1.fi/ https://w1.fi/cgit/hostap/
 INHERIT=toolchain-funcs systemd savedconfig
 IUSE=internal-tls ipv6 netlink sqlite +suiteb +wps +crda savedconfig
-KEYWORDS=amd64 ~arm ~arm64 ~mips ppc x86
+KEYWORDS=amd64 arm ~arm64 ~mips ppc x86
 LICENSE=BSD
 RDEPEND=internal-tls? ( dev-libs/libtommath ) !internal-tls? ( dev-libs/openssl:0=[-bindist(-)] ) kernel_linux? ( dev-libs/libnl:3 crda? ( net-wireless/crda ) ) netlink? ( net-libs/libnfnetlink ) sqlite? ( >=dev-db/sqlite-3 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~andrey_utkin/distfiles/net-wireless_hostapd_2.7-r2_extras.tar.xz https://w1.fi/releases/hostapd-2.9.tar.gz
 _eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd
-_md5_=7f20be3b2790c4ad28eb98eb77833518
+_md5_=9aeb60a495e1c01ef9315321b827c56a
