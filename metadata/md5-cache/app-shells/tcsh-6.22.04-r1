@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
-DEPEND=>=sys-libs/ncurses-5.1:0= virtual/libiconv sys-devel/gettext doc? ( dev-lang/perl )
+DEPEND=>=sys-libs/ncurses-5.1:0= virtual/libcrypt:= virtual/libiconv sys-devel/gettext doc? ( dev-lang/perl )
 DESCRIPTION=Enhanced version of the Berkeley C shell (csh)
 EAPI=7
 HOMEPAGE=https://www.tcsh.org/
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic autotools prefix
 IUSE=nls doc
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=BSD
-RDEPEND=>=sys-libs/ncurses-5.1:0= virtual/libiconv
+RDEPEND=>=sys-libs/ncurses-5.1:0= virtual/libcrypt:= virtual/libiconv
 RESTRICT=test
 SLOT=0
 SRC_URI=ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.04.tar.gz https://dev.gentoo.org/~grobian/distfiles/tcsh-gentoo-patches-r1.9.tar.bz2
 _eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	gnuconfig	9f91b4b0c84e734a87492d4293f03de5	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	prefix	245bf72183394aa1b43afa1dbc97ab2c
-_md5_=c06899ec0888e6448204e3f719880d36
+_md5_=a7bd79347aa7c50d752e282d264d91c7
