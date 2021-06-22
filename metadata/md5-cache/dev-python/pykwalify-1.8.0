@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://pypi.org/project/pykwalify/ https://github.com/Grokzen/pykwalify
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
-KEYWORDS=amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=>=dev-python/docopt-0.6.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=dev-python/ruamel-yaml-0.16.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=dev-python/python-dateutil-2.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/pykwalify/pykwalify-1.8.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
-_md5_=6c8a79edf70971c227758dc36094ed21
+_md5_=846c7abc84d7dcf932ace3a95de3ca4c
