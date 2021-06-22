@@ -26,6 +26,10 @@ DEPEND=""
 RDEPEND=""
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}/${P}-no-udl-define.patch"
+)
+
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DFMT_CMAKE_DIR="$(get_libdir)/cmake/fmt"
