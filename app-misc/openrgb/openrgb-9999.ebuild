@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit qmake-utils
+inherit flag-o-matic qmake-utils
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -18,9 +18,9 @@ else
 fi
 
 DESCRIPTION="Open source RGB lighting control that doesn't depend on manufacturer software"
-HOMEPAGE="https://gitlab.com/CalcProgrammer1/OpenRGB/"
+HOMEPAGE="https://openrgb.org https://gitlab.com/CalcProgrammer1/OpenRGB/"
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="0/1"
 
 RDEPEND="
 	dev-libs/hidapi:=
@@ -40,6 +40,7 @@ BDEPEND="
 
 PATCHES+=(
 	"${FILESDIR}"/OpenRGB-0.6-pkgconf.patch
+	"${FILESDIR}"/OpenRGB-0.6-plugins.patch
 )
 
 src_prepare() {
@@ -48,11 +49,28 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake5 INCLUDEPATH+="${ESYSROOT}/usr/include/nlohmann"
+	# Some plugins require symbols defined in the main binary.
+	# The official build system bundles OpenRGB as a submodule instead, and
+	# compiles the .cpp file again.
+	append-ldflags -Wl,--export-dynamic
+
+	eqmake5 \
+		INCLUDEPATH+="${ESYSROOT}/usr/include/nlohmann" \
+		DEFINES+="GENTOO_PLUGINS_DIR=\\\\\"\\\"${EPREFIX}/usr/$(get_libdir)/OpenRGB/plugins\\\\\"\\\""
 }
 
 src_install() {
 	emake INSTALL_ROOT="${ED}" install
 
 	dodoc README.md OpenRGB.patch
+
+	# This is for plugins. Upstream doesn't install any headers at all.
+	insinto /usr/include/OpenRGB
+	doins *.h
+	insinto /usr/include/OpenRGB/RGBController
+	doins RGBController/*.h
+	insinto /usr/include/OpenRGB/i2c_smbus
+	doins i2c_smbus/*.h
+	insinto /usr/include/OpenRGB/net_port
+	doins net_port/*.h
 }
