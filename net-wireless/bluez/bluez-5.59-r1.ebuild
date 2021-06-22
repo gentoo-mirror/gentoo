@@ -63,6 +63,9 @@ RDEPEND="${DEPEND}
 RESTRICT="!test? ( test )"
 
 PATCHES=(
+	# avdtp: Fix parsing capabilities (from 'master')
+	"${FILESDIR}"/${P}-a2dp-parsing.patch
+
 	# Try both udevadm paths to cover udev/systemd vs. eudev locations (#539844)
 	# http://www.spinics.net/lists/linux-bluetooth/msg58739.html
 	# https://bugs.gentoo.org/539844
