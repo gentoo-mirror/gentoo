@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://pypi.org/project/django-configurations/ https://github.com/jazzband/django-configurations/ https://django-configurations.readthedocs.io/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=BSD
 RDEPEND=dev-python/django[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)] dev-python/setuptools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)] dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-),-python_single_target_python3_10(-)]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jazzband/django-configurations/archive/2.2.tar.gz -> django-configurations-2.2.gh.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
-_md5_=b07eda34b4575178ac7a2a5b78325fc6
+_md5_=83b56ae929e1c316ea753ff3b8dd0771

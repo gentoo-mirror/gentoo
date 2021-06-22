@@ -1,0 +1,16 @@
+BDEPEND=dev-util/intltool sys-devel/gettext virtual/pkgconfig
+DEFINED_PHASES=configure postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2 dev-libs/libpcre net-misc/curl >=x11-libs/gtk+-3.4:3 gnutls? ( net-libs/gnutls dev-libs/libgcrypt:0 ) aria2? ( net-misc/aria2[xmlrpc] ) appindicator? ( dev-libs/libappindicator:3 ) gstreamer? ( media-libs/gstreamer:1.0 ) libnotify? ( x11-libs/libnotify ) openssl? ( dev-libs/openssl:0= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Download manager using gtk+ and libcurl
+EAPI=7
+HOMEPAGE=http://www.ugetdm.com
+INHERIT=xdg
+IUSE=aria2 appindicator control-socket +gnutls gstreamer libnotify nls openssl rss
+KEYWORDS=amd64 ~arm ~ppc x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/glib:2 dev-libs/libpcre net-misc/curl >=x11-libs/gtk+-3.4:3 gnutls? ( net-libs/gnutls dev-libs/libgcrypt:0 ) aria2? ( net-misc/aria2[xmlrpc] ) appindicator? ( dev-libs/libappindicator:3 ) gstreamer? ( media-libs/gstreamer:1.0 ) libnotify? ( x11-libs/libnotify ) openssl? ( dev-libs/openssl:0= )
+REQUIRED_USE=^^ ( gnutls openssl )
+SLOT=0
+SRC_URI=mirror://sourceforge/urlget/uget-2.2.1.tar.gz
+_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=18d55e6c91f6fb2661cebfc6944a3942
