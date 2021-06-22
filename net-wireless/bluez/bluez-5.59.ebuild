@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit autotools linux-info python-single-r1 readme.gentoo-r1 systemd udev multilib-minimal
 
@@ -31,6 +31,7 @@ TEST_DEPS="${PYTHON_DEPS}
 	')
 "
 BDEPEND="
+	dev-python/docutils
 	virtual/pkgconfig
 	test? ( ${TEST_DEPS} )
 "
@@ -62,9 +63,6 @@ RDEPEND="${DEPEND}
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	# rfkill: Fix reading from rfkill socket
-	"${FILESDIR}"/${P}-rfkill.patch
-
 	# Try both udevadm paths to cover udev/systemd vs. eudev locations (#539844)
 	# http://www.spinics.net/lists/linux-bluetooth/msg58739.html
 	# https://bugs.gentoo.org/539844
@@ -80,13 +78,12 @@ pkg_setup() {
 	# to prevent bugs like:
 	# https://bugzilla.kernel.org/show_bug.cgi?id=196621
 	CONFIG_CHECK="~NET ~BT ~BT_RFCOMM ~BT_RFCOMM_TTY ~BT_BNEP ~BT_BNEP_MC_FILTER
-				~BT_BNEP_PROTO_FILTER ~BT_HIDP ~RFKILL ~CRYPTO_USER_API_HASH ~CRYPTO_USER_API_SKCIPHER"
+		~BT_BNEP_PROTO_FILTER ~BT_HIDP ~CRYPTO_USER_API_HASH ~CRYPTO_USER_API_SKCIPHER ~RFKILL"
 	# https://bugzilla.kernel.org/show_bug.cgi?id=196621
 	# https://bugzilla.kernel.org/show_bug.cgi?id=206815
 	if use mesh || use test; then
 		CONFIG_CHECK="${CONFIG_CHECK} ~CRYPTO_USER
-		~CRYPTO_USER_API ~CRYPTO_USER_API_AEAD ~CRYPTO_USER_API_HASH
-		~CRYPTO_AES ~CRYPTO_CCM ~CRYPTO_AEAD ~CRYPTO_CMAC"
+		~CRYPTO_USER_API ~CRYPTO_USER_API_AEAD ~CRYPTO_AES ~CRYPTO_CCM ~CRYPTO_AEAD ~CRYPTO_CMAC"
 	fi
 	linux-info_pkg_setup
 
