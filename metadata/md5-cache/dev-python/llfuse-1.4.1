@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/python-llfuse/python-llfuse/ https://pypi.org/project/llfuse/
 INHERIT=distutils-r1
 IUSE=doc examples test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2
 RDEPEND=>=sys-fs/fuse-2.8.0:0 python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_pypy3(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/l/llfuse/llfuse-1.4.1.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
-_md5_=8abb7d8d862dd07c8c193b625891cee8
+_md5_=e3106af6eb5ec08f56eafd265075c29c
