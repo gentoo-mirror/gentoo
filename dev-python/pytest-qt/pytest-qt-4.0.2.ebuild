@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 virtualx
 
-DESCRIPTION="pytest plugin for PyQt5 and PySide2 applications"
+DESCRIPTION="Pytest plugin for PyQt5 and PySide2 applications"
 HOMEPAGE="
 	https://pypi.org/project/pytest-qt/
 	https://github.com/pytest-dev/pytest-qt/"
