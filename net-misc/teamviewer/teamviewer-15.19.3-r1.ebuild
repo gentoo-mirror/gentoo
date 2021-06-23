@@ -16,6 +16,9 @@ LICENSE="TeamViewer MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
 
+# Unpack will fail without app-arch/xz-utils[extra-filters], bug #798027
+BDEPEND="app-arch/xz-utils[extra-filters]"
+
 RDEPEND="
 	dev-libs/nss
 	dev-libs/nspr
@@ -24,7 +27,7 @@ RDEPEND="
 	media-libs/libglvnd
 	sys-apps/dbus
 	sys-apps/util-linux
-	sys-libs/zlib:0/1
+	sys-libs/zlib:0/1[minizip]
 	!sys-auth/consolekit
 	x11-libs/libICE
 	x11-libs/libSM
