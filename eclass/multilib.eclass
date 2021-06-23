@@ -4,14 +4,14 @@
 # @ECLASS: multilib.eclass
 # @MAINTAINER:
 # toolchain@gentoo.org
-# @SUPPORTED_EAPIS: 5 6 7
+# @SUPPORTED_EAPIS: 5 6 7 8
 # @BLURB: This eclass is for all functions pertaining to handling multilib configurations.
 # @DESCRIPTION:
 # This eclass is for all functions pertaining to handling multilib configurations.
 
 case ${EAPI:-0} in
 	# EAPI=0 is still used by crossdev, bug #797367
-	[0567]) ;;
+	0|5|6|7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -519,7 +519,7 @@ multilib_toolchain_setup() {
 	fi
 
 	if [[ ${ABI} != ${DEFAULT_ABI} ]] ; then
-		# Back that multilib-ass up so we can restore it later
+		# Backup multilib state so we can restore it later
 		for v in "${save_restore_variables[@]}" ; do
 			vv="_abi_saved_${v}"
 			[[ ${!v+set} == "set" ]] && export ${vv}="${!v}" || unset ${vv}
