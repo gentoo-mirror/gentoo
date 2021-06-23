@@ -60,7 +60,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake DESTDIR="${D}" NQP_JARS="${NQP}" BLD_NQP_JARS="${NQP}"
+	emake NQP_JARS="${NQP}" BLD_NQP_JARS="${NQP}"
 }
 
 src_install() {
