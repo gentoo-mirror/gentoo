@@ -12,10 +12,20 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 x86"
+KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE=""
 
 CDEPEND=">=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	!~dev-python/pbr-2.1.0"
-DEPEND="${CDEPEND}"
 RDEPEND="${CDEPEND}"
+BDEPEND="
+	${CDEPEND}
+	test? (
+		>=dev-python/keystoneauth-3.4.0[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
+		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
+	)
+"
+
+distutils_enable_tests unittest
