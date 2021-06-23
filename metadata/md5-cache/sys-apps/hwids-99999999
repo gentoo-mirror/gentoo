@@ -1,4 +1,4 @@
-BDEPEND=net-misc/curl udev? ( || ( ( dev-lang/python:3.9 dev-python/pyparsing[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/pyparsing[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ) ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=net-misc/curl udev? ( || ( ( dev-lang/python:3.9 dev-python/pyparsing[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/pyparsing[python_targets_python3_8(-)] ) ) ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare setup unpack
 DESCRIPTION=Hardware (PCI, USB, OUI, IAB) IDs databases
 EAPI=7
@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=systemd? ( sys-apps/systemd[hwdb] ) udev? ( virtual/udev )
 REQUIRED_USE=systemd? ( udev )
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	udev	452708c3f55cf6e918b045adb949a9e6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	udev	452708c3f55cf6e918b045adb949a9e6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-any-r1	901d9e22c7a848a1196502edf060f330
 _md5_=9378e74230b70b60ebd78afa7cb27522

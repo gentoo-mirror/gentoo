@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) vorbis? ( media-libs/libvorbis )
+DEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) vorbis? ( media-libs/libvorbis )
 DESCRIPTION=The Snack Sound Toolkit (Tcl)
 EAPI=7
 HOMEPAGE=http://www.speech.kth.se/snack/
@@ -8,10 +8,10 @@ INHERIT=autotools distutils-r1 multilib toolchain-funcs virtualx
 IUSE=alsa examples python vorbis python_targets_python3_8 python_targets_python3_9 test
 KEYWORDS=amd64 ~hppa ppc sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
-RDEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) vorbis? ( media-libs/libvorbis )
+RDEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) vorbis? ( media-libs/libvorbis )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://www.speech.kth.se/snack/dist/snack2.2.10.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd	virtualx	0a780e1ab49c75da33a78ede35ab8f9c
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	881e51510dd0c384fb912f54c0865d2e	virtualx	0a780e1ab49c75da33a78ede35ab8f9c
 _md5_=7ea42438fc88cffaee1cc83701e243bc

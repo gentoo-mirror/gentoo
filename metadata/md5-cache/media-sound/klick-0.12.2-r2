@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( ( dev-lang/python:3.9 dev-util/scons[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-util/scons[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) )
+BDEPEND=virtual/pkgconfig || ( ( dev-lang/python:3.9 dev-util/scons[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-util/scons[python_targets_python3_8(-)] ) )
 DEFINED_PHASES=compile configure install setup
 DEPEND=media-libs/libsamplerate media-libs/libsndfile virtual/jack osc? ( media-libs/liblo ) rubberband? ( media-libs/rubberband ) dev-libs/boost
 DESCRIPTION=An advanced command-line based metronome for JACK
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=media-libs/libsamplerate media-libs/libsndfile virtual/jack osc? ( media-libs/liblo ) rubberband? ( media-libs/rubberband )
 SLOT=0
 SRC_URI=http://das.nasophon.de/download/klick-0.12.2.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	scons-utils	fc8e53815030125602cc608cd1bff857
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-any-r1	901d9e22c7a848a1196502edf060f330	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	scons-utils	fc8e53815030125602cc608cd1bff857
 _md5_=c75bb129c3888a98abb5b09798b2d898

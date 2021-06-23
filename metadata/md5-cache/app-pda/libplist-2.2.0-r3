@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig python? ( >=dev-python/cython-0.17[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig python? ( >=dev-python/cython-0.17[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
+DEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
 DESCRIPTION=Support library to deal with Apple Property Lists (Binary & XML)
 EAPI=7
 HOMEPAGE=https://www.libimobiledevice.org/
@@ -8,9 +8,9 @@ INHERIT=autotools python-r1 toolchain-funcs
 IUSE=python python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 ~arm arm64 ppc ~ppc64 x86
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
+RDEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
 SLOT=0/2.0-3
 SRC_URI=https://cgit.libimobiledevice.org/libplist.git/snapshot/libplist-2.2.0.tar.bz2
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-r1	e20b80360497e6215aed0dd4ca7d6bad
 _md5_=7bfe147bd820804c21912e512c059833

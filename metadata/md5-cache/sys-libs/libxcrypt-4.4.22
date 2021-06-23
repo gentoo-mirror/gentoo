@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/findutils test? ( || ( ( dev-lang/python:3.10 dev-python/passlib[python_targets_python3_10(-),-python_single_target_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/passlib[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/passlib[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=sys-apps/findutils test? ( || ( ( dev-lang/python:3.10 dev-python/passlib[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/passlib[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/passlib[python_targets_python3_8(-)] ) ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=system? ( elibc_glibc? ( sys-libs/glibc[-crypt(+)] ) !sys-libs/musl )
 DESCRIPTION=Extended crypt library for descrypt, md5crypt, bcrypt, and others
@@ -13,5 +13,5 @@ REQUIRED_USE=split-usr? ( system )
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://github.com/besser82/libxcrypt/archive/v4.4.22.tar.gz -> libxcrypt-4.4.22.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-any-r1	901d9e22c7a848a1196502edf060f330	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
 _md5_=6f107a881a5a9ba9d755d3ed5d7cc800
