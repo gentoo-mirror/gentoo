@@ -1,6 +1,6 @@
 BDEPEND=app-arch/xz-utils >=dev-lang/perl-5 virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1 )
+DEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1:= ) !xcrypt? ( virtual/libcrypt:= )
 DESCRIPTION=improved Whois Client
 EAPI=7
 HOMEPAGE=https://github.com/rfc1036/whois
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs git-r3
 IUSE=iconv idn nls xcrypt
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1 )
+RDEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1:= ) !xcrypt? ( virtual/libcrypt:= )
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=d0589ea6e23c23fb691e84b249477832
+_md5_=baddd8b343e0124170bc07a4360837d7
