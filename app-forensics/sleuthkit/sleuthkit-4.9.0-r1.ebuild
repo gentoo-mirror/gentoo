@@ -36,11 +36,17 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.tar.gz
 	ewf? ( https://github.com/sleuthkit/libewf_64bit/archive/VisualStudio_2010.tar.gz -> sleuthkit-libewf_64bit-20130416.tar.gz )"
 
 LICENSE="BSD CPL-1.0 GPL-2+ IBM java? ( Apache-2.0 )"
-SLOT="0/19" # subslot = major soname version
-KEYWORDS="~amd64 ~hppa ~ppc ~x86"
-IUSE="aff doc ewf java static-libs test +threads zlib"
+SLOT="0/13" # subslot = major soname version
+KEYWORDS="amd64 ~hppa ppc x86"
+IUSE="aff doc ewf java postgres static-libs test +threads zlib"
 RESTRICT="!test? ( test )"
 
+#
+# Note: It is not possible to move the dep on dev-java/jdbc-postgresql
+# inside a conditional postgres? block because java sources import
+# org.postgres unconditionally as of writing this (version 4.6.4). The
+# postgres USE flag will be used for the TSK postgresql support however.
+#
 DEPEND="
 	dev-db/sqlite:3
 	dev-lang/perl:*
@@ -48,11 +54,12 @@ DEPEND="
 	ewf? ( sys-libs/zlib )
 	java? (
 		>=dev-java/c3p0-0.9.5:0
-		dev-java/commons-lang:3.1
+		dev-java/commons-lang:3.6
 		dev-java/guava:20
 		>=dev-java/jdbc-postgresql-9.4:0
 		>=dev-java/joda-time-2.4:0
 	)
+	postgres? ( dev-db/postgresql:= )
 	zlib? ( sys-libs/zlib )
 "
 # TODO: add support for not-in-tree libraries libvhdi and libvmdk
@@ -80,7 +87,6 @@ DEPEND="${DEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.1.0-tools-shared-libs.patch
 	"${FILESDIR}"/${PN}-4.6.4-default-jar-location-fix.patch
-	"${FILESDIR}"/${PN}-4.10.1-exclude-usr-local.patch
 )
 
 src_unpack() {
@@ -121,10 +127,6 @@ src_prepare() {
 	sed -e '/AM_CXXFLAGS/ s/-Werror//g' \
 		-i tsk/util/Makefile.am \
 		-i tsk/pool/Makefile.am || die
-	# Remove -static from LDFLAGS because it doesn't actually create
-	# a static binary. It confuses libtool, who then inserts rpath
-	sed -e '/LDFLAGS/ s/-static//' \
-		-i tools/pooltools/Makefile.am || die
 
 	if use java; then
 		pushd "${S}"/bindings/java &>/dev/null || die
@@ -215,6 +217,8 @@ src_configure() {
 		$(use_with aff afflib)
 		$(use_with zlib)
 	)
+	# Workaround the automagic detection of postgresql
+	local -x ac_cv_lib_pq_PQlibVersion="$(usex postgres)"
 	# TODO: add support for non-existing libraries libvhdi and libvmdk
 	# myeconfargs+=(
 	# 	$(use_with vhdi libvhdi)
@@ -243,15 +247,15 @@ src_compile() {
 
 	# Create symlinks of jars for the required dependencies
 	if use java; then
+		pushd "${S}"/bindings/java &>/dev/null || die
+
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" c3p0
-		java-pkg_jar-from --into "${TSK_JAR_DIR}" commons-lang:3.1
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" commons-lang:3.6
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" guava:20
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" jdbc-postgresql
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" joda-time
 
-		# case-uco needs gson and expects it under case-uco/java/lib
-		# symlink it to the jar dir we create for java bindings
-		ln -s "${TSK_JAR_DIR}" "${S}"/case-uco/java/lib || die
+		popd &>/dev/null || die
 	fi
 
 	# Create the doc output dirs if requested
@@ -263,20 +267,14 @@ src_compile() {
 }
 
 src_install() {
-	# Give it an existing bogus ivy home #756766
-	local -x IVY_HOME="${T}"
 	local f
 
 	if use java; then
 		pushd "${S}"/bindings/java &>/dev/null || die
 
-		# Install case-uco
-		pushd "${S}"/case-uco/java &>/dev/null || die
-		java-pkg_newjar "dist/${PN}-caseuco-${PV}".jar "${PN}-caseuco.jar"
-		popd || die
+		java-pkg_newjar "dist/${P}.jar" "${PN}.jar"
 
-		# Install the bundled jar files as well as the
-		# sleuthkit jar installed here by case-uco
+		# Install the bundled jar files
 		pushd "${TSK_JAR_DIR}" &>/dev/null || die
 		for f in *; do
 			# Skip the symlinks java-pkg_jar-from created
@@ -293,8 +291,6 @@ src_install() {
 	fi
 
 	default
-	# Default install target for case-uco installs the jar in the wrong place
-	rm -r "${ED}"/usr/share/java
 
 	# It unconditionally builds both api and jni docs
 	# We install conditionally based on the provided use flags
