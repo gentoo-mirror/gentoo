@@ -7,7 +7,7 @@
 # @AUTHOR:
 # Author: Michał Górny <mgorny@gentoo.org>
 # Based on the work of: Krzysztof Pawlik <nelchael@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7
+# @SUPPORTED_EAPIS: 6 7 8
 # @BLURB: A simple eclass to build Python packages using distutils.
 # @DESCRIPTION:
 # A simple eclass providing functions to build Python packages using
@@ -47,7 +47,7 @@ case "${EAPI:-0}" in
 	[0-5])
 		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
 		;;
-	[6-7])
+	[6-8])
 		;;
 	*)
 		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
@@ -129,7 +129,7 @@ _distutils_set_globals() {
 			rdep+=" ${setuptools_dep}"
 			;;
 		pyproject.toml)
-			bdep+=' dev-python/pyproject2setuppy[${PYTHON_USEDEP}]'
+			bdep+=' >=dev-python/pyproject2setuppy-15[${PYTHON_USEDEP}]'
 			;;
 		*)
 			die "Invalid DISTUTILS_USE_SETUPTOOLS=${DISTUTILS_USE_SETUPTOOLS}"
@@ -248,15 +248,16 @@ unset -f _distutils_set_globals
 # }
 # @CODE
 
-# @ECLASS-VARIABLE: mydistutilsargs
+# @ECLASS-VARIABLE: DISTUTILS_ARGS
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# An array containing options to be passed to setup.py.
+# An array containing options to be passed to setup.py.  They are passed
+# before the default arguments, i.e. before the first command.
 #
 # Example:
 # @CODE
 # python_configure_all() {
-# 	mydistutilsargs=( --enable-my-hidden-option )
+# 	DISTUTILS_ARGS=( --enable-my-hidden-option )
 # }
 # @CODE
 
@@ -446,8 +447,9 @@ distutils_enable_tests() {
 # (if ${EPYTHON} is set; fallback 'python' otherwise).
 #
 # setup.py will be passed the following, in order:
-# 1. ${mydistutilsargs[@]}
-# 2. additional arguments passed to the esetup.py function.
+# 1. ${DISTUTILS_ARGS[@]}
+# 2. ${mydistutilsargs[@]} (deprecated)
+# 3. additional arguments passed to the esetup.py function.
 #
 # Please note that setup.py will respect defaults (unless overridden
 # via command-line options) from setup.cfg that is created
@@ -463,11 +465,15 @@ esetup.py() {
 
 	local setup_py=( setup.py )
 	if [[ ${DISTUTILS_USE_SETUPTOOLS} == pyproject.toml ]]; then
-		# TODO: remove '.main' when we require v10
-		setup_py=( -m pyproject2setuppy.main )
+		setup_py=( -m pyproject2setuppy )
 	fi
 
-	set -- "${EPYTHON}" "${setup_py[@]}" "${mydistutilsargs[@]}" "${@}"
+	if [[ ${EAPI} != [67] && ${mydistutilsargs[@]} ]]; then
+		die "mydistutilsargs is banned in EAPI ${EAPI} (use DISTUTILS_ARGS)"
+	fi
+
+	set -- "${EPYTHON}" "${setup_py[@]}" "${DISTUTILS_ARGS[@]}" \
+		"${mydistutilsargs[@]}" "${@}"
 
 	echo "${@}" >&2
 	"${@}" || die -n
@@ -526,6 +532,7 @@ distutils_install_for_testing() {
 	local install_method=root
 	case ${1} in
 		--via-home)
+			[[ ${EAPI} == [67] ]] || die "${*} is banned in EAPI ${EAPI}"
 			install_method=home
 			shift
 			;;
@@ -769,8 +776,10 @@ _distutils-r1_wrap_scripts() {
 			local basename=${f##*/}
 
 			debug-print "${FUNCNAME}: installing wrapper at ${bindir}/${basename}"
-			_python_ln_rel "${path}${EPREFIX}"/usr/lib/python-exec/python-exec2 \
-				"${path}${bindir}/${basename}" || die
+			local dosym=dosym
+			[[ ${EAPI} == [67] ]] && dosym=dosym8
+			"${dosym}" -r "${path#${D}}"/usr/lib/python-exec/python-exec2 \
+				"${path#${D}}${bindir#${EPREFIX}}/${basename}"
 		done
 
 		for f in "${non_python_files[@]}"; do
@@ -836,7 +845,19 @@ distutils-r1_python_test() {
 distutils-r1_python_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local args=( "${@}" )
+	local root=${D%/}/_${EPYTHON}
+	[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D%/}
+
+	# inline DISTUTILS_ARGS logic from esetup.py in order to make
+	# argv overwriting easier
+	local args=(
+		"${DISTUTILS_ARGS[@]}"
+		"${mydistutilsargs[@]}"
+		install --skip-build --root="${root}" "${args[@]}"
+		"${@}"
+	)
+	local DISTUTILS_ARGS=()
+	local mydistutilsargs=()
 
 	# enable compilation for the install phase.
 	local -x PYTHONDONTWRITEBYTECODE=
@@ -852,42 +873,31 @@ distutils-r1_python_install() {
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 		# user may override --install-scripts
 		# note: this is poor but distutils argv parsing is dumb
-		local mydistutilsargs=( "${mydistutilsargs[@]}" )
 		local scriptdir=${EPREFIX}/usr/bin
 
-		# construct a list of mydistutilsargs[0] args[0] args[1]...
-		local arg arg_vars
-		[[ ${mydistutilsargs[@]} ]] && eval arg_vars+=(
-			'mydistutilsargs['{0..$(( ${#mydistutilsargs[@]} - 1 ))}']'
-		)
-		[[ ${args[@]} ]] && eval arg_vars+=(
-			'args['{0..$(( ${#args[@]} - 1 ))}']'
-		)
-
-		set -- "${arg_vars[@]}"
+		# rewrite all the arguments
+		set -- "${args[@]}"
+		args=()
 		while [[ ${@} ]]; do
-			local arg_var=${1}
+			local a=${1}
 			shift
-			local a=${!arg_var}
 
-			case "${a}" in
+			case ${a} in
 				--install-scripts=*)
 					scriptdir=${a#--install-scripts=}
-					unset "${arg_var}"
 					;;
 				--install-scripts)
-					scriptdir=${!1}
-					unset "${arg_var}" "${1}"
+					scriptdir=${1}
 					shift
+					;;
+				*)
+					args+=( "${a}" )
 					;;
 			esac
 		done
 	fi
 
-	local root=${D%/}/_${EPYTHON}
-	[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D%/}
-
-	esetup.py install --skip-build --root="${root}" "${args[@]}"
+	esetup.py "${args[@]}"
 
 	local forbidden_package_names=(
 		examples test tests
