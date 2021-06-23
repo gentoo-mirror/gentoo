@@ -4,18 +4,12 @@
 EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
-MY_PN_LUACOMPAT="lua-compat-5.3"
-MY_PV_LUACOMPAT="0.10"
-MY_P_LUACOMPAT="${MY_PN_LUACOMPAT}-${MY_PV_LUACOMPAT}"
 
 inherit lua toolchain-funcs
 
 DESCRIPTION="A lua binding for the OpenLDAP client libraries"
 HOMEPAGE="https://github.com/lualdap/lualdap"
-SRC_URI="
-	https://github.com/lualdap/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/keplerproject/${MY_PN_LUACOMPAT}/archive/v${MY_PV_LUACOMPAT}.tar.gz -> ${MY_P_LUACOMPAT}.tar.gz
-"
+SRC_URI="https://github.com/lualdap/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -38,9 +32,6 @@ HTML_DOCS=( "docs/." )
 
 src_prepare() {
 	default
-
-	# Copy current lua-compat-5.3 files to support lua5-4
-	cp ../${MY_P_LUACOMPAT}/c-api/* src || die
 
 	lua_copy_sources
 }
