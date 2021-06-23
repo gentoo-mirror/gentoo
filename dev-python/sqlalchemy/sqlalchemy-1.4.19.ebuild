@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python3_{7..9} )
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
 PYTHON_REQ_USE="sqlite?"
 
 inherit distutils-r1 multiprocessing optfeature
@@ -24,7 +24,7 @@ IUSE="examples +sqlite test"
 RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/importlib_metadata[${PYTHON_USEDEP}]
-	' python3_7 pypy3)
+	' pypy3)
 "
 # Use pytest-xdist to speed up tests
 BDEPEND="
