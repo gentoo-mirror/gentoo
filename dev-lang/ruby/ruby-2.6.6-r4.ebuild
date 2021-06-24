@@ -17,7 +17,7 @@ HOMEPAGE="https://www.ruby-lang.org/"
 SRC_URI="https://cache.ruby-lang.org/pub/ruby/${SLOT}/${MY_P}.tar.xz"
 
 LICENSE="|| ( Ruby-BSD BSD-2 )"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="berkdb debug doc examples gdbm ipv6 jemalloc jit +rdoc rubytests socks5 +ssl static-libs systemtap tk xemacs"
 
 RDEPEND="
@@ -191,8 +191,7 @@ src_install() {
 	# Remove the remaining bundled gems. We do this late in the process
 	# since they are used during the build to e.g. create the
 	# documentation.
-	einfo "Removing default gems before installation"
-	rm -rf .ext/common/json.rb .ext/common/json ext/json || die
+	rm -rf ext/json || die
 	rm -rf lib/bundler* lib/rdoc/rdoc.gemspec || die
 
 	# Ruby is involved in the install process, we don't want interference here.

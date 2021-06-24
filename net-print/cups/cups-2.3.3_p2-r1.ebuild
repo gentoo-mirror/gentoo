@@ -19,7 +19,7 @@ else
 #	SRC_URI="https://github.com/apple/cups/releases/download/v${MY_PV}/${MY_P}-source.tar.gz"
 	SRC_URI="https://github.com/OpenPrinting/cups/releases/download/v${MY_PV}/cups-${MY_PV}-source.tar.gz"
 	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != *_rc* ]] ; then
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
+		KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
 	fi
 fi
 
@@ -41,8 +41,8 @@ BDEPEND="
 "
 DEPEND="
 	app-text/libpaper
-	sys-libs/zlib
 	virtual/libcrypt:=
+	sys-libs/zlib
 	acl? (
 		kernel_linux? (
 			sys-apps/acl
@@ -69,6 +69,7 @@ PDEPEND=">=net-print/cups-filters-1.0.43"
 PATCHES=(
 	"${FILESDIR}/${PN}-2.2.6-fix-install-perms.patch"
 	"${FILESDIR}/${PN}-1.4.4-nostrip.patch"
+	"${FILESDIR}/${PN}-2.3.3-user-AR.patch"
 )
 
 MULTILIB_CHOST_TOOLS=(
@@ -227,7 +228,7 @@ multilib_src_install_all() {
 	rm "${ED}"/etc/cups/cupsd.conf.default || die
 
 	# clean out cups init scripts
-	rm -r "${ED}"/etc/{init.d/cups,rc*,pam.d/cups} || die
+	rm -r "${ED}"/etc/{init.d/cups,rc*} || die
 
 	# install our init script
 	local neededservices=(
@@ -239,7 +240,8 @@ multilib_src_install_all() {
 	sed -i -e "s/@neededservices@/${neededservices}/" "${T}"/cupsd || die
 	doinitd "${T}"/cupsd
 
-	if use pam; then
+	if use pam ; then
+		rm "${ED}"/etc/pam.d/${PN} || die
 		pamd_mimic_system cups auth account
 	fi
 
