@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND==virtual/libusb-0* dev-libs/libxml2 sys-libs/readline:0= perl? ( dev-lang/perl ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) tcl? ( dev-lang/tcl:0= ) virtual/pkgconfig dev-lang/swig >=sys-devel/libtool-2.2 doc? ( app-doc/doxygen )
+DESCRIPTION=Ham radio backend rig control libraries
+EAPI=7
+HOMEPAGE=https://www.hamlib.org
+INHERIT=autotools python-single-r1
+IUSE=doc perl python tcl python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2 GPL-2
+RDEPEND==virtual/libusb-0* dev-libs/libxml2 sys-libs/readline:0= perl? ( dev-lang/perl ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) tcl? ( dev-lang/tcl:0= )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RESTRICT=test
+SLOT=0/4.2
+SRC_URI=mirror://sourceforge/hamlib/hamlib-4.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
+_md5_=b7640e1b1f831d5c9cf48f6ae4ee866c
