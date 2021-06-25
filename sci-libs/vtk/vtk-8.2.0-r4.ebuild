@@ -335,12 +335,6 @@ src_install() {
 	# Stop web page images from being compressed
 	use doc && docompress -x /usr/share/doc/${PF}/doxygen
 
-	if use tcl; then
-		# install Tcl docs
-		docinto vtk_tcl
-		docinto .
-	fi
-
 	# install examples
 	if use examples; then
 		einfo "Installing examples"
@@ -351,10 +345,10 @@ src_install() {
 
 	# with MPI, rpaths are not deleted properly
 	if use mpi; then
-		chrpath -d "${ED}"/usr/$(get_libdir)/*.so.* || die
+		chrpath -d "${ED}"/usr/$(get_libdir)/*.so* || die
+		chrpath -d "${ED}"/usr/bin/* || die
 		if use python; then
 			chrpath -d "${ED}"/$(python_get_sitedir)/vtkmodules/*.so || die
-			chrpath -d "${ED}"/usr/bin/{,p}vtkpython || die
 		fi
 	fi
 
