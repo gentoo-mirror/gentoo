@@ -1,0 +1,15 @@
+BDEPEND=>=dev-libs/wayland-protocols-1.17 >=dev-util/meson-0.56.0 virtual/pkgconfig >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=>=dev-libs/libinput-1.14.0:0= >=dev-libs/wayland-1.19.0 >=dev-libs/wayland-protocols-1.17.0 media-libs/mesa[egl,gles2,gbm] sys-auth/seatd:= virtual/libudev x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman x11-backend? ( x11-libs/libxcb:0= ) X? ( x11-base/xorg-server[wayland] x11-libs/libxcb:0= x11-libs/xcb-util-image x11-libs/xcb-util-wm )
+DESCRIPTION=Pluggable, composable, unopinionated modules for building a Wayland compositor
+EAPI=7
+HOMEPAGE=https://github.com/swaywm/wlroots
+INHERIT=meson
+IUSE=x11-backend X
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-libs/libinput-1.14.0:0= >=dev-libs/wayland-1.19.0 >=dev-libs/wayland-protocols-1.17.0 media-libs/mesa[egl,gles2,gbm] sys-auth/seatd:= virtual/libudev x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman x11-backend? ( x11-libs/libxcb:0= ) X? ( x11-base/xorg-server[wayland] x11-libs/libxcb:0= x11-libs/xcb-util-image x11-libs/xcb-util-wm )
+SLOT=0/14
+SRC_URI=https://github.com/swaywm/wlroots/archive/0.14.0.tar.gz -> wlroots-0.14.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52
+_md5_=d0dc558e94db91acc4dee33383068844
