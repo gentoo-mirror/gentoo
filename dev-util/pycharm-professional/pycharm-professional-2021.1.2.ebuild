@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit desktop gnome2-utils readme.gentoo-r1 xdg
 
@@ -11,7 +11,7 @@ SRC_URI="http://download.jetbrains.com/python/${P}.tar.gz"
 
 LICENSE="PyCharm_Academic PyCharm_Classroom PyCharm PyCharm_OpenSource PyCharm_Preview"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+bundled-jdk"
 
 RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
@@ -40,6 +40,12 @@ src_install() {
 	dosym ../../opt/${PN}/bin/pycharm.sh /usr/bin/${PN}
 	newicon bin/${MY_PN}.png ${PN}.png
 	make_desktop_entry ${PN} ${PN} ${PN}
+
+	local rub
+
+	for rub in aarch64 mips64el ppc64le; do
+		rm -r "${D}"/opt/pycharm-professional/lib/pty4j-native/linux/${rub} || die
+	done
 
 	readme.gentoo_create_doc
 }
