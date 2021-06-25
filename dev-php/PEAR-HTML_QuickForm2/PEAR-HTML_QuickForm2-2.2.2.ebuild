@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit php-pear-r2
 
@@ -11,9 +11,9 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="examples"
 
-DEPEND=">=dev-lang/php-5.2.0:*"
+DEPEND=">=dev-lang/php-5.4.0:*"
 RDEPEND="${DEPEND}
-	>=dev-php/PEAR-HTML_Common2-2.0.0"
+	>=dev-php/PEAR-HTML_Common2-2.2.0"
 
 src_install() {
 	HTML_DOCS=( data/quickform.css data/js )
