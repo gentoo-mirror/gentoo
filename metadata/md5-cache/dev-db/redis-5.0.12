@@ -1,6 +1,6 @@
-BDEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( || ( dev-lang/lua:5.1 =dev-lang/lua-5.1*:0 ) ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+BDEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( dev-lang/lua:5.1 ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare
-DEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( || ( dev-lang/lua:5.1 =dev-lang/lua-5.1*:0 ) ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) test? ( dev-lang/tcl:0= )
+DEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( dev-lang/lua:5.1 ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) test? ( dev-lang/tcl:0= )
 DESCRIPTION=A persistent caching system, key-value and data structures database
 EAPI=7
 HOMEPAGE=https://redis.io
@@ -8,10 +8,10 @@ INHERIT=autotools flag-o-matic systemd toolchain-funcs tmpfiles
 IUSE=+jemalloc tcmalloc luajit test
 KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 x86 ~amd64-linux ~x86-linux ~x86-solaris
 LICENSE=BSD
-RDEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( || ( dev-lang/lua:5.1 =dev-lang/lua-5.1*:0 ) ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) acct-group/redis acct-user/redis virtual/tmpfiles
+RDEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( dev-lang/lua:5.1 ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) acct-group/redis acct-user/redis virtual/tmpfiles
 REQUIRED_USE=?? ( tcmalloc jemalloc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://download.redis.io/releases/redis-5.0.12.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=ff340148affe1d10294a5fbfc6e30d88
+_md5_=0dc2c99db37f7982ecda2360ed8ca53e
