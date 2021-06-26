@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp virtual/perl-File-Spec dev-perl/Log-Dispatch dev-perl/Log-Dispatch-Array dev-perl/Params-Util virtual/perl-Scalar-List-Utils dev-perl/String-Flogger dev-perl/Sub-Exporter >=dev-perl/Sub-Exporter-GlobExporter-0.2.0 >=virtual/perl-Sys-Syslog-0.160.0 >=dev-perl/Try-Tiny-0.40.0 virtual/perl-ExtUtils-MakeMaker test? ( !minimal? ( >=virtual/perl-CPAN-Meta-2.120.900 ) virtual/perl-File-Temp dev-perl/Test-Deep dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=a simple wrapper around Log::Dispatch
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Log-Dispatchouli
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp virtual/perl-File-Spec dev-perl/Log-Dispatch dev-perl/Log-Dispatch-Array dev-perl/Params-Util virtual/perl-Scalar-List-Utils dev-perl/String-Flogger dev-perl/Sub-Exporter >=dev-perl/Sub-Exporter-GlobExporter-0.2.0 >=virtual/perl-Sys-Syslog-0.160.0 >=dev-perl/Try-Tiny-0.40.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/Log-Dispatchouli-2.023.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=9e2ffa7d019a3f5f9e53e67c7910b255

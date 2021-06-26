@@ -1,0 +1,16 @@
+BDEPEND=>=virtual/perl-File-Path-2.70.0 >=virtual/perl-File-Spec-0.820.0 virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.450.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Log4j implementation for Perl
+EAPI=8
+HOMEPAGE=http://log4perl.sourceforge.net/
+INHERIT=perl-module
+IUSE=test examples
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=virtual/perl-File-Path-2.70.0 >=virtual/perl-File-Spec-0.820.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/Log-Log4perl-1.54.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=03e72379f4dda8c21ff153d9e53749d5
