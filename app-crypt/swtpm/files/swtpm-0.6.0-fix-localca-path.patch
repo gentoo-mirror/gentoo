@@ -1,9 +1,9 @@
 diff --git a/samples/Makefile.am b/samples/Makefile.am
-index 7d69bf8..9fb8338 100644
+index dcbc9b6..68c8adb 100644
 --- a/samples/Makefile.am
 +++ b/samples/Makefile.am
-@@ -56,10 +56,10 @@ endif
- 
+@@ -48,10 +48,10 @@ swtpm_localca_CFLAGS = \
+ 	$(GLIB_CFLAGS)
  
  install-data-local:
 -	$(MKDIR_P) $(DESTDIR)$(localstatedir)/lib/swtpm-localca
@@ -15,7 +15,7 @@ index 7d69bf8..9fb8338 100644
 +		chmod 0750 $(DESTDIR)$(localstatedir)/swtpm-localca || true; \
  	fi
  
- # for out-of-tree builds we need to clean up
+ EXTRA_DIST= \
 diff --git a/samples/swtpm-localca.conf.in b/samples/swtpm-localca.conf.in
 index 1f0b48d..63f1fed 100644
 --- a/samples/swtpm-localca.conf.in
