@@ -4,7 +4,7 @@
 EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 virtualx
 
@@ -18,8 +18,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	app-text/texlive[extra]
-	$( python_gen_cond_dep \
-		'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_7 )
 	dev-python/matplotlib[latex,${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
