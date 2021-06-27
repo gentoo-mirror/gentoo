@@ -5,11 +5,11 @@ EAPI=7
 
 DESCRIPTION="Count Lines of Code"
 HOMEPAGE="https://github.com/AlDanial/cloc"
-SRC_URI="https://github.com/AlDanial/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/AlDanial/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 DEPEND="dev-lang/perl"
 RDEPEND="${DEPEND}
