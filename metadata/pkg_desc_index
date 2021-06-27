@@ -906,7 +906,7 @@ app-admin/sysstat 12.5.3 12.5.4: System performance tools for Linux
 app-admin/system-config-printer 1.5.15: Graphical user interface for CUPS administration
 app-admin/systemdgenie 0.99.0: Systemd managment utility
 app-admin/tenshi 0.17-r1: Log parsing and notification program
-app-admin/terraform 0.14.5 0.14.6 0.14.7 0.14.8 0.14.9 0.14.10 0.15.0 0.15.1 0.15.3 0.15.4 0.15.5 1.0.0: A tool for building, changing, and combining infrastructure safely
+app-admin/terraform 0.14.10 0.15.5 1.0.1: A tool for building, changing, and combining infrastructure safely
 app-admin/testdisk 7.1: Checks and undeletes partitions + PhotoRec, signature based recovery tool
 app-admin/tmpreaper 1.6.14: A utility for removing files based on when they were last accessed
 app-admin/tmpwatch 2.11-r2: Files which haven't been accessed are removed from specified directories
@@ -1208,7 +1208,7 @@ app-crypt/ima-evm-utils 1.1-r1 9999: Supporting tools for IMA and EVM
 app-crypt/jacksum 1.7.0-r1: Java utility for computing and verifying checksums: CRC*, MD*, etc.
 app-crypt/jetring 0.27 0.30: GPG keyring maintenance using changesets
 app-crypt/jitterentropy 2.2.0 3.0.1: Hardware RNG based on CPU timing jitter
-app-crypt/jitterentropy-rngd 1.1.0: Jitter RNG daemon
+app-crypt/jitterentropy-rngd 1.1.0 1.2.2: Jitter RNG daemon
 app-crypt/johntheripper 1.8.0: fast password cracker
 app-crypt/johntheripper-jumbo 1.9.0-r3 9999: Fast password cracker
 app-crypt/kali-archive-keyring 2015.2: GnuPG archive keys of the Kali archive
@@ -3044,6 +3044,7 @@ app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r3: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 2.0-r1 3.4: A POSIX shell function to treat a variable like an array, quoting args
+app-shells/pwsh-bin 7.1.3: PowerShell - binary precompiled for glibc
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r1: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -4101,7 +4102,7 @@ dev-haskell/c2hs 0.28.7: C->Haskell FFI tool that gives some cross-language type
 dev-haskell/cabal 3.0.1.0 3.2.1.0-r1: A framework for packaging Haskell software
 dev-haskell/cabal-doctest 1.0.8-r1: A Setup.hs helper for doctests running
 dev-haskell/cabal-install 3.0.0.0 3.2.0.0: The command-line interface for Cabal and Hackage
-dev-haskell/cairo 0.13.8.1: Binding to the Cairo library
+dev-haskell/cairo 0.13.8.1 0.13.8.1-r1: Binding to the Cairo library
 dev-haskell/call-stack 0.2.0: Use GHC call-stacks in a backward compatible way
 dev-haskell/casa-client 0.0.1: Client for Casa
 dev-haskell/casa-types 0.0.1: Types for Casa
@@ -5323,7 +5324,7 @@ dev-lang/jwasm 2.13: MASM-compatible TASM-similar assembler (fork of Wasm)
 dev-lang/lazarus 1.8.4-r2 2.0.6: Lazarus IDE is a feature rich visual programming environment emulating Delphi
 dev-lang/lfe 1.1.1 1.3.0_p20210112 2.0: Lisp-flavoured Erlang
 dev-lang/lisaac 0.13.1-r2: An object prototype based language
-dev-lang/logtalk 3.36.0: Open source object-oriented logic programming language
+dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r4 5.1.5-r106 5.2.4-r3 5.3.6-r2 5.4.2-r1: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.0.5-r3 2.1.0_beta3-r2: Just-In-Time Compiler for the Lua programming language
 dev-lang/maude 2.7-r1: High-level specification language for equational and logic programming
@@ -6923,7 +6924,7 @@ dev-perl/LWP-MediaTypes 6.20.0-r1 6.40.0: Media types and mailcap processing
 dev-perl/LWP-Online 1.80.0-r2: Does your process have access to the web
 dev-perl/LWP-Protocol-http10 6.30.0: Legacy HTTP/1.0 support for LWP
 dev-perl/LWP-Protocol-https 6.70.0 6.100.0: Provide https support for LWP::UserAgent
-dev-perl/LWP-UserAgent-Cached 0.60.0-r1: LWP::UserAgent with simple caching mechanism
+dev-perl/LWP-UserAgent-Cached 0.60.0-r1 0.80.0: LWP::UserAgent with simple caching mechanism
 dev-perl/LWP-UserAgent-Determined 1.70.0: A virtual browser that retries errors
 dev-perl/LWPx-ParanoidAgent 1.120.0: Subclass of LWP::UserAgent that protects you from harm
 dev-perl/LaTeX-Driver 0.300.2 1.2.0: Perl encapsulation of invoking the Latex programs
@@ -6998,8 +6999,8 @@ dev-perl/MP4-Info 1.130.0: Fetch info from MPEG-4 files (.mp4, .m4a, .m4p, .3gp)
 dev-perl/MRO-Compat 0.130.0: Lets you build groups of accessors
 dev-perl/Mac-Pasteboard 0.3.0: Manipulate Mac OS X clipboards/pasteboards
 dev-perl/Mail-Audit 2.228.0-r1: Mail sorting/delivery module for Perl
-dev-perl/Mail-Box 3.3.0: Mail folder manager and MUA backend
-dev-perl/Mail-Box-IMAP4 3.2.0: Mail::Box connector via IMAP4
+dev-perl/Mail-Box 3.3.0 3.9.0: Mail folder manager and MUA backend
+dev-perl/Mail-Box-IMAP4 3.2.0 3.7.0: Mail::Box connector via IMAP4
 dev-perl/Mail-Box-POP3 3.3.0: Mail::Box connector via POP3
 dev-perl/Mail-Builder 2.130.0: Easily create plaintext/html e-mail messages with attachments and inline images
 dev-perl/Mail-Builder-Simple 0.160.0-r1: Send UTF-8 HTML and text email using templates
@@ -7009,14 +7010,14 @@ dev-perl/Mail-DomainKeys 1.0.0-r1: A perl implementation of DomainKeys
 dev-perl/Mail-IMAPClient 3.390.0: IMAP client module for Perl
 dev-perl/Mail-ListDetector 1.40.0-r1: Perl extension for detecting mailing list messages
 dev-perl/Mail-Mbox-MessageParser 1.510.500: A fast and simple mbox folder reader
-dev-perl/Mail-Message 3.2.0: General Message Object for MIME Messsage Handling
+dev-perl/Mail-Message 3.2.0 3.10.0: General Message Object for MIME Messsage Handling
 dev-perl/Mail-POP3Client 2.190.0: POP3 client module for Perl
 dev-perl/Mail-Procmail 1.80.0-r1: Mail sorting/delivery module for Perl
 dev-perl/Mail-SPF 2.9.0-r2: An object-oriented implementation of Sender Policy Framework
 dev-perl/Mail-SRS 0.310.0-r2: Interface to Sender Rewriting Scheme
 dev-perl/Mail-Sender 0.903.0: Module for sending mails with attachments through an SMTP server
 dev-perl/Mail-Sendmail 0.800.0: Simple platform independent mailer
-dev-perl/Mail-Transport 3.0.0: Base class for Email Message Exchange
+dev-perl/Mail-Transport 3.0.0 3.5.0: Base class for Email Message Exchange
 dev-perl/MailTools 2.190.0: Manipulation of electronic mail addresses
 dev-perl/Math-Base-Convert 0.110.0: Very fast base to base conversion
 dev-perl/Math-Base36 0.140.0: Encoding and decoding of base36 strings
@@ -7680,7 +7681,7 @@ dev-perl/Unicode-UTF8simple 1.60.0: Conversions to/from UTF8 from/to characterse
 dev-perl/Unix-Getrusage 0.30.0-r1: Perl interface to the Unix getrusage system call
 dev-perl/Unix-Mknod 0.40.0: Filesys-Statvfs
 dev-perl/Unix-Syslog 1.100.0-r2: A Perl module which provides access to the system logger
-dev-perl/User-Identity 0.990.0: Maintains info about a physical person
+dev-perl/User-Identity 0.990.0 1.0.0: Maintains info about a physical person
 dev-perl/VM-EC2 1.280.0: Interface to Amazon EC2, VPC, ELB, Autoscaling, and Relational DB services
 dev-perl/VM-EC2-Security-CredentialCache 0.250.0: Cache credentials respecting expiration time for IAM roles
 dev-perl/Validate-Net 0.600.0-r1: Format validation and more for Net:: related strings
@@ -8255,7 +8256,7 @@ dev-python/confuse 1.0.0 1.4.0: Confuse is a configuration library for Python th
 dev-python/consonance 0.1.3-r1: WhatsApp's handshake implementation using Noise Protocol
 dev-python/constantly 15.1.0-r1: Symbolic constants in Python
 dev-python/construct 2.10.67: A powerful declarative parser for binary data
-dev-python/contextlib2 0.6.0_p1-r1: Backports and enhancements for the contextlib module
+dev-python/contextlib2 0.6.0_p1-r1 21.6.0: Backports and enhancements for the contextlib module
 dev-python/cookies 2.2.1-r1: Friendlier RFC 6265-compliant cookie parser/renderer
 dev-python/coreapi 2.3.3-r1: Python client library for Core API
 dev-python/coreschema 0.0.4: Core Schema
@@ -8522,7 +8523,7 @@ dev-python/imagesize 1.2.0: Pure Python module for getting image size from png/j
 dev-python/imapclient 2.2.0: easy-to-use, pythonic, and complete IMAP client library
 dev-python/iminuit 2.3.0 2.4.0 2.5.0 2.6.0 2.6.1: Minuit numerical function minimization in Python
 dev-python/immutables 0.15: A high-performance immutable mapping type for Python
-dev-python/importlib_metadata 4.3.1 4.5.0: Read metadata from Python packages
+dev-python/importlib_metadata 4.3.1 4.5.0 4.6.0: Read metadata from Python packages
 dev-python/importlib_resources 5.1.4: Read resources from Python packages
 dev-python/imread 0.7.3-r1: Read Image Files
 dev-python/incremental 21.3.0: Incremental is a small library that versions your Python projects
@@ -8773,6 +8774,7 @@ dev-python/oslo-serialization 4.0.2: Oslo Serialization library
 dev-python/oslo-utils 4.6.0-r1: Oslo Utility library
 dev-python/oslotest 4.4.1: Oslo test framework
 dev-python/osrf_pycommon 0.1.10-r1: Commonly needed Python modules used by Python software developed at OSRF
+dev-python/outcome 1.1.0: Capture the outcome of Python function calls
 dev-python/ovs 2.13.0 2.13.3: OVS bindings for python.
 dev-python/owslib 0.20.0: Library for client programming with Open Geospatial Consortium web service
 dev-python/packaging 20.9: Core utilities for Python packages
@@ -8850,7 +8852,7 @@ dev-python/precis-i18n 1.0.3: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r1: A library for stubbing in Python
 dev-python/pretty-yaml 20.4.0: PyYAML-based module to produce pretty and readable YAML-serialized data
 dev-python/prettytable 0.7.2-r1 2.1.0: Easily displaying tabular data in a visually appealing ASCII table format
-dev-python/priority 1.3.0: A pure-Python implementation of the HTTP/2 priority tree
+dev-python/priority 1.3.0 2.0.0: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 2.1.2: Tools for testing processes
 dev-python/progress 1.5: Easy to use progress bars
 dev-python/progressbar 2.5: Text progressbar library for python
@@ -9068,6 +9070,7 @@ dev-python/pytest-subtests 0.4.0 0.5.0: unittest subTest() support and subtests 
 dev-python/pytest-tempdir 2019.10.12: Pytest plugin to support for a predictable and repeatable temporary directory
 dev-python/pytest-testinfra 6.3.0: Write unit tests in Python to test actual state of your servers
 dev-python/pytest-timeout 1.4.2-r1: py.test plugin to abort hanging tests
+dev-python/pytest-trio 0.7.0: This is a pytest plugin to help you test projects that use Trio
 dev-python/pytest-verbose-parametrize 1.7.0: More descriptive parametrized-test IDs for py.test
 dev-python/pytest-virtualenv 1.7.0-r1: Virtualenv fixture for py.test
 dev-python/pytest-xdist 2.2.1 2.3.0: Distributed testing and loop-on-failing modes
@@ -9201,7 +9204,7 @@ dev-python/reflink 0.2.1-r1: Python wrapper around the reflink system calls
 dev-python/regex 2021.4.4: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6: similar to bencode from the BitTorrent project
 dev-python/reno 3.3.0: Release notes manager, storing release notes in a git repo and building docs
-dev-python/reportlab 3.5.67: Tools for generating printable PDF documents from any data source
+dev-python/reportlab 3.5.67 3.5.68: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r1: A tiny LRU cache implementation and decorator
 dev-python/repoze-sphinx-autointerface 0.8: Sphinx extension: auto-generates API docs from Zope interfaces
 dev-python/requests 2.25.1-r2: HTTP library for human beings
@@ -9343,6 +9346,7 @@ dev-python/sphinxcontrib-programoutput 0.17: Extension to sphinx to include prog
 dev-python/sphinxcontrib-qthelp 1.0.3: Sphinx extension which outputs QtHelp documents
 dev-python/sphinxcontrib-serializinghtml 1.1.4 1.1.5: Sphinx extension which outputs outputs serialized HTML files
 dev-python/sphinxcontrib-spelling 7.2.1: Sphinx spelling extension
+dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphinxcontrib-websupport 1.2.4: Sphinx websupport extension
 dev-python/sphobjinv 2.1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spur 0.3.22: Run commands locally or over SSH using the same interface
@@ -9426,6 +9430,8 @@ dev-python/transitions 0.8.8: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.3.6: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.2.1 0.2.2 0.19.0 0.19.0_p20210506 0.19.0_p20210506-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 20.9.0 21.1.0 21.5.0: A requests-like API built on top of twisted.web's Agent
+dev-python/trio 0.19.0: Python library for async concurrency and I/O
+dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trustme 0.7.0 0.8.0: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/tubes 0.2.0-r1: Flow control and backpressure for event-driven applications
 dev-python/tvdb_api 3.0.2: Python interface to thetvdb.com API
@@ -10851,7 +10857,7 @@ dev-util/cligh 0.3 9999: Command-line interface to GitHub
 dev-util/clinfo 3.0.21.02.21 9999: A tool to display info about the system's OpenCL capabilities
 dev-util/clion 2021.1: A complete toolset for C and C++ development
 dev-util/clippy 7.5.1: Standalone clippy tool built from FRR sources
-dev-util/cloc 1.84 1.86 1.88: Count Lines of Code
+dev-util/cloc 1.88 1.90: Count Lines of Code
 dev-util/cmake 3.13.5 3.18.5 3.19.7 3.20.4 3.20.5: Cross platform Make
 dev-util/cmake-fedora 2.7.1: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-util/cmocka 1.1.5: Unit testing framework for C
@@ -13553,7 +13559,7 @@ media-libs/urt 3.1b-r3: the Utah Raster Toolkit is a library for dealing with ra
 media-libs/vamp-plugin-sdk 2.10: Audio processing system for plugins to extract information from audio data
 media-libs/vidstab 1.1.0-r2 9999: Video stabilization library
 media-libs/vigra 1.11.1-r3 9999: C++ computer vision library emphasizing customizable algorithms and structures
-media-libs/virglrenderer 0.8.2 9999: library used implement a virtual 3D GPU used by qemu
+media-libs/virglrenderer 0.8.2 0.9.1 9999: library used implement a virtual 3D GPU used by qemu
 media-libs/vitamtp 2.5.9_pre20160829 9999: Library to interact with PS Vita's USB MTP protocol
 media-libs/vo-aacenc 0.1.3 9999: VisualOn AAC encoder library
 media-libs/vo-amrwbenc 0.1.3 9999: VisualOn AMR-WB encoder library
@@ -17250,7 +17256,7 @@ sys-apps/superdiag 1.4.0.20201120: Provides the capability to determine the heal
 sys-apps/superiotool 6637 99999999: util to detect Super I/O chips and functionality
 sys-apps/syscriptor 1.5.15: display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/systemd 248.3-r1 249_rc1-r1 9999: System and service manager for Linux
+sys-apps/systemd 248.3-r1 249_rc2 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-tmpfiles 246 248.3: Creates, deletes and cleans up volatile and temporary files and directories
 sys-apps/sysvinit 2.99: /sbin/init - parent of all processes
@@ -17555,7 +17561,7 @@ sys-devel/libtool 2.4.6-r6 9999: A shared library tool for developers
 sys-devel/lld 10.0.1 10.0.1-r1 11.1.0 11.1.0-r1 12.0.0 12.0.1_rc1 12.0.1_rc2 12.0.1.9999 13.0.0.9999: The LLVM linker (link editor)
 sys-devel/llvm 10.0.1 11.1.0 12.0.0 12.0.1_rc1 12.0.1_rc2 12.0.1.9999 13.0.0.9999: Low Level Virtual Machine
 sys-devel/llvm-common 10.0.1 11.1.0 12.0.0 12.0.1_rc1 12.0.1_rc2 12.0.1.9999 13.0.0.9999: Common files shared between multiple slots of LLVM
-sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1: Radeon Open Compute llvm,lld,clang
+sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 4.2.0: Radeon Open Compute llvm,lld,clang
 sys-devel/llvmgold 10 11 12 13: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.18-r2 1.4.19: GNU macro processor
 sys-devel/make 4.3: Standard tool to compile source trees
@@ -17713,7 +17719,7 @@ sys-fs/mac-fdisk 0.1_p18: Mac/PowerMac disk partitioning utility
 sys-fs/mdadm 4.1 4.2_rc1: Tool for running RAID systems - replacement for the raidtools
 sys-fs/mergerfs 2.32.1 2.32.2 2.32.3 2.32.4: A featureful union filesystem
 sys-fs/mhddfs 0.1.39-r2: Fuse multi harddrive filesystem
-sys-fs/mp3fs 0.91-r1: a read-only FUSE filesystem which transcodes FLAC audio files to MP3 when read
+sys-fs/mp3fs 0.91-r1 1.1.1: a read-only FUSE filesystem which transcodes FLAC audio files to MP3 when read
 sys-fs/mtd-utils 2.1.2: MTD userspace tools (NFTL, JFFS2, NAND, FTL, UBI)
 sys-fs/mtools 4.0.27 4.0.29 4.0.30 4.0.31: utilities to access MS-DOS disks from Unix without mounting them
 sys-fs/mtpfs 1.1-r5: A FUSE filesystem providing access to MTP devices
