@@ -4,12 +4,39 @@
 EAPI=7
 
 PYTHON_REQ_USE="sqlite"
-PYTHON_COMPAT=( python3_{7..8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit python-any-r1 readme.gentoo-r1
 
 DESCRIPTION="UEFI firmware for 64-bit x86 virtual machines"
 HOMEPAGE="https://github.com/tianocore/edk2"
+
+BUNDLED_OPENSSL_SUBMODULE_SHA="e2e09d9fba1187f8d6aafaa34d4172f56f1ffb72"
+BUNDLED_BROTLI_SUBMODULE_SHA="666c3280cc11dc433c303d79a83d4ffbdd12cc8d"
+
+# TODO: talk with tamiko about unbundling (mva)
+
+# TODO: the binary 202105 package currently lacks the preseeded
+#       OVMF_VARS.secboot.fd file (that we typically get from fedora)
+
+SRC_URI="
+	!binary? (
+		https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/openssl/openssl/archive/${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz -> openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz
+		https://github.com/google/brotli/archive/${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz -> brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz
+	)
+	binary? ( https://dev.gentoo.org/~tamiko/distfiles/${PF}-bin.tar.xz )
+	https://dev.gentoo.org/~tamiko/distfiles/${P}-qemu-firmware.tar.xz
+"
+
+LICENSE="BSD-2 MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+
+IUSE="+binary"
+REQUIRED_USE+="
+	!amd64? ( binary )
+"
 
 NON_BINARY_DEPEND="
 	app-emulation/qemu
@@ -17,42 +44,17 @@ NON_BINARY_DEPEND="
 	>=sys-power/iasl-20160729
 	${PYTHON_DEPS}
 "
-DEPEND=""
-RDEPEND=""
-if [[ ${PV} == "999999" ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/tianocore/edk2"
-	DEPEND+="
-		${NON_BINARY_DEPEND}
-	"
-else
-	# Binary versions taken from fedora:
-	# http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/s/
-	#   edk2-ovmf-20190501stable-2.fc31.noarch.rpm
-	SRC_URI="
-		!binary? (
-			https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> ${P}.tar.gz
-			https://dev.gentoo.org/~tamiko/distfiles/${P}-bundled.tar.xz
-		)
-		binary? ( https://dev.gentoo.org/~tamiko/distfiles/${P}-bin.tar.xz )
-		"
-	KEYWORDS="amd64 arm64 ~ppc ppc64 x86"
-	IUSE="+binary"
-	REQUIRED_USE+="
-		!amd64? ( binary )
-	"
-	DEPEND+="
-		!binary? (
-			amd64? (
-				${NON_BINARY_DEPEND}
-			)
-		)"
-	PATCHES=(
-	)
-fi
 
-LICENSE="BSD-2 MIT"
-SLOT="0"
+DEPEND+="
+	!binary? (
+		amd64? (
+			${NON_BINARY_DEPEND}
+		)
+	)"
+RDEPEND=""
+
+PATCHES=(
+)
 
 S="${WORKDIR}/edk2-edk2-stable${PV}"
 
@@ -83,29 +85,27 @@ In order to use the firmware you can run qemu the following way
 
 	$ qemu-system-x86_64 \
 		-drive file=/usr/share/edk2-ovmf/OVMF.fd,if=pflash,format=raw,unit=0,readonly=on \
-		...
-
-You can register the firmware for use in libvirt by adding to /etc/libvirt/qemu.conf:
-	nvram = [
-		\"/usr/share/edk2-ovmf/OVMF_CODE.fd:/usr/share/edk2-ovmf/OVMF_VARS.fd\"
-		\"/usr/share/edk2-ovmf/OVMF_CODE.secboot.fd:/usr/share/edk2-ovmf/OVMF_VARS.fd\"
-	]"
+		..."
 
 pkg_setup() {
 	[[ ${PV} != "999999" ]] && use binary || python-any-r1_pkg_setup
 }
 
 src_prepare() {
-	if ! use binary; then
+	if use binary; then
+		eapply_user
+	else
+		# Bundled submodules
+		cp -rl "${WORKDIR}/openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}"/* "CryptoPkg/Library/OpensslLib/openssl/"
+		cp -rl "${WORKDIR}/brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}"/* "BaseTools/Source/C/BrotliCompress/brotli/"
+		cp -rl "${WORKDIR}/brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}"/* "MdeModulePkg/Library/BrotliCustomDecompressLib/brotli/"
+
 		sed -i -r \
 			-e "/function SetupPython3/,/\}/{s,\\\$\(whereis python3\),${EPYTHON},g}" \
 			"${S}"/edksetup.sh || die "Fixing for correct Python3 support failed"
+
+		default
 	fi
-	if  [[ ${PV} != "999999" ]] && use binary; then
-		eapply_user
-		return
-	fi
-	default
 }
 
 src_compile() {
@@ -116,6 +116,8 @@ src_compile() {
 	BUILD_FLAGS="-D TLS_ENABLE \
 		-D HTTP_BOOT_ENABLE \
 		-D NETWORK_IP6_ENABLE \
+		-D TPM_ENABLE \
+		-D TPM2_ENABLE -D TPM2_CONFIG_ENABLE \
 		-D FD_SIZE_2MB"
 
 	SECUREBOOT_BUILD_FLAGS="${BUILD_FLAGS} \
@@ -161,6 +163,9 @@ src_compile() {
 src_install() {
 	insinto /usr/share/${PN}
 	doins ovmf/*
+
+	insinto /usr/share/qemu/firmware
+	doins qemu/*
 
 	readme.gentoo_create_doc
 }
