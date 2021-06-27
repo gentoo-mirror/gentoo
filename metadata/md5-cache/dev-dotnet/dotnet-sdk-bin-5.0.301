@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DESCRIPTION=.NET is a free, cross-platform, open-source developer platform
+EAPI=7
+HOMEPAGE=https://dotnet.microsoft.com/
+IUSE=+dotnet-symlink
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=MIT
+RDEPEND=dotnet-symlink? ( !dev-dotnet/dotnet-sdk[dotnet-symlink(+)] )
+REQUIRED_USE=elibc_glibc
+RESTRICT=splitdebug
+SLOT=5.0
+SRC_URI=amd64? ( https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.301/dotnet-sdk-5.0.301-linux-x64.tar.gz ) arm? ( https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.301/dotnet-sdk-5.0.301-linux-arm.tar.gz ) arm64? ( https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.301/dotnet-sdk-5.0.301-linux-arm64.tar.gz )
+_md5_=64dfe1f90695ea3eb0fd1a48d49dfcd7
