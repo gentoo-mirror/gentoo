@@ -1,0 +1,18 @@
+BDEPEND=virtual/pkgconfig dev-util/ninja dev-util/cmake
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=!dedicated? ( allegro? ( media-libs/allegro:5 ) fluidsynth? ( media-sound/fluidsynth ) icu? ( dev-libs/icu-layoutex dev-libs/icu-le-hb >=dev-libs/icu-58.1:= ) sdl? ( media-libs/libsdl2[sound,video] ) truetype? ( media-libs/fontconfig media-libs/freetype:2 sys-libs/zlib:= ) ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo:2 ) png? ( media-libs/libpng:0= ) zlib? ( sys-libs/zlib:= )
+DESCRIPTION=A clone of Transport Tycoon Deluxe
+EAPI=7
+HOMEPAGE=https://www.openttd.org/
+INHERIT=cmake
+IUSE=allegro cpu_flags_x86_sse dedicated +fluidsynth icu +lzma lzo +openmedia +png +sdl timidity +truetype zlib
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=!dedicated? ( openmedia? ( >=games-misc/openmsx-0.4.0 >=games-misc/opensfx-1.0.1 ) ) openmedia? ( >=games-misc/opengfx-0.6.1 ) timidity? ( media-sound/timidity++ )
+RDEPEND=!dedicated? ( allegro? ( media-libs/allegro:5 ) fluidsynth? ( media-sound/fluidsynth ) icu? ( dev-libs/icu-layoutex dev-libs/icu-le-hb >=dev-libs/icu-58.1:= ) sdl? ( media-libs/libsdl2[sound,video] ) truetype? ( media-libs/fontconfig media-libs/freetype:2 sys-libs/zlib:= ) ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo:2 ) png? ( media-libs/libpng:0= ) zlib? ( sys-libs/zlib:= )
+REQUIRED_USE=!dedicated? ( || ( allegro sdl ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://cdn.openttd.org/openttd-releases/1.11.2/openttd-1.11.2-source.tar.xz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da
+_md5_=7bab1aeeab194bebea3639444ee006ef

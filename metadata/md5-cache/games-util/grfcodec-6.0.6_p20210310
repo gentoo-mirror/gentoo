@@ -1,9 +1,9 @@
 BDEPEND=dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/libpng:0 dev-lang/perl dev-libs/boost
+DEPEND=media-libs/libpng:0 dev-libs/boost
 DESCRIPTION=A suite of programs to modify openttd/Transport Tycoon Deluxe's GRF files
 EAPI=7
-HOMEPAGE=https://dev.openttdcoop.org/projects/grfcodec
+HOMEPAGE=https://github.com/OpenTTD/grfcodec
 INHERIT=cmake
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2+
@@ -11,4 +11,4 @@ RDEPEND=media-libs/libpng:0
 SLOT=0
 SRC_URI=https://github.com/OpenTTD/grfcodec/archive/045774dee7cab1a618a3e0d9b39bff78a12b6efa.tar.gz -> grfcodec-6.0.6_p20210310.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da
-_md5_=8af25080529f8240cc0fa912bc207ffc
+_md5_=2d5137a15d7667886c88bf1c46f612b2
