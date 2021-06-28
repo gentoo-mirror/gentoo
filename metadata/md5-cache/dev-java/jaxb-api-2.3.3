@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/jakarta-activation-api:1 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Jakarta XML Binding API
+EAPI=7
+HOMEPAGE=https://github.com/eclipse-ee4j/jaxb-api
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=EPL-1.0
+RDEPEND=dev-java/jakarta-activation-api:1 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=2
+SRC_URI=https://github.com/eclipse-ee4j/jaxb-api/archive/refs/tags/2.3.3.tar.gz -> jaxb-api-2.3.3.tar.gz
+_eclasses_=java-utils-2	b5e6ac3113ad5ad2b604a72029a9969f	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc	java-pkg-simple	ee7fcbcd60f95bab6158ed5c7510c1f1
+_md5_=faad0f3b8d1474e740e7126fe3aca9b1
