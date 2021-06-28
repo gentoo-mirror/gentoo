@@ -3,13 +3,12 @@
 
 EAPI=7
 
-MY_PN="OpenGFX"
 PYTHON_COMPAT=( python3_{7..9} )
 
 inherit python-any-r1
 
 DESCRIPTION="OpenGFX data files for OpenTTD"
-HOMEPAGE="http://bundles.openttdcoop.org/opengfx/"
+HOMEPAGE="https://wiki.openttd.org/en/Basesets/OpenGFX https://github.com/OpenTTD/OpenGFX"
 SRC_URI="https://cdn.openttd.org/${PN}-releases/${PV}/${P}-source.tar.xz"
 S="${WORKDIR}/${P}-source"
 
@@ -32,31 +31,31 @@ src_prepare() {
 }
 
 src_compile() {
-	myemakeargs=(
+	local myemakeargs=(
 		GIMP=""
-		PYHTON="${EPYTHON}"
+		PYTHON="${EPYTHON}"
 	)
 
 	emake "${myemakeargs[@]}" all
 }
 
 src_test() {
-	myemakeargs=(
+	local myemakeargs=(
 		GIMP=""
-		PYHTON="${EPYTHON}"
+		PYTHON="${EPYTHON}"
 	)
 
 	emake "${myemakeargs[@]}" check
 }
 
 src_install() {
-	myemakeargs=(
+	local myemakeargs=(
 		DO_NOT_INSTALL_README="true"
 		DO_NOT_INSTALL_LICENSE="true"
 		DO_NOT_INSTALL_CHANGELOG="true"
 		GIMP=""
-		INSTALL_DIR="${ED}/usr/share/games/openttd/data/"
-		PYHTON="${EPYTHON}"
+		INSTALL_DIR="${ED}/usr/share/openttd/baseset/"
+		PYTHON="${EPYTHON}"
 	)
 
 	emake "${myemakeargs[@]}" install
