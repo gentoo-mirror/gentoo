@@ -1,0 +1,30 @@
+Title: USE flag 'pax_kernel' to be renamed to 'pax-kernel'
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2021-06-28
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Profile: default/linux/amd64/17.0/hardened
+Display-If-Profile: default/linux/amd64/17.0/musl/hardened
+Display-If-Profile: default/linux/amd64/17.0/no-multilib/hardened
+Display-If-Profile: default/linux/amd64/17.0/uclibc/hardened
+Display-If-Profile: default/linux/amd64/17.1/hardened
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/hardened
+Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened
+Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened
+Display-If-Profile: default/linux/arm/17.0/uclibc/armv6j/hardened
+Display-If-Profile: default/linux/arm/17.0/uclibc/armv7a/hardened
+Display-If-Profile: default/linux/arm64/17.0/musl/hardened
+Display-If-Profile: default/linux/powerpc/ppc32/17.0/musl/hardened
+Display-If-Profile: default/linux/powerpc/ppc32/17.0/uclibc/hardened
+Display-If-Profile: default/linux/ppc/17.0/musl/hardened
+Display-If-Profile: default/linux/ppc/17.0/uclibc/hardened
+Display-If-Profile: default/linux/ppc64/17.0/musl/hardened
+Display-If-Profile: default/linux/ppc64le/17.0/musl/hardened
+Display-If-Profile: default/linux/x86/17.0/hardened
+Display-If-Profile: default/linux/x86/17.0/uclibc/hardened
+
+On 2021-07-01 the USE flag 'pax_kernel' will be renamed to 'pax-kernel'
+in order to remove the disallowed underscore character. If you use
+a PaX-enabled kernel, update your package-manager configuration
+accordingly; failure to do so might result in affected packages no longer
+functioning on your system.
