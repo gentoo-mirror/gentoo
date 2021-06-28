@@ -1,0 +1,16 @@
+BDEPEND=dev-libs/appstream-glib dev-libs/libxslt dev-util/itstool >=sys-devel/gettext-0.19.8 doc? ( app-text/docbook-xml-dtd:4.5 ) test? ( dev-qt/linguist-tools:5 ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-db/lmdb:= >=dev-libs/glib-2.58:2 dev-libs/libxml2:2 dev-libs/libyaml dev-libs/snowball-stemmer net-misc/curl introspection? ( >=dev-libs/gobject-introspection-1.56:= ) qt5? ( dev-qt/qtcore:5 ) test? ( qt5? ( dev-qt/qttest:5 ) )
+DESCRIPTION=Cross-distro effort for providing metadata for software in the Linux ecosystem
+EAPI=7
+HOMEPAGE=https://www.freedesktop.org/wiki/Distributions/AppStream/
+INHERIT=meson xdg-utils
+IUSE=apt doc +introspection qt5 test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=LGPL-2.1+ GPL-2+
+RDEPEND=dev-db/lmdb:= >=dev-libs/glib-2.58:2 dev-libs/libxml2:2 dev-libs/libyaml dev-libs/snowball-stemmer net-misc/curl introspection? ( >=dev-libs/gobject-introspection-1.56:= ) qt5? ( dev-qt/qtcore:5 )
+RESTRICT=test
+SLOT=0/4
+SRC_URI=https://www.freedesktop.org/software/appstream/releases/AppStream-0.14.4.tar.xz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=a132c205396034f61ea0c831176236e9
