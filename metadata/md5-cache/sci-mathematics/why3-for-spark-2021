@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( dev-ml/lablgtk:=[sourceview] ) emacs? ( app-editors/emacs:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= )
+DEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( dev-ml/lablgtk:=[sourceview] ) emacs? ( app-editors/emacs:* ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= )
 DESCRIPTION=Platform for deductive program verification
 EAPI=7
 HOMEPAGE=http://why3.lri.fr/
 INHERIT=autotools
-IUSE=coq doc emacs gtk html +ocamlopt zarith zip
+IUSE=coq doc emacs gtk html hypothesis-selection +ocamlopt zarith zip
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( dev-ml/lablgtk:=[sourceview] ) emacs? ( app-editors/emacs:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= )
+RDEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( dev-ml/lablgtk:=[sourceview] ) emacs? ( app-editors/emacs:* ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= )
 REQUIRED_USE=html? ( doc )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/dd74ae7ecfd7d56aff7b17cee7a35559384a600f?filename=why3-2021-20210519-19ADF-src.tar.gz -> why3-2021-20210519-19ADF-src.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=0d7b9ce236b17d4c1e39db782f1f466c
+_md5_=382a4836e83863a9bc21743b648ce47e
