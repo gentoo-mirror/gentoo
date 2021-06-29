@@ -20,8 +20,7 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	default
 	# fix lib path for X11 and dont ignore LDFLAGS
-	sed -i  -e "s#lib\\\/#$(get_libdir)\\\/#" \
-		-e 's/CFLAGS/#CFLAGS/' \
+	sed -i  -e 's/CFLAGS/#CFLAGS/' \
 		-e 's/link.res/.res/g' \
 		-e 's/.res pu/.res $(LDFLAGS) pu/' Makefile || die
 }
