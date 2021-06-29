@@ -1,32 +1,33 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit flag-o-matic python-r1 toolchain-funcs udev
 
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/bcache-tools.git https://kernel.googlesource.com/pub/scm/linux/kernel/git/colyli/bcache-tools.git"
+else
+	SRC_URI="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/${PN}.git/snapshot/${P}.tar.gz"
+fi
+
 DESCRIPTION="Tools for bcache"
-HOMEPAGE="https://bcache.evilpiepirate.org/"
-SRC_URI="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/${PN}.git/snapshot/${P}.tar.gz"
+HOMEPAGE="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/bcache-tools.git/"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
-	sys-apps/util-linux"
+RDEPEND="
+	${PYTHON_DEPS}
+	sys-apps/util-linux
+	virtual/udev
+"
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/1.0.8_p20140220/bcache-tools-1.0.8-noprobe.patch
-	"${FILESDIR}"/${PV}/bcache-tools-add-bcache-status.patch
-	"${FILESDIR}"/${PV}/bcache-tools-add-man-page-bcache-status.8.patch
-)
 
 src_prepare() {
 	default
