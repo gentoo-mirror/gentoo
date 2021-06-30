@@ -4,7 +4,7 @@
 # Ye Cao <ye.c@rioslab.org> (2021-06-26)
 # Dependencies not keyworded, not tested
 dev-python/pyzmq test
-net-libs/zeromq unwind sodium
+net-libs/zeromq unwind
 dev-python/linecache2 test
 dev-python/traceback2 test
 dev-db/mysql-connector-c ldap
@@ -13,14 +13,6 @@ dev-db/mysql-connector-c ldap
 # Dependencies not keyworded, not tested
 media-gfx/imagemagick fftw openexr wmf
 
-# Marek Szuba <marecki@gentoo.org> (2021-06-22)
-# Dependencies not keyworded here yet
-dev-python/pillow tk
-
-# Marek Szuba <marecki@gentoo.org> (2021-06-21)
-# net-libs/mbedtls not keyworded here, not tested
-net-libs/libssh2 mbedtls
-
 # Marek Szuba <marecki@gentoo.org> (2021-06-21)
 # net-fs/samba not keyworded here, not tested
 app-misc/mc samba
@@ -28,11 +20,6 @@ app-misc/mc samba
 # Marek Szuba <marecki@gentoo.org> (2021-05-31)
 # dev-python/networkx not keyworded here
 app-portage/nattka depgraph-order
-
-# Marek Szuba <marecki@gentoo.org> (2021-05-28)
-# net-dns/avahi, net-libs/libgssglue and sys-apps/xinetd
-# not keyworded here
-sys-devel/distcc gssapi xinetd zeroconf
 
 # Yixun Lan <dlan@gentoo.org> (2021-05-24)
 # Dependencies not keyworded, not tested
@@ -65,7 +52,7 @@ dev-libs/gobject-introspection doctool test
 dev-python/markdown test
 x11-libs/gtk+ cups test colord
 net-libs/libsoup samba gssapi test
-net-libs/libproxy mono spidermonkey webkit kde networkmanager
+net-libs/libproxy spidermonkey webkit kde networkmanager
 
 # Sam James <sam@gentoo.org> (2021-03-11)
 # media-libs/libheif isn't keyworded here
@@ -97,8 +84,6 @@ app-editors/emacs gui
 # Yixun Lan <dlan@gentoo.org> (2020-09-01)
 # Dependencies not keyworded
 dev-libs/jansson doc
-# Dependencies not keyworded, require by dev-perl/Net-LibIDN, #737594
-net-dns/libidn mono
 
 # Jakov Smolic <jakov.smolic@sartura.hr> (2020-08-14)
 # Large amount of missing keywords
@@ -152,7 +137,6 @@ app-text/asciidoc test
 app-text/ghostscript-gpl cups
 app-text/po4a test
 app-text/xmlto text
-dev-lang/python tk
 dev-libs/boost mpi numpy zstd
 dev-libs/check doc subunit
 dev-libs/glib gtk-doc test
@@ -184,8 +168,8 @@ dev-util/meson test
 dev-util/ninja doc test
 dev-util/pkgconf test
 dev-util/strace unwind
-dev-vcs/git cvs highlight gnome-keyring subversion tk xinetd
-dev-vcs/mercurial tk rust zsh-completion
+dev-vcs/git cvs highlight gnome-keyring subversion xinetd
+dev-vcs/mercurial rust zsh-completion
 media-libs/freetype harfbuzz
 media-libs/harfbuzz doc
 sys-libs/libomp hwloc
