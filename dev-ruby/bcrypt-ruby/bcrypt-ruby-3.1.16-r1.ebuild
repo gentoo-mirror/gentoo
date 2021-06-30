@@ -12,28 +12,21 @@ RUBY_FAKEGEM_EXTRADOC="CHANGELOG README.md"
 
 RUBY_FAKEGEM_NAME="bcrypt"
 
+RUBY_FAKEGEM_EXTENSIONS=(ext/mri/extconf.rb)
+
 inherit multilib ruby-fakegem
 
 DESCRIPTION="An easy way to keep your users' passwords secure"
 HOMEPAGE="https://github.com/codahale/bcrypt-ruby"
 LICENSE="MIT"
 
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 SLOT="0"
 IUSE=""
 
 all_ruby_prepare() {
 	rm Gemfile || die
 	sed -i -e '/git ls-files/d' bcrypt.gemspec || die
-}
-
-each_ruby_configure() {
-	${RUBY} -Cext/mri extconf.rb || die
-}
-
-each_ruby_compile() {
-	emake -Cext/mri V=1
-	cp ext/mri/*$(get_modname) lib/ || die
 }
 
 each_ruby_install() {
