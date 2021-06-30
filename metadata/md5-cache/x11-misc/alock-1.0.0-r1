@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-text/asciidoc )
+DEFINED_PHASES=compile configure install
+DEPEND=virtual/libcrypt:= x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrender x11-libs/libXcursor imlib? ( media-libs/imlib2[X] ) pam? ( sys-libs/pam )
+DESCRIPTION=locks the local X display until a password is entered
+EAPI=7
+HOMEPAGE=https://darkshed.net/projects/alock https://github.com/mgumz/alock
+INHERIT=toolchain-funcs
+IUSE=doc imlib pam
+KEYWORDS=amd64 ppc x86
+LICENSE=MIT
+RDEPEND=virtual/libcrypt:= x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrender x11-libs/libXcursor imlib? ( media-libs/imlib2[X] ) pam? ( sys-libs/pam )
+SLOT=0
+SRC_URI=https://github.com/mgumz/alock/archive/v1.0.0.tar.gz -> alock-1.0.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=b932a778eb4c23a588ab54c9aa738185

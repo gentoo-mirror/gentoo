@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst
+DEPEND=virtual/libcrypt:=
+DESCRIPTION=Daemon providing access to the kernel sysrq functions via network
+EAPI=7
+HOMEPAGE=https://github.com/jd/sysrqd
+INHERIT=systemd toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libcrypt:=
+SLOT=0
+SRC_URI=https://github.com/jd/sysrqd/archive/v17.tar.gz -> sysrqd-17.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	bd82a2f06f5594b2ed0889539a4f9a9f
+_md5_=329be521e690bf176fb0e56f0d4278f8

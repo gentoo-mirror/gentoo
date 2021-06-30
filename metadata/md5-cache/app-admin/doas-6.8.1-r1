@@ -1,0 +1,15 @@
+BDEPEND=virtual/yacc
+DEFINED_PHASES=configure postinst prepare
+DEPEND=pam? ( sys-libs/pam ) !pam? ( virtual/libcrypt:= )
+DESCRIPTION=Run commands as super/another user (alt sudo) (unofficial port from OpenBSD)
+EAPI=7
+HOMEPAGE=https://github.com/Duncaen/OpenDoas
+INHERIT=toolchain-funcs
+IUSE=pam persist
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=ISC
+RDEPEND=pam? ( sys-libs/pam ) !pam? ( virtual/libcrypt:= )
+SLOT=0
+SRC_URI=https://github.com/Duncaen/OpenDoas/archive/v6.8.1.tar.gz -> OpenDoas-6.8.1.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=4498713c13aaab42487e323a2cd3136b

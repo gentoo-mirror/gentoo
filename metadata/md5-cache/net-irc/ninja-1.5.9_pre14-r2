@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install
+DEPEND=virtual/libcrypt:= ncurses? ( sys-libs/ncurses:= ) ssl? ( dev-libs/openssl:= )
+DESCRIPTION=Ninja IRC Client
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=toolchain-funcs
+IUSE=ncurses ipv6 ssl
+KEYWORDS=amd64 ppc ~ppc64 ~sparc x86
+LICENSE=GPL-2
+RDEPEND=virtual/libcrypt:= ncurses? ( sys-libs/ncurses:= ) ssl? ( dev-libs/openssl:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=ftp://qoop.org/ninja/stable/ninja-1.5.9pre14.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=d3c1485411243c5877d64f93d0f0a7aa
