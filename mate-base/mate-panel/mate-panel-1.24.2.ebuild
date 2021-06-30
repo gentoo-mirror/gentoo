@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -8,7 +8,7 @@ MATE_LA_PUNT="yes"
 inherit mate
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="The MATE panel"
@@ -43,7 +43,8 @@ COMMON_DEPEND="
 		>=x11-libs/libXrandr-1.3
 	)
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7:= )
-	wayland? ( gui-libs/gtk-layer-shell )"
+	wayland? ( gui-libs/gtk-layer-shell )
+"
 
 RDEPEND="${COMMON_DEPEND}
 	virtual/libintl
@@ -57,12 +58,12 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/gdbus-codegen
 	dev-util/gtk-doc
 	dev-util/gtk-doc-am
-	>=sys-devel/gettext-0.19.8:*
-	virtual/pkgconfig"
+	>=sys-devel/gettext-0.19.8
+	virtual/pkgconfig
+"
 
 src_configure() {
 	mate_src_configure \
-		--disable-static \
 		--libexecdir=/usr/libexec/mate-applets \
 		--disable-deprecation-flags \
 		$(use_enable X x11) \

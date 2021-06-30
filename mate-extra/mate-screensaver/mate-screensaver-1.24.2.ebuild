@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 inherit mate readme.gentoo-r1
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="Replaces xscreensaver, integrating with the MATE desktop"
@@ -15,11 +15,6 @@ LICENSE="GPL-2+ HPND LGPL-2+"
 SLOT="0"
 IUSE="X debug elogind kernel_linux libnotify opengl pam systemd"
 REQUIRED_USE="?? ( elogind systemd )"
-
-DOC_CONTENTS="
-	Information for converting screensavers is located in
-	/usr/share/doc/${PF}/xss-conversion.txt*
-"
 
 COMMON_DEPEND="
 	>=dev-libs/dbus-glib-0.71:0
@@ -58,6 +53,11 @@ DEPEND="${COMMON_DEPEND}
 	>=sys-devel/gettext-0.19.8:*
 	x11-base/xorg-proto
 	virtual/pkgconfig:*
+"
+
+DOC_CONTENTS="
+	Information for converting screensavers is located in
+	/usr/share/doc/${PF}/xss-conversion.txt*
 "
 
 src_configure() {

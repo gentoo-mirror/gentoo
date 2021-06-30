@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -8,7 +8,7 @@ MATE_LA_PUNT="yes"
 inherit mate
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="The MATE Desktop configuration tool"
@@ -17,7 +17,7 @@ SLOT="0"
 
 IUSE="accountsservice appindicator debug"
 
-RDEPEND="
+COMMON_DEPEND="
 	dev-libs/atk
 	>=dev-libs/dbus-glib-0.73
 	>=dev-libs/glib-2.50:2
@@ -49,22 +49,25 @@ RDEPEND="
 	x11-libs/pango
 	>=x11-wm/marco-1.17.0:=
 	accountsservice? ( sys-apps/accountsservice )
-	appindicator? ( dev-libs/libappindicator:3 )"
+	appindicator? ( dev-libs/libappindicator:3 )
+"
 
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}"
+
+DEPEND="${COMMON_DEPEND}
 	app-text/rarian
 	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools
 	dev-libs/libxml2
 	dev-util/desktop-file-utils
 	dev-util/glib-utils
-	>=sys-devel/gettext-0.19.8:*
+	>=sys-devel/gettext-0.19.8
 	x11-base/xorg-proto
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 src_configure() {
 	mate_src_configure \
-		--disable-static \
 		--disable-update-mimedb \
 		$(use_enable appindicator) \
 		$(use_enable debug)

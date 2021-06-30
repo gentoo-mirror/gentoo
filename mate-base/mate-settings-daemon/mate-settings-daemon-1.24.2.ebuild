@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -8,7 +8,7 @@ MATE_LA_PUNT="yes"
 inherit mate
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="MATE Settings Daemon"
@@ -46,14 +46,15 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.74
 	sound? (
 		>=media-libs/libmatemixer-1.10
 		media-libs/libcanberra[gtk3]
-	)"
+	)
+"
 
 RDEPEND="${COMMON_DEPEND}
 	virtual/libintl
 "
 
 DEPEND="${COMMON_DEPEND}
-	>=sys-devel/gettext-0.19.8:*
+	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	x11-base/xorg-proto
 "

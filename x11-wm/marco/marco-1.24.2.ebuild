@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -40,7 +40,8 @@ COMMON_DEPEND="
 	x11-libs/libXrender
 	>=x11-libs/startup-notification-0.7
 	xinerama? ( x11-libs/libXinerama )
-	!!x11-wm/mate-window-manager"
+	!!x11-wm/mate-window-manager
+"
 
 RDEPEND="${COMMON_DEPEND}
 	gnome-extra/zenity
@@ -50,16 +51,16 @@ RDEPEND="${COMMON_DEPEND}
 
 DEPEND="${COMMON_DEPEND}
 	app-text/yelp-tools
-	>=sys-devel/gettext-0.19.8:*
+	>=sys-devel/gettext-0.19.8
 	>=sys-devel/libtool-2.0.0
-	virtual/pkgconfig:*
+	virtual/pkgconfig
 	x11-base/xorg-proto
 	test? ( app-text/docbook-xml-dtd:4.5 )
-	xinerama? ( x11-base/xorg-proto )"
+	xinerama? ( x11-base/xorg-proto )
+"
 
 src_configure() {
 	mate_src_configure \
-		--disable-static \
 		--enable-compositor \
 		--enable-render \
 		--enable-shape \
