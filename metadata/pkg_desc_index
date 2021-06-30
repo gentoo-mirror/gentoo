@@ -2015,7 +2015,7 @@ app-editors/vim 8.2.0814-r100 9999: Vim, an improved vi-style text editor
 app-editors/vim-core 8.2.0814 9999: vim and gvim shared files
 app-editors/vis 0.5 0.7 9999: modern, legacy free, simple yet efficient vim-like editor
 app-editors/vscode 1.57.1: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.56.2 1.57.0: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscodium 1.56.2 1.57.0 1.57.1: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r1: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.4.24-r2 21.5.34-r5: highly customizable open source text editor and application development system
@@ -10039,12 +10039,12 @@ dev-ruby/backports 3.15.0 3.17.2-r1 3.18.2-r1 3.20.1-r1 3.20.2-r1: Backports of 
 dev-ruby/bacon 1.2.0-r2 1.2.0-r3: Small RSpec clone weighing less than 350 LoC
 dev-ruby/barby 0.6.8: Ruby barcode generator that doesn't rely on 3rd party libraries
 dev-ruby/base32 0.3.2 0.3.4: A library which provides base32 decoding and encoding
-dev-ruby/bcrypt-ruby 3.1.13 3.1.15 3.1.16: An easy way to keep your users' passwords secure
-dev-ruby/bcrypt_pbkdf 1.0.0 1.0.1 1.1.0: Implements bcrypt_pdkfd (a variant of PBKDF2 with bcrypt-based PRF)
+dev-ruby/bcrypt-ruby 3.1.13 3.1.15 3.1.16 3.1.16-r1: An easy way to keep your users' passwords secure
+dev-ruby/bcrypt_pbkdf 1.0.0 1.0.1 1.1.0 1.1.0-r1: Implements bcrypt_pdkfd (a variant of PBKDF2 with bcrypt-based PRF)
 dev-ruby/best_in_place 3.1.1: In-place editor helper for Rails 3
 dev-ruby/bindata 2.4.6 2.4.7 2.4.8: Parsing Binary Data in Ruby
-dev-ruby/bindex 0.8.1: Bindings for your Ruby exceptions
-dev-ruby/binding_of_caller 0.8.0 1.0.0: Retrieve the binding of a method's caller
+dev-ruby/bindex 0.8.1 0.8.1-r1: Bindings for your Ruby exceptions
+dev-ruby/binding_of_caller 0.8.0 1.0.0 1.0.0-r1: Retrieve the binding of a method's caller
 dev-ruby/bit-struct 0.16 0.17: Library for packed binary data stored in ruby Strings
 dev-ruby/blankslate 3.1.3 3.1.3-r1: Base class with almost all of the methods from Object and Kernel being removed
 dev-ruby/blinkstick 1.0.1_p20150901: ruby interface for blinkstick via libusb
@@ -10151,9 +10151,9 @@ dev-ruby/faker 2.14.0 2.15.1 2.16.0 2.17.0: A library for generating fake data s
 dev-ruby/faraday 0.17.3 1.0.1 1.1.0 1.2.0: HTTP/REST API client library with pluggable components
 dev-ruby/faraday_middleware 0.14.0 1.0.0: Various middleware for Faraday
 dev-ruby/faraday_middleware-multi_json 0.0.6-r1: Response JSON parser using MultiJson and FaradayMiddleware
-dev-ruby/fast-stemmer 1.0.2-r2: Simple wrapper around multithreaded Porter stemming algorithm
+dev-ruby/fast-stemmer 1.0.2-r2 1.0.2-r3: Simple wrapper around multithreaded Porter stemming algorithm
 dev-ruby/fast_gettext 1.1.2 1.8.0 2.0.2 2.0.3: GetText but 3.5x faster, 560x less memory, clean namespace and threadsave!
-dev-ruby/fast_xs 0.8.0-r2: fast_xs text escaping library ruby bindings
+dev-ruby/fast_xs 0.8.0-r2 0.8.0-r3: fast_xs text escaping library ruby bindings
 dev-ruby/fattr 2.4.0: fattr.rb is a "fatter attr" for ruby
 dev-ruby/fcgi 0.9.2.1-r1: FastCGI library for Ruby
 dev-ruby/ferret 0.11.8.7: A ruby indexing/searching library
@@ -10202,7 +10202,7 @@ dev-ruby/histogram 0.2.4.1: Gives objects the ability to 'histogram' in several 
 dev-ruby/hitimes 2.0.0: A fast, high resolution timer library
 dev-ruby/hocon 1.2.5 1.3.1: This is a port of the Typesafe Config library to Ruby.
 dev-ruby/hoe 3.21.0: Hoe extends rake to provide full project automation
-dev-ruby/hpricot 0.8.6-r5: A fast and liberal HTML parser for Ruby
+dev-ruby/hpricot 0.8.6-r5 0.8.6-r6: A fast and liberal HTML parser for Ruby
 dev-ruby/html2haml 2.2.0: Convert HTML and HTML+Erb to Haml
 dev-ruby/htmlentities 4.3.4: A simple library for encoding/decoding entities in (X)HTML documents
 dev-ruby/http 3.3.0 4.1.1 4.4.1: An easy-to-use client library for making requests from Ruby
@@ -10500,7 +10500,7 @@ dev-ruby/ruby2ruby 2.4.2 2.4.4: Generates readable ruby from ParseTree
 dev-ruby/ruby_gntp 0.3.4: Ruby library for GNTP(Growl Notification Transport Protocol)
 dev-ruby/ruby_parser 3.14.2 3.15.0 3.15.1 3.16.0: A ruby parser written in pure ruby
 dev-ruby/ruby_smb 1.1.0: pure Ruby implementation of the SMB Protocol Family
-dev-ruby/rubygems 2.7.10 2.7.11 3.0.3 3.0.9 3.1.6 3.2.6 3.2.7 3.2.11 3.2.13 3.2.14: Centralized Ruby extension management system
+dev-ruby/rubygems 2.7.10 2.7.11 3.0.3 3.0.9 3.1.6 3.2.11 3.2.13 3.2.14: Centralized Ruby extension management system
 dev-ruby/rubyntlm 0.6.2 0.6.3: Ruby/NTLM provides message creator and parser for the NTLM authentication.
 dev-ruby/rubypants 0.7.0 0.7.1: A Ruby port of the SmartyPants PHP library
 dev-ruby/rubytest 0.8.1: Ruby Test is a universal test harness for Ruby
@@ -13313,7 +13313,7 @@ media-libs/libao 1.2.2-r1 1.2.2-r2: The Audio Output library
 media-libs/libaom 1.0.0-r2 2.0.0 2.0.1 3.0.0 3.1.1 9999: Alliance for Open Media AV1 Codec SDK
 media-libs/libart_lgpl 2.3.21-r3: A LGPL version of libart
 media-libs/libass 0.15.0 0.15.1-r1: Library for SSA/ASS subtitles rendering
-media-libs/libavif 0.8.4 0.9.0-r2 0.9.1 9999: Library for encoding and decoding .avif files
+media-libs/libavif 0.8.4 0.9.0-r2 0.9.1 0.9.2 9999: Library for encoding and decoding .avif files
 media-libs/libbdplus 0.1.2-r1 9999: Blu-ray library for BD+ decryption
 media-libs/libbluray 1.2.0 1.2.1 1.3.0-r1 9999: Blu-ray playback libraries
 media-libs/libbs2b 3.1.0-r2: Bauer stereophonic-to-binaural DSP library
@@ -13908,7 +13908,7 @@ media-sound/amsynth 1.12.2: Virtual analogue synthesizer
 media-sound/apetag 1.12-r3: Command-line ape 2.0 tagger
 media-sound/apulse 0.1.13: PulseAudio emulation for ALSA
 media-sound/aqualung 1.1-r101: Music player for a wide range of formats designed for gapless playback
-media-sound/ardour 6.6-r1 6.7 9999: Digital Audio Workstation
+media-sound/ardour 6.7 9999: Digital Audio Workstation
 media-sound/ario 1.6: GTK client for MPD inspired by Rhythmbox but much lighter and faster
 media-sound/aseqview 0.2.8: ALSA sequencer event viewer/filter
 media-sound/asunder 2.9.7: Graphical Audio CD ripper and encoder with support for many output formats
