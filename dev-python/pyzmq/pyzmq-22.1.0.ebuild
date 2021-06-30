@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~mips ~ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+draft"
 
 DEPEND="
@@ -37,6 +37,7 @@ BDEPEND="
 		dev-python/cython[${PYTHON_USEDEP}]
 	' 'python*')
 	test? (
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		>=www-servers/tornado-5.0.2[${PYTHON_USEDEP}]
 	)
 "
@@ -57,32 +58,16 @@ python_compile() {
 
 python_test() {
 	local deselect=(
-		# broken tests
-		zmq/tests/test_asyncio.py::TestAsyncioAuthentication::test_curve_user_id
-		zmq/tests/test_asyncio.py::TestThreadAuthentication::test_curve_user_id
-		zmq/tests/test_auth.py::TestThreadAuthentication::test_curve_user_id
+		# TODO
 		zmq/tests/test_constants.py::TestConstants::test_draft
-		zmq/tests/test_draft.py::TestDraftSockets::test_client_server
-		zmq/tests/test_draft.py::TestDraftSockets::test_radio_dish
-		zmq/tests/test_message.py::TestFrame::test_buffer_numpy
-		zmq/tests/test_message.py::TestFrame::test_bytes
-		zmq/tests/test_message.py::TestFrame::test_frame_more
-		zmq/tests/test_message.py::TestFrame::test_lifecycle1
-		zmq/tests/test_message.py::TestFrame::test_lifecycle2
-		zmq/tests/test_message.py::TestFrame::test_memoryview_shape
-		zmq/tests/test_message.py::TestFrame::test_multi_tracker
-		zmq/tests/test_message.py::TestFrame::test_tracker
-		zmq/tests/test_security.py::TestSecurity::test_curve
-		zmq/tests/test_security.py::TestSecurity::test_plain
-		zmq/tests/test_socket.py::TestSocket::test_large_send
-		zmq/tests/test_socket.py::TestSocket::test_tracker
+		zmq/tests/test_cython.py::test_cython
 
-		# green-thing tests cause hangs or crashes
-		zmq/tests/test_socket.py::TestSocketGreen
-
-		# hangs
+		# hangs often
 		zmq/tests/test_log.py::TestPubLog::test_blank_root_topic
 	)
 
-	epytest ${deselect[@]/#/--deselect }
+	cd "${BUILD_DIR}"/lib || die
+	epytest -p no:flaky ${deselect[@]/#/--deselect } \
+		--ignore zmq/tests/test_mypy.py
+	rm -rf .hypothesis .pytest_cache || die
 }
