@@ -1,11 +1,11 @@
-BDEPEND=|| ( dev-lang/python:3.10[threads(+)] dev-lang/python:3.9[threads(+)] dev-lang/python:3.8[threads(+)] ) sys-apps/coreutils virtual/pkgconfig systemtap? ( dev-util/systemtap ) test? ( net-misc/curl ) pax_kernel? ( sys-apps/elfix ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.10[threads(+)] dev-lang/python:3.9[threads(+)] dev-lang/python:3.8[threads(+)] ) sys-apps/coreutils virtual/pkgconfig systemtap? ( dev-util/systemtap ) test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=>=app-arch/brotli-1.0.9 >=dev-libs/libuv-1.40.0:= >=net-dns/c-ares-1.17.0 >=net-libs/nghttp2-1.41.0 sys-libs/zlib system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= )
 DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
 EAPI=7
 HOMEPAGE=https://nodejs.org/
 INHERIT=bash-completion-r1 flag-o-matic pax-utils python-any-r1 toolchain-funcs xdg-utils git-r3
-IUSE=cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax_kernel +snapshot +ssl system-icu +system-ssl systemtap test
+IUSE=cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl system-icu +system-ssl systemtap test
 LICENSE=Apache-1.1 Apache-2.0 BSD BSD-2 MIT
 PROPERTIES=live
 RDEPEND=>=app-arch/brotli-1.0.9 >=dev-libs/libuv-1.40.0:= >=net-dns/c-ares-1.17.0 >=net-libs/nghttp2-1.41.0 sys-libs/zlib system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= )
@@ -13,4 +13,4 @@ REQUIRED_USE=inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl?
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pax-utils	74cd9920d64148719fb62c462935c1b5	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	python-any-r1	901d9e22c7a848a1196502edf060f330	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=e32bdbe0f5b07c5c42041ccb90708e68
+_md5_=cde4a984f6fecf88e5f44f34fc9db5a6

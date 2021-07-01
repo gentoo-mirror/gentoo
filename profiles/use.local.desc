@@ -622,11 +622,11 @@ app-emulation/virt-what:dmi - Use sys-apps/dmidecode to read firmware data
 app-emulation/virtualbox:dtrace - Install dtrace Extension Pack
 app-emulation/virtualbox:headless - Build without any graphic frontend
 app-emulation/virtualbox:lvm - Build VBoxVolInfo that needs devicemapper from sys-fs/lvm2.
-app-emulation/virtualbox:pax_kernel - Apply patch needed for pax enabled kernels.
+app-emulation/virtualbox:pax-kernel - Apply patch needed for pax enabled kernels.
 app-emulation/virtualbox:sdk - Enable building of SDK
 app-emulation/virtualbox:udev - Controls installation of special USB udev rules.
 app-emulation/virtualbox:vboxwebsrv - Build and install the VirtualBox webservice
-app-emulation/virtualbox-modules:pax_kernel - Apply patch needed for pax enabled kernels
+app-emulation/virtualbox-modules:pax-kernel - Apply patch needed for pax enabled kernels
 app-emulation/vkd3d:spirv-tools - Enable SPIRV shader debugging support using dev-util/spirv-tools
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
 app-emulation/wine-staging:custom-cflags - Bypass strip-flags; use at your own peril
@@ -1665,7 +1665,7 @@ dev-java/icedtea:headless-awt - Don't install the X backend for AWT, needed by s
 dev-java/icedtea:jamvm - Use the JamVM virtual machine rather than HotSpot.
 dev-java/icedtea:jbootstrap - If possible, recompile the final IcedTea executables with itself.
 dev-java/icedtea:kerberos - Link against Kerberos in order to obtain the cache location.
-dev-java/icedtea:pax_kernel - Apply patch needed for pax enabled kernels.
+dev-java/icedtea:pax-kernel - Apply patch needed for pax enabled kernels.
 dev-java/icedtea:pch - Build using pre-compiled headers.
 dev-java/icedtea:sctp - Build the SCTP NIO channel implementation against lksctp
 dev-java/icedtea:shenandoah - Include the Shenandoah ultra-low pause time garbage collector (-XX:+UseShenandoahGC) (arm64 and x86_64 only)
@@ -1758,14 +1758,14 @@ dev-lang/mercury:trail - Support Mercury trail grades
 dev-lang/mercury-extras:tommath - Enable support for tommath library
 dev-lang/mlton:binary - install a binary version
 dev-lang/mlton:bootstrap-smlnj - Boostrap mlton with dev-lang/smlnj (takes a long time)
-dev-lang/mlton:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
+dev-lang/mlton:pax-kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 dev-lang/mlton:stage3 - After bootstrap building mlton with dev-lang/smlnj, rebuild mlton with the second stage build of mlton (recommended).
 dev-lang/moarvm:asan - Enable clang's Address Sanitizer functionality. Expect longer compile time.
 dev-lang/moarvm:clang - Use clang compiler instead of GCC
 dev-lang/moarvm:jit - Enable Just-In-Time-Compiler. Has no effect except on AMD64 and Darwin.
 dev-lang/moarvm:optimize - Enable optimization via CFLAGS
 dev-lang/moarvm:ubsan - Enable clang's Undefined Behavior Sanitizer functionality. Expect longer compile time.
-dev-lang/mono:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
+dev-lang/mono:pax-kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 dev-lang/mono:xen - Make mono generate code that is considerably faster on xen VMs but slightly slower on for normal systems.
 dev-lang/nqp:clang - Toggle usage of the clang compiler in conjunction with MoarVM
 dev-lang/nqp:moar - Build the MoarVM backend (experimental/broken)
@@ -1835,7 +1835,7 @@ dev-lang/rust-bin:clippy - Install clippy, Rust code linter
 dev-lang/rust-bin:rls - Install rls, Rust Language Server (used with IDEs supporting RLS protocol)
 dev-lang/rust-bin:rustfmt - Install rustfmt, Rust code formatter
 dev-lang/scala:binary - Install from (Gentoo-compiled) binary instead of building from sources. Set this when you run out of memory during build.
-dev-lang/smlnj:pax_kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
+dev-lang/smlnj:pax-kernel - Enable if the user plans to run the package under a pax enabled hardened kernel
 dev-lang/spidermonkey:clang - Use Clang compiler instead of GCC
 dev-lang/spidermonkey:custom-optimization - Build with user-specified compiler optimizations (-Os, -O0, -O1, -O2, -O3) from CFLAGS (unsupported)
 dev-lang/spidermonkey:debug - Enable assertions to allow for easier debugging of programs that link to spidermonkey -- note this will often crash software on regular end-user systems
@@ -2050,8 +2050,9 @@ dev-libs/libevent:malloc-replacement - Support for replacing the memory manageme
 dev-libs/libevent:mbedtls - Support for net-libs/mbedtls encryption
 dev-libs/libevent:ssl - Support for dev-libs/openssl encryption
 dev-libs/libevent:verbose-debug - Support for verbose debug logging
-dev-libs/libffi:pax_kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
-dev-libs/libffi-compat:pax_kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
+dev-libs/libffi:pax-kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
+dev-libs/libffi:pax_kernel - DEPRECATED alias for 'pax-kernel'. Do not use.
+dev-libs/libffi-compat:pax-kernel - Use PaX emulated trampolines, for we can't use PROT_EXEC
 dev-libs/libfido2:nfc - Enable experimental NFC support
 dev-libs/libflatarray:cuda - Enables plugins for NVIDIA GPUs (e.g. CUDAAllocator)
 dev-libs/libgcrypt:asm - Enable assembly for optimization
@@ -4753,7 +4754,7 @@ media-sound/split2flac:flake - Add support for Flake, alternative FLAC encoder
 media-sound/split2flac:mac - Add support for Monkey's Audio files
 media-sound/split2flac:replaygain - Support for Replay Gain metadata, for relative volume adjustment
 media-sound/spotify:local-playback - Allows playing local files with the Spotify client
-media-sound/spotify:pax_kernel - Triggers a paxmarking of the main Spotify binary
+media-sound/spotify:pax-kernel - Triggers a paxmarking of the main Spotify binary
 media-sound/spotify:pulseaudio - Controls the dependency on pulseaudio or apulse
 media-sound/spotify:systray - Pulls in dependencies needed for systray support on some desktop environments
 media-sound/strawberry:vlc - Enable media-video/vlc backend
@@ -6070,7 +6071,7 @@ net-libs/nghttp2:utils - Install nghttp, nghttpd and nghttpx
 net-libs/nodejs:inspector - Enable V8 inspector
 net-libs/nodejs:lto - Build with link-time optimisation
 net-libs/nodejs:npm - Enable NPM package manager
-net-libs/nodejs:pax_kernel - Enable building under a PaX enabled kernel
+net-libs/nodejs:pax-kernel - Enable building under a PaX enabled kernel
 net-libs/nodejs:snapshot - Enable snapshot creation for faster startup
 net-libs/nodejs:system-icu - Use system dev-libs/icu instead of the bundled version
 net-libs/nodejs:system-ssl - Use system OpenSSL instead of the bundled one
