@@ -4,7 +4,7 @@
 EAPI=7
 
 LUA_COMPAT=( lua5-1 luajit )
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit autotools linux-info lua-single python-single-r1 systemd tmpfiles
 
@@ -13,7 +13,7 @@ HOMEPAGE="https://suricata.io/"
 SRC_URI="https://www.openinfosecfoundation.org/download/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0/6"
+SLOT="0/5"
 KEYWORDS="~amd64 ~x86"
 IUSE="+af-packet bpf control-socket cuda debug +detection geoip hardened logrotate lua lz4 nflog +nfqueue redis systemd test"
 
@@ -36,7 +36,7 @@ RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
-	>=net-libs/libhtp-0.5.37
+	>=net-libs/libhtp-0.5.38
 	net-libs/libpcap
 	sys-apps/file
 	sys-libs/libcap-ng
@@ -51,27 +51,15 @@ RDEPEND="${PYTHON_DEPS}
 	redis?      ( dev-libs/hiredis )"
 DEPEND="${RDEPEND}
 	>=sys-devel/autoconf-2.69-r5
-	<virtual/rust-1.53.0"  # Bug #797370 part one. Hopefully to be fixed come next release.
+	virtual/rust"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.1_configure-no-lz4-automagic.patch"
+	"${FILESDIR}/${PN}-5.0.1_default-config.patch"
 	"${FILESDIR}/${PN}-5.0.6_configure-no-sphinx-pdflatex-automagic.patch"
-	"${FILESDIR}/${PN}-6.0.0_default-config.patch"
 )
 
 pkg_pretend() {
-	# Bug #797370 part deux, needed to address the edge case of both rust and rust-bin being present
-	#  - in which case the version limit set on virtual/rust only affects one of them.
-	# Version-checking code shamelessly stolen from www-client/firefox.
-	local version_rust=$(rustc -Vv 2>/dev/null | grep -F -- 'release:' | awk '{ print $2 }')
-	[[ -z ${version_rust} ]] && die "Failed to read version from rustc!"
-	if ver_test "${version_rust}" -ge "1.53.0"; then
-		eerror "This version of ${PN} does not support Rust 1.53.0+. Please switch to an older version using"
-		eerror "    eselect rust"
-		eerror "before emerging ${PN}."
-		die "Unsupported version of Rust selected"
-	fi
-
 	if use bpf && use kernel_linux; then
 		if kernel_is -lt 4 15; then
 			ewarn "Kernel 4.15 or newer is necessary to use all XDP features like the CPU redirect map"
@@ -205,11 +193,7 @@ pkg_postinst() {
 	fi
 
 	elog
-	if [[ -n "${REPLACING_VERSIONS}" ]]; then
-		ewarn "Since version 6.0.0 Suricata no longer supports the unified2 output format commonly used"
-		ewarn "in legacy, Snort-compatible IDS solutions, e.g. ones based on net-analyzer/barnyard2."
-		ewarn "If you need unified2 support, please continue to use suricata-5."
-	else
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "To download and install an initial set of rules, run:"
 		elog "    emerge --config =${CATEGORY}/${PF}"
 	fi
