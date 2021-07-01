@@ -10,13 +10,21 @@ inherit python-single-r1 desktop optfeature
 
 DESCRIPTION="A booru-like media organizer for the desktop"
 HOMEPAGE="https://hydrusnetwork.github.io/hydrus/ https://github.com/hydrusnetwork/hydrus"
-SRC_URI="https://github.com/hydrusnetwork/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/hydrusnetwork/hydrus.git"
+else
+	SRC_URI="https://github.com/hydrusnetwork/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
+	KEYWORDS="~amd64"
+fi
 
 # hydrus itself is WTFPL
 # icons included are CC-BY-2.5
 LICENSE="WTFPL-2 CC-BY-2.5"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="+mpv +ffmpeg +lz4 socks +cloudscraper charts test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -70,9 +78,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/upnpc.patch"
 	"${FILESDIR}/userpath-in-local-share.patch"
-	"${FILESDIR}/test-exitcode.patch"
 )
 
 src_prepare() {
