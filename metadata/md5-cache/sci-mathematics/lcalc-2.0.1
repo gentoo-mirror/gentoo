@@ -1,0 +1,13 @@
+BDEPEND=dev-util/gengetopt
+DEFINED_PHASES=configure
+DEPEND=double-double? ( sci-libs/qd:= ) quad-double? ( sci-libs/qd:= ) pari? ( sci-mathematics/pari:= )
+DESCRIPTION=Command-line utility and library for L-function computations
+EAPI=8
+HOMEPAGE=https://gitlab.com/sagemath/lcalc
+IUSE=+double double-double quad-double pari
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+REQUIRED_USE=^^ ( double double-double quad-double )
+SLOT=0/1
+SRC_URI=https://gitlab.com/sagemath/lcalc/uploads/01b46cdbbf3e67a322320dc0b2750d50/lcalc-2.0.1.tar.xz
+_md5_=37e250181c1110dec55f6d2bec0f064d
