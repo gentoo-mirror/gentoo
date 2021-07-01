@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_7,3_8} )
+PYTHON_COMPAT=( python{3_7,3_8,3_9} )
 inherit cmake python-single-r1 xdg
 
 DESCRIPTION="A free turn-based space empire and galactic conquest game"
@@ -15,7 +15,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	KEYWORDS="~amd64"
 	if [[ ${PV} = *_p* ]]; then
-		COMMIT=""
+		COMMIT="24a08d6c597ce8afc90ccec485a937982b6c3683"
 		SRC_URI="https://github.com/${PN}/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
