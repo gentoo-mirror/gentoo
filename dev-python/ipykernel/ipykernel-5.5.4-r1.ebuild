@@ -1,11 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="threads(+)"
-
 inherit distutils-r1
 
 DESCRIPTION="IPython Kernel for Jupyter"
@@ -40,6 +39,8 @@ python_test() {
 		ipykernel/tests/test_serialize.py::test_class
 		ipykernel/tests/test_serialize.py::test_class_oldstyle
 		ipykernel/tests/test_serialize.py::test_class_inheritance
+		'ipykernel/tests/test_async.py::test_async_interrupt[trio]'
+		'ipykernel/tests/test_async.py::test_async_interrupt[trio]'
 	)
 
 	epytest ${deselect[@]/#/--deselect }
