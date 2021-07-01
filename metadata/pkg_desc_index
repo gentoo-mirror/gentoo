@@ -748,7 +748,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.19.47-r1 1.19.78 1.19.79 1.19.80 1.19.82 1.19.83 1.19.84 1.19.85 1.19.86 1.19.87 1.19.88 1.19.89 1.19.90 1.19.91 1.19.92 1.19.93 1.19.94 1.19.95 1.19.96 1.19.97 1.19.98 1.19.99 1.19.100 1.19.101 1.19.102: Universal Command Line Environment for AWS
+app-admin/awscli 1.19.47-r1 1.19.97 1.19.102 1.19.103: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.26.4 1.26.5: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1: Distribution-independent installer framework
@@ -5619,7 +5619,7 @@ dev-libs/libgcrypt 1.8.6 1.8.7 1.8.8 1.9.1-r1 1.9.2 1.9.3: General purpose crypt
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.4: GObject-based interfaces and classes for commonly used data structures
-dev-libs/libgit2 1.1.0-r2: A linkable library for Git
+dev-libs/libgit2 1.1.0-r2 1.1.1: A linkable library for Git
 dev-libs/libgit2-glib 0.99.0.1-r2: Git library for GLib
 dev-libs/libgnome-games-support 1.8.1: Library for code common to GNOME games
 dev-libs/libgnt 2.14.0 2.14.1: Pidgin's GLib Ncurses Toolkit
@@ -8072,7 +8072,7 @@ dev-python/APScheduler 3.6.3: In-process task scheduler with Cron-like capabilit
 dev-python/Babel 2.9.1: Collection of tools for internationalizing Python applications
 dev-python/BitVector 3.4.9-r1 3.5.0: A pure-Python memory-efficient packed representation for bit arrays
 dev-python/CppHeaderParser 2.7.4: Parse C++ header files and generate a data structure
-dev-python/Faker 8.5.1 8.6.0 8.7.0 8.8.0 8.8.1 8.8.2: A Python package that generates fake data for you
+dev-python/Faker 8.8.2 8.9.0: A Python package that generates fake data for you
 dev-python/GitPython 3.1.15 3.1.17 3.1.18: Library used to interact with Git repositories
 dev-python/GridDataFormats 0.5.0: Reading and writing of data on regular grids in Python
 dev-python/MechanicalSoup 0.12.0 1.0.0 1.1.0: A python library for automating interaction with websites
@@ -8134,7 +8134,7 @@ dev-python/asgiref 3.3.4 3.4.0: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.4.0: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.21 0.9.22 0.9.23 0.9.24 0.9.25: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1: Read/rewrite/write Python ASTs
-dev-python/astroid 2.5.6 2.5.7 2.5.8 2.6.0 2.6.1: Abstract Syntax Tree for logilab packages
+dev-python/astroid 2.5.6 2.5.7 2.5.8 2.6.0 2.6.1 2.6.2: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.2_p20201029: Simple lru_cache for asyncio
@@ -8186,8 +8186,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.17.54 1.17.74 1.17.78 1.17.79 1.17.80 1.17.82 1.17.83 1.17.84 1.17.85 1.17.86 1.17.87 1.17.88 1.17.89 1.17.90 1.17.91 1.17.92 1.17.93 1.17.94 1.17.95 1.17.96 1.17.97 1.17.98 1.17.99 1.17.100 1.17.101 1.17.102 9999: The AWS SDK for Python
-dev-python/botocore 1.20.54 1.20.74 1.20.78 1.20.79 1.20.80 1.20.82 1.20.83 1.20.84 1.20.85 1.20.86 1.20.87 1.20.88 1.20.89 1.20.90 1.20.91 1.20.92 1.20.93 1.20.94 1.20.95 1.20.96 1.20.97 1.20.98 1.20.99 1.20.100 1.20.101 1.20.102 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.17.78 1.17.97 1.17.102 1.17.103 9999: The AWS SDK for Python
+dev-python/botocore 1.20.78 1.20.97 1.20.102 1.20.103 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8474,7 +8474,7 @@ dev-python/gmpy 2.0.8-r2 2.1.0_beta5: Python bindings for GMP, MPC, MPFR and MPI
 dev-python/google-api-core 1.28.0 1.30.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.4.0 2.7.0 2.8.0 2.9.0 2.10.0 2.11.0: Google API Client for Python
 dev-python/google-apitools 0.5.31 0.5.32: Python library to manipulate Google APIs
-dev-python/google-auth 1.30.0 1.30.1 1.30.2 1.31.0 1.32.0: Google Authentication Library
+dev-python/google-auth 1.30.0 1.30.1 1.30.2 1.31.0 1.32.0 1.32.1: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 0.4.1-r1 0.4.3 0.4.4: Google Authentication Library
 dev-python/google-pasta 0.2.0 0.2.0-r1: AST-based Python refactoring library
@@ -8961,7 +8961,7 @@ dev-python/pylatex 1.4.1: A Python library for creating LaTeX files and snippets
 dev-python/pylev 1.2.0 1.4.0: Python Levenshtein implementation
 dev-python/pylibacl 0.6.0: POSIX ACLs (Access Control Lists) for Python
 dev-python/pylibmc 1.6.1-r1: Libmemcached wrapper written as a Python extension
-dev-python/pylint 2.8.2 2.9.0: Python code static checker
+dev-python/pylint 2.8.2 2.9.0 2.9.1: Python code static checker
 dev-python/pylru 1.2.0: A least recently used (LRU) cache for Python
 dev-python/pyls-black 0.4.6-r1 0.4.7: Black plugin for the Python Language Server
 dev-python/pyls-spyder 0.4.0: Spyder extensions for the python language server
@@ -11053,7 +11053,7 @@ dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
 dev-util/patdiff 0.14.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.18: Recursive-descent parser generators for C
 dev-util/perf 5.8 5.10.16 5.11 5.12: Userland tools for Linux Performance Counters
-dev-util/pkgcheck 0.9.7-r2 0.9.7-r3 0.10.0 0.10.1 0.10.2 9999: pkgcore-based QA utility for ebuild repos
+dev-util/pkgcheck 0.9.7-r2 0.9.7-r3 0.10.0 0.10.1 0.10.2 0.10.3 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 1.6.3 1.7.3-r1 1.7.4 9999: pkg-config compatible replacement with no dependencies other than ANSI C89
 dev-util/pkgconfig 0.29.2 9999: Package config system that manages compile/link flags
 dev-util/pkgdev 0.1.2 0.1.5 0.1.6 0.1.7 9999: Collection of tools for Gentoo development
