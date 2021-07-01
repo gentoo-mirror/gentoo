@@ -10,7 +10,7 @@ SRC_URI="https://github.com/JohnCremona/${PN}/releases/download/${PV}/${P}.tar.b
 LICENSE="GPL-2"
 
 # Major version of /usr/lib64/libec.so
-SLOT="0/7"
+SLOT="0/8"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="boost flint minimal static-libs test"
 RESTRICT="!test? ( test )"
