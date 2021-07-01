@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=prepare
-DEPEND=dev-libs/openssl:= sys-libs/efivar:= virtual/libcrypt:=
+DEPEND=dev-libs/openssl:= sys-apps/keyutils:= sys-libs/efivar:= virtual/libcrypt:=
 DESCRIPTION=The utility to manipulate machines owner keys which managed in shim
 EAPI=7
 HOMEPAGE=https://github.com/lcp/mokutil
 INHERIT=autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-libs/openssl:= sys-libs/efivar:= virtual/libcrypt:=
+RDEPEND=dev-libs/openssl:= sys-apps/keyutils:= sys-libs/efivar:= virtual/libcrypt:=
 SLOT=0
 SRC_URI=https://github.com/lcp/mokutil/archive/0.5.0.tar.gz -> mokutil-0.5.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=7c6208cc619e560ec98a0042cc2d9c66
+_md5_=2d43ea3031801c95792b05e31fbd7ecc
