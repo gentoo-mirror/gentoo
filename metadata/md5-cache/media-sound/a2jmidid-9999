@@ -1,14 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
-DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10] ) )
 DESCRIPTION=Daemon for exposing legacy ALSA sequencer applications in JACK MIDI system
 EAPI=7
 HOMEPAGE=https://github.com/linuxaudio/a2jmidid
-INHERIT=meson git-r3
-IUSE=dbus
+INHERIT=meson python-single-r1 git-r3
+IUSE=dbus python python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus )
+RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] >=dev-lang/python-exec-2:=[python_targets_python3_10] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	meson	5bc3f1b890f90cc00cf1d1dddc10233e	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=9103356eba4ebc216b6b6805ea0a763a
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	meson	5bc3f1b890f90cc00cf1d1dddc10233e	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=5b5ad13ff91fe0d29b29f28d8fbefc52
