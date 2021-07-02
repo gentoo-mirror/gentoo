@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby25 ruby26 ruby27 ruby30"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
@@ -18,8 +19,8 @@ HOMEPAGE="https://github.com/faye/websocket-driver-ruby"
 SRC_URI="https://github.com/faye/websocket-driver-ruby/archive/${PV}.tar.gz -> ${P}.tar.gz"
 RUBY_S="${PN}-ruby-${PV}"
 
-LICENSE="Apache-2.0"
-SLOT="0.7"
+LICENSE="MIT"
+SLOT="0"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE=""
 
