@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp >=virtual/perl-Math-BigInt-1.991.0 !minimal? ( dev-perl/Math-BigInt-GMP virtual/perl-Math-BigRat ) >=virtual/perl-ExtUtils-MakeMaker-6.640.0 test? ( virtual/perl-Scalar-List-Utils virtual/perl-Test virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=modular integer arithmetic
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Math-ModInt
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=virtual/perl-Carp >=virtual/perl-Math-BigInt-1.991.0 !minimal? ( dev-perl/Math-BigInt-GMP virtual/perl-Math-BigRat ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/M/MH/MHASCH/Math-ModInt-0.013.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=1c4845a6938a97f1110729f42e649402
