@@ -39,8 +39,10 @@ EGO_SUM=(
 	"cloud.google.com/go/storage v1.8.0/go.mod"
 	"cloud.google.com/go/storage v1.10.0/go.mod"
 	"dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod"
-	"filippo.io/age v1.0.0-rc.1"
-	"filippo.io/age v1.0.0-rc.1/go.mod"
+	"filippo.io/age v1.0.0-rc.3"
+	"filippo.io/age v1.0.0-rc.3/go.mod"
+	"filippo.io/edwards25519 v1.0.0-beta.3"
+	"filippo.io/edwards25519 v1.0.0-beta.3/go.mod"
 	"github.com/BurntSushi/toml v0.3.1/go.mod"
 	"github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod"
 	"github.com/atotto/clipboard v0.1.4"
@@ -71,8 +73,8 @@ EGO_SUM=(
 	"github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod"
 	"github.com/envoyproxy/go-control-plane v0.9.4/go.mod"
 	"github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod"
-	"github.com/fatih/color v1.10.0"
-	"github.com/fatih/color v1.10.0/go.mod"
+	"github.com/fatih/color v1.12.0"
+	"github.com/fatih/color v1.12.0/go.mod"
 	"github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod"
 	"github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72/go.mod"
 	"github.com/go-gl/glfw/v3.3/glfw v0.0.0-20200222043503-6f7a984d4dc4/go.mod"
@@ -117,8 +119,9 @@ EGO_SUM=(
 	"github.com/google/go-cmp v0.5.0/go.mod"
 	"github.com/google/go-cmp v0.5.1/go.mod"
 	"github.com/google/go-cmp v0.5.2/go.mod"
-	"github.com/google/go-cmp v0.5.5"
 	"github.com/google/go-cmp v0.5.5/go.mod"
+	"github.com/google/go-cmp v0.5.6"
+	"github.com/google/go-cmp v0.5.6/go.mod"
 	"github.com/google/go-github v17.0.0+incompatible"
 	"github.com/google/go-github v17.0.0+incompatible/go.mod"
 	"github.com/google/go-github/v33 v33.0.0"
@@ -166,8 +169,9 @@ EGO_SUM=(
 	"github.com/martinhoefling/goxkcdpwgen v0.0.0-20190331205820-7dc3d102eca3/go.mod"
 	"github.com/mattn/go-colorable v0.1.8"
 	"github.com/mattn/go-colorable v0.1.8/go.mod"
-	"github.com/mattn/go-isatty v0.0.12"
 	"github.com/mattn/go-isatty v0.0.12/go.mod"
+	"github.com/mattn/go-isatty v0.0.13"
+	"github.com/mattn/go-isatty v0.0.13/go.mod"
 	"github.com/mitchellh/go-homedir v1.1.0"
 	"github.com/mitchellh/go-homedir v1.1.0/go.mod"
 	"github.com/mitchellh/go-ps v1.0.0"
@@ -493,14 +497,14 @@ EGO_SUM=(
 
 go-module_set_globals
 
-	DESCRIPTION="a simple but powerful password manager for the terminal"
-	HOMEPAGE="https://www.gopass.pw/"
-	SRC_URI="https://github.com/gopasspw/gopass/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		${EGO_SUM_SRC_URI}"
+DESCRIPTION="a simple but powerful password manager for the terminal"
+HOMEPAGE="https://www.gopass.pw/"
+SRC_URI="https://github.com/gopasspw/gopass/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${EGO_SUM_SRC_URI}"
 
 LICENSE="MIT Apache-2.0 BSD MPL-2.0 BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 
 RESTRICT="strip test"
 
