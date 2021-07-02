@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools elisp-common
+inherit autotools elisp-common flag-o-matic
 
 MY_PN=Singular
 MY_PV=$(ver_rs 3 '')
@@ -36,7 +36,7 @@ S="${WORKDIR}/${PN}-${MY_DIR2}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.2.0-gfan_linking.patch"
-	"${FILESDIR}/${PN}-4.2.0-doc_install.patch"
+	"${FILESDIR}/${PN}-4.2.0-doc_install-v2.patch"
 	"${FILESDIR}/${PN}-4.2.0-no-static.patch"
 )
 
@@ -47,16 +47,19 @@ src_prepare() {
 }
 
 src_configure() {
+	# singular may segfault with common optimisation such as -O2 without this flag
+	append-cxxflags $(test-flags-CXX -fno-delete-null-pointer-checks)
+
 	econf --with-gmp \
-		--with-ntl="${EPREFIX}"/usr \
+		--with-ntl \
 		--with-flint \
 		--enable-gfanlib \
 		--disable-debug \
 		--disable-doc \
 		--enable-factory \
 		--enable-libfac \
-		--enable-IntegerProgramming \
 		--disable-polymake \
+		--with-libparse \
 		--disable-optimizationflags \
 		$(use_enable static-libs static) \
 		$(use_enable emacs) \
