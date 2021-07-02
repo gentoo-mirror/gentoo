@@ -1,6 +1,14 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Ye Cao <ye.c@rioslab.org> (2021-07-02)
+# Dependencies not keyworded, not tested
+app-text/texlive-core xetex
+dev-python/ipython nbconvert notebook
+dev-python/matplotlib cairo excel wxwidgets
+media-sound/alsa-utils libsamplerate
+sci-libs/fftw mpi
+
 # Marek Szuba <marecki@gentoo.org> (2021-07-02)
 # Dependencies not keyworded here yet:
 #  - gnome-base/gconf, dev-libs/libotf & dev-libs/m17n-lib, net-libs/webkit-gtk
@@ -21,10 +29,6 @@ net-analyzer/rrdtool dbi rados
 sci-libs/arpack mpi
 #  - net-fs/samba, dev-libs/tre
 www-client/elinks samba tre
-
-# Ye Cao <ye.c@rioslab.org> (2021-06-26)
-# www-servers/tornado not keyworded, not tested
-dev-python/pyzmq test
 
 # Ye Cao <ye.c@rioslab.org> (2021-06-24)
 # Dependencies not keyworded, not tested
@@ -157,7 +161,6 @@ net-irc/irssi socks5
 net-libs/gnutls doc test-full
 net-libs/ldns doc python
 net-libs/libpcap rdma
-net-misc/curl curl_ssl_nss nss
 net-misc/ntp openntpd snmp vim-syntax zeroconf
 net-nds/openldap cxx kerberos sasl
 sys-apps/kmod doc
