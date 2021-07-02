@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare test
+DEPEND=virtual/libelf:= selinux? ( sys-libs/libselinux ) unwind? ( sys-libs/libunwind:= ) sys-libs/binutils-libs test? ( dev-util/dejagnu )
+DESCRIPTION=trace library calls made at runtime
+EAPI=7
+HOMEPAGE=https://gitlab.com/cespedes/ltrace
+INHERIT=autotools
+IUSE=debug selinux test unwind
+KEYWORDS=~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libelf:= selinux? ( sys-libs/libselinux ) unwind? ( sys-libs/libunwind:= )
+RESTRICT=!test? ( test ) elibc_musl? ( test )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/l/ltrace/ltrace_0.7.3.orig.tar.bz2 mirror://debian/pool/main/l/ltrace/ltrace_0.7.3-6.1.debian.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_md5_=fda62e92eb4623cf5dfa0cdbc66ad4ab
