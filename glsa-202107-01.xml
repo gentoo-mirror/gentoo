@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-01">
+  <title>corosync: Denial of service</title>
+  <synopsis>A vulnerability in corosync could lead to a Denial of Service
+    condition.
+  </synopsis>
+  <product type="ebuild">corosync</product>
+  <announced>2021-07-03</announced>
+  <revised count="1">2021-07-03</revised>
+  <bug>658354</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-cluster/corosync" auto="yes" arch="*">
+      <unaffected range="ge">3.0.4</unaffected>
+      <vulnerable range="lt">3.0.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The Corosync Cluster Engine is a Group Communication System with
+      additional features for implementing high availability within
+      applications.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that corosync allowed an unauthenticated user to cause
+      a Denial of Service by application crash.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could send a malicious crafted packet, possibly
+      resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All corosync users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-cluster/corosync-3.0.4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-1084">CVE-2018-1084</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-26T21:04:45Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-03T01:25:30Z">whissi</metadata>
+</glsa>
