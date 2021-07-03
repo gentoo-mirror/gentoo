@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-04">
+  <title>Graphviz: Multiple vulnerabilities
+  </title>
+  <synopsis>Multiple vulnerabilities have been found in Graphviz, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">Graphviz</product>
+  <announced>2021-07-03</announced>
+  <revised count="1">2021-07-03</revised>
+  <bug>684844</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="media-gfx/graphviz" auto="yes" arch="*">
+      <unaffected range="ge">2.47.1</unaffected>
+      <vulnerable range="lt">2.47.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Graphviz is an open source graph visualization software.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Graphviz. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to process a specially crafted
+      file using Graphviz, possibly resulting in execution of arbitrary code
+      with the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Graphviz users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-gfx/graphviz-2.47.1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9904">CVE-2019-9904</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-18032">CVE-2020-18032</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-26T21:13:28Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-03T03:32:10Z">whissi</metadata>
+</glsa>
