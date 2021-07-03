@@ -1,13 +1,14 @@
-DEFINED_PHASES=install postinst setup unpack
-DEPEND=|| ( app-accessibility/espeak[portaudio] app-accessibility/espeak[pulseaudio] ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=man? ( app-text/ronn ) >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst setup test unpack
+DEPEND=app-accessibility/espeak-ng[sound] media-libs/alsa-lib
 DESCRIPTION=espeakup is a small lightweight connector for espeak and speakup
-EAPI=6
+EAPI=7
 HOMEPAGE=https://github.com/williamh/espeakup
-INHERIT=git-r3 linux-info
-IUSE=kernel_linux
+INHERIT=git-r3 linux-info meson
+IUSE=man systemd kernel_linux
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=|| ( app-accessibility/espeak[portaudio] app-accessibility/espeak[pulseaudio] )
+RDEPEND=app-accessibility/espeak-ng[sound] media-libs/alsa-lib
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
-_md5_=60b78cdd982f72a42c1d740bdcbc6ff4
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	meson	5bc3f1b890f90cc00cf1d1dddc10233e
+_md5_=5b3f6f662626533e94986159d7cc2f7e
