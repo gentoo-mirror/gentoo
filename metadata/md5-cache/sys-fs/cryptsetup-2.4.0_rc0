@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare setup test
+DEPEND=static-libs? ( dev-libs/json-c:=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)] dev-libs/popt[static-libs(+)] >=sys-apps/util-linux-2.31-r1[static-libs(+)] argon2? ( app-crypt/argon2:=[static-libs(+)] ) gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)] ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) sys-fs/lvm2[static-libs(+)] udev? ( virtual/libudev[static-libs(-)] ) ) dev-libs/json-c:= dev-libs/libgpg-error dev-libs/popt >=sys-apps/util-linux-2.31-r1 argon2? ( app-crypt/argon2:= ) gcrypt? ( dev-libs/libgcrypt:0= ) nettle? ( >=dev-libs/nettle-2.4 ) openssl? ( dev-libs/openssl:0= ) pwquality? ( dev-libs/libpwquality ) sys-fs/lvm2 udev? ( virtual/libudev ) static? ( dev-libs/json-c:=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)] dev-libs/popt[static-libs(+)] >=sys-apps/util-linux-2.31-r1[static-libs(+)] argon2? ( app-crypt/argon2:=[static-libs(+)] ) gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)] ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) sys-fs/lvm2[static-libs(+)] udev? ( virtual/libudev[static-libs(-)] ) )
+DESCRIPTION=Tool to setup encrypted devices with dm-crypt
+EAPI=7
+HOMEPAGE=https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md
+INHERIT=autotools linux-info
+IUSE=gcrypt kernel nettle +openssl +argon2 nls pwquality reencrypt static static-libs +udev urandom kernel_linux
+LICENSE=GPL-2+
+RDEPEND=static-libs? ( dev-libs/json-c:=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)] dev-libs/popt[static-libs(+)] >=sys-apps/util-linux-2.31-r1[static-libs(+)] argon2? ( app-crypt/argon2:=[static-libs(+)] ) gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)] ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) sys-fs/lvm2[static-libs(+)] udev? ( virtual/libudev[static-libs(-)] ) ) dev-libs/json-c:= dev-libs/libgpg-error dev-libs/popt >=sys-apps/util-linux-2.31-r1 argon2? ( app-crypt/argon2:= ) gcrypt? ( dev-libs/libgcrypt:0= ) nettle? ( >=dev-libs/nettle-2.4 ) openssl? ( dev-libs/openssl:0= ) pwquality? ( dev-libs/libpwquality ) sys-fs/lvm2 udev? ( virtual/libudev )
+REQUIRED_USE=^^ ( gcrypt kernel nettle openssl ) static? ( !gcrypt )
+SLOT=0/12
+SRC_URI=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.4/cryptsetup-2.4.0-rc0.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
+_md5_=ec81ff686ac9e02f3400b62e75d35cd1
