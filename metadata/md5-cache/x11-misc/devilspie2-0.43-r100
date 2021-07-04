@@ -4,7 +4,7 @@ DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1?
 DESCRIPTION=Devilspie like window matching utility, using LUA for scripting
 EAPI=7
 HOMEPAGE=https://www.nongnu.org/devilspie2/
-INHERIT=lua-single toolchain-funcs l10n
+INHERIT=lua-single plocale toolchain-funcs
 IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
@@ -12,5 +12,5 @@ RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 )
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/devilspie2/devilspie2_0.43-src.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2553e8a65058f277bf0b2da4be361b0	lua-single	20268f317853c44164a3065f1e6ff68b	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	l10n	21f3539e58ec198a7f1d45da23f94470
-_md5_=4f38972efbcc854a06b76a945f7d8b0c
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2553e8a65058f277bf0b2da4be361b0	lua-single	20268f317853c44164a3065f1e6ff68b	plocale	89c6aac5da68423465e6fd79fb4ad5fb
+_md5_=86d61b29da343dbda5acdb66f1686775

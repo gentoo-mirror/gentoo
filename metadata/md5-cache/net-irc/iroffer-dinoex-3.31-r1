@@ -3,7 +3,7 @@ DEPEND=virtual/libcrypt:= chroot? ( dev-libs/nss ) curl? ( net-misc/curl[ssl?] g
 DESCRIPTION=IRC fileserver using DCC
 EAPI=6
 HOMEPAGE=http://iroffer.dinoex.net/
-INHERIT=l10n toolchain-funcs user
+INHERIT=plocale toolchain-funcs user
 IUSE=+admin +blowfish +chroot curl debug geoip gnutls +http kqueue +memsave ruby ssl +telnet upnp
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
@@ -11,5 +11,5 @@ RDEPEND=virtual/libcrypt:= chroot? ( dev-libs/nss ) curl? ( net-misc/curl[ssl?] 
 REQUIRED_USE=admin? ( http ) gnutls? ( ssl )
 SLOT=0
 SRC_URI=http://iroffer.dinoex.net/iroffer-dinoex-3.31.tar.gz http://iroffer.dinoex.net/HISTORY/iroffer-dinoex-3.31.tar.gz
-_eclasses_=strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	l10n	21f3539e58ec198a7f1d45da23f94470	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0
-_md5_=1db75eebeedf32360867556472078181
+_eclasses_=plocale	89c6aac5da68423465e6fd79fb4ad5fb	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0
+_md5_=8fb5d982a0f6500ee3c9843cb9f15d3e
