@@ -5,7 +5,7 @@ EAPI=7
 
 inherit vcs-snapshot
 
-COMMIT="8781713a715800e8ba535ce2525d1441b3702bcb"
+COMMIT="eaf99ec03bb60da78612d8a73e47fba1f6708b0a"
 
 DESCRIPTION="Collection of plugins for Supybot/Limnoria I wrote or forked."
 HOMEPAGE="https://github.com/ProgVal/Supybot-plugins"
@@ -30,7 +30,7 @@ src_install() {
 
 pkg_postinst() {
 	elog "Before this plugin can be used, your bot will need to be told where to"
-	elog "load it from. To do this, add /usr/share/limnoria-extra-plugins/ncoevoet when"
+	elog "load it from. To do this, add /usr/share/limnoria-extra-plugins/ProgVal when"
 	elog "prompted during the bot creation wizard, or add it to a running bots config"
 	elog "with the command"
 	elog
