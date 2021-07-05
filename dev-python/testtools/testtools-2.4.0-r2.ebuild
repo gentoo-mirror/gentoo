@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1
@@ -22,7 +22,6 @@ RDEPEND="
 	>=dev-python/pbr-0.11[${PYTHON_USEDEP}]
 	dev-python/pyrsistent[${PYTHON_USEDEP}]
 	>=dev-python/six-1.4.0[${PYTHON_USEDEP}]
-	dev-python/traceback2[${PYTHON_USEDEP}]
 "
 DEPEND="
 	test? (
@@ -34,6 +33,7 @@ PDEPEND=">=dev-python/fixtures-1.3.0[${PYTHON_USEDEP}]"
 
 PATCHES=(
 	"${FILESDIR}"/testtools-2.4.0-py39.patch
+	"${FILESDIR}"/testtools-2.4.0-py310.patch
 	"${FILESDIR}"/testtools-2.4.0-assertitemsequal.patch
 )
 
@@ -41,11 +41,16 @@ distutils_enable_sphinx doc
 distutils_enable_tests unittest
 
 src_prepare() {
-	# eliminate unittest2
-	sed -i -e '/unittest2/d' requirements.txt || die
+	# eliminate unittest2 & traceback2
+	sed -i -e '/unittest2/d' -e '/traceback2/d' requirements.txt || die
 	# also conditional imports
 	find -name '*.py' -exec \
 		sed -i -e 's:unittest2:unittest:' {} + || die
+	sed -i -e 's/^traceback =.*/import traceback/' \
+		testtools/content.py || die
+	# py3.10 changed the output
+	sed -i -e 's:test_syntax_error:_&:' \
+		testtools/tests/test_testresult.py || die
 	distutils-r1_src_prepare
 }
 
