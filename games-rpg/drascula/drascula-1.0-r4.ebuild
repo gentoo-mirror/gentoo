@@ -1,12 +1,13 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit eutils
+EAPI=8
+
+inherit desktop wrapper
 
 INT_PV="1.1"
 INT_URI="mirror://sourceforge/scummvm/drascula-int-${INT_PV}.zip"
-DAT_PV="2.0.0"
+DAT_PV="2.2.0"
 AUD_PV="2.0"
 
 DESCRIPTION="Drascula: The Vampire Strikes Back"
@@ -19,6 +20,7 @@ SRC_URI="mirror://sourceforge/scummvm/drascula-${PV}.zip
 	l10n_de? ( ${INT_URI} )
 	l10n_fr? ( ${INT_URI} )
 	l10n_it? ( ${INT_URI} )"
+S="${WORKDIR}"
 
 LICENSE="drascula"
 SLOT="0"
@@ -26,12 +28,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="l10n_es l10n_de l10n_fr l10n_it +sound"
 RESTRICT="mirror"
 
-RDEPEND=">=games-engines/scummvm-0.13.1"
-DEPEND="${RDEPEND}
-	app-arch/unzip
-"
-
-S="${WORKDIR}"
+RDEPEND="games-engines/scummvm[vorbis]"
+BDEPEND="app-arch/unzip"
 
 src_unpack() {
 	if use l10n_es || use l10n_de || use l10n_fr || use l10n_it; then
@@ -44,22 +42,27 @@ src_unpack() {
 }
 
 src_install() {
-	local lang
-
-	make_wrapper ${PN} "scummvm -f -p \"/usr/share/${PN}\" drascula" .
-	for lang in es de fr it; do
-		if use l10n_${lang} ; then
-			make_wrapper ${PN}-${lang} "scummvm -q ${lang} -f -p \"/usr/share/${PN}\" drascula" .
-			make_desktop_entry ${PN}-${lang} "Drascula: The Vampire Strikes Back (${lang})" ${PN}
-		fi
-	done
 	insinto /usr/share/${PN}
-	find . -name "P*.*" -execdir doins '{}' +
 	newins "${DISTDIR}"/drascula-${DAT_PV}.dat drascula.dat
-	if use sound; then
-		doins audio/*
+	doins Packet.001
+
+	if use l10n_es || use l10n_de || use l10n_fr || use l10n_it; then
+		doins ${PN}-int-${INT_PV}/PACKET.00[2-5]
+
+		local lang
+		for lang in es de fr it; do
+			if use l10n_${lang}; then
+				make_wrapper ${PN}-${lang} "scummvm -q ${lang} -f -p \"${EPREFIX}/usr/share/${PN}\" drascula"
+				make_desktop_entry ${PN}-${lang} "Drascula (${lang})"
+			fi
+		done
 	fi
-	dodoc readme.txt drascula.doc
+
 	doicon "${DISTDIR}"/${PN}.png
-	make_desktop_entry ${PN} "Drascula: The Vampire Strikes Back"
+	make_wrapper ${PN} "scummvm -f -p \"${EPREFIX}/usr/share/${PN}\" drascula"
+	make_desktop_entry ${PN} Drascula
+
+	use sound && doins -r audio/.
+
+	dodoc readme.txt drascula.doc
 }
