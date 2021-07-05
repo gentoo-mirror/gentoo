@@ -46,6 +46,7 @@ S="${WORKDIR}/otp-OTP-${PV}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-22.0-dont-ignore-LDFLAGS.patch
+	"${FILESDIR}"/${PN}-24.0.2-serial-configure.patch
 )
 
 SITEFILE=50"${PN}"-gentoo.el
@@ -58,8 +59,6 @@ src_prepare() {
 	# bug #797886: erlang's VM does unsafe casts for ints
 	# to pointers and back. This breaks on gcc-11 -flto.
 	append-flags -fno-strict-aliasing
-
-	./otp_build autoconf || die
 }
 
 src_configure() {
