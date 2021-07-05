@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://libdbi-drivers.sourceforge.net/
 INHERIT=autotools
 IUSE=doc firebird mysql oci8 postgres +sqlite static-libs
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=LGPL-2.1
 RDEPEND=>=dev-db/libdbi-0.9.0 firebird? ( dev-db/firebird ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite:3 )
 REQUIRED_USE=|| ( mysql postgres sqlite firebird oci8 )
@@ -14,4 +14,4 @@ RESTRICT=firebird? ( bindist )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/libdbi-drivers/libdbi-drivers/libdbi-drivers-0.9.0/libdbi-drivers-0.9.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=0eaeec91a20a2f94927be63313a5f353
+_md5_=c7eb9ad378abc0637502cd5a336f1f7d
