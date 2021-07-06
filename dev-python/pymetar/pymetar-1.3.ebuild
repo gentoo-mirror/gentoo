@@ -16,3 +16,10 @@ IUSE=""
 
 DEPEND=""
 RDEPEND=""
+
+src_install() {
+	dodoc "${S}/README.md"
+	dodoc "${S}/THANKS"
+	doman "${S}/pymetar.1"
+	python_foreach_impl distutils-r1_python_install
+}
