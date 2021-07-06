@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit cmake
+
 DATUMGRID="${PN}-datumgrid-1.8.tar.gz"
 EUROPE_DATUMGRID="${PN}-datumgrid-europe-1.6.tar.gz"
 
@@ -15,9 +17,9 @@ SRC_URI="
 "
 
 LICENSE="MIT"
-SLOT="0/19"
-KEYWORDS="amd64 ~arm arm64 ~ia64 ppc ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="curl europe static-libs test +tiff"
+SLOT="0/22"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="curl europe test +tiff"
 REQUIRED_USE="test? ( !europe )"
 
 RESTRICT="!test? ( test )"
@@ -27,25 +29,42 @@ RDEPEND="
 	curl? ( net-misc/curl )
 	tiff? ( media-libs/tiff )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-cpp/gtest )
+"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-test_factory-include.patch
+)
 
 src_unpack() {
 	unpack ${P}.tar.gz
+
 	cd "${S}"/data || die
 	mv README README.DATA || die
+
 	unpack ${DATUMGRID}
 	use europe && unpack ${EUROPE_DATUMGRID}
 }
 
 src_configure() {
-	econf \
-		$(use_with curl) \
-		$(use_enable static-libs static) \
-		$(use_enable tiff)
+	local mycmakeargs=(
+		-DDOCDIR="${EPREFIX}"/usr/share/${PF}
+		-DBUILD_TESTING=$(usex test)
+		-DENABLE_CURL=$(usex curl)
+		-DBUILD_PROJSYNC=$(usex curl)
+		-DENABLE_TIFF=$(usex tiff)
+	)
+
+	use test && mycmakeargs+=( -DUSE_EXTERNAL_GTEST=ON )
+
+	cmake_src_configure
 }
 
 src_install() {
-	default
+	cmake_src_install
+
 	cd data || die
 	dodoc README.{DATA,DATUMGRID}
 	use europe && dodoc README.EUROPE
