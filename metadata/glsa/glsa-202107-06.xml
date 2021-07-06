@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-06">
+  <title>Chromium, Google Chrome: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabillities have been found in Chromium and Google
+    Chrome, the worst of which could allow remote attackers to execute
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">google-chrome,chromium</product>
+  <announced>2021-07-06</announced>
+  <revised count="1">2021-07-06</revised>
+  <bug>789420</bug>
+  <bug>792084</bug>
+  <bug>795204</bug>
+  <bug>796338</bug>
+  <bug>796521</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/google-chrome" auto="yes" arch="*">
+      <unaffected range="ge">91.0.4472.114</unaffected>
+      <vulnerable range="lt">91.0.4472.114</vulnerable>
+    </package>
+    <package name="www-client/chromium" auto="yes" arch="*">
+      <unaffected range="ge">91.0.4472.114</unaffected>
+      <vulnerable range="lt">91.0.4472.114</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Chromium is an open-source browser project that aims to build a safer,
+      faster, and more stable way for all users to experience the web.
+    </p>
+    
+    <p>Google Chrome is one fast, simple, and secure browser for all your
+      devices.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Chromium and Google
+      Chrome. Please review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker could execute arbitrary code, escalate privileges,
+      obtain sensitive information, spoof a URL or cause a Denial of Service
+      condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Google Chrome users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=www-client/google-chrome-91.0.4472.114"
+    </code>
+    
+    <p>All Chromium users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=www-client/chromium-91.0.4472.114"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30506">CVE-2021-30506</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30507">CVE-2021-30507</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30508">CVE-2021-30508</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30509">CVE-2021-30509</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30510">CVE-2021-30510</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30511">CVE-2021-30511</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30512">CVE-2021-30512</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30513">CVE-2021-30513</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30514">CVE-2021-30514</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30515">CVE-2021-30515</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30516">CVE-2021-30516</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30517">CVE-2021-30517</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30518">CVE-2021-30518</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30519">CVE-2021-30519</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30520">CVE-2021-30520</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30521">CVE-2021-30521</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30522">CVE-2021-30522</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30523">CVE-2021-30523</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30524">CVE-2021-30524</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30525">CVE-2021-30525</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30526">CVE-2021-30526</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30527">CVE-2021-30527</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30528">CVE-2021-30528</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30530">CVE-2021-30530</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30531">CVE-2021-30531</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30532">CVE-2021-30532</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30533">CVE-2021-30533</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30534">CVE-2021-30534</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30536">CVE-2021-30536</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30537">CVE-2021-30537</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30538">CVE-2021-30538</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30539">CVE-2021-30539</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30540">CVE-2021-30540</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30544">CVE-2021-30544</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30545">CVE-2021-30545</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30546">CVE-2021-30546</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30548">CVE-2021-30548</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30549">CVE-2021-30549</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30550">CVE-2021-30550</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30551">CVE-2021-30551</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30552">CVE-2021-30552</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30553">CVE-2021-30553</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30554">CVE-2021-30554</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30555">CVE-2021-30555</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30556">CVE-2021-30556</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30557">CVE-2021-30557</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-05T03:25:38Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-06T03:30:34Z">ajak</metadata>
+</glsa>
