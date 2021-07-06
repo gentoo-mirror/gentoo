@@ -1,9 +1,9 @@
 BDEPEND=dev-libs/appstream-glib dev-libs/libxml2:2 dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( dev-lang/spidermonkey:78 dev-libs/json-glib ) app-arch/xz-utils >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=dev-libs/glib-2.43.4:2 >=x11-libs/gtk+-3.21.6:3[introspection] net-libs/telepathy-glib[introspection] >=dev-libs/gobject-introspection-1.50:= >=dev-libs/gjs-1.67.2 x11-libs/gdk-pixbuf:2[introspection] >=app-text/gspell-1.4.0[introspection] x11-libs/pango[introspection] app-crypt/libsecret[introspection] net-libs/libsoup:2.4[introspection] net-im/telepathy-logger[introspection] dev-util/desktop-file-utils x11-misc/shared-mime-info
-DESCRIPTION=An IRC client for Gnome
+DESCRIPTION=An IRC client for GNOME
 EAPI=7
-HOMEPAGE=https://wiki.gnome.org/Apps/Polari
+HOMEPAGE=https://wiki.gnome.org/Apps/Polari https://gitlab.gnome.org/GNOME/polari
 INHERIT=gnome.org gnome2-utils meson xdg
 IUSE=test
 KEYWORDS=~amd64 ~arm ~x86
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/polari/40/polari-40.0.tar.xz
 _eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	c8e3fff820d850c0e003e22208d2eea3	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	meson	5bc3f1b890f90cc00cf1d1dddc10233e	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=c1af1a8c33c1ab41312903f1ed3c381a
+_md5_=707438f66485c715502fbce50756efd2
