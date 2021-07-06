@@ -2784,7 +2784,7 @@ app-misc/pet 0.3.6 0.3.6-r1: Simple command-line snippet manager
 app-misc/pfm 2.12.3-r1: A terminal-based file manager written in Perl
 app-misc/physlock 13-r1: Lightweight Linux console locking tool
 app-misc/pip 1.2-r3: Wrapper around programs that don't support stdin/stdout
-app-misc/piper 0.5.1-r1: GTK configuration application for libratbag
+app-misc/piper 0.5.1-r2: GTK configuration application for libratbag
 app-misc/pipeworks 0.4-r1: A small utility that measures throughput between stdin and stdout
 app-misc/plod 1.9-r2: A tool to help administrators keep track of daily activities
 app-misc/prog-express 3.8.8-r1: A modern and intuitive control software for the Batronix USB programming devices
@@ -3002,7 +3002,7 @@ app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-pac
 app-portage/overlint 0.5.3-r2: Simple tool for static analysis of overlays
 app-portage/pfl 3.1-r1: Searchable online file/package database for Gentoo
 app-portage/pgo 0.0.2 0.0.3 9999: A command line interface for packages.gentoo.org
-app-portage/portage-utils 0.87 0.90 0.90.1 0.91 9999: Small and fast Portage helper tools written in C
+app-portage/portage-utils 0.87 0.90 0.92 9999: Small and fast Portage helper tools written in C
 app-portage/porticron 0.7.1: cron script to sync portage and send update mails to root
 app-portage/portpeek 3.2.0 3.2.1: A helper program for maintaining the package.keyword and package.unmask files
 app-portage/pram 10: Tool to ease merging Pull Requests and git patches
@@ -8390,7 +8390,7 @@ dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based
 dev-python/exam 0.10.6: Helpers for better testing
 dev-python/exdown 0.8.6 0.8.8 0.8.9 0.9.0: Extract code blocks from markdown
 dev-python/execnet 1.8.1 1.9.0: Rapid multi-Python deployment
-dev-python/executing 0.6.0: Get information about what a Python frame is currently doing
+dev-python/executing 0.6.0 0.7.0: Get information about what a Python frame is currently doing
 dev-python/expects 0.9.0: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r1: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.6: Module for manipulating ID3 (v1 + v2) tags in Python
@@ -9211,7 +9211,7 @@ dev-python/recommonmark 0.7.1: Python docutils-compatibility bridge to CommonMar
 dev-python/redis-py 3.5.3: Python client for Redis key-value store
 dev-python/reedsolomon 1.5.4: Pure-Python Reed Solomon encoder/decoder
 dev-python/reflink 0.2.1-r1: Python wrapper around the reflink system calls
-dev-python/regex 2021.4.4 2021.7.1: Alternative regular expression module to replace re
+dev-python/regex 2021.4.4 2021.7.1 2021.7.6: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6: similar to bencode from the BitTorrent project
 dev-python/reno 3.3.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 3.5.67 3.5.68: Tools for generating printable PDF documents from any data source
@@ -10131,7 +10131,7 @@ dev-ruby/descendants_tracker 0.0.4: Module that adds descendant tracking to a cl
 dev-ruby/did_you_mean 1.2.1 1.3.1 1.4.0 1.5.0: 'did you mean?'experience in Ruby
 dev-ruby/diff-lcs 1.3 1.4 1.4.1 1.4.4: Use the McIlroy-Hunt LCS algorithm to compute differences
 dev-ruby/diva 1.0.2 1.0.2-r1: Implementation of expression for handling things.
-dev-ruby/dnsruby 1.61.2 1.61.3: A pure Ruby DNS client library
+dev-ruby/dnsruby 1.61.2 1.61.3 1.61.7: A pure Ruby DNS client library
 dev-ruby/docile 1.3.5 1.4.0: Turns any Ruby object into a DSL
 dev-ruby/domain_name 0.5.20180417 0.5.20190701: Domain Name manipulation library for Ruby
 dev-ruby/dotenv 2.7.6: Loads environment variables from .env into ENV
@@ -10142,7 +10142,7 @@ dev-ruby/ed25519 1.2.4: Library for the Ed25519 public-key signature system
 dev-ruby/elasticsearch 6.8.0 6.8.1 6.8.2: Ruby integrations for ES, elasticsearch module
 dev-ruby/elasticsearch-api 6.8.0 6.8.1 6.8.2: Ruby integrations for ES, elasticsearch-api module
 dev-ruby/elasticsearch-transport 6.8.0 6.8.1 6.8.2: Ruby integrations for ES, elasticsearch-transport module
-dev-ruby/em-websocket 0.5.1 0.5.2: EventMachine based WebSocket server
+dev-ruby/em-websocket 0.5.2: EventMachine based WebSocket server
 dev-ruby/equalizer 0.0.11 0.0.11-r1: Module to define equality, equivalence and inspection methods
 dev-ruby/equatable 0.6.1 0.7.0: Allows ruby objects to implement equality comparison and inspection methods
 dev-ruby/erubi 1.9.0 1.10.0: a ERB template engine for ruby; a simplified fork of Erubis
@@ -10543,6 +10543,7 @@ dev-ruby/simple-rss 1.3.3: A simple, flexible, extensible, and liberal RSS and A
 dev-ruby/simple_oauth 0.3.1: Simply builds and verifies OAuth headers
 dev-ruby/simplecov 0.18.5 0.19.0 0.19.1: Code coverage with a configuration library and merging across test suites
 dev-ruby/simplecov-html 0.10.2 0.11.0 0.12.0 0.12.1 0.12.2 0.12.3: Generates a HTML report of your SimpleCov ruby code coverage results
+dev-ruby/simpleidn 0.2.1: Allows easy conversion from punycode ACE to unicode UTF-8 strings and vice-versa
 dev-ruby/sinatra 2.1.0: A DSL for quickly creating web applications in Ruby with minimal effort
 dev-ruby/sinatra-partial 1.0.1: Just the partials helper in a gem
 dev-ruby/six 0.2.0: An ultra lite authorization library
@@ -14095,7 +14096,6 @@ media-sound/mps-youtube 0.2.8-r2 9999: Terminal-based YouTube player and downloa
 media-sound/mt-daapd 0.2.4.2: A multi-threaded implementation of Apple's DAAP server
 media-sound/multimux 0.2.5.2: combines up to 8 audio mono wave ch. into one big multi ch. wave file
 media-sound/mumble 1.3.4 9999: Mumble is an open source, low-latency, high quality voice chat software
-media-sound/munt 2.5.0: software synthesiser emulating pre-GM MIDI devices (Roland MT-32)
 media-sound/munt-mt32emu-alsadrv 2.3.0: ALSA MIDI driver for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
 media-sound/mup 6.6: Program for printing music scores
 media-sound/murmur 1.3.3 1.3.4 9999: Mumble is an open source, low-latency, high quality voice chat software
@@ -16550,7 +16550,7 @@ sci-libs/plplot 5.15.0-r102: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r2: Small, fast library to generate primes in order
 sci-libs/profnet 1.0.22: Neural network architecture for profacc
 sci-libs/profphd-utils 1.0.10-r1: Additional utils for profphd
-sci-libs/proj 7.2.1 8.0.1 8.1.0: PROJ coordinate transformation software
+sci-libs/proj 7.2.1 8.0.1 8.1.0-r1: PROJ coordinate transformation software
 sci-libs/punc 1.5: Portable Understructure for Numerical Computing
 sci-libs/pyshp 2.1.3: Pure Python read/write support for ESRI Shapefile format
 sci-libs/qd 2.3.22: Quad-double and double-double float arithmetics
