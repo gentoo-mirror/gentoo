@@ -1,0 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext )
+DEFINED_PHASES=install postinst postrm setup unpack
+DESCRIPTION=A graphical front-end for ClamAV
+EAPI=7
+HOMEPAGE=https://gitlab.com/dave_m/clamtk/wikis/Home
+INHERIT=desktop perl-functions python-single-r1 xdg-utils
+IUSE=kde nautilus nemo +nls thunar python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=app-antivirus/clamav dev-perl/File-chdir dev-perl/Gtk3 dev-perl/JSON dev-perl/LWP-Protocol-https dev-perl/LWP-UserAgent-Cached dev-perl/Locale-gettext dev-perl/Text-CSV dev-perl/glib-perl dev-perl/libwww-perl virtual/perl-Digest-MD5 virtual/perl-Digest-SHA virtual/perl-Encode virtual/perl-MIME-Base64 virtual/perl-Time-Piece nautilus? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) dev-python/nautilus-python[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] )
+REQUIRED_USE=nautilus? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+SLOT=0
+SRC_URI=https://github.com/dave-theunsub/clamtk/releases/download/v6.12/clamtk-6.12.tar.xz kde? ( https://bitbucket.org/davem_/clamtk-kde/downloads/clamtk-kde-0.18.tar.xz ) nautilus? ( https://bitbucket.org/davem_/clamtk-gnome/downloads/clamtk-gnome-0.05.tar.xz ) nemo? ( https://bitbucket.org/davem_/nemo-sendto-clamtk/downloads/nemo-sendto-clamtk-0.04.tar.xz ) thunar? ( https://bitbucket.org/davem_/thunar-sendto-clamtk/downloads/thunar-sendto-clamtk-0.06.tar.xz )
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	perl-functions	fea344a91ebf37efadf172c6a3de5a72	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=22033467d2edab3852581eb5908a52ad
