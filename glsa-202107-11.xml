@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-11">
+  <title>OpenDoas: Insufficient environment filtering</title>
+  <synopsis>A vulnerability in OpenDoas could lead to privilege escalation.</synopsis>
+  <product type="ebuild">doas</product>
+  <announced>2021-07-07</announced>
+  <revised count="1">2021-07-07</revised>
+  <bug>767781</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-admin/doas" auto="yes" arch="*">
+      <unaffected range="ge">6.8.1</unaffected>
+      <vulnerable range="lt">6.8.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>OpenDoas allows users to run commands as other users.</p>
+  </background>
+  <description>
+    <p>OpenDoas does not properly filter the PATH variable from the resulting
+      shell after escalating privileges.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A local attacker with control of a user’s PATH variable could escalate
+      privileges if that user uses OpenDoas with a poisoned PATH variable.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All OpenDoas users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-admin/doas-6.8.1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-25016">CVE-2019-25016</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-30T16:48:56Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-07T07:59:33Z">ajak</metadata>
+</glsa>
