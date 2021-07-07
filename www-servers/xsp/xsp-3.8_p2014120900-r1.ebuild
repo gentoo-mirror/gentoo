@@ -3,12 +3,16 @@
 
 EAPI=7
 
+# TODO: We can probably yank the USE_DOTNET/dotnet.eclass stuff
+# but let's be conservative for now
 USE_DOTNET="net35 net40 net45"
-inherit autotools dotnet systemd user
+inherit autotools dotnet systemd
 
+EGIT_COMMIT="e272a2c006211b6b03be2ef5bbb9e3f8fefd0768"
 DESCRIPTION="XSP is a small web server that can host ASP.NET pages"
 HOMEPAGE="http://www.mono-project.com/ASP.NET"
-SRC_URI="https://github.com/mono/xsp/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/mono/xsp/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/xsp-${EGIT_COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -16,8 +20,12 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="developer doc test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="dev-db/sqlite:3"
-DEPEND="${RDEPEND}"
+DEPEND="dev-db/sqlite:3"
+RDEPEND="
+	${DEPEND}
+	acct-group/aspnet
+	acct-user/aspnet
+"
 
 PATCHES=(
 	"${FILESDIR}/aclocal-fix.patch"
@@ -50,21 +58,13 @@ src_configure() {
 
 #src_compile() {
 #	exbuild xsp.sln
-#
+
 #	if use developer ; then
 #		exbuild /p:DebugSymbols=True ${METAFILETOBUILD}
 #	else
 #		exbuild /p:DebugSymbols=False ${METAFILETOBUILD}
 #	fi
 #}
-
-pkg_preinst() {
-	enewgroup aspnet
-	enewuser aspnet -1 -1 /tmp aspnet
-
-	# enewuser www-data
-	# www-data - is from debian, i think it's the same as aspnet here
-}
 
 src_install() {
 	default
