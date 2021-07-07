@@ -4,11 +4,11 @@ DEPEND=>=sys-apps/util-linux-2.30.2 >=sys-fs/btrfs-progs-4.20.2
 DESCRIPTION=Best-Effort Extent-Same, a btrfs dedup agent
 EAPI=7
 HOMEPAGE=https://github.com/Zygo/bees
-INHERIT=linux-info systemd git-r3
+INHERIT=linux-info systemd toolchain-funcs git-r3
 IUSE=tools kernel_linux
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=sys-apps/util-linux-2.30.2 >=sys-fs/btrfs-progs-4.20.2
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	systemd	c846b9e02ac8293bfc9ca38a195c2a18	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=1be206c8742c45b9f964d78ef78d8746
+_md5_=b21c9d889d5be091577ae6c9bb894273
