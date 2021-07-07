@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit linux-info systemd
+inherit linux-info systemd toolchain-funcs
 
 DESCRIPTION="Best-Effort Extent-Same, a btrfs dedup agent"
 HOMEPAGE="https://github.com/Zygo/bees"
@@ -71,13 +71,15 @@ pkg_pretend() {
 src_prepare() {
 	default
 	sed -i 's/ -Werror//' makeflags || die
+	sed -i '/^LDFLAGS/s/=/+=/' {src,test}/Makefile || die
 }
 
 src_configure() {
+	tc-export CC CXX
 	cat >localconf <<-EOF || die
-		LIBEXEC_PREFIX=/usr/libexec
-		PREFIX=/usr
-		LIBDIR="$(get_libdir)"
+		LIBEXEC_PREFIX="${EPREFIX}/usr/libexec"
+		PREFIX="${EPREFIX}/usr"
+		LIBDIR="${EPREFIX}/$(get_libdir)"
 		SYSTEMD_SYSTEM_UNIT_DIR="$(systemd_get_systemunitdir)"
 		DEFAULT_MAKE_TARGET=all
 	EOF
