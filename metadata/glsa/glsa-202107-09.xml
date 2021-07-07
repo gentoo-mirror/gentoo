@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-09">
+  <title>Mozilla Firefox: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Mozilla Firefox, the
+    worst of which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">firefox</product>
+  <announced>2021-07-07</announced>
+  <revised count="1">2021-07-07</revised>
+  <bug>794082</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="www-client/firefox" auto="yes" arch="*">
+      <unaffected range="ge" slot="0/esr78">78.11.0</unaffected>
+      <unaffected range="ge">89.0</unaffected>
+      <vulnerable range="lt">89.0</vulnerable>
+    </package>
+    <package name="www-client/firefox-bin" auto="yes" arch="*">
+      <unaffected range="ge" slot="0/esr78">78.11.0</unaffected>
+      <unaffected range="ge">89.0</unaffected>
+      <vulnerable range="lt">89.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Mozilla Firefox is a popular open-source web browser from the Mozilla
+      project.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-78.11.0"
+    </code>
+    
+    <p>All Mozilla Firefox ESR binary users should upgrade to the latest
+      version:
+    </p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-bin-78.11.0"
+    </code>
+    
+    <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-89.0"
+    </code>
+    
+    <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-bin-89.0"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29959">CVE-2021-29959</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29960">CVE-2021-29960</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29961">CVE-2021-29961</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29966">CVE-2021-29966</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-06T03:15:54Z">sam_c</metadata>
+  <metadata tag="submitter" timestamp="2021-07-07T07:46:37Z">sam_c</metadata>
+</glsa>
