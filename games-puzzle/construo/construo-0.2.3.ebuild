@@ -1,33 +1,33 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 inherit autotools desktop
 
 DESCRIPTION="2d construction toy with objects that react on physical forces"
 HOMEPAGE="http://www.nongnu.org/construo/"
-SRC_URI="http://freesoftware.fsf.org/download/construo/construo.pkg/${PV}/${P}.tar.gz"
+SRC_URI="http://download-mirror.savannah.gnu.org/releases/construo/construo.pkg/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="
-	virtual/opengl
-	virtual/glu
 	media-libs/freeglut
+	virtual/glu
+	virtual/opengl
 	x11-libs/libXxf86vm
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
 
+PATCHES=(
+	"${FILESDIR}/construo-0.2.3-clang.patch"
+)
+
 src_prepare() {
 	default
-	eapply \
-		"${FILESDIR}"/${P}-gcc43.patch \
-		"${FILESDIR}"/${P}-lGLU.patch
-	sed -i -e 's/^bindir=.*/bindir=@bindir@/' Makefile.am || die
+	sed -i -e 's/^bindir=.*/bindir=@bindir@/' src/Makefile.am || die
 	eautoreconf
 }
 
