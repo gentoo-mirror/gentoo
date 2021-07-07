@@ -11,6 +11,7 @@ acct-group/apache 0-r1: System group: apache
 acct-group/apt-cacher-ng 0: System group: apt-cacher-ng
 acct-group/argus 0: gid for net-analyzer/argus
 acct-group/artifactory 0: Group for dev-util/artifactory-bin
+acct-group/aspnet 0: System group: aspnet
 acct-group/asterisk 0-r1: Group for asterisk
 acct-group/at 0: System group: at
 acct-group/atheme-services 0-r1: Group for Atheme IRC services
@@ -380,6 +381,7 @@ acct-user/apache 0-r1: System user: apache
 acct-user/apt-cacher-ng 0: User for apt-cacher-ng
 acct-user/argus 0: uid for net-analyzer/argus
 acct-user/artifactory 0: User for dev-util/artifactory-bin
+acct-user/aspnet 0: User for the www-servers/xsp dotnet server
 acct-user/asterisk 0-r1: User for asterisk
 acct-user/at 0: user for at daemon
 acct-user/atheme-services 0-r1: User for Atheme IRC services
@@ -16538,7 +16540,7 @@ sci-libs/oce 0.18.3-r2: Development platform for CAD/CAE, 3D surface/solid model
 sci-libs/octomap 1.9.7: An Efficient Probabilistic 3D Mapping Framework Based on Octrees
 sci-libs/ogdi 4.1.0: Open Geographical Datastore Interface, a GIS support library
 sci-libs/openblas 0.3.12-r1 0.3.13 0.3.14 0.3.15: Optimized BLAS library based on GotoBLAS2
-sci-libs/opencascade 7.4.0-r4 7.5.1-r1: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
+sci-libs/opencascade 7.4.0-r4 7.5.1-r1 7.5.2: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 sci-libs/openlibm 0.7.5: High quality system independent, open source libm
 sci-libs/orocos-bfl 0.8.0: Bayesian Filtering Library
 sci-libs/orocos_kdl 1.4.0-r2 9999: Kinematics and Dynamics Library (KDL)
@@ -18335,7 +18337,7 @@ www-servers/tomcat 7.0.109 8.5.66 8.5.68 9.0.46 9.0.48 9.0.50 10.0.6 10.0.7 10.0
 www-servers/tornado 6.0.4 6.1: Python web framework and asynchronous networking library
 www-servers/uwsgi 2.0.19.1-r102 2.0.19.1-r103: uWSGI server for Python web applications
 www-servers/varnish 6.0.6 6.3.2 6.4.0 6.5.0 6.5.1: Varnish is a state-of-the-art, high-performance HTTP accelerator
-www-servers/xsp 3.8_p2014120900 4.7.1: XSP is a small web server that can host ASP.NET pages
+www-servers/xsp 3.8_p2014120900-r1 4.7.1-r1: XSP is a small web server that can host ASP.NET pages
 x11-apps/appres 1.0.5-r1: list X application resource database
 x11-apps/bdftopcf 1.1-r1: X.Org bdftopcf application
 x11-apps/beforelight 1.0.5: Sample implementation of screen saver
