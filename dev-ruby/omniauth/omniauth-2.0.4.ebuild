@@ -17,19 +17,20 @@ HOMEPAGE="https://github.com/intridea/omniauth"
 SRC_URI="https://github.com/intridea/omniauth/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-SLOT="0"
+SLOT="$(ver_cut 1)"
 IUSE=""
 
 ruby_add_rdepend "
-	>=dev-ruby/rack-1.6.2:* <dev-ruby/rack-3:*
-	>=dev-ruby/hashie-3.4.6:3 <dev-ruby/hashie-3.7.0:3"
+	=dev-ruby/rack-2*
+	dev-ruby/rack-protection
+	>=dev-ruby/hashie-3.4.6:*"
 ruby_add_bdepend "doc? ( dev-ruby/yard )
 	test? ( dev-ruby/rack-test )"
 
 all_ruby_prepare() {
 	sed -i -e '/[Bb]undler/d' \
 		Rakefile ${PN}.gemspec || die "sed failed"
-	sed -i -e '/RUBY_VERSION/,/^end/ s:^:#:' spec/helper.rb || die "sed failed"
+	sed -i -e '/RUBY_VERSION/,/^end/ s:^:#: ; /freeze/ s:^:#:' spec/helper.rb || die "sed failed"
 	# maruku fails, resorting to default markdown implementation
 	sed -i -e '/maruku/d' .yardopts || die "sed failed"
 
