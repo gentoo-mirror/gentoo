@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=install prepare
+DEFINED_PHASES=compile install prepare
 DEPEND=media-libs/freeglut virtual/glu virtual/opengl x11-libs/libXxf86vm x11-base/xorg-proto
 DESCRIPTION=2d construction toy with objects that react on physical forces
 EAPI=7
 HOMEPAGE=http://www.nongnu.org/construo/
-INHERIT=autotools desktop
+INHERIT=autotools desktop toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=media-libs/freeglut virtual/glu virtual/opengl x11-libs/libXxf86vm
 SLOT=0
 SRC_URI=http://download-mirror.savannah.gnu.org/releases/construo/construo.pkg/0.2.3/construo-0.2.3.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=220e5f38590df04ce4280eb67dc5f834
+_md5_=a43d0c04308a08954c484939096e660f
