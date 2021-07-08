@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.isc.org/kea/
 INHERIT=autotools
 IUSE=mysql +openssl postgres samples
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=ISC BSD SSLeay GPL-2
 RDEPEND=dev-libs/boost:= dev-cpp/gtest dev-libs/log4cplus mysql? ( dev-db/mysql-connector-c ) !openssl? ( dev-libs/botan:2= ) openssl? ( dev-libs/openssl:0= ) postgres? ( dev-db/postgresql:* ) acct-group/dhcp acct-user/dhcp
 SLOT=0
 SRC_URI=ftp://ftp.isc.org/isc/kea/kea-1.8.2.tar.gz ftp://ftp.isc.org/isc/kea/1.8.2/kea-1.8.2.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=221046a243980b361de8d9fef223334b
+_md5_=2f508aac8f0dd25d6d009f1d254b4052
