@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit toolchain-funcs
 
 DESCRIPTION="Speech synthesizer based on the concatenation of diphones"
 HOMEPAGE="https://github.com/numediart/MBROLA"
@@ -15,8 +16,12 @@ RDEPEND="app-accessibility/mbrola-voices"
 
 S="${WORKDIR}/MBROLA-${PV}"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-Makefile.patch
+)
+
 src_compile() {
-	emake -j1 EXT_CFLAGS="${CFLAGS}"
+	emake -j1 CC="$(tc-getCC)"
 }
 
 src_install() {
