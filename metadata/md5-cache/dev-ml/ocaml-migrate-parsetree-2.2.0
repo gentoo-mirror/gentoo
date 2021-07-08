@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=test? ( dev-ml/cinaps ) >=dev-lang/ocaml-4:=[ocamlopt?]
+DESCRIPTION=Convert OCaml parsetrees between different major versions
+EAPI=7
+HOMEPAGE=https://github.com/let-def/ocaml-migrate-parsetree
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?]
+RESTRICT=!test? ( test )
+SLOT=0/2.2.0
+SRC_URI=https://github.com/let-def/ocaml-migrate-parsetree/archive/v2.2.0.tar.gz -> ocaml-migrate-parsetree-2.2.0.tar.gz
+_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_md5_=0ce9b4afb396215cf239d5c061c4160d
