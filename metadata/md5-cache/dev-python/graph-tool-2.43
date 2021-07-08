@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-libs/boost-1.70:=[context,python,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/scipy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
-SRC_URI=https://downloads.skewed.de/graph-tool/graph-tool-2.41.tar.bz2
+SRC_URI=https://downloads.skewed.de/graph-tool/graph-tool-2.43.tar.bz2
 _eclasses_=check-reqs	97b90bd8fb799993925e6b3a683184e5	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad
 _md5_=e856f58e49222d94f390af9143474159
