@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-15">
+  <title>blktrace: Buffer overflow</title>
+  <synopsis>A buffer overflow in blktrace might allow arbitrary code execution.</synopsis>
+  <product type="ebuild">blktrace</product>
+  <announced>2021-07-08</announced>
+  <revised count="1">2021-07-08</revised>
+  <bug>655146</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="sys-block/blktrace" auto="yes" arch="*">
+      <unaffected range="ge">1.2.0_p20210419122502</unaffected>
+      <vulnerable range="lt">1.2.0_p20210419122502</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>blktrace shows detailed information about what is happening on a block
+      device IO queue.
+    </p>
+  </background>
+  <description>
+    <p>A crafted file could cause a buffer overflow in the ‘dev_map_read’
+      function because the device and devno arrays are too small.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted file
+      using blktrace, possibly resulting in execution of arbitrary code with
+      the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All blktrace users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=sys-block/blktrace-1.2.0_p20210419122502"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-10689">CVE-2018-10689</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-06T00:11:19Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-08T03:29:36Z">ajak</metadata>
+</glsa>
