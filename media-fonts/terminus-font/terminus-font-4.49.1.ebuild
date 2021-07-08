@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9,10} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit font python-any-r1
 
 DESCRIPTION="A clean fixed font for the console and X11"
@@ -16,7 +16,7 @@ KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 ~sparc x86 ~a
 IUSE="a-like-o +center-tilde distinct-l +otf +pcf +pcf-unicode-only +psf quote
 	ru-dv +ru-g ru-i ru-k"
 
-DEPEND="app-arch/gzip
+BDEPEND="app-arch/gzip
 	${PYTHON_DEPS}
 	virtual/awk
 	pcf? ( x11-apps/bdftopcf )"
@@ -26,7 +26,7 @@ FONTDIR=/usr/share/fonts/terminus
 FONT_CONF=( 75-yes-terminus.conf )
 DOCS=( README README-BG AUTHORS CHANGES )
 
-REQUIRED_USE="X? ( pcf )"
+REQUIRED_USE="X? ( || ( otf pcf ) )"
 
 pkg_setup() {
 	python_setup

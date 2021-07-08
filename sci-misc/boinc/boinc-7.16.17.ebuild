@@ -29,7 +29,7 @@ REQUIRED_USE="^^ ( curl_ssl_gnutls curl_ssl_openssl ) "
 
 # libcurl must not be using an ssl backend boinc does not support.
 # If the libcurl ssl backend changes, boinc should be recompiled.
-COMMON_DEPEND="
+DEPEND="
 	acct-group/boinc
 	acct-user/boinc
 	>=app-misc/ca-certificates-20080809
@@ -54,21 +54,18 @@ COMMON_DEPEND="
 		virtual/jpeg
 	)
 "
-DEPEND="${RDEPEND}
-	app-text/docbook-xml-dtd:4.4
+BDEPEND="app-text/docbook-xml-dtd:4.4
 	app-text/docbook2X
 	sys-devel/gettext
 	X? ( virtual/imagemagick-tools[png,tiff] )
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!app-admin/quickswitch
 "
 
 PATCHES=(
 	# >=x11-libs/wxGTK-3.0.2.0-r3 has webview removed, bug 587462
 	"${FILESDIR}"/${PN}-${MY_PV}-fix_webview.patch
-	# bug #732024
-	"${FILESDIR}"/${PN}-${MY_PV}-remove-usr_lib.patch
 )
 
 pkg_setup() {
