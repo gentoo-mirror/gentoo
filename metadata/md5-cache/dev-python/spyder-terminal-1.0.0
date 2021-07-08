@@ -7,9 +7,9 @@ INHERIT=distutils-r1
 IUSE=python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-python/coloredlogs[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/spyder-4.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/terminado-0.9.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] www-servers/tornado[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+RDEPEND=dev-python/coloredlogs[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/spyder-5.0.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/terminado-0.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] www-servers/tornado[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
-SRC_URI=mirror://pypi/s/spyder-terminal/spyder-terminal-0.5.0.tar.gz
+SRC_URI=mirror://pypi/s/spyder-terminal/spyder-terminal-1.0.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
-_md5_=1601b5267f649345f37df60015398ba9
+_md5_=b6b39dff0cb838901209400b77f76c4d
