@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-22">
+  <title>InspIRCd: Information disclosure</title>
+  <synopsis>An information disclosure vulnerability in InspIRCd may allow
+    remote attackers to obtain sensitive information.
+  </synopsis>
+  <product type="ebuild">inspircd</product>
+  <announced>2021-07-09</announced>
+  <revised count="1">2021-07-09</revised>
+  <bug>791589</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/inspircd" auto="yes" arch="*">
+      <unaffected range="ge">3.10.0</unaffected>
+      <vulnerable range="lt">3.10.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>InspIRCd is a modular Internet Relay Chat (IRC) server written in C++
+      which was created from scratch to be stable, modern and lightweight.
+    </p>
+  </background>
+  <description>
+    <p>InspIRCd incorrectly handled malformed PONG messages, resulting in
+      access of freed memory.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could send crafted packets to the server, possibly
+      allowing them to obtain sensitive information.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All InspIRCd users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-irc/inspircd-3.10.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33586">CVE-2021-33586</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-08T23:19:01Z">sam_c</metadata>
+  <metadata tag="submitter" timestamp="2021-07-09T02:55:39Z">sam_c</metadata>
+</glsa>
