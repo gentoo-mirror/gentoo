@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools flag-o-matic multilib systemd user
+inherit autotools flag-o-matic multilib systemd
 
 DESCRIPTION="Simple relay-only local mail transport agent"
 HOMEPAGE="http://untroubled.org/nullmailer/ https://github.com/bruceg/nullmailer"
@@ -15,11 +15,17 @@ KEYWORDS="amd64 ~arm ~arm64 ppc x86 ~x64-cygwin"
 IUSE="ssl test"
 RESTRICT="!test? ( test )"
 
+BDEPEND="
+	acct-group/nullmail
+	acct-user/nullmail
+"
+
 DEPEND="
 	ssl? ( net-libs/gnutls:0= )
 	test? ( sys-apps/ucspi-tcp[ipv6] sys-process/daemontools )
 "
 RDEPEND="
+	${BDEPEND}
 	virtual/logger
 	sys-apps/shadow
 	ssl? ( net-libs/gnutls:0= )
@@ -42,11 +48,6 @@ PATCHES=(
 	"${FILESDIR}/${P}-disable-smtp-auth-tests.patch"
 	"${FILESDIR}/${P}-c++11.patch"
 )
-
-pkg_setup() {
-	enewgroup nullmail 88
-	enewuser nullmail 88 -1 /var/spool/nullmailer nullmail
-}
 
 src_prepare() {
 	default

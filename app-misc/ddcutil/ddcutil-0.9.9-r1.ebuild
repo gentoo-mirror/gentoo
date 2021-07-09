@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit autotools flag-o-matic linux-info udev user
+inherit autotools flag-o-matic linux-info udev
 
 DESCRIPTION="Program for querying and changing monitor settings"
 HOMEPAGE="http://www.ddcutil.com/"
@@ -12,17 +12,22 @@ SRC_URI="https://github.com/rockowitz/ddcutil/archive/v${PV}.tar.gz -> ${P}.tar.
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="drm usb-monitor user-permissions video_cards_nvidia X"
+IUSE="drm introspection usb-monitor user-permissions video_cards_nvidia X"
 REQUIRED_USE="drm? ( X )"
 
 RDEPEND="dev-libs/glib:2
 	sys-apps/i2c-tools
 	virtual/udev
 	drm? ( x11-libs/libdrm )
+	introspection? ( >=dev-libs/gobject-introspection-1.54.0:= )
 	usb-monitor? (
 		dev-libs/hidapi
 		virtual/libusb:1
 		sys-apps/usbutils
+	)
+	user-permissions? (
+		acct-group/i2c
+		usb-monitor? ( acct-group/video )
 	)
 	X? (
 		x11-libs/libXrandr
@@ -61,9 +66,15 @@ src_configure() {
 		$(use_enable usb-monitor usb)
 		$(use_enable X x11)
 		--enable-lib
+		# Please read upstream's note about the original purpose of these flags before re-enabling them:
+		# https://github.com/rockowitz/ddcutil/issues/128
+		# As of 0.9.9 the following no longer compile:
+		# Python3 & CFFI is already broken as of Python 3.7, with future removal;
+		# SWIG : Python3.7 breakage as well PyFileObject vs PyCodeObject
 		--disable-cffi
 		--disable-cython
 		--disable-swig
+		$(use_enable introspection)
 	)
 
 	econf "${myeconfargs[@]}"
@@ -81,7 +92,6 @@ src_install() {
 
 pkg_postinst() {
 	if use user-permissions; then
-		enewgroup i2c
 		einfo "To allow non-root users access to the /dev/i2c-* devices, add those"
 		einfo "users to the i2c group: usermod -aG i2c user"
 		einfo "Restart the computer or reload the i2c-dev module to activate"
@@ -89,7 +99,6 @@ pkg_postinst() {
 		einfo "For more information read: http://www.ddcutil.com/i2c_permissions/"
 
 		if use usb-monitor; then
-			enewgroup video
 			einfo "To allow non-root users access to USB monitors, add those users"
 			einfo "to the video group: usermod -aG video user"
 			einfo "Restart the computer, reload the hiddev and hidraw modules, or replug"

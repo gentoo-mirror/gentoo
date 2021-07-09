@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit autotools systemd user
+
+inherit autotools systemd
 
 DESCRIPTION="A free socks4,5 and msproxy implementation"
 HOMEPAGE="https://www.inet.no/dante/"
@@ -20,11 +21,14 @@ CDEPEND="
 	upnp? ( net-libs/miniupnpc:= )
 	userland_GNU? ( sys-apps/shadow )
 "
-DEPEND="${CDEPEND}
+DEPEND="
+	${CDEPEND}
 	sys-devel/bison
 	sys-devel/flex
 "
-RDEPEND="${CDEPEND}
+RDEPEND="
+	${CDEPEND}
+	acct-user/sockd
 	selinux? ( sec-policy/selinux-dante )
 "
 
@@ -95,8 +99,4 @@ src_install() {
 	dodoc example/*.conf
 
 	find "${ED}" -name '*.la' -delete || die
-}
-
-pkg_postinst() {
-	enewuser sockd -1 -1 /etc/socks daemon
 }

@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit autotools bash-completion-r1 desktop fixheadtails flag-o-matic systemd toolchain-funcs user
+inherit autotools bash-completion-r1 desktop fixheadtails flag-o-matic systemd toolchain-funcs
 
 MY_P=${P/_/-}
 
@@ -15,6 +15,11 @@ SLOT="0"
 KEYWORDS="amd64 arm ppc ppc64 x86"
 
 IUSE="cgi ipmi snmp +usb selinux split-usr ssl tcpd xml zeroconf"
+
+CDEPEND="
+	acct-group/nut
+	acct-user/nut
+"
 
 DEPEND="
 	dev-libs/libltdl:*
@@ -30,9 +35,12 @@ DEPEND="
 	zeroconf? ( net-dns/avahi )"
 
 BDEPEND="
+	${CDEPEND}
 	virtual/pkgconfig"
 
-RDEPEND="${DEPEND}
+RDEPEND="
+	${CDEPEND}
+	${DEPEND}
 	selinux? ( sec-policy/selinux-nut )"
 
 S="${WORKDIR}/${MY_P}"
@@ -81,17 +89,6 @@ PATCHES=(
 	"${FILESDIR}"/nut-openssl-1.1-support.patch
 	"${FILESDIR}"/nut-2.7.4-py3.patch
 )
-
-pkg_setup() {
-	enewgroup nut 84
-	enewuser nut 84 -1 /var/lib/nut nut,uucp
-	# As of udev-104, NUT must be in uucp and NOT in tty.
-	gpasswd -d nut tty 2>/dev/null
-	gpasswd -a nut uucp 2>/dev/null
-	# in some cases on old systems it wasn't in the nut group either!
-	gpasswd -a nut nut 2>/dev/null
-	warningmsg ewarn
-}
 
 src_prepare() {
 	default
