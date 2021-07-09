@@ -1,0 +1,16 @@
+BDEPEND=app-arch/zip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Java cryptography APIs
+EAPI=7
+HOMEPAGE=https://www.bouncycastle.org/java.html
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bcgit/bc-java/archive/refs/tags/r1rv69.tar.gz -> bc-java-r1rv69.tar.gz
+_eclasses_=java-utils-2	bd56fb0d459d0bad9d07fa32febe53cb	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc	java-pkg-simple	f54286e86669dd9944a492f8586e744c
+_md5_=704c433b8a7b88cb8e705fc152844afb
