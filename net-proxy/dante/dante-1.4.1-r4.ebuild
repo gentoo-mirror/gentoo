@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit autotools systemd
 
@@ -46,13 +46,13 @@ PATCHES=(
 src_prepare() {
 	default
 
-	sed -i \
+	sed \
 		-e 's:/etc/socks\.conf:"${EPREFIX}"/etc/socks/socks.conf:' \
 		-e 's:/etc/sockd\.conf:"${EPREFIX}"/etc/socks/sockd.conf:' \
-		doc/{socksify.1,socks.conf.5,sockd.conf.5,sockd.8} \
+		-i doc/{socksify.1,socks.conf.5,sockd.conf.5,sockd.8} \
 		|| die
 
-	sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' configure.ac || die
+	sed -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' -i configure.ac || die
 
 	eautoreconf
 }

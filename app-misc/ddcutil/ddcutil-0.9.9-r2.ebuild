@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit autotools flag-o-matic linux-info udev
 
@@ -15,7 +15,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="drm introspection usb-monitor user-permissions video_cards_nvidia X"
 REQUIRED_USE="drm? ( X )"
 
-RDEPEND="dev-libs/glib:2
+RDEPEND="
+	dev-libs/glib:2
 	sys-apps/i2c-tools
 	virtual/udev
 	drm? ( x11-libs/libdrm )
@@ -32,10 +33,10 @@ RDEPEND="dev-libs/glib:2
 	X? (
 		x11-libs/libXrandr
 		x11-libs/libX11
-	)"
-
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+	)
+"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 pkg_pretend() {
 	# This program needs /dev/ic2-* devices to communicate with the monitor.
@@ -54,7 +55,7 @@ pkg_pretend() {
 src_prepare() {
 	default
 	eautoreconf
-	sed -i -e "s#usr/local/bin#usr/bin#" data/etc/udev/rules.d/45-ddcutil-usb.rules || die
+	sed -e "s#usr/local/bin#usr/bin#" -i data/etc/udev/rules.d/45-ddcutil-usb.rules || die
 }
 
 src_configure() {
