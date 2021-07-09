@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Class-Method-Modifiers dev-perl/Class-Tiny dev-perl/Exporter-Tiny >=virtual/perl-Scalar-List-Utils-1.540.0 dev-perl/Role-Tiny >=dev-perl/Type-Tiny-1.4.0 >=virtual/perl-ExtUtils-MakeMaker-6.170.0 test? ( dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 dev-perl/Test-Requires ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=alternative handles_via implementation
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Sub-HandlesVia
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Class-Method-Modifiers dev-perl/Class-Tiny dev-perl/Exporter-Tiny >=virtual/perl-Scalar-List-Utils-1.540.0 dev-perl/Role-Tiny >=dev-perl/Type-Tiny-1.4.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/T/TO/TOBYINK/Sub-HandlesVia-0.016.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=c546c39f9aa5f53fa1c69b5bbe14e491
