@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,15 +21,16 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="test"
+IUSE="fuzzing test"
 
 COMMON_DEPEND="
-	dev-util/systemtap
-	<dev-libs/libbpf-0.2:=
-	>=sys-devel/llvm-3.7.1:=[llvm_targets_BPF(+)]
-	<=sys-devel/llvm-12:=[llvm_targets_BPF(+)]
-	<=sys-devel/clang-12:=
+	dev-libs/libbpf:=
 	>=dev-util/bcc-0.13.0:=
+	dev-util/systemtap
+	>=sys-devel/llvm-6:=[llvm_targets_BPF(+)]
+	<=sys-devel/llvm-13:=[llvm_targets_BPF(+)]
+	<=sys-devel/clang-13:=
+	sys-libs/binutils-libs:=
 	virtual/libelf
 "
 DEPEND="${COMMON_DEPEND}
@@ -46,8 +47,10 @@ S="${WORKDIR}/${PN}-${MY_PV:-${PV}}"
 QA_DT_NEEDED="/usr/lib.*/libbpftraceresources.so"
 
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.11.0-install-libs.patch"
+	"${FILESDIR}/bpftrace-0.13.0-install-libs.patch"
 	"${FILESDIR}/bpftrace-0.10.0-dont-compress-man.patch"
+	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
+	"${FILESDIR}/bpftrace-0.12.0-fuzzing-build.patch"
 )
 
 # lots of fixing needed
@@ -67,7 +70,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	LLVM_MAX_SLOT=11 llvm_pkg_setup
+	LLVM_MAX_SLOT=12 llvm_pkg_setup
 }
 
 src_prepare() {
@@ -75,10 +78,10 @@ src_prepare() {
 }
 
 src_configure() {
-	local -a mycmakeargs
-	mycmakeargs=(
-		"-DSTATIC_LINKING:BOOL=OFF"
-		"-DBUILD_TESTING:BOOL=OFF"
+	local -a mycmakeargs=(
+		-DSTATIC_LINKING:BOOL=OFF
+		-DBUILD_TESTING:BOOL=OFF
+		-DBUILD_FUZZ:BOOL=$(usex fuzzing)
 	)
 
 	cmake_src_configure
