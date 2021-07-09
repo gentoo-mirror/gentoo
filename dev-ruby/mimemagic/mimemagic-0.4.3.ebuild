@@ -15,7 +15,7 @@ HOMEPAGE="https://github.com/mimemagicrb/mimemagic"
 SRC_URI="https://github.com/mimemagicrb/mimemagic/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
@@ -29,8 +29,12 @@ ruby_add_rdepend "
 ruby_add_bdepend "test? ( dev-ruby/minitest )"
 
 all_ruby_prepare() {
-	cp "${FILESDIR}/${P}-path.rb" lib/mimemagic/path.rb || die
+	cp "${FILESDIR}/${PN}-0.3.9-path.rb" lib/mimemagic/path.rb || die
 	eprefixify lib/mimemagic/path.rb
 
 	sed -i -e 's/git ls-files/find * -print/' ${RUBY_FAKEGEM_GEMSPEC} || die
+}
+
+each_ruby_test() {
+	${RUBY} -Ilib:.:test -e 'Dir["test/**/*_test.rb"].each {|f| require f}' || die
 }
