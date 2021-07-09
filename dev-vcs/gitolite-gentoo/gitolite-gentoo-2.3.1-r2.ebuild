@@ -1,37 +1,38 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-inherit perl-module user
+inherit perl-module
 
-DESCRIPTION="Highly flexible server for git directory version tracker"
-HOMEPAGE="https://github.com/sitaramc/gitolite"
-SRC_URI="https://milki.github.com/${PN}/${P}.tar.gz"
+DESCRIPTION="Highly flexible server for git directory version tracker, Gentoo fork"
+HOMEPAGE="https://cgit.gentoo.org/proj/gitolite-gentoo.git"
+SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="contrib vim-syntax"
 
-DEPEND="dev-lang/perl
+DEPEND="
+	dev-lang/perl
+	>=dev-vcs/git-1.6.6
 	virtual/perl-File-Path
 	virtual/perl-File-Temp
-	>=dev-vcs/git-1.6.6"
-RDEPEND="${DEPEND}
-	!dev-vcs/gitolite-gentoo
+"
+RDEPEND="
+	${DEPEND}
+	acct-group/git
+	acct-user/git[gitolite]
+	!dev-vcs/gitolite
+	dev-perl/Net-SSH-AuthorizedKeysFile
 	vim-syntax? ( app-vim/gitolite-syntax )"
-
-pkg_setup() {
-	enewgroup git
-	enewuser git -1 /bin/sh /var/lib/gitolite git
-}
 
 src_prepare() {
 	rm Makefile doc/COPYING || die
 	rm -rf contrib/{gitweb,vim} || die
 
-	echo "${PF}" > conf/VERSION
+	echo "${PF}-gentoo" > conf/VERSION
 }
 
 src_install() {
@@ -40,12 +41,11 @@ src_install() {
 
 	dodir /usr/share/gitolite/{conf,hooks} /usr/bin
 
-	# install using upstream method
 	export PATH="${gl_bin}:${PATH}"
 	./src/gl-system-install ${gl_bin} \
 		"${D}"/usr/share/gitolite/conf "${D}"/usr/share/gitolite/hooks || die
-	sed -i -e "s:${D}::g" "${D}/usr/bin/gl-setup" \
-		"${D}/usr/share/gitolite/conf/example.gitolite.rc" || die
+	sed -e "s:${D}::g" "${D}/usr/bin/gl-setup" \
+		-i "${D}/usr/share/gitolite/conf/example.gitolite.rc" || die
 
 	rm "${D}"/usr/bin/*.pm
 	insinto "${VENDOR_LIB}"
@@ -53,14 +53,7 @@ src_install() {
 
 	dodoc README.mkd doc/*
 
-	if use contrib; then
-		insinto /usr/share/doc/${PF}
-		doins -r contrib/
-	fi
-
-	keepdir /var/lib/gitolite
-	fowners git:git /var/lib/gitolite
-	fperms 750 /var/lib/gitolite
+	use contrib && dodoc -r contrib
 }
 
 pkg_postinst() {
@@ -68,5 +61,9 @@ pkg_postinst() {
 	ewarn
 	elog "Please make sure that your 'git' user has the correct homedir (/var/lib/gitolite)."
 	elog "Especially if you're migrating from gitosis."
+	ewarn
+	ewarn
+	elog "If you use the umask feature and upgrade from <=gitolite-gentoo-1.5.9.1"
+	elog "then please check the permissions of all repositories using the umask feature"
 	ewarn
 }

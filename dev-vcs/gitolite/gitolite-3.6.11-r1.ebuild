@@ -1,12 +1,13 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
+
 [[ ${PV} == *9999 ]] && SCM="git-2"
 EGIT_REPO_URI="https://github.com/sitaramc/${PN}.git"
 EGIT_MASTER=master
 
-inherit perl-module user versionator ${SCM}
+inherit perl-module ${SCM}
 
 DESCRIPTION="Highly flexible server for git directory version tracker"
 HOMEPAGE="https://github.com/sitaramc/gitolite"
@@ -21,22 +22,21 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="selinux tools"
 
-DEPEND="dev-lang/perl
+DEPEND="
+	dev-lang/perl
+	>=dev-vcs/git-1.6.6
 	virtual/perl-File-Path
 	virtual/perl-File-Temp
-	>=dev-vcs/git-1.6.6"
-RDEPEND="${DEPEND}
+"
+RDEPEND="
+	${DEPEND}
+	acct-group/git
+	acct-user/git[gitolite]
 	!app-vim/gitolite-syntax
 	!dev-vcs/gitolite-gentoo
 	selinux? ( sec-policy/selinux-gitosis )
-	dev-perl/JSON"
-
-PATCHES=( )
-
-pkg_setup() {
-	enewgroup git
-	enewuser git -1 /bin/sh /var/lib/gitolite git
-}
+	dev-perl/JSON
+"
 
 src_prepare() {
 	default
@@ -79,19 +79,18 @@ src_install() {
 		dobin contrib/utils/rc-format-v3.4
 	fi
 
-	keepdir /var/lib/gitolite
-	fowners git:git /var/lib/gitolite
-	fperms 750 /var/lib/gitolite
-
 	fperms 0644 ${uexec}/VREF/MERGE-CHECK # It's meant as example only
 }
 
 pkg_postinst() {
-	if [[ "$(get_major_version $REPLACING_VERSIONS)" == "2" ]]; then
-		ewarn
-		elog "***NOTE*** This is a major upgrade and will likely break your existing gitolite-2.x setup!"
-		elog "Please read http://gitolite.com/gitolite/migr/index.html first!"
-	fi
+	local old_ver
+	for old_ver in ${REPLACING_VERSIONS}; do
+		if ver_test ${old_ver} -lt "3" ; then
+			ewarn
+			elog "***NOTE*** This is a major upgrade and will likely break your existing gitolite-2.x setup!"
+			elog "Please read http://gitolite.com/gitolite/migr/index.html first!"
+		fi
+	done
 
 	# bug 352291
 	ewarn
