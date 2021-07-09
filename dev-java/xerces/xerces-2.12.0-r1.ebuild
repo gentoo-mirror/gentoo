@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 JAVA_PKG_IUSE="doc source"
 MAVEN_ID="xerces:xercesImpl:2.12.0"
@@ -20,22 +20,21 @@ SLOT="2"
 KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 
 CDEPEND="
-	dev-java/xjavac:1
 	dev-java/xml-commons-resolver:0
 	dev-java/xml-commons-external:1.4"
 
 RDEPEND="
 	${CDEPEND}
-	>=virtual/jre-1.6"
+	>=virtual/jre-1.8:*"
 
 DEPEND="
 	${CDEPEND}
-	>=virtual/jdk-1.6"
+	>=virtual/jdk-1.8:*"
 
 JAVA_SRC_DIR="org"
+JAVA_RESOURCE_DIRS="resources"
 
 JAVA_GENTOO_CLASSPATH="
-	xjavac-1
 	xml-commons-resolver
 	xml-commons-external-1.4"
 
@@ -47,6 +46,10 @@ PATCHES=(
 
 src_prepare() {
 	default
+	mkdir "${JAVA_RESOURCE_DIRS}" || die
+	cp -r "${JAVA_SRC_DIR}" "${JAVA_RESOURCE_DIRS}" || die
+	find "${JAVA_RESOURCE_DIRS}" -type f -name '*.java' -exec rm -rf {} + || die
+	rm "${JAVA_RESOURCE_DIRS}"/org/apache/xerces/{dom/org.apache.xerces.dom.DOMImplementationSourceImpl,xs/datatypes/package.html,parsers/org*} || die
 
 	java-pkg-2_src_prepare
 }
