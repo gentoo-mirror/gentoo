@@ -4148,8 +4148,9 @@ media-libs/gst-plugins-base:pango - Enable pango GStreamer plugin
 media-libs/gst-plugins-base:wayland - Enable Wayland EGL windowing system support (requires egl and at least one of gles2 or opengl)
 media-libs/gstreamer:orc - Disable some PaX memory protections to allow plugins that use dev-lang/orc for runtime optimization to be used on hardened PaX systems
 media-libs/gstreamer:unwind - Enable sys-libs/libunwind usage for better backtrace support in leaks tracer module
-media-libs/harfbuzz:glib - Compile with GLib Unicode support
-media-libs/harfbuzz:graphite - Use graphite to render complex non-Roman writing systems
+media-libs/harfbuzz:experimental - Enable experimental APIs
+media-libs/harfbuzz:glib - Enable dev-libs/glib unicode functions
+media-libs/harfbuzz:graphite - Enable media-gfx/graphite2 complementary shaper
 media-libs/ilmbase:large-stack - Enables code to take advantage of large stack support
 media-libs/imlib2:X - Use the X window system
 media-libs/imlib2:bzip2 - Bzip2 loader support
