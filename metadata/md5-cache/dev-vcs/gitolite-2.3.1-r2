@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/perl
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-lang/perl >=dev-vcs/git-1.6.6 virtual/perl-File-Path virtual/perl-File-Temp dev-lang/perl
+DESCRIPTION=Highly flexible server for git directory version tracker
+EAPI=7
+HOMEPAGE=https://github.com/sitaramc/gitolite
+INHERIT=perl-module
+IUSE=contrib vim-syntax
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=dev-lang/perl >=dev-vcs/git-1.6.6 virtual/perl-File-Path virtual/perl-File-Temp acct-group/git acct-user/git[gitolite] !dev-vcs/gitolite-gentoo vim-syntax? ( app-vim/gitolite-syntax ) dev-lang/perl:=
+SLOT=0
+SRC_URI=https://milki.github.com/gitolite/gitolite-2.3.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=3096f92bb13b1ab406a8563b5419ca19
