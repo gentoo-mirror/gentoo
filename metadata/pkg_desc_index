@@ -203,6 +203,8 @@ acct-group/nsd 0-r1: System group: nsd
 acct-group/nslcd 0-r1: System group: nslcd
 acct-group/ntopng 0: System group: ntopng
 acct-group/ntp 0-r1: System group: ntp
+acct-group/nullmail 0: A group for the nullmailer
+acct-group/nut 0: A group for the Network-UPS Tools
 acct-group/nzbget 0: Group for net-nntp/nzbget
 acct-group/oidentd 0-r1: System group: oidentd
 acct-group/openct 0-r1: System group: openct
@@ -402,6 +404,7 @@ acct-user/boinc 0: User for sci-misc/boinc
 acct-user/buildbot 0-r1: Buildbot program user
 acct-user/burp 0-r1: User for the app-backup/burp server
 acct-user/cadvisor 0-r1: User for cadvisor
+acct-user/cancd 0: A user for the CA NetConsole Daemon
 acct-user/carbon 0-r1: User for graphite/carbon suite
 acct-user/ceph 0-r1: User for ceph
 acct-user/cgit 0: a fast web-interface for git repositories
@@ -556,6 +559,8 @@ acct-user/nsd 0-r1: user for nsd daemon
 acct-user/nslcd 0-r1: User for nss-pam-ldapd
 acct-user/ntopng 0: User for ntopng
 acct-user/ntp 0-r1: user for ntp daemon
+acct-user/nullmail 0: A user for the nullmailer
+acct-user/nut 0: A user for the nullmailer
 acct-user/nvpd 0: User for nvidia-persistenced
 acct-user/nzbget 0: User for net-nntp/nzbget
 acct-user/oidentd 0-r1: System user: oidentd
@@ -640,6 +645,7 @@ acct-user/sniproxy 0: System user: sniproxy
 acct-user/snort 0: User for snort
 acct-user/sobby 0: User for running sobby
 acct-user/sobexsrv 0: A user for sobexsrv: a secure OBEX server
+acct-user/sockd 0: A user for net-proxy/dante
 acct-user/sogo 0-r1: User for gnustep-apps/sogo
 acct-user/spamd 0-r1: User for the SpamAssassin daemon
 acct-user/spectrum 0-r1: A user for the Spectrum messaging transport
@@ -755,7 +761,7 @@ app-admin/awscli 1.19.97 1.19.104 1.19.105 1.19.106 1.19.107 1.19.108: Universal
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.26.4 1.26.5: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1: Distribution-independent installer framework
-app-admin/cancd 0.1.0-r4: CA NetConsole Daemon receives output from the Linux netconsole driver
+app-admin/cancd 0.1.0-r5: CA NetConsole Daemon receives output from the Linux netconsole driver
 app-admin/ccze 0.2.1-r4: A flexible and fast logfile colorizer
 app-admin/cdist 6.9.4: A usable configuration management system
 app-admin/checksec 2.2.3 2.4.0: Tool to check properties of executables (e.g. ASLR/PIE, RELRO, PaX, Canaries)
@@ -2654,7 +2660,7 @@ app-misc/ddate 0.2.2_p20160627: Perpetual date converter from gregorian to poee 
 app-misc/ddccontrol 0.4.4_p20200630: control monitor parameters, like brightness, contrast, RGB color levels via DDC
 app-misc/ddccontrol-db 20190826_p20200613: DDCControl monitor database
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
-app-misc/ddcutil 0.9.1 0.9.5 0.9.9: Program for querying and changing monitor settings
+app-misc/ddcutil 0.9.9-r1: Program for querying and changing monitor settings
 app-misc/delay 1.6-r2: Sleeplike program that counts down the number of seconds specified
 app-misc/detachtty 9-r1 11.0.0: Attach/detach from interactive processes across the network
 app-misc/detox 1.4.0 1.4.2: Safely remove spaces and strange characters from filenames
@@ -12728,7 +12734,7 @@ mail-mta/exim 4.94.2-r4 4.94.2-r5 4.94.2-r6: A highly configurable, drop-in repl
 mail-mta/msmtp 1.8.12 1.8.14 1.8.15: An SMTP client and SMTP plugin for mail user agents such as Mutt
 mail-mta/netqmail 1.06-r14: qmail -- a secure, reliable, efficient, simple message transfer agent
 mail-mta/notqmail 1.08-r3 9999: qmail -- a secure, reliable, efficient, simple message transfer agent
-mail-mta/nullmailer 2.2-r1: Simple relay-only local mail transport agent
+mail-mta/nullmailer 2.2-r2: Simple relay-only local mail transport agent
 mail-mta/opensmtpd 6.8.0_p2-r1: Lightweight but featured SMTP daemon from OpenBSD
 mail-mta/postfix 3.5.8-r1 3.5.9-r1 3.5.10 3.5.11 3.6.0 3.6.1 3.7_pre20210707: A fast and secure drop-in replacement for sendmail
 mail-mta/protonmail-bridge 1.8.3 1.8.7: Serves ProtonMail to IMAP/SMTP clients
@@ -15718,7 +15724,7 @@ net-print/sshlpr 1: ssh-lpr backend for cups -- print to remote systems over ssh
 net-proxy/3proxy 0.9.0: A really tiny cross-platform proxy servers set
 net-proxy/adzapper 20110915-r2: Redirector for squid to intercept advertising, page counters and web bugs
 net-proxy/cntlm 0.93_beta5-r3: Cntlm is an NTLM/NTLMv2 authenticating HTTP proxy
-net-proxy/dante 1.4.1-r2: A free socks4,5 and msproxy implementation
+net-proxy/dante 1.4.1-r3: A free socks4,5 and msproxy implementation
 net-proxy/dnsproxy 1.17: The dnsproxy daemon is a proxy for DNS queries
 net-proxy/haproxy 1.8.29-r1 1.8.30-r1 2.0.14-r3 2.0.21-r1 2.0.22-r1 2.0.9999 2.2.5-r2 2.2.12-r1 2.2.13-r1 2.2.14-r1 2.2.9999 2.3.9-r1 2.3.10-r1 2.3.9999 2.4.0-r1 2.4.1-r1 2.4.9999: A TCP/HTTP reverse proxy for high availability environments
 net-proxy/haproxy-dataplaneapi 2.2.0 2.3.0: haproxy dataplane api / sidecar
@@ -17908,7 +17914,7 @@ sys-power/dptfxtract 1.4.3: Intel's Linux DPTF Extract Utility for generating th
 sys-power/hibernate-script 2.0-r6: Hibernate script supporting multiple suspend methods
 sys-power/iasl 20200326 20200717: Intel ACPI Source Language (ASL) compiler
 sys-power/intel-undervolt 1.7-r1 9999: Intel CPU undervolting and throttling configuration tool
-sys-power/nut 2.7.4-r6: Network-UPS Tools
+sys-power/nut 2.7.4-r7: Network-UPS Tools
 sys-power/nvclock 0.8_p20110102-r2 0.8_p20110102-r3: NVIDIA Overclocking Utility
 sys-power/nvram-reboot 2004.10.03-r1: PowerOff Boot-Images for nvram-wakeup (not needed for GRUB)
 sys-power/pmtools 20110323-r1: Collection of tools for ACPI and power management
