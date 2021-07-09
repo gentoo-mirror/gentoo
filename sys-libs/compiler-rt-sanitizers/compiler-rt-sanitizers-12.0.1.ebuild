@@ -11,7 +11,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="$(ver_cut 1-3)"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 IUSE="+clang test elibc_glibc"
 # base targets
 IUSE+=" +libfuzzer +memprof +profile +xray"
@@ -48,7 +48,7 @@ BDEPEND="
 
 LLVM_COMPONENTS=( compiler-rt )
 LLVM_TEST_COMPONENTS=( llvm/lib/Testing/Support llvm/utils/unittest )
-LLVM_PATCHSET=12.0.1-rc4-2
+LLVM_PATCHSET=12.0.1
 llvm.org_set_globals
 
 python_check_deps() {
