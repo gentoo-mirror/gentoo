@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig test? ( lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 ) )
+BDEPEND=virtual/pkgconfig test? ( lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) )
 DEFINED_PHASES=compile install
 DESCRIPTION=pure Lua implementation of the MessagePack serialization format
 EAPI=7
 HOMEPAGE=https://fperrad.frama.io/lua-MessagePack
 INHERIT=lua
-IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-2
+IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-2 lua_targets_lua5-3 lua_targets_lua5-4
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 )
-REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-2 )
+RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-2 lua_targets_lua5-3 lua_targets_lua5-4 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://framagit.org/fperrad/lua-MessagePack/-/archive/18f316b3f62c02bf2b7a3096701780f78a4d2c67/lua-MessagePack-18f316b3f62c02bf2b7a3096701780f78a4d2c67.tar.gz -> messagepack-0.5.2_p20201025.tar.gz
 _eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2950af9f524361296ff10564515822c	lua	2afa2308593141ae89672d1c2b96f9e8
-_md5_=2976f2aed2a4bae268682a4fb3921c92
+_md5_=c820e235ded9d881c67123bf491f50ba
