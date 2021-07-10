@@ -1,11 +1,13 @@
 DEFINED_PHASES=configure install
+DEPEND=virtual/libcrypt:=
 DESCRIPTION=Tool to snoop on login tty's through another tty-device or pseudo-tty
 EAPI=7
 HOMEPAGE=http://sysd.org/stas/node/35
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
+RDEPEND=virtual/libcrypt:=
 SLOT=0
 SRC_URI=http://sysd.org/stas/files/active/0/ttysnoop-0.12d.k26.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=4d7f5237d42a161c80f19370392a5dc2
+_md5_=0ec814f8b14e7161394dce1444845469
