@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare setup
-DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.6.0 gnutls? ( net-libs/gnutls ) icu? ( >=dev-libs/icu-49.0:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) libffi? ( dev-libs/libffi ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi ) virtual/pkgconfig
+DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.6.0 gnutls? ( net-libs/gnutls:= ) icu? ( >=dev-libs/icu-49.0:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) libffi? ( dev-libs/libffi:= ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi ) virtual/pkgconfig
 DESCRIPTION=A library of general-purpose, non-graphical Objective C objects
 EAPI=7
 HOMEPAGE=http://www.gnustep.org
@@ -7,8 +7,8 @@ INHERIT=gnustep-base toolchain-funcs
 IUSE=+gnutls +icu +libffi zeroconf debug doc
 KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.6.0 gnutls? ( net-libs/gnutls ) icu? ( >=dev-libs/icu-49.0:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) libffi? ( dev-libs/libffi ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi )
+RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.6.0 gnutls? ( net-libs/gnutls:= ) icu? ( >=dev-libs/icu-49.0:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) libffi? ( dev-libs/libffi:= ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi )
 SLOT=0/1.28
 SRC_URI=ftp://ftp.gnustep.org/pub/gnustep/core/gnustep-base-1.28.0.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	gnustep-base	54b110abc593decfcb289062cf24770d
-_md5_=a834f5d9279669eb3b1b5237e3402b66
+_md5_=74a529920ca33e5ff71b9e896f09e7cf
