@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=7
 
 inherit depend.apache multilib
 
@@ -28,9 +28,6 @@ DEPEND=">=net-analyzer/icinga2-2.1.1
 		apache2-server? ( >=www-servers/apache-2.4.0 )
 		nginx? ( >=www-servers/nginx-1.7.0:* )
 		|| (
-			dev-lang/php:5.6[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
-			dev-lang/php:7.1[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
-			dev-lang/php:7.2[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
 			dev-lang/php:7.3[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
 			dev-lang/php:7.4[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
 		)
@@ -43,8 +40,8 @@ want_apache2
 pkg_setup() {
 	depend.apache_pkg_setup
 
-	use nginx && usermod -a -G icingacmd,icingaweb2 nginx
-	use apache2 && usermod -a -G icingacmd,icingaweb2 apache
+	use nginx && usermod -a -G icingacmd,icingaweb2 nginx || die
+	use apache2 && usermod -a -G icingacmd,icingaweb2 apache || die
 }
 
 pkg_config() {
@@ -53,16 +50,16 @@ pkg_config() {
 	else
 		einfo "Running first time setup ..."
 		einfo "Creating configuration directory ..."
-		/usr/share/${PN}/bin/icingacli setup config directory
+		/usr/share/${PN}/bin/icingacli setup config directory || die
 		einfo "Creating authentication token for web setup ..."
-		/usr/share/${PN}/bin/icingacli setup token create
+		/usr/share/${PN}/bin/icingacli setup token create || die
 		if use apache2 ; then
 			einfo "The following might be useful for your Apache2 configuration:"
-			/usr/share/${PN}/bin/icingacli setup config webserver apache --document-root /usr/share/${PN}/public
+			/usr/share/${PN}/bin/icingacli setup config webserver apache --document-root /usr/share/${PN}/public || die
 		fi
 		if use nginx ; then
 			einfo "The following might be useful for your NGinx configuration:"
-			/usr/share/${PN}/bin/icingacli setup config webserver nginx --document-root /usr/share/${PN}/public
+			/usr/share/${PN}/bin/icingacli setup config webserver nginx --document-root /usr/share/${PN}/public || die
 		fi
 	fi
 	einfo "All done."

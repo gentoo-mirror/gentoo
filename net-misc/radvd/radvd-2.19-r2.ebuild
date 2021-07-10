@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit systemd user readme.gentoo-r1 toolchain-funcs
+inherit readme.gentoo-r1 systemd toolchain-funcs
 
 DESCRIPTION="Linux IPv6 Router Advertisement Daemon"
 HOMEPAGE="http://v6web.litech.org/radvd/"
@@ -17,22 +17,20 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="virtual/pkgconfig"
 CDEPEND="dev-libs/libdaemon"
-DEPEND="${CDEPEND}
+DEPEND="
+	${CDEPEND}
 	sys-devel/bison
 	sys-devel/flex
-	test? ( dev-libs/check )"
-RDEPEND="${CDEPEND}
+	test? ( dev-libs/check )
+"
+RDEPEND="
+	${CDEPEND}
+	acct-group/radvd
+	acct-user/radvd
 	selinux? ( sec-policy/selinux-radvd )
 "
+
 DOCS=( CHANGES README TODO radvd.conf.example )
-
-PATCHES=(
-)
-
-pkg_setup() {
-	enewgroup radvd
-	enewuser radvd -1 -1 /dev/null radvd
-}
 
 src_configure() {
 	econf --with-pidfile=/run/radvd/radvd.pid \
@@ -56,9 +54,9 @@ src_install() {
 	systemd_dounit "${FILESDIR}"/${PN}.service
 
 	if use kernel_FreeBSD ; then
-		sed -i -e \
+		sed -e \
 			's/^SYSCTL_FORWARD=.*$/SYSCTL_FORWARD=net.inet6.ip6.forwarding/g' \
-			"${D}"/etc/init.d/${PN} || die
+			-i "${D}"/etc/init.d/${PN} || die
 	fi
 
 	readme.gentoo_create_doc
