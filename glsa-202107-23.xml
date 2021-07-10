@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-23">
+  <title>Docker: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Docker, the worst of
+    which could result in privilege escalation to root on the host.
+  </synopsis>
+  <product type="ebuild">docker</product>
+  <announced>2021-07-10</announced>
+  <revised count="1">2021-07-10</revised>
+  <bug>768612</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-emulation/docker" auto="yes" arch="*">
+      <unaffected range="ge">19.03.15</unaffected>
+      <unaffected range="ge">20.10.3</unaffected>
+      <vulnerable range="lt">20.10.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Docker is the world’s leading software containerization platform.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Docker. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Docker 19.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/docker-19.03.15"
+    </code>
+    
+    <p>All Docker 20.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/docker-20.10.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21284">CVE-2021-21284</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21285">CVE-2021-21285</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-10T00:25:27Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-10T02:49:46Z">ajak</metadata>
+</glsa>
