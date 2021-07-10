@@ -16,7 +16,10 @@ PATCHES=(
 	"${FILESDIR}/${P}-c-cleanup.patch"
 )
 
-RDEPEND="acct-user/cancd"
+RDEPEND="
+	acct-group/cancd
+	acct-user/cancd
+"
 
 src_prepare() {
 	default

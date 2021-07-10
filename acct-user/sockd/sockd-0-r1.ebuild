@@ -7,4 +7,7 @@ inherit acct-user
 
 DESCRIPTION="A user for net-proxy/dante"
 
-ACCT_USER_ID="306"
+ACCT_USER_GROUPS=( "sockd" )
+ACCT_USER_ID="214"
+
+acct-user_add_deps

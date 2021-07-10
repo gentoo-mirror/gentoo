@@ -28,6 +28,7 @@ DEPEND="
 "
 RDEPEND="
 	${CDEPEND}
+	acct-group/sockd
 	acct-user/sockd
 	selinux? ( sec-policy/selinux-dante )
 "
