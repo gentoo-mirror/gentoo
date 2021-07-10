@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/qtcore:5 doc? ( dev-qt/qdoc:5 dev-qt/qthelp:5 )
+DEFINED_PHASES=configure install prepare test
+DEPEND=dev-qt/qtcore:5= dev-qt/qtnetwork:5 dev-qt/qtscript:5 dev-qt/qtxml:5 gui? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) test? ( dev-qt/linguist-tools:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qttest:5 )
+DESCRIPTION=Modern build tool for software projects
+EAPI=8
+HOMEPAGE=https://doc.qt.io/qbs/
+INHERIT=qmake-utils toolchain-funcs
+IUSE=doc examples gui test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=|| ( LGPL-2.1 LGPL-3 )
+RDEPEND=dev-qt/qtcore:5= dev-qt/qtnetwork:5 dev-qt/qtscript:5 dev-qt/qtxml:5 gui? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.qt.io/official_releases/qbs/1.19.1/qbs-src-1.19.1.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
+_md5_=70e19de70f26c7561671158aaa7a8f39
