@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-24">
+  <title>Binutils: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Binutils, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">binutils</product>
+  <announced>2021-07-10</announced>
+  <revised count="1">2021-07-10</revised>
+  <bug>678806</bug>
+  <bug>761957</bug>
+  <bug>764170</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="sys-devel/binutils" auto="yes" arch="*">
+      <unaffected range="ge">2.35.2</unaffected>
+      <vulnerable range="lt">2.35.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The GNU Binutils are a collection of tools to create, modify and analyse
+      binary files. Many of the files use BFD, the Binary File Descriptor
+      library, to do low-level manipulation.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Binutils. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Binutils users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-devel/binutils-2.35.2"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9070">CVE-2019-9070</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9071">CVE-2019-9071</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9072">CVE-2019-9072</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9073">CVE-2019-9073</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9074">CVE-2019-9074</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9075">CVE-2019-9075</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9076">CVE-2019-9076</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-9077">CVE-2019-9077</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-19599">CVE-2020-19599</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35448">CVE-2020-35448</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35493">CVE-2020-35493</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35494">CVE-2020-35494</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35495">CVE-2020-35495</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35496">CVE-2020-35496</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35507">CVE-2020-35507</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-06T00:21:42Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-10T02:51:25Z">sam_c</metadata>
+</glsa>
