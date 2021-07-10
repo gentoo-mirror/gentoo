@@ -13,6 +13,19 @@ IUSE=""
 # >=opencv-4.1.2-r3 to help testing removal of older being fine
 RDEPEND="
 	>=media-libs/opencv-4.1.2-r3:=[contrib,${MULTILIB_USEDEP}]
-	<media-libs/opencv-4.2
+	<media-libs/opencv-4.6.0
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/gst-plugins-bad-${PV}-use-system-libs-opencv.patch
+)
+
+src_prepare() {
+	default
+	gstreamer_system_package video_dep:gstreamer-video
+}
+
+multilib_src_install() {
+	DESTDIR="${D}" eninja install
+}
