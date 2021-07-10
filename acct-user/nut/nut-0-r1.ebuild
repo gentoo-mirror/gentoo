@@ -5,9 +5,9 @@ EAPI=7
 
 inherit acct-user
 
-DESCRIPTION="A user for the nullmailer"
+DESCRIPTION="A user for the Network-UPS Tools"
 
-ACCT_USER_GROUPS=( "nullmail" "uucp" )
+ACCT_USER_GROUPS=( "nut" "uucp" )
 ACCT_USER_HOME="/var/lib/nut"
 ACCT_USER_ID="84"
 
