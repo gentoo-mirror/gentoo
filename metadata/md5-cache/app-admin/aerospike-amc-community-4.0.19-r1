@@ -1,11 +1,10 @@
 DEFINED_PHASES=install
 DESCRIPTION=Web UI based monitoring tool for Aerospike Community Edition Server
-EAPI=6
+EAPI=7
 HOMEPAGE=http://www.aerospike.com
-INHERIT=user
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
+RDEPEND=acct-group/aerospike-amc-community acct-user/aerospike-amc-community
 SLOT=0
 SRC_URI=http://www.aerospike.com/download/amc/4.0.19/artifact/linux -> aerospike-amc-community-4.0.19.tar.gz
-_eclasses_=user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0
-_md5_=0616fe3fb57de41fbc6d49edfc496225
+_md5_=9508df136d3dc88ccbfc07b6246b0763

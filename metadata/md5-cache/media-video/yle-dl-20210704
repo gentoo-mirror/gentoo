@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://aajanki.github.io/yle-dl/ https://github.com/aajanki/yle-dl
 INHERIT=distutils-r1 optfeature
 IUSE=test test python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3
 PROPERTIES=test_network
 RDEPEND=media-video/ffmpeg net-misc/wget >=dev-python/attrs-18.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/configargparse-0.13.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/lxml[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/progress[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aajanki/yle-dl/archive/20210704.tar.gz -> yle-dl-20210704.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9	optfeature	cc13a38ea4d26565e83ef21d58bcd4ab
-_md5_=4e02e4de894026ebe4c099b291526deb
+_md5_=d966ce96429b535f6d148abcb452317a
