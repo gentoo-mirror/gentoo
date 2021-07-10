@@ -1,14 +1,16 @@
-BDEPEND=dev-perl/Devel-Symdump dev-lang/perl
+BDEPEND=dev-perl/Devel-Symdump dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-lang/perl
 DESCRIPTION=no capitalization on method names
-EAPI=7
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/capitalization
 INHERIT=perl-module
-KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~sparc ~x86
+IUSE=test
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ppc sparc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Devel-Symdump dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MI/MIYAGAWA/capitalization-0.03.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=ef8a9106699a554559f8bd35cfc7304d
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=14f7547ca56cc5282d0a007802405339
