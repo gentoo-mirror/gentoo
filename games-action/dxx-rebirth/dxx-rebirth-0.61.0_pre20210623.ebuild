@@ -11,16 +11,8 @@ if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/dxx-rebirth/dxx-rebirth"
 else
-	# dxx-rebirth-0.61.0_pre20190720.ebuild
-	#MY_COMMIT='a17792c89fd49dd12fdf5981670dd7f64b42850f'
-	# dxx-rebirth-0.61.0_pre20200615.ebuild
-	MY_COMMIT='0c2fcf691ffb2a586991350d67f3efd1cca2a1f3'
-	# dxx-rebirth-0.61.0_pre20200627.ebuild
-	#MY_COMMIT='aba40babb47d36a88011af01e4bc0fc00dca74ef'
-	S="${WORKDIR}/${PN}-${MY_COMMIT}"
-	#SRC_URI="https://github.com/dxx-rebirth/dxx-rebirth/archive/${MY_COMMIT}.tar.gz -> ${PN}-${PVR}.tar.gz"
-	SRC_URI="https://codeload.github.com/dxx-rebirth/dxx-rebirth/tar.gz/${MY_COMMIT} -> ${PN}-${PVR}.tar.gz"
-	unset MY_COMMIT
+	S="${WORKDIR}/${PN}_${PV##*_pre}-src"
+	SRC_URI="https://www.dxx-rebirth.com/download/dxx/rebirth/${PN}_${PV##*_pre}-src.tar.xz"
 
 	# Games under Gentoo are marked as 'testing' by convention
 	#
@@ -159,6 +151,8 @@ REQUIRED_USE='
 	sdl2? ( opengl )
 '
 
+BDEPEND="virtual/pkgconfig"
+
 # As of this writing, IUSE_RUNTIME is a GLEP, but not an implemented
 # feature.  This variable is stored here to be ready to activate when
 # Portage implements this feature.
@@ -167,8 +161,6 @@ REQUIRED_USE='
 # rebuild, the master flag USE=music controls whether sdl-mixer is used,
 # and therefore requires a rebuild when changed.
 #IUSE_RUNTIME="flac l10n_de midi mp3 opl3-musicpack sc55-musicpack vorbis"
-
-BDEPEND="virtual/pkgconfig"
 
 dxx_scons() {
 	# Always build profile `m`.  If use editor, also build profile `e`.
