@@ -1,20 +1,23 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit systemd user
+inherit systemd
 
 DESCRIPTION="Versatile Postfix policy server with a flexible ruleset based configuration"
 HOMEPAGE="https://www.postfwd.org/"
 SRC_URI="https://www.postfwd.org/${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND=""
-RDEPEND=">=dev-lang/perl-5.16.3
+RDEPEND="
+	acct-group/postfwd
+	acct-user/postfwd
+	dev-lang/perl
 	dev-perl/Net-CIDR-Lite
 	dev-perl/Net-DNS
 	dev-perl/Net-Server
@@ -24,13 +27,6 @@ RDEPEND=">=dev-lang/perl-5.16.3
 	virtual/perl-Sys-Syslog
 	virtual/perl-Time-HiRes
 "
-
-S=${WORKDIR}/${PN}
-
-pkg_setup() {
-	enewgroup postfwd
-	enewuser postfwd -1 -1 -1 postfwd
-}
 
 src_install() {
 	local BIN="postfwd3"
