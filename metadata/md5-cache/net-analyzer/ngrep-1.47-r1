@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=compile configure preinst prepare
+DEFINED_PHASES=compile configure prepare
 DEPEND=dev-libs/libpcre net-libs/libpcap
 DESCRIPTION=A grep for network layers
 EAPI=7
 HOMEPAGE=https://github.com/jpr5/ngrep
-INHERIT=autotools user
+INHERIT=autotools
 IUSE=ipv6
 KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=ngrep
-RDEPEND=dev-libs/libpcre net-libs/libpcap
+RDEPEND=dev-libs/libpcre net-libs/libpcap acct-group/ngrep acct-user/ngrep
 SLOT=0
 SRC_URI=https://github.com/jpr5/ngrep/archive/V1_47.tar.gz -> ngrep-1.47.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0
-_md5_=c4a29a2700d618828a7d3281884641d9
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_md5_=f3b243dce21cfad325364c35635d8e6a
