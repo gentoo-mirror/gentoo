@@ -58,6 +58,7 @@ acct-group/cvmfs 0-r1: Group for the CernVM-FS network file system
 acct-group/davfs2 0-r1: System group: davfs2
 acct-group/dbmail 0: System group: dbmail
 acct-group/ddclient 0-r1: A group for the dynamic DNS client
+acct-group/defang 0: A group for mail-filter/mimedefang
 acct-group/dehydrated 0: dehydrated program group
 acct-group/deluge 0-r1: System group: deluge
 acct-group/dhcp 0-r1: System group: dhcp
@@ -96,6 +97,7 @@ acct-group/freenet 0: Group for net-p2p/freenet
 acct-group/fritzbox_smarthome_exporter 0: System group: fritzbox_smarthome_exporter
 acct-group/frr 0: System group: frr
 acct-group/ftp 0-r1: File Transfer Protocol server user
+acct-group/ftpproxy 0: A group for net-ftp/frox
 acct-group/fvwm-crystal 0-r1: System group: fvwm-crystal
 acct-group/gamemode 0: Group for the system-wide games-util/gamemode resource group
 acct-group/gamestat 0-r1: Group for shared high-score and game state files
@@ -196,6 +198,7 @@ acct-group/netdev 0-r1: group for netdev (avahi)
 acct-group/neutron 0-r1: System group: neutron
 acct-group/nginx-vts-exporter 0-r1: System group: nginx-vts-exporter
 acct-group/ngircd 0-r1: Group for ngircd (IRC daemon)
+acct-group/ngrep 0: A group for net-analyzer/ngrep
 acct-group/nobody 0: System group: nobody
 acct-group/node_exporter 0-r1: System group: node_exporter
 acct-group/nofiles 0-r1: System group: nofiles
@@ -261,12 +264,14 @@ acct-group/redis_exporter 0: System group: redis_exporter
 acct-group/redmine 0-r1: System group: redmine
 acct-group/render 0-r1: System group: render
 acct-group/root 0: System group: root
+acct-group/rslsync 0: A group for net-p2p/resilio-sync
 acct-group/rspamd 0-r1: Group for rspamd - Rapid spam filtering system
 acct-group/rstudio-server 0-r1: group for sci-mathematics/rstudio
 acct-group/rtkit 0-r1: Group for the Realtime Policy and Watchdog Daemon
 acct-group/rwhoisd 0: Group for net-misc/rwhoisd
 acct-group/sabnzbd 0-r1: SABnzbd program group
 acct-group/sagan 0: Group for the Sagan log monitoring system
+acct-group/samplicator 0: A group for net-misc/samplicator
 acct-group/sancp 0: gid for net-analyzer/sancp
 acct-group/sanlock 0-r1: shared storage lock manager
 acct-group/sauerbraten 0-r1: Group for Sauerbraten (FOSS game engine (Cube 2))
@@ -306,6 +311,7 @@ acct-group/stapsys 0: System group: stapsys
 acct-group/stapusr 0: System group: stapusr
 acct-group/stdiscosrv 0-r1: Group for the Syncthing discovery server
 acct-group/steamcmd 0-r1: A group for the SteamCMD server
+acct-group/stg 0: A group for net-misc/stargazer
 acct-group/strelaysrv 0-r1: Group for the Syncthing relay server
 acct-group/stubby 0-r1: Stubby program group (from net-dns/getdns)
 acct-group/stunnel 0-r1: group for stunnel
@@ -434,6 +440,7 @@ acct-user/darkstat 0: uid for net-analyzer/darkstat
 acct-user/davfs2 0-r1: System user: davfs2
 acct-user/dbmail 0: System user: dbmail
 acct-user/ddclient 0-r1: A user for the dynamic DNS client
+acct-user/defang 0: A user for mail-filter/mimedefang
 acct-user/dehydrated 0: dehydrated program user
 acct-user/deluge 0-r1: user for deluge
 acct-user/dhcp 0-r1: user for dhcp daemon
@@ -472,6 +479,7 @@ acct-user/freenet 0: User for net-p2p/freenet
 acct-user/fritzbox_smarthome_exporter 0: FRITZ!Box Smart Home Exporter User
 acct-user/frr 0: System user: frr
 acct-user/ftp 0-r1: File Transfer Protocol server user
+acct-user/ftpproxy 0: A user for net-ftp/frox
 acct-user/gatling 0-r1: System user: gatling
 acct-user/gdm 0: User for running GDM
 acct-user/geneweb 0-r1: user id for geneweb daemon
@@ -558,6 +566,7 @@ acct-user/netdata 1: user for netdata
 acct-user/neutron 0-r1: user for the openstack neutron service
 acct-user/nginx-vts-exporter 0-r1: user for nginx-vts-exporter
 acct-user/ngircd 0-r1: User for ngircd (IRC daemon)
+acct-user/ngrep 0: A user for net-analyzer/ngrep
 acct-user/nobody 0: System user: nobody
 acct-user/node_exporter 0-r1: node_exporter User
 acct-user/notary 0: User for app-misc/notary
@@ -626,12 +635,14 @@ acct-user/redis 0-r1: Redis program user
 acct-user/redis_exporter 0: A user for app-metrics/redis_exporter
 acct-user/redmine 0-r1: Redmine application user
 acct-user/root 0-r1: System user: root
+acct-user/rslsync 0: A user for net-p2p/resilio-sync
 acct-user/rspamd 0-r1: User for rspamd - Rapid spam filtering system
 acct-user/rstudio-server 0-r1: user for sci-mathematics/rstudio
 acct-user/rtkit 0-r1: User for the Realtime Policy and Watchdog Daemon
 acct-user/rwhoisd 0: User for net-misc/rwhoisd
 acct-user/sabnzbd 0-r1: SABnzbd program user
 acct-user/sagan 0-r1: User for the Sagan log monitoring system
+acct-user/samplicator 0: A user for net-misc/samplicator
 acct-user/sancp 0: uid for net-analyzer/sancp
 acct-user/saned 0: User for media-gfx/sane-backends
 acct-user/sanlock 0-r1: shared storage lock manager
@@ -665,6 +676,7 @@ acct-user/sshd 0-r1: User for ssh
 acct-user/sstpc 0: User for net-misc/sstp-client
 acct-user/stdiscosrv 0-r1: User for the Syncthing discovery server
 acct-user/steamcmd 0-r1: A user for the SteamCMD server
+acct-user/stg 0: A user for net-misc/stargazer
 acct-user/strelaysrv 0-r1: User for the Syncthing relay server
 acct-user/stubby 0-r1: Stubby program user (from net-dns/getdns)
 acct-user/stunnel 0-r1: user for stunnel
@@ -7165,20 +7177,20 @@ dev-perl/MouseX-Types 0.60.0-r1: Organize your Mouse types in libraries
 dev-perl/Mozilla-CA 20999999: Mozilla's CA cert bundle in PEM format (Gentoo stub)
 dev-perl/Mozilla-PublicSuffix 1.0.0 1.0.4: Get a domain name's public suffix via the Mozilla Public Suffix List
 dev-perl/MusicBrainz-DiscID 0.40.0 0.60.0: Perl interface for the MusicBrainz libdiscid library
-dev-perl/Net-ARP 1.0.9-r1: Perl extension for creating ARP packets
+dev-perl/Net-ARP 1.0.9-r1 1.0.11: Perl extension for creating ARP packets
 dev-perl/Net-Amazon 0.620.0-r1: Framework for accessing amazon.com via SOAP and XML/HTTP
-dev-perl/Net-Amazon-S3 0.800.0: Framework for accessing the Amazon S3 Simple Storage Service
+dev-perl/Net-Amazon-S3 0.800.0 0.980.0: Framework for accessing the Amazon S3 Simple Storage Service
 dev-perl/Net-Bonjour 0.960.0: Module for DNS service discovery (Apple's Bonjour)
-dev-perl/Net-CIDR 0.180.0: Manipulate netblock lists in CIDR notation
+dev-perl/Net-CIDR 0.180.0 0.210.0: Manipulate netblock lists in CIDR notation
 dev-perl/Net-CIDR-Lite 0.210.0-r1 0.220.0: Perl extension for merging IPv4 or IPv6 CIDR addresses
 dev-perl/Net-CUPS 0.640.0: CUPS C API Interface
-dev-perl/Net-DBus 1.1.0 1.1.0-r1: Perl extension for the DBus message system
-dev-perl/Net-DNS 1.100.0 1.130.0 1.230.0: Perl Interface to the Domain Name System
+dev-perl/Net-DBus 1.1.0 1.1.0-r1 1.2.0: Perl extension for the DBus message system
+dev-perl/Net-DNS 1.130.0 1.230.0: Perl Interface to the Domain Name System
 dev-perl/Net-DNS-Async 1.70.0-r1: Asynchronous DNS helper for high volume applications
 dev-perl/Net-DNS-Resolver-Mock 1.201.710.310: Mock a DNS Resolver object for testing
 dev-perl/Net-DNS-Resolver-Programmable 0.9.0: programmable DNS resolver class for offline emulation of DNS
 dev-perl/Net-DNS-SEC 1.30.0 1.160.0: DNSSEC extensions to Net::DNS
-dev-perl/Net-Daemon 0.480.0-r2: Abstract base class for portable servers
+dev-perl/Net-Daemon 0.480.0-r2 0.490.0: Perl extension for portable daemons
 dev-perl/Net-Domain-TLD 1.750.0: Current top level domain names including new ICANN additions and ccTLDs
 dev-perl/Net-FreeDB 0.100.0: OOP interface to the FreeDB database
 dev-perl/Net-Google-SafeBrowsing-Blocklist 1.40.0-r2: Query a Google SafeBrowsing table
@@ -7831,25 +7843,25 @@ dev-perl/common-sense 3.740.0-r1 3.750.0: Save a tree AND a kitten, use common::
 dev-perl/constant-boolean 0.20.0-r2: Define TRUE and FALSE constants
 dev-perl/constant-defer 6.0.0-r1: constant subs with deferred value calculation
 dev-perl/enum 1.110.0: C style enumerated types and bitmask flags in Perl
-dev-perl/forks 0.360.0-r1 0.360.0-r2: Emulate threads with fork
-dev-perl/glib-perl 1.329.100: Glib - Perl wrappers for the GLib utility and Object libraries
-dev-perl/gnome2-canvas 1.2.0-r2: Perl interface to the Gnome Canvas
-dev-perl/gnome2-wnck 0.160.0-r2: Perl interface to the Window Navigator Construction Kit
+dev-perl/forks 0.360.0-r2: Emulate threads with fork
+dev-perl/glib-perl 1.329.100 1.329.300: Glib - Perl wrappers for the GLib utility and Object libraries
+dev-perl/gnome2-canvas 1.2.0-r2 1.6.0: Perl interface to the Gnome Canvas
+dev-perl/gnome2-wnck 0.160.0-r2 0.180.0: Perl interface to the Window Navigator Construction Kit
 dev-perl/go-perl 0.150.0: GO::Parser parses all GO files formats and types
-dev-perl/gtk2-ex-formfactory 0.670.0-r1: Gtk2 FormFactory
-dev-perl/gtk2-gladexml 1.7.0-r2: Create user interfaces directly from Glade XML files
+dev-perl/gtk2-ex-formfactory 0.670.0-r2: Gtk2 FormFactory
+dev-perl/gtk2-gladexml 1.7.0-r2 1.8.0: Create user interfaces directly from Glade XML files
 dev-perl/gtk2-trayicon 0.60.0-r2: Perl wrappers for the egg cup Gtk2::TrayIcon utilities
 dev-perl/gtk2-traymanager 0.50.0-r2: Perl bindings for EggTrayManager
-dev-perl/indirect 0.370.0: Lexically warn about using the indirect method call syntax
-dev-perl/libintl-perl 1.280.0 1.310.0: High-Level Interface to Uniforum Message Translation
+dev-perl/indirect 0.370.0 0.390.0: Lexically warn about using the indirect method call syntax
+dev-perl/libintl-perl 1.310.0 1.320.0: High-Level Interface to Uniforum Message Translation
 dev-perl/librg-utils-perl 1.0.43-r1: Parsers and format conversion utilities used by (e.g.) profphd
-dev-perl/libwww-perl 6.270.0 6.530.0: A collection of Perl Modules for the WWW
+dev-perl/libwww-perl 6.270.0 6.530.0 6.550.0: A collection of Perl Modules for the WWW
 dev-perl/libxml-perl 0.80.0-r2: Collection of Perl modules for working with XML
 dev-perl/local-lib 2.0.24: create and use a local lib/ for perl modules with PERL5LIB
-dev-perl/maybe 0.20.200-r1: Use a Perl module and ignore error if can't be loaded
+dev-perl/maybe 0.20.200-r2: Use a Perl module and ignore error if can't be loaded
 dev-perl/mecab-perl 0.996: Perl binding for MeCab
 dev-perl/mime-construct 1.1100.0-r1: construct and optionally mail MIME messages
-dev-perl/multidimensional 0.13.0: disables multidimensional array emulation
+dev-perl/multidimensional 0.13.0 0.14.0: disables multidimensional array emulation
 dev-perl/namespace-autoclean 0.280.0: Keep imports out of your namespace
 dev-perl/namespace-clean 0.270.0: Keep imports and functions out of your namespace
 dev-perl/pcsc-perl 1.4.14: A Perl Module for PC/SC SmartCard access
@@ -12722,7 +12734,7 @@ mail-filter/policyd 1.82-r4: Policy daemon for postfix and other MTAs
 mail-filter/policyd-weight 0.1.15.2-r3: Weighted Policy daemon for Postfix
 mail-filter/popfile 1.1.3-r1: Anti-spam bayesian filter
 mail-filter/postforward 1.1.0 1.1.1: Postfix Sender Rewriting Scheme forwarding agent
-mail-filter/postfwd 2.02-r1: Versatile Postfix policy server with a flexible ruleset based configuration
+mail-filter/postfwd 2.02-r1 2.03: Versatile Postfix policy server with a flexible ruleset based configuration
 mail-filter/postgrey 1.37_p20190625-r1: Postgrey is a Postfix policy server implementing greylisting
 mail-filter/postsrsd 1.11: Postfix Sender Rewriting Scheme daemon
 mail-filter/procmail 3.22-r15: Mail delivery agent/filter
