@@ -3,15 +3,17 @@
 
 EAPI=7
 
-inherit pax-utils readme.gentoo-r1 systemd tmpfiles unpacker user
+inherit pax-utils readme.gentoo-r1 systemd tmpfiles unpacker
 
 QA_PREBUILT="usr/bin/rslsync"
 BASE_URI="http://download-cdn.resilio.com/${PV}/Debian/${PN}_${PV}-1_@arch@.deb"
 
 DESCRIPTION="Resilient, fast and scalable file synchronization tool"
 HOMEPAGE="https://resilio.com/"
-SRC_URI="amd64? ( ${BASE_URI/@arch@/amd64} )
-	x86? ( ${BASE_URI/@arch@/i386} )"
+SRC_URI="
+	amd64? ( ${BASE_URI/@arch@/amd64} )
+	x86? ( ${BASE_URI/@arch@/i386} )
+"
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
@@ -19,7 +21,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="bindist mirror"
 
+DEPEND="
+	acct-group/rslsync
+	acct-user/rslsync
+"
+
 RDEPEND="
+	${DEPEND}
 	|| (
 		sys-libs/glibc[crypt(+)]
 		sys-libs/libxcrypt[compat]
@@ -28,11 +36,6 @@ RDEPEND="
 DOC_CONTENTS="You may need to review /etc/resilio-sync/config.json\\n
 Default metadata path is /var/lib/resilio-sync/.sync\\n
 Default web-gui URL is http://localhost:8888/\\n\\n"
-
-pkg_setup() {
-	enewgroup rslsync
-	enewuser rslsync -1 -1 /var/lib/resilio-sync rslsync
-}
 
 src_unpack() {
 	unpacker_src_unpack
@@ -68,8 +71,7 @@ src_install() {
 			|| die "sed failed for config.json" )
 
 	diropts -orslsync -grslsync -m0700
-	keepdir /etc/resilio-sync /var/lib/resilio-sync/ \
-		/var/lib/resilio-sync/.sync /var/log/resilio-sync
+	keepdir /etc/resilio-sync /var/lib/resilio-sync/.sync /var/log/resilio-sync
 }
 
 pkg_postinst() {

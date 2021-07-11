@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -38,15 +38,21 @@ INIT=(	[module_store_files]="11d"
 
 MY_P="stg-${PV}"
 
-inherit flag-o-matic linux-info user
+inherit flag-o-matic linux-info
 
 DESCRIPTION="Billing system for small home and office networks"
 HOMEPAGE="http://stg.dp.ua/"
 SRC_URI="http://stg.dp.ua/download/server/${PV}/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+CDEPEND="
+	acct-group/stg
+	acct-user/stg
+"
 
 RDEPEND="
 	module_config_rpcconfig? (
@@ -57,11 +63,17 @@ RDEPEND="
 	module_store_firebird? ( dev-db/firebird )
 	module_store_mysql? ( dev-db/mysql-connector-c:0= )
 	module_store_postgres? ( dev-db/postgresql:= )
-	sgconf? ( dev-libs/expat )
-	sgconf_xml? ( dev-libs/expat )"
-DEPEND="${RDEPEND}"
+	rscriptd? ( ${CDEPEND} )
+	sgauth? ( ${CDEPEND} )
+	sgconf? (
+		${CDEPEND}
+		dev-libs/expat
+	)
+	sgconf_xml? ( dev-libs/expat )
+	stargazer? ( ${CDEPEND} )
+"
 
-S="${WORKDIR}/${MY_P}"
+DEPEND="${RDEPEND}"
 
 REQUIRED_USE="stargazer? ( ^^ ( module_store_files module_store_firebird module_store_mysql module_store_postgres ) )"
 
@@ -368,7 +380,7 @@ src_install() {
 		done
 	fi
 
-	# Correct user and group for files and directories
+	# Correct user and gsroup for files and directories
 	if use sgconv || use rscriptd || use sgauth || use stargazer ; then
 		fowners -R stg:stg /etc/stargazer
 	fi
@@ -377,14 +389,6 @@ src_install() {
 	if [ ! -e "${ED}"/usr/$(get_libdir) ] ; then
 		mv "${ED}"/usr/lib/ "${ED}"/usr/$(get_libdir) \
 			|| die "Failed to move library directory for multilib support"
-	fi
-}
-
-pkg_setup() {
-	# Add user and group to system only when necessary
-	if use sgconv || use rscriptd || use sgauth || use stargazer ; then
-		enewgroup stg
-		enewuser stg -1 -1 -1 stg
 	fi
 }
 

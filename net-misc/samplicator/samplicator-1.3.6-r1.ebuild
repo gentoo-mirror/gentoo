@@ -1,9 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-
-inherit user
+EAPI=7
 
 DESCRIPTION="UDP packets forwarder and duplicator"
 HOMEPAGE="https://github.com/sleinen/samplicator"
@@ -13,11 +11,10 @@ LICENSE="Artistic GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-pkg_setup() {
-	# Add samplicator group and user to system
-	enewgroup ${PN}
-	enewuser ${PN} -1 -1 /etc/${PN} ${PN}
-}
+RDEPEND="
+	acct-group/samplicator
+	acct-user/samplicator
+"
 
 src_install() {
 	# Install and copy documentation

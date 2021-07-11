@@ -1,9 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-
-inherit user
 
 DESCRIPTION="Antispam, antivirus and other customizable filters for MTAs with Milter support"
 HOMEPAGE="http://www.mimedefang.org/"
@@ -15,24 +13,26 @@ KEYWORDS="~amd64 ~x86"
 IUSE="clamav +poll test"
 RESTRICT="!test? ( test )"
 
-RDEPEND=">=dev-perl/MIME-tools-5.412
-	dev-perl/IO-stringy
-	virtual/perl-MIME-Base64
+RDEPEND="
+	acct-group/defang
+	acct-user/defang
 	dev-perl/Digest-SHA1
+	dev-perl/IO-stringy
 	dev-perl/MailTools
+	dev-perl/MIME-tools
 	dev-perl/Unix-Syslog
+	|| ( mail-filter/libmilter mail-mta/sendmail )
+	virtual/perl-MIME-Base64
 	clamav? ( app-antivirus/clamav )
-	|| ( mail-filter/libmilter mail-mta/sendmail )"
-DEPEND="${RDEPEND}
+"
+
+DEPEND="
+	${RDEPEND}
 	test? (
 		dev-perl/Test-Class
 		dev-perl/Test-Most
-	)"
-
-pkg_setup() {
-	enewgroup defang
-	enewuser defang -1 -1 -1 defang
-}
+	)
+"
 
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-2.72-ldflags.patch"
@@ -41,11 +41,14 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		--with-user=defang \
-		$(use_enable poll) \
-		$(use_enable clamav) \
+	local myeconfargs=(
+		--with-user=defang
+		$(use_enable poll)
+		$(use_enable clamav)
 		$(use_enable clamav clamd)
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
