@@ -1,0 +1,17 @@
+BDEPEND=>=sys-devel/autoconf-2.69 >=sys-devel/automake-1.13 dev-qt/linguist-tools:5 knots? ( gnome-base/librsvg media-gfx/imagemagick[png] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm prepare pretend
+DEPEND=>=dev-libs/boost-1.58.0:=[threads(+)] >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 system-leveldb? ( virtual/bitcoin-leveldb ) dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
+DESCRIPTION=An end-user Qt GUI for the Bitcoin crypto-currency
+EAPI=7
+HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
+INHERIT=autotools bash-completion-r1 db-use desktop xdg-utils
+IUSE=+asm +berkdb dbus kde knots +qrcode sqlite +system-leveldb test upnp +wallet zeromq
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=>=dev-libs/boost-1.58.0:=[threads(+)] >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 system-leveldb? ( virtual/bitcoin-leveldb ) dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
+REQUIRED_USE=sqlite? ( wallet ) berkdb? ( wallet ) wallet? ( || ( berkdb sqlite ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bitcoin/bitcoin/archive/194b9b8792d9b0798fdb570b79fa51f1d1f5ebaf.tar.gz -> bitcoin-v0.21.1.tar.gz https://bitcoinknots.org/files/0.21.x/0.21.1.knots20210629/bitcoin-0.21.1.knots20210629.patches.txz -> bitcoin-0.21.1.knots20210629.patches.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	db-use	063d3e7add942762a8203b52ec3066c2	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=c932045f5644c8b00ed004ae62f2abb8
