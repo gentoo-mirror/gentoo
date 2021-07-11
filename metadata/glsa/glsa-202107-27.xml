@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-27">
+  <title>OpenEXR: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in OpenEXR, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">openexr</product>
+  <announced>2021-07-11</announced>
+  <revised count="1">2021-07-11</revised>
+  <bug>717474</bug>
+  <bug>746794</bug>
+  <bug>762862</bug>
+  <bug>770229</bug>
+  <bug>776808</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/openexr" auto="yes" arch="*">
+      <unaffected range="ge">2.5.6</unaffected>
+      <vulnerable range="lt">2.5.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>OpenEXR is a high dynamic-range (HDR) image file format developed by
+      Industrial Light &amp; Magic for use in computer imaging applications.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in OpenEXR. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All OpenEXR users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-libs/openexr-2.5.6"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11758">CVE-2020-11758</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11759">CVE-2020-11759</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11760">CVE-2020-11760</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11761">CVE-2020-11761</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11762">CVE-2020-11762</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11763">CVE-2020-11763</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11764">CVE-2020-11764</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11765">CVE-2020-11765</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15304">CVE-2020-15304</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15305">CVE-2020-15305</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15306">CVE-2020-15306</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20296">CVE-2021-20296</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3474">CVE-2021-3474</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3475">CVE-2021-3475</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3476">CVE-2021-3476</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3477">CVE-2021-3477</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3478">CVE-2021-3478</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3479">CVE-2021-3479</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-11T02:00:34Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-11T02:27:52Z">ajak</metadata>
+</glsa>
