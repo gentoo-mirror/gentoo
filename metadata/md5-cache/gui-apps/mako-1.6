@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig app-text/scdoc >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/wayland x11-libs/pango x11-libs/cairo || ( sys-apps/systemd sys-auth/elogind ) sys-apps/dbus[user-session] icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf )
+DESCRIPTION=A lightweight notification daemon for Wayland. Works on Sway.
+EAPI=7
+HOMEPAGE=https://github.com/emersion/mako
+INHERIT=meson
+IUSE=+icons
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/wayland x11-libs/pango x11-libs/cairo || ( sys-apps/systemd sys-auth/elogind ) sys-apps/dbus[user-session] icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf ) >=dev-libs/wayland-protocols-1.21
+SLOT=0
+SRC_URI=https://github.com/emersion/mako/archive/v1.6.tar.gz -> mako-1.6.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	meson	5bc3f1b890f90cc00cf1d1dddc10233e
+_md5_=ec1b69a598a680c305bdf520fb530919
