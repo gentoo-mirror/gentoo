@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Unicode-Normalize virtual/perl-ExtUtils-CBuilder >=dev-perl/Module-Build-0.420.0 test? ( virtual/perl-Test-Simple dev-perl/Test-NoWarnings ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Unicode-Normalize virtual/perl-ExtUtils-CBuilder >=dev-perl/Module-Build-0.420.0 test? ( virtual/perl-Test-Simple dev-perl/Test-NoWarnings ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Internationalizing Domain Names in Applications (IDNA)
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Net-IDN-Encode
 INHERIT=perl-module
 IUSE=test examples
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Unicode-Normalize dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/C/CF/CFAERBER/Net-IDN-Encode-2.500.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=52345f45c0236a8b88a508fda6705fdc
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=87241ebf667b65af5f75122791bebc24
