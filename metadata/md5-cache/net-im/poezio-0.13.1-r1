@@ -1,16 +1,16 @@
-BDEPEND=test? ( dev-python/aiodns[python_targets_python3_8(-)?] dev-python/pyasn1-modules[python_targets_python3_8(-)?] dev-python/pyasn1[python_targets_python3_8(-)?] >=dev-python/slixmpp-1.5.0[python_targets_python3_8(-)?] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+BDEPEND=test? ( dev-python/aiodns[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyasn1-modules[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyasn1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/slixmpp-1.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DEFINED_PHASES=compile configure install postinst prepare test
 DESCRIPTION=Console XMPP client that looks like most famous IRC clients
 EAPI=7
 HOMEPAGE=https://poez.io/
 INHERIT=distutils-r1 readme.gentoo-r1
-IUSE=test python_targets_python3_8
+IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64
 LICENSE=ZLIB
-RDEPEND=dev-python/aiodns[python_targets_python3_8(-)?] dev-python/pyasn1-modules[python_targets_python3_8(-)?] dev-python/pyasn1[python_targets_python3_8(-)?] >=dev-python/slixmpp-1.5.0[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
-REQUIRED_USE=|| ( python_targets_python3_8 )
+RDEPEND=dev-python/aiodns[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyasn1-modules[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyasn1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/slixmpp-1.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/poezio/poezio-0.13.1.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530
-_md5_=44b2a3dc398a5f5cc8c554bd0ba3d7f2
+_md5_=5eb5112de89653563f3557fb445502a3
