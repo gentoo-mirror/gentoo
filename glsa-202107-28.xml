@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-28">
+  <title>GNU Chess: Buffer overflow</title>
+  <synopsis>A buffer overflow in GNU Chess might allow arbitrary code
+    execution.
+  </synopsis>
+  <product type="ebuild">gnuchess</product>
+  <announced>2021-07-12</announced>
+  <revised count="1">2021-07-12</revised>
+  <bug>780855</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-board/gnuchess" auto="yes" arch="*">
+      <unaffected range="ge">6.2.8-r1</unaffected>
+      <vulnerable range="lt">6.2.8-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GNU Chess is a console based chess interfae.</p>
+  </background>
+  <description>
+    <p>The cmd_pgnload() and cmd_pgnreplay() functions in cmd.cc in GNU Chess
+      to not sufficiently validate PGN file input, potentially resulting in a
+      buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted PGN
+      file using GNU Chess, possibly resulting in execution of arbitrary code
+      with the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All GNU Chess users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=games-board/gnuchess-6.2.8-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30184">CVE-2021-30184</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-06T01:16:05Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-12T02:45:49Z">ajak</metadata>
+</glsa>
