@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install postinst prepare setup unpack
-DEPEND=app-crypt/gcr[gtk] dev-libs/glib:2 net-libs/webkit-gtk:4 x11-libs/gtk+:3 x11-libs/libX11
+DEFINED_PHASES=install postinst postrm preinst prepare setup unpack
+DEPEND=app-crypt/gcr[gtk] dev-libs/glib:2 net-libs/webkit-gtk:4 x11-libs/gtk+:3 x11-libs/libX11 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=a simple web browser based on WebKit/GTK+
 EAPI=7
 HOMEPAGE=https://surf.suckless.org/
-INHERIT=savedconfig toolchain-funcs git-r3
+INHERIT=savedconfig toolchain-funcs desktop xdg git-r3
 IUSE=tabbed savedconfig
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=app-crypt/gcr[gtk] dev-libs/glib:2 net-libs/webkit-gtk:4 x11-libs/gtk+:3 x11-libs/libX11 !sci-chemistry/surf !savedconfig? ( net-misc/curl x11-apps/xprop x11-misc/dmenu x11-terms/st ) tabbed? ( x11-misc/tabbed )
 SLOT=0
-_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=ec6f093b41858bbae1b0cab06d7be896
+_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=14460765860fe0e1a08b0c0a714a2815
