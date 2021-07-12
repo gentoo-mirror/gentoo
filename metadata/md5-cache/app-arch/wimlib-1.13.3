@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://wimlib.net/
 INHERIT=autotools pax-utils
 IUSE=cpu_flags_x86_ssse3 fuse iso ntfs openssl test threads yasm
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=|| ( GPL-3+ LGPL-3+ ) CC0-1.0
 RDEPEND=dev-libs/libxml2:2 ntfs? ( sys-fs/ntfs3g ) fuse? ( sys-fs/fuse:0 ) openssl? ( dev-libs/openssl:0= ) iso? ( app-arch/cabextract app-cdr/cdrtools )
 REQUIRED_USE=cpu_flags_x86_ssse3? ( !openssl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://wimlib.net/downloads/wimlib-1.13.3.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	pax-utils	74cd9920d64148719fb62c462935c1b5
-_md5_=7f3fb8ea62e9497dbba2a6b63c0426d5
+_md5_=becc8bb2db944f42a9bb42fbbc2aef78

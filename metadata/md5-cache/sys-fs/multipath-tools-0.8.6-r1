@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=dev-libs/json-c:= dev-libs/libaio dev-libs/userspace-rcu:= >=sys-fs/lvm2-2.02.45 >=virtual/libudev-232-r3 sys-libs/readline:0= rbd? ( sys-cluster/ceph ) systemd? ( sys-apps/systemd ) test? ( dev-util/cmocka )
+DESCRIPTION=Device mapper target autoconfig
+EAPI=7
+HOMEPAGE=http://christophe.varoqui.free.fr/
+INHERIT=linux-info systemd toolchain-funcs udev
+IUSE=systemd rbd test kernel_linux
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/json-c:= dev-libs/libaio dev-libs/userspace-rcu:= >=sys-fs/lvm2-2.02.45 >=virtual/libudev-232-r3 sys-libs/readline:0= rbd? ( sys-cluster/ceph ) systemd? ( sys-apps/systemd )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/opensvc/multipath-tools/archive/refs/tags/0.8.6.tar.gz -> multipath-tools-0.8.6.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	systemd	c846b9e02ac8293bfc9ca38a195c2a18	udev	26207b5d4f4708920b9fcb7302d94068
+_md5_=3e84b0dd040cb27f2e367ed1550bf13d
