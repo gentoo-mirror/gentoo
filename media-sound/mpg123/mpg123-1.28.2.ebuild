@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic toolchain-funcs libtool multilib-minimal
 
@@ -16,7 +16,6 @@ IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext cpu_flags_ppc_altivec alsa core
 
 # No MULTILIB_USEDEP here since we only build libmpg123 for non native ABIs.
 RDEPEND="
-	app-eselect/eselect-mpg123
 	dev-libs/libltdl:0
 	alsa? ( media-libs/alsa-lib )
 	jack? ( virtual/jack )
@@ -29,6 +28,7 @@ BDEPEND="
 	sys-devel/libtool
 	virtual/pkgconfig
 "
+IDEPEND="app-eselect/eselect-mpg123"
 
 DOCS=( AUTHORS ChangeLog NEWS NEWS.libmpg123 README )
 
