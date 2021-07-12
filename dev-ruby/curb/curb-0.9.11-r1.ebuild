@@ -3,9 +3,11 @@
 
 EAPI=7
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby26 ruby27 ruby30"
 
 RUBY_FAKEGEM_RECIPE_TEST="rake"
+
+RUBY_FAKEGEM_EXTENSIONS=(ext/extconf.rb)
 
 inherit ruby-fakegem
 
@@ -14,7 +16,7 @@ HOMEPAGE="https://github.com/taf2/curb"
 
 LICENSE="Ruby"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND+=" net-misc/curl[ssl]"
@@ -37,13 +39,4 @@ all_ruby_prepare() {
 	# avoid failing tests where failure condition seems weird, no
 	# upstream travis so not clear if the test is indeed broken.
 	sed -i -e '/test_multi_easy_http/,/^  end/ s:^:#:' tests/tc_curl_multi.rb || die
-}
-
-each_ruby_configure() {
-	${RUBY} -Cext extconf.rb || die "extconf.rb failed"
-}
-
-each_ruby_compile() {
-	emake -Cext CFLAGS="${CFLAGS} -fPIC" archflags="${LDFLAGS}" V=1
-	cp -l ext/curb_core$(get_modname) lib || die
 }
