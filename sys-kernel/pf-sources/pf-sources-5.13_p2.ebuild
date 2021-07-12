@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 # Define what default functions to run
 ETYPE="sources"
@@ -9,8 +9,7 @@ ETYPE="sources"
 # No 'experimental' USE flag provided, but we still want to use genpatches
 K_EXP_GENPATCHES_NOUSE="1"
 
-# Just get basic genpatches, -pf patch set already includes vanilla-linux
-# updates
+# Just get basic genpatches, -pf patch set already includes vanilla-linux updates
 K_GENPATCHES_VER="1"
 
 # -pf already sets EXTRAVERSION to kernel Makefile
@@ -23,6 +22,8 @@ K_SECURITY_UNSUPPORTED="1"
 # already included in pf-sources
 K_WANT_GENPATCHES="base extras"
 
+SHPV="${PV/_p*/}"
+
 inherit kernel-2 optfeature
 detect_version
 
@@ -30,15 +31,19 @@ DESCRIPTION="Linux kernel fork that includes the pf-kernel patchset and Gentoo's
 HOMEPAGE="https://gitlab.com/post-factum/pf-kernel/-/wikis/README
 	https://dev.gentoo.org/~mpagano/genpatches/"
 SRC_URI="${KERNEL_URI}
-	https://github.com/pfactum/pf-kernel/compare/v${PV/_p*/}...v${PV/_p*/}-pf${PV/*_p/}.diff -> ${P}.patch
-	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${PV/_p*/}-${K_GENPATCHES_VER}.base.tar.xz
-	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${PV/_p*/}-${K_GENPATCHES_VER}.extras.tar.xz"
+	https://github.com/pfactum/pf-kernel/compare/v${SHPV}...v${SHPV}-pf${PV/*_p/}.diff -> ${P}.patch
+	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.base.tar.xz
+	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz
+	https://gitlab.com/alfredchen/projectc/-/raw/master/${SHPV}/prjc_v${SHPV}-r1.patch
+	https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/5021_BMQ-and-PDS-gentoo-defaults-v5.12-r0.patch"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 S="${WORKDIR}/linux-${PVR}-pf"
 
-PATCHES=( "${DISTDIR}/${P}.patch" )
+PATCHES=( "${DISTDIR}/${P}.patch"
+	"${DISTDIR}/prjc_v${SHPV}-r1.patch"
+	"${DISTDIR}/5021_BMQ-and-PDS-gentoo-defaults-v5.12-r0.patch" )
 
 K_EXTRAEINFO="For more info on pf-sources and details on how to report problems,
 	see: ${HOMEPAGE}."
@@ -55,8 +60,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# kernel-2_src_prepare doesn't apply PATCHES().
 	default
-	kernel-2_src_prepare
 }
 
 pkg_postinst() {
