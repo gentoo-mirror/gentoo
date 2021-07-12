@@ -7,4 +7,4 @@ inherit acct-group
 
 DESCRIPTION="A group for net-analyzer/ngrep"
 
-ACCT_GROUP_ID="186"
+ACCT_GROUP_ID="185"
