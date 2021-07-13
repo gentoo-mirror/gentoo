@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.gnu.org/software/gsasl/
 INHERIT=autotools
 IUSE=idn gcrypt kerberos nls ntlm static-libs
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=GPL-3 LGPL-3
 RDEPEND=gcrypt? ( dev-libs/libgcrypt:0= ) idn? ( net-dns/libidn:= ) kerberos? ( virtual/krb5 ) nls? ( >=sys-devel/gettext-0.18.1 ) ntlm? ( net-libs/libntlm ) !net-misc/gsasl
 SLOT=0
 SRC_URI=mirror://gnu/gsasl/libgsasl-1.10.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
-_md5_=c0d5f9da43f076288a9eb2d64f7b9dc7
+_md5_=38bba0904ac7e4ae87c84b93c282b11c
