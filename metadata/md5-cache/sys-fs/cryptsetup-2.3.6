@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gitlab.com/cryptsetup/cryptsetup/blob/master/README.md
 INHERIT=autotools linux-info
 IUSE=gcrypt kernel nettle +openssl +argon2 nls pwquality reencrypt static static-libs +udev urandom kernel_linux
-KEYWORDS=~alpha amd64 arm ~arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2+
 RDEPEND=static-libs? ( dev-libs/json-c:=[static-libs(+)] dev-libs/libgpg-error[static-libs(+)] dev-libs/popt[static-libs(+)] >=sys-apps/util-linux-2.31-r1[static-libs(+)] argon2? ( app-crypt/argon2:=[static-libs(+)] ) gcrypt? ( dev-libs/libgcrypt:0=[static-libs(+)] ) nettle? ( >=dev-libs/nettle-2.4[static-libs(+)] ) openssl? ( dev-libs/openssl:0=[static-libs(+)] ) pwquality? ( dev-libs/libpwquality[static-libs(+)] ) sys-fs/lvm2[static-libs(+)] udev? ( virtual/libudev[static-libs(-)] ) ) dev-libs/json-c:= dev-libs/libgpg-error dev-libs/popt >=sys-apps/util-linux-2.31-r1 argon2? ( app-crypt/argon2:= ) gcrypt? ( dev-libs/libgcrypt:0= ) nettle? ( >=dev-libs/nettle-2.4 ) openssl? ( dev-libs/openssl:0= ) pwquality? ( dev-libs/libpwquality ) sys-fs/lvm2 udev? ( virtual/libudev )
 REQUIRED_USE=^^ ( gcrypt kernel nettle openssl ) static? ( !gcrypt )
 SLOT=0/12
 SRC_URI=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
-_md5_=b65731994db724fcbb8378e773a9fdfc
+_md5_=0e9f59f73fa40fcbb21f9534026b60e1
