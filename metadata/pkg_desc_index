@@ -867,7 +867,7 @@ app-admin/logsurfer+ 1.8-r4: Real Time Log Monitoring and Alerting
 app-admin/longrun 0.9-r4: A utility to control Transmeta's Crusoe and Efficeon processors
 app-admin/lsyncd 2.2.3: Live Syncing (Mirror) Daemon
 app-admin/makepasswd 1.10: Random password generator
-app-admin/mcelog 175 177: A tool to log and decode Machine Check Exceptions
+app-admin/mcelog 175 177 177-r1: A tool to log and decode Machine Check Exceptions
 app-admin/mcollective 2.12.4 2.12.5: Framework to build server orchestration or parallel job execution systems
 app-admin/mei-amt-check 0_p20170515: AMT status checker
 app-admin/metalog 20200113-r1: A highly configurable replacement for syslogd/klogd
@@ -1062,7 +1062,7 @@ app-backup/amanda 3.5.1-r3: The Advanced Maryland Automatic Network Disk Archive
 app-backup/attic 0.16-r1 9999: Attic is a deduplicating backup program written in Python.
 app-backup/backintime 1.2.1 9999: Backup system inspired by TimeVault and FlyBack
 app-backup/backup-manager 0.7.14 0.7.14-r1: Backup Manager is a command line backup tool for GNU/Linux
-app-backup/backupninja 1.2.1: lightweight, extensible meta-backup system
+app-backup/backupninja 1.2.1 1.2.1-r1: lightweight, extensible meta-backup system
 app-backup/backuppc 3.3.1-r6: High-performance backups to a server's disk
 app-backup/bacula 9.6.5 9.6.6 9.6.7 11.0.2 11.0.3 11.0.5: Featureful client/server network backup suite
 app-backup/bareos 17.2.10 18.2.10 19.2.9: Featureful client/server network backup suite
@@ -3149,7 +3149,7 @@ app-text/diction 1.14: Diction and style checkers for english and german texts
 app-text/diff-pdf 0.4.1-r2: A simple tool for visually comparing two PDF files
 app-text/diffpdf 2.1.3-r2: Program that textually or visually compares two PDF files
 app-text/ding 1.8.1 1.9: Tk based dictionary (German-English) (incl. dictionary itself)
-app-text/discount 2.2.7-r1: A Markdown-to HTML translator written in C
+app-text/discount 2.2.7-r1 2.2.7-r2: A Markdown-to HTML translator written in C
 app-text/djview 4.10.6-r2: Portable DjVu viewer using Qt
 app-text/djvu 3.5.27-r2 3.5.28 3.5.28-r1: DjVu viewers, encoders and utilities
 app-text/docbook-dsssl-stylesheets 1.79-r4: DSSSL Stylesheets for DocBook
@@ -13769,7 +13769,7 @@ media-plugins/kodi-game-libretro-snes9x 1.60.0.20 9999: Snes9x GameClient for Ko
 media-plugins/kodi-game-libretro-twentyfortyeight 1.0.0.118 9999: 2048 for Kodi
 media-plugins/kodi-imagedecoder-heif 1.3.0 1.4.0 9999: HEIF image decoder for Kodi
 media-plugins/kodi-imagedecoder-raw 3.0.1 9999: RAW image decoder for Kodi
-media-plugins/kodi-inputstream-adaptive 2.6.17 9999: Kodi's Adaptive inputstream addon
+media-plugins/kodi-inputstream-adaptive 2.6.17 2.6.18 9999: Kodi's Adaptive inputstream addon
 media-plugins/kodi-inputstream-ffmpegdirect 1.21.3 1.21.4 1.21.5 1.21.6 9999: Kodi's FFMpeg Direct Inputstream addon
 media-plugins/kodi-inputstream-rtmp 3.1.1-r1 3.3.0 3.4.0 9999: Kodi's RTMP inputstream addon
 media-plugins/kodi-peripheral-joystick 1.7.2 9999: Libretro compatibility layer for the Kodi Game API
@@ -14450,7 +14450,7 @@ media-video/totem 3.38.0 3.38.1: Media player for GNOME
 media-video/transcode 1.1.7-r5: Utilities for transcoding video and audio codecs in different containers
 media-video/tsmuxer 2.6.11-r1: Utility to create and demux TS and M2TS files
 media-video/ttcut 0.19.6_p1-r1: Tool for cutting MPEG files especially for removing commercials
-media-video/unifi-video 3.10.13-r2: UniFi Video Server
+media-video/unifi-video 3.10.13-r2 3.10.13-r3: UniFi Video Server
 media-video/ushare 1.1a_p20210221: uShare is a UPnP (TM) A/V & DLNA Media Server
 media-video/v4l2loopback 0.12.5-r1 9999: v4l2 loopback device whose output is its own input
 media-video/vamps 0.99.2-r2: Very fast requantisizing tool for backup DVDs
@@ -15891,7 +15891,7 @@ net-wireless/neard 0.16: Near Field Communication (NFC) management daemon
 net-wireless/osmo-fl2k 0.1.1 9999: turns FL2000-based USB 3.0 to VGA adapters into low cost DACs
 net-wireless/portapack-firmware 20190405: Firmware and scripts for controlling the Portapack from Sharebrained
 net-wireless/portapack-havoc 0.0_p20180612: Custom firmware for the HackRF SDR + PortaPack H1 addon
-net-wireless/qdmr 0.7.3 9999: GUI application for configuring and programming cheap DMR radios
+net-wireless/qdmr 0.8.0 9999: GUI application for configuring and programming cheap DMR radios
 net-wireless/reaver 1.6.5: Brute force attack against Wifi Protected Setup
 net-wireless/rfkill 0.5-r2 0.5-r3 1.0: Tool to read and control rfkill status through /dev/rfkill
 net-wireless/rtl-sdr 0.5.3_p20170919 0.5.4 0.6.0-r1 0.6.0_p2020802 9999: turns your Realtek RTL2832 based DVB dongle into a SDR receiver
@@ -17195,7 +17195,7 @@ sys-apps/kcheck 0.0.2-r1 9999: Record and check required kernel symbols are set
 sys-apps/kexec-tools 2.0.21 2.0.22 9999: Load another kernel from the currently executing Linux kernel
 sys-apps/keyutils 1.6.1 1.6.3: Linux Key Management Utilities
 sys-apps/kmod 28 29 9999: library and tools for managing linux kernel modules
-sys-apps/kmscon 8_p20180906-r1: KMS/DRM based virtual Console Emulator
+sys-apps/kmscon 8_p20180906-r1 8_p20180906-r2: KMS/DRM based virtual Console Emulator
 sys-apps/lcdsplash 0.3: splash Gentoo boot information on LCD's
 sys-apps/lcdutils 0.2-r1: (Sun) Cobalt Qube/RaQ button reading and LCD writing utilities
 sys-apps/less 581.2 589 590: Excellent text file viewer
@@ -18308,7 +18308,7 @@ www-client/google-chrome-beta 92.0.4515.80: The web browser from Google
 www-client/google-chrome-unstable 93.0.4557.4: The web browser from Google
 www-client/httrack 3.49.2-r2: HTTrack Website Copier, Open Source Offline Browser
 www-client/jd 2.8.5_p120826-r1 2.8.9_p150226-r1: gtk2 based 2ch browser written in C++
-www-client/links 2.23: A fast and lightweight web browser running in both graphics and text mode
+www-client/links 2.23 2.23-r1: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.2.1-r100 2.3 9999: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0_pre6-r1: An excellent console-based web browser with ssl support
 www-client/microsoft-edge-beta 92.0.902.15 92.0.902.22 92.0.902.30: The web browser from Microsoft

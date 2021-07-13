@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare unpack
+DEPEND=acct-group/unifi-video acct-user/unifi-video
+DESCRIPTION=UniFi Video Server
+EAPI=8
+HOMEPAGE=https://www.ubnt.com/download/unifi-video/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=acct-group/unifi-video acct-user/unifi-video dev-db/mongodb dev-java/commons-daemon sys-apps/lsb-release sys-apps/util-linux sys-libs/libcap virtual/jre:1.8
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://dl.ubnt.com/firmwares/ufv/v3.10.13/unifi-video.Ubuntu18.04_amd64.v3.10.13.deb
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_md5_=0b0546b560096e7bb9e87ef516138127
