@@ -72,6 +72,8 @@ QA_PREBUILT="opt/Signal/signal-desktop
 	opt/Signal/resources/app.asar.unpacked/node_modules/better-sqlite3/build/Release/better_sqlite3.node
 	opt/Signal/resources/app.asar.unpacked/node_modules/curve25519-n/build/Release/curve.node
 	opt/Signal/resources/app.asar.unpacked/node_modules/ffi-napi/build/Release/ffi_bindings.node
+	opt/Signal/resources/app.asar.unpacked/node_modules/ffi-napi/node_modules/ref-napi/prebuilds/linux-x64/electron.napi.node
+	opt/Signal/resources/app.asar.unpacked/node_modules/ffi-napi/node_modules/ref-napi/prebuilds/linux-x64/node.napi.node
 	opt/Signal/resources/app.asar.unpacked/node_modules/ffi-napi/prebuilds/linux-x64/node.napi.uv1.node
 	opt/Signal/resources/app.asar.unpacked/node_modules/libsignal-client/build/libsignal_client_linux.node
 	opt/Signal/resources/app.asar.unpacked/node_modules/libsignal-client/build/libsignal_client_linux_x64.node
@@ -84,6 +86,7 @@ QA_PREBUILT="opt/Signal/signal-desktop
 	opt/Signal/resources/app.asar.unpacked/node_modules/sharp/build/Release/sharp.node
 	opt/Signal/resources/app.asar.unpacked/node_modules/sharp/vendor/8.10.6/lib/libvips-cpp.so.42
 	opt/Signal/resources/app.asar.unpacked/node_modules/zkgroup/libzkgroup.so
+	opt/Signal/resources/app.asar.unpacked/node_modules/zkgroup/libzkgroup-x64.so
 	opt/Signal/resources/app.asar.unpacked/node_modules/zkgroup/node_modules/ref-napi/build/Release/binding.node"
 
 RESTRICT="splitdebug"
@@ -96,7 +99,7 @@ src_prepare() {
 		-i usr/share/applications/signal-desktop.desktop || die
 	unpack usr/share/doc/signal-desktop/changelog.gz
 
-	rm opt/Signal/resources/app.asar.unpacked/node_modules/{ffi-napi/prebuilds/linux-arm64/node.napi.uv1.armv8.node,ref-napi/prebuilds/linux-arm64/electron.napi.armv8.node,ref-napi/prebuilds/linux-arm64/node.napi.armv8.node} || die
+	rm opt/Signal/resources/app.asar.unpacked/node_modules/{ffi-napi/node_modules/ref-napi/prebuilds/linux-arm64/electron.napi.armv8.node,ffi-napi/node_modules/ref-napi/prebuilds/linux-arm64/node.napi.armv8.node,ffi-napi/prebuilds/linux-arm64/node.napi.uv1.armv8.node,ref-napi/prebuilds/linux-arm64/electron.napi.armv8.node,ref-napi/prebuilds/linux-arm64/node.napi.armv8.node} || die
 }
 
 src_install() {
