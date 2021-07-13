@@ -1,9 +1,9 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
-inherit acct-user
+inherit acct-group
 
-DESCRIPTION="User for an open proxy monitor"
-ACCT_USER_ID=272
+DESCRIPTION="Group for an open proxy monitor"
+ACCT_GROUP_ID=127
