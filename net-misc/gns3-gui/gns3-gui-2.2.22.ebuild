@@ -3,11 +3,10 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
-
+PYTHON_COMPAT=( python3_{8,9} )
 DISTUTILS_USE_SETUPTOOLS=bdepend
 
-inherit distutils-r1 desktop xdg
+inherit distutils-r1 virtualx xdg
 
 DESCRIPTION="Graphical Network Simulator"
 HOMEPAGE="https://www.gns3.com/ https://github.com/GNS3/gns3-gui"
@@ -27,6 +26,8 @@ RDEPEND="
 	dev-python/PyQt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "
 
+distutils_enable_tests pytest
+
 src_prepare() {
 	default
 
@@ -34,9 +35,6 @@ src_prepare() {
 	sed -i -e 's/[<>=].*//' requirements.txt || die
 }
 
-python_install_all() {
-	distutils-r1_python_install_all
-
-	doicon "resources/images/gns3.ico"
-	make_desktop_entry "gns3" "GNS3" "gns3.ico" "Utility"
+src_test() {
+	virtx distutils-r1_src_test
 }

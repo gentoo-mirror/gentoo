@@ -3,10 +3,10 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit distutils-r1 systemd optfeature
+inherit distutils-r1 optfeature systemd
 
 DESCRIPTION="GNS3 server to asynchronously manage emulators"
 HOMEPAGE="https://www.gns3.com/ https://github.com/GNS3/gns3-server"
@@ -29,7 +29,15 @@ RDEPEND="
 	>=dev-python/py-cpuinfo-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/sentry-sdk-0.14.4[${PYTHON_USEDEP}]
 	>=net-misc/ubridge-0.9.14
+	sys-apps/busybox
 "
+BDEPEND="
+	test? (
+		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
+	)
+"
+
+distutils_enable_tests pytest
 
 src_prepare() {
 	default
@@ -40,8 +48,9 @@ src_prepare() {
 	# Remove Pre-built busybox binary
 	rm gns3server/compute/docker/resources/bin/busybox || die
 
-	# Package installs 'tests' package which is forbidden
-	rm -r tests || die
+	# prevent installing tests directory, see:
+	# https://github.com/GNS3/gns3-server/pull/1930
+	sed -i 's/"tests"/"tests*"/' setup.py || die
 }
 
 python_install() {
@@ -54,11 +63,13 @@ python_install() {
 }
 
 pkg_postinst() {
+	elog "net-misc/gns3-server has several optional packages that must be merged manually for additional functionality."
+	elog ""
 	optfeature "QEMU Support" "app-emulation/qemu"
 	optfeature "Virtualbox Support" "app-emulation/virtualbox"
 	optfeature "Docker Support" "app-emulation/docker"
 	optfeature "Wireshark Support" "net-analyzer/wireshark"
-	elog
+	elog ""
 	elog "The following packages are currently unsupported:"
 	elog "iouyap and vpcs"
 }
