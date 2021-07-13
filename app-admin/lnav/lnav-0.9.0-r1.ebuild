@@ -32,6 +32,12 @@ PATCHES=(
 	# bug 713600
 	"${FILESDIR}"/${PN}-0.9.0-bug713600_0.patch
 	"${FILESDIR}"/${PN}-0.9.0-bug713600_1.patch
+	# Fix a segfault when using right arrow
+	# bug 792582
+	"${FILESDIR}"/${PN}-0.9.0-bug792582.patch
+	# Fix a build failure on gcc
+	# bug 786456
+	"${FILESDIR}"/${PN}-0.9.0-bug786456.patch
 )
 
 src_prepare() {
