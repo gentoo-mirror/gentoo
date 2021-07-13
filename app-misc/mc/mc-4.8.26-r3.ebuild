@@ -1,27 +1,20 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-if [[ ${PV} = *9999* ]]; then
-	EGIT_REPO_URI="https://github.com/MidnightCommander/mc.git"
-	LIVE_ECLASSES="git-r3 autotools"
-	LIVE_EBUILD=yes
-fi
+inherit autotools flag-o-matic
 
-inherit flag-o-matic ${LIVE_ECLASSES}
-
-if [[ -z ${LIVE_EBUILD} ]]; then
-	SRC_URI="http://ftp.midnight-commander.org/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x86-solaris"
-fi
+MY_P=${P/_/-}
 
 DESCRIPTION="GNU Midnight Commander is a text based file manager"
 HOMEPAGE="https://midnight-commander.org"
+SRC_URI="http://ftp.midnight-commander.org/${MY_P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+edit gpm nls samba sftp +slang spell test unicode X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x86-solaris"
+IUSE="+edit gpm nls samba sftp +slang spell test unicode X +xdg"
 
 REQUIRED_USE="spell? ( edit )"
 
@@ -38,14 +31,21 @@ RDEPEND=">=dev-libs/glib-2.26.0:2
 		x11-libs/libXau
 		x11-libs/libXdmcp
 		x11-libs/libSM )"
-DEPEND="${RDEPEND}
-	app-arch/xz-utils
+DEPEND="${RDEPEND}"
+BDEPEND="app-arch/xz-utils
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
-	test? ( dev-libs/check )
-	"
+	test? ( dev-libs/check )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.8.26-file-seccomp.patch
+	"${FILESDIR}"/${PN}-4.8.26-ncurses-mouse.patch
+	"${FILESDIR}"/${PN}-4.8.26-shadow-crash.patch
+)
 
 RESTRICT="!test? ( test )"
+
+S="${WORKDIR}/${MY_P}"
 
 pkg_pretend() {
 	if use slang && use unicode ; then
@@ -56,7 +56,8 @@ pkg_pretend() {
 src_prepare() {
 	default
 
-	[[ -n ${LIVE_EBUILD} ]] && ./autogen.sh
+	# patch touches configure.ac
+	eautoreconf
 }
 
 src_configure() {
@@ -65,6 +66,7 @@ src_configure() {
 	local myeconfargs=(
 		--enable-charset
 		--enable-vfs
+		--with-homedir=$(usex xdg 'XDG' '.mc')
 		--with-screen=$(usex slang 'slang' "ncurses$(usex unicode 'w' '')")
 		$(use_enable kernel_linux vfs-undelfs)
 		# Today mclib does not expose any headers and is linked to
@@ -92,14 +94,20 @@ src_test() {
 	# information.
 	CK_FORK=no emake check VERBOSE=1
 }
+
 src_install() {
 	emake DESTDIR="${D}" install
-	dodoc AUTHORS doc/{FAQ,NEWS,README}
+	dodoc AUTHORS README NEWS
 
 	# fix bug #334383
 	if use kernel_linux && [[ ${EUID} == 0 ]] ; then
 		fowners root:tty /usr/libexec/mc/cons.saver
 		fperms g+s /usr/libexec/mc/cons.saver
+	fi
+
+	if ! use xdg ; then
+		sed 's@MC_XDG_OPEN="xdg-open"@MC_XDG_OPEN="/bin/false"@' \
+			-i "${ED}"/usr/libexec/mc/ext.d/*.sh || die
 	fi
 }
 
@@ -110,6 +118,7 @@ pkg_postinst() {
 		elog "It has to be set to one of your installed aspell dictionaries or 'NONE'"
 		elog
 	fi
+
 	elog "To enable exiting to latest working directory,"
 	elog "put this into your ~/.bashrc:"
 	elog ". ${EPREFIX}/usr/libexec/mc/mc.sh"
