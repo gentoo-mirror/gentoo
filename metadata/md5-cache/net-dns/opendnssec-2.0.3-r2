@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-doc/doxygen ) test? ( app-text/trang ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst prepare pretend setup
+DEPEND=acct-group/opendnssec acct-user/opendnssec dev-lang/perl dev-libs/libxml2 dev-libs/libxslt net-libs/ldns mysql? ( dev-db/mysql-connector-c:0= dev-perl/DBD-mysql ) opensc? ( dev-libs/opensc ) readline? ( sys-libs/readline:0 ) softhsm? ( dev-libs/softhsm:* ) sqlite? ( dev-db/sqlite:3 dev-perl/DBD-SQLite )
+DESCRIPTION=An open-source turn-key solution for DNSSEC
+EAPI=7
+HOMEPAGE=https://www.opendnssec.org/
+INHERIT=autotools
+IUSE=debug doc +mysql readline +signer sqlite test +softhsm opensc external-hsm
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD GPL-2
+RDEPEND=acct-group/opendnssec acct-user/opendnssec dev-lang/perl dev-libs/libxml2 dev-libs/libxslt net-libs/ldns mysql? ( dev-db/mysql-connector-c:0= dev-perl/DBD-mysql ) opensc? ( dev-libs/opensc ) readline? ( sys-libs/readline:0 ) softhsm? ( dev-libs/softhsm:* ) sqlite? ( dev-db/sqlite:3 dev-perl/DBD-SQLite )
+REQUIRED_USE=^^ ( mysql sqlite ) ^^ ( softhsm opensc external-hsm )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.opendnssec.org/files/source/opendnssec-2.0.3.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_md5_=dde8a5260974bd191bc20d009d317528
