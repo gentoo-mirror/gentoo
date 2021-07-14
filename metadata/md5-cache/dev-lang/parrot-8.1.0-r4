@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl[doc?] sys-libs/readline:0= dev-libs/libffi:= net-libs/libnsl:0= virtual/libcrypt:= opengl? ( media-libs/freeglut ) nls? ( sys-devel/gettext ) unicode? ( >=dev-libs/icu-2.6:= ) gdbm? ( >=sys-libs/gdbm-1.8.3-r1:= ) gmp? ( >=dev-libs/gmp-4.1.4:0= ) ssl? ( dev-libs/openssl:0= ) pcre? ( dev-libs/libpcre ) doc? ( dev-perl/JSON )
+DEFINED_PHASES=compile configure install test
+DEPEND=sys-libs/readline:0= dev-libs/libffi:= net-libs/libnsl:0= virtual/libcrypt:= opengl? ( media-libs/freeglut ) nls? ( sys-devel/gettext ) unicode? ( >=dev-libs/icu-2.6:= ) gdbm? ( >=sys-libs/gdbm-1.8.3-r1:= ) gmp? ( >=dev-libs/gmp-4.1.4:0= ) ssl? ( dev-libs/openssl:0= ) pcre? ( dev-libs/libpcre )
+DESCRIPTION=Virtual machine designed to compile and execute bytecode for dynamic languages
+EAPI=7
+HOMEPAGE=http://www.parrot.org/
+IUSE=opengl nls doc examples gdbm +gmp ssl +unicode pcre
+KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+LICENSE=Artistic-2
+RDEPEND=sys-libs/readline:0= dev-libs/libffi:= net-libs/libnsl:0= virtual/libcrypt:= opengl? ( media-libs/freeglut ) nls? ( sys-devel/gettext ) unicode? ( >=dev-libs/icu-2.6:= ) gdbm? ( >=sys-libs/gdbm-1.8.3-r1:= ) gmp? ( >=dev-libs/gmp-4.1.4:0= ) ssl? ( dev-libs/openssl:0= ) pcre? ( dev-libs/libpcre ) doc? ( dev-perl/JSON )
+RESTRICT=test
+SLOT=0/8.1.0
+SRC_URI=ftp://ftp.parrot.org/pub/parrot/releases/all/8.1.0/parrot-8.1.0.tar.gz
+_md5_=5840ef5ede0e32d66b32355b1820860c
