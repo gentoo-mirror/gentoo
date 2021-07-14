@@ -39,6 +39,10 @@ DEPEND="${RDEPEND}
 	websocket? ( dev-cpp/websocketpp )
 "
 
+PATCHES=(
+	"${FILESDIR}"/indilib-1.9.1-fix-include.patch
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DINDI_BUILD_QT5_CLIENT=OFF
