@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-32">
+  <title>Apache Thrift: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Apache Thrift, the
+    worst of which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">thrift</product>
+  <announced>2021-07-14</announced>
+  <revised count="1">2021-07-14</revised>
+  <bug>761409</bug>
+  <bug>770145</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-python/thrift" auto="yes" arch="*">
+      <unaffected range="ge">0.14.1</unaffected>
+      <vulnerable range="lt">0.14.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Apache Thrift is a software framework that combines a software stack
+      with a code generation engine to build services that work efficiently and
+      seamlessly between many languages.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Apache Thrift. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Apache Thrift users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-python/thrift-0.14.1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-0205">CVE-2019-0205</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-0210">CVE-2019-0210</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-13949">CVE-2020-13949</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-08T01:05:35Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-14T03:10:06Z">ajak</metadata>
+</glsa>
