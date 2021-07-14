@@ -22,19 +22,24 @@ acct-group/automatic 0: System group: automatic
 acct-group/automx2 0-r1: Group for net-mail/automx2
 acct-group/avahi 0-r1: group for avahi
 acct-group/avahi-autoipd 0-r1: group for avahi-autoipd
+acct-group/axtls 0: A group for net-libs/axtls
 acct-group/backuppc 0: Group for app-backup/backuppc
 acct-group/bacula 0-r1: A group for the bacula backup system
+acct-group/badvpn 0: A group for net-vpn/badvpn
 acct-group/bareos 0-r1: Group for the bareos network backup suite
+acct-group/beanstalk 0: A group for app-misc/beanstalkd
 acct-group/bedrock 0-r1: A group for the Minecraft Bedrock server
 acct-group/bind_exporter 0-r1: System group: bind_exporter
 acct-group/bird 0: System group: bird
 acct-group/bitcoin 0-r1: A group for users with access to system-wide Bitcoin services
+acct-group/bitflu 0: A group for net-p2p/bitflu
 acct-group/bitlbee 0-r1: System group: bitlbee
 acct-group/blackbox_exporter 0: System group: blackbox_exporter
 acct-group/boinc 0: Group for sci-misc/boinc
 acct-group/buildbot 0-r1: Buildbot program group
 acct-group/bumblebee 0: System group: bumblebee
 acct-group/burp 0-r1: Group for the app-backup/burp server
+acct-group/burrow_exporter 0: A group for app-metrics/burrow_exporter
 acct-group/cadvisor 0-r1: System group: cadvisor
 acct-group/cancd 0: A group for the CA NetConsole Daemon
 acct-group/carbon 0-r1: System group: carbon
@@ -47,6 +52,7 @@ acct-group/clair 0-r1: System group: clair
 acct-group/clamav 0-r1: System group: clamav
 acct-group/cmd5checkpw 0-r1: System group: cmd5checkpw
 acct-group/cntlm 0: Group for net-proxy/cntlm
+acct-group/cockroach 0: A group for dev-db/cockroach
 acct-group/collectd 0: collectd program group
 acct-group/colord 0: System group: colord
 acct-group/consul 0-r1: System group: consul
@@ -54,10 +60,12 @@ acct-group/consul-template 0-r1: System group: consul-template
 acct-group/consul_exporter 0: System group: consul_exporter
 acct-group/coredns 0: A group for net-dns/coredns
 acct-group/croc 0: Group for net-misc/croc
+acct-group/cron 0: A group for sys-process/cronbase
 acct-group/crontab 0: System group: crontab
 acct-group/cvmfs 0-r1: Group for the CernVM-FS network file system
 acct-group/davfs2 0-r1: System group: davfs2
 acct-group/dbmail 0: System group: dbmail
+acct-group/dbskkd 0: A group for app-i18n/dbskkd-cdb
 acct-group/ddclient 0-r1: A group for the dynamic DNS client
 acct-group/defang 0: A group for mail-filter/mimedefang
 acct-group/dehydrated 0: dehydrated program group
@@ -78,7 +86,9 @@ acct-group/docker 0-r1: System group: docker
 acct-group/docker_auth 0-r1: System group: docker_auth
 acct-group/dovecot 0-r1: System group: dovecot
 acct-group/dovenull 0-r1: System group: dovenull
+acct-group/drone 0: A group for dev-util/drone
 acct-group/elasticsearch 0-r1: Elasticsearch program group
+acct-group/elasticsearch_exporter 0: A group for app-metrics/elasticsearch_exporter
 acct-group/energi3 0: Group for system-wide net-p2p/energi3
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/epmd 0-r1: Group for Erlang Portmapper Daemon
@@ -87,12 +97,16 @@ acct-group/etcd 0-r1: System group: etcd
 acct-group/exabgp 0-r1: System group: exabgp
 acct-group/ez-ipupd 0: Group for net-dns/ez-ipupdate
 acct-group/fax 0: A group for net-dialup/mgetty
+acct-group/fcron 0: A group for sys-process/fcron
 acct-group/fdm 0: Group for net-mail/fdm
 acct-group/fetchmail 0-r1: Group for net-mail/fetchmail
 acct-group/fhem 0-r1: A group for the FHEM perl server for house automation
 acct-group/fingerprint 0-r1: System group: fingerprint
+acct-group/firebird 0: A group for dev-db/firebird
 acct-group/flatpak 0: System group: flatpak
 acct-group/flows 0: gid for net-analyzer/flow-tools
+acct-group/fluentd 0: A group for app-admin/fluentd
+acct-group/foldingathome 0: A group for sci-biology/foldingathome
 acct-group/fp-multiuser 0: A group for net-vpn/fp-multiuser
 acct-group/freenet 0: Group for net-p2p/freenet
 acct-group/fritzbox_smarthome_exporter 0: System group: fritzbox_smarthome_exporter
@@ -103,6 +117,7 @@ acct-group/fvwm-crystal 0-r1: System group: fvwm-crystal
 acct-group/gamemode 0: Group for the system-wide games-util/gamemode resource group
 acct-group/gamestat 0-r1: Group for shared high-score and game state files
 acct-group/gatling 0-r1: System group: gatling
+acct-group/gauth 0: A group for sys-auth/google-authenticator-wrappers
 acct-group/gdm 0: System group: gdm
 acct-group/geneweb 0-r1: Group for geneweb daemon
 acct-group/geoclue 0: System group: geoclue
@@ -116,13 +131,17 @@ acct-group/gnump3d 0: A group for media-sound/gnump3d
 acct-group/gnupg-pkcs11 0: Group for app-crypt/gnupg-pkcs11-scd
 acct-group/gnupg-pkcs11-scd-proxy 0: Group for app-crypt/gnupg-pkcs11-scd
 acct-group/gopher 0: System group: gopher
+acct-group/gopherd 0: A group for net-misc/geomyidae
 acct-group/gpib 0-r1: System group: gpib
 acct-group/gpio 0: System group: gpio
 acct-group/grafana 0-r1: grafana program group
 acct-group/graylog 0-r1: Graylog program group
 acct-group/greetd 0-r1: Group for gui-libs/greetd
+acct-group/grok_exporter 0: A group for app-metrics/grok_exporter
 acct-group/groonga 0: Group for app-text/groonga
 acct-group/gvm 0-r1: Greenbone vulnerability management program group
+acct-group/h2o 0: A group for www-servers/h2o
+acct-group/haclient 0: A group for sys-cluster/cluster-glue
 acct-group/haproxy 0-r1: System group: haproxy
 acct-group/havp 0: Group for net-proxy/havp
 acct-group/heat 0-r1: System group: heat
@@ -131,6 +150,8 @@ acct-group/http 0: System group: http
 acct-group/i2c 0: System group: i2c
 acct-group/i2p 0-r1: Group for system-wide net-vpn/i2p
 acct-group/i2pd 0-r1: Group for the system-wide net-vpn/i2pd server
+acct-group/icecast 0: A group for net-misc/icecast
+acct-group/icecream 0: A group for sys-devel/icecream
 acct-group/ices 0: A group for net-misc/ices
 acct-group/icinga 0-r1: System group: icinga
 acct-group/icingacmd 0-r1: System group: icingacmd
@@ -146,6 +167,7 @@ acct-group/jabber 0: A group for various jabber services
 acct-group/jenkins 0: Jenkins program group
 acct-group/kafka 0-r1: System group: kafka
 acct-group/kapacitor 0-r1: System group: kapacitor
+acct-group/karma 0: A group for www-apps/karma-bin
 acct-group/keystone 0-r1: System group: keystone
 acct-group/kibana 0-r1: Kibana program group
 acct-group/kismet 0-r1: net-wireless/kismet
@@ -157,6 +179,7 @@ acct-group/kube-scheduler 0-r1: System group: kube-scheduler
 acct-group/kvm 0-r1: System group: kvm
 acct-group/ldap 0: System group: ldap
 acct-group/libvirt 0-r1: System group: libvirt
+acct-group/lightdm 0: A group for x11-misc/lightdm
 acct-group/lighttpd 0-r1: System group: lighttpd
 acct-group/litecoin 0: Group for net-p2p/litecoind
 acct-group/lldpd 0-r1: System group: lldpd
@@ -185,10 +208,12 @@ acct-group/mogile 0: MogileFS group
 acct-group/mongodb 0-r1: MongoDB program group
 acct-group/mongodb_exporter 0: System group: mongodb_exporter
 acct-group/monitorix 0-r1: Monitorix system tool group
+acct-group/monkeyd 0: A group for www-servers/monkeyd
 acct-group/monkeysphere 0-r1: monkeysphere program group
 acct-group/mosquitto 0-r1: A group for the mosquitto MQTT broker
 acct-group/motion 0-r1: System group: motion
 acct-group/msmtpd 0-r1: System group: msmtpd
+acct-group/munge 0: A group for sys-auth/munge
 acct-group/munin 0-r1: System group: munin
 acct-group/murmur 0-r1: System group: murmur
 acct-group/mysql 0-r1: MySQL program group
@@ -201,9 +226,12 @@ acct-group/netdata 0-r1: System group: netdata
 acct-group/netdev 0-r1: group for netdev (avahi)
 acct-group/netperf 0: A group for net-analyzer/netperf
 acct-group/neutron 0-r1: System group: neutron
+acct-group/nginx 0: A group for www-servers/nginx
 acct-group/nginx-vts-exporter 0-r1: System group: nginx-vts-exporter
 acct-group/ngircd 0-r1: Group for ngircd (IRC daemon)
 acct-group/ngrep 0-r1: A group for net-analyzer/ngrep
+acct-group/nm-openconnect 0: A group for net-vpn/networkmanager-openconnect
+acct-group/nm-openvpn 0: A group for net-vpn/networkmanager-openvpn
 acct-group/nobody 0: System group: nobody
 acct-group/node_exporter 0-r1: System group: node_exporter
 acct-group/nofiles 0-r1: System group: nofiles
@@ -230,10 +258,12 @@ acct-group/oprofile 0-r1: A group for dev-util/oprofile JIT code processing
 acct-group/oragono 0: Group for the Oragono IRC server
 acct-group/ossec 0-r1: Group for net-analyzer/ossec-hids
 acct-group/p2p 0: Group for mldonkey
+acct-group/partimag 0: A group for sys-block/partimage
 acct-group/pcap 0: Group for capturing network traffic
 acct-group/pcscd 0-r1: System group: pcscd
 acct-group/pdns 0-r1: System group: pdns
 acct-group/pdnsd 0-r1: System group: pdnsd
+acct-group/pgagent 0: A group for dev-db/pgagent
 acct-group/pkcs11 0: Group for dev-libs/opencryptoki
 acct-group/placement 0-r1: System group: placement
 acct-group/plex 0-r1: Plex Media Server group
@@ -256,27 +286,38 @@ acct-group/pulse 0: System group: pulse
 acct-group/pulse-access 0: System group: pulse-access
 acct-group/puppet 0-r1: System group: puppet
 acct-group/puppetdb 0-r1: System group: puppetdb
+acct-group/pushgateway 0: A group for app-metrics/pushgateway
 acct-group/pvpgn 0: Group for pvpgn (gaming server for Battle.Net compatible clients)
 acct-group/qemu 0-r1: System group: qemu
 acct-group/qmail 0-r1: System group: qmail
 acct-group/quagga 0-r1: System group: quagga
 acct-group/quassel 0-r1: System group: quassel
+acct-group/rabbitmq 0: A group for net-misc/rabbitmq-server
+acct-group/rabbitmq_exporter 0: A group for app-metrics/rabbitmq_exporter
 acct-group/radicale 0-r1: Group for the www-apps/radicale
 acct-group/radius 0-r1: FreeRadius program group
 acct-group/radvd 0: A group for the Router Advertisement Daemon
 acct-group/rbldns 0-r1: System group: rbldns
+acct-group/rbot 0: A group for net-irc/rbot
 acct-group/realtime 0: realtime privileges group
 acct-group/redis 0-r1: Redis program group
 acct-group/redis_exporter 0: System group: redis_exporter
 acct-group/redmine 0-r1: System group: redmine
 acct-group/redsocks 0: A group for net-proxy/redsocks
+acct-group/reg 0: A group for app-emulation/reg
+acct-group/registry 0: A group for app-emulation/docker-registry
 acct-group/render 0-r1: System group: render
+acct-group/resin 0: A group for www-servers/resin
+acct-group/roccat 0: A group for sys-apps/roccat-tools
 acct-group/root 0: System group: root
+acct-group/ros 0: A group for dev-ros/roslaunch
 acct-group/rplayd 0: A group for media-sound/rplay
 acct-group/rslsync 0: A group for net-p2p/resilio-sync
 acct-group/rspamd 0-r1: Group for rspamd - Rapid spam filtering system
 acct-group/rstudio-server 0-r1: group for sci-mathematics/rstudio
+acct-group/rt 0: A group for www-apps/rt
 acct-group/rtkit 0-r1: Group for the Realtime Policy and Watchdog Daemon
+acct-group/rundeck 0: A group for app-misc/rundeck-bin
 acct-group/rwhoisd 0: Group for net-misc/rwhoisd
 acct-group/sabnzbd 0-r1: SABnzbd program group
 acct-group/sagan 0: Group for the Sagan log monitoring system
@@ -304,6 +345,7 @@ acct-group/smtpd 0-r1: daemon group for smtpd
 acct-group/smtpq 0-r1: queue group for smtpd
 acct-group/snapserver 0: Server group for media-sound/snapcast
 acct-group/sniproxy 0: System group: sniproxy
+acct-group/snmp_exporter 0: A group for app-metrics/snmp_exporter
 acct-group/snort 0: System group: snort
 acct-group/sobby 0: System group: sobby
 acct-group/sobexsrv 0: A group for sobexsrv: a secure OBEX server
@@ -311,6 +353,7 @@ acct-group/sockd 0: A group for net-proxy/dante
 acct-group/sogo 0-r1: Group for gnustep-apps/sogo
 acct-group/spamd 0-r1: Group for the SpamAssassin daemon
 acct-group/spectrum 0-r1: A group for the Spectrum messaging transport
+acct-group/speech 0: A group for app-accessibility/eflite
 acct-group/spi 0: System group: spi
 acct-group/spire 0-r1: System group: spire
 acct-group/spread 0: A group for net-misc/spread
@@ -328,6 +371,7 @@ acct-group/stg 0: A group for net-misc/stargazer
 acct-group/strelaysrv 0-r1: Group for the Syncthing relay server
 acct-group/stubby 0-r1: Stubby program group (from net-dns/getdns)
 acct-group/stunnel 0-r1: group for stunnel
+acct-group/subsonic 0: A group for media-sound/subsonic-bin
 acct-group/supervisor 0-r1: Group to grant access to app-admin/supervisor's management
 acct-group/suricata 0-r1: Group for Suricata IDS
 acct-group/svnusers 0-r1: System group: svnusers
@@ -346,12 +390,14 @@ acct-group/taskd 0: A group for app-misc/taskd
 acct-group/teamspeak 0-r1: A group for the TeamSpeak server
 acct-group/telegraf 0-r1: System group: telegraf
 acct-group/tenshi 0: Group for app-admin/tenshi
+acct-group/thttpd 0: A group for www-servers/thttpd
 acct-group/tinyproxy 0: gid for net-proxy/tinyproxy
 acct-group/tomcat 0: Group for Apache Tomcat
 acct-group/tor 0-r1: group for tor daemon
 acct-group/tox 0-r1: Group management for package net-libs/tox
 acct-group/tpm 0: System group: tpm
 acct-group/transmission 0-r1: System group: transmission
+acct-group/trickster 0: A group for www-apps/trickster
 acct-group/trojan 0: System group: trojan
 acct-group/tsm 0-r1: System group: tsm
 acct-group/tss 0-r1: Trusted Software Stack for TPMs group
@@ -373,12 +419,15 @@ acct-group/users 0: System group: users
 acct-group/ushare 0: Group for uShare
 acct-group/utmp 0-r1: System group: utmp
 acct-group/uucp 0-r1: System group: uucp
+acct-group/uwsgi_exporter 0: A group for app-metrics/uwsgi_exporter
+acct-group/vacation 0: A group for www-apps/postfixadmin
 acct-group/varnish 0-r1: group for varnish
 acct-group/vault 0-r1: System group: vault
 acct-group/vault_exporter 0: A group for app-metrics/vault_exporter
 acct-group/vboxguest 0-r1: System group: vboxguest
 acct-group/vboxsf 0-r1: System group: vboxsf
 acct-group/vboxusers 0-r1: System group: vboxusers
+acct-group/vdr 0: A group for media-tv/gentoo-vdr-scripts
 acct-group/vdradmin 0-r1: Group for www-misc/vdradmin-am
 acct-group/video 0-r1: System group: video
 acct-group/vlock 0: A group for app-misc/vlock
@@ -14600,7 +14649,7 @@ net-analyzer/ipv6toolkit 2.1_p20200412 99999999: Set of IPv6 security/trouble-sh
 net-analyzer/isic 0.07-r1: IP Stack Integrity Checker
 net-analyzer/jmx2munin 1.0_p20120811-r1: JMX Monitoring plugin for Munin
 net-analyzer/jnettop 0.13.0-r1: A top like console network traffic visualiser
-net-analyzer/kapacitor 1.4.1-r1 1.5.1 1.5.5: Monitoring, processing and alerting on time series data
+net-analyzer/kapacitor 1.5.5: Monitoring, processing and alerting on time series data
 net-analyzer/knocker 0.7.1-r3 0.8.0: Knocker is an easy to use security port scanner written in C
 net-analyzer/labrea 2.5_p1: 'Sticky' Honeypot and IDS
 net-analyzer/lft 3.91-r1: Layer Four Traceroute (LFT) and WhoB
