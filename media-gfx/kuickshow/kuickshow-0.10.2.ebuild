@@ -4,13 +4,13 @@
 EAPI=7
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.60.0
+KFMIN=5.76.0
 QTMIN=5.12.3
 inherit ecm kde.org
 
 DESCRIPTION="Image viewer based on KDE Frameworks"
 HOMEPAGE="https://userbase.kde.org/KuickShow"
-SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="5"
@@ -40,5 +40,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!media-gfx/kuickshow:4
 "
-
-PATCHES=( "${FILESDIR}/${P}-kwindowsystem-5.82.patch" ) # bug 790200

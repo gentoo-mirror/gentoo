@@ -11,7 +11,7 @@ SRC_URI="http://homebank.free.fr/public/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+ofx"
-KEYWORDS="amd64 ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 RDEPEND=">=dev-libs/glib-2.39
 	>=net-libs/libsoup-2.26
@@ -33,7 +33,7 @@ src_prepare() {
 	default
 
 	# avoid using eautoreconf
-	sed -i -e 's|\$(datadir)/appdata|\$(datadir)/metainfo|' data/Makefile.{am,in} ||die
+	sed -i -e 's|\$(datadir)/appdata|\$(datadir)/metainfo|' data/Makefile.{am,in} || die
 }
 
 src_configure() {
