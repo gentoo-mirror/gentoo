@@ -7353,8 +7353,12 @@ sci-libs/p4est:romio - Build with support for the ROMIO MPI-IO component
 sci-libs/p4est:vtk-binary - Enable binary vtk output. If disabled vtk files will be written in ASCII text format.
 sci-libs/parmetis:double-precision - Floating-point operation done as double precision
 sci-libs/parmetis:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
-sci-libs/pastix:int64 - Build the 64 bits integer library
-sci-libs/pastix:starpu - Build and link with dev-libs/starpu
+sci-libs/pastix:cuda - Enable GPU support using CUDA kernels
+sci-libs/pastix:fortran - Install the Fortran interface
+sci-libs/pastix:int64 - Use 64- rather than 32-bit integer representation
+sci-libs/pastix:metis - Enable matrix ordering with sci-libs/metis
+sci-libs/pastix:scotch - Enable matrix ordering with sci-libs/scotch
+sci-libs/pastix:starpu - Enable support for ther dev-libs/starpu runtime
 sci-libs/pcl:cuda - Adds support for NVIDIA CUDA.
 sci-libs/pcl:openni - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI.
 sci-libs/pcl:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2 (should be preferred over openni).
