@@ -8,7 +8,7 @@ DIST_EXAMPLES=( "examples/*" )
 if [[ "${PV}" != "9999" ]]; then
 	DIST_VERSION=${PV%.0}
 	DIST_AUTHOR="AKHUETTEL"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 	inherit perl-module
 else
 	EGIT_REPO_URI="https://github.com/lab-measurement/Lab-Measurement.git"
@@ -44,6 +44,7 @@ RDEPEND="
 	dev-perl/List-MoreUtils
 	virtual/perl-Scalar-List-Utils
 	virtual/perl-Math-Complex
+	dev-perl/Math-Round
 	>=virtual/perl-Module-Load-0.260.0
 	>=dev-perl/Moose-2.121.300
 	>=dev-perl/MooseX-Params-Validate-0.180.0

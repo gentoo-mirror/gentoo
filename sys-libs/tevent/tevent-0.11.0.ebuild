@@ -28,6 +28,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	>=dev-util/cmocka-1.1.3
 	elibc_glibc? (
 		net-libs/libtirpc[${MULTILIB_USEDEP}]
 		|| (
