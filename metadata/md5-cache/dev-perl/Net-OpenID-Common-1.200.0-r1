@@ -1,7 +1,8 @@
+BDEPEND=>=dev-perl/Crypt-DH-GMP-0.0.110 virtual/perl-Encode >=dev-perl/HTML-Parser-3.400.0 >=dev-perl/HTTP-Message-5.814.0 virtual/perl-MIME-Base64 virtual/perl-Math-BigInt virtual/perl-Time-Local dev-perl/XML-Simple !<dev-perl/Net-OpenID-Consumer-1.30.99 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-perl/Crypt-DH-GMP-0.0.110 virtual/perl-Encode >=dev-perl/HTML-Parser-3.400.0 >=dev-perl/HTTP-Message-5.814.0 virtual/perl-MIME-Base64 virtual/perl-Math-BigInt virtual/perl-Time-Local dev-perl/XML-Simple !<dev-perl/Net-OpenID-Consumer-1.30.99 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Libraries shared between Net::OpenID::Consumer and Net::OpenID::Server
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Net-OpenID-Common
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=>=dev-perl/Crypt-DH-GMP-0.0.110 virtual/perl-Encode >=dev-perl/HTML-Pars
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/W/WR/WROG/Net-OpenID-Common-1.20.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=afac89ffc91ca82bd114e8aca590ae08
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=5b120f639474d95f328895e9f7bc542d

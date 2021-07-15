@@ -1,0 +1,16 @@
+BDEPEND=virtual/ssh dev-perl/IO-Tty !minimal? ( dev-perl/Net-SSH-Any dev-perl/Net-SFTP-Foreign ) virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Net::OpenSSH, Perl wrapper for OpenSSH secure shell client
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Net-OpenSSH
+INHERIT=perl-module
+IUSE=minimal test examples
+KEYWORDS=~amd64 ~hppa ~sparc ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/ssh dev-perl/IO-Tty !minimal? ( dev-perl/Net-SSH-Any dev-perl/Net-SFTP-Foreign ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/SA/SALVA/Net-OpenSSH-0.80.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=f5903195291db1bab5109c5bb83a5995
