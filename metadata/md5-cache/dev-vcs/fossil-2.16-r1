@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://www.fossil-scm.org/
 INHERIT=toolchain-funcs
 IUSE=debug fusefs json miniz system-sqlite +ssl static tcl tcl-stubs tcl-private-stubs th1-docs th1-hooks
-KEYWORDS=amd64 ~arm ppc ppc64 x86
+KEYWORDS=amd64 arm ppc ppc64 x86
 LICENSE=BSD-2
 RDEPEND=sys-libs/zlib || ( sys-libs/readline:0 dev-libs/libedit ) system-sqlite? ( >=dev-db/sqlite-3.35.0:3 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= )
 REQUIRED_USE=ssl? ( !miniz )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://fossil-scm.org/home/tarball/7aedd5675883d4412cf20917d340b6985e3ecb842e88a39f135df034b2d5f4d3/fossil-src-2.16.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=52dacc0cf7143e2770c306e18e08e61b
+_md5_=f43478e2be9ef0175cd3b4fd9a3c40e4
