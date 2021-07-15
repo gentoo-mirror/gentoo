@@ -1,13 +1,15 @@
-DEFINED_PHASES=compile install setup test unpack
-DEPEND=>=dev-lang/go-1.10
+BDEPEND=>=dev-lang/go-1.10
+DEFINED_PHASES=compile install test unpack
+DEPEND=acct-group/zetcd
 DESCRIPTION=A ZooKeeper personality for etcd
-EAPI=6
+EAPI=7
 HOMEPAGE=https://github.com/coreos/zetcd
-INHERIT=golang-build golang-vcs-snapshot user
+INHERIT=golang-build golang-vcs-snapshot
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
+RDEPEND=acct-group/zetcd
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/coreos/zetcd/archive/v0.0.4.tar.gz -> zetcd-0.0.4.tar.gz https://github.com/coreos/etcd/archive/714e7ec8db7f8398880197be10771fe89c480ee5.tar.gz -> github.com-coreos-etcd-714e7ec8db7f8398880197be10771fe89c480ee5.tar.gz https://github.com/grpc/grpc-go/archive/777daa17ff9b5daef1cfdf915088a2ada3332bf0.tar.gz -> github.com-grpc-grpc-go-777daa17ff9b5daef1cfdf915088a2ada3332bf0.tar.gz https://github.com/golang/protobuf/archive/4bd1920723d7b7c925de087aa32e2187708897f7.tar.gz -> github.com-golang-protobuf-4bd1920723d7b7c925de087aa32e2187708897f7.tar.gz https://github.com/google/go-genproto/archive/ee236bd376b077c7a89f260c026c4735b195e459.tar.gz -> github.com-google-go-genproto-ee236bd376b077c7a89f260c026c4735b195e459.tar.gz
-_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-build	91472d4e18894e738c69b415e236a664	golang-vcs-snapshot	ff485cabd3f37b060f110b0be95092ec	user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0
-_md5_=c3dd77f41b8f3fefaabf253ce9656d62
+_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-build	91472d4e18894e738c69b415e236a664	golang-vcs-snapshot	ff485cabd3f37b060f110b0be95092ec
+_md5_=53af08d477502b6e28c4af1172e366ad
