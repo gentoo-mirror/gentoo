@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-33">
+  <title>Pillow: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Pillow, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">pillow</product>
+  <announced>2021-07-14</announced>
+  <revised count="1">2021-07-14</revised>
+  <bug>773559</bug>
+  <bug>774387</bug>
+  <bug>779760</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-python/pillow" auto="yes" arch="*">
+      <unaffected range="ge">8.2.0</unaffected>
+      <vulnerable range="lt">8.2.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Python Imaging Library (fork)</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Pillow. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Pillow users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-python/pillow-8.2.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25287">CVE-2021-25287</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25288">CVE-2021-25288</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25289">CVE-2021-25289</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25290">CVE-2021-25290</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25291">CVE-2021-25291</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25292">CVE-2021-25292</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25293">CVE-2021-25293</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27921">CVE-2021-27921</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27922">CVE-2021-27922</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27923">CVE-2021-27923</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28675">CVE-2021-28675</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28676">CVE-2021-28676</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28677">CVE-2021-28677</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28678">CVE-2021-28678</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-13T01:09:21Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-14T03:15:19Z">ajak</metadata>
+</glsa>
