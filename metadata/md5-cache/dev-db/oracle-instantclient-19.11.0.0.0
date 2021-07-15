@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install postinst preinst prepare test unpack
+DEPEND=app-arch/unzip
+DESCRIPTION=Oracle 18c Instant Client with SDK
+EAPI=7
+HOMEPAGE=https://www.oracle.com/database/technologies/instant-client.html
+INHERIT=pax-utils multilib-minimal
+IUSE=jdbc odbc precomp +sdk +sqlplus tools abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64 ~x86
+LICENSE=OTN
+RDEPEND=>=dev-libs/libaio-0.3.109-r5[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] !<dev-db/oracle-instantclient-basic-12 !<dev-db/oracle-instantclient-odbc-12 !<dev-db/oracle-instantclient-jdbc-12 !<dev-db/oracle-instantclient-sqlplus-12 odbc? ( dev-db/unixODBC )
+REQUIRED_USE=precomp? ( sdk )
+RESTRICT=mirror splitdebug test
+SLOT=0/19.1
+SRC_URI=abi_x86_32? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-basic-linux-19.11.0.0.0dbru.zip jdbc? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-jdbc-linux-19.11.0.0.0dbru.zip ) odbc? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-odbc-linux-19.11.0.0.0dbru.zip ) precomp? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-precomp-linux-19.11.0.0.0dbru.zip ) !abi_x86_64? ( sdk? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-sdk-linux-19.11.0.0.0dbru.zip ) sqlplus? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-sqlplus-linux-19.11.0.0.0dbru.zip ) tools? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-tools-linux-19.11.0.0.0dbru.zip ) ) ) abi_x86_64? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-basic-linux.x64-19.11.0.0.0dbru.zip jdbc? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-jdbc-linux.x64-19.11.0.0.0dbru.zip ) odbc? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-odbc-linux.x64-19.11.0.0.0dbru.zip ) precomp? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-precomp-linux.x64-19.11.0.0.0dbru.zip ) sdk? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-sdk-linux.x64-19.11.0.0.0dbru.zip ) sqlplus? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-sqlplus-linux.x64-19.11.0.0.0dbru.zip ) tools? ( https://download.oracle.com/otn_software/linux/instantclient/1911000/instantclient-tools-linux.x64-19.11.0.0.0dbru.zip ) )
+_eclasses_=pax-utils	74cd9920d64148719fb62c462935c1b5	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib-build	effd4508d5e8209273d82d8f67ee93a0	multilib-minimal	7187f259f207bf5b69e4ff01498a7269
+_md5_=0bb6a1198680189f718f81e6d46f824c
