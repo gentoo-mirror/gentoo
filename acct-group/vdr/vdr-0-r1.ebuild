@@ -5,6 +5,6 @@ EAPI=7
 
 inherit acct-group
 
-DESCRIPTION="A group for media-tv/gentoo-vdr-scripts"
+DESCRIPTION="A group for the VDR (VideoDiskRecorder)"
 
-ACCT_GROUP_ID="92"
+ACCT_GROUP_ID="452"
