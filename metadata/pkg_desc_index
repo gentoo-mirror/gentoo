@@ -997,7 +997,7 @@ app-admin/sagan 1.0.0_rc3-r1 2.0.1-r4: Sagan is a multi-threaded, real time syst
 app-admin/sagan-rules 20140617 20210208 99999999: Rules for Sagan log analyzer
 app-admin/salt 3000.8-r1 3000.9-r1 3001.6-r1 3002.5-r1 3003-r1 3003.1: Salt is a remote execution and configuration manager
 app-admin/selint 1.1.0 1.2.0 9999: Policy Analysis Tools for SELinux
-app-admin/serf 0.8.1-r1 0.8.2 0.9.5: Service orchestration and management tool
+app-admin/serf 0.9.5: Service orchestration and management tool
 app-admin/setools 4.3.0 4.4.0 9999: Policy Analysis Tools for SELinux
 app-admin/socklog 2.1.0: Small secure replacement for syslogd with automatic log rotation
 app-admin/spectre-meltdown-checker 0.39 0.40 0.41 0.42 0.43 0.44 9999: Spectre & Meltdown vulnerability/mitigation checker for Linux
@@ -1305,7 +1305,7 @@ app-crypt/gentoo-keys 201901130136: A OpenPGP/GPG keyring of official Gentoo rel
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
 app-crypt/glep63-check 9 10: GLEP 63 compliance checker for OpenPGP keys
 app-crypt/gnupg 2.2.27 2.2.28 2.3.1: The GNU Privacy Guard, a GPL OpenPGP implementation
-app-crypt/gnupg-pkcs11-scd 0.9.2 0.9.2-r1: PKCS#11 support for GnuPG
+app-crypt/gnupg-pkcs11-scd 0.9.2-r1: PKCS#11 support for GnuPG
 app-crypt/gorilla 1.4-r1: Password Safe in secure way with GUI interface
 app-crypt/gpa 0.10.0: The GNU Privacy Assistant (GPA) is a graphical user interface for GnuPG
 app-crypt/gpg-ringmgr 1.12-r1: GPG Keyring Manager to handle large GPG keyrings more easily
@@ -12834,7 +12834,7 @@ mail-filter/spamdyke 5.0.1: A drop-in connection-time spam filter for qmail
 mail-filter/spampd 2.42: spampd is a program to scan messages for Unsolicited Commercial E-mail content
 mail-filter/spamprobe 1.4d-r2: Fast, intelligent, automatic spam detector using Bayesian analysis
 mail-filter/spf-engine 2.9.2-r1: Policy daemon and milter for Postfix SPF verification
-mail-filter/sqlgrey 1.7.6-r2 1.8.0: A postfix policy service implementing a grey-listing policy
+mail-filter/sqlgrey 1.8.0: A postfix policy service implementing a grey-listing policy
 mail-filter/zdkimfilter 1.8 2.1 2.2: DKIM filter for Courier-MTA
 mail-mta/courier 1.0.5 1.0.13 1.0.14 1.0.17 1.1.2: An MTA designed specifically for maildirs
 mail-mta/esmtp 1.2-r1 1.2-r2: User configurable relay-only Mail Transfer Agent with a sendmail-like syntax
@@ -15478,7 +15478,7 @@ net-misc/gnome-online-miners 3.34.0-r1: Crawls through your online content
 net-misc/gnome-remote-desktop 40.1: Remote desktop daemon for GNOME using pipewire
 net-misc/gns3-gui 2.2.21 2.2.22: Graphical Network Simulator
 net-misc/gns3-server 2.2.21 2.2.22: GNS3 server to asynchronously manage emulators
-net-misc/gofish 1.2 1.2-r1: Gofish gopher server
+net-misc/gofish 1.2-r1: Gofish gopher server
 net-misc/grdesktop 0.23-r2: Gtk3 frontend for rdesktop
 net-misc/grive 0.5.1-r1 0.5.2_pre20200205: An open source Linux client for Google Drive
 net-misc/gsasl 1.10.0: The GNU SASL client, server, and library
@@ -15629,7 +15629,7 @@ net-misc/rygel 0.40.1: Rygel is an open source UPnP/DLNA MediaServer
 net-misc/s3cmd 2.1.0 2.1.0-r1: Command line client for Amazon S3
 net-misc/s6-networking 2.3.0.2 2.3.0.3 2.3.0.4 2.3.1.1 2.3.2.0: Suite of small networking utilities for Unix systems
 net-misc/samplicator 1.3.6-r1 1.3.8_rc1-r1: UDP packets forwarder and duplicator
-net-misc/scponly 4.8-r6 4.8-r7: A tiny pseudoshell which only permits scp and sftp
+net-misc/scponly 4.8-r7: A tiny pseudoshell which only permits scp and sftp
 net-misc/seafile 8.0.1 8.0.2 8.0.3: File syncing and sharing software with file encryption and group sharing
 net-misc/seafile-client 8.0.1-r2 8.0.2 8.0.3: Seafile desktop client
 net-misc/secpanel 0.6.1-r1: Graphical frontend for managing and running SSH and SCP connections
@@ -17617,14 +17617,14 @@ sys-cluster/keepalived 2.0.20 2.1.5 2.2.2: A strong & robust keepalive facility 
 sys-cluster/knem 1.1.3-r2 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.20.1 1.21.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.18.19 1.19.11 1.20.7 1.21.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.18.19 1.19.11 1.20.7 1.21.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.18.19 1.19.11 1.20.7 1.21.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: Kubernetes API server
+sys-cluster/kube-controller-manager 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.18.19 1.19.11 1.20.7 1.21.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.18.19 1.19.11 1.20.7 1.21.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.18.19 1.19.11 1.20.7 1.21.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.18.19 1.19.11 1.20.7 1.21.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: Kubernetes Scheduler
+sys-cluster/kubeadm 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.18.19 1.18.20 1.19.11 1.19.12 1.20.7 1.20.8 1.21.1 1.21.2: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.5 1.6: A client for kubelet
 sys-cluster/legion 16.08.0-r1 16.10.0 17.02.0 17.05.0 17.08.0 17.10.0 18.02.0 18.05.0 18.12.0 19.06.0 9999: A data-centric parallel programming system
 sys-cluster/libcircle 0.3.0: API for distributing embarrassingly parallel workloads using self-stabilization
