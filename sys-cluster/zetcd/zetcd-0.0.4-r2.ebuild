@@ -30,7 +30,10 @@ KEYWORDS="~amd64"
 
 RESTRICT="test"
 
-DEPEND="acct-group/zetcd"
+DEPEND="
+	acct-group/zetcd
+	acct-user/zetcd
+"
 RDEPEND="${DEPEND}"
 
 src_compile() {
