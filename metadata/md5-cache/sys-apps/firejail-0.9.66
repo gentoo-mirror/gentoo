@@ -1,16 +1,16 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare setup unpack
+DEFINED_PHASES=compile configure install prepare setup
 DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
 DESCRIPTION=Security sandbox for any type of processes
 EAPI=7
 HOMEPAGE=https://firejail.wordpress.com/
-INHERIT=toolchain-funcs python-single-r1 linux-info git-r3
+INHERIT=toolchain-funcs python-single-r1 linux-info
 IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home +suid test +userns +whitelist X python_single_target_python3_8 python_single_target_python3_9 kernel_linux
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
 REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.66/firejail-0.9.66.tar.xz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
 _md5_=660d63410bdde3b5d2f07a93969aa824
