@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl virtual/pkgconfig wayland? ( dev-libs/wayland-protocols ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install unpack
-DEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/cairo[X,glib] x11-libs/gdk-pixbuf x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXinerama x11-libs/libXrandr x11-libs/libnotify x11-libs/pango[X] wayland? ( dev-libs/wayland )
+DEFINED_PHASES=compile configure install prepare unpack
+DEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/cairo[X,glib] x11-libs/gdk-pixbuf x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXext x11-libs/libXinerama x11-libs/libXrandr x11-libs/libnotify x11-libs/pango[X] wayland? ( dev-libs/wayland )
 DESCRIPTION=Customizable and lightweight notification-daemon
 EAPI=7
 HOMEPAGE=https://dunst-project.org/ https://github.com/dunst-project/dunst
@@ -8,8 +8,8 @@ INHERIT=systemd toolchain-funcs git-r3
 IUSE=test wayland
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/cairo[X,glib] x11-libs/gdk-pixbuf x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXinerama x11-libs/libXrandr x11-libs/libnotify x11-libs/pango[X] wayland? ( dev-libs/wayland )
+RDEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/cairo[X,glib] x11-libs/gdk-pixbuf x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXext x11-libs/libXinerama x11-libs/libXrandr x11-libs/libnotify x11-libs/pango[X] wayland? ( dev-libs/wayland )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=e355faef434a0f7578c972775de0ba2c
+_md5_=211115f87e90d51f7a651cbafeb490cb
