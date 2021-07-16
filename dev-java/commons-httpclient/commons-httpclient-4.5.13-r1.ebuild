@@ -40,6 +40,7 @@ CDEPEND="
 DEPEND="${CDEPEND}
 	>=virtual/jdk-1.8:*
 	test? (
+		dev-java/hamcrest-core:1.3
 		dev-java/mockito:0
 	)"
 
@@ -57,7 +58,7 @@ JAVA_SRC_DIR=(
 )
 JAVA_RESOURCE_DIRS="src/main/resources"
 
-JAVA_TEST_GENTOO_CLASSPATH="junit-4,mockito"
+JAVA_TEST_GENTOO_CLASSPATH="junit-4,mockito,hamcrest-core-1.3"
 JAVA_TEST_SRC_DIR="src/test/java"
 JAVA_TEST_RESOURCE_DIRS="src/test/resources"
 

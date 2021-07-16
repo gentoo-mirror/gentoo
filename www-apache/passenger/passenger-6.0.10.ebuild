@@ -1,8 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-USE_RUBY="ruby25 ruby26 ruby27"
+EAPI=7
+USE_RUBY="ruby26 ruby27 ruby30"
 
 inherit apache-module flag-o-matic multilib ruby-ng toolchain-funcs
 
@@ -12,7 +12,7 @@ SRC_URI="https://s3.amazonaws.com/phusion-passenger/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="apache2 debug"
 
 ruby_add_bdepend "dev-ruby/rake"
@@ -43,7 +43,6 @@ pkg_setup() {
 
 all_ruby_prepare() {
 	eapply "${FILESDIR}"/${PN}-5.1.11-gentoo.patch
-	eapply "${FILESDIR}"/${PN}-5.1.1-isnan.patch
 
 	# Change these with sed instead of a patch so that we can easily use
 	# the toolchain-funcs methods.
