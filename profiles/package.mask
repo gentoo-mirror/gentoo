@@ -32,6 +32,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Kai Krakow <hurikhan77+bgo@gmail.com> (2021-07-16)
+# To be replaced by net-p2p/go-ipfs, no migration needed.
+# Simply deselect the masked package and install the replacement.
+# Masked for removal in 30 days. Bug #802381
+net-p2p/go-ipfs-bin
+
 # Hans de Graaff <graaff@gentoo.org> (2021-07-15)
 # Dead upstream, no longer maintained, last release in 2013.
 # No dependencies.
@@ -718,12 +724,6 @@ sys-devel/automake:1.10
 # people may still find it useful. It is masked to prevent accidental
 # use. See bugs 603346 and 604998 for more information.
 app-admin/amazon-ec2-init
-
-# Michał Górny <mgorny@gentoo.org> (2016-11-17)
-# New version masked for testing. It supports source-window buffer size
-# over 2G but it 'currently performs 3-5% slower and has 1-2% worse
-# compression'.
->=dev-util/xdelta-3.1.0
 
 # Robin H. Johnson <robbat2@gentoo.org> (2014-08-04)
 # Masked for testing, presently fails upstream testsuite:

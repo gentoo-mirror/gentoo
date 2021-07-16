@@ -52,5 +52,6 @@ python_prepare_all() {
 }
 
 python_test() {
-	nosetests -v tests/unit/ tests/functional/ || die "test failed under ${EPYTHON}"
+	nosetests -v tests/unit/ tests/functional/ ||
+		die "test failed under ${EPYTHON}"
 }
