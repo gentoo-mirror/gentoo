@@ -1,6 +1,6 @@
 BDEPEND=virtual/fortran virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) test? ( sci-libs/coinor-sample )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( || ( sci-libs/metis sci-libs/parmetis ) ) mumps? ( sci-libs/mumps[-mpi] ) sparse? ( sci-libs/cholmod )
+DEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps[-mpi] ) sparse? ( sci-libs/cholmod )
 DESCRIPTION=COIN-OR linear programming solver
 EAPI=7
 HOMEPAGE=https://github.com/coin-or/Clp/
@@ -8,9 +8,9 @@ INHERIT=toolchain-funcs
 IUSE=doc examples glpk metis mumps sparse static-libs test
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=EPL-1.0
-RDEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( || ( sci-libs/metis sci-libs/parmetis ) ) mumps? ( sci-libs/mumps[-mpi] ) sparse? ( sci-libs/cholmod )
+RDEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps[-mpi] ) sparse? ( sci-libs/cholmod )
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz -> coinor-clp-1.17.6.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=ac909571f5f8bc762a656d2f6615930e
+_md5_=7ba97df15b5a340a413a6797c7d95074
