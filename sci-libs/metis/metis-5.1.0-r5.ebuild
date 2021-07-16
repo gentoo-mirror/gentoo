@@ -11,17 +11,28 @@ SRC_URI="http://glaros.dtc.umn.edu/gkhome/fetch/sw/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux"
-IUSE="doc openmp"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="doc double-precision examples int64 openmp"
 
-RDEPEND="!sci-libs/parmetis"
+RDEPEND="!<sci-libs/parmetis-4.0.3-r2"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-datatype.patch
 	"${FILESDIR}"/${P}-shared-GKlib.patch
 	"${FILESDIR}"/${P}-multilib.patch
 	"${FILESDIR}"/${P}-remove-GKlib-O3.patch
 )
+
+src_prepare() {
+	if use int64; then
+		sed -i -e '/^#define IDXTYPEWIDTH/s/32/64/' include/metis.h || die
+	fi
+
+	if use double-precision; then
+		sed -i -e '/^#define REALTYPEWIDTH/s/32/64/' include/metis.h || die
+	fi
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -45,7 +56,11 @@ src_test() {
 
 src_install() {
 	cmake_src_install
-	dodoc manual/manual.pdf
+	use doc && dodoc manual/manual.pdf
+	if use examples; then
+		docinto examples
+		dodoc -r programs graphs
+	fi
 
 	cat >> "${T}"/metis.pc <<- EOF || die
 		prefix=${EPREFIX}/usr
