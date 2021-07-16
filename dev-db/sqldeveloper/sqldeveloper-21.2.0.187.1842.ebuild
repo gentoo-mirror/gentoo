@@ -8,8 +8,9 @@ inherit desktop java-pkg-2
 DESCRIPTION="Oracle SQL Developer is a graphical tool for database development"
 HOMEPAGE="https://www.oracle.com/technetwork/developer-tools/sql-developer/overview/index.html"
 SRC_URI="${P}-no-jre.zip"
+S="${WORKDIR}/${PN}"
 
-RESTRICT="fetch"
+RESTRICT="bindist fetch"
 
 LICENSE="OTN"
 SLOT="0"
@@ -17,27 +18,27 @@ KEYWORDS="-* ~amd64"
 
 IUSE="mssql mysql postgres sybase"
 
-RDEPEND="mssql? ( dev-java/jtds:1.3 )
+RDEPEND="
+	>=dev-java/openjdk-8:*[javafx]
+	>=virtual/jre-1.8:*
+	mssql? ( dev-java/jtds:1.3 )
 	mysql? ( dev-java/jdbc-mysql:0 )
 	postgres? ( dev-java/jdbc-postgresql:0 )
 	sybase? ( dev-java/jtds:1.3 )
-	>=dev-java/openjdk-8:*[javafx]
-	>=virtual/jre-1.8:*"
+"
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}/${PN}"
 
 QA_PREBUILT="
 	opt/${PN}/netbeans/platform/modules/lib/amd64/linux/libjnidispatch-422.so
 "
 
 pkg_nofetch() {
-	eerror "Please go to"
-	eerror "	${HOMEPAGE}"
-	eerror "and download"
-	eerror "	Oracle SQL Developer for other platforms"
-	eerror "		${SRC_URI}"
-	eerror "and move it to /var/cache/distfiles"
+	einfo "Please go to"
+	einfo "	${HOMEPAGE}"
+	einfo "and download"
+	einfo "	Oracle SQL Developer for other platforms"
+	einfo "		${SRC_URI}"
+	einfo "and move it to /var/cache/distfiles"
 }
 
 src_prepare() {
@@ -46,6 +47,8 @@ src_prepare() {
 	sed -i 's|"`dirname $0`"|/opt/sqldeveloper|' sqldeveloper.sh || die
 
 	rm -r netbeans/platform/modules/lib/i386 || die
+	#rm -r modules/javafx/{osx-x64,windows-x64} || die
+	rm -r modules/javafx || die
 
 	# they both use jtds, enabling one of them also enables the other one
 	if use mssql && ! use sybase; then
@@ -70,7 +73,9 @@ src_prepare() {
 
 src_install() {
 	insinto /opt/${PN}
-	doins -r {configuration,d{ataminer,ropins},e{quinox,xternal},ide,j{avavm,d{bc,ev},lib,views},module{,s},netbeans,orakafka,rdbms,s{leepycat,ql{developer,j},vnkit}}
+	doins -r {configuration,d{ataminer,ropins},e{quinox,xternal},ide,j{avavm,d{bc,ev},lib,views},modules,netbeans,orakafka,rdbms,s{leepycat,ql{developer,j},vnkit}}
+
+	fperms +x /opt/${PN}/netbeans/platform/modules/lib/amd64/linux/libjnidispatch-422.so
 
 	newbin "${FILESDIR}"/${PN}-r1 ${PN}
 

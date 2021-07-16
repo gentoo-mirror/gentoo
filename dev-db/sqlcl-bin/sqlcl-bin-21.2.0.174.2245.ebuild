@@ -10,8 +10,8 @@ inherit java-pkg-2
 
 DESCRIPTION="Oracle SQLcl is the new SQL*Plus"
 HOMEPAGE="https://www.oracle.com/database/technologies/appdev/sqlcl.html"
-SRC_URI="${MY_P}.zip"
-RESTRICT="bindist fetch mirror"
+SRC_URI="https://download.oracle.com/otn_software/java/sqldeveloper/${MY_P}.zip"
+RESTRICT="bindist mirror"
 
 LICENSE="OTN"
 SLOT="0"
@@ -23,19 +23,6 @@ RDEPEND="dev-db/oracle-instantclient
 	>=virtual/jre-1.8"
 
 S="${WORKDIR}"
-
-pkg_nofetch() {
-	einfo "Please go to"
-	einfo
-	einfo "	${HOMEPAGE}"
-	einfo
-	einfo "and download"
-	einfo
-	einfo "	Command Line - SQLcl"
-	einfo "		${SRC_URI}"
-	einfo
-	einfo "which must be placed in DISTDIR directory."
-}
 
 src_install() {
 	java-pkg_dojar sqlcl/lib/*.jar sqlcl/lib/ext/*.jar
