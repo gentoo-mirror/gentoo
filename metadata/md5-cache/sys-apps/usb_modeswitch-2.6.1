@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install prepare setup
+DEPEND=virtual/udev virtual/libusb:1
+DESCRIPTION=Tool for controlling 'flip flop' (multiple devices) USB gear like UMTS sticks
+EAPI=8
+HOMEPAGE=https://www.draisberghof.de/usb_modeswitch/ https://www.draisberghof.de/usb_modeswitch/device_reference.txt
+INHERIT=linux-info systemd toolchain-funcs udev
+IUSE=kernel_linux
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/udev virtual/libusb:1
+SLOT=0
+SRC_URI=https://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.6.1.tar.bz2 https://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-20191128.tar.bz2
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	systemd	c846b9e02ac8293bfc9ca38a195c2a18	udev	26207b5d4f4708920b9fcb7302d94068
+_md5_=a324955cccecc619993ce817d9046efc

@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) test? ( || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) || ( ( dev-lang/python:3.10 dev-python/python-libevdev[python_targets_python3_10(-)] dev-python/pyudev[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/python-libevdev[python_targets_python3_9(-)] dev-python/pyudev[python_targets_python3_9(-)] dev-python/pytest[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/python-libevdev[python_targets_python3_8(-)] dev-python/pyudev[python_targets_python3_8(-)] dev-python/pytest[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install setup test
+DEPEND=dev-libs/glib:2 dev-libs/libgudev:=
+DESCRIPTION=Library for identifying Wacom tablets and their model-specific features
+EAPI=8
+HOMEPAGE=https://github.com/linuxwacom/libwacom
+INHERIT=meson python-any-r1 toolchain-funcs udev
+IUSE=doc test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/glib:2 dev-libs/libgudev:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.11/libwacom-1.11.tar.bz2
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	meson	5bc3f1b890f90cc00cf1d1dddc10233e	python-any-r1	901d9e22c7a848a1196502edf060f330	udev	26207b5d4f4708920b9fcb7302d94068
+_md5_=771005386b03b6e1cef06eabdf0b3a09
