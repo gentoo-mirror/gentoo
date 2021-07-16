@@ -859,7 +859,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.19.97 1.19.104 1.19.105 1.19.106 1.19.107 1.19.108 1.19.109 1.19.110 1.19.111 1.19.112: Universal Command Line Environment for AWS
+app-admin/awscli 1.19.97 1.19.104 1.19.112 1.20.0: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.26.4 1.26.5: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1: Distribution-independent installer framework
@@ -2663,7 +2663,7 @@ app-laptop/msi-keyboard 1.0: Control backlight of MSI laptop keyboards
 app-laptop/pbbuttonsd 0.8.1a: Handles power management and special keys on laptops
 app-laptop/pommed 1.39-r2: Manage screen and keyboard backlight on Apple MacBook Pro/PowerBook
 app-laptop/spicctrl 1.9-r1: tool for the sonypi-Device (found in Sony Vaio Notebooks)
-app-laptop/thinkfan 1.0.2 1.2.1: Simple fan control program for thinkpads
+app-laptop/thinkfan 1.0.2 1.2.1 1.2.2: Simple fan control program for thinkpads
 app-laptop/tp_smapi 0.43-r1: IBM ThinkPad SMAPI BIOS driver
 app-laptop/tpacpi-bat 3.0-r1 3.1 9999: Control battery thresholds of recent ThinkPads, not supported by tp_smapi
 app-laptop/tpb 0.6.4-r1: IBM ThinkPad buttons utility
@@ -6170,7 +6170,7 @@ dev-ml/merlin 3.4.2-r1 4.1-r2: Context sensitive completion for OCaml in Vim and
 dev-ml/merlin-extend 0.3-r1: SDK to extend Merlin
 dev-ml/mirage-clock 3.1.0: A lightweight and colourful test framework
 dev-ml/mmap 1.1.0: File mapping
-dev-ml/mtime 1.1.0: OCaml module to access monotonic wall-clock time
+dev-ml/mtime 1.1.0 1.2.0: OCaml module to access monotonic wall-clock time
 dev-ml/num 1.3-r1 1.4-r1: Library for arbitrary-precision integer and rational arithmetic
 dev-ml/ocaml-augeas 0.5: Ocaml bindings for Augeas
 dev-ml/ocaml-autoconf 1.1-r1: autoconf macros to support configuration of OCaml programs and libraries
@@ -8280,6 +8280,7 @@ dev-python/aws-xray-sdk-python 2.8.0: AWS X-Ray SDK for Python
 dev-python/awxkit 19.0.0-r1 19.1.0 19.2.0 19.2.1 19.2.2: Command line interface for Ansible AWX
 dev-python/babelfish 0.5.5-r1 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0: Specifications for callback functions passed in to an API
+dev-python/backports-entry_points_selectable 1.1.0: Compatibility shim providing selectable entry points
 dev-python/backports-tempfile 1.0-r1: Backport of new features in Python's tempfile module
 dev-python/backports-weakref 1.0_p1-r1: Backport of new features in Python's weakref module
 dev-python/backports-zoneinfo 0.2.1-r1: Backport of the standard library zoneinfo module
@@ -8310,8 +8311,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.17.97 1.17.104 1.17.105 1.17.106 1.17.107 1.17.108 1.17.109 1.17.110 1.17.111 1.17.112 9999: The AWS SDK for Python
-dev-python/botocore 1.20.97 1.20.104 1.20.105 1.20.106 1.20.107 1.20.108 1.20.109 1.20.110 1.20.111 1.20.112 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.17.97 1.17.104 1.17.112 1.18.0 9999: The AWS SDK for Python
+dev-python/botocore 1.20.97 1.20.104 1.20.112 1.21.0 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8546,7 +8547,7 @@ dev-python/flask-gravatar 0.5.0: Small extension for Flask to make usage of Grav
 dev-python/flask-htmlmin 2.1.0: Minimize your flask rendered html
 dev-python/flask-login 0.5.0: Login session support for Flask
 dev-python/flask-mail 0.9.1-r1: Flask extension for sending email
-dev-python/flask-migrate 2.7.0 3.0.0 3.0.1-r1: SQLAlchemy database migrations for Flask applications using Alembic
+dev-python/flask-migrate 3.0.1-r1: SQLAlchemy database migrations for Flask applications using Alembic
 dev-python/flask-mongoengine 1.0.0: Flask support for MongoDB and with WTF model forms
 dev-python/flask-nav 0.6-r2: Easily create navigation for Flask applications.
 dev-python/flask-paginate 0.8.1: Pagination support for flask
@@ -8961,6 +8962,7 @@ dev-python/pipfile 0.0.2: Replacement for the existing standard pip's requiremen
 dev-python/pivy 0.6.6: Coin3D bindings for Python
 dev-python/pkgconfig 1.5.4: Interface Python with pkg-config
 dev-python/pkginfo 1.7.0 1.7.1: Provides an API for querying the distutils metadata written in a PKG-INFO file
+dev-python/platformdirs 2.0.2: A small Python module for determining appropriate platform-specific dirs
 dev-python/plotly 4.14.1 4.14.3: Browser-based graphing library for Python
 dev-python/plotly-geo 1.0.0: Browser-based graphing library for Python
 dev-python/pluggy 0.13.1-r1: plugin and hook calling mechanisms for python
@@ -9379,7 +9381,7 @@ dev-python/rtslib-fb 2.1.74: A Python object API for managing the Linux LIO kern
 dev-python/ruamel-std-pathlib 0.8.0: Ruamel enhancements to pathlib and pathlib2
 dev-python/ruamel-yaml 0.17.9 0.17.10: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.2-r1 0.2.4 0.2.6: C-based reader/scanner and emitter for dev-python/ruamel-yaml
-dev-python/s3transfer 0.4.2: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.4.2 0.5.0: An Amazon S3 Transfer Manager
 dev-python/sabyenc 4.0.2: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.5: wrapper for subprocess which provides command pipeline functionality
 dev-python/scandir 1.10.0-r2: A better directory iterator and faster os.walk()
@@ -9606,7 +9608,7 @@ dev-python/vecrec 0.3.0: 2D vector and rectangle classes
 dev-python/verboselogs 1.7: Verbose logging for Python's logging module
 dev-python/versioneer 0.19 0.20: Easy VCS-based management of project version strings
 dev-python/vine 5.0.0: Python Promises
-dev-python/virtualenv 20.4.7: Virtual Python Environment builder
+dev-python/virtualenv 20.4.7 20.6.0: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.3: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 4.8.4-r1: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r1: A tiny pythonic visitor implementation
@@ -11295,7 +11297,7 @@ dev-util/weka 3.7.13 3.8.0: A Java data mining package
 dev-util/wiggle 1.0 1.2: Tool for applying patches that patch cannot apply because of conflicting changes
 dev-util/woke 0.9.0: check source code for non-inclusive language
 dev-util/wstool 0.1.18 9999: Commands to manage several local SCM repositories for ROS
-dev-util/xdelta 1.1.4-r3 3.0.11 3.1.0: Computes changes between binary or text files and creates deltas
+dev-util/xdelta 1.1.4-r3 3.0.11: Computes changes between binary or text files and creates deltas
 dev-util/xfce4-dev-tools 4.14.0 4.15.1 4.16.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-util/xmlindent 0.2.17-r2: XML stream reformatter for ASCII text, but not UTF-8, written in ANSI C
 dev-util/xxdi 1.0.0: Simple alternative to vim's 'xxd -i' mode
@@ -13993,7 +13995,7 @@ media-plugins/vdr-wirbelscan 0.0.7-r1 2018.11.04-r1: VDR Plugin: Scan for channe
 media-plugins/vdr-xineliboutput 2.2.0-r2 2.2.0-r4 9999: VDR Plugin: Xinelib PlugIn
 media-plugins/vdr-zappilot 0.0.5 0.0.5-r2: VDR Plugin: browse fast the EPG information without being to switch to a channel
 media-plugins/x42-avldrums 0.4.2 9999: AVLinux Drumkits
-media-plugins/x42-plugins 9999 20210409: Collection of LV2 plugins
+media-plugins/x42-plugins 9999 20210409 20210714: Collection of LV2 plugins
 media-plugins/xsynth-dssi 0.9.4: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-radio/KochMorse 3.4.0-r1: Morse-code tutor using the Koch method
 media-radio/adifmerg 31-r1: A small conversion and check utility for ADIF files
@@ -14027,7 +14029,7 @@ media-radio/xwxapt 3.4.2: GTK+ linux weather satellite APT image decoder softwar
 media-sound/SmarTagger 0.1-r2: Perl script for renaming and tagging mp3s
 media-sound/a2jmidid 9 9999: Daemon for exposing legacy ALSA sequencer applications in JACK MIDI system
 media-sound/abcde 2.9.3-r2: Command line CD encoder
-media-sound/abcm2ps 8.14.11: Program to convert abc files to Postscript files
+media-sound/abcm2ps 8.14.11 8.14.12: Program to convert abc files to Postscript files
 media-sound/abcmidi 2021.05.25 2021.06.27: Programs for processing ABC music notation files
 media-sound/aeolus 0.9.9: A synthesised pipe organ emulator
 media-sound/alac_decoder 0.2.0-r1: Basic decoder for Apple Lossless Audio Codec files (ALAC)
@@ -14158,7 +14160,7 @@ media-sound/jack-audio-connection-kit 0.125.0-r1: A low-latency audio server
 media-sound/jack-keyboard 2.7.2-r1: A virtual MIDI keyboard for JACK MIDI
 media-sound/jack-rack 1.4.8_rc1-r1: JACK Rack is an effects rack for the JACK low latency audio API
 media-sound/jack-smf-utils 1.0-r1: Utilities for MIDI streams and files using Jack MIDI
-media-sound/jack2 1.9.18 9999: Jackdmp jack implemention for multi-processor machine
+media-sound/jack2 1.9.18 1.9.19 9999: Jackdmp jack implemention for multi-processor machine
 media-sound/jack_capture 0.9.73-r1 9999: JACK Recording utility
 media-sound/jalv 1.6.6: Simple but fully featured LV2 host for Jack
 media-sound/jamin 0.98.9_pre20170111: Audio mastering interface for JACK Audio Connection Kit (JACK)
@@ -15772,7 +15774,7 @@ net-p2p/freenet 0.7.5_p1488-r1: An encrypted network without censorship
 net-p2p/gnut 0.4.28-r1: Text-mode gnutella client
 net-p2p/go-ethereum 1.10.2 1.10.3: Official golang implementation of the Ethereum protocol
 net-p2p/go-ipfs 0.7.0 0.8.0: Main implementation of IPFS
-net-p2p/go-ipfs-bin 0.4.22 0.7.0: Main implementation of IPFS
+net-p2p/go-ipfs-bin 0.7.0: Main implementation of IPFS
 net-p2p/gtk-gnutella 1.2.1: A GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b: A GTK2-based viewer and editor for BitTorrent meta files
 net-p2p/ktorrent 20.12.3 21.04.3: Powerful BitTorrent client based on KDE Frameworks
@@ -18122,7 +18124,7 @@ virtual/imagemagick-tools 0: Virtual for imagemagick command line tools
 virtual/imap-c-client 2: Virtual for IMAP c-client
 virtual/inetd 0: Virtual for the internet super-server daemon
 virtual/jack 2: Virtual for JACK Audio Connection Kit
-virtual/jdk 1.8.0-r5 1.8.0-r6 11-r1 11-r2: Virtual for Java Development Kit (JDK)
+virtual/jdk 1.8.0-r6 11-r1 11-r2: Virtual for Java Development Kit (JDK)
 virtual/jpeg 100: Virtual to select between libjpeg-turbo and IJG jpeg for source-based packages
 virtual/jpeg-compat 62: A virtual for the libjpeg.so.62 ABI for binary-only programs
 virtual/jre 1.8.0-r3 11-r2: Virtual for Java Runtime Environment (JRE)
@@ -18325,7 +18327,7 @@ www-apps/drupal 7.80 8.9.14 9.0.12 9.1.7: PHP-based open-source platform and con
 www-apps/gitea 1.14.2 9999: A painless self-hosted Git service
 www-apps/gitit 0.13.0.0-r1: Wiki using happstack, git or darcs, and pandoc
 www-apps/grafana-bin 7.5.7 7.5.9 8.0.2 8.0.5: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
-www-apps/hugo 0.83.1 0.84.4: The world's fastest framework for building websites
+www-apps/hugo 0.84.4 0.85.0: The world's fastest framework for building websites
 www-apps/icingaweb2 2.8.2-r1 2.8.3 2.9.0 9999: Icinga Web 2 - Frontend for icinga2
 www-apps/icingaweb2-module-director 1.6.2 1.8.0 9999: Icinga Web 2 plugin for configuration
 www-apps/icingaweb2-module-graphite 1.0.1-r1 1.1.0 9999: Icinga Web 2 plugin for Graphite

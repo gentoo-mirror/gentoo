@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DEPEND=pango? ( media-libs/freetype:2 x11-libs/pango )
+DESCRIPTION=Program to convert abc files to Postscript files
+EAPI=7
+HOMEPAGE=https://github.com/leesavide/abcm2ps
+INHERIT=toolchain-funcs
+IUSE=examples pango
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=pango? ( media-libs/freetype:2 x11-libs/pango )
+SLOT=0
+SRC_URI=https://github.com/leesavide/abcm2ps/archive/v8.14.12.tar.gz -> abcm2ps-8.14.12.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=606037cf6b7383a5a3e8db1ca8f4ef3b
