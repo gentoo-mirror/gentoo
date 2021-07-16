@@ -3,7 +3,7 @@
 
 EAPI=7
 
-USE_RUBY="ruby25 ruby26 ruby27 ruby30"
+USE_RUBY="ruby26 ruby27 ruby30"
 
 RUBY_FAKEGEM_RECIPE_TEST="none"
 
@@ -16,5 +16,5 @@ HOMEPAGE="https://github.com/ruby/ruby2_keywords"
 
 LICENSE="Ruby"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
