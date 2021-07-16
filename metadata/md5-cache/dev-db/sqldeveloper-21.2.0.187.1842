@@ -8,9 +8,9 @@ INHERIT=desktop java-pkg-2
 IUSE=mssql mysql postgres sybase elibc_FreeBSD
 KEYWORDS=-* ~amd64
 LICENSE=OTN
-RDEPEND=mssql? ( dev-java/jtds:1.3 ) mysql? ( dev-java/jdbc-mysql:0 ) postgres? ( dev-java/jdbc-postgresql:0 ) sybase? ( dev-java/jtds:1.3 ) >=dev-java/openjdk-8:*[javafx] >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
-RESTRICT=fetch
+RDEPEND=>=dev-java/openjdk-8:*[javafx] >=virtual/jre-1.8:* mssql? ( dev-java/jtds:1.3 ) mysql? ( dev-java/jdbc-mysql:0 ) postgres? ( dev-java/jdbc-postgresql:0 ) sybase? ( dev-java/jtds:1.3 ) >=dev-java/java-config-2.2.0-r3
+RESTRICT=bindist fetch
 SLOT=0
-SRC_URI=sqldeveloper-20.4.1.407.0006-no-jre.zip
+SRC_URI=sqldeveloper-21.2.0.187.1842-no-jre.zip
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	java-utils-2	bd56fb0d459d0bad9d07fa32febe53cb	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc
-_md5_=9305e4d2d0d30740655d499da57b3ca0
+_md5_=c46c1cfd3ba35b4a0020bc07579d5164

@@ -1,5 +1,5 @@
 BDEPEND=app-arch/unzip
-DEFINED_PHASES=compile install nofetch preinst prepare setup
+DEFINED_PHASES=compile install preinst prepare setup
 DEPEND=>=dev-java/java-config-2.2.0-r3
 DESCRIPTION=Oracle SQLcl is the new SQL*Plus
 EAPI=7
@@ -9,8 +9,8 @@ IUSE=elibc_FreeBSD
 KEYWORDS=~amd64 ~x86
 LICENSE=OTN
 RDEPEND=dev-db/oracle-instantclient dev-java/java-config:2 >=virtual/jre-1.8 >=dev-java/java-config-2.2.0-r3
-RESTRICT=bindist fetch mirror
+RESTRICT=bindist mirror
 SLOT=0
-SRC_URI=sqlcl-21.1.1.113.1704.zip
+SRC_URI=https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-21.2.0.174.2245.zip
 _eclasses_=java-utils-2	bd56fb0d459d0bad9d07fa32febe53cb	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc
-_md5_=6c4bc970985f16294d6161f07d433cab
+_md5_=96f7f753478ebdfaa1f577a07a5918b4
