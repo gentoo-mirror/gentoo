@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://github.com/OpenSC/openct/wiki
 INHERIT=autotools flag-o-matic udev
 IUSE=doc debug pcsc-lite usb
-KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~m68k ~mips ~ppc ppc64 ~s390 sparc x86
 LICENSE=LGPL-2.1
 RDEPEND=pcsc-lite? ( >=sys-apps/pcsc-lite-1.7.2-r1:= ) usb? ( virtual/libusb:0 ) dev-libs/libltdl:0= acct-group/openct acct-user/openctd
 SLOT=0
 SRC_URI=mirror://sourceforge/opensc/openct/openct-0.6.20.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	udev	26207b5d4f4708920b9fcb7302d94068
-_md5_=750f6e4b1110362423fa6280f342b787
+_md5_=a5836ab08acbbb4da04e834dea4c1616
