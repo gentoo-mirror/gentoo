@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=sys-libs/ncurses:=[unicode(+)?] unicode? ( dev-libs/libunistring:= ) app-text/ghostscript-gpl virtual/pkgconfig
+DESCRIPTION=Wherever Change Directory
+EAPI=6
+HOMEPAGE=http://waterlan.home.xs4all.nl/#WCD_ANCHOR
+INHERIT=toolchain-funcs
+IUSE=nls unicode
+KEYWORDS=amd64 arm x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:=[unicode(+)?] unicode? ( dev-libs/libunistring:= )
+SLOT=0
+SRC_URI=http://waterlan.home.xs4all.nl/wcd/wcd-6.0.2.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=300ef97ffb6f1a6a1d44e19a4ada3812

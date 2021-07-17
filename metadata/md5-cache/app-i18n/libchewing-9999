@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare test unpack
-DEPEND=dev-db/sqlite:3 test? ( sys-libs/ncurses[unicode] )
+DEPEND=dev-db/sqlite:3 test? ( sys-libs/ncurses[unicode(+)] )
 DESCRIPTION=Intelligent phonetic (Zhuyin/Bopomofo) input method library
 EAPI=7
 HOMEPAGE=http://chewing.im/ https://github.com/chewing/libchewing
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://dev.gentoo.org/~juippis/distfiles/tmp/libchewing-0.5.1-autoconf-archive-2019.01.06.patch
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=71a6f75f8e7c495712dd01513d97719a
+_md5_=10c39ff8b7b092914a72becf62ac12ab

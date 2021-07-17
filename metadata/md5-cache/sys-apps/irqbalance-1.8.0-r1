@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/glib:2 caps? ( sys-libs/libcap-ng ) numa? ( sys-process/numactl ) tui? ( sys-libs/ncurses:=[unicode(+)] )
+DESCRIPTION=Distribute hardware interrupts across processors on a multiprocessor system
+EAPI=7
+HOMEPAGE=https://github.com/Irqbalance/irqbalance
+INHERIT=autotools systemd linux-info
+IUSE=caps +numa selinux tui kernel_linux
+KEYWORDS=amd64 arm arm64 ppc ppc64 x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 caps? ( sys-libs/libcap-ng ) numa? ( sys-process/numactl ) tui? ( sys-libs/ncurses:=[unicode(+)] ) selinux? ( sec-policy/selinux-irqbalance )
+SLOT=0
+SRC_URI=https://github.com/Irqbalance/irqbalance/archive/v1.8.0.tar.gz -> irqbalance-1.8.0.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	systemd	c846b9e02ac8293bfc9ca38a195c2a18	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
+_md5_=9cb5f158ea411ac5f90abe539090a7c0

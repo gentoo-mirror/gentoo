@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure unpack
-DEPEND=sys-libs/ncurses:0= x11-libs/libdrm[video_cards_amdgpu?,video_cards_radeon?] x11-libs/libpciaccess x11-libs/libxcb nls? ( sys-libs/ncurses:0=[unicode] virtual/libintl ) nls? ( sys-devel/gettext )
+DEPEND=sys-libs/ncurses:= x11-libs/libdrm[video_cards_amdgpu?,video_cards_radeon?] x11-libs/libpciaccess x11-libs/libxcb nls? ( sys-libs/ncurses:=[unicode(+)] virtual/libintl ) nls? ( sys-devel/gettext )
 DESCRIPTION=Utility to view Radeon GPU utilization
 EAPI=7
 HOMEPAGE=https://github.com/clbr/radeontop
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs git-r3
 IUSE=nls video_cards_amdgpu video_cards_radeon
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=sys-libs/ncurses:0= x11-libs/libdrm[video_cards_amdgpu?,video_cards_radeon?] x11-libs/libpciaccess x11-libs/libxcb nls? ( sys-libs/ncurses:0=[unicode] virtual/libintl )
+RDEPEND=sys-libs/ncurses:= x11-libs/libdrm[video_cards_amdgpu?,video_cards_radeon?] x11-libs/libpciaccess x11-libs/libxcb nls? ( sys-libs/ncurses:=[unicode(+)] virtual/libintl )
 REQUIRED_USE=|| ( video_cards_amdgpu video_cards_radeon )
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=72bc5f05916971595f3c592fb4c4f9a2
+_md5_=15f16f6316b5a70dd56a3f87363aeee5

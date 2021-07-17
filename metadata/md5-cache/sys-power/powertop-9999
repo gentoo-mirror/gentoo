@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/autoconf-archive >=sys-devel/gettext-0.20.2 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure prepare setup unpack
-DEPEND=dev-libs/libnl:3 sys-apps/pciutils sys-libs/ncurses:=[unicode?]
+DEPEND=dev-libs/libnl:3 sys-apps/pciutils sys-libs/ncurses:=[unicode(+)?]
 DESCRIPTION=tool to diagnose issues with power consumption and power management
 EAPI=7
 HOMEPAGE=https://01.org/powertop/ https://github.com/fenrus75/powertop/
@@ -8,7 +8,7 @@ INHERIT=autotools git-r3 linux-info
 IUSE=nls unicode X kernel_linux
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-libs/libnl:3 sys-apps/pciutils sys-libs/ncurses:=[unicode?] X? ( x11-apps/xset ) virtual/libintl
+RDEPEND=dev-libs/libnl:3 sys-apps/pciutils sys-libs/ncurses:=[unicode(+)?] X? ( x11-apps/xset ) virtual/libintl
 SLOT=0
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
-_md5_=f4c47c4060f0d397033fc57592d5678b
+_md5_=67111ee653a3332df14a1d605e154322

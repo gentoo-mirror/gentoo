@@ -1,6 +1,6 @@
 BDEPEND=dev-util/makeheaders virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure prepare unpack
-DEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-libs/glib:2 net-libs/gnutls:= sys-libs/ncurses:0=[unicode] sys-libs/zlib:= geoip? ( dev-libs/geoip dev-libs/libmaxminddb )
+DEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-libs/glib:2 net-libs/gnutls:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= geoip? ( dev-libs/geoip dev-libs/libmaxminddb )
 DESCRIPTION=ncurses directconnect client
 EAPI=7
 HOMEPAGE=https://dev.yorhel.nl/ncdc
@@ -8,7 +8,7 @@ INHERIT=toolchain-funcs autotools git-r3
 IUSE=geoip
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-libs/glib:2 net-libs/gnutls:= sys-libs/ncurses:0=[unicode] sys-libs/zlib:= geoip? ( dev-libs/geoip dev-libs/libmaxminddb )
+RDEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-libs/glib:2 net-libs/gnutls:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= geoip? ( dev-libs/geoip dev-libs/libmaxminddb )
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=a8820bda547be2002daf269325c84160
+_md5_=614a7e91cb58bfafd4afad2d27364ee1
