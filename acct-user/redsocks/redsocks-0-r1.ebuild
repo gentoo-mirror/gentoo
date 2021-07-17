@@ -8,6 +8,6 @@ inherit acct-user
 DESCRIPTION="A user for net-proxy/redsocks"
 
 ACCT_USER_GROUPS=( "redsocks" )
-ACCT_USER_ID="155"
+ACCT_USER_ID="154"
 
 acct-user_add_deps

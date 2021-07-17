@@ -7,4 +7,4 @@ inherit acct-group
 
 DESCRIPTION="A group for net-proxy/redsocks"
 
-ACCT_GROUP_ID="155"
+ACCT_GROUP_ID="154"
