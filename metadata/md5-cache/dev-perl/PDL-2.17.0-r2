@@ -1,0 +1,16 @@
+BDEPEND=sys-libs/ncurses:0= app-arch/sharutils dev-perl/Astro-FITS-Header dev-perl/File-Map >=dev-perl/Inline-0.680.0 >=dev-perl/Inline-C-0.620.0 dev-perl/Module-Compile >=dev-perl/OpenGL-0.670.200 dev-perl/TermReadKey || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) >=virtual/perl-Data-Dumper-2.121.0 dev-perl/Pod-Parser virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-Filter-Simple dev-perl/Filter virtual/perl-Storable >=virtual/perl-Text-Balanced-1.890.0 gd? ( media-libs/gd ) gsl? ( sci-libs/gsl ) hdf? ( sci-libs/hdf ) netpbm? ( media-libs/netpbm media-video/ffmpeg ) pdl2? ( >=dev-perl/Devel-REPL-1.3.11 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) ) pgplot? ( dev-perl/PGPLOT ) >=virtual/perl-ExtUtils-MakeMaker-6.560.0 dev-perl/Devel-CheckLib fortran? ( >=dev-perl/ExtUtils-F77-1.13 ) test? ( dev-perl/Test-Exception dev-perl/Test-Warn dev-perl/Test-Deep ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install postinst prepare prerm setup test
+DEPEND=sys-libs/ncurses:0= app-arch/sharutils dev-perl/Astro-FITS-Header dev-perl/File-Map >=dev-perl/Inline-0.680.0 >=dev-perl/Inline-C-0.620.0 dev-perl/Module-Compile >=dev-perl/OpenGL-0.670.200 dev-perl/TermReadKey || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) >=virtual/perl-Data-Dumper-2.121.0 dev-perl/Pod-Parser virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-Filter-Simple dev-perl/Filter virtual/perl-Storable >=virtual/perl-Text-Balanced-1.890.0 gd? ( media-libs/gd ) gsl? ( sci-libs/gsl ) hdf? ( sci-libs/hdf ) netpbm? ( media-libs/netpbm media-video/ffmpeg ) pdl2? ( >=dev-perl/Devel-REPL-1.3.11 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) ) pgplot? ( dev-perl/PGPLOT ) dev-lang/perl fortran? ( virtual/fortran )
+DESCRIPTION=Perl Data Language for scientific computing
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/PDL
+INHERIT=perl-module fortran-2
+IUSE=+badval doc fortran gd gsl hdf netpbm pdl2 pgplot threads test test
+KEYWORDS=amd64 arm ppc x86
+LICENSE=|| ( Artistic GPL-1+ ) public-domain PerlDL
+RDEPEND=sys-libs/ncurses:0= app-arch/sharutils dev-perl/Astro-FITS-Header dev-perl/File-Map >=dev-perl/Inline-0.680.0 >=dev-perl/Inline-C-0.620.0 dev-perl/Module-Compile >=dev-perl/OpenGL-0.670.200 dev-perl/TermReadKey || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) >=virtual/perl-Data-Dumper-2.121.0 dev-perl/Pod-Parser virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-Filter-Simple dev-perl/Filter virtual/perl-Storable >=virtual/perl-Text-Balanced-1.890.0 gd? ( media-libs/gd ) gsl? ( sci-libs/gsl ) hdf? ( sci-libs/hdf ) netpbm? ( media-libs/netpbm media-video/ffmpeg ) pdl2? ( >=dev-perl/Devel-REPL-1.3.11 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) ) pgplot? ( dev-perl/PGPLOT ) dev-lang/perl:= fortran? ( virtual/fortran )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/C/CH/CHM/PDL-2.017.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	fortran-2	cca0c11947f3e90961771da271435fdb
+_md5_=587c639c37e988be9b3bd45dc06f2044
