@@ -29,8 +29,8 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.3.8-empty-tr.patch
-	"${FILESDIR}"/${PN}-0.3.8-respect-flags.patch
+	"${FILESDIR}"/${P}-empty-tr.patch
+	"${FILESDIR}"/${P}-respect-flags.patch
 )
 
 src_compile() {
