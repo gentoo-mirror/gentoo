@@ -1,14 +1,15 @@
-DEFINED_PHASES=install postinst postrm
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install postinst postrm prepare
 DESCRIPTION=Intelligent Python IDE with unique code assistance and analysis
 EAPI=7
 HOMEPAGE=http://www.jetbrains.com/pycharm/
-INHERIT=desktop readme.gentoo-r1 xdg-utils
+INHERIT=desktop readme.gentoo-r1 wrapper xdg-utils
 IUSE=+bundled-jdk
 KEYWORDS=amd64 x86
 LICENSE=PyCharm_Academic PyCharm_Classroom PyCharm PyCharm_OpenSource PyCharm_Preview
-RDEPEND=!bundled-jdk? ( >=virtual/jre-1.8 ) dev-libs/libdbusmenu dev-python/pip
-RESTRICT=mirror strip
+RDEPEND=!bundled-jdk? ( >=virtual/jre-1.8 ) app-arch/brotli app-arch/zstd app-crypt/p11-kit dev-libs/fribidi dev-libs/glib dev-libs/json-c dev-libs/libbsd dev-libs/libdbusmenu dev-libs/nss dev-python/pip media-fonts/dejavu media-gfx/graphite2 media-libs/alsa-lib media-libs/fontconfig media-libs/freetype:2= media-libs/harfbuzz media-libs/libglvnd media-libs/libpng:0= net-libs/gnutls net-print/cups sys-apps/dbus sys-libs/libcap sys-libs/zlib virtual/jpeg:0= x11-libs/libX11 x11-libs/libxcb x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pango
+RESTRICT=mirror
 SLOT=0
 SRC_URI=http://download.jetbrains.com/python/pycharm-professional-2021.1.2.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=de571f208e055b6d3239081f64a07af1
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=ba16a3f46e46681f454b538c9b5ce5f7
