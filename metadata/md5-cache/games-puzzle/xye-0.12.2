@@ -1,13 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=install postinst postrm preinst prepare
-DEPEND=media-fonts/dejavu media-libs/libsdl[video] media-libs/sdl-ttf media-libs/sdl-image[png] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=media-fonts/dejavu media-libs/libsdl[video] media-libs/sdl-image[png] media-libs/sdl-ttf dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Free version of the classic game Kye
-EAPI=6
+EAPI=7
 HOMEPAGE=http://xye.sourceforge.net/
-INHERIT=autotools xdg
+INHERIT=autotools eapi8-dosym xdg
 KEYWORDS=~amd64 ~x86
 LICENSE=ZLIB
-RDEPEND=media-fonts/dejavu media-libs/libsdl[video] media-libs/sdl-ttf media-libs/sdl-image[png]
+RDEPEND=media-fonts/dejavu media-libs/libsdl[video] media-libs/sdl-image[png] media-libs/sdl-ttf
 SLOT=0
 SRC_URI=mirror://sourceforge/xye/xye-0.12.2.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	b690a7e9b6c497cf59326a7545df4283	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=c06256972ddd5914756be4d609f217e6
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=d5bd261ce67cb1371af3963ef4a67934

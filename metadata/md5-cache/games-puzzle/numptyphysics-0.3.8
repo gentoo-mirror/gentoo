@@ -1,13 +1,14 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile postinst postrm preinst prepare unpack
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile postinst postrm preinst prepare
 DEPEND=dev-libs/glib:2 media-libs/libsdl2[opengl,video] media-libs/sdl2-image[png] media-libs/sdl2-ttf virtual/opengl dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Crayon Physics-like drawing puzzle game using the same excellent Box2D engine
 EAPI=7
 HOMEPAGE=https://github.com/thp/numptyphysics
-INHERIT=toolchain-funcs xdg git-r3
+INHERIT=toolchain-funcs xdg
+KEYWORDS=~amd64
 LICENSE=BSD GPL-3+ ZLIB
-PROPERTIES=live
 RDEPEND=dev-libs/glib:2 media-libs/libsdl2[opengl,video] media-libs/sdl2-image[png] media-libs/sdl2-ttf virtual/opengl
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=8813e05b5b1a657895ef91baba9bef80
+SRC_URI=https://github.com/thp/numptyphysics/archive/0.3.8.tar.gz -> numptyphysics-0.3.8.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=b87ec5adada6cc2f0092c091486532d2
