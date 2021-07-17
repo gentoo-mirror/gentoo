@@ -1,13 +1,16 @@
+BDEPEND=>=dev-perl/Socket6-0.250.0 dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-perl/Socket6-0.250.0 dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Fast IP-in-subnet matcher for IPv4 and IPv6, CIDR or mask
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Net-Subnet
 INHERIT=perl-module
+IUSE=test
 KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=>=dev-perl/Socket6-0.250.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JU/JUERD/Net-Subnet-1.03.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=384f8d3c291c54c58bde3544441db68a
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=03f71b4854de1369ad5baae1adb0fd4d
