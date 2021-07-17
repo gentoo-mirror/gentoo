@@ -70,6 +70,11 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( dev-util/gperf )"
 
+src_prepare() {
+	ecm_src_prepare
+	cmake_comment_add_subdirectory network
+}
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)

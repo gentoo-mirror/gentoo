@@ -35,3 +35,5 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 "
+
+PATCHES=( "${FILESDIR}/${P}-unused-dep.patch" )

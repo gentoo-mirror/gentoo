@@ -25,7 +25,6 @@ DEPEND="${PYTHON_DEPS}
 	>=app-text/hunspell-1.2.8:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtscript-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5[sqlite]
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
@@ -51,6 +50,8 @@ RDEPEND="${DEPEND}
 		dev-python/translate-toolkit[${PYTHON_MULTI_USEDEP}]
 	')
 "
+
+PATCHES=( "${FILESDIR}/${P}-unused-dep.patch" )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
