@@ -1,32 +1,37 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit golang-vcs-snapshot systemd user
+EAPI=7
 
-KEYWORDS="amd64 ~arm64"
-EGO_PN="github.com/docker/distribution"
+inherit golang-vcs-snapshot systemd
+
 EGIT_COMMIT="2461543d988979529609e8cb6fca9ca190dc48da"
-SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+EGO_PN="github.com/docker/distribution"
+
 DESCRIPTION="Docker Registry 2.0"
 HOMEPAGE="https://github.com/docker/distribution"
+SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 MIT ZLIB"
 SLOT="0"
-IUSE=""
-SVCNAME=registry
+KEYWORDS="amd64 ~arm64"
 
-pkg_setup() {
-	enewgroup ${SVCNAME}
-	enewuser ${SVCNAME} -1 -1 /dev/null ${SVCNAME}
-}
+DEPEND="
+	acct-group/registry
+	acct-user/registry
+"
+RDEPEND="${DEPEND}"
+
+SVCNAME="registry"
 
 src_prepare() {
 	default
 	pushd src/${EGO_PN} || die
 	eapply "${FILESDIR}"/${PN}-2.7.0-notification-metrics.patch
-	sed -i -e "s/git describe.*/echo ${PV})/"\
-		-e "s/git rev-parse.*/echo ${EGIT_COMMIT})/"\
-		-e "s/-s -w/-w/" Makefile || die
+	sed -e "s/git describe.*/echo ${PV})/" \
+		-e "s/git rev-parse.*/echo ${EGIT_COMMIT})/" \
+		-e "s/-s -w/-w/" \
+		-i Makefile || die
 	popd || die
 }
 
@@ -43,8 +48,8 @@ src_install() {
 	newinitd "${FILESDIR}/${SVCNAME}.initd" "${SVCNAME}"
 	newconfd "${FILESDIR}/${SVCNAME}.confd" "${SVCNAME}"
 	systemd_dounit "${FILESDIR}/${SVCNAME}.service"
-	keepdir /var/{lib,log}/${SVCNAME}
-	fowners ${SVCNAME}:${SVCNAME} /var/{lib,log}/${SVCNAME}
+	keepdir /var/log/${SVCNAME}
+	fowners ${SVCNAME}:${SVCNAME} /var/log/${SVCNAME}
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${SVCNAME}.logrotated" "${SVCNAME}"
 }
