@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+DEFINED_PHASES=prepare
+DEPEND=sys-block/parted sys-libs/ncurses:=
+DESCRIPTION=Securely erase disks using a variety of recognized methods
+EAPI=8
+HOMEPAGE=https://github.com/martijnvanbrummelen/nwipe/
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-block/parted sys-libs/ncurses:=
+SLOT=0
+SRC_URI=https://github.com/martijnvanbrummelen/nwipe/archive/v0.31.tar.gz -> nwipe-0.31.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_md5_=ba6cf2e7364182a17c588f629b28bd91
