@@ -1,15 +1,15 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure prepare
-DEPEND=x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0= ) seccomp? ( >=sys-libs/libseccomp-2.3.1:0= ) xpm? ( x11-libs/libXpm ) virtual/pkgconfig
+DEPEND=x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0= ) seccomp? ( >=sys-libs/libseccomp-2.3.1:0= ) xpm? ( x11-libs/libXpm )
 DESCRIPTION=Wallpaper setting utility for X
 EAPI=7
 HOMEPAGE=https://github.com/stoeckmann/xwallpaper
 INHERIT=autotools
-IUSE=jpeg png seccomp xpm
-KEYWORDS=amd64 ~ppc64 x86
+IUSE=+jpeg +png seccomp xpm
+KEYWORDS=amd64 arm64 ppc64 x86
 LICENSE=ISC
 RDEPEND=x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0= ) seccomp? ( >=sys-libs/libseccomp-2.3.1:0= ) xpm? ( x11-libs/libXpm )
 SLOT=0
-SRC_URI=https://github.com/stoeckmann/xwallpaper/releases/download/v0.6.6/xwallpaper-0.6.6.tar.xz
+SRC_URI=https://github.com/stoeckmann/xwallpaper/releases/download/v0.7.2/xwallpaper-0.7.2.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
-_md5_=215f10fc5de1cb7b02de64d0b22d688d
+_md5_=b973083bc7f8eb3c9cc3c76ddce1a757
