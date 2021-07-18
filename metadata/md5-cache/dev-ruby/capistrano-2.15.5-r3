@@ -6,12 +6,12 @@ EAPI=7
 HOMEPAGE=https://capistranorb.com/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 test test
-KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris ~x86-solaris
+KEYWORDS=amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris ~x86-solaris
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby25? ( >=dev-ruby/net-ssh-2.0.14:*[ruby_targets_ruby25(-)] >=dev-ruby/net-sftp-2.0.2[ruby_targets_ruby25(-)] >=dev-ruby/net-scp-1.0.2[ruby_targets_ruby25(-)] >=dev-ruby/net-ssh-gateway-1.1.0:*[ruby_targets_ruby25(-)] >=dev-ruby/highline-1.2.7[ruby_targets_ruby25(-)] ) ruby_targets_ruby26? ( >=dev-ruby/net-ssh-2.0.14:*[ruby_targets_ruby26(-)] >=dev-ruby/net-sftp-2.0.2[ruby_targets_ruby26(-)] >=dev-ruby/net-scp-1.0.2[ruby_targets_ruby26(-)] >=dev-ruby/net-ssh-gateway-1.1.0:*[ruby_targets_ruby26(-)] >=dev-ruby/highline-1.2.7[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/net-ssh-2.0.14:*[ruby_targets_ruby27(-)] >=dev-ruby/net-sftp-2.0.2[ruby_targets_ruby27(-)] >=dev-ruby/net-scp-1.0.2[ruby_targets_ruby27(-)] >=dev-ruby/net-ssh-gateway-1.1.0:*[ruby_targets_ruby27(-)] >=dev-ruby/highline-1.2.7[ruby_targets_ruby27(-)] ) ruby_targets_ruby25? ( dev-lang/ruby:2.5 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby25? ( virtual/rubygems[ruby_targets_ruby25(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 )
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://rubygems.org/gems/capistrano-2.15.5.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b97a1a9a3103f9a66f622ea3eb2ce12b	ruby-fakegem	5e2d0d0c89a1e9425bc8dacd73e7e940
-_md5_=af711f168175df151d7034be89de906f
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	ab9b21d1b0a24b6afdd489885350e82e	ruby-fakegem	3e905d374dad540cd5fbc89cefca91c4
+_md5_=7ef59e2e06f2c172b9db01405afc85c4
