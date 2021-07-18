@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit autotools user prefix
+inherit autotools prefix
 
 DESCRIPTION="An authentication service for creating and validating credentials"
 HOMEPAGE="https://github.com/dun/munge"
@@ -18,13 +18,13 @@ DEPEND="
 	app-arch/bzip2
 	sys-libs/zlib
 	gcrypt? ( dev-libs/libgcrypt:0 )
-	!gcrypt? ( dev-libs/openssl:0= )"
-RDEPEND="${DEPEND}"
-
-pkg_setup() {
-	enewgroup munge
-	enewuser munge -1 -1 /var/lib/munge munge
-}
+	!gcrypt? ( dev-libs/openssl:0= )
+"
+RDEPEND="
+	${DEPEND}
+	acct-group/munge
+	acct-user/munge
+"
 
 src_prepare() {
 	default
@@ -35,11 +35,14 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		--localstatedir="${EPREFIX}"/var \
-		--with-crypto-lib=$(usex gcrypt libgcrypt openssl) \
-		$(use_enable debug) \
+	local myeconfargs=(
+		--localstatedir="${EPREFIX}"/var
+		--with-crypto-lib=$(usex gcrypt libgcrypt openssl)
+		$(use_enable debug)
 		$(use_enable static-libs static)
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
@@ -47,12 +50,13 @@ src_install() {
 
 	default
 
-	# 450830
+	# Bug 450830
 	if [ -d "${ED}"/var/run ]; then
 		rm -rf "${ED}"/var/run || die
 	fi
 
 	dodir /etc/munge
+	keepdir /var/{lib,log}/munge
 
 	for d in "init.d" "default" "sysconfig"; do
 		if [ -d "${ED}"/etc/${d} ]; then

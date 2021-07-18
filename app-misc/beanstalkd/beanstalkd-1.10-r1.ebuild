@@ -1,31 +1,30 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
-inherit systemd toolchain-funcs user
+inherit systemd toolchain-funcs
 
 DESCRIPTION="A simple, fast work queue"
-HOMEPAGE="http://kr.github.io/beanstalkd/"
+HOMEPAGE="https://kr.github.io/beanstalkd/"
 SRC_URI="https://github.com/kr/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~mips ~x86 ~amd64-linux ~x64-macos"
+KEYWORDS="amd64 ~mips x86 ~amd64-linux ~x64-macos"
 
-RDEPEND=""
-DEPEND=""
-
-IUSE=""
+RDEPEND="
+	acct-group/beanstalk
+	acct-user/beanstalk
+"
 
 DOCS=( README News docs/protocol.txt )
 
-pkg_setup() {
-	enewuser beanstalk -1 -1 /var/lib/beanstalkd daemon
-}
-
 src_prepare() {
-	sed -i -e "/override/d" Makefile
+	sed -e "s/CFLAGS=/CFLAGS?=/" \
+		-e "s/LDLIBS/LDFLAGS/" \
+		-e "s/LDFLAGS=/LDFLAGS?=/"
+		-i Makefile || die
 }
 
 src_compile() {
@@ -34,10 +33,6 @@ src_compile() {
 
 src_install() {
 	dobin beanstalkd
-
-	DATADIR=/var/lib/${PN}
-	dodir ${DATADIR}
-	fowners beanstalk:daemon ${DATADIR}
 
 	doman doc/"${PN}".1
 

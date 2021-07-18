@@ -1,73 +1,77 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 MY_P="${P/cluster-}"
-inherit autotools multilib user
+
+inherit autotools flag-o-matic multilib
 
 DESCRIPTION="Library pack for Heartbeat / Pacemaker"
 HOMEPAGE="http://www.linux-ha.org/wiki/Cluster_Glue"
 SRC_URI="http://hg.linux-ha.org/glue/archive/${MY_P}.tar.bz2"
+S="${WORKDIR}/Reusable-Cluster-Components-glue--${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~hppa x86"
-IUSE="doc libnet static-libs"
+IUSE="doc ipmilan libnet static-libs"
 
-RDEPEND="app-arch/bzip2
+RDEPEND="
+	acct-group/haclient
+	acct-user/hacluster
+	app-arch/bzip2
+	app-text/asciidoc
 	app-text/docbook-xml-dtd:4.4
 	dev-libs/glib:2
 	dev-libs/libaio
+	dev-libs/libltdl:=
+	dev-libs/libxml2
+	ipmilan? ( sys-libs/openipmi )
 	libnet? ( net-libs/libnet:1.1 )
 	net-misc/curl
 	net-misc/iputils
 	|| ( net-misc/netkit-telnetd net-misc/telnet-bsd )
-	dev-libs/libxml2"
-DEPEND="${RDEPEND}
+"
+DEPEND="
+	${RDEPEND}
 	doc? (
 		dev-libs/libxslt
 		app-text/docbook-xsl-stylesheets
-		)"
-
-S="${WORKDIR}/Reusable-Cluster-Components-glue--${MY_P}"
-
-pkg_setup() {
-	enewgroup haclient
-	enewuser  hacluster -1 /dev/null /var/lib/heartbeat haclient
-}
+	)
+"
 
 src_prepare() {
 	default
-	sed -e '/ -ggdb3/d' -i configure.ac || die
+	sed -e 's/\\$(/$(/g' -e '/ -ggdb/d;/-fstack-protector-all/d' -i configure.ac || die
 	sed -e "s@http://docbook.sourceforge.net/release/xsl/current@/usr/share/sgml/docbook/xsl-stylesheets/@g" \
 		-i doc/Makefile.am || die
 	eautoreconf
 }
 
 src_configure() {
-	local myopts
+	append-cppflags -DOPENIPMI_DEFINE_SELECTOR_T
 
-	use doc && myopts=" --enable-doc"
-	econf \
-		$(use_enable libnet) \
-		$(use_enable static-libs static) \
-		--disable-fatal-warnings \
-		--localstatedir=/var \
-		--with-ocf-root=/usr/$(get_libdir)/ocf \
-		${myopts} \
-		--with-group-id=$(id -g hacluster) \
-		--with-ccmuser-id=$(id -u hacluster) \
+	local myeconfargs=(
+		$(use_enable ipmilan)
+		$(use_enable libnet)
+		$(use_enable static-libs static)
+		$(usex doc '--enable-doc' '')
+		--disable-fatal-warnings
+		--localstatedir=/var
+		--with-ocf-root=/usr/$(get_libdir)/ocf
+		--with-group-id=$(id -g hacluster)
+		--with-ccmuser-id=$(id -u hacluster)
 		--with-daemon-user=hacluster --with-daemon-group=haclient
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
 	default
 
-	dodir /var/lib/heartbeat/cores
-	dodir /var/lib/heartbeat/lrm
-
-	keepdir /var/lib/heartbeat/cores
+	keepdir /var/lib/heartbeat/cores/{hacluster,nobody,root}
 	keepdir /var/lib/heartbeat/lrm
 
 	# init.d file
@@ -75,7 +79,7 @@ src_install() {
 	sed -i \
 		-e "s:%libdir%:$(get_libdir):" \
 		"${T}/heartbeat-logd.init" || die
-# 	newinitd "${T}/heartbeat-logd.init" heartbeat-logd
+	# newinitd "${T}/heartbeat-logd.init" heartbeat-logd
 	rm "${D}"/etc/init.d/logd
 
 	use static-libs || find "${D}" -type f -name "*.la" -delete
