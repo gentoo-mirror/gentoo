@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?]
+DESCRIPTION=LR(1) parser generator for the OCaml language
+EAPI=7
+HOMEPAGE=http://gallium.inria.fr/~fpottier/menhir/
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2 LGPL-2-with-linking-exception
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?]
+SLOT=0/20210419
+SRC_URI=https://gitlab.inria.fr/fpottier/menhir/-/archive/20210419/menhir-20210419.tar.gz
+_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_md5_=d8f4edf5a5ca5f0db87a3a0684f0a0b1
