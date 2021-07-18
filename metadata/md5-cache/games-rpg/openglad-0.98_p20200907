@@ -1,0 +1,14 @@
+BDEPEND=dev-util/premake:4 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-libs/libyaml dev-libs/libzip:= media-libs/libpng:= media-libs/libsdl2[joystick,opengl,sound,video] media-libs/sdl2-mixer
+DESCRIPTION=SDL clone of Gladiator, a classic RPG game
+EAPI=8
+HOMEPAGE=http://snowstorm.sourceforge.net/
+INHERIT=desktop flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=Boost-1.0 GPL-2+ ZLIB
+RDEPEND=dev-libs/libyaml dev-libs/libzip:= media-libs/libpng:= media-libs/libsdl2[joystick,opengl,sound,video] media-libs/sdl2-mixer
+SLOT=0
+SRC_URI=https://github.com/openglad/openglad/archive/80e33b15cfa6d7d288b4b3db4dcca0349f13691f.tar.gz -> openglad-0.98_p20200907.tar.gz mirror://gentoo/openglad.png
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_md5_=ef0d7a98786b3b57f69ffbf7eb79e5c6
