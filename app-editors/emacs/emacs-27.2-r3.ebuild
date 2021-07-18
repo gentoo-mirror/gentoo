@@ -36,7 +36,7 @@ else
 	PATCHES=("${WORKDIR}/patch")
 	SLOT="${PV%%.*}"
 	[[ ${PV} == *.*.* ]] && SLOT+="-vcs"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
 
 DESCRIPTION="The extensible, customizable, self-documenting real-time display editor"
@@ -132,11 +132,10 @@ BDEPEND="sys-apps/texinfo
 	virtual/pkgconfig
 	gzip-el? ( app-arch/gzip )"
 
-RDEPEND="${RDEPEND}
-	!app-editors/emacs-vcs:27
-	app-eselect/eselect-emacs"
-
 IDEPEND="app-eselect/eselect-emacs"
+
+RDEPEND+=" ${IDEPEND}
+	!app-editors/emacs-vcs:27"
 
 EMACS_SUFFIX="emacs-${SLOT}"
 SITEFILE="20${EMACS_SUFFIX}-gentoo.el"
