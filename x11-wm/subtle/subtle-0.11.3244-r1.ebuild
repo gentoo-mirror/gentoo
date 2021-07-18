@@ -1,19 +1,13 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-USE_RUBY="ruby24 ruby25 ruby26"
+USE_RUBY="ruby26 ruby27 ruby30"
 
 inherit ruby-ng toolchain-funcs
 
-if [[ ${PV} == "9999" ]]; then
-	EHG_REPO_URI="https://hg.subforge.org/subtle"
-	EHG_CHECKOUT_DIR=${S}/all
-	inherit mercurial
-else
-	SRC_URI="https://dev.gentoo.org/~radhermit/dist/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+SRC_URI="https://dev.gentoo.org/~radhermit/dist/${P}.tar.gz"
+KEYWORDS="~amd64 ~x86"
 
 DESCRIPTION="A manual tiling window manager"
 HOMEPAGE="https://subforge.org/projects/subtle/wiki"
@@ -32,7 +26,7 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-ruby_add_rdepend "dev-ruby/archive-tar-minitar"
+ruby_add_rdepend "dev-ruby/minitar"
 ruby_add_bdepend "dev-ruby/rake doc? ( dev-ruby/rdoc )"
 
 all_ruby_unpack() {
