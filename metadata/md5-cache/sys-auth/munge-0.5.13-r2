@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=app-arch/bzip2 sys-libs/zlib gcrypt? ( dev-libs/libgcrypt:0 ) !gcrypt? ( dev-libs/openssl:0= )
+DESCRIPTION=An authentication service for creating and validating credentials
+EAPI=7
+HOMEPAGE=https://github.com/dun/munge
+INHERIT=autotools prefix
+IUSE=debug gcrypt static-libs
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86
+LICENSE=GPL-3
+RDEPEND=app-arch/bzip2 sys-libs/zlib gcrypt? ( dev-libs/libgcrypt:0 ) !gcrypt? ( dev-libs/openssl:0= ) acct-group/munge acct-user/munge
+SLOT=0
+SRC_URI=https://github.com/dun/munge/releases/download/munge-0.5.13/munge-0.5.13.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	prefix	d04f14b297013ad1410550c0757f14f8
+_md5_=6dd1f962282deb095e0ed2a07aa1b33f
