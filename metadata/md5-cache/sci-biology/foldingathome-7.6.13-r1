@@ -4,12 +4,12 @@ DEPEND=dev-util/patchelf
 DESCRIPTION=Folding@Home is a distributed computing project for protein folding
 EAPI=7
 HOMEPAGE=https://foldingathome.org/
-INHERIT=user systemd
+INHERIT=systemd
 KEYWORDS=~amd64
 LICENSE=FAH-EULA-2014 FAH-special-permission
-RDEPEND=app-arch/bzip2 || ( dev-libs/openssl-compat:1.0.0 =dev-libs/openssl-1.0*:* ) sys-devel/gcc sys-libs/glibc sys-libs/zlib acct-group/video
+RDEPEND=acct-group/foldingathome acct-group/video acct-user/foldingathome app-arch/bzip2 || ( dev-libs/openssl-compat:1.0.0 =dev-libs/openssl-1.0*:* ) sys-devel/gcc sys-libs/glibc sys-libs/zlib
 RESTRICT=mirror bindist strip
 SLOT=0
 SRC_URI=https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient_7.6.13-64bit-release.tar.bz2
-_eclasses_=user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
-_md5_=35efc85acab21d56c5bb97f30da7e0f8
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_md5_=f2ef46b617dbd53a6e9dbdd86ff70bf1
