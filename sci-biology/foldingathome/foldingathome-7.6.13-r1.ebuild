@@ -1,24 +1,28 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit user systemd
+inherit systemd
 
 DESCRIPTION="Folding@Home is a distributed computing project for protein folding"
 HOMEPAGE="https://foldingathome.org/"
 SRC_URI="https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v$(ver_cut 1-2)/fahclient_${PV}-64bit-release.tar.bz2"
-
-RESTRICT="mirror bindist strip"
+S="${WORKDIR}/fahclient_${PV}-64bit-release"
 
 LICENSE="FAH-EULA-2014 FAH-special-permission"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+RESTRICT="mirror bindist strip"
+
 # Expressly listing all deps, as this is a binpkg and it is doubtful whether
 # i.e. uclibc or clang can provide what is necessary at runtime
 DEPEND="dev-util/patchelf"
-RDEPEND="app-arch/bzip2
+RDEPEND="
+	acct-group/foldingathome
+	acct-group/video
+	acct-user/foldingathome
+	app-arch/bzip2
 	|| (
 		dev-libs/openssl-compat:1.0.0
 		=dev-libs/openssl-1.0*:*
@@ -26,10 +30,7 @@ RDEPEND="app-arch/bzip2
 	sys-devel/gcc
 	sys-libs/glibc
 	sys-libs/zlib
-	acct-group/video
 "
-
-S="${WORKDIR}/fahclient_${PV}-64bit-release"
 
 QA_PREBUILT="opt/foldingathome/*"
 
@@ -44,9 +45,6 @@ pkg_setup() {
 	elog ""
 	elog "(ref: http://foldingforum.org/viewtopic.php?f=16&t=22524&p=241992#p241992 )"
 	elog ""
-
-	enewgroup foldingathome
-	enewuser foldingathome -1 -1 "${EPREFIX}"/opt/foldingathome video
 }
 
 src_install() {

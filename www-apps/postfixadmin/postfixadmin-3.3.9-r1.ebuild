@@ -3,11 +3,12 @@
 
 EAPI=7
 
-inherit user webapp
+inherit webapp
 
 DESCRIPTION="Web Based Management tool for Postfix style virtual domains and users"
 HOMEPAGE="http://postfixadmin.sourceforge.net"
 SRC_URI="https://github.com/postfixadmin/postfixadmin/archive/${P}.tar.gz"
+S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="GPL-2"
 KEYWORDS="amd64 ~ppc x86"
@@ -17,6 +18,8 @@ REQUIRED_USE="|| ( mysql postgres )"
 DEPEND="
 	dev-lang/php:*[unicode,imap,postgres?]
 	vacation? (
+		acct-group/vacation
+		acct-user/vacation
 		dev-perl/DBI
 		dev-perl/Email-Sender
 		dev-perl/Email-Valid
@@ -28,21 +31,17 @@ DEPEND="
 		postgres? ( dev-perl/DBD-Pg )
 	)
 "
-RDEPEND="${DEPEND}
-	virtual/httpd-php
-	mysql? ( || ( dev-lang/php[mysqli] dev-lang/php[mysql] ) )"
 
-S="${WORKDIR}/${PN}-${P}"
+RDEPEND="
+	${DEPEND}
+	virtual/httpd-php
+	mysql? ( || ( dev-lang/php[mysqli] dev-lang/php[mysql] ) )
+"
 
 need_httpd_cgi
 
 pkg_setup() {
 	webapp_pkg_setup
-
-	if use vacation; then
-		enewgroup vacation
-		enewuser vacation -1 -1 -1 vacation
-	fi
 }
 
 src_install() {
