@@ -12,14 +12,15 @@ SRC_URI="https://linuxcontainers.org/downloads/lxd/${P}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="apparmor ipv6 nls verify-sig"
 
 DEPEND="app-arch/xz-utils
 	>=app-emulation/lxc-3.0.0[apparmor?,seccomp(+)]
 	dev-libs/dqlite
 	dev-libs/lzo
-	dev-libs/raft
+	dev-libs/raft[lz4]
+	>=dev-util/xdelta-3.0[lzma(+)]
 	net-dns/dnsmasq[dhcp,ipv6?]"
 RDEPEND="${DEPEND}
 	acct-group/lxd
@@ -82,6 +83,11 @@ src_prepare() {
 		doc/environment.md \
 		lxd/apparmor/instance_qemu.go \
 		lxd/instance/drivers/driver_qemu.go || die "Failed to fix hardcoded ovmf paths."
+
+	# Fix hardcoded virtfs-proxy-helper file path, see bug 798924
+	sed -i \
+		-e "s:/usr/lib/qemu/virtfs-proxy-helper:/usr/libexec/virtfs-proxy-helper:g" \
+		lxd/device/disk.go || die "Failed to fix virtfs-proxy-helper path."
 }
 
 src_configure() { :; }
@@ -89,21 +95,26 @@ src_configure() { :; }
 src_compile() {
 	export GOPATH="${S}/_dist"
 	export GO111MODULE=auto
+	export CGO_LDFLAGS_ALLOW="-Wl,-z,now"
 
 	cd "${S}" || die
 
-	for k in fuidshift lxd-agent lxd-benchmark lxd-p2c lxc lxc-to-lxd; do
-		go install -v -x ${EGO_PN}/${k} || die "failed compiling ${k}"
+	for k in fuidshift lxd-benchmark lxc lxc-to-lxd; do
+		go install -v -x "${EGO_PN}/${k}" || die "failed compiling ${k}"
 	done
 
 	go install -v -x -tags libsqlite3 ${EGO_PN}/lxd || die "Failed to build the daemon"
+
+	# Needs to be built statically
+	CGO_ENABLED=0 go install -v -tags netgo "${EGO_PN}"/lxd-p2c
+	CGO_ENABLED=0 go install -v -tags agent,netgo "${EGO_PN}"/lxd-agent
 
 	use nls && emake build-mo
 }
 
 src_test() {
-	export GO111MODULE=auto
 	export GOPATH="${S}/_dist"
+	export GO111MODULE=off
 	go test -v ${EGO_PN}/lxd || die
 }
 
