@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://www.riverbankcomputing.com/software/pyqtwebengine/intro https://pypi.org/project/PyQtWebEngine/
 INHERIT=python-r1 qmake-utils
 IUSE=debug python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-3
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/PyQt5-5.15[gui,network,printsupport,ssl,webchannel,widgets,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/PyQt5-sip-4.19.22:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-qt/qtcore:5 dev-qt/qtwebengine:5[widgets]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=mirror://pypi/P/PyQtWebEngine/PyQtWebEngine-5.15.4.tar.gz
 _eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
-_md5_=4367adfb49125c684c7d736274e880ed
+_md5_=9cb9c8fd58f38088ba6da5e408935da2
