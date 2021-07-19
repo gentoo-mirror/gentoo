@@ -25,7 +25,10 @@ DEPEND="media-libs/ladspa-sdk
 	sci-libs/fftw:3.0
 	x11-libs/libX11
 	jack? ( media-sound/jack-audio-connection-kit )
-	opengl? ( media-libs/libglvnd[X] )"
+	opengl? (
+		media-libs/libglvnd[X]
+		x11-libs/cairo[X]
+	)"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
@@ -43,7 +46,10 @@ src_compile() {
 	emake PREFIX=/usr LIBDIR=$(get_libdir) VERBOSE=true \
 		BASE_OPTS="" SKIP_STRIPPING=true \
 		HAVE_ZITA_CONVOLVER=true \
+		HAVE_CAIRO=$(usex opengl true false) \
 		HAVE_DGL=$(usex opengl true false) \
+		HAVE_OPENGL=$(usex opengl true false) \
+		UI_TYPE=$(usex opengl "opengl" "none") \
 		HAVE_JACK=$(usex jack true false)
 }
 
@@ -51,7 +57,10 @@ src_install() {
 	emake PREFIX=/usr LIBDIR=$(get_libdir) VERBOSE=true \
 		BASE_OPTS="" SKIP_STRIPPING=true \
 		HAVE_ZITA_CONVOLVER=true \
+		HAVE_CAIRO=$(usex opengl true false) \
 		HAVE_DGL=$(usex opengl true false) \
+		HAVE_OPENGL=$(usex opengl true false) \
+		UI_TYPE=$(usex opengl "opengl" "none") \
 		HAVE_JACK=$(usex jack true false) \
 		DESTDIR="${ED}" install
 }
