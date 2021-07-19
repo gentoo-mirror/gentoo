@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://pypi.org/project/doctest-ignore-unicode/ https://github.com/gnublade/doctest-ignore-unicode
 INHERIT=distutils-r1
 IUSE=test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=amd64 ~arm ~arm64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=Apache-2.0
 RDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.0:0= ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/d/doctest-ignore-unicode/doctest-ignore-unicode-0.1.2.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
-_md5_=950f01273838c800adc2c50ba5b218fe
+_md5_=82c1282d30b1f95a9f734fcbd68254cf

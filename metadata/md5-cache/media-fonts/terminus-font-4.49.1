@@ -1,14 +1,14 @@
-BDEPEND=app-arch/gzip || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/awk pcf? ( x11-apps/bdftopcf ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=app-arch/gzip || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/awk pcf-8bit? ( x11-apps/bdftopcf ) pcf-unicode? ( x11-apps/bdftopcf ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
 DESCRIPTION=A clean fixed font for the console and X11
 EAPI=7
 HOMEPAGE=http://terminus-font.sourceforge.net/
 INHERIT=font python-any-r1
-IUSE=a-like-o +center-tilde distinct-l +otf +pcf +pcf-unicode-only +psf quote ru-dv +ru-g ru-i ru-k X
+IUSE=a-like-o +center-tilde distinct-l +otf pcf-8bit +pcf-unicode +psf quote ru-dv +ru-g ru-i ru-k X
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=OFL-1.1 GPL-2
-REQUIRED_USE=X? ( || ( otf pcf ) )
+REQUIRED_USE=X? ( || ( otf pcf-8bit pcf-unicode ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/terminus-font/terminus-font-4.49/terminus-font-4.49.1.tar.gz
 _eclasses_=font	0667878c2b594871023dd1833d05996f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330
-_md5_=78f608fae83482f9f4b9af8ecd4bd8dd
+_md5_=55f87f65ba4eb9414671519adfed1469
