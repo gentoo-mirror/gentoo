@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://libre.adacore.com/tools/aunit/
 INHERIT=ada multiprocessing
 IUSE=ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2017? ( dev-lang/gnat-gpl:6.3.0 ) ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 )
 REQUIRED_USE=^^ ( ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/c8eadafc40c016859e127cd0e82411fcd8f3e749?filename=aunit-2021-20210518-19DC5-src.tar.gz -> aunit-2021-20210518-19DC5-src.tar.gz
 _eclasses_=ada	ba844d1f9394081aa86d3569cc3a4388	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=eaa9cfcb0779f24e873daa9ce8b2fd84
+_md5_=2a43283da518f389edcf3c8d34aa2a1f

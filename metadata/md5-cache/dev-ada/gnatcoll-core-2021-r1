@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://libre.adacore.com
 INHERIT=ada multiprocessing
 IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021 -ada_target_gnat_2017 -ada_target_gnat_2018 -ada_target_gnat_2019
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=>=dev-ada/libgpr-2021[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gnat_2017(-),-ada_target_gnat_2018(-),-ada_target_gnat_2019(-),shared?,static-libs?,static-pic?]
 REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/425b044d5cb112f096c7ac5ebbafb0d8e5297913?filename=gnatcoll-core-2021-20210518-19ADF-src.tar.gz -> gnatcoll-core-2021-20210518-19ADF-src.tar.gz
 _eclasses_=ada	ba844d1f9394081aa86d3569cc3a4388	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=04b2284d0ba12de10391fa538a4f4c7d
+_md5_=6f75a7e4c73ebb210be4e583415320f2
