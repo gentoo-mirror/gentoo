@@ -12,21 +12,19 @@ SRC_URI="https://sagan.quadrantsec.com/download/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="geoip +libdnet +lognorm mysql redis +pcap smtp"
+IUSE="geoip +libdnet mysql redis +pcap smtp"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="
 	acct-group/sagan
 	acct-user/sagan
-	app-admin/sagan-rules[lognorm?]
+	app-admin/sagan-rules
+	dev-libs/libestr
+	dev-libs/libfastjson:=
+	dev-libs/liblognorm
 	dev-libs/libpcre
 	dev-libs/libyaml
 	geoip? ( dev-libs/geoip )
-	lognorm? (
-		dev-libs/liblognorm
-		dev-libs/libfastjson:=
-		dev-libs/libestr
-	)
 	redis? ( dev-libs/hiredis )
 	pcap? ( net-libs/libpcap )
 	smtp? ( net-libs/libesmtp )
@@ -57,8 +55,8 @@ src_configure() {
 	# Note that not all of these are used:
 	# https://github.com/quadrantsec/sagan/blob/main/m4/ax_ext.m4
 	local myeconfargs=(
+		--enable-lognorm
 		$(use_enable smtp esmtp)
-		$(use_enable lognorm)
 		$(use_enable redis)
 		$(use_enable pcap libpcap)
 		$(use_enable geoip)
