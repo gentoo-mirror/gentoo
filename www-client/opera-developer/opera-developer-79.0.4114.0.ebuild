@@ -30,7 +30,7 @@ fi
 
 KEYWORDS="-* ~amd64"
 
-FFMPEG_VERSION="92.0.4515.20"
+FFMPEG_VERSION="93.0.4549.4"
 
 SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.deb}
 	proprietary-codecs? (
