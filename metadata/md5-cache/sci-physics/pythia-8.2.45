@@ -1,15 +1,15 @@
 DEFINED_PHASES=configure install prepare pretend test
-DEPEND=fastjet? ( sci-physics/fastjet ) gzip? ( sys-libs/zlib ) hepmc? ( sci-physics/hepmc:0= ) lhapdf? ( sci-physics/lhapdf:= ) test? ( root? ( sci-physics/root:= ) )
+DEPEND=fastjet? ( sci-physics/fastjet ) hepmc? ( sci-physics/hepmc:0= ) lhapdf? ( sci-physics/lhapdf:= ) zlib? ( sys-libs/zlib ) test? ( root? ( sci-physics/root:= ) )
 DESCRIPTION=Lund Monte Carlo high-energy physics event generator
 EAPI=7
 HOMEPAGE=http://pythia8.hepforge.org/
 INHERIT=toolchain-funcs
-IUSE=doc examples fastjet gzip +hepmc lhapdf root test
+IUSE=doc examples fastjet +hepmc lhapdf root test zlib
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=fastjet? ( sci-physics/fastjet ) gzip? ( sys-libs/zlib ) hepmc? ( sci-physics/hepmc:0= ) lhapdf? ( sci-physics/lhapdf:= )
+RDEPEND=fastjet? ( sci-physics/fastjet ) hepmc? ( sci-physics/hepmc:0= ) lhapdf? ( sci-physics/lhapdf:= ) zlib? ( sys-libs/zlib )
 RESTRICT=!test? ( test )
 SLOT=8
 SRC_URI=http://home.thep.lu.se/~torbjorn/pythia8/pythia8245.tgz test? ( lhapdf? ( https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/CT10.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/MRST2007lomod.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/NNPDF23_nlo_as_0119_qed_mc.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/NNPDF23_nnlo_as_0119_qed_mc.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/cteq66.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/cteq6l1.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/unvalidated/MRST2004qed.tar.gz ) )
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=704b44517fdfa607cccc223e5607d725
+_md5_=4ca4ae981aa7032b2fb7bde43324c3ec

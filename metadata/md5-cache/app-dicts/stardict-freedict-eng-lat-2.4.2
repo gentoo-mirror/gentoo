@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install
-DEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv app-text/goldendict ) gzip? ( app-arch/gzip app-text/dictd )
+DEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv app-text/goldendict ) zlib? ( app-arch/gzip app-text/dictd )
 DESCRIPTION=Stardict Dictionary English to Latin
 EAPI=6
 HOMEPAGE=http://download.huzheng.org/freedict.de/
 INHERIT=stardict
-IUSE=gzip
+IUSE=+zlib
 KEYWORDS=amd64 ppc sparc x86
 LICENSE=GPL-2
 RESTRICT=strip
 SLOT=0
 SRC_URI=mirror://sourceforge/stardict/stardict-dictd_www.freedict.de_eng-lat-2.4.2.tar.bz2
-_eclasses_=stardict	b7e384ed331f1fbaf160ae1633e93398
+_eclasses_=stardict	133837790513cea70d3d9d501603dce5
 _md5_=1661f6642ffae327a5d7a326a9859e86
