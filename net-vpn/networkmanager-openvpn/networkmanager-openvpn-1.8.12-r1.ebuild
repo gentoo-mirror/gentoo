@@ -1,10 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
+
 GNOME_ORG_MODULE="NetworkManager-${PN##*-}"
 
-inherit gnome2 user
+inherit gnome2
 
 DESCRIPTION="NetworkManager OpenVPN plugin"
 HOMEPAGE="https://wiki.gnome.org/Projects/NetworkManager"
@@ -15,8 +16,9 @@ KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE="gtk test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
+DEPEND="
 	>=dev-libs/glib-2.32:2
+	dev-libs/libxml2:2
 	>=net-misc/networkmanager-1.7.0:=
 	>=net-vpn/openvpn-2.1
 	gtk? (
@@ -25,17 +27,18 @@ RDEPEND="
 		>=x11-libs/gtk+-3.4:3
 	)
 "
-DEPEND="${RDEPEND}
-	dev-libs/libxml2:2
+
+RDEPEND="
+	${DEPEND}
+	acct-group/nm-openvpn
+	acct-user/nm-openvpn
+"
+
+BDEPEND="
 	sys-devel/gettext
 	>=dev-util/intltool-0.35
 	virtual/pkgconfig
 "
-
-pkg_setup() {
-	enewgroup nm-openvpn
-	enewuser nm-openvpn -1 -1 -1 nm-openvpn
-}
 
 src_prepare() {
 	# Test will fail if the machine doesn't have a particular locale installed

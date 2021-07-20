@@ -1,10 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
+
 GNOME_ORG_MODULE="NetworkManager-${PN##*-}"
 
-inherit gnome2 user
+inherit gnome2
 
 DESCRIPTION="NetworkManager OpenConnect plugin"
 HOMEPAGE="https://wiki.gnome.org/Projects/NetworkManager"
@@ -14,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 arm arm64 ~ppc64 x86"
 IUSE="gtk"
 
-RDEPEND="
+DEPEND="
 	>=net-misc/networkmanager-1.2:=
 	>=dev-libs/glib-2.32:2
 	>=dev-libs/dbus-glib-0.74
@@ -25,7 +26,14 @@ RDEPEND="
 		>=app-crypt/libsecret-0.18
 		>=x11-libs/gtk+-3.4:3 )
 "
-DEPEND="${RDEPEND}
+
+RDEPEND="
+	${DEPEND}
+	acct-group/nm-openconnect
+	acct-user/nm-openconnect
+"
+
+BDEPEND="
 	sys-devel/gettext
 	dev-util/intltool
 	virtual/pkgconfig
@@ -42,6 +50,4 @@ src_configure() {
 
 pkg_postinst() {
 	gnome2_pkg_postinst
-	enewgroup nm-openconnect
-	enewuser nm-openconnect -1 -1 -1 nm-openconnect
 }
