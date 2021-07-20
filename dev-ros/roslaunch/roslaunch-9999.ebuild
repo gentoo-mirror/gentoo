@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,14 +7,13 @@ ROS_REPO_URI="https://github.com/ros/ros_comm"
 KEYWORDS="~amd64 ~arm"
 ROS_SUBDIR=tools/${PN}
 
-inherit ros-catkin user
+inherit ros-catkin
 
 DESCRIPTION="Tool for easily launching multiple ROS nodes"
 LICENSE="BSD"
 SLOT="0"
-IUSE=""
 
-RDEPEND="
+CDEPEND="
 	dev-ros/roslib[${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep "dev-python/rospkg[\${PYTHON_USEDEP}]")
 	dev-ros/rosclean[${PYTHON_SINGLE_USEDEP}]
@@ -24,7 +23,14 @@ RDEPEND="
 	dev-ros/rosmaster[${PYTHON_SINGLE_USEDEP}]
 	dev-ros/rosout
 "
-DEPEND="${RDEPEND}
+
+RDEPEND="
+	${CDEPEND}
+	acct-group/ros
+	acct-user/ros
+"
+DEPEND="
+	${CDEPEND}
 	test? (
 		$(python_gen_cond_dep "dev-util/rosdep[\${PYTHON_USEDEP}]")
 		$(python_gen_cond_dep "dev-python/nose[\${PYTHON_USEDEP}]")
@@ -53,9 +59,4 @@ src_install() {
 	# Needed by test_roslaunch
 	insinto /usr/share/${PN}
 	doins test/xml/noop.launch
-}
-
-pkg_preinst() {
-	enewgroup ros
-	enewuser ros -1 -1 /home/ros ros
 }
