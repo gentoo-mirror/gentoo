@@ -27,6 +27,9 @@ We therefore recommend the following procedure for users:
 5. Once complete, depclean:
 # emerge -a --depclean
 
+If the upgrade fails with conflicts, please try --backtrack=1000 or some
+other large number.
+
 Rarely, it may be necessary to perform a one-off installation of a package,
 but usually `perl-cleaner` will resolve the issue. If an error message occurs
 after running perl-cleaner, try e.g. for a fictional package dev-perl/foo:
