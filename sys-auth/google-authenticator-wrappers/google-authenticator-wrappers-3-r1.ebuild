@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit cmake user
+inherit cmake
 
 DESCRIPTION="Set of scripts to manage google-auth setup on Gentoo Infra"
 HOMEPAGE="https://github.com/mgorny/google-authenticator-wrappers"
@@ -12,9 +12,15 @@ SRC_URI="https://github.com/mgorny/google-authenticator-wrappers/archive/v${PV}.
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-RDEPEND="sys-auth/google-authenticator"
+DEPEND="
+	acct-group/gauth
+	acct-user/gauth
+"
+RDEPEND="
+	${DEPEND}
+	sys-auth/google-authenticator
+"
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != buildonly ]]; then
@@ -45,8 +51,6 @@ src_configure() {
 }
 
 pkg_preinst() {
-	enewgroup gauth
-	enewuser gauth -1 -1 -1 gauth
 	fowners gauth:gauth /var/lib/gauth /usr/bin/gauthctl /usr/bin/gauth-test
 	fperms ug+s /usr/bin/gauthctl /usr/bin/gauth-test
 }

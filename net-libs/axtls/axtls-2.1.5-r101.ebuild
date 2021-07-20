@@ -5,7 +5,7 @@ EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit lua-single multilib-minimal savedconfig toolchain-funcs user
+inherit lua-single multilib-minimal savedconfig toolchain-funcs
 
 ################################################################################
 # axtls CONFIG MINI-HOWTO
@@ -51,6 +51,8 @@ IUSE="httpd cgi-lua cgi-php static static-libs doc"
 BDEPEND="doc? ( app-doc/doxygen )"
 RDEPEND="
 	httpd? (
+		acct-group/axtls
+		acct-user/axtls
 		cgi-lua? ( ${LUA_DEPS} )
 		cgi-php? ( dev-lang/php[cgi] )
 	)"
@@ -61,17 +63,8 @@ REQUIRED_USE="
 	cgi-lua? ( httpd ${LUA_REQUIRED_USE} )
 	cgi-php? ( httpd )"
 
-AXTLS_GROUP="axtls"
-AXTLS_USER="axtls"
-
 pkg_setup() {
 	use cgi-lua && lua-single_pkg_setup
-
-	use httpd && {
-		ebegin "Creating axtls user and group"
-		enewgroup ${AXTLS_GROUP}
-		enewuser ${AXTLS_USER} -1 -1 -1 ${AXTLS_GROUP}
-	}
 }
 
 src_prepare() {

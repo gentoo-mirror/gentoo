@@ -1,9 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-
-inherit user
+EAPI=7
 
 DESCRIPTION="BitTorrent client, written in Perl and is designed to run as a daemon"
 HOMEPAGE="http://bitflu.workaround.ch"
@@ -12,37 +10,28 @@ SRC_URI="http://bitflu.workaround.ch/bitflu/${P}.tgz"
 LICENSE="Artistic-2 GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
 
 DEPEND="
+	acct-group/bitflu
+	acct-user/bitflu
 	dev-perl/Danga-Socket
-	dev-perl/Sys-Syscall"
+	dev-perl/Sys-Syscall
+"
 RDEPEND="${DEPEND}"
-
-pkg_setup() {
-	enewgroup bitflu
-	enewuser bitflu -1 -1 /var/lib/bitflu bitflu
-}
 
 src_compile() { :; }
 
-PLUGINS="/usr/lib/bitflu"
-HOMEDIR="/var/lib/bitflu"
-CONFDIR="/etc/bitflu"
-LOGDIR="/var/log/bitflu"
-
 src_install() {
+	local PLUGINS="/usr/lib/bitflu"
+	local CONFDIR="/etc/bitflu"
+	local LOGDIR="/var/log/bitflu"
+
 	# executable daemon
 	dosbin bitflu.pl
 
 	# plugins
 	insinto "${PLUGINS}"
 	doins -r plugins
-
-	# working dir
-	dodir "${HOMEDIR}"
-	fowners bitflu:bitflu "${HOMEDIR}"
-	fperms 775 "${HOMEDIR}"
 
 	# config file
 	insinto "${CONFDIR}"
@@ -53,7 +42,7 @@ src_install() {
 	fperms 664 "${CONFDIR}"/bitflu.config
 
 	# log file
-	dodir "${LOGDIR}"
+	keepdir "${LOGDIR}"
 	fowners bitflu:bitflu "${LOGDIR}"
 	fperms 775 "${LOGDIR}"
 
