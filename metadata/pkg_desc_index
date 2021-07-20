@@ -872,7 +872,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.19.104 1.19.112 1.20.0 1.20.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.19.104 1.19.112 1.20.0 1.20.1 1.20.2: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.26.5 1.27.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1: Distribution-independent installer framework
@@ -8266,7 +8266,7 @@ dev-python/asgiref 3.3.4 3.4.0 3.4.1: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.4.0: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.25: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1: Read/rewrite/write Python ASTs
-dev-python/astroid 2.5.8 2.6.2: Abstract Syntax Tree for logilab packages
+dev-python/astroid 2.5.8 2.6.2 2.6.4: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.2_p20201029: Simple lru_cache for asyncio
@@ -8283,7 +8283,7 @@ dev-python/autobahn 21.3.1: WebSocket and WAMP for Twisted and Asyncio
 dev-python/automat 20.2.0: Self-service finite-state machines for the programmer on the go
 dev-python/autopep8 1.5.7 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 1.0.2 2.0.0 2.1.0 2.1.1 2.2.0 3.0.0: Infer properties from accessor methods
-dev-python/aws-sam-translator 1.36.0 1.37.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.36.0 1.37.0 1.38.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk-python 2.8.0: AWS X-Ray SDK for Python
 dev-python/awxkit 19.0.0-r1 19.1.0 19.2.0 19.2.1 19.2.2: Command line interface for Ansible AWX
 dev-python/babelfish 0.5.5-r1 9999: Python library to work with countries and languages
@@ -8319,8 +8319,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.17.104 1.17.112 1.18.0 1.18.1 9999: The AWS SDK for Python
-dev-python/botocore 1.20.104 1.20.112 1.21.0 1.21.1 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.17.104 1.17.112 1.18.0 1.18.1 1.18.2 9999: The AWS SDK for Python
+dev-python/botocore 1.20.104 1.20.112 1.21.0 1.21.1 1.21.2 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8969,7 +8969,7 @@ dev-python/pip 21.1.2-r1 21.1.3: Installs python packages -- replacement for eas
 dev-python/pipenv 2020.11.15 2021.5.29: Python Development Workflow for Humans
 dev-python/pipfile 0.0.2: Replacement for the existing standard pip's requirements.txt file
 dev-python/pivy 0.6.6: Coin3D bindings for Python
-dev-python/pkgconfig 1.5.4: Interface Python with pkg-config
+dev-python/pkgconfig 1.5.4 1.5.5: Interface Python with pkg-config
 dev-python/pkginfo 1.7.0 1.7.1: Provides an API for querying the distutils metadata written in a PKG-INFO file
 dev-python/platformdirs 2.0.2: A small Python module for determining appropriate platform-specific dirs
 dev-python/plotly 4.14.1 4.14.3: Browser-based graphing library for Python
@@ -9318,7 +9318,7 @@ dev-python/pyzbar 0.1.8: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 20.0.0 22.1.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
 dev-python/pyzotero 1.4.24-r1: A Python client for the Zotero API
 dev-python/qdarkstyle 2.8.1 3.0.2: A dark style sheet for QtWidgets application
-dev-python/qrcode 6.1 7.0 7.1: QR Code generator on top of PIL
+dev-python/qrcode 6.1 7.0 7.1 7.2: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.11.5 2.11.6: Python bindings for QScintilla
 dev-python/qstylizer 0.1.10 0.2.0: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.0.2 1.0.3: Enables iconic fonts such as Font Awesome in PyQt
@@ -9619,7 +9619,7 @@ dev-python/verboselogs 1.7: Verbose logging for Python's logging module
 dev-python/versioneer 0.19 0.20: Easy VCS-based management of project version strings
 dev-python/vine 5.0.0: Python Promises
 dev-python/virtualenv 20.4.7 20.6.0: Virtual Python Environment builder
-dev-python/virtualenv-clone 0.5.3: A script for cloning a non-relocatable virtualenv
+dev-python/virtualenv-clone 0.5.3 0.5.5: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 4.8.4-r1: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r1: A tiny pythonic visitor implementation
 dev-python/vncdotool 0.13.0 1.0.0: Command line VNC client
@@ -15468,7 +15468,7 @@ net-misc/dropbox-cli 2020.03.04-r1: Cli interface for dropbox (python), part of 
 net-misc/econnman 1.1-r2: ConnMan User Interface written with EFL & python
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electron-cash 4.0.2-r2 4.2.3: Lightweight Bitcoin Cash client (BCH fork of Electrum)
-net-misc/electrum 4.1.2-r1 4.1.3 4.1.4: User friendly Bitcoin client
+net-misc/electrum 4.1.2-r1 4.1.3 4.1.4 4.1.5: User friendly Bitcoin client
 net-misc/electrum-ltc 4.0.9.1: Litecoin thin client
 net-misc/ena-driver 2.0.3-r1 2.2.3-r1: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r1 9999: SSH tarpit that slowly sends and endless banner
@@ -17922,8 +17922,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 050-r2 051-r1 053-r1 055 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 3.5.3.3 4.0.10 4.2.3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.10.47 5.10.48 5.10.49 5.10.50 5.11.22 5.12.15 5.12.16 5.12.17: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.129 5.4.129-r1 5.4.130 5.4.130-r1 5.4.131 5.4.131-r1 5.4.132 5.4.132-r1 5.10.47 5.10.47-r1 5.10.48 5.10.48-r1 5.10.49 5.10.49-r1 5.10.50 5.10.50-r1 5.12.15 5.12.15-r1 5.12.16 5.12.16-r1 5.12.17 5.12.17-r1: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.10.47 5.10.48 5.10.49 5.10.50 5.10.51 5.11.22 5.12.15 5.12.16 5.12.17 5.12.18: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.129 5.4.129-r1 5.4.130 5.4.130-r1 5.4.131 5.4.131-r1 5.4.132 5.4.132-r1 5.4.133 5.10.47 5.10.47-r1 5.10.48 5.10.48-r1 5.10.49 5.10.49-r1 5.10.50 5.10.50-r1 5.10.51 5.12.15 5.12.15-r1 5.12.16 5.12.16-r1 5.12.17 5.12.17-r1 5.12.18: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.264 4.4.273 4.4.274 4.4.275 4.9.264 4.9.273 4.9.274 4.9.275 4.14.228 4.14.237 4.14.238 4.14.239 4.19.184 4.19.195 4.19.196 4.19.197 5.4.109 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.10.27 5.10.47 5.10.48 5.10.48-r1 5.10.49 5.10.49-r1 5.10.50 5.10.51 5.12.13 5.12.14 5.12.15 5.12.16 5.12.17 5.12.18 5.13.0-r1 5.13.1 5.13.2 5.13.3: Full sources including the Gentoo patchset for the 5.13 kernel tree
 sys-kernel/git-sources 5.14_rc1 5.14_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17938,7 +17938,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p1 5.12_p2 5.12_p3 5.12_p4 5.12_p5 5.12_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.249_p212 4.4.267_p221 4.9.247_p162 4.9.263_p177 4.14.214_p104 4.14.226_p109 4.19.165_p70 4.19.188_p77 5.4.84_p47 5.4.109_p56 5.10.4_p22 5.10.30_p37 5.11.4_p11: Full Linux 5.11 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.10.47 5.10.48 5.10.49 5.10.50 5.12.15 5.12.16 5.12.17: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.10.47 5.10.48 5.10.49 5.10.50 5.10.51 5.12.15 5.12.16 5.12.17 5.12.18: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.275 4.9.275 4.14.239 4.19.197 5.4.133 5.10.51 5.12.18 5.13.3: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.12.15: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2: Standalone argp library for use with uclibc
@@ -18119,7 +18119,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.10.47 5.10.48 5.10.49 5.10.50 5.11.22 5.12.15 5.12.16 5.12.17: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.10.47 5.10.48 5.10.49 5.10.50 5.10.51 5.11.22 5.12.15 5.12.16 5.12.17 5.12.18: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
