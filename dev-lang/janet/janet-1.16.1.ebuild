@@ -16,6 +16,8 @@ IUSE="static-libs"
 
 MY_RELEASE="${PV::-2}"
 
+PATCHES="${FILESDIR}/janet-1.16.1-make.patch"
+
 src_configure() {
 	append-ldflags -Wl,-soname,libjanet.so.1.${MY_RELEASE}
 	append-cflags -fPIC
@@ -25,7 +27,7 @@ src_compile() {
 	# janet_build is the git hash of the commit related to the
 	# current release - it defines a constant which is then shown
 	# when starting janet
-	local janet_build='\"1.13.1\"'
+	local janet_build='\"'${PV}'\"'
 	emake LIBDIR="/usr/$(get_libdir)" PREFIX="/usr" JANET_BUILD="${janet_build}"
 	emake LIBDIR="/usr/$(get_libdir)" PREFIX="/usr" build/janet.pc JANET_BUILD="${janet_build}"
 	emake LIBDIR="/usr/$(get_libdir)" PREFIX="/usr" docs JANET_BUILD="${janet_build}"
@@ -34,7 +36,7 @@ src_compile() {
 
 src_install() {
 	dobin "build/janet"
-	dobin "build/jpm"
+	dobin "jpm"
 	insinto "usr/include/janet"
 	doheader "src/include/janet.h"
 	doheader "src/conf/janetconf.h"
