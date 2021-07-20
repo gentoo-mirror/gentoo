@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit desktop eapi8-dosym readme.gentoo-r1 wrapper xdg-utils
+inherit desktop readme.gentoo-r1 wrapper xdg-utils
 
 DESCRIPTION="Video conferencing and web conferencing service"
 HOMEPAGE="https://zoom.us/"
@@ -90,19 +90,19 @@ src_install() {
 	doins -r json ringtone sip timezones translations
 	doins *.pcm *.sh Embedded.properties version.txt
 	doexe zoom zopen ZoomLauncher
-	dosym8 -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
-	dosym8 -r "/usr/$(get_libdir)/libfdk-aac.so.2" /opt/zoom/libfdkaac2.so
+	dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
+	dosym -r "/usr/$(get_libdir)/libfdk-aac.so.2" /opt/zoom/libfdkaac2.so
 
 	local quazip_so="libquazip1-qt5.so"
 	if has_version "<dev-libs/quazip-1.0"; then
 		quazip_so="libquazip5.so"
 	fi
-	dosym8 -r "/usr/$(get_libdir)/${quazip_so}" /opt/zoom/libquazip.so
+	dosym -r "/usr/$(get_libdir)/${quazip_so}" /opt/zoom/libquazip.so
 
 	if use bundled-libjpeg-turbo; then
 		doexe libturbojpeg.so
 	else
-		dosym8 -r {"/usr/$(get_libdir)",/opt/zoom}/libturbojpeg.so
+		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libturbojpeg.so
 	fi
 
 	if use bundled-qt; then
@@ -126,7 +126,7 @@ src_install() {
 		)
 	fi
 
-	make_wrapper zoom /opt/zoom{/zoom,} $(usex bundled-qt /opt/zoom "")
+	make_wrapper zoom /opt/zoom{/zoom,} $(usev bundled-qt /opt/zoom)
 	make_desktop_entry "zoom %U" Zoom zoom-icon "" \
 		"MimeType=x-scheme-handler/zoommtg;application/x-zoom;"
 	doicon zoom-icon.svg
@@ -137,6 +137,11 @@ src_install() {
 pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
+
+	local FORCE_PRINT_ELOG v
+	for v in ${REPLACING_VERSIONS}; do
+		ver_test ${v} -lt 5.7.28852.0718 && use wayland && FORCE_PRINT_ELOG=1
+	done
 	readme.gentoo_print_elog
 }
 
