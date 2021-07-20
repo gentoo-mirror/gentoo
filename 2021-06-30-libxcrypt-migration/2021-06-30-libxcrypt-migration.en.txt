@@ -2,7 +2,7 @@ Title: migrating from glibc[crypt] to libxcrypt in ~arch
 Author: Andreas K. Hüttel <dilfridge@gentoo.org>
 Author: Sam James <sam@gentoo.org>
 Posted: 2021-06-30
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 
 The implementation of libcrypt.so within glibc has been deprecated
@@ -42,6 +42,15 @@ of steps described on the wiki (see below), but the outline is:
 and enable it
 * unmask ~virtual/libcrypt-2
 
+Please note that if you last changed your password before ~2008,
+it may be using md5crypt or similar other weak mechanisms in /etc/shadow;
+a bug in PAM [0][1] may mean that you were unable to login. We recommend
+using "passwd" to change/refresh your password so it is using modern
+methods. A new version of PAM has been added to the tree to resolve this issue.
+
 For more information, please see:
 * https://wiki.gentoo.org/wiki/Project:Toolchain/libcrypt_implementation
 * https://bugs.gentoo.org/699422
+
+[0] https://bugs.gentoo.org/802267
+[1] https://bugs.gentoo.org/802807
