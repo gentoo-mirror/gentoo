@@ -468,6 +468,7 @@ acct-user/automatic 0: System user: automatic
 acct-user/automx2 0-r1: User for net-mail/automx2
 acct-user/avahi 0-r1: user for avahi
 acct-user/avahi-autoipd 0-r1: user for avahi-autoipd
+acct-user/axtls 0: A user for net-libs/axtls
 acct-user/backuppc 0: User for app-backup/backuppc
 acct-user/bacula 0-r1: A group for the bacula backup system
 acct-user/bareos 0-r1: User for the bareos network backup suite
@@ -476,6 +477,7 @@ acct-user/bedrock 0-r1: A user for the Minecraft Bedrock server
 acct-user/bind_exporter 0-r1: user for bind_exporter
 acct-user/bird 0: User for BIRD
 acct-user/bitcoin 0-r1: System-wide Bitcoin services user
+acct-user/bitflu 0: A user for net-p2p/bitflu
 acct-user/bitlbee 0-r1: User for biltbee
 acct-user/blackbox_exporter 0: A user for blackbox_exporter
 acct-user/boinc 0: User for sci-misc/boinc
@@ -500,6 +502,7 @@ acct-user/consul-template 0-r1: User for consul-template
 acct-user/consul_exporter 0: user for consul_exporter
 acct-user/coredns 0: A user for net-dns/coredns
 acct-user/croc 0: User for net-misc/croc
+acct-user/cron 0: A user for sys-process/cronbase
 acct-user/cvmfs 0-r1: User for the CernVM-FS network file system
 acct-user/cyrus 0-r2: user for cyrus-imapd daemon
 acct-user/darkstat 0: uid for net-analyzer/darkstat
@@ -550,6 +553,7 @@ acct-user/frr 0: System user: frr
 acct-user/ftp 0-r1: File Transfer Protocol server user
 acct-user/ftpproxy 0: A user for net-ftp/frox
 acct-user/gatling 0-r1: System user: gatling
+acct-user/gauth 0: A user for sys-auth/google-authenticator-wrappers
 acct-user/gdm 0: User for running GDM
 acct-user/geneweb 0-r1: user id for geneweb daemon
 acct-user/geoclue 0: User for running the GeoClue D-Bus geolocation service
@@ -622,6 +626,7 @@ acct-user/mogile 0: MogileFS user
 acct-user/mongodb 0-r1: MongoDB program user
 acct-user/mongodb_exporter 0: user for mongodb_exporter
 acct-user/monitorix 0-r1: Monitorix system tool user
+acct-user/monkeyd 0: A user for www-servers/monkeyd
 acct-user/monkeysphere 0-r1: monkeysphere program user
 acct-user/mosquitto 0-r1: A user for the mosquitto MQTT broker
 acct-user/motion 0-r1: added by portage for motion, a software motion detector
@@ -783,6 +788,7 @@ acct-user/taskd 0: A user for app-misc/taskd
 acct-user/teamspeak 0-r1: A user for the TeamSpeak server
 acct-user/telegraf 0-r1: User for telegraf
 acct-user/tenshi 0: User for app-admin/tenshi
+acct-user/thttpd 0: A user for www-servers/thttpd
 acct-user/timidity 0: A user for media-sound/timidity++
 acct-user/tinydns 0: System user: tinydns
 acct-user/tinyproxy 0: uid for net-proxy/tinyproxy
@@ -5931,7 +5937,7 @@ dev-libs/oniguruma 6.9.7.1 9999: Regular expression library for different charac
 dev-libs/opencl-clang 10.0.0.1-r1 10.0.0.2-r1 11.1.0_pre20201222 12.0.0: OpenCL-oriented thin wrapper library around clang
 dev-libs/opencl-icd-loader 2021.04.29: Official Khronos OpenCL ICD Loader
 dev-libs/opencryptoki 3.6.1-r1: PKCS#11 provider cryptographic hardware
-dev-libs/openct 0.6.20-r4 0.6.20-r5: library for accessing smart card terminals
+dev-libs/openct 0.6.20-r5: library for accessing smart card terminals
 dev-libs/openobex 1.7.2-r2: Implementation of the OBEX protocol used for transferring data to mobile devices
 dev-libs/opensc 0.21.0-r1: Libraries and applications to access smartcards
 dev-libs/openspecfun 0.5.3: A collection of special mathematical functions
@@ -12039,7 +12045,7 @@ games-simulation/gl117 1.3.2-r1: An action flight simulator
 games-simulation/lincity 1.13.1-r1: city/country simulation game for X and Linux SVGALib
 games-simulation/lincity-ng 2.9_beta: City simulation game
 games-simulation/micropolis 1.0_p20180313: Free version of the well-known city building simulation
-games-simulation/openrct2 0.3.3 9999: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
+games-simulation/openrct2 0.3.3 0.3.4 9999: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
 games-simulation/openttd 1.11.2: A clone of Transport Tycoon Deluxe
 games-simulation/pmars-sdl 0.9.2e-r1: Portable redcode simulator's sdl port for core war
 games-simulation/searchandrescue 1.7.0: Helicopter based air rescue flight simulator
@@ -13113,7 +13119,7 @@ media-gfx/aaphoto 0.45: Automatic color correction and resizing of photos
 media-gfx/aewan 1.0.01-r1: A curses-based ascii-art editor
 media-gfx/ahoviewer 2.0.0_beta: A GTK image viewer, manga reader, and booru browser
 media-gfx/album 4.15-r1: HTML photo album generator
-media-gfx/alembic 1.8.0 1.8.2: Open framework for storing and sharing scene data
+media-gfx/alembic 1.8.2: Open framework for storing and sharing scene data
 media-gfx/apng2gif 1.8: create a GIF from an APNG
 media-gfx/apngasm 2.91: create an APNG from multiple PNG files
 media-gfx/apngdis 2.9: extract PNG frames from an APNG
@@ -15109,7 +15115,7 @@ net-libs/NativeThread 0_pre20190914: NativeThread for priorities on linux for fr
 net-libs/accounts-qml 0.7-r1: QML bindings for accounts-qt and signond
 net-libs/accounts-qt 1.16: Qt5 bindings for libaccounts-glib
 net-libs/aqbanking 6.2.5: Generic Online Banking Interface
-net-libs/axtls 2.1.5-r100: Embedded client/server TLSv1 SSL library and small HTTP(S) server
+net-libs/axtls 2.1.5-r101: Embedded client/server TLSv1 SSL library and small HTTP(S) server
 net-libs/balde 0.1.1: A microframework for C based on GLib and bad intentions
 net-libs/balde-markdown 0.1: A balde extension that adds Markdown support
 net-libs/biblesync 2.1.0: A multicast protocol to support Bible software shared co-navigation
@@ -15771,7 +15777,7 @@ net-p2p/automatic 0.8.3-r1: RSS downloader for Tranmission
 net-p2p/bitcoin-cli 0.20.1 0.21.0 0.21.1: Command-line JSON-RPC client specifically for interfacing with bitcoind
 net-p2p/bitcoin-qt 0.20.1 0.21.0 0.21.1: An end-user Qt GUI for the Bitcoin crypto-currency
 net-p2p/bitcoind 0.20.1 0.21.0 0.21.1: Original Bitcoin crypto-currency wallet for automated services
-net-p2p/bitflu 1.52: BitTorrent client, written in Perl and is designed to run as a daemon
+net-p2p/bitflu 1.52-r1: BitTorrent client, written in Perl and is designed to run as a daemon
 net-p2p/bittornado 0.4.1_p20160925-r2 0.4.1_p20160925-r3 0.4.1_p20160925-r4: John Hoffman's fork of the original bittorrent
 net-p2p/classified-ads 0.13-r1: Program for displaying classified advertisement items
 net-p2p/cpuminer-opt 3.16.4 9999: Optimized multi algo CPU miner
@@ -17455,7 +17461,7 @@ sys-auth/elogind 246.10-r1: The systemd project's logind, extracted to a standal
 sys-auth/fprintd 0.8.1-r3 1.90.8 1.90.9: D-Bus service to access fingerprint readers
 sys-auth/google-authenticator 1.08 1.09 9999: PAM Module for two step verification via mobile platform
 sys-auth/google-authenticator-libpam-hardened 9999: PAM Module for two step verification via mobile platform
-sys-auth/google-authenticator-wrappers 1 2 3: Set of scripts to manage google-auth setup on Gentoo Infra
+sys-auth/google-authenticator-wrappers 1 2 3-r1: Set of scripts to manage google-auth setup on Gentoo Infra
 sys-auth/libfprint 1.0 1.90.6 1.90.7: Library to add support for consumer fingerprint readers
 sys-auth/libnss-cache 0.10.2: libnss-cache is a library that serves nss lookups
 sys-auth/libnss-compat 1.2: NSS module to provide compat entry support
@@ -17925,7 +17931,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 3.5.3.3 4.0.10 4.2.3 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.10.47 5.10.48 5.10.49 5.10.50 5.10.51 5.11.22 5.12.15 5.12.16 5.12.17 5.12.18: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.129 5.4.129-r1 5.4.130 5.4.130-r1 5.4.131 5.4.131-r1 5.4.132 5.4.132-r1 5.4.133 5.10.47 5.10.47-r1 5.10.48 5.10.48-r1 5.10.49 5.10.49-r1 5.10.50 5.10.50-r1 5.10.51 5.12.15 5.12.15-r1 5.12.16 5.12.16-r1 5.12.17 5.12.17-r1 5.12.18: Pre-built Linux kernel with genpatches
-sys-kernel/gentoo-sources 4.4.264 4.4.273 4.4.274 4.4.275 4.4.276 4.9.264 4.9.273 4.9.274 4.9.275 4.9.276 4.14.228 4.14.237 4.14.238 4.14.239 4.14.240 4.19.184 4.19.195 4.19.196 4.19.197 4.19.198 5.4.109 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.10.27 5.10.47 5.10.48 5.10.48-r1 5.10.49 5.10.49-r1 5.10.50 5.10.51 5.12.13 5.12.14 5.12.15 5.12.16 5.12.17 5.12.18 5.13.0-r1 5.13.1 5.13.2 5.13.3: Full sources including the Gentoo patchset for the 5.13 kernel tree
+sys-kernel/gentoo-sources 4.4.264 4.4.273 4.4.274 4.4.275 4.4.276 4.9.264 4.9.273 4.9.274 4.9.275 4.9.276 4.14.228 4.14.237 4.14.238 4.14.239 4.14.240 4.19.184 4.19.195 4.19.196 4.19.197 4.19.198 5.4.109 5.4.129 5.4.130 5.4.131 5.4.132 5.4.133 5.4.134 5.10.27 5.10.47 5.10.48 5.10.48-r1 5.10.49 5.10.49-r1 5.10.50 5.10.51 5.10.52 5.12.13 5.12.14 5.12.15 5.12.16 5.12.17 5.12.18 5.13.0-r1 5.13.1 5.13.2 5.13.3: Full sources including the Gentoo patchset for the 5.13 kernel tree
 sys-kernel/git-sources 5.14_rc1 5.14_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 0 1: Wrap kernel-install from systemd-boot as installkernel
@@ -18064,7 +18070,7 @@ sys-process/bcron 0.11: A new cron system designed with secure operations in min
 sys-process/below 0.2.0-r1: An interactive tool to view and record historical system data
 sys-process/bpytop 1.0.61-r1 1.0.63: Linux/OSX/FreeBSD resource monitor
 sys-process/criu 3.14-r2 3.15: utility to checkpoint/restore a process tree
-sys-process/cronbase 0.3.7-r6: base for all cron ebuilds
+sys-process/cronbase 0.3.7-r7: Base for all cron ebuilds
 sys-process/cronie 1.5.7: Cronie is a standard UNIX daemon cron based on the original vixie-cron
 sys-process/cronutils 1.9: Utilities to assist running batch processing jobs
 sys-process/ctop 0.7.3: Top-like interface for container-metrics
@@ -18461,7 +18467,7 @@ www-servers/gunicorn 20.1.0: A WSGI HTTP Server for UNIX
 www-servers/h2o 2.2.6 9999: H2O - the optimized HTTP/1, HTTP/2 server
 www-servers/lighttpd 1.4.55-r101 1.4.58-r1 1.4.59-r1: Lightweight high-performance web server
 www-servers/mongrel2 1.11.0-r1: A language agnostic web server focused on web applications
-www-servers/monkeyd 1.6.9-r1 9999: A small, fast, and scalable web server
+www-servers/monkeyd 1.6.9-r2 9999: A small, fast, and scalable web server
 www-servers/moonbridge 1.0.1: Network Server for Lua Applications
 www-servers/nginx 1.20.1-r2 1.21.0-r2 1.21.1: Robust, small and high performance http and reverse proxy server
 www-servers/nginx-unit 1.22.0-r1: Dynamic web and application server
@@ -18472,7 +18478,7 @@ www-servers/resin 4.0.48-r1: A fast Servlet and JSP engine
 www-servers/servefile 0.5.1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.0-r1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
-www-servers/thttpd 2.27.1-r1 9999: Fork of thttpd, a small, fast, multiplexing webserver
+www-servers/thttpd 2.27.1-r2 9999: Fork of thttpd, a small, fast, multiplexing webserver
 www-servers/tomcat 7.0.109 8.5.68 8.5.69 9.0.48 9.0.50 10.0.7 10.0.8: Tomcat Servlet-5.0/JSP-3.0/EL-4.0/WebSocket-2.0/JASIC-2.0 Container
 www-servers/tornado 6.0.4 6.1: Python web framework and asynchronous networking library
 www-servers/uwsgi 2.0.19.1-r102 2.0.19.1-r103: uWSGI server for Python web applications
