@@ -48,9 +48,18 @@ a bug in PAM [0][1] may mean that you were unable to login. We recommend
 using "passwd" to change/refresh your password so it is using modern
 methods. A new version of PAM has been added to the tree to resolve this issue.
 
-For more information, please see:
+In some cases, Portage may schedule a rebuild of certain packages in an
+incorrect order [2]. If building a package fails, please try upgrading
+libcrypt and libxcrypt first:
+
+# emerge -v1 virtual/libcrypt sys-libs/libxcrypt
+
+And then continue the world upgrade with Portage's "--keep-going=y".
+
+For more information or troubleshooting tips, please see:
 * https://wiki.gentoo.org/wiki/Project:Toolchain/libcrypt_implementation
 * https://bugs.gentoo.org/699422
 
 [0] https://bugs.gentoo.org/802267
 [1] https://bugs.gentoo.org/802807
+[2] https://bugs.gentoo.org/802210
