@@ -1,0 +1,16 @@
+BDEPEND=~dev-ml/dune-2.9.0 test? ( dev-ml/core_bench dev-ml/menhir dev-ml/opam dev-ml/ppx_expect ) dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-ml/csexp:=[ocamlopt=] dev-ml/findlib:=[ocamlopt=] >=dev-lang/ocaml-4.09:= >=dev-lang/ocaml-4:=[ocamlopt?]
+DESCRIPTION=A composable build system for OCaml
+EAPI=7
+HOMEPAGE=https://github.com/ocaml/dune
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-ml/csexp:=[ocamlopt=] dev-ml/findlib:=[ocamlopt=] >=dev-lang/ocaml-4.09:= >=dev-lang/ocaml-4:=[ocamlopt?]
+RESTRICT=!test? ( test )
+SLOT=0/2.9.0
+SRC_URI=https://github.com/ocaml/dune/archive/2.9.0.tar.gz -> dune-2.9.0.tar.gz
+_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_md5_=a51ab7500c6555e75f1b14bdf32755f2
