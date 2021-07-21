@@ -16,7 +16,7 @@ SRC_URI="https://dev.gentoo.org/~polynomial-c/virtualbox/${MY_P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0/$(ver_cut 1-2)"
 [[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="pax-kernel"
 
 RDEPEND="!=app-emulation/virtualbox-9999"
@@ -28,11 +28,6 @@ MODULE_NAMES="vboxdrv(misc:${S}) vboxnetflt(misc:${S}) vboxnetadp(misc:${S})"
 MODULESD_VBOXDRV_ENABLED="yes"
 MODULESD_VBOXNETADP_ENABLED="no"
 MODULESD_VBOXNETFLT_ENABLED="no"
-
-PATCHES=(
-	"${FILESDIR}/${P}-linux-5.11.patch" #762994
-	"${FILESDIR}/${P}-binutils-2.36.patch"
-)
 
 pkg_setup() {
 	linux-mod_pkg_setup

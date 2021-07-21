@@ -20,7 +20,7 @@ SRC_URI="https://download.virtualbox.org/virtualbox/${DIR_PV:-${MY_PV}}/${MY_P}.
 LICENSE="GPL-2 dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
 [[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="alsa debug doc dtrace headless java lvm +opus pam pax-kernel pulseaudio +opengl python +qt5 +sdk +udev vboxwebsrv vnc"
 
 CDEPEND="
@@ -137,10 +137,6 @@ REQUIRED_USE="
 	vboxwebsrv? ( java )
 	${PYTHON_REQUIRED_USE}
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-lsilogicsas_crash_fix.patch"
-)
 
 pkg_pretend() {
 	if ! use headless && ! use qt5 ; then
