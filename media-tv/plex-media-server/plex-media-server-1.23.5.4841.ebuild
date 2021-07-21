@@ -5,7 +5,7 @@ EAPI=7
 
 inherit readme.gentoo-r1 systemd unpacker
 
-MY_PV="${PV}-ebb5fe9f3"
+MY_PV="${PV}-549599676"
 MY_URI="https://downloads.plex.tv/plex-media-server-new"
 
 DESCRIPTION="Free media library that is intended for use with a plex client"
@@ -18,15 +18,12 @@ S="${WORKDIR}"
 LICENSE="Plex"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="system-openssl"
 RESTRICT="mirror bindist"
 
 DEPEND="
 	acct-group/plex
 	acct-user/plex"
-RDEPEND="
-	${DEPEND}
-	system-openssl? ( dev-libs/openssl:0/1.1 )"
+RDEPEND="${DEPEND}"
 
 QA_PREBUILT="*"
 QA_MULTILIB_PATHS=(
@@ -39,13 +36,12 @@ src_install() {
 	# Remove Debian specific files
 	rm -r "usr/share/doc" || die
 
-	# Remove shipped openssl library
-	if use system-openssl; then
-		rm usr/lib/plexmediaserver/lib/libssl.so.1.1 || die
-	fi
-
 	# Add startup wrapper
 	dosbin "${FILESDIR}/start_pms"
+
+	# Add user config file
+	mkdir -p "${ED}/etc/default" || die
+	cp "${FILESDIR}/plexmediaserver" "${ED}/etc/default/" || die
 
 	# Copy main files over to image and preserve permissions so it is portable
 	cp -rp usr/ "${ED}" || die
