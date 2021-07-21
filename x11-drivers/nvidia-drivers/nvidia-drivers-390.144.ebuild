@@ -7,26 +7,25 @@ MODULES_OPTIONAL_USE="driver"
 inherit desktop linux-info linux-mod multilib-build \
 	readme.gentoo-r1 systemd toolchain-funcs unpacker
 
-NV_KERNEL_MAX="5.10"
-NV_BIN_URI="https://download.nvidia.com/XFree86/Linux-"
-NV_GIT_URI="https://github.com/NVIDIA/nvidia-"
+NV_KERNEL_MAX="5.13"
+NV_URI="https://download.nvidia.com/XFree86/"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://www.nvidia.com/download/index.aspx"
 SRC_URI="
-	amd64? ( ${NV_BIN_URI}x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
-	x86? ( ${NV_BIN_URI}x86/${PV}/NVIDIA-Linux-x86-${PV}.run )
-	${NV_GIT_URI}installer/archive/${PV}.tar.gz -> nvidia-installer-${PV}.tar.gz
-	${NV_GIT_URI}modprobe/archive/${PV}.tar.gz -> nvidia-modprobe-${PV}.tar.gz
-	${NV_GIT_URI}persistenced/archive/${PV}.tar.gz -> nvidia-persistenced-${PV}.tar.gz
-	${NV_GIT_URI}settings/archive/${PV}.tar.gz -> nvidia-settings-${PV}.tar.gz
-	${NV_GIT_URI}xconfig/archive/${PV}.tar.gz -> nvidia-xconfig-${PV}.tar.gz"
+	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
+	x86? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-x86-${PV}.run )
+	${NV_URI}nvidia-installer/nvidia-installer-${PV}.tar.bz2
+	${NV_URI}nvidia-modprobe/nvidia-modprobe-${PV}.tar.bz2
+	${NV_URI}nvidia-persistenced/nvidia-persistenced-${PV}.tar.bz2
+	${NV_URI}nvidia-settings/nvidia-settings-${PV}.tar.bz2
+	${NV_URI}nvidia-xconfig/nvidia-xconfig-${PV}.tar.bz2"
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S="${WORKDIR}"
 
 LICENSE="GPL-2 MIT NVIDIA-r2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="+X +driver static-libs +tools"
 
 COMMON_DEPEND="
@@ -76,18 +75,12 @@ PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 	"${FILESDIR}"/nvidia-settings-390.141-fno-common.patch
 )
+
 DOCS=(
 	README.txt NVIDIA_Changelog
 	nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
 )
 HTML_DOCS=( html/. )
-
-DISABLE_AUTOFORMATTING="yes"
-DOC_CONTENTS="Users should be in the 'video' group to use NVIDIA devices.
-You can add yourself by using: gpasswd -a my-user video
-
-For general information on using nvidia-drivers, please see:
-https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
 
 pkg_setup() {
 	use driver || return
@@ -163,8 +156,8 @@ src_prepare() {
 	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/' \
 		nvidia_icd.json.template > nvidia_icd.json || die
 
-	sed "s/%LIBDIR%/$(get_libdir)/g" "${FILESDIR}/nvidia-390.conf" \
-		> nvidia-drm-outputclass.conf || die
+	sed "s|@LIBDIR@|${EPREFIX}/usr/$(get_libdir)|" \
+		"${FILESDIR}"/nvidia-drm-outputclass-390.conf > nvidia-drm-outputclass.conf || die
 
 	gzip -d nvidia-{cuda-mps-control,smi}.1.gz || die
 }
@@ -187,8 +180,8 @@ src_compile() {
 	use driver && linux-mod_src_compile
 
 	# 390.xx persistenced doesn't auto-detect libtirpc
-	LIBS=$($(tc-getPKG_CONFIG) --libs libtirpc) \
-		common_cflags=$($(tc-getPKG_CONFIG) --cflags libtirpc) \
+	LIBS=$($(tc-getPKG_CONFIG) --libs libtirpc || die) \
+		common_cflags=$($(tc-getPKG_CONFIG) --cflags libtirpc || die) \
 		nvidia-drivers_make persistenced
 
 	nvidia-drivers_make modprobe
@@ -268,9 +261,7 @@ src_install() {
 		linux-mod_src_install
 
 		insinto /etc/modprobe.d
-		newins "${FILESDIR}"/nvidia-169.07 nvidia.conf
-		doins "${FILESDIR}"/nvidia-blacklist-nouveau.conf
-		doins "${FILESDIR}"/nvidia-rmmod.conf
+		newins "${FILESDIR}"/nvidia-390.conf nvidia.conf
 	fi
 
 	if use X; then
@@ -345,8 +336,19 @@ src_install() {
 	# install prebuilt-only libraries
 	multilib_foreach_abi nvidia-drivers_libs_install
 
-	einstalldocs
+	# create README.gentoo
+	local DISABLE_AUTOFORMATTING="yes"
+	local DOC_CONTENTS=\
+"Trusted users should be in the 'video' group to use NVIDIA devices.
+You can add yourself by using: gpasswd -a my-user video
+
+See '${EPREFIX}/etc/modprobe.d/nvidia.conf' for modules options.
+
+For general information on using nvidia-drivers, please see:
+https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
 	readme.gentoo_create_doc
+
+	einstalldocs
 }
 
 pkg_preinst() {
@@ -358,8 +360,7 @@ pkg_preinst() {
 	# set video group id based on live system (bug #491414)
 	local g=$(getent group video | cut -d: -f3)
 	[[ ${g} ]] || die "Failed to determine video group id"
-	sed "s/PACKAGE/${PF}/;s/VIDEOGID/${g}/" \
-		-i "${ED}"/etc/modprobe.d/nvidia.conf || die
+	sed -i "s/@VIDEOGID@/${g}/" "${ED}"/etc/modprobe.d/nvidia.conf || die
 }
 
 pkg_postinst() {
@@ -384,5 +385,21 @@ pkg_postinst() {
 	if [[ ${NV_HAD_WAYLAND} ]]; then
 		elog "Support for EGLStream (egl-wayland) is no longer offered with legacy"
 		elog "nvidia-drivers. It is recommended to use nouveau drivers for wayland."
+	fi
+
+	# Try to show this message only to users that may really need it
+	# given the workaround is discouraged and usage isn't widespread.
+	if use X && [[ ${REPLACING_VERSIONS} ]] &&
+		ver_test ${REPLACING_VERSIONS} -lt 390.143 &&
+		grep -qr Coolbits "${EROOT}"/etc/X11/{xorg.conf,xorg.conf.d/*.conf} 2>/dev/null; then
+		elog
+		elog "Coolbits support with ${PN} has been restricted to require Xorg"
+		elog "with root privilege by NVIDIA (being in video group is not sufficient)."
+		elog "e.g. attempting to change fan speed with nvidia-settings would fail."
+		elog
+		elog "Depending on your display manager (e.g. sddm starts X as root, gdm doesn't)"
+		elog "or if using startx, it may be necessary to emerge x11-base/xorg-server with"
+		elog 'USE="suid -elogind -systemd" if wish to keep using this feature.'
+		elog "Bug: https://bugs.gentoo.org/784248"
 	fi
 }
