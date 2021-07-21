@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
 DEPEND=!build? ( sys-apps/sed ) deblob? ( || ( >=dev-lang/python-2.7.5-r2:2.7 ) )
-DESCRIPTION=Full Linux 5.4 kernel sources with the CONFIG_PREEMPT_RT patch
+DESCRIPTION=Full Linux 4.9 kernel sources with the CONFIG_PREEMPT_RT patch
 EAPI=6
 HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel https://wiki.linuxfoundation.org/realtime/start https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags/
 INHERIT=eapi7-ver kernel-2
 IUSE=symlink build deblob
 KEYWORDS=~amd64 ~arm64
-LICENSE=GPL-2
+LICENSE=GPL-2 !deblob? ( linux-firmware )
 RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=5.4.84_p47
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.4.84.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz deblob? ( https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//5.4-gnu/deblob-5.4 https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//5.4-gnu/deblob-check -> deblob-check-5.4 ) https://www.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.84-rt47.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.4/older/patch-5.4.84-rt47.patch.xz
+SLOT=4.9.275_p184
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.9.275.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.tar.xz deblob? ( https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//4.9-gnu/deblob-4.9 https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//4.9-gnu/deblob-check -> deblob-check-4.9 ) https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.275-rt184.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/older/patch-4.9.275-rt184.patch.xz
 _eclasses_=eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330	kernel-2	6b17cdaee897466001a472284e0421c8
-_md5_=30e10915a43e18095020124626754a13
+_md5_=77ef8ba38cd6cd4ee6a3beb217a142d6
