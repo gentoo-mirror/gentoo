@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=app-admin/webapp-config-1.50.15
+DESCRIPTION=A customizable PHP script that displays information about your system nicely
+EAPI=7
+HOMEPAGE=https://rk4an.github.com/phpsysinfo/
+INHERIT=optfeature webapp
+IUSE=vhosts
+KEYWORDS=~amd64 ~hppa ~ppc ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-lang/php[simplexml,xml,xsl(+),xslt(+),unicode] virtual/httpd-php >=app-admin/webapp-config-1.50.15
+SLOT=3.3.4
+SRC_URI=https://github.com/rk4an/phpsysinfo/archive/v3.3.4.tar.gz -> phpsysinfo-3.3.4.tar.gz
+_eclasses_=optfeature	cc13a38ea4d26565e83ef21d58bcd4ab	webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_md5_=daec0c467f1c75b277048b12aa25d652
