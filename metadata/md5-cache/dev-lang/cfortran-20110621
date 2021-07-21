@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 test? ( virtual/fortran )
+DEFINED_PHASES=install prepare setup
+DESCRIPTION=Header file allowing to call Fortran routines from C and C++
+EAPI=8
+HOMEPAGE=https://www-zeus.desy.de/~burow/cfortran/
+INHERIT=autotools fortran-2
+IUSE=examples test
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/c/cfortran/cfortran_20110621.orig.tar.gz mirror://debian/pool/main/c/cfortran/cfortran_20110621-1.debian.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_md5_=ff68fae457f4f81ce207bf7077ba39ef
