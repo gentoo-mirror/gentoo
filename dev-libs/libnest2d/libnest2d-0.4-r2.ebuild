@@ -30,6 +30,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-add-disallowed-areas.patch
 	"${FILESDIR}"/${P}-add-soversion-to-shared-library.patch
 	"${FILESDIR}"/${P}-fix-cpp-version.patch
+	"${FILESDIR}"/${P}-gnu-install-dirs.patch
 	)
 
 src_configure() {
@@ -38,6 +39,7 @@ src_configure() {
 		-DLIBNEST2D_BUILD_EXAMPLES=$(usex examples)
 		-DLIBNEST2D_HEADER_ONLY=$(usex static-libs OFF ON)
 		-DLIBNEST2D_BUILD_UNITTESTS=$(usex test)
+		-DCMAKE_INSTALL_LIBDIR=$(get_libdir)
 	)
 	cmake_src_configure
 }
