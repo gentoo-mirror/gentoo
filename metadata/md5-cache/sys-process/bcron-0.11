@@ -4,10 +4,10 @@ DESCRIPTION=A new cron system designed with secure operations in mind by Bruce G
 EAPI=7
 HOMEPAGE=https://untroubled.org/bcron/
 INHERIT=cron python-any-r1 toolchain-funcs
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/bglibs-2.04 sys-apps/ucspi-unix sys-process/cronbase virtual/daemontools virtual/mta >=sys-process/cronbase-0.3.2 !sys-process/vixie-cron !sys-process/cronie !sys-process/dcron !sys-process/fcron
 SLOT=0
 SRC_URI=https://untroubled.org/bcron/archive/bcron-0.11.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	cron	be3d08eb2cdfb330f694bb07c6affc03	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330
-_md5_=3ecfe6e0ce879ac508111518ea852630
+_md5_=656d9c708dd6dd40a9670fc681f3e084

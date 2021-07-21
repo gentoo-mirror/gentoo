@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://github.com/any1/neatvnc/
 INHERIT=meson
 IUSE=examples ssl jpeg tracing
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=ISC
 RDEPEND=x11-libs/pixman x11-libs/libdrm dev-libs/aml sys-libs/zlib ssl? ( net-libs/gnutls:= ) jpeg? ( media-libs/libjpeg-turbo:= ) tracing? ( dev-util/systemtap )
 SLOT=0
 SRC_URI=https://github.com/any1/neatvnc/archive/v0.4.0.tar.gz -> neatvnc-0.4.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	meson	5bc3f1b890f90cc00cf1d1dddc10233e
-_md5_=46196b0e46608153786a0e83fe05ef97
+_md5_=89324e4c411563e5c3b83b3e7f5d9bee
