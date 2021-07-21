@@ -21,7 +21,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}" # subslot = libopencv* soname version
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 x86"
 IUSE="contrib contribcvv contribdnn contribfreetype contribhdf contribovis contribsfm contribxfeatures2d cuda debug dnnsamples download +eigen examples +features2d ffmpeg gdal gflags glog gphoto2 gstreamer gtk3 ieee1394 jpeg jpeg2k lapack lto opencl openexr opengl openmp opencvapps png +python qt5 tesseract testprograms threads tiff vaapi v4l vtk webp xine"
 
 # The following lines are shamelessly stolen from ffmpeg-9999.ebuild with modifications
@@ -111,7 +111,7 @@ RDEPEND="
 		media-libs/libdc1394:=[${MULTILIB_USEDEP}]
 		sys-libs/libraw1394[${MULTILIB_USEDEP}]
 	)
-	java? ( >=virtual/jre-1.8:* )
+	java? ( >=virtual/jre-1.6:* )
 	jpeg? ( virtual/jpeg:0[${MULTILIB_USEDEP}] )
 	jpeg2k? ( media-libs/openjpeg:2=[${MULTILIB_USEDEP}] )
 	lapack? (
@@ -119,7 +119,7 @@ RDEPEND="
 		virtual/lapack
 	)
 	opencl? ( virtual/opencl[${MULTILIB_USEDEP}] )
-	openexr? ( media-libs/openexr[${MULTILIB_USEDEP}] )
+	openexr? ( <media-libs/openexr-3.0.0:0=[${MULTILIB_USEDEP}] )
 	opengl? (
 		virtual/opengl[${MULTILIB_USEDEP}]
 		virtual/glu[${MULTILIB_USEDEP}]
@@ -152,7 +152,7 @@ DEPEND="${RDEPEND}
 			<dev-cpp/eigen-3.3.8:3
 		)
 	)
-	java? ( >=virtual/jdk-1.8:* )"
+	java? ( >=virtual/jdk-1.6 )"
 BDEPEND="virtual/pkgconfig"
 
 MULTILIB_WRAPPED_HEADERS=(

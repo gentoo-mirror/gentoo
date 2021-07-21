@@ -59,8 +59,6 @@ IUSE="${IUSE} ${CPU_FEATURES_MAP[@]%:*}"
 # will silently disable it Wwithout the user knowing, which defeats the
 # purpose of the opengl use flag.
 REQUIRED_USE="
-	cpu_flags_x86_avx2? ( cpu_flags_x86_f16c )
-	cpu_flags_x86_f16c? ( cpu_flags_x86_avx )
 	cuda? ( tesseract? ( opencl ) )
 	dnnsamples? ( examples )
 	gflags? ( contrib )
@@ -119,7 +117,7 @@ RDEPEND="
 		virtual/lapack
 	)
 	opencl? ( virtual/opencl[${MULTILIB_USEDEP}] )
-	openexr? ( media-libs/openexr[${MULTILIB_USEDEP}] )
+	openexr? ( <media-libs/openexr-3.0.0:0=[${MULTILIB_USEDEP}] )
 	opengl? (
 		virtual/opengl[${MULTILIB_USEDEP}]
 		virtual/glu[${MULTILIB_USEDEP}]

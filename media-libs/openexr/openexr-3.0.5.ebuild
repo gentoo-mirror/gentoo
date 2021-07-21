@@ -3,43 +3,48 @@
 
 EAPI=7
 
-CMAKE_ECLASS=cmake
-inherit cmake-multilib flag-o-matic toolchain-funcs
+inherit cmake flag-o-matic toolchain-funcs
+
+MY_PN=OpenEXR
+MY_PV=$(ver_cut 1)
+MY_P=${MY_PN}-${MY_PV}
 
 DESCRIPTION="ILM's OpenEXR high dynamic-range image file format libraries"
 HOMEPAGE="https://www.openexr.com/"
 SRC_URI="https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-#S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD"
-SLOT="0/27" # based on SONAME
+SLOT="3/29" # based on SONAME
 # imath needs keywording: arm{,64}, hppa, ia64, ppc{,64}, sparc, x64-macos, x86-solaris
 KEYWORDS="~amd64 ~ia64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
 IUSE="cpu_flags_x86_avx doc examples large-stack static-libs utils test threads"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	!media-libs/ilmbase
-	dev-libs/imath:=
-	sys-libs/zlib[${MULTILIB_USEDEP}]
+	~dev-libs/imath-${PV}:=
+	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-0001-changes-needed-for-proper-slotting.patch
+	"${FILESDIR}"/${P}-0002-add-version-to-binaries-for-slotting.patch
+)
+
 DOCS=( CHANGES.md GOVERNANCE.md PATENTS README.md SECURITY.md docs/SymbolVisibility.md )
 
-#src_prepare() {
+src_prepare() {
 	# Fix path for testsuite
-#	sed -i -e "s:/var/tmp/:${T}:" "${S}"/IlmImfTest/tmpDir.h || die "failed to set temp path for tests"
+	sed -e "s:/var/tmp/:${T}:" \
+		-i "${S}"/src/test/${MY_PN}{,Fuzz,Util}Test/tmpDir.h || die "failed to set temp path for tests"
 
-#	if use abi_x86_32 && use test; then
-#		eapply "${FILESDIR}/${PN}-2.5.2-0001-IlmImfTest-main.cpp-disable-tests.patch"
-#	fi
+	cmake_src_prepare
 
-#	multilib_foreach_abi cmake_src_prepare
-#}
+	mv "${S}"/cmake/${MY_PN}.pc.in "${S}"/cmake/${MY_P}.pc.in || die
+}
 
-multilib_src_configure() {
+src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=$(usex !static-libs)
 		-DBUILD_TESTING=$(usex test)
@@ -49,17 +54,24 @@ multilib_src_configure() {
 		-DOPENEXR_INSTALL_EXAMPLES=$(usex examples)
 		-DOPENEXR_INSTALL_PKG_CONFIG=ON
 		-DOPENEXR_INSTALL_TOOLS=$(usex utils)
+		-DOPENEXR_OUTPUT_SUBDIR="${MY_P}"
 		-DOPENEXR_USE_CLANG_TIDY=OFF		# don't look for clang-tidy
 	)
+
+	use test && mycmakeargs+=( -DOPENEXR_RUN_FUZZ_TESTS=ON )
 
 	cmake_src_configure
 }
 
-multilib_src_install_all() {
+src_install() {
 	if use doc; then
 		DOCS+=( docs/*.pdf )
 	fi
-	einstalldocs
-
 	use examples && docompress -x /usr/share/doc/${PF}/examples
+	cmake_src_install
+
+	cat > "${T}"/99${PN}3 <<-EOF || die
+	LDPATH=/usr/$(get_libdir)/${MY_P}
+	EOF
+	doenvd "${T}"/99${PN}3
 }
