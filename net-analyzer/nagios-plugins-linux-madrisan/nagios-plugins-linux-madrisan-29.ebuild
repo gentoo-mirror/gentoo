@@ -1,7 +1,7 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
@@ -11,6 +11,7 @@ MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Additional and alternative Nagios plugins for Linux"
 HOMEPAGE="https://github.com/madrisan/nagios-plugins-linux"
 SRC_URI="https://github.com/madrisan/${MY_PN}/releases/download/v${PV}/${MY_P}.tar.xz -> ${P}.tar.xz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -22,8 +23,6 @@ DEPEND="
 	varlink? ( dev-libs/libvarlink:= )
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	default
