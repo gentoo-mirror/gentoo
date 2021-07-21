@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) app-arch/unzip
+DEFINED_PHASES=install prepare setup
+DESCRIPTION=Traditional and challenging 2D platformer game with a slight rotational twist
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=desktop python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x86
+LICENSE=BitstreamVera CC-BY-3.0 GPL-2
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/pygame[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygame[python_targets_python3_9(-)] ) media-libs/sdl2-image[png] media-libs/sdl2-mixer[vorbis]
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+SLOT=0
+SRC_URI=mirror://gentoo/whichwayisup_b079.zip https://dev.gentoo.org/~ionen/distfiles/whichwayisup.png
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
+_md5_=5910480eb123b5068edc4a483d8445e1
