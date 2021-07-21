@@ -1,0 +1,46 @@
+Title: Perl 5.34 upgrade now stable
+Author: Sam James <sam@gentoo.org>
+Posted: 2021-07-20
+Revision: 1
+News-Item-Format: 2.0
+
+The Perl project in Gentoo has begun stabilisation of Perl 5.34 [0]
+which is the latest stable version released upstream.
+
+While the package manager usually handles this upgrade cleanly, 
+there are some bugs [1][2][3] which affect Portage's dependency resolution
+that sometimes mean rebuilds occur in the wrong order - this is
+exacerbated by the packaging model used for Perl (but not its fault).
+
+We therefore recommend the following procedure for users:
+1. Sync your tree:
+# emerge --sync
+
+2. Perform a full world upgrade, e.g.:
+# emerge -a -uvDU @world --keep-going=y
+
+3. If any failures occur, please run perl-cleaner --all, then try again:
+# perl-cleaner --all
+
+4. Perform a world upgrade again.
+
+5. Once complete, depclean:
+# emerge -a --depclean
+
+If the upgrade fails with conflicts, please try --backtrack=1000 or some
+other large number.
+
+Rarely, it may be necessary to perform a one-off installation of a package,
+but usually `perl-cleaner` will resolve the issue. If an error message occurs
+after running perl-cleaner, try e.g. for a fictional package dev-perl/foo:
+# emerge -a --oneshot --verbose dev-perl/foo
+
+If you have any issues, please consult the standard support channels [4]
+(such as our forums or IRC channels) and we will do our best to get your
+system working well again.
+
+[0] https://bugs.gentoo.org/802639
+[1] https://bugs.gentoo.org/592880
+[2] https://bugs.gentoo.org/793992
+[3] https://bugs.gentoo.org/199856
+[4] https://www.gentoo.org/support/
