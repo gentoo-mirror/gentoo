@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare pretend setup
+DESCRIPTION=A tool to log and decode Machine Check Exceptions
+EAPI=8
+HOMEPAGE=http://mcelog.org/
+INHERIT=linux-info systemd toolchain-funcs
+IUSE=selinux kernel_linux
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=selinux? ( sec-policy/selinux-mcelog )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/andikleen/mcelog/archive/v178.tar.gz -> mcelog-178.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_md5_=a82a9ddfbe364ddbc9f4435bde36523d
