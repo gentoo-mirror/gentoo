@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp >=dev-perl/strictures-2.0.0 >=dev-perl/Module-Runtime-0.13.0 >=dev-perl/Import-Into-1.0.0 virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/Test-Fatal ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Parameterizable packages
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Package-Variant
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~arm ~ppc ~x86 ~x86-solaris
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp >=dev-perl/strictures-2.0.0 >=dev-perl/Module-Runtime-0.13.0 >=dev-perl/Import-Into-1.0.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/M/MS/MSTROUT/Package-Variant-1.003002.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=b99aa530f75c78f8c0e75a3e52ff6a59
