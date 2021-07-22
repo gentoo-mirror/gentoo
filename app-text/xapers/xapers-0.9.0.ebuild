@@ -4,7 +4,6 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -28,7 +27,7 @@ RDEPEND="app-text/poppler[utils]
 
 BDEPEND="test? ( ${RDEPEND} )"
 
-src_test() {
+python_test() {
 	cd test || die
 	./all || die
 }
