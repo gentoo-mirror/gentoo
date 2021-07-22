@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-50">
+  <title>Singularity: Remote code execution</title>
+  <synopsis>A vulnerability in Singularity could result in remote code
+    execution.
+  </synopsis>
+  <product type="ebuild">singularity</product>
+  <announced>2021-07-22</announced>
+  <revised count="1">2021-07-22</revised>
+  <bug>792465</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-cluster/singularity" auto="yes" arch="*">
+      <unaffected range="ge">3.7.4</unaffected>
+      <vulnerable range="lt">3.7.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Singularity is the container platform for performance sensitive
+      workloads.
+    </p>
+  </background>
+  <description>
+    <p>Singularity always uses the default remote endpoint,
+      ‘cloud.syslabs.io’, for action commands using the ‘library://’
+      URI rather than the configured remote endpoint.
+    </p>
+  </description>
+  <impact type="high">
+    <p>An attacker that that can push a malicious container to the default
+      remote endpoint could execute code on hosts that fetch the container.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Singularity users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-cluster/singularity-3.7.4"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32635">CVE-2021-32635</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-19T02:57:15Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-22T04:54:09Z">ajak</metadata>
+</glsa>
