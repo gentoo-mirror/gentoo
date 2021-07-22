@@ -5,7 +5,7 @@ EAPI=7
 USE_RUBY="ruby25 ruby26 ruby27"
 
 GITHUB_COMMIT="e358601cc521d8aced941eb928fae2d8c53cf0c2"
-inherit ruby-ng strip-linguas user
+inherit ruby-ng strip-linguas
 
 DESCRIPTION="A ruby IRC bot"
 HOMEPAGE="https://ruby-rbot.org/"
@@ -19,7 +19,13 @@ IUSE="spell aspell timezone translator nls figlet
 ILINGUAS="zh_CN zh_TW ru nl de fi fr it ja"
 RUBY_S="${PN}-${GITHUB_COMMIT}"
 
+CDEPEND="
+	acct-group/rbot
+	acct-user/rbot
+"
+
 RDEPEND+="
+	${CDEPEND}
 	spell? (
 		aspell? ( app-text/aspell )
 		!aspell? ( app-text/hunspell )
@@ -30,6 +36,8 @@ RDEPEND+="
 	fortune? ( games-misc/fortune-mod )
 	cal? ( sys-apps/util-linux )
 	host? ( net-dns/bind-tools )"
+
+DEPEND+="${CDEPEND}"
 
 ruby_add_bdepend "
 	test? (
@@ -46,10 +54,6 @@ ruby_add_rdepend "
 	translator? ( dev-ruby/mechanize )
 	nls? ( dev-ruby/ruby-gettext >=dev-ruby/locale-2.0.5-r2 )
 "
-
-pkg_setup() {
-	enewuser rbot -1 -1 /var/lib/rbot nobody
-}
 
 all_ruby_prepare() {
 	eapply -p0 "${FILESDIR}"/rbot-rakefile-gettext.patch
