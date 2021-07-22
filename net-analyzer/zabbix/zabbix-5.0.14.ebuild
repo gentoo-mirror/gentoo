@@ -6,10 +6,7 @@ EAPI=7
 # needed to make webapp-config dep optional
 WEBAPP_OPTIONAL="yes"
 inherit webapp java-pkg-opt-2 systemd tmpfiles toolchain-funcs go-module user-info
-# content of src/go/go.sum
 EGO_SUM=(
-	"github.com/BurntSushi/locker v0.0.0-20171006230638-a6e239ea1c69 h1:+tu3HOoMXB7RXEINRVIpxJCT+KdYiI7LAEAUrOw3dIU="
-	"github.com/BurntSushi/locker v0.0.0-20171006230638-a6e239ea1c69/go.mod h1:L1AbZdiDllfyYH5l5OkAaZtk7VkWe89bPJFmnDBNHxg="
 	"github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU="
 	"github.com/cockroachdb/apd v1.1.0 h1:3LFP3629v+1aKXU5Q37mxmRxX/pIu1nijXydLShEq5I="
 	"github.com/cockroachdb/apd v1.1.0/go.mod h1:8Sl8LxpKi29FqWXR16WEFZRNSz3SoPzUzeMeY4+DwBQ="
@@ -21,8 +18,6 @@ EGO_SUM=(
 	"github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38="
 	"github.com/dustin/gomemcached v0.0.0-20160817010731-a2284a01c143 h1:K9CFK8HRZWzmoIWbpA7u0XYLggCyfa/N77eVaq/nUiA="
 	"github.com/dustin/gomemcached v0.0.0-20160817010731-a2284a01c143/go.mod h1:BLhrehfVmtABJWBZTJV8HyPWCSZoiMzjjcZ3+vHHhPI="
-	"github.com/eclipse/paho.mqtt.golang v1.2.0 h1:1F8mhG9+aO5/xpdtFkW4SxOJB67ukuDC3t2y2qayIX0="
-	"github.com/eclipse/paho.mqtt.golang v1.2.0/go.mod h1:H9keYFcgq3Qr5OUJm/JZI/i6U7joQ8SYLhZwfeOo6Ts="
 	"github.com/fsnotify/fsnotify v1.4.9 h1:hsms1Qyu0jgnwNXIxa+/V/PDsU6CfLf6CNO8H7IWoS4="
 	"github.com/fsnotify/fsnotify v1.4.9/go.mod h1:znqG4EE+3YCdAaPaxE2ZRY/06pZUdp0tY4IgpuI1SZQ="
 	"github.com/go-ldap/ldap v3.0.3+incompatible h1:HTeSZO8hWMS1Rgb2Ziku6b8a7qRIZZMHjsvuZyatzwk="
@@ -34,10 +29,6 @@ EGO_SUM=(
 	"github.com/go-sql-driver/mysql v1.5.0 h1:ozyZYNQW3x3HtqT1jira07DN2PArx2v7/mN66gGcHOs="
 	"github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg="
 	"github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY="
-	"github.com/goburrow/modbus v0.1.0 h1:DejRZY73nEM6+bt5JSP6IsFolJ9dVcqxsYbpLbeW/ro="
-	"github.com/goburrow/modbus v0.1.0/go.mod h1:Kx552D5rLIS8E7TyUwQ/UdHEqvX5T8tyiGBTlzMcZBg="
-	"github.com/goburrow/serial v0.1.0 h1:v2T1SQa/dlUqQiYIT8+Cu7YolfqAi3K96UmhwYyuSrA="
-	"github.com/goburrow/serial v0.1.0/go.mod h1:sAiqG0nRVswsm1C97xsttiYCzSLBmUZ/VSlVLZJ8haA="
 	"github.com/godbus/dbus v4.1.0+incompatible h1:WqqLRTsQic3apZUK9qC5sGNfXthmPXzUZ7nQPrNITa4="
 	"github.com/godbus/dbus v4.1.0+incompatible/go.mod h1:/YcGZj5zSblfDWMMoOzV4fas9FZnQYTkDnsGvmh2Grw="
 	"github.com/godror/godror v0.20.1 h1:s/ehD65nfVzWR2MrZGChDkLvVPlIVxbt+Jpzfwkl1c8="
@@ -255,9 +246,8 @@ SRC_URI="https://cdn.zabbix.com/${PN}/sources/stable/$(ver_cut 1-2)/${P}.tar.gz
 LICENSE="GPL-2"
 SLOT="0/$(ver_cut 1-2)"
 WEBAPP_MANUAL_SLOT="yes"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+agent +agent2 curl frontend gnutls ipv6 java ldap libxml2 mysql odbc openipmi +openssl oracle +postgres proxy server snmp sqlite ssh ssl static"
-
 REQUIRED_USE="|| ( agent agent2 frontend proxy server )
 	proxy? ( ^^ ( mysql oracle postgres sqlite ) )
 	server? ( ^^ ( mysql oracle postgres ) )
@@ -379,26 +369,26 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		"$(use_enable agent)" \
-		"$(use_enable agent2)" \
-		"$(use_enable ipv6)" \
-		"$(use_enable java)" \
-		"$(use_enable proxy)" \
-		"$(use_enable server)" \
-		"$(use_enable static)" \
-		"$(use_with curl libcurl)" \
-		"$(use_with gnutls)" \
-		"$(use_with ldap)" \
-		"$(use_with libxml2)" \
-		"$(use_with mysql)" \
-		"$(use_with odbc unixodbc)" \
-		"$(use_with openipmi openipmi)" \
-		"$(use_with openssl)" \
-		"$(use_with oracle)" \
-		"$(use_with postgres postgresql)" \
-		"$(use_with snmp net-snmp)" \
-		"$(use_with sqlite sqlite3)" \
-		"$(use_with ssh ssh2)"
+		$(use_enable agent) \
+		$(use_enable agent2) \
+		$(use_enable ipv6) \
+		$(use_enable java) \
+		$(use_enable proxy) \
+		$(use_enable server) \
+		$(use_enable static) \
+		$(use_with curl libcurl) \
+		$(use_with gnutls) \
+		$(use_with ldap) \
+		$(use_with libxml2) \
+		$(use_with mysql) \
+		$(use_with odbc unixodbc) \
+		$(use_with openipmi openipmi) \
+		$(use_with openssl) \
+		$(use_with oracle) \
+		$(use_with postgres postgresql) \
+		$(use_with snmp net-snmp) \
+		$(use_with sqlite sqlite3) \
+		$(use_with ssh ssh2)
 }
 
 src_compile() {
@@ -473,6 +463,7 @@ src_install() {
 		systemd_dounit "${FILESDIR}"/zabbix-agentd.service
 		newtmpfiles "${FILESDIR}"/zabbix-agentd.tmpfiles zabbix-agentd.conf
 	fi
+
 	if use agent2; then
 		insinto /etc/zabbix
 		doins "${S}"/src/go/conf/zabbix_agent2.conf
@@ -527,7 +518,7 @@ src_install() {
 			/${ZABBIXJAVA_BASE}/lib
 		keepdir /${ZABBIXJAVA_BASE}
 		exeinto /${ZABBIXJAVA_BASE}/bin
-		doexe src/zabbix_java/bin/zabbix-java-gateway-"${MY_PV}".jar
+		doexe src/zabbix_java/bin/zabbix-java-gateway-${MY_PV}.jar
 		exeinto /${ZABBIXJAVA_BASE}/lib
 		doexe \
 			src/zabbix_java/lib/logback-classic-1.2.3.jar \
@@ -550,7 +541,7 @@ pkg_postinst() {
 
 		zabbix_homedir=$(egethome zabbix)
 		if [ -n "${zabbix_homedir}" ] && \
-			[ "${zabbix_homedir}" != "/var/lib/zabbix/home" ]; then
+		   [ "${zabbix_homedir}" != "/var/lib/zabbix/home" ]; then
 			ewarn
 			ewarn "The user 'zabbix' should have his homedir changed"
 			ewarn "to /var/lib/zabbix/home if you want to use"
