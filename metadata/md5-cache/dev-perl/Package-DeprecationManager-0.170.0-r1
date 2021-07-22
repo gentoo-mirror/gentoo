@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Carp >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Package-Stash dev-perl/Params-Util dev-perl/Sub-Install dev-perl/Sub-Name virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Exporter virtual/perl-File-Spec dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 dev-perl/Test-Warnings ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Carp >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Package-Stash dev-perl/Params-Util dev-perl/Sub-Install dev-perl/Sub-Name virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Exporter virtual/perl-File-Spec dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 dev-perl/Test-Warnings ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Manage deprecation warnings for your distribution
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Package-DeprecationManager
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Carp >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Pack
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=14fd5e3bdeb4326aa2d87422828df540
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=4423e73473b8580a48fc5e8ae0d10409
