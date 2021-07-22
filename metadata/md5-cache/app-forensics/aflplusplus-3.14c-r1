@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install postinst prepare setup test
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) >=sys-devel/llvm-10:= || ( sys-devel/clang:10 sys-devel/clang:11 sys-devel/clang:12 sys-devel/clang:13 ) !app-forensics/afl test? ( dev-util/cmocka ) !!sys-devel/llvm:0
+DESCRIPTION=A fork of AFL, the popular compile-time instrumentation fuzzer
+EAPI=7
+HOMEPAGE=https://github.com/AFLplusplus/AFLplusplus
+INHERIT=toolchain-funcs llvm optfeature python-single-r1
+IUSE=test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) >=sys-devel/llvm-10:= || ( sys-devel/clang:10 sys-devel/clang:11 sys-devel/clang:12 sys-devel/clang:13 ) !app-forensics/afl
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/AFLplusplus/AFLplusplus/archive/3.14c.tar.gz -> aflplusplus-3.14c.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	llvm	e00745e3b8d63dc13bfe5a2d7310ee6b	optfeature	cc13a38ea4d26565e83ef21d58bcd4ab	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
+_md5_=2c3fdb0fbbce3de4a90f2c767d0389f3
