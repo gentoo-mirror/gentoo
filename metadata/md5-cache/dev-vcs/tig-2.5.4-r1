@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://jonas.github.io/tig/
 INHERIT=bash-completion-r1
 IUSE=test unicode
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:=[unicode(+)?] sys-libs/readline:0= dev-vcs/git
 REQUIRED_USE=test? ( unicode )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/jonas/tig/releases/download/tig-2.5.4/tig-2.5.4.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	d3a60385655d9b402be765a6de333245
-_md5_=ed00381e26c431abbf0db0307f62a65b
+_md5_=f08fe2d466fcf809aab787e0fc7be73c
