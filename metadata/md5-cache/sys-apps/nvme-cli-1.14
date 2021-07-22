@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/linux-nvme/nvme-cli
 INHERIT=systemd toolchain-funcs udev
 IUSE=+uuid
-KEYWORDS=~amd64 arm64 ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ppc64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=uuid? ( sys-apps/util-linux:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/linux-nvme/nvme-cli/archive/v1.14.tar.gz -> nvme-cli-1.14.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	udev	26207b5d4f4708920b9fcb7302d94068
-_md5_=fd1a210448aaec320563e3b3b8e19464
+_md5_=b4b7eb1a7533febb3634fdf33246534d
