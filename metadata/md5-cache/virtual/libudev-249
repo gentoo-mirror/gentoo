@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual for libudev providers
+EAPI=7
+INHERIT=multilib-build
+IUSE=static-libs systemd abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+RDEPEND=!systemd? ( || ( >=sys-fs/udev-249:0/0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,static-libs(-)?] >=sys-fs/eudev-3.2.9:0/0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,static-libs(-)?] ) ) systemd? ( >=sys-apps/systemd-249:0/2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,static-libs(-)?] )
+SLOT=0/1
+_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib-build	effd4508d5e8209273d82d8f67ee93a0
+_md5_=726eddb0abfcc0aeba91d9cd1a203518
