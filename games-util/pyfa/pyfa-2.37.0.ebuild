@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="sqlite"
 
 inherit desktop edos2unix python-single-r1 xdg
@@ -43,7 +43,7 @@ RDEPEND="${DEPEND}
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/roman-2.0.0[${PYTHON_USEDEP}]
-		>=dev-python/matplotlib-3.1.2[wxwidgets,${PYTHON_USEDEP}]
+		>=dev-python/matplotlib-3.2.2[wxwidgets,${PYTHON_USEDEP}]
 	')"
 BDEPEND="app-arch/zip"
 
