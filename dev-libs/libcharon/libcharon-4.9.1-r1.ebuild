@@ -14,7 +14,7 @@ HOMEPAGE="https://github.com/Ultimaker/libCharon"
 SRC_URI="https://github.com/Ultimaker/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
-SLOT="0/3"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 IUSE="+client +dbus test"
@@ -61,8 +61,7 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-
-	python_optimize "${D}/usr/$(get_libdir)"
+	python_optimize
 }
 
 pkg_postinst() {
