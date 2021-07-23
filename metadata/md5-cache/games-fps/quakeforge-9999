@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig doc? ( app-doc/doxygen[dot] media-gfx/transfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst prepare unpack
+DEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= ) client? ( x11-base/xorg-proto vulkan? ( dev-util/vulkan-headers ) )
+DESCRIPTION=3D engine based on id Software's Quake and QuakeWorld game engines
+EAPI=8
+HOMEPAGE=http://www.quakeforge.net/
+INHERIT=autotools readme.gentoo-r1 toolchain-funcs git-r3
+IUSE=alsa +client debug doc flac jack ncurses oss png sdl vorbis vulkan wildmidi zlib
+LICENSE=GPL-2+
+PROPERTIES=live
+RDEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= )
+SLOT=0
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=5b1e7b7527a8d8ab8a61f51672a9619a
