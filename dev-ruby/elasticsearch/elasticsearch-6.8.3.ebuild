@@ -1,28 +1,27 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-USE_RUBY="ruby24 ruby25 ruby26"
+USE_RUBY="ruby26 ruby27"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 RUBY_FAKEGEM_TASK_DOC=doc
 
-RUBY_FAKEGEM_TASK_TEST="NOTURN=true test"
-
-inherit ruby-fakegem eapi7-ver
+inherit ruby-fakegem
 
 MY_P=elasticsearch-ruby-${PV}
-DESCRIPTION="Ruby integrations for ES, elasticsearch-api module"
+DESCRIPTION="Ruby integrations for ES, elasticsearch module"
 HOMEPAGE="https://github.com/elastic/elasticsearch-ruby"
 SRC_URI="https://github.com/elastic/elasticsearch-ruby/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="$(ver_cut 1)"
+SLOT="$(ver_cut 1-3)"
 KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "
-	dev-ruby/multi_json
+	~dev-ruby/elasticsearch-api-${PV}
+	~dev-ruby/elasticsearch-transport-${PV}
 "
 ruby_add_bdepend "
 	doc? ( dev-ruby/yard )
@@ -35,6 +34,10 @@ ruby_add_bdepend "
 	)
 "
 
+# Tests need additional modules (at least 'turn') packaged. Then someone
+# should look into running them and so on.
+RESTRICT="test"
+
 RUBY_S=${MY_P}/${PN}
 
 all_ruby_prepare() {
@@ -45,12 +48,4 @@ all_ruby_prepare() {
 	sed -e '/bundler/d' \
 		-e '/require.*cane/,/end/d' \
 		-i Rakefile || die
-
-	sed -i -e '/config.formatter/ s/documentation/progress/' spec/spec_helper.rb || die
-
-	# Avoid tests that require unpackaged jbuilder and jsonify
-	sed -i -e '/\(pry-nav\|jbuilder\|jsonify\)/ s:^:#:' spec/spec_helper.rb || die
-	rm -f spec/elasticsearch/api/actions/json_builders_spec.rb || die
-
-	sed -i -e '/uses the escape_utils gem/askip "unmaintained gem"' spec/elasticsearch/api/utils_spec.rb || die
 }
