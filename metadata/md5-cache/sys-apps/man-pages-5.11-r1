@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile configure install
+DEFINED_PHASES=compile configure install prepare
 DESCRIPTION=A somewhat comprehensive collection of Linux man pages
 EAPI=7
 HOMEPAGE=https://www.kernel.org/doc/man-pages/
@@ -10,4 +10,4 @@ RDEPEND=virtual/man !<sys-apps/keyutils-1.5.9-r4 !<dev-libs/libbsd-0.8.3-r1
 RESTRICT=binchecks
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/docs/man-pages/Archive/man-pages-5.11.tar.xz https://www.kernel.org/pub/linux/docs/man-pages/man-pages-5.11.tar.xz mirror://gentoo/man-pages-gentoo-2.tar.bz2 https://dev.gentoo.org/~cardoe/files/man-pages-gentoo-2.tar.bz2
-_md5_=f4d23a8d3d40f13437f01a9742fe6723
+_md5_=b3588e059f0cafd70d5f09f9f00edb4e
