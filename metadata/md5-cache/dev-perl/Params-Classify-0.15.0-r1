@@ -1,7 +1,8 @@
+BDEPEND=>=dev-perl/Devel-CallChecker-0.3.0 virtual/perl-Exporter >=virtual/perl-Scalar-List-Utils-1.10.0 virtual/perl-XSLoader virtual/perl-parent dev-perl/Module-Build >=virtual/perl-ExtUtils-CBuilder-0.150.0 >=virtual/perl-ExtUtils-ParseXS-3.300.0 test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-perl/Devel-CallChecker-0.3.0 virtual/perl-Exporter >=virtual/perl-Scalar-List-Utils-1.10.0 virtual/perl-XSLoader virtual/perl-parent dev-perl/Module-Build >=virtual/perl-ExtUtils-CBuilder-0.150.0 >=virtual/perl-ExtUtils-ParseXS-3.300.0 test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Argument type classification
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Params-Classify
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=>=dev-perl/Devel-CallChecker-0.3.0 virtual/perl-Exporter >=virtual/perl-
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/Z/ZE/ZEFRAM/Params-Classify-0.015.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=86f2a9b730154826f2bd1eb28dd7a73b
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=e6dc6e7f1ae7444f9472395f1668f488
