@@ -547,6 +547,8 @@ EGO_SUM=(
 	"github.com/yuin/goldmark v1.2.1/go.mod"
 	"github.com/yuin/goldmark v1.3.8"
 	"github.com/yuin/goldmark v1.3.8/go.mod"
+	"github.com/yuin/goldmark v1.3.9"
+	"github.com/yuin/goldmark v1.3.9/go.mod"
 	"github.com/yuin/goldmark-highlighting v0.0.0-20200307114337-60d527fdb691"
 	"github.com/yuin/goldmark-highlighting v0.0.0-20200307114337-60d527fdb691/go.mod"
 	"go.etcd.io/bbolt v1.3.2/go.mod"
