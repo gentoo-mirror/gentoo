@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit autotools systemd user
+
+inherit autotools systemd
 
 DESCRIPTION="Opensource alternative to shoutcast that supports mp3, ogg and aac streaming"
 HOMEPAGE="https://www.icecast.org/"
@@ -16,6 +17,8 @@ IUSE="kate logrotate +speex +ssl +theora +yp"
 #Although there is a --with-ogg and --with-orbis configure option, they're
 #only useful for specifying paths, not for disabling.
 DEPEND="
+	acct-group/icecast
+	acct-user/icecast
 	dev-libs/libxml2
 	dev-libs/libxslt
 	media-libs/libogg
@@ -37,10 +40,6 @@ PATCHES=(
 	# bug #430434
 	"${FILESDIR}"/${PN}-2.3.3-fix-xiph_openssl.patch
 )
-
-pkg_setup() {
-	enewuser icecast -1 -1 -1 nogroup
-}
 
 src_prepare() {
 	default
@@ -80,7 +79,7 @@ src_install() {
 		insinto /etc/logrotate.d
 		newins "${FILESDIR}"/${PN}.logrotate ${PN}
 	fi
-	diropts -m0764 -o icecast -g nogroup
+	diropts -m0764 -o icecast -g icecast
 	dodir /var/log/icecast
 	keepdir /var/log/icecast
 	rm -r "${ED}"/usr/share/doc/icecast || die
@@ -88,5 +87,5 @@ src_install() {
 
 pkg_postinst() {
 	touch "${ROOT}"/var/log/icecast/{access,error}.log
-	chown icecast:nogroup "${ROOT}"/var/log/icecast/{access,error}.log
+	chown icecast:icecast "${ROOT}"/var/log/icecast/{access,error}.log
 }
