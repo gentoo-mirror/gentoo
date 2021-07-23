@@ -1,32 +1,32 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=7
 
-inherit flag-o-matic toolchain-funcs user
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="SKK dictionary server based on cdb"
 HOMEPAGE="https://github.com/jj1bdx/dbskkd-cdb"
-SRC_URI="https://github.com/jj1bdx/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/${PN}/${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
-IUSE=""
+KEYWORDS="amd64 ppc x86"
 
 DEPEND="|| (
 		dev-db/tinycdb
 		dev-db/cdb
-	)"
-RDEPEND="app-i18n/skk-jisyo[cdb]
-	sys-apps/xinetd"
+	)
+"
+
+RDEPEND="
+	acct-group/dbskkd
+	acct-user/dbskkd
+	app-i18n/skk-jisyo[cdb]
+	sys-apps/xinetd
+"
 
 PATCHES=( "${FILESDIR}"/${PN}-gentoo.patch )
-DOCS="*.md"
-
-pkg_setup() {
-	enewuser dbskkd -1 -1 -1
-}
 
 src_prepare() {
 	default
@@ -53,9 +53,10 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/libexec
-	doexe ${PN}
+	doexe dbskkd-cdb
+	dodoc *.txt
 	einstalldocs
 
 	insinto /etc/xinetd.d
-	newins "${FILESDIR}"/${PN}.xinetd ${PN}
+	newins "${FILESDIR}"/dbskkd-cdb.xinetd dbskkd-cdb
 }
