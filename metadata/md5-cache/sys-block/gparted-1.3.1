@@ -1,0 +1,16 @@
+BDEPEND=app-text/docbook-xml-dtd:4.1.2 >=dev-util/intltool-0.51.0-r2 dev-util/itstool sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=!policykit? ( kde? ( >=kde-plasma/kde-cli-tools-5.8.6-r1[kdesu] ) ) policykit? ( >=sys-auth/polkit-0.102 ) >=dev-cpp/glibmm-2.56.1:2 >=dev-cpp/gtkmm-3.24:3.0 >=dev-libs/glib-2.58.3-r1:2 >=sys-block/parted-3.2:= >=dev-libs/libsigc++-2.10.1:2 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Partition editor for graphically managing your disk partitions
+EAPI=7
+HOMEPAGE=https://gparted.org/ https://gitlab.gnome.org/GNOME/gparted/
+INHERIT=gnome2 optfeature virtualx
+IUSE=kde policykit wayland test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2+ FDL-1.2+
+RDEPEND=!policykit? ( kde? ( >=kde-plasma/kde-cli-tools-5.8.6-r1[kdesu] ) ) policykit? ( >=sys-auth/polkit-0.102 ) >=dev-cpp/glibmm-2.56.1:2 >=dev-cpp/gtkmm-3.24:3.0 >=dev-libs/glib-2.58.3-r1:2 >=sys-block/parted-3.2:= >=dev-libs/libsigc++-2.10.1:2 >=sys-apps/util-linux-2.33.2 wayland? ( x11-apps/xhost )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge/gparted/gparted-1.3.1.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	c8e3fff820d850c0e003e22208d2eea3	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	gnome2	c156bb2ac81c822dd861424ce19bc168	optfeature	cc13a38ea4d26565e83ef21d58bcd4ab	virtualx	0a780e1ab49c75da33a78ede35ab8f9c
+_md5_=412f17349018b85426b63d0574ccb38e
