@@ -1,0 +1,16 @@
+BDEPEND=>=virtual/perl-File-Spec-0.800.0 >=virtual/perl-File-Temp-0.100.0 >=virtual/perl-Getopt-Long-2.0.0 dev-perl/URI dev-perl/libwww-perl >=dev-perl/Image-Size-2.900.0 >=media-libs/exiftool-6 gui? ( gnome-extra/zenity ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=A perl module for reading, writing, and manipulating hugin script files
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Panotools-Script
+INHERIT=desktop perl-module
+IUSE=gui test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=virtual/perl-File-Spec-0.800.0 >=virtual/perl-File-Temp-0.100.0 >=virtual/perl-Getopt-Long-2.0.0 dev-perl/URI dev-perl/libwww-perl >=dev-perl/Image-Size-2.900.0 >=media-libs/exiftool-6 gui? ( gnome-extra/zenity ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/B/BP/BPOSTLE/Panotools-Script-0.29.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=8d7aca8e3373d9691558f41ef5911fd0
