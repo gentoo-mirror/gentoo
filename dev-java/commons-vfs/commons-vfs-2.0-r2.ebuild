@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=7
 
-JAVA_PKG_IUSE="doc source"
+JAVA_PKG_IUSE="source"
 
 inherit java-pkg-2 java-ant-2
 
@@ -22,25 +22,19 @@ CDEPEND="
 	dev-java/commons-net:0
 	dev-java/commons-httpclient:3
 	dev-java/jackrabbit-webdav:0
-	dev-java/jsch:0
-	"
+	dev-java/jsch:0"
 
-RDEPEND=">=virtual/jre-1.6
-	${CDEPEND}"
+DEPEND="${CDEPEND}
+	>=virtual/jdk-1.8:*"
 
-DEPEND=">=virtual/jdk-1.6
-	${CDEPEND}"
+RDEPEND="${CDEPEND}
+	>=virtual/jre-1.8:*"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-incompatibility.patch
+)
 
 S="${WORKDIR}/${P}/core"
-
-java_prepare() {
-	epatch "${FILESDIR}"/${P}-incompatibility.patch
-
-	cp "${FILESDIR}"/${P}-build.xml build.xml || die
-
-	java-ant_rewrite-classpath
-	java-ant_ignore-system-classes
-}
 
 EANT_GENTOO_CLASSPATH="
 	ant-core
@@ -61,9 +55,18 @@ EANT_EXTRA_ARGS="-Dlibdir=${T}"
 #	ANT_TASKS="ant-junit" eant test
 #}
 
+src_prepare() {
+	default
+	cp "${FILESDIR}"/${P}-build.xml build.xml || die
+
+	java-ant_rewrite-classpath
+	java-ant_ignore-system-classes
+}
+
 src_install() {
 	java-pkg_newjar target/*.jar
 
-	use doc && java-pkg_dojavadoc target/site/apidocs
+	# [javadoc] No javadoc created, no need to post-process anything
+#	use doc && java-pkg_dojavadoc target/site/apidocs
 	use source && java-pkg_dosrc src/main/java
 }
