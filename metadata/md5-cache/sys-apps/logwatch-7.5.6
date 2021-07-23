@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install postinst unpack
+DEFINED_PHASES=install postinst
 DESCRIPTION=Analyzes and Reports on system logs
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/logwatch/
-INHERIT=tmpfiles git-r3
+INHERIT=tmpfiles
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=virtual/cron virtual/mta virtual/mailx dev-lang/perl dev-perl/Date-Calc dev-perl/Date-Manip dev-perl/Tie-IxHash dev-perl/Sys-CPU dev-perl/Sys-MemInfo virtual/tmpfiles
 SLOT=0
-_eclasses_=tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+SRC_URI=mirror://sourceforge/logwatch/logwatch-7.5.6/logwatch-7.5.6.tar.gz
+_eclasses_=tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
 _md5_=b7d0b5c6dbe2b8dffe0e67525834dfc9
