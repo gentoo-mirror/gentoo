@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://nodejs.org/
 INHERIT=bash-completion-r1 flag-o-matic pax-utils python-any-r1 toolchain-funcs xdg-utils
 IUSE=cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl system-icu +system-ssl systemtap test
-KEYWORDS=~amd64 arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x64-macos
+KEYWORDS=amd64 arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x64-macos
 LICENSE=Apache-1.1 Apache-2.0 BSD BSD-2 MIT
 RDEPEND=>=app-arch/brotli-1.0.9 >=dev-libs/libuv-1.40.0:= >=net-dns/c-ares-1.16.1 >=net-libs/nghttp2-1.41.0 sys-libs/zlib system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= <dev-libs/openssl-3.0.0_beta1:0= )
 REQUIRED_USE=inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl? ( ssl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/14
 SRC_URI=https://nodejs.org/dist/v14.17.3/node-v14.17.3.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	d3a60385655d9b402be765a6de333245	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pax-utils	fce6ad998516159787b92e8043167889	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=14c95c161130c97b38dd65d0b8a86743
+_md5_=afda0284c2cbc676d22a3c6f4228ee73
