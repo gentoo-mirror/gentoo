@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.infradead.org/openconnect.html
 INHERIT=linux-info python-any-r1
 IUSE=doc +gnutls gssapi libproxy lz4 nls smartcard stoken test kernel_linux
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1 GPL-2
 RDEPEND=dev-libs/libxml2 sys-libs/zlib !gnutls? ( >=dev-libs/openssl-1.0.1h:0= ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.10.tar.gz ftp://ftp.infradead.org/pub/vpnc-scripts/vpnc-scripts-20200930.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330
-_md5_=80060d00cbb46b31a1ee7066958c46e2
+_md5_=07aee3b182035b634e1a497ca819508d

@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.unix-ag.uni-kl.de/~massar/vpnc/
 INHERIT=linux-info systemd tmpfiles toolchain-funcs vcs-snapshot
 IUSE=resolvconf +gnutls selinux kernel_linux
-KEYWORDS=amd64 arm arm64 ppc ppc64 sparc x86
+KEYWORDS=amd64 arm arm64 ppc ppc64 ~riscv sparc x86
 LICENSE=GPL-2 BSD
 RDEPEND=dev-lang/perl dev-libs/libgcrypt:0= >=sys-apps/iproute2-2.6.19.20061214[-minimal] gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= ) resolvconf? ( virtual/resolvconf ) selinux? ( sec-policy/selinux-vpn ) virtual/tmpfiles
 RESTRICT=!gnutls? ( bindist )
 SLOT=0
 SRC_URI=https://github.com/streambinder/vpnc/archive/fa0689c.tar.gz -> vpnc-0.5.3_p550-r2.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	systemd	c846b9e02ac8293bfc9ca38a195c2a18	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
-_md5_=aadd11639a2c396123e5c083ffeafbaf
+_md5_=1bdb5a2a72dd3f1992bb67024c3639dc

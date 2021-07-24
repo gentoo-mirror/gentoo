@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://github.com/xelerance/xl2tpd
 INHERIT=systemd toolchain-funcs tmpfiles
 IUSE=+kernel
-KEYWORDS=amd64 ~arm arm64 ~mips ~ppc ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ~mips ~ppc ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=net-libs/libpcap >=sys-kernel/linux-headers-2.6 net-dialup/ppp virtual/tmpfiles
 SLOT=0
 SRC_URI=https://github.com/xelerance/xl2tpd/archive/v1.3.16.tar.gz -> xl2tpd-1.3.16.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=06a629c386d5c802b9029dd63b488dd2
+_md5_=8144fac6e7375ded042bac83ab522f26
