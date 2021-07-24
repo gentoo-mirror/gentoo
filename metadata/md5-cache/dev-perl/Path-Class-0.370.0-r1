@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Carp virtual/perl-Exporter virtual/perl-File-Path >=virtual/perl-File-Spec-3.260.0 virtual/perl-File-Temp virtual/perl-IO virtual/perl-Perl-OSType virtual/perl-Scalar-List-Utils virtual/perl-parent >=dev-perl/Module-Build-0.360.100 >=virtual/perl-ExtUtils-MakeMaker-6.300.0 test? ( virtual/perl-Test virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Carp virtual/perl-Exporter virtual/perl-File-Path >=virtual/perl-File-Spec-3.260.0 virtual/perl-File-Temp virtual/perl-IO virtual/perl-Perl-OSType virtual/perl-Scalar-List-Utils virtual/perl-parent >=dev-perl/Module-Build-0.360.100 >=virtual/perl-ExtUtils-MakeMaker-6.300.0 test? ( virtual/perl-Test virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Cross-platform path specification manipulation
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Path-Class
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Carp virtual/perl-Exporter virtual/perl-File-Path >=virtual
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/K/KW/KWILLIAMS/Path-Class-0.37.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=8f3f9d5a840f329e6ed445bbd04b72a8
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=92efef4ec2edc5a0946656a698c7c33c
