@@ -9,6 +9,7 @@ DESCRIPTION="File Transfer Protocol (FTP) server user"
 
 ACCT_USER_GROUPS=( "ftp" )
 ACCT_USER_HOME="/var/lib/ftp"
+ACCT_USER_HOME_OWNER="root:ftp"
 ACCT_USER_ID="21"
 
 acct-user_add_deps
