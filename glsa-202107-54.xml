@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-54">
+  <title>libyang: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in libyang, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">libyang</product>
+  <announced>2021-07-24</announced>
+  <revised count="1">2021-07-24</revised>
+  <bug>791373</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/libyang" auto="yes" arch="*">
+      <unaffected range="ge">1.0.236</unaffected>
+      <vulnerable range="lt">1.0.236</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>YANG data modeling language library.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in libyang. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libyang users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/libyang-1.0.236"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28902">CVE-2021-28902</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28903">CVE-2021-28903</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28904">CVE-2021-28904</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28905">CVE-2021-28905</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28906">CVE-2021-28906</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-24T02:37:39Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-24T03:07:13Z">ajak</metadata>
+</glsa>
