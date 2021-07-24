@@ -1,0 +1,17 @@
+BDEPEND=php_targets_php7-3? ( dev-lang/php:7.3[json,ssl,zlib] ) php_targets_php7-4? ( dev-lang/php:7.4[json,ssl,zlib] ) php_targets_php8-0? ( dev-lang/php:8.0[ssl,zlib] ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=php_targets_php7-3? ( dev-lang/php:7.3[json,ssl,zlib] ) php_targets_php7-4? ( dev-lang/php:7.4[json,ssl,zlib] ) php_targets_php8-0? ( dev-lang/php:8.0[ssl,zlib] ) >=dev-libs/libbson-1.18.0 >=dev-libs/mongo-c-driver-1.18.0[sasl?,ssl] dev-libs/openssl:0= sasl? ( dev-libs/cyrus-sasl ) test? ( dev-db/mongodb ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DESCRIPTION=MongoDB database driver for PHP
+EAPI=7
+HOMEPAGE=https://pecl.php.net/mongodb
+INHERIT=php-ext-pecl-r3
+IUSE=sasl test php_targets_php7-3 php_targets_php7-4 php_targets_php8-0
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=php_targets_php7-3? ( dev-lang/php:7.3[json,ssl,zlib] ) php_targets_php7-4? ( dev-lang/php:7.4[json,ssl,zlib] ) php_targets_php8-0? ( dev-lang/php:8.0[ssl,zlib] ) >=dev-libs/libbson-1.18.0 >=dev-libs/mongo-c-driver-1.18.0[sasl?,ssl] dev-libs/openssl:0= sasl? ( dev-libs/cyrus-sasl ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
+RESTRICT=x86? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://pecl.php.net/get/mongodb-1.10.0.tgz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	php-ext-source-r3	59705d3e8b4658c589d46b4c7f90150c	php-ext-pecl-r3	aa1126f832eb58d6b04711a39840710d
+_md5_=a4edb5905d0f5acbd1e9bb97077a7d7f
