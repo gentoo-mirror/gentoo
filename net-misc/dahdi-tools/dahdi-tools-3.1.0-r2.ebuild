@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -25,7 +25,7 @@ DEPEND="dev-libs/newt
 	net-misc/dahdi
 	sys-kernel/linux-headers
 	virtual/libusb:0
-	ppp? ( net-dialup/ppp )"
+	ppp? ( net-dialup/ppp:= )"
 RDEPEND="${DEPEND}
 	dev-lang/perl:=
 	dev-perl/CGI"
@@ -39,6 +39,8 @@ src_prepare() {
 
 src_configure() {
 	econf $(use_with ppp) --with-perllib="$(perl_get_vendorlib)"
+	sed -re 's/ -Werror($|[[:space:]])//' -i xpp/oct612x/Makefile.in || die "sed to eliminate -Werror failed."
+	sed -re '/[[:space:]]*-Werror[[:space:]]*\\$/ d' -i xpp/xtalk/Makefile || die "sed to eliminate -Werror failed."
 }
 
 src_install() {
@@ -57,4 +59,8 @@ src_install() {
 
 	bashcomp_alias dahdi $(sed -nre 's/^complete -F .* //p' "${ED}${bashcompdir}/dahdi" ||
 		die "Error parsing dahdi bash completion file for commands")
+
+	rm "${ED}"/usr/$(get_libdir)/libtonezone.a || die "Unable to remove static libs from install."
+	# Delete *if* the libtool file exists, bug #778380
+	find "${ED}" -name '*.la' -delete || die
 }
