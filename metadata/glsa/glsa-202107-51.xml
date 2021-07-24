@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-51">
+  <title>IcedTeaWeb: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in IcedTeaWeb, the worst
+    of which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">icedtea-web</product>
+  <announced>2021-07-23</announced>
+  <revised count="1">2021-07-23</revised>
+  <bug>711392</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-java/icedtea-web" auto="yes" arch="*">
+      <unaffected range="ge">1.8.4-r1</unaffected>
+      <vulnerable range="lt">1.8.4-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>FOSS Java browser plugin and Web Start implementation.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in IcedTeaWeb. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All IcedTeaWeb users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-java/icedtea-web-1.8.4-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-10181">CVE-2019-10181</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-10185">CVE-2019-10185</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-22T03:54:46Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-23T02:56:17Z">ajak</metadata>
+</glsa>

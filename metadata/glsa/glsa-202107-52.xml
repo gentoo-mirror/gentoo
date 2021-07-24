@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-52">
+  <title>Apache Velocity: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Apache Velocity, the
+    worst of which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">velocity</product>
+  <announced>2021-07-23</announced>
+  <revised count="1">2021-07-23</revised>
+  <bug>775248</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-java/velocity" auto="yes" arch="*">
+      <unaffected range="ge">2.3</unaffected>
+      <vulnerable range="lt">2.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Apache Velocity is a general purpose template engine.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Apache Velocity. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Apache Velocity users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-java/velocity-2.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-13936">CVE-2020-13936</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-13959">CVE-2020-13959</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-23T01:34:53Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-23T03:03:07Z">ajak</metadata>
+</glsa>
