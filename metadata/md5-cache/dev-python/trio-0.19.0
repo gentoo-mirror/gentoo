@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://github.com/python-trio/trio https://pypi.org/project/trio
 INHERIT=distutils-r1
 IUSE=test doc python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=|| ( Apache-2.0 MIT )
 RDEPEND=>=dev-python/async_generator-1.9[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/attrs-19.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/idna[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/outcome[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/sniffio[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/sortedcontainers[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/python-trio/trio/archive/v0.19.0.tar.gz -> trio-0.19.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
-_md5_=9ef232448b2083b7f46960e92270d08b
+_md5_=5a97acbf36c8420efd09d43ea0a93cd5

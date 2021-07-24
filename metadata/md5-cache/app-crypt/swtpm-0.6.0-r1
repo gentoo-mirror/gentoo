@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://github.com/stefanberger/swtpm
 INHERIT=autotools python-single-r1
 IUSE=fuse +gnutls seccomp test python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=~amd64 ~arm64 ~ppc
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
 LICENSE=BSD
 RDEPEND=fuse? ( dev-libs/glib:2 sys-fs/fuse:0 ) gnutls? ( dev-libs/libtasn1:= >=net-libs/gnutls-3.1.0[tools,pkcs11] ) seccomp? ( sys-libs/libseccomp ) test? ( net-misc/socat dev-tcltk/expect ) acct-group/tss acct-user/tss dev-libs/openssl:0= dev-libs/json-glib dev-libs/libtpms python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/stefanberger/swtpm/archive/v0.6.0.tar.gz -> swtpm-0.6.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
-_md5_=cc1e04b886866a8293196fdf1562a680
+_md5_=cb827b5b31c00a46841c6cc561f38a1b
