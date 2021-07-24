@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Perl-Critic
 INHERIT=perl-module elisp-common
 IUSE=minimal examples emacs test
-KEYWORDS=~amd64 ~ppc ~ppc64
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=>=dev-perl/B-Keywords-1.50.0 virtual/perl-Carp >=dev-perl/Config-Tiny-2 >=dev-perl/Exception-Class-1.230.0 >=virtual/perl-Exporter-5.630.0 virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which virtual/perl-Getopt-Long dev-perl/IO-String >=dev-perl/List-MoreUtils-0.190.0 >=dev-perl/Module-Pluggable-3.100.0 >=dev-perl/PPI-1.265.0 dev-perl/PPIx-QuoteLike >=dev-perl/PPIx-Regexp-0.80.0 >=dev-perl/PPIx-Utilities-1.1.0 dev-perl/Pod-Parser >=dev-perl/Pod-Spell-1 >=dev-perl/Readonly-2 virtual/perl-Scalar-List-Utils >=dev-perl/String-Format-1.180.0 dev-perl/Task-Weaken >=virtual/perl-Term-ANSIColor-2.20.0 >=virtual/perl-Test-Simple-0.920.0 >=virtual/perl-Text-ParseWords-3 dev-perl/Perl-Tidy >=virtual/perl-version-0.770.0 emacs? ( >=app-editors/emacs-23.1:* ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/P/PE/PETDANCE/Perl-Critic-1.140.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d	elisp-common	cf4fd1b0835b9f3e638724840468064a
-_md5_=89bccce5a690d09717fdfb934acbcef6
+_md5_=8704d65a1f294a3d9a3a0940eb904b3a
