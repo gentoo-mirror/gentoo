@@ -5509,7 +5509,7 @@ dev-lang/pcc 1.1.0-r1: pcc portable c compiler
 dev-lang/perl 5.30.3 5.30.3-r1 5.30.3-r2 5.32.0-r1 5.32.1 5.34.0 5.34.0-r1: Larry Wall's Practical Extraction and Report Language
 dev-lang/php 7.3.28 7.3.29 7.4.19-r1 7.4.21-r1 8.0.8-r2: The PHP language runtime engine
 dev-lang/polyml 5.8: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p10 2.7.18_p11 3.6.13_p5 3.6.14 3.7.10_p6 3.7.11 3.8.10_p2 3.8.11 3.9.5_p2 3.9.6 3.10.0_beta2 3.10.0_beta3 3.10.0_beta4: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p11 3.6.13_p5 3.6.14 3.7.10_p6 3.7.11 3.8.10_p2 3.8.11 3.9.5_p2 3.9.6 3.10.0_beta4: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.6-r4 2.4.7 2.4.8: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qu-prolog 10.6: Extended Prolog supporting quantifiers, object-variables and substitutions
@@ -8963,7 +8963,7 @@ dev-python/pastedeploy 2.1.1: Load, configure, and compose WSGI applications and
 dev-python/pastel 0.2.1: Bring colors to your terminal
 dev-python/patch-ng 1.17.4: Library to parse and apply unified diffs, fork of dev-python/patch
 dev-python/path-and-address 2.0.1: Functions for server CLI applications used by humans
-dev-python/path-py 16.0.0: A module wrapper for os.path
+dev-python/path-py 16.0.0 16.1.0: A module wrapper for os.path
 dev-python/pathlib2 2.3.5-r1 2.3.6: Fork of pathlib aiming to support the full stdlib Python API
 dev-python/pathspec 0.8.1 0.9.0: Utility library for gitignore style pattern matching of file paths.
 dev-python/pathtools 0.1.2-r3: Pattern matching and various utilities for file systems paths
@@ -9258,7 +9258,7 @@ dev-python/python-dateutil 2.8.1-r3 2.8.2: Extensions to the standard Python dat
 dev-python/python-debian 0.1.39 0.1.40: Python modules to work with Debian-related data formats
 dev-python/python-discid 1.2.0: Python bindings for libdiscid
 dev-python/python-distutils-extra 2.45: Gettext support, themed icons and scrollkeeper-based documentation in distutils
-dev-python/python-docs 2.7.18 3.6.13 3.7.10 3.8.10 3.9.5: HTML documentation for Python
+dev-python/python-docs 2.7.18 3.6.13 3.6.14 3.7.10 3.7.11 3.8.10 3.8.11 3.9.5 3.9.6: HTML documentation for Python
 dev-python/python-dotenv 0.17.1 0.18.0 0.18.0-r1 0.19.0: Manage .env files
 dev-python/python-editor 1.0.4-r1: Programmatically open an editor, capture the result.
 dev-python/python-efl 1.25.0: Python bindings for Enlightenment Foundation Libraries
@@ -11225,7 +11225,7 @@ dev-util/patdiff 0.14.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.18: Recursive-descent parser generators for C
 dev-util/perf 5.8 5.10.16 5.11 5.12: Userland tools for Linux Performance Counters
 dev-util/pkgcheck 0.9.7-r2 0.9.7-r3 0.10.0 0.10.1 0.10.2 0.10.3 9999: pkgcore-based QA utility for ebuild repos
-dev-util/pkgconf 1.6.3 1.7.3-r1 1.7.4 9999: pkg-config compatible replacement with no dependencies other than ANSI C89
+dev-util/pkgconf 1.6.3 1.7.4 1.8.0 9999: pkg-config compatible replacement with no dependencies other than ANSI C89
 dev-util/pkgconfig 0.29.2 9999: Package config system that manages compile/link flags
 dev-util/pkgdev 0.1.2 0.1.5 0.1.6 0.1.7 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.7.2 9999: Package Changes Analyzer (pkgdiff)
@@ -17950,8 +17950,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.134 5.10.52 5.12.19 5.13.4: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.134 5.4.134-r2 5.10.52 5.10.52-r2 5.12.19 5.12.19-r2 5.13.4: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.134 5.4.135 5.10.52 5.10.53 5.12.19 5.13.4 5.13.5: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.134 5.4.134-r2 5.4.135 5.10.52 5.10.52-r2 5.10.53 5.12.19 5.12.19-r2 5.13.4 5.13.5: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.276 4.9.276 4.14.240 4.19.198 5.4.134 5.4.135 5.10.52 5.10.53 5.12.19 5.13.4 5.13.5: Full sources including the Gentoo patchset for the 5.13 kernel tree
 sys-kernel/git-sources 5.14_rc1 5.14_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17966,7 +17966,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p1 5.12_p2 5.12_p3 5.12_p4 5.12_p5 5.12_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.267_p221 4.4.270_p222 4.9.263_p177 4.9.275_p184 4.14.226_p109 4.14.239_p119 4.19.188_p77 4.19.196_p83 5.4.109_p56 5.4.129_p61 5.10.30_p37 5.10.47_p46 5.11.4_p11: Full Linux 5.11 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.134 5.10.52 5.12.19 5.13.4: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.134 5.4.135 5.10.52 5.10.53 5.12.19 5.13.4 5.13.5: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.276 4.9.276 4.14.240 4.19.198 5.4.135 5.10.53 5.12.18 5.13.5: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.13.4: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2: Standalone argp library for use with uclibc
@@ -18148,7 +18148,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.134 5.10.52 5.12.19 5.13.4: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.134 5.4.135 5.10.52 5.10.53 5.12.19 5.13.4 5.13.5: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
