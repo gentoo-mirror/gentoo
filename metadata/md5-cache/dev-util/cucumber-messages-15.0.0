@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/cucumber/cucumber-messages-ruby#readme
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 doc test test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby26? ( >=dev-util/protobuf-cucumber-3.10.8:3[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-util/protobuf-cucumber-3.10.8:3[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=15
 SRC_URI=https://rubygems.org/gems/cucumber-messages-15.0.0.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	ab9b21d1b0a24b6afdd489885350e82e	ruby-fakegem	3e905d374dad540cd5fbc89cefca91c4
-_md5_=2548438d97706663743ac69bb7cdffa4
+_md5_=b82f5f1fc0702a726d886d5c080482ac
