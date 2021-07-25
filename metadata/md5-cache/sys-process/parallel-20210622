@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.gnu.org/software/parallel/ https://git.savannah.gnu.org/cgit/parallel.git/
 INHERIT=verify-sig
 IUSE=verify-sig
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=amd64 arm ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=GPL-3+
 RDEPEND=dev-lang/perl:= dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-IO
 SLOT=0
 SRC_URI=mirror://gnu/parallel/parallel-20210622.tar.bz2 verify-sig? ( mirror://gnu/parallel/parallel-20210622.tar.bz2.sig )
 _eclasses_=verify-sig	10c122d0f49c54100ad5e279db0cb43c
-_md5_=f3a938439f33d6b92e62033e14909617
+_md5_=7b3fd0d67db796ff0e2722d44963efe2
