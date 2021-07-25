@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare test
-DEPEND=sys-libs/gdbm mbedtls? ( net-libs/mbedtls:= ) test? ( dev-libs/openssl:0 )
+DEPEND=sys-libs/gdbm virtual/libcrypt:= mbedtls? ( net-libs/mbedtls:= ) test? ( dev-libs/openssl:0 )
 DESCRIPTION=A Unix system friendly Scheme Interpreter
 EAPI=7
 HOMEPAGE=http://practical-scheme.net/gauche/
 INHERIT=autotools
 IUSE=ipv6 mbedtls test
-KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=sys-libs/gdbm mbedtls? ( net-libs/mbedtls:= )
+RDEPEND=sys-libs/gdbm virtual/libcrypt:= mbedtls? ( net-libs/mbedtls:= )
 RESTRICT=!test? ( test )
 SLOT=0/0.97
-SRC_URI=mirror://sourceforge/gauche/Gauche-0.9.10.tgz https://dev.gentoo.org/~hattya/distfiles/gauche-0.9.10-sys-ctermid.patch.xz
+SRC_URI=mirror://sourceforge/gauche/Gauche-0.9.9.tgz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
-_md5_=569de94f04b1968118c1a789e69b630a
+_md5_=f9d9c4c01a4802d5ce8af61cd0b463aa
