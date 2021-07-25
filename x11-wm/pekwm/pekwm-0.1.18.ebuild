@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop
 
@@ -14,33 +14,30 @@ SRC_URI="
 	https://github.com/pekdon/${PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz
 	themes? ( https://dev.gentoo.org/~jer/${PN}-themes.tar.bz2 )
 "
+S="${WORKDIR}"/${PN}-release-${PV}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~mips ppc x86"
+KEYWORDS="~amd64 ~mips ~ppc ~x86"
 IUSE="contrib debug themes truetype xinerama"
 
-RDEPEND="
-	media-libs/libpng:0=
+RDEPEND="media-libs/libpng:0=
 	virtual/jpeg:0
 	x11-libs/libXpm
 	x11-libs/libXrandr
 	x11-libs/libXrender
 	truetype? ( x11-libs/libXft )
-	xinerama? ( x11-libs/libXinerama )
-"
-DEPEND="
-	${RDEPEND}
-	virtual/pkgconfig
-"
-S=${WORKDIR}/${PN}-release-${PV}
+	xinerama? ( x11-libs/libXinerama )"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
+	default
+
 	if use themes; then
 		rm "${WORKDIR}"/themes/Ace/.theme.swp || die
 	fi
 
-	default
 	eautoreconf
 }
 
@@ -60,7 +57,7 @@ src_install() {
 	default
 
 	# Install contributor scripts into doc folder
-	if use contrib ; then
+	if use contrib; then
 		docinto contrib
 		dodoc contrib/lobo/{check.png,pekwm_autoprop.pl,pekwm_menu_config.pl} \
 			contrib/lobo/{pekwm_menu_config.pl.vars,README,uncheck.png}
@@ -82,7 +79,7 @@ src_install() {
 
 pkg_postinst() {
 	if use contrib ; then
-		elog " User contributed scripts have been installed into:"
-		elog " /usr/share/doc/${PF}/contrib"
+		elog "User contributed scripts have been installed into:"
+		elog "${EROOT}/usr/share/doc/${PF}/contrib"
 	fi
 }
