@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Transparent application input fuzzer
+EAPI=8
+HOMEPAGE=http://caca.zoy.org/wiki/zzuf
+INHERIT=autotools multilib-minimal
+IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64 ~sparc ~x86
+LICENSE=WTFPL-2
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/samhocevar/zzuf/archive/e598eef77a98d77dc6aec6fd2c845e3cd07dc4fd.tar.gz -> zzuf-0.15_p20190208.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	effd4508d5e8209273d82d8f67ee93a0	multilib-minimal	7187f259f207bf5b69e4ff01498a7269
+_md5_=dbb580a4f8b651a6abc7af57a897d32f
