@@ -1499,10 +1499,7 @@ dev-haskell/lens:benchmark-uniplate - Enable benchmarking against Neil Mitchell'
 dev-haskell/lens:dump-splices - Build and run the doctests test-suite.
 dev-haskell/lens:inlining - Generate inline pragmas when using template-haskell. This defaults to enabled, but you can to shut it off to benchmark the relative performance impact, or as last ditch effort to address compile errors resulting from the myriad versions of template-haskell that all purport to be 2.8.
 dev-haskell/lens:j - Attempt a parallel build with GHC 7.8.
-dev-haskell/lens:old-inline-pragmas - Some 7.6.1-rc1 users report their TH still uses old style inline pragmas. This lets them turn on inlining.
 dev-haskell/lens:safe - Disallow unsafeCoerce
-dev-haskell/lens:test-doctests - Build and run the doctests test-suite.
-dev-haskell/lens:test-templates - Build the test templates if we're building tests
 dev-haskell/lens:trustworthy - Assert that we are trustworthy when we can
 dev-haskell/libyaml:no-unicode - Don't enable unicode output. Instead, unicode characters will be escaped.
 dev-haskell/libyaml:system-libyaml - Use the system-wide libyaml instead of the bundled copy
