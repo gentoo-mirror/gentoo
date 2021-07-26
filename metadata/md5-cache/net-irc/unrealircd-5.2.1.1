@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.unrealircd.org/
 INHERIT=autotools ssl-cert systemd
 IUSE=class-nofakelag curl +operoverride operoverride-verify +prefixaq showlistmodes
-KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux
 LICENSE=GPL-2
 RDEPEND=acct-group/unrealircd acct-user/unrealircd >=app-crypt/argon2-20171227-r1:= dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:0= >=net-dns/c-ares-1.7:= virtual/libcrypt:= curl? ( net-misc/curl[adns] )
 SLOT=0
 SRC_URI=https://www.unrealircd.org/downloads/unrealircd-5.2.1.1.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	systemd	c846b9e02ac8293bfc9ca38a195c2a18
-_md5_=edf1c81894f5344771eb76f1824d0c2d
+_md5_=960ede5692328cdc6746840292eff744
