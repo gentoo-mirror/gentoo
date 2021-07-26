@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 # forced implicitly
 CMAKE_MAKEFILE_GENERATOR=emake
@@ -26,6 +26,6 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-src_test() {
-	virtx distutils-r1_src_test
+python_test() {
+	virtx epytest
 }
