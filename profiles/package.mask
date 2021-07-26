@@ -32,6 +32,29 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2021-07-26)
+# Rather out of date, several open bugs, fails to build with GCC 11.
+# Removal in 2021-08-26.
+# bug #793020, bug #692976, bug #741600, bug #703948, bug #674334.
+sci-misc/tango
+
+# Sam James <sam@gentoo.org> (2021-07-26)
+# Fails to build with GCC 11.
+# Removal on 2021-08-26. bug #788577.
+net-im/minbif
+
+# Sam James <sam@gentoo.org> (2021-07-26)
+# No activity upstream. No reverse dependencies (library).
+# Fails to build with GCC 11.
+# Removal on 2021-08-26. bug #787113, bug #735714, bug #657510.
+dev-cpp/libxsd-frontend
+
+# John Helmert III <ajak@gentoo.org> (2021-07-26)
+# Open security bug, service backing it seems to be dead, making these
+# packages useless. Old EAPIs. Removal on 2021-08-26. Bug #630814
+app-portage/getdelta
+app-portage/deltup
+
 # John Helmert III <ajak@gentoo.org> (2021-07-26)
 # Maintained needed, open security bug, uninterested upstream.
 # No revdeps. Removal on 2021-08-26. Bug #752408.
