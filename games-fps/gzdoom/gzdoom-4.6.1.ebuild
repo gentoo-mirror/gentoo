@@ -5,10 +5,11 @@ EAPI=7
 
 inherit cmake desktop xdg flag-o-matic
 
+WIDEPIX_COMMIT="d458411db4795dfd1420cf1c6456f6d2999b3bad"
 DESCRIPTION="A modder-friendly OpenGL source port based on the DOOM engine"
 HOMEPAGE="https://zdoom.org"
 SRC_URI="https://github.com/coelckers/${PN}/archive/g${PV}.tar.gz -> ${P}.tar.gz
-	non-free? ( https://github.com/nashmuhandes/WidePix/archive/92738042ca3a37f28153a09809d80a7d61090532.tar.gz -> widepix-9273804.tar.gz )"
+	non-free? ( https://github.com/nashmuhandes/WidePix/archive/${WIDEPIX_COMMIT}.tar.gz -> widepix-${WIDEPIX_COMMIT:0:7}.tar.gz )"
 
 LICENSE="Apache-2.0 BSD BZIP2 GPL-3 LGPL-2.1+ LGPL-3 MIT
 	non-free? ( Activision ChexQuest3 DOOM-COLLECTORS-EDITION freedist WidePix )"
@@ -29,7 +30,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${PN}-g${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-Introduce-the-BUILD_NONFREE-option.patch"
+	"${FILESDIR}/${PN}-4.5.0-Introduce-the-BUILD_NONFREE-option.patch"
 )
 
 src_prepare() {
@@ -38,7 +39,7 @@ src_prepare() {
 	if ! use non-free ; then
 		rm -rf wadsrc_bm wadsrc_extra wadsrc_widescreen || die
 	else
-		mv "${WORKDIR}/WidePix-92738042ca3a37f28153a09809d80a7d61090532/filter" wadsrc_widescreen/static/ || die
+		mv "${WORKDIR}/WidePix-${WIDEPIX_COMMIT}/filter" wadsrc_widescreen/static/ || die
 	fi
 
 	cmake_src_prepare
