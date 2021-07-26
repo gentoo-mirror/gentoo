@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://www.encode.io/httpcore/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 arm arm64 ~ppc ~ppc64 sparc x86
+KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 sparc x86
 LICENSE=BSD
 RDEPEND=<dev-python/h11-0.13[python_targets_python3_8(-)?,python_targets_python3_9(-)?] <dev-python/hyper-h2-5[python_targets_python3_8(-)?,python_targets_python3_9(-)?] =dev-python/sniffio-1*[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/encode/httpcore/archive/0.13.3.tar.gz -> httpcore-0.13.3.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
-_md5_=cbc0724cc7e5e03960a36748c71f29be
+_md5_=e1bf90c9740eee09e0c0bfade3aff1bb
