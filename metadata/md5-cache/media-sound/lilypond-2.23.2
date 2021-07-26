@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://lilypond.org/
 INHERIT=elisp-common autotools python-single-r1 toolchain-funcs xdg-utils
 IUSE=debug doc emacs profile vim-syntax l10n_ca l10n_cs l10n_de l10n_en l10n_fr l10n_hu l10n_it l10n_ja l10n_nl l10n_pt l10n_zh python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~riscv ~x86
 LICENSE=GPL-3 FDL-1.3
 RDEPEND=app-text/ghostscript-gpl dev-scheme/guile:12=[deprecated,regex] media-fonts/tex-gyre media-libs/fontconfig media-libs/freetype:2 x11-libs/pango emacs? ( >=app-editors/emacs-23.1:* ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=http://lilypond.org/download/sources/v2.23/lilypond-2.23.2.tar.gz
 _eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=e442d0839ba6a17ec00ba91df7d02fdb
+_md5_=6e16e9c8470e84020afbd38c361c1d23
