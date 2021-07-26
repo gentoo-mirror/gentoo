@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=app-arch/unzip >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Implementation of xz data compression in pure java
+EAPI=7
+HOMEPAGE=https://tukaani.org/xz/java.html
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc examples source
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=public-domain
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://tukaani.org/xz/xz-java-1.9.zip
+_eclasses_=java-utils-2	bd56fb0d459d0bad9d07fa32febe53cb	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc	java-pkg-simple	f54286e86669dd9944a492f8586e744c
+_md5_=83a5faa18248b16603804979827510d5
