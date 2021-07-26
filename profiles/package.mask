@@ -346,12 +346,6 @@ sys-libs/db:5.1
 # Removal on 2021-07-27
 media-sound/loudness-scanner
 
-# Matt Turner <mattst88@gentoo.org> (2021-06-25)
-# Last release in 2015. Many open bugs. No reverse dependencies.
-# Bugs #312935, #341923, #629050, #739984, #775761, #777534
-# Removal on 2021-07-25
-media-gfx/ufraw
-
 # Marek Szuba <marecki@genoo.org> (2021-06-25)
 # Unslotted version conflicting with lua eclasses.
 # No revdeps left. EAPI 5. Removal in 30 days (Bug #798693)
@@ -361,12 +355,6 @@ dev-lang/lua:0
 # library with no consumer, removal in 30 days
 # see https://bugs.gentoo.org/794562
 dev-java/bctsp
-
-# Michał Górny <mgorny@gentoo.org> (2021-06-24)
-# Package of huge complexity, given its premise.  Unmaintained
-# in Gentoo.  No revdeps.
-# Removal on 2021-07-24.  Bug #798291.
-dev-python/frozendict
 
 # Miroslav Šulc <fordfrog@gentoo.org> (2021-06-23)
 # obsolete, no consumers
@@ -395,23 +383,6 @@ dev-java/jibx-tools
 # which is currently not available in Gentoo.
 >=games-server/minecraft-server-1.17
 
-# Zac Medico <zmedico@gentoo.org> (2021-06-19)
-# Upstream inactive and fails to compile.
-# Removal on 2021-07-19.  Bug #786279.
-app-misc/rq
-
-# Michał Górny <mgorny@gentoo.org> (2021-06-19)
-# Conflicts with app-arch/brotli[python].  Discontinued in favor
-# of dev-python/brotlicffi.  No revdeps remain.
-# Removal on 2021-07-19.  Bug #796749.
-dev-python/brotlipy
-
-# Mike Gilbert <floppym@gentoo.org> (2021-06-17)
-# rescan-scsi-bus.sh is installed by >=sys-apps/sg3_utils-1.44, rendering
-# this package redundant.
-# Removal on 2021-07-17.
-sys-apps/rescan-scsi-bus
-
 # Davide Pesavento <pesa@gentoo.org> (2021-06-15)
 # Masked for revdep testing.
 >=dev-python/sip-6
@@ -428,17 +399,6 @@ media-gfx/povtree
 >=dev-lang/ocaml-4.12
 =dev-ml/camlp4-4.12
 
-# Sam James <sam@gentoo.org> (2021-06-10)
-# Fails to build with modern libetpan. Unmaintained.
-# See bug #699570, bug #448574.
-# Removal on 2021-07-10.
-mail-client/etpan-ng
-
-# Michał Górny <mgorny@gentoo.org> (2021-06-05)
-# A backport for 'older Python versions' with no revdeps.
-# Removal on 2021-07-05.  Bug #794268.
-dev-python/chainmap
-
 # Stephan Hartmann <sultan@gentoo.org> (2021-06-05)
 # Dev channel releases are only for people who
 # are developers or want more experimental features
@@ -449,12 +409,6 @@ dev-python/chainmap
 # Alpha versions of fetchmail 7
 # Add support for OAUTH2 for those needing it
 =net-mail/fetchmail-7.0.0_alpha*
-
-# Michał Górny <mgorny@gentoo.org> (2021-06-02)
-# This is Python 2/3 compatibility layer that was used shortly
-# by dev-python/pip.  No revdeps left.
-# Removal on 2021-07-02.  Bug #793902.
-dev-python/csv23
 
 # Sam James <sam@gentoo.org> (2021-06-01)
 # Possible issues with new ALSA release
@@ -554,11 +508,6 @@ dev-python/csv23
 ~media-plugins/gst-plugins-ximagesrc-1.18.4
 ~media-plugins/gst-plugins-zbar-1.18.4
 
-# Andrey Grozin <grozin@gentoo.org> (2021-05-25)
-# DEPENDs on sci-libs/proj-8
-# Unmask after unmasking proj-8
->=sci-geosciences/qmapshack-1.16
-
 # Miroslav Šulc <fordfrog@gentoo.org> (2021-05-24)
 # it's just a demo project, not a real app, see disclaimer
 # at https://github.com/romainguy/jext
@@ -652,6 +601,7 @@ sys-devel/autoconf:2.71
 # which haven't yet ported.
 # bug #729098
 >=sci-libs/proj-8.0.0
+>=sci-geosciences/qmapshack-1.16
 
 # Sam James <sam@gentoo.org> (2021-02-18)
 # 0.9.27 included a regression wrt deletes
