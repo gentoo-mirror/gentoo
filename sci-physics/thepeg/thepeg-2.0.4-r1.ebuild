@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit autotools elisp-common java-pkg-opt-2
 
@@ -10,30 +10,32 @@ MY_P=ThePEG-${PV}
 DESCRIPTION="Toolkit for High Energy Physics Event Generation"
 HOMEPAGE="http://home.thep.lu.se/ThePEG/"
 
-TEST_URI="http://www.hepforge.org/archive/lhapdf/pdfsets/current"
-SRC_URI="http://www.hepforge.org/archive/thepeg/${MY_P}.tar.bz2
+TEST_URI="https://www.hepforge.org/archive/lhapdf/pdfsets/current"
+SRC_URI="https://www.hepforge.org/archive/thepeg/${MY_P}.tar.bz2
 	test? ( hepmc? (
-	   ${TEST_URI}/cteq6ll.LHpdf
-	   ${TEST_URI}/cteq5l.LHgrid
-	   ${TEST_URI}/GRV98nlo.LHgrid
-	   ${TEST_URI}/MRST2001nlo.LHgrid ) )"
-LICENSE="GPL-2"
+		${TEST_URI}/cteq6ll.LHpdf
+		${TEST_URI}/cteq5l.LHgrid
+		${TEST_URI}/GRV98nlo.LHgrid
+		${TEST_URI}/MRST2001nlo.LHgrid ) )"
 
+LICENSE="GPL-2"
 SLOT="0/20"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="c++11 emacs fastjet hepmc java lhapdf static-libs test zlib"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
+CDEPEND="
 	sci-libs/gsl:0=
 	emacs? ( >=app-editors/emacs-23.1:* )
 	fastjet? ( sci-physics/fastjet:0= )
 	hepmc? ( sci-physics/hepmc:0= )
-	java? ( >=virtual/jre-1.5:* )
 	lhapdf? ( >=sci-physics/lhapdf-6.0:0= )
 	zlib? ( sys-libs/zlib:0= )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
+	java? ( virtual/jdk:1.8 )
 	test? ( sys-process/time )"
+RDEPEND="${CDEPEND}
+	java? ( virtual/jre:1.8 )"
 
 S="${WORKDIR}/${MY_P}"
 
