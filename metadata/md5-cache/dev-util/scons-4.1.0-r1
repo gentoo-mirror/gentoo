@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://www.scons.org/
 INHERIT=distutils-r1
 IUSE=doc test python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris
 LICENSE=MIT
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/scons/scons/4.1.0/scons-4.1.0.tar.gz doc? ( https://www.scons.org/doc/4.1.0/PDF/scons-user.pdf -> scons-4.1.0-user.pdf https://www.scons.org/doc/4.1.0/HTML/scons-user.html -> scons-4.1.0-user.html ) test? ( https://github.com/scons/scons/archive/4.1.0.tar.gz -> scons-4.1.0.gh.tar.gz )
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
-_md5_=ee6a8d3d675d7140272ff8f3359a6d97
+_md5_=6af1d79d6ca10caed47a08b76b7802a0
