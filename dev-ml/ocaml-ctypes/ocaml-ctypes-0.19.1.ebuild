@@ -11,13 +11,14 @@ SRC_URI="https://github.com/ocamllabs/ocaml-ctypes/archive/${PV}.tar.gz -> ${P}.
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 arm ~arm64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-lang/ocaml-4.02:=[ocamlopt]
-	>=dev-libs/libffi-3.3_rc0:0/7
+	>=dev-libs/libffi-3.3_rc0:=
+	dev-ml/bigarray-compat:=
 	dev-ml/integers:=
 "
 DEPEND="${RDEPEND}
