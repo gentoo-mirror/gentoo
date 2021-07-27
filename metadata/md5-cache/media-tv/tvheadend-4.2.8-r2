@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://tvheadend.org/
 INHERIT=linux-info python-any-r1 systemd toolchain-funcs
 IUSE=+capmt +constcw +cwc dbus debug dvbcsa dvben50221 +dvb +ffmpeg hdhomerun +imagecache +inotify iptv satip systemd +timeshift uriparser xmltv zeroconf zlib kernel_linux
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3
 RDEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) dvben50221? ( media-tv/linuxtv-dvb-apps ) ffmpeg? ( media-video/ffmpeg:0= ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( media-tv/dtv-scan-tables ) xmltv? ( media-tv/xmltv )
 REQUIRED_USE=dvbcsa? ( || ( capmt constcw cwc dvben50221 ) )
 SLOT=0
 SRC_URI=https://github.com/tvheadend/tvheadend/archive/v4.2.8.tar.gz -> tvheadend-4.2.8.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330	systemd	c846b9e02ac8293bfc9ca38a195c2a18
-_md5_=3490f8fdb853cbdbb0055544738b9e24
+_md5_=306e6ec0dd90593c341e75a33f7498b4
