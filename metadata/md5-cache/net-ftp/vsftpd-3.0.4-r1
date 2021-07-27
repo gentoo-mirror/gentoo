@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install postinst preinst prepare
-DEPEND=caps? ( >=sys-libs/libcap-2 ) pam? ( sys-libs/pam ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) ssl? ( dev-libs/openssl:0= )
+DEPEND=caps? ( >=sys-libs/libcap-2 ) pam? ( sys-libs/pam ) !pam? ( virtual/libcrypt:= ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Very Secure FTP Daemon written with speed, size and security in mind
 EAPI=7
 HOMEPAGE=http://vsftpd.beasts.org/
@@ -8,8 +8,8 @@ INHERIT=systemd toolchain-funcs
 IUSE=caps pam tcpd ssl selinux xinetd
 KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=caps? ( >=sys-libs/libcap-2 ) pam? ( sys-libs/pam ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) ssl? ( dev-libs/openssl:0= ) net-ftp/ftpbase selinux? ( sec-policy/selinux-ftp ) xinetd? ( sys-apps/xinetd )
+RDEPEND=caps? ( >=sys-libs/libcap-2 ) pam? ( sys-libs/pam ) !pam? ( virtual/libcrypt:= ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) ssl? ( dev-libs/openssl:0= ) net-ftp/ftpbase selinux? ( sec-policy/selinux-ftp ) xinetd? ( sys-apps/xinetd )
 SLOT=0
 SRC_URI=http://security.appspot.com/downloads/vsftpd-3.0.4.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
-_md5_=e11d16a03f5debf68502a0437d25f373
+_md5_=1b89fa78db00f37bc267a4a2d692b7de
