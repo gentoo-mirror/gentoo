@@ -1,15 +1,14 @@
-DEFINED_PHASES=install prepare unpack
-DEPEND=>=games-engines/scummvm-0.13.1 app-arch/unzip
-DESCRIPTION=Lure of the Temptress
-EAPI=6
-HOMEPAGE=http://www.revolution.co.uk/_display.php?id=10
-INHERIT=eutils
-IUSE=l10n_en l10n_es l10n_de l10n_fr l10n_it
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install
+DESCRIPTION=Play as the young peasant named Diermot who has to overthrow an evil sorceress
+EAPI=8
+HOMEPAGE=https://revolution.co.uk/games_catalog/lure-of-the-temptress-copy/
+INHERIT=desktop wrapper
+IUSE=l10n_de +l10n_en l10n_es l10n_fr l10n_it
 KEYWORDS=~amd64 ~x86
 LICENSE=lure
-RDEPEND=>=games-engines/scummvm-0.13.1
-RESTRICT=mirror
+RDEPEND=games-engines/scummvm
 SLOT=0
-SRC_URI=https://raw.githubusercontent.com/scummvm/scummvm/266aef932a8a052df897e4d79b4572e5d169916f/dists/engine-data/lure.dat -> lure-0.13.1.dat !l10n_en? ( !l10n_es? ( !l10n_fr? ( !l10n_de? ( !l10n_it? ( mirror://sourceforge/scummvm/lure-1.1.zip -> lure-en-1.1.zip ) ) ) ) ) l10n_en? ( mirror://sourceforge/scummvm/lure-1.1.zip -> lure-en-1.1.zip ) l10n_es? ( mirror://sourceforge/scummvm/lure-es-1.1.zip ) l10n_fr? ( mirror://sourceforge/scummvm/lure-fr-1.1.zip ) l10n_de? ( mirror://sourceforge/scummvm/lure-de-1.1.zip ) l10n_it? ( mirror://sourceforge/scummvm/lure-it-1.1.zip )
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	b690a7e9b6c497cf59326a7545df4283	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff
-_md5_=c8e854ee42c09253eb368d099839a458
+SRC_URI=https://raw.githubusercontent.com/scummvm/scummvm/266aef932a8a052df897e4d79b4572e5d169916f/dists/engine-data/lure.dat -> lure-0.13.1.dat l10n_en? ( mirror://sourceforge/scummvm/lure-1.1.zip -> lure-en-1.1.zip ) l10n_es? ( mirror://sourceforge/scummvm/lure-es-1.1.zip ) l10n_fr? ( mirror://sourceforge/scummvm/lure-fr-1.1.zip ) l10n_de? ( mirror://sourceforge/scummvm/lure-de-1.1.zip ) l10n_it? ( mirror://sourceforge/scummvm/lure-it-1.1.zip ) !l10n_en? ( !l10n_es? ( !l10n_fr? ( !l10n_de? ( !l10n_it? ( mirror://sourceforge/scummvm/lure-1.1.zip -> lure-en-1.1.zip ) ) ) ) )
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=9e0301f79d43dd9690407480813a822a
