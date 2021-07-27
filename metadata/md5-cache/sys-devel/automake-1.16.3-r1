@@ -1,4 +1,4 @@
-BDEPEND=app-arch/gzip sys-apps/help2man test? ( || ( dev-lang/python:3.9 dev-lang/python:3.8 ) )
+BDEPEND=app-arch/gzip sys-apps/help2man test? ( || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) )
 DEFINED_PHASES=configure install prepare setup
 DEPEND=dev-lang/perl >=sys-devel/automake-wrapper-11 >=sys-devel/autoconf-2.69:* sys-devel/gnuconfig
 DESCRIPTION=Used to generate Makefile.in from Makefile.am
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=1.16
 SRC_URI=mirror://gnu/automake/automake-1.16.3.tar.xz https://alpha.gnu.org/pub/gnu/automake/automake-1.16.3.tar.xz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330
-_md5_=7da92351d4a4362264b2f73d3d3ee9df
+_md5_=4293a3f074dcbfa53f1b36da8d531071
