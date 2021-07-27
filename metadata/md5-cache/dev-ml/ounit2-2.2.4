@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/lwt:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?]
+DEPEND=dev-ml/lwt:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Unit testing framework for OCaml
 EAPI=7
 HOMEPAGE=https://github.com/gildor478/ounit
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=dev-ml/lwt:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?]
+RDEPEND=dev-ml/lwt:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/2.2.4
 SRC_URI=https://github.com/gildor478/ounit/releases/download/v2.2.4/ounit-v2.2.4.tbz
-_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_eclasses_=dune	eefe841059d4f6d649fc9a121683e311
 _md5_=fe45db68c747604d896ef80af6daf2b5

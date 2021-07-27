@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/parsexp:= dev-ml/base:= dev-ml/sexplib0:= dev-ml/num:= >=dev-lang/ocaml-4:=[ocamlopt?]
+DEPEND=dev-ml/parsexp:= dev-ml/base:= dev-ml/sexplib0:= dev-ml/num:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Library for automated conversion of OCaml-values to and from S-expressions
 EAPI=7
 HOMEPAGE=https://github.com/janestreet/sexplib
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=Apache-2.0
-RDEPEND=dev-ml/parsexp:= dev-ml/base:= dev-ml/sexplib0:= dev-ml/num:= >=dev-lang/ocaml-4:=[ocamlopt?]
+RDEPEND=dev-ml/parsexp:= dev-ml/base:= dev-ml/sexplib0:= dev-ml/num:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/sexplib/archive/v0.14.0.tar.gz -> sexplib-0.14.0.tar.gz
-_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_eclasses_=dune	eefe841059d4f6d649fc9a121683e311
 _md5_=f39d6232fb3dba5ce9fd8d3261bdc6a9

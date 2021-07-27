@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/async_kernel:= dev-ml/core:= dev-ml/core_kernel:= dev-ml/ppx_jane:= >=dev-lang/ocaml-4:=[ocamlopt?]
+DEPEND=dev-ml/async_kernel:= dev-ml/core:= dev-ml/core_kernel:= dev-ml/ppx_jane:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Jane Street Capital's asynchronous execution library (unix)
 EAPI=7
 HOMEPAGE=https://github.com/janestreet/async_unix
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=MIT
-RDEPEND=dev-ml/async_kernel:= dev-ml/core:= dev-ml/core_kernel:= dev-ml/ppx_jane:= >=dev-lang/ocaml-4:=[ocamlopt?]
+RDEPEND=dev-ml/async_kernel:= dev-ml/core:= dev-ml/core_kernel:= dev-ml/ppx_jane:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/async_unix/archive/v0.14.0.tar.gz -> async_unix-0.14.0.tar.gz
-_eclasses_=dune	2d138ae1c0f7d4624876ad486529731f
+_eclasses_=dune	eefe841059d4f6d649fc9a121683e311
 _md5_=a78f977b7dfcd26f442878a6291e9a6b
