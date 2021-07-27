@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/commons-httpclient:4 dev-java/httpcore:0 dev-java/osgi-annotation-versioning:0 dev-java/slf4j-api:0 >=virtual/jdk-1.8:* dev-java/osgi-annotation-versioning:0 java-virtuals/servlet-api:3.1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Generic WebDAV Library
+EAPI=7
+HOMEPAGE=http://jackrabbit.apache.org/jackrabbit-webdav/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source test
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-java/commons-httpclient:4 dev-java/httpcore:0 dev-java/osgi-annotation-versioning:0 dev-java/slf4j-api:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=2
+SRC_URI=mirror://apache/jackrabbit/2.21.7/jackrabbit-2.21.7-src.zip
+_eclasses_=java-utils-2	bd56fb0d459d0bad9d07fa32febe53cb	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc	java-pkg-simple	f54286e86669dd9944a492f8586e744c
+_md5_=b519f412a2a40de86c3b9f78ce811de3
