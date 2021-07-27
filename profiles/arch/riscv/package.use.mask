@@ -1,6 +1,16 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Marek Szuba <marecki@gentoo.org> (2021-07-27)
+# dev-libs/boxfort does not support riscv64 yet, meaning
+# dev-libs/criterion cannot be keyworded here
+app-admin/syslog-ng test
+
+# Marek Szuba <marecki@gentoo.org> (2021-07-27)
+# dev-db/mongodb does not support riscv, fails src_configure
+dev-libs/mongo-c-driver test
+dev-python/pymongo test
+
 # Alex Fan <alexfanqi@yahoo.com> (2021-07-22)
 # lack an ios device to test it
 kde-frameworks/solid ios
@@ -59,6 +69,8 @@ app-crypt/heimdal afs
 dev-lang/ruby xemacs
 #  - sci-libs/gdal
 dev-python/networkx extras
+#  - dev-ruby/asciidoctor
+dev-libs/nanomsg doc
 #  - app-text/dblatex & media-gfx/transfig
 dev-util/ragel doc
 #  - media-libs/dumb, media-libs/openal
