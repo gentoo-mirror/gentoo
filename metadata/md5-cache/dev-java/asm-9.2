@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Bytecode manipulation framework for Java
+EAPI=7
+HOMEPAGE=https://asm.ow2.io
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x64-macos
+LICENSE=BSD
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test
+SLOT=9
+SRC_URI=https://gitlab.ow2.org/asm/asm/-/archive/ASM_9_2/asm-ASM_9_2.tar.gz
+_eclasses_=java-utils-2	bd56fb0d459d0bad9d07fa32febe53cb	java-pkg-2	37e38ed0662a78bfde9cb4f6d11ed6dc	java-pkg-simple	f54286e86669dd9944a492f8586e744c
+_md5_=d4f88ba32a46011da36b81d94ab9f22a
