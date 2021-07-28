@@ -1,0 +1,14 @@
+BDEPEND=dev-ml/findlib dev-ml/ocamlbuild dev-ml/topkg test? ( dev-ml/mtime )
+DEFINED_PHASES=compile install test
+DEPEND=dev-lang/ocaml:= dev-ml/rresult:= dev-ml/astring:= dev-ml/fpath:= dev-ml/fmt:= dev-ml/logs:=
+DESCRIPTION=Basic OS interaction for OCaml
+EAPI=7
+HOMEPAGE=https://erratique.ch/software/bos https://github.com/dbuenzli/bos
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=ISC
+RDEPEND=dev-lang/ocaml:= dev-ml/rresult:= dev-ml/astring:= dev-ml/fpath:= dev-ml/fmt:= dev-ml/logs:=
+RESTRICT=!test? ( test )
+SLOT=0/0.2.0
+SRC_URI=https://erratique.ch/software/bos/releases/bos-0.2.0.tbz
+_md5_=9f532b6b56c1d32844a219e3086f9d08
