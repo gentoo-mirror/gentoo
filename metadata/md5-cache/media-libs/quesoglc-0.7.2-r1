@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen dev-texlive/texlive-latexextra virtual/latex-base )
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-libs/fribidi media-libs/fontconfig media-libs/freetype:2 virtual/glu virtual/opengl
+DESCRIPTION=Free implementation of the OpenGL Character Renderer (GLC)
+EAPI=8
+HOMEPAGE=http://quesoglc.sourceforge.net/
+IUSE=doc
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/fribidi media-libs/fontconfig media-libs/freetype:2 virtual/glu virtual/opengl
+SLOT=0
+SRC_URI=mirror://sourceforge/quesoglc/quesoglc-0.7.2-free.tar.bz2
+_md5_=ebe66ca6bc22083b74b8ccb3096ca6aa
