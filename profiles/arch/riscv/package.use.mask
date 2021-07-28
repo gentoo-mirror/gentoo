@@ -1,6 +1,11 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Yixun Lan <dlan@gentoo.org> (2021-07-27)
+# depend on sci-physics/bullet, media-libs/libv4l, media-libs/libsdl2
+# which not keyworded
+dev-libs/efl physics sdl v4l
+
 # Marek Szuba <marecki@gentoo.org> (2021-07-27)
 # dev-libs/boxfort does not support riscv64 yet, meaning
 # dev-libs/criterion cannot be keyworded here
@@ -114,6 +119,7 @@ sys-auth/polkit kde
 # Mikle Kolyada <zlogene@gentoo.org> (2020-12-03)
 # Göktürk Yüksek <gokturk@gentoo.org> (2019-10-10)
 #   sys-libs/libunwind do not support riscv
+dev-libs/efl unwind
 dev-util/strace unwind
 media-libs/gstreamer unwind
 media-libs/mesa unwind
@@ -131,8 +137,10 @@ net-libs/libsoup test
 net-libs/libproxy spidermonkey webkit kde networkmanager
 
 # Sam James <sam@gentoo.org> (2021-03-11)
+# Yixun Lan <dlan@gentoo.org> (2021-07-27)
 # media-libs/libheif isn't keyworded here
 # media-libs/libavif isn't keyworded here
+dev-libs/efl avif
 media-libs/gd avif heif
 
 # Sam James <sam@gentoo.org> (2021-02-26)
