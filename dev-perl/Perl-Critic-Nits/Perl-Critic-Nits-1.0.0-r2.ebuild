@@ -3,14 +3,18 @@
 
 EAPI=8
 
-DIST_AUTHOR=DORMANDO
-DIST_VERSION=0.20
+DIST_AUTHOR=KCOWGILL
+DIST_VERSION=v${PV}
+
 inherit perl-module
 
-DESCRIPTION="XS acceleration for Perlbal header processing"
+DESCRIPTION="policies of nits I like to pick"
 
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
-RDEPEND="dev-perl/Perlbal"
-BDEPEND="${RDEPEND}"
+RDEPEND="dev-perl/Perl-Critic
+"
+BDEPEND="${RDEPEND}
+	test? ( dev-perl/Readonly )
+"
