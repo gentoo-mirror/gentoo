@@ -16,7 +16,7 @@ HOMEPAGE="https://invent.kde.org/libraries/kosmindoormap"
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+openinghours"
 
 COMMON_DEPEND="
 	>=dev-libs/kpublictransport-${PVCUT}:5
@@ -26,6 +26,7 @@ COMMON_DEPEND="
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	sys-libs/zlib
+	openinghours? ( >=dev-libs/kopeninghours-${PVCUT}:5 )
 "
 DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
@@ -41,6 +42,7 @@ BDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON # we have no use for it
+		$(cmake_use_find_package openinghours KOpeningHours)
 	)
 	ecm_src_configure
 }
