@@ -1,0 +1,13 @@
+DEFINED_PHASES=install setup
+DESCRIPTION=Gentoo LiveCD tools for autoconfiguration of hardware
+EAPI=7
+HOMEPAGE=https://gitweb.gentoo.org/proj/livecd-tools.git/
+INHERIT=linux-info
+IUSE=kernel_linux
+KEYWORDS=~alpha ~amd64 arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-util/dialog media-sound/alsa-utils net-dialup/mingetty sys-apps/openrc sys-apps/pciutils
+SLOT=0
+SRC_URI=https://gitweb.gentoo.org/proj/livecd-tools.git/snapshot/livecd-tools-2.10.tar.bz2
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
+_md5_=9928acb8093c34f40cb4ef5d3b4b1c8a
