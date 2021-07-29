@@ -59,7 +59,9 @@ src_compile() {
 	PV_SO=${PV:0:1}
 	emake \
 		OS=linux \
+		AR=$(tc-getAR) \
 		CC=$(tc-getCC) \
+		LD=$(tc-getCC) \
 		ENV=gnu \
 		SHARED=yes \
 		SHAREDEXT_linux=so.${PV_SO} \
@@ -111,7 +113,7 @@ src_install() {
 	fi
 
 	if use examples; then
-		docinto /usr/share/doc/${PF}/examples
+		docinto examples
 		dodoc samples/*
 	fi
 
@@ -122,7 +124,7 @@ src_install() {
 			/usr/$(get_libdir)/libcdfNativeLibrary.so
 		java-pkg_dojar */*.jar
 		if use examples; then
-			docinto /usr/share/doc/${PF}/examples/java
+			docinto examples/java
 			dodoc examples/*
 		fi
 	fi
