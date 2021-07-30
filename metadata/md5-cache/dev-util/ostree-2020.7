@@ -5,7 +5,7 @@ DESCRIPTION=Operating system and container binary deployment and upgrades
 EAPI=7
 HOMEPAGE=https://ostreedev.github.io/ostree/
 INHERIT=autotools systemd
-IUSE=archive curl doc dracut gnutls +gpg grub http2 httpd introspection libmount selinux sodium ssl soup systemd zeroconf
+IUSE=archive curl doc dracut gnutls +gpg grub http2 httpd introspection libmount selinux sodium ssl +soup systemd zeroconf
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=LGPL-2+
 RDEPEND=archive? ( app-arch/libarchive ) app-arch/xz-utils curl? ( net-misc/curl ) soup? ( net-libs/libsoup ) dev-libs/libassuan dev-libs/glib:2 dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( dev-libs/gobject-introspection ) ssl? ( gnutls? ( net-libs/gnutls ) !gnutls? ( dev-libs/openssl:0= ) ) >=sys-fs/fuse-2.9.2:0 sys-libs/zlib libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14 ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2020.7/libostree-2020.7.tar.xz -> ostree-2020.7.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	systemd	c846b9e02ac8293bfc9ca38a195c2a18
-_md5_=dfff12f0049bf68e5c9e17952464b448
+_md5_=1b8ae2c7164277c8fac2f51a3979f78a
