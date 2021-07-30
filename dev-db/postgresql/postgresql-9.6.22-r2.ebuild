@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit flag-o-matic linux-info multilib pam prefix python-single-r1 systemd tmpfiles
 
@@ -31,6 +31,7 @@ CDEPEND="
 acct-group/postgres
 acct-user/postgres
 sys-apps/less
+virtual/libcrypt:=
 virtual/libintl
 kerberos? ( virtual/krb5 )
 ldap? ( net-nds/openldap )
