@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig doc? ( graph? ( app-doc/doxygen[dot] ) !graph? ( app-doc/doxygen ) ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=compile configure install prepare
+DEFINED_PHASES=compile configure install postinst prepare
 DEPEND=acct-group/lldpd acct-user/lldpd dev-libs/libbsd >=dev-libs/libevent-2.1.11:= sys-libs/readline:0= seccomp? ( sys-libs/libseccomp:= ) snmp? ( net-analyzer/net-snmp:=[extensible(+)] ) xml? ( dev-libs/libxml2:= ) zsh-completion? ( app-shells/zsh ) test? ( dev-libs/check )
 DESCRIPTION=Implementation of IEEE 802.1ab (LLDP)
 EAPI=7
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/4.9.0
 SRC_URI=http://media.luffy.cx/files/lldpd/lldpd-1.0.7.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	bash-completion-r1	d3a60385655d9b402be765a6de333245	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=9bee5657aab113a3180cbea4c9a608f6
+_md5_=700b5657ff4040caac182b8fcce82441

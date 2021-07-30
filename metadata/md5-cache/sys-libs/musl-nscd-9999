@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install prepare unpack
+DEFINED_PHASES=install postinst prepare unpack
 DEPEND=!sys-libs/glibc !sys-libs/uclibc
 DESCRIPTION=musl-nscd is an implementation of the NSCD protocol for the musl libc
 EAPI=7
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=virtual/tmpfiles
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=6d127254ff39eec47811c9c01bccc5c1
+_md5_=804ca139d610e777f75a7cd042230ddd

@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install postinst unpack
 DEPEND=!app-admin/puppet !dev-ruby/hiera !dev-ruby/facter !app-emulation/virt-what acct-user/puppet acct-group/puppet app-admin/augeas
 DESCRIPTION=general puppet client utils along with hiera and facter
 EAPI=7
@@ -13,4 +13,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=http://apt.puppetlabs.com/pool/focal/puppet/p/puppet-agent/puppet-agent_6.19.1-1focal_amd64.deb
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	unpacker	2eeba54233fa41bdb15dcddcb63fba3a	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=144d0472e3fa069ba612f16421eb1385
+_md5_=9134d597eab86b2808d6f3f4c6465c92

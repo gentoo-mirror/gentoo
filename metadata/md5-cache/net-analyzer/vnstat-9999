@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install postinst unpack
 DEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png] ) test? ( dev-libs/check )
 DESCRIPTION=Console-based network traffic monitor that keeps statistics of network usage
 EAPI=7
@@ -12,4 +12,4 @@ RDEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=3fbf5cce100b7fe6fb6aa69ba422e5e2
+_md5_=f0182317dc3d443ccf016581dcd71b46
