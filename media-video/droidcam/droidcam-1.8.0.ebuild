@@ -54,8 +54,10 @@ src_prepare() {
 		sed -i -e '/cflags gtk+/d' Makefile || die
 		default
 	else
-		# remove path and extension from icon entry
-		sed -i -e 's/Icon=\/opt\/droidcam-icon.png/Icon=droidcam/g' droidcam.desktop || die
+		# remove path and extension from Icon and Exec entry
+		sed -i -e 's/Icon=\/opt\/droidcam-icon.png/Icon=droidcam/g' \
+			-e 's/\/usr\/local\/bin\/droidcam/droidcam/g' \
+			droidcam.desktop || die
 		sed -i -e 's%/opt/droidcam-icon.png%/usr/share/icons/hicolor/96x96/apps/droidcam.png%g' src/droidcam.c || die
 		xdg_src_prepare
 	fi
@@ -75,10 +77,10 @@ src_compile() {
 }
 
 src_test() {
-	pushd "v4l2loopback"
+	pushd "v4l2loopback" || die
 	default
 	./test || die
-	popd
+	popd || die
 }
 
 src_install() {
