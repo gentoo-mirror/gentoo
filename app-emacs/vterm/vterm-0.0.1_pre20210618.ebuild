@@ -3,7 +3,7 @@
 
 EAPI=7
 NEED_EMACS=26
-COMMIT="f41849c2c9c1899f22d1c3d4f871ec47c82627ce"
+COMMIT="d9dfa624679afdd5db6ad25429ef86d3dd91401e"
 
 inherit cmake elisp
 
@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}
 	>=app-editors/emacs-26:*[dynamic-loading]"
 
 S="${WORKDIR}/${MY_PN}-${COMMIT}"
-PATCHES=( "${FILESDIR}"/${P}-dont-compile.patch )
+PATCHES=("${FILESDIR}"/${PN}-0.0.1_pre20210618-dont-compile.patch)
 SITEFILE="50${PN}-gentoo.el"
 DOCS="README.md"
 
@@ -30,7 +30,7 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=( "-DUSE_SYSTEM_LIBVTERM=ON" )
+	local mycmakeargs=("-DUSE_SYSTEM_LIBVTERM=ON")
 	cmake_src_configure
 }
 
