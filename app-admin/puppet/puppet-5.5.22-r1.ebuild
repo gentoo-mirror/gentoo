@@ -1,31 +1,34 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=7
 
-USE_RUBY="ruby24 ruby25 ruby26 ruby27"
+USE_RUBY="ruby25 ruby26 ruby27"
+
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+
 RUBY_FAKEGEM_TASK_DOC="doc:all"
+
 RUBY_FAKEGEM_EXTRAINSTALL="locales"
 
-inherit ruby-fakegem
+inherit ruby-fakegem systemd tmpfiles
 
 DESCRIPTION="A system automation and configuration management software."
 HOMEPAGE="https://puppet.com/"
-SRC_URI="http://downloads.puppetlabs.com/puppet/${P}.tar.gz"
+SRC_URI="https://downloads.puppetlabs.com/puppet/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ~hppa ~ppc ~ppc64 x86"
 IUSE="augeas diff doc emacs ldap rrdtool selinux shadow sqlite vim-syntax"
 RESTRICT="test"
 
 ruby_add_rdepend "
-	dev-ruby/hiera
-	dev-ruby/json:=
-	dev-ruby/semantic_puppet
-	>=dev-ruby/facter-3.0.0
-	dev-ruby/concurrent-ruby
+	>=dev-ruby/hiera-3.2.1:0
+	=dev-ruby/facter-3*
+	>=dev-ruby/fast_gettext-1.1.2:0
+	>=dev-ruby/locale-2.1:0
+	>=dev-ruby/multi_json-1.10:0
 	augeas? ( dev-ruby/ruby-augeas )
 	diff? ( dev-ruby/diff-lcs )
 	doc? ( dev-ruby/rdoc )
@@ -81,15 +84,15 @@ all_ruby_install() {
 	all_fakegem_install
 
 	# systemd stuffs
-	insinto /usr/lib/systemd/system
-	doins "${WORKDIR}/all/${P}/ext/systemd/puppet.service"
+	systemd_dounit "${WORKDIR}/all/${P}/ext/systemd/puppet.service"
 
 	# tmpfiles stuff
-	insinto /usr/lib/tmpfiles.d
-	newins "${FILESDIR}/tmpfiles.d" "puppet.conf"
+	newtmpfiles "${FILESDIR}/tmpfiles.d" "puppet.conf"
 
 	# openrc init stuff
 	newinitd "${FILESDIR}"/puppet.init-4.x puppet
+	newinitd "${FILESDIR}"/puppetmaster.init-4.x puppetmaster
+	newconfd "${FILESDIR}"/puppetmaster.confd puppetmaster
 
 	keepdir /etc/puppetlabs/puppet/ssl
 
@@ -106,18 +109,18 @@ all_ruby_install() {
 	fowners -R :puppet /var/lib/puppet
 
 	if use ldap ; then
-		insinto /etc/openldap/schema
-		doins ext/ldap/puppet.schema
+		insinto /etc/openldap/schema; doins ext/ldap/puppet.schema
 	fi
 
 	# ext and examples files
 	for f in $(find ext examples -type f) ; do
-		docinto "$(dirname ${f})"
-		dodoc "${f}"
+		docinto "$(dirname ${f})"; dodoc "${f}"
 	done
 }
 
 pkg_postinst() {
+	tmpfiles_process puppet.conf
+
 	elog
 	elog "Please, *don't* include the --ask option in EMERGE_EXTRA_OPTS as this could"
 	elog "cause puppet to hang while installing packages."
@@ -125,8 +128,13 @@ pkg_postinst() {
 	elog "Portage Puppet module with Gentoo-specific resources:"
 	elog "http://forge.puppetlabs.com/gentoo/portage"
 	elog
-	elog "If updating from puppet 5 to 6, keep in mind that webrick (server/master)"
-	elog "suppert was removed for >=6.x, please migrate to puppetserver if you have"
-	elog "not already done so."
-	elog
+
+	for v in ${REPLACING_VERSIONS}; do
+		if [ "$(ver_cut 1 "$v")" -eq "4" ]; then
+			elog
+			elog "Please see the following url for the release notes for puppet-5"
+			elog "https://docs.puppet.com/puppet/5.0/release_notes.html#if-youre-upgrading-from-puppet-4x"
+			elog
+		fi
+	done
 }
