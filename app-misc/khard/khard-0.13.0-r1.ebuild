@@ -1,21 +1,17 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
-
+PYTHON_COMPAT=( python3_8 )
 DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1
 
 DESCRIPTION="Console CardDAV client"
 HOMEPAGE="https://github.com/scheibler/khard"
-LICENSE="GPL-3"
 
+LICENSE="GPL-3"
 SLOT="0"
-IUSE="test zsh-completion"
-RESTRICT="!test? ( test )"
 
 if [ "${PV}" == "9999" ]; then
 	inherit git-r3
@@ -32,27 +28,17 @@ RDEPEND="
 	dev-python/unidecode[${PYTHON_USEDEP}]
 	>dev-python/vobject-0.9.3[${PYTHON_USEDEP}]
 "
-DEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	test? (
-		${RDEPEND}
-	)
-"
 # vobject-0.9.3 breaks khard, see
 # https://github.com/scheibler/khard/issues/87
 # https://github.com/eventable/vobject/issues/39
 
 DOCS=( AUTHORS CHANGES README.md misc/khard/khard.conf.example )
 
+distutils_enable_tests setup.py
+
 src_install() {
 	distutils-r1_src_install
 
-	if use zsh-completion; then
-		insinto /usr/share/zsh/site-functions
-		doins misc/zsh/_khard
-	fi
-}
-
-python_test() {
-	esetup.py test
+	insinto /usr/share/zsh/site-functions
+	doins misc/zsh/_khard
 }

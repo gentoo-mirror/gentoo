@@ -8,11 +8,12 @@ inherit bash-completion-r1 elisp-common
 DESCRIPTION="Stores, retrieves, generates, and synchronizes passwords securely"
 HOMEPAGE="https://www.passwordstore.org/"
 SRC_URI="https://git.zx2c4.com/password-store/snapshot/password-store-${PV}.tar.xz"
+S="${WORKDIR}/password-store-${PV}"
 
-SLOT="0"
 LICENSE="GPL-2"
+SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x64-macos"
-IUSE="+git wayland X zsh-completion fish-completion emacs dmenu importers elibc_Darwin"
+IUSE="+git wayland X emacs dmenu importers elibc_Darwin"
 
 RDEPEND="
 	app-crypt/gnupg
@@ -22,18 +23,15 @@ RDEPEND="
 	wayland? ( gui-apps/wl-clipboard )
 	X? ( x11-misc/xclip )
 	elibc_Darwin? ( app-misc/getopt )
-	zsh-completion? ( app-shells/gentoo-zsh-completions )
-	fish-completion? ( app-shells/fish )
 	dmenu? ( x11-misc/dmenu x11-misc/xdotool )
 	emacs? ( >=app-editors/emacs-23.1:* >=app-emacs/f-0.11.0 >=app-emacs/s-1.9.0 >=app-emacs/with-editor-2.5.11 )
 "
-
-S="${WORKDIR}/password-store-${PV}"
 
 src_prepare() {
 	default
 
 	use elibc_Darwin || return
+
 	# use coreutils'
 	sed -i -e 's/openssl base64/base64/g' src/platform/darwin.sh || die
 	# host getopt isn't cool, and we aren't brew (rip out brew reference)
@@ -52,13 +50,16 @@ src_install() {
 		PREFIX="${EPREFIX}/usr" \
 		BASHCOMPDIR="$(get_bashcompdir)" \
 		WITH_BASHCOMP=yes \
-		WITH_ZSHCOMP=$(usex zsh-completion) \
-		WITH_FISHCOMP=$(usex fish-completion)
+		WITH_ZSHCOMP=yes \
+		WITH_FISHCOMP=yes
+
 	use dmenu && dobin contrib/dmenu/passmenu
+
 	if use emacs; then
 		elisp-install ${PN} contrib/emacs/*.{el,elc}
 		elisp-site-file-install "${FILESDIR}/50${PN}-gentoo.el"
 	fi
+
 	if use importers; then
 		exeinto /usr/share/${PN}/importers
 		doexe contrib/importers/*
