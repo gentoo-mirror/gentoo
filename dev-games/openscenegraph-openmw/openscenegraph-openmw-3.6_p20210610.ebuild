@@ -3,41 +3,48 @@
 
 EAPI=7
 
-LUA_COMPAT=( lua5-{1,2} )
+LUA_COMPAT=( lua5-1 )
 
-MY_PN="OpenSceneGraph"
-MY_P=${MY_PN}-${PV}
 WX_GTK_VER="3.0-gtk3"
 inherit cmake flag-o-matic lua-single wxwidgets
 
-DESCRIPTION="Open source high performance 3D graphics toolkit"
-HOMEPAGE="http://www.openscenegraph.org/"
-SRC_URI="https://github.com/${PN}/${MY_PN}/archive/${MY_P}.tar.gz"
+MY_COMMIT="b02abe200c4847e73b887b064a89ea1758a5b733"
+
+DESCRIPTION="OpenMW-specific fork of OpenSceneGraph"
+HOMEPAGE="https://github.com/OpenMW/osg"
+SRC_URI="https://github.com/OpenMW/osg/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/osg-${MY_COMMIT}"
 
 LICENSE="wxWinLL-3 LGPL-2.1"
-SLOT="0/161" # NOTE: CHECK WHEN BUMPING! Subslot is SOVERSION
-KEYWORDS="amd64 ~hppa ppc ppc64 x86"
-IUSE="curl dicom debug doc egl examples ffmpeg fltk fox gdal gif glut
-gstreamer jpeg las lua openexr openinventor osgapps pdf png sdl sdl2
-svg tiff truetype vnc wxwidgets xrandr +zlib"
+SLOT="0/162" # NOTE: CHECK WHEN BUMPING! Subslot is SOVERSION
+KEYWORDS="~amd64 ~x86"
+IUSE="
+	collada curl dicom debug doc egl examples ffmpeg fltk fox gdal
+	gif glut gstreamer jpeg las lua openexr openinventor osgapps pdf png
+	sdl sdl2 svg tiff truetype vnc wxwidgets xrandr +zlib
+"
 
-REQUIRED_USE="dicom? ( zlib )
+REQUIRED_USE="
+	dicom? ( zlib )
 	lua? ( ${LUA_REQUIRED_USE} )
 	openexr? ( zlib )
-	sdl2? ( sdl )"
+	sdl2? ( sdl )
+"
 
-# TODO: COLLADA, FBX, GTA, NVTT, OpenVRML, Performer
+# TODO: FBX, GTA, NVTT, OpenVRML, Performer
 BDEPEND="
 	app-arch/unzip
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="
-	media-libs/mesa[egl?]
+	!dev-games/openscenegraph
+	media-libs/mesa[egl(+)?]
 	virtual/glu
 	virtual/opengl
 	x11-libs/libSM
 	x11-libs/libXext
+	collada? ( dev-libs/collada-dom:= )
 	curl? ( net-misc/curl )
 	examples? (
 		fltk? ( x11-libs/fltk:1[opengl] )
@@ -75,17 +82,15 @@ RDEPEND="
 	zlib? ( sys-libs/zlib )
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/boost-1.37.0:*
+	dev-libs/boost
 	x11-base/xorg-proto
 "
 
-S="${WORKDIR}/${MY_PN}-${MY_P}"
-
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.6.3-cmake.patch
-	"${FILESDIR}"/${PN}-3.6.3-docdir.patch
-	"${FILESDIR}"/${PN}-3.6.5-use_boost_asio.patch
-	"${FILESDIR}"/${PN}-3.6.5-cmake_lua_version.patch
+	"${FILESDIR}"/openscenegraph-3.6.3-cmake.patch
+	"${FILESDIR}"/openscenegraph-3.6.3-docdir.patch
+	"${FILESDIR}"/openscenegraph-3.6.5-use_boost_asio.patch
+	"${FILESDIR}"/openscenegraph-3.6.5-cmake_lua_version.patch
 )
 
 pkg_setup() {
@@ -105,6 +110,7 @@ src_configure() {
 		-DDYNAMIC_OPENSCENEGRAPH=ON
 		-DLIB_POSTFIX=${libdir/lib}
 		-DOPENGL_PROFILE=GL2 #GL1 GL2 GL3 GLES1 GLES3 GLES3
+		$(cmake_use_find_package collada COLLADA)
 		$(cmake_use_find_package curl CURL)
 		-DBUILD_DOCUMENTATION=$(usex doc)
 		$(cmake_use_find_package dicom DCMTK)
@@ -136,6 +142,7 @@ src_configure() {
 		$(cmake_use_find_package zlib ZLIB)
 		-DOSG_USE_LOCAL_LUA_SOURCE=OFF
 	)
+
 	if use examples; then
 		mycmakeargs+=(
 			$(cmake_use_find_package fltk FLTK)
@@ -144,6 +151,7 @@ src_configure() {
 			$(cmake_use_find_package wxwidgets wxWidgets)
 		)
 	fi
+
 	if use lua; then
 		mycmakeargs+=(
 			-DLUA_VERSION="$(lua_get_version)"
