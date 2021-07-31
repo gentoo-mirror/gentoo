@@ -4,7 +4,7 @@ DESCRIPTION=Function (graph) tracer for user-space
 EAPI=7
 HOMEPAGE=https://github.com/namhyung/uftrace
 INHERIT=bash-completion-r1 lua-single toolchain-funcs
-IUSE=bash-completion capstone lua +lua_single_target_luajit
+IUSE=capstone lua +lua_single_target_luajit
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/namhyung/uftrace/archive/v0.10.tar.gz -> uftrace-0.10.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	d3a60385655d9b402be765a6de333245	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
-_md5_=69a7259bae43476a52f90027e0638aa1
+_md5_=390c3c1a6530e5608134ce8a9062dbd3
