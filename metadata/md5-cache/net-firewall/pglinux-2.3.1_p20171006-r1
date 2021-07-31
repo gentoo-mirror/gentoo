@@ -5,12 +5,12 @@ DESCRIPTION=Privacy oriented firewall application
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/peerguardian/
 INHERIT=autotools qmake-utils linux-info systemd xdg-utils
-IUSE=cron dbus logrotate networkmanager qt5 zlib kernel_linux
+IUSE=cron dbus networkmanager qt5 zlib kernel_linux
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=net-libs/libnetfilter_queue net-libs/libnfnetlink dbus? ( sys-apps/dbus ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 || ( kde-plasma/kde-cli-tools[kdesu] x11-misc/ktsuss ) ) zlib? ( sys-libs/zlib ) net-firewall/iptables sys-apps/sysvinit cron? ( virtual/cron ) logrotate? ( app-admin/logrotate ) networkmanager? ( net-misc/networkmanager:= )
+RDEPEND=net-libs/libnetfilter_queue net-libs/libnfnetlink dbus? ( sys-apps/dbus ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 || ( kde-plasma/kde-cli-tools[kdesu] x11-misc/ktsuss ) ) zlib? ( sys-libs/zlib ) net-firewall/iptables sys-apps/sysvinit cron? ( virtual/cron ) networkmanager? ( net-misc/networkmanager:= )
 REQUIRED_USE=qt5? ( dbus )
 SLOT=0
 SRC_URI=https://sourceforge.net/code-snapshots/git/p/pe/peerguardian/code.git/peerguardian-code-9d91ab6a8e6bc2b41e985aa698eb5c1eb364fea8.zip -> pglinux-2.3.1_p20171006.zip
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	systemd	c846b9e02ac8293bfc9ca38a195c2a18	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=cce593c7860c97c19495868704d96639
+_md5_=96fe10e244222633743b2ed3c6508ebc
