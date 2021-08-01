@@ -1,10 +1,10 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815
 DEFINED_PHASES=configure prepare setup
 DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=net-libs/libcrafter-0.3_p20171019 dev-libs/json-c net-libs/libpcap curl? ( net-misc/curl ) sniffer? ( net-libs/libnetfilter_queue )
 DESCRIPTION=A Middlebox Detection Tool
-EAPI=7
+EAPI=8
 HOMEPAGE=http://www.tracebox.org/
-INHERIT=autotools lua-single
+INHERIT=autotools flag-o-matic lua-single
 IUSE=curl sniffer lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_t
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/tracebox/tracebox/archive/v0.4.4.tar.gz -> tracebox-0.4.4.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
-_md5_=88e6f088ea3c393da9e17e1fd8c808a0
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
+_md5_=5ff86494d30710060cde48385c38ddd4
