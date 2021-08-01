@@ -110,7 +110,7 @@ RDEPEND="${COMMON_DEPEND}
 	!app-emulation/wine:0
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
 	gecko? ( app-emulation/wine-gecko:2.47.2[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:6.2.0 )
+	mono? ( app-emulation/wine-mono:6.3.0 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -144,6 +144,7 @@ PATCHES=(
 	"${PATCHDIR}/patches/${MY_PN}-4.7-multilib-portage.patch" #395615
 	"${PATCHDIR}/patches/${MY_PN}-2.0-multislot-apploader.patch" #310611
 	"${PATCHDIR}/patches/${MY_PN}-5.9-Revert-makedep-Install-also-generated-typelib-for-in.patch"
+	"${FILESDIR}/wine-vanilla-6.12-winegcc-equals-args.patch" #800809
 )
 PATCHES_BIN=()
 
@@ -492,7 +493,7 @@ multilib_src_install_all() {
 	plocale_for_each_locale add_locale_docs
 
 	einstalldocs
-	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name *.la -delete || die
 
 	if ! use perl ; then # winedump calls function_grep.pl, and winemaker is a perl script
 		rm "${D%/}${MY_PREFIX}"/bin/{wine{dump,maker},function_grep.pl} \
