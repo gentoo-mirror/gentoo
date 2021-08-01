@@ -3,18 +3,19 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="tk"
 
-inherit cmake python-single-r1 xdg-utils
+inherit xdg cmake python-single-r1
 
 DESCRIPTION="Multi-platform WYSIWYG ebook editor for ePub format"
 HOMEPAGE="https://sigil-ebook.com/ https://github.com/Sigil-Ebook/Sigil"
 SRC_URI="https://github.com/Sigil-Ebook/Sigil/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P^}"
 
 LICENSE="GPL-3+ Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+plugins system-mathjax"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -22,19 +23,19 @@ RDEPEND="
 	${PYTHON_DEPS}
 	app-text/hunspell:=
 	dev-libs/libpcre:3=[pcre16]
-	$(python_gen_cond_dep \
-		'dev-python/css-parser[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/css-parser[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]')
-	>=dev-qt/qtconcurrent-5.12:5
-	>=dev-qt/qtcore-5.12:5
-	>=dev-qt/qtgui-5.12:5
-	>=dev-qt/qtprintsupport-5.12:5
-	>=dev-qt/qtwebengine-5.12:5[widgets]
-	>=dev-qt/qtwidgets-5.12:5
+	dev-qt/qtconcurrent:5
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtwebengine:5[widgets]
+	dev-qt/qtwidgets:5
 	sys-libs/zlib[minizip]
-	plugins? ( $(python_gen_cond_dep \
-		'dev-python/chardet[${PYTHON_USEDEP}]
+	plugins? ( $(python_gen_cond_dep '
+		dev-python/chardet[${PYTHON_USEDEP}]
 		dev-python/cssselect[${PYTHON_USEDEP}]
 		dev-python/dulwich[${PYTHON_USEDEP}]
 		dev-python/html5lib[${PYTHON_USEDEP}]
@@ -43,13 +44,10 @@ RDEPEND="
 	system-mathjax? ( dev-libs/mathjax )
 "
 DEPEND="${RDEPEND}"
-
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-qt/linguist-tools:5
-	virtual/pkgconfig
 "
-
-S="${WORKDIR}/Sigil-${PV}"
 
 DOCS=( ChangeLog.txt README.md )
 
@@ -71,12 +69,4 @@ src_install() {
 	cmake_src_install
 	python_fix_shebang "${ED}"/usr/share/sigil/
 	python_optimize "${ED}"/usr/share/sigil/
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
 }
