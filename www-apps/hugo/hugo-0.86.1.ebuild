@@ -963,7 +963,7 @@ SRC_URI="
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="Apache-2.0 Unlicense BSD BSD-2 MPL-2.0 MIT"
+LICENSE="Apache-2.0 Unlicense BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc +sass"
