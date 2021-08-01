@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="Python client for several popular geocoding web services"
 HOMEPAGE="https://github.com/geopy/geopy"
-SRC_URI="${HOMEPAGE}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/geopy/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -16,6 +16,6 @@ KEYWORDS="~amd64"
 # Need geocoding service to test
 RESTRICT="test"
 
-RDEPEND="sci-geosciences/GeographicLib[python,${PYTHON_USEDEP}]"
+RDEPEND=">=sci-geosciences/GeographicLib-1.51-r1[python,${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND=""
