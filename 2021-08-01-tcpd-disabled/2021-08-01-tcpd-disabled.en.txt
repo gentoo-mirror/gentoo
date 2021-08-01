@@ -1,0 +1,68 @@
+Title: USE=tcpd no longer globally enabled
+Author: David Seifert <soap@gentoo.org>
+Posted: 2021-08-01
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Profile: default/linux/*
+Display-If-Installed: net-analyzer/argus-clients[tcpd]
+Display-If-Installed: net-ftp/proftpd[tcpd]
+Display-If-Installed: app-admin/conserver[tcpd]
+Display-If-Installed: app-admin/prelude-manager[tcpd]
+Display-If-Installed: app-admin/qpage[tcpd]
+Display-If-Installed: app-admin/syslog-ng[tcpd]
+Display-If-Installed: app-backup/bacula[tcpd]
+Display-If-Installed: app-backup/bareos[tcpd]
+Display-If-Installed: app-misc/mosquitto[tcpd]
+Display-If-Installed: dev-libs/yaz[tcpd]
+Display-If-Installed: gnome-base/gdm[tcpd]
+Display-If-Installed: mail-mta/exim[tcpd]
+Display-If-Installed: mail-mta/sendmail[tcpd]
+Display-If-Installed: media-sound/pulseaudio[tcpd]
+Display-If-Installed: net-analyzer/argus[tcpd]
+Display-If-Installed: net-analyzer/net-snmp[tcpd]
+Display-If-Installed: net-analyzer/nrpe[tcpd]
+Display-If-Installed: net-analyzer/nsca[tcpd]
+Display-If-Installed: net-analyzer/rrdtool[tcpd]
+Display-If-Installed: net-fs/netatalk[tcpd]
+Display-If-Installed: net-fs/nfs-utils[tcpd]
+Display-If-Installed: net-ftp/atftp[tcpd]
+Display-If-Installed: net-ftp/tftp-hpa[tcpd]
+Display-If-Installed: net-ftp/vsftpd[tcpd]
+Display-If-Installed: net-irc/ngircd[tcpd]
+Display-If-Installed: net-mail/cyrus-imapd[tcpd]
+Display-If-Installed: net-mail/dovecot[tcpd]
+Display-If-Installed: net-mail/mailutils[tcpd]
+Display-If-Installed: net-mail/tpop3d[tcpd]
+Display-If-Installed: net-misc/apt-cacher-ng[tcpd]
+Display-If-Installed: net-misc/ser2net[tcpd]
+Display-If-Installed: net-misc/socat[tcpd]
+Display-If-Installed: net-misc/sslh[tcpd]
+Display-If-Installed: net-misc/stunnel[tcpd]
+Display-If-Installed: net-misc/usbip[tcpd]
+Display-If-Installed: net-nds/openldap[tcpd]
+Display-If-Installed: net-nds/rpcbind[tcpd]
+Display-If-Installed: net-nds/tac_plus[tcpd]
+Display-If-Installed: net-proxy/dante[tcpd]
+Display-If-Installed: net-vpn/ocserv[tcpd]
+Display-If-Installed: net-vpn/pptpd[tcpd]
+Display-If-Installed: sci-libs/dcmtk[tcpd]
+Display-If-Installed: sys-apps/linux-misc-apps[tcpd]
+Display-If-Installed: sys-apps/xinetd[tcpd]
+Display-If-Installed: sys-fs/quota[tcpd]
+Display-If-Installed: sys-power/nut[tcpd]
+
+On 2021-11-01, we will remove USE="tcpd" from the globally default
+enabled USE flags (https://bugs.gentoo.org/805077). USE="tcpd" usually
+enables sys-apps/tcp-wrappers for an ad hoc firewall based on
+/etc/hosts.allow and /etc/hosts.deny.
+
+The Base System project has come to the conclusion that 24 years after
+the last upstream release, tcp-wrappers is not suitable for a default
+configuration in 2021 anymore. Other distributions have completely
+removed support at this point. We strongly recommend you switch to more
+modern packet filters, such as BPF, nftables, or iptables. If you rely
+on tcp-wrappers, you can re-enable the flag, see
+
+  https://wiki.gentoo.org/wiki//etc/portage/package.use
+
+for package-specific ways to re-enable tcp-wrappers.
