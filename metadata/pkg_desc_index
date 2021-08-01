@@ -2528,7 +2528,7 @@ app-eselect/eselect-postgresql 2.4: Utility to select the default PostgreSQL slo
 app-eselect/eselect-python 20190417 20200719 99999999: Eselect module for management of multiple Python versions
 app-eselect/eselect-rails 0.24 0.25: Manages Ruby on Rails symlinks
 app-eselect/eselect-renpy 0.7: Manages renpy symlink
-app-eselect/eselect-repository 10 11: Manage repos.conf via eselect
+app-eselect/eselect-repository 11: Manage repos.conf via eselect
 app-eselect/eselect-ruby 20170723 20190121 20191222 20201225: Manages multiple Ruby versions
 app-eselect/eselect-rust 20200419 20210703: Eselect module for management of multiple Rust versions
 app-eselect/eselect-scala 0.1.1: Manages multiple Scala versions
@@ -8551,7 +8551,7 @@ dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based
 dev-python/exam 0.10.6: Helpers for better testing
 dev-python/exdown 0.9.0: Extract code blocks from markdown
 dev-python/execnet 1.9.0: Rapid multi-Python deployment
-dev-python/executing 0.6.0 0.7.0: Get information about what a Python frame is currently doing
+dev-python/executing 0.6.0 0.7.0 0.8.0: Get information about what a Python frame is currently doing
 dev-python/expects 0.9.0: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r1: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.6: Module for manipulating ID3 (v1 + v2) tags in Python
@@ -8994,7 +8994,7 @@ dev-python/pika 1.1.0: Pure-Python implementation of the AMQP
 dev-python/pikepdf 2.14.2 2.15.1 2.16.1: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 8.2.0 8.3.0 8.3.1: Python Imaging Library (fork)
-dev-python/pip 21.1.2-r1 21.1.3 21.2.1: Installs python packages -- replacement for easy_install
+dev-python/pip 21.1.3 21.2.1: Installs python packages -- replacement for easy_install
 dev-python/pipenv 2020.11.15 2021.5.29: Python Development Workflow for Humans
 dev-python/pipfile 0.0.2: Replacement for the existing standard pip's requirements.txt file
 dev-python/pivy 0.6.6: Coin3D bindings for Python
@@ -9065,7 +9065,7 @@ dev-python/pybtex-docutils 1.0.0 1.0.1: A docutils backend for pybtex
 dev-python/pycairo 1.20.1: Python bindings for the cairo library
 dev-python/pycapnp 0.6.4: Python wrapping of the Cap'n Proto library
 dev-python/pycares 4.0.0: Python interface for c-ares
-dev-python/pycdio 2.1.0: Python OO interface to libcdio (CD Input and Control library)
+dev-python/pycdio 2.1.0 2.1.1: Python OO interface to libcdio (CD Input and Control library)
 dev-python/pychm 0.8.6: Python bindings for the chmlib library
 dev-python/pychromecast 8.1.0: Python module to talk to Google Chromecast
 dev-python/pychroot 0.10.4 9999: a python library and cli tool that simplify chroot handling
@@ -9091,6 +9091,7 @@ dev-python/pydns 3.2.1: Python DNS (Domain Name System) library
 dev-python/pydocstyle 6.1.1: Python docstring style checker
 dev-python/pydot 1.4.2: Python interface to Graphviz's Dot language
 dev-python/pydotplus 2.0.2: Improved version of the old pydot project
+dev-python/pydyf 0.0.3: A low-level PDF generator
 dev-python/pyelftools 0.27: pure-Python library for analyzing ELF files and DWARF debugging information
 dev-python/pyenchant 3.2.0 3.2.1: Python bindings for the Enchant spellchecking system
 dev-python/pyfakefs 4.5.0: a fake file system that mocks the Python file system modules
@@ -9127,7 +9128,7 @@ dev-python/pylatex 1.4.1: A Python library for creating LaTeX files and snippets
 dev-python/pylev 1.4.0: Python Levenshtein implementation
 dev-python/pylibacl 0.6.0: POSIX ACLs (Access Control Lists) for Python
 dev-python/pylibmc 1.6.1-r1: Libmemcached wrapper written as a Python extension
-dev-python/pylint 2.8.2 2.9.0 2.9.1 2.9.3 2.9.4 2.9.5 2.9.6: Python code static checker
+dev-python/pylint 2.9.3 2.9.6: Python code static checker
 dev-python/pylru 1.2.0: A least recently used (LRU) cache for Python
 dev-python/pyls-spyder 0.4.0-r1: Spyder extensions for the python language server
 dev-python/pymad 0.10: Python wrapper for libmad MP3 decoding in python
@@ -9259,7 +9260,7 @@ dev-python/python-cstruct 1.8: C-style structs for Python
 dev-python/python-ctags 1.5.0: Exuberant Ctags indexing python bindings
 dev-python/python-daemon 2.3.0: Library to implement a well-behaved Unix daemon process
 dev-python/python-dateutil 2.8.1-r3 2.8.2: Extensions to the standard Python datetime module
-dev-python/python-debian 0.1.39 0.1.40: Python modules to work with Debian-related data formats
+dev-python/python-debian 0.1.40: Python modules to work with Debian-related data formats
 dev-python/python-discid 1.2.0: Python bindings for libdiscid
 dev-python/python-distutils-extra 2.45: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/python-docs 2.7.18 3.6.13 3.6.14 3.7.10 3.7.11 3.8.10 3.8.11 3.9.5 3.9.6: HTML documentation for Python
@@ -9418,7 +9419,7 @@ dev-python/rst-linker 2.2.0: Sphinx plugin to add links and timestamps to the ch
 dev-python/rtimulib 7.2.1-r1: Python Binding for RTIMULib, a versatile IMU library
 dev-python/rtslib-fb 2.1.74: A Python object API for managing the Linux LIO kernel target
 dev-python/ruamel-std-pathlib 0.8.0: Ruamel enhancements to pathlib and pathlib2
-dev-python/ruamel-yaml 0.17.9 0.17.10: YAML parser/emitter that supports roundtrip comment preservation
+dev-python/ruamel-yaml 0.17.10: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.2-r1 0.2.4 0.2.6: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/s3transfer 0.4.2 0.5.0: An Amazon S3 Transfer Manager
 dev-python/sabyenc 4.0.2: Module providing raw yEnc encoding/decoding for SABnzbd
@@ -9633,7 +9634,7 @@ dev-python/urdf_parser_py 0.4.5: URDF parser for Python
 dev-python/uritemplate 3.0.1-r1: Python implementation of RFC6570, URI Template
 dev-python/url-normalize 1.4.3: URL normalization for Python
 dev-python/urlgrabber 4.1.0: Python module for downloading files
-dev-python/urllib3 1.26.5 1.26.6: HTTP library with thread-safe connection pooling, file post, and more
+dev-python/urllib3 1.26.6: HTTP library with thread-safe connection pooling, file post, and more
 dev-python/urwid 2.1.1: Curses-based user interface library for Python
 dev-python/urwidtrees 1.0.3: Tree widgets for urwid
 dev-python/utidylib 0.6-r1: TidyLib Python wrapper
@@ -9662,7 +9663,7 @@ dev-python/warlock 1.3.3: Python object model built on JSON schema and JSON patc
 dev-python/watchdog 1.0.2 2.0.3 2.1.1 2.1.2: Python API and shell utilities to monitor file system events
 dev-python/wcmatch 8.1.2 8.2: Wildcard/glob file name matcher
 dev-python/wcwidth 0.2.5-r1: Measures number of Terminal column cells of wide-character codes
-dev-python/weasyprint 51 52.3 52.4 52.5: Visual rendering engine for HTML and CSS that can export to PDF
+dev-python/weasyprint 51 52.3 52.4 52.5 53.0: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webassets 2.0: Asset management for Python web development
 dev-python/webcolors 1.11.1: Color names and value formats defined by the HTML and CSS specifications
 dev-python/webencodings 0.5.1-r1: Character encoding aliases for legacy web content
@@ -11276,7 +11277,7 @@ dev-util/scala-ide 4.7.0: The Scala IDE
 dev-util/scanmem 0.17: Locate and modify variables in executing processes
 dev-util/sccache 0.2.15 9999: ccache/distcc like tool with support for rust and cloud storage
 dev-util/schroot 1.6.10_p7-r1 1.6.10_p12-r2: Utility to execute commands in a chroot environment
-dev-util/scons 4.1.0-r1: Extensible Python-based build utility
+dev-util/scons 4.1.0-r1 4.2.0: Extensible Python-based build utility
 dev-util/sel 0.08.4-r2: A filemanager for shell scripts
 dev-util/serialtalk 1.2-r1 9999: simple command-line tool to talk to serial devices
 dev-util/sgb 20030623-r1 20090810: Stanford GraphBase
