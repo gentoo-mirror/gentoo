@@ -35,6 +35,8 @@ BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 
+PATCHES=( "${FILESDIR}/${P}-qstrcmp.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package ios IMobileDevice)
