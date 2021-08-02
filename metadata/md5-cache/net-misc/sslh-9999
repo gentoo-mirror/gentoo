@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare unpack
-DEPEND=caps? ( sys-libs/libcap ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) >=dev-libs/libconfig-1.5:= dev-util/conf2struct dev-lang/perl dev-libs/libpcre2:=
+DEPEND=caps? ( sys-libs/libcap ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) >=dev-libs/libconfig-1.5:= dev-libs/libpcre2:= dev-util/conf2struct dev-lang/perl
 DESCRIPTION=Port multiplexer - accept both HTTPS and SSH connections on the same port
 EAPI=7
 HOMEPAGE=https://www.rutschle.net/tech/sslh/README.html
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic systemd toolchain-funcs git-r3
 IUSE=caps systemd tcpd
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=caps? ( sys-libs/libcap ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) >=dev-libs/libconfig-1.5:=
+RDEPEND=caps? ( sys-libs/libcap ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) >=dev-libs/libconfig-1.5:= dev-libs/libpcre2:=
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	systemd	c846b9e02ac8293bfc9ca38a195c2a18	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=0e19c03d1d54810381c0c5b3596d4035
+_md5_=6dccb19444a3937318fb3c99bdd9458b
