@@ -1,0 +1,16 @@
+BDEPEND=>=dev-libs/nspr-4.0.1 >=dev-libs/nss-3.11.6 net-nds/openldap sys-apps/sed dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/nspr-4.0.1 >=dev-libs/nss-3.11.6 net-nds/openldap dev-lang/perl
+DESCRIPTION=Mozilla PerLDAP
+EAPI=8
+HOMEPAGE=http://www.mozilla.org/directory/perldap.html
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=MPL-1.1
+RDEPEND=>=dev-libs/nspr-4.0.1 >=dev-libs/nss-3.11.6 net-nds/openldap dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://ftp.mozilla.org/pub/mozilla.org/directory/perldap/releases/1.5.3/src/perl-mozldap-1.5.3.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=ff75fe5f9a29949d24b1428123ff7457
