@@ -3,13 +3,15 @@
 
 EAPI=7
 
+inherit autotools systemd
+
 DESCRIPTION="Userspace helper for Linux kernel EDAC drivers"
 HOMEPAGE="https://github.com/grondo/edac-utils"
 SRC_URI="https://github.com/grondo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="debug"
 
 DEPEND="sys-fs/sysfsutils"
@@ -19,9 +21,9 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	default
 
-	sed -i \
-		-e 's|-Werror||' \
-		configure || die
+	# Needed to refresh libtool and friends to not call CC directly
+	# bug #725540
+	eautoreconf
 }
 
 src_configure() {
@@ -33,10 +35,12 @@ src_configure() {
 src_install() {
 	default
 
-	# We don't need this init.d file
-	# Modules should be loaded by adding them to /etc/conf.d/modules
-	# The rest is done via the udev-rule
+	# Dump the inappropriate-for-us bundled init script
 	rm -rf "${ED}/etc/init.d" || die
+
+	# Install our own
+	newinitd "${FILESDIR}"/edac.init edac
+	systemd_dounit "${FILESDIR}"/edac.service
 
 	find "${ED}" -name '*.la' -delete || die
 }
