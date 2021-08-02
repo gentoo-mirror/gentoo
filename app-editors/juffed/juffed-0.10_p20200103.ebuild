@@ -1,41 +1,34 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-COMMIT=5ba17f90ec173e773470bc80ea26bca9a3f093fd
+COMMIT=74ab7236a30be17351edc5b83eb3579affd96913
 inherit cmake xdg
 
 DESCRIPTION="QScintilla-based tabbed text editor with syntax highlighting"
-HOMEPAGE="http://juffed.com/en/"
-SRC_URI="https://github.com/Mezomish/${PN}/tarball/${COMMIT} -> ${P}.tar.gz"
+HOMEPAGE="http://juffed.com/en/ https://github.com/Mezomish/juffed"
+SRC_URI="https://github.com/Mezomish/juffed/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug"
 
 RDEPEND="
 	app-i18n/enca
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtprintsupport:5
-	dev-qt/qtsingleapplication[qt5(+),X]
+	dev-qt/qtsingleapplication[X]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=x11-libs/qscintilla-2.9.4:=[qt5(+)]
+	x11-libs/qscintilla
 "
 DEPEND="${RDEPEND}"
+BDEPEND="dev-qt/linguist-tools:5"
 
 DOCS=( ChangeLog README )
-
-S="${WORKDIR}/Mezomish-${PN}-5ba17f9"
-
-PATCHES=(
-	"${FILESDIR}/${P}-qscintilla-2.10.patch"
-	"${FILESDIR}/${P}-qt-5.11.patch"
-	"${FILESDIR}/${P}-qscintilla-2.10.3.patch"
-)
 
 src_prepare() {
 	# Upstream version outdated/dysfunctional and CRLF terminated
@@ -53,6 +46,7 @@ src_configure() {
 		-DUSE_QT5=ON
 		-DUSE_SYSTEM_QTSINGLEAPPLICATION=ON
 		-DLIB_SUFFIX=${libdir/lib/}
+		-DQSCINTILLA_NAMES="qscintilla2;libqscintilla2;qscintilla2_qt5;qscintilla2_qt5"
 	)
 	cmake_src_configure
 }
