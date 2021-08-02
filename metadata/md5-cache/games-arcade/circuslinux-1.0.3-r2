@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=media-libs/libsdl[joystick,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[mod]
+DESCRIPTION=Clone of the Atari 2600 game "Circus Atari"
+EAPI=8
+HOMEPAGE=http://www.newbreedsoftware.com/circus-linux/
+INHERIT=desktop toolchain-funcs
+KEYWORDS=~alpha ~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libsdl[joystick,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[mod]
+SLOT=0
+SRC_URI=ftp://ftp.tuxpaint.org/unix/x/circus-linux/src/circuslinux-1.0.3.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=3cab653e36a6046289b8dbeb58e94a3a
