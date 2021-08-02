@@ -1,15 +1,15 @@
 DEFINED_PHASES=install setup
-DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] )
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
 DESCRIPTION=Hide files without renaming them in MATE's Caja
 EAPI=7
 HOMEPAGE=https://github.com/Fred-Barclay/Caja-hide
 INHERIT=python-single-r1
-IUSE=+python_single_target_python3_8
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_8? ( dev-python/future[python_targets_python3_8(-)] ) dev-python/python-caja[python_single_target_python3_8(-)?] x11-misc/xautomation
-REQUIRED_USE=^^ ( python_single_target_python3_8 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/future[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/future[python_targets_python3_9(-)] ) dev-python/python-caja[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] x11-misc/xautomation
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/Fred-Barclay/Caja-hide/archive/v0.9.0.tar.gz -> caja-hide-0.9.0.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
-_md5_=2f6a40256c1c1712dce029ea690965fa
+_md5_=f697375dc526b73d339fa75ae9ad087c
