@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_7,3_8} )
+PYTHON_COMPAT=( python{3_8,3_9,3_10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
@@ -19,7 +19,7 @@ else
 	S="${WORKDIR}/${ROS_PN}-${PV}/${PN}"
 fi
 
-DESCRIPTION="The ability to perform static code analysis on C/C++ code using Cppcheck"
+DESCRIPTION="Common API for ament linter packages"
 HOMEPAGE="https://github.com/ament/ament_lint"
 
 LICENSE="Apache-2.0"
@@ -31,8 +31,10 @@ else
 fi
 IUSE=""
 
-RDEPEND="
-	dev-util/cppcheck
-"
-DEPEND=""
+RDEPEND=""
+DEPEND="${RDEPEND}"
 BDEPEND=""
+# pytest.ini is there but no tests are ran causing it to fail
+RESTRICT="test"
+
+distutils_enable_tests pytest
