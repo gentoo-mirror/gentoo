@@ -5,7 +5,7 @@ EAPI=7
 
 # Note: Please bump in sync with dev-libs/libxslt
 
-PATCHSET_VERSION="2.9.12-r4-patchset"
+PATCHSET_VERSION="2.9.12-r5-patchset"
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 PYTHON_REQ_USE="xml"
@@ -36,7 +36,7 @@ LICENSE="MIT"
 SLOT="2"
 # Dropped keywords for now because it's a minor LDFLAGS fix, and it will ease upgrades
 # bug #802210
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="debug examples icu ipv6 lzma +python readline static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -79,8 +79,10 @@ PATCHES=(
 	# Avoid failure on missing fuzz.h when running tests
 	"${WORKDIR}"/${PN}-2.9.11-disable-fuzz-tests.patch
 
-	# Respect LDFLAGS fully
+	# Respect LDFLAGS fully (bug #798942)
 	"${WORKDIR}"/${PN}-2.9.12-respect-LDFLAGS-as-needed.patch
+	# ... and don't bother copying Python's libraries (bug #798942 still)
+	"${WORKDIR}"/${PN}-2.9.12-dont-copy-python-ldflags.patch
 
 	## Upstream
 	# Fix lxml compatibility (bug #790737)
