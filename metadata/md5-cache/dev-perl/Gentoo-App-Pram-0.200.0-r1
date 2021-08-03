@@ -1,0 +1,16 @@
+BDEPEND=dev-vcs/git virtual/perl-Encode dev-perl/File-Which dev-perl/Net-SSLeay dev-perl/IO-Socket-SSL virtual/perl-File-Temp virtual/perl-HTTP-Tiny virtual/perl-Getopt-Long virtual/perl-Term-ANSIColor !app-portage/pram dev-perl/Module-Build-Tiny dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-vcs/git virtual/perl-Encode dev-perl/File-Which dev-perl/Net-SSLeay dev-perl/IO-Socket-SSL virtual/perl-File-Temp virtual/perl-HTTP-Tiny virtual/perl-Getopt-Long virtual/perl-Term-ANSIColor !app-portage/pram test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DESCRIPTION=Tool to merge PRs from the Gentoo Github repository
+EAPI=8
+HOMEPAGE=https://github.com/monsieurp/Gentoo-App-Pram
+INHERIT=perl-module
+IUSE=test test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-vcs/git virtual/perl-Encode dev-perl/File-Which dev-perl/Net-SSLeay dev-perl/IO-Socket-SSL virtual/perl-File-Temp virtual/perl-HTTP-Tiny virtual/perl-Getopt-Long virtual/perl-Term-ANSIColor !app-portage/pram dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/M/MO/MONSIEURP/Gentoo-App-Pram-0.200000.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=adf446f35079d9d80272457af01cc0e6
