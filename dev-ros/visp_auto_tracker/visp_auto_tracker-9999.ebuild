@@ -4,7 +4,7 @@
 EAPI=7
 ROS_REPO_URI="https://github.com/lagadic/vision_visp"
 KEYWORDS="~amd64 ~arm"
-VER_PREFIX="kinetic-"
+VER_PREFIX="noetic-"
 ROS_SUBDIR=${PN}
 
 inherit ros-catkin
@@ -30,7 +30,5 @@ DEPEND="${RDEPEND}
 	dev-ros/std_msgs[${CATKIN_MESSAGES_CXX_USEDEP}]
 "
 if [ "${PV#9999}" = "${PV}" ] ; then
-	S="${WORKDIR}/vision_visp-kinetic-${PV}/${ROS_SUBDIR}"
+	S="${WORKDIR}/vision_visp-noetic-${PV}/${ROS_SUBDIR}"
 fi
-
-PATCHES=( "${FILESDIR}/boost170.patch" "${FILESDIR}/ocv4.patch" )
