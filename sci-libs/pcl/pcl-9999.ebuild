@@ -9,7 +9,7 @@ if [ "${PV#9999}" != "${PV}" ] ; then
 	EGIT_REPO_URI="https://github.com/PointCloudLibrary/pcl"
 fi
 
-inherit ${SCM} cmake-utils multilib
+inherit ${SCM} cmake multilib
 
 if [ "${PV#9999}" != "${PV}" ] ; then
 	SRC_URI=""
@@ -22,7 +22,7 @@ fi
 HOMEPAGE="https://pointclouds.org/"
 DESCRIPTION="2D/3D image and point cloud processing"
 LICENSE="BSD"
-SLOT="0/1.11"
+SLOT="0/1.12"
 IUSE="cuda doc opengl openni openni2 pcap png +qhull qt5 usb vtk cpu_flags_x86_sse test tutorials"
 RESTRICT="!test? ( test )"
 
@@ -79,5 +79,5 @@ src_configure() {
 		"-DWITH_TUTORIALS=$(usex tutorials TRUE FALSE)"
 		"-DBUILD_TESTS=$(usex test TRUE FALSE)"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
