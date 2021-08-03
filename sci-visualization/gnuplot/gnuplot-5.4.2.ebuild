@@ -76,7 +76,7 @@ GP_VERSION="${PV%.*}"
 TEXMF="${EPREFIX}/usr/share/texmf-site"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-5.5-no-picins.patch
+	"${FILESDIR}"/${PN}-5.0.6-no-picins.patch
 )
 
 pkg_setup() {
@@ -185,7 +185,7 @@ src_install() {
 
 	if use doc; then
 		# Manual, FAQ
-		dodoc docs/gnuplot.pdf #FAQ.pdf
+		dodoc docs/gnuplot.pdf FAQ.pdf
 		# Documentation for making PostScript files
 		docinto psdoc
 		dodoc docs/psdoc/{*.doc,*.tex,*.ps,*.gpi,README}
