@@ -3899,7 +3899,7 @@ media-gfx/blender:oidn - Enable OpenImageDenoiser Support
 media-gfx/blender:opencl - Allow OpenCL Graphics Acceleration. This may require extra graphics card drivers.
 media-gfx/blender:openimageio - Enable OpenImageIO Support
 media-gfx/blender:opensubdiv - Add rendering support form OpenSubdiv from Dreamworks Animation through media-libs/opensubdiv.
-media-gfx/blender:openvdb - Add GPU preview rendering. Only works with nVidia cards.
+media-gfx/blender:openvdb - Enable openvdb for volumetric processing, like the voxel remesher. Also enables volumetric GPU preview rendering for Nvidia cards.
 media-gfx/blender:osl - Add support for OpenShadingLanguage scripting.
 media-gfx/blender:potrace - Add support for converting bitmaps into Grease pencil line using the potrace library.
 media-gfx/blender:pugixml - Enable PugiXML support (Used for OpenImageIO, Grease Pencil SVG export)
@@ -4090,7 +4090,7 @@ media-libs/dumb:allegro - Add support for Allegro 4
 media-libs/embree:compact-polys - Enables double indexed poly layout.
 media-libs/embree:ispc - Build Embree with support for ISPC applications.
 media-libs/embree:raymask - Enables ray mask support.
-media-libs/embree:ssp - When enabled, Embree compiles with stack protection against return address overrides.
+media-libs/embree:ssp - When enabled, Embree compiles with stack protection against return address overrides. Stack protection will wield a minor performance decrease in return for higher security.
 media-libs/embree:tbb - Use TBB instead of the built-in Embree tasking system.
 media-libs/embree:tutorial - Enable to build Embree tutorials programs.
 media-libs/esdl:image - Enable image support
