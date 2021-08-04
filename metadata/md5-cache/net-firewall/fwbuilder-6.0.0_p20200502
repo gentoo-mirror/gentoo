@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja dev-util/cmake
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/openssl dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 net-analyzer/net-snmp
+DESCRIPTION=A firewall management GUI for iptables, PF, Cisco routers and more
+EAPI=7
+HOMEPAGE=https://github.com/fwbuilder/fwbuilder
+INHERIT=cmake vcs-snapshot
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/openssl dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 net-analyzer/net-snmp
+SLOT=0
+SRC_URI=https://github.com/fwbuilder/fwbuilder/archive/a5e14a966447c63bcf7b52a0202149e76bd5ed4a.tar.gz -> fwbuilder-6.0.0_p20200502.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
+_md5_=ff7877a5e5aa25e7bdacea1accb9fec9
