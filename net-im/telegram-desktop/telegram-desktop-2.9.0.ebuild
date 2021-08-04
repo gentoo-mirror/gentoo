@@ -15,7 +15,7 @@ SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="+dbus enchant +gtk +hunspell +spell wayland webkit +X"
 REQUIRED_USE="
 	spell? (
@@ -29,14 +29,14 @@ RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
 	dev-cpp/glibmm:2
-	dev-libs/jemalloc:=
+	dev-libs/jemalloc:=[-lazy-lock]
 	dev-libs/xxhash
 	>=dev-qt/qtcore-5.15:5
-	>=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X(-)?]
+	>=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X?]
 	>=dev-qt/qtimageformats-5.15:5
 	>=dev-qt/qtnetwork-5.15:5[ssl]
 	>=dev-qt/qtsvg-5.15:5
-	>=dev-qt/qtwidgets-5.15:5[png,X(-)?]
+	>=dev-qt/qtwidgets-5.15:5[png,X?]
 	media-fonts/open-sans
 	media-libs/fontconfig:=
 	~media-libs/libtgvoip-2.4.4_p20210302
@@ -71,13 +71,8 @@ BDEPEND="
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	# https://github.com/desktop-app/cmake_helpers/pull/91
-	# https://github.com/desktop-app/lib_webview/pull/2
-	"${FILESDIR}/tdesktop-2.8.9-disable-webkit-separately.patch"
-	# Not a proper fix, not upstreamed
-	"${FILESDIR}/tdesktop-2.8.9-webview-fix-glib.patch"
-	# Not upstreamed (yet)
 	"${FILESDIR}/tdesktop-2.8.10-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-2.9.0-fix-disable-wayland-integration.patch"
 )
 
 pkg_pretend() {
@@ -104,13 +99,13 @@ src_configure() {
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
 
-		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X OFF ON)
-		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland OFF ON)
-		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus OFF ON)
-		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex gtk OFF ON)
-		-DDESKTOP_APP_DISABLE_WEBKIT=$(usex webkit OFF ON)
-		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell OFF ON)  # enables hunspell (recommended)
-		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant ON OFF)  # enables enchant and disables hunspell
+		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X)
+		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland)
+		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus)
+		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex gtk)
+		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex webkit)
+		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell)  # enables hunspell (recommended)
+		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then

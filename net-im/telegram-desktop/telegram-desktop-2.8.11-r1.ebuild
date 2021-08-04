@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit xdg cmake python-any-r1 flag-o-matic
 
@@ -15,26 +15,28 @@ SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="amd64 ~ppc64"
 IUSE="+dbus enchant +gtk +hunspell +spell wayland webkit +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
 	)
 	webkit? ( gtk )
+	gtk? ( dbus )
 "
 
 RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
 	dev-cpp/glibmm:2
+	dev-libs/jemalloc:=[-lazy-lock]
 	dev-libs/xxhash
 	>=dev-qt/qtcore-5.15:5
-	>=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X(-)?]
+	>=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X?]
 	>=dev-qt/qtimageformats-5.15:5
 	>=dev-qt/qtnetwork-5.15:5[ssl]
 	>=dev-qt/qtsvg-5.15:5
-	>=dev-qt/qtwidgets-5.15:5[png,X(-)?]
+	>=dev-qt/qtwidgets-5.15:5[png,X?]
 	media-fonts/open-sans
 	media-libs/fontconfig:=
 	~media-libs/libtgvoip-2.4.4_p20210302
@@ -71,10 +73,12 @@ S="${WORKDIR}/${MY_P}"
 PATCHES=(
 	# https://github.com/desktop-app/cmake_helpers/pull/91
 	# https://github.com/desktop-app/lib_webview/pull/2
-	"${FILESDIR}/tdesktop-2.7.4-disable-webkit-separately.patch"
-	# https://github.com/desktop-app/lib_webview/pull/3
-	# https://github.com/desktop-app/lib_base/commit/01d152af4c6282756585f1405c4bcbb75960a509 (landed in 2.8.0, patch is harmless)
-	"${FILESDIR}/tdesktop-2.7.4-webview-fix-gcc11.patch"
+	"${FILESDIR}/tdesktop-2.8.9-disable-webkit-separately.patch"
+	# Not a proper fix, not upstreamed
+	"${FILESDIR}/tdesktop-2.8.9-webview-fix-glib.patch"
+	"${FILESDIR}/tdesktop-2.8.10-jemalloc-only-telegram.patch"
+	# Already upstream
+	"${FILESDIR}/tdesktop-2.8.11-load-gtk-with-qlibrary.patch"
 )
 
 pkg_pretend() {
@@ -138,5 +142,5 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	use gtk || elog "enable 'gtk' useflag if you have image copy-paste problems"
+	use gtk || elog "enable the 'gtk' useflag if you have image copy-paste problems"
 }
