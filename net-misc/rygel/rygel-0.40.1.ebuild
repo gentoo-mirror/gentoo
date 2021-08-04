@@ -21,12 +21,12 @@ DEPEND="
 	>=media-libs/gstreamer-1.12:1.0
 	>=media-libs/gst-plugins-base-1.12:1.0
 	media-libs/gstreamer-editing-services:1.0
-	>=media-libs/gupnp-dlna-0.9.4:2.0
+	>=media-libs/gupnp-dlna-0.9.4:2.0=
 	>=media-libs/libmediaart-0.7:2.0[vala]
 	media-plugins/gst-plugins-soup:1.0
 	>=net-libs/gssdp-1.1.0:0=[vala]
 	>=net-libs/gupnp-1.1.0:0=[vala]
-	>=net-libs/gupnp-av-0.12.8
+	>=net-libs/gupnp-av-0.12.8:=
 	>=net-libs/libsoup-2.44:2.4
 	>=sys-apps/util-linux-2.20
 	x11-misc/shared-mime-info
