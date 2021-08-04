@@ -1,11 +1,11 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare pretend setup
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) sys-apps/util-linux virtual/blas virtual/lapack mpi? ( virtual/mpi[romio?] ) virtual/pkgconfig
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) sys-apps/util-linux virtual/blas virtual/lapack mpi? ( virtual/mpi[romio?] )
 DESCRIPTION=Support for parallel scientific applications
 EAPI=7
 HOMEPAGE=http://www.p4est.org/
 INHERIT=autotools lua-single toolchain-funcs
-IUSE=debug examples mpi openmp romio static-libs threads lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3
+IUSE=debug examples mpi openmp romio threads lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) sys-apps/util-linux virtual/blas virtual/lapack mpi? ( virtual/mpi[romio?] )
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_t
 SLOT=0
 SRC_URI=https://github.com/cburstedde/libsc/archive/v2.3.1.tar.gz -> libsc-2.3.1.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
-_md5_=26e6202df00657d2ac4a1ba3016f9538
+_md5_=c5c1c2b2ad99162b7a5c64d3a1f75d1f
