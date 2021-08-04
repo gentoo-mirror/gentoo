@@ -24,7 +24,7 @@ SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_PN}-$
 
 LICENSE="BSD-2 GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="selinux test"
 RESTRICT="!test? ( test )"
 
@@ -44,15 +44,15 @@ DEPEND="
 
 BDEPEND="
 	${PYTHON_DEPS}
+	$(python_gen_any_dep 'dev-python/jinja[${PYTHON_USEDEP}]')
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
-	dev-libs/libxslt:0
+	dev-libs/libxslt
 	dev-util/gperf
 	>=dev-util/meson-0.46
 	>=sys-apps/coreutils-8.16
 	sys-devel/gettext
-	sys-devel/m4
 	virtual/pkgconfig
 "
 
@@ -62,6 +62,10 @@ PATCHES=(
 	# backport from 250 to silence musl warnings
 	"${FILESDIR}/249-sys-include-posix.patch"
 )
+
+python_check_deps() {
+	has_version -b "dev-python/jinja[${PYTHON_USEDEP}]"
+}
 
 pkg_setup() {
 	python-any-r1_pkg_setup
