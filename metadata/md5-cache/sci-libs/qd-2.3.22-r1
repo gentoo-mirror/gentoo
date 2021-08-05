@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 fortran? ( virtual/fortran )
+DEFINED_PHASES=configure install prepare setup
+DEPEND=fortran? ( virtual/fortran )
+DESCRIPTION=Quad-double and double-double float arithmetics
+EAPI=7
+HOMEPAGE=https://www.davidhbailey.com/dhbsoftware/
+INHERIT=autotools fortran-2
+IUSE=cpu_flags_x86_fma3 cpu_flags_x86_fma4 doc fortran
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD
+RDEPEND=fortran? ( virtual/fortran )
+SLOT=0
+SRC_URI=http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.22.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_md5_=9f0c6742bf07da29e9ab59539f2a7316
