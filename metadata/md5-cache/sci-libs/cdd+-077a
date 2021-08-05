@@ -1,13 +1,13 @@
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile install
 DEPEND=dev-libs/gmp:0=
 DESCRIPTION=Another implementation of the double description method
-EAPI=5
+EAPI=7
 HOMEPAGE=http://www.ifor.math.ethz.ch/~fukuda/cdd_home/
-INHERIT=epatch multilib toolchain-funcs
+INHERIT=toolchain-funcs
 KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/gmp:0=
 SLOT=0
 SRC_URI=ftp://ftp.ifor.math.ethz.ch/pub/fukuda/cdd/cdd+-077a.tar.gz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
-_md5_=e9864b59cd9c71c35fd174caa3a6cb2e
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=00df97f9f2505d6d0e0fd9a75386e31b
