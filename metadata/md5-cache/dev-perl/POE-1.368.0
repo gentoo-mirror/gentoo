@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://metacpan.org/release/POE
 INHERIT=perl-module
 IUSE=ipv6 libwww ncurses tk test
-KEYWORDS=amd64 ppc ~x86
+KEYWORDS=amd64 ppc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-File-Spec-0.870.0 >=virtual/perl-IO-1.240.0 >=dev-perl/IO-Pipely-0.5.0 >=dev-perl/IO-Tty-1.80.0 >=virtual/perl-Storable-2.160.0 >=virtual/perl-Time-HiRes-1.590.0 ipv6? ( >=dev-perl/Socket6-0.14 ) tk? ( >=dev-perl/Tk-800.027 ) libwww? ( >=dev-perl/libwww-perl-5.79 >=dev-perl/URI-1.30 ) ncurses? ( >=dev-perl/Curses-1.08 ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/B/BI/BINGOS/POE-1.368.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=abd602fb1c03327aba19b83fce7763b6
+_md5_=e9332ce633b4977323cb07a2cfd0879c
