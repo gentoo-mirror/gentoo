@@ -24,7 +24,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 # The test suite often hangs or does not work. Technically spyder requires
 # pyqt5<13, which we do not have in ::gentoo any more. Likely this is the reason
@@ -114,7 +114,7 @@ python_prepare_all() {
 
 	# these dependencies are packaged separately:
 	#    dev-python/spyder-kernels,
-	#    dev-python/python-language-server,
+	#    dev-python/python-lsp-server,
 	#    dev-python/qdarkstyle
 	rm -r external-deps/* || die
 	# runs against things packaged in external-deps dir
