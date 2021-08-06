@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-XSLoader app-arch/zstd:= >=virtual/perl-ExtUtils-MakeMaker-7.0.0 >=virtual/perl-ExtUtils-ParseXS-2.210.0 virtual/perl-File-Path test? ( virtual/perl-Data-Dumper virtual/perl-File-Spec virtual/perl-Scalar-List-Utils dev-perl/Test-Deep dev-perl/Test-Differences dev-perl/Test-LongString >=virtual/perl-Test-Simple-0.880.0 dev-perl/Test-Warn ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Fast, compact, powerful binary serialization
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Sereal-Encoder
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-XSLoader app-arch/zstd:= dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/Y/YV/YVES/Sereal-Encoder-4.018.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=6709b33a6c7a192583ddbd2c2b2561bb
