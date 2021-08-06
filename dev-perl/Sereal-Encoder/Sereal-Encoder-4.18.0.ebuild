@@ -1,24 +1,27 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=YVES
-DIST_VERSION=4.004
+DIST_VERSION=4.018
 inherit perl-module
 
-DESCRIPTION="Fast, compact, powerful binary deserialization"
+DESCRIPTION="Fast, compact, powerful binary serialization"
 SLOT="0"
-KEYWORDS="amd64 ~ia64 ppc ppc64 sparc x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 
+# Note: bundled zstd fails compile
 RDEPEND="
 	virtual/perl-XSLoader
 	app-arch/zstd:=
 "
-DEPEND="${RDEPEND}
-	>=virtual/perl-ExtUtils-MakeMaker-7.0
+
+# Tester note: ideally you want dev-perl/Sereal-Decoder
+# as well, but we can't depend on it because it forms
+# a tight cycle if we do
+BDEPEND="${RDEPEND}
+	>=virtual/perl-ExtUtils-MakeMaker-7.0.0
 	>=virtual/perl-ExtUtils-ParseXS-2.210.0
 	virtual/perl-File-Path
 	test? (
