@@ -9891,10 +9891,10 @@ dev-ros/geneus 3.0.0-r1 9999: EusLisp ROS message and service generators
 dev-ros/genlisp 0.4.18 9999: Common-Lisp ROS message and service generators
 dev-ros/genmsg 0.5.16 9999: Python library for generating ROS message and service data structures
 dev-ros/gennodejs 2.0.1 9999: Javascript ROS message and service generators
-dev-ros/genpy 0.6.11 0.6.14 9999: Python ROS message and service generators
+dev-ros/genpy 0.6.16 9999: Python ROS message and service generators
 dev-ros/geodesy 0.5.6 9999: Python and C++ interfaces for manipulating geodetic coordinates
 dev-ros/geographic_msgs 0.5.5 0.5.6 9999: ROS messages for Geographic Information Systems
-dev-ros/geometric_shapes 0.7.2 9999: Generic definitions of geometric shapes and bodies
+dev-ros/geometric_shapes 0.7.3 9999: Generic definitions of geometric shapes and bodies
 dev-ros/geometry_msgs 1.13.0 1.13.1 9999: Messages for common geometric primitives such as points, vectors, and poses
 dev-ros/global_planner 1.17.0 1.17.1 9999: Path planner library and node
 dev-ros/gmapping 1.4.2 9999: ROS wrapper for OpenSlam's Gmapping
@@ -9939,16 +9939,16 @@ dev-ros/kdl_parser_py 1.14.1 9999: Python tools to construct a KDL tree from an 
 dev-ros/laser_assembler 1.7.8 9999: Nodes to assemble point clouds from either LaserScan or PointCloud messages
 dev-ros/laser_cb_detector 0.10.15 9999: Extracts checkerboard corners from a dense laser snapshot
 dev-ros/laser_filters 1.8.11 9999: Assorted filters designed to operate on 2D planar laser scanners
-dev-ros/laser_geometry 1.6.6-r1 9999: Class for converting from a 2D laser scan into a point cloud
+dev-ros/laser_geometry 1.6.7 9999: Class for converting from a 2D laser scan into a point cloud
 dev-ros/laser_proc 0.1.6 9999: Converts representations of LaserScan and MultiEchoLaserScan
-dev-ros/libmavconn 1.2.0 1.4.0 1.5.2 9999: MAVLink communication library
+dev-ros/libmavconn 1.2.0 1.4.0 1.5.2 1.8.0 9999: MAVLink communication library
 dev-ros/librviz_tutorial 0.11.0 9999: Tutorial showing how to build a C++ program with RViz displays and features
 dev-ros/map_msgs 1.14.1 9999: Messages commonly used in mapping packages
 dev-ros/map_server 1.17.0 1.17.1 9999: Offers map data as a ROS service
-dev-ros/mavlink-gbp-release 2020.9.10 2021.2.2: MAVLink message marshaling library
-dev-ros/mavros 1.5.2 9999: MAVLink extendable communication node for ROS
-dev-ros/mavros_extras 1.2.0 1.4.0 1.5.2 9999: Extra nodes and plugins for mavros
-dev-ros/mavros_msgs 1.2.0 1.4.0 1.5.2 9999: Messages for MAVROS
+dev-ros/mavlink-gbp-release 2021.7.7: MAVLink message marshaling library
+dev-ros/mavros 1.5.2 1.8.0 9999: MAVLink extendable communication node for ROS
+dev-ros/mavros_extras 1.2.0 1.4.0 1.5.2 1.8.0 9999: Extra nodes and plugins for mavros
+dev-ros/mavros_msgs 1.2.0 1.4.0 1.5.2 1.8.0 9999: Messages for MAVROS
 dev-ros/media_export 0.3.0 9999: Allow ROS packages to export media paths to each other
 dev-ros/message_filters 1.15.8-r1 1.15.9-r1 1.15.10-r1 1.15.11 9999: Set of message filters which take in messages and outputs those at a later time
 dev-ros/message_generation 0.4.1 9999: Build-time dependencies for generating language bindings of messages
@@ -9959,7 +9959,7 @@ dev-ros/monocam_settler 0.10.14-r1 0.10.15 9999: Listens on a ImageFeatures topi
 dev-ros/move_base 1.17.0 1.17.1 9999: Given a goal in the world, will attempt to reach it with a mobile base
 dev-ros/move_base_msgs 1.14.1 9999: Holds the action description and relevant messages for the move_base package
 dev-ros/move_slow_and_clear 1.17.0-r1 1.17.1-r1 9999: Move slow and clear
-dev-ros/moveit_msgs 0.11.1 9999: Messages, services and actions used by MoveIt
+dev-ros/moveit_msgs 0.11.2 9999: Messages, services and actions used by MoveIt
 dev-ros/nav_core 1.17.0 1.17.1 9999: Common interfaces for navigation specific robot actions
 dev-ros/nav_msgs 1.13.0 1.13.1 9999: Common messages used to interact with the navigation stack
 dev-ros/navfn 1.17.0-r1 1.17.1-r1 9999: Fast interpolated navigation function for creating plans for a mobile base
@@ -9972,8 +9972,8 @@ dev-ros/octomap_msgs 0.3.5 9999: Messages and serializations / conversion for th
 dev-ros/octomap_ros 0.4.1 9999: Conversion functions between ROS / PCL and OctoMap's native types
 dev-ros/opencv_apps 2.0.2 9999: OpenCV applications for ROS
 dev-ros/opencv_tests 1.15.0 9999: Tests for ROS OpenCV integration
-dev-ros/openni2_camera 1.4.2-r1 9999: ROS drivers for the Asus Xtion and Primesense Devices
-dev-ros/openni2_launch 1.4.2 9999: Launch files to start the openni2_camera drivers using rgbd_launch
+dev-ros/openni2_camera 1.5.1 9999: ROS drivers for the Asus Xtion and Primesense Devices
+dev-ros/openni2_launch 1.5.1 9999: Launch files to start the openni2_camera drivers using rgbd_launch
 dev-ros/openslam_gmapping 0.2.1 9999: ROS-ified version of gmapping SLAM
 dev-ros/pcl_conversions 1.7.2-r1 9999: Provides conversions from PCL data types and ROS message types
 dev-ros/pcl_msgs 0.3.0 9999: PCL (Point Cloud Library)-related ROS messages
@@ -14057,7 +14057,7 @@ media-radio/cwdaemon 0.10.2: A morse daemon for the parallel or serial port
 media-radio/direwolf 1.5-r1: Decoded Information from Radio Emissions for Windows Or Linux Fans
 media-radio/dxcc 20190309 20191204: A ham radio callsign DXCC lookup utility
 media-radio/flamp 2.2.03 2.2.05: Fldigi helper for transferring files
-media-radio/fldigi 4.1.18 4.1.19: Sound card based multimode software modem for Amateur Radio use
+media-radio/fldigi 4.1.18 4.1.19 4.1.20: Sound card based multimode software modem for Amateur Radio use
 media-radio/flmsg 4.0.17 4.0.17-r1: Fldigi helper for creating radiograms
 media-radio/flrig 1.3.54 1.4.0 1.4.1 1.4.2: Transceiver control program for Amateur Radio use
 media-radio/fsync-mdc1200-decode 1.0 9999: Linux Fleetsync / MDC1200 decoder
@@ -16126,7 +16126,7 @@ ros-meta/image_transport_plugins 1.14.0 9999: Plugins for creating topics in rep
 ros-meta/imu_pipeline 0.3.0 9999: Tools for processing IMU messages for easier use by later subscribers
 ros-meta/imu_tools 1.2.2 1.2.3 9999: Various tools for IMU devices
 ros-meta/laser_pipeline 1.6.4 9999: Meta-package for processing laser data
-ros-meta/mavros 1.2.0 1.4.0 1.5.2 9999: Metapackage for mavros packages
+ros-meta/mavros 1.2.0 1.4.0 1.5.2 1.8.0 9999: Metapackage for mavros packages
 ros-meta/navigation 1.17.0 1.17.1 9999: 2D navigation stack
 ros-meta/nodelet_core 1.10.0 1.10.1 9999: Nodelet Core Metapackage
 ros-meta/perception 1.5.0 9999: Metapackage for ROS perception stack
