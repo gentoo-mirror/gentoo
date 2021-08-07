@@ -1,9 +1,9 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit go-module systemd
-GIT_COMMIT=149b150fb2d87766b8462346d68b72831f622047
+GIT_COMMIT=958556d77ee6f32d9a92cfbe39ec9d33781b1cdc
 
 DESCRIPTION="A simple and flexible workload orchestrator"
 HOMEPAGE="https://nomadproject.io"
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="nvidia"
 
-RESTRICT+=" test"
+RESTRICT=" test"
 
 src_compile() {
 	local go_ldflags go_tags
