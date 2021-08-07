@@ -1,0 +1,16 @@
+BDEPEND=dev-util/cmake virtual/pkgconfig jsonapi? ( app-doc/doxygen )
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=app-arch/bzip2 dev-libs/openssl:0= >=dev-libs/rapidjson-1.1.0 sys-libs/zlib autologin? ( app-crypt/libsecret ) gui? ( dev-qt/qtcore:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtscript:5 dev-qt/qtxml:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 x11-libs/libX11 x11-libs/libXScrnSaver ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) service? ( dev-qt/qtcore:5 ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 ) dev-qt/qtcore:5 gui? ( dev-qt/designer:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=P2P private sharing application
+EAPI=7
+HOMEPAGE=https://retroshare.cc
+INHERIT=desktop qmake-utils xdg
+IUSE=autologin cli +gui +jsonapi libupnp +miniupnp +service +sqlcipher
+KEYWORDS=~amd64 ~x86
+LICENSE=AGPL-3 Apache-2.0 CC-BY-SA-4.0 GPL-2 GPL-3 LGPL-3
+RDEPEND=app-arch/bzip2 dev-libs/openssl:0= >=dev-libs/rapidjson-1.1.0 sys-libs/zlib autologin? ( app-crypt/libsecret ) gui? ( dev-qt/qtcore:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtscript:5 dev-qt/qtxml:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 x11-libs/libX11 x11-libs/libXScrnSaver ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) service? ( dev-qt/qtcore:5 ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 )
+REQUIRED_USE=|| ( gui service ) ?? ( libupnp miniupnp ) service? ( || ( cli jsonapi ) )
+SLOT=0
+SRC_URI=http://download.opensuse.org/repositories/network:/retroshare/Debian_Testing/retroshare-common_0.6.6.orig.tar.gz -> retroshare-0.6.6.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=978ff4943a8df94490b956111e867e44
