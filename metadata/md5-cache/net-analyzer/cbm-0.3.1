@@ -1,14 +1,14 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=app-text/docbook-xml-dtd:4.4 app-text/xmlto virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=prepare
-DEPEND=sys-libs/ncurses app-text/docbook-xml-dtd:4.4 app-text/xmlto virtual/pkgconfig
+DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Color Bandwidth Meter
 EAPI=7
 HOMEPAGE=http://www.isotton.com/software/unix/cbm/ https://github.com/resurrecting-open-source-projects/cbm
 INHERIT=autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=sys-libs/ncurses
+RDEPEND=sys-libs/ncurses:=
 SLOT=0
-SRC_URI=https://github.com/resurrecting-open-source-projects/cbm/archive/0.2.tar.gz -> cbm-0.2.tar.gz
+SRC_URI=https://github.com/resurrecting-open-source-projects/cbm/archive/0.3.1.tar.gz -> cbm-0.3.1.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
-_md5_=89ddc1ae041150aa0905f57137af4e10
+_md5_=3137bcc0cc46a8ba95c560ecadfa91a0
