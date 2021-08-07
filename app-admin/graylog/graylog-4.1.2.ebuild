@@ -18,7 +18,7 @@ RDEPEND="!app-admin/graylog2
 	>=virtual/jdk-1.8:*"
 
 DOCS=(
-	COPYING README.markdown UPGRADING.rst
+	README.markdown UPGRADING.rst
 )
 
 GRAYLOG_DATA_DIR="/var/lib/graylog"
@@ -27,27 +27,6 @@ QA_PREBUILT="${GRAYLOG_INSTALL_DIR}/lib/sigar/libsigar*"
 
 src_prepare() {
 	default
-
-	# Stick to architecture of build host
-	if ! use amd64; then
-		rm -r lib/sigar/libsigar-amd64-*.so || die "Failed in removing AMD64 support libraries"
-	fi
-	if ! use ppc64; then
-		rm -r lib/sigar/libsigar-ppc64-*.so || die "Failed in removing PPC64 support libraries"
-	fi
-	if ! use x86; then
-		rm -r lib/sigar/libsigar-x86-*.so || die "Failed in removing X86 support libraries"
-	fi
-	# Currently unsupported platforms
-	# QA warning galore but testing/patches welcome
-	rm lib/sigar/libsigar-*freebsd*so \
-		lib/sigar/libsigar-*solaris*so \
-		lib/sigar/libsigar-*hpux*.sl \
-		lib/sigar/libsigar-*macosx*.dylib \
-		lib/sigar/libsigar-ia64-*.so \
-		lib/sigar/libsigar-ppc-*.so \
-		lib/sigar/libsigar-s390x*.so \
-		lib/sigar/*winnt* || die "Failed in removing unsupported platform libraries"
 
 	# gentoo specific paths
 	sed -i "s@\(node_id_file = \).*@\1${GRAYLOG_DATA_DIR}/node-id@g; \
@@ -63,7 +42,7 @@ src_install() {
 
 	insinto "${GRAYLOG_INSTALL_DIR}"
 	doins graylog.jar
-	doins -r lib plugin
+	doins -r plugin
 
 	keepdir "${GRAYLOG_DATA_DIR}"
 
@@ -76,8 +55,4 @@ pkg_postinst() {
 	ewarn
 	ewarn "Please configure rc_need according to your binding address in:"
 	ewarn "/etc/conf.d/graylog"
-	ewarn
-	ewarn "Graylog requires Java >= 8"
-	ewarn "Elasticsearch 5.x or 6.x (does NOT work with 7.x)"
-	ewarn "and MongoDB 3.6, 4.0 or 4.2"
 }
