@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Shell-Guess virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Test2-Suite-0.0.60 >=virtual/perl-Test-Simple-1.302.15 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Portably generate config for any shell
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Shell-Config-Generate
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Shell-Guess dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/P/PL/PLICEASE/Shell-Config-Generate-0.34.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=564e91fcf18082a5897b0cea9b2fa747
