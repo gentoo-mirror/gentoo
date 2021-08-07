@@ -19,7 +19,7 @@ fi
 
 LICENSE="Ms-PL"
 SLOT="0"
-IUSE="alsa jack pulseaudio"
+IUSE="alsa jack pcap pulseaudio"
 
 RDEPEND="
 	alsa? ( media-libs/alsa-lib )
@@ -27,6 +27,7 @@ RDEPEND="
 		media-libs/soxr
 		virtual/jack
 	)
+	pcap? ( net-libs/libpcap )
 	pulseaudio? ( media-sound/pulseaudio )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -35,6 +36,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DALSA_ENABLE=$(usex alsa)
 		-DJACK_ENABLE=$(usex jack)
+		-DPCAP_ENABLE=$(usex pcap)
 		-DPULSEAUDIO_ENABLE=$(usex pulseaudio)
 	)
 	cmake_src_configure
