@@ -1,9 +1,9 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="OneLogin's SAML Python Toolkit"
@@ -14,19 +14,22 @@ SRC_URI="https://github.com/onelogin/python3-saml/archive/v${PV}.tar.gz -> ${P}.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
-CDEPEND="
-	dev-python/isodate[${PYTHON_USEDEP}]
-	dev-python/python-xmlsec[${PYTHON_USEDEP}]
-	dev-python/defusedxml[${PYTHON_USEDEP}]
+RDEPEND="
+	>=dev-python/isodate-0.5.0[${PYTHON_USEDEP}]
+	>=dev-python/lxml-3.3.5[${PYTHON_USEDEP}]
+	>=dev-python/python-xmlsec-1.0.5[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
 	)
 "
-RDEPEND="${CDEPEND}"
 
 distutils_enable_tests setup.py
+
+src_prepare() {
+	# unpin deps
+	sed -i -e 's:==:>=:' setup.py || die
+	distutils-r1_src_prepare
+}
