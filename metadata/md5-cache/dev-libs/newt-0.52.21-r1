@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://pagure.io/newt
 INHERIT=autotools python-r1 toolchain-funcs
 IUSE=gpm nls tcl python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86
 LICENSE=LGPL-2
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-libs/popt-1.6 =sys-libs/slang-2* elibc_uclibc? ( sys-libs/ncurses:0= ) gpm? ( sys-libs/gpm ) tcl? ( >=dev-lang/tcl-8.5:0 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	f5408c7f165c2c81b787182c52bc41dd	python-r1	e20b80360497e6215aed0dd4ca7d6bad
-_md5_=f578f20b3f276bccec674205c3595fe7
+_md5_=7a0932f296e629e73d6d26797963c179
