@@ -8,7 +8,6 @@ inherit cmake desktop xdg-utils pax-utils
 if [[ ${PV} == *9999 ]]
 then
 	EGIT_REPO_URI="https://github.com/dolphin-emu/dolphin"
-	EGIT_SUBMODULES=( Externals/mGBA/mgba )
 	inherit git-r3
 else
 	EGIT_COMMIT=eb5cd9be78c76b9ccbab9e5fbd1721ef6876cd68
@@ -25,7 +24,7 @@ HOMEPAGE="https://dolphin-emu.org/"
 # NB: appended below
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="alsa bluetooth discord-presence doc +evdev ffmpeg +gui log mgba
+IUSE="alsa bluetooth discord-presence doc +evdev ffmpeg +gui log
 	profile pulseaudio systemd upnp vulkan"
 
 RDEPEND="
@@ -73,6 +72,8 @@ BDEPEND="
 RDEPEND="${RDEPEND}
 	vulkan? ( media-libs/vulkan-loader )"
 
+PATCHES=("${FILESDIR}"/${P}-musl.patch)
+
 # [directory]=license
 declare -A KEEP_BUNDLED=(
 	[Bochs_disasm]=LGPL-2.1+
@@ -106,9 +107,6 @@ declare -A KEEP_BUNDLED=(
 	[picojson]=BSD-2
 	# No code to detect shared library.
 	[zstd]=BSD
-
-	# This is a stripped-down mGBA for integrated GBA support
-	[mGBA]=MPL-2.0
 )
 LICENSE+=" ${KEEP_BUNDLED[*]}"
 
@@ -147,7 +145,6 @@ src_configure() {
 		-DENABLE_LLVM=OFF
 		# just adds -flto, user can do that via flags
 		-DENABLE_LTO=OFF
-		-DUSE_MGBA=$(usex mgba)
 		-DENABLE_PULSEAUDIO=$(usex pulseaudio)
 		-DENABLE_QT=$(usex gui)
 		-DENABLE_SDL=OFF # not supported: #666558
