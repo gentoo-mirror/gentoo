@@ -42,6 +42,11 @@ BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.8.2-fix-cxx11-detection.patch
+	"${FILESDIR}"/${PN}-1.8.2-gtest.patch
+)
+
 src_prepare() {
 	default
 	# Brand the version with Gentoo
@@ -52,12 +57,6 @@ src_prepare() {
 	sed -i \
 		-e '/mkdir -p $(DESTDIR)${runstatedir}\/${PACKAGE_NAME}/d' \
 		Makefile.am || die "Fixing Makefile.am failed"
-
-	sed -i \
-		-e 's#test -f "$dir/lib/libgtest.a"#test -f "$dir/lib64/libgtest.a"#g' \
-		-e 's#test -f "$dir/lib/libgtest.so"#test -f "$dir/lib64/libgtest.so"#g' \
-		-e 's GTEST_LDFLAGS="-L$dir/lib GTEST_LDFLAGS="-L$dir/lib64 g' \
-		m4macros/ax_gtest.m4 || die "fixing gtest detection macro failed"
 
 	eautoreconf
 }
