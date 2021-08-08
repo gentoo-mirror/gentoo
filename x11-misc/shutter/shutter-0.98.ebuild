@@ -11,17 +11,18 @@ SRC_URI="https://github.com/shutter-project/shutter/archive/v${PV}.tar.gz -> ${P
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-lang/perl
-	dev-perl/gnome2-canvas
-	dev-perl/gnome2-wnck
+	dev-perl/Carp-Always
 	dev-perl/libxml-perl
 	dev-perl/libwww-perl
 	dev-perl/Glib-Object-Introspection
-	dev-perl/Gtk2-Unique
-	dev-perl/Gtk2-ImageView
+	dev-perl/GooCanvas2
+	dev-perl/GooCanvas2-CairoTypes
+	dev-perl/Gtk3
+	>=dev-perl/Gtk3-ImageView-9
 	dev-perl/File-DesktopEntry
 	dev-perl/File-HomeDir
 	dev-perl/File-Which
@@ -31,6 +32,7 @@ RDEPEND="
 	dev-perl/Locale-gettext
 	dev-perl/Net-DBus
 	dev-perl/Number-Bytes-Human
+	dev-perl/Pango
 	dev-perl/Proc-Simple
 	dev-perl/Proc-ProcessTable
 	dev-perl/Sort-Naturally
@@ -38,6 +40,7 @@ RDEPEND="
 	dev-perl/X11-Protocol
 	dev-perl/XML-Simple
 	virtual/imagemagick-tools[perl]
+	x11-libs/libwnck:3[introspection]
 "
 
 src_prepare() {
@@ -74,6 +77,5 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	optfeature "writing Exif information" media-libs/exiftool
-	optfeature "drawing tool" dev-perl/Goo-Canvas
 	optfeature "image hostings uploading" "dev-perl/JSON-MaybeXS dev-perl/Net-OAuth dev-perl/Path-Class"
 }
