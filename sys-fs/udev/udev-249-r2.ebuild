@@ -15,20 +15,22 @@ else
 	else
 		MY_PN=systemd
 	fi
+
 	MY_PV="${PV/_/-}"
 	MY_P="${MY_PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
-fi
 
-# musl patches taken from:
-# http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/systemd/systemd
-SRC_URI+="
+	# musl patches taken from:
+	# http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/systemd/systemd
+	SRC_URI+="
 	elibc_musl? (
 		https://dev.gentoo.org/~gyakovlev/distfiles/systemd-musl-patches-${PV}.1-r1.tar.xz
 		https://dev.gentoo.org/~soap/distfiles/systemd-musl-patches-${PV}.1-r1.tar.xz
 	)"
+
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
+fi
 
 DESCRIPTION="Linux dynamic and persistent device naming support (aka userspace devfs)"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/systemd"
@@ -279,6 +281,10 @@ multilib_src_install_all() {
 	einstalldocs
 }
 
+pkg_preinst() {
+	has_version 'sys-fs/eudev' && HAD_EUDEV=1
+}
+
 pkg_postinst() {
 	# Update hwdb database in case the format is changed by udev version.
 	if has_version 'sys-apps/hwids[udev]' ; then
@@ -286,5 +292,14 @@ pkg_postinst() {
 		# Only reload when we are not upgrading to avoid potential race w/ incompatible hwdb.bin and the running udevd
 		# https://cgit.freedesktop.org/systemd/systemd/commit/?id=1fab57c209035f7e66198343074e9cee06718bda
 		[[ -z ${REPLACING_VERSIONS} ]] && udev_reload
+	fi
+
+	if [[ ${HAD_EUDEV} -eq 1 ]] ; then
+		ewarn
+		ewarn "${P} defaults to predictable interface renaming, as described in the URL below:"
+		ewarn "https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames"
+		ewarn
+		ewarn "If you wish to disable this, please see the above documentation, or set"
+		ewarn "net.ifnames=0 on the kernel command line."
 	fi
 }
