@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install test
+DESCRIPTION=A brainfuck interpreter
+EAPI=8
+HOMEPAGE=https://github.com/apankrat/bff
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~arm ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~x86
+LICENSE=BSD
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/apankrat/bff/archive/v1.0.7.tar.gz -> bff-1.0.7.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=242a7342659586cbd0f39c477c549a83
