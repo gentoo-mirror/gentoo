@@ -6,17 +6,16 @@
 # x11@gentoo.org
 # @AUTHOR:
 # Original author: Martin Schlemmer <azarah@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7
-# @BLURB: This eclass can be used for packages that needs a working X environment to build.
+# @SUPPORTED_EAPIS: 6 7 8
+# @BLURB: This eclass can be used for packages that need a working X environment to build.
 
-case ${EAPI:-0} in
-	[0-5]) die "virtualx.eclass: EAPI ${EAPI} is too old." ;;
-	6|7) ;;
-	*) die "virtualx.eclass: EAPI ${EAPI} is not supported yet." ;;
+case ${EAPI} in
+	6|7|8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} is not supported." ;;
 esac
 
-if [[ ! ${_VIRTUAL_X} ]]; then
-_VIRTUAL_X=1
+if [[ ! ${_VIRTUALX_ECLASS} ]]; then
+_VIRTUALX_ECLASS=1
 
 # @ECLASS-VARIABLE: VIRTUALX_REQUIRED
 # @PRE_INHERIT
@@ -30,20 +29,20 @@ _VIRTUAL_X=1
 : ${VIRTUALX_REQUIRED:=test}
 
 # @ECLASS-VARIABLE: VIRTUALX_DEPEND
+# @OUTPUT_VARIABLE
 # @DESCRIPTION:
-# Dep string available for use outside of eclass, in case a more
-# complicated dep is needed.
-# You can specify the variable BEFORE inherit to add more dependencies.
-VIRTUALX_DEPEND="${VIRTUALX_DEPEND}
+# Standard dependencies string that is automatically added to BDEPEND
+# (in EAPI-6: DEPEND) unless VIRTUALX_REQUIRED is set to "manual".
+# DEPRECATED: Pre-EAPI-8 you can specify the variable BEFORE inherit
+# to add more dependencies.
+[[ ${EAPI} != [67] ]] && VIRTUALX_DEPEND=""
+VIRTUALX_DEPEND+="
 	x11-base/xorg-server[xvfb]
 	x11-apps/xhost
 "
+[[ ${EAPI} != [67] ]] && readonly VIRTUALX_DEPEND
 
-# @ECLASS-VARIABLE: VIRTUALX_COMMAND
-# @DESCRIPTION:
-# Command (or eclass function call) to be run in the X11 environment
-# (within virtualmake function).
-: ${VIRTUALX_COMMAND:="emake"}
+[[ ${VIRTUALX_COMMAND} ]] && die "VIRTUALX_COMMAND has been removed and is a no-op"
 
 case ${VIRTUALX_REQUIRED} in
 	manual)
