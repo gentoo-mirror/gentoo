@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake desktop flag-o-matic
 
-MY_PV="$(ver_rs 3 -)-r7601"
+MY_PV="${PV}-r7616"
 
 DESCRIPTION="Fork of the famous open racing car simulator TORCS"
 HOMEPAGE="http://www.speed-dreams.org/"
@@ -41,7 +41,7 @@ DEPEND="
 	x11-base/xorg-proto"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-xmlversion-rpath.patch
+	"${FILESDIR}"/${PN}-2.2.3_rc1-xmlversion-rpath.patch
 )
 
 src_configure() {
