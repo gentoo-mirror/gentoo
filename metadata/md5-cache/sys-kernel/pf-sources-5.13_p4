@@ -9,7 +9,7 @@ KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=5.12_p4
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.12.tar.xz https://github.com/pfactum/pf-kernel/compare/v5.12...v5.12-pf4.diff -> pf-sources-5.12_p4.patch https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.12-1.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.12-1.extras.tar.xz https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/5020_BMQ-and-PDS-io-scheduler-v5.12-r0.patch https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/5021_BMQ-and-PDS-gentoo-defaults-v5.12-r0.patch https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/1510_fs-enable-link-security-restrictions-by-default.patch -> 1510_fs-enable-link-security-restrictions-by-default-5.12.patch
+SLOT=5.13_p4
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.13.tar.xz https://github.com/pfactum/pf-kernel/compare/v5.13...v5.13-pf4.diff -> pf-sources-5.13_p4.patch https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.13-1.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.13-1.extras.tar.xz https://gitlab.com/alfredchen/projectc/-/raw/master/5.13/prjc_v5.13-r2.patch https://raw.githubusercontent.com/GKernelCI/linux-patches/5.12/5021_BMQ-and-PDS-gentoo-defaults-v5.12-r0.patch
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	kernel-2	6b17cdaee897466001a472284e0421c8	optfeature	30ce9dec2b8943338c9b015bd32bac6a
-_md5_=28eb43615ee2e75fd85e2f5accb57740
+_md5_=d30e47c7dbf8d23ff213240bc4f7f363
