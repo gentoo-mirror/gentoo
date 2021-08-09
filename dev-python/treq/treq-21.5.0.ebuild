@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7,8,9} )
-DISTUTILS_USE_SETUPTOOLS="bdepend"
+
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -17,47 +17,27 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
-COMMON_DEPEND="
-	dev-python/incremental[${PYTHON_USEDEP}]
-	>=dev-python/hyperlink-21.0.0[${PYTHON_USEDEP}]
-"
-
-RDEPEND="${COMMON_DEPEND}
-	dev-python/six[${PYTHON_USEDEP}]
-	>=dev-python/twisted-18.7.0[crypt,${PYTHON_USEDEP}]
-	>=dev-python/requests-2.1.0[${PYTHON_USEDEP}]
+RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
+	>=dev-python/hyperlink-21.0.0[${PYTHON_USEDEP}]
+	dev-python/incremental[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/twisted-18.7.0[crypt,${PYTHON_USEDEP}]
 "
-
-DEPEND="${COMMON_DEPEND}
-	doc? ( dev-python/sphinx
-		${RDEPEND} )
+BDEPEND="
 	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/httpbin[${PYTHON_USEDEP}]
 	)"
 
-python_compile_all() {
-	use doc && emake -C "${S}/docs" html
-}
+distutils_enable_sphinx docs
 
-python_install_all() {
-	use doc && HTML_DOCS=( docs/_build/html/ )
-
-	distutils-r1_python_install_all
-}
-
-test_instructions() {
-	ewarn "The 'test' USE flag and FEATURE only ensures that the correct"
-	ewarn "dependenciess are installed for this package."
-	ewarn "Please run eg:"
-	ewarn "$ python3.7 /usr/bin/trial treq"
-	ewarn "as a user for each of the python versions it is installed to"
-	ewarn "to correctly test this package."
+src_prepare() {
+	# fix relative path for docs generation
+	sed -e "s@('..')@('../src')@" -i docs/conf.py || die
+	distutils-r1_src_prepare
 }
 
 python_test() {
-	# Tests fail when run via emerge
-	# they need proper network access
-	test_instructions
+	distutils_install_for_testing
+	"${EPYTHON}" -m twisted.trial treq || die "Tests failed with ${EPYTHON}"
 }
