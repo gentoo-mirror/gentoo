@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="sqlite,threads(+)"
 DISTUTILS_SINGLE_IMPL="1"
 
@@ -23,7 +23,6 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -39,7 +38,6 @@ RDEPEND="
 	app-arch/unzip
 	$(python_gen_cond_dep '
 		dev-python/dbus-python[${PYTHON_USEDEP}]
-		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		dev-python/python-evdev[${PYTHON_USEDEP}]
@@ -54,9 +52,8 @@ RDEPEND="
 	x11-apps/mesa-progs
 	x11-apps/xgamma
 	x11-apps/xrandr
-	x11-libs/libnotify[introspection]
 	x11-libs/gtk+:3[introspection]
-	x11-libs/gdk-pixbuf[jpeg]
+	x11-libs/libnotify[introspection]
 "
 
 python_install_all() {
