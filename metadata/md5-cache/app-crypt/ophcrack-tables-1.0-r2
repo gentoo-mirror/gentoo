@@ -1,7 +1,7 @@
+BDEPEND=app-arch/unzip
 DEFINED_PHASES=install unpack
-DEPEND=app-arch/unzip
 DESCRIPTION=Tables available for ophcrack
-EAPI=5
+EAPI=8
 HOMEPAGE=http://ophcrack.sourceforge.net/
 IUSE=+xpfast xpsmall +vistafree
 KEYWORDS=~amd64 ~ppc ~x86
@@ -9,4 +9,4 @@ LICENSE=GPL-2
 REQUIRED_USE=|| ( xpfast xpsmall vistafree )
 SLOT=0
 SRC_URI=xpfast? ( mirror://sourceforge/ophcrack/tables_xp_free_fast.zip ) xpsmall? ( mirror://sourceforge/ophcrack/tables_xp_free_small.zip ) vistafree? ( mirror://sourceforge/ophcrack/tables_vista_free.zip )
-_md5_=ae4c919bfd6c8244d65de48cf51fa42e
+_md5_=4bc3e5f600fc1bb0ea8ebd14b7ec6875
