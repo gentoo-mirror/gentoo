@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.lirc.org/
 INHERIT=flag-o-matic linux-info python-single-r1 systemd xdg-utils
 IUSE=audio +devinput doc ftdi gtk inputlirc static-libs systemd +uinput usb X kernel_linux python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) python_single_target_python3_8? ( dev-python/pyyaml[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pyyaml[python_targets_python3_9(-)] ) ftdi? ( dev-embedded/libftdi:0 ) systemd? ( sys-apps/systemd ) usb? ( virtual/libusb:0 ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) gtk? ( x11-libs/vte[introspection] python_single_target_python3_8? ( dev-python/pygobject[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject[python_targets_python3_9(-)] ) ) inputlirc? ( app-misc/inputlircd )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 ) gtk? ( X )
 SLOT=0
 SRC_URI=mirror://sourceforge/lirc/lirc-0.10.1.tar.bz2
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	f5408c7f165c2c81b787182c52bc41dd	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	systemd	c846b9e02ac8293bfc9ca38a195c2a18	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=cc55edf93ee3d339dcd47c812bdf61e7
+_md5_=519dfb38e09ea20d11f621a769b8fdf7
