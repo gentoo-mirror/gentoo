@@ -8,12 +8,9 @@
 dev-python/ipython qt5
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-08)
-# portaudio & pulseaudio are not tested yet
+# portaudio is not tested yet
 app-accessibility/espeak portaudio
-
-# Alex Fan <alexfanqi@yahoo.com> (2021-08-08)
-# portaudio & pulseaudio are not tested yet
-media-libs/openal portaudio pulseaudio
+media-libs/openal portaudio
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-05)
 # pdfannotextractor depends on java, not (sustainably) supported yet
@@ -91,10 +88,12 @@ dev-python/ipython nbconvert notebook
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
 # Dependencies not keyworded here yet:
-#  - gnome-base/gconf, dev-libs/libotf & dev-libs/m17n-lib
-app-editors/emacs gconf m17n-lib
 #  - net-fs/openafs
 app-crypt/heimdal afs
+#  - gnome-base/gconf, dev-libs/libotf & dev-libs/m17n-lib
+app-editors/emacs gconf m17n-lib
+#  - media-libs/portaudio, dev-embedded/libftdi, app-misc/inputlircd
+app-misc/lirc audio ftdi inputlirc
 #  - app-xemacs/ruby-modes (and by extension xemacs itself)
 dev-lang/ruby xemacs
 #  - media-libs/libcddb
@@ -107,14 +106,16 @@ dev-python/networkx extras
 dev-util/ragel doc
 #  - Qt5 & KDE
 dev-vcs/subversion kwallet
-#  - media-libs/dumb, media-libs/openal
-media-libs/allegro dumb openal
+#  - media-libs/dumb
+media-libs/allegro dumb
 #  - media-gfx/nvidia-texture-tools
 media-libs/devil nvtt
 #  - dev-lang/php
 media-libs/libvpx doc
 #  - media-libs/portaudio
 media-sound/mpg123 portaudio
+#  - bluetooth, net-misc/ofono
+media-sound/pulseaudio native-headset ofono-headset
 #  - maaaaaany
 media-video/ffmpeg amrenc bluray bs2b cdio chromaprint codec2 fdk frei0r gme iec61883 ieee1394 kvazaar libaribb24 libilbc libsoxr libtesseract lv2 openh264 rubberband sdl speex srt vidstab xvid zimg zvbi
 #  - media-libs/libquicktime, media-libs/sdl-gfx
@@ -134,8 +135,6 @@ sys-cluster/slurm ofed slurmdbd
 # Dependencies not keyworded, not tested
 dev-libs/libdbusmenu test
 virtual/notification-daemon gnome kde
-media-libs/libsdl nas pulseaudio
-media-libs/libsdl2 nas pulseaudio
 media-libs/libcaca doc imlib
 dev-libs/libbytesize test
 sys-libs/libblockdev dmraid escrow
