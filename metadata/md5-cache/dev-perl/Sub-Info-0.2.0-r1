@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Carp >=dev-perl/Importer-0.24.0 test? ( >=virtual/perl-Test-Simple-1.302.72 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Carp >=dev-perl/Importer-0.24.0 test? ( >=virtual/perl-Test-Simple-1.302.72 ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Tool for inspecting subroutines
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Sub-Info
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Carp >=dev-perl/Importer-0.24.0 dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/EX/EXODIST/Sub-Info-0.002.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=74558c527767895f235d91f92ce19407
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=4f8f0a5da75dffff6a0efb825ef6d780
