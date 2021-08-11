@@ -63,7 +63,7 @@ pkg_setup() {
 	[[ ${MERGE_TYPE} == binary ]] && return
 
 	# must check in pkg_setup; sysctl don't work with userpriv!
-	if has test ${FEATURES} && use sctp; then
+	if use test && use sctp; then
 		# test_ssl_new will fail with "Ensure SCTP AUTH chunks are enabled in kernel"
 		# if sctp.auth_enable is not enabled.
 		local sctp_auth_status=$(sysctl -n net.sctp.auth_enable 2>/dev/null)
@@ -117,7 +117,7 @@ src_prepare() {
 
 	eapply_user #332661
 
-	if has test ${FEATURES} && use sctp && has network-sandbox ${FEATURES}; then
+	if use test && use sctp && has network-sandbox ${FEATURES}; then
 		ebegin "Disabling test '80-test_ssl_new.t' which is known to fail with FEATURES=network-sandbox"
 		rm test/recipes/80-test_ssl_new.t || die
 		eend $?
