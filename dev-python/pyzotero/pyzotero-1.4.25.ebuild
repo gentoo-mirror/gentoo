@@ -1,10 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
-
 inherit distutils-r1
 
 DESCRIPTION="A Python client for the Zotero API"
@@ -34,7 +33,7 @@ distutils_enable_tests pytest
 
 python_prepare_all() {
 	# do not install tests
-	sed -i "s/find_packages(),/find_packages(exclude=('test*')),/g" setup.py || die
+	sed -i "s/find_packages(),/find_packages(exclude=('test*',)),/g" setup.py || die
 
 	distutils-r1_python_prepare_all
 }
