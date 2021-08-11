@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://netfilter.org/projects/nftables/
 INHERIT=autotools linux-info python-r1 systemd
 IUSE=debug doc +gmp json libedit +modern-kernel python +readline static-libs xtables kernel_linux python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=amd64 ~arm ~arm64 ~ia64 ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 ~arm ~arm64 ~ia64 ppc ~ppc64 ~riscv sparc x86
 LICENSE=GPL-2
 RDEPEND=>=net-libs/libmnl-1.0.4:0= >=net-libs/libnftnl-1.2.0:0= gmp? ( dev-libs/gmp:0= ) json? ( dev-libs/jansson:= ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) readline? ( sys-libs/readline:0= ) xtables? ( >=net-firewall/iptables-1.6.1 )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) libedit? ( !readline )
 SLOT=0/1
 SRC_URI=https://netfilter.org/projects/nftables/files/nftables-0.9.9.tar.bz2
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	f5408c7f165c2c81b787182c52bc41dd	python-r1	e20b80360497e6215aed0dd4ca7d6bad	systemd	c846b9e02ac8293bfc9ca38a195c2a18
-_md5_=49ba9aa246f51c439c0710c328161fd1
+_md5_=04103194eeb15899d02d81b1d8457d3e
