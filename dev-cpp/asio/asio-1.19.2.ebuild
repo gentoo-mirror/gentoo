@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Asynchronous Network Library"
 HOMEPAGE="https://think-async.com https://github.com/chriskohlhoff/asio"
@@ -10,17 +10,15 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}/${P}.tar.bz2"
 LICENSE="Boost-1.0"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="doc examples ssl test"
+IUSE="doc examples test"
 RESTRICT="!test? ( test )"
-# test searches for libssl during ./configure, and REQUIRED_USE is easier than
-# patching configure to not search for it with USE=-ssl
-REQUIRED_USE="test? ( ssl )"
 
-RDEPEND="dev-libs/boost:=
-	ssl? (
-		dev-libs/openssl:0=
-	)"
-DEPEND="${RDEPEND}"
+DEPEND="
+	test? (
+		dev-libs/boost
+		dev-libs/openssl
+	)
+"
 
 src_prepare() {
 	default
