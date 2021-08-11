@@ -1,7 +1,7 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst prepare unpack
 DESCRIPTION=quilt patch manager
-EAPI=7
+EAPI=8
 HOMEPAGE=https://savannah.nongnu.org/projects/quilt
 INHERIT=git-r3 bash-completion-r1
 IUSE=graphviz elibc_Darwin elibc_SunOS
@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=dev-util/diffstat mail-mta/sendmail sys-apps/ed elibc_Darwin? ( app-misc/getopt ) elibc_SunOS? ( app-misc/getopt ) >=sys-apps/coreutils-8.32-r1 graphviz? ( media-gfx/graphviz )
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	d3a60385655d9b402be765a6de333245
-_md5_=636c8e0dde49da4d49212e66386877e6
+_md5_=537cf8f60c48e7092609d174117b62d5
