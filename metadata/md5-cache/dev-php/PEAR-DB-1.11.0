@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm test
+DEPEND=test? ( dev-php/PEAR-PEAR )
+DESCRIPTION=Database abstraction layer for PHP
+EAPI=7
+HOMEPAGE=https://pear.php.net/package/DB
+INHERIT=php-pear-r2
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=PHP-3
+RDEPEND=>=dev-php/pear-1.8.1
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://pear.php.net/get/DB-1.11.0.tgz
+_eclasses_=php-pear-r2	4a7c293febeea04349068d5716ad29ff
+_md5_=ebca2f92d6e7ee8366b25541041faf25
