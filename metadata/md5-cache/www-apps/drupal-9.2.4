@@ -1,7 +1,7 @@
 DEFINED_PHASES=install postinst prerm setup
 DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=app-admin/webapp-config-1.50.15
 DESCRIPTION=PHP-based open-source platform and content management system
-EAPI=6
+EAPI=7
 HOMEPAGE=https://www.drupal.org/
 INHERIT=webapp
 IUSE=+mysql postgres sqlite +uploadprogress vhosts
@@ -9,7 +9,7 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/php[gd,hash(+),mysql?,pdo,postgres?,simplexml,sqlite?,xml] virtual/httpd-php uploadprogress? ( dev-php/pecl-uploadprogress ) >=app-admin/webapp-config-1.50.15
 REQUIRED_USE=|| ( mysql postgres sqlite )
-SLOT=9.2.3
-SRC_URI=https://ftp.drupal.org/files/projects/drupal-9.2.3.tar.gz
+SLOT=9.2.4
+SRC_URI=https://ftp.drupal.org/files/projects/drupal-9.2.4.tar.gz
 _eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
-_md5_=2ea7f12b6f80af4c713bb469f0e992f0
+_md5_=e46c0ef2f6dc1dae56c678bd82e7770d
