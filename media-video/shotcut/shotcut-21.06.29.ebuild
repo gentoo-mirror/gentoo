@@ -15,6 +15,8 @@ else
 	EGIT_REPO_URI="https://github.com/mltframework/shotcut/"
 fi
 
+IUSE="debug"
+
 LICENSE="GPL-3+"
 SLOT="0"
 
@@ -34,7 +36,7 @@ COMMON_DEPEND="
 	dev-qt/qtwebsockets:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	>=media-libs/mlt-6.22.1[ffmpeg,frei0r,fftw,jack,melt(+),opengl,qt5,sdl,xml]
+	>=media-libs/mlt-7.0.1[ffmpeg,frei0r,fftw(+),jack,opengl,qt5,sdl,xml]
 	media-video/ffmpeg
 "
 DEPEND="${COMMON_DEPEND}
@@ -48,10 +50,14 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 src_configure() {
-	eqmake5 \
-		PREFIX="${EPREFIX}/usr" \
-		SHOTCUT_VERSION="${PV}" \
+	local myqmakeargs=(
+		PREFIX="${EPREFIX}/usr"
+		SHOTCUT_VERSION="${PV}"
 		DEFINES+=SHOTCUT_NOUPGRADE
+	)
+	use debug || myqmakeargs+=(DEFINES+=NDEBUG)
+
+	eqmake5 "${myqmakeargs[@]}"
 }
 
 src_install() {
