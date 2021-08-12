@@ -1,21 +1,24 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 CMAKE_BUILD_TYPE=RelWithDebInfo
-inherit cmake-utils
+inherit cmake
 
 IGN_MAJOR=3
 
 DESCRIPTION="Set of libraries designed to rapidly develop robot applications"
-HOMEPAGE="https://ignitionrobotics.org/libs/common https://github.com/ignitionrobotics/ign-common"
+HOMEPAGE="https://github.com/ignitionrobotics/ign-common"
 SRC_URI="https://github.com/ignitionrobotics/ign-common/archive/${PN}${IGN_MAJOR}_${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="${IGN_MAJOR}"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="test"
+#RESTRICT="!test? ( test )"
+# tests dont even build
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/tinyxml2:=
@@ -34,7 +37,7 @@ S="${WORKDIR}/ign-common-${PN}${IGN_MAJOR}_${PV}"
 
 src_configure() {
 	local mycmakeargs=(
-		"-DBUILD_TESTING=OFF"
+		"-DBUILD_TESTING=$(usex test)"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
