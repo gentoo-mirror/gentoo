@@ -15,8 +15,8 @@ SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
-IUSE="+dbus enchant +gtk +hunspell +spell wayland webkit +X"
+KEYWORDS="amd64 ~ppc64"
+IUSE="+dbus enchant +gtk +hunspell screencast +spell wayland webkit +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
@@ -44,7 +44,7 @@ RDEPEND="
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20210626
+	~media-libs/tg_owt-0_pre20210626[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	dbus? (
@@ -71,8 +71,14 @@ BDEPEND="
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
+	# https://github.com/desktop-app/cmake_helpers/pull/91
+	# https://github.com/desktop-app/lib_webview/pull/2
+	"${FILESDIR}/tdesktop-2.8.9-disable-webkit-separately.patch"
+	# Not a proper fix, not upstreamed
+	"${FILESDIR}/tdesktop-2.8.9-webview-fix-glib.patch"
 	"${FILESDIR}/tdesktop-2.8.10-jemalloc-only-telegram.patch"
-	"${FILESDIR}/tdesktop-2.9.0-fix-disable-wayland-integration.patch"
+	# Already upstream
+	"${FILESDIR}/tdesktop-2.8.11-load-gtk-with-qlibrary.patch"
 )
 
 pkg_pretend() {
@@ -99,13 +105,13 @@ src_configure() {
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
 
-		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X no yes)
-		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland no yes)
-		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus no yes)
-		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex gtk no yes)
-		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex webkit no yes)
-		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell no yes)  # enables hunspell (recommended)
-		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
+		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X OFF ON)
+		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland OFF ON)
+		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus OFF ON)
+		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex gtk OFF ON)
+		-DDESKTOP_APP_DISABLE_WEBKIT=$(usex webkit OFF ON)
+		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell OFF ON)  # enables hunspell (recommended)
+		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant ON OFF)  # enables enchant and disables hunspell
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then
@@ -137,4 +143,7 @@ src_configure() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	use gtk || elog "enable the 'gtk' useflag if you have image copy-paste problems"
+	if ! use X && ! use screencast; then
+		elog "both the 'X' and 'screencast' useflags are disabled, screen sharing won't work!"
+	fi
 }
