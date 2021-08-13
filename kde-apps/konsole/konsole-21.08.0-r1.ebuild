@@ -50,6 +50,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-21.04.3-no-flash-on-session-close.patch" # bug 807933
+	"${FILESDIR}/${P}-fix-crash-w-blur.patch" # bug 807905, fixed in 21.08.1
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package X X11)
