@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit flag-o-matic python-any-r1 toolchain-funcs
 
@@ -11,7 +11,7 @@ DESCRIPTION="Convert files between various character sets"
 HOMEPAGE="https://github.com/rrthomas/recode"
 SRC_URI="https://github.com/rrthomas/recode/releases/download/v${PV}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3+"
 # librecode soname version
 SLOT="0/3"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x86-solaris"

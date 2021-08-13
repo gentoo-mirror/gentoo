@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -15,13 +15,8 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~mips ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-DEPEND="${PYTHON_DEPS}"
-RDEPEND="${DEPEND}"
-
 src_prepare() {
-	sed -i "s/${PN}.1.gz/${PN}.1/g" setup.py || die 'sed failed.'
+	sed -e "s/${PN}.1.gz/${PN}.1/g" -i setup.py || die 'sed failed'
 	default
 }
 
