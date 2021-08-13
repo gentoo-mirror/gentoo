@@ -1,16 +1,16 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare prerm setup test unpack
-DEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) ) sys-libs/zlib virtual/httpd-cgi doc? ( app-text/docbook-xsl-stylesheets >=app-text/asciidoc-8.5.1 ) >=app-admin/webapp-config-1.50.15
+DEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi doc? ( app-text/docbook-xsl-stylesheets >=app-text/asciidoc-8.5.1 ) >=app-admin/webapp-config-1.50.15
 DESCRIPTION=a fast web-interface for git repositories
 EAPI=7
 HOMEPAGE=https://git.zx2c4.com/cgit/about
 INHERIT=git-r3 lua-single toolchain-funcs webapp
-IUSE=doc +highlight +lua test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 vhosts
+IUSE=doc +highlight +lua test lua_single_target_luajit lua_single_target_lua5-1 vhosts
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) ) sys-libs/zlib virtual/httpd-cgi >=app-admin/webapp-config-1.50.15
-REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 ) )
+RDEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi >=app-admin/webapp-config-1.50.15
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18	webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua-single	8cdf449259063fc54bf347db93744d1f	webapp	cd327e73cdb307ceb80dcca6b8ad8b52
 _md5_=234dd0ad5e78bdbec722fddf77cebfee

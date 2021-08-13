@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig boost? ( dev-util/boost-build ) dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) idn? ( net-dns/libidn:= ) dev-libs/openssl:0= media-libs/fontconfig:= media-libs/freetype:2= virtual/jpeg:0= media-libs/libpng:0= media-libs/tiff:0= sys-libs/zlib:= test? ( dev-util/cppunit )
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) idn? ( net-dns/libidn:= ) dev-libs/openssl:0= media-libs/fontconfig:= media-libs/freetype:2= virtual/jpeg:0= media-libs/libpng:0= media-libs/tiff:0= sys-libs/zlib:= test? ( dev-util/cppunit )
 DESCRIPTION=PoDoFo is a C++ library to work with the PDF file format
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/podofo/
 INHERIT=cmake flag-o-matic lua-single toolchain-funcs
-IUSE=+boost idn debug test +tools lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4
+IUSE=+boost idn debug test +tools lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ppc ppc64 ~sparc x86
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) idn? ( net-dns/libidn:= ) dev-libs/openssl:0= media-libs/fontconfig:= media-libs/freetype:2= virtual/jpeg:0= media-libs/libpng:0= media-libs/tiff:0= sys-libs/zlib:=
-REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4 ) test? ( tools )
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) idn? ( net-dns/libidn:= ) dev-libs/openssl:0= media-libs/fontconfig:= media-libs/freetype:2= virtual/jpeg:0= media-libs/libpng:0= media-libs/tiff:0= sys-libs/zlib:=
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) test? ( tools )
 RESTRICT=!test? ( test )
 SLOT=0/0.9.6
 SRC_URI=https://dev.gentoo.org/~zmedico/dist/podofo-0.9.6_p20190928.tar.xz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua-single	8cdf449259063fc54bf347db93744d1f
 _md5_=9d68907403461d90b30b158a820e95d8

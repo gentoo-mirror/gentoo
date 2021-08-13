@@ -1,16 +1,16 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install setup test unpack
-DEPEND=test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] ) lua_single_target_lua5-2? ( dev-lua/luafilesystem[lua_targets_lua5-2(-)] dev-lua/luaposix[lua_targets_lua5-2(-)] ) lua_single_target_lua5-3? ( dev-lua/luafilesystem[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] ) )
+DEPEND=test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/luafilesystem[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] ) )
 DESCRIPTION=Lua based testing manager
 EAPI=7
 HOMEPAGE=https://github.com/TACC/Hermes
 INHERIT=lua-single git-r3
-IUSE=test lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3
+IUSE=test lua_single_target_lua5-1 lua_single_target_lua5-3
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] ) lua_single_target_lua5-2? ( dev-lua/luafilesystem[lua_targets_lua5-2(-)] dev-lua/luaposix[lua_targets_lua5-2(-)] ) lua_single_target_lua5-3? ( dev-lua/luafilesystem[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] )
-REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 )
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/luafilesystem[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] )
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua-single	8cdf449259063fc54bf347db93744d1f	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=4ffd619bb6f6d97f9f0cf70b5cca05d9

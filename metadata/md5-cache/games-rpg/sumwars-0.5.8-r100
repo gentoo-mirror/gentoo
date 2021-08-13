@@ -1,16 +1,16 @@
 BDEPEND=dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) >=dev-games/cegui-0.8[ogre] >=dev-games/ogre-1.7.4-r1[freeimage,opengl] dev-games/ois dev-games/physfs >=dev-libs/tinyxml-2.6.2-r2 media-libs/freealut media-libs/openal media-libs/libogg media-libs/libvorbis >=net-libs/enet-1.3.0 x11-libs/libX11 x11-libs/libXrandr tools? ( dev-libs/boost )
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) >=dev-games/cegui-0.8[ogre] >=dev-games/ogre-1.7.4-r1[freeimage,opengl] dev-games/ois dev-games/physfs >=dev-libs/tinyxml-2.6.2-r2 media-libs/freealut media-libs/openal media-libs/libogg media-libs/libvorbis >=net-libs/enet-1.3.0 x11-libs/libX11 x11-libs/libXrandr tools? ( dev-libs/boost )
 DESCRIPTION=a multi-player, 3D action role-playing game
 EAPI=7
 HOMEPAGE=http://sumwars.org
 INHERIT=cmake desktop flag-o-matic lua-single xdg-utils
-IUSE=+tools debug l10n_de l10n_en l10n_it l10n_pl l10n_pt l10n_ru l10n_uk lua_single_target_lua5-1 lua_single_target_lua5-2
+IUSE=+tools debug l10n_de l10n_en l10n_it l10n_pl l10n_pt l10n_ru l10n_uk +lua_single_target_lua5-1
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3 CC-BY-SA-3.0
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) >=dev-games/cegui-0.8[ogre] >=dev-games/ogre-1.7.4-r1[freeimage,opengl] dev-games/ois dev-games/physfs >=dev-libs/tinyxml-2.6.2-r2 media-libs/freealut media-libs/openal media-libs/libogg media-libs/libvorbis >=net-libs/enet-1.3.0 x11-libs/libX11 x11-libs/libXrandr tools? ( dev-libs/boost )
-REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-2 )
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) >=dev-games/cegui-0.8[ogre] >=dev-games/ogre-1.7.4-r1[freeimage,opengl] dev-games/ois dev-games/physfs >=dev-libs/tinyxml-2.6.2-r2 media-libs/freealut media-libs/openal media-libs/libogg media-libs/libvorbis >=net-libs/enet-1.3.0 x11-libs/libX11 x11-libs/libXrandr tools? ( dev-libs/boost )
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
 SLOT=0
 SRC_URI=mirror://sourceforge/sumwars/sumwars-0.5.8-src.tar.bz2
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	desktop	c0d27bf73aa08ca05b663dbd31fbef28	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	desktop	c0d27bf73aa08ca05b663dbd31fbef28	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua-single	8cdf449259063fc54bf347db93744d1f
 _md5_=247f0976c6e275fbb0d7abebb6c578fb

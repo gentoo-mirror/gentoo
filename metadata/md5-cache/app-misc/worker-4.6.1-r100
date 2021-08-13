@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare setup
-DEPEND=x11-libs/libX11 avfs? ( >=sys-fs/avfs-0.9.5 ) dbus? ( sys-apps/dbus ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) ) magic? ( sys-apps/file ) xft? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama )
+DEPEND=x11-libs/libX11 avfs? ( >=sys-fs/avfs-0.9.5 ) dbus? ( sys-apps/dbus ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) magic? ( sys-apps/file ) xft? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama )
 DESCRIPTION=Worker Filemanager: Amiga Directory Opus 4 clone
 EAPI=7
 HOMEPAGE=http://www.boomerangsworld.de/cms/worker/
 INHERIT=autotools lua-single
-IUSE=avfs debug dbus examples libnotify lua +magic xinerama xft lua_single_target_lua5-1 lua_single_target_lua5-2
+IUSE=avfs debug dbus examples libnotify lua +magic xinerama xft +lua_single_target_lua5-1
 KEYWORDS=amd64 ~arm ~hppa ppc ~ppc64 x86
 LICENSE=GPL-2
-RDEPEND=x11-libs/libX11 avfs? ( >=sys-fs/avfs-0.9.5 ) dbus? ( sys-apps/dbus ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) ) magic? ( sys-apps/file ) xft? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama )
-REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-2 ) )
+RDEPEND=x11-libs/libX11 avfs? ( >=sys-fs/avfs-0.9.5 ) dbus? ( sys-apps/dbus ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) magic? ( sys-apps/file ) xft? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama )
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) )
 SLOT=0
 SRC_URI=http://www.boomerangsworld.de/cms/worker/downloads/worker-4.6.1.tar.bz2
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua-single	8cdf449259063fc54bf347db93744d1f
 _md5_=a8a4867a675c9571870d3045a0e8e37a

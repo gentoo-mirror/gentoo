@@ -1,15 +1,15 @@
 DEFINED_PHASES=configure install postinst postrm prepare setup
-DEPEND=sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/freetype media-libs/libmodplug media-libs/libsdl2[joystick,opengl] media-libs/libogg media-libs/libtheora media-libs/libvorbis media-libs/openal media-sound/mpg123 virtual/opengl
+DEPEND=sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/freetype media-libs/libmodplug media-libs/libsdl2[joystick,opengl] media-libs/libogg media-libs/libtheora media-libs/libvorbis media-libs/openal media-sound/mpg123 virtual/opengl
 DESCRIPTION=A framework for 2D games in Lua
 EAPI=7
 HOMEPAGE=https://love2d.org/
 INHERIT=lua-single xdg-utils
-IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3
+IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=ZLIB
-RDEPEND=sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/freetype media-libs/libmodplug media-libs/libsdl2[joystick,opengl] media-libs/libogg media-libs/libtheora media-libs/libvorbis media-libs/openal media-sound/mpg123 virtual/opengl
-REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-2 lua_single_target_lua5-3 )
+RDEPEND=sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/freetype media-libs/libmodplug media-libs/libsdl2[joystick,opengl] media-libs/libogg media-libs/libtheora media-libs/libvorbis media-libs/openal media-sound/mpg123 virtual/opengl
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 )
 SLOT=0
 SRC_URI=https://github.com/love2d/love/releases/download/11.3/love-11.3-linux-src.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua-single	8cdf449259063fc54bf347db93744d1f	xdg-utils	27f9a2f19502b925ac117bd657aa2979
 _md5_=771fbb30f04cf5c19ff95f0f7e98e9c5

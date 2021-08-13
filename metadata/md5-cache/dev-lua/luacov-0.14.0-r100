@@ -1,17 +1,17 @@
-BDEPEND=virtual/pkgconfig test? ( dev-lua/busted[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-2(-)?,lua_targets_lua5-3(-)?] dev-lua/lua_cliargs[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-2(-)?,lua_targets_lua5-3(-)?] lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) )
+BDEPEND=virtual/pkgconfig test? ( dev-lua/busted[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?] dev-lua/lua_cliargs[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?] lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) )
 DEFINED_PHASES=install test
-DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 )
+DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 )
 DESCRIPTION=A simple coverage analyzer for Lua scripts
 EAPI=7
 HOMEPAGE=https://github.com/keplerproject/luacov
 INHERIT=lua
-IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-2 lua_targets_lua5-3
+IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=MIT
-RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-2? ( dev-lang/lua:5.2 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 )
-REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-2 lua_targets_lua5-3 )
+RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 )
+REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/keplerproject/luacov/archive/v0.14.0.tar.gz -> luacov-0.14.0.tar.gz
-_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua	2afa2308593141ae89672d1c2b96f9e8
+_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	af986d19619f43dc53862da0d25b9c2e	lua	9c6b327adb90ca1eecbe887e5248757d
 _md5_=73be63cbf8043ca027cb10cad21ac103
