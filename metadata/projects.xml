@@ -314,11 +314,6 @@
       <name>Mike Gilbert</name>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>new helper</role>
-    </member>
-    <member>
       <email>lu_zero@gentoo.org</email>
       <name>Luca Barbato</name>
     </member>
@@ -326,10 +321,10 @@
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
     </member>
-    <member>
+    <member is-lead="1">
       <email>polynomial-c@gentoo.org</email>
       <name>Lars Wendler</name>
-      <role>package maintainer</role>
+      <role>base-system team lead</role>
     </member>
     <member>
       <email>robbat2@gentoo.org</email>
@@ -664,6 +659,10 @@
     <name>Crossdev Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Crossdev</url>
     <description>Crossdev is a small wrapper script around emerge to build cross-toolchains.</description>
+    <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
+    </member>
     <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
@@ -1256,6 +1255,10 @@
       <name>Matt Turner</name>
     </member>
     <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
+    </member>
+    <member>
       <email>vapier@gentoo.org</email>
       <name>Mike Frysinger</name>
     </member>
@@ -1353,6 +1356,10 @@
       <email>gienah@gentoo.org</email>
       <name>Mark Wright</name>
     </member>
+    <member is-lead="1">
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
+    </member>
   </project>
   <project>
     <email>ia64@gentoo.org</email>
@@ -1371,6 +1378,10 @@
     <member>
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
+    </member>
+    <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
@@ -2135,11 +2146,6 @@
       <role>Prefix liaison</role>
     </member>
     <member>
-      <email>mgorny@gentoo.org</email>
-      <name>Michał Górny</name>
-      <role>Member</role>
-    </member>
-    <member>
       <email>robbat2@gentoo.org</email>
       <name>Robin Johnson</name>
       <role>Infra Liaison</role>
@@ -2228,6 +2234,11 @@
     <member>
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
+    </member>
+    <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
+      <role>ppc/ppc64 arch specific bug fixes</role>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
@@ -2835,6 +2846,11 @@
     <member>
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
+      <role>Mostly security/core bugs</role>
+    </member>
+    <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
@@ -2877,6 +2893,10 @@
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
       <role>Lead</role>
+    </member>
+    <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
     </member>
     <member>
       <email>vapier@gentoo.org</email>
@@ -2985,9 +3005,10 @@
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
     </member>
-    <member>
+    <member is-lead="1">
       <email>whissi@gentoo.org</email>
       <name>Thomas Deutschmann</name>
+      <role>Lead</role>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
@@ -3071,6 +3092,10 @@
       <email>floppym@gentoo.org</email>
       <name>Mike Gilbert</name>
       <role>Lead</role>
+    </member>
+    <member>
+      <email>maffblaster@gentoo.org</email>
+      <name>Matthew Marchese</name>
     </member>
     <member>
       <email>pacho@gentoo.org</email>
@@ -3171,6 +3196,10 @@
       <name>Sam James</name>
     </member>
     <member>
+      <email>slyfox@gentoo.org</email>
+      <name>Sergei Trofimovich</name>
+    </member>
+    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
     </member>
@@ -3217,16 +3246,38 @@
       <name>Pacho Ramos</name>
     </member>
     <member>
-      <email>sam@gentoo.org</email>
-      <name>Sam James</name>
-    </member>
-    <member>
       <email>soap@gentoo.org</email>
       <name>David Seifert</name>
     </member>
     <member>
       <email>zlogene@gentoo.org</email>
       <name>Mikle Kolyada</name>
+    </member>
+  </project>
+  <project>
+    <email>udev-bugs@gentoo.org</email>
+    <name>Udev</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Udev</url>
+    <description>The purpose of this project is to maintain sys-fs/udev and related packages.</description>
+    <member>
+      <email>blueness@gentoo.org</email>
+      <name>Anthony G. Basile</name>
+    </member>
+    <member>
+      <email>floppym@gentoo.org</email>
+      <name>Mike Gilbert</name>
+    </member>
+    <member>
+      <email>polynomial-c@gentoo.org</email>
+      <name>Lars Wendler</name>
+    </member>
+    <member>
+      <email>robbat2@gentoo.org</email>
+      <name>Robin Johnson</name>
+    </member>
+    <member>
+      <email>williamh@gentoo.org</email>
+      <name>William Hubbs</name>
     </member>
   </project>
   <project>
