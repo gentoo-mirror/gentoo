@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="agent amt archive bluetooth dell gnutls gtk-doc gusb elogind flashrom lzma minimal introspection +man nvme policykit spi synaptics systemd test thunderbolt tpm uefi"
+IUSE="agent amt archive bluetooth dell elogind flashrom gnutls gtk-doc gusb introspection lzma +man minimal modemmanager nvme policykit spi synaptics systemd test thunderbolt tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
 	dell? ( uefi )
@@ -63,6 +63,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	gnutls? ( net-libs/gnutls )
 	gusb? ( >=dev-libs/libgusb-0.3.5[introspection?] )
 	lzma? ( app-arch/xz-utils )
+	modemmanager? ( net-misc/modemmanager[qmi] )
 	policykit? ( >=sys-auth/polkit-0.103 )
 	systemd? ( >=sys-apps/systemd-211 )
 	tpm? ( app-crypt/tpm2-tss )
@@ -87,7 +88,6 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.5.7-logind_plugin.patch
-	"${FILESDIR}"/${P}-fix-python-detection.patch
 )
 
 pkg_setup() {
@@ -102,8 +102,13 @@ src_prepare() {
 	# c.f. https://github.com/fwupd/fwupd/issues/1414
 	sed -e "/test('thunderbolt-self-test', e, env: test_env, timeout : 120)/d" \
 		-i plugins/thunderbolt/meson.build || die
-	sed '/platform-integrity/d' \
+
+	sed -e '/platform-integrity/d' \
 		-i plugins/meson.build || die #753521
+
+	sed -e "/install_dir.*'doc'/s/fwupd/${PF}/" \
+		-i data/builder/meson.build || die
+
 	vala_src_prepare
 }
 
@@ -113,6 +118,7 @@ src_configure() {
 		$(meson_use dell plugin_dell)
 		$(meson_use flashrom plugin_flashrom)
 		$(meson_use gusb plugin_altos)
+		$(meson_use modemmanager plugin_modem_manager)
 		$(meson_use nvme plugin_nvme)
 		$(meson_use spi plugin_intel_spi)
 		$(meson_use synaptics plugin_synaptics_mst)
@@ -122,9 +128,6 @@ src_configure() {
 		$(meson_use uefi plugin_uefi_capsule)
 		$(meson_use uefi plugin_uefi_capsule_splash)
 		$(meson_use uefi plugin_uefi_pk)
-
-		# Dependencies are not available (yet?)
-		-Dplugin_modem_manager="false"
 	)
 	use ppc64 && plugins+=( -Dplugin_msr="false" )
 
