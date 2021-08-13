@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/node-v${PV}"
 fi
 
-IUSE="cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl system-icu +system-ssl systemtap test"
+IUSE="cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl systemtap test"
 REQUIRED_USE="inspector? ( icu ssl )
 	npm? ( ssl )
 	system-icu? ( icu )
@@ -33,11 +33,14 @@ RESTRICT="!test? ( test )"
 
 RDEPEND=">=app-arch/brotli-1.0.9
 	>=dev-libs/libuv-1.40.0:=
-	>=net-dns/c-ares-1.17.0
+	>=net-dns/c-ares-1.17.2
 	>=net-libs/nghttp2-1.41.0
 	sys-libs/zlib
 	system-icu? ( >=dev-libs/icu-67:= )
-	system-ssl? ( >=dev-libs/openssl-1.1.1:0= )"
+	system-ssl? (
+		>=dev-libs/openssl-1.1.1:0=
+		<dev-libs/openssl-3.0.0_beta1:0=
+	)"
 BDEPEND="${PYTHON_DEPS}
 	sys-apps/coreutils
 	virtual/pkgconfig
@@ -47,8 +50,11 @@ BDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}"
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-10.3.0-global-npm-config.patch
 	"${FILESDIR}"/${PN}-12.22.1-jinja_collections_abc.patch
-	"${FILESDIR}"/${PN}-15.2.0-global-npm-config.patch
+	"${FILESDIR}"/${PN}-12.22.1-uvwasi_shared_libuv.patch
+	"${FILESDIR}"/${PN}-12.22.5-shared_c-ares_nameser_h.patch
+	"${FILESDIR}"/${PN}-14.15.0-fix_ppc64_crashes.patch
 )
 
 pkg_pretend() {
@@ -62,6 +68,9 @@ pkg_pretend() {
 					# Bug #787158
 					die "LTO builds of ${PN} using gcc-11+ currently fail tests and produce runtime errors. Either switch to gcc-10 or unset USE=lto for this ebuild"
 				fi
+			else
+				# configure.py will abort on this later if we do not
+				die "${PN} only supports LTO for gcc"
 			fi
 		fi
 	fi
@@ -71,6 +80,17 @@ src_prepare() {
 	tc-export AR CC CXX PKG_CONFIG
 	export V=1
 	export BUILDTYPE=Release
+
+	# There have been cases of other bundled deps bypassing --shared-foo / USE=system-bar,
+	# therefore play it safe and make sure dependencies which are not supposed to be bundled
+	# aren't there in the first place.
+	rm -r deps/{brotli,cares,nghttp2,uv,zlib} || die "Failed to remove undesired bundled deps"
+	if use system-icu; then
+		rm -r deps/icu-small || die "Failed to remove bundled ICU"
+	fi
+	if use system-ssl; then
+		rm -r deps/openssl || die "Failed to remoce bundled OpenSSL"
+	fi
 
 	# fix compilation on Darwin
 	# https://code.google.com/p/gyp/issues/detail?id=260
@@ -183,12 +203,17 @@ src_install() {
 	fi
 
 	if use npm; then
-		keepdir /etc/npm
+		dodir /etc/npm
 
 		# Install bash completion for `npm`
+		# We need to temporarily replace default config path since
+		# npm otherwise tries to write outside of the sandbox
+		local npm_config="usr/$(get_libdir)/node_modules/npm/lib/config/core.js"
+		sed -i -e "s|'/etc'|'${ED}/etc'|g" "${ED}/${npm_config}" || die
 		local tmp_npm_completion_file="$(TMPDIR="${T}" mktemp -t npm.XXXXXXXXXX)"
 		"${ED}/usr/bin/npm" completion > "${tmp_npm_completion_file}"
 		newbashcomp "${tmp_npm_completion_file}" npm
+		sed -i -e "s|'${ED}/etc'|'/etc'|g" "${ED}/${npm_config}" || die
 
 		# Move man pages
 		doman "${LIBDIR}"/node_modules/npm/man/man{1,5,7}/*
