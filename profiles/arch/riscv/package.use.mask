@@ -4,10 +4,9 @@
 # Marek Szuba <marecki@gentoo.org> (2021-08-14)
 # virtual/mysql & co. round-up:
 #  dev-db/mariadb fails tests here, see Bug #807995
-#  >=dev-db/mysql-8.0.22 do not support this arch
-#  dev-db/percona-server not tested yet, WIP
+#  dev-db/mysql and dev-db/percona-server do not support this arch
 #  dev-db/mariadb-galera has been absent from the tree since June 2019
-#  dev-db/mysql-cluster not tested yet, seriously outdated
+#  dev-db/mysql-cluster not tested yet, seriously outdated in the tree
 sci-libs/gdal mysql
 sys-cluster/slurm slurmdbd
 
@@ -102,8 +101,6 @@ dev-python/ipython nbconvert notebook
 app-crypt/heimdal afs
 #  - gnome-base/gconf, dev-libs/libotf & dev-libs/m17n-lib
 app-editors/emacs gconf m17n-lib
-#  - media-libs/libcanberra
-app-editors/vim sound
 #  - dev-embedded/libftdi, app-misc/inputlircd
 app-misc/lirc ftdi inputlirc
 #  - app-xemacs/ruby-modes (and by extension xemacs itself)
@@ -112,6 +109,8 @@ dev-lang/ruby xemacs
 dev-libs/nanomsg doc
 #  - sci-libs/gdal
 dev-python/networkx extras
+#  - dev-ruby{kramdown,maruku,rdiscount}
+dev-ruby/yard doc
 #  - app-text/dblatex & media-gfx/transfig
 dev-util/ragel doc
 #  - Qt5 & KDE
@@ -154,7 +153,6 @@ gnome-base/gvfs bluray cdda mtp ios
 sys-power/upower ios
 net-libs/gnome-online-accounts gnome
 net-libs/libproxy kde
-xfce-base/xfce4-settings libcanberra
 xfce-extra/tumbler epub ffmpeg odf pdf raw
 xfce-base/xfce4-meta pulseaudio
 # KDE not tested, so mask
