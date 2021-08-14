@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 inherit python-single-r1 qmake-utils xdg-utils
 
 DESCRIPTION="A general purpose tile map editor"
@@ -20,6 +20,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RDEPEND="
 	app-arch/zstd:=
 	>=dev-qt/qtcore-5.15:5
+	>=dev-qt/qtdbus-5.15:5
 	>=dev-qt/qtdeclarative-5.15:5
 	>=dev-qt/qtgui-5.15:5
 	>=dev-qt/qtnetwork-5.15:5
