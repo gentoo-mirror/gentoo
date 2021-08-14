@@ -344,20 +344,6 @@ dev-ruby/sfl
 # Removal in 30 days (2021-08-16) (bug #602594).
 app-accessibility/eflite
 
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-07-17)
-# Obsolete; all versions in current Perl core distributions
-# are newer, and no virtuals currently pull these packages.
-# Removal in 30 days.
-perl-core/Archive-Tar
-perl-core/CPAN-Meta
-perl-core/CPAN-Meta-Requirements
-perl-core/Data-Dumper
-perl-core/Digest
-perl-core/Digest-MD5
-perl-core/Digest-SHA
-perl-core/Dumpvalue
-perl-core/ExtUtils-Constant
-
 # Hans de Graaff <graaff@gentoo.org> (2021-07-17)
 # Deprecated upstream, replaced with factory_bot.
 # Last release in 2017, no dependencies.
@@ -370,33 +356,11 @@ dev-ruby/factory_girl
 # Masked for removal in 30 days.
 dev-ruby/bourne
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-07-16)
-# library with no consumer, multiple vulnerabilities
-# removal in 30 days (bug #713098)
-dev-java/xmlrpc
-
-# Kai Krakow <hurikhan77+bgo@gmail.com> (2021-07-16)
-# To be replaced by net-p2p/go-ipfs, no migration needed.
-# Simply deselect the masked package and install the replacement.
-# Masked for removal in 30 days. Bug #802381
-net-p2p/go-ipfs-bin
-
 # Hans de Graaff <graaff@gentoo.org> (2021-07-15)
 # Dead upstream, no longer maintained, last release in 2013.
 # No dependencies.
 # Masked for removal in 30 days.
 dev-ruby/spork
-
-# John Helmert III <ajak@gentoo.org> (2021-07-14)
-# Dead upstream, unfixed security issue.
-# Removal on 2021-08-13.  Bugs #755896, #781467.
-net-proxy/polipo
-
-# Marco Scardovi <marco@scardovi.vom> (2021-07-13)
-# These packages were only ported for netbox. Not useful for anything else
-# No revdeps. Removal in 30 days (Bug #801991)
-dev-python/markuppy
-dev-python/tablib
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-07-12)
 # Version 3.3.0 suffers from ridiculously high CPU usage, this version has
@@ -475,16 +439,6 @@ dev-ruby/rash
 # is resolved.  Bug #791259.
 >=media-libs/libopenaptx-0.2.1
 
-# Aaron W. Swenon <titanofold@gentoo.org> (2021-07-05)
-# PostgreSQL 9.5 has reached end of life and will no longer receive any
-# updates -- security or otherwise -- from upstream or Gentoo.
-# You should migrate immediately.
-#     https://wiki.gentoo.org/wiki/PostgreSQL/QuickStart#Post-9.0_Migration
-# For more information about PostgreSQL's versioning policy, see:
-#     https://www.postgresql.org/support/versioning/#
-# Removal after 2021-08-04.
-dev-db/postgresql:9.5
-
 # David Seifert <soap@gentoo.org> (2021-07-01)
 # Berkeley DB slots that are long past EOL by Oracle,
 # maintenance burden, and no real path forward by Oracle.
@@ -498,12 +452,6 @@ sys-libs/db:4.5
 sys-libs/db:4.6
 sys-libs/db:4.7
 sys-libs/db:5.1
-
-# Matthias Maier <tamiko@gentoo.org> (2021-06-27)
-# Last release in 2013. Fails to build. No reverse dependencies.
-# Bugs #735260
-# Removal on 2021-07-27
-media-sound/loudness-scanner
 
 # Conrad Kostecki <conikost@gentoo.org> (2021-06-20)
 # New Minecraft server release needs at least Java 16,
