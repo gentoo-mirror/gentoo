@@ -12,20 +12,20 @@ HOMEPAGE="https://fallabs.com/hyperestraier/"
 SRC_URI="https://fallabs.com/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 SLOT="0"
 IUSE="bzip2 debug java lzo mecab perl ruby static-libs +zlib"
 
 RDEPEND="dev-db/qdbm
 	bzip2? ( app-arch/bzip2 )
-	java? ( >=virtual/jre-1.4:* )
+	java? ( >=virtual/jre-1.8:* )
 	lzo? ( dev-libs/lzo )
 	mecab? ( app-text/mecab )
 	perl? ( dev-lang/perl )
 	ruby? ( $(ruby_implementations_depend) )
 	zlib? ( sys-libs/zlib )"
 DEPEND="${RDEPEND}
-	java? ( >=virtual/jdk-1.4:* )"
+	java? ( >=virtual/jdk-1.8:* )"
 BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/all/${P}"
 
