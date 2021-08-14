@@ -49,7 +49,7 @@ RDEPEND="
 	!gles2-only? ( virtual/opengl )
 	wayland? (
 		=kde-frameworks/kwayland-${PVCUT}*:5
-		media-libs/mesa[egl]
+		media-libs/mesa[egl(+)]
 	)
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5

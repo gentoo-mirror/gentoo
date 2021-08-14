@@ -21,16 +21,8 @@ DEPEND="
 	eps? ( >=dev-qt/qtprintsupport-${QTMIN}:5 )
 	heif? ( >=media-libs/libheif-1.10.0:= )
 	openexr? (
-		|| (
-			(
-			media-libs/ilmbase:0
-			<media-libs/openexr-3.0.0:0
-			)
-			(
-			dev-libs/imath:3
-			media-libs/openexr:3
-			)
-		)
+		media-libs/ilmbase:0=
+		<media-libs/openexr-3.0.0:0=
 	)
 "
 RDEPEND="${DEPEND}"

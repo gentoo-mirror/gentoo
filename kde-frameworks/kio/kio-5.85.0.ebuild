@@ -50,6 +50,7 @@ RDEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
+	sys-apps/util-linux
 	acl? (
 		sys-apps/attr
 		virtual/acl
@@ -69,12 +70,6 @@ DEPEND="${RDEPEND}
 	)
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-fix-qtconcurrent-private-link.patch # bug 784971
-	"${FILESDIR}"/${P}-cxx17-std-mem_fn.patch # bug 802030
-	"${FILESDIR}"/${P}-fix-open-url-w-binary.patch # KDE-bug 439477
-)
 
 src_configure() {
 	local mycmakeargs=(
