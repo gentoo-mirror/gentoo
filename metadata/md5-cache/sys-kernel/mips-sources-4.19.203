@@ -4,7 +4,7 @@ DESCRIPTION=Kernel.org sources for MIPS-based machines
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:MIPS
 INHERIT=kernel-2
-IUSE=experimental ip27 ip28 ip30 symlink build
+IUSE=experimental ip27 ip28 ip30 symlink symlink build
 KEYWORDS=-* ~mips
 LICENSE=GPL-2
 RDEPEND=!build? ( dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
@@ -12,4 +12,4 @@ RESTRICT=binchecks strip
 SLOT=4.19.203
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.19.203.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz https://dev.gentoo.org/~kumba/distfiles/mips-sources-4.19.0-patches-v3.tar.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	kernel-2	6b17cdaee897466001a472284e0421c8
-_md5_=9bfb82dce02d5c0c898175d04e75b705
+_md5_=938b165af698e6c68f65224be6f8da8d
