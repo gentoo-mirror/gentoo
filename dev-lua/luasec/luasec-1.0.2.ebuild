@@ -25,10 +25,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}/${P}_openssl3.patch"
-)
-
 lua_src_prepare() {
 	pushd "${BUILD_DIR}" || die
 
