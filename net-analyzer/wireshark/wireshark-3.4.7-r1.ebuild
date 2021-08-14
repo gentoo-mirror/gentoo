@@ -18,7 +18,7 @@ else
 	SRC_URI="https://www.wireshark.org/download/src/all-versions/${P/_/}.tar.xz"
 	S="${WORKDIR}/${P/_/}"
 
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc64 x86"
 fi
 
 LICENSE="GPL-2"
@@ -65,7 +65,7 @@ CDEPEND="
 	sshdump? ( >=net-libs/libssh-0.6 )
 	ssl? ( net-libs/gnutls:= )
 	zlib? ( sys-libs/zlib )
-	zstd? ( app-arch/zstd )
+	zstd? ( app-arch/zstd:= )
 "
 # We need perl for `pod2html`. The rest of the perl stuff is to block older
 # and broken installs. #455122

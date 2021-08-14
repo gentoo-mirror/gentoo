@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/node-v${PV}"
 fi
 
-IUSE="cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl system-icu +system-ssl systemtap test"
+IUSE="cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl systemtap test"
 REQUIRED_USE="inspector? ( icu ssl )
 	npm? ( ssl )
 	system-icu? ( icu )
@@ -33,7 +33,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND=">=app-arch/brotli-1.0.9:=
 	>=dev-libs/libuv-1.40.0:=
-	>=net-dns/c-ares-1.17.0:=
+	>=net-dns/c-ares-1.17.2:=
 	>=net-libs/nghttp2-1.41.0:=
 	sys-libs/zlib
 	system-icu? ( >=dev-libs/icu-67:= )
@@ -47,7 +47,9 @@ BDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-12.22.1-jinja_collections_abc.patch  # still needed as of 2021-06-04
+	"${FILESDIR}"/${PN}-12.22.1-jinja_collections_abc.patch
+	"${FILESDIR}"/${PN}-12.22.5-shared_c-ares_nameser_h.patch
+	"${FILESDIR}"/${PN}-15.2.0-global-npm-config.patch
 )
 
 pkg_pretend() {
@@ -217,10 +219,10 @@ src_install() {
 }
 
 src_test() {
-	# parallel/test-fs-mkdir is known to fail with FEATURES=usersandbox
 	if has usersandbox ${FEATURES}; then
-		ewarn "You are emerging ${P} with 'usersandbox' enabled." \
-			"Expect some test failures or emerge with 'FEATURES=-usersandbox'!"
+		rm -f "${S}"/test/parallel/test-fs-mkdir.js
+		ewarn "You are emerging ${PN} with 'usersandbox' enabled. Excluding tests known to fail in this mode." \
+			"For full test coverage, emerge =${CATEGORY}/${PF} with 'FEATURES=-usersandbox'."
 	fi
 
 	out/${BUILDTYPE}/cctest || die
