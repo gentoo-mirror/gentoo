@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Full-text search engine with support for MySQL and PostgreSQL
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=mysql? ( dev-db/mysql-connector-c ) mariadb? ( dev-db/mariadb-connector-
 REQUIRED_USE=mysql? ( !mariadb ) mariadb? ( !mysql )
 SLOT=0
 SRC_URI=http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
 _md5_=2535105d05696478185d19fd87b20956

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 virtual/fortran
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=dev-libs/libf2c virtual/fortran
 DESCRIPTION=Autotooled, updated version of a powerful, fast semi-empirical package
@@ -11,5 +11,5 @@ LICENSE=public-domain
 RDEPEND=dev-libs/libf2c virtual/fortran
 SLOT=0
 SRC_URI=http://www.bioinformatics.org/ghemical/download/current/mopac7-1.15.tar.gz http://wwwuser.gwdg.de/~ggroenh/qmmm/mopac/dcart.f http://wwwuser.gwdg.de/~ggroenh/qmmm/mopac/gmxmop.f
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
 _md5_=7a1f59899e05927473e4fa056b0b6695
