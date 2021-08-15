@@ -71,6 +71,11 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-KDirOperator-exp-to-url-only-in-detail-treeview.patch # KDE-bug 440475
+	"${FILESDIR}"/${P}-allow-edit-icons-for-root-owned-desktop-files.patch # KDE-bug 429613
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON

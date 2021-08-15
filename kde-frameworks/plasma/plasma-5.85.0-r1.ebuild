@@ -61,6 +61,11 @@ DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-plasma-scaling-w-int-scale-factors.patch
+	"${FILESDIR}"/${P}-fix-pinned-calendar-dots.patch # KDE-bug 440627
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package !gles2-only OpenGL)
