@@ -2,7 +2,7 @@ DEFINED_PHASES=compile configure install test
 DEPEND=tcmalloc? ( dev-util/google-perftools ) snappy? ( app-arch/snappy:= )
 DESCRIPTION=a fast key-value storage library written at Google
 EAPI=7
-HOMEPAGE=http://leveldb.org/ https://github.com/google/leveldb
+HOMEPAGE=https://github.com/google/leveldb
 INHERIT=multilib toolchain-funcs
 IUSE=+snappy static-libs kernel_FreeBSD +tcmalloc test
 KEYWORDS=amd64 arm arm64 ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://github.com/google/leveldb/archive/v1.20.tar.gz -> leveldb-1.20.tar.gz
 _eclasses_=multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
-_md5_=7f7ee8cd77f24dc4157d6b19c5486d9d
+_md5_=9bb02f3a2377e60f9f92cf0c9e47e213
