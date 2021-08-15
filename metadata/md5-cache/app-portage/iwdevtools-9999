@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=Small tools to aid with Gentoo development, primarily intended for QA
+EAPI=8
+HOMEPAGE=https://github.com/ionenwks/iwdevtools
+INHERIT=git-r3 meson
+LICENSE=BSD-2
+PROPERTIES=live
+RDEPEND=app-portage/portage-utils sys-apps/diffutils sys-apps/portage sys-apps/util-linux
+SLOT=0
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	5bc3f1b890f90cc00cf1d1dddc10233e
+_md5_=3513edf3b37727bf2f278757cf559aa4
