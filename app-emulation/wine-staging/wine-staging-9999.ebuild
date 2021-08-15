@@ -96,7 +96,6 @@ COMMON_DEPEND="
 	openal? ( media-libs/openal:=[${MULTILIB_USEDEP}] )
 	opencl? ( virtual/opencl[${MULTILIB_USEDEP}] )
 	opengl? (
-		virtual/glu[${MULTILIB_USEDEP}]
 		virtual/opengl[${MULTILIB_USEDEP}]
 	)
 	osmesa? ( >=media-libs/mesa-13[osmesa,${MULTILIB_USEDEP}] )
