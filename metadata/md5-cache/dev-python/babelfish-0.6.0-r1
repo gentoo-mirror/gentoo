@@ -1,4 +1,4 @@
-BDEPEND=test? ( >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyproject2setuppy-18[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=>=dev-python/pyproject2setuppy-20[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyproject2setuppy-18[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Python library to work with countries and languages
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Diaoul/babelfish/archive/0.6.0.tar.gz -> babelfish-0.6.0.gh.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	e297e8afd355d60fb9d2d7b37b81214f
-_md5_=a48cd2e868fed90f1bf05bb5ce347e2c
+_md5_=9c3803f3e7b43dd9fc7b77bd3bd6d6c9
