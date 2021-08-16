@@ -2799,7 +2799,7 @@ app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor set
 app-misc/ddcutil 0.9.9-r2: Program for querying and changing monitor settings
 app-misc/delay 1.6-r2: Sleeplike program that counts down the number of seconds specified
 app-misc/detachtty 9-r1 11.0.0: Attach/detach from interactive processes across the network
-app-misc/detox 1.4.2 1.4.3: Safely remove spaces and strange characters from filenames
+app-misc/detox 1.4.2 1.4.5: Safely remove spaces and strange characters from filenames
 app-misc/devtodo 0.1.20-r3: A nice command line todo list for developers
 app-misc/dfshow 0.9.1_beta-r1: DF-SHOW is a Unix-like rewrite of some of the applications from DF-EDIT
 app-misc/digitemp 3.7.1: Temperature logging and reporting using Maxim's iButtons and 1-Wire protocol
@@ -5823,7 +5823,7 @@ dev-libs/libofx 0.10.1-r1 0.10.2: Library to support the Open Financial eXchange
 dev-libs/liboil 0.3.17-r3: Library of simple functions that are optimized for various CPUs
 dev-libs/liborcus 0.16.1 9999: Standalone file import filter library for spreadsheet documents
 dev-libs/libotf 0.9.16: Library for handling OpenType fonts (OTF)
-dev-libs/libowfat 0.31-r1 0.32-r1 0.32-r2: reimplement libdjb - excellent libraries from Dan Bernstein
+dev-libs/libowfat 0.32-r1 0.32-r3: reimplement libdjb - excellent libraries from Dan Bernstein
 dev-libs/libp11 0.4.10-r1 0.4.11-r1: Abstraction layer to simplify PKCS#11 API
 dev-libs/libparserutils 0.2.4-r3: C library for building efficient parsers
 dev-libs/libpcre 8.44 8.45: Perl-compatible regular expression library
@@ -8905,7 +8905,7 @@ dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.3.3 0.4.0: Python NTP library
 dev-python/nuitka 0.6.11 0.6.15 0.6.15.1 0.6.15.3 0.6.16 0.6.16.2 0.6.16.3: Python to native compiler
 dev-python/numexpr 2.7.3: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 1.20.2-r1 1.20.3-r1 1.21.0 1.21.1: Fast array and numerical python library
+dev-python/numpy 1.20.2-r1 1.20.3-r1 1.21.0 1.21.1 1.21.2: Fast array and numerical python library
 dev-python/numpydoc 1.1.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauth2 1.9.0_p1-r1: Library for OAuth version 1.0
 dev-python/oauth2client 4.1.3-r1: Library for accessing resources protected by OAuth 2.0
@@ -9093,7 +9093,7 @@ dev-python/pygame_sdl2 6.99.12.4-r5 7.3.5-r1 7.3.5-r2: Reimplementation of porti
 dev-python/pyghmi 1.5.22: A pure python implementation of IPMI protocol
 dev-python/pygit2 1.6.1: Python bindings for libgit2
 dev-python/pyglet 1.5.18: Cross-platform windowing and multimedia library for Python
-dev-python/pygments 2.9.0: Pygments is a syntax highlighting package written in Python
+dev-python/pygments 2.9.0 2.10.0: Pygments is a syntax highlighting package written in Python
 dev-python/pygments-github-lexers 0.0.5: Pygments Github custom lexers
 dev-python/pygobject 3.40.1-r1: Python bindings for GObject Introspection
 dev-python/pygpgme 0.3-r3: A Python wrapper for the GPGME library
@@ -14609,7 +14609,7 @@ net-analyzer/cacti 1.2.16-r1 1.2.17: Cacti is a complete frontend to rrdtool
 net-analyzer/cacti-spine 1.2.16 1.2.17 99999: Spine is a fast poller for Cacti (formerly known as Cactid)
 net-analyzer/calamaris 2.99.4.5: parses logfiles of a wide variety of web proxy servers and generates reports
 net-analyzer/carl 0.9-r5: An rsync logfile analyzer
-net-analyzer/cbm 0.3 0.3.1: Color Bandwidth Meter
+net-analyzer/cbm 0.3 0.3.2: Color Bandwidth Meter
 net-analyzer/chaosreader 0.96: Trace TCP/UDP/... sessions and fetch application data.
 net-analyzer/check_mk_agent 1.4.0_p31: Agent to report data to Check_MK for monitoring
 net-analyzer/chronograf 1.4.3.0 1.6.2 1.7.3 1.8.5: Monitoring, processing and alerting on time series data
@@ -14898,7 +14898,7 @@ net-dns/ddclient 3.9.1: Perl client used to update dynamic DNS entries
 net-dns/djbdns 1.05-r35: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
 net-dns/dnscap 1.10.3: Network capture utility designed specifically for DNS traffic
-net-dns/dnscrypt-proxy 2.0.45 9999: A flexible DNS proxy, with support for encrypted DNS protocols
+net-dns/dnscrypt-proxy 2.0.45 2.1.0 9999: A flexible DNS proxy, with support for encrypted DNS protocols
 net-dns/dnsdist 1.5.1-r100 1.6.0: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnshijacker 1.3-r2: a libnet/libpcap based packet sniffer and spoofer
 net-dns/dnsmasq 2.85: Small forwarding DNS server
@@ -15366,7 +15366,7 @@ net-mail/mlmmj 1.3.0-r1: Mailing list managing made joyful
 net-mail/mpack 1.6-r4: Command-line MIME encoding and decoding utilities
 net-mail/mpop 1.4.7: A small, fast, and portable POP3 client
 net-mail/mswatch 1.2.0-r1: A utility to watch mailstores for changes and initiate mailbox syncs
-net-mail/mu 1.4.15 1.4.15-r1 1.4.15-r2 1.6.1: Set of tools to deal with Maildirs, in particular, searching and indexing
+net-mail/mu 1.4.15 1.4.15-r1 1.4.15-r2 1.6.1 1.6.3: Set of tools to deal with Maildirs, in particular, searching and indexing
 net-mail/muchsync 6: Synchronizes mail messages and notmuch tags across machines
 net-mail/nmzmail 1.1-r1: Fast mail searching for mutt using namazu
 net-mail/notmuch 0.31.3-r1 0.32.1-r1 0.32.2-r1: Thread-based e-mail indexer, supporting quick search and tagging
@@ -16483,7 +16483,7 @@ sci-geosciences/opencpn-plugins-meta 4.2.0-r3: Meta ebuild to pull in opencpn pl
 sci-geosciences/osm-gps-map 1.2.0: A GTK+ widget for displaying OpenStreetMap tiles
 sci-geosciences/osm2pgsql 1.4.0-r100 99999999: Converts OSM planet.osm data to a PostgreSQL/PostGIS database
 sci-geosciences/osmctools 0.9: A few really fast tools to convert, filter and update OSM data files
-sci-geosciences/qgis 3.18.3 3.20.0-r1 9999: User friendly Geographic Information System
+sci-geosciences/qgis 3.18.3 3.20.0-r1 3.20.2 9999: User friendly Geographic Information System
 sci-geosciences/qmapshack 1.15.2-r2 1.16.0: GPS mapping utility
 sci-geosciences/readosm 1.0.0e-r1 1.1.0a: Library to extract valid data from an Open Street Map input file
 sci-geosciences/routino 3.3.3: Routing application based on openstreetmap data
