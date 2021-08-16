@@ -8766,7 +8766,7 @@ dev-python/kaptan 0.5.12-r1: Configuration manager in your pocket
 dev-python/kazoo 2.8.0: A high-level Python library that makes it easier to use Apache Zookeeper
 dev-python/kconfiglib 14.1.0: A flexible Python Kconfig implementation
 dev-python/keep 2.10.1: Personal shell command keeper and snippets manager
-dev-python/keyring 23.0.1: Provides access to the system keyring service
+dev-python/keyring 23.0.1 23.1.0: Provides access to the system keyring service
 dev-python/keystoneauth 4.2.1-r1: This package contains tools for authenticating to an OpenStack-based cloud.
 dev-python/kiwisolver 1.3.1: An efficient C++ implementation of the Cassowary constraint solving algorithm
 dev-python/klein 20.6.0 21.8.0: micro-framework for developing production-ready web services with Python
@@ -9066,7 +9066,7 @@ dev-python/pycryptodome 3.10.1: A self-contained cryptographic library for Pytho
 dev-python/pycson 0.8-r1: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/pycuda 2019.1.2: Python wrapper for NVIDIA CUDA
 dev-python/pycups 1.9.73-r2: Python bindings for the CUPS API
-dev-python/pycurl 7.43.0.6 7.44.0: python binding for curl/libcurl
+dev-python/pycurl 7.43.0.6 7.44.0 7.44.1: python binding for curl/libcurl
 dev-python/pycurl-requests 0.2.0 0.2.1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.5: Set of facilities to extend Python with C++
 dev-python/pydantic 1.8.2 1.8.2_p20210719: Data parsing and validation using Python type hints
@@ -9317,7 +9317,7 @@ dev-python/pythondialog 3.5.1: A Python module for making simple text/console-mo
 dev-python/pythran 0.9.12_p1: Ahead of Time compiler for numeric kernels
 dev-python/pytidylib 0.3.2-r1: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8: A small Python module to parse various kinds of time expressions.
-dev-python/pytools 2021.2.7 9999: Collection of tools missing from the Python standard library
+dev-python/pytools 2021.2.7 2021.2.8 9999: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0: A pure Python implementation of the trie data structure
 dev-python/pytz 2021.1: World timezone definitions for Python
 dev-python/pytzdata 2020.1-r1: The Olson timezone database for Python
@@ -9612,7 +9612,7 @@ dev-python/ujson 4.0.2: Ultra fast JSON encoder and decoder for Python
 dev-python/uncertainties 3.1.4-r1 3.1.6: Python module for calculations with uncertainties
 dev-python/unicodecsv 0.14.1-r1: Drop-in replacement for python stdlib csv module supporting unicode
 dev-python/unidecode 1.2.0: Module providing ASCII transliterations of Unicode text
-dev-python/unidiff 0.6.0: Unified diff parsing/metadata extraction library
+dev-python/unidiff 0.6.0 0.7.0: Unified diff parsing/metadata extraction library
 dev-python/unittest-mixins 1.6-r1: A set of mixin classes and other helpers for unittest test case classes
 dev-python/unittest-or-fail 1: Run unittests or fail if no tests were found
 dev-python/uranium 4.9.1: A Python framework for building 3D printing related applications
@@ -9696,7 +9696,7 @@ dev-python/yaswfp 0.9.3-r1: Yet Another SWF Parser
 dev-python/zc-lockfile 2.0: Basic inter-process locks
 dev-python/zconfig 3.5.0 3.6.0: A configuration library supporting a hierarchical schema-driven configuration model
 dev-python/zeep 3.4.0 4.0.0: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.32.1 0.33.2 0.33.3 0.33.4 0.34.2 0.34.3 0.35.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.32.1 0.33.2 0.33.3 0.33.4 0.34.2 0.34.3 0.35.0 0.35.1: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.5.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 4.4.1: Zope Component Architecture
 dev-python/zope-configuration 4.4.0: Zope Configuration Architecture
@@ -10591,7 +10591,7 @@ dev-ruby/rspec-expectations 2.99.2 3.9.4 3.10.1: A Behaviour Driven Development 
 dev-ruby/rspec-its 1.2.0-r1 1.3.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-json_expectations 2.2.0: Set of matchers and helpers to allow you test your APIs responses.
 dev-ruby/rspec-mocks 2.99.2 3.9.1 3.10.2: A Behaviour Driven Development (BDD) framework for Ruby
-dev-ruby/rspec-rails 3.9.1 4.0.2 4.1.2 5.0.1: RSpec's official Ruby on Rails plugin
+dev-ruby/rspec-rails 3.9.1 4.0.2 4.1.2 5.0.1 5.0.2: RSpec's official Ruby on Rails plugin
 dev-ruby/rspec-retry 0.6.2: Retry intermittently failing rspec examples
 dev-ruby/rspec-stubbed_env 1.0.0: Stub environment variables in a scoped context for testing
 dev-ruby/rspec-support 3.9.4 3.10.2: A Behaviour Driven Development (BDD) framework for Ruby
@@ -18381,7 +18381,7 @@ www-apps/owncloud 10.7.0-r1: Web-based storage application where all your data i
 www-apps/phpBB 3.3.4: An open-source PHP-based bulletin board package
 www-apps/phpsysinfo 3.3.2 3.3.4: A customizable PHP script that displays information about your system nicely
 www-apps/piwigo 11.5.0-r1: a photo gallery software for the web
-www-apps/postfixadmin 3.3.9-r2 3.3.10: Web Based Management tool for Postfix style virtual domains and users
+www-apps/postfixadmin 3.3.10: Web Based Management tool for Postfix style virtual domains and users
 www-apps/prewikka 5.2.0: Graphical front-end analysis console for the Prelude Framework
 www-apps/radicale 2.1.12 3.0.6-r3: A simple CalDAV calendar server
 www-apps/redmine 4.1.2: Flexible project management web application using the Ruby on Rails framework
