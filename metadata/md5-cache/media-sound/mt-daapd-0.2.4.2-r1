@@ -1,6 +1,6 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=media-libs/libid3tag:= net-dns/avahi:=[dbus] sys-libs/gdbm:= sys-libs/zlib:= vorbis? ( media-libs/libvorbis:= media-libs/libogg:= ) virtual/pkgconfig
+DEPEND=media-libs/libid3tag:= net-dns/avahi[dbus] sys-libs/gdbm:= sys-libs/zlib:= vorbis? ( media-libs/libvorbis media-libs/libogg )
 DESCRIPTION=A multi-threaded implementation of Apple's DAAP server
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/mt-daapd/
@@ -8,8 +8,8 @@ INHERIT=autotools
 IUSE=vorbis
 KEYWORDS=amd64 arm ~hppa ~mips ppc sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=media-libs/libid3tag:= net-dns/avahi:=[dbus] sys-libs/gdbm:= sys-libs/zlib:= vorbis? ( media-libs/libvorbis:= media-libs/libogg:= )
+RDEPEND=media-libs/libid3tag:= net-dns/avahi[dbus] sys-libs/gdbm:= sys-libs/zlib:= vorbis? ( media-libs/libvorbis media-libs/libogg )
 SLOT=0
 SRC_URI=mirror://sourceforge/mt-daapd/mt-daapd-0.2.4.2.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=0776084601d36f09e114a7478a983b0d
+_md5_=1589dbf8c28230186643023d4015c8e6
