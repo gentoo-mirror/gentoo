@@ -1,7 +1,8 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install postinst postrm prepare unpack
-DEPEND=>=dev-vcs/git-1.8.2.1[curl] || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 DESCRIPTION=vim plugin: Gentoo and Portage syntax highlighting
-EAPI=6
+EAPI=7
 HOMEPAGE=https://github.com/gentoo/gentoo-syntax
 INHERIT=git-r3 vim-plugin
 IUSE=ignore-glep31
@@ -10,4 +11,4 @@ PROPERTIES=live
 RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
-_md5_=f2e895e3fe08b5824990dda890ad8fb7
+_md5_=239365e44f3015ba0f59ccacbe2fa870
