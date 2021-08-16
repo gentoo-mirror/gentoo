@@ -6,12 +6,12 @@
 # Chromium Project <chromium@gentoo.org>
 # @AUTHOR:
 # Mike Gilbert <floppym@gentoo.org>
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Shared functions for chromium and google-chrome
 
 case ${EAPI} in
-	7) ;;
-	*) die "EAPI=${EAPI:-0} is not supported" ;;
+	7|8) ;;
+	*) die "${ECLASS}: EAPI=${EAPI:-0} is not supported" ;;
 esac
 
 inherit linux-info
@@ -26,7 +26,8 @@ fi
 # @FUNCTION: chromium_suid_sandbox_check_kernel_config
 # @USAGE:
 # @DESCRIPTION:
-# Ensures the system kernel supports features needed for SUID sandbox to work.
+# Ensures the system kernel supports features needed for SUID and User namespaces sandbox
+# to work.
 chromium_suid_sandbox_check_kernel_config() {
 	if [[ "${MERGE_TYPE}" == "source" || "${MERGE_TYPE}" == "binary" ]]; then
 		# Warn if the kernel does not support features needed for sandboxing.
@@ -50,6 +51,12 @@ chromium_suid_sandbox_check_kernel_config() {
 # @DESCRIPTION:
 # List of language packs available for this package.
 
+# @FUNCTION: _chromium_set_l10n_IUSE
+# @USAGE:
+# @INTERNAL
+# @DESCRIPTION:
+# Converts and adds CHROMIUM_LANGS to IUSE. Called automatically if
+# CHROMIUM_LANGS is defined.
 _chromium_set_l10n_IUSE() {
 	local lang
 	for lang in ${CHROMIUM_LANGS}; do
@@ -105,6 +112,10 @@ chromium_remove_language_paks() {
 	done
 }
 
+# @FUNCTION: chromium_pkg_die
+# @USAGE:
+# @DESCRIPTION:
+# EBUILD_DEATH_HOOK function to display some warnings/information about build environment.
 chromium_pkg_die() {
 	if [[ "${EBUILD_PHASE}" != "compile" ]]; then
 		return
@@ -144,42 +155,6 @@ chromium_pkg_die() {
 	einfo "$(grep MemTotal /proc/meminfo)"
 	einfo "$(grep SwapTotal /proc/meminfo)"
 	einfo
-}
-
-# @VARIABLE: EGYP_CHROMIUM_COMMAND
-# @DESCRIPTION:
-# Path to the gyp_chromium script.
-: ${EGYP_CHROMIUM_COMMAND:=build/gyp_chromium}
-
-# @VARIABLE: EGYP_CHROMIUM_DEPTH
-# @DESCRIPTION:
-# Depth for egyp_chromium.
-: ${EGYP_CHROMIUM_DEPTH:=.}
-
-# @FUNCTION: egyp_chromium
-# @USAGE: [gyp arguments]
-# @DESCRIPTION:
-# Calls EGYP_CHROMIUM_COMMAND with depth EGYP_CHROMIUM_DEPTH and given
-# arguments. The full command line is echoed for logging.
-egyp_chromium() {
-	set -- "${EGYP_CHROMIUM_COMMAND}" --depth="${EGYP_CHROMIUM_DEPTH}" "$@"
-	echo "$@"
-	"$@"
-}
-
-# @FUNCTION: gyp_use
-# @USAGE: <USE flag> [GYP flag] [true suffix] [false suffix]
-# @DESCRIPTION:
-# If USE flag is set, echo -D[GYP flag]=[true suffix].
-#
-# If USE flag is not set, echo -D[GYP flag]=[false suffix].
-#
-# [GYP flag] defaults to use_[USE flag] with hyphens converted to underscores.
-#
-# [true suffix] defaults to 1. [false suffix] defaults to 0.
-gyp_use() {
-	local gypflag="-D${2:-use_${1//-/_}}="
-	usex "$1" "${gypflag}" "${gypflag}"  "${3-1}" "${4-0}"
 }
 
 fi
