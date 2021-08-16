@@ -17,8 +17,7 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	[[ "${PV}" = *_rc* ]] || \
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-	SRC_URI="https://www.kernel.org/pub/linux/utils/util-linux/v${PV:0:4}/${MY_P}.tar.xz
-		https://dev.gentoo.org/~polynomial-c/${MY_P}-manpages.tar.xz"
+	SRC_URI="https://www.kernel.org/pub/linux/utils/util-linux/v${PV:0:4}/${MY_P}.tar.xz"
 fi
 
 DESCRIPTION="Various useful Linux utilities"
@@ -88,22 +87,8 @@ RESTRICT="!test? ( test )"
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	# https://github.com/karelzak/util-linux/pull/1329
-	"${FILESDIR}/${P}-ppc-nortas.patch"
-
-	"${FILESDIR}/${P}-lcrypt_link_fix.patch" # 801403
-	"${FILESDIR}/${P}-lcrypt_use_LIBS.patch" # 801403
-	"${FILESDIR}/${P}-avoid_autoreconf.patch" # 801403
+	"${FILESDIR}"/${PN}-2.37.1-agetty_ctrl-c_erase.patch #804972
 )
-
-rm_man() {
-	[[ -n $1 ]] || die
-	local el
-	for el in $1 ; do
-		find "${WORKDIR}/man" -type f -name "${el}.?" -delete \
-			|| die
-	done
-}
 
 src_prepare() {
 	default
@@ -123,14 +108,6 @@ src_prepare() {
 	if [[ ${PV} == 9999 ]] ; then
 		po/update-potfiles
 		eautoreconf
-	else
-		# Conditionally remove some man-pages
-		use hardlink 	|| rm_man "hardlink"
-		use kill 	|| rm_man "kill"
-		use logger 	|| rm_man "logger"
-		use ncurses 	|| rm_man "pg"
-		use su 		|| rm_man "su"
-		use tty-helpers	|| rm_man "mesg wall write"
 	fi
 
 	elibtoolize
@@ -325,10 +302,6 @@ multilib_src_install_all() {
 
 	# e2fsprogs-libs didnt install .la files, and .pc work fine
 	find "${ED}" -name "*.la" -delete || die
-
-	if [[ ${PV} != 9999 ]] ; then
-		doman "${WORKDIR}"/man/man*/*
-	fi
 
 	if ! use userland_GNU ; then
 		# manpage collisions
