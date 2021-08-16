@@ -1,0 +1,16 @@
+BDEPEND=!minimal? ( dev-perl/Package-Stash-XS ) >=virtual/perl-Exporter-5.570.0 virtual/perl-File-Spec dev-perl/Module-Runtime >=dev-perl/Package-Stash-0.140.0 dev-perl/Sub-Identify virtual/perl-Test-Simple >=virtual/perl-CPAN-Meta-Requirements-2.120.620 virtual/perl-ExtUtils-MakeMaker virtual/perl-Module-Metadata !<dev-perl/Role-Tiny-1.3.0 test? ( !minimal? ( >=virtual/perl-CPAN-Meta-2.120.900 ) dev-perl/File-pushd virtual/perl-Scalar-List-Utils dev-perl/Sub-Exporter dev-perl/Test-Deep dev-perl/Test-Needs >=virtual/perl-Test-Simple-1.1.10 >=dev-perl/Test-Warnings-0.9.0 virtual/perl-if dev-perl/namespace-clean virtual/perl-parent ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Check for uncleaned imports
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Test-CleanNamespaces
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=amd64 ~arm arm64 ~hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-solaris
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=!minimal? ( dev-perl/Package-Stash-XS ) >=virtual/perl-Exporter-5.570.0 virtual/perl-File-Spec dev-perl/Module-Runtime >=dev-perl/Package-Stash-0.140.0 dev-perl/Sub-Identify virtual/perl-Test-Simple dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Test-CleanNamespaces-0.24.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=9576ca02312fda047af5c27605139b5a
