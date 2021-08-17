@@ -17,10 +17,16 @@ IUSE="debug ipv6 masquerade selinux"
 DEPEND="masquerade? ( net-libs/libnetfilter_conntrack )"
 
 RDEPEND="
+	${DEPEND}
 	acct-user/oidentd
 	acct-group/oidentd
 	selinux? ( sec-policy/selinux-oident )
-	${DEPEND}"
+"
+
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+"
 
 src_prepare() {
 	sed -i '/ExecStart/ s|$| -u oidentd -g oidentd|' contrib/systemd/*.service || die
