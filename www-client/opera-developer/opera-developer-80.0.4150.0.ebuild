@@ -7,7 +7,8 @@ CHROMIUM_LANGS="
 	it ja ko lt lv ms nb nl pl pt-BR pt-PT ro ru sk sr sv sw ta te th tr uk vi
 	zh-CN zh-TW
 "
-inherit chromium-2 multilib pax-utils unpacker xdg
+#inherit chromium-2 multilib pax-utils unpacker xdg
+inherit chromium-2 multilib pax-utils rpm xdg
 
 DESCRIPTION="A fast and secure web browser"
 HOMEPAGE="https://www.opera.com/"
@@ -30,9 +31,9 @@ fi
 
 KEYWORDS="-* ~amd64"
 
-FFMPEG_VERSION="93.0.4549.4"
+FFMPEG_VERSION="94.0.4590.0"
 
-SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.deb}
+SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.rpm}
 	proprietary-codecs? (
 		https://dev.gentoo.org/~sultan/distfiles/www-client/opera/opera-ffmpeg-codecs-${FFMPEG_VERSION}.tar.xz
 	)"
@@ -50,7 +51,7 @@ RDEPEND="
 	dev-libs/nss
 	gnome-base/gsettings-desktop-schemas
 	media-libs/alsa-lib
-	media-libs/mesa[gbm]
+	media-libs/mesa[gbm(+)]
 	net-misc/curl
 	net-print/cups
 	sys-apps/dbus
@@ -90,21 +91,24 @@ src_unpack() {
 src_install() {
 	dodir /
 	cd "${ED}" || die
-	unpacker
+	rpm_src_unpack "${A[0]}"
+#	unpacker
 
 	# move to /opt, bug #573052
 	mkdir -p "${OPERA_HOME%${PN}}"
-	mv "usr/lib/x86_64-linux-gnu/${PN}" "${OPERA_HOME%${PN}}" || die
+	mv "usr/lib64/${PN}" "${OPERA_HOME%${PN}}" || die
+#	mv "usr/lib/x86_64-linux-gnu/${PN}" "${OPERA_HOME%${PN}}" || die
 	rm -r "usr/lib" || die
 
 	# disable auto update
 	rm "${OPERA_HOME}/${PN%-*}_autoupdate"{,.licenses,.version} || die
 
-	rm -r "usr/share/lintian" || die
+#	rm -r "usr/share/lintian" || die
+	rm "${OPERA_HOME}/setup_repo.sh" || die
 
 	# fix docs
-	mv usr/share/doc/${MY_PN} usr/share/doc/${PF} || die
-	gzip -d usr/share/doc/${PF}/changelog.gz || die
+#	mv usr/share/doc/${MY_PN} usr/share/doc/${PF} || die
+#	gzip -d usr/share/doc/${PF}/changelog.gz || die
 
 	# fix desktop file
 	sed -i \
