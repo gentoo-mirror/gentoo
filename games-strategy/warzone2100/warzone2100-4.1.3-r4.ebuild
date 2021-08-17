@@ -23,11 +23,9 @@ IUSE="debug discord nls videos vulkan"
 
 CDEPEND="
 	>=dev-games/physfs-2[zip]
-	dev-db/sqlite
+	dev-db/sqlite:3
 	>=dev-libs/libsodium-1.0.14:=
-	dev-libs/openssl:0=
 	media-libs/freetype:2
-	media-libs/glew:=
 	media-libs/harfbuzz:=
 	media-libs/libogg
 	media-libs/libpng:=
@@ -60,13 +58,15 @@ BDEPEND="
 HTML_DOCS=( doc/quickstartguide.html doc/docbook-xsl.css doc/ScriptingManual.htm )
 DOCS=( README.md doc/images doc/Scripting.md doc/js-globals.md )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.1.3-no-compress-manpages.patch
+)
+
 src_unpack() {
 	unpack ${P}.tar.xz
 }
 
 src_prepare() {
-	default
-
 	sed -i -e 's/#top_builddir/top_builddir/' po/Makevars || die
 
 	# Delete translations we're not using
