@@ -23,7 +23,7 @@ else
 	SRC_URI="https://github.com/notqmail/notqmail/releases/download/${P}/${P}.tar.xz"
 fi
 
-DESCRIPTION="qmail -- a secure, reliable, efficient, simple message transfer agent"
+DESCRIPTION="Collaborative open-source successor to qmail"
 HOMEPAGE="
 	https://notqmail.org
 	https://cr.yp.to/qmail.html
@@ -171,10 +171,6 @@ pkg_postinst() {
 	elog "http://www.lifewithqmail.com/"
 	elog "  -- Life with qmail"
 	elog
-}
-
-pkg_preinst() {
-	qmail_tcprules_fixup
 }
 
 pkg_config() {
