@@ -17,7 +17,7 @@ SLOT="2.2"
 EMULTILIB_PKG="true"
 
 # Gentoo patchset (ignored for live ebuilds)
-PATCH_VER=5
+PATCH_VER=6
 PATCH_DEV=dilfridge
 
 if [[ ${PV} == 9999* ]]; then
@@ -34,7 +34,7 @@ GCC_BOOTSTRAP_VER=20201208
 
 LOCALE_GEN_VER=2.10
 
-GLIBC_SYSTEMD_VER=20210727
+GLIBC_SYSTEMD_VER=20210814
 
 SRC_URI+=" https://gitweb.gentoo.org/proj/locale-gen.git/snapshot/locale-gen-${LOCALE_GEN_VER}.tar.gz"
 SRC_URI+=" multilib-bootstrap? ( https://dev.gentoo.org/~dilfridge/distfiles/gcc-multilib-bootstrap-${GCC_BOOTSTRAP_VER}.tar.xz )"
@@ -677,7 +677,7 @@ sanity_prechecks() {
 	fi
 
 	# When we actually have to compile something...
-	if ! just_headers ; then
+	if ! just_headers && [[ ${MERGE_TYPE} != "binary" ]] ; then
 		ebegin "Checking gcc for __thread support"
 		if ! eend $(want__thread ; echo $?) ; then
 			echo
