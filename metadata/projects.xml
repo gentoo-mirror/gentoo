@@ -1261,6 +1261,22 @@
     </member>
   </project>
   <project>
+    <email>handbook@gentoo.org</email>
+    <name>Handbook</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Handbook</url>
+    <description>The Handbook project is responsible for maintaining Gentoo's official Handbook.</description>
+    <member>
+      <email>dilfridge@gentoo.org</email>
+      <name>Andreas K. Hüttel</name>
+      <role>Editor</role>
+    </member>
+    <member>
+      <email>maffblaster@gentoo.org</email>
+      <name>Matthew Marchese</name>
+      <role>Maintainer</role>
+    </member>
+  </project>
+  <project>
     <email>hardened@gentoo.org</email>
     <name>Hardened</name>
     <url>https://wiki.gentoo.org/wiki/Project:Hardened</url>
@@ -3318,6 +3334,7 @@
     <name>Wiki</name>
     <url>https://wiki.gentoo.org/wiki/Project:Wiki</url>
     <description>The wiki project oversees the community and the content surrounding wiki.gentoo.org</description>
+    <subproject ref="handbook@gentoo.org" inherit-members="1"/>
     <member>
       <email>grknight@gentoo.org</email>
       <name>Brian Evans</name>
