@@ -4,7 +4,7 @@
 # @ECLASS: kde.org.eclass
 # @MAINTAINER:
 # kde@gentoo.org
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Support eclass for packages that are hosted on kde.org infrastructure.
 # @DESCRIPTION:
 # This eclass is mainly providing facilities for the three upstream release
@@ -16,7 +16,7 @@
 # particular build system.
 
 case ${EAPI} in
-	7) ;;
+	7|8) ;;
 	*) die "EAPI=${EAPI:-0} is not supported" ;;
 esac
 
@@ -30,12 +30,12 @@ _KDE_ORG_ECLASS=1
 # If PV matches "*9999*", this is automatically set to "live".
 # Otherwise, this is automatically set to "release".
 KDE_BUILD_TYPE="release"
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} == *9999* ]]; then
 	KDE_BUILD_TYPE="live"
 fi
 export KDE_BUILD_TYPE
 
-if [[ ${KDE_BUILD_TYPE} = live ]]; then
+if [[ ${KDE_BUILD_TYPE} == live ]]; then
 	inherit git-r3
 fi
 
@@ -82,12 +82,14 @@ declare -A KDE_ORG_CATEGORIES=(
 readonly KDE_ORG_CATEGORIES
 
 # @ECLASS-VARIABLE: KDE_ORG_CATEGORY
+# @PRE_INHERIT
 # @DESCRIPTION:
 # If unset, default value is mapped from ${CATEGORY} to corresponding upstream
 # category on invent.kde.org, with "kde" as fallback value.
 : ${KDE_ORG_CATEGORY:=${KDE_ORG_CATEGORIES[${CATEGORY}]:-kde}}
 
 # @ECLASS-VARIABLE: KDE_ORG_COMMIT
+# @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If set, instead of a regular release tarball, pull tar.gz snapshot from an
@@ -95,17 +97,23 @@ readonly KDE_ORG_CATEGORIES
 # at the desired COMMIT ID.
 
 # @ECLASS-VARIABLE: KDE_ORG_NAME
+# @PRE_INHERIT
 # @DESCRIPTION:
 # If unset, default value is set to ${PN}.
 # Name of the package as hosted on kde.org mirrors.
 : ${KDE_ORG_NAME:=$PN}
 
 # @ECLASS-VARIABLE: KDE_GEAR
+# @PRE_INHERIT
 # @DESCRIPTION:
-# If set to "false", do nothing.
+# Mark package is being part of KDE Gear release schedule.
+# By default, this is set to "false" and does nothing.
+# If CATEGORY equals kde-apps, this is automatically set to "true".
 # If set to "true", set SRC_URI accordingly and apply KDE_UNRELEASED.
-# Backward compatibility: Picks up KDE_RELEASE_SERVICE value if set.
-: ${KDE_GEAR:=${KDE_RELEASE_SERVICE:-false}}
+: ${KDE_GEAR:=false}
+if [[ ${CATEGORY} == kde-apps ]]; then
+	KDE_GEAR=true
+fi
 
 # @ECLASS-VARIABLE: KDE_SELINUX_MODULE
 # @PRE_INHERIT
@@ -139,16 +147,13 @@ case ${CATEGORY} in
 		HOMEPAGE="https://community.kde.org/Qt5PatchCollection
 			https://invent.kde.org/qt/qt/ https://www.qt.io/"
 		;;
-	kde-apps)
-		KDE_GEAR=true
-		;;
 	kde-plasma)
 		HOMEPAGE="https://kde.org/plasma-desktop"
 		;;
 	kde-frameworks)
 		HOMEPAGE="https://kde.org/products/frameworks/"
 		SLOT=5/${PV}
-		[[ ${KDE_BUILD_TYPE} = release ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
+		[[ ${KDE_BUILD_TYPE} == release ]] && SLOT=$(ver_cut 1)/$(ver_cut 1-2)
 		;;
 	*) ;;
 esac
@@ -160,10 +165,10 @@ esac
 _kde.org_is_unreleased() {
 	local pair
 	for pair in "${KDE_UNRELEASED[@]}" ; do
-		if [[ "${pair}" = "${CATEGORY}-${PV}" ]]; then
+		if [[ "${pair}" == "${CATEGORY}-${PV}" ]]; then
 			return 0
-		elif [[ ${KDE_GEAR} = true ]]; then
-			if [[ "${pair/kde-apps/${CATEGORY}}" = "${CATEGORY}-${PV}" ]]; then
+		elif [[ ${KDE_GEAR} == true ]]; then
+			if [[ "${pair/kde-apps/${CATEGORY}}" == "${CATEGORY}-${PV}" ]]; then
 				return 0
 			fi
 		fi
@@ -181,7 +186,7 @@ _kde.org_calculate_src_uri() {
 
 	local _src_uri="mirror://kde/"
 
-	if [[ ${KDE_GEAR} = true ]]; then
+	if [[ ${KDE_GEAR} == true ]]; then
 		case ${PV} in
 			??.??.[6-9]? )
 				_src_uri+="unstable/release-service/${PV}/src/"
@@ -219,7 +224,7 @@ _kde.org_calculate_src_uri() {
 			;;
 	esac
 
-	if [[ ${PN} = kdevelop* ]]; then
+	if [[ ${PN} == kdevelop* ]]; then
 		case ${PV} in
 			*.*.[6-9]? )
 				_src_uri+="unstable/kdevelop/${PV}/src/"
@@ -257,19 +262,19 @@ _kde.org_calculate_live_repo() {
 	# (anongit) with anything else you might want to use.
 	EGIT_MIRROR=${EGIT_MIRROR:=https://invent.kde.org/${KDE_ORG_CATEGORY}}
 
-	if [[ ${PV} == ?.??.9999 && ${CATEGORY} = dev-qt ]]; then
+	if [[ ${PV} == ?.??.9999 && ${CATEGORY} == dev-qt ]]; then
 		EGIT_BRANCH="kde/$(ver_cut 1-2)"
 	fi
 
-	if [[ ${PV} == ??.??.49.9999 && ${KDE_GEAR} = true ]]; then
+	if [[ ${PV} == ??.??.49.9999 && ${KDE_GEAR} == true ]]; then
 		EGIT_BRANCH="release/$(ver_cut 1-2)"
 	fi
 
-	if [[ ${PV} != 9999 && ${CATEGORY} = kde-plasma ]]; then
+	if [[ ${PV} != 9999 && ${CATEGORY} == kde-plasma ]]; then
 		EGIT_BRANCH="Plasma/$(ver_cut 1-2)"
 	fi
 
-	if [[ ${PV} != 9999 && ${PN} = kdevelop* ]]; then
+	if [[ ${PV} != 9999 && ${PN} == kdevelop* ]]; then
 		EGIT_BRANCH="$(ver_cut 1-2)"
 	fi
 
@@ -309,7 +314,7 @@ kde.org_pkg_nofetch() {
 		kde-frameworks) sched_uri+="/Frameworks" ;;
 		kde-plasma) sched_uri+="/Plasma_5" ;;
 		*)
-			[[ ${KDE_GEAR} = true ]] &&
+			[[ ${KDE_GEAR} == true ]] &&
 				sched_uri+="/KDE_Gear_$(ver_cut 1-2)_Schedule"
 			;;
 	esac

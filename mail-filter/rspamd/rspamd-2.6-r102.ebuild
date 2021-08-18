@@ -30,23 +30,22 @@ RDEPEND="${LUA_DEPS}
 	' lua5-{1,2})
 	acct-group/rspamd
 	acct-user/rspamd
-	app-arch/zstd
+	app-arch/zstd:=
 	dev-db/sqlite:3
 	dev-libs/glib:2
 	dev-libs/icu:=
 	dev-libs/libev
-	dev-libs/libsodium
+	dev-libs/libsodium:=
 	dev-libs/snowball-stemmer
-	net-libs/libnsl
 	sys-apps/file
 	blas? (
 		virtual/blas
 		virtual/lapack
 	)
 	cpu_flags_x86_ssse3? ( dev-libs/hyperscan )
-	jemalloc? ( dev-libs/jemalloc )
+	jemalloc? ( dev-libs/jemalloc:= )
 	dev-libs/openssl:0=[-bindist(-)]
-	pcre2? ( dev-libs/libpcre2[jit=] )
+	pcre2? ( dev-libs/libpcre2:=[jit=] )
 	!pcre2? ( dev-libs/libpcre[jit=] )"
 DEPEND="${RDEPEND}"
 BDEPEND="
