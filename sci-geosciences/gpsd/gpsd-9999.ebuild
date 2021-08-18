@@ -45,7 +45,7 @@ RDEPEND="
 	acct-group/dialout
 	>=net-misc/pps-tools-0.0.20120407
 	$(python_gen_any_dep 'dev-util/scons[${PYTHON_USEDEP}]')
-	bluetooth? ( net-wireless/bluez )
+	bluetooth? ( net-wireless/bluez:= )
 	dbus? (
 		sys-apps/dbus
 		dev-libs/dbus-glib
@@ -187,7 +187,10 @@ src_compile() {
 	export SHLINKFLAGS=${LDFLAGS} LINKFLAGS=${LDFLAGS}
 	escons "${scons_opts[@]}"
 
+	pushd "${P}" || die
+	ln -sf ../setup.py . || die
 	use python && distutils-r1_src_compile
+	popd || die
 }
 
 src_install() {
@@ -200,6 +203,7 @@ src_install() {
 	rm -rf  "${D}"/python-discard/gps*
 	find "${D}"/python-discard/ -type d -delete
 	# Install correct multi-python copy
+	pushd "${P}" || die
 	use python && distutils-r1_src_install
-
+	popd || die
 }
