@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Algorithm-Dependency-1.20.0 >=dev-perl/Config-Tiny-2.0.0 >=dev-perl/File-Find-Rule-0.260.0 >=dev-perl/File-Flat-1.0.0 >=dev-perl/File-Remove-0.370.0 >=virtual/perl-File-Spec-0.800.0 >=dev-perl/File-chmod-0.310.0 >=virtual/perl-Getopt-Long-2.340.0 >=virtual/perl-Scalar-List-Utils-1.190.0 >=dev-perl/Params-Util-0.210.0 dev-perl/Path-Tiny test? ( >=dev-perl/Test-ClassAPI-1.20.0 >=virtual/perl-Test-Simple-0.420.0 >=dev-perl/Test-Script-1.20.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Inline test suite support for Perl
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Test-Inline
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~hppa ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/Algorithm-Dependency-1.20.0 >=dev-perl/Config-Tiny-2.0.0 >=dev-perl/File-Find-Rule-0.260.0 >=dev-perl/File-Flat-1.0.0 >=dev-perl/File-Remove-0.370.0 >=virtual/perl-File-Spec-0.800.0 >=dev-perl/File-chmod-0.310.0 >=virtual/perl-Getopt-Long-2.340.0 >=virtual/perl-Scalar-List-Utils-1.190.0 >=dev-perl/Params-Util-0.210.0 dev-perl/Path-Tiny dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Test-Inline-2.214.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=5ebdf5eecb8b9282073d86e67cf0655e
