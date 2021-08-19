@@ -366,24 +366,6 @@ dev-ruby/sfl
 # Removal in 30 days (2021-08-16) (bug #602594).
 app-accessibility/eflite
 
-# Hans de Graaff <graaff@gentoo.org> (2021-07-17)
-# Deprecated upstream, replaced with factory_bot.
-# Last release in 2017, no dependencies.
-# Masked for removal in 30 days.
-dev-ruby/factory_girl
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-17)
-# Deprecated upstream, no longer needed with rspec 2+
-# Last release in 2016, factory_girl was last dependency.
-# Masked for removal in 30 days.
-dev-ruby/bourne
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-15)
-# Dead upstream, no longer maintained, last release in 2013.
-# No dependencies.
-# Masked for removal in 30 days.
-dev-ruby/spork
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-07-12)
 # Version 3.3.0 suffers from ridiculously high CPU usage, this version has
 # therefore been retracted upstream.
@@ -409,51 +391,12 @@ dev-ruby/spork
 >=mail-client/claws-mail-4.0.0
 
 # Hans de Graaff <graaff@gentoo.org> (2021-07-09)
-# Last release in 2016. Tests fail with recent git versions.
-# No reverse dependencies, no maintainer.
-# Masked for removal in 30 days.
-dev-vcs/git-num
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
-# Last release in 2014 and no longer supported upstream. Obsolete CSS
-# framework with known issues.
-# Masked for removal in 30 days.
-dev-ruby/compass
-dev-ruby/compass-core
-dev-ruby/compass-import-once
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-09)
 # Mask ruby25 for removal. This version is no longer supported
 # upstream. Use a newer ruby version, e.g ruby26.
 # Masked for removal in 30 days.
 dev-lang/ruby:2.5
 =dev-ruby/rubygems-2.7*
 dev-ruby/did_you_mean:2.5
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-07)
-# Security bug CVE-2015-9284, bug 761960. Use slot 2 instead.
-# Masked for removal in 30 days.
-dev-ruby/omniauth:0
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Obsolete slot, no dependencies. Use dev-ruby/http:4 instead.
-# Masked for removal in 30 days.
-dev-ruby/http:3
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Last release in 2013, no tests, no dependencies.
-# Masked for removal in 30 days.
-dev-ruby/nagios
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Last release in 2013, no tests, no dependencies.
-# Masked for removal in 30 days.
-dev-ruby/notify
-
-# Hans de Graaff <graaff@gentoo.org> (2021-07-06)
-# Last release in 2013, all dependencies have switched to rash_alt.
-# Masked for removal in 30 days.
-dev-ruby/rash
 
 # Michał Górny <mgorny@gentoo.org> (2021-07-06)
 # Upstream changed license to GPL-3+ in order to deliberately cause
