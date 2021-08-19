@@ -37,10 +37,14 @@ BDEPEND="
 "
 
 src_prepare() {
-	default
+	local PATCHES=(
+		# Bug 544608
+		"${FILESDIR}"/atari800-3.1.0-tgetent-detection.patch
+		# https://github.com/atari800/atari800/pull/140
+		"${FILESDIR}"/${P}-bashisms.patch
+	)
 
-	# Bug 544608
-	eapply -p2 "${FILESDIR}/atari800-3.1.0-tgetent-detection.patch"
+	default
 	eautoreconf
 }
 
