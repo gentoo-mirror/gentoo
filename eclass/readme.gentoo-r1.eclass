@@ -20,15 +20,9 @@
 if [[ -z ${_README_GENTOO_ECLASS} ]]; then
 _README_GENTOO_ECLASS=1
 
-case "${EAPI:-0}" in
-	0|1|2|3|4|5)
-		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
-		;;
-	6|7|8)
-		;;
-	*)
-		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
-		;;
+case ${EAPI} in
+	6|7|8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
 # @ECLASS-VARIABLE: DISABLE_AUTOFORMATTING
@@ -76,7 +70,10 @@ readme.gentoo_create_doc() {
 		die "You are not specifying README.gentoo contents!"
 	fi
 
-	dodoc "${T}"/README.gentoo
+	( # subshell to avoid pollution of calling environment
+		docinto .
+		dodoc "${T}"/README.gentoo
+	) || die
 	README_GENTOO_DOC_VALUE=$(< "${T}/README.gentoo")
 }
 
