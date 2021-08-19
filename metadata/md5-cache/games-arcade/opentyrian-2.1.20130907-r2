@@ -1,14 +1,14 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install postinst postrm prepare
-DEPEND=media-libs/libsdl[video] media-libs/sdl-net
+DEPEND=media-libs/libsdl[joystick,video] media-libs/sdl-net
 DESCRIPTION=Open-source port of the DOS game Tyrian, vertical scrolling shooter
 EAPI=7
 HOMEPAGE=https://github.com/opentyrian/opentyrian
 INHERIT=desktop toolchain-funcs xdg-utils
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=media-libs/libsdl[video] media-libs/sdl-net
+RDEPEND=media-libs/libsdl[joystick,video] media-libs/sdl-net
 SLOT=0
 SRC_URI=http://darklomax.org/tyrian/tyrian21.zip http://www.camanis.net/opentyrian/releases/opentyrian-2.1.20130907-src.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=a4fd6367d7de130cbe899e7d7bb7095e
+_md5_=73e5275259450a52574e49960e121558

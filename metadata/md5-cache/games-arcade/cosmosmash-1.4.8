@@ -1,15 +1,15 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=install prepare
-DEPEND=>=dev-games/flatzebra-0.1.7 virtual/pkgconfig
+DEPEND=>=dev-games/flatzebra-0.1.7 media-libs/libsdl[joystick] media-libs/sdl-image media-libs/sdl-mixer
 DESCRIPTION=A space rock shooting video game
 EAPI=7
 HOMEPAGE=https://perso.b2b2c.ca/~sarrazip/dev/cosmosmash.html
 INHERIT=autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-games/flatzebra-0.1.7
+RDEPEND=>=dev-games/flatzebra-0.1.7 media-libs/libsdl[joystick] media-libs/sdl-image media-libs/sdl-mixer
 RESTRICT=test
 SLOT=0
 SRC_URI=http://perso.b2b2c.ca/~sarrazip/dev/cosmosmash-1.4.8.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=ef76d2765c88da25c985f53f432fc337
+_md5_=267c6383c7600ce38a77a2a8047ca25f
