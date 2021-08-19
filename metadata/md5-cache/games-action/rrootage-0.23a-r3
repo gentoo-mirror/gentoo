@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install postinst prepare
-DEPEND=>=dev-libs/libbulletml-0.0.3 media-libs/libsdl[video] media-libs/sdl-mixer[vorbis] virtual/glu virtual/opengl
+DEPEND=>=dev-libs/libbulletml-0.0.3 media-libs/libsdl[joystick,video] media-libs/sdl-mixer[vorbis] virtual/glu virtual/opengl
 DESCRIPTION=Abstract shooter - defeat auto-created huge battleships
 EAPI=7
 HOMEPAGE=http://www.asahi-net.or.jp/~cs8k-cyu/windows/rr_e.html http://rrootage.sourceforge.net/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=>=dev-libs/libbulletml-0.0.3 media-libs/libsdl[video] media-libs/sdl-mixer[vorbis] virtual/glu virtual/opengl
+RDEPEND=>=dev-libs/libbulletml-0.0.3 media-libs/libsdl[joystick,video] media-libs/sdl-mixer[vorbis] virtual/glu virtual/opengl
 SLOT=0
 SRC_URI=mirror://sourceforge/rrootage/rRootage-0.23a.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=1b67dff1971d682b3cdf5885a76bc306
+_md5_=782f4cddb652e90620a08e438e9c25c9
