@@ -1,0 +1,37 @@
+Title: >=app-misc/mc-4.8.27 to drop support for ~/.mc
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2021-08-19
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: app-misc/mc
+
+app-misc/mc versions between 4.8.1 and 4.8.26, inclusive, would look
+for their user configuration in two possible places:
+
+ * if built with USE=-xdg, only the legacy directory ~/.mc is used;
+
+ * if built with USE=xdg, mc uses appropriate XDG user directories
+   (e.g. ~/.config/mc, ~/.local/share/mc) if present and attempts
+   to automatically migrate the contents of ~/.mc otherwise.
+
+However, starting with version 4.8.27 Midnight Commander will use _only
+XDG user directories_ for its configuration and no longer automatically
+migrate the contents of ~/.mc. For more information, see:
+
+    https://midnight-commander.org/wiki/NEWS-4.8.27
+    https://midnight-commander.org/ticket/3682
+
+For everyone who currently uses app-misc/mc[-xdg], or has not started
+mc for so long that it hasn't had a chance to migrate its configuration,
+upgrading to 4.8.27 or newer will result in Midnight Commander
+effectively reverting to default user configuration. In order to prevent
+this from happening, make sure automatic migration is available:
+
+    echo 'app-misc/mc xdg' >> /etc/portage/package.use
+    emerge --oneshot <app-misc/mc-4.8.27
+
+and have every user on your system with ~/.mc present run both 'mc'
+and 'mcedit' at least once prior to the version upgrade.
+
+No action is required of everyone currently using app-misc/mc
+with USE=xdg enabled.
