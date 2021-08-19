@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=Official golang implementation of the Energi Core
+EAPI=7
+HOMEPAGE=https://www.energi.world/
+INHERIT=go-module systemd
+KEYWORDS=~amd64
+LICENSE=GPL-3 LGPL-3
+RDEPEND=acct-user/energi3
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/energicryptocurrency/energi3/archive/refs/tags/v3.1.0.tar.gz -> energi3-3.1.0.tar.gz
+_eclasses_=go-module	8aabf8812bab7a6f07e7a32958c505ef	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_md5_=5ba7ca77e462f65ea1f93966004c182f
