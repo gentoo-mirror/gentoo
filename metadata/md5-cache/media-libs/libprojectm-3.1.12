@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/projectM-visualizer/projectm
 INHERIT=autotools
 IUSE=gles2 jack pulseaudio qt5 sdl
-KEYWORDS=amd64 arm arm64 ppc ppc64 sparc x86
+KEYWORDS=amd64 arm arm64 ppc ppc64 ~riscv sparc x86
 LICENSE=LGPL-2
 RDEPEND=gles2? ( media-libs/mesa[gles2] ) media-libs/glm media-libs/mesa[X(+)] jack? ( virtual/jack ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtopengl:5 ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( >=media-libs/libsdl2-2.0.5 ) sys-libs/zlib
 REQUIRED_USE=jack? ( qt5 ) pulseaudio? ( qt5 )
 SLOT=0/2
 SRC_URI=https://github.com/projectM-visualizer/projectm/archive/v3.1.12.tar.gz -> libprojectm-3.1.12.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=7c81906adfc469e8065c876e360a6f46
+_md5_=54b7acb51f334137b27ec47ed9d64832
