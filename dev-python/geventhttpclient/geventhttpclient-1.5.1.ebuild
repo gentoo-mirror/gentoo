@@ -9,15 +9,16 @@ inherit distutils-r1
 
 DESCRIPTION="A high performance, concurrent HTTP client library for Python using gevent"
 HOMEPAGE="https://github.com/gwik/geventhttpclient"
-SRC_URI="https://github.com/gwik/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 RDEPEND="
+	app-arch/brotli[python,${PYTHON_USEDEP}]
 	dev-python/certifi[${PYTHON_USEDEP}]
-	dev-python/gevent[${PYTHON_USEDEP}]
+	dev-python/gevent[events,${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 "
 BDEPEND="
