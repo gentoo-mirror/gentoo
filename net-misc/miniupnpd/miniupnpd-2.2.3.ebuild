@@ -1,8 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
+EAPI=8
 inherit toolchain-funcs verify-sig
 
 MY_P=${P/_rc/-RC}
@@ -38,6 +37,17 @@ BDEPEND="
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/miniupnp.asc
 
+src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}"/${P}-testgetifaddr.patch
+	)
+
+	default
+
+	# fails without a default route
+	sed -i -e 's:EXTIF=.*:EXTIF=lo:' testgetifaddr.sh || die
+}
+
 src_configure() {
 	local opts=(
 		--vendorcfg
@@ -60,6 +70,10 @@ src_compile() {
 	# By default, it builds a bunch of unittests that are missing wrapper
 	# scripts in the tarball
 	emake CC="$(tc-getCC)" STRIP=true miniupnpd
+}
+
+src_test() {
+	emake CC="$(tc-getCC)" check
 }
 
 src_install() {
