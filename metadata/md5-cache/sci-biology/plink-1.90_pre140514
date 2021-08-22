@@ -1,7 +1,8 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
-DEPEND=sys-libs/zlib virtual/cblas virtual/lapack app-arch/unzip virtual/pkgconfig
+DEPEND=sys-libs/zlib virtual/cblas virtual/lapack
 DESCRIPTION=Whole genome association analysis toolset
-EAPI=5
+EAPI=8
 HOMEPAGE=http://pngu.mgh.harvard.edu/~purcell/plink/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
@@ -10,4 +11,4 @@ RDEPEND=sys-libs/zlib virtual/cblas virtual/lapack
 SLOT=0
 SRC_URI=http://pngu.mgh.harvard.edu/~purcell/static/bin/plink140514/plink_src.zip -> plink-1.90_pre140514.zip
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=e1f50da3f99cd26238e4ef37a7de379a
+_md5_=e839f5daef081dde4b2d3e0417010738

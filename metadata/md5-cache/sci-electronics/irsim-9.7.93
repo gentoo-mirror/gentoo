@@ -1,13 +1,12 @@
-DEFINED_PHASES=configure install postinst prepare
-DEPEND=dev-lang/tcl:0 dev-lang/tk:0 app-shells/tcsh
+BDEPEND=app-shells/tcsh
+DEFINED_PHASES=configure postinst
+DEPEND=dev-lang/tcl:= dev-lang/tk:=
 DESCRIPTION=IRSIM is a "switch-level" simulator
-EAPI=5
+EAPI=8
 HOMEPAGE=http://opencircuitdesign.com/irsim/
-INHERIT=epatch multilib
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/tcl:0 dev-lang/tk:0
+RDEPEND=dev-lang/tcl:= dev-lang/tk:=
 SLOT=0
 SRC_URI=http://opencircuitdesign.com/irsim/archive/irsim-9.7.93.tgz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
-_md5_=081be0fd84e88f58ef0293f13be6f4be
+_md5_=dc979061c7f5a90bece0990b8d6960c6
