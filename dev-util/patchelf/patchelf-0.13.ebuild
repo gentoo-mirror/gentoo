@@ -1,18 +1,16 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
 DESCRIPTION="Small utility to modify the dynamic linker and RPATH of ELF executables"
-HOMEPAGE="https://nixos.org/patchelf.html"
-SRC_URI="https://nixos.org/releases/${PN}/${P}/${P}.tar.bz2"
+HOMEPAGE="https://github.com/NixOS/patchelf"
+SRC_URI="https://github.com/NixOS/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 LICENSE="GPL-3"
-
-S="${WORKDIR}/${P}.20200609.d6b2a72"
 
 src_prepare() {
 	default
@@ -23,10 +21,4 @@ src_prepare() {
 		configure.ac || die
 
 	eautoreconf
-}
-
-src_test() {
-	emake check \
-		  CFLAGS+=" -no-pie" \
-		  CXXFLAGS+=" -no-pie"
 }
