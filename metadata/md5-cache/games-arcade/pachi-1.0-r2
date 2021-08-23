@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=compile configure install prepare
-DEPEND=x11-libs/libXt
-DESCRIPTION=SDL OpenGL pinball game
+DEFINED_PHASES=install prepare
+DEPEND=media-libs/libsdl[joystick,sound,video] media-libs/sdl-mixer[mod]
+DESCRIPTION=platform game inspired by games like Manic Miner and Jet Set Willy
 EAPI=7
-HOMEPAGE=http://pinball.sourceforge.net/
+HOMEPAGE=http://dragontech.sourceforge.net/index.php?main=pachi&lang=en
 INHERIT=autotools desktop
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/libltdl:0 media-libs/libsdl[joystick,opengl,video,X] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] x11-libs/libICE x11-libs/libSM virtual/opengl virtual/glu acct-group/gamestat
+RDEPEND=media-libs/libsdl[joystick,sound,video] media-libs/sdl-mixer[mod] acct-group/gamestat
 SLOT=0
-SRC_URI=mirror://sourceforge/pinball/pinball-0.3.1.tar.gz
+SRC_URI=mirror://gentoo/pachi-1.0.tar.bz2
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=a32be532f204093e2258d397db69e00b
+_md5_=3471768d8fb5a89187a8d028fa9d7c5d
