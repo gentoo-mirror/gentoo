@@ -28,10 +28,10 @@ RDEPEND="
 "
 BDEPEND="games-util/loki_patch"
 
-dir="opt/${PN}"
+dir="/opt/${PN}"
 QA_PREBUILT="
-	${dir}/descent3_demo.x86
-	${dir}/netgames/*.d3m
+	${dir#/}/descent3_demo.x86
+	${dir#/}/netgames/*.d3m
 "
 
 src_install() {
@@ -43,8 +43,9 @@ src_install() {
 	loki_patch patch.dat data/ || die
 
 	insinto ${dir}
-	exeinto ${dir}
 	doins -r "${demo}"/*
+
+	exeinto ${dir}
 	doexe "${demo}/${exe}"
 
 	# Required directory
