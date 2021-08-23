@@ -1,15 +1,13 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
-MY_COMMIT="6fa26b8dd2ac0931fe688370728c47086277d883"
 DESCRIPTION="Modal editor inspired by vim"
 HOMEPAGE="http://kakoune.org/ https://github.com/mawww/kakoune"
-SRC_URI="https://github.com/mawww/kakoune/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/kakoune-${MY_COMMIT}"
+SRC_URI="https://github.com/mawww/kakoune/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Unlicense"
 SLOT="0"
@@ -20,8 +18,8 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2020.01.16-enable-ebuild-syntax-highlight.patch
-	"${FILESDIR}"/${PN}-2020.01.16-gcc-11.patch
+	"${FILESDIR}"/${PN}-2020.09.01-enable-ebuild-syntax-highlight.patch
+	"${FILESDIR}"/${PN}-2020.09.01-gcc-11.patch
 )
 
 src_prepare() {
