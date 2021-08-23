@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/linuxwacom/libwacom
 INHERIT=meson python-any-r1 toolchain-funcs udev
 IUSE=doc test
-KEYWORDS=~alpha amd64 arm ~arm64 ~ia64 ppc ppc64 sparc ~x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~ia64 ppc ppc64 sparc x86
 LICENSE=MIT
 RDEPEND=dev-libs/glib:2 dev-libs/libgudev:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.11/libwacom-1.11.tar.bz2
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	5bc3f1b890f90cc00cf1d1dddc10233e	python-any-r1	901d9e22c7a848a1196502edf060f330	udev	0a92682c0f65a60d01453db598fc6490
-_md5_=2ee01e4c8bcd1fef7dc3e67ed9f77c28
+_md5_=a27f44780a14fa029547e55c8a52a9cc
