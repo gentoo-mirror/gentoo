@@ -1,0 +1,48 @@
+Title: eudev retirement on 2022-01-01
+Author: Anthony G. Basile <blueness@gentoo.org>
+Posted: 2021-08-24
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-fs/eudev
+
+sys-fs/udev is becoming the standard provider of udev on non-systemd (e.g.
+OpenRC) systems. Users of systemd will continue to use the udev services
+provided by the sys-apps/systemd package itself.
+
+The transition should be uneventful in most cases, but please
+read this item in full to understand some possible corner cases.
+
+eudev will be retired and removed from Gentoo on 2022-01-01. We will
+start masking eudev on 2021-10-01 and give people 3 months to prepare
+their transition. You should ensure that sys-fs/eudev is not in your
+world file by running
+
+  emerge --deselect sys-fs/eudev
+
+in order for Portage to replace eudev with sys-fs/udev once the
+package.mask is in place. We fully support udev on musl, whereas uclibc
+will still have to rely on eudev before also being removed on 2022-01-01.
+
+  **WARNING**
+
+If you happen to have an INSTALL_MASK with a blanket "*systemd*" glob,
+you will inevitably break your system. sys-fs/udev contains "systemd" in
+some of its filenames, hence a blanket filter rule will likely lead to
+a non-functional udev installation.
+
+  Rationale
+
+The integration of udev into the systemd git repo introduced numerous
+problems for non-glibc systems, such as musl and uclibc.  Several
+options were considered, and the one chosen was to fork and maintain udev
+independent of the rest of systemd.  This was meant as a stop-gap solution
+until such time as the problems with systemd on musl had been resolved.
+This is now the case with patches provided by openembedded, and my original
+reason for maintaining eudev is no longer relevant.
+
+I am willing to transfer eudev to another umbrella organization or Linux
+distribution that is willing to continue its maintenance, but maintaining
+eudev cannot be done purely through proxy-maintaining and requires an
+understanding of its internals.  This is a steep learning curve and must
+be an earnest effort.  For this reason, the Base System project has decided
+not to support eudev as an option going forward.
