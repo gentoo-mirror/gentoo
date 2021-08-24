@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-FIREFOX_PATCHSET="firefox-91-patches-01.tar.xz"
+FIREFOX_PATCHSET="firefox-91-patches-03.tar.xz"
 
 LLVM_MAX_SLOT=12
 
@@ -219,7 +219,7 @@ MOZ_LANGS=(
 	da de dsb el en-CA en-GB en-US eo es-AR es-CL es-ES es-MX et eu
 	fa ff fi fr fy-NL ga-IE gd gl gn gu-IN he hi-IN hr hsb hu hy-AM
 	ia id is it ja ka kab kk km kn ko lij lt lv mk mr ms my
-	nb-NO ne-NP nl nn-NO oc pa-IN pl pt-BR pt-PT rm ro ru
+	nb-NO ne-NP nl nn-NO oc pa-IN pl pt-BR pt-PT rm ro ru sco
 	si sk sl son sq sr sv-SE szl ta te th tl tr trs uk ur uz vi
 	xh zh-CN zh-TW
 )
