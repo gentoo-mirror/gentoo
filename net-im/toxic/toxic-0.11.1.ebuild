@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 inherit python-single-r1 xdg
 
@@ -14,14 +14,16 @@ SRC_URI="https://github.com/JFreegman/toxic/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+audio-notify debug doc llvm notification png python qrcode +sound +video +X"
+IUSE="+audio-notify debug games llvm notification png python qrcode +sound +video +X"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 	video? ( sound X ) "
 
-RDEPEND="
-	dev-libs/libconfig:=
-	net-libs/tox:=
+BDEPEND="dev-libs/libconfig:=
+	virtual/pkgconfig"
+
+RDEPEND="net-libs/tox:=
 	net-misc/curl
+	sys-kernel/linux-headers
 	sys-libs/ncurses:=
 	audio-notify? (
 		media-libs/freealut
@@ -59,41 +61,47 @@ src_prepare() {
 	#This line changes the "lazy set if absent" assignment to a "lazy set" assignment.
 	#look below in src_configure to see how CFLAGS are passed to the makefile in USER_CFLAGS
 	sed -i -e 's/?=/=/g' Makefile || die "Unable to change assignment of CFLAGS and LDFLAGS"
+	#Fix incomplete invocation of python-config
+	sed -i -e "s/--ldflags/--ldflags --embed/" cfg/checks/python.mk || die "Unable to fix python linking"
+	#This is to fix incorrect include statements of NAME_MAX and PATH_MAX macros
+	eapply -p0 "${FILESDIR}/${P}-NAME_MAX-and-PATH_MAX.patch" || die "Unable to fix include statements"
 }
 
 src_configure() {
 	if ! use audio-notify; then
-		USER_CFLAGS+="-DDISABLE_SOUND_NOTIFY=1 "
+		export DISABLE_SOUND_NOTIFY=1
 	fi
 	if use debug; then
-		USER_CFLAGS+="-DENABLE_RELEASE=0 "
+		export ENABLE_RELEASE=0
 		if use llvm; then
-			USER_CFLAGS+="-DENABLE_ASAN=1 "
+			export ENABLE_ASAN=1
 		fi
 	fi
+	if ! use games; then
+		export DISABLE_GAMES=1
+	fi
 	if ! use notification; then
-		USER_CFLAGS+="-DDISABLE_DESKTOP_NOTIFY=1 "
+		export DISABLE_DESKTOP_NOTIFY=1
 	fi
 	if ! use png; then
-		USER_CFLAGS+="-DDISABLE_QRPNG=1 "
+		export DISABLE_QRPNG=1
 	fi
 	if use python; then
-		USER_CFLAGS+="-DENABLE_PYTHON=1"
+		export ENABLE_PYTHON=1
 	fi
 	if ! use qrcode; then
-		USER_CFLAGS+="-DDISABLE_QRCODE=1"
+		export DISABLE_QRCODE=1
 	fi
 	if ! use sound; then
-		USER_CFLAGS+="-DDISABLE_AV=1 "
+		export DISABLE_AV=1
 	fi
 	if ! use video; then
-		USER_CFLAGS+="-DDISABLE_VI=1"
+		export DISABLE_VI=1
 	fi
 	if ! use X; then
-		USER_CFLAGS+="-DDISABLE_X11=1 "
+		export DISABLE_X11=1
 	fi
-	USER_CFLAGS+="${CFLAGS}"
-	export USER_CFLAGS
+	export USER_CFLAGS="${CFLAGS}"
 	export USER_LDFLAGS="${LDFLAGS}"
 	#set install directory to /usr.
 	sed -i -e "s,/usr/local,${EPREFIX}/usr,g" cfg/global_vars.mk || die "Failed to set install directory!"
