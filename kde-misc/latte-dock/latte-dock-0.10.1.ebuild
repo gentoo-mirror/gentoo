@@ -57,3 +57,5 @@ RDEPEND="${DEPEND}
 "
 
 DOCS=( CHANGELOG.md README.md )
+
+PATCHES=( "${FILESDIR}/${P}-dont-hide-warnings.patch" )
