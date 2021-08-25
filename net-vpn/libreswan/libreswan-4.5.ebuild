@@ -64,7 +64,7 @@ src_configure() {
 	export PREFIX=/usr
 	export FINALEXAMPLECONFDIR=/usr/share/doc/${PF}
 	export FINALDOCDIR=/usr/share/doc/${PF}/html
-	export INITSYSTEM=openrc
+	export INITSYSTEM=$(usex systemd systemd openrc)
 	export INITDDIRS=
 	export INITDDIR_DEFAULT=/etc/init.d
 	export USERCOMPILE=${CFLAGS}
@@ -79,7 +79,7 @@ src_configure() {
 	export USE_SECCOMP=$(usetf seccomp)
 	export USE_SYSTEMD_WATCHDOG=$(usetf systemd)
 	export SD_WATCHDOGSEC=$(usex systemd 200 0)
-	export USE_XAUTHPAM=$(usetf pam)
+	export USE_AUTHPAM=$(usetf pam)
 	export DEBUG_CFLAGS=
 	export OPTIMIZE_CFLAGS=
 	export WERROR_CFLAGS=
