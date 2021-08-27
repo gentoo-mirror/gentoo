@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-
 PYTHON_COMPAT=( python3_{8,9} )
+
 inherit gnome2-utils python-single-r1 xdg
 
 DESCRIPTION="Japanese Anthy engine for IBus"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/ibus/${PN}/releases/download/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="nls"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -24,8 +24,7 @@ RDEPEND="${PYTHON_DEPS}
 	')
 	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}"
-BDEPEND="dev-util/intltool
-	virtual/pkgconfig
+BDEPEND="virtual/pkgconfig
 	sys-devel/gettext"
 
 src_prepare() {
