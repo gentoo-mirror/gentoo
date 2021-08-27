@@ -3,16 +3,18 @@
 
 EAPI=7
 
-inherit cmake vcs-snapshot
+inherit cmake
 
-MY_COMMIT=a5e14a966447c63bcf7b52a0202149e76bd5ed4a
 DESCRIPTION="A firewall management GUI for iptables, PF, Cisco routers and more"
 HOMEPAGE="https://github.com/fwbuilder/fwbuilder"
-SRC_URI="https://github.com/fwbuilder/fwbuilder/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/fwbuilder/fwbuilder/archive/refs/tags/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P/_/-}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/libxml2
@@ -23,12 +25,22 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	net-analyzer/net-snmp
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qttest:5 )"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix_version.patch
 	"${FILESDIR}"/${PN}-6.0.0_pre20200502-drop-Werror.patch
+	"${FILESDIR}"/${PN}-6.0.0_rc1-automagic-ccache.patch
+	"${FILESDIR}"/${P}-fix_version.patch
 )
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_TESTING=$(usex test)
+	)
+
+	cmake_src_configure
+}
 
 src_install() {
 	cmake_src_install
