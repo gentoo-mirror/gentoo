@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit autotools linux-info python-single-r1 readme.gentoo-r1 systemd udev multilib-minimal
 
@@ -12,7 +12,7 @@ SRC_URI="https://www.kernel.org/pub/linux/bluetooth/${P}.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0/3"
-KEYWORDS="amd64 arm arm64 ~hppa ~mips ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~x86"
 IUSE="btpclient cups doc debug deprecated extra-tools experimental +mesh midi +obex +readline selinux systemd test test-programs +udev user-session"
 
 # Since this release all remaining extra-tools need readline support, but this could
@@ -31,6 +31,7 @@ TEST_DEPS="${PYTHON_DEPS}
 	')
 "
 BDEPEND="
+	dev-python/docutils
 	virtual/pkgconfig
 	test? ( ${TEST_DEPS} )
 "
@@ -70,6 +71,9 @@ PATCHES=(
 	# Fedora patches
 	# http://www.spinics.net/lists/linux-bluetooth/msg40136.html
 	"${FILESDIR}"/0001-obex-Use-GLib-helper-function-to-manipulate-paths.patch
+
+	# https://marc.info/?l=linux-bluetooth&m=161498090629584&w=2
+	"${FILESDIR}"/${PN}-5.60-glibc-2.34.patch
 )
 
 pkg_setup() {
@@ -77,17 +81,12 @@ pkg_setup() {
 	# to prevent bugs like:
 	# https://bugzilla.kernel.org/show_bug.cgi?id=196621
 	CONFIG_CHECK="~NET ~BT ~BT_RFCOMM ~BT_RFCOMM_TTY ~BT_BNEP ~BT_BNEP_MC_FILTER
-				~BT_BNEP_PROTO_FILTER ~BT_HIDP ~RFKILL"
+		~BT_BNEP_PROTO_FILTER ~BT_HIDP ~CRYPTO_USER_API_HASH ~CRYPTO_USER_API_SKCIPHER ~RFKILL"
 	# https://bugzilla.kernel.org/show_bug.cgi?id=196621
 	# https://bugzilla.kernel.org/show_bug.cgi?id=206815
 	if use mesh || use test; then
 		CONFIG_CHECK="${CONFIG_CHECK} ~CRYPTO_USER
-		~CRYPTO_USER_API ~CRYPTO_USER_API_AEAD ~CRYPTO_USER_API_HASH
-		~CRYPTO_AES ~CRYPTO_CCM ~CRYPTO_AEAD ~CRYPTO_CMAC"
-	fi
-	if use test; then
-		# http://www.linuxfromscratch.org/blfs/view/svn/general/bluez.html
-		CONFIG_CHECK="${CONFIG_CHECK} ~CRYPTO ~CRYPTO_USER_API_HASH ~CRYPTO_USER_API_SKCIPHER"
+		~CRYPTO_USER_API ~CRYPTO_USER_API_AEAD ~CRYPTO_AES ~CRYPTO_CCM ~CRYPTO_AEAD ~CRYPTO_CMAC"
 	fi
 	linux-info_pkg_setup
 

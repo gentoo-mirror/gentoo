@@ -14,8 +14,8 @@ SRC_URI="https://www.kernel.org/pub/linux/docs/man-pages/Archive/${P}.tar.xz
 
 LICENSE="man-pages GPL-2+ BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-IUSE_L10N=" de fr it ja nl pl pt-BR ro ru zh-CN"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE_L10N=" de es fr it ja nl pl pt-BR ro ru zh-CN"
 IUSE="${IUSE_L10N// / l10n_}"
 RESTRICT="binchecks"
 
@@ -27,6 +27,7 @@ RDEPEND="
 "
 PDEPEND="
 	l10n_de? ( app-i18n/man-pages-l10n[l10n_de(-)] )
+	l10n_es? ( app-i18n/man-pages-l10n[l10n_es(-)] )
 	l10n_fr? ( app-i18n/man-pages-l10n[l10n_fr(-)] )
 	l10n_it? ( app-i18n/man-pages-l10n[l10n_it(-)] )
 	l10n_ja? ( app-i18n/man-pages-ja )
