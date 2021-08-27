@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-libs/pam php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DESCRIPTION=This extension provides PAM (Pluggable Authentication Modules) integration
+EAPI=7
+HOMEPAGE=https://pecl.php.net/pam
+INHERIT=php-ext-pecl-r3 pam
+IUSE=php_targets_php7-3 php_targets_php7-4 php_targets_php8-0
+KEYWORDS=~amd64 ~x86
+LICENSE=PHP-3.01
+RDEPEND=sys-libs/pam php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
+SLOT=0
+SRC_URI=https://pecl.php.net/get/pam-2.2.3.tgz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	php-ext-source-r3	59705d3e8b4658c589d46b4c7f90150c	php-ext-pecl-r3	aa1126f832eb58d6b04711a39840710d	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pam	41ce39f668e11d31ff4734f3b5794f7d
+_md5_=f75954ae2eaa18eaadd6f056841cdbe6
