@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DEPEND=sys-apps/pciutils virtual/os-headers nls? ( sys-devel/gettext )
+DESCRIPTION=Shows and sets processor power related values
+EAPI=7
+HOMEPAGE=https://www.kernel.org/
+INHERIT=systemd toolchain-funcs
+IUSE=nls
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/pciutils
+SLOT=0/0
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.12.tar.xz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_md5_=0ab6231bd5e9f01753d11a4d005587b5
