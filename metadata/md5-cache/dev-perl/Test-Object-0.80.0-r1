@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-Scalar-List-Utils-1.160.0 virtual/perl-Test-Simple virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Spec ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-Scalar-List-Utils-1.160.0 virtual/perl-Test-Simple virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Spec ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Thoroughly testing objects via registered handlers
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Test-Object
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Carp virtual/perl-Exporter >=virtual/perl-Scalar-List-Utils
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Test-Object-0.08.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=adef37e809d57c7271d4ba300b33d690
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=b77078c1341a32e7ae04796c798498dc

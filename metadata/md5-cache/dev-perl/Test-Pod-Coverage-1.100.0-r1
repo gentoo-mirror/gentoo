@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Test-Simple dev-perl/Pod-Coverage virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Test-Simple dev-perl/Pod-Coverage virtual/perl-ExtUtils-MakeMaker dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Check for pod coverage in your distribution
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Test-Pod-Coverage
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Test-Simple dev-perl/Pod-Coverage dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
-_md5_=458cb8a1b2a9826249696e50fa9b30af
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	0ee2b2b92175720c966a5608c62b458d
+_md5_=834e08e37d2ce315151a3e7a51e3f23b
