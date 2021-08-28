@@ -1,13 +1,18 @@
 # Copyright 2014-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
 PYTHON_COMPAT=( python3_{7..9} )
 inherit desktop toolchain-funcs multiprocessing python-any-r1 wxwidgets xdg
 
-if [[ ${PV} == 9999 ]]; then
+DESCRIPTION="A free, real-time strategy game"
+HOMEPAGE="https://play0ad.com/"
+LICENSE="BitstreamVera CC-BY-SA-3.0 GPL-2 LGPL-2.1 LPPL-1.3c MIT ZLIB"
+# Upstream signs releases (and only them) with app-crypt/minisign.
+# The (public) key can be found on https://play0ad.com/download/source.
+if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/0ad/0ad"
 	S="${WORKDIR}/${P}"
@@ -16,31 +21,34 @@ elif [[ ${PV} == *_pre* ]]; then
 	SRC_URI="https://github.com/0ad/0ad/archive/${ZEROAD_GIT_REVISION}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${ZEROAD_GIT_REVISION}"
 else
+	# Trailing whitespace for IUSE append below
+	IUSE="verify-sig "
+	MINISIGN_KEY="RWT0hFWv57I2RFoJwLVjxEr44JOq/RkEx1oT0IA3PPPICnSF7HFKW1CT"
 	MY_P="0ad-${PV/_/-}"
 	SRC_URI="
 		http://releases.wildfiregames.com/${MY_P}-unix-build.tar.xz
 		https://releases.wildfiregames.com/${MY_P}-unix-data.tar.xz
+		verify-sig? (
+			http://releases.wildfiregames.com/${MY_P}-unix-build.tar.xz.minisig
+			http://releases.wildfiregames.com/${MY_P}-unix-data.tar.xz.minisig
+		)
 	"
 	S="${WORKDIR}/${MY_P}"
 fi
-
-DESCRIPTION="A free, real-time strategy game"
-HOMEPAGE="https://play0ad.com/"
-LICENSE="BitstreamVera CC-BY-SA-3.0 GPL-2 LGPL-2.1 LPPL-1.3c MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="editor +lobby nvtt pch test"
+IUSE+="editor +lobby nvtt pch test"
+
 RESTRICT="test"
-CHECKREQS_DISK_BUILD="9000M" # 8779624 KiB (8.3 GiB)
-CHECKREQS_DISK_USR="3500M" # 3545840 KiB (3.3 GiB)
+CHECKREQS_DISK_BUILD="9000M" # 8769732 KiB (8.3 GiB) for alpha 25
+CHECKREQS_DISK_USR="3500M" # 3545972 KiB (3.3 GiB)
+
 # Premake adds '-s' to some LDFLAGS. Simply sed'ing it out leads to
 # build and/or startup issues.
 QA_PRESTRIPPED="/usr/lib64/0ad/libCollada.so /usr/bin/0ad"
 
-# virtual/rust is for bundled SpiderMonkey
+# virtual/rust is for bundled SpiderMonkey.
 # Build-time Python dependency is for SM, too.
-# TODO: Unbundle premake5
-# See bug #773472 which may help (bump for it)
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-util/premake-5.0.0_alpha12:5
@@ -48,7 +56,13 @@ BDEPEND="
 	virtual/rust
 	test? ( dev-lang/perl )
 "
-# Removed dependency on nvtt as we use the bundled one
+# Upstream uses minisign which is not supported by verify-sign, bug #783066.
+# Signatures are only provided for releases.
+if [[ ( ${PV} != *9999 ) && ( ${PV} != *_p* ) ]]; then
+	BDEPEND+=" app-crypt/minisign"
+fi
+
+# Removed dependency on nvtt as we use the bundled one.
 # bug #768930
 DEPEND="
 	dev-libs/boost:=
@@ -80,6 +94,32 @@ PATCHES=(
 
 pkg_setup() {
 	use editor && setup-wxwidgets
+
+	python-any-r1_pkg_setup
+}
+
+src_unpack() {
+	if [[ ( ${PV} != *9999 ) && ( ${PV} != *_p* ) ]]; then
+		if use verify-sig; then
+			elog "Verifying both signatures using app-crypt/minisign."
+			minisign -V \
+				-P "${MINISIGN_KEY}" \
+				-x "${DISTDIR}/${MY_P}-unix-build.tar.xz.minisig" \
+				-m "${DISTDIR}/${MY_P}-unix-build.tar.xz" \
+				|| die "Failed to verify engine distfile using minisign!"
+			minisign -V \
+				-P "${MINISIGN_KEY}" \
+				-x "${DISTDIR}/${MY_P}-unix-data.tar.xz.minisig" \
+				-m "${DISTDIR}/${MY_P}-unix-data.tar.xz" \
+				|| die "Failed to verify data distfile using minisign!"
+		fi
+		# Unpack manually until an eclass supports minisign and unpacks
+		# if signatures match.
+		default
+	else
+		# Unpack distfiles without checking as this is no official release.
+		default
+	fi
 }
 
 src_prepare() {
