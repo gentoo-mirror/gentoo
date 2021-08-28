@@ -40,6 +40,11 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
+PATCHES=(
+	# https://github.com/metabrainz/picard/commit/452bba954c30d5a642f03c02411529f511bda786
+	"${FILESDIR}/${P}-fix-py3.10.patch"
+)
+
 python_compile() {
 	local build_args=(
 		--disable-autoupdate
