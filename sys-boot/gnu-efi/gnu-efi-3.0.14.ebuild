@@ -1,4 +1,4 @@
-# Copyright 2004-2020 Gentoo Authors
+# Copyright 2004-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,7 +16,7 @@ SRC_URI="mirror://sourceforge/gnu-efi/${P}.tar.bz2"
 # - GPL-2+ : setjmp_ia32.S
 LICENSE="GPL-2+ BSD BSD-2"
 SLOT="0"
-KEYWORDS="-* amd64 arm arm64 ~ia64 x86"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~ia64 ~x86"
 IUSE="abi_x86_32 abi_x86_64 custom-cflags"
 
 # These objects get run early boot (i.e. not inside of Linux),
@@ -58,13 +58,7 @@ efimake() {
 src_compile() {
 	tc-export BUILD_CC AR AS CC LD
 
-	if use custom-cflags; then
-		# https://bugs.gentoo.org/607992
-		filter-mfpmath sse
-
-		# https://bugs.gentoo.org/619628
-		append-flags $(test-flags-CC -mno-avx)
-	else
+	if ! use custom-cflags; then
 		unset CFLAGS CPPFLAGS LDFLAGS
 	fi
 
