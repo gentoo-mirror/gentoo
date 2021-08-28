@@ -81,7 +81,7 @@ CDEPEND="
 	!!x11-drivers/nvidia-drivers[-libglvnd(+)]
 "
 DEPEND="${CDEPEND}
-	>=x11-base/xorg-proto-2018.4
+	>=x11-base/xorg-proto-2021.4.99.2
 	>=x11-libs/xtrans-1.3.5
 	dmx? (
 		doc? (
@@ -159,7 +159,6 @@ src_configure() {
 		--disable-linux-acpi
 		--without-dtrace
 		--without-fop
-		--with-os-vendor=Gentoo
 		--with-sha1=libcrypto
 		CPP="$(tc-getPROG CPP cpp)"
 	)
@@ -198,10 +197,6 @@ src_install() {
 	if ! use minimal && use xorg; then
 		# Install xorg.conf.example into docs
 		dodoc "${S}"/hw/xfree86/xorg.conf.example
-
-		rm \
-			"${ED}"/usr/bin/cvt \
-			"${ED}"/usr/share/man/man1/cvt.1 || die
 	fi
 
 	# install the @x11-module-rebuild set for Portage
