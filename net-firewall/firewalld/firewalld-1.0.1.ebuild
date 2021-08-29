@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 inherit autotools bash-completion-r1 gnome2-utils linux-info plocale python-single-r1 systemd xdg-utils
 
 DESCRIPTION="A firewall daemon with D-BUS interface providing a dynamic firewall"
@@ -12,13 +12,12 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="gui +nftables +iptables"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	!!net-firewall/gshield
-	nftables? ( net-firewall/nftables )
 	iptables? (
 		net-firewall/iptables[ipv6]
 		net-firewall/ebtables
@@ -28,22 +27,26 @@ RDEPEND="${PYTHON_DEPS}
 	|| ( >=sys-apps/openrc-0.11.5 sys-apps/systemd )
 	$(python_gen_cond_dep '
 		dev-python/dbus-python[${PYTHON_USEDEP}]
-		dev-python/decorator[${PYTHON_USEDEP}]
-		>=dev-python/python-slip-0.2.7[dbus,${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		gui? (
 			x11-libs/gtk+:3
 			dev-python/PyQt5[gui,widgets,${PYTHON_USEDEP}]
 		)
+		nftables? ( >=net-firewall/nftables-0.9.4[python,json] )
 	')"
 DEPEND="${RDEPEND}
-	dev-libs/glib:2
-	>=dev-util/intltool-0.35
+	dev-libs/glib:2"
+BDEPEND=">=dev-util/intltool-0.35
 	sys-devel/gettext"
 
 RESTRICT="test" # bug 650760
 
-PLOCALES="ar as bg bn_IN ca cs da de el en_GB en_US es et eu fi fr gl gu hi hu ia id it ja ka kn ko lt ml mr nl or pa pl pt pt_BR ru sk sq sr sr@latin sv ta te tr uk zh_CN zh_TW"
+# Testsuite's Makefile.am calls missing(!)
+# ... but this seems to be consistent with the autoconf docs?
+# Needs more investigation: https://www.gnu.org/software/autoconf/manual/autoconf-2.67/html_node/autom4te-Invocation.html
+QA_AM_MAINTAINER_MODE=".*--run autom4te --language=autotest.*"
+
+PLOCALES="ar as ast bg bn_IN ca cs da de el en_GB en_US es et eu fa fi fr gl gu hi hu ia id it ja ka kn ko lt ml mr nl or pa pl pt pt_BR ru si sk sq sr sr@latin sv ta te tr uk zh_CN zh_TW"
 
 pkg_setup() {
 	local CONFIG_CHECK="~NF_CONNTRACK ~NETFILTER_XT_MATCH_CONNTRACK"
@@ -58,6 +61,7 @@ pkg_setup() {
 
 src_prepare() {
 	default
+
 	eautoreconf
 
 	plocale_find_changes "po" "" ".po"
@@ -69,7 +73,6 @@ src_configure() {
 
 	local econf_args=(
 		--enable-systemd
-		$(use_with nftables nft "${EPREFIX}/sbin/nft")
 		$(use_with iptables iptables "${EPREFIX}/sbin/iptables")
 		$(use_with iptables iptables_restore "${EPREFIX}/sbin/iptables-restore")
 		$(use_with iptables ip6tables "${EPREFIX}/sbin/ip6tables")
@@ -80,6 +83,7 @@ src_configure() {
 		--with-systemd-unitdir="$(systemd_get_systemunitdir)"
 		--with-bashcompletiondir="$(get_bashcompdir)"
 	)
+
 	econf "${econf_args[@]}"
 }
 
@@ -88,7 +92,6 @@ src_install() {
 	python_optimize
 
 	# Get rid of junk
-	rm -rf "${D}/etc/rc.d/" || die
 	rm -rf "${D}/etc/sysconfig/" || die
 
 	# For non-gui installs we need to remove GUI bits
