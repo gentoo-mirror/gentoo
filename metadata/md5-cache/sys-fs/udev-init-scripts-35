@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=udev startup scripts for openrc
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=virtual/udev-217 !<sys-apps/openrc-0.14
+RESTRICT=test
+SLOT=0
+SRC_URI=https://gitweb.gentoo.org/proj/udev-gentoo-scripts.git/snapshot/udev-gentoo-scripts-35.tar.gz -> udev-init-scripts-35.tar.gz
+_md5_=50db85b3d2e5b4d55d50cfa5c500f3e2
