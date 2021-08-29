@@ -27,6 +27,9 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-0.8-gcc11.patch )
+PATCHES=(
+	# Bug 809611
+	"${FILESDIR}"/${PN}-0.9-freetype-2.11.0.patch
+)
 
 DOCS=( doc/KEYS.org doc/USAGE.org )
