@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-misc/pax-utils app-portage/portage-utils sys-apps/diffutils sys-apps/file sys-apps/portage sys-apps/util-linux dev-util/libabigail ) >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=test? ( app-misc/pax-utils app-portage/portage-utils sys-apps/diffutils sys-apps/file sys-apps/portage sys-apps/util-linux ) >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst test unpack
 DESCRIPTION=Small tools to aid with Gentoo development, primarily intended for QA
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=app-misc/pax-utils app-portage/portage-utils sys-apps/diffutils sys-apps
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	optfeature	30ce9dec2b8943338c9b015bd32bac6a
-_md5_=06ff6635ad2c6b2a86c6bea67c9e7e18
+_md5_=44c61e7e5e43213cec0861d190831c82
