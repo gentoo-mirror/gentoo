@@ -12,6 +12,8 @@ SRC_URI="https://github.com/ionenwks/iwdevtools/archive/refs/tags/v${PV}.tar.gz 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-misc/pax-utils
@@ -20,9 +22,17 @@ RDEPEND="
 	sys-apps/file
 	sys-apps/portage
 	sys-apps/util-linux"
+BDEPEND="
+	sys-apps/help2man
+	test? ( ${RDEPEND} )"
 
 src_configure() {
-	meson_src_configure -Ddocdir=${PF}
+	local emesonargs=(
+		-Ddocdir=${PF}
+		-Deprefix="${EPREFIX}"
+		$(meson_use test)
+	)
+	meson_src_configure
 }
 
 pkg_postinst() {
