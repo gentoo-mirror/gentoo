@@ -1,5 +1,5 @@
 BDEPEND=>=dev-lang/go-1.15 >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig
-DEFINED_PHASES=compile install postinst unpack
+DEFINED_PHASES=compile install unpack
 DESCRIPTION=Kubernetes Node Agent
 EAPI=7
 HOMEPAGE=https://kubernetes.io
@@ -11,5 +11,5 @@ RDEPEND=!sys-cluster/kubernetes
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/kubernetes/kubernetes/archive/v1.19.14.tar.gz -> kubernetes-1.19.14.tar.gz
-_eclasses_=go-module	236ecaf8d66b4f4c8d98f6f868defed5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_eclasses_=go-module	66ced1f8651b6b35c0262d39e015fe24	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
 _md5_=6ce51e69604cde401830b8f5bf520b45
