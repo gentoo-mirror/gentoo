@@ -61,7 +61,7 @@ DOCS=( AUTHORS NEWS README.md README-XPDF )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-20.12.1-qt5-deps.patch"
-	"${FILESDIR}/${PN}-21.04.0-respect-cflags.patch"
+	"${FILESDIR}/${PN}-9999-respect-cflags.patch"
 	"${FILESDIR}/${PN}-0.57.0-disable-internal-jpx.patch"
 )
 
@@ -70,7 +70,7 @@ src_prepare() {
 
 	# Clang doesn't grok this flag, the configure nicely tests that, but
 	# cmake just uses it, so remove it if we use clang
-	if [[ ${CC} == clang ]] ; then
+	if tc-is-clang ; then
 		sed -e 's/-fno-check-new//' -i cmake/modules/PopplerMacros.cmake || die
 	fi
 
