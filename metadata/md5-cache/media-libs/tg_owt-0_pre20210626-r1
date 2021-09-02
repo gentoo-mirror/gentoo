@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig dev-util/ninja dev-util/cmake
+BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-cpp/abseil-cpp:=[cxx17(+)] dev-libs/libevent:= dev-libs/openssl:= dev-libs/protobuf:= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.10.0:= media-libs/openh264:= media-libs/opus media-video/ffmpeg:= net-libs/usrsctp screencast? ( dev-libs/glib:2 media-video/pipewire:= ) X? ( x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst )
 DESCRIPTION=WebRTC build for Telegram
@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=dev-cpp/abseil-cpp:=[cxx17(+)] dev-libs/libevent:= dev-libs/openssl:= dev-libs/protobuf:= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.10.0:= media-libs/openh264:= media-libs/opus media-video/ffmpeg:= net-libs/usrsctp screencast? ( dev-libs/glib:2 media-video/pipewire:= ) X? ( x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst )
 SLOT=0/20210626
 SRC_URI=https://github.com/desktop-app/tg_owt/archive/91d836dc84a16584c6ac52b36c04c0de504d9c34.tar.gz -> tg_owt-0_pre20210626.tar.gz https://archive.org/download/libyuv-ad890067f661dc747a975bc55ba3767fe30d4452.tar/libyuv-ad890067f661dc747a975bc55ba3767fe30d4452.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6
 _md5_=4a41e537913aa5e0c26f4ce9fc31e2b3

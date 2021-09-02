@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/make dev-util/cmake >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl sys-libs/zlib libh2o? ( dev-libs/libuv ) dev-libs/openssl:0= libh2o? ( virtual/pkgconfig ) mruby? ( || ( dev-lang/ruby:2.6 ) virtual/rubygems || ( dev-libs/onigmo dev-libs/oniguruma ) sys-devel/bison virtual/pkgconfig )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
@@ -10,5 +10,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl sys-libs/zlib libh2o? ( dev-libs/libuv ) dev-libs/openssl:0= !sci-libs/libh2o
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-single	9218b301575e94036743625c7b93c513	ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-single	9218b301575e94036743625c7b93c513	ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	systemd	c846b9e02ac8293bfc9ca38a195c2a18
 _md5_=72197093cbd52a592d2c4129937d915c

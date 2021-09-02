@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen app-text/texlive media-gfx/graphviz ) dev-util/ninja dev-util/cmake test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=doc? ( app-doc/doxygen app-text/texlive media-gfx/graphviz ) dev-util/ninja >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/boost ~dev-libs/libflatarray-0.4.0_pre20201009 cuda? ( dev-util/nvidia-cuda-toolkit ) hpx? ( sys-cluster/hpx ) mpi? ( virtual/mpi ) opencl? ( virtual/opencl ) opencv? ( media-libs/opencv ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 ) silo? ( sci-libs/silo )
 DESCRIPTION=An auto-parallelizing library to speed up computer simulations
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/boost
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/STEllAR-GROUP/libgeodecomp/archive/6848b3a17b359e03585e56dd1f37dc7c71136114.tar.gz -> libgeodecomp-0.5.0_pre20201009.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	cuda	8d9c9803e990e31a336935435383ac43	virtualx	fa024aa649b6bd544144bf94893d402c
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	cuda	8d9c9803e990e31a336935435383ac43	virtualx	fa024aa649b6bd544144bf94893d402c
 _md5_=c8c957247d69b0c82856d9641f206718
