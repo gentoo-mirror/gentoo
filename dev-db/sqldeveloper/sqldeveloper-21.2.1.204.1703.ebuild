@@ -28,16 +28,18 @@ RDEPEND="
 "
 BDEPEND="app-arch/unzip"
 
+S="${WORKDIR}/${PN}"
+
 QA_PREBUILT="
 	opt/${PN}/netbeans/platform/modules/lib/amd64/linux/libjnidispatch-422.so
 "
 
 pkg_nofetch() {
 	einfo "Please go to"
-	einfo "	${HOMEPAGE}"
+	einfo " ${HOMEPAGE}"
 	einfo "and download"
-	einfo "	Oracle SQL Developer for other platforms"
-	einfo "		${SRC_URI}"
+	einfo " Oracle SQL Developer for other platforms"
+	einfo "         ${SRC_URI}"
 	einfo "and move it to /var/cache/distfiles"
 }
 
@@ -47,7 +49,6 @@ src_prepare() {
 	sed -i 's|"`dirname $0`"|/opt/sqldeveloper|' sqldeveloper.sh || die
 
 	rm -r netbeans/platform/modules/lib/i386 || die
-	#rm -r modules/javafx/{osx-x64,windows-x64} || die
 	rm -r modules/javafx || die
 
 	# they both use jtds, enabling one of them also enables the other one
@@ -74,8 +75,10 @@ src_prepare() {
 src_install() {
 	insinto /opt/${PN}
 	doins -r {configuration,d{ataminer,ropins},e{quinox,xternal},ide,j{avavm,d{bc,ev},lib,views},modules,netbeans,orakafka,rdbms,s{leepycat,ql{developer,j},vnkit}}
-
 	fperms +x /opt/${PN}/netbeans/platform/modules/lib/amd64/linux/libjnidispatch-422.so
+
+	dodir /opt/sqldeveloper/sqldeveloper/extensions/oracle.datamodeler/log
+	fperms 1777 /opt/sqldeveloper/sqldeveloper/extensions/oracle.datamodeler/log
 
 	newbin "${FILESDIR}"/${PN}-r1 ${PN}
 

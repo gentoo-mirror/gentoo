@@ -11,7 +11,7 @@ inherit java-pkg-2
 DESCRIPTION="Oracle SQLcl is the new SQL*Plus"
 HOMEPAGE="https://www.oracle.com/database/technologies/appdev/sqlcl.html"
 SRC_URI="https://download.oracle.com/otn_software/java/sqldeveloper/${MY_P}.zip"
-RESTRICT="bindist mirror"
+RESTRICT="mirror"
 
 LICENSE="OTN"
 SLOT="0"
