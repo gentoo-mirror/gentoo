@@ -1,6 +1,12 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Marek Szuba <marecki@gentoo.org> (2021-09-02)
+# dev-python/pebble not keyworded here due to failing tests.
+# That said, with pebble-4.6.3 installed manually
+# (and without testing) all nbconvert-6.0.7 tests passed.
+dev-python/nbconvert test
+
 # Yixun Lan <dlan@gentoo.org> (2021-08-29)
 #  sys-apps/fwupd not tested, USE=spi,uefi,dell
 #  sys-apps/flashrom no risc-v support, bug 810880
@@ -136,10 +142,6 @@ sys-cluster/slurm ucx
 # net-dialup/mgetty fails to compile on this arch
 mail-mta/courier fax
 
-# Ye Cao <ye.c@rioslab.org> (2021-07-02)
-# Dependencies not keyworded, not tested
-dev-python/ipython nbconvert notebook
-
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
 # Dependencies not keyworded here yet:
 #  - dev-ruby/asciidoctor
@@ -158,7 +160,6 @@ sys-cluster/slurm ofed
 virtual/notification-daemon gnome
 net-libs/gnome-online-accounts gnome
 xfce-extra/tumbler epub
-xfce-base/xfce4-meta pulseaudio
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
 # Ye Cao <ye.c@rioslab.org> (2021-07-31)
@@ -188,6 +189,3 @@ www-servers/nginx pcre-jit
 # That said, with fish-3.3.1-r1 installed manually (and without testing)
 # all argcomplete-1.12.3 tests passed.
 dev-python/argcomplete test
-
-# Several dependencies not keyworded due to failing tests.
-dev-python/pypiserver test
