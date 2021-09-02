@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Kernels used by spyder on its ipython console"
 HOMEPAGE="https://github.com/spyder-ide/spyder-kernels/
 	https://pypi.org/project/spyder-kernels/"
-SRC_URI="https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}-gh.tar.gz"
+SRC_URI="https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -22,6 +22,7 @@ RDEPEND="
 	>=dev-python/ipykernel-5.3.0[${PYTHON_USEDEP}]
 	>=dev-python/ipython-7.6.0[${PYTHON_USEDEP}]
 	>=dev-python/jupyter_client-5.3.4[${PYTHON_USEDEP}]
+	<dev-python/jupyter_client-7[${PYTHON_USEDEP}]
 	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 	>=dev-python/pyzmq-17[${PYTHON_USEDEP}]
 	>=dev-python/wurlitzer-1.0.3[${PYTHON_USEDEP}]

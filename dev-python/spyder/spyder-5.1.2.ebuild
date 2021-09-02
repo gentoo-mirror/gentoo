@@ -9,7 +9,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="ebf13f362a604c5ac127efcddb74a91610d92f59"
+DOCS_PV="78a0ed693dc797a5e2ae79f37b0b7082b1247f16"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -58,7 +58,7 @@ RDEPEND="
 	>=dev-python/QtPy-1.5.0[${PYTHON_USEDEP},pyqt5(+),svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.1.1[${PYTHON_USEDEP}]
 	<dev-python/spyder-kernels-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
