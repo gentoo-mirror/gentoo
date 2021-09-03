@@ -1,0 +1,14 @@
+BDEPEND=dev-util/wayland-scanner >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=dev-libs/wayland !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)] dev-libs/wayland-protocols gui-libs/eglexternalplatform >=media-libs/libglvnd-1.3.4
+DESCRIPTION=EGLStream-based Wayland external platform
+EAPI=8
+HOMEPAGE=https://github.com/NVIDIA/egl-wayland
+INHERIT=meson
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/wayland !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)]
+SLOT=0
+SRC_URI=https://github.com/NVIDIA/egl-wayland/archive/1.1.8.tar.gz -> egl-wayland-1.1.8.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13
+_md5_=4d46e7a74e99d99c2abf51a94a33f2e5
