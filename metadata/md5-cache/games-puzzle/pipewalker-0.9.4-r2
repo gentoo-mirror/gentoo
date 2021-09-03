@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=media-libs/libpng:= media-libs/libsdl[opengl,sound,video] virtual/opengl
+DESCRIPTION=Rotating pieces puzzle game
+EAPI=8
+HOMEPAGE=http://pipewalker.sourceforge.net/
+INHERIT=autotools desktop flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=media-libs/libpng:= media-libs/libsdl[opengl,sound,video] virtual/opengl
+SLOT=0
+SRC_URI=mirror://sourceforge/pipewalker/pipewalker-0.9.4.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_md5_=29758c959e7cae5fa896556d91631ecd
