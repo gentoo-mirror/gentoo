@@ -13,13 +13,10 @@ LICENSE="Unlicense"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
-DEPEND="sys-libs/ncurses:=[unicode(+)]"
-RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2020.09.01-enable-ebuild-syntax-highlight.patch
-	"${FILESDIR}"/${PN}-2020.09.01-gcc-11.patch
+	"${FILESDIR}"/${P}-php-filetype-fix.patch
 )
 
 src_prepare() {
