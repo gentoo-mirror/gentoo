@@ -1,13 +1,25 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 CHROMIUM_LANGS="
 	be bg bn ca cs da de el en-GB en-US es-419 es fil fi fr-CA fr hi hr hu id
 	it ja ko lt lv ms nb nl pl pt-BR pt-PT ro ru sk sr sv sw ta te th tr uk vi
 	zh-CN zh-TW
 "
-inherit chromium-2 multilib pax-utils unpacker xdg
+
+# These are intended for ebuild maintainer use to force RPM if DEB is not available.
+: ${OPERA_FORCE_RPM=no}
+
+if [[ ${OPERA_FORCE_RPM} == yes ]]; then
+	OPERA_UNPACKER="rpm"
+	OPERA_ARCHIVE_EXT="rpm"
+else
+	OPERA_UNPACKER="unpacker"
+	OPERA_ARCHIVE_EXT="deb"
+fi
+
+inherit chromium-2 multilib pax-utils ${OPERA_UNPACKER} xdg
 
 DESCRIPTION="A fast and secure web browser"
 HOMEPAGE="https://www.opera.com/"
@@ -30,11 +42,11 @@ fi
 
 KEYWORDS="-* ~amd64"
 
-FFMPEG_VERSION="92.0.4515.20"
+FFMPEG_VERSION="93.0.4573.0"
 
-SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.deb}
+SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.${OPERA_ARCHIVE_EXT}}
 	proprietary-codecs? (
-		https://dev.gentoo.org/~sultan/distfiles/www-client/opera/opera-ffmpeg-codecs-${FFMPEG_VERSION}.tar.xz
+		mirror+https://dev.gentoo.org/~sultan/distfiles/www-client/opera/opera-ffmpeg-codecs-${FFMPEG_VERSION}.tar.xz
 	)"
 
 IUSE="+proprietary-codecs suid"
@@ -50,7 +62,7 @@ RDEPEND="
 	dev-libs/nss
 	gnome-base/gsettings-desktop-schemas
 	media-libs/alsa-lib
-	media-libs/mesa[gbm]
+	media-libs/mesa[gbm(+)]
 	net-misc/curl
 	net-print/cups
 	sys-apps/dbus
@@ -90,21 +102,33 @@ src_unpack() {
 src_install() {
 	dodir /
 	cd "${ED}" || die
-	unpacker
+	if [[ ${OPERA_FORCE_RPM} == yes ]]; then
+		rpm_src_unpack "${A[0]}"
+	else
+		unpacker
+	fi
 
 	# move to /opt, bug #573052
 	mkdir -p "${OPERA_HOME%${PN}}"
-	mv "usr/lib/x86_64-linux-gnu/${PN}" "${OPERA_HOME%${PN}}" || die
+	if [[ ${OPERA_FORCE_RPM} == yes ]]; then
+		mv "usr/lib64/${PN}" "${OPERA_HOME%${PN}}" || die
+	else
+		mv "usr/lib/x86_64-linux-gnu/${PN}" "${OPERA_HOME%${PN}}" || die
+	fi
 	rm -r "usr/lib" || die
 
 	# disable auto update
 	rm "${OPERA_HOME}/${PN%-*}_autoupdate"{,.licenses,.version} || die
 
-	rm -r "usr/share/lintian" || die
+	if [[ ${OPERA_FORCE_RPM} == yes ]]; then
+		rm "${OPERA_HOME}/setup_repo.sh" || die
+	else
+		rm -r "usr/share/lintian" || die
 
-	# fix docs
-	mv usr/share/doc/${MY_PN} usr/share/doc/${PF} || die
-	gzip -d usr/share/doc/${PF}/changelog.gz || die
+		# fix docs
+		mv usr/share/doc/${MY_PN} usr/share/doc/${PF} || die
+		gzip -d usr/share/doc/${PF}/changelog.gz || die
+	fi
 
 	# fix desktop file
 	sed -i \
