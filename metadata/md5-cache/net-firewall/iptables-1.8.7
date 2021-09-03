@@ -4,12 +4,12 @@ DEPEND=conntrack? ( >=net-libs/libnetfilter_conntrack-1.0.6 ) netlink? ( net-lib
 DESCRIPTION=Linux kernel (2.4+) firewall, NAT and packet mangling tools
 EAPI=7
 HOMEPAGE=https://www.netfilter.org/projects/iptables/
-INHERIT=multilib systemd toolchain-funcs autotools flag-o-matic usr-ldscript
+INHERIT=systemd toolchain-funcs autotools flag-o-matic usr-ldscript
 IUSE=conntrack ipv6 netlink nftables pcap static-libs split-usr
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2
 RDEPEND=conntrack? ( >=net-libs/libnetfilter_conntrack-1.0.6 ) netlink? ( net-libs/libnfnetlink ) nftables? ( >=net-libs/libmnl-1.0:0= >=net-libs/libnftnl-1.1.6:0= ) pcap? ( net-libs/libpcap ) >=app-eselect/eselect-iptables-20200508 nftables? ( net-misc/ethertypes ) !<net-firewall/ebtables-2.0.11-r1 !<net-firewall/arptables-0.0.5-r1
 SLOT=0/1.8.3
 SRC_URI=https://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2
-_eclasses_=multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	systemd	c846b9e02ac8293bfc9ca38a195c2a18	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	usr-ldscript	6ae04038b0001994e6be364ffc1c0156
-_md5_=1bf78fe5241841c317f70d3a3324de2e
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	usr-ldscript	6ae04038b0001994e6be364ffc1c0156
+_md5_=a3cb94a1ddcc43f228af45e01cd50dc2

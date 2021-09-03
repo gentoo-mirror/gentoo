@@ -3,13 +3,13 @@ DEPEND=!build? ( sys-apps/sed )
 DESCRIPTION=Raspberry Pi kernel sources
 EAPI=6
 HOMEPAGE=https://github.com/raspberrypi/linux
-INHERIT=kernel-2 eapi7-ver
-IUSE=symlink build
+INHERIT=kernel-2 eapi7-ver linux-info
+IUSE=symlink build kernel_linux
 KEYWORDS=~arm ~arm64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=5.10.11_p20210201
 SRC_URI=https://github.com/raspberrypi/linux/archive/raspberrypi-kernel_1.20210201-1.tar.gz -> linux-5.10.11_p20210201-raspberrypi.tar.gz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	kernel-2	d8a3a628167e2c39356a8bed53aa2c18
-_md5_=d0380caac1d34c67e6098390a73074bf
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	kernel-2	d8a3a628167e2c39356a8bed53aa2c18	linux-info	fac9fc514a517caeef5d45bf5a60411b
+_md5_=f408429b8eb45b734c4b4bd49ea7da9d
