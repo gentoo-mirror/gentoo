@@ -15,7 +15,7 @@ SRC_URI="https://www.openinfosecfoundation.org/download/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/6"
 KEYWORDS="~amd64 ~riscv ~x86"
-IUSE="+af-packet bpf control-socket cuda debug +detection geoip hardened lua lz4 nflog +nfqueue redis systemd test"
+IUSE="+af-packet bpf control-socket cuda debug +detection geoip hardened hyperscan lua lz4 nflog +nfqueue redis systemd test"
 
 RESTRICT="!test? ( test )"
 
@@ -43,6 +43,7 @@ RDEPEND="${PYTHON_DEPS}
 	bpf?        ( >=dev-libs/libbpf-0.1.0 )
 	cuda?       ( dev-util/nvidia-cuda-toolkit )
 	geoip?      ( dev-libs/libmaxminddb )
+	hyperscan?  ( dev-libs/hyperscan )
 	lua?        ( ${LUA_DEPS} )
 	lz4?        ( app-arch/lz4 )
 	nflog?      ( net-libs/libnetfilter_log )
@@ -55,6 +56,7 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.1_configure-no-lz4-automagic.patch"
 	"${FILESDIR}/${PN}-5.0.6_configure-no-sphinx-pdflatex-automagic.patch"
+	"${FILESDIR}/${PN}-5.0.7_configure-no-hyperscan-automagic.patch"
 	"${FILESDIR}/${PN}-6.0.0_default-config.patch"
 )
 
@@ -92,6 +94,7 @@ src_configure() {
 		$(use_enable geoip) \
 		$(use_enable hardened gccprotect) \
 		$(use_enable hardened pie) \
+		$(use_enable hyperscan) \
 		$(use_enable lz4) \
 		$(use_enable nflog) \
 		$(use_enable nfqueue) \
