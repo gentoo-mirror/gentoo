@@ -1,26 +1,22 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-EGO_PN=github.com/Barzahlen/cronlocker
-HASH=c0ac605
-inherit golang-vcs-snapshot
+EAPI=8
+inherit go-module
 
 DESCRIPTION="synchronize a cron job across multiple hosts using the consul lock feature"
 HOMEPAGE="https://github.com/Barzahlen/cronlocker"
-SRC_URI="https://github.com/Barzahlen/${PN}/archive/${HASH}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Barzahlen/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
 src_compile() {
-	pushd src/${EGO_PN} || die
-	GOPATH="${S}" emake cronlocker
+	go build -o cronlocker . || die
 }
 
 src_install() {
-	pushd src/${EGO_PN}
 	dobin cronlocker
 	dodoc *.md package/changelog
 }
