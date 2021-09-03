@@ -1,10 +1,10 @@
-BDEPEND=dev-lang/perl >=dev-util/intltool-0.35.0 virtual/pkgconfig >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) dev-lang/perl >=dev-util/intltool-0.35.0 virtual/pkgconfig >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango libvirt? ( >=app-emulation/libvirt-0.10.0:=[sasl?] app-emulation/libvirt-glib ) spice? ( >=net-misc/spice-gtk-0.35[sasl?,gtk3] ) vnc? ( >=net-libs/gtk-vnc-0.5.0[sasl?,gtk3(+)] ) spice? ( >=app-emulation/spice-protocol-0.12.10 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Graphical console client for connecting to virtual machines
 EAPI=7
 HOMEPAGE=https://virt-manager.org/
-INHERIT=meson xdg
+INHERIT=meson python-any-r1 xdg
 IUSE=+libvirt sasl +spice +vnc
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gt
 REQUIRED_USE=|| ( spice vnc )
 SLOT=0
 SRC_URI=https://gitlab.com/virt-viewer/virt-viewer/-/archive/f0cc7103becccbce95bdf0c80151178af2bace5a/virt-viewer-f0cc7103becccbce95bdf0c80151178af2bace5a.tar.bz2 -> virt-viewer-10.0_p20210730.tar.bz2
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
-_md5_=656a78dddbd810cac06980a9be372ea1
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=cff03e06714b6b1e73f57daff70125b7
