@@ -2,15 +2,15 @@ BDEPEND=nls? ( >=dev-qt/linguist-tools-5.15.2:5 ) dev-util/ninja >=dev-util/cmak
 DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
 DEPEND=>=dev-qt/qtgui-5.15.2:5 X? ( >=dev-qt/qtx11extras-5.15.2:5 x11-libs/libX11 x11-libs/libXfixes x11-libs/libxcb x11-libs/xcb-util-keysyms ) X? ( x11-base/xorg-proto ) test? ( >=dev-qt/qtwidgets-5.15.2:5 ) test? ( dev-qt/qttest:5 ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 DESCRIPTION=Framework providing access to properties and features of the window manager
-EAPI=7
+EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org
 IUSE=nls X test debug doc test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=|| ( LGPL-2.1 LGPL-3 ) MIT
 RDEPEND=>=dev-qt/qtgui-5.15.2:5 X? ( >=dev-qt/qtx11extras-5.15.2:5 x11-libs/libX11 x11-libs/libXfixes x11-libs/libxcb x11-libs/xcb-util-keysyms ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
-RESTRICT=!test? ( test ) !test? ( test ) test
+RESTRICT=test !test? ( test ) !test? ( test )
 SLOT=5/5.85
 SRC_URI=mirror://kde/stable/frameworks/5.85/kwindowsystem-5.85.0.tar.xz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	ecm	9fe70cc0ef1ddfecce7548500987215d	kde.org	52a0b0bf658ad5ab07a5ee5190b8a8de
-_md5_=4b65c819c884c05fcf8c3b0d8b70d141
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	ecm	9fe70cc0ef1ddfecce7548500987215d	kde.org	52a0b0bf658ad5ab07a5ee5190b8a8de
+_md5_=ac0b8480b465e6f49c99ad4059dfd135
