@@ -68,6 +68,12 @@ python_check_deps() {
 	has_version -b "dev-python/jinja[${PYTHON_USEDEP}]"
 }
 
+pkg_pretend() {
+	if [[ -n ${EPREFIX} ]]; then
+		ewarn "systemd-tmpfiles uses un-prefixed paths at runtime.".
+	fi
+}
+
 pkg_setup() {
 	python-any-r1_pkg_setup
 }
@@ -187,6 +193,7 @@ src_configure() {
 	systemd_disable_options=( ${systemd_disable_options[@]/%/=false} )
 
 	local emesonargs=(
+		-Drootprefix="${EPREFIX:-/}"
 		-Dacl=true
 		-Dtmpfiles=true
 		-Dstandalone-binaries=true # this and below option does the magic
