@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CHROMIUM_LANGS="
 	af
@@ -95,7 +95,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
@@ -135,7 +135,7 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/pango[X]
-	proprietary-codecs? ( media-video/ffmpeg:0/56.58.58[chromium(-)] )
+	proprietary-codecs? ( >=media-video/ffmpeg-9999[chromium(-)] )
 	widevine? ( www-plugins/chrome-binary-plugins )
 "
 
