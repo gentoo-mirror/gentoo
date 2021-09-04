@@ -14,15 +14,18 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-libs/libunistring
-	media-video/ffmpeg
-	>=sys-libs/readline-8.0
+DEPEND="dev-libs/libunistring:=
+	media-video/ffmpeg:=
+	sys-libs/gpm
+	sys-libs/ncurses:=
+	>=sys-libs/readline-8.0:=
 	sys-libs/zlib"
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_DOCTEST=OFF
+		-DUSE_GPM=ON
 		-DUSE_MULTIMEDIA=ffmpeg
 		-DUSE_PANDOC=OFF
 		-DUSE_QRCODEGEN=OFF
