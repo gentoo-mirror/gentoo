@@ -1,6 +1,6 @@
 BDEPEND=doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=>=dev-vcs/mercurial-5.7[python_targets_python3_8(-)?,python_targets_python3_9(-)?] <dev-vcs/mercurial-5.9[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/iniparse[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pygments[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/PyQt5[network,svg,python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/qscintilla-python-2.9.4[qt5(+),python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( dev-python/mock dev-python/pytest )
+DEPEND=>=dev-vcs/mercurial-5.7[python_targets_python3_8(-)?,python_targets_python3_9(-)?] <dev-vcs/mercurial-5.9[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/iniparse[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pygments[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/PyQt5[network,svg,python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/qscintilla-python-2.9.4[qt5(+),python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( dev-python/mock[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pytest[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
 DESCRIPTION=Set of graphical tools for Mercurial
 EAPI=7
 HOMEPAGE=https://tortoisehg.bitbucket.io/
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://foss.heptapod.net/mercurial/tortoisehg/thg/-/archive/5.8/thg-5.8.tar.gz -> tortoisehg-5.8.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	5e8c25e37e261f4306d82487f673a1bf	optfeature	30ce9dec2b8943338c9b015bd32bac6a	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=988dc663645aa330dacbb89efb719a79
+_md5_=a78260661ad34f856db35efefd91b481
