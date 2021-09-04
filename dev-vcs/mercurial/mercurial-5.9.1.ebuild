@@ -1,28 +1,142 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{7..10} )
 PYTHON_REQ_USE="threads(+)"
 DISTUTILS_USE_SETUPTOOLS=no
 CARGO_OPTIONAL=1
 
-inherit bash-completion-r1 cargo elisp-common distutils-r1 mercurial flag-o-matic multiprocessing
+CRATES="
+	adler-0.2.3
+	aho-corasick-0.7.15
+	ansi_term-0.11.0
+	atty-0.2.14
+	autocfg-1.0.1
+	bitflags-1.2.1
+	bitmaps-2.1.0
+	block-buffer-0.9.0
+	byteorder-1.3.4
+	bytes-cast-0.2.0
+	bytes-cast-derive-0.1.0
+	cc-1.0.66
+	cfg-if-0.1.10
+	cfg-if-1.0.0
+	chrono-0.4.19
+	clap-2.33.3
+	const_fn-0.4.4
+	cpufeatures-0.1.4
+	cpython-0.6.0
+	crc32fast-1.2.1
+	crossbeam-channel-0.4.4
+	crossbeam-channel-0.5.0
+	crossbeam-deque-0.8.0
+	crossbeam-epoch-0.9.1
+	crossbeam-utils-0.7.2
+	crossbeam-utils-0.8.1
+	ctor-0.1.16
+	derive_more-0.99.11
+	difference-2.0.0
+	digest-0.9.0
+	either-1.6.1
+	env_logger-0.7.1
+	flate2-1.0.19
+	format-bytes-0.2.2
+	format-bytes-macros-0.3.0
+	generic-array-0.14.4
+	getrandom-0.1.15
+	glob-0.3.0
+	hermit-abi-0.1.17
+	home-0.5.3
+	humantime-1.3.0
+	im-rc-15.0.0
+	itertools-0.9.0
+	jobserver-0.1.21
+	lazy_static-1.4.0
+	libc-0.2.81
+	libz-sys-1.1.2
+	log-0.4.11
+	maybe-uninit-2.0.0
+	memchr-2.3.4
+	memmap-0.7.0
+	memoffset-0.6.1
+	micro-timer-0.3.1
+	micro-timer-macros-0.3.1
+	miniz_oxide-0.4.3
+	num-integer-0.1.44
+	num-traits-0.2.14
+	num_cpus-1.13.0
+	opaque-debug-0.3.0
+	output_vt100-0.1.2
+	paste-1.0.5
+	pkg-config-0.3.19
+	ppv-lite86-0.2.10
+	pretty_assertions-0.6.1
+	proc-macro-hack-0.5.19
+	proc-macro2-1.0.24
+	python27-sys-0.6.0
+	python3-sys-0.6.0
+	quick-error-1.2.3
+	quote-1.0.7
+	rand-0.7.3
+	rand_chacha-0.2.2
+	rand_core-0.5.1
+	rand_distr-0.2.2
+	rand_hc-0.2.0
+	rand_pcg-0.2.1
+	rand_xoshiro-0.4.0
+	rayon-1.5.0
+	rayon-core-1.9.0
+	redox_syscall-0.1.57
+	regex-1.4.2
+	regex-syntax-0.6.21
+	remove_dir_all-0.5.3
+	same-file-1.0.6
+	scopeguard-1.1.0
+	sha-1-0.9.6
+	sized-chunks-0.6.2
+	static_assertions-1.1.0
+	strsim-0.8.0
+	syn-1.0.54
+	tempfile-3.1.0
+	termcolor-1.1.2
+	textwrap-0.11.0
+	thread_local-1.0.1
+	time-0.1.44
+	twox-hash-1.6.0
+	typenum-1.12.0
+	unicode-width-0.1.8
+	unicode-xid-0.2.1
+	users-0.11.0
+	vcpkg-0.2.11
+	vec_map-0.8.2
+	version_check-0.9.2
+	wasi-0.9.0+wasi-snapshot-preview1
+	wasi-0.10.0+wasi-snapshot-preview1
+	winapi-0.3.9
+	winapi-i686-pc-windows-gnu-0.4.0
+	winapi-util-0.1.5
+	winapi-x86_64-pc-windows-gnu-0.4.0
+	zstd-0.5.3+zstd.1.4.5
+	zstd-safe-2.0.5+zstd.1.4.5
+	zstd-sys-1.4.17+zstd.1.4.5
+"
+
+inherit bash-completion-r1 cargo elisp-common distutils-r1 flag-o-matic multiprocessing
 
 DESCRIPTION="Scalable distributed SCM"
 HOMEPAGE="https://www.mercurial-scm.org/"
-EHG_REPO_URI="https://www.mercurial-scm.org/repo/hg"
+SRC_URI="https://www.mercurial-scm.org/release/${P}.tar.gz
+	rust? ( $(cargo_crate_uris ${CRATES}) )"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-2+
+	rust? ( BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 ISC MIT PSF-2 Unlicense )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+chg emacs gpg test tk rust"
 
-BDEPEND="
-	dev-python/docutils[${PYTHON_USEDEP}]
-	rust? ( ${RUST_DEPEND} )"
-
+BDEPEND="rust? ( ${RUST_DEPEND} )"
 RDEPEND="
 	app-misc/ca-certificates
 	gpg? ( app-crypt/gnupg )
@@ -39,10 +153,10 @@ SITEFILE="70${PN}-gentoo.el"
 RESTRICT="!test? ( test )"
 
 src_unpack() {
-	mercurial_src_unpack
+	default_src_unpack
 	if use rust; then
 		local S="${S}/rust/hg-cpython"
-		cargo_live_src_unpack
+		cargo_src_unpack
 	fi
 }
 
@@ -66,7 +180,6 @@ src_compile() {
 
 python_compile() {
 	filter-flags -ftracer -ftree-vectorize
-	python_is_python3 || local -x CFLAGS="${CFLAGS} -fno-strict-aliasing"
 	if use rust; then
 		local -x HGWITHRUSTEXT="cpython"
 	fi
@@ -75,7 +188,6 @@ python_compile() {
 
 python_compile_all() {
 	rm -r contrib/win32 || die
-	emake doc
 	if use chg; then
 		emake -C contrib/chg
 	fi
