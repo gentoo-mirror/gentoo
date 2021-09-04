@@ -1203,7 +1203,7 @@ app-backup/flexbackup 1.2.1-r13: Flexible backup script using perl
 app-backup/fsarchiver 0.8.6: Flexible filesystem archiver for backup and deployment tool
 app-backup/hdup 2.0.14: Hdup is backup program using tar, find, gzip/bzip2, mcrypt and ssh
 app-backup/kfoldersync 3.4.1: Folder synchronization and backup tool based on KDE Frameworks
-app-backup/kup 0.8.0: Backup scheduler for the Plasma desktop
+app-backup/kup 0.8.0 0.9.1: Backup scheduler for the Plasma desktop
 app-backup/luckybackup 0.5.0: Powerful and flexible backup (and syncing) tool, using RSync and Qt
 app-backup/mirdir 2.1-r2: Synchronize two directory trees in a fast way
 app-backup/mkstage4 0.3 9999: Bash Utility for Creating Stage 4 Tarballs
@@ -3133,7 +3133,7 @@ app-portage/hackport 0.6.6 0.7 9999: Hackage and Portage integration tool
 app-portage/iwdevtools 0.4.0 0.5.1 0.5.3 9999: Small tools to aid with Gentoo development, primarily intended for QA
 app-portage/java-ebuilder 0.5.1-r1 9999: Java team tool for semi-automatic creation of ebuilds from pom.xml
 app-portage/kuroneko 0.1.0 0.1.1 0.1.2 0.1.3: Vulnerability checker using data scraped from Gentoo Bugzilla
-app-portage/kuroo 1.0.0 9999: Graphical Portage frontend based on KDE Frameworks
+app-portage/kuroo 1.2.1 9999: Graphical Portage frontend based on KDE Frameworks
 app-portage/layman 2.4.3 9999: Tool to manage Gentoo overlays
 app-portage/metagen 0.7.2 9999: metadata.xml generator for ebuilds
 app-portage/mgorny-dev-scripts 8 10: Handy scripts for ebuild development and more
@@ -3394,7 +3394,7 @@ app-text/pep 2.8-r2: General purpose filter and file cleaning program
 app-text/pinfo 0.6.13 99999: Hypertext info and man viewer based on (n)curses
 app-text/po4a 0.57-r1 0.62-r1 0.63-r1: Tools to ease the translation of documentation
 app-text/podofo 0.9.6_p20190928-r100: PoDoFo is a C++ library to work with the PDF file format
-app-text/poppler 21.07.0 21.08.0 9999: PDF rendering library based on the xpdf-3.0 code base
+app-text/poppler 21.07.0 21.08.0 21.09.0 9999: PDF rendering library based on the xpdf-3.0 code base
 app-text/poppler-data 0.4.10: Data files for poppler to support uncommon encodings without xpdfrc
 app-text/ps2eps 1.68: Generate Encapsulated Postscript Format files from one-page Postscript documents
 app-text/ps2pkm 1.8_p20210325-r1: Tool that converts a PostScript type1 font into a corresponding TeX PK font
@@ -5532,7 +5532,7 @@ dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for 
 dev-libs/aml 0.2.0 9999: event timer executor loop
 dev-libs/angelscript 2.34.0 2.35.0: A flexible, cross-platform scripting library
 dev-libs/antlr-c 3.5.2-r1: The ANTLR3 C Runtime
-dev-libs/appstream 0.14.4-r1: Cross-distro effort for providing metadata for software in the Linux ecosystem
+dev-libs/appstream 0.14.4-r1 0.14.5: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.7.18-r1: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.6.3-r5 1.6.5-r2 1.7.0-r2: Apache Portable Runtime Library
 dev-libs/apr-util 1.6.1-r7: Apache Portable Runtime Utility Library
@@ -11001,7 +11001,7 @@ dev-util/clinfo 3.0.21.02.21 9999: A tool to display info about the system's Ope
 dev-util/clion 2021.1.2 2021.2: A complete toolset for C and C++ development
 dev-util/clippy 7.5.1 8.0-r1 8.0.1: Standalone clippy tool built from FRR sources
 dev-util/cloc 1.88 1.90: Count Lines of Code
-dev-util/cmake 3.20.5 3.21.1 3.21.2: Cross platform Make
+dev-util/cmake 3.20.5 3.21.2: Cross platform Make
 dev-util/cmake-fedora 2.7.1: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-util/cmocka 1.1.5: Unit testing framework for C
 dev-util/codeblocks 17.12-r303 17.12-r304 20.03-r1 20.03-r2 9999: The open source, cross platform, free C, C++ and Fortran IDE
@@ -12611,7 +12611,7 @@ kde-frameworks/kdoctools 5.82.0 5.85.0: Tools to generate documentation in vario
 kde-frameworks/kemoticons 5.82.0 5.85.0: Framework for converting text emoticons to graphical representations
 kde-frameworks/kf-env 5: Environment setting required for all KDE Frameworks apps to run
 kde-frameworks/kfilemetadata 5.82.0 5.85.0: Library for extracting file metadata
-kde-frameworks/kglobalaccel 5.82.0-r1 5.85.0: Framework to handle global shortcuts
+kde-frameworks/kglobalaccel 5.82.0-r1 5.85.0-r1: Framework to handle global shortcuts
 kde-frameworks/kguiaddons 5.82.0 5.85.0: Framework providing assorted high-level user interface components
 kde-frameworks/kholidays 5.82.0 5.85.0: Library to determine holidays and other special events for a geographical region
 kde-frameworks/khtml 5.82.0 5.85.0: KHTML web rendering engine
@@ -12649,14 +12649,14 @@ kde-frameworks/kxmlgui 5.82.0 5.85.0: Framework for managing menu and toolbar ac
 kde-frameworks/modemmanager-qt 5.82.0 5.85.0: ModemManager bindings for Qt
 kde-frameworks/networkmanager-qt 5.82.0 5.85.0: NetworkManager bindings for Qt
 kde-frameworks/oxygen-icons 5.82.0 5.85.0: Oxygen SVG icon theme
-kde-frameworks/plasma 5.82.0 5.85.0-r2: Plasma framework
+kde-frameworks/plasma 5.82.0 5.85.0-r3: Plasma framework
 kde-frameworks/prison 5.82.0 5.85.0: QRCode and data matrix barcode library
 kde-frameworks/purpose 5.82.0 5.85.0: Library for providing abstractions to get the developer's purposes fulfilled
 kde-frameworks/qqc2-desktop-style 5.82.0 5.85.0: Style for QtQuickControls 2 that uses QWidget's QStyle for painting
 kde-frameworks/solid 5.82.0 5.85.0: Provider for platform independent hardware discovery, abstraction and management
 kde-frameworks/sonnet 5.82.0 5.85.0: Framework for providing spell-checking through abstraction of popular backends
 kde-frameworks/syndication 5.82.0 5.85.0: Library for parsing RSS and Atom feeds
-kde-frameworks/syntax-highlighting 5.82.0 5.85.0: Framework for syntax highlighting
+kde-frameworks/syntax-highlighting 5.82.0 5.85.0-r1: Framework for syntax highlighting
 kde-frameworks/threadweaver 5.82.0 5.85.0: Framework for managing threads using job and queue-based interfaces
 kde-misc/basket 2.49b: Multiple information organizer - a DropDrawers clone
 kde-misc/colord-kde 0.5.0-r2: Provides interfaces and session daemon to colord
@@ -14492,7 +14492,7 @@ media-video/nvidia_video_sdk 6.0.1: NVIDIA Video Codec SDK
 media-video/obs-studio 26.1.2-r1 27.0.1 9999: Software for Recording and Streaming Live Video Content
 media-video/obs-v4l2sink 0.1.0_p20181012-r2: obs studio output plugin for Video4Linux2 device
 media-video/ogmrip 1.0.1: Graphical frontend and libraries for ripping DVDs and encoding to AVI/OGM/MKV/MP4
-media-video/openshot 2.5.1-r1 2.5.1_p20210228 2.6.0: Award-winning free and open-source video editor
+media-video/openshot 2.6.0: Award-winning free and open-source video editor
 media-video/oxine 0.7.1-r4: OSD frontend for Xine
 media-video/parole 4.16.0: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1: Simple animated Gif screen recorder
@@ -16681,7 +16681,7 @@ sci-libs/silo 4.10.2-r1: A mesh and field I/O library and scientific database
 sci-libs/spglib 1.14.1: Spglib is a C library for finding and handling crystal symmetries
 sci-libs/spqr 2.0.9: Multithreaded multifrontal sparse QR factorization library
 sci-libs/spr 3.3.2: Statistical analysis and machine learning library
-sci-libs/stellarsolver 1.5: Cross-platform Sextractor and Astrometry.net-Based internal astrometric solver
+sci-libs/stellarsolver 1.5 1.8: Cross-platform Sextractor and Astrometry.net-Based internal astrometric solver
 sci-libs/suitesparse 5.4.0: Metapackage for a suite of sparse matrix tools
 sci-libs/suitesparseconfig 5.4.0: Common configurations for all packages in suitesparse
 sci-libs/sundials 3.2.1 5.2.0 5.7.0: Suite of nonlinear solvers
