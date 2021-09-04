@@ -30,6 +30,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-start-processes-w-kstart5-if-available.patch # KDE-bug 433362
+)
+
 src_test() {
 	XDG_CURRENT_DESKTOP="KDE" ecm_src_test # bug 789342
 }

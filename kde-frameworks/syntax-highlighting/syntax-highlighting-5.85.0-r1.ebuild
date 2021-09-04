@@ -23,6 +23,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-python-add-yield-from-keyword.patch # KDE-bug 441540
+)
+
 src_install() {
 	ecm_src_install
 	dobin "${BUILD_DIR}"/bin/katehighlightingindexer
