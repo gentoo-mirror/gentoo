@@ -1,0 +1,49 @@
+Title: setuptools_scm-6.3.0 temporary runtime breakage
+Author: Arthur Zamarin <arthurzam@gentoo.org>
+Author: Sam James <sam@gentoo.org>
+Posted: 2021-09-05
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: =dev-python/setuptools_scm-6.3.0
+
+Users who upgraded to =dev-python/setuptools_scm-6.3.0 between 2021-09-03
+15:42 UTC and 2021-09-03 19:03 UTC may be affected by a bug [0]. If you have not
+upgraded to this version or have >=dev-python/setuptools_scm-6.3.0-r1 installed,
+you are not affected.
+
+A missing dependency in the setuptools_scm ebuild meant there was a timeframe in
+which anyone who installed dev-python/setuptools_scm and dev-python/packaging in
+the wrong order won't be able to build any Python package using setuptools
+unless a workaround is applied.
+
+Specifically, this affects users with =dev-python/setuptools_scm-6.3.0 installed
+and where dev-python/packaging is not installed (applies separately for each/any
+Python target). The bad tree state was between gentoo.git commits
+8882e54abf78d3af69faed5844e3ad441482f23e and
+0c76b447cd1be9cf611f649970851750304d9ca6.
+
+Affected users will see errors similar to the following when installing Python
+packages:
+```
+pkg_resources.DistributionNotFound: The 'packaging>=20.0' distribution was not
+found and is required by the application
+```
+
+To fix this manually, you need to fully remove all dev-python/setuptools_scm
+files by running the following commands:
+
+# Necessary to obtain a fixed version of setuptools_scm
+$ emerge --sync
+
+# --unmerge is NOT advised normally, but is required to avoid setuptools picking
+# up the runtime-broken setuptools_scm version when re-installing setuptools_scm
+$ emerge --unmerge =dev-python/setuptools_scm-6.3.0
+
+$ emerge --oneshot dev-python/setuptools dev-python/pyparsing dev-python/packaging
+$ emerge --oneshot ">=dev-python/setuptools_scm-6.3.0-r1"
+
+Note that the version specifiers above are not strictly necessary if you have an
+up-to-date copy of the tree but provide a safety net.
+
+[0] https://bugs.gentoo.org/811504
+
