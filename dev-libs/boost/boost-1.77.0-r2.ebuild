@@ -13,11 +13,12 @@ MAJOR_V="$(ver_cut 1-2)"
 DESCRIPTION="Boost Libraries for C++"
 HOMEPAGE="https://www.boost.org/"
 SRC_URI="https://boostorg.jfrog.io/artifactory/main/release/${PV}/source/boost_${MY_PV}.tar.bz2"
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-patches.tar.xz"
 S="${WORKDIR}/${PN}_${MY_PV}"
 
 LICENSE="Boost-1.0"
 SLOT="0/${PV}" # ${PV} instead ${MAJOR_V} due to bug 486122
-# KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
 IUSE="bzip2 context debug doc icu lzma +nls mpi numpy python tools zlib zstd"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 # the tests will never fail because these are not intended as sanity
@@ -53,7 +54,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.73-boost-mpi-python-PEP-328.patch
 	"${FILESDIR}"/${PN}-1.74-CVE-2012-2677.patch
 	"${FILESDIR}"/${PN}-1.76-sparc-define.patch
-	"${FILESDIR}"/${PN}-1.77-math-deprecated-include.patch
+	"${WORKDIR}"/${PN}-1.77-math-deprecated-include.patch
+	"${WORKDIR}"/${PN}-1.77-geometry.patch
 )
 
 python_bindings_needed() {
