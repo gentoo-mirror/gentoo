@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-text/asciidoc app-text/xmlto )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3 net-libs/libnet:1.1 sys-libs/libcap selinux? ( sys-libs/libselinux ) setproctitle? ( dev-libs/libbsd )
+DESCRIPTION=utility to checkpoint/restore a process tree
+EAPI=7
+HOMEPAGE=https://criu.org/
+INHERIT=toolchain-funcs linux-info python-r1
+IUSE=doc selinux setproctitle static-libs kernel_linux python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64
+LICENSE=GPL-2
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3 net-libs/libnet:1.1 sys-libs/libcap selinux? ( sys-libs/libselinux ) setproctitle? ( dev-libs/libbsd ) dev-python/protobuf-python[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.openvz.org/criu/criu-3.15.tar.bz2
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	e0906e20a7f2c13fa9af8a03dc738011	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4
+_md5_=340cc83edabbdc7125bc1925aa35390f
