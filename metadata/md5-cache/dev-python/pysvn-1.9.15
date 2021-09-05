@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://pysvn.sourceforge.io/
 INHERIT=distutils-r1 toolchain-funcs
 IUSE=doc examples python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris
+KEYWORDS=~amd64 ~arm ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris
 LICENSE=Apache-1.1
 RDEPEND=>=dev-python/pycxx-7.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-vcs/subversion-1.9 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/pysvn/pysvn/V1.9.15/pysvn-1.9.15.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	5e8c25e37e261f4306d82487f673a1bf
-_md5_=e1618d689c67ba62e1c9300669ddb2cb
+_md5_=903462b5b9dd9399874611785394a835
