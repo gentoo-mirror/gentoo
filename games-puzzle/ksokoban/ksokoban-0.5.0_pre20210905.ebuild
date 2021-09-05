@@ -1,17 +1,16 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-COMMIT="317b1e70a87224c94cac85955a3d666a43527812"
-ECM_HANDBOOK="forceoptional"
-KFMIN=5.60.0
-QTMIN=5.12.3
+ECM_HANDBOOK="optional"
+KDE_ORG_COMMIT=39b9d1c1702a21a6e0fae82876c29c1f6bb77fae
+KFMIN=5.82.0
+QTMIN=5.15.2
 inherit ecm kde.org
 
-DESCRIPTION="The japanese warehouse keeper game"
+DESCRIPTION="The Japanese warehouse keeper game"
 HOMEPAGE="https://invent.kde.org/games/ksokoban"
-SRC_URI="https://github.com/KDE/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,8 +26,4 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-"
-
-S="${WORKDIR}/${PN}-${COMMIT}"
+DEPEND="${RDEPEND}"
