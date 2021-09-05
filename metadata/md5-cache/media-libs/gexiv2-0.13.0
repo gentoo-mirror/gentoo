@@ -1,0 +1,17 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( media-gfx/exiv2[xmp] ) virtual/pkgconfig vala? ( || ( dev-lang/vala:0.52 dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 ) ) >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=media-gfx/exiv2-0.26:= >=dev-libs/glib-2.46.0:2 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+DESCRIPTION=GObject-based wrapper around the Exiv2 library
+EAPI=7
+HOMEPAGE=https://wiki.gnome.org/Projects/gexiv2
+INHERIT=meson python-r1 vala
+IUSE=gtk-doc +introspection python static-libs test +vala python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-2.1+ GPL-2
+RDEPEND=>=media-gfx/exiv2-0.26:= >=dev-libs/glib-2.46.0:2 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+REQUIRED_USE=python? ( introspection || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) test? ( python introspection ) vala? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gexiv2/0.13/gexiv2-0.13.0.tar.xz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-r1	e574a3642f886323f18f867ecc4d91c4	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	5ef05fa2f1612e51f4aea8c92b09e08d
+_md5_=1661802aa5286ad5da218536a2531476
