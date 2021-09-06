@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://capnproto.org
 INHERIT=autotools
 IUSE=+ssl static-libs test zlib
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib:0= )
 RESTRICT=!test? ( test )
 SLOT=0/080
 SRC_URI=https://github.com/sandstorm-io/capnproto/archive/v0.8.0.tar.gz -> capnproto-0.8.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=ce7d437ae4a3096717ee26df421d0a78
+_md5_=753fe719f49a2eeb1e3be3a18e1f0078
