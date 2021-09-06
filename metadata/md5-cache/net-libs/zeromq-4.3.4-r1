@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://zeromq.org/
 INHERIT=autotools
 IUSE=doc drafts +libbsd pgm +sodium static-libs test unwind elibc_Darwin
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=LGPL-3
 RDEPEND=!elibc_Darwin? ( unwind? ( sys-libs/libunwind ) ) libbsd? ( dev-libs/libbsd:= ) sodium? ( dev-libs/libsodium:= )
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://github.com/zeromq/libzmq/releases/download/v4.3.4/zeromq-4.3.4.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=658fb5e05fc0173fdb87fa6cd37f56bb
+_md5_=a21cf81e0ca6db0fb7dda76bada3c4e3
