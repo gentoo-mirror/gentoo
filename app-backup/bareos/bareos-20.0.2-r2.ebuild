@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="X acl ceph clientonly +director glusterfs ipv6 jansson lmdb
 	logwatch mysql ndmp +postgres readline scsi-crypto
-	sqlite static +storage-daemon systemd tcpd vim-syntax -vmware xattr"
+	sqlite static +storage-daemon systemd tcpd vim-syntax vmware xattr"
 
 # get cmake variables from core/cmake/BareosSetVariableDefaults.cmake
 DEPEND="
@@ -193,6 +193,9 @@ src_install() {
 
 	# remove upstream init scripts and systemd units
 	rm -f "${D}"/etc/init.d/bareos-* "${D}"/lib/systemd/system/bareos-*.service
+
+	# remove misc stuffwe do not need in production
+	rm -f "${D}"/etc/bareos/bareos-regress.conf
 
 	# get rid of py2 stuff if USE=-vmware
 	if ! use vmware; then
