@@ -19,7 +19,7 @@ if [[ -n ${GRUB_AUTORECONF} ]]; then
 	inherit autotools
 fi
 
-inherit bash-completion-r1 flag-o-matic multibuild optfeature pax-utils toolchain-funcs
+inherit bash-completion-r1 flag-o-matic multibuild optfeature toolchain-funcs
 
 if [[ ${PV} != 9999 ]]; then
 	if [[ ${PV} == *_alpha* || ${PV} == *_beta* || ${PV} == *_rc* ]]; then
@@ -38,6 +38,7 @@ else
 fi
 
 PATCHES=(
+	"${FILESDIR}"/grub-2.06-xfs-v4.patch
 	"${FILESDIR}"/gfxpayload.patch
 	"${FILESDIR}"/grub-2.02_beta2-KERNEL_GLOBS.patch
 	"${FILESDIR}"/grub-2.06-test-words.patch
@@ -68,7 +69,6 @@ REQUIRED_USE="
 
 BDEPEND="
 	${PYTHON_DEPS}
-	app-misc/pax-utils
 	sys-devel/flex
 	sys-devel/bison
 	sys-apps/help2man

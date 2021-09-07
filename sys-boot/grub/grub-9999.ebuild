@@ -8,7 +8,7 @@ if [[ ${PV} == 9999  ]]; then
 	GRUB_BOOTSTRAP=1
 fi
 
-PYTHON_COMPAT=( python{2_7,3_{6,7,8,9}} )
+PYTHON_COMPAT=( python3_{8..10} )
 WANT_LIBTOOL=none
 
 if [[ -n ${GRUB_AUTOGEN} || -n ${GRUB_BOOTSTRAP} ]]; then
@@ -19,7 +19,7 @@ if [[ -n ${GRUB_AUTORECONF} ]]; then
 	inherit autotools
 fi
 
-inherit bash-completion-r1 flag-o-matic multibuild optfeature pax-utils toolchain-funcs
+inherit bash-completion-r1 flag-o-matic multibuild optfeature toolchain-funcs
 
 if [[ ${PV} != 9999 ]]; then
 	if [[ ${PV} == *_alpha* || ${PV} == *_beta* || ${PV} == *_rc* ]]; then
@@ -68,7 +68,6 @@ REQUIRED_USE="
 
 BDEPEND="
 	${PYTHON_DEPS}
-	app-misc/pax-utils
 	sys-devel/flex
 	sys-devel/bison
 	sys-apps/help2man
