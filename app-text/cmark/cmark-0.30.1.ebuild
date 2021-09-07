@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake python-any-r1
 
@@ -12,12 +12,12 @@ HOMEPAGE="https://github.com/commonmark/cmark"
 SRC_URI="https://github.com/commonmark/cmark/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
-SLOT="0/0.30.0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="test? ( ${PYTHON_DEPS} )"
+BDEPEND="test? ( ${PYTHON_DEPS} )"
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
