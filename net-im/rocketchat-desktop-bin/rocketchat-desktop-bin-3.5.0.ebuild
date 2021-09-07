@@ -50,5 +50,5 @@ S="${WORKDIR}"
 src_install() {
 	# remove files useless for Gentoo
 	rm -r usr/lib || die
-	cp -a "${S}"/* "${ED}" || die
+	mv "${S}"/* "${ED}" || die
 }
