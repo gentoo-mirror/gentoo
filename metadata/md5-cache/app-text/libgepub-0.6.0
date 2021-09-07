@@ -1,14 +1,16 @@
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=app-arch/libarchive dev-libs/glib:2 dev-libs/libxml2 net-libs/libsoup:2.4 net-libs/webkit-gtk:4 x11-libs/gtk+:3 introspection? ( >=dev-libs/gobject-introspection-1.30:= ) virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array dev-util/desktop-file-utils x11-misc/shared-mime-info
+BDEPEND=virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=app-arch/libarchive dev-libs/glib:2 dev-libs/libxml2 net-libs/libsoup:2.4 net-libs/webkit-gtk:4 x11-libs/gtk+:3 introspection? ( >=dev-libs/gobject-introspection-1.30:= )
 DESCRIPTION=GObject based library for handling and rendering epub documents
-EAPI=6
+EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/libgepub
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org meson xdg
 IUSE=+introspection
-KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~sparc x86
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-2+
 RDEPEND=app-arch/libarchive dev-libs/glib:2 dev-libs/libxml2 net-libs/libsoup:2.4 net-libs/webkit-gtk:4 x11-libs/gtk+:3 introspection? ( >=dev-libs/gobject-introspection-1.30:= )
 SLOT=0
 SRC_URI=mirror://gnome/sources/libgepub/0.6/libgepub-0.6.0.tar.xz
-_eclasses_=eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	estack	055c42df72f76a4f45ec92b35e83cd56	versionator	d3fb3ba33acc3bbbdc4d7970227c100d	gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
-_md5_=209be2e7b2fb40176932128e2e98a532
+_eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=758f15f94e01e9da42232d10d6407c16
