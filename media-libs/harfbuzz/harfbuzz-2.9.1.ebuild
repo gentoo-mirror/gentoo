@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit flag-o-matic meson-multilib python-any-r1 xdg-utils
 
@@ -21,7 +21,7 @@ fi
 LICENSE="Old-MIT ISC icu"
 SLOT="0/0.9.18" # 0.9.18 introduced the harfbuzz-icu split; bug #472416
 
-IUSE="+cairo debug doc +glib +graphite icu +introspection static-libs test +truetype"
+IUSE="+cairo debug doc experimental +glib +graphite icu +introspection test +truetype"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="introspection? ( glib )"
 
@@ -56,8 +56,8 @@ src_prepare() {
 	xdg_environment_reset
 
 	sed -i \
-		-e 's:tests/macos.tests::' \
-		test/shaping/data/in-house/Makefile.sources \
+		-e '/tests\/macos\.tests/d' \
+		test/shape/data/in-house/Makefile.sources \
 		|| die # bug 726120
 
 	# bug 618772
@@ -76,18 +76,21 @@ src_prepare() {
 multilib_src_configure() {
 	# harfbuzz-gobject only used for instrospection, bug #535852
 	local emesonargs=(
-		$(meson_native_use_feature cairo)
 		-Dcoretext="disabled"
-		$(meson_native_use_feature doc docs)
-		-Dfontconfig="disabled" #609300
-		$(meson_native_use_feature introspection)
-		$(meson_use static-libs static)
+		-Dchafa="disabled"
+
 		$(meson_feature glib)
 		$(meson_feature graphite)
 		$(meson_feature icu)
 		$(meson_feature introspection gobject)
 		$(meson_feature test tests)
 		$(meson_feature truetype freetype)
+
+		$(meson_native_use_feature cairo)
+		$(meson_native_use_feature doc docs)
+		$(meson_native_use_feature introspection)
+
+		$(meson_use experimental experimental_api)
 	)
 	meson_src_configure
 }
