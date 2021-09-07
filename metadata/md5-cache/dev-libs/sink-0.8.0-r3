@@ -1,15 +1,15 @@
 BDEPEND=kde-frameworks/extra-cmake-modules:5 dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-db/lmdb:= dev-libs/flatbuffers >=dev-libs/kasync-0.3:5 >=dev-libs/xapian-1.4.4:0= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 kde-apps/kmime:5 kde-frameworks/kcalendarcore:5 kde-frameworks/kcontacts:5 kde-frameworks/kcoreaddons:5 >=net-libs/kdav2-0.3:5 >=net-libs/kimap2-0.3:5 net-misc/curl sys-libs/readline:0= dev-qt/qtconcurrent:5
+DEPEND=dev-db/lmdb:= dev-libs/flatbuffers:= >=dev-libs/kasync-0.3:5 >=dev-libs/xapian-1.4.4:0= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 kde-apps/kmime:5 kde-frameworks/kcalendarcore:5 kde-frameworks/kcontacts:5 kde-frameworks/kcoreaddons:5 >=net-libs/kdav2-0.3:5 >=net-libs/kimap2-0.3:5 net-misc/curl sys-libs/readline:0= dev-qt/qtconcurrent:5
 DESCRIPTION=Data access layer handling synchronization, caching and indexing
 EAPI=7
 HOMEPAGE=https://kube-project.com
 INHERIT=cmake
 KEYWORDS=~amd64
 LICENSE=LGPL-2+
-RDEPEND=dev-db/lmdb:= dev-libs/flatbuffers >=dev-libs/kasync-0.3:5 >=dev-libs/xapian-1.4.4:0= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 kde-apps/kmime:5 kde-frameworks/kcalendarcore:5 kde-frameworks/kcontacts:5 kde-frameworks/kcoreaddons:5 >=net-libs/kdav2-0.3:5 >=net-libs/kimap2-0.3:5 net-misc/curl sys-libs/readline:0=
+RDEPEND=dev-db/lmdb:= dev-libs/flatbuffers:= >=dev-libs/kasync-0.3:5 >=dev-libs/xapian-1.4.4:0= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 kde-apps/kmime:5 kde-frameworks/kcalendarcore:5 kde-frameworks/kcontacts:5 kde-frameworks/kcoreaddons:5 >=net-libs/kdav2-0.3:5 >=net-libs/kimap2-0.3:5 net-misc/curl sys-libs/readline:0=
 RESTRICT=test
 SLOT=5
 SRC_URI=mirror://kde/unstable/sink/0.8.0/src/sink-0.8.0.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=a950f293ed17d4eada3f8d9d2a9f8365
+_md5_=2b60d8de79a056a95f06fe72039fc34c
