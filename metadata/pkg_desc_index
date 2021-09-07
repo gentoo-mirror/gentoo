@@ -2452,7 +2452,7 @@ app-emulation/podman 3.1.2-r1 3.2.1-r1: Library and podman tool for running OCI-
 app-emulation/protontricks 1.5.2 1.6.0: app-emulation/winetricks wrapper for Proton (Steam Play) games
 app-emulation/punes 0.107: Nintendo Entertainment System (NES) emulator
 app-emulation/q4wine 1.3.12: Qt GUI configuration tool for Wine
-app-emulation/qemu 6.0.0-r2 6.0.0-r52 9999: QEMU + Kernel-based Virtual Machine userland tools
+app-emulation/qemu 6.0.0-r3 6.0.0-r53 9999: QEMU + Kernel-based Virtual Machine userland tools
 app-emulation/qemu-guest-agent 4.2.0-r1 5.0.0 6.0.0: QEMU Guest Agent (qemu-ga) for use when running inside a VM
 app-emulation/qemu-init-scripts 0.3.0-r1: Kvm and qemu init scripts
 app-emulation/qemu-riscv64-bin 5.0.0: Statically linked x86-64 binary of app-emulation/qemu, riscv64 emulator
@@ -5761,7 +5761,7 @@ dev-libs/libgnome-games-support 1.8.1: Library for code common to GNOME games
 dev-libs/libgnt 2.14.1 2.14.2: Pidgin's GLib Ncurses Toolkit
 dev-libs/libgpg-error 1.38 1.41 1.42: Contains error handling functions used by GnuPG software
 dev-libs/libgpiod 1.1.1 1.4.1: C library and tools for interacting with the linux GPIO character device
-dev-libs/libgudev 234 236 236-r1 237: GObject bindings for libudev
+dev-libs/libgudev 234-r1 236 236-r2 237-r1: GObject bindings for libudev
 dev-libs/libgusb 0.3.7: GObject wrapper for libusb
 dev-libs/libgweather 40.0: Location and timezone database and weather-lookup library
 dev-libs/libhid 0.2.17: Provides a generic and flexible way to access and interact with USB HID devices
@@ -5871,7 +5871,7 @@ dev-libs/libunibreak 4.3: Line and word breaking library
 dev-libs/libuninum 2.7: A library for converting unicode strings to numbers and vice versa
 dev-libs/libunique 1.1.6-r2 3.0.2-r1: A library for writing single instance application
 dev-libs/libunistring 0.9.10-r1: Library for manipulating Unicode and C strings according to Unicode standard
-dev-libs/libusb 1.0.24-r1: Userspace access to USB devices
+dev-libs/libusb 1.0.24-r2: Userspace access to USB devices
 dev-libs/libusb-compat 0.1.5-r3: Userspace access to USB devices (libusb-0.1 compat wrapper)
 dev-libs/libusbhp 1.0.2: Usb Hotplug Library
 dev-libs/libutf8proc 2.5.0 2.6.1: A clean C Library for processing UTF-8 Unicode data
@@ -17304,7 +17304,7 @@ sys-apps/osinfo-db 20210621 20210806 20210809: osinfo database files
 sys-apps/osinfo-db-tools 1.9.0: Tools for managing the osinfo database
 sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32, Elf64, binaries
 sys-apps/paxctld 1.2.3 1.2.5: PaX flags maintenance daemon
-sys-apps/pciutils 3.7.0: Various utilities dealing with the PCI bus
+sys-apps/pciutils 3.7.0-r1: Various utilities dealing with the PCI bus
 sys-apps/pcmciautils 018_p8-r3: PCMCIA userspace utilities for Linux
 sys-apps/pcsc-lite 1.9.0 1.9.1: PC/SC Architecture smartcard middleware library
 sys-apps/pcsc-slb-rf72-drv 1.1.0-r2: Schlumberger Reflex 72 Serial Smartcard Reader
@@ -17370,7 +17370,7 @@ sys-apps/superdiag 1.5.0.20210507: Provides the capability to determine the heal
 sys-apps/superiotool 6637 99999999: util to detect Super I/O chips and functionality
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/systemd 249.2 249.4 9999: System and service manager for Linux
+sys-apps/systemd 249.2-r1 249.4-r1 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-tmpfiles 246 249.2: Creates, deletes and cleans up volatile and temporary files and directories
 sys-apps/sysvinit 2.99: /sbin/init - parent of all processes
@@ -17768,7 +17768,7 @@ sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration file
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.10.2-r1 0.10.3-r1: Encrypted FUSE filesystem that conceals metadata
 sys-fs/cryptmount 5.3.3: A utility for management and user-mode mounting of encrypted filesystems
-sys-fs/cryptsetup 2.3.6-r1 2.4.0: Tool to setup encrypted devices with dm-crypt
+sys-fs/cryptsetup 2.3.6-r2 2.4.0-r1: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
 sys-fs/dd-rescue 1.99.8-r1 1.99.11: Similar to dd but can copy from source with errors
@@ -17826,7 +17826,7 @@ sys-fs/loop-aes 3.7s 3.7t: Linux kernel module to encrypt disk partitions with A
 sys-fs/lsscsi 0.32: SCSI sysfs query tool
 sys-fs/lufis 0.3-r1: Wrapper to use lufs modules with fuse kernel support
 sys-fs/lufs 0.9.7-r4: User-mode filesystem implementation
-sys-fs/lvm2 2.02.188-r1 2.03.13-r1: User-land utilities for LVM2 (device-mapper) software
+sys-fs/lvm2 2.02.188-r2 2.03.13-r2: User-land utilities for LVM2 (device-mapper) software
 sys-fs/lxcfs 4.0.9: FUSE filesystem for LXC
 sys-fs/mac-fdisk 0.1_p18: Mac/PowerMac disk partitioning utility
 sys-fs/mdadm 4.1 4.2_rc2: Tool for running RAID systems - replacement for the raidtools
@@ -17859,7 +17859,7 @@ sys-fs/static-dev 0.1-r2: A skeleton, statically managed /dev
 sys-fs/sysfsutils 2.1.1: System Utilities Based on Sysfs
 sys-fs/tmsu 0.7.4 0.7.5: Files tagger and virtual tag-based filesystem
 sys-fs/treesize 0.54.1-r1: A disk consumption analyzing tool
-sys-fs/udev 249-r2 9999: Linux dynamic and persistent device naming support (aka userspace devfs)
+sys-fs/udev 249-r3 9999: Linux dynamic and persistent device naming support (aka userspace devfs)
 sys-fs/udev-init-scripts 34 35 9999: udev startup scripts for openrc
 sys-fs/udftools 2.3: Ben Fennema's tools for packet writing and the UDF filesystem
 sys-fs/udiskie 2.3.3 2.3.3-r1: An automatic disk mounting service using udisks
@@ -17872,7 +17872,7 @@ sys-fs/xfsprogs 5.10.0-r1 5.12.0 5.13.0: xfs filesystem utilities
 sys-fs/xwmfs 0.90: FUSE-based X11 Window-Manager file system
 sys-fs/yaffs2utils 0.2.9: tools for generating YAFFS images
 sys-fs/zerofree 1.1.1: Zeroes out all free space on a filesystem
-sys-fs/zfs 0.8.6 2.0.5 2.1.0 9999: Userland utilities for ZFS Linux kernel module
+sys-fs/zfs 0.8.6-r1 2.0.5-r1 2.1.0-r1 9999: Userland utilities for ZFS Linux kernel module
 sys-fs/zfs-auto-snapshot 1.2.4-r1 9999: ZFS Automatic Snapshot Service for Linux
 sys-fs/zfs-kmod 0.8.6 2.0.5 2.1.0 9999: Linux ZFS kernel module for sys-fs/zfs
 sys-kernel/bliss-initramfs 8.1.0-r1 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS.
@@ -18108,7 +18108,7 @@ virtual/libcrypt 1-r1 2: Virtual for libcrypt.so
 virtual/libelf 2 3: Virtual for libelf.so.1 provider dev-libs/elfutils
 virtual/libiconv 0 0-r1 0-r2: Virtual for the GNU conversion library
 virtual/libintl 0 0-r1 0-r2: Virtual for the GNU Internationalization Library
-virtual/libudev 232-r4: Virtual for libudev providers
+virtual/libudev 232-r5: Virtual for libudev providers
 virtual/libusb 0-r2 1-r2: Virtual for libusb
 virtual/linux-sources 3-r6: Virtual for Linux kernel sources
 virtual/linuxtv-dvb-headers 5.8: Virtual Package installing the Header files for DVB
