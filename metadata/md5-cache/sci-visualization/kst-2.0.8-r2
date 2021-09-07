@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sci-libs/cfitsio:= sci-libs/getdata[cxx] sci-libs/gsl:= sci-libs/matio:= sci-libs/netcdf-cxx:3 test? ( dev-qt/qttest:5 )
+DESCRIPTION=Fast real-time large-dataset viewing and plotting tool
+EAPI=8
+HOMEPAGE=https://kst-plot.kde.org/ https://invent.kde.org/graphics/kst-plot
+INHERIT=cmake xdg-utils
+IUSE=debug test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 LGPL-2 FDL-1.2
+RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sci-libs/cfitsio:= sci-libs/getdata[cxx] sci-libs/gsl:= sci-libs/matio:= sci-libs/netcdf-cxx:3
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://sourceforge/kst/Kst-2.0.8.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=928fa5b0a9c8d760d5780cda9a9d0644
