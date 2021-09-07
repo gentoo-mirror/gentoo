@@ -1,0 +1,17 @@
+BDEPEND=app-text/asciidoc app-text/xmlto >=dev-util/intltool-0.3.50 >=sys-devel/gettext-0.17 virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] app-admin/augeas app-arch/libarchive:0= >=dev-libs/glib-2.43.4:2 dev-libs/satyr:0= dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/nettle:= dev-libs/newt:= dev-libs/xmlrpc-c:= net-libs/libproxy:= net-misc/curl:=[ssl] sys-apps/dbus sys-apps/systemd gtk? ( >=x11-libs/gtk+-3.3.12:3 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) x11-misc/xdg-utils
+DESCRIPTION=Generic library for reporting software bugs
+EAPI=8
+HOMEPAGE=https://github.com/abrt/libreport
+INHERIT=autotools python-r1
+IUSE=gtk +python python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] app-admin/augeas app-arch/libarchive:0= >=dev-libs/glib-2.43.4:2 dev-libs/satyr:0= dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/nettle:= dev-libs/newt:= dev-libs/xmlrpc-c:= net-libs/libproxy:= net-misc/curl:=[ssl] sys-apps/dbus sys-apps/systemd gtk? ( >=x11-libs/gtk+-3.3.12:3 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) x11-misc/xdg-utils acct-user/abrt acct-group/abrt
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=test
+SLOT=0/2
+SRC_URI=https://github.com/abrt/libreport/archive/2.15.2.tar.gz -> libreport-2.15.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	multibuild	05a584848db4901c97fcd94ae7cc3a97	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4
+_md5_=071860f573f96e14c4f2f0dad8e8d6ea
