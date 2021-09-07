@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
+DEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) !mpi? ( virtual/lapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
 DESCRIPTION=MUltifrontal Massively Parallel sparse direct matrix Solver
 EAPI=7
 HOMEPAGE=http://mumps.enseeiht.fr/
@@ -8,8 +8,8 @@ INHERIT=fortran-2 flag-o-matic multilib toolchain-funcs
 IUSE=doc examples metis mpi +scotch static-libs
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=public-domain
-RDEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
+RDEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) !mpi? ( virtual/lapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
 SLOT=0
 SRC_URI=http://mumps.enseeiht.fr/MUMPS_5.3.5.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
-_md5_=1bd4d6bc7fd82688558f9ff9aa462b22
+_md5_=5c04e6d89e4d8102173223658bdecdac
