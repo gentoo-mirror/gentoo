@@ -1,9 +1,11 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=compile install
 DESCRIPTION=ninja-compatible build tool written in C
 EAPI=7
 HOMEPAGE=https://github.com/michaelforney/samurai
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=ISC Apache-2.0 MIT
 SLOT=0
 SRC_URI=https://github.com/michaelforney/samurai/releases/download/1.2/samurai-1.2.tar.gz
-_md5_=fde57a03aceec2364bf64ac7834d9a00
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=36ce0045c43a8555335d205c49311010
