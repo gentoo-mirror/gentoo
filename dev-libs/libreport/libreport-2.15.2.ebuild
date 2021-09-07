@@ -1,8 +1,8 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{7..9} )
+EAPI=8
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit autotools python-r1
 
@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/abrt/libreport"
 SRC_URI="https://github.com/abrt/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="0/2"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="gtk +python"

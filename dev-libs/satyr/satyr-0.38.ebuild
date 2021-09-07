@@ -1,8 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{7..9} )
+EAPI=8
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit autotools multiprocessing python-r1
 
@@ -18,8 +18,10 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="python? ( ${PYTHON_DEPS} )
+RDEPEND="
+	python? ( ${PYTHON_DEPS} )
 	>=dev-libs/elfutils-0.158
+	dev-libs/glib:2
 	dev-libs/json-c:=
 	dev-libs/nettle:=
 "

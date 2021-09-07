@@ -4,10 +4,10 @@
 EAPI=7
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit autotools python-single-r1 xdg-utils
+inherit autotools python-single-r1 tmpfiles xdg
 
 DESCRIPTION="Automatic bug detection and reporting tool"
-HOMEPAGE="https://github.com/abrt/abrt/wiki/ABRT-Project"
+HOMEPAGE="https://github.com/abrt/abrt/wiki/ABRT-Project https://github.com/abrt/abrt"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -15,12 +15,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="selinux test"
-RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+RESTRICT="!test? ( test )"
 
 DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.56:2
-	>=dev-libs/libreport-2.13.0[gtk,python]
+	>=dev-libs/libreport-2.13.0:=[gtk,python]
 	dev-libs/libxml2:2
 	>=gnome-base/gsettings-desktop-schemas-3.15.1
 	net-libs/libsoup:2.4
@@ -48,6 +49,7 @@ RDEPEND="${DEPEND}
 	')
 "
 BDEPEND="
+	$(python_gen_cond_dep 'dev-python/python-systemd[${PYTHON_USEDEP}]')
 	test? (
 		$(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]')
 	)
@@ -105,25 +107,20 @@ src_install() {
 	default
 	python_optimize
 
-	keepdir /var/run/abrt
 	# /var/spool/abrt is created by dev-libs/libreport
-
 	diropts -m 700 -o abrt -g abrt
 	keepdir /var/spool/abrt-upload
-
-	diropts -m 775 -o abrt -g abrt
-	keepdir /var/cache/abrt-di
 
 	find "${D}" -name '*.la' -delete || die
 
 	newinitd "${FILESDIR}/${PN}-2.0.12-r1-init" abrt
 	newconfd "${FILESDIR}/${PN}-2.0.12-r1-conf" abrt
+
+	# Drop empy dirs, handled by tmpfiles
+	rm -r "${ED}"/var/run/ || die
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
+	xdg_pkg_postinst
+	tmpfiles_process abrt.conf
 }
