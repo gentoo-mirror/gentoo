@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install
+DEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv app-text/goldendict ) zlib? ( app-arch/gzip app-text/dictd )
+DESCRIPTION=Stardict Dictionary English to Japanese
+EAPI=7
+HOMEPAGE=http://download.huzheng.org/ja
+INHERIT=stardict
+IUSE=+zlib
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=CC-BY-SA-3.0 CC-BY-SA-4.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=http://download.huzheng.org/ja/stardict-jmdict-en-ja-2.4.2.tar.bz2
+_eclasses_=stardict	79e5bfe5aa1045dcced8e85032fcc790
+_md5_=0f096d1282ef45c89eb8d3cdae6491be
