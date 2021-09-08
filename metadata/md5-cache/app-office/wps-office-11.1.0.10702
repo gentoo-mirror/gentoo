@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst unpack
+DESCRIPTION=WPS Office is an office productivity suite
+EAPI=8
+HOMEPAGE=https://www.wps.cn/product/wpslinux/ http://linux.wps.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=unpacker xdg
+KEYWORDS=~amd64
+LICENSE=WPS-EULA
+RDEPEND=app-arch/bzip2:0 app-arch/xz-utils app-arch/lz4 dev-libs/atk dev-libs/expat dev-libs/glib:2 dev-libs/libbsd || ( dev-libs/libffi:0/7 dev-libs/libffi-compat:7 ) dev-libs/libgcrypt:0 dev-libs/libgpg-error dev-libs/libpcre:3 dev-libs/nspr dev-libs/nss media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/flac media-libs/libogg media-libs/libsndfile media-libs/libvorbis media-libs/libpng:0 media-sound/pulseaudio net-libs/libasyncns net-print/cups sys-apps/attr sys-apps/util-linux sys-apps/dbus sys-apps/tcp-wrappers sys-libs/libcap sys-libs/zlib:0 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXau x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdmcp x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/libXv x11-libs/libxcb dev-libs/libxslt x11-libs/pango virtual/glu
+RESTRICT=strip mirror
+SLOT=0
+SRC_URI=https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/10702/wps-office_11.1.0.10702.XA_amd64.deb
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	unpacker	928e1f35ef78ba9fc2b214e29c2b55a4	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=bb70698682567db17948288fe5fac0c2
