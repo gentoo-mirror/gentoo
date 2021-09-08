@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-libs/boost:= dev-libs/log4cplus mysql? ( dev-db/mysql-connector-c ) !openssl? ( dev-libs/botan:2= ) openssl? ( dev-libs/openssl:0= ) postgres? ( dev-db/postgresql:* ) test? ( dev-cpp/gtest )
+DESCRIPTION=High-performance production grade DHCPv4 & DHCPv6 server
+EAPI=7
+HOMEPAGE=http://www.isc.org/kea/
+INHERIT=autotools systemd tmpfiles
+IUSE=mysql +openssl postgres +samples test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=ISC BSD SSLeay GPL-2
+RDEPEND=dev-libs/boost:= dev-libs/log4cplus mysql? ( dev-db/mysql-connector-c ) !openssl? ( dev-libs/botan:2= ) openssl? ( dev-libs/openssl:0= ) postgres? ( dev-db/postgresql:* ) acct-group/dhcp acct-user/dhcp virtual/tmpfiles
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=ftp://ftp.isc.org/isc/kea/kea-1.8.2.tar.gz ftp://ftp.isc.org/isc/kea/1.8.2/kea-1.8.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	systemd	c846b9e02ac8293bfc9ca38a195c2a18	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
+_md5_=61bbaf52a543f5d8335c2e1291315d10
