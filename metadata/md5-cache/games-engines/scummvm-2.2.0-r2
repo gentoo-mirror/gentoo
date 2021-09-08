@@ -1,0 +1,17 @@
+BDEPEND=app-arch/xz-utils truetype? ( virtual/pkgconfig ) x86? ( dev-lang/nasm )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=media-libs/libsdl2-2.0.0[sound,joystick,video] a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) fluidsynth? ( media-sound/fluidsynth:= ) fribidi? ( dev-libs/fribidi ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) jpeg? ( virtual/jpeg:0 ) mp3? ( media-libs/libmad ) mpeg2? ( media-libs/libmpeg2 ) net? ( media-libs/sdl2-net net-misc/curl ) opengl? ( || ( virtual/opengl media-libs/mesa[gles2] media-libs/mesa[gles1] ) ) png? ( media-libs/libpng:0 ) sndio? ( media-sound/sndio:= ) speech? ( app-accessibility/speech-dispatcher ) truetype? ( media-libs/freetype:2 ) theora? ( media-libs/libtheora ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zlib? ( sys-libs/zlib:= )
+DESCRIPTION=Reimplementation of the SCUMM game engine used in Lucasarts adventures
+EAPI=8
+HOMEPAGE=https://www.scummvm.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop flag-o-matic toolchain-funcs xdg
+IUSE=a52 aac alsa debug flac fluidsynth fribidi +gtk jpeg lua mpeg2 mp3 +net opengl png sndio speech theora truetype unsupported vorbis zlib
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2+ LGPL-2.1 BSD GPL-3-with-font-exception
+RDEPEND=>=media-libs/libsdl2-2.0.0[sound,joystick,video] a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) fluidsynth? ( media-sound/fluidsynth:= ) fribidi? ( dev-libs/fribidi ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) jpeg? ( virtual/jpeg:0 ) mp3? ( media-libs/libmad ) mpeg2? ( media-libs/libmpeg2 ) net? ( media-libs/sdl2-net net-misc/curl ) opengl? ( || ( virtual/opengl media-libs/mesa[gles2] media-libs/mesa[gles1] ) ) png? ( media-libs/libpng:0 ) sndio? ( media-sound/sndio:= ) speech? ( app-accessibility/speech-dispatcher ) truetype? ( media-libs/freetype:2 ) theora? ( media-libs/libtheora ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zlib? ( sys-libs/zlib:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://scummvm.org/frs/scummvm/2.2.0/scummvm-2.2.0.tar.xz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=df414e66d7747eb5789c08e84e1d6bcf
