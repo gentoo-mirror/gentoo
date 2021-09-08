@@ -3,10 +3,9 @@
 
 EAPI=8
 
-QT5_MODULE="qttools"
 inherit qt5-build
 
-DESCRIPTION="Qt5 plugin metadata dumper"
+DESCRIPTION="Qt module to access CAN, ModBus, and other industrial serial buses and protocols"
 
 if [[ ${QT5_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~x86"
@@ -14,10 +13,9 @@ fi
 
 IUSE=""
 
-RDEPEND="
-	~dev-qt/qtcore-${PV}
+DEPEND="
+	=dev-qt/qtcore-${QT5_PV}*
+	=dev-qt/qtnetwork-${QT5_PV}*
+	=dev-qt/qtserialport-${QT5_PV}*
 "
-# TODO: we know it is bogus, figure out how to disable checks, bug 795237
-DEPEND="${RDEPEND}
-	~dev-qt/qtxml-${PV}
-"
+RDEPEND="${DEPEND}"
