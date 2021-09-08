@@ -1,6 +1,6 @@
 BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_8? ( >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)] )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-python/dnspython dev-python/urllib3 dev-python/beautifulsoup
+DEPEND=dev-python/dnspython dev-python/urllib3 dev-python/beautifulsoup4
 DESCRIPTION=Finds file leaks and other security problems on HTTP servers
 EAPI=7
 HOMEPAGE=https://github.com/hannob/snallygaster
@@ -8,9 +8,9 @@ INHERIT=distutils-r1
 IUSE=+python_single_target_python3_8
 KEYWORDS=~amd64
 LICENSE=CC0-1.0
-RDEPEND=dev-python/dnspython dev-python/urllib3 dev-python/beautifulsoup python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] )
+RDEPEND=dev-python/dnspython dev-python/urllib3 dev-python/beautifulsoup4 python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 )
 SLOT=0
 SRC_URI=mirror://pypi/s/snallygaster/snallygaster-0.0.8.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	distutils-r1	5e8c25e37e261f4306d82487f673a1bf
-_md5_=9e0fd8447366d75b561da4062eed6c43
+_md5_=6f6e1ad5fade669d1f6a609ec395d05c
