@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst setup unpack
+DEPEND=sys-libs/ncurses:= !sys-process/iotop
+DESCRIPTION=top utility for IO (C port)
+EAPI=8
+HOMEPAGE=https://github.com/Tomas-M/iotop
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps git-r3 linux-info toolchain-funcs
+IUSE=+filecaps kernel_linux
+LICENSE=GPL-2+
+PROPERTIES=live
+RDEPEND=sys-libs/ncurses:= !sys-process/iotop
+SLOT=0
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	2c5e96c87e446b5c09f5f73c70a915ab
+_md5_=836c3d1d624b4ce10629c3be6020d2fe
