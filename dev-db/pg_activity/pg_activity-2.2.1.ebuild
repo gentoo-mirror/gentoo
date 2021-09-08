@@ -2,8 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-PYTHON_COMPAT=( python3_7 python3_8 python3_9 )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -34,7 +33,7 @@ distutils_enable_tests pytest
 python_test() {
 	# https://github.com/dalibo/pg_activity/issues/201
 	export COLUMNS="80"
-	epytest -k 'not test_ui.txt'
+	epytest -k 'not test_ui.txt and not test_data.py'
 }
 
 src_install() {
