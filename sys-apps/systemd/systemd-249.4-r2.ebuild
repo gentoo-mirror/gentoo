@@ -226,6 +226,8 @@ src_prepare() {
 	# Add local patches here
 	PATCHES+=(
 		"${FILESDIR}/249-libudev-static.patch"
+		"${FILESDIR}/249-home-secret-assert.patch"
+		"${FILESDIR}/249-fido2.patch"
 	)
 
 	if ! use vanilla; then

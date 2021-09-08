@@ -3,18 +3,22 @@
 
 EAPI=7
 
-inherit cmake
+inherit toolchain-funcs cmake
 
+DATA_HASH="a5b13babe65c1bba7186b41b43d4cbdc20a5c470"
 DESCRIPTION="SIMD accelerated C++ JSON library"
 HOMEPAGE="
 	https://simdjson.org/
 	https://github.com/simdjson/simdjson
 "
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	test? ( https://github.com/${PN}/${PN}-data/archive/${DATA_HASH}.tar.gz -> ${PN}-data-${PV}.tar.gz )
+"
 
 LICENSE="Apache-2.0 Boost-1.0 BSD MIT"
 SLOT="0/8"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="test tools"
 
 BDEPEND="
@@ -30,8 +34,9 @@ REQUIRED_USE="test? ( tools )"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}/simdjson-0.8.0-dont-bundle-cxxopts.patch"
+	"${FILESDIR}/simdjson-1.0.0-dont-bundle-cxxopts.patch"
 	"${FILESDIR}/simdjson-0.9.0-tests.patch"
+	"${FILESDIR}/simdjson-1.0.0-dont-fetch-data-tarball.patch"
 )
 
 DOCS=(
@@ -43,13 +48,16 @@ DOCS=(
 )
 
 src_prepare() {
-	sed -e 's:-Werror ::' -i cmake/simdjson-flags.cmake || die
+	mv "${WORKDIR}/${PN}-data-${DATA_HASH}" "${S}/dependencies/${PN}-data" || die
+	sed -e 's:-Werror ::' -i cmake/developer-options.cmake || die
+	sed -e "s:^c++ :$(tc-getCXX) :" -i singleheader/README.md || die
 	cmake_src_prepare
 }
 
 src_configure() {
 	local -a mycmakeargs=(
 		-DSIMDJSON_ENABLE_THREADS=ON
+		-DSIMDJSON_ALLOW_DOWNLOADS=OFF
 	)
 
 	if use tools; then
@@ -60,7 +68,7 @@ src_configure() {
 		)
 	else
 		mycmakeargs+=(
-			-DSIMDJSON_JUST_LIBRARY=ON
+			-DSIMDJSON_DEVELOPER_MODE=ON
 		)
 	fi
 
