@@ -1,16 +1,23 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit desktop flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="Reimplementation of the SCUMM game engine used in Lucasarts adventures"
 HOMEPAGE="https://www.scummvm.org/"
-SRC_URI="https://scummvm.org/frs/scummvm/${PV}/${P}.tar.xz"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/scummvm/scummvm"
+else
+	SRC_URI="https://scummvm.org/frs/scummvm/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+	S="${WORKDIR}/${PN}-${P}"
+fi
 
 LICENSE="GPL-2+ LGPL-2.1 BSD GPL-3-with-font-exception"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="a52 aac alsa debug flac fluidsynth fribidi +gtk jpeg lua mpeg2 mp3 +net opengl png sndio speech theora truetype unsupported vorbis zlib"
 RESTRICT="test"  # it only looks like there's a test there #77507
 
@@ -29,13 +36,17 @@ RDEPEND="
 	jpeg? ( virtual/jpeg:0 )
 	mp3? ( media-libs/libmad )
 	mpeg2? ( media-libs/libmpeg2 )
-	net? ( media-libs/sdl2-net )
+	net? (
+		media-libs/sdl2-net
+		net-misc/curl
+	)
 	opengl? ( || (
 		virtual/opengl
 		media-libs/mesa[gles2]
 		media-libs/mesa[gles1]
 	) )
 	png? ( media-libs/libpng:0 )
+	sndio? ( media-sound/sndio:= )
 	speech? ( app-accessibility/speech-dispatcher )
 	truetype? ( media-libs/freetype:2 )
 	theora? ( media-libs/libtheora )
@@ -60,7 +71,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	xdg_src_prepare
+	default
 
 	# -g isn't needed for nasm here
 	sed -i \
@@ -75,6 +86,7 @@ src_prepare() {
 
 src_configure() {
 	use x86 && append-ldflags -Wl,-z,noexecstack
+	tc-export STRINGS
 
 	local myconf=(
 		--backend=sdl
@@ -97,6 +109,7 @@ src_configure() {
 		$(use_enable lua)
 		$(use_enable mp3 mad)
 		$(use_enable mpeg2)
+		$(use_enable net libcurl)
 		$(use_enable net sdlnet)
 		$(use_enable png)
 		$(use_enable sndio)
@@ -111,14 +124,13 @@ src_configure() {
 	echo "configure ${myconf[@]}"
 	# NOT AN AUTOCONF SCRIPT SO DONT CALL ECONF
 	SDL_CONFIG="sdl2-config" \
-	./configure "${myconf[@]}" "${EXTRA_ECONF}" || die
+	./configure "${myconf[@]}" ${EXTRA_ECONF} || die
 }
 
 src_compile() {
 	emake \
 		AR="$(tc-getAR) cru" \
-		RANLIB="$(tc-getRANLIB)" \
-		STRINGS="$(tc-getSTRINGS)"
+		RANLIB="$(tc-getRANLIB)"
 }
 
 src_install() {
