@@ -15,9 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+fapi test"
 
-RDEPEND="net-misc/curl:=
-	>=app-crypt/tpm2-tss-3.0.1:=[fapi?]
+RDEPEND=">=app-crypt/tpm2-tss-3.0.1:=[fapi?]
 	dev-libs/openssl:=
+	net-misc/curl:=
+	sys-libs/efivar:=
 	${PYTHON_DEPS}"
 DEPEND="${RDEPEND}
 	test? (
@@ -38,6 +39,7 @@ REQUIRED_USE=" ${PYTHON_REQUIRED_USE} "
 # https://github.com/tpm2-software/tpm2-tools/issues/2767
 PATCHES=(
 	"${FILESDIR}/${PN}-5.1.1-fix-tpm-checkquote.patch"
+	"${FILESDIR}/${PN}-5.1.1-no-efivar-automagic.patch"
 )
 
 src_prepare() {
@@ -45,8 +47,8 @@ src_prepare() {
 	"s/m4_esyscmd_s(\[git describe --tags --always --dirty\])/${PV}/" \
 	"${S}/configure.ac" || die
 	"${S}/scripts/utils/man_to_bashcompletion.sh"
-	eautoreconf
 	default
+	eautoreconf
 }
 
 src_configure() {
