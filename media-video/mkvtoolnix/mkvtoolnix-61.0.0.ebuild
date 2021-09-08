@@ -19,7 +19,7 @@ HOMEPAGE="https://mkvtoolnix.download/ https://gitlab.com/mbunkus/mkvtoolnix"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="dbus debug dvd nls pch test"
+IUSE="dbus debug dvd nls pch test gui"
 RESTRICT="!test? ( test )"
 
 # check NEWS.md for build system changes entries for boost/libebml/libmatroska
@@ -38,11 +38,13 @@ RDEPEND="
 	sys-libs/zlib
 	dvd? ( media-libs/libdvdread:= )
 	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtmultimedia:5
+	gui? (
+		dev-qt/qtgui:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtconcurrent:5
+		dev-qt/qtmultimedia:5
+	)
 	app-text/cmark:0=
 	dbus? ( dev-qt/qtdbus:5 )
 "
@@ -87,6 +89,7 @@ src_configure() {
 		$(use_enable debug)
 		$(usex pch "" --disable-precompiled-headers)
 		$(use_enable dbus)
+		$(use_enable gui)
 		--disable-qt6
 		--enable-qt5
 		--with-qmake=$(qt5_get_bindir)/qmake
