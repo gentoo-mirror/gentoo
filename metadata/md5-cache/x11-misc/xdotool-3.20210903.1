@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig x11-base/xorg-proto
+DEFINED_PHASES=compile install
+DEPEND=x11-libs/libX11 x11-libs/libXi x11-libs/libXinerama x11-libs/libXtst x11-libs/libxkbcommon
+DESCRIPTION=Simulate keyboard input and mouse activity, move and resize windows
+EAPI=8
+HOMEPAGE=https://www.semicomplete.com/projects/xdotool/
+INHERIT=toolchain-funcs
+IUSE=examples
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=x11-libs/libX11 x11-libs/libXi x11-libs/libXinerama x11-libs/libXtst x11-libs/libxkbcommon
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/jordansissel/xdotool/releases/download/v3.20210903.1/xdotool-3.20210903.1.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=58819820fea412b35629a2d1988b79fe

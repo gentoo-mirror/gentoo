@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/yacc
+DEFINED_PHASES=compile configure install postinst
+DEPEND=dev-libs/icu:= dev-libs/libpcre:3 dev-libs/uulib sys-libs/ncurses:=[unicode(+)] cancel-locks? ( >=net-libs/canlock-3.0:= ) gpg? ( app-crypt/gnupg ) nls? ( virtual/libintl ) sasl? ( virtual/gsasl ) socks5? ( net-proxy/dante )
+DESCRIPTION=A threaded NNTP and spool based UseNet newsreader
+EAPI=8
+HOMEPAGE=http://www.tin.org/
+INHERIT=optfeature toolchain-funcs
+IUSE=cancel-locks debug gpg nls sasl socks5
+KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=BSD
+RDEPEND=dev-libs/icu:= dev-libs/libpcre:3 dev-libs/uulib sys-libs/ncurses:=[unicode(+)] cancel-locks? ( >=net-libs/canlock-3.0:= ) gpg? ( app-crypt/gnupg ) nls? ( virtual/libintl ) sasl? ( virtual/gsasl ) socks5? ( net-proxy/dante )
+SLOT=0
+SRC_URI=ftp://ftp.tin.org/pub/news/clients/tin/stable/tin-2.6.0.tar.xz
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=08530d1101ef1d5ce624cee4510e5dfd

@@ -7,9 +7,9 @@ HOMEPAGE=http://www.tin.org/
 INHERIT=toolchain-funcs
 IUSE=cancel-locks debug doc +etiquette gpg idn ipv6 mime nls sasl socks5 spell unicode
 KEYWORDS=amd64 arm ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
-LICENSE=GPL-2
+LICENSE=BSD GPL-2+
 RDEPEND=dev-libs/libpcre dev-libs/uulib sys-libs/ncurses:=[unicode(+)?] gpg? ( app-crypt/gnupg ) idn? ( net-dns/libidn ) mime? ( net-mail/metamail ) nls? ( sys-devel/gettext ) sasl? ( virtual/gsasl ) socks5? ( net-proxy/dante ) unicode? ( dev-libs/icu:= )
 SLOT=0
 SRC_URI=ftp://ftp.tin.org/pub/news/clients/tin/stable/tin-2.4.5.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=57bc2af78e5564d3979873bbcee6ab33
+_md5_=6a6939adfb5b80a2ad7e6c6eb916a62c

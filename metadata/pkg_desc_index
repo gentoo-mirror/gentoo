@@ -11363,7 +11363,7 @@ dev-vcs/lab 0.17.2 0.19.0: Lab wraps Git or Hub, making it simple to interact wi
 dev-vcs/mercurial 5.8 5.8.1 5.9.1 9999: Scalable distributed SCM
 dev-vcs/mr 1.20170129 1.20171231 1.20180726 1.99999999: Multiple Repository management tool
 dev-vcs/notify-webhook 0.1.0: Git post-receive web hook notifier in Python.
-dev-vcs/pre-commit 2.13.0: A framework for managing and maintaining multi-language Git pre-commit hooks
+dev-vcs/pre-commit 2.13.0 2.15.0: A framework for managing and maintaining multi-language Git pre-commit hooks
 dev-vcs/python-gitlab 2.5.0 2.6.0: Python command line interface to gitlab API
 dev-vcs/qgit 2.9: Qt GUI for git repositories
 dev-vcs/rcs 5.9.3 5.9.4: Revision Control System
@@ -15098,7 +15098,7 @@ net-libs/balde 0.1.1: A microframework for C based on GLib and bad intentions
 net-libs/balde-markdown 0.1: A balde extension that adds Markdown support
 net-libs/biblesync 2.1.0: A multicast protocol to support Bible software shared co-navigation
 net-libs/c-client 2007f-r7: UW IMAP c-client library
-net-libs/canlock 2b: A library for creating and verifying Usenet cancel locks
+net-libs/canlock 2b 3.2.2: A library for creating and verifying Usenet cancel locks
 net-libs/courier-authlib 0.69.0-r4 0.70.0-r3 0.71.0-r3 0.71.1-r3 0.71.2-r3 0.71.3-r1: Courier authentication library
 net-libs/courier-unicode 2.1 2.1-r1 2.1.2 2.2.3-r1: Unicode library used by the courier mail server
 net-libs/cppzmq 4.6.0: High-level CPP Binding for ZeroMQ
@@ -15737,7 +15737,7 @@ net-news/canto-curses 0.9.9: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.7: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.12.9 1.12.9-r1: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.21-r1 2.23-r1: An RSS/Atom feed reader for text terminals
-net-news/rssguard 3.8.3 3.9.2: Tiny RSS and Atom feed reader
+net-news/rssguard 3.9.2 4.0.1: Simple (yet powerful) feed reader
 net-news/rsstail 2.1 2.1_p20200310: A tail-like RSS-reader
 net-news/rsstool 1.0.1_rc2: cmdline tool to read, parse, merge, and write RSS (and Atom) feeds
 net-news/snownews 1.6.10-r1: Command-line RSS feed reader
@@ -15747,9 +15747,9 @@ net-nntp/leafnode 1.11.11: A USENET software package designed for small sites
 net-nntp/newspost 2.1.1-r3: A usenet binary autoposter for unix
 net-nntp/nzbget 21.0-r2 21.1-r1: A command-line based binary newsgrabber supporting .nzb files
 net-nntp/sabnzbd 3.2.1 3.3.0 3.3.1: Binary newsgrabber with web-interface
-net-nntp/slrn 1.0.3: A s-lang based newsreader
+net-nntp/slrn 1.0.3-r1: A s-lang based newsreader
 net-nntp/suck 4.3.3-r1 4.3.4: Grab news from a remote NNTP server and feed them to another
-net-nntp/tin 2.4.5-r1: A threaded NNTP and spool based UseNet newsreader
+net-nntp/tin 2.4.5-r1 2.6.0: A threaded NNTP and spool based UseNet newsreader
 net-p2p/airdcpp-webclient 2.11.0-r1 2.11.1: Cross-platform Direct Connect client
 net-p2p/amule 2.3.3 9999: aMule, the all-platform eMule p2p client
 net-p2p/automatic 0.8.3-r1: RSS downloader for Tranmission
@@ -15784,7 +15784,7 @@ net-p2p/qbittorrent 4.3.1 4.3.3 4.3.4.1 4.3.5 4.3.7 9999: BitTorrent client in C
 net-p2p/resilio-sync 2.6.3-r2: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.5-r2 0.6.5-r3 0.6.6: P2P private sharing application
 net-p2p/rtorrent 0.9.7 0.9.7-r1 0.9.8: BitTorrent Client using libtorrent
-net-p2p/syncthing 1.15.1 1.17.0 1.18.1: Open Source Continuous File Synchronization
+net-p2p/syncthing 1.15.1 1.17.0 1.18.1 1.18.2: Open Source Continuous File Synchronization
 net-p2p/syrep 0.9: A generic file repository synchronization tool
 net-p2p/torrentinfo 1.8.6-r2: A torrent file parser
 net-p2p/transmission 3.00-r1 9999: A fast, easy, and free BitTorrent client
@@ -17464,7 +17464,7 @@ sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykneo-ccid-tools 0.0.0: Tools for Yubico's YubiKey NEO in CCID mode
 sys-auth/ykpers 1.20.0: Library and tool for personalization of Yubico's YubiKey
-sys-auth/yubico-piv-tool 2.2.0-r1: Command-line tool and p11-kit module for the YubiKey PIV application
+sys-auth/yubico-piv-tool 2.2.0-r1 2.2.1: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-auth/yubikey-personalization-gui 3.1.25: GUI for personalization of Yubico's YubiKey
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
 sys-block/arcconf 2.01.22270-r1 3.07.23971: Microsemi Adaptec RAID Controller Command Line Utility
@@ -17625,7 +17625,7 @@ sys-cluster/projections 6.2.1: Projections Performance Analysis Framework for Ch
 sys-cluster/rdma-core 30.0-r2 31.0 32.0 32.0-r1 33.0 33.0-r1 34.0 36.0 9999: Userspace components for the Linux Kernel's drivers/infiniband subsystem
 sys-cluster/resource-agents 3.9.6 4.0.1 4.6.1: Resources pack for Heartbeat / Pacemaker
 sys-cluster/sanlock 3.8.2: shared storage lock manager
-sys-cluster/singularity 3.8.0 3.8.1: Application containers for Linux
+sys-cluster/singularity 3.8.0 3.8.1 3.8.3: Application containers for Linux
 sys-cluster/slurm 20.11.0.1-r101: A Highly Scalable Resource Manager
 sys-cluster/spark-bin 2.4.3 2.4.7-r1 3.0.1-r2: Lightning-fast unified analytics engine
 sys-cluster/teleport 4.1.4 9999: Modern SSH server for teams managing distributed infrastructure
@@ -18923,7 +18923,7 @@ x11-misc/xdialog 2.3.1: Drop-in replacement for cdialog using GTK
 x11-misc/xdiskusage 1.52: user-friendly program to show you what is using up all your disk space
 x11-misc/xdo 0.5.7: Small X utility to perform elementary actions on windows
 x11-misc/xdock 0.3.0: Emulates Window Maker docks (runs in any window manager)
-x11-misc/xdotool 3.20160805.1 3.20210804.2: Simulate keyboard input and mouse activity, move and resize windows
+x11-misc/xdotool 3.20160805.1 3.20210804.2 3.20210903.1: Simulate keyboard input and mouse activity, move and resize windows
 x11-misc/xearth 1.1-r1: Set the X root window to an image of the Earth
 x11-misc/xfe 1.43.2: MS-Explorer-like minimalist file manager for X
 x11-misc/xfishtank 2.5: Turns your root window into an aquarium

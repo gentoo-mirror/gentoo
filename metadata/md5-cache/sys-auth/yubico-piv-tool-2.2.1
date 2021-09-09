@@ -1,0 +1,16 @@
+BDEPEND=dev-util/gengetopt sys-apps/help2man virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-apps/pcsc-lite <dev-libs/openssl-3.0.0:0=[-bindist(-)] test? ( dev-libs/check )
+DESCRIPTION=Command-line tool and p11-kit module for the YubiKey PIV application
+EAPI=8
+HOMEPAGE=https://developers.yubico.com/yubico-piv-tool/ https://github.com/Yubico/yubico-piv-tool
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~riscv
+LICENSE=BSD-2
+RDEPEND=sys-apps/pcsc-lite <dev-libs/openssl-3.0.0:0=[-bindist(-)]
+RESTRICT=!test? ( test )
+SLOT=0/2
+SRC_URI=https://github.com/Yubico/yubico-piv-tool/archive/yubico-piv-tool-2.2.1.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=ca99a96e7229079f88cfcd55d1c3f933
