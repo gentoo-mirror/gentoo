@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://developers.yubico.com/yubioath-desktop/ https://github.com/Yubico/yubioath-desktop
 INHERIT=desktop python-single-r1 qmake-utils xdg
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=BSD-2
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) dev-qt/qtcore:5 dev-qt/qtquickcontrols2:5 dev-qt/qtdeclarative:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 x11-libs/libdrm python_single_target_python3_8? ( >=app-crypt/yubikey-manager-4.0.0[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=app-crypt/yubikey-manager-4.0.0[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=app-crypt/yubikey-manager-4.0.0[python_targets_python3_10(-)] ) dev-python/pyotherside[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?]
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/Yubico/yubioath-desktop/archive/yubioath-desktop-5.0.5.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
-_md5_=dfe4ee162f9a620fec15927dac6e738e
+_md5_=471c6b313157b9e5784b2d31cfdc9b2c

@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/thp/pyotherside https://thp.io/2011/pyotherside/
 INHERIT=qmake-utils python-single-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=ISC
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtsvg:5
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/thp/pyotherside/archive/1.5.9.tar.gz -> pyotherside-1.5.9.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
-_md5_=79a528af29c2478ce13bd9f686505f10
+_md5_=df0ab46d380b4a599fb1a63f83b847c4
