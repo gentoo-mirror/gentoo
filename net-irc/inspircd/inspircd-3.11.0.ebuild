@@ -1,14 +1,14 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit toolchain-funcs
 
 DESCRIPTION="Inspire IRCd - The Stable, High-Performance Modular IRCd"
 HOMEPAGE="https://www.inspircd.org/"
 SRC_URI="https://github.com/inspircd/inspircd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/clinew/gentoo-distfiles/raw/master/inspircd-3.10.0-r1-fix-path-builds.patch.bz2"
+SRC_URI+=" https://github.com/clinew/gentoo-distfiles/raw/master/inspircd-${PV}-fix-path-builds.patch.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
