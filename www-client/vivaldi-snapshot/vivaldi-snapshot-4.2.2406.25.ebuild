@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CHROMIUM_LANGS="
 	af
@@ -135,7 +135,7 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/pango[X]
-	proprietary-codecs? ( media-video/ffmpeg:0/56.58.58[chromium(-)] )
+	proprietary-codecs? ( >=media-video/ffmpeg-9999[chromium(-)] )
 	widevine? ( www-plugins/chrome-binary-plugins )
 "
 
@@ -161,7 +161,7 @@ src_prepare() {
 	rmdir etc/{cron.daily/,} ${VIVALDI_HOME}/cron/ || die
 
 	# Remove scripts that will most likely break things.
-	rm ${VIVALDI_HOME}/update-{ffmpeg,widevine} || die
+	rm -vf ${VIVALDI_HOME}/update-{ffmpeg,widevine} || die
 
 	pushd ${VIVALDI_HOME}/locales > /dev/null || die
 	rm ja-KS.pak || die # No flag for Kansai as not in IETF list.
