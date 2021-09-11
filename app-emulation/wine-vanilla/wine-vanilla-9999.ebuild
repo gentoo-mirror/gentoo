@@ -498,24 +498,6 @@ multilib_src_install_all() {
 			"${D%/}${MY_MANDIR}"/man1/wine{dump,maker}.1 || die
 	fi
 
-	# Remove wineconsole if neither backend is installed #551124
-	if ! use X; then
-		rm "${D%/}${MY_PREFIX}"/bin/wineconsole* || die
-		rm "${D%/}${MY_MANDIR}"/man1/wineconsole* || die
-
-		if ! use mingw; then
-			rm_wineconsole() {
-				rm "${D%/}/usr/$(get_libdir)/wine-${WINE_VARIANT}"/wine/{,fakedlls/}wineconsole.exe* || die
-			}
-		else
-			rm_wineconsole() {
-				rm "${D%/}/usr/$(get_libdir)/wine-${WINE_VARIANT}"/wine/wineconsole.exe* || die
-			}
-		fi
-
-		multilib_foreach_abi rm_wineconsole
-	fi
-
 	use abi_x86_32 && pax-mark psmr "${D%/}${MY_PREFIX}"/bin/wine{,-preloader} #255055
 	use abi_x86_64 && pax-mark psmr "${D%/}${MY_PREFIX}"/bin/wine64{,-preloader}
 
