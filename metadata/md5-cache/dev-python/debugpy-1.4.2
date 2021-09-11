@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/microsoft/debugpy/ https://pypi.org/project/debugpy/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=MIT
 RDEPEND=dev-python/pydevd[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/microsoft/debugpy/archive/refs/tags/v1.4.2.tar.gz -> debugpy-1.4.2.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	6088739b8548699015d46289639d660c
-_md5_=2bbc5d774532a73aaa7c3f5c4a5ca71f
+_md5_=5faf53d7f2f9152fa645928474988e64
