@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://rephial.org/
 INHERIT=autotools desktop xdg-utils
 IUSE=+ncurses sdl sound +X
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=X? ( media-fonts/font-misc-misc x11-libs/libX11 ) ncurses? ( sys-libs/ncurses:=[unicode(+)] ) sdl? ( media-libs/libsdl2[video,X] media-libs/sdl2-image media-libs/sdl2-ttf sound? ( media-libs/libsdl2[sound] media-libs/sdl2-mixer[mp3] ) )
 REQUIRED_USE=sound? ( sdl ) || ( X ncurses )
 SLOT=0
 SRC_URI=https://github.com/angband/angband/archive/refs/tags/4.2.2.tar.gz -> angband-4.2.2.tar.gz https://dev.gentoo.org/~steils/distfiles/angband-4.2.2-man.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=af451bde9399e2882823a980f9905b80
+_md5_=5800f107d724e9f1935cafdbf1598f30
