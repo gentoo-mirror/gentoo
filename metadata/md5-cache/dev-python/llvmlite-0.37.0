@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://llvmlite.pydata.org/
 INHERIT=distutils-r1 llvm
 IUSE=examples python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=sys-devel/llvm:11 sys-libs/zlib:0= python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/numba/llvmlite/archive/v0.37.0.tar.gz -> llvmlite-0.37.0.gh.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	6088739b8548699015d46289639d660c	llvm	19c0cdeff39b0e08d1454df31b588316
-_md5_=5cf811545c9e64986540578b4ed0266d
+_md5_=9f627d040eb5e1fc91a994fd1f1fba01
