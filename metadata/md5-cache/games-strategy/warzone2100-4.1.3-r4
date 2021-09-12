@@ -4,12 +4,12 @@ DEPEND=>=dev-games/physfs-2[zip] dev-db/sqlite:3 >=dev-libs/libsodium-1.0.14:= m
 DESCRIPTION=3D real-time strategy game
 EAPI=7
 HOMEPAGE=https://wz2100.net/
-INHERIT=cmake desktop plocale xdg
+INHERIT=cmake plocale xdg
 IUSE=debug discord nls videos vulkan
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+ CC-BY-SA-3.0 public-domain vulkan? ( GPL-3 )
 RDEPEND=>=dev-games/physfs-2[zip] dev-db/sqlite:3 >=dev-libs/libsodium-1.0.14:= media-libs/freetype:2 media-libs/harfbuzz:= media-libs/libogg media-libs/libpng:= media-libs/libsdl2[opengl,video,X] media-libs/libtheora media-libs/libvorbis media-libs/openal net-libs/miniupnpc:= net-misc/curl sys-libs/zlib nls? ( virtual/libintl ) vulkan? ( media-libs/libsdl2:=[vulkan] ) media-fonts/dejavu
 SLOT=0
 SRC_URI=mirror://sourceforge/warzone2100/releases/4.1.3/warzone2100_src.tar.xz -> warzone2100-4.1.3.tar.xz videos? ( mirror://sourceforge/warzone2100/warzone2100/Videos/2.2/high-quality-en/sequences.wz -> warzone2100-videos-2.2.wz )
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	desktop	c0d27bf73aa08ca05b663dbd31fbef28	plocale	89c6aac5da68423465e6fd79fb4ad5fb	xdg	6024fbc93167fad782e2032933654857
-_md5_=76e899488f02a92e8462020d3268a07b
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	plocale	89c6aac5da68423465e6fd79fb4ad5fb	xdg	6024fbc93167fad782e2032933654857
+_md5_=dc316e84a0ba19d7dc8b37bb5fd4f8a0

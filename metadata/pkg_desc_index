@@ -8781,7 +8781,7 @@ dev-python/line_profiler 3.0.2 3.2.1 3.2.2 3.2.5 3.3.0: Line-by-line profiler
 dev-python/lit 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0.9999 14.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/livereload 2.6.3: Python LiveReload is an awesome tool for web developers
 dev-python/llfuse 1.4.1: Python bindings for the low-level FUSE API
-dev-python/llvmlite 0.36.0 0.37.0: Python wrapper around the llvm C++ library
+dev-python/llvmlite 0.37.0: Python wrapper around the llvm C++ library
 dev-python/lmdb 1.2.0-r1 1.2.1: Python bindings for the Lightning Database
 dev-python/lmfit 1.0.2: Non-Linear Least-Squares Minimization and Curve-Fitting for Python
 dev-python/locket 0.2.1: File-based locks for Python
@@ -11706,7 +11706,7 @@ games-emulation/vbam 2.1.4 9999: Game Boy, GBC, and GBA emulator forked from Vis
 games-emulation/vgba 4.8-r1: Gameboy Advance (GBA) emulator for Linux
 games-emulation/yabause 0.9.15: Sega Saturn emulator
 games-emulation/zinc 1.1-r1: An x86 binary-only emulator for Sony ZN-1, ZN-2, and Namco System 11 arcades
-games-emulation/zsnes 1.51-r9 1.51-r10 1.51-r11: SNES (Super Nintendo) emulator that uses x86 assembly
+games-emulation/zsnes 1.51-r11: SNES (Super Nintendo) emulator that uses x86 assembly
 games-engines/box2d 2.4.1: C++ engine for simulating rigid bodies in 2D games
 games-engines/dMagnetic 0.32: A Magnetic Scrolls Interpreter for playing a collection of old text adventures
 games-engines/devilutionx 1.1.0-r2 1.2.0 1.2.1 9999: Diablo engine for modern operating systems
@@ -12108,7 +12108,7 @@ games-strategy/war1gus 2.4.3 3.0.0 3.1.0 3.1.1 3.1.2: Warcraft: Orcs & Humans fo
 games-strategy/wargus 2.4.3 3.0.0-r1 3.1.0 3.1.1 3.1.2: Warcraft II for the Stratagus game engine
 games-strategy/wargus-data 0-r1: Warcraft II data for wargus (needs DOS CD)
 games-strategy/warmux 11.04.1-r1: A free Worms clone
-games-strategy/warzone2100 4.1.2-r3 4.1.3-r4: 3D real-time strategy game
+games-strategy/warzone2100 4.1.3-r4: 3D real-time strategy game
 games-strategy/wesnoth 1.14.14-r1 1.15.15: Battle for Wesnoth - A fantasy turn-based strategy game
 games-strategy/widelands 1.0 9999: Game similar to Settlers 2
 games-strategy/xbattleai 1.2.2-r2: A multi-player game of strategy and coordination
@@ -17885,8 +17885,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.142 5.4.143 5.4.144 5.10.60 5.10.61 5.10.62 5.10.63 5.12.19 5.13.13 5.13.14 5.13.15: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.142 5.4.142-r1 5.4.143 5.4.143-r1 5.4.144 5.4.144-r2 5.10.60 5.10.60-r1 5.10.61 5.10.61-r1 5.10.62 5.10.62-r2 5.10.63 5.10.63-r1 5.12.19 5.12.19-r2 5.13.13 5.13.13-r1 5.13.14 5.13.14-r2 5.13.15 5.13.15-r1: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.142 5.4.143 5.4.144 5.4.145 5.10.60 5.10.61 5.10.62 5.10.63 5.10.64 5.12.19 5.13.13 5.13.14 5.13.15 5.13.16: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.142 5.4.142-r1 5.4.143 5.4.143-r1 5.4.144 5.4.144-r2 5.4.145 5.10.60 5.10.60-r1 5.10.61 5.10.61-r1 5.10.62 5.10.62-r2 5.10.63 5.10.63-r1 5.10.64 5.12.19 5.12.19-r2 5.13.13 5.13.13-r1 5.13.14 5.13.14-r2 5.13.15 5.13.15-r1 5.13.16: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.282 4.4.283 4.9.281 4.9.282 4.14.245 4.14.246 4.19.205 4.19.206 5.4.143 5.4.144 5.4.145 5.10.61 5.10.62 5.10.63 5.10.64 5.13.10 5.13.11 5.13.12 5.13.13 5.13.14 5.13.15 5.13.16 5.14.0 5.14.1 5.14.2 5.14.3: Full sources including the Gentoo patchset for the 5.14 kernel tree
 sys-kernel/git-sources 5.14_rc1 5.14_rc2 5.14_rc3 5.14_rc4 5.14_rc5 5.14_rc6 5.14_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17901,7 +17901,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224 4.9.280_p186 4.14.244_p121 4.19.199_p86 5.4.138_p62 5.10.59_p51 5.11.4_p11: Full Linux 5.11 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.142 5.4.143 5.4.144 5.10.60 5.10.61 5.10.62 5.10.63 5.12.19 5.13.13 5.13.14 5.13.15: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.142 5.4.143 5.4.144 5.4.145 5.10.60 5.10.61 5.10.62 5.10.63 5.10.64 5.12.19 5.13.13 5.13.14 5.13.15 5.13.16: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.283 4.9.282 4.14.246 4.19.206 5.4.144 5.10.63 5.13.15 5.14.2: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.13.10 5.13.13: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2: Standalone argp library for use with uclibc
@@ -18084,7 +18084,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.142 5.4.143 5.4.144 5.10.60 5.10.61 5.10.62 5.10.63 5.12.19 5.13.13 5.13.14 5.13.15: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.142 5.4.143 5.4.144 5.4.145 5.10.60 5.10.61 5.10.62 5.10.63 5.10.64 5.12.19 5.13.13 5.13.14 5.13.15 5.13.16: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
