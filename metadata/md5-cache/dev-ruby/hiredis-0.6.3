@@ -1,16 +1,16 @@
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-libs/hiredis test? ( dev-ruby/test-unit:2 ) virtual/pkgconfig ruby_targets_ruby25? ( dev-lang/ruby:2.5 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby25? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby25(-)] ) ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby25? ( test? ( dev-ruby/rake[ruby_targets_ruby25(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby25? ( virtual/rubygems[ruby_targets_ruby25(-)] !!dev-ruby/psych[ruby_targets_ruby25(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby25? ( virtual/rubygems[ruby_targets_ruby25(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+DEPEND=dev-libs/hiredis test? ( dev-ruby/test-unit:2 ) virtual/pkgconfig ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
 DESCRIPTION=Wrapper for hiredis (protocol serialization/deserialization and blocking I/O)
 EAPI=6
 HOMEPAGE=https://github.com/redis/hiredis-rb
 INHERIT=ruby-fakegem toolchain-funcs
-IUSE=ruby_targets_ruby25 ruby_targets_ruby26 doc test test
+IUSE=ruby_targets_ruby26 doc test test
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=>=dev-libs/hiredis-0.14:= ruby_targets_ruby25? ( dev-lang/ruby:2.5 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby25? ( virtual/rubygems[ruby_targets_ruby25(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby25 ruby_targets_ruby26 )
+RDEPEND=>=dev-libs/hiredis-0.14:= ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby26 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/redis/hiredis-rb/archive/v0.6.3.tar.gz -> hiredis-rb-0.6.3.tar.gz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	ab9b21d1b0a24b6afdd489885350e82e	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
 _md5_=46ec51d64432b31055667210d470c17c

@@ -1,16 +1,16 @@
-BDEPEND=ruby_targets_ruby25? ( dev-lang/ruby:2.5 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
+BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=>=media-libs/libsdl-1.2.5[joystick] truetype? ( >=media-libs/sdl-ttf-2.0.6 ) image? ( >=media-libs/sdl-image-1.2.2 ) mixer? ( >=media-libs/sdl-mixer-1.2.4 ) mpeg? ( >=media-libs/smpeg-0.4.4-r1 ) sge? ( media-libs/sge ) ruby_targets_ruby25? ( dev-lang/ruby:2.5 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
+DEPEND=>=media-libs/libsdl-1.2.5[joystick] truetype? ( >=media-libs/sdl-ttf-2.0.6 ) image? ( >=media-libs/sdl-image-1.2.2 ) mixer? ( >=media-libs/sdl-mixer-1.2.4 ) mpeg? ( >=media-libs/smpeg-0.4.4-r1 ) sge? ( media-libs/sge ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
 DESCRIPTION=Ruby/SDL: Ruby bindings for SDL
 EAPI=7
 HOMEPAGE=https://www.kmc.gr.jp/~ohai/rubysdl.en.html
 INHERIT=ruby-ng
-IUSE=image mixer truetype mpeg sge ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27
+IUSE=image mixer truetype mpeg sge ruby_targets_ruby26 ruby_targets_ruby27
 KEYWORDS=amd64 ~ppc x86
 LICENSE=LGPL-2.1
-RDEPEND=>=media-libs/libsdl-1.2.5[joystick] truetype? ( >=media-libs/sdl-ttf-2.0.6 ) image? ( >=media-libs/sdl-image-1.2.2 ) mixer? ( >=media-libs/sdl-mixer-1.2.4 ) mpeg? ( >=media-libs/smpeg-0.4.4-r1 ) sge? ( media-libs/sge ) ruby_targets_ruby25? ( dev-lang/ruby:2.5 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
-REQUIRED_USE=|| ( ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 )
+RDEPEND=>=media-libs/libsdl-1.2.5[joystick] truetype? ( >=media-libs/sdl-ttf-2.0.6 ) image? ( >=media-libs/sdl-image-1.2.2 ) mixer? ( >=media-libs/sdl-mixer-1.2.4 ) mpeg? ( >=media-libs/smpeg-0.4.4-r1 ) sge? ( media-libs/sge ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
 SLOT=0
 SRC_URI=https://github.com/ohai/rubysdl/archive/rel-2-1-2.tar.gz -> ruby-sdl-2.1.2.tar.gz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	ab9b21d1b0a24b6afdd489885350e82e
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6
 _md5_=ad9c088f2b37bacd085fd0595717c690
