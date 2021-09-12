@@ -1,14 +1,14 @@
 BDEPEND=>=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
-DEFINED_PHASES=compile configure install postinst postrm test
-DEPEND=app-text/djvu >=app-text/zathura-0.3.9 dev-libs/girara dev-libs/glib:2 x11-libs/cairo virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=app-text/djvu >=app-text/zathura-0.3.9 dev-libs/girara dev-libs/glib:2 x11-libs/cairo virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=DjVu plug-in for zathura
 EAPI=7
 HOMEPAGE=https://pwmt.org/projects/zathura-djvu/
-INHERIT=meson xdg-utils
+INHERIT=meson xdg
 KEYWORDS=amd64 arm ~riscv x86
 LICENSE=ZLIB
 RDEPEND=app-text/djvu >=app-text/zathura-0.3.9 dev-libs/girara dev-libs/glib:2 x11-libs/cairo
 SLOT=0
 SRC_URI=https://pwmt.org/projects/zathura-djvu/download/zathura-djvu-0.2.9.tar.xz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=6c25799d52d2ac3c3f4ac184baf91b73
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=cde9217ecda215ea5fc9df3209d10f78
