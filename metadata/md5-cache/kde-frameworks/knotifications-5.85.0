@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org
 IUSE=dbus nls phonon speech X debug doc
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5 =kde-frameworks/kconfig-5.85*:5 =kde-frameworks/kcoreaddons-5.85*:5 =kde-frameworks/kwindowsystem-5.85*:5 dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] ) !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0 ) speech? ( >=dev-qt/qtspeech-5.15.2:5 ) X? ( >=dev-qt/qtx11extras-5.15.2:5 x11-libs/libX11 x11-libs/libXtst ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 SLOT=5/5.85
 SRC_URI=mirror://kde/stable/frameworks/5.85/knotifications-5.85.0.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	ecm	9fe70cc0ef1ddfecce7548500987215d	kde.org	f95aaca4085d2d633c2b76abfd72208f
-_md5_=edee28b88e3651b046b03c78fd678437
+_md5_=9e9378d5ed7268cbde33804c12fca5ce

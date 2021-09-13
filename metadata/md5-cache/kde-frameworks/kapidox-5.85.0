@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=kde.org distutils-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=BSD-2
 RDEPEND=app-doc/doxygen python_single_target_python3_8? ( dev-python/jinja[python_targets_python3_8(-)] dev-python/pyyaml[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/jinja[python_targets_python3_9(-)] dev-python/pyyaml[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/jinja[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] ) media-gfx/graphviz[python,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=5/5.85
 SRC_URI=mirror://kde/stable/frameworks/5.85/kapidox-5.85.0.tar.xz
 _eclasses_=kde.org	f95aaca4085d2d633c2b76abfd72208f	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	distutils-r1	6088739b8548699015d46289639d660c
-_md5_=7e402d643a906648abba60307520e1eb
+_md5_=7070e6bcc01ce51f557cc4a5c79a6da8
