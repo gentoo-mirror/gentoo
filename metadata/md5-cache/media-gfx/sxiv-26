@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install postinst postrm prepare
-DEPEND=exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) media-libs/imlib2[X,gif?,jpeg?,png?] x11-libs/libX11 x11-libs/libXft
+DEPEND=exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?] x11-libs/libX11 x11-libs/libXft
 DESCRIPTION=Simple (or small or suckless) X Image Viewer
 EAPI=7
 HOMEPAGE=https://github.com/muennich/sxiv/
 INHERIT=desktop xdg-utils savedconfig toolchain-funcs
-IUSE=exif gif +jpeg +png savedconfig
+IUSE=exif gif +jpeg +png webp savedconfig
 KEYWORDS=amd64 arm64 ppc64 x86
 LICENSE=GPL-2
-RDEPEND=exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) media-libs/imlib2[X,gif?,jpeg?,png?] x11-libs/libX11 x11-libs/libXft
+RDEPEND=exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?] x11-libs/libX11 x11-libs/libXft
 SLOT=0
 SRC_URI=https://github.com/muennich/sxiv/archive/v26.tar.gz -> sxiv-26.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	27f9a2f19502b925ac117bd657aa2979	portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=1a311e64b3549ac1fb9bcac11a394b7a
+_md5_=3c56c3468a07222a6ed2b22ea3e5b0d8
