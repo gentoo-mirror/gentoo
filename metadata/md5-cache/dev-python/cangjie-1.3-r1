@@ -1,16 +1,16 @@
-BDEPEND=dev-python/cython[python_targets_python3_8(-)?,python_targets_python3_9(-)?] virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=dev-python/cython[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] app-i18n/libcangjie
+DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] app-i18n/libcangjie
 DESCRIPTION=Python wrapper for libcangjie
 EAPI=7
 HOMEPAGE=http://cangjians.github.io/
 INHERIT=autotools python-r1
-IUSE=python_targets_python3_8 python_targets_python3_9
+IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 x86
 LICENSE=LGPL-3+
-RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] app-i18n/libcangjie
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] app-i18n/libcangjie
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/Cangjians/pycangjie/releases/download/v1.3/cangjie-1.3.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4
-_md5_=ffd2b1eb09e8a5080d70e43cbdb8820c
+_md5_=39b05b63de2ddcdf12fa00fbaa8860f1
