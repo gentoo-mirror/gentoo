@@ -9,7 +9,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="78a0ed693dc797a5e2ae79f37b0b7082b1247f16"
+DOCS_PV="a3a579ce6e7e42c9d9bbd88ac4e76650b7093e5c"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
