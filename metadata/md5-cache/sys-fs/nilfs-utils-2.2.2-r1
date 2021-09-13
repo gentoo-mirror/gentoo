@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install setup
+DEPEND=sys-fs/e2fsprogs sys-apps/util-linux sys-kernel/linux-headers
+DESCRIPTION=A New Implementation of a Log-structured File System for Linux
+EAPI=7
+HOMEPAGE=http://nilfs.sourceforge.net/
+INHERIT=linux-info
+IUSE=static-libs kernel_linux
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=sys-fs/e2fsprogs sys-apps/util-linux
+SLOT=0
+SRC_URI=http://nilfs.sourceforge.net/download/nilfs-utils-2.2.2.tar.bz2
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	ffb37fb9f244ba768773f153972c9a52
+_md5_=07c584d33da82d13c34c97e846f08aa0
