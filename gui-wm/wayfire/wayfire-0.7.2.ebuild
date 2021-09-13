@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/WayfireWM/${PN}.git"
 else
 	SRC_URI="https://github.com/WayfireWM/${PN}/releases/download/v${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 ~x86"
 fi
 
 LICENSE="MIT"
@@ -35,7 +35,10 @@ DEPEND="
 	x11-libs/cairo:=[X?,svg]
 	x11-libs/libxkbcommon:=[X?]
 	x11-libs/pixman
-	X? ( x11-libs/libxcb )
+	X? (
+		x11-base/xwayland
+		x11-libs/libxcb
+	)
 	system-wfconfig? (
 		>=gui-libs/wf-config-0.7.1
 		<gui-libs/wf-config-0.8.0
