@@ -145,7 +145,10 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="virtual/pkgconfig"
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" ) # downstream
+PATCHES=(
+	"${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" # downstream
+	"${FILESDIR}/${P}-fix-powermanagement-inhibition.patch" # KDE-bug 433675
+)
 
 src_prepare() {
 	ecm_src_prepare
