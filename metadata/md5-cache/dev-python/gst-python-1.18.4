@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gstreamer.freedesktop.org/
 INHERIT=meson python-r1 xdg-utils
 IUSE=python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris
 LICENSE=LGPL-2+
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=media-libs/gstreamer-1.18.4:1.0[introspection] >=media-libs/gst-plugins-base-1.18.4:1.0[introspection] >=dev-python/pygobject-3.8:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=1.0
 SRC_URI=https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.18.4.tar.xz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-r1	e574a3642f886323f18f867ecc4d91c4	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=63268a3d750972bbd97286d577222ee8
+_md5_=f78c7e2241900c26b8c1585b1f158e5d
