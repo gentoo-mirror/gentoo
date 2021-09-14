@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=VSCodium - URL Handler
+Name=VSCodium Wayland - URL Handler
 Comment=Editing evolved
 GenericName=Code Editor
-Exec=/usr/bin/vscodium --open-url %U
+Exec=/usr/bin/vscodium --enable-features=UseOzonePlatform --ozone-platform=wayland --open-url %U
 Icon=vscodium
 Type=Application
 NoDisplay=true
