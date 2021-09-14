@@ -895,7 +895,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.28 1.20.40 1.20.41: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.28 1.20.40 1.20.41 1.20.42: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.26.5 1.27.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8274,7 +8274,7 @@ dev-python/asgiref 3.4.1: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.4.0: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.25: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1: Read/rewrite/write Python ASTs
-dev-python/astroid 2.6.6 2.7.2 2.7.3: Abstract Syntax Tree for logilab packages
+dev-python/astroid 2.6.6 2.7.2 2.7.3 2.8.0: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.2_p20201029: Simple lru_cache for asyncio
@@ -8329,8 +8329,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.28 1.18.40 1.18.41 9999: The AWS SDK for Python
-dev-python/botocore 1.21.28 1.21.40 1.21.41 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.28 1.18.40 1.18.41 1.18.42 9999: The AWS SDK for Python
+dev-python/botocore 1.21.28 1.21.40 1.21.41 1.21.42 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8364,7 +8364,7 @@ dev-python/chai 1.1.2: Easy to use mocking, stubbing and spying framework
 dev-python/chameleon 3.9.1: Fast HTML/XML template compiler for Python
 dev-python/characteristic 14.3.0-r3: Python attributes without the boilerplate
 dev-python/chardet 3.0.4-r1 4.0.0: Universal encoding detector
-dev-python/charset_normalizer 2.0.3 2.0.4: The Real First Universal Charset Detector
+dev-python/charset_normalizer 2.0.3 2.0.4 2.0.5: The Real First Universal Charset Detector
 dev-python/chart-studio 1.1.0: Browser-based graphing library for Python
 dev-python/cheetah-docs 0.9.16_alpha1: Documentation for Cheetah templates
 dev-python/cheetah3 3.2.6: Python-powered template engine and code generator
@@ -8387,7 +8387,7 @@ dev-python/clikit 0.6.2: Group of utilities to build beautiful and testable comm
 dev-python/clint 0.5.1-r3: Python Command-line Application Tools
 dev-python/cloudpickle 1.6.0 2.0.0: Extended pickling support for Python objects
 dev-python/cloudscraper 1.2.58: A Python module to bypass Cloudflare's anti-bot page
-dev-python/cmd2 2.1.2: Extra features for standard library's cmd module
+dev-python/cmd2 2.1.2 2.2.0: Extra features for standard library's cmd module
 dev-python/collective-checkdocs 0.2-r1: Distutils command to view/validate packages's rst text long_descriptions.
 dev-python/colorama 0.4.3-r1 0.4.4: ANSI escape character sequences for colored terminal text & cursor positioning
 dev-python/colorclass 2.2.0-r1: Colorful worry-free console applications for multiple platforms
@@ -8470,7 +8470,7 @@ dev-python/django-gravatar2 1.4.4: Essential Gravatar support for Django
 dev-python/django-haystack 3.0: Pluggable search for Django
 dev-python/django-js-asset 1.2.2: script tag with additional attributes for django.forms.Media
 dev-python/django-mptt 0.11.0 0.13 0.13.1 0.13.2 0.13.3: utilities for modified preorder tree traversal and trees of model instances
-dev-python/django-otp 1.0.6 1.1.0: Django framework adding two-factor authentication using one-time passwords
+dev-python/django-otp 1.0.6 1.1.0 1.1.1: Django framework adding two-factor authentication using one-time passwords
 dev-python/django-pglocks 1.0.4: PostgreSQL locking context managers and functions for Django
 dev-python/django-picklefield 3.0.1 3.0.1-r1: Pickled object field for Django.
 dev-python/django-prometheus 2.1.0: Library to export Django metrics for Prometheus
@@ -8581,7 +8581,7 @@ dev-python/flit_core 2.1.0 3.2.0 3.3.0: Simplified packaging of Python modules (
 dev-python/flufl-bounce 3.0.1 4.0: Email bounce detectors.
 dev-python/flufl-i18n 2.0.2 3.1.4 3.1.5 3.2: A high level API for Python internationalization
 dev-python/flufl-lock 5.1 6.0: NFS-safe file locking with timeouts for POSIX systems
-dev-python/fonttools 4.24.4-r1 4.26.1-r1 4.26.2: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.24.4-r1 4.26.1-r1 4.26.2 4.27.0: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/fqdn 1.5.1: RFC-compliant FQDN validation and manipulation for Python
 dev-python/freezegun 1.1.0-r1: Let your Python tests travel through time
 dev-python/fritzconnection 1.5.0 1.6.0: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
@@ -8611,9 +8611,9 @@ dev-python/github3 1.3.0: A wrapper for the GitHub API written in python
 dev-python/glooey 0.3.4-r1: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.0_beta5: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 1.31.2 2.0.0 2.0.1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.14.1 2.18.0 2.19.1 2.20.0: Google API Client for Python
+dev-python/google-api-python-client 2.14.1 2.18.0 2.19.1 2.20.0 2.21.0: Google API Client for Python
 dev-python/google-apitools 0.5.31 0.5.32: Python library to manipulate Google APIs
-dev-python/google-auth 1.34.0 2.0.1 2.0.2: Google Authentication Library
+dev-python/google-auth 1.34.0 2.0.1 2.0.2 2.1.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 0.4.1-r1 0.4.3 0.4.4 0.4.5 0.4.6: Google Authentication Library
 dev-python/google-pasta 0.2.0 0.2.0-r1: AST-based Python refactoring library
@@ -8672,7 +8672,7 @@ dev-python/importlib_metadata 4.6.4 4.8.1: Read metadata from Python packages
 dev-python/importlib_resources 5.2.2: Read resources from Python packages
 dev-python/imread 0.7.3-r1: Read Image Files
 dev-python/incremental 21.3.0: Incremental is a small library that versions your Python projects
-dev-python/indexed_gzip 0.8.10 1.6.0 1.6.1 1.6.2: Fast random access of gzip files in Python
+dev-python/indexed_gzip 0.8.10 1.6.0 1.6.1 1.6.2 1.6.3: Fast random access of gzip files in Python
 dev-python/inflect 5.3.0: Correctly inflect words and numbers
 dev-python/inflection 0.5.1: A port of Ruby on Rails' inflector to Python
 dev-python/influxdb 5.3.0-r1: InfluxDB client
