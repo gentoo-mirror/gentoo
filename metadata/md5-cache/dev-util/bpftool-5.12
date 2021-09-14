@@ -1,15 +1,15 @@
-BDEPEND=dev-util/patchutils dev-python/docutils
+BDEPEND=dev-util/patchutils || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) dev-python/docutils
 DEFINED_PHASES=compile install postinst prepare setup unpack
 DEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= ) >=sys-kernel/linux-headers-5.8
 DESCRIPTION=Tool for inspection and simple manipulation of eBPF programs and maps
 EAPI=8
 HOMEPAGE=https://kernel.org/
-INHERIT=estack linux-info optfeature toolchain-funcs
+INHERIT=estack linux-info optfeature python-any-r1 toolchain-funcs
 IUSE=caps kernel_linux
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.12.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.12.tar.xz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	ffb37fb9f244ba768773f153972c9a52	optfeature	30ce9dec2b8943338c9b015bd32bac6a
-_md5_=be3ea0dd59def00d027033ec5d613534
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	ffb37fb9f244ba768773f153972c9a52	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_md5_=87f553506052a64daee21113b7dd1d03
