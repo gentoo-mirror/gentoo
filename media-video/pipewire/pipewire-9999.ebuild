@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit meson-multilib optfeature python-any-r1 udev
 
@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://gitlab.freedesktop.org/${PN}/${PN}/-/archive/${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Multimedia processing graphs"
@@ -37,6 +37,7 @@ BDEPEND="
 	>=dev-util/meson-0.59
 	virtual/pkgconfig
 	${PYTHON_DEPS}
+	$(python_gen_any_dep 'dev-python/docutils[${PYTHON_USEDEP}]')
 	doc? (
 		app-doc/doxygen
 		media-gfx/graphviz
@@ -52,7 +53,7 @@ RDEPEND="
 	bluetooth? (
 		media-libs/fdk-aac
 		media-libs/libldac
-		media-libs/libopenaptx
+		media-libs/libfreeaptx
 		media-libs/sbc
 		>=net-wireless/bluez-4.101:=
 	)
@@ -98,13 +99,15 @@ DOCS=( {README,INSTALL}.md NEWS )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.3.25-enable-failed-mlock-warning.patch
-	"${FILESDIR}"/${PN}-0.3.33-revert-libfreeaptx-switch.patch
-	"${FILESDIR}"/${PN}-0.3.31-revert-openaptx-restriction.patch
 )
 
 # limitsdfile related code taken from =sys-auth/realtime-base-0.1
 # with changes as necessary.
 limitsdfile=40-${PN}.conf
+
+python_check_deps() {
+	has_version -b "dev-python/docutils[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	default
@@ -112,7 +115,7 @@ src_prepare() {
 	if ! use systemd; then
 		# This can be applied non-conditionally but would make for a
 		# significantly worse user experience on systemd then.
-		eapply "${FILESDIR}"/${PN}-0.3.31-non-systemd-integration.patch
+		eapply "${FILESDIR}"/${PN}-0.3.35-non-systemd-integration.patch
 	fi
 
 	einfo "Generating ${limitsdfile}"
@@ -130,7 +133,9 @@ multilib_src_configure() {
 		-Ddocdir="${EPREFIX}"/usr/share/doc/${PF}
 		$(meson_native_use_feature doc docs)
 		$(meson_native_enabled examples) # Disabling this implicitly disables -Dmedia-session
-		$(meson_native_enabled media-session)
+		# Replaced upstream by -Dsession-managers=..., needs more work, bug #812809
+		# but default is same as before and right now, this is fatal with unreleased Meson.
+		#$(meson_native_enabled media-session)
 		$(meson_native_enabled man)
 		$(meson_feature test tests)
 		-Dinstalled_tests=disabled # Matches upstream; Gentoo never installs tests
