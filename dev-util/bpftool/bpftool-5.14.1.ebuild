@@ -87,7 +87,7 @@ src_prepare() {
 	fi
 
 	# dev-python/docutils installs rst2man.py, not rst2man
-	sed -i -e 's/rst2man/rst2man.py/g' Documentation/Makefile ../Makefile.helpers || die
+	sed -i -e 's/rst2man/rst2man.py/g' Documentation/Makefile || die
 }
 
 bpftool_make() {
@@ -105,15 +105,11 @@ bpftool_make() {
 src_compile() {
 	bpftool_make
 	bpftool_make -C Documentation
-	rm Documentation/bpf-helpers* || die
 }
 
 src_install() {
 	bpftool_make DESTDIR="${D}" install
 	bpftool_make mandir="${ED}"/usr/share/man -C Documentation install
-
-	# bpf-helpers man is already provided by sys-apps/man-pages
-	rm -r "${ED}"/usr/share/man/man7 || die
 }
 
 pkg_postinst() {
