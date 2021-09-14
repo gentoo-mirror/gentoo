@@ -46,7 +46,7 @@ REQUIRED_USE="
 # 	scripttools? ( pyside2 )
 
 # WARNING: the obvious solution of using || for PyQt5/pyside2 is not going
-# to work.  The package only checks whether PyQt5/pyside2 is installed, it does
+# to work. The package only checks whether PyQt5/pyside2 is installed, it does
 # not verify whether they have the necessary modules (i.e. satisfy the USE dep).
 #
 # Webengine is a special case, because PyQt5 provides this in a separate package
