@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) valgrind? ( dev-util/valgrind ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) !gnutls? ( dev-libs/libgcrypt:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) gpgme? ( app-crypt/gpgme dev-libs/libassuan dev-libs/libgpg-error ) http2? ( net-libs/nghttp2 ) idn? ( net-dns/libidn2:= ) lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) pcre? ( dev-libs/libpcre2 ) psl? ( net-libs/libpsl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
+DESCRIPTION=GNU Wget2 is a file and recursive website downloader
+EAPI=7
+HOMEPAGE=https://gitlab.com/gnuwget/wget2
+INHERIT=autotools
+IUSE=brotli bzip2 doc +gnutls gpgme +http2 idn lzip lzma openssl pcre psl +ssl test valgrind xattr zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) !gnutls? ( dev-libs/libgcrypt:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) gpgme? ( app-crypt/gpgme dev-libs/libassuan dev-libs/libgpg-error ) http2? ( net-libs/nghttp2 ) idn? ( net-dns/libidn2:= ) lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) pcre? ( dev-libs/libpcre2 ) psl? ( net-libs/libpsl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
+REQUIRED_USE=valgrind? ( test )
+RESTRICT=!test? ( test )
+SLOT=0/0
+SRC_URI=mirror://gnu/wget/wget2-2.0.0.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
+_md5_=e73886dca0ed1ae7fcc719eaf7b796d9
