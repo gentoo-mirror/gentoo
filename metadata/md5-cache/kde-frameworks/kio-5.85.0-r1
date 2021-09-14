@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org xdg-utils
 IUSE=acl +handbook kerberos +kwallet X test debug designer doc test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
 PDEPEND=>=kde-frameworks/kded-5.85:5
 RDEPEND=dev-libs/libxml2 dev-libs/libxslt >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5[ssl] >=dev-qt/qtwidgets-5.15.2:5 >=dev-qt/qtxml-5.15.2:5 =kde-frameworks/kauth-5.85*:5 =kde-frameworks/karchive-5.85*:5 =kde-frameworks/kbookmarks-5.85*:5 =kde-frameworks/kcodecs-5.85*:5 =kde-frameworks/kcompletion-5.85*:5 =kde-frameworks/kconfig-5.85*:5 =kde-frameworks/kconfigwidgets-5.85*:5 =kde-frameworks/kcoreaddons-5.85*:5 =kde-frameworks/kcrash-5.85*:5 =kde-frameworks/kdbusaddons-5.85*:5 =kde-frameworks/kguiaddons-5.85*:5 =kde-frameworks/ki18n-5.85*:5 =kde-frameworks/kiconthemes-5.85*:5 =kde-frameworks/kitemviews-5.85*:5 =kde-frameworks/kjobwidgets-5.85*:5 =kde-frameworks/knotifications-5.85*:5 =kde-frameworks/kservice-5.85*:5 =kde-frameworks/ktextwidgets-5.85*:5 =kde-frameworks/kwidgetsaddons-5.85*:5 =kde-frameworks/kwindowsystem-5.85*:5 =kde-frameworks/kxmlgui-5.85*:5 =kde-frameworks/solid-5.85*:5 sys-apps/util-linux acl? ( sys-apps/attr virtual/acl ) handbook? ( =kde-frameworks/kdoctools-5.85*:5 ) kerberos? ( virtual/krb5 ) kwallet? ( =kde-frameworks/kwallet-5.85*:5 ) X? ( >=dev-qt/qtx11extras-5.15.2:5 ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test ) !test? ( test )
 SLOT=5/5.85
 SRC_URI=mirror://kde/stable/frameworks/5.85/kio-5.85.0.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	ecm	9fe70cc0ef1ddfecce7548500987215d	kde.org	f95aaca4085d2d633c2b76abfd72208f
-_md5_=c59535334facc38f9f6b1d8e2c262e9b
+_md5_=fa93faa6f9a2a4edd51854eb63e40fc5

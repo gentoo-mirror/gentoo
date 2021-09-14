@@ -1,4 +1,4 @@
-BDEPEND=test? ( python_targets_python3_8? ( dev-lang/python:3.8[sqlite] ) >=dev-python/django-1.11[python_targets_python3_8(-)?] dev-python/pygments[python_targets_python3_8(-)?] dev-python/testfixtures[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+BDEPEND=test? ( python_targets_python3_8? ( dev-lang/python:3.8[sqlite] ) >=dev-python/django-1.11[python_targets_python3_8(-)?] dev-python/pillow[python_targets_python3_8(-)?] dev-python/testfixtures[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Easy thumbnails for Django
 EAPI=7
@@ -7,10 +7,10 @@ INHERIT=distutils-r1
 IUSE=test python_targets_python3_8
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=>=dev-python/django-1.11[python_targets_python3_8(-)?] dev-python/pygments[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
+RDEPEND=>=dev-python/django-1.11[python_targets_python3_8(-)?] dev-python/pillow[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/e/easy-thumbnails/easy-thumbnails-2.7.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	6088739b8548699015d46289639d660c
-_md5_=2c1d9271678224e57182b19f8aee07f3
+_md5_=f0cd01b55fb9254aade59380c85d3c89
