@@ -1,16 +1,16 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
+
 inherit pam
 
 DESCRIPTION="MTA layout package"
-SRC_URI=""
 HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="pam"
 
 RDEPEND="
@@ -27,7 +27,7 @@ src_install() {
 	insinto /etc/mail
 	doins "${FILESDIR}"/aliases
 	insinto /etc
-	newins "${FILESDIR}"/mailcap-r1 mailcap
+	newins "${FILESDIR}"/mailcap-r2 mailcap
 	doman "${FILESDIR}"/mailcap.5
 
 	dosym spool/mail /var/mail
