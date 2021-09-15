@@ -21,9 +21,11 @@ HOMEPAGE="https://gitlab.freedesktop.org/pipewire/wireplumber"
 
 LICENSE="MIT"
 SLOT="0/0.4"
-IUSE="systemd"
+IUSE="systemd test"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
+
+RESTRICT="!test? ( test )"
 
 # introspection? ( dev-libs/gobject-introspection ) is valid but likely only used for doc building
 BDEPEND="
@@ -35,7 +37,7 @@ BDEPEND="
 DEPEND="
 	${LUA_DEPS}
 	>=dev-libs/glib-2.62
-	>=media-video/pipewire-0.3.26
+	>=media-video/pipewire-0.3.32
 	virtual/libc
 	systemd? ( sys-apps/systemd )
 "
@@ -48,6 +50,14 @@ RDEPEND="${DEPEND}"
 
 DOCS=( {NEWS,README}.rst )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.4.2-meson-Build-tests-conditionally.patch
+	"${FILESDIR}"/${PN}-0.4.2-lua-api-fix-object-constructors-to-fail-gracefully.patch
+	"${FILESDIR}"/${PN}-0.4.2-bluez-add-basic-check-for-nil-monitor.patch
+	"${FILESDIR}"/${PN}-0.4.2-v4l-add-basic-check-for-nil-monitor.patch
+	"${FILESDIR}"/${PN}-0.4.2-lib-wp-device-demote-missing-SPA-warning-to-message.patch
+)
+
 src_configure() {
 	local emesonargs=(
 		-Dintrospection=disabled # Only used for Sphinx doc generation
@@ -58,6 +68,7 @@ src_configure() {
 		$(meson_use systemd systemd-user-service)
 		-Dsystemd-system-unit-dir=$(systemd_get_systemunitdir)
 		-Dsystemd-user-unit-dir=$(systemd_get_userunitdir)
+		$(meson_use test tests)
 	)
 
 	meson_src_configure

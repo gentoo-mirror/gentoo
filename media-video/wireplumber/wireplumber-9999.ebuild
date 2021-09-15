@@ -21,9 +21,11 @@ HOMEPAGE="https://gitlab.freedesktop.org/pipewire/wireplumber"
 
 LICENSE="MIT"
 SLOT="0/0.4"
-IUSE="systemd"
+IUSE="systemd test"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
+
+RESTRICT="!test? ( test )"
 
 # introspection? ( dev-libs/gobject-introspection ) is valid but likely only used for doc building
 BDEPEND="
@@ -35,7 +37,7 @@ BDEPEND="
 DEPEND="
 	${LUA_DEPS}
 	>=dev-libs/glib-2.62
-	>=media-video/pipewire-0.3.26
+	>=media-video/pipewire-0.3.32
 	virtual/libc
 	systemd? ( sys-apps/systemd )
 "
@@ -58,6 +60,7 @@ src_configure() {
 		$(meson_use systemd systemd-user-service)
 		-Dsystemd-system-unit-dir=$(systemd_get_systemunitdir)
 		-Dsystemd-user-unit-dir=$(systemd_get_userunitdir)
+		$(meson_use test tests)
 	)
 
 	meson_src_configure
