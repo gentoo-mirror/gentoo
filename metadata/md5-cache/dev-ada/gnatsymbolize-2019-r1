@@ -1,10 +1,9 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile install setup
 DEPEND=ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 )
 DESCRIPTION=Translates addresses into filename, line number, and function names
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
-INHERIT=ada multiprocessing autotools
+INHERIT=ada
 IUSE=ada_target_gnat_2018 ada_target_gnat_2019 -ada_target_gnat_2017 -ada_target_gnat_2020 -ada_target_gnat_2021
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
@@ -12,5 +11,5 @@ RDEPEND=ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? 
 REQUIRED_USE=^^ ( ada_target_gnat_2018 ada_target_gnat_2019 )
 SLOT=0
 SRC_URI=http://mirrors.cdn.adacore.com/art/5cc7d5e431e87a23952f18c4 -> gnatsymbolize-2019-20190429-19761-src.tar.gz
-_eclasses_=ada	ba844d1f9394081aa86d3569cc3a4388	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=633448f969c48a3ae798a719da122358
+_eclasses_=ada	ba844d1f9394081aa86d3569cc3a4388
+_md5_=cca71035b9378d0210704414b2835953
