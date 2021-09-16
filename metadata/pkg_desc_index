@@ -7255,9 +7255,7 @@ dev-perl/MooseX-SimpleConfig 0.110.0: A Moose role for setting attributes from a
 dev-perl/MooseX-StrictConstructor 0.210.0: Make your object constructors blow up on unknown attributes
 dev-perl/MooseX-Types 0.500.0: Organise your Moose types in libraries
 dev-perl/MooseX-Types-DateTime 0.130.0: DateTime related constraints and coercions for Moose
-dev-perl/MooseX-Types-DateTime-ButMaintained 0.160.0: DateTime related constraints and coercions for Moose
 dev-perl/MooseX-Types-DateTime-MoreCoercions 0.150.0: Extensions to MooseX::Types::DateTime
-dev-perl/MooseX-Types-DateTimeX 0.100.0: Extensions to MooseX::Types::DateTime::ButMaintained
 dev-perl/MooseX-Types-JSON 1.0.0-r1: JSON datatype for Moose
 dev-perl/MooseX-Types-Path-Class 0.90.0: A Path::Class type library for Moose
 dev-perl/MooseX-Types-Path-Tiny 0.12.0: Path::Tiny types and coercions for Moose
@@ -7372,7 +7370,6 @@ dev-perl/PDL-Transform-Color 1.3.0 1.5.0: Useful color system conversions for PD
 dev-perl/PGPLOT 2.210.0-r1 2.270.0: allow subroutines in the PGPLOT graphics library to be called from Perl
 dev-perl/PHP-Serialization 0.340.0-r2: Convert PHP's serialize() into the equivalent Perl structure, and vice versa
 dev-perl/POE 1.367 1.368.0: A framework for creating multitasking programs in Perl
-dev-perl/POE-API-Peek 2.200.0-r2: Peek into the internals of a running POE env
 dev-perl/POE-Component-Client-DNS 1.54.0-r1: Non-blocking, parallel DNS client
 dev-perl/POE-Component-Client-Keepalive 0.272.0-r1: Manage connections, with keep-alive
 dev-perl/POE-Component-IKC 0.240.200-r1: Inter-Kernel Communication for POE
@@ -7444,7 +7441,6 @@ dev-perl/PerlIO-utf8_strict 0.7.0 0.8.0: Fast and correct UTF-8 IO
 dev-perl/PerlIO-via-Timeout 0.320.0-r1: PerlIO layer that adds read & write timeout to a handle
 dev-perl/PerlIO-via-dynamic 0.140.0-r2: Dynamic PerlIO layers
 dev-perl/Perlbal 1.800.0-r3: Reverse-proxy load balancer and webserver
-dev-perl/Perlbal-XS-HTTPHeaders 0.200.0-r1: XS acceleration for Perlbal header processing
 dev-perl/PlRPC 0.202.0-r4: The Perl RPC Module
 dev-perl/Plack 1.4.400-r1 1.4.800: Perl Superglue for Web frameworks and Web Servers (PSGI toolkit)
 dev-perl/Plucene 1.250.0-r3: Plucene - the Perl lucene port
@@ -17894,7 +17890,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.3 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.142 5.4.143 5.4.144 5.4.145 5.4.146 5.10.60 5.10.61 5.10.62 5.10.63 5.10.64 5.10.65 5.12.19 5.13.13 5.13.14 5.13.15 5.13.16 5.13.17: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.142 5.4.142-r1 5.4.143 5.4.143-r1 5.4.144 5.4.144-r2 5.4.145 5.4.145-r1 5.4.146 5.10.60 5.10.60-r1 5.10.61 5.10.61-r1 5.10.62 5.10.62-r2 5.10.63 5.10.63-r1 5.10.64 5.10.64-r1 5.10.65 5.12.19 5.12.19-r2 5.13.13 5.13.13-r1 5.13.14 5.13.14-r2 5.13.15 5.13.15-r1 5.13.16 5.13.16-r1 5.13.17: Pre-built Linux kernel with genpatches
-sys-kernel/gentoo-sources 4.4.282 4.4.283 4.9.281 4.9.282 4.14.245 4.14.246 4.19.205 4.19.206 5.4.143 5.4.144 5.4.145 5.4.146 5.10.61 5.10.62 5.10.63 5.10.64 5.10.65 5.13.10 5.13.11 5.13.12 5.13.13 5.13.14 5.13.15 5.13.16 5.13.17 5.14.0 5.14.1 5.14.2 5.14.3 5.14.4: Full sources including the Gentoo patchset for the 5.14 kernel tree
+sys-kernel/gentoo-sources 4.4.282 4.4.283 4.9.281 4.9.282 4.14.245 4.14.246 4.19.205 4.19.206 5.4.143 5.4.144 5.4.145 5.4.146 5.4.147 5.10.61 5.10.62 5.10.63 5.10.64 5.10.65 5.10.66 5.13.10 5.13.11 5.13.12 5.13.13 5.13.14 5.13.15 5.13.16 5.13.17 5.13.18 5.14.0 5.14.1 5.14.2 5.14.3 5.14.4 5.14.5: Full sources including the Gentoo patchset for the 5.14 kernel tree
 sys-kernel/git-sources 5.15_rc1: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 1: Wrap kernel-install from systemd-boot as installkernel
@@ -17909,7 +17905,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224 4.9.280_p186 4.14.244_p121 4.19.199_p86 5.4.138_p62 5.10.59_p51 5.11.4_p11: Full Linux 5.11 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/vanilla-kernel 5.4.142 5.4.143 5.4.144 5.4.145 5.4.146 5.10.60 5.10.61 5.10.62 5.10.63 5.10.64 5.10.65 5.12.19 5.13.13 5.13.14 5.13.15 5.13.16 5.13.17: Linux kernel built from vanilla upstream sources
-sys-kernel/vanilla-sources 4.4.283 4.9.282 4.14.246 4.19.206 5.4.146 5.10.65 5.13.18 5.14.5: Full sources for the Linux kernel
+sys-kernel/vanilla-sources 4.4.283 4.9.282 4.14.246 4.19.206 5.4.147 5.10.66 5.13.18 5.14.5: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.13.10 5.13.13: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2: Standalone argp library for use with uclibc
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
