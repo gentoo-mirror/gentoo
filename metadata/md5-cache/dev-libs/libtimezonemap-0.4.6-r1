@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=install postinst postrm preinst prepare
-DEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:0= dev-libs/json-glib net-libs/libsoup x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:0= dev-libs/json-glib net-libs/libsoup:2.4 x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=GTK+3 timezone map widget
 EAPI=7
 HOMEPAGE=https://launchpad.net/timezonemap
 INHERIT=autotools xdg
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:0= dev-libs/json-glib net-libs/libsoup x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3
+RDEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:0= dev-libs/json-glib net-libs/libsoup:2.4 x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3
 SLOT=0
 SRC_URI=mirror://debian/pool/main/libt/libtimezonemap/libtimezonemap_0.4.6.orig.tar.gz -> libtimezonemap_0.4.6.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
-_md5_=656aed9ecdc4e83884e7cb9246aaba2b
+_md5_=45e54f32ed94ca47f627df9a9ace00f9
