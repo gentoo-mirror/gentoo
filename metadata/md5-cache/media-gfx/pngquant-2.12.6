@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://pngquant.org/ https://github.com/kornelski/pngquant
 INHERIT=toolchain-funcs
 IUSE=cpu_flags_x86_sse2 debug lcms openmp test
-KEYWORDS=amd64 ~arm arm64 ~ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3 HPND rwpng
 RDEPEND=media-libs/libpng:0= media-gfx/libimagequant:= sys-libs/zlib:= lcms? ( media-libs/lcms:2 )
 REQUIRED_USE=test? ( lcms )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/kornelski/pngquant/archive/2.12.6.tar.gz -> pngquant-2.12.6.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=e57da2b5dc5cd985d742e060146d0641
+_md5_=4e0f9d59e1ca0285298aa4b784d08ca8
