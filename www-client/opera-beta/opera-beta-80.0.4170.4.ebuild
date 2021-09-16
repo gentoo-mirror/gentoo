@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 CHROMIUM_LANGS="
 	be bg bn ca cs da de el en-GB en-US es-419 es fil fi fr-CA fr hi hr hu id
 	it ja ko lt lv ms nb nl pl pt-BR pt-PT ro ru sk sr sv sw ta te th tr uk vi
@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 "
 
 # These are intended for ebuild maintainer use to force RPM if DEB is not available.
-: ${OPERA_FORCE_RPM=yes}
+: ${OPERA_FORCE_RPM=no}
 
 if [[ ${OPERA_FORCE_RPM} == yes ]]; then
 	OPERA_UNPACKER="rpm"
@@ -42,11 +42,11 @@ fi
 
 KEYWORDS="-* ~amd64"
 
-FFMPEG_VERSION="93.0.4573.0"
+FFMPEG_VERSION="94.0.4603.0"
 
 SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.${OPERA_ARCHIVE_EXT}}
 	proprietary-codecs? (
-		https://dev.gentoo.org/~sultan/distfiles/www-client/opera/opera-ffmpeg-codecs-${FFMPEG_VERSION}.tar.xz
+		mirror+https://dev.gentoo.org/~sultan/distfiles/www-client/opera/opera-ffmpeg-codecs-${FFMPEG_VERSION}.tar.xz
 	)"
 
 IUSE="+proprietary-codecs suid"
