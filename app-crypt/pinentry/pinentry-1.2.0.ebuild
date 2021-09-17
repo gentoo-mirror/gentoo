@@ -6,20 +6,21 @@ EAPI=7
 inherit autotools flag-o-matic qmake-utils toolchain-funcs
 
 DESCRIPTION="Simple passphrase entry dialogs which utilize the Assuan protocol"
-HOMEPAGE="https://gnupg.org/aegypten2/index.html"
+HOMEPAGE="https://gnupg.org/aegypten2"
 SRC_URI="mirror://gnupg/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="caps emacs gnome-keyring gtk ncurses qt5"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="caps efl emacs gnome-keyring gtk ncurses qt5"
 
 DEPEND="
-	app-eselect/eselect-pinentry
+	>=app-eselect/eselect-pinentry-0.7.2
 	>=dev-libs/libassuan-2.1
 	>=dev-libs/libgcrypt-1.6.3
 	>=dev-libs/libgpg-error-1.17
 	caps? ( sys-libs/libcap )
+	efl? ( dev-libs/efl[X] )
 	gnome-keyring? ( app-crypt/libsecret )
 	ncurses? ( sys-libs/ncurses:0= )
 	qt5? (
@@ -29,7 +30,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	gtk? ( app-crypt/gcr )
+	gtk? ( app-crypt/gcr[gtk] )
 "
 BDEPEND="
 	sys-devel/gettext
@@ -56,6 +57,7 @@ src_configure() {
 	export QTLIB="$(qt5_get_libdir)"
 
 	econf \
+		$(use_enable efl pinentry-efl) \
 		$(use_enable emacs pinentry-emacs) \
 		$(use_enable gnome-keyring libsecret) \
 		$(use_enable gtk pinentry-gnome3) \
