@@ -73,45 +73,43 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
-inherit cargo
+inherit cargo readme.gentoo-r1
 
 DESCRIPTION="Context-aware bash history search replacement (ctrl-r)"
 HOMEPAGE="https://github.com/cantino/mcfly"
-SRC_URI="https://github.com/cantino/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris ${CRATES})"
+SRC_URI="https://github.com/cantino/mcfly/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	$(cargo_crate_uris)"
 
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 CC0-1.0 MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-db/sqlite:3"
-RDEPEND="${DEPEND}"
-
-QA_FLAGS_IGNORED="/usr/bin/mcfly"
+QA_FLAGS_IGNORED="usr/bin/mcfly"
 
 src_install() {
 	cargo_src_install
 
-	insinto "/usr/share/${PN}"
-	doins "${PN}".{bash,fish,zsh}
+	insinto /usr/share/${PN}
+	doins ${PN}.{bash,fish,zsh}
+
+	# create README.gentoo
+	local DISABLE_AUTOFORMATTING="yes"
+	local DOC_CONTENTS=\
+"To start using ${PN}, add the following to your shell:
+
+~/.bashrc
+eval \"\$(mcfly init bash)\"
+
+~/.config/fish/config.fish
+mcfly init fish | source
+
+~/.zsh
+eval \"\$(mcfly init zsh)\""
+	readme.gentoo_create_doc
 
 	einstalldocs
 }
 
 pkg_postinst() {
-	elog "To start using ${PN}, add the following to your shell:"
-	elog
-	elog "~/.bashrc"
-	local p="${EPREFIX}/usr/share/${PN}/${PN}.bash"
-	elog "[[ -f ${p} ]] && source ${p}"
-	elog
-	elog "~/.config/fish/config.fish"
-	local p="${EPREFIX}/usr/share/${PN}/${PN}.fish"
-	elog "if test -r ${p}"
-	elog "    source ${p}"
-	elog "    mcfly_key_bindings"
-	elog
-	elog "~/.zsh"
-	local p="${EPREFIX}/usr/share/${PN}/${PN}.zsh"
-	elog "[[ -f ${p} ]] && source ${p}"
+	readme.gentoo_print_elog
 }
