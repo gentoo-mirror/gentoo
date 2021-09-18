@@ -11,6 +11,6 @@ LICENSE=BSD
 RDEPEND=<sys-libs/db-6.3:= || ( sys-libs/db:6.2 sys-libs/db:6.1 sys-libs/db:5.3 sys-libs/db:5.1 sys-libs/db:4.8 sys-libs/db:4.7 ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
-SRC_URI=mirror://pypi/b/bsddb3/bsddb3-6.2.9.tar.gz
+SRC_URI=mirror://pypi/b/bsddb3/bsddb3-6.2.9.tar.gz https://dev.gentoo.org/~arthurzam/patches/dev-python/bsddb3-6.2.9-fix-py3.10.patch.gz
 _eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	db-use	063d3e7add942762a8203b52ec3066c2	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	39fb83ed394c172aad380c33a8de287e
-_md5_=761d4f9cce1091c399e55f895a21a41a
+_md5_=ac097de1eef8ebe5c781c77df2f0ac40
