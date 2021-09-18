@@ -1,20 +1,20 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 MY_P=${P/_rc2/~rc2}
 
 inherit autotools python-single-r1
 
 DESCRIPTION="Ham radio backend rig control libraries"
-HOMEPAGE="https://www.hamlib.org"
+HOMEPAGE="http://www.hamlib.org"
 SRC_URI="mirror://sourceforge/hamlib/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2 GPL-2"
-SLOT="0/4"
-KEYWORDS="amd64 x86"
+SLOT="0/4.2"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc perl python tcl"
 
 RESTRICT="test"
