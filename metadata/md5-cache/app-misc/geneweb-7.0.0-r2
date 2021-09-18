@@ -4,10 +4,10 @@ DESCRIPTION=Genealogy software program with a Web interface
 EAPI=7
 HOMEPAGE=https://github.com/geneweb/geneweb
 IUSE=+ocamlopt test
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/ocaml[ocamlopt?] <dev-ml/camlp5-8:=[ocamlopt?] acct-user/geneweb acct-group/geneweb dev-ml/jingoo:= dev-ml/uunf:= >=dev-ml/markup-1.0.0:= dev-ml/unidecode:= dev-ml/calendars:=
 RESTRICT=strip !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/geneweb/geneweb/archive/v7.0.0.tar.gz -> geneweb-7.0.0.tar.gz
-_md5_=581f38a5f8a4e65733388a6f556dfafa
+_md5_=09f14ad0abb12c26a31aed3bd3d09edb
