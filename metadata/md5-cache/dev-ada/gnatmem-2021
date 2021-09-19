@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile install prepare setup
-DEPEND=ada_target_gnat_2017? ( dev-lang/gnat-gpl:6.3.0 ) ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-ada/gprbuild[ada_target_gnat_2017(-)?,ada_target_gnat_2018(-)?,ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?] sys-libs/binutils-libs:=
+DEPEND=ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-ada/gprbuild[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gnat_2017(-),-ada_target_gnat_2018(-)] sys-libs/binutils-libs:=
 DESCRIPTION=Monitors dynamic allocation and deallocation activity in a program
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing autotools
-IUSE=ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021
+IUSE=ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 -ada_target_gnat_2017 -ada_target_gnat_2018
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2017? ( dev-lang/gnat-gpl:6.3.0 ) ada_target_gnat_2018? ( dev-lang/gnat-gpl:7.3.1 ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 )
-REQUIRED_USE=^^ ( ada_target_gnat_2017 ada_target_gnat_2018 ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 )
+RDEPEND=ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 )
+REQUIRED_USE=^^ ( ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/3ddb98c0c8854dc7631bebd673ac7bc53038d4b7?filename=gnatmem-2021-20210518-19F7B-src.tar.gz -> gnatmem-2021-20210518-19F7B-src.tar.gz
 _eclasses_=ada	ba844d1f9394081aa86d3569cc3a4388	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=566a02406edc70b51c651dbe4b0cfe17
+_md5_=bd7833ca4bf4df2c2bbf7fcd0e23222b
