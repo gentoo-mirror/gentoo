@@ -3,8 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
-LLVM_MAX_SLOT=12
+PYTHON_COMPAT=( python3_{8,9,10} )
+LLVM_MAX_SLOT=13
 inherit toolchain-funcs llvm optfeature python-single-r1
 
 DESCRIPTION="A fork of AFL, the popular compile-time instrumentation fuzzer"
@@ -14,7 +14,7 @@ S="${WORKDIR}/AFLplusplus-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 arm64"
 IUSE="test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -31,6 +31,7 @@ RDEPEND="
 		sys-devel/clang:10
 		sys-devel/clang:11
 		sys-devel/clang:12
+		sys-devel/clang:13
 	)
 	!app-forensics/afl
 "
@@ -43,7 +44,8 @@ QA_PREBUILT="/usr/share/afl/testcases/others/elf/small_exec.elf"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0c-LDFLAGS.patch"
-	"${FILESDIR}/${PN}-3.0c-CFLAGS.patch"
+	"${FILESDIR}/${PN}-3.13c-CFLAGS.patch"
+	"${FILESDIR}/${PN}-3.14c-no-ignore-errors-makefile.patch"
 )
 
 llvm_check_deps() {
@@ -58,7 +60,6 @@ pkg_setup() {
 
 src_prepare() {
 	default
-
 	sed -i -e 's/-O3 -fno-unroll-loops//' GNUmakefile || die
 }
 
