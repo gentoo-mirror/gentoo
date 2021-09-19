@@ -1,6 +1,10 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Marek Szuba <marecki@gentoo.org> (2021-09-19)
+# media-gfx/nvidia-texture-tools reports arch as unknown, fails to build
+media-libs/devil nvtt
+
 # Alex Fan <alexfanqi@yahoo.com> (2021-09-13)
 # dev-vcs/darcs depends on haskell
 app-portage/layman darcs
@@ -143,8 +147,6 @@ mail-mta/courier fax
 # Dependencies not keyworded here yet:
 #  - dev-ruby/asciidoctor
 dev-libs/nanomsg doc
-#  - media-gfx/nvidia-texture-tools
-media-libs/devil nvtt
 #  - dev-cpp/glog, sci-libs/vtk
 media-libs/opencv contribsfm glog vtk
 #  - dev-util/aruba
@@ -158,24 +160,6 @@ sys-cluster/slurm ofed
 # Dependencies not keyworded, not tested
 virtual/notification-daemon gnome
 net-libs/gnome-online-accounts gnome
-
-# Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
-# Ye Cao <ye.c@rioslab.org> (2021-07-31)
-# Piotr Karbowski <slashbeast@gentoo.org> (2021-06-22)
-# Yixun Lan <dlan@gentoo.org> (2021-05-21)
-# Mikle Kolyada <zlogene@gentoo.org> (2020-12-03)
-# Göktürk Yüksek <gokturk@gentoo.org> (2019-10-10)
-#   sys-libs/libunwind do not support riscv
-dev-libs/efl unwind
-dev-util/perf unwind
-dev-util/strace unwind
-media-gfx/gimp unwind
-media-libs/gstreamer unwind
-media-libs/mesa unwind
-net-libs/zeromq unwind
-net-mail/dovecot unwind
-x11-base/xorg-server unwind
-x11-base/xwayland unwind
 
 # This doesn't work for (any) riscv yet.
 dev-libs/libpcre2 jit
