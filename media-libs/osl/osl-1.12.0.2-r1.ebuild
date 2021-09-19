@@ -2,10 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit cmake llvm toolchain-funcs
+
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 # check this on updates
-LLVM_MAX_SLOT=12
+LLVM_MAX_SLOT=13
+
+inherit cmake llvm toolchain-funcs python-single-r1
 
 DESCRIPTION="Advanced shading language for production GI renderers"
 HOMEPAGE="http://opensource.imageworks.com/?p=osl"
@@ -13,7 +16,7 @@ SRC_URI="https://github.com/imageworks/OpenShadingLanguage/archive/Release-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 X86_CPU_FEATURES=(
 	sse2:sse2 sse3:sse3 ssse3:ssse3 sse4_1:sse4.1 sse4_2:sse4.2
@@ -21,16 +24,22 @@ X86_CPU_FEATURES=(
 )
 CPU_FEATURES=( ${X86_CPU_FEATURES[@]/#/cpu_flags_x86_} )
 
-IUSE="doc partio qt5 test ${CPU_FEATURES[@]%:*}"
+IUSE="doc partio qt5 test ${CPU_FEATURES[@]%:*} python"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/pugixml
 	media-libs/openexr:=
 	media-libs/openimageio:=
-	<=sys-devel/clang-13:=
+	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	sys-libs/zlib:=
-	dev-python/pybind11
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_cond_dep '
+			dev-python/pybind11[${PYTHON_USEDEP}]
+		')
+	)
 	partio? ( media-libs/partio )
 	qt5? (
 		dev-qt/qtcore:5
@@ -60,6 +69,11 @@ llvm_check_deps() {
 	has_version -r "sys-devel/clang:${LLVM_SLOT}"
 }
 
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+	llvm_pkg_setup
+}
+
 src_configure() {
 	local cpufeature
 	local mysimd=()
@@ -76,11 +90,13 @@ src_configure() {
 		-DCMAKE_CXX_STANDARD=14
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}"
 		-DINSTALL_DOCS=$(usex doc)
+		-DUSE_CCACHE=OFF
 		-DLLVM_STATIC=OFF
 		-DOSL_BUILD_TESTS=$(usex test)
 		-DSTOP_ON_WARNING=OFF
 		-DUSE_PARTIO=$(usex partio)
 		-DUSE_QT=$(usex qt5)
+		-DUSE_PYTHON=$(usex python)
 		-DUSE_SIMD="$(IFS=","; echo "${mysimd[*]}")"
 	)
 
