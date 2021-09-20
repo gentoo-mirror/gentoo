@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/indigo-dc/oidc-agent
 INHERIT=xdg-utils
 IUSE=test
-KEYWORDS=~amd64 ~riscv
+KEYWORDS=amd64 ~riscv
 LICENSE=MIT
 RDEPEND=app-crypt/libsecret dev-libs/libsodium:= net-libs/libmicrohttpd:= sys-libs/libseccomp
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/indigo-dc/oidc-agent/archive/v4.1.1.tar.gz -> oidc-agent-4.1.1.tar.gz
 _eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=1002053b4cdfe42143a70d6b0e1f7238
+_md5_=ed10c568fc009f7f22acfd17dd626879
