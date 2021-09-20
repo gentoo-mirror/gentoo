@@ -1,0 +1,101 @@
+Title: Possible failure to preserve libraries
+Author: Sam James <sam@gentoo.org>
+Author: Hank Leininger <hlein@korelogic.com>
+Posted: 2021-09-29
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/portage
+
+We have observed in some cases corruption of Portage's internal database
+(VDB), where the libraries provided by a package are not recorded. This
+can break the "preserve-libs" functionality, and thus in rare cases
+break your system during much later updates (even if you do not use
+"preseved-libs" now, but decide to switch it on later).
+
+The underlying problem occurs usually when glibc has been upgraded to a
+new major version, but pax-utils has not yet been upgraded to a version
+compatible with it (but at that moment stays undetected).
+
+The full technical details and investigation can be found on a Wiki page
+[0] and on Bugzilla [1]. Work is underway to prevent this happening
+again both within Portage [2] (possibly more to come) and within the
+glibc and pax-utils ebuilds [3][4].
+
+To detect whether a system is affected, emerge the
+app-portage/recover-broken-vdb package:
+```
+$ emerge --ask --verbose --oneshot app-portage/recover-broken-vdb
+```
+which provides two tools: recover-broken-vdb-find-broken.sh and
+recover-broken-vdb.
+
+Then run recover-broken-vdb-find-broken.sh:
+```
+$ recover-broken-vdb-find-broken.sh | tee broken_vdb_packages
+```
+
+This check should be run on all Gentoo systems.
+
+If you have any output, read on.
+
+Fixing a broken system is not always straightforward. It is strongly
+recommended to take a backup of your full system before proceeding,
+as well as a copy of /var/db/pkg (the VDB):
+
+1. A tool has been developed [5] to attempt to fix the consistency
+  of the Portage database. Using this tool to modify the VDB is NOT
+  mandatory (read the full news item before proceeding) - you can skip
+  to Step 2 if you wish, but fixing the integrity of the VDB
+  makes it as safe as reasonably possible to proceed with
+  rebuilding packages.
+
+  Run:
+  ```
+  # Take a backup of /var/db/pkg before proceeding, such as by doing:
+  $ cp -a /var/db/pkg /var/db/pkg.orig
+
+  # And then:
+  $ emerge --ask --verbose --oneshot --noreplace \
+  	app-portage/recover-broken-vdb
+
+  $ recover-broken-vdb
+
+  # The tool will output to a random temporary directory.
+  # Inspect the results, and then update the real /var/db/pkg/
+  # by doing either:
+
+  $ recover-broken-vdb --output /var/db/pkg
+
+  # Or, manually copying the new files from the temporary directory tree
+  # into your real /var/db/pkg/ directory tree.
+  ```
+
+2. Attempt to rebuild the affected packages, first upgrading
+  app-portage/pax-utils to the latest version:
+  ```
+  $ emerge --ask --verbose --oneshot ">=app-misc/pax-utils-1.3.3"
+  $ emerge --ask --verbose --oneshot --usepkg=n $(cat broken_vdb_packages)
+  ```
+
+Given that there are possible other side-effects of the corruption/bug,
+it is strongly recommended that if any corruption is detected, all
+packages on the system should be rebuilt, after following the above
+steps:
+```
+$ emerge --ask --emptytree --usepkg=n @world
+```
+
+Note that binary packages may need to be discarded given they may
+contain corrupt metadata.
+
+Please see the wiki [0] for a full description of the background
+of this problem and handling corner cases such as e.g. already
+being affected by system breakage [6] as a result of the bug.
+
+[0] https://wiki.gentoo.org/wiki/Project:Toolchain/Corrupt_VDB_ELF_files
+[1] https://bugs.gentoo.org/811462
+[2] https://github.com/gentoo/portage/pull/744
+[3] https://bugs.gentoo.org/811462#c6
+[4] https://bugs.gentoo.org/811462#c7
+[5] https://github.com/thesamesam/recover-broken-vdb
+[6] https://wiki.gentoo.org/wiki/Fix_my_Gentoo
