@@ -4,16 +4,16 @@
 EAPI=7
 inherit bash-completion-r1 go-module
 
-DESCRIPTION="CLI to Easily bootstrap a secure Kubernetes cluster"
+DESCRIPTION="CLI to run commands against Kubernetes clusters"
 HOMEPAGE="https://kubernetes.io"
 SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kubernetes-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="hardened"
 
-RDEPEND="!sys-cluster/kubernetes"
+DEPEND="!sys-cluster/kubernetes"
 BDEPEND=">=dev-lang/go-1.16"
 
 RESTRICT+=" test"
@@ -21,7 +21,7 @@ S="${WORKDIR}/kubernetes-${PV}"
 
 src_compile() {
 	CGO_LDFLAGS="$(usex hardened '-fno-PIC ' '')" \
-		emake -j1 GOFLAGS=-v GOLDFLAGS="" LDFLAGS="" WHAT=cmd/${PN}
+		emake -j1 GOFLAGS="" GOLDFLAGS="" LDFLAGS="" WHAT=cmd/${PN}
 }
 
 src_install() {
