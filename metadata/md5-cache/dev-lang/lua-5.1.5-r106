@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.lua.org/
 INHERIT=multilib multilib-minimal portability toolchain-funcs
 IUSE=+deprecated readline abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=MIT
 RDEPEND=>=app-eselect/eselect-lua-3 readline? ( >=sys-libs/readline-6.2_p5-r1:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) !dev-lang/lua:0
 SLOT=5.1
 SRC_URI=https://www.lua.org/ftp/lua-5.1.5.tar.gz
 _eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	portability	d1186f1e621de7b27ddcae82e6253259
-_md5_=664f2aa8ceb1275a4627c38bdd507bb5
+_md5_=2103bde8523e700ff4e1a2003f062e2e
