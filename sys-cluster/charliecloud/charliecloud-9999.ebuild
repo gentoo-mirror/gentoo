@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 inherit autotools optfeature python-single-r1
 
@@ -62,6 +62,8 @@ src_configure() {
 		--with-sphinx-python=${PYTHON}
 		# This disables -Werror, see also: https://github.com/hpc/charliecloud/pull/808
 		--enable-buggy-build
+		# Do not use bundled version of dev-python/lark-parser.
+		--disable-bundled-lark
 	)
 	econf "${econf_args[@]}"
 }

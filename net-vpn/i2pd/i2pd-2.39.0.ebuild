@@ -19,16 +19,13 @@ RDEPEND="
 	acct-group/i2pd
 	dev-libs/boost:=[threads(+)]
 	dev-libs/openssl:0=[-bindist(-)]
+	sys-libs/zlib
 	upnp? ( net-libs/miniupnpc:= )"
 DEPEND="${RDEPEND}"
 
 CMAKE_USE_DIR="${S}/build"
 
 DOCS=( README.md contrib/i2pd.conf contrib/tunnels.conf )
-
-PATCHES=(
-	"${FILESDIR}/i2pd-2.25.0-lib-path.patch"
-)
 
 pkg_pretend() {
 	if use i2p-hardening && ! tc-is-gcc; then
@@ -66,7 +63,7 @@ src_install() {
 
 	# openrc and systemd daemon routines
 	newconfd "${FILESDIR}/i2pd-2.6.0-r3.confd" i2pd
-	newinitd "${FILESDIR}/i2pd-2.6.0-r3.initd" i2pd
+	newinitd "${FILESDIR}/i2pd-2.39.0.initd" i2pd
 	systemd_newunit "${FILESDIR}/i2pd-2.38.0.service" i2pd.service
 
 	# logrotate

@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_SINGLE_IMPL=true
 DISTUTILS_USE_SETUPTOOLS=no
 inherit distutils-r1 readme.gentoo-r1 virtualx xdg-utils
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 RESTRICT="!test? ( test )"
@@ -27,7 +27,8 @@ RDEPEND="
 		dev-python/QtPy[gui,${PYTHON_USEDEP}]
 		dev-python/send2trash[${PYTHON_USEDEP}]
 	')
-	dev-vcs/git"
+	dev-vcs/git
+"
 BDEPEND="sys-devel/gettext
 	$(python_gen_cond_dep "
 		doc? ( dev-python/sphinx[\${PYTHON_USEDEP}] )
@@ -35,10 +36,11 @@ BDEPEND="sys-devel/gettext
 			${VIRTUALX_DEPEND}
 			dev-python/mock[\${PYTHON_USEDEP}]
 			dev-python/nose[\${PYTHON_USEDEP}]
+			dev-python/PyQt5[\${PYTHON_USEDEP},gui,widgets]
+			dev-python/pytest[\${PYTHON_USEDEP}]
 		)
-	")"
-
-PATCHES=( "${FILESDIR}/${P}-py3.8-line-buffering.patch" )
+	")
+"
 
 python_prepare_all() {
 	# make sure that tests also use the system provided QtPy
@@ -61,7 +63,7 @@ python_prepare_all() {
 }
 
 python_configure_all() {
-	mydistutilsargs=( --no-vendor-libs )
+	DISTUTILS_ARGS=( --no-vendor-libs --no-private-libs )
 }
 
 python_compile_all() {
@@ -78,13 +80,9 @@ python_compile_all() {
 
 python_test() {
 	GIT_CONFIG_NOSYSTEM=true \
-	PYTHONPATH="${S}:${S}/build/lib:${PYTHONPATH}" LC_ALL="en_US.utf8" \
+	PYTHONPATH="${S}:${S}/build/lib:${PYTHONPATH}" LC_ALL="C.utf8" \
 	virtx nosetests --verbose --with-id --with-doctest \
 		--exclude=sphinxtogithub
-}
-
-src_install() {
-	distutils-r1_src_install
 }
 
 python_install_all() {
@@ -95,11 +93,8 @@ python_install_all() {
 		prefix="${EPREFIX}/usr" \
 		install
 
-	python_fix_shebang "${ED}/usr/share/git-cola/bin/git-xbase" "${ED}"/usr/bin/git-cola
-	python_optimize "${ED}/usr/share/git-cola/lib/cola"
-
-	# fix appdata installation
-	mv "${D}"/usr/share/appdata "${D}"/usr/share/metainfo || die "moving appdata failed"
+	# remove empty bin folder
+	rm -R "${ED}"/usr/share/git-cola/bin || die
 
 	use doc || HTML_DOCS=( "${FILESDIR}"/index.html )
 
