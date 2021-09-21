@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt:0 sys-devel/gettext dev-util/gperf virtual/pkgconfig || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) || ( ( dev-lang/python:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-)] ) ) >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt:0 sys-devel/gettext dev-util/gperf virtual/pkgconfig || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) || ( ( dev-lang/python:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-)] ) ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=sys-apps/util-linux-2.30 >=sys-boot/gnu-efi-3.0.2 sys-libs/libcap
 DESCRIPTION=UEFI boot manager from systemd (formerly gummiboot)
@@ -11,5 +11,5 @@ RDEPEND=>=sys-apps/util-linux-2.30 !sys-apps/systemd
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd/archive/v249.tar.gz -> systemd-249.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	493198f00f20d2ecf10552d2737f2f13	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
 _md5_=e3fa0a3f13832b0350afb2e12101ebb3

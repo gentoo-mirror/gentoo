@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig man? ( app-text/scdoc ) test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig man? ( app-text/scdoc ) test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=dmabuf? ( media-libs/mesa[gbm,vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-util/systemtap ) vaapi? ( x11-libs/libva[drm,wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
 DESCRIPTION=Transparent network proxy for Wayland compositors
@@ -13,5 +13,5 @@ REQUIRED_USE=vaapi? ( ffmpeg )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v0.7.2/waypipe-v0.7.2.tar.gz -> waypipe-0.7.2.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	493198f00f20d2ecf10552d2737f2f13	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
 _md5_=945712299165934b7815369cfb56a964

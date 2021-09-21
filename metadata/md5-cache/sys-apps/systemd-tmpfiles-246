@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt:0 dev-util/gperf >=dev-util/meson-0.46 >=sys-apps/coreutils-8.16 sys-devel/gettext sys-devel/m4 virtual/pkgconfig >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt:0 dev-util/gperf >=dev-util/meson-0.46 >=sys-apps/coreutils-8.16 sys-devel/gettext sys-devel/m4 virtual/pkgconfig >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=sys-apps/acl:0= >=sys-apps/util-linux-2.30:0= sys-libs/libcap:0= selinux? ( sys-libs/libselinux:0= ) virtual/libcrypt:= !sys-apps/opentmpfiles !sys-apps/systemd >=sys-kernel/linux-headers-3.11
 DESCRIPTION=Creates, deletes and cleans up volatile and temporary files and directories
@@ -12,5 +12,5 @@ RDEPEND=sys-apps/acl:0= >=sys-apps/util-linux-2.30:0= sys-libs/libcap:0= selinux
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd/archive/v246.tar.gz -> systemd-246.tar.gz elibc_musl? ( https://dev.gentoo.org/~gyakovlev/distfiles/systemd-tmpfiles-246-musl.tar.xz )
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	493198f00f20d2ecf10552d2737f2f13	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
 _md5_=63c2176d3f6a815e928d102f51e4b4c0
