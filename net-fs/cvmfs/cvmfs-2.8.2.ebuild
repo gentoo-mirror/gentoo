@@ -12,8 +12,8 @@ SRC_URI="https://ecsft.cern.ch/dist/cvmfs/${P}/source.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 
-KEYWORDS="amd64 x86"
-IUSE="doc server"
+KEYWORDS="~amd64 ~x86"
+IUSE="server"
 
 CDEPEND="
 	acct-group/cvmfs
@@ -42,8 +42,13 @@ RDEPEND="${CDEPEND}
 
 DEPEND="${CDEPEND}
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen[dot] )
 "
+
+PATCHES=(
+		"${FILESDIR}"/${PN}-2.7.2-builtins.patch
+		"${FILESDIR}"/${PN}-2.7.2-find-package.patch
+		"${FILESDIR}"/${PN}-2.7.2-xattr.patch
+)
 
 pkg_setup() {
 	if use server; then
@@ -54,7 +59,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-2.7.2-builtins.patch"
 	cmake_src_prepare
 	# gentoo stuff
 	rm bootstrap.sh || die
@@ -69,7 +73,7 @@ src_configure() {
 		-DBUILTIN_EXTERNALS=OFF
 		-DBUILD_CVMFS=ON
 		-DBUILD_LIBCVMFS=OFF # static library used only for development
-		-DBUILD_DOCUMENTATION=$(usex doc)
+		-DBUILD_DOCUMENTATION=OFF
 		-DBUILD_GEOAPI=OFF # only used for stratum 1 servers
 		-DBUILD_LIBCVMFS_CACHE=OFF # for exotic cache configs
 		-DBUILD_PRELOADER=OFF # special purpose utility for HPCs
@@ -85,8 +89,11 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	newbashcomp cvmfs/bash_completion/cvmfs.bash_completion cvmfs
+	newbashcomp cvmfs/bash_completion/cvmfs.bash_completion cvmfs_config
+	bashcomp_alias cvmfs_config cvmfs_server
 	dodoc doc/*.md
+	keepdir /var/lib/cvmfs
+	use server && keepdir /var/lib/cvmfs-server
 }
 
 pkg_config() {
