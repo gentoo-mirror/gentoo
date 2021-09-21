@@ -159,18 +159,17 @@ x11-libs/colord-gtk doc
 
 # Michał Górny <mgorny@gentoo.org> (2020-12-04)
 # Mask the experimental targets in release ebuilds.
+# Note to self: remember to move still-applicable masks to the newer
+# version when master is bumped.
 <dev-ml/llvm-ocaml-11 llvm_targets_AVR
 <sys-devel/clang-11 llvm_targets_AVR
 <sys-devel/llvm-11 llvm_targets_AVR
-<dev-ml/llvm-ocaml-12 llvm_targets_ARC llvm_targets_VE
-<sys-devel/clang-12 llvm_targets_ARC llvm_targets_VE
-<sys-devel/llvm-12 llvm_targets_ARC llvm_targets_VE
-<dev-ml/llvm-ocaml-13 llvm_targets_CSKY
-<sys-devel/clang-13 llvm_targets_CSKY
-<sys-devel/llvm-13 llvm_targets_CSKY
-<dev-ml/llvm-ocaml-14 llvm_targets_M68k
-<sys-devel/clang-14 llvm_targets_M68k
-<sys-devel/llvm-14 llvm_targets_M68k
+<dev-ml/llvm-ocaml-14 llvm_targets_ARC llvm_targets_VE
+<sys-devel/clang-14 llvm_targets_ARC llvm_targets_VE
+<sys-devel/llvm-14 llvm_targets_ARC llvm_targets_VE
+<dev-ml/llvm-ocaml-14 llvm_targets_CSKY llvm_targets_M68k
+<sys-devel/clang-14 llvm_targets_CSKY llvm_targets_M68k
+<sys-devel/llvm-14 llvm_targets_CSKY llvm_targets_M68k
 
 # Joonas Niilola <juippis@gentoo.org> (2020-12-03)
 # Doc building seem to be very random without any predictability,
@@ -317,11 +316,6 @@ dev-python/statsmodels doc
 # Here we are following that path too.
 >=sys-libs/glibc-2.33-r2 crypt
 <sys-libs/libxcrypt-4.4.23-r1 split-usr system
-
-# Michał Górny <mgorny@gentoo.org> (2019-10-05)
-# net-libs/openslp is being removed.
-sys-block/open-iscsi slp
-sys-block/open-isns slp
 
 # Craig Andrews <candrews@gentoo.org> (2019-09-12)
 # OpenSSL (as of version 1.1.1) doesn't have APIs for QUIC support
@@ -594,10 +588,6 @@ net-analyzer/nmap system-lua
 # Mike Frysinger <vapier@gentoo.org> (2014-10-21)
 # Most targets do not support ASAN/etc... #504200.
 sys-devel/gcc sanitize
-
-# Rick Farina <zerochaos@gentoo.org> (2014-08-26)
-# mirisdr does not seem to like making releases
-<net-wireless/gr-osmosdr-9999 mirisdr
 
 # Mike Frysinger <vapier@gentoo.org> (2014-02-03)
 # Upstream says to not use this for now.

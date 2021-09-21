@@ -238,10 +238,6 @@ net-misc/gerbera lastfm
 # Requires USE=ipmi which is masked in this profile.
 sys-power/nut ups_drivers_nut-ipmipsu
 
-# Michał Górny <mgorny@gentoo.org> (2017-08-10)
-# Requires USE=octave which is masked in this profile.
-<=dev-python/ipython-7.24.1 test
-
 # Michał Górny <mgorny@gentoo.org> (2017-08-08)
 # Requires USE=opencl that is masked in this profile.
 net-misc/bfgminer adl lm-sensors
@@ -319,10 +315,6 @@ sci-mathematics/flint ntl
 # Markus Meier <maekke@gentoo.org> (2016-02-26)
 # unmask scanner for net-print/hplip, bug #518456
 media-sound/moc timidity
-
-# James Le Cuirot <chewi@gentoo.org> (2016-01-30)
-# scrollview requires SWT, which is currently unsupported on ARM.
-app-text/tesseract scrollview
 
 # Brian Evans <grknight@gentoo.org> (2015-11-23)
 # unmask galera for dev-db/mariadb
