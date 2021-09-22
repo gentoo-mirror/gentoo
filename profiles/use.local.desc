@@ -2184,6 +2184,14 @@ dev-libs/openssl-compat:sslv3 - Support for the old/insecure SSLv3 protocol -- n
 dev-libs/openssl-compat:tls-compression - Enable support for discouraged TLS compression
 dev-libs/openssl-compat:tls-heartbeat - Enable the Heartbeat Extension in TLS and DTLS
 dev-libs/pkcs11-helper:nss - Enable NSS crypto engine
+dev-libs/pocl:accel - Enable the generic hardware accelerator device driver
+dev-libs/pocl:cl20 - Enable reporting OpenCL 2.0 for the CPU device
+dev-libs/pocl:conformance - Ensures that certain build options which would result in non-conformant pocl build stay disabled. Note that this does not quarantee a fully conformant build of pocl.
+dev-libs/pocl:cuda - Enable the CUDA backend for NVIDIA GPUs
+dev-libs/pocl:float-conversion - When enabled, OpenCL printf() call's f/e/g formatters are handled by pocl. When disabled, these are handled by system C library.
+dev-libs/pocl:hardening - Enable hardening against various attacks. May worsen performance
+dev-libs/pocl:hwloc - Enable hwloc support
+dev-libs/pocl:memmanager - Enables custom memory manager. Except for special circumstances, this should be disabled
 dev-libs/poco:7z - Add Support for the 7z archive format
 dev-libs/poco:cppparser - Build and install a minimal C++ parser
 dev-libs/poco:crypto - Encryption and digital signing classes
