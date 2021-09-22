@@ -16,12 +16,12 @@ fi
 IUSE="bindist connman gssapi libproxy networkmanager sctp +ssl"
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	=dev-qt/qtcore-${QT5_PV}*:5=
 	sys-libs/zlib:=
-	connman? ( ~dev-qt/qtdbus-${PV} )
+	connman? ( =dev-qt/qtdbus-${QT5_PV}* )
 	gssapi? ( virtual/krb5 )
 	libproxy? ( net-libs/libproxy )
-	networkmanager? ( ~dev-qt/qtdbus-${PV} )
+	networkmanager? ( =dev-qt/qtdbus-${QT5_PV}* )
 	sctp? ( kernel_linux? ( net-misc/lksctp-tools ) )
 	ssl? ( >=dev-libs/openssl-1.1.1:0=[bindist(-)=] )
 "
@@ -54,7 +54,7 @@ pkg_setup() {
 src_configure() {
 	local myconf=(
 		$(usev connman -dbus-linked)
-		$(usex gssapi -feature-gssapi -no-feature-gssapi)
+		$(qt_use gssapi feature-gssapi)
 		$(qt_use libproxy)
 		$(usev networkmanager -dbus-linked)
 		$(qt_use sctp)
@@ -65,6 +65,7 @@ src_configure() {
 
 src_install() {
 	qt5-build_src_install
+
 	# workaround for bug 652650
 	if use ssl; then
 		sed -e "/^#define QT_LINKED_OPENSSL/s/$/ true/" \
