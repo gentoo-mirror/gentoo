@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Archive-Any-Lite-0.60.0 >=virtual/perl-Archive-Tar-1.760.0 >=dev-perl/Array-Diff-0.40.0 >=dev-perl/CPAN-DistnameInfo-0.60.0 >=virtual/perl-CPAN-Meta-YAML-0.8.0 >=dev-perl/Class-Accessor-0.190.0 dev-perl/Data-Binary >=dev-perl/File-Find-Object-0.2.1 virtual/perl-JSON-PP >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Module-Find >=dev-perl/Perl-PrereqScanner-NotQuiteLite-0.990.100 >=dev-perl/Software-License-0.103.12 virtual/perl-Text-Balanced virtual/perl-ExtUtils-MakeMaker >=dev-perl/ExtUtils-MakeMaker-CPANfile-0.80.0 test? ( dev-perl/Test-FailWarnings >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Generate Kwalitee ratings for a distribution
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Module-CPANTS-Analyse
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/Archive-Any-Lite-0.60.0 >=virtual/perl-Archive-Tar-1.760.0 >=dev-perl/Array-Diff-0.40.0 >=dev-perl/CPAN-DistnameInfo-0.60.0 >=virtual/perl-CPAN-Meta-YAML-0.8.0 >=dev-perl/Class-Accessor-0.190.0 dev-perl/Data-Binary >=dev-perl/File-Find-Object-0.2.1 virtual/perl-JSON-PP >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Module-Find >=dev-perl/Perl-PrereqScanner-NotQuiteLite-0.990.100 >=dev-perl/Software-License-0.103.12 virtual/perl-Text-Balanced dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/I/IS/ISHIGAKI/Module-CPANTS-Analyse-1.01.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=6aa6df5d2c18650242c639b352bad827

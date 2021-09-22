@@ -6327,11 +6327,13 @@ dev-perl/App-perlbrew 0.920.0-r1: Manage perl installations in your $HOME
 dev-perl/App-pwhich 1.160.0: Perl-only 'which'
 dev-perl/AppConfig 1.710.0-r1: Perl5 module for reading configuration files and parsing command line arguments
 dev-perl/Archive-Any 0.94.600: Single interface to deal with file archives
+dev-perl/Archive-Any-Lite 0.110.0: simple CPAN package extractor
 dev-perl/Archive-Extract 0.800.0 0.860.0: Generic archive extracting mechanism
 dev-perl/Archive-Tar-Stream 0.30.0-r1: pure perl IO-friendly tar file management
 dev-perl/Archive-Tar-Wrapper 0.380.0: API wrapper around the 'tar' utility
 dev-perl/Archive-Zip 1.680.0: A wrapper that lets you read Zip archive members as if they were files
 dev-perl/Array-Compare 3.0.3 3.0.8: Perl extension for comparing arrays
+dev-perl/Array-Diff 0.90.0: Find the differences between two arrays
 dev-perl/Array-RefElem 1.0.0-r3: Set up array elements as aliases
 dev-perl/Array-Window 1.20.0-r2: Calculate windows/subsets/pages of arrays
 dev-perl/Astro-FITS-Header 3.70.0-r1 3.80.0: Interface to FITS headers
@@ -6604,6 +6606,7 @@ dev-perl/DB_File-Lock 0.50.0-r2: Locking with flock wrapper for DB_File
 dev-perl/Daemon-Generic 0.850.0: Framework to provide start/stop/reload for a daemon
 dev-perl/Danga-Socket 1.610.0-r1 1.620.0: A non-blocking socket object; uses epoll()
 dev-perl/Data-AMF 0.90.0-r2: (de)serializer perl module for Adobe's AMF (Action Message Format)
+dev-perl/Data-Binary 0.10.0: Simple detection of binary versus text in strings
 dev-perl/Data-Buffer 0.40.0-r2: Read/write buffer class
 dev-perl/Data-Compare 1.250.0 1.270.0-r1: Compare perl data structures
 dev-perl/Data-Diver 1.10.100-r2: Simple, ad-hoc access to elements of deeply nested structures
@@ -6816,6 +6819,7 @@ dev-perl/ExtUtils-HasCompiler 0.23.0: Check for the presence of a compiler
 dev-perl/ExtUtils-Helpers 0.26.0: Various portability utilities for module builders
 dev-perl/ExtUtils-InstallPaths 0.11.0 0.12.0: Build.PL install path logic made easy
 dev-perl/ExtUtils-LibBuilder 0.80.0-r1: A tool to build C libraries
+dev-perl/ExtUtils-MakeMaker-CPANfile 0.90.0: cpanfile support for EUMM
 dev-perl/ExtUtils-PkgConfig 1.160.0: Simplistic perl interface to pkg-config
 dev-perl/ExtUtils-Typemaps-Default 1.50.0: A set of useful typemaps
 dev-perl/ExtUtils-XSBuilder 0.280.0-r2: Modules to parse C header files and create XS glue code
@@ -6833,6 +6837,7 @@ dev-perl/File-Copy-Link 0.140.0: Perl extension for replacing a link by a copy o
 dev-perl/File-Copy-Recursive 0.380.0-r1 0.450.0: uses File::Copy to recursively copy dirs
 dev-perl/File-Copy-Recursive-Reduced 0.6.0: Recursive copying of files and directories within Perl 5 toolchain
 dev-perl/File-DesktopEntry 0.220.0: Object to handle .desktop files
+dev-perl/File-Find-Object 0.3.6: An object oriented File::Find replacement
 dev-perl/File-Find-Rule 0.340.0: Alternative interface to File::Find
 dev-perl/File-Find-Rule-Perl 1.150.0: Common rules for searching for Perl things
 dev-perl/File-Flat 1.40.0-r1 1.70.0: Implements a flat filesystem
@@ -6867,6 +6872,7 @@ dev-perl/File-Stat-Bits 1.10.0-r2: File stat bit mask constants
 dev-perl/File-Sync 0.110.0-r1: Perl access to fsync() and sync() function calls
 dev-perl/File-Tail 1.300.0: Perl extension for reading from continously updated files
 dev-perl/File-Tempdir 0.20.0-r2: This module provide an object interface to tempdir() from File::Temp
+dev-perl/File-TreeCreate 0.0.1: Recursively create a directory tree
 dev-perl/File-Type 0.220.0-r2: Determine file type using magic
 dev-perl/File-Which 1.270.0: Perl implementation of the which utility as an API
 dev-perl/File-chdir 0.101.100: An alternative to File::Spec and CWD
@@ -7203,6 +7209,7 @@ dev-perl/Module-Build 0.422.400 0.423.100: Build and install Perl modules
 dev-perl/Module-Build-Tiny 0.39.0-r1: A tiny replacement for Module::Build
 dev-perl/Module-Build-WithXSpp 0.140.0: XS++ enhanced flavour of Module::Build
 dev-perl/Module-Build-XSUtil 0.180.0 0.190.0: A Module::Build class for building XS modules
+dev-perl/Module-CPANTS-Analyse 1.10.0: Generate Kwalitee ratings for a distribution
 dev-perl/Module-CPANfile 1.100.400: Parse cpanfile
 dev-perl/Module-Compile 0.350.0 0.380.0: Perl Module Compilation
 dev-perl/Module-Find 0.130.0 0.150.0: Find and use installed modules in a (sub)category
@@ -7431,6 +7438,7 @@ dev-perl/Perl-Critic-Policy-Dynamic-NoIndirect 0.60.0-r2: Perl::Critic policy ag
 dev-perl/Perl-LanguageServer 2.2.0: Language Server and Debug Protocol Adapter for Perl
 dev-perl/Perl-MinimumVersion 1.380.0 1.400.0: Find a minimum required version of perl for Perl code
 dev-perl/Perl-PrereqScanner 1.23.0 1.24.0: a tool to scan your Perl code for its prerequisites
+dev-perl/Perl-PrereqScanner-NotQuiteLite 0.991.400: a tool to scan your Perl code for its prerequisites
 dev-perl/Perl-Strip 1.100.0: reduce file size by stripping whitespace, comments, pod etc
 dev-perl/Perl-Tags 0.320.0-r2: Generate (possibly exuberant) Ctags style tags for Perl sourcecode
 dev-perl/Perl-Tidy 20190915.0.0 20210717.0.0: Perl script indenter and beautifier
@@ -7492,6 +7500,7 @@ dev-perl/Regexp-Common-net-CIDR 0.30.0-r1: Provides patterns for CIDR blocks
 dev-perl/Regexp-IPv6 0.30.0-r2: Regular expression for IPv6 addresses
 dev-perl/Regexp-RegGrp 2.10.0-r1: Groups a regular expressions collection
 dev-perl/Regexp-Shellish 0.930.0-r2: Regexp::Shellish - Shell-like regular expressions
+dev-perl/Regexp-Trie 0.20.0: builds trie-ized regexp
 dev-perl/Regexp-Util 0.3.0 0.5.0: General purpose utilities for working with Regular Expressions
 dev-perl/Return-Value 1.666.5-r1: Polymorphic Return Values
 dev-perl/Role-Basic 0.130.0-r1: Just roles. Nothing else
@@ -7667,6 +7676,7 @@ dev-perl/Test-HTTP-Server-Simple 0.110.0: Test::More functions for HTTP::Server:
 dev-perl/Test-Inline 2.213.0-r2 2.214.0: Inline test suite support for Perl
 dev-perl/Test-Inter 1.90.0: Framework for more readable interactive test scripts
 dev-perl/Test-Kit 2.150.0: Build custom test packages with only the features you want
+dev-perl/Test-Kwalitee 1.280.0: Test the Kwalitee of a distribution before you release it
 dev-perl/Test-LeakTrace 0.160.0 0.170.0: Traces memory leaks
 dev-perl/Test-LectroTest 0.500.100-r1: Easy, automatic, specification-based tests
 dev-perl/Test-LongString 0.170.0-r1: A library to test long strings
@@ -7699,21 +7709,21 @@ dev-perl/Test-SharedFork 0.350.0-r1: Ensure that tests work correctly when fork(
 dev-perl/Test-Spec 0.540.0-r1: Write tests in a declarative specification style
 dev-perl/Test-Strict 0.470.0 0.520.0: Check syntax, presence of use strict; and test coverage
 dev-perl/Test-SubCalls 1.100.0-r1: Track the number of times subs are called
-dev-perl/Test-TCP 2.190.0-r1: Testing TCP program
+dev-perl/Test-TCP 2.190.0-r1 2.220.0: Testing TCP program
 dev-perl/Test-Taint 1.60.0-r1 1.80.0: Tools to test taintedness
-dev-perl/Test-TempDir-Tiny 0.17.0: Temporary directories that stick around when tests fail
-dev-perl/Test-Time 0.50.0: Overrides the time() and sleep() core functions for testing
-dev-perl/Test-Timer 2.100.0: test module to test/assert response times
-dev-perl/Test-Trap 0.3.3: Trap exit codes, exceptions, output, etc
-dev-perl/Test-Unit-Lite 0.120.200-r1: Unit testing without external dependencies
-dev-perl/Test-UseAllModules 0.170.0-r1: do use_ok() for all the MANIFESTed modules
-dev-perl/Test-Version 2.70.0: Check to see that version's in modules are sane
+dev-perl/Test-TempDir-Tiny 0.17.0 0.18.0: Temporary directories that stick around when tests fail
+dev-perl/Test-Time 0.50.0 0.80.0: Overrides the time() and sleep() core functions for testing
+dev-perl/Test-Timer 2.100.0 2.120.0: test module to test/assert response times
+dev-perl/Test-Trap 0.3.3 0.3.4: Trap exit codes, exceptions, output, etc
+dev-perl/Test-Unit-Lite 0.120.200-r2: Unit testing without external dependencies
+dev-perl/Test-UseAllModules 0.170.0-r2: do use_ok() for all the MANIFESTed modules
+dev-perl/Test-Version 2.70.0 2.90.0: Check to see that version's in modules are sane
 dev-perl/Test-WWW-Mechanize 1.480.0: Testing-specific WWW::Mechanize subclass
 dev-perl/Test-Warn 0.320.0: Perl extension to test methods for warnings
 dev-perl/Test-Warnings 0.26.0: Test for warnings and the lack of them
 dev-perl/Test-Without-Module 0.200.0: Test fallback behaviour in absence of modules
 dev-perl/Test-YAML 1.60.0: Testing Module for YAML Implementations
-dev-perl/Test-utf8 1.10.0: Handy utf8 tests
+dev-perl/Test-utf8 1.10.0 1.20.0: Handy utf8 tests
 dev-perl/Test2-Plugin-NoWarnings 0.60.0 0.90.0: Fail if tests warn
 dev-perl/Test2-Suite 0.0.77 0.0.140 0.0.141: A rich set of tools built upon the Test2 framework
 dev-perl/Text-Aligner 0.130.0: Used to justify strings to various alignment styles
@@ -7802,6 +7812,7 @@ dev-perl/URI-Encode 1.1.1: Simple percent Encoding/Decoding
 dev-perl/URI-Fetch 0.130.0: Smart URI fetching/caching
 dev-perl/URI-Find 20160806.0.0: Find URIs in plain text
 dev-perl/URI-FromHash 0.50.0: Build a URI from a set of named parameters
+dev-perl/URI-cpan 1.7.0: URLs that refer to things on the CPAN
 dev-perl/URI-redis 0.20.0: URI for Redis connection info
 dev-perl/USB-LibUSB 0.60.0 0.90.0: Perl interface to the libusb-1.0 API
 dev-perl/USB-TMC 0.6.0 0.7.0: Perl interface to the USB Test & Measurement (USBTMC) backend

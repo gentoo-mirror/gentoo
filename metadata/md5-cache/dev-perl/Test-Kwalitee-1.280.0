@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Exporter >=dev-perl/Module-CPANTS-Analyse-0.920.0 >=virtual/perl-Test-Simple-0.880.0 virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/CPAN-Meta-Check-0.11.0 virtual/perl-CPAN-Meta-Requirements virtual/perl-File-Spec dev-perl/Test-Deep >=virtual/perl-Test-Simple-0.960.0 >=dev-perl/Test-Warnings-0.9.0 virtual/perl-if ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Test the Kwalitee of a distribution before you release it
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Test-Kwalitee
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Exporter >=dev-perl/Module-CPANTS-Analyse-0.920.0 >=virtual/perl-Test-Simple-0.880.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Test-Kwalitee-1.28.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=51883c7739b5a3d3324d3a3391314002
