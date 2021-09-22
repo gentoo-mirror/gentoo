@@ -33,7 +33,7 @@ LICENSE="BSD-2 CDDL MIT"
 # just libzfs soname major for now.
 # possible candidates: libuutil, libzpool, libnvpair. Those do not provide stable abi, but are considered.
 # see libsoversion_check() below as well
-SLOT="0/5"
+SLOT="0/4"
 IUSE="custom-cflags debug dist-kernel kernel-builtin minimal nls pam python +rootfs test-suite"
 
 DEPEND="
@@ -54,10 +54,6 @@ BDEPEND="virtual/awk
 	nls? ( sys-devel/gettext )
 	python? (
 		dev-python/setuptools[${PYTHON_USEDEP}]
-		|| (
-			dev-python/packaging[${PYTHON_USEDEP}]
-			dev-python/distlib[${PYTHON_USEDEP}]
-		)
 	)
 "
 
@@ -96,7 +92,10 @@ REQUIRED_USE="
 
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/2.0.4-scrub-timers.patch" )
+PATCHES=(
+	"${FILESDIR}/bash-completion-sudo.patch"
+	"${FILESDIR}/2.0.4-scrub-timers.patch"
+)
 
 pkg_pretend() {
 	use rootfs || return 0
