@@ -229,6 +229,10 @@ BDEPEND="
 	wayland? ( dev-util/wayland-scanner[${MULTILIB_USEDEP}] )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PV}-util-fossilize_db-Don-t-corrupt-keys-during-entry-re.patch
+)
+
 S="${WORKDIR}/${MY_P}"
 EGIT_CHECKOUT_DIR=${S}
 
