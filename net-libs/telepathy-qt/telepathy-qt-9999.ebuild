@@ -3,9 +3,10 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_REQ_USE="xml(+)"
 
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI=( "https://gitlab.freedesktop.org/telepathy/${PN}" )
 	inherit git-r3
 else
@@ -63,6 +64,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DPython3_EXECUTABLE="${PYTHON}"
 		-DENABLE_DEBUG_OUTPUT=$(usex debug)
 		-DENABLE_FARSTREAM=$(usex farstream)
 		-DENABLE_TESTS=$(usex test)

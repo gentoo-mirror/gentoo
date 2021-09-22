@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_REQ_USE="xml(+)"
 inherit python-any-r1 cmake virtualx
 
 DESCRIPTION="Qt bindings for the Telepathy D-Bus protocol"
@@ -57,6 +58,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DPython3_EXECUTABLE="${PYTHON}"
 		-DENABLE_DEBUG_OUTPUT=$(usex debug)
 		-DENABLE_FARSTREAM=$(usex farstream)
 		-DENABLE_TESTS=$(usex test)
