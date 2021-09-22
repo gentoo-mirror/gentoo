@@ -8,19 +8,19 @@ inherit autotools
 # We take a snapshot because of the huge number of security
 # and other fixes since the release of 14.4.2.
 # Recommend mirroring the snapshot; unclear if they are stable URIs.
-COMMIT="50857c46c03a85c72826e819f5e815aad4a4633d"
+COMMIT="42b3557e13e0fe01a83465b672d89faddbe65f49"
 MY_P="sox-code-${COMMIT}"
 
 DESCRIPTION="The swiss army knife of sound processing programs"
 HOMEPAGE="http://sox.sourceforge.net"
 # Source: https://sourceforge.net/code-snapshots/git/s/so/sox/code.git/${MY_P}.zip
-SRC_URI="https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${MY_P}.zip -> ${P}.zip"
+SRC_URI="https://dev.gentoo.org/~fordfrog/distfiles/${MY_P}.zip -> ${P}.zip"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris"
-IUSE="alsa amr ao debug encode flac id3tag ladspa mad ogg openmp oss opus png pulseaudio sndfile sndio static-libs twolame wavpack"
+IUSE="alsa amr ao encode flac id3tag ladspa mad ogg openmp oss opus png pulseaudio sndfile sndio static-libs twolame wavpack"
 
 BDEPEND="
 	app-arch/unzip
@@ -77,27 +77,26 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_with alsa) \
-		$(use_with amr amrnb) \
-		$(use_with amr amrwb) \
-		$(use_with ao) \
-		$(use_enable debug) \
+		$(use_enable alsa) \
+		$(use_enable amr amrnb) \
+		$(use_enable amr amrwb) \
+		$(use_enable ao) \
 		$(use_with encode lame) \
-		$(use_with flac) \
+		$(use_enable flac) \
 		$(use_with id3tag) \
 		$(use_with ladspa) \
 		$(use_with mad) \
 		$(use_enable openmp) \
-		$(use_with ogg oggvorbis) \
-		$(use_with oss) \
-		$(use_with opus) \
+		$(use_enable ogg oggvorbis) \
+		$(use_enable oss) \
+		$(use_enable opus) \
 		$(use_with png) \
-		$(use_with pulseaudio) \
-		$(use_with sndfile) \
-		$(use_with sndio) \
+		$(use_enable pulseaudio) \
+		$(use_enable sndfile) \
+		$(use_enable sndio) \
 		$(use_enable static-libs static) \
 		$(use_with twolame) \
-		$(use_with wavpack) \
+		$(use_enable wavpack) \
 		--with-distro="Gentoo"
 }
 
