@@ -5,18 +5,18 @@ EAPI=7
 
 inherit qmake-utils
 
-MY_GIT_COMMIT="3d937cf5112a98052f98a106dc0f5de1eafc20ea"
-SRC_URI="https://gitlab.com/OpenRGBDevelopers/openrgbskinplugin/-/archive/${MY_GIT_COMMIT}/openrgbskinplugin-${MY_GIT_COMMIT}.tar.bz2"
-S="${WORKDIR}/openrgbskinplugin-${MY_GIT_COMMIT}"
+MY_GIT_COMMIT="b603bb994719c765cc52c116c6f9f3983fc2a7b2"
+SRC_URI="https://gitlab.com/OpenRGBDevelopers/OpenRGBVisualMapPlugin/-/archive/${MY_GIT_COMMIT}/OpenRGBVisualMapPlugin-${MY_GIT_COMMIT}.tar.bz2"
+S="${WORKDIR}/OpenRGBVisualMapPlugin-${MY_GIT_COMMIT}"
 KEYWORDS="~amd64"
 
-DESCRIPTION="Plugin for OpenRGB that allows you to customize the look and feel of OpenRGB"
-HOMEPAGE="https://gitlab.com/OpenRGBDevelopers/openrgbskinplugin"
+DESCRIPTION="Plugin for OpenRGB to create virtual devices out of multiple real ones"
+HOMEPAGE="https://gitlab.com/OpenRGBDevelopers/OpenRGBEffectsPlugin"
 LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	>=app-misc/openrgb-0.6-r1:=
+	=app-misc/openrgb-0.6*:=
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
@@ -29,6 +29,7 @@ DEPEND="
 src_prepare() {
 	default
 	rm -r OpenRGB || die
+	sed -i -e '/RGBController.cpp/d' OpenRGBVisualMapPlugin.pro || die
 }
 
 src_configure() {
@@ -42,5 +43,5 @@ src_configure() {
 
 src_install() {
 	exeinto /usr/$(get_libdir)/OpenRGB/plugins
-	doexe libOpenRGBSkinPlugin.so.1.0.0
+	doexe libOpenRGBVisualMapPlugin.so.1.0.0
 }
