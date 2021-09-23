@@ -1,0 +1,15 @@
+BDEPEND=filecaps? ( sys-libs/libcap )
+DEFINED_PHASES=compile install postinst prepare test
+DESCRIPTION=Advanced PC speaker beeper
+EAPI=7
+HOMEPAGE=https://github.com/spkr-beep
+INHERIT=fcaps toolchain-funcs
+IUSE=+filecaps
+KEYWORDS=~alpha ~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=filecaps? ( sys-libs/libcap )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/spkr-beep/beep/archive/v1.4.9.tar.gz -> beep-1.4.9.tar.gz
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=88db7e3c7b693687e9c12fe5d5a8f573
