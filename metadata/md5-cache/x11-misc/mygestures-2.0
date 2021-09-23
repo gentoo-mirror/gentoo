@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=prepare
+DEFINED_PHASES=install prepare
 DEPEND=dev-libs/libxml2 x11-libs/libX11 x11-libs/libXi x11-libs/libXrender x11-libs/libXtst x11-base/xorg-proto
 DESCRIPTION=Mouse gestures for X
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=dev-libs/libxml2 x11-libs/libX11 x11-libs/libXi x11-libs/libXrender x11-
 SLOT=0
 SRC_URI=https://github.com/deters/mygestures/archive/refs/tags/v2.0.tar.gz -> mygestures-2.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=4d2710de13e08d22046314318cc16854
+_md5_=93f06e4e4e99e4c8ff4cc30ef1486664
