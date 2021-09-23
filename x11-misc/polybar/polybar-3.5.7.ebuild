@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8,9} )
 XPP_COMMIT="044e69d05db7f89339bda1ccd1efe0263b01c8f6"
-I3IPCPP_COMMIT="cb008b30fc5f3febfe467884cb0211ee3c16386b"
+I3IPCPP_COMMIT="86ddf7102c6903ae0cc543071e2d375403fc0727"
 
 inherit cmake python-single-r1
 
@@ -15,7 +15,7 @@ SRC_URI="https://github.com/polybar/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/polybar/xpp/archive/${XPP_COMMIT}.tar.gz -> xpp-${XPP_COMMIT}.tar.gz
 	https://github.com/polybar/i3ipcpp/archive/${I3IPCPP_COMMIT}.tar.gz -> i3ipcpp-${I3IPCPP_COMMIT}.tar.gz"
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"
 SLOT="0"
 IUSE="alsa curl doc i3wm ipc mpd network pulseaudio"
