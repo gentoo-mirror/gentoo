@@ -4,82 +4,82 @@
 EAPI=7
 
 CRATES="
-ahash-0.7.2
-ansi_term-0.11.0
-atty-0.2.14
-autocfg-1.0.1
-base64-0.13.0
-bitflags-1.2.1
-byteorder-1.4.3
-cbindgen-0.9.1
-cc-1.0.67
-cfg-if-1.0.0
-clap-2.33.3
-concread-0.2.9
-crossbeam-0.8.0
-crossbeam-channel-0.5.1
-crossbeam-deque-0.8.0
-crossbeam-epoch-0.9.3
-crossbeam-queue-0.3.1
-crossbeam-utils-0.8.3
-fernet-0.1.4
-foreign-types-0.3.2
-foreign-types-shared-0.1.1
-getrandom-0.2.2
-hermit-abi-0.1.18
-instant-0.1.9
-itoa-0.4.7
-jobserver-0.1.21
-lazy_static-1.4.0
-libc-0.2.93
-lock_api-0.4.3
-log-0.4.14
-memoffset-0.6.3
-once_cell-1.7.2
-openssl-0.10.33
-openssl-sys-0.9.61
-parking_lot-0.11.1
-parking_lot_core-0.8.3
-paste-0.1.18
-paste-impl-0.1.18
-pkg-config-0.3.19
-ppv-lite86-0.2.10
-proc-macro-hack-0.5.19
-proc-macro2-1.0.26
-quote-1.0.9
-rand-0.8.3
-rand_chacha-0.3.0
-rand_core-0.6.2
-rand_hc-0.3.0
-redox_syscall-0.2.6
-remove_dir_all-0.5.3
-ryu-1.0.5
-scopeguard-1.1.0
-serde-1.0.125
-serde_derive-1.0.125
-serde_json-1.0.64
-smallvec-1.6.1
-strsim-0.8.0
-syn-1.0.69
-synstructure-0.12.4
-tempfile-3.2.0
-textwrap-0.11.0
-toml-0.5.8
-unicode-width-0.1.8
-unicode-xid-0.2.1
-uuid-0.8.2
-vcpkg-0.2.11
-vec_map-0.8.2
-version_check-0.9.3
-wasi-0.10.2+wasi-snapshot-preview1
-winapi-0.3.9
-winapi-i686-pc-windows-gnu-0.4.0
-winapi-x86_64-pc-windows-gnu-0.4.0
-zeroize-1.2.0
-zeroize_derive-1.0.1
+	ahash-0.7.2
+	ansi_term-0.11.0
+	atty-0.2.14
+	autocfg-1.0.1
+	base64-0.13.0
+	bitflags-1.2.1
+	byteorder-1.4.3
+	cbindgen-0.9.1
+	cc-1.0.67
+	cfg-if-1.0.0
+	clap-2.33.3
+	concread-0.2.9
+	crossbeam-0.8.0
+	crossbeam-channel-0.5.1
+	crossbeam-deque-0.8.0
+	crossbeam-epoch-0.9.3
+	crossbeam-queue-0.3.1
+	crossbeam-utils-0.8.3
+	fernet-0.1.4
+	foreign-types-0.3.2
+	foreign-types-shared-0.1.1
+	getrandom-0.2.2
+	hermit-abi-0.1.18
+	instant-0.1.9
+	itoa-0.4.7
+	jobserver-0.1.21
+	lazy_static-1.4.0
+	libc-0.2.93
+	lock_api-0.4.3
+	log-0.4.14
+	memoffset-0.6.3
+	once_cell-1.7.2
+	openssl-0.10.33
+	openssl-sys-0.9.61
+	parking_lot-0.11.1
+	parking_lot_core-0.8.3
+	paste-0.1.18
+	paste-impl-0.1.18
+	pkg-config-0.3.19
+	ppv-lite86-0.2.10
+	proc-macro-hack-0.5.19
+	proc-macro2-1.0.26
+	quote-1.0.9
+	rand-0.8.3
+	rand_chacha-0.3.0
+	rand_core-0.6.2
+	rand_hc-0.3.0
+	redox_syscall-0.2.6
+	remove_dir_all-0.5.3
+	ryu-1.0.5
+	scopeguard-1.1.0
+	serde-1.0.125
+	serde_derive-1.0.125
+	serde_json-1.0.64
+	smallvec-1.6.1
+	strsim-0.8.0
+	syn-1.0.69
+	synstructure-0.12.4
+	tempfile-3.2.0
+	textwrap-0.11.0
+	toml-0.5.8
+	unicode-width-0.1.8
+	unicode-xid-0.2.1
+	uuid-0.8.2
+	vcpkg-0.2.11
+	vec_map-0.8.2
+	version_check-0.9.3
+	wasi-0.10.2+wasi-snapshot-preview1
+	winapi-0.3.9
+	winapi-i686-pc-windows-gnu-0.4.0
+	winapi-x86_64-pc-windows-gnu-0.4.0
+	zeroize-1.2.0
+	zeroize_derive-1.0.1
 "
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
@@ -173,7 +173,6 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/${PN}-${P}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-crypt-import.patch"
 	"${FILESDIR}/${PN}-db-gentoo.patch"
 )
 
