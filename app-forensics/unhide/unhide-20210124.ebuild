@@ -1,13 +1,13 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI="8"
 
 inherit toolchain-funcs
 
 DESCRIPTION="A forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs"
 HOMEPAGE="http://www.unhide-forensics.info"
-SRC_URI="mirror://sourceforge/${PN}/files/${P}.tgz"
+SRC_URI="https://github.com/YJesus/Unhide/archive/refs/tags/v${PV}.tar.gz -> ${P}.tgz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -16,6 +16,8 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/Unhide-${PV}"
 
 src_compile() {
 	$(tc-getCC) ${CFLAGS} ${LDFLAGS} --static -pthread \
@@ -27,8 +29,7 @@ src_compile() {
 src_install() {
 	dobin ${PN}
 	dobin ${PN}-tcp
-	dodoc changelog README.txt TODO
-	dodoc changelog README.txt LEEME.txt LISEZ-MOI.TXT NEWS TODO
+	dodoc changelog README.txt TODO LEEME.txt LISEZ-MOI.TXT NEWS TODO
 	doman man/unhide.8 man/unhide-tcp.8
 	has "fr" ${LINGUAS} && newman man/fr/unhide.8 unhide.fr.8
 	has "es" ${LINGUAS} && newman man/es/unhide.8 unhide.es.8
