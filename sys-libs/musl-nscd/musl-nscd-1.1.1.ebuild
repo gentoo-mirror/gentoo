@@ -8,7 +8,7 @@ inherit systemd tmpfiles
 DESCRIPTION="musl-nscd is an implementation of the NSCD protocol for the musl libc"
 HOMEPAGE="https://github.com/pikhq/musl-nscd"
 
-if [[ ${PV} == *9999 ]] ; then
+if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/pikhq/musl-nscd"
 	EGIT_BRANCH=master
@@ -25,10 +25,8 @@ DEPEND="
 	!sys-libs/glibc
 	!sys-libs/uclibc"
 
-PATCHES=( "${FILESDIR}"/${P}-fno-common.patch )
-
 src_prepare() {
-	default
+	eapply_user
 
 	sed -i '/LDFLAGS_AUTO=-s/d' configure || die 'Cannot patch configure file'
 }
