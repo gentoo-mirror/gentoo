@@ -16,20 +16,20 @@ SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64"
-IUSE="+dbus enchant +gtk +hunspell screencast +spell wayland webkit +X"
+IUSE="+dbus enchant +hunspell screencast +spell wayland webkit +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
 	)
-	gtk? ( dbus )
 	webkit? ( dbus )
 "
 
 RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
-	dev-cpp/glibmm:2
+	dev-cpp/abseil-cpp:=
 	dev-libs/jemalloc:=[-lazy-lock]
+	dev-libs/openssl:=
 	dev-libs/xxhash
 	>=dev-qt/qtcore-5.15:5
 	>=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X?]
@@ -44,15 +44,15 @@ RDEPEND="
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20210626[screencast=,X=]
+	~media-libs/tg_owt-0_pre20210914[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	dbus? (
+		dev-cpp/glibmm:2
 		dev-qt/qtdbus:5
 		dev-libs/libdbusmenu-qt[qt5(+)]
 	)
 	enchant? ( app-text/enchant:= )
-	gtk? ( x11-libs/gtk+:3[X?,wayland?] )
 	hunspell? ( >=app-text/hunspell-1.7:= )
 	wayland? ( kde-frameworks/kwayland:= )
 	webkit? ( net-libs/webkit-gtk:= )
@@ -67,11 +67,13 @@ BDEPEND="
 	>=dev-util/cmake-3.16
 	virtual/pkgconfig
 "
+# dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	"${FILESDIR}/tdesktop-2.9.3-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-3.1.0-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-3.1.0-fix-openssl3.patch"
 )
 
 pkg_pretend() {
@@ -101,7 +103,6 @@ src_configure() {
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X no yes)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland no yes)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus no yes)
-		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex gtk no yes)
 		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex webkit no yes)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell no yes)  # enables hunspell (recommended)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
@@ -135,8 +136,11 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	use gtk || elog "enable the 'gtk' useflag if you have image copy-paste problems"
 	if ! use X && ! use screencast; then
 		elog "both the 'X' and 'screencast' useflags are disabled, screen sharing won't work!"
+	fi
+	if has_version '<dev-qt/qtcore-5.15.2-r10'; then
+		ewarn "Versions of dev-qt/qtcore lower than 5.15.2-r10 might cause telegram"
+		ewarn "to crash when pasting big images from the clipboard."
 	fi
 }
