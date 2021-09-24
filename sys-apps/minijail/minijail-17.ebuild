@@ -1,7 +1,7 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit linux-info toolchain-funcs
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/google/${PN}/archive/linux-v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="+seccomp test"
 RESTRICT="!test? ( test )"
 
@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${PN}-linux-v${PV}"
 
 PATCHES=(
-	"${FILESDIR}/minijail-9-makefile.patch"
+	"${FILESDIR}/minijail-12-makefile.patch"
 )
 
 pkg_pretend() {
@@ -40,17 +40,22 @@ src_configure() {
 	export LIBDIR="/usr/$(get_libdir)"
 	export USE_seccomp="$(usex seccomp)"
 	export USE_SYSTEM_GTEST=yes
-	export GTEST_CXXFLAGS="$($(tc-getPKG_CONFIG) --cflags gtest_main)"
-	export GTEST_LIBS="$($(tc-getPKG_CONFIG) --libs gtest_main)"
+	if use test; then
+		export GTEST_CXXFLAGS="$($(tc-getPKG_CONFIG) --cflags gtest_main)"
+		export GTEST_LIBS="$($(tc-getPKG_CONFIG) --libs gtest_main)"
+	else
+		export GTEST_CXXFLAGS='' GTEST_LIBS=''
+	fi
+	export VERBOSE=1
 }
 
 src_compile() {
-	tc-env_build emake VERBOSE=1 all parse_seccomp_policy
+	tc-env_build emake all parse_seccomp_policy
 }
 
 src_test() {
 	GTEST_FILTER="-NamespaceTest.test_tmpfs_userns:NamespaceTest.test_namespaces" \
-		tc-env_build emake VERBOSE=1 tests
+		tc-env_build emake tests
 }
 
 src_install() {
@@ -59,6 +64,7 @@ src_install() {
 	dobin parse_seccomp_policy
 
 	doman minijail0.[15]
+	dodoc README.md
 
 	local include_dir="/usr/include"
 
@@ -67,6 +73,5 @@ src_install() {
 	doins libminijail.pc
 
 	insinto "${include_dir}"
-	doins libminijail.h
-	doins scoped_minijail.h
+	doins libminijail.h scoped_minijail.h
 }
