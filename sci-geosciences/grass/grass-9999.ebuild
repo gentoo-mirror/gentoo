@@ -3,14 +3,14 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..9} )
+PYTHON_COMPAT=( python3_{8,9} )
 PYTHON_REQ_USE="sqlite"  # bug 572440
-WANT_AUTOCONF="2.1"
+WANT_AUTOCONF="2.5"
 WX_GTK_VER="3.0-gtk3"
 
-inherit autotools desktop flag-o-matic git-r3 python-single-r1 toolchain-funcs wxwidgets xdg
+inherit autotools desktop git-r3 python-single-r1 toolchain-funcs wxwidgets xdg
 
-MY_P="${PN}7.9"
+MY_P="${PN}8.0"
 MY_PM="${MY_P/.}"
 
 DESCRIPTION="A free GIS with raster and vector functionality, as well as 3D vizualization"
@@ -216,6 +216,8 @@ src_install() {
 		sed -i "s|${ED}|/|g" "${scriptMakeDir}/${file}" || die
 	done
 
+	mv ${D}/usr/bin/grass ${D}/usr/bin/${MY_PM} || die
+
 	# get proper folder for grass path in script
 	local gisbase=/usr/$(get_libdir)/${MY_PM}
 	sed -e "s:GISBASE = os.path.normpath(\"${D}/usr/$(get_libdir)/${MY_PM}\"):\
@@ -228,13 +230,13 @@ GISBASE = os.path.normpath(\"${gisbase}\"):" \
 		"${ED}"${gisbase}/etc/fontcap || die
 
 	# set proper python interpreter
-	sed -e "s:os.environ\['GRASS_PYTHON'\] = \"python3\":\
-os.environ\['GRASS_PYTHON'\] = \"${EPYTHON}\":" \
+	sed -e "s:os.environ\[\"GRASS_PYTHON\"\] = \"python3\":\
+os.environ\[\"GRASS_PYTHON\"\] = \"${EPYTHON}\":" \
 		-i "${ED}"/usr/bin/${MY_PM} || die
 
-	# set proper GISDBASE directory path in the demolocation .grassrc79 file
+	# set proper GISDBASE directory path in the demolocation .grassrc80 file
 	sed -e "s:GISDBASE\:.*$:GISDBASE\: ${gisbase}:" \
-		-i "${ED}"${gisbase}/demolocation/.grassrc79 || die
+		-i "${ED}"${gisbase}/demolocation/.grassrc80 || die
 
 	if use X; then
 		local GUI="-gui"
