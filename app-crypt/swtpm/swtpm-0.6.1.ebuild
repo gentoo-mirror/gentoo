@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
@@ -25,19 +25,21 @@ RDEPEND="fuse? (
 	)
 	gnutls? (
 		dev-libs/libtasn1:=
-		>=net-libs/gnutls-3.1.0[tools,pkcs11]
+		>=net-libs/gnutls-3.1.0:=[tools,pkcs11]
 	)
 	seccomp? ( sys-libs/libseccomp )
-	test? (
-		net-misc/socat
-		dev-tcltk/expect
-	)
 	acct-group/tss
 	acct-user/tss
 	dev-libs/openssl:0=
 	dev-libs/json-glib
 	dev-libs/libtpms
 	${PYTHON_DEPS}"
+
+DEPEND="${RDEPEND}
+	test? (
+		net-misc/socat
+		dev-tcltk/expect
+	)"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.6.0-fix-localca-path.patch"
@@ -52,7 +54,6 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--disable-static \
 		--with-openssl \
 		--without-selinux \
 		$(use_with fuse cuse) \

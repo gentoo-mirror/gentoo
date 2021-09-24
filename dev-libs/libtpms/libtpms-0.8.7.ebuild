@@ -17,7 +17,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.8.0-Remove-WError.patch"
+	"${FILESDIR}/${PN}-0.8.7-Remove-WError.patch"
 )
 
 src_prepare() {
@@ -27,9 +27,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--disable-static \
-		--with-openssl \
-		--with-tpm2
+		--with-openssl
 }
 
 src_install() {
