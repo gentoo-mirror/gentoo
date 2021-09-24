@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile configure postinst postrm setup
+DEFINED_PHASES=compile configure install postinst postrm setup
 DEPEND=>=sys-apps/pcsc-lite-1.6.4 dev-libs/nss[utils] sys-libs/zlib >=app-crypt/ccid-1.4.0
 DESCRIPTION=Linux Driver support for the CoolKey and CAC products
 EAPI=7
@@ -10,4 +10,4 @@ LICENSE=LGPL-2.1
 RDEPEND=>=sys-apps/pcsc-lite-1.6.4 dev-libs/nss[utils] sys-libs/zlib
 SLOT=0
 SRC_URI=https://directory.fedora.redhat.com/download/coolkey/coolkey-1.1.0.tar.gz mirror://gentoo/coolkey-1.1.0-patches-003.tar.gz
-_md5_=7e376800ac0fc57ccf1c48332e037eed
+_md5_=b7c38fdb221dc9606d4281cf2261bf22
