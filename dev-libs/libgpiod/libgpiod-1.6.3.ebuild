@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit multilib-minimal
 
@@ -11,20 +11,38 @@ SRC_URI="https://mirrors.edge.kernel.org/pub/software/libs/libgpiod/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 # Reflects the ABI of libgpiod.so
-SLOT="0/1"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="static-libs +tools"
+SLOT="0/2"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+IUSE="static-libs +tools cxx python test"
+RESTRICT="!test? ( test )"
+
+#  --enable-tests          enable libgpiod tests [default=no]
+#  --enable-bindings-cxx   enable C++ bindings [default=no]
+#  --enable-bindings-python
 
 multilib_src_configure() {
-	ECONF_SOURCE="${S}" econf \
+	local myconf=(
 		$(use_enable tools)
+		$(use_enable cxx bindings-cxx)
+		$(use_enable test tests)
+		$(multilib_native_use_enable python bindings-python)
+	)
+
+	if ! multilib_is_native_abi; then
+		myconf+=(
+			--disable-tools
+		)
+	fi
+
+	ECONF_SOURCE="${S}" econf "${myconf[@]}"
 }
 
 multilib_src_install() {
 	default
 
+	find "${D}" -name '*.la' -type f -delete || die
+
 	if ! use static-libs; then
 		find "${D}" -name "*.a" -delete || die
 	fi
-	find "${D}" -name '*.la' -delete || die
 }
