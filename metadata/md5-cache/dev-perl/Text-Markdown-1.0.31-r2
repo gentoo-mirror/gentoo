@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Digest-MD5 virtual/perl-Getopt-Long virtual/perl-Text-Balanced test? ( virtual/perl-Test-Simple dev-perl/Text-Diff dev-perl/List-MoreUtils dev-perl/Test-Differences dev-perl/Test-Exception ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Convert MultiMarkdown syntax to (X)HTML
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Text-Markdown
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 ~arm64 x86
+LICENSE=BSD
+RDEPEND=virtual/perl-Digest-MD5 virtual/perl-Getopt-Long virtual/perl-Text-Balanced dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/B/BO/BOBTFISH/Text-Markdown-1.000031.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=4c85f672e4d5d8d4ea9bb8f1554f7f64
