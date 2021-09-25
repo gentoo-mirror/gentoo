@@ -895,7 +895,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.28 1.20.40 1.20.41 1.20.42 1.20.43 1.20.44 1.20.45 1.20.46 1.20.47: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.28 1.20.40 1.20.41 1.20.42 1.20.43 1.20.44 1.20.45 1.20.46 1.20.47 1.20.48: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.27.1 1.28.2: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -6172,7 +6172,7 @@ dev-ml/lablgl 1.06-r1: Objective CAML interface for OpenGL
 dev-ml/lablgtk 2.18.10 3.1.1: OCaml bindings to GTK-3
 dev-ml/lablgtk-sourceview 3.1.1: OCaml bindings to GTK-3
 dev-ml/labltk 8.06.7 8.06.9 8.06.10: OCaml interface to the Tcl/Tk GUI framework
-dev-ml/llvm-ocaml 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: OCaml bindings for LLVM
+dev-ml/llvm-ocaml 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: OCaml bindings for LLVM
 dev-ml/logs 0.7.0: Logging infrastructure for OCaml
 dev-ml/lwt 5.3.0-r1: Cooperative light-weight thread library for OCaml
 dev-ml/lwt_ssl 1.1.3: GLib integration for Lwt
@@ -8342,8 +8342,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.28 1.18.40 1.18.41 1.18.42 1.18.43 1.18.44 1.18.45 1.18.46 1.18.47 9999: The AWS SDK for Python
-dev-python/botocore 1.21.28 1.21.40 1.21.41 1.21.42 1.21.43 1.21.44 1.21.45 1.21.46 1.21.47 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.28 1.18.40 1.18.41 1.18.42 1.18.43 1.18.44 1.18.45 1.18.46 1.18.47 1.18.48 9999: The AWS SDK for Python
+dev-python/botocore 1.21.28 1.21.40 1.21.41 1.21.42 1.21.43 1.21.44 1.21.45 1.21.46 1.21.47 1.21.48 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8371,7 +8371,7 @@ dev-python/certifi 10001-r1: Thin replacement for certifi using system certifica
 dev-python/cffi 1.14.6: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.0 3.3.1: Validate configuration and produce human-readable error messages
 dev-python/cfn-lint 0.53.1 0.54.1 0.54.2: CloudFormation Linter
-dev-python/cftime 1.4.1 1.5.0: Time-handling functionality from netcdf4-python
+dev-python/cftime 1.4.1 1.5.0 1.5.1: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8: Tools and libraries for control groups of Linux
 dev-python/chai 1.1.2: Easy to use mocking, stubbing and spying framework
 dev-python/chameleon 3.9.1: Fast HTML/XML template compiler for Python
@@ -8386,7 +8386,7 @@ dev-python/cherrypy 18.6.1: CherryPy is a pythonic, object-oriented HTTP framewo
 dev-python/chump 1.6.0-r1: API wrapper for Pushover
 dev-python/citeproc-py 0.4.0-r1: Yet another Python CSL Processor
 dev-python/cjkwrap 2.2-r1: A library for wrapping and filling UTF-8 CJK text
-dev-python/clang-python 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Python bindings for sys-devel/clang
+dev-python/clang-python 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Python bindings for sys-devel/clang
 dev-python/cleo 0.8.1: Python tool for building testable command-line interfaces
 dev-python/cli_helpers 2.1.0 2.2.0 9999: Python helpers for common CLI tasks
 dev-python/click 7.1.2-r1 8.0.1: A Python package for creating beautiful command line interfaces
@@ -8701,7 +8701,7 @@ dev-python/ipdb 0.13.9-r1: IPython-enabled pdb
 dev-python/ipy 1.01: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 5.5.4-r1 6.2.0: IPython Kernel for Jupyter
 dev-python/ipyparallel 6.3.0-r1: Interactive Parallel Computing with IPython
-dev-python/ipython 7.26.0: Advanced interactive shell for Python
+dev-python/ipython 7.26.0 7.28.0: Advanced interactive shell for Python
 dev-python/ipython_genutils 0.2.0-r2: Vestigial utilities from IPython
 dev-python/ipywidgets 7.5.1-r1 7.6.2 7.6.3 7.6.4 7.6.5: IPython HTML widgets for Jupyter
 dev-python/irc 19.0.1: IRC client framework written in Python
@@ -8792,7 +8792,7 @@ dev-python/libsass 0.21.0: A straightforward binding of libsass for Python
 dev-python/libtmux 0.8.5 0.9.0 0.10.1: python api for tmux
 dev-python/libvirt-python 7.0.0 7.1.0 7.2.0 7.3.0 7.4.0 7.5.0 7.7.0 9999: libvirt Python bindings
 dev-python/line_profiler 3.3.0 3.3.1: Line-by-line profiler
-dev-python/lit 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: A stand-alone install of the LLVM suite testing tool
+dev-python/lit 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/livereload 2.6.3: Python LiveReload is an awesome tool for web developers
 dev-python/llfuse 1.4.1: Python bindings for the low-level FUSE API
 dev-python/llvmlite 0.37.0: Python wrapper around the llvm C++ library
@@ -8879,7 +8879,7 @@ dev-python/natsort 7.1.1: Natural sorting for Python
 dev-python/nautilus-python 1.2.3-r1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 0.3.1: Jupyter Notebook as a Jupyter Server Extension
 dev-python/nbclient 0.5.3 0.5.4: A client library for executing Jupyter notebooks
-dev-python/nbconvert 6.0.7: Converting Jupyter Notebooks
+dev-python/nbconvert 6.0.7 6.2.0: Converting Jupyter Notebooks
 dev-python/nbdime 2.0.0-r1 3.1.0: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.1.3: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.8.7: Jupyter Notebook Tools for Sphinx
@@ -9068,7 +9068,7 @@ dev-python/pycodestyle 2.6.0 2.7.0: Python style guide checker (fka pep8)
 dev-python/pycollada 0.7.1: Python library for reading and writing COLLADA documents
 dev-python/pycountry 20.7.3: Database of countries, subdivisions, languages, currencies and script
 dev-python/pycparser 2.20-r1: C parser and AST generator written in Python
-dev-python/pycryptodome 3.10.1: A self-contained cryptographic library for Python
+dev-python/pycryptodome 3.10.1 3.10.4: A self-contained cryptographic library for Python
 dev-python/pycson 0.8-r1: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/pycuda 2019.1.2: Python wrapper for NVIDIA CUDA
 dev-python/pycups 1.9.73-r2 2.0.1: Python bindings for the CUPS API
@@ -9369,7 +9369,7 @@ dev-python/recommonmark 0.7.1: Python docutils-compatibility bridge to CommonMar
 dev-python/redis-py 3.5.3: Python client for Redis key-value store
 dev-python/reedsolomon 1.5.4: Pure-Python Reed Solomon encoder/decoder
 dev-python/reflink 0.2.1-r1: Python wrapper around the reflink system calls
-dev-python/regex 2021.7.6 2021.8.3 2021.8.28: Alternative regular expression module to replace re
+dev-python/regex 2021.7.6 2021.8.3 2021.8.28 2021.9.24: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6-r2: similar to bencode from the BitTorrent project
 dev-python/reno 3.4.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 3.6.1: Tools for generating printable PDF documents from any data source
@@ -9483,7 +9483,7 @@ dev-python/sphinx-aiohttp-theme 0.1.6: Sphinx theme for aiohttp
 dev-python/sphinx-autodoc-typehints 1.12.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-bootstrap-theme 0.8.0 0.8.0-r1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-epytext 0.0.4: Sphinx epytext extension
-dev-python/sphinx-gallery 0.9.0: Sphinx extension to automatically generate an examples gallery
+dev-python/sphinx-gallery 0.9.0 0.10.0: Sphinx extension to automatically generate an examples gallery
 dev-python/sphinx-issues 1.2.0: Sphinx extension for linking to your project's issue tracker
 dev-python/sphinx-jinja 0.3.0 1.1.0: A sphinx extension to include jinja based templates into a sphinx doc
 dev-python/sphinx-multiversion 0.2.4: Add support for multiple versions to sphinx
@@ -9668,7 +9668,7 @@ dev-python/webcolors 1.11.1: Color names and value formats defined by the HTML a
 dev-python/webencodings 0.5.1-r1: Character encoding aliases for legacy web content
 dev-python/webob 1.8.7: WSGI request and response object
 dev-python/websocket-client 1.2.1: WebSocket client for python with hybi13 support
-dev-python/websockets 9.1 9.1-r1 10.0: Library for building WebSocket servers and clients in Python
+dev-python/websockets 9.1-r1 10.0: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.10.0: WebSockets support for any application/server
 dev-python/webtest 2.0.35 3.0.0: Helper to test WSGI applications
 dev-python/werkzeug 1.0.1-r1 2.0.0 2.0.1 2.0.1-r1: Collection of various utilities for WSGI applications
@@ -11071,7 +11071,7 @@ dev-util/dbus-test-runner 19.04.0-r1: Run executables under a new DBus session f
 dev-util/ddd 3.3.12-r5: Graphical front-end for command-line debuggers
 dev-util/debhelper 13.2.1: Collection of programs that can be used to automate common tasks in debian/rules
 dev-util/debootstrap 1.0.123 1.0.124: Debian/Ubuntu bootstrap scripts
-dev-util/debugedit 4.16.1.3 5.0: Create debuginfo and source file distributions
+dev-util/debugedit 5.0: Create debuginfo and source file distributions
 dev-util/dejagnu 1.6.2 1.6.3: Framework for testing other programs
 dev-util/desktop-file-utils 0.26-r1: Command line utilities to work with desktop menu entries
 dev-util/devhelp 40.0 40.1: An API documentation browser for GNOME
@@ -11178,7 +11178,7 @@ dev-util/lcov 1.15 9999: A graphical front-end for GCC's coverage testing tool g
 dev-util/leaktracer 2.4-r3: trace and analyze memory leaks in C++ programs
 dev-util/libabigail 1.6 1.8.2: Suite of tools for checking ABI differences between ELF objects
 dev-util/linklint 2.3.5: A Perl program that checks links on web sites
-dev-util/lldb 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: The LLVM debugger
+dev-util/lldb 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: The LLVM debugger
 dev-util/lockrun 20120508-r1: Lockrun - runs cronjobs with overrun protection
 dev-util/lsuio 0.2.0-r1: List available userspace I/O (UIO) devices
 dev-util/ltrace 0.7.3_p4-r1 0.7.3.6.1: trace library calls made at runtime
@@ -17679,9 +17679,9 @@ sys-devel/binutils-hppa64 2.35.2 2.36.1-r2 2.37_p1: Tools necessary to build pro
 sys-devel/bison 3.7.6 3.8.1: A general-purpose (yacc-compatible) parser generator
 sys-devel/bmake 20210808: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
-sys-devel/clang 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: C language family frontend for LLVM
-sys-devel/clang-common 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Common files shared between multiple slots of clang
-sys-devel/clang-runtime 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Meta-ebuild for clang runtime libraries
+sys-devel/clang 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: C language family frontend for LLVM
+sys-devel/clang-common 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Common files shared between multiple slots of clang
+sys-devel/clang-runtime 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Meta-ebuild for clang runtime libraries
 sys-devel/cons 2.3.0: Extensible perl-based build utility
 sys-devel/crossdev 20210621 20210718 99999999: Gentoo Cross-toolchain generator
 sys-devel/ct-ng 1.24.0: crosstool-ng is a tool to build cross-compiling toolchains
@@ -17700,9 +17700,9 @@ sys-devel/gnuconfig 20210107 99999999: Updated config.sub and config.guess file 
 sys-devel/icecream 1.0.0-r3: Distributed compiling of C(++) code across several machines; based on distcc
 sys-devel/kgcc64 9.3.0-r2 10.3.0 11.1.0: 64bit kernel compiler
 sys-devel/libtool 2.4.6-r6 9999: A shared library tool for developers
-sys-devel/lld 10.0.1 10.0.1-r1 11.1.0 11.1.0-r1 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: The LLVM linker (link editor)
-sys-devel/llvm 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Low Level Virtual Machine
-sys-devel/llvm-common 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Common files shared between multiple slots of LLVM
+sys-devel/lld 10.0.1 10.0.1-r1 11.1.0 11.1.0-r1 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: The LLVM linker (link editor)
+sys-devel/llvm 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Low Level Virtual Machine
+sys-devel/llvm-common 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Common files shared between multiple slots of LLVM
 sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 4.2.0 4.3.0-r1: Radeon Open Compute llvm,lld,clang
 sys-devel/llvmgold 10 11 12 13 14: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19: GNU macro processor
@@ -17931,8 +17931,8 @@ sys-kernel/zen-sources 5.13.13 5.14.6: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2: Standalone argp library for use with uclibc
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r1: BlocksRuntime library needed for clang's -fblocks support
-sys-libs/compiler-rt 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Compiler runtime library for clang (built-in part)
-sys-libs/compiler-rt-sanitizers 10.0.1-r1 11.1.0-r1 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
+sys-libs/compiler-rt 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Compiler runtime library for clang (built-in part)
+sys-libs/compiler-rt-sanitizers 10.0.1-r1 11.1.0-r1 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
 sys-libs/cracklib 2.9.7: Password Checking Library
 sys-libs/csu 79 85-r1: Darwin Csu (crt1.o) - Mac OS X 10.10 version
 sys-libs/cygwin-crypt 1.4: Cygwin Encryption/Decryption utility and library
@@ -17955,14 +17955,14 @@ sys-libs/libblockdev 2.25 2.26 9999: A library for manipulating block devices
 sys-libs/libcap 2.49-r1 2.57 2.58: POSIX 1003.1e capabilities
 sys-libs/libcap-ng 0.8.2-r1: POSIX 1003.1e capabilities
 sys-libs/libchipcard 5.1.5_rc2: Library for accessing chip cards via chip card readers (terminals)
-sys-libs/libcxx 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: New implementation of the C++ standard library, targeting C++11
-sys-libs/libcxxabi 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: Low level support for a standard C++ library
+sys-libs/libcxx 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: New implementation of the C++ standard library, targeting C++11
+sys-libs/libcxxabi 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: Low level support for a standard C++ library
 sys-libs/libfaketime 0.9.6-r3 0.9.9: Report faked system time to programs
 sys-libs/libhugetlbfs 2.23: Easy hugepage access
 sys-libs/libhx 3.24-r1 3.25: Platform independent library providing basic system functions
 sys-libs/libieee1284 0.2.11-r8: Library to query devices using IEEE1284
 sys-libs/libixp 0.5_p20110208-r3: A stand-alone client/server 9P library including ixpc client
-sys-libs/libomp 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: OpenMP runtime library for LLVM/clang compiler
+sys-libs/libomp 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 sys-libs/libosinfo 1.9.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r1: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
@@ -17982,7 +17982,7 @@ sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utm
 sys-libs/libuuid 1.0.3: Portable uuid C library
 sys-libs/libvpd 2.2.8-r1: Library implementation for listing Vital Product Data
 sys-libs/libxcrypt 4.4.20 4.4.25 4.4.26: Extended crypt library for descrypt, md5crypt, bcrypt, and others
-sys-libs/llvm-libunwind 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0.9999 14.0.0.9999: C++ runtime stack unwinder from LLVM
+sys-libs/llvm-libunwind 10.0.1 11.1.0 12.0.1 13.0.0_rc2 13.0.0_rc3 13.0.0_rc4 13.0.0.9999 14.0.0.9999: C++ runtime stack unwinder from LLVM
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
 sys-libs/mtdev 1.1.6: Multitouch Protocol Translation Library
 sys-libs/musl 1.2.2-r3 9999: Light, fast and simple C library focused on standards-conformance and safety
@@ -18381,7 +18381,7 @@ www-apps/wiliki 0.6.1-r1: WiLiKi is a lightweight Wiki engine written in and run
 www-apps/wordpress 5.8.1: Wordpress PHP and MySQL based content management system (CMS)
 www-apps/xpra-html5 4.5.1: HTML5 client to connect to any xpra server
 www-apps/zeppelin-bin 0.8.2-r1: Web-based interactive data analytics notebook launcher
-www-client/chromium 93.0.4577.82 94.0.4606.54 94.0.4606.61 95.0.4638.17: Open-source version of Google Chrome web browser
+www-client/chromium 94.0.4606.61 95.0.4638.17: Open-source version of Google Chrome web browser
 www-client/dillo 3.0.5-r3 3.1_pre20181005 9999: Lean FLTK based web browser
 www-client/elinks 0.13.5-r100 9999: Advanced and well-established text-mode web browser
 www-client/epiphany 40.2 40.3: GNOME webbrowser based on Webkit
@@ -18397,7 +18397,7 @@ www-client/jd 2.8.5_p120826-r1 2.8.9_p150226-r1: gtk2 based 2ch browser written 
 www-client/links 2.23 2.24: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.2.1-r100 2.3 9999: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0_pre6-r2 2.9.0_pre9: An excellent console-based web browser with ssl support
-www-client/microsoft-edge-beta 94.0.992.19 94.0.992.23 94.0.992.30: The web browser from Microsoft
+www-client/microsoft-edge-beta 94.0.992.23 94.0.992.30 94.0.992.31: The web browser from Microsoft
 www-client/microsoft-edge-dev 95.0.1011.1 95.0.1020.0 95.0.1020.5: The web browser from Microsoft
 www-client/midori 9.0: A lightweight web browser based on WebKitGTK+
 www-client/netrik 1.16.1-r3: A text based web browser with no ssl support
