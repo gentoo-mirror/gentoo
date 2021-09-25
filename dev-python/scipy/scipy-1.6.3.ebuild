@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="threads(+)"
 
-inherit fortran-2 distutils-r1 flag-o-matic multiprocessing toolchain-funcs
+inherit fortran-2 distutils-r1 flag-o-matic toolchain-funcs
 
 # upstream is slacking forever with doc updates
 DOC_PV=1.6.2
@@ -107,6 +107,13 @@ python_prepare_all() {
 	# TODO
 	sed -e "s:== 'levy_stable':in ('levy_stable', 'crystalball', 'ncf'):" \
 		-i scipy/stats/tests/test_continuous_basic.py || die
+
+	if has_version ">=sci-libs/lapack-3.10"; then
+		sed -e 's:test_sort(:_&:' \
+			-i scipy/linalg/tests/test_decomp.py || die
+		sed -e 's:test_solve_discrete_are:_&:' \
+			-i scipy/linalg/tests/test_solvers.py || die
+	fi
 
 	distutils-r1_python_prepare_all
 }
