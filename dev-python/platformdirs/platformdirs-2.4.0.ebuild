@@ -16,9 +16,15 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
-	test? ( dev-python/appdirs[${PYTHON_USEDEP}] )"
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	test? (
+		dev-python/appdirs[${PYTHON_USEDEP}]
+		dev-python/pytest-mock[${PYTHON_USEDEP}]
+	)"
 
-distutils_enable_tests unittest
+distutils_enable_tests pytest
+
+export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
