@@ -12,6 +12,7 @@ SRC_URI="https://github.com/ckb-next/ckb-next/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="systemd"
 
 RDEPEND="
 	dev-libs/libdbusmenu-qt
@@ -32,9 +33,14 @@ BDEPEND="dev-qt/linguist-tools:5"
 
 S="${WORKDIR}/${PN}-next-${PV}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-libinput-1.2.0.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_UPDATER=yes
+		-DFORCE_INIT_SYSTEM=$(usex systemd systemd openrc)
 	)
 	cmake_src_configure
 }
@@ -50,10 +56,10 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "The ckb daemon will have to be started before use:"
 		elog
-		elog "OpenRC:"
-		elog "# rc-service ckb start"
-		elog
-		elog "Systemd:"
-		elog "# systemctl start ckb-next-daemon"
+			if use systemd ; then
+			elog "# systemctl start ckb-next-daemon"
+		else
+			elog "# rc-service ckb start"
+		fi
 	fi
 }
