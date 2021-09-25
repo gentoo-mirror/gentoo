@@ -3,15 +3,15 @@
 
 EAPI=7
 
-inherit autotools flag-o-matic git-r3 toolchain-funcs
+inherit autotools flag-o-matic toolchain-funcs
 
 DESCRIPTION="A network tool to gather IP traffic information"
 HOMEPAGE="http://www.pmacct.net/"
-EGIT_REPO_URI="https://github.com/pmacct/pmacct/"
+SRC_URI="http://www.pmacct.net/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="
 	+bgp-bins +bmp-bins geoip geoipv2 jansson kafka +l2 mysql ndpi nflog
 	postgres rabbitmq sqlite +st-bins +traffic-bins zmq
@@ -41,6 +41,12 @@ RDEPEND="dev-libs/libcdada
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.7.4--Werror.patch"
+	"${FILESDIR}/${PN}-1.7.6-nogit.patch"
+	"${FILESDIR}/${P}-fix-mysql-crash.patch"
+)
+
 DOCS=(
 	CONFIG-KEYS ChangeLog FAQS QUICKSTART UPGRADE
 	docs/INTERNALS docs/PLUGINS docs/SIGNALS
@@ -48,7 +54,6 @@ DOCS=(
 
 src_prepare() {
 	default
-	sed -i -e 's|-Werror||g' configure.ac || die
 	eautoreconf
 }
 

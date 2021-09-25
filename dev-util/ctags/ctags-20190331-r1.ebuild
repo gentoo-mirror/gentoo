@@ -1,44 +1,40 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
 inherit autotools
 
+COMMITHASH="95975bd157cc1326120977ce530f0477bcbf43b1"
+
 DESCRIPTION="Exuberant Ctags creates tags files for code browsing in editors"
 HOMEPAGE="https://ctags.io/ https://github.com/universal-ctags/ctags"
-if [[ ${PV} == *99999999* ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/universal-ctags/ctags"
-else
-	SRC_URI="https://github.com/universal-ctags/ctags/archive/refs/tags/p5.9.${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-p5.9.${PV}"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-fi
+SRC_URI="https://github.com/universal-ctags/ctags/archive/${COMMITHASH}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="json xml yaml"
 
-DEPEND="
+CDEPEND="
 	json? ( dev-libs/jansson:= )
 	xml? ( dev-libs/libxml2:2 )
-	yaml? ( dev-libs/libyaml )
-"
+	yaml? ( dev-libs/libyaml )"
+
 RDEPEND="
-	${DEPEND}
-	app-eselect/eselect-ctags
-"
-BDEPEND="
+	${CDEPEND}
+	app-eselect/eselect-ctags"
+
+DEPEND="
+	${CDEPEND}
 	dev-python/docutils
-	virtual/pkgconfig
-"
+	virtual/pkgconfig"
+
+S="${WORKDIR}/${PN}-${COMMITHASH}"
 
 src_prepare() {
 	default
-
-	#./misc/dist-test-cases > makefiles/test-cases.mak || die
-
+	./misc/dist-test-cases > makefiles/test-cases.mak || die
 	eautoreconf
 }
 
@@ -47,6 +43,7 @@ src_configure() {
 		$(use_enable json) \
 		$(use_enable xml) \
 		$(use_enable yaml) \
+		--disable-readlib \
 		--disable-etags \
 		--enable-tmpdir="${EPREFIX}"/tmp
 }
