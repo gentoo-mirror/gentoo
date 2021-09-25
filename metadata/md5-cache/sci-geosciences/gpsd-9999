@@ -4,7 +4,7 @@ DEPEND=acct-user/gpsd acct-group/dialout >=net-misc/pps-tools-0.0.20120407 || ( 
 DESCRIPTION=GPS daemon and library for USB/serial GPS devices and GPS/mapping clients
 EAPI=7
 HOMEPAGE=https://gpsd.gitlab.io/gpsd/
-INHERIT=udev multilib distutils-r1 scons-utils toolchain-funcs git-r3
+INHERIT=udev distutils-r1 scons-utils toolchain-funcs git-r3
 IUSE=+gpsd_protocols_aivdm +gpsd_protocols_ashtech +gpsd_protocols_earthmate +gpsd_protocols_evermore +gpsd_protocols_fury +gpsd_protocols_fv18 +gpsd_protocols_garmin +gpsd_protocols_garmintxt +gpsd_protocols_geostar +gpsd_protocols_gpsclock +gpsd_protocols_greis +gpsd_protocols_isync +gpsd_protocols_itrax +gpsd_protocols_mtk3301 +gpsd_protocols_navcom +gpsd_protocols_nmea0183 +gpsd_protocols_nmea2000 +gpsd_protocols_ntrip +gpsd_protocols_oceanserver +gpsd_protocols_oncore +gpsd_protocols_passthrough +gpsd_protocols_rtcm104v2 +gpsd_protocols_rtcm104v3 +gpsd_protocols_sirf +gpsd_protocols_skytraq +gpsd_protocols_superstar2 +gpsd_protocols_tnt +gpsd_protocols_tripmate +gpsd_protocols_tsip +gpsd_protocols_ublox bluetooth +cxx dbus debug ipv6 latency-timing ncurses ntp python qt5 +shm +sockets static systemd test udev usb X python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 LICENSE=BSD
 PROPERTIES=live
@@ -13,4 +13,4 @@ REQUIRED_USE=X? ( python ) gpsd_protocols_nmea2000? ( gpsd_protocols_aivdm ) gps
 RESTRICT=!test? ( test )
 SLOT=0/29
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	udev	2d229ad4bfa09058e0184b1ca900db32	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	39fb83ed394c172aad380c33a8de287e	scons-utils	fc8e53815030125602cc608cd1bff857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=0f7ddbe0afe6c607d411e8c4d51d4048
+_md5_=22f236933341bf1092c643f1b7232da6
