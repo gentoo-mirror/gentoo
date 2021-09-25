@@ -5,18 +5,21 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8,9} )
 PYTHON_REQ_USE="xml"
-MY_P="${P/_/}"
-inherit cmake flag-o-matic xdg toolchain-funcs python-single-r1 git-r3
+
+inherit cmake flag-o-matic xdg toolchain-funcs python-single-r1
 
 DESCRIPTION="SVG based generic vector-drawing program"
 HOMEPAGE="https://inkscape.org/"
-EGIT_REPO_URI="https://gitlab.com/inkscape/inkscape.git"
+SRC_URI="
+	https://media.inkscape.org/dl/resources/file/${P}.tar.xz
+	https://dev.gentoo.org/~dilfridge/distfiles/inkscape-1.1-musl.txz
+"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cdr dbus dia exif graphicsmagick imagemagick inkjar jemalloc jpeg
-openmp postscript readline spell static-libs svg2 test visio wpg"
+openmp postscript readline spell static-libs svg2 visio wpg"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -92,12 +95,11 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/boost-1.65
-	test? ( dev-cpp/gtest )
 "
 
-RESTRICT="!test? ( test )"
+RESTRICT="test"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${P}_2021-05-24_c4e8f9ed74"
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]] && use openmp; then
@@ -106,6 +108,9 @@ pkg_pretend() {
 }
 
 src_prepare() {
+	# Backport from master
+	eapply "${WORKDIR}/inkscape-1.1-musl/"*.patch
+
 	cmake_src_prepare
 	sed -i "/install.*COPYING/d" CMakeScripts/ConfigCPack.cmake || die
 }
@@ -120,7 +125,7 @@ src_configure() {
 		-DENABLE_POPPLER=ON
 		-DENABLE_POPPLER_CAIRO=ON
 		-DWITH_PROFILING=OFF
-		-DBUILD_TESTING=$(usex test)
+		-DBUILD_TESTING=OFF
 		-DWITH_LIBCDR=$(usex cdr)
 		-DWITH_DBUS=$(usex dbus)
 		-DWITH_IMAGE_MAGICK=$(usex imagemagick $(usex !graphicsmagick)) # requires ImageMagick 6, only IM must be enabled
@@ -148,7 +153,6 @@ src_install() {
 
 	find "${ED}"/usr/share/man -type f -maxdepth 3 -name '*.gz' -exec gzip -d {} \; || die
 
-	# No extensions are present in beta1
 	local extdir="${ED}"/usr/share/${PN}/extensions
 
 	if [[ -e "${extdir}" ]] && [[ -n $(find "${extdir}" -mindepth 1) ]]; then
@@ -157,8 +161,4 @@ src_install() {
 
 	# Empty directory causes sandbox issues, see bug #761915
 	rm -r "${ED}/usr/share/inkscape/fonts" || die "Failed to remove fonts directory."
-}
-
-src_test() {
-	cmake_build -j1 check
 }
