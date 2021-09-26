@@ -14,12 +14,12 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~
 IUSE="exif introspection libnotify pcre +trash-panel-plugin udisks"
 
 GVFS_DEPEND=">=gnome-base/gvfs-1.18.3"
-DEPEND=">=dev-libs/glib-2.50
+DEPEND=">=dev-libs/glib-2.56
 	>=x11-libs/gdk-pixbuf-2.14
 	>=x11-libs/gtk+-3.22:3
 	>=xfce-base/exo-4.17.0:=
 	>=xfce-base/libxfce4ui-4.17.0:=
-	>=xfce-base/libxfce4util-4.17.0:=
+	>=xfce-base/libxfce4util-4.17.1:=
 	>=xfce-base/xfconf-4.12:=
 	exif? ( >=media-libs/libexif-0.6.19:= )
 	introspection? ( dev-libs/gobject-introspection:= )
