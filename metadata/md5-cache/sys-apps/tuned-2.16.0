@@ -3,7 +3,7 @@ DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-e
 DESCRIPTION=Daemon for monitoring and adaptive tuning of system devices
 EAPI=7
 HOMEPAGE=https://github.com/redhat-performance/tuned
-INHERIT=python-single-r1 xdg-utils tmpfiles
+INHERIT=python-single-r1 tmpfiles xdg-utils
 IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64
 LICENSE=GPL-2
@@ -12,5 +12,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/redhat-performance/tuned/archive/v2.16.0.tar.gz -> tuned-2.16.0.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg-utils	27f9a2f19502b925ac117bd657aa2979	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=2da6e4b25c26fe44af11c5fed85ef75b
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=734cb26990be6ea24ac4d3b2fdfd319f
