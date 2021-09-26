@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -49,6 +49,7 @@ src_install() {
 	linux-mod_src_install
 
 	dodoc README
+	dodoc ChangeLog
 	dobin loop-aes-keygen
 	doman loop-aes-keygen.1
 
@@ -62,10 +63,5 @@ pkg_postinst() {
 	einfo
 	einfo "For more instructions take a look at examples in README at:"
 	einfo "'${EPREFIX}/usr/share/doc/${PF}'"
-	einfo
-	einfo "If you have a newer Intel processor (i5, i7), and you use AES"
-	einfo "you may want to consider using the aes-ni use flag. It will"
-	einfo "use your processors native AES instructions giving quite a speed"
-	einfo "increase."
 	einfo
 }
