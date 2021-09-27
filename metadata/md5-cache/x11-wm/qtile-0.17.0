@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=http://qtile.org/
 INHERIT=distutils-r1
 IUSE=python_targets_python3_8 python_targets_python3_9
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=x11-libs/cairo[X,xcb(+)] x11-libs/pango dev-python/setuptools[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/setuptools_scm[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/cairocffi-0.9.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/cffi-1.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/six-1.4.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/xcffib-0.8.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] media-sound/pulseaudio python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=mirror://pypi/q/qtile/qtile-0.17.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	39fb83ed394c172aad380c33a8de287e
-_md5_=c93b345c73737382427d4d7a81a3a5aa
+_md5_=8b42985e68348c0dc11ef5d508d51a7c
