@@ -4,6 +4,15 @@
 # Unmask the flag which corresponds to ARCH.
 -m68k
 
+# James Le Cuirot <chewi@gentoo.org> (2021-09-27)
+# The Lua 5.3 tests fail on m68k so it's probably broken. 5.4 works.
+lua_targets_lua5-3
+lua_single_target_lua5-3
+
+# James Le Cuirot <chewi@gentoo.org> (2021-09-27)
+# MPI isn't very useful on an architecture that doesn't support SMP.
+mpi
+
 # James Le Cuirot <chewi@gentoo.org> (2021-09-19)
 # I tried Mesa under qemu-system-m68k with VirtIO-GPU. It didn't work.
 opengl
