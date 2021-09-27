@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 "
 
 # These are intended for ebuild maintainer use to force RPM if DEB is not available.
-: ${OPERA_FORCE_RPM=no}
+: ${OPERA_FORCE_RPM=yes}
 
 if [[ ${OPERA_FORCE_RPM} == yes ]]; then
 	OPERA_UNPACKER="rpm"
