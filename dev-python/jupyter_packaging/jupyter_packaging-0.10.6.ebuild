@@ -1,11 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1
 
 DESCRIPTION="Tools to help build and install Jupyter Python packages"
@@ -30,13 +29,18 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-python_prepare_all() {
-	# Skip the tests that try to install things or call pip
-	rm tests/test_build_api.py \
-		tests/test_datafiles_install.py \
-		tests/test_install.py || die
-	# Permission Denied (tries to write to site_packages)
-	sed -i -e 's/test_create_cmdclass/_&/' \
-		tests/test_deprecated.py || die
-	distutils-r1_python_prepare_all
+python_test() {
+	local deselect=(
+		# TODO: package "build"
+		tests/test_build_api.py::test_build_package
+		tests/test_build_api.py::test_deprecated_metadata
+
+		# broken by Gentoo pip patch
+		# TODO: retry when we finally make the patch less intrusive
+		tests/test_datafiles_install.py
+		tests/test_install.py
+	)
+
+	distutils_install_for_testing --via-venv
+	epytest ${deselect[@]/#/--deselect }
 }
