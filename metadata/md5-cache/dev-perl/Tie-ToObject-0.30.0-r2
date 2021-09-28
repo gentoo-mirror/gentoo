@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=virtual/perl-Test-Simple-1.1.10 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Tie to an existing object
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Tie-ToObject
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~x64-macos
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/N/NU/NUFFIN/Tie-ToObject-0.03.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=88d5cf9ad51886afc5376e12a05066b7

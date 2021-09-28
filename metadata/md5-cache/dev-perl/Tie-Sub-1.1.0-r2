@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Params-Validate test? ( >=dev-perl/Test-Differences-0.600.0 dev-perl/Test-NoWarnings dev-perl/Test-Exception virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Tying a subroutine, function or method to a hash
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Tie-Sub
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-solaris
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Params-Validate dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/ST/STEFFENW/Tie-Sub-1.001.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=b20ad94654e8bdcfef57c79b54babbcb
