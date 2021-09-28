@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KDE_ORG_COMMIT=3c420cd180397e3f42c8a436a7f1b11465925bdd
+KDE_ORG_COMMIT=efe6edcaf8eba601dff99ec6ad4457c8a4442f86
 inherit qt5-build
 
 DESCRIPTION="Wayland platform plugin for Qt"
