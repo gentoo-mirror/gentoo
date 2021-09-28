@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-USE_RUBY="ruby25 ruby26 ruby27"
+
+USE_RUBY="ruby26 ruby27"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 RUBY_FAKEGEM_GEMSPEC="vagrant.gemspec"
@@ -42,7 +43,7 @@ ruby_add_rdepend "
 	>=dev-ruby/net-sftp-3.0
 	>=dev-ruby/net-ssh-6.1.0
 	dev-ruby/rest-client:2
-	>=dev-ruby/vagrant_cloud-3.0.2
+	>=dev-ruby/vagrant_cloud-3.0.5
 "
 
 ruby_add_bdepend "
@@ -87,7 +88,7 @@ all_ruby_install() {
 	insinto /usr/share/vim/vimfiles/syntax/
 	doins contrib/vim/vagrantfile.vim
 
-	elog "Optional dependencies:"
-	optfeature "virtualbox support" app-emulation/virtualbox
-	optfeature "docker support" app-emulation/docker
+	optfeature_header "Optional emulation/container backends:"
+	optfeature "VirtualBox support" app-emulation/virtualbox
+	optfeature "Docker support" app-emulation/docker
 }
