@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby26? ( >=dev-ruby/excon-0.73[ruby_targets_ruby26(-)] >=dev-ruby/log4r-1.1.10[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/excon-0.73[ruby_targets_ruby27(-)] >=dev-ruby/log4r-1.1.10[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( >=dev-ruby/rake-12.3[ruby_targets_ruby26(-)] test? ( >=dev-ruby/webmock-3.0[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( >=dev-ruby/rake-12.3[ruby_targets_ruby27(-)] test? ( >=dev-ruby/webmock-3.0[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+DESCRIPTION=Vagrant Cloud API Library
+EAPI=7
+HOMEPAGE=https://github.com/hashicorp/vagrant_cloud
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 doc test test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/excon-0.73[ruby_targets_ruby26(-)] >=dev-ruby/log4r-1.1.10[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/excon-0.73[ruby_targets_ruby27(-)] >=dev-ruby/log4r-1.1.10[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hashicorp/vagrant_cloud/archive/v3.0.5.tar.gz -> vagrant_cloud-3.0.5.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
+_md5_=bddad77b64d9e92af9b1543a05016315
