@@ -3,7 +3,7 @@
 
 EAPI=7
 
-USE_RUBY="ruby25 ruby26"
+USE_RUBY="ruby26"
 inherit depend.apache ruby-ng
 
 DESCRIPTION="Flexible project management web application using the Ruby on Rails framework"
@@ -13,37 +13,46 @@ SRC_URI="https://www.redmine.org/releases/${P}.tar.gz"
 KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="imagemagick fastcgi ldap markdown mysql passenger postgres sqlite"
+IUSE="fastcgi imagemagick ldap markdown +minimagick mysql passenger pdf postgres sqlite"
 
-DEPS="
+ruby_add_bdepend "
 	fastcgi? ( dev-ruby/fcgi )
-	imagemagick? ( dev-ruby/mini_magick )
 	ldap? ( dev-ruby/ruby-net-ldap )
+	minimagick? ( dev-ruby/mini_magick )
 	markdown? ( >=dev-ruby/redcarpet-3.5.1 )
 	mysql? ( >=dev-ruby/mysql2-0.5.0:0.5 )
 	passenger? ( www-apache/passenger )
 	postgres? ( >=dev-ruby/pg-1.1.4:1 )
 	sqlite? ( >=dev-ruby/sqlite3-1.4.0 )
 	dev-ruby/actionpack-xml_parser:2
-	>=dev-ruby/i18n-1.6.0:1
+	dev-ruby/addressable
+	dev-ruby/csv:3
+	>=dev-ruby/i18n-1.8.2:1
 	>=dev-ruby/mail-2.7.1
+	dev-ruby/marcel
 	dev-ruby/mimemagic
 	>=dev-ruby/mini_mime-1.0.1
-	>=dev-ruby/nokogiri-1.11.0
+	>=dev-ruby/nokogiri-1.11.1
+	dev-ruby/rack-openid
 	dev-ruby/rails:5.2
 	>=dev-ruby/rbpdf-1.20.0
-	dev-ruby/request_store:0
-	>=dev-ruby/roadie-rails-2.1.0
-	>=dev-ruby/rouge-3.12.0
+	>=dev-ruby/request_store-1.5.0:0
+	>=dev-ruby/roadie-rails-2.2.0
+	dev-ruby/rotp
+	>=dev-ruby/rouge-3.26.0
+	dev-ruby/rqrcode
 	>=dev-ruby/ruby-openid-2.9.2
-	dev-ruby/rack-openid
+	>=dev-ruby/rubyzip-2.3.0:2
 "
-
-ruby_add_bdepend "${DEPS}"
 
 RDEPEND="
 	acct-group/redmine
 	acct-user/redmine
+	imagemagick? ( media-gfx/imagemagick )
+	pdf? (
+		app-text/ghostscript-gpl
+		media-gfx/imagemagick
+	)
 "
 
 REDMINE_DIR="/var/lib/${PN}"
@@ -62,10 +71,10 @@ all_ruby_prepare() {
 
 	# Fixing versions in Gemfile
 	sed -i -e "s/~>/>=/g" Gemfile || die
-	# bug #724464
-	sed -i -e "s/gem 'rails',.*/gem 'rails', '~>5.2.4'/" Gemfile || die
 
-	sed -i -e "/csv/d" Gemfile || die
+	# bug #724464
+	sed -i -e "s/gem 'rails',.*/gem 'rails', '~>5.2.6'/" Gemfile || die
+
 	sed -i -e "/group :development do/,/end$/d" Gemfile || die
 	sed -i -e "/group :test do/,/end$/d" Gemfile || die
 
@@ -88,7 +97,7 @@ all_ruby_prepare() {
 
 all_ruby_install() {
 	dodoc doc/* README.rdoc
-	rm -r doc appveyor.yml CONTRIBUTING.md README.rdoc || die
+	rm -r doc test appveyor.yml CONTRIBUTING.md README.rdoc || die
 
 	keepdir /var/log/${PN}
 
@@ -96,8 +105,8 @@ all_ruby_install() {
 	doins -r .
 	insinto "${REDMINE_DIR}/config"
 	doins "${FILESDIR}/additional_environment.rb"
-	keepdir "${REDMINE_DIR}/files"
-	keepdir "${REDMINE_DIR}/public/plugin_assets"
+	keepdir "${REDMINE_DIR}"/{app/views/previews,files,public/plugin_assets,vendor}
+	keepdir "${REDMINE_DIR}"/tmp/{cache,imports,sessions,sockets}
 
 	fowners -R redmine:redmine \
 		"${REDMINE_DIR}/config.ru" \
@@ -219,7 +228,7 @@ pkg_config() {
 		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake db:migrate || die
 		einfo "Populating database with default configuration data."
 		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake redmine:load_default_data || die
-		chown redmine:redmine -R "${EROOT}//var/log/redmine/" || die
+		chown redmine:redmine -R "${EROOT}/var/log/redmine/" || die
 		einfo
 		einfo "If you use sqlite3, please do not forget to change the ownership"
 		einfo "of the sqlite files."
