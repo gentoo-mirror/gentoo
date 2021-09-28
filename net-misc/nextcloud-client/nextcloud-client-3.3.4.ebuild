@@ -12,10 +12,11 @@ SRC_URI="https://github.com/nextcloud/desktop/archive/v${PV/_/-}.tar.gz -> ${P}.
 LICENSE="CC-BY-3.0 GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="doc dolphin nautilus test"
+IUSE="doc dolphin nautilus test webengine"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND=">=dev-db/sqlite-3.34:3
+	>=dev-libs/openssl-1.1.0:0=
 	dev-libs/qtkeychain[qt5(+)]
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -24,7 +25,6 @@ COMMON_DEPEND=">=dev-db/sqlite-3.34:3
 	dev-qt/qtnetwork:5[ssl]
 	dev-qt/qtquickcontrols2:5
 	dev-qt/qtsvg:5
-	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwebsockets:5
 	dev-qt/qtwidgets:5
 	sys-libs/zlib
@@ -32,13 +32,14 @@ COMMON_DEPEND=">=dev-db/sqlite-3.34:3
 		kde-frameworks/kcoreaddons:5
 		kde-frameworks/kio:5
 	)
-	>=dev-libs/openssl-1.1.0:0=
-	nautilus? ( dev-python/nautilus-python )"
+	nautilus? ( dev-python/nautilus-python )
+	webengine? ( dev-qt/qtwebengine:5[widgets] )"
 
 DEPEND="${COMMON_DEPEND}
 	dev-qt/linguist-tools:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtxml:5
+	gnome-base/librsvg
 	doc? (
 		dev-python/sphinx
 		dev-tex/latexmk
@@ -53,19 +54,13 @@ DEPEND="${COMMON_DEPEND}
 
 RDEPEND="${COMMON_DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-inkscape.patch )
+PATCHES=( "${FILESDIR}"/${P}-inkscape_to_rsvg.patch )
 
 S="${WORKDIR}/desktop-${PV/_/-}"
 
 src_prepare() {
 	# Keep tests in ${T}
 	sed -i -e "s#\"/tmp#\"${T}#g" test/test*.cpp || die
-
-	if ! use nautilus; then
-		pushd shell_integration > /dev/null || die
-		cmake_comment_add_subdirectory nautilus
-		popd > /dev/null || die
-	fi
 
 	cmake_src_prepare
 }
@@ -74,10 +69,14 @@ src_configure() {
 	local mycmakeargs=(
 		-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc
 		-DCMAKE_INSTALL_DOCDIR=/usr/share/doc/${PF}
-		-DCMAKE_DISABLE_FIND_PACKAGE_Sphinx=$(usex !doc)
-		-DCMAKE_DISABLE_FIND_PACKAGE_KF5=$(usex !dolphin)
-		-DNO_SHIBBOLETH=yes
 		-DBUILD_UPDATER=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libcloudproviders=ON
+		$(cmake_use_find_package doc Sphinx)
+		$(cmake_use_find_package doc PdfLatex)
+		$(cmake_use_find_package webengine Qt5WebEngine)
+		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
+		-DBUILD_SHELL_INTEGRATION_DOLPHIN=$(usex dolphin)
+		-DBUILD_SHELL_INTEGRATION_NAUTILUS=$(usex nautilus)
 		-DUNIT_TESTING=$(usex test)
 	)
 
