@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit flag-o-matic python-any-r1 toolchain-funcs
 
@@ -14,12 +14,11 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.xz
 	!vanilla? (
 		mirror://gentoo/${PATCH}.tar.xz
 		https://dev.gentoo.org/~polynomial-c/dist/${PATCH}.tar.xz
-	)
-"
+	)"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x86-linux"
 IUSE="acl caps gmp hostname kill multicall nls selinux +split-usr static test vanilla xattr"
 RESTRICT="!test? ( test )"
 
@@ -67,7 +66,8 @@ pkg_setup() {
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}"/coreutils-8.32-ls-restore-8.31-behavior.patch
+		# Upstream patches
+		"${FILESDIR}"/${P}-fix-chmod-symlink-exit.patch
 	)
 
 	if ! use vanilla ; then
@@ -109,7 +109,7 @@ src_configure() {
 		$(use_enable acl)
 		$(use_enable multicall single-binary)
 		$(use_enable xattr)
-		$(use_with gmp)
+		$(use_with gmp libgmp)
 	)
 
 	if tc-is-cross-compiler && [[ ${CHOST} == *linux* ]] ; then
