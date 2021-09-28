@@ -1,16 +1,16 @@
 DEFINED_PHASES=configure install postinst test
-DEPEND=app-misc/mime-types berkdb? ( || ( sys-libs/db:6.2 sys-libs/db:5.3 sys-libs/db:4.8 ) <sys-libs/db-6.3:= ) gdbm? ( sys-libs/gdbm:= ) kyotocabinet? ( dev-db/kyotocabinet ) lmdb? ( dev-db/lmdb:= ) nls? ( virtual/libintl ) qdbm? ( dev-db/qdbm ) tokyocabinet? ( dev-db/tokyocabinet ) gnutls? ( >=net-libs/gnutls-1.0.17:= ) gpgme? ( >=app-crypt/gpgme-1.13.1:= ) autocrypt? ( >=dev-db/sqlite-3 ) idn? ( net-dns/libidn:= ) kerberos? ( virtual/krb5 ) notmuch? ( net-mail/notmuch:= ) sasl? ( >=dev-libs/cyrus-sasl-2 ) !slang? ( sys-libs/ncurses:0= ) slang? ( sys-libs/slang ) ssl? ( >=dev-libs/openssl-1.0.2u:0= ) dev-lang/tcl:= net-mail/mailbase doc? ( dev-libs/libxml2 dev-libs/libxslt app-text/docbook-xsl-stylesheets || ( www-client/lynx www-client/w3m www-client/elinks ) )
+DEPEND=app-misc/mime-types berkdb? ( || ( sys-libs/db:6.2 sys-libs/db:5.3 sys-libs/db:4.8 ) <sys-libs/db-6.3:= ) gdbm? ( sys-libs/gdbm:= ) kyotocabinet? ( dev-db/kyotocabinet ) lmdb? ( dev-db/lmdb:= ) nls? ( virtual/libintl ) qdbm? ( dev-db/qdbm ) tokyocabinet? ( dev-db/tokyocabinet ) gnutls? ( >=net-libs/gnutls-1.0.17:= ) gpgme? ( >=app-crypt/gpgme-1.13.1:= ) autocrypt? ( >=dev-db/sqlite-3 ) idn? ( net-dns/libidn:= ) kerberos? ( virtual/krb5 ) notmuch? ( net-mail/notmuch:= ) sasl? ( >=dev-libs/cyrus-sasl-2 ) !slang? ( sys-libs/ncurses:0= ) slang? ( sys-libs/slang ) ssl? ( >=dev-libs/openssl-1.0.2u:0= ) lz4? ( app-arch/lz4 ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) dev-lang/tcl:= net-mail/mailbase doc? ( dev-libs/libxml2 dev-libs/libxslt app-text/docbook-xsl-stylesheets || ( www-client/lynx www-client/w3m www-client/elinks ) )
 DESCRIPTION=A small but very powerful text-based mail client
 EAPI=7
 HOMEPAGE=https://neomutt.org/
 INHERIT=toolchain-funcs
-IUSE=autocrypt berkdb doc gdbm gnutls gpgme idn kerberos kyotocabinet lmdb nls notmuch pgp-classic qdbm sasl selinux slang smime-classic ssl tokyocabinet test
+IUSE=autocrypt berkdb doc gdbm gnutls gpgme idn kerberos kyotocabinet lmdb lz4 nls notmuch pgp-classic qdbm sasl selinux slang smime-classic ssl tokyocabinet test zlib zstd
 KEYWORDS=amd64 ~ppc64 ~s390 x86
 LICENSE=GPL-2
-RDEPEND=app-misc/mime-types berkdb? ( || ( sys-libs/db:6.2 sys-libs/db:5.3 sys-libs/db:4.8 ) <sys-libs/db-6.3:= ) gdbm? ( sys-libs/gdbm:= ) kyotocabinet? ( dev-db/kyotocabinet ) lmdb? ( dev-db/lmdb:= ) nls? ( virtual/libintl ) qdbm? ( dev-db/qdbm ) tokyocabinet? ( dev-db/tokyocabinet ) gnutls? ( >=net-libs/gnutls-1.0.17:= ) gpgme? ( >=app-crypt/gpgme-1.13.1:= ) autocrypt? ( >=dev-db/sqlite-3 ) idn? ( net-dns/libidn:= ) kerberos? ( virtual/krb5 ) notmuch? ( net-mail/notmuch:= ) sasl? ( >=dev-libs/cyrus-sasl-2 ) !slang? ( sys-libs/ncurses:0= ) slang? ( sys-libs/slang ) ssl? ( >=dev-libs/openssl-1.0.2u:0= ) selinux? ( sec-policy/selinux-mutt )
+RDEPEND=app-misc/mime-types berkdb? ( || ( sys-libs/db:6.2 sys-libs/db:5.3 sys-libs/db:4.8 ) <sys-libs/db-6.3:= ) gdbm? ( sys-libs/gdbm:= ) kyotocabinet? ( dev-db/kyotocabinet ) lmdb? ( dev-db/lmdb:= ) nls? ( virtual/libintl ) qdbm? ( dev-db/qdbm ) tokyocabinet? ( dev-db/tokyocabinet ) gnutls? ( >=net-libs/gnutls-1.0.17:= ) gpgme? ( >=app-crypt/gpgme-1.13.1:= ) autocrypt? ( >=dev-db/sqlite-3 ) idn? ( net-dns/libidn:= ) kerberos? ( virtual/krb5 ) notmuch? ( net-mail/notmuch:= ) sasl? ( >=dev-libs/cyrus-sasl-2 ) !slang? ( sys-libs/ncurses:0= ) slang? ( sys-libs/slang ) ssl? ( >=dev-libs/openssl-1.0.2u:0= ) lz4? ( app-arch/lz4 ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) selinux? ( sec-policy/selinux-mutt )
 REQUIRED_USE=autocrypt? ( gpgme )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/neomutt/neomutt/archive/20210205.tar.gz -> neomutt-20210205.tar.gz test? ( https://github.com/neomutt/neomutt-test-files/archive/8629adab700a75c54e8e28bf05ad092503a98f75.tar.gz -> neomutt-test-files-8629adab700a75c54e8e28bf05ad092503a98f75.tar.gz )
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=b7880f582e84d43f110b4929afd092d5
+_md5_=b91f043266f0eee3773babc7fa74101f
