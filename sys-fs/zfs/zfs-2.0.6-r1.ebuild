@@ -25,7 +25,7 @@ else
 	S="${WORKDIR}/${P%_rc?}"
 
 	if [[ ${PV} != *_rc* ]]; then
-		KEYWORDS="~amd64 ~arm64 ~ppc64"
+		KEYWORDS="amd64 arm64 ppc64"
 	fi
 fi
 
@@ -33,7 +33,7 @@ LICENSE="BSD-2 CDDL MIT"
 # just libzfs soname major for now.
 # possible candidates: libuutil, libzpool, libnvpair. Those do not provide stable abi, but are considered.
 # see libsoversion_check() below as well
-SLOT="0/5"
+SLOT="0/4"
 IUSE="custom-cflags debug dist-kernel kernel-builtin minimal nls pam python +rootfs test-suite"
 
 DEPEND="
@@ -54,10 +54,6 @@ BDEPEND="virtual/awk
 	nls? ( sys-devel/gettext )
 	python? (
 		dev-python/setuptools[${PYTHON_USEDEP}]
-		|| (
-			dev-python/packaging[${PYTHON_USEDEP}]
-			dev-python/distlib[${PYTHON_USEDEP}]
-		)
 	)
 "
 
@@ -88,6 +84,12 @@ RDEPEND="${DEPEND}
 	)
 "
 
+# temporary block new coreutils
+# https://github.com/openzfs/zfs/issues/11900
+RDEPEND+="
+	!>=sys-apps/coreutils-9
+"
+
 REQUIRED_USE="
 	!minimal? ( ${PYTHON_REQUIRED_USE} )
 	python? ( !minimal )
@@ -96,7 +98,10 @@ REQUIRED_USE="
 
 RESTRICT="test"
 
-PATCHES=( "${FILESDIR}/2.0.4-scrub-timers.patch" )
+PATCHES=(
+	"${FILESDIR}/bash-completion-sudo.patch"
+	"${FILESDIR}/2.0.4-scrub-timers.patch"
+)
 
 pkg_pretend() {
 	use rootfs || return 0
