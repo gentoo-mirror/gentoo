@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DESCRIPTION=An extension to track progress of a file upload
+EAPI=7
+HOMEPAGE=https://pecl.php.net/uploadprogress
+INHERIT=php-ext-pecl-r3
+IUSE=examples php_targets_php7-3 php_targets_php7-4 php_targets_php8-0
+KEYWORDS=~amd64 ~x86
+LICENSE=PHP-3.01
+RDEPEND=php_targets_php7-3? ( || ( dev-lang/php:7.3[apache2(-),fileinfo(-)] dev-lang/php:7.3[fileinfo(-),fpm(-)] ) ) php_targets_php7-4? ( || ( dev-lang/php:7.4[apache2(-),fileinfo(-)] dev-lang/php:7.4[fileinfo(-),fpm(-)] ) ) php_targets_php8-0? ( || ( dev-lang/php:8.0[apache2(-),fileinfo(-)] dev-lang/php:8.0[fileinfo(-),fpm(-)] ) ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
+SLOT=0
+SRC_URI=https://pecl.php.net/get/uploadprogress-2.0.1.tgz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	php-ext-source-r3	b61f3cc83a4e875e5eaf215d17ad83ef	php-ext-pecl-r3	4263125759167648adee458afac9b3f1
+_md5_=11ac6d1d2ad80b31fc440a5b31916937
