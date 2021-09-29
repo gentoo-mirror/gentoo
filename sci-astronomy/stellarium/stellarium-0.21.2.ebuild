@@ -1,18 +1,18 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit cmake desktop flag-o-matic python-any-r1 xdg virtualx
 
 DESCRIPTION="3D photo-realistic skies in real time"
 HOMEPAGE="https://stellarium.org/"
-MY_DSO_VERSION="3.12"
+MY_DSO_VERSION="3.13"
 SRC_URI="
 	https://github.com/Stellarium/stellarium/releases/download/v${PV}/${P}.tar.gz
 	deep-sky? (
-		https://github.com/Stellarium/stellarium-data/releases/download/dso-${MY_DSO_VERSION}/catalog.dat -> ${PN}-dso-catalog-${MY_DSO_VERSION}.dat
+		https://github.com/Stellarium/stellarium-data/releases/download/dso-${MY_DSO_VERSION}/catalog-${MY_DSO_VERSION}.dat -> ${PN}-dso-catalog-${MY_DSO_VERSION}.dat
 	)
 	doc? (
 		https://github.com/Stellarium/stellarium/releases/download/v${PV}/stellarium_user_guide-${PV}-1.pdf
@@ -27,7 +27,7 @@ SRC_URI="
 
 LICENSE="GPL-2+ SGI-B-2.0"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug deep-sky doc gps media nls stars telescope test"
 
 # Python interpreter is used while building RemoteControl plugin
@@ -44,14 +44,20 @@ RDEPEND="
 	dev-qt/qtopengl:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtscript:5
-	dev-qt/qtserialport:5
 	dev-qt/qtwidgets:5
 	media-fonts/dejavu
 	sys-libs/zlib
 	virtual/opengl
-	gps? ( dev-qt/qtpositioning:5 )
+	gps? (
+		dev-qt/qtpositioning:5
+		dev-qt/qtserialport:5
+		sci-geosciences/gpsd:=[cxx]
+	)
 	media? ( dev-qt/qtmultimedia:5[widgets] )
-	telescope? ( sci-libs/indilib:= )
+	telescope? (
+		dev-qt/qtserialport:5
+		sci-libs/indilib:=
+	)
 "
 DEPEND="${RDEPEND}
 	dev-qt/qtconcurrent:5
@@ -62,7 +68,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/stellarium-0.20.3-unbundle-indi.patch"
-	"${FILESDIR}/stellarium-0.20.3-unbundle-qtcompress.patch"
+	"${FILESDIR}/stellarium-0.21.2-unbundle-qtcompress.patch"
 	"${FILESDIR}/stellarium-0.20.3-unbundle-zlib.patch"
 )
 
@@ -79,7 +85,7 @@ src_prepare() {
 
 	# for glues_stel aka libtess I couldn't find an upstream with the same API
 
-	# unbundling of qxlsx depends on https://github.com/QtExcel/QXlsx/pull/114
+	# unbundling of qxlsx depends on https://github.com/QtExcel/QXlsx/pull/185
 
 	local remaining="$(cd src/external/ && echo */)"
 	if [[ "${remaining}" != "glues_stel/ qcustomplot/ qxlsx/" ]]; then
