@@ -48,20 +48,25 @@ RDEPEND="
 	dev-perl/DBD-mysql"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-8.0.22-remove-rpm.patch
-	"${FILESDIR}"/${PN}-8.0.22-fix-building-against-ICU-68.patch
+	"${FILESDIR}"/${PN}-8.0.26-remove-rpm.patch
 )
 
 S="${WORKDIR}/percona-xtrabackup-${MY_PV}"
 
 src_configure() {
+	CMAKE_BUILD_TYPE="RelWithDebInfo"
+
 	local mycmakeargs=(
-		-DBUILD_CONFIG=xtrabackup_release
+		-DCMAKE_C_FLAGS_RELWITHDEBINFO=-DNDEBUG
+		-DCMAKE_CXX_FLAGS_RELWITHDEBINFO=-DNDEBUG
 		-DBUILD_SHARED_LIBS=OFF
+		-DCOMPILATION_COMMENT="Gentoo Linux ${PF}"
+		-DINSTALL_PLUGINDIR=$(get_libdir)/${PN}/plugin
 		-DWITH_BOOST="${WORKDIR}/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION})"
+		-DWITH_MAN_PAGES=ON
 		-DWITH_SYSTEM_LIBS=ON
 	)
-	local CMAKE_BUILD_TYPE="Release"
+
 	cmake_src_configure
 }
 
@@ -71,7 +76,10 @@ src_install() {
 	dobin "${p}"/xbcloud_osenv
 	dobin "${BUILD_DIR}"/runtime_output_directory/{xbcloud,xbcrypt,xbstream,xtrabackup}
 
-	dolib.so "${BUILD_DIR}"/plugin_output_directory/{keyring_file.so,keyring_vault.so}
+	# cannot use dolib.so because helper would append libdir to target dir
+	insinto /usr/$(get_libdir)/${PN}/plugin
+	insopts -m 0755
+	doins "${BUILD_DIR}"/plugin_output_directory/{keyring_file.so,keyring_vault.so}
 
 	doman "${p}"/doc/source/build/man/*
 }
