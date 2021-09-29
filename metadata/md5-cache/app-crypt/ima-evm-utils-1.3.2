@@ -1,15 +1,16 @@
-BDEPEND=app-text/asciidoc app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=app-text/asciidoc app-text/docbook-xsl-stylesheets dev-libs/libxslt test? ( app-editors/vim-core ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/openssl:0= sys-apps/keyutils:=
 DESCRIPTION=Supporting tools for IMA and EVM
 EAPI=7
 HOMEPAGE=http://linux-ima.sourceforge.net
 INHERIT=autotools
-IUSE=debug
+IUSE=debug test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/openssl:0= sys-apps/keyutils:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.sourceforge.net/linux-ima/ima-evm-utils-1.3.2.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=69a99aee876a25091b28d84a25cb8f2e
+_md5_=de6ca404a15202966f551298bc8a2b2b
