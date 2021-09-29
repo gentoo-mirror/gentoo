@@ -19,7 +19,7 @@ else
 	OPERA_ARCHIVE_EXT="deb"
 fi
 
-inherit chromium-2 multilib pax-utils ${OPERA_UNPACKER} xdg
+inherit chromium-2 pax-utils ${OPERA_UNPACKER} xdg
 
 DESCRIPTION="A fast and secure web browser"
 HOMEPAGE="https://www.opera.com/"

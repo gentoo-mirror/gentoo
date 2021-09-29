@@ -19,7 +19,7 @@ else
 	OPERA_ARCHIVE_EXT="deb"
 fi
 
-inherit chromium-2 multilib pax-utils ${OPERA_UNPACKER} xdg
+inherit chromium-2 pax-utils ${OPERA_UNPACKER} xdg
 
 DESCRIPTION="A fast and secure web browser"
 HOMEPAGE="https://www.opera.com/"
@@ -42,7 +42,7 @@ fi
 
 KEYWORDS="-* ~amd64"
 
-FFMPEG_VERSION="93.0.4573.0"
+FFMPEG_VERSION="94.0.4603.0"
 
 SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.${OPERA_ARCHIVE_EXT}}
 	proprietary-codecs? (
