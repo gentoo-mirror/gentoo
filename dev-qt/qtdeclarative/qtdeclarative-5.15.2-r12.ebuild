@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KDE_ORG_COMMIT=92225b72b9ca6b1efc9bc7bb0c12dd7487e900a7
+KDE_ORG_COMMIT=1c33a9d045897ce755a818ebff7ddecae97885d3
 PYTHON_COMPAT=( python3_{8..10} )
 inherit python-any-r1 qt5-build
 
