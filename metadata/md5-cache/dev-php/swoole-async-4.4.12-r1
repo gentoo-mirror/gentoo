@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-1? ( dev-lang/php:7.1 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-php/swoole-4.3 php_targets_php7-1? ( dev-lang/php:7.1 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
+DEPEND=~dev-php/swoole-4.4.12[php_targets_php7-1(-)?,php_targets_php7-2(-)?,php_targets_php7-3(-)?,php_targets_php7-4(-)?] php_targets_php7-1? ( dev-lang/php:7.1 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
 DESCRIPTION=An extension of Swoole, including the async callback style API
 EAPI=7
 HOMEPAGE=https://www.swoole.co.uk
@@ -8,10 +8,10 @@ INHERIT=php-ext-pecl-r3
 IUSE=debug php_targets_php7-1 php_targets_php7-2 php_targets_php7-3 php_targets_php7-4
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=>=dev-php/swoole-4.3 php_targets_php7-1? ( dev-lang/php:7.1 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
+RDEPEND=~dev-php/swoole-4.4.12[php_targets_php7-1(-)?,php_targets_php7-2(-)?,php_targets_php7-3(-)?,php_targets_php7-4(-)?] php_targets_php7-1? ( dev-lang/php:7.1 ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 )
 REQUIRED_USE=|| ( php_targets_php7-1 php_targets_php7-2 php_targets_php7-3 php_targets_php7-4 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/swoole/ext-async/archive/v4.4.16.tar.gz -> swoole-async-4.4.16.tar.gz
+SRC_URI=https://github.com/swoole/ext-async/archive/v4.4.12.tar.gz -> swoole-async-4.4.12.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	php-ext-source-r3	b61f3cc83a4e875e5eaf215d17ad83ef	php-ext-pecl-r3	4263125759167648adee458afac9b3f1
-_md5_=10db8ee4c0c43a2a49b92121d215e7ac
+_md5_=cd449ed3d585d9f8c88494e7999961b7
