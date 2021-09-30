@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit linux-info meson python-single-r1 vala xdg toolchain-funcs
+inherit linux-info meson python-single-r1 vala xdg
 
 DESCRIPTION="Aims to make updating firmware on Linux automatic, safe and reliable"
 HOMEPAGE="https://fwupd.org"
@@ -46,7 +46,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/libgpg-error
 	dev-libs/libgudev:=
 	>=dev-libs/libjcat-0.1.0[gpg,pkcs7]
-	>=dev-libs/libxmlb-0.1.13:=
+	>=dev-libs/libxmlb-0.1.13:=[introspection?]
 	$(python_gen_cond_dep '
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/pycairo[${PYTHON_USEDEP}]
