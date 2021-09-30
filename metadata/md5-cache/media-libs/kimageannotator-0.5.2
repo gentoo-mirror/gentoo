@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5[png] >=media-libs/kcolorpicker-0.1.6 x11-libs/libX11 test? ( dev-qt/qttest:5 )
+DESCRIPTION=Tool for annotating images
+EAPI=8
+HOMEPAGE=https://github.com/ksnip/kImageAnnotator
+INHERIT=cmake virtualx
+IUSE=test test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-3+
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5[png] >=media-libs/kcolorpicker-0.1.6 x11-libs/libX11
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ksnip/kImageAnnotator/archive/v0.5.2.tar.gz -> kImageAnnotator-0.5.2.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c
+_md5_=466c176082975f9407727517274d02be
