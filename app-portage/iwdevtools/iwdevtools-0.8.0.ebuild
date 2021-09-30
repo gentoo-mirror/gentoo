@@ -3,15 +3,15 @@
 
 EAPI=8
 
-inherit git-r3 meson optfeature
+inherit meson optfeature
 
 DESCRIPTION="Small tools to aid with Gentoo development, primarily intended for QA"
 HOMEPAGE="https://github.com/ionenwks/iwdevtools"
-EGIT_REPO_URI="https://github.com/ionenwks/iwdevtools.git"
+SRC_URI="https://github.com/ionenwks/iwdevtools/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
