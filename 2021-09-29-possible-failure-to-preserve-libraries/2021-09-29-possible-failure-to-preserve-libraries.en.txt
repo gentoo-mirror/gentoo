@@ -73,7 +73,7 @@ as well as a copy of /var/db/pkg (the VDB):
   ```
 
 2. Attempt to rebuild the affected packages, first upgrading
-  app-portage/pax-utils to the latest version:
+  app-misc/pax-utils to the latest version:
   ```
   $ emerge --ask --verbose --oneshot ">=app-misc/pax-utils-1.3.3"
   $ emerge --ask --verbose --oneshot --usepkg=n $(cat broken_vdb_packages)
