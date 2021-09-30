@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre ) gtk? ( x11-libs/gtk+:2 ) virtual/pkgconfig doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.5 dev-libs/libxslt virtual/imagemagick-tools[png] )
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre ) gtk? ( x11-libs/gtk+:2 ) virtual/pkgconfig doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.5 dev-libs/libxslt virtual/imagemagick-tools[png] )
 DESCRIPTION=Geographic Objects for PostgreSQL
 EAPI=7
 HOMEPAGE=https://postgis.net
 INHERIT=autotools postgres-multi toolchain-funcs
-IUSE=address-standardizer doc gtk static-libs topology postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6
+IUSE=address-standardizer doc gtk static-libs topology postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre ) gtk? ( x11-libs/gtk+:2 )
-REQUIRED_USE=|| ( postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6 )
+RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre ) gtk? ( x11-libs/gtk+:2 )
+REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://download.osgeo.org/postgis/source/postgis-3.1.4.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	multibuild	05a584848db4901c97fcd94ae7cc3a97	user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0	postgres	3ff7ea72ed39efa38ebaead171fd5da4	postgres-multi	fb7c39e4a2aced93f5986224677a9070
-_md5_=0c8bb2ab0c2520220f72551e262c8b97
+_md5_=88a3e4691e1e971755e5fdc0ad8007e5
