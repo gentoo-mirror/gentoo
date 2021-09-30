@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=~dev-qt/qtcore-5.15.2 ~dev-qt/qtgui-5.15.2[evdev?] evdev? ( virtual/libudev:= ) qml? ( ~dev-qt/qtdeclarative-5.15.2 ) sdl? ( media-libs/libsdl2 ) test? ( =dev-qt/qttest-5.15.2* )
+DEPEND==dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2*[evdev?] evdev? ( virtual/libudev:= ) qml? ( =dev-qt/qtdeclarative-5.15.2* ) sdl? ( media-libs/libsdl2 ) test? ( =dev-qt/qttest-5.15.2* )
 DESCRIPTION=Qt module to support gamepad hardware
 EAPI=8
 HOMEPAGE=https://www.qt.io/
@@ -8,9 +8,9 @@ INHERIT=qt5-build
 IUSE=evdev qml sdl debug test
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
-RDEPEND=~dev-qt/qtcore-5.15.2 ~dev-qt/qtgui-5.15.2[evdev?] evdev? ( virtual/libudev:= ) qml? ( ~dev-qt/qtdeclarative-5.15.2 ) sdl? ( media-libs/libsdl2 )
+RDEPEND==dev-qt/qtcore-5.15.2* =dev-qt/qtgui-5.15.2*[evdev?] evdev? ( virtual/libudev:= ) qml? ( =dev-qt/qtdeclarative-5.15.2* ) sdl? ( media-libs/libsdl2 )
 RESTRICT=test
 SLOT=5/5.15
 SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.2/submodules/qtgamepad-everywhere-src-5.15.2.tar.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	virtualx	fa024aa649b6bd544144bf94893d402c	qt5-build	14c97c05b3019e69a8ed198afdf5e82b
-_md5_=1f8b3465fb181735e39ec1e3b2143dbe
+_md5_=c9b45d3dc73825a466434349f6c738fa
