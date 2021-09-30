@@ -5,11 +5,11 @@ EAPI=6
 HOMEPAGE=https://adoptium.net
 INHERIT=java-vm-2 toolchain-funcs
 IUSE=alsa cups +gentoo-vm headless-awt selinux source
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x64-macos
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x64-macos
 LICENSE=GPL-2-with-classpath-exception
 RDEPEND=>=sys-apps/baselayout-java-0.1.0-r1 kernel_linux? ( media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/harfbuzz >=sys-libs/glibc-2.2.5:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) ) >=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0
 RESTRICT=preserve-libs splitdebug
 SLOT=11
-SRC_URI=arm64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.12_7.tar.gz ) ppc64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_ppc64le_linux_hotspot_11.0.12_7.tar.gz ) amd64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.12_7.tar.gz ) x64-macos? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_x64_mac_hotspot_11.0.12_7.tar.gz )
+SRC_URI=arm? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_arm_linux_hotspot_11.0.12_7.tar.gz ) arm64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.12_7.tar.gz ) ppc64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_ppc64le_linux_hotspot_11.0.12_7.tar.gz ) amd64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.12_7.tar.gz ) x64-macos? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.12+7/OpenJDK11U-jdk_x64_mac_hotspot_11.0.12_7.tar.gz )
 _eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	27f9a2f19502b925ac117bd657aa2979	java-vm-2	1b9686c0df06500159478dfaf5c21338
-_md5_=67da2688e2ffeb11bbb6c0063cf8d214
+_md5_=446cb42bfbbfc4febe0982c02617cbf1
