@@ -1,16 +1,16 @@
-BDEPEND=>=dev-lang/swig-4.0.0 dev-util/gtk-doc-am sys-devel/flex virtual/pkgconfig virtual/yacc python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=>=dev-lang/swig-4.0.0 dev-util/gtk-doc-am sys-devel/flex virtual/pkgconfig virtual/yacc python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=>=dev-libs/libprelude-5.2.0 <dev-libs/libprelude-6 net-libs/gnutls:= mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] ) sqlite? ( dev-db/sqlite:3 )
+DEPEND=>=dev-libs/libprelude-5.2.0 <dev-libs/libprelude-6 net-libs/gnutls:= mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sqlite? ( dev-db/sqlite:3 )
 DESCRIPTION=Framework to easy access to the Prelude database
 EAPI=7
 HOMEPAGE=https://www.prelude-siem.org
 INHERIT=autotools distutils-r1
-IUSE=mysql postgres python sqlite python_targets_python3_8
+IUSE=mysql postgres python sqlite python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=>=dev-libs/libprelude-5.2.0 <dev-libs/libprelude-6 net-libs/gnutls:= mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] ) sqlite? ( dev-db/sqlite:3 )
-REQUIRED_USE=python? ( || ( python_targets_python3_8 ) )
+RDEPEND=>=dev-libs/libprelude-5.2.0 <dev-libs/libprelude-6 net-libs/gnutls:= mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sqlite? ( dev-db/sqlite:3 )
+REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
 SLOT=0
 SRC_URI=https://www.prelude-siem.org/pkg/src/5.2.0/libpreludedb-5.2.0.tar.gz https://dev.gentoo.org/~juippis/distfiles/tmp/libpreludedb-5.1.0-update_m4_postgresql.patch
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
-_md5_=63246f81a55bd2c2aed84c63f80f29fd
+_md5_=b03e91216a0f53136c7b12565569224f
