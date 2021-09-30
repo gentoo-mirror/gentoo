@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=!app-backup/bacula acct-group/bareos !x86? ( ceph? ( sys-cluster/ceph ) ) glusterfs? ( sys-cluster/glusterfs ) lmdb? ( dev-db/lmdb ) dev-libs/gmp:0 !clientonly? ( acct-user/bareos postgres? ( dev-db/postgresql:*[threads] ) mysql? ( virtual/mysql ) sqlite? ( dev-db/sqlite:3 ) director? ( virtual/mta jansson? ( dev-libs/jansson:= ) ) ) logwatch? ( sys-apps/logwatch ) ndmp? ( net-libs/rpcsvc-proto ) tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0 ) static? ( acl? ( virtual/acl[static-libs] ) sys-libs/zlib[static-libs] dev-libs/lzo[static-libs] sys-libs/ncurses:=[static-libs] dev-libs/openssl:0=[static-libs] ) !static? ( acl? ( virtual/acl ) dev-libs/lzo dev-libs/openssl:0= sys-libs/ncurses:= sys-libs/zlib )
+DESCRIPTION=Featureful client/server network backup suite
+EAPI=7
+HOMEPAGE=https://www.bareos.org/
+INHERIT=python-any-r1 systemd cmake tmpfiles
+IUSE=X acl ceph clientonly +director glusterfs ipv6 jansson lmdb logwatch mysql ndmp +postgres readline scsi-crypto sqlite static +storage-daemon systemd tcpd vim-syntax vmware xattr
+KEYWORDS=~amd64 ~x86
+LICENSE=AGPL-3
+RDEPEND=!app-backup/bacula acct-group/bareos !x86? ( ceph? ( sys-cluster/ceph ) ) glusterfs? ( sys-cluster/glusterfs ) lmdb? ( dev-db/lmdb ) dev-libs/gmp:0 !clientonly? ( acct-user/bareos postgres? ( dev-db/postgresql:*[threads] ) mysql? ( virtual/mysql ) sqlite? ( dev-db/sqlite:3 ) director? ( virtual/mta jansson? ( dev-libs/jansson:= ) ) ) logwatch? ( sys-apps/logwatch ) ndmp? ( net-libs/rpcsvc-proto ) tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0 ) static? ( acl? ( virtual/acl[static-libs] ) sys-libs/zlib[static-libs] dev-libs/lzo[static-libs] sys-libs/ncurses:=[static-libs] dev-libs/openssl:0=[static-libs] ) !static? ( acl? ( virtual/acl ) dev-libs/lzo dev-libs/openssl:0= sys-libs/ncurses:= sys-libs/zlib ) !clientonly? ( storage-daemon? ( sys-block/mtx app-arch/mt-st ) ) vim-syntax? ( || ( app-editors/vim app-editors/gvim ) ) virtual/tmpfiles
+REQUIRED_USE=!clientonly? ( || ( mysql postgres sqlite ) ) static? ( clientonly ) x86? ( !ceph )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/bareos/bareos/archive/Release/20.0.3.tar.gz -> bareos-20.0.3.tar.gz
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	systemd	2736b403a83f194b59b767f3b344c2c1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
+_md5_=0e311077e72590a3982c4d139dfff422
