@@ -1194,7 +1194,7 @@ app-backup/cdbackup 0.7.1-r1: Allows streaming backup utilities to dump/restore 
 app-backup/cdbkup 1.0-r4: Performs full/incremental backups of local/remote filesystems onto CD-R(W)s
 app-backup/consul-backinator 1.6.6: consul backup and restore utility
 app-backup/cpdup 1.18: A comprehensive filesystem mirroring program
-app-backup/dar 2.7.1: A full featured backup tool, aimed for disks
+app-backup/dar 2.7.1 2.7.2: A full featured backup tool, aimed for disks
 app-backup/deja-dup 42.7-r1 42.8: Simple backup tool using duplicity back-end
 app-backup/dirvish 1.2.1: Dirvish is a fast, disk based, rotating network backup system
 app-backup/duplicity 0.8.19 0.8.20: Secure backup system using gnupg to encrypt data
@@ -8931,6 +8931,7 @@ dev-python/os-client-config 2.1.0 2.1.0-r1: OpenStack Client Configuation Librar
 dev-python/os-service-types 1.7.0-r1: A library to handle official service types for OpenStack and it's aliases.
 dev-python/osc-lib 2.2.1 2.4.2: A package of common support modules for writing OSC plugins.
 dev-python/oset 0.1.3: Ordered Set
+dev-python/oslo-concurrency 4.4.1: Oslo Concurrency library
 dev-python/oslo-config 8.7.1: Oslo Configuration API
 dev-python/oslo-context 3.3.1: Helpers to maintain useful information about a request context
 dev-python/oslo-i18n 5.0.1-r1 5.1.0: Oslo i18n library
@@ -9277,10 +9278,10 @@ dev-python/python-gflags 3.1.2-r1: Google's Python argument parsing library
 dev-python/python-glanceclient 3.2.2 3.2.2-r1: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.4.7: A Python wrapper for GnuPG
 dev-python/python-iptables 1.0.0-r1: Python bindings for iptables
-dev-python/python-ironicclient 4.4.0: Python bindings for the Ironic API
+dev-python/python-ironicclient 4.4.0 4.8.0: Python bindings for the Ironic API
 dev-python/python-jose 3.3.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-jwt 1.2.0: JSON Web Token library for python 3
-dev-python/python-keystoneclient 4.1.1: Client Library for OpenStack Identity
+dev-python/python-keystoneclient 4.1.1 4.3.0: Client Library for OpenStack Identity
 dev-python/python-keyutils 0.6: A set of python bindings for keyutils
 dev-python/python-ldap 3.3.1 9999: Various LDAP-related Python modules
 dev-python/python-levenshtein 0.12.1 0.12.2: Functions for fast computation of Levenshtein distance, and edit operations
@@ -9301,9 +9302,9 @@ dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-musicbrainzngs 0.7.1: Python bindings for the MusicBrainz NGS and the Cover Art Archive webservices
 dev-python/python-nbxmpp 2.0.3: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
-dev-python/python-neutronclient 7.2.1: A client for the OpenStack Quantum API
-dev-python/python-novaclient 17.2.1: A client for the OpenStack Nova API
-dev-python/python-openstackclient 5.4.0: A client for the OpenStack APIs
+dev-python/python-neutronclient 7.2.1 7.6.0: A client for the OpenStack Quantum API
+dev-python/python-novaclient 17.2.1 17.6.0: A client for the OpenStack Nova API
+dev-python/python-openstackclient 5.4.0 5.6.0: A client for the OpenStack APIs
 dev-python/python-poppler-qt5 0.75.0: Python binding for libpoppler-qt5
 dev-python/python-redmine 2.3.0: Python interface to the Redmine REST API
 dev-python/python-sense-hat 2.2.0-r2: Raspberry Pi Sense HAT python library
@@ -9312,7 +9313,7 @@ dev-python/python-slugify 4.0.1 5.0.0 5.0.1 5.0.2: A Python Slugify application 
 dev-python/python-socks 1.2.4: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
 dev-python/python-sshpubkeys 3.3.1: OpenSSH public key parser for Python
 dev-python/python-stdnum 1.16: A module to handle standardized numbers and codes
-dev-python/python-swiftclient 3.10.1: Python bindings to the OpenStack Object Storage API
+dev-python/python-swiftclient 3.10.1 3.12.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 234: Python module for native access to the systemd facilities
 dev-python/python-utils 2.5.6: Collection of small Python functions & classes
 dev-python/python-varlink 30.3.1: Python implementation of the Varlink protocol
@@ -9501,6 +9502,7 @@ dev-python/sphinx_celery 2.0.0-r1: Celery Sphinx Theme and Utilities
 dev-python/sphinx_lv2_theme 1.0.0-r1: Minimal pure-CSS Sphinx theme using the LV2 plugin documentation style
 dev-python/sphinx_rtd_theme 0.5.2 1.0.0: ReadTheDocs.org theme for Sphinx
 dev-python/sphinx_selective_exclude 1.0.3: Sphinx selective rendition extensions
+dev-python/sphinxcontrib-apidoc 0.3.0: Sphinx extension for running sphinx-apidoc on each build
 dev-python/sphinxcontrib-applehelp 1.0.2: Sphinx extension which outputs Apple help book
 dev-python/sphinxcontrib-asyncio 0.2.0-r2: sphinx extension to support coroutines in markup
 dev-python/sphinxcontrib-autoprogram 0.1.7: Documenting CLI programs
@@ -9561,6 +9563,7 @@ dev-python/tagpy 2018.1-r2: Python Bindings for TagLib
 dev-python/tappy 3.0: Test Anything Protocol (TAP) tools
 dev-python/tblib 1.7.0: Traceback fiddling library for Python
 dev-python/tekore 3.7.1 4.0.0: Spotify Web API client
+dev-python/tempest 29.0.0: OpenStack Integration Testing
 dev-python/tempita 0.5.3-r3: A very small text templating language
 dev-python/tempora 4.1.1: Objects and routines pertaining to date and time
 dev-python/tenacity 8.0.1: General-purpose retrying library
@@ -13254,7 +13257,7 @@ media-gfx/kcoloredit 2.0.0_p20171121-r1: Tool for editing color palettes
 media-gfx/kgeotag 1.0.0: Photo geotagging program
 media-gfx/kgraphviewer 2.4.3-r1: Graphviz dot graph file viewer
 media-gfx/kphotoalbum 5.8.1: Tool for indexing, searching, and viewing images
-media-gfx/krita 4.4.5-r1 4.4.8: Free digital painting application. Digital Painting, Creative Freedom!
+media-gfx/krita 4.4.5-r1 4.4.8-r1: Free digital painting application. Digital Painting, Creative Freedom!
 media-gfx/kuickshow 0.10.2: Image viewer based on KDE Frameworks
 media-gfx/kxstitch 2.2.0: Program to create cross stitch patterns
 media-gfx/libimagequant 2.12.3 2.14.0 2.15.1: Palette quantization library that powers pngquant and other PNG optimizers
@@ -17913,7 +17916,7 @@ sys-kernel/dracut 053-r1 055-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.3 4.2.4-r1 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.148 5.4.149 5.4.150 5.10.68 5.10.69 5.10.70 5.13.19 5.14.7 5.14.8 5.14.9: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.148 5.4.148-r1 5.4.149 5.4.149-r1 5.4.150 5.10.68 5.10.68-r1 5.10.69 5.10.69-r1 5.10.70 5.13.19 5.13.19-r1 5.14.7 5.14.7-r1 5.14.8 5.14.9: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel-bin 5.4.148 5.4.148-r1 5.4.149 5.4.149-r1 5.4.150 5.10.68 5.10.68-r1 5.10.69 5.10.69-r1 5.10.70 5.13.19 5.13.19-r1 5.14.7 5.14.7-r1 5.14.8 5.14.8-r1 5.14.9: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.282 4.4.283 4.4.284 4.4.285 4.9.281 4.9.282 4.9.283 4.9.284 4.14.245 4.14.246 4.14.247 4.14.248 4.19.205 4.19.206 4.19.207 4.19.208 5.4.143 5.4.145 5.4.147 5.4.148 5.4.149 5.4.150 5.10.61 5.10.66 5.10.67 5.10.68 5.10.69 5.10.70 5.13.16 5.13.18 5.13.19 5.14.3 5.14.5 5.14.6 5.14.7 5.14.8 5.14.9: Full sources including the Gentoo patchset for the 5.14 kernel tree
 sys-kernel/git-sources 5.15_rc1 5.15_rc2 5.15_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
