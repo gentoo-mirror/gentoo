@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
 INHERIT=qt5-build
 IUSE=debug test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 RDEPEND==dev-qt/qtcore-5.15.2*:5= >=sys-apps/dbus-1.4.20
 RESTRICT=test
 SLOT=5/5.15
 SRC_URI=https://invent.kde.org/qt/qt/qtbase/-/archive/a4f9e56975fa6ab4a1f63a9b34a4d77b1cfe4acd/qtbase-a4f9e56975fa6ab4a1f63a9b34a4d77b1cfe4acd.tar.gz -> qtbase-5.15.2-a4f9e569.tar.gz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	virtualx	fa024aa649b6bd544144bf94893d402c	kde.org	f95aaca4085d2d633c2b76abfd72208f	qt5-build	14c97c05b3019e69a8ed198afdf5e82b
-_md5_=28de299def34ddb7c69c939828b0426e
+_md5_=9af07bb5b764584a50c7b79810e97caa

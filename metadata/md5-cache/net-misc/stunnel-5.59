@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.stunnel.org/index.html
 INHERIT=ssl-cert systemd tmpfiles
 IUSE=ipv6 selinux stunnel3 tcpd ssl
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=acct-user/stunnel acct-group/stunnel dev-libs/openssl:0= tcpd? ( sys-apps/tcp-wrappers ) selinux? ( sec-policy/selinux-stunnel ) stunnel3? ( dev-lang/perl ) virtual/tmpfiles
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.stunnel.org/downloads/stunnel-5.59.tar.gz ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.59.tar.gz http://www.usenix.org.uk/mirrors/stunnel/archive/5.x/stunnel-5.59.tar.gz http://ftp.nluug.nl/pub/networking/stunnel/archive/5.x/stunnel-5.59.tar.gz http://www.namesdir.com/mirrors/stunnel/archive/5.x/stunnel-5.59.tar.gz http://stunnel.cybermirror.org/archive/5.x/stunnel-5.59.tar.gz http://mirrors.zerg.biz/stunnel/archive/5.x/stunnel-5.59.tar.gz ftp://mirrors.go-parts.com/stunnel/archive/5.x/stunnel-5.59.tar.gz
 _eclasses_=ssl-cert	1283a22296251a63df6c137c9b929269	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
-_md5_=43e6f3414239c614fbc3ef0e77c8fb55
+_md5_=8b2bdcbdd9c2a81a82c6f6c6275c345f
