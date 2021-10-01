@@ -12,7 +12,7 @@ HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos"
 IUSE="cuda hwloc kernel_linux offload ompt test"
 # CUDA works only with the x86_64 ABI
 REQUIRED_USE="offload? ( cuda? ( abi_x86_64 ) )"
@@ -38,7 +38,7 @@ BDEPEND="dev-lang/perl
 	)"
 
 LLVM_COMPONENTS=( openmp llvm/include )
-LLVM_PATCHSET=13.0.0-rc2
+LLVM_PATCHSET=${PV/_/-}
 llvm.org_set_globals
 
 python_check_deps() {

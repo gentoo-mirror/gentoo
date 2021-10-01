@@ -11,7 +11,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="$(ver_cut 1-3)"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 IUSE="+clang test"
 RESTRICT="!test? ( test ) !clang? ( test )"
 
@@ -29,7 +29,7 @@ BDEPEND="
 	${PYTHON_DEPS}"
 
 LLVM_COMPONENTS=( compiler-rt )
-LLVM_PATCHSET=13.0.0-rc2
+LLVM_PATCHSET=${PV/_/-}
 llvm.org_set_globals
 
 python_check_deps() {
