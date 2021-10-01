@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install prepare test
-DEPEND=~dev-ml/opam-format-2.0.8:= dev-ml/re:= dev-ml/dose3:= dev-ml/opam-file-format:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=<dev-lang/ocaml-4.12 ~dev-ml/opam-format-2.0.8:= dev-ml/re:= dev-ml/dose3:= dev-ml/opam-file-format:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=opam repository libraries
 EAPI=7
 HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=LGPL-2.1
-RDEPEND=~dev-ml/opam-format-2.0.8:= dev-ml/re:= dev-ml/dose3:= dev-ml/opam-file-format:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=<dev-lang/ocaml-4.12 ~dev-ml/opam-format-2.0.8:= dev-ml/re:= dev-ml/dose3:= dev-ml/opam-file-format:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0/2.0.8
 SRC_URI=https://github.com/ocaml/opam/archive/2.0.8.tar.gz -> opam-2.0.8.tar.gz
 _eclasses_=dune	eefe841059d4f6d649fc9a121683e311
-_md5_=b88efcf4100ed5d8d94152d1b13b87b5
+_md5_=301d3671640350b85f9b8bb0c2a475fa
