@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=>=net-libs/nghttp2-1.0 >=www-servers/apache-2.4.48[-apache2_modules_http2,ssl?] =www-servers/apache-2.4*
+DESCRIPTION=HTTP/2 module for Apache
+EAPI=7
+HOMEPAGE=https://github.com/icing/mod_h2
+INHERIT=apache-module autotools
+IUSE=ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=net-libs/nghttp2-1.0 >=www-servers/apache-2.4.48[-apache2_modules_http2,ssl?] =www-servers/apache-2.4*
+SLOT=0
+SRC_URI=https://github.com/icing/mod_h2/archive/v2.0.0-rc4.tar.gz -> mod_h2-2.0.0-rc4.tar.gz
+_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
+_md5_=b0bfa705066fbbaf36d40fbe980a1c1c
