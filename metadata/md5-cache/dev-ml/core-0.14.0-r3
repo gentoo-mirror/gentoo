@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/base:= dev-ml/core_kernel:= dev-ml/jst-config:= dev-ml/ppx_jane:= dev-ml/sexplib:= dev-ml/spawn:= dev-ml/stdio:= dev-ml/timezone:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=<dev-lang/ocaml-4.12 dev-ml/base:= dev-ml/core_kernel:= dev-ml/jst-config:= dev-ml/ppx_jane:= dev-ml/sexplib:= dev-ml/spawn:= dev-ml/stdio:= dev-ml/timezone:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Jane Street's alternative to the standard library
 EAPI=7
 HOMEPAGE=https://github.com/janestreet/core
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=MIT
-RDEPEND=dev-ml/base:= dev-ml/core_kernel:= dev-ml/jst-config:= dev-ml/ppx_jane:= dev-ml/sexplib:= dev-ml/spawn:= dev-ml/stdio:= dev-ml/timezone:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=<dev-lang/ocaml-4.12 dev-ml/base:= dev-ml/core_kernel:= dev-ml/jst-config:= dev-ml/ppx_jane:= dev-ml/sexplib:= dev-ml/spawn:= dev-ml/stdio:= dev-ml/timezone:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/core/archive/v0.14.0.tar.gz -> core-0.14.0.tar.gz
 _eclasses_=dune	eefe841059d4f6d649fc9a121683e311
-_md5_=2e0ab8acde9a464b624508e79902d39a
+_md5_=3d54637cd0895fea6c71f8af200dce93
