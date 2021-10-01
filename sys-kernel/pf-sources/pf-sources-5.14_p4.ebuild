@@ -27,7 +27,7 @@ SHPV="${PV/_p*/}"
 
 # https://gitlab.com/alfredchen/projectc/ revision for a major version, i.e.
 # 5.14-r2 = 2
-PRJC_R=2
+PRJC_R=3
 
 inherit kernel-2 optfeature
 detect_version
