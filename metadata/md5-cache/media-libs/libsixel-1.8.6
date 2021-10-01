@@ -1,14 +1,16 @@
-DEFINED_PHASES=configure install test
-DEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 ) virtual/pkgconfig
+BDEPEND=virtual/pkgconfig python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=A lightweight, fast implementation of DEC SIXEL graphics codec
 EAPI=7
 HOMEPAGE=https://github.com/saitoha/libsixel
-INHERIT=bash-completion-r1
-IUSE=curl gd gtk jpeg png static-libs
+INHERIT=bash-completion-r1 distutils-r1
+IUSE=curl gd gtk jpeg png python static-libs python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 ~ia64 x86
 LICENSE=MIT public-domain
-RDEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 )
+RDEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
 SLOT=0
 SRC_URI=https://github.com/saitoha/libsixel/archive/v1.8.6.tar.gz -> libsixel-1.8.6.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	bash-completion-r1	d3a60385655d9b402be765a6de333245
-_md5_=489bd39f50204a00b72835fb390ea0e6
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
+_md5_=00e5e51ea26099414f859d71b8f34052
