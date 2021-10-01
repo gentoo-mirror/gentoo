@@ -18,6 +18,7 @@ IUSE="+ocamlopt"
 RESTRICT="test"
 
 RDEPEND="
+	<dev-lang/ocaml-4.12
 	dev-ml/base:=
 	dev-ml/core_kernel:=
 	dev-ml/jst-config:=
