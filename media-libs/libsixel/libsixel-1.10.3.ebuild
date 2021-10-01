@@ -1,20 +1,21 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 PYTHON_COMPAT=( python3_{7..10} )
 DISTUTILS_OPTIONAL="1"
 
-inherit bash-completion-r1 distutils-r1
+inherit bash-completion-r1 distutils-r1 meson
 
 DESCRIPTION="A lightweight, fast implementation of DEC SIXEL graphics codec"
-HOMEPAGE="https://github.com/saitoha/libsixel"
-SRC_URI="https://github.com/saitoha/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/libsixel/libsixel"
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT public-domain"
 SLOT="0"
-KEYWORDS="amd64 ~ia64 x86"
-IUSE="curl gd gtk jpeg png python static-libs"
+KEYWORDS="~amd64 ~ia64 ~x86"
+IUSE="curl gd gtk jpeg png python test"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="curl? ( net-misc/curl )
@@ -24,11 +25,12 @@ RDEPEND="curl? ( net-misc/curl )
 	png? ( media-libs/libpng:0 )
 	python? ( ${PYTHON_DEPS} )"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
-	python? (
+BDEPEND="python? (
 		${PYTHON_DEPS}
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	)"
+
+PATCHES=( "${FILESDIR}"/${PN}-meson.patch )
 
 src_prepare() {
 	default
@@ -40,15 +42,16 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		$(use_with curl libcurl) \
-		$(use_with gd) \
-		$(use_with gtk gdk-pixbuf2) \
-		$(use_with jpeg) \
-		$(use_with png) \
-		$(use_enable static-libs static) \
-		--with-bashcompletiondir=$(get_bashcompdir) \
-		--disable-python
+	emesonargs=(
+		$(meson_feature curl libcurl)
+		$(meson_feature gd)
+		$(meson_feature gtk gdk-pixbuf2)
+		$(meson_feature jpeg)
+		$(meson_feature png)
+		$(meson_feature test tests)
+		-Dbashcompletiondir="$(get_bashcompdir)"
+	)
+	meson_src_configure
 	if use python; then
 		cd python || die
 		distutils-r1_src_configure
@@ -57,7 +60,7 @@ src_configure() {
 }
 
 src_compile() {
-	default
+	meson_src_compile
 	if use python; then
 		cd python || die
 		distutils-r1_src_compile
@@ -65,13 +68,8 @@ src_compile() {
 	fi
 }
 
-src_test() {
-	emake test
-}
-
 src_install() {
-	default
-	use static-libs || find "${ED}" -name '*.la' -delete || die
+	meson_src_install
 
 	cd images || die
 	docompress -x /usr/share/doc/${PF}/images
