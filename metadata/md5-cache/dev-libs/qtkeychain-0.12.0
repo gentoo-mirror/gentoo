@@ -1,0 +1,15 @@
+BDEPEND=dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 gnome-keyring? ( app-crypt/libsecret dev-libs/glib:2 )
+DESCRIPTION=Qt API for storing passwords securely
+EAPI=8
+HOMEPAGE=https://github.com/frankosterfeld/qtkeychain
+INHERIT=cmake
+IUSE=gnome-keyring
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=BSD-2
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 gnome-keyring? ( app-crypt/libsecret dev-libs/glib:2 )
+SLOT=0/1
+SRC_URI=https://github.com/frankosterfeld/qtkeychain/archive/v0.12.0.tar.gz -> qtkeychain-0.12.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=318845e64ee0063d8e1163b836d14ee3
