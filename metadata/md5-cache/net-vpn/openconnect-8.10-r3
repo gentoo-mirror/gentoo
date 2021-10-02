@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.9[xml] dev-lang/python:3.8[xml] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-libs/socket_wrapper net-vpn/ocserv sys-libs/uid_wrapper )
+BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.10[xml] dev-lang/python:3.9[xml] dev-lang/python:3.8[xml] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-libs/socket_wrapper net-vpn/ocserv sys-libs/uid_wrapper )
 DEFINED_PHASES=configure install postinst prepare pretend setup test unpack
 DEPEND=dev-libs/libxml2 sys-libs/zlib !gnutls? ( >=dev-libs/openssl-1.0.1h:0= ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken )
 DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
@@ -8,9 +8,9 @@ INHERIT=linux-info python-any-r1
 IUSE=doc +gnutls gssapi libproxy lz4 nls smartcard stoken test kernel_linux
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1 GPL-2
-RDEPEND=dev-libs/libxml2 sys-libs/zlib !gnutls? ( >=dev-libs/openssl-1.0.1h:0= ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2
+RDEPEND=dev-libs/libxml2 sys-libs/zlib !gnutls? ( >=dev-libs/openssl-1.0.1h:0= ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2 net-vpn/vpnc-scripts
 RESTRICT=!test? ( test )
 SLOT=0/5
-SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.10.tar.gz ftp://ftp.infradead.org/pub/vpnc-scripts/vpnc-scripts-20200930.tar.gz
+SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.10.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	0979a3f84b9948fbe2a553beb6b5f505	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=07aee3b182035b634e1a497ca819508d
+_md5_=e4191867fdf51947f35ad3cc1e6c1d39
