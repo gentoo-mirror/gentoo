@@ -1,17 +1,16 @@
-BDEPEND=>=dev-util/intltool-0.50 dev-util/itstool >=dev-util/gtk-doc-am-1.12 sys-devel/gettext virtual/pkgconfig test? ( app-text/docbook-xml-dtd:4.3 ) app-text/yelp-tools gnome-base/gnome-common sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 app-arch/xz-utils
+BDEPEND=>=dev-util/intltool-0.50 dev-util/itstool >=dev-util/gtk-doc-am-1.12 sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=>=dev-libs/glib-2.29.14:2 >=x11-libs/gtk+-3:3[introspection?] media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 >=dev-libs/libxml2-2.6:2 >=x11-libs/libnotify-0.6.1:= media-libs/libcanberra[gtk3] x11-libs/libICE x11-libs/libSM introspection? ( >=dev-libs/gobject-introspection-1.30:= ) libburn? ( >=dev-libs/libburn-0.4:= >=dev-libs/libisofs-0.6.4:= ) nautilus? ( >=gnome-base/nautilus-2.91.90 ) playlist? ( >=dev-libs/totem-pl-parser-2.29.1:= ) tracker? ( app-misc/tracker:3= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=CD/DVD burning application for the GNOME desktop
 EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Apps/Brasero
 INHERIT=gnome2
-IUSE=+css +introspection +libburn mp3 nautilus playlist test tracker
+IUSE=+css +introspection +libburn mp3 nautilus playlist tracker
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2+ CC-BY-SA-3.0
 PDEPEND=gnome-base/gvfs
 RDEPEND=>=dev-libs/glib-2.29.14:2 >=x11-libs/gtk+-3:3[introspection?] media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 >=dev-libs/libxml2-2.6:2 >=x11-libs/libnotify-0.6.1:= media-libs/libcanberra[gtk3] x11-libs/libICE x11-libs/libSM introspection? ( >=dev-libs/gobject-introspection-1.30:= ) libburn? ( >=dev-libs/libburn-0.4:= >=dev-libs/libisofs-0.6.4:= ) nautilus? ( >=gnome-base/nautilus-2.91.90 ) playlist? ( >=dev-libs/totem-pl-parser-2.29.1:= ) tracker? ( app-misc/tracker:3= ) media-libs/gst-plugins-good:1.0 media-plugins/gst-plugins-meta:1.0[mp3?] x11-themes/hicolor-icon-theme css? ( media-libs/libdvdcss:1.2 ) !libburn? ( app-cdr/cdrdao app-cdr/cdrtools app-cdr/dvd+rw-tools )
-RESTRICT=!test? ( test )
 SLOT=0/3.1
 SRC_URI=mirror://gnome/sources/brasero/3.12/brasero-3.12.3.tar.xz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	355c758ccc0d6df60d43a066640e642c	xdg	6024fbc93167fad782e2032933654857	gnome2	fef543fb9014c61e207d8b3fb27b4793
-_md5_=3eaa6843a045ff130443ceacd5f4559f
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	355c758ccc0d6df60d43a066640e642c	xdg	6024fbc93167fad782e2032933654857	gnome2	fef543fb9014c61e207d8b3fb27b4793
+_md5_=0884554100250c5846829607a31334cd
