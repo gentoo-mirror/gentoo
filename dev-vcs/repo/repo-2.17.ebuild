@@ -12,7 +12,7 @@ PYTHON_COMPAT=( python3_{7..9} )
 inherit bash-completion-r1 python-r1
 
 # This file rarely changes, so track it independently.
-COMP_VER="511a0e54f5801a3f36c00fac478a596d83867d10"
+COMP_VER="v2.17"
 COMP_NAME="${PN}-${COMP_VER}-bash-completion.sh.base64"
 
 DESCRIPTION="Google tool for managing git, particularly multiple repos"
@@ -22,7 +22,7 @@ SRC_URI="https://storage.googleapis.com/git-repo-downloads/${P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
