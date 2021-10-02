@@ -1,7 +1,8 @@
+BDEPEND=dev-perl/Class-MakeMethods test? ( dev-perl/MP3-Info ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Class-MakeMethods test? ( dev-perl/MP3-Info ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Perl extension for getting video info
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Video-Info
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=dev-perl/Class-MakeMethods dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AL/ALLENDAY/Video-Info-0.993.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=9ba3c5a3b41c0c4d0793cdab2b6c024a
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=2bd91cdefb4d0752154766eefef6b859
