@@ -1,12 +1,12 @@
 BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] !!dev-ruby/psych[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=test? ( >=media-gfx/imagemagick-7.1.0:=[jpeg,lqr,tiff,webp] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DEPEND=test? ( >=media-gfx/imagemagick-7.1.0:=[jpeg,lqr,lcms,tiff,webp] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
 DESCRIPTION=An interface between Ruby and the ImageMagick(TM) image processing library
 EAPI=7
 HOMEPAGE=https://github.com/rmagick/rmagick
 INHERIT=multilib ruby-fakegem
 IUSE=doc ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 test test
-KEYWORDS=amd64 ~hppa ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~hppa ppc ppc64 x86
 LICENSE=Artistic
 RDEPEND=>=media-gfx/imagemagick-6.9.0:= ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=4
 SRC_URI=https://github.com/rmagick/rmagick/archive/RMagick_4-2-2.tar.gz -> rmagick-4.2.2.tar.gz
 _eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
-_md5_=8947cdc1c687d5a889faa179ecf51bf3
+_md5_=e7168daceb065a93b22f236e97a8f6e5
