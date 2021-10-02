@@ -895,7 +895,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.28 1.20.40 1.20.41 1.20.42 1.20.43 1.20.44 1.20.45 1.20.46 1.20.47 1.20.48 1.20.49 1.20.50 1.20.51 1.20.52: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.28 1.20.40 1.20.47 1.20.53: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.27.1 1.28.2: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8220,7 +8220,7 @@ dev-python/APScheduler 3.6.3: In-process task scheduler with Cron-like capabilit
 dev-python/Babel 2.9.1: Collection of tools for internationalizing Python applications
 dev-python/BitVector 3.5.0: A pure-Python memory-efficient packed representation for bit arrays
 dev-python/CppHeaderParser 2.7.4: Parse C++ header files and generate a data structure
-dev-python/Faker 8.12.0 8.12.1 8.13.2 8.14.0: A Python package that generates fake data for you
+dev-python/Faker 8.12.0 8.12.1 8.13.2 8.14.0 8.14.1: A Python package that generates fake data for you
 dev-python/GitPython 3.1.20 3.1.24: Library used to interact with Git repositories
 dev-python/GridDataFormats 0.5.0: Reading and writing of data on regular grids in Python
 dev-python/MechanicalSoup 1.0.0 1.1.0: A python library for automating interaction with websites
@@ -8342,8 +8342,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.28 1.18.40 1.18.41 1.18.42 1.18.43 1.18.44 1.18.45 1.18.46 1.18.47 1.18.48 1.18.49 1.18.50 1.18.51 1.18.52 9999: The AWS SDK for Python
-dev-python/botocore 1.21.28 1.21.40 1.21.41 1.21.42 1.21.43 1.21.44 1.21.45 1.21.46 1.21.47 1.21.48 1.21.49 1.21.50 1.21.51 1.21.52 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.28 1.18.40 1.18.47 1.18.53 9999: The AWS SDK for Python
+dev-python/botocore 1.21.28 1.21.40 1.21.47 1.21.53 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8601,7 +8601,7 @@ dev-python/freezegun 1.1.0-r1: Let your Python tests travel through time
 dev-python/fritzconnection 1.5.0 1.6.0 1.7.0: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
 dev-python/frozen-flask 0.18: Freezes a Flask application into a set of static files
 dev-python/fs 2.4.13: Filesystem abstraction layer
-dev-python/fsspec 2021.07.0 2021.08.1 2021.09.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2021.07.0 2021.08.1 2021.09.0 2021.10.0: A specification that python filesystems should adhere to
 dev-python/fudge 1.1.1: Replace real objects with fakes (mocks, stubs, etc) while testing
 dev-python/funcparserlib 0.3.6-r1 0.3.6_p20210809: Recursive descent parsing library based on functional combinators
 dev-python/funcy 1.16: A collection of fancy functional tools focused on practicality
@@ -8673,7 +8673,7 @@ dev-python/hyperframe 5.2.0 6.0.1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0: A featureful, correct URL for Python
 dev-python/hypothesis 6.17.4 6.21.6 6.22.0 6.23.0 6.23.1: A library for property based testing
 dev-python/icalendar 4.0.7: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.2.13 2.2.14 2.2.15: File identification library for Python
+dev-python/identify 2.2.13 2.2.14 2.2.15 2.3.0: File identification library for Python
 dev-python/idna 3.2: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.1.7: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
@@ -9080,7 +9080,7 @@ dev-python/pycurl 7.43.0.6 7.44.0 7.44.1: python binding for curl/libcurl
 dev-python/pycurl-requests 0.2.0 0.2.1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.5: Set of facilities to extend Python with C++
 dev-python/pydantic 1.8.2 1.8.2_p20210719: Data parsing and validation using Python type hints
-dev-python/pydata-sphinx-theme 0.6.3: Bootstrap-based Sphinx theme from the PyData community
+dev-python/pydata-sphinx-theme 0.6.3 0.7.0: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pydecomp 0.3-r1 9999: A python library of common (de)compression and contents handling
 dev-python/pydevd 2.5.0-r1: PyDev.Debugger (used in PyDev, PyCharm and VSCode Python)
@@ -9332,7 +9332,7 @@ dev-python/pytidylib 0.3.2-r1: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8: A small Python module to parse various kinds of time expressions.
 dev-python/pytools 2021.2.8 9999: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0: A pure Python implementation of the trie data structure
-dev-python/pytz 2021.1: World timezone definitions for Python
+dev-python/pytz 2021.1 2021.3: World timezone definitions for Python
 dev-python/pytzdata 2020.1-r1: The Olson timezone database for Python
 dev-python/pyu2f 0.1.4-r1: Python based U2F host library
 dev-python/pyudev 0.22.0: Python binding to libudev
@@ -9350,7 +9350,7 @@ dev-python/pyzbar 0.1.8: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 22.1.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
 dev-python/pyzotero 1.4.25: A Python client for the Zotero API
 dev-python/qdarkstyle 2.8.1 3.0.2: A dark style sheet for QtWidgets application
-dev-python/qrcode 7.3: QR Code generator on top of PIL
+dev-python/qrcode 7.3 7.3.1: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.11.6 2.13.0: Python bindings for QScintilla
 dev-python/qstylizer 0.1.10 0.2.0 0.2.1: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.0.3: Enables iconic fonts such as Font Awesome in PyQt
@@ -9541,7 +9541,7 @@ dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4 9999: Small convenience library for fetching files securely
 dev-python/stapler 1.0.0_p20200531-r2: Suite of tools for PDF files manipulation written in Python
 dev-python/statsd 3.3.0: A simple statsd client
-dev-python/statsmodels 0.12.2-r1: Statistical computations and models for use with SciPy
+dev-python/statsmodels 0.12.2-r1 0.13.0: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/stestr 2.1.0-r1 3.2.0 3.2.1: A parallel Python test runner built around subunit
 dev-python/stevedore 3.4.0: Manage dynamic plugins for Python applications
@@ -9582,7 +9582,7 @@ dev-python/texttable 1.6.4: Module for creating simple ASCII tables
 dev-python/textx 1.4: Meta-language for DSL implementation inspired by Xtext
 dev-python/theano 1.0.5-r1: Define and optimize multi-dimensional arrays mathematical expressions
 dev-python/theano-pymc 1.1.2-r1: Library for operating on mathematical expressions with multi-dimensional arrays
-dev-python/threadpoolctl 2.2.0: Limit the number of threads used in native libs that have their own threadpool
+dev-python/threadpoolctl 2.2.0 3.0.0: Limit the number of threads used in native libs that have their own threadpool
 dev-python/three-merge 0.1.1: Simple Python library to perform a 3-way merge between strings
 dev-python/thrift 0.14.1: Python implementation of Thrift
 dev-python/thriftpy2 0.4.14: Pure python approach of Apache Thrift
@@ -9625,7 +9625,7 @@ dev-python/typogrify 2.0.7: Filters for web typography, supporting Django & Jinj
 dev-python/tzlocal 2.1 3.0: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.7.1: A portable, lightweight MessagePack serializer and deserializer
 dev-python/ubelt 0.9.5 0.10.0 0.10.1: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
-dev-python/ujson 4.0.2 4.1.0 4.2.0: Ultra fast JSON encoder and decoder for Python
+dev-python/ujson 4.1.0 4.2.0: Ultra fast JSON encoder and decoder for Python
 dev-python/uncertainties 3.1.4-r1 3.1.6: Python module for calculations with uncertainties
 dev-python/unicodecsv 0.14.1-r1: Drop-in replacement for python stdlib csv module supporting unicode
 dev-python/unidecode 1.2.0 1.3.0: Module providing ASCII transliterations of Unicode text
@@ -18864,7 +18864,7 @@ x11-misc/qarma 1: Zenity Clone for Qt5
 x11-misc/qcomicbook 0.9.1: Viewer for comic book archives containing jpeg/png images
 x11-misc/qlipper 5.1.2: Lightweight and cross-platform clipboard history applet
 x11-misc/qps 2.3.0: Qt GUI Process Manager
-x11-misc/qt5ct 1.3: Qt5 configuration tool, similar to qtconfig for Qt4
+x11-misc/qt5ct 1.3 1.5: Qt5 configuration tool, similar to qtconfig for Qt4
 x11-misc/qterm 0.7.3: A BBS client based on Qt
 x11-misc/qtfm 6.2.0 99999: Small, lightweight file manager based on pure Qt
 x11-misc/quitcount 3.1.3: A simple applet that shows what you saved since you quit smoking.
@@ -19455,4 +19455,4 @@ xfce-extra/xfce4-wavelan-plugin 0.6.2: A panel plug-in to display wireless inter
 xfce-extra/xfce4-weather-plugin 0.11.0-r1: A weather plug-in for the Xfce desktop environment
 xfce-extra/xfce4-whiskermenu-plugin 2.5.3 2.6.0: Alternate application launcher for Xfce
 xfce-extra/xfce4-xkb-plugin 0.8.2: XKB layout switching panel plug-in for the Xfce desktop environment
-xfce-extra/xfdashboard 0.9.3 0.9.4: Maybe a GNOME shell like dashboard for the Xfce desktop environment
+xfce-extra/xfdashboard 0.9.3 0.9.4 0.9.5: Maybe a GNOME shell like dashboard for the Xfce desktop environment
