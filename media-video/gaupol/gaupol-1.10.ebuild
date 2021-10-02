@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_SETUPTOOLS=no
 
 inherit distutils-r1 virtualx xdg-utils
@@ -14,9 +14,8 @@ SRC_URI="https://github.com/otsaloma/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
-IUSE="spell test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="spell"
 
 RDEPEND="
 	app-text/iso-codes
@@ -28,17 +27,15 @@ RDEPEND="
 BDEPEND="
 	sys-devel/gettext
 	test? (
-		${RDEPEND}
 		app-dicts/myspell-en
 		app-text/enchant[hunspell]
 		app-text/gspell[introspection]
-		dev-python/pytest[${PYTHON_USEDEP}]
 	)
 "
 
-DOCS=( AUTHORS.md NEWS.md TODO.md README.md README.aeidon.md )
+distutils_enable_tests pytest
 
-PATCHES=( "${FILESDIR}/${P}-fix-audio-tracks-order.patch" )
+DOCS=( AUTHORS.md NEWS.md TODO.md README.md README.aeidon.md )
 
 python_test() {
 	virtx pytest -vv
