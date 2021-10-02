@@ -1,0 +1,16 @@
+BDEPEND=>=virtual/perl-Unicode-Normalize-1 >=dev-perl/Module-Build-0.420.0 test? ( virtual/perl-Test-Simple dev-perl/Test-NoWarnings ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Preparation of Internationalized Strings (RFC 3454)
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Unicode-Stringprep
+INHERIT=perl-module
+IUSE=test examples
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=virtual/perl-Unicode-Normalize-1 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/C/CF/CFAERBER/Unicode-Stringprep-1.105.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=5ed7bb76ed8bbb702b24a77faca859bc
