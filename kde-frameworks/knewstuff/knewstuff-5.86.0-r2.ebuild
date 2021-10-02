@@ -40,7 +40,10 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-crash-in-DownloadWidget.patch" ) # KDE-bug 443025
+PATCHES=(
+	"${FILESDIR}/${P}-fix-crash-in-DownloadWidget.patch" # KDE-bug 443025
+	"${FILESDIR}/${P}-include-user-agent-on-KNS-requests.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
