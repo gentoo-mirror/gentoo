@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -13,28 +13,26 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples"
 
+DEPEND="
+	>=dev-python/numpy-1.17[${PYTHON_USEDEP}]
+	>=dev-python/scipy-1.3[${PYTHON_USEDEP}]"
 RDEPEND="
-	>=dev-python/numpy-1.15[${PYTHON_USEDEP}]
-	>=dev-python/pandas-0.23.0[${PYTHON_USEDEP}]
-	dev-python/patsy[${PYTHON_USEDEP}]
-	>=dev-python/scipy-1.1[${PYTHON_USEDEP}]
+	${DEPEND}
+	>=dev-python/numpy-1.17[${PYTHON_USEDEP}]
+	>=dev-python/pandas-0.25[${PYTHON_USEDEP}]
+	>=dev-python/patsy-0.5.2[${PYTHON_USEDEP}]
+	>=dev-python/scipy-1.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	${DEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]
-	>=dev-python/numpy-1.15[${PYTHON_USEDEP}]
-	>=dev-python/scipy-1.1[${PYTHON_USEDEP}]
 	test? (
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}/statsmodels-0.11.1-tests.patch"
-	"${FILESDIR}/${P}-new-pandas-scipy.patch"
-)
 
 distutils_enable_sphinx docs \
 	'dev-python/ipykernel' \
