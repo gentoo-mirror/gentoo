@@ -5,7 +5,7 @@ DESCRIPTION=Provides support for internationalization of OCaml program
 EAPI=7
 HOMEPAGE=https://github.com/gildor478/ocaml-gettext
 INHERIT=autotools findlib
-IUSE=doc test ocamlopt
+IUSE=doc +ocamlopt test ocamlopt
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1-with-linking-exception
 RDEPEND=>=dev-lang/ocaml-3.12.1:= <dev-lang/ocaml-4.10.0:= >=dev-ml/ocaml-fileutils-0.4.0:= >=dev-ml/camomile-0.8.3:= sys-devel/gettext dev-ml/camlp4:= !dev-ml/ocaml-gettext-stub dev-lang/ocaml:=[ocamlopt?]
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.3.7
 SRC_URI=https://github.com/gildor478/ocaml-gettext/archive/0.3.7.tar.gz -> ocaml-gettext-0.3.7.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	findlib	1470b3b78030acb2c8fcd04414f4c611
-_md5_=c113fe60ae20a5a4ebf3004d029a853e
+_md5_=7a3b338614e50907dfe971669b9bebc1
