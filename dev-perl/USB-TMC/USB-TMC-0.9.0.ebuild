@@ -1,18 +1,15 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-DIST_VERSION=0.006
+DIST_VERSION=0.009
 DIST_AUTHOR=AMBA
-KEYWORDS="~amd64 ~x86"
 inherit perl-module
 
+KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Perl interface to the USB Test & Measurement (USBTMC) backend"
-
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	virtual/perl-Carp
@@ -21,10 +18,9 @@ RDEPEND="
 	dev-perl/MooseX-Params-Validate
 	dev-perl/USB-LibUSB
 "
-DEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? (
 		virtual/perl-Test-Simple
 	)
 "
-PATCHES=("${FILESDIR}/${PN}-0.006-nopodtest.patch")
