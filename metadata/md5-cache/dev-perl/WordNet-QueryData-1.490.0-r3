@@ -1,13 +1,16 @@
+BDEPEND=app-dicts/wordnet dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=app-dicts/wordnet dev-lang/perl
 DESCRIPTION=Direct perl interface to WordNet database
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/WordNet-QueryData
 INHERIT=perl-module
+IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=app-dicts/wordnet dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JR/JRENNIE/WordNet-QueryData-1.49.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=e955d781993d6fef8670e93f81014729
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=f778b2791256af0389cc6587a07af7ac

@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Data-Dumper dev-perl/HTTP-Message dev-perl/libwww-perl virtual/perl-Locale-Maketext virtual/perl-Storable dev-perl/Test-MockObject >=dev-perl/Time-Format-1.0.0 virtual/perl-Time-Local dev-perl/URI dev-perl/XML-Simple virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=fetching weather information from weather.com
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Weather-Com
+INHERIT=perl-module
+IUSE=test examples
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Data-Dumper dev-perl/HTTP-Message dev-perl/libwww-perl virtual/perl-Locale-Maketext virtual/perl-Storable dev-perl/Test-MockObject >=dev-perl/Time-Format-1.0.0 virtual/perl-Time-Local dev-perl/URI dev-perl/XML-Simple dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/B/BO/BOBERNST/Weather-Com-2.0.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=2d7e98dd1b220a5ee314d8f8bdbcd0a7

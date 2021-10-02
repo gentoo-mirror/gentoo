@@ -1,13 +1,16 @@
+BDEPEND=net-misc/curl dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=net-misc/curl dev-lang/perl
 DESCRIPTION=Perl extension interface for libcurl
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/WWW-Curl
 INHERIT=perl-module
+IUSE=test
 KEYWORDS=amd64 ppc ~ppc64 x86
 LICENSE=|| ( MPL-1.0 MPL-1.1 MIT )
 RDEPEND=net-misc/curl dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/S/SZ/SZBALINT/WWW-Curl-4.17.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=e15695f4f9f531ca51bc394dcd0b6783
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=dc24cbe5914ac95466425b3e81db4d47
