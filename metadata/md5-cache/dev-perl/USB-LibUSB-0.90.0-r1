@@ -1,0 +1,16 @@
+BDEPEND=virtual/libusb:1 virtual/perl-Carp virtual/perl-Exporter dev-perl/Moo virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Perl interface to the libusb-1.0 API
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/USB-LibUSB
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/libusb:1 virtual/perl-Carp virtual/perl-Exporter dev-perl/Moo virtual/perl-XSLoader dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/A/AM/AMBA/USB-LibUSB-0.09.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=993c0bc79b2827b16611e32d6cf7ab1f
