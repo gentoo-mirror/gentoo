@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 DESCRIPTION="Collection of Gentoo eclass manpages"
 HOMEPAGE="https://github.com/mgorny/eclass-to-manpage"
@@ -13,7 +13,8 @@ SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
 
 BDEPEND="app-arch/xz-utils
-	sys-apps/gawk"
+	sys-apps/gawk
+	sys-apps/groff"
 
 src_install() {
 	emake install DESTDIR="${D}" PREFIX="${EPREFIX}/usr"
