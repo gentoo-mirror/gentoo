@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby26? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/rake[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby26? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby26(-)] >=dev-ruby/rake-0.8.1[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby27(-)] >=dev-ruby/rake-0.8.1[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby30(-)] >=dev-ruby/rake-0.8.1[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=>=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+DESCRIPTION=Passenger makes deployment of Ruby on Rails applications a breeze
+EAPI=7
+HOMEPAGE=https://www.phusionpassenger.com/
+INHERIT=apache-module flag-o-matic multilib ruby-ng toolchain-funcs
+IUSE=apache2 debug test apache2 ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby26(-)] >=dev-ruby/rake-0.8.1[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby27(-)] >=dev-ruby/rake-0.8.1[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby30(-)] >=dev-ruby/rake-0.8.1[ruby_targets_ruby30(-)] ) >=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://s3.amazonaws.com/phusion-passenger/releases/passenger-6.0.11.tar.gz
+_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6
+_md5_=634cd8c8c99b28581eb673654af2c280
