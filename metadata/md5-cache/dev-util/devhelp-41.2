@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-libs/libxml2:2 dev-util/glib-utils dev-util/itstool gtk-doc? ( >=dev-util/gi-docgen-2021.6 ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=>=dev-libs/glib-2.64:2 >=x11-libs/gtk+-3.22:3[introspection?] >=net-libs/webkit-gtk-2.26:4[introspection?] gnome-base/gsettings-desktop-schemas introspection? ( >=dev-libs/gobject-introspection-1.54:= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=An API documentation browser for GNOME
+EAPI=7
+HOMEPAGE=https://wiki.gnome.org/Apps/Devhelp
+INHERIT=gnome.org gnome2-utils meson python-single-r1 xdg
+IUSE=+gedit gtk-doc +introspection python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~arm ~ppc64 ~sparc ~x86
+LICENSE=GPL-3+ CC-BY-SA-4.0
+RDEPEND=>=dev-libs/glib-2.64:2 >=x11-libs/gtk+-3.22:3[introspection?] >=net-libs/webkit-gtk-2.26:4[introspection?] gnome-base/gsettings-desktop-schemas introspection? ( >=dev-libs/gobject-introspection-1.54:= ) gedit? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( app-editors/gedit[introspection(+),python,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( app-editors/gedit[introspection(+),python,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] dev-python/pygobject:3[python_targets_python3_9(-)] ) )
+REQUIRED_USE=gedit? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ) gtk-doc? ( introspection )
+SLOT=0/3-6
+SRC_URI=mirror://gnome/sources/devhelp/41/devhelp-41.2.tar.xz
+_eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	355c758ccc0d6df60d43a066640e642c	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg	6024fbc93167fad782e2032933654857
+_md5_=b5367b1118e7484ed1bbd80708df5e36
