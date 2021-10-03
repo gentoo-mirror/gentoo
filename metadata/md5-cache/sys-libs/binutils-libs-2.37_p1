@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://sourceware.org/binutils/
 INHERIT=libtool toolchain-funcs multilib-minimal
 IUSE=64-bit-bfd cet multitarget nls static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=|| ( GPL-3 LGPL-3 )
 RDEPEND=sys-libs/zlib[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-devel/binutils-config-5
 SLOT=0/2.37
 SRC_URI=mirror://gnu/binutils/binutils-2.37_p1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.37_p1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.37_p1-patches-0.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091
-_md5_=92caf83949896aa21519f6119768b69b
+_md5_=e1c0e95da6ad4201c8da5f0ebfed7cbb
