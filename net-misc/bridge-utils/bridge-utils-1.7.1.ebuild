@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 inherit autotools linux-info toolchain-funcs
 
@@ -48,7 +48,8 @@ src_configure() {
 
 src_install() {
 	emake install DESTDIR="${D}"
-	dodoc AUTHORS ChangeLog README THANKS TODO \
+	dodoc AUTHORS ChangeLog README THANKS \
 		doc/{FAQ,FIREWALL,HOWTO,PROJECTS,RPM-GPG-KEY,SMPNOTES,WISHLIST}
-	[ -f "${ED%/}"/sbin/brctl ] || die "upstream makefile failed to install binary"
+
+	[ -f "${ED}"/sbin/brctl ] || die "upstream makefile failed to install binary"
 }
