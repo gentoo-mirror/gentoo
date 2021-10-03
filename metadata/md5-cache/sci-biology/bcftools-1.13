@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+DEFINED_PHASES=configure prepare setup
+DEPEND=dev-lang/perl python_single_target_python3_8? ( dev-python/matplotlib[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/matplotlib[python_targets_python3_10(-)] ) =sci-libs/htslib-1.13*:= sys-libs/zlib python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+DESCRIPTION=Utilities for variant calling and manipulating VCF and BCF files
+EAPI=8
+HOMEPAGE=http://www.htslib.org
+INHERIT=python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-lang/perl python_single_target_python3_8? ( dev-python/matplotlib[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/matplotlib[python_targets_python3_10(-)] ) =sci-libs/htslib-1.13*:= sys-libs/zlib python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0
+SRC_URI=https://github.com/samtools/bcftools/releases/download/1.13/bcftools-1.13.tar.bz2
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_md5_=a7d6aa14a25dfbfd5fa4547dea06070c
