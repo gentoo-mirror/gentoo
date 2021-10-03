@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
 INHERIT=autotools check-reqs flag-o-matic llvm multiprocessing prefix python-any-r1 toolchain-funcs
 IUSE=clang cpu_flags_arm_neon debug +jit lto test
-KEYWORDS=amd64 arm ~arm64 ~mips ~ppc64 ~riscv ~s390 x86
+KEYWORDS=amd64 arm arm64 ~mips ~ppc64 ~riscv ~s390 x86
 LICENSE=MPL-2.0
 RDEPEND=>=dev-libs/icu-67.1:= >=dev-libs/nspr-4.25 sys-libs/readline:0= >=sys-libs/zlib-1.2.3
 RESTRICT=!test? ( test )
 SLOT=78
 SRC_URI=https://archive.mozilla.org/pub/firefox/releases/78.14.0esr/source/firefox-78.14.0esr.source.tar.xz -> firefox-78.14.0esr.source.tar.xz https://dev.gentoo.org/~whissi/mozilla/patchsets/firefox-78esr-patches-17.tar.xz https://dev.gentoo.org/~polynomial-c/mozilla/patchsets/firefox-78esr-patches-17.tar.xz https://dev.gentoo.org/~axs/mozilla/patchsets/firefox-78esr-patches-17.tar.xz https://dev.gentoo.org/~whissi/mozilla/patchsets/spidermonkey-78-patches-04.tar.xz https://dev.gentoo.org/~polynomial-c/mozilla/patchsets/spidermonkey-78-patches-04.tar.xz https://dev.gentoo.org/~axs/mozilla/patchsets/spidermonkey-78-patches-04.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	check-reqs	bfb51de63b0462097e40436214dd43c8	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	llvm	19c0cdeff39b0e08d1454df31b588316	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	prefix	d04f14b297013ad1410550c0757f14f8	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=17262700e204f127756a4428ac873eed
+_md5_=a6cc2f33061abf8613589499e89fbcf1
