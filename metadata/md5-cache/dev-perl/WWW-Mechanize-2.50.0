@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp virtual/perl-Getopt-Long >=dev-perl/HTML-Form-1.0.0 dev-perl/HTML-Parser >=dev-perl/HTML-Tree-5 dev-perl/HTTP-Cookies >=dev-perl/HTTP-Message-1.300.0 >=dev-perl/libwww-perl-6.450.0 >=virtual/perl-Scalar-List-Utils-1.140.0 virtual/perl-Tie-RefHash dev-perl/URI virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/CGI-4.320.0 virtual/perl-Exporter virtual/perl-File-Spec virtual/perl-File-Temp >=dev-perl/HTTP-Daemon-6.120.0 dev-perl/HTTP-Server-Simple dev-perl/Path-Tiny dev-perl/Test-Deep dev-perl/Test-Exception dev-perl/Test-Fatal >=dev-perl/Test-Memory-Cycle-1.60.0 dev-perl/Test-Output >=dev-perl/Test-Taint-1.80.0 >=virtual/perl-Test-Simple-0.960.0 >=dev-perl/Test-NoWarnings-1.40.0 dev-perl/Test-Warn dev-perl/Test-Warnings ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Handy web browsing in a Perl object
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/WWW-Mechanize
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp virtual/perl-Getopt-Long >=dev-perl/HTML-Form-1.0.0 dev-perl/HTML-Parser >=dev-perl/HTML-Tree-5 dev-perl/HTTP-Cookies >=dev-perl/HTTP-Message-1.300.0 >=dev-perl/libwww-perl-6.450.0 >=virtual/perl-Scalar-List-Utils-1.140.0 virtual/perl-Tie-RefHash dev-perl/URI dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/O/OA/OALDERS/WWW-Mechanize-2.05.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=8d7e20ae4445c313c6bdc3a68d6e4d83

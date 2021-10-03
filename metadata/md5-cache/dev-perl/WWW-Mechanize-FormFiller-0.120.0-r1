@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Data-Random-0.50.0 dev-perl/HTML-Form virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/Test-MockObject virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Framework to automate HTML forms
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/WWW-Mechanize-FormFiller
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 sparc x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/Data-Random-0.50.0 dev-perl/HTML-Form dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/C/CO/CORION/WWW-Mechanize-FormFiller-0.12.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=13b49157b17a33f2854fd4ff46099a29
