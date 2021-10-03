@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/
 DEFINED_PHASES=configure install prepare setup
 DEPEND=virtual/os-headers
 DESCRIPTION=Tools for configuring the Linux kernel 802.1d Ethernet Bridge
-EAPI=8
+EAPI=7
 HOMEPAGE=http://bridge.sourceforge.net/
 INHERIT=autotools linux-info toolchain-funcs
 IUSE=selinux kernel_linux
@@ -12,4 +12,4 @@ RDEPEND=selinux? ( sec-policy/selinux-brctl )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.7.1.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	linux-info	0979a3f84b9948fbe2a553beb6b5f505
-_md5_=affc553e0ee2a4ba6e032b0960c124de
+_md5_=49b1cd3e90bfcea9150b94260e73e1b4
