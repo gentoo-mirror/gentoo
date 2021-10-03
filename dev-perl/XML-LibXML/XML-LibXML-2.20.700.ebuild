@@ -1,42 +1,48 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=SHLOMIF
-DIST_VERSION=2.0132
+DIST_VERSION=2.0207
 DIST_EXAMPLES=("example/*")
 inherit perl-module
 
 DESCRIPTION="Perl binding for libxml2"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-IUSE="test minimal"
-RESTRICT="!test? ( test )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+IUSE="minimal"
 
 RDEPEND="
-	>=dev-perl/XML-SAX-0.120.0
-	>=dev-libs/libxml2-2.6.21
-	dev-perl/XML-SAX-Base
+	virtual/perl-Carp
+	virtual/perl-Encode
+	>=virtual/perl-Exporter-5.570.0
+	virtual/perl-IO
+	virtual/perl-Scalar-List-Utils
 	>=dev-perl/XML-NamespaceSupport-1.70.0
+	>=dev-perl/XML-SAX-0.110.0
+	dev-perl/XML-SAX-Base
+	>=dev-libs/libxml2-2.6.21:2=
+	virtual/perl-parent
 "
-DEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
+	dev-perl/Alien-Build
+	>=dev-perl/Alien-Libxml2-0.140.0
 	test? (
 		!minimal? (
 			dev-perl/Test-LeakTrace
 		)
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-2.12.800-disable-expanding.patch"
-)
+DEPEND=">=dev-libs/libxml2-2.6.21:2=
+"
 
 PERL_RM_FILES=(
 	"t/cpan-changes.t" "t/pod-files-presence.t" "t/pod.t"
 	"t/release-kwalitee.t" "t/style-trailing-space.t"
+	"t/11memory.t"
 )
 
 src_compile() {
