@@ -44,7 +44,7 @@ multilib_src_configure() {
 	# link to compiler-rt
 	# https://github.com/gentoo/gentoo/pull/21516
 	if tc-is-clang; then
-		local compiler-rt=$($(tc-getCC) ${CFLAGS} ${CPPFLAGS} \
+		local compiler_rt=$($(tc-getCC) ${CFLAGS} ${CPPFLAGS} \
 		   ${LD_FLAGS} -print-libgcc-file-name)
 		if [[ ${compiler_rt} == *libclang_rt* ]]; then
 			use_compiler_rt=ON
@@ -82,7 +82,7 @@ wrap_libcxxabi() {
 	local mycmakeargs=(
 		-DLIBCXXABI_LIBDIR_SUFFIX=
 		-DLIBCXXABI_ENABLE_SHARED=OFF
-		-DLIBCXXABI_ENABLE_STATIC=ONF
+		-DLIBCXXABI_ENABLE_STATIC=OFF
 		-DLIBCXXABI_USE_LLVM_UNWINDER=ON
 		-DLIBCXXABI_INCLUDE_TESTS=OFF
 
