@@ -1,15 +1,15 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-qt/designer:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtpositioning:5 dev-qt/qtserialport:5 virtual/libusb:1 dev-qt/linguist-tools:5
+DEPEND=dev-cpp/yaml-cpp:= dev-qt/designer:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtpositioning:5 dev-qt/qtserialport:5 virtual/libusb:1 dev-qt/linguist-tools:5
 DESCRIPTION=GUI application for configuring and programming cheap DMR radios
 EAPI=7
 HOMEPAGE=https://dm3mat.darc.de/qdmr/
 INHERIT=cmake udev linux-info
 IUSE=kernel_linux
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-qt/designer:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtpositioning:5 dev-qt/qtserialport:5 virtual/libusb:1
+RDEPEND=dev-cpp/yaml-cpp:= dev-qt/designer:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtpositioning:5 dev-qt/qtserialport:5 virtual/libusb:1
 SLOT=0
-SRC_URI=https://github.com/hmatuschek/qdmr/archive/refs/tags/v0.8.1.tar.gz -> qdmr-0.8.1.tar.gz
+SRC_URI=https://github.com/hmatuschek/qdmr/archive/refs/tags/v0.9.0-alpha2.tar.gz -> qdmr-0.9.0_alpha2.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	udev	2d229ad4bfa09058e0184b1ca900db32	linux-info	0979a3f84b9948fbe2a553beb6b5f505
-_md5_=30e18a650296167b9d612ca1184ca65f
+_md5_=12962f8f17ddf453b38985cbec9eb70a
