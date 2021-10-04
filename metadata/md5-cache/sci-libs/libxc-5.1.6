@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/fortran
+DEFINED_PHASES=configure install prepare setup
+DEPEND=virtual/fortran
+DESCRIPTION=A library of exchange-correlation functionals for use in DFT
+EAPI=8
+HOMEPAGE=https://octopus-code.org/wiki/Libxc
+INHERIT=autotools fortran-2
+IUSE=fortran test
+KEYWORDS=~amd64 ~x86 ~amd64-linux
+LICENSE=MPL-2.0
+RDEPEND=virtual/fortran
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/libxc/libxc/-/archive/5.1.6/libxc-5.1.6.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_md5_=74d640e4ace0e8639712f5389896ab81
