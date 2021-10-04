@@ -1,0 +1,10 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=The MongoDB Shell
+EAPI=8
+HOMEPAGE=https://github.com/mongodb-js/mongosh https://www.mongodb.com/products/shell
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-4.0 ISC MIT WTFPL-2
+RDEPEND=dev-libs/cyrus-sasl[kerberos]
+SLOT=0
+SRC_URI=amd64? ( https://downloads.mongodb.com/compass/mongosh-1.0.7-linux-x64.tgz -> mongosh-1.0.7_x64.tgz ) arm64? ( https://downloads.mongodb.com/compass/mongosh-1.0.7-linux-arm64.tgz -> mongosh-1.0.7_arm64.tgz )
+_md5_=63047a57192f7eb2c69d8f20a598dd8a
