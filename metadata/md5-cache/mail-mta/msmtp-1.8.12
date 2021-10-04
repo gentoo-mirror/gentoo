@@ -4,7 +4,7 @@ DEPEND=gnome-keyring? ( app-crypt/libsecret ) idn? ( net-dns/libidn2:= ) nls? ( 
 DESCRIPTION=An SMTP client and SMTP plugin for mail user agents such as Mutt
 EAPI=7
 HOMEPAGE=https://marlam.de/msmtp/
-INHERIT=fcaps multilib
+INHERIT=fcaps
 IUSE=daemon doc gnome-keyring idn +mta nls sasl ssl vim-syntax +filecaps
 KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3
@@ -12,5 +12,5 @@ RDEPEND=gnome-keyring? ( app-crypt/libsecret ) idn? ( net-dns/libidn2:= ) nls? (
 REQUIRED_USE=daemon? ( filecaps )
 SLOT=0
 SRC_URI=https://marlam.de/msmtp/releases/msmtp-1.8.12.tar.xz
-_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
-_md5_=9467463f559c70ca68a18a823e2d39bb
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150
+_md5_=bb9a2854588dba6d35e03bfd7dd3f7fb
