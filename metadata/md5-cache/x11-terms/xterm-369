@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig x11-base/xorg-proto
+DEFINED_PHASES=configure install setup
+DEPEND=kernel_linux? ( sys-libs/libutempter ) kernel_FreeBSD? ( sys-libs/libutempter ) media-libs/fontconfig:1.0 >=sys-libs/ncurses-5.7-r7:0= x11-apps/xmessage x11-libs/libICE x11-libs/libX11 x11-libs/libXaw x11-libs/libXft x11-libs/libxkbfile x11-libs/libXmu x11-libs/libXrender x11-libs/libXt unicode? ( x11-apps/luit ) Xaw3d? ( x11-libs/libXaw3d ) xinerama? ( x11-libs/libXinerama )
+DESCRIPTION=Terminal Emulator for X Windows
+EAPI=7
+HOMEPAGE=https://invisible-island.net/xterm/
+INHERIT=desktop flag-o-matic toolchain-funcs
+IUSE=+openpty sixel toolbar truetype unicode Xaw3d xinerama
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+LICENSE=MIT
+RDEPEND=kernel_linux? ( sys-libs/libutempter ) kernel_FreeBSD? ( sys-libs/libutempter ) media-libs/fontconfig:1.0 >=sys-libs/ncurses-5.7-r7:0= x11-apps/xmessage x11-libs/libICE x11-libs/libX11 x11-libs/libXaw x11-libs/libXft x11-libs/libxkbfile x11-libs/libXmu x11-libs/libXrender x11-libs/libXt unicode? ( x11-apps/luit ) Xaw3d? ( x11-libs/libXaw3d ) xinerama? ( x11-libs/libXinerama ) media-fonts/font-misc-misc x11-apps/rgb
+SLOT=0
+SRC_URI=ftp://ftp.invisible-island.net/xterm/xterm-369.tgz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_md5_=1c6da47be52f5fa33bbf954361ed8d66
