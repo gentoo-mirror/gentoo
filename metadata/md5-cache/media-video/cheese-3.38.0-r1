@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Apps/Cheese
 INHERIT=gnome.org gnome2-utils meson vala virtualx xdg
 IUSE=gtk-doc +introspection test test
-KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2+
 RDEPEND=>=media-libs/clutter-1.13.2:1.0[introspection?] media-libs/clutter-gst:3.0 >=media-libs/clutter-gtk-0.91.8:1.0 x11-libs/gdk-pixbuf:2[jpeg,introspection?] >=dev-libs/glib-2.39.90:2 >=gnome-base/gnome-desktop-2.91.6:3= >=media-libs/gstreamer-1.4:1.0[introspection?] >=media-libs/gst-plugins-base-1.4:1.0[ogg,pango,theora,vorbis] >=media-libs/gst-plugins-bad-1.4:1.0 >=x11-libs/gtk+-3.13.4:3 >=media-libs/libcanberra-0.26[gtk3] x11-libs/libX11 sys-apps/dbus media-video/gnome-video-effects introspection? ( >=dev-libs/gobject-introspection-1.56:= ) media-libs/cogl:1.0=[introspection?] >=media-libs/gst-plugins-good-1.4:1.0 >=media-plugins/gst-plugins-jpeg-1.4:1.0 >=media-plugins/gst-plugins-v4l2-1.4:1.0 >=media-plugins/gst-plugins-vpx-1.4:1.0
 RESTRICT=!test? ( test )
 SLOT=0/8
 SRC_URI=mirror://gnome/sources/cheese/3.38/cheese-3.38.0.tar.xz
 _eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	355c758ccc0d6df60d43a066640e642c	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	vala	5ef05fa2f1612e51f4aea8c92b09e08d	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857
-_md5_=ec287f96550f95f1a775d7bfdcdf4b1c
+_md5_=6b4c229eeafed07cd37a189a3182d6fb

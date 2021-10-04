@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Projects/Gjs
 INHERIT=gnome.org meson virtualx
 IUSE=+cairo examples gtk readline sysprof test test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )
 RDEPEND=>=dev-libs/glib-2.66.0 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.66.1:= dev-lang/spidermonkey:78 cairo? ( x11-libs/cairo[X,svg] ) readline? ( sys-libs/readline:0= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gjs/1.68/gjs-1.68.3.tar.xz
 _eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	virtualx	fa024aa649b6bd544144bf94893d402c
-_md5_=aedca8b41350f82425893dd142bb7433
+_md5_=a44107a8535232cf33d4d6721690289b

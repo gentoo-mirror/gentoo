@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://pawsa.fedorapeople.org/balsa/
 INHERIT=gnome2
 IUSE=gnome +gnome-keyring kerberos ldap rubrica sqlite webkit xface
-KEYWORDS=~alpha ~amd64 ~ppc ~sparc ~x86
+KEYWORDS=~alpha amd64 ~ppc ~sparc ~x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.48.0:2 >=x11-libs/gtk+-3.24.0:3 >=dev-libs/gmime-3.2.6:3.0 >=net-libs/gnutls-3.0:= dev-libs/fribidi dev-libs/libical:= webkit? ( >=net-libs/webkit-gtk-2.28.0:4 >=dev-db/sqlite-3.24:= app-text/html2text ) >=app-crypt/gpgme-1.13.0:= sqlite? ( >=dev-db/sqlite-3.24:= ) ldap? ( net-nds/openldap ) rubrica? ( dev-libs/libxml2:2 ) kerberos? ( app-crypt/mit-krb5 ) xface? ( >=media-libs/compface-1.5.1:= ) gnome? ( x11-libs/gtksourceview:4 ) media-libs/libcanberra:=[gtk3] gnome-keyring? ( app-crypt/libsecret ) >=app-text/gspell-1.6:0= net-mail/mailbase x11-themes/hicolor-icon-theme x11-themes/adwaita-icon-theme dev-libs/openssl:0=
 SLOT=0
 SRC_URI=http://pawsa.fedorapeople.org/balsa/balsa-2.6.3.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	355c758ccc0d6df60d43a066640e642c	xdg	6024fbc93167fad782e2032933654857	gnome2	fef543fb9014c61e207d8b3fb27b4793
-_md5_=e1037b1c0c535597121c38ca7ad56eb2
+_md5_=e11b565ee46c66beafe8b2fec75df5df
