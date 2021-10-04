@@ -1,7 +1,8 @@
+BDEPEND=dev-perl/libwww-perl >=dev-perl/XML-Parser-2.300.0 dev-perl/XML-RegExp virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/libxml-perl-0.70.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/libwww-perl >=dev-perl/XML-Parser-2.300.0 dev-perl/XML-RegExp virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/libxml-perl-0.70.0 ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=A Perl module for an DOM Level 1 compliant interface
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/XML-DOM
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=dev-perl/libwww-perl >=dev-perl/XML-Parser-2.300.0 dev-perl/XML-RegExp d
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/T/TJ/TJMATHER/XML-DOM-1.46.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=06577d429d4446461a37854524bde9c9
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=ede5815712242343d9c7c44d71038aa0

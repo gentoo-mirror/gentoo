@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/XML-Parser dev-perl/XML-SAX dev-perl/Class-Accessor dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=XML::Parser style and generic classes for handling of XML data
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/XML-Elemental
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 ~hppa ~ia64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris
+LICENSE=Artistic
+RDEPEND=dev-perl/XML-Parser dev-perl/XML-SAX dev-perl/Class-Accessor dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/T/TI/TIMA/XML-Elemental-2.11.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=2115f45e190ecae8bba3cf438793f6a9
