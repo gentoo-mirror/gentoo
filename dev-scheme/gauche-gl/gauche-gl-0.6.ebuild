@@ -1,7 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
+
+inherit autotools
 
 MY_P="${P^g}"
 
@@ -20,9 +22,20 @@ RDEPEND=">=dev-scheme/gauche-0.9.4
 	x11-libs/libXmu
 	cg? ( media-gfx/nvidia-cg-toolkit )"
 DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}"/${P}-simple.viewer.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-simple.viewer.patch
+	"${FILESDIR}"/${P}-cflags.patch
+	"${FILESDIR}"/${P}-cg.patch
+	"${FILESDIR}"/${P}-info.patch
+)
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf $(usex cg --enable-cg "")
