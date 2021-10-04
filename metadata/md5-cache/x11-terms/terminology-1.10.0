@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/libintl virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=|| ( dev-libs/efl[gles2-only] dev-libs/efl[opengl] ) || ( dev-libs/efl[X] dev-libs/efl[wayland] ) app-arch/lz4 dev-libs/efl[eet,fontconfig]
+DESCRIPTION=Feature rich terminal emulator using the Enlightenment Foundation Libraries
+EAPI=8
+HOMEPAGE=https://www.enlightenment.org/about-terminology
+INHERIT=meson python-any-r1 xdg-utils
+IUSE=extras nls
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=BSD-2
+RDEPEND=|| ( dev-libs/efl[gles2-only] dev-libs/efl[opengl] ) || ( dev-libs/efl[X] dev-libs/efl[wayland] ) app-arch/lz4 dev-libs/efl[eet,fontconfig]
+SLOT=0
+SRC_URI=https://download.enlightenment.org/rel/apps/terminology/terminology-1.10.0.tar.xz https://downloads.terminolo.gy/terminology-1.10.0.tar.xz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=5094ae542acc59e549b098c3d9634d3a

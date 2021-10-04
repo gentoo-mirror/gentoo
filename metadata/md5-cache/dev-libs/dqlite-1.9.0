@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://dqlite.io/ https://github.com/canonical/dqlite
 INHERIT=autotools
 IUSE=test
-KEYWORDS=amd64 ~arm64
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=LGPL-3-with-linking-exception
 RDEPEND=dev-db/sqlite:3 dev-libs/libuv:= dev-libs/raft
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/canonical/dqlite/archive/v1.9.0.tar.gz -> dqlite-1.9.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=32de90d7716444632561b2978fd138ff
+_md5_=a737c5d0d6e64790fefb8370beeab727
