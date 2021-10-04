@@ -5,27 +5,31 @@ EAPI=7
 
 inherit systemd tmpfiles
 
-DESCRIPTION="Free and Open, Distributed, RESTful Search Engine"
-HOMEPAGE="https://www.elastic.co/elasticsearch/"
-SRC_URI="https://artifacts.elastic.co/downloads/${PN}/${P}-no-jdk-linux-x86_64.tar.gz"
-LICENSE="Apache-2.0 BSD-2 Elastic-2.0 LGPL-3 MIT public-domain"
+DESCRIPTION="Open Source, Distributed, RESTful, Search Engine"
+HOMEPAGE="https://www.elastic.co/products/elasticsearch"
+SRC_URI="x-pack? ( https://artifacts.elastic.co/downloads/${PN}/${P}.tar.gz )
+	!x-pack? ( https://artifacts.elastic.co/downloads/${PN}/${PN}-oss-${PV}.tar.gz )"
+LICENSE="Apache-2.0 BSD-2 LGPL-3 MIT public-domain x-pack? ( Elastic )"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="x-pack"
 
 RDEPEND="acct-group/elasticsearch
 	acct-user/elasticsearch
-	virtual/jre"
+	virtual/jre:1.8"
 
 QA_PRESTRIPPED="usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/\(bin\|lib\)/.*"
-QA_PREBUILT="
-	usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/bin/.*
-	usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/lib/.*"
 
 src_prepare() {
 	default
 
-	rm LICENSE.txt NOTICE.txt || die
+	rm bin/*.{bat,exe} LICENSE.txt NOTICE.txt || die
 	rmdir logs || die
+
+	if use x-pack; then
+		rm bin/x-pack/*.bat || die
+		rm -r modules/x-pack-ml/platform/{darwin,windows}-x86_64 || die
+	fi
 }
 
 src_install() {
@@ -45,8 +49,11 @@ src_install() {
 	exeinto /usr/share/${PN}/bin
 	doexe "${FILESDIR}/elasticsearch-systemd-pre-exec"
 
-	fperms -R +x /usr/share/${PN}/bin
-	fperms -R +x /usr/share/${PN}/modules/x-pack-ml/platform/linux-x86_64/bin
+	chmod +x "${ED}"/usr/share/${PN}/bin/* || die
+
+	if use x-pack; then
+		chmod +x "${ED}"/usr/share/${PN}/modules/x-pack-ml/platform/linux-x86_64/bin/* || die
+	fi
 
 	keepdir /var/{lib,log}/${PN}
 	fowners ${PN}:${PN} /var/{lib,log}/${PN}
@@ -56,18 +63,15 @@ src_install() {
 	insinto /etc/sysctl.d
 	newins "${FILESDIR}/${PN}.sysctl.d" ${PN}.conf
 
-	newconfd "${FILESDIR}/${PN}.conf.4" ${PN}
-	newinitd "${FILESDIR}/${PN}.init.8" ${PN}
+	newconfd "${FILESDIR}/${PN}.conf.3" ${PN}
+	newinitd "${FILESDIR}/${PN}.init.6" ${PN}
 
 	systemd_install_serviced "${FILESDIR}/${PN}.service.conf"
+	newtmpfiles "${FILESDIR}/${PN}.tmpfiles.d" ${PN}.conf
 	systemd_newunit "${FILESDIR}"/${PN}.service.3 ${PN}.service
-
-	newtmpfiles "${FILESDIR}"/${PN}.tmpfiles.d ${PN}.conf
 }
 
 pkg_postinst() {
-	tmpfiles_process ${PN}.conf
-
 	elog
 	elog "You may create multiple instances of ${PN} by"
 	elog "symlinking the init script:"
@@ -81,4 +85,6 @@ pkg_postinst() {
 	ewarn "prior to keystore generation or you may experience startup fails."
 	ewarn "chown root:${PN} /etc/${PN} && chmod 2750 /etc/${PN}"
 	ewarn "chown root:${PN} /etc/${PN}/${PN}.keystore && chmod 0660 /etc/${PN}/${PN}.keystore"
+
+	tmpfiles_process
 }

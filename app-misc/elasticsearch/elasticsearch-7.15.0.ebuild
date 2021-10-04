@@ -14,6 +14,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="acct-group/elasticsearch
 	acct-user/elasticsearch
+	sys-libs/zlib
 	virtual/jre"
 
 QA_PREBUILT="usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/\(bin\|lib\)/.*"
@@ -64,7 +65,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	tmpfiles_process ${PN}.conf
+	tmpfiles_process /usr/lib/tmpfiles.d/${PN}.conf
 
 	elog
 	elog "You may create multiple instances of ${PN} by"
