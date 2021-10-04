@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.perl.org/
 INHERIT=alternatives flag-o-matic toolchain-funcs multilib multiprocessing
 IUSE=berkdb debug doc gdbm ithreads minimal
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=|| ( Artistic GPL-1+ )
 PDEPEND=!minimal? ( >=app-admin/perl-cleaner-2.5 >=virtual/perl-Encode-3.120.0 >=virtual/perl-File-Temp-0.230.400-r2 >=virtual/perl-Data-Dumper-2.154.0 virtual/perl-Test-Harness )
 RDEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( >=sys-libs/gdbm-1.8.3:= ) app-arch/bzip2 sys-libs/zlib virtual/libcrypt:=
 SLOT=0/5.34
 SRC_URI=mirror://cpan/src/5.0/perl-5.34.0.tar.xz mirror://cpan/authors/id/X/XS/XSAWYERX/perl-5.34.0.tar.xz https://github.com/gentoo-perl/perl-patchset/releases/download/perl-5.34.0-patches-1/perl-5.34.0-patches-1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/perl-5.34.0-patches-1.tar.xz https://github.com/arsv/perl-cross/releases/download/1.3.6/perl-cross-1.3.6.tar.gz
 _eclasses_=alternatives	b6cdc5b72d4fe90a64c72b9852e12f69	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=d1212ead38f06569f39b03db0721d9cb
+_md5_=0067293126ae59b1be740769f018568a
