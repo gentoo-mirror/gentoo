@@ -1,6 +1,6 @@
-DEFINED_PHASES=configure install preinst prepare
+DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/openssl:0= sys-libs/tdb pcre? ( dev-libs/libpcre )
-DESCRIPTION=fetch, filter and deliver mail
+DESCRIPTION=Fetch, filter and deliver mail
 EAPI=7
 HOMEPAGE=https://github.com/nicm/fdm
 IUSE=examples pcre
@@ -9,4 +9,4 @@ LICENSE=BSD
 RDEPEND=dev-libs/openssl:0= sys-libs/tdb pcre? ( dev-libs/libpcre ) acct-group/fdm acct-user/fdm
 SLOT=0
 SRC_URI=https://github.com/nicm/fdm/releases/download/2.0/fdm-2.0.tar.gz
-_md5_=c311f754ea0ed633eb5f552f4f3ae2f0
+_md5_=818595024aea3a60da5711d03eaf21e8
