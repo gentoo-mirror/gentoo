@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{8,9,10} )
 
 # check this on updates
-LLVM_MAX_SLOT=13
+LLVM_MAX_SLOT=12
 
 CMAKE_REMOVE_MODULES_LIST=()
 
@@ -60,9 +60,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-cmake.patch
 )
 
-CMAKE_REMOVE_MODULES_LIST=()
-
-# Restricting tests as Make file handles them differently
+# Restricting tests as Makefile handles them differently
 RESTRICT="test"
 
 S="${WORKDIR}/OpenShadingLanguage-Release-${PV}"
