@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=dev-java/eclipse-ecj:4.15 dev-java/glassfish-xmlrpc-api:0 dev-java/jakartaee-migration:0 ~dev-java/tomcat-servlet-api-10.0.12:5.0 dev-java/wsdl4j:0 app-admin/pwgen dev-java/ant-core virtual/jdk:1.8 test? ( dev-java/ant-junit:0 dev-java/easymock:3.2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 >=dev-java/javatoolkit-0.3.0-r2
+DESCRIPTION=Tomcat Servlet-5.0/JSP-3.0/EL-4.0/WebSocket-2.0/JASIC-2.0 Container
+EAPI=7
+HOMEPAGE=https://tomcat.apache.org/
+INHERIT=java-pkg-2 java-ant-2 prefix
+IUSE=extra-webapps elibc_FreeBSD doc source test
+KEYWORDS=~amd64 ~amd64-linux
+LICENSE=Apache-2.0
+RDEPEND=dev-java/eclipse-ecj:4.15 dev-java/glassfish-xmlrpc-api:0 dev-java/jakartaee-migration:0 ~dev-java/tomcat-servlet-api-10.0.12:5.0 dev-java/wsdl4j:0 acct-group/tomcat acct-user/tomcat virtual/jre >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test
+SLOT=10
+SRC_URI=mirror://apache/tomcat/tomcat-9/v10.0.12/src/apache-tomcat-10.0.12-src.tar.gz https://repo.maven.apache.org/maven2/biz/aQute/bnd/biz.aQute.bnd/5.1.1/biz.aQute.bnd-5.1.1.jar https://repo.maven.apache.org/maven2/biz/aQute/bnd/biz.aQute.bndlib/5.1.1/biz.aQute.bndlib-5.1.1.jar
+_eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	java-ant-2	e83ca06db890ca292b0b6d43e376e20d	prefix	d04f14b297013ad1410550c0757f14f8
+_md5_=27d1ae4b63ecc376abe0a67070a719d4
