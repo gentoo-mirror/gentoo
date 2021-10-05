@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=acct-group/gluster acct-user/gluster dev-libs/libaio dev-libs/userspace-rcu:= net-libs/rpcsvc-proto sys-apps/util-linux sys-libs/readline:= emacs? ( >=app-editors/emacs-23.1:* ) fuse? ( >=sys-fs/fuse-2.7.0:0 ) georeplication? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) xml? ( dev-libs/libxml2 ) !elibc_glibc? ( sys-libs/argp-standalone ) libtirpc? ( net-libs/libtirpc:= ) !libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) ) dev-libs/openssl:=[-bindist(-)] sys-devel/bison sys-devel/flex virtual/acl test? ( >=dev-util/cmocka-1.0.1 app-benchmarks/dbench dev-vcs/git net-fs/nfs-utils virtual/perl-Test-Harness dev-libs/yajl sys-fs/xfsprogs sys-apps/attr )
+DESCRIPTION=GlusterFS is a powerful network/cluster filesystem
+EAPI=7
+HOMEPAGE=https://www.gluster.org/ https://github.com/gluster/glusterfs/
+INHERIT=autotools elisp-common python-single-r1 tmpfiles
+IUSE=debug emacs +fuse +georeplication ipv6 +libtirpc rsyslog static-libs +syslog test +xml python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=|| ( GPL-2 LGPL-3+ )
+RDEPEND=acct-group/gluster acct-user/gluster dev-libs/libaio dev-libs/userspace-rcu:= net-libs/rpcsvc-proto sys-apps/util-linux sys-libs/readline:= emacs? ( >=app-editors/emacs-23.1:* ) fuse? ( >=sys-fs/fuse-2.7.0:0 ) georeplication? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) xml? ( dev-libs/libxml2 ) !elibc_glibc? ( sys-libs/argp-standalone ) libtirpc? ( net-libs/libtirpc:= ) !libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) ) dev-libs/openssl:=[-bindist(-)] virtual/tmpfiles
+REQUIRED_USE=georeplication? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) xml ) ipv6? ( libtirpc )
+RESTRICT=test
+SLOT=0/8
+SRC_URI=https://download.gluster.org/pub/gluster/glusterfs/8/8.6/glusterfs-8.6.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	elisp-common	cf4fd1b0835b9f3e638724840468064a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	tmpfiles	5cd6e8cf3288d5b19ff8b5c78c7e3e31
+_md5_=334a955611be109ba7a3d3ffb7235a64
