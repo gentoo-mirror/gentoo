@@ -307,13 +307,6 @@ net-libs/gsnmp
 # Bug 644344; Removal on 2021-10-07.
 net-analyzer/scli
 
-# David Seifert <soap@gentoo.org> (2021-09-04)
-# Last upstream release over 2.5 years ago, removed by Fedora,
-# unresponsive maintainer in Gentoo, broken with linux-headers-5.13,
-# relies on glibc implementation details.
-# Bug #717114, #801457, removal in 30 days.
-dev-util/trinity
-
 # Ionen Wolkens <ionen@gentoo.org> (2021-09-03)
 # Currently may not function with kde-plasma/kwin (black screen),
 # so keeping masked for testing due to being a primary consumer.
@@ -333,22 +326,6 @@ games-puzzle/gnudoku
 # Bernard Cafarelli <voyageur@gentoo.org> (2021-08-26)
 # Preparing for final 5.0.0 release
 >=app-text/tesseract-5.0.0_beta
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# Depends on Qt5WebKit with more holes in it than swiss cheese. Bug #685750
-# Last release in 2016. Removal on 2021-10-04.
-mail-client/trojita
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# Depends on Qt5WebKit with more holes in it than swiss cheese. Bug #740416
-# Removal on 2021-10-04.
-app-text/fb2edit
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-08-02)
-# No commits to upstream repository for >9 months, latest available tarball
-# still "alpha" with warning about known unpatched vulnerabilities. Bug #684580
-# Removal on 2021-10-04.
-dev-qt/qtwebkit:5
 
 # Joonas Niilola <juippis@gentoo.org> (2021-07-29)
 # Upstream provided migration instructions from 2. -> 3. update,
