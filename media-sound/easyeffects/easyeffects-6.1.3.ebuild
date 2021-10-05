@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils flag-o-matic meson toolchain-funcs
+inherit gnome2-utils flag-o-matic meson
 
 DESCRIPTION="Limiter, auto volume and many other plugins for PipeWire applications"
 HOMEPAGE="https://github.com/wwmm/easyeffects"
@@ -18,19 +18,19 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="calf mda-lv2 zamaudio"
+IUSE="calf +doc mda-lv2 zamaudio"
 
-# 6.1.0 tests fail due to recent changes to the metainfo file.
-# TODO: make sure this is removed come next release.
+# Tests fail since 6.1.0 due to upstream changes to the metainfo file.
+# TODO: check this every release.
 RESTRICT="test"
 
 DEPEND=">=dev-cpp/glibmm-2.68:2.68
 	>=dev-cpp/gtkmm-4.2.0:4.0
 	dev-cpp/nlohmann_json
 	>=dev-libs/glib-2.56:2
-	>=dev-libs/libsigc++-3.0:3
+	>=dev-libs/libsigc++-3.0.6:3
 	media-libs/libbs2b
-	media-libs/libebur128
+	>=media-libs/libebur128-1.2.0
 	media-libs/libsndfile
 	>=media-libs/lilv-0.22
 	>=media-libs/lv2-1.18.2
@@ -42,10 +42,10 @@ DEPEND=">=dev-cpp/glibmm-2.68:2.68
 	sci-libs/fftw:3.0
 	>=gui-libs/gtk-4.2.1:4"
 RDEPEND="${DEPEND}
-	gnome-extra/yelp
 	>=media-libs/lsp-plugins-1.1.24[lv2]
 	sys-apps/dbus
 	calf? ( >=media-plugins/calf-0.90.1[lv2] )
+	doc? ( gnome-extra/yelp )
 	mda-lv2? ( media-plugins/mda-lv2 )
 	zamaudio? ( media-plugins/zam-plugins )"
 # Only header files are used from libsamplerate so put it here rather than DEPEND
