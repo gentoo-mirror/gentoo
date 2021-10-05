@@ -1,0 +1,16 @@
+BDEPEND=!minimal? ( dev-perl/XML-RSS-LibXML ) dev-perl/Class-ErrorHandler dev-perl/DateTime dev-perl/DateTime-Format-Flexible dev-perl/DateTime-Format-ISO8601 dev-perl/DateTime-Format-Mail dev-perl/DateTime-Format-Natural dev-perl/DateTime-Format-W3CDTF dev-perl/Feed-Find dev-perl/HTML-Parser dev-perl/libwww-perl virtual/perl-Scalar-List-Utils dev-perl/Module-Pluggable dev-perl/URI-Fetch >=dev-perl/XML-Atom-0.380.0 >=dev-perl/XML-LibXML-1.660.0 >=dev-perl/XML-RSS-1.470.0 >=dev-perl/Module-Build-0.420.0 test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Syndication feed parser and auto-discovery
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/XML-Feed
+INHERIT=perl-module
+IUSE=minimal test examples
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=!minimal? ( dev-perl/XML-RSS-LibXML ) dev-perl/Class-ErrorHandler dev-perl/DateTime dev-perl/DateTime-Format-Flexible dev-perl/DateTime-Format-ISO8601 dev-perl/DateTime-Format-Mail dev-perl/DateTime-Format-Natural dev-perl/DateTime-Format-W3CDTF dev-perl/Feed-Find dev-perl/HTML-Parser dev-perl/libwww-perl virtual/perl-Scalar-List-Utils dev-perl/Module-Pluggable dev-perl/URI-Fetch >=dev-perl/XML-Atom-0.380.0 >=dev-perl/XML-LibXML-1.660.0 >=dev-perl/XML-RSS-1.470.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/D/DA/DAVECROSS/XML-Feed-0.63.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=c3cd1b8aa56a64c784da110be1e4aa9a
