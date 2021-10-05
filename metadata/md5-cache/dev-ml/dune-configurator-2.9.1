@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=~dev-ml/dune-private-libs-2.9.1:=[ocamlopt=] dev-ml/csexp:=[ocamlopt=] dev-ml/result:=[ocamlopt=] test? ( dev-ml/core_bench dev-ml/menhir dev-ml/opam dev-ml/ppx_expect ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A composable build system for OCaml
+EAPI=7
+HOMEPAGE=https://github.com/ocaml/dune
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=~dev-ml/dune-private-libs-2.9.1:=[ocamlopt=] dev-ml/csexp:=[ocamlopt=] dev-ml/result:=[ocamlopt=] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/2.9.1
+SRC_URI=https://github.com/ocaml/dune/archive/2.9.1.tar.gz -> dune-2.9.1.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=1bc0c754d2c158933ecd1f887bc1c692
