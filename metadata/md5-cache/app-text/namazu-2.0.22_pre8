@@ -6,10 +6,9 @@ EAPI=7
 HOMEPAGE=http://www.namazu.org/
 INHERIT=autotools elisp-common
 IUSE=emacs l10n_ja nls static-libs tk
-KEYWORDS=amd64 ~ppc ~ppc64 x86
 LICENSE=GPL-2+
 RDEPEND=dev-perl/File-MMagic emacs? ( >=app-editors/emacs-23.1:* ) l10n_ja? ( app-i18n/nkf || ( dev-perl/Text-Kakasi app-i18n/kakasi app-text/chasen app-text/mecab ) ) nls? ( virtual/libintl ) tk? ( dev-lang/tk:0 www-client/lynx )
 SLOT=0
-SRC_URI=http://www.namazu.org/stable/namazu-2.0.21.tar.gz
+SRC_URI=http://www.namazu.org/test/namazu-2.0.22pre8.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	elisp-common	cf4fd1b0835b9f3e638724840468064a
-_md5_=193b2830769613e8d7a51d6636012396
+_md5_=c53fab88204cbfadb1354ea1927f7763
