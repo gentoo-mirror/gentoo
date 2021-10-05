@@ -1,0 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/libuv:= hwloc? ( sys-apps/hwloc:= ) opencl? ( virtual/opencl ) ssl? ( dev-libs/openssl:= )
+DESCRIPTION=RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
+EAPI=7
+HOMEPAGE=https://xmrig.com https://github.com/xmrig/xmrig
+INHERIT=cmake systemd
+IUSE=cpu_flags_x86_sse4_1 donate hwloc opencl +ssl
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 GPL-3+ MIT
+RDEPEND=dev-libs/libuv:= hwloc? ( sys-apps/hwloc:= ) opencl? ( virtual/opencl ) ssl? ( dev-libs/openssl:= ) !arm64? ( sys-apps/msr-tools )
+SLOT=0
+SRC_URI=https://github.com/xmrig/xmrig/archive/v6.15.2.tar.gz -> xmrig-6.15.2.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=2baffd96c4da303ad9a91d9e99cd99cc
