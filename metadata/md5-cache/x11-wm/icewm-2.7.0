@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://ice-wm.org/ https://github.com/ice-wm/icewm
 INHERIT=autotools unpacker
 IUSE=+alsa ao bidi debug +gdk-pixbuf imlib nls truetype uclibc xinerama
-KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=media-libs/fontconfig x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender dev-libs/glib:2 x11-libs/libICE x11-libs/libSM x11-libs/libXft x11-libs/libXpm x11-libs/libXrandr alsa? ( media-libs/alsa-lib media-libs/libsndfile[alsa] ) ao? ( media-libs/libao media-libs/libsndfile ) bidi? ( dev-libs/fribidi ) gdk-pixbuf? ( x11-libs/gdk-pixbuf-xlib >=x11-libs/gdk-pixbuf-2.42.0:2 ) !gdk-pixbuf? ( imlib? ( gnome-base/librsvg:2 media-libs/imlib2 ) !imlib? ( media-libs/libpng:0= virtual/jpeg ) ) xinerama? ( x11-libs/libXinerama )
 REQUIRED_USE=|| ( alsa ao )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ice-wm/icewm/releases/download/2.7.0/icewm-2.7.0.tar.lz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	unpacker	928e1f35ef78ba9fc2b214e29c2b55a4
-_md5_=5babf10b1421abe9fa23bc4253aa2bc3
+_md5_=18c58210649176c5ec55b3194329184f
