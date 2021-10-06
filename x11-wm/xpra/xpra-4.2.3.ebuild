@@ -6,23 +6,39 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_SETUPTOOLS=no
-inherit xdg distutils-r1 tmpfiles prefix udev
+inherit xdg xdg-utils distutils-r1 tmpfiles udev
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
 HOMEPAGE="https://xpra.org/"
-SRC_URI="https://xpra.org/src/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="brotli +client +clipboard csc cups dbus doc ffmpeg jpeg ibus +lz4 lzo minimal opengl pillow pinentry pulseaudio server sound test vpx webcam webp"
+IUSE="brotli +client +clipboard csc cups dbus doc ffmpeg jpeg html ibus +lz4 lzo minimal opengl pillow pinentry pulseaudio +server sound systemd test vpx webcam webp xdg xinerama"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	|| ( client server )
 	cups? ( dbus )
 	opengl? ( client )
+	test? ( client clipboard dbus html server sound xdg xinerama )
 "
 
+TDEPEND="
+	$(python_gen_cond_dep '
+		dev-python/netifaces[${PYTHON_USEDEP}]
+		dev-python/pillow[jpeg?,${PYTHON_USEDEP}]
+		dev-python/rencode[${PYTHON_USEDEP}]
+		dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
+		xdg? ( dev-python/pyxdg[${PYTHON_USEDEP}] )
+	')
+	html? ( www-apps/xpra-html5 )
+	server? (
+		x11-base/xorg-server[-minimal,xvfb]
+		x11-drivers/xf86-input-void
+	)
+	xinerama? ( x11-libs/libfakeXinerama )
+"
 DEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
@@ -55,12 +71,9 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
+	${TDEPEND}
 	$(python_gen_cond_dep '
-		dev-python/netifaces[${PYTHON_USEDEP}]
-		dev-python/rencode[${PYTHON_USEDEP}]
-		dev-python/pillow[jpeg?,${PYTHON_USEDEP}]
 		cups? ( dev-python/pycups[${PYTHON_USEDEP}] )
-		dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 		lz4? ( dev-python/lz4[${PYTHON_USEDEP}] )
 		lzo? ( >=dev-python/python-lzo-0.7.0[${PYTHON_USEDEP}] )
 		opengl? (
@@ -74,19 +87,19 @@ RDEPEND="
 	')
 	acct-group/xpra
 	virtual/ssh
+	x11-apps/xauth
 	x11-apps/xmodmap
 	ibus? ( app-i18n/ibus )
 	pinentry? ( app-crypt/pinentry )
-	server? (
-		x11-base/xorg-server[-minimal,xvfb]
-		x11-drivers/xf86-input-void
-	)
+"
+DEPEND+="
+	test? ( ${TDEPEND} )
 "
 BDEPEND="
-	virtual/pkgconfig
 	$(python_gen_cond_dep '
 		>=dev-python/cython-0.16[${PYTHON_USEDEP}]
 	')
+	virtual/pkgconfig
 	doc? ( app-text/pandoc )
 "
 
@@ -94,14 +107,18 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.2_ignore-gentoo-no-compile.patch
-	"${FILESDIR}"/${PN}-3.0.2-ldconfig.patch
 	"${FILESDIR}"/${PN}-4.2-suid-warning.patch
+	"${FILESDIR}"/${PN}-4.2.2-true-false-bin-path.patch
+	"${FILESDIR}"/${PN}-4.2.3-dup-ip.patch
+	"${FILESDIR}"/${PN}-4.2.2-bad-tests.patch
 )
 
 python_prepare_all() {
-	hprefixify -w '/os.path/' setup.py
-	hprefixify tmpfiles.d/xpra.conf xpra/server/server_util.py \
-		xpra/platform{/xposix,}/paths.py xpra/scripts/server.py
+	distutils-r1_python_prepare_all
+
+	# FIXME: There are hardcoded paths all over the place but the following
+	# double-prefixes some files under /etc. Looks tricky to fix. :(
+	#hprefixify $(find -type f \( -name "*.py" -o -name "*.conf" \))
 
 	sed -r -e "/\bdoc_dir =/s:/${PN}\":/${PF}/html\":" \
 		-i setup.py || die
@@ -111,7 +128,8 @@ python_prepare_all() {
 			-i setup.py || die
 	fi
 
-	distutils-r1_python_prepare_all
+	# Upstream says these tests are currently broken.
+	rm tests/unittests/unit/net/subprocess_wrapper_test.py tests/unittests/unit/net/protocol_test.py || die
 }
 
 python_configure_all() {
@@ -152,6 +170,18 @@ python_configure_all() {
 	)
 
 	export XPRA_SOCKET_DIRS="${EPREFIX}/run/xpra"
+}
+
+python_test() {
+	export XAUTHORITY=${HOME}/.Xauthority
+	touch "${XAUTHORITY}" || die
+
+	distutils_install_for_testing
+	xdg_environment_reset
+
+	PYTHONPATH=${S}/tests/unittests:${BUILD_DIR}/test/lib \
+	XPRA_SYSTEMD_RUN=$(usex systemd) XPRA_TEST_COVERAGE=0 \
+		"${PYTHON}" tests/unittests/unit/run.py || die
 }
 
 python_install_all() {
