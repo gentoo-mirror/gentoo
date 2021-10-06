@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.mancoosi.org/software/ https://gforge.inria.fr/projects/dose
 INHERIT=dune
 IUSE=+ocamlopt test
-KEYWORDS=amd64 arm arm64 ppc ppc64
+KEYWORDS=amd64 arm arm64 ppc ppc64 ~x86
 LICENSE=LGPL-3
 RDEPEND=>=dev-lang/ocaml-4.03:=[ocamlopt=] dev-ml/ocaml-base64:=[ocamlopt=] >=dev-ml/cudf-0.7:=[ocamlopt=] >=dev-ml/extlib-1.7.8:=[ocamlopt=] >=dev-ml/ocamlgraph-2.0.0:=[ocamlopt=] >=dev-ml/re-1.2.2:=[ocamlopt=] dev-ml/parmap:=[ocamlopt=] >=dev-ml/camlzip-1.08:=[ocamlopt=] >=dev-ml/camlbz2-0.7.0:= dev-ml/ocaml-expat:=[ocamlopt=] dev-ml/xml-light:=[ocamlopt=] app-arch/rpm >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0/6.0.1_p2
 SRC_URI=http://deb.debian.org/debian/pool/main/d/dose3/dose3_6.0.1.orig.tar.gz http://deb.debian.org/debian/pool/main/d/dose3/dose3_6.0.1-2.debian.tar.xz
 _eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
-_md5_=73be023db018d44a03e4e8ef748ea342
+_md5_=1863bef022670315d4a6160c6ea7b222
