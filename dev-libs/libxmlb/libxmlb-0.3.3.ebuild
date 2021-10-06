@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit meson python-any-r1
 
@@ -13,12 +13,13 @@ SRC_URI="https://github.com/hughsie/libxmlb/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2.1+"
 SLOT="0/2" # libxmlb.so version
 
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="doc introspection stemmer test"
 
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	app-arch/xz-utils
 	dev-libs/glib:2
 	sys-apps/util-linux
 	stemmer? ( dev-libs/snowball-stemmer:= )
