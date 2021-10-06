@@ -18,7 +18,7 @@ DESCRIPTION="A template language aiming to reduce the syntax to the essential pa
 HOMEPAGE="http://slim-lang.com/"
 LICENSE="MIT"
 
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm64"
 SLOT="$(ver_cut 1)"
 IUSE="doc"
 
@@ -28,7 +28,7 @@ ruby_add_rdepend ">=dev-ruby/tilt-2.0.6:* =dev-ruby/tilt-2.0*:*
 
 ruby_add_bdepend "doc? ( dev-ruby/yard dev-ruby/redcarpet )"
 
-ruby_add_bdepend "test? ( dev-ruby/redcarpet )"
+ruby_add_bdepend "test? ( dev-ruby/redcarpet dev-ruby/sassc )"
 
 all_ruby_prepare() {
 	sed -i -e '/bundler/I s:^:#:' Rakefile || die
