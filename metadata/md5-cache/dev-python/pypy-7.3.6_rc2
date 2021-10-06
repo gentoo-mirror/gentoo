@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=|| ( >=dev-python/pypy-exe-7.3.6_rc2:7.3.6_rc2[bzip2?,ncurses?] >=dev-python/pypy-exe-bin-7.3.6_rc2:7.3.6_rc2 ) dev-libs/openssl:0= gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy-bin-7.3.0:0
+DESCRIPTION=A fast, compliant alternative implementation of the Python language
+EAPI=7
+HOMEPAGE=https://www.pypy.org/
+INHERIT=pax-utils python-utils-r1
+IUSE=bzip2 gdbm +jit ncurses sqlite tk
+LICENSE=MIT
+RDEPEND=|| ( >=dev-python/pypy-exe-7.3.6_rc2:7.3.6_rc2[bzip2?,ncurses?] >=dev-python/pypy-exe-bin-7.3.6_rc2:7.3.6_rc2 ) dev-libs/openssl:0= gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy-bin-7.3.0:0
+SLOT=0/73
+SRC_URI=https://buildbot.pypy.org/pypy/pypy2.7-v7.3.6rc2-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy2.7-gentoo-patches-7.3.6rc2.tar.xz
+_eclasses_=pax-utils	fce6ad998516159787b92e8043167889	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8
+_md5_=3090911445612b8c035629508a340674
