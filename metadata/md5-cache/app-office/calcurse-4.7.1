@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile install prepare setup
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_8? ( dev-python/httplib2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/httplib2[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/httplib2[python_targets_python3_10(-)] ) sys-libs/ncurses:0=
+DESCRIPTION=A text-based calendar and scheduling application
+EAPI=7
+HOMEPAGE=https://calcurse.org/
+INHERIT=autotools python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=BSD-2
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_8? ( dev-python/httplib2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/httplib2[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/httplib2[python_targets_python3_10(-)] ) sys-libs/ncurses:0=
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://calcurse.org/files/calcurse-4.7.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_md5_=420b68379eb0b0bd00bd285d4a57ec7c
