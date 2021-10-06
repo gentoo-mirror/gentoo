@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare pretend setup
+DEPEND=dev-libs/lzo dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 media-libs/libpng:0= sci-libs/gsl:= joystick? ( dev-qt/qtgamepad:5 ) opencl? ( dev-libs/clhpp virtual/opencl ) openexr? ( media-libs/ilmbase:= media-libs/openexr:= ) sndfile? ( media-libs/libsndfile ) tiff? ( media-libs/tiff:0 ) dev-qt/designer:5
+DESCRIPTION=Tool to render 3D fractals
+EAPI=8
+HOMEPAGE=https://www.mandelbulber.com
+INHERIT=desktop qmake-utils toolchain-funcs xdg-utils
+IUSE=joystick opencl openexr sndfile tiff
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-BY-4.0 GPL-3
+RDEPEND=dev-libs/lzo dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 media-libs/libpng:0= sci-libs/gsl:= joystick? ( dev-qt/qtgamepad:5 ) opencl? ( dev-libs/clhpp virtual/opencl ) openexr? ( media-libs/ilmbase:= media-libs/openexr:= ) sndfile? ( media-libs/libsndfile ) tiff? ( media-libs/tiff:0 )
+SLOT=0
+SRC_URI=https://github.com/buddhi1980/mandelbulber2/releases/download/2.26/mandelbulber2-2.26.tar.gz mirror://sourceforge/mandelbulber/mandelbulber2-2.26.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=557ad0ea60b464963690723204e4eee5
