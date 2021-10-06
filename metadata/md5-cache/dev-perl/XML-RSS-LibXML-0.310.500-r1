@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Class-Accessor dev-perl/DateTime-Format-Mail dev-perl/DateTime-Format-W3CDTF virtual/perl-Encode dev-perl/UNIVERSAL-require >=dev-perl/XML-LibXML-1.660.0 >=dev-perl/Module-Build-0.380.0 virtual/perl-CPAN-Meta test? ( !minimal? ( dev-perl/Test-Exception dev-perl/Test-Warn ) ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=XML::RSS with XML::LibXML
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/XML-RSS-LibXML
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Class-Accessor dev-perl/DateTime-Format-Mail dev-perl/DateTime-Format-W3CDTF virtual/perl-Encode dev-perl/UNIVERSAL-require >=dev-perl/XML-LibXML-1.660.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/D/DM/DMAKI/XML-RSS-LibXML-0.3105.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=dc9e76419e56338b8e4adf1d06c1c3e0
