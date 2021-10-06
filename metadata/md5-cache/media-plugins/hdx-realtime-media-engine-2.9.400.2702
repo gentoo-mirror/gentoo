@@ -6,9 +6,9 @@ HOMEPAGE=https://www.citrix.com/
 INHERIT=unpacker
 KEYWORDS=~amd64 ~x86
 LICENSE=icaclient
-RDEPEND=>=net-misc/icaclient-20.12.0.12-r1 || ( media-sound/pulseaudio media-sound/apulse )
+RDEPEND=>=net-misc/icaclient-20.12.0.12-r1 || ( media-video/pipewire media-sound/pulseaudio media-sound/apulse )
 RESTRICT=fetch mirror strip
 SLOT=0
-SRC_URI=amd64? ( HDX_RealTime_Media_Engine_2.9.200_for_Linux_x64.zip ) x86? ( HDX_RealTime_Media_Engine_2.9.200_for_Linux.zip )
+SRC_URI=amd64? ( HDX_RealTime_Media_Engine_2.9.400_for_Linux_x64.zip ) x86? ( HDX_RealTime_Media_Engine_2.9.400_for_Linux.zip )
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	unpacker	928e1f35ef78ba9fc2b214e29c2b55a4
-_md5_=f3729c98580f773e81f1817dd5f2c4e9
+_md5_=321f3d99bbf932146aceb4ded06dc3ac
