@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Test-Requires-0.60.0 >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Lightweight regexp-based XML parser
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/XML-Parser-Lite
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/P/PH/PHRED/XML-Parser-Lite-0.722.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=579f6e8bc0317b7fd8afb6dcb8771105
