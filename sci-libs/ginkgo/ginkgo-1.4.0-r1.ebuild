@@ -1,16 +1,15 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Numerical linear algebra software package"
 HOMEPAGE="https://ginkgo-project.github.io/"
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/ginkgo-project/ginkgo"
-	SRC_URI=""
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}-project/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -22,7 +21,8 @@ SLOT="0"
 IUSE="+openmp cuda"
 
 RDEPEND="
-	cuda? ( dev-util/nvidia-cuda-sdk )"
+	cuda? ( dev-util/nvidia-cuda-sdk )
+"
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
@@ -38,7 +38,7 @@ src_prepare() {
 		-e "s#\"lib/#\"$(get_libdir)/#g" \
 		cmake/install_helpers.cmake || die "sed failed"
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -48,8 +48,8 @@ src_configure() {
 		-DGINKGO_BUILD_TESTS=OFF
 		-DGINKGO_BUILD_BENCHMARKS=OFF
 		-DGINKGO_BUILD_REFERENCE=ON
-		-DGINKGO_BUILD_OMP="$(usex openmp)"
-		-DGINKGO_BUILD_CUDA="$(usex cuda)"
+		-DGINKGO_BUILD_OMP=$(usex openmp)
+		-DGINKGO_BUILD_CUDA=$(usex cuda)
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
