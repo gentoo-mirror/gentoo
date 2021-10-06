@@ -6,12 +6,12 @@ EAPI=7
 HOMEPAGE=https://github.com/libmpack/libmpack-lua/
 INHERIT=lua toolchain-funcs
 IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86 ~x64-macos
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x64-macos
 LICENSE=MIT
 RDEPEND=dev-libs/libmpack lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/libmpack/libmpack-lua/archive/1.0.8.tar.gz -> mpack-1.0.8.tar.gz
+SRC_URI=https://github.com/libmpack/libmpack-lua/archive/1.0.9.tar.gz -> mpack-1.0.9.tar.gz
 _eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua	f41923d10bccf946e7ce65f103ab577d
-_md5_=3ec67c99933097d6c13cec1942da5e50
+_md5_=a4580bec78f46b01f90c9976e72133ea
