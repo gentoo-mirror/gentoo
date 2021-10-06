@@ -76,7 +76,7 @@ as well as a copy of /var/db/pkg (the VDB):
   app-misc/pax-utils to the latest version:
   ```
   $ emerge --ask --verbose --oneshot ">=app-misc/pax-utils-1.3.3"
-  $ emerge --ask --verbose --oneshot --usepkg=n $(cat broken_vdb_packages)
+  $ emerge --ask --verbose --oneshot --usepkg=n $(grep -v '#' broken_vdb_packages)
   ```
 
 Given that there are possible other side-effects of the corruption/bug,
