@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=>=dev-libs/libevent-2.0:= >=sys-libs/glibc-2.10 acct-user/pgbouncer c-ares? ( >=net-dns/c-ares-1.10 ) ssl? ( >=dev-libs/openssl-1.0.1:=[-bindist(-)] ) systemd? ( sys-apps/systemd ) udns? ( >=net-libs/udns-0.1 )
+DESCRIPTION=Lightweight connection pooler for PostgreSQL
+EAPI=7
+HOMEPAGE=https://www.pgbouncer.org/
+INHERIT=systemd
+IUSE=+c-ares debug doc pam ssl systemd udns
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=>=dev-libs/libevent-2.0:= >=sys-libs/glibc-2.10 acct-user/pgbouncer c-ares? ( >=net-dns/c-ares-1.10 ) ssl? ( >=dev-libs/openssl-1.0.1:=[-bindist(-)] ) systemd? ( sys-apps/systemd ) udns? ( >=net-libs/udns-0.1 )
+REQUIRED_USE=?? ( c-ares udns )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.pgbouncer.org/downloads/files/1.16.0/pgbouncer-1.16.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=41aa60ddbbeeb5b50bc77d11b4eed2d3
