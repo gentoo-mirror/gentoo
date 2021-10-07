@@ -10,7 +10,6 @@ MY_P="${P/_/-}"
 DESCRIPTION="The GNU Privacy Guard, a GPL OpenPGP implementation"
 HOMEPAGE="https://gnupg.org/"
 SRC_URI="mirror://gnupg/gnupg/${MY_P}.tar.bz2"
-S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -19,7 +18,7 @@ IUSE="bzip2 doc ldap nls readline selinux +smartcard ssl tofu tools usb user-soc
 
 # Existence of executables is checked during configuration.
 DEPEND=">=dev-libs/libassuan-2.5.0
-	>=dev-libs/libgcrypt-1.9.1
+	>=dev-libs/libgcrypt-1.8.0:=
 	>=dev-libs/libgpg-error-1.29
 	>=dev-libs/libksba-1.3.4
 	>=dev-libs/npth-1.2
@@ -28,10 +27,9 @@ DEPEND=">=dev-libs/libassuan-2.5.0
 	ldap? ( net-nds/openldap )
 	readline? ( sys-libs/readline:0= )
 	smartcard? ( usb? ( virtual/libusb:1 ) )
-	tofu? ( >=dev-db/sqlite-3.27 )
 	ssl? ( >=net-libs/gnutls-3.0:0= )
 	sys-libs/zlib
-"
+	tofu? ( >=dev-db/sqlite-3.7 )"
 
 RDEPEND="${DEPEND}
 	app-crypt/pinentry
@@ -42,6 +40,8 @@ RDEPEND="${DEPEND}
 BDEPEND="virtual/pkgconfig
 	doc? ( sys-apps/texinfo )
 	nls? ( sys-devel/gettext )"
+
+S="${WORKDIR}/${MY_P}"
 
 DOCS=(
 	ChangeLog NEWS README THANKS TODO VERSION
@@ -72,8 +72,6 @@ src_configure() {
 		$(use_enable smartcard scdaemon)
 		$(use_enable ssl gnutls)
 		$(use_enable tofu)
-		$(use_enable tofu keyboxd)
-		$(use_enable tofu sqlite)
 		$(use smartcard && use_enable usb ccid-driver || echo '--disable-ccid-driver')
 		$(use_enable wks-server wks-tools)
 		$(use_with ldap)
@@ -81,6 +79,7 @@ src_configure() {
 		--with-mailprog=/usr/libexec/sendmail
 		--disable-ntbtls
 		--enable-all-tests
+		--enable-gpg
 		--enable-gpgsm
 		--enable-large-secmem
 		CC_FOR_BUILD="$(tc-getBUILD_CC)"
@@ -136,7 +135,7 @@ src_install() {
 	use tools &&
 		dobin \
 			tools/{convert-from-106,gpg-check-pattern} \
-			tools/{gpgconf,gpgsplit,lspgpot,mail-signed-keys} \
+			tools/{gpg-zip,gpgconf,gpgsplit,lspgpot,mail-signed-keys} \
 			tools/make-dns-cert
 
 	dosym gpg /usr/bin/gpg2
