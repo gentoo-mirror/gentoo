@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8[xml] ) python_targets_python3_9? ( dev-lang/python:3.9[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=Searchable online file/package database for Gentoo
+EAPI=7
+HOMEPAGE=http://www.portagefilelist.de https://github.com/portagefilelist/client
+INHERIT=distutils-r1 systemd
+IUSE=+network-cron python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=GPL-2
+RDEPEND=dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/termcolor[python_targets_python3_8(-)?,python_targets_python3_9(-)?] sys-apps/portage[python_targets_python3_8(-)?,python_targets_python3_9(-)?] network-cron? ( sys-apps/util-linux[caps] ) python_targets_python3_8? ( dev-lang/python:3.8[xml] ) python_targets_python3_9? ( dev-lang/python:3.9[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+SRC_URI=https://github.com/portagefilelist/client/archive/3.2.tar.gz -> pfl-3.2.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=551fc3bedfe3c1dd8adef27dc12dea54
