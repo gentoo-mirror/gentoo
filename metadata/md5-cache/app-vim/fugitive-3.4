@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: a git wrapper for vim
+EAPI=7
+HOMEPAGE=https://www.vim.org/scripts/script.php?script_id=2975 https://github.com/tpope/vim-fugitive/
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~x86 ~ppc-macos ~x64-macos
+LICENSE=vim
+RDEPEND=dev-vcs/git || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/tpope/vim-fugitive/archive/v3.4.tar.gz -> fugitive-3.4.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=8e76ebe40ba8d01a3d1c2e31cf0b219b

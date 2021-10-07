@@ -1,7 +1,8 @@
+BDEPEND=virtual/perl-Storable >=dev-perl/XML-NamespaceSupport-1.40.0 >=dev-perl/XML-SAX-0.150.0 dev-perl/XML-SAX-Expat virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Storable >=dev-perl/XML-NamespaceSupport-1.40.0 >=dev-perl/XML-SAX-0.150.0 dev-perl/XML-SAX-Expat virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=An API for simple XML files
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/XML-Simple
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=virtual/perl-Storable >=dev-perl/XML-NamespaceSupport-1.40.0 >=dev-perl/
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=30e177416a2e0a2ea63ede2283b59bf2
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=1ecfbe2413f83c44df401fa93aef5cc4

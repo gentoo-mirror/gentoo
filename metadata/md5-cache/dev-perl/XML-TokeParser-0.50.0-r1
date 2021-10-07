@@ -1,7 +1,8 @@
+BDEPEND=>=dev-perl/XML-Parser-2.0.0 virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-perl/XML-Parser-2.0.0 virtual/perl-ExtUtils-MakeMaker dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Simplified interface to XML::Parser
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/XML-TokeParser
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=>=dev-perl/XML-Parser-2.0.0 dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/P/PO/PODMASTER/XML-TokeParser-0.05.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=319780f6800ddb7d14fb75790ce00ea2
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=536826acd17af0d202b6b5d63b4b4792
