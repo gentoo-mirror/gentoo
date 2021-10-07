@@ -21,7 +21,7 @@ RDEPEND="acct-group/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
 	!dev-util/jenkins-bin:0
-	>=virtual/jre-1.8.0"
+	|| ( virtual/jre:1.8 virtual/jre:11 )"
 
 S="${WORKDIR}"
 

@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd
 
@@ -21,7 +21,7 @@ RDEPEND="acct-group/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
 	!dev-util/jenkins-bin:lts
-	>=virtual/jre-1.8.0"
+	|| ( virtual/jre:1.8 virtual/jre:11 )"
 
 S="${WORKDIR}"
 
