@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=>=dev-libs/openssl-1.0.2:0= >=dev-qt/qtcore-5.14.0:5 >=dev-qt/qtgui-5.14.0:5 >=dev-qt/qtnetwork-5.14.0:5 >=dev-qt/qtprintsupport-5.14.0:5 >=dev-qt/qtsql-5.14.0:5[sqlite] >=dev-qt/qtsvg-5.14.0:5 >=dev-qt/qtwidgets-5.14.0:5 >=net-libs/libisds-0.11 >=app-misc/libdatovka-0.2.0 >=dev-qt/linguist-tools-5.14.0:5 virtual/pkgconfig
+DESCRIPTION=GUI to access the Czech data box e-government system
+EAPI=7
+HOMEPAGE=https://www.datovka.cz/
+INHERIT=qmake-utils xdg-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/openssl-1.0.2:0= >=dev-qt/qtcore-5.14.0:5 >=dev-qt/qtgui-5.14.0:5 >=dev-qt/qtnetwork-5.14.0:5 >=dev-qt/qtprintsupport-5.14.0:5 >=dev-qt/qtsql-5.14.0:5[sqlite] >=dev-qt/qtsvg-5.14.0:5 >=dev-qt/qtwidgets-5.14.0:5 >=net-libs/libisds-0.11 >=app-misc/libdatovka-0.2.0
+SLOT=0
+SRC_URI=https://secure.nic.cz/files/datove_schranky/4.18.0/datovka-4.18.0.tar.xz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=b942f4acfa46b2e384993450b1206a91
