@@ -3,6 +3,7 @@
 
 EAPI=8
 
+CHROMIUM_VERSION="94"
 CHROMIUM_LANGS="
 	af
 	am
@@ -135,7 +136,7 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/pango[X]
-	proprietary-codecs? ( >=media-video/ffmpeg-9999[chromium(-)] )
+	proprietary-codecs? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 	widevine? ( www-plugins/chrome-binary-plugins )
 "
 
@@ -189,7 +190,7 @@ src_install() {
 	done
 
 	if use proprietary-codecs; then
-		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so \
+		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so.${CHROMIUM_VERSION} \
 			  /${VIVALDI_HOME}/libffmpeg.so.$(ver_cut 1-2)
 	fi
 
