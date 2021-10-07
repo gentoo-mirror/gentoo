@@ -11,11 +11,12 @@ SRC_URI="https://github.com/power-ras/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="ppc64"
+KEYWORDS="~ppc64"
 IUSE=""
 
 RDEPEND="
 	dev-db/sqlite:3
+	sys-apps/hwids
 	sys-apps/sg3_utils:0=
 	sys-libs/librtas
 	sys-libs/libvpd
