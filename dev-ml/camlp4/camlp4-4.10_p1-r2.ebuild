@@ -12,13 +12,14 @@ SRC_URI="https://github.com/camlp4/camlp4/archive/${MY_PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="LGPL-2-with-linking-exception"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+ocamlopt"
 
-DEPEND="dev-lang/ocaml:0/4.09[ocamlopt?]"
+DEPEND="dev-lang/ocaml:0/$(ver_cut 1-2)[ocamlopt?]"
 RDEPEND="${DEPEND}"
 DEPEND="${DEPEND}
-	dev-ml/ocamlbuild"
+	dev-ml/ocamlbuild
+	dev-ml/findlib:="
 
 S=${WORKDIR}/${P/_p/-}
 PATCHES=( "${FILESDIR}/reload.patch" )
@@ -41,4 +42,9 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" install install-META
 	dodoc CHANGES.md README.md
+
+	if has_version ">=dev-ml/findlib-1.9" ; then
+		# See bug #803275
+		rm "${ED}/usr/$(get_libdir)/ocaml/camlp4/META" || die
+	fi
 }
