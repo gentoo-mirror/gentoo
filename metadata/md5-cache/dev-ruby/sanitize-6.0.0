@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/rgrove/sanitize
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 test test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/crass-1.0.2[ruby_targets_ruby26(-)] =dev-ruby/crass-1.0*[ruby_targets_ruby26(-)] >=dev-ruby/nokogiri-1.12.0[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/crass-1.0.2[ruby_targets_ruby27(-)] =dev-ruby/crass-1.0*[ruby_targets_ruby27(-)] >=dev-ruby/nokogiri-1.12.0[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/crass-1.0.2[ruby_targets_ruby30(-)] =dev-ruby/crass-1.0*[ruby_targets_ruby30(-)] >=dev-ruby/nokogiri-1.12.0[ruby_targets_ruby30(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=6
 SRC_URI=https://github.com/rgrove/sanitize/archive/v6.0.0.tar.gz -> sanitize-6.0.0.tar.gz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
-_md5_=26af90def85e75c17a65021d9c6edc42
+_md5_=3240dbdd77c7686be56e6275957166a1
