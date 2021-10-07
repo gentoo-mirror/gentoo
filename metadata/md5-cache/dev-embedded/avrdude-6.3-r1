@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install
+DEPEND=virtual/libelf virtual/libusb:1 virtual/libusb:0 ftdi? ( dev-embedded/libftdi:= ) ncurses? ( sys-libs/ncurses:0= ) readline? ( sys-libs/readline:0= )
+DESCRIPTION=AVR Downloader/UploaDEr
+EAPI=8
+HOMEPAGE=https://savannah.nongnu.org/projects/avrdude
+INHERIT=toolchain-funcs
+IUSE=doc ftdi ncurses readline
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libelf virtual/libusb:1 virtual/libusb:0 ftdi? ( dev-embedded/libftdi:= ) ncurses? ( sys-libs/ncurses:0= ) readline? ( sys-libs/readline:0= )
+SLOT=0
+SRC_URI=mirror://nongnu/avrdude/avrdude-6.3.tar.gz doc? ( mirror://nongnu/avrdude/avrdude-doc-6.3.tar.gz mirror://nongnu/avrdude/avrdude-doc-6.3.pdf )
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=063c5bf4fc15e8ee5d0de972d92badb9
