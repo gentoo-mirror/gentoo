@@ -16,7 +16,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="wayland"
 
-DEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -40,16 +40,24 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-libs/xcb-util-image
-	wayland? ( media-video/pipewire:= )
+	wayland? (
+		media-libs/libepoxy
+		media-libs/mesa[gbm(+)]
+		>=media-video/pipewire-0.3:=
+	)
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	wayland? ( media-libs/libglvnd )
+"
+RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
 "
 
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package wayland PipeWire)
-	)
+src_prepare() {
+	ecm_src_prepare
 
-	ecm_src_configure
+	# TODO: try to get a build switch upstreamed
+	if ! use wayland; then
+		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
+	fi
 }

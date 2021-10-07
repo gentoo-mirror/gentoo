@@ -63,8 +63,6 @@ RDEPEND="${COMMON_DEPEND}
 	kde-plasma/kde-cli-tools:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-21.04.3-kf-5.86-compat.patch" ) # bug 815022
-
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 

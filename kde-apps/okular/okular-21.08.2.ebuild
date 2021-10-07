@@ -75,7 +75,7 @@ RDEPEND="${DEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-20.11.90-tests.patch" # bug 734138
 	"${FILESDIR}/${PN}-20.08.2-hide-mobile-app.patch" # avoid same-name entry
-	"${FILESDIR}/${P}-optional-options.patch" # bug 810958
+	"${FILESDIR}/${PN}-21.08.1-optional-options.patch" # bug 810958
 )
 
 src_configure() {
