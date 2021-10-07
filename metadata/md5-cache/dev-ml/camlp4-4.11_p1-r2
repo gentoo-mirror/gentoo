@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install
-DEPEND=dev-lang/ocaml:0/4.10[ocamlopt?] dev-ml/ocamlbuild
+DEPEND=dev-lang/ocaml:0/4.11[ocamlopt?] dev-ml/ocamlbuild dev-ml/findlib:=
 DESCRIPTION=System for writing extensible parsers for programming languages
 EAPI=7
 HOMEPAGE=https://github.com/camlp4/camlp4
 IUSE=+ocamlopt
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2-with-linking-exception
-RDEPEND=dev-lang/ocaml:0/4.10[ocamlopt?]
-SLOT=0/4.10_p1
-SRC_URI=https://github.com/camlp4/camlp4/archive/4.10+1.tar.gz -> camlp4-4.10_p1.tar.gz
-_md5_=1619dab91d4274f1fee8182ae21f7ac1
+RDEPEND=dev-lang/ocaml:0/4.11[ocamlopt?]
+SLOT=0/4.11_p1
+SRC_URI=https://github.com/camlp4/camlp4/archive/4.11+1.tar.gz -> camlp4-4.11_p1.tar.gz
+_md5_=8635843fc07c787498fe77aebc1bb395
