@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=|| ( >=dev-python/pypy3-exe-7.3.6_rc2:7.3.6_rc2[bzip2?,ncurses?] >=dev-python/pypy3-exe-bin-7.3.6_rc2:7.3.6_rc2 ) dev-libs/openssl:0= gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy3-bin-7.3.0:0 test? ( || ( >=dev-lang/python-2.7.5-r2:2.7 ) !!dev-python/pytest-forked )
+DESCRIPTION=A fast, compliant alternative implementation of the Python (3.8) language
+EAPI=7
+HOMEPAGE=https://www.pypy.org/
+INHERIT=pax-utils python-any-r1 toolchain-funcs
+IUSE=bzip2 gdbm +jit ncurses sqlite test tk
+LICENSE=MIT
+RDEPEND=|| ( >=dev-python/pypy3-exe-7.3.6_rc2:7.3.6_rc2[bzip2?,ncurses?] >=dev-python/pypy3-exe-bin-7.3.6_rc2:7.3.6_rc2 ) dev-libs/openssl:0= gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy3-bin-7.3.0:0
+RESTRICT=test
+SLOT=0/pypy38-pp73
+SRC_URI=https://buildbot.pypy.org/pypy/pypy3.8-v7.3.6rc2-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.8-gentoo-patches-7.3.6rc2.tar.xz
+_eclasses_=pax-utils	fce6ad998516159787b92e8043167889	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_md5_=e574dde38579e299b8adb1310ae5e68f
