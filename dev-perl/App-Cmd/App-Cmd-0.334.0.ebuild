@@ -1,22 +1,17 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 DIST_AUTHOR=RJBS
-DIST_VERSION=0.331
+DIST_VERSION=0.334
 inherit perl-module
 
-DESCRIPTION="write command line apps with less suffering"
+DESCRIPTION="Write command line apps with less suffering"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test minimal"
-RESTRICT="!test? ( test )"
+IUSE="minimal"
 
-# r: File::Basename -> perl
-# r: Text::Abbrev   -> perl
-# r: constant, strict, warnings -> perl
-# r: Module::Pluggable::Object -> Module-Pluggable
-# r: Sub::Exporter::Util -> Sub-Exporter
 RDEPEND="
 	>=dev-perl/Capture-Tiny-0.130.0
 	virtual/perl-Carp
@@ -31,9 +26,7 @@ RDEPEND="
 	dev-perl/Sub-Install
 	virtual/perl-parent
 "
-# t: IPC::Cmd -> perl
-# t: base, lib -> perl
-DEPEND="
+BDEPEND="
 	${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? (
