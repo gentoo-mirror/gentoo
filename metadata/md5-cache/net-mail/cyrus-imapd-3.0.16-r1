@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.cyrusimap.org/
 INHERIT=autotools flag-o-matic pam ssl-cert
 IUSE=afs backup calalarm caps clamav http kerberos ldap lmdb mysql nntp pam perl postgres replication +server sieve snmp sqlite ssl static-libs tcpd test xapian ssl
-KEYWORDS=~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~hppa ~ia64 ppc ~ppc64 ~sparc x86
 LICENSE=BSD-with-attribution GPL-2
 RDEPEND=sys-libs/zlib:0= dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:0= sys-fs/e2fsprogs afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:0= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( dev-libs/libxml2:2 dev-libs/libical:0= net-libs/nghttp2 ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap ) lmdb? ( dev-db/lmdb:0= ) mysql? ( dev-db/mysql-connector-c:0= ) nntp? ( !net-nntp/leafnode ) pam? ( sys-libs/pam >=net-mail/mailbase-1 ) perl? ( dev-lang/perl:= ) postgres? ( dev-db/postgresql:* ) snmp? ( >=net-analyzer/net-snmp-5.2.2-r1:0= ) ssl? ( >=dev-libs/openssl-1.0.1e:0=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 snmp? ( net-analyzer/net-snmp:0=[tcpd=] ) ) xapian? ( >=dev-libs/xapian-1.4.0:0= ) acct-group/mail acct-user/cyrus !mail-mta/courier !net-mail/bincimap !net-mail/courier-imap !net-mail/uw-imap !app-arch/dump
 REQUIRED_USE=afs? ( kerberos ) backup? ( sqlite ) calalarm? ( http ) http? ( sqlite )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cyrusimap/cyrus-imapd/releases/download/cyrus-imapd-3.0.16/cyrus-imapd-3.0.16.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pam	41ce39f668e11d31ff4734f3b5794f7d	ssl-cert	1283a22296251a63df6c137c9b929269
-_md5_=195efff0bd971141db54863a2be94f57
+_md5_=89d6e9eee841090c7b0a44f9c472d032
