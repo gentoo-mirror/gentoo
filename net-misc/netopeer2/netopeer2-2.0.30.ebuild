@@ -16,10 +16,10 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-libs/openssl:=
 	net-misc/curl:=
-	>=net-misc/sysrepo-2.0.41:=
-	>=net-libs/libnetconf2-2.0.17:=
+	>=net-misc/sysrepo-2.0.47:=
+	>=net-libs/libnetconf2-2.0.19:=
 	net-libs/libssh:=
-	>=net-libs/libyang-2.0.88:="
+	>=net-libs/libyang-2.0.97:="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
