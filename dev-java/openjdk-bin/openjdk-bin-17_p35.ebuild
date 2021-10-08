@@ -12,7 +12,7 @@ abi_uri() {
 		*-solaris)  os=solaris  ;;
 	esac
 	echo "${2-$1}? (
-			https://github.com/adoptium/temurin${SLOT}-binaries/releases/download/jdk-${MY_PV}/OpenJDK${SLOT}U-jdk_${1}_${os}_hotspot_${MY_PV//+/_}.tar.gz
+			https://github.com/adoptium/temurin${SLOT}-binaries/releases/download/jdk-${MY_PV}/OpenJDK${SLOT}-jdk_${1}_${os}_hotspot_${MY_PV//+/_}.tar.gz
 		)"
 }
 
@@ -20,6 +20,7 @@ MY_PV=${PV/_p/+}
 SLOT=${MY_PV%%[.+]*}
 
 SRC_URI="
+	$(abi_uri arm)
 	$(abi_uri aarch64 arm64)
 	$(abi_uri ppc64le ppc64)
 	$(abi_uri x64 amd64)
