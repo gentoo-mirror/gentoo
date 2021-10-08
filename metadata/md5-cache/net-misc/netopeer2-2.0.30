@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=dev-libs/openssl:= net-misc/curl:= >=net-misc/sysrepo-2.0.41:= >=net-libs/libnetconf2-2.0.17:= net-libs/libssh:= >=net-libs/libyang-2.0.88:=
+DEPEND=dev-libs/openssl:= net-misc/curl:= >=net-misc/sysrepo-2.0.47:= >=net-libs/libnetconf2-2.0.19:= net-libs/libssh:= >=net-libs/libyang-2.0.97:=
 DESCRIPTION=Server for implementing NETCONF configuration management
 EAPI=8
 HOMEPAGE=https://github.com/CESNET/netopeer2
 INHERIT=cmake
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-libs/openssl:= net-misc/curl:= >=net-misc/sysrepo-2.0.41:= >=net-libs/libnetconf2-2.0.17:= net-libs/libssh:= >=net-libs/libyang-2.0.88:=
+RDEPEND=dev-libs/openssl:= net-misc/curl:= >=net-misc/sysrepo-2.0.47:= >=net-libs/libnetconf2-2.0.19:= net-libs/libssh:= >=net-libs/libyang-2.0.97:=
 SLOT=0
-SRC_URI=https://github.com/CESNET/netopeer2/archive/v2.0.28.tar.gz -> netopeer2-2.0.28.tar.gz
+SRC_URI=https://github.com/CESNET/netopeer2/archive/v2.0.30.tar.gz -> netopeer2-2.0.30.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=f23f56d95da1e35d749777cfb8f7c2c9
+_md5_=f05c70b093ef1e0f859d3e099d78a8ad
