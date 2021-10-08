@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 NEED_EMACS=25
 
 inherit elisp
@@ -20,10 +20,10 @@ ELISP_TEXINFO="../Documentation/*.texi"
 DOCS="../README.md ../Documentation/AUTHORS.md ../Documentation/RelNotes/*"
 
 DEPEND="
-	>=app-emacs/dash-2.18.1
+	>=app-emacs/dash-2.19.1
 	app-emacs/libegit2
-	>=app-emacs/transient-0.3.3
-	>=app-emacs/with-editor-3.0.4
+	>=app-emacs/transient-0.3.6
+	>=app-emacs/with-editor-3.0.5
 "
 RDEPEND="${DEPEND} >=dev-vcs/git-2.0.0"
 DEPEND="${DEPEND} sys-apps/texinfo"
