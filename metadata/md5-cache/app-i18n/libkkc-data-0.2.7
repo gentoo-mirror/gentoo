@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 )
+BDEPEND=|| ( ( dev-lang/python:3.9 dev-libs/marisa[python,python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-libs/marisa[python,python_targets_python3_8(-)] ) )
 DEFINED_PHASES=setup
 DESCRIPTION=Language model data for libkkc
 EAPI=7
@@ -9,4 +9,4 @@ LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://github.com/ueno/libkkc/releases/download/v0.3.5/libkkc-data-0.2.7.tar.xz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=596d6cb72d49ac5ff062ba683bb6a1dc
+_md5_=f5289cea7c2ea1a7fec3251621bee981
