@@ -1,14 +1,13 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-USE_RUBY="ruby25 ruby26 ruby27"
+EAPI=8
+USE_RUBY="ruby26 ruby27 ruby30"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
-RUBY_FAKEGEM_RECIPE_DOC="rdoc"
-
 RUBY_FAKEGEM_BINWRAP=""
+RUBY_FAKEGEM_GEMSPEC="ruby-jwt.gemspec"
 
 inherit ruby-fakegem
 
@@ -27,8 +26,8 @@ ruby_add_bdepend "test? ( dev-ruby/rbnacl )"
 
 all_ruby_prepare() {
 	sed -i -e "/simplecov/ s:^:#:" \
-		-e '/^SimpleCov.configure/,/^end/ s:^:#:' \
-		-e '/codeclimate/I s:^:#:' \
-		-e '/codacy/I s:^:#:' \
+		-e '/^SimpleCov.start/,/^end/ s:^:#:' \
 		spec/spec_helper.rb || die
+
+	sed -i -e 's/git ls-files -z/find * -print0/' ${RUBY_FAKEGEM_GEMSPEC} || die
 }
