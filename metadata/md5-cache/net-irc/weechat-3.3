@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://weechat.org/
 INHERIT=cmake lua-single python-single-r1 xdg-utils
 IUSE=doc man nls selinux test guile lua +perl php +python ruby tcl +alias +buflist +charset +exec +fifo +fset +logger +relay +scripts +spell +trigger +typing +xfer +irc lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~x64-macos
+KEYWORDS=~amd64 ~arm arm64 ~ppc ~ppc64 ~x86 ~x64-macos
 LICENSE=GPL-3
 RDEPEND=dev-libs/libgcrypt:0= net-libs/gnutls:= sys-libs/ncurses:0= sys-libs/zlib:= net-misc/curl[ssl] charset? ( virtual/libiconv ) guile? ( >=dev-scheme/guile-2.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) nls? ( virtual/libintl ) perl? ( dev-lang/perl:= ) php? ( >=dev-lang/php-7.0:*[embed] ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) ruby? ( || ( dev-lang/ruby:2.7 dev-lang/ruby:2.6 dev-lang/ruby:2.5 ) ) selinux? ( sec-policy/selinux-irc ) spell? ( app-text/aspell ) tcl? ( >=dev-lang/tcl-8.4.15:0= )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ) test? ( nls )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3.3
 SRC_URI=https://weechat.org/files/src/weechat-3.3.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
-_md5_=b81c4358bad8c9746b113f3b68e6ac6f
+_md5_=4e7eaf1d85c772b4163e34c9fba4b588
