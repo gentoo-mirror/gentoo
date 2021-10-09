@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=transparent editing of gpg encrypted files
+EAPI=7
+HOMEPAGE=https://www.vim.org/scripts/script.php?script_id=3645
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=app-crypt/gnupg || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://www.vim.org/scripts/download_script.php?src_id=27359 -> gnupg-2.7.1.zip
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=0cf7342fc9c13782e3d651d15e87641c
