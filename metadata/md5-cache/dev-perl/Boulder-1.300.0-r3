@@ -1,0 +1,16 @@
+BDEPEND=genbank? ( dev-perl/CGI ) store? ( virtual/perl-DB_File ) xml? ( dev-perl/XML-Parser ) virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=An API for hierarchical tag/value structures
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Boulder
+INHERIT=perl-module
+IUSE=genbank store xml test examples
+KEYWORDS=amd64 ~ia64 ~ppc sparc x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=genbank? ( dev-perl/CGI ) store? ( virtual/perl-DB_File ) xml? ( dev-perl/XML-Parser ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/L/LD/LDS/Boulder-1.30.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=e5529e33602e6781b07ba968eaed3321
