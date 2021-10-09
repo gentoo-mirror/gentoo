@@ -1,7 +1,8 @@
+BDEPEND=>=dev-perl/Module-Implementation-0.50.0 virtual/perl-Scalar-List-Utils >=dev-perl/Sub-Exporter-Progressive-0.1.6 >=dev-perl/Variable-Magic-0.480.0 virtual/perl-ExtUtils-MakeMaker virtual/perl-Text-ParseWords test? ( >=virtual/perl-CPAN-Meta-2.120.900 virtual/perl-File-Spec >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-perl/Module-Implementation-0.50.0 virtual/perl-Scalar-List-Utils >=dev-perl/Sub-Exporter-Progressive-0.1.6 >=dev-perl/Variable-Magic-0.480.0 virtual/perl-ExtUtils-MakeMaker virtual/perl-Text-ParseWords test? ( >=virtual/perl-CPAN-Meta-2.120.900 virtual/perl-File-Spec >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Execute code after a scope finished compilation
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/B-Hooks-EndOfScope
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=>=dev-perl/Module-Implementation-0.50.0 virtual/perl-Scalar-List-Utils >
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=9d6e27ed3d66d3cd38862638938c902e
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=f3693d0887e04fe0167bd591ef22c7ce

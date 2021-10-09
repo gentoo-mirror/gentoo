@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Exporter virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/Capture-Tiny virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=atexit() function to register exit-callbacks
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/AtExit
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~ia64 ~ppc ~sparc ~x86
+LICENSE=Artistic
+RDEPEND=virtual/perl-Exporter dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/J/JA/JANITOR/AtExit-2.05.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=09c7e746671c947f0751b0b7b7247b94
