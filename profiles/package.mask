@@ -249,42 +249,12 @@ dev-python/py-gfm
 # Removal on 2021-10-11.  Bug #812521.
 dev-python/txgithub
 
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' deprecated use_2to3 option.
-# Last release in 2019, no revdeps.
-# Removal on 2021-10-09. Bug #812236
-dev-python/sparql-wrapper
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' deprecated use_2to3 option.
-# Last release in 2019, no revdeps.
-# Removal on 2021-10-09. Bug #812233
-dev-python/pybluez
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' deprecated use_2to3 option.
-# Last release in 2015, no revdeps.
-# Removal on 2021-10-09. Bug #812224
-dev-python/lcdproc
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-09-09)
-# Relies on setuptools' use_2to3 option.
-# Last release in 2017, no revdeps.
-# Removal on 2021-10-09. Bug #812221
-dev-python/fudge
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2021-09-07)
 # Mask backwards-incompatible version to avoid autodeletion of previous one.
 # Data migration is not supported upstream and can't be done automatically.
 # https://github.com/martinrotter/rssguard/releases/tag/4.0.0
 # https://github.com/martinrotter/rssguard/blob/master/resources/docs/Documentation.md#migratt
 >=net-news/rssguard-4.0.0
-
-# Louis Sautier <sbraz@gentoo.org> (2021-09-09)
-# No reverse dependencies, no upstream activity for more than 3 years.
-# dev-python/oauthlib is maintained and provides the same functionality.
-# Removal on 2021-10-09.
-dev-python/oauth2
 
 # Thomas Deutschmann <whissi@gentoo.org> (2021-09-07)
 # Masked while being tested and reverse deps aren't fully compatible
