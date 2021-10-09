@@ -15,11 +15,11 @@ LICENSE="Apache-2.0 BSD BZIP2 GPL-3 LGPL-2.1+ LGPL-3 MIT
 	non-free? ( Activision ChexQuest3 DOOM-COLLECTORS-EDITION freedist WidePix )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="debug gtk +non-free openmp"
+IUSE="debug gles2 gtk +non-free openmp telemetry vulkan"
 
 DEPEND="
 	app-arch/bzip2
-	media-libs/libsdl2[opengl]
+	media-libs/libsdl2[gles2?,opengl,vulkan?]
 	media-libs/openal
 	media-libs/zmusic
 	sys-libs/zlib
@@ -53,11 +53,14 @@ src_configure() {
 		-DDYN_OPENAL=OFF
 		-DNO_GTK="$(usex !gtk)"
 		-DNO_OPENAL=OFF
+		-DHAVE_VULKAN="$(usex vulkan)"
+		-DHAVE_GLES2="$(usex gles2)"
 		-DNO_OPENMP="$(usex !openmp)"
 		-DBUILD_NONFREE="$(usex non-free)"
 	)
 
 	use debug || append-cppflags -DNDEBUG
+	use telemetry || append-cppflags -DNO_SEND_STATS
 
 	cmake_src_configure
 }
