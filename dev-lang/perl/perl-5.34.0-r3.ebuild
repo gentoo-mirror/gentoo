@@ -71,6 +71,7 @@ BDEPEND="${RDEPEND}"
 PDEPEND="
 	!minimal? (
 		>=app-admin/perl-cleaner-2.5
+		>=virtual/perl-Encode-3.120.0
 		>=virtual/perl-File-Temp-0.230.400-r2
 		>=virtual/perl-Data-Dumper-2.154.0
 		virtual/perl-Test-Harness
@@ -396,6 +397,10 @@ src_prepare() {
 	# add_patch "${FILESDIR}/${PN}-5.26.2-hppa.patch" "100-5.26.2-hppa.patch"\
 	#		"Fix broken miniperl on hppa"\
 	#		"https://bugs.debian.org/869122" "https://bugs.gentoo.org/634162"
+
+	add_patch "${FILESDIR}/${P}-gdbm-1.20.patch" "0101-Fix-build-with-gdb120.patch"\
+			"Fix GDBM_File to compile with version 1.20 and earlier"\
+			"https://bugs.gentoo.org/802945"
 
 	if [[ ${CHOST} == *-solaris* ]] ; then
 		# do NOT mess with nsl, on Solaris this is always necessary,
