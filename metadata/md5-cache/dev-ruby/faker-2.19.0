@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby26? ( >=dev-ruby/i18n-1.6:1[ruby_targets_ruby26(-)] !!<dev-ruby/faker-1.9.6-r1[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/i18n-1.6:1[ruby_targets_ruby27(-)] !!<dev-ruby/faker-1.9.6-r1[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/timecop[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/timecop[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+DESCRIPTION=A library for generating fake data such as names, addresses, and phone numbers
+EAPI=8
+HOMEPAGE=https://github.com/stympy/faker
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 test test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/i18n-1.6:1[ruby_targets_ruby26(-)] !!<dev-ruby/faker-1.9.6-r1[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/i18n-1.6:1[ruby_targets_ruby27(-)] !!<dev-ruby/faker-1.9.6-r1[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=2
+SRC_URI=https://github.com/stympy/faker/archive/v2.19.0.tar.gz -> faker-2.19.0.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
+_md5_=1ddb41ebf41b0188c591c0fd30c13b0a

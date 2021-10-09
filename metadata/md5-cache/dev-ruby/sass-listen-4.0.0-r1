@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby26? ( >=dev-ruby/rb-inotify-0.9.7[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rb-inotify-0.9.7[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/rb-inotify-0.9.7[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/thor[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/thor[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/thor[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] !!dev-ruby/psych[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DESCRIPTION=Fork of guard/listen provides a stable API for users of the ruby Sass CLI
+EAPI=8
+HOMEPAGE=https://github.com/guard/listen
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 test test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/rb-inotify-0.9.7[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rb-inotify-0.9.7[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/rb-inotify-0.9.7[ruby_targets_ruby30(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=4
+SRC_URI=https://github.com/sass/listen/archive/v4.0.0.tar.gz -> sass-listen-4.0.0.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	38058c97fbf1ce2a00f4ab8670ed5b54
+_md5_=7be2ca21cefc8a7f8b16a8436986e80c
