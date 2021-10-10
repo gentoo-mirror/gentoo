@@ -912,7 +912,7 @@ app-admin/clsync 0.4.5 9999: Live sync tool based on inotify, written in GNU C
 app-admin/clustershell 1.8.3: Python framework for efficient cluster administration
 app-admin/conky 1.12.1-r1 1.12.2: An advanced, highly configurable system monitor for X
 app-admin/conserver 8.2.6-r3: Serial Console Manager
-app-admin/consul 1.8.15 1.9.9 1.10.2: A tool for service discovery, monitoring and configuration
+app-admin/consul 1.8.15 1.8.16 1.9.10 1.10.3: A tool for service discovery, monitoring and configuration
 app-admin/consul-replicate 0.2.0: Consul cross-DC KV replication daemon
 app-admin/consul-template 0.25.0 0.25.1 0.25.2: Generic template rendering and notifications with Consul
 app-admin/cpulimit 2.4: Limits the CPU usage of a process
@@ -1065,7 +1065,7 @@ app-admin/tripwire 2.4.3.7: Open Source File Integrity Checker and IDS
 app-admin/ulogd 2.0.7-r3: A userspace logging daemon for netfilter/iptables related logging
 app-admin/undertaker-scripts 1: Scripts to help retiring Gentoo developers
 app-admin/usbview 2.0: Display the topology of devices on the USB bus
-app-admin/vault 1.8.2 1.8.3: A tool for managing secrets
+app-admin/vault 1.8.4: A tool for managing secrets
 app-admin/verynice 1.1-r3: A tool for dynamically adjusting the nice-level of processes
 app-admin/watchfolder 0.3.3-r1: Watches directories and processes files
 app-admin/webalizer 2.23.08: Webserver log file analyzer
@@ -8608,6 +8608,7 @@ dev-python/fs 2.4.13: Filesystem abstraction layer
 dev-python/fsspec 2021.07.0 2021.08.1 2021.09.0 2021.10.0: A specification that python filesystems should adhere to
 dev-python/funcparserlib 0.3.6_p20210809: Recursive descent parsing library based on functional combinators
 dev-python/funcy 1.16: A collection of fancy functional tools focused on practicality
+dev-python/furo 2021.10.9: Clean customisable Sphinx documentation theme
 dev-python/fuse-python 1.0.0 1.0.4: Python FUSE bindings
 dev-python/fusepy 3.0.1: Python FUSE bindings using ctypes
 dev-python/future 0.18.2-r1: Easy, clean, reliable Python 2/3 compatibility
@@ -10693,7 +10694,7 @@ dev-ruby/selenium-webdriver 3.142.7-r1: This gem provides Ruby bindings for WebD
 dev-ruby/semantic_puppet 1.0.2 1.0.3 1.0.4: Library of tools for working with Semantic Versions and module dependencies
 dev-ruby/semver2 3.4.2: maintain versions as per http://semver.org
 dev-ruby/serialport 1.3.1 1.3.2: a library for serial port (rs232) access in ruby
-dev-ruby/serverengine 2.2.1 2.2.2 2.2.3: A framework to implement robust multiprocess servers
+dev-ruby/serverengine 2.2.1 2.2.2 2.2.3 2.2.4: A framework to implement robust multiprocess servers
 dev-ruby/set 1.0.1: Provides a class to deal with collections of unordered, unique values
 dev-ruby/settingslogic 2.0.9: A simple configuration / settings solution that uses an ERB enabled YAML file
 dev-ruby/sexp_processor 4.15.0 4.15.1 4.15.2 4.15.3: Processor for s-expressions created as part of the ParseTree project
@@ -17229,7 +17230,7 @@ sys-apps/firejail 0.9.64.4 0.9.66 9999: Security sandbox for any type of process
 sys-apps/firejail-lts 0.9.56.2-r1 0.9.56.2-r2: Security sandbox for any type of processes; LTS version
 sys-apps/fix-gnustack 0.1: Utility to report and remove the executable flag from an ELF object's GNU_STACK
 sys-apps/flashrom 1.2-r3 9999: Utility for reading, writing, erasing and verifying flash ROM chips
-sys-apps/flatpak 1.10.5 1.12.1: Linux application sandboxing and distribution framework
+sys-apps/flatpak 1.10.2 1.10.5 1.12.1: Linux application sandboxing and distribution framework
 sys-apps/frandom 1.1-r1: Fast kernel-land pseudo-random number generator using the RC4 algorithm
 sys-apps/fwts 20.11.00: Firmware Test Suite
 sys-apps/fwupd 1.5.9-r1 1.6.2 1.6.3 1.6.4-r1: Aims to make updating firmware on Linux automatic, safe and reliable
@@ -17928,7 +17929,7 @@ sys-kernel/linux-firmware 20201218 20210208 20210315 20210518 20210629 20210716 
 sys-kernel/linux-headers 3.18 4.4 4.9 4.14-r1 4.19 5.4-r1 5.9 5.10 5.11 5.12 5.13 5.14: Linux system headers
 sys-kernel/linux-next 9999: Linux kernel and patches aimed at the next kernel merge window
 sys-kernel/mips-sources 4.14.243 4.19.203 5.4.140: Kernel.org sources for MIPS-based machines
-sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.14_p1 5.14_p2 5.14_p4: Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
+sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.14_p1 5.14_p2 5.14_p4 5.14_p5: Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224-r1 4.9.282_p187 4.14.246_p122 4.19.206_p87 5.4.143_p64 5.10.59_p52 5.14.2_p21: Full Linux 5.14 kernel sources with the CONFIG_PREEMPT_RT patch
