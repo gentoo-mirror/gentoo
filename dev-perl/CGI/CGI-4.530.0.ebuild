@@ -1,19 +1,17 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DIST_AUTHOR=LEEJO
-DIST_VERSION=4.47
+DIST_VERSION=4.53
 DIST_EXAMPLES=("examples/*")
 inherit perl-module
 
 DESCRIPTION="Simple Common Gateway Interface Class"
 LICENSE="Artistic-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 RDEPEND="
 	virtual/perl-Carp
@@ -35,4 +33,5 @@ BDEPEND="${RDEPEND}
 		>=dev-perl/Test-Warn-0.300.0
 	)
 "
+
 PERL_RM_FILES=( "t/compiles_pod.t" "t/changes.t" )
