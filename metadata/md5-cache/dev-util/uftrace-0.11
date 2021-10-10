@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) ) unwind? ( sys-libs/libunwind:= )
+DESCRIPTION=Function (graph) tracer for user-space
+EAPI=7
+HOMEPAGE=https://github.com/namhyung/uftrace
+INHERIT=bash-completion-r1 lua-single python-single-r1 toolchain-funcs
+IUSE=capstone lua python unwind +lua_single_target_luajit python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) ) unwind? ( sys-libs/libunwind:= )
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit ) ) python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/namhyung/uftrace/archive/v0.11.tar.gz -> uftrace-0.11.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	bash-completion-r1	d3a60385655d9b402be765a6de333245	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_md5_=2990b77a7ece72c0e3d1a8e91fcd7f53
