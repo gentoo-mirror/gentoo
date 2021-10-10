@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://zmap.io/
 INHERIT=cmake fcaps
 IUSE=mongo redis +filecaps
-KEYWORDS=amd64 arm x86
+KEYWORDS=amd64 arm ~arm64 x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/gmp:0 net-libs/libpcap dev-libs/json-c:= mongo? ( dev-db/mongodb dev-libs/mongo-c-driver ) redis? ( dev-libs/hiredis ) filecaps? ( sys-libs/libcap )
 SLOT=0
 SRC_URI=https://github.com/zmap/zmap/archive/v2.1.1.tar.gz -> zmap-2.1.1.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	fcaps	ac252c3cc67b265cd7ea456f8d58e150
-_md5_=813bb1e11f4fe3ac7c36151f1ef9fe46
+_md5_=bc7d9f08632723d9413fe1a3a725c186
