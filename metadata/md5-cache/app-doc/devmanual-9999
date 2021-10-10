@@ -1,12 +1,13 @@
-BDEPEND=dev-libs/libxml2 dev-libs/libxslt gnome-base/librsvg media-fonts/open-sans || ( dev-lang/python:3.9 dev-lang/python:3.8 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-libs/libxml2 dev-libs/libxslt gnome-base/librsvg media-fonts/open-sans || ( dev-lang/python:3.9 dev-lang/python:3.8 ) test? ( >=app-text/htmltidy-5.8.0 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst setup unpack
 DESCRIPTION=The Gentoo Development Guide
-EAPI=7
+EAPI=8
 HOMEPAGE=https://devmanual.gentoo.org/
 INHERIT=python-any-r1 readme.gentoo-r1 git-r3
-IUSE=+offline
+IUSE=+offline test
 LICENSE=CC-BY-SA-4.0
 PROPERTIES=live
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=3dea8ee4ac06d1c155e237c0e4cc0745
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=0deb1e5cfde2a0c2482702947869202b
