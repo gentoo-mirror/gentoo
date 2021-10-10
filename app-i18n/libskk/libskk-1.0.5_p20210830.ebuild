@@ -1,32 +1,35 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-inherit vala virtualx
+inherit autotools vala vcs-snapshot virtualx
+
+EGIT_COMMIT="5f5e5c2d3facfec9f577fb66032e6f1994ed5d44"
 
 DESCRIPTION="GObject-based library to deal with Japanese kana-to-kanji conversion method"
 HOMEPAGE="https://github.com/ueno/libskk"
-SRC_URI="https://github.com/ueno/${PN}/releases/download/${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/ueno/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+introspection nls static-libs"
 
 RDEPEND="dev-libs/glib:2
 	dev-libs/json-glib
 	dev-libs/libgee:0.8
+	x11-libs/libxkbcommon
 	introspection? ( dev-libs/gobject-introspection )
 	nls? ( virtual/libintl )"
-DEPEND="${RDEPEND}
-	$(vala_depend)
-	dev-util/intltool
+DEPEND="${RDEPEND}"
+BDEPEND="$(vala_depend)
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
 src_prepare() {
 	vala_src_prepare
+	eautoreconf
 	default
 }
 
