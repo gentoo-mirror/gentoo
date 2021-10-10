@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-cpp/gtest || ( ( dev-lang/python:3.10 dev-python/pyyaml[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/pyyaml[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/pyyaml[python_targets_python3_8(-)] ) ) ) benchmark? ( app-admin/chrpath ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/hip:0/4.3 sci-libs/rocPRIM:0/4.3
+DESCRIPTION=Basic Linear Algebra Subroutines for sparse computation
+EAPI=7
+HOMEPAGE=https://github.com/ROCmSoftwarePlatform/rocSPARSE
+INHERIT=cmake python-any-r1 toolchain-funcs
+IUSE=benchmark test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/4.3 sci-libs/rocPRIM:0/4.3
+RESTRICT=!test? ( test )
+SLOT=0/4.3
+SRC_URI=https://github.com/ROCmSoftwarePlatform/rocSPARSE/archive/rocm-4.3.0.tar.gz -> rocSPARSE-4.3.0.tar.gz test? ( https://sparse.tamu.edu/MM/SNAP/amazon0312.tar.gz -> rocSPARSE_amazon0312.tar.gz https://sparse.tamu.edu/MM/Muite/Chebyshev4.tar.gz -> rocSPARSE_Chebyshev4.tar.gz https://sparse.tamu.edu/MM/FEMLAB/sme3Dc.tar.gz -> rocSPARSE_sme3Dc.tar.gz https://sparse.tamu.edu/MM/Williams/webbase-1M.tar.gz -> rocSPARSE_webbase-1M.tar.gz https://sparse.tamu.edu/MM/Bova/rma10.tar.gz -> rocSPARSE_rma10.tar.gz https://sparse.tamu.edu/MM/JGD_BIBD/bibd_22_8.tar.gz -> rocSPARSE_bibd_22_8.tar.gz https://sparse.tamu.edu/MM/Williams/mac_econ_fwd500.tar.gz -> rocSPARSE_mac_econ_fwd500.tar.gz https://sparse.tamu.edu/MM/Williams/mc2depi.tar.gz -> rocSPARSE_mc2depi.tar.gz https://sparse.tamu.edu/MM/Hamm/scircuit.tar.gz -> rocSPARSE_scircuit.tar.gz https://sparse.tamu.edu/MM/Sandia/ASIC_320k.tar.gz -> rocSPARSE_ASIC_320k.tar.gz https://sparse.tamu.edu/MM/GHS_psdef/bmwcra_1.tar.gz -> rocSPARSE_bmwcra_1.tar.gz https://sparse.tamu.edu/MM/HB/nos1.tar.gz -> rocSPARSE_nos1.tar.gz https://sparse.tamu.edu/MM/HB/nos2.tar.gz -> rocSPARSE_nos2.tar.gz https://sparse.tamu.edu/MM/HB/nos3.tar.gz -> rocSPARSE_nos3.tar.gz https://sparse.tamu.edu/MM/HB/nos4.tar.gz -> rocSPARSE_nos4.tar.gz https://sparse.tamu.edu/MM/HB/nos5.tar.gz -> rocSPARSE_nos5.tar.gz https://sparse.tamu.edu/MM/HB/nos6.tar.gz -> rocSPARSE_nos6.tar.gz https://sparse.tamu.edu/MM/HB/nos7.tar.gz -> rocSPARSE_nos7.tar.gz https://sparse.tamu.edu/MM/DNVS/shipsec1.tar.gz -> rocSPARSE_shipsec1.tar.gz https://sparse.tamu.edu/MM/Cote/mplate.tar.gz -> rocSPARSE_mplate.tar.gz https://sparse.tamu.edu/MM/Bai/qc2534.tar.gz -> rocSPARSE_qc2534.tar.gz https://sparse.tamu.edu/MM/Chevron/Chevron2.tar.gz -> rocSPARSE_Chevron2.tar.gz https://sparse.tamu.edu/MM/Chevron/Chevron3.tar.gz -> rocSPARSE_Chevron3.tar.gz https://sparse.tamu.edu/MM/Chevron/Chevron4.tar.gz -> rocSPARSE_Chevron4.tar.gz )
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_md5_=0577dd6ccd4926f547e3c2a290c34c9c
