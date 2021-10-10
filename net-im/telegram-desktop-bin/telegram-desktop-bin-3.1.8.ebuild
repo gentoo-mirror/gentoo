@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop optfeature xdg
 
@@ -22,10 +22,7 @@ RDEPEND="
 	dev-libs/glib:2
 	>=media-libs/fontconfig-2.13
 	media-libs/freetype:2
-	sys-libs/zlib
 	virtual/opengl
-	x11-libs/libSM
-	x11-libs/libdrm
 	x11-libs/libX11
 	>=x11-libs/libxcb-1.10[xkb]
 "
