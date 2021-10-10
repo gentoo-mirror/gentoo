@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/go nls? ( sys-devel/gettext ) verify-sig? ( app-crypt/openpgp-keys-linuxcontainers ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=app-arch/xz-utils >=app-emulation/lxc-3.0.0[apparmor?,seccomp(+)] dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6?]
+DEPEND=acct-group/lxd app-arch/xz-utils >=app-emulation/lxc-3.0.0[apparmor?,seccomp(+)] dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6?]
 DESCRIPTION=Fast, dense and secure container management
 EAPI=7
 HOMEPAGE=https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
@@ -8,8 +8,8 @@ INHERIT=bash-completion-r1 linux-info optfeature systemd verify-sig
 IUSE=apparmor ipv6 nls verify-sig kernel_linux verify-sig
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=app-arch/xz-utils >=app-emulation/lxc-3.0.0[apparmor?,seccomp(+)] dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6?] acct-group/lxd net-firewall/ebtables net-firewall/iptables[ipv6?] sys-apps/iproute2[ipv6?] sys-fs/fuse:* sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
+RDEPEND=acct-group/lxd app-arch/xz-utils >=app-emulation/lxc-3.0.0[apparmor?,seccomp(+)] dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6?] net-firewall/ebtables net-firewall/iptables[ipv6?] sys-apps/iproute2[ipv6?] sys-fs/fuse:* sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
 SLOT=0
 SRC_URI=https://linuxcontainers.org/downloads/lxd/lxd-4.0.7.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxd/lxd-4.0.7.tar.gz.asc )
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	bash-completion-r1	d3a60385655d9b402be765a6de333245	linux-info	0979a3f84b9948fbe2a553beb6b5f505	optfeature	30ce9dec2b8943338c9b015bd32bac6a	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=9fe7263a648f1214c079095036fe39c3
+_md5_=4ca5fb86dee044e5441d586fb2fad95b
