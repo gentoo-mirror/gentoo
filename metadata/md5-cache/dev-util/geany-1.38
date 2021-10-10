@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm preinst prepare setup
+DEPEND=>=dev-libs/glib-2.32:2 >=x11-libs/gtk+-3.0:3 vte? ( x11-libs/vte:2.91 ) dev-util/intltool sys-devel/gettext
+DESCRIPTION=GTK+ based fast and lightweight IDE
+EAPI=8
+HOMEPAGE=https://www.geany.org
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=strip-linguas xdg
+IUSE=+vte
+KEYWORDS=~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+ HPND
+RDEPEND=>=dev-libs/glib-2.32:2 >=x11-libs/gtk+-3.0:3 vte? ( x11-libs/vte:2.91 )
+SLOT=0
+SRC_URI=https://download.geany.org/geany-1.38.tar.bz2
+_eclasses_=strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=4da7fab0107a84e1a00e0510b3b23c86

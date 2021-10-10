@@ -1,14 +1,15 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst postrm preinst prepare setup unpack
-DEPEND=>=dev-libs/glib-2.32:2 gtk2? ( >=x11-libs/gtk+-2.24:2 vte? ( x11-libs/vte:0 ) ) !gtk2? ( >=x11-libs/gtk+-3.0:3 vte? ( x11-libs/vte:2.91 ) ) dev-util/intltool sys-devel/gettext dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=>=dev-libs/glib-2.32:2 >=x11-libs/gtk+-3.0:3 vte? ( x11-libs/vte:2.91 ) dev-util/intltool sys-devel/gettext
 DESCRIPTION=GTK+ based fast and lightweight IDE
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.geany.org
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=strip-linguas xdg autotools git-r3
-IUSE=gtk2 +vte
+IUSE=+vte
 LICENSE=GPL-2+ HPND
 PROPERTIES=live
-RDEPEND=>=dev-libs/glib-2.32:2 gtk2? ( >=x11-libs/gtk+-2.24:2 vte? ( x11-libs/vte:0 ) ) !gtk2? ( >=x11-libs/gtk+-3.0:3 vte? ( x11-libs/vte:2.91 ) )
+RDEPEND=>=dev-libs/glib-2.32:2 >=x11-libs/gtk+-3.0:3 vte? ( x11-libs/vte:2.91 )
 SLOT=0
 _eclasses_=strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=1506b0cc6351d5e7900a0057b0538055
+_md5_=4da7fab0107a84e1a00e0510b3b23c86
