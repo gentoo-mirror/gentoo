@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/SOAP-Lite
 INHERIT=perl-module
 IUSE=ssl test xmpp test examples
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~arm ~arm64 ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Class-Inspector >=dev-perl/IO-SessionData-1.30.0 dev-perl/libwww-perl virtual/perl-MIME-Base64 virtual/perl-Scalar-List-Utils dev-perl/Task-Weaken dev-perl/URI >=dev-perl/XML-Parser-2.230.0 dev-perl/MIME-tools ssl? ( dev-perl/IO-Socket-SSL dev-perl/LWP-Protocol-https dev-perl/Crypt-SSLeay ) xmpp? ( dev-perl/Net-Jabber ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/P/PH/PHRED/SOAP-Lite-1.27.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=8cf62ed5e488f05f048ae0d109c3ff13
+_md5_=e8bd55f689ef4d5c5e9bf0639e282ff2
