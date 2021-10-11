@@ -9,7 +9,7 @@ SRC_URI="http://frippery.org/extensions/${P}.tgz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
@@ -18,8 +18,10 @@ RDEPEND="
 	dev-libs/gobject-introspection:=
 	gui-libs/gtk:4[introspection]
 	gnome-base/gnome-menus:3[introspection]
-	=x11-wm/mutter-$(ver_cut 1)*[introspection]
-	=gnome-base/gnome-shell-$(ver_cut 1)*
+	|| (
+		=gnome-base/gnome-shell-41*
+		=gnome-base/gnome-shell-40*
+	)
 	media-libs/clutter:1.0[introspection]
 	x11-libs/pango[introspection]
 "
