@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.66.0 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.66.1:= >=dev-lang/spidermonkey-78.2.0:78 cairo? ( x11-libs/cairo[X,svg] ) readline? ( sys-libs/readline:0= ) sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) test? ( sys-apps/dbus >=x11-libs/gtk+-3.20:3[introspection] )
+DESCRIPTION=Javascript bindings for GNOME
+EAPI=7
+HOMEPAGE=https://wiki.gnome.org/Projects/Gjs
+INHERIT=flag-o-matic gnome.org meson virtualx
+IUSE=+cairo examples gtk readline sysprof test test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )
+RDEPEND=>=dev-libs/glib-2.66.0 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.66.1:= >=dev-lang/spidermonkey-78.2.0:78 cairo? ( x11-libs/cairo[X,svg] ) readline? ( sys-libs/readline:0= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gjs/1.70/gjs-1.70.0.tar.xz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	virtualx	fa024aa649b6bd544144bf94893d402c
+_md5_=c3a76870127827d58010554616695c60
