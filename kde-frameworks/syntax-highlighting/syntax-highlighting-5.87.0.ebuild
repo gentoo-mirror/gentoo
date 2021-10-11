@@ -12,16 +12,17 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="nls"
 
-BDEPEND="
-	dev-lang/perl
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtxmlpatterns-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	dev-lang/perl
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
+"
 
 src_install() {
 	ecm_src_install

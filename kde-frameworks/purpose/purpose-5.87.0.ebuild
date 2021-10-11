@@ -27,6 +27,7 @@ DEPEND="
 	=kde-frameworks/kio-${PVCUT}*:5
 	=kde-frameworks/kirigami-${PVCUT}*:5
 	=kde-frameworks/knotifications-${PVCUT}*:5
+	=kde-frameworks/prison-${PVCUT}*:5
 	kaccounts? (
 		>=kde-apps/kaccounts-integration-19.04.3:5
 		net-libs/accounts-qt

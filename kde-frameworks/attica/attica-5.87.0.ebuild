@@ -16,8 +16,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-fetch-categories.xml-only-once.patch" )
-
 src_test() {
 	# requires network access, bug #661230
 	local myctestargs=(
