@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/perl-ldap
 INHERIT=perl-module
 IUSE=sasl xml ssl test
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Authen-SASL dev-perl/Convert-ASN1 dev-perl/IO-Socket-INET6 dev-perl/URI sasl? ( virtual/perl-Digest-MD5 dev-perl/Authen-SASL ) xml? ( dev-perl/XML-Parser dev-perl/XML-SAX dev-perl/XML-SAX-Writer ) ssl? ( >=dev-perl/IO-Socket-SSL-1.26 ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MA/MARSCHAP/perl-ldap-0.68.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=396f80f2c38f505d43e0e5e6c7083d0f
+_md5_=85f9ef29f5589c342852adb7225d6e90
