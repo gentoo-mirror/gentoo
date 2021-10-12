@@ -1,16 +1,16 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit toolchain-funcs versionator
+inherit toolchain-funcs
 
-MYPN=SuperLU_MT
-SOVERSION=$(get_major_version)
+MY_PN=SuperLU_MT
+SOVERSION=$(ver_cut 1)
 
 DESCRIPTION="Multithreaded sparse LU factorization library"
-HOMEPAGE="http://crd.lbl.gov/~xiaoye/SuperLU/"
-SRC_URI="http://crd.lbl.gov/~xiaoye/SuperLU/${PN}_${PV}.tar.gz"
+HOMEPAGE="https://portal.nersc.gov/project/sparse/superlu/"
+SRC_URI="https://portal.nersc.gov/project/sparse/superlu/${PN}_${PV}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${SOVERSION}"
@@ -20,13 +20,13 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="|| ( openmp threads )"
 
 RDEPEND="virtual/blas"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig
 	test? ( app-shells/tcsh )"
 
-S="${WORKDIR}/${MYPN}_${PV}"
+S="${WORKDIR}/${MY_PN}_${PV}"
 
-PATCHES=( "${FILESDIR}"/${P}-duplicate-symbols.patch )
+PATCHES=( "${FILESDIR}"/${PN}-3.1-duplicate-symbols.patch )
 
 pkg_setup() {
 	if use openmp && ! use threads; then
@@ -71,10 +71,10 @@ src_prepare() {
 src_compile() {
 	# shared library
 	emake PIC="-fPIC" \
-		  ARCH="echo" \
-		  ARCHFLAGS="" \
-		  RANLIB="echo" \
-		  superlulib
+		ARCH="echo" \
+		ARCHFLAGS="" \
+		RANLIB="echo" \
+		superlulib
 	$(tc-getCC) ${LDFLAGS} ${LDTHREADS} -shared -Wl,-soname=${SONAME} SRC/*.o \
 				$($(tc-getPKG_CONFIG) --libs blas) -lm -o lib/${SONAME} || die
 	ln -s ${SONAME} lib/libsuperlu_mt.so || die
@@ -97,7 +97,7 @@ src_install() {
 	dodoc README
 	use doc && dodoc DOC/ug.pdf
 	if use examples; then
-		insinto /usr/share/doc/${PF}/examples
-		doins -r EXAMPLE/* make.inc
+		docinto /examples
+		dodoc -r EXAMPLE/* make.inc
 	fi
 }
