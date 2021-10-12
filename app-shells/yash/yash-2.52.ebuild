@@ -8,11 +8,11 @@ inherit flag-o-matic plocale toolchain-funcs
 
 DESCRIPTION="Yash is a POSIX-compliant command line shell"
 HOMEPAGE="https://yash.osdn.jp/"
-SRC_URI="mirror://sourceforge.jp/${PN}/73097/${P}.tar.xz"
+SRC_URI="mirror://sourceforge.jp/${PN}/76153/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="nls test"
 RESTRICT="!test? ( test )"
 
