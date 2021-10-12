@@ -1,14 +1,14 @@
-BDEPEND=dev-lang/perl
+BDEPEND=dev-lang/perl sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=dev-libs/apr:1= =www-servers/apache-2*
 DESCRIPTION=Provides an AJP Apache2-JK-connector for the Tomcat servlet engine
 EAPI=7
 HOMEPAGE=https://tomcat.apache.org/connectors-doc/
-INHERIT=apache-module
+INHERIT=apache-module autotools
 KEYWORDS=amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/apr:1= =www-servers/apache-2*
 SLOT=0
 SRC_URI=mirror://apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.48-src.tar.gz
-_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62
-_md5_=de07110eec97eedbdc0a1a2e561bc059
+_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=1e5e2623b8d77a3210af742c6252368a
