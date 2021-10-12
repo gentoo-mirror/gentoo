@@ -1,31 +1,30 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-DIST_AUTHOR="REHSACK"
-DIST_VERSION=${PV%.0}
+DIST_AUTHOR=AMBS
+DIST_VERSION=0.320
 
 inherit perl-module
 
 DESCRIPTION="A module to implement some of AutoConf macros in pure perl"
 
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	dev-perl/Capture-Tiny
 	virtual/perl-Carp
 	virtual/perl-Exporter
 	>=virtual/perl-ExtUtils-CBuilder-0.280.220
+	dev-perl/File-Slurper
 	virtual/perl-File-Spec
 	virtual/perl-File-Temp
 	>=virtual/perl-Scalar-List-Utils-1.180.0
 	virtual/perl-Text-ParseWords
 "
-DEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? ( >=virtual/perl-Test-Simple-0.900.0 )
 "
