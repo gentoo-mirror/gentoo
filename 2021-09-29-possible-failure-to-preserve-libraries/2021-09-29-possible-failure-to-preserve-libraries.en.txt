@@ -44,7 +44,7 @@ Fixing a broken system is not always straightforward. It is strongly
 recommended to take a backup of your full system before proceeding,
 as well as a copy of /var/db/pkg (the VDB):
 
-1. A tool has been developed [5] to attempt to fix the consistency
+Step 1. A tool has been developed [5] to attempt to fix the consistency
   of the Portage database. Using this tool to modify the VDB is NOT
   mandatory (read the full news item before proceeding) - you can skip
   to Step 2 if you wish, but fixing the integrity of the VDB
@@ -72,23 +72,28 @@ as well as a copy of /var/db/pkg (the VDB):
   # into your real /var/db/pkg/ directory tree.
   ```
 
-2. Attempt to rebuild the affected packages, first upgrading
+Step 2. Attempt to rebuild the affected packages, first upgrading
   app-misc/pax-utils to the latest version:
   ```
   $ emerge --ask --verbose --oneshot ">=app-misc/pax-utils-1.3.3"
   $ emerge --ask --verbose --oneshot --usepkg=n $(grep -v '#' broken_vdb_packages)
   ```
 
-Given that there are possible other side-effects of the corruption/bug,
-it is strongly recommended that if any corruption is detected, all
-packages on the system should be rebuilt, after following the above
-steps:
-```
-$ emerge --ask --emptytree --usepkg=n @world
-```
+  It's possible that the relevant versions have disappeared from the tree, so
+  if the emerge command fails, please attempt a normal world upgrade.
 
-Note that binary packages may need to be discarded given they may
-contain corrupt metadata.
+Step 3. Given that there are possible other side-effects of the corruption/bug,
+  it is strongly recommended that if any corruption is detected, all
+  packages on the system should be rebuilt, after following the above
+  steps:
+  ```
+  $ emerge --ask --emptytree --usepkg=n @world
+  ```
+
+  Note that binary packages may need to be discarded given they may
+  contain corrupt metadata.
+
+  If no libraries were broken, it is likely safe to skip this step.
 
 Please see the wiki [0] for a full description of the background
 of this problem and handling corner cases such as e.g. already
