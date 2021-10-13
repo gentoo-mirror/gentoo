@@ -1,33 +1,35 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
 
-inherit vala
+inherit autotools vala
+
+EGIT_COMMIT="f7516ae20cb648cd8b0904aec5853d3a3d2611c4"
 
 DESCRIPTION="Japanese Kana Kanji conversion engine for IBus"
 HOMEPAGE="https://github.com/ueno/ibus-kkc"
-SRC_URI="https://github.com/ueno/${PN}/releases/download/v${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/ueno/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="nls"
 
-CDEPEND="app-i18n/ibus
+DEPEND="app-i18n/ibus
 	app-i18n/libkkc
 	x11-libs/gtk+:3
 	nls? ( virtual/libintl )"
-RDEPEND="${CDEPEND}
+RDEPEND="${DEPEND}
 	app-i18n/skk-jisyo"
-DEPEND="${CDEPEND}
-	$(vala_depend)
+BDEPEND="$(vala_depend)
 	dev-util/intltool
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
 src_prepare() {
 	vala_src_prepare
+	eautoreconf
 	default
 }
 
