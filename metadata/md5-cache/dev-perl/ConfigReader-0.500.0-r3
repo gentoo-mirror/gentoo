@@ -1,13 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-lang/perl
 DESCRIPTION=Read directives from a configuration file
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/ConfigReader
 INHERIT=perl-module
+IUSE=test
 KEYWORDS=amd64 ~ia64 ~ppc sparc x86
 LICENSE=LGPL-2
 RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AM/AMW/ConfigReader-0.5.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=75174e5894f3847d5b6d0439b35eeecf
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=46e9b9b239d933d64259e523b31be72c
