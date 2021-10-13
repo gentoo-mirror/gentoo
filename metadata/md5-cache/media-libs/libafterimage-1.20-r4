@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.afterstep.org/afterimage/index.php
 INHERIT=autotools
 IUSE=+X cpu_flags_x86_mmx examples gif jpeg nls png static-libs shm +shaping svg tiff truetype
-KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ppc64 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1
 RDEPEND=X? ( x11-libs/libSM x11-libs/libXext x11-libs/libXrender ) gif? ( media-libs/giflib:0= ) jpeg? ( virtual/jpeg:0 ) png? ( >=media-libs/libpng-1.4:0= ) svg? ( gnome-base/librsvg:2 ) tiff? ( media-libs/tiff:0 ) truetype? ( media-libs/freetype )
 REQUIRED_USE=shaping? ( X ) shm? ( X )
 SLOT=0
 SRC_URI=ftp://ftp.afterstep.org/stable/libAfterImage/libAfterImage-1.20.tar.bz2
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=0a875e91262e6c5d2d2a3d44a72b8157
+_md5_=1ff3c535faeff6d4c17e3c23f8ac4763
