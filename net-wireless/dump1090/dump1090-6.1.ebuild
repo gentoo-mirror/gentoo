@@ -28,11 +28,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}/${P}-32bit-fix.patch"
-	"${FILESDIR}/${P}-further-32bit-fix.patch"
-)
-
 src_prepare() {
 	default
 	sed -i -e '/CFLAGS/s# -O3 -g -Wall -Wmissing-declarations -Werror -W # #' Makefile || die
