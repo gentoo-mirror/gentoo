@@ -203,14 +203,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
+DEPEND="dev-libs/openssl:="
 RDEPEND="app-i18n/skk-jisyo
-	dev-libs/openssl:0="
+	${DEPEND}"
 BDEPEND="test? (
 	app-emacs/ddskk
 	app-i18n/yaskkserv
 )"
 
 QA_FLAGS_IGNORED=".*"
+
+pkg_setup() {
+	export OPENSSL_NO_VENDOR=true
+}
 
 src_prepare() {
 	default
