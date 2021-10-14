@@ -3,8 +3,8 @@
 
 EAPI=8
 inherit bash-completion-r1 go-module
-GIT_COMMIT=eeac83883cb4014fe60267ec6373570374ce770b
-GIT_SHA=eeac8388
+GIT_COMMIT=1d11fcb5d3f3bf00dbe6fe31b8412839a96b3dc4
+GIT_SHA=1d11fcb5
 MY_PV=${PV/_rc/-rc.}
 
 DESCRIPTION="Kubernetes Package Manager"
@@ -115,8 +115,8 @@ EGO_SUM=(
 	"github.com/Microsoft/hcsshim v0.8.14/go.mod"
 	"github.com/Microsoft/hcsshim v0.8.15/go.mod"
 	"github.com/Microsoft/hcsshim v0.8.16/go.mod"
-	"github.com/Microsoft/hcsshim v0.8.18"
-	"github.com/Microsoft/hcsshim v0.8.18/go.mod"
+	"github.com/Microsoft/hcsshim v0.8.21"
+	"github.com/Microsoft/hcsshim v0.8.21/go.mod"
 	"github.com/Microsoft/hcsshim/test v0.0.0-20201218223536-d3e5debf77da/go.mod"
 	"github.com/Microsoft/hcsshim/test v0.0.0-20210227013316-43a75bb4edd3/go.mod"
 	"github.com/NYTimes/gziphandler v0.0.0-20170623195520-56545f4a5d46/go.mod"
@@ -153,6 +153,7 @@ EGO_SUM=(
 	"github.com/bgentry/speakeasy v0.1.0/go.mod"
 	"github.com/bitly/go-simplejson v0.5.0"
 	"github.com/bitly/go-simplejson v0.5.0/go.mod"
+	"github.com/bits-and-blooms/bitset v1.2.0/go.mod"
 	"github.com/bketelsen/crypt v0.0.3-0.20200106085610-5cbc8cc4026c/go.mod"
 	"github.com/bketelsen/crypt v0.0.4/go.mod"
 	"github.com/blang/semver v3.1.0+incompatible/go.mod"
@@ -177,6 +178,7 @@ EGO_SUM=(
 	"github.com/cespare/xxhash/v2 v2.1.1/go.mod"
 	"github.com/chai2010/gettext-go v0.0.0-20160711120539-c6fed771bfd5/go.mod"
 	"github.com/checkpoint-restore/go-criu/v4 v4.1.0/go.mod"
+	"github.com/checkpoint-restore/go-criu/v5 v5.0.0/go.mod"
 	"github.com/chzyer/logex v1.1.10/go.mod"
 	"github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod"
 	"github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod"
@@ -184,6 +186,7 @@ EGO_SUM=(
 	"github.com/cilium/ebpf v0.0.0-20200702112145-1c8d4c9ef775/go.mod"
 	"github.com/cilium/ebpf v0.2.0/go.mod"
 	"github.com/cilium/ebpf v0.4.0/go.mod"
+	"github.com/cilium/ebpf v0.6.2/go.mod"
 	"github.com/client9/misspell v0.3.4/go.mod"
 	"github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod"
 	"github.com/cncf/udpa/go v0.0.0-20200629203442-efcf912fb354/go.mod"
@@ -226,8 +229,8 @@ EGO_SUM=(
 	"github.com/containerd/containerd v1.5.0-rc.0/go.mod"
 	"github.com/containerd/containerd v1.5.1/go.mod"
 	"github.com/containerd/containerd v1.5.2/go.mod"
-	"github.com/containerd/containerd v1.5.4"
-	"github.com/containerd/containerd v1.5.4/go.mod"
+	"github.com/containerd/containerd v1.5.7"
+	"github.com/containerd/containerd v1.5.7/go.mod"
 	"github.com/containerd/continuity v0.0.0-20190426062206-aaeac12a7ffc/go.mod"
 	"github.com/containerd/continuity v0.0.0-20190815185530-f2a389ac0a02/go.mod"
 	"github.com/containerd/continuity v0.0.0-20191127005431-f65d91d395eb/go.mod"
@@ -574,8 +577,9 @@ EGO_SUM=(
 	"github.com/imdario/mergo v0.3.5/go.mod"
 	"github.com/imdario/mergo v0.3.8/go.mod"
 	"github.com/imdario/mergo v0.3.10/go.mod"
-	"github.com/imdario/mergo v0.3.11"
 	"github.com/imdario/mergo v0.3.11/go.mod"
+	"github.com/imdario/mergo v0.3.12"
+	"github.com/imdario/mergo v0.3.12/go.mod"
 	"github.com/inconshreveable/mousetrap v1.0.0"
 	"github.com/inconshreveable/mousetrap v1.0.0/go.mod"
 	"github.com/j-keck/arping v0.0.0-20160618110441-2cf9dc699c56/go.mod"
@@ -753,16 +757,19 @@ EGO_SUM=(
 	"github.com/opencontainers/runc v0.1.1/go.mod"
 	"github.com/opencontainers/runc v1.0.0-rc8.0.20190926000215-3e425f80a8c9/go.mod"
 	"github.com/opencontainers/runc v1.0.0-rc9/go.mod"
-	"github.com/opencontainers/runc v1.0.0-rc93"
 	"github.com/opencontainers/runc v1.0.0-rc93/go.mod"
+	"github.com/opencontainers/runc v1.0.2"
+	"github.com/opencontainers/runc v1.0.2/go.mod"
 	"github.com/opencontainers/runtime-spec v0.1.2-0.20190507144316-5b71a03e2700/go.mod"
 	"github.com/opencontainers/runtime-spec v1.0.1/go.mod"
 	"github.com/opencontainers/runtime-spec v1.0.2-0.20190207185410-29686dbc5559/go.mod"
 	"github.com/opencontainers/runtime-spec v1.0.2/go.mod"
 	"github.com/opencontainers/runtime-spec v1.0.3-0.20200929063507-e6143ca7d51d/go.mod"
+	"github.com/opencontainers/runtime-spec v1.0.3-0.20210326190908-1c3f411f0417/go.mod"
 	"github.com/opencontainers/runtime-tools v0.0.0-20181011054405-1d69bd0f9c39/go.mod"
 	"github.com/opencontainers/selinux v1.6.0/go.mod"
 	"github.com/opencontainers/selinux v1.8.0/go.mod"
+	"github.com/opencontainers/selinux v1.8.2/go.mod"
 	"github.com/opentracing/opentracing-go v1.1.0/go.mod"
 	"github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c/go.mod"
 	"github.com/pelletier/go-toml v1.2.0/go.mod"
@@ -1197,6 +1204,7 @@ EGO_SUM=(
 	"golang.org/x/sys v0.0.0-20210330210617-4fbd30eecc44/go.mod"
 	"golang.org/x/sys v0.0.0-20210403161142-5e06dd20ab57/go.mod"
 	"golang.org/x/sys v0.0.0-20210423082822-04245dca01da/go.mod"
+	"golang.org/x/sys v0.0.0-20210426230700-d19ff857e887/go.mod"
 	"golang.org/x/sys v0.0.0-20210510120138-977fb7262007/go.mod"
 	"golang.org/x/sys v0.0.0-20210603081109-ebe580a85c40/go.mod"
 	"golang.org/x/sys v0.0.0-20210616094352-59db8d763f22"
@@ -1537,7 +1545,7 @@ SRC_URI="https://github.com/helm/helm/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RESTRICT=" test"
 

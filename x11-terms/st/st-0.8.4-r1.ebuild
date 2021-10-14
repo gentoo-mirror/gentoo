@@ -3,15 +3,15 @@
 
 EAPI=7
 
-inherit desktop git-r3 savedconfig toolchain-funcs
+inherit desktop savedconfig toolchain-funcs
 
-DESCRIPTION="simple terminal implementation for X"
+DESCRIPTION="Simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
-EGIT_REPO_URI="https://git.suckless.org/${PN}"
+SRC_URI="https://dl.suckless.org/st/${P}.tar.gz"
 
 LICENSE="MIT-with-advertising"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv ~x86"
 IUSE="savedconfig"
 
 RDEPEND="
@@ -25,6 +25,10 @@ DEPEND="
 	x11-base/xorg-proto
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-locale-musl-segfault.patch
+)
 
 src_prepare() {
 	default
