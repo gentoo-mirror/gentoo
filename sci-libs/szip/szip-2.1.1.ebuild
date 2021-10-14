@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DESCRIPTION="Extended-Rice lossless compression algorithm implementation"
 HOMEPAGE="https://www.hdfgroup.org/doc_resource/SZIP/"
-SRC_URI="ftp://ftp.hdfgroup.org/lib-external/${PN}/${PV}/src/${P}.tar.gz"
+SRC_URI="https://support.hdfgroup.org/ftp/lib-external/${PN}/${PV}/src/${P}.tar.gz"
 
 LICENSE="szip"
 SLOT="0/2"
@@ -15,7 +15,7 @@ IUSE="static-libs"
 RDEPEND="!sci-libs/libaec[szip]"
 DEPEND=""
 
-DOCS=( RELEASE.txt HISTORY.txt examples/example.c )
+DOCS=( RELEASE.txt HISTORY.txt test/example.c )
 
 src_configure() {
 	econf $(use_enable static-libs static)
@@ -25,6 +25,6 @@ src_install() {
 	default
 
 	if ! use static-libs; then
-		find "${D}" -name '*.la' -delete || die
+		find "${ED}" -name '*.la' -delete || die
 	fi
 }
