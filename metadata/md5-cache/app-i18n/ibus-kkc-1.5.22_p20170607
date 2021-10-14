@@ -1,15 +1,15 @@
 BDEPEND=|| ( dev-lang/vala:0.52 dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 dev-lang/vala:0.44 ) dev-util/intltool virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure prepare
+DEFINED_PHASES=configure prepare unpack
 DEPEND=app-i18n/ibus app-i18n/libkkc x11-libs/gtk+:3 nls? ( virtual/libintl )
 DESCRIPTION=Japanese Kana Kanji conversion engine for IBus
 EAPI=7
 HOMEPAGE=https://github.com/ueno/ibus-kkc
-INHERIT=autotools vala
+INHERIT=autotools vala vcs-snapshot
 IUSE=nls
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=app-i18n/ibus app-i18n/libkkc x11-libs/gtk+:3 nls? ( virtual/libintl ) app-i18n/skk-jisyo
 SLOT=0
 SRC_URI=https://github.com/ueno/ibus-kkc/archive/f7516ae20cb648cd8b0904aec5853d3a3d2611c4.tar.gz -> ibus-kkc-1.5.22_p20170607.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	5ef05fa2f1612e51f4aea8c92b09e08d
-_md5_=b1599917adf465740f1e29ea0485e7ef
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	5ef05fa2f1612e51f4aea8c92b09e08d	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
+_md5_=0f4af3843a14f3e08a14bd1d860667a6
