@@ -895,7 +895,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.28 1.20.40 1.20.47 1.20.53 1.20.60: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.28 1.20.40 1.20.47 1.20.53 1.20.60 1.20.61: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.27.1 1.28.2: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -6171,7 +6171,7 @@ dev-ml/integers 0.4.0: Various signed and unsigned integer types for OCaml
 dev-ml/jane-street-headers 0.14.0: Jane Street header files
 dev-ml/jingoo 1.4.2: OCaml template engine almost compatible with Jinja2.
 dev-ml/jsonm 1.0.1: Non-blocking streaming JSON codec for OCaml
-dev-ml/jst-config 0.14.0: Compile-time configuration for Jane Street libraries
+dev-ml/jst-config 0.14.0 0.14.1: Compile-time configuration for Jane Street libraries
 dev-ml/lablgl 1.06-r1: Objective CAML interface for OpenGL
 dev-ml/lablgtk 2.18.10 3.1.1: OCaml bindings to GTK-3
 dev-ml/lablgtk-sourceview 3.1.1: OCaml bindings to GTK-3
@@ -6208,7 +6208,7 @@ dev-ml/ocamlbuild 0.11.0 0.14.0-r1: Generic build tool with built-in rules for b
 dev-ml/ocamlgraph 1.8.8-r2 2.0.0-r1: O'Caml Graph library
 dev-ml/ocamlnet 4.1.8-r1 4.1.9: Modules for OCaml application-level Internet protocols
 dev-ml/ocamlsdl 0.9.1: OCaml SDL Bindings
-dev-ml/ocamlweb 1.41: O'Caml literate programming tool
+dev-ml/ocamlweb 1.41-r1: O'Caml literate programming tool
 dev-ml/ocplib-endian 1.1-r1: Functions to read and write int16/32/64 from strings, bytes, and bigarrays
 dev-ml/ocplib-simplex 0.4: A library implementing a simplex algorithm
 dev-ml/octavius 1.2.2: ocamldoc comment syntax parser
@@ -6226,7 +6226,7 @@ dev-ml/ounit2 2.2.3 2.2.4: Unit testing framework for OCaml
 dev-ml/parmap 1.2 1.2.1 1.2.3: Library to exploit multicore architectures for OCaml programs
 dev-ml/parsexp 0.14.0 0.14.1: S-expression parsing library
 dev-ml/patience_diff 0.14.0: Tool and library implementing patience diff
-dev-ml/pcre-ocaml 7.4.6-r1: Perl Compatibility Regular Expressions for O'Caml
+dev-ml/pcre-ocaml 7.4.6-r2: Perl Compatibility Regular Expressions for O'Caml
 dev-ml/ppx_assert 0.14.0: Assert-like extension nodes that raise useful errors on failure
 dev-ml/ppx_base 0.14.0: Base set of ppx rewriters
 dev-ml/ppx_bench 0.14.1: Syntax extension for writing in-line benchmarks in ocaml code
@@ -8348,8 +8348,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.7 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.28 1.18.40 1.18.47 1.18.53 1.18.60 9999: The AWS SDK for Python
-dev-python/botocore 1.21.28 1.21.40 1.21.47 1.21.53 1.21.60 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.28 1.18.40 1.18.47 1.18.53 1.18.60 1.18.61 9999: The AWS SDK for Python
+dev-python/botocore 1.21.28 1.21.40 1.21.47 1.21.53 1.21.60 1.21.61 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21: Syntax highlighting and autocompletion for the Python interpreter
@@ -8374,7 +8374,7 @@ dev-python/cbor 1.0.0-r1: RFC 7049 - Concise Binary Object Representation
 dev-python/cbor2 5.4.1: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cerberus 1.3.2: A lightweight and extensible data-validation library for Python
 dev-python/certifi 10001-r1: Thin replacement for certifi using system certificate store
-dev-python/cffi 1.14.6: Foreign Function Interface for Python calling C code
+dev-python/cffi 1.14.6 1.15.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
 dev-python/cfn-lint 0.53.1 0.54.1 0.54.2: CloudFormation Linter
 dev-python/cftime 1.4.1 1.5.0 1.5.1: Time-handling functionality from netcdf4-python
@@ -8531,7 +8531,7 @@ dev-python/editorconfig-core-py 0.12.0 0.12.3-r1: Clone of EditorConfig core wri
 dev-python/elasticsearch-py 7.7.0-r1 7.14.1: Official Python low-level client for Elasticsearch
 dev-python/elementpath 2.3.2: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/emcee 3.0.2 3.1.0 3.1.1: Python ensemble sampling toolkit for affine-invariant MCMC
-dev-python/emoji 1.4.2 1.5.0 1.6.0: Emoji for Python
+dev-python/emoji 1.4.2 1.5.0 1.6.0 1.6.1: Emoji for Python
 dev-python/empy 3.3.4: A powerful and robust templating system for Python
 dev-python/enrich 1.2.6: Extend rich functionality
 dev-python/entrypoint2 0.2.4: Easy to use command-line interface for python modules
@@ -8630,7 +8630,7 @@ dev-python/gitdb 4.0.7: GitDB is a pure-Python git object database
 dev-python/github3 1.3.0: A wrapper for the GitHub API written in python
 dev-python/glooey 0.3.4-r1: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.0_beta5: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.0.1 2.1.0: Core Library for Google Client Libraries
+dev-python/google-api-core 2.0.1 2.1.0 2.1.1: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.22.0 2.23.0 2.24.0 2.25.0 2.26.1: Google API Client for Python
 dev-python/google-apitools 0.5.31 0.5.32: Python library to manipulate Google APIs
 dev-python/google-auth 2.1.0 2.2.0 2.2.1 2.3.0: Google Authentication Library
@@ -8646,7 +8646,7 @@ dev-python/greenstalk 1.0.1: A Python 3 client for the beanstalkd work queue
 dev-python/grpcio 1.38.1 1.41.0: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.38.1 1.41.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.38.1 1.41.0: Protobuf code generator for gRPC
-dev-python/gsd 2.4.1 2.4.2: GSD - file format specification and a library to read and write it
+dev-python/gsd 2.4.1 2.4.2 2.5.0: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.6.12: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.16.3 1.18.4: A Python Interface to GStreamer
 dev-python/guessit 3.3.1: Python library for guessing information from video filenames
@@ -9040,7 +9040,7 @@ dev-python/ptvsd 4.3.2: Visual Studio remote debugging server for Python
 dev-python/ptyprocess 0.7.0: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix 2.20191221-r1: Get a public suffix for a domain name using the Public Suffix List.
 dev-python/pudb 2020.1 2021.1: A full-screen, console-based Python debugger
-dev-python/pulsectl 21.5.17 21.5.18 21.9.1 21.10.3: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
+dev-python/pulsectl 21.5.17 21.5.18 21.9.1 21.10.3 21.10.4: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
 dev-python/puremagic 1.11: Pure python implementation of magic file detection
 dev-python/pushbullet-py 0.12.0: A simple python client for pushbullet.com
 dev-python/pweave 0.30.3-r1: Scientific report generator and literate programming tool
@@ -9346,7 +9346,7 @@ dev-python/pyx 0.15: Python package for the generation of encapsulated PostScrip
 dev-python/pyxDamerauLevenshtein 1.7.0: Implements the Damerau-Levenshtein edit distance algorithm for Python in Cython
 dev-python/pyxattr 0.7.2: Python interface to xattr
 dev-python/pyxdg 0.27: A Python module to deal with freedesktop.org specifications
-dev-python/pyyaml 5.3.1-r1 5.4.1: YAML parser and emitter for Python
+dev-python/pyyaml 5.3.1-r1 5.4.1 6.0: YAML parser and emitter for Python
 dev-python/pyyaml_env_tag 0.1: A custom YAML tag for referencing environment variables in YAML files
 dev-python/pyzbar 0.1.8: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 22.1.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
@@ -9378,7 +9378,7 @@ dev-python/reflink 0.2.1-r1: Python wrapper around the reflink system calls
 dev-python/regex 2021.8.28 2021.9.30 2021.10.8: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6-r2: similar to bencode from the BitTorrent project
 dev-python/reno 3.4.0 3.5.0: Release notes manager, storing release notes in a git repo and building docs
-dev-python/reportlab 3.6.1: Tools for generating printable PDF documents from any data source
+dev-python/reportlab 3.6.1 3.6.2: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r1: A tiny LRU cache implementation and decorator
 dev-python/repoze-sphinx-autointerface 0.8: Sphinx extension: auto-generates API docs from Zope interfaces
 dev-python/requests 2.25.1-r2 2.26.0: HTTP library for human beings
@@ -9444,7 +9444,7 @@ dev-python/serpent 1.40: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.2.1 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.2.2: Allow customization of the process title
-dev-python/setuptools 57.5.0: Collection of extensions to Distutils
+dev-python/setuptools 57.5.0 58.2.0: Collection of extensions to Distutils
 dev-python/setuptools-git 1.2-r2: Setuptools revision control system plugin for Git
 dev-python/setuptools_rust 0.12.1: a plugin for setuptools to build Rust Python extensions
 dev-python/setuptools_scm 6.0.1-r1 6.3.2: Manage versions by scm tags via setuptools
@@ -9653,7 +9653,7 @@ dev-python/vdf 3.4: A module for (de)serialization to and from VDF, Valve's key-
 dev-python/vdirsyncer 0.16.8-r1 0.18.0 0.18.0-r2: Synchronize calendars and contacts
 dev-python/vecrec 0.3.0: 2D vector and rectangle classes
 dev-python/verboselogs 1.7: Verbose logging for Python's logging module
-dev-python/versioneer 0.20: Easy VCS-based management of project version strings
+dev-python/versioneer 0.20 0.21: Easy VCS-based management of project version strings
 dev-python/vine 5.0.0: Python Promises
 dev-python/virtualenv 20.4.7 20.6.0 20.7.0 20.7.1 20.7.2 20.8.0 20.8.1: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.6: A script for cloning a non-relocatable virtualenv
@@ -9725,7 +9725,7 @@ dev-python/zope-event 4.5.0-r1: Event publishing / dispatch, used by Zope Compon
 dev-python/zope-exceptions 4.4: General purpose exceptions for Zope packages
 dev-python/zope-i18nmessageid 5.0.1: Zope support for i18nmessageid (tagging source of i18n strings)
 dev-python/zope-interface 5.4.0: Interfaces for Python
-dev-python/zope-schema 6.1.0: Zope schema Architecture
+dev-python/zope-schema 6.1.0 6.1.1: Zope schema Architecture
 dev-python/zope-testing 4.9: Zope testing helpers
 dev-python/zope-testrunner 5.2 5.3.0: Zope testrunner script
 dev-python/zstandard 0.15.2-r1: Zstandard Bindings for Python
@@ -11227,7 +11227,7 @@ dev-util/pahole 1.20 1.21: pahole (Poke-a-Hole) and other DWARF2 utilities
 dev-util/patchbin 20160208 99999999: Apply binary patches without git
 dev-util/patchelf 0.10 0.12 0.13: Small utility to modify the dynamic linker and RPATH of ELF executables
 dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
-dev-util/patdiff 0.14.0: Colored patience diffs with word-level refinement
+dev-util/patdiff 0.14.0-r1: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.18: Recursive-descent parser generators for C
 dev-util/perf 5.8 5.10.16 5.11 5.12: Userland tools for Linux Performance Counters
 dev-util/pkgcheck 0.10.1-r1 0.10.3-r1 0.10.5-r1 0.10.7-r1 0.10.8 9999: pkgcore-based QA utility for ebuild repos
@@ -19449,6 +19449,6 @@ xfce-extra/xfce4-verve-plugin 2.0.1: A comfortable command line plugin for the X
 xfce-extra/xfce4-volumed-pulse 0.2.3: Daemon to control volume up/down and mute keys for pulseaudio
 xfce-extra/xfce4-wavelan-plugin 0.6.2: A panel plug-in to display wireless interface statistics
 xfce-extra/xfce4-weather-plugin 0.11.0-r1: A weather plug-in for the Xfce desktop environment
-xfce-extra/xfce4-whiskermenu-plugin 2.5.3 2.6.0: Alternate application launcher for Xfce
+xfce-extra/xfce4-whiskermenu-plugin 2.5.3 2.6.0 2.6.1: Alternate application launcher for Xfce
 xfce-extra/xfce4-xkb-plugin 0.8.2: XKB layout switching panel plug-in for the Xfce desktop environment
 xfce-extra/xfdashboard 0.9.3 0.9.4 0.9.5: Maybe a GNOME shell like dashboard for the Xfce desktop environment
