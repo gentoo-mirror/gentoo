@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0/2" # libpurple version
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="aqua dbus debug doc eds gadu gnutls groupwise +gstreamer +gtk idn
 meanwhile ncurses networkmanager nls perl pie prediction python sasl spell tcl
 tk +xscreensaver zephyr zeroconf"
@@ -134,9 +134,7 @@ DYNAMIC_PRPLS="irc,jabber,simple"
 #	x11-plugins/pidgimpd
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.10.11-tinfo.patch"
 	"${DISTDIR}/${PN}-2.10.9-irc_join_sleep.patch" # 577286
-	"${FILESDIR}/${PN}-2.13.0-disable-one-jid-test.patch" # 593338
 )
 
 pkg_pretend() {
@@ -162,7 +160,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	default
+	xdg_src_prepare
 	eautoreconf
 }
 
@@ -268,6 +266,7 @@ src_install() {
 
 src_test() {
 	# make default build logs slightly more useful
+	local -x GST_PLUGIN_SYSTEM_PATH_1_0=
 	emake check VERBOSE=1
 }
 
