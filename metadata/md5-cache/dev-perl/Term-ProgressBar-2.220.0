@@ -1,4 +1,4 @@
-BDEPEND=virtual/perl-Carp >=dev-perl/Class-MethodMaker-1.20.0 >=dev-perl/TermReadKey-2.140.0 virtual/perl-autodie virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Test-Exception-0.310.0 >=dev-perl/Capture-Tiny-0.130.0 >=virtual/perl-Test-Simple-0.800.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+BDEPEND=virtual/perl-Carp >=dev-perl/Class-MethodMaker-1.20.0 >=dev-perl/TermReadKey-2.140.0 virtual/perl-autodie virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Test-Exception-0.310.0 >=dev-perl/Capture-Tiny-0.130.0 >=virtual/perl-Test-Simple-0.800.0 dev-perl/Test-Warnings ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-lang/perl
 DESCRIPTION=Provide a progress meter on a standard terminal
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MA/MANWAR/Term-ProgressBar-2.22.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=1cab07259e5413b4a3393c508901a501
+_md5_=83e3053a2fe91439b01fac83e95baf65
