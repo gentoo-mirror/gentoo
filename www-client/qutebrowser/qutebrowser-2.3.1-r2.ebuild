@@ -28,14 +28,14 @@ RDEPEND="
 	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 	$(python_gen_cond_dep '
 		>=dev-python/colorama-0.4.4[${PYTHON_USEDEP}]
-		>=dev-python/jinja-3.0.2[${PYTHON_USEDEP}]
+		>=dev-python/jinja-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/markupsafe-2.0.1[${PYTHON_USEDEP}]
 		dev-python/pygments[${PYTHON_USEDEP}]
 		dev-python/PyQt5[${PYTHON_USEDEP},dbus,declarative,multimedia,gui,network,opengl,printsupport,sql,widgets]
 		dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-5.4.1[${PYTHON_USEDEP},libyaml(+)]
-		>=dev-python/typing-extensions-3.10.0.2[${PYTHON_USEDEP}]
-		>=dev-python/zipp-3.6.0[${PYTHON_USEDEP}]
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
+		dev-python/zipp[${PYTHON_USEDEP}]
 		adblock? ( dev-python/adblock[${PYTHON_USEDEP}] )
 	')
 	widevine? ( www-plugins/chrome-binary-plugins )"
@@ -57,6 +57,10 @@ BDEPEND="
 	')"
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}"/${P}-pyyaml60.patch
+)
 
 python_prepare_all() {
 	distutils-r1_python_prepare_all
