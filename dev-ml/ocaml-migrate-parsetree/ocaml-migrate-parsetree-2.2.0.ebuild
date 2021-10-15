@@ -13,6 +13,7 @@ LICENSE="LGPL-2.1"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="+ocamlopt test"
-RESTRICT="!test? ( test )"
+RESTRICT="!test? ( test ) strip"
 
 DEPEND="test? ( dev-ml/cinaps )"
+BDEPEND=">=dev-ml/dune-2.3"
