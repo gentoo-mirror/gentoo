@@ -24,10 +24,9 @@ RDEPEND="${PYTHON_DEPS}
 	>=dev-python/crcmod-1.7[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.14.1[${PYTHON_USEDEP}]
 	>=dev-python/gcs-oauth2-boto-plugin-2.7[${PYTHON_USEDEP}]
-	>=dev-python/google-apitools-0.5.30[${PYTHON_USEDEP}]
+	>=dev-python/google-apitools-0.5.32[${PYTHON_USEDEP}]
 	>=dev-python/google-reauth-python-0.1.0[${PYTHON_USEDEP}]
 	>=dev-python/httplib2-0.18[${PYTHON_USEDEP}]
-	>=dev-python/mock-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-0.13[${PYTHON_USEDEP}]
 	>=dev-python/retry-decorator-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/six-1.12.0[${PYTHON_USEDEP}]"
@@ -43,7 +42,7 @@ S="${WORKDIR}/${PN}"
 
 DOCS=( README.md CHANGES.md )
 
-# needs to talk to Google to run tests
+# Needs to talk to Google to run tests.
 RESTRICT+=" test"
 
 python_prepare_all() {
@@ -52,12 +51,12 @@ python_prepare_all() {
 	# NB: We don't delete all of boto/ because the tests are imported by the
 	# production code.  The same reason we can't delete gslib/tests/.  We can
 	# delete the main boto library and use the system version though.
-	rm -r gslib/vendored/boto/boto || die
+	rm -r gslib/vendored/boto/boto test || die
 
-	# failes to compile with py3
+	# Fails to compile with py3.
 	rm gslib/vendored/boto/tests/mturk/cleanup_tests.py || die
 
-	# monotonic is only used by bundled fasteners that we do not install
+	# monotonic is only used by bundled fasteners that we do not install.
 	sed -i \
 		-e 's/mock==/mock>=/' \
 		-e '/monotonic/d' \
@@ -71,7 +70,7 @@ python_prepare_all() {
 	#	-e 's/def _HandleUnknownFailure(e):/&\n  raise/' \
 	#	-i gslib/__main__.py || die
 
-	# create_bucket raised ResponseNotReady
+	# create_bucket raised ResponseNotReady.
 	sed -i \
 		-e 's/test_cp_unwritable_tracker_file/_&/' \
 		-e 's/test_cp_unwritable_tracker_file_download/_&/' \
