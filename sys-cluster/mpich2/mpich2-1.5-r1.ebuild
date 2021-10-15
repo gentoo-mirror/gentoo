@@ -5,21 +5,22 @@ EAPI=5
 
 FORTRAN_NEEDED=fortran
 
-inherit fortran-2 flag-o-matic
+inherit epatch fortran-2 flag-o-matic
 
 MY_PV=${PV/_/}
 DESCRIPTION="A high performance and portable MPI implementation"
-HOMEPAGE="http://www.mpich.org/"
-SRC_URI="http://www.mpich.org/static/downloads/${PV}/${P}.tar.gz"
+HOMEPAGE="http://www.mcs.anl.gov/research/projects/mpich2/index.php"
+SRC_URI="http://www.mcs.anl.gov/research/projects/mpich2/downloads/tarballs/${MY_PV}/${PN}-${MY_PV}.tar.gz"
 
 SLOT="0"
 LICENSE="mpich2"
-KEYWORDS="amd64 ~hppa ppc ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm64 ~hppa ppc ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="+cxx doc fortran mpi-threads romio threads"
 
 COMMON_DEPEND="
 	dev-libs/libaio
-	<sys-apps/hwloc-2
+	net-libs/libnsl:0=
+	sys-apps/hwloc
 	romio? ( net-fs/nfs-utils )"
 
 DEPEND="${COMMON_DEPEND}
@@ -27,7 +28,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/libtool"
 
 RDEPEND="${COMMON_DEPEND}
-	!sys-cluster/mpich2
+	!sys-cluster/mpich
 	!sys-cluster/openmpi"
 
 S="${WORKDIR}"/${PN}-${MY_PV}
@@ -42,15 +43,17 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# Using MPICHLIB_LDFLAGS doesn't seem to fully work.
+	epatch "${FILESDIR}/${P}-fno-common.patch"
+
+	# Using MPICH2LIB_LDFLAGS doesn't seem to full work.
 	sed -i 's| *@WRAPPER_LDFLAGS@ *||' \
-		src/packaging/pkgconfig/mpich.pc.in \
+		src/packaging/pkgconfig/mpich2.pc.in \
 		src/env/*.in \
 		|| die
 }
 
 src_configure() {
-	local c="--enable-shared"
+	local c="--enable-shared --disable-static"
 
 	# The configure statements can be somewhat confusing, as they
 	# don't all show up in the top level configure, however, they
@@ -69,30 +72,29 @@ src_configure() {
 		c="${c} --enable-threads=single"
 	fi
 
+	# GCC 10 compatibility workaround
+	# bug #725722
+	append-fflags $(test-flags-FC -fallow-argument-mismatch)
+
+	export MPICH2LIB_CFLAGS=${CFLAGS}
+	export MPICH2LIB_CPPFLAGS=${CPPFLAGS}
+	export MPICH2LIB_CXXFLAGS=${CXXFLAGS}
+	export MPICH2LIB_FFLAGS=${FFLAGS}
+	export MPICH2LIB_FCFLAGS=${FCFLAGS}
+	export MPICH2LIB_LDFLAGS=${LDFLAGS}
+	# dropped w/ bug #725722 fix
+	#unset CFLAGS CPPFLAGS CXXFLAGS FFLAGS FCFLAGS LDFLAGS
+
 	c="${c} --sysconfdir=${EPREFIX}/etc/${PN}"
 	c="${c} --docdir=${EPREFIX}/usr/share/doc/${PF}"
 
-	# GCC 10 compatibility workaround
-	# bug #725842
-	append-fflags $(test-flags-FC -fallow-argument-mismatch)
-
-	export MPICHLIB_CFLAGS=${CFLAGS}
-	export MPICHLIB_CPPFLAGS=${CPPFLAGS}
-	export MPICHLIB_CXXFLAGS=${CXXFLAGS}
-	export MPICHLIB_FFLAGS=${FFLAGS}
-	export MPICHLIB_FCFLAGS=${FCFLAGS}
-	export MPICHLIB_LDFLAGS=${LDFLAGS}
-	# dropped w/ bug #725842 fix
-	#unset CFLAGS CPPFLAGS CXXFLAGS FFLAGS FCFLAGS LDFLAGS
-
 	# Forcing Bash as there's quite a few bashisms in the build system
-	CONFIG_SHELL="${BROOT}/bin/bash" econf \
+	CONFIG_SHELL="${BROOT}/bin/bash" econf ${c} \
 		--with-pm=hydra \
 		--disable-mpe \
 		--disable-fast \
 		--enable-smpcoll \
 		--enable-versioning \
-		--with-hwloc-prefix=/usr \
 		$(use_enable romio) \
 		$(use_enable cxx) \
 		$(use_enable fortran f77) \
@@ -107,7 +109,7 @@ src_install() {
 	default
 
 	dodir /usr/share/doc/${PF}
-	dodoc README{,.envvar} CHANGES RELEASE_NOTES
+	dodoc COPYRIGHT README{,.envvar} CHANGES RELEASE_NOTES
 	newdoc src/pm/hydra/README README.hydra
 	if use romio; then
 		newdoc src/mpi/romio/README README.romio
@@ -116,4 +118,6 @@ src_install() {
 	if ! use doc; then
 		rm -rf "${D}"usr/share/doc/${PF}/www*
 	fi
+
+	find "${ED}" -name '*.la' -delete || die
 }
