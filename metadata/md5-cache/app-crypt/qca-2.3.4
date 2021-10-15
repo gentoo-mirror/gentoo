@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://userbase.kde.org/QCA
 INHERIT=cmake kde.org qmake-utils
 IUSE=botan debug doc examples gcrypt gpg logger nss pkcs11 sasl softstore +ssl test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris
 LICENSE=LGPL-2.1
 RDEPEND=>=dev-qt/qtcore-5.14:5 botan? ( dev-libs/botan:= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=mirror://kde/stable/qca/2.3.4/qca-2.3.4.tar.xz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	kde.org	f95aaca4085d2d633c2b76abfd72208f	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
-_md5_=72502927bb3273fff15e2ed98ee85c76
+_md5_=38183b06ac2ad8f448b9fd4b04931d63
