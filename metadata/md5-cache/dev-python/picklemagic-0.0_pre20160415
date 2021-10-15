@@ -1,16 +1,15 @@
 BDEPEND=doc? ( dev-python/sphinx )
 DEFINED_PHASES=compile install
-DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
 DESCRIPTION=A library for analysing python pickles safely
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/CensoredUsername/picklemagic
 INHERIT=python-r1
-IUSE=doc python_targets_python3_8
+IUSE=doc python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=WTFPL-2
-RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
-REQUIRED_USE=|| ( python_targets_python3_8 )
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~bircoph/distfiles/picklemagic-0.0_pre20160415.tar.xz
-_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4
-_md5_=c019878d938a55b4a55460a8d18fd039
+_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4
+_md5_=1df28cd48d14e7e7f4e8554a70feeb7d
