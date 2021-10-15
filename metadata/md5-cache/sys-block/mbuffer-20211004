@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure postinst prepare test
+DEPEND=ssl? ( dev-libs/openssl:0= )
+DESCRIPTION=M(easuring)buffer is a replacement for buffer with additional functionality
+EAPI=7
+HOMEPAGE=https://www.maier-komor.de/mbuffer.html
+INHERIT=autotools
+IUSE=debug ssl test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+LICENSE=GPL-3
+RDEPEND=ssl? ( dev-libs/openssl:0= )
+REQUIRED_USE=test? ( ssl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.maier-komor.de/software/mbuffer/mbuffer-20211004.tgz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=de380f2bd6f563abcef40cb890e8a222
