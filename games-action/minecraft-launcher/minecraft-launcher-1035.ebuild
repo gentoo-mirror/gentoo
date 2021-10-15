@@ -5,9 +5,12 @@ EAPI=8
 
 inherit desktop xdg
 
+# We can find which url we need for the latest release here:
+# https://launchermeta.mojang.com/v1/products/launcher/6f083b80d5e6fabbc4236f81d0d8f8a350c665a9/linux.json
+
 DESCRIPTION="An open-world game whose gameplay revolves around breaking and placing blocks"
 HOMEPAGE="https://www.minecraft.net/"
-SRC_URI="https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://launcher.mojang.com/v1/objects/ce9e6169550628003e22de8086e9fe1186c2285e/minecraft-launcher -> ${P}
 	https://launcher.mojang.com/download/minecraft-launcher.svg"
 
 KEYWORDS="-* ~amd64"
@@ -44,14 +47,14 @@ RDEPEND="
 	x11-libs/xcb-util
 "
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}"
 
 QA_PREBUILT="
 	/usr/bin/minecraft-launcher
 "
 
 src_install() {
-	dobin minecraft-launcher
+	newbin "${DISTDIR}/${P}" ${PN}
 
 	doicon -s scalable "${DISTDIR}/${PN}.svg"
 	make_desktop_entry ${PN} "Minecraft" ${PN} Game
