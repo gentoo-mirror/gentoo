@@ -36,10 +36,6 @@ BDEPEND="$(python_gen_cond_dep '
 	)
 ')"
 
-PATCHES=(
-	"${FILESDIR}/${P}-pyyaml-6.0.patch"
-)
-
 distutils_enable_tests pytest
 
 src_prepare() {
