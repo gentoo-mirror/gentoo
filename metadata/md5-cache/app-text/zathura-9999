@@ -1,15 +1,15 @@
 BDEPEND=doc? ( dev-python/sphinx ) test? ( dev-libs/appstream-glib dev-libs/check ) virtual/pkgconfig >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
-DEPEND=>=dev-libs/girara-0.3.3 >=dev-libs/glib-2.50:2 >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 magic? ( sys-apps/file ) seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=>=dev-libs/girara-0.3.6 >=dev-libs/glib-2.50:2 >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 magic? ( sys-apps/file ) seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=A highly customizable and functional document viewer
 EAPI=7
 HOMEPAGE=https://pwmt.org/projects/zathura/
-INHERIT=meson virtualx git-r3
+INHERIT=meson virtualx xdg git-r3
 IUSE=doc +magic seccomp sqlite synctex test test
 LICENSE=ZLIB
 PROPERTIES=live
-RDEPEND=>=dev-libs/girara-0.3.3 >=dev-libs/glib-2.50:2 >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 magic? ( sys-apps/file ) seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core )
+RDEPEND=>=dev-libs/girara-0.3.6 >=dev-libs/glib-2.50:2 >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 magic? ( sys-apps/file ) seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	virtualx	fa024aa649b6bd544144bf94893d402c	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=755b041890d753c6facca2332194564b
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	virtualx	fa024aa649b6bd544144bf94893d402c	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=199f6d15b31b66f345f9384025de5827
