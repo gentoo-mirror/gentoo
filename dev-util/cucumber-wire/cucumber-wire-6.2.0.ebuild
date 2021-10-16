@@ -18,9 +18,9 @@ SLOT="$(ver_cut 1)"
 IUSE="test"
 
 ruby_add_rdepend "
-	>=dev-util/cucumber-core-10.0.1:10
-	>=dev-util/cucumber-cucumber-expressions-12.1.1:12
-	>=dev-util/cucumber-messages-17.0.1:17
+	>=dev-util/cucumber-core-10.1.0:10
+	>=dev-util/cucumber-cucumber-expressions-14.0.0:14
+	>=dev-util/cucumber-messages-17.1.1:17
 "
 
 ruby_add_bdepend "test? ( dev-util/cucumber )"
