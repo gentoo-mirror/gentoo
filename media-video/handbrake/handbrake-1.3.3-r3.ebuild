@@ -88,6 +88,9 @@ PATCHES=(
 
 	# Fix x265 linkage... again again #730034
 	"${FILESDIR}/${PN}-1.3.3-x265-link.patch"
+
+	# Fix missing audio stream when using MPEG-4 avformat with ffmpeg-4.4 #791220
+	"${FILESDIR}/${PN}-1.3.3-libhb-fix-audio-encoders-when-linking-to-FFmpeg-4.4.patch"
 )
 
 src_prepare() {
