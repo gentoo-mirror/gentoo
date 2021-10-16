@@ -1,0 +1,8 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual for Java Development Kit (JDK)
+EAPI=8
+IUSE=headless-awt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64
+RDEPEND=|| ( dev-java/openjdk-bin:17[gentoo-vm(+),headless-awt=] dev-java/openjdk:17[gentoo-vm(+),headless-awt=] )
+SLOT=17
+_md5_=bbaf911c990c9af915ea3e7ce82547b6
