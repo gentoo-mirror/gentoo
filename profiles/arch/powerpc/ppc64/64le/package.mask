@@ -2,6 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # Sam James <sam@gentoo.org> (2021-10-16)
+# (un)mask for media-libs/openexr and its reverse dependencies.
+# Broken on big endian, but should be fine on le.
+# bug #818424
+-dev-games/openscenegraph
+-dev-games/openscenegraph-qt
+-media-libs/openexr
+-media-libs/ctl
+-media-gfx/openvdb
+-media-libs/embree
+-media-libs/opencolorio
+-media-libs/openimageio
+-media-libs/osl
+
+# Sam James <sam@gentoo.org> (2021-10-16)
 # Fails with "No byte-swap function available on big-endian platform." on be
 # but fine on le.
 # bug #711940
