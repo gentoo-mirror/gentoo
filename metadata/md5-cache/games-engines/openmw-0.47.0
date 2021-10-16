@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen[dot] dev-python/sphinx ) test? ( dev-cpp/gtest ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=app-arch/lz4:= dev-games/mygui dev-games/recastnavigation:= dev-libs/boost:=[threads(+),zlib] dev-libs/tinyxml[stl] media-libs/libsdl2[joystick,opengl,video] media-libs/openal media-video/ffmpeg:= >=sci-physics/bullet-2.86:=[double-precision] virtual/opengl osg-fork? ( >=dev-games/openscenegraph-openmw-3.6:=[collada(-),ffmpeg,jpeg,png,sdl,svg,truetype,zlib] ) !osg-fork? ( >=dev-games/openscenegraph-3.5.5:=[collada(-),ffmpeg,jpeg,png,sdl,svg,truetype,zlib] ) qt5? ( app-arch/unshield dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+DESCRIPTION=Open source reimplementation of TES III: Morrowind
+EAPI=8
+HOMEPAGE=https://openmw.org/ https://gitlab.com/OpenMW/openmw
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake readme.gentoo-r1 xdg
+IUSE=doc devtools +osg-fork test +qt5
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3 MIT BitstreamVera ZLIB
+RDEPEND=app-arch/lz4:= dev-games/mygui dev-games/recastnavigation:= dev-libs/boost:=[threads(+),zlib] dev-libs/tinyxml[stl] media-libs/libsdl2[joystick,opengl,video] media-libs/openal media-video/ffmpeg:= >=sci-physics/bullet-2.86:=[double-precision] virtual/opengl osg-fork? ( >=dev-games/openscenegraph-openmw-3.6:=[collada(-),ffmpeg,jpeg,png,sdl,svg,truetype,zlib] ) !osg-fork? ( >=dev-games/openscenegraph-3.5.5:=[collada(-),ffmpeg,jpeg,png,sdl,svg,truetype,zlib] ) qt5? ( app-arch/unshield dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/OpenMW/openmw/archive/openmw-0.47.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	xdg	6024fbc93167fad782e2032933654857
+_md5_=63d16427a8688236158fd6486e622dd3
