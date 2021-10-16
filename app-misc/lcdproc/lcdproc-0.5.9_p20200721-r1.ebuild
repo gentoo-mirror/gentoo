@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,15 +10,16 @@ inherit autotools systemd
 DESCRIPTION="Displays real-time system information from your Linux/*BSD box on a LCD"
 HOMEPAGE="http://www.lcdproc.org/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
 KEYWORDS="amd64 ppc ppc64 x86"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug doc ethlcd extra-charmaps freetype menu nfs png samba test-menu"
+IUSE="debug doc ethlcd extra-charmaps menu nfs png samba test-menu truetype"
 REQUIRED_USE="
 	ethlcd? ( lcd_devices_hd44780 )
-	freetype? ( lcd_devices_glcd )
 	png? ( lcd_devices_glcd )
+	truetype? ( lcd_devices_glcd )
 "
 
 # Define the list of valid lcd devices.
@@ -98,13 +99,11 @@ DEPEND="
 		app-doc/doxygen[dot]
 		app-text/xmlto
 	)
-	freetype? ( media-libs/freetype:2= )
 	nfs? ( net-fs/nfs-utils )
 	png? ( media-libs/libpng:0= )
 	samba? ( net-fs/samba )
+	truetype? ( media-libs/freetype:2= )
 "
-
-S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
 DOCS=( "CREDITS.md" "TODO" )
 
@@ -163,11 +162,11 @@ src_configure() {
 		$(use_enable doc latex-dox)
 		$(use_enable ethlcd)
 		$(use_enable extra-charmaps)
-		$(use_enable freetype)
 		$(use_enable menu lcdproc-menus)
 		$(use_enable nfs stat-nfs)
 		$(use_enable samba stat-smbfs)
 		$(use_enable test-menu testmenus)
+		$(use_enable truetype freetype)
 		${enable_ftdi}
 		${enable_hid}
 		${enable_png}
