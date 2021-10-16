@@ -1,16 +1,18 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-inherit cmake-utils gnome2-utils virtualx
+inherit cmake gnome2-utils vcs-snapshot virtualx
+
+EGIT_COMMIT="8e17848d3fe3bd7de052a1c26b4161092ba1df9f"
 
 DESCRIPTION="Chinese Chewing engine for IBus"
 HOMEPAGE="https://github.com/ibus/ibus/wiki"
-SRC_URI="https://github.com/definite/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/definite/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="gconf nls"
@@ -19,12 +21,12 @@ RDEPEND="app-i18n/ibus
 	app-i18n/libchewing
 	dev-libs/glib:2
 	dev-util/gob:2
-	x11-libs/gtk+:2
+	x11-libs/gtk+:3
 	x11-libs/libX11
 	gconf? ( gnome-base/gconf )
 	nls? ( virtual/libintl )"
-DEPEND="${RDEPEND}
-	dev-util/cmake-fedora
+DEPEND="${RDEPEND}"
+BDEPEND="dev-util/cmake-fedora
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
@@ -37,15 +39,15 @@ src_configure() {
 		-DPRJ_DOC_DIR="${EPREFIX}"/usr/share/doc/${PF}
 	)
 	use nls || mycmakeargs+=( -DMANAGE_GETTEXT_SUPPORT=0 )
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_test() {
-	"${EPREFIX%/}/"${GLIB_COMPILE_SCHEMAS} --allow-any-name "${BUILD_DIR}"/bin || die
+	"${BROOT}"${GLIB_COMPILE_SCHEMAS} --allow-any-name "${BUILD_DIR}"/bin || die
 
 	export GSETTINGS_BACKEND="memory"
 	export GSETTINGS_SCHEMA_DIR="${BUILD_DIR}/bin"
-	virtx cmake-utils_src_test
+	virtx cmake_src_test
 }
 
 pkg_preinst() {
