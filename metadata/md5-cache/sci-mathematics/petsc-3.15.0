@@ -1,6 +1,6 @@
 BDEPEND=virtual/fortran
 DEFINED_PHASES=configure install setup
-DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[cxx?,fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[mpi?] ) sparse? ( sci-libs/suitesparse >=sci-libs/cholmod-1.7.0 ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( dev-lang/python:3.8 ) virtual/pkgconfig dev-util/cmake sys-apps/which virtual/fortran
+DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[cxx?,fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[mpi?] ) sparse? ( sci-libs/suitesparse >=sci-libs/cholmod-1.7.0 ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig dev-util/cmake sys-apps/which virtual/fortran
 DESCRIPTION=Portable, Extensible Toolkit for Scientific Computation
 EAPI=7
 HOMEPAGE=https://www.mcs.anl.gov/petsc/
@@ -13,4 +13,4 @@ REQUIRED_USE=afterimage? ( X ) complex-scalars? ( !hypre !superlu ) hdf5? ( mpi 
 SLOT=0
 SRC_URI=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.15.0.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=9986667c37d7e3633870170fe0d735d4
+_md5_=fee04ae81895ef7dc5d47104ea8c8a87

@@ -6624,21 +6624,21 @@ dev-perl/Data-Dumper-Concise 2.23.0-r1: Less indentation and newlines plus sub d
 dev-perl/Data-Float 0.13.0-r1: details of the floating point data type
 dev-perl/Data-FormValidator 4.880.0-r1: Validates user input (usually from an HTML form) based on input profile
 dev-perl/Data-GUID 0.49.0 0.50.0: Simple interface for generating and using globally unique identifiers
-dev-perl/Data-HexDump 0.20.0 0.40.0: Hexadecial Dumper
+dev-perl/Data-HexDump 0.40.0: Hexadecial Dumper
 dev-perl/Data-Hexify 1.0.0-r2: Perl extension for hexdumping arbitrary data
 dev-perl/Data-Hierarchy 0.340.0-r2: Handle data in a hierarchical structure
 dev-perl/Data-ICal 0.240.0: Generates iCalendar (RFC 2445) calendar files
 dev-perl/Data-IEEE754 0.20.0: Pack and unpack big-endian IEEE754 floats and doubles
 dev-perl/Data-ObjectDriver 0.210.0: Simple, transparent data interface, with caching
-dev-perl/Data-OptList 0.110.0: parse and validate simple name/value option pairs
+dev-perl/Data-OptList 0.110.0 0.112.0: parse and validate simple name/value option pairs
 dev-perl/Data-Page 2.30.0: help when paging through sets of results
-dev-perl/Data-Page-Pageset 1.20.0-r1: change long page list to be shorter and well navigate
+dev-perl/Data-Page-Pageset 1.20.0-r2: change long page list to be shorter and well navigate
 dev-perl/Data-Password 1.120.0: Extension for assessing password quality
 dev-perl/Data-Password-passwdqc 0.90.0-r1: Check password strength and generate password using passwdqc
-dev-perl/Data-Perl 0.2.9-r1 0.2.11: Base classes wrapping fundamental Perl data types
-dev-perl/Data-Printer 0.400.0 1.0.4: Colored and full-featured pretty print of Perl data structures and objects
-dev-perl/Data-Random 0.120.0 0.130.0: A module used to generate random data
-dev-perl/Data-Section 0.200.7: read multiple hunks of data out of your DATA section
+dev-perl/Data-Perl 0.2.11: Base classes wrapping fundamental Perl data types
+dev-perl/Data-Printer 1.0.4: Colored and full-featured pretty print of Perl data structures and objects
+dev-perl/Data-Random 0.130.0: A module used to generate random data
+dev-perl/Data-Section 0.200.7-r1: read multiple hunks of data out of your DATA section
 dev-perl/Data-Serializer 0.650.0: Modules that serialize data structures
 dev-perl/Data-ShowTable 4.600.0-r1: routines to display tabular data in several formats
 dev-perl/Data-Stag 0.140.0-r2: Structured Tags datastructures
@@ -6646,11 +6646,11 @@ dev-perl/Data-Stream-Bulk 0.110.0-r2: N at a time iteration API
 dev-perl/Data-Structure-Util 0.160.0-r1: Change nature of data within a structure
 dev-perl/Data-Types 0.170.0: Validate and convert data types.
 dev-perl/Data-URIEncode 0.110.0-r2: Allow complex data structures to be encoded using flat URIs
-dev-perl/Data-UUID 1.221.0 1.226.0: Generate Globally/Universally Unique Identifiers (GUIDs/UUIDs)
+dev-perl/Data-UUID 1.226.0: Generate Globally/Universally Unique Identifiers (GUIDs/UUIDs)
 dev-perl/Data-Uniqid 0.120.0-r2: Perl extension for simple generating of unique ids
 dev-perl/Data-Utilities 0.40.0-r2: Merge nested Perl data structures
-dev-perl/Data-Validate-Domain 0.140.0: Domain and host name validation
-dev-perl/Data-Validate-IP 0.270.0 0.300.0: IPv4 and IPv6 validation methods
+dev-perl/Data-Validate-Domain 0.140.0 0.150.0: Domain and host name validation
+dev-perl/Data-Validate-IP 0.300.0: IPv4 and IPv6 validation methods
 dev-perl/Data-Visitor 0.310.0: Visitor style traversal of Perl data structures
 dev-perl/Date-Calc 6.400.0-r1: Gregorian calendar date calculations
 dev-perl/Date-Extract 0.60.0: Extract probable dates from strings
@@ -8548,7 +8548,7 @@ dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based
 dev-python/exam 0.10.6: Helpers for better testing
 dev-python/exdown 0.9.0: Extract code blocks from markdown
 dev-python/execnet 1.9.0: Rapid multi-Python deployment
-dev-python/executing 0.7.0 0.8.0 0.8.1 0.8.2: Get information about what a Python frame is currently doing
+dev-python/executing 0.8.2: Get information about what a Python frame is currently doing
 dev-python/expects 0.9.0: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r1: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.6: Module for manipulating ID3 (v1 + v2) tags in Python
@@ -9292,7 +9292,7 @@ dev-python/python-jwt 1.2.0: JSON Web Token library for python 3
 dev-python/python-keystoneclient 4.1.1 4.3.0: Client Library for OpenStack Identity
 dev-python/python-keyutils 0.6: A set of python bindings for keyutils
 dev-python/python-ldap 3.3.1 9999: Various LDAP-related Python modules
-dev-python/python-levenshtein 0.12.1 0.12.2: Functions for fast computation of Levenshtein distance, and edit operations
+dev-python/python-levenshtein 0.12.2: Functions for fast computation of Levenshtein distance, and edit operations
 dev-python/python-lhafile 0.3.0: LHA archive support for Python
 dev-python/python-libevdev 0.9: Python wrappers for the libevdev library
 dev-python/python-linux-procfs 0.6.3: Python classes to extract information from the Linux kernel /proc files
@@ -18078,7 +18078,7 @@ sys-process/gnome-usage 3.38.1: A nice way to view information about use of syst
 sys-process/htop 3.0.5-r1 3.1.0 3.1.1: interactive process viewer
 sys-process/incron 0.5.12_p20191114-r1: inotify based cron daemon
 sys-process/iotop 0.6: Top-like UI used to show which process is using the I/O
-sys-process/iotop-c 1.18 1.19 1.20 9999: top utility for IO (C port)
+sys-process/iotop-c 1.19 1.20 9999: top utility for IO (C port)
 sys-process/latencytop 0.5-r1: tool for identifying where in the system latency is happening
 sys-process/lsof 4.94.0-r1: Lists open files for running Unix processes
 sys-process/memwatch 0.3.3: Interactive memory viewer
