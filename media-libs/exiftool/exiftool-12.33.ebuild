@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DIST_NAME=Image-ExifTool
 inherit perl-module
@@ -11,10 +11,8 @@ HOMEPAGE="https://exiftool.org/"
 SRC_URI="https://exiftool.org/${DIST_P}.tar.gz"
 
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ppc ppc64 x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~x64-macos"
 IUSE="doc"
-
-SRC_TEST="do"
 
 src_install() {
 	perl-module_src_install
