@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake flag-o-matic toolchain-funcs
+inherit cmake
 
 MY_PN=OpenEXR
 MY_PV=$(ver_cut 1)
@@ -14,23 +14,25 @@ HOMEPAGE="https://www.openexr.com/"
 SRC_URI="https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="3/29" # based on SONAME
-# imath needs keywording: arm{,64}, hppa, ia64, ppc{,64}, sparc, x64-macos, x86-solaris
-# -ppc -sparc because broken on big endian, bug #818424
-KEYWORDS="~amd64 ~ia64 -ppc -sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
+SLOT="3/30" # based on SONAME
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
 IUSE="cpu_flags_x86_avx doc examples large-stack static-libs utils test threads"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	~dev-libs/imath-${PV}:=
+	>=dev-libs/imath-3.1.0:=
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	doc? ( dev-python/breathe )
+	virtual/pkgconfig
+"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-0001-changes-needed-for-proper-slotting.patch
-	"${FILESDIR}"/${P}-0002-add-version-to-binaries-for-slotting.patch
+	"${FILESDIR}"/${PN}-3.1.1-0001-changes-needed-for-proper-slotting.patch
+	"${FILESDIR}"/${PN}-3.1.1-0002-add-version-to-binaries-for-slotting.patch
+	"${FILESDIR}"/${PN}-3.1.1-0003-disable-failing-test.patch
 )
 
 DOCS=( CHANGES.md GOVERNANCE.md PATENTS README.md SECURITY.md docs/SymbolVisibility.md )
@@ -49,7 +51,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=$(usex !static-libs)
 		-DBUILD_TESTING=$(usex test)
-		-DOPENEXR_BUILD_UTILS=$(usex utils)
+		-DDOCS=$(usex doc)
+		-DOPENEXR_BUILD_TOOLS=$(usex utils)
 		-DOPENEXR_ENABLE_LARGE_STACK=$(usex large-stack)
 		-DOPENEXR_ENABLE_THREADING=$(usex threads)
 		-DOPENEXR_INSTALL_EXAMPLES=$(usex examples)
@@ -65,14 +68,10 @@ src_configure() {
 }
 
 src_install() {
-	if use doc; then
-		DOCS+=( docs/*.pdf )
-	fi
 	use examples && docompress -x /usr/share/doc/${PF}/examples
 	cmake_src_install
 
-	cat > "${T}"/99${PN}3 <<-EOF || die
-	LDPATH=/usr/$(get_libdir)/${MY_P}
+	newenvd - 99${PN}3 <<-EOF
+		LDPATH=/usr/$(get_libdir)/${MY_P}
 	EOF
-	doenvd "${T}"/99${PN}3
 }
