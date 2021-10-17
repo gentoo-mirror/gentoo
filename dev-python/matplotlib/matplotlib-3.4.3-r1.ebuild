@@ -43,6 +43,7 @@ RDEPEND="
 	media-libs/freetype:2
 	media-libs/libpng:0
 	>=media-libs/qhull-2013:=
+	virtual/imagemagick-tools[jpeg,tiff]
 	cairo? (
 		dev-python/cairocffi[${PYTHON_USEDEP}]
 	)
@@ -60,6 +61,7 @@ RDEPEND="
 		app-text/poppler[utils]
 		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-latexextra
+		dev-texlive/texlive-luatex
 		dev-texlive/texlive-xetex
 	)
 	qt5? (
@@ -87,9 +89,12 @@ BDEPEND="
 		>=dev-python/sphinx-1.3.1[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-gallery-0.3.1-r1[${PYTHON_USEDEP}]
 		>=dev-python/xlwt-1.3.0-r1[${PYTHON_USEDEP}]
+		virtual/latex-base
 		dev-texlive/texlive-latexextra
 		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-latexrecommended
+		dev-texlive/texlive-luatex
+		dev-texlive/texlive-xetex
 		>=media-gfx/graphviz-2.42.3[cairo]
 	)
 	test? (
