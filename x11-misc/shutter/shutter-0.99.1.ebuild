@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop optfeature prefix xdg
 
@@ -9,9 +9,9 @@ DESCRIPTION="Feature-rich screenshot program"
 HOMEPAGE="https://shutter-project.org/"
 SRC_URI="https://github.com/shutter-project/shutter/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-lang/perl
@@ -22,7 +22,7 @@ RDEPEND="
 	dev-perl/GooCanvas2
 	dev-perl/GooCanvas2-CairoTypes
 	dev-perl/Gtk3
-	>=dev-perl/Gtk3-ImageView-9
+	>=dev-perl/Gtk3-ImageView-10
 	dev-perl/File-DesktopEntry
 	dev-perl/File-HomeDir
 	dev-perl/File-Which
@@ -42,6 +42,7 @@ RDEPEND="
 	virtual/imagemagick-tools[perl]
 	x11-libs/libwnck:3[introspection]
 "
+BDEPEND="sys-devel/gettext"
 
 src_prepare() {
 	hprefixify bin/shutter
@@ -67,10 +68,10 @@ src_install() {
 	rm -r "${ED}"/usr/share/shutter/resources/po || die
 
 	# shutter executes perl scripts as standalone scripts, and after that "require"s them.
-	find "${ED}"/usr/share/shutter/resources/system/plugins/ -type f ! -name '*.*' -exec chmod 755 {} \; \
+	find "${ED}"/usr/share/shutter/resources/system/plugins/ -type f ! -name '*.*' -exec chmod +x {} + \
 		|| die "failed to make plugins executables"
 	find "${ED}"/usr/share/shutter/resources/system/upload_plugins/upload -type f \
-		-name "*.pm" -exec chmod 755 {} \; || die "failed to make upload plugins executables"
+		-name "*.pm" -exec chmod +x {} + || die "failed to make upload plugins executables"
 }
 
 pkg_postinst() {
