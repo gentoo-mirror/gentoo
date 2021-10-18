@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst setup
+DESCRIPTION=Configurable FVWM theme with transparency and freedesktop compatible menu
+EAPI=8
+HOMEPAGE=http://fvwm-crystal.sourceforge.net/
+INHERIT=readme.gentoo-r1 python-single-r1 optfeature
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-3+
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) acct-group/fvwm-crystal >=x11-wm/fvwm-2.6.9[png] virtual/imagemagick-tools || ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer ) || ( x11-misc/hsetroot media-gfx/feh ) sys-apps/sed sys-devel/bc virtual/awk x11-apps/xwd media-sound/alsa-utils
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0
+SRC_URI=mirror://sourceforge/fvwm-crystal/fvwm-crystal-3.7.1.tar.gz
+_eclasses_=readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=2964ca1b9ffeb9e484f6a896e72f9d3c
