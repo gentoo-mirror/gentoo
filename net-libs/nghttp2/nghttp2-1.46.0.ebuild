@@ -3,7 +3,7 @@
 
 # TODO: Add python support.
 
-EAPI=7
+EAPI=8
 
 inherit multilib-minimal
 
@@ -71,6 +71,6 @@ multilib_src_configure() {
 
 multilib_src_install_all() {
 	if ! use static-libs ; then
-		find "${ED}"/usr -name '*.la' -delete || die
+		find "${ED}"/usr -type f -name '*.la' -delete || die
 	fi
 }
