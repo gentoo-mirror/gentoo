@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools systemd
 
@@ -22,13 +22,7 @@ BDEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
-	# fix configure.ac for >=automake-1.13 (bug #467582)
-	sed 's@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@' -i configure.ac || die
 	eautoreconf
-}
-
-src_configure() {
-	econf --disable-static
 }
 
 src_install() {
