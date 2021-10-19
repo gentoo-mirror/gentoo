@@ -4,8 +4,8 @@
  	$(CC) -fpic $(CFLAGS) $(FPTR) $(VK_OPT) -DVERSION=\"$(VERSION)\" -Wall -I$(XLIB_INC) -c $<
  
  $(CORE): $(CORE_OBJS)
--	$(CC) $(CFLAGS) $(DLFLAGS) $(CORE_OBJS) -o $@ -L$(XLIB_PATH) $(LIBDL)
-+	$(CC) $(CFLAGS) $(DLFLAGS) $(CORE_OBJS) -o $@ -L$(XLIB_PATH) $(LIBDL) $(LDFLAGS)
+-	$(CC) $(CFLAGS) $(DLFLAGS) $(CORE_OBJS) -o $@ -L$(XLIB_PATH) $(LIBDL) -lX11
++	$(CC) $(CFLAGS) $(DLFLAGS) $(CORE_OBJS) -o $@ -L$(XLIB_PATH) $(LIBDL) $(LDFLAGS) -lX11
  
  $(GUI): $(GUI_OBJS)
 -	$(CC) $(CFLAGS) $(GUI_OBJS) -o $@ -L$(XLIB_PATH) $(LIBS) $(XFT_LIBS)
