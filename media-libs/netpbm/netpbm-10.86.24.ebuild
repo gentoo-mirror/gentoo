@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit multilib toolchain-funcs
 
@@ -13,21 +13,30 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs svga tiff X xml zlib"
+# zlib USE flag is no longer used, enabled by default.
+# cannot remove it yet because of #801445
 
 BDEPEND="
 	app-arch/xz-utils
 	sys-devel/flex
 	virtual/pkgconfig
 "
-RDEPEND="jbig? ( media-libs/jbigkit )
+# app-text/ghostscript-gpl is really needed for postscript
+# some utilities execute /usr/bin/gs
+RDEPEND="jbig? ( media-libs/jbigkit:= )
 	jpeg? ( virtual/jpeg:0 )
-	png? ( >=media-libs/libpng-1.4:0 )
-	postscript? ( app-text/ghostscript-gpl )
-	rle? ( media-libs/urt )
+	png? (
+		>=media-libs/libpng-1.4:0=
+		sys-libs/zlib
+	)
+	postscript? (
+		app-text/ghostscript-gpl
+		sys-libs/zlib
+	)
+	rle? ( media-libs/urt:= )
 	svga? ( media-libs/svgalib )
 	tiff? ( >=media-libs/tiff-3.5.5:0 )
 	xml? ( dev-libs/libxml2 )
-	zlib? ( sys-libs/zlib )
 	X? ( x11-libs/libX11 )"
 DEPEND="${RDEPEND}"
 
@@ -35,7 +44,6 @@ PATCHES=(
 	"${FILESDIR}"/netpbm-10.86.21-build.patch
 	"${FILESDIR}"/netpbm-10.86.21-test.patch #450530
 	"${FILESDIR}"/netpbm-10.86.21-misc-deps.patch
-	"${FILESDIR}"/netpbm-10.86.21-format-security.patch #517524
 	"${FILESDIR}"/netpbm-10.86.22-fix-ps-test.patch #670362
 )
 
@@ -117,7 +125,8 @@ src_prepare() {
 }
 
 src_configure() {
-	# cannot chain the die with the heredoc, please check the comment below
+	# cannot chain the die with the heredoc
+	# repoman tries to parse the heredoc and fails
 	cat config.mk.in - >> config.mk <<-EOF
 	# Misc crap
 	BUILD_FIASCO = N
@@ -157,7 +166,7 @@ src_configure() {
 	TIFFLIB_NEEDS_Z = N
 	JPEGLIB = $(netpbm_config jpeg)
 	PNGLIB = $(netpbm_config png)
-	ZLIB = $(netpbm_config zlib z)
+	ZLIB = -lz
 	LINUXSVGALIB = $(netpbm_config svga vga)
 	XML2_LIBS = $(netpbm_config xml xml2)
 	JBIGLIB = $(netpbm_config jbig)
@@ -169,8 +178,6 @@ src_configure() {
 	X11LIB = $(netpbm_config X X11)
 	X11HDR_DIR =
 	EOF
-	# cannot chain the die with the heredoc above as bash-3
-	# has a parser bug in that setup #282902
 	[[ $? -eq 0 ]] || die "writing config.mk failed"
 }
 

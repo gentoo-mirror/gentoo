@@ -39,10 +39,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-5.0.0-fix-test.patch"
-)
-
 src_prepare() {
 	default
 	python_fix_shebang build
