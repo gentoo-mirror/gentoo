@@ -2229,6 +2229,7 @@ app-emacs/edb 1.32: EDB, The Emacs Database
 app-emacs/edit-list 0.3: Edit a single list
 app-emacs/edit-server 1.15: Service edit requests from a web browser for editing of textareas
 app-emacs/editorconfig-emacs 0.7.8-r1 0.8.2: EditorConfig plugin for emacs
+app-emacs/eglot 1.6: A minimal Emacs LSP client
 app-emacs/elscreen 20180321: Frame configuration management for GNU Emacs modelled after GNU Screen
 app-emacs/emacs-common 1.8: Common files needed by all GNU Emacs versions
 app-emacs/emacs-daemon 0.22: Gentoo support for Emacs running as a server in the background
@@ -12228,15 +12229,15 @@ gnome-base/libgtop 2.40.0-r1: A library that provides top functionality to appli
 gnome-base/librsvg 2.40.21 2.50.7: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 40.2: Default file manager for the GNOME desktop
 gnome-extra/chrome-gnome-shell 10-r4: GNOME Shell integration for Chrome/Chromium, Firefox, Vivaldi, Opera browsers
-gnome-extra/cinnamon 4.8.6 5.0.5: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon 4.8.6 5.0.6: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 4.8.2 5.0.2: Cinnamons's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-desktop 4.8.1 5.0.0: A collection of libraries and utilites used by Cinnamon
 gnome-extra/cinnamon-menus 4.8.2 5.0.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 4.8.1 5.0.6: Screensaver for Cinnamon
+gnome-extra/cinnamon-screensaver 4.8.1 5.0.7: Screensaver for Cinnamon
 gnome-extra/cinnamon-session 4.8.0 5.0.1: Cinnamon session manager
 gnome-extra/cinnamon-settings-daemon 4.8.5 5.0.4: Cinnamon's settings daemon
 gnome-extra/cinnamon-translations 4.8.3 5.0.2: Translation data for Cinnamon
-gnome-extra/cjs 4.8.2-r1 5.0.0-r1: Linux Mint's fork of gjs for Cinnamon
+gnome-extra/cjs 4.8.2-r1 5.0.1: Linux Mint's fork of gjs for Cinnamon
 gnome-extra/eiciel 0.9.13 0.9.13.1: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.40.3 3.40.4 3.42.0: Evolution groupware backend
 gnome-extra/evolution-ews 3.40.3 3.40.4 3.42.0: Evolution module for connecting to Microsoft Exchange Web Services
@@ -12282,7 +12283,7 @@ gnome-extra/libgsf 1.14.47: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2019.02.14 2020.03.04: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6: A nautilus extension for sending files to locations
-gnome-extra/nemo 4.8.4-r1 5.0.3: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo 4.8.4-r1 5.0.4: A file manager for Cinnamon, forked from Nautilus
 gnome-extra/nemo-fileroller 5.0.1: Nemo file-roller integration
 gnome-extra/nm-applet 1.22.0-r1: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
@@ -13331,7 +13332,7 @@ media-gfx/recoverjpeg 2.2.3-r1: Recover JPEG pictures from a possibly corrupted 
 media-gfx/ristretto 0.11.0 0.12.0: A fast and lightweight picture viewer for Xfce
 media-gfx/rotoscope 0.2: Graphics program that can be used to give photos a cartoon-like appearance
 media-gfx/sam2p 0.49.4_p20190718-r1: Utility to convert raster images to EPS, PDF and many others
-media-gfx/sane-backends 1.0.31-r2: Scanner Access Now Easy - Backends
+media-gfx/sane-backends 1.0.31-r2 1.0.32: Scanner Access Now Easy - Backends
 media-gfx/sane-frontends 1.0.14-r6: Scanner Access Now Easy
 media-gfx/scantailor-advanced 1.0.16-r1: Interactive post-processing tool for scanned pages
 media-gfx/scour 0.38.2: Take an SVG file and produce a cleaner and more concise file
@@ -13657,7 +13658,7 @@ media-libs/munt-mt32emu 2.5.3-r1: Library for emulating the Roland MT-32, CM-32L
 media-libs/musicbrainz 5.1.0: Client Library for accessing the latest XML based MusicBrainz web service
 media-libs/mutagen 1.45.1: Audio metadata tag reader and writer implemented in pure Python
 media-libs/nas 1.9.4-r2: Network Audio System
-media-libs/netpbm 10.70.00 10.76.00 10.86.22: A set of utilities for converting to/from the netpbm (and related) formats
+media-libs/netpbm 10.70.00 10.76.00 10.86.24: A set of utilities for converting to/from the netpbm (and related) formats
 media-libs/noise-suppression-for-voice 0.9_p20200705 0.91 9999: A real-time noise suppression plugin for voice
 media-libs/nv-codec-headers 8.1.24.2 9.0.18.1 9.1.23.1 10.0.26.0 10.0.26.1 11.0.10.0 11.1.5.0: FFmpeg version of headers required to interface with Nvidias codec APIs
 media-libs/oidn 1.3.0 1.4.1: Intel(R) Open Image Denoise library
@@ -14507,7 +14508,7 @@ media-video/isight-firmware-tools 1.6-r1: Extract, load or export firmware for t
 media-video/jubler 5.1: Java subtitle editor
 media-video/kaffeine 2.0.18-r1: Media player with digital TV support by KDE
 media-video/kino 1.3.4-r2: Non-linear DV editor for GNU/Linux
-media-video/libva-utils 2.4.0 2.8.0 2.8.0-r1 2.8.0-r2 2.9.1 2.9.1-r1 2.10.0 2.11.1 2.12.0 9999: Collection of utilities and tests for VA-API
+media-video/libva-utils 2.4.0 2.8.0 2.8.0-r1 2.8.0-r2 2.9.1 2.9.1-r1 2.10.0 2.11.1 2.12.0 2.13.0 9999: Collection of utilities and tests for VA-API
 media-video/lsdvd 0.17: Utility for getting info out of DVDs
 media-video/luvcview 0.2.6-r1: USB Video Class grabber
 media-video/lxdvdrip 1.77: Command line tool to automate the process of ripping and burning DVDs
@@ -14538,7 +14539,7 @@ media-video/obs-studio 27.0.1-r1 27.1.3 9999: Software for Recording and Streami
 media-video/obs-v4l2sink 0.1.0_p20181012-r2: obs studio output plugin for Video4Linux2 device
 media-video/ogmrip 1.0.1: Graphical frontend and libraries for ripping DVDs and encoding to AVI/OGM/MKV/MP4
 media-video/openshot 2.6.0: Award-winning free and open-source video editor
-media-video/oxine 0.7.1-r4: OSD frontend for Xine
+media-video/oxine 0.7.1-r5: OSD frontend for Xine
 media-video/parole 4.16.0: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1: Simple animated Gif screen recorder
 media-video/pgmfindclip 1.13: automatically find a clipping border for a sequence of pgm images
@@ -15380,7 +15381,7 @@ net-mail/mlmmj 1.3.0-r1: Mailing list managing made joyful
 net-mail/mpack 1.6-r4: Command-line MIME encoding and decoding utilities
 net-mail/mpop 1.4.7: A small, fast, and portable POP3 client
 net-mail/mswatch 1.2.0-r1: A utility to watch mailstores for changes and initiate mailbox syncs
-net-mail/mu 1.6.1 1.6.3 1.6.5 1.6.6: Set of tools to deal with Maildirs, in particular, searching and indexing
+net-mail/mu 1.6.6 1.6.7: Set of tools to deal with Maildirs, in particular, searching and indexing
 net-mail/muchsync 6: Synchronizes mail messages and notmuch tags across machines
 net-mail/nmzmail 1.1-r1: Fast mail searching for mutt using namazu
 net-mail/notmuch 0.32.2-r1 0.33.2: Thread-based e-mail indexer, supporting quick search and tagging
@@ -18382,7 +18383,7 @@ www-apps/piwigo 11.5.0-r1: a photo gallery software for the web
 www-apps/postfixadmin 3.3.10: Web Based Management tool for Postfix style virtual domains and users
 www-apps/prewikka 5.2.0: Graphical front-end analysis console for the Prelude Framework
 www-apps/radicale 2.1.12 3.0.6-r3: A simple CalDAV calendar server
-www-apps/redmine 4.1.4 4.2.2: Flexible project management web application using the Ruby on Rails framework
+www-apps/redmine 4.1.5 4.2.3: Flexible project management web application using the Ruby on Rails framework
 www-apps/rocketwiki-lqfb 0.4: Small parser which translates a wiki dialect to HTML
 www-apps/roundup 2.0.0: Issue-tracking system with command-line, web, and e-mail interfaces
 www-apps/rt 4.4.4-r1: RT is an enterprise-grade ticketing system
@@ -18714,7 +18715,7 @@ x11-libs/startup-notification 0.12-r1: Application startup notification and feed
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.28.2-r209 0.64.2: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r2 3.0.4-r302 3.0.4-r303 3.0.5.1: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
-x11-libs/xapps 2.2.1 2.2.3: Cross-desktop libraries and common resources
+x11-libs/xapps 2.2.1 2.2.4: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-util 0.4.0-r2: X C-language Bindings sample implementations
 x11-libs/xcb-util-cursor 0.1.3-r3: X C-language Bindings sample implementations
@@ -19372,7 +19373,7 @@ x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.24.1-r1 1.24.2: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r1: Simple EWMH compatible window manager with titlebars and frames
 x11-wm/metacity 3.40.0: GNOME Flashback window manager
-x11-wm/muffin 4.8.1 5.0.1-r1: Compositing window manager forked from Mutter for use with Cinnamon
+x11-wm/muffin 4.8.1 5.0.2: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 40.3-r1 40.4 40.5 40.5-r1 41.0-r1: GNOME compositing window manager based on Clutter
 x11-wm/notion 3_p2015061300-r100 9999: Notion is a tiling, tabbed window manager for the X window system
