@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Digest-CRC dev-perl/DateTime dev-perl/Carp-Assert dev-perl/Data-Hexify app-arch/unzip virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Read, decode and dump Windows Vista/2008/7 event log file
+EAPI=8
+HOMEPAGE=http://computer.forensikblog.de/en/topics/windows/vista_event_log
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=dev-perl/Digest-CRC dev-perl/DateTime dev-perl/Carp-Assert dev-perl/Data-Hexify dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://computer.forensikblog.de/files/evtx/Parse-Evtx-1.1.1.zip
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=6ce9bc75cf3aacf50f06e7644dfc5fe6
