@@ -70,6 +70,10 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( dev-util/gperf )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-21.04.3-kio_filenamesearch-crash.patch # bug 817008
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package activities KF5Activities)
