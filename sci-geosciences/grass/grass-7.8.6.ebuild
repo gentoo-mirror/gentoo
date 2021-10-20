@@ -5,22 +5,26 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8,9} )
 PYTHON_REQ_USE="sqlite"  # bug 572440
+WANT_AUTOCONF="2.5"
 WX_GTK_VER="3.0-gtk3"
 
-inherit autotools desktop git-r3 python-single-r1 toolchain-funcs wxwidgets xdg
+inherit autotools desktop python-single-r1 toolchain-funcs wxwidgets xdg
 
-MY_P="${PN}8.0"
-MY_PM="${MY_P/.}"
+MY_PM=${PN}$(ver_cut 1-2 ${PV})
+MY_PM=${MY_PM/.}
+MY_P=${P/_rc/RC}
 
 DESCRIPTION="A free GIS with raster and vector functionality, as well as 3D vizualization"
 HOMEPAGE="https://grass.osgeo.org/"
-EGIT_REPO_URI="https://github.com/OSGeo/grass.git"
+SRC_URI="https://grass.osgeo.org/${MY_PM}/source/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0/7.9"
-IUSE="blas cxx fftw geos lapack liblas mysql netcdf nls odbc opencl openmp png postgres readline sqlite threads tiff truetype X zstd"
+SLOT="0/7.8.0"
+KEYWORDS="~amd64 ~ppc ~x86"
+IUSE="blas cxx fftw geos lapack liblas mysql netcdf nls odbc opencl opengl openmp png postgres readline sqlite threads tiff truetype X zstd"
 REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}"
+	${PYTHON_REQUIRED_USE}
+	opengl? ( X )"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -35,8 +39,6 @@ RDEPEND="
 	sci-libs/proj
 	sci-libs/xdrfile
 	sys-libs/zlib
-	media-libs/libglvnd
-	media-libs/glu
 	blas? (
 		virtual/cblas[eselect-ldso(+)]
 		virtual/blas[eselect-ldso(+)]
@@ -49,6 +51,7 @@ RDEPEND="
 	netcdf? ( sci-libs/netcdf )
 	odbc? ( dev-db/unixODBC )
 	opencl? ( virtual/opencl )
+	opengl? ( virtual/opengl )
 	png? ( media-libs/libpng:0= )
 	postgres? ( >=dev-db/postgresql-8.4:= )
 	readline? ( sys-libs/readline:0= )
@@ -57,7 +60,7 @@ RDEPEND="
 	truetype? ( media-libs/freetype:2 )
 	X? (
 		dev-python/wxpython:4.0
-		x11-libs/cairo[X,opengl]
+		x11-libs/cairo[X,opengl?]
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
@@ -73,6 +76,13 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 	X? ( dev-lang/swig )"
+
+S="${WORKDIR}/${MY_P}"
+
+PATCHES=(
+	# bug 746590
+	"${FILESDIR}/${PN}-7.8-flock.patch"
+)
 
 pkg_setup() {
 	if use lapack; then
@@ -150,6 +160,7 @@ src_configure() {
 		$(use_with mysql)
 		$(use_with mysql mysql-includes "${EPREFIX}"/usr/include/mysql)
 		$(use_with sqlite)
+		$(use_with opengl)
 		$(use_with odbc)
 		$(use_with fftw)
 		$(use_with blas)
@@ -215,8 +226,6 @@ src_install() {
 		sed -i "s|${ED}|/|g" "${scriptMakeDir}/${file}" || die
 	done
 
-	mv ${D}/usr/bin/grass ${D}/usr/bin/${MY_PM} || die
-
 	# get proper folder for grass path in script
 	local gisbase=/usr/$(get_libdir)/${MY_PM}
 	sed -e "s:GISBASE = os.path.normpath(\"${D}/usr/$(get_libdir)/${MY_PM}\"):\
@@ -233,9 +242,9 @@ GISBASE = os.path.normpath(\"${gisbase}\"):" \
 os.environ\[\"GRASS_PYTHON\"\] = \"${EPYTHON}\":" \
 		-i "${ED}"/usr/bin/${MY_PM} || die
 
-	# set proper GISDBASE directory path in the demolocation .grassrc80 file
+	# set proper GISDBASE directory path in the demolocation .grassrc78 file
 	sed -e "s:GISDBASE\:.*$:GISDBASE\: ${gisbase}:" \
-		-i "${ED}"${gisbase}/demolocation/.grassrc80 || die
+		-i "${ED}"${gisbase}/demolocation/.grassrc78 || die
 
 	if use X; then
 		local GUI="-gui"

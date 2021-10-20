@@ -18,7 +18,6 @@ DEPEND="dev-libs/libunistring:=
 	media-video/ffmpeg:=
 	sys-libs/gpm
 	sys-libs/ncurses:=
-	>=sys-libs/readline-8.0:=
 	sys-libs/zlib"
 RDEPEND="${DEPEND}"
 
