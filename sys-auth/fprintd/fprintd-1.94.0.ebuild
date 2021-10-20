@@ -8,7 +8,6 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit meson pam python-any-r1 systemd
 
 MY_P="${PN}-v${PV}"
-
 DESCRIPTION="D-Bus service to access fingerprint readers"
 HOMEPAGE="https://gitlab.freedesktop.org/libfprint/fprintd"
 SRC_URI="https://gitlab.freedesktop.org/libfprint/${PN}/-/archive/v${PV}/${MY_P}.tar.bz2"
@@ -17,13 +16,12 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ia64 ~sparc ~x86"
 IUSE="doc pam systemd test"
-
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/dbus-glib
 	dev-libs/glib:2
-	sys-auth/libfprint:2
+	>=sys-auth/libfprint-1.94.0:2
 	sys-auth/polkit
 	pam? (
 		sys-libs/pam

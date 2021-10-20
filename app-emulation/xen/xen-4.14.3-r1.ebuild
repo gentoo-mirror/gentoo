@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit flag-o-matic mount-boot multilib python-any-r1 toolchain-funcs
 
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm -x86"
+	KEYWORDS="~amd64 ~arm -x86"
 	UPSTREAM_VER=0
 	SECURITY_VER=
 	GENTOO_VER=
@@ -41,7 +41,8 @@ IUSE="debug efi flask"
 
 DEPEND="${PYTHON_DEPS}
 	efi? ( >=sys-devel/binutils-2.22[multitarget] )
-	!efi? ( >=sys-devel/binutils-2.22 )"
+	!efi? ( >=sys-devel/binutils-2.22 )
+	flask? ( sys-apps/checkpolicy )"
 RDEPEND=""
 PDEPEND="~app-emulation/xen-tools-${PV}"
 
@@ -70,11 +71,6 @@ pkg_setup() {
 			die "Unsupported architecture!"
 		fi
 	fi
-
-	if use flask ; then
-		export "XSM_ENABLE=y"
-		export "FLASK_ENABLE=y"
-	fi
 }
 
 src_prepare() {
@@ -101,6 +97,9 @@ src_prepare() {
 	# Symlinks do not work on fat32 volumes
 	eapply "${FILESDIR}"/${PN}-4.14-efi.patch
 
+	# Enable XSM-FLASK
+	use flask && eapply "${FILESDIR}"/${PN}-4.15-flask.patch
+
 	# Workaround new gcc-11 options
 	sed -e '/^CFLAGS/s/-Werror//g' -i xen/Makefile || die
 
@@ -117,7 +116,6 @@ src_prepare() {
 
 src_configure() {
 	use arm && myopt="${myopt} CONFIG_EARLY_PRINTK=sun7i"
-
 	use debug && myopt="${myopt} debug=y"
 
 	# remove flags

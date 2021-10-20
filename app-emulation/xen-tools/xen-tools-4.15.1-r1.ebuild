@@ -27,8 +27,8 @@ else
 	OVMF_VER=
 
 	SEABIOS_VER="1.14.0"
-	EDK2_COMMIT="06dc822d045c2bb42e497487935485302486e151"
-	EDK2_OPENSSL_VERSION="1_1_1g"
+	EDK2_COMMIT="a3741780fe3535e19e02efa869a7cac481891129"
+	EDK2_OPENSSL_VERSION="1_1_1j"
 	EDK2_SOFTFLOAT_COMMIT="b64af41c3276f97f0e181920400ee056b9c88037"
 	EDK2_BROTLI_COMMIT="666c3280cc11dc433c303d79a83d4ffbdd12cc8d"
 	IPXE_COMMIT="988d2c13cdf0f0b4140685af35ced70ac5b3283c"
@@ -284,6 +284,19 @@ src_prepare() {
 		cp -r ../brotli-${EDK2_BROTLI_COMMIT} tools/firmware/ovmf-dir-remote/BaseTools/Source/C/BrotliCompress/brotli || die
 		cp -r ../brotli-${EDK2_BROTLI_COMMIT} tools/firmware/ovmf-dir-remote/MdeModulePkg/Library/BrotliCustomDecompressLib/brotli || die
 		cp tools/firmware/ovmf-makefile tools/firmware/ovmf-dir-remote/Makefile || die
+
+		# Bug #816987
+		pushd tools/firmware/ovmf-dir-remote/BaseTools/Source/C/BrotliCompress/brotli > /dev/null
+			eapply "${FILESDIR}/${PN}-4.15.1-brotli-gcc11.patch"
+		popd > /dev/null
+
+		pushd tools/firmware/ovmf-dir-remote/MdeModulePkg/Library/BrotliCustomDecompressLib/brotli > /dev/null
+			eapply "${FILESDIR}/${PN}-4.15.1-brotli-gcc11.patch"
+		popd > /dev/null
+
+		pushd tools/firmware/ovmf-dir-remote > /dev/null
+			eapply "${FILESDIR}/${PN}-4.15.1-edk2-python3.9.patch"
+		popd > /dev/null
 	fi
 
 	# ipxe
