@@ -1,6 +1,6 @@
-BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+BDEPEND=>=dev-perl/Module-Build-0.420.0 test? ( virtual/perl-Test-Simple dev-perl/Test-Warn ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/perl-Carp dev-perl/Moo dev-perl/MooX-Types-MooseLike >=dev-perl/Module-Build-0.420.0 test? ( virtual/perl-Test-Simple dev-perl/Test-Warn ) dev-lang/perl
+DEPEND=virtual/perl-Carp dev-perl/Moo dev-perl/MooX-Types-MooseLike dev-lang/perl
 DESCRIPTION=Perl extension to model fractions
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Number-Fraction
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DA/DAVECROSS/Number-Fraction-v3.0.4.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=2eb17bfdf09c3a212a0e5ce72eee269f
+_md5_=3bd7c6c20266e59da9ee20cd0deb9798
