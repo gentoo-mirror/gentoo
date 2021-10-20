@@ -1,9 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit multilib
+EAPI=8
 
 MAIN_PV="$(ver_cut 1-3)"
 if [[ ${PV} = *_beta* ]] || [[ ${PV} = *_rc* ]] ; then
@@ -15,9 +13,9 @@ else
 	MY_PV="${MAIN_PV}"
 	DEP_PV="${MAIN_PV}"
 fi
-VBOX_BUILD_ID="$(ver_cut 4)"
+#VBOX_BUILD_ID="$(ver_cut 4)"
 MY_PN="Oracle_VM_VirtualBox_Extension_Pack"
-MY_P="${MY_PN}-${MY_PV}-${VBOX_BUILD_ID}"
+MY_P="${MY_PN}-${MY_PV}" #-${VBOX_BUILD_ID}"
 
 DESCRIPTION="PUEL extensions for VirtualBox"
 HOMEPAGE="https://www.virtualbox.org/"
@@ -26,7 +24,7 @@ SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.vbox-extpac
 LICENSE="PUEL"
 SLOT="0/$(ver_cut 1-2)"
 [[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE=""
 RESTRICT="bindist mirror strip"
 
