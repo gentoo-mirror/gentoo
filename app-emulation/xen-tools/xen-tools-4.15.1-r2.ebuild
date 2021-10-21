@@ -17,7 +17,7 @@ if [[ ${PV} == *9999 ]]; then
 	S="${WORKDIR}/${REPO}"
 else
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-	UPSTREAM_VER=
+	UPSTREAM_VER=1
 	SECURITY_VER=
 	# xen-tools's gentoo patches tarball
 	GENTOO_VER=23
@@ -298,6 +298,9 @@ src_prepare() {
 			eapply "${FILESDIR}/${PN}-4.15.1-edk2-python3.9.patch"
 		popd > /dev/null
 	fi
+
+	# Fix building with ocaml 4.12 #818100
+	eapply "${FILESDIR}/${PN}-4.15.1-ocaml-4.12.patch"
 
 	# ipxe
 	if use ipxe; then
