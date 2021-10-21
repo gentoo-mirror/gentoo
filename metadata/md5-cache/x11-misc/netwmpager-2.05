@@ -1,7 +1,8 @@
-DEFINED_PHASES=compile configure install
-DEPEND=x11-libs/libX11 x11-libs/libXrender x11-libs/libXft x11-libs/libXdmcp x11-libs/libXau virtual/pkgconfig x11-base/xorg-proto
+BDEPEND=virtual/pkgconfig x11-base/xorg-proto
+DEFINED_PHASES=compile configure
+DEPEND=x11-libs/libX11 x11-libs/libXrender x11-libs/libXft x11-libs/libXdmcp x11-libs/libXau
 DESCRIPTION=Pager that works with Openbox and other EWMH compliant window managers
-EAPI=5
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/sf-xpaint/files/netwmpager/
 INHERIT=toolchain-funcs
 KEYWORDS=amd64 ~ppc ~ppc64 x86
@@ -10,4 +11,4 @@ RDEPEND=x11-libs/libX11 x11-libs/libXrender x11-libs/libXft x11-libs/libXdmcp x1
 SLOT=0
 SRC_URI=mirror://sourceforge/sf-xpaint/netwmpager-2.05.tar.bz2
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=ed81ce794ea3e903444ec8d086cc67bd
+_md5_=138cee051042d1c09e51abef28c79c2c
