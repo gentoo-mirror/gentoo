@@ -1,7 +1,7 @@
 Title: busybox removal from system set
 Author: Mike Gilbert <floppym@gentoo.org>
 Posted: 2021-09-24
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: sys-apps/busybox
 Display-If-Profile: default/linux/*
@@ -17,3 +17,8 @@ present in your Portage world file.
 
 As well, the "static" USE flag has been disabled by default. It may be
 re-enabled locally via package.use if so desired.
+
+UPDATE: busybox includes a DHCP client (udhcpc). Some users of netifrc
+unknowingly rely on this client. If your networking configuration uses
+DHCP, please ensure that you have a DHCP client selected in the Portage
+world file.
