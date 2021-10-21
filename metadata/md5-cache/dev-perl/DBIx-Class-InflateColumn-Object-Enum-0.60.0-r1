@@ -1,7 +1,8 @@
+BDEPEND=dev-perl/DBIx-Class dev-perl/Object-Enum >=virtual/perl-ExtUtils-MakeMaker-6.300.0 test? ( dev-perl/DBICx-TestDatabase virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/DBIx-Class dev-perl/Object-Enum >=virtual/perl-ExtUtils-MakeMaker-6.300.0 test? ( dev-perl/DBICx-TestDatabase virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Allows a DBIx::Class user to define a Object::Enum column
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/DBIx-Class-InflateColumn-Object-Enum
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=dev-perl/DBIx-Class dev-perl/Object-Enum dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JM/JMMILLS/DBIx-Class-InflateColumn-Object-Enum-0.06.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=4d290e009e3d77bc0ece807cd7bbd719
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=54e7838f0ab44c7295a3616e150fbf3b
