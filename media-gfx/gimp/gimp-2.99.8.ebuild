@@ -9,12 +9,11 @@ GNOME2_EAUTORECONF=yes
 VALA_MIN_API_VERSION="0.44"
 VALA_USE_DEPEND=vapigen
 
-inherit git-r3 gnome2 lua-single python-single-r1 toolchain-funcs vala virtualx
+inherit gnome2 lua-single python-single-r1 toolchain-funcs vala virtualx
 
 DESCRIPTION="GNU Image Manipulation Program"
 HOMEPAGE="https://www.gimp.org/"
-EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/gimp.git"
-SRC_URI=""
+SRC_URI="mirror://gimp/v2.99/${P}.tar.bz2"
 LICENSE="GPL-3 LGPL-3"
 SLOT="0/3"
 
@@ -103,6 +102,8 @@ DEPEND="
 	>=sys-devel/gettext-0.21
 	>=sys-devel/libtool-2.4.6
 	doc? (
+		app-text/yelp-tools
+		dev-libs/gobject-introspection[doctool]
 		>=dev-util/gtk-doc-1.32
 		dev-util/gtk-doc-am
 	)
@@ -132,14 +133,6 @@ src_prepare() {
 
 	sed -i -e 's/== "xquartz"/= "xquartz"/' configure.ac || die #494864
 	sed 's:-DGIMP_DISABLE_DEPRECATED:-DGIMP_protect_DISABLE_DEPRECATED:g' -i configure.ac || die #615144
-
-	# Fix checking of gtk-doc.make if USE="-doc" like autogen.sh
-	# USE="doc" is currently broken for gimp-9999 due to absence of appropriate *.m4 file
-	if ! use doc ; then
-		echo "EXTRA_DIST = missing-gtk-doc" > gtk-doc.make
-		sed -i -e "/CLEANFILES/s/^/#/g" \
-		"${S}"/devel-docs/{libgimp,libgimpbase,libgimpcolor,libgimpconfig,libgimpmath,libgimpmodule,libgimpthumb,libgimpwidgets}/Makefile.am || die
-	fi
 
 	gnome2_src_prepare  # calls eautoreconf
 
@@ -186,6 +179,7 @@ src_configure() {
 		$(use_enable cpu_flags_x86_mmx mmx)
 		$(use_enable cpu_flags_x86_sse sse)
 		$(use_enable doc gtk_doc)
+		$(use_enable doc g-ir-doc)
 		$(use_enable vector-icons)
 		$(use_with aalib aa)
 		$(use_with alsa)
@@ -253,6 +247,11 @@ src_install() {
 	mv "${ED}"/usr/share/man/man1/gimp-console{-*,}.1 || die
 
 	_rename_plugins || die
+
+	if use doc; then
+		mkdir "${ED}/usr/share/gtk-doc/html/gimp3_g-ir-docs" || die
+		cp -r "${S}/devel-docs/g-ir-docs/html/"{gjs,python} "${ED}/usr/share/gtk-doc/html/gimp3_g-ir-docs/" || die
+	fi
 }
 
 pkg_postinst() {
