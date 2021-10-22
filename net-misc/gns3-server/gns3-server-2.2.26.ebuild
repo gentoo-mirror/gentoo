@@ -10,7 +10,7 @@ inherit distutils-r1 optfeature systemd
 
 DESCRIPTION="GNS3 server to asynchronously manage emulators"
 HOMEPAGE="https://www.gns3.com/ https://github.com/GNS3/gns3-server"
-SRC_URI="https://github.com/GNS3/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/GNS3/gns3-server/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -37,8 +37,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}"/${P}-Fix-tests.patch )
-
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -49,9 +47,6 @@ src_prepare() {
 
 	# Remove Pre-built busybox binary
 	rm gns3server/compute/docker/resources/bin/busybox || die
-
-	# add setuptools dependency, bug #809278
-	echo setuptools >> requirements.txt || die
 }
 
 python_install() {
