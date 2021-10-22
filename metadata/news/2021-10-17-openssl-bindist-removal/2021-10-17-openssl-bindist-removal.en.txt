@@ -1,0 +1,38 @@
+Title: dev-libs/openssl USE=bindist removal
+Author: Robin H. Johnson <robbat2@gentoo.org>
+Posted: 2021-10-17
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: dev-libs/openssl[bindist]
+
+On 2021-11-19, the base-system team will remove USE=bindist
+behavior from dev-libs/openssl, per bug #762850 [1].
+
+Users should not experience any ABI incompatibilities that
+require recompilation when moving from
+dev-libs/openssl[bindist] to dev-libs/openssl[-bindist].
+
+However, moving back in future may recompile if any binaries
+of their systems depend on the additional symbols available
+with USE=-bindist.
+
+USE=bindist on dev-libs/openssl historically applied RedHat
+work, called hobble-openssl [2], that was intended to make
+OpenSSL "safe" to distribute with regards to various
+patents, in the opinion of RedHat's legal counsel. The
+hobble-openssl, in it's last iterations, it greatly
+restricted which parts of EC (elliptic curve) were available
+[3][4]
+
+Debian & Ubuntu do not apply any similar behavior, and
+Gentoo intends to follow Debian's lead with regards to
+OpenSSL hobble-openssl moving forward.
+
+[1] https://bugs.gentoo.org/762850
+[2] Multiple files:
+    https://src.fedoraproject.org/rpms/openssl/blob/rawhide/f/hobble-openssl
+	https://src.fedoraproject.org/rpms/openssl/blob/rawhide/f/ectest.c
+	https://src.fedoraproject.org/rpms/openssl/blob/rawhide/f/ec_curve.c
+	https://src.fedoraproject.org/rpms/openssl/blob/rawhide/f/0011-Remove-EC-curves.patch
+[3] https://archives.gentoo.org/gentoo-dev/message/f0d16240bb0dd1ff38fb5223bec810ab
+[4] https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening#system-wide-crypto-policies_using-the-system-wide-cryptographic-policies
