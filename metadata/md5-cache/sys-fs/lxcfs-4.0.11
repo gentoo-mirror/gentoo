@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/help2man verify-sig? ( app-crypt/openpgp-keys-linuxcontainers ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install prepare test unpack
+DEPEND=sys-fs/fuse:3
+DESCRIPTION=FUSE filesystem for LXC
+EAPI=8
+HOMEPAGE=https://linuxcontainers.org/lxcfs/introduction/ https://github.com/lxc/lxcfs/
+INHERIT=autotools systemd verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=Apache-2.0 LGPL-2+
+RDEPEND=sys-fs/fuse:3
+RESTRICT=test
+SLOT=0
+SRC_URI=https://linuxcontainers.org/downloads/lxcfs/lxcfs-4.0.11.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxcfs/lxcfs-4.0.11.tar.gz.asc )
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
+_md5_=80311516f9918ae4e68d6e84582d6643
