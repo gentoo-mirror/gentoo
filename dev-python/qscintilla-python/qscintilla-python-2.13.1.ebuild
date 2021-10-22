@@ -28,7 +28,7 @@ REQUIRED_USE="
 "
 
 DEPEND="${PYTHON_DEPS}
-	>=dev-python/PyQt5-5.15.5_pre2107091435[gui,printsupport,widgets,${PYTHON_USEDEP}]
+	>=dev-python/PyQt5-5.15.5[gui,printsupport,widgets,${PYTHON_USEDEP}]
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtprintsupport:5
@@ -40,7 +40,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	>=dev-python/PyQt-builder-1.10[${PYTHON_USEDEP}]
-	>=dev-python/sip-6.2.0_pre2106291255[${PYTHON_USEDEP}]
+	>=dev-python/sip-6.2[${PYTHON_USEDEP}]
 	dev-qt/qtcore:5
 "
 
