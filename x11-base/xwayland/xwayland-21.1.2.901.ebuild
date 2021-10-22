@@ -9,7 +9,7 @@ DESCRIPTION="Standalone X server running under Wayland"
 HOMEPAGE="https://wayland.freedesktop.org/xserver.html"
 SRC_URI="https://xorg.freedesktop.org/archive/individual/xserver/${P}.tar.xz"
 
-IUSE="rpc unwind ipv6 xcsecurity selinux"
+IUSE="rpc unwind ipv6 xcsecurity selinux video_cards_nvidia"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,10 +21,11 @@ DEPEND="
 	>=x11-libs/libXfont2-2.0.1
 	dev-libs/openssl:=
 	dev-libs/wayland
+	video_cards_nvidia? ( gui-libs/egl-wayland )
 	>=x11-libs/libXdmcp-1.0.2
 	>=x11-libs/libdrm-2.4.89
 	>=media-libs/libepoxy-1.5.4[X,egl(+)]
-	>=media-libs/mesa-18[X(+),egl,gbm]
+	>=media-libs/mesa-21.1[X(+),egl(+),gbm(+)]
 	>=x11-libs/libxshmfence-1.1
 	rpc? ( net-libs/libtirpc )
 	>=x11-libs/libXau-1.0.4
@@ -40,6 +41,7 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
+	x11-apps/xkbcomp
 	!<=x11-base/xorg-server-1.20.11
 	selinux? ( sec-policy/selinux-xserver )
 "
@@ -59,6 +61,7 @@ src_configure() {
 		$(meson_use ipv6)
 		$(meson_use xcsecurity)
 		$(meson_use selinux xselinux)
+		$(meson_use video_cards_nvidia xwayland_eglstream)
 		-Dsha1=libcrypto
 		-Ddpms=true
 		-Ddri3=true
@@ -70,7 +73,7 @@ src_configure() {
 		-Dxinerama=true
 		-Dxv=true
 		-Dxvfb=true
-		-Dxwayland-path="${EPREFIX}"/usr/libexec
+		-Dxwayland-path="${EPREFIX}"/usr/bin
 		-Ddtrace=false
 	)
 
@@ -78,7 +81,7 @@ src_configure() {
 }
 
 src_install() {
-	dosym ../libexec/Xwayland /usr/bin/Xwayland
+	dosym ../bin/Xwayland /usr/libexec/Xwayland
 
 	meson_src_install
 }
