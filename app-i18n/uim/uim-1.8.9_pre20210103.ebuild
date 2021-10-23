@@ -1,25 +1,37 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
-inherit autotools elisp-common flag-o-matic gnome2-utils qmake-utils
+inherit autotools elisp-common flag-o-matic gnome2-utils qmake-utils vcs-snapshot
+
+EGIT_COMMIT="d1ac9d9315ff8c57c713b502544fef9b3a83b3e5"
+SIG_PV="0.9.1"
 
 DESCRIPTION="A multilingual input method framework"
 HOMEPAGE="https://github.com/uim/uim"
-SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.bz2"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz
+	https://github.com/${PN}/sigscheme/releases/download/${SIG_PV}/sigscheme-${SIG_PV}.tar.bz2"
 
 LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~hppa ppc ppc64 x86"
-IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses nls qt5 skk sqlite ssl static-libs xft"
+KEYWORDS="~amd64 ~arm ~hppa ~ppc64 ~x86"
+IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 kde l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses nls qt5 skk sqlite ssl static-libs xft"
 RESTRICT="test"
 REQUIRED_USE="gtk? ( X )
 	gtk2? ( X )
 	qt5? ( X )
 	xft? ( X )"
 
-COMMON_DEPEND="
+CDEPEND="X? (
+		x11-libs/libICE
+		x11-libs/libSM
+		x11-libs/libX11
+		x11-libs/libXext
+		x11-libs/libXft
+		x11-libs/libXrender
+		x11-libs/libXt
+	)
 	anthy? ( app-i18n/anthy )
 	curl? ( net-misc/curl )
 	eb? ( dev-libs/eb )
@@ -27,6 +39,7 @@ COMMON_DEPEND="
 	expat? ( dev-libs/expat )
 	gtk? ( x11-libs/gtk+:3 )
 	gtk2? ( x11-libs/gtk+:2 )
+	kde? ( kde-frameworks/plasma:5 )
 	libedit? ( dev-libs/libedit )
 	libffi? ( dev-libs/libffi:= )
 	libnotify? ( x11-libs/libnotify )
@@ -36,23 +49,10 @@ COMMON_DEPEND="
 	qt5? ( dev-qt/qtx11extras:5 )
 	skk? ( app-i18n/skk-jisyo )
 	sqlite? ( dev-db/sqlite:3 )
-	ssl? (
-		dev-libs/openssl:0=
-	)
-	X? (
-		x11-libs/libICE
-		x11-libs/libSM
-		x11-libs/libX11
-		x11-libs/libXext
-		x11-libs/libXft
-		x11-libs/libXrender
-		x11-libs/libXt
-	)
-"
-DEPEND="${COMMON_DEPEND}
-	X? ( x11-base/xorg-proto )
-"
-RDEPEND="${COMMON_DEPEND}
+	ssl? ( dev-libs/openssl:0= )"
+DEPEND="${CDEPEND}
+	X? ( x11-base/xorg-proto )"
+RDEPEND="${CDEPEND}
 	!dev-scheme/sigscheme
 	X? (
 		media-fonts/font-sony-misc
@@ -75,26 +75,30 @@ RDEPEND="${COMMON_DEPEND}
 			)
 		)
 		l10n_zh-TW? ( media-fonts/intlfonts )
-	)
-"
-BDEPEND="
-	dev-util/intltool
+	)"
+BDEPEND="dev-util/intltool
 	sys-devel/gettext
 	virtual/pkgconfig
-"
+	kde? ( dev-util/cmake )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-gentoo.patch
+	"${FILESDIR}"/${PN}-kde.patch
+	"${FILESDIR}"/${PN}-slibtool.patch
 	"${FILESDIR}"/${PN}-tinfo.patch
 	"${FILESDIR}"/${PN}-xkb.patch
 	"${FILESDIR}"/${PN}-zh-TW.patch
-	"${FILESDIR}"/${P}-fno-common.patch
 )
-
 DOCS=( AUTHORS NEWS README RELNOTE doc )
 
 AT_NO_RECURSIVE="yes"
 SITEFILE="50${PN}-gentoo.el"
+
+src_unpack() {
+	vcs-snapshot_src_unpack
+	rmdir "${S}"/sigscheme || die
+	mv "${WORKDIR}"/sigscheme-${SIG_PV} "${S}"/sigscheme || die
+}
 
 src_prepare() {
 	default
@@ -116,6 +120,7 @@ src_configure() {
 		$(use_enable emacs)
 		$(use_with emacs lispdir "${SITELISP}")
 		$(use_with expat)
+		$(use_enable kde kde5-applet)
 		$(use_with libedit)
 		$(use_with libffi ffi)
 		$(use_with gtk gtk3)
@@ -139,6 +144,7 @@ src_configure() {
 		--disable-kde-applet
 		--disable-kde4-applet
 		--without-mana
+		--enable-maintainer-mode
 		--without-prime
 		--disable-qt4-qt3support
 	)
@@ -166,8 +172,9 @@ src_compile() {
 	default
 
 	if use emacs; then
-		cd emacs
+		cd emacs || die
 		elisp-compile *.el || die
+		cd - >/dev/null || die
 	fi
 }
 
