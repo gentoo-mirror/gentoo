@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup
-DEPEND=|| ( >=dev-java/openjdk-bin-11.0 >=dev-java/openjdk-11.0 ) >=dev-java/java-config-2.2.0-r3
+DEPEND=|| ( dev-java/openjdk-bin:11 dev-java/openjdk:11 ) >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=A cross-platform personal finance application
 EAPI=7
 HOMEPAGE=https://moneydance.com/
@@ -7,9 +7,9 @@ INHERIT=desktop java-pkg-2 xdg-utils
 IUSE=elibc_FreeBSD
 KEYWORDS=~amd64
 LICENSE=Apache-1.0 Apache-2.0 BSD CPAL-1.0 CPL-1.0 CSL-2.0 LGPL-2 MIT TIK
-RDEPEND=|| ( >=dev-java/openjdk-bin-11.0 >=dev-java/openjdk-11.0 ) >=dev-java/java-config-2.2.0-r3
+RDEPEND=|| ( dev-java/openjdk-bin:11 dev-java/openjdk:11 ) >=dev-java/java-config-2.2.0-r3
 RESTRICT=bindist mirror
 SLOT=0
-SRC_URI=https://infinitekind.com/stabledl/2021_2006/Moneydance_linux_amd64.tar.gz -> moneydance-2021.2006-amd64.tar.gz
+SRC_URI=https://infinitekind.com/stabledl/2022_4058/Moneydance_linux_amd64.tar.gz -> moneydance-2022.4058-amd64.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=0a4b7baef7ce60a86ff8a3c44ffc3dd4
+_md5_=b205019c59d830caed91288668bdbe4d
