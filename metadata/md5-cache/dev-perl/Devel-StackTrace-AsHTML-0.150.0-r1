@@ -1,7 +1,8 @@
+BDEPEND=dev-perl/Devel-StackTrace virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Devel-StackTrace virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Displays stack trace in HTML
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Devel-StackTrace-AsHTML
 INHERIT=perl-module
 IUSE=test examples
@@ -11,5 +12,5 @@ RDEPEND=dev-perl/Devel-StackTrace dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MI/MIYAGAWA/Devel-StackTrace-AsHTML-0.15.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=4ba52b10347084749fd3ecff271f1205
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=a037ab4f4386edc4b3da362fb5be4f2d
