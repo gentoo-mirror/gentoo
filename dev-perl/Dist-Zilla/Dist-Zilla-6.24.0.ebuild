@@ -1,18 +1,17 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DIST_AUTHOR=RJBS
-DIST_VERSION=6.015
+DIST_VERSION=6.024
 inherit perl-module
 
-DESCRIPTION="distribution builder; installer not included!"
+DESCRIPTION="Distribution builder; installer not included!"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="minimal test"
-RESTRICT="!test? ( test )"
+IUSE="minimal"
 
 ## CPAN->Gentoo resolution map for grepping in case upstream split a dep
 # breaks: Dist::Zilla::App::Command::stale -> Dist-Zilla-Plugin-PromptIfStale
@@ -37,6 +36,7 @@ X_BREAKS="
 	!<=dev-perl/Dist-Zilla-Plugin-Test-Version-1.50.0
 	!<=dev-perl/Dist-Zilla-Plugin-TrialVersionComment-0.3.0
 "
+
 # r: App::Cmd::Command::version -> App-Cmd-0.321
 # r: App::Cmd::Setup  -> App-Cmd
 # r: App::Cmd::Tester -> App-Cmd
@@ -78,10 +78,9 @@ RDEPEND="
 	>=dev-perl/App-Cmd-0.330.0
 	virtual/perl-Archive-Tar
 	>=virtual/perl-CPAN-Meta-2.142.60
-	>=virtual/perl-CPAN-Meta-Requirements-2.121.0
+	>=virtual/perl-CPAN-Meta-Requirements-2.121.630
 	>=dev-perl/CPAN-Uploader-0.103.4
 	virtual/perl-Carp
-	>=dev-perl/Class-Load-0.170.0
 	dev-perl/Config-INI
 	>=dev-perl/Config-MVP-2.200.11
 	>=dev-perl/Config-MVP-Reader-INI-2.101.461
@@ -110,18 +109,19 @@ RDEPEND="
 	dev-perl/MooseX-SetOnce
 	dev-perl/MooseX-Types
 	dev-perl/MooseX-Types-Perl
-	dev-perl/PPI
+	>=dev-perl/PPI-1.222.0
 	dev-perl/Params-Util
 	>=dev-perl/Path-Tiny-0.52.0
 	>=dev-perl/Perl-PrereqScanner-1.16.0
 	virtual/perl-Pod-Simple
 	>=virtual/perl-Scalar-List-Utils-1.450.0
-	>=dev-perl/Software-License-0.103.14
+	>=dev-perl/Software-License-0.104.1
 	virtual/perl-Storable
 	>=dev-perl/String-Formatter-0.100.680
 	>=dev-perl/String-RewritePrefix-0.6.0
 	dev-perl/Sub-Exporter
 	dev-perl/Sub-Exporter-ForMethods
+	>=virtual/perl-Term-ANSIColor-5.0.0
 	dev-perl/Term-Encoding
 	dev-perl/TermReadKey
 	virtual/perl-Term-ReadLine
@@ -136,10 +136,9 @@ RDEPEND="
 	virtual/perl-parent
 	virtual/perl-version
 "
-# t: Software::License::None -> Software-License 0.016
-# t: lib, utf8 -> perl
+
 BDEPEND="${RDEPEND}
-	virtual/perl-ExtUtils-MakeMaker
+	>=virtual/perl-ExtUtils-MakeMaker-6.780.0
 	>=dev-perl/File-ShareDir-Install-0.60.0
 	test? (
 		>=dev-perl/CPAN-Meta-Check-0.11.0
@@ -149,9 +148,11 @@ BDEPEND="${RDEPEND}
 		>=virtual/perl-Test-Simple-0.960.0
 	)
 "
+
 PATCHES=(
 	"${FILESDIR}/${PN}-6.015-authordeps-missing.patch"
 )
+
 src_test() {
 	TZ=UTC perl-module_src_test
 }
