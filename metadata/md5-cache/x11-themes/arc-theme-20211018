@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-0.56.0 cinnamon? ( dev-lang/sassc gnome-extra/cinnamon ) gnome-shell? ( dev-lang/sassc >=gnome-base/gnome-shell-3.18 ) gtk2? ( !pre-rendered? ( media-gfx/inkscape media-gfx/optipng ) ) gtk3? ( dev-lang/sassc !pre-rendered? ( media-gfx/inkscape media-gfx/optipng ) virtual/pkgconfig =x11-libs/gtk+-3.24*:3 ) gtk4? ( dev-lang/sassc !pre-rendered? ( media-gfx/inkscape media-gfx/optipng ) ) xfce? ( !pre-rendered? ( media-gfx/inkscape media-gfx/optipng ) ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=A flat theme with transparent elements for GTK 2/3/4 and GNOME Shell
+EAPI=7
+HOMEPAGE=https://github.com/jnsh/arc-theme
+INHERIT=meson toolchain-funcs
+IUSE=cinnamon gnome-shell +gtk2 +gtk3 +gtk4 mate +pre-rendered xfce
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=GPL-3
+RDEPEND=gtk2? ( x11-themes/gnome-themes-standard x11-themes/gtk-engines-murrine )
+SLOT=0
+SRC_URI=https://github.com/jnsh/arc-theme/releases/download/20211018/arc-theme-20211018.tar.xz pre-rendered? ( https://dev.gentoo.org/~chewi/distfiles/arc-theme-20211018-pngs.tar.xz )
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129
+_md5_=f6f87a943e8c0cfd4b4f7ed119844d8f
