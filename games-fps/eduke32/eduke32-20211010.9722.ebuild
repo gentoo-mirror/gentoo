@@ -5,7 +5,7 @@ EAPI=7
 
 inherit desktop toolchain-funcs xdg-utils
 
-EGIT_COMMIT="71c5ce090"
+EGIT_COMMIT="d307f703c"
 MY_BUILD="$(ver_cut 2)"
 MY_DATE="$(ver_cut 1)"
 MY_PV_HRP="5.4"
@@ -27,6 +27,7 @@ SRC_URI="
 	sc-55? ( http://www.duke4.org/files/nightfright/music/duke3d_music-sc55.zip -> duke3d_music-sc55-${MY_PV_SC55}.zip )
 	voxels? ( https://www.dropbox.com/s/yaxfahyvskyvt4r/duke3d_voxels.zip -> duke3d_voxels-${MY_PV_VOXELS}.zip )
 "
+S="${WORKDIR}/${PN}_${MY_DATE}-${MY_BUILD}-${EGIT_COMMIT}"
 
 LICENSE="BUILDLIC GPL-2 HRP"
 SLOT="0"
@@ -45,8 +46,6 @@ REQUIRED_USE="
 # There are no tests,
 # instead it tries to build a test game, which does not compile
 RESTRICT="bindist test"
-
-S="${WORKDIR}/${PN}_${MY_DATE}-${MY_BUILD}-${EGIT_COMMIT}"
 
 RDEPEND="
 	media-libs/flac

@@ -1,23 +1,34 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit flag-o-matic java-pkg-2 toolchain-funcs
 
 DESCRIPTION="NativeThread for priorities on linux for freenet"
-HOMEPAGE="http://www.freenetproject.org/"
+HOMEPAGE="https://www.freenetproject.org/"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND=">=net-p2p/freenet-0.7
-	>=virtual/jdk-1.4"
-RDEPEND=""
+CDEPEND="
+	dev-java/jna:4
+"
+DEPEND="net-p2p/freenet
+	>=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
 
 S="${WORKDIR}"
+
+PATCHES=(
+	"${FILESDIR}/${P}-javah.patch"
+)
+
+src_prepare() {
+	default
+}
 
 src_compile() {
 	append-flags -fPIC
