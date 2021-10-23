@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://pecl.php.net/pecl_http
 INHERIT=php-ext-pecl-r3
 IUSE=ssl curl_ssl_gnutls curl_ssl_nss +curl_ssl_openssl php_targets_php7-3 php_targets_php7-4 php_targets_php8-0
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=BSD-2 MIT
 RDEPEND=php_targets_php8-0? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-0(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_nss(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.0[session(-),iconv(-)] ) php_targets_php7-3? ( dev-php/pecl-http:7[php_targets_php7-3(-)] ) php_targets_php7-4? ( dev-php/pecl-http:7[php_targets_php7-4(-)] ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
 REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
 SLOT=8
 SRC_URI=https://pecl.php.net/get/pecl_http-4.2.1.tgz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	php-ext-source-r3	b61f3cc83a4e875e5eaf215d17ad83ef	php-ext-pecl-r3	4263125759167648adee458afac9b3f1
-_md5_=e1a6a996811c4cec6bceaa5ab0cb2c4a
+_md5_=e7fa83439e7da63851e09469295da16b
