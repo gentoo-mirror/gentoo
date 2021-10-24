@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools flag-o-matic udev xdg
+inherit autotools toolchain-funcs udev xdg
 
 DESCRIPTION="Separate utilities ebuild from upstream v4l-utils package"
 HOMEPAGE="https://git.linuxtv.org/v4l-utils.git"
@@ -11,7 +11,7 @@ SRC_URI="https://linuxtv.org/downloads/v4l-utils/${P}.tar.bz2"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ppc ~ppc64 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="+bpf dvb opengl qt5 +udev"
 
 RDEPEND="
@@ -39,10 +39,6 @@ BDEPEND="
 	bpf? ( sys-devel/clang:*[llvm_targets_BPF] )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-automagic.patch
-)
-
 # Not really prebuilt but BPF objects make our QA checks go crazy.
 QA_PREBUILT="*/rc_keymaps/protocols/*.o"
 
@@ -68,8 +64,6 @@ src_prepare() {
 }
 
 src_configure() {
-	append-cxxflags -std=c++14
-
 	if use qt5; then
 		local qt5_paths=( \
 			MOC="$($(tc-getPKG_CONFIG) --variable=host_bins Qt5Core)/moc" \
