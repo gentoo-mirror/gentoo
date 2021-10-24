@@ -5,7 +5,7 @@ DESCRIPTION=Open-source, GPL-licensed, multiplatform, multithreaded video transc
 EAPI=8
 HOMEPAGE=https://handbrake.fr/ https://github.com/HandBrake/HandBrake
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=autotools python-any-r1 xdg git-r3
+INHERIT=autotools python-any-r1 toolchain-funcs xdg git-r3
 IUSE=+fdk gstreamer gtk libav-aac numa nvenc x265
 LICENSE=GPL-2
 PROPERTIES=live
@@ -13,4 +13,4 @@ RDEPEND=app-arch/xz-utils dev-libs/jansson:= dev-libs/libxml2 media-libs/a52dec 
 REQUIRED_USE=^^ ( fdk libav-aac )
 SLOT=0
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=92cccdd265625516ab8061e42251e2bb
+_md5_=24eb30ecf7ea6653c9815b079ace563a
