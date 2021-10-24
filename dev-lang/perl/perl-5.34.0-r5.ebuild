@@ -17,9 +17,6 @@ DIST_AUTHOR=XSAWYERX
 # BIN_OLDVERSEN contains only C-ABI-intercompatible versions
 PERL_BIN_OLDVERSEN=""
 
-# Yes we can.
-PERL_SINGLE_SLOT=y
-
 if [[ "${PV##*.}" == "9999" ]]; then
 	DIST_VERSION=5.30.0
 else
@@ -168,12 +165,12 @@ pkg_setup() {
 
 	LIBPERL="libperl$(get_libname ${MY_PV} )"
 
-	PRIV_LIB="${PRIV_BASE}/${MY_PV}"
-	ARCH_LIB="${PRIV_BASE}/${MY_PV}/${myarch}${mythreading}"
-	SITE_LIB="${SITE_BASE}/${MY_PV}"
-	SITE_ARCH="${SITE_BASE}/${MY_PV}/${myarch}${mythreading}"
-	VENDOR_LIB="${VENDOR_BASE}/${MY_PV}"
-	VENDOR_ARCH="${VENDOR_BASE}/${MY_PV}/${myarch}${mythreading}"
+	PRIV_LIB="${PRIV_BASE}/${SUBSLOT}"
+	ARCH_LIB="${PRIV_BASE}/${SUBSLOT}/${myarch}${mythreading}"
+	SITE_LIB="${SITE_BASE}/${SUBSLOT}"
+	SITE_ARCH="${SITE_BASE}/${SUBSLOT}/${myarch}${mythreading}"
+	VENDOR_LIB="${VENDOR_BASE}/${SUBSLOT}"
+	VENDOR_ARCH="${VENDOR_BASE}/${SUBSLOT}/${myarch}${mythreading}"
 
 	dual_scripts
 }
@@ -486,8 +483,7 @@ sanitize_inc_versions() {
 }
 
 versions_to_inclist() {
-	local oldv="${PERL_BIN_OLDVERSEN}"
-	oldv="${DIST_VERSION%-RC} ${PERL_BIN_OLDVERSEN}"
+	local oldv="${DIST_VERSION%-RC} ${PERL_BIN_OLDVERSEN}"
 
 	for v;	do
 			has "${v}" ${oldv} && echo -n "${v}/${myarch}${mythreading}/ ";
@@ -496,10 +492,9 @@ versions_to_inclist() {
 }
 
 versions_to_gentoolibdirs() {
-	local oldv="${PERL_BIN_OLDVERSEN}"
+	local oldv="${DIST_VERSION%-RC} ${PERL_BIN_OLDVERSEN}"
 	local root
 	local v
-	oldv="${DIST_VERSION%-RC} ${PERL_BIN_OLDVERSEN}"
 	for v;	do
 		for root in "${PRIV_BASE}" "${VENDOR_BASE}" "${SITE_BASE}"; do
 			local fullpath="${EROOT}${root}/${v}"
