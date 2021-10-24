@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig bpf? ( sys-devel/clang:*[llvm_targets_BPF] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm preinst prepare pretend setup
+DEPEND=>=media-libs/libv4l-1.22.1[dvb?,jpeg] >=virtual/jpeg-0-r2:0= bpf? ( virtual/libelf:= ) udev? ( virtual/libudev ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 opengl? ( dev-qt/qtopengl:5[-gles2(-)] virtual/opengl ) media-libs/alsa-lib ) !media-tv/v4l2-ctl !<media-tv/ivtv-utils-1.4.0-r2
+DESCRIPTION=Separate utilities ebuild from upstream v4l-utils package
+EAPI=8
+HOMEPAGE=https://git.linuxtv.org/v4l-utils.git
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools toolchain-funcs udev xdg
+IUSE=+bpf dvb opengl qt5 +udev
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=>=media-libs/libv4l-1.22.1[dvb?,jpeg] >=virtual/jpeg-0-r2:0= bpf? ( virtual/libelf:= ) udev? ( virtual/libudev ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 opengl? ( dev-qt/qtopengl:5[-gles2(-)] virtual/opengl ) media-libs/alsa-lib ) !media-tv/v4l2-ctl !<media-tv/ivtv-utils-1.4.0-r2
+SLOT=0
+SRC_URI=https://linuxtv.org/downloads/v4l-utils/v4l-utils-1.22.1.tar.bz2
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	udev	2d229ad4bfa09058e0184b1ca900db32	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_md5_=6c68489765bb9d001968a7111114d636
