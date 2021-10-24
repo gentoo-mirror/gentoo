@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27 ruby30"
+USE_RUBY="ruby26 ruby27 ruby30"
 
 inherit ruby-ng prefix
 
@@ -13,7 +13,7 @@ LICENSE="GPL-2 || ( Ruby MIT )"
 
 SRC_URI="https://rubygems.org/rubygems/${P}.tgz"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 SLOT="0"
 IUSE="server test"
 RESTRICT="!test? ( test )"
@@ -43,7 +43,7 @@ all_ruby_prepare() {
 	# Disable broken tests when changing default values:
 	sed -i -e '/test_default_path/,/^  end/ s:^:#:' test/rubygems/test_gem.rb || die
 	# Avoid test that won't work as json is also installed as plain ruby code
-	sed -i -e '/test_realworld_\(\|upgraded_\)default_gem/askip "gentoo"' test/rubygems/test_require.rb || die
+	sed -i -e '/test_realworld_\(\|upgraded_\)default_gem/aomit "gentoo"' test/rubygems/test_require.rb || die
 
 	# Avoid test that requires additional utility scripts
 	rm -f test/test_changelog_generator.rb || die
