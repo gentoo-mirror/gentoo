@@ -1,7 +1,8 @@
+BDEPEND=>=virtual/perl-Exporter-5.570.0 virtual/perl-Time-Local virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.960.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=virtual/perl-Exporter-5.570.0 virtual/perl-Time-Local virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.960.0 ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Produce RFC 822 date strings
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Email-Date-Format
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=>=virtual/perl-Exporter-5.570.0 virtual/perl-Time-Local dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/Email-Date-Format-1.005.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=680dc154c277b5969ce5f8ca2b9b7e50
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=fe703ffd67e00102647c2113b95d8d5c
