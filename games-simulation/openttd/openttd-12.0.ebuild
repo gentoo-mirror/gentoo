@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
-IUSE="allegro cpu_flags_x86_sse dedicated +fluidsynth icu +lzma lzo +openmedia +png +sdl timidity +truetype zlib"
+IUSE="allegro cpu_flags_x86_sse dedicated +fluidsynth icu +lzma lzo +openmedia +png +sdl timidity +truetype +zlib"
 REQUIRED_USE="!dedicated? ( || ( allegro sdl ) )"
 
 RESTRICT="test" # needs a graphics set in order to test
@@ -39,7 +39,8 @@ RDEPEND="
 	png? ( media-libs/libpng:0= )
 	zlib? ( sys-libs/zlib:= )"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND=">=games-util/grfcodec-6.0.6_p20210310
+	virtual/pkgconfig"
 PDEPEND="
 	!dedicated? (
 		openmedia? (
@@ -52,7 +53,7 @@ PDEPEND="
 
 DOCS=( docs/directory_structure.md )
 PATCHES=(
-	"${FILESDIR}/${P}_dont_compress_man.patch"
+	"${FILESDIR}/${PN}-1.11.2_dont_compress_man.patch"
 )
 
 src_configure() {
@@ -61,13 +62,16 @@ src_configure() {
 		-DCMAKE_INSTALL_DATADIR=share
 		-DOPTION_DEDICATED=$(usex dedicated)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Allegro=$(usex !allegro)
-		-DCMAKE_DISABLE_FIND_PACKAGE_FREETYPE=$(usex !truetype)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Freetype=$(usex !truetype)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Fontconfig=$(usex !truetype)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Fluidsynth=$(usex !fluidsynth)
 		-DCMAKE_DISABLE_FIND_PACKAGE_ICU=$(usex !icu)
-		-DCMAKE_DISABLE_FIND_PACKAGE_LIBLZMA=$(usex !lzma)
+		-DCMAKE_DISABLE_FIND_PACKAGE_LibLZMA=$(usex !lzma)
 		-DCMAKE_DISABLE_FIND_PACKAGE_LZO=$(usex !lzo)
 		-DCMAKE_DISABLE_FIND_PACKAGE_PNG=$(usex !png)
+		# N.B. regarding #807364: CMAKE_DISABLE_FIND_PACKAGE_SDL is used only
+		# with USE="allegro -sdl" combination flags. There no other way to
+		# completely disable SDL1 support.
 		-DCMAKE_DISABLE_FIND_PACKAGE_SDL=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_SDL2=$(usex !sdl)
 		-DCMAKE_DISABLE_FIND_PACKAGE_SSE=$(usex !cpu_flags_x86_sse)
