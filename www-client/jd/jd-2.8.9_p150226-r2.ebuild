@@ -1,17 +1,17 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="8"
 
-inherit desktop autotools flag-o-matic
+inherit autotools desktop flag-o-matic
 
 MY_P="${P/_p/-}"
 
 DESCRIPTION="gtk2 based 2ch browser written in C++"
-HOMEPAGE="http://jd4linux.sourceforge.jp/"
-SRC_URI="mirror://sourceforge.jp/${PN}4linux/56721/${MY_P}.tgz"
+HOMEPAGE="https://jd4linux.osdn.jp/"
+SRC_URI="mirror://sourceforge.jp/${PN}4linux/62877/${MY_P}.tgz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa gnutls migemo oniguruma"
@@ -19,6 +19,7 @@ IUSE="alsa gnutls migemo oniguruma"
 RDEPEND="dev-cpp/gtkmm:2.4
 	dev-libs/glib:2
 	sys-libs/zlib
+	virtual/libcrypt:=
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-misc/xdg-utils
@@ -27,8 +28,8 @@ RDEPEND="dev-cpp/gtkmm:2.4
 	!gnutls? ( dev-libs/openssl:0= )
 	migemo? ( app-text/cmigemo )
 	oniguruma? ( dev-libs/oniguruma )"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=( "${FILESDIR}"/${PN}-gcc-5.patch )
@@ -37,7 +38,6 @@ src_prepare() {
 	default
 	append-cxxflags -std=c++11
 
-	mv configure.{in,ac} || die
 	eautoreconf
 }
 
