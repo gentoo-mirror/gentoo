@@ -12,7 +12,7 @@ SRC_URI="https://github.com/mdbtools/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/3"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="glib odbc"
+IUSE="glib iconv odbc"
 
 BDEPEND="
 	app-text/txt2man
@@ -23,8 +23,8 @@ BDEPEND="
 RDEPEND="
 	sys-libs/ncurses:0=
 	sys-libs/readline:0=
-	virtual/libiconv
 	glib? ( dev-libs/glib:2 )
+	iconv? ( virtual/libiconv )
 	odbc? ( >=dev-db/unixODBC-2.0 )
 "
 DEPEND="${RDEPEND}"
@@ -41,11 +41,10 @@ src_prepare() {
 }
 
 src_configure() {
-	# TODO: Make iconv optional
-
 	local myeconfargs=(
 		--disable-static
 		$(use_enable glib)
+		$(use_enable iconv)
 		$(use odbc && echo "--with-unixodbc=${EPREFIX}/usr")
 	)
 
