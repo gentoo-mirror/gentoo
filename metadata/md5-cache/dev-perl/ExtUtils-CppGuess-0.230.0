@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Capture-Tiny >=virtual/perl-ExtUtils-ParseXS-3.350.0 virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Path virtual/perl-Data-Dumper >=virtual/perl-ExtUtils-CBuilder-0.280.231 virtual/perl-ExtUtils-Manifest dev-perl/Module-Build >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Guess C++ compiler and flags
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/ExtUtils-CppGuess
+INHERIT=perl-module toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Capture-Tiny >=virtual/perl-ExtUtils-ParseXS-3.350.0 virtual/perl-File-Spec virtual/perl-File-Temp dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/ExtUtils-CppGuess-0.23.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=e7c3dd510390520b1fcf28337718395d
