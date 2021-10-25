@@ -1,5 +1,5 @@
 diff --git a/cmake/modules/AddCephTest.cmake b/cmake/modules/AddCephTest.cmake
-index c9ee8c1b8f..09f75543da 100644
+index c9ee8c1b8f6..09f75543da2 100644
 --- a/cmake/modules/AddCephTest.cmake
 +++ b/cmake/modules/AddCephTest.cmake
 @@ -68,14 +68,6 @@ function(add_tox_test name)
@@ -18,7 +18,7 @@ index c9ee8c1b8f..09f75543da 100644
      NAME ${test_name}
      COMMAND ${CMAKE_SOURCE_DIR}/src/script/run_tox.sh
 diff --git a/src/ceph-volume/CMakeLists.txt b/src/ceph-volume/CMakeLists.txt
-index 4224499c47..9a6c87595b 100644
+index 9166553dc73..9a6c87595b9 100644
 --- a/src/ceph-volume/CMakeLists.txt
 +++ b/src/ceph-volume/CMakeLists.txt
 @@ -8,22 +8,6 @@ if(FREEBSD)
@@ -30,7 +30,7 @@ index 4224499c47..9a6c87595b 100644
 -
 -add_custom_command(
 -  OUTPUT ${CEPH_VOLUME_VIRTUALENV}/bin/python
--  COMMAND ${CMAKE_SOURCE_DIR}/src/tools/setup-virtualenv.sh --python=${Python_EXECUTABLE} ${CEPH_VOLUME_VIRTUALENV}
+-  COMMAND ${CMAKE_SOURCE_DIR}/src/tools/setup-virtualenv.sh --python=${Python3_EXECUTABLE} ${CEPH_VOLUME_VIRTUALENV}
 -  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src/ceph-volume
 -  COMMENT "ceph-volume venv is being created")
 -
@@ -45,7 +45,7 @@ index 4224499c47..9a6c87595b 100644
    DEPENDS ${CEPH_VOLUME_VIRTUALENV}/bin/ceph-volume)
  
 diff --git a/src/pybind/mgr/dashboard/CMakeLists.txt b/src/pybind/mgr/dashboard/CMakeLists.txt
-index 92e4cdc538..3153c93c45 100644
+index 92e4cdc538b..3153c93c459 100644
 --- a/src/pybind/mgr/dashboard/CMakeLists.txt
 +++ b/src/pybind/mgr/dashboard/CMakeLists.txt
 @@ -5,9 +5,6 @@ function(add_npm_command)
