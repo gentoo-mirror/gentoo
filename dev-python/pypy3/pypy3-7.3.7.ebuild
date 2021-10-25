@@ -20,7 +20,7 @@ LICENSE="MIT"
 # pypy3 -c 'import sysconfig; print(sysconfig.get_config_var("SOABI"))'
 # also check pypy/interpreter/pycode.py -> pypy_incremental_magic
 SLOT="0/pypy38-pp73"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="bzip2 gdbm +jit ncurses sqlite test tk"
 # pypy3.8 is in alpha state and many tests are failing
 RESTRICT="test"
@@ -87,26 +87,9 @@ src_compile() {
 
 	# Generate cffi modules
 	# Please keep in sync with pypy/tool/build_cffi_imports.py!
-	#cffi_build_scripts = collections.OrderedDict([
-	#    ("_ctypes._ctypes_cffi",
-	#     "_ctypes/_ctypes_build.py" if sys.platform == 'darwin' else None),
-	#    ("_blake2", "_blake2/_blake2_build.py"),
-	#    ("_ssl", "_ssl_build.py"),
-	#    ("sqlite3", "_sqlite3_build.py"),
-	#    ("audioop", "_audioop_build.py"),
-	#    ("_tkinter", "_tkinter/tklib_build.py"),
-	#    ("curses", "_curses_build.py" if sys.platform != "win32" else None),
-	#    ("syslog", "_syslog_build.py" if sys.platform != "win32" else None),
-	#    ("_gdbm", "_gdbm_build.py"  if sys.platform != "win32" else None),
-	#    ("grp", "_pwdgrp_build.py" if sys.platform != "win32" else None),
-	#    ("resource", "_resource_build.py" if sys.platform != "win32" else None),
-	#    ("lzma", "_lzma_build.py"),
-	#    # ("_decimal", "_decimal_build.py"),  # issue 3024
-	#    ("_sha3", "_sha3/_sha3_build.py"),
-	#    ("xx", None),    # for testing: 'None' should be completely ignored
-	#    ("_posixshmem", "_posixshmem_build.py" if sys.platform != "win32" else None),
-	#    ])
-	cffi_targets=( blake2/_blake2 sha3/_sha3 ssl
+	# (NB: we build CFFI modules first to avoid error log when importing
+	# build_cffi_imports).
+	cffi_targets=( pypy_util blake2/_blake2 sha3/_sha3 ssl
 		audioop syslog pwdgrp resource lzma posixshmem )
 	use gdbm && cffi_targets+=( gdbm )
 	use ncurses && cffi_targets+=( curses )
@@ -122,8 +105,18 @@ src_compile() {
 		../pypy3-c "_${t}_build.py" || die "Failed to build CFFI bindings for ${t}"
 	done
 
+	# Verify that CFFI module list is up-to-date
+	local expected_cksum=63d4659f
+	local local_cksum=$(../pypy3-c -c '
+from pypy_tools.build_cffi_imports import cffi_build_scripts as x;
+import binascii, json;
+print("%08x" % (binascii.crc32(json.dumps(x).encode()),))')
+	if [[ ${local_cksum} != ${expected_cksum} ]]; then
+		die "Please verify cffi_targets and update checksum to ${local_cksum}"
+	fi
+
 	# Cleanup temporary objects
-	find -name "_cffi_*.[co]" -delete || die
+	find -name "*_cffi.[co]" -delete || die
 	find -type d -empty -delete || die
 }
 
@@ -145,7 +138,7 @@ src_install() {
 	insinto /usr/lib/pypy3.8
 	# preserve mtimes to avoid obsoleting caches
 	insopts -p
-	doins -r lib_pypy lib-python/3/.
+	doins -r lib-python/3/. lib_pypy/.
 	insinto /usr/include
 	doins -r include/pypy3.8
 
@@ -158,16 +151,16 @@ src_install() {
 
 	local dest=/usr/lib/pypy3.8
 	if ! use gdbm; then
-		rm -r "${ED}${dest}"/lib_pypy/_gdbm* || die
+		rm -r "${ED}${dest}"/_gdbm* || die
 	fi
 	if ! use sqlite; then
 		rm -r "${ED}${dest}"/sqlite3 \
-			"${ED}${dest}"/lib_pypy/_sqlite3* \
+			"${ED}${dest}"/_sqlite3* \
 			"${ED}${dest}"/test/test_sqlite.py || die
 	fi
 	if ! use tk; then
 		rm -r "${ED}${dest}"/{idlelib,tkinter} \
-			"${ED}${dest}"/lib_pypy/_tkinter \
+			"${ED}${dest}"/_tkinter \
 			"${ED}${dest}"/test/test_{tcl,tk,ttk*}.py || die
 	fi
 
