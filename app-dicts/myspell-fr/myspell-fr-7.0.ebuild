@@ -10,8 +10,8 @@ MYSPELL_DICT=(
 	"fr-moderne.dic"
 	"fr-reforme1990.aff"
 	"fr-reforme1990.dic"
-	"fr-toutesvariantes.aff"
-	"fr-toutesvariantes.dic"
+	"fr_FR.aff"
+	"fr_FR.dic"
 )
 
 MYSPELL_HYPH=(
@@ -27,16 +27,11 @@ MYSPELL_THES=(
 inherit myspell-r2
 
 DESCRIPTION="French dictionaries for myspell/hunspell"
-HOMEPAGE="https://extensions.libreoffice.org/extension-center/dictionnaires-francais"
-SRC_URI="https://extensions.libreoffice.org/assets/downloads/z/lo-oo-ressources-linguistiques-fr-v5-7.oxt"
+HOMEPAGE="https://grammalecte.net/"
+SRC_URI="https://github.com/scardracs/gentoo-packages/releases/download/fr-20201207/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1 MPL-1.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x86-linux"
 
 DOCS=( package-description.txt README_dict_fr.txt README_hyph_fr-2.9.txt README_hyph_fr-3.0.txt README_thes_fr.txt )
-
-src_prepare() {
-	default
-	rm -r french_flag_16.bmp french_flag.png || die
-}
