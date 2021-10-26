@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake lua-single python-single-r1 xdg
 
-OBS_BROWSER_COMMIT="2a338b7c76d5dd0a6b23f1d49affefd40213b0e9"
+OBS_BROWSER_COMMIT="aee43000bd994022cd73e32dc50938ab777d4a06"
 CEF_DIR="cef_binary_4280_linux64"
 
 if [[ ${PV} == 9999 ]]; then
