@@ -3338,7 +3338,7 @@ app-text/kramdown-rfc2629 1.4.19 1.5.9: An RFC2629 (XML2RFC) backend for Thomas 
 app-text/krop 0.6.0-r1 9999: A tool to crop PDF files
 app-text/languagetool 4.5 4.6 5.4: A proof-reading tool for many languages
 app-text/lcdf-typetools 2.108-r1: Font utilities for eg manipulating OTF
-app-text/lesspipe 1.85 1.89: A preprocessor for less
+app-text/lesspipe 1.85 1.89 1.90: A preprocessor for less
 app-text/letterize 1.4: Generate English-plausible alphabetic mnemonics for a phone number
 app-text/libabw 0.1.3: Library parsing abiword documents
 app-text/libebook 0.1.3-r2: Library parsing various ebook formats
@@ -10250,7 +10250,7 @@ dev-ruby/blankslate 3.1.3 3.1.3-r1: Base class with almost all of the methods fr
 dev-ruby/blinkstick 1.0.1_p20150901: ruby interface for blinkstick via libusb
 dev-ruby/bogus 0.1.6: Ensuring that the things you stub or mock actually exist
 dev-ruby/brass 1.2.1 1.2.1-r1: BRASS is a very basic assertions framework for Ruby
-dev-ruby/brotli 0.2.3 0.4.0 0.4.0-r1: Brotli compressor/decompressor
+dev-ruby/brotli 0.4.0-r1 0.4.0-r2: Brotli compressor/decompressor
 dev-ruby/bsearch 1.5.0-r3: A binary search library for Ruby
 dev-ruby/bson 4.9.4 4.10.0 4.12.0: A Ruby BSON implementation for MongoDB. (Includes binary C-based extension.)
 dev-ruby/buftok 0.2.0-r1 0.3.0: Statefully split input data by a specifiable token
@@ -10263,7 +10263,7 @@ dev-ruby/capistrano 2.15.5-r2 2.15.5-r3 3.16.0: A distributed application deploy
 dev-ruby/capybara 3.34.0 3.35.0 3.35.1 3.35.3 3.36.0: Capybara aims to simplify the process of integration testing Rack applications
 dev-ruby/certificate_authority 1.0.0: Managing the core functions outlined in RFC-3280 for PKI
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
-dev-ruby/charlock_holmes 0.7.7: Character encoding detecting library for Ruby using ICU
+dev-ruby/charlock_holmes 0.7.7 0.7.7-r1: Character encoding detecting library for Ruby using ICU
 dev-ruby/childlabor 0.0.3-r1: A scripting framework that replaces rake and sake
 dev-ruby/childprocess 3.0.0 4.0.0 4.1.0: Solution for controlling external programs running in the background
 dev-ruby/chronic 0.10.2 0.10.2-r1: Chronic is a natural language date/time parser written in pure Ruby
@@ -10298,7 +10298,7 @@ dev-ruby/cri 2.15.10 2.15.11: Cri is a library for building easy-to-use commandl
 dev-ruby/css_parser 1.7.1 1.9.0 1.10.0: Sass-based Stylesheet Framework
 dev-ruby/csv 3.2.0 3.2.1: The CSV library provides a complete interface to CSV files and data
 dev-ruby/curb 0.9.10 0.9.11 0.9.11-r1: Ruby-language bindings for libcurl
-dev-ruby/curses 1.3.2 1.4.0 1.4.1 1.4.2: Ruby binding for curses, ncurses, and PDCurses
+dev-ruby/curses 1.4.2: Ruby binding for curses, ncurses, and PDCurses
 dev-ruby/d3_rails 4.1.1: Ruby on Rails integration for the Javascript Data Visualization Framework, D3
 dev-ruby/daemon_controller 1.2.0-r1: Library to start and stop specific daemons programmatically in a robust manner
 dev-ruby/daemons 1.3.1 1.4.0 1.4.1: Wrap existing ruby scripts to be run as a daemon
@@ -10311,7 +10311,7 @@ dev-ruby/dbf 4.1.3 4.1.6 4.2.0: a small fast library for reading dBase, xBase, C
 dev-ruby/ddmemoize 1.0.0: Adds support for memoizing functions
 dev-ruby/ddmetrics 1.0.1: Non-timeseries measurements for Ruby programs
 dev-ruby/ddplugin 1.0.2 1.0.3: Provides plugin management for Ruby projects
-dev-ruby/debug_inspector 0.0.3 1.0.0 1.1.0: A Ruby wrapper for the MRI 2.0 debug_inspector API
+dev-ruby/debug_inspector 0.0.3 1.1.0: A Ruby wrapper for the MRI 2.0 debug_inspector API
 dev-ruby/deep_merge 1.2.1: A simple set of utility functions for Hash
 dev-ruby/delayer 1.1.2 1.2.0 1.2.1: Delay the processing
 dev-ruby/delayer-deferred 2.2.0: Ruby implementation of JSDeferred
@@ -10544,7 +10544,7 @@ dev-ruby/pastel 0.7.4 0.8.0: Terminal strings styling with intuitive and clean A
 dev-ruby/path_expander 1.1.0: Pre-process CLI arguments expanding directories into their constituent files
 dev-ruby/pathutil 0.16.2: Like Pathname but a little less insane
 dev-ruby/patron 0.13.3-r1: Patron is a Ruby HTTP client library based on libcurl
-dev-ruby/pcaprub 0.13.0: Libpcap bindings for ruby compat
+dev-ruby/pcaprub 0.13.0 0.13.1: Libpcap bindings for ruby compat
 dev-ruby/pdf-core 0.9.0: Implements low level PDF features for Prawn
 dev-ruby/pdf-inspector 1.3.0: A tool for analyzing PDF output
 dev-ruby/pdf-reader 1.4.1-r3 1.4.1-r4 2.4.2 2.5.0: PDF parser conforming as much as possible to the PDF specification from Adobe
@@ -10693,7 +10693,7 @@ dev-ruby/ruby-vte 3.4.3: Ruby vte bindings
 dev-ruby/ruby-vte3 3.4.3: Ruby VTE bindings for use with GTK3
 dev-ruby/ruby-webkit2-gtk 3.4.3: Ruby WebKitGtk+ for Gtk 3.0 bindings
 dev-ruby/ruby-wnck3 3.4.3: Ruby libwnck 3 bindings
-dev-ruby/ruby-xslt 0.9.10: A Ruby class for processing XSLT
+dev-ruby/ruby-xslt 0.9.10 0.9.10-r1: A Ruby class for processing XSLT
 dev-ruby/ruby-yadis 0.3.4-r2: A ruby library for performing Yadis service discovery
 dev-ruby/ruby2_keywords 0.0.2 0.0.4 0.0.5: Shim library for Module#ruby2_keywords
 dev-ruby/ruby2ruby 2.4.4: Generates readable ruby from ParseTree
@@ -14505,7 +14505,7 @@ media-video/dvdstyler 3.0.4: A cross-platform free DVD authoring application
 media-video/dvgrab 3.5-r1: Digital Video (DV) grabber for GNU/Linux
 media-video/ffcast 2.4.8: Record screencasts using ffmpeg
 media-video/ffdiaporama 2.2_pre20140701-r2: Movie creator from photos and video clips
-media-video/ffmpeg 4.2.4-r1 4.3.1-r1 4.3.2-r1 4.4-r1 9999: Complete solution to record/convert/stream audio and video. Includes libavcodec
+media-video/ffmpeg 4.2.4-r1 4.3.1-r1 4.3.2-r1 4.4-r1 4.4.1 9999: Complete solution to record/convert/stream audio and video. Includes libavcodec
 media-video/ffmpeg-chromium 94: FFmpeg built specifically for codec support in Chromium-based browsers
 media-video/ffmpeg2theora 0.30-r1: A simple converter to create Ogg Theora files
 media-video/ffmpegthumbnailer 2.2.0-r1 2.2.2: Lightweight video thumbnailer that can be used by file managers
