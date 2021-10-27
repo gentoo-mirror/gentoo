@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby25 ruby26 ruby27 ruby30"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_EXTRADOC="CHANGES.md README.md"
@@ -11,10 +11,12 @@ RUBY_FAKEGEM_NAME="cool.io"
 
 RUBY_FAKEGEM_GEMSPEC="cool.io.gemspec"
 
-inherit multilib ruby-fakegem
+RUBY_FAKEGEM_EXTENSIONS=(ext/cool.io/extconf.rb ext/iobuffer/extconf.rb)
+
+inherit ruby-fakegem
 
 DESCRIPTION="A high performance event framework for Ruby which uses the libev C library"
-HOMEPAGE="https://coolio.github.com/"
+HOMEPAGE="https://coolio.github.io/"
 
 LICENSE="MIT"
 SLOT="0"
@@ -22,8 +24,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 # cool.io includes a bundled version of libev that is patched to work correctly with ruby.
-
-ruby_add_rdepend ">=dev-ruby/iobuffer-1"
 
 all_ruby_prepare() {
 	rm -r Gemfile* lib/.gitignore || die
@@ -41,17 +41,4 @@ all_ruby_prepare() {
 
 	# Use one address consistently
 	sed -i -e 's/localhost/127.0.0.1/' spec/{udp_socket,tcp_server,iobuffer}_spec.rb || die
-}
-
-each_ruby_configure() {
-	pushd ext/cool.io || die
-	${RUBY} extconf.rb || die
-	popd || die
-}
-
-each_ruby_compile() {
-	pushd ext/cool.io || die
-	emake V=1
-	popd || die
-	cp ext/cool.io/cool.io_ext$(get_modname) lib/ || die
 }
