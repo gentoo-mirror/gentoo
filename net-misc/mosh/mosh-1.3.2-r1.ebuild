@@ -1,16 +1,17 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit autotools bash-completion-r1 git-r3
+inherit autotools bash-completion-r1
 
 DESCRIPTION="Mobile shell that supports roaming and intelligent local echo"
 HOMEPAGE="https://mosh.org"
-EGIT_REPO_URI="https://github.com/keithw/mosh.git"
+SRC_URI="https://mosh.org/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="+client examples +mosh-hardening +server ufw +utempter"
 
 REQUIRED_USE="
@@ -31,10 +32,9 @@ RDEPEND="
 	)"
 
 DEPEND="${RDEPEND}
-	dev-vcs/git[curl]
 	virtual/pkgconfig"
 
-# [0] - avoid sandbox-violation calling git describe in Makefile
+# [0] - avoid sandbox-violation calling git describe in Makefile.
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.2.5-git-version.patch
 )
