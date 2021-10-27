@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-MY_P="gperftools-${PV}"
 
-inherit toolchain-funcs flag-o-matic autotools vcs-snapshot multilib-minimal
+MY_P="gperftools-${PV}"
+inherit flag-o-matic autotools vcs-snapshot multilib-minimal
 
 DESCRIPTION="Fast, multi-threaded malloc() and nifty performance analysis tools"
 HOMEPAGE="https://github.com/gperftools/gperftools"
@@ -26,12 +26,18 @@ RESTRICT="!test? ( test )"
 # TODO: remove the riscv special case once either libunwind has begun supporting this arch
 # or this package allows using llvm-libunwind for other arches
 DEPEND="!ppc64? (
-	riscv? ( sys-libs/llvm-libunwind )
-	!riscv? ( sys-libs/libunwind )
+	riscv? ( sys-libs/llvm-libunwind:= )
+	!riscv? ( sys-libs/libunwind:= )
 )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
+
+PATCHES=(
+	# Please keep this if possible on bumps, check Fedora if needs rebasing
+	# Allows correct functionality on e.g. arm64, bug #818871
+	"${FILESDIR}"/${PN}-2.9.1-disable-generic-dynamic-tls.patch
+)
 
 pkg_setup() {
 	# set up the make options in here so that we can actually make use
@@ -47,6 +53,7 @@ pkg_setup() {
 
 src_prepare() {
 	default
+
 	eautoreconf
 	multilib_copy_sources
 }
@@ -57,21 +64,34 @@ multilib_src_configure() {
 	use optimisememory && append-cppflags -DTCMALLOC_SMALL_BUT_SLOW
 	append-flags -fno-strict-aliasing -fno-omit-frame-pointer
 
-	econf \
-		--enable-shared \
-		$(use_enable static-libs static) \
-		$(use_enable debug debugalloc) \
-		$(if [[ ${ABI} == x32 ]]; then printf "--enable-minimal\n" else use_enable minimal; fi)
+	local myeconfargs=(
+		--enable-shared
+		$(use_enable static-libs static)
+		$(use_enable debug debugalloc)
+	)
+
+	if [[ ${ABI} == x32 ]]; then
+		myeconfargs+=( --enable-minimal )
+	else
+		myeconfargs+=( $(use_enable minimal) )
+	fi
+
+	if use arm64 || use s390; then
+		# Use the same arches for disabling TLS (thread local storage)
+		# as Fedora, but we might need to expand this list if we get
+		# more odd segfaults in consumers like in bug #818871.
+		myeconfargs+=( --disable-general-dynamic-tls )
+	fi
+
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
-	case "${LD_PRELOAD}" in
-		*libsandbox*)
-			ewarn "Unable to run tests when sandbox is enabled."
-			ewarn "See https://bugs.gentoo.org/290249"
-			return 0
-			;;
-	esac
+	if has sandbox ${FEATURES}; then
+		ewarn "Unable to run tests when sandbox is enabled."
+		ewarn "See https://bugs.gentoo.org/290249"
+		return 0
+	fi
 
 	multilib-minimal_src_test
 }
@@ -91,5 +111,6 @@ src_install() {
 
 multilib_src_install_all() {
 	einstalldocs
-	use static-libs || find "${D}" -name '*.la' -delete || die
+
+	use static-libs || find "${ED}" -name '*.la' -delete || die
 }

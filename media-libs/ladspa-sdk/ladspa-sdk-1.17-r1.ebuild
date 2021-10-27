@@ -9,20 +9,16 @@ MY_PN=${PN/-/_}
 MY_P=${MY_PN}_${PV}
 
 DESCRIPTION="The Linux Audio Developer's Simple Plugin API"
-HOMEPAGE="http://www.ladspa.org/"
-SRC_URI="http://www.ladspa.org/download/${MY_P}.tgz"
+HOMEPAGE="https://www.ladspa.org/"
+SRC_URI="https://www.ladspa.org/download/${MY_P}.tgz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86"
 IUSE=""
 
-CDEPEND="media-libs/libsndfile"
-RDEPEND="${CDEPEND}"
-DEPEND="
-	${CDEPEND}
-	>=sys-apps/sed-4
-"
+RDEPEND="media-libs/libsndfile[${MULTILIB_USEDEP}]"
+DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_P}"
 
