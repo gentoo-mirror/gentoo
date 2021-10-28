@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=app-arch/unzip >=virtual/jdk-1.8 dev-java/bcprov:0 dev-java/commons-compress:0 dev-java/fec:0 dev-java/java-service-wrapper:0 dev-java/jbitcollider-core:0 dev-java/jna:4 dev-java/lzma:0 dev-java/lzmajio:0 dev-java/mersennetwister:0 nss? ( dev-libs/nss ) test? ( dev-java/junit:0 dev-java/ant-junit:0 ) dev-java/ant-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 >=dev-java/javatoolkit-0.3.0-r2
+DESCRIPTION=An encrypted network without censorship
+EAPI=7
+HOMEPAGE=https://freenetproject.org/
+INHERIT=java-pkg-2 java-ant-2 systemd
+IUSE=+nss test elibc_FreeBSD doc source
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ GPL-2 MIT BSD-2 Apache-2.0
+PDEPEND=net-libs/NativeThread:0
+RDEPEND=>=virtual/jre-1.8 net-libs/nativebiginteger:0 dev-java/bcprov:0 dev-java/commons-compress:0 dev-java/fec:0 dev-java/java-service-wrapper:0 dev-java/jbitcollider-core:0 dev-java/jna:4 dev-java/lzma:0 dev-java/lzmajio:0 dev-java/mersennetwister:0 nss? ( dev-libs/nss ) acct-user/freenet acct-group/freenet >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/freenet/fred/archive/build01491.zip -> freenet-0.7.5_p1491.zip https://github.com/freenet/seedrefs/archive/build01480.zip -> seednodes-0.7.5_p1480.zip mirror://gentoo/freenet-ant-1.7.1.jar
+_eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	java-ant-2	e83ca06db890ca292b0b6d43e376e20d	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=8bd94dd316d12a45eff3a4788956aef5
