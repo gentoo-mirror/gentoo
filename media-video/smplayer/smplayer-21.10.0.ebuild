@@ -1,7 +1,7 @@
 # Copyright 2007-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PLOCALES="am ar_SY ar bg ca cs da de el en_GB en en_US es et eu fa fi fr gl
 he_IL hr hu id it ja ka ko ku lt mk ms_MY nl nn_NO pl pt_BR pt ro_RO ru_RU
@@ -22,6 +22,7 @@ IUSE="autoshutdown bidi debug mpris"
 BDEPEND="dev-qt/linguist-tools:5"
 DEPEND="
 	dev-qt/qtcore:5
+	dev-qt/qtdbus:5
 	dev-qt/qtgui:5=
 	dev-qt/qtnetwork:5[ssl]
 	dev-qt/qtscript:5
@@ -130,7 +131,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	elog "If you want URL support with media-video/mpv, please install"
-	elog "net-misc/youtube-dl."
+	elog "net-misc/yt-dlp."
 }
 
 pkg_postrm() {
