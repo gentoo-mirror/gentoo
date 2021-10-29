@@ -1,13 +1,13 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit optfeature toolchain-funcs
 
 DESCRIPTION="Stress test for a computer system with various selectable ways"
-HOMEPAGE="https://kernel.ubuntu.com/~cking/stress-ng/"
-SRC_URI="https://kernel.ubuntu.com/~cking/tarballs/${PN}/${P}.tar.xz"
+HOMEPAGE="https://github.com/ColinIanKing/stress-ng"
+SRC_URI="https://github.com/ColinIanKing/${PN}/archive/refs/tags/V${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"

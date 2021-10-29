@@ -1,24 +1,22 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows"
-HOMEPAGE="https://www.geekbench.com"
+HOMEPAGE="https://www.geekbench.com/"
 SRC_URI="https://cdn.geekbench.com/Geekbench-${PV}-Linux.tar.gz"
+S="${WORKDIR}/Geekbench-${PV}-Linux"
 
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* amd64"
 LICENSE="geekbench"
-SLOT="4"
+SLOT="5"
 
 RESTRICT="bindist mirror"
 
-S="${WORKDIR}/Geekbench-${PV}-Linux"
-
 QA_PREBUILT="
-	opt/geekbench4/geekbench4
-	opt/geekbench4/geekbench_x86_32
-	opt/geekbench4/geekbench_x86_64
+	opt/geekbench5/geekbench5
+	opt/geekbench5/geekbench_x86_64
 "
 
 pkg_nofetch() {
@@ -27,18 +25,18 @@ pkg_nofetch() {
 }
 
 src_install() {
-	exeinto /opt/geekbench4
-	doexe geekbench4 geekbench_x86_32 geekbench_x86_64
+	exeinto /opt/geekbench5
+	doexe geekbench5 geekbench_x86_64
 
-	insinto /opt/geekbench4
+	insinto /opt/geekbench5
 	doins geekbench.plar
 
 	dodir /opt/bin
-	dosym ../geekbench4/geekbench4 /opt/bin/geekbench4
+	dosym ../geekbench5/geekbench5 /opt/bin/geekbench5
 }
 
 pkg_postinst() {
 	elog "If you have purchased a commercial license, you can enter"
 	elog "your email address and your license key with the following command:"
-	elog "geekbench4 -r <email address> <license key>"
+	elog "geekbench5 -r <email address> <license key>"
 }
