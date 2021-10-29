@@ -21,11 +21,9 @@ IUSE_OPENMPI_RM="
 
 IUSE_OPENMPI_OFED_FEATURES="
 	openmpi_ofed_features_control-hdr-padding
-	openmpi_ofed_features_connectx-xrc
 	openmpi_ofed_features_udcm
 	openmpi_ofed_features_rdmacm
-	openmpi_ofed_features_dynamic-sl
-	openmpi_ofed_features_failover"
+	openmpi_ofed_features_dynamic-sl"
 
 DESCRIPTION="A high-performance message passing library (MPI)"
 HOMEPAGE="https://www.open-mpi.org"
@@ -33,24 +31,16 @@ SRC_URI="https://www.open-mpi.org/software/ompi/v$(ver_cut 1-2)/downloads/${MY_P
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux"
-IUSE="cma cuda +cxx fortran heterogeneous ipv6 java mpi-threads numa romio threads vt
+IUSE="cma cuda cxx fortran heterogeneous ipv6 java mpi-threads numa romio threads
 	${IUSE_OPENMPI_FABRICS} ${IUSE_OPENMPI_RM} ${IUSE_OPENMPI_OFED_FEATURES}"
 
 REQUIRED_USE="openmpi_rm_slurm? ( !openmpi_rm_pbs )
 	openmpi_rm_pbs? ( !openmpi_rm_slurm )
 	openmpi_fabrics_psm? ( openmpi_fabrics_ofed )
 	openmpi_ofed_features_control-hdr-padding? ( openmpi_fabrics_ofed )
-	openmpi_ofed_features_connectx-xrc? ( openmpi_fabrics_ofed )
 	openmpi_ofed_features_udcm? ( openmpi_fabrics_ofed )
 	openmpi_ofed_features_rdmacm? ( openmpi_fabrics_ofed )
-	openmpi_ofed_features_dynamic-sl? ( openmpi_fabrics_ofed )
-	openmpi_ofed_features_failover? ( openmpi_fabrics_ofed )"
-
-MPI_UNCLASSED_DEP_STR="
-	vt? (
-		!dev-libs/libotf
-		!app-text/lcdf-typetools
-	)"
+	openmpi_ofed_features_dynamic-sl? ( openmpi_fabrics_ofed )"
 
 # dev-util/nvidia-cuda-toolkit is always multilib
 CDEPEND="
@@ -58,11 +48,11 @@ CDEPEND="
 	!sys-cluster/mpich2
 	!sys-cluster/nullmpi
 	!sys-cluster/pmix
-	>=dev-libs/libevent-2.0.21:=[${MULTILIB_USEDEP}]
+	>=dev-libs/libevent-2.0.22:=[${MULTILIB_USEDEP},threads]
 	dev-libs/libltdl:0[${MULTILIB_USEDEP}]
 	<sys-apps/hwloc-2:=[${MULTILIB_USEDEP},numa?]
 	>=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}]
-	cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.19-r1 )
+	cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.19-r1:= )
 	openmpi_fabrics_ofed? ( sys-fabric/ofed:* )
 	openmpi_fabrics_knem? ( sys-cluster/knem )
 	openmpi_fabrics_psm? ( sys-fabric/infinipath-psm:* )
@@ -84,14 +74,6 @@ MULTILIB_WRAPPED_HEADERS=(
 pkg_setup() {
 	fortran-2_pkg_setup
 	java-pkg-opt-2_pkg_setup
-
-	if use mpi-threads; then
-		ewarn
-		ewarn "WARNING: use of MPI_THREAD_MULTIPLE is still disabled by"
-		ewarn "default and officially unsupported by upstream."
-		ewarn "You may stop now and set USE=-mpi-threads"
-		ewarn
-	fi
 
 	elog
 	elog "OpenMPI has an overwhelming count of configuration options."
@@ -125,8 +107,8 @@ multilib_src_configure() {
 		--enable-orterun-prefix-by-default \
 		--with-hwloc="${EPREFIX}/usr" \
 		--with-libltdl="${EPREFIX}/usr" \
+		--with-libevent="${EPREFIX}/usr" \
 		--enable-mpi-fortran=$(usex fortran all no) \
-		$(usex !vt --enable-contrib-no-build=vt "") \
 		$(use_enable cxx mpi-cxx) \
 		$(use_with cma) \
 		$(use_with cuda cuda "${EPREFIX}"/opt/cuda) \
@@ -140,11 +122,9 @@ multilib_src_configure() {
 		$(multilib_native_use_with openmpi_fabrics_knem knem "${EPREFIX}"/usr) \
 		$(multilib_native_use_with openmpi_fabrics_psm psm "${EPREFIX}"/usr) \
 		$(multilib_native_use_enable openmpi_ofed_features_control-hdr-padding openib-control-hdr-padding) \
-		$(multilib_native_use_enable openmpi_ofed_features_connectx-xrc openib-connectx-xrc) \
 		$(multilib_native_use_enable openmpi_ofed_features_rdmacm openib-rdmacm) \
 		$(multilib_native_use_enable openmpi_ofed_features_udcm openib-udcm) \
 		$(multilib_native_use_enable openmpi_ofed_features_dynamic-sl openib-dynamic-sl) \
-		$(multilib_native_use_enable openmpi_ofed_features_failover btl-openib-failover) \
 		$(multilib_native_use_with openmpi_rm_pbs tm) \
 		$(multilib_native_use_with openmpi_rm_slurm slurm)
 }
@@ -166,21 +146,17 @@ multilib_src_install() {
 		rm \
 			"${ED}"/usr/include/mpif* \
 			"${ED}"/usr/bin/mpif* \
+			"${ED}"/usr/bin/oshfort \
+			"${ED}"/usr/bin/shmemfort \
 			|| die
 	fi
 }
 
 multilib_src_install_all() {
-	# From USE=vt see #359917
-	rm -rf "${ED}"/usr/share/libtool &> /dev/null || die
-
 	# fortran header cannot be wrapped (bug #540508), workaround part 2
 	if use fortran; then
 		mv "${T}"/fortran/mpif* "${ED}"/usr/include || die
 	fi
-
-	# Avoid collisions with libevent
-	rm -rf "${ED}"/usr/include/event2 &> /dev/null || die
 
 	# Remove la files, no static libs are installed and we have pkg-config
 	find "${ED}" -name '*.la' -delete || die

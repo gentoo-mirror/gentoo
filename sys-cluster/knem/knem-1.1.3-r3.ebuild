@@ -11,8 +11,8 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://gforge.inria.fr/git/knem/knem.git"
 	inherit git-r3
 else
-	SRC_URI="http://runtime.bordeaux.inria.fr/knem/download/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	SRC_URI="http://gforge.inria.fr/frs/download.php/37186/${P}.tar.gz"
+	KEYWORDS="~amd64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2 LGPL-2"
@@ -29,6 +29,8 @@ RDEPEND="
 MODULE_NAMES="knem(misc:${S}/driver/linux)"
 BUILD_TARGETS="all"
 BUILD_PARAMS="KDIR=${KERNEL_DIR}"
+
+PATCHES=( "${FILESDIR}/${P}-setup_timer.patch" )
 
 pkg_setup() {
 	linux-info_pkg_setup
