@@ -3905,7 +3905,7 @@ dev-cpp/sol2 3.2.2: Header-only C++ <-> Lua API wrapper
 dev-cpp/sourcetrail 2019.3.46-r2: A cross-platform source explorer for C/C++ and Java
 dev-cpp/sparsehash 2.0.4: An extremely memory-efficient hash_map implementation
 dev-cpp/string-theory 3.3 3.4: A flexible modern C++ library for string manipulation and storage
-dev-cpp/tbb 2020.3: High level abstract threading library
+dev-cpp/tbb 2020.3 2021.4.0: High level abstract threading library
 dev-cpp/tclap 1.2.2: Simple templatized C++ library for parsing command line arguments
 dev-cpp/tree 3.17: An STL-like tree class
 dev-cpp/waylandpp 0.2.8 9999: Wayland C++ bindings
@@ -4133,7 +4133,7 @@ dev-games/mercator 0.3.3: WorldForge library primarily aimed at terrain
 dev-games/mygui 3.2.2 3.4.0: A library for creating GUIs for games and 3D applications
 dev-games/newton 3.14: Integrated solution for real time simulation of physics environments
 dev-games/ode 0.11.1 0.12 0.14-r1: Open Dynamics Engine SDK
-dev-games/ogre 1.9.0-r2 1.12.9 2.1: Object-oriented Graphics Rendering Engine
+dev-games/ogre 1.9.0-r3 1.12.9 2.1: Object-oriented Graphics Rendering Engine
 dev-games/ois 1.3-r1 1.5 1.5.1: Object-oriented Input System - A cross-platform C++ input handling library
 dev-games/openscenegraph 3.6.5-r101 3.6.5-r110: Open source high performance 3D graphics toolkit
 dev-games/openscenegraph-openmw 3.4_p20200425-r101 3.6_p20210610: OpenMW-specific fork of OpenSceneGraph
@@ -5920,6 +5920,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.5 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.0 2.7.4 2.7.7: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/metee 3.1.0: Cross-platform access library for Intel CSME HECI interface
+dev-libs/mimalloc 1.7.2: mimalloc is a compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient.
 dev-libs/miniz 2.1.0-r2 9999: A lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
@@ -13187,7 +13188,7 @@ media-gfx/arss 0.2.3-r1: Analysis & Resynthesis Sound Spectrograph
 media-gfx/asymptote 2.70-r1: A vector graphics language that provides a framework for technical drawing
 media-gfx/autopano-sift-C 2.5.1: SIFT algorithm for automatic panorama creation in C
 media-gfx/aview 1.3.0_rc1-r3: An ASCII Image Viewer
-media-gfx/blender 2.83.15 2.83.16 2.83.17 2.93.0 2.93.1 2.93.2 9999: 3D Creation/Animation/Publishing System
+media-gfx/blender 2.83.15-r1 2.83.16-r1 2.83.17-r1 2.93.0-r1 2.93.1-r1 2.93.2-r1 9999: 3D Creation/Animation/Publishing System
 media-gfx/brscan4 0.4.10.1: Brother scanner driver
 media-gfx/cairosvg 2.5.2: CLI and library to export SVG to PDF, PostScript, and PNG
 media-gfx/cellwriter 1.3.6: Grid-entry natural handwriting input panel
@@ -13321,7 +13322,7 @@ media-gfx/opencsg 1.4.2-r1: The Constructive Solid Geometry rendering library
 media-gfx/openmesh 7.1: A generic data structure to represent and manipulate polygonal meshes
 media-gfx/openscad 2021.01 9999: The Programmers Solid 3D CAD Modeller
 media-gfx/opentoonz 1.4.0: An open-source full-featured 2D animation creation software
-media-gfx/openvdb 7.0.0-r2 7.1.0-r2 8.0.1-r1: Library for the efficient manipulation of volumetric data
+media-gfx/openvdb 7.0.0-r3 7.1.0-r3 8.0.1-r2: Library for the efficient manipulation of volumetric data
 media-gfx/optipng 0.7.7-r1: Compress PNG files without affecting image quality
 media-gfx/panini 0.73.0: OpenGL-based panoramic image viewer
 media-gfx/pdf2svg 0.2.3: pdf2svg is based on poppler and cairo and can convert pdf to svg files
@@ -13345,7 +13346,7 @@ media-gfx/povray 3.7.0.0-r1: The Persistence of Vision Raytracer
 media-gfx/pqiv 2.11 9999: powerful GTK 3 based command-line image viewer with a minimal UI
 media-gfx/pqstego 0.0.1: Tools for Perturbed Quantization Steganography
 media-gfx/propaganda 1.0-r1: Propaganda Volume 1-14 + E. Tiling images for your desktop
-media-gfx/prusaslicer 2.3.3: A mesh slicer to generate G-code for fused-filament-fabrication (3D printers)
+media-gfx/prusaslicer 2.3.3-r1: A mesh slicer to generate G-code for fused-filament-fabrication (3D printers)
 media-gfx/psftools 1.0.10: Utilities for manipulation of console fonts in PSF format
 media-gfx/pstoedit 3.75: Translate PostScript and PDF graphics into other vector formats
 media-gfx/qimgv 1.0.2: A cross-platform image viewer with webm support, written in qt5
@@ -13440,7 +13441,7 @@ media-libs/dssi 1.1.1-r1: Plugin API for software instruments with user interfac
 media-libs/dumb 0.9.3-r3 2.0.3: Module/tracker based music format parser and player library
 media-libs/elgato-streamdeck 0.8.1 9999: Python library to control the Elgato Stream Deck
 media-libs/elles_icc_profiles 20160501.0932-r1: Elle Stone's well-behaved RGB and grey ICC profiles
-media-libs/embree 3.13.0-r1: Collection of high-performance ray tracing kernels
+media-libs/embree 3.13.0-r2: Collection of high-performance ray tracing kernels
 media-libs/esdl 1.3.1: Erlang bindings for the SDL library
 media-libs/exempi 2.4.5-r1: Port of the Adobe XMP SDK to work on UNIX
 media-libs/exiftool 12.30 12.33: Read and write meta information in image, audio and video files
@@ -13687,19 +13688,19 @@ media-libs/nas 1.9.4-r2: Network Audio System
 media-libs/netpbm 10.70.00 10.76.00 10.86.24: A set of utilities for converting to/from the netpbm (and related) formats
 media-libs/noise-suppression-for-voice 0.9_p20200705 0.91 9999: A real-time noise suppression plugin for voice
 media-libs/nv-codec-headers 8.1.24.2 9.0.18.1 9.1.23.1 10.0.26.0 10.0.26.1 11.0.10.0 11.1.5.0: FFmpeg version of headers required to interface with Nvidias codec APIs
-media-libs/oidn 1.3.0 1.4.1: Intel(R) Open Image Denoise library
+media-libs/oidn 1.3.0-r1 1.4.1-r1: Intel(R) Open Image Denoise library
 media-libs/openal 1.21.1-r2: A software implementation of the OpenAL 3D audio API
 media-libs/opencollada 1.6.68: Stream based read/write library for COLLADA files
 media-libs/opencolorio 1.1.1-r1 2.0.0 2.0.1 2.0.2: A color management framework for visual effects and animation
 media-libs/opencore-amr 0.1.5-r1: Implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 media-libs/openctm 1.0.3-r1: OpenCTM - the Open Compressed Triangle Mesh
-media-libs/opencv 4.5.0-r1 4.5.1-r1 4.5.2-r1 4.5.2-r2: A collection of algorithms and sample code for various computer vision problems
+media-libs/opencv 4.5.0-r2 4.5.1-r2 4.5.2-r3 4.5.2-r4: A collection of algorithms and sample code for various computer vision problems
 media-libs/openexr 2.5.6 2.5.7 3.1.1 3.1.2: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.1.1 2.1.1_p20190331: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
 media-libs/openimageio 2.2.12.0-r1 2.2.13.1-r1 2.2.14.0-r1 2.2.15.0-r1 2.2.15.1-r1 2.2.18.0-r1: A library for reading and writing images
 media-libs/openjpeg 2.4.0: Open-source JPEG 2000 library
-media-libs/opensubdiv 3.4.3 3.4.4: An Open-Source subdivision surface library
+media-libs/opensubdiv 3.4.3-r1 3.4.4-r1: An Open-Source subdivision surface library
 media-libs/opus 1.3.1-r2: Open codec for interactive speech and music transmission over the Internet
 media-libs/opusfile 0.12: A high-level decoding and seeking API for .opus files
 media-libs/osl 1.10.13 1.11.9.0 1.11.9.0-r1 1.11.15.0 1.12.0.2 1.12.0.2-r1: Advanced shading language for production GI renderers
@@ -15788,7 +15789,7 @@ net-misc/yandex-disk 0.1.5.1039_p1: CLI to access Yandex Disk file storage servi
 net-misc/you-get 0.4.1525 0.4.1527 0.4.1545: Utility to download media contents from the web
 net-misc/youtube-dl 2021.06.06 9999: Download videos from YouTube.com (and more sites...)
 net-misc/youtube-viewer 3.7.4-r2 3.9.3 9999: A command line utility for viewing youtube-videos in Mplayer
-net-misc/yt-dlp 2021.10.22: youtube-dl fork with additional features and fixes
+net-misc/yt-dlp 2021.10.22 2021.10.22-r1: youtube-dl fork with additional features and fixes
 net-misc/zerotier 1.6.3 1.6.4: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r1: An ssh wrapper enabling zmodem up/download in ssh
 net-misc/zsync 0.6.2-r2: Partial/differential file download client over HTTP which uses the rsync algorithm
@@ -16412,7 +16413,7 @@ sci-electronics/espresso-ab 1.0-r2: POSIX compliant version of the espresso logi
 sci-electronics/fasthenry 3.0.20.07.17: Three dimensional inductance computation program, Whiteley Research version
 sci-electronics/freehdl 0.0.8: A free VHDL simulator
 sci-electronics/fritzing 0.9.4-r2: Electronic Design Automation
-sci-electronics/gazebo 11.3.0-r1 11.5.1-r1 11.7.0: A 3D multiple robot simulator with dynamics
+sci-electronics/gazebo 11.3.0-r2 11.5.1-r2 11.7.0-r1: A 3D multiple robot simulator with dynamics
 sci-electronics/geda 1.9.2-r1: GPL Electronic Design Automation (gEDA):gaf core package
 sci-electronics/geda-suite 20171223-r1: Metapackage for all components for a full-featured gEDA/gaf system
 sci-electronics/gerbv 2.7.0: A RS-274X (Gerber) and NC drill (Excellon) file viewer
@@ -16590,7 +16591,7 @@ sci-libs/colpack 1.0.10: C++ algorithms for specialized vertex coloring problems
 sci-libs/cqrlib 1.1.3: Utility library for quaternion arithmetic / rotation math (ANSI C implemented)
 sci-libs/cxsparse 3.2.0: Extended sparse matrix package
 sci-libs/dcmtk 3.6.5: The DICOM Toolkit
-sci-libs/dealii 9.3.0-r1 9.3.1 9999: Solving partial differential equations with the finite element method
+sci-libs/dealii 9.3.0-r2 9.3.1-r1 9999: Solving partial differential equations with the finite element method
 sci-libs/djbfft 0.76-r3: Extremely fast library for floating-point convolution
 sci-libs/dlib 19.22: Numerical and networking C++ library
 sci-libs/dmlc-core 0_p20170719: Common bricks library for building distributed machine learning.
@@ -16709,11 +16710,11 @@ sci-libs/nlopt 2.6.2-r1: Non-linear optimization library
 sci-libs/numkit 1.1.2-r1: Numerical first aid kit (with numpy/scipy)
 sci-libs/o2scl 0.920: Object-oriented Scientific Computing Library
 sci-libs/oc 2.0: Network Data Access Protocol client C library
-sci-libs/oce 0.18.3-r2: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
+sci-libs/oce 0.18.3-r3: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 sci-libs/octomap 1.9.7: An Efficient Probabilistic 3D Mapping Framework Based on Octrees
 sci-libs/ogdi 4.1.0: Open Geographical Datastore Interface, a GIS support library
 sci-libs/openblas 0.3.17 0.3.18: Optimized BLAS library based on GotoBLAS2
-sci-libs/opencascade 7.4.0-r4 7.5.1-r1 7.5.2 7.5.3: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
+sci-libs/opencascade 7.4.0-r5 7.5.1-r2 7.5.2-r1 7.5.3-r2: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 sci-libs/openlibm 0.7.5 0.8.0: High quality system independent, open source libm
 sci-libs/orocos-bfl 0.8.0: Bayesian Filtering Library
 sci-libs/orocos_kdl 1.5.0 9999: Kinematics and Dynamics Library (KDL)
@@ -16750,7 +16751,7 @@ sci-libs/shapelib 1.5.0: Library for manipulating ESRI Shapefiles
 sci-libs/shapely 1.7.1-r1: Geometric objects, predicates, and operations
 sci-libs/silo 4.10.2-r1: A mesh and field I/O library and scientific database
 sci-libs/spglib 1.14.1: Spglib is a C library for finding and handling crystal symmetries
-sci-libs/spqr 2.0.9: Multithreaded multifrontal sparse QR factorization library
+sci-libs/spqr 2.0.9-r1: Multithreaded multifrontal sparse QR factorization library
 sci-libs/spr 3.3.2: Statistical analysis and machine learning library
 sci-libs/stellarsolver 1.8: Cross-platform Sextractor and Astrometry.net-Based internal astrometric solver
 sci-libs/suitesparse 5.4.0: Metapackage for a suite of sparse matrix tools
@@ -16767,14 +16768,14 @@ sci-libs/taucs 2.2-r1: C library of sparse linear solvers
 sci-libs/tensorflow 2.5.0-r3: Computation framework using data flow graphs for scalable machine learning
 sci-libs/tensorflow-estimator 2.3.0 2.4.0 2.5.0: A high-level TensorFlow API that greatly simplifies machine learning programming
 sci-libs/tnt 3.0.12: Template Numerical Toolkit: C++ headers for array and matrices
-sci-libs/trilinos 13.0.1: Scientific library collection for large scale problems
+sci-libs/trilinos 13.0.1-r1: Scientific library collection for large scale problems
 sci-libs/udunits 2.2.28: Library for manipulating units of physical quantities
 sci-libs/ufconfig 3.7.1: Common configuration scripts for the SuiteSparse libraries
 sci-libs/umfpack 5.7.9: Unsymmetric multifrontal sparse LU factorization library
 sci-libs/volk 2.4.1 2.5.0: vector optimized library of kernels
 sci-libs/voro++ 0.4.6-r1: 3D Voronoi cell software library
 sci-libs/votca-tools 1.5.1 1.6.4 2021 2021.1 2021.2 9999: Votca tools library
-sci-libs/vtk 8.2.0-r4 9.0.3-r1: The Visualization Toolkit
+sci-libs/vtk 8.2.0-r5 9.0.3-r2: The Visualization Toolkit
 sci-libs/xdmf2 1.0_p141226-r4: eXtensible Data Model and Format
 sci-libs/xdrfile 1.1.4: Library to read gromacs trajectory and topology files
 sci-libs/xgks-pmel 2.5.5: PMEL fork of XGKS, an X11-based version of the ANSI Graphical Kernel System
@@ -16875,7 +16876,7 @@ sci-misc/ncview 2.1.7: X-based viewer for netCDF files
 sci-misc/netlogo-bin 6.0.2-r1 6.2.0: Programming language and IDE for agent-based modelling
 sci-misc/oww 0.86.5: A one-wire weather station for Dallas Semiconductor
 sci-misc/vitables 3.0.2: A graphical tool for browsing / editing files in both PyTables and HDF5 formats
-sci-physics/bullet 3.07 3.08 3.17: Continuous Collision Detection and Physics Library
+sci-physics/bullet 3.07-r1 3.08-r1 3.17-r1: Continuous Collision Detection and Physics Library
 sci-physics/clhep 2.4.1.3-r2 2.4.4.0 2.4.4.2 2.4.5.1: High Energy Physics C++ library
 sci-physics/espresso 4.1.3 9999: Extensible Simulation Package for Research on Soft matter
 sci-physics/fastjet 3.0.6-r3: Fast implementation of several recombination jet algorithms
@@ -16891,7 +16892,7 @@ sci-physics/looptools 2.15: Tools for evaluation of scalar and tensor one-loop i
 sci-physics/pythia 6.4.28-r2 8.2.45: Lund Monte Carlo high-energy physics event generator
 sci-physics/qmeq 1.0_p202004: Quantum master equation package for Quantum dot transport calculations
 sci-physics/reduze 2.4: Program for reducing Feynman integrals
-sci-physics/root 6.22.08-r2 6.24.06 6.24.9999 9999: C++ data analysis framework and interpreter from CERN
+sci-physics/root 6.22.08-r3 6.24.06-r1 6.24.9999 9999: C++ data analysis framework and interpreter from CERN
 sci-physics/siscone 3.0.5: Hadron Seedless Infrared-Safe Cone jet algorithm
 sci-physics/thepeg 2.0.4-r1 2.2.2: Toolkit for High Energy Physics Event Generation
 sci-physics/vgm 4.8-r1 4.9-r1 9999: Virtual Geometry Model for High Energy Physics Experiments
@@ -17657,7 +17658,7 @@ sys-cluster/gasnet 1.26.4 1.26.4-r1 1.28.0 1.28.2 1.30.0: Networking middleware 
 sys-cluster/glusterfs 7.9-r1 8.3-r1 8.4-r1 8.5-r1 8.6 9.1-r1 9.2-r1 9.3: GlusterFS is a powerful network/cluster filesystem
 sys-cluster/gmqtt 0.3.1 0.3.2 0.4.1: MQTT broker library with cluster support that implements MQTT V5.0 and V3.1.1
 sys-cluster/hpl 2.0-r4 2.3: Portable Implementation of the Linpack Benchmark for Distributed-Memory Clusters
-sys-cluster/hpx 1.7.1 9999: C++ runtime system for parallel and distributed applications
+sys-cluster/hpx 1.7.1-r1 9999: C++ runtime system for parallel and distributed applications
 sys-cluster/ipvsadm 1.27-r1 1.28-r1 1.31: utility to administer the IP virtual server services
 sys-cluster/k3s 1.19.15 1.20.11 1.21.5 1.22.2: Lightweight Kubernetes
 sys-cluster/k9scli 0.20.5 0.21.2 0.22.1 0.24.10: terminal based UI to manage kubernetes clusters
@@ -17752,6 +17753,7 @@ sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 
 sys-devel/llvmgold 10 11 12 13 14: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19: GNU macro processor
 sys-devel/make 4.3: Standard tool to compile source trees
+sys-devel/mold 0.9.6: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
 sys-devel/native-cctools 4 5: Host OS native assembler as and static linker ld
 sys-devel/parity 2.0.1 9999: A POSIX to native Win32 Cross-Compiler Tool (requires Visual Studio)

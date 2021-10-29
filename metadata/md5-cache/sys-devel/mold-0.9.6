@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-cpp/tbb-2021.4.0:= dev-libs/xxhash:= sys-libs/zlib !kernel_Darwin? ( dev-libs/mimalloc:= dev-libs/openssl:= )
+DESCRIPTION=A Modern Linker
+EAPI=8
+HOMEPAGE=https://github.com/rui314/mold
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=>=dev-cpp/tbb-2021.4.0:= dev-libs/xxhash:= sys-libs/zlib !kernel_Darwin? ( dev-libs/mimalloc:= dev-libs/openssl:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/rui314/mold/archive/refs/tags/v0.9.6.tar.gz -> mold-0.9.6.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=9baf6ca84f0bd459a803cb25cefa94a0
