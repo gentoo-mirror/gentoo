@@ -7,8 +7,8 @@ inherit autotools bash-completion-r1 linux-info flag-o-matic optfeature pam read
 
 DESCRIPTION="A userspace interface for the Linux kernel containment features"
 HOMEPAGE="https://linuxcontainers.org/ https://github.com/lxc/lxc"
-SRC_URI="https://linuxcontainers.org/downloads/lxc/${P}.tar.gz
-	verify-sig? ( https://linuxcontainers.org/downloads/lxc/${P}.tar.gz.asc )"
+SRC_URI="https://linuxcontainers.org/downloads/lxc/${P/_p1}.tar.gz
+	verify-sig? ( https://linuxcontainers.org/downloads/lxc/${P/_p1}.tar.gz.asc )"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
@@ -33,7 +33,8 @@ RDEPEND="acct-group/lxc
 DEPEND="${RDEPEND}
 	>=sys-kernel/linux-headers-4
 	apparmor? ( sys-apps/apparmor )"
-BDEPEND="doc? ( app-doc/doxygen[dot] )
+BDEPEND="virtual/pkgconfig
+	doc? ( app-doc/doxygen[dot] )
 	man? ( app-text/docbook-sgml-utils )
 	verify-sig? ( app-crypt/openpgp-keys-linuxcontainers )"
 
@@ -74,9 +75,13 @@ pkg_setup() {
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.0.5-omit-sysconfig.patch # bug 558854
+	"${FILESDIR}"/${P}-liburing-sync1.patch #820545
+	"${FILESDIR}"/${P}-liburing-sync2.patch #820545
 )
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/linuxcontainers.asc
+
+S="${WORKDIR}/${PN}-${PV/_p1}"
 
 src_prepare() {
 	default
@@ -153,11 +158,11 @@ src_install() {
 	find "${D}" -name '*.la' -delete -o -name '*.a' -delete || die
 
 	# Gentoo-specific additions!
-	newinitd "${FILESDIR}/${PN}.initd.8" ${PN}
+	newinitd "${FILESDIR}/lxc.initd.8" lxc
 
 	# Remember to compare our systemd unit file with the upstream one
 	# config/init/systemd/lxc.service.in
-	systemd_newunit "${FILESDIR}"/${PN}_at.service.4.0.0 "lxc@.service"
+	systemd_newunit "${FILESDIR}"/lxc_at.service.4.0.0 "lxc@.service"
 
 	DOC_CONTENTS="
 		For openrc, there is an init script provided with the package.
