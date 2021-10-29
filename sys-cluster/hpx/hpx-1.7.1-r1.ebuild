@@ -45,6 +45,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-python.patch"
+)
+
 hpx_memory_requirement() {
 	# HPX needs enough main memory for compiling
 	# rule of thumb: 1G per job

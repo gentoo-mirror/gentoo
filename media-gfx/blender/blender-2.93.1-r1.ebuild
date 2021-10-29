@@ -11,12 +11,13 @@ DESCRIPTION="3D Creation/Animation/Publishing System"
 HOMEPAGE="https://www.blender.org"
 
 if [[ ${PV} = *9999* ]] ; then
-	# Subversion is needed for downloading unit test files
-	inherit git-r3 subversion
+	inherit git-r3
 	EGIT_REPO_URI="https://git.blender.org/blender.git"
 else
 	SRC_URI="https://download.blender.org/source/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	TEST_TARBALL_VERSION=2.93.0
+	SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.bz2 )"
+	KEYWORDS="~amd64"
 fi
 
 SLOT="${PV%.*}"
@@ -80,7 +81,7 @@ RDEPEND="${PYTHON_DEPS}
 	nls? ( virtual/libiconv )
 	openal? ( media-libs/openal )
 	opencl? ( virtual/opencl )
-	oidn? ( >=media-libs/oidn-1.4.1 )
+	oidn? ( >=media-libs/oidn-1.3.0 )
 	openimageio? ( >=media-libs/openimageio-2.2.13.1:= )
 	openexr? (
 		media-libs/ilmbase:=
@@ -99,6 +100,7 @@ RDEPEND="${PYTHON_DEPS}
 	sdl? ( media-libs/libsdl2[sound,joystick] )
 	sndfile? ( media-libs/libsndfile )
 	tbb? ( dev-cpp/tbb:= )
+	test? ( dev-vcs/subversion )
 	tiff? ( media-libs/tiff )
 	valgrind? ( dev-util/valgrind )
 "
@@ -152,15 +154,14 @@ pkg_setup() {
 
 src_unpack() {
 	if [[ ${PV} = *9999* ]] ; then
-		TESTS_SVN_URL=https://svn.blender.org/svnroot/bf-blender/trunk/lib/tests
 		git-r3_src_unpack
 	else
 		default
-		TESTS_SVN_URL=https://svn.blender.org/svnroot/bf-blender/tags/blender-${SLOT}-release/lib/tests
 	fi
 
 	if use test; then
-		subversion_fetch ${TESTS_SVN_URL} ../lib/tests
+		mkdir -p lib || die
+		mv "${WORKDIR}"/blender-${TEST_TARBALL_VERSION}-tests/tests lib || die
 	fi
 }
 
@@ -260,8 +261,11 @@ src_configure() {
 		-DWITH_USD=OFF
 		-DWITH_XR_OPENXR=OFF
 	)
-	append-flags $(usex debug '-DDEBUG' '-DNDEBUG')
-
+	if ! use debug ; then
+		append-flags  -DNDEBUG
+	else
+		append-flags  -DDEBUG
+	fi
 	cmake_src_configure
 }
 
