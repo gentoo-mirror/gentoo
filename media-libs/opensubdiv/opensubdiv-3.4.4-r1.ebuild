@@ -17,7 +17,7 @@ S="${WORKDIR}/OpenSubdiv-${MY_PV}"
 # See for example CMakeLists.txt for details.
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~x86"
 IUSE="cuda examples opencl openmp ptex tbb test tutorials"
 RESTRICT="!test? ( test )"
 
@@ -31,7 +31,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	tbb? ( dev-cpp/tbb:= )
+	tbb? ( <dev-cpp/tbb-2021.4.0:= )
 "
 BDEPEND="
 	cuda? ( <sys-devel/gcc-9[cxx] )
