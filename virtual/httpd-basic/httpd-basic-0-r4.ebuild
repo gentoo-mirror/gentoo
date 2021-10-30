@@ -14,9 +14,8 @@ RDEPEND="
 		www-servers/lighttpd
 		www-servers/boa
 		www-servers/bozohttpd
-		www-servers/cherokee
 		www-servers/fnord
-		www-servers/hiawatha
+		www-servers/h2o
 		www-servers/monkeyd
 		www-servers/nginx
 		www-servers/thttpd
