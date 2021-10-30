@@ -1,0 +1,30 @@
+Title: net-news/rssguard-4.0 upgrade
+Author: Anna Vyalkova <cyber+gentoo@sysrq.in>
+Author: Proxy Maintainers <proxy-maint@gentoo.org>
+Posted: 2021-10-30
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: <net-news/rssguard-4.0
+
+RSS Guard database files created by RSS Guard version 3.9.x are
+incompatible with RSS Guard version 4.0 or later [0].
+
+Configuration file (config.ini) is fully backwards compatible according
+to the upstream. You can save it (File -> Backup settings) before an
+upgrade and restore it later (File -> Restore settings).
+
+There is no reliable way to automate the database format conversion, so
+action from the user is required before an upgrade can take place.
+
+The first option would be to export your feeds as an OMPL file
+(Accounts -> Export feeds) before an upgrade and import them later
+(Account -> Import feeds).
+
+The second option would be to manually update your database.db file to
+4.x.x format following a guide by the upstream developer [1].
+
+Keep in mind that application data directory has been renamed from
+"~/.config/RSS Guard" to "~/.config/RSS Guard 4".
+
+[0] https://github.com/martinrotter/rssguard/releases/tag/4.0.0
+[1] https://github.com/martinrotter/rssguard/blob/master/resources/docs/Documentation.md#migratt
