@@ -44,7 +44,9 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
-	dev-python/sphinx
+	doc? (
+		dev-python/sphinx
+	)
 	$(python_gen_cond_dep '
 		test? (
 			dev-db/sqlite[icu]
@@ -80,6 +82,10 @@ BDEPEND="
 		)
 	')"
 
+PATCHES=(
+	"${FILESDIR}/${PV}-0001-Remove-test_completion.patch"
+)
+
 DOCS=( README.rst docs/changelog.rst )
 
 distutils_enable_tests pytest
@@ -89,14 +95,13 @@ python_prepare_all() {
 }
 
 python_compile_all() {
-	emake -C docs man
 	use doc && esetup.py build_sphinx -b html --build-dir=docs/build
 }
 
 python_install_all() {
 	distutils-r1_python_install_all
 
-	doman docs/_build/man/*
+	doman man/*
 	use doc && local HTML_DOCS=( docs/build/html/. )
 	einstalldocs
 
