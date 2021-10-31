@@ -21,6 +21,12 @@ specific case, it is useful to have a simplified depgraph
 to ensure that Portage is able to smoothly calculate
 an upgrade path.
 
+It is also recommended that users do _not_ have
+FEATURES="collision-protect" enabled because it is
+aggressive in protecting even orphaned files. Instead,
+use FEATURES="unmerge-orphans" which is almost identical
+in behaviour.
+
 That is, please take the opportunity to fully upgrade your
 systems now, before the migration occurs, to simplify matters.
 
@@ -55,9 +61,18 @@ libcrypt and libxcrypt first:
 
 And then continue the world upgrade with Portage's "--keep-going=y".
 
+If you hit conflicts, please see the wiki page linked below, but
+common helpful tips are:
+* try more backtracking (e.g. --backtrack=1000)
+* try --ignore-built-slot-operator-deps=y temporarily on the world upgrade,
+then run a world upgrade again without it.
+
+Do NOT attempt to unmerge glibc at any point.
+
 For more information or troubleshooting tips, please see:
 * https://wiki.gentoo.org/wiki/Project:Toolchain/libcrypt_implementation
 * https://bugs.gentoo.org/699422
+* Reach out to our support channels (https://www.gentoo.org/support/)
 
 [0] https://bugs.gentoo.org/802267
 [1] https://bugs.gentoo.org/802807
