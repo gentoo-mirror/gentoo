@@ -14,7 +14,7 @@ SRC_URI="https://github.com/AcademySoftwareFoundation/${PN}/archive/v${PV}.tar.g
 LICENSE="MPL-2.0"
 SLOT="0/9"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 blosc doc numpy python static-libs test utils zlib abi6-compat abi7-compat +abi8-compat"
+IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 +blosc doc numpy python static-libs test utils zlib abi6-compat abi7-compat +abi8-compat"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -71,6 +71,14 @@ pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
 
+src_prepare() {
+	# Make sure we find our renamed Imath headers
+	# bug #820929
+	sed -i -e 's:#include <Imath/half.h>:#include <Imath-3/half.h>:' openvdb/openvdb/Types.h || die
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local myprefix="${EPREFIX}/usr/"
 
@@ -88,7 +96,6 @@ src_configure() {
 	# TODO: add NanoVDB?
 	# https://academysoftwarefoundation.github.io/openvdb/NanoVDB_HowToBuild.html
 	local mycmakeargs=(
-		-DCHOST="${CHOST}"
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}/"
 		-DOPENVDB_ABI_VERSION_NUMBER="${version}"
 		-DOPENVDB_BUILD_DOCS=$(usex doc)
