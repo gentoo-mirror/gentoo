@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-IUSE="bundled-libjpeg-turbo +bundled-qt pulseaudio wayland"
+IUSE="bundled-libjpeg-turbo +bundled-qt opencl pulseaudio wayland"
 RESTRICT="mirror bindist strip"
 
 RDEPEND="!games-engines/zoom
@@ -35,6 +35,7 @@ RDEPEND="!games-engines/zoom
 	x11-libs/libXtst
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
+	opencl? ( virtual/opencl )
 	pulseaudio? ( media-sound/pulseaudio )
 	!pulseaudio? ( media-libs/alsa-lib )
 	wayland? ( dev-libs/wayland )
@@ -51,7 +52,6 @@ RDEPEND="!games-engines/zoom
 		dev-qt/qtnetwork:5
 		dev-qt/qtquickcontrols:5[widgets]
 		dev-qt/qtquickcontrols2:5
-		dev-qt/qtscript:5
 		dev-qt/qtsvg:5
 		dev-qt/qtwidgets:5
 		wayland? ( dev-qt/qtwayland )
@@ -88,11 +88,16 @@ src_install() {
 	insinto /opt/zoom
 	exeinto /opt/zoom
 	doins -r json ringtone sip timezones translations
-	doins *.pcm *.sh Embedded.properties version.txt
-	doexe zoom zopen ZoomLauncher
+	doins *.pcm Embedded.properties version.txt
+	doexe zoom zopen ZoomLauncher *.sh
 	dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
 	dosym -r "/usr/$(get_libdir)/libfdk-aac.so.2" /opt/zoom/libfdkaac2.so
 	dosym -r "/usr/$(get_libdir)/libquazip1-qt5.so" /opt/zoom/libquazip.so
+
+	if use opencl; then
+		doexe aomhost libaomagent.so libclDNN64.so libmkldnn.so
+		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libOpenCL.so.1
+	fi
 
 	if use bundled-libjpeg-turbo; then
 		doexe libturbojpeg.so
