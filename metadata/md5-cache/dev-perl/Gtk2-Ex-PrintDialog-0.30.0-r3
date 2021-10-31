@@ -1,0 +1,16 @@
+BDEPEND=cups? ( dev-perl/Net-CUPS ) dev-perl/Gtk2 >=dev-perl/Locale-gettext-1.40.0 dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=a simple, pure Perl dialog for printing PostScript data in GTK+ applications
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Gtk2-Ex-PrintDialog
+INHERIT=perl-module
+IUSE=cups test
+KEYWORDS=amd64 x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=cups? ( dev-perl/Net-CUPS ) dev-perl/Gtk2 >=dev-perl/Locale-gettext-1.40.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/G/GB/GBROWN/Gtk2-Ex-PrintDialog-0.03.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=64cdc6c6cfe432b782052b071d41cb82
