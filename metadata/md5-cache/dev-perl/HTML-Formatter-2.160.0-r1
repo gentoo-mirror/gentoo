@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-Encode dev-perl/Font-AFM dev-perl/HTML-Tree virtual/perl-IO virtual/perl-parent virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/File-Slurper virtual/perl-File-Spec >=virtual/perl-Test-Simple-0.960.0 dev-perl/Test-Warnings ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Base class for HTML Formatters
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/HTML-Formatter
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 ppc x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-Encode dev-perl/Font-AFM dev-perl/HTML-Tree virtual/perl-IO virtual/perl-parent dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/N/NI/NIGELM/HTML-Formatter-2.16.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=1408fe1740d27886afc9f0d1c28a7bcb
