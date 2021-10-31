@@ -130,6 +130,7 @@ ppv-lite86-0.2.10
 proc-macro-hack-0.5.19
 proc-macro2-1.0.28
 proc-status-0.1.1
+quick-xml-0.22.0
 quote-1.0.9
 rand-0.8.4
 rand_chacha-0.3.1
@@ -168,8 +169,8 @@ syn-1.0.74
 syntect-4.6.0
 tempfile-3.2.0
 termimad-0.10.3
-termimad-0.16.3
-terminal-clipboard-0.2.1
+termimad-0.17.0
+terminal-clipboard-0.3.0
 termux-clipboard-0.1.0
 textwrap-0.11.0
 thiserror-1.0.26
@@ -197,15 +198,13 @@ winapi-0.3.9
 winapi-i686-pc-windows-gnu-0.4.0
 winapi-util-0.1.5
 winapi-x86_64-pc-windows-gnu-0.4.0
-x11-clipboard-0.5.2
-xcb-0.9.0
+x11-clipboard-0.5.3
+xcb-0.10.1
 xml-rs-0.8.4
 yaml-rust-0.4.5
 "
 
-PYTHON_COMPAT=( python3_{8..10} )
-
-inherit bash-completion-r1 cargo python-any-r1
+inherit bash-completion-r1 cargo
 
 DESCRIPTION="A new way to see and navigate directory trees"
 HOMEPAGE="https://dystroy.org/broot/ https://github.com/Canop/broot"
@@ -222,13 +221,8 @@ RDEPEND="
 	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="X? ( ${PYTHON_DEPS} )"
 
 QA_FLAGS_IGNORED="usr/bin/broot"
-
-pkg_setup() {
-	use X && python-any-r1_pkg_setup # Used by XCB crate
-}
 
 src_configure() {
 	local myfeatures=( $(usev X clipboard) )
