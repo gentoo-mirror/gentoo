@@ -11,7 +11,7 @@ SRC_URI="https://bitbucket.org/tagoh/${PN}/downloads/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="gconf qt5 +introspection xfconf"
 RESTRICT="test"
 
@@ -27,7 +27,6 @@ RDEPEND="dev-libs/glib:2
 	xfconf? ( xfce-base/xfconf )"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-util/glib-utils
-	dev-util/intltool
 	sys-devel/autoconf-archive
 	sys-devel/gettext
 	virtual/pkgconfig"
