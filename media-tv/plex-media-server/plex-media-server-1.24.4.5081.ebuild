@@ -5,7 +5,7 @@ EAPI=7
 
 inherit readme.gentoo-r1 systemd unpacker
 
-MY_PV="${PV}-1a38e63c6"
+MY_PV="${PV}-e362dc1ee"
 MY_URI="https://downloads.plex.tv/plex-media-server-new"
 
 DESCRIPTION="Free media library that is intended for use with a plex client"
@@ -41,7 +41,7 @@ src_install() {
 
 	# Add user config file
 	mkdir -p "${ED}/etc/default" || die
-	cp "${FILESDIR}/plexmediaserver" "${ED}/etc/default/" || die
+	cp usr/lib/plexmediaserver/lib/plexmediaserver.default "${ED}"/etc/default/plexmediaserver || die
 
 	# Copy main files over to image and preserve permissions so it is portable
 	cp -rp usr/ "${ED}" || die
@@ -53,8 +53,7 @@ src_install() {
 	keepdir /var/lib/plexmediaserver
 	fowners plex:plex /var/lib/plexmediaserver
 
-	newinitd "${FILESDIR}/${PN}.init.d" ${PN}
-	newconfd "${FILESDIR}/${PN}.conf.d" ${PN}
+	newinitd usr/lib/plexmediaserver/lib/plexmediaserver.init "${PN}"
 
 	systemd_dounit "${ED}"/usr/lib/plexmediaserver/lib/plexmediaserver.service
 	keepdir /var/lib/plexmediaserver
