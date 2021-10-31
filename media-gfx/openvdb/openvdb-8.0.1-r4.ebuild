@@ -5,21 +5,21 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-inherit cmake flag-o-matic python-single-r1
+inherit cmake python-single-r1
 
 DESCRIPTION="Library for the efficient manipulation of volumetric data"
 HOMEPAGE="https://www.openvdb.org"
 SRC_URI="https://github.com/AcademySoftwareFoundation/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MPL-2.0"
-SLOT="0"
+SLOT="0/8"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 doc numpy python static-libs test utils abi6-compat +abi7-compat"
+IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 doc numpy python static-libs test utils abi6-compat abi7-compat +abi8-compat"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	numpy? ( python )
-	^^ ( abi6-compat abi7-compat )
+	^^ ( abi6-compat abi7-compat abi8-compat )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
 # Check if newer releases work with newer TBB, bug #820788
@@ -60,13 +60,13 @@ BDEPEND="
 		dev-texlive/texlive-latex
 		dev-texlive/texlive-latexextra
 	)
-	test? ( dev-util/cppunit )
+	test? ( dev-util/cppunit dev-cpp/gtest )
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-0001-Fix-multilib-header-source.patch"
-	"${FILESDIR}/${P}-0002-Fix-doc-install-dir.patch"
-	"${FILESDIR}/${PN}-8.0.1-glfw-libdir.patch"
+	"${FILESDIR}/${PN}-7.1.0-0001-Fix-multilib-header-source.patch"
+	"${FILESDIR}/${P}-glfw-libdir.patch"
+	"${FILESDIR}/${P}-add-consistency-for-NumPy-find_package-call.patch"
 )
 
 pkg_setup() {
@@ -81,6 +81,8 @@ src_configure() {
 		version=6
 	elif use abi7-compat; then
 		version=7
+	elif use abi8-compat; then
+		version=8
 	else
 		die "Openvdb abi version is not compatible"
 	fi
@@ -91,9 +93,9 @@ src_configure() {
 		-DOPENVDB_ABI_VERSION_NUMBER="${version}"
 		-DOPENVDB_BUILD_DOCS=$(usex doc)
 		-DOPENVDB_BUILD_UNITTESTS=$(usex test)
-		-DOPENVDB_BUILD_VDB_LOD=$(usex !utils)
-		-DOPENVDB_BUILD_VDB_RENDER=$(usex !utils)
-		-DOPENVDB_BUILD_VDB_VIEW=$(usex !utils)
+		-DOPENVDB_BUILD_VDB_LOD=$(usex utils)
+		-DOPENVDB_BUILD_VDB_RENDER=$(usex utils)
+		-DOPENVDB_BUILD_VDB_VIEW=$(usex utils)
 		-DOPENVDB_CORE_SHARED=ON
 		-DOPENVDB_CORE_STATIC=$(usex static-libs)
 		-DOPENVDB_ENABLE_RPATH=OFF
@@ -107,8 +109,10 @@ src_configure() {
 		mycmakeargs+=(
 			-DOPENVDB_BUILD_PYTHON_MODULE=ON
 			-DUSE_NUMPY=$(usex numpy)
+			-DOPENVDB_BUILD_PYTHON_UNITTESTS=$(usex test)
 			-DPYOPENVDB_INSTALL_DIRECTORY="$(python_get_sitedir)"
 			-DPython_EXECUTABLE="${PYTHON}"
+			-DPython_INCLUDE_DIR="$(python_get_includedir)"
 		)
 	fi
 

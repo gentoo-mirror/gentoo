@@ -3,18 +3,18 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit cmake flag-o-matic python-single-r1
+inherit cmake python-single-r1
 
 DESCRIPTION="Library for the efficient manipulation of volumetric data"
 HOMEPAGE="https://www.openvdb.org"
 SRC_URI="https://github.com/AcademySoftwareFoundation/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MPL-2.0"
-SLOT="0"
+SLOT="0/8"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 doc numpy python static-libs test utils abi6-compat abi7-compat +abi8-compat"
+IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 +blosc doc numpy python static-libs test utils zlib abi6-compat abi7-compat +abi8-compat"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -26,7 +26,6 @@ REQUIRED_USE="
 RDEPEND="
 	<dev-cpp/tbb-2021.4.0:=
 	dev-libs/boost:=
-	dev-libs/c-blosc:=
 	dev-libs/jemalloc:=
 	dev-libs/log4cplus:=
 	media-libs/glfw
@@ -38,6 +37,7 @@ RDEPEND="
 	x11-libs/libXi
 	x11-libs/libXinerama
 	x11-libs/libXrandr
+	blosc? ( dev-libs/c-blosc:= )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
@@ -45,6 +45,7 @@ RDEPEND="
 			numpy? ( dev-python/numpy[${PYTHON_USEDEP}] )
 		')
 	)
+	zlib? ( sys-libs/zlib )
 "
 
 DEPEND="${RDEPEND}"
@@ -65,7 +66,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-7.1.0-0001-Fix-multilib-header-source.patch"
-	"${FILESDIR}/${P}-glfw-libdir.patch"
+	"${FILESDIR}/${PN}-8.0.1-add-consistency-for-NumPy-find_package-call.patch"
+	"${FILESDIR}/${PN}-8.1.0-glfw-libdir.patch"
 )
 
 pkg_setup() {
@@ -83,7 +85,7 @@ src_configure() {
 	elif use abi8-compat; then
 		version=8
 	else
-		die "Openvdb abi version is not compatible"
+		die "OpenVDB ABI version is not compatible"
 	fi
 
 	local mycmakeargs=(
@@ -92,15 +94,18 @@ src_configure() {
 		-DOPENVDB_ABI_VERSION_NUMBER="${version}"
 		-DOPENVDB_BUILD_DOCS=$(usex doc)
 		-DOPENVDB_BUILD_UNITTESTS=$(usex test)
-		-DOPENVDB_BUILD_VDB_LOD=$(usex !utils)
-		-DOPENVDB_BUILD_VDB_RENDER=$(usex !utils)
-		-DOPENVDB_BUILD_VDB_VIEW=$(usex !utils)
+		-DOPENVDB_BUILD_VDB_LOD=$(usex utils)
+		-DOPENVDB_BUILD_VDB_RENDER=$(usex utils)
+		-DOPENVDB_BUILD_VDB_VIEW=$(usex utils)
 		-DOPENVDB_CORE_SHARED=ON
 		-DOPENVDB_CORE_STATIC=$(usex static-libs)
 		-DOPENVDB_ENABLE_RPATH=OFF
+		-DOPENVDB_USE_BLOSC=$(usex blosc)
+		-DOPENVDB_USE_ZLIB=$(usex zlib)
 		-DUSE_CCACHE=OFF
 		-DUSE_COLORED_OUTPUT=ON
-		-DUSE_EXR=ON
+		# Off for now until 9.0.0 for OpenEXR 3 support
+		-DUSE_IMATH_HALF=OFF
 		-DUSE_LOG4CPLUS=ON
 	)
 
@@ -108,8 +113,10 @@ src_configure() {
 		mycmakeargs+=(
 			-DOPENVDB_BUILD_PYTHON_MODULE=ON
 			-DUSE_NUMPY=$(usex numpy)
+			-DOPENVDB_BUILD_PYTHON_UNITTESTS=$(usex test)
 			-DPYOPENVDB_INSTALL_DIRECTORY="$(python_get_sitedir)"
 			-DPython_EXECUTABLE="${PYTHON}"
+			-DPython_INCLUDE_DIR="$(python_get_includedir)"
 		)
 	fi
 
