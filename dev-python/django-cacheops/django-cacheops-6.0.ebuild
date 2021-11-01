@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="ORM cache with automatic granular event-driven invalidation for Django"
@@ -26,6 +26,7 @@ BDEPEND="
 	test? (
 		${RDEPEND}
 		dev-db/redis
+		dev-python/dill[${PYTHON_USEDEP}]
 	)
 "
 
