@@ -1,7 +1,8 @@
+BDEPEND=net-print/cups
 DEFINED_PHASES=install postinst
 DEPEND=net-print/cups
 DESCRIPTION=Fax backend for CUPS
-EAPI=5
+EAPI=8
 HOMEPAGE=http://vigna.dsi.unimi.it/fax4CUPS/
 IUSE=+hylafax mgetty-fax efax
 KEYWORDS=amd64 ~ppc x86
@@ -10,4 +11,4 @@ RDEPEND=net-print/cups || ( hylafax? ( net-misc/hylafaxplus ) efax? ( net-misc/e
 REQUIRED_USE=|| ( hylafax mgetty-fax efax )
 SLOT=0
 SRC_URI=http://vigna.dsi.unimi.it/fax4CUPS/fax4CUPS-1.29.tar.gz
-_md5_=6539e3cf4c92d018eba5f2141d5f4154
+_md5_=24756ba6e8975e426d55eb46c477ebde
