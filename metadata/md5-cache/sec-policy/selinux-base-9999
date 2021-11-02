@@ -1,14 +1,14 @@
-BDEPEND=>=sys-apps/checkpolicy-2.8 sys-devel/m4 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare unpack
+BDEPEND=|| ( dev-lang/python:3.10[xml] dev-lang/python:3.9[xml] dev-lang/python:3.8[xml] ) >=sys-apps/checkpolicy-2.8 sys-devel/m4 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=>=sys-apps/policycoreutils-2.8
 DESCRIPTION=Gentoo base policy for SELinux
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
-INHERIT=git-r3
+INHERIT=python-any-r1 git-r3
 IUSE=doc +unknown-perms systemd +ubac +unconfined
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=>=sys-apps/policycoreutils-2.8
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=f373f47dcdf2dd584687947b9f63ab4e
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=6408245eb81a1ed38d9115d55b347a79
