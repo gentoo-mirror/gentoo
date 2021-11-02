@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-inherit autotools
+inherit autotools xdg
 
 DESCRIPTION="Desktop Input Method configuration tool"
 HOMEPAGE="https://pagure.io/im-chooser"
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="xfce"
 
-RDEPEND="app-i18n/imsettings
+RDEPEND=">=app-i18n/imsettings-1.8
 	virtual/libintl
 	x11-libs/gtk+:3
 	x11-libs/libSM
