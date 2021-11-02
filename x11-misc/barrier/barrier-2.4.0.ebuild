@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop virtualx xdg cmake
 
@@ -37,12 +37,12 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-cpp/gtest
+	dev-cpp/gulrak-filesystem
 	x11-base/xorg-proto
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-tests.patch
-	"${FILESDIR}"/${P}-gtest.patch
+	"${FILESDIR}"/${P}-includes.patch
 )
 
 DOCS=(
