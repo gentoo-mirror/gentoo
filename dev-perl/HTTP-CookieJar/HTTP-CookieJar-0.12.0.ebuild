@@ -1,17 +1,16 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=DAGOLDEN
-DIST_VERSION=0.008
+DIST_VERSION=0.012
 inherit perl-module
 
 DESCRIPTION="A minimalist HTTP user agent cookie jar"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test minimal"
-RESTRICT="!test? ( test )"
+IUSE="minimal"
 
 RDEPEND="
 	!minimal? ( dev-perl/Mozilla-PublicSuffix )
@@ -20,7 +19,7 @@ RDEPEND="
 	>=virtual/perl-Time-Local-1.190.100
 	virtual/perl-parent
 "
-DEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
 	>=virtual/perl-ExtUtils-MakeMaker-6.170.0
 	test? (
 		!minimal? (

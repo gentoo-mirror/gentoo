@@ -1,32 +1,33 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=OALDERS
-DIST_VERSION=3.14
+DIST_VERSION=3.35
 inherit perl-module
 
 DESCRIPTION="Determine Web browser, version, and platform from an HTTP user agent string"
 
 SLOT="0"
-KEYWORDS="amd64 ~hppa ~mips ppc x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64 ~hppa ~mips ~ppc ~x86"
 
 RDEPEND=""
-DEPEND="
-	>=dev-perl/Module-Build-0.280.0
+BDEPEND="${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? (
-		virtual/perl-JSON-PP
+		virtual/perl-File-Spec
+		dev-perl/Hash-Merge
+		>=virtual/perl-JSON-PP-4.40.0
+		>=virtual/perl-Scalar-List-Utils-1.490.0
 		dev-perl/Path-Tiny
-		dev-perl/Test-FailWarnings
-		virtual/perl-Test-Simple
-		dev-perl/Test-Most
+		dev-perl/Test-Differences
+		>=virtual/perl-Test-Simple-0.960.0
 		dev-perl/Test-NoWarnings
+		dev-perl/Test-Warnings
 	)
 "
+
 src_test() {
 	perl_rm_files t/release-*.t
 	perl-module_src_test
