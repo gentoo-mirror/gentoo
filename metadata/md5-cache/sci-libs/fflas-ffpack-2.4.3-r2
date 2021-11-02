@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://linbox-team.github.io/fflas-ffpack/
 INHERIT=autotools toolchain-funcs
 IUSE=static-libs openmp cpu_flags_x86_fma3 cpu_flags_x86_fma4 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_avx512dq cpu_flags_x86_avx512vl
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=LGPL-2.1+
 RDEPEND=virtual/cblas virtual/blas virtual/lapack dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.1*
 SLOT=0
 SRC_URI=https://github.com/linbox-team/fflas-ffpack/releases/download/v2.4.3/fflas-ffpack-2.4.3.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=43deac81d9d7f8388d134975ac06cbe3
+_md5_=7ec28a52573ca2100bc3fa6d4fe372a7
