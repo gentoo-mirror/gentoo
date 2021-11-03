@@ -1,14 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst postrm preinst prepare setup unpack
-DEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
-DESCRIPTION=Terminfo for kitty, an OpenGL-based terminal emulator
-EAPI=7
-HOMEPAGE=https://github.com/kovidgoyal/kitty
-INHERIT=python-any-r1 xdg git-r3
-IUSE=debug
+BDEPEND=sys-libs/ncurses >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Terminfo for kitty, a GPU-based terminal emulator
+EAPI=8
+HOMEPAGE=https://sw.kovidgoyal.net/kitty/
+INHERIT=git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RESTRICT=test
 SLOT=0
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=810468ebe28d420bd39cee9ef2d8e26d
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=2cd3a5919253f6fd69bb74a16540d069
