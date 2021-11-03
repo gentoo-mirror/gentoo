@@ -4,7 +4,7 @@
 EAPI=7
 EGO_PN=github.com/docker/docker
 MY_PV=${PV/_/-}
-GIT_COMMIT=79ea9d3080
+GIT_COMMIT=e2f740de44
 inherit linux-info systemd udev golang-vcs-snapshot
 
 DESCRIPTION="The core functions you need to create Docker images and run Docker containers"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/moby/moby/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="apparmor aufs btrfs +cli +container-init device-mapper hardened overlay seccomp"
 
 DEPEND="
@@ -37,7 +37,7 @@ RDEPEND="
 	>=dev-vcs/git-1.7
 	>=app-arch/xz-utils-4.9
 	dev-libs/libltdl
-	>=app-emulation/containerd-1.4.9[apparmor?,btrfs?,device-mapper?,seccomp?]
+	>=app-emulation/containerd-1.4.11[apparmor?,btrfs?,device-mapper?,seccomp?]
 	~app-emulation/docker-proxy-0.8.0_p20210525
 	cli? ( app-emulation/docker-cli )
 	container-init? ( >=sys-process/tini-0.19.0[static] )
@@ -45,7 +45,7 @@ RDEPEND="
 
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#build-dependencies
 BDEPEND="
-	>=dev-lang/go-1.16.6
+	>=dev-lang/go-1.16.9
 	dev-go/go-md2man
 	virtual/pkgconfig
 "
