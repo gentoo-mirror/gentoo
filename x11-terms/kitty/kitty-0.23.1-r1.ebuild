@@ -33,12 +33,12 @@ RDEPEND="
 	media-libs/lcms:2
 	media-libs/libglvnd[X?]
 	media-libs/libpng:=
-	net-libs/librsync:=
 	sys-apps/dbus
 	sys-libs/zlib:=
 	x11-libs/libxkbcommon[X?]
 	x11-misc/xkeyboard-config
 	~x11-terms/kitty-terminfo-${PV}
+	>x11-terms/kitty-terminfo-0.23.1-r0
 	X? ( x11-libs/libX11 )
 	wayland? ( dev-libs/wayland )"
 DEPEND="
