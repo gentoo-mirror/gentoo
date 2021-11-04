@@ -6,7 +6,7 @@ EAPI=7
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_SETUPTOOLS=manual
 NEED_EMACS="24.1"
-PYTHON_COMPAT=( python3_{7,8,9} pypy3 )
+PYTHON_COMPAT=( python3_{7..10} pypy3 )
 
 inherit bash-completion-r1 desktop distutils-r1 elisp-common flag-o-matic pax-utils toolchain-funcs xdg-utils
 
@@ -141,6 +141,14 @@ src_configure() {
 		$(use_with doc docs)
 		$(use_with emacs)
 	)
+
+	# FIXME:
+	# Checking for GMime session key extraction support... * ACCESS DENIED: open_wr: /dev/bus/usb/001/011
+	# notmuch configure compiles a program _check_session_keys.c, inline in ./configure script
+	# gmime/gpg/scdaemon tries to open usb devices in GMime test
+	# we pretend to allow it, without actually allowing it to read or write.
+	# https://bugs.gentoo.org/821328
+	addpredict /dev/bus/usb
 
 	econf "${myconf[@]}"
 }
