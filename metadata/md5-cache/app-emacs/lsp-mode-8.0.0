@@ -1,0 +1,15 @@
+BDEPEND=>=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEPEND=>=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 >=app-emacs/ht-2.3 app-emacs/lv >=app-emacs/markdown-mode-2.3 >=app-emacs/spinner-1.7.3
+DESCRIPTION=Emacs client/library for the Language Server Protocol
+EAPI=8
+HOMEPAGE=https://emacs-lsp.github.io/lsp-mode/
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 >=app-emacs/ht-2.3 app-emacs/lv >=app-emacs/markdown-mode-2.3 >=app-emacs/spinner-1.7.3 >=app-editors/emacs-26.1:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/emacs-lsp/lsp-mode/archive/8.0.0.tar.gz -> lsp-mode-8.0.0.tar.gz
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	elisp	532fa549a4f54b2a3f83b827b272a4a9
+_md5_=d832ec2b4d8575dab41515652515c5cd
