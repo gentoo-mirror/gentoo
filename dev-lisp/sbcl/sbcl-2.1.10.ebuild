@@ -1,13 +1,13 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit multilib flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.1.5
+BV_AMD64=2.1.10
 BV_PPC=1.2.7
 BV_SPARC=1.0.28
 BV_ALPHA=1.0.28
@@ -41,7 +41,7 @@ KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solari
 IUSE="debug doc source +threads +unicode zlib"
 
 CDEPEND=">=dev-lisp/asdf-3.3:="
-DEPEND="${CDEPEND}
+BDEPEND="${CDEPEND}
 		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )"
 RDEPEND="${CDEPEND}
 		!prefix? ( elibc_glibc? ( >=sys-libs/glibc-2.6 ) )"
