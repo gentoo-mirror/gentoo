@@ -3,18 +3,28 @@
 
 EAPI=7
 
+if [[ ${PV} == *.* ]]; then
+	MY_PN=systemd-stable
+else
+	 MY_PN=systemd
+fi
+
 MINKV="3.11"
-PYTHON_COMPAT=( python3_{7..9} )
-inherit meson python-any-r1
+MUSL_PATCHSET="${PV}"
+PYTHON_COMPAT=( python3_{8..10} )
+inherit flag-o-matic meson python-any-r1
 
 DESCRIPTION="Creates, deletes and cleans up volatile and temporary files and directories"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/systemd"
-SRC_URI="https://github.com/systemd/systemd/archive/v${PV}.tar.gz -> systemd-${PV}.tar.gz
-	elibc_musl? ( https://dev.gentoo.org/~gyakovlev/distfiles/${P}-musl.tar.xz )"
+SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_PN}-${PV}.tar.gz
+	elibc_musl? (
+		https://dev.gentoo.org/~gyakovlev/distfiles/systemd-musl-patches-${MUSL_PATCHSET}.tar.xz
+		https://dev.gentoo.org/~soap/distfiles/systemd-musl-patches-${MUSL_PATCHSET}.tar.xz
+	)"
 
 LICENSE="BSD-2 GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
 IUSE="selinux test"
 RESTRICT="!test? ( test )"
 
@@ -35,19 +45,29 @@ DEPEND="
 
 BDEPEND="
 	${PYTHON_DEPS}
+	$(python_gen_any_dep 'dev-python/jinja[${PYTHON_USEDEP}]')
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
-	dev-libs/libxslt:0
+	dev-libs/libxslt
 	dev-util/gperf
 	>=dev-util/meson-0.46
 	>=sys-apps/coreutils-8.16
 	sys-devel/gettext
-	sys-devel/m4
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/systemd-${PV}"
+S="${WORKDIR}/${MY_PN}-${PV}"
+
+python_check_deps() {
+	has_version -b "dev-python/jinja[${PYTHON_USEDEP}]"
+}
+
+pkg_pretend() {
+	if [[ -n ${EPREFIX} ]]; then
+		ewarn "systemd-tmpfiles uses un-prefixed paths at runtime.".
+	fi
+}
 
 pkg_setup() {
 	python-any-r1_pkg_setup
@@ -56,20 +76,32 @@ pkg_setup() {
 src_prepare() {
 	# musl patchset from:
 	# http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-core/systemd/systemd
+	# check SRC_URI_MUSL in systemd_${PV}.bb file for exact list of musl patches
+	# we share patch tarball with sys-fs/udev
 	if use elibc_musl; then
-		eapply "${WORKDIR}/${P}-musl"
-		eapply "${FILESDIR}/musl-1.2.2.patch" # https://bugs.gentoo.org/766833
-		use selinux && eapply "${FILESDIR}/${P}-musl-mallinfo.patch" # https://github.com/gentoo/musl/pull/433
+		einfo "applying musl patches and workarounds"
+		eapply "${WORKDIR}/musl-patches"
+
+		# avoids re-definition of struct ethhdr, also 0006-Include-netinet-if_ether.h.patch
+		append-cppflags '-D__UAPI_DEF_ETHHDR=0'
+
+		# src/basic/rlimit-util.c:46:19: error: format ‘%lu’ expects argument of type ‘long unsigned int’,
+		# but argument 9 has type ‘rlim_t’ {aka ‘long long unsigned int’}
+		# not a nice workaround, but it comes from debug messages and we don't really use this component.
+		append-cflags '-Wno-error=format'
 	fi
+
 	default
 
 	# https://bugs.gentoo.org/767403
 	python_fix_shebang src/test/*.py
+	python_fix_shebang test/*.py
 	python_fix_shebang tools/*.py
 }
 
 src_configure() {
-	# disable everything until configure says "enabled features: ACL, tmpfiles"
+	# disable everything until configure says "enabled features: ACL, tmpfiles, standalone-binaries, static-libsystemd(true)"
+	# and optionally selinux feature can be enabled to make tmpfiles secontext-aware
 	local systemd_disable_options=(
 		adm-group
 		analyze
@@ -115,9 +147,11 @@ src_configure() {
 		machined
 		microhttpd
 		networkd
+		nscd
 		nss-myhostname
 		nss-resolve
 		nss-systemd
+		oomd
 		openssl
 		p11kit
 		pam
@@ -131,6 +165,7 @@ src_configure() {
 		rfkill
 		seccomp
 		smack
+		sysext
 		sysusers
 		timedated
 		timesyncd
@@ -153,6 +188,7 @@ src_configure() {
 	systemd_disable_options=( ${systemd_disable_options[@]/%/=false} )
 
 	local emesonargs=(
+		-Drootprefix="${EPREFIX:-/}"
 		-Dacl=true
 		-Dtmpfiles=true
 		-Dstandalone-binaries=true # this and below option does the magic
@@ -165,7 +201,7 @@ src_configure() {
 }
 
 src_compile() {
-	# tmpfiles and sysusers can be built as standalone, link systemd-shared in statically.
+	# tmpfiles and sysusers can be built as standalone and link systemd-shared in statically.
 	# https://github.com/systemd/systemd/pull/16061 original implementation
 	# we just need to pass -Dstandalone-binaries=true and
 	# use <name>.standalone target below.
@@ -199,11 +235,11 @@ src_install() {
 
 src_test() {
 	# 'meson test' will compile full systemd, but we can still outsmart it
-	"${EPYTHON}" src/test/test-systemd-tmpfiles.py \
+	"${EPYTHON}" test/test-systemd-tmpfiles.py \
 		"${BUILD_DIR}"/systemd-tmpfiles.standalone || die "${FUNCNAME} failed"
 }
 
-# adapted from opentmpfiles ebuild
+# stolen from opentmpfiles ebuild
 add_service() {
 	local initd=$1
 	local runlevel=$2
