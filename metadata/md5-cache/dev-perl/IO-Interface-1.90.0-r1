@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Module-Build-0.420.0 virtual/perl-ExtUtils-CBuilder dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Perl extension for access to network card configuration information
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/IO-Interface
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~alpha amd64 ppc ~ppc64 x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/L/LD/LDS/IO-Interface-1.09.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=2fde02a5b567831f4fa945cc76ed2ea7
