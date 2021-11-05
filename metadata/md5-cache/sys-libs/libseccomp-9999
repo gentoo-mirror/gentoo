@@ -5,11 +5,12 @@ DESCRIPTION=high level interface to Linux seccomp filter
 EAPI=7
 HOMEPAGE=https://github.com/seccomp/libseccomp
 INHERIT=distutils-r1 multilib-minimal autotools git-r3
-IUSE=python static-libs python_targets_python3_8 python_targets_python3_9 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+IUSE=python static-libs test python_targets_python3_8 python_targets_python3_9 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 LICENSE=LGPL-2.1
 PROPERTIES=live
 RDEPEND=python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
+RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	d21ac29bd164bed7149cce6eb7390a6f	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=61a747ff0794933b4694736264d98895
+_md5_=99b5a1601f777ea9bf6fcf05e54aa9cb
