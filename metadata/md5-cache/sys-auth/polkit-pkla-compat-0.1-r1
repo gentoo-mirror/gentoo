@@ -1,11 +1,12 @@
+BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig
 DEFINED_PHASES=install postinst
-DEPEND=>=dev-libs/glib-2.30 >=sys-auth/polkit-0.110 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig
+DEPEND=>=dev-libs/glib-2.30 >=sys-auth/polkit-0.110
 DESCRIPTION=Rules for polkit to add compatibility with pklocalauthority
-EAPI=5
+EAPI=8
 HOMEPAGE=https://pagure.io/polkit-pkla-compat
 KEYWORDS=amd64 ~arm ~ppc x86
 LICENSE=LGPL-2
 RDEPEND=>=dev-libs/glib-2.30 >=sys-auth/polkit-0.110
 SLOT=0
 SRC_URI=https://releases.pagure.org/polkit-pkla-compat/polkit-pkla-compat-0.1.tar.xz
-_md5_=000be140496f688f5ecf4c66e6216fdf
+_md5_=b8dc2495435b7c6b7d26e8791ea650ef
