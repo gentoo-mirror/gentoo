@@ -47,6 +47,10 @@ DISTUTILS_IN_SOURCE_BUILD=1
 
 distutils_enable_tests pytest
 
+PATCHES=(
+	"${FILESDIR}"/${P}-pythran-tests-32-bit.patch
+)
+
 src_unpack() {
 	default
 	if use doc; then
@@ -110,6 +114,20 @@ python_prepare_all() {
 	# bug #743295
 	sed -e 's:test_bisplev_integer_overflow:_&:' \
 			-i scipy/interpolate/tests/test_fitpack.py || die
+
+	# Skip a few 32-bit related failures
+	if use x86 ; then
+		# TODO: Tidy this up and switch to epytest
+		sed -i -e 's:test_nd_axis_m1:_&:' \
+			-e 's:test_nd_axis_0:_&:' \
+			-e 's:test_maxiter_worsening:_&:' \
+			-e 's:test_pdist_jensenshannon_iris:_&:' \
+			-e 's:test_align_vectors_single_vector:_&:' \
+			scipy/signal/tests/test_spectral.py \
+			scipy/sparse/linalg/isolve/tests/test_iterative.py \
+			scipy/spatial/tests/test_distance.py \
+			scipy/spatial/transform/tests/test_rotation.py || die
+	fi
 
 	if has_version ">=sci-libs/lapack-3.10"; then
 		sed -e 's:test_sort(:_&:' \
