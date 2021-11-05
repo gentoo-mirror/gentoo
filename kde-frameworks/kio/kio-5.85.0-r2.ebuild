@@ -50,7 +50,6 @@ RDEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
-	sys-apps/util-linux
 	acl? (
 		sys-apps/attr
 		virtual/acl
@@ -70,6 +69,12 @@ DEPEND="${RDEPEND}
 	)
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-KDirOperator-exp-to-url-only-in-detail-treeview.patch # KDE-bug 440475
+	"${FILESDIR}"/${P}-allow-edit-icons-for-root-owned-desktop-files.patch # KDE-bug 429613
+	"${FILESDIR}"/${P}-revert-to-pre-libblkid-parsing.patch # bug 821103, KDE-bug 442106
+)
 
 src_configure() {
 	local mycmakeargs=(
