@@ -55,8 +55,10 @@ methods. A new version of PAM has been added to the tree to resolve this issue.
 
 In some cases, Portage may schedule a rebuild of certain packages in an
 incorrect order [2]. If building a package fails, please try upgrading
+Python itself to help avoid spurious build failures, and then
 libcrypt and libxcrypt first:
 
+# emerge -v1 --ignore-built-slot-operator-deps=y dev-lang/python:3.8 dev-lang/python:3.9
 # emerge -v1 virtual/libcrypt sys-libs/libxcrypt
 
 And then continue the world upgrade with Portage's "--keep-going=y".
