@@ -3,13 +3,13 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="5eb83118155a3765de4a0f863b936bcbe73bb7aa"
+DOCS_PV="a3a579ce6e7e42c9d9bbd88ac4e76650b7093e5c"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -36,11 +36,9 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-python/atomicwrites-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/chardet-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/cloudpickle-0.5.0[${PYTHON_USEDEP}]
 	>=dev-util/cookiecutter-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/diff-match-patch-20181111[${PYTHON_USEDEP}]
 	>=dev-python/intervaltree-3.0.2[${PYTHON_USEDEP}]
-	>=dev-python/ipython-7.6.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
 	>=dev-python/keyring-17.0.0[${PYTHON_USEDEP}]
 	>=dev-python/nbconvert-4.0[${PYTHON_USEDEP}]
@@ -49,7 +47,6 @@ RDEPEND="
 	>=dev-python/pickleshare-0.4[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.3[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0[${PYTHON_USEDEP}]
-	>=dev-python/pylint-1.0[${PYTHON_USEDEP}]
 	>=dev-python/python-lsp-black-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
@@ -61,8 +58,8 @@ RDEPEND="
 	>=dev-python/QtPy-1.5.0[${PYTHON_USEDEP},pyqt5(+),svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.0.4[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.1.1[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
@@ -116,24 +113,11 @@ python_prepare_all() {
 
 	# these dependencies are packaged separately:
 	#    dev-python/spyder-kernels,
-	#    dev-python/python-language-server,
+	#    dev-python/python-lsp-server,
 	#    dev-python/qdarkstyle
 	rm -r external-deps/* || die
 	# runs against things packaged in external-deps dir
 	rm conftest.py || die
-
-	# Use the spyder fork of pyls (python-lsp-server instead of python-language-server)
-	# The original hasn't been update in over 6 months, and spyder upstream is slow
-	# in making the switch. Because we are running into issues with outdated deps
-	# and a whole dependency mess as a result, we can no longer wait for upstream.
-	find . -name "*.py" -exec sed -i \
-		-e 's/pyls/pylsp/g' \
-		-e 's/pylsp-spyder/pyls-spyder/g' \
-		-e 's/pylsp_spyder/pyls_spyder/g' \
-		-e 's/pylsp-black/python-lsp-black/g' \
-		-e 's/pyls-spyder>=0.3.2,<0.4.0/pyls-spyder>=0.4.0/g' \
-		-e 's/>=0.3.2;<0.4.0/>=0.4.0/g' \
-		{} + || die
 
 	# Do not depend on pyqt5<5.13, this dependency is carried by QtPy[pyqt5]
 	# Do not depend on pyqtwebengine<5.13, this dependency is carried by QtPy[webengine]
@@ -148,16 +132,25 @@ python_prepare_all() {
 	sed -i \
 		-e '/pyqt5/d' \
 		-e '/pyqtwebengine/d' \
-		-e '/python-language-server/d' \
 		-e '/python-lsp-server/d' \
 		-e '/parso/d' \
 		-e '/jedi/d' \
-			{setup.py,requirements/conda.txt} || die
+		-e '/pylint/d' \
+			requirements/conda.txt || die
+	sed -i \
+		-e "/'pyqt5[ 0-9<=>.,]*',/d" \
+		-e "/'pyqtwebengine[ 0-9<=>.,]*',/d" \
+		-e "/'python-lsp-server\[all\][ 0-9<=>.,]*',/d" \
+		-e "/'parso[ 0-9<=>.,]*',/d" \
+		-e "/'jedi[ 0-9<=>.,]*',/d" \
+		-e "/'pylint[ 0-9<=>.,]*',/d" \
+			setup.py || die
 	sed -i \
 		-e "/^PYLS_REQVER/c\PYLS_REQVER = '>=0.0.1'" \
 		-e "/^PYLSP_REQVER/c\PYLSP_REQVER = '>=0.0.1'" \
 		-e "/^PARSO_REQVER/c\PARSO_REQVER = '>=0.0.1'" \
 		-e "/^JEDI_REQVER/c\JEDI_REQVER = '>=0.0.1'" \
+		-e "/^PYLINT_REQVER/c\PYLINT_REQVER = '>=0.0.1'" \
 			spyder/dependencies.py || die
 
 	# do not check deps, fails because we removed pyqt5 dependency above
