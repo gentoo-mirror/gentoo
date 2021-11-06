@@ -1,9 +1,8 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
-CHROMIUM_VERSION="94"
 CHROMIUM_LANGS="
 	af
 	am
@@ -96,7 +95,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* amd64 ~arm ~arm64 x86"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
@@ -110,33 +109,32 @@ IUSE="proprietary-codecs widevine"
 RESTRICT="bindist mirror"
 
 RDEPEND="
+	app-accessibility/at-spi2-atk:2
+	app-accessibility/at-spi2-core:2
+	dev-libs/atk
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
-	media-libs/fontconfig
-	media-libs/freetype
-	media-libs/speex
+	media-libs/mesa[gbm]
 	net-print/cups
 	sys-apps/dbus
-	sys-libs/libcap
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
+	x11-libs/libdrm
 	x11-libs/libX11
-	x11-libs/libXScrnSaver
+	x11-libs/libxcb
 	x11-libs/libXcomposite
-	x11-libs/libXcursor
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXi
+	x11-libs/libxkbcommon
 	x11-libs/libXrandr
-	x11-libs/libXrender
-	x11-libs/libXtst
+	x11-libs/libxshmfence
 	x11-libs/pango[X]
-	proprietary-codecs? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
+	proprietary-codecs? ( media-video/ffmpeg:0/56.58.58[chromium(-)] )
 	widevine? ( www-plugins/chrome-binary-plugins )
 "
 
@@ -162,7 +160,7 @@ src_prepare() {
 	rmdir etc/{cron.daily/,} ${VIVALDI_HOME}/cron/ || die
 
 	# Remove scripts that will most likely break things.
-	rm -vf ${VIVALDI_HOME}/update-{ffmpeg,widevine} || die
+	rm ${VIVALDI_HOME}/update-{ffmpeg,widevine} || die
 
 	pushd ${VIVALDI_HOME}/locales > /dev/null || die
 	rm ja-KS.pak || die # No flag for Kansai as not in IETF list.
@@ -190,7 +188,7 @@ src_install() {
 	done
 
 	if use proprietary-codecs; then
-		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so.${CHROMIUM_VERSION} \
+		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so \
 			  /${VIVALDI_HOME}/libffmpeg.so.$(ver_cut 1-2)
 	fi
 
