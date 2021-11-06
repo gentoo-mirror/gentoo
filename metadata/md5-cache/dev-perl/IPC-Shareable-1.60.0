@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/JSON virtual/perl-Scalar-List-Utils >=virtual/perl-Storable-0.607.0 dev-perl/String-CRC32 >=virtual/perl-ExtUtils-MakeMaker-6.720.0 test? ( >=dev-perl/Test-SharedFork-0.350.0 virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Share Perl variables between processes
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/IPC-Shareable
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/JSON virtual/perl-Scalar-List-Utils >=virtual/perl-Storable-0.607.0 dev-perl/String-CRC32 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/ST/STEVEB/IPC-Shareable-1.06.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=5541fbe8b81518cf9b9637cc91fbe776
