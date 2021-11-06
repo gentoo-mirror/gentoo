@@ -2,19 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit font python-any-r1
 
 DESCRIPTION="Google Noto Emoji fonts"
 HOMEPAGE="https://www.google.com/get/noto/ https://github.com/googlefonts/noto-emoji"
 
-COMMIT="e7ac893b3315181f51710de3ba16704ec95e3f51"
+COMMIT="9a5261d871451f9b5183c93483cbd68ed916b1e9"
 SRC_URI="https://github.com/googlefonts/noto-emoji/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="buildfont"
 
 BDEPEND="
@@ -95,8 +95,10 @@ src_install() {
 		FONT_S="${S}"
 
 		# Don't lose fancy emoji icons
-		insinto /usr/share/icons/"${PN}"/128x128/emotes/
-		doins png/128/*.png
+		for i in 32 72 128 512; do
+			insinto "/usr/share/icons/${PN}/${i}/emotes/"
+			doins png/"${i}"/*.png
+		done
 
 		insinto /usr/share/icons/"${PN}"/scalable/emotes/
 		doins svg/*.svg
