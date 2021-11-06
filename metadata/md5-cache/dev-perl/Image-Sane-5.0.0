@@ -1,4 +1,4 @@
-BDEPEND=dev-perl/Exception-Class dev-perl/Readonly >=media-gfx/sane-backends-1.0.19 dev-perl/ExtUtils-Depends dev-perl/ExtUtils-PkgConfig test? ( dev-perl/Test-Requires dev-perl/Try-Tiny ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+BDEPEND=dev-perl/Exception-Class dev-perl/Readonly >=media-gfx/sane-backends-1.0.19 dev-perl/ExtUtils-Depends dev-perl/ExtUtils-PkgConfig test? ( dev-perl/Test-Requires dev-perl/Try-Tiny virtual/imagemagick-tools ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-perl/Exception-Class dev-perl/Readonly >=media-gfx/sane-backends-1.0.19 dev-lang/perl
 DESCRIPTION=Access SANE-compatible scanners from Perl
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RA/RATCLIFFE/Image-Sane-5.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=887c84df22c8be8812419f172dea6f71
+_md5_=e5af5a8973bd2d34dc91b7ecf21f0943
