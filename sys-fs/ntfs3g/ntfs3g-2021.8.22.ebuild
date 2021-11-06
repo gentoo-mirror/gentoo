@@ -16,10 +16,11 @@ LICENSE="GPL-2"
 # The subslot matches the SONAME major #.
 SLOT="0/89"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux"
-IUSE="acl debug +mount-ntfs ntfsdecrypt +ntfsprogs static-libs suid xattr"
+IUSE="acl debug +mount-ntfs ntfsdecrypt +ntfsprogs static-libs xattr"
 
 RDEPEND="
 	sys-apps/util-linux:0=
+	sys-fs/fuse:0
 	ntfsdecrypt? (
 		>=dev-libs/libgcrypt-1.2.2:0
 		>=net-libs/gnutls-1.4.4
@@ -65,7 +66,7 @@ src_configure() {
 		# don't links to hwinfo one causing issues like bug #602360
 		--without-hd
 
-		--with-fuse=internal
+		--with-fuse=external
 	)
 
 	econf "${myconf[@]}"
@@ -73,7 +74,6 @@ src_configure() {
 
 src_install() {
 	default
-	use suid && fperms u+s /usr/bin/ntfs-3g
 	use mount-ntfs && dosym mount.ntfs-3g /sbin/mount.ntfs
 	find "${ED}" -name '*.la' -type f -delete || die
 	# https://bugs.gentoo.org/760780
