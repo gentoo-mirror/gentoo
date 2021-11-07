@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] !!dev-ruby/psych[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DESCRIPTION=Gnuplot drawing library - Ruby Bindings
+EAPI=8
+HOMEPAGE=http://rgplot.rubyforge.org/
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=BSD
+RDEPEND=sci-visualization/gnuplot ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://rubygems.org/gems/gnuplot-2.6.2.gem
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	b3936ca28790633a9d3e5dd891ac9ae6	ruby-fakegem	78af56c35604aab62ec93223e5654246
+_md5_=ae9e95f62527583039785c7146e67c89
