@@ -25,7 +25,7 @@ RDEPEND="
 	>=dev-util/intel-graphics-system-controller-0.2.4
 	>=media-libs/gmmlib-21.2.1
 	>=virtual/opencl-3
-	l0? ( >=dev-libs/level-zero-1.5.0 )
+	l0? ( >=dev-libs/level-zero-1.5.4 )
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		x11-libs/libva
