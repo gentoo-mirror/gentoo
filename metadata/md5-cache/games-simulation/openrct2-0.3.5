@@ -1,16 +1,16 @@
-BDEPEND=app-arch/unzip virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-arch/unzip virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=dev-libs/icu:= dev-libs/jansson:= dev-libs/libzip:= media-libs/libpng:0= net-misc/curl[ssl] sys-libs/zlib !dedicated? ( media-libs/libsdl2 media-libs/speexdsp opengl? ( virtual/opengl ) ) dev-libs/openssl:0= scripting? ( dev-lang/duktape:= ) truetype? ( media-libs/fontconfig:1.0 media-libs/freetype:2 ) dev-cpp/nlohmann_json test? ( dev-cpp/gtest )
 DESCRIPTION=An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
 EAPI=8
 HOMEPAGE=https://openrct2.org/
-INHERIT=cmake git-r3 readme.gentoo-r1 xdg-utils
+INHERIT=cmake readme.gentoo-r1 xdg-utils
 IUSE=dedicated +lightfx +opengl scripting test +truetype
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=dev-libs/icu:= dev-libs/jansson:= dev-libs/libzip:= media-libs/libpng:0= net-misc/curl[ssl] sys-libs/zlib !dedicated? ( media-libs/libsdl2 media-libs/speexdsp opengl? ( virtual/opengl ) ) dev-libs/openssl:0= scripting? ( dev-lang/duktape:= ) truetype? ( media-libs/fontconfig:1.0 media-libs/freetype:2 ) dedicated? ( acct-group/openrct2 acct-user/openrct2 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/OpenRCT2/objects/releases/download/v1.2.2/objects.zip -> openrct2-objects-1.2.2.zip https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip -> openrct2-title-sequences-0.1.2c.zip test? ( https://github.com/OpenRCT2/replays/releases/download/v0.0.57/replays.zip -> openrct2-replays-0.0.57.zip )
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c
-_md5_=f9ae6c92c4c72184f4f36940c0c758e8
+SRC_URI=https://github.com/OpenRCT2/OpenRCT2/archive/v0.3.5.tar.gz -> openrct2-0.3.5.tar.gz https://github.com/OpenRCT2/objects/releases/download/v1.2.2/objects.zip -> openrct2-objects-1.2.2.zip https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip -> openrct2-title-sequences-0.1.2c.zip test? ( https://github.com/OpenRCT2/replays/releases/download/v0.0.57/replays.zip -> openrct2-replays-0.0.57.zip )
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c
+_md5_=ee8a89468baba5853b13e4e4c333a4cd
