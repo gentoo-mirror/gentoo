@@ -3,58 +3,52 @@
 
 EAPI=7
 
-inherit toolchain-funcs llvm linux-info cmake
+LLVM_MAX_SLOT=13
+
+inherit llvm linux-info cmake
 
 DESCRIPTION="High-level tracing language for eBPF"
 HOMEPAGE="https://github.com/iovisor/bpftrace"
-
-if [[ ${PV} =~ 9{4,} ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/iovisor/${PN}"
-	BDEPEND=""
-else
-	MY_PV="${PV//_/}"
-	SRC_URI="https://github.com/iovisor/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-	BDEPEND="app-arch/xz-utils "
-fi
+MY_PV="${PV//_/}"
+SRC_URI="https://github.com/iovisor/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV:-${PV}}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="fuzzing test"
+# lots of fixing needed
+RESTRICT="test"
 
-COMMON_DEPEND="
+RDEPEND="
 	dev-libs/libbpf:=
 	>=dev-util/bcc-0.13.0:=
 	dev-util/systemtap
-	>=sys-devel/llvm-6:=[llvm_targets_BPF(+)]
-	<=sys-devel/llvm-13:=[llvm_targets_BPF(+)]
-	<=sys-devel/clang-13:=
+	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
+	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
 	sys-libs/binutils-libs:=
-	virtual/libelf
+	virtual/libelf:=
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	dev-libs/cereal:=
 	test? ( dev-cpp/gtest )
 "
-RDEPEND="${COMMON_DEPEND}"
-BDEPEND+="
-	>=dev-util/cmake-3.8
+BDEPEND="
+	app-arch/xz-utils
 	sys-devel/flex
 	sys-devel/bison
 "
 
-S="${WORKDIR}/${PN}-${MY_PV:-${PV}}"
 QA_DT_NEEDED="/usr/lib.*/libbpftraceresources.so"
 
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.12.0-install-libs.patch"
-	"${FILESDIR}/bpftrace-0.10.0-dont-compress-man.patch"
+	"${FILESDIR}/bpftrace-0.14.0-install-libs.patch"
+	"${FILESDIR}/bpftrace-0.14.0-dont-compress-man.patch"
+	"${FILESDIR}/bpftrace-0.14.0-fuzzing.patch"
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
 	"${FILESDIR}/bpftrace-0.12.0-fuzzing-build.patch"
 )
-
-# lots of fixing needed
-RESTRICT="test"
 
 pkg_pretend() {
 	local CONFIG_CHECK="
@@ -70,19 +64,25 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	LLVM_MAX_SLOT=12 llvm_pkg_setup
-}
-
-src_prepare() {
-	cmake_src_prepare
+	llvm_pkg_setup
 }
 
 src_configure() {
 	local -a mycmakeargs=(
 		-DSTATIC_LINKING:BOOL=OFF
+		# bug 809362, 754648
+		-DBUILD_SHARED_LIBS:=OFF
 		-DBUILD_TESTING:BOOL=OFF
 		-DBUILD_FUZZ:BOOL=$(usex fuzzing)
+		-DENABLE_MAN:BOOL=OFF
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	# bug 809362
+	dostrip -x /usr/bin/bpftrace
+	doman man/man8/*.?
 }
