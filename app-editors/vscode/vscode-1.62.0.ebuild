@@ -39,18 +39,31 @@ SLOT="0"
 KEYWORDS="-* ~amd64 ~arm ~arm64"
 
 RDEPEND="
-	app-accessibility/at-spi2-atk
+	app-accessibility/at-spi2-atk:2
+	app-accessibility/at-spi2-core:2
 	app-crypt/libsecret[crypt]
+	dev-libs/atk
+	dev-libs/expat
+	dev-libs/glib:2
+	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
-	media-libs/libpng:0/16
+	media-libs/mesa
+	sys-apps/dbus
 	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
-	x11-libs/libnotify
+	x11-libs/libdrm
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
 	x11-libs/libxkbcommon
 	x11-libs/libxkbfile
-	x11-libs/libXScrnSaver
-	x11-libs/libXtst
+	x11-libs/libXrandr
+	x11-libs/libxshmfence
 	x11-libs/pango
 "
 
@@ -93,8 +106,11 @@ src_install() {
 	fperms -R +x /opt/${PN}/resources/app/out/vs/base/node
 	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg
 	dosym "../../opt/${PN}/bin/code" "usr/bin/vscode"
+	dosym "../../opt/${PN}/bin/code" "usr/bin/code"
 	domenu "${FILESDIR}/vscode.desktop"
 	domenu "${FILESDIR}/vscode-url-handler.desktop"
+	domenu "${FILESDIR}/vscode-wayland.desktop"
+	domenu "${FILESDIR}/vscode-url-handler-wayland.desktop"
 	newicon "resources/app/resources/linux/code.png" "vscode.png"
 }
 
