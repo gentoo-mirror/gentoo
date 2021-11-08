@@ -1,7 +1,8 @@
+BDEPEND=dev-perl/Module-Build test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Module-Build test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Perl extension to detect on which Linux distribution we are running
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Linux-Distribution
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/C/CH/CHORNY/Linux-Distribution-0.23.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=345d9ae7a341f650c05875df77a440cf
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=3dc9f89101b93f27d55e368a82da251f
