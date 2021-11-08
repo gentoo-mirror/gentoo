@@ -1,12 +1,15 @@
+BDEPEND=virtual/perl-AutoLoader virtual/perl-Carp virtual/perl-Exporter virtual/perl-XSLoader sci-electronics/labone virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sci-electronics/labone virtual/perl-ExtUtils-MakeMaker dev-lang/perl >=dev-vcs/git-1.8.2.1[curl]
+DEPEND=sci-electronics/labone dev-lang/perl
 DESCRIPTION=Perl bindings to the LabOne API of Zurich Instruments
-EAPI=6
-HOMEPAGE=http://search.cpan.org/~amba/Lab-Zhinst/
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Lab-Zhinst
 INHERIT=perl-module git-r3
+IUSE=test
 LICENSE=|| ( Artistic GPL-1+ )
 PROPERTIES=live
-RDEPEND=sci-electronics/labone dev-lang/perl:=
+RDEPEND=virtual/perl-AutoLoader virtual/perl-Carp virtual/perl-Exporter virtual/perl-XSLoader sci-electronics/labone dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=0e78b14ae33dce1aea0eea3a54c64440
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=00555bda4583811d20fd28a1e9c96fc6
