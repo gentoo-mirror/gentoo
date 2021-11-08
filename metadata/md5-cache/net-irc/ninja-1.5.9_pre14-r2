@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
 INHERIT=toolchain-funcs
 IUSE=ncurses ipv6 ssl
-KEYWORDS=amd64 ppc ~ppc64 ~sparc x86
+KEYWORDS=amd64 ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2
 RDEPEND=virtual/libcrypt:= ncurses? ( sys-libs/ncurses:= ) ssl? ( dev-libs/openssl:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=ftp://qoop.org/ninja/stable/ninja-1.5.9pre14.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=d3c1485411243c5877d64f93d0f0a7aa
+_md5_=10c525eacef2e246fc5e117235794bdc
