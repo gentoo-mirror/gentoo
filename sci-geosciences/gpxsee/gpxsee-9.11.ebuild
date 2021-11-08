@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PLOCALES="cs da de en eo es fi fr hu it nb pl pt_BR ru sv tr uk"
+PLOCALES="cs da de en eo es fi fr hu it nb pl pt_BR ru sv tr uk zh"
 inherit desktop plocale qmake-utils xdg
 
 MY_PN="GPXSee"
