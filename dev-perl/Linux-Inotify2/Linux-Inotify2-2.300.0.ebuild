@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
-MODULE_AUTHOR=MLEHMANN
-MODULE_VERSION=1.22
+DIST_AUTHOR=MLEHMANN
+DIST_VERSION=2.3
 inherit perl-module
 
 DESCRIPTION="scalable directory/file change notification"
-
 SLOT="0"
 KEYWORDS="~amd64 ~sparc ~x86"
-IUSE=""
 
-DEPEND="dev-perl/common-sense"
-RDEPEND="${DEPEND}"
-
-SRC_TEST="do"
+RDEPEND="
+	dev-perl/common-sense
+"
+BDEPEND="${RDEPEND}
+	virtual/perl-ExtUtils-MakeMaker
+"
