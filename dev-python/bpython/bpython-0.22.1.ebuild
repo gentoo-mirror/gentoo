@@ -12,18 +12,21 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
+IUSE="clipboard +jedi urwid watch"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=dev-python/curtsies-0.3.5[${PYTHON_USEDEP}]
 	dev-python/cwcwidth[${PYTHON_USEDEP}]
 	dev-python/greenlet[${PYTHON_USEDEP}]
-	dev-python/jedi[${PYTHON_USEDEP}]
 	dev-python/pygments[${PYTHON_USEDEP}]
 	dev-python/pyxdg[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/urwid[${PYTHON_USEDEP}]
-	dev-python/watchdog[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
+	clipboard? ( dev-python/pyperclip[${PYTHON_USEDEP}] )
+	jedi? ( dev-python/jedi[${PYTHON_USEDEP}] )
+	urwid? ( dev-python/urwid[${PYTHON_USEDEP}] )
+	watch? ( dev-python/watchdog[${PYTHON_USEDEP}] )
 	"
 # sphinx is used implicitly to build manpages
 BDEPEND="
