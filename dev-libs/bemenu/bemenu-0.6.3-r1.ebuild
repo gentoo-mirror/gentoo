@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="dmenu clone for wayland"
 HOMEPAGE="https://github.com/Cloudef/bemenu"
 if [[ ${PV} == 9999 ]]; then
@@ -21,7 +23,7 @@ IUSE="doc ncurses wayland X"
 REQUIRED_USE="|| ( ncurses wayland X )"
 
 DEPEND="
-	ncurses? ( sys-libs/ncurses:0 )
+	ncurses? ( sys-libs/ncurses:= )
 	wayland? (
 		dev-libs/wayland
 		dev-libs/wayland-protocols
@@ -41,6 +43,8 @@ RDEPEND="${DEPEND}"
 BDEPEND="doc? ( app-doc/doxygen )"
 
 src_compile() {
+	tc-export CC
+
 	emake clients $(usex ncurses curses "") $(usex X x11 "") $(usex wayland wayland "") PREFIX=/usr libdir=/$(get_libdir)
 	use doc && emake doxygen PREFIX=/usr libdir=/$(get_libdir)
 }
