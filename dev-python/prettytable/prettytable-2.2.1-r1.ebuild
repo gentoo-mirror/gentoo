@@ -14,7 +14,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~mips ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	dev-python/wcwidth[${PYTHON_USEDEP}]
@@ -23,7 +23,6 @@ BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	test? (
 		$(python_gen_impl_dep sqlite)
-		dev-python/pytest-lazy-fixture[${PYTHON_USEDEP}]
 	)"
 
 distutils_enable_tests --install pytest
