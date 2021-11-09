@@ -7,7 +7,7 @@ HOMEPAGE=https://sw.kovidgoyal.net/kitty/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=optfeature python-single-r1 toolchain-funcs xdg
 IUSE=+X debug test wayland python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-terminfo-0.23.1 >x11-terms/kitty-terminfo-0.23.1-r0 X? ( x11-libs/libX11 ) wayland? ( dev-libs/wayland )
 REQUIRED_USE=|| ( X wayland ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.23.1/kitty-0.23.1.tar.xz
 _eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=73ecd16d6775624a907ee9ce7600c13a
+_md5_=b3342fde05b02adc45797d2ea18de3ec
