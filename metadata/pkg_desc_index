@@ -898,7 +898,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.53 1.20.60 1.20.65 1.21.5 1.21.12 1.22.1 1.22.2: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.53 1.20.60 1.20.65 1.21.5 1.21.12 1.22.1 1.22.2 1.22.3: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.2 1.28.3: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8337,7 +8337,7 @@ dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.2_p20201029: Simple lru_cache for asyncio
 dev-python/async_generator 1.10-r1: Making it easy to write async iterators in Python 3.5
-dev-python/async_timeout 3.0.1 4.0.0_alpha3 4.0.0: Timeout context manager for asyncio programs
+dev-python/async_timeout 3.0.1 4.0.0_alpha3 4.0.0 4.0.1: Timeout context manager for asyncio programs
 dev-python/asyncstdlib 3.10.2: The missing async toolbox
 dev-python/atomicwrites 1.4.0-r1: Atomic file writes
 dev-python/atpublic 2.3: A decorator to populate __all__ and the module globals
@@ -8388,8 +8388,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.53 1.18.60 1.18.65 1.19.5 1.19.12 1.20.1 1.20.2 9999: The AWS SDK for Python
-dev-python/botocore 1.21.53 1.21.60 1.21.65 1.22.5 1.22.12 1.23.1 1.23.2 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.53 1.18.60 1.18.65 1.19.5 1.19.12 1.20.1 1.20.2 1.20.3 9999: The AWS SDK for Python
+dev-python/botocore 1.21.53 1.21.60 1.21.65 1.22.5 1.22.12 1.23.1 1.23.2 1.23.3 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8992,7 +8992,7 @@ dev-python/owslib 0.25.0: Library for client programming with Open Geospatial Co
 dev-python/packaging 21.0: Core utilities for Python packages
 dev-python/pafy 0.5.5 9999: Python library to retrieve YouTube content and metadata
 dev-python/paho-mqtt 1.5.1 1.6.0: A client class with support for MQTT v5.0, v3.1.1, and v3.1
-dev-python/pallets-sphinx-themes 2.0.1-r1: Sphinx themes for Pallets and related projects
+dev-python/pallets-sphinx-themes 2.0.1-r1 2.0.2: Sphinx themes for Pallets and related projects
 dev-python/pandas 1.2.3-r1 1.2.4 1.2.5 1.3.0 1.3.1 1.3.2 1.3.3 1.3.4: Powerful data structures for data analysis and statistics
 dev-python/pandas-datareader 0.10.0: Pandas DataFrame extraction from a wide range of Internet sources
 dev-python/pandocfilters 1.5.0: Utilities for writing pandoc filters in python
@@ -9126,7 +9126,7 @@ dev-python/pycurl 7.44.1: python binding for curl/libcurl
 dev-python/pycurl-requests 0.2.1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.5: Set of facilities to extend Python with C++
 dev-python/pydantic 1.8.2_p20210719: Data parsing and validation using Python type hints
-dev-python/pydata-sphinx-theme 0.7.1: Bootstrap-based Sphinx theme from the PyData community
+dev-python/pydata-sphinx-theme 0.7.1 0.7.2: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pydecomp 0.3-r1 0.3-r2 9999: A python library of common (de)compression and contents handling
 dev-python/pydevd 2.6.0 2.7.0: PyDev.Debugger (used in PyDev, PyCharm and VSCode Python)
@@ -9530,7 +9530,7 @@ dev-python/sortedcontainers 2.4.0: Python library to sort collections and contai
 dev-python/soupsieve 2.2.1-r1 2.3: A modern CSS selector implementation for BeautifulSoup
 dev-python/speaklater 1.3-r1: Lazy strings for Python
 dev-python/speg 0.3-r2: A PEG-based parser interpreter with memoization
-dev-python/sphinx 3.5.4 4.2.0-r1: Python documentation generator
+dev-python/sphinx 3.5.4 4.2.0-r1 4.3.0: Python documentation generator
 dev-python/sphinx-aiohttp-theme 0.1.6: Sphinx theme for aiohttp
 dev-python/sphinx-autodoc-typehints 1.12.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-bootstrap-theme 0.8.0-r1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
@@ -15263,7 +15263,7 @@ net-libs/libmrss 0.19.2-r1: A C-library for parsing and writing RSS 0.91/0.92/1.
 net-libs/libnatpmp 20150609: An alternative protocol to UPnP IGD specification
 net-libs/libndp 1.8: Library for Neighbor Discovery Protocol
 net-libs/libnet 1.0.2a-r7 1.2 1.2.9999: library providing an API for commonly used low-level network functions
-net-libs/libnetconf2 2.0.1-r1 2.0.19: C library for building NETCONF servers and clients
+net-libs/libnetconf2 2.0.19: C library for building NETCONF servers and clients
 net-libs/libnetfilter_acct 1.0.3: Library providing interface to extended accounting infrastructure
 net-libs/libnetfilter_conntrack 1.0.6 1.0.7 1.0.8: Programming interface (API) to the in-kernel connection tracking state table
 net-libs/libnetfilter_cthelper 1.0.0-r1: Userspace library for interface to user-space helper for conntrack
@@ -15316,7 +15316,7 @@ net-libs/libupnp 1.14.7 1.14.12-r1: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 0.21.0: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
 net-libs/libvncserver 0.9.13: library for creating vnc servers
 net-libs/libwebsockets 4.2.2 4.3.0: A flexible pure-C library for implementing network protocols
-net-libs/libyang 2.0.7 2.0.97: YANG data modeling language library
+net-libs/libyang 2.0.97: YANG data modeling language library
 net-libs/libzapojit 0.0.3: GLib/GObject wrapper for the SkyDrive and Hotmail REST APIs
 net-libs/liquid-dsp 1.3.2 9999: digital signal processing library for software-defined radios
 net-libs/loudmouth 1.5.3-r1 1.5.3-r2 1.5.3-r3: Lightweight C Jabber library
@@ -15647,7 +15647,7 @@ net-misc/netkit-rsh 0.17-r14: Netkit's Remote Shell Suite: rexec{,d} rlogin{,d} 
 net-misc/netkit-talk 0.17-r7: Netkit - talkd
 net-misc/netkit-telnetd 0.17-r12: Standard Linux telnet client and server
 net-misc/netkit-timed 0.17-r10: Netkit - timed
-net-misc/netopeer2 2.0.0 2.0.30: Server for implementing NETCONF configuration management
+net-misc/netopeer2 2.0.30: Server for implementing NETCONF configuration management
 net-misc/netpipe 1.0.0_beta2-r2: tool to reliably distribute binary data using UDP broadcasting techniques
 net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3: Small tool for altering forwarded network data in real time
@@ -15752,7 +15752,7 @@ net-misc/streamtuner 0.99.99-r5: Stream directory browser for browsing internet 
 net-misc/stunnel 5.58 5.59 5.60: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.15 1.2.16: Open source implementation of the STUN protocol
 net-misc/suite3270 4.0_p13: Complete 3270 access package
-net-misc/sysrepo 2.0.1 2.0.47: YANG-based configuration and operational state data store
+net-misc/sysrepo 2.0.47: YANG-based configuration and operational state data store
 net-misc/taptap 1.0: A program to link two /dev/net/tun to form virtual ethernet
 net-misc/taylor-uucp 1.07-r4: Taylor UUCP
 net-misc/tcpsound 0.3.1-r1: Play sounds in response to network traffic
