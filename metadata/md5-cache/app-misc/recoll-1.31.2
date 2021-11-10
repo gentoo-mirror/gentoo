@@ -1,0 +1,16 @@
+BDEPEND=qt5? ( dev-qt/linguist-tools:5 ) virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare pretend setup
+DEPEND=dev-libs/xapian:= sys-libs/zlib:= virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 webengine? ( dev-qt/qtwebengine:5[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+DESCRIPTION=Personal full text search package
+EAPI=7
+HOMEPAGE=https://www.lesbonscomptes.com/recoll/
+INHERIT=linux-info optfeature python-single-r1 qmake-utils systemd
+IUSE=camelcase chm +inotify qt5 session +spell systemd webengine kernel_linux python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/xapian:= sys-libs/zlib:= virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 webengine? ( dev-qt/qtwebengine:5[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) app-arch/unzip
+REQUIRED_USE=session? ( inotify ) webengine? ( qt5 ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0
+SRC_URI=https://www.lesbonscomptes.com/recoll/recoll-1.31.2.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	optfeature	30ce9dec2b8943338c9b015bd32bac6a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=94f9795b066fed80ee69ad3666b5b698
