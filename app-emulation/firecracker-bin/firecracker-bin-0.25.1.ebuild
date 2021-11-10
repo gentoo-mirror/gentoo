@@ -24,8 +24,9 @@ RESTRICT="test strip"
 RDEPEND="!app-emulation/firecracker
 	acct-group/kvm"
 
-QA_PREBUILT="/usr/bin/firecracker
-	/usr/bin/jailer"
+QA_PREBUILT="usr/bin/firecracker
+	usr/bin/jailer
+	usr/bin/seccompiler-bin"
 
 S="${WORKDIR}"
 
@@ -71,6 +72,10 @@ src_install() {
 		my_arch=aarch64
 	fi
 
-	newbin "release-v${PV}/firecracker-v${PV}-${my_arch}" firecracker
-	newbin "release-v${PV}/jailer-v${PV}-${my_arch}" jailer
+	dodoc "release-v${PV}-${my_arch}/firecracker_spec-v${PV}.yaml"
+	dodoc "release-v${PV}-${my_arch}/seccomp-filter-v${PV}-${my_arch}.json"
+
+	newbin "release-v${PV}-${my_arch}/firecracker-v${PV}-${my_arch}" firecracker
+	newbin "release-v${PV}-${my_arch}/jailer-v${PV}-${my_arch}" jailer
+	newbin "release-v${PV}-${my_arch}/seccompiler-bin-v${PV}-${my_arch}" seccompiler-bin
 }
