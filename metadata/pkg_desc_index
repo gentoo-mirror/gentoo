@@ -1451,7 +1451,7 @@ app-crypt/ssdeep 2.14.1: Computes context triggered piecewise hashes (fuzzy hash
 app-crypt/ssss 0.5.7: Shamir's Secret Sharing Scheme
 app-crypt/stan 0.4.1-r1: Stan analyzes binary streams and calculates statistical information
 app-crypt/stoken 0.92-r2: Software Token for Linux/UNIX
-app-crypt/swtpm 0.6.1: Libtpms-based TPM emulator
+app-crypt/swtpm 0.6.1 0.7.0: Libtpms-based TPM emulator
 app-crypt/tc-play 2.0-r1: a free, pretty much fully featured and stable TrueCrypt implementation
 app-crypt/tpm-emulator 0.7.5-r3: Emulator driver for tpm
 app-crypt/tpm-tools 1.3.9.1-r1 1.3.9.2: TrouSerS' support tools for the Trusted Platform Modules
@@ -2427,7 +2427,7 @@ app-emulation/dynamips 0.2.21: Cisco 7200/3600 Simulator
 app-emulation/edumips64 1.2: A visual and cross-platform MIPS64 CPU Simulator
 app-emulation/faudio 21.01 9999: FAudio - Accuracy-focused XAudio reimplementation for open platforms
 app-emulation/firecracker 0.21.1-r1: Secure and fast microVMs for serverless computing
-app-emulation/firecracker-bin 0.24.5 0.25.0: Secure and fast microVMs for serverless computing (static build)
+app-emulation/firecracker-bin 0.24.5 0.25.0 0.25.1: Secure and fast microVMs for serverless computing (static build)
 app-emulation/flannel 0.11.0 0.14.0: An etcd backed network fabric for containers
 app-emulation/free42 2.5.24 3.0.3 3.0.5 3.0.6: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.0.5 3.1.35: Integrates the most accurate Amiga emulation code available from WinUAE
@@ -5872,7 +5872,7 @@ dev-libs/libtar 1.2.20-r4: C library for manipulating tar archives
 dev-libs/libtasn1 4.17.0 4.18.0: ASN.1 library
 dev-libs/libtecla 1.6.3: Tecla command-line editing library
 dev-libs/libtermkey 0.20 0.22: Library for easy processing of keyboard entry from terminal-based programs
-dev-libs/libthreadar 1.3.2 1.3.3: Threading library used by dar archiver
+dev-libs/libthreadar 1.3.2 1.3.5: Threading library used by dar archiver
 dev-libs/libtimezonemap 0.4.6-r1: GTK+3 timezone map widget
 dev-libs/libtomcrypt 1.18.2-r3: LibTomCrypt is a comprehensive, modular and portable cryptographic toolkit
 dev-libs/libtomfloat 0.02-r1: library for floating point number manipulation
@@ -11574,7 +11574,7 @@ games-arcade/briquolo 0.5.7: Breakout with 3D representation based on OpenGL
 games-arcade/bumprace 1.5.3-r1: simple arcade racing game
 games-arcade/burgerspace 1.9.3-r1: Clone of the 1982 BurgerTime video game by Data East
 games-arcade/cavezofphear 0.5.1-r1: A boulder dash / digger-like game for console using ncurses
-games-arcade/cdogs-sdl 0.10.1 1.1.1: Classic overhead run-and-gun game
+games-arcade/cdogs-sdl 1.1.1: Classic overhead run-and-gun game
 games-arcade/ceferino 0.97.8-r3: Super-Pang clone (destroy bouncing balloons with your grapnel)
 games-arcade/circuslinux 1.0.3-r2: Clone of the Atari 2600 game "Circus Atari"
 games-arcade/cob 0.9-r1: Cruising on Broadway: a painting-type game
@@ -11747,7 +11747,7 @@ games-emulation/dosbox 0.74.3 0.75_pre4302 9999: DOS emulator
 games-emulation/dosbox-staging 0.76.0 0.77.0-r1 0.77.1: Modernized DOSBox soft-fork
 games-emulation/emutos 1.1.1: Single-user single-tasking operating system for 32-bit Atari computer emulators
 games-emulation/fbzx 4.8.0: Full Screen Sinclair Spectrum emulator
-games-emulation/fceux 2.4.0 2.5.0: Portable Famicom/NES emulator, an evolution of the original FCE Ultra
+games-emulation/fceux 2.5.0: Portable Famicom/NES emulator, an evolution of the original FCE Ultra
 games-emulation/gcube 0.4-r2: Gamecube emulator
 games-emulation/generator 0.35_p4-r1: Sega Genesis / Mega Drive emulator
 games-emulation/gens 2.15.5-r2: Sega Genesis/CD/32X emulator
@@ -16341,7 +16341,7 @@ sci-biology/vcftools 0.1.14: Tools for working with VCF (Variant Call Format) fi
 sci-biology/velvet 1.2.10: A sequence assembler for very short reads
 sci-biology/wise 2.4.0_alpha-r1: Intelligent algorithms for DNA searches
 sci-biology/yass 1.14-r2: Genomic similarity search with multiple transition constrained spaced seeds
-sci-calculators/bc-gh 4.0.2 5.0.0 5.1.1: Implementation of POSIX bc with GNU extensions
+sci-calculators/bc-gh 5.1.1 5.2.0: Implementation of POSIX bc with GNU extensions
 sci-calculators/calcoo 1.3.18-r1: Scientific calculator designed to provide maximum usability
 sci-calculators/datamash 1.7-r1: command-line program for basic numeric, textual and statistical operations
 sci-calculators/galculator 2.1.4-r2: GTK+ based algebraic and RPN calculator
@@ -19247,8 +19247,8 @@ x11-terms/aterm 1.0.1-r4: rxvt compatible terminal emulator with transparency su
 x11-terms/cool-retro-term 1.1.1-r2: terminal emulator which mimics the look and feel of the old cathode tube screens
 x11-terms/gnome-terminal 3.40.2 3.40.3: The Gnome Terminal
 x11-terms/guake 3.7.0 3.8.0: Drop-down terminal for GNOME
-x11-terms/kitty 0.23.1 0.23.1-r1 9999: Fast, feature-rich, GPU-based terminal
-x11-terms/kitty-terminfo 0.23.1 0.23.1-r1 9999: Terminfo for kitty, a GPU-based terminal emulator
+x11-terms/kitty 0.23.1-r1 9999: Fast, feature-rich, GPU-based terminal
+x11-terms/kitty-terminfo 0.23.1-r1 9999: Terminfo for kitty, a GPU-based terminal emulator
 x11-terms/kterm 6.2.0-r7: Japanese Kanji X Terminal
 x11-terms/lilyterm 0.9.9.4-r2 99999: a terminal emulator based off of libvte that aims to be fast and lightweight
 x11-terms/mate-terminal 1.24.1: The MATE Terminal
