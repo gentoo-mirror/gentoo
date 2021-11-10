@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst preinst prepare test
+DEPEND=gpm? ( sys-libs/gpm[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+DESCRIPTION=console display library
+EAPI=7
+HOMEPAGE=https://www.gnu.org/software/ncurses/ https://invisible-island.net/ncurses/
+INHERIT=toolchain-funcs multilib multilib-minimal preserve-libs usr-ldscript
+IUSE=ada +cxx debug doc gpm minimal profile static-libs test tinfo trace abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
+LICENSE=MIT
+RDEPEND=gpm? ( sys-libs/gpm[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) !<=sys-libs/ncurses-5.9-r4:5 !<sys-libs/slang-2.3.2_pre23 !<x11-terms/rxvt-unicode-9.06-r3 !<x11-terms/st-0.6-r1
+RESTRICT=!test? ( test )
+SLOT=0/6
+SRC_URI=mirror://gnu/ncurses/ncurses-6.3.tar.gz https://invisible-mirror.net/archives/ncurses/ncurses-6.3.tar.gz ftp://ftp.invisible-island.net/ncurses/ncurses-6.3.tar.gz ftp://ftp.invisible-island.net/ncurses/6.3/ncurses-6.3-20211026.patch.gz https://invisible-mirror.net/archives/ncurses/6.3/ncurses-6.3-20211026.patch.gz ftp://ftp.invisible-island.net/ncurses/6.3/ncurses-6.3-20211030.patch.gz https://invisible-mirror.net/archives/ncurses/6.3/ncurses-6.3-20211030.patch.gz ftp://ftp.invisible-island.net/ncurses/6.3/ncurses-6.3-20211106.patch.gz https://invisible-mirror.net/archives/ncurses/6.3/ncurses-6.3-20211106.patch.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	usr-ldscript	6ae04038b0001994e6be364ffc1c0156
+_md5_=3b299d4a286bb14403a9f145a5c0584a
