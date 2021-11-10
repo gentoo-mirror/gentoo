@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.sonicvisualiser.org/ https://github.com/sonic-visualiser/sonic-visualiser
 INHERIT=meson xdg
 IUSE=id3tag jack mad ogg opus osc +portaudio pulseaudio test
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=app-arch/bzip2 dev-libs/capnproto:= dev-libs/serd dev-libs/sord dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/alsa-lib media-libs/dssi media-libs/ladspa-sdk media-libs/liblrdf media-libs/libsamplerate media-libs/libsndfile media-libs/rubberband media-libs/speex media-libs/vamp-plugin-sdk sci-libs/fftw:3.0= id3tag? ( media-libs/libid3tag:= ) jack? ( virtual/jack ) mad? ( media-libs/libmad ) ogg? ( media-libs/libfishsound media-libs/liboggz ) opus? ( media-libs/opusfile ) osc? ( media-libs/liblo ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio )
 REQUIRED_USE=|| ( jack pulseaudio portaudio ) test? ( id3tag mad )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~fordfrog/distfiles/sonic-visualiser-4.4.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=b1cccef11d0c05473c9dccf7f5c08d2f
+_md5_=69f2e86549088035b9ee91dcd46b28d2
