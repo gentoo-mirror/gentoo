@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://www.netsurf-browser.org/projects/libnsfb/
 INHERIT=netsurf
 IUSE=sdl test vnc wayland X
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=sdl? ( >=media-libs/libsdl-1.2.15-r4 ) vnc? ( >=net-libs/libvncserver-0.9.9-r2 ) wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libxcb-1.9.1 >=x11-libs/xcb-util-0.3.9-r1 >=x11-libs/xcb-util-image-0.3.9-r1 >=x11-libs/xcb-util-keysyms-0.3.9-r1 )
 RESTRICT=!test? ( test )
 SLOT=0/0.2.2
 SRC_URI=https://download.netsurf-browser.org/libs/releases/libnsfb-0.2.2-src.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	netsurf	af8fe1901b583a379a6a32af919cea05
-_md5_=6ca4385fad0437a69faca5e24279497f
+_md5_=7d4ebbbb2e784f1e1a3eb760447e1130
