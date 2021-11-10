@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit xdg-utils
 
@@ -11,11 +11,12 @@ SRC_URI="https://github.com/indigo-dc/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 IUSE="test"
 
 DEPEND="app-crypt/libsecret
 	dev-libs/libsodium:=
+	media-gfx/qrencode
 	net-libs/libmicrohttpd:=
 	sys-libs/libseccomp"
 RDEPEND="${DEPEND}"
@@ -24,19 +25,14 @@ BDEPEND="test? ( dev-libs/check )"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.0.2_install-perms.patch
 	"${FILESDIR}"/${PN}-4.0.2_makefile-liblist-automagic.patch
-	"${FILESDIR}"/${PN}-4.0.2_makefile-toolchain-vars.patch
+	"${FILESDIR}"/${PN}-4.1.0_install-perms.patch
+	"${FILESDIR}"/${PN}-4.2.2_makefile-toolchain-vars.patch
 )
 
 src_prepare() {
 	default
 	sed -i -e 's|^\(\s\+\)@|\1|' Makefile || die "Failed to increase verbosity in Makefile"
-}
-
-src_compile() {
-	# As of 4.0.2 parallel building still doesn't work
-	emake -j1
 }
 
 src_install() {
