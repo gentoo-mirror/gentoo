@@ -5,9 +5,9 @@ DESCRIPTION=Multithreaded multifrontal sparse QR factorization library
 EAPI=7
 HOMEPAGE=http://faculty.cse.tamu.edu/davis/suitesparse.html
 IUSE=doc partition tbb
-KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+
 RDEPEND=virtual/lapack >=sci-libs/cholmod-2[lapack,partition?] partition? ( >=sci-libs/metis-5.1.0 ) tbb? ( dev-cpp/tbb:= )
 SLOT=0
 SRC_URI=http://202.36.178.9/sage/spqr-2.0.9.tar.bz2
-_md5_=6595296a6ea6fd03426d3b4673c6866d
+_md5_=38b338886e537a44d33f95d961c90d15
