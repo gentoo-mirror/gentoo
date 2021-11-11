@@ -6,12 +6,12 @@ inherit gnome2-utils
 
 DESCRIPTION="Control the blur effect on gnome-shell lock screen"
 HOMEPAGE="https://github.com/PRATAP-KUMAR/Control_Blur_Effect_On_Lock_Screen"
-COMMIT="1dc40c2a9e3bfdf851c7726b041484c8663b28e9"
+COMMIT="a2e45f404d7161e324047957e3e62e865cf18eb3"
 SRC_URI="https://github.com/PRATAP-KUMAR/Control_Blur_Effect_On_Lock_Screen/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 # glib for glib-compile-schemas at build time, needed at runtime anyways
