@@ -1441,7 +1441,7 @@ app-crypt/sbsigntools 0.9.1-r1 0.9.2: Utilities for signing and verifying files 
 app-crypt/scdrand 0.3.5: Feed kernel entropy pool from smartcard's TRNG
 app-crypt/scrypt 1.3.1: A simple password-based encryption utility using scrypt key derivation function
 app-crypt/scute 1.7.0: A PKCS #11 module for OpenPGP smartcards
-app-crypt/seahorse 40.0-r1: Manage your passwords and encryption keys
+app-crypt/seahorse 40.0-r1 41.0: Manage your passwords and encryption keys
 app-crypt/seahorse-sharing 3.8.0_p20181216: Daemon for PGP public key sharing using DNS-SD and HKP
 app-crypt/shash 0.2.6-r3: Generate or check digests or MACs of files
 app-crypt/signify 30: Cryptographically sign and verify files
@@ -5774,7 +5774,7 @@ dev-libs/libgdata 0.18.1: GLib-based library for accessing online service APIs u
 dev-libs/libgee 0.20.4: GObject-based interfaces and classes for commonly used data structures
 dev-libs/libgit2 1.1.1 1.2.0 1.3.0: A linkable library for Git
 dev-libs/libgit2-glib 0.99.0.1-r2: Git library for GLib
-dev-libs/libgnome-games-support 1.8.1: Library for code common to GNOME games
+dev-libs/libgnome-games-support 1.8.1 1.8.2: Library for code common to GNOME games
 dev-libs/libgnt 2.14.2 2.14.3: Pidgin's GLib Ncurses Toolkit
 dev-libs/libgpg-error 1.42 1.43: Contains error handling functions used by GnuPG software
 dev-libs/libgpiod 1.4.1 1.6.3: C library and tools for interacting with the linux GPIO character device
@@ -11721,7 +11721,7 @@ games-board/simsu 1.3.9: Basic sudoku game
 games-board/sjeng 11.2_p8_p1: Console based chess interface
 games-board/stockfish 10 13 14 14.1: Free UCI chess engine, claimed to be the strongest in the world
 games-board/tablebase-syzygy 0_pre20131213 0_pre20131213-r100: Syzygy chess endgame tablebases for up to 6 pieces
-games-board/tali 40.1 40.3: Beat the odds in a poker-style dice game
+games-board/tali 40.1 40.3 40.4: Beat the odds in a poker-style dice game
 games-board/tetzle 2.1.3: Jigsaw puzzle game that uses tetrominoes for the pieces
 games-board/xboard 4.9.1: GUI for gnuchess and for internet chess servers
 games-board/xfreecell 1.0.5b-r1: A freecell game for X
@@ -13379,7 +13379,7 @@ media-gfx/scour 0.38.2: Take an SVG file and produce a cleaner and more concise 
 media-gfx/scrot 1.4 9999: Screen capture utility using imlib2 library
 media-gfx/sfftobmp 3.1.2-r1: sff to bmp converter
 media-gfx/shotwell 0.30.12 0.30.14: Open source photo manager for GNOME
-media-gfx/simple-scan 40.1 40.5: Simple document scanning utility
+media-gfx/simple-scan 40.1 40.5 40.6: Simple document scanning utility
 media-gfx/slic3r 1.3.0-r4 1.3.1_pre20200824-r1 9999: A mesh slicer to generate G-code for fused-filament-fabrication (3D printers)
 media-gfx/solvespace 2.3 3.0: Parametric 2d/3d CAD
 media-gfx/springgraph 88: Generate spring graphs from graphviz input files
@@ -13489,7 +13489,7 @@ media-libs/glyr 1.0.10: Music related metadata searchengine, both with commandli
 media-libs/gmmlib 21.2.1 21.2.2 21.3.1 21.3.2 9999: Intel Graphics Memory Management Library
 media-libs/gnonlin 1.4.0-r1: Set of GStreamer elements to ease the creation of non-linear multimedia editors
 media-libs/graphene 1.10.6: A thin layer of types for graphic libraries
-media-libs/grilo 0.3.13: A framework for easy media discovery and browsing
+media-libs/grilo 0.3.13 0.3.14: A framework for easy media discovery and browsing
 media-libs/gsound 1.0.2-r1 1.0.3: Thin GObject wrapper around the libcanberra sound event library
 media-libs/gst-plugins-bad 1.16.3 1.18.4-r1: Less plugins for GStreamer
 media-libs/gst-plugins-base 1.16.3-r1 1.18.4-r1: Basepack of plugins for gstreamer
@@ -13837,7 +13837,7 @@ media-plugins/gmpc-mserver 0.20.0: This plugin allows you to play local files on
 media-plugins/gmpc-playlistsort 0.20.0: This plugin adds a dialog to sort the current playlist
 media-plugins/gmpc-shout 0.20.0: This plugin calls ogg123 and points it at mpd's shoutstream
 media-plugins/gmpc-tagedit 11.8.16: This plugin allows you to edit tags in your library
-media-plugins/grilo-plugins 0.3.13: A collection of plugins for the Grilo framework
+media-plugins/grilo-plugins 0.3.13 0.3.14: A collection of plugins for the Grilo framework
 media-plugins/gst-plugins-a52dec 1.16.3 1.18.4: ATSC A/52 audio decoder plugin for GStreamer
 media-plugins/gst-plugins-amr 1.16.3 1.18.4: AMRNB encoder/decoder and AMRWB decoder plugin for GStreamer
 media-plugins/gst-plugins-aom 1.18.4: Alliance for Open Media AV1 plugin for GStreamer
@@ -14613,7 +14613,7 @@ media-video/subtitleripper 0.3.4-r4: DVD Subtitle Ripper for Linux
 media-video/super_demux 0.3: DVB transport stream TS to ES demultiplexer
 media-video/tcmplex-panteltje 0.4.7-r1: Audio video multiplexer for 8 audio channels
 media-video/tivodecode 0.2_pre4: TiVo File Decoder
-media-video/totem 3.38.1: Media player for GNOME
+media-video/totem 3.38.1 3.38.2: Media player for GNOME
 media-video/transcode 1.1.7-r6: Utilities for transcoding video and audio codecs in different containers
 media-video/tsmuxer 2.6.11-r1: Utility to create and demux TS and M2TS files
 media-video/ttcut 0.19.6_p1-r1: Tool for cutting MPEG files especially for removing commercials
@@ -15302,7 +15302,7 @@ net-libs/libsignal-protocol-c 2.3.2 2.3.3 9999: Signal Protocol C Library
 net-libs/libsignon-glib 2.1: GLib binding for the D-Bus API provided by signond
 net-libs/libslirp 4.6.1: A TCP-IP emulator used to provide virtual networking services.
 net-libs/libsmi 0.5.0-r1: A Library to Access SMI MIB Information
-net-libs/libsoup 2.72.0-r1 2.74.0 2.99.9: HTTP client/server library for GNOME
+net-libs/libsoup 2.72.0-r1 2.74.0 2.74.1 2.99.9: HTTP client/server library for GNOME
 net-libs/libsrsirc 0.0.14-r1: A lightweight, cross-platform IRC library
 net-libs/libsrtp 1.6.0-r1 2.2.0 2.3.0-r1: Open-source implementation of the Secure Real-time Transport Protocol (SRTP)
 net-libs/libssh 0.9.6 9999: Access a working SSH implementation by means of a library
@@ -15968,7 +15968,7 @@ net-vpn/networkmanager-fortisslvpn 1.2.8-r2 1.2.10 1.3.90: NetworkManager Fortin
 net-vpn/networkmanager-l2tp 1.8.0 1.8.2-r1 1.8.6: NetworkManager L2TP plugin
 net-vpn/networkmanager-libreswan 1.2.12 1.2.14: NetworkManager libreswan plugin
 net-vpn/networkmanager-openconnect 1.2.6-r1: NetworkManager OpenConnect plugin
-net-vpn/networkmanager-openvpn 1.8.12-r1 1.8.14: NetworkManager OpenVPN plugin
+net-vpn/networkmanager-openvpn 1.8.12-r1 1.8.14 1.8.16: NetworkManager OpenVPN plugin
 net-vpn/networkmanager-pptp 1.2.8-r2: NetworkManager PPTP VPN plugin
 net-vpn/networkmanager-sstp 1.2.0-r1: Client for the proprietary Microsoft Secure Socket Tunneling Protocol(SSTP)
 net-vpn/networkmanager-strongswan 1.5.2: NetworkManager StrongSwan plugin
