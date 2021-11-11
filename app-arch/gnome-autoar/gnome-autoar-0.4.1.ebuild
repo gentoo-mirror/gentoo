@@ -4,17 +4,18 @@
 EAPI=7
 VALA_USE_DEPEND="vapigen"
 
-inherit gnome2 vala
+inherit gnome.org meson vala
 
 DESCRIPTION="Automatic archives creating and extracting library"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-autoar"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-IUSE="gtk +introspection vala"
-REQUIRED_USE="vala? ( introspection )"
+IUSE="gtk gtk-doc +introspection test vala"
+REQUIRED_USE="vala? ( introspection ) gtk-doc? ( gtk )"
+RESTRICT="!test? ( test )"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=app-arch/libarchive-3.4.0
@@ -24,20 +25,24 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	>=dev-util/gtk-doc-am-1.14
 	virtual/pkgconfig
+	gtk-doc? ( dev-util/gtk-doc
+		app-text/docbook-xml-dtd:4.3 )
 	vala? ( $(vala_depend) )
 "
 
 src_prepare() {
 	use vala && vala_src_prepare
-	gnome2_src_prepare
+	default
 }
 
 src_configure() {
-	gnome2_src_configure \
-		--disable-static \
-		$(use_enable introspection) \
-		$(use_enable vala) \
-		$(use_enable gtk)
+	local emesonargs=(
+		$(meson_use gtk)
+		$(meson_feature introspection)
+		$(meson_use vala vapi)
+		$(meson_use test tests)
+		$(meson_use gtk-doc gtk_doc)
+	)
+	meson_src_configure
 }
