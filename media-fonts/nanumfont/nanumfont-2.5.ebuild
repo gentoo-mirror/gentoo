@@ -13,7 +13,7 @@ SRC_URI="https://github.com/naver/${PN}/releases/download/VER${PV}/${MY_PN}-${PV
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 RESTRICT="strip binchecks"
 
@@ -21,15 +21,3 @@ BDEPEND="app-arch/unzip"
 S="${WORKDIR}"
 
 FONT_SUFFIX="ttf"
-
-src_unpack() {
-	if has_version -b "app-arch/unzip[natspec]"; then
-		unzip -qO CP949 "${DISTDIR}"/${A} || die
-	else
-		default
-	fi
-	# Rename names in cp949 encoding, bug #322041
-	mv *-Bold.ttf "${T}"/${MY_PN}-Bold.ttf || die
-	mv *.ttf      "${T}"/${MY_PN}.ttf      || die
-	mv "${T}"/*.ttf . || die
-}
