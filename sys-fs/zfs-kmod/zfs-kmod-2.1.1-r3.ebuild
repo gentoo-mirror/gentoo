@@ -62,6 +62,11 @@ RESTRICT="debug? ( strip ) test"
 
 DOCS=( AUTHORS COPYRIGHT META README.md )
 
+PATCHES=(
+	"${FILESDIR}/2.1.1-SEEK_DATA-SEEK_HOLE.patch"
+	"${FILESDIR}/2.1.1-restore-dirty-dnode-logic.patch"
+)
+
 pkg_pretend() {
 	use rootfs || return 0
 
@@ -202,4 +207,10 @@ pkg_postinst() {
 		ewarn
 		ewarn "Refer to /etc/zfs/compatibility.d/grub2 for list of features."
 	fi
+
+	echo
+	ewarn "This versions of ${PN} includes a very important fix for upstream bug"
+	ewarn "https://github.com/openzfs/zfs/issues/11900"
+	ewarn "Please reboot into kernel with ${P} as soon as possible"
+	echo
 }
