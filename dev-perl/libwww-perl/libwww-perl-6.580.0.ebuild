@@ -1,18 +1,17 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=OALDERS
-DIST_VERSION=6.27
+DIST_VERSION=6.55
 inherit perl-module
 
 DESCRIPTION="A collection of Perl Modules for the WWW"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-solaris"
-IUSE="ssl test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
+IUSE="ssl"
 
 RDEPEND="
 	virtual/perl-Digest-MD5
@@ -21,28 +20,32 @@ RDEPEND="
 	>=dev-perl/File-Listing-6.0.0
 	>=dev-perl/HTML-Parser-3.340.0
 	>=dev-perl/HTTP-Cookies-6.0.0
-	>=dev-perl/HTTP-Daemon-6.0.0
 	>=dev-perl/HTTP-Date-6.0.0
 	>=dev-perl/HTTP-Negotiate-6.0.0
-	>=dev-perl/HTTP-Message-6.0.0
+	>=dev-perl/HTTP-Message-6.70.0
 	virtual/perl-IO
 	>=dev-perl/LWP-MediaTypes-6.0.0
-	>=virtual/perl-MIME-Base64-2.120.0
-	>=dev-perl/Net-HTTP-6.70.0
+	>=virtual/perl-MIME-Base64-2.100.0
+	>=virtual/perl-libnet-2.580.0
+	>=dev-perl/Net-HTTP-6.180.0
 	virtual/perl-Scalar-List-Utils
 	dev-perl/Try-Tiny
 	>=dev-perl/URI-1.100.0
 	>=dev-perl/WWW-RobotRules-6.0.0
-	>=virtual/perl-libnet-1.220.0
+	>=virtual/perl-parent-0.217.0
 "
-DEPEND="${RDEPEND}
+BDEPEND="${RDEPEND}
+	>=virtual/perl-CPAN-Meta-Requirements-2.120.620
 	virtual/perl-ExtUtils-MakeMaker
 	virtual/perl-Getopt-Long
+	virtual/perl-Module-Metadata
 	test? (
 		virtual/perl-File-Spec
+		>=dev-perl/HTTP-Daemon-6.120.0
 		dev-perl/Test-Fatal
+		>=virtual/perl-Test-Simple-0.960.0
+		dev-perl/Test-Needs
 		dev-perl/Test-RequiresInternet
-		virtual/perl-Test-Simple
 	)
 "
 PDEPEND="
