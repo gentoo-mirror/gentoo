@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl ~sys-libs/libapparmor-3.0.3 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] sys-devel/gettext dev-lang/perl
+DESCRIPTION=Additional userspace utils to assist with AppArmor profile management
+EAPI=8
+HOMEPAGE=https://gitlab.com/apparmor/apparmor/wikis/home
+INHERIT=perl-module python-r1 toolchain-funcs
+IUSE=test python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-lang/perl ~sys-libs/libapparmor-3.0.3 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ~sys-libs/libapparmor-3.0.3[perl,python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ~sys-apps/apparmor-3.0.3 dev-perl/Locale-gettext dev-perl/RPC-XML dev-perl/TermReadKey dev-python/notify2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/psutil[python_targets_python3_8(-)?,python_targets_python3_9(-)?] virtual/perl-Data-Dumper virtual/perl-Getopt-Long dev-lang/perl:=
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://launchpad.net/apparmor/3.0/3.0.3/+download/apparmor-3.0.3.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	multibuild	05a584848db4901c97fcd94ae7cc3a97	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4
+_md5_=0aec0a64049b86b42919ad5150d5bd29

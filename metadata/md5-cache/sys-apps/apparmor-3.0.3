@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare test
+DEPEND=~sys-libs/libapparmor-3.0.3 dev-lang/perl sys-devel/bison sys-devel/gettext sys-devel/flex doc? ( dev-tex/latex2html )
+DESCRIPTION=Userspace utils and init scripts for the AppArmor application security system
+EAPI=8
+HOMEPAGE=https://gitlab.com/apparmor/apparmor/wikis/home
+INHERIT=systemd toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2
+RDEPEND=~sys-libs/libapparmor-3.0.3
+RESTRICT=test
+SLOT=0
+SRC_URI=https://launchpad.net/apparmor/3.0/3.0.3/+download/apparmor-3.0.3.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=ee48b18407578288acd9800ab893c60d
