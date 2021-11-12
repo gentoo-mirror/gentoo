@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools xdg
+inherit autotools font xdg
 
 DESCRIPTION="A music notation editor"
 HOMEPAGE="http://www.denemo.org/"
@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+ OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 # configure options currently not used:
 # --enable-mem(no) memory debugging: needs Electric fence (efence), which
@@ -30,7 +30,7 @@ RDEPEND="
 	media-libs/fontconfig:1.0
 	>=media-libs/libsmf-1.3
 	>=media-libs/libsndfile-1.0.28-r1
-	>=media-sound/lilypond-2.19.54[guile2(+)]
+	>=media-sound/lilypond-2.19.54
 	x11-libs/gtk+:3
 	x11-libs/gtksourceview:3.0=
 	alsa? ( >=media-libs/alsa-lib-1.1.2 )
@@ -44,9 +44,7 @@ RDEPEND="
 	portmidi? ( >=media-libs/portmidi-217-r1 )
 	rubberband? ( >=media-libs/rubberband-1.8.1-r1 )
 "
-
 DEPEND="${RDEPEND}"
-
 BDEPEND="
 	>=dev-util/gtk-doc-am-1.25-r1
 	>=dev-util/intltool-0.51.0-r1
@@ -58,11 +56,6 @@ BDEPEND="
 "
 
 DOCS=( AUTHORS ChangeLog docs/{DESIGN{,.lilypond},GOALS,TODO} NEWS )
-
-PATCHES=(
-	"${FILESDIR}/${P}-0001-configure.ac-patch-to-find-guile-2.2.patch"
-	"${FILESDIR}/${P}-0002-Fix-issues-with-gcc10-fno-common-flag.patch"
-)
 
 src_prepare() {
 	sed -e '/^Categories=/s/GNOME\;/GNOME\;GTK\;/' -i pixmaps/denemo.desktop || die
@@ -85,6 +78,7 @@ src_configure() {
 		--enable-x11
 		$(use_enable alsa)
 		$(use_enable aubio)
+		$(use_enable debug)
 		# --enable-doc does nothing for itself
 		# basic html documentation is always being installed in the
 		# /usr/share/denemo/manual directory
@@ -97,6 +91,7 @@ src_configure() {
 		$(use_enable portaudio)
 		$(use_enable portmidi)
 		$(use_enable rubberband)
+		$(use_enable test always-build-tests)
 	)
 	econf "${myeconfargs[@]}"
 }
@@ -115,4 +110,14 @@ src_install() {
 	for f in denemo-manual.html denemo.css images; do
 		dosym ../../../denemo/manual/"${f}" /usr/share/doc/${PF}/html/"${f}"
 	done
+}
+
+pkg_postinst() {
+	font_pkg_postinst
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	font_pkg_postrm
+	xdg_desktop_database_update
 }
