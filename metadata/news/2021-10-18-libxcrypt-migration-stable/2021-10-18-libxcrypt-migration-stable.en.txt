@@ -21,6 +21,11 @@ specific case, it is useful to have a simplified depgraph
 to ensure that Portage is able to smoothly calculate
 an upgrade path.
 
+We also recommend being in a root shell (not via 'sudo'
+or similar tools) so that if any issues occur during the upgrade,
+you are not locked out of the console. It is not expected
+that any such issues will occur but this is a precaution.
+
 It is also recommended that users do _not_ have
 FEATURES="collision-protect" enabled because it is
 aggressive in protecting even orphaned files. Instead,
