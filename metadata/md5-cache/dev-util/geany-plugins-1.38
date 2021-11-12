@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure install setup
+DEPEND=dev-libs/glib:2 >=dev-util/geany-1.37[-gtk2(-)] x11-libs/gtk+:3 ctags? ( dev-util/ctags ) debugger? ( x11-libs/vte:2.91 ) enchant? ( app-text/enchant:= ) git? ( dev-libs/libgit2:= ) gpg? ( app-crypt/gpgme:1= ) gtkspell? ( app-text/gtkspell:3= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) markdown? ( app-text/discount net-libs/webkit-gtk:4 ) pretty-printer? ( dev-libs/libxml2:2 ) scope? ( x11-libs/vte:2.91 ) soup? ( net-libs/libsoup:2.4 ) workbench? ( dev-libs/libgit2:= )
+DESCRIPTION=A collection of different plugins for Geany
+EAPI=8
+HOMEPAGE=https://plugins.geany.org
+INHERIT=lua-single
+IUSE=ctags debugger enchant git gpg gtkspell lua markdown nls pretty-printer scope soup workbench +lua_single_target_lua5-1
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 >=dev-util/geany-1.37[-gtk2(-)] x11-libs/gtk+:3 ctags? ( dev-util/ctags ) debugger? ( x11-libs/vte:2.91 ) enchant? ( app-text/enchant:= ) git? ( dev-libs/libgit2:= ) gpg? ( app-crypt/gpgme:1= ) gtkspell? ( app-text/gtkspell:3= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) markdown? ( app-text/discount net-libs/webkit-gtk:4 ) pretty-printer? ( dev-libs/libxml2:2 ) scope? ( x11-libs/vte:2.91 ) soup? ( net-libs/libsoup:2.4 ) workbench? ( dev-libs/libgit2:= ) scope? ( sys-devel/gdb )
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) )
+SLOT=0
+SRC_URI=https://plugins.geany.org/geany-plugins/geany-plugins-1.38.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99
+_md5_=919901ccd9bf7614fb3942f94a39981a

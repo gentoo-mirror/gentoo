@@ -1,0 +1,18 @@
+BDEPEND=>=games-util/grfcodec-6.0.6_p20210310 virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=!dedicated? ( allegro? ( media-libs/allegro:5 ) fluidsynth? ( media-sound/fluidsynth ) icu? ( dev-libs/icu-layoutex:= dev-libs/icu-le-hb >=dev-libs/icu-58.1:= ) sdl? ( media-libs/libsdl2[sound,video] ) truetype? ( media-libs/fontconfig media-libs/freetype:2 sys-libs/zlib:= ) ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo:2 ) png? ( media-libs/libpng:0= ) zlib? ( sys-libs/zlib:= )
+DESCRIPTION=A clone of Transport Tycoon Deluxe
+EAPI=8
+HOMEPAGE=https://www.openttd.org/
+INHERIT=cmake
+IUSE=allegro cpu_flags_x86_sse dedicated +fluidsynth icu +lzma lzo +openmedia +png +sdl timidity +truetype +zlib
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=!dedicated? ( openmedia? ( >=games-misc/openmsx-0.4.0 >=games-misc/opensfx-1.0.1 ) ) openmedia? ( >=games-misc/opengfx-0.6.1 ) timidity? ( media-sound/timidity++ )
+RDEPEND=!dedicated? ( allegro? ( media-libs/allegro:5 ) fluidsynth? ( media-sound/fluidsynth ) icu? ( dev-libs/icu-layoutex:= dev-libs/icu-le-hb >=dev-libs/icu-58.1:= ) sdl? ( media-libs/libsdl2[sound,video] ) truetype? ( media-libs/fontconfig media-libs/freetype:2 sys-libs/zlib:= ) ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo:2 ) png? ( media-libs/libpng:0= ) zlib? ( sys-libs/zlib:= )
+REQUIRED_USE=!dedicated? ( || ( allegro sdl ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://cdn.openttd.org/openttd-releases/12.1/openttd-12.1-source.tar.xz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=db1895df7293fff581e7eec321b41610
