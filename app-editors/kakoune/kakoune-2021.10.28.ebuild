@@ -15,10 +15,6 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-php-filetype-fix.patch
-)
-
 src_prepare() {
 	sed -i '/CXXFLAGS += -O3/d' src/Makefile || die
 	default
