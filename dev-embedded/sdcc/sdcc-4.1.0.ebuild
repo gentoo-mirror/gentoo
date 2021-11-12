@@ -77,6 +77,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.8.0-override-override.patch
 )
 
+
 src_prepare() {
 	# Fix conflicting variable names between Gentoo and sdcc
 	find \
