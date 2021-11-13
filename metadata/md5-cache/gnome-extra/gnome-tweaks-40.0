@@ -1,16 +1,16 @@
 BDEPEND=>=sys-devel/gettext-0.19.8 app-arch/xz-utils >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Customize advanced GNOME options
 EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Apps/Tweaks
 INHERIT=gnome.org gnome2-utils meson python-single-r1 xdg
-IUSE=python_single_target_python3_8 python_single_target_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=GPL-3+ CC0-1.0
-RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( >=dev-python/pygobject-3.10.2:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pygobject-3.10.2:3[python_targets_python3_9(-)] ) >=gnome-base/gnome-settings-daemon-3 x11-themes/sound-theme-freedesktop >=dev-libs/glib-2.58:2 >=x11-libs/gtk+-3.12:3[introspection] >=gnome-base/gnome-desktop-3.30:3[introspection] gui-libs/libhandy:1[introspection] net-libs/libsoup:2.4[introspection] x11-libs/libnotify[introspection] >=gnome-base/gsettings-desktop-schemas-40.0 >=gnome-base/gnome-shell-3.24 x11-wm/mutter
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_python3_8? ( >=dev-python/pygobject-3.10.2:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pygobject-3.10.2:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/pygobject-3.10.2:3[python_targets_python3_10(-)] ) >=gnome-base/gnome-settings-daemon-3 x11-themes/sound-theme-freedesktop >=dev-libs/glib-2.58:2 >=x11-libs/gtk+-3.12:3[introspection] >=gnome-base/gnome-desktop-3.30:3[introspection] gui-libs/libhandy:1[introspection] net-libs/libsoup:2.4[introspection] x11-libs/libnotify[introspection] >=gnome-base/gsettings-desktop-schemas-40.0 >=gnome-base/gnome-shell-3.24 x11-wm/mutter
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-tweaks/40/gnome-tweaks-40.0.tar.xz
 _eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	355c758ccc0d6df60d43a066640e642c	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg	6024fbc93167fad782e2032933654857
-_md5_=439ff6ae03161cda96ae8da2a1455dac
+_md5_=1e82ac58cc46d7c13b782e45b26f1417
