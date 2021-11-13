@@ -898,7 +898,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.53-r1 1.20.60 1.20.65 1.21.5 1.21.12 1.22.1 1.22.2 1.22.3 1.22.4 1.22.5: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.65 1.21.5 1.21.12 1.22.5: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.2 1.28.3: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -7170,15 +7170,15 @@ dev-perl/Log-TraceMessages 1.400.0-r2: Logging/debugging aid
 dev-perl/MARC-Charset 1.350.0-r2: convert MARC-8 encoded strings to UTF-8
 dev-perl/MARC-File-XML 1.0.5-r1: Work with MARC data encoded as XML
 dev-perl/MARC-Record 2.0.7-r1: Perl extension for handling MARC records
-dev-perl/MCE 1.831.0 1.874.0: Many-Core Engine providing parallel processing capabilities
+dev-perl/MCE 1.874.0: Many-Core Engine providing parallel processing capabilities
 dev-perl/MD5 2.30.0-r2: The Perl MD5 Module
-dev-perl/MIME-Base32 1.303.0: Base32 encoder / decoder
-dev-perl/MIME-Charset 1.12.2: Charset Informations for MIME
-dev-perl/MIME-EncWords 1.14.3: Deal with RFC 2047 encoded words (improved)
-dev-perl/MIME-Lite 3.30.0 3.33.0: Low-calorie MIME generator
-dev-perl/MIME-Lite-HTML 1.240.0: Provide routine to transform a HTML page in a MIME-Lite mail
-dev-perl/MIME-Types 2.130.0 2.210.0: Definition of MIME types
-dev-perl/MIME-tools 5.509.0: A Perl module for parsing and creating MIME entities
+dev-perl/MIME-Base32 1.303.0-r1: Base32 encoder / decoder
+dev-perl/MIME-Charset 1.12.2-r1: Charset Informations for MIME
+dev-perl/MIME-EncWords 1.14.3-r1: Deal with RFC 2047 encoded words (improved)
+dev-perl/MIME-Lite 3.33.0: Low-calorie MIME generator
+dev-perl/MIME-Lite-HTML 1.240.0-r1: Provide routine to transform a HTML page in a MIME-Lite mail
+dev-perl/MIME-Types 2.130.0 2.210.0 2.220.0: Definition of MIME types
+dev-perl/MIME-tools 5.509.0-r1: A Perl module for parsing and creating MIME entities
 dev-perl/MLDBM 2.50.0: A multidimensional/tied hash Perl Module
 dev-perl/MLDBM-Sync 0.300.0-r2: Safe concurrent access to MLDBM databases
 dev-perl/MP3-Info 1.260.0: A Perl module to manipulate/fetch info from MP3 files
@@ -7241,8 +7241,8 @@ dev-perl/Math-VecStat 0.80.0-r2: Some basic numeric stats on vectors
 dev-perl/MaxMind-DB-Common 0.40.1: Code shared by the MaxMind DB reader and writer modules
 dev-perl/MaxMind-DB-Reader 1.0.14: Read MaxMind DB files and look up IP addresses
 dev-perl/MaxMind-DB-Reader-XS 1.0.8: Fast XS implementation of MaxMind DB reader
-dev-perl/MediaWiki-API 0.410.0 0.520.0: A OO interface to the Mediawiki API
-dev-perl/Mixin-Linewise 0.108.0 0.110.0: write your linewise code for handles; this does the rest
+dev-perl/MediaWiki-API 0.520.0: A OO interface to the Mediawiki API
+dev-perl/Mixin-Linewise 0.110.0: write your linewise code for handles; this does the rest
 dev-perl/Mo 0.400.0-r1: Perl Micro Object framework
 dev-perl/Mock-Config 0.30.0: Temporarily set Config or XSConfig values
 dev-perl/Modem-Vgetty 0.30.0-r2: Interface to voice modems using vgetty
@@ -8390,8 +8390,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.53-r1 1.18.60 1.18.65 1.19.5 1.19.12 1.20.1 1.20.2 1.20.3 1.20.4 1.20.5 9999: The AWS SDK for Python
-dev-python/botocore 1.21.53 1.21.60 1.21.65 1.22.5 1.22.12 1.23.1 1.23.2 1.23.3 1.23.4 1.23.5 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.65 1.19.5 1.19.12 1.20.5 9999: The AWS SDK for Python
+dev-python/botocore 1.21.65 1.22.5 1.22.12 1.23.5 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2: Fast NumPy array functions written in Cython
 dev-python/bpython 0.21 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -9222,7 +9222,7 @@ dev-python/pypy3-exe 7.3.7: PyPy3 executable (build from source)
 dev-python/pypy3-exe-bin 7.3.7: PyPy3 executable (pre-built version)
 dev-python/pyqrcode 1.2.1-r1: A pure Python QR code generator with SVG, EPS, PNG and terminal output
 dev-python/pyqt-distutils 0.7.3: distutils extension to work with PyQt applications and UI files
-dev-python/pyqtgraph 0.12.2 0.12.3: A pure-python graphics and GUI library built on PyQt and numpy
+dev-python/pyqtgraph 0.12.3: A pure-python graphics and GUI library built on PyQt and numpy
 dev-python/pyquery 1.4.3: A jQuery-like library for python
 dev-python/pyre2 1.0.7: Python bindings for dev-libs/re2
 dev-python/pyrfc3339 1.1: Generates and parses RFC 3339 timestamps
@@ -19508,6 +19508,6 @@ xfce-extra/xfce4-verve-plugin 2.0.1: A comfortable command line plugin for the X
 xfce-extra/xfce4-volumed-pulse 0.2.3: Daemon to control volume up/down and mute keys for pulseaudio
 xfce-extra/xfce4-wavelan-plugin 0.6.2: A panel plug-in to display wireless interface statistics
 xfce-extra/xfce4-weather-plugin 0.11.0-r1: A weather plug-in for the Xfce desktop environment
-xfce-extra/xfce4-whiskermenu-plugin 2.6.1: Alternate application launcher for Xfce
+xfce-extra/xfce4-whiskermenu-plugin 2.6.1 2.6.2: Alternate application launcher for Xfce
 xfce-extra/xfce4-xkb-plugin 0.8.2: XKB layout switching panel plug-in for the Xfce desktop environment
 xfce-extra/xfdashboard 0.9.5: Maybe a GNOME shell like dashboard for the Xfce desktop environment
