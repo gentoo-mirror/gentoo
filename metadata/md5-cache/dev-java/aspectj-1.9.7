@@ -1,0 +1,15 @@
+BDEPEND=app-arch/zip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/asm:9 dev-java/commons-logging:0 dev-java/ant-apache-regexp:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=A seamless aspect-oriented extension to the Java programming language
+EAPI=7
+HOMEPAGE=https://eclipse.org/aspectj/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source
+KEYWORDS=~amd64 ~x86
+LICENSE=EPL-1.0
+RDEPEND=dev-java/asm:9 dev-java/commons-logging:0 dev-java/ant-apache-regexp:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://github.com/eclipse/org.aspectj/archive/refs/tags/V1_9_7.tar.gz -> aspectj-1.9.7.tar.gz
+_eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	java-pkg-simple	148ea0f0bf459bdb4768a56036df3cc2
+_md5_=1c91ba83e5f25044b644ec22ec311ceb
