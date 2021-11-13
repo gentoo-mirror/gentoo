@@ -14,13 +14,16 @@ IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
+COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	sys-devel/gettext
 	virtual/libintl
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
+"
+RDEPEND="${COMMON_DEPEND}
+	app-text/iso-codes
 "
 
 PATCHES=( "${FILESDIR}/${PN}-5.57.0-python.patch" )

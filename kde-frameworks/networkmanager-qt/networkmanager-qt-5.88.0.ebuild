@@ -7,14 +7,13 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="NetworkManager bindings for Qt"
+
 LICENSE="LGPL-2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="teamd"
 
-BDEPEND="
-	virtual/pkgconfig
-"
 DEPEND="
+	dev-libs/glib:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=net-misc/networkmanager-1.4.0-r1[teamd=]
@@ -24,6 +23,9 @@ RDEPEND="${DEPEND}
 		>=net-misc/networkmanager-1.4.0-r1[elogind]
 		>=net-misc/networkmanager-1.4.0-r1[systemd]
 	)
+"
+BDEPEND="
+	virtual/pkgconfig
 "
 
 src_test() {

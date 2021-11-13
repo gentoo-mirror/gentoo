@@ -21,6 +21,7 @@ DEPEND="
 	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
 	=kde-frameworks/kiconthemes-${PVCUT}*:5
 	=kde-frameworks/kirigami-${PVCUT}*:5
+	=kde-frameworks/sonnet-${PVCUT}*:5[qml]
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5

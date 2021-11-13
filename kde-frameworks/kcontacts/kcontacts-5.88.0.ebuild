@@ -21,10 +21,7 @@ DEPEND="
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kcontacts:5
-	app-text/iso-codes
-"
+RDEPEND="${DEPEND}"
 
 src_test() {
 	# bug #566648 (access to /dev/dri/card0 denied), bug #625988

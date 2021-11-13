@@ -70,10 +70,6 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.85.0-revert-to-pre-libblkid-parsing.patch # bug 821103, KDE-bug 442106
-)
-
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON

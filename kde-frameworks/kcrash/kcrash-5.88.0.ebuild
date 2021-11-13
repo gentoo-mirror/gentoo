@@ -11,22 +11,31 @@ inherit ecm kde.org
 DESCRIPTION="Framework for intercepting and handling application crashes"
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="nls"
+IUSE="nls X"
 
-# requires running kde environment
+# requires running Plasma environment
 RESTRICT="test"
 
+RDEPEND="
+	>=dev-qt/qtgui-${QTMIN}:5
+	=kde-frameworks/kcoreaddons-${PVCUT}*:5
+	=kde-frameworks/kwindowsystem-${PVCUT}*:5
+	X? (
+		>=dev-qt/qtx11extras-${QTMIN}:5
+		x11-libs/libX11
+	)
+"
+DEPEND="${RDEPEND}
+	X? ( x11-base/xorg-proto )
+	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
+"
 BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
-RDEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtx11extras-${QTMIN}:5
-	=kde-frameworks/kcoreaddons-${PVCUT}*:5
-	=kde-frameworks/kwindowsystem-${PVCUT}*:5
-	x11-libs/libX11
-"
-DEPEND="${RDEPEND}
-	x11-base/xorg-proto
-	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
-"
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_X11=$(usex X)
+	)
+	ecm_src_configure
+}

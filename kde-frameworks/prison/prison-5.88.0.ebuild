@@ -10,13 +10,14 @@ DESCRIPTION="QRCode and data matrix barcode library"
 HOMEPAGE="https://invent.kde.org/frameworks/prison"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="qml"
 
 RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	media-gfx/qrencode:=
 	media-libs/libdmtx
+	media-libs/zxing-cpp
 	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
