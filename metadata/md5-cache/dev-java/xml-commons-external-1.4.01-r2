@@ -1,0 +1,15 @@
+BDEPEND=source? ( app-arch/zip )
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Externally-defined set of standard interfaces, namely DOM, SAX, and JAXP
+EAPI=7
+HOMEPAGE=https://xerces.apache.org/xml-commons/components/external/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=1.4
+SRC_URI=https://repo1.maven.org/maven2/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01-sources.jar -> xml-commons-external-1.4.01.jar
+_eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	java-pkg-simple	148ea0f0bf459bdb4768a56036df3cc2
+_md5_=bf7b78e5bd2c640f91054d0ca04bd933
