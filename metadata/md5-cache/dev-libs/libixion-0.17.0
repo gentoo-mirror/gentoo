@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/boost:= dev-util/mdds:1/2.0 python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) )
+DESCRIPTION=General purpose formula parser & interpreter
+EAPI=8
+HOMEPAGE=https://gitlab.com/ixion/ixion
+INHERIT=python-single-r1
+IUSE=debug python +threads python_single_target_python3_8 python_single_target_python3_9
+LICENSE=MIT
+RDEPEND=dev-libs/boost:= dev-util/mdds:1/2.0 python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
+SLOT=0/0.17
+SRC_URI=https://kohei.us/files/ixion/src/libixion-0.17.0.tar.xz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_md5_=270a68b8bd46fa19aadc8b35de37f26f
