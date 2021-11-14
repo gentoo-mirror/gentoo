@@ -1,35 +1,30 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 CMAKE_MAKEFILE_GENERATOR=emake
 
 inherit check-reqs cmake flag-o-matic linux-info \
 	multiprocessing prefix toolchain-funcs
 
-MY_BOOST_VERSION="1.73.0"
-MY_PV=$(ver_rs 3 '-')
-MY_PV="${MY_PV//_pre*}"
-MY_PN="Percona-Server"
+MY_PV="${PV//_pre*}"
 MY_P="${PN}-${MY_PV}"
-MY_MAJOR_PV=$(ver_cut 1-2)
-MY_RELEASE_NOTES_URI="https://www.percona.com/doc/percona-server/${MY_MAJOR_PV}/"
 
 # Patch version
-PATCH_SET="https://dev.gentoo.org/~whissi/dist/percona-server/${PN}-8.0.22.13-patches-02.tar.xz"
+PATCH_SET="https://dev.gentoo.org/~whissi/dist/mysql/${PN}-8.0.27-patches-01.tar.xz"
 
-SRC_URI="https://www.percona.com/downloads/${MY_PN}-${MY_MAJOR_PV}/${MY_PN}-${MY_PV}/source/tarball/${PN}-${MY_PV}.tar.gz
-	https://dl.bintray.com/boostorg/release/${MY_BOOST_VERSION}/source/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION}).tar.bz2
-	${PATCH_SET}
-"
+SRC_URI="https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-${MY_PV}.tar.gz
+	https://cdn.mysql.com/archives/mysql-8.0/mysql-boost-${MY_PV}.tar.gz
+	http://downloads.mysql.com/archives/MySQL-8.0/${PN}-boost-${MY_PV}.tar.gz
+	${PATCH_SET}"
 
-HOMEPAGE="https://www.percona.com/software/mysql-database/percona-server https://github.com/percona/percona-server"
-DESCRIPTION="Fully compatible, enhanced and open source drop-in replacement for MySQL"
+HOMEPAGE="https://www.mysql.com/"
+DESCRIPTION="A fast, multi-threaded, multi-user SQL database server"
 LICENSE="GPL-2"
 SLOT="8.0"
-IUSE="cjk cracklib debug jemalloc latin1 ldap numa pam +perl profiling
-	rocksdb router selinux +server tcmalloc test tokudb tokudb-backup-plugin"
+IUSE="cjk cracklib debug jemalloc latin1 numa +perl profiling
+	router selinux +server tcmalloc test"
 
 RESTRICT="!test? ( test )"
 
@@ -41,7 +36,8 @@ REQUIRED_USE="?? ( tcmalloc jemalloc )
 	router? ( server )
 	tcmalloc? ( server )"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris ~x86-solaris"
+# -ppc, -riscv for bug #761715
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips -ppc ~ppc64 -riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris ~x86-solaris"
 
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -60,23 +56,19 @@ COMMON_DEPEND="
 		dev-libs/libevent:=[ssl,threads]
 		>=dev-libs/protobuf-3.8:=
 		net-libs/libtirpc:=
-		net-misc/curl:=
 		cjk? ( app-text/mecab:= )
-		ldap? (
-			dev-libs/cyrus-sasl
-			net-nds/openldap
-		)
 		jemalloc? ( dev-libs/jemalloc:0= )
 		kernel_linux? (
 			dev-libs/libaio:0=
 			sys-process/procps:0=
 		)
 		numa? ( sys-process/numactl )
-		pam? ( sys-libs/pam:0= )
 		tcmalloc? ( dev-util/google-perftools:0= )
 	)
 "
-DEPEND="${COMMON_DEPEND}
+
+DEPEND="
+	${COMMON_DEPEND}
 	|| ( >=sys-devel/gcc-3.4.6 >=sys-devel/gcc-apple-4.0 )
 	virtual/yacc
 	server? ( net-libs/rpcsvc-proto )
@@ -85,16 +77,19 @@ DEPEND="${COMMON_DEPEND}
 		dev-perl/JSON
 	)
 "
-RDEPEND="${COMMON_DEPEND}
-	!dev-db/mariadb !dev-db/mariadb-galera !dev-db/mysql !dev-db/mysql-cluster
-	!dev-db/percona-server:0
-	!dev-db/percona-server:5.7
+
+RDEPEND="
+	${COMMON_DEPEND}
+	!dev-db/mariadb !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster
+	!dev-db/mysql:0
+	!dev-db/mysql:5.7
 	selinux? ( sec-policy/selinux-mysql )
 	!prefix? (
 		acct-group/mysql acct-user/mysql
 		dev-db/mysql-init-scripts
 	)
 "
+
 # For other stuff to bring us in
 # dev-perl/DBD-mysql is needed by some scripts installed by MySQL
 PDEPEND="perl? ( >=dev-perl/DBD-mysql-2.9004 )"
@@ -181,14 +176,6 @@ src_prepare() {
 		-e 's/MY_RPM rpm/MY_RPM rpmNOTEXISTENT/' \
 		CMakeLists.txt || die
 
-	if use jemalloc ; then
-		echo "TARGET_LINK_LIBRARIES(mysqld jemalloc)" >> "${S}/sql/CMakeLists.txt" || die
-	fi
-
-	if use tcmalloc ; then
-		echo "TARGET_LINK_LIBRARIES(mysqld tcmalloc)" >> "${S}/sql/CMakeLists.txt" || die
-	fi
-
 	# Remove the centos and rhel selinux policies to support mysqld_safe under SELinux
 	if [[ -d "${S}/support-files/SELinux" ]] ; then
 		echo > "${S}/support-files/SELinux/CMakeLists.txt" || die
@@ -208,13 +195,8 @@ src_configure() {
 	# Bug #114895, bug #110149
 	filter-flags "-O" "-O[01]"
 
-	append-cxxflags -felide-constructors
-
-	# code is not C++17 ready, bug #786402
-	append-cxxflags -std=c++14
-
-	# bug #283926, with GCC4.4, this is required to get correct behavior.
-	append-flags -fno-strict-aliasing
+	# Code is now requiring C++17 due to https://github.com/mysql/mysql-server/commit/236ab55bedd8c9eacd80766d85edde2a8afacd08
+	append-cxxflags -std=c++17
 
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 
@@ -251,7 +233,7 @@ src_configure() {
 		-DSTACK_DIRECTION=$(tc-stack-grows-down && echo -1 || echo 1)
 		-DCMAKE_POSITION_INDEPENDENT_CODE=ON
 		-DWITH_CURL=system
-		-DWITH_BOOST="${WORKDIR}/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION})"
+		-DWITH_BOOST="${S}/boost"
 		-DWITH_ROUTER=$(usex router ON OFF)
 	)
 
@@ -306,16 +288,19 @@ src_configure() {
 
 	if use server ; then
 		mycmakeargs+=(
-			-DWITH_AUTHENTICATION_LDAP=$(usex ldap system OFF)
-			-DWITH_COREDUMPER=OFF
 			-DWITH_EXTRA_CHARSETS=all
 			-DWITH_DEBUG=$(usex debug)
 			-DWITH_MECAB=$(usex cjk system OFF)
 			-DWITH_LIBEVENT=system
 			-DWITH_PROTOBUF=system
 			-DWITH_NUMA=$(usex numa ON OFF)
-			-DWITH_PAM=$(usex pam)
 		)
+
+		if use jemalloc ; then
+			mycmakeargs+=( -DWITH_JEMALLOC=ON )
+		elif use tcmalloc ; then
+			mycmakeargs+=( -DWITH_TCMALLOC=ON )
+		fi
 
 		if use profiling ; then
 			# Setting to OFF doesn't work: Once set, profiling options will be added
@@ -336,8 +321,6 @@ src_configure() {
 			-DWITH_INNODB_MEMCACHED=0
 			-DWITH_MYISAMMRG_STORAGE_ENGINE=1
 			-DWITH_MYISAM_STORAGE_ENGINE=1
-			-DWITH_ROCKSDB=$(usex rocksdb 1 0)
-			-DWITH_TOKUDB=$(usex tokudb 1 0)
 		)
 	else
 		mycmakeargs+=(
@@ -404,43 +387,99 @@ src_test() {
 	touch "${T}/disabled.def"
 
 	local -a disabled_tests
+	disabled_tests+=( "auth_sec.atomic_rename_user;103512;Depends on user running test" )
 	disabled_tests+=( "auth_sec.keyring_file_data_qa;0;Won't work with user privileges" )
-	disabled_tests+=( "gis.spatial_analysis_functions_buffer;5452;Known rounding error with latest AMD processors (PS)" )
-	disabled_tests+=( "gis.gis_bugs_crashes;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "auth_sec.openssl_without_fips;94718;Known test failure" )
 	disabled_tests+=( "gis.geometry_class_attri_prop;5452;Known rounding error with latest AMD processors (PS)" )
-	disabled_tests+=( "gis.spatial_utility_function_distance_sphere;5452;Known rounding error with latest AMD processors (PS)" )
 	disabled_tests+=( "gis.geometry_property_function_issimple;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "gis.gis_bugs_crashes;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "gis.spatial_analysis_functions_buffer;5452;Known rounding error with latest AMD processors (PS)" )
 	disabled_tests+=( "gis.spatial_analysis_functions_centroid;5452;Known rounding error with latest AMD processors (PS)" )
-	disabled_tests+=( "gis.spatial_operators_intersection;5452;Known rounding error with latest AMD processors (PS)" )
-	disabled_tests+=( "gis.spatial_utility_function_simplify;5452;Known rounding error with latest AMD processors (PS)" )
-	disabled_tests+=( "gis.spatial_op_testingfunc_mix;5452;Known rounding error with latest AMD processors (PS)" )
 	disabled_tests+=( "gis.spatial_analysis_functions_distance;5452;Known rounding error with latest AMD processors (PS)" )
-	disabled_tests+=( "group_replication.gr_ssl_options2;0;Sporadic failing test" )
-	disabled_tests+=( "innodb.percona_changed_page_bmp_flush;6807;False positive on Gentoo (PS)" )
-	disabled_tests+=( "innodb.percona_changed_page_bmp_log_resize;0;Sporadic failing test" )
-	disabled_tests+=( "innodb.percona_log_encrypt_failure;0;Requires proper keyring setup" )
-	disabled_tests+=( "innodb.percona_log_encrypt_change_mk;6039;False positive on Gentoo (PS)" )
-	disabled_tests+=( "innodb.percona_log_encrypt_change_rk;6805;False positive on Gentoo (PS)" )
-	disabled_tests+=( "innodb.upgrade_orphan;0;Sporadic failing test" )
-	disabled_tests+=( "main.myisam-blob;0;Sporadic failing test" )
-	disabled_tests+=( "main.mysql_load_data_local_dir;7416;Known test failure" )
-	disabled_tests+=( "main.mysqlpump_basic_lz4;6042;Extra tool output causes false positive" )
-	disabled_tests+=( "main.ssl_bug75311;5996;Known test failure" )
-	disabled_tests+=( "main.ssl_san;6808;False positive on IPv6-enabled hosts" )
+	disabled_tests+=( "gis.spatial_op_testingfunc_mix;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "gis.spatial_operators_intersection;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "gis.spatial_utility_function_distance_sphere;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "gis.spatial_utility_function_simplify;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "gis.st_symdifference;5452;Known rounding error with latest AMD processors (PS)" )
+	disabled_tests+=( "innodb.alter_kill;0;Known test failure -- no upstream bug yet" )
+	disabled_tests+=( "main.derived_limit;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.explain_tree;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.gis-precise;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.mysql_load_data_local_dir;0;Known test failure -- no upstream bug yet" )
+	disabled_tests+=( "main.select_icp_mrr;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_bugs;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_dupsweed;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_dupsweed_bka;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_dupsweed_bka_nobnl;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_firstmatch;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_firstmatch_bka;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_firstmatch_bka_nobnl;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "main.subquery_sj_mat_bka_nobnl;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
 	disabled_tests+=( "main.window_std_var;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
 	disabled_tests+=( "main.window_std_var_optimized;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
-	disabled_tests+=( "main.with_recursive;6804;Known rounding error with latest AMD processors" )
+	disabled_tests+=( "main.with_recursive;0;Known rounding error with latest AMD processors -- no upstream bug yet" )
+	disabled_tests+=( "perfschema.statement_digest_query_sample;0;Test will fail on slow hardware")
+	disabled_tests+=( "rpl.rpl_innodb_info_tbl_slave_tmp_tbl_mismatch;0;Unstable test" )
 	disabled_tests+=( "rpl_gtid.rpl_gtid_stm_drop_table;90612;Known test failure" )
-	disabled_tests+=( "rpl_gtid.rpl_multi_source_mtr_includes;0;Know failure - no upstream bug yet" )
-	disabled_tests+=( "sys_vars.myisam_data_pointer_size_func;87935;Test will fail on slow hardware" )
-	disabled_tests+=( "sys_vars.innodb_sys_tablespace_encrypt_basic;7415;Known test failure" )
+	disabled_tests+=( "rpl_gtid.rpl_multi_source_mtr_includes;0;Known failure - no upstream bug yet" )
+	disabled_tests+=( "sys_vars.myisam_data_pointer_size_func;87935;Test will fail on slow hardware")
+	disabled_tests+=( "x.connection;0;Known failure - no upstream bug yet" )
 	disabled_tests+=( "x.message_compressed_payload;0;False positive caused by protobuff-3.11+" )
-	disabled_tests+=( "x.message_protobuf_nested;6803;False positive caused by protobuff-3.11+" )
+	disabled_tests+=( "x.message_protobuf_nested;0;False positive caused by protobuff-3.11+" )
 
 	if ! hash zip 1>/dev/null 2>&1 ; then
 		# no need to force dep app-arch/zip for one test
 		disabled_tests+=( "innodb.discarded_partition_create;0;Requires app-arch/zip" )
 		disabled_tests+=( "innodb.partition_upgrade_create;0;Requires app-arch/zip" )
+	fi
+
+	if has_version ">=dev-libs/openssl-3" ; then
+		# >=dev-libs/openssl-3 defaults to security level 1 which disallow
+		# TLSv1/1.1 but tests will require TLSv1/1.1.
+		einfo "Set OpenSSL configuration for test suite ..."
+		cat > "${T}/openssl_tlsv1.cnf" <<- EOF || die
+		openssl_conf = default_conf
+
+		[ req ]
+		default_bits			= 2048
+		default_keyfile 		= privkey.pem
+		distinguished_name		= req_distinguished_name
+
+		[ req_distinguished_name ]
+		countryName			= Country Name (2 letter code)
+		countryName_default		= AU
+		countryName_min			= 2
+		countryName_max			= 2
+
+		stateOrProvinceName		= State or Province Name (full name)
+		stateOrProvinceName_default	= Some-State
+
+		localityName			= Locality Name (eg, city)
+
+		0.organizationName		= Organization Name (eg, company)
+		0.organizationName_default	= Internet Widgits Pty Ltd
+
+		organizationalUnitName		= Organizational Unit Name (eg, section)
+
+		commonName			= Common Name (e.g. server FQDN or YOUR name)
+		commonName_max			= 64
+
+		emailAddress			= Email Address
+		emailAddress_max		= 64
+
+		[default_conf]
+		ssl_conf = ssl_sect
+
+		[ssl_sect]
+		system_default = system_default_sect
+
+		[system_default_sect]
+		CipherString = DEFAULT@SECLEVEL=0
+		EOF
+
+		local -x OPENSSL_CONF="${T}/openssl_tlsv1.cnf"
+
+		disabled_tests+=( "x.connection_tls_version;0;Not compatible with OpenSSL 3.x error messages" )
 	fi
 
 	local test_infos_str test_infos_arr
@@ -454,32 +493,6 @@ src_test() {
 		_disable_test "${test_infos_arr[0]}" "${test_infos_arr[1]}" "${test_infos_arr[2]}"
 	done
 	unset test_infos_str test_infos_arr
-
-	if [[ -z "${MTR_VAULT_TOKEN}" ]] ; then
-		local impossible_test
-		for impossible_test in \
-			encryption.default_table_encryption_var \
-			keyring_vault.innodb_online_alter_encryption \
-			keyring_vault.innodb_row_log_encryption \
-			keyring_vault.install_keyring_vault \
-			keyring_vault.keyring_udf \
-			keyring_vault.keyring_vault_config \
-			keyring_vault.keyring_vault_config_qa \
-			keyring_vault.keyring_vault_timeout \
-			keyring_vault.key_rotation_qa \
-			keyring_vault.rpl_key_rotation \
-			keyring_vault.table_encrypt_2 \
-			keyring_vault.table_encrypt_2_directory \
-			keyring_vault.table_encrypt_2_keyring \
-			keyring_vault.table_encrypt_5 \
-			keyring_vault.table_encrypt_5_directory \
-			keyring_vault.table_encrypt_kill \
-			keyring_vault.temp_table_encrypt_keyring_vault \
-			main.persisted_variables \
-		; do
-			_disable_test "${impossible_test}" "0" "MTR_VAULT_TOKEN is not set"
-		done
-	fi
 
 	# Try to increase file limits to increase test coverage
 	if ! ulimit -n 16500 1>/dev/null 2>&1 ; then
