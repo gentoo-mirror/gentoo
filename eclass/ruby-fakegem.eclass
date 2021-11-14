@@ -123,6 +123,13 @@ RUBY_FAKEGEM_BINDIR="${RUBY_FAKEGEM_BINDIR-bin}"
 # the configuration script that needs to be run to generate the
 # extension.
 
+# @ECLASS-VARIABLE: RUBY_FAKEGEM_EXTENSION_OPTIONS
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Additional options that are passed when configuring the
+# extension. Some extensions use this to locate paths or turn specific
+# parts of the extionsion on or off.
+
 # @ECLASS-VARIABLE: RUBY_FAKEGEM_EXTENSION_LIBDIR
 # @DESCRIPTION:
 # The lib directory where extensions are copied directly after they have
@@ -404,7 +411,7 @@ EOF
 each_fakegem_configure() {
 	tc-export PKG_CONFIG
 	for extension in "${RUBY_FAKEGEM_EXTENSIONS[@]}" ; do
-		${RUBY} --disable=did_you_mean -C ${extension%/*} ${extension##*/} || die
+		CC=$(tc-getCC) ${RUBY} --disable=did_you_mean -C ${extension%/*} ${extension##*/} ${RUBY_FAKEGM_EXTENSION_OPTIONS} || die
 	done
 }
 
@@ -441,7 +448,7 @@ all_fakegem_compile() {
 # Compile extensions defined in RUBY_FAKEGEM_EXTENSIONS, if any.
 each_fakegem_compile() {
 	for extension in "${RUBY_FAKEGEM_EXTENSIONS[@]}" ; do
-		emake V=1 -C ${extension%/*}
+		emake V=1 -C ${extension%/*} CFLAGS="${CFLAGS} -fPIC" archflag="${LDFLAGS}"
 		mkdir -p "${RUBY_FAKEGEM_EXTENSION_LIBDIR%/}"
 		cp "${extension%/*}"/*$(get_modname) "${RUBY_FAKEGEM_EXTENSION_LIBDIR%/}/" || die "Copy of extension into ${RUBY_FAKEGEM_EXTENSION_LIBDIR} failed"
 	done
