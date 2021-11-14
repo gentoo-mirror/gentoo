@@ -3955,11 +3955,11 @@ dev-db/mongodb 4.2.15-r1 4.4.8-r1 5.0.2-r1: A high-performance, open source, sch
 dev-db/mtop 0.6.6-r3: Mysql top monitors a MySQL server
 dev-db/mycli 1.22.2_p20201026 1.24.1 9999: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.10.3 0.10.5 0.10.7.2 0.11.1.3: A high-performance multi-threaded backup (and restore) toolset for MySQL
-dev-db/myodbc 8.0.22 8.0.23 8.0.25 8.0.26: ODBC driver for MySQL
-dev-db/mysql 5.7.32 5.7.33 5.7.34 5.7.34-r1 5.7.35 8.0.22 8.0.23 8.0.25 8.0.25-r1 8.0.26: A fast, multi-threaded, multi-user SQL database server
+dev-db/myodbc 8.0.22 8.0.23 8.0.25 8.0.26 8.0.27: ODBC driver for MySQL
+dev-db/mysql 5.7.32 5.7.33 5.7.34 5.7.34-r1 5.7.35 5.7.36 8.0.22 8.0.23 8.0.25 8.0.25-r1 8.0.26 8.0.27: A fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.2.5 3.3.0: C++ API interface to the MySQL database
 dev-db/mysql-cluster 7.2.34 7.3.22 7.4.21: An enhanced, drop-in replacement for MySQL
-dev-db/mysql-connector-c 8.0.22 8.0.23-r1 8.0.25 8.0.25-r1 8.0.26: C client library for MariaDB/MySQL
+dev-db/mysql-connector-c 8.0.22 8.0.23-r1 8.0.25 8.0.25-r1 8.0.26 8.0.27: C client library for MariaDB/MySQL
 dev-db/mysql-connector-c++ 1.1.12-r1 8.0.24 8.0.25 8.0.26: MySQL database connector for C++ (mimics JDBC 4.0 API)
 dev-db/mysql-init-scripts 2.3-r3: Gentoo MySQL init scripts.
 dev-db/mysql-super-smack 1.3-r4: Benchmarking, stress testing, and load generation tool for MySQL & PostGreSQL
@@ -3973,7 +3973,7 @@ dev-db/oracle-instantclient-basic 12: Transition package moving to single dev-db
 dev-db/oracle-instantclient-jdbc 12: Transition package moving to single dev-db/oracle-instantclient package
 dev-db/oracle-instantclient-odbc 12: Transition package moving to single dev-db/oracle-instantclient package
 dev-db/oracle-instantclient-sqlplus 12: Transition package moving to single dev-db/oracle-instantclient package
-dev-db/percona-server 8.0.22.13 8.0.23.14 8.0.25.15: Fully compatible, enhanced and open source drop-in replacement for MySQL
+dev-db/percona-server 8.0.25.15 8.0.26.16: Fully compatible, enhanced and open source drop-in replacement for MySQL
 dev-db/percona-toolkit 2.2.20 3.0.9 3.0.13 3.1.0-r1 3.2.1 3.3.0 3.3.1: Advanced command-line tools to perform a variety of MySQL and system tasks
 dev-db/percona-xtrabackup 2.4.15 2.4.24 8.0.25.17 8.0.26.18: Hot backup utility for MySQL based servers
 dev-db/percona-xtrabackup-bin 2.4.13-r1: MySQL hot backup software. non-blocking backups for InnoDB/XtraDB databases
@@ -8141,7 +8141,7 @@ dev-php/agavi 1.0.8: PHP MVC application framework
 dev-php/awl 0.61 0.62: Andrew McMillan's Web Libraries
 dev-php/ca-bundle 1.1.3 1.2.11 1.3.1: Find the system CA bundle or fall back to the Mozilla one
 dev-php/cli-prompt 1.0.0 1.0.3: Allows you to prompt for user input on the command line
-dev-php/composer 1.10.22-r1 2.0.13 2.0.14 2.1.1 2.1.2 2.1.3 2.1.5 2.1.6 2.1.8 2.1.9 2.1.10 2.1.11: Dependency Manager for PHP
+dev-php/composer 1.10.22-r1 2.0.13 2.0.14 2.1.1 2.1.2 2.1.3 2.1.5 2.1.6 2.1.8 2.1.9 2.1.10 2.1.11 2.1.12: Dependency Manager for PHP
 dev-php/cphplib 0.51-r1: Cute PHP Library (cphplib)
 dev-php/doctrine 2.6.1 2.6.4: An object relational mapper for PHP
 dev-php/doctrine-instantiator 1.0.5 1.1.0 1.3.0 1.3.1 1.4.0: Utility to instantiate objects in PHP without invoking their constructors
@@ -8164,7 +8164,7 @@ dev-php/pecl-amqp 1.10.2 1.11.0_beta: PHP Bindings for AMQP 0-9-1 compatible bro
 dev-php/pecl-apcu 5.1.19 5.1.20 5.1.21: Stripped down version of APC supporting only user cache
 dev-php/pecl-apcu_bc 1.0.5: Provides APC backwards compatibility functions via APCu
 dev-php/pecl-crack 0.4-r7 0.4-r8: PHP interface to the cracklib libraries
-dev-php/pecl-dbase 7.0.1 7.1.0: dBase database file access functions
+dev-php/pecl-dbase 7.0.1 7.1.0 7.1.1: dBase database file access functions
 dev-php/pecl-dio 0.2.0-r1: Direct I/O functions for PHP
 dev-php/pecl-eio 2.0.4-r1 3.0.0_rc2: PHP wrapper for libeio library
 dev-php/pecl-event 2.5.7 3.0.2_p1: PHP wrapper for libevent2
@@ -8920,7 +8920,7 @@ dev-python/munkres 1.1.4: Module implementing munkres algorithm for the Assignme
 dev-python/mygpoclient 1.8: A gpodder.net client library
 dev-python/mypy 0.910-r1: Optional static typing for Python
 dev-python/mypy_extensions 0.4.3-r1: Optional static typing for Python
-dev-python/mysql-connector-python 8.0.26: Python client library for MariaDB/MySQL
+dev-python/mysql-connector-python 8.0.26 8.0.27: Python client library for MariaDB/MySQL
 dev-python/mysqlclient 1.4.6-r1 2.0.3: Fork of MySQL-python
 dev-python/nagiosplugin 1.3.2-r1: A class library for writing nagios-compatible plugins
 dev-python/namespace-google 1-r1: Namespace package declaration for google
@@ -13283,7 +13283,7 @@ media-gfx/hydrus 457 458 459.3 460 9999: A booru-like media organizer for the de
 media-gfx/icon-slicer 0.3: utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
 media-gfx/igal 2.0-r1: Static HTML image gallery generator
-media-gfx/imagemagick 6.9.12.20 6.9.12.21 6.9.12.25 6.9.12.28 7.1.0.5 7.1.0.6 7.1.0.10 7.1.0.13 9999: A collection of tools and libraries for many image formats
+media-gfx/imagemagick 6.9.12.28 7.1.0.13 9999: A collection of tools and libraries for many image formats
 media-gfx/imageworsener 1.3.3 1.3.4: Utility for image scaling and processing
 media-gfx/img2pdf 0.4.1 0.4.1-r1: Losslessly convert raster images to PDF
 media-gfx/imv 4.3.0 9999: Minimal image viewer designed for tiling window manager users
@@ -18414,7 +18414,7 @@ www-apps/nanoc-core 4.11.12 4.12.2: nanoc is a simple but very flexible static s
 www-apps/nanoc-deploying 1.0.1: Provides deploying functionality for Nanoc
 www-apps/nanoc-spec 0.0.2: Provides Nanoc::Spec, containing functionality for writing tests for Nanoc
 www-apps/nextcloud 20.0.13 20.0.14 21.0.5 21.0.6 22.2.0 22.2.2: Personal cloud that runs on your own server
-www-apps/nextcloud-notify_push 0.1.7 0.2.0 0.2.1 0.2.2 0.2.4: Push daemon for Nextcloud clients
+www-apps/nextcloud-notify_push 0.1.7 0.2.0 0.2.1 0.2.2 0.2.4 0.3.0: Push daemon for Nextcloud clients
 www-apps/nikola 8.1.3: A static website and blog generator
 www-apps/novnc 1.2.0 9999: noVNC is a VNC client implemented using HTML5 technologies
 www-apps/owncloud 10.8.0: Web-based storage application where all your data is under your own control
