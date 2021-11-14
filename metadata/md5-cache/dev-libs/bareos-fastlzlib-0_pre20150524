@@ -1,10 +1,11 @@
-DEFINED_PHASES=configure install
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install
 DESCRIPTION=Fork of zlib-like interface to fast block compression (LZ4 or FastLZ) libraries
-EAPI=5
+EAPI=8
 HOMEPAGE=https://github.com/bareos/fastlzlib
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-1 BSD-2
 RDEPEND=!app-arch/lz4
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~mschiff/distfiles/bareos-fastlzlib-0_pre20150524.zip
-_md5_=1a077cafd7e7ef4dc8f474f698c6e502
+_md5_=169d56dbb65dc5114256e579cc5e9ccb
