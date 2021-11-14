@@ -1,23 +1,24 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools xdg
 
 DESCRIPTION="Integrates the most accurate Amiga emulation code available from WinUAE"
 HOMEPAGE="https://fs-uae.net/"
-SRC_URI="https://fs-uae.net/stable/${PV}/${P}.tar.gz"
+SRC_URI="https://fs-uae.net/files/FS-UAE/Stable/${PV}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="fmv glew"
+KEYWORDS="~amd64 ~ppc64"
+IUSE="fmv glew +jit"
 
 RDEPEND="
 	dev-libs/glib:2
 	media-libs/libpng:0=
 	media-libs/libsdl2[opengl,X]
 	media-libs/openal
+	sys-libs/zlib
 	virtual/opengl
 	x11-libs/libdrm
 	x11-libs/libX11
@@ -39,6 +40,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.0-libmpeg2.patch
 	"${FILESDIR}"/${PN}-3.0.0-Xatom.h.patch
+	"${FILESDIR}"/${PN}-3.1.35-deepbind.patch
 )
 
 src_prepare() {
@@ -50,10 +52,6 @@ src_prepare() {
 	# used? Lua is bundled but differs from upstream. We keep the
 	# default of disabling the Lua feature anyway as it is unfinished.
 	rm -r libmpeg2/ libudis86/ || die
-
-	# Fix building with GCC 11 / C++-17. This code was removed from master so
-	# this change has not been sent upstream.
-	sed -i "s/ throw([^)]*)//g" src/dosbox/setup.h || die
 }
 
 src_configure() {
@@ -72,8 +70,7 @@ src_configure() {
 		--enable-drivesound \
 		--enable-fdi2raw \
 		--enable-gfxboard \
-		--enable-jit \
-		--enable-jit-fpu \
+		--disable-lua \
 		--enable-netplay \
 		--enable-ncr \
 		--enable-ncr9x \
@@ -94,8 +91,11 @@ src_configure() {
 		--enable-vpar \
 		--enable-xml-shader \
 		--enable-zip \
+		--without-cef \
 		--with-glad \
 		--without-qt \
+		$(use_enable jit) \
+		$(use_enable jit jit-fpu) \
 		$(use_with fmv libmpeg2) \
 		$(use_with glew)
 }
