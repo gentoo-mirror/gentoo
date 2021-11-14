@@ -3,13 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit desktop python-single-r1
 
 DESCRIPTION="Traditional and challenging 2D platformer game with a slight rotational twist"
-HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
+HOMEPAGE="https://www.oletus.fi/static/whichwayisup/"
 SRC_URI="
-	mirror://gentoo/${PN}_b$(ver_rs 1- '').zip
+	https://www.oletus.fi/static/whichwayisup/${PN}_b079.zip
+	mirror://debian/pool/main/${P::1}/${PN}/${PN}_${PV/_p*}-${PV/*_p}.debian.tar.xz
 	https://dev.gentoo.org/~ionen/distfiles/${PN}.png"
 S="${WORKDIR}/${PN}"
 
@@ -28,12 +29,13 @@ BDEPEND="
 	app-arch/unzip"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-check_for_joystick_axes_not_null.patch
-	"${FILESDIR}"/${P}-initialize_only_required_pygame_modules.patch
-	"${FILESDIR}"/${P}-python3.patch
+	"${WORKDIR}"/debian/patches
 )
 
 src_prepare() {
+	# drop Debian specific patch
+	rm "${WORKDIR}"/debian/patches/font_path.patch || die
+
 	default
 
 	sed -i "/libdir =/s|= .*|= \"${EPREFIX}/usr/share/${PN}/lib\"|" run_game.py || die
