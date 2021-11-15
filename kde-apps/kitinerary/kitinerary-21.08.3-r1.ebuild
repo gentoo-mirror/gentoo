@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.80.0
+KFMIN=5.84.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -15,12 +15,15 @@ HOMEPAGE="https://apps.kde.org/kontact/"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
-KEYWORDS="amd64 arm64 ~ppc64 x86"
+KEYWORDS="~amd64"
 IUSE="+barcode pdf"
 
 REQUIRED_USE="test? ( pdf )"
 
 DEPEND="
+	dev-libs/libphonenumber
+	dev-libs/libxml2:2
+	dev-libs/openssl:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=kde-apps/kmime-${PVCUT}:5
@@ -34,12 +37,12 @@ DEPEND="
 	pdf? ( app-text/poppler:=[qt5] )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="x11-misc/shared-mime-info"
 
 src_configure() {
 	local mycmakeargs=(
 		# sci-geosciences/osmctools; TODO: useful at all?
 		-DCMAKE_DISABLE_FIND_PACKAGE_OsmTools=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_PhoneNumber=ON
 		$(cmake_use_find_package barcode ZXing)
 		$(cmake_use_find_package pdf Poppler)
 	)
