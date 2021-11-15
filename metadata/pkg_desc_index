@@ -39,7 +39,7 @@ acct-group/boinc 0: Group for sci-misc/boinc
 acct-group/buildbot 0-r1: Buildbot program group
 acct-group/bumblebee 0: System group: bumblebee
 acct-group/burp 0-r1: Group for the app-backup/burp server
-acct-group/burrow_exporter 0: A group for app-metrics/burrow_exporter
+acct-group/burrow_exporter 0-r1: A group for app-metrics/burrow_exporter
 acct-group/cadvisor 0-r1: System group: cadvisor
 acct-group/cancd 0: A group for the CA NetConsole Daemon
 acct-group/carbon 0-r1: System group: carbon
@@ -88,7 +88,7 @@ acct-group/dovecot 0-r1: System group: dovecot
 acct-group/dovenull 0-r1: System group: dovenull
 acct-group/drone 0: A group for dev-util/drone
 acct-group/elasticsearch 0-r1: Elasticsearch program group
-acct-group/elasticsearch_exporter 0: A group for app-metrics/elasticsearch_exporter
+acct-group/elasticsearch_exporter 0-r1: A group for app-metrics/elasticsearch_exporter
 acct-group/energi3 0: Group for system-wide net-p2p/energi3
 acct-group/epam 0: Group for ejabberd's epam functionality
 acct-group/epmd 0-r1: Group for Erlang Portmapper Daemon
@@ -105,7 +105,7 @@ acct-group/fingerprint 0-r1: System group: fingerprint
 acct-group/firebird 0: A group for dev-db/firebird
 acct-group/flatpak 0: System group: flatpak
 acct-group/flows 0: gid for net-analyzer/flow-tools
-acct-group/fluentd 0: A group for app-admin/fluentd
+acct-group/fluentd 0-r1: A group for app-admin/fluentd
 acct-group/foldingathome 0: A group for sci-biology/foldingathome
 acct-group/fp-multiuser 0: A group for net-vpn/fp-multiuser
 acct-group/freenet 0: Group for net-p2p/freenet
@@ -304,7 +304,7 @@ acct-group/redis 0-r1: Redis program group
 acct-group/redis_exporter 0: System group: redis_exporter
 acct-group/redmine 0-r1: System group: redmine
 acct-group/redsocks 0-r1: A group for net-proxy/redsocks
-acct-group/reg 0: A group for app-emulation/reg
+acct-group/reg 0-r1: A group for app-emulation/reg
 acct-group/registry 0: A group for app-emulation/docker-registry
 acct-group/render 0-r1: System group: render
 acct-group/resin 0: A group for www-servers/resin
@@ -379,7 +379,7 @@ acct-group/svxlink 0: A group for the svxlink server
 acct-group/swift 0-r1: System group: swift
 acct-group/syncthing 0-r1: Group for the system-wide net-p2p/syncthing server
 acct-group/systemd-coredump 0-r1: System group: systemd-coredump
-acct-group/systemd-hostname 0: System group: systemd-hostname
+acct-group/systemd-hostname 0-r1: System group: systemd-hostname
 acct-group/systemd-journal 0-r1: System group: systemd-journal
 acct-group/systemd-journal-remote 0-r1: System group: systemd-journal-remote
 acct-group/systemd-network 0-r1: System group: systemd-network
@@ -486,7 +486,7 @@ acct-user/blackbox_exporter 0: A user for blackbox_exporter
 acct-user/boinc 0: User for sci-misc/boinc
 acct-user/buildbot 0-r1: Buildbot program user
 acct-user/burp 0-r1: User for the app-backup/burp server
-acct-user/burrow_exporter 0: A user for app-metrics/burrow_exporter
+acct-user/burrow_exporter 0-r1: A user for app-metrics/burrow_exporter
 acct-user/cadvisor 0-r1: User for cadvisor
 acct-user/cancd 0-r1: A user for the CA NetConsole Daemon
 acct-user/carbon 0-r1: User for graphite/carbon suite
@@ -535,7 +535,7 @@ acct-user/dovenull 0-r1: user for dovecot daemon
 acct-user/drone 0: A user for dev-util/drone
 acct-user/duende 0-r1: System user: duende
 acct-user/elasticsearch 0-r1: Elasticsearch program user
-acct-user/elasticsearch_exporter 0: A user for app-metrics/burrow_exporter
+acct-user/elasticsearch_exporter 0-r1: A user for app-metrics/elasticsearch_exporter
 acct-user/energi3 0: User for net-p2p/energi3
 acct-user/epmd 0-r1: User for Erlang Portmapper Daemon
 acct-user/err 0: System user: err
@@ -549,7 +549,7 @@ acct-user/fetchmail 0-r1: User for net-mail/fetchmail
 acct-user/fhem 0-r1: A user for the FHEM perl server for house automation
 acct-user/flatpak 0: System user: flatpak
 acct-user/flows 0: uid for net-analyzer/flow-tools
-acct-user/fluentd 0: A user for app-admin/fluentd
+acct-user/fluentd 0-r1: A user for app-admin/fluentd
 acct-user/fnord 0: User for www-servers/fnord
 acct-user/fnordlog 0: User for www-servers/fnord
 acct-user/foldingathome 0: A user for sci-biology/foldingathome
@@ -736,7 +736,7 @@ acct-user/redis 0-r1: Redis program user
 acct-user/redis_exporter 0: A user for app-metrics/redis_exporter
 acct-user/redmine 0-r1: Redmine application user
 acct-user/redsocks 0-r1: A user for net-proxy/redsocks
-acct-user/reg 0: A user for app-emulation/reg
+acct-user/reg 0-r1: A user for app-emulation/reg
 acct-user/registry 0: A user for app-emulation/docker-registry
 acct-user/root 0-r1: System user: root
 acct-user/ros 0: A user for dev-ros/roslaunch
@@ -10873,7 +10873,7 @@ dev-scheme/escm 1.1-r1: escm - Embedded Scheme Processor
 dev-scheme/gambit 4.8.8-r1 4.8.8-r2 4.9.3: Gambit-C is a native Scheme to C compiler and interpreter
 dev-scheme/gauche 0.9.10-r1: A Unix system friendly Scheme Interpreter
 dev-scheme/gauche-cdb 0.3.1-r1: CDB binding for Gauche
-dev-scheme/gauche-gl 0.6: OpenGL binding for Gauche
+dev-scheme/gauche-gl 0.6-r1: OpenGL binding for Gauche
 dev-scheme/gauche-gtk 0.6_pre1-r1: GTK2 binding for Gauche
 dev-scheme/gauche-kakasi 0.1: Kakasi binding for Gauche
 dev-scheme/gauche-mecab 1.0.2: MeCab binding for Gauche
@@ -12764,7 +12764,7 @@ kde-misc/plasma-pass 1.2.0: Plasma applet to access password from pass
 kde-misc/playbar2 2.5-r1: MPRIS2 client, written in QML for Plasma 5
 kde-misc/rsibreak 0.12.14: Small utility which bothers you at certain intervals
 kde-misc/skanlite 2.2.0 21.08.3: Simple image scanning application based on libksane and KDE Frameworks
-kde-misc/tellico 3.4.1: Collection manager based on KDE Frameworks
+kde-misc/tellico 3.4.1 3.4.2: Collection manager based on KDE Frameworks
 kde-misc/ultimate-gmail-feed 2.1: Plasma 5 widget showing your Gmail feed
 kde-misc/wacomtablet 3.2.0: System settings module for Wacom tablets
 kde-misc/zanshin 0.5.71-r2: Getting things done application by KDE
@@ -13300,7 +13300,7 @@ media-gfx/jpegoptim 1.4.6: Utility to optimize JPEG files
 media-gfx/jpegpixi 1.1.1: almost lossless JPEG pixel interpolator, for correcting digital camera defects
 media-gfx/jpegtoavi 1.5: JPEG to AVI/MJPEG animation command-line conversion tool
 media-gfx/kcoloredit 2.0.0_p20171121-r1: Tool for editing color palettes
-media-gfx/kgeotag 1.1.0: Photo geotagging program
+media-gfx/kgeotag 1.1.0 1.2.0: Photo geotagging program
 media-gfx/kgraphviewer 2.4.3-r1: Graphviz dot graph file viewer
 media-gfx/kphotoalbum 5.8.1: Tool for indexing, searching, and viewing images
 media-gfx/krita 4.4.8-r1: Free digital painting application. Digital Painting, Creative Freedom!
@@ -16178,7 +16178,7 @@ sci-astronomy/gasgano 2.4.8: ESO astronomical data file organizer
 sci-astronomy/gnuastro 0.3: GNU Astronomy Utilities
 sci-astronomy/healpix 3.31: Hierarchical Equal Area isoLatitude Pixelization of a sphere
 sci-astronomy/idlastro 20161220 99999999: Astronomical user routines for IDL
-sci-astronomy/kstars 3.5.3 3.5.5: Desktop Planetarium
+sci-astronomy/kstars 3.5.3 3.5.5 3.5.6: Desktop Planetarium
 sci-astronomy/missfits 2.8.0: Performs basic maintenance and packaging tasks on FITS files
 sci-astronomy/montage 5.0: Toolkit for assembling FITS images into mosaics
 sci-astronomy/pal 0.9.7: Positional Astronomy Library
@@ -16635,7 +16635,7 @@ sci-libs/ignition-fuel-tools 4.4.0: Classes and tools for interacting with Ignit
 sci-libs/ignition-math 6.8.0: A small, fast, and high performance math library for robot applications
 sci-libs/iml 1.0.5: Integer Matrix Library
 sci-libs/inchi 1.04: Program and library for generating standard and non-standard InChI and InChIKeys
-sci-libs/indilib 1.9.1-r1 1.9.2: INDI Astronomical Control Protocol library
+sci-libs/indilib 1.9.1-r1 1.9.2 1.9.3: INDI Astronomical Control Protocol library
 sci-libs/io_lib 1.14.7: General purpose trace and experiment file reading/writing interface
 sci-libs/ipopt 3.12.12: Interior-Point Optimizer for large-scale nonlinear optimization
 sci-libs/itpp 4.3.1-r1: C++ library of mathematical, signal processing and communication
