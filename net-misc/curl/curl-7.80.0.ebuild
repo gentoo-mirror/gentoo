@@ -80,10 +80,10 @@ RDEPEND="ldap? ( net-nds/openldap[${MULTILIB_USEDEP}] )
 # fbopenssl  $(use_with spnego)
 
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
+BDEPEND="dev-lang/perl
+	virtual/pkgconfig
 	test? (
 		sys-apps/diffutils
-		dev-lang/perl
 	)"
 
 DOCS=( CHANGES README docs/{FEATURES.md,INTERNALS.md,FAQ,BUGS.md,CONTRIBUTE.md} )
@@ -201,7 +201,7 @@ multilib_src_configure() {
 		--enable-dateparse
 		--enable-dnsshuffle
 		--enable-doh
-		--enable-hidden-symbols
+		--enable-symbol-hiding
 		--enable-http-auth
 		$(use_enable ipv6)
 		--enable-largefile
