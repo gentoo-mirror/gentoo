@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 inherit python-r1
 
 DESCRIPTION="TensorFlow's Visualization Toolkit"
@@ -40,18 +40,19 @@ S="${WORKDIR}"
 src_prepare() {
 	eapply_user
 
-	rm -rf "${S}/${PN}/_vendor/bleach" || die
-	rm -rf "${S}/${PN}/_vendor/html5lib" || die
-	sed -i -e '/_vendor.bleach/d' -e '/_vendor.html5lib/d' "${S}/${P}.dist-info/RECORD" || die "failed to unvendor"
+	sed -i -e '/_vendor.__init__/d' -e '/_vendor.bleach/d' -e '/_vendor.html5lib/d' -e '/_vendor.webencodings/d' \
+		"${S}/${P}.dist-info/RECORD" || die "failed to unvendor"
+	grep -q "_vendor" "${S}/${P}.dist-info/RECORD" && die "More vendored deps found"
 
 	find "${S}/${PN}" -name '*.py' -exec sed -i \
-		-e 's/^from tensorboard\._vendor import html5lib/import html5lib/' \
-		-e 's/^from tensorboard\._vendor import bleach/import bleach/' \
-		-e 's/^from tensorboard\._vendor\.html5lib/from html5lib/' \
-		-e 's/^from tensorboard\._vendor\.bleach/from bleach/' \
+		-e 's/^from tensorboard\._vendor import /import /' \
+		-e 's/^from tensorboard\._vendor\./from /' \
 		{} + || die "failed to unvendor"
 
+	rm -rf "${S}/${PN}/_vendor" || die
+
 	sed -i -e '/tensorboard-plugin-/d' "${S}/${P}.dist-info/METADATA" || die "failed to remove plugin deps"
+	sed -i -e '/tensorboard-data-server/d' "${S}/${P}.dist-info/METADATA" || die "failed to remove data-server deps"
 }
 
 src_install() {
