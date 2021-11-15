@@ -4,9 +4,9 @@
 EAPI=7
 inherit acct-user
 
-DESCRIPTION="A user for app-admin/fluentd"
+DESCRIPTION="A user for app-metrics/elasticsearch_exporter"
 
-ACCT_USER_ID=93
-ACCT_USER_GROUPS=( fluentd )
+ACCT_USER_ID=501
+ACCT_USER_GROUPS=( elasticsearch_exporter )
 
 acct-user_add_deps

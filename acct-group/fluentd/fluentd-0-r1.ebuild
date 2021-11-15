@@ -5,6 +5,6 @@ EAPI=7
 
 inherit acct-group
 
-DESCRIPTION="A group for app-emulation/reg"
+DESCRIPTION="A group for app-admin/fluentd"
 
-ACCT_GROUP_ID="94"
+ACCT_GROUP_ID="504"

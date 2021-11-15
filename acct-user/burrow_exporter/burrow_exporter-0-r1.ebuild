@@ -6,7 +6,7 @@ inherit acct-user
 
 DESCRIPTION="A user for app-metrics/burrow_exporter"
 
-ACCT_USER_ID=98
-ACCT_USER_GROUPS=( elasticsearch_exporter )
+ACCT_USER_ID=502
+ACCT_USER_GROUPS=( burrow_exporter )
 
 acct-user_add_deps
