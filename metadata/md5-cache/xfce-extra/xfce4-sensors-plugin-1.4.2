@@ -1,0 +1,16 @@
+BDEPEND=dev-util/intltool virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=>=x11-libs/gtk+-3.20:3= >=xfce-base/libxfce4ui-4.14:= >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.12:= hddtemp? ( app-admin/hddtemp || ( net-analyzer/openbsd-netcat net-analyzer/netcat ) ) libnotify? ( >=x11-libs/libnotify-0.7:= ) lm-sensors? ( >=sys-apps/lm-sensors-3.1.0:= ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
+DESCRIPTION=A panel plug-in for acpi, lm-sensors and hddtemp sensors
+EAPI=8
+HOMEPAGE=https://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin
+INHERIT=xdg-utils
+IUSE=+acpi hddtemp libnotify lm-sensors video_cards_nvidia
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=>=x11-libs/gtk+-3.20:3= >=xfce-base/libxfce4ui-4.14:= >=xfce-base/libxfce4util-4.14:= >=xfce-base/xfce4-panel-4.12:= hddtemp? ( app-admin/hddtemp || ( net-analyzer/openbsd-netcat net-analyzer/netcat ) ) libnotify? ( >=x11-libs/libnotify-0.7:= ) lm-sensors? ( >=sys-apps/lm-sensors-3.1.0:= ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
+REQUIRED_USE=|| ( hddtemp lm-sensors acpi )
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/panel-plugins/xfce4-sensors-plugin/1.4/xfce4-sensors-plugin-1.4.2.tar.bz2
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=f6a854d9511acfe5698e59a8d0728a5d
