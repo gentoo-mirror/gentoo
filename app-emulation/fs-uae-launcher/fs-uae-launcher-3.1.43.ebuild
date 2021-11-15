@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9} )
 DISTUTILS_SINGLE_IMPL=1
@@ -11,7 +11,7 @@ inherit distutils-r1 xdg
 
 DESCRIPTION="PyQt5-based launcher for FS-UAE"
 HOMEPAGE="https://fs-uae.net/"
-SRC_URI="https://fs-uae.net/stable/${PV}/${P}.tar.gz"
+SRC_URI="https://fs-uae.net/files/FS-UAE-Launcher/Stable/${PV}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -35,15 +35,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.0-ROMs.patch
 )
-
-src_prepare() {
-	default
-
-	# Unbundle OpenGL library. Keep oyoyo IRC library because upstream
-	# is long dead and it's not worth packaging separately.
-	rm -r OpenGL/ || die
-	sed -i -r "/OpenGL/d" setup.py || die
-}
 
 python_compile_all() {
 	emake
