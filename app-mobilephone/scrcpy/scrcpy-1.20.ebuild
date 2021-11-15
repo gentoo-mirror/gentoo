@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson
+inherit meson xdg
 
 DESCRIPTION="Display and control your Android device"
 HOMEPAGE="https://github.com/Genymobile/scrcpy"
@@ -26,4 +26,17 @@ src_configure() {
 		-Dprebuilt_server="${DISTDIR}/${PN}-server-v${PV}"
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	xdg_pkg_postrm
+
+	elog "If scrcpy returns an error like"
+	elog ""
+	elog "[server] ERROR: Exception on thread Thread[main,5,main]"
+	elog "java.lang.IllegalArgumentException"
+	elog "at android.media.MediaCodec.native_configure(Native Method)"
+	elog ""
+	elog "Just try with a lower definition:"
+	elog "scrcpy -m 1920 or scrcpy -m 1024"
 }
