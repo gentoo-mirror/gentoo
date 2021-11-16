@@ -1,14 +1,15 @@
-BDEPEND=>=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-util/cmocka ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
 DEPEND=atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia? ( sys-apps/pciutils ) ch341a-spi? ( virtual/libusb:1 ) dediprog? ( virtual/libusb:1 ) developerbox-spi? ( virtual/libusb:1 ) digilent-spi? ( virtual/libusb:1 ) drkaiser? ( sys-apps/pciutils ) ft2232-spi? ( dev-embedded/libftdi:1= ) gfxnvidia? ( sys-apps/pciutils ) internal? ( sys-apps/pciutils ) it8212? ( sys-apps/pciutils ) jlink-spi? ( dev-embedded/libjaylink ) nic3com? ( sys-apps/pciutils ) nicintel-eeprom? ( sys-apps/pciutils ) nicintel-spi? ( sys-apps/pciutils ) nicintel? ( sys-apps/pciutils ) nicnatsemi? ( sys-apps/pciutils ) nicrealtek? ( sys-apps/pciutils ) ogp-spi? ( sys-apps/pciutils ) pickit2-spi? ( virtual/libusb:0 ) raiden-debug-spi? ( virtual/libusb:0 ) rayer-spi? ( sys-apps/pciutils ) satamv? ( sys-apps/pciutils ) satasii? ( sys-apps/pciutils ) stlinkv3-spi? ( virtual/libusb:1 ) usbblaster-spi? ( dev-embedded/libftdi:1= ) sys-apps/diffutils
 DESCRIPTION=Utility for reading, writing, erasing and verifying flash ROM chips
-EAPI=7
+EAPI=8
 HOMEPAGE=https://flashrom.org/Flashrom
 INHERIT=meson git-r3
-IUSE=atahpt atapromise +atavia +buspirate-spi +ch341a-spi +dediprog +developerbox-spi +digilent-spi +drkaiser +dummy +ene-lpc +ft2232-spi +gfxnvidia +internal +it8212 jlink-spi +linux-mtd +linux-spi lspcon-i2c-spi +mec1308 mstarddc-spi +nic3com +nicintel +nicintel-eeprom +nicintel-spi nicnatsemi +nicrealtek +ogp-spi +pickit2-spi +pony-spi +raiden-debug-spi +rayer-spi realtek-mst-i2c-spi +satamv +satasii +serprog +stlinkv3-spi +usbblaster-spi +internal-dmi tools +wiki
+IUSE=atahpt atapromise +atavia +buspirate-spi +ch341a-spi +dediprog +developerbox-spi +digilent-spi +drkaiser +dummy +ft2232-spi +gfxnvidia +internal +it8212 jlink-spi +linux-mtd +linux-spi lspcon-i2c-spi mstarddc-spi +nic3com +nicintel +nicintel-eeprom +nicintel-spi nicnatsemi +nicrealtek +ogp-spi +pickit2-spi +pony-spi +raiden-debug-spi +rayer-spi realtek-mst-i2c-spi +satamv +satasii +serprog +stlinkv3-spi +usbblaster-spi +internal-dmi test tools +wiki
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia? ( sys-apps/pciutils ) ch341a-spi? ( virtual/libusb:1 ) dediprog? ( virtual/libusb:1 ) developerbox-spi? ( virtual/libusb:1 ) digilent-spi? ( virtual/libusb:1 ) drkaiser? ( sys-apps/pciutils ) ft2232-spi? ( dev-embedded/libftdi:1= ) gfxnvidia? ( sys-apps/pciutils ) internal? ( sys-apps/pciutils ) it8212? ( sys-apps/pciutils ) jlink-spi? ( dev-embedded/libjaylink ) nic3com? ( sys-apps/pciutils ) nicintel-eeprom? ( sys-apps/pciutils ) nicintel-spi? ( sys-apps/pciutils ) nicintel? ( sys-apps/pciutils ) nicnatsemi? ( sys-apps/pciutils ) nicrealtek? ( sys-apps/pciutils ) ogp-spi? ( sys-apps/pciutils ) pickit2-spi? ( virtual/libusb:0 ) raiden-debug-spi? ( virtual/libusb:0 ) rayer-spi? ( sys-apps/pciutils ) satamv? ( sys-apps/pciutils ) satasii? ( sys-apps/pciutils ) stlinkv3-spi? ( virtual/libusb:1 ) usbblaster-spi? ( dev-embedded/libftdi:1= ) !internal-dmi? ( sys-apps/dmidecode )
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=30592f691a6d64d77fb02fc8bbccb421
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=529d83de1f20d1e41f2251fe04596330
