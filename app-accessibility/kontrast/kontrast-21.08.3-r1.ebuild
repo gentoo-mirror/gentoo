@@ -25,10 +25,14 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
 	kde-plasma/xdg-desktop-portal-kde
 "
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 Declarative
+}
