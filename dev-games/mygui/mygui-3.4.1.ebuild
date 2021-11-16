@@ -3,9 +3,8 @@
 
 EAPI=7
 
-CMAKE_REMOVE_MODULES="yes"
 CMAKE_REMOVE_MODULES_LIST="FindFreetype"
-inherit cmake-utils flag-o-matic multilib
+inherit cmake flag-o-matic multilib
 
 MY_PN=MyGUI
 MY_P=${MY_PN}${PV}
@@ -41,9 +40,8 @@ S=${WORKDIR}/mygui-${MY_P}
 STATIC_BUILD=${WORKDIR}/${P}_build_static
 
 PATCHES=(
-	"${FILESDIR}"/${P}-underlinking.patch
 	"${FILESDIR}"/${P}-build.patch
-	"${FILESDIR}"/${PN}-3.2.2-FHS.patch
+	"${FILESDIR}"/${P}-FHS.patch
 )
 
 pkg_setup() {
@@ -64,15 +62,15 @@ src_configure() {
 			-DMYGUI_BUILD_DOCS=OFF
 			-DMYGUI_INSTALL_DOCS=OFF
 			-DMYGUI_USE_FREETYPE=ON
-			$(cmake-utils_use plugins MYGUI_BUILD_PLUGINS)
+			-DMYGUI_BUILD_PLUGINS=$(usex plugins)
 			-DMYGUI_BUILD_DEMOS=OFF
-			-DMYGUI_INSTALL_SAMPLES=OFF
+			-DMYGUI_INSTALL_DEMOS=OFF
 			-DMYGUI_BUILD_TOOLS=OFF
 			-DMYGUI_INSTALL_TOOLS=OFF
 			-DMYGUI_BUILD_WRAPPER=OFF
 			-DMYGUI_RENDERSYSTEM=$(usex opengl "4" "$(usex ogre "3" "1")") )
 
-		CMAKE_BUILD_DIR=${STATIC_BUILD} cmake-utils_src_configure
+		CMAKE_BUILD_DIR=${STATIC_BUILD} cmake_src_configure
 		unset mycmakeargs
 	fi
 
@@ -93,12 +91,12 @@ src_configure() {
 	if use ogre && use samples; then
 		mycmakeargs+=(
 			-DMYGUI_BUILD_DEMOS=ON
-			-DMYGUI_INSTALL_SAMPLES=ON
+			-DMYGUI_INSTALL_DEMOS=ON
 		)
 	else
 		mycmakeargs+=(
 			-DMYGUI_BUILD_DEMOS=OFF
-			-DMYGUI_INSTALL_SAMPLES=OFF
+			-DMYGUI_INSTALL_DEMOS=OFF
 		)
 
 	fi
@@ -109,23 +107,23 @@ src_configure() {
 		mycmakeargs+=( -DMYGUI_INSTALL_MEDIA=OFF )
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_compile() {
 	# build system does not support building static and shared at once,
 	# run a double build
 	if use static-libs ; then
-		CMAKE_BUILD_DIR=${STATIC_BUILD} cmake-utils_src_compile
+		CMAKE_BUILD_DIR=${STATIC_BUILD} cmake_src_compile
 	fi
 
-	cmake-utils_src_compile
+	cmake_src_compile
 
 	use doc && emake -C "${CMAKE_BUILD_DIR}"/Docs api-docs
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 
 	if use static-libs ; then
 		find "${STATIC_BUILD}" -name "*.a" \! -name "libCommon.a" -exec dolib.a '{}' \;

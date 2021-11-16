@@ -10,15 +10,6 @@ diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
  # should we build static libs?
  if (MYGUI_STATIC)
    set(MYGUI_LIB_TYPE STATIC)
-@@ -47,7 +49,7 @@ if (UNIX)
-   else ()
-     configure_file(${MYGUI_TEMPLATES_DIR}/MYGUI.pc.in ${MYGUI_BINARY_DIR}/pkgconfig/MYGUI${MYGUI_LIB_SUFFIX}.pc @ONLY)
-   endif ()
--  install(FILES ${MYGUI_BINARY_DIR}/pkgconfig/MYGUI${MYGUI_LIB_SUFFIX}.pc DESTINATION lib/pkgconfig)
-+  install(FILES ${MYGUI_BINARY_DIR}/pkgconfig/MYGUI${MYGUI_LIB_SUFFIX}.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
- 
-   # configure additional packages
-   
 diff --git a/CMake/Utils/MyGUIConfigTargets.cmake b/CMake/Utils/MyGUIConfigTargets.cmake
 --- a/CMake/Utils/MyGUIConfigTargets.cmake
 +++ b/CMake/Utils/MyGUIConfigTargets.cmake
