@@ -20,11 +20,12 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="telemetry"
 
+RESTRICT="test" # 11 out of 21 tests fail...
+
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
@@ -49,7 +50,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test" # 11 out of 21 tests fail...
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 GrantleeTheme
+}
 
 src_configure() {
 	local mycmakeargs=(

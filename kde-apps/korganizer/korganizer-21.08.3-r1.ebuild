@@ -19,9 +19,9 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="telemetry X"
 
-BDEPEND="
-	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
-"
+# testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
+RESTRICT="test"
+
 COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -31,10 +31,8 @@ COMMON_DEPEND="
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/akonadi-notes-${PVCUT}:5
-	>=kde-apps/akonadi-search-${PVCUT}:5
 	>=kde-apps/calendarsupport-${PVCUT}:5
 	>=kde-apps/eventviews-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/incidenceeditor-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
@@ -82,9 +80,16 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
+BDEPEND="
+	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
+"
 
-# testkodaymatrix is broken, akonadi* tests need DBus, bug #665686
-RESTRICT="test"
+PATCHES=( "${FILESDIR}/${P}-unused-deps.patch" )
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_bogus_dep KF5 GrantleeTheme
+}
 
 src_configure() {
 	local mycmakeargs=(
