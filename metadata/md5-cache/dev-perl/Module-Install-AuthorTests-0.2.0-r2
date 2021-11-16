@@ -1,7 +1,8 @@
+BDEPEND=dev-perl/Module-Install virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Module-Install virtual/perl-ExtUtils-MakeMaker dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Designate tests only run by module authors
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Module-Install-AuthorTests
 INHERIT=perl-module
 IUSE=test
@@ -11,5 +12,5 @@ RDEPEND=dev-perl/Module-Install dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/Module-Install-AuthorTests-0.002.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=19489baefb06ff8a02baa2451a77f7e4
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=aad7f09a2e017b0daa8052a78282b4d2
