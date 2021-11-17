@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install setup
+DEPEND=dev-ada/gnatcoll-core:0/22.0.0[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?] sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) xref? ( dev-ada/gnatcoll-bindings:0/22.0.0[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,iconv,shared?,static-libs?,static-pic?] ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-ada/gprbuild[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?]
+DESCRIPTION=GNAT Component Collection
+EAPI=7
+HOMEPAGE=http://libre.adacore.com
+INHERIT=ada multiprocessing python-single-r1
+IUSE=db2ada gnatinspect postgres +shared sql sqlite static-libs static-pic xref ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-ada/gnatcoll-core:0/22.0.0[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?] sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) xref? ( dev-ada/gnatcoll-bindings:0/22.0.0[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,iconv,shared?,static-libs?,static-pic?] ) ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+REQUIRED_USE=gnatinspect? ( xref ) xref? ( sqlite ) sqlite? ( sql ) db2ada? ( sql ) postgres? ( sql ) ^^ ( ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+SLOT=0/22.0.0
+SRC_URI=https://github.com/AdaCore/gnatcoll-db/archive/v22.0.0.tar.gz -> gnatcoll-db-22.0.0.tar.gz
+_eclasses_=ada	404e63451400970e82fe33ec6856fe0d	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_md5_=8bbd6ae35201279b1e88152fb713073f
