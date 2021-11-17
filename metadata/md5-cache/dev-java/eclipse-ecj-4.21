@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test
+DEPEND=app-eselect/eselect-java dev-java/ant-core:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Eclipse Compiler for Java
+EAPI=7
+HOMEPAGE=http://www.eclipse.org/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=+ant elibc_FreeBSD doc source
+KEYWORDS=~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+LICENSE=EPL-1.0
+PDEPEND=app-arch/unzip ant? ( ~dev-java/ant-eclipse-ecj-4.21 )
+RDEPEND=app-eselect/eselect-java dev-java/ant-core:0 >=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=4.21
+SRC_URI=http://download.eclipse.org/eclipse/downloads/drops4/R-4.21-202109060500/ecjsrc-4.21.jar
+_eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	java-pkg-simple	148ea0f0bf459bdb4768a56036df3cc2
+_md5_=5366f9089c76975d81ebe16004626b46
