@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
 DEPEND=alsa? ( media-libs/alsa-lib ) jack? ( media-libs/alsa-lib virtual/jack ) pulseaudio? ( media-sound/pulseaudio )
 DESCRIPTION=A set of cross-platform C++ classes for realtime audio I/O
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( alsa jack pulseaudio )
 SLOT=0/6
 SRC_URI=https://github.com/thestk/rtaudio/archive/refs/tags/5.2.0.tar.gz -> rtaudio-5.2.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=61746591473498041db8f0ed5cbf1c6e
+_md5_=a6c913f29477063f89f513998ca49e80
