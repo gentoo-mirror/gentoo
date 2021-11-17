@@ -1326,11 +1326,11 @@
     <name>Hardened</name>
     <url>https://wiki.gentoo.org/wiki/Project:Hardened</url>
     <description>Hardened Gentoo is a project which oversees the research, implementation, and maintenance of security oriented projects for Gentoo Linux.</description>
-    <subproject ref="musl@gentoo.org"/>
+    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="uclibc@gentoo.org"/>
-    <subproject ref="integrity@gentoo.org"/>
+    <subproject ref="integrity@gentoo.org" inherit-members="1"/>
     <subproject ref="rsbac@gentoo.org"/>
-    <subproject ref="selinux@gentoo.org"/>
+    <subproject ref="selinux@gentoo.org" inherit-members="1"/>
     <member>
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
@@ -1360,6 +1360,10 @@
       <email>prometheanfire@gentoo.org</email>
       <name>Matthew Thode</name>
       <role>Developer</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
     </member>
     <member>
       <email>williamh@gentoo.org</email>
