@@ -1,16 +1,16 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig
+BDEPEND=sys-devel/autoconf-archive sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst postrm preinst prepare setup
-DEPEND=dev-db/sqlite:3 dev-libs/glib:2 dev-libs/gmp:0= dev-libs/libxml2 media-fonts/dejavu media-libs/freetype:2 media-libs/libcanberra media-libs/libpng:0= sys-libs/readline:0= x11-libs/cairo x11-libs/pango gtk? ( x11-libs/gtk+:2 ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) virtual/libintl dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=dev-db/sqlite:3 dev-libs/glib:2 dev-libs/gmp:0= dev-libs/libxml2 media-fonts/dejavu media-libs/freetype:2 media-libs/libcanberra media-libs/libpng:0= sys-libs/readline:0= x11-libs/cairo x11-libs/pango gtk? ( x11-libs/gtk+:2 ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) ) virtual/libintl dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=GNU BackGammon
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/gnubg/
-INHERIT=desktop python-single-r1 xdg
-IUSE=cpu_flags_x86_avx gtk python sqlite cpu_flags_x86_sse cpu_flags_x86_sse2 threads python_single_target_python3_8 python_single_target_python3_9
+INHERIT=autotools desktop python-single-r1 xdg
+IUSE=cpu_flags_x86_avx gtk python sqlite cpu_flags_x86_sse cpu_flags_x86_sse2 threads python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64 ~arm ~ppc64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-db/sqlite:3 dev-libs/glib:2 dev-libs/gmp:0= dev-libs/libxml2 media-fonts/dejavu media-libs/freetype:2 media-libs/libcanberra media-libs/libpng:0= sys-libs/readline:0= x11-libs/cairo x11-libs/pango gtk? ( x11-libs/gtk+:2 ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) virtual/libintl
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
+RDEPEND=dev-db/sqlite:3 dev-libs/glib:2 dev-libs/gmp:0= dev-libs/libxml2 media-fonts/dejavu media-libs/freetype:2 media-libs/libcanberra media-libs/libpng:0= sys-libs/readline:0= x11-libs/cairo x11-libs/pango gtk? ( x11-libs/gtk+:2 ) python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) ) virtual/libintl
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 SLOT=0
 SRC_URI=ftp://ftp.gnu.org/gnu/gnubg/gnubg-release-1.06.002-sources.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=e86436af35293bfc9139ef4cf9cf1166
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	desktop	c0d27bf73aa08ca05b663dbd31fbef28	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=2ca8e28f96aae1c050f9e9b7805c6c75
