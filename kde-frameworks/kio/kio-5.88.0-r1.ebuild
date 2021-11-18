@@ -70,6 +70,8 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
+PATCHES=( "${FILESDIR}"/${P}-fix-copy-between-filesystems.patch )
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
