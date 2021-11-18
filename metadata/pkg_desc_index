@@ -900,7 +900,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.20.65 1.21.5 1.21.12 1.22.5 1.22.6 1.22.7 1.22.8: Universal Command Line Environment for AWS
+app-admin/awscli 1.20.65 1.21.5 1.21.12 1.22.5 1.22.6 1.22.7 1.22.8 1.22.9: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.2 1.28.3: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -2643,7 +2643,7 @@ app-i18n/libkkc 0.3.5_p20210928 9999: Japanese Kana Kanji conversion input metho
 app-i18n/libkkc-data 0.2.7: Language model data for libkkc
 app-i18n/libpinyin 2.3.0 9999: Libraries for handling of Hanyu Pinyin and Zhuyin Fuhao
 app-i18n/librime 1.5.3-r2 1.6.0-r1 1.6.1-r1 1.7.3-r1: RIME (Rime Input Method Engine) core library
-app-i18n/librime-lua 20201011103348 99999999999999: Lua support for RIME
+app-i18n/librime-lua 20201011103348 20211030072627 99999999999999: Lua module for RIME
 app-i18n/libskk 1.0.5 1.0.5_p20210830: GObject-based library to deal with Japanese kana-to-kanji conversion method
 app-i18n/man-pages-ja 20180315-r1: A collection of manual pages translated into Japanese
 app-i18n/man-pages-l10n 4.10.0: A somewhat comprehensive collection of man page translations
@@ -5346,7 +5346,7 @@ dev-java/picocli 4.6.1 4.6.2: Java command line parser with both an annotations 
 dev-java/plexus-classworlds 2.2.3: The class loader framework of the Plexus project
 dev-java/poi 5.0.0: Maven build of Apache POI for Sonar checks
 dev-java/portletapi 1.0-r1 2.0-r1: Portlet API 2.0 developed by the Java Community Process JSR-286
-dev-java/protobuf-java 3.15.8 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Java bindings
+dev-java/protobuf-java 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Java bindings
 dev-java/qdox 1.6.3-r2 1.12.1-r2: Parser for extracting class/interface/method definitions
 dev-java/randomized-runner 2.7.8: JUnit test runner and plugins for running JUnit tests with pseudo-randomness.
 dev-java/rat 0.13: Apache Rat is a release audit tool, focused on licenses.
@@ -5977,7 +5977,7 @@ dev-libs/poco 1.9.0-r2 1.10.1: C++ libraries for building network-based applicat
 dev-libs/popt 1.18: Parse Options - Command line parser
 dev-libs/ppl 1.2-r4: The Parma Polyhedra Library for numerical analysis of complex systems
 dev-libs/processor-trace 2.0: Intel(R) Processor Trace decoder library
-dev-libs/protobuf 3.15.8 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
+dev-libs/protobuf 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
 dev-libs/protobuf-c 1.3.3-r1 1.4.0-r1: Protocol Buffers implementation in C
 dev-libs/pslib 0.4.5: pslib is a C-library to create PostScript files on the fly
 dev-libs/ptexenc 1.3.9_p20210325-r1: Library for Japanese pTeX providing a better way of handling character encodings
@@ -5994,7 +5994,7 @@ dev-libs/raft 0.11.2: C implementation of the Raft consensus protocol
 dev-libs/rapidjson 1.1.0-r2 1.1.0-r3 9999: A fast JSON parser/generator for C++ with both SAX/DOM style API
 dev-libs/rasqal 0.9.33: Library that handles Resource Description Framework (RDF)
 dev-libs/rccl 4.0.0-r2 4.3.0: ROCm Communication Collectives Library (RCCL)
-dev-libs/re2 0.2021.04.01 0.2021.06.01: An efficient, principled regular expression library
+dev-libs/re2 0.2021.06.01 0.2021.11.01: An efficient, principled regular expression library
 dev-libs/redland 1.0.17-r2: High-level interface for the Resource Description Framework
 dev-libs/redland-bindings 1.0.17.1-r100: Language bindings for Redland
 dev-libs/rinutils 0.8.0: Set of C headers containing macros and static functions
@@ -8388,8 +8388,8 @@ dev-python/bluelet 0.2.0: Module for pure Python asynchronous I/O using coroutin
 dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.18.65 1.19.5 1.19.12 1.20.5 1.20.6 1.20.7 1.20.8 9999: The AWS SDK for Python
-dev-python/botocore 1.21.65 1.22.5 1.22.12 1.23.5 1.23.6 1.23.7 1.23.8 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.18.65 1.19.5 1.19.12 1.20.5 1.20.6 1.20.7 1.20.8 1.20.9 9999: The AWS SDK for Python
+dev-python/botocore 1.21.65 1.22.5 1.22.12 1.23.5 1.23.6 1.23.7 1.23.8 1.23.9 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2-r1: Fast NumPy array functions written in C
 dev-python/bpython 0.21 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8543,7 +8543,7 @@ dev-python/django-tagging 0.5.0: Generic tagging application for Django
 dev-python/django-taggit 1.5.1 2.0.0: Simple tagging for Django
 dev-python/django-taggit-serializer 0.1.7: the django taggit serializer for the django rest framework
 dev-python/django-timezone-field 4.2.1: A Django app providing database and form fields for pytz timezone objects
-dev-python/django_polymorphic 3.0.0: Seamless Polymorphic Inheritance for Django Models
+dev-python/django_polymorphic 3.0.0 3.1: Seamless Polymorphic Inheritance for Django Models
 dev-python/djangorestframework 3.12.4: Web APIs with django made easy
 dev-python/dkimpy 1.0.5: DKIM and ARC email signing and verification library
 dev-python/dns-lexicon 3.8.3: Manipulate DNS records on various DNS providers in a standardized/agnostic way
@@ -8720,9 +8720,9 @@ dev-python/humanize 3.11.0 3.12.0-r2: Common humanization utilities
 dev-python/hvac 0.11.2: hashicorp vault client in python
 dev-python/hyperframe 5.2.0 6.0.1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0: A featureful, correct URL for Python
-dev-python/hypothesis 6.24.2 6.24.4 6.24.5: A library for property based testing
+dev-python/hypothesis 6.24.2 6.24.4 6.24.5 6.24.6: A library for property based testing
 dev-python/icalendar 4.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.3.3 2.3.5 2.3.6: File identification library for Python
+dev-python/identify 2.3.3 2.3.5 2.3.6 2.3.7: File identification library for Python
 dev-python/idna 3.3: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.1.7: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
@@ -8985,7 +8985,7 @@ dev-python/oslo-context 3.3.1 3.4.0: Helpers to maintain useful information abou
 dev-python/oslo-i18n 5.1.0: Oslo i18n library
 dev-python/oslo-log 4.6.0 4.6.1: OpenStack logging config library, configuration for all openstack projects.
 dev-python/oslo-serialization 4.2.0: Oslo Serialization library
-dev-python/oslo-utils 4.10.0 4.11.0: Oslo Utility library
+dev-python/oslo-utils 4.10.0 4.11.0 4.12.0: Oslo Utility library
 dev-python/oslotest 4.5.0: Oslo test framework
 dev-python/osrf_pycommon 1.0.0: Commonly needed Python modules used by Python software developed at OSRF
 dev-python/outcome 1.1.0: Capture the outcome of Python function calls
@@ -9019,7 +9019,7 @@ dev-python/pathtools 0.1.2-r3: Pattern matching and various utilities for file s
 dev-python/patiencediff 0.2.2: Python implementation of the patiencediff algorithm
 dev-python/patsy 0.5.2: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r1: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
-dev-python/pbr 5.6.0 5.7.0: Inject some useful and sensible default behaviors into setuptools
+dev-python/pbr 5.6.0 5.7.0 5.8.0: Inject some useful and sensible default behaviors into setuptools
 dev-python/pdfrw 0.4_p1: PDF file reader/writer library
 dev-python/pdoc3 0.10.0: Auto-generate API documentation for Python projects
 dev-python/pebble 4.6.3: Threading and multiprocessing eye-candy
@@ -9078,7 +9078,7 @@ dev-python/progressbar2 3.55.0: Text progressbar library for python
 dev-python/prometheus_client 0.11.0 0.12.0: Python client for the Prometheus monitoring system
 dev-python/prompt_toolkit 3.0.22: Building powerful interactive command lines in Python
 dev-python/proto-plus 1.19.2 1.19.7 1.19.8: Beautiful, Pythonic protocol buffers
-dev-python/protobuf-python 3.15.8 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Python bindings
+dev-python/protobuf-python 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Python bindings
 dev-python/prov 2.0.0: W3C provenance data dodel library
 dev-python/pslab-python 1.0.1-r1: Python library for communicating with Pocket Science Lab
 dev-python/psutil 5.7.3: Retrieve information on running processes and system utilization
@@ -13633,7 +13633,7 @@ media-libs/libogg 1.3.5: The Ogg media file format library
 media-libs/liboggz 1.1.1: Oggz provides a simple programming interface for reading and writing Ogg files and streams
 media-libs/libopenaptx 0.2.0 0.2.1 9999: Reverse-engineered aptX and aptX HD library
 media-libs/libopenglrecorder 0.1.0: Library for asynchronous OpenGL recording with audio
-media-libs/libopenmpt 0.5.12: Library to decode tracked music files (modules)
+media-libs/libopenmpt 0.5.13: Library to decode tracked music files (modules)
 media-libs/libopenraw 0.1.3: RAW image formats decoding library
 media-libs/libopenshot 0.2.5-r1 0.2.6: Video editing library used by OpenShot
 media-libs/libopenshot-audio 0.2.0 0.2.1: Library for audio editing and playback used by OpenShot
@@ -14319,7 +14319,7 @@ media-sound/normalize 0.7.7-r1: Audio file volume normalizer
 media-sound/ogg2mp3 0.6.1-r1: Perl script to convert Ogg Vorbis files to MP3 files
 media-sound/oggtst 0.0: A tool for calculating ogg-vorbis playing time
 media-sound/ogmtools 1.5-r3: Information, extraction or creation for OGG media streams
-media-sound/openmpt123 0.5.12: libopenmpt-based command line player for tracked music files (modules)
+media-sound/openmpt123 0.5.13: libopenmpt-based command line player for tracked music files (modules)
 media-sound/opus-tools 0.2: Royalty-free, highly versatile audio codec
 media-sound/orpheus 1.6-r3: Command line MP3 player
 media-sound/pamix 1.6-r2 9999: A PulseAudio NCurses mixer
@@ -17964,8 +17964,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r1 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.148 5.4.155 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.68 5.10.75 5.10.76 5.10.77 5.10.78 5.10.79 5.10.80 5.13.19 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.19 5.14.20 5.15.1 5.15.2: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.148 5.4.148-r1 5.4.155 5.4.155-r1 5.4.156 5.4.156-r1 5.4.157 5.4.157-r1 5.4.158 5.4.158-r1 5.4.159 5.4.159-r1 5.4.160 5.10.68 5.10.68-r1 5.10.75 5.10.75-r1 5.10.76 5.10.76-r1 5.10.77 5.10.77-r2 5.10.78 5.10.78-r1 5.10.79 5.10.79-r1 5.10.80 5.13.19 5.13.19-r1 5.14.14 5.14.14-r1 5.14.15 5.14.15-r1 5.14.16 5.14.16-r1 5.14.17 5.14.17-r1 5.14.18 5.14.18-r1 5.14.19 5.14.20 5.15.1 5.15.2: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.148 5.4.155 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.68 5.10.75 5.10.76 5.10.77 5.10.78 5.10.79 5.10.80 5.13.19 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.19 5.14.20 5.15.1 5.15.2 5.15.3: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.148 5.4.148-r1 5.4.155 5.4.155-r1 5.4.156 5.4.156-r1 5.4.157 5.4.157-r1 5.4.158 5.4.158-r1 5.4.159 5.4.159-r1 5.4.160 5.10.68 5.10.68-r1 5.10.75 5.10.75-r1 5.10.76 5.10.76-r1 5.10.77 5.10.77-r2 5.10.78 5.10.78-r1 5.10.79 5.10.79-r1 5.10.80 5.13.19 5.13.19-r1 5.14.14 5.14.14-r1 5.14.15 5.14.15-r1 5.14.16 5.14.16-r1 5.14.17 5.14.17-r1 5.14.18 5.14.18-r1 5.14.19 5.14.20 5.15.1 5.15.2 5.15.3: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.290 4.4.291 4.4.292 4.9.288 4.9.289 4.9.290 4.14.253 4.14.254 4.14.255 4.19.214 4.19.215 4.19.216 4.19.217 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.76-r1 5.10.77 5.10.78 5.10.79 5.10.80 5.14.10 5.14.13 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.20 5.15.0 5.15.1 5.15.2 5.15.3: Full sources including the Gentoo patchset for the 5.15 kernel tree
 sys-kernel/git-sources 5.16_rc1: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17981,7 +17981,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224-r1 4.9.282_p187 4.14.246_p122 4.19.206_p87 5.4.143_p64 5.10.59_p52 5.14.2_p21: Full Linux 5.14 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.148 5.4.155 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.68 5.10.75 5.10.76 5.10.77 5.10.78 5.10.79 5.10.80 5.13.19 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.19 5.14.20 5.15.1 5.15.2: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.148 5.4.155 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.68 5.10.75 5.10.76 5.10.77 5.10.78 5.10.79 5.10.80 5.13.19 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.19 5.14.20 5.15.1 5.15.2 5.15.3: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.292 4.9.290 4.14.255 4.19.217 5.4.160 5.10.80 5.14.20 5.15.3: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.13.13 5.14.15: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2: Standalone argp library for use with uclibc
@@ -18164,7 +18164,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.148 5.4.155 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.68 5.10.75 5.10.76 5.10.77 5.10.78 5.10.79 5.10.80 5.13.19 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.19 5.14.20 5.15.1 5.15.2: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.148 5.4.155 5.4.156 5.4.157 5.4.158 5.4.159 5.4.160 5.10.68 5.10.75 5.10.76 5.10.77 5.10.78 5.10.79 5.10.80 5.13.19 5.14.14 5.14.15 5.14.16 5.14.17 5.14.18 5.14.19 5.14.20 5.15.1 5.15.2 5.15.3: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
