@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-ada/gprbuild[ada_target_gnat_2019(-)?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?]
+DESCRIPTION=Ada unit testing framework
+EAPI=7
+HOMEPAGE=http://libre.adacore.com/tools/aunit/
+INHERIT=ada multiprocessing
+IUSE=ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gnat_2019? ( dev-lang/gnat-gpl:8.3.1 ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 )
+REQUIRED_USE=^^ ( ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021 )
+SLOT=0
+SRC_URI=https://github.com/AdaCore/aunit/archive/refs/tags/v22.0.0.tar.gz -> aunit-22.0.0.tar.gz
+_eclasses_=ada	404e63451400970e82fe33ec6856fe0d	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
+_md5_=8ae06797ce7c3d1d651d254b986ac406
