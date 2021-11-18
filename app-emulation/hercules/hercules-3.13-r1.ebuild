@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit autotools flag-o-matic
 
@@ -15,15 +15,17 @@ KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86 ~x64-macos"
 IUSE="bzip2 custom-cflags +suid"
 
 RDEPEND="
-	dev-libs/libltdl
+	dev-libs/libltdl:=
 	net-libs/libnsl:0=
-	sys-libs/zlib
-	bzip2? ( app-arch/bzip2 )"
+	sys-libs/zlib:=
+	bzip2? ( app-arch/bzip2:= )"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.13-htmldir.patch
+	"${FILESDIR}"/${PN}-3.13-posix-test.patch
 	"${FILESDIR}"/${PN}-3.13-unbundle-libltdl.patch
+	"${FILESDIR}"/${PN}-3.13-user-install.patch
 )
 
 src_prepare() {
@@ -32,6 +34,11 @@ src_prepare() {
 	# delete bundled libltdl, #252716
 	rm ltdl.{c,h} || die
 	eautoreconf
+
+	# The local modules need local libs, so when doing a parallel install
+	# of the modules and libs breaks during relinking.  Force the libs to
+	# install first, and then the modules that use those libs.  #488126
+	echo "install-modexecLTLIBRARIES: install-libLTLIBRARIES" >> Makefile.in || die
 }
 
 src_configure() {
@@ -49,9 +56,11 @@ src_install() {
 	default
 	dodoc RELEASE.NOTES
 
+	use suid && fperms 4711 /usr/bin/hercifc
+
 	insinto /usr/share/hercules
 	doins hercules.cnf
 
-	# no static archives
-	find "${D}" -name '*.la' -delete || die
+	# No static archives.  Have to leave .la files for modules. #720342
+	rm "${ED}/usr/$(get_libdir)/"*.la || die
 }
