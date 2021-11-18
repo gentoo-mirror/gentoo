@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Moose >=dev-perl/MooseX-Role-Parameterized-1.10.0 dev-perl/namespace-autoclean virtual/perl-ExtUtils-MakeMaker test? ( !minimal? ( >=virtual/perl-CPAN-Meta-2.120.900 ) virtual/perl-File-Spec >=virtual/perl-Test-Simple-0.960.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=teach ->new to accept single, non-hashref arguments
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/MooseX-OneArgNew
+INHERIT=perl-module
+IUSE=minimal test
+KEYWORDS=amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Moose >=dev-perl/MooseX-Role-Parameterized-1.10.0 dev-perl/namespace-autoclean dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/MooseX-OneArgNew-0.005.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=60427b9186ab86c4998f4c24bbd90e36

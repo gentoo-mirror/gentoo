@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/MooseX-ConfigFromFile >=dev-perl/Moose-0.350.0 >=dev-perl/Config-Any-0.130.0 >=dev-perl/Module-Build-Tiny-0.39.0 test? ( virtual/perl-ExtUtils-MakeMaker virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.880.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=A Moose role for setting attributes from a simple configfile
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/MooseX-SimpleConfig
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/MooseX-ConfigFromFile >=dev-perl/Moose-0.350.0 >=dev-perl/Config-Any-0.130.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/MooseX-SimpleConfig-0.11.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=fb560b65bc050d3b224fd7d698c5d60a

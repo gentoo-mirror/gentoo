@@ -1,14 +1,16 @@
+BDEPEND=dev-perl/JSON >=dev-perl/JSON-XS-2.00 dev-perl/Moose dev-perl/MooseX-Types dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/JSON >=dev-perl/JSON-XS-2.00 dev-perl/Moose dev-perl/MooseX-Types dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=JSON datatype for Moose
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/MooseX-Types-JSON
 INHERIT=perl-module
-IUSE=examples
+IUSE=test examples
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-solaris
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/JSON >=dev-perl/JSON-XS-2.00 dev-perl/Moose dev-perl/MooseX-Types dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MI/MILA/MooseX-Types-JSON-1.00.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=139bbeac15f37f6a2bc80a2597ffbd5f
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=cb373788df5438cea52d05af42639fda
