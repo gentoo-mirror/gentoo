@@ -3,29 +3,30 @@
 
 EAPI=7
 
-WX_GTK_VER="3.0"
+WX_GTK_VER="3.0-gtk3"
 inherit cmake wxwidgets
 
-MY_PN="BR24radar_pi"
+MY_PN="AISradar_pi"
 if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/canboat/${MY_PN}.git"
+	EGIT_REPO_URI="https://github.com/rgleason/${MY_PN}.git"
+	https://github.com/rgleason/AISradar_pi
 else
-	SRC_URI="https://github.com/canboat/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/rgleason/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${MY_PN}-${PV}"
 fi
 
-DESCRIPTION="Navico (Simrad, Lowrance) Broadband BR24/3G/4G Radar Plugin for OpenCPN"
-HOMEPAGE="https://github.com/canboat/BR24radar_pi"
+DESCRIPTION="AIS Radar View Plugin for OpenCPN"
+HOMEPAGE="https://github.com/rgleason/AISradar_pi"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-2+"
 SLOT="0"
 
 RDEPEND="
 	x11-libs/wxGTK:${WX_GTK_VER}
-	>=sci-geosciences/opencpn-4.2.0"
+	sci-geosciences/opencpn:="
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/gettext"
 
