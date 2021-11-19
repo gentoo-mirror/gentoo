@@ -1,11 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# TODO: test phase
+EAPI=8
 
-EAPI=7
-
-PYTHON_COMPAT=( python{3_7,3_8} )
+PYTHON_COMPAT=( python3_{8,9} )
 PYTHON_REQ_USE="xml"
 
 inherit distutils-r1
@@ -19,15 +17,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-CDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
-DEPEND="
-	${CDEPEND}
+BDEPEND="
 	test? ( dev-python/nose[${PYTHON_USEDEP}] )"
 
 RDEPEND="
-	${CDEPEND}
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-libs/openssl:0="
+
 RESTRICT="test" # currently fail
 
 python_install() {
