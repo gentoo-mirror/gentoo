@@ -1,10 +1,13 @@
+BDEPEND=test? ( dev-util/cram )
 DEFINED_PHASES=compile install
 DESCRIPTION=Send a collection of patches as emails
 EAPI=7
 HOMEPAGE=https://github.com/roman-neuhauser/git-mailz/
+IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
 RDEPEND=app-shells/zsh dev-vcs/git virtual/mta
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://codex.sigpipe.cz/git-mailz/git-mailz-0.14.tar.gz
-_md5_=bf118c8360d47e5e897908a520f4d1b3
+_md5_=ff28fba2ed22879207d0a28e6194fccf
