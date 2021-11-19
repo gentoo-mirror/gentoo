@@ -38,7 +38,6 @@ DOCS=( ChangeLog ReadMe.md )
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WITH_QT6=OFF
-		-DQTKEYCHAIN_STATIC=OFF
 		-DBUILD_TEST_APPLICATION=OFF
 		-DBUILD_TRANSLATIONS=ON
 		-DLIBSECRET_SUPPORT=$(usex gnome-keyring)
