@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2021-11-19)
+# Doesn't work with latest versions of adb, source not easily ported
+# to python 3.9 and 3.10. No upstream activity for 7 years.
+# Removal on 2021-12-19.  Bug #825038.
+app-mobilephone/adb-sync
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-18)
 # Library without consumers, Removal in 30 days.
 dev-java/piccolo2d
@@ -483,72 +489,6 @@ media-gfx/iscan-plugin-perfection-v370
 # Suggested replacement - net-misc/whois
 # Masked for removal on 2021-11-22
 net-misc/bwwhois
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# Dead upstream, EAPI 5, broken build system, no revdeps.
-# Removal on 2021-11-20. Bug #819366
-net-analyzer/quidscor
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, no revdeps, dead upstream, EAPI 5.
-# No other distro is packaging this.
-# Removal on 2021-11-20. Bug #819363
-net-dialup/cistronradius
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, no revdeps, dead upstream, EAPI 5.
-# No other distro is packaging this.
-# Removal on 2021-11-20. Bug #819354
-net-dialup/fbgetty
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# Legacy package, no revdeps, EAPI 5.
-# Removal on 2021-11-20. Bug #819345
-net-fs/openafs-legacy
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, dead upstream, EAPI 5.
-# No other distro is packaging this. Bug #819339
-# Removal on 2021-11-20.
-net-ftp/profxp
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, dead upstream, EAPI 5.
-# No other distro is packaging this. Bug #819231
-# Removal on 2021-11-20.
-sys-auth/ykneo-ccid-tools
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, dead upstream, EAPI 5.
-# No other distro is packaging this. Bug #819171
-# Removal on 2021-11-20.
-x11-apps/xwarppointer
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, EAPI 5, no other distro is packaging this.
-# Removal on 2021-11-20. Bug #819165
-x11-misc/3dfb
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# Unmaintained, stuck on EAPI 5, full of hacks and patches.
-# No other distro is packaging this. Bug #819141
-# Removal on 2021-11-20.
-x11-themes/redhat-artwork
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, EAPI 5, no other distro is packaging this.
-# Removal on 2021-11-20. Bug #819126
-sci-geosciences/swmm
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# No maintainer, EAPI 5, no other distro is packaging this.
-# Removal on 2021-11-20. Bug #819123
-sci-geosciences/harmonics-dwf-free-noncomm
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-21)
-# Stuck on EAPI 5, no other distro is packaging this. Bug #575684
-# Removal on 2021-11-20.
-sci-electronics/quartus-prime-lite
 
 # Sam James <sam@gentoo.org> (2021-10-10)
 # Needs upstream build system fixes (currently in progress).
