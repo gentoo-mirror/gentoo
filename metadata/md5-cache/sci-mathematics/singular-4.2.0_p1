@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.singular.uni-kl.de/ https://github.com/Singular/Sources
 INHERIT=autotools elisp-common
 IUSE=emacs examples +readline static-libs
-KEYWORDS=amd64 ppc x86 ~x86-linux
+KEYWORDS=amd64 ~ppc x86 ~x86-linux
 LICENSE=BSD GPL-2 GPL-3
 RDEPEND=dev-libs/gmp:0 dev-libs/ntl:= emacs? ( >=app-editors/emacs-23.1:* ) sci-mathematics/flint sci-libs/cddlib dev-lang/perl readline? ( sys-libs/readline )
 SLOT=0
 SRC_URI=ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-2-0/singular-4.2.0p1.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	elisp-common	cf4fd1b0835b9f3e638724840468064a
-_md5_=e7eb022fe1abff7402cb2aa50e40f56c
+_md5_=91d26230905826486e83bb27e60570dc

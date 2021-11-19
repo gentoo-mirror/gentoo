@@ -4,11 +4,11 @@ DESCRIPTION=Display 3D molecules (e.g., proteins) in schematic and detailed repr
 EAPI=5
 HOMEPAGE=http://www.avatar.se/molscript/
 INHERIT=epatch toolchain-funcs
-KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux
 LICENSE=glut molscript
 RDEPEND=media-libs/freeglut media-libs/gd:2= media-libs/libpng:0= virtual/jpeg:0= || ( x11-libs/libXmu x11-libs/libXext x11-libs/libX11 )
 RESTRICT=fetch
 SLOT=0
 SRC_URI=molscript-2.1.2.tar.gz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=46da3f0d3100abb26a1c6e77e0628fb3
+_md5_=ad412a372120faaa2971f69d91ee3a15
