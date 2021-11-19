@@ -1,7 +1,8 @@
+BDEPEND=ipv6? ( dev-perl/Socket6 ) virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=ipv6? ( dev-perl/Socket6 ) virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-lang/perl
+DEPEND=dev-lang/perl
 DESCRIPTION=Manipulation and operations on IP addresses
-EAPI=6
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/NetAddr-IP
 INHERIT=perl-module
 IUSE=ipv6 test
@@ -11,5 +12,5 @@ RDEPEND=ipv6? ( dev-perl/Socket6 ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MI/MIKER/NetAddr-IP-4.079.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=75e1c52e8322aef06b14617f3c6d76b6
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=60377cc8ed49de4fbe3947ca1f1a84e3

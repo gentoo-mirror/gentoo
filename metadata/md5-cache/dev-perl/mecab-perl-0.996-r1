@@ -1,13 +1,16 @@
+BDEPEND=~app-text/mecab-0.996 dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=~app-text/mecab-0.996 dev-lang/perl
 DESCRIPTION=Perl binding for MeCab
-EAPI=6
+EAPI=8
 HOMEPAGE=http://taku910.github.io/mecab/
 INHERIT=perl-module
+IUSE=test
 KEYWORDS=amd64 ~ia64 x86
 LICENSE=|| ( BSD LGPL-2.1 GPL-2 )
 RDEPEND=~app-text/mecab-0.996 dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mecab/mecab-perl-0.996.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=5796154c42c4e47dc9f7f001837275f9
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=30e61c21a22dd195501f220ec8247883

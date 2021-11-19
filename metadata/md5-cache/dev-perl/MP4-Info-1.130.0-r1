@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Encode dev-perl/IO-String dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Fetch info from MPEG-4 files (.mp4, .m4a, .m4p, .3gp)
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/MP4-Info
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Encode dev-perl/IO-String dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/J/JH/JHAR/MP4-Info-1.13.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=284f8e4a32fe93dc30b33952f32cb57c
