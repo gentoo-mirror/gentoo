@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install prepare
 DEPEND=sys-apps/miscfiles sys-libs/ncurses:=[unicode(+)] !games-puzzle/hangman !games-misc/wumpus
 DESCRIPTION=collection of games from NetBSD
 EAPI=7
@@ -12,4 +12,4 @@ RESTRICT=test
 SLOT=0/3
 SRC_URI=https://github.com/msharov/bsd-games/archive/refs/tags/v3.1.tar.gz -> bsd-games-3.1.tar.gz https://dev.gentoo.org/~sam/distfiles/games-misc/bsd-games/bsd-games-3.1-verbose-build.patch.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=4739b4e1988ea0f8fbc6b509e534bdbb
+_md5_=7c1b27a83c520cb0fc949ea58d765bb9
