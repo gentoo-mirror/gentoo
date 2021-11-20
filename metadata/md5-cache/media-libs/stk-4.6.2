@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) dev-lang/perl
+DESCRIPTION=Synthesis ToolKit in C++
+EAPI=8
+HOMEPAGE=https://ccrma.stanford.edu/software/stk/
+INHERIT=autotools
+IUSE=alsa debug doc jack oss static-libs
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack )
+SLOT=0
+SRC_URI=https://ccrma.stanford.edu/software/stk/release/stk-4.6.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=3c41fdb543d4237efd96bbddb85f27a2
