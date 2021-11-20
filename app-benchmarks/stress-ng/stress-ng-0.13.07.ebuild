@@ -44,10 +44,11 @@ pkg_pretend() {
 src_compile() {
 	tc-export CC
 
+	export MAN_COMPRESS="0"
+
 	local myemakeopts=(
 		HAVE_APPARMOR="$(usex apparmor 1 0)"
 		HAVE_LIB_SCTP="$(usex sctp 1 0)"
-		MAN_COMPRESS="0"
 		VERBOSE="1"
 	)
 
