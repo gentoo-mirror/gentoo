@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/PDL
 INHERIT=perl-module fortran-2
 IUSE=+badval doc fortran gd gsl hdf netpbm pdl2 pgplot threads test test examples
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=|| ( Artistic GPL-1+ ) public-domain PerlDL
 RDEPEND=sys-libs/ncurses:0= app-arch/sharutils dev-perl/Astro-FITS-Header dev-perl/Convert-UU >=virtual/perl-Data-Dumper-2.121.0 >=dev-perl/File-Map-0.570.0 >=virtual/perl-Filter-Simple-0.880.0 dev-perl/Filter >=dev-perl/Inline-0.830.0 >=dev-perl/Inline-C-0.620.0 >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Module-Compile >=dev-perl/OpenGL-0.700.0 >=dev-perl/TermReadKey-2.340.0 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) >=virtual/perl-Data-Dumper-2.121.0 dev-perl/Pod-Parser virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-Filter-Simple virtual/perl-Storable >=virtual/perl-Text-Balanced-1.890.0 fortran? ( >=dev-perl/ExtUtils-F77-1.260.0 ) gd? ( media-libs/gd ) gsl? ( sci-libs/gsl ) hdf? ( sci-libs/hdf dev-perl/Alien-HDF4 ) netpbm? ( media-libs/netpbm media-video/ffmpeg ) pdl2? ( >=dev-perl/Devel-REPL-1.3.11 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) ) pgplot? ( dev-perl/PGPLOT ) dev-lang/perl:= fortran? ( virtual/fortran )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/PDL-2.054.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
-_md5_=c7001fba1f39e50ac74d1f00d453f662
+_md5_=2cd2cf5da4a8bf521031db4d31ba3a32
