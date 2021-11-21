@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-LLVM_MAX_SLOT=12
+LLVM_MAX_SLOT=13
 PLOCALES="cs da de fr hr ja pl ru sl uk zh-CN zh-TW"
 
 inherit llvm qmake-utils virtualx xdg
@@ -43,7 +43,7 @@ REQUIRED_USE="
 "
 
 # minimum Qt version required
-QT_PV="5.14:5"
+QT_PV="5.15:5"
 
 BDEPEND="
 	>=dev-qt/linguist-tools-${QT_PV}
@@ -64,10 +64,11 @@ CDEPEND="
 	>=dev-qt/qtwidgets-${QT_PV}
 	>=dev-qt/qtx11extras-${QT_PV}
 	>=dev-qt/qtxml-${QT_PV}
-	kde-frameworks/syntax-highlighting:5
+	>=kde-frameworks/syntax-highlighting-5.87:5
 	clang? (
 		>=dev-cpp/yaml-cpp-0.6.2:=
 		|| (
+			sys-devel/clang:13
 			sys-devel/clang:12
 			sys-devel/clang:11
 		)
@@ -130,8 +131,7 @@ src_prepare() {
 				src/plugins/plugins.pro || die "failed to disable ${plugin%:*} plugin"
 		fi
 	done
-	sed -i -re '/\<(clangpchmanager|clangrefactoring|ios|updateinfo|winrt)\>/d' src/plugins/plugins.pro || die
-	sed -i -re '/clang(pchmanager|refactoring)backend/d' src/tools/tools.pro || die
+	sed -i -re '/\<(ios|updateinfo|winrt)\>/d' src/plugins/plugins.pro || die
 
 	# avoid building unused support libraries and tools
 	if ! use clang; then
