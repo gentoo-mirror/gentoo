@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig nls? ( dev-util/intltool )
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 virtual/freedesktop-icon-theme
+DESCRIPTION=Lightweight and versatile audio player
+EAPI=8
+HOMEPAGE=https://audacious-media-player.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+IUSE=nls
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=BSD-2
+PDEPEND=~media-plugins/audacious-plugins-4.1
+RDEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 virtual/freedesktop-icon-theme
+SLOT=0
+SRC_URI=https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2 mirror://gentoo/gentoo_ice-xmms-0.2.tar.bz2
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=f418a95c5b2b43f6b43ce766039ceb99
