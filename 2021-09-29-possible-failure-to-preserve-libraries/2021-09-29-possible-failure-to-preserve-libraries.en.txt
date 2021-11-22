@@ -93,7 +93,12 @@ Step 3. Given that there are possible other side-effects of the corruption/bug,
   Note that binary packages may need to be discarded given they may
   contain corrupt metadata.
 
-  If no libraries were broken, it is likely safe to skip this step.
+  If no libraries were broken, it is likely safe to skip this step. It
+  should be sufficient, for resource-constrained machines, to simply
+  rebuild any broken libraries and their consumers (reverse-dependencies):
+  revdep-rebuild may help you do this.
+
+  (If you do not know what that means, please proceed with Step 3.)
 
 Please see the wiki [0] for a full description of the background
 of this problem and handling corner cases such as e.g. already
