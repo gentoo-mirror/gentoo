@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-perl/Config-General dev-perl/Data-UUID dev-perl/Date-Calc dev-perl/Filesys-Df dev-perl/glib-perl dev-perl/GooCanvas2 dev-perl/Gtk3 >=dev-perl/Gtk3-ImageView-10.0.0 dev-perl/Gtk3-SimpleList dev-perl/HTML-Parser dev-perl/Image-Sane dev-perl/List-MoreUtils dev-perl/Locale-Codes dev-perl/Locale-gettext dev-perl/Log-Log4perl >=dev-perl/PDF-Builder-3.23.0 dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Set-IntSpan dev-perl/Try-Tiny virtual/perl-Archive-Tar virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-threads virtual/perl-threads-shared media-gfx/imagemagick[png,tiff,perl] media-gfx/sane-backends media-libs/tiff dev-perl/IPC-System-Simple dev-perl/Sub-Override media-libs/fontconfig app-text/djvu[jpeg,tiff] app-text/poppler[utils] app-text/tesseract[-opencl,osd(+),png,tiff] app-text/unpaper media-gfx/imagemagick[djvu,jpeg,png,tiff,perl,postscript,truetype] media-gfx/sane-backends[sane_backends_test] media-gfx/sane-frontends ) dev-lang/perl test? ( virtual/perl-Test-Simple ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Scan documents, perform OCR, produce PDFs and DjVus
+EAPI=8
+HOMEPAGE=http://gscan2pdf.sourceforge.net/
+INHERIT=optfeature perl-module virtualx xdg-utils
+IUSE=test test test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-perl/Config-General dev-perl/Data-UUID dev-perl/Date-Calc dev-perl/Filesys-Df dev-perl/glib-perl dev-perl/GooCanvas2 dev-perl/Gtk3 >=dev-perl/Gtk3-ImageView-10.0.0 dev-perl/Gtk3-SimpleList dev-perl/HTML-Parser dev-perl/Image-Sane dev-perl/List-MoreUtils dev-perl/Locale-Codes dev-perl/Locale-gettext dev-perl/Log-Log4perl >=dev-perl/PDF-Builder-3.23.0 dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Set-IntSpan dev-perl/Try-Tiny virtual/perl-Archive-Tar virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-threads virtual/perl-threads-shared media-gfx/imagemagick[png,tiff,perl] media-gfx/sane-backends media-libs/tiff dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge/gscan2pdf/gscan2pdf-2.12.4.tar.xz
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	virtualx	fa024aa649b6bd544144bf94893d402c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=27ea3dcb3ef7a4391d47d6ce95c33519

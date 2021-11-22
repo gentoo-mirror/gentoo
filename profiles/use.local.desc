@@ -3767,6 +3767,7 @@ mail-filter/pyzor:gevent - Use dev-python/gevent to enable asynchronous operatio
 mail-filter/pyzor:mysql - Enables the MySQL back-end database engine for pyzord through dev-python/mysqlclient.
 mail-filter/pyzor:pyzord - Enable the pyzord server daemon
 mail-filter/pyzor:redis - Enables the redis back-end database engine for pyzord through dev-python/redis-py
+mail-filter/rspamd:jit - Enable PCRE JIT support
 mail-filter/rspamd:pcre2 - Use dev-libs/libpcre2
 mail-filter/spamassassin:cron - Install a cron job to update SpamAssassin's rules daily.
 mail-filter/spamassassin:qmail - Build qmail functionality and docs
@@ -4213,7 +4214,6 @@ media-libs/libplacebo:lcms - Add support for color management via media-libs/lcm
 media-libs/libplacebo:shaderc - Use media-libs/shaderc to compile GLSL
 media-libs/libplacebo:vulkan - Add support for the vulkan graphics API
 media-libs/libpng:apng - support unofficial APNG (Animated PNG) spec
-media-libs/libpng-compat:apng - support unofficial APNG (Animated PNG) spec
 media-libs/libprojectm:gles2 - Provide support for OpenGL ES 2 and 3
 media-libs/libpulse:asyncns - Use libasyncns for asynchronous name resolution.
 media-libs/libpulse:doc - Build the doxygen-described API documentation.
@@ -8030,7 +8030,6 @@ sys-cluster/drbd-utils:xen - Enable Xen integration
 sys-cluster/galera:garbd - Install Galera Arbitrator - a stateless daemon which acts as a lightweight group member
 sys-cluster/glusterfs:fuse - Add FUSE mount helper
 sys-cluster/glusterfs:georeplication - Enable support for georeplication (requires dev-lang/python)
-sys-cluster/glusterfs:infiniband - Add support for Infiniband ibverbs transport. Libraries can be found in science overlay
 sys-cluster/glusterfs:ipv6 - Use IPv6 by default, requires libtirpc
 sys-cluster/glusterfs:libtirpc - Build against net-libs/libtirpc for RPC support
 sys-cluster/glusterfs:rsyslog - Install configuration snippet for app-admin/rsyslog
