@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=app-text/hunspell:= app-text/poppler:=[qt5] >=dev-libs/quazip-0.7.3-r1:0= dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[qt5(+),X] dev-qt/qtsvg:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext video? ( >=media-libs/phonon-4.11.0 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Free cross-platform LaTeX editor (fork from texmakerX)
+EAPI=7
+HOMEPAGE=https://www.texstudio.org https://github.com/texstudio-org/texstudio
+INHERIT=desktop qmake-utils xdg
+IUSE=video
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-text/hunspell:= app-text/poppler:=[qt5] >=dev-libs/quazip-0.7.3-r1:0= dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[qt5(+),X] dev-qt/qtsvg:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext video? ( >=media-libs/phonon-4.11.0 ) app-text/ghostscript-gpl app-text/psutils media-libs/netpbm virtual/latex-base
+SLOT=0
+SRC_URI=https://github.com/texstudio-org/texstudio/archive/4.1.1.tar.gz -> texstudio-4.1.1.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=822f8af69f19f0601b49fddc049e5331
