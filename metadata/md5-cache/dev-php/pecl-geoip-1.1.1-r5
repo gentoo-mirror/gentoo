@@ -1,15 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/geoip sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DEPEND=dev-libs/geoip php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1 )
 DESCRIPTION=PHP extension to map IP address to geographic places
-EAPI=6
+EAPI=7
 HOMEPAGE=https://pecl.php.net/geoip
 INHERIT=php-ext-pecl-r3
-IUSE=php_targets_php7-2 php_targets_php7-3 php_targets_php7-4 php_targets_php8-0
+IUSE=php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 php_targets_php8-1
 KEYWORDS=~amd64 ~x86
 LICENSE=PHP-3
-RDEPEND=dev-libs/geoip php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
-REQUIRED_USE=|| ( php_targets_php7-2 php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
+RDEPEND=dev-libs/geoip php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1 )
+REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 php_targets_php8-1 )
 SLOT=0
 SRC_URI=https://pecl.php.net/get/geoip-1.1.1.tgz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	b690a7e9b6c497cf59326a7545df4283	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	php-ext-source-r3	b61f3cc83a4e875e5eaf215d17ad83ef	php-ext-pecl-r3	4263125759167648adee458afac9b3f1
-_md5_=2a67df0c942394c8fc70d2dd17c3ce11
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	php-ext-source-r3	b61f3cc83a4e875e5eaf215d17ad83ef	php-ext-pecl-r3	4263125759167648adee458afac9b3f1
+_md5_=919960922fb93e186cdecb529132ae46
