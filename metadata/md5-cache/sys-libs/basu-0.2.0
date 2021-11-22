@@ -1,0 +1,15 @@
+BDEPEND=dev-util/gperf >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=audit? ( sys-process/audit ) caps? ( sys-libs/libcap )
+DESCRIPTION=The sd-bus library, extracted from systemd
+EAPI=8
+HOMEPAGE=https://sr.ht/~emersion/basu/
+INHERIT=meson
+IUSE=audit caps
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=audit? ( sys-process/audit ) caps? ( sys-libs/libcap )
+SLOT=0
+SRC_URI=https://git.sr.ht/~emersion/basu/refs/download/v0.2.0/basu-0.2.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc
+_md5_=f64e1aeb6c81a73a2dbbc9d64023738b
