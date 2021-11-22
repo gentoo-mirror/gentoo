@@ -61,6 +61,10 @@ src_install() {
 	insinto /usr/share/zsh/site-functions
 	doins scripts/zsh/*
 
+	# fish-completions
+	insinto /usr/share/fish/completions
+	doins scripts/fish/*
+
 	exeinto "/usr/share/${PN}/scripts"
 	doexe scripts/add-ons/*
 }
