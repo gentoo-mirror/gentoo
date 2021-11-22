@@ -3,19 +3,19 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 
 inherit autotools elisp-common python-single-r1 tmpfiles
 
-SRC_URI="https://download.gluster.org/pub/gluster/${PN}/$(ver_cut 1)/${PV}/${P}.tar.gz"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
-
 DESCRIPTION="GlusterFS is a powerful network/cluster filesystem"
 HOMEPAGE="https://www.gluster.org/ https://github.com/gluster/glusterfs/"
+SRC_URI="https://download.gluster.org/pub/gluster/${PN}/$(ver_cut 1)/${PV}/${P}.tar.gz"
 
 LICENSE="|| ( GPL-2 LGPL-3+ )"
 SLOT="0/${PV%%.*}"
-IUSE="debug emacs +fuse +georeplication ipv6 +libtirpc rsyslog static-libs +syslog test +xml"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+
+IUSE="debug emacs +fuse +georeplication ipv6 +libtirpc rsyslog static-libs +syslog tcmalloc test +xml"
 
 REQUIRED_USE="georeplication? ( ${PYTHON_REQUIRED_USE} xml )
 	ipv6? ( libtirpc )"
@@ -28,19 +28,20 @@ RDEPEND="
 	acct-group/gluster
 	acct-user/gluster
 	dev-libs/libaio
-	dev-libs/userspace-rcu:=
+	dev-libs/openssl:=[-bindist(-)]
 	net-libs/rpcsvc-proto
+	dev-libs/userspace-rcu:=
 	sys-apps/util-linux
 	sys-libs/liburing:=
 	sys-libs/readline:=
+	!elibc_glibc? ( sys-libs/argp-standalone )
 	emacs? ( >=app-editors/emacs-23.1:* )
 	fuse? ( >=sys-fs/fuse-2.7.0:0 )
 	georeplication? ( ${PYTHON_DEPS} )
-	xml? ( dev-libs/libxml2 )
-	!elibc_glibc? ( sys-libs/argp-standalone )
 	libtirpc? ( net-libs/libtirpc:= )
 	!libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) )
-	dev-libs/openssl:=[-bindist(-)]
+	tcmalloc? ( dev-util/google-perftools )
+	xml? ( dev-libs/libxml2 )
 "
 DEPEND="
 	${RDEPEND}
@@ -97,8 +98,9 @@ src_configure() {
 		$(use_enable syslog) \
 		$(use_enable test cmocka) \
 		$(use_enable xml xml-output) \
-		$(use libtirpc || echo --without-libtirpc) \
-		$(use ipv6 && echo --with-ipv6-default) \
+		$(usex ipv6 --with-ipv6-default "") \
+		$(usex libtirpc "" --without-libtirpc) \
+		$(usex tcmalloc "" --without-tcmalloc) \
 		--with-tmpfilesdir="${EPREFIX}"/usr/lib/tmpfiles.d \
 		--localstatedir="${EPREFIX}"/var
 }
@@ -148,7 +150,7 @@ src_install() {
 	chmod 0755 "${ED}"/usr/share/glusterfs/scripts/*.sh || die
 
 	newinitd "${FILESDIR}/${PN}-r1.initd" glusterfsd
-	newinitd "${FILESDIR}/glusterd-r3.initd" glusterd
+	newinitd "${FILESDIR}/glusterd-r4.initd" glusterd
 	newconfd "${FILESDIR}/${PN}.confd" glusterfsd
 
 	keepdir /var/log/${PN}

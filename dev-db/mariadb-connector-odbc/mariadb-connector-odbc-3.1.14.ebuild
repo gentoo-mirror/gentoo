@@ -9,21 +9,21 @@ inherit cmake-multilib flag-o-matic
 
 DESCRIPTION="MariaDB Connector/ODBC"
 HOMEPAGE="https://downloads.mariadb.org/connector-odbc/"
-SRC_URI="https://downloads.mariadb.org/interstitial/connector-odbc-${PV}/${P}-ga-src.tar.gz"
+SRC_URI="mirror://mariadb/connector-odbc-${PV}/${P}-src.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0/3.1"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="ssl"
 
-S="${S}-ga-src"
+S="${S}-src"
 
 # USE=ssl merely enables the configuration options (seemingly for interactive
 # sessions) and does not cause direct linking to any SSL libraries.  However,
 # it doesn't make sense enable these configuration options unless the
 # underlying mariadb-connector-c has ssl enabled, thus if we have USE=ssl,
 # require mariadb-connector-c to have it too.
-DEPEND="=dev-db/mariadb-connector-c-$(ver_cut 1-2)*[ssl?]
+DEPEND="=dev-db/mariadb-connector-c-$(ver_cut 1-2)*:=[ssl?]
 	dev-db/unixODBC"
 RDEPEND="${DEPEND}"
 

@@ -25,7 +25,7 @@ RDEPEND="
 	dev-perl/glib-perl
 	dev-perl/GooCanvas2
 	dev-perl/Gtk3
-	dev-perl/Gtk3-ImageView
+	>=dev-perl/Gtk3-ImageView-10.0.0
 	dev-perl/Gtk3-SimpleList
 	dev-perl/HTML-Parser
 	dev-perl/Image-Sane
@@ -60,7 +60,7 @@ BDEPEND="
 		app-text/poppler[utils]
 		app-text/tesseract[-opencl,osd(+),png,tiff]
 		app-text/unpaper
-		media-gfx/imagemagick[djvu,jpeg,png,tiff,perl,postscript]
+		media-gfx/imagemagick[djvu,jpeg,png,tiff,perl,postscript,truetype]
 		media-gfx/sane-backends[sane_backends_test]
 		media-gfx/sane-frontends
 	)"

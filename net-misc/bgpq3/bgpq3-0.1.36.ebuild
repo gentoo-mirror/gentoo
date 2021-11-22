@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit autotools
 
@@ -19,6 +19,10 @@ src_prepare() {
 		-e '/^CFLAGS=/s/-g //' \
 		-e '/^CFLAGS=/s/ -O0//' \
 		Makefile.in || die 'sed on Makefile.in failed'
+
+	# configure.in in package is actually valid configure.ac
+	mv configure.in configure.ac || die
+
 	eapply_user
 	eautoreconf
 }
@@ -26,6 +30,5 @@ src_prepare() {
 src_install() {
 	dobin bgpq3
 	doman bgpq3.8
-	dodoc CHANGES
-	dohtml *.html
+	dodoc CHANGES README.md *.html
 }

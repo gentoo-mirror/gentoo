@@ -1,8 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{8..9} )
+EAPI=8
+
+PYTHON_COMPAT=( python3_{8..10} )
 
 DISTUTILS_USE_SETUPTOOLS=no
 
@@ -11,14 +12,14 @@ inherit desktop distutils-r1 optfeature xdg-utils
 if [[ ${PV} != *9999* ]]; then
 	KEYWORDS="~amd64 ~arm64 ~x86"
 	SRC_URI="https://foss.heptapod.net/mercurial/${PN}/thg/-/archive/${PV}/thg-${PV}.tar.gz -> ${P}.tar.gz"
-	HG_DEPEND=">=dev-vcs/mercurial-5.7[${PYTHON_USEDEP}]
-		<dev-vcs/mercurial-5.9[${PYTHON_USEDEP}]"
+	HG_DEPEND=">=dev-vcs/mercurial-5.8[${PYTHON_USEDEP}]
+		<dev-vcs/mercurial-5.10[${PYTHON_USEDEP}]"
 	S="${WORKDIR}/thg-${PV}"
 else
 	inherit mercurial
 	EHG_REPO_URI="https://foss.heptapod.net/mercurial/${PN}/thg"
 	EHG_REVISION="stable"
-	HG_DEPEND=">=dev-vcs/mercurial-5.7[${PYTHON_USEDEP}]"
+	HG_DEPEND=">=dev-vcs/mercurial-5.8[${PYTHON_USEDEP}]"
 fi
 
 DESCRIPTION="Set of graphical tools for Mercurial"
