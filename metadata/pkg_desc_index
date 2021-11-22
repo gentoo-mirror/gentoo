@@ -2939,7 +2939,7 @@ app-misc/pdfpc 4.4.1 4.5.0: Presenter console with multi-monitor support for PDF
 app-misc/perltrash 0.3-r1: Command-line trash can emulation
 app-misc/pet 0.3.6 0.3.6-r1: Simple command-line snippet manager
 app-misc/pfm 2.12.3-r1: A terminal-based file manager written in Perl
-app-misc/physlock 13-r2: Lightweight Linux console locking tool
+app-misc/physlock 13-r3: Lightweight Linux console locking tool
 app-misc/pip 1.2-r3: Wrapper around programs that don't support stdin/stdout
 app-misc/piper 0.5.1-r2: GTK configuration application for libratbag
 app-misc/pipeworks 0.4-r1: A small utility that measures throughput between stdin and stdout
@@ -5368,7 +5368,7 @@ dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
 dev-lang/crystal 1.1.0 1.1.1 1.2.1: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
 dev-lang/duktape 2.4.0 2.5.0-r1 2.6.0: Embeddable Javascript engine
-dev-lang/elixir 1.11.4 1.12.1 1.12.2: Elixir programming language
+dev-lang/elixir 1.11.4 1.11.4-r1 1.12.1 1.12.2 1.12.3: Elixir programming language
 dev-lang/erlang 23.3.4 23.3.4.8 24.0.2 24.1.4: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.512: Combine interpreter of esoteric languages
 dev-lang/execline 2.1.1.0 2.3.0.3 2.3.0.4 2.5.0.1 2.5.1.0 2.5.3.0 2.6.1.1: A non-interactive scripting language
@@ -8956,7 +8956,7 @@ dev-python/pikepdf 3.2.0 4.0.0 4.0.1 4.0.2: Python library to work with pdf file
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 8.3.2 8.4.0: Python Imaging Library (fork)
 dev-python/pip 21.2.4 21.3.1: Installs python packages -- replacement for easy_install
-dev-python/pipenv 2021.5.29-r2: Python Development Workflow for Humans
+dev-python/pipenv 2021.5.29-r2 2021.11.9: Python Development Workflow for Humans
 dev-python/pivy 0.6.6: Coin3D bindings for Python
 dev-python/pkgconfig 1.5.5: Interface Python with pkg-config
 dev-python/pkginfo 1.7.1: Provides an API for querying the distutils metadata written in a PKG-INFO file
@@ -11084,7 +11084,7 @@ dev-util/flatpak-builder 1.0.11: Tool to build flatpaks from source
 dev-util/flawfinder 2.0.15 2.0.18 2.0.19: Examines C/C++ source code for security flaws
 dev-util/ftjam 2.5.3_rc2-r2: A 100% compatible, enhanced implementation of the make alternative Jam
 dev-util/ftnchek 3.3.1-r2: Static analyzer a la 'lint' for Fortran 77
-dev-util/fuzz 0.6-r1 0.6-r2: Stress-tests programs by giving them random input
+dev-util/fuzz 0.6-r2: Stress-tests programs by giving them random input
 dev-util/gcovr 4.2: A Python script for summarizing gcov data
 dev-util/gdbus-codegen 2.68.2 2.68.3 2.68.4 2.70.0: GDBus code and documentation generator
 dev-util/geany 1.36 1.37.1 1.38 9999: GTK+ based fast and lightweight IDE
@@ -11158,9 +11158,9 @@ dev-util/lldb 11.1.0 12.0.1 13.0.0 13.0.0.9999 14.0.0.9999: The LLVM debugger
 dev-util/lockrun 20120508-r1: Lockrun - runs cronjobs with overrun protection
 dev-util/lsuio 0.2.0-r1: List available userspace I/O (UIO) devices
 dev-util/ltrace 0.7.3.6.1: trace library calls made at runtime
-dev-util/lttng-modules 2.7.1-r1 2.10.12-r1 2.11.0-r1 2.11.8 2.12.5 2.12.6 2.13.0: LTTng Kernel Tracer Modules
-dev-util/lttng-tools 2.7.1 2.11.6 2.12.0 2.12.3 2.12.5 2.13.0: Linux Trace Toolkit - next generation
-dev-util/lttng-ust 2.8.1 2.11.0 2.11.3 2.12.0 2.12.1 2.12.2 2.13.0: Linux Trace Toolkit - UST library
+dev-util/lttng-modules 2.10.12-r1 2.11.0-r1 2.11.8 2.12.5 2.12.6 2.13.0: LTTng Kernel Tracer Modules
+dev-util/lttng-tools 2.11.6 2.12.0 2.12.3 2.12.5 2.13.0: Linux Trace Toolkit - next generation
+dev-util/lttng-ust 2.11.0 2.11.3 2.12.0 2.12.1 2.12.2 2.13.0: Linux Trace Toolkit - UST library
 dev-util/lxqt-build-tools 0.9.0: LXQt Build Tools
 dev-util/mage 1.11.0: make/rake like tool using go
 dev-util/makeheaders 0_p4: simple utility that will automatically generate header files
@@ -11333,7 +11333,7 @@ dev-vcs/fossil 2.16-r1: Simple, high-reliability, source control management, and
 dev-vcs/git 2.32.0-r1 2.33.1 2.34.0 9999 9999-r1 9999-r2 9999-r3: stupid content tracker: distributed VCS designed for speed and efficiency
 dev-vcs/git-annex 8.20200810: manage files with git, without checking their contents into git
 dev-vcs/git-big-picture 1.0.0 1.1.1 1.1.1-r1: Visualization tool for Git repositories
-dev-vcs/git-cola 3.8 3.9 3.10.1: The highly caffeinated git GUI
+dev-vcs/git-cola 3.8 3.9 3.10.1 3.11.0: The highly caffeinated git GUI
 dev-vcs/git-crypt 0.6.0: transparent file encryption in git
 dev-vcs/git-extras 6.2.0 6.3.0: Git utilities -- repo summary, repl, changelog population, author commit percentages and more
 dev-vcs/git-filter-repo 2.33.0 2.34.0: Quickly rewrite git repository history (filter-branch replacement)
@@ -13624,7 +13624,7 @@ media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.1.1 2.1.1_p20190331: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
 media-libs/openimageio 2.2.12.0-r1 2.2.13.1-r1 2.2.14.0-r1 2.2.15.0-r1 2.2.15.1-r1 2.2.18.0-r1 2.2.19.0 2.3.8.0-r1 2.3.9.1: A library for reading and writing images
 media-libs/openjpeg 2.4.0: Open-source JPEG 2000 library
-media-libs/opensubdiv 3.4.3-r1 3.4.4-r1: An Open-Source subdivision surface library
+media-libs/opensubdiv 3.4.3-r1 3.4.4-r1 3.4.4-r2: An Open-Source subdivision surface library
 media-libs/opus 1.3.1-r2: Open codec for interactive speech and music transmission over the Internet
 media-libs/opusfile 0.12: A high-level decoding and seeking API for .opus files
 media-libs/osl 1.11.15.0-r1 1.11.16.0 1.12.0.2 1.12.0.2-r3: Advanced shading language for production GI renderers
@@ -15747,7 +15747,7 @@ net-p2p/bitcoin-qt 0.21.0 0.21.1: An end-user Qt GUI for the Bitcoin crypto-curr
 net-p2p/bitcoind 0.21.0 0.21.1: Original Bitcoin crypto-currency wallet for automated services
 net-p2p/bitflu 1.52-r1: BitTorrent client, written in Perl and is designed to run as a daemon
 net-p2p/bittornado 0.4.1_p20160925-r2 0.4.1_p20160925-r3 0.4.1_p20160925-r4: John Hoffman's fork of the original bittorrent
-net-p2p/classified-ads 0.13-r1: Program for displaying classified advertisement items
+net-p2p/classified-ads 0.13-r1 0.13-r2: Program for displaying classified advertisement items
 net-p2p/cpuminer-opt 3.16.4-r1 3.17.1-r1 3.18.0 9999: Optimized multi algo CPU miner
 net-p2p/ctorrent 3.3.2-r4: Enhanced CTorrent is a BitTorrent console client written in C and C++
 net-p2p/dbhub 0.451-r2: Hub software for Direct Connect, fork of opendchub
@@ -18746,7 +18746,7 @@ x11-misc/hsetroot 1.0.5: Tool which allows you to compose wallpapers ('root pixm
 x11-misc/i3blocks 1.5-r1: highly flexible status line for the i3 window manager
 x11-misc/i3blocks-contrib 1.4.0_p20201127 2.0.0: A set of scripts for i3blocks, contributed by the community
 x11-misc/i3lock 2.13: Simple screen locker
-x11-misc/i3status 2.13-r1: generates a status bar for dzen2, xmobar or similar
+x11-misc/i3status 2.13-r1 2.14: generates a status bar for dzen2, xmobar or similar
 x11-misc/i855crt 0.4-r1: Intel Montara 855GM CRT out auxiliary driver
 x11-misc/icon-naming-utils 0.8.90-r1: Utils to help with the transition to the new freedesktop.org naming scheme
 x11-misc/iconbox 0.2: App for placing icons in a menu which auto-hides

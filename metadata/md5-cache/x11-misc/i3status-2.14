@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig filecaps? ( sys-libs/libcap ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=>=dev-libs/yajl-2.0.2 dev-libs/confuse:= dev-libs/libnl:3 media-libs/alsa-lib pulseaudio? ( || ( media-sound/pulseaudio media-sound/apulse[sdk] ) ) app-text/asciidoc app-text/xmlto
+DESCRIPTION=generates a status bar for dzen2, xmobar or similar
+EAPI=7
+HOMEPAGE=https://i3wm.org/i3status/
+INHERIT=fcaps autotools meson
+IUSE=pulseaudio +filecaps
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-libs/yajl-2.0.2 dev-libs/confuse:= dev-libs/libnl:3 media-libs/alsa-lib pulseaudio? ( || ( media-sound/pulseaudio media-sound/apulse[sdk] ) ) filecaps? ( sys-libs/libcap )
+SLOT=0
+SRC_URI=https://i3wm.org/i3status/i3status-2.14.tar.xz
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc
+_md5_=81b57929d1389319c943d6988f632db8
