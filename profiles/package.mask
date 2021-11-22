@@ -331,48 +331,6 @@ x11-plugins/pidgin-latex
 # Removal on 2021-11-23. Bug #819150.
 x11-plugins/hexchat-javascript
 
-# Zac Medico <zmedico@gentoo.org> (2021-10-23)
-# Mask go-etcd which fails to compile, and etcd-fs revdep.
-# Removal on 2021-11-22. Bug #771042.
-dev-db/go-etcd
-sys-fs/etcd-fs
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-23)
-# EAPI 5 java package, no revdeps.
-# Removal on 2021-11-22. Bug #819756.
-app-office/borg
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-23)
-# No maintainer, no revdeps, EAPI 5, dead upstream.
-# Removal on 2021-11-22. Bug #819717.
-app-forensics/yasat
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-23)
-# No maintainer, EAPI 5, no revdeps. No other distro is packaging this.
-# Removal on 2021-11-22. Bug #819699.
-app-admin/reportmagic
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-23)
-# No maintainer, dead upstream, EAPI 5, no revdeps.
-# Removal on 2021-11-22. Bug #819693.
-app-admin/swatchdog
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-23)
-# EAPI 5 java package, no revdeps.
-# Removal on 2021-11-22. Bug #819684.
-dev-db/henplus
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-10-23)
-# Dead upstream, stuck on EAPI 5, multiple open bugs, not updated in years.
-# Removal on 2021-11-22. Bug #819624.
-dev-lang/nwcc
-
-# Sergey Popov <pinkbyte@gentoo.org> (2021-10-22)
-# Upstream support discontinued, see https://bw.org/2019/03/19/bw-whois/
-# Suggested replacement - net-misc/whois
-# Masked for removal on 2021-11-22
-net-misc/bwwhois
-
 # Sam James <sam@gentoo.org> (2021-10-10)
 # Needs upstream build system fixes (currently in progress).
 # Python toggles don't work correctly right now.
