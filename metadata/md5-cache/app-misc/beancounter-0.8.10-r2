@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/Date-Manip dev-perl/Statistics-Descriptive dev-perl/Finance-YahooQuote dev-perl/libwww-perl mysql? ( dev-perl/DBD-mysql ) sqlite? ( dev-perl/DBD-SQLite ) postgres? ( dev-perl/DBD-Pg ) dev-lang/perl
+DESCRIPTION=Finance performance calculation engine with full data acquisition, SQL support
+EAPI=8
+HOMEPAGE=https://dirk.eddelbuettel.com/code/beancounter.html
+INHERIT=perl-module
+IUSE=mysql postgres sqlite test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-perl/Date-Manip dev-perl/Statistics-Descriptive dev-perl/Finance-YahooQuote dev-perl/libwww-perl mysql? ( dev-perl/DBD-mysql ) sqlite? ( dev-perl/DBD-SQLite ) postgres? ( dev-perl/DBD-Pg ) dev-perl/DBI dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://eddelbuettel.com/dirk/code/beancounter/beancounter_0.8.10.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=91737b43f95a89e3e33151cac3c3459a
