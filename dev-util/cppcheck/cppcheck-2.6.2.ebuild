@@ -4,8 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=no
-inherit distutils-r1 cmake toolchain-funcs
+DISTUTILS_USE_SETUPTOOLS=manual
+inherit distutils-r1 cmake
 
 DESCRIPTION="Static analyzer of C/C++ code"
 HOMEPAGE="https://github.com/danmar/cppcheck"
@@ -19,7 +19,10 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/tinyxml2:=
-	htmlreport? ( dev-python/pygments[${PYTHON_USEDEP}] )
+	htmlreport? (
+		dev-python/pygments[${PYTHON_USEDEP}]
+		dev-python/setuptools[${PYTHON_USEDEP}]
+	)
 	pcre? ( dev-libs/libpcre )
 	qt5? (
 		dev-qt/qtcore:5
@@ -80,7 +83,6 @@ src_install() {
 		pushd htmlreport || die
 		distutils-r1_src_install
 		popd || die
-		find "${ED}" -name "*.egg-info" -delete || die
 	fi
 
 	dodoc -r tools/triage
