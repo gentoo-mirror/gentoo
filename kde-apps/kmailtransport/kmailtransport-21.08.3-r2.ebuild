@@ -27,7 +27,7 @@ RDEPEND="
 	>=kde-apps/akonadi-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/ksmtp-${PVCUT}:5
+	>=kde-apps/ksmtp-21.08.3-r1:5
 	>=kde-apps/libkgapi-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -43,4 +43,7 @@ DEPEND="${RDEPEND}
 	test? ( >=kde-frameworks/ktextwidgets-${KFMIN}:5 )
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-crash-when-response-empty.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-fix-crash-when-response-empty.patch"
+	"${FILESDIR}/${P}-CVE-2021-38373.patch"
+)

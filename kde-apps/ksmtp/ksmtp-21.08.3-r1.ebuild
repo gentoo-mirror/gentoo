@@ -10,11 +10,14 @@ inherit ecm kde.org
 
 DESCRIPTION="Job-based library to send email through an SMTP server"
 HOMEPAGE="https://api.kde.org/kdepim/ksmtp/html/index.html"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-CVE-2021-38373.patch.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
+
+RESTRICT="test" # bug 642410
 
 DEPEND="
 	dev-libs/cyrus-sasl
@@ -25,4 +28,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test" # bug 642410
+PATCHES=( "${WORKDIR}/${P}-CVE-2021-38373.patch" )

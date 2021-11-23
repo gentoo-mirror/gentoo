@@ -31,6 +31,8 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtnetwork-${QTMIN}:5 )
 "
 
+PATCHES=( "${FILESDIR}/${P}-CVE-2021-38373.patch" )
+
 src_test() {
 	# tests cannot be run in parallel #605586
 	local myctestargs=(
