@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install postinst
+DESCRIPTION=Lets you easily embed LaTeX math in your own html pages, blogs, wikis, etc
+EAPI=8
+HOMEPAGE=https://www.ctan.org/pkg/mathtex
+INHERIT=toolchain-funcs
+IUSE=png
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=app-text/dvipng virtual/latex-base
+SLOT=0
+SRC_URI=https://mirrors.ctan.org/support/mathtex.zip -> mathtex-1.05.zip
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=99c46e8f885b3c91eac7daec6db16cfd
