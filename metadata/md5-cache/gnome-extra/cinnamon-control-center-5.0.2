@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-control-center
 INHERIT=meson gnome2-utils python-any-r1 xdg virtualx
 IUSE=+colord input_devices_wacom +networkmanager +modemmanager gnome-online-accounts systemd test test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.44.0:2 >=gnome-base/libgnomekbd-3.0.0:0= >=gnome-extra/cinnamon-desktop-5.0:0= >=gnome-extra/cinnamon-menus-5.0:0= media-libs/fontconfig >=sys-auth/polkit-0.103 >=x11-libs/gdk-pixbuf-2.23.0:2 >=x11-libs/gtk+-3.16.0:3 >=x11-libs/libnotify-0.7.3:0= x11-libs/libX11 >=x11-libs/libxklavier-5.1 colord? ( >=x11-misc/colord-0.1.14:0= ) input_devices_wacom? ( >=dev-libs/libwacom-0.7 >=gnome-extra/cinnamon-settings-daemon-5.0:0= >=x11-libs/libXi-1.2 ) networkmanager? ( >=gnome-extra/nm-applet-1.2.0 >=net-misc/networkmanager-1.2.0:=[modemmanager?] modemmanager? ( >=net-misc/modemmanager-0.7 ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.18.0 ) x11-themes/adwaita-icon-theme colord? ( >=gnome-extra/gnome-color-manager-3 ) input_devices_wacom? ( gnome-extra/cinnamon-settings-daemon[input_devices_wacom] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( app-admin/openrc-settingsd )
 REQUIRED_USE=modemmanager? ( networkmanager )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-control-center/archive/5.0.2.tar.gz -> cinnamon-control-center-5.0.2.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	355c758ccc0d6df60d43a066640e642c	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg	6024fbc93167fad782e2032933654857	virtualx	fa024aa649b6bd544144bf94893d402c
-_md5_=67ab9e871e5e2610c3a5c0d1498a9fc3
+_md5_=68785c6fbd75d66a195dd1d33084cc68

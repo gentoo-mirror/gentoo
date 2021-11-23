@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cjs
 INHERIT=meson pax-utils python-any-r1 virtualx
 IUSE=+cairo examples gtk readline sysprof test test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )
 RDEPEND=dev-lang/spidermonkey:78 >=dev-libs/glib-2.58.0:2 >=dev-libs/gobject-introspection-1.58.3:= >=dev-libs/libffi-3.2.1:0= cairo? ( x11-libs/cairo[glib,X] ) readline? ( sys-libs/readline:0= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cjs/archive/5.0.1.tar.gz -> cjs-5.0.1.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	pax-utils	fce6ad998516159787b92e8043167889	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	virtualx	fa024aa649b6bd544144bf94893d402c
-_md5_=89412c237a5708668c4507937a38e79c
+_md5_=7b9a019f7f166cc05acfce852de47b47

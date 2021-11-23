@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-screensaver
 INHERIT=meson python-single-r1 xdg
 IUSE=systemd xinerama python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) >=dev-libs/dbus-glib-0.78 >=dev-libs/glib-2.37.3:2[dbus] >=gnome-extra/cinnamon-desktop-5.0:0= sys-apps/dbus sys-libs/pam >=x11-libs/gtk+-3.22:3[introspection] x11-libs/libX11 x11-libs/libXext x11-libs/libXrandr x11-themes/adwaita-icon-theme xinerama? ( x11-libs/libXinerama ) >=app-accessibility/caribou-0.3 sys-apps/accountsservice[introspection] python_single_target_python3_8? ( dev-python/psutil[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/setproctitle[python_targets_python3_8(-)] >=dev-python/xapp-2.2.0[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/psutil[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/setproctitle[python_targets_python3_9(-)] >=dev-python/xapp-2.2.0[python_targets_python3_9(-)] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( sys-auth/elogind )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-screensaver/archive/5.0.7.tar.gz -> cinnamon-screensaver-5.0.7.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=fec78d12f9f5eeb71b534752801c9be2
+_md5_=13247a27c577feb8c6fc59908fed1bbf
