@@ -1,16 +1,16 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/libpcre:3= curl? ( net-misc/curl:0= ) php_targets_php7-2? ( dev-lang/php:7.2[hash(-)] ) php_targets_php7-3? ( dev-lang/php:7.3[hash(-)] ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
+DEPEND=dev-libs/libpcre:3= curl? ( net-misc/curl:0= ) php_targets_php7-3? ( dev-lang/php:7.3[hash(-)] ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1 )
 DESCRIPTION=OAuth is an authorization protocol built on top of HTTP
 EAPI=7
 HOMEPAGE=https://pecl.php.net/oauth
 INHERIT=php-ext-pecl-r3
-IUSE=+curl examples php_targets_php7-2 php_targets_php7-3 php_targets_php7-4 php_targets_php8-0
+IUSE=+curl examples php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 php_targets_php8-1
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-libs/libpcre:3= curl? ( net-misc/curl:0= ) php_targets_php7-2? ( dev-lang/php:7.2[hash(-)] ) php_targets_php7-3? ( dev-lang/php:7.3[hash(-)] ) php_targets_php7-2? ( dev-lang/php:7.2 ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 )
-REQUIRED_USE=|| ( php_targets_php7-2 php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
+RDEPEND=dev-libs/libpcre:3= curl? ( net-misc/curl:0= ) php_targets_php7-3? ( dev-lang/php:7.3[hash(-)] ) php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/php:7.4 ) php_targets_php8-0? ( dev-lang/php:8.0 ) php_targets_php8-1? ( dev-lang/php:8.1 )
+REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 php_targets_php8-1 )
 SLOT=7
 SRC_URI=https://pecl.php.net/get/oauth-2.0.7.tgz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	php-ext-source-r3	b61f3cc83a4e875e5eaf215d17ad83ef	php-ext-pecl-r3	4263125759167648adee458afac9b3f1
-_md5_=8df890794e9ad71a591268f0e6f1ae89
+_md5_=da1358ce64904930e2534a053e5fd621
