@@ -5,11 +5,11 @@ DESCRIPTION=Query, download and build perl modules from CPAN sites
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/CPAN
 INHERIT=perl-module
-IUSE=+minimal ssl
+IUSE=+minimal ssl test
 KEYWORDS=~amd64 ~m68k ~mips ~s390 ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!minimal? ( dev-perl/Archive-Zip dev-perl/CPAN-Checksums virtual/perl-CPAN-Meta >=virtual/perl-CPAN-Meta-Requirements-2.121.0 virtual/perl-CPAN-Meta-YAML dev-perl/CPAN-Perl-Releases dev-perl/Compress-Bzip2 virtual/perl-Data-Dumper virtual/perl-Digest-MD5 virtual/perl-Digest-SHA dev-perl/Expect virtual/perl-Exporter virtual/perl-ExtUtils-CBuilder dev-perl/File-HomeDir virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which virtual/perl-HTTP-Tiny virtual/perl-IO-Compress virtual/perl-IO-Zlib virtual/perl-JSON-PP dev-perl/libwww-perl dev-perl/Log-Log4perl virtual/perl-MIME-Base64 dev-perl/Module-Build dev-perl/Module-Signature virtual/perl-Net-Ping virtual/perl-Parse-CPAN-Meta virtual/perl-Scalar-List-Utils virtual/perl-Socket dev-perl/TermReadKey >=virtual/perl-Test-Harness-2.620.0 virtual/perl-Test-Simple dev-perl/Text-Glob virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap dev-perl/YAML dev-perl/YAML-Syck ssl? ( dev-perl/LWP-Protocol-https ) ) dev-lang/perl:=
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AN/ANDK/CPAN-2.29.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	alternatives	b6cdc5b72d4fe90a64c72b9852e12f69	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=bb327dcddddd01c15bcb1bf41fad4d28
+_md5_=8cd9bb56c7f771cef7bfb014b2a8b384
