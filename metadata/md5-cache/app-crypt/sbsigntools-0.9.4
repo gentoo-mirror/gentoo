@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=prepare
+DEPEND=dev-libs/openssl:0= sys-apps/util-linux sys-apps/help2man sys-boot/gnu-efi sys-libs/binutils-libs virtual/pkgconfig
+DESCRIPTION=Utilities for signing and verifying files for UEFI Secure Boot
+EAPI=7
+HOMEPAGE=https://git.kernel.org/cgit/linux/kernel/git/jejb/sbsigntools.git/
+INHERIT=autotools toolchain-funcs
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3 LGPL-3 LGPL-2.1 CC0-1.0
+RDEPEND=dev-libs/openssl:0= sys-apps/util-linux
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/jejb/sbsigntools.git/snapshot/sbsigntools-0.9.4.tar.gz https://dev.gentoo.org/~tamiko/distfiles/sbsigntool-0.8-ccan.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=a493856e2254bb499e65fb8beb69d346
