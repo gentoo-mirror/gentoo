@@ -26,19 +26,19 @@ LICENSE="GPL-3"
 SLOT="0"
 QTC_PLUGINS=(android +autotest autotools:autotoolsprojectmanager baremetal bazaar beautifier boot2qt
 	'+clang:clangcodemodel|clangformat|clangtools' clearcase cmake:cmakeprojectmanager conan cppcheck
-	ctfvisualizer cvs +designer docker git glsl:glsleditor +help incredibuild lsp:languageclient
+	ctfvisualizer cvs +designer docker git glsl:glsleditor +help incredibuild +lsp:languageclient
 	mcu:mcusupport mercurial meson:mesonprojectmanager modeling:modeleditor nim perforce perfprofiler
-	python qbs:qbsprojectmanager +qmldesigner +qmljs:qmljseditor qmlprofiler qnx remotelinux
-	scxml:scxmleditor serialterminal silversearcher subversion valgrind webassembly)
+	python qbs:qbsprojectmanager '+qml:qmldesigner|qmljseditor|qmlpreview|qmlprojectmanager|studiowelcome'
+	qmlprofiler qnx remotelinux scxml:scxmleditor serialterminal silversearcher subversion valgrind
+	webassembly)
 IUSE="doc systemd test webengine ${QTC_PLUGINS[@]%:*}"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	android? ( lsp )
 	boot2qt? ( remotelinux )
-	clang? ( test? ( qbs ) )
+	clang? ( lsp test? ( qbs ) )
 	mcu? ( baremetal cmake )
 	python? ( lsp )
-	qmldesigner? ( qmljs )
 	qnx? ( remotelinux )
 "
 
@@ -97,7 +97,7 @@ RDEPEND="${CDEPEND}
 	cvs? ( dev-vcs/cvs )
 	git? ( dev-vcs/git )
 	mercurial? ( dev-vcs/mercurial )
-	qmldesigner? ( >=dev-qt/qtquicktimeline-${QT_PV} )
+	qml? ( >=dev-qt/qtquicktimeline-${QT_PV} )
 	silversearcher? ( sys-apps/the_silver_searcher )
 	subversion? ( dev-vcs/subversion )
 	valgrind? ( dev-util/valgrind )
@@ -123,7 +123,6 @@ src_prepare() {
 	# disable unwanted plugins
 	for plugin in "${QTC_PLUGINS[@]#[+-]}"; do
 		if ! use ${plugin%:*}; then
-			einfo "Disabling ${plugin%:*} plugin"
 			sed -i -re "s/(^\s+|\s*SUBDIRS\s*\+=.*)\<(${plugin#*:})\>(.*)/\1\3/" \
 				src/plugins/plugins.pro || die "failed to disable ${plugin%:*} plugin"
 		fi
@@ -132,7 +131,7 @@ src_prepare() {
 
 	# avoid building unused support libraries and tools
 	if ! use clang; then
-		sed -i -e '/clangsupport\|sqlite\|yaml-cpp/d' src/libs/libs.pro || die
+		sed -i -e '/yaml-cpp/d' src/libs/libs.pro || die
 		sed -i -e '/clangbackend/d' src/tools/tools.pro || die
 	fi
 	if ! use glsl; then
@@ -150,13 +149,10 @@ src_prepare() {
 			sed -i -e '/tracing/d' src/libs/libs.pro tests/auto/auto.pro || die
 		fi
 	fi
-	if ! use qmldesigner; then
-		sed -i -e '/advanceddockingsystem/d' src/libs/libs.pro || die
+	if ! use qml; then
+		sed -i -e '/advanceddockingsystem\|qmleditorwidgets/d' src/libs/libs.pro || die
 		sed -i -e '/qml2puppet/d' src/tools/tools.pro || die
 		sed -i -e '/qmldesigner/d' tests/auto/qml/qml.pro || die
-	fi
-	if ! use qmljs; then
-		sed -i -e '/qmleditorwidgets/d' src/libs/libs.pro || die
 	fi
 	if ! use valgrind; then
 		sed -i -e '/valgrindfake/d' src/tools/tools.pro || die
