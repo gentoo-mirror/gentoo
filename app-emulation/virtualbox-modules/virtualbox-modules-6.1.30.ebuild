@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # XXX: the tarball here is just the kernel modules split out of the binary
-#      package that comes from virtualbox-bin
+#      package that comes from VirtualBox-*.run
 
 EAPI=7
 
