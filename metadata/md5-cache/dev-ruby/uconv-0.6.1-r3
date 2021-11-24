@@ -1,0 +1,16 @@
+BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+DESCRIPTION=A module to convert ISO/IEC 10646 (Unicode) string and Japanese strings
+EAPI=8
+HOMEPAGE=http://www.yoshidam.net/Ruby.html#uconv
+INHERIT=ruby-ng
+IUSE=ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=Ruby
+RDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
+SLOT=0
+SRC_URI=http://www.yoshidam.net/uconv-0.6.1.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	05a317c9b860e5661cc9baf18c442e1c
+_md5_=43cf993aa88f74e937c6d63637b68f48
