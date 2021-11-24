@@ -1,19 +1,18 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=DAGOLDEN
-DIST_VERSION=0.104
+DIST_VERSION=0.120
 inherit perl-module
 
 DESCRIPTION="File path utility"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="test minimal"
-RESTRICT="!test? ( test )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="minimal"
 
 RDEPEND="
 	!minimal? (
@@ -22,13 +21,14 @@ RDEPEND="
 	virtual/perl-Carp
 	>=virtual/perl-Digest-1.30.0
 	>=virtual/perl-Digest-SHA-5.450.0
+	virtual/perl-Encode
 	>=virtual/perl-Exporter-5.570.0
 	>=virtual/perl-File-Path-2.70.0
 	>=virtual/perl-File-Spec-0.860.0
 	>=virtual/perl-File-Temp-0.190.0
-	virtual/perl-if
 "
-DEPEND="${RDEPEND}
+
+BDEPEND="${RDEPEND}
 	>=virtual/perl-ExtUtils-MakeMaker-6.170.0
 	test? (
 		!minimal? (
