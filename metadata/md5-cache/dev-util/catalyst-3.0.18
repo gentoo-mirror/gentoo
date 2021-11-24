@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-text/asciidoc >=dev-python/snakeoil-0.6.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?] <dev-python/snakeoil-0.9.6[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+DESCRIPTION=Release metatool used for creating releases based on Gentoo Linux
+EAPI=6
+HOMEPAGE=https://wiki.gentoo.org/wiki/Catalyst
+INHERIT=distutils-r1
+IUSE=ccache doc +iso kernel_linux system-bootloader python_targets_python3_8 python_targets_python3_9
+LICENSE=GPL-2+
+PDEPEND=system-bootloader? ( >=sys-apps/memtest86+-5.01-r4 sys-boot/grub:2 amd64? ( sys-boot/grub[grub_platforms_efi-32,grub_platforms_efi-64] ) x86? ( sys-boot/grub[grub_platforms_efi-32] ) sys-boot/syslinux sys-boot/shim )
+RDEPEND=>=dev-python/snakeoil-0.6.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?] <dev-python/snakeoil-0.9.6[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pydecomp-0.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?] app-arch/lbzip2 app-crypt/shash sys-fs/dosfstools !kernel_FreeBSD? ( || ( app-arch/tar[xattr] app-arch/libarchive[xattr] ) ) kernel_FreeBSD? ( app-arch/libarchive[xattr] ) amd64? ( >=sys-boot/syslinux-3.72 ) x86? ( >=sys-boot/syslinux-3.72 ) ccache? ( dev-util/ccache ) iso? ( app-cdr/cdrtools ) kernel_linux? ( app-misc/zisofs-tools >=sys-fs/squashfs-tools-2.1 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+SRC_URI=https://gitweb.gentoo.org/proj/catalyst.git/snapshot/catalyst-3.0.18.tar.bz2
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	b690a7e9b6c497cf59326a7545df4283	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	8041037f74e1f9d149c038c2fe2c97cf
+_md5_=0e54d1ad611bb08f03f6c9481c8384bc
