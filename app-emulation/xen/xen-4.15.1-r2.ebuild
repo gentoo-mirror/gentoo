@@ -15,8 +15,8 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm -x86"
-	UPSTREAM_VER=0
+	KEYWORDS="~amd64 ~arm -x86"
+	UPSTREAM_VER=2
 	SECURITY_VER=
 	GENTOO_VER=
 
@@ -95,7 +95,7 @@ src_prepare() {
 	[[ -n ${GENTOO_VER} ]] && eapply "${WORKDIR}"/patches-gentoo
 
 	# Symlinks do not work on fat32 volumes
-	eapply "${FILESDIR}"/${PN}-4.14-efi.patch
+	eapply "${FILESDIR}"/${PN}-4.15-efi.patch
 
 	# Enable XSM-FLASK
 	use flask && eapply "${FILESDIR}"/${PN}-4.15-flask.patch
@@ -151,10 +151,6 @@ pkg_postinst() {
 	elog " https://wiki.gentoo.org/wiki/Xen"
 
 	use efi && einfo "The efi executable is installed in /boot/efi/gentoo"
-
-	elog "You can optionally block the installation of /boot/xen-syms by an entry"
-	elog "in folder /etc/portage/env using the portage's feature INSTALL_MASK"
-	elog "e.g. echo ${msg} > /etc/portage/env/xen.conf"
 
 	ewarn
 	ewarn "Xen 4.12+ changed the default scheduler to credit2 which can cause"
