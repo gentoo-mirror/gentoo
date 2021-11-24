@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=imagemagick libwww test
 KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/perl:=
+RDEPEND=dev-perl/HTML-Tree dev-perl/XML-Simple imagemagick? ( media-gfx/imagemagick ) libwww? ( dev-perl/libwww-perl ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/html2latex/html2latex/1.1/html2latex-1.1.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=ad811c6e6148e69d04059f744567be9b
+_md5_=a1e03f9975622ae2909f8254bf73f846
