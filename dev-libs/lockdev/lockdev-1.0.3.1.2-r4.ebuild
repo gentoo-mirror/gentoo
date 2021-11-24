@@ -1,15 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2001-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
 GENTOO_DEPEND_ON_PERL="no"
-inherit perl-module epatch versionator autotools multilib-minimal
 
-MAJOR=$(get_major_version)
-MY_PV=$(get_version_component_range 1-3)
+inherit perl-module autotools multilib-minimal
+
+MAJOR=$(ver_cut 1)
+MY_PV=$(ver_cut 1-3)
 MY_P=${PN}-${MY_PV}
-DEB_PV=$(replace_version_separator 3 '-')
+DEB_PV=$(ver_rs 3 '-')
 DEB_P=${PN}_${DEB_PV}
 
 DESCRIPTION="Library for locking devices"
@@ -22,13 +23,14 @@ S="${WORKDIR}"/${PN}-${MY_PV}
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="perl"
 
 PATCHES=(
 	"${WORKDIR}/${DEB_P}.diff"
 	"${FILESDIR}/${MY_P}-add-autotools.patch"
 	"${FILESDIR}/${MY_P}-fix-perl.patch"
+	"${FILESDIR}/${MY_P}-major-minor.patch"
 )
 
 PERL_S=./LockDev
@@ -38,8 +40,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch -p1 "${PATCHES[@]}"
-	epatch_user
+	default
 
 	eautoreconf
 
