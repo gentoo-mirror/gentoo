@@ -5,15 +5,15 @@ EAPI=7
 
 inherit font
 
-MY_P="${PN}-ttf-${PV}"
+MY_P="TakaoFonts_${PV}"
 
 DESCRIPTION="A community developed derivatives of IPA Fonts"
 HOMEPAGE="https://launchpad.net/takao-fonts"
-SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${MY_P}.tar.gz"
+SRC_URI="https://launchpad.net/${PN}/trunk/15.03/+download/${MY_P}.tar.xz"
 
 LICENSE="IPAfont"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE=""
 RESTRICT="binchecks strip"
 
