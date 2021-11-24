@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=acct-group/mail acct-user/mail dev-lang/perl dev-perl/Net-Server mail-filter/spamassassin virtual/perl-IO-Socket-IP
+DESCRIPTION=A program to scan messages for Unsolicited Commercial E-mail content
+EAPI=8
+HOMEPAGE=http://www.worlddesign.com/index.cfm/rd/mta/spampd.htm https://github.com/mpaperno/spampd
+INHERIT=systemd
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2+
+RDEPEND=acct-group/mail acct-user/mail dev-lang/perl dev-perl/Net-Server mail-filter/spamassassin virtual/perl-IO-Socket-IP
+SLOT=0
+SRC_URI=https://github.com/mpaperno/spampd/archive/2.61.tar.gz -> spampd-2.61.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=bff71aa382e5de84b7e3900fd7d82eb6
