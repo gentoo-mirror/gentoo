@@ -22,7 +22,7 @@ SRC_URI="
 	)"
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc lapack"
 
 RDEPEND="
@@ -46,6 +46,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/numpy-1.21.0-no-hardcode-blasv2.patch
 	"${FILESDIR}"/numpy-1.21.4-build-compiler-args-ceph.patch
+	"${FILESDIR}"/numpy-1.21.4-copy-python-3.9.patch
 )
 
 distutils_enable_tests pytest
