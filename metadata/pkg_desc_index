@@ -3152,7 +3152,7 @@ app-portage/kuroneko 0.1.0 0.1.1 0.1.2 0.1.3: Vulnerability checker using data s
 app-portage/kuroo 1.2.1 9999: Graphical Portage frontend based on KDE Frameworks
 app-portage/layman 2.4.3 9999: Tool to manage Gentoo overlays
 app-portage/metagen 0.7.2 0.7.2-r1 0.7.2-r2 9999: metadata.xml generator for ebuilds
-app-portage/mgorny-dev-scripts 11: Handy scripts for ebuild development and more
+app-portage/mgorny-dev-scripts 11 12: Handy scripts for ebuild development and more
 app-portage/mirrorselect 2.2.6-r2 9999: Tool to help select distfiles mirrors for Gentoo
 app-portage/nattka 0.2.19 9999: A New Arch Tester Toolkit -- open-source stable-bot replacement
 app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-package basis
@@ -8641,7 +8641,7 @@ dev-python/identify 2.3.3 2.3.5 2.3.6 2.3.7 2.4.0: File identification library f
 dev-python/idna 3.3: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.1.7: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
-dev-python/imageio 2.10.4 2.10.5 2.11.0 2.11.1: Python library for reading and writing image data
+dev-python/imageio 2.10.4 2.10.5 2.11.0 2.11.1 2.12.0: Python library for reading and writing image data
 dev-python/imagesize 1.2.0 1.3.0: Pure Python module for getting image size from png/jpeg/jpeg2000/gif files
 dev-python/imapclient 2.2.0: easy-to-use, pythonic, and complete IMAP client library
 dev-python/iminuit 2.8.4: Minuit numerical function minimization in Python
@@ -8820,7 +8820,7 @@ dev-python/mmtf-python 1.1.2-r1: The python implementation of the MMTF API, deco
 dev-python/mock 4.0.3: Rolling backport of unittest.mock for all Pythons
 dev-python/mongoengine 0.23.1: A Python Object-Document-Mapper for working with MongoDB
 dev-python/mongomock 3.23.0: Library to help testing Python code that interacts with MongoDB via Pymongo
-dev-python/more-itertools 8.10.0 8.11.0: More routines for operating on iterables, beyond itertools
+dev-python/more-itertools 8.10.0 8.11.0 8.12.0: More routines for operating on iterables, beyond itertools
 dev-python/moto 2.0.5-r1 2.2.12 2.2.14 2.2.15 2.2.16: Mock library for boto
 dev-python/mpdlcd 0.5.2: A small tool to display the MPD status on a LCDproc server.
 dev-python/mpi4py 3.0.3: Message Passing Interface for Python
@@ -10126,7 +10126,7 @@ dev-ros/voxel_grid 1.16.6 1.17.0 1.17.1 9999: Implementation of an efficient 3D 
 dev-ros/xacro 1.14.6 1.14.8 9999: XML macro language
 dev-ros/xmlrpcpp 1.15.8-r1 1.15.9-r1 1.15.10-r1 1.15.11 9999: C++ implementation of the XML-RPC protocol
 dev-ruby/GeoRuby 2.5.2-r1: Ruby data holder for OGC Simple Features
-dev-ruby/abstract 1.0.0-r3 1.0.0-r4: Library which enable you to define abstract method in Ruby
+dev-ruby/abstract 1.0.0-r4: Library which enable you to define abstract method in Ruby
 dev-ruby/acme-client 2.0.8 2.0.9: A Ruby client for the letsencrypt's ACME protocol.
 dev-ruby/actioncable 5.2.6 6.0.4.1 6.1.4.1: Integrated WebSockets for Rails
 dev-ruby/actionmailbox 6.0.4.1 6.1.4.1: Framework for designing email-service layers
@@ -10145,7 +10145,7 @@ dev-ruby/activestorage 5.2.6 6.0.4.1 6.1.4.1: Attach cloud and local files in Ra
 dev-ruby/activesupport 5.2.6 6.0.4.1 6.1.4.1: Utility Classes and Extension to the Standard Library
 dev-ruby/acts_as_list 1.0.1 1.0.3 1.0.4: Capabilities for sorting and reordering a number of objects in a list
 dev-ruby/addressable 2.8.0: A replacement for the URI implementation that is part of Ruby's standard library
-dev-ruby/ae 1.8.2 1.8.2-r1: Assertive Expressive is an assertions library designed for reuse
+dev-ruby/ae 1.8.2-r1: Assertive Expressive is an assertions library designed for reuse
 dev-ruby/afm 0.2.2-r1: A very simple library to read Adobe Font Metrics files
 dev-ruby/airbrussh 1.4.0: A replacement log formatter for SSHKit
 dev-ruby/allison 2.0.3-r3 2.0.3-r4: A modern, pretty RDoc template
@@ -10255,7 +10255,7 @@ dev-ruby/deep_merge 1.2.1: A simple set of utility functions for Hash
 dev-ruby/delayer 1.1.2 1.2.0 1.2.1: Delay the processing
 dev-ruby/delayer-deferred 2.2.0: Ruby implementation of JSDeferred
 dev-ruby/dependor 1.0.1: Reduces duplication when doing manual dependency injection
-dev-ruby/deprecated 3.0.1-r2: A Ruby library for handling deprecated code
+dev-ruby/deprecated 3.0.1-r2 3.0.1-r3: A Ruby library for handling deprecated code
 dev-ruby/descendants_tracker 0.0.4-r1: Module that adds descendant tracking to a class
 dev-ruby/did_you_mean 1.4.0 1.5.0: 'did you mean?'experience in Ruby
 dev-ruby/diff-lcs 1.3 1.4.4: Use the McIlroy-Hunt LCS algorithm to compute differences
@@ -10302,7 +10302,7 @@ dev-ruby/file-tail 1.2.0-r1: A small ruby library that allows it to 'tail' files
 dev-ruby/filesize 0.2.0: small ruby class for handling filesizes with both the SI and binary prefixes
 dev-ruby/filigree 0.4.1: New classes and extensions to core library classes.
 dev-ruby/fivemat 1.3.7: MiniTest/RSpec/Cucumber formatter that gives each test file its own line of dots
-dev-ruby/flexmock 2.3.6: Simple mock object library for Ruby unit testing
+dev-ruby/flexmock 2.3.6 2.3.6-r1: Simple mock object library for Ruby unit testing
 dev-ruby/flickraw 0.9.10: A library to access flickr api in a simple way
 dev-ruby/flog 4.6.4: Flog reports the most tortured code in an easy to read pain report
 dev-ruby/font-awesome-rails 4.7.0.5 4.7.0.6 4.7.0.7: Font-awesome for the asset pipeline
@@ -10388,7 +10388,7 @@ dev-ruby/listen 1.3.1-r4 3.5.1 3.6.0 3.7.0: Listens to file modifications and no
 dev-ruby/little-plugger 1.1.4-r1: Module that provides Gem based plugin management
 dev-ruby/locale 2.1.3: A pure ruby library which provides basic APIs for localization
 dev-ruby/localhost 1.1.9: Manage a local CA for self-signed localhost development servers
-dev-ruby/lockfile 2.1.3 2.1.3-r1: A ruby library for creating NFS safe lockfiles
+dev-ruby/lockfile 2.1.3-r1: A ruby library for creating NFS safe lockfiles
 dev-ruby/log4r 1.1.10-r2 1.1.10-r3: A comprehensive and flexible logging library written in Ruby
 dev-ruby/log_buddy 0.7.0 0.7.0-r1: Log statements along with their name easily
 dev-ruby/logue 1.0.18: A module that adds logging/trace functionality
@@ -10435,7 +10435,7 @@ dev-ruby/moneta 1.3.0 1.4.0 1.4.1: A unified interface to key/value stores
 dev-ruby/mqtt 0.5.0: Pure Ruby gem that implements the MQTT protocol
 dev-ruby/msgpack 1.4.2: Binary-based efficient data interchange format for ruby binding
 dev-ruby/multi_json 1.14.1 1.15.0: A gem to provide swappable JSON backends
-dev-ruby/multi_test 0.1.2 0.1.2-r1: A uniform interface for Ruby testing libraries
+dev-ruby/multi_test 0.1.2-r1: A uniform interface for Ruby testing libraries
 dev-ruby/multi_xml 0.6.0-r1 0.6.0-r2: A generic swappable back-end for XML parsing
 dev-ruby/multipart-post 2.1.1: Adds a streamy multipart form post capability to Net::HTTP
 dev-ruby/mustache 1.1.1: Mustache is a framework-agnostic way to render logic-free views
@@ -10446,7 +10446,7 @@ dev-ruby/nanotest 0.9.4.1 0.9.4.1-r1: Extremely mynymal test framework
 dev-ruby/narray 0.6.1.2 0.6.1.2-r1: Numerical N-dimensional Array class
 dev-ruby/naught 1.1.0 1.1.0-r1: A toolkit for building Null Objects in Ruby
 dev-ruby/necromancer 0.5.1 0.7.0: Conversion from one object type to another with a bit of black magic
-dev-ruby/nenv 0.3.0 0.3.0-r1: Convenient wrapper for Ruby's ENV
+dev-ruby/nenv 0.3.0-r1: Convenient wrapper for Ruby's ENV
 dev-ruby/neovim-ruby-client 0.8.1-r1: Ruby bindings for Neovim
 dev-ruby/net-http-digest_auth 1.4.1 1.4.1-r1: An implementation of RFC 2617 - Digest Access Authentication
 dev-ruby/net-http-persistent 3.1.0 4.0.1: Manages persistent connections using Net::HTTP plus a speed fix for Ruby 1.8
@@ -10494,8 +10494,8 @@ dev-ruby/pg_array_parser 0.0.9-r3: Simple library to parse PostgreSQL arrays int
 dev-ruby/pkg-config 1.4.1 1.4.2 1.4.3 1.4.4 1.4.5 1.4.6: A pkg-config implementation by Ruby
 dev-ruby/plist 3.5.0 3.6.0: A library to manipulate Property List files, also known as plists
 dev-ruby/pluggaloid 1.2.0 1.5.0 1.7.0: Pluggaloid is extensible plugin system for mikutter
-dev-ruby/podcast 0.0.4-r2 0.0.4-r3: A pure Ruby library for generating podcasts from mp3 files
-dev-ruby/polyglot 0.3.5: Polyglot provides support for fully-custom DSLs
+dev-ruby/podcast 0.0.4-r3: A pure Ruby library for generating podcasts from mp3 files
+dev-ruby/polyglot 0.3.5 0.3.5-r1: Polyglot provides support for fully-custom DSLs
 dev-ruby/posix-spawn 0.3.15 0.3.15-r1: Library that implements a subset of the Ruby 1.9 Process::spawn
 dev-ruby/power_assert 1.1.7 1.2.0 2.0.0 2.0.1: Shows each value of variables and method calls in the expression
 dev-ruby/prawn 2.4.0: Fast, Nimble PDF Generation For Ruby
@@ -10531,7 +10531,7 @@ dev-ruby/rb-inotify 0.10.1: A thorough inotify wrapper for Ruby using FFI
 dev-ruby/rb-readline 0.5.5: Ruby implementation of the GNU readline C library
 dev-ruby/rbnacl 4.0.2-r1 7.1.1: Provides a high-level toolkit for building cryptographic systems and protocols
 dev-ruby/rbpdf 1.20.1-r2: Ruby on Rails RBPDF plugin
-dev-ruby/rbpdf-font 1.19.1: Font files for the Ruby on Rails RBPDF plugin
+dev-ruby/rbpdf-font 1.19.1-r1: Font files for the Ruby on Rails RBPDF plugin
 dev-ruby/rbs 1.2.1 1.3.3 1.5.1: The language for type signatures for Ruby and standard library definitions
 dev-ruby/rbst 0.6.5: A simple Ruby wrapper for processing rST via docutils
 dev-ruby/rbtree 0.4.4: A sorted associative collection that is implemented with a Red-Black Tree
@@ -10572,7 +10572,7 @@ dev-ruby/rspec-core 2.99.2-r2 3.9.3 3.10.1: A Behaviour Driven Development (BDD)
 dev-ruby/rspec-expectations 2.99.2 3.9.4 3.10.1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-its 1.3.0-r1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-json_expectations 2.2.0: Set of matchers and helpers to allow you test your APIs responses.
-dev-ruby/rspec-mocks 2.99.2 3.9.1 3.10.2: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec-mocks 2.99.2 2.99.2-r1 3.9.1 3.10.2: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-rails 3.9.1 4.1.2 5.0.2: RSpec's official Ruby on Rails plugin
 dev-ruby/rspec-retry 0.6.2: Retry intermittently failing rspec examples
 dev-ruby/rspec-stubbed_env 1.0.0: Stub environment variables in a scoped context for testing
@@ -10723,7 +10723,7 @@ dev-ruby/tilt 2.0.10: Thin interface over template engines to make their usage a
 dev-ruby/timecop 0.9.1 0.9.2 0.9.3 0.9.4: A gem providing 'time travel' and 'time freezing' capabilities
 dev-ruby/timers 4.3.3: Pure Ruby one-shot and periodic timers
 dev-ruby/tins 1.29.1: All the stuff that isn't good enough for a real library
-dev-ruby/tokyocabinet 1.32.0 1.32.0-r1: Ruby bindings for Tokyo Cabinet
+dev-ruby/tokyocabinet 1.32.0-r1: Ruby bindings for Tokyo Cabinet
 dev-ruby/tomlrb 1.2.8 2.0.0 2.0.1: A racc based toml parser
 dev-ruby/totoridipjp 0.1.0 0.1.0-r1: A ruby binding to use totori.dip.jp Web API
 dev-ruby/transaction-simple 1.4.0.2-r2: Provides transaction support at the object level
