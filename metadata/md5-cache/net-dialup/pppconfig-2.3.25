@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext )
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=A text menu based utility for configuring ppp
+EAPI=8
+HOMEPAGE=https://tracker.debian.org/pkg/pppconfig
+INHERIT=strip-linguas
+IUSE=nls
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=net-dialup/ppp dev-util/dialog dev-lang/perl
+SLOT=0
+SRC_URI=mirror://debian/pool/main/p/pppconfig/pppconfig_2.3.25.tar.gz
+_eclasses_=strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
+_md5_=d75211b70692a50c0b333eebe70b99f6
