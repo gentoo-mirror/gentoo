@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile configure setup
-DEPEND=dev-ada/xmlada[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gnat_2019(-),shared,static-libs] dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gnat_2019(-)]
+DEPEND=dev-ada/xmlada[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared,static-libs] dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?]
 DESCRIPTION=A complete Web development framework
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/tools/aws/
 INHERIT=ada multiprocessing
-IUSE=ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021
+IUSE=ada_target_gnat_2020 ada_target_gnat_2021
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-ada/xmlada[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gnat_2019(-),shared,static-libs]
+RDEPEND=dev-ada/xmlada[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared,static-libs]
 REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/5b0fa09df8ac0c717abdf4ede9e08efe5fd98984?filename=aws-2021-20210518-19F65-src.tar.gz -> aws-2021-20210518-19F65-src.tar.gz
-_eclasses_=ada	404e63451400970e82fe33ec6856fe0d	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
+_eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
 _md5_=570a8b8b447a24f2c6fc29c5c16e7511

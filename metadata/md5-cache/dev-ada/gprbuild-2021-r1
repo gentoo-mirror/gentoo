@@ -4,12 +4,12 @@ DESCRIPTION=Multi-Language Management
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing
-IUSE=ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021
+IUSE=ada_target_gnat_2020 ada_target_gnat_2021
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 )
 REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/23a77a37247ff811609e23a0a271f445c299fc8f?filename=gprbuild-2021-20210519-19A34-src.tar.gz -> gprbuild-2021-20210519-19A34-src.tar.gz https://community.download.adacore.com/v1/6a2cf72f308cc787926b12ddc20993fcf2b8ea79?filename=xmlada-2021-20210518-19D50-src.tar.gz -> xmlada-2021-20210518-19D50-src.tar.gz
-_eclasses_=ada	404e63451400970e82fe33ec6856fe0d	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
+_eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
 _md5_=db21e3d38e2dbfdf7a359013be92b76f

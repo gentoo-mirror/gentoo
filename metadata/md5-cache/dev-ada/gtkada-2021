@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-libs/atk dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gnat_2019(-)]
+DEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-libs/atk dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?]
 DESCRIPTION=A complete Ada graphical toolkit
 EAPI=7
 HOMEPAGE=http://libre.adacore.com//tools/gtkada/
 INHERIT=ada autotools multiprocessing
-IUSE=+shared static-libs ada_target_gnat_2019 ada_target_gnat_2020 ada_target_gnat_2021
+IUSE=+shared static-libs ada_target_gnat_2020 ada_target_gnat_2021
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-libs/atk dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
 REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/8f1daefcb56e3ee7feaad67bac66deb0f7c37a82?filename=gtkada-2021-20210518-1A011-src.tar.gz -> gtkada-2021-20210518-1A011-src.tar.gz
-_eclasses_=ada	404e63451400970e82fe33ec6856fe0d	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
+_eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
 _md5_=56cc2a2111b443c38a0b11d34e3a8492
