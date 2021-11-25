@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=net-libs/courier-authlib xinetd? ( sys-apps/xinetd )
+DESCRIPTION=Courierpassd is a utility for changing a user's password from across a network
+EAPI=8
+HOMEPAGE=http://www.arda.homeunix.net/
+IUSE=xinetd
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=net-libs/courier-authlib xinetd? ( sys-apps/xinetd )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=http://www.arda.homeunix.net/?ddownload=375 -> courierpassd-1.1.2.tar.gz
+_md5_=e067d2f542fe9ee78296537007c318ae
