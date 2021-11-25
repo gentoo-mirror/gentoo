@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://github.com/jnr/jnr-posix
 INHERIT=java-pkg-2 java-ant-2
 IUSE=elibc_FreeBSD doc source test
-KEYWORDS=~amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+KEYWORDS=amd64 arm64 x86 ~amd64-linux ~x86-linux ~x86-solaris
 LICENSE=|| ( CPL-1.0 GPL-2 LGPL-2.1 )
 RDEPEND=dev-java/jnr-constants:0 dev-java/jnr-ffi:2 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=3.0
 SRC_URI=https://github.com/jnr/jnr-posix/archive/3.0.10.tar.gz -> jnr-posix-3.0.10.tar.gz
 _eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	java-ant-2	e83ca06db890ca292b0b6d43e376e20d
-_md5_=6301273c636e9b7dd0cce98b55591b78
+_md5_=d655c742802ad70b6323f70714f14682

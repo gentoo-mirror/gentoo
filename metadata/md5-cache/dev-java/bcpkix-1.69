@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://www.bouncycastle.org/java.html
 INHERIT=java-pkg-2 java-pkg-simple check-reqs
 IUSE=elibc_FreeBSD doc source test
-KEYWORDS=amd64 arm64 ppc64 ~x86
+KEYWORDS=amd64 arm64 ppc64 x86
 LICENSE=BSD
 RDEPEND=~dev-java/bcprov-1.69:0 ~dev-java/bcutil-1.69:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bcgit/bc-java/archive/refs/tags/r1rv69.tar.gz -> bc-java-r1rv69.tar.gz
 _eclasses_=java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	java-pkg-simple	148ea0f0bf459bdb4768a56036df3cc2	check-reqs	bfb51de63b0462097e40436214dd43c8
-_md5_=bb44b5a2694e5d43eac5ca9e358eb015
+_md5_=816bf43cb03d381035ea210f0abc3dc9
