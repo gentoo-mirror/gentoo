@@ -1,18 +1,21 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
-USE_RUBY="ruby24 ruby25 ruby26 ruby27"
+USE_RUBY="ruby26 ruby27 ruby30"
 
 RUBY_FAKEGEM_TASK_TEST=""
 RUBY_FAKEGEM_TASK_DOC=""
 
 RUBY_FAKEGEM_EXTRADOC="ChangeLog README.md README.ja.md SPEC.en.txt SPEC.ja.txt"
 
+RUBY_FAKEGEM_GEMSPEC="narray.gemspec"
 RUBY_FAKEGEM_VERSION="${PV/_p/.}"
 
-inherit multilib ruby-fakegem
+RUBY_FAKEGEM_EXTENSIONS=(./extconf.rb)
+
+inherit ruby-fakegem
 
 DESCRIPTION="Numerical N-dimensional Array class"
 HOMEPAGE="https://masa16.github.io/narray/"
@@ -20,7 +23,7 @@ SRC_URI="https://github.com/masa16/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Ruby"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~hppa ~mips ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~mips ~ppc ~ppc64 ~x86"
 
 IUSE=""
 
@@ -31,15 +34,8 @@ all_ruby_prepare() {
 	sed -i -e '/[fF]ollowing will fail/,$ s:^:#:' \
 		-e '/next will fail/,$ s:^:#:' \
 		test/*.rb || die "sed failed"
-}
 
-each_ruby_configure() {
-	${RUBY} extconf.rb || die "extconf.rb failed"
-}
-
-each_ruby_compile() {
-	emake V=1 CFLAGS="${CFLAGS} -fPIC" archflag="${LDFLAGS}"
-	cp -l ${PN}$(get_modname) ${PN}.h ${PN}_config.h lib/ || die "copy of ${PN}$(get_modname) failed"
+	sed -i -e 's:src/narray.h:narray.h:' ${RUBY_FAKEGEM_GEMSPEC} || die
 }
 
 each_ruby_test() {
