@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install test
+DEPEND=media-libs/mesa[X(+)] >=dev-cpp/eigen-3.2.0:3 media-libs/libepoxy[egl] >=sci-libs/fftw-3 media-libs/libsdl2
+DESCRIPTION=High-performance, high-quality video filters for the GPU
+EAPI=8
+HOMEPAGE=https://movit.sesse.net/
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=media-libs/mesa[X(+)] >=dev-cpp/eigen-3.2.0:3 media-libs/libepoxy[egl] >=sci-libs/fftw-3 media-libs/libsdl2
+RESTRICT=test
+SLOT=0
+SRC_URI=https://movit.sesse.net/movit-1.6.3.tar.gz https://github.com/google/googletest/archive/refs/tags/release-1.8.1.tar.gz -> movit-googletest-1.8.1.tar.gz
+_md5_=5a4fb8f8fedfc316a97632010b631bf6
