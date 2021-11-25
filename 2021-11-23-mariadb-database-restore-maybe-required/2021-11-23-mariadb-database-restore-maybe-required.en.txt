@@ -1,0 +1,45 @@
+Title: Full MariaDB database restore maybe required
+Author: Thomas Deutschmann <whissi@gentoo.org>
+Posted: 2021-11-23
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: dev-db/mariadb
+Display-If-Installed: sys-cluster/galera
+
+On 2021-11-21, keywords for dev-db/mariadb:10.6 were removed to
+address a file collision with dev-db/mariadb-connector-c. This
+unintentionally triggered a version downgrade for users who had
+successfully upgraded to dev-db/mariadb:10.6 already. [Link 1].
+
+However, downgrades are not supported in MySQL/MariaDB [Link 2].
+
+In case you already fully upgraded to MariaDB 10.6 (which includes
+executing mysql_upgrade command) and unintentionally downgraded your
+MariaDB instance afterwards during the time window when keywords were
+removed, you maybe experiencing different problems:
+
+At best, your unwanted downgraded MariaDB instance prevented startup
+so all you have to do is upgrade to MariaDB 10.6 again to resume
+services.
+
+In case previous MariaDB version was able to start, you are encouraged
+to do a full backup as soon as possible using mysqldump command and
+manually restore each database ("logical downgrade") to prevent any
+data corruption.
+
+Depending on used feature set and from which version you upgraded,
+it is maybe required to do a full restore from a previous backup before
+MariaDB 10.6 upgrade to restore services and prevent any data loss or
+future runtime errors.
+
+In case you are using MariaDB in a cluster and/or Galera setup you
+probably have to rebuild the entire cluster in case the upgrade to
+MariaDB 10.6 was already replicated (using pt-table-checksum from
+dev-db/percona-toolkit can help you to validate your cluster).
+
+Keep in mind that due to the downgrade, point-in-time recovery may
+not be available to the extent that you are used to.
+
+Link 1: https://bugs.gentoo.org/825234
+
+Link 2: https://mariadb.com/kb/en/downgrading-between-major-versions-of-mariadb/
