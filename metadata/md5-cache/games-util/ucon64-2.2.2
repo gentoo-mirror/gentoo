@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=usb? ( virtual/libusb:0 ) zlib? ( sys-libs/zlib:= )
+DESCRIPTION=The backup tool and wonderful emulator's Swiss Army knife program
+EAPI=8
+HOMEPAGE=http://ucon64.sourceforge.net/
+INHERIT=toolchain-funcs
+IUSE=debug usb zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=usb? ( virtual/libusb:0 ) zlib? ( sys-libs/zlib:= )
+SLOT=0
+SRC_URI=mirror://sourceforge/ucon64/ucon64-2.2.2-src.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=ebfff543dd5da3d10e4c4ef80b7dbe3e
