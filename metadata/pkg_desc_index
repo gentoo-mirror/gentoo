@@ -5356,6 +5356,7 @@ dev-java/zstd-jni 1.5.0.4: JNI bindings for Zstd native library
 dev-lang/R 4.0.5-r1 4.1.0-r2: Language and environment for statistical computing and graphics
 dev-lang/abs 2.5.0 2.5.1: The ABS programing language
 dev-lang/ammonite-repl-bin 2.4.0 2.4.1: Scala language-based scripting and REPL
+dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/bas 2.4: An interpreter for the classic dialect of the programming language BASIC
 dev-lang/bff 1.0.7: A brainfuck interpreter
 dev-lang/c-intercal 31.0: C-INTERCAL - INTERCAL to binary (via C) compiler
@@ -11688,7 +11689,7 @@ games-emulation/mastergear-bin 4.9: SEGA Master System / Game Gear emulator
 games-emulation/mednafen 1.27.1: Argument-driven multi-system emulator utilizing OpenGL and SDL
 games-emulation/mednaffe 0.9.1: Front-end (GUI) for mednafen emulator
 games-emulation/mekanix 070-r1: SG-1000, SC-3000, SF-7000, SSC, SMS, GG, COLECO, and OMV emulator
-games-emulation/melonds 0.9.3 9999: Nintendo DS emulator, sorta
+games-emulation/melonds 0.9.3-r1 9999: Nintendo DS emulator, sorta
 games-emulation/mgba 0.8.4-r1 0.9.1-r1 0.9.2 9999: Game Boy Advance emulator written in C
 games-emulation/mupen64plus 2.5.9: A fork of Mupen64 Nintendo 64 emulator, meta-package
 games-emulation/mupen64plus-audio-sdl 2.5.9: A fork of Mupen64 Nintendo 64 emulator, SDL audio plugin
@@ -17880,8 +17881,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r1 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.158 5.4.160 5.4.161 5.10.78 5.10.80 5.10.81 5.13.19 5.14.20 5.14.21 5.15.3 5.15.4 5.15.5: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.158 5.4.158-r1 5.4.160 5.4.160-r1 5.4.161 5.4.161-r1 5.10.78 5.10.78-r1 5.10.80 5.10.80-r1 5.10.81 5.10.81-r1 5.13.19 5.13.19-r1 5.14.20 5.14.20-r1 5.14.21 5.14.21-r1 5.15.3 5.15.4 5.15.5: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.158 5.4.160 5.4.161 5.4.162 5.10.78 5.10.80 5.10.81 5.10.82 5.13.19 5.14.20 5.14.21 5.15.3 5.15.4 5.15.5: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.158 5.4.158-r1 5.4.160 5.4.160-r1 5.4.161 5.4.161-r1 5.4.162 5.10.78 5.10.78-r1 5.10.80 5.10.80-r1 5.10.81 5.10.81-r1 5.10.82 5.13.19 5.13.19-r1 5.14.20 5.14.20-r1 5.14.21 5.14.21-r1 5.15.3 5.15.4 5.15.5: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.290 4.4.291 4.4.292 4.4.293 4.9.288 4.9.289 4.9.290 4.9.291 4.14.253 4.14.254 4.14.255 4.14.256 4.19.214 4.19.215 4.19.216 4.19.217 4.19.218 5.4.156 5.4.159 5.4.160 5.4.161 5.4.162 5.10.76-r1 5.10.79 5.10.80 5.10.81 5.10.82 5.14.20 5.14.21 5.15.2 5.15.3 5.15.4 5.15.5: Full sources including the Gentoo patchset for the 5.15 kernel tree
 sys-kernel/git-sources 5.16_rc1 5.16_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17897,7 +17898,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224-r1 4.9.282_p187 4.14.246_p122 4.19.206_p87 5.4.143_p64 5.10.59_p52 5.14.2_p21: Full Linux 5.14 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.158 5.4.160 5.4.161 5.10.78 5.10.80 5.10.81 5.13.19 5.14.20 5.14.21 5.15.3 5.15.4 5.15.5: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.158 5.4.160 5.4.161 5.4.162 5.10.78 5.10.80 5.10.81 5.10.82 5.13.19 5.14.20 5.14.21 5.15.3 5.15.4 5.15.5: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.293 4.9.291 4.14.256 4.19.218 5.4.162 5.10.82 5.14.21 5.15.5: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.13.13 5.14.15: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18081,7 +18082,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.158 5.4.160 5.4.161 5.10.78 5.10.80 5.10.81 5.13.19 5.14.20 5.14.21 5.15.3 5.15.4 5.15.5: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.158 5.4.160 5.4.161 5.4.162 5.10.78 5.10.80 5.10.81 5.10.82 5.13.19 5.14.20 5.14.21 5.15.3 5.15.4 5.15.5: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18344,7 +18345,7 @@ www-apps/rocketwiki-lqfb 0.4: Small parser which translates a wiki dialect to HT
 www-apps/roundup 2.0.0 2.1.0: Issue-tracking system with command-line, web, and e-mail interfaces
 www-apps/rt 4.4.4-r1: RT is an enterprise-grade ticketing system
 www-apps/rutorrent 3.8-r1 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
-www-apps/selfoss 2.18: The multipurpose rss reader, live stream, mashup, aggregation web application
+www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/trickster 0.1.9: Dashboard Accelerator for Prometheus
 www-apps/tt-rss 20200922 99999999: Tiny Tiny RSS - A web-based news feed (RSS/Atom) aggregator using AJAX
 www-apps/webdavcgi 1.1.2: A Perl CGI for accessing and sharing files, or calendar/addressbooks via WebDAV.
