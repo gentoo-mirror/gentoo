@@ -22,7 +22,7 @@ SRC_URI="
 	)"
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc lapack"
 
 RDEPEND="
@@ -124,6 +124,15 @@ python_test() {
 		# bug #774108
 		deselect+=(
 			numpy/core/tests/test_cpu_features.py::Test_ARM_Features::test_features
+		)
+	fi
+
+	if use x86 ; then
+		deselect+=(
+			# https://github.com/numpy/numpy/issues/18388
+			numpy/core/tests/test_umath.py::TestRemainder::test_float_remainder_overflow
+			# https://github.com/numpy/numpy/issues/18387
+			numpy/random/tests/test_generator_mt19937.py::TestRandomDist::test_pareto
 		)
 	fi
 
