@@ -23,13 +23,16 @@ fi
 
 LICENSE="|| ( GPL-3+ CC-BY-3.0 ) GPL-2"
 SLOT="0"
-IUSE="html +pdf"
+# TODO: Change default back to +df once asciidoctor-pdf is packaged
+IUSE="+html pdf"
 
 LANG_USE=" l10n_ca l10n_de l10n_en l10n_es l10n_fr l10n_id l10n_it l10n_ja l10n_pl l10n_ru l10n_zh"
 IUSE+=${LANG_USE}
 REQUIRED_USE="|| ( html pdf ) ^^ ( ${LANG_USE} )"
 unset LANG_USE
 
+# TODO: need asciidoctor-pdf for pdf
+# bug #697450
 BDEPEND="
 	>=app-text/asciidoc-8.6.9
 	>=app-text/dblatex-0.3.10
