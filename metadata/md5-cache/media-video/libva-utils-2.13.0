@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://01.org/linuxmedia/vaapi
 INHERIT=autotools
 IUSE=+drm examples putsurface test test-va-api +vainfo wayland X
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm64 ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=>=x11-libs/libva-2.13.0:=[drm?,wayland?,X?] wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 )
 REQUIRED_USE=|| ( drm wayland X ) putsurface? ( || ( wayland X ) ) putsurface? ( drm ) || ( examples putsurface test-va-api vainfo )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/intel/libva-utils/archive/2.13.0.tar.gz -> libva-utils-2.13.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=ad21f7291109eaf8630b01929f5d60dc
+_md5_=ab2440ac85c8c77e27cd51032f50c934
