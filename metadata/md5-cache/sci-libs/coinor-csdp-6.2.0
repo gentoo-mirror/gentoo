@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=virtual/blas virtual/lapack
+DESCRIPTION=COIN-OR C Library for Semi-Definite Programming
+EAPI=8
+HOMEPAGE=https://projects.coin-or.org/Csdp/
+INHERIT=flag-o-matic multilib toolchain-funcs
+IUSE=doc examples openmp
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=EPL-2.0
+RDEPEND=virtual/blas virtual/lapack
+SLOT=0
+SRC_URI=https://www.coin-or.org/download/source/Csdp/Csdp-6.2.0.tgz -> coinor-csdp-6.2.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_md5_=7e9b3ec8b4f3c3f3fb1801194d927ec0
