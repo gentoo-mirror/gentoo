@@ -35,7 +35,7 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs=(
 		-DCATCH_ENABLE_WERROR=OFF
-		-DCATCH_DEVELOPMENT_BUILD=$(usex test)
+		-DBUILD_TESTING=$(usex test)
 	)
 	use test &&
 		mycmakeargs+=( -DPYTHON_EXECUTABLE="${PYTHON}" )
