@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig extras? ( dev-texlive/texlive-latexextra ) gtk? ( x11-misc/xdg-utils )
+DEFINED_PHASES=compile configure install postinst postrm pretend
+DEPEND=dev-libs/glib:2= >=dev-libs/gmp-4.0.1:0= dev-libs/json-glib:0= dev-libs/libxml2:2= >=dev-libs/mpfr-2.2.0:0= net-misc/curl:0= sci-libs/fftw:3.0= sci-visualization/gnuplot virtual/lapack virtual/latex-base emacs? ( >=app-editors/emacs-23.1:* ) gnome? ( >=gnome-extra/libgsf-1.14.47[gtk?] ) gtk? ( media-libs/gd:2=[png] >=sci-visualization/gnuplot-5.0[cairo] x11-libs/gtk+:3= x11-libs/gtksourceview:3.0= ) mpi? ( virtual/mpi ) odbc? ( dev-db/unixODBC:0= ) R? ( dev-lang/R:0= ) readline? ( sys-libs/readline:0= )
+DESCRIPTION=Regression, econometrics and time-series library
+EAPI=8
+HOMEPAGE=http://gretl.sourceforge.net/
+INHERIT=elisp-common toolchain-funcs xdg-utils
+IUSE=cpu_flags_x86_avx emacs extras gnome gtk mpi nls odbc openmp python readline cpu_flags_x86_sse2 R
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3
+RDEPEND=dev-libs/glib:2= >=dev-libs/gmp-4.0.1:0= dev-libs/json-glib:0= dev-libs/libxml2:2= >=dev-libs/mpfr-2.2.0:0= net-misc/curl:0= sci-libs/fftw:3.0= sci-visualization/gnuplot virtual/lapack virtual/latex-base emacs? ( >=app-editors/emacs-23.1:* ) gnome? ( >=gnome-extra/libgsf-1.14.47[gtk?] ) gtk? ( media-libs/gd:2=[png] >=sci-visualization/gnuplot-5.0[cairo] x11-libs/gtk+:3= x11-libs/gtksourceview:3.0= ) mpi? ( virtual/mpi ) odbc? ( dev-db/unixODBC:0= ) R? ( dev-lang/R:0= ) readline? ( sys-libs/readline:0= ) python? ( dev-python/numpy )
+REQUIRED_USE=emacs? ( gtk )
+SLOT=0/40
+SRC_URI=mirror://sourceforge/project/gretl/gretl/2021d/gretl-2021d.tar.xz
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=691d4864e48fe91f8c339691d3f76868
