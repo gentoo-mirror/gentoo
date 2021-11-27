@@ -1,17 +1,17 @@
-BDEPEND=test? ( dev-python/colorama dev-python/stevedore dev-python/distro !app-editors/e3 >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=test? ( dev-python/requests-toolbelt[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/httpretty[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-vcs/subversion dev-python/tqdm[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/tomlkit[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyyaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/python-dateutil[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/mock[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/psutil[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) test? ( dev-python/colorama[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/stevedore[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/distro[python_targets_python3_8(-)?,python_targets_python3_9(-)?] !app-editors/e3 >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/colorama dev-python/stevedore dev-python/distro !app-editors/e3 test? ( dev-python/requests-toolbelt dev-python/httpretty dev-vcs/subversion dev-python/tqdm dev-python/tomlkit dev-python/pyyaml dev-python/python-dateutil dev-python/mock dev-python/psutil )
+DEPEND=dev-python/colorama[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/stevedore[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/distro[python_targets_python3_8(-)?,python_targets_python3_9(-)?] !app-editors/e3
 DESCRIPTION=ease the development of portable automated build systems
 EAPI=8
 HOMEPAGE=https://www.adacore.com/
 INHERIT=distutils-r1 toolchain-funcs
-IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=dev-python/colorama dev-python/stevedore dev-python/distro !app-editors/e3 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
-REQUIRED_USE=x86? ( !test ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-python/colorama[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/stevedore[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/distro[python_targets_python3_8(-)?,python_targets_python3_9(-)?] !app-editors/e3 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=x86? ( !test ) || ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/e3-core/archive/refs/tags/v22.1.0.tar.gz -> e3-core-22.1.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	8041037f74e1f9d149c038c2fe2c97cf
-_md5_=1e6c7efd0ae52db69f561b0bb0ca9539
+_md5_=4af6f3618d5bf0e7143f1dcfb11f97a4
