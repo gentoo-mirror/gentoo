@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst setup
+DEPEND==www-servers/apache-2*
+DESCRIPTION=Log rotation support for mod_log_config based on strftime(3)
+EAPI=7
+HOMEPAGE=https://github.com/JBlond/mod_log_rotate
+INHERIT=apache-module depend.apache
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND==www-servers/apache-2*
+SLOT=0
+SRC_URI=https://github.com/JBlond/mod_log_rotate/archive/refs/tags/1.02.tar.gz -> mod_log_rotate-1.02.tar.gz
+_eclasses_=depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62
+_md5_=bdf8dd363e152050b2ffd6c21a7f4c6e
