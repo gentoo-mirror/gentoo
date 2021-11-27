@@ -33,3 +33,7 @@ DEPEND="
 	media-libs/libepoxy
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${P}-KeySequenceItem-record-on-correct-window.patch" # KDE-bug 445277
+)

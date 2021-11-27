@@ -16,9 +16,6 @@ IUSE="+editorconfig git"
 
 RESTRICT="test"
 
-BDEPEND="
-	test? ( >=kde-frameworks/kservice-${PVCUT}:5 )
-"
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -48,6 +45,13 @@ DEPEND="
 	git? ( dev-libs/libgit2:= )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	test? ( >=kde-frameworks/kservice-${PVCUT}:5 )
+"
+
+PATCHES=(
+	"${FILESDIR}/${P}-revert-invoke-always.patch" # KDE-bug 444883
+)
 
 src_configure() {
 	local mycmakeargs=(
