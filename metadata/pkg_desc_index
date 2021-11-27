@@ -2708,7 +2708,7 @@ app-laptop/thinkfan 1.0.2 1.2.1 1.2.2: Simple fan control program for thinkpads
 app-laptop/tp_smapi 0.43-r1: IBM ThinkPad SMAPI BIOS driver
 app-laptop/tpacpi-bat 3.0-r1 3.1 9999: Control battery thresholds of recent ThinkPads, not supported by tp_smapi
 app-laptop/tpb 0.6.4-r1: IBM ThinkPad buttons utility
-app-laptop/tuxedo-control-center-bin 1.0.4 1.1.0: Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
+app-laptop/tuxedo-control-center-bin 1.1.0-r1: Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
 app-laptop/tuxedo-keyboard 2.0.5-r1 3.0.8: Kernel Module for Tuxedo Keyboard
 app-metrics/alertmanager 0.21.0-r3 0.22.2 0.23.0: Alertmanager for alerts sent by client applications such as Prometheus
 app-metrics/bind_exporter 0.3.0: Prometheus exporter for BIND
@@ -5110,7 +5110,7 @@ dev-java/headius-options 1.1: A small library for managing sets of JVM propertie
 dev-java/htmlcleaner 2.25: HTML parser written in Java that can be used as a tool, library or Ant task
 dev-java/httpcore 4.4.14: Apache HttpComponents Core (blocking I/O)
 dev-java/icedtea 3.18.0 3.19.0 3.21.0: A harness to build OpenJDK using Free Software build tools and dependencies
-dev-java/icedtea-bin 3.16.0: A Gentoo-made binary build of the IcedTea JDK
+dev-java/icedtea-bin 3.16.0 3.16.0-r1: A Gentoo-made binary build of the IcedTea JDK
 dev-java/icedtea-sound 1.0.1: Plugins for javax.sound
 dev-java/icedtea-web 1.8.4-r1 1.8.8: FOSS Java browser plugin and Web Start implementation
 dev-java/icu4j 54.1.1-r1 70.1: A set of Java libraries providing Unicode and Globalization support
@@ -5263,8 +5263,8 @@ dev-java/objenesis-test 3.2: Test library for Objenesis library
 dev-java/ognl 3.0.8: Object-Graph Navigation Language: get/set properties of objects
 dev-java/okio 1.11.0: A modern I/O API for Java
 dev-java/openjdk 8.302_p08 8.312_p07 11.0.12_p7 11.0.13_p8 17.0.1_p12: Open source implementation of the Java programming language
-dev-java/openjdk-bin 8.302_p08 8.312_p07 11.0.12_p7 11.0.13_p8 17.0.1_p12: Prebuilt Java JDK binaries provided by Eclipse Temurin
-dev-java/openjdk-jre-bin 8.292_p10 8.302_p08 8.312_p07 11.0.11_p9 11.0.12_p7 11.0.13_p8: Prebuilt Java JRE binaries provided by AdoptOpenJDK
+dev-java/openjdk-bin 8.302_p08 8.312_p07 8.312_p07-r1 11.0.12_p7 11.0.13_p8 11.0.13_p8-r1 17.0.1_p12 17.0.1_p12-r1: Prebuilt Java JDK binaries provided by Eclipse Temurin
+dev-java/openjdk-jre-bin 8.292_p10 8.302_p08 8.312_p07 8.312_p07-r1 11.0.11_p9 11.0.12_p7 11.0.13_p8 11.0.13_p8-r1: Prebuilt Java JRE binaries provided by AdoptOpenJDK
 dev-java/openjfx 8.1000 11.0.9_p0 11.0.11_p1: Java OpenJFX client application platform
 dev-java/oracle-javamail 1.5.6-r1: A Java-based framework to build multiplatform mail and messaging applications
 dev-java/osgi-annotation-versioning 1.1.1: OSGi Companion Code for org.osgi.annotation.versioning Version 1.1.1
@@ -7444,29 +7444,29 @@ dev-perl/Proc-Wait3 0.50.0-r1: Perl extension for wait3 system call
 dev-perl/Proc-WaitStat 1.0.0-r2: Interpret and act on wait() status values
 dev-perl/Quota 1.8.1 1.8.2: Perl interface to file system quotas
 dev-perl/REST-Client 273-r1: A simple client for interacting with RESTful http/https resources
-dev-perl/RPC-XML 0.790.0 0.800.0 0.820.0: An implementation of XML-RPC
+dev-perl/RPC-XML 0.820.0: An implementation of XML-RPC
 dev-perl/RRD-Simple 1.440.0-r3: Simple interface to create and store data in RRD files
 dev-perl/RTF-Writer 1.110.0-r3: RTF::Writer - for generating documents in Rich Text Format
 dev-perl/Rcs 1.50.0-r3: Perl bindings for Revision Control System
 dev-perl/Readonly 2.50.0-r1: Facility for creating read-only scalars, arrays, hashes
 dev-perl/Readonly-XS 1.50.0-r2: Companion module for Readonly.pm, to speed up read-only scalar variables
 dev-perl/Redis 1.998.0: Perl binding for Redis database
-dev-perl/RedisDB 2.540.0 2.570.0: Perl extension to access redis database
-dev-perl/RedisDB-Parser 2.220.0 2.230.0: Redis protocol parser for RedisDB
-dev-perl/Ref-Util 0.203.0 0.204.0: Utility functions for checking references
-dev-perl/Ref-Util-XS 0.116.0 0.117.0: XS Implementation for Ref::Util
+dev-perl/RedisDB 2.570.0: Perl extension to access redis database
+dev-perl/RedisDB-Parser 2.230.0: Redis protocol parser for RedisDB
+dev-perl/Ref-Util 0.204.0: Utility functions for checking references
+dev-perl/Ref-Util-XS 0.117.0: XS Implementation for Ref::Util
 dev-perl/Regexp-Common 2017060201.0.0-r1: Provide commonly requested regular expressions
 dev-perl/Regexp-Common-net-CIDR 0.30.0-r1: Provides patterns for CIDR blocks
 dev-perl/Regexp-IPv6 0.30.0-r2: Regular expression for IPv6 addresses
 dev-perl/Regexp-RegGrp 2.10.0-r1: Groups a regular expressions collection
 dev-perl/Regexp-Shellish 0.930.0-r2: Regexp::Shellish - Shell-like regular expressions
 dev-perl/Regexp-Trie 0.20.0: builds trie-ized regexp
-dev-perl/Regexp-Util 0.3.0 0.5.0: General purpose utilities for working with Regular Expressions
+dev-perl/Regexp-Util 0.5.0: General purpose utilities for working with Regular Expressions
 dev-perl/Return-Value 1.666.5-r1: Polymorphic Return Values
 dev-perl/Role-Basic 0.130.0-r1: Just roles. Nothing else
 dev-perl/Role-HasMessage 0.6.0-r1: a thing with a message method
 dev-perl/Role-Identifiable 0.7.0-r1: a thing with a list of tags
-dev-perl/Role-Tiny 2.0.6 2.2.4: Roles: a nouvelle cuisine portion size slice of Moose
+dev-perl/Role-Tiny 2.2.4: Roles: a nouvelle cuisine portion size slice of Moose
 dev-perl/Roman 1.240.0-r1: Perl module for conversion between Roman and Arabic numerals
 dev-perl/Router-Simple 0.170.0-r1: Simple HTTP router
 dev-perl/SDL 2.546 2.548.0: Simple DirectMedia Layer (SDL) bindings for perl
@@ -7483,11 +7483,11 @@ dev-perl/SRU 1.10.0-r1: Search and Retrieval by URL
 dev-perl/SUPER 1.201.411.170 1.201.905.310: control superclass method dispatch
 dev-perl/SVG 2.820.0 2.860.0: Perl extension for generating Scalable Vector Graphics (SVG) documents
 dev-perl/SVG-Graph 0.20.0-r2: Visualize your data in Scalable Vector Graphics (SVG) format
-dev-perl/Safe-Hole 0.130.0-r1 0.140.0: Exec subs in the original package from Safe
-dev-perl/Safe-Isa 1.0.8 1.0.10: Call isa, can, does and DOES safely on things that may not be objects
+dev-perl/Safe-Hole 0.140.0: Exec subs in the original package from Safe
+dev-perl/Safe-Isa 1.0.10: Call isa, can, does and DOES safely on things that may not be objects
 dev-perl/Scalar-Properties 1.100.860-r2: run-time properties on scalar variables
 dev-perl/Schedule-At 1.150.0-r3: OS independent interface to the Unix 'at' command
-dev-perl/Schedule-Cron-Events 1.950.0 1.960.0: Take a line from a crontab and find out when events will occur
+dev-perl/Schedule-Cron-Events 1.960.0: Take a line from a crontab and find out when events will occur
 dev-perl/Scope-Guard 0.210.0-r1: Lexically scoped resource management
 dev-perl/Scope-Upper 0.300.0 0.320.0: Act on upper scopes
 dev-perl/Search-Xapian 1.2.25.0 1.2.25.4: Perl XS frontend to the Xapian C++ search library
@@ -8213,7 +8213,7 @@ dev-python/agate-dbf 0.2.2-r1: Adds read support for DBF files to agate.
 dev-python/agate-excel 0.2.5-r1: Adds read support for Excel files (xls and xlsx) to agate.
 dev-python/agate-sql 0.5.8-r1: Adds SQL read/write support to agate.
 dev-python/aiodns 3.0.0: Simple DNS resolver for asyncio
-dev-python/aiofiles 0.7.0: File support for asyncio
+dev-python/aiofiles 0.7.0 0.8.0: File support for asyncio
 dev-python/aiohttp 3.7.4-r2 3.8.0 3.8.1: http client/server for asyncio
 dev-python/aiohttp-cors 0.7.0-r1: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-jinja2 1.5: jinja2 template renderer for aiohttp.web
@@ -8379,7 +8379,7 @@ dev-python/configargparse 1.5.3: Drop-in replacement for argparse supporting con
 dev-python/configclass 0.2.0: A Python to class to hold configuration values
 dev-python/configobj 5.0.6-r1: Simple config file reader and writer
 dev-python/configshell-fb 1.1.29: A Python library for building configuration shells
-dev-python/confuse 1.6.0: Confuse is a configuration library for Python that uses YAML
+dev-python/confuse 1.6.0 1.7.0: Confuse is a configuration library for Python that uses YAML
 dev-python/consonance 0.1.3-r1: WhatsApp's handshake implementation using Noise Protocol
 dev-python/constantly 15.1.0-r1: Symbolic constants in Python
 dev-python/construct 2.10.67: A powerful declarative parser for binary data
@@ -8799,7 +8799,7 @@ dev-python/mccabe 0.6.1-r2: flake8 plugin: McCabe complexity checker
 dev-python/mdx_gh_links 0.2: An extension which adds links to GitHub users, repositories, issues and commits
 dev-python/mecab-python 0.996: Python binding for MeCab
 dev-python/mechanize 0.4.7: Stateful programmatic web browsing in Python
-dev-python/mediafile 0.8.1: Read and write audio files' tags in Python
+dev-python/mediafile 0.8.1 0.9.0: Read and write audio files' tags in Python
 dev-python/memory_profiler 0.58.0: A module for monitoring memory usage of a python program
 dev-python/mergedeep 1.3.4: A deep merge tool for Python
 dev-python/mergedict 1.0.0: A Python 'dict' with a merge() method
@@ -8951,7 +8951,7 @@ dev-python/pep517 0.12.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pexpect 4.8.0-r2: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 1.13.0: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r1: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.12.35 8.12.36 8.12.37: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.12.35 8.12.36 8.12.37 8.12.38: Python port of Google's libphonenumber
 dev-python/phply 1.2.5: Lexer and parser for PHP source implemented using PLY
 dev-python/picklemagic 0.0_pre20160415: A library for analysing python pickles safely
 dev-python/pickleshare 0.7.5: A small 'shelve' like datastore with concurrency support
@@ -9453,7 +9453,7 @@ dev-python/sortedcontainers 2.4.0: Python library to sort collections and contai
 dev-python/soupsieve 2.2.1-r1 2.3 2.3.1: A modern CSS selector implementation for BeautifulSoup
 dev-python/speaklater 1.3-r1: Lazy strings for Python
 dev-python/speg 0.3-r2: A PEG-based parser interpreter with memoization
-dev-python/sphinx 3.5.4 4.2.0-r1 4.3.0: Python documentation generator
+dev-python/sphinx 3.5.4 4.2.0-r1 4.3.0 4.3.1: Python documentation generator
 dev-python/sphinx-aiohttp-theme 0.1.6: Sphinx theme for aiohttp
 dev-python/sphinx-autodoc-typehints 1.12.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-bootstrap-theme 0.8.0-r1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
@@ -16416,10 +16416,10 @@ sci-geosciences/opencpn 5.2.4: a free, open source software for marine navigatio
 sci-geosciences/opencpn-plugin-aisradar 1.2.17.0 9999: AIS Radar View Plugin for OpenCPN
 sci-geosciences/opencpn-plugin-climatology 1.4.32.0 9999: Climatology Plugin for OpenCPN (includes CL-DATA)
 sci-geosciences/opencpn-plugin-dr 1.1 9999: Dead Reckoning Positions Plugin for OpenCPN
-sci-geosciences/opencpn-plugin-findit 1.1007 9999: FindIt Plugin for OpenCPN
+sci-geosciences/opencpn-plugin-findit 1.2.12.0 9999: FindIt Plugin for OpenCPN
 sci-geosciences/opencpn-plugin-gxradar 1.1 9999: Garmin xHD Radar Plugin for OpenCPN
-sci-geosciences/opencpn-plugin-iacfleet 0.9 9999: IAC Fleetcode Plugin for OpenCPN
-sci-geosciences/opencpn-plugin-launcher 1.1 9999: Launcher Plugin for OpenCPN
+sci-geosciences/opencpn-plugin-iacfleet 0.21.1 9999: IAC Fleetcode Plugin for OpenCPN
+sci-geosciences/opencpn-plugin-launcher 1.3 9999: Launcher Plugin for OpenCPN
 sci-geosciences/opencpn-plugin-logbookkonni 1.3002 9999: Logbook Plugin for OpenCPN
 sci-geosciences/opencpn-plugin-objsearch 0.7 9999: Chart Object Search Plugin for OpenCPN
 sci-geosciences/opencpn-plugin-ocpn_draw 1.3.14 9999: Draw Plugin for OpenCPN

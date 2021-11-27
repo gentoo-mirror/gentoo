@@ -1,5 +1,5 @@
 DEFINED_PHASES=install postinst postrm prerm setup
-DEPEND=dev-java/ecj-gcj:* dev-lang/perl ~sys-devel/gcc-5.4.0[awt?,gcj] >=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0
+DEPEND=dev-java/ecj-gcj:* dev-lang/perl ~sys-devel/gcc-5.4.0[awt?,gcj] dev-java/java-config app-eselect/eselect-java
 DESCRIPTION=Java wrappers around GCJ
 EAPI=6
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
@@ -7,7 +7,7 @@ INHERIT=java-vm-2
 IUSE=awt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x86-linux
 LICENSE=GPL-2
-RDEPEND=dev-java/ecj-gcj:* dev-lang/perl ~sys-devel/gcc-5.4.0[awt?,gcj] >=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0
+RDEPEND=dev-java/ecj-gcj:* dev-lang/perl ~sys-devel/gcc-5.4.0[awt?,gcj] dev-java/java-config app-eselect/eselect-java
 SLOT=0
-_eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	java-vm-2	1b9686c0df06500159478dfaf5c21338
+_eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	java-vm-2	13d8685b21341659c8861cf747ee8ab2
 _md5_=9523fa2844511511e13c0b1eceedd033
