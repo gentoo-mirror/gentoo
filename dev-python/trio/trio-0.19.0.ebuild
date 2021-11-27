@@ -26,15 +26,14 @@ RDEPEND="
 	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 "
+# NB: we're ignoring tests that require trustme+pyopenssl
 BDEPEND="
 	test? (
 		>=dev-python/astor-0.8.0[${PYTHON_USEDEP}]
 		>=dev-python/immutables-0.6[${PYTHON_USEDEP}]
 		dev-python/ipython[${PYTHON_USEDEP}]
 		>=dev-python/jedi-0.18.0[${PYTHON_USEDEP}]
-		dev-python/pyopenssl[${PYTHON_USEDEP}]
 		dev-python/pylint[${PYTHON_USEDEP}]
-		dev-python/trustme[${PYTHON_USEDEP}]
 	)
 "
 
@@ -53,17 +52,15 @@ EPYTEST_DESELECT=(
 	trio/tests/test_exports.py::test_static_tool_sees_all_symbols
 )
 
+EPYTEST_IGNORE=(
+	# these tests require internet access
+	trio/tests/test_ssl.py
+	trio/tests/test_highlevel_ssl_helpers.py
+)
+
 distutils_enable_tests --install pytest
 distutils_enable_sphinx docs/source \
 					dev-python/immutables \
 					dev-python/sphinxcontrib-trio \
 					dev-python/sphinx_rtd_theme \
 					dev-python/towncrier
-
-python_prepare_all() {
-	# these tests require internet access
-	rm trio/tests/test_ssl.py || die
-	rm trio/tests/test_highlevel_ssl_helpers.py || die
-
-	distutils-r1_python_prepare_all
-}
