@@ -32,7 +32,7 @@ SRC_URI="
 "
 
 LICENSE="MIT"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="test vanilla"
 RESTRICT="!test? ( test )"
@@ -48,6 +48,7 @@ BDEPEND="
 		dev-python/pretend[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/scripttest[${PYTHON_USEDEP}]
+		dev-python/tomli-w[${PYTHON_USEDEP}]
 		dev-python/werkzeug[${PYTHON_USEDEP}]
 		dev-python/wheel[${PYTHON_USEDEP}]
 	)
@@ -76,7 +77,7 @@ python_test() {
 		return 0
 	fi
 
-	local deselect=(
+	local EPYTEST_DESELECT=(
 		tests/functional/test_install.py::test_double_install_fail
 		tests/functional/test_list.py::test_multiple_exclude_and_normalization
 		'tests/unit/test_commands.py::test_index_group_handle_pip_version_check[False-False-True-download]'
@@ -90,13 +91,7 @@ python_test() {
 		tests/functional/test_install.py::test_editable_install__local_dir_setup_requires_with_pyproject
 	)
 
-	local EPYTEST_IGNORE=(
-		# require tomli-w that needs to be keyworded (added in -r1)
-		tests/functional/test_pep517.py
-		tests/functional/test_pep660.py
-	)
-
-	[[ ${EPYTHON} == python3.10 ]] && deselect+=(
+	[[ ${EPYTHON} == python3.10 ]] && EPYTEST_DESELECT+=(
 		tests/lib/test_lib.py::test_correct_pip_version
 		# uses vendored packaging that uses deprecated distutils
 		tests/functional/test_warning.py::test_pip_works_with_warnings_as_errors
@@ -110,7 +105,7 @@ python_test() {
 	local -x GENTOO_PIP_TESTING=1 \
 		PATH="${TEST_DIR}/scripts:${PATH}" \
 		PYTHONPATH="${TEST_DIR}/lib:${BUILD_DIR}/lib"
-	epytest ${deselect[@]/#/--deselect } -m "not network"
+	epytest -m "not network"
 }
 
 python_install_all() {
