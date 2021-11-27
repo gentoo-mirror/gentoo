@@ -1,31 +1,25 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=8
 
-[[ ${PV} = *9999* ]] && VCS_ECLASS="git-r3" || VCS_ECLASS=""
-inherit autotools systemd toolchain-funcs ${VCS_ECLASS}
+inherit autotools systemd toolchain-funcs
 
 DESCRIPTION="Simple FastCGI wrapper for CGI scripts (CGI support for nginx)"
 HOMEPAGE="https://github.com/gnosek/fcgiwrap"
+SRC_URI="https://github.com/gnosek/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
+KEYWORDS="~amd64 ~arm ~x86"
 SLOT="0"
 IUSE="systemd"
-
-if [[ ${PV} == *9999* ]]; then
-	EGIT_REPO_URI="https://github.com/gnosek/${PN}.git"
-else
-	SRC_URI="https://github.com/gnosek/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~x86"
-fi
 
 RDEPEND="
 	dev-libs/fcgi
 	systemd? ( sys-apps/systemd )
 "
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 DOCS=( README.rst )
 
@@ -55,5 +49,5 @@ src_configure() {
 }
 
 pkg_postinst() {
-	einfo 'You may want to install www-servers/spawn-fcgi to use with fcgiwrap.'
+	einfo "You may want to install www-servers/spawn-fcgi to use with fcgiwrap."
 }
