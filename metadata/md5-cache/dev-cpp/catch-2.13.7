@@ -1,0 +1,14 @@
+BDEPEND=test? ( || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DESCRIPTION=Modern C++ header-only framework for unit-tests
+EAPI=8
+HOMEPAGE=https://github.com/catchorg/Catch2
+INHERIT=cmake python-any-r1
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Boost-1.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/catchorg/Catch2/archive/v2.13.7.tar.gz -> Catch2-2.13.7.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_md5_=9375d8425c162e3b071b41f460b20743
