@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DIST_AUTHOR=TOMZO
 inherit perl-module toolchain-funcs flag-o-matic
@@ -26,7 +26,10 @@ DIST_TEST=skip
 
 src_prepare() {
 	default
-	export mymake="INC=$($(tc-getPKG_CONFIG) --cflags libtirpc) OTHERLDFLAGS=$($(tc-getPKG_CONFIG) --libs libtirpc)"
+	DIST_MAKE=(
+		"INC=$($(tc-getPKG_CONFIG) --cflags libtirpc)"
+		"OTHERLDFLAGS=$($(tc-getPKG_CONFIG) --libs libtirpc)"
+	)
 
 	# disable AFS completely for now, need somebody who can really test it
 	sed -i -e 's|-d "/afs"|0|' Makefile.PL || die "sed failed"
