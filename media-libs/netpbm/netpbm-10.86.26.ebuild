@@ -1,41 +1,50 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit multilib toolchain-funcs
 
 DESCRIPTION="A set of utilities for converting to/from the netpbm (and related) formats"
 HOMEPAGE="http://netpbm.sourceforge.net/"
-SRC_URI="mirror://gentoo/${P}.tar.xz"
+SRC_URI="https://github.com/ceamac/netpbm-make-dist/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs svga tiff X xml zlib"
+# zlib USE flag is no longer used, enabled by default.
+# cannot remove it yet because of #801445
 
 BDEPEND="
 	app-arch/xz-utils
 	sys-devel/flex
 	virtual/pkgconfig
 "
-RDEPEND="jbig? ( media-libs/jbigkit )
+# app-text/ghostscript-gpl is really needed for postscript
+# some utilities execute /usr/bin/gs
+RDEPEND="jbig? ( media-libs/jbigkit:= )
 	jpeg? ( virtual/jpeg:0 )
-	png? ( >=media-libs/libpng-1.4:0 )
-	postscript? ( app-text/ghostscript-gpl )
-	rle? ( media-libs/urt )
+	png? (
+		>=media-libs/libpng-1.4:0=
+		sys-libs/zlib
+	)
+	postscript? (
+		app-text/ghostscript-gpl
+		sys-libs/zlib
+	)
+	rle? ( media-libs/urt:= )
 	svga? ( media-libs/svgalib )
 	tiff? ( >=media-libs/tiff-3.5.5:0 )
 	xml? ( dev-libs/libxml2 )
-	zlib? ( sys-libs/zlib )
 	X? ( x11-libs/libX11 )"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/netpbm-10.76.00-build.patch
-	"${FILESDIR}"/netpbm-10.76.00-test.patch #450530
-	"${FILESDIR}"/netpbm-10.76.00-misc-deps.patch
-	"${FILESDIR}"/netpbm-10.76.00-pbmtext-test.patch #601012
+	"${FILESDIR}"/netpbm-10.86.21-build.patch
+	"${FILESDIR}"/netpbm-10.86.21-test.patch #450530
+	"${FILESDIR}"/netpbm-10.86.21-misc-deps.patch
+	"${FILESDIR}"/netpbm-10.86.22-fix-ps-test.patch #670362
 )
 
 netpbm_libtype() {
@@ -57,8 +66,8 @@ netpbm_ldshlib() {
 	esac
 }
 netpbm_config() {
-	if use $1 ; then
-		[[ $2 != "!" ]] && echo -l${2:-$1}
+	if use ${1} ; then
+		[[ ${2} != "!" ]] && echo -l${2:-$1}
 	else
 		echo NONE
 	fi
@@ -92,15 +101,32 @@ src_prepare() {
 		sed -i -r \
 			-e 's:(pbmtextps|pnmtops|pstopnm).*::' \
 			test/all-in-place.{ok,test} || die
+		sed -i -e 's:lps-roundtrip.*::' test/Test-Order || die
 		sed -i -e '/^$/d' test/all-in-place.ok || die
-		sed -i '2iexit 80' test/ps-{alt-,}roundtrip.test || die
+		sed -i '2iexit 80' test/ps-{alt-,flate-,}roundtrip.test || die
 	fi
 
-	# avoid ugly depend.mk warnings
-	touch $(find . -name Makefile | sed s:Makefile:depend.mk:g)
+	# the new postscript test needs +x
+	chmod +x test/lps-roundtrip.test
+
+	# Do not test png if not built
+	if ! use png ; then
+		sed -i -r \
+			-e 's:(pamtopng|pngtopam|pnmtopng).*::' \
+			test/all-in-place.{ok,test} || die
+		sed -i -e '/^$/d' test/all-in-place.ok || die
+
+		sed -i -r \
+			-e 's:(pamrgbatopng|pngtopnm).*::' \
+			test/legacy-names.{ok,test} || die
+		sed -i -e '/^$/d' test/legacy-names.ok || die
+		sed -i -e 's:png-roundtrip.*::' test/Test-Order || die
+	fi
 }
 
 src_configure() {
+	# cannot chain the die with the heredoc
+	# repoman tries to parse the heredoc and fails
 	cat config.mk.in - >> config.mk <<-EOF
 	# Misc crap
 	BUILD_FIASCO = N
@@ -140,7 +166,7 @@ src_configure() {
 	TIFFLIB_NEEDS_Z = N
 	JPEGLIB = $(netpbm_config jpeg)
 	PNGLIB = $(netpbm_config png)
-	ZLIB = $(netpbm_config zlib z)
+	ZLIB = $($(tc-getPKG_CONFIG) --libs zlib)
 	LINUXSVGALIB = $(netpbm_config svga vga)
 	XML2_LIBS = $(netpbm_config xml xml2)
 	JBIGLIB = $(netpbm_config jbig)
@@ -152,8 +178,6 @@ src_configure() {
 	X11LIB = $(netpbm_config X X11)
 	X11HDR_DIR =
 	EOF
-	# cannot chain the die with the heredoc above as bash-3
-	# has a parser bug in that setup #282902
 	[[ $? -eq 0 ]] || die "writing config.mk failed"
 }
 
@@ -178,13 +202,9 @@ src_install() {
 	fi
 
 	# Remove cruft that we don't need, and move around stuff we want
-	rm "${ED}"/usr/bin/{doc.url,manweb} || die
-	rm -r "${ED}"/usr/man/web || die
-	rm -r "${ED}"/usr/link || die
 	rm "${ED}"/usr/{README,VERSION,{pkgconfig,config}_template,pkginfo} || die
 
 	dodir /usr/share
-	mv "${ED}"/usr/man "${ED}"/usr/share/ || die
 	mv "${ED}"/usr/misc "${ED}"/usr/share/netpbm || die
 
 	doman userguide/*.[0-9]
