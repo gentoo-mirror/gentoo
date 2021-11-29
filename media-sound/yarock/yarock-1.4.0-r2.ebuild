@@ -1,23 +1,21 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit cmake
+EAPI=8
 
 MY_P="Yarock_${PV}_Sources"
+inherit cmake
+
 DESCRIPTION="Qt-based music player"
 HOMEPAGE="https://seb-apps.github.io/yarock/"
 SRC_URI="https://launchpad.net/${PN}/1.x/${PV}/+download/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="mpv phonon vlc"
 
-BDEPEND="
-	dev-qt/linguist-tools:5
-"
 RDEPEND="
 	dev-cpp/htmlcxx
 	dev-qt/qtcore:5
@@ -29,6 +27,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 	media-libs/taglib
 	x11-libs/libX11
+	mpv? ( media-video/mpv:= )
 	phonon? ( >=media-libs/phonon-4.11.0 )
 	vlc? ( media-video/vlc:= )
 "
@@ -36,10 +35,11 @@ DEPEND="${RDEPEND}
 	dev-qt/qtconcurrent:5
 	dev-qt/qtx11extras:5
 "
+BDEPEND="
+	dev-qt/linguist-tools:5
+"
 
 DOCS=( CHANGES.md README.md )
-
-S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	cmake_src_prepare
