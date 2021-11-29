@@ -13,9 +13,9 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_SUBMODULES=()
 	inherit git-r3
 else
-	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/sdk-${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/sdk-${PV}.0.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
-	S="${WORKDIR}"/${MY_PN}-sdk-${PV}
+	S="${WORKDIR}"/${MY_PN}-sdk-${PV}.0
 fi
 
 DESCRIPTION="Vulkan Validation Layers"
@@ -26,12 +26,12 @@ SLOT="0"
 IUSE="wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
-RDEPEND=">=dev-util/spirv-tools-20210825:=[${MULTILIB_USEDEP}]"
+RDEPEND="~dev-util/spirv-tools-99999999:=[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing
-	>=dev-util/glslang-11.6.0:=[${MULTILIB_USEDEP}]
-	>=dev-util/vulkan-headers-${PV}
+	~dev-util/glslang-${PV}:=[${MULTILIB_USEDEP}]
+	~dev-util/vulkan-headers-${PV}
 	wayland? ( dev-libs/wayland:=[${MULTILIB_USEDEP}] )
 	X? (
 		x11-libs/libX11:=[${MULTILIB_USEDEP}]
