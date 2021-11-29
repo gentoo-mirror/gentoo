@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 WANT_AUTOMAKE="none"
 
@@ -10,8 +10,7 @@ inherit flag-o-matic systemd autotools
 MY_PV=${PV/_rc/RC}
 DESCRIPTION="The PHP language runtime engine"
 HOMEPAGE="https://www.php.net/"
-#SRC_URI="https://www.php.net/distributions/${P}.tar.xz"
-SRC_URI="https://downloads.php.net/~patrickallaert/${PN}-${MY_PV}.tar.xz"
+SRC_URI="https://www.php.net/distributions/${P}.tar.xz"
 
 LICENSE="PHP-3.01
 	BSD
@@ -127,6 +126,8 @@ COMMON_DEPEND="
 	zlib? ( >=sys-libs/zlib-1.2.0.4:0= )
 "
 
+IDEPEND=">=app-eselect/eselect-php-0.9.7[apache2?,fpm?]"
+
 RDEPEND="${COMMON_DEPEND}
 	virtual/mta
 	fpm? (
@@ -146,7 +147,6 @@ PHP_MV="$(ver_cut 1)"
 
 PATCHES=(
 	"${FILESDIR}/php-iodbc-header-location.patch"
-	"${FILESDIR}/php-icu-70.patch"
 )
 
 php_install_ini() {
@@ -222,6 +222,20 @@ src_prepare() {
 		configure main/php_config.h.in || die
 	eautoconf --force
 	eautoheader
+
+	# Remove false positive test failures
+	# stream_isatty fails due to portage redirects
+	# curl tests here fail for network sandbox issues
+	# session tests here fail because we set the session directory to $T
+	rm tests/output/stream_isatty_err.phpt \
+	   tests/output/stream_isatty_out-err.phpt \
+	   tests/output/stream_isatty_out.phpt \
+	   ext/curl/tests/bug76675.phpt \
+	   ext/curl/tests/bug77535.phpt \
+	   ext/curl/tests/curl_error_basic.phpt \
+	   ext/session/tests/bug74514.phpt \
+	   ext/session/tests/bug74936.phpt || die
+
 }
 
 src_configure() {
