@@ -24,21 +24,20 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-QTC_PLUGINS=(android +autotest autotools:autotoolsprojectmanager baremetal bazaar beautifier boot2qt
-	'+clang:clangcodemodel|clangformat|clangtools' clearcase cmake:cmakeprojectmanager conan cppcheck
-	ctfvisualizer cvs +designer docker git glsl:glsleditor +help incredibuild +lsp:languageclient
-	mcu:mcusupport mercurial meson:mesonprojectmanager modeling:modeleditor nim perforce perfprofiler
-	python qbs:qbsprojectmanager '+qml:qmldesigner|qmljseditor|qmlpreview|qmlprojectmanager|studiowelcome'
-	qmlprofiler qnx remotelinux scxml:scxmleditor serialterminal silversearcher subversion valgrind
-	webassembly)
+QTC_PLUGINS=(android +autotest autotools:autotoolsprojectmanager baremetal bazaar beautifier boot2qt '+clang:clangcodemodel|clangformat|clangtools'
+	clearcase +cmake:cmakeprojectmanager conan cppcheck ctfvisualizer cvs +designer docker +git glsl:glsleditor +help incredibuild
+	+lsp:languageclient mcu:mcusupport mercurial meson:mesonprojectmanager modeling:modeleditor nim perforce perfprofiler python
+	qbs:qbsprojectmanager +qmake:qmakeprojectmanager '+qml:qmldesigner|qmljseditor|qmlpreview|qmlprojectmanager|studiowelcome'
+	qmlprofiler qnx remotelinux scxml:scxmleditor serialterminal silversearcher subversion valgrind webassembly)
 IUSE="doc systemd test webengine ${QTC_PLUGINS[@]%:*}"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	android? ( lsp )
 	boot2qt? ( remotelinux )
-	clang? ( lsp test? ( qbs ) )
+	clang? ( lsp )
 	mcu? ( baremetal cmake )
 	python? ( lsp )
+	qml? ( qmake )
 	qnx? ( remotelinux )
 "
 
@@ -149,10 +148,13 @@ src_prepare() {
 			sed -i -e '/tracing/d' src/libs/libs.pro tests/auto/auto.pro || die
 		fi
 	fi
+	if ! use qmake; then
+		sed -i -e '/buildoutputparser/d' src/tools/tools.pro || die
+	fi
 	if ! use qml; then
 		sed -i -e '/advanceddockingsystem\|qmleditorwidgets/d' src/libs/libs.pro || die
 		sed -i -e '/qml2puppet/d' src/tools/tools.pro || die
-		sed -i -e '/qmldesigner/d' tests/auto/qml/qml.pro || die
+		sed -i -e '/qmldesigner\|qmlprojectmanager/d' tests/auto/qml/qml.pro || die
 	fi
 	if ! use valgrind; then
 		sed -i -e '/valgrindfake/d' src/tools/tools.pro || die
@@ -166,9 +168,12 @@ src_prepare() {
 
 	# disable broken or unreliable tests
 	sed -i -e 's/\(manual\|tools\|unit\)//g' tests/tests.pro || die
-	sed -i -e '/\(dumpers\|namedemangler\)\.pro/d' tests/auto/debugger/debugger.pro || die
+	sed -i -e '/dumpers\.pro/d' tests/auto/debugger/debugger.pro || die
 	sed -i -e '/CONFIG -=/s/$/ testcase/' tests/auto/extensionsystem/pluginmanager/correctplugins1/plugin?/plugin?.pro || die
-	sed -i -e 's/\<check\>//' tests/auto/qml/codemodel/codemodel.pro || die
+	sed -i -e '/reformatter/d' tests/auto/qml/qml.pro || die
+	sed -i -e 's/\<\(imports\|\)check\>//' tests/auto/qml/codemodel/codemodel.pro || die
+	sed -i -e '/timelineitemsrenderpass/d' tests/auto/tracing/tracing.pro || die
+	sed -i -e '/qtcprocess/d' tests/auto/utils/utils.pro || die
 
 	# do not install test binaries
 	sed -i -e '/CONFIG +=/s/$/ no_testcase_installs/' tests/auto/{qttest.pri,json/json.pro} || die
