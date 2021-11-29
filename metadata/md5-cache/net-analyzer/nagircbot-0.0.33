@@ -1,13 +1,14 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
-DEPEND=virtual/pkgconfig dev-libs/openssl:0=
+DEPEND=dev-libs/openssl:0=
 DESCRIPTION=An irc bot that alerts you to nagios changes
-EAPI=5
+EAPI=8
 HOMEPAGE=http://www.vanheusden.com/nagircbot
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=net-analyzer/nagios-core dev-libs/openssl:0=
+RDEPEND=dev-libs/openssl:0= net-analyzer/nagios-core
 SLOT=0
 SRC_URI=http://www.vanheusden.com/nagircbot/nagircbot-0.0.33.tgz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=946de88991bf321b184353904e496f87
+_md5_=8c0ae04ca0aeb8552bc3b68123ec300e
