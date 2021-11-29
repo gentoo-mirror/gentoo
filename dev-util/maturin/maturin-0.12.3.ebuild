@@ -11,17 +11,17 @@ CRATES="
 	aesni-0.10.0
 	aho-corasick-0.7.18
 	ansi_term-0.11.0
-	anyhow-1.0.47
+	anyhow-1.0.50
 	async-io-1.6.0
 	atty-0.2.14
 	autocfg-1.0.1
 	backtrace-0.3.63
-	base64-0.10.1
 	base64-0.13.0
 	bitflags-1.3.2
 	block-buffer-0.9.0
 	block-modes-0.7.0
 	block-padding-0.2.1
+	bstr-0.2.17
 	bumpalo-3.8.0
 	byteorder-1.4.3
 	bytes-1.1.0
@@ -36,20 +36,24 @@ CRATES="
 	cc-1.0.72
 	cfg-if-0.1.10
 	cfg-if-1.0.0
-	charset-0.1.2
+	charset-0.1.3
 	cipher-0.2.5
 	clap-2.33.3
 	concurrent-queue-1.2.2
 	configparser-3.0.0
+	console-0.15.0
 	core-foundation-0.9.2
 	core-foundation-sys-0.8.3
 	cpufeatures-0.2.1
-	crc32fast-1.2.1
+	crc32fast-1.2.2
+	crossbeam-utils-0.8.5
 	crypto-mac-0.10.1
 	derivative-2.2.0
+	dialoguer-0.9.0
 	digest-0.9.0
 	dirs-4.0.0
 	dirs-sys-0.3.6
+	encode_unicode-0.3.6
 	encoding_rs-0.8.29
 	enumflags2-0.6.4
 	enumflags2_derive-0.6.4
@@ -61,20 +65,21 @@ CRATES="
 	fnv-1.0.7
 	form_urlencoded-1.0.1
 	fs-err-2.6.0
-	futures-0.3.17
-	futures-channel-0.3.17
-	futures-core-0.3.17
-	futures-executor-0.3.17
-	futures-io-0.3.17
+	futures-0.3.18
+	futures-channel-0.3.18
+	futures-core-0.3.18
+	futures-executor-0.3.18
+	futures-io-0.3.18
 	futures-lite-1.12.0
-	futures-macro-0.3.17
-	futures-sink-0.3.17
-	futures-task-0.3.17
-	futures-util-0.3.17
+	futures-macro-0.3.18
+	futures-sink-0.3.18
+	futures-task-0.3.18
+	futures-util-0.3.18
 	generic-array-0.14.4
 	getrandom-0.2.3
 	gimli-0.26.1
 	glob-0.3.0
+	globset-0.4.8
 	goblin-0.4.3
 	h2-0.3.7
 	hashbrown-0.11.2
@@ -91,6 +96,7 @@ CRATES="
 	hyper-0.14.15
 	hyper-rustls-0.22.1
 	idna-0.2.3
+	ignore-0.4.18
 	indexmap-1.7.0
 	indoc-1.0.3
 	instant-0.1.12
@@ -99,13 +105,14 @@ CRATES="
 	js-sys-0.3.55
 	keyring-0.10.4
 	lazy_static-1.4.0
-	libc-0.2.107
+	libc-0.2.108
 	log-0.4.14
 	mailparse-0.13.6
 	matches-0.1.9
 	memchr-2.4.1
 	mime-0.3.16
 	mime_guess-2.0.3
+	minijinja-0.8.2
 	miniz_oxide-0.4.4
 	mio-0.7.14
 	miow-0.3.7
@@ -130,7 +137,7 @@ CRATES="
 	pin-utils-0.1.0
 	pkg-config-0.3.22
 	plain-0.2.3
-	platform-info-0.1.0
+	platform-info-0.2.0
 	polling-2.2.0
 	ppv-lite86-0.2.15
 	pretty_env_logger-0.4.0
@@ -138,14 +145,12 @@ CRATES="
 	proc-macro-crate-1.1.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro-hack-0.5.19
-	proc-macro-nested-0.1.7
 	proc-macro2-1.0.32
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.0
 	quick-error-1.2.3
 	quote-1.0.10
-	quoted_printable-0.4.3
+	quoted_printable-0.4.5
 	rand-0.8.4
 	rand_chacha-0.3.1
 	rand_core-0.6.3
@@ -161,7 +166,7 @@ CRATES="
 	rpassword-5.0.1
 	rustc-demangle-0.1.21
 	rustls-0.19.1
-	ryu-1.0.5
+	ryu-1.0.6
 	same-file-1.0.6
 	scoped-tls-1.0.0
 	scroll-0.10.2
@@ -173,7 +178,7 @@ CRATES="
 	semver-1.0.4
 	serde-1.0.130
 	serde_derive-1.0.130
-	serde_json-1.0.71
+	serde_json-1.0.72
 	serde_repr-0.1.7
 	serde_urlencoded-0.7.0
 	sha2-0.9.8
@@ -187,15 +192,17 @@ CRATES="
 	structopt-0.3.25
 	structopt-derive-0.4.18
 	subtle-2.4.1
-	syn-1.0.81
+	syn-1.0.82
 	tar-0.4.37
 	target-lexicon-0.12.2
 	tempfile-3.2.0
 	termcolor-1.1.2
+	terminal_size-0.1.17
 	textwrap-0.11.0
 	textwrap-0.14.2
 	thiserror-1.0.30
 	thiserror-impl-1.0.30
+	thread_local-1.1.3
 	time-0.1.43
 	tinyvec-1.5.1
 	tinyvec_macros-0.1.0
@@ -244,23 +251,27 @@ CRATES="
 	xattr-0.2.2
 	zbus-1.9.1
 	zbus_macros-1.9.1
+	zeroize-1.4.3
 	zip-0.5.13
-	zvariant-2.9.0
-	zvariant_derive-2.9.0"
+	zvariant-2.10.0
+	zvariant_derive-2.10.0"
 CRATES_TEST="
 	indoc-0.3.6
 	indoc-impl-0.3.6
+	libc-0.2.107
 	lock_api-0.4.5
 	parking_lot-0.11.2
 	parking_lot_core-0.8.5
 	paste-0.1.18
 	paste-impl-0.1.18
+	proc-macro-hack-0.5.19
 	pyo3-0.15.1
 	pyo3-build-config-0.15.1
 	pyo3-macros-0.15.1
 	pyo3-macros-backend-0.15.1
 	scopeguard-1.1.0
-	smallvec-1.7.0"
+	smallvec-1.7.0
+	syn-1.0.81"
 PYTHON_COMPAT=( python3_{8..10} )
 inherit cargo flag-o-matic python-any-r1
 
@@ -279,7 +290,6 @@ PROPERTIES="test_network"
 RESTRICT="test" # uses venv+pip
 
 BDEPEND="
-	>=virtual/rust-1.56
 	test? (
 		$(python_gen_any_dep '
 			dev-python/cffi[${PYTHON_USEDEP}]
