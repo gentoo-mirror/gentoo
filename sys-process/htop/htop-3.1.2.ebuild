@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit autotools linux-info python-any-r1 xdg-utils
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://htop.dev/ https://github.com/htop-dev/htop"
 SRC_URI="https://github.com/htop-dev/${PN}/archive/${PV/_}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 
-LICENSE="BSD GPL-2"
+LICENSE="BSD GPL-2+"
 SLOT="0"
 IUSE="caps debug delayacct hwloc kernel_FreeBSD kernel_linux lm-sensors openvz unicode vserver"
 
