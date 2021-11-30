@@ -76,17 +76,14 @@ COMMON_DEPEND="
 	plasma? ( >=kde-frameworks/krunner-${KFMIN}:5 )
 	screencast? ( >=media-video/pipewire-0.3:= )
 "
-# TODO: sys-apps/hwdata? not packaged yet; commit 33a1777a, Gentoo-bug 717216
 RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
-	|| (
-		x11-base/xwayland
-		x11-base/xorg-server[wayland(-)]
-	)
+	sys-apps/hwdata
+	x11-base/xwayland
 	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
 "
 DEPEND="${COMMON_DEPEND}
@@ -99,12 +96,6 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
-
-PATCHES=(
-	"${FILESDIR}/${P}-fix-xwayland-abstract-socket-addr.patch" # KDE-bug 442362, bug 813888
-	"${FILESDIR}/${P}-revert-2560288e.patch" # KDE-bug 445444
-	"${FILESDIR}/${P}-enable-window-rules-for-all-xdg-toplevel.patch"
-)
 
 src_prepare() {
 	ecm_src_prepare

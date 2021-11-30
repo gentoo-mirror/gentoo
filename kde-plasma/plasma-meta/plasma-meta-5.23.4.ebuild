@@ -11,8 +11,8 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 +desktop-portal discover +display-manager +elogind +firewall grub gtk +handbook
-+kwallet +legacy-systray +networkmanager plymouth pulseaudio qrcode +sddm sdk
-+smart systemd thunderbolt +wallpapers"
++kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm sdk +smart
+systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -76,7 +76,6 @@ RDEPEND="
 	networkmanager? (
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[elogind?,systemd?]
-		qrcode? ( kde-frameworks/prison[qml] )
 	)
 	plymouth? (
 		>=kde-plasma/breeze-plymouth-${PV}:${SLOT}

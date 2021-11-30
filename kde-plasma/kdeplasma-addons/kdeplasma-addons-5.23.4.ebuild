@@ -54,11 +54,6 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-mediaframe-fix-path-URLs.patch
-	"${FILESDIR}"/${P}-weather-fix-cursor.patch
-)
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package share KF5Purpose)

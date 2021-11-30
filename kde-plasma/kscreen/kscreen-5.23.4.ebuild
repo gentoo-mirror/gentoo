@@ -44,5 +44,3 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-PATCHES=( "${FILESDIR}"/${P}-make-revert-message-wrap.patch ) # KDE-bug 445341

@@ -13,8 +13,7 @@ inherit ecm kde.org optfeature
 
 DESCRIPTION="KDE Plasma desktop"
 XORGHDRS="${PN}-override-include-dirs-1"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz
-	https://dev.gentoo.org/~asturm/distfiles/${P}-restore-touchpad-applet.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -124,7 +123,6 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/override-include-dirs.patch" # downstream patch
-	"${WORKDIR}/${P}-restore-touchpad-applet" # KDE-bug 445095
 )
 
 src_prepare() {

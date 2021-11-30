@@ -57,8 +57,6 @@ RDEPEND="${DEPEND}
 	>=sys-power/upower-0.9.23
 "
 
-PATCHES=( "${FILESDIR}"/${P}-dismiss-battery-notifications.patch )
-
 src_configure() {
 	local mycmakeargs=(
 		-DHAVE_DDCUTIL=$(usex brightness-control)

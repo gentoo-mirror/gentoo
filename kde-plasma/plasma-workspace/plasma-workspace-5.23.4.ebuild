@@ -136,11 +136,11 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-plasma/milou-${PVCUT}:5
 	>=kde-plasma/plasma-integration-${PVCUT}:5
+	sys-apps/dbus
 	x11-apps/xmessage
 	x11-apps/xprop
 	x11-apps/xrdb
 	x11-apps/xsetroot
-	sys-apps/dbus
 	!<kde-plasma/breeze-5.22.90:5
 	!<kde-plasma/plasma-desktop-5.21.90:5
 "
@@ -150,9 +150,6 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 PATCHES=(
 	"${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
-	"${FILESDIR}/${P}-baloosearchrunner-emit-DBus-error-when-disabled.patch" # KDE-bug 445342
-	"${FILESDIR}/${P}-systemtray-check-if-service-already-added.patch" # KDE-bug 443961
-	"${FILESDIR}/${P}-systemtray-fix-race-condition.patch"
 )
 
 src_prepare() {

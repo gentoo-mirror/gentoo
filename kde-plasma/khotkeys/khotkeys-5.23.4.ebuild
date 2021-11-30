@@ -48,5 +48,3 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kded-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-PATCHES=( "${FILESDIR}"/${P}-delete-widgets-w-entry.patch ) # KDE-bug 443656

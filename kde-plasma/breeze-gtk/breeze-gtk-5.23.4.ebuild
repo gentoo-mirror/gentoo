@@ -22,8 +22,6 @@ BDEPEND="${PYTHON_DEPS}
 	>=kde-plasma/breeze-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-unneeded-outline.patch" ) # KDE-bug 443626
-
 python_check_deps() {
 	has_version "dev-python/pycairo[${PYTHON_USEDEP}]"
 }
