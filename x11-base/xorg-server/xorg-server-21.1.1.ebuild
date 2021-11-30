@@ -132,7 +132,6 @@ src_configure() {
 		-Dlinux_apm=false
 		-Dsha1=libcrypto
 		-Dxkb_output_dir="${EPREFIX}/var/lib/xkb"
-		-Dxwayland=false
 	)
 
 	if use systemd || use elogind; then
