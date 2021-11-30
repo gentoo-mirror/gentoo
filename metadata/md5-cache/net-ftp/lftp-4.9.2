@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=>=sys-libs/ncurses-5.1:= >=sys-libs/readline-5.1:= dev-libs/expat sys-libs/zlib convert-mozilla-cookies? ( dev-perl/DBI ) idn? ( net-dns/libidn2:= ) socks5? ( >=net-proxy/dante-1.1.12 sys-libs/pam ) ssl? ( gnutls? ( >=net-libs/gnutls-1.2.3:0= ) !gnutls? ( dev-libs/openssl:0= ) ) verify-file? ( dev-perl/String-CRC32 virtual/perl-Digest-MD5 ) =sys-devel/libtool-2* app-arch/xz-utils nls? ( >=sys-devel/gettext-0.19 ) virtual/pkgconfig
 DESCRIPTION=A sophisticated ftp/sftp/http/https/torrent client and file transfer program
 EAPI=7
-HOMEPAGE=https://lftp.tech/
+HOMEPAGE=http://lftp.yar.ru/
 INHERIT=autotools libtool xdg-utils
 IUSE=convert-mozilla-cookies +gnutls idn ipv6 nls socks5 +ssl verify-file
 KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=>=sys-libs/ncurses-5.1:= >=sys-libs/readline-5.1:= dev-libs/expat sys-libs/zlib convert-mozilla-cookies? ( dev-perl/DBI ) idn? ( net-dns/libidn2:= ) socks5? ( >=net-proxy/dante-1.1.12 sys-libs/pam ) ssl? ( gnutls? ( >=net-libs/gnutls-1.2.3:0= ) !gnutls? ( dev-libs/openssl:0= ) ) verify-file? ( dev-perl/String-CRC32 virtual/perl-Digest-MD5 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://lftp.tech/ftp/lftp-4.9.2.tar.xz
+SRC_URI=http://lftp.yar.ru/ftp/lftp-4.9.2.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=f1d5d7a6b724524ddbbcbcb60fe90780
+_md5_=280b59d6bd1c230175f1bc069086f8ba
