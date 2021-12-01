@@ -7,7 +7,7 @@ LUA_COMPAT=( lua5-{1..2} luajit )
 
 inherit cmake lua-single optfeature xdg
 
-DESCRIPTION="Vim-fork focused on extensibility and agility."
+DESCRIPTION="Vim-fork focused on extensibility and agility"
 HOMEPAGE="https://neovim.io"
 
 if [[ ${PV} == 9999 ]]; then
@@ -15,18 +15,19 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/neovim/neovim.git"
 else
 	SRC_URI="https://github.com/neovim/neovim/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86 ~x64-macos"
 fi
 
 LICENSE="Apache-2.0 vim"
 SLOT="0"
-IUSE="+lto +nvimpager +tui"
+IUSE="+lto +nvimpager test +tui"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 # Upstream say the test library needs LuaJIT
 # https://github.com/neovim/neovim/blob/91109ffda23d0ce61cec245b1f4ffb99e7591b62/CMakeLists.txt#L377
-#REQUIRED_USE="test? ( lua_single_target_luajit )"
-#RESTRICT="!test? ( test )"
+REQUIRED_USE="test? ( lua_single_target_luajit )"
+# TODO: Get tests running
+RESTRICT="!test? ( test ) test"
 
 # Upstream build scripts invoke the Lua interpreter
 BDEPEND="${LUA_DEPS}
@@ -35,8 +36,6 @@ BDEPEND="${LUA_DEPS}
 	virtual/libintl
 	virtual/pkgconfig
 "
-# TODO: add tests, dev-lua/busted has now got luajit support.
-# bug #584694
 DEPEND="${LUA_DEPS}
 	dev-lua/luv[${LUA_SINGLE_USEDEP}]
 	$(lua_gen_cond_dep '
@@ -59,6 +58,11 @@ RDEPEND="
 	${DEPEND}
 	app-eselect/eselect-vi
 "
+BDEPEND="
+	test? (
+		$(lua_gen_cond_dep 'dev-lua/busted[${LUA_USEDEP}]')
+	)
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4.4-cmake_lua_version.patch"
@@ -67,7 +71,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	# use our system vim dir
+	# Use our system vim dir
 	sed -e "/^# define SYS_VIMRC_FILE/s|\$VIM|${EPREFIX}/etc/vim|" \
 		-i src/nvim/globals.h || die
 
@@ -106,6 +110,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+
 	optfeature "clipboard support" x11-misc/xsel x11-misc/xclip gui-apps/wl-clipboard
 	optfeature "Python plugin support" dev-python/pynvim
 	optfeature "Ruby plugin support" dev-ruby/neovim-ruby-client
