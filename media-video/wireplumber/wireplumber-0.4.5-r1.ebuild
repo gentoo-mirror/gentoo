@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://gitlab.freedesktop.org/pipewire/${PN}/-/archive/${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~riscv"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Replacement for pipewire-media-session"
@@ -21,9 +21,12 @@ HOMEPAGE="https://gitlab.freedesktop.org/pipewire/wireplumber"
 
 LICENSE="MIT"
 SLOT="0/0.4"
-IUSE="systemd test"
+IUSE="elogind systemd test"
 
-REQUIRED_USE="${LUA_REQUIRED_USE}"
+REQUIRED_USE="
+	${LUA_REQUIRED_USE}
+	?? ( elogind systemd )
+"
 
 RESTRICT="!test? ( test )"
 
@@ -37,8 +40,9 @@ BDEPEND="
 DEPEND="
 	${LUA_DEPS}
 	>=dev-libs/glib-2.62
-	>=media-video/pipewire-0.3.32
+	>=media-video/pipewire-0.3.39
 	virtual/libc
+	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd )
 "
 
@@ -51,11 +55,10 @@ RDEPEND="${DEPEND}"
 DOCS=( {NEWS,README}.rst )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.4.2-meson-Build-tests-conditionally.patch
-	"${FILESDIR}"/${PN}-0.4.2-lua-api-fix-object-constructors-to-fail-gracefully.patch
-	"${FILESDIR}"/${PN}-0.4.2-bluez-add-basic-check-for-nil-monitor.patch
-	"${FILESDIR}"/${PN}-0.4.2-v4l-add-basic-check-for-nil-monitor.patch
-	"${FILESDIR}"/${PN}-0.4.2-lib-wp-device-demote-missing-SPA-warning-to-message.patch
+	"${FILESDIR}"/${PN}-0.4.5-m-reserve-device-replace-the-hash-table-key-on-new-i.patch
+	"${FILESDIR}"/${PN}-0.4.5-policy-node-wait-for-nodes-when-we-become-unlinked.patch
+	"${FILESDIR}"/${PN}-0.4.5-lib-don-t-read-hidden-files-from-the-config-director.patch
+	"${FILESDIR}"/${PN}-0.4.5-alsa-handle-the-release-requested-signal.patch
 )
 
 src_configure() {
@@ -63,6 +66,7 @@ src_configure() {
 		-Dintrospection=disabled # Only used for Sphinx doc generation
 		-Dsystem-lua=true # We always unbundle everything we can
 		-Dsystem-lua-version=$(ver_cut 1-2 $(lua_get_version))
+		$(meson_feature elogind)
 		$(meson_feature systemd)
 		-Dsystemd-system-service=false # Matches upstream
 		$(meson_use systemd systemd-user-service)
@@ -76,14 +80,17 @@ src_configure() {
 
 pkg_postinst() {
 	if systemd_is_booted ; then
-		elog "To replace media-session with WirePlumber immediately:"
-		elog "systemctl --user disable --now pipewire-media-session.service"
-		elog "systemctl --user enable --now wireplumber.service"
+		ewarn "pipewire-media-session.service is no longer installed. You must switch"
+		ewarn "to wireplumber.service user unit before your next logout/reboot:"
+		ewarn "systemctl --user disable pipewire-media-session.service"
+		ewarn "systemctl --user --force enable wireplumber.service"
 	else
-		elog "OpenRC users need to copy ${EROOT}/usr/share/pipewire/pipewire.conf"
-		elog "to ${EROOT}/etc/pipewire/pipewire.conf and in it replace"
-		elog "${EROOT}/usr/bin/pipewire-media-session with ${EROOT}/usr/bin/wireplumber"
-		elog "The switch to WirePlumber will happen the next time pipewire is started."
+		ewarn "Switch to WirePlumber will happen the next time gentoo-pipewire-launcher"
+		ewarn "is started (a replacement for directly calling pipewire binary)."
+		ewarn
+		ewarn "Please ensure that ${EROOT}/etc/pipewire/pipewire.conf either does not exist"
+		ewarn "or, if it does exist, that any reference to"
+		ewarn "${EROOT}/usr/bin/pipewire-media-session is commented out (begins with a #)."
 	fi
-	elog
+	ewarn
 }
