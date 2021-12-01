@@ -19,6 +19,8 @@ KEYWORDS="-* ~amd64"
 IUSE="+sound"
 RESTRICT="splitdebug"
 
+# Drop -clone3(-) from glibc once Electron is updated
+# See bug #819045
 RDEPEND="
 	app-accessibility/at-spi2-atk:2
 	app-accessibility/at-spi2-core:2
@@ -31,6 +33,7 @@ RDEPEND="
 	media-libs/mesa[X(+)]
 	net-print/cups
 	sys-apps/dbus[X]
+	sys-libs/glibc[-clone3(-)]
 	x11-libs/gdk-pixbuf:2
 	x11-libs/cairo
 	x11-libs/gtk+:3[X]
