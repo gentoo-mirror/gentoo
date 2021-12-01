@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake toolchain-funcs systemd
 
@@ -23,9 +23,9 @@ RDEPEND="
 	upnp? ( net-libs/miniupnpc:= )"
 DEPEND="${RDEPEND}"
 
-CMAKE_USE_DIR="${S}/build"
+CMAKE_USE_DIR="${WORKDIR}/${P}/build"
 
-DOCS=( README.md contrib/i2pd.conf contrib/tunnels.conf )
+DOCS=( ../README.md ../contrib/i2pd.conf ../contrib/tunnels.conf )
 
 pkg_pretend() {
 	if use i2p-hardening && ! tc-is-gcc; then
