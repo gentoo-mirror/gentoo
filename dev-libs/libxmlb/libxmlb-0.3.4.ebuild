@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit meson python-any-r1
 
@@ -19,6 +19,7 @@ IUSE="doc introspection stemmer test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	app-arch/xz-utils
 	dev-libs/glib:2
 	sys-apps/util-linux
 	stemmer? ( dev-libs/snowball-stemmer:= )
@@ -49,10 +50,10 @@ pkg_setup() {
 
 src_configure() {
 	local emesonargs=(
-		-Dgtkdoc="$(usex doc true false)"
-		-Dintrospection="$(usex introspection true false)"
-		-Dstemmer="$(usex stemmer true false)"
-		-Dtests="$(usex test true false)"
+		$(meson_use doc gtkdoc)
+		$(meson_use introspection)
+		$(meson_use stemmer)
+		$(meson_use test tests)
 	)
 	meson_src_configure
 }
