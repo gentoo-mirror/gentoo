@@ -23,12 +23,24 @@ in order for Portage to replace eudev with sys-fs/udev once the
 package.mask is in place. We fully support udev on musl, whereas uclibc
 will still have to rely on eudev before also being removed on 2022-01-01.
 
-  **WARNING**
+  **WARNING 1**
 
 If you happen to have an INSTALL_MASK with a blanket "*systemd*" glob,
 you will inevitably break your system. sys-fs/udev contains "systemd" in
 some of its filenames, hence a blanket filter rule will likely lead to
 a non-functional udev installation.
+
+
+  **WARNING 2**
+
+If you DO NOT want the "predictable interface naming" of newer versions
+of udev and instead prefer the old style (e.g. "eth0"), there are several
+options available.
+
+The simplest is to pass 'net.ifnames=0' on the kernel command line.
+
+See the wiki for more information:
+https://wiki.gentoo.org/wiki/Udev#Optional:_Disable_or_override_predictable_network_interface_naming.
 
   Rationale
 
