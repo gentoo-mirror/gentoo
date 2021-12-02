@@ -15,29 +15,11 @@ SRC_URI="https://github.com/pydata/numexpr/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="mkl"
 
-RDEPEND="
+DEPEND="
 	>=dev-python/numpy-1.6[${PYTHON_USEDEP}]
-	mkl? ( sci-libs/mkl )
 "
-
-python_prepare_all() {
-	# TODO: mkl can be used but it fails for me
-	# only works with mkl in tree. newer mkl will use pkgconfig
-	if use mkl; then
-		use amd64 && local ext="_lp64"
-		cat > site.cfg <<- _EOF_ || die
-			[mkl]
-			library_dirs = ${MKLROOT}/lib/em64t
-			include_dirs = ${MKLROOT}/include
-			mkl_libs = mkl_solver${ext}, mkl_intel${ext}, \
-			mkl_intel_thread, mkl_core, iomp5
-		_EOF_
-	fi
-
-	distutils-r1_python_prepare_all
-}
+RDEPEND=${DEPEND}
 
 python_test() {
 	pushd "${BUILD_DIR}"/lib >/dev/null || die
