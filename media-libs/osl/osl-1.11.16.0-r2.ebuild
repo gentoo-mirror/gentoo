@@ -33,7 +33,8 @@ IUSE="doc partio qt5 test ${CPU_FEATURES[@]%:*} python"
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/pugixml
-	media-libs/openexr:=
+	media-libs/openexr:0=
+	media-libs/ilmbase:=
 	<media-libs/openimageio-2.3:=
 	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	sys-libs/zlib
@@ -84,6 +85,9 @@ src_configure() {
 	local gcc=$(tc-getCC)
 
 	local mycmakeargs=(
+		# Force use of OpenEXR/ilmbase
+		-DCMAKE_DISABLE_FIND_PACKAGE_Imath=ON
+
 		# LLVM 10+ needs C++14
 		-DCMAKE_CXX_STANDARD=14
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}"
