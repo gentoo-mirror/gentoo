@@ -57,6 +57,7 @@ RDEPEND="
 "
 
 QA_PREBUILT="
+	opt/Signal/chrome_crashpad_handler
 	opt/Signal/chrome-sandbox
 	opt/Signal/libEGL.so
 	opt/Signal/libGLESv2.so
@@ -73,8 +74,6 @@ src_prepare() {
 	sed -e 's| --no-sandbox||g' \
 		-i usr/share/applications/signal-desktop.desktop || die
 	unpack usr/share/doc/signal-desktop/changelog.gz
-
-	rm opt/Signal/resources/app.asar.unpacked/node_modules/{ffi-napi/node_modules/ref-napi/prebuilds/linux-arm64/electron.napi.armv8.node,ffi-napi/node_modules/ref-napi/prebuilds/linux-arm64/node.napi.armv8.node,ffi-napi/prebuilds/linux-arm64/node.napi.uv1.armv8.node,ref-napi/prebuilds/linux-arm64/electron.napi.armv8.node,ref-napi/prebuilds/linux-arm64/node.napi.armv8.node} || die
 }
 
 src_install() {
