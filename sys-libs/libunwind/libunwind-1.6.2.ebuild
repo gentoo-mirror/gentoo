@@ -45,10 +45,6 @@ MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/libunwind-x86_64.h
 )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.6.0-avoid-bashisms-in-configure.patch
-)
-
 src_prepare() {
 	default
 
