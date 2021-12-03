@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic toolchain-funcs systemd usr-ldscript
+inherit flag-o-matic systemd usr-ldscript
 
 DESCRIPTION="xfs filesystem utilities"
 HOMEPAGE="https://xfs.wiki.kernel.org/"
@@ -16,6 +16,7 @@ IUSE="icu libedit nls selinux"
 
 RDEPEND=">=sys-apps/util-linux-2.17.2
 	dev-libs/inih
+	dev-libs/userspace-rcu
 	icu? ( dev-libs/icu:= )
 	libedit? ( dev-libs/libedit )
 "
