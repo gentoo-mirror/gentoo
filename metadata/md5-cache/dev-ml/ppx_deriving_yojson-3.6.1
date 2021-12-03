@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/ounit2 ) dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=<dev-ml/yojson-2.0.0:= >=dev-ml/ppxlib-0.20.0:= dev-ml/ppx_deriving:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=JSON codec generator for OCaml
+EAPI=7
+HOMEPAGE=https://github.com/ocaml-ppx/ppx_deriving_yojson/
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=<dev-ml/yojson-2.0.0:= >=dev-ml/ppxlib-0.20.0:= dev-ml/ppx_deriving:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/3.6.1
+SRC_URI=https://github.com/ocaml-ppx/ppx_deriving_yojson/archive/v3.6.1.tar.gz -> ppx_deriving_yojson-3.6.1.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=1bcc9d88c8723bb73c9f892d8ca5db4d
