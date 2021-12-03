@@ -1465,7 +1465,7 @@ app-crypt/tpm2-tss-engine 1.1.0: OpenSSL Engine for TPM2 devices
 app-crypt/trousers 0.3.14-r3 0.3.15: An open-source TCG Software Stack (TSS) v1.1 implementation
 app-crypt/ubuntu-keyring 2020.02.11.2 2020.06.17.1 2021.03.26: GnuPG archive keys of the Ubuntu archive
 app-crypt/veracrypt 1.24_p8: Disk encryption with strong security based on TrueCrypt
-app-crypt/xca 2.3.0-r1 2.4.0-r1: A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
+app-crypt/xca 2.3.0-r1 2.4.0-r1 2.4.0-r2: A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
 app-crypt/xor-analyze 0.5-r1: program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubikey-manager 4.0.5-r1 4.0.7: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.2: Cross-platform application for configuring any YubiKey over all USB transports
@@ -5496,7 +5496,7 @@ dev-libs/bitset 2.8.4-r3: A compressed bitset with supporting data structures an
 dev-libs/boehm-gc 8.0.4 8.0.6: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.76.0-r1 1.77.0-r4: Boost Libraries for C++
 dev-libs/boost-mpl-cartesian_product 20161205: an extension to the Boost.MPL library
-dev-libs/botan 2.17.3-r1 2.18.1-r1 2.18.2: C++ crypto library
+dev-libs/botan 2.17.3-r1 2.18.1-r1 2.18.2 2.18.2-r1: C++ crypto library
 dev-libs/boxfort 0.0.1_pre20200902 0.0.1_pre20200902-r1: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.0 1.21.1: Blocking, shuffling and lossless compression library
@@ -5751,7 +5751,7 @@ dev-libs/liboil 0.3.17-r3: Library of simple functions that are optimized for va
 dev-libs/liborcus 0.16.1 0.17.0 9999: Standalone file import filter library for spreadsheet documents
 dev-libs/libotf 0.9.16: Library for handling OpenType fonts (OTF)
 dev-libs/libowfat 0.32-r1 0.32-r5: reimplement libdjb - excellent libraries from Dan Bernstein
-dev-libs/libp11 0.4.10-r1 0.4.11-r1: Abstraction layer to simplify PKCS#11 API
+dev-libs/libp11 0.4.10-r1 0.4.11-r1 0.4.11-r2: Abstraction layer to simplify PKCS#11 API
 dev-libs/libparserutils 0.2.4-r3: C library for building efficient parsers
 dev-libs/libpcre 8.45: Perl-compatible regular expression library
 dev-libs/libpcre-debian 8-r2: libpcre(posix).so.3 symlinks for compatibility with Debian
@@ -5893,7 +5893,7 @@ dev-libs/pcc-libs 1.1.0: pcc compiler support libs
 dev-libs/pcl 1.12-r1: Portable Coroutine Library
 dev-libs/pegtl 2.8.3-r1 3.2.1: Header-only library for creating parsers according to Parsing Expression Grammar
 dev-libs/pigpio 79: A library for the Raspberry which allows control of the GPIOs
-dev-libs/pkcs11-helper 1.25.1-r1 1.27.0: PKCS#11 helper library
+dev-libs/pkcs11-helper 1.25.1-r1 1.27.0 1.27.0-r1: PKCS#11 helper library
 dev-libs/plasma-wayland-protocols 1.3.0 1.5.0: Plasma Specific Protocols for Wayland
 dev-libs/pmdk 1.9.2: Persistent Memory Development Kit
 dev-libs/pocl 1.7-r3 1.8-r1: Portable Computing Language (an implementation of OpenCL)
@@ -5943,7 +5943,7 @@ dev-libs/sink 0.8.0-r3: Data access layer handling synchronization, caching and 
 dev-libs/skalibs 2.3.2.0 2.6.1.0 2.6.3.0 2.6.4.0 2.7.0.0 2.8.1.0 2.9.1.0 2.9.3.0: General-purpose libraries from skarnet.org
 dev-libs/smack 0.5.0: low-level IO storage which packs data into sorted compressed blobs
 dev-libs/snowball-stemmer 2.1.0-r1 2.2.0: Snowball compiler and stemming algorithms
-dev-libs/softhsm 2.6.1-r1: A software PKCS#11 implementation
+dev-libs/softhsm 2.6.1-r1 2.6.1-r2: A software PKCS#11 implementation
 dev-libs/sord 0.16.8-r1 9999: Library for storing RDF data in memory
 dev-libs/spdlog 1.8.2 1.8.5 1.8.5-r1 1.9.2 9999: Very fast, header only, C++ logging library
 dev-libs/spsdeclib 5.1-r1: Kryoflux SPS Decoder Library
@@ -9740,7 +9740,7 @@ dev-qt/qtimageformats 5.15.2-r10: Additional format plugins for the Qt image I/O
 dev-qt/qtlocation 5.15.2-r10: Location (places, maps, navigation) library for the Qt5 framework
 dev-qt/qtlockedfile 2.4.1_p20171024: QFile extension with advisory locking functions
 dev-qt/qtmultimedia 5.15.2-r2: Multimedia (audio, video, radio, camera) library for the Qt5 framework
-dev-qt/qtnetwork 5.15.2-r11 5.15.2-r12: Network abstraction library for the Qt5 framework
+dev-qt/qtnetwork 5.15.2-r11 5.15.2-r12 5.15.2-r13: Network abstraction library for the Qt5 framework
 dev-qt/qtnetworkauth 5.15.2-r1: Network authorization library for the Qt5 framework
 dev-qt/qtopengl 5.15.2-r11: OpenGL support library for the Qt5 framework (deprecated)
 dev-qt/qtpaths 5.15.2-r10: Command line client to QStandardPaths
@@ -17398,7 +17398,7 @@ sys-apps/toybox 0.8.4-r1 0.8.5-r1 9999: Common linux commands in a multicall bin
 sys-apps/tuned 2.15.0-r1 2.16.0: Daemon for monitoring and adaptive tuning of system devices
 sys-apps/uam 0.3.2-r1 9999: Simple udev-based automounter for removable USB media
 sys-apps/ucspi-proxy 1.1: Proxy program for two connections set up by a UCSPI server and a UCSPI client
-sys-apps/ucspi-ssl 0.99e-r1: Command-line tools for building SSL client-server applications
+sys-apps/ucspi-ssl 0.99e-r1 0.99e-r2: Command-line tools for building SSL client-server applications
 sys-apps/ucspi-tcp 0.88-r18: Collection of tools for managing UNIX services
 sys-apps/ucspi-unix 1.0: A UCSPI implementation for Unix domain sockets
 sys-apps/udevil 0.4.4-r4: mount and unmount removable devices without a password
