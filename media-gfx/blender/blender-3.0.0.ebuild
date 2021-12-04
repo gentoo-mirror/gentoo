@@ -17,8 +17,8 @@ if [[ ${PV} = *9999* ]] ; then
 else
 	SRC_URI="https://download.blender.org/source/${P}.tar.xz"
 	# Update these between major releases.
-	#TEST_TARBALL_VERSION=SLOT_NUMBER
-	#SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.bz2 )"
+	TEST_TARBALL_VERSION="3.0.0"
+	SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.bz2 )"
 	KEYWORDS="~amd64 ~arm ~arm64"
 fi
 
@@ -29,7 +29,7 @@ IUSE="+bullet +dds +fluid +openexr +system-python +system-numpy +tbb \
 	debug doc +embree +ffmpeg +fftw +gmp headless jack jemalloc jpeg2k \
 	man ndof nls openal +oidn +openimageio +openmp +opensubdiv \
 	+openvdb +osl +pdf +potrace +pugixml pulseaudio sdl +sndfile standalone test +tiff valgrind"
-RESTRICT="!test? ( test ) test"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	alembic? ( openexr )
@@ -122,6 +122,10 @@ BDEPEND="
 	)
 	nls? ( sys-devel/gettext )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-intern-ghost-fix-typo-in-finding-XF86VMODE.patch
+)
 
 blender_check_requirements() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -263,7 +267,17 @@ src_configure() {
 		-DWITH_USD=OFF
 		-DWITH_XR_OPENXR=OFF
 	)
+
 	append-flags $(usex debug '-DDEBUG' '-DNDEBUG')
+
+	if tc-is-gcc ; then
+		# These options only exist when GCC is detected.
+		# We disable these to respect the user's choice of linker.
+		mycmakeargs+=(
+			-DWITH_LINKER_GOLD=OFF
+			-DWITH_LINKER_LLD=OFF
+		)
+	fi
 
 	cmake_src_configure
 }
