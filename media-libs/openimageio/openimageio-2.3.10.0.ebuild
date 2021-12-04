@@ -5,15 +5,22 @@ EAPI=7
 
 FONT_PN=OpenImageIO
 PYTHON_COMPAT=( python3_{8..10} )
+
+TEST_OIIO_IMAGE_COMMIT="b85d7a3a10a3256b50325ad310c33e7f7cf2c6cb"
+TEST_OEXR_IMAGE_COMMIT="f17e353fbfcde3406fe02675f4d92aeae422a560"
 inherit cmake font python-single-r1
 
 DESCRIPTION="A library for reading and writing images"
 HOMEPAGE="https://sites.google.com/site/openimageio/ https://github.com/OpenImageIO"
-SRC_URI="https://github.com/OpenImageIO/oiio/archive/Release-${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/oiio-Release-${PV}"
+SRC_URI="https://github.com/OpenImageIO/oiio/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" test? (
+		https://github.com/OpenImageIO/oiio-images/archive/${TEST_OIIO_IMAGE_COMMIT}.tar.gz -> ${PN}-oiio-test-image-${TEST_OIIO_IMAGE_COMMIT}.tar.gz
+		https://github.com/AcademySoftwareFoundation/openexr-images/archive/${TEST_OEXR_IMAGE_COMMIT}.tar.gz -> ${PN}-oexr-test-image-${TEST_OEXR_IMAGE_COMMIT}.tar.gz
+	)"
+S="${WORKDIR}/oiio-${PV}"
 
 LICENSE="BSD"
-SLOT="0/2.2"
+SLOT="0/2.3"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 X86_CPU_FEATURES=(
@@ -22,12 +29,11 @@ X86_CPU_FEATURES=(
 )
 CPU_FEATURES=( ${X86_CPU_FEATURES[@]/#/cpu_flags_x86_} )
 
-IUSE="dicom doc ffmpeg field3d gif jpeg2k opencv opengl openvdb ptex python qt5 raw +truetype ${CPU_FEATURES[@]%:*}"
+IUSE="dicom doc ffmpeg gif jpeg2k opencv opengl openvdb ptex python qt5 raw test +truetype ${CPU_FEATURES[@]%:*}"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-# test data in separate repo
-# second repo has no structure whatsoever
-RESTRICT="test"
+# Not quite working yet
+RESTRICT="!test? ( test ) test"
 
 BDEPEND="
 	doc? (
@@ -39,23 +45,24 @@ BDEPEND="
 		dev-texlive/texlive-latexextra
 	)
 "
+# 2.3.8.0 should support OpenEXR 3 but it seems to prefer OpenEXR 2
+# when installed, so let's stick with that for now.
 RDEPEND="
 	>=dev-libs/boost-1.62:=
 	dev-cpp/robin-map
 	dev-libs/libfmt:=
 	dev-libs/pugixml:=
-	>=media-libs/ilmbase-2.2.0-r1:=
 	>=media-libs/libheif-1.7.0:=
 	media-libs/libpng:0=
 	>=media-libs/libwebp-0.2.1:=
+	media-libs/ilmbase:=
 	media-libs/opencolorio:=
-	>=media-libs/openexr-2.2.0-r2:0=
+	media-libs/openexr:0=
 	media-libs/tiff:0=
 	sys-libs/zlib:=
 	virtual/jpeg:0
 	dicom? ( sci-libs/dcmtk )
 	ffmpeg? ( media-video/ffmpeg:= )
-	field3d? ( media-libs/Field3D:= )
 	gif? ( media-libs/giflib:0= )
 	jpeg2k? ( >=media-libs/openjpeg-2.0:2= )
 	opencv? ( media-libs/opencv:= )
@@ -106,6 +113,12 @@ src_prepare() {
 
 	cmake_src_prepare
 	cmake_comment_add_subdirectory src/fonts
+
+	if use test ; then
+		mkdir -p "${BUILD_DIR}"/testsuite || die
+		mv "${WORKDIR}"/oiio-images-${TEST_OIIO_IMAGE_COMMIT} "${BUILD_DIR}"/testsuite/oiio-images || die
+		mv "${WORKDIR}"/openexr-images-${TEST_OEXR_IMAGE_COMMIT} "${BUILD_DIR}"/testsuite/openexr-images || die
+	fi
 }
 
 src_configure() {
@@ -121,7 +134,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DVERBOSE=ON
-		-DOIIO_BUILD_TESTS=OFF
+		-DOIIO_BUILD_TESTS=$(usex test)
 		-DINSTALL_FONTS=OFF
 		-DBUILD_DOCS=$(usex doc)
 		-DINSTALL_DOCS=$(usex doc)
@@ -132,7 +145,6 @@ src_configure() {
 		-DUSE_JPEGTURBO=ON
 		-DUSE_NUKE=OFF # not in Gentoo
 		-DUSE_FFMPEG=$(usex ffmpeg)
-		-DUSE_FIELD3D=$(usex field3d)
 		-DUSE_GIF=$(usex gif)
 		-DUSE_OPENJPEG=$(usex jpeg2k)
 		-DUSE_OPENCV=$(usex opencv)
@@ -146,7 +158,10 @@ src_configure() {
 		-DUSE_SIMD=$(local IFS=','; echo "${mysimd[*]}")
 	)
 	if use python; then
-		mycmakeargs+=( -DPYTHON_SITE_DIR=$(python_get_sitedir) )
+		mycmakeargs+=(
+			-DPYTHON_VERSION=${EPYTHON#python}
+			-DPYTHON_SITE_DIR=$(python_get_sitedir)
+		)
 	fi
 
 	cmake_src_configure
