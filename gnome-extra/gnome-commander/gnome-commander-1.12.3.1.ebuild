@@ -38,12 +38,12 @@ RDEPEND="
 	unique? ( >=dev-libs/libunique-0.9.3:1 )
 "
 BDEPEND="
+	${RDEPEND}
 	dev-util/gtk-doc-am
 	sys-devel/gettext
 	virtual/pkgconfig
 "
 DEPEND="
-	${RDEPEND}
 	test? ( >=dev-cpp/gtest-1.7.0 )
 "
 
