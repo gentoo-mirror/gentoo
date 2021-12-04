@@ -24,7 +24,7 @@ bitflags-1.3.2
 bstr-0.2.17
 bytemuck-1.7.2
 byteorder-1.4.3
-cc-1.0.71
+cc-1.0.72
 cfg-if-1.0.0
 char_reader-0.1.1
 chrono-0.4.19
@@ -33,6 +33,7 @@ cli-log-0.1.0
 cli-log-2.0.0
 clipboard-win-4.2.2
 color_quant-1.1.0
+coolor-0.3.1
 crc32fast-1.2.1
 crossbeam-0.8.1
 crossbeam-channel-0.5.1
@@ -41,9 +42,9 @@ crossbeam-epoch-0.9.5
 crossbeam-queue-0.3.2
 crossbeam-utils-0.8.5
 crossterm-0.19.0
-crossterm-0.21.0
+crossterm-0.22.1
 crossterm_winapi-0.7.0
-crossterm_winapi-0.8.0
+crossterm_winapi-0.9.0
 csv-1.1.6
 csv-core-0.1.10
 csv2svg-0.1.5
@@ -64,7 +65,7 @@ fnv-1.0.7
 form_urlencoded-1.0.1
 getrandom-0.2.3
 gif-0.11.3
-git2-0.13.23
+git2-0.13.24
 glassbench-0.3.0
 glob-0.3.0
 hashbrown-0.9.1
@@ -87,7 +88,7 @@ lazy_static-1.4.0
 lazycell-1.3.0
 lfs-core-0.4.2
 libc-0.2.107
-libgit2-sys-0.12.24+1.3.0
+libgit2-sys-0.12.25+1.3.0
 libsqlite3-sys-0.20.1
 libz-sys-1.1.3
 line-wrap-0.1.1
@@ -124,7 +125,7 @@ phf_generator-0.9.1
 phf_macros-0.9.0
 phf_shared-0.9.0
 pkg-config-0.3.22
-plist-1.2.1
+plist-1.3.1
 png-0.16.8
 ppv-lite86-0.2.15
 proc-macro-hack-0.5.19
@@ -153,7 +154,7 @@ scopeguard-1.1.0
 secular-1.0.1
 serde-1.0.130
 serde_derive-1.0.130
-serde_json-1.0.69
+serde_json-1.0.71
 signal-hook-0.1.17
 signal-hook-0.3.10
 signal-hook-mio-0.2.1
@@ -169,7 +170,7 @@ syn-1.0.81
 syntect-4.6.0
 tempfile-3.2.0
 termimad-0.10.3
-termimad-0.17.1
+termimad-0.19.3
 terminal-clipboard-0.3.1
 termux-clipboard-0.1.0
 textwrap-0.11.0
@@ -177,7 +178,8 @@ thiserror-1.0.30
 thiserror-impl-1.0.30
 tiff-0.6.1
 time-0.1.43
-tinyvec-1.5.0
+time-0.3.5
+tinyvec-1.5.1
 tinyvec_macros-0.1.0
 toml-0.5.8
 umask-1.0.0
