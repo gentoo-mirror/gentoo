@@ -1,12 +1,12 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Electronic Schematic and PCB design tools footprint libraries"
-HOMEPAGE="https://kicad.github.io/footprints/"
+DESCRIPTION="Electronic Schematic and PCB design tools symbol libraries"
+HOMEPAGE="https://kicad.github.io/symbols/"
 SRC_URI="https://gitlab.com/kicad/libraries/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="CC-BY-SA-4.0"
