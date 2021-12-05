@@ -1,14 +1,14 @@
+BDEPEND=!build? ( sys-apps/sed ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=!build? ( sys-apps/sed ) >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Raspberry Pi kernel sources
-EAPI=6
+EAPI=7
 HOMEPAGE=https://github.com/raspberrypi/linux
-INHERIT=kernel-2 git-r3 eapi7-ver
+INHERIT=kernel-2 git-r3
 IUSE=symlink build
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=4.19.9999
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	kernel-2	558643172ab02bb7cb88b95070b91f12	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=8dcf97f6c79d5b87810786fcf985d174
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	kernel-2	558643172ab02bb7cb88b95070b91f12	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=b1332c114229071831ab79ff1c246576

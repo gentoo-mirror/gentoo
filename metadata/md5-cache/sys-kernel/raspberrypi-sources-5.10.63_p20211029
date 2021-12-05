@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Raspberry Pi kernel sources
+EAPI=7
+HOMEPAGE=https://github.com/raspberrypi/linux
+INHERIT=kernel-2 linux-info
+IUSE=symlink build kernel_linux
+KEYWORDS=~arm ~arm64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.10.63_p20211029
+SRC_URI=https://github.com/raspberrypi/linux/archive/1.20211029.tar.gz -> linux-5.10.63_p20211029-raspberrypi.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	kernel-2	558643172ab02bb7cb88b95070b91f12	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9
+_md5_=ff32a0e36735dbe7d2c2f3e288506602
