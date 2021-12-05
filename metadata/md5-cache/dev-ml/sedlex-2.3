@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install prepare test unpack
+DEPEND=dev-ml/gen:= dev-ml/ppxlib:= dev-ml/uchar:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=An OCaml lexer generator for Unicode
+EAPI=7
+HOMEPAGE=https://github.com/ocaml-community/sedlex
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-ml/gen:= dev-ml/ppxlib:= dev-ml/uchar:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0
+SRC_URI=https://github.com/ocaml-community/sedlex/archive/v2.3.tar.gz -> sedlex-2.3.tar.gz https://www.unicode.org/Public/12.1.0/ucd/DerivedCoreProperties.txt -> sedlex-2.3-DerivedCoreProperties.txt https://www.unicode.org/Public/12.1.0/ucd/extracted/DerivedGeneralCategory.txt -> sedlex-2.3-DerivedGeneralCategory.txt https://www.unicode.org/Public/12.1.0/ucd/PropList.txt -> sedlex-2.3-PropList.txt
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=699701c1c90267913f455baf8d7caadc
