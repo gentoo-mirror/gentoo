@@ -31,12 +31,6 @@ BDEPEND="
 	sys-apps/diffutils
 	tools? ( dev-lang/go )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.61-no_perl.patch
-	"${FILESDIR}"/${PN}-2.61-ignore-RAISE_SETFCAP-install-failures.patch
-	"${FILESDIR}"/${PN}-2.61-Wformat.patch
-)
-
 QA_FLAGS_IGNORED="sbin/captree" # go binaries don't use LDFLAGS
 
 src_prepare() {
