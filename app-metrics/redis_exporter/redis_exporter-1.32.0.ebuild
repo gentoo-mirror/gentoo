@@ -3,7 +3,7 @@
 
 EAPI=7
 inherit go-module systemd
-EGIT_COMMIT=300f6fe81051ef29f070b6583d80bd343e46fc05
+EGIT_COMMIT=224802c8d728c488e41db890f64cd33543724b5b
 
 DESCRIPTION="Prometheus Exporter for Redis Metrics. Supports Redis 2.x, 3.x and 4.x"
 HOMEPAGE="https://github.com/oliver006/redis_exporter"
@@ -44,6 +44,8 @@ EGO_SUM=(
 "github.com/golang/protobuf v1.4.3/go.mod"
 "github.com/gomodule/redigo v1.8.5"
 "github.com/gomodule/redigo v1.8.5/go.mod"
+"github.com/gomodule/redigo v1.8.6"
+"github.com/gomodule/redigo v1.8.6/go.mod"
 "github.com/google/go-cmp v0.3.0/go.mod"
 "github.com/google/go-cmp v0.3.1/go.mod"
 "github.com/google/go-cmp v0.4.0/go.mod"
