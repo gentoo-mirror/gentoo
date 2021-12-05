@@ -38,12 +38,21 @@ RDEPEND="
 	sys-libs/zlib:=
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-ml/camlp5
+	dev-ml/dune
+	dev-ml/findlib
+"
 
 QA_FLAGS_IGNORED="usr/bin/haxelib"
 QA_PRESTRIPPED="usr/bin/haxelib"
 
 src_configure() {
-	use ocamlopt && export OCAMLOPT=ocamlopt.opt
+	if use ocamlopt ; then
+		export OCAMLOPT=ocamlopt.opt
+	else
+		export OCAMLOPT=ocamlopt
+	fi
 }
 
 src_compile() {
@@ -51,6 +60,7 @@ src_compile() {
 		BRANCH=""
 		COMMIT_DATE=""
 		COMMIT_SHA=""
+		OCAMLOPT=${OCAMLOPT}
 		INSTALL_DIR=/usr
 	)
 	emake -j1
