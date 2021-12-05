@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Signed and unsigned integer types having specified widths
+EAPI=7
+HOMEPAGE=https://github.com/andrenth/ocaml-stdint
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/0.7.0
+SRC_URI=https://github.com/andrenth/ocaml-stdint/archive/0.7.0.tar.gz -> ocaml-stdint-0.7.0.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=0196c728e963a0c53f608c697c31294c
