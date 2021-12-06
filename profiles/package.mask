@@ -639,28 +639,6 @@ app-misc/rundeck-bin
 # Removal on 2021-12-07. Bug #819675.
 dev-db/mtop
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-06)
-# Libraries with no other consumers. Removal in 30 days.
-dev-java/mina-core
-dev-java/jnr-unixsocket
-dev-java/jnr-enxio
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-06)
-# Dead upstream, multiple open bugs, no maintainer,
-# uses EAPI 5, no revdeps.
-# Removal on 2021-12-06. Bug #819750.
-app-pda/gnupod
-
-# Andreas K. Huettel <dilfridge@gentoo.org> (2021-11-04)
-# Unused and outdated packages; the version in core Perl is
-# newer. Removal in 30 days.
-perl-core/Module-Metadata
-perl-core/parent
-perl-core/podlators
-perl-core/Pod-Simple
-perl-core/Sys-Syslog
-perl-core/Term-ANSIColor
-
 # Sam James <sam@gentoo.org> (2021-11-03)
 # Known issues with YAMA (kernel.yama.ptrace_scope=1) which is on by default
 # in at least the sys-kernel/gento-kernel kernel config.
