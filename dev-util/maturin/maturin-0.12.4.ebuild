@@ -10,8 +10,8 @@ CRATES="
 	aes-soft-0.6.4
 	aesni-0.10.0
 	aho-corasick-0.7.18
-	ansi_term-0.11.0
-	anyhow-1.0.50
+	ansi_term-0.12.1
+	anyhow-1.0.51
 	async-io-1.6.0
 	atty-0.2.14
 	autocfg-1.0.1
@@ -38,14 +38,14 @@ CRATES="
 	cfg-if-1.0.0
 	charset-0.1.3
 	cipher-0.2.5
-	clap-2.33.3
+	clap-2.34.0
 	concurrent-queue-1.2.2
 	configparser-3.0.0
 	console-0.15.0
 	core-foundation-0.9.2
 	core-foundation-sys-0.8.3
 	cpufeatures-0.2.1
-	crc32fast-1.2.2
+	crc32fast-1.3.0
 	crossbeam-utils-0.8.5
 	crypto-mac-0.10.1
 	derivative-2.2.0
@@ -94,7 +94,7 @@ CRATES="
 	human-panic-1.0.3
 	humantime-1.3.0
 	hyper-0.14.15
-	hyper-rustls-0.22.1
+	hyper-rustls-0.23.0
 	idna-0.2.3
 	ignore-0.4.18
 	indexmap-1.7.0
@@ -103,11 +103,11 @@ CRATES="
 	ipnet-2.3.1
 	itoa-0.4.8
 	js-sys-0.3.55
-	keyring-0.10.4
+	keyring-1.0.0
 	lazy_static-1.4.0
-	libc-0.2.108
+	libc-0.2.109
 	log-0.4.14
-	mailparse-0.13.6
+	mailparse-0.13.7
 	matches-0.1.9
 	memchr-2.4.1
 	mime-0.3.16
@@ -145,7 +145,7 @@ CRATES="
 	proc-macro-crate-1.1.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.32
+	proc-macro2-1.0.33
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.0
 	quick-error-1.2.3
@@ -160,18 +160,19 @@ CRATES="
 	regex-1.5.4
 	regex-syntax-0.6.25
 	remove_dir_all-0.5.3
-	reqwest-0.11.6
+	reqwest-0.11.7
 	rfc2047-decoder-0.1.2
 	ring-0.16.20
 	rpassword-5.0.1
 	rustc-demangle-0.1.21
-	rustls-0.19.1
+	rustls-0.20.2
+	rustls-pemfile-0.2.1
 	ryu-1.0.6
 	same-file-1.0.6
 	scoped-tls-1.0.0
 	scroll-0.10.2
 	scroll_derive-0.10.5
-	sct-0.6.1
+	sct-0.7.0
 	secret-service-2.0.1
 	security-framework-2.4.2
 	security-framework-sys-2.4.2
@@ -207,7 +208,7 @@ CRATES="
 	tinyvec-1.5.1
 	tinyvec_macros-0.1.0
 	tokio-1.14.0
-	tokio-rustls-0.22.0
+	tokio-rustls-0.23.1
 	tokio-util-0.6.9
 	toml-0.5.8
 	tower-service-0.3.1
@@ -241,6 +242,7 @@ CRATES="
 	wasm-bindgen-shared-0.2.78
 	web-sys-0.3.55
 	webpki-0.21.4
+	webpki-0.22.0
 	webpki-roots-0.21.1
 	wepoll-ffi-0.1.2
 	winapi-0.3.9
@@ -259,12 +261,14 @@ CRATES_TEST="
 	indoc-0.3.6
 	indoc-impl-0.3.6
 	libc-0.2.107
+	libc-0.2.108
 	lock_api-0.4.5
 	parking_lot-0.11.2
 	parking_lot_core-0.8.5
 	paste-0.1.18
 	paste-impl-0.1.18
 	proc-macro-hack-0.5.19
+	proc-macro2-1.0.32
 	pyo3-0.15.1
 	pyo3-build-config-0.15.1
 	pyo3-macros-0.15.1
@@ -273,53 +277,76 @@ CRATES_TEST="
 	smallvec-1.7.0
 	syn-1.0.81"
 PYTHON_COMPAT=( python3_{8..10} )
-inherit cargo flag-o-matic python-any-r1
+inherit cargo distutils-r1 flag-o-matic
 
 DESCRIPTION="Build and publish crates with pyo3, rust-cpython and cffi bindings"
-HOMEPAGE="https://github.com/pyo3/maturin"
+HOMEPAGE="https://maturin.rs/"
 SRC_URI="
 	https://github.com/PyO3/maturin/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
 	test? ( $(cargo_crate_uris ${CRATES_TEST}) )"
 
-LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT MPL-2.0 openssl"
+LICENSE="
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT MPL-2.0 openssl
+	doc? ( CC-BY-4.0 OFL-1.1 )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="test"
-PROPERTIES="test_network"
-RESTRICT="test" # uses venv+pip
+IUSE="doc test"
+RESTRICT="!test? ( test )"
 
+RDEPEND="dev-python/toml[${PYTHON_USEDEP}]"
 BDEPEND="
+	doc? ( app-text/mdbook )
 	test? (
-		$(python_gen_any_dep '
-			dev-python/cffi[${PYTHON_USEDEP}]
-			dev-python/virtualenv[${PYTHON_USEDEP}]
-		')
+		dev-python/cffi[${PYTHON_USEDEP}]
+		dev-python/boltons[${PYTHON_USEDEP}]
+		dev-python/virtualenv[${PYTHON_USEDEP}]
 	)"
 
-QA_FLAGS_IGNORED="usr/bin/maturin"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
-python_check_deps() {
-	has_version -b "dev-python/cffi[${PYTHON_USEDEP}]" &&
-		has_version -b "dev-python/virtualenv[${PYTHON_USEDEP}]"
+python_prepare_all() {
+	distutils-r1_python_prepare_all
+
+	# use setup.py only for pure python and handle cargo manually
+	sed -i 's/cmdclass.*/packages=["'${PN}'"],/' setup.py || die
+
+	if use test; then
+		# used to prevent use of network during tests
+		cat > "${T}"/pip.conf <<-EOF || die
+			[install]
+			no-index = yes
+			no-dependencies = yes
+		EOF
+
+		# run plain 'python' from eclass rather than auto-detect 'python3.x'
+		sed -i 's/"build",/&"-i","python",/' tests/common/integration.rs || die
+	fi
 }
 
-pkg_setup() {
-	use test && python-any-r1_pkg_setup
-}
-
-src_configure() {
+python_configure_all() {
 	filter-flags '-flto*' # undefined references with ring crate
 
 	cargo_src_configure
 }
 
-src_test() {
-	cargo_src_test -- --skip locked_doesnt_build_without_cargo_lock
+python_compile_all() {
+	cargo_src_compile
+
+	use !doc || mdbook build -d html guide || die
 }
 
-src_install() {
+python_test() {
+	local -x PIP_CONFIG_FILE=${T}/pip.conf
+	local -x VIRTUALENV_SYSTEM_SITE_PACKAGES=1
+
+	cargo_src_test -- --skip locked_doesnt_build_without_cargo_lock \
+		--test-threads 1 #825242
+}
+
+python_install_all() {
 	cargo_src_install
 
-	dodoc -r Changelog.md Readme.md guide/src/.
+	dodoc Changelog.md Readme.md
+	use doc && dodoc -r guide/html
 }
