@@ -12,13 +12,20 @@ SRC_URI="mirror://pypi/${P::1}/${PN}/${P}.tar.gz"
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv x86"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	!net-misc/youtube-dl"
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	distutils-r1_python_prepare_all
+
+	# adjust requires for pycryptodome and optional dependencies (bug #828466)
+	sed -ri "/'pycryptodomex'/s/x//;s/'(mutagen|websockets)',?//g" setup.py || die
+}
 
 python_test() {
 	epytest -m 'not download' -p no:markdown
