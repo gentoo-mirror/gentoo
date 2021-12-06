@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://coq.inria.fr/
 INHERIT=desktop multilib
 IUSE=gtk debug +ocamlopt doc
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-ml/camlp5:=[ocamlopt?] || ( dev-ml/num <dev-lang/ocaml-4.09.0[ocamlopt?] ) gtk? ( dev-ml/lablgtk:3=[sourceview,ocamlopt?] dev-ml/lablgtk-sourceview:3=[ocamlopt?] )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/coq/coq/archive/V8.12.0.tar.gz -> coq-8.12.0.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
-_md5_=a723ec535ee48c96c0a06abafcba3214
+_md5_=51e586cba8b59712eb91d288badbd5e4
