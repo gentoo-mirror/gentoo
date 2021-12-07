@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/ounit2:= dev-ml/qcheck:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Inline (Unit) Tests for OCaml
+EAPI=7
+HOMEPAGE=https://github.com/vincent-hugot/qtest
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-ml/ounit2:= dev-ml/qcheck:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2.11.2
+SRC_URI=https://github.com/vincent-hugot/qtest/archive/v2.11.2.tar.gz -> qtest-2.11.2.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=c11a4415bbe972e3f50084377eff54b6
