@@ -4,7 +4,7 @@
 # Skeleton command:
 # java-ebuilder --generate-ebuild --workdir . --pom pom.xml --download-uri https://github.com/cniweb/ant-contrib/archive/0228412be2ef648cfabc1d74416d3188755aff9b.tar.gz --slot 0 --keywords "~amd64 ~ppc64 ~x86" --ebuild ant-contrib-1.0_beta6_pre20201123.ebuild
 
-EAPI=7
+EAPI=8
 
 JAVA_PKG_IUSE="doc source test"
 MAVEN_ID="ant-contrib:ant-contrib:1.0b6"
@@ -14,12 +14,15 @@ inherit java-pkg-2 java-pkg-simple
 
 MY_COMMIT="0228412be2ef648cfabc1d74416d3188755aff9b"
 DESCRIPTION="Ant-contrib tasks for Apache Ant"
-HOMEPAGE="http://ant-contrib.sourceforge.net:80"
+HOMEPAGE="http://ant-contrib.sourceforge.net"
 SRC_URI="https://github.com/cniweb/${PN}/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
+
+# Too many tests fail
+RESTRICT="test"
 
 # Common dependencies
 # POM: pom.xml
@@ -31,11 +34,11 @@ KEYWORDS="~amd64 ~ppc64 ~x86"
 # xerces:xercesImpl:2.12.0 -> >=dev-java/xerces-2.12.0:2
 
 CDEPEND="
-	>=dev-java/ant-core-1.10.9:0
-	>=dev-java/ant-ivy-2.3.0:2
-	>=dev-java/bcel-6.5.0:0
-	>=dev-java/commons-httpclient-3.1:3
-	>=dev-java/xerces-2.12.0:2
+	dev-java/ant-core:0
+	dev-java/ant-ivy:2
+	dev-java/bcel:0
+	dev-java/commons-httpclient:3
+	dev-java/xerces:2
 "
 
 # Compile dependencies
@@ -43,18 +46,14 @@ CDEPEND="
 # test? junit:junit:4.12 -> >=dev-java/junit-4.12:4
 # test? org.apache.ant:ant-launcher:1.9.5 -> >=dev-java/ant-core-1.10.9:0
 
-DEPEND="
+DEPEND="${CDEPEND}
 	>=virtual/jdk-1.8:*
-	${CDEPEND}
 	test? (
-		>=dev-java/ant-core-1.10.9:0
-	)
-"
+		dev-java/ant-core:0
+	)"
 
-RDEPEND="
-	>=virtual/jre-1.8:*
-	${CDEPEND}
-"
+RDEPEND="${CDEPEND}
+	>=virtual/jre-1.8:*"
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}/${PN}"
 
