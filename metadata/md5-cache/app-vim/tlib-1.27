@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: a library of utility functions
+EAPI=7
+HOMEPAGE=https://www.vim.org/scripts/script.php?script_id=1863 https://github.com/tomtom/tlib_vim
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/tomtom/tlib_vim/archive/1.27.tar.gz -> tlib-1.27.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=f902e9345e1e5bf618720dffd3b4018c
