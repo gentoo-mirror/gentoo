@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Strict impure trie tree
+EAPI=7
+HOMEPAGE=https://github.com/kandu/trie
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/1.0.0
+SRC_URI=https://github.com/kandu/trie/archive/1.0.0.tar.gz -> trie-1.0.0.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=e6697aad0709106a3537b4074acb691d

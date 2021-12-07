@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/mew:= dev-ml/react:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A vi-like modal editing engine generator
+EAPI=7
+HOMEPAGE=https://github.com/kandu/mew_vi
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-ml/mew:= dev-ml/react:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.5.0
+SRC_URI=https://github.com/kandu/mew_vi/archive/0.5.0.tar.gz -> mew_vi-0.5.0.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=5d5a49abf48def0d842cc0bcce2226a6
