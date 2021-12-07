@@ -621,30 +621,6 @@ net-misc/ssh-chain
 # Removal on 2021-12-08.  Bug #822435.
 dev-python/llvmlite
 
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-07)
-# No maintainer, not compatible with llvm-11 or higher.
-# Removal on 2021-12-07. Bug #812566.
-dev-libs/vc-intrinsics
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-07)
-# Fails to build with glibc-2.34, dead upstream.
-# Only revdep (media-video/clive) is outdated
-# and uses EAPI 5.
-# Removal on 2021-12-07. Bug #807172.
-media-libs/quvi
-media-video/clive
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-07)
-# Unresolved security vulnerability, still uses EAPI 5.
-# Removal on 2021-12-07. Bug #811168.
-app-misc/rundeck-bin
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-07)
-# Dead upstream, uses EAPI 5, no revdeps.
-# Replaced by dev-db/mytop.
-# Removal on 2021-12-07. Bug #819675.
-dev-db/mtop
-
 # Sam James <sam@gentoo.org> (2021-11-03)
 # Known issues with YAMA (kernel.yama.ptrace_scope=1) which is on by default
 # in at least the sys-kernel/gento-kernel kernel config.
