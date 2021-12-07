@@ -87,6 +87,7 @@ acct-group/docker_auth 0-r1: System group: docker_auth
 acct-group/dovecot 0-r1: System group: dovecot
 acct-group/dovenull 0-r1: System group: dovenull
 acct-group/drone 0: A group for dev-util/drone
+acct-group/ejabberd 0: Group for net-im/ejabberd
 acct-group/elasticsearch 0-r1: Elasticsearch program group
 acct-group/elasticsearch_exporter 0-r1: A group for app-metrics/elasticsearch_exporter
 acct-group/energi3 0: Group for system-wide net-p2p/energi3
@@ -535,6 +536,7 @@ acct-user/dovecot 0-r1: user for dovecot daemon
 acct-user/dovenull 0-r1: user for dovecot daemon
 acct-user/drone 0: A user for dev-util/drone
 acct-user/duende 0-r1: System user: duende
+acct-user/ejabberd 0: User for net-im/ejabberd
 acct-user/elasticsearch 0-r1: Elasticsearch program user
 acct-user/elasticsearch_exporter 0-r1: A user for app-metrics/elasticsearch_exporter
 acct-user/energi3 0: User for net-p2p/energi3
@@ -8830,7 +8832,8 @@ dev-python/mkautodoc 0.1.0: Auto documentation for MkDocs
 dev-python/mkdocs 1.2.3: Project documentation with Markdown
 dev-python/mkdocs-bootstrap 1.1-r1: Bootstrap theme for MkDocs
 dev-python/mkdocs-bootswatch 1.1-r1: Bootswatch themes for MkDocs
-dev-python/mkdocs-git-revision-date-localized-plugin 0.10.0 0.10.3: Display the localized date of the last git modification of a markdown file
+dev-python/mkdocs-git-authors-plugin 0.6.2: Mkdocs plugin to display git authors of a page
+dev-python/mkdocs-git-revision-date-localized-plugin 0.10.0 0.10.3 0.11: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-material 7.3.4 7.3.6: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0.3: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.5.0 0.5.0-r1: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
@@ -9336,7 +9339,7 @@ dev-python/pyyaml_env_tag 0.1: A custom YAML tag for referencing environment var
 dev-python/pyzbar 0.1.8: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 22.1.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
 dev-python/pyzotero 1.4.26: A Python client for the Zotero API
-dev-python/qdarkstyle 2.8.1 3.0.2: A dark style sheet for QtWidgets application
+dev-python/qdarkstyle 2.8.1 3.0.2 3.0.3: A dark style sheet for QtWidgets application
 dev-python/qrcode 7.3.1: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.11.6 2.13.1: Python bindings for QScintilla
 dev-python/qstylizer 0.2.1: Stylesheet Generator for PyQt5/PySide2
@@ -15018,7 +15021,7 @@ net-im/cpop 0.0.4-r1: GTK+ network popup message client. Compatible with the jpo
 net-im/dianara 1.4.2: Qt-based client for the pump.io distributed social network
 net-im/dino 0.2.1 0.2.2 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord-bin 0.0.16-r4: All-in-one voice and text chat for gamers
-net-im/ejabberd 20.04 21.04: Robust, scalable and extensible XMPP server
+net-im/ejabberd 20.04 21.04 21.04-r1: Robust, scalable and extensible XMPP server
 net-im/ekg2 0.4_pre20190315-r1 9999: Text-based, multi-protocol instant messenger
 net-im/element-desktop-bin 1.9.5: A glossy Matrix collaboration client for desktop (binary package)
 net-im/empathy 3.12.14: Telepathy instant messaging and video/audio call client for GNOME
