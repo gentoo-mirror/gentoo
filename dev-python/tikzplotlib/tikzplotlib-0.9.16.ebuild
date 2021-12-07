@@ -10,9 +10,7 @@ inherit distutils-r1 virtualx
 
 DESCRIPTION="Convert matplotlib figures into TikZ/PGFPlots"
 HOMEPAGE="https://github.com/nschloe/tikzplotlib"
-SRC_URI="
-	https://github.com/nschloe/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/nschloe/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -20,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	app-text/texlive[extra]
-	dev-python/matplotlib[latex,${PYTHON_USEDEP}]
+	<dev-python/matplotlib-3.5[latex,${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 "
