@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/tree
+DESCRIPTION=Library for reading OriginLab OPJ project files
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/liborigin/ https://github.com/SciDAVis/liborigin/
+INHERIT=cmake
+IUSE=debug doc tools
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3
+RDEPEND=dev-cpp/tree
+SLOT=2
+SRC_URI=https://github.com/SciDAVis/liborigin/archive/970b90ada051dfa2e80929cde91d052bf28be674.tar.gz -> liborigin-3.0.1_p20210828.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=56b52fde4ee1d7b8aa97fc1374fadd16
