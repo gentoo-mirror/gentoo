@@ -1,5 +1,6 @@
+BDEPEND=dev-ml/findlib dev-ml/ocamlbuild dev-ml/opam-installer dev-ml/topkg test? ( dev-ml/mtime )
 DEFINED_PHASES=compile install prepare test
-DEPEND=dev-ml/result:=[ocamlopt] dev-lang/ocaml:=[ocamlopt] fmt? ( dev-ml/fmt:= ) cli? ( dev-ml/cmdliner:=[ocamlopt] ) lwt? ( dev-ml/lwt:= ) dev-ml/opam dev-ml/topkg dev-ml/ocamlbuild dev-ml/findlib test? ( dev-ml/mtime ) >=dev-ml/findlib-1.0.4-r1
+DEPEND=dev-ml/result:=[ocamlopt] dev-lang/ocaml:=[ocamlopt] fmt? ( dev-ml/fmt:= ) cli? ( dev-ml/cmdliner:=[ocamlopt] ) lwt? ( dev-ml/lwt:= ) >=dev-ml/findlib-1.0.4-r1
 DESCRIPTION=Logging infrastructure for OCaml
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/logs https://github.com/dbuenzli/logs
@@ -12,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.7.0
 SRC_URI=https://erratique.ch/software/logs/releases/logs-0.7.0.tbz
 _eclasses_=findlib	1470b3b78030acb2c8fcd04414f4c611
-_md5_=53ccdf8a3dc9e2760c83e61b09380f76
+_md5_=85a309608f98e25b0b914db2c602e790
