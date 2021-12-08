@@ -70,7 +70,10 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}"/${P}-fix-copy-between-filesystems.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-copy-between-filesystems.patch
+	"${FILESDIR}"/${P}-fix-KRun-open-URLs-twice.patch # KDE-bug 446272
+)
 
 src_configure() {
 	local mycmakeargs=(

@@ -30,3 +30,5 @@ DEPEND="
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}"/${P}-fix-icon-preference.patch ) # KDE-bug 445804
