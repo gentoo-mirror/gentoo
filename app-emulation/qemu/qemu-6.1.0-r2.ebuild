@@ -278,6 +278,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.0.0-make.patch
 	"${FILESDIR}"/${PN}-6.1.0-strings.patch
 	"${FILESDIR}"/${P}-automagic-libbpf.patch
+	"${FILESDIR}"/${P}-data-corruption.patch
 )
 
 QA_PREBUILT="
