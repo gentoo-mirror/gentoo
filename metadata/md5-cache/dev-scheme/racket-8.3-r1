@@ -1,0 +1,15 @@
+DEFINED_PHASES=config configure install postinst preinst prepare
+DEPEND=!dev-tex/slatex dev-db/sqlite:3 dev-libs/libffi:=
+DESCRIPTION=General purpose, multi-paradigm Lisp-Scheme programming language
+EAPI=8
+HOMEPAGE=https://racket-lang.org/
+INHERIT=desktop optfeature
+IUSE=+chez +doc +futures +jit minimal +places +threads
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+LICENSE=|| ( MIT Apache-2.0 ) chez? ( Apache-2.0 ) !chez? ( LGPL-3 )
+RDEPEND=!dev-tex/slatex dev-db/sqlite:3 dev-libs/libffi:=
+REQUIRED_USE=chez? ( futures places ) futures? ( jit threads ) places? ( threads )
+SLOT=0/8.3
+SRC_URI=minimal? ( https://download.racket-lang.org/installers/8.3/racket-minimal-8.3-src-builtpkgs.tgz ) !minimal? ( https://download.racket-lang.org/installers/8.3/racket-8.3-src-builtpkgs.tgz )
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=0a9b5a7247e2b07a19b4bf06ce840211
