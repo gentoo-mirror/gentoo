@@ -790,10 +790,10 @@ acct-user/sqlgrey 0-r1: User for SQLGrey
 acct-user/squid 0-r1: A user for squid web proxy cache
 acct-user/sshd 0-r1: User for ssh
 acct-user/sstpc 0: User for net-misc/sstp-client
-acct-user/stdiscosrv 0-r1: User for the Syncthing discovery server
+acct-user/stdiscosrv 0-r1 1: User for the Syncthing discovery server
 acct-user/steamcmd 0-r1: A user for the SteamCMD server
 acct-user/stg 0: A user for net-misc/stargazer
-acct-user/strelaysrv 0-r1: User for the Syncthing relay server
+acct-user/strelaysrv 0-r1 1: User for the Syncthing relay server
 acct-user/stubby 0-r1: Stubby program user (from net-dns/getdns)
 acct-user/stunnel 0-r1: user for stunnel
 acct-user/subsonic 0-r1: A user for media-sound/subsonic-bin
@@ -893,7 +893,7 @@ app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
 app-admin/ansible 4.3.0 4.5.0 4.6.0 5.0.1: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-base 2.10.10-r1 2.11.3 2.11.3-r1 2.11.4-r1 2.11.5-r1 2.11.6-r1 2.11.7 2.12.0 2.12.1 9999: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-cmdb 1.30-r1: Ansible Configuration Management Database
-app-admin/ansible-lint 5.2.1 5.3.0: Checks ansible playbooks for practices and behaviour that can be improved
+app-admin/ansible-lint 5.2.1 5.3.1: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 4.6.2: Ansible module for hashicorp vault
 app-admin/ansible-molecule 3.5.2-r1: A toolkit designed to aid in the development and testing of Ansible roles
 app-admin/apache-tools 2.4.51: Useful Apache tools - htdigest, htpasswd, ab, htdbm
@@ -7628,22 +7628,22 @@ dev-perl/Term-ReadLine-TTYtter 1.400.0-r2: Quick implementation of readline util
 dev-perl/Term-ReadPassword 0.110.0-r3: Asking the user for a password
 dev-perl/Term-Screen 1.60.0-r1: A simple Term::Cap based screen positioning module
 dev-perl/Term-ScreenColor 1.200.0-r2: A Term::Screen based screen positioning and coloring module
-dev-perl/Term-Shell 0.110.0 0.120.0: A simple command-line shell framework
+dev-perl/Term-Shell 0.120.0 0.130.0: A simple command-line shell framework
 dev-perl/Term-ShellUI 0.920.0-r2: A fully-featured shell-like command line environment
-dev-perl/Term-Table 0.8.0 0.15.0: Format a header and rows into a table
-dev-perl/Term-UI 0.460.0 0.500.0: User interfaces via Term::ReadLine made easy
+dev-perl/Term-Table 0.15.0: Format a header and rows into a table
+dev-perl/Term-UI 0.500.0: User interfaces via Term::ReadLine made easy
 dev-perl/TermReadKey 2.380.0: Change terminal modes, and perform non-blocking reads
 dev-perl/Test-Assert 0.50.400-r2: Assertion methods for those who like JUnit
-dev-perl/Test-Base 0.880.0 0.890.0: A Data Driven Testing Framework
+dev-perl/Test-Base 0.890.0: A Data Driven Testing Framework
 dev-perl/Test-Bits 0.20.0: Provides a bits_is() subroutine for testing binary data
 dev-perl/Test-CPAN-Meta 0.250.0-r1: Validate your CPAN META.yml file
 dev-perl/Test-CheckDeps 0.10.0-r1: Check for presence of dependencies
-dev-perl/Test-Class 0.500.0 0.520.0: Easily create test classes in an xUnit/JUnit style
+dev-perl/Test-Class 0.520.0: Easily create test classes in an xUnit/JUnit style
 dev-perl/Test-ClassAPI 1.70.0-r1: Provides basic first-pass API testing for large class trees
 dev-perl/Test-CleanNamespaces 0.240.0-r1: Check for uncleaned imports
 dev-perl/Test-Command 0.110.0-r1: Test routines for external commands
 dev-perl/Test-Command-Simple 0.50.0-r1: Test external commands (nearly) as easily as loaded modules
-dev-perl/Test-Compile 2.4.1 2.4.2: Check whether Perl files compile correctly
+dev-perl/Test-Compile 2.4.2 3.0.1: Check whether Perl files compile correctly
 dev-perl/Test-Deep 1.127.0 1.130.0: Extremely flexible deep comparison testing
 dev-perl/Test-Deep-JSON 0.40.0 0.50.0: Compare JSON with Test::Deep
 dev-perl/Test-Dependencies 0.230.0 0.300.0: Ensure that your dependency listing is complete
@@ -7714,8 +7714,8 @@ dev-perl/Test-Warnings 0.26.0 0.31.0: Test for warnings and the lack of them
 dev-perl/Test-Without-Module 0.200.0-r1: Test fallback behaviour in absence of modules
 dev-perl/Test-YAML 1.60.0 1.70.0: Testing Module for YAML Implementations
 dev-perl/Test-utf8 1.10.0 1.20.0: Handy utf8 tests
-dev-perl/Test2-Plugin-NoWarnings 0.60.0 0.90.0: Fail if tests warn
-dev-perl/Test2-Suite 0.0.77 0.0.140 0.0.141: A rich set of tools built upon the Test2 framework
+dev-perl/Test2-Plugin-NoWarnings 0.90.0: Fail if tests warn
+dev-perl/Test2-Suite 0.0.141 0.0.144: A rich set of tools built upon the Test2 framework
 dev-perl/Text-Aligner 0.130.0 0.160.0: Used to justify strings to various alignment styles
 dev-perl/Text-Aspell 0.90.0-r3: Perl interface to the GNU Aspell Library
 dev-perl/Text-Autoformat 1.740.0 1.750.0: Automatic text wrapping and reformatting
@@ -15823,7 +15823,7 @@ net-p2p/qbittorrent 4.3.1 4.3.3 4.3.4.1 4.3.5 4.3.7 4.3.8 4.3.9 9999: BitTorrent
 net-p2p/resilio-sync 2.6.3-r2: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.5-r2 0.6.5-r3 0.6.6 0.6.6-r1: P2P private sharing application
 net-p2p/rtorrent 0.9.7 0.9.7-r1 0.9.8: BitTorrent Client using libtorrent
-net-p2p/syncthing 1.18.1 1.18.4: Open Source Continuous File Synchronization
+net-p2p/syncthing 1.18.1 1.18.4 1.18.5: Open Source Continuous File Synchronization
 net-p2p/syrep 0.9: A generic file repository synchronization tool
 net-p2p/torrentinfo 1.8.6-r2: A torrent file parser
 net-p2p/transmission 3.00-r1 9999: A fast, easy, and free BitTorrent client
