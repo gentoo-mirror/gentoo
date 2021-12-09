@@ -2,14 +2,14 @@ BDEPEND=sys-devel/flex virtual/yacc systemd? ( virtual/pkgconfig ) sys-devel/gnu
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=acct-group/nsd acct-user/nsd dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) libevent? ( dev-libs/libevent ) munin? ( net-analyzer/munin ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd )
 DESCRIPTION=An authoritative only, high performance, open source name server
-EAPI=7
+EAPI=8
 HOMEPAGE=http://www.nlnetlabs.nl/projects/nsd
 INHERIT=autotools systemd
 IUSE=bind8-stats dnstap ipv6 libevent minimal-responses mmap munin +nsec3 ratelimit root-server runtime-checks ssl systemd
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 RDEPEND=acct-group/nsd acct-user/nsd dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) libevent? ( dev-libs/libevent ) munin? ( net-analyzer/munin ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd )
 SLOT=0
-SRC_URI=http://www.nlnetlabs.nl/downloads/nsd/nsd-4.3.7.tar.gz
+SRC_URI=http://www.nlnetlabs.nl/downloads/nsd/nsd-4.3.9.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=656d1eb9fe615e9c65efb4fe548dd25c
+_md5_=6d42e43a1bc093820c4df5abb18ea3b2
