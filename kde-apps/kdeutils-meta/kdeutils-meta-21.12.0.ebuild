@@ -31,7 +31,7 @@ RDEPEND="
 	>=sys-libs/kpmcore-${PV}:${SLOT}
 	cups? ( >=kde-apps/print-manager-${PV}:${SLOT} )
 	floppy? ( >=kde-apps/kfloppy-${PV}:${SLOT} )
-	gpg? ( >=kde-apps/kgpg-21.08.3:${SLOT} )
+	gpg? ( >=kde-apps/kgpg-${PV}:${SLOT} )
 	webengine? ( >=kde-apps/kimagemapeditor-${PV}:${SLOT} )
 "
 # Optional runtime deps: kde-apps/ark

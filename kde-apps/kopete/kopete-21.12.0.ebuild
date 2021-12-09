@@ -69,8 +69,8 @@ COMMON_DEPEND="
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-apps/kidentitymanagement-21.08.3:5
-	>=kde-apps/libkleo-21.08.3:5
+	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/libkleo-${PVCUT}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
@@ -103,7 +103,7 @@ COMMON_DEPEND="
 		sys-libs/zlib
 	)
 	zeroconf? (
-		>=kde-apps/kidentitymanagement-21.08.3:5
+		>=kde-apps/kidentitymanagement-${PVCUT}:5
 		>=kde-frameworks/kdnssd-${KFMIN}:5
 	)
 "

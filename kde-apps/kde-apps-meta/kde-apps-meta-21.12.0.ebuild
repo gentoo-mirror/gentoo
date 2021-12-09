@@ -20,7 +20,7 @@ RDEPEND="
 	graphics? ( >=kde-apps/kdegraphics-meta-${PV}:${SLOT} )
 	multimedia? ( >=kde-apps/kdemultimedia-meta-${PV}:${SLOT} )
 	network? ( >=kde-apps/kdenetwork-meta-${PV}:${SLOT} )
-	pim? ( >=kde-apps/kdepim-meta-21.08.3:${SLOT} )
+	pim? ( >=kde-apps/kdepim-meta-${PV}:${SLOT} )
 	sdk? ( >=kde-apps/kdesdk-meta-${PV}:${SLOT} )
 	utils? ( >=kde-apps/kdeutils-meta-${PV}:${SLOT} )
 "

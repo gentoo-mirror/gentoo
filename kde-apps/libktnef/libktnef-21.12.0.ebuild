@@ -3,24 +3,25 @@
 
 EAPI=8
 
+ECM_TEST="true"
+KDE_ORG_NAME="ktnef"
+PVCUT=$(ver_cut 1-3)
 KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
-DESCRIPTION="A library for image plugins accross KDE applications"
+DESCRIPTION="Library for handling TNEF data"
 
 LICENSE="GPL-2+"
-SLOT="5/32"
+SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
+	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcontacts-${KFMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
