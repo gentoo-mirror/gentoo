@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=KDE SDK - merge this to pull in all kdesdk-derived packages
+EAPI=8
+HOMEPAGE=https://apps.kde.org/development/
+IUSE=cvs git mercurial php python ruby subversion webengine
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=metapackage
+RDEPEND=>=kde-apps/kapptemplate-21.12.0:5 >=kde-apps/kcachegrind-21.12.0:5 >=kde-apps/kde-dev-scripts-21.12.0:5 >=kde-apps/kde-dev-utils-21.12.0:5 >=kde-apps/kdesdk-kioslaves-21.12.0:5 >=kde-apps/kdesdk-thumbnailers-21.12.0:5 >=kde-apps/kompare-21.12.0:5 >=kde-apps/libkomparediff2-21.12.0:5 >=kde-apps/poxml-21.12.0:5 >=kde-apps/umbrello-21.12.0:5 cvs? ( >=kde-apps/cervisia-21.12.0:5 ) git? ( >=kde-apps/dolphin-plugins-git-21.12.0:5 ) mercurial? ( >=kde-apps/dolphin-plugins-mercurial-21.12.0:5 ) python? ( >=kde-apps/lokalize-21.12.0:5 ) ruby? ( >=kde-apps/kross-interpreters-21.12.0:5 ) subversion? ( >=kde-apps/dolphin-plugins-subversion-21.12.0:5 ) webengine? ( >=dev-util/kdevelop-21.12.0:5 php? ( >=dev-util/kdevelop-php-21.12.0:5 ) python? ( >=dev-util/kdevelop-python-21.12.0:5 ) )
+SLOT=5
+_md5_=91a846381cb84d44740ca8f2454e6a91
