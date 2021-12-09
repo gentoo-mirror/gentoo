@@ -50,7 +50,7 @@ multilib_src_configure() {
 		-DBUILD_WSI_XLIB_SUPPORT=$(usex X)
 		-DBUILD_TESTS=OFF
 		-DGLSLANG_INSTALL_DIR="${ESYSROOT}/usr"
-		-DCMAKE_INSTALL_INCLUDEDIR="${EPREFIX}/usr/include/vulkan/"
+		-DCMAKE_INSTALL_INCLUDEDIR="${EPREFIX}/usr/include/"
 		-DSPIRV_HEADERS_INSTALL_DIR="${ESYSROOT}/usr/include/spirv"
 	)
 	cmake_src_configure
