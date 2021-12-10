@@ -1,0 +1,17 @@
+BDEPEND=dev-util/rebar >=sys-apps/gawk-4.1 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare test
+DEPEND=>=dev-lang/erlang-19.3[odbc?,ssl] >=dev-erlang/cache_tab-1.0.29 >=dev-erlang/eimp-1.0.21 >=dev-erlang/fast_tls-1.1.13 >=dev-erlang/fast_xml-1.1.48 >=dev-erlang/fast_yaml-1.0.32 >=dev-erlang/yconf-1.0.12 >=dev-erlang/jiffy-1.0.5 >=dev-erlang/jose-1.11.1 >=dev-erlang/lager-3.9.1 >=dev-erlang/p1_oauth2-0.6.10 >=dev-erlang/p1_utils-1.0.23 >=dev-erlang/stringprep-1.0.27 >=dev-erlang/xmpp-1.5.6 >=dev-erlang/pkix-1.0.8 >=dev-erlang/mqtree-1.0.14 >=dev-erlang/idna-6.0.0-r1 >=dev-erlang/p1_acme-1.0.16 >=dev-erlang/base64url-1.0.1 ldap? ( =net-nds/openldap-2* ) mysql? ( >=dev-erlang/p1_mysql-1.0.19 ) odbc? ( dev-db/unixODBC ) pam? ( >=dev-erlang/epam-1.0.12 ) postgres? ( >=dev-erlang/p1_pgsql-1.1.16 ) redis? ( >=dev-erlang/eredis-1.2.0 ) sip? ( >=dev-erlang/esip-1.0.45 ) sqlite? ( >=dev-erlang/sqlite3-1.1.13 ) stun? ( >=dev-erlang/stun-1.0.47 ) zlib? ( >=dev-erlang/ezlib-1.0.10 ) dev-lang/erlang:=
+DESCRIPTION=Robust, scalable and extensible XMPP server
+EAPI=7
+HOMEPAGE=https://www.ejabberd.im/ https://github.com/processone/ejabberd/
+INHERIT=pam rebar systemd
+IUSE=captcha debug full-xml ldap mssql mysql odbc pam postgres redis roster-gw selinux sip sqlite +stun zlib
+KEYWORDS=~amd64 ~arm ~ia64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-lang/erlang-19.3[odbc?,ssl] >=dev-erlang/cache_tab-1.0.29 >=dev-erlang/eimp-1.0.21 >=dev-erlang/fast_tls-1.1.13 >=dev-erlang/fast_xml-1.1.48 >=dev-erlang/fast_yaml-1.0.32 >=dev-erlang/yconf-1.0.12 >=dev-erlang/jiffy-1.0.5 >=dev-erlang/jose-1.11.1 >=dev-erlang/lager-3.9.1 >=dev-erlang/p1_oauth2-0.6.10 >=dev-erlang/p1_utils-1.0.23 >=dev-erlang/stringprep-1.0.27 >=dev-erlang/xmpp-1.5.6 >=dev-erlang/pkix-1.0.8 >=dev-erlang/mqtree-1.0.14 >=dev-erlang/idna-6.0.0-r1 >=dev-erlang/p1_acme-1.0.16 >=dev-erlang/base64url-1.0.1 ldap? ( =net-nds/openldap-2* ) mysql? ( >=dev-erlang/p1_mysql-1.0.19 ) odbc? ( dev-db/unixODBC ) pam? ( >=dev-erlang/epam-1.0.12 ) postgres? ( >=dev-erlang/p1_pgsql-1.1.16 ) redis? ( >=dev-erlang/eredis-1.2.0 ) sip? ( >=dev-erlang/esip-1.0.45 ) sqlite? ( >=dev-erlang/sqlite3-1.1.13 ) stun? ( >=dev-erlang/stun-1.0.47 ) zlib? ( >=dev-erlang/ezlib-1.0.10 ) acct-user/ejabberd captcha? ( media-gfx/imagemagick[truetype,png] ) selinux? ( sec-policy/selinux-jabber ) dev-lang/erlang:=
+REQUIRED_USE=mssql? ( odbc )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://static.process-one.net/ejabberd/downloads/21.12/ejabberd-21.12.tgz -> ejabberd-21.12.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pam	41ce39f668e11d31ff4734f3b5794f7d	rebar	f13843e18f4ec00f45f7158bd3f3d3bb	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=7b2b27bc1392439a470f9cb61b5ccb40
