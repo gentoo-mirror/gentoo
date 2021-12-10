@@ -73,6 +73,7 @@ IUSE+=" +gmp-autoupdate"
 IUSE+=" screencast"
 
 REQUIRED_USE="debug? ( !system-av1 )
+	pgo? ( lto )
 	wayland? ( dbus )
 	wifi? ( dbus )"
 
@@ -85,7 +86,7 @@ BDEPEND="${PYTHON_DEPS}
 	>=dev-util/cbindgen-0.19.0
 	>=net-libs/nodejs-10.23.1
 	virtual/pkgconfig
-	>=virtual/rust-1.51.0
+	>=virtual/rust-1.53.0
 	|| (
 		(
 			sys-devel/clang:13

@@ -57,7 +57,7 @@ SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}
 DESCRIPTION="Firefox Web Browser"
 HOMEPAGE="https://www.mozilla.com/firefox"
 
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm64 ~ppc64 x86"
 
 SLOT="0/esr$(ver_cut 1)"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
@@ -73,6 +73,7 @@ IUSE+=" +gmp-autoupdate"
 IUSE+=" screencast"
 
 REQUIRED_USE="debug? ( !system-av1 )
+	pgo? ( lto )
 	wifi? ( dbus )"
 
 # Firefox-only REQUIRED_USE flags
