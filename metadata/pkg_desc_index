@@ -5647,7 +5647,7 @@ dev-libs/libbulletml 0.0.6: A Library of Bullet Markup Language
 dev-libs/libburn 1.5.4: Open-source library for reading, mastering and writing optical discs
 dev-libs/libbytesize 2.5 2.6: Tiny library providing a C "class" for working with arbitrary big sizes in bytes
 dev-libs/libcbor 0.8.0 0.9.0: CBOR protocol implementation for C and others
-dev-libs/libcdada 0.3.4-r2: Basic data structures in C
+dev-libs/libcdada 0.3.4-r2 0.3.5: Basic data structures in C
 dev-libs/libcdio 2.0.0-r1 2.1.0-r1: A library to encapsulate CD-ROM reading and control
 dev-libs/libcdio-paranoia 2.0.1: an advanced CDDA reader with error correction
 dev-libs/libcec 4.0.4-r1 4.0.7 6.0.2: Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor
@@ -14627,8 +14627,8 @@ net-analyzer/bwbar 1.2.3: The kernel.org "Current bandwidth utilization" bar
 net-analyzer/bwm-ng 0.6.2 0.6.3: Bandwidth Monitor NG is a small and simple console-based bandwidth monitor
 net-analyzer/bwmon 1.3-r2: Simple ncurses bandwidth monitor
 net-analyzer/bwping 2.3: A tool to measure bandwidth and RTT between two hosts using ICMP
-net-analyzer/cacti 1.2.17: Cacti is a complete frontend to rrdtool
-net-analyzer/cacti-spine 1.2.16 1.2.17 99999: Spine is a fast poller for Cacti (formerly known as Cactid)
+net-analyzer/cacti 1.2.17 1.2.19: Cacti is a complete frontend to rrdtool
+net-analyzer/cacti-spine 1.2.16 1.2.17 1.2.19 9999: Spine is a fast poller for Cacti (formerly known as Cactid)
 net-analyzer/calamaris 2.99.4.5: parses logfiles of a wide variety of web proxy servers and generates reports
 net-analyzer/carl 0.9-r5: An rsync logfile analyzer
 net-analyzer/cbm 0.3 0.3.2: Color Bandwidth Meter
@@ -14643,7 +14643,7 @@ net-analyzer/darkstat 3.0.719-r3 9999999: Network traffic analyzer with cute web
 net-analyzer/dhcp_probe 1.3.0-r4: discover DHCP and BootP servers on a directly-attached Ethernet network
 net-analyzer/dhcpdump 1.8: DHCP Packet Analyzer/tcpdump postprocessor
 net-analyzer/dnsenum 1.2.2: A perl script to enumerate DNS from a server
-net-analyzer/dnsmap 0.35: Scan for subdomains using bruteforcing techniques
+net-analyzer/dnsmap 0.35 0.36: Scan for subdomains using bruteforcing techniques
 net-analyzer/dnstracer 1.9-r2 1.10: Determines where a given nameserver gets its information from
 net-analyzer/driftnet 1.3.0: Watches network traffic and displays media from TCP streams observed
 net-analyzer/dsniff 2.4_beta1_p30: A collection of tools for network auditing and penetration testing
@@ -14656,7 +14656,7 @@ net-analyzer/fail2ban 0.11.2 0.11.2-r1 9999: Scans log files and bans IPs that s
 net-analyzer/firewalk 5.0-r2: A tool for determining a firewall's rule set
 net-analyzer/flent 1.3.2: The FLExible Network Tester
 net-analyzer/flow-tools 0.68.6-r1: library and programs to process reports from NetFlow data
-net-analyzer/flowgrind 0.8.0-r2: Network performance measurement tool
+net-analyzer/flowgrind 0.8.0-r2 0.8.2: Network performance measurement tool
 net-analyzer/fping 5.0: A utility to ping multiple hosts at once
 net-analyzer/fprobe 1.1-r3 1.1-r4: libpcap-based tool to collect network traffic data and emit it as NetFlow flows
 net-analyzer/fragroute 1.2.6-r4: Testing of network intrusion detection systems, firewalls and TCP/IP stacks
@@ -14694,7 +14694,7 @@ net-analyzer/iplog 2.2.3-r3: TCP/IP traffic logger
 net-analyzer/ippl 1.4.14-r6: A daemon which logs TCP/UDP/ICMP packets
 net-analyzer/ipsumdump 1.86-r1: Simple TCP/IP Dump summarizer/analyzer
 net-analyzer/iptraf-ng 1.2.1 9999: A console-based network monitoring utility
-net-analyzer/iptstate 2.2.6: IP Tables State displays states being kept by iptables in a top-like format
+net-analyzer/iptstate 2.2.6 2.2.7: IP Tables State displays states being kept by iptables in a top-like format
 net-analyzer/ipv6toolkit 2.1_p20200412-r1 99999999: Set of IPv6 security/trouble-shooting tools to send arbitrary IPv6-based packets
 net-analyzer/isic 0.07-r2: IP Stack Integrity Checker
 net-analyzer/jmx2munin 1.0_p20120811-r1: JMX Monitoring plugin for Munin
@@ -14711,7 +14711,7 @@ net-analyzer/mbrowse 0.4.3-r1: MBrowse is a graphical MIB browser
 net-analyzer/mdns-scan 0.5: a tool for scanning for mDNS/DNS-SD published services
 net-analyzer/monitoring-plugins 2.3.1: 50+ standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu
 net-analyzer/mping 2.01: IPv4/6 round-robin multiping client
-net-analyzer/mrtg 2.17.7: A tool to monitor the traffic load on network-links
+net-analyzer/mrtg 2.17.7 2.17.8: A tool to monitor the traffic load on network-links
 net-analyzer/mrtg-ping-probe 2.2.0: Addon mrtg contrib for stats ping/loss packets
 net-analyzer/mtr 0.94-r1 9999: My TraceRoute, an Excellent network diagnostic tool
 net-analyzer/multimon-ng 1.1.9 9999: a fork of multimon, decodes multiple digital transmission modes
@@ -15509,7 +15509,7 @@ net-misc/felix 3.1.3: Calico's per-host agent, responsible for programming route
 net-misc/freerdp 2.4.1-r1 2.9999 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 8.0.1 8.1-r1: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.18.1 1.19.2 1.19.3 9999: Download image galleries and collections from several image hosting sites
-net-misc/geoipupdate 2.3.1 3.1.1 4.3.0: performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
+net-misc/geoipupdate 2.3.1 3.1.1 4.3.0 4.8.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geomyidae 0.34-r1: A daemon to serve the gopher protocol
 net-misc/gerbera 1.8.2 1.9.2 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
@@ -18875,7 +18875,7 @@ x11-misc/rss-glx 0.9.1-r3: Really Slick OpenGL Screensavers for XScreenSaver
 x11-misc/safeeyes 2.0.9-r2 2.1.1 2.1.2 2.1.3 2.1.3-r1: Linux alternative to EyeLeo
 x11-misc/screen-message 0.24 0.25 0.26: Display a multi-line message large, fullscreen, black on white
 x11-misc/screengrab 1.101 2.0.0 2.0.1 2.1.0 2.2.0: Qt GUI Screenshot Utility
-x11-misc/screenkey 1.3 1.4 9999: A screencast tool to display your keys inspired by Screenflick
+x11-misc/screenkey 1.3 1.4 1.5 9999: A screencast tool to display your keys inspired by Screenflick
 x11-misc/sct 0.5-r1: Set color temperature of the screen
 x11-misc/sddm 0.15.0-r2 0.18.1-r5: Simple Desktop Display Manager
 x11-misc/seetxt 0.72-r1: Clever, lightweight GUI text file and manual page viewer for X windows
