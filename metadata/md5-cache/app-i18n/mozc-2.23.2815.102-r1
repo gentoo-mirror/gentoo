@@ -1,6 +1,6 @@
-BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) >=dev-libs/protobuf-3.0.0 dev-util/gyp dev-util/ninja virtual/pkgconfig emacs? ( app-editors/emacs:* ) fcitx4? ( sys-devel/gettext )
+BDEPEND=|| ( dev-lang/python:3.9 dev-lang/python:3.8 ) <dev-libs/protobuf-3.19 dev-util/gyp dev-util/ninja virtual/pkgconfig emacs? ( app-editors/emacs:* ) fcitx4? ( sys-devel/gettext )
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=>=dev-libs/protobuf-3.0.0:= emacs? ( app-editors/emacs:* ) fcitx4? ( app-i18n/fcitx:4 virtual/libintl ) gui? ( app-i18n/zinnia dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 handwriting-tegaki? ( app-i18n/tegaki-zinnia-japanese ) handwriting-tomoe? ( app-i18n/zinnia-tomoe ) ) ibus? ( >=app-i18n/ibus-1.4.1 dev-libs/glib:2 x11-libs/libxcb ) renderer? ( dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango ) test? ( >=dev-cpp/gtest-1.8.0 dev-libs/jsoncpp )
+DEPEND=<dev-libs/protobuf-3.19:= emacs? ( app-editors/emacs:* ) fcitx4? ( app-i18n/fcitx:4 virtual/libintl ) gui? ( app-i18n/zinnia dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 handwriting-tegaki? ( app-i18n/tegaki-zinnia-japanese ) handwriting-tomoe? ( app-i18n/zinnia-tomoe ) ) ibus? ( >=app-i18n/ibus-1.4.1 dev-libs/glib:2 x11-libs/libxcb ) renderer? ( dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango ) test? ( >=dev-cpp/gtest-1.8.0 dev-libs/jsoncpp )
 DESCRIPTION=Mozc - Japanese input method editor
 EAPI=7
 HOMEPAGE=https://github.com/google/mozc
@@ -8,10 +8,10 @@ INHERIT=elisp-common multiprocessing python-any-r1 toolchain-funcs
 IUSE=debug emacs fcitx4 +gui +handwriting-tegaki handwriting-tomoe ibus renderer test
 KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=BSD BSD-2 ipadic public-domain unicode
-RDEPEND=>=dev-libs/protobuf-3.0.0:= emacs? ( app-editors/emacs:* ) fcitx4? ( app-i18n/fcitx:4 virtual/libintl ) gui? ( app-i18n/zinnia dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 handwriting-tegaki? ( app-i18n/tegaki-zinnia-japanese ) handwriting-tomoe? ( app-i18n/zinnia-tomoe ) ) ibus? ( >=app-i18n/ibus-1.4.1 dev-libs/glib:2 x11-libs/libxcb ) renderer? ( dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango )
+RDEPEND=<dev-libs/protobuf-3.19:= emacs? ( app-editors/emacs:* ) fcitx4? ( app-i18n/fcitx:4 virtual/libintl ) gui? ( app-i18n/zinnia dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 handwriting-tegaki? ( app-i18n/tegaki-zinnia-japanese ) handwriting-tomoe? ( app-i18n/zinnia-tomoe ) ) ibus? ( >=app-i18n/ibus-1.4.1 dev-libs/glib:2 x11-libs/libxcb ) renderer? ( dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango )
 REQUIRED_USE=|| ( emacs fcitx4 ibus ) gui? ( ^^ ( handwriting-tegaki handwriting-tomoe ) ) !gui? ( !handwriting-tegaki !handwriting-tomoe )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/google/mozc/archive/afb03ddfe72dde4cf2409863a3bfea160f7a66d8.tar.gz -> mozc-2.23.2815.102.tar.gz https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/e5b3425575734c323e1d947009dd74709437b684.tar.gz -> japanese-usage-dictionary-20120416091336.tar.gz https://dev.gentoo.org/~juippis/distfiles/tmp/mozc-2.23.2815.102-protobuf_generated_classes_no_inheritance.patch fcitx4? ( https://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-2.23.2815.102.1.patch )
 _eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=6bfdb34ee539346f3f1a3a50b75ad47b
+_md5_=feb6a7ba8848066e9b86ae93d89eec15
