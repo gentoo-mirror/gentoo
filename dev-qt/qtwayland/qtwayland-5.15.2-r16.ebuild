@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KDE_ORG_COMMIT=992833ca741efe8f533c61abfaf129a1d8bfcfee
+KDE_ORG_COMMIT=eb422ab5e07498a7a8d086f6a942ee35ab3c9776
 inherit qt5-build
 
 DESCRIPTION="Wayland platform plugin for Qt"
@@ -32,6 +32,10 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-util/wayland-scanner
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-crash-when-iterating-through-outputs.patch # KDE-bug 438839
+)
 
 src_configure() {
 	local myqmakeargs=(
