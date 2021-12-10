@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/cppo dev-ml/findlib dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/camomile:= dev-ml/lambda-term:= dev-ml/lwt:= dev-ml/react:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Universal toplevel for OCaml
+EAPI=7
+HOMEPAGE=https://github.com/ocaml-community/utop
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-ml/camomile:= dev-ml/lambda-term:= dev-ml/lwt:= dev-ml/react:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2.9.0
+SRC_URI=https://github.com/ocaml-community/utop/archive/2.9.0.tar.gz -> utop-2.9.0.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=d70bc801b346de5aead856ca5ad646f9
