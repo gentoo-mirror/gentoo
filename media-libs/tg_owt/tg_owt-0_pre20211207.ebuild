@@ -1,14 +1,14 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="WebRTC build for Telegram"
 HOMEPAGE="https://github.com/desktop-app/tg_owt"
 
-TG_OWT_COMMIT="91d836dc84a16584c6ac52b36c04c0de504d9c34"
+TG_OWT_COMMIT="d5c3d43b959c7e9e7d8004b9b7fdadd12ce7d589"
 LIBYUV_COMMIT="ad890067f661dc747a975bc55ba3767fe30d4452"
 SRC_URI="https://github.com/desktop-app/tg_owt/archive/${TG_OWT_COMMIT}.tar.gz -> ${P}.tar.gz
 	https://archive.org/download/libyuv-${LIBYUV_COMMIT}.tar/libyuv-${LIBYUV_COMMIT}.tar.gz"
@@ -17,7 +17,7 @@ S="${WORKDIR}/${PN}-${TG_OWT_COMMIT}"
 
 LICENSE="BSD"
 SLOT="0/${PV##*pre}"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="screencast +X"
 
 # This package's USE flags may change the ABI and require a rebuild of
@@ -60,8 +60,9 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/tg_owt-0_pre20210626-allow-disabling-pipewire.patch"
-	"${FILESDIR}/tg_owt-0_pre20210626-allow-disabling-X11.patch"
+	"${FILESDIR}/tg_owt-0_pre20211207-allow-disabling-X11.patch"
 	"${FILESDIR}/tg_owt-0_pre20210626-allow-disabling-pulseaudio.patch"
+	"${FILESDIR}/tg_owt-0_pre20211207-fix-dcsctp-references.patch"
 )
 
 src_unpack() {
@@ -85,6 +86,7 @@ src_prepare() {
 src_configure() {
 	# Defined by -DCMAKE_BUILD_TYPE=Release, avoids crashes
 	# see https://bugs.gentoo.org/754012
+	# EAPI 8 still wipes this flag.
 	append-cppflags '-DNDEBUG'
 
 	local mycmakeargs=(
@@ -104,10 +106,20 @@ src_install() {
 	cmake_src_install
 
 	# Save about 15MB of useless headers
+	rm -r "${ED}/usr/include/tg_owt/rtc_base/third_party" || die
+	rm -r "${ED}/usr/include/tg_owt/common_audio/third_party" || die
+	rm -r "${ED}/usr/include/tg_owt/modules/third_party" || die
 	rm -r "${ED}/usr/include/tg_owt/third_party" || die
 
-	# Install third_party/libyuv anyway...
-	dodir /usr/include/tg_owt/third_party/libyuv/include
-	cd "${S}/src/third_party/libyuv/include" || die
-	find -type f -name "*.h" -exec install -Dm644 '{}' "${ED}/usr/include/tg_owt/third_party/libyuv/include/{}" \; || die
+	# Install a few headers anyway, as required by net-im/telegram-desktop...
+	local headers=(
+		third_party/libyuv/include
+		rtc_base/third_party/sigslot
+		rtc_base/third_party/base64
+	)
+	for dir in "${headers[@]}"; do
+		pushd "${S}/src/${dir}" > /dev/null || die
+		find -type f -name "*.h" -exec install -Dm644 '{}' "${ED}/usr/include/tg_owt/${dir}/{}" \; || die
+		popd > /dev/null || die
+	done
 }

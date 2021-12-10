@@ -1,11 +1,11 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{7..10} )
 
-inherit xdg cmake python-any-r1 flag-o-matic
+inherit xdg cmake python-any-r1 optfeature
 
 DESCRIPTION="Official desktop client for Telegram"
 HOMEPAGE="https://desktop.telegram.org"
@@ -15,21 +15,18 @@ SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
-IUSE="+dbus enchant +gtk +hunspell screencast +spell wayland webkit +X"
+KEYWORDS="~amd64 ~ppc64"
+IUSE="+dbus enchant +hunspell screencast +spell wayland +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
 	)
-	gtk? ( dbus )
-	webkit? ( dbus )
 "
 
 RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
 	dev-cpp/abseil-cpp:=
-	dev-cpp/glibmm:2
 	dev-libs/jemalloc:=[-lazy-lock]
 	dev-libs/openssl:=
 	dev-libs/xxhash
@@ -41,23 +38,21 @@ RDEPEND="
 	>=dev-qt/qtwidgets-5.15:5[png,X?]
 	media-fonts/open-sans
 	media-libs/fontconfig:=
-	~media-libs/libtgvoip-2.4.4_p20210302
-	>=media-libs/libtgvoip-2.4.4_p20210302-r2
+	~media-libs/libtgvoip-2.4.4_p20211129
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20210626[screencast=,X=]
+	~media-libs/tg_owt-0_pre20211207[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	dbus? (
+		dev-cpp/glibmm:2
 		dev-qt/qtdbus:5
 		dev-libs/libdbusmenu-qt[qt5(+)]
 	)
 	enchant? ( app-text/enchant:= )
-	gtk? ( x11-libs/gtk+:3[X?,wayland?] )
 	hunspell? ( >=app-text/hunspell-1.7:= )
 	wayland? ( kde-frameworks/kwayland:= )
-	webkit? ( net-libs/webkit-gtk:= )
 	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}
@@ -74,7 +69,7 @@ BDEPEND="
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	"${FILESDIR}/tdesktop-2.9.3-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-3.1.0-jemalloc-only-telegram.patch"
 	"${FILESDIR}/tdesktop-3.1.0-fix-openssl3.patch"
 )
 
@@ -93,6 +88,11 @@ src_prepare() {
 	sed -i 's/DESKTOP_APP_USE_PACKAGED/NO_ONE_WILL_EVER_SET_THIS/' \
 		cmake/external/rlottie/CMakeLists.txt || die
 
+	# fix linking with missing libdl (introduced in 3.2.0->3.2.4 upgrade,
+	#  not sure if thanks to removing the -pie flag in the cmakelists...)
+	sed -i 's/${JEMALLOC_LINK_LIBRARIES}/& dl/' \
+		cmake/external/jemalloc/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
@@ -101,12 +101,11 @@ src_configure() {
 	local mycmakeargs=(
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
+		-DDESKTOP_APP_QT6=OFF
 
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X no yes)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland no yes)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus no yes)
-		-DDESKTOP_APP_DISABLE_GTK_INTEGRATION=$(usex gtk no yes)
-		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex webkit no yes)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell no yes)  # enables hunspell (recommended)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
 	)
@@ -139,8 +138,13 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	use gtk || elog "enable the 'gtk' useflag if you have image copy-paste problems"
 	if ! use X && ! use screencast; then
 		elog "both the 'X' and 'screencast' useflags are disabled, screen sharing won't work!"
 	fi
+	if has_version '<dev-qt/qtcore-5.15.2-r10'; then
+		ewarn "Versions of dev-qt/qtcore lower than 5.15.2-r10 might cause telegram"
+		ewarn "to crash when pasting big images from the clipboard."
+	fi
+	optfeature_header
+	optfeature "shop payment support (requires USE=dbus enabled)" net-libs/webkit-gtk
 }
