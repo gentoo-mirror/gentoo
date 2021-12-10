@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( dev-libs/libxml2 dev-libs/libxslt dev-util/gtk-doc ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=dev-lang/perl dev-util/gdbus-codegen virtual/pkgconfig doc? ( dev-libs/libxml2 dev-libs/libxslt dev-util/gtk-doc ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=dev-libs/dbus-glib dev-libs/glib:2 >=sys-auth/libfprint-1.94.0:2 sys-auth/polkit pam? ( sys-libs/pam systemd? ( sys-apps/systemd ) !systemd? ( sys-auth/elogind ) ) test? ( || ( ( dev-lang/python:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] dev-python/dbus-python[python_targets_python3_10(-)] dev-python/pycairo[python_targets_python3_10(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_10(-)] ) ) ( dev-lang/python:3.9 dev-python/python-dbusmock[python_targets_python3_9(-)] dev-python/dbus-python[python_targets_python3_9(-)] dev-python/pycairo[python_targets_python3_9(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_9(-)] ) ) ( dev-lang/python:3.8 dev-python/python-dbusmock[python_targets_python3_8(-)] dev-python/dbus-python[python_targets_python3_8(-)] dev-python/pycairo[python_targets_python3_8(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_8(-)] ) ) ) )
 DESCRIPTION=D-Bus service to access fingerprint readers
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/libfprint/fprintd/-/archive/v1.94.0/fprintd-v1.94.0.tar.bz2
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pam	41ce39f668e11d31ff4734f3b5794f7d	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=00149006fd249cf4f8abb0433bcb0273
+_md5_=dee42e9f6597c8eef6dd943401b30ed3
