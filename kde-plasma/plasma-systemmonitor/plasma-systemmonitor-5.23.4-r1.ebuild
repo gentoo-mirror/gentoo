@@ -40,3 +40,9 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-plasma/ksystemstats-${PVCUT}:5
 "
+
+PATCHES=(
+	# 5.23 branch, KDE-bug 445544
+	"${FILESDIR}"/${P}-applications-remove-unneeded-ProcessSortFilterModel.patch
+	"${FILESDIR}"/${P}-applications-add-comma-separated-filtering.patch
+)

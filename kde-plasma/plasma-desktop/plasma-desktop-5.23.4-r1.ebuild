@@ -123,6 +123,10 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/override-include-dirs.patch" # downstream patch
+	# 5.23 branch
+	"${FILESDIR}"/${P}-fix-panel-initial-sizing.patch
+	"${FILESDIR}"/${P}-fix-touchpad-applet-popup-close-on-click.patch # KDE-bug 445982
+	"${FILESDIR}"/${P}-fix-touchpad-mousearea-lookup.patch
 )
 
 src_prepare() {

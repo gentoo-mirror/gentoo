@@ -150,6 +150,10 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 PATCHES=(
 	"${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
+	# 5.23 branch
+	"${FILESDIR}"/${P}-fix-klipper-use-full-text.patch # KDE-bug 446441
+	"${FILESDIR}"/${P}-fix-klipper-actions-content-truncation.patch # KDE-bug 444365
+	"${FILESDIR}"/${P}-fix-systemsettings-crash.patch # KDE-bug 439797
 )
 
 src_prepare() {

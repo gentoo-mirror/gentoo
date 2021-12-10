@@ -16,6 +16,10 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
+PATCHES=(
+	"${FILESDIR}"/${P}-save-bluetooth-status-on-teardown.patch # KDE-bug 445376
+)
+
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5

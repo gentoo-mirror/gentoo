@@ -97,6 +97,12 @@ DEPEND="${COMMON_DEPEND}
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-wayland-resize-to-last-requested-client-size.patch # KDE-bug 444962
+	"${FILESDIR}"/${P}-scripting-fix-KWinComponents-Workspace-type.patch
+	"${FILESDIR}"/${P}-drm-remove-dpms-filter-when-outputs-are-added.patch # KDE-bug 446699
+)
+
 src_prepare() {
 	ecm_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-5.21.80-gstreamer-optional.patch"
