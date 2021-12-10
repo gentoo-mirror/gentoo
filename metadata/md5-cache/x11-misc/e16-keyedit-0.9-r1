@@ -1,13 +1,12 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure
-DEPEND=gtk2? ( x11-libs/gtk+:2 ) !gtk2? ( x11-libs/gtk+:3 )
+DEPEND=x11-libs/gtk+:3
 DESCRIPTION=Key binding editor for Enlightenment DR16
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.enlightenment.org https://sourceforge.net/projects/enlightenment/
-IUSE=gtk2
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT-with-advertising
-RDEPEND=gtk2? ( x11-libs/gtk+:2 ) !gtk2? ( x11-libs/gtk+:3 ) !x11-misc/e16keyedit
+RDEPEND=x11-libs/gtk+:3 !x11-misc/e16keyedit
 SLOT=0
 SRC_URI=mirror://sourceforge/enlightenment/e16-keyedit-0.9.tar.xz
-_md5_=276f27871a9dd625587500d892439b7c
+_md5_=3cd94228913285b53e49937a10b4ee9a
