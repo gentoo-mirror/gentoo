@@ -1,12 +1,13 @@
 BDEPEND=>=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
-DESCRIPTION=event timer executor loop
-EAPI=7
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=elibc_musl? ( sys-libs/queue-standalone )
+DESCRIPTION=Event timer executor loop
+EAPI=8
 HOMEPAGE=https://github.com/any1/aml/
 INHERIT=meson git-r3
 IUSE=examples
 LICENSE=ISC
 PROPERTIES=live
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=028a91eaff859d67422be3df31ae1784
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=c54d6956d8edb0a5799f301c5cbc430b
