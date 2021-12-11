@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile configure install test
+DEPEND=~dev-ml/dune-private-libs-2.9.1:=[ocamlopt=] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Embed locations informations inside executable and libraries
+EAPI=7
+HOMEPAGE=https://github.com/ocaml/dune
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=~dev-ml/dune-private-libs-2.9.1:=[ocamlopt=] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/2.9.1
+SRC_URI=https://github.com/ocaml/dune/archive/2.9.1.tar.gz -> dune-2.9.1.tar.gz
+_eclasses_=dune	a0084192fdb9ca5fa2c89584f757b3b2
+_md5_=9f47d45480fc3f97b3f529dfdaf91eaf
