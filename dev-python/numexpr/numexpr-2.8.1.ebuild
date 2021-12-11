@@ -17,14 +17,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND="
-	>=dev-python/numpy-1.6[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.13.3[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-python/packaging[${PYTHON_USEDEP}]
+"
 
 python_test() {
 	pushd "${BUILD_DIR}"/lib >/dev/null || die
-	"${EPYTHON}" \
-		-c "import sys,numexpr; sys.exit(0 if numexpr.test().wasSuccessful() else 1)" \
-		|| die
+	"${EPYTHON}" - <<-EOF || die "Tests failed with ${EPYTHON}"
+		import sys,numexpr
+		sys.exit(0 if numexpr.test().wasSuccessful() else 1)
+	EOF
 	pushd >/dev/null || die
 }
