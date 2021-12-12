@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/CESNET/libnetconf2
 INHERIT=cmake
 IUSE=doc test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=BSD
 RDEPEND=dev-libs/openssl:0= >=net-libs/libyang-2.0.112:= net-libs/libssh:0=[server] virtual/libcrypt:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/CESNET/libnetconf2/archive/v2.0.24.tar.gz -> libnetconf2-2.0.24.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=155919312f08a57ec1326e0bebb37c09
+_md5_=309b60f82cfa9f08f96e926445b5a209

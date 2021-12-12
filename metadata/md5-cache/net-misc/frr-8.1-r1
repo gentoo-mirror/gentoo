@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://frrouting.org/
 INHERIT=autotools pam python-single-r1 systemd
 IUSE=doc fpm grpc ipv6 kernel_linux nhrp ospfapi pam rpki snmp test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) acct-user/frr dev-libs/json-c:0= >=net-libs/libyang-2.0.0 sys-libs/libcap sys-libs/readline:0= virtual/libcrypt:= grpc? ( net-libs/grpc:= ) nhrp? ( net-dns/c-ares:0= ) pam? ( sys-libs/pam ) rpki? ( >=net-libs/rtrlib-0.6.3[ssh] ) snmp? ( net-analyzer/net-snmp:= ) python_single_target_python3_8? ( dev-python/ipaddr[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/ipaddr[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/ipaddr[python_targets_python3_10(-)] ) !net-misc/quagga
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/FRRouting/frr/archive/frr-8.1.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pam	41ce39f668e11d31ff4734f3b5794f7d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=e6d2f90d117380f285fd41316245e485
+_md5_=ff9e8ebb814abb0f3e23d8338d48c4fd
