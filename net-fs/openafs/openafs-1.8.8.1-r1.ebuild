@@ -8,7 +8,7 @@ inherit autotools linux-mod flag-o-matic pam systemd tmpfiles toolchain-funcs
 
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
-PVER=20211211
+PVER=20211212
 KERNEL_LIMIT=5.17
 
 DESCRIPTION="The OpenAFS distributed file system"
@@ -47,6 +47,7 @@ BDEPEND="
 	perl? ( dev-lang/swig )"
 DEPEND="
 	!net-fs/openafs-kernel
+	virtual/libcrypt
 	virtual/libintl
 	amd64? ( tsm? ( app-backup/tsm ) )
 	doc? (
@@ -98,12 +99,10 @@ src_prepare() {
 	# fixing 2-nd level makefiles to honor flags
 	sed -i -r 's/\<CFLAGS[[:space:]]*=/CFLAGS+=/; s/\<LDFLAGS[[:space:]]*=/LDFLAGS+=/' \
 		src/*/Makefile.in || die '*/Makefile.in sed failed'
-	# fix xml docs to use local dtd files
-	sed -i 's|http://www.oasis-open.org/docbook/xml/4.3|/usr/share/sgml/docbook/xml-dtd-4.3|' \
-		doc/xml/*/*000.xml || die
 
-	# packaging is f-ed up, so we can't run eautoreconf
+	# build system is very delicate, so we can't run eautoreconf
 	# run autotools commands based on what is listed in regen.sh
+	_elibtoolize -c -f -i
 	eaclocal -I src/cf -I src/external/rra-c-util/m4
 	eautoconf
 	eautoconf -o configure-libafs configure-libafs.ac
