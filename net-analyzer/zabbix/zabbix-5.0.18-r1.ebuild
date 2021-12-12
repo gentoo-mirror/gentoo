@@ -3,6 +3,7 @@
 
 EAPI=7
 
+GO_OPTIONAL="yes"
 # needed to make webapp-config dep optional
 WEBAPP_OPTIONAL="yes"
 inherit webapp java-pkg-opt-2 systemd tmpfiles toolchain-funcs go-module user-info
@@ -312,6 +313,10 @@ DEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
+	agent2? (
+		>=dev-lang/go-1.12
+		app-arch/unzip
+	)
 "
 
 # upstream tests fail for agent2
@@ -351,8 +356,11 @@ pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 }
 
-src_prepare() {
+src_unpack() {
 	default
+	if use agent2; then
+		go-module_src_unpack
+	fi
 }
 
 src_configure() {
