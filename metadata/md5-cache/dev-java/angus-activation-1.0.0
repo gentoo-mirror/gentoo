@@ -2,7 +2,7 @@ DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=>=dev-java/jakarta-activation-api-2.1.0:2 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Provides the implementation of the Jakarta Activation Specification
 EAPI=8
-HOMEPAGE=https://github.com/eclipse-ee4j/angus-activation/angus-activation
+HOMEPAGE=https://github.com/eclipse-ee4j/angus-activation
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=elibc_FreeBSD doc source
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
@@ -11,4 +11,4 @@ RDEPEND=>=dev-java/jakarta-activation-api-2.1.0:2 >=virtual/jre-1.8:* >=dev-java
 SLOT=0
 SRC_URI=https://github.com/eclipse-ee4j/angus-activation/archive/refs/tags/1.0.0.tar.gz -> angus-activation-1.0.0.tar.gz
 _eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=57105681c3e6ab960ebaa063eb4e43b3
+_md5_=b7324ccfa9c9032f3a2577be3668b13e
