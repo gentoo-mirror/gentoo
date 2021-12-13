@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/tpm2-software/tpm2-abrmd
 INHERIT=autotools systemd
 IUSE=static-libs test
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD
 RDEPEND=acct-group/tss acct-user/tss sys-apps/dbus dev-libs/glib:= app-crypt/tpm2-tss
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tpm2-software/tpm2-abrmd/releases/download/2.4.0/tpm2-abrmd-2.4.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=a326f0944f9ed4066e7d4e1fdd69254c
+_md5_=69ce43e18b492eeaedc98935fae7eabc
