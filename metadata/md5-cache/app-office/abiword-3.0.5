@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.abisource.com/
 INHERIT=autotools xdg
 IUSE=calendar collab cups debug eds +goffice grammar +introspection latex map math ots +plugins readline redland spell wordperfect wmf thesaurus
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~mips x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=>=app-text/wv-1.2 >=dev-libs/fribidi-0.10.4 >=dev-libs/glib-2.16:2 >=dev-libs/libgcrypt-1.4.5:0= dev-libs/libxslt >=gnome-base/librsvg-2.16:2 >=gnome-extra/libgsf-1.14.18:= >=media-libs/libpng-1.2:0= virtual/jpeg:0 >=x11-libs/cairo-1.10 >=x11-libs/gtk+-3.0.8:3[cups?] calendar? ( >=dev-libs/libical-0.46:= ) eds? ( >=gnome-extra/evolution-data-server-3.6.0:= ) goffice? ( >=x11-libs/goffice-0.10.2:0.10 ) introspection? ( >=dev-libs/gobject-introspection-1.0.0:= ) map? ( >=media-libs/libchamplain-0.12:0.12 ) plugins? ( collab? ( >=dev-libs/libxml2-2.4:2 >=net-libs/loudmouth-1 net-libs/libsoup:2.4 net-libs/gnutls:= ) grammar? ( >=dev-libs/link-grammar-4.2.1 ) math? ( >=x11-libs/gtkmathview-0.7.5 ) ots? ( >=app-text/ots-0.5-r1 ) readline? ( sys-libs/readline:0= ) thesaurus? ( >=app-text/aiksaurus-1.2[gtk] ) wordperfect? ( app-text/libwpd:0.10 app-text/libwpg:0.3 ) wmf? ( >=media-libs/libwmf-0.2.8 ) ) redland? ( >=dev-libs/redland-1.0.10 >=dev-libs/rasqal-0.9.17 ) spell? ( app-text/enchant:2 ) !<app-office/abiword-plugins-2.8
 REQUIRED_USE=collab? ( plugins ) grammar? ( plugins ) latex? ( plugins ) math? ( plugins ) ots? ( plugins ) readline? ( plugins ) thesaurus? ( plugins ) wordperfect? ( plugins ) wmf? ( plugins )
 SLOT=2
 SRC_URI=http://www.abisource.com/downloads/abiword/3.0.5/source/abiword-3.0.5.tar.gz https://dev.gentoo.org/~soap/distfiles/abiword-3.0.4-patchset-r3.txz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=659436b86bd22adfa6b6b11f7450f70b
+_md5_=f3a395c8c0b21e4db7f063aeae560d25
