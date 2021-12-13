@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=http://www.catb.org/esr/irker/ https://gitlab.com/esr/irker
 INHERIT=optfeature python-single-r1 systemd
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=amd64 arm arm64 ppc ppc64 ~sparc x86
+KEYWORDS=amd64 arm arm64 ppc ppc64 sparc x86
 LICENSE=BSD-2
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[ssl] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[ssl] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10[ssl] >=dev-lang/python-exec-2:=[python_targets_python3_10] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=http://www.catb.org/esr/irker/irker-2.20.tar.gz
 _eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=fc8c10526d974f0cdb743779a1df3d74
+_md5_=2c3d0039079fd78c184dd207ff4ad40a
