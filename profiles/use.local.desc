@@ -6813,12 +6813,15 @@ net-proxy/privoxy:force - Allow single-page disable (force load)
 net-proxy/privoxy:fuzz - Exposes Privoxy internals to input from files or stdout. Intended for fuzzing testing
 net-proxy/privoxy:graceful-termination - Allow to shutdown Privoxy through the webinterface
 net-proxy/privoxy:image-blocking - Allows the +handle-as-image action, to send "blocked" images instead of HTML
+net-proxy/privoxy:jit - Enable PCRE jit (recommended)
 net-proxy/privoxy:lfs - Support large files (>2GB) on 32-bit systems
 net-proxy/privoxy:mbedtls - Use net-libs/mbedtls for HTTPS filtering
 net-proxy/privoxy:openssl - Use dev-libs/openssl for HTTPS filtering
 net-proxy/privoxy:png-images - Use PNG format instead of GIF for built-in images
+net-proxy/privoxy:sanitize - Enable asan, msan and usan sanitizers. Your compiler must support them
 net-proxy/privoxy:ssl - HTTPS inspection support. Enables privoxy to perform SSL MITM filtering, see docs, use with care
 net-proxy/privoxy:stats - Keep statistics
+net-proxy/privoxy:threads - Enable POSIX threads. Highly recommended, otherwise both build and run-time features may not work properly.
 net-proxy/privoxy:toggle - Support temporary disable toggle via web interface
 net-proxy/privoxy:tools - Install log parser, regression tester and user agent generator tools
 net-proxy/privoxy:whitelists - Support trust files (white lists)
