@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit cmake
+LLVM_MAX_SLOT=12
+PYTHON_COMPAT=( python3_{8,9,10} )
+inherit cmake llvm python-any-r1
 
 DESCRIPTION="Compiler plugin which allows clang to understand Qt semantics"
 HOMEPAGE="https://apps.kde.org/clazy"
@@ -11,14 +13,28 @@ SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 arm64 ~x86"
-IUSE=""
+KEYWORDS="amd64 arm64 ~x86"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
-RDEPEND="
-	>=sys-devel/clang-8.0:=
-	>=sys-devel/llvm-8.0:=
-"
+RDEPEND="<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):="
 DEPEND="${RDEPEND}"
+BDEPEND="test? ( ${PYTHON_DEPS} )"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-gcc-build.patch
+	"${FILESDIR}"/${P}-use-c++17.patch
+)
+
+llvm_check_deps() {
+	has_version "sys-devel/clang:${LLVM_SLOT}" && has_version "sys-devel/llvm:${LLVM_SLOT}"
+}
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+
+	llvm_pkg_setup
+}
 
 src_prepare() {
 	cmake_src_prepare
@@ -28,12 +44,8 @@ src_prepare() {
 }
 
 src_configure() {
-	# this package requires both llvm and clang of the same version.
-	# clang pulls in the equivalent llvm version, but not vice versa.
-	# so, we must find llvm based on the installed clang version.
-	# bug #681568
-	local clang_version=$(best_version "sys-devel/clang")
-	export LLVM_ROOT="/usr/lib/llvm/$(ver_cut 1 ${clang_version##sys-devel/clang-})"
+	export LLVM_ROOT="$(get_llvm_prefix -d ${LLVM_MAX_SLOT})"
+
 	cmake_src_configure
 }
 
