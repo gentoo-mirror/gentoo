@@ -13,7 +13,7 @@ SRC_URI="https://github.com/cifsd-team/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${
 LICENSE="GPL-2+"
 SLOT="0"
 # no keywords for now, for testing.
-KEYWORDS=""
+#KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/glib:2
@@ -52,6 +52,8 @@ src_install() {
 	insinto /etc/ksmbd
 	doins smb.conf.example
 
-	# TODO: openrc service
+	newinitd "${FILESDIR}/initd" ksmbd 
+	newconfd "${FILESDIR}/confd" ksmbd
+
 	systemd_dounit ksmbd.service
 }
