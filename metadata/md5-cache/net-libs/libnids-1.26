@@ -1,0 +1,15 @@
+BDEPEND=glib? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=!net-libs/libnids:1.1 net-libs/libpcap glib? ( dev-libs/glib:2 ) libnet? ( >=net-libs/libnet-1.1.0-r3 )
+DESCRIPTION=An implementation of an E-component of Network Intrusion Detection System
+EAPI=7
+HOMEPAGE=https://github.com/MITRECND/libnids http://libnids.sourceforge.net/
+INHERIT=autotools flag-o-matic toolchain-funcs
+IUSE=+glib +libnet static-libs
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=!net-libs/libnids:1.1 net-libs/libpcap glib? ( dev-libs/glib:2 ) libnet? ( >=net-libs/libnet-1.1.0-r3 )
+SLOT=1.2
+SRC_URI=https://github.com/MITRECND/libnids/archive/refs/tags/1.26.tar.gz -> libnids-1.26.tar.gz mirror://sourceforge/libnids/libnids-1.26.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_md5_=3425b4ad3f881d7c89f42eb9f2040ec4
