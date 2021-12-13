@@ -1,9 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
 JAVA_PKG_IUSE="doc source"
+MAVEN_ID="org.osgi:org.osgi.core:5.0.0"
 
 inherit java-pkg-2 java-pkg-simple
 
@@ -14,17 +15,15 @@ SRC_URI="http://www.osgi.org/download/r5/osgi.core-${PV}.jar"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 ppc64 x86 ~amd64-linux ~x64-macos"
-IUSE=""
 
-RDEPEND="
-	>=virtual/jre-1.6"
+RDEPEND=">=virtual/jre-1.8:*"
 
-DEPEND="
-	>=virtual/jdk-1.6
+DEPEND=">=virtual/jdk-1.8:*
 	app-arch/unzip"
 
 JAVA_SRC_DIR="OSGI-OPT/src"
 
-java_prepare() {
+src_prepare() {
+	default
 	rm -r org || die
 }
