@@ -354,51 +354,6 @@ net-libs/onion
 # Library still needed for bumping dev-java/log4j
 =dev-java/jackson-2.9.10
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-14)
-# java packages without consumers, Removal in 30 days.
-dev-java/milton-mail-api
-dev-java/milton-api
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-13)
-# java package without consumers,
-# bug_808948 (CVE-2021-37714).  Removal in 30 days.
-dev-java/jsoup
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-13)
-# Broken, no maintainer, outdated, multiple bugs reported, EAPI 5,
-# only revdep sys-fs/tmsu fails to build with go 1.16.
-# Removal on 2021-12-13. Bug #819612. Bug #771054.
-dev-libs/go-fuse
-sys-fs/tmsu
-
-# Jakov Smolić <jsmolic@gentoo.org> (2021-11-13)
-# Outdated, multiple bugs reported, uses EAPI 5, no revdeps.
-# Please use sci-geosciences/josm-bin instead.
-# Removal on 2021-12-13. Bug #819129.
-sci-geosciences/josm
-
-# Hans de Graaff <graaff@gentoo.org> (2021-11-13)
-# No longer maintained upstream. Stuck on an old version 4.x of d3
-# while d3 upstream is now on 7.x. Probably best to use directly via
-# npm or yarn.
-# Masked for removal on 2021-12-13.
-dev-ruby/d3_rails
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-13)
-# java package without consumers, bug #787338. Removal in 30 days.
-dev-db/db-je
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-13)
-# depends on deprecated jdk / jre, bug #787449
-# stuck with EAPI 5, latest release in 2005
-# Removal in 30 days.
-net-analyzer/neti
-
-# John Helmert III <ajak@gentoo.org> (2021-11-13)
-# Unmaintained in Gentoo, open security bug, many unfixed otther
-# bugs. Removal on 2021-12-13, bug #764719.
-mail-client/cone
-
 # Mart Raudsepp <leio@gentoo.org> (2021-11-11)
 # Needs testing to ensure valac-0.54 works for existing packages
 >=dev-libs/vala-common-0.53
