@@ -1,4 +1,4 @@
-# Copyright 2018-2020 Gentoo Authors
+# Copyright 2018-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit java-pkg-2 toolchain-funcs
 
 DESCRIPTION="jbigi library used by net-vpn/i2p"
 HOMEPAGE="https://geti2p.net"
-SRC_URI="https://download.i2p2.de/releases/${PV}/i2psource_${PV}.tar.bz2"
+SRC_URI="https://files.i2p-projekt.de/${PV}/i2psource_${PV}.tar.bz2"
 
 LICENSE="public-domain"
 SLOT="0"
