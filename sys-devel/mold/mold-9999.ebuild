@@ -7,11 +7,17 @@ inherit toolchain-funcs
 
 DESCRIPTION="A Modern Linker"
 HOMEPAGE="https://github.com/rui314/mold"
-SRC_URI="https://github.com/rui314/mold/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+if [[ ${PV} == 9999 ]] ; then
+	EGIT_REPO_URI="https://github.com/rui314/mold.git"
+	inherit git-r3
+else
+	SRC_URI="https://github.com/rui314/mold/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+
 # Try again after 0.9.6
 RESTRICT="test"
 
@@ -25,35 +31,9 @@ RDEPEND=">=dev-cpp/tbb-2021.4.0:=
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.9.6-respect-flags.patch
-	"${FILESDIR}"/${PN}-0.9.6-fix-libdir-wrapper.patch
+	"${FILESDIR}"/${PN}-9999-build-respect-user-FLAGS.patch
+	"${FILESDIR}"/${PN}-9999-don-t-compress-man-page.patch
 )
-
-src_prepare() {
-	default
-
-	sed -i \
-		-e '/	strip/d' \
-		-e '/	gzip/d' \
-		-e "s:\$(DEST)/lib:\$(DEST)/$(get_libdir):" \
-		Makefile || die
-
-	# Drop on next release: bug #823653
-	# https://github.com/rui314/mold/issues/127
-	sed -i \
-		-e "s:/usr/lib64/mold/mold-wrapper.so:${EPREFIX}/usr/$(get_libdir)/mold/mold-wrapper.so:" \
-
-	# Needs unpackaged dwarfutils
-	rm test/compressed-debug-info.sh \
-		test/compress-debug-sections.sh || die
-
-	# Seems to have been fixed in git (> 0.9.6)
-	# Broken atm?
-	rm test/mold-wrapper.sh || die
-
-	# Needs llvmgold
-	rm test/hello-static.sh || die
-}
 
 src_compile() {
 	tc-export CC CXX
@@ -64,7 +44,9 @@ src_compile() {
 		EXTRA_CFLAGS="${CFLAGS}" \
 		EXTRA_CXXFLAGS="${CXXFLAGS}" \
 		EXTRA_CPPFLAGS="${CPPFLAGS}" \
-		EXTRA_LDFLAGS="${LDFLAGS}"
+		EXTRA_LDFLAGS="${LDFLAGS}" \
+		STRIP="true"
+		LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 }
 
 src_test() {
@@ -75,6 +57,8 @@ src_test() {
 		EXTRA_CXXFLAGS="${CXXFLAGS}" \
 		EXTRA_CPPFLAGS="${CPPFLAGS}" \
 		EXTRA_LDFLAGS="${LDFLAGS}" \
+		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
+		STRIP="true"
 		check
 }
 
@@ -87,5 +71,7 @@ src_install() {
 		EXTRA_CPPFLAGS="${CPPFLAGS}" \
 		EXTRA_LDFLAGS="${LDFLAGS}" \
 		DESTDIR="${ED}" \
+		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
+		STRIP="true" \
 		install
 }
