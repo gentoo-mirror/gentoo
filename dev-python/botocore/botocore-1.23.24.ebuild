@@ -16,7 +16,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
 
 RDEPEND="
@@ -42,9 +42,24 @@ distutils_enable_tests pytest
 src_prepare() {
 	# unpin deps
 	sed -i -e "s:>=.*':':" setup.py || die
+
+	# unbundle deps
+	rm -r botocore/vendored || die
+	find -name '*.py' -exec sed -i \
+		-e 's:from botocore[.]vendored import:import:' \
+		-e 's:from botocore[.]vendored[.]:from :' \
+		{} + || die
+
 	distutils-r1_src_prepare
 }
 
 python_test() {
+	local EPYTEST_DESELECT=(
+		# rely on bundled six
+		tests/functional/test_six_imports.py::test_no_bare_six_imports
+		tests/functional/test_six_threading.py::test_six_thread_safety
+	)
+
+	distutils_install_for_testing --via-venv
 	epytest tests/{functional,unit}
 }
