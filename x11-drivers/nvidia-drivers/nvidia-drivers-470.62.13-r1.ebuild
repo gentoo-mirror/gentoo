@@ -4,30 +4,29 @@
 EAPI=7
 
 MODULES_OPTIONAL_USE="driver"
-inherit desktop eapi8-dosym linux-mod multilib-build \
+inherit desktop linux-info linux-mod multilib-build \
 	readme.gentoo-r1 systemd toolchain-funcs unpacker
 
 NV_KERNEL_MAX="5.15"
 NV_URI="https://download.nvidia.com/XFree86/"
+NV_PIN="470.63.01"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://www.nvidia.com/download/index.aspx"
 SRC_URI="
-	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
-	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
-	${NV_URI}nvidia-installer/nvidia-installer-${PV}.tar.bz2
-	${NV_URI}nvidia-modprobe/nvidia-modprobe-${PV}.tar.bz2
-	${NV_URI}nvidia-persistenced/nvidia-persistenced-${PV}.tar.bz2
-	${NV_URI}nvidia-settings/nvidia-settings-${PV}.tar.bz2
-	${NV_URI}nvidia-xconfig/nvidia-xconfig-${PV}.tar.bz2"
+	https://developer.nvidia.com/vulkan-beta-${PV//./}-linux -> NVIDIA-Linux-x86_64-${PV}.run
+	${NV_URI}nvidia-installer/nvidia-installer-${NV_PIN}.tar.bz2
+	${NV_URI}nvidia-modprobe/nvidia-modprobe-${NV_PIN}.tar.bz2
+	${NV_URI}nvidia-persistenced/nvidia-persistenced-${NV_PIN}.tar.bz2
+	${NV_URI}nvidia-settings/nvidia-settings-${NV_PIN}.tar.bz2
+	${NV_URI}nvidia-xconfig/nvidia-xconfig-${NV_PIN}.tar.bz2"
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S="${WORKDIR}"
 
-LICENSE="NVIDIA-r2 BSD GPL-2 MIT ZLIB"
-SLOT="0/${PV%%.*}"
+LICENSE="GPL-2 MIT NVIDIA-r2 ZLIB"
+SLOT="0/vulkan"
 KEYWORDS="-* ~amd64"
 IUSE="+X +driver static-libs +tools wayland"
-RESTRICT="bindist"
 
 COMMON_DEPEND="
 	acct-group/video
@@ -54,10 +53,8 @@ RDEPEND="
 		x11-libs/libXext[${MULTILIB_USEDEP}]
 	)
 	wayland? (
-		>=gui-libs/egl-wayland-1.1.7-r1
+		~gui-libs/egl-wayland-1.1.7
 		media-libs/libglvnd
-		>=media-libs/mesa-21.2[gbm(+)]
-		x11-libs/libdrm
 	)"
 DEPEND="
 	${COMMON_DEPEND}
@@ -84,6 +81,12 @@ PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 )
 
+DOCS=(
+	README.txt NVIDIA_Changelog supported-gpus/supported-gpus.json
+	nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
+)
+HTML_DOCS=( html/. )
+
 pkg_setup() {
 	use driver || return
 
@@ -102,7 +105,7 @@ pkg_setup() {
 	DRM_I915=y, DRM_NOUVEAU=m also acceptable if a module and not built-in.
 	Note: DRM_SIMPLEDRM may cause issues and is better disabled for now."
 
-	use amd64 && kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
+	kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
 
 	MODULE_NAMES="
 		nvidia(video:kernel)
@@ -146,10 +149,10 @@ pkg_setup() {
 
 src_prepare() {
 	# make user patches usable across versions
-	rm nvidia-modprobe && mv nvidia-modprobe{-${PV},} || die
-	rm nvidia-persistenced && mv nvidia-persistenced{-${PV},} || die
-	rm nvidia-settings && mv nvidia-settings{-${PV},} || die
-	rm nvidia-xconfig && mv nvidia-xconfig{-${PV},} || die
+	rm nvidia-modprobe && mv nvidia-modprobe{-${NV_PIN},} || die
+	rm nvidia-persistenced && mv nvidia-persistenced{-${NV_PIN},} || die
+	rm nvidia-settings && mv nvidia-settings{-${NV_PIN},} || die
+	rm nvidia-xconfig && mv nvidia-xconfig{-${NV_PIN},} || die
 
 	default
 
@@ -171,19 +174,11 @@ src_prepare() {
 
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
 	cp "${FILESDIR}"/nvidia-470.conf "${T}"/nvidia.conf || die
-	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
+	if use wayland; then
+		sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
+	fi
 
 	gzip -d nvidia-{cuda-mps-control,smi}.1.gz || die
-
-	# temporary workaround for dbus powerd spam in 495 series
-	# (jz -> jmp after nvidia.powerd.server, need RESTRICT=bindist)
-	# https://forums.developer.nvidia.com/t/bug-nvidia-v495-29-05-driver-spamming-dbus-enabled-applications-with-invalid-messages/192892/14
-	if use amd64; then
-		sed 's/\x0f\x84\[\x01\x00\x00\x4c\x8d/\xe9\x5c\x01\x00\x00\x00\x4c\x8d/' \
-			-i libnvidia-glcore.so.495.44 || die
-		sed 's/\x0f\x84\x65\x01\x00\x00\x83\xec\x08\x89/\xe9\x66\x01\x00\x00\x00\x83\xec\x08\x89/' \
-			-i 32/libnvidia-glcore.so.495.44 || die
-	fi
 }
 
 src_compile() {
@@ -232,6 +227,7 @@ src_install() {
 			cuda
 			nvcuvid
 			nvidia-allocator
+			nvidia-compiler
 			nvidia-eglcore
 			nvidia-encode
 			nvidia-glcore
@@ -242,13 +238,16 @@ src_install() {
 			nvidia-opticalflow
 			nvidia-ptxjitcompiler
 			nvidia-tls
-			$(usex X '
+		)
+
+		if use X; then
+			libs+=(
 				GLX_nvidia
 				nvidia-fbc
+				nvidia-ifr
 				vdpau_nvidia
-			' '')
-			$(usex amd64 nvidia-compiler '')
-		)
+			)
+		fi
 
 		local libdir=.
 		if [[ ${ABI} == x86 ]]; then
@@ -260,11 +259,8 @@ src_install() {
 				nvidia-ngx
 				nvidia-rtcore
 				nvoptix
-				$(usex wayland '
-					libnvidia-egl-gbm.so.1.1.0
-					nvidia-vulkan-producer
-				' '')
 			)
+			use wayland && libs+=( nvidia-vulkan-producer )
 		fi
 
 		local lib soname
@@ -313,13 +309,6 @@ src_install() {
 		doins nvidia_layers.json
 	fi
 
-	if use wayland; then
-		insinto /usr/share/egl/egl_external_platform.d
-		doins 15_nvidia_gbm.json
-
-		dosym8 -r /usr/$(get_libdir)/{libnvidia-allocator.so.1,gbm/nvidia-drm_gbm.so}
-	fi
-
 	insinto /usr/share/glvnd/egl_vendor.d
 	doins 10_nvidia.json
 
@@ -336,8 +325,8 @@ src_install() {
 	fperms 4710 /usr/bin/nvidia-modprobe
 
 	nvidia-drivers_make_install persistenced
-	newconfd "${FILESDIR}"/nvidia-persistenced.confd nvidia-persistenced
-	newinitd "${FILESDIR}"/nvidia-persistenced.initd nvidia-persistenced
+	newconfd "${FILESDIR}/nvidia-persistenced.confd" nvidia-persistenced
+	newinitd "${FILESDIR}/nvidia-persistenced.initd" nvidia-persistenced
 	systemd_dounit nvidia-persistenced.service
 
 	use X && nvidia-drivers_make_install xconfig
@@ -371,8 +360,6 @@ src_install() {
 	doexe nvidia-debugdump
 	dobin nvidia-bug-report.sh
 
-	doexe nvidia-ngx-updater
-
 	doexe nvidia-smi
 	doman nvidia-smi.1
 
@@ -381,7 +368,7 @@ src_install() {
 
 	# install dlls for optional use with proton/wine
 	insinto /usr/$(get_libdir)/nvidia/wine
-	use amd64 && doins {_,}nvngx.dll
+	doins {_,}nvngx.dll
 
 	# install systemd sleep services
 	exeinto /lib/systemd/system-sleep
@@ -390,7 +377,7 @@ src_install() {
 	systemd_dounit systemd/system/nvidia-{hibernate,resume,suspend}.service
 
 	# create README.gentoo
-	local DISABLE_AUTOFORMATTING=yes
+	local DISABLE_AUTOFORMATTING="yes"
 	local DOC_CONTENTS=\
 "Trusted users should be in the 'video' group to use NVIDIA devices.
 You can add yourself by using: gpasswd -a my-user video
@@ -401,11 +388,6 @@ For general information on using nvidia-drivers, please see:
 https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
 	readme.gentoo_create_doc
 
-	local DOCS=(
-		README.txt NVIDIA_Changelog supported-gpus/supported-gpus.json
-		nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
-	)
-	local HTML_DOCS=( html/. )
 	einstalldocs
 }
 
@@ -455,9 +437,7 @@ pkg_postinst() {
 	fi
 
 	if [[ ${NV_LEGACY_MASK} ]]; then
-		ewarn
 		ewarn "***WARNING***"
-		ewarn
 		ewarn "You are installing a version of nvidia-drivers known not to work"
 		ewarn "with a GPU of the current system. If unwanted, add the mask:"
 		if [[ -d ${EROOT}/etc/portage/package.mask ]]; then
@@ -485,6 +465,11 @@ pkg_postinst() {
 		elog
 		elog "If you experience issues, please comment out the option from nvidia.conf."
 		elog "Of note, may possibly cause issues with SLI and Reverse PRIME."
+		if has_version "gnome-base/gdm[wayland]"; then
+			elog
+			elog "This also cause gnome-base/gdm to use a wayland session by default,"
+			elog "select 'GNOME on Xorg' if you wish to continue using it."
+		fi
 	fi
 
 	# Try to show this message only to users that may really need it
@@ -502,9 +487,4 @@ pkg_postinst() {
 		elog 'USE="suid -elogind -systemd" if wish to keep using this feature.'
 		elog "Bug: https://bugs.gentoo.org/784248"
 	fi
-
-	ewarn
-	ewarn "This revision of ${PN} is applying a binary patch to prevent heavy"
-	ewarn "dbus spamming while using OpenGL. If you experience issues, please try to"
-	ewarn "mask =${CATEGORY}/${PN}-${PVR} to use NVIDIA's intended version."
 }

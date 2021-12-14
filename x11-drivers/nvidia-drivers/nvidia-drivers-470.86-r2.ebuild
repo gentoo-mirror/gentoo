@@ -4,28 +4,28 @@
 EAPI=7
 
 MODULES_OPTIONAL_USE="driver"
-inherit desktop linux-info linux-mod multilib-build \
+inherit desktop linux-mod multilib-build \
 	readme.gentoo-r1 systemd toolchain-funcs unpacker
 
 NV_KERNEL_MAX="5.15"
 NV_URI="https://download.nvidia.com/XFree86/"
-NV_PIN="470.63.01"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://www.nvidia.com/download/index.aspx"
 SRC_URI="
-	https://developer.nvidia.com/vulkan-beta-${PV//./}-linux -> NVIDIA-Linux-x86_64-${PV}.run
-	${NV_URI}nvidia-installer/nvidia-installer-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-modprobe/nvidia-modprobe-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-persistenced/nvidia-persistenced-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-settings/nvidia-settings-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-xconfig/nvidia-xconfig-${NV_PIN}.tar.bz2"
+	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
+	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
+	${NV_URI}nvidia-installer/nvidia-installer-${PV}.tar.bz2
+	${NV_URI}nvidia-modprobe/nvidia-modprobe-${PV}.tar.bz2
+	${NV_URI}nvidia-persistenced/nvidia-persistenced-${PV}.tar.bz2
+	${NV_URI}nvidia-settings/nvidia-settings-${PV}.tar.bz2
+	${NV_URI}nvidia-xconfig/nvidia-xconfig-${PV}.tar.bz2"
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S="${WORKDIR}"
 
-LICENSE="GPL-2 MIT NVIDIA-r2 ZLIB"
-SLOT="0/vulkan"
-KEYWORDS="-* ~amd64"
+LICENSE="NVIDIA-r2 GPL-2 MIT ZLIB"
+SLOT="0/${PV%%.*}"
+KEYWORDS="-* amd64"
 IUSE="+X +driver static-libs +tools wayland"
 
 COMMON_DEPEND="
@@ -53,7 +53,7 @@ RDEPEND="
 		x11-libs/libXext[${MULTILIB_USEDEP}]
 	)
 	wayland? (
-		>=gui-libs/egl-wayland-1.1.7-r1
+		~gui-libs/egl-wayland-1.1.7
 		media-libs/libglvnd
 	)"
 DEPEND="
@@ -81,12 +81,6 @@ PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 )
 
-DOCS=(
-	README.txt NVIDIA_Changelog supported-gpus/supported-gpus.json
-	nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
-)
-HTML_DOCS=( html/. )
-
 pkg_setup() {
 	use driver || return
 
@@ -105,7 +99,7 @@ pkg_setup() {
 	DRM_I915=y, DRM_NOUVEAU=m also acceptable if a module and not built-in.
 	Note: DRM_SIMPLEDRM may cause issues and is better disabled for now."
 
-	kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
+	use amd64 && kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
 
 	MODULE_NAMES="
 		nvidia(video:kernel)
@@ -149,10 +143,10 @@ pkg_setup() {
 
 src_prepare() {
 	# make user patches usable across versions
-	rm nvidia-modprobe && mv nvidia-modprobe{-${NV_PIN},} || die
-	rm nvidia-persistenced && mv nvidia-persistenced{-${NV_PIN},} || die
-	rm nvidia-settings && mv nvidia-settings{-${NV_PIN},} || die
-	rm nvidia-xconfig && mv nvidia-xconfig{-${NV_PIN},} || die
+	rm nvidia-modprobe && mv nvidia-modprobe{-${PV},} || die
+	rm nvidia-persistenced && mv nvidia-persistenced{-${PV},} || die
+	rm nvidia-settings && mv nvidia-settings{-${PV},} || die
+	rm nvidia-xconfig && mv nvidia-xconfig{-${PV},} || die
 
 	default
 
@@ -174,9 +168,7 @@ src_prepare() {
 
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
 	cp "${FILESDIR}"/nvidia-470.conf "${T}"/nvidia.conf || die
-	if use wayland; then
-		sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
-	fi
+	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
 
 	gzip -d nvidia-{cuda-mps-control,smi}.1.gz || die
 }
@@ -227,7 +219,6 @@ src_install() {
 			cuda
 			nvcuvid
 			nvidia-allocator
-			nvidia-compiler
 			nvidia-eglcore
 			nvidia-encode
 			nvidia-glcore
@@ -238,16 +229,14 @@ src_install() {
 			nvidia-opticalflow
 			nvidia-ptxjitcompiler
 			nvidia-tls
-		)
-
-		if use X; then
-			libs+=(
+			$(usex X "
 				GLX_nvidia
 				nvidia-fbc
-				nvidia-ifr
 				vdpau_nvidia
-			)
-		fi
+				$(usex amd64 nvidia-ifr '')
+			" '')
+			$(usex amd64 nvidia-compiler '')
+		)
 
 		local libdir=.
 		if [[ ${ABI} == x86 ]]; then
@@ -255,12 +244,13 @@ src_install() {
 		else
 			libs+=(
 				libnvidia-nvvm.so.4.0.0
+				nvidia-cbl
 				nvidia-cfg
-				nvidia-ngx
 				nvidia-rtcore
 				nvoptix
+				$(usex amd64 nvidia-ngx '')
+				$(usex wayland nvidia-vulkan-producer '')
 			)
-			use wayland && libs+=( nvidia-vulkan-producer )
 		fi
 
 		local lib soname
@@ -285,7 +275,7 @@ src_install() {
 		doins "${T}"/nvidia.conf
 
 		insinto /lib/firmware/nvidia/${PV}
-		doins firmware/gsp.bin
+		use amd64 && doins firmware/gsp.bin
 
 		# used for gpu verification with binpkgs (not kept)
 		insinto /usr/share/nvidia
@@ -325,8 +315,8 @@ src_install() {
 	fperms 4710 /usr/bin/nvidia-modprobe
 
 	nvidia-drivers_make_install persistenced
-	newconfd "${FILESDIR}/nvidia-persistenced.confd" nvidia-persistenced
-	newinitd "${FILESDIR}/nvidia-persistenced.initd" nvidia-persistenced
+	newconfd "${FILESDIR}"/nvidia-persistenced.confd nvidia-persistenced
+	newinitd "${FILESDIR}"/nvidia-persistenced.initd nvidia-persistenced
 	systemd_dounit nvidia-persistenced.service
 
 	use X && nvidia-drivers_make_install xconfig
@@ -368,7 +358,7 @@ src_install() {
 
 	# install dlls for optional use with proton/wine
 	insinto /usr/$(get_libdir)/nvidia/wine
-	doins {_,}nvngx.dll
+	use amd64 && doins {_,}nvngx.dll
 
 	# install systemd sleep services
 	exeinto /lib/systemd/system-sleep
@@ -377,7 +367,7 @@ src_install() {
 	systemd_dounit systemd/system/nvidia-{hibernate,resume,suspend}.service
 
 	# create README.gentoo
-	local DISABLE_AUTOFORMATTING="yes"
+	local DISABLE_AUTOFORMATTING=yes
 	local DOC_CONTENTS=\
 "Trusted users should be in the 'video' group to use NVIDIA devices.
 You can add yourself by using: gpasswd -a my-user video
@@ -388,6 +378,11 @@ For general information on using nvidia-drivers, please see:
 https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
 	readme.gentoo_create_doc
 
+	local DOCS=(
+		README.txt NVIDIA_Changelog supported-gpus/supported-gpus.json
+		nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
+	)
+	local HTML_DOCS=( html/. )
 	einstalldocs
 }
 
@@ -437,7 +432,9 @@ pkg_postinst() {
 	fi
 
 	if [[ ${NV_LEGACY_MASK} ]]; then
+		ewarn
 		ewarn "***WARNING***"
+		ewarn
 		ewarn "You are installing a version of nvidia-drivers known not to work"
 		ewarn "with a GPU of the current system. If unwanted, add the mask:"
 		if [[ -d ${EROOT}/etc/portage/package.mask ]]; then
@@ -465,11 +462,6 @@ pkg_postinst() {
 		elog
 		elog "If you experience issues, please comment out the option from nvidia.conf."
 		elog "Of note, may possibly cause issues with SLI and Reverse PRIME."
-		if has_version "gnome-base/gdm[wayland]"; then
-			elog
-			elog "This also cause gnome-base/gdm to use a wayland session by default,"
-			elog "select 'GNOME on Xorg' if you wish to continue using it."
-		fi
 	fi
 
 	# Try to show this message only to users that may really need it
