@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/pkgconfig >=virtual/rust-1.56 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm preinst setup test unpack
+DEPEND=dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/libxcb:=
+DESCRIPTION=Flash Player emulator written in Rust
+EAPI=8
+HOMEPAGE=https://ruffle.rs/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cargo desktop flag-o-matic git-r3 python-any-r1 xdg
+IUSE=gui debug
+LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0 ZLIB curl zlib-acknowledgement
+PROPERTIES=live
+RDEPEND=dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/libxcb:= gui? ( || ( gnome-extra/zenity kde-apps/kdialog ) )
+SLOT=0
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	cargo	c7fefacaebdcb455d2a7b59429eb47a6	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=22ecc16c1fc9fe4eb99ad10fb3368952
