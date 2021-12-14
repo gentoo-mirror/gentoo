@@ -9,7 +9,7 @@ HOMEPAGE="https://wiki.gnome.org/Projects/GnomeShell/Extensions"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 
 DEPEND="
 	>=dev-libs/glib-2.26:2
@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}
 	dev-libs/gobject-introspection:=
 	dev-libs/atk[introspection]
 	gnome-base/gnome-menus:3[introspection]
-	=gnome-base/gnome-shell-$(ver_cut 1-2)*
+	=gnome-base/gnome-shell-$(ver_cut 1)*
 	media-libs/clutter:1.0[introspection]
 	net-libs/telepathy-glib[introspection]
 	x11-libs/gdk-pixbuf:2[introspection]
@@ -41,14 +41,10 @@ To change the system default and enable some extensions, you can use
 # eselect gnome-shell-extensions
 
 Alternatively, to enable/disable extensions on a per-user basis,
-you can use the https://extensions.gnome.org/ web interface, the
-gnome-extra/gnome-tweaks GUI, or modify the org.gnome.shell
-enabled-extensions gsettings key from the command line or a script."
-
-PATCHES=(
-	"${FILESDIR}/${PV}-drive-menu-indicator-visibility.patch"
-	"${FILESDIR}/${PV}-drive-menu-hide-items.patch"
-)
+you can use the gnome-extensions-app (included with gnome-shell),
+https://extensions.gnome.org/ web interface, or modify the
+org.gnome.shell enabled-extensions gsettings key from the command
+line or a script."
 
 src_configure() {
 	meson_src_configure \
