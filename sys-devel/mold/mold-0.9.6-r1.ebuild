@@ -26,6 +26,7 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.9.6-respect-flags.patch
+	"${FILESDIR}"/${PN}-0.9.6-fix-libdir-wrapper.patch
 )
 
 src_prepare() {
@@ -36,6 +37,11 @@ src_prepare() {
 		-e '/	gzip/d' \
 		-e "s:\$(DEST)/lib:\$(DEST)/$(get_libdir):" \
 		Makefile || die
+
+	# Drop on next release: bug #823653
+	# https://github.com/rui314/mold/issues/127
+	sed -i \
+		-e "s:/usr/lib64/mold/mold-wrapper.so:${EPREFIX}/usr/$(get_libdir)/mold/mold-wrapper.so:" \
 
 	# Needs unpackaged dwarfutils
 	rm test/compressed-debug-info.sh \
@@ -62,7 +68,7 @@ src_compile() {
 }
 
 src_test() {
-        emake \
+	emake \
 		SYSTEM_TBB=1 \
 		SYSTEM_MIMALLOC=1 \
 		EXTRA_CFLAGS="${CFLAGS}" \
