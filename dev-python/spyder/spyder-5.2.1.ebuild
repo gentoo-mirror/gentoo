@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
@@ -9,7 +9,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="879e8a59a522444f1866485290933ed398a30c81"
+DOCS_PV="cd0c65d943595da438410559811a5809bf0227a3"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
