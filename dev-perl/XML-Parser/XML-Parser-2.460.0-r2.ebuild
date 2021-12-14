@@ -30,14 +30,14 @@ src_prepare() {
 }
 
 src_configure() {
-	myconf="EXPATLIBPATH=${EPREFIX}/usr/$(get_libdir) EXPATINCPATH=${EPREFIX}/usr/include"
+	myconf="EXPATLIBPATH=${ESYSROOT}/usr/$(get_libdir) EXPATINCPATH=${ESYSROOT}/usr/include"
 	perl-module_src_configure
 }
 
 src_install() {
 	perl-module_src_install
 
-	# "special" test for bug 827966
-	einfo Checking for Expat.so \#827966
+	# "special" test for bug #827966
+	einfo "Checking for Expat.so (bug #827966)"
 	find "${D}" -name Expat.so | grep Expat || die "Something went badly wrong, can't find Expat.so. Please file a bug."
 }
