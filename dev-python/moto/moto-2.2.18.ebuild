@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Mock library for boto"
@@ -25,8 +25,8 @@ RDEPEND="
 	>=dev-python/idna-2.5[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.10.1[${PYTHON_USEDEP}]
 	>=dev-python/jsondiff-1.1.2[${PYTHON_USEDEP}]
-	>=dev-python/boto3-1.9.201[${PYTHON_USEDEP}]
-	>=dev-python/botocore-1.12.201[${PYTHON_USEDEP}]
+	<dev-python/boto3-1.20.24[${PYTHON_USEDEP}]
+	<dev-python/botocore-1.23.24[${PYTHON_USEDEP}]
 	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/flask-cors[${PYTHON_USEDEP}]
 	dev-python/more-itertools[${PYTHON_USEDEP}]
