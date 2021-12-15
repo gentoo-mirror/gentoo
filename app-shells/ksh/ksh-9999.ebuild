@@ -5,22 +5,21 @@ EAPI=7
 
 inherit flag-o-matic toolchain-funcs
 
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ksh93/ksh"
+else
+	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv"
+	MY_PV=$(ver_rs 3 - 4 .)
+	SRC_URI="https://github.com/ksh93/${PN}/archive/v${MY_PV}/ksh-v${MY_PV}.tar.gz"
+	S="${WORKDIR}/${PN}-${MY_PV}"
+fi
+
 DESCRIPTION="The Original ATT Korn Shell"
 HOMEPAGE="http://www.kornshell.com/"
 
-MY_PV=$(ver_rs 3 - 4 .)
-SRC_URI="https://github.com/ksh93/${PN}/archive/v${MY_PV}/ksh-v${MY_PV}.tar.gz"
-
 LICENSE="EPL-1.0"
 SLOT="0"
-
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
-
-PATCHES=(
-	"${FILESDIR}/ksh-1.0.0-beta.1-regre-tests.patch"
-)
-
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_prepare() {
 	default
@@ -50,7 +49,7 @@ src_compile() {
 
 	tc-export AR CC LD NM
 
-	sh bin/package only make ast-ksh SHELL="${BROOT}"/bin/sh || die
+	sh bin/package make SHELL="${BROOT}"/bin/sh || die
 }
 
 src_test() {
