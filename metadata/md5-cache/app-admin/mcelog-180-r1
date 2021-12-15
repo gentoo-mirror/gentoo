@@ -1,5 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=install prepare pretend setup
+DEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 )
 DESCRIPTION=A tool to log and decode Machine Check Exceptions
 EAPI=8
 HOMEPAGE=http://mcelog.org/
@@ -12,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/andikleen/mcelog/archive/v180.tar.gz -> mcelog-180.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=a02bb7686efd88842b77bb8bb4326e72
+_md5_=de1898546abccab3a560e9cd1db85de0
