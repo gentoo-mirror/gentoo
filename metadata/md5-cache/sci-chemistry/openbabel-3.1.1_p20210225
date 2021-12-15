@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl doc? ( app-doc/doxygen dev-texlive/texlive-latex ) perl? ( >=dev-lang/swig-2 ) python? ( >=dev-lang/swig-2 ) test? ( dev-lang/python ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl )
+DESCRIPTION=Interconverts file formats used in molecular modeling
+EAPI=8
+HOMEPAGE=https://openbabel.org/
+INHERIT=cmake desktop flag-o-matic perl-functions python-r1 toolchain-funcs wxwidgets xdg-utils
+IUSE=cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~arm ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl:= !sci-chemistry/openbabel-perl )
+REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) test? ( inchi json !minimal wxwidgets )
+RESTRICT=!test? ( test )
+SLOT=0/7.0.0
+SRC_URI=https://github.com/openbabel/openbabel/archive/08e23f39b0cc39b4eebd937a5a2ffc1a7bac3e1b.tar.gz -> openbabel-3.1.1_p20210225.tar.gz https://openbabel.org/docs/dev/_static/babel130.png -> openbabel.png http://openbabel.org/OBTitle.jpg -> openbabel.jpg
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	desktop	c0d27bf73aa08ca05b663dbd31fbef28	perl-functions	fea344a91ebf37efadf172c6a3de5a72	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
+_md5_=c1db8254fc197741d3851ea56e2659ef
