@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-ml/dune dev-ml/zarith dev-ml/camomile dev-ml/ocaml-ctypes )
+DEFINED_PHASES=compile configure install setup test
+DEPEND=dev-python/pyyaml dev-ada/gnatcoll-bindings[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,gmp,iconv,shared?,static-libs?,static-pic?] ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?] python_single_target_python3_8? ( dev-ada/langkit[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-ada/langkit[python_targets_python3_9(-)] )
+DESCRIPTION=high performance semantic engine for the Ada programming language
+EAPI=7
+HOMEPAGE=https://libre.adacore.com/
+INHERIT=ada python-single-r1
+IUSE=test shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021 python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64
+LICENSE=GPL-3 gcc-runtime-library-exception-3.1
+RDEPEND=dev-python/pyyaml dev-ada/gnatcoll-bindings[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,gmp,iconv,shared?,static-libs?,static-pic?] ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/AdaCore/libadalang/archive/refs/tags/v22.0.0.tar.gz -> libadalang-22.0.0.tar.gz
+_eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_md5_=f7622591fa04ff9ca001273c92e6b519
