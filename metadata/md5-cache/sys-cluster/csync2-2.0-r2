@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/LINBIT/csync2
 INHERIT=autotools
 IUSE=mysql postgres sqlite ssl xinetd
-KEYWORDS=amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-2
 RDEPEND=>=net-libs/librsync-0.9.5 mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:= ) sqlite? ( >=dev-db/sqlite-3.0 ) ssl? ( >=net-libs/gnutls-2.7.3 ) xinetd? ( sys-apps/xinetd )
 REQUIRED_USE=|| ( mysql postgres sqlite )
 SLOT=0
 SRC_URI=https://github.com/LINBIT/csync2/archive/csync2-2.0.tar.gz -> csync2-2.0-github.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=3ced10e337286b17ea2ab021c1f5bb57
+_md5_=24471175e2bb77371adb73d214134e78
