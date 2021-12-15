@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install test unpack
+DEFINED_PHASES=compile install prepare test unpack
 DEPEND=>=dev-cpp/tbb-2021.4.0:= dev-libs/xxhash:= sys-libs/zlib !kernel_Darwin? ( dev-libs/mimalloc:= dev-libs/openssl:= )
 DESCRIPTION=A Modern Linker
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=>=dev-cpp/tbb-2021.4.0:= dev-libs/xxhash:= sys-libs/zlib !kernel_Darwin?
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=64d7c27a1b2aa4da2fa09517c3711736
+_md5_=0e3498ca350c8af6cefb5be2e16e3630
