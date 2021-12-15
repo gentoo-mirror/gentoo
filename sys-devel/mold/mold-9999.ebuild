@@ -30,22 +30,13 @@ RDEPEND=">=dev-cpp/tbb-2021.4.0:=
 	)"
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-9999-build-respect-user-FLAGS.patch
-	"${FILESDIR}"/${PN}-9999-don-t-compress-man-page.patch
-)
-
 src_compile() {
 	tc-export CC CXX
 
 	emake \
 		SYSTEM_TBB=1 \
 		SYSTEM_MIMALLOC=1 \
-		EXTRA_CFLAGS="${CFLAGS}" \
-		EXTRA_CXXFLAGS="${CXXFLAGS}" \
-		EXTRA_CPPFLAGS="${CPPFLAGS}" \
-		EXTRA_LDFLAGS="${LDFLAGS}" \
-		STRIP="true"
+		STRIP="true" \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 }
 
@@ -53,10 +44,6 @@ src_test() {
 	emake \
 		SYSTEM_TBB=1 \
 		SYSTEM_MIMALLOC=1 \
-		EXTRA_CFLAGS="${CFLAGS}" \
-		EXTRA_CXXFLAGS="${CXXFLAGS}" \
-		EXTRA_CPPFLAGS="${CPPFLAGS}" \
-		EXTRA_LDFLAGS="${LDFLAGS}" \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
 		STRIP="true"
 		check
@@ -66,11 +53,8 @@ src_install() {
 	emake \
 		SYSTEM_TBB=1 \
 		SYSTEM_MIMALLOC=1 \
-		EXTRA_CFLAGS="${CFLAGS}" \
-		EXTRA_CXXFLAGS="${CXXFLAGS}" \
-		EXTRA_CPPFLAGS="${CPPFLAGS}" \
-		EXTRA_LDFLAGS="${LDFLAGS}" \
 		DESTDIR="${ED}" \
+		PREFIX="${EPREFIX}/usr" \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
 		STRIP="true" \
 		install
