@@ -4,38 +4,37 @@
 EAPI=7
 
 MODULES_OPTIONAL_USE="driver"
-inherit desktop linux-info linux-mod multilib-build \
-	readme.gentoo-r1 systemd toolchain-funcs unpacker
+inherit desktop flag-o-matic linux-mod multilib readme.gentoo-r1 \
+	systemd toolchain-funcs unpacker
 
 NV_KERNEL_MAX="5.15"
 NV_URI="https://download.nvidia.com/XFree86/"
-NV_PIN="470.63.01"
+NV_PIN="470.86"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
-HOMEPAGE="https://www.nvidia.com/download/index.aspx"
+HOMEPAGE="https://developer.nvidia.com/vulkan-driver"
 SRC_URI="
-	https://developer.nvidia.com/vulkan-beta-${PV//./}-linux -> NVIDIA-Linux-x86_64-${PV}.run
-	${NV_URI}nvidia-installer/nvidia-installer-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-modprobe/nvidia-modprobe-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-persistenced/nvidia-persistenced-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-settings/nvidia-settings-${NV_PIN}.tar.bz2
-	${NV_URI}nvidia-xconfig/nvidia-xconfig-${NV_PIN}.tar.bz2"
+	https://developer.nvidia.com/vulkan-beta-${PV//.}-linux -> NVIDIA-Linux-x86_64-${PV}.run
+	$(printf "${NV_URI}%s/%s-${NV_PIN}.tar.bz2 " \
+		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})"
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S="${WORKDIR}"
 
-LICENSE="GPL-2 MIT NVIDIA-r2 ZLIB"
+LICENSE="NVIDIA-r2 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/vulkan"
 KEYWORDS="-* ~amd64"
-IUSE="+X +driver static-libs +tools wayland"
+IUSE="+X abi_x86_32 abi_x86_64 +driver persistenced static-libs +tools wayland"
 
 COMMON_DEPEND="
 	acct-group/video
-	acct-user/nvpd
-	net-libs/libtirpc:=
+	persistenced? (
+		acct-user/nvpd
+		net-libs/libtirpc:=
+	)
 	tools? (
 		dev-libs/atk
 		dev-libs/glib:2
-		dev-libs/jansson
+		dev-libs/jansson:=
 		media-libs/harfbuzz:=
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf:2
@@ -48,9 +47,9 @@ COMMON_DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	X? (
-		media-libs/libglvnd[X,${MULTILIB_USEDEP}]
-		x11-libs/libX11[${MULTILIB_USEDEP}]
-		x11-libs/libXext[${MULTILIB_USEDEP}]
+		media-libs/libglvnd[X,abi_x86_32(-)?]
+		x11-libs/libX11[abi_x86_32(-)?]
+		x11-libs/libXext[abi_x86_32(-)?]
 	)
 	wayland? (
 		~gui-libs/egl-wayland-1.1.7
@@ -71,7 +70,6 @@ DEPEND="
 		x11-libs/libvdpau
 	)"
 BDEPEND="
-	app-misc/pax-utils
 	sys-devel/m4
 	virtual/pkgconfig"
 
@@ -79,13 +77,10 @@ QA_PREBUILT="lib/firmware/* opt/bin/* usr/lib*"
 
 PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
+	"${FILESDIR}"/nvidia-settings-390.144-desktop.patch
+	"${FILESDIR}"/nvidia-settings-390.144-no-gtk2.patch
+	"${FILESDIR}"/nvidia-settings-390.144-raw-ldflags.patch
 )
-
-DOCS=(
-	README.txt NVIDIA_Changelog supported-gpus/supported-gpus.json
-	nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
-)
-HTML_DOCS=( html/. )
 
 pkg_setup() {
 	use driver || return
@@ -105,7 +100,7 @@ pkg_setup() {
 	DRM_I915=y, DRM_NOUVEAU=m also acceptable if a module and not built-in.
 	Note: DRM_SIMPLEDRM may cause issues and is better disabled for now."
 
-	kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
+	use amd64 && kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
 
 	MODULE_NAMES="
 		nvidia(video:kernel)
@@ -119,10 +114,10 @@ pkg_setup() {
 	[[ ${MERGE_TYPE} == binary ]] && return
 
 	BUILD_PARAMS='NV_VERBOSE=1 IGNORE_CC_MISMATCH=yes SYSSRC="${KV_DIR}" SYSOUT="${KV_OUT_DIR}"'
-	BUILD_TARGETS="modules" # defaults' clean sometimes deletes modules
+	BUILD_TARGETS="modules"
 
 	if linux_chkconfig_present CC_IS_CLANG; then
-		ewarn "Warning: building ${PN} with a clang-built kernel is experimental."
+		ewarn "Warning: building ${PN} with a clang-built kernel is experimental"
 
 		BUILD_PARAMS+=' CC=${CHOST}-clang'
 		if linux_chkconfig_present LD_IS_LLD; then
@@ -135,7 +130,7 @@ pkg_setup() {
 	fi
 
 	if kernel_is -gt ${NV_KERNEL_MAX/./ }; then
-		ewarn "Kernel ${KV_MAJOR}.${KV_MINOR} is either known to break this version of nvidia-drivers"
+		ewarn "Kernel ${KV_MAJOR}.${KV_MINOR} is either known to break this version of ${PN}"
 		ewarn "or was not tested with it. It is recommended to use one of:"
 		ewarn "  <=sys-kernel/gentoo-kernel-${NV_KERNEL_MAX}"
 		ewarn "  <=sys-kernel/gentoo-sources-${NV_KERNEL_MAX}"
@@ -148,7 +143,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# make user patches usable across versions
+	# make patches usable across versions
 	rm nvidia-modprobe && mv nvidia-modprobe{-${NV_PIN},} || die
 	rm nvidia-persistenced && mv nvidia-persistenced{-${NV_PIN},} || die
 	rm nvidia-settings && mv nvidia-settings{-${NV_PIN},} || die
@@ -160,123 +155,105 @@ src_prepare() {
 	sed 's/defined(CONFIG_DRM/defined(CONFIG_DRM_KMS_HELPER/g' \
 		-i kernel/conftest.sh || die
 
-	sed -e '/Exec=\|Icon=/s/_.*/nvidia-settings/' \
-		-e '/Categories=/s/_.*/System;Settings;/' \
-		-i nvidia-settings/doc/nvidia-settings.desktop || die
-
-	# remove gtk2 support (bug #592730)
-	sed '/^GTK2LIB = /d;/INSTALL.*GTK2LIB/,+1d' \
-		-i nvidia-settings/src/Makefile || die
-
 	sed 's/__USER__/nvpd/' \
 		nvidia-persistenced/init/systemd/nvidia-persistenced.service.template \
-		> nvidia-persistenced.service || die
+		> "${T}"/nvidia-persistenced.service || die
 
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
 	cp "${FILESDIR}"/nvidia-470.conf "${T}"/nvidia.conf || die
-	if use wayland; then
-		sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
-	fi
-
-	gzip -d nvidia-{cuda-mps-control,smi}.1.gz || die
+	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
 }
 
 src_compile() {
-	nvidia-drivers_make() {
-		emake -C nvidia-${1} ${2} \
-			PREFIX="${EPREFIX}/usr" \
-			HOST_CC="$(tc-getBUILD_CC)" \
-			HOST_LD="$(tc-getBUILD_LD)" \
-			NV_USE_BUNDLED_LIBJANSSON=0 \
-			NV_VERBOSE=1 DO_STRIP= OUTPUTDIR=out
-	}
-
 	tc-export AR CC LD OBJCOPY
 
-	# may no longer be relevant but kept as a safety
-	export DISTCC_DISABLE=1 CCACHE_DISABLE=1
+	NV_ARGS=(
+		PREFIX="${EPREFIX}"/usr
+		HOST_CC="$(tc-getBUILD_CC)"
+		HOST_LD="$(tc-getBUILD_LD)"
+		NV_USE_BUNDLED_LIBJANSSON=0
+		NV_VERBOSE=1 DO_STRIP= MANPAGE_GZIP= OUTPUTDIR=out
+	)
 
 	use driver && linux-mod_src_compile
 
-	nvidia-drivers_make modprobe
-	nvidia-drivers_make persistenced
-	use X && nvidia-drivers_make xconfig
+	emake "${NV_ARGS[@]}" -C nvidia-modprobe
+	use persistenced && emake "${NV_ARGS[@]}" -C nvidia-persistenced
+	use X && emake "${NV_ARGS[@]}" -C nvidia-xconfig
 
 	if use tools; then
-		nvidia-drivers_make settings
+		# cflags: avoid noisy logs, only use here and set first to let override
+		# ldflags: abi currently needed if LD=ld.lld
+		CFLAGS="-Wno-deprecated-declarations ${CFLAGS}" \
+			RAW_LDFLAGS="$(get_abi_LDFLAGS) $(raw-ldflags)" \
+			emake "${NV_ARGS[@]}" -C nvidia-settings
 	elif use static-libs; then
-		nvidia-drivers_make settings/src out/libXNVCtrl.a
+		emake "${NV_ARGS[@]}" -C nvidia-settings/src out/libXNVCtrl.a
 	fi
 }
 
 src_install() {
-	nvidia-drivers_make_install() {
-		emake -C nvidia-${1} install \
-			DESTDIR="${D}" \
-			PREFIX="${EPREFIX}/usr" \
-			LIBDIR="${ED}/usr/$(get_libdir)" \
-			NV_USE_BUNDLED_LIBJANSSON=0 \
-			NV_VERBOSE=1 DO_STRIP= MANPAGE_GZIP= OUTPUTDIR=out
-	}
+	local libdir=$(get_libdir) libdir32=$(ABI=x86 get_libdir)
 
-	nvidia-drivers_libs_install() {
-		local libs=(
-			EGL_nvidia
-			GLESv1_CM_nvidia
-			GLESv2_nvidia
-			cuda
-			nvcuvid
-			nvidia-allocator
-			nvidia-compiler
-			nvidia-eglcore
-			nvidia-encode
-			nvidia-glcore
-			nvidia-glsi
-			nvidia-glvkspirv
-			nvidia-ml
-			nvidia-opencl
-			nvidia-opticalflow
-			nvidia-ptxjitcompiler
-			nvidia-tls
-		)
+	NV_ARGS+=( DESTDIR="${D}" LIBDIR="${ED}"/usr/${libdir} )
 
-		if use X; then
-			libs+=(
-				GLX_nvidia
-				nvidia-fbc
-				nvidia-ifr
-				vdpau_nvidia
-			)
-		fi
+	local -A paths=(
+		[APPLICATION_PROFILE]=/usr/share/nvidia
+		[CUDA_ICD]=/etc/OpenCL/vendors
+		[EGL_EXTERNAL_PLATFORM_JSON]=/usr/share/egl/egl_external_platform.d
+		[FIRMWARE]=/lib/firmware/nvidia/${PV}
+		[GLVND_EGL_ICD_JSON]=/usr/share/glvnd/egl_vendor.d
+		[VULKAN_ICD_JSON]=/usr/share/vulkan
+		[WINE_LIB]=/usr/${libdir}/nvidia/wine
+		[XORG_OUTPUTCLASS_CONFIG]=/usr/share/X11/xorg.conf.d
 
-		local libdir=.
-		if [[ ${ABI} == x86 ]]; then
-			libdir+=/32
-		else
-			libs+=(
-				libnvidia-nvvm.so.4.0.0
-				nvidia-cfg
-				nvidia-ngx
-				nvidia-rtcore
-				nvoptix
-			)
-			use wayland && libs+=( nvidia-vulkan-producer )
-		fi
+		[GLX_MODULE_SHARED_LIB]=/usr/${libdir}/xorg/modules/extensions
+		[GLX_MODULE_SYMLINK]=/usr/${libdir}/xorg/modules
+		[XMODULE_SHARED_LIB]=/usr/${libdir}/xorg/modules
+	)
 
-		local lib soname
-		for lib in "${libs[@]}"; do
-			[[ ${lib:0:3} != lib ]] && lib=lib${lib}.so.${PV}
+	local skip_files=(
+		$(usex X '' '
+			libGLX_nvidia libglxserver_nvidia
+			libnvidia-ifr
+			nvidia_icd.json nvidia_layers.json')
+		$(usex wayland '' 'libnvidia-vulkan-producer')
+		libGLX_indirect # non-glvnd unused fallback
+		libnvidia-gtk nvidia-{settings,xconfig} # built from source
+		libnvidia-egl-wayland 10_nvidia_wayland # gui-libs/egl-wayland
+	)
+	local skip_modules=(
+		$(usex X '' 'nvfbc vdpau xdriver')
+		$(usex driver '' 'gsp')
+		installer nvpd # handled separately / built from source
+	)
+	local skip_types=(
+		GLVND_LIB GLVND_SYMLINK EGL_CLIENT.\* GLX_CLIENT.\* # media-libs/libglvnd
+		OPENCL_WRAPPER.\* # virtual/opencl
+		DOCUMENTATION DOT_DESKTOP .\*_SRC DKMS_CONF # handled separately / unused
+	)
 
-			# auto-detect soname and create appropriate symlinks
-			soname=$(scanelf -qF'%S#F' ${lib}) || die "Scanning ${lib} failed"
-			if [[ ${soname} && ${soname} != ${lib} ]]; then
-				ln -s ${lib} ${libdir}/${soname} || die
-			fi
-			ln -s ${lib} ${libdir}/${lib%.so*}.so || die
+	local DOCS=(
+		README.txt NVIDIA_Changelog supported-gpus/supported-gpus.json
+		nvidia-settings/doc/{FRAMELOCK,NV-CONTROL-API}.txt
+	)
+	local HTML_DOCS=( html/. )
+	einstalldocs
 
-			dolib.so ${libdir}/${lib%.so*}*
-		done
-	}
+	local DISABLE_AUTOFORMATTING=yes
+	local DOC_CONTENTS="\
+Trusted users should be in the 'video' group to use NVIDIA devices.
+You can add yourself by using: gpasswd -a my-user video
+
+See '${EPREFIX}/etc/modprobe.d/nvidia.conf' for modules options.\
+$(use amd64 && usex abi_x86_32 '' "
+
+Note that without USE=abi_x86_32 on ${PN}, 32bit applications
+(typically using wine / steam) will not be able to use GPU acceleration.")
+
+For general information on using ${PN}, please see:
+https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
+	readme.gentoo_create_doc
 
 	if use driver; then
 		linux-mod_src_install
@@ -284,60 +261,27 @@ src_install() {
 		insinto /etc/modprobe.d
 		doins "${T}"/nvidia.conf
 
-		insinto /lib/firmware/nvidia/${PV}
-		doins firmware/gsp.bin
-
-		# used for gpu verification with binpkgs (not kept)
+		# used for gpu verification with binpkgs (not kept, see pkg_preinst)
 		insinto /usr/share/nvidia
 		doins supported-gpus/supported-gpus.json
 	fi
 
-	if use X; then
-		exeinto /usr/$(get_libdir)/xorg/modules/drivers
-		doexe nvidia_drv.so
-
-		exeinto /usr/$(get_libdir)/xorg/modules/extensions
-		newexe libglxserver_nvidia.so{.${PV},}
-
-		insinto /usr/share/X11/xorg.conf.d
-		newins {,50-}nvidia-drm-outputclass.conf
-
-		# vulkan icd uses libGLX_nvidia.so and so requires X
-		insinto /usr/share/vulkan/icd.d
-		doins nvidia_icd.json
-		insinto /usr/share/vulkan/implicit_layer.d
-		doins nvidia_layers.json
-	fi
-
-	insinto /usr/share/glvnd/egl_vendor.d
-	doins 10_nvidia.json
-
-	insinto /etc/OpenCL/vendors
-	doins nvidia.icd
-
-	insinto /etc/nvidia
-	newins nvidia-application-profiles{-${PV},}-rc
-
-	# install built helpers
-	nvidia-drivers_make_install modprobe
-	# allow video group to load mods and create devs (bug #505092)
-	fowners :video /usr/bin/nvidia-modprobe
+	emake "${NV_ARGS[@]}" -C nvidia-modprobe install
+	fowners :video /usr/bin/nvidia-modprobe #505092
 	fperms 4710 /usr/bin/nvidia-modprobe
 
-	nvidia-drivers_make_install persistenced
-	newconfd "${FILESDIR}/nvidia-persistenced.confd" nvidia-persistenced
-	newinitd "${FILESDIR}/nvidia-persistenced.initd" nvidia-persistenced
-	systemd_dounit nvidia-persistenced.service
-
-	use X && nvidia-drivers_make_install xconfig
+	if use persistenced; then
+		emake "${NV_ARGS[@]}" -C nvidia-persistenced install
+		newconfd "${FILESDIR}"/nvidia-persistenced.confd nvidia-persistenced
+		newinitd "${FILESDIR}"/nvidia-persistenced.initd nvidia-persistenced
+		systemd_dounit "${T}"/nvidia-persistenced.service
+	fi
 
 	if use tools; then
-		nvidia-drivers_make_install settings
+		emake "${NV_ARGS[@]}" -C nvidia-settings install
+
 		doicon nvidia-settings/doc/nvidia-settings.png
 		domenu nvidia-settings/doc/nvidia-settings.desktop
-
-		insinto /usr/share/nvidia
-		newins nvidia-application-profiles{-${PV},}-key-documentation
 
 		exeinto /etc/X11/xinit/xinitrc.d
 		newexe "${FILESDIR}"/95-nvidia-settings-r1 95-nvidia-settings
@@ -350,50 +294,66 @@ src_install() {
 		doins nvidia-settings/src/libXNVCtrl/NVCtrl{Lib,}.h
 	fi
 
-	# install prebuilt-only helpers
-	exeinto /opt/bin
+	use X && emake "${NV_ARGS[@]}" -C nvidia-xconfig install
 
-	doexe nvidia-cuda-mps-control
-	doman nvidia-cuda-mps-control.1
-	doexe nvidia-cuda-mps-server
+	# mimic nvidia-installer by reading .manifest to install files
+	# 0:file 1:perms 2:type 3+:subtype/arguments -:module
+	local m into
+	while IFS=' ' read -ra m; do
+		! [[ ${#m[@]} -ge 2 && ${m[-1]} =~ MODULE: ]] ||
+			eval '[[ " ${m[0]##*/}" =~ ^(\ '${skip_files[*]/%/.*|\\}' )$ ]]' ||
+			eval '[[ " ${m[2]}" =~ ^(\ '${skip_types[*]/%/|\\}' )$ ]]' ||
+			has ${m[-1]#MODULE:} "${skip_modules[@]}" && continue
 
-	doexe nvidia-debugdump
-	dobin nvidia-bug-report.sh
+		case ${m[2]} in
+			MANPAGE)
+				gzip -dc ${m[0]} | newman - ${m[0]%.gz}; assert
+				continue
+			;;
+			VDPAU_SYMLINK) m[4]=vdpau/; m[5]=${m[5]#vdpau/};; # .so to vdpau/
+		esac
 
-	doexe nvidia-smi
-	doman nvidia-smi.1
+		if [[ -v paths[${m[2]}] ]]; then
+			into=${paths[${m[2]}]}
+		elif [[ ${m[2]} =~ _BINARY$ ]]; then
+			into=/opt/bin
+		elif [[ ${m[3]} == COMPAT32 ]]; then
+			use abi_x86_32 || continue
+			into=/usr/${libdir32}
+		elif [[ ${m[2]} =~ _LIB$|_SYMLINK$ ]]; then
+			into=/usr/${libdir}
+		else
+			die "No known installation path for ${m[0]}"
+		fi
+		[[ ${m[3]: -2} == ?/ ]] && into+=/${m[3]%/}
+		[[ ${m[4]: -2} == ?/ ]] && into+=/${m[4]%/}
 
-	# install prebuilt-only libraries
-	multilib_foreach_abi nvidia-drivers_libs_install
+		if [[ ${m[2]} =~ _SYMLINK$ ]]; then
+			[[ ${m[4]: -1} == / ]] && m[4]=${m[5]}
+			dosym ${m[4]} ${into}/${m[0]}
+			continue
+		fi
+		[[ ${m[0]} =~ ^libnvidia-ngx.so ]] &&
+			dosym ${m[0]} ${into}/${m[0]%.so*}.so.1 # soname not in .manifest
 
-	# install dlls for optional use with proton/wine
-	insinto /usr/$(get_libdir)/nvidia/wine
-	doins {_,}nvngx.dll
+		printf -v m[1] %o $((m[1] | 0200)) # 444->644
+		insopts -m${m[1]}
+		insinto ${into}
+		doins ${m[0]}
+	done < .manifest || die
 
-	# install systemd sleep services
+	# MODULE:installer non-skipped extras
 	exeinto /lib/systemd/system-sleep
 	doexe systemd/system-sleep/nvidia
 	dobin systemd/nvidia-sleep.sh
 	systemd_dounit systemd/system/nvidia-{hibernate,resume,suspend}.service
 
-	# create README.gentoo
-	local DISABLE_AUTOFORMATTING="yes"
-	local DOC_CONTENTS=\
-"Trusted users should be in the 'video' group to use NVIDIA devices.
-You can add yourself by using: gpasswd -a my-user video
-
-See '${EPREFIX}/etc/modprobe.d/nvidia.conf' for modules options.
-
-For general information on using nvidia-drivers, please see:
-https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
-	readme.gentoo_create_doc
-
-	einstalldocs
+	dobin nvidia-bug-report.sh
 }
 
 pkg_preinst() {
-	has_version "${CATEGORY}/${PN}[abi_x86_32]" && NV_HAD_ABI32=1
-	has_version "${CATEGORY}/${PN}[wayland]" && NV_HAD_WAYLAND=1
+	has_version "${CATEGORY}/${PN}[abi_x86_32]" && NV_HAD_ABI32=
+	has_version "${CATEGORY}/${PN}[wayland]" && NV_HAD_WAYLAND=
 
 	use driver || return
 	linux-mod_pkg_preinst
@@ -424,9 +384,9 @@ pkg_postinst() {
 	readme.gentoo_print_elog
 
 	if [[ -r /proc/driver/nvidia/version &&
-		$(grep -o '  [0-9.]*  ' /proc/driver/nvidia/version) != "  ${PV}  " ]]; then
+		$(</proc/driver/nvidia/version) != *"  ${PV}  "* ]]; then
 		ewarn "Currently loaded NVIDIA modules do not match the newly installed"
-		ewarn "libraries and will lead to GPU-using application issues."
+		ewarn "libraries and may prevent launching GPU-accelerated applications."
 		use driver && ewarn "The easiest way to fix this is usually to reboot."
 	fi
 
@@ -436,9 +396,11 @@ pkg_postinst() {
 		ewarn "${PN}. Bug: https://bugs.gentoo.org/796329"
 	fi
 
-	if [[ ${NV_LEGACY_MASK} ]]; then
+	if [[ -v NV_LEGACY_MASK ]]; then
+		ewarn
 		ewarn "***WARNING***"
-		ewarn "You are installing a version of nvidia-drivers known not to work"
+		ewarn
+		ewarn "You are installing a version of ${PN} known not to work"
 		ewarn "with a GPU of the current system. If unwanted, add the mask:"
 		if [[ -d ${EROOT}/etc/portage/package.mask ]]; then
 			ewarn "  echo '${NV_LEGACY_MASK}' > ${EROOT}/etc/portage/package.mask/${PN}"
@@ -449,27 +411,24 @@ pkg_postinst() {
 		ewarn "https://www.nvidia.com/object/IO_32667.html"
 	fi
 
-	if use !abi_x86_32 && [[ ${NV_HAD_ABI32} ]]; then
+	if use !abi_x86_32 && [[ -v NV_HAD_ABI32 ]]; then
 		elog
 		elog "USE=abi_x86_32 is disabled, 32bit applications will not be able to"
 		elog "use nvidia-drivers for acceleration without it (e.g. commonly used"
-		elog "with app-emulation/wine-*). Re-enable if needed."
+		elog "with app-emulation/wine-* or steam). Re-enable if needed."
 	fi
 
-	if use wayland && use driver && [[ ! ${NV_HAD_WAYLAND} ]]; then
+	if use wayland && use driver && [[ ! -v NV_HAD_WAYLAND ]]; then
 		elog
 		elog "With USE=wayland, this version of ${PN} sets nvidia-drm.modeset=1"
 		elog "in '${EROOT}/etc/modprobe.d/nvidia.conf'. This feature is considered"
-		elog "experimental but is required for EGLStream (used for wayland acceleration"
-		elog "in compositors that support it)."
+		elog "experimental but is required for wayland."
 		elog
-		elog "If you experience issues, please comment out the option from nvidia.conf."
+		elog "If you experience issues, either disable wayland or edit nvidia.conf."
 		elog "Of note, may possibly cause issues with SLI and Reverse PRIME."
-		if has_version "gnome-base/gdm[wayland]"; then
-			elog
-			elog "This also cause gnome-base/gdm to use a wayland session by default,"
-			elog "select 'GNOME on Xorg' if you wish to continue using it."
-		fi
+		elog
+		elog "This version of ${PN} only supports EGLStream which is only"
+		elog "supported by a few wayland compositors (e.g. kwin / mutter, not sway)."
 	fi
 
 	# Try to show this message only to users that may really need it
