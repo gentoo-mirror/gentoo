@@ -1,17 +1,18 @@
-BDEPEND=app-text/asciidoc wayland? ( dev-util/wayland-scanner ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+BDEPEND=app-text/asciidoc wayland? ( dev-util/wayland-scanner ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-libs/glib:2 dev-libs/icu:= dev-libs/inih media-libs/libglvnd[X?] x11-libs/cairo x11-libs/libxkbcommon[X?] x11-libs/pango X? ( x11-libs/libX11 x11-libs/libxcb:= ) freeimage? ( media-libs/freeimage ) gif? ( media-libs/libnsgif ) heif? ( media-libs/libheif:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) svg? ( >=gnome-base/librsvg-2.44:2 ) tiff? ( media-libs/tiff ) wayland? ( dev-libs/wayland ) !sys-apps/renameutils X? ( x11-base/xorg-proto ) test? ( dev-util/cmocka )
 DESCRIPTION=Minimal image viewer designed for tiling window manager users
 EAPI=8
 HOMEPAGE=https://sr.ht/~exec64/imv/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=meson xdg git-r3
+INHERIT=meson xdg
 IUSE=+X +freeimage gif heif jpeg png svg test tiff wayland
+KEYWORDS=~amd64 ~x86
 LICENSE=MIT-with-advertising
-PROPERTIES=live
 RDEPEND=dev-libs/glib:2 dev-libs/icu:= dev-libs/inih media-libs/libglvnd[X?] x11-libs/cairo x11-libs/libxkbcommon[X?] x11-libs/pango X? ( x11-libs/libX11 x11-libs/libxcb:= ) freeimage? ( media-libs/freeimage ) gif? ( media-libs/libnsgif ) heif? ( media-libs/libheif:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) svg? ( >=gnome-base/librsvg-2.44:2 ) tiff? ( media-libs/tiff ) wayland? ( dev-libs/wayland ) !sys-apps/renameutils
 REQUIRED_USE=|| ( X wayland )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+SRC_URI=https://git.sr.ht/~exec64/imv/archive/v4.3.1.tar.gz -> imv-4.3.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=e8e3735bbb85dd80244cb2dd0aef4476
