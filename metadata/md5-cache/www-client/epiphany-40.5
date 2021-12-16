@@ -1,0 +1,16 @@
+BDEPEND=dev-libs/appstream-glib dev-util/gdbus-codegen dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-libs/glib-2.64.0:2 >=x11-libs/gtk+-3.24.0:3 >=dev-libs/nettle-3.4:= >=net-libs/webkit-gtk-2.31.1:4= >=x11-libs/cairo-1.2 >=app-crypt/gcr-3.5.5:=[gtk] >=x11-libs/gdk-pixbuf-2.36.5:2 gnome-base/gsettings-desktop-schemas >=app-text/iso-codes-0.35 >=dev-libs/json-glib-1.6 app-arch/libarchive:= >=dev-libs/libdazzle-3.37.1 >=gui-libs/libhandy-1.1.0:1= >=app-crypt/libsecret-0.19 >=net-libs/libsoup-2.48.0:2.4 >=dev-libs/libxml2-2.6.12:2 >=dev-db/sqlite-3.22:3 dev-libs/gmp:0= dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=GNOME webbrowser based on Webkit
+EAPI=7
+HOMEPAGE=https://wiki.gnome.org/Apps/Web
+INHERIT=gnome.org gnome2-utils meson xdg virtualx
+IUSE=test test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=>=dev-libs/glib-2.64.0:2 >=x11-libs/gtk+-3.24.0:3 >=dev-libs/nettle-3.4:= >=net-libs/webkit-gtk-2.31.1:4= >=x11-libs/cairo-1.2 >=app-crypt/gcr-3.5.5:=[gtk] >=x11-libs/gdk-pixbuf-2.36.5:2 gnome-base/gsettings-desktop-schemas >=app-text/iso-codes-0.35 >=dev-libs/json-glib-1.6 app-arch/libarchive:= >=dev-libs/libdazzle-3.37.1 >=gui-libs/libhandy-1.1.0:1= >=app-crypt/libsecret-0.19 >=net-libs/libsoup-2.48.0:2.4 >=dev-libs/libxml2-2.6.12:2 >=dev-db/sqlite-3.22:3 dev-libs/gmp:0= x11-themes/adwaita-icon-theme
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/epiphany/40/epiphany-40.5.tar.xz
+_eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg	6024fbc93167fad782e2032933654857	virtualx	fa024aa649b6bd544144bf94893d402c
+_md5_=e9d52af57270896bbfebc3f26ad74cf0
