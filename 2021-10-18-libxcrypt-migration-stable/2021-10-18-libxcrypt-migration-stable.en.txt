@@ -13,13 +13,24 @@ this has been tested for years already) and switching to the
 external libxcrypt implementation, now also in stable installations.
 
 This will be a regular update, and in nearly all cases you
-will not have to take any action and not observe any problems.
+will not have to take any action and not observe any problems. If
+you hit issues, please read on.
+
+## Upgrades before 2021-11-01
 
 We do recommend, however, that your system is *fully* up
 to date first. This is a standard recommendation but in this
 specific case, it is useful to have a simplified depgraph
 to ensure that Portage is able to smoothly calculate
 an upgrade path.
+
+Please take the opportunity to fully upgrade your
+systems now, before the migration occurs, to simplify matters
+
+This change will occur on 2021-11-01 for stable users.
+~arch users by default should already have switched.
+
+## General advice
 
 We also recommend being in a root shell (not via 'sudo'
 or similar tools) so that if any issues occur during the upgrade,
@@ -32,11 +43,7 @@ aggressive in protecting even orphaned files. Instead,
 use FEATURES="unmerge-orphans" which is almost identical
 in behaviour.
 
-That is, please take the opportunity to fully upgrade your
-systems now, before the migration occurs, to simplify matters.
-
-This change will occur on 2021-11-01 for stable users.
-~arch users by default should already have switched.
+## Delaying the migration
 
 If for whatever reason you do *not* wish to switch now -
 which is only delaying the inevitable - you
@@ -46,6 +53,8 @@ need to take the following steps:
 * mask >=virtual/libcrypt-2
 * unmask virtual/libcrypt:0/1
 
+## Migrating early
+
 If you wish to manually migrate now, there are a series
 of steps described on the wiki (see below), but the outline is:
 * unforce the crypt USE flag of sys-libs/glibc and disable it
@@ -53,11 +62,15 @@ of steps described on the wiki (see below), but the outline is:
 and enable it
 * unmask ~virtual/libcrypt-2
 
+## PAM warning
+
 Please note that if you last changed your password before ~2008,
 it may be using md5crypt or similar other weak mechanisms in /etc/shadow;
 a bug in PAM [0][1] may mean that you were unable to login. We recommend
 using "passwd" to change/refresh your password so it is using modern
 methods. A new version of PAM has been added to the tree to resolve this issue.
+
+## Build failures
 
 In some cases, Portage may schedule a rebuild of certain packages in an
 incorrect order [2]. If building a package fails, please try upgrading
@@ -69,13 +82,17 @@ libcrypt and libxcrypt first:
 
 And then continue the world upgrade with Portage's "--keep-going=y".
 
-If you hit conflicts, please see the wiki page linked below, but
+## Blockers/conflicts
+
+If you hit blockers/conflicts, please see the wiki page linked below, but
 common helpful tips are:
 * try more backtracking (e.g. --backtrack=1000)
 * try --ignore-built-slot-operator-deps=y temporarily on the world upgrade,
 then run a world upgrade again without it.
 
 Do NOT attempt to unmerge glibc at any point.
+
+## More help
 
 For more information or troubleshooting tips, please see:
 * https://wiki.gentoo.org/wiki/Project:Toolchain/libcrypt_implementation
