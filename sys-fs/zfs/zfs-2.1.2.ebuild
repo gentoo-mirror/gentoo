@@ -101,6 +101,11 @@ REQUIRED_USE="
 
 RESTRICT="test"
 
+PATCHES=(
+	"${FILESDIR}/2.1.2-scrub-timers.patch"
+	"${FILESDIR}/2.1.2-openrc-vendor.patch"
+)
+
 pkg_pretend() {
 	use rootfs || return 0
 
