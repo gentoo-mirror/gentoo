@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( luajit )
 
@@ -11,7 +11,7 @@ DESCRIPTION="A HTTP benchmarking tool"
 HOMEPAGE="https://www.github.com/wg/wrk"
 SRC_URI="https://www.github.com/wg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="Apache-2.0 BSD MIT"
 SLOT="0"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}"
 
 DOCS=( "CHANGES" "NOTICE" "README.md" "SCRIPTING" )
 
-PATCHES=( "${FILESDIR}/${P}-r100-makefile.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.2.0-makefile.patch" )
 
 src_compile() {
 	myemakeargs=(
