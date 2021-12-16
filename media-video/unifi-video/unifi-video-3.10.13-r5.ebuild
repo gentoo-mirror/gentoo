@@ -17,7 +17,8 @@ IUSE=""
 RESTRICT="mirror"
 
 DEPEND="acct-group/unifi-video
-	acct-user/unifi-video"
+	acct-user/unifi-video
+	app-arch/zip"
 RDEPEND="${DEPEND}
 	dev-db/mongodb
 	dev-java/commons-daemon
@@ -42,6 +43,10 @@ src_prepare() {
 		-e '/ulimit/d' \
 		-e '/coredump_filter/d' || die
 	default
+	#delete problematic class in bundled log4j
+	zip -q -d \
+		usr/lib/unifi-video/lib/log4j-core-2.1.jar \
+		org/apache/logging/log4j/core/lookup/JndiLookup.class || die
 }
 
 src_install() {
