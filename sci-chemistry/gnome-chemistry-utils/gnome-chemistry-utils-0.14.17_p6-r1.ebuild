@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit autotools flag-o-matic xdg
 
 DESCRIPTION="Programs and library containing GTK widgets and C++ classes related to chemistry"
@@ -22,7 +22,7 @@ RDEPEND="
 	>=gnome-extra/libgsf-1.14.9
 	>=sci-chemistry/bodr-5
 	>=sci-chemistry/chemical-mime-data-0.1.94
-	>=sci-chemistry/openbabel-2.3.0:0
+	>=sci-chemistry/openbabel-2.3.0:0=
 	>=x11-libs/cairo-1.6.0
 	>=x11-libs/gdk-pixbuf-2.22.0
 	>=x11-libs/goffice-0.10.12
@@ -41,10 +41,12 @@ BDEPEND="
 S="${WORKDIR}/${P/_p*}"
 
 src_prepare() {
-	xdg_src_prepare
+	default
 
-	# We don't have openbabel3 yet
-	sed -i -e '/openbabel-v3/d' "${WORKDIR}"/debian/patches/series || die
+	if has_version '<sci-chemistry/openbabel-3'; then
+		sed -i -e '/openbabel-v3/d' "${WORKDIR}"/debian/patches/series || die
+	fi
+
 	# Debian patches
 	for p in $(<"${WORKDIR}"/debian/patches/series) ; do
 		eapply -p1 "${WORKDIR}/debian/patches/${p}"
