@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://fc-solve.shlomifish.org/
 INHERIT=cmake python-single-r1
 IUSE=tcmalloc python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) dev-libs/rinutils python_single_target_python3_8? ( dev-python/pysol_cards[python_targets_python3_8(-)] dev-python/random2[python_targets_python3_8(-)] dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pysol_cards[python_targets_python3_9(-)] dev-python/random2[python_targets_python3_9(-)] dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pysol_cards[python_targets_python3_10(-)] dev-python/random2[python_targets_python3_10(-)] dev-python/six[python_targets_python3_10(-)] ) tcmalloc? ( dev-util/google-perftools )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://fc-solve.shlomifish.org/downloads/fc-solve/freecell-solver-6.6.0.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
-_md5_=c6d2f63e1cd90024addbf3788534d70a
+_md5_=9a95da182d0d4dab68a97ceb350d3b06
