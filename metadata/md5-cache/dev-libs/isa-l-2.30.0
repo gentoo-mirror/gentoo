@@ -1,0 +1,12 @@
+BDEPEND=amd64? ( >=dev-lang/nasm-2.15 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
+DESCRIPTION=Intelligent Storage Acceleration Library
+EAPI=8
+HOMEPAGE=https://github.com/intel/isa-l
+INHERIT=autotools
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://github.com/intel/isa-l/archive/refs/tags/v2.30.0.tar.gz -> isa-l-2.30.0.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=5ed754c9ed8c9d7986d55607851e8e43
