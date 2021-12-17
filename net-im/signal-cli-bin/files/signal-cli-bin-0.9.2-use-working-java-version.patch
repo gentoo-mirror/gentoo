@@ -1,16 +1,19 @@
+This patch searches the jre 11 binary in the gentoo specific directories.
+
 Signed-off-by: Martin Dummer <martin.dummer@gmx.net>
---- a/bin/signal-cli
-+++ b/bin/signal-cli
-@@ -84,13 +84,19 @@
+
+--- a/bin/signal-cli	1970-01-02 01:00:00.000000000 +0100
++++ b/bin/signal-cli	2021-12-08 20:43:30.490613238 +0100
+@@ -118,13 +118,19 @@
  
  
  # Determine the Java command to use to start the JVM.
 -if [ -n "$JAVA_HOME" ] ; then
 -    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
 -        # IBM's JDK on AIX uses strange locations for the executables
--        JAVACMD="$JAVA_HOME/jre/sh/java"
+-        JAVACMD=$JAVA_HOME/jre/sh/java
 -    else
--        JAVACMD="$JAVA_HOME/bin/java"
+-        JAVACMD=$JAVA_HOME/bin/java
 -    fi
 +# This package needs Java 11, but Java 11 is currently not part of the gentoo eselect config system
 +# so we must search for matching java binaries
@@ -19,7 +22,7 @@ Signed-off-by: Martin Dummer <martin.dummer@gmx.net>
 +	if [ -x "$J_TRY" ] ; then
 +		"$J_TRY" -version 2>&1 | grep --fixed-strings --quiet "11."
 +		if [ $? -eq 0 ] ; then
-+        		JAVACMD="$J_TRY"
++			JAVACMD="$J_TRY"
 +			break
 +		fi
 +	fi

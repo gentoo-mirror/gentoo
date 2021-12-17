@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 
 inherit distutils-r1
 
@@ -24,4 +24,16 @@ RDEPEND="
 	dev-python/psutil[${PYTHON_USEDEP}]
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-lint-in-tests.patch"
+	"${FILESDIR}/${P}-fix-lint-in-trash-cli.patch"
+	"${FILESDIR}/${P}-fix-unit-tests-not-deleting-temp-directories.patch"
+	"${FILESDIR}/${P}-fix-unit-test-test_trash_empty_will_skip_unreadable.patch"
+)
+
 distutils_enable_tests pytest
+
+src_test() {
+	local -x COLUMNS=80
+	distutils-r1_src_test
+}
