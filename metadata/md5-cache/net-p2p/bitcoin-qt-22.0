@@ -1,0 +1,17 @@
+BDEPEND=>=sys-devel/automake-1.13 || ( >=sys-devel/gcc-7[cxx] >=sys-devel/clang-5 ) dev-qt/linguist-tools:5 knots? ( gnome-base/librsvg media-gfx/imagemagick[png] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm prepare pretend
+DEPEND=>=dev-libs/boost-1.64.0:=[threads(+)] >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 virtual/bitcoin-leveldb dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= nat-pmp? ( net-libs/libnatpmp ) qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= ) systemtap? ( dev-util/systemtap )
+DESCRIPTION=An end-user Qt GUI for the Bitcoin crypto-currency
+EAPI=7
+HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
+INHERIT=autotools bash-completion-r1 db-use desktop flag-o-matic xdg-utils
+IUSE=+asm +berkdb dbus +external-signer kde knots nat-pmp +qrcode sqlite systemtap test upnp +wallet zeromq
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=>=dev-libs/boost-1.64.0:=[threads(+)] >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 virtual/bitcoin-leveldb dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= nat-pmp? ( net-libs/libnatpmp ) qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
+REQUIRED_USE=sqlite? ( wallet ) berkdb? ( wallet ) wallet? ( || ( berkdb sqlite ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bitcoin/bitcoin/archive/a0988140b71485ad12c3c3a4a9573f7c21b1eff8.tar.gz -> bitcoin-v22.0.tar.gz https://bitcoinknots.org/files/22.x/22.0.knots20211108/bitcoin-22.0.knots20211108.patches.txz -> bitcoin-22.0.knots20211108.patches.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	bash-completion-r1	d3a60385655d9b402be765a6de333245	db-use	063d3e7add942762a8203b52ec3066c2	desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=668bcceefd4aeb311983d606c1b2054f
