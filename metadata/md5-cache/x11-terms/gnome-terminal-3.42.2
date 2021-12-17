@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/libxml2:2 dev-libs/libxslt dev-util/gdbus-codegen dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-libs/glib-2.52:2 >=x11-libs/gtk+-3.22.27:3 >=x11-libs/vte-0.64.0:2.91[!vanilla?] >=dev-libs/libpcre2-10 >=gnome-base/dconf-0.14 >=gnome-base/gsettings-desktop-schemas-0.1.0 sys-apps/util-linux gnome-shell? ( gnome-base/gnome-shell ) nautilus? ( >=gnome-base/nautilus-3.28.0 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=A terminal emulator for GNOME
+EAPI=7
+HOMEPAGE=https://wiki.gnome.org/Apps/Terminal/ https://gitlab.gnome.org/GNOME/gnome-terminal
+INHERIT=gnome.org gnome2-utils meson readme.gentoo-r1 xdg
+IUSE=debug +gnome-shell +nautilus vanilla
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3+
+RDEPEND=>=dev-libs/glib-2.52:2 >=x11-libs/gtk+-3.22.27:3 >=x11-libs/vte-0.64.0:2.91[!vanilla?] >=dev-libs/libpcre2-10 >=gnome-base/dconf-0.14 >=gnome-base/gsettings-desktop-schemas-0.1.0 sys-apps/util-linux gnome-shell? ( gnome-base/gnome-shell ) nautilus? ( >=gnome-base/nautilus-3.28.0 )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-terminal/3.42/gnome-terminal-3.42.2.tar.xz !vanilla? ( https://dev.gentoo.org/~mattst88/distfiles/gnome-terminal-3.42.2-cntr-ntfy-autottl-ts.patch.xz )
+_eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	xdg	6024fbc93167fad782e2032933654857
+_md5_=ca780ea9a700ee7ece403afb168a3304
