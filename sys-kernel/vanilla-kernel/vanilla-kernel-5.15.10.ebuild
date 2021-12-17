@@ -3,13 +3,13 @@
 
 EAPI=7
 
-inherit kernel-build verify-sig
+inherit kernel-build toolchain-funcs verify-sig
 
 MY_P=linux-${PV}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-CONFIG_VER=5.10.12
-CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
-GENTOO_CONFIG_VER=5.10.32
+CONFIG_VER=5.15.7
+CONFIG_HASH=75f4ca5dedd2fedad91907906fec606a61c4046b
+GENTOO_CONFIG_VER=5.15.5
 
 DESCRIPTION="Linux kernel built from vanilla upstream sources"
 HOMEPAGE="https://www.kernel.org/"
@@ -38,10 +38,9 @@ SRC_URI+=" https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.x
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="debug"
-REQUIRED_USE="
-	arm? ( savedconfig )"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="debug hardened"
+REQUIRED_USE="arm? ( savedconfig )"
 
 RDEPEND="
 	!sys-kernel/vanilla-kernel-bin:${SLOT}"
@@ -68,6 +67,8 @@ src_unpack() {
 src_prepare() {
 	default
 
+	local biendian=false
+
 	# prepare the default config
 	case ${ARCH} in
 		amd64)
@@ -78,9 +79,16 @@ src_prepare() {
 			;;
 		arm64)
 			cp "${DISTDIR}/kernel-aarch64-fedora.config.${CONFIG_VER}" .config || die
+			biendian=true
+			;;
+		ppc)
+			# assume powermac/powerbook defconfig
+			# we still package.use.force savedconfig
+			cp "${WORKDIR}"/linux-*/arch/powerpc/configs/pmac32_defconfig .config || die
 			;;
 		ppc64)
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
+			biendian=true
 			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
@@ -90,13 +98,32 @@ src_prepare() {
 			;;
 	esac
 
-	echo 'CONFIG_LOCALVERSION="-dist"' > "${T}"/version.config || die
+	local myversion="-dist"
+	use hardened && myversion+="-hardened"
+	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
+	local dist_conf_path="${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"
+
 	local merge_configs=(
 		"${T}"/version.config
-		"${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"/base.config
+		"${dist_conf_path}"/base.config
 	)
 	use debug || merge_configs+=(
-		"${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"/no-debug.config
+		"${dist_conf_path}"/no-debug.config
 	)
+	if use hardened; then
+		merge_configs+=( "${dist_conf_path}"/hardened-base.config )
+
+		tc-is-gcc && merge_configs+=( "${dist_conf_path}"/hardened-gcc-plugins.config )
+
+		if [[ -f "${dist_conf_path}/hardened-${ARCH}.config" ]]; then
+			merge_configs+=( "${dist_conf_path}/hardened-${ARCH}.config" )
+		fi
+	fi
+
+	# this covers ppc64 and aarch64_be only for now
+	if [[ ${biendian} == true && $(tc-endian) == big ]]; then
+		merge_configs+=( "${dist_conf_path}/big-endian.config" )
+	fi
+
 	kernel-build_merge_configs "${merge_configs[@]}"
 }

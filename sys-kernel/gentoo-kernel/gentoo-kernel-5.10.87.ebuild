@@ -10,11 +10,12 @@ GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 7 ))
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 CONFIG_VER=5.10.12
 CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
-GENTOO_CONFIG_VER=5.10.42
+GENTOO_CONFIG_VER=5.15.5
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="https://www.kernel.org/"
-SRC_URI+=" https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
+SRC_URI+="
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
 	https://github.com/mgorny/gentoo-kernel-config/archive/v${GENTOO_CONFIG_VER}.tar.gz
@@ -38,7 +39,7 @@ SRC_URI+=" https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.x
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="arm? ( savedconfig )"
 
@@ -49,7 +50,10 @@ BDEPEND="
 PDEPEND="
 	>=virtual/dist-kernel-${PV}"
 
-QA_FLAGS_IGNORED="usr/src/linux-.*/scripts/gcc-plugins/.*.so"
+QA_FLAGS_IGNORED="
+	usr/src/linux-.*/scripts/gcc-plugins/.*.so
+	usr/src/linux-.*/vmlinux
+"
 
 src_prepare() {
 	local PATCHES=(
@@ -57,6 +61,8 @@ src_prepare() {
 		"${WORKDIR}"/*.patch
 	)
 	default
+
+	local biendian=false
 
 	# prepare the default config
 	case ${ARCH} in
@@ -68,9 +74,16 @@ src_prepare() {
 			;;
 		arm64)
 			cp "${DISTDIR}/kernel-aarch64-fedora.config.${CONFIG_VER}" .config || die
+			biendian=true
+			;;
+		ppc)
+			# assume powermac/powerbook defconfig
+			# we still package.use.force savedconfig
+			cp "${WORKDIR}"/linux-*/arch/powerpc/configs/pmac32_defconfig .config || die
 			;;
 		ppc64)
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
+			biendian=true
 			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
@@ -101,5 +114,11 @@ src_prepare() {
 			merge_configs+=( "${dist_conf_path}/hardened-${ARCH}.config" )
 		fi
 	fi
+
+	# this covers ppc64 and aarch64_be only for now
+	if [[ ${biendian} == true && $(tc-endian) == big ]]; then
+		merge_configs+=( "${dist_conf_path}/big-endian.config" )
+	fi
+
 	kernel-build_merge_configs "${merge_configs[@]}"
 }
