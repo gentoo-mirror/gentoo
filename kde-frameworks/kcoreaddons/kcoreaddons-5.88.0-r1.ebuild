@@ -7,18 +7,21 @@ QTMIN=5.15.2
 inherit ecm kde.org xdg-utils
 
 DESCRIPTION="Framework for solving common problems such as caching, randomisation, and more"
+
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="fam nls"
 
-BDEPEND="
-	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
-"
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5[icu]
 	fam? ( virtual/fam )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	nls? ( >=dev-qt/qttranslations-${QTMIN}:5 )
+"
+BDEPEND="
+	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
+"
 
 src_configure() {
 	local mycmakeargs=(
