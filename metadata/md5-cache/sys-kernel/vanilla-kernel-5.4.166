@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://www.kernel.org/
 INHERIT=kernel-build verify-sig
 IUSE=debug savedconfig +initramfs test verify-sig
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc ~x86
 LICENSE=GPL-2
 PDEPEND=>=virtual/dist-kernel-5.4.166
 RDEPEND=!sys-kernel/vanilla-kernel-bin:5.4.166 || ( sys-kernel/installkernel-gentoo sys-kernel/installkernel-systemd-boot ) initramfs? ( >=sys-kernel/dracut-049-r3 ) virtual/libelf
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
 SLOT=5.4.166
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.166.tar.xz https://github.com/mgorny/gentoo-kernel-config/archive/v5.4.114.tar.gz -> gentoo-kernel-config-5.4.114.tar.gz verify-sig? ( https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.166.tar.sign ) amd64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-x86_64.config -> kernel-x86_64.config.5.4.21 ) arm64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-aarch64.config -> kernel-aarch64.config.5.4.21 ) ppc64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-ppc64le.config -> kernel-ppc64le.config.5.4.21 ) x86? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-i686.config -> kernel-i686.config.5.4.21 )
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	dist-kernel-utils	74074c49ea85735400eeaf6a3a348969	mount-boot	02a45c5e022c08dbc05178522b2772f2	kernel-install	de572f44bffdb7e6199595c2280b90ee	kernel-build	5f5dcb152079b8fd5773b438c9397f0b	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=1d1f1bf395d355c648c97c570596ba8b
+_md5_=6ab148de395725fd3c9c46925b983579

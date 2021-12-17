@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.19.8 dev-lang/perl test? ( || ( ( dev-lang/python:3.9 dev-python/pytest[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/pytest[python_targets_python3_8(-)] dev-python/requests[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.19.8 dev-lang/perl test? ( || ( ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/pytest[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/pytest[python_targets_python3_8(-)] dev-python/requests[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/glib-2.44:2 dev-libs/json-glib >=app-arch/libarchive-3.0.0:= net-libs/libsoup:2.4 >=dev-libs/libxml2-2.6.0
 DESCRIPTION=Tools for managing the osinfo database
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://releases.pagure.org/libosinfo/osinfo-db-tools-1.9.0.tar.xz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=9af8d2a33de3d4d98cf59e5542a64bf7
+_md5_=5025c61e2e05ce54e1ed7df1edb9b0a5
