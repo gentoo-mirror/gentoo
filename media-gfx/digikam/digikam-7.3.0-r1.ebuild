@@ -1,21 +1,22 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
-KFMIN=5.88.0
+KFMIN=5.74.0
 QTMIN=5.15.2
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	if [[ ${PV} =~ beta[0-9]$ ]]; then
+	MY_P=${PN}-${PV/_/-}
+	if [[ ${PV} =~ rc[0-9]*$ ]]; then
 		SRC_URI="mirror://kde/unstable/${PN}/"
 	else
 		SRC_URI="mirror://kde/stable/${PN}/${PV}/"
 	fi
-	SRC_URI+="digiKam-${PV/_/-}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${PN}-${PV/_/-}"
+	SRC_URI+="${MY_P}.tar.xz"
+	KEYWORDS="amd64 x86"
+	S="${WORKDIR}/${MY_P}"
 fi
 
 DESCRIPTION="Digital photo management application"
@@ -26,8 +27,16 @@ SLOT="5"
 IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop X"
 
 # bug 366505
-RESTRICT="test"
+RESTRICT+=" test"
 
+BDEPEND="
+	>=dev-util/cmake-3.14.3
+	sys-devel/gettext
+	panorama? (
+		sys-devel/bison
+		sys-devel/flex
+	)
+"
 COMMON_DEPEND="
 	dev-libs/expat
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -53,7 +62,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-gfx/exiv2-0.27:=
+	>=media-gfx/exiv2-0.27:=[xmp]
 	media-libs/lcms:2
 	media-libs/liblqr
 	media-libs/libpng:0=
@@ -98,13 +107,11 @@ RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql[server(+)] )
 	panorama? ( media-gfx/hugin )
 "
-BDEPEND="
-	sys-devel/gettext
-	panorama? (
-		sys-devel/bison
-		sys-devel/flex
-	)
-"
+
+PATCHES=(
+	"${FILESDIR}/${P}-cmake.patch"
+	"${FILESDIR}/${P}-akonadi-21.12.0.patch"
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -124,6 +131,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
 		-DENABLE_QWEBENGINE=ON
 		-DENABLE_AKONADICONTACTSUPPORT=$(usex addressbook)
+		-DENABLE_KFILEMETADATASUPPORT=$(usex semantic-desktop)
 		$(cmake_use_find_package calendar KF5CalendarCore)
 		$(cmake_use_find_package gphoto2 Gphoto2)
 		$(cmake_use_find_package heif X265)
@@ -137,7 +145,6 @@ src_configure() {
 		$(cmake_use_find_package opengl OpenGL)
 		$(cmake_use_find_package panorama KF5ThreadWeaver)
 		$(cmake_use_find_package scanner KF5Sane)
-		$(cmake_use_find_package semantic-desktop KF5FileMetaData)
 		$(cmake_use_find_package X X11)
 	)
 

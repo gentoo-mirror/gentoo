@@ -1,22 +1,21 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-KFMIN=5.74.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org toolchain-funcs
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	MY_P=${PN}-${PV/_/-}
-	if [[ ${PV} =~ rc[0-9]*$ ]]; then
+	if [[ ${PV} =~ beta[0-9]$ ]]; then
 		SRC_URI="mirror://kde/unstable/${PN}/"
 	else
 		SRC_URI="mirror://kde/stable/${PN}/${PV}/"
 	fi
-	SRC_URI+="${MY_P}.tar.xz"
-	KEYWORDS="amd64 x86"
-	S="${WORKDIR}/${MY_P}"
+	SRC_URI+="digiKam-${PV/_/-}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
 
 DESCRIPTION="Digital photo management application"
@@ -27,16 +26,8 @@ SLOT="5"
 IUSE="addressbook calendar gphoto2 heif +imagemagick +lensfun marble mediaplayer mysql opengl openmp +panorama scanner semantic-desktop X"
 
 # bug 366505
-RESTRICT+=" test"
+RESTRICT="test"
 
-BDEPEND="
-	>=dev-util/cmake-3.14.3
-	sys-devel/gettext
-	panorama? (
-		sys-devel/bison
-		sys-devel/flex
-	)
-"
 COMMON_DEPEND="
 	dev-libs/expat
 	>=dev-qt/qtconcurrent-${QTMIN}:5
@@ -62,7 +53,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
-	>=media-gfx/exiv2-0.27:=
+	>=media-gfx/exiv2-0.27:=[xmp]
 	media-libs/lcms:2
 	media-libs/liblqr
 	media-libs/libpng:0=
@@ -107,6 +98,15 @@ RDEPEND="${COMMON_DEPEND}
 	mysql? ( virtual/mysql[server(+)] )
 	panorama? ( media-gfx/hugin )
 "
+BDEPEND="
+	sys-devel/gettext
+	panorama? (
+		sys-devel/bison
+		sys-devel/flex
+	)
+"
+
+PATCHES=( "${FILESDIR}/${PN}-7.3.0-cmake.patch" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
