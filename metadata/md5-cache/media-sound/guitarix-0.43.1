@@ -1,15 +1,16 @@
-BDEPEND=|| ( dev-lang/python:3.10[threads(+)] dev-lang/python:3.9[threads(+)] dev-lang/python:3.8[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc nls? ( dev-util/intltool sys-devel/gettext ) ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup unpack
+BDEPEND=|| ( dev-lang/python:3.10[threads(+)] dev-lang/python:3.9[threads(+)] dev-lang/python:3.8[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc nls? ( dev-util/intltool sys-devel/gettext ) )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
 DEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Virtual guitar amplifier for Linux
 EAPI=7
 HOMEPAGE=https://guitarix.org/
-INHERIT=python-any-r1 waf-utils xdg git-r3
+INHERIT=python-any-r1 waf-utils xdg
 IUSE=bluetooth debug lv2 nls nsm +standalone zeroconf
+KEYWORDS=~amd64
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) standalone? ( media-fonts/roboto )
 REQUIRED_USE=|| ( lv2 standalone )
 SLOT=0
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	waf-utils	6dce9ffe7d6fe961321a99f8da53a887	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=fb127bc4b9bf0536a54aff82e45da2d8
+SRC_URI=mirror://sourceforge/guitarix/guitarix/guitarix2-0.43.1.tar.xz
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	waf-utils	6dce9ffe7d6fe961321a99f8da53a887	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=dfd890660a649196f7f3fb449e180b8a
