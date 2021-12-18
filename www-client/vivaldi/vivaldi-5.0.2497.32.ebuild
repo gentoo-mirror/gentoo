@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="94"
+CHROMIUM_VERSION="96"
 CHROMIUM_LANGS="
 	af
 	am
@@ -96,7 +96,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
@@ -131,7 +131,6 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
-	x11-libs/libxshmfence
 	x11-libs/pango[X]
 	proprietary-codecs? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 	widevine? ( www-plugins/chrome-binary-plugins )
@@ -176,7 +175,7 @@ src_prepare() {
 
 src_install() {
 	mv */ "${D}" || die
-	dosym /${VIVALDI_HOME}/${PN} /usr/bin/${PN}
+	dosym ../../${VIVALDI_HOME}/${PN} /usr/bin/${VIVALDI_PN}
 	fperms 4711 /${VIVALDI_HOME}/vivaldi-sandbox
 
 	local logo size
@@ -198,6 +197,8 @@ src_install() {
 		rm "${ED}"/${VIVALDI_HOME}/WidevineCdm || die
 	fi
 
-	[[ ${PN} = vivaldi-snapshot ]] &&
-		dosym ${PN} /${VIVALDI_HOME}/vivaldi
+	case ${PN} in
+		vivaldi) dosym ${VIVALDI_PN} /usr/bin/${PN} ;;
+		vivaldi-snapshot) dosym ${PN} /${VIVALDI_HOME}/vivaldi ;;
+	esac
 }

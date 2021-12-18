@@ -3,7 +3,7 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 11 12 )
+POSTGRES_COMPAT=( 12 13 14 )
 
 inherit postgres-multi cmake
 
@@ -25,6 +25,7 @@ DEPEND="${POSTGRES_DEP}
 RDEPEND="${DEPEND}"
 
 CMAKE_IN_SOURCE_BUILD=yes
+CMAKE_BUILD_TYPE="RelWithDebInfo"
 BUILD_DIR=${WORKDIR}/${P}
 
 src_prepare() {
