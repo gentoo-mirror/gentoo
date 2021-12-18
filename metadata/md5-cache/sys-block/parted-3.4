@@ -1,4 +1,4 @@
-BDEPEND=nls? ( >=sys-devel/gettext-0.12.1-r2 ) verify-sig? ( app-crypt/openpgp-keys-bcl ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=nls? ( >=sys-devel/gettext-0.12.1-r2 ) verify-sig? ( sec-keys/openpgp-keys-bcl ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=>=sys-fs/e2fsprogs-1.27 sys-apps/util-linux device-mapper? ( >=sys-fs/lvm2-2.02.45 ) readline? ( >=sys-libs/ncurses-5.7-r7:0= >=sys-libs/readline-5.2:0= ) elibc_uclibc? ( dev-libs/libiconv )
 DESCRIPTION=Create, destroy, resize, check, copy partitions and file systems
@@ -12,4 +12,4 @@ RDEPEND=>=sys-fs/e2fsprogs-1.27 sys-apps/util-linux device-mapper? ( >=sys-fs/lv
 SLOT=0
 SRC_URI=mirror://gnu/parted/parted-3.4.tar.xz verify-sig? ( mirror://gnu/parted/parted-3.4.tar.xz.sig )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=1b402a55a21a380d0e575a2fea08bd65
+_md5_=4e93b6391ef0fe3b900ec8387fd74c6e

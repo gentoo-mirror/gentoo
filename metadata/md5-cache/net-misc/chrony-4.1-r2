@@ -1,4 +1,4 @@
-BDEPEND=html? ( dev-ruby/asciidoctor ) nts? ( virtual/pkgconfig ) sechash? ( nettle? ( virtual/pkgconfig ) nss? ( virtual/pkgconfig ) ) verify-sig? ( >=app-crypt/openpgp-keys-mlichvar-20210513 ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=html? ( dev-ruby/asciidoctor ) nts? ( virtual/pkgconfig ) sechash? ( nettle? ( virtual/pkgconfig ) nss? ( virtual/pkgconfig ) ) verify-sig? ( >=sec-keys/openpgp-keys-mlichvar-20210513 ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst preinst prepare unpack
 DEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) libedit? ( dev-libs/libedit ) !libedit? ( sys-libs/readline:= ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) seccomp? ( sys-libs/libseccomp )
 DESCRIPTION=NTP client and server programs
@@ -13,4 +13,4 @@ REQUIRED_USE=sechash? ( || ( nettle nss libtomcrypt ) ) nettle? ( !nss ) nss? ( 
 SLOT=0
 SRC_URI=https://download.tuxfamily.org/chrony/chrony-4.1.tar.gz verify-sig? ( https://download.tuxfamily.org/chrony/chrony-4.1-tar-gz-asc.txt -> chrony-4.1.tar.gz.asc )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=b77b8230689591a43e30f9192fb2914a
+_md5_=b31224ef935c6100d0f5c0796e613134

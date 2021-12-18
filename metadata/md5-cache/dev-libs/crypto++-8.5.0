@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip verify-sig? ( app-crypt/openpgp-keys-crypto++ ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=app-arch/unzip verify-sig? ( sec-keys/openpgp-keys-crypto++ ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install prepare unpack
 DESCRIPTION=C++ class library of cryptographic schemes
 EAPI=7
@@ -10,4 +10,4 @@ LICENSE=Boost-1.0
 SLOT=0/8.5
 SRC_URI=https://www.cryptopp.com/cryptopp850.zip verify-sig? ( https://cryptopp.com/cryptopp850.zip.sig )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=899f2eae10a11d9f9944ed59a12b1f89
+_md5_=3bc01a41b6cceb9a4d071ab57f5d026b

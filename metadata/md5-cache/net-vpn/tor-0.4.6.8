@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( app-crypt/openpgp-keys-tor ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-tor ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install setup unpack
 DEPEND=dev-libs/libevent:=[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) dev-libs/openssl:0=[-bindist(-)] lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) test? ( dev-libs/libevent:=[ssl] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) dev-libs/openssl:0=[-bindist(-)] lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd ) zstd? ( app-arch/zstd ) || ( dev-lang/python:3.9 dev-lang/python:3.8 ) )
 DESCRIPTION=Anonymizing overlay network for TCP
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.torproject.org/dist/tor-0.4.6.8.tar.gz https://archive.torproject.org/tor-package-archive/tor-0.4.6.8.tar.gz verify-sig? ( https://dist.torproject.org/tor-0.4.6.8.tar.gz.asc )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=410271a18f45a43259236ef55b337f89
+_md5_=d4bd8f9bd9b3a8eaf6fe5badb5172361

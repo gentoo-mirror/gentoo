@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( app-crypt/openpgp-keys-midipix ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-midipix ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure unpack
 DESCRIPTION=A skinny libtool implementation, written in C
 EAPI=7
@@ -10,4 +10,4 @@ LICENSE=MIT
 SLOT=0
 SRC_URI=https://dl.midipix.org/slibtool/slibtool-0.5.34.tar.xz verify-sig? ( https://dl.midipix.org/slibtool/slibtool-0.5.34.tar.xz.sig )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=3cc46f1adcedf74edb1f9477e703a9ea
+_md5_=c0d0516f425b77db45a45535781712d0

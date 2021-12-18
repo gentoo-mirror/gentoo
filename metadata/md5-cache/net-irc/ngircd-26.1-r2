@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( app-crypt/openpgp-keys-alexbarton ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( sec-keys/openpgp-keys-alexbarton ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=acct-user/ngircd acct-group/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
 DESCRIPTION=An IRC server written from scratch
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.gz verify-sig? ( https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.gz.sig )
 _eclasses_=verify-sig	c777c0c815c60c9460f1ded02a8edb0a
-_md5_=fb0535dbfaff751e61cbe86c652043d9
+_md5_=2e866d8b68c687adaa0c575e92b70077
