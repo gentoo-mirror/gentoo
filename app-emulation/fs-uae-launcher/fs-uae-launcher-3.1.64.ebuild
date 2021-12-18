@@ -11,7 +11,7 @@ inherit distutils-r1 xdg
 
 DESCRIPTION="PyQt5-based launcher for FS-UAE"
 HOMEPAGE="https://fs-uae.net/"
-SRC_URI="https://github.com/FrodeSolheim/fs-uae-launcher/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://fs-uae.net/files/FS-UAE-Launcher/Stable/${PV}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64"
@@ -35,16 +35,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.0-ROMs.patch
 )
-
-src_prepare() {
-	default
-	python bootstrap
-
-	# Unbundle OpenGL library. Keep oyoyo IRC library because upstream
-	# is long dead and it's not worth packaging separately.
-	rm -r OpenGL/ || die
-	sed -i -r "/OpenGL/d" setup.py || die
-}
 
 python_compile_all() {
 	emake
