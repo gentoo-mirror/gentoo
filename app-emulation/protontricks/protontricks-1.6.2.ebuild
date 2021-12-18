@@ -5,12 +5,13 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 DISTUTILS_SINGLE_IMPL=1
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
 DESCRIPTION="app-emulation/winetricks wrapper for Proton (Steam Play) games"
 HOMEPAGE="https://github.com/Matoking/protontricks"
-SRC_URI="https://github.com/Matoking/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -27,10 +28,9 @@ RDEPEND="app-emulation/winetricks
 			app-emulation/winetricks[kde]
 		)
 	)"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.5.0_no-setuptools-scm.patch
-)
+BDEPEND="$(python_gen_cond_dep '
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+')"
 
 DOCS=( CHANGELOG.md README.md )
 
