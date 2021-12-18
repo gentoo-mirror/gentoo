@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ DESCRIPTION="Mstflint - an open source version of MFT (Mellanox Firmware Tools)"
 HOMEPAGE="https://github.com/Mellanox/mstflint"
 LICENSE="|| ( GPL-2 BSD-2 )"
 KEYWORDS="~amd64 ~x86"
-EGIT_COMMIT="f8056f78a64debbdbb2522db7181848b9203e428"
+EGIT_COMMIT="ab6f72086a2aa3a07629536fa091141f40a6f0c0"
 MY_PV=${PV/_p/-}
 MY_P=""
 SRC_URI="https://github.com/Mellanox/mstflint/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
