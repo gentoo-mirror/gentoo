@@ -1,4 +1,4 @@
-BDEPEND=|| ( ( dev-lang/python:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-)] ) ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( ( dev-lang/python:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/jinja[python_targets_python3_8(-)] ) ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst setup test unpack
 DESCRIPTION=PAM base configuration files
 EAPI=7
@@ -12,4 +12,4 @@ REQUIRED_USE=?? ( elogind systemd ) ?? ( passwdqc pwquality ) ?? ( sha512 yescry
 RESTRICT=binchecks
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	pam	41ce39f668e11d31ff4734f3b5794f7d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=b173c2e1b22f56820fa9f5706ec9c0bd
+_md5_=208e6f050001716a77cea38948debc9d
