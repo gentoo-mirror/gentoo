@@ -15,19 +15,20 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/gentoo/pambase.git"
 else
 	SRC_URI="https://github.com/gentoo/pambase/archive/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	S="${WORKDIR}/${PN}-${P}"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="caps debug elogind gnome-keyring homed minimal mktemp +nullok pam_krb5 pam_ssh +passwdqc pwhistory pwquality securetty selinux +sha512 systemd"
+IUSE="caps debug elogind gnome-keyring homed minimal mktemp +nullok pam_krb5 pam_ssh +passwdqc pwhistory pwquality securetty selinux +sha512 systemd yescrypt"
 
 RESTRICT="binchecks"
 
 REQUIRED_USE="
 	?? ( elogind systemd )
 	?? ( passwdqc pwquality )
+	?? ( sha512 yescrypt )
 	pwhistory? ( || ( passwdqc pwquality ) )
 	homed? ( !pam_krb5 )
 	pam_krb5? ( !homed )
@@ -52,6 +53,7 @@ RDEPEND="
 	sha512? ( >=sys-libs/pam-${MIN_PAM_REQ} )
 	homed? ( sys-apps/systemd[homed] )
 	systemd? ( sys-apps/systemd[pam] )
+	yescrypt? ( sys-libs/libxcrypt[system] )
 "
 
 BDEPEND="$(python_gen_any_dep '
