@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=toolchain-funcs toolchain
 IUSE=+ada +bootstrap test vanilla +nls debug +cxx +nptl +fortran doc hardened multilib objc pgo objc-gc libssp objc++ +openmp fixed-point go +sanitize graphite ada vtv jit +pie +ssp +pch systemtap d lto
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) FDL-1.3+ GPL-2 GPL-3
 PDEPEND=elibc_glibc? ( >=sys-libs/glibc-2.13 ) >=sys-devel/gcc-config-2.3
 RDEPEND=!sys-devel/gcc:9.3.1 sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=9.3.1
 SRC_URI=https://community.download.adacore.com/v1/649a561ec6de9e476c54b02715b79f7503600ce5?filename=gnat-2020-20200429-19B04-src.tar.gz -> gnat-2020-20200429-19B04-src.tar.gz https://community.download.adacore.com/v1/e6b6a3e318e13248456bd37b758435e602b367da?filename=gcc-9-2020-20200429-19AA7-src.tar.gz -> gcc-9-2020-20200429-19AA7-src.tar.gz https://community.download.adacore.com/v1/c7a97636b31f3575df85f1eb0965462a353630dd?filename=gcc-interface-9-2020-20200429-19B10-src.tar.gz -> gcc-interface-9-2020-20200429-19B10-src.tar.gz bootstrap? ( amd64? ( http://mirrors.cdn.adacore.com/art/564b3ebec8e196b040fbe66c -> gnat-gpl-2014-x86_64-linux-bin.tar.gz ) x86? ( http://mirrors.cdn.adacore.com/art/564b3e9dc8e196b040fbe248 -> gnat-gpl-2014-x86-linux-bin.tar.gz ) ) https://dev.gentoo.org/~soap/distfiles/gcc-9.3.0-patches-5.tar.bz2 https://dev.gentoo.org/~sam/distfiles/gcc-9.3.0-patches-5.tar.bz2 https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-9.3.0-patches-5.tar.bz2 https://dev.gentoo.org/~tamiko/distfiles/gcc-9.3.0-patches-5.tar.bz2 https://dev.gentoo.org/~zorry/patches/gcc/gcc-9.3.0-patches-5.tar.bz2 https://dev.gentoo.org/~vapier/dist/gcc-9.3.0-patches-5.tar.bz2 https://dev.gentoo.org/~blueness/dist/gcc-9.3.0-patches-5.tar.bz2 mirror://gentoo/gcc-9.3.0-patches-5.tar.bz2
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	toolchain	57769187c59c435e0e0ec281fd5abd06
-_md5_=cafdd5ea8b05ca237ed67cc84d2f3ec1
+_md5_=9204bdac5e41aa901db39c4a1f328db2

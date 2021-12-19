@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing
 IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=dev-ada/xmlada[shared?,static-libs?,static-pic?,ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?] !net-libs/grpc
 REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 ) || ( shared static-libs static-pic )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/23a77a37247ff811609e23a0a271f445c299fc8f?filename=gprbuild-2021-20210519-19A34-src.tar.gz -> gprbuild-2021-20210519-19A34-src.tar.gz
 _eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=f69780e435041300e049f6d2a2f207a1
+_md5_=154edec8b69e42d36b5d44d03d86359b
