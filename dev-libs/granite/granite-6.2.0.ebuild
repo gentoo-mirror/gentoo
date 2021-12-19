@@ -13,17 +13,12 @@ HOMEPAGE="https://github.com/elementary/granite"
 SRC_URI="https://github.com/elementary/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3+"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="doc"
 
 BDEPEND="
 	$(vala_depend)
 	virtual/pkgconfig
-	doc? (
-		>=dev-lang/vala-0.40.20[valadoc]
-		dev-util/gtk-doc
-	)
 "
 DEPEND="
 	>=dev-libs/glib-2.50:2
@@ -35,26 +30,12 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 	vala_src_prepare
-
-	# Fix docs
-	sed -i "s/find_program('valadoc')/find_program('valadoc-$(vala_best_api_version)')/g" doc/meson.build \
-		|| die "Failed to replace valadoc"
-	find lib/Widgets -type f -name "*.vala" -exec sed -ie "s@{{../doc@{{${BUILD_DIR}/doc@g" {} \; \
-		|| die "Failed to fix docs"
 }
 
 src_configure() {
+	# docs disabled due to: https://github.com/elementary/granite/issues/482
 	local emesonargs=(
-		$(meson_use doc documentation)
+		-Ddocumentation=false
 	)
 	meson_src_configure
-
-	if use doc; then
-		cp -r ./doc/images "${BUILD_DIR}/doc/" || die "Failed to copy doc images"
-	fi
-}
-
-src_install() {
-	use doc && local HTML_DOCS=( "${BUILD_DIR}/doc/granite/html/." )
-	meson_src_install
 }
