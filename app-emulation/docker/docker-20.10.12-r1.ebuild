@@ -4,7 +4,7 @@
 EAPI=7
 EGO_PN=github.com/docker/docker
 MY_PV=${PV/_/-}
-GIT_COMMIT=e2f740de44
+GIT_COMMIT=459d0dfbbb
 inherit linux-info systemd udev golang-vcs-snapshot
 
 DESCRIPTION="The core functions you need to create Docker images and run Docker containers"
@@ -37,15 +37,15 @@ RDEPEND="
 	>=dev-vcs/git-1.7
 	>=app-arch/xz-utils-4.9
 	dev-libs/libltdl
-	>=app-emulation/containerd-1.4.11[apparmor?,btrfs?,device-mapper?,seccomp?]
+	>=app-emulation/containerd-1.4.12[apparmor?,btrfs?,device-mapper?,seccomp?]
 	~app-emulation/docker-proxy-0.8.0_p20210525
-	cli? ( app-emulation/docker-cli )
+	cli? ( ~app-emulation/docker-cli-${PV} )
 	container-init? ( >=sys-process/tini-0.19.0[static] )
 "
 
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#build-dependencies
 BDEPEND="
-	>=dev-lang/go-1.16.9
+	>=dev-lang/go-1.16.12
 	dev-go/go-md2man
 	virtual/pkgconfig
 "
