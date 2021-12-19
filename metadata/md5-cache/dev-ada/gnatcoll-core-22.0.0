@@ -8,8 +8,8 @@ IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=|| ( >=dev-ada/libgpr-2021 ~dev-ada/libgpr-22.0.0 ) dev-ada/libgpr:=[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?]
-REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0/22.0.0
 SRC_URI=https://github.com/AdaCore/gnatcoll-core/archive/refs/tags/v22.0.0.tar.gz -> gnatcoll-core-22.0.0.tar.gz
 _eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=fb305760bba08ce651e0b332446c6435
+_md5_=3c25da02542c8f2cb6cae23d7f01b1f0
