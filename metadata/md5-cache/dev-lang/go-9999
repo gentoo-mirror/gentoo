@@ -2,7 +2,7 @@ BDEPEND=|| ( dev-lang/go dev-lang/go-bootstrap ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=A concurrent garbage collected and typesafe programming language
 EAPI=7
-HOMEPAGE=https://golang.org
+HOMEPAGE=https://go.dev
 INHERIT=toolchain-funcs git-r3
 IUSE=cpu_flags_x86_sse2
 LICENSE=BSD
@@ -11,4 +11,4 @@ RDEPEND=!<dev-go/go-tools-0_pre20150902
 RESTRICT=strip
 SLOT=0/9999
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=4e4ef00477182fc0d6fbbb52efb7cfa1
+_md5_=9328c7b8acb004234873296fa76d69eb
