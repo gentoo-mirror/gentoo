@@ -56,6 +56,8 @@ RDEPEND="${DEPEND}
 	crypt? ( >=app-crypt/qca-2.3.0:2[ssl] )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-21.08.3-fix-case-sensitive-tap-compl.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package crypt Qca-qt5)
