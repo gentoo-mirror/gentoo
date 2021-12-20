@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst postrm preinst prerm pretend
+DEPEND=dev-libs/openssl:0=[-bindist(-)]
+DESCRIPTION=Performs a measured and verified boot using Intel Trusted Execution Technology
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/tboot/
+INHERIT=mount-boot toolchain-funcs
+IUSE=custom-cflags selinux
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:0=[-bindist(-)] sys-boot/grub:2 selinux? ( sec-policy/selinux-tboot )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://sourceforge/tboot/tboot-1.10.3.tar.gz
+_eclasses_=mount-boot	02a45c5e022c08dbc05178522b2772f2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=ff7250af1f49548a8c61f6f1977ba4ea
