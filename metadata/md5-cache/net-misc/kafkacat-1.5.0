@@ -2,7 +2,7 @@ DEFINED_PHASES=configure install
 DEPEND=>=dev-libs/librdkafka-0.9.4 avro? ( dev-libs/avro-c dev-libs/libserdes ) json? ( dev-libs/yajl )
 DESCRIPTION=Generic command line non-JVM Apache Kafka producer and consumer
 EAPI=6
-HOMEPAGE=https://github.com/edenhill/kafkacat
+HOMEPAGE=https://github.com/edenhill/kcat
 INHERIT=toolchain-funcs
 IUSE=+avro +json
 KEYWORDS=amd64
@@ -11,4 +11,4 @@ RDEPEND=>=dev-libs/librdkafka-0.9.4 avro? ( dev-libs/avro-c dev-libs/libserdes )
 SLOT=0
 SRC_URI=https://github.com/edenhill/kafkacat/archive/1.5.0.tar.gz -> kafkacat-1.5.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=fe6983128e22bf68e3ff3a6f5e8f6c4f
+_md5_=4a0074cd6fbc884da22aaa4440e37d66
