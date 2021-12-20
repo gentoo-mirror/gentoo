@@ -306,7 +306,7 @@ acct-group/redis 0-r1: Redis program group
 acct-group/redis_exporter 0: System group: redis_exporter
 acct-group/redmine 0-r1: System group: redmine
 acct-group/redsocks 0-r1: A group for net-proxy/redsocks
-acct-group/reg 0-r1: A group for app-emulation/reg
+acct-group/reg 0-r1: A group for app-containers/reg
 acct-group/registry 0: A group for app-containers/docker-registry
 acct-group/render 0-r1: System group: render
 acct-group/resin 0: A group for www-servers/resin
@@ -740,7 +740,7 @@ acct-user/redis 0-r1: Redis program user
 acct-user/redis_exporter 0: A user for app-metrics/redis_exporter
 acct-user/redmine 0-r1: Redmine application user
 acct-user/redsocks 0-r1: A user for net-proxy/redsocks
-acct-user/reg 0-r1: A user for app-emulation/reg
+acct-user/reg 0-r1: A user for app-containers/reg
 acct-user/registry 0: A user for app-containers/docker-registry
 acct-user/root 0-r1: System user: root
 acct-user/ros 0: A user for dev-ros/roslaunch
@@ -1323,12 +1323,14 @@ app-containers/docker-gc 9999: Docker garbage collection of containers and image
 app-containers/docker-proxy 0.8.0_p20210525: Docker container networking
 app-containers/docker-registry 2.7.1-r1: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
+app-containers/flannel 0.11.0 0.14.0: An etcd backed network fabric for containers
 app-containers/go-secbench 0.1.0 0.1.0-r1: run and evaluate the docker security benchmark
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
 app-containers/k3d 4.4.2: k3d creates k3s clusters in docker
 app-containers/kompose 1.22.0: Tool to move from docker-compose to Kubernetes
 app-containers/nerdctl 0.14.0 0.15.0: Docker-compatible CLI for containerd, with support for Compose
 app-containers/podman 3.3.1 3.4.0 3.4.1 3.4.2 3.4.3 3.4.4: Library and podman tool for running OCI-based containers in Pods
+app-containers/reg 0.16.1: Docker registry v2 command line client
 app-containers/runc 1.0.2-r1 1.0.3: runc container cli tools
 app-containers/s6-overlay 1.18.1.3 2.1.0.2-r1: an s6-based init system for containers
 app-containers/sen 0.6.1_p20200905: Terminal User Interface for docker engine
@@ -2417,7 +2419,6 @@ app-emulation/dynamips 0.2.21: Cisco 7200/3600 Simulator
 app-emulation/edumips64 1.2: A visual and cross-platform MIPS64 CPU Simulator
 app-emulation/faudio 21.01 9999: FAudio - Accuracy-focused XAudio reimplementation for open platforms
 app-emulation/firecracker-bin 0.24.5 0.25.0 0.25.1 0.25.2: Secure and fast microVMs for serverless computing (static build)
-app-emulation/flannel 0.11.0 0.14.0: An etcd backed network fabric for containers
 app-emulation/free42 2.5.24 3.0.3 3.0.5 3.0.6 3.0.7: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.35 3.1.62: Integrates the most accurate Amiga emulation code available from WinUAE
 app-emulation/fs-uae-launcher 3.1.63 3.1.64: PyQt5-based launcher for FS-UAE
@@ -2454,7 +2455,6 @@ app-emulation/qemu 6.1.0-r2 6.2.0 9999: QEMU + Kernel-based Virtual Machine user
 app-emulation/qemu-guest-agent 4.2.0-r1 5.0.0 6.0.0: QEMU Guest Agent (qemu-ga) for use when running inside a VM
 app-emulation/qemu-init-scripts 0.3.0-r1: Kvm and qemu init scripts
 app-emulation/qemu-riscv64-bin 5.0.0: Statically linked x86-64 binary of app-emulation/qemu, riscv64 emulator
-app-emulation/reg 0.16.1: Docker registry v2 command line client
 app-emulation/ruffle 0_p20211214 9999: Flash Player emulator written in Rust
 app-emulation/runv 0.7.0: Hypervisor-based Runtime for OCI
 app-emulation/simh 3.11.1: a simulator for historical computers such as Vax, PDP-11 etc.)
