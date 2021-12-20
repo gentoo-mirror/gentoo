@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-signify ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=install unpack
 DESCRIPTION=Signify keys used to sign signify portable releases
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=public-domain
 SLOT=30
 SRC_URI=https://github.com/aperezdc/signify/raw/cb113fe442f84ab7d4ac95b44c49812001e32350/keys/signifyportable.pub -> signify-30.pub verify-sig? ( https://github.com/aperezdc/signify/raw/cb113fe442f84ab7d4ac95b44c49812001e32350/keys/signifyportable.pub.asc -> signify-30.pub.asc )
 _eclasses_=verify-sig	5cf1b4c749926e7fdeef16c8c3245267
-_md5_=ddff5159224fa58af5fc93a28c55301e
+_md5_=3c45a6a5daa8842e40f344d74cec0aa2
