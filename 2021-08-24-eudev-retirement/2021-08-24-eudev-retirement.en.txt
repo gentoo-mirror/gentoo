@@ -25,10 +25,10 @@ will still have to rely on eudev before also being removed on 2022-01-01.
 
   **WARNING 1**
 
-If you happen to have an INSTALL_MASK with a blanket "*systemd*" glob,
-you will inevitably break your system. sys-fs/udev contains "systemd" in
-some of its filenames, hence a blanket filter rule will likely lead to
-a non-functional udev installation.
+If you happen to have an INSTALL_MASK including "systemd", e.g. a
+blanket "*systemd*" glob, you will inevitably break your system. sys-fs/udev
+contains "systemd" in some of its filenames, hence a blanket filter rule will
+likely lead to a non-functional udev installation.
 
 Please also verify you do not have "sys-fs/udev" in package.mask.
 
