@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-LUA_COMPAT=( lua5-1 )
+LUA_COMPAT=( lua5-4 )
 
-inherit lua-single toolchain-funcs xdg-utils
+inherit lua-single toolchain-funcs xdg
 
 DESCRIPTION="A very powerful, highly configurable, small editor with syntax coloring"
 HOMEPAGE="https://www.scintilla.org/SciTE.html"
@@ -13,15 +13,16 @@ SRC_URI="https://www.scintilla.org/${PN}${PV//./}.tgz -> ${P}.tgz"
 
 LICENSE="HPND lua? ( MIT )"
 SLOT="0"
-KEYWORDS="amd64 ppc x86 ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~riscv ~x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="lua"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 RDEPEND="
+	dev-libs/atk
 	dev-libs/glib:2
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/pango
 	lua? ( ${LUA_DEPS} )"
@@ -101,6 +102,7 @@ src_compile() {
 	tc-is-clang && emake_pars+=("CLANG=1")
 	use !lua    && emake_pars+=("NO_LUA=1")
 
+	emake -C "${WORKDIR}/lexilla/src" "${emake_pars[@]}"
 	emake -C "${WORKDIR}/scintilla/gtk" "${emake_pars[@]}"
 	emake "${emake_pars[@]}"
 }
@@ -110,14 +112,4 @@ src_compile() {
 src_install() {
 	default
 	dosym SciTE /usr/bin/scite
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
 }

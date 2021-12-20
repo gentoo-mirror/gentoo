@@ -15,7 +15,6 @@ SLOT="0/${PV%%.*}"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
-	+voicemail_storage_file
 	voicemail_storage_odbc
 	voicemail_storage_imap
 )
@@ -23,7 +22,6 @@ IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster 
 IUSE_EXPAND="VOICEMAIL_STORAGE"
 REQUIRED_USE="gtalk? ( xmpp )
 	lua? ( ${LUA_REQUIRED_USE} )
-	^^ ( ${IUSE_VOICEMAIL_STORAGE[*]//+/} )
 	voicemail_storage_odbc? ( odbc )
 "
 
@@ -109,6 +107,7 @@ QA_DT_NEEDED="/usr/lib.*/libasteriskssl[.]so[.][0-9]\+"
 _make_args=(
 	"NOISY_BUILD=yes"
 	"ASTDBDIR=\$(ASTDATADIR)/astdb"
+	"ASTVARRUNDIR=/run/asterisk"
 	"ASTCACHEDIR=/var/cache/asterisk"
 	"OPTIMIZE="
 	"DEBUG="
@@ -251,9 +250,10 @@ src_configure() {
 	_use_select xmpp         res_xmpp
 
 	# Voicemail storage ...
+	_menuselect --enable app_voicemail menuselect.makeopts
 	for vmst in "${IUSE_VOICEMAIL_STORAGE[@]}"; do
 		if use "${vmst#+}"; then
-			_menuselect --enable "$(echo "${vmst##*_}" | tr '[:lower:]' '[:upper:]')_STORAGE" menuselect.makeopts
+			_menuselect --enable "app_voicemail_${vmst##*_}" menuselect.makeopts
 		fi
 	done
 
@@ -286,7 +286,7 @@ src_install() {
 	diropts -m 0750 -o root -g asterisk
 	dodir /etc/asterisk
 
-	emake "${_make_args[@]}" install install-configs
+	emake "${_make_args[@]}" install install-headers install-configs
 
 	fowners asterisk: /var/lib/asterisk/astdb
 
@@ -301,11 +301,11 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newinitd "${FILESDIR}"/initd-16.16.2-r1 asterisk
+	newinitd "${FILESDIR}"/initd-16.22.0-18.8.0 asterisk
 	newconfd "${FILESDIR}"/confd-16.16.2-r1 asterisk
 
 	systemd_dounit "${FILESDIR}"/asterisk.service
-	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles3.conf asterisk.conf
+	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles-16.22.0-18.8.0.conf asterisk.conf
 	systemd_install_serviced "${FILESDIR}"/asterisk.service.conf
 
 	# Reset diropts else dodoc uses it for doc installations.
