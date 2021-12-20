@@ -12,7 +12,7 @@ S="${WORKDIR}/${PN}-intel-${P}"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/0"
 IUSE="+custom-cflags test"
 RESTRICT="!test? ( test )"
 
