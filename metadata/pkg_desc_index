@@ -903,7 +903,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.5 1.22.14 1.22.23 1.22.24: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.5 1.22.14 1.22.23 1.22.24 1.22.25: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.2 1.28.3: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8274,7 +8274,7 @@ dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.2_p20201029: Simple lru_cache for asyncio
 dev-python/async_generator 1.10-r1: Making it easy to write async iterators in Python 3.5
-dev-python/async_timeout 3.0.1 4.0.1: Timeout context manager for asyncio programs
+dev-python/async_timeout 3.0.1 4.0.1 4.0.2: Timeout context manager for asyncio programs
 dev-python/asyncstdlib 3.10.2: The missing async toolbox
 dev-python/atomicwrites 1.4.0-r1: Atomic file writes
 dev-python/atpublic 2.3: A decorator to populate __all__ and the module globals
@@ -8326,8 +8326,8 @@ dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.20.5 1.20.14 1.20.23 1.20.24 9999: The AWS SDK for Python
-dev-python/botocore 1.23.5 1.23.14 1.23.23 1.23.24 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.20.5 1.20.14 1.20.23 1.20.24 1.20.25 9999: The AWS SDK for Python
+dev-python/botocore 1.23.5 1.23.14 1.23.23 1.23.24 1.23.25 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2-r1: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8541,7 +8541,7 @@ dev-python/feedparser 6.0.8: Parse RSS and Atom feeds in Python
 dev-python/fido2 0.9.3: Python based FIDO 2.0 library
 dev-python/fields 5.0.0-r2: Container class boilerplate killer
 dev-python/filelock 3.4.0: A platform independent file lock for Python
-dev-python/filetype 1.0.8: Small, dependency-free, fast Python package to infer binary file types checking
+dev-python/filetype 1.0.8 1.0.9: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.1.0 2.2.0: Python module import analysis tool
 dev-python/fitsio 0.9.11: Python library to read from and write to FITS files
 dev-python/fixtures 3.0.0-r1: Fixtures, reusable state for writing clean tests and more
@@ -8650,10 +8650,10 @@ dev-python/httmock 1.4.0: A mocking library for requests
 dev-python/http-parser 0.9.0: HTTP request/response parser for python in C
 dev-python/httpauth 0.3: A WSGI middleware that secures routes using HTTP Digest Authentication
 dev-python/httpbin 0.7.0-r2: HTTP Request and Response Service
-dev-python/httpcore 0.13.7: A minimal low-level HTTP client
+dev-python/httpcore 0.13.7 0.14.3: A minimal low-level HTTP client
 dev-python/httplib2 0.20.2: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4: HTTP client mock for Python
-dev-python/httpx 0.19.0: Fully-featured HTTP client which provides sync and async APIs
+dev-python/httpx 0.19.0 0.21.1: Fully-featured HTTP client which provides sync and async APIs
 dev-python/huawei-lte-api 1.5.2: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0: Human friendly output for text interfaces using Python
 dev-python/humanize 3.12.0-r2 3.13.0 3.13.1: Common humanization utilities
@@ -8739,7 +8739,7 @@ dev-python/jsonpickle 2.0.0: Python library for serializing any arbitrary object
 dev-python/jsonpointer 2.2: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 0.1: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
-dev-python/jsonschema 3.2.0-r1 4.2.1-r1 4.3.0 4.3.1: An implementation of JSON-Schema validation for Python
+dev-python/jsonschema 3.2.0-r1 4.2.1-r1 4.3.0 4.3.1 4.3.2: An implementation of JSON-Schema validation for Python
 dev-python/jsonxs 0.6: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9: Create JUnit XML test result documents
 dev-python/jupyter 1.0.0-r3: Jupyter metapackage. Install all the Jupyter components in one go
@@ -9015,7 +9015,7 @@ dev-python/poyo 0.5.0: A lightweight YAML Parser for Python
 dev-python/precis-i18n 1.0.3: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r1: A library for stubbing in Python
 dev-python/pretty-yaml 21.10.1: PyYAML-based module to produce pretty and readable YAML-serialized data
-dev-python/prettytable 0.7.2-r1 2.2.1-r1 2.3.0 2.4.0-r1: Easily displaying tabular data in a visually appealing ASCII table format
+dev-python/prettytable 0.7.2-r1 2.2.1-r1 2.3.0 2.4.0-r1 2.5.0: Easily displaying tabular data in a visually appealing ASCII table format
 dev-python/priority 1.3.0 2.0.0: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 2.1.2: Tools for testing processes
 dev-python/progress 1.6: Easy to use progress bars
@@ -9215,7 +9215,7 @@ dev-python/pytest-freezegun 0.4.2: Easily freeze time in pytest test + fixtures
 dev-python/pytest-helpers-namespace 2021.3.24: Provides a helpers pytest namespace
 dev-python/pytest-html 3.1.1: Plugin for generating HTML reports for py.test results
 dev-python/pytest-httpbin 1.0.0-r1: Easily test your HTTP library against a local copy of httpbin
-dev-python/pytest-httpx 0.13.0: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.13.0 0.17.1: Send responses to HTTPX using pytest
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.1.2: A PyTest plugin which provides an FTP fixture for your tests
 dev-python/pytest-localserver 0.5.1: Pytest plugin to test server connections locally
@@ -9440,7 +9440,7 @@ dev-python/serpent 1.40: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.2.2: Allow customization of the process title
-dev-python/setuptools 57.5.0 59.2.0 59.4.0 59.5.0 59.6.0 59.8.0 60.0.0: Collection of extensions to Distutils
+dev-python/setuptools 57.5.0 59.2.0 59.4.0 59.5.0 59.6.0 59.8.0 60.0.0 60.0.2: Collection of extensions to Distutils
 dev-python/setuptools-git 1.2-r2: Setuptools revision control system plugin for Git
 dev-python/setuptools_rust 0.12.1: a plugin for setuptools to build Rust Python extensions
 dev-python/setuptools_scm 6.0.1-r1 6.3.2: Manage versions by scm tags via setuptools
