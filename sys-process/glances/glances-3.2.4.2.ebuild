@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
+DISTUTILS_SINGLE_IMPL=1
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
 PYTHON_REQ_USE="ncurses"
 
 inherit distutils-r1 linux-info optfeature
@@ -14,13 +15,17 @@ SRC_URI="https://github.com/nicolargo/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND="
-	dev-python/defusedxml[${PYTHON_USEDEP}]
-	dev-python/future[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.4.3[${PYTHON_USEDEP}]"
+	$(python_gen_cond_dep '
+		dev-python/defusedxml[${PYTHON_USEDEP}]
+		dev-python/future[${PYTHON_USEDEP}]
+		dev-python/packaging[${PYTHON_USEDEP}]
+		>=dev-python/psutil-5.4.3[${PYTHON_USEDEP}]
+	')
+"
 
 # PYTHON_USEDEP omitted on purpose
 BDEPEND="doc? ( dev-python/sphinx_rtd_theme )"
@@ -60,7 +65,6 @@ pkg_postinst() {
 	#optfeature "Action script feature" dev-python/pystache
 	optfeature "Autodiscover mode" dev-python/zeroconf
 	optfeature "Cloud support" dev-python/requests
-	optfeature "Quicklook CPU info" dev-python/py-cpuinfo
 	optfeature "Docker monitoring support" dev-python/docker-py
 	#optfeature "Export module" \
 	#	unpackaged/bernhard \
