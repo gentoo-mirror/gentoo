@@ -10,11 +10,12 @@ SRC_URI="mirror://debian/pool/main/d/${PN}/${P/-/_}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 hppa ~ia64 ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="+bzip2 libmd +lzma nls selinux static-libs test unicode +update-alternatives +zlib"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	>=app-arch/gzip-1.7
 	>=dev-lang/perl-5.14.2:=
 	bzip2? ( app-arch/bzip2 )
 	libmd? ( app-crypt/libmd )
@@ -47,7 +48,6 @@ DOCS=(
 )
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.18.12-flags.patch
-	"${FILESDIR}"/${PN}-1.18.12-rsyncable.patch
 	"${FILESDIR}"/${PN}-1.20.5-dpkg_buildpackage-test.patch
 )
 
