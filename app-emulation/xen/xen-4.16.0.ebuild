@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit flag-o-matic mount-boot python-any-r1 toolchain-funcs
 
@@ -15,8 +15,8 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm -x86"
-	UPSTREAM_VER=0
+	KEYWORDS="~amd64 ~arm -x86"
+	UPSTREAM_VER=
 	SECURITY_VER=
 	GENTOO_VER=
 
@@ -95,7 +95,7 @@ src_prepare() {
 	[[ -n ${GENTOO_VER} ]] && eapply "${WORKDIR}"/patches-gentoo
 
 	# Symlinks do not work on fat32 volumes
-	eapply "${FILESDIR}"/${PN}-4.14-efi.patch
+	eapply "${FILESDIR}"/${PN}-4.16-efi.patch
 
 	# Enable XSM-FLASK
 	use flask && eapply "${FILESDIR}"/${PN}-4.15-flask.patch
@@ -151,10 +151,6 @@ pkg_postinst() {
 	elog " https://wiki.gentoo.org/wiki/Xen"
 
 	use efi && einfo "The efi executable is installed in /boot/efi/gentoo"
-
-	elog "You can optionally block the installation of /boot/xen-syms by an entry"
-	elog "in folder /etc/portage/env using the portage's feature INSTALL_MASK"
-	elog "e.g. echo ${msg} > /etc/portage/env/xen.conf"
 
 	ewarn
 	ewarn "Xen 4.12+ changed the default scheduler to credit2 which can cause"
