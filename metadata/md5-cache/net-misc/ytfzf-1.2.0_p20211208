@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst
+DESCRIPTION=Posix script to find and watch youtube videos from the terminal
+EAPI=8
+HOMEPAGE=https://github.com/pystardust/ytfzf/
+INHERIT=optfeature
+IUSE=minimal
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=app-misc/jq net-misc/curl[ssl] net-misc/yt-dlp !minimal? ( app-shells/fzf media-video/mpv[lua] )
+SLOT=0
+SRC_URI=https://github.com/pystardust/ytfzf/archive/dc7b0056e9b84cf786e6e4adda7f91564d1d012f.tar.gz -> ytfzf-1.2.0_p20211208.tar.gz
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=99de93e67bf8e0c241d51d900a9d9ca0
