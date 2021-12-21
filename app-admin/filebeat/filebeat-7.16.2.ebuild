@@ -1751,7 +1751,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
 
-PATCHES="${FILESDIR}/${PN}-glibc-2.34.patch"
 S="${WORKDIR}/beats-${PV}"
 
 src_prepare() {

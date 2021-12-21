@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 inherit autotools python-single-r1 systemd
 
 MY_PV_MM=$(ver_cut 1-2)
@@ -13,9 +13,10 @@ SRC_URI="https://github.com/balabit/syslog-ng/releases/download/${P}/${P}.tar.gz
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="amqp caps dbi geoip2 http ipv6 json kafka mongodb pacct python redis smtp snmp test spoof-source systemd tcpd"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
+	test? ( python )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -42,6 +43,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( dev-libs/criterion )"
 BDEPEND="
+	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig"
 
@@ -50,7 +52,6 @@ DOCS=( AUTHORS NEWS.md CONTRIBUTING.md contrib/syslog-ng.conf.{HP-UX,RedHat,SunO
 	"${T}/syslog-ng.logrotate.hardened" "${FILESDIR}/README.hardened" )
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.28.1-net-snmp.patch
-	"${FILESDIR}"/${PN}-3.30.1-esmtp-pkgconfig.patch
 )
 
 pkg_setup() {
