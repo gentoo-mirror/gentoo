@@ -190,8 +190,8 @@ acct-group/logstash 0-r1: Logstash program group
 acct-group/logsurfer 0: Group for app-admin/logsurfer
 acct-group/lp 0-r1: System group: lp
 acct-group/lpadmin 0-r1: System group: lpadmin
-acct-group/lxc 0: Group for app-emulation/lxc
-acct-group/lxd 0-r1: Group for app-emulation/lxd
+acct-group/lxc 0: Group for app-containers/lxc
+acct-group/lxd 0-r1: Group for app-containers/lxd
 acct-group/mail 0-r1: Mail program group
 acct-group/man 0-r1: System group: man
 acct-group/maradns 0-r1: System group: maradns
@@ -623,7 +623,7 @@ acct-user/lldpd 0-r1: User for net-misc/lldpd
 acct-user/logcheck 0: User for app-admin/logcheck
 acct-user/logstash 0-r1: Logstash program user
 acct-user/logsurfer 0: User for app-admin/logsurfer
-acct-user/lxc 0: User for app-emulation/lxc
+acct-user/lxc 0: User for app-containers/lxc
 acct-user/mail 0-r1: Mail program user
 acct-user/man 1-r1: System user: man
 acct-user/maradns 0-r1: System user: maradns
@@ -1328,6 +1328,9 @@ app-containers/go-secbench 0.1.0 0.1.0-r1: run and evaluate the docker security 
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
 app-containers/k3d 4.4.2: k3d creates k3s clusters in docker
 app-containers/kompose 1.22.0: Tool to move from docker-compose to Kubernetes
+app-containers/lxc 4.0.11_p1-r1: A userspace interface for the Linux kernel containment features
+app-containers/lxc-templates 3.0.4: Old style template scripts for LXC
+app-containers/lxd 4.0.7-r2 4.0.8-r1: Fast, dense and secure container management
 app-containers/nerdctl 0.14.0 0.15.0: Docker-compatible CLI for containerd, with support for Compose
 app-containers/podman 3.3.1 3.4.0 3.4.1 3.4.2 3.4.3 3.4.4: Library and podman tool for running OCI-based containers in Pods
 app-containers/reg 0.16.1: Docker registry v2 command line client
@@ -2441,9 +2444,6 @@ app-emulation/libspectrum 1.5.0: Spectrum emulation library
 app-emulation/libvirt 7.0.0-r4 7.1.0-r2 7.2.0-r2 7.3.0-r1 7.4.0-r1 7.5.0-r1 7.7.0-r1 7.8.0-r1 7.9.0-r2 7.10.0-r1 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 3.0.0 4.0.0: GLib and GObject mappings for libvirt
 app-emulation/libvirt-snmp 0.0.4: Provides SNMP functionality for libvirt
-app-emulation/lxc 4.0.11_p1-r1: A userspace interface for the Linux kernel containment features
-app-emulation/lxc-templates 3.0.4: Old style template scripts for LXC
-app-emulation/lxd 4.0.7-r2 4.0.8-r1: Fast, dense and secure container management
 app-emulation/nemu 2.5.0-r1: ncurses interface for QEMU
 app-emulation/open-vm-tools 11.2.5_p17337674-r3 11.3.5_p18557794: Tools for VMware guests
 app-emulation/pcem 17: A PC emulator that specializes in running old operating systems and software
@@ -11063,7 +11063,7 @@ dev-util/cpputest 4.0: Unit testing and mocking framework for C/C++
 dev-util/cproto 4.7r 4.7s 4.7t: Generate C function prototypes from C source code
 dev-util/cpuinfo-collection 20101114: huge collection of /proc/cpuinfo files
 dev-util/cram 0.7-r1: Functional testing framework for command line applications
-dev-util/crash 7.2.9 7.3.0 9999: Red Hat crash utility; used for analyzing kernel core dumps
+dev-util/crash 7.3.0 7.3.1 9999: Red Hat crash utility; used for analyzing kernel core dumps
 dev-util/cscope 15.8a-r1 15.8a-r2 15.9: Interactively examine a C program
 dev-util/csup 20060318-r1: A rewrite of CVSup
 dev-util/ctags 20190331-r1 20210321.0-r1 20211017.0 99999999: Exuberant Ctags creates tags files for code browsing in editors
