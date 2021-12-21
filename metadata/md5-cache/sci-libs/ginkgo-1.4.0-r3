@@ -1,15 +1,15 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=cuda? ( dev-util/nvidia-cuda-toolkit )
+DEPEND=cuda? ( dev-util/nvidia-cuda-toolkit ) hwloc? ( sys-apps/hwloc:= )
 DESCRIPTION=Numerical linear algebra software package
 EAPI=8
 HOMEPAGE=https://ginkgo-project.github.io/
-INHERIT=cmake
-IUSE=+openmp cuda
+INHERIT=cmake toolchain-funcs
+IUSE=cuda hwloc +openmp
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-with-attribution
-RDEPEND=cuda? ( dev-util/nvidia-cuda-toolkit )
+RDEPEND=cuda? ( dev-util/nvidia-cuda-toolkit ) hwloc? ( sys-apps/hwloc:= )
 SLOT=0
 SRC_URI=https://github.com/ginkgo-project/ginkgo/archive/v1.4.0.tar.gz -> ginkgo-1.4.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=e0368dd643a11e972dec5ff1a81c8e9f
+_md5_=f32fffe8552ee9ab6497c9aa29ec8978
