@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://arthurdejong.org/nss-pam-ldapd/
 INHERIT=prefix python-r1 autotools multilib multilib-minimal systemd s6 tmpfiles
 IUSE=debug kerberos +pam pynslcd sasl test +utils python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=LGPL-2.1
 RDEPEND=acct-group/nslcd acct-user/nslcd net-nds/openldap[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] sasl? ( dev-libs/cyrus-sasl[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) kerberos? ( virtual/krb5[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) sys-libs/pam[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] utils? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pynslcd? ( dev-python/python-ldap[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-daemon[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) !sys-auth/nss_ldap !sys-auth/pam_ldap virtual/tmpfiles
 REQUIRED_USE=utils? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) test? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) pynslcd )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://arthurdejong.org/nss-pam-ldapd/nss-pam-ldapd-0.9.12.tar.gz
 _eclasses_=prefix	d04f14b297013ad1410550c0757f14f8	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	systemd	2736b403a83f194b59b767f3b344c2c1	s6	16867a2a1f9a98a096c53221e1294a22	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
-_md5_=46d9218d863fcf3e706abc178431e221
+_md5_=a7fe3f8db19e52b51dc7b558f63be035
