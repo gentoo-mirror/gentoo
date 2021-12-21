@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.ulduzsoft.com/libircclient/
 INHERIT=autotools
 IUSE=doc ipv6 ssl static-libs threads
-KEYWORDS=amd64 ~arm64 ppc ppc64 sparc x86
+KEYWORDS=amd64 ~arm64 ppc ppc64 ~riscv sparc x86
 LICENSE=LGPL-2+
 RDEPEND=ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=mirror://sourceforge/libircclient/libircclient-1.10.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=e216b901efb0cccd34597ee2edbba908
+_md5_=5c81ef1119df5699af5f66a3eba20464
