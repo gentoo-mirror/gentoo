@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install preinst prepare setup test
+DEPEND=dev-java/animal-sniffer-annotations:0 dev-java/error-prone-annotations:0 dev-java/jsr305:0 >=virtual/jdk-1.8:* dev-java/j2objc-annotations:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=A collection of Google's core Java libraries
+EAPI=8
+HOMEPAGE=https://github.com/google/guava
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=elibc_FreeBSD doc source
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-java/animal-sniffer-annotations:0 dev-java/error-prone-annotations:0 dev-java/jsr305:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=20
+SRC_URI=https://github.com/google/guava/archive/v20.0.tar.gz -> guava-20.0.tar.gz
+_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=3b58e40e9fa94e6fa9515a3610de1e37
