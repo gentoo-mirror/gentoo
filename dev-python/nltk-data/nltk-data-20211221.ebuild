@@ -1,7 +1,7 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit check-reqs
 
@@ -60,7 +60,6 @@ PACKAGES_UNPACK_2020=(
 	corpora/genesis
 	corpora/gutenberg
 	corpora/ieer
-	corpora/inaugural
 	corpora/indian
 	corpora/lin_thesaurus
 	corpora/mac_morpho
@@ -83,7 +82,6 @@ PACKAGES_UNPACK_2020=(
 	corpora/sentence_polarity
 	corpora/sentiwordnet
 	corpora/shakespeare
-	corpora/sinica_treebank
 	corpora/state_union
 	corpora/subjectivity
 	corpora/swadesh
@@ -117,6 +115,13 @@ PACKAGES_UNPACK_2020=(
 
 PACKAGES_UNPACK_2021=(
 	corpora/stopwords
+)
+
+PACKAGES_UNPACK_2021_12=(
+	corpora/inaugural
+	corpora/omw-1.4
+	corpora/sinica_treebank
+	corpora/wordnet2021
 	corpora/wordnet31
 )
 
@@ -153,6 +158,7 @@ add_data() {
 
 add_data 20200312 "${PACKAGES_ZIP_2020[@]}" "${PACKAGES_UNPACK_2020[@]}"
 add_data 20211023 "${PACKAGES_UNPACK_2021[@]}"
+add_data 20211221 "${PACKAGES_UNPACK_2021_12[@]}"
 SRC_URI+="
 	extra? ("
 add_data 20200312 "${PACKAGES_UNPACK_EXTRA_2020[@]}"
@@ -179,6 +185,7 @@ unpack_data() {
 src_unpack() {
 	unpack_data 20200312 "${PACKAGES_UNPACK_2020[@]}"
 	unpack_data 20211023 "${PACKAGES_UNPACK_2021[@]}"
+	unpack_data 20211221 "${PACKAGES_UNPACK_2021_12[@]}"
 	use extra && unpack_data 20200312 "${PACKAGES_UNPACK_EXTRA_2020[@]}"
 }
 
