@@ -330,78 +330,16 @@ dev-ruby/minitest:0
 # Masked for removal in 30 days.
 dev-ruby/aws-s3
 
-# Marek Szuba <marecki@gentoo.org> (2021-11-23)
-# No new releases since July 2013, no commits to upstream Git repository
-# since May 2019, long list of known issues (including Bug #681520),
-# unmaintained in Gentoo, EAPI 5. Consider using dev-util/uglifyjs instead.
-# Removal in 30 days. Bug #826470
-dev-util/yuicompressor
-
-# Hans de Graaff <graaff@gentoo.org> (2021-11-23)
-# Obsolete slot, last release in 2017, uses EAPI 5.
-# Use one of the newer slots.
-# Masked for removal in 30 days.
-dev-ruby/ttfunk:1.5
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-23)
-# Last release in 2009, dead upstream. Rendered obsolete by native PDF
-# importers provided by LibreOffice/OpenOffice, which actually read PDFs
-# instead of converting them to images. Unmaintained in Gentoo, EAPI 5.
-# Removal in 30 days. Bug #826382
-app-text/pdf2oo
-
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-11-23)
 # Does not support updated dev-java/pdfbox-2.0.24, Bug #803488
 # Blocks (CVE-2018-11797, CVE-2021-{27807,27906,31811,31812})
 dev-tex/pdfannotextractor
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-23)
-# No releases or repo activity upstream since 2013, both versions currently
-# in the tree fail to build (for different reasons), unmaintained in Gentoo,
-# stable ebuild uses EAPI 5.
-# Removal in 30 days. Bug #756925
-app-text/dbacl
-
-# Sergey Popov <pinkbyte@gentoo.org> (2021-11-22)
-# Upstream is pretty much dead
-# Has at least one security issue - bug #825358
-# Replaced by net-misc/frr
-# Removal in 30 days
-net-misc/quagga
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-22)
-# Upstream switched from static documentation to the Wiki format
-# around 10 years ago, and the ebuild we've got in the tree was
-# massively outdated even then (our version: 812, last static
-# upstream version: 2001). No maintainer in Gentoo, EAPI 5.
-# Removal in 30 days. Bug #826454
-app-doc/selfhtml
-
-# Marek Szuba <marecki@gentoo.org> (2021-11-22)
-# Last release in 2008 at the latest, no maintainer in Gentoo for years,
-# EAPI 5, upstream is gone, the only distros which still package it are
-# Gentoo, Funtoo and LiGurOS.
-# Removal in 30 days. Bug #826682
-app-admin/psmon
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2021-11-22)
-# Unmaintained upstream, never made it to a KF5-based release and Gentoo
-# was the only distro ever packaging such a snapshot. Use kimpanel from
-# kde-plasma/plasma-desktop instead.
-# Removal on 2021-12-22. Bug #824822
-kde-misc/kimtoy
 
 # Stephan Hartmann <sultan@gentoo.org> (2021-11-22)
 # Dev channel releases are only for people who
 # are developers or want more experimental features
 # and accept a more unstable release.
 >=www-client/chromium-98
-
-# Michael Orlitzky <mjo@gentoo.org> (2021-11-22)
-# Cool package, but no longer developed upstream, and my immediate use
-# for it has expired. No reverse dependencies, deprecated EAPI;
-# removal in 30 days.  Bug #826386.
-app-text/XML-Schema-learner
 
 # Mike Pagano <mpagano@gentoo.org> (2021-11-18)
 # Bug introduced in this version that can
