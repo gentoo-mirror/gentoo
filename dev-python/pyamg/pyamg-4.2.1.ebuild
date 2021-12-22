@@ -20,15 +20,19 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/scipy[${PYTHON_USEDEP}]"
-# cannot be enabled by "distutils_enable_tests pytest"
 BDEPEND="
 	dev-python/pybind11[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	test? (
 		dev-python/matplotlib[${PYTHON_USEDEP}]
-		dev-python/pytest[${PYTHON_USEDEP}]
 	)"
 
-distutils_enable_tests setup.py
+distutils_enable_tests pytest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+python_test() {
+	cp -r -l -n pyamg "${BUILD_DIR}/lib" || die
+	cd "${BUILD_DIR}/lib" || die
+	epytest
+}
