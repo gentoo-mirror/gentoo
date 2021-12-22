@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools desktop elisp-common systemd toolchain-funcs xdg
+inherit autotools desktop elisp-common flag-o-matic systemd toolchain-funcs xdg
 
 MY_PV="${PV/_/-}"
 MY_P="TiMidity++-${MY_PV}"
@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv sparc x86"
-IUSE="alsa ao emacs flac gtk jack motif nas ncurses oss selinux slang speex tk vorbis X"
+IUSE="alsa ao emacs flac gtk jack motif nas ncurses oss selinux slang speex tk vorbis X Xaw3d"
 
 REQUIRED_USE="tk? ( X )"
 
@@ -36,8 +36,9 @@ DEPEND="
 	vorbis? ( media-libs/libvorbis )
 	X? (
 		media-libs/libpng:0=
-		x11-libs/libXaw
 		x11-libs/libXext
+		Xaw3d? ( x11-libs/libXaw3d )
+		!Xaw3d? ( x11-libs/libXaw )
 	)
 "
 
@@ -63,10 +64,14 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.14.0-configure-flags.patch
 	"${FILESDIR}"/${PN}-2.15.0-pkg-config.patch
 	"${FILESDIR}"/${PN}-2.14.0-CVE-2017-1154{6,7}.patch
+	"${FILESDIR}"/${PN}-2.15.0-lto-workaround.patch
 )
 
 src_prepare() {
 	default
+
+	mv configure.{in,ac} || die
+
 	eautoreconf
 }
 
@@ -74,6 +79,21 @@ src_configure() {
 	export EXTRACFLAGS="${CFLAGS}" #385817
 
 	local audios
+	# List by preference
+	local xaw_provider=$(usex Xaw3d 'xaw3d' 'xaw')
+
+	# configure workarounds: configure.in here is written for an old version
+	# of autoconf and upstream seems quite dead.
+	#
+	# 1. Avoid janky configure test breaking
+	# ```checking for sys/wait.h that is POSIX.1 compatible... yes
+	# ./configure: 7995: test: =: unexpected operator```
+	export ac_cv_header_sys_time_h=yes
+	#
+	# 2. And yes, we expect standard header locations (this configure test is flaky for us too)
+	# This avoids a bunch of implicit decl. errors which only happen with USE=-Xaw3d(?!)
+	append-cppflags -DSTDC_HEADERS
+
 	local myeconfargs=(
 		--localstatedir=/var/state/${PN}
 		--with-module-dir="${EPREFIX}/usr/share/timidity"
@@ -95,6 +115,7 @@ src_configure() {
 		$(use_enable gtk)
 		$(use_enable tk tcltk)
 		$(use_enable motif)
+		$(use_with Xaw3d xawlib ${xaw_provider})
 	)
 
 	use flac && audios+=",flac"

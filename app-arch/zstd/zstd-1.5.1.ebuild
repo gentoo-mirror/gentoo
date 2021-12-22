@@ -11,12 +11,16 @@ SRC_URI="https://github.com/facebook/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="|| ( BSD GPL-2 )"
 SLOT="0/1"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="lz4 static-libs +threads"
 
 RDEPEND="app-arch/xz-utils
 	lz4? ( app-arch/lz4 )"
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.5.1-respect-CFLAGS.patch
+)
 
 src_prepare() {
 	default

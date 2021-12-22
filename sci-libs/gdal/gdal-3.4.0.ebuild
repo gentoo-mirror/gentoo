@@ -4,7 +4,7 @@
 EAPI=7
 
 GENTOO_DEPEND_ON_PERL="no"
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 DISTUTILS_OPTIONAL=1
 inherit autotools bash-completion-r1 distutils-r1 flag-o-matic java-pkg-opt-2 perl-module toolchain-funcs
 
@@ -12,10 +12,11 @@ DESCRIPTION="Translator library for raster geospatial data formats (includes OGR
 HOMEPAGE="https://gdal.org/"
 SRC_URI="https://download.osgeo.org/${PN}/${PV}/${P}.tar.gz"
 
-SLOT="0/3.3"
+# subslot is libgdal.so.<SONAME>
+SLOT="0/30"
 LICENSE="BSD Info-ZIP MIT"
-KEYWORDS="amd64 ~arm arm64 ~ia64 ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="armadillo +aux-xml curl cpu_flags_x86_avx cpu_flags_x86_sse cpu_flags_x86_ssse3 debug doc fits geos gif gml hdf5 java jpeg jpeg2k lzma mdb mysql netcdf odbc ogdi opencl oracle pdf perl png postgres python spatialite sqlite threads webp xls zstd"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="armadillo +aux-xml curl cpu_flags_x86_avx cpu_flags_x86_sse cpu_flags_x86_ssse3 debug doc fits geos gif gml hdf5 heif java jpeg jpeg2k lzma mdb mysql netcdf odbc ogdi opencl oracle pdf perl png postgres python spatialite sqlite threads webp xls zstd"
 
 REQUIRED_USE="
 	mdb? ( java )
@@ -53,6 +54,7 @@ DEPEND="
 	geos? ( >=sci-libs/geos-3.8.0 )
 	gif? ( media-libs/giflib:= )
 	gml? ( >=dev-libs/xerces-c-3.1 )
+	heif? ( media-libs/libheif:= )
 	hdf5? ( >=sci-libs/hdf5-1.6.4:=[szip] )
 	jpeg? ( virtual/jpeg:0= )
 	jpeg2k? ( media-libs/openjpeg:2= )
@@ -143,10 +145,11 @@ src_configure() {
 		--with-geotiff
 		--with-gnm
 		--with-hide-internal-symbols
-		--with-libjson-c="${EPREFIX}"/usr
+		--with-libjson-c="${ESYSROOT}"/usr
 		--with-libtiff
 		--with-libtool
-		--with-libz="${EPREFIX}"/usr
+		--with-libz="${ESYSROOT}"/usr
+		--without-blosc
 		--without-charls
 		--without-dods-root
 		--without-ecw
@@ -160,15 +163,20 @@ src_configure() {
 		--without-jasper
 		--without-jp2lura
 		--without-jp2mrsid
+		# libjxl yet packaged.
+		--without-jxl
 		--without-kakadu
 		--without-kea
 		--without-libkml
+		--without-lz4
 		--without-mongocxx
 		--without-mrsid
 		--without-mrsid_lidar
 		--without-msg
 		--without-rasdaman
 		--without-rasterlite2
+		# Revisit when OpenEXR 3 / ilmmath migration is more complete in tree
+		--without-exr
 		--without-pcraster
 		--without-pdfium
 		--without-perl
@@ -189,6 +197,7 @@ src_configure() {
 		$(use_with geos)
 		$(use_with gif)
 		$(use_with gml xerces)
+		$(use_with heif)
 		$(use_with hdf5)
 		$(use_with jpeg pcidsk) # pcidsk is internal, because there is no such library released developer by gdal
 		$(use_with jpeg)
@@ -276,10 +285,12 @@ src_compile() {
 }
 
 src_install() {
-	local DOCS=( NEWS )
 	use doc && local HTML_DOCS=( html/. )
 
 	default
+
+	# Respect libdir in pkgconfig file
+	sed -i -e "s:\${exec_prefix}/lib:\${exec_prefix}/$(get_libdir):" "${ED}"/usr/$(get_libdir)/pkgconfig/gdal.pc || die
 
 	use java && java-pkg_dojar "${S}"/swig/java/gdal.jar
 
