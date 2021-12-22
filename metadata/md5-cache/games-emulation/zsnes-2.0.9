@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/nasm sys-libs/zlib virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video] sys-libs/zlib:=[abi_x86_32(-)] virtual/opengl[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)] x11-base/xorg-proto
+DESCRIPTION=Fork of the classic Super Nintendo emulator
+EAPI=8
+HOMEPAGE=https://github.com/xyproto/zsnes/ https://www.zsnes.com/
+INHERIT=desktop flag-o-matic multilib toolchain-funcs
+IUSE=custom-cflags
+KEYWORDS=-* ~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video] sys-libs/zlib:=[abi_x86_32(-)] virtual/opengl[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)]
+SLOT=0
+SRC_URI=https://github.com/xyproto/zsnes/archive/2.0.9.tar.gz -> zsnes-2.0.9.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14
+_md5_=8334e74201c0196e0e62b272ea063643
