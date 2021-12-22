@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://avalon.apache.org/closed.html
 INHERIT=java-pkg-2 java-ant-2
 IUSE=elibc_FreeBSD doc source test
-KEYWORDS=amd64 arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=Apache-2.0
 RDEPEND=dev-java/log4j:0 java-virtuals/jms:0 dev-java/oracle-javamail:0 java-virtuals/servlet-api:3.0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=2.0
 SRC_URI=https://archive.apache.org/dist/excalibur/avalon-logkit/source/avalon-logkit-2.1-src.tar.gz
 _eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	e83ca06db890ca292b0b6d43e376e20d
-_md5_=a28c663625fe268fd75de4a747902ad7
+_md5_=2cf59bb65025be419cb30c222a973b47
