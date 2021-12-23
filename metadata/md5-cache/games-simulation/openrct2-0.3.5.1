@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://openrct2.org/
 INHERIT=cmake readme.gentoo-r1 xdg-utils
 IUSE=dedicated +lightfx +opengl scripting test +truetype
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/icu:= dev-libs/jansson:= dev-libs/libzip:= media-libs/libpng:0= net-misc/curl[ssl] sys-libs/zlib !dedicated? ( media-libs/libsdl2 media-libs/speexdsp opengl? ( virtual/opengl ) ) dev-libs/openssl:0= scripting? ( dev-lang/duktape:= ) truetype? ( media-libs/fontconfig:1.0 media-libs/freetype:2 ) dedicated? ( acct-group/openrct2 acct-user/openrct2 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/OpenRCT2/OpenRCT2/archive/v0.3.5.1.tar.gz -> openrct2-0.3.5.1.tar.gz https://github.com/OpenRCT2/objects/releases/download/v1.0.21/objects.zip -> openrct2-objects-1.0.21.zip https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip -> openrct2-title-sequences-0.1.2c.zip test? ( https://github.com/OpenRCT2/replays/releases/download/v0.0.57/replays.zip -> openrct2-replays-0.0.57.zip )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c
-_md5_=c1cb68c43323d9a046a2a1135dc09fcd
+_md5_=e97472dcfdf3999a1813b7ffc4d90136
