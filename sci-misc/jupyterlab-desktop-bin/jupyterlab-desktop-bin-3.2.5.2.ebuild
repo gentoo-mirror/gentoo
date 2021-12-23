@@ -50,6 +50,8 @@ src_install() {
 	# remove files useless for Gentoo
 	rm -r usr/lib || die
 	mv "${S}"/* "${ED}" || die
+	# add convenience symlink to launch from cli
+	dosym ../JupyterLab/jupyterlab-desktop /opt/bin/jupyterlab-desktop
 }
 
 pkg_postinst() {
