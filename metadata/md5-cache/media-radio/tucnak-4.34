@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-libs/glib:2 dev-libs/libzia media-libs/libsndfile >=media-libs/libsdl-1.2 alsa? ( media-libs/alsa-lib ) fftw? ( sci-libs/fftw:3.0 ) gpm? ( sys-libs/gpm ) hamlib? ( media-libs/hamlib:= ) virtual/pkgconfig
+DESCRIPTION=Amateur Radio VHF Contest Logbook
+EAPI=8
+HOMEPAGE=http://tucnak.nagano.cz
+INHERIT=autotools flag-o-matic
+IUSE=alsa fftw gpm hamlib suid
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 dev-libs/libzia media-libs/libsndfile >=media-libs/libsdl-1.2 alsa? ( media-libs/alsa-lib ) fftw? ( sci-libs/fftw:3.0 ) gpm? ( sys-libs/gpm ) hamlib? ( media-libs/hamlib:= )
+SLOT=0
+SRC_URI=http://tucnak.nagano.cz/tucnak-4.34.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	flag-o-matic	d5e1306543bc457213f68bb18f830d14
+_md5_=2194034796071aeac829da2ea1a55f37
