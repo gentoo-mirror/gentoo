@@ -26,7 +26,7 @@ else
 	ZFS_KERNEL_DEP="${ZFS_KERNEL_DEP%%.*}.$(( ${ZFS_KERNEL_DEP##*.} + 1))"
 
 	if [[ ${PV} != *_rc* ]]; then
-		KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
+		KEYWORDS="~amd64 ~arm64 ~ppc64"
 	fi
 fi
 
@@ -198,8 +198,15 @@ pkg_postinst() {
 		ewarn "and will not be compatible with older versions of ZFSOnLinux. To"
 		ewarn "create a newpool that is backward compatible wih GRUB2, use "
 		ewarn
-		ewarn "zpool create -o compatibility=grub2 ..."
+		ewarn "zpool create -d -o feature@async_destroy=enabled "
+		ewarn "	-o feature@empty_bpobj=enabled -o feature@lz4_compress=enabled"
+		ewarn "	-o feature@spacemap_histogram=enabled"
+		ewarn "	-o feature@enabled_txg=enabled "
+		ewarn "	-o feature@extensible_dataset=enabled -o feature@bookmarks=enabled"
+		ewarn "	..."
 		ewarn
-		ewarn "Refer to /usr/share/zfs/compatibility.d/grub2 for list of features."
+		ewarn "GRUB2 support will be updated as soon as either the GRUB2"
+		ewarn "developers do a tag or the Gentoo developers find time to backport"
+		ewarn "support from GRUB2 HEAD."
 	fi
 }
