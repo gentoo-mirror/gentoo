@@ -8276,7 +8276,7 @@ dev-python/attrs 21.2.0: Attributes without boilerplate
 dev-python/audioread 2.1.9: Wrapper for audio file decoding using FFmpeg or GStreamer
 dev-python/authheaders 0.14.1: A library wrapping email authentication header verification and generation.
 dev-python/authres 1.2.0: Parse and generate Authentication-Results headers
-dev-python/autobahn 21.3.1 21.11.1: WebSocket and WAMP for Twisted and Asyncio
+dev-python/autobahn 21.11.1: WebSocket and WAMP for Twisted and Asyncio
 dev-python/automat 20.2.0: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.4.0: A library to provide automatic paging for console output
 dev-python/autopep8 1.5.7 1.6.0 9999: Automatically formats Python code to conform to the PEP 8 style guide
@@ -9618,7 +9618,7 @@ dev-python/typogrify 2.0.7: Filters for web typography, supporting Django & Jinj
 dev-python/tzlocal 2.1 4.1: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.7.1: A portable, lightweight MessagePack serializer and deserializer
 dev-python/ubelt 0.10.1 0.10.2: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
-dev-python/ujson 4.2.0 4.3.0 5.0.0: Ultra fast JSON encoder and decoder for Python
+dev-python/ujson 4.3.0 5.0.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.0 1.0.1: Implementation of bounded Levenshtein distance (Ukkonen)
 dev-python/unasync 0.5.0: The async transformation code.
 dev-python/uncertainties 3.1.6: Python module for calculations with uncertainties
@@ -17925,8 +17925,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.166 5.4.167 5.10.85 5.10.87 5.14.21 5.15.10: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.166 5.4.167 5.10.85 5.10.87 5.14.21 5.14.21-r1 5.15.10: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.15.10 5.15.11: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.14.21-r1 5.15.10 5.15.11: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.290 4.4.293 4.4.294 4.4.295 4.4.296 4.9.288 4.9.291 4.9.292 4.9.293 4.9.294 4.14.253 4.14.256 4.14.257 4.14.258 4.14.259 4.19.214 4.19.219 4.19.220 4.19.221 4.19.222 5.4.156 5.4.165 5.4.166 5.4.167 5.4.168 5.10.76-r1 5.10.84 5.10.85 5.10.86 5.10.87 5.10.88 5.15.7 5.15.8 5.15.9 5.15.10 5.15.11: Full sources including the Gentoo patchset for the 5.15 kernel tree
 sys-kernel/git-sources 5.16_rc1 5.16_rc2 5.16_rc3 5.16_rc4 5.16_rc5 5.16_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17942,7 +17942,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201 5.10.63_p20211029 5.10.9999: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224-r1 4.9.282_p187 4.14.246_p122 4.19.206_p87 5.4.143_p64 5.10.59_p52 5.14.2_p21: Full Linux 5.14 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.166 5.4.167 5.10.85 5.10.87 5.14.21 5.15.10: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.15.10 5.15.11: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.296 4.9.294 4.14.259 4.19.222 5.4.168 5.10.88 5.15.11: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.14.15 5.15.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18127,7 +18127,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.166 5.4.167 5.10.85 5.10.87 5.14.21 5.15.10: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.15.10 5.15.11: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
