@@ -5,7 +5,7 @@ EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit lua-single
+inherit autotools lua-single
 
 DESCRIPTION="The PowerDNS Daemon"
 HOMEPAGE="https://www.powerdns.com/"
@@ -13,14 +13,14 @@ SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~x86"
 
 # other possible flags:
 # db2: we lack the dep
 # oracle: dito (need Oracle Client Libraries)
 # xdb: (almost) dead, surely not supported
 
-IUSE="debug doc geoip ldap lua-records mydns mysql postgres remote sodium sqlite systemd tools tinydns test"
+IUSE="debug doc geoip ldap lua-records mydns mysql postgres protobuf remote sodium sqlite systemd tools tinydns test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}
@@ -36,7 +36,8 @@ DEPEND="${LUA_DEPS}
 	sqlite? ( dev-db/sqlite:3 )
 	geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip )
 	sodium? ( dev-libs/libsodium:= )
-	tinydns? ( >=dev-db/tinycdb-0.77 )"
+	tinydns? ( >=dev-db/tinycdb-0.77 )
+	protobuf? ( dev-libs/protobuf )"
 RDEPEND="${DEPEND}
 	acct-user/pdns
 	acct-group/pdns"
@@ -45,6 +46,15 @@ BDEPEND="virtual/pkgconfig
 	doc? ( app-doc/doxygen[dot] )"
 
 S="${WORKDIR}"/${P/_/-}
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.4.1-boost-1.76.patch
+)
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	local dynmodules="pipe bind" # the default backends, always enabled
@@ -77,6 +87,7 @@ src_configure() {
 		$(use_enable tools) \
 		$(use_enable systemd) \
 		$(use_with sodium libsodium) \
+		$(use_with protobuf) \
 		${myconf}
 }
 
