@@ -76,7 +76,11 @@ src_configure() {
 		-DWITH_GETTEXT="$(usex nls)"
 	)
 	# release tarballs ship pre-built docs // -DHAVE_PREBUILT_DOCS=TRUE
-	[[ ${PV} == 9999 ]] && mycmakeargs+=( -DBUILD_DOCS="$(usex doc)" )
+	if [[ ${PV} == 9999 ]]; then
+		mycmakeargs+=( -DBUILD_DOCS="$(usex doc)" )
+	else
+		mycmakeargs+=( -DBUILD_DOCS=OFF )
+	fi
 	cmake_src_configure
 }
 
@@ -89,7 +93,7 @@ src_install() {
 src_test() {
 	# some tests are fragile, sanitize environment
 	local -x COLUMNS=80
-	local -X LINES=24
+	local -x LINES=24
 
 	# very fragile, depends on terminal, size, tmux, screen and timing
 	rm -v tests/pexpects/terminal.py || die
