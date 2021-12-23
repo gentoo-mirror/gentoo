@@ -1,6 +1,6 @@
 BDEPEND=!build? ( sys-apps/sed )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DESCRIPTION=Full Linux 5.4 kernel sources with the CONFIG_PREEMPT_RT patch
+DESCRIPTION=Full Linux 4.14 kernel sources with the CONFIG_PREEMPT_RT patch
 EAPI=8
 HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel https://wiki.linuxfoundation.org/realtime/start
 INHERIT=kernel-2
@@ -9,7 +9,7 @@ KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=5.4.143_p64
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.4.143.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.143-rt64.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.4/older/patch-5.4.143-rt64.patch.xz
+SLOT=4.14.250_p124
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.14.250.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.14/patch-4.14.250-rt124.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.14/older/patch-4.14.250-rt124.patch.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	kernel-2	558643172ab02bb7cb88b95070b91f12
-_md5_=dcc317ad76e0141597b0a8e37c26a477
+_md5_=939d5ceab20777d27949a4a02fd902fe
