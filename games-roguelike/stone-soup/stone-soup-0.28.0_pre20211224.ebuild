@@ -13,7 +13,7 @@ HOMEPAGE="https://crawl.develz.org"
 SLOT="0.28"
 
 # Leave empty string if not a _pre release
-COMMITSHA="bc3f381ebcfc7bc390c3495e054d1fb84b63bb7e"
+COMMITSHA="7c8fac35f0b01e22b201139b07a684fa7d8e6760"
 if [ -z "${COMMITSHA}" ]; then
 	# This is a proper release
 	SRC_URI="
