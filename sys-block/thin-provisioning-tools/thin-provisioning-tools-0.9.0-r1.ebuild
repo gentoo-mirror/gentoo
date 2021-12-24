@@ -40,6 +40,7 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.7.0-build-fixes.patch
+	"${FILESDIR}"/0.9.0-remove-boost_iostreams.patch
 )
 
 src_prepare() {
@@ -59,15 +60,14 @@ src_configure() {
 }
 
 src_compile() {
-	MAKEOPTS+=" V="
-	default
+	emake V=
 }
 
 src_test() {
-	emake unit-test
+	emake V= unit-test
 }
 
 src_install() {
-	emake DESTDIR="${D}" DATADIR="${ED}/usr/share" install
+	emake V= DESTDIR="${D}" DATADIR="${ED}/usr/share" install
 	dodoc README.md TODO.org
 }
