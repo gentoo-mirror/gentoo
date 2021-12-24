@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_ECLASS=cmake
 inherit cmake-multilib
@@ -10,8 +10,9 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://aomedia.googlesource.com/aom"
 else
-	SRC_URI="https://dev.gentoo.org/~whissi/dist/libaom/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+	SRC_URI="https://storage.googleapis.com/aom-releases/${P}.tar.gz"
+	S="${WORKDIR}"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 DESCRIPTION="Alliance for Open Media AV1 Codec SDK"
@@ -42,12 +43,16 @@ DOCS=( PATENTS )
 
 multilib_src_configure() {
 	local mycmakeargs=(
+		-DENABLE_CCACHE=OFF
 		-DENABLE_DOCS=$(multilib_native_usex doc ON OFF)
 		-DENABLE_EXAMPLES=$(multilib_native_usex examples ON OFF)
 		-DENABLE_NASM=OFF
 		-DENABLE_TESTS=OFF
 		-DENABLE_TOOLS=ON
 		-DENABLE_WERROR=OFF
+
+		# Needs libjxl, currently unpackaged.
+		-DCONFIG_TUNE_BUTTERAUGLI=OFF
 
 		# neon support is assumed to be always enabled on arm64
 		-DENABLE_NEON=$(usex cpu_flags_arm_neon ON $(usex arm64 ON OFF))
@@ -62,6 +67,7 @@ multilib_src_configure() {
 		-DENABLE_AVX=$(usex cpu_flags_x86_avx ON OFF)
 		-DENABLE_AVX2=$(usex cpu_flags_x86_avx2 ON OFF)
 	)
+
 	cmake_src_configure
 }
 
@@ -69,6 +75,7 @@ multilib_src_install() {
 	if multilib_is_native_abi && use doc ; then
 		local HTML_DOCS=( "${BUILD_DIR}"/docs/html/. )
 	fi
+
 	cmake_src_install
 }
 

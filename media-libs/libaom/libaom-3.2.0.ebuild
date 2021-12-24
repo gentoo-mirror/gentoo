@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_ECLASS=cmake
 inherit cmake-multilib
@@ -43,12 +43,16 @@ DOCS=( PATENTS )
 
 multilib_src_configure() {
 	local mycmakeargs=(
+		-DENABLE_CCACHE=OFF
 		-DENABLE_DOCS=$(multilib_native_usex doc ON OFF)
 		-DENABLE_EXAMPLES=$(multilib_native_usex examples ON OFF)
 		-DENABLE_NASM=OFF
 		-DENABLE_TESTS=OFF
 		-DENABLE_TOOLS=ON
 		-DENABLE_WERROR=OFF
+
+		# Needs libjxl, currently unpackaged.
+		-DCONFIG_TUNE_BUTTERAUGLI=OFF
 
 		# neon support is assumed to be always enabled on arm64
 		-DENABLE_NEON=$(usex cpu_flags_arm_neon ON $(usex arm64 ON OFF))
@@ -63,6 +67,7 @@ multilib_src_configure() {
 		-DENABLE_AVX=$(usex cpu_flags_x86_avx ON OFF)
 		-DENABLE_AVX2=$(usex cpu_flags_x86_avx2 ON OFF)
 	)
+
 	cmake_src_configure
 }
 
@@ -70,6 +75,7 @@ multilib_src_install() {
 	if multilib_is_native_abi && use doc ; then
 		local HTML_DOCS=( "${BUILD_DIR}"/docs/html/. )
 	fi
+
 	cmake_src_install
 }
 
