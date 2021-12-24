@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend test
+DEPEND=sci-mathematics/primesieve:=
+DESCRIPTION=Highly optimized CLI and library to count primes
+EAPI=8
+HOMEPAGE=https://github.com/kimwalisch/primecount
+INHERIT=cmake toolchain-funcs
+IUSE=+executable openmp test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=sci-mathematics/primesieve:=
+RESTRICT=!test? ( test )
+SLOT=0/7
+SRC_URI=https://github.com/kimwalisch/primecount/archive/refs/tags/v7.2.tar.gz -> primecount-7.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=e4f904d7e53a1e1f2229c2794702bbc1
