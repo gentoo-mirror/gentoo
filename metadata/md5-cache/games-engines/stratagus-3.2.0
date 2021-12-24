@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-db/sqlite:3 dev-lua/toluapp[lua_single_target_lua5-1(-)?] media-libs/libpng:0 x11-libs/libX11 media-libs/libsdl2[sound,opengl,video] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-image[png] sys-libs/zlib bzip2? ( app-arch/bzip2 ) mng? ( media-libs/libmng ) vorbis? ( media-libs/libogg media-libs/libvorbis theora? ( media-libs/libtheora ) )
+DESCRIPTION=A realtime strategy game engine
+EAPI=7
+HOMEPAGE=https://stratagus.com/stratagus.html https://github.com/Wargus/stratagus
+INHERIT=cmake lua-single optfeature
+IUSE=bzip2 debug doc mng theora vorbis +lua_single_target_lua5-1
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-db/sqlite:3 dev-lua/toluapp[lua_single_target_lua5-1(-)?] media-libs/libpng:0 x11-libs/libX11 media-libs/libsdl2[sound,opengl,video] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-image[png] sys-libs/zlib bzip2? ( app-arch/bzip2 ) mng? ( media-libs/libmng ) vorbis? ( media-libs/libogg media-libs/libvorbis theora? ( media-libs/libtheora ) )
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 ) theora? ( vorbis )
+SLOT=0/3
+SRC_URI=https://github.com/Wargus/stratagus/archive/v3.2.0.tar.gz -> stratagus-3.2.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=d99da0f8ba91fde0a167d647ce77eebb

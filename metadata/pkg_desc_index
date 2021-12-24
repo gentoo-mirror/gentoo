@@ -8845,7 +8845,7 @@ dev-python/mock 4.0.3: Rolling backport of unittest.mock for all Pythons
 dev-python/mongoengine 0.23.1: A Python Object-Document-Mapper for working with MongoDB
 dev-python/mongomock 3.23.0: Library to help testing Python code that interacts with MongoDB via Pymongo
 dev-python/more-itertools 8.12.0: More routines for operating on iterables, beyond itertools
-dev-python/moto 2.0.5-r1 2.2.12 2.2.14 2.2.15 2.2.16 2.2.17 2.2.18 2.2.19: Mock library for boto
+dev-python/moto 2.0.5-r1 2.2.12 2.2.14 2.2.15 2.2.16 2.2.17 2.2.18 2.2.19 2.2.20: Mock library for boto
 dev-python/mpdlcd 0.5.2: A small tool to display the MPD status on a LCDproc server.
 dev-python/mpi4py 3.0.3: Message Passing Interface for Python
 dev-python/mpmath 1.2.1: Python library for arbitrary-precision floating-point arithmetic
@@ -8940,7 +8940,7 @@ dev-python/pandas-datareader 0.10.0: Pandas DataFrame extraction from a wide ran
 dev-python/pandocfilters 1.5.0: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.6: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.8.1: Parameterized testing with any Python test framework
-dev-python/paramiko 2.8.0 2.9.0: SSH2 protocol library
+dev-python/paramiko 2.8.0 2.9.0 2.9.1: SSH2 protocol library
 dev-python/parse 1.19.0: Parse strings using a specification based on the Python format() syntax
 dev-python/parse_type 0.5.6: Extension to the parse module
 dev-python/parsedatetime 2.6: Parse human-readable date/time strings
@@ -9188,7 +9188,7 @@ dev-python/pysvn 1.9.15: Object-oriented python bindings for subversion
 dev-python/pytables 3.6.1-r2: Hierarchical datasets for Python
 dev-python/pytaglib 1.4.6: Python wrapper for taglib library
 dev-python/pyte 0.8.0-r1: Simple VTXXX-compatible terminal emulator
-dev-python/pytest 5.4.3-r1 6.2.5-r2: Simple powerful testing with Python
+dev-python/pytest 6.2.5-r2: Simple powerful testing with Python
 dev-python/pytest-aiohttp 0.3.0-r1: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.16.0: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 5.0.0: BDD library for the pytest runner
@@ -9293,7 +9293,7 @@ dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-musicbrainzngs 0.7.1: Python bindings for the MusicBrainz NGS and the Cover Art Archive webservices
 dev-python/python-nbxmpp 2.0.3 2.0.4: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
-dev-python/python-neutronclient 7.2.1 7.7.0: A client for the OpenStack Quantum API
+dev-python/python-neutronclient 7.7.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 17.2.1 17.6.0-r1: A client for the OpenStack Nova API
 dev-python/python-openstackclient 5.7.0: A client for the OpenStack APIs
 dev-python/python-poppler-qt5 0.75.0: Python binding for libpoppler-qt5
@@ -9412,7 +9412,7 @@ dev-python/rst-linker 2.2.0-r1: Sphinx plugin to add links and timestamps to the
 dev-python/rtimulib 7.2.1-r1: Python Binding for RTIMULib, a versatile IMU library
 dev-python/rtslib-fb 2.1.74: A Python object API for managing the Linux LIO kernel target
 dev-python/ruamel-std-pathlib 0.8.0 0.9.0: Ruamel enhancements to pathlib and pathlib2
-dev-python/ruamel-yaml 0.17.17: YAML parser/emitter that supports roundtrip comment preservation
+dev-python/ruamel-yaml 0.17.17 0.17.18: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.6: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/s3transfer 0.5.0-r2: An Amazon S3 Transfer Manager
 dev-python/sabyenc 4.0.2: Module providing raw yEnc encoding/decoding for SABnzbd
@@ -11757,7 +11757,7 @@ games-engines/residualvm 0.2.1-r1 0.3.1-r2 9999: A cross-platform 3D game interp
 games-engines/scummvm 2.2.0-r2 2.5.0 9999: Reimplementation of the SCUMM game engine used in Lucasarts adventures
 games-engines/scummvm-tools 2.1.0 2.2.0: utilities for the SCUMM game engine
 games-engines/solarus 1.3.1-r100: An open-source Zelda-like 2D game engine
-games-engines/stratagus 2.4.3-r100 3.0.0-r100 3.1.0 3.1.1 3.1.2: A realtime strategy game engine
+games-engines/stratagus 2.4.3-r100 3.0.0-r100 3.1.0 3.1.1 3.1.2 3.2.0: A realtime strategy game engine
 games-engines/xzip 1.8.2-r3: X interface to Z-code based text games
 games-engines/zoom 1.1.5-r1: A fast, clean, modern Z-code interpreter for X
 games-fps/alienarena 7.66: Fast-paced multiplayer deathmatch game
@@ -12138,8 +12138,8 @@ games-strategy/tornado 1.4-r3: Clone of a C64 game - destroy the opponent's hous
 games-strategy/triplea 1.8.0.9-r2: An open source clone of the popular Axis and Allies boardgame
 games-strategy/ufoai 2.5.0_p20180603-r1: UFO: Alien Invasion - X-COM inspired strategy game
 games-strategy/uqm 0.8.0: The Ur-Quan Masters: Port of Star Control 2
-games-strategy/war1gus 2.4.3 3.0.0 3.1.0 3.1.1 3.1.2: Warcraft: Orcs & Humans for the Stratagus game engine
-games-strategy/wargus 2.4.3 3.0.0-r1 3.1.0 3.1.1 3.1.2: Warcraft II for the Stratagus game engine
+games-strategy/war1gus 2.4.3 3.0.0 3.1.0 3.1.1 3.1.2 3.2.0: Warcraft: Orcs & Humans for the Stratagus game engine
+games-strategy/wargus 2.4.3 3.0.0-r1 3.1.0 3.1.1 3.1.2 3.2.0: Warcraft II for the Stratagus game engine
 games-strategy/wargus-data 0-r1: Warcraft II data for wargus (needs DOS CD)
 games-strategy/warmux 11.04.1-r2: A free Worms clone
 games-strategy/warzone2100 4.1.3-r4 4.2.0 4.2.2: 3D real-time strategy game
@@ -17926,8 +17926,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.15.10 5.15.11: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.14.21-r1 5.15.10 5.15.11: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.168 5.10.88 5.14.21 5.15.11: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.168 5.10.88 5.14.21 5.14.21-r1 5.15.11: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.290 4.4.293 4.4.294 4.4.295 4.4.296 4.9.288 4.9.291 4.9.292 4.9.293 4.9.294 4.14.253 4.14.256 4.14.257 4.14.258 4.14.259 4.19.214 4.19.219 4.19.220 4.19.221 4.19.222 5.4.156 5.4.165 5.4.166 5.4.167 5.4.168 5.10.76-r1 5.10.84 5.10.85 5.10.86 5.10.87 5.10.88 5.15.7 5.15.8 5.15.9 5.15.10 5.15.11: Full sources including the Gentoo patchset for the 5.15 kernel tree
 sys-kernel/git-sources 5.16_rc1 5.16_rc2 5.16_rc3 5.16_rc4 5.16_rc5 5.16_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3: Gentoo fork of installkernel script from debianutils
@@ -17943,7 +17943,7 @@ sys-kernel/pf-sources 5.11_p8 5.12_p6 5.13_p2 5.13_p3 5.13_p4 5.13_p5 5.13_p6 5.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201 5.10.63_p20211029 5.10.9999: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224-r1 4.9.286_p189 4.14.250_p124 4.19.217_p95 5.4.154_p65 5.10.78_p55 5.15.3_p21: Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.15.10 5.15.11: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.168 5.10.88 5.14.21 5.15.11: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.296 4.9.294 4.14.259 4.19.222 5.4.168 5.10.88 5.15.11: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.14.15 5.15.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18128,7 +18128,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.166 5.4.167 5.4.168 5.10.85 5.10.87 5.10.88 5.14.21 5.15.10 5.15.11: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.168 5.10.88 5.14.21 5.15.11: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
