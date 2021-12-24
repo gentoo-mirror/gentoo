@@ -45,7 +45,10 @@ BDEPEND="virtual/pkgconfig"
 DEPEND="${CDEPEND}
 	python? ( dev-lang/swig )
 	test? (
-		net-dns/ldns-utils[examples]
+		|| (
+			net-libs/ldns[examples(-)]
+			net-dns/ldns-utils[examples(-)]
+		)
 		dev-util/splint
 		app-text/wdiff
 	)
@@ -120,14 +123,18 @@ multilib_src_configure() {
 		# $(use_enable debug alloc-nonregional) \
 }
 
+multilib_src_install() {
+	emake DESTDIR="${D}" install
+	systemd_dounit contrib/unbound.service
+	systemd_dounit contrib/unbound.socket
+}
+
 multilib_src_install_all() {
 	use python && python_optimize
 
 	newinitd "${FILESDIR}"/unbound-r1.initd unbound
 	newconfd "${FILESDIR}"/unbound-r1.confd unbound
 
-	systemd_dounit "${FILESDIR}"/unbound.service
-	systemd_dounit "${FILESDIR}"/unbound.socket
 	systemd_newunit "${FILESDIR}"/unbound_at.service "unbound@.service"
 	systemd_dounit "${FILESDIR}"/unbound-anchor.service
 
