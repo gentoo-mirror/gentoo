@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-inherit cmake python-single-r1
+inherit bash-completion-r1 cmake python-single-r1
 
 DESCRIPTION="Build EAR generates a compilation database for clang tooling"
 HOMEPAGE="https://github.com/rizsotto/Bear"
@@ -31,11 +31,21 @@ RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/${P^}"
 
+src_configure() {
+	local mycmakeargs=( -DUSE_SHELL_COMPLETION=OFF )
+	cmake_src_configure
+}
+
 src_compile() {
 	cmake_src_compile
 	# need to fix it now, before tests are run
 	python_fix_shebang "${BUILD_DIR}"/bear/bear
 	python_fix_shebang test/functional/tools/cdb_diff.py
+}
+
+src_install() {
+	cmake_src_install
+	dobashcomp shell-completion/bash/bear
 }
 
 src_test() {
