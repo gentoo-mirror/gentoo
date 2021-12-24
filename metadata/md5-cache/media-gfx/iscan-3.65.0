@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://support.epson.net/linux/en/imagescanv3.php https://gitlab.com/utsushi/utsushi
 INHERIT=autotools desktop flag-o-matic udev xdg-utils
 IUSE=graphicsmagick gui test
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/boost:= media-gfx/sane-backends media-libs/tiff virtual/jpeg virtual/libusb:1 graphicsmagick? ( media-gfx/graphicsmagick:=[cxx] ) !graphicsmagick? ( media-gfx/imagemagick:=[cxx] ) gui? ( dev-cpp/gtkmm:2.4 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://support.epson.net/linux/src/scanner/imagescanv3/common/imagescan_3.65.0.orig.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	udev	2d229ad4bfa09058e0184b1ca900db32	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=12a481c6e2442bf21fca80d4e884ba85
+_md5_=1e59e990efaf1691417202fc64c85bb3
