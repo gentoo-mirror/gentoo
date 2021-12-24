@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtcore:5 sys-libs/zlib[minizip] test? ( dev-qt/qtnetwork:5 dev-qt/qttest:5 )
+DESCRIPTION=Simple C++ wrapper over Gilles Vollant's ZIP/UNZIP package
+EAPI=8
+HOMEPAGE=https://stachenov.github.io/quazip/
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-qt/qtcore:5 sys-libs/zlib[minizip] !=dev-libs/quazip-1.1-r0:1
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/stachenov/quazip/archive/v1.2.tar.gz -> quazip-1.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=680964c5b087ba10e34d7c16164274c6
