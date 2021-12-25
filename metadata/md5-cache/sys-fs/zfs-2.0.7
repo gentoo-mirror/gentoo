@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/openzfs/zfs
 INHERIT=autotools bash-completion-r1 dist-kernel-utils distutils-r1 flag-o-matic linux-info pam systemd udev usr-ldscript verify-sig
 IUSE=custom-cflags debug dist-kernel kernel-builtin minimal nls pam python +rootfs test-suite python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 kernel_linux split-usr verify-sig
-KEYWORDS=~amd64 ~arm64 ~ppc64
+KEYWORDS=amd64 arm64 ppc64
 LICENSE=BSD-2 CDDL MIT
 PDEPEND=dist-kernel? ( ~sys-fs/zfs-kmod-2.0.7[dist-kernel] )
 RDEPEND=net-libs/libtirpc:= sys-apps/util-linux sys-libs/zlib virtual/libudev:= dev-libs/openssl:0= !minimal? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pam? ( sys-libs/pam ) python? ( virtual/python-cffi[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) !kernel-builtin? ( ~sys-fs/zfs-kmod-2.0.7:= ) !prefix? ( virtual/udev ) sys-fs/udev-init-scripts virtual/awk dist-kernel? ( virtual/dist-kernel:= ) rootfs? ( app-arch/cpio app-misc/pax-utils !<sys-kernel/genkernel-3.5.1.1 ) test-suite? ( app-shells/ksh sys-apps/kmod[tools] sys-apps/util-linux sys-devel/bc sys-block/parted sys-fs/lsscsi sys-fs/mdadm sys-process/procps )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0/4
 SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.0.7/zfs-2.0.7.tar.gz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.0.7/zfs-2.0.7.tar.gz.asc )
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	bash-completion-r1	d3a60385655d9b402be765a6de333245	dist-kernel-utils	74074c49ea85735400eeaf6a3a348969	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	8041037f74e1f9d149c038c2fe2c97cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	pam	41ce39f668e11d31ff4734f3b5794f7d	systemd	2736b403a83f194b59b767f3b344c2c1	udev	2d229ad4bfa09058e0184b1ca900db32	usr-ldscript	6ae04038b0001994e6be364ffc1c0156	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
-_md5_=7efceb08826052b14a175aa40e7b730e
+_md5_=fdc39f9f241071aadda9a790f226a4a5
