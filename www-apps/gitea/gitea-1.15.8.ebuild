@@ -1,7 +1,7 @@
 # Copyright 2016-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit fcaps go-module tmpfiles systemd
 MY_PV="${PV/_rc/-rc}"
@@ -39,7 +39,6 @@ FILECAPS=(
 )
 
 RESTRICT="test"
-QA_PRESTRIPPED="usr/bin/gitea"
 
 src_prepare() {
 	default
@@ -59,13 +58,6 @@ src_prepare() {
 	if use sqlite ; then
 		sed -i -e "s#^DB_TYPE = .*#DB_TYPE = sqlite3#" custom/conf/app.example.ini || die
 	fi
-
-	einfo "Remove tests which are known to fail with network-sandbox enabled."
-	rm ./modules/migrations/github_test.go || die
-
-	einfo "Remove tests which depend on gitea git-repo."
-	rm ./modules/git/blob_test.go || die
-	rm ./modules/git/repo_test.go || die
 }
 
 src_compile() {
