@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit distutils-r1 optfeature xdg-utils desktop
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/jeromerobert/${PN}/archive/${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
@@ -21,6 +21,7 @@ RDEPEND="
 	dev-python/pikepdf[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP},cairo]
+	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	x11-libs/gtk+:3[introspection]
 	x11-libs/pango[introspection]
 "
