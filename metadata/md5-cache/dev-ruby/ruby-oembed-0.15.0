@@ -1,7 +1,7 @@
 BDEPEND=ruby_targets_ruby26? ( test? ( dev-ruby/json[ruby_targets_ruby26(-)] dev-ruby/vcr:5[ruby_targets_ruby26(-)] dev-ruby/xml-simple[ruby_targets_ruby26(-)] dev-ruby/nokogiri[ruby_targets_ruby26(-)] dev-ruby/webmock:3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/json[ruby_targets_ruby27(-)] dev-ruby/vcr:5[ruby_targets_ruby27(-)] dev-ruby/xml-simple[ruby_targets_ruby27(-)] dev-ruby/nokogiri[ruby_targets_ruby27(-)] dev-ruby/webmock:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] !!dev-ruby/psych[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] !!dev-ruby/psych[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
-DESCRIPTION=An oEmbed consumer library written in Ruby.
+DESCRIPTION=An oEmbed consumer library written in Ruby
 EAPI=7
 HOMEPAGE=https://github.com/judofyr/ruby-oembed
 INHERIT=ruby-fakegem
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/ruby-oembed-0.15.0.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	8a0248f83ae77f945d376ff4a7953257	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	05a317c9b860e5661cc9baf18c442e1c	ruby-fakegem	53b774322e7124b47b10a03fa0e089eb
-_md5_=8b653ab612196ada1e646846a742d27d
+_md5_=86b20468c1c6b7760bc194e4c564498b

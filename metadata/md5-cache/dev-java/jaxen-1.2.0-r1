@@ -1,6 +1,6 @@
 DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=dom4j? ( dev-java/dom4j:1 ) jdom? ( dev-java/jdom:0 ) xom? ( dev-java/xom:0 ) >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:0 )
-DESCRIPTION=Jaxen is a universal XPath engine for Java.
+DESCRIPTION=Jaxen is a universal XPath engine for Java
 EAPI=7
 HOMEPAGE=http://www.cafeconleche.org/jaxen/
 INHERIT=java-pkg-2 java-pkg-simple
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=1.2
 SRC_URI=https://github.com/jaxen-xpath/jaxen/archive/refs/tags/v1.2.0.tar.gz -> jaxen-1.2.0.tar.gz
 _eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=1a4f51f34bea001f84ddc2780bd6154a
+_md5_=40233440ad9fc6c27b7884eb9f32577c

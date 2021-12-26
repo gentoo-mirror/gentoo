@@ -1,7 +1,7 @@
 BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] !~dev-python/pbr-2.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
-DESCRIPTION=Golden Disk Image builder.
+DESCRIPTION=Golden Disk Image builder
 EAPI=7
 HOMEPAGE=http://docs.openstack.org/developer/diskimage-builder/
 INHERIT=distutils-r1 git-r3
@@ -12,4 +12,4 @@ RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_pytho
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	8041037f74e1f9d149c038c2fe2c97cf	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=f3cec61237aad6cb3d0bccb039ed949e
+_md5_=2669ea6b350acc842f4990158c833ead

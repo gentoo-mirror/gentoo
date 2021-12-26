@@ -1,6 +1,6 @@
 DEFINED_PHASES=install postinst prepare prerm setup
 DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=app-admin/webapp-config-1.50.15
-DESCRIPTION=DokuWiki is a simple to use Wiki aimed at a small company's documentation needs.
+DESCRIPTION=DokuWiki is a simple to use Wiki aimed at a small company's documentation needs
 EAPI=7
 HOMEPAGE=https://wiki.dokuwiki.org
 INHERIT=webapp
@@ -11,4 +11,4 @@ RDEPEND=>=dev-lang/php-5.3[xml] virtual/httpd-php:* gd? ( || ( dev-lang/php[gd] 
 SLOT=20200729
 SRC_URI=https://download.dokuwiki.org/src/dokuwiki/dokuwiki-2020-07-29.tgz
 _eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
-_md5_=afcc89412328a392bb3e91d0aa835a08
+_md5_=5dd997d3740411202e9ed4c923d46b88
