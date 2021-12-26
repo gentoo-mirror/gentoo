@@ -1,41 +1,43 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="A data-centric parallel programming system"
 HOMEPAGE="https://legion.stanford.edu/"
-if [[ ${PV} = 9999 ]]; then
+if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://StanfordLegion/${PN}.git https://github.com/StanfordLegion/${PN}.git"
 else
 	SRC_URI="https://github.com/StanfordLegion/${PN}/archive/${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${P}
+
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-${P}"
 fi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="gasnet +hwloc test"
+IUSE="gasnet hwloc test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	gasnet? ( >=sys-cluster/gasnet-1.26.4-r1 )
 	hwloc? ( <sys-apps/hwloc-2:= )
-	"
+"
+
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	mycmakeargs=(
+	local mycmakeargs=(
 		-DLegion_USE_HWLOC=$(usex hwloc)
 		-DLegion_USE_GASNet=$(usex gasnet)
 		-DLegion_ENABLE_TESTING=$(usex test)
-		-DBUILD_SHARED_LIBS=ON
 		-DLegion_BUILD_EXAMPLES=ON
 		-DLegion_BUILD_TESTS=ON
 		-DLegion_BUILD_TUTORIAL=ON
 	)
-	cmake-utils_src_configure
+
+	cmake_src_configure
 }
