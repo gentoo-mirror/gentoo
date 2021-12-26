@@ -1,13 +1,15 @@
+BDEPEND=app-arch/unzip app-editors/vim net-misc/wget sys-apps/ed sys-devel/bc test? ( sys-process/time )
 DEFINED_PHASES=compile install prepare test unpack
-DEPEND=net-print/cups net-print/foomatic-db-engine >=net-print/cups-filters-1.0.43-r1[foomatic] virtual/udev app-arch/unzip app-editors/vim net-misc/wget sys-apps/ed sys-devel/bc test? ( sys-process/time )
+DEPEND=net-print/cups net-print/foomatic-db-engine >=net-print/cups-filters-1.0.43-r1[foomatic] virtual/udev
 DESCRIPTION=Support for printing to ZjStream-based printers
 EAPI=7
 HOMEPAGE=http://foo2zjs.rkkda.com/
 INHERIT=toolchain-funcs
 IUSE=test
 LICENSE=GPL-2
+PROPERTIES=live
 RDEPEND=net-print/cups net-print/foomatic-db-engine >=net-print/cups-filters-1.0.43-r1[foomatic] virtual/udev
 RESTRICT=bindist !test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257
-_md5_=275fb196e71297e2e463af520044e363
+_md5_=c6cdfca75d963b9a3c5d27c1e5a88a7b

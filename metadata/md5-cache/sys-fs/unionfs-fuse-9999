@@ -1,13 +1,15 @@
-DEFINED_PHASES=compile install setup test
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install setup test unpack
 DEPEND=sys-fs/fuse:0 test? ( || ( ( dev-lang/python:3.9 dev-python/pytest[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/pytest[python_targets_python3_8(-)] ) ) )
 DESCRIPTION=Self-syncing tree-merging file system based on FUSE
 EAPI=7
 HOMEPAGE=https://github.com/rpodgorny/unionfs-fuse
-INHERIT=python-any-r1 toolchain-funcs
+INHERIT=git-r3 python-any-r1 toolchain-funcs
 IUSE=test
 LICENSE=BSD
+PROPERTIES=live
 RDEPEND=sys-fs/fuse:0
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=08aac4ffcdb74c37e4ba2fe82aa4699c
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_md5_=a296877791b81ec2b60bf9673dbc9331
