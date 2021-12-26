@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://kernel.org/
 INHERIT=estack linux-info optfeature python-any-r1 toolchain-funcs
 IUSE=caps kernel_linux
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.14.14.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.14.tar.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=6d84bf73e5efc0bb3e8a9e752a07b5b1
+_md5_=f4fa10e0b6269846984ca70b1ce5ca2b
