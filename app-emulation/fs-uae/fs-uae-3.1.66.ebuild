@@ -7,7 +7,7 @@ inherit autotools xdg
 
 DESCRIPTION="Integrates the most accurate Amiga emulation code available from WinUAE"
 HOMEPAGE="https://fs-uae.net/"
-SRC_URI="https://fs-uae.net/stable/${PV}/${P}.tar.gz"
+SRC_URI="https://fs-uae.net/files/FS-UAE/Stable/${PV}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64"
@@ -40,7 +40,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.0-libmpeg2.patch
 	"${FILESDIR}"/${PN}-3.0.0-Xatom.h.patch
-	"${FILESDIR}"/${PN}-3.1.35-ar.patch
 	"${FILESDIR}"/${PN}-3.1.35-deepbind.patch
 )
 
