@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare setup
-DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-ada/gnatcoll-core[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?]
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) dev-ada/gnatcoll-core[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?]
 DESCRIPTION=GNAT Component Collection
 EAPI=7
 HOMEPAGE=http://libre.adacore.com
@@ -7,9 +7,9 @@ INHERIT=ada multiprocessing python-single-r1
 IUSE=gmp iconv python readline +shared static-libs static-pic syslog ada_target_gnat_2020 ada_target_gnat_2021 python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10 ) dev-ada/gnatcoll-core[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) dev-ada/gnatcoll-core[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/d93655ced17f15c5f376b6861825df3f9c183980?filename=gnatcoll-bindings-2021-20210518-19B15-src.tar.gz -> gnatcoll-bindings-2021-20210518-19B15-src.tar.gz
-_eclasses_=ada	a733cb988a74f3fd4b7c45e9eb9a4fe5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_eclasses_=ada	dd7d6e1357088d74546d8e11f7f485fc	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
 _md5_=57a48b660b5b3344de62f05e8c91edff
