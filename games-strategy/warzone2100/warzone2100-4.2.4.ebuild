@@ -1,7 +1,7 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PLOCALES="af_ZA bg_BG ca_ES cs da de el en_GB eo es et_EE fa_IR fi fr fy ga he_IL hr hu id_ID id it ko la lt nb nl pl pt_BR pt ro ru sk sl tr tt_RU uk_UA zh_CN zh_TW"
 inherit cmake plocale xdg
