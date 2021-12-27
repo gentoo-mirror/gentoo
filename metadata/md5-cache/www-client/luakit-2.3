@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://luakit.github.io/luakit
 INHERIT=lua-single toolchain-funcs xdg
 IUSE=doc test lua_single_target_luajit lua_single_target_lua5-1
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-3+
 RDEPEND=dev-db/sqlite:3 dev-libs/glib:2 net-libs/webkit-gtk:4= x11-libs/gtk+:3 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_luajit? ( dev-lua/luafilesystem[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/luakit/luakit/archive/2.3.tar.gz -> luakit-2.3.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=6a75a08dbe6186203a72cf58cc5034de
+_md5_=2d2c9c8d95116e03b0db5f188c978b19
