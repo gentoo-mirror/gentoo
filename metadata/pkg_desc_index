@@ -3155,7 +3155,6 @@ app-shells/dsh 0.25.10-r1: Distributed Shell
 app-shells/esh 0.8.5-r2: A UNIX Shell with a simplified Scheme syntax
 app-shells/fish 3.3.1-r1 9999: Friendly Interactive SHell
 app-shells/fzf 0.27.2 0.28.0: General-purpose command-line fuzzy finder, written in Golang
-app-shells/fzy 1.0-r1 9999: Fuzzy text selector (interactive grep) for console
 app-shells/gentoo-bashcomp 20180302 20190211: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20200914 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
 app-shells/heirloom-sh 050706-r1: Heirloom Bourne Shell, derived from OpenSolaris code SVR4/SVID3
@@ -3277,6 +3276,7 @@ app-text/fbreader 0.99.4-r6: E-Book Reader. Supports many e-book formats
 app-text/fictionup 0.2.1: Command-line markdown to fb2 convertor
 app-text/flpsed 0.7.3: Pseudo PostScript editor
 app-text/foliate 2.6.2 2.6.3: gtk ebook reader built with gjs
+app-text/fzy 1.0-r1 9999: Fuzzy text selector (interactive grep) for console
 app-text/ghostscript-gpl 9.52-r1 9.53.3-r5 9.54.0 9.54.0-r1 9.55.0-r1: Interpreter for the PostScript language and PDF
 app-text/gnome-doc-utils 0.20.10-r2: A collection of documentation utilities for the Gnome project
 app-text/gocr 0.50 0.52: An OCR (Optical Character Recognition) reader
@@ -8372,7 +8372,7 @@ dev-python/click-help-colors 0.9.1: Colorization of help messages in Click
 dev-python/click-log 0.3.2: Logging integration for Click
 dev-python/click-plugins 1.1.1: Module for click to enable registering CLI commands via setuptools entry-points
 dev-python/click-threading 0.5.0: Multithreaded Click apps made easy
-dev-python/cliff 3.8.0 3.9.0 3.10.0: Command Line Interface Formulation Framework
+dev-python/cliff 3.10.0: Command Line Interface Formulation Framework
 dev-python/clikit 0.6.2: Group of utilities to build beautiful and testable command line interfaces
 dev-python/clint 0.5.1-r3: Python Command-line Application Tools
 dev-python/cloudpickle 2.0.0: Extended pickling support for Python objects
@@ -8580,7 +8580,7 @@ dev-python/freezegun 1.1.0-r1: Let your Python tests travel through time
 dev-python/fritzconnection 1.7.1 1.7.2: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
 dev-python/frozen-flask 0.18: Freezes a Flask application into a set of static files
 dev-python/frozenlist 1.2.0: A list-like structure which implements collections.abc.MutableSequence
-dev-python/fs 2.4.13 2.4.14: Filesystem abstraction layer
+dev-python/fs 2.4.14: Filesystem abstraction layer
 dev-python/fsspec 2021.11.1: A specification that python filesystems should adhere to
 dev-python/funcparserlib 0.3.6_p20210809 1.0.0_alpha0: Recursive descent parsing library based on functional combinators
 dev-python/funcy 1.16 1.17: A collection of fancy functional tools focused on practicality
@@ -8601,7 +8601,7 @@ dev-python/gevent-websocket 0.10.1: Websocket handler for the gevent pywsgi serv
 dev-python/geventhttpclient 1.5.3: A high performance, concurrent HTTP client library for Python using gevent
 dev-python/ghp-import 2.0.2: Copy your docs directly to the gh-pages branch
 dev-python/git-review 2.1.0: Tool to submit code to Gerrit
-dev-python/gitdb 4.0.7 4.0.8: GitDB is a pure-Python git object database
+dev-python/gitdb 4.0.8: GitDB is a pure-Python git object database
 dev-python/github3 3.0.0: A wrapper for the GitHub API written in python
 dev-python/glob2 0.7: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.4-r1: An object-oriented GUI library for pyglet
@@ -8911,7 +8911,7 @@ dev-python/odfpy 1.3.6: Python API and tools to manipulate OpenDocument files
 dev-python/olefile 0.46-r1: Python package to parse, read and write Microsoft OLE2 files
 dev-python/openpyxl 3.0.9: Pure python reader and writer of Excel OpenXML files
 dev-python/openstackdocstheme 2.3.1: Theme and extension support for Sphinx documentation
-dev-python/openstacksdk 0.59.0 0.60.0 0.61.0: A collection of libraries for building applications to work with OpenStack
+dev-python/openstacksdk 0.61.0: A collection of libraries for building applications to work with OpenStack
 dev-python/opt-einsum 3.3.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.0.2: A mutable set that remembers the order of its entries
 dev-python/os-client-config 2.1.0-r1: OpenStack Client Configuation Library
@@ -9015,7 +9015,7 @@ dev-python/progress 1.6: Easy to use progress bars
 dev-python/progressbar 2.5: Text progressbar library for python
 dev-python/progressbar2 3.55.0: Text progressbar library for python
 dev-python/prometheus_client 0.12.0: Python client for the Prometheus monitoring system
-dev-python/prompt_toolkit 3.0.22 3.0.23 3.0.24: Building powerful interactive command lines in Python
+dev-python/prompt_toolkit 3.0.24: Building powerful interactive command lines in Python
 dev-python/proto-plus 1.19.2 1.19.7 1.19.8: Beautiful, Pythonic protocol buffers
 dev-python/protobuf-python 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Python bindings
 dev-python/prov 2.0.0: W3C provenance data dodel library
@@ -9245,7 +9245,7 @@ dev-python/python-axolotl 0.2.3-r1: A python module for the axolotl protocol
 dev-python/python-axolotl-curve25519 0.4.1_p2-r1: A python wrapper for the curve25519 library with ed25519 signatures
 dev-python/python-bugzilla 3.1.0: A python module for interacting with Bugzilla over XMLRPC
 dev-python/python-caja 1.24.0-r2: Python bindings for the Caja file manager
-dev-python/python-cinderclient 8.1.0 8.2.0: A client for the OpenStack Cinder API
+dev-python/python-cinderclient 8.2.0: A client for the OpenStack Cinder API
 dev-python/python-cstruct 2.1: C-style structs for Python
 dev-python/python-ctags 1.5.0: Exuberant Ctags indexing python bindings
 dev-python/python-daemon 2.3.0-r1: Library to implement a well-behaved Unix daemon process
@@ -9302,7 +9302,7 @@ dev-python/python-slugify 4.0.1 5.0.2: A Python Slugify application that handles
 dev-python/python-socks 1.2.4 2.0.0 2.0.1: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
 dev-python/python-sshpubkeys 3.3.1: OpenSSH public key parser for Python
 dev-python/python-stdnum 1.17: A module to handle standardized numbers and codes
-dev-python/python-swiftclient 3.12.0 3.13.0: Python bindings to the OpenStack Object Storage API
+dev-python/python-swiftclient 3.13.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 234 234-r1: Python module for native access to the systemd facilities
 dev-python/python-utils 2.5.6 2.6.0 2.6.3: Collection of small Python functions & classes
 dev-python/python-varlink 30.3.1: Python implementation of the Varlink protocol
