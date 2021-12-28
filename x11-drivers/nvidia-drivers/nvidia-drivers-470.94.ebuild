@@ -22,7 +22,7 @@ S="${WORKDIR}"
 
 LICENSE="NVIDIA-r2 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64"
 IUSE="+X abi_x86_32 abi_x86_64 +driver persistenced static-libs +tools wayland"
 
 COMMON_DEPEND="
@@ -429,21 +429,5 @@ pkg_postinst() {
 		elog
 		elog "This version of ${PN} only supports EGLStream which is only"
 		elog "supported by a few wayland compositors (e.g. kwin / mutter, not sway)."
-	fi
-
-	# Try to show this message only to users that may really need it
-	# given the workaround is discouraged and usage isn't widespread.
-	if use X && [[ ${REPLACING_VERSIONS} ]] &&
-		ver_test ${REPLACING_VERSIONS} -lt 460.73.01 &&
-		grep -qr Coolbits "${EROOT}"/etc/X11/{xorg.conf,xorg.conf.d/*.conf} 2>/dev/null; then
-		elog
-		elog "Coolbits support with ${PN} has been restricted to require Xorg"
-		elog "with root privilege by NVIDIA (being in video group is not sufficient)."
-		elog "e.g. attempting to change fan speed with nvidia-settings would fail."
-		elog
-		elog "Depending on your display manager (e.g. sddm starts X as root, gdm doesn't)"
-		elog "or if using startx, it may be necessary to emerge x11-base/xorg-server with"
-		elog 'USE="suid -elogind -systemd" if wish to keep using this feature.'
-		elog "Bug: https://bugs.gentoo.org/784248"
 	fi
 }
