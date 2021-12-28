@@ -1,16 +1,17 @@
 BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-)]
 DEFINED_PHASES=compile install setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) dev-ada/libadalang:=[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),static-libs]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) dev-ada/libadalang:=[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),static-libs?,static-pic?]
 DESCRIPTION=Libadalang-based tools: gnatpp, gnatmetric and gnatstub
 EAPI=7
 HOMEPAGE=https://www.adacore.com/community
 INHERIT=ada multiprocessing
-IUSE=ada_target_gnat_2020 ada_target_gnat_2021
+IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021
 KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) ada_target_gnat_2021
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AdaCore/libadalang-tools/archive/refs/tags/v22.0.0.tar.gz -> libadalang-tools-22.0.0.tar.gz
 _eclasses_=ada	dd7d6e1357088d74546d8e11f7f485fc	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=bddf4a83b64bac722e29e70ba49c699c
+_md5_=41eb08daee5c4fa9af086e69fdeb81b5
