@@ -1,5 +1,5 @@
 DEFINED_PHASES=install postinst prerm setup
-DEPEND=>=app-admin/webapp-config-1.50.15
+DEPEND=app-admin/webapp-config
 DESCRIPTION=multilanguage CalDAV web client
 EAPI=6
 HOMEPAGE=http://agendav.org/
@@ -7,8 +7,8 @@ INHERIT=webapp
 IUSE=vhosts
 KEYWORDS=~amd64 ~ppc64
 LICENSE=GPL-3+
-RDEPEND=>=dev-lang/php-5.6[ctype,curl,unicode,tokenizer,xml,xmlreader,xmlwriter] virtual/httpd-php || ( >=virtual/mysql-5.1 >=dev-db/postgresql-8.1 ) >=app-admin/webapp-config-1.50.15
+RDEPEND=>=dev-lang/php-5.6[ctype,curl,unicode,tokenizer,xml,xmlreader,xmlwriter] virtual/httpd-php || ( >=virtual/mysql-5.1 >=dev-db/postgresql-8.1 ) app-admin/webapp-config
 SLOT=2.2.0
 SRC_URI=https://github.com/agendav/agendav/releases/download/2.2.0/agendav-2.2.0.tar.gz
-_eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=webapp	60f2eb31dec733d05e8114cc078ebc33
 _md5_=8b684b5923402984d9463f359170747e

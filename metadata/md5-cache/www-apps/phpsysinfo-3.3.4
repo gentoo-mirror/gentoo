@@ -1,5 +1,5 @@
 DEFINED_PHASES=install postinst prerm setup
-DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=app-admin/webapp-config-1.50.15
+DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
 DESCRIPTION=A customizable PHP script that displays information about your system nicely
 EAPI=7
 HOMEPAGE=https://rk4an.github.com/phpsysinfo/
@@ -7,8 +7,8 @@ INHERIT=optfeature webapp
 IUSE=vhosts
 KEYWORDS=amd64 ~hppa ppc ppc64 x86
 LICENSE=GPL-2+
-RDEPEND=dev-lang/php[simplexml,xml,xsl(+),xslt(+),unicode] virtual/httpd-php >=app-admin/webapp-config-1.50.15
+RDEPEND=dev-lang/php[simplexml,xml,xsl(+),xslt(+),unicode] virtual/httpd-php app-admin/webapp-config
 SLOT=3.3.4
 SRC_URI=https://github.com/rk4an/phpsysinfo/archive/v3.3.4.tar.gz -> phpsysinfo-3.3.4.tar.gz
-_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	webapp	60f2eb31dec733d05e8114cc078ebc33
 _md5_=a0c6cfb5ac01590ac7f38a1ac4f88cb0

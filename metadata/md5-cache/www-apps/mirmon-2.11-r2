@@ -1,5 +1,5 @@
 DEFINED_PHASES=install postinst prerm setup
-DEPEND=>=dev-lang/perl-5.8.5-r2:0 >=app-admin/webapp-config-1.50.15
+DEPEND=>=dev-lang/perl-5.8.5-r2:0 app-admin/webapp-config
 DESCRIPTION=Simple webapp to monitor the status of mirrors
 EAPI=7
 HOMEPAGE=http://www2.projects.science.uu.nl/csg/mirmon/mirmon.html
@@ -7,8 +7,8 @@ INHERIT=webapp
 IUSE=vhosts
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-lang/perl-5.8.5-r2:0 dev-perl/File-Tempdir dev-perl/Socket6 >=app-admin/webapp-config-1.50.15
+RDEPEND=>=dev-lang/perl-5.8.5-r2:0 dev-perl/File-Tempdir dev-perl/Socket6 app-admin/webapp-config
 SLOT=0
 SRC_URI=mirror://debian/pool/main/m/mirmon/mirmon_2.11.orig.tar.gz -> mirmon-2.11.tar.gz
-_eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=webapp	60f2eb31dec733d05e8114cc078ebc33
 _md5_=a24d8ab665d069dae0845974f1da5334

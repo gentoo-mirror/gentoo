@@ -1,6 +1,6 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=install postinst prerm setup
-DEPEND=>=app-admin/webapp-config-1.50.15
+DEPEND=app-admin/webapp-config
 DESCRIPTION=a photo gallery software for the web
 EAPI=7
 HOMEPAGE=http://piwigo.org/
@@ -8,9 +8,9 @@ INHERIT=webapp
 IUSE=+exif +gd imagemagick vhosts
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=imagemagick? ( virtual/imagemagick-tools ) <dev-lang/php-8[ctype,exif?,gd?,filter,iconv,json(+),mysqli] >=virtual/mysql-5.0 virtual/httpd-php >=app-admin/webapp-config-1.50.15
+RDEPEND=imagemagick? ( virtual/imagemagick-tools ) <dev-lang/php-8[ctype,exif?,gd?,filter,iconv,json(+),mysqli] >=virtual/mysql-5.0 virtual/httpd-php app-admin/webapp-config
 REQUIRED_USE=|| ( gd imagemagick )
 SLOT=11.5.0-r1
 SRC_URI=http://piwigo.org/download/dlcounter.php?code=11.5.0 -> piwigo-11.5.0.zip
-_eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=webapp	60f2eb31dec733d05e8114cc078ebc33
 _md5_=b13c0cb280a6f71b9a02b10b6d9347bd

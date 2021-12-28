@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=app-arch/unzip >=virtual/jdk-1.8 dev-java/bcprov:0 dev-java/commons-compress:0 dev-java/fec:0 dev-java/java-service-wrapper:0 dev-java/jbitcollider-core:0 dev-java/jna:4 dev-java/lzma:0 dev-java/lzmajio:0 dev-java/mersennetwister:0 nss? ( dev-libs/nss ) test? ( dev-java/junit:0 dev-java/ant-junit:0 ) dev-java/ant-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 >=dev-java/javatoolkit-0.3.0-r2
+DEPEND=app-arch/unzip >=virtual/jdk-1.8 dev-java/bcprov:0 dev-java/commons-compress:0 dev-java/fec:0 dev-java/java-service-wrapper:0 dev-java/jbitcollider-core:0 dev-java/jna:4 dev-java/lzma:0 dev-java/lzmajio:0 dev-java/mersennetwister:0 nss? ( dev-libs/nss ) test? ( dev-java/junit:0 dev-java/ant-junit:0 ) dev-java/ant-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=An encrypted network without censorship
 EAPI=7
 HOMEPAGE=https://freenetproject.org/
@@ -13,5 +13,5 @@ RDEPEND=>=virtual/jre-1.8 net-libs/nativebiginteger:0 dev-java/bcprov:0 dev-java
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/freenet/fred/archive/build01491.zip -> freenet-0.7.5_p1491.zip https://github.com/freenet/seedrefs/archive/build01480.zip -> seednodes-0.7.5_p1480.zip mirror://gentoo/freenet-ant-1.7.1.jar
-_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	8a0248f83ae77f945d376ff4a7953257	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	e83ca06db890ca292b0b6d43e376e20d	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	8a0248f83ae77f945d376ff4a7953257	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	262d853e2dd1056dc103b953dfc113b9	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=8bd94dd316d12a45eff3a4788956aef5

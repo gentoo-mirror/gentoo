@@ -1,6 +1,6 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare prerm setup test unpack
-DEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi doc? ( app-text/docbook-xsl-stylesheets >=app-text/asciidoc-8.5.1 ) >=app-admin/webapp-config-1.50.15
+DEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi doc? ( app-text/docbook-xsl-stylesheets >=app-text/asciidoc-8.5.1 ) app-admin/webapp-config
 DESCRIPTION=a fast web-interface for git repositories
 EAPI=7
 HOMEPAGE=https://git.zx2c4.com/cgit/about
@@ -8,9 +8,9 @@ INHERIT=git-r3 lua-single toolchain-funcs webapp
 IUSE=doc +highlight +lua test lua_single_target_luajit lua_single_target_lua5-1 vhosts
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi >=app-admin/webapp-config-1.50.15
+RDEPEND=acct-group/cgit acct-user/cgit dev-vcs/git highlight? ( || ( dev-python/pygments app-text/highlight ) ) dev-libs/openssl:0= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi app-admin/webapp-config
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	webapp	60f2eb31dec733d05e8114cc078ebc33
 _md5_=234dd0ad5e78bdbec722fddf77cebfee

@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prerm setup
-DEPEND=dev-lang/php:*[json(+),mysql,session,posix] dev-perl/DBD-mysql dev-perl/DBI dev-perl/HTTP-Date dev-perl/Net-UPnP virtual/httpd-php:* || ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=app-admin/webapp-config-1.50.15
+DEPEND=dev-lang/php:*[json(+),mysql,session,posix] dev-perl/DBD-mysql dev-perl/DBI dev-perl/HTTP-Date dev-perl/Net-UPnP virtual/httpd-php:* || ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
 DESCRIPTION=PHP scripts intended to manage MythTV from a web browser
 EAPI=6
 HOMEPAGE=https://www.mythtv.org
@@ -7,8 +7,8 @@ INHERIT=webapp
 IUSE=vhosts
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/php:*[json(+),mysql,session,posix] dev-perl/DBD-mysql dev-perl/DBI dev-perl/HTTP-Date dev-perl/Net-UPnP virtual/httpd-php:* >=app-admin/webapp-config-1.50.15
+RDEPEND=dev-lang/php:*[json(+),mysql,session,posix] dev-perl/DBD-mysql dev-perl/DBI dev-perl/HTTP-Date dev-perl/Net-UPnP virtual/httpd-php:* app-admin/webapp-config
 SLOT=0.28.1-r1
 SRC_URI=https://github.com/MythTV/mythweb/archive/v0.28.1.tar.gz -> mythweb-0.28.1.tar.gz
-_eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
+_eclasses_=webapp	60f2eb31dec733d05e8114cc078ebc33
 _md5_=115b592bda2eee937af37aff969571f7

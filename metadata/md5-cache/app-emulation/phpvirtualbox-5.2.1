@@ -1,5 +1,5 @@
 DEFINED_PHASES=install postinst prerm setup
-DEPEND=>=app-admin/webapp-config-1.50.15
+DEPEND=app-admin/webapp-config
 DESCRIPTION=Web-based administration for VirtualBox in PHP
 EAPI=6
 HOMEPAGE=https://sourceforge.net/projects/phpvirtualbox/
@@ -7,8 +7,8 @@ INHERIT=eapi7-ver webapp readme.gentoo-r1
 IUSE=vhosts
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-lang/php:*[gd,session,soap,unicode] virtual/httpd-php:* >=app-admin/webapp-config-1.50.15
+RDEPEND=dev-lang/php:*[gd,session,soap,unicode] virtual/httpd-php:* app-admin/webapp-config
 SLOT=5.2.1
 SRC_URI=https://github.com/phpvirtualbox/phpvirtualbox/archive/5.2-1.tar.gz -> phpvirtualbox-5.2-1.tar.gz
-_eclasses_=eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	webapp	cd327e73cdb307ceb80dcca6b8ad8b52	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c
+_eclasses_=eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	webapp	60f2eb31dec733d05e8114cc078ebc33	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c
 _md5_=129b3fc1d7d7ae199c27130be18fae28
