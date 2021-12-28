@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5[mpi] ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0 netcdf? ( sci-libs/netcdf ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 ) kokkos? ( =dev-cpp/kokkos-3.0* ) dev-cpp/eigen:3 virtual/fortran
+DEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= netcdf? ( sci-libs/netcdf:= ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 ) kokkos? ( =dev-cpp/kokkos-3.0* ) dev-cpp/eigen:3 virtual/fortran
 DESCRIPTION=Large-scale Atomic/Molecular Massively Parallel Simulator
 EAPI=7
 HOMEPAGE=https://lammps.sandia.gov/
@@ -8,10 +8,10 @@ INHERIT=cmake fortran-2 python-r1
 IUSE=cuda examples gzip kokkos lammps-memalign mpi netcdf python test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5[mpi] ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0 netcdf? ( sci-libs/netcdf ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 ) kokkos? ( =dev-cpp/kokkos-3.0* ) dev-cpp/eigen:3 virtual/fortran
+RDEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= netcdf? ( sci-libs/netcdf:= ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 ) kokkos? ( =dev-cpp/kokkos-3.0* ) dev-cpp/eigen:3 virtual/fortran
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz -> lammps-stable_3Mar2020.tar.gz test? ( https://github.com/lammps/lammps-testing/archive/stable_3Mar2020.tar.gz -> lammps-testing-stable_3Mar2020.tar.gz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4
-_md5_=b79510de2f6ec947ca68287d313e6f16
+_md5_=16c425b1ebfa38f9ef6b554097777531

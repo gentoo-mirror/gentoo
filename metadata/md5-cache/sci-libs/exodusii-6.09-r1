@@ -1,6 +1,6 @@
-BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5 test? ( virtual/fortran )
+BDEPEND=test? ( app-shells/tcsh ) sys-devel/make >=dev-util/cmake-3.20.5 test? ( virtual/fortran )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=sci-libs/netcdf[hdf5] test? ( app-shells/tcsh )
+DEPEND=sci-libs/netcdf:=[hdf5]
 DESCRIPTION=Model developed to store and retrieve transient data for finite element analyses
 EAPI=7
 HOMEPAGE=https://github.com/certik/exodus
@@ -8,9 +8,9 @@ INHERIT=cmake fortran-2
 IUSE=static-libs test
 KEYWORDS=amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=sci-libs/netcdf[hdf5]
+RDEPEND=sci-libs/netcdf:=[hdf5]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~asturm/distfiles/exodus-6.09.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
-_md5_=ee7cba877b48eb5dcc9cbee3047b107a
+_md5_=cad54e5493ef12f61137fb5c9f361204
