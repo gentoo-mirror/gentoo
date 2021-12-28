@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/ppx_expect dev-ml/ppx_inline_test ) dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/menhir-20181006:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Library to parse and type-check an extension of the SMT-LIB 2 standard
+EAPI=8
+HOMEPAGE=https://github.com/OCamlPro-Coquera/psmt2-frontend
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-ml/menhir-20181006:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.4.0
+SRC_URI=https://github.com/OCamlPro-Coquera/psmt2-frontend/archive/0.4.0.tar.gz -> psmt2-frontend-0.4.0.tar.gz
+_eclasses_=dune	dce723780ea5cdf2d76da678d3bd9cea
+_md5_=710c25e3cf2848a7eafb556f5d8902ee
