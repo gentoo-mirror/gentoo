@@ -11,7 +11,8 @@ SRC_URI="https://github.com/Unidata/netcdf-c/archive/v${PV}.tar.gz -> ${P}.tar.g
 S="${WORKDIR}/${PN}-c-${PV}"
 
 LICENSE="UCAR-Unidata"
-SLOT="0/18"
+# SONAME of libnetcdf.so
+SLOT="0/19"
 KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 -riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="+dap doc examples hdf +hdf5 mpi szip test tools"
 RESTRICT="!test? ( test )"
@@ -55,7 +56,8 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DENABLE_DAP_REMOTE_TESTS=OFF
-		-DENABLE_LIBXML2=ON
+		# Enable for >4.8.1 (not yet in a release)
+		#-DENABLE_LIBXML2=ON
 		-DBUILD_UTILITIES=$(usex tools)
 		-DENABLE_DAP=$(usex dap)
 		-DENABLE_DOXYGEN=$(usex doc)
