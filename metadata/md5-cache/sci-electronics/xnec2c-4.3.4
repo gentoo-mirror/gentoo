@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=dev-libs/glib:2 x11-libs/gtk+:3 sys-devel/gettext
+DESCRIPTION=A GTK+ graphical interactive version of nec2c
+EAPI=8
+HOMEPAGE=https://www.xnec2c.org
+INHERIT=autotools xdg-utils
+IUSE=doc examples
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 x11-libs/gtk+:3
+SLOT=0
+SRC_URI=https://www.xnec2c.org/releases/xnec2c-v4.3.4.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=86ddf3eb1a11a9e01b164dd8b1b80444
