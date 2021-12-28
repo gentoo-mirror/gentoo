@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=python-r1 toolchain-funcs
 IUSE=test python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
 RDEPEND=>=sys-libs/libselinux-3.3:=[python] >=sys-libs/libsemanage-3.3:=[python(+)] >=sys-libs/libsepol-3.3:= >=app-admin/setools-4.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8[xml] ) python_targets_python3_9? ( dev-lang/python:3.9[xml] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.3/selinux-python-3.3.tar.gz
 _eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4
-_md5_=8c393a803bc429c8999e5dfb9e354e4d
+_md5_=61d5dea5e12464359df1e02785ca1d43
