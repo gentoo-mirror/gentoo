@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 JAVA_PKG_IUSE="doc test"
 inherit desktop java-pkg-2 java-ant-2 xdg-utils
