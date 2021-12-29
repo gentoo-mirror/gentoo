@@ -8,7 +8,6 @@ PYTHON_REQ_USE="threads(+)"
 
 MY_PN=tables
 MY_P=${MY_PN}-${PV}
-
 inherit distutils-r1
 
 DESCRIPTION="Hierarchical datasets for Python"
@@ -19,7 +18,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="doc examples test"
+IUSE="examples test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -28,22 +27,19 @@ DEPEND="
 	>=app-arch/zstd-1.0.0:=
 	>=dev-libs/c-blosc-1.11.1:0=
 	dev-libs/lzo:2=
-	>=dev-python/numpy-1.8.1[${PYTHON_USEDEP}]
-	>=sci-libs/hdf5-1.10:=
+	>=dev-python/numpy-1.19[${PYTHON_USEDEP}]
+	>=sci-libs/hdf5-1.8.4:=
 "
 RDEPEND="${DEPEND}
-	>=dev-python/numexpr-2.5.2[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]"
+	>=dev-python/numexpr-2.6.2[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]"
 BDEPEND="
 	>=dev-python/cython-0.21[${PYTHON_USEDEP}]
 	virtual/pkgconfig
 	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
 		${RDEPEND}
 	)
 "
-
-DOCS=( doc/source/release_notes.rst THANKS )
 
 python_prepare_all() {
 	export {BLOSC,BZIP2,LZO,HDF5}_DIR="${ESYSROOT}"/usr
@@ -64,20 +60,14 @@ python_compile() {
 
 python_test() {
 	cd "${BUILD_DIR}"/lib* || die
-	"${EPYTHON}" tables/tests/test_all.py -v || die "Tests failed with ${EPYTHON}"
+	"${EPYTHON}" tables/tests/test_all.py -v || die
 }
 
 python_install_all() {
-	if use doc; then
-		DOCS+=( doc/scripts )
-	fi
-
 	distutils-r1_python_install_all
 
 	if use examples; then
-		dodoc -r examples
-		dodoc -r contrib
-		docompress -x /usr/share/doc/${PF}/examples
-		docompress -x /usr/share/doc/${PF}/contrib
+		dodoc -r contrib examples
+		docompress -x /usr/share/doc/${PF}/{contrib,examples}
 	fi
 }
