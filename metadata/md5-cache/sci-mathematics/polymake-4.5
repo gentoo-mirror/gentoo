@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://polymake.org/
 INHERIT=flag-o-matic ninja-utils toolchain-funcs
 IUSE=bliss +cdd +flint +normaliz libpolymake lrs nauty ppl singular
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD GPL-2 GPL-2+ MIT WTFPL-2
 RDEPEND=libpolymake? ( dev-lang/perl ) dev-libs/boost:= dev-libs/gmp:= dev-libs/libxml2:2= dev-libs/libxslt:= dev-libs/mpfr:= sys-libs/readline:= bliss? ( sci-libs/bliss:=[gmp] ) cdd? ( sci-libs/cddlib:= ) lrs? ( >=sci-libs/lrslib-051:=[gmp] ) nauty? ( sci-mathematics/nauty:= ) normaliz? ( sci-mathematics/normaliz:= ) ppl? ( dev-libs/ppl:= ) singular? ( sci-mathematics/singular:= ) dev-lang/perl dev-perl/JSON dev-perl/Term-ReadLine-Gnu dev-perl/TermReadKey dev-perl/XML-SAX dev-perl/XML-Writer
 REQUIRED_USE=^^ ( bliss nauty )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://polymake.org/lib/exe/fetch.php/download/polymake-4.5-minimal.tar.bz2
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2
-_md5_=c9fcef55a601a44da5e55b8fc503e307
+_md5_=382968e04950367e6c95457927539f62

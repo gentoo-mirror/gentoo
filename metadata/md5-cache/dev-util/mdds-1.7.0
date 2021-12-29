@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gitlab.com/mdds/mdds
 INHERIT=autotools toolchain-funcs
 IUSE=doc openmp valgrind test
-KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=dev-libs/boost:=
 RESTRICT=!test? ( test )
 SLOT=1/1.5
 SRC_URI=https://kohei.us/files/mdds/src/mdds-1.7.0.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=419447f7d39e060ff7e13771a6e151ac
+_md5_=23baea9b50490eafacfc579722abaad1

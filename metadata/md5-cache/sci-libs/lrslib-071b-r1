@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=http://cgm.cs.mcgill.ca/~avis/C/lrs.html
 INHERIT=toolchain-funcs
 IUSE=gmp mpi
-KEYWORDS=amd64 ~arm ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+
 RDEPEND=gmp? ( dev-libs/gmp:0= mpi? ( virtual/mpi ) )
 SLOT=0
 SRC_URI=http://cgm.cs.mcgill.ca/~avis/C/lrslib/archive/lrslib-071b.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257
-_md5_=27f71e37c6db06d72dae859274ffcf35
+_md5_=6fcca4c256574a3f5c2b46c7e5b6f031
