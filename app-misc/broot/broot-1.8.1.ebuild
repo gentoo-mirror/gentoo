@@ -33,7 +33,7 @@ cli-log-0.1.0
 cli-log-2.0.0
 clipboard-win-4.2.2
 color_quant-1.1.0
-coolor-0.3.0
+coolor-0.3.1
 crc32fast-1.2.1
 crossbeam-0.8.1
 crossbeam-channel-0.5.1
@@ -42,9 +42,9 @@ crossbeam-epoch-0.9.5
 crossbeam-queue-0.3.2
 crossbeam-utils-0.8.5
 crossterm-0.19.0
-crossterm-0.21.0
+crossterm-0.22.1
 crossterm_winapi-0.7.0
-crossterm_winapi-0.8.0
+crossterm_winapi-0.9.0
 csv-1.1.6
 csv-core-0.1.10
 csv2svg-0.1.5
@@ -170,7 +170,7 @@ syn-1.0.81
 syntect-4.6.0
 tempfile-3.2.0
 termimad-0.10.3
-termimad-0.19.0
+termimad-0.20.0
 terminal-clipboard-0.3.1
 termux-clipboard-0.1.0
 textwrap-0.11.0
@@ -225,7 +225,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND=">=virtual/rust-1.56"
 
-QA_FLAGS_IGNORED="usr/bin/broot"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_configure() {
 	local myfeatures=( $(usev X clipboard) )
