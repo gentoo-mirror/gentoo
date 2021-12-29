@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=dev-java/java-config
+DESCRIPTION=Virtual for servlet api
+EAPI=8
+HOMEPAGE=http://java.sun.com/products/servlet/
+INHERIT=java-virtuals-2
+IUSE=elibc_FreeBSD
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=public-domain
+RDEPEND=|| ( dev-java/tomcat-servlet-api:2.4 dev-java/resin-servlet-api:2.4 ) dev-java/java-config
+SLOT=2.4
+_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-virtuals-2	672acdea04ae2dbb866cb9d257f6cf5f
+_md5_=5f270240258f5172839ef0f8b67b6e0b

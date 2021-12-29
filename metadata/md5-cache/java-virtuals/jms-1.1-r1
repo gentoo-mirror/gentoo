@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=dev-java/java-config
+DESCRIPTION=Virtual for Java Message Service (JMS) API
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=java-virtuals-2
+IUSE=elibc_FreeBSD
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris
+LICENSE=public-domain
+RDEPEND=|| ( dev-java/glassfish-jms-api:0 dev-java/sun-jms:0 ) dev-java/java-config
+SLOT=0
+_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-virtuals-2	672acdea04ae2dbb866cb9d257f6cf5f
+_md5_=4ec0a427641cb199b7f33a799611c6f0

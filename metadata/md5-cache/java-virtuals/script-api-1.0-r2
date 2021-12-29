@@ -1,0 +1,13 @@
+DEFINED_PHASES=install
+DEPEND=dev-java/java-config
+DESCRIPTION=Virtual for Java Scripting API (jsr223)
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=java-virtuals-2
+IUSE=elibc_FreeBSD
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=public-domain
+RDEPEND=|| ( >=virtual/jre-1.8:* dev-java/jsr223:0 ) dev-java/java-config
+SLOT=0
+_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-virtuals-2	672acdea04ae2dbb866cb9d257f6cf5f
+_md5_=103d61a7c5f391505048e7c90cb9070c
