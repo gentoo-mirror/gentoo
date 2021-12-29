@@ -39,6 +39,7 @@ RDEPEND="${PYTHON_DEPS}
 	>=dev-qt/qtgui-${QTMIN}:5=[-gles2-only]
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
@@ -85,7 +86,11 @@ BDEPEND="
 	sys-devel/gettext
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-4.3.1-tests-optional.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.1-tests-optional.patch
+	"${FILESDIR}"/${P}-clang.patch # bug 830225
+	"${FILESDIR}"/${P}-krita_jp2.desktop.patch # bug 829987
+)
 
 pkg_setup() {
 	python-single-r1_pkg_setup
