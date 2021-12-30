@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://www.sympy.org/
 INHERIT=distutils-r1 virtualx
 IUSE=aesara examples imaging ipython latex mathml opengl pdf png pyglet symengine test texmacs test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 test
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 ~arm ~arm64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=BSD
 RDEPEND=dev-python/mpmath[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pexpect[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] aesara? ( dev-python/aesara[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) imaging? ( dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) ipython? ( dev-python/ipython[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) latex? ( virtual/latex-base dev-texlive/texlive-fontsextra png? ( app-text/dvipng ) pdf? ( app-text/ghostscript-gpl ) ) mathml? ( dev-libs/libxml2:2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) opengl? ( dev-python/pyopengl[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pyglet? ( dev-python/pyglet[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) symengine? ( dev-python/symengine[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) texmacs? ( app-office/texmacs ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sympy/sympy/archive/sympy-1.9.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	63df6e5a6bbff9ec3cf60cf7cdc94f23	virtualx	fa024aa649b6bd544144bf94893d402c
-_md5_=63dc55abc9c6e29adbed288f01a8d9cd
+_md5_=8dd604a5f8b0aa02f70aadf6f2424814
