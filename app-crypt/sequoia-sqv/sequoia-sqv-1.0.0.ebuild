@@ -28,6 +28,7 @@ CRATES="
 	block-buffer-0.7.3
 	block-buffer-0.9.0
 	block-padding-0.1.5
+	bstr-0.2.14
 	byte-tools-0.3.1
 	byteorder-1.3.4
 	bytes-0.5.6
@@ -53,7 +54,11 @@ CRATES="
 	cpuid-bool-0.1.2
 	crc32fast-1.2.1
 	crossbeam-utils-0.8.1
+	crossterm-0.13.3
+	crossterm_winapi-0.4.0
 	crypto-mac-0.10.0
+	csv-1.1.5
+	csv-core-0.1.10
 	ctor-0.1.16
 	ctr-0.6.0
 	curve25519-dalek-3.0.0
@@ -73,6 +78,7 @@ CRATES="
 	ed25519-dalek-1.0.1
 	either-1.6.1
 	ena-0.14.0
+	encode_unicode-0.3.6
 	environment-0.1.1
 	failure-0.1.8
 	failure_derive-0.1.8
@@ -106,6 +112,7 @@ CRATES="
 	h2-0.2.7
 	hashbrown-0.9.1
 	hashlink-0.6.0
+	heck-0.3.1
 	hermit-abi-0.1.17
 	http-0.2.1
 	http-body-0.3.1
@@ -169,6 +176,9 @@ CRATES="
 	pkg-config-0.3.19
 	ppv-lite86-0.2.10
 	precomputed-hash-0.1.1
+	prettytable-rs-0.8.0
+	proc-macro-error-1.0.4
+	proc-macro-error-attr-1.0.4
 	proc-macro-hack-0.5.19
 	proc-macro-nested-0.1.6
 	proc-macro2-1.0.24
@@ -181,6 +191,7 @@ CRATES="
 	redox_syscall-0.1.57
 	redox_users-0.3.5
 	regex-1.4.2
+	regex-automata-0.1.9
 	regex-syntax-0.6.21
 	remove_dir_all-0.5.3
 	rpassword-5.0.0
@@ -203,18 +214,19 @@ CRATES="
 	signature-1.2.2
 	siphasher-0.3.3
 	slab-0.4.2
-	smallvec-1.6.1
+	smallvec-1.5.1
 	socket2-0.3.17
 	spin-0.5.2
 	string_cache-0.8.1
 	strsim-0.8.0
 	strsim-0.9.3
+	structopt-0.3.21
+	structopt-derive-0.4.14
 	subtle-2.3.0
 	syn-1.0.54
 	synstructure-0.12.4
 	tempfile-3.1.0
 	term-0.5.2
-	term_size-0.3.2
 	textwrap-0.11.0
 	thiserror-1.0.22
 	thiserror-impl-1.0.22
@@ -234,6 +246,7 @@ CRATES="
 	typenum-1.12.0
 	unicode-bidi-0.3.4
 	unicode-normalization-0.1.16
+	unicode-segmentation-1.7.1
 	unicode-width-0.1.8
 	unicode-xid-0.2.1
 	url-2.2.0
@@ -258,26 +271,24 @@ CRATES="
 
 inherit bash-completion-r1 cargo
 
-DESCRIPTION="CLI of the Sequoia OpenPGP implementation"
+DESCRIPTION="A simple OpenPGP signature verification program"
 HOMEPAGE="https://sequoia-pgp.org/ https://gitlab.com/sequoia-pgp/sequoia"
-
 SRC_URI="
-	https://gitlab.com/sequoia-pgp/sequoia/-/archive/sq/v${PV}/${PN}-v${PV}.tar.bz2
+	https://gitlab.com/sequoia-pgp/sequoia/-/archive/v${PV}/sequoia-v${PV}.tar.bz2
 	$(cargo_crate_uris)
 "
 
-LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 CC0-1.0 GPL-2 GPL-2+ GPL-3 GPL-3+ ISC LGPL-2+ LGPL-3 LGPL-3+ MIT MPL-2.0 Unlicense ZLIB"
+LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 GPL-2 GPL-2+ GPL-3 ISC LGPL-3 LGPL-3+ MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64"
 
-S="${WORKDIR}/${PN}-v${PV}"
+S="${WORKDIR}/sequoia-v${PV}"
 
-QA_FLAGS_IGNORED="usr/bin/sq"
+QA_FLAGS_IGNORED="usr/bin/sqv"
 
 COMMON_DEPEND="
 	dev-libs/gmp:=
 	dev-libs/nettle:=
-	dev-libs/openssl:=
 "
 
 DEPEND="
@@ -290,27 +301,27 @@ BDEPEND="
 "
 
 src_compile() {
-	cd sq || die
+	cd sqv || die
 	# Setting CARGO_TARGET_DIR is required to have the build system
 	# create the bash and zsh completion files.
 	CARGO_TARGET_DIR="${S}/target" cargo_src_compile
 }
 
 src_test() {
-	cd sq || die
+	cd sqv || die
 	cargo_src_test
 }
 
 src_install() {
-	cargo_src_install --path sq
+	cargo_src_install --path sqv
 
-	doman sq/man-sq-net-autocrypt/*
+	doman "${FILESDIR}"/sqv.1
 
-	newbashcomp target/sq.bash sq
+	newbashcomp target/sqv.bash sqv
 
 	insinto /usr/share/zsh/site-functions
-	doins target/_sq
+	doins target/_sqv
 
 	insinto /usr/share/fish/vendor_completions.d
-	doins target/sq.fish
+	doins target/sqv.fish
 }
