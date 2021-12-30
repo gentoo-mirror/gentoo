@@ -9,7 +9,7 @@ DESCRIPTION="A featureful union filesystem"
 HOMEPAGE="https://github.com/trapexit/mergerfs"
 
 SRC_URI="https://github.com/trapexit/mergerfs/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 # Vendorized libfuse that's bundled is under LGPL-2.1.
 LICENSE="ISC LGPL-2.1"
@@ -39,7 +39,7 @@ src_prepare() {
 
 src_compile() {
 	# https://bugs.gentoo.org/725978
-	tc-export AR
+	tc-export AR CC CXX
 
 	default
 }
