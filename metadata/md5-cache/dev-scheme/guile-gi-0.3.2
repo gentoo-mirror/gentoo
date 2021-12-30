@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/texinfo test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare test
+DEPEND=>=dev-scheme/guile-2.0.9:= dev-libs/gobject-introspection x11-libs/gtk+:3[introspection]
+DESCRIPTION=Bindings for GObject Introspection and libgirepository for Guile
+EAPI=8
+HOMEPAGE=https://spk121.github.io/guile-gi/
+INHERIT=virtualx autotools
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-scheme/guile-2.0.9:= dev-libs/gobject-introspection x11-libs/gtk+:3[introspection]
+RESTRICT=strip !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/spk121/guile-gi/archive/v0.3.2.tar.gz -> guile-gi-0.3.2.tar.gz
+_eclasses_=virtualx	fa024aa649b6bd544144bf94893d402c	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=941c02bc326bba6a329334633e3b5094
