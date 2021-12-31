@@ -1,28 +1,28 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=(python3_{8,9,10})
 
 # This is the commit that the CI for the release commit used
-BINS_COMMIT="d4cee85f3e94f1151dc9ff1681555ebcff7931f0"
+BINS_COMMIT="d66fa0feaf3b1ecdad261ca17542f1d5d0b101cc"
 
 inherit meson python-any-r1
 
 DESCRIPTION="reverse engineering framework for binary analysis"
 HOMEPAGE="https://rizin.re/"
 
-SRC_URI="https://github.com/rizinorg/rizin/releases/download/v${PV}/rizin-src-v${PV}.tar.xz"
-	#test? ( https://github.com/rizinorg/rizin-testbins/archive/${BINS_COMMIT}.tar.gz -> rizin-testbins-${BINS_COMMIT}.tar.gz )"
+SRC_URI="mirror+https://github.com/rizinorg/rizin/releases/download/v${PV}/rizin-src-v${PV}.tar.xz
+	test? ( https://github.com/rizinorg/rizin-testbins/archive/${BINS_COMMIT}.tar.gz -> rizin-testbins-${BINS_COMMIT}.tar.gz )"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE="test"
 
 # Need to audit licenses of the binaries used for testing
-RESTRICT="test"
+RESTRICT="fetch !test? ( test )"
 
 RDEPEND="
 	sys-apps/file
@@ -39,8 +39,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-${PV}-typedb-prefix.patch"
-	"${FILESDIR}/${PN}-${PV}-md4-openssl.patch"
+	"${FILESDIR}/${PN}-0.3.0-typedb-prefix.patch"
 )
 
 S="${WORKDIR}/${PN}-v${PV}"
