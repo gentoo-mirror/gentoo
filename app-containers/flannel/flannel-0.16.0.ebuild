@@ -1,31 +1,31 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-
-inherit golang-vcs-snapshot systemd user tmpfiles
+EAPI=7
+inherit go-module systemd tmpfiles
 
 KEYWORDS="~amd64 ~arm64"
 DESCRIPTION="An etcd backed network fabric for containers"
-EGO_PN="github.com/coreos/flannel"
 HOMEPAGE="https://github.com/coreos/flannel"
-SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/coreos/flannel/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="Apache-2.0 BSD ISC LGPL-3 MIT"
 SLOT="0"
 IUSE="hardened"
-RESTRICT="test"
+
+RESTRICT+=" test"
 
 src_prepare() {
 	default
 	sed -e "s:^var Version =.*:var Version = \"${PV}\":" \
-		-i "${S}/src/${EGO_PN}/version/version.go" || die
+		-i "${S}/version/version.go" || die
 }
 
 src_compile() {
 	CGO_LDFLAGS="$(usex hardened '-fno-PIC ' '')"\
-	GOPATH="${WORKDIR}/${P}" \
-		go install -v -work -x ${EGO_BUILD_FLAGS} "${EGO_PN}"
-	[[ -x bin/${PN} ]] || die
+	go build -o dist/flanneld -ldflags "
+		-X github.com/flannel-io/flannel/version.Version=v${PV}
+		-extldflags \"-static\"" . || die
 }
 
 src_test() {
@@ -34,8 +34,7 @@ src_test() {
 }
 
 src_install() {
-	newbin "bin/${PN}" ${PN}d
-	cd "src/${EGO_PN}" || die
+	dobin dist/${PN}d
 	exeinto /usr/libexec/flannel
 	doexe dist/mk-docker-opts.sh
 	insinto /etc/systemd/system/docker.service.d
