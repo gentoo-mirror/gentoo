@@ -12,12 +12,10 @@ SRC_URI="https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v${PV}/$
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
-# Unkeyworded for testing unsplitting of e2fsprogs-libs, bug #806875
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="cron fuse lto nls static-libs +threads +tools elibc_FreeBSD"
 
-RDEPEND="!sys-libs/com_err
-	!sys-libs/ss
+RDEPEND="
 	!sys-libs/${PN}-libs
 	cron? ( sys-fs/lvm2[-device-mapper-only(-)] )
 	fuse? ( sys-fs/fuse:0 )
