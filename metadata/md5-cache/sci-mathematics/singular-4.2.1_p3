@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.singular.uni-kl.de/ https://github.com/Singular/Singular
 INHERIT=autotools elisp-common flag-o-matic
 IUSE=emacs examples julia polymake +readline static-libs
-KEYWORDS=~amd64 ~riscv ~x86 ~x86-linux
+KEYWORDS=~amd64 ~ppc ~riscv ~x86 ~x86-linux
 LICENSE=BSD GPL-2 GPL-3
 RDEPEND=dev-lang/perl dev-libs/gmp:0 dev-libs/ntl:= sci-libs/cddlib sci-mathematics/flint emacs? ( >=app-editors/emacs-23.1:* ) julia? ( dev-lang/julia ) polymake? ( sci-mathematics/polymake ) readline? ( sys-libs/readline )
 SLOT=0
 SRC_URI=ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-2-1/singular-4.2.1p3.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	elisp-common	cf4fd1b0835b9f3e638724840468064a	flag-o-matic	d5e1306543bc457213f68bb18f830d14
-_md5_=4d80cc85f7564035337889df5f3375d1
+_md5_=ff7adb0c6c572396b356d82a5e8e3403
