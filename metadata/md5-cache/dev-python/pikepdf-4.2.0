@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pypi.org/project/pikepdf/ https://github.com/pikepdf/pikepdf
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=MPL-2.0
 RDEPEND=>=app-text/qpdf-10.3.1:0= >=dev-python/pillow-7[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/lxml-4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pybind11-2.7.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pikepdf/pikepdf/archive/v4.2.0.tar.gz -> pikepdf-4.2.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	63df6e5a6bbff9ec3cf60cf7cdc94f23
-_md5_=ef45f3b2a8729130bc6c197588f3c7d0
+_md5_=2513407086aeffe7f1b75dea8ce7098a
