@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gitlab.gnome.org/GNOME/gnome-flashback/
 INHERIT=gnome2 toolchain-funcs
 IUSE=elogind systemd
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=GPL-3+
 RDEPEND=>=x11-libs/gdk-pixbuf-2.32.2:2 >=x11-libs/gtk+-3.22.0:3[X] >=gnome-base/gnome-desktop-3.12.0:3= >=gnome-base/gnome-panel-3.35.2 >=media-libs/libcanberra-0.13[gtk3] >=dev-libs/glib-2.67.3:2 >=gnome-base/gsettings-desktop-schemas-3.31.0 >=sys-auth/polkit-0.97 >=app-i18n/ibus-1.5.2 >=sys-power/upower-0.99.0:= >=x11-libs/libXrandr-1.5.0 >=x11-libs/libXxf86vm-1.1.4 x11-libs/libxcb x11-libs/libX11 gnome-base/gdm elogind? ( >=sys-auth/elogind-230 ) systemd? ( >=sys-apps/systemd-230:= ) net-wireless/gnome-bluetooth x11-libs/libXext >=x11-libs/libXi-1.6.0 x11-libs/pango x11-libs/libxkbfile x11-misc/xkeyboard-config x11-libs/libXfixes media-sound/pulseaudio[glib] sys-libs/pam x11-wm/metacity gnome-base/gnome-panel gnome-base/gnome-settings-daemon
 REQUIRED_USE=^^ ( elogind systemd )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-flashback/3.40/gnome-flashback-3.40.0.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	xdg	6024fbc93167fad782e2032933654857	gnome2	397207e07bdf58b07ce295d0bc1049fe
-_md5_=cef68c1b94becd4964abd435b31c2b82
+_md5_=f344b643666200b81acd2cd44b5b65b3
