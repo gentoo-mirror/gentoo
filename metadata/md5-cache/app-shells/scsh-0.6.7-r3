@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=!dev-scheme/scheme48 virtual/libcrypt:= amd64? ( virtual/libcrypt:=[abi_x86_32] )
+DESCRIPTION=Unix shell embedded in Scheme
+EAPI=8
+HOMEPAGE=https://www.scsh.net/
+INHERIT=multilib
+KEYWORDS=amd64 ppc sparc x86
+LICENSE=BSD
+RDEPEND=!dev-scheme/scheme48 virtual/libcrypt:= amd64? ( virtual/libcrypt:=[abi_x86_32] )
+SLOT=0
+SRC_URI=ftp://ftp.scsh.net/pub/scsh/0.6/scsh-0.6.7.tar.gz
+_eclasses_=multilib	8a0248f83ae77f945d376ff4a7953257	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8
+_md5_=18308ee8e4f36a73ebf249fa239af363
