@@ -1,5 +1,6 @@
-BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) nls? ( virtual/libintl virtual/libiconv ) sys-devel/flex nls? ( sys-devel/gettext )
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) sys-devel/flex nls? ( sys-devel/gettext )
 DEFINED_PHASES=compile configure install postinst postrm
+DEPEND=nls? ( virtual/libintl virtual/libiconv )
 DESCRIPTION=C function call hierarchy analyzer
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/cflow/
@@ -11,4 +12,4 @@ RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) nls? ( virtual/libintl virtual/lib
 SLOT=0
 SRC_URI=http://ftp.gnu.org/gnu/cflow/cflow-1.7.tar.bz2
 _eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a
-_md5_=0d56d370aa492b9d9d67cc5e2fcc7cde
+_md5_=970789abec215ebf957efaca0a11dbb1
