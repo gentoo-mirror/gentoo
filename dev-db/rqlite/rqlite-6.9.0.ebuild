@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 inherit go-module
-EGIT_COMMIT=33fdada94e9c99185d37853bc31888ccf92c7138
+EGIT_COMMIT=6751b5fc4a88b95c47cb5e97042ae3fd67e46616
 
 DESCRIPTION="Replicated SQLite using the Raft consensus protocol"
 HOMEPAGE="https://github.com/rqlite/rqlite https://www.philipotoole.com/tag/rqlite/"
