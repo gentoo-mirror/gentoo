@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,10 +14,6 @@ SLOT="0/1"
 KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-#	"${FILESDIR}"/${PN}-1.7.2-GNUInstallDirs.patch
-)
 
 src_configure() {
 	local mycmakeargs=(
