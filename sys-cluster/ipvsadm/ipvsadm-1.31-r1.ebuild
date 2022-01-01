@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit epatch linux-info toolchain-funcs
+inherit linux-info toolchain-funcs
 
 DESCRIPTION="utility to administer the IP virtual server services"
 HOMEPAGE="http://linuxvirtualserver.org/"
@@ -14,11 +14,18 @@ SLOT="0"
 KEYWORDS="~amd64 ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="static-libs"
 
-RDEPEND=">=sys-libs/ncurses-5.2:*
+RDEPEND="
+	>=sys-libs/ncurses-5.2:=
 	dev-libs/libnl:=
-	>=dev-libs/popt-1.16"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+	>=dev-libs/popt-1.16
+"
+
+BDEPEND="
+	${RDEPEND}
+	virtual/pkgconfig
+"
+
+PATCHES=( "${FILESDIR}/${PN}"-1.27-buildsystem.patch )
 
 pkg_pretend() {
 	if kernel_is 2 4; then
@@ -29,7 +36,6 @@ pkg_pretend() {
 
 src_prepare() {
 	default
-	epatch "${FILESDIR}"/${PN}-1.27-buildsystem.patch
 	use static-libs && export STATIC=1
 }
 
@@ -44,7 +50,7 @@ src_compile() {
 		INCLUDE="-I.. -I. ${libnl_include}" \
 		CC="$(tc-getCC)" \
 		HAVE_NL=1 \
-		STATIC=${STATIC} \
+		STATIC="${STATIC}" \
 		POPT_LIB="$($(tc-getPKG_CONFIG) --libs popt)"
 }
 
