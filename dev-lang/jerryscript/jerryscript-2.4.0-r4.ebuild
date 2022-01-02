@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=(python3_{7,8,9,10})
-inherit cmake python-any-r1
+inherit cmake python-single-r1
 
 DESCRIPTION="Ultra-lightweight JavaScript engine for the Internet of Things"
 HOMEPAGE="https://github.com/jerryscript-project/jerryscript"
@@ -16,10 +16,11 @@ KEYWORDS="~amd64"
 IUSE="debugger"
 RDEPEND="debugger? ( ${PYTHON_DEPS} )"
 BDEPEND="${RDEPEND}"
+REQUIRED_USE="debugger? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT+=" test"
 
 PATCHES=(
-	"${FILESDIR}/jerryscript-2.4.0-python3.patch"
+	"${FILESDIR}/jerryscript-2.4.0-python3-r4.patch"
 )
 
 src_prepare() {
@@ -61,11 +62,13 @@ src_install() {
 		python_optimize "${ED}${jerry_debugger_dir}"
 
 		cat <<-EOF > "${T}/jerry-debugger"
-		#!/bin/sh
-		export PYTHONPATH=${EPREFIX}${jerry_debugger_dir}
-		exec python "${jerry_debugger_dir}/jerry_client.py" "\$@"
+		#!/usr/bin/python
+		import sys
+		sys.path.insert(0, "${EPREFIX}${jerry_debugger_dir}")
+		with open("${jerry_debugger_dir}/jerry_client.py") as f:
+		    exec(f.read())
 		EOF
 
-		dobin "${T}"/jerry-debugger
+		python_doscript "${T}"/jerry-debugger
 	fi
 }
