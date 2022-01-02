@@ -1,0 +1,15 @@
+BDEPEND=app-shells/bash sys-apps/util-linux[hardlink(-)?] >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DESCRIPTION=A flat colorful Design icon theme
+EAPI=8
+HOMEPAGE=https://github.com/vinceliuice/Tela-icon-theme
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg git-r3
+IUSE=+standard black blue brown green grey orange pink purple red yellow manjaro ubuntu +hardlink
+LICENSE=GPL-3+
+PROPERTIES=live
+REQUIRED_USE=|| ( standard black blue brown green grey orange pink purple red yellow manjaro ubuntu )
+RESTRICT=binchecks strip test
+SLOT=0
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=c80ae90af86128f0e384215fa949f1f2
