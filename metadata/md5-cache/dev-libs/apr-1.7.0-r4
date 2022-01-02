@@ -5,11 +5,11 @@ DESCRIPTION=Apache Portable Runtime Library
 EAPI=7
 HOMEPAGE=https://apr.apache.org/
 INHERIT=autotools libtool toolchain-funcs
-IUSE=doc elibc_FreeBSD older-kernels-compatibility selinux static-libs +urandom
+IUSE=doc older-kernels-compatibility selinux static-libs +urandom
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=Apache-2.0
 RDEPEND=virtual/libcrypt:= elibc_glibc? ( >=sys-apps/util-linux-2.16 ) selinux? ( sec-policy/selinux-base-policy )
 SLOT=1/1.7
 SRC_URI=mirror://apache/apr/apr-1.7.0.tar.bz2
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=23de1fe0176e622dffc2152b08665bec
+_md5_=284a757d0cc092b97e75b696349159cd

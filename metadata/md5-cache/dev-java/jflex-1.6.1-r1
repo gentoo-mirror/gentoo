@@ -4,7 +4,7 @@ DESCRIPTION=JFlex is a lexical analyzer generator for Java
 EAPI=7
 HOMEPAGE=https://www.jflex.de/
 INHERIT=java-pkg-2 java-pkg-simple
-IUSE=examples test vim-syntax elibc_FreeBSD doc source
+IUSE=examples test vim-syntax doc source
 KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~ppc-macos ~x64-macos
 LICENSE=BSD
 PDEPEND=dev-java/javacup:0
@@ -12,5 +12,5 @@ RDEPEND=>=virtual/jre-1.8:* vim-syntax? ( || ( app-editors/vim app-editors/gvim 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://jflex.de/jflex-1.6.1.tar.gz
-_eclasses_=java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_eclasses_=java-utils-2	eb6cdf369ec1bc780222e7e2136f64f5	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
 _md5_=479edb30c65ebe69783faaf5f7ffa02e
