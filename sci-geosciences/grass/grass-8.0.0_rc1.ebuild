@@ -1,14 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="sqlite"  # bug 572440
-WANT_AUTOCONF="2.1"
 WX_GTK_VER="3.0-gtk3"
 
-inherit autotools desktop flag-o-matic python-single-r1 toolchain-funcs wxwidgets xdg
+inherit autotools desktop python-single-r1 toolchain-funcs wxwidgets xdg
 
 MY_PM=${PN}$(ver_cut 1-2 ${PV})
 MY_PM=${MY_PM/.}
@@ -19,8 +18,10 @@ HOMEPAGE="https://grass.osgeo.org/"
 SRC_URI="https://grass.osgeo.org/${MY_PM}/source/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0/7.8.0"
-KEYWORDS="amd64 ~ppc x86"
+SLOT="0/8.0"
+if [[ ${PV} != *_rc* ]] ; then
+	KEYWORDS="~amd64 ~ppc ~x86"
+fi
 IUSE="blas cxx fftw geos lapack liblas mysql netcdf nls odbc opencl opengl openmp png postgres readline sqlite threads tiff truetype X zstd"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -39,6 +40,8 @@ RDEPEND="
 	sci-libs/proj:=
 	sci-libs/xdrfile
 	sys-libs/zlib
+	media-libs/libglvnd
+	media-libs/glu
 	blas? (
 		virtual/cblas[eselect-ldso(+)]
 		virtual/blas[eselect-ldso(+)]
@@ -67,7 +70,7 @@ RDEPEND="
 		x11-libs/libXext
 		x11-libs/libXt
 	)
-	zstd? ( app-arch/zstd:= )"
+	zstd? ( app-arch/zstd )"
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )"
 BDEPEND="
@@ -81,9 +84,7 @@ S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
 	# bug 746590
-	"${FILESDIR}/${PN}-7.8-flock.patch"
-	# bug 792801
-	"${FILESDIR}/${PN}-7.8.5-bool.patch"
+	"${FILESDIR}/${PN}-flock.patch"
 )
 
 pkg_setup() {
@@ -192,9 +193,8 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${ED}" \
-		INST_DIR="${ED}"/usr/$(get_libdir)/${MY_PM} \
-		prefix="${ED}"/usr/ BINDIR="${ED}"/usr/bin \
-		PREFIX="${ED}"/usr/ \
+		INST_DIR=/usr/$(get_libdir)/${MY_PM} \
+		prefix=/usr/ BINDIR=/usr/bin \
 		install
 
 	pushd "${ED}"/usr/$(get_libdir)/${MY_PM} >/dev/null || die
@@ -233,22 +233,26 @@ src_install() {
 	local gisbase=/usr/$(get_libdir)/${MY_PM}
 	sed -e "s:GISBASE = os.path.normpath(\"${D}/usr/$(get_libdir)/${MY_PM}\"):\
 GISBASE = os.path.normpath(\"${gisbase}\"):" \
-		-i "${ED}"/usr/bin/${MY_PM} || die
+		-i "${ED}"/usr/bin/grass || die
 
 	# get proper fonts path for fontcap
 	sed -i \
 		-e "s|${ED}/usr/${MY_PM}|${EPREFIX}/usr/$(get_libdir)/${MY_PM}|" \
-		"${ED}"/usr/$(get_libdir)/${MY_PM}/etc/fontcap || die
+		"${ED}"${gisbase}/etc/fontcap || die
 
 	# set proper python interpreter
-	sed -e "s:os.environ\['GRASS_PYTHON'\] = \"python3\":\
-os.environ\['GRASS_PYTHON'\] = \"${EPYTHON}\":" \
-		-i "${ED}"/usr/bin/${MY_PM} || die
+	sed -e "s:os.environ\[\"GRASS_PYTHON\"\] = \"python3\":\
+os.environ\[\"GRASS_PYTHON\"\] = \"${EPYTHON}\":" \
+		-i "${ED}"/usr/bin/grass || die
+
+	# set proper GISDBASE directory path in the demolocation .grassrc80 file
+	sed -e "s:GISDBASE\:.*$:GISDBASE\: ${gisbase}:" \
+		-i "${ED}"${gisbase}/demolocation/.grassrc80 || die
 
 	if use X; then
 		local GUI="-gui"
 		[[ ${WX_BUILD} == yes ]] && GUI="-wxpython"
-		make_desktop_entry "/usr/bin/${MY_PM} ${GUI}" "${PN}" "${PN}-48x48" "Science;Education"
+		make_desktop_entry "/usr/bin/grass ${GUI}" "${PN}" "${PN}-48x48" "Science;Education"
 		doicon -s 48 gui/icons/${PN}-48x48.png
 	fi
 
