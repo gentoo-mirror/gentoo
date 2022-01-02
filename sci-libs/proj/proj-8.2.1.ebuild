@@ -1,20 +1,22 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
-PROJ_DATA="proj-data-1.7.tar.gz"
+# Check https://proj.org/download.html for latest data tarball
+PROJ_DATA="proj-data-1.8.tar.gz"
 DESCRIPTION="PROJ coordinate transformation software"
 HOMEPAGE="https://proj.org/"
-SRC_URI="
-	https://download.osgeo.org/proj/${P}.tar.gz
-	https://download.osgeo.org/proj/${PROJ_DATA}
-"
+SRC_URI="https://download.osgeo.org/proj/${P}.tar.gz
+	https://download.osgeo.org/proj/${PROJ_DATA}"
 
 LICENSE="MIT"
 # SONAME in 8.1.1 is actually 23 (in 8.1.0, was 22)
+# ... and now 8.2.0 is back to 22 again.
+# Please increment to 25 on the next SONAME bump, even if it's not
+# going to correspond...
 # It's far less confusing to just increment it again here (so N+1)
 SLOT="0/24"
 KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
