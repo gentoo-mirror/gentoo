@@ -5,7 +5,7 @@ DESCRIPTION=A brokerless kernel
 EAPI=7
 HOMEPAGE=https://zeromq.org/
 INHERIT=autotools
-IUSE=doc drafts +libbsd pgm +sodium static-libs test unwind elibc_Darwin
+IUSE=doc drafts +libbsd pgm +sodium static-libs test unwind
 KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=LGPL-3
 RDEPEND=!elibc_Darwin? ( unwind? ( sys-libs/libunwind ) ) libbsd? ( dev-libs/libbsd:= ) sodium? ( dev-libs/libsodium:= )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://github.com/zeromq/libzmq/releases/download/v4.3.3/zeromq-4.3.3.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=67ea8e86e0babf3791234d5fb163564f
+_md5_=957e5f507dd46afe6ffa6772ab5693ae
