@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit autotools
 
 DESCRIPTION="A set of tools to manage bluetooth devices for linux"
 HOMEPAGE="https://github.com/khvzak/bluez-tools"
-COMMIT="97efd293491ad7ec96a655665339908f2478b3d1"
+COMMIT="f65321736475429316f07ee94ec0deac8e46ec4a"
 SRC_URI="https://github.com/khvzak/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
@@ -22,8 +22,6 @@ RDEPEND="dev-libs/dbus-glib
 DEPEND="${RDEPEND}"
 
 DOCS=( AUTHORS README )
-
-PATCHES=( "${FILESDIR}/${P}-gcc-10.patch" )
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 
