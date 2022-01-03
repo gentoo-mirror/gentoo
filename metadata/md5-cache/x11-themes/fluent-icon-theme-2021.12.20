@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/util-linux[hardlink(-)?]
+DEFINED_PHASES=install postinst postrm preinst prepare
+DESCRIPTION=Fluent icon theme for Linux desktops
+EAPI=8
+HOMEPAGE=https://github.com/vinceliuice/Fluent-icon-theme
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+IUSE=+black +hardlink round
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RESTRICT=binchecks strip test
+SLOT=0
+SRC_URI=https://github.com/vinceliuice/Fluent-icon-theme/archive/2021-12-20.tar.gz -> fluent-icon-theme-2021.12.20.tar.gz
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=077450076d12192be57a2fef0b4c0745
