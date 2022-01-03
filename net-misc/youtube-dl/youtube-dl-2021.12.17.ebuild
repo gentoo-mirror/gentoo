@@ -1,16 +1,19 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit bash-completion-r1 distutils-r1 git-r3
+
+inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="Download videos from YouTube.com (and more sites...)"
 HOMEPAGE="https://youtube-dl.org/ https://github.com/ytdl-org/youtube-dl/"
-EGIT_REPO_URI="https://github.com/ytdl-org/${PN}.git"
+SRC_URI="https://youtube-dl.org/downloads/${PV}/${P}.tar.gz"
+S=${WORKDIR}/${PN}
 
 LICENSE="public-domain"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-solaris"
 SLOT="0"
 
 RDEPEND="
@@ -24,18 +27,12 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
-src_compile() {
-	distutils-r1_src_compile
-
-	emake youtube-dl.{bash-completion,fish,zsh}
-}
-
 python_test() {
 	emake offlinetest
 }
 
 python_install_all() {
-	# no manpage because it requires pandoc to generate
+	doman youtube-dl.1
 
 	newbashcomp youtube-dl.bash-completion youtube-dl
 

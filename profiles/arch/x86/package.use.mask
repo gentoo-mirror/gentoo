@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Conrad Kostecki <conikost@gentoo.org> (2021-11-16)
@@ -17,10 +17,6 @@ x11-misc/read-edid -vbe-mode
 # media-libs/webrtc-audio-processing only has amd64 and x86 keywords
 media-video/pipewire -echo-cancel
 
-# Marek Szuba <marecki@gentoo.org> (2021-08-11)
-# dev-ruby/tty-editor not keyworded here yet (Bug #807685)
-app-text/htmltidy test
-
 # James Le Cuirot <chewi@gentoo.org> (2021-08-07)
 # The ORBlite scanner plugin only works on amd64 and x86.
 net-print/hplip-plugin -orblite
@@ -31,10 +27,10 @@ net-print/hplip-plugin -orblite
 media-video/obs-studio nvenc
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-17)
-# media-libs/rnnoise, media-plugins/gst-plugins-webrtc
+# media-plugins/gst-plugins-webrtc
 # and media-plugins/zam-plugins not keyworded here
-media-sound/easyeffects rnnoise webrtc zamaudio
-media-sound/pulseeffects rnnoise webrtc zamaudio
+media-sound/easyeffects zamaudio
+media-sound/pulseeffects webrtc zamaudio
 
 # Sam James <sam@gentoo.org> (2021-07-12)
 # Haskell is (only) available on amd64/x86 right now in Gentoo
