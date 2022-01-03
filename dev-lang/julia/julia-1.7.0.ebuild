@@ -8,18 +8,13 @@ inherit llvm pax-utils toolchain-funcs
 # correct versions for stdlibs are in deps/checksums
 # for everything else, run with network-sandbox and wait for the crash
 
-MY_LIBUV_V="fb3e3364c33ae48c827f6b103e05c3f0e78b79a9"
-MY_LIBWHICH_V="81e9723c0273d78493dc8c8ed570f68d9ce7e89e"
-MY_LLVM_V="11.0.1"
+MY_LLVM_V="13.0.1"
 
 DESCRIPTION="High-performance programming language for technical computing"
 HOMEPAGE="https://julialang.org/"
 
 SRC_URI="
-	https://github.com/JuliaLang/julia/releases/download/v${PV}/${P}.tar.gz
-	https://api.github.com/repos/JuliaLang/libuv/tarball/${MY_LIBUV_V} -> ${PN}-libuv-${MY_LIBUV_V}.tar.gz
-	https://api.github.com/repos/vtjnash/libwhich/tarball/${MY_LIBWHICH_V} -> ${PN}-libwhich-${MY_LIBWHICH_V}.tar.gz
-	!system-llvm? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-${MY_LLVM_V}/llvm-${MY_LLVM_V}.src.tar.xz )
+	https://github.com/JuliaLang/julia/releases/download/v${PV}/${P}-full.tar.gz
 "
 
 LICENSE="MIT"
@@ -28,9 +23,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+system-llvm"
 
 RDEPEND="
-	system-llvm? ( sys-devel/llvm:11=[llvm_targets_NVPTX(-)] )
+	system-llvm? ( sys-devel/llvm:13=[llvm_targets_NVPTX(-)] )
 "
-LLVM_MAX_SLOT=11
+LLVM_MAX_SLOT=13
 
 RDEPEND+="
 	app-arch/p7zip
@@ -64,11 +59,17 @@ DEPEND="${RDEPEND}
 	!system-llvm? ( dev-util/cmake )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}"-1.1.0-fix_llvm_install.patch
 	"${FILESDIR}/${PN}"-1.4.0-no_symlink_llvm.patch
-	"${FILESDIR}/${PN}"-1.6.0-fix-system-csl.patch
-	"${FILESDIR}/${PN}"-1.6.0-fix-hardcoded-libs.patch
+	"${FILESDIR}/${PN}"-1.7.0-llvm_13_compat_part_1.patch
+	"${FILESDIR}/${PN}"-1.7.0-llvm_13_compat_part_2.patch
+	"${FILESDIR}/${PN}"-1.7.0-llvm_13_compat_part_3.patch
+	"${FILESDIR}/${PN}"-1.7.0-libgit-1.2.patch
+	"${FILESDIR}/${PN}"-1.7.0-make-install-no-build.patch
+	"${FILESDIR}/${PN}"-1.7.0-hardcoded-libs.patch
+	"${FILESDIR}/${PN}"-1.7.0-do_not_set_rpath.patch
 )
+	# just remove patchelf from linux ?? just my own solution to sigsegv error ??
+	#"${FILESDIR}/${PN}"-turnoff-patchelf.patch
 
 pkg_setup() {
 	use system-llvm && llvm_pkg_setup
