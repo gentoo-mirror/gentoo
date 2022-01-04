@@ -1,10 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 LUA_COMPAT=( lua5-{1..2} )
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit fcaps flag-o-matic lua-single python-any-r1 qmake-utils xdg-utils cmake
 
@@ -18,7 +18,7 @@ else
 	SRC_URI="https://www.wireshark.org/download/src/all-versions/${P/_/}.tar.xz"
 	S="${WORKDIR}/${P/_/}"
 
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -29,14 +29,12 @@ IUSE+=" +mergecap +minizip +netlink opus +plugins plugin-ifdemo +pcap +qt5 +rand
 IUSE+=" +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl"
 IUSE+=" sdjournal test +text2pcap tfshark +tshark +udpdump zlib +zstd"
 
-REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )
-	plugin-ifdemo? ( plugins )"
-
 RESTRICT="!test? ( test )"
 
 # bug #753062 for speexdsp
-RDEPEND="acct-group/pcap
-	>=dev-libs/glib-2.38:2
+CDEPEND="
+	acct-group/pcap
+	>=dev-libs/glib-2.32:2
 	>=net-dns/c-ares-1.5:=
 	dev-libs/libgcrypt:=
 	media-libs/speexdsp
@@ -71,12 +69,18 @@ RDEPEND="acct-group/pcap
 	sshdump? ( >=net-libs/libssh-0.6 )
 	ssl? ( net-libs/gnutls:= )
 	zlib? ( sys-libs/zlib )
-	zstd? ( app-arch/zstd:= )"
-DEPEND="${RDEPEND}"
-BDEPEND="${PYTHON_DEPS}
+	zstd? ( app-arch/zstd:= )
+"
+# We need perl for `pod2html`. The rest of the perl stuff is to block older
+# and broken installs. #455122
+DEPEND="
+	${CDEPEND}
+	${PYTHON_DEPS}
+"
+BDEPEND="
 	dev-lang/perl
+	sys-devel/bison
 	sys-devel/flex
-	sys-devel/gettext
 	virtual/pkgconfig
 	doc? (
 		app-doc/doxygen
@@ -88,14 +92,22 @@ BDEPEND="${PYTHON_DEPS}
 	test? (
 		dev-python/pytest
 		dev-python/pytest-xdist
-	)"
-RDEPEND="${RDEPEND}
+	)
+"
+RDEPEND="
+	${CDEPEND}
 	qt5? ( virtual/freedesktop-icon-theme )
-	selinux? ( sec-policy/selinux-wireshark )"
+	selinux? ( sec-policy/selinux-wireshark )
+"
+REQUIRED_USE="
+	lua? ( ${LUA_REQUIRED_USE} )
+	plugin-ifdemo? ( plugins )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.0-redhat.patch
 	"${FILESDIR}"/${PN}-3.4.2-cmake-lua-version.patch
+	"${FILESDIR}"/${PN}-9999-ui-needs-wiretap.patch
 )
 
 pkg_setup() {
@@ -107,7 +119,7 @@ src_configure() {
 
 	# Workaround bug #213705. If krb5-config --libs has -lcrypto then pass
 	# --with-ssl to ./configure. (Mimics code from acinclude.m4).
-	if use kerberos ; then
+	if use kerberos; then
 		case $(krb5-config --libs) in
 			*-lcrypto*)
 				ewarn "Kerberos was built with ssl support: linkage with openssl is enabled."
@@ -118,7 +130,7 @@ src_configure() {
 		esac
 	fi
 
-	if use qt5 ; then
+	if use qt5; then
 		export QT_MIN_VERSION=5.3.0
 		append-cxxflags -fPIC -DPIC
 	fi
@@ -126,7 +138,6 @@ src_configure() {
 	python_setup
 
 	mycmakeargs+=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_{Asciidoctor,DOXYGEN}=$(usex !doc)
 		$(use androiddump && use pcap && echo -DEXTCAP_ANDROIDDUMP_LIBPCAP=yes)
 		$(usex qt5 LRELEASE=$(qt5_get_bindir)/lrelease '')
 		$(usex qt5 MOC=$(qt5_get_bindir)/moc '')
@@ -192,8 +203,8 @@ src_test() {
 
 		# Skip known failing tests
 		# extcaps needs a bunch of external programs
-		-E "(suite_extcaps)"
-		#-E "(suite_decryption|suite_extcaps|suite_nameres)"
+		# decryption/nameres seem to be fixed in 3.6.x
+		-E "(suite_decryption|suite_extcaps|suite_nameres)"
 	)
 
 	cmake_src_test
@@ -208,19 +219,17 @@ src_install() {
 	# install headers
 	insinto /usr/include/wireshark
 	doins ws_diag_control.h ws_symbol_export.h \
-		"${BUILD_DIR}"/config.h
+		"${BUILD_DIR}"/config.h "${BUILD_DIR}"/version.h
 
-	# If trying to remove this, try build e.g. libvirt first!
-	# At last check, Fedora is still doing this too.
 	local dir dirs=(
 		epan
 		epan/crypt
 		epan/dfilter
 		epan/dissectors
 		epan/ftypes
+		epan/wmem
 		wiretap
 		wsutil
-		wsutil/wmem
 	)
 
 	for dir in "${dirs[@]}" ; do
@@ -228,21 +237,24 @@ src_install() {
 		doins ${dir}/*.h
 	done
 
-	if use qt5 ; then
-		local s
+	#with the above this really shouldn't be needed, but things may be looking
+	# in wiretap/ instead of wireshark/wiretap/
+	insinto /usr/include/wiretap
+	doins wiretap/wtap.h
 
-		for s in 16 32 48 64 128 256 512 1024 ; do
+	if use qt5; then
+		local s
+		for s in 16 32 48 64 128 256 512 1024; do
 			insinto /usr/share/icons/hicolor/${s}x${s}/apps
 			newins image/wsicon${s}.png wireshark.png
 		done
-
 		for s in 16 24 32 48 64 128 256 ; do
 			insinto /usr/share/icons/hicolor/${s}x${s}/mimetypes
 			newins image/WiresharkDoc-${s}.png application-vnd.tcpdump.pcap.png
 		done
 	fi
 
-	if [[ -d "${ED}"/usr/share/appdata ]] ; then
+	if [[ -d "${ED}"/usr/share/appdata ]]; then
 		rm -r "${ED}"/usr/share/appdata || die
 	fi
 }
@@ -255,7 +267,7 @@ pkg_postinst() {
 	# Add group for users allowed to sniff.
 	chgrp pcap "${EROOT}"/usr/bin/dumpcap
 
-	if use dumpcap && use pcap ; then
+	if use dumpcap && use pcap; then
 		fcaps -o 0 -g pcap -m 4710 -M 0710 \
 			cap_dac_read_search,cap_net_raw,cap_net_admin \
 			"${EROOT}"/usr/bin/dumpcap
