@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,7 @@ ETYPE="sources"
 K_EXP_GENPATCHES_NOUSE="1"
 
 # Just get basic genpatches, -pf patch set already includes vanilla-linux updates
-K_GENPATCHES_VER="1"
+K_GENPATCHES_VER="2"
 
 # -pf already sets EXTRAVERSION to kernel Makefile
 K_NOSETEXTRAVERSION="1"
@@ -25,9 +25,9 @@ K_WANT_GENPATCHES="base extras"
 # major kernel version, e.g. 5.14
 SHPV="${PV/_p*/}"
 
-# https://gitlab.com/alfredchen/projectc/ revision for a major version, i.e.
-# 5.14-r2 = 2
-PRJC_R=3
+# https://gitlab.com/alfredchen/projectc/ revision for a major version,
+# e.g. prjc-v5.14-r2 = 2
+PRJC_R=1
 
 inherit kernel-2 optfeature
 detect_version
