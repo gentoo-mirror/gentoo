@@ -5,7 +5,7 @@ DESCRIPTION=A small daemon to act on remote or local events
 EAPI=7
 HOMEPAGE=https://www.eventd.org/
 INHERIT=linux-info meson systemd
-IUSE=debug fbcon +introspection ipv6 libcanberra libnotify +notification pulseaudio purple speech systemd test upnp webhook websocket +X zeroconf kernel_linux
+IUSE=debug fbcon +introspection ipv6 libcanberra libnotify +notification pulseaudio purple speech systemd test upnp webhook websocket +X zeroconf
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+ LGPL-3+ ISC MIT
 RDEPEND=dev-libs/glib:2 sys-apps/util-linux x11-libs/libxkbcommon introspection? ( dev-libs/gobject-introspection ) libcanberra? ( media-libs/libcanberra ) libnotify? ( x11-libs/gdk-pixbuf:2 ) notification? ( gnome-base/librsvg x11-libs/cairo x11-libs/pango x11-libs/gdk-pixbuf:2 X? ( x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:=[xkb] x11-libs/xcb-util x11-libs/xcb-util-wm ) ) pulseaudio? ( media-libs/libsndfile media-sound/pulseaudio ) purple? ( net-im/pidgin ) speech? ( app-accessibility/speech-dispatcher ) systemd? ( sys-apps/systemd:= ) upnp? ( >=net-libs/gssdp-1.2:0= ) webhook? ( net-libs/libsoup:2.4 ) websocket? ( net-libs/libsoup:2.4 ) zeroconf? ( net-dns/avahi[dbus] ) net-libs/glib-networking[ssl]
@@ -13,5 +13,5 @@ REQUIRED_USE=X? ( notification ) fbcon? ( notification ) notification? ( || ( X 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.eventd.org/download/eventd/eventd-0.27.0.tar.xz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=fe2dc8bb9bad2c8f8eebb601214b3f54
