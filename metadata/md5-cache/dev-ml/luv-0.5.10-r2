@@ -1,16 +1,16 @@
 BDEPEND=test? ( dev-ml/alcotest ) dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-libs/libuv:= dev-ml/ocaml-ctypes:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=<=dev-lang/ocaml-4.13:=[ocamlopt?] dev-libs/libuv:= dev-ml/ocaml-ctypes:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Binding to libuv: cross-platform asynchronous I/O
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/aantron/luv
 INHERIT=dune
 IUSE=+ocamlopt test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=dev-libs/libuv:= dev-ml/ocaml-ctypes:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=<=dev-lang/ocaml-4.13:=[ocamlopt?] dev-libs/libuv:= dev-ml/ocaml-ctypes:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/0.5.10
 SRC_URI=https://github.com/aantron/luv/releases/download/0.5.10/luv-0.5.10.tar.gz
 _eclasses_=dune	dce723780ea5cdf2d76da678d3bd9cea
-_md5_=ffa3923ccd03220cec6686efceec2667
+_md5_=190b408f550260ef945c814fbd4ad20a
