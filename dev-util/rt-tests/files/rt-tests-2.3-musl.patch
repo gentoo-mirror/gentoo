@@ -77,14 +77,14 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  #include "rt_numa.h"
  
  #include "rt-utils.h"
-@@ -502,12 +503,8 @@ static void *timerthread(void *param)
+@@ -504,12 +505,8 @@ static void *timerthread(void *param)
  {
  	struct thread_param *par = param;
  	struct sched_param schedp;
 -	struct sigevent sigev;
  	sigset_t sigset;
 -	timer_t timer;
- 	struct timespec now, next, interval, stop;
+ 	struct timespec now, next, interval, stop = { 0 };
 -	struct itimerval itimer;
 -	struct itimerspec tspec;
  	struct thread_stat *stat = par->stats;
@@ -105,7 +105,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	memset(&schedp, 0, sizeof(schedp));
  	schedp.sched_priority = par->prio;
  	if (setscheduler(0, par->policy, &schedp))
-@@ -600,20 +589,6 @@ static void *timerthread(void *param)
+@@ -599,20 +588,6 @@ static void *timerthread(void *param)
  		stop = now;
  		stop.tv_sec += duration;
  	}
@@ -126,7 +126,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  
  	stat->threadstarted++;
  
-@@ -621,16 +596,10 @@ static void *timerthread(void *param)
+@@ -620,16 +595,10 @@ static void *timerthread(void *param)
  
  		uint64_t diff;
  		unsigned long diff_smi = 0;
@@ -144,7 +144,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  		case MODE_CLOCK_NANOSLEEP:
  			if (par->timermode == TIMER_ABSTIME) {
  				ret = clock_nanosleep(par->clock, TIMER_ABSTIME,
-@@ -751,11 +720,6 @@ static void *timerthread(void *param)
+@@ -750,11 +719,6 @@ static void *timerthread(void *param)
  
  		next.tv_sec += interval.tv_sec;
  		next.tv_nsec += interval.tv_nsec;
@@ -156,7 +156,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  		tsnorm(&next);
  
  		while (tsgreater(&now, &next)) {
-@@ -780,17 +744,6 @@ out:
+@@ -779,17 +743,6 @@ out:
  		pthread_mutex_unlock(&refresh_on_max_lock);
  	}
  
@@ -174,7 +174,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	/* close msr file */
  	if (smi)
  		close(par->msr_fd);
-@@ -1174,7 +1127,8 @@ static void process_options(int argc, ch
+@@ -1183,7 +1136,8 @@ static void process_options(int argc, ch
  		case OPT_VERBOSE: verbose = 1; break;
  		case 'x':
  		case OPT_POSIX_TIMERS:
@@ -184,7 +184,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  		case '?':
  		case OPT_HELP:
  			display_help(0); break;
-@@ -1207,13 +1161,6 @@ static void process_options(int argc, ch
+@@ -1216,13 +1170,6 @@ static void process_options(int argc, ch
  		}
  	}
  
@@ -198,7 +198,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	/* if smp wasn't requested, test for numa automatically */
  	if (!smp) {
  		numa = numa_initialize();
-@@ -1943,7 +1890,6 @@ int main(int argc, char **argv)
+@@ -1952,7 +1899,6 @@ int main(int argc, char **argv)
  
  	}
  
@@ -206,7 +206,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	mode = use_nanosleep + use_system;
  
  	sigemptyset(&sigset);
-@@ -1993,16 +1939,18 @@ int main(int argc, char **argv)
+@@ -2002,16 +1948,18 @@ int main(int argc, char **argv)
  			void *stack;
  			void *currstk;
  			size_t stksize;
