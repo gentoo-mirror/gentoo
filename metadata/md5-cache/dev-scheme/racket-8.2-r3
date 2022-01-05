@@ -3,7 +3,7 @@ DEPEND=!dev-tex/slatex dev-db/sqlite:3 dev-libs/libffi:= X? ( dev-util/desktop-f
 DESCRIPTION=General purpose, multi-paradigm Lisp-Scheme programming language
 EAPI=7
 HOMEPAGE=https://racket-lang.org/
-INHERIT=desktop optfeature xdg-utils
+INHERIT=desktop optfeature readme.gentoo-r1 xdg-utils
 IUSE=X +chez +doc +futures +jit minimal +places +threads
 KEYWORDS=amd64 ~arm ~ppc ~ppc64 x86
 LICENSE=|| ( MIT Apache-2.0 ) chez? ( Apache-2.0 ) !chez? ( LGPL-3 )
@@ -11,5 +11,5 @@ RDEPEND=!dev-tex/slatex dev-db/sqlite:3 dev-libs/libffi:= X? ( dev-util/desktop-
 REQUIRED_USE=futures? ( jit threads ) chez? ( threads ) places? ( threads )
 SLOT=0/8.2
 SRC_URI=minimal? ( https://download.racket-lang.org/installers/8.2/racket-minimal-8.2-src-builtpkgs.tgz ) !minimal? ( https://download.racket-lang.org/installers/8.2/racket-8.2-src-builtpkgs.tgz )
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=136ecbb049843ad459d248da211a9bdd
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=2daf9c4b25b5834e23ce0858b445cbca
