@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32? ( dev-lang/yasm ) x86-fbsd? ( dev-lang/yasm ) amd64-fbsd? ( dev-lang/yasm ) doc? ( app-doc/doxygen dev-lang/php )
+BDEPEND=dev-lang/perl abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32? ( dev-lang/yasm ) doc? ( app-doc/doxygen dev-lang/php )
 DEFINED_PHASES=compile configure install test
 DESCRIPTION=WebM VP8 and VP9 Codec SDK
 EAPI=7
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=https://github.com/webmproject/libvpx/archive/v1.11.0.tar.gz -> libvpx-1.11.0.tar.gz test? ( https://dev.gentoo.org/~sam/distfiles/media-libs/libvpx/libvpx-testdata-1.11.0.tar.xz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091
-_md5_=8b2b4bd842481cc518aa126ca816bfc9
+_md5_=7e92db4648a24890f8b57f475380db18

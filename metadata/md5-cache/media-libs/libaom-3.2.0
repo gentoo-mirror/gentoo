@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32? ( dev-lang/yasm ) x86-fbsd? ( dev-lang/yasm ) amd64-fbsd? ( dev-lang/yasm ) doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32? ( dev-lang/yasm ) doc? ( app-doc/doxygen ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Alliance for Open Media AV1 Codec SDK
 EAPI=8
@@ -11,4 +11,4 @@ REQUIRED_USE=cpu_flags_x86_sse2? ( cpu_flags_x86_mmx ) cpu_flags_x86_ssse3? ( cp
 SLOT=0/3
 SRC_URI=https://storage.googleapis.com/aom-releases/libaom-3.2.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	cmake-multilib	de2335e0bd21535a925d008ee3b98e2a	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=7467ba5db238beecff44e68c683317af
+_md5_=732278b2fefded06384bd801a075617e
