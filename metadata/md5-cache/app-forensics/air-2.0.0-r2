@@ -1,12 +1,12 @@
 DEFINED_PHASES=install
-DEPEND=userland_GNU? ( sys-apps/coreutils ) >=dev-perl/Tk-804.27.0 userland_GNU? ( app-arch/sharutils )
+DEPEND=sys-apps/coreutils app-arch/sharutils >=dev-perl/Tk-804.27.0
 DESCRIPTION=A GUI front-end to dd/dc3dd
 EAPI=6
 HOMEPAGE=https://sourceforge.net/projects/air-imager/
 IUSE=crypt
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
-RDEPEND=userland_GNU? ( sys-apps/coreutils ) net-analyzer/netcat app-arch/mt-st crypt? ( net-analyzer/cryptcat )
+RDEPEND=sys-apps/coreutils net-analyzer/netcat app-arch/mt-st crypt? ( net-analyzer/cryptcat )
 SLOT=0
 SRC_URI=mirror://sourceforge/air-imager/air-2.0.0.tar.gz
-_md5_=f8174fb910351a86f0dbaf0c9689bfe0
+_md5_=35faf8aeaddcf22d24d55cafd87e2589

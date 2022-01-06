@@ -1,13 +1,13 @@
 BDEPEND=nls? ( sys-devel/gettext )
-DEFINED_PHASES=configure install prepare
+DEFINED_PHASES=configure install
 DEPEND=acl? ( virtual/acl ) selinux? ( sys-libs/libselinux ) xattr? ( elibc_glibc? ( sys-apps/attr ) )
 DESCRIPTION=Use this to make tarballs :)
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/tar/
-IUSE=acl minimal nls selinux userland_GNU xattr
+IUSE=acl minimal nls selinux xattr
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=GPL-3+
 RDEPEND=acl? ( virtual/acl ) selinux? ( sys-libs/libselinux )
 SLOT=0
 SRC_URI=mirror://gnu/tar/tar-1.34.tar.xz https://alpha.gnu.org/gnu/tar/tar-1.34.tar.xz
-_md5_=2cccbd3356da003849bfc1e1bba74a78
+_md5_=d8d630a9bf4688bf0084f36363aea400
