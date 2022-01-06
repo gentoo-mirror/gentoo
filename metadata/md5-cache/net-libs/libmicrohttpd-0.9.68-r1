@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install test
-DEPEND=ssl? ( >net-libs/gnutls-2.12.20:= ) test? ( net-misc/curl[ssl?] )
+DEPEND=ssl? ( >net-libs/gnutls-2.12.20:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) test? ( net-misc/curl[ssl?] )
 DESCRIPTION=Small C library to run an HTTP server as part of another application
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/libmicrohttpd/
@@ -7,9 +7,9 @@ INHERIT=multilib-minimal
 IUSE=+epoll ssl static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=amd64 x86
 LICENSE=LGPL-2.1
-RDEPEND=ssl? ( >net-libs/gnutls-2.12.20:= )
+RDEPEND=ssl? ( >net-libs/gnutls-2.12.20:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 RESTRICT=!test? ( test )
 SLOT=0/12
 SRC_URI=mirror://gnu/libmicrohttpd/libmicrohttpd-0.9.68.tar.gz
 _eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091
-_md5_=cd7c55988ff7265c955dd76dcdc16386
+_md5_=6c80374e136345c22726fea0c4fd0542
