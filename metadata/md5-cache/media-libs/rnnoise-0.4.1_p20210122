@@ -1,7 +1,7 @@
 BDEPEND=doc? ( app-doc/doxygen media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DESCRIPTION=Recurrent neural network for audio noise reduction
-EAPI=7
+EAPI=8
 HOMEPAGE=https://jmvalin.ca/demo/rnnoise/ https://gitlab.xiph.org/xiph/rnnoise
 INHERIT=autotools
 IUSE=doc
@@ -10,4 +10,4 @@ LICENSE=BSD
 SLOT=0
 SRC_URI=https://gitlab.xiph.org/xiph/rnnoise/-/archive/1cbdbcf1283499bbb2230a6b0f126eb9b236defd/rnnoise-1cbdbcf1283499bbb2230a6b0f126eb9b236defd.tar.gz -> rnnoise-0.4.1_p20210122.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=755de10b00f1a35b914aa14cb188a22b
+_md5_=e96168d446e750221d3db55223d09232
