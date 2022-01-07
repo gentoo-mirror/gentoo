@@ -5,7 +5,7 @@ EAPI=7
 inherit flag-o-matic linux-info systemd
 
 #Set this variable to the required external ell version
-ELL_REQ="0.44"
+ELL_REQ="0.47"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit autotools git-r3
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 	ELL_EGIT_REPO_URI="https://git.kernel.org/pub/scm/libs/ell/ell.git"
 else
 	SRC_URI="https://www.kernel.org/pub/linux/network/wireless/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 	MYRST2MAN="RST2MAN=:"
 fi
 
@@ -46,8 +46,6 @@ BDEPEND="
 "
 
 [[ ${PV} == *9999* ]] && BDEPEND+=" dev-python/docutils"
-
-PATCHES=( "${FILESDIR}"/iwd-1.17-fix-tests.patch )
 
 pkg_setup() {
 	CONFIG_CHECK="
@@ -130,7 +128,6 @@ src_unpack() {
 
 src_prepare() {
 	default
-	use elibc_musl && eapply "${FILESDIR}"/iwd-1.18-musl-backport.patch
 	if [[ ${PV} == *9999* ]] ; then
 		eautoreconf
 	fi
