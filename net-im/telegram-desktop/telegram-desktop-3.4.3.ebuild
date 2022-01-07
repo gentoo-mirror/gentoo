@@ -5,13 +5,14 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{7..10} )
 
-inherit xdg cmake python-any-r1 optfeature
+inherit xdg cmake python-any-r1 optfeature flag-o-matic
 
 DESCRIPTION="Official desktop client for Telegram"
 HOMEPAGE="https://desktop.telegram.org"
 
 MY_P="tdesktop-${PV}-full"
 SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
@@ -28,6 +29,7 @@ RDEPEND="
 	app-arch/lz4:=
 	dev-cpp/abseil-cpp:=
 	dev-libs/jemalloc:=[-lazy-lock]
+	dev-libs/libdispatch
 	dev-libs/openssl:=
 	dev-libs/xxhash
 	>=dev-qt/qtcore-5.15:5
@@ -66,11 +68,8 @@ BDEPEND="
 "
 # dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
-S="${WORKDIR}/${MY_P}"
-
 PATCHES=(
 	"${FILESDIR}/tdesktop-3.1.0-jemalloc-only-telegram.patch"
-	"${FILESDIR}/tdesktop-3.1.0-fix-openssl3.patch"
 	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
 )
 
@@ -133,6 +132,10 @@ src_configure() {
 			-DTDESKTOP_API_HASH="d524b414d21f4d37f08684c1df41ac9c"
 		)
 	fi
+
+	# Fix for RISCV, as well as any other platforms that might generate libatomic calls
+	# Upstreamed in >3.4.3
+	append-ldflags '-pthread'
 
 	cmake_src_configure
 }
