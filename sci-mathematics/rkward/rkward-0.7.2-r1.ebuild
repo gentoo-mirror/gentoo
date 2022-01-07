@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 inherit ecm kde.org optfeature
@@ -18,9 +18,6 @@ LICENSE="GPL-2+ LGPL-2"
 SLOT="5"
 IUSE=""
 
-BDEPEND="
-	sys-devel/gettext
-"
 DEPEND="
 	dev-lang/R
 	dev-qt/qtgui:5
@@ -47,8 +44,21 @@ DEPEND="
 	kde-frameworks/kxmlgui:5
 "
 RDEPEND="${DEPEND}"
+BDEPEND="sys-devel/gettext"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-crash-w-R-4.1.0.patch # KDE-bug 438993
+	"${FILESDIR}"/${P}-fix-hang-on-exit.patch # KDE-bug 430680
+	"${FILESDIR}"/${P}-fix-dark-themes.patch # KDE-bug 389914
+	"${FILESDIR}"/${P}-fix-eop-tag-in-html.patch
+	"${FILESDIR}"/${P}-fix-hidpi.patch
+)
 
 pkg_postinst() {
-	optfeature "kate plugins support" kde-apps/kate:${SLOT}
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		optfeature "kate plugins support" "kde-apps/kate:${SLOT}"
+		optfeature "prendering (or previewing) R markdown (.Rmd) files" "app-text/pandoc"
+		optfeature "managing citations while writing articles" "app-text/kbibtex"
+	fi
 	ecm_pkg_postinst
 }
