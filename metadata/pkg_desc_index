@@ -994,7 +994,7 @@ app-admin/metalog 20200113-r1: A highly configurable replacement for syslogd/klo
 app-admin/mkosi 12-r1: Build Bespoke OS Images
 app-admin/mktwpol 1.0.1: Bash scripts to install tripwire and generate tripwire policy files
 app-admin/mongo-tools 4.2.11 4.2.12 4.2.15 100.2.0 100.2.1 100.3.0 100.4.1: A high-performance, open source, schema-free document-oriented database
-app-admin/mongosh-bin 1.0.4 1.0.7: The MongoDB Shell
+app-admin/mongosh-bin 1.0.7 1.1.7: The MongoDB Shell
 app-admin/monit 5.27.2-r1 5.28.1-r1 5.29.0: Monitoring and managing daemons or similar programs running on a Unix system
 app-admin/mtail 3.0.0_rc35 3.0.0_rc36: A tool for extracting metrics from application logs
 app-admin/multilog-watch 1.12-r1: Watches a multilog file for irregularities
@@ -3932,7 +3932,7 @@ dev-db/mariadb-connector-c 3.1.12 3.1.13 3.2.3 3.2.4 3.2.5 9999: C client librar
 dev-db/mariadb-connector-odbc 3.1.12 3.1.13 3.1.14: MariaDB Connector/ODBC
 dev-db/mongodb 4.2.15-r1 4.4.8-r1 5.0.2-r1: A high-performance, open source, schema-free document-oriented database
 dev-db/mycli 1.22.2_p20201026 1.24.1 9999: CLI for MySQL Database with auto-completion and syntax highlighting
-dev-db/mydumper 0.10.3 0.10.5 0.10.7.2 0.11.1.3: A high-performance multi-threaded backup (and restore) toolset for MySQL
+dev-db/mydumper 0.11.1.3 0.11.3.5: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.22 8.0.23 8.0.25 8.0.26 8.0.27: ODBC driver for MySQL
 dev-db/mysql 5.7.32 5.7.33 5.7.34 5.7.34-r1 5.7.35 5.7.36-r1 8.0.22 8.0.23 8.0.25 8.0.25-r1 8.0.26 8.0.27: A fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.2.5 3.3.0: C++ API interface to the MySQL database
@@ -3986,7 +3986,7 @@ dev-db/spatialite 4.3.0a 5.0.1-r1: A complete Spatial DBMS in a nutshell built u
 dev-db/spatialite-tools 4.3.0-r1 5.0.1-r1: A collection of CLI tools supporting SpatiaLite
 dev-db/sqlcipher 3.4.2 4.0.1: Full Database Encryption for SQLite
 dev-db/sqlcl-bin 21.3.1.281.1748: Oracle SQLcl is the new SQL*Plus
-dev-db/sqldeveloper 4.2.0.17.089.1709 21.2.1.204.1703: Oracle SQL Developer is a graphical tool for database development
+dev-db/sqldeveloper 4.2.0.17.089.1709 21.4.1.349.1822: Oracle SQL Developer is a graphical tool for database development
 dev-db/sqlite 3.34.1 3.35.0 3.35.1 3.35.2 3.35.3 3.35.4 3.35.5 3.37.0 3.37.1 3.37.2: SQL database engine
 dev-db/sqlitebrowser 3.12.1 3.12.2 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r4: Powerful GUI manager for the Sqlite3 database
@@ -4040,7 +4040,7 @@ dev-embedded/picp 0.6.8: A commandline interface to Microchip's PICSTART+ progra
 dev-embedded/picprog 1.9.1: A PIC16, PIC18 and dsPIC microcontroller programmer software for the serial port
 dev-embedded/pista 0.70: Commandline-driven interface to PICSTART+ PIC programmer
 dev-embedded/pk2cmd 1.20: An application for working with the Microchip PicKit2 PIC programmer
-dev-embedded/platformio 5.1.1 5.2.3-r1: An open source ecosystem for IoT development
+dev-embedded/platformio 5.1.1 5.2.3-r1 5.2.3-r2: An open source ecosystem for IoT development
 dev-embedded/ponyprog 3.1.2: EEPROM and microcontroller programmer/flasher
 dev-embedded/powersoftplus-libftdi 0.1.8-r1: Library which includes a table of VIDs and PIDs of Ever UPS devices
 dev-embedded/rpi-eeprom 11.0_p1 12.5_p1-r1: Updater for Raspberry Pi 4 bootloader and the VL805 USB controller
@@ -15049,7 +15049,7 @@ net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection
 net-im/telepathy-logger 0.8.2-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
 net-im/tkabber 1.1.2: A jabber client written in Tcl/Tk
-net-im/toxic 0.8.3-r3 0.10.1-r1 0.11.1: A curses-based client for Tox
+net-im/toxic 0.10.1-r1 0.11.1 0.11.3: A curses-based client for Tox
 net-im/transwhat 0.2.2_p20190426-r2: A WhatsApp XMPP Gateway based on Spectrum 2 and Yowsup 3
 net-im/vacuum 1.3.0_pre20180105 9999: Qt Crossplatform Jabber client
 net-im/whatsapp-desktop-bin 0.5.1: Unofficial electron-based wrapper around WhatsApp Web
@@ -15285,7 +15285,7 @@ net-libs/telepathy-farstream 0.6.2: Telepathy client library that uses Farstream
 net-libs/telepathy-glib 0.24.2: GLib bindings for the Telepathy D-Bus protocol
 net-libs/telepathy-logger-qt 17.09.0: Qt bindings for the Telepathy logger
 net-libs/telepathy-qt 0.9.8-r1 9999: Qt bindings for the Telepathy D-Bus protocol
-net-libs/tox 0.2.11-r1 0.2.12-r1 9999: Encrypted P2P, messaging, and audio/video calling platform
+net-libs/tox 0.2.12-r1 0.2.13 9999: Encrypted P2P, messaging, and audio/video calling platform
 net-libs/tox_extension_messages 0.0.2: Tox Extension Messages
 net-libs/toxext 0.0.2: Extension Library for Tox
 net-libs/udns 0.4: Async-capable DNS stub resolver library
@@ -15917,7 +15917,7 @@ net-wireless/b43-fwcutter 019: Firmware tool for Broadcom 43xx-based wireless de
 net-wireless/bladerf 2021.03 9999: Libraries for supporing the BladeRF hardware from Nuand
 net-wireless/bladerf-firmware 2.4.0: bladeRF FX3 firmware images
 net-wireless/bladerf-fpga 0.12.0: bladeRF FPGA bitstreams
-net-wireless/blueberry 1.4.2: A Bluetooth configuration tool
+net-wireless/blueberry 1.4.6: A Bluetooth configuration tool
 net-wireless/blueman 2.2.2 9999: Simple and intuitive GTK+ Bluetooth Manager
 net-wireless/bluez 5.62-r2 5.62-r3: Bluetooth Tools and System Daemons for Linux
 net-wireless/bluez-hcidump 2.5: Bluetooth HCI packet analyzer
@@ -18054,7 +18054,7 @@ sys-power/upower 0.99.12-r1: D-Bus abstraction for enumerating power devices, qu
 sys-process/acct 6.6.4-r3: GNU system accounting utilities
 sys-process/anacron 2.3-r4: a periodic command scheduler
 sys-process/at 3.2.2-r2 3.2.2-r4: Queues jobs for later execution
-sys-process/atop 2.6.0 2.7.0: Resource-specific view of processes
+sys-process/atop 2.6.0 2.7.0-r1: Resource-specific view of processes
 sys-process/audit 3.0 3.0.1 3.0.2 3.0.3 3.0.6: Userspace utilities for storing and processing auditing records
 sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
@@ -18335,7 +18335,7 @@ www-apps/element 1.9.7 1.9.8: A glossy Matrix collaboration client for the web
 www-apps/gitea 1.15.7 1.15.8: A painless self-hosted Git service
 www-apps/gitit 0.13.0.0-r1: Wiki using happstack, git or darcs, and pandoc
 www-apps/grafana-bin 7.5.12 8.3.2: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
-www-apps/hugo 0.89.4 0.91.0: The world's fastest framework for building websites
+www-apps/hugo 0.89.4 0.91.2: The world's fastest framework for building websites
 www-apps/icingaweb2 2.9.3-r2 2.9.4 2.9.5-r1 9999: Icinga Web 2 - Frontend for icinga2
 www-apps/icingaweb2-module-director 1.8.0 1.8.1 9999: Icinga Web 2 plugin for configuration
 www-apps/icingaweb2-module-graphite 1.1.0 9999: Icinga Web 2 plugin for Graphite
