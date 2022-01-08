@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic multilib toolchain-funcs multilib-minimal
 
-NSPR_VER="4.29"
+NSPR_VER="4.32"
 RTM_NAME="NSS_${PV//./_}_RTM"
 
 DESCRIPTION="Mozilla's Network Security Services library that implements PKI support"
@@ -15,7 +15,7 @@ SRC_URI="https://archive.mozilla.org/pub/security/nss/releases/${RTM_NAME}/src/$
 
 LICENSE="|| ( MPL-2.0 GPL-2 LGPL-2.1 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
 IUSE="cacert utils cpu_flags_ppc_altivec cpu_flags_ppc_vsx"
 # pkg-config called by nss-config -> virtual/pkgconfig in RDEPEND
 RDEPEND="
@@ -25,6 +25,7 @@ RDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="${RDEPEND}"
+BDEPEND="dev-lang/perl"
 
 RESTRICT="test"
 
