@@ -7,11 +7,11 @@ PYTHON_COMPAT=( python3_{7,8,9,10} )
 USE_RUBY="ruby26 ruby25"
 RUBY_OPTIONAL="yes"
 
-inherit python-r1 java-pkg-opt-2 ruby-ng udev xdg-utils
+inherit autotools python-r1 java-pkg-opt-2 ruby-ng udev xdg-utils
 
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="git://sigrok.org/${PN}"
-	inherit git-r3 autotools
+	inherit git-r3
 else
 	SRC_URI="https://sigrok.org/download/source/${PN}/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
@@ -21,8 +21,8 @@ DESCRIPTION="Basic hardware drivers for logic analyzers and input/output file fo
 HOMEPAGE="https://sigrok.org/wiki/Libsigrok"
 
 LICENSE="GPL-3"
-SLOT="0/9999"
-IUSE="bluetooth +cxx ftdi hidapi java nettle parport python ruby serial static-libs test +udev usb"
+SLOT="0/4"
+IUSE="bluetooth +cxx ftdi hidapi java parport python ruby serial static-libs test +udev usb"
 REQUIRED_USE="java? ( cxx )
 	python? ( cxx ${PYTHON_REQUIRED_USE} )
 	ruby? ( cxx || ( $(ruby_get_use_targets) ) )"
@@ -37,7 +37,6 @@ LIB_DEPEND="
 	cxx? ( dev-cpp/glibmm:2[static-libs(+)] )
 	ftdi? ( dev-embedded/libftdi:1[static-libs(+)] )
 	hidapi? ( >=dev-libs/hidapi-0.8.0 )
-	nettle? ( dev-libs/nettle:=[static-libs(+)] )
 	parport? ( sys-libs/libieee1284[static-libs(+)] )
 	python? (
 		${PYTHON_DEPS}
@@ -70,6 +69,14 @@ DEPEND="${LIB_DEPEND//\[static-libs(+)]}
 
 S="${WORKDIR}"/${P}
 
+PATCHES=(
+	# https://sigrok.org/bugzilla/show_bug.cgi?id=1527
+	"${FILESDIR}/${P}-swig-4.patch"
+	# https://sigrok.org/bugzilla/show_bug.cgi?id=1526
+	"${FILESDIR}/${P}-ruby-swig-docs.patch" # bug 705074
+	"${FILESDIR}/${P}-check-0.15.patch"
+)
+
 pkg_setup() {
 	use python && python_setup
 	use ruby && ruby-ng_pkg_setup
@@ -81,7 +88,7 @@ src_unpack() {
 }
 
 sigrok_src_prepare() {
-	[[ ${PV} == *9999* ]] && eautoreconf
+	eautoreconf
 }
 
 each_ruby_prepare() {
@@ -103,7 +110,6 @@ sigrok_src_configure() {
 		$(use_with bluetooth libbluez) \
 		$(use_with ftdi libftdi) \
 		$(use_with hidapi libhidapi) \
-		$(use_with nettle libnettle) \
 		$(use_with parport libieee1284) \
 		$(use_with serial libserialport) \
 		$(use_with usb libusb) \
