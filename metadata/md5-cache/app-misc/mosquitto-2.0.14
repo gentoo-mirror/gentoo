@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://mosquitto.org/ https://github.com/eclipse/mosquitto
 INHERIT=python-any-r1 systemd toolchain-funcs
 IUSE=bridge examples +persistence +srv ssl tcpd test websockets
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 arm ~arm64 x86
 LICENSE=EPL-1.0
 RDEPEND=acct-user/mosquitto acct-group/mosquitto dev-libs/cJSON:= srv? ( net-dns/c-ares:= ) ssl? ( dev-libs/openssl:0= ) tcpd? ( sys-apps/tcp-wrappers )
 REQUIRED_USE=test? ( bridge )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://mosquitto.org/files/source/mosquitto-2.0.14.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=bf453c00f3039cbd692de2c4f35303e7
+_md5_=8650202a6b0c1fa13a2e1da868cc69cd
