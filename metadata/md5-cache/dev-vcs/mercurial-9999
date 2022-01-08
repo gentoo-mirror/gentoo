@@ -1,8 +1,8 @@
-BDEPEND=dev-python/docutils[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] rust? ( >=virtual/rust-1.37.0 ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-vcs/mercurial
+BDEPEND=dev-python/docutils[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] rust? ( >=virtual/rust-1.53 ) python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-vcs/mercurial
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=emacs? ( >=app-editors/emacs-23.1:* ) test? ( app-arch/unzip dev-python/pygments[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=Scalable distributed SCM
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.mercurial-scm.org/
 INHERIT=bash-completion-r1 cargo elisp-common distutils-r1 mercurial flag-o-matic multiprocessing
 IUSE=+chg emacs gpg test tk rust debug python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
@@ -12,5 +12,5 @@ RDEPEND=app-misc/ca-certificates gpg? ( app-crypt/gnupg ) tk? ( dev-lang/tk ) py
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	cargo	c7fefacaebdcb455d2a7b59429eb47a6	elisp-common	cf4fd1b0835b9f3e638724840468064a	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	63df6e5a6bbff9ec3cf60cf7cdc94f23	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	mercurial	caa671a93f3b46fa4eff65babfbac141	flag-o-matic	d5e1306543bc457213f68bb18f830d14
-_md5_=245f3b0e26b3ec93e6d0250af712dda8
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	cargo	c7fefacaebdcb455d2a7b59429eb47a6	elisp-common	cf4fd1b0835b9f3e638724840468064a	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	63df6e5a6bbff9ec3cf60cf7cdc94f23	mercurial	fab322f5d0b16d043915315d0db2abb1	flag-o-matic	d5e1306543bc457213f68bb18f830d14
+_md5_=9b6c8ce69a993c01e75160a165e8a870
