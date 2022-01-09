@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8,9,10} )
 DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils-r1
+inherit distutils-r1 udev
 
 DESCRIPTION="An open source ecosystem for IoT development"
 HOMEPAGE="https://platformio.org/"
@@ -15,11 +15,12 @@ S="${WORKDIR}"/${PN}-core-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		=dev-python/aiofiles-0.7.0*[${PYTHON_USEDEP}]
+		>=dev-python/aiofiles-0.8.0[${PYTHON_USEDEP}]
+		dev-python/ajsonrpc[${PYTHON_USEDEP}]
 		<dev-python/bottle-0.13[${PYTHON_USEDEP}]
 		>=dev-python/click-7.1.2[${PYTHON_USEDEP}]
 		<dev-python/click-9[${PYTHON_USEDEP}]
@@ -36,11 +37,13 @@ RDEPEND="
 		>=dev-python/pyelftools-0.25[${PYTHON_USEDEP}]
 		<dev-python/pyelftools-1[${PYTHON_USEDEP}]
 		>=dev-python/marshmallow-2.20.5[${PYTHON_USEDEP}]
-		dev-python/starlette[${PYTHON_USEDEP}]
-		=dev-python/uvicorn-0.15*[${PYTHON_USEDEP}]
+		>=dev-python/starlette-0.17[${PYTHON_USEDEP}]
+		>=dev-python/uvicorn-0.16[${PYTHON_USEDEP}]
 		dev-python/wsproto[${PYTHON_USEDEP}]
 		dev-python/zeroconf[${PYTHON_USEDEP}]
-	')"
+	')
+	virtual/udev"
+DEPEND="virtual/udev"
 BDEPEND="test? ( $(python_gen_cond_dep 'dev-python/jsondiff[${PYTHON_USEDEP}]') )"
 
 # This list could be refined a bit to have individual tests which need network
@@ -64,3 +67,8 @@ EPYTEST_IGNORE=(
 )
 
 distutils_enable_tests pytest
+
+src_install() {
+	distutils-r1_src_install
+	udev_dorules scripts/99-platformio-udev.rules
+}
