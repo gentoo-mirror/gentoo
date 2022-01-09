@@ -979,7 +979,7 @@ app-admin/lib_users 0.14-r2 0.15: Check for mapped libs and open files that are 
 app-admin/lnav 0.9.0-r3 0.10.0-r1 0.10.0-r2 0.10.1: A curses-based tool for viewing and analyzing log files
 app-admin/logcheck 1.3.23: Mails anomalies in the system logfiles to the administrator
 app-admin/logmon 0.4.4-r1: Split-screen terminal/ncurses based log viewer
-app-admin/logrotate 3.18.1-r1: Rotates, compresses, and mails system logs
+app-admin/logrotate 3.18.1-r1 3.19.0: Rotates, compresses, and mails system logs
 app-admin/logsentry 1.1.1-r2: Automatically monitor system logs and mail security violations
 app-admin/logstalgia 1.1.2: Replays or streams an access_log as a retro arcade game-like simulation
 app-admin/logstash-bin 6.8.22 7.16.2: Tool for managing events and logs
@@ -2128,7 +2128,7 @@ app-editors/ghex 3.18.4-r1 3.41.1 4.0.0_alpha 9999: GNOME hexadecimal editor
 app-editors/ghostwriter 1.8.1 2.0.2: Cross-platform, aesthetic, distraction-free markdown editor
 app-editors/gnome-latex 3.38.0: Integrated LaTeX environment for GNOME
 app-editors/gummi 0.8.2: Simple LaTeX editor for GTK+ users
-app-editors/gvim 8.2.0814-r100 8.2.3428-r1 8.2.3567 8.2.3582 8.2.3669 8.2.3741 9999: GUI version of the Vim text editor
+app-editors/gvim 8.2.0814-r100 8.2.3428-r1 8.2.3567 8.2.3582 8.2.3669 8.2.3741 8.2.3950 9999: GUI version of the Vim text editor
 app-editors/hexcurse 1.60.0: ncurses based hex editor
 app-editors/hexedit 1.2.13: View and edit files in hex or ASCII
 app-editors/hteditor 2.1.1_pre20161206: A file viewer, editor and analyzer for text, binary, and executable files
@@ -2174,8 +2174,8 @@ app-editors/ted 2.23-r1: X-based rich text editor
 app-editors/texworks 0.6.5-r100 0.6.6: A simple interface for working with TeX documents
 app-editors/uemacs-pk 4.0.15_p20180117 4.0.15_p20180719: uEmacs/PK is an enhanced version of MicroEMACS
 app-editors/vile 9.8t-r1 9.8u-r1: VI Like Emacs -- yet another full-featured vi clone
-app-editors/vim 8.2.0814-r100 8.2.3428-r1 8.2.3567 8.2.3582 8.2.3669 8.2.3741 9999: Vim, an improved vi-style text editor
-app-editors/vim-core 8.2.0814 8.2.3428 8.2.3567 8.2.3582 8.2.3669 8.2.3741 9999: vim and gvim shared files
+app-editors/vim 8.2.0814-r100 8.2.3428-r1 8.2.3567 8.2.3582 8.2.3669 8.2.3741 8.2.3950 9999: Vim, an improved vi-style text editor
+app-editors/vim-core 8.2.0814 8.2.3428 8.2.3567 8.2.3582 8.2.3669 8.2.3741 8.2.3950 9999: vim and gvim shared files
 app-editors/vis 0.5 0.7 9999: modern, legacy free, simple yet efficient vim-like editor
 app-editors/vscode 1.61.2 1.62.3 1.63.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium 1.61.2 1.62.3 1.63.2: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
@@ -5734,7 +5734,7 @@ dev-libs/libsecp256k1 0.1_pre20190401 0.1_pre20201028: Optimized C library for E
 dev-libs/libserdes 5.4.0-r1: Avro SerializationDeserialization w/ Confluent schema-registry support
 dev-libs/libserialport 0.1.1-r1 9999: Cross platform serial port access library
 dev-libs/libsigc++ 2.10.7 3.0.7: Typesafe callback system for standard C++
-dev-libs/libsigsegv 2.12-r1 2.13: Library for handling page faults in user mode
+dev-libs/libsigsegv 2.12-r1 2.13 2.14: Library for handling page faults in user mode
 dev-libs/libslz 1.1.0 1.2.0: stateless, zlib-compatible, and very fast compression library
 dev-libs/libsodium 1.0.18 1.0.18_p20210617: A portable fork of NaCl, a higher-level cryptographic library
 dev-libs/libspnav 0.2.3 0.2.3-r1: libspnav is a replacement for the magellan library with a cleaner API
@@ -17871,7 +17871,7 @@ sys-fs/mergerfs-tools 0_p20210502-r2: Optional tools to help manage data in a me
 sys-fs/mhddfs 0.1.39-r2: Fuse multi harddrive filesystem
 sys-fs/mp3fs 0.91-r2 1.1.1-r1: A read-only FUSE filesystem which transcodes FLAC audio files to MP3 when read
 sys-fs/mtd-utils 2.1.3: MTD userspace tools (NFTL, JFFS2, NAND, FTL, UBI)
-sys-fs/mtools 4.0.35 4.0.36: utilities to access MS-DOS disks from Unix without mounting them
+sys-fs/mtools 4.0.35 4.0.36 4.0.37: Utilities to access MS-DOS disks from Unix without mounting them
 sys-fs/mtpfs 1.1-r6: A FUSE filesystem providing access to MTP devices
 sys-fs/multipath-tools 0.8.6-r1 0.8.7 0.8.8: Device mapper target autoconfig
 sys-fs/ncdu 1.15.1-r1 1.16-r1: NCurses Disk Usage
@@ -18053,7 +18053,7 @@ sys-power/upower 0.99.12-r1: D-Bus abstraction for enumerating power devices, qu
 sys-process/acct 6.6.4-r3: GNU system accounting utilities
 sys-process/anacron 2.3-r4: a periodic command scheduler
 sys-process/at 3.2.2-r2 3.2.2-r4: Queues jobs for later execution
-sys-process/atop 2.6.0 2.7.0-r1: Resource-specific view of processes
+sys-process/atop 2.6.0 2.7.0-r1 2.7.1: Resource-specific view of processes
 sys-process/audit 3.0 3.0.1 3.0.2 3.0.3 3.0.6: Userspace utilities for storing and processing auditing records
 sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
