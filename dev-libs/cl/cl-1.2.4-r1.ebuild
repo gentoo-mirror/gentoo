@@ -1,7 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 inherit multilib
 
 DESCRIPTION="OpenCL bindings for Erlang"
@@ -14,8 +15,8 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=dev-lang/erlang-16
-	virtual/opencl
 	dev-util/rebar
+	virtual/opencl
 "
 DEPEND="${RDEPEND}"
 
@@ -29,5 +30,5 @@ src_install() {
 	ERLANG_DIR="/usr/$(get_libdir)/erlang/lib"
 	CL_DIR="${ERLANG_DIR}/${P}"
 	insinto "${CL_DIR}"
-	doins -r ebin src include c_src examples
+	doins -r ebin src include c_src examples priv
 }
