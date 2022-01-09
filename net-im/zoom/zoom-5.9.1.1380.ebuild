@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -54,6 +54,7 @@ RDEPEND="!games-engines/zoom
 		dev-qt/qtquickcontrols2:5
 		dev-qt/qtsvg:5
 		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
 		wayland? ( dev-qt/qtwayland )
 	)"
 
@@ -67,7 +68,7 @@ src_prepare() {
 
 	# The tarball doesn't contain an icon, so extract it from the binary
 	bbe -s -b '/<svg width="32"/:/<\x2fsvg>\n/' -e 'J 1;D' zoom \
-		>zoom-icon.svg && [[ -s zoom-icon.svg ]] \
+		>videoconference-zoom.svg && [[ -s videoconference-zoom.svg ]] \
 		|| die "Extraction of icon failed"
 
 	if ! use pulseaudio; then
@@ -135,10 +136,11 @@ src_install() {
 	fi
 
 	make_wrapper zoom /opt/zoom{/zoom,} $(usev bundled-qt /opt/zoom)
-	make_desktop_entry "zoom %U" Zoom zoom-icon "" \
+	make_desktop_entry "zoom %U" Zoom videoconference-zoom \
+		"Network;VideoConference;" \
 		"MimeType=x-scheme-handler/zoommtg;application/x-zoom;"
-	doicon zoom-icon.svg
-	doicon -s scalable zoom-icon.svg
+	doicon videoconference-zoom.svg
+	doicon -s scalable videoconference-zoom.svg
 	readme.gentoo_create_doc
 }
 
