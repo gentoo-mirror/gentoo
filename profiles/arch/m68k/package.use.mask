@@ -1,6 +1,16 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# James Le Cuirot <chewi@gentoo.org> (2022-01-09)
+# Most usage of KMS requires GBM, which is provided by Mesa, which currently
+# doesn't work on m68k.
+media-libs/cogl kms
+media-libs/libsdl2 kms
+
+# James Le Cuirot <chewi@gentoo.org> (2022-01-09)
+# Requires dev-lang/go, which is not ported to m68k.
+sys-libs/libcap tools
+
 # James Le Cuirot <chewi@gentoo.org> (2022-01-01)
 # Some optional emacs dependencies are not keyworded.
 app-editors/emacs gui mailutils
@@ -74,10 +84,6 @@ sys-libs/glibc gd
 # Michał Górny <mgorny@gentoo.org> (2017-08-08)
 # Requires USE=seccomp that is masked in this profile.
 net-libs/gnutls test-full
-
-# Matt Turner <mattst88@gentoo.org> (2017-02-25)
-# Needs libepoxy keywording, bug #510940
-x11-base/xorg-server wayland
 
 # Raúl Porcel <armin76@gentoo.org> (2013-01-23)
 # Architecture is unsupported
