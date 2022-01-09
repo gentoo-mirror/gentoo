@@ -1,4 +1,4 @@
-BDEPEND=!build? ( sys-apps/sed ) deblob? ( || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) )
+BDEPEND=!build? ( sys-apps/sed ) deblob? ( || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
 DESCRIPTION=Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-d
 RESTRICT=binchecks strip
 SLOT=5.15.12_p25
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.15.12.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz deblob? ( https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//5.15-gnu/deblob-5.15 https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//5.15-gnu/deblob-check -> deblob-check-5.15 ) https://www.kernel.org/pub/linux/kernel/projects/rt/5.15/patch-5.15.12-rt25.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.15/older/patch-5.15.12-rt25.patch.xz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	kernel-2	0504e914bab621103eb74f52fad0fc6d
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	kernel-2	0504e914bab621103eb74f52fad0fc6d
 _md5_=7433e098049f0396cfc033411f0d8182

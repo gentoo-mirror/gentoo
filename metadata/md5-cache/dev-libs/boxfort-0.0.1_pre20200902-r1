@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
-DEPEND=test? ( || ( ( dev-lang/python:3.10 dev-util/cram[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-util/cram[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-util/cram[python_targets_python3_8(-)] ) ) )
+DEPEND=test? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-util/cram[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-util/cram[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-util/cram[python_targets_python3_8(-)] ) ) )
 DESCRIPTION=Convenient & cross-platform sandboxing C library
 EAPI=7
 HOMEPAGE=https://github.com/Snaipe/BoxFort
@@ -11,5 +11,5 @@ LICENSE=MIT
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Snaipe/BoxFort/archive/ac0507b3f45fe58100b528baeb8ca04270b4a8ff.tar.gz -> boxfort-0.0.1_pre20200902.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
 _md5_=e3616cb3f5d977f4e0f04298d6bbec02

@@ -1,4 +1,4 @@
-BDEPEND=app-arch/gzip || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 ) virtual/awk pcf-8bit? ( x11-apps/bdftopcf ) pcf-unicode? ( x11-apps/bdftopcf ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=app-arch/gzip || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) virtual/awk pcf-8bit? ( x11-apps/bdftopcf ) pcf-unicode? ( x11-apps/bdftopcf ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
 DESCRIPTION=A clean fixed font for the console and X11
 EAPI=7
@@ -10,5 +10,5 @@ LICENSE=OFL-1.1 GPL-2
 REQUIRED_USE=X? ( || ( otf pcf-8bit pcf-unicode ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/terminus-font/terminus-font-4.49/terminus-font-4.49.1.tar.gz
-_eclasses_=font	0667878c2b594871023dd1833d05996f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
+_eclasses_=font	0667878c2b594871023dd1833d05996f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
 _md5_=5f4eb1f04762fe4c0fe321edf286ab16

@@ -1,6 +1,6 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup unpack
-DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
+DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
 DESCRIPTION=Security sandbox for any type of processes
 EAPI=7
 HOMEPAGE=https://firejail.wordpress.com/
@@ -8,9 +8,9 @@ INHERIT=toolchain-funcs python-single-r1 linux-info git-r3
 IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home +suid test +userns +whitelist X python_single_target_python3_8 python_single_target_python3_9
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
+RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
 REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	linux-info	2f039741fe92bcea55c78806d16ac0f5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-single-r1	9783802d3840cbbd78c02b313df760cc	linux-info	2f039741fe92bcea55c78806d16ac0f5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=660d63410bdde3b5d2f07a93969aa824

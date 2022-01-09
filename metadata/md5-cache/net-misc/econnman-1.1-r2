@@ -1,5 +1,5 @@
 DEFINED_PHASES=prepare setup
-DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] )
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
 DESCRIPTION=ConnMan User Interface written with EFL & python
 EAPI=7
 HOMEPAGE=https://phab.enlightenment.org/w/projects/econnman/ https://www.enlightenment.org/
@@ -7,9 +7,9 @@ INHERIT=python-single-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 ~riscv x86
 LICENSE=LGPL-3
-RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) dev-libs/efl[X,connman] python_single_target_python3_8? ( dev-python/python-efl[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/python-efl[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/python-efl[python_targets_python3_10(-)] )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-libs/efl[X,connman] python_single_target_python3_8? ( dev-python/python-efl[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/python-efl[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/python-efl[python_targets_python3_10(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://download.enlightenment.org/rel/apps/econnman/econnman-1.1.tar.xz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-single-r1	9783802d3840cbbd78c02b313df760cc
 _md5_=1ce47eae5d6ec58052470d7ff28dcb21

@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install setup
-DEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-22[ssl] app-arch/zip app-arch/unzip app-text/docbook-xml-dtd:4.5 app-text/xmlto >=dev-lang/elixir-1.10.0 <dev-lang/elixir-1.12.0 dev-libs/libxslt || ( ( dev-lang/python:3.10[xml] dev-python/simplejson[python_targets_python3_10(-)] ) ( dev-lang/python:3.9[xml] dev-python/simplejson[python_targets_python3_9(-)] ) ( dev-lang/python:3.8[xml] dev-python/simplejson[python_targets_python3_8(-)] ) )
+DEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-22[ssl] app-arch/zip app-arch/unzip app-text/docbook-xml-dtd:4.5 app-text/xmlto >=dev-lang/elixir-1.10.0 <dev-lang/elixir-1.12.0 dev-libs/libxslt || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] dev-python/simplejson[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9[xml] dev-python/simplejson[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml] dev-python/simplejson[python_targets_python3_8(-)] ) )
 DESCRIPTION=RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 EAPI=7
 HOMEPAGE=https://www.rabbitmq.com/
@@ -11,5 +11,5 @@ RDEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-22[ssl]
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.19/rabbitmq-server-3.8.19.tar.xz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=83b5af0ab5b9191952cf017f627e5f49

@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/libtool python? ( dev-python/setuptools[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-libs/boost:=[threads(+)] virtual/libiconv examples? ( !net-p2p/mldonkey ) python? ( python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-libs/boost:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) ssl? ( dev-libs/openssl:0= )
+DEPEND=dev-libs/boost:=[threads(+)] virtual/libiconv examples? ( !net-p2p/mldonkey ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[threads(+)] ) dev-libs/boost:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=C++ BitTorrent implementation focusing on efficiency and scalability
 EAPI=7
 HOMEPAGE=https://libtorrent.org https://github.com/arvidn/libtorrent
@@ -8,10 +8,10 @@ INHERIT=autotools distutils-r1
 IUSE=debug +dht doc examples python +ssl static-libs test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 ~arm ~ppc ~ppc64 ~sparc x86
 LICENSE=BSD
-RDEPEND=dev-libs/boost:=[threads(+)] virtual/libiconv examples? ( !net-p2p/mldonkey ) python? ( python_targets_python3_8? ( dev-lang/python:3.8[threads(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[threads(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-libs/boost:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) ssl? ( dev-libs/openssl:0= )
+RDEPEND=dev-libs/boost:=[threads(+)] virtual/libiconv examples? ( !net-p2p/mldonkey ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[threads(+)] ) dev-libs/boost:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) ssl? ( dev-libs/openssl:0= )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
 RESTRICT=!test? ( test )
 SLOT=0/10
 SRC_URI=https://github.com/arvidn/libtorrent/archive/v1.2.14.tar.gz -> libtorrent-1.2.14.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	63df6e5a6bbff9ec3cf60cf7cdc94f23
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-r1	4c008ab1e6c02cbead059dfe8b864c26	distutils-r1	f57fddd704fa9e86e732403aaa7ab164
 _md5_=b2c7cdcd871b327f3595eb0642a8bfc6
