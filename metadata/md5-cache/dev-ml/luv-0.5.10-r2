@@ -1,5 +1,5 @@
 BDEPEND=test? ( dev-ml/alcotest ) dev-ml/dune dev-lang/ocaml
-DEFINED_PHASES=compile install test
+DEFINED_PHASES=compile install prepare test
 DEPEND=<=dev-lang/ocaml-4.13:=[ocamlopt?] dev-libs/libuv:= dev-ml/ocaml-ctypes:= dev-ml/result:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Binding to libuv: cross-platform asynchronous I/O
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.5.10
 SRC_URI=https://github.com/aantron/luv/releases/download/0.5.10/luv-0.5.10.tar.gz
 _eclasses_=dune	dce723780ea5cdf2d76da678d3bd9cea
-_md5_=190b408f550260ef945c814fbd4ad20a
+_md5_=3265d9333c0c2122a3e58bda6dce4def
