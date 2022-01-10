@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -49,8 +49,8 @@ src_install() {
 	insinto /etc/ergo
 	doins default.yaml
 
-	newinitd "${FILESDIR}"/ergo.initd ergo
-	newconfd "${FILESDIR}"/ergo.confd ergo
+	newinitd distrib/openrc/ergo.initd ergo
+	newconfd distrib/openrc/ergo.confd ergo
 
 	keepdir /var/lib/ergo
 	fowners oragono:oragono /var/lib/ergo
