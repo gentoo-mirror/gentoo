@@ -1,6 +1,9 @@
 (add-to-list 'load-path "@SITELISP@")
 (autoload 'ebuild-mode "ebuild-mode"
   "Major mode for Portage .ebuild and .eclass files." t)
+(autoload 'ebuild-repo-mode "ebuild-mode"
+  "Minor mode for files in an ebuild repository." t)
+(autoload 'ebuild-repo-mode-maybe-enable "ebuild-mode")
 (autoload 'devbook-mode "devbook-mode"
   "Major mode for editing the Gentoo Devmanual." t)
 (autoload 'gentoo-newsitem-mode "gentoo-newsitem-mode"
@@ -19,6 +22,9 @@
 \\|license\\|properties\\|accept_\\(keywords\\|restrict\\)\\)\
 \\|\\(package\\.\\)?use.\\(stable\\.\\)?\\(force\\|mask\\)\\)\\'"
 	       . conf-space-mode))
+(add-to-list 'auto-mode-alist
+			 '("/make\\.\\(conf\\|defaults\\)\\'" . conf-unix-mode))
 (add-to-list 'interpreter-mode-alist '("openrc-run" . sh-mode))
 (add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
+(add-hook 'find-file-hook #'ebuild-repo-mode-maybe-enable)
 (modify-coding-system-alist 'file "\\.\\(ebuild\\|eclass\\)\\'" 'utf-8)
