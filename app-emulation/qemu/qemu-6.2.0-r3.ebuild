@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 PYTHON_REQ_USE="ncurses,readline"
@@ -107,7 +107,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	qemu_softmmu_targets_riscv64? ( fdt )
 	qemu_softmmu_targets_x86_64? ( fdt )
 	sdl-image? ( sdl )
-	static? ( static-user !alsa !gtk !jack !opengl !pulseaudio !plugins !rbd !snappy !udev )
+	static? ( static-user !alsa !gtk !jack !opengl !pam !pulseaudio !plugins !rbd !snappy !udev )
 	static-user? ( !plugins )
 	vhost-user-fs? ( caps seccomp )
 	virgl? ( opengl )
@@ -268,7 +268,10 @@ DEPEND="${CDEPEND}
 	static-user? ( ${ALL_DEPEND} )"
 RDEPEND="${CDEPEND}
 	acct-group/kvm
-	selinux? ( sec-policy/selinux-qemu )"
+	selinux? (
+		sec-policy/selinux-qemu
+		sys-libs/libselinux
+	)"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.11.1-capstone_include_path.patch
@@ -276,6 +279,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.0.0-make.patch
 	"${FILESDIR}"/${PN}-6.1.0-strings.patch
 	"${FILESDIR}"/${PN}-6.2.0-user-SLIC-crash.patch
+	"${FILESDIR}"/${PN}-6.2.0-also-build-virtfs-proxy-helper.patch
 )
 
 QA_PREBUILT="
@@ -445,6 +449,7 @@ qemu_src_configure() {
 		--disable-containers # bug #732972
 		--disable-guest-agent
 		--disable-strip
+		--with-git-submodules=ignore
 
 		# bug #746752: TCG interpreter has a few limitations:
 		# - it does not support FPU
@@ -465,17 +470,16 @@ qemu_src_configure() {
 		--cc="$(tc-getCC)"
 		--cxx="$(tc-getCXX)"
 		--host-cc="$(tc-getBUILD_CC)"
+		$(use_enable alsa)
 		$(use_enable debug debug-info)
 		$(use_enable debug debug-tcg)
-		$(use_enable doc docs)
-		$(use_enable nls gettext)
-		$(use_enable pam auth-pam)
-		$(use_enable plugins)
-		$(use_enable xattr attr)
-		$(use_enable alsa)
 		$(use_enable jack)
+		$(use_enable nls gettext)
 		$(use_enable oss)
+		$(use_enable plugins)
 		$(use_enable pulseaudio pa)
+		$(use_enable selinux)
+		$(use_enable xattr attr)
 	)
 
 	# Disable options not used by user targets. This simplifies building
@@ -518,6 +522,7 @@ qemu_src_configure() {
 		$(conf_notuser capstone)
 		$(conf_notuser caps cap-ng)
 		$(conf_notuser curl)
+		$(conf_tools doc docs)
 		$(conf_notuser fdt)
 		$(conf_notuser fuse)
 		$(conf_notuser glusterfs)
@@ -536,6 +541,7 @@ qemu_src_configure() {
 		$(conf_notuser nfs libnfs)
 		$(conf_notuser numa)
 		$(conf_notuser opengl)
+		$(conf_notuser pam auth-pam)
 		$(conf_notuser png vnc-png)
 		$(conf_notuser rbd)
 		$(conf_notuser sasl vnc-sasl)
