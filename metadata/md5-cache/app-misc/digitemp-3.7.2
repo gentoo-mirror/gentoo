@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=ds2490? ( virtual/libusb:0 )
+DESCRIPTION=Temperature logging and reporting using Maxim's iButtons and 1-Wire protocol
+EAPI=7
+HOMEPAGE=https://www.digitemp.com/ https://www.ibutton.com/
+INHERIT=toolchain-funcs
+IUSE=ds9097 ds9097u ds2490
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://github.com/bcl/digitemp/archive/v3.7.2.tar.gz -> digitemp-3.7.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=3029bd67df2a35ca27310eee5e2df6d2
