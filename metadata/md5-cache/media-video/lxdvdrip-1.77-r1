@@ -1,13 +1,13 @@
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile install
 DEPEND=media-libs/libdvdread
 DESCRIPTION=Command line tool to automate the process of ripping and burning DVDs
-EAPI=5
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/lxdvdrip/
-INHERIT=epatch toolchain-funcs
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
 RDEPEND=media-libs/libdvdread >=media-video/dvdauthor-0.6.9 media-video/streamdvd media-video/mpgtx
 SLOT=0
 SRC_URI=mirror://sourceforge/lxdvdrip/lxdvdrip-1.77.tgz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=e7b92dc3eb3ccdb8a1d112dd95d518ac
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=b8e12d235c677cd22fb45b6460041f17
