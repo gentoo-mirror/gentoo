@@ -33,6 +33,8 @@ DEPEND="${RDEPEND}
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
 
+PATCHES=( "${FILESDIR}"/${P}-fix-install-KNS-items-w-deps.patch ) # KDE-bug 448237
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_AppStreamQt=ON
