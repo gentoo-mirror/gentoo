@@ -224,32 +224,9 @@ sci-biology/gibbs
 # and is available as app-shells/ksh-1.0.0_beta1 at time of writing.
 ~app-shells/ksh-2020.0.0
 
-# Marco Scardovi <marco@scardovi.com> (2021-12-13)
-# Outdated, we are the only one who still have a package for it.
-# Docker can mount these NFS, AWS EFS, Ceph & Samba/CIFS volumes
-# by itself now. Removal in 30 days. Bug #829068
-net-fs/docker-volume-netshare
-
 # Bernd Waibel <waebbl-gentoo@posteo.net> (2021-12-07)
 # Masked for testing
 ~sci-libs/vtk-9.1.0
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-12-13)
-# Blocks removal of dev-java/log4j:0 bug #828657.
-# Java packages with no active consumer. Removal in 30 days.
-dev-java/slf4j-log4j12
-dev-java/jibx
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2021-12-13)
-# Outdated, all versions in core Perl are newer. Removal in 30 days.
-perl-core/IO-Zlib
-perl-core/Module-CoreList
-perl-core/Test
-perl-core/Text-Balanced
-perl-core/Text-ParseWords
-perl-core/Thread-Semaphore
-perl-core/Time-HiRes
-perl-core/version
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2021-12-12)
 # log4j-2.15.0 depends on masked >=virtual/{jdk,jre}-11
