@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KDE_ORG_COMMIT=0cb681eacca0f757702fa409bb05d3d3650aba4e
+KDE_ORG_COMMIT=728012f7762ecd5762d493f8796907c6456f31e7
 inherit qt5-build
 
 DESCRIPTION="SVG rendering library for the Qt5 framework"
