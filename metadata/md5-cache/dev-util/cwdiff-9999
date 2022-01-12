@@ -1,13 +1,13 @@
+BDEPEND=sys-apps/help2man >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
-DEPEND=sys-apps/help2man sys-apps/coreutils >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=A script that wraps wdiff to support directories and colorize the output
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/junghans/cwdiff
 INHERIT=git-r3
 IUSE=mercurial
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=sys-apps/sed app-shells/bash app-text/wdiff sys-apps/diffutils mercurial? ( dev-vcs/mercurial )
+RDEPEND=app-text/wdiff sys-apps/diffutils mercurial? ( dev-vcs/mercurial )
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=f5f023e75b91d038c955a4c5f81db5c9
+_md5_=5f5cbb2ceb98a350bee107f78e75ac11
