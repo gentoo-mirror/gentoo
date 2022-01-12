@@ -1331,9 +1331,9 @@
     <name>Hardened</name>
     <url>https://wiki.gentoo.org/wiki/Project:Hardened</url>
     <description>Hardened Gentoo is a project which oversees the research, implementation, and maintenance of security oriented projects for Gentoo Linux.</description>
-    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="uclibc@gentoo.org"/>
     <subproject ref="integrity@gentoo.org" inherit-members="1"/>
+    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="rsbac@gentoo.org"/>
     <subproject ref="selinux@gentoo.org" inherit-members="1"/>
     <member>
@@ -1379,29 +1379,6 @@
       <email>zorry@gentoo.org</email>
       <name>Magnus Granberg</name>
       <role>Hardened toolchain</role>
-    </member>
-  </project>
-  <project>
-    <email>musl@gentoo.org</email>
-    <name>Hardened musl</name>
-    <url>https://wiki.gentoo.org/wiki/Project:Hardened_musl</url>
-    <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc and uClibc, and not necessarily as "embedded".</description>
-    <member>
-      <email>anarchy@gentoo.org</email>
-      <name>Jory A. Pratt</name>
-    </member>
-    <member is-lead="1">
-      <email>blueness@gentoo.org</email>
-      <name>Anthony G. Basile</name>
-    </member>
-    <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>ppc64 helper</role>
-    </member>
-    <member>
-      <email>sam@gentoo.org</email>
-      <name>Sam James</name>
     </member>
   </project>
   <project>
@@ -1913,6 +1890,29 @@
     <member>
       <email>zerochaos@gentoo.org</email>
       <name>Rick Farina</name>
+    </member>
+  </project>
+  <project>
+    <email>musl@gentoo.org</email>
+    <name>musl</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Musl</url>
+    <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc and uClibc, and not necessarily as "embedded".</description>
+    <member>
+      <email>anarchy@gentoo.org</email>
+      <name>Jory A. Pratt</name>
+    </member>
+    <member is-lead="1">
+      <email>blueness@gentoo.org</email>
+      <name>Anthony G. Basile</name>
+    </member>
+    <member>
+      <email>gyakovlev@gentoo.org</email>
+      <name>Georgy Yakovlev</name>
+      <role>ppc64 helper</role>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
     </member>
   </project>
   <project>
