@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-KDE_ORG_COMMIT=7c6c0030cf80ef7b9ace42996b0e0c3a72f76860
+KDE_ORG_COMMIT=38ad2f39daec09168728033969265834b6a2d924
 QT5_MODULE="qtbase"
 inherit linux-info qt5-build
 
@@ -48,8 +48,6 @@ QT5_GENTOO_PRIVATE_CONFIG=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.14.1-cmake-macro-backward-compat.patch # bug 703306
 	"${FILESDIR}"/${PN}-5.15.1-timezone-{1,2}.patch # bug 737914
-	# See also: https://invent.kde.org/qt/qt/qtbase/-/merge_requests/81
-	"${FILESDIR}"/${P}-fix-stack-smashing.patch # bug 824286, KDE-bug 445719
 )
 
 pkg_pretend() {
