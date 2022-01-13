@@ -1,17 +1,17 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit autotools toolchain-funcs
 
 DESCRIPTION="Assembly By Short Sequences - a de novo, parallel, paired-end sequence assembler"
-HOMEPAGE="http://www.bcgsc.ca/platform/bioinfo/software/abyss/"
+HOMEPAGE="https://www.bcgsc.ca/resources/software/abyss/"
 SRC_URI="https://github.com/bcgsc/abyss/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="abyss"
+LICENSE="GPL-3"
 SLOT="0"
-IUSE="+mpi openmp misc-haskell"
+IUSE="openmp misc-haskell"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
@@ -21,24 +21,17 @@ RDEPEND="
 		dev-libs/gmp:0=
 		dev-libs/libffi:0=
 	)
-	mpi? ( sys-cluster/openmpi )"
+	sys-cluster/openmpi
+	dev-db/sqlite:3
+"
 DEPEND="${RDEPEND}
 	misc-haskell? (
 		dev-lang/ghc
-	)"
-
-PATCHES=("${FILESDIR}"/${PN}-2.0.3-prog-AR.patch)
-
-# GHC uses it's own native code generator. Portage's
-# QA check generates false positive because it assumes
-# presence of GCC-specific sections.
-#
-# Workaround false positiove by disabling the check completely.
-# bug #677600
-QA_FLAGS_IGNORED='/usr/bin/abyss-samtobreak'
+	)
+"
 
 # todo: --enable-maxk=N configure option
-# todo: fix automagic mpi toggling
+# todo: also allow build with mpich (--enable-mpich)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -60,5 +53,5 @@ src_configure() {
 	# unless request by user: bug #534412
 	use misc-haskell || export ac_cv_prog_ac_ct_GHC=
 
-	econf $(use_enable openmp)
+	econf $(use_enable openmp) --enable-maxk=256
 }
