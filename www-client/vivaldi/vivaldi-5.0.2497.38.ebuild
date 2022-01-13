@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -96,7 +96,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
