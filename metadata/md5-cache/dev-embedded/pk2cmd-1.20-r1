@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install prepare
 DEPEND=virtual/libusb:0
 DESCRIPTION=An application for working with the Microchip PicKit2 PIC programmer
-EAPI=5
+EAPI=8
 HOMEPAGE=http://www.microchip.com/pickit2
-INHERIT=epatch toolchain-funcs
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ppc ppc64 ~x86
 LICENSE=MicroChip-PK2
 RDEPEND=virtual/libusb:0
 SLOT=0
 SRC_URI=http://ww1.microchip.com/downloads/en/DeviceDoc/pk2cmdv1.20LinuxMacSource.tar.gz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=ee55e53e060398162c1e59f364d961f1
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=dc88c69a968b446ff9e06c7a45e4530c
