@@ -1,9 +1,9 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs
 
@@ -124,11 +124,12 @@ src_configure() {
 		[dist]
 		src-tarball = false
 		[target.${rtarget}]
+		ar = "$(tc-getAR ${CTARGET})"
 		cc = "$(tc-getCC ${CTARGET})"
 		cxx = "$(tc-getCXX ${CTARGET})"
 		linker = "$(tc-getCC ${CTARGET})"
-		ar = "$(tc-getAR ${CTARGET})"
-		$(usex elibc_musl 'crt-static = false' '')
+		ranlib = "$(tc-getRANLIB ${CTARGET})"
+		$(usev elibc_musl 'crt-static = false')
 	EOF
 
 	einfo "${PN^} configured with the following settings:"
