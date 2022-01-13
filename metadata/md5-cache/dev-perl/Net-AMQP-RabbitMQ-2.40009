@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Math-Int64-0.540.0 >=virtual/perl-ExtUtils-MakeMaker-6.660.0 test? ( net-misc/rabbitmq-server ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=interact with RabbitMQ over AMQP using librabbitmq
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Net-AMQP-RabbitMQ
+INHERIT=perl-module
+IUSE=test test
+KEYWORDS=~amd64 ~arm64
+LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
+RDEPEND=>=dev-perl/Math-Int64-0.540.0 dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/M/MS/MSTEMLE/Net-AMQP-RabbitMQ-2.40009.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=e681e71cdfea3a53db4a17e0b7057e7e
