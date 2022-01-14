@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby26 ruby27"
 
 RUBY_FAKEGEM_EXTRADOC="changelog.txt README.md"
 RUBY_FAKEGEM_GEMSPEC="excon.gemspec"
@@ -33,7 +33,7 @@ ruby_add_bdepend "
 	)
 "
 all_ruby_prepare() {
-	sed -i -e 's/git ls-files -z/find . -print0/' ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -i -e 's/git ls-files --/find */' ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# test that need network
 	rm -f spec/excon/test/server_spec.rb || die
