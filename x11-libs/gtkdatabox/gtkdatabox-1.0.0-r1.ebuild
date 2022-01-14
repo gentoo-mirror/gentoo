@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit xdg-utils
+
 DESCRIPTION="Gtk+ Widgets for live display of large amounts of fluctuating numerical data"
 HOMEPAGE="https://sourceforge.net/projects/gtkdatabox/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
@@ -39,9 +41,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		$(use_enable glade) \
-		--disable-static \
 		--enable-libtool-lock
-
 }
 
 src_install() {
@@ -55,4 +55,18 @@ src_install() {
 		docinto examples
 		dodoc "${S}"/examples/*
 	fi
+}
+
+maybe_update_xdg_icon_cache() {
+	if use glade; then
+		xdg_icon_cache_update
+	fi
+}
+
+pkg_postinst() {
+	maybe_update_xdg_icon_cache
+}
+
+pkg_postrm() {
+	maybe_update_xdg_icon_cache
 }
