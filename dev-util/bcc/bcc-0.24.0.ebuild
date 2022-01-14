@@ -15,23 +15,28 @@ SRC_URI="https://github.com/iovisor/bcc/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+#KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+lua test"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}
-	lua? ( ${LUA_REQUIRED_USE} )"
+
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	lua? ( ${LUA_REQUIRED_USE} )
+"
+
 # tests need root access
 RESTRICT="test"
 
 RDEPEND="
 	>=dev-libs/elfutils-0.166:=
-	>=dev-libs/libbpf-0.5.0:=[static-libs(-)]
+	>=dev-libs/libbpf-0.7.0:=[static-libs(-)]
 	sys-kernel/linux-headers
 	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
 	${PYTHON_DEPS}
 	lua? ( ${LUA_DEPS} )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	test? (
 		|| (
 			net-misc/iputils[arping]
@@ -120,7 +125,7 @@ src_install() {
 	for tool in "${ED}"/usr/share/bcc/tools/*; do
 		[[ ! -x ${tool} && ! -L ${tool} || -d ${tool} ]] && continue
 		name=${tool##*/}
-		[[ -n ${rename_tools[${tool##*/}]} ]] && name=bcc-${tool}
+		[[ -n ${rename_tools[${name}]} ]] && name=bcc-${name}
 		dosym8 -r "${tool#${ED}}" /usr/sbin/${name}
 	done
 
