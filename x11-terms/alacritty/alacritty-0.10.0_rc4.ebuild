@@ -12,7 +12,7 @@ CRATES="
 	base64-0.13.0
 	bitflags-1.2.1
 	block-0.1.6
-	bumpalo-3.8.0
+	bumpalo-3.9.1
 	calloop-0.9.3
 	cc-1.0.72
 	cfg-if-0.1.10
@@ -20,7 +20,7 @@ CRATES="
 	cgl-0.3.2
 	clap-2.34.0
 	clipboard-win-3.1.1
-	cmake-0.1.46
+	cmake-0.1.48
 	cocoa-0.24.0
 	cocoa-foundation-0.1.0
 	copypasta-0.7.1
@@ -39,7 +39,6 @@ CRATES="
 	darling-0.13.1
 	darling_core-0.13.1
 	darling_macro-0.13.1
-	derivative-2.2.0
 	dirs-3.0.2
 	dirs-sys-0.3.6
 	dispatch-0.2.0
@@ -73,12 +72,11 @@ CRATES="
 	heck-0.3.3
 	hermit-abi-0.1.19
 	ident_case-1.0.1
-	indexmap-1.7.0
+	indexmap-1.8.0
 	inotify-0.7.1
 	inotify-sys-0.1.5
 	instant-0.1.12
 	iovec-0.1.4
-	itoa-0.4.8
 	itoa-1.0.1
 	jni-sys-0.3.0
 	js-sys-0.3.55
@@ -87,7 +85,7 @@ CRATES="
 	lazy-bytes-cast-5.0.1
 	lazy_static-1.4.0
 	lazycell-1.3.0
-	libc-0.2.109
+	libc-0.2.112
 	libloading-0.7.2
 	linked-hash-map-0.5.4
 	lock_api-0.4.5
@@ -114,12 +112,12 @@ CRATES="
 	nom-7.1.0
 	notify-4.0.17
 	ntapi-0.3.6
-	num_enum-0.5.4
-	num_enum_derive-0.5.4
+	num_enum-0.5.6
+	num_enum_derive-0.5.6
 	objc-0.2.7
 	objc-foundation-0.1.1
 	objc_id-0.1.1
-	once_cell-1.8.0
+	once_cell-1.9.0
 	osmesa-sys-0.1.2
 	parking_lot-0.11.2
 	parking_lot_core-0.8.5
@@ -129,14 +127,15 @@ CRATES="
 	proc-macro-crate-1.1.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.33
-	quote-1.0.10
+	proc-macro2-1.0.36
+	quick-xml-0.22.0
+	quote-1.0.14
 	raw-window-handle-0.4.2
 	redox_syscall-0.2.10
 	redox_users-0.4.0
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
-	ryu-1.0.7
+	ryu-1.0.9
 	same-file-1.0.6
 	scoped-tls-1.0.0
 	scopeguard-1.1.0
@@ -147,7 +146,7 @@ CRATES="
 	servo-fontconfig-0.5.1
 	servo-fontconfig-sys-5.1.0
 	shared_library-0.1.9
-	signal-hook-0.3.12
+	signal-hook-0.3.13
 	signal-hook-mio-0.2.1
 	signal-hook-registry-1.4.0
 	slab-0.4.5
@@ -159,19 +158,17 @@ CRATES="
 	strsim-0.10.0
 	structopt-0.3.25
 	structopt-derive-0.4.18
-	syn-1.0.82
+	syn-1.0.85
 	textwrap-0.11.0
 	thiserror-1.0.30
 	thiserror-impl-1.0.30
-	time-0.3.5
-	time-macros-0.2.3
 	toml-0.5.8
 	unicode-segmentation-1.8.0
 	unicode-width-0.1.9
 	unicode-xid-0.2.2
 	utf8parse-0.2.0
 	vec_map-0.8.2
-	version_check-0.9.3
+	version_check-0.9.4
 	vswhom-0.1.0
 	vswhom-sys-0.1.0
 	vte-0.10.1
@@ -201,9 +198,9 @@ CRATES="
 	winreg-0.10.1
 	wio-0.2.2
 	ws2_32-sys-0.2.1
-	x11-clipboard-0.5.2
+	x11-clipboard-0.5.3
 	x11-dl-2.19.1
-	xcb-0.9.0
+	xcb-0.10.1
 	xcursor-0.3.4
 	xdg-2.4.0
 	xml-rs-0.8.4
