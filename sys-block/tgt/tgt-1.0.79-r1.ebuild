@@ -1,16 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit toolchain-funcs systemd
+inherit toolchain-funcs
 
 DESCRIPTION="Linux SCSI target framework (tgt)"
 HOMEPAGE="http://stgt.sourceforge.net"
-SRC_URI="https://github.com/fujita/tgt/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/fujita/tgt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc x86"
 IUSE="fcoe fcp ibmvio infiniband rbd"
 
 DEPEND="
@@ -18,13 +18,13 @@ DEPEND="
 	dev-libs/libxslt
 	dev-perl/Config-General
 	rbd? ( sys-cluster/ceph )
-	infiniband? (
-		sys-fabric/libibverbs:=
-		sys-fabric/librdmacm:=
-	)"
+	infiniband? ( sys-cluster/rdma-core )
+"
 RDEPEND="${DEPEND}
 	dev-libs/libaio
 	sys-apps/sg3_utils"
+
+PATCHES=( "${FILESDIR}"/${P}-fno-common.patch )
 
 pkg_setup() {
 	tc-export CC
@@ -54,7 +54,6 @@ src_install() {
 	emake  install-programs install-scripts install-doc DESTDIR="${D}" docdir=/usr/share/doc/${PF}
 	newinitd "${FILESDIR}"/tgtd.initd tgtd
 	newconfd "${FILESDIR}"/tgtd.confd tgtd
-	systemd_dounit "${S}"/scripts/tgtd.service
 	dodir /etc/tgt
 	keepdir /etc/tgt
 }
