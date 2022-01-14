@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) sys-devel/autoconf-archive virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=International Components for Unicode
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=BSD
 SLOT=0/70.1
 SRC_URI=https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	7ec9eb6bbbeccd424c0430368962d272	python-any-r1	13f6d423c5c5bc519a9b552654cc745f
-_md5_=e6688b26374ee05b7d34446bc31c18e7
+_md5_=73b457f566823b0d5ea73132a77f0929
