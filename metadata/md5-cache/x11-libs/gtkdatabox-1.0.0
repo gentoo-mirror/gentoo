@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/atk dev-libs/glib:2 media-libs/harfbuzz:= x11-libs/cairo x11-libs/gtk+:3 x11-libs/gdk-pixbuf:2 x11-libs/pango glade? ( dev-util/glade:3.10= )
+DESCRIPTION=Gtk+ Widgets for live display of large amounts of fluctuating numerical data
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/gtkdatabox/
+IUSE=examples +glade
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/atk dev-libs/glib:2 media-libs/harfbuzz:= x11-libs/cairo x11-libs/gtk+:3 x11-libs/gdk-pixbuf:2 x11-libs/pango glade? ( dev-util/glade:3.10= )
+SLOT=0
+SRC_URI=mirror://sourceforge/gtkdatabox/gtkdatabox-1.0.0.tar.gz
+_md5_=843cd816d092e2625ed2b0e7488c3ec7
