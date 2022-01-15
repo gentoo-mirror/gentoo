@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 VALA_MIN_API_VERSION="0.26"
-VALA_USE_DEPEND="vapigen"
 
 inherit gnome2-utils meson python-any-r1 vala xdg
 
@@ -14,28 +13,37 @@ SRC_URI="https://gitlab.gnome.org/GNOME/${PN}/-/archive/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="2.90"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-UNICODE_VERSION="13.0"
+UNICODE_VERSION="14.0"
 
-IUSE="debug +introspection gtk-doc vala"
+IUSE="+introspection gtk-doc vala"
 REQUIRED_USE="vala? ( introspection )"
 
+RDEPEND="media-libs/freetype:2
+	>=dev-libs/glib-2.32:2
+	>=x11-libs/gtk+-3.22:3[introspection?]
+	>=dev-libs/libpcre2-10.21:=
+	=app-i18n/unicode-data-${UNICODE_VERSION}*
+	>=x11-libs/pango-1.42.4-r2[introspection?]
+"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
-	virtual/pkgconfig
+	app-text/docbook-xml-dtd:4.1.2
+	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
+	virtual/pkgconfig
 	gtk-doc? ( >=dev-util/gtk-doc-1 )
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
-	vala? ( $(vala_depend) )"
+	vala? ( $(vala_depend) )
+"
 
-DEPEND="=app-i18n/unicode-data-${UNICODE_VERSION}*
-	>=dev-libs/glib-2.32:2
-	media-libs/freetype:2
-	>=x11-libs/gtk+-3.22:3[introspection?]
-	>=x11-libs/pango-1.42.4-r2[introspection?]"
-
-RDEPEND="${DEPEND}"
+PATCHES=(
+	"${FILESDIR}"/${PV}-meson-0.60-fix.patch
+	"${FILESDIR}"/14.0.1-install-user-help.patch
+	"${FILESDIR}"/14.0.1-fix-file-conflicts.patch
+)
 
 src_prepare() {
 	use vala && vala_src_prepare
@@ -44,22 +52,16 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
-		-Ducd_path="${EPREFIX}/usr/share/unicode-data"
-		$(meson_use debug dbg)
+		-Dcharmap=true
+		-Ddbg=false # in 14.0.1 all this does is pass -ggdb3
 		$(meson_use gtk-doc docs)
 		$(meson_use introspection gir)
+		-Dgtk3=true
+		-Ducd_path="${EPREFIX}/usr/share/unicode-data"
 		$(meson_use vala vapi)
 	)
 
 	meson_src_configure
-}
-
-src_test() {
-	meson_src_test
-}
-
-src_install() {
-	meson_src_install
 }
 
 pkg_postinst() {
