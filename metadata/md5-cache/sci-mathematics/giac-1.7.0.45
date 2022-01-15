@@ -1,0 +1,17 @@
+BDEPEND=dev-tex/hevea virtual/pkgconfig virtual/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=dev-libs/gmp:=[cxx(+)] sys-libs/readline:= gui? ( x11-libs/fltk media-libs/libpng:= ) ao? ( media-libs/libao ) dev-libs/mpfr:= sci-libs/mpfi sci-libs/gsl:= sci-mathematics/pari:=[threads] dev-libs/ntl:= virtual/lapack virtual/blas net-misc/curl sci-mathematics/cliquer sci-mathematics/nauty ecm? ( sci-mathematics/gmp-ecm ) glpk? ( sci-mathematics/glpk ) gc? ( dev-libs/boehm-gc )
+DESCRIPTION=A free C++ Computer Algebra System library and its interfaces
+EAPI=7
+HOMEPAGE=https://www-fourier.ujf-grenoble.fr/~parisse/giac.html
+INHERIT=autotools flag-o-matic xdg-utils
+IUSE=ao doc +ecm examples gc +glpk gui static-libs test l10n_el l10n_en l10n_es l10n_pt
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/gmp:=[cxx(+)] sys-libs/readline:= gui? ( x11-libs/fltk media-libs/libpng:= ) ao? ( media-libs/libao ) dev-libs/mpfr:= sci-libs/mpfi sci-libs/gsl:= sci-mathematics/pari:=[threads] dev-libs/ntl:= virtual/lapack virtual/blas net-misc/curl sci-mathematics/cliquer sci-mathematics/nauty ecm? ( sci-mathematics/gmp-ecm ) glpk? ( sci-mathematics/glpk ) gc? ( dev-libs/boehm-gc )
+REQUIRED_USE=test? ( gui )
+RESTRICT=!test? ( test ) mirror
+SLOT=0
+SRC_URI=https://www-fourier.ujf-grenoble.fr/~parisse/debian/dists/stable/main/source/giac_1.7.0-45.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=417a711b9896a5afa118034fbc84505c
