@@ -5,7 +5,7 @@ DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data
 EAPI=8
 HOMEPAGE=https://www.opencascade.com
 INHERIT=cmake flag-o-matic
-IUSE=debug doc examples ffmpeg freeimage gles2 json optimize tbb vtk
+IUSE=debug doc examples ffmpeg freeimage gles2-only json optimize tbb vtk
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )
 RDEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= dev-tcltk/itcl dev-tcltk/itk dev-tcltk/tix media-libs/fontconfig media-libs/freetype:2 media-libs/ftgl virtual/glu virtual/opengl x11-libs/libXmu examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( media-video/ffmpeg:= ) freeimage? ( media-libs/freeimage ) tbb? ( <dev-cpp/tbb-2021.4.0 ) vtk? ( sci-libs/vtk:=[rendering] )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/7.5
 SRC_URI=https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_3;sf=tgz -> opencascade-7.5.3.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=ca2f12c63a68b52f7cc9ede8e0437112
+_md5_=a41e1e248d43232731319fc0235f74d7
