@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_SINGLE_IMPL=yes
@@ -10,7 +10,8 @@ inherit xdg xdg-utils distutils-r1 tmpfiles udev
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
 HOMEPAGE="https://xpra.org/"
-SRC_URI="https://xpra.org/src/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
+	https://dev.gentoo.org/~chewi/distfiles/${PN}-4.3.1-tests.patch"
 
 LICENSE="GPL-2 BSD"
 SLOT="0"
@@ -107,11 +108,8 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.2_ignore-gentoo-no-compile.patch
-	"${FILESDIR}"/${PN}-4.2.2-ldconfig.patch
 	"${FILESDIR}"/${PN}-4.2-suid-warning.patch
-	"${FILESDIR}"/${PN}-4.2.2-true-false-bin-path.patch
-	"${FILESDIR}"/${PN}-4.2.2-dup-ip.patch
-	"${FILESDIR}"/${PN}-4.2.2-bad-tests.patch
+	"${DISTDIR}"/${PN}-4.3.1-tests.patch
 )
 
 python_prepare_all() {
@@ -128,16 +126,13 @@ python_prepare_all() {
 		sed -r -e 's/^(pam|scripts|xdg_open)_ENABLED.*/\1_ENABLED=False/' \
 			-i setup.py || die
 	fi
-
-	# Upstream says these tests are currently broken.
-	rm tests/unittests/unit/net/subprocess_wrapper_test.py tests/unittests/unit/net/protocol_test.py || die
 }
 
 python_configure_all() {
 	sed -e "/'pulseaudio'/s:DEFAULT_PULSEAUDIO:$(usex pulseaudio True False):" \
 		-i setup.py || die
 
-	mydistutilsargs=(
+	DISTUTILS_ARGS=(
 		--without-PIC
 		--without-Xdummy
 		$(use_with client)
@@ -182,7 +177,7 @@ python_test() {
 
 	PYTHONPATH=${S}/tests/unittests:${BUILD_DIR}/test/lib \
 	XPRA_SYSTEMD_RUN=$(usex systemd) XPRA_TEST_COVERAGE=0 \
-		"${PYTHON}" tests/unittests/unit/run.py || die
+		"${PYTHON}" "${S}"/tests/unittests/unit/run.py || die
 }
 
 python_install_all() {
