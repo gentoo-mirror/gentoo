@@ -1,0 +1,15 @@
+BDEPEND=>=sys-devel/automake-1.13 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare pretend
+DEPEND=>dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr]
+DESCRIPTION=Bitcoin Core consensus library
+EAPI=7
+HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
+INHERIT=autotools
+IUSE=+asm knots
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=>dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr]
+SLOT=0
+SRC_URI=https://github.com/bitcoin/bitcoin/archive/af591f2068d0363c92d9756ca39c43db85e5804c.tar.gz -> bitcoin-v0.21.2.tar.gz https://bitcoinknots.org/files/21.x/21.2.knots20210629/bitcoin-21.2.knots20210629.patches.txz -> bitcoin-21.2.knots20210629.patches.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=12fd1464fe7bbdb14dc1bd610114a722
