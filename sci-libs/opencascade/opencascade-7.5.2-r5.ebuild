@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 inherit cmake flag-o-matic
 
@@ -16,7 +16,7 @@ S="${WORKDIR}/occt-V${MY_PV}"
 LICENSE="|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )"
 SLOT="0/${PV_MAJ}"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="debug doc examples ffmpeg freeimage gles2 json optimize tbb vtk"
+IUSE="debug doc examples ffmpeg freeimage gles2-only json optimize tbb vtk"
 
 REQUIRED_USE="?? ( optimize tbb )"
 
@@ -88,15 +88,20 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_DOC_Overview=$(usex doc)
 		-DBUILD_Inspector=$(usex examples)
-		-DBUILD_WITH_DEBUG=$(usex debug)
-		-DINSTALL_DIR_BIN="$(get_libdir)/${P}/bin"
-		-DINSTALL_DIR_CMAKE="$(get_libdir)/cmake/${P}"
+
+		-DINSTALL_DIR_BIN="$(get_libdir)/${PN}/bin"
+		-DINSTALL_DIR_CMAKE="$(get_libdir)/cmake/${PN}"
+		-DINSTALL_DIR_DATA="share/${PN}/data"
 		-DINSTALL_DIR_DOC="share/doc/${PF}"
-		-DINSTALL_DIR_LIB="$(get_libdir)/${P}"
-		-DINSTALL_DIR_SCRIPT="$(get_libdir)/${P}/bin"
-		-DINSTALL_DIR_WITH_VERSION=ON
+		-DINSTALL_DIR_INCLUDE="include/${PN}"
+		-DINSTALL_DIR_LIB="$(get_libdir)/${PN}"
+		-DINSTALL_DIR_RESOURCE="share/${PN}/resources"
+		-DINSTALL_DIR_SAMPLES="share/${PN}/samples"
+		-DINSTALL_DIR_SCRIPT="$(get_libdir)/${PN}/bin"
+		-DINSTALL_DIR_WITH_VERSION=OFF
 		-DINSTALL_SAMPLES=$(usex examples)
 		-DINSTALL_TEST_CASES=NO
+
 		-DUSE_D3D=NO
 		-DUSE_FFMPEG=$(usex ffmpeg)
 		-DUSE_FREEIMAGE=$(usex freeimage)
@@ -160,7 +165,7 @@ src_install() {
 
 	# remove examples
 	if use !examples; then
-		rm -r "${ED}/usr/share/${P}/samples" || die
+		rm -r "${ED}/usr/share/${PN}/samples" || die
 	fi
 
 	docompress -x /usr/share/doc/${PF}/overview/html
