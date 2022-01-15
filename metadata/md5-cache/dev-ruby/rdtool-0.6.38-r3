@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/uwabami/rdtool
 INHERIT=elisp-common ruby-fakegem
 IUSE=emacs ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 test test
-KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha amd64 ppc ppc64 ~sparc x86
 LICENSE=Ruby GPL-2
 RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/rdtool-0.6.38.gem
 _eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	05a317c9b860e5661cc9baf18c442e1c	ruby-fakegem	53b774322e7124b47b10a03fa0e089eb
-_md5_=609b53e8d838d24f058c63f123d2bc57
+_md5_=7581003a3c05a1871eed818c836da86e
