@@ -11,7 +11,7 @@ SRC_URI="http://media.luffy.cx/files/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/4.9.0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="cdp doc +dot1 +dot3 edp fdp graph +lldpmed old-kernel sanitizers
 	seccomp sonmp snmp static-libs test readline xml"
 RESTRICT="!test? ( test )"
@@ -39,14 +39,15 @@ BDEPEND="virtual/pkgconfig
 REQUIRED_USE="graph? ( doc )"
 
 PATCHES=(
-	"${FILESDIR}/lldpd-1.0.10-glibc-2.33.patch"
+	# Can drop both of these on next release; upstream.
+	"${FILESDIR}/${P}-glibc-2.33.patch"
+	"${FILESDIR}/${P}-r2-glibc-2.33.patch"
 )
 
 src_prepare() {
 	default
 
 	eautoreconf
-	elibtoolize
 }
 
 src_configure() {
