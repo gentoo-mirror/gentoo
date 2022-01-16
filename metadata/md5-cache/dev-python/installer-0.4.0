@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://pypi.org/project/installer/ https://github.com/pradyunsg/installer/ https://installer.readthedocs.io/en/latest/
 INHERIT=distutils-r1
 IUSE=test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
 LICENSE=MIT
 RDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pradyunsg/installer/archive/0.4.0.tar.gz -> installer-0.4.0.gh.tar.gz https://files.pythonhosted.org/packages/py2.py3/i/installer/installer-0.4.0-py2.py3-none-any.whl -> installer-0.4.0-py2.py3-none-any.whl.zip
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	7ec9eb6bbbeccd424c0430368962d272	python-r1	4c008ab1e6c02cbead059dfe8b864c26	distutils-r1	f57fddd704fa9e86e732403aaa7ab164
-_md5_=3aced8f5acaf287aff816a5f6a49bfaa
+_md5_=1b8de5d978df14d4b5b24395d5654f42
