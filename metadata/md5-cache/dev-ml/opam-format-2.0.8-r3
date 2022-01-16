@@ -1,15 +1,16 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=test? ( sys-apps/bubblewrap dev-ml/mccs ) dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install prepare test
 DEPEND=~dev-ml/opam-core-2.0.8:= dev-ml/re:= dev-ml/opam-file-format:= >=dev-ml/dose3-6.0:= dev-ml/cppo >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Core libraries for opam
 EAPI=7
 HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
 INHERIT=dune
-IUSE=+ocamlopt
+IUSE=+ocamlopt test
 KEYWORDS=amd64 arm arm64 ppc ppc64 x86
 LICENSE=LGPL-2.1
 RDEPEND=~dev-ml/opam-core-2.0.8:= dev-ml/re:= dev-ml/opam-file-format:= >=dev-ml/dose3-6.0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
 SLOT=0/2.0.8
 SRC_URI=https://github.com/ocaml/opam/archive/2.0.8.tar.gz -> opam-2.0.8.tar.gz
 _eclasses_=dune	45f8b4ed9487a03522a647f3f33cb404
-_md5_=ed9b101e8ec6c95b41d81b699630d515
+_md5_=4b82b13057c4ba4d345e478d13e54369
