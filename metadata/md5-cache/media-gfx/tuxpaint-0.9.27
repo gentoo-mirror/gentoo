@@ -1,0 +1,15 @@
+BDEPEND=dev-util/gperf virtual/imagemagick-tools sys-devel/gettext
+DEFINED_PHASES=compile install postinst postrm preinst
+DEPEND=app-text/libpaper dev-libs/fribidi gnome-base/librsvg:2 >=media-libs/libpng-1.2:0= >=media-libs/freetype-2:2 media-libs/libsdl[joystick] media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/sdl-gfx media-gfx/libimagequant x11-libs/cairo
+DESCRIPTION=Drawing program designed for young children
+EAPI=8
+HOMEPAGE=http://www.tuxpaint.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop optfeature toolchain-funcs xdg
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=app-text/libpaper dev-libs/fribidi gnome-base/librsvg:2 >=media-libs/libpng-1.2:0= >=media-libs/freetype-2:2 media-libs/libsdl[joystick] media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/sdl-gfx media-gfx/libimagequant x11-libs/cairo
+SLOT=0
+SRC_URI=mirror://sourceforge/tuxpaint/tuxpaint-0.9.27.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=3b85dcb1d90fc032fd548b9ea44abe41
