@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,7 +35,7 @@ distutils-r1_src_prepare() {
 python_install() {
 	distutils-r1_python_install
 	python_optimize
-	doman doc/nuitka.1 doc/nuitka3.1 doc/nuitka3-run.1 doc/nuitka-run.1
+	doman doc/nuitka3.1 doc/nuitka3-run.1
 }
 
 python_test() {
