@@ -49,7 +49,7 @@ BDEPEND="
 	nls? ( sys-devel/gettext )
 "
 
-DOCS=( AUTHORS MAILING-LIST NEWS README doc/sample.wgetrc )
+DOCS=( AUTHORS MAILING-LIST NEWS README )
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
@@ -59,14 +59,13 @@ src_prepare() {
 	default
 
 	# revert some hack that breaks linking, bug #585924
-	if [[ ${CHOST} == *-darwin* ]] \
-	|| [[ ${CHOST} == *-solaris* ]] \
-	|| [[ ${CHOST} == *-cygwin* ]] \
-	; then
-		sed -i \
-			-e 's/^  LIBICONV=$/:/' \
-			configure || die
-	fi
+	case ${CHOST} in
+		*-darwin*|*-solaris*|*-cygwin*)
+			sed -i -e 's/^  LIBICONV=$/:/' configure || die
+			;;
+	esac
+
+	sed -i -e "s:/usr/local/etc:${EPREFIX}/etc:g" doc/{sample.wgetrc,wget.texi} || die
 }
 
 src_configure() {
@@ -85,6 +84,7 @@ src_configure() {
 	# Further, libunistring is only needed w/older libidn2 installs,
 	# and since we force the latest, we can force off libunistring. #612498
 	local myeconfargs=(
+		ac_cv_libunistring=no
 		--disable-assert
 		--disable-pcre
 		--disable-rpath
@@ -105,17 +105,5 @@ src_configure() {
 		$(use_with uuid libuuid)
 		$(use_with zlib)
 	)
-	ac_cv_libunistring=no \
 	econf "${myeconfargs[@]}"
-}
-
-src_install() {
-	default
-
-	sed -i \
-		-e "s:/usr/local/etc:${EPREFIX}/etc:g" \
-		"${ED}"/etc/wgetrc \
-		"${ED}"/usr/share/man/man1/wget.1 \
-		"${ED}"/usr/share/info/wget.info \
-		|| die
 }
