@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -33,7 +33,5 @@ src_configure() {
 pkg_postinst() {
 	# New version -> regen files
 	# See bug #816303 for rationale behind die
-	# create directory if needed
-	mkdir -p "${EROOT}"/run/lock
-	build-docbook-catalog || die "Failed to regenerate docbook catalog. Is /run mounted?"
+	build-docbook-catalog || die "Failed to regenerate docbook catalog."
 }
