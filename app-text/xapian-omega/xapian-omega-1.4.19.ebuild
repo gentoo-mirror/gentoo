@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 DESCRIPTION="An application built on Xapian, consisting of indexers and a CGI search frontend"
 SRC_URI="http://www.oligarchy.co.uk/xapian/${PV}/xapian-omega-${PV}.tar.xz"
@@ -10,10 +10,10 @@ S="${WORKDIR}/xapian-omega-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
 
-DEPEND="dev-libs/xapian:0/30
+DEPEND="~dev-libs/xapian-1.4.19:0/30
 	dev-lang/perl
 	dev-libs/libpcre
 	sys-libs/zlib"
