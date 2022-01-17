@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Jansi is a java library for generating and interpreting ANSI escape sequences.
+EAPI=8
+HOMEPAGE=http://fusesource.github.io/jansi
+INHERIT=java-pkg-2 java-pkg-simple toolchain-funcs
+IUSE=doc source
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=2
+SRC_URI=https://github.com/fusesource/jansi/archive/refs/tags/jansi-2.4.0.tar.gz
+_eclasses_=java-utils-2	eb6cdf369ec1bc780222e7e2136f64f5	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=fd73a3875070630591951fa5275573ce
