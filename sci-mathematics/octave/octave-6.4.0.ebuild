@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit autotools flag-o-matic fortran-2 gnome2-utils java-pkg-opt-2 pax-utils toolchain-funcs xdg-utils
+inherit autotools flag-o-matic fortran-2 java-pkg-opt-2 pax-utils toolchain-funcs xdg-utils
 
 DESCRIPTION="High-level interactive language for numerical computations"
 LICENSE="GPL-3"
@@ -19,8 +19,13 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 # Although it is listed in INSTALL.OCTAVE as a build tool, Octave runs
 # "makeinfo" from sys-apps/texinfo at runtime to convert its texinfo
 # documentation to text (see scripts/help/help.m).
+#
+# (un)zip isn't mentioned, but there's a test that uses it (bug 775254).
+#
 RDEPEND="
 	app-arch/bzip2
+	app-arch/unzip
+	app-arch/zip
 	app-text/ghostscript-gpl
 	sys-apps/texinfo
 	dev-libs/libpcre:3=
@@ -120,12 +125,17 @@ src_configure() {
 	# --with-sundials_ida (no-op) with USE="sundials"
 	# --without-sundials_ida (disables it) with USE="-sundials"
 	#
+	# The --enable-link-all-dependencies flag is needed because
+	# otherwise, the build system appends --no-undefined to LDFLAGS and
+	# then proceeds to undefine things. GNU libtool ignores this, but
+	# slibtool (for example) does not (bug 776583).
 	econf \
 		--localstatedir="${EPREFIX}/var/state/octave" \
 		--with-blas="$($(tc-getPKG_CONFIG) --libs blas)" \
 		--with-lapack="$($(tc-getPKG_CONFIG) --libs lapack)" \
 		--disable-64 \
 		--disable-jit \
+		--enable-link-all-dependencies \
 		--enable-shared \
 		--with-z \
 		--with-bz2 \
@@ -182,13 +192,13 @@ src_install() {
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_mimeinfo_database_update
 	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_mimeinfo_database_update
 	xdg_desktop_database_update
 }
