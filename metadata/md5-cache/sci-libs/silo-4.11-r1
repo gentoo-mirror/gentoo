@@ -1,0 +1,15 @@
+BDEPEND=virtual/fortran
+DEFINED_PHASES=configure setup test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 net-dialup/lrzsz virtual/szip hdf5? ( sci-libs/hdf5 ) virtual/fortran
+DESCRIPTION=A mesh and field I/O library and scientific database
+EAPI=8
+HOMEPAGE=https://wci.llnl.gov/simulation/computer-codes/silo
+INHERIT=flag-o-matic fortran-2
+IUSE=browser +hdf5 +silex
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 net-dialup/lrzsz virtual/szip hdf5? ( sci-libs/hdf5 ) virtual/fortran
+SLOT=0
+SRC_URI=https://wci.llnl.gov/sites/wci/files/2021-09/silo-4.11-bsd.tgz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_md5_=bf9d3fafaefa141d6187d3baf348eaa1
