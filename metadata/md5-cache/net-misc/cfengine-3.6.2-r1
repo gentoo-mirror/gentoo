@@ -1,16 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=config configure install postinst prepare unpack
-DEPEND=acl? ( virtual/acl ) mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql ) selinux? ( sys-libs/libselinux ) tokyocabinet? ( dev-db/tokyocabinet ) qdbm? ( dev-db/qdbm ) libvirt? ( app-emulation/libvirt ) xml? ( dev-libs/libxml2:2 ) dev-libs/openssl:= dev-libs/libpcre:= net-libs/libnsl:= sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DESCRIPTION=An automated suite of programs for configuring and maintaining Unix-like computers
-EAPI=5
+DEPEND=acl? ( virtual/acl ) mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql:= ) selinux? ( sys-libs/libselinux ) tokyocabinet? ( dev-db/tokyocabinet ) qdbm? ( dev-db/qdbm ) libvirt? ( app-emulation/libvirt ) xml? ( dev-libs/libxml2:2 ) dev-libs/openssl:= dev-libs/libpcre:= net-libs/libnsl:=
+DESCRIPTION=An suite of programs for configuring and maintaining Unix-like computers
+EAPI=7
 HOMEPAGE=http://www.cfengine.org/
-INHERIT=autotools epatch
+INHERIT=autotools
 IUSE=acl examples libvirt mysql masterfiles postgres +qdbm selinux tokyocabinet vim-syntax xml
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 PDEPEND=vim-syntax? ( app-vim/cfengine-syntax )
-RDEPEND=acl? ( virtual/acl ) mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql ) selinux? ( sys-libs/libselinux ) tokyocabinet? ( dev-db/tokyocabinet ) qdbm? ( dev-db/qdbm ) libvirt? ( app-emulation/libvirt ) xml? ( dev-libs/libxml2:2 ) dev-libs/openssl:= dev-libs/libpcre:= net-libs/libnsl:=
+RDEPEND=acl? ( virtual/acl ) mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql:= ) selinux? ( sys-libs/libselinux ) tokyocabinet? ( dev-db/tokyocabinet ) qdbm? ( dev-db/qdbm ) libvirt? ( app-emulation/libvirt ) xml? ( dev-libs/libxml2:2 ) dev-libs/openssl:= dev-libs/libpcre:= net-libs/libnsl:=
 REQUIRED_USE=^^ ( qdbm tokyocabinet )
 SLOT=3
 SRC_URI=http://cfengine.package-repos.s3.amazonaws.com/tarballs/cfengine-3.6.2.tar.gz masterfiles? ( http://cfengine.package-repos.s3.amazonaws.com/tarballs/masterfiles-3.6.2.tar.gz -> cfengine-masterfiles-3.6.2.tar.gz )
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	b690a7e9b6c497cf59326a7545df4283	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=ab2345053d9c6de2478034d030d9f959
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=7b65b48257b96b3d751f186709aad0c4
