@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* !arm? ( !arm64? ( !ppc64? ( test? ( dev-java/commons-collections:4 dev-java/commons-io:1 dev-java/commons-lang:3.6 dev-java/jna:4 dev-java/jmh-core:0 dev-java/oracle-javamail:0 ) ) ) ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/commons-collections:4 dev-java/commons-io:1 dev-java/commons-lang:3.6 dev-java/jna:4 dev-java/jmh-core:0 dev-java/oracle-javamail:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Apache Commons Bytecode Engineering Library
 EAPI=8
-HOMEPAGE=https://commons.apache.org/proper/commons-bcel
+HOMEPAGE=https://commons.apache.org/proper/commons-bcel/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-RESTRICT=!test? ( test ) arm? ( test ) arm64? ( test ) ppc64? ( test ) !test? ( test )
+RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/commons/bcel/source/bcel-6.5.0-src.tar.gz -> bcel-6.5.0-sources.tar.gz
 _eclasses_=java-utils-2	eb6cdf369ec1bc780222e7e2136f64f5	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=75a3bcf02a7c0c5a28d06a802500b2c1
+_md5_=fdd1113407f0821b7dd92b775a826757
