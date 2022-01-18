@@ -1,5 +1,5 @@
 BDEPEND=doc? ( dev-tex/hevea dev-ml/ocamlweb )
-DEFINED_PHASES=compile install
+DEFINED_PHASES=compile configure install
 DEPEND=>=dev-lang/ocaml-3.10.2:=[ocamlopt?] gtk? ( dev-ml/lablgtk:2=[gnomecanvas,ocamlopt?] ) >=dev-ml/findlib-1.0.4-r1
 DESCRIPTION=O'Caml Graph library
 EAPI=7
@@ -12,4 +12,4 @@ RDEPEND=>=dev-lang/ocaml-3.10.2:=[ocamlopt?] gtk? ( dev-ml/lablgtk:2=[gnomecanva
 SLOT=0/1.8.8
 SRC_URI=http://ocamlgraph.lri.fr/download/ocamlgraph-1.8.8.tar.gz
 _eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=fec682d1031c5f5ae701652c09ef1972
+_md5_=55f2f7e3dc795b9469b05ec4e2d75dff
