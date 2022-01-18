@@ -61,7 +61,7 @@ src_compile() {
 	# build native library.
 	local args=(
 		CCFLAGS="${CFLAGS} ${CXXFLAGS} -Os -fPIC -fvisibility=hidden"
-		LINKFLAGS="-shared"
+		LINKFLAGS="-shared ${LDFLAGS}"
 		CC="$(tc-getCC)"
 		STRIP="$(tc-getSTRIP)"
 		LIBNAME="libjansi-$(ver_cut 1-2).so"
