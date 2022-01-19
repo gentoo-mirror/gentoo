@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://bcache.evilpiepirate.org/ https://git.kernel.org/pub/scm/linux/kernel/git/colyli/bcache-tools.git/
 INHERIT=flag-o-matic python-r1 toolchain-funcs udev
 IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=amd64 ~arm64 ppc ppc64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm64 ppc ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) sys-apps/util-linux virtual/udev
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/colyli/bcache-tools.git/snapshot/bcache-tools-1.1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	7ec9eb6bbbeccd424c0430368962d272	python-r1	4c008ab1e6c02cbead059dfe8b864c26	udev	2d229ad4bfa09058e0184b1ca900db32
-_md5_=aa829a59f00eebce7760f44b6b596e8b
+_md5_=4336c8dc4403aacc402fa1bd9eebc1b5

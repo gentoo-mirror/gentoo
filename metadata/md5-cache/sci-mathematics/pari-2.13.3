@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://pari.math.u-bordeaux.fr/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=data doc fltk gmp test threads X
-KEYWORDS=~alpha amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~arm ~hppa ~mips ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=sys-libs/readline:0= data? ( sci-mathematics/pari-data ) doc? ( X? ( x11-misc/xdg-utils ) ) fltk? ( x11-libs/fltk:1= ) gmp? ( dev-libs/gmp:0= ) X? ( x11-libs/libX11:0= )
 RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.13.3.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14
-_md5_=fe1f3f664124d943e60a3d5f511058c9
+_md5_=3bd51c5c88ce0252b8ef3e86576a8b84
