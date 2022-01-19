@@ -5,22 +5,24 @@ EAPI=7
 
 inherit autotools readme.gentoo-r1 toolchain-funcs
 
-PPP_P="ppp-2.4.8"
-PATCHES="${P}-patches-01"
+PATCHSET="${PN}-3.14-patches-01"
+PATCHES=(
+	"${FILESDIR}/rp-pppoe-3.15-no_max_interfaces.patch"
+)
 
 DESCRIPTION="A user-mode PPPoE client and server suite for Linux"
 HOMEPAGE="https://dianne.skoll.ca/projects/rp-pppoe/"
 SRC_URI="https://dianne.skoll.ca/projects/rp-pppoe/download/${P}.tar.gz
-	https://github.com/paulusmack/ppp/archive/${PPP_P}.tar.gz
-	https://dev.gentoo.org/~polynomial-c/dist/${PATCHES}.tar.xz"
+	https://dev.gentoo.org/~polynomial-c/dist/${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 IUSE="tk"
 
 RDEPEND="
 	net-dialup/ppp:=
+	sys-apps/iproute2
 	tk? ( dev-lang/tk:= )
 "
 DEPEND=">=sys-kernel/linux-headers-2.6.25
@@ -30,9 +32,11 @@ DOC_CONTENTS="Use pppoe-setup to configure your dialup connection"
 
 pkg_setup() {
 	# This is needed in multiple phases
-	PPPD_VER=$(best_version net-dialup/ppp)
-	PPPD_VER=${PPPD_VER#*/*-} #reduce it to ${PV}-${PR}
-	PPPD_VER=${PPPD_VER%%-*} #reduce it to ${PV}
+	PPPD_VER="$(best_version net-dialup/ppp)"
+	PPPD_VER="${PPPD_VER#*/*-}" #reduce it to ${PV}-${PR}
+	PPPD_VER="${PPPD_VER%%-*}" #reduce it to ${PV}
+
+	PPPD_PLUGIN_DIR="/usr/$(get_libdir)/pppd/${PPPD_VER}"
 }
 
 src_prepare() {
@@ -40,7 +44,10 @@ src_prepare() {
 		rm "${WORKDIR}/patches/${PN}-3.14-musl.patch" || die
 	fi
 
+	rm "${WORKDIR}/patches/${PN}-3.14-ifconfig-path.patch" || die
+
 	eapply "${WORKDIR}/patches"
+	eapply "${PATCHES[@]}"
 	eapply_user
 
 	cd "${S}"/src || die
@@ -51,28 +58,25 @@ src_configure() {
 	addpredict /dev/ppp
 
 	cd src || die
-	# Not a mistake! This comes from the GitHub tarball doing funky naming
-	econf --enable-plugin=../../ppp-ppp-${PPPD_VER}
+
+	econf --enable-plugin=/usr/include/pppd
 }
 
 src_compile() {
 	cd src || die
-	emake AR="$(tc-getAR)"
+	emake AR="$(tc-getAR)" PLUGIN_PATH=rp-pppoe.so PLUGIN_DIR="${PPPD_PLUGIN_DIR}"
 
-	if use tk; then
+	if use tk ; then
 		emake -C "${S}/gui"
 	fi
 }
 
 src_install() {
 	cd src || die
-	emake DESTDIR="${D}" install
+	emake DESTDIR="${D}" docdir="/usr/share/doc/${PF}" PLUGIN_DIR="${PPPD_PLUGIN_DIR}" install
 
-	#Don't use compiled rp-pppoe plugin - see pkg_preinst below
-	local pppoe_plugin="${ED}/etc/ppp/plugins/rp-pppoe.so"
-	if [[ -f "${pppoe_plugin}" ]] ; then
-		rm "${pppoe_plugin}" || die
-	fi
+	# We don't need this README file here.
+	rm "${ED}${PPPD_PLUGIN_DIR}/README" || die "Error removing ${PPPD_PLUGIN_DIR}/README from installation"
 
 	if use tk ; then
 		emake -C "${S}/gui" \
@@ -86,11 +90,4 @@ src_install() {
 	newconfd "${FILESDIR}"/pppoe-server.confd pppoe-server
 
 	readme.gentoo_create_doc
-}
-
-pkg_preinst() {
-	# Use the rp-pppoe plugin that comes with net-dialup/pppd
-	if [[ -n "${PPPD_VER}" ]] && [[ -f "${EROOT}/usr/$(get_libdir)/pppd/${PPPD_VER}/rp-pppoe.so" ]] ; then
-		dosym ../../../usr/$(get_libdir)/pppd/${PPPD_VER}/rp-pppoe.so /etc/ppp/plugins/rp-pppoe.so
-	fi
 }
