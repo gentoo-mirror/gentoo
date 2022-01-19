@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=app-arch/zstd:= dev-libs/lzo:2 dev-libs/trio media-libs/libsdl2[joystick,opengl,video] media-libs/tremor media-sound/musepack-tools sys-libs/zlib:=[minizip] virtual/libintl alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) jack? ( virtual/jack )
+DESCRIPTION=Argument-driven multi-system emulator utilizing OpenGL and SDL
+EAPI=8
+HOMEPAGE=https://mednafen.github.io/
+INHERIT=autotools flag-o-matic pax-utils toolchain-funcs
+IUSE=alsa cpu_flags_ppc_altivec flac jack
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-arch/zstd:= dev-libs/lzo:2 dev-libs/trio media-libs/libsdl2[joystick,opengl,video] media-libs/tremor media-sound/musepack-tools sys-libs/zlib:=[minizip] virtual/libintl alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) jack? ( virtual/jack )
+SLOT=0
+SRC_URI=https://mednafen.github.io/releases/files/mednafen-1.29.0.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	flag-o-matic	d5e1306543bc457213f68bb18f830d14	pax-utils	fce6ad998516159787b92e8043167889
+_md5_=161a89ae3506c4feca20577c02544383
