@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gitlab.gnome.org/GNOME/NetworkManager-openvpn
 INHERIT=gnome2
 IUSE=gtk test
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.32:2 dev-libs/libxml2:2 >=net-misc/networkmanager-1.7.0:= >=net-vpn/openvpn-2.1 gtk? ( >=app-crypt/libsecret-0.18 >=net-libs/libnma-1.7.0 >=x11-libs/gtk+-3.4:3 ) acct-group/nm-openvpn acct-user/nm-openvpn
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.16.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	xdg	6024fbc93167fad782e2032933654857	gnome2	397207e07bdf58b07ce295d0bc1049fe
-_md5_=285e329234fad01b83e7ccfc0af6b887
+_md5_=a350ef5d49d5f09c9d8270d05240be33
