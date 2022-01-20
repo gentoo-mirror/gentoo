@@ -43,7 +43,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="/opt/Rocket.Chat/*"
+QA_PREBUILT="opt/Rocket.Chat/*"
 
 S="${WORKDIR}"
 

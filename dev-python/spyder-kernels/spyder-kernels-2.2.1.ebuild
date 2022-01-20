@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,11 +19,12 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/cloudpickle[${PYTHON_USEDEP}]
 	dev-python/decorator[${PYTHON_USEDEP}]
-	>=dev-python/ipykernel-5.3.0[${PYTHON_USEDEP}]
+	>=dev-python/ipykernel-6.6.1[${PYTHON_USEDEP}]
 	>=dev-python/ipython-7.6.0[${PYTHON_USEDEP}]
-	>=dev-python/jupyter_client-5.3.4[${PYTHON_USEDEP}]
+	<dev-python/ipython-8[${PYTHON_USEDEP}]
+	>=dev-python/jupyter_client-7.1.0[${PYTHON_USEDEP}]
 	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-17[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-22.1.0[${PYTHON_USEDEP}]
 	>=dev-python/wurlitzer-1.0.3[${PYTHON_USEDEP}]
 "
 

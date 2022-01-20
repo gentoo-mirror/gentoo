@@ -23,6 +23,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=dev-python/spyder-5.2.0[${PYTHON_USEDEP}]
+	<dev-python/spyder-6[${PYTHON_USEDEP}]
 	dev-python/pyzmq[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 "
