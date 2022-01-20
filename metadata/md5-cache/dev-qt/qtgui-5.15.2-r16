@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
 INHERIT=qt5-build
 IUSE=accessibility dbus egl eglfs evdev +gif gles2-only ibus jpeg +libinput linuxfb +png tslib tuio +udev vnc vulkan wayland +X debug test
-KEYWORDS=amd64 ~arm arm64 ~hppa ppc ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 PDEPEND=ibus? ( app-i18n/ibus ) wayland? ( =dev-qt/qtwayland-5.15.2* )
 RDEPEND=dev-libs/glib:2 =dev-qt/qtcore-5.15.2*:5= dev-util/gtk-update-icon-cache media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= sys-libs/zlib:= dbus? ( =dev-qt/qtdbus-5.15.2* ) eglfs? ( media-libs/mesa[gbm(+)] x11-libs/libdrm ) evdev? ( sys-libs/mtdev ) jpeg? ( virtual/jpeg ) gles2-only? ( media-libs/libglvnd ) !gles2-only? ( media-libs/libglvnd[X] ) libinput? ( dev-libs/libinput:= x11-libs/libxkbcommon ) png? ( media-libs/libpng:= ) tslib? ( >=x11-libs/tslib-1.21 ) tuio? ( =dev-qt/qtnetwork-5.15.2* ) udev? ( virtual/libudev:= ) vnc? ( =dev-qt/qtnetwork-5.15.2* ) vulkan? ( dev-util/vulkan-headers ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libxcb:=[xkb] x11-libs/libxkbcommon[X] x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=5/5.15.2
 SRC_URI=https://invent.kde.org/qt/qt/qtbase/-/archive/38ad2f39daec09168728033969265834b6a2d924/qtbase-38ad2f39daec09168728033969265834b6a2d924.tar.gz -> qtbase-5.15.2-38ad2f39.tar.gz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	virtualx	fa024aa649b6bd544144bf94893d402c	kde.org	2c51d68845490f23d6f76d49cabdac5d	qt5-build	06b03342d17b2518822a24fe0399d1ae
-_md5_=51a87a568f856d0663f8b4befe4d472c
+_md5_=f9aca77c709c2c71425d2daeba62d5a6
