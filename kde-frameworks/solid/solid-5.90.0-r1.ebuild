@@ -35,6 +35,10 @@ BDEPEND="
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-properly-round-battery-capacity.patch" # KDE-bug 448372
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package ios IMobileDevice)

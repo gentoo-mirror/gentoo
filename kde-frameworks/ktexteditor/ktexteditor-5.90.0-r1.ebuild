@@ -46,6 +46,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:5 )"
 
+PATCHES=(
+	"${FILESDIR}/${P}-revert-5dce70a9.patch" # KDE-bugs 446189, 447525
+	"${FILESDIR}/${P}-KDEBUG-447972.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package editorconfig EditorConfig)

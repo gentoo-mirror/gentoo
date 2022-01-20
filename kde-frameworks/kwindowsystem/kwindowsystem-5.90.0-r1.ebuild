@@ -34,6 +34,8 @@ BDEPEND="
 
 DOCS=( docs/README.kstartupinfo )
 
+PATCHES=( "${FILESDIR}/${P}-avoid-XKeycodeToKeysym.patch" ) # KDE-bug 426684
+
 src_configure() {
 	local mycmakeargs=(
 		-DKWINDOWSYSTEM_NO_WIDGETS=ON

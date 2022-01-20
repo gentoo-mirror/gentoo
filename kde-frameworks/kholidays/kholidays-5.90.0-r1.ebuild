@@ -21,6 +21,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-UK-2022-spring-bank-holiday.patch" )
+
 src_test() {
 	# bug 624214
 	mkdir -p "${HOME}/.local/share/kf5/libkholidays" || die

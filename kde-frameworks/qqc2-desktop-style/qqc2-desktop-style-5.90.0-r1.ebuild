@@ -27,3 +27,5 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
+
+PATCHES=( "${FILESDIR}/${P}-KDEBUG-447289.patch" )
