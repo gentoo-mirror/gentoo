@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -21,9 +21,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	${PYTHON_DEPS}
+	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtquickcontrols2:5
 	dev-qt/qtdeclarative:5
+	dev-qt/qtmultimedia:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -32,12 +34,13 @@ RDEPEND="${DEPEND}
 	$(python_gen_cond_dep '>=app-crypt/yubikey-manager-4.0.0[${PYTHON_USEDEP}]')
 	dev-python/pyotherside[${PYTHON_SINGLE_USEDEP}]"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-bin-installdir.patch
+	"${FILESDIR}"/${P}-qtquickcontrols1.patch
+)
+
 src_prepare() {
 	default
-	sed -i \
-		-e "s:python build_qrc.py:${PYTHON} build_qrc.py:" \
-		yubioath-desktop.pro || die
-
 	python_fix_shebang "${S}"
 }
 
