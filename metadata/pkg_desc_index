@@ -3260,7 +3260,7 @@ app-text/docx2txt 1.4: Convert MS Office docx files to plain text
 app-text/dos2unix 7.4.2: Convert DOS or MAC text files to UNIX format or vice versa
 app-text/dvipng 1.17: Translate DVI files into PNG or GIF graphics
 app-text/dvipsk 2021.1_p20210325-r1: DVI-to-PostScript translator
-app-text/dvisvgm 2.10.1-r1 2.11-r1 2.12: Converts DVI files to SVG
+app-text/dvisvgm 2.12 2.13: Converts DVI files to SVG
 app-text/ebook-tools 0.2.2-r2: Tools for accessing and converting various ebook file formats
 app-text/editorconfig-core-c 0.12.3-r2 0.12.4: EditorConfig core library written in C
 app-text/enchant 1.6.1-r1 2.3.0 2.3.1 2.3.2: Spellchecker wrapping library
@@ -3315,7 +3315,7 @@ app-text/kramdown-rfc2629 1.5.24: An RFC2629 (XML2RFC) backend for Thomas Leitne
 app-text/krop 0.6.0-r1 9999: A tool to crop PDF files
 app-text/languagetool 4.5 4.6 5.4: A proof-reading tool for many languages
 app-text/lcdf-typetools 2.108-r1: Font utilities for eg manipulating OTF
-app-text/lesspipe 1.85 1.89 1.90 1.91 2.00 2.01: A preprocessor for less
+app-text/lesspipe 1.91 2.01 2.02: A preprocessor for less
 app-text/letterize 1.4: Generate English-plausible alphabetic mnemonics for a phone number
 app-text/libabw 0.1.3: Library parsing abiword documents
 app-text/libebook 0.1.3-r2: Library parsing various ebook formats
@@ -5440,7 +5440,7 @@ dev-libs/bitshuffle 0.3.5: Bitshuffle C library
 dev-libs/boehm-gc 8.0.4 8.0.6: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.77.0-r4 1.78.0-r2: Boost Libraries for C++
 dev-libs/boost-mpl-cartesian_product 20161205: an extension to the Boost.MPL library
-dev-libs/botan 2.18.2-r1: C++ crypto library
+dev-libs/botan 2.18.2-r1 2.19.0: C++ crypto library
 dev-libs/boxfort 0.0.1_pre20200902-r1 0.1.1: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.1: Blocking, shuffling and lossless compression library
@@ -11070,7 +11070,7 @@ dev-util/debugedit 5.0: Create debuginfo and source file distributions
 dev-util/dejagnu 1.6.2 1.6.3: Framework for testing other programs
 dev-util/desktop-file-utils 0.26-r1: Command line utilities to work with desktop menu entries
 dev-util/devhelp 40.0 40.1 41.2: An API documentation browser for GNOME
-dev-util/dialog 1.3.20210621-r1 1.3.20211107 1.3.20211214: Tool to display dialog boxes from a shell
+dev-util/dialog 1.3.20211107 1.3.20211214 1.3.20220117: Tool to display dialog boxes from a shell
 dev-util/diff-cover 5.0.1: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/difffilter 0.3.3-r1: Filter files out of unified diffs using POSIX extended regular expressions
@@ -11172,7 +11172,7 @@ dev-util/kyua 0.13-r2: Testing framework for infrastructure software
 dev-util/lcov 1.15 9999: A graphical front-end for GCC's coverage testing tool gcov
 dev-util/leaktracer 2.4-r3: trace and analyze memory leaks in C++ programs
 dev-util/libabigail 1.8.2 2.0: Suite of tools for checking ABI differences between ELF objects
-dev-util/libtree 2.0.0 3.0.0 3.0.1: ldd as a tree with an option to bundle dependencies into a single folder
+dev-util/libtree 2.0.0 3.0.2: ldd as a tree with an option to bundle dependencies into a single folder
 dev-util/linklint 2.3.5: A Perl program that checks links on web sites
 dev-util/lldb 11.1.0 12.0.1 13.0.0 13.0.1_rc1 13.0.1_rc2 13.0.1.9999 14.0.0.9999: The LLVM debugger
 dev-util/local-log4j-vuln-scanner 0.10: simple local log4j vulnerability scanner
@@ -15131,7 +15131,7 @@ net-libs/glib-networking 2.68.1 2.68.2 2.70.0 2.70.1: Network-related giomodules
 net-libs/gloox 1.0.24: A portable high-level Jabber/XMPP library for C++
 net-libs/gnet 2.0.8-r3: A simple network library
 net-libs/gnome-online-accounts 3.40.0 3.40.1: GNOME framework for accessing online accounts
-net-libs/gnutls 3.7.2: A secure communications library implementing the SSL, TLS and DTLS protocols
+net-libs/gnutls 3.7.2 3.7.3: A secure communications library implementing the SSL, TLS and DTLS protocols
 net-libs/google-cloud-cpp 0.2.0-r1 0.5.0 0.9.0 0.10.0 0.10.0-r1: Google Cloud Client Library for C++
 net-libs/grpc 1.38.1 1.41.0 1.41.1 1.43.0: Modern open source high performance RPC framework
 net-libs/gsoap 2.8.106 2.8.114: A cross-platform open source C and C++ SDK for SOAP/XML Web services
@@ -17213,10 +17213,10 @@ sys-apps/elfix 0.9.5 9999: A suite of tools to work with ELF objects on Hardened
 sys-apps/epoch 1.2.1 1.3.0 9999: Init system, /sbin/init replacement; designed for simplicity
 sys-apps/etckeeper 1.18.16-r1: A collection of tools to let /etc be stored in a repository
 sys-apps/ethq 0.5.0 0.6.1 9999: Ethernet NIC Queue stats viewer
-sys-apps/ethtool 5.10 5.14 5.15: Utility for examining and tuning ethernet-based network interfaces
+sys-apps/ethtool 5.10 5.14 5.15 5.16: Utility for examining and tuning ethernet-based network interfaces
 sys-apps/exa 0.9.0-r1 0.10.1: A modern replacement for 'ls' written in Rust
 sys-apps/fakechroot 2.20.1: Provide a faked chroot environment without requiring root privileges
-sys-apps/fakeroot 1.25.3-r1 1.26-r1: A fake root environment by means of LD_PRELOAD and SysV IPC (or TCP) trickery
+sys-apps/fakeroot 1.25.3-r1 1.26-r1 1.27: A fake root environment by means of LD_PRELOAD and SysV IPC (or TCP) trickery
 sys-apps/fakeroot-ng 0.18-r1: A utility to run commands with fake root privileges
 sys-apps/fbset 2.1: A utility to set the framebuffer videomode
 sys-apps/fd 8.2.1 8.3.1: Alternative to find that provides sensible defaults for 80% of the use cases
@@ -17400,7 +17400,7 @@ sys-apps/superdiag 1.5.0.20210507: Provides the capability to determine the heal
 sys-apps/superiotool 6637 99999999: util to detect Super I/O chips and functionality
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/systemd 249.9 250.2 9999: System and service manager for Linux
+sys-apps/systemd 249.9 250.2 250.3 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-tmpfiles 249.7 249.9: Creates, deletes and cleans up volatile and temporary files and directories
 sys-apps/sysvinit 2.99-r1 3.00-r1 3.01: /sbin/init - parent of all processes
@@ -17788,7 +17788,7 @@ sys-fs/bashmount 4.3.2-r1: Bash script that uses udisks to mount removable devic
 sys-fs/bcache-tools 1.1-r1 9999: Tools for bcache
 sys-fs/bees 0.6.5-r1 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.14.9 1.15.0 1.15.1: FUSE filesystem for bind mounting with altered permissions
-sys-fs/btrfs-progs 5.10.1-r1 5.14.2 5.15-r1 5.15.1 9999: Btrfs filesystem utilities
+sys-fs/btrfs-progs 5.10.1-r1 5.14.2 5.15-r1 5.15.1 5.16 9999: Btrfs filesystem utilities
 sys-fs/btrfsmaintenance 0.4.2 0.5: Scripts for btrfs maintenance tasks like periodic scrub, balance, trim or defrag
 sys-fs/cachefilesd 0.10.9 0.10.10-r1: Provides a caching directory on an already mounted filesystem
 sys-fs/clamfs 1.2.0: A FUSE-based user-space file system with on-access anti-virus file scanning
@@ -17912,7 +17912,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.168 5.4.169 5.4.170 5.4.171 5.4.172 5.10.88 5.10.89 5.10.90 5.10.91 5.10.92 5.14.21 5.15.11 5.15.12 5.15.13 5.15.14 5.15.15: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.168 5.4.169 5.4.170 5.4.171 5.4.172 5.10.88 5.10.89 5.10.90 5.10.91 5.10.92 5.14.21 5.14.21-r1 5.15.11 5.15.12 5.15.13 5.15.14 5.15.15: Pre-built Linux kernel with genpatches
-sys-kernel/gentoo-sources 4.4.296 4.4.297 4.4.298 4.4.299 4.9.294 4.9.295 4.9.296 4.9.297 4.14.259 4.14.260 4.14.261 4.14.262 4.19.222 4.19.223 4.19.224 4.19.225 5.4.168 5.4.169 5.4.170 5.4.171 5.4.172 5.10.88 5.10.89 5.10.90 5.10.91 5.10.92 5.15.11 5.15.12 5.15.13 5.15.14 5.15.15 5.16.0 5.16.1: Full sources including the Gentoo patchset for the 5.16 kernel tree
+sys-kernel/gentoo-sources 4.4.296 4.4.297 4.4.298 4.4.299 4.9.294 4.9.295 4.9.296 4.9.297 4.14.259 4.14.260 4.14.261 4.14.262 4.19.222 4.19.223 4.19.224 4.19.225 5.4.168 5.4.169 5.4.170 5.4.171 5.4.172 5.4.173 5.10.88 5.10.89 5.10.90 5.10.91 5.10.92 5.10.93 5.15.11 5.15.12 5.15.13 5.15.14 5.15.15 5.16.0 5.16.1: Full sources including the Gentoo patchset for the 5.16 kernel tree
 sys-kernel/git-sources 5.16_rc1 5.16_rc2 5.16_rc3 5.16_rc4 5.16_rc5 5.16_rc6 5.16_rc7 5.16_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3 4: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 1: Wrap kernel-install from systemd-boot as installkernel
