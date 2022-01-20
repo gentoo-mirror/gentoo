@@ -19,10 +19,10 @@ IUSE="doc test"
 ruby_add_rdepend "dev-ruby/curses"
 
 ruby_add_bdepend "doc? ( dev-ruby/yard )
-	test? ( dev-ruby/bacon )"
+	test? ( dev-ruby/rspec )"
 
 each_ruby_test() {
-	${RUBY} -S bacon -Ilib spec/*.rb spec/*/*.rb || die
+	${RUBY} -S rspec -Ilib spec/*.rb spec/*/*.rb || die
 }
 
 each_ruby_install() {

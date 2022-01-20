@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # Tests require lots of disk space
 CHECKREQS_DISK_BUILD=10G
@@ -13,12 +13,13 @@ SRC_URI="https://github.com/flacon/flacon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 BDEPEND="
 	virtual/pkgconfig
 	dev-qt/linguist-tools:5
+	media-libs/taglib
 "
 RDEPEND="
 	app-i18n/uchardet
@@ -40,11 +41,6 @@ DEPEND="${RDEPEND}
 "
 
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-	"${FILESDIR}/${P}-no-man-compress.patch"
-	"${FILESDIR}/${P}-ninja-warning.patch" # git master
-)
 
 pkg_pretend() {
 	use test && check-reqs_pkg_pretend
