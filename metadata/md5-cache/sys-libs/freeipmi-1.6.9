@@ -1,12 +1,12 @@
 DEFINED_PHASES=configure install test
 DEPEND=dev-libs/libgcrypt:0= virtual/os-headers
 DESCRIPTION=Provides Remote-Console and System Management Software as per IPMI v1.5/2.0
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.gnu.org/software/freeipmi/
 IUSE=debug nagios
-KEYWORDS=~amd64 ~hppa ~x86
+KEYWORDS=~amd64 ~hppa ~ppc64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/libgcrypt:0= nagios? ( || ( net-analyzer/icinga net-analyzer/nagios ) dev-lang/perl )
 SLOT=0
-SRC_URI=mirror://gnu/freeipmi/freeipmi-1.6.7.tar.gz
-_md5_=947abddea32adbdc1183435dbaaca0e3
+SRC_URI=mirror://gnu/freeipmi/freeipmi-1.6.9.tar.gz
+_md5_=37585bcdb8ce541ecfe2432ced7f3aba
