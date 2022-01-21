@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="ipv6(+),sqlite,ssl"
 
-inherit bash-completion-r1 desktop toolchain-funcs python-single-r1 xdg-utils
+inherit toolchain-funcs python-single-r1 xdg-utils
 
 DESCRIPTION="Ebook management application"
 HOMEPAGE="https://calibre-ebook.com/"
@@ -49,8 +49,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/snowball-stemmer:=
 	>=sys-apps/dbus-1.10.8
 	$(python_gen_cond_dep '
+		app-accessibility/speech-dispatcher[python,${PYTHON_USEDEP}]
 		>=dev-python/apsw-3.25.2_p1[${PYTHON_USEDEP}]
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
+		dev-python/cchardet[${PYTHON_USEDEP}]
 		>=dev-python/chardet-3.0.3[${PYTHON_USEDEP}]
 		>=dev-python/cssselect-0.7.1[${PYTHON_USEDEP}]
 		>=dev-python/css-parser-1.0.4[${PYTHON_USEDEP}]
@@ -68,6 +70,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=dev-python/pillow-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/psutil-4.3.0[${PYTHON_USEDEP}]
 		>=dev-python/pychm-0.8.6[${PYTHON_USEDEP}]
+		dev-python/pycryptodome[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.3.1[${PYTHON_USEDEP}]
 		>=dev-python/python-dateutil-2.5.3[${PYTHON_USEDEP}]
 		>=dev-python/PyQt5-5.15.5_pre2107091435[gui,svg,widgets,network,printsupport,${PYTHON_USEDEP}]
@@ -104,13 +107,33 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	udisks? ( virtual/libudev )"
 RDEPEND="${COMMON_DEPEND}
 	udisks? ( sys-fs/udisks:2 )"
-DEPEND="${COMMON_DEPEND}
-	$(python_gen_cond_dep '
+DEPEND="${COMMON_DEPEND}"
+BDEPEND="$(python_gen_cond_dep '
 		>=dev-python/setuptools-23.1.0[${PYTHON_USEDEP}]
 		>=dev-python/sip-5[${PYTHON_USEDEP}]
 	')
 	>=virtual/podofo-build-0.9.6_pre20171027
 	virtual/pkgconfig"
+
+PATCHES=(
+	# Don't prompt the user for updates - they've installed via
+	# an ebuild.
+	"${FILESDIR}/${PN}-2.9.0-no_updates_dialog.patch"
+
+	# Skip calling a binary (JxrDecApp) from libjxr which is used for tests
+	# We don't (yet?) package libjxr and it seems to be dead upstream
+	# (last commit in 2017)
+	"${FILESDIR}/${PN}-5.35.0-jxr-test.patch"
+
+	# TODO:
+	# test_qt tries to load a bunch of images using Qt and it currently fails
+	# due to some presumably missing dependencies. This is important and
+	# we need to look into it, but at time of writing, none of the tests
+	# are even bring run, so I'd like to return to this later.
+	# We don't want to skip test_qt entirely, so just skip this particular
+	# assert for now.
+	"${FILESDIR}/${PN}-5.31.0-qt-image-test.patch"
+)
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]] && tc-is-gcc && [[ $(gcc-major-version) -lt 6 ]]; then
@@ -121,13 +144,19 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	# no_updates: do not annoy user with "new version is availible all the time
-	# disable_plugins: walking sec-hole, wait for upstream to use GHNS interface
-	eapply \
-		"${FILESDIR}/${PN}-2.9.0-no_updates_dialog.patch" \
-		"${FILESDIR}/${PN}-disable_plugins.patch"
+	default
 
-	eapply_user
+	# Warning:
+	#
+	# While it might be rather tempting to add yet another sed here,
+	# please don't. There have been several bugs in Gentoo's packaging
+	# of calibre from seds-which-become-stale. Please consider
+	# creating a patch instead, but in any case, run the test suite
+	# and ensure it passes.
+	#
+	# If in doubt about a problem, checking Fedora or Arch Linux's packaging
+	# is recommended, as Arch Linux's PKGBUILD is maintained by a Calibre
+	# contributor. Or just ask them.
 
 	# Fix outdated version constant.
 	#sed -e "s#\\(^numeric_version =\\).*#\\1 (${PV//./, })#" \
@@ -149,15 +178,38 @@ src_prepare() {
 	# Disable unnecessary privilege dropping for bug #287067.
 	sed -e "s:if os.geteuid() == 0:if False and os.geteuid() == 0:" \
 		-i setup/install.py || die "sed failed to patch install.py"
-
-	sed -e "/^                self.check_call(\\[QMAKE\\] + qmc + \\[proname\\])$/a\
-\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ self.check_call(['sed', \
+	sed -e "/^            os.chdir(os.path.join(src_dir, 'build'))$/a\
+\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ self.check_call(['sed', \
 '-e', 's|^CFLAGS .*|\\\\\\\\0 ${CFLAGS}|', \
 '-e', 's|^CXXFLAGS .*|\\\\\\\\0 ${CXXFLAGS}|', \
 '-e', 's|^LFLAGS .*|\\\\\\\\0 ${LDFLAGS}|', \
-'-i', 'Makefile'])" \
+'-i', os.path.join(os.path.basename(src_dir), 'Makefile')])" \
 		-e "s|open(self.j(bdir, '.qmake.conf'), 'wb').close()|open(self.j(bdir, '.qmake.conf'), 'wb').write(b'QMAKE_LFLAGS += ${LDFLAGS}')|" \
 		-i setup/build.py || die "sed failed to patch build.py"
+}
+
+src_compile() {
+	# TODO: get qmake called by setup.py to respect CC and CXX too
+	tc-export CC CXX
+
+	# bug 821871
+	local MY_LIBDIR="${ESYSROOT}/usr/$(get_libdir)"
+	export FT_LIB_DIR="${MY_LIBDIR}" HUNSPELL_LIB_DIR="${MY_LIBDIR}" PODOFO_LIB_DIR="${MY_LIBDIR}"
+
+	PATH="${T}/bin:${PATH}" ${EPYTHON} setup.py build || die
+}
+
+src_test() {
+	# Skipped tests:
+	# - 7z (unpackaged Python dependency: py7zr)
+	# - test_unrar (unpackaged Python dependency: unrardll)
+	#
+	# Note that we currently have a hack to skip one part of test_qt!
+	# See PATCHES for more.
+	CALIBRE_PY3_PORT=1 ${PYTHON} setup.py test \
+			--exclude-test-name 7z \
+			--exclude-test-name test_searching \
+			--exclude-test-name test_unrar || die
 }
 
 src_install() {
@@ -208,7 +260,7 @@ src_install() {
 	addpredict /dev/dri #665310
 
 	PATH=${T}/bin:${PATH} PYTHONPATH=${S}/src${PYTHONPATH:+:}${PYTHONPATH} \
-	"${PYTHON}" setup.py install \
+		"${PYTHON}" setup.py install \
 		--root="${D}" \
 		--prefix="${EPREFIX}/usr" \
 		--libdir="${EPREFIX}/usr/${libdir}" \
