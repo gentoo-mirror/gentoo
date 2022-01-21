@@ -1,15 +1,15 @@
-BDEPEND=dev-lang/perl >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-perl/Module-Build dev-lang/perl test? ( virtual/perl-Test-Simple ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
-DEPEND=dev-perl/Module-Build dev-lang/perl
+DEPEND=dev-perl/Data-Dump dev-perl/JSON dev-perl/libwww-perl[ssl] dev-perl/LWP-Protocol-https dev-perl/Term-ReadLine-Gnu virtual/perl-Encode virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-Getopt-Long virtual/perl-Scalar-List-Utils virtual/perl-Term-ANSIColor virtual/perl-Term-ReadLine virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap gtk? ( dev-perl/Gtk3 dev-perl/File-ShareDir virtual/freedesktop-icon-theme x11-libs/gdk-pixbuf:2[jpeg] ) || ( media-video/ffmpeg[openssl] media-video/ffmpeg[gnutls] ) || ( media-video/mpv media-video/mplayer media-video/vlc gtk? ( media-video/smplayer ) ) dev-lang/perl
 DESCRIPTION=A command line utility for viewing youtube-videos in Mplayer
-EAPI=7
-HOMEPAGE=https://trizenx.blogspot.com/2012/03/gtk-youtube-viewer.html
+EAPI=8
+HOMEPAGE=https://github.com/trizen/youtube-viewer
 INHERIT=desktop optfeature perl-module git-r3 xdg-utils
-IUSE=gtk gtk2
-LICENSE=|| ( Artistic GPL-1+ )
+IUSE=gtk test
+LICENSE=|| ( Artistic-2 GPL-1+ )
 PROPERTIES=live
 RDEPEND=dev-perl/Data-Dump dev-perl/JSON dev-perl/libwww-perl[ssl] dev-perl/LWP-Protocol-https dev-perl/Term-ReadLine-Gnu virtual/perl-Encode virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-Getopt-Long virtual/perl-Scalar-List-Utils virtual/perl-Term-ANSIColor virtual/perl-Term-ReadLine virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap gtk? ( dev-perl/Gtk3 dev-perl/File-ShareDir virtual/freedesktop-icon-theme x11-libs/gdk-pixbuf:2[jpeg] ) || ( media-video/ffmpeg[openssl] media-video/ffmpeg[gnutls] ) || ( media-video/mpv media-video/mplayer media-video/vlc gtk? ( media-video/smplayer ) ) dev-lang/perl:=
-REQUIRED_USE=gtk2? ( gtk )
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=6d756fcbcbad25d73cd4d24a3d712044
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=df271fb965ffd790fcf7e3c039b49a31

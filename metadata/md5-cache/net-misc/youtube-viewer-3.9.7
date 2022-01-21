@@ -1,15 +1,16 @@
-BDEPEND=dev-perl/Module-Build dev-lang/perl
+BDEPEND=dev-perl/Module-Build dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=dev-perl/Data-Dump dev-perl/JSON dev-perl/libwww-perl[ssl] dev-perl/LWP-Protocol-https dev-perl/Term-ReadLine-Gnu virtual/perl-Encode virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-Getopt-Long virtual/perl-Scalar-List-Utils virtual/perl-Term-ANSIColor virtual/perl-Term-ReadLine virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap gtk? ( dev-perl/Gtk3 dev-perl/File-ShareDir virtual/freedesktop-icon-theme x11-libs/gdk-pixbuf:2[jpeg] ) || ( media-video/ffmpeg[openssl] media-video/ffmpeg[gnutls] ) || ( media-video/mpv media-video/mplayer media-video/vlc gtk? ( media-video/smplayer ) ) dev-lang/perl
 DESCRIPTION=A command line utility for viewing youtube-videos in Mplayer
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/trizen/youtube-viewer
 INHERIT=desktop optfeature perl-module xdg-utils
-IUSE=gtk
+IUSE=gtk test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic-2 GPL-1+ )
 RDEPEND=dev-perl/Data-Dump dev-perl/JSON dev-perl/libwww-perl[ssl] dev-perl/LWP-Protocol-https dev-perl/Term-ReadLine-Gnu virtual/perl-Encode virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-Getopt-Long virtual/perl-Scalar-List-Utils virtual/perl-Term-ANSIColor virtual/perl-Term-ReadLine virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap gtk? ( dev-perl/Gtk3 dev-perl/File-ShareDir virtual/freedesktop-icon-theme x11-libs/gdk-pixbuf:2[jpeg] ) || ( media-video/ffmpeg[openssl] media-video/ffmpeg[gnutls] ) || ( media-video/mpv media-video/mplayer media-video/vlc gtk? ( media-video/smplayer ) ) dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/trizen/youtube-viewer/archive/3.9.6.tar.gz -> youtube-viewer-3.9.6.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=b2554c2824e382f6b654654a2b902134
+SRC_URI=https://github.com/trizen/youtube-viewer/archive/3.9.7.tar.gz -> youtube-viewer-3.9.7.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=19450076a1868d7ab6f00a9633c7f06a
