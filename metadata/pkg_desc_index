@@ -1112,7 +1112,7 @@ app-arch/lha 114i_p20201004: Utility for creating and opening lzh archives
 app-arch/libarchive 3.5.2: Multi-format archive and compression library
 app-arch/libpar2 0.4: A library for par2, extracted from par2cmdline
 app-arch/lrzip 0.641-r1: Long Range ZIP or Lzma RZIP optimized for compressing large files
-app-arch/lxqt-archiver 0.4.0: Qt GUI File Archiver
+app-arch/lxqt-archiver 0.4.0 0.5.0: Qt GUI File Archiver
 app-arch/lz4 1.9.3-r1: Extremely Fast Compression algorithm
 app-arch/lz5 2.0: An efficient compressor with very fast decompression
 app-arch/lzip 1.22: lossless data compressor based on the LZMA algorithm
@@ -2080,7 +2080,7 @@ app-doc/gimp-help 2.10.0-r1: GNU Image Manipulation Program help files
 app-doc/gnucash-docs 4.4 4.5 4.8: Documentation package for GnuCash
 app-doc/halibut 1.2: yet another free document preparation system
 app-doc/jargon 4.4.7-r1: A compendium of hacker slang illuminating many aspects of hackish tradition
-app-doc/kicad-doc 5.1.12 6.0.0-r1: Electronic Schematic and PCB design tools manuals
+app-doc/kicad-doc 5.1.12 6.0.1: Electronic Schematic and PCB design tools manuals
 app-doc/lapack-docs 3.1.1: Documentation reference and man pages for lapack implementations
 app-doc/linkers-and-loaders 1-r1: The Linkers and Loaders book
 app-doc/linux-device-drivers 2 3: howto write linux device drivers (updated for Linux 2.6)
@@ -2651,7 +2651,7 @@ app-i18n/tagainijisho 1.2.0_pre20200118132551_p20200701_p20200701 1.2.0_pre20200
 app-i18n/tegaki-zinnia-japanese 0.3: Handwriting model data of Japanese
 app-i18n/tomoe 0.6.0-r6: Japanese handwriting recognition engine
 app-i18n/tomoe-gtk 0.6.0-r7: Tomoe GTK+ interface widget library
-app-i18n/transifex-client 0.14.3: A command line interface for Transifex
+app-i18n/transifex-client 0.14.3 1.0.0: The Transifex command-line client
 app-i18n/translate-shell 0.9.6.11 0.9.6.12: Online command-line translator
 app-i18n/uchardet 0.0.7 9999: An encoding detector library
 app-i18n/uim 1.8.8-r2 1.8.9_pre20210103: A multilingual input method framework
@@ -3847,7 +3847,7 @@ dev-cpp/commoncpp2 1.8.1-r4: C++ library offering portable support for system-re
 dev-cpp/cpp-hocon 0.3.0 0.3.0-r1: Provides C++ support for the HOCON configuration file format
 dev-cpp/cpp-taskflow 3.2.0 9999: Modern C++ Parallel Task Programming
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
-dev-cpp/doctest 2.4.6 2.4.7: The fastest feature-rich C++11/14/17/20 single-header testing framework
+dev-cpp/doctest 2.4.6 2.4.7 2.4.8: The fastest feature-rich C++11/14/17/20 single-header testing framework
 dev-cpp/eigen 3.4.0-r1: C++ template library for linear algebra
 dev-cpp/elfio 3.9: ELF reader/producer header-only C++ library
 dev-cpp/gconfmm 2.28.3-r1: C++ bindings for GConf
@@ -4042,7 +4042,7 @@ dev-embedded/pk2cmd 1.20-r1: An application for working with the Microchip PicKi
 dev-embedded/platformio 5.2.4: An open source ecosystem for IoT development
 dev-embedded/ponyprog 3.1.2: EEPROM and microcontroller programmer/flasher
 dev-embedded/powersoftplus-libftdi 0.1.8-r1: Library which includes a table of VIDs and PIDs of Ever UPS devices
-dev-embedded/rpi-eeprom 11.0_p1 12.5_p1-r1: Updater for Raspberry Pi 4 bootloader and the VL805 USB controller
+dev-embedded/rpi-eeprom 11.0_p1 12.5_p1-r1 13.3_p1: Updater for Raspberry Pi 4 bootloader and the VL805 USB controller
 dev-embedded/sdcc 3.8.0-r1 4.0.0 4.1.0 9999: Small device C compiler (for various microprocessors)
 dev-embedded/smdk-dltool 0.20-r4: Tool to communicate with Samsung SMDK boards
 dev-embedded/srecord 1.64: A collection of powerful tools for manipulating EPROM load files
@@ -5715,7 +5715,7 @@ dev-libs/libpthread-stubs 0.4-r1: Pthread functions stubs for platforms missing 
 dev-libs/libptytty 2.0: A library for mostly OS-independent handling of pty/tty/utmp/wtmp/lastlog
 dev-libs/libpwquality 1.4.2 1.4.4: Library for password quality checking and generating random passwords
 dev-libs/libpy 0.2.5-r1: Utilities for writing C++ extension modules
-dev-libs/libqtxdg 3.7.1: Qt Implementation of XDG Standards
+dev-libs/libqtxdg 3.7.1 3.8.0: Qt Implementation of XDG Standards
 dev-libs/libratbag 0.15 0.16: Library to configure gaming mice
 dev-libs/librdkafka 1.4.4 1.5.0 1.5.2 1.5.3 1.6.0 1.6.1 1.7.0 1.8.0 1.8.2: Apache Kafka C/C++ client library
 dev-libs/librelp 1.10.0: An easy to use library for the RELP protocol
@@ -8278,7 +8278,7 @@ dev-python/bcrypt 3.2.0: Modern password hashing for software and servers
 dev-python/beagle 0.3.0: Command line client for Hound, the code search tool
 dev-python/beautifulsoup4 4.10.0: Pythonic idioms for iterating, searching, and modifying an HTML/XML parse tree
 dev-python/beniget 0.4.1: Extract semantic information about static Python code
-dev-python/berkeleydb 18.1.4: Python bindings for Oracle Berkeley DB
+dev-python/berkeleydb 18.1.4 18.1.5: Python bindings for Oracle Berkeley DB
 dev-python/bert 2.2.0: BERT Serialization Library
 dev-python/betamax 0.8.1: python-requests HTTP exchanges recorder
 dev-python/betamax-matchers 0.4.0: A group of experimental matchers for Betamax
@@ -9170,7 +9170,7 @@ dev-python/pysvn 1.9.15: Object-oriented python bindings for subversion
 dev-python/pytables 3.6.1-r2 3.7.0: Hierarchical datasets for Python
 dev-python/pyte 0.8.0-r1: Simple VTXXX-compatible terminal emulator
 dev-python/pytest 6.2.5-r2: Simple powerful testing with Python
-dev-python/pytest-aiohttp 0.3.0-r1 1.0.2: pytest plugin for aiohttp support
+dev-python/pytest-aiohttp 0.3.0-r1 1.0.2 1.0.3: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.16.0 0.17.0 0.17.1 0.17.2: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 5.0.0: BDD library for the pytest runner
 dev-python/pytest-cache 1.0-r2: mechanisms for caching across test runs
@@ -11183,7 +11183,7 @@ dev-util/ltrace 0.7.3.6.1: trace library calls made at runtime
 dev-util/lttng-modules 2.10.12-r1 2.11.0-r1 2.11.8 2.12.5 2.12.6 2.13.0: LTTng Kernel Tracer Modules
 dev-util/lttng-tools 2.11.6 2.12.0 2.12.3 2.12.5 2.13.0: Linux Trace Toolkit - next generation
 dev-util/lttng-ust 2.11.0 2.11.3 2.12.0 2.12.1 2.12.2 2.13.0: Linux Trace Toolkit - UST library
-dev-util/lxqt-build-tools 0.9.0: LXQt Build Tools
+dev-util/lxqt-build-tools 0.9.0 0.10.0: LXQt Build Tools
 dev-util/mage 1.11.0: make/rake like tool using go
 dev-util/makeheaders 0_p4: simple utility that will automatically generate header files
 dev-util/makepp 2.0.99.1 2.0.99.2: GNU make replacement
@@ -12774,22 +12774,22 @@ lxde-base/lxsession 0.5.5: LXDE session manager
 lxde-base/lxtask 0.1.10: LXDE Task manager
 lxde-base/lxterminal 0.4.0: Lightweight vte-based tabbed terminal emulator for LXDE
 lxde-base/menu-cache 1.1.0-r1: Library to create and utilize caches to speed up freedesktop application menus
-lxqt-base/liblxqt 0.16.0 0.17.0: Common base library for the LXQt desktop environment
-lxqt-base/libsysstat 0.4.5: Qt GUI for System Statistics
-lxqt-base/lxqt-about 0.17.0: LXQt about dialog
-lxqt-base/lxqt-admin 0.17.0: LXQt system administration tool
-lxqt-base/lxqt-config 0.17.1: LXQt system configuration control center
-lxqt-base/lxqt-globalkeys 0.17.0: Daemon and library for global keyboard shortcuts registration
-lxqt-base/lxqt-meta 0.17.0: Meta ebuild for LXQt, the Lightweight Desktop Environment
-lxqt-base/lxqt-notificationd 0.17.0: LXQt notification daemon and library
-lxqt-base/lxqt-openssh-askpass 0.17.0: LXQt OpenSSH user password prompt tool
-lxqt-base/lxqt-panel 0.17.1-r1: LXQt desktop panel and plugins
-lxqt-base/lxqt-policykit 0.17.0: LXQt PolKit authentication agent
-lxqt-base/lxqt-powermanagement 0.17.0 0.17.1: LXQt daemon for power management and auto-suspend
-lxqt-base/lxqt-qtplugin 0.17.0: LXQt system integration plugin for Qt
-lxqt-base/lxqt-runner 0.17.0: LXQt quick launcher
-lxqt-base/lxqt-session 0.17.0: LXQt Session Manager
-lxqt-base/lxqt-sudo 0.17.0: LXQt GUI frontend for sudo
+lxqt-base/liblxqt 0.16.0 0.17.0 1.0.0: Common base library for the LXQt desktop environment
+lxqt-base/libsysstat 0.4.5 0.4.6: Qt GUI for System Statistics
+lxqt-base/lxqt-about 0.17.0 1.0.0: LXQt about dialog
+lxqt-base/lxqt-admin 0.17.0 1.0.0: LXQt system administration tool
+lxqt-base/lxqt-config 0.17.1 1.0.0: LXQt system configuration control center
+lxqt-base/lxqt-globalkeys 0.17.0 1.0.1: Daemon and library for global keyboard shortcuts registration
+lxqt-base/lxqt-meta 0.17.0 1.0.0: Meta ebuild for LXQt, the Lightweight Desktop Environment
+lxqt-base/lxqt-notificationd 0.17.0 1.0.0: LXQt notification daemon and library
+lxqt-base/lxqt-openssh-askpass 0.17.0 1.0.0: LXQt OpenSSH user password prompt tool
+lxqt-base/lxqt-panel 0.17.1-r1 1.0.0: LXQt desktop panel and plugins
+lxqt-base/lxqt-policykit 0.17.0 1.0.0: LXQt PolKit authentication agent
+lxqt-base/lxqt-powermanagement 0.17.0 0.17.1 1.0.0: LXQt daemon for power management and auto-suspend
+lxqt-base/lxqt-qtplugin 0.17.0 1.0.0: LXQt system integration plugin for Qt
+lxqt-base/lxqt-runner 0.17.0 1.0.0: LXQt quick launcher
+lxqt-base/lxqt-session 0.17.0 1.0.1: LXQt Session Manager
+lxqt-base/lxqt-sudo 0.17.0 1.0.0: LXQt GUI frontend for sudo
 mail-client/aerc 0.5.2 9999: Email client for your terminal
 mail-client/alot 0.9.1 9999: Experimental terminal UI for net-mail/notmuch written in Python
 mail-client/alpine 2.25: An easy to use text-based based mail and news client
@@ -13248,7 +13248,7 @@ media-gfx/librecad 2.1.3-r6 9999: Generic 2D CAD program
 media-gfx/libredwg 0.12.4: C library to handle DWG files
 media-gfx/llgal 0.13.19-r1: Command-line static web gallery generator
 media-gfx/luminance-hdr 2.6.0-r1: Graphical user interface that provides a workflow for HDR imaging
-media-gfx/lximage-qt 0.17.0: Qt Image Viewer
+media-gfx/lximage-qt 0.17.0 1.0.0: Qt Image Viewer
 media-gfx/maim 5.6.3 9999: Commandline tool to take screenshots of the desktop
 media-gfx/mandelbulber 2.12-r1 2.26: Tool to render 3D fractals
 media-gfx/mcomix 1.3.0_pre20200206 1.3.0_pre20201123 9999: GTK image viewer for comic book archives
@@ -14264,7 +14264,7 @@ media-sound/paprefs 1.1-r1 1.2: PulseAudio Preferences, configuration dialog for
 media-sound/pasystray 0.7.1 0.8.0: PulseAudio system tray
 media-sound/patchage 1.0.4: Modular patch bay for JACK-based audio and MIDI systems
 media-sound/pavucontrol 4.0 5.0-r1: Pulseaudio Volume Control, GTK based mixer for Pulseaudio
-media-sound/pavucontrol-qt 0.17.0: Qt GUI Pulseaudio Mixer
+media-sound/pavucontrol-qt 0.17.0 1.0.0: Qt GUI Pulseaudio Mixer
 media-sound/pavumeter 0.9.3-r1: PulseAudio Volume Meter, simple GTK volume meter for PulseAudio
 media-sound/peercast 0.1218-r2: A client and server for Peercast P2P-radio network
 media-sound/pianobar 2020.04.05 9999: A console-based replacement for Pandora's flash player
@@ -16334,13 +16334,13 @@ sci-electronics/gtkwave 3.3.106: A wave viewer for LXT, LXT2, VZT, GHW and stand
 sci-electronics/gwave 20190116: Analog waveform viewer for SPICE-like simulations
 sci-electronics/irsim 9.7.93: IRSIM is a "switch-level" simulator
 sci-electronics/iverilog 10.3 11.0 9999: A Verilog simulation and synthesis tool
-sci-electronics/kicad 5.1.12 6.0.0-r1 9999: Electronic Schematic and PCB design tools
-sci-electronics/kicad-footprints 5.1.12 6.0.0 9999: Electronic Schematic and PCB design tools footprint libraries
+sci-electronics/kicad 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools
+sci-electronics/kicad-footprints 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools footprint libraries
 sci-electronics/kicad-i18n 5.1.12: Electronic Schematic and PCB design tools GUI translations
-sci-electronics/kicad-meta 5.1.12 6.0.0: Electronic Schematic and PCB design tools (meta package)
-sci-electronics/kicad-packages3d 5.1.12 6.0.0 9999: Electronic Schematic and PCB design tools 3D package libraries
-sci-electronics/kicad-symbols 5.1.12 6.0.0 9999: Electronic Schematic and PCB design tools symbol libraries
-sci-electronics/kicad-templates 5.1.12 6.0.0 9999: Electronic Schematic and PCB design tools project templates
+sci-electronics/kicad-meta 5.1.12 6.0.1: Electronic Schematic and PCB design tools (meta package)
+sci-electronics/kicad-packages3d 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools 3D package libraries
+sci-electronics/kicad-symbols 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools symbol libraries
+sci-electronics/kicad-templates 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools project templates
 sci-electronics/klayout 0.26.11 0.27 0.27.3 9999: Viewer and editor for GDS and OASIS integrated circuit layouts
 sci-electronics/ktechlab 0.50.0-r2: IDE for microcontrollers and electronics
 sci-electronics/labone 21.08.20515-r1: Platform independent instrument control for Zurich Instruments devices
@@ -17592,7 +17592,7 @@ sys-boot/yaboot-static 1.3.17-r2: Static yaboot ppc boot loader for machines wit
 sys-cluster/ampi 0_pre20140616: MPI library for algorithmic differentiation
 sys-cluster/c3 4.0.1: The Cluster Command and Control (C3) tool suite
 sys-cluster/ceph 14.2.22-r1 15.2.15-r2 16.2.5 16.2.6-r2 16.2.6-r4 16.2.7: Ceph distributed filesystem
-sys-cluster/charliecloud 0.24 0.25 9999: Lightweight user-defined software stacks for high-performance computing
+sys-cluster/charliecloud 0.25 0.26 9999: Lightweight user-defined software stacks for high-performance computing
 sys-cluster/charm 6.8.2: Message-passing parallel language and runtime system
 sys-cluster/charmdebug 6.2.0-r1: A debugger for Charm++ applications
 sys-cluster/classads 1.0.10: Condor's classified advertisement language
@@ -18649,7 +18649,7 @@ x11-libs/libfakeXinerama 0.1.0: Fake library to override default libXinerama and
 x11-libs/libfakekey 0.3-r1: Helper library for the x11-misc/matchbox-keyboard package
 x11-libs/libfm 1.3.2: Library for file management
 x11-libs/libfm-extra 1.3.2: Library for file management
-x11-libs/libfm-qt 0.17.1: Qt Library for Building File Managers
+x11-libs/libfm-qt 0.17.1 1.0.0: Qt Library for Building File Managers
 x11-libs/libfontenc 1.1.4: X.Org fontenc library
 x11-libs/libgxim 0.5.0: GObject-based XIM protocol library
 x11-libs/libnotify 0.7.8 0.7.9 0.7.9-r1: A library for sending desktop notifications
@@ -18681,7 +18681,7 @@ x11-libs/neXtaw 0.15.1-r3: Athena Widgets with N*XTSTEP appearance
 x11-libs/pango 1.42.4-r2 1.48.10-r1 1.50.3: Internationalized text layout and rendering library
 x11-libs/pixman 0.40.0 9999: Low-level pixel manipulation routines
 x11-libs/qscintilla 2.11.6 2.13.1: Qt port of Neil Hodgson's Scintilla C++ editor control
-x11-libs/qtermwidget 0.17.0 9999: Qt terminal emulator widget
+x11-libs/qtermwidget 0.17.0 1.0.0 9999: Qt terminal emulator widget
 x11-libs/qwt 5.2.3_p20210211 5.2.3_p20210828 6.1.5 6.2.0-r1: 2D plotting library for Qt5
 x11-libs/qwtplot3d 0.2 0.2_p20210828: 3D plotting library for Qt5
 x11-libs/qwtpolar 1.1.1-r2: Library for displaying values on a polar coordinate system
@@ -18835,7 +18835,7 @@ x11-misc/oroborus-deskmenu 1.4.5-r1: root menu program for Oroborus
 x11-misc/oroborus-keylaunch 1.3.9-r1: utility for binding keys in Oroborus
 x11-misc/parcellite 1.2.1: A lightweight GTK+ based clipboard manager
 x11-misc/pcmanfm 1.3.2-r1: Fast lightweight tabbed filemanager
-x11-misc/pcmanfm-qt 0.17.0-r1: Qt GUI Tabbed Filemanager
+x11-misc/pcmanfm-qt 0.17.0-r1 1.0.0: Qt GUI Tabbed Filemanager
 x11-misc/peksystray 0.4.0: A system tray dockapp for window managers supporting docking
 x11-misc/picom 8-r1 8.2-r2 9999: A lightweight compositor for X11 (previously a compton fork)
 x11-misc/piedock 1.6.9: A little bit like the famous OS X dock but in shape of a pie menu
@@ -18847,7 +18847,7 @@ x11-misc/py3status 3.40: py3status is an extensible i3status wrapper written in 
 x11-misc/qarma 1: Zenity Clone for Qt5
 x11-misc/qcomicbook 0.9.1: Viewer for comic book archives containing jpeg/png images
 x11-misc/qlipper 5.1.2: Lightweight and cross-platform clipboard history applet
-x11-misc/qps 2.3.0: Qt GUI Process Manager
+x11-misc/qps 2.3.0 2.4.0: Qt GUI Process Manager
 x11-misc/qt5ct 1.5: Qt5 configuration tool, similar to qtconfig for Qt4
 x11-misc/qterm 0.7.3: A BBS client based on Qt
 x11-misc/qtfm 6.2.0 99999: Small, lightweight file manager based on pure Qt
@@ -18864,7 +18864,7 @@ x11-misc/rofi-file-browser-extended 1.2.0-r2: A file browser for rofi
 x11-misc/rss-glx 0.9.1-r3: Really Slick OpenGL Screensavers for XScreenSaver
 x11-misc/safeeyes 2.0.9-r2 2.1.1 2.1.2 2.1.3 2.1.3-r1: Linux alternative to EyeLeo
 x11-misc/screen-message 0.24 0.25 0.26: Display a multi-line message large, fullscreen, black on white
-x11-misc/screengrab 1.101 2.0.0 2.0.1 2.1.0 2.2.0: Qt GUI Screenshot Utility
+x11-misc/screengrab 1.101 2.0.0 2.0.1 2.1.0 2.2.0 2.3.0: Qt GUI Screenshot Utility
 x11-misc/screenkey 1.3 1.4 1.5 9999: A screencast tool to display your keys inspired by Screenflick
 x11-misc/sct 0.5-r1: Set color temperature of the screen
 x11-misc/sddm 0.15.0-r2 0.18.1-r5: Simple Desktop Display Manager
@@ -19178,7 +19178,7 @@ x11-terms/lilyterm 0.9.9.4-r2 99999: a terminal emulator based off of libvte tha
 x11-terms/mate-terminal 1.24.1: The MATE Terminal
 x11-terms/mlterm 3.9.1-r2: A multi-lingual terminal emulator
 x11-terms/mrxvt 0.5.4: Multi-tabbed rxvt clone with XFT, transparent background and CJK support
-x11-terms/qterminal 0.17.0 9999: Qt-based multitab terminal emulator
+x11-terms/qterminal 0.17.0 1.0.0 9999: Qt-based multitab terminal emulator
 x11-terms/root-tail 1.2-r4: Terminal to display (multiple) log files on the root window
 x11-terms/roxterm 3.9.4: A terminal emulator designed to integrate with the ROX environment
 x11-terms/rxvt-unicode 9.26-r2 9.30: rxvt clone with xft and unicode support
@@ -19268,7 +19268,7 @@ x11-themes/laughlin-backgrounds 14.1.0.3-r1: Fedora 14 official background artwo
 x11-themes/leonidas-backgrounds 11.0.0.2-r1: Fedora 11 official background artwork
 x11-themes/light-themes 20.10-r2: GTK2/GTK3 Ambiance and Radiance themes from Ubuntu
 x11-themes/lovelock-backgrounds 14.91.1.1-r1: Fedora 15 official background artwork
-x11-themes/lxqt-themes 0.17.0: LXQt Themes
+x11-themes/lxqt-themes 0.17.0 1.0.0: LXQt Themes
 x11-themes/mate-backgrounds 1.24.2: A set of backgrounds packaged with the MATE desktop
 x11-themes/mate-icon-theme 1.24.0-r1: MATE default icon themes
 x11-themes/mate-icon-theme-faenza 1.20.0: Faenza icon theme, that was adapted for MATE desktop
