@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 PYTHON_REQ_USE="xml"
 
 inherit meson gnome2-utils pax-utils python-single-r1 xdg
@@ -14,9 +14,9 @@ SRC_URI="https://github.com/linuxmint/cinnamon/archive/${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="+gstreamer gtk-doc +nls +networkmanager"
+IUSE="+eds +gstreamer gtk-doc +nls +networkmanager"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 DEPEND="
 	${PYTHON_DEPS}
@@ -24,9 +24,9 @@ DEPEND="
 	>=dev-libs/glib-2.52.0:2[dbus]
 	>=dev-libs/gobject-introspection-1.29.15:=
 	dev-libs/libxml2:2
-	>=gnome-extra/cinnamon-desktop-4.8:0=
-	>=gnome-extra/cinnamon-menus-4.8
-	>=gnome-extra/cjs-4.8[cairo]
+	>=gnome-extra/cinnamon-desktop-5.2:0=
+	>=gnome-extra/cinnamon-menus-5.2
+	>=gnome-extra/cjs-5.2[cairo]
 	net-libs/libsoup:2.4[introspection]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.100[introspection]
@@ -38,8 +38,11 @@ DEPEND="
 	>=x11-libs/libXfixes-5.0
 	x11-libs/pango[introspection]
 	>=x11-libs/startup-notification-0.11
-	>=x11-wm/muffin-4.8.0[introspection]
+	>=x11-wm/muffin-5.2[introspection]
 
+	eds? (
+		gnome-extra/evolution-data-server
+	)
 	gstreamer? (
 		media-libs/gst-plugins-base:1.0
 		media-libs/gstreamer:1.0
@@ -68,27 +71,27 @@ RDEPEND="
 		dev-python/pytz[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]
 		dev-python/tinycss2[${PYTHON_USEDEP}]
-		dev-python/xapp[${PYTHON_USEDEP}]
+		>=dev-python/python3-xapp-2.2.1-r1[${PYTHON_USEDEP}]
 	')
 	>=gnome-base/dconf-0.4.1
 	>=gnome-base/gsettings-desktop-schemas-2.91.91
 	>=gnome-base/libgnomekbd-2.91.4
-	>=gnome-extra/cinnamon-control-center-4.8[networkmanager=]
-	>=gnome-extra/cinnamon-screensaver-4.8
-	>=gnome-extra/cinnamon-session-4.8
-	>=gnome-extra/cinnamon-settings-daemon-4.8
-	>=gnome-extra/nemo-4.8
+	>=gnome-extra/cinnamon-control-center-5.2[networkmanager=]
+	>=gnome-extra/cinnamon-screensaver-5.2
+	>=gnome-extra/cinnamon-session-5.2
+	>=gnome-extra/cinnamon-settings-daemon-5.2
+	>=gnome-extra/nemo-5.2
 	gnome-extra/polkit-gnome
 	net-misc/wget
 	sys-apps/accountsservice[introspection]
 	sys-power/upower[introspection]
-	>=x11-libs/xapps-2.0.5[introspection]
+	>=x11-libs/xapp-2.2.8[introspection]
 	x11-misc/xdg-utils
 	x11-themes/adwaita-icon-theme
 	x11-themes/gnome-themes-standard
 
 	nls? (
-		>=gnome-extra/cinnamon-translations-4.8
+		>=gnome-extra/cinnamon-translations-5.2
 	)
 "
 BDEPEND="
@@ -108,9 +111,8 @@ PATCHES=(
 	# https://github.com/linuxmint/Cinnamon/issues/3576
 	"${FILESDIR}"/${PN}-3.6.6-wheel-sudo.patch
 
-	# GStreamer only needed for recorder
-	# https://github.com/linuxmint/cinnamon/pull/9809
-	"${FILESDIR}"/${PN}-4.8.6-build-fixes.patch
+	# Make evolution-data-server integration optional
+	"${FILESDIR}"/${PN}-5.2.7-optional-eds.patch
 )
 
 src_prepare() {
@@ -129,9 +131,11 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
+		$(meson_use eds build_calendar_server)
 		$(meson_use gstreamer build_recorder)
 		$(meson_use gtk-doc docs)
 		-Ddisable_networkmanager=$(usex networkmanager false true)
+		-Dpy3modules_dir="$(python_get_sitedir)"
 	)
 	meson_src_configure
 }
@@ -139,6 +143,7 @@ src_configure() {
 src_install() {
 	meson_src_install
 
+	python_optimize "${D}$(python_get_sitedir)"
 	python_optimize "${ED}"/usr/share/cinnamon/
 
 	# Required for gnome-shell on hardened/PaX, bug #398941
@@ -166,7 +171,8 @@ pkg_postinst() {
 			ewarn "org.cinnamon.recorder/pipeline to what you want to use."
 		fi
 	else
-		ewarn "Cinnamon's built-in screen recording utility is disabled."
+		ewarn "Cinnamon's built-in screen recording utility is not installed"
+		ewarn "because gstreamer support is disabled."
 	fi
 }
 

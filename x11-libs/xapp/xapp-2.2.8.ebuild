@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 VALA_USE_DEPEND="vapigen"
 
 inherit gnome2-utils vala meson python-r1 xdg-utils
@@ -13,8 +13,7 @@ HOMEPAGE="https://github.com/linuxmint/xapp/"
 LICENSE="GPL-3"
 
 SRC_URI="https://github.com/linuxmint/xapp/archive/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/xapp-${PV}"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 SLOT="0"
 IUSE="gtk-doc introspection static-libs"
@@ -40,7 +39,6 @@ BDEPEND="
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
-	>=dev-util/intltool-0.40.6
 	sys-devel/gettext
 
 	gtk-doc? ( dev-util/gtk-doc )

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 
 inherit meson gnome2-utils python-any-r1
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-desktop/archive/${PV}.tar.gz -> $
 
 LICENSE="GPL-2+ FDL-1.1+ LGPL-2+"
 SLOT="0/4" # subslot = libcinnamon-desktop soname version
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.37.3:2[dbus]
@@ -37,7 +37,6 @@ DEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-util/glib-utils
-	>=dev-util/intltool-0.40.6
 	sys-devel/gettext
 	virtual/pkgconfig
 "

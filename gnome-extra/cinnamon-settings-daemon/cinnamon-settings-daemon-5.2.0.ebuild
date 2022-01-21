@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 
 inherit meson gnome2-utils python-any-r1 xdg
 
@@ -13,14 +13,14 @@ SRC_URI="https://github.com/linuxmint/cinnamon-settings-daemon/archive/${PV}.tar
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="+colord cups input_devices_wacom smartcard systemd"
 
 RDEPEND="
 	>=dev-libs/glib-2.40.0:2
 	dev-libs/libgudev:=
 	>=gnome-base/libgnomekbd-3.6
-	>=gnome-extra/cinnamon-desktop-4.8:0=
+	>=gnome-extra/cinnamon-desktop-5.2:0=
 	media-libs/fontconfig
 	>=media-libs/lcms-2.2:2
 	media-libs/libcanberra:0=[gtk3,pulseaudio]
@@ -61,15 +61,8 @@ BDEPEND="
 	${PYTHON_DEPS}
 	dev-util/glib-utils
 	dev-util/gdbus-codegen
-	>=dev-util/intltool-0.37.1
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	# Miscellaneous meson configuration/compilation fixes
-	# https://github.com/linuxmint/cinnamon-settings-daemon/pull/314
-	"${FILESDIR}/${PN}-4.8.5-build-fixes.patch"
-)
 
 src_prepare() {
 	default

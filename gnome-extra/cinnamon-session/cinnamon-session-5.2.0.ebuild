@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9,10} )
 
 inherit meson gnome2-utils python-any-r1 xdg-utils
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-session/archive/${PV}.tar.gz -> $
 
 LICENSE="GPL-2+ FDL-1.1+ LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="doc ipv6 systemd"
 
 DEPEND="
@@ -32,18 +32,18 @@ DEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/pango[X]
-	>=x11-libs/xapps-1.0.4
+	>=x11-libs/xapp-2.2.8
 
 	systemd? ( >=sys-apps/systemd-183 )
 	!systemd? ( sys-auth/elogind[policykit] )
 "
 RDEPEND="
 	${DEPEND}
-	>=gnome-extra/cinnamon-desktop-4.8
+	>=gnome-extra/cinnamon-desktop-5.2:0=
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	>=dev-util/intltool-0.40.6
+	dev-util/gdbus-codegen
 	virtual/pkgconfig
 
 	doc? (

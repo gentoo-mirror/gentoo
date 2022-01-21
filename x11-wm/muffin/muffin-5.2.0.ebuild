@@ -12,15 +12,15 @@ SRC_URI="https://github.com/linuxmint/muffin/archive/${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="+introspection test xinerama"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.37.3:2[dbus]
 	>=dev-libs/json-glib-1.0
-	>=gnome-extra/cinnamon-desktop-4.8:0=
+	>=gnome-extra/cinnamon-desktop-5.2:0=
 	gnome-extra/zenity
 	>=media-libs/libcanberra-0.26[gtk3]
-	virtual/opengl
+	media-libs/libglvnd
 	>=x11-libs/cairo-1.14:=[X]
 	x11-libs/gdk-pixbuf:2[introspection?]
 	>=x11-libs/gtk+-3.9.12:3[X,introspection?]
@@ -34,7 +34,7 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXfixes
 	>=x11-libs/libXi-1.6.0
-	>=x11-libs/libxkbcommon-0.4.3
+	>=x11-libs/libxkbcommon-0.4.3[X]
 	x11-libs/libxkbfile
 	x11-libs/libXrandr
 	x11-libs/libXrender
@@ -60,10 +60,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.8.1-slibtool.patch
-)
 
 src_prepare() {
 	default
