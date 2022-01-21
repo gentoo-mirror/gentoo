@@ -3,12 +3,12 @@ DEPEND=dev-lang/tk:= >=dev-lang/ocaml-4.13:=[ocamlopt?,X(+)?] dev-ml/findlib >=d
 DESCRIPTION=OCaml interface to the Tcl/Tk GUI framework
 EAPI=7
 HOMEPAGE=https://garrigue.github.io/labltk/
-INHERIT=findlib
+INHERIT=findlib toolchain-funcs
 IUSE=+ocamlopt X +ocamlopt
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=QPL-1.0 LGPL-2
 RDEPEND=dev-lang/tk:= >=dev-lang/ocaml-4.13:=[ocamlopt?,X(+)?] dev-lang/ocaml:=[ocamlopt?]
 SLOT=0/8.06.11
 SRC_URI=https://github.com/garrigue/labltk/archive/8.06.11.tar.gz -> labltk-8.06.11.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=c379d3ef15b7109a7b0b3d646e3feab9
+_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=69a69c62a780a898365044f488efbd74
