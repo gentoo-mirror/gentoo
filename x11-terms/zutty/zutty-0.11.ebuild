@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit python-any-r1 waf-utils
@@ -14,11 +14,17 @@ SRC_URI="https://github.com/tomszilagyi/zutty/archive/refs/tags/${PV}.tar.gz -> 
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
+
+# It is possible to run the tests using virtualx, but it seems to take
+# screenshots of the terminal window, and compares checksums that never
+# seem to match.
+RESTRICT="test"
 
 RDEPEND="
 	media-libs/freetype:2
-	media-libs/libglvnd[X]
+	virtual/opengl
+	x11-libs/libX11
 	x11-libs/libXmu
 "
 DEPEND="${RDEPEND}"
@@ -28,8 +34,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	# Bug 809611
-	"${FILESDIR}"/${PN}-0.9-freetype-2.11.0.patch
+	# Remove default CXX/LDFLAGS, bug #830405.
+	"${FILESDIR}"/${PN}-0.11-cxxflags.patch
 )
 
 DOCS=( doc/KEYS.org doc/USAGE.org )
