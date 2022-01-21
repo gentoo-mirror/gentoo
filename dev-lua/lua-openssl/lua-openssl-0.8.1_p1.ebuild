@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 EGIT_COMMIT_AUX="8d09895473b73e4fb72b7573615f69c36e1860a2"
 LUA_COMPAT=( lua5-{1..4} luajit )
@@ -15,7 +15,7 @@ inherit lua toolchain-funcs
 DESCRIPTION="OpenSSL binding for Lua"
 HOMEPAGE="https://github.com/zhaozg/lua-openssl"
 SRC_URI="
-	https://github.com/zhaozg/${PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/zhaozg/${PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/zhaozg/${MY_PN_AUX}/archive/${EGIT_COMMIT_AUX}.tar.gz -> ${MY_PN_AUX}-${EGIT_COMMIT_AUX}.tar.gz
 	https://github.com/keplerproject/${MY_PN_COMPAT}/archive/v${MY_PV_COMPAT}.tar.gz -> ${MY_PN_COMPAT}-${MY_PV_COMPAT}.tar.gz
 "
@@ -41,8 +41,6 @@ BDEPEND="
 "
 
 DOCS=( "README.md" "samples/." )
-
-PATCHES=( "${FILESDIR}/${PN}-0.8.0_p6-testcrl-openssl.patch" )
 
 src_prepare() {
 	default
