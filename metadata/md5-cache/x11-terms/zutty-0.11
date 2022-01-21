@@ -1,14 +1,15 @@
-BDEPEND=|| ( >=dev-lang/python-3.9.9-r1:3.9[threads(+)] >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10[threads(+)] >=dev-lang/python-3.9.9-r1:3.9[threads(+)] >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup
-DEPEND=media-libs/freetype:2 media-libs/libglvnd[X] x11-libs/libXmu
+DEPEND=media-libs/freetype:2 virtual/opengl x11-libs/libX11 x11-libs/libXmu
 DESCRIPTION=X terminal emulator rendering through OpenGL ES Compute Shaders
 EAPI=7
 HOMEPAGE=https://tomscii.sig7.se/zutty/ https://github.com/tomszilagyi/zutty
 INHERIT=python-any-r1 waf-utils
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=GPL-3+
-RDEPEND=media-libs/freetype:2 media-libs/libglvnd[X] x11-libs/libXmu
+RDEPEND=media-libs/freetype:2 virtual/opengl x11-libs/libX11 x11-libs/libXmu
+RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/tomszilagyi/zutty/archive/refs/tags/0.9.tar.gz -> zutty-0.9.tar.gz
+SRC_URI=https://github.com/tomszilagyi/zutty/archive/refs/tags/0.11.tar.gz -> zutty-0.11.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	54423f1e035828362c248fad528ebbba	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	waf-utils	6dce9ffe7d6fe961321a99f8da53a887
-_md5_=e15dd0436da01a18b19f6f1c4baa638f
+_md5_=10b12e122c843cd99c97c8f749faa486
