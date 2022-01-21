@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit check-reqs cmake
 
@@ -20,14 +20,14 @@ else
 		KEYWORDS="~amd64 ~arm64 ~x86"
 	fi
 
-	S="${WORKDIR}/${PN/3d/3D}-${MY_PV}-1080b6e565e56bae9be46db2278a1542092d7a2d"
+	S="${WORKDIR}/${PN/3d/3D}-${MY_PV}-530926da52f5226de6fc3167cf2e0671fb7f0cec"
 fi
 
 IUSE="+occ"
 LICENSE="CC-BY-SA-4.0"
 SLOT="0"
 
-RDEPEND=">=sci-electronics/kicad-5.1.0[occ=]"
+RDEPEND=">=sci-electronics/kicad-6.0.0[occ=]"
 
 if [[ ${PV} == 9999 ]] ; then
 	# x11-misc-util/macros only required on live ebuilds

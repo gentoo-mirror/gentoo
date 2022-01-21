@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9} )
 WX_GTK_VER="3.0-gtk3"
@@ -28,7 +28,7 @@ fi
 # BSD for bundled pybind
 LICENSE="GPL-2+ GPL-3+ Boost-1.0 BSD"
 SLOT="0"
-IUSE="doc examples +ngspice openmp +occ +pcm"
+IUSE="doc examples +ngspice nls openmp +occ +pcm"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -52,6 +52,9 @@ COMMON_DEPEND="
 	ngspice? (
 		>sci-electronics/ngspice-27[shared]
 	)
+	nls? (
+		sys-devel/gettext
+	)
 	occ? (
 		>=sci-libs/opencascade-7.3.0:=
 	)
@@ -68,8 +71,7 @@ if [[ ${PV} == 9999 ]] ; then
 	BDEPEND+=" >=x11-misc/util-macros-1.18"
 fi
 
-CHECKREQS_DISK_BUILD="800M"
-CAS_VERSION=7.5.3
+CHECKREQS_DISK_BUILD="900M"
 
 pkg_setup() {
 	use openmp && tc-check-openmp
@@ -96,8 +98,8 @@ src_configure() {
 		-DKICAD_SCRIPTING_WXPYTHON=ON
 
 		# Merged from separate -i18n package, bug #830274
-		-DKICAD_BUILD_I18N=ON
-		-DKICAD_I18N_UNIX_STRICT_PATH=ON
+		-DKICAD_BUILD_I18N="$(usex nls)"
+		-DKICAD_I18N_UNIX_STRICT_PATH="$(usex nls)"
 
 		-DPYTHON_DEST="$(python_get_sitedir)"
 		-DPYTHON_EXECUTABLE="${PYTHON}"
