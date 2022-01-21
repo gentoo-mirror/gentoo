@@ -1,15 +1,15 @@
-BDEPEND=>=dev-util/intltool-0.40.6 sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=>=dev-libs/glib-2.29.15:2 >=dev-libs/gobject-introspection-0.9.12:= dev-libs/gobject-introspection-common dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=>=dev-libs/glib-2.29.15:2 >=dev-libs/gobject-introspection-1.58.3:= dev-libs/gobject-introspection-common dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Cinnamon's library for the Desktop Menu fd.o specification
 EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-menus
 INHERIT=meson xdg
 IUSE=gtk-doc
-KEYWORDS=amd64 ~arm64 x86
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+
-RDEPEND=>=dev-libs/glib-2.29.15:2 >=dev-libs/gobject-introspection-0.9.12:=
+RDEPEND=>=dev-libs/glib-2.29.15:2 >=dev-libs/gobject-introspection-1.58.3:=
 SLOT=0
-SRC_URI=https://github.com/linuxmint/cinnamon-menus/archive/4.8.2.tar.gz -> cinnamon-menus-4.8.2.tar.gz
+SRC_URI=https://github.com/linuxmint/cinnamon-menus/archive/5.2.0.tar.gz -> cinnamon-menus-5.2.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	54423f1e035828362c248fad528ebbba	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=17edb0e66130e64c77bc71bdaef12bf8
+_md5_=c7c3f54477d090dbcc7351ea8732e127

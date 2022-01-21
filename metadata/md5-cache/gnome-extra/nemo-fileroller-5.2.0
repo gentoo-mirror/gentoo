@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.14.0 >=gnome-extra/nemo-2.0.0
+DESCRIPTION=Nemo file-roller integration
+EAPI=7
+HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/nemo-extensions
+INHERIT=meson
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.14.0 >=gnome-extra/nemo-2.0.0 app-arch/file-roller
+SLOT=0
+SRC_URI=https://github.com/linuxmint/nemo-extensions/archive/5.2.0.tar.gz -> nemo-extensions-5.2.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	54423f1e035828362c248fad528ebbba	meson	9f3e84959ae1d60e19bc91f212774dcc
+_md5_=299a3e60ad4742ff690aeaa0c82e7cfb
