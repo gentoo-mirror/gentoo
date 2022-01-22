@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:= dev-java/javassist:3 dev-java/commons-lang:3.6 dev-java/gson:2.6 dev-java/ant-core test? ( dev-java/ant-junit4:0 dev-java/junit:4 dev-java/hamcrest-core:1.3 ) >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DEPEND=virtual/jdk:1.8 dev-java/javassist:3 dev-java/commons-lang:3.6 dev-java/gson:2.6 dev-java/ant-core test? ( dev-java/ant-junit4:0 dev-java/junit:4 dev-java/hamcrest-core:1.3 ) >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=tuProlog is a light-weight Prolog for Internet applications and infrastructures
 EAPI=7
 HOMEPAGE=http://tuprolog.unibo.it/
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-ant-2
 IUSE=doc examples test
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-3 BSD
-RDEPEND=>=virtual/jdk-1.8:= dev-java/javassist:3 dev-java/commons-lang:3.6 dev-java/gson:2.6 >=dev-java/java-config-2.2.0-r3
+RDEPEND=virtual/jdk:1.8 dev-java/javassist:3 dev-java/commons-lang:3.6 dev-java/gson:2.6 >=dev-java/java-config-2.2.0-r3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~keri/distfiles/tuprolog/tuprolog-3.2.0.tar.gz https://dev.gentoo.org/~keri/distfiles/tuprolog/tuprolog-3.2.0-gentoo-patchset-0.tar.gz
 _eclasses_=java-utils-2	eb6cdf369ec1bc780222e7e2136f64f5	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	262d853e2dd1056dc103b953dfc113b9
-_md5_=1696671bc97770c8e04226841c185081
+_md5_=24a2618951d817adda98f168b5efcf94
