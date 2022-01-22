@@ -8329,7 +8329,7 @@ dev-python/certifi 3021.3.16-r1: A certifi hack to use system trust store on Lin
 dev-python/cffi 1.14.6 1.15.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
 dev-python/cfn-lint 0.56.3 0.56.4 0.57.0: CloudFormation Linter
-dev-python/cftime 1.5.1: Time-handling functionality from netcdf4-python
+dev-python/cftime 1.5.1 1.5.2: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8: Tools and libraries for control groups of Linux
 dev-python/chai 1.1.2: Easy to use mocking, stubbing and spying framework
 dev-python/chameleon 3.9.1: Fast HTML/XML template compiler for Python
@@ -9007,7 +9007,7 @@ dev-python/psycopg 2.8.6-r1 2.9.2 2.9.3: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix 2.20191221-r1: Get a public suffix for a domain name using the Public Suffix List
 dev-python/pudb 2021.1 2021.2 2022.1: A full-screen, console-based Python debugger
-dev-python/pulsectl 21.10.5 22.1.0: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
+dev-python/pulsectl 21.10.5 22.1.0 22.1.1: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
 dev-python/pure_eval 0.2.1-r1: Safely evaluate AST nodes without side effects
 dev-python/puremagic 1.11: Pure python implementation of magic file detection
 dev-python/pushbullet-py 0.12.0: A simple python client for pushbullet.com
@@ -9282,7 +9282,7 @@ dev-python/python-redmine 2.3.0: Python interface to the Redmine REST API
 dev-python/python-sense-hat 2.2.0-r2: Raspberry Pi Sense HAT python library
 dev-python/python-slip 0.6.5-r1: Miscellaneous convenience, extension and workaround code for Python
 dev-python/python-slugify 4.0.1 5.0.2: A Python Slugify application that handles Unicode
-dev-python/python-socks 1.2.4 2.0.0 2.0.1 2.0.2: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
+dev-python/python-socks 1.2.4 2.0.0 2.0.1 2.0.2 2.0.3: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
 dev-python/python-sshpubkeys 3.3.1: OpenSSH public key parser for Python
 dev-python/python-stdnum 1.17: A module to handle standardized numbers and codes
 dev-python/python-swiftclient 3.13.0: Python bindings to the OpenStack Object Storage API
@@ -17617,14 +17617,14 @@ sys-cluster/keepalived 2.2.4: A strong & robust keepalive facility to the Linux 
 sys-cluster/knem 1.1.3-r3 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.20.1 1.21.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.22.2 1.22.3 1.22.4 1.22.5 1.23.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.20.11 1.20.12 1.20.13 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.5 1.6: A client for kubelet
 sys-cluster/legion 21.09.0-r1 9999: A data-centric parallel programming system
 sys-cluster/libcircle 0.3.0: API for distributing embarrassingly parallel workloads using self-stabilization
