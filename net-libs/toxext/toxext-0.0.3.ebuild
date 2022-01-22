@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,4 +21,5 @@ src_prepare() {
 	cmake_src_prepare
 
 	sed -i 's/-Werror//' CMakeLists.txt || die
+	sed -i '/-fsanitize=/d' test/CMakeLists.txt || die
 }
