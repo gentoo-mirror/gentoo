@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/groff virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=sys-apps/groff virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst postrm preinst prepare test
 DEPEND=dev-libs/glib:2 dev-scheme/guile sci-electronics/electronics-menu x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango nls? ( virtual/libintl ) stroke? ( dev-libs/libstroke ) dev-util/desktop-file-utils x11-misc/shared-mime-info dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=GPL Electronic Design Automation (gEDA):gaf core package
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2 dev-scheme/guile sci-electronics/electronics-menu x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango nls? ( virtual/libintl ) stroke? ( dev-libs/libstroke )
 SLOT=0
 SRC_URI=http://ftp.geda-project.org/geda-gaf/unstable/v1.9/1.9.2/geda-gaf-1.9.2.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=f7b96b49e76ac329273e23743d941f4e

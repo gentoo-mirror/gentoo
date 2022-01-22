@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
 DEPEND=lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) media-libs/libpng:0 net-misc/curl opengl? ( virtual/opengl media-libs/freeglut ) sdl? ( media-libs/libsdl[video] media-libs/sdl-image[png] ) sound? ( media-libs/sdl-mixer[vorbis] ) sys-libs/zlib x11-libs/gtk+:2
 DESCRIPTION=Client for the nethack-style but more in the line of UO
@@ -12,5 +12,5 @@ RDEPEND=lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) media-libs/libpn
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/crossfire/crossfire-client-1.71.0.tar.bz2
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	desktop	c0d27bf73aa08ca05b663dbd31fbef28	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	desktop	c0d27bf73aa08ca05b663dbd31fbef28	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
 _md5_=475889cd037ab56dc1b87eff506499e7

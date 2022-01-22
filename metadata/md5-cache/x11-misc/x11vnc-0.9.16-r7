@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=>=net-libs/libvncserver-0.9.8[ssl=] x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext >=x11-libs/libXtst-1.1.0 virtual/libcrypt:= ssl? ( dev-libs/openssl:0= ) xcomposite? ( x11-libs/libXcomposite ) xdamage? ( x11-libs/libXdamage ) xfixes? ( x11-libs/libXfixes ) xinerama? ( x11-libs/libXinerama ) xrandr? ( x11-libs/libXrandr ) zeroconf? ( >=net-dns/avahi-0.6.4 ) x11-base/xorg-proto x11-libs/libXt
 DESCRIPTION=VNC server for real X displays
@@ -11,5 +11,5 @@ LICENSE=GPL-2+-with-openssl-exception
 RDEPEND=>=net-libs/libvncserver-0.9.8[ssl=] x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext >=x11-libs/libXtst-1.1.0 virtual/libcrypt:= ssl? ( dev-libs/openssl:0= ) xcomposite? ( x11-libs/libXcomposite ) xdamage? ( x11-libs/libXdamage ) xfixes? ( x11-libs/libXfixes ) xinerama? ( x11-libs/libXinerama ) xrandr? ( x11-libs/libXrandr ) zeroconf? ( >=net-dns/avahi-0.6.4 ) dev-lang/tk:0
 SLOT=0
 SRC_URI=https://github.com/LibVNC/x11vnc/archive/0.9.16.tar.gz -> x11vnc-0.9.16.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=2d8f579111a3b2ffdf1d2e3f9ef5ed44

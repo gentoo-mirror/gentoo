@@ -1,4 +1,4 @@
-BDEPEND=doc? ( >=sys-cluster/libqb-2.0.0 app-doc/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=doc? ( >=sys-cluster/libqb-2.0.0 app-doc/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure prepare
 DEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
 DESCRIPTION=Network abstraction layer designed for High Availability use cases
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
 SLOT=0/1
 SRC_URI=https://kronosnet.org/releases/kronosnet-1.19.tar.xz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=a816416dbda4fe39e718d6de1498fd74

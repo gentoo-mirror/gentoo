@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst prepare test
 DESCRIPTION=Transparent SOCKS v4 proxying library
 EAPI=7
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 REQUIRED_USE=dns? ( !tordns !server-lookups ) tordns? ( !dns !server-lookups )
 SLOT=0
 SRC_URI=mirror://sourceforge/tsocks/tsocks-1.8beta5.tar.gz tordns? ( https://dev.gentoo.org/~bircoph/patches/tsocks-1.8b5-tordns1-gentoo-r4.patch.xz )
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib-build	75c3a5814f2cb851f641711bfcc100c0	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib-build	75c3a5814f2cb851f641711bfcc100c0	multilib-minimal	4b0f1857965db8869a729948d5277e0b
 _md5_=232fff860389b325b2575c21227089a3

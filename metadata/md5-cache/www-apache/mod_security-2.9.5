@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=dev-libs/apr dev-libs/apr-util[openssl] dev-libs/libxml2 dev-libs/libpcre[jit?] virtual/libcrypt:= fuzzyhash? ( app-crypt/ssdeep ) json? ( dev-libs/yajl ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) mlogc? ( net-misc/curl ) www-servers/apache[apache2_modules_unique_id] =www-servers/apache-2*
 DESCRIPTION=Application firewall and intrusion detection for Apache
@@ -14,5 +14,5 @@ REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/SpiderLabs/ModSecurity/releases/download/v2.9.5/modsecurity-2.9.5.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	depend.apache	d54e0d0bd6b36c476594edc2cee2e332	apache-module	4d0ccd357b5f2d92599030b72f6efb62	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99
 _md5_=ee6f2d3ade8a74e41da211ceba42e6a6

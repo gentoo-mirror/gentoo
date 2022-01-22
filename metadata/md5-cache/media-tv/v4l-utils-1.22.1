@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig bpf? ( sys-devel/clang:*[llvm_targets_BPF] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+BDEPEND=sys-devel/gettext virtual/pkgconfig bpf? ( sys-devel/clang:*[llvm_targets_BPF] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm preinst prepare pretend setup
 DEPEND=>=media-libs/libv4l-1.22.1[dvb?,jpeg] >=virtual/jpeg-0-r2:0= bpf? ( virtual/libelf:= ) udev? ( virtual/libudev ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 opengl? ( dev-qt/qtopengl:5[-gles2(-)] virtual/opengl ) media-libs/alsa-lib ) !media-tv/v4l2-ctl !<media-tv/ivtv-utils-1.4.0-r2
 DESCRIPTION=Separate utilities ebuild from upstream v4l-utils package
@@ -12,5 +12,5 @@ LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=>=media-libs/libv4l-1.22.1[dvb?,jpeg] >=virtual/jpeg-0-r2:0= bpf? ( virtual/libelf:= ) udev? ( virtual/libudev ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 opengl? ( dev-qt/qtopengl:5[-gles2(-)] virtual/opengl ) media-libs/alsa-lib ) !media-tv/v4l2-ctl !<media-tv/ivtv-utils-1.4.0-r2
 SLOT=0
 SRC_URI=https://linuxtv.org/downloads/v4l-utils/v4l-utils-1.22.1.tar.bz2
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	udev	2d229ad4bfa09058e0184b1ca900db32	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	udev	2d229ad4bfa09058e0184b1ca900db32	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=6c68489765bb9d001968a7111114d636

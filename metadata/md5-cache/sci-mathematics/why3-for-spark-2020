@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
 DEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=dev-ml/ocamlbuild-0.14.0 dev-ml/menhir:= <dev-ml/num-1.4:= dev-ml/yojson:= coq? ( >=sci-mathematics/coq-8.9.1 <sci-mathematics/coq-8.12 ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( >=dev-ml/lablgtk-2.18.8:=[sourceview] ) emacs? ( >=app-editors/emacs-23.1:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( >=dev-ml/camlzip-1.07:= )
 DESCRIPTION=Platform for deductive program verification
@@ -13,5 +13,5 @@ REQUIRED_USE=html? ( doc )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/8bb5801e17b8b23453262da69c981c091959eec7?filename=why3-2020-20200429-199EF-src.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=62603ef2a6d6736857cc933b84074175

@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=dev-lang/perl virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure postinst postrm preinst prepare test
 DEPEND=>=app-emulation/libspectrum-1.5.0[zlib?] dev-libs/glib:2 alsa? ( media-libs/alsa-lib ) ao? ( media-libs/libao ) backend-X? ( x11-libs/libX11 x11-libs/libXext ) backend-gtk3? ( x11-libs/gtk+:3 ) backend-sdl? ( media-libs/libsdl[joystick,sound] ) backend-svga? ( media-libs/svgalib ) gpm? ( backend-fbcon? ( sys-libs/gpm ) ) joystick? ( !backend-sdl? ( media-libs/libjsw ) ) png? ( media-libs/libpng:0= ) pulseaudio? ( media-sound/pulseaudio ) xml? ( dev-libs/libxml2:2 ) zlib? ( sys-libs/zlib ) backend-fbcon? ( virtual/linux-sources ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Free Unix Spectrum Emulator by Philip Kendall
@@ -12,5 +12,5 @@ RDEPEND=>=app-emulation/libspectrum-1.5.0[zlib?] dev-libs/glib:2 alsa? ( media-l
 REQUIRED_USE=?? ( alsa ao backend-sdl pulseaudio ) ?? ( backend-X backend-fbcon backend-gtk3 backend-sdl backend-svga )
 SLOT=0
 SRC_URI=mirror://sourceforge/fuse-emulator/fuse-1.6.0.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=81d4b0223b38f29d691a457965310974

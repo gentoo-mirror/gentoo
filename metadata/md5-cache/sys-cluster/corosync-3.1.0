@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( sys-apps/groff ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig doc? ( sys-apps/groff ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=dev-libs/nss >=sys-cluster/libqb-2.0.0:= sys-cluster/kronosnet:= augeas? ( app-admin/augeas ) dbus? ( sys-apps/dbus ) snmp? ( net-analyzer/net-snmp ) systemd? ( sys-apps/systemd:= ) watchdog? ( sys-kernel/linux-headers )
 DESCRIPTION=OSI Certified implementation of a complete cluster engine
@@ -11,5 +11,5 @@ LICENSE=BSD-2 public-domain
 RDEPEND=dev-libs/nss >=sys-cluster/libqb-2.0.0:= sys-cluster/kronosnet:= augeas? ( app-admin/augeas ) dbus? ( sys-apps/dbus ) snmp? ( net-analyzer/net-snmp ) systemd? ( sys-apps/systemd:= ) watchdog? ( sys-kernel/linux-headers )
 SLOT=0
 SRC_URI=https://github.com/corosync/corosync/archive/v3.1.0.tar.gz -> corosync-3.1.0.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=ff97d571c53d81782702c715159d3777

@@ -1,4 +1,4 @@
-BDEPEND=app-arch/zip sys-devel/bc virtual/jdk:1.8 virtual/pkgconfig virtual/rust doc? ( sys-devel/bc ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=virtual/rust-1.37.0
+BDEPEND=app-arch/zip sys-devel/bc virtual/jdk:1.8 virtual/pkgconfig virtual/rust doc? ( sys-devel/bc ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=virtual/rust-1.37.0
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DESCRIPTION=FOSS Java browser plugin and Web Start implementation
 EAPI=7
@@ -11,5 +11,5 @@ RDEPEND=>=app-eselect/eselect-java-0.2.0 >=virtual/jre-1.8
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AdoptOpenJDK/icedtea-web/archive/icedtea-web-1.8.4.tar.gz https://crates.io/api/v1/crates/dunce/0.1.1/download -> dunce-0.1.1.crate
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	cargo	7ea27a358c2ff39754bf66a96c06f3de	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	cargo	7ea27a358c2ff39754bf66a96c06f3de	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
 _md5_=6d20088db7fbdf10b73369a50581fccd

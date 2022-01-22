@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=app-arch/unzip virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 sys-apps/file alsa? ( media-libs/alsa-lib ) amr? ( media-libs/opencore-amr ) ao? ( media-libs/libao:= ) encode? ( >=media-sound/lame-3.98.4 ) flac? ( >=media-libs/flac-1.1.3 ) id3tag? ( media-libs/libid3tag:= ) ladspa? ( media-libs/ladspa-sdk ) mad? ( media-libs/libmad ) ogg? ( media-libs/libogg media-libs/libvorbis ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= sys-libs/zlib ) pulseaudio? ( media-sound/pulseaudio ) sndfile? ( >=media-libs/libsndfile-1.0.11 ) sndio? ( media-sound/sndio:= ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack )
 DESCRIPTION=The swiss army knife of sound processing programs
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 sys-apps/file alsa? ( media-libs/alsa-lib ) amr? ( media-libs/opencore-amr ) ao? ( media-libs/libao:= ) encode? ( >=media-sound/lame-3.98.4 ) flac? ( >=media-libs/flac-1.1.3 ) id3tag? ( media-libs/libid3tag:= ) ladspa? ( media-libs/ladspa-sdk ) mad? ( media-libs/libmad ) ogg? ( media-libs/libogg media-libs/libvorbis ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= sys-libs/zlib ) pulseaudio? ( media-sound/pulseaudio ) sndfile? ( >=media-libs/libsndfile-1.0.11 ) sndio? ( media-sound/sndio:= ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~fordfrog/distfiles/sox-code-42b3557e13e0fe01a83465b672d89faddbe65f49.zip -> sox-14.4.2_p20210509.zip
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=ea039ec4c4f04170a5515b986f63ce4d

@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=gles2? ( media-libs/mesa[gles2] ) media-libs/glm media-libs/mesa[X(+)] jack? ( virtual/jack ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtopengl:5 ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( >=media-libs/libsdl2-2.0.5 ) sys-libs/zlib
 DESCRIPTION=A graphical music visualization plugin similar to milkdrop
@@ -12,5 +12,5 @@ RDEPEND=gles2? ( media-libs/mesa[gles2] ) media-libs/glm media-libs/mesa[X(+)] j
 REQUIRED_USE=jack? ( qt5 ) pulseaudio? ( qt5 )
 SLOT=0/2
 SRC_URI=https://github.com/projectM-visualizer/projectm/archive/v3.1.12.tar.gz -> libprojectm-3.1.12.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=54b7acb51f334137b27ec47ed9d64832

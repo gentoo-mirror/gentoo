@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=install prepare test
 DEPEND=dev-lang/tk:= >=dev-tcltk/tcllib-1.11 media-libs/tiff:0= >=media-libs/libpng-1.6:0= >=sys-libs/zlib-1.2.7:= x11-libs/libX11 virtual/jpeg:= test? ( x11-apps/xhost media-fonts/font-misc-misc media-fonts/font-cursor-misc )
 DESCRIPTION=Adds a lot of image formats to Tcl/Tk
@@ -12,5 +12,5 @@ RDEPEND=dev-lang/tk:= >=dev-tcltk/tcllib-1.11 media-libs/tiff:0= >=media-libs/li
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/tkimg/tkimg/1.4/tkimg%201.4.12/Img-1.4.12-Source.tar.gz https://dev.gentoo.org/~tupone/distfiles/tkimg-1.4.12-patchset-1.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	edos2unix	33e347e171066657f91f8b0c72ec8773	prefix	d04f14b297013ad1410550c0757f14f8	virtualx	fa024aa649b6bd544144bf94893d402c
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	edos2unix	33e347e171066657f91f8b0c72ec8773	prefix	d04f14b297013ad1410550c0757f14f8	virtualx	fa024aa649b6bd544144bf94893d402c
 _md5_=dd9ed95c9433d2acd4f5226b8d5ed8d5

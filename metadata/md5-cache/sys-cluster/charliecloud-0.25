@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure postinst prepare setup
 DEPEND=ch-image? ( python_single_target_python3_8? ( dev-python/lark-parser[python_targets_python3_8(-)] dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/lark-parser[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/lark-parser[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) ) doc? ( python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)] dev-python/sphinx_rtd_theme[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/sphinx_rtd_theme[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx_rtd_theme[python_targets_python3_10(-)] ) net-misc/rsync )
 DESCRIPTION=Lightweight user-defined software stacks for high-performance computing
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/hpc/charliecloud/archive/v0.25.tar.gz -> charliecloud-0.25.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	optfeature	30ce9dec2b8943338c9b015bd32bac6a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	54423f1e035828362c248fad528ebbba	python-single-r1	9783802d3840cbbd78c02b313df760cc
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	optfeature	30ce9dec2b8943338c9b015bd32bac6a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	54423f1e035828362c248fad528ebbba	python-single-r1	9783802d3840cbbd78c02b313df760cc
 _md5_=504cacf77a102ab34fdd448a1cdc342e

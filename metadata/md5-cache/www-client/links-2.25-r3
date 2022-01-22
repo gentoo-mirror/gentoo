@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=dev-libs/libbsd brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) fbcon? ( media-libs/libpng:0= ) freetype? ( media-libs/fontconfig media-libs/freetype ) gpm? ( sys-libs/gpm ) jpeg? ( virtual/jpeg:0 ) libevent? ( dev-libs/libevent:0= ) livecd? ( media-libs/libpng:0= sys-libs/gpm virtual/jpeg:0 ) lzip? ( app-arch/lzip ) lzma? ( app-arch/xz-utils ) ssl? ( dev-libs/openssl:0= ) svga? ( media-libs/libpng:0= media-libs/svgalib ) tiff? ( media-libs/tiff:0 ) X? ( media-libs/libpng:0= x11-libs/libXext ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) fbcon? ( virtual/os-headers ) livecd? ( virtual/os-headers )
 DESCRIPTION=A fast and lightweight web browser running in both graphics and text mode
@@ -13,5 +13,5 @@ RDEPEND=dev-libs/libbsd brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) fb
 REQUIRED_USE=!livecd? ( fbcon? ( gpm ) ) svga? ( suid )
 SLOT=2
 SRC_URI=http://links.twibright.com/download/links-2.25.tar.bz2
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
 _md5_=00ea4c2e2ebd8ca94be56fe89aa1819e

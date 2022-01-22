@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20170815 sys-devel/gnuconfig || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=>=app-portage/elt-patches-20170815 sys-devel/gnuconfig || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure postinst prepare
 DEPEND=media-libs/libxmi png? ( media-libs/libpng:0= sys-libs/zlib ) X? ( x11-libs/libXaw )
 DESCRIPTION=Powerful C/C++ function library for exporting 2-D vector graphics
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=media-libs/libxmi png? ( media-libs/libpng:0= sys-libs/zlib ) X? ( x11-libs/libXaw ) !<media-libs/plotutils-2.6
 SLOT=0
 SRC_URI=mirror://gnu/plotutils/plotutils-2.6.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnuconfig	262062cef0ba4f22b397193da514a350	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnuconfig	262062cef0ba4f22b397193da514a350	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=55113cf2766ec9b6324fe3c358bbb36d

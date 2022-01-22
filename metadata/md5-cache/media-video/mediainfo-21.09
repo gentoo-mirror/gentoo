@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
 DEPEND=~media-libs/libmediainfo-21.09[curl=,mms=] >=media-libs/libzen-0.4.37 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
 DESCRIPTION=MediaInfo supplies technical and tag information about media files
@@ -11,5 +11,5 @@ LICENSE=BSD-2
 RDEPEND=~media-libs/libmediainfo-21.09[curl=,mms=] >=media-libs/libzen-0.4.37 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
 SLOT=0
 SRC_URI=https://mediaarea.net/download/source/mediainfo/21.09/mediainfo_21.09.tar.xz
-_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	flag-o-matic	d5e1306543bc457213f68bb18f830d14	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
 _md5_=e07e91004af3489a09a8fafdd600666f

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=dev-libs/glib:2 dev-libs/libbsd sys-apps/kmod x11-libs/libX11 sys-apps/help2man virtual/pkgconfig
 DESCRIPTION=Service providing elegant and stable means of managing Optimus graphics chipsets
@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/glib:2 dev-libs/libbsd sys-apps/kmod x11-libs/libX11 acct-group/bumblebee virtual/opengl x11-base/xorg-drivers[video_cards_nvidia?,video_cards_nouveau?] bbswitch? ( sys-power/bbswitch )
 REQUIRED_USE=|| ( video_cards_nouveau video_cards_nvidia )
 SLOT=0
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	systemd	2736b403a83f194b59b767f3b344c2c1	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	systemd	2736b403a83f194b59b767f3b344c2c1	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=707fffefbc12e409b4fc3a59399b166d

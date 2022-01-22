@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig X? ( x11-base/xorg-proto ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig X? ( x11-base/xorg-proto ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=allegro? ( media-libs/allegro:0 ) gif? ( media-libs/giflib:= ) glut? ( media-libs/freeglut ) jpeg? ( virtual/jpeg:0 ) mng? ( media-libs/libmng:= ) nvtt? ( media-gfx/nvidia-texture-tools ) openexr? ( media-libs/openexr:= ) opengl? ( virtual/opengl virtual/glu ) png? ( media-libs/libpng:0= ) sdl? ( media-libs/libsdl ) tiff? ( media-libs/tiff:0 ) X? ( x11-libs/libXext x11-libs/libX11 x11-libs/libXrender ) xpm? ( x11-libs/libXpm )
 DESCRIPTION=DevIL image library
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=allegro? ( media-libs/allegro:0 ) gif? ( media-libs/giflib:= ) glut? ( media-libs/freeglut ) jpeg? ( virtual/jpeg:0 ) mng? ( media-libs/libmng:= ) nvtt? ( media-gfx/nvidia-texture-tools ) openexr? ( media-libs/openexr:= ) opengl? ( virtual/opengl virtual/glu ) png? ( media-libs/libpng:0= ) sdl? ( media-libs/libsdl ) tiff? ( media-libs/tiff:0 ) X? ( x11-libs/libXext x11-libs/libX11 x11-libs/libXrender ) xpm? ( x11-libs/libXpm )
 SLOT=0
 SRC_URI=mirror://sourceforge/openil/DevIL-1.7.8.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
 _md5_=94313ea36d393be3f105c7df88e4453a
