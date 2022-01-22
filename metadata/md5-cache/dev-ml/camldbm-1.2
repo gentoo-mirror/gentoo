@@ -1,11 +1,13 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=install prepare
 DEPEND=>=sys-libs/gdbm-1.9.1-r2[berkdb] >=dev-lang/ocaml-3.12:=[ocamlopt]
 DESCRIPTION=OCaml binding to the NDBM/GDBM Unix databases
 EAPI=7
 HOMEPAGE=https://github.com/ocaml/dbm
+INHERIT=toolchain-funcs
 KEYWORDS=amd64 arm ppc x86
 LICENSE=LGPL-2-with-linking-exception
 RDEPEND=>=sys-libs/gdbm-1.9.1-r2[berkdb] >=dev-lang/ocaml-3.12:=[ocamlopt]
 SLOT=0/1.2
 SRC_URI=https://github.com/ocaml/dbm/archive/camldbm-1.2.tar.gz
-_md5_=080bd725894d9d8b30f43567e64e1018
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=26a8ddf98c17da6cb201f1d7da6cbe11
