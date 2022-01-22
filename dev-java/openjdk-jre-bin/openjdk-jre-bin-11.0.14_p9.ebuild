@@ -18,7 +18,7 @@ SRC_URI="
 	$(abi_uri x64 amd64)
 "
 
-DESCRIPTION="Prebuilt Java JRE binaries provided by AdoptOpenJDK"
+DESCRIPTION="Prebuilt Java JRE binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptopenjdk.net"
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64"
@@ -48,8 +48,8 @@ QA_PREBUILT="*"
 S="${WORKDIR}/jdk-${MY_PV}-jre"
 
 src_install() {
-	local dest="/opt/${P}"
-	local ddest="${ED%/}/${dest#/}"
+	local dest="/opt/${PN}-${SLOT}"
+	local ddest="${ED}/${dest#/}"
 
 	# Not sure why they bundle this as it's commonly available and they
 	# only do so on x86_64. It's needed by libfontmanager.so. IcedTea
@@ -67,15 +67,12 @@ src_install() {
 	fi
 
 	rm -v lib/security/cacerts || die
-	dosym ../../../../etc/ssl/certs/java/cacerts "${dest}"/lib/security/cacerts
+	dosym -r /etc/ssl/certs/java/cacerts "${dest}"/lib/security/cacerts
 
 	dodir "${dest}"
 	cp -pPR * "${ddest}" || die
 
-	# provide stable symlink
-	dosym "${P}" "/opt/${PN}-${SLOT}"
-
-	use gentoo-vm && java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
+	java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
 	java-vm_set-pax-markings "${ddest}"
 	java-vm_revdep-mask
 	java-vm_sandbox-predict /dev/random /proc/self/coredump_filter
