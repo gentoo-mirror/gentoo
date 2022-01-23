@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 inherit distutils-r1
 
@@ -12,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/py-1.4.22[${PYTHON_USEDEP}]
@@ -20,11 +21,8 @@ RDEPEND="
 	>=dev-python/coverage-4.4[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
 "
-# TODO: figure out how to make tests work without pytest-cov installed
-# first
 BDEPEND="
 	test? (
-		~dev-python/pytest-cov-${PV}[${PYTHON_USEDEP}]
 		dev-python/virtualenv[${PYTHON_USEDEP}]
 		dev-python/fields[${PYTHON_USEDEP}]
 		>=dev-python/process-tests-2.0.2[${PYTHON_USEDEP}]
@@ -51,5 +49,12 @@ python_test() {
 		tests/test_pytest_cov.py::test_dist_missing_data
 	)
 
-	epytest
+	# TODO: why do we need to do that?!
+	# https://github.com/pytest-dev/pytest-cov/issues/517
+	ln -s "${BROOT}$(python_get_sitedir)/coverage" \
+		"${BUILD_DIR}/install$(python_get_sitedir)/coverage" || die
+
+	epytest -x
+
+	rm "${BUILD_DIR}/install$(python_get_sitedir)/coverage" || die
 }
