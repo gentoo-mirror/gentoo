@@ -553,9 +553,9 @@
 	</xs:complexType>
 
 	<xs:simpleType name='urlType'>
-		<xs:restriction base='xs:token'>
+		<xs:restriction base='xs:anyURI'>
 			<!-- TODO: something better? -->
-			<xs:pattern value="(mailto:[^@]+@[^.\s]+\.\S+|https?://\S+)"/>
+			<xs:pattern value="(mailto:.+@.+|(ftp|https?)://\S+)"/>
 		</xs:restriction>
 	</xs:simpleType>
 
