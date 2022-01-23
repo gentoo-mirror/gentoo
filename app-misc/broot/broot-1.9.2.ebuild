@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -85,7 +85,6 @@ jpeg-decoder-0.1.22
 lazy-regex-2.2.2
 lazy-regex-proc_macros-2.2.2
 lazy_static-1.4.0
-lazycell-1.3.0
 lfs-core-0.4.2
 libc-0.2.107
 libgit2-sys-0.12.25+1.3.0
@@ -105,6 +104,7 @@ miniz_oxide-0.3.7
 miniz_oxide-0.4.4
 mio-0.7.14
 miow-0.3.7
+nix-0.22.0
 ntapi-0.3.6
 num-integer-0.1.44
 num-iter-0.1.42
@@ -167,10 +167,10 @@ strict-0.1.4
 strsim-0.8.0
 svg-0.8.2
 syn-1.0.81
-syntect-4.6.0
+syntect-no-panic-4.6.1
 tempfile-3.2.0
 termimad-0.10.3
-termimad-0.19.3
+termimad-0.20.0
 terminal-clipboard-0.3.1
 termux-clipboard-0.1.0
 textwrap-0.11.0
@@ -203,6 +203,7 @@ winapi-x86_64-pc-windows-gnu-0.4.0
 x11-clipboard-0.5.3
 xcb-0.10.1
 xml-rs-0.8.4
+xterm-query-0.1.0
 yaml-rust-0.4.5
 "
 
@@ -225,7 +226,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND=">=virtual/rust-1.56"
 
-QA_FLAGS_IGNORED="usr/bin/broot"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_configure() {
 	local myfeatures=( $(usev X clipboard) )
