@@ -51,15 +51,16 @@ distutils_enable_sphinx docs/source \
 	dev-python/sphinxcontrib-openapi
 distutils_enable_tests --install pytest
 
+EPYTEST_DESELECT=(
+	# This fails if your terminal is zsh (and maybe other non-bash as well?)
+	jupyter_server/tests/test_terminal.py::test_terminal_create_with_cwd
+	jupyter_server/tests/test_terminal.py::test_culling_config
+	jupyter_server/tests/test_terminal.py::test_culling
+)
+
 python_prepare_all() {
 	# Defining 'pytest_plugins' in a non-top-level conftest is no longer supported:
 	mv jupyter_server/conftest.py . || die
-
-	# This fails if your terminal is zsh (and maybe other non-bash as well?)
-	sed -i \
-		-e 's:est_terminal_create_with_cwd:_&:' \
-		-e 's:test_culling:_&:' \
-		jupyter_server/tests/test_terminal.py || die
 
 	distutils-r1_python_prepare_all
 }
