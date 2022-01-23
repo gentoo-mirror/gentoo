@@ -5,7 +5,7 @@ DESCRIPTION=A Python crypto and SSL toolkit
 EAPI=7
 HOMEPAGE=https://gitlab.com/m2crypto/m2crypto https://pypi.org/project/M2Crypto/
 INHERIT=distutils-r1 toolchain-funcs
-IUSE=test test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=test abi_mips_n32 abi_mips_n64 abi_mips_o32 test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=MIT
 RDEPEND=dev-libs/openssl:0= python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[threads(+)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[threads(+)] )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/M/M2Crypto/M2Crypto-0.38.0.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	54423f1e035828362c248fad528ebbba	python-r1	4c008ab1e6c02cbead059dfe8b864c26	distutils-r1	4936b3e8815d6b5187dbb44287b70f95
-_md5_=e7faaf3536e1318d6693bea820db4324
+_md5_=da5fa2d613e5f016414a3c3eea67acb0
