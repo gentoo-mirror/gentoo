@@ -2,7 +2,7 @@ DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Dependency injection for Java (JSR-330)
 EAPI=8
-HOMEPAGE=https://code.google.com/p/atinject/
+HOMEPAGE=https://github.com/javax-inject/javax-inject
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux
@@ -11,4 +11,4 @@ RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/z
 SLOT=0
 SRC_URI=http://central.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1-sources.jar -> javax-inject-1.jar
 _eclasses_=java-utils-2	eb6cdf369ec1bc780222e7e2136f64f5	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=1ff0ab49462d924909c276c5fc72a258
+_md5_=08c68152ecccbcd03bfcf4f2ccf44677
