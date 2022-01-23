@@ -1,6 +1,6 @@
 BDEPEND=dev-cpp/eigen virtual/pkgconfig nls? ( sys-devel/gettext ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=dev-libs/libfmt:= media-libs/glew:0= media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/jpeg:0 virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) glut? ( media-libs/freeglut ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+DEPEND=dev-libs/libfmt:= media-libs/glew:0= media-libs/libepoxy media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/jpeg:0 virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) glut? ( media-libs/freeglut ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
 DESCRIPTION=OpenGL 3D space simulator
 EAPI=8
 HOMEPAGE=https://celestia.space
@@ -9,9 +9,9 @@ INHERIT=desktop flag-o-matic lua-single xdg cmake
 IUSE=ffmpeg glut lua nls +qt5 lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libfmt:= media-libs/glew:0= media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/jpeg:0 virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) glut? ( media-libs/freeglut ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+RDEPEND=dev-libs/libfmt:= media-libs/glew:0= media-libs/libepoxy media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/jpeg:0 virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) glut? ( media-libs/freeglut ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
 REQUIRED_USE=|| ( glut qt5 ) lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
 SLOT=0
 SRC_URI=https://github.com/CelestiaProject/Celestia/archive/f969b37c3ee783ed51bf4d1cbeefca4132031316.tar.gz -> celestia-1.7.0_pre20220120.tar.gz https://github.com/CelestiaProject/CelestiaContent/archive/cc0bc0bb4b77e47115a31fbeb42babb30da3b790.tar.gz -> celestia-1.7.0_pre20220120-data.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=10f2fafb7d0ba9571f866fc57c75bcb2
+_md5_=8e37ae5cf19c9012578fca67ff870721
