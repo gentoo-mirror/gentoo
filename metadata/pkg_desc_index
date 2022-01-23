@@ -8287,7 +8287,7 @@ dev-python/bibtexparser 1.1.0 1.2.0: A BibTeX parser written in python
 dev-python/binaryornot 0.4.4-r2: Ultra-lightweight pure Python package to guess whether a file is binary or text
 dev-python/bitarray 2.3.4 2.3.5: Efficient arrays of booleans -- C extension
 dev-python/bitstring 3.1.9: A pure Python module for creation and analysis of binary data
-dev-python/black 21.12_beta0: The uncompromising Python code formatter
+dev-python/black 21.12_beta0 21.12_beta0-r1: The uncompromising Python code formatter
 dev-python/bleach 4.1.0: An easy whitelist-based HTML-sanitizing tool
 dev-python/blessed 1.19.0 1.19.1: Library for making terminal apps using colors, keyboard input and positioning
 dev-python/blessings 1.7-r1: A thin, practical wrapper around terminal coloring, styling, and positioning
@@ -8722,7 +8722,7 @@ dev-python/jupyter_client 6.1.12 7.1.0: Jupyter protocol implementation and clie
 dev-python/jupyter_console 6.4.0: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter_core 4.8.1 4.9.1: Core common functionality of Jupyter projects
 dev-python/jupyter_packaging 0.11.0 0.11.1: Tools to help build and install Jupyter Python packages
-dev-python/jupyter_server 1.11.1 1.12.0 1.12.1 1.13.1 1.13.2 1.13.3: Core services, APIs, and REST endpoints to Jupyter web applications
+dev-python/jupyter_server 1.13.1 1.13.2 1.13.3 1.13.4: Core services, APIs, and REST endpoints to Jupyter web applications
 dev-python/jupyter_server_mathjax 0.2.3: MathJax resources as a Jupyter Server Extension
 dev-python/jupyterlab 3.2.1 3.2.5-r1: JupyterLab computational environment
 dev-python/jupyterlab-lsp 3.9.1 3.9.2 3.9.3: Coding assistance for JupyterLab with Language Server Protocol
@@ -8784,6 +8784,7 @@ dev-python/mamba 0.11.2: Python test runner born under the banner of Behavior Dr
 dev-python/mando 0.6.4-r1: Create Python CLI apps with little to no effort at all!
 dev-python/manuel 1.10.1: Lets you mix and match traditional doctests with custom test syntax
 dev-python/markdown 3.3.6: Python implementation of the markdown markup language
+dev-python/markdown-it-py 2.0.0: Python port of markdown-it, Markdown parser
 dev-python/markdown2 2.4.2: Python Markdown language reimplementation
 dev-python/markups 3.1.3: A wrapper around various text markups
 dev-python/markupsafe 1.1.1-r1 2.0.1: Implements a XML/HTML/XHTML Markup safe string for Python
@@ -8792,6 +8793,8 @@ dev-python/matplotlib 3.4.3-r1 3.5.0 3.5.1: Pure python plotting library with ma
 dev-python/matplotlib-inline 0.1.3: Inline Matplotlib backend for Jupyter
 dev-python/matterhook 0.2-r1: Interact with Mattermost incoming webhooks easily
 dev-python/mccabe 0.6.1-r2: flake8 plugin: McCabe complexity checker
+dev-python/mdit-py-plugins 0.3.0: Collection of plugins for markdown-it-py
+dev-python/mdurl 0.1.0: Markdown URL utilities
 dev-python/mdx_gh_links 0.2: An extension which adds links to GitHub users, repositories, issues and commits
 dev-python/mecab-python 0.996: Python binding for MeCab
 dev-python/mechanize 0.4.7: Stateful programmatic web browsing in Python
@@ -8839,6 +8842,7 @@ dev-python/mypy 0.910-r1 0.921 0.930 0.931: Optional static typing for Python
 dev-python/mypy_extensions 0.4.3-r1: Optional static typing for Python
 dev-python/mysql-connector-python 8.0.27: Python client library for MariaDB/MySQL
 dev-python/mysqlclient 1.4.6-r1 2.0.3 2.1.0: Python interface to MySQL
+dev-python/myst_parser 0.16.1_p20220119: Extended commonmark compliant parser, with bridges to sphinx
 dev-python/nagiosplugin 1.3.2-r1: A class library for writing nagios-compatible plugins
 dev-python/namespace-google 1-r1: Namespace package declaration for google
 dev-python/namespace-lazr 1: Namespace package declaration for lazr
@@ -8956,6 +8960,7 @@ dev-python/phonenumbers 8.12.40 8.12.41: Python port of Google's libphonenumber
 dev-python/phply 1.2.5: Lexer and parser for PHP source implemented using PLY
 dev-python/picklemagic 0.0_pre20160415: A library for analysing python pickles safely
 dev-python/pickleshare 0.7.5: A small 'shelve' like datastore with concurrency support
+dev-python/picobox 2.2.0: Dependency injection framework designed with Python in mind
 dev-python/pid 3.0.4: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.1.0 1.2.0: Pure-Python implementation of the AMQP
@@ -9201,6 +9206,7 @@ dev-python/pytest-markdown 1.0.2: Write unit tests in Python to test actual stat
 dev-python/pytest-metadata 1.11.0: A plugin for pytest that provides access to test session metadata
 dev-python/pytest-mock 3.6.1: Thin-wrapper around the mock package for easier use with pytest
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
+dev-python/pytest-param-files 0.3.3: Pytest parametrize decorators from external files.
 dev-python/pytest-plus 0.2: PyTest Plus Plugin - extends pytest functionality
 dev-python/pytest-pylint 0.18.0: pytest plugin to check source code with pylint
 dev-python/pytest-qt 3.3.0 4.0.2: Pytest plugin for PyQt5 and PySide2 applications
@@ -9489,15 +9495,19 @@ dev-python/sphinxcontrib-devhelp 1.0.2: Sphinx extension which outputs Devhelp d
 dev-python/sphinxcontrib-doxylink 1.11.1: Extension to link to external Doxygen API documentation
 dev-python/sphinxcontrib-github-alt 1.2: Link to GitHub issues, pull requests, commits and users from Sphinx docs
 dev-python/sphinxcontrib-htmlhelp 2.0.0: Sphinx extension which outputs HTML help book
+dev-python/sphinxcontrib-httpdomain 1.8.0: Sphinx domain for documenting HTTP APIs
 dev-python/sphinxcontrib-jsmath 1.0.1-r1: Sphinx extension which renders display math in HTML via JavaScript
 dev-python/sphinxcontrib-log_cabinet 1.0.1: Organize changelog directives in Sphinx docs
 dev-python/sphinxcontrib-newsfeed 0.1.4: News Feed extension for Sphinx
+dev-python/sphinxcontrib-openapi 0.7.0: OpenAPI (fka Swagger) spec renderer for Sphinx
 dev-python/sphinxcontrib-programoutput 0.17: Extension to sphinx to include program output
 dev-python/sphinxcontrib-qthelp 1.0.3: Sphinx extension which outputs QtHelp documents
 dev-python/sphinxcontrib-serializinghtml 1.1.5: Sphinx extension which outputs outputs serialized HTML files
 dev-python/sphinxcontrib-spelling 7.3.0 7.3.1 7.3.2: Sphinx spelling extension
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphinxcontrib-websupport 1.2.4: Sphinx websupport extension
+dev-python/sphinxcontrib_github_alt 1.2: Link to GitHub issues, pull requests, commits and users from Sphinx docs
+dev-python/sphinxemoji 0.2.0: Extension to use emoji codes in your Sphinx documentation
 dev-python/sphobjinv 2.1-r1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spur 0.3.22: Run commands locally or over SSH using the same interface
 dev-python/spyder 5.2.2: The Scientific Python Development Environment
@@ -17614,14 +17624,14 @@ sys-cluster/keepalived 2.2.4: A strong & robust keepalive facility to the Linux 
 sys-cluster/knem 1.1.3-r3 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.20.1 1.21.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes API server
-sys-cluster/kube-controller-manager 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes API server
+sys-cluster/kube-controller-manager 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Scheduler
-sys-cluster/kubeadm 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.20.14 1.20.15 1.21.5 1.21.6 1.21.7 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Scheduler
+sys-cluster/kubeadm 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.20.14 1.20.15 1.21.8 1.21.9 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 1.23.1 1.23.2: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.5 1.6: A client for kubelet
 sys-cluster/legion 21.09.0-r1 9999: A data-centric parallel programming system
 sys-cluster/libcircle 0.3.0: API for distributing embarrassingly parallel workloads using self-stabilization
