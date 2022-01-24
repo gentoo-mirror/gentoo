@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 python3_8 )
+PYTHON_COMPAT=( python3_7 python3_8 python3_9 )
 
 inherit python-single-r1 udev
 
@@ -14,17 +14,20 @@ HOMEPAGE="https://gitlab.com/wavexx/acpilight/"
 SRC_URI="https://gitlab.com/wavexx/acpilight/-/archive/v${PV}/${MY_P}.tar.gz"
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 S="${WORKDIR}/${MY_P}"
 
 RDEPEND="virtual/udev
 	acct-group/video
+	!dev-libs/light
 	${PYTHON_DEPS}
 	!x11-apps/xbacklight"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DOCS=( README.rst NEWS.rst )
+
+PATCHES=( "${FILESDIR}/acpilight-1.2-fix-log10-of-zero.patch" )
 
 # Disable Makefile that installs by default
 src_compile() { :; }
