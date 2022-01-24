@@ -1,17 +1,17 @@
-BDEPEND=test? ( ipython? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) ) python_single_target_python3_8? ( >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pytest-6.2.5-r2[python_targets_python3_9(-)] ) ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+BDEPEND=test? ( ipython? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) python_single_target_python3_8? ( >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pytest-6.2.5-r2[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/pytest-6.2.5-r2[python_targets_python3_10(-)] ) ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) test? ( >=dev-vcs/pre-commit-0.7.0[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] )
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) test? ( >=dev-vcs/pre-commit-0.7.0[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] )
 DESCRIPTION=change directory command that learns
 EAPI=7
 HOMEPAGE=https://github.com/wting/autojump
-INHERIT=distutils-r1 bash-completion-r1 vcs-snapshot prefix
-IUSE=ipython test test python_single_target_python3_8 python_single_target_python3_9
+INHERIT=distutils-r1 vcs-snapshot prefix
+IUSE=ipython test test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 ~hppa ~ppc ~ppc64 x86 ~x64-macos
 LICENSE=GPL-3
-RDEPEND=ipython? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
-REQUIRED_USE=ipython? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=ipython? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=ipython? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wting/autojump/archive/release-v22.5.3.tar.gz -> autojump-22.5.3.tar.gz
-_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	54423f1e035828362c248fad528ebbba	python-single-r1	9783802d3840cbbd78c02b313df760cc	distutils-r1	4936b3e8815d6b5187dbb44287b70f95	bash-completion-r1	d3a60385655d9b402be765a6de333245	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd	prefix	d04f14b297013ad1410550c0757f14f8
-_md5_=37206820332a7a7a43f1cf591be8eea3
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	54423f1e035828362c248fad528ebbba	python-single-r1	9783802d3840cbbd78c02b313df760cc	distutils-r1	4936b3e8815d6b5187dbb44287b70f95	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd	prefix	d04f14b297013ad1410550c0757f14f8
+_md5_=b62badb60767799a7df726db099ca2c4
