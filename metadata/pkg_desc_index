@@ -898,7 +898,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.23 1.22.31 1.22.37 1.22.40 1.22.41: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.23 1.22.31 1.22.37 1.22.40 1.22.41 1.22.42: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.2 1.28.3: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -5377,7 +5377,7 @@ dev-lang/pcc 1.1.0-r1: pcc portable c compiler
 dev-lang/perl 5.34.0-r3 5.34.0-r5 5.34.0-r6: Larry Wall's Practical Extraction and Report Language
 dev-lang/php 7.3.32 7.3.33 7.4.25 7.4.26 7.4.27 7.4.27-r1 8.0.12 8.0.14 8.0.15 8.1.2: The PHP language runtime engine
 dev-lang/polyml 5.8 5.8.2 5.9-r1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p13 3.6.15 3.7.12_p1 3.8.12_p1-r1 3.9.9-r1 3.9.10 3.10.0_p1-r1 3.10.1-r3 3.10.2 3.11.0_alpha4: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p13 3.6.15 3.6.15-r1 3.7.12_p1 3.7.12_p1-r1 3.8.12_p1-r1 3.8.12_p1-r2 3.9.9-r1 3.9.10 3.9.10-r1 3.10.0_p1-r1 3.10.1-r3 3.10.2 3.10.2-r1 3.11.0_alpha4: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.8: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qu-prolog 10.6: Extended Prolog supporting quantifiers, object-variables and substitutions
@@ -8300,8 +8300,8 @@ dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.20.23 1.20.31 1.20.37 1.20.40 1.20.41 9999: The AWS SDK for Python
-dev-python/botocore 1.23.23 1.23.31 1.23.37 1.23.40 1.23.41 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.20.23 1.20.31 1.20.37 1.20.40 1.20.41 1.20.42 9999: The AWS SDK for Python
+dev-python/botocore 1.23.23 1.23.31 1.23.37 1.23.40 1.23.41 1.23.42 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2-r1: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8477,7 +8477,7 @@ dev-python/doublex 1.9.2-r1: Python test doubles
 dev-python/doublex-expects 0.7.1: Expects matchers for Doublex test doubles assertions
 dev-python/drf-yasg 1.20.0: Automated generation of Swagger/OpenAPI 2.0 schemas from Django Rest framework
 dev-python/duecredit 0.9.1: Publications (and donations) tracer
-dev-python/dulwich 0.20.23 0.20.27 0.20.28 0.20.30 0.20.31: Pure-Python implementation of the Git file formats and protocols
+dev-python/dulwich 0.20.23 0.20.27 0.20.28 0.20.30 0.20.31 0.20.32: Pure-Python implementation of the Git file formats and protocols
 dev-python/easy-thumbnails 2.8 2.8.1: Easy thumbnails for Django
 dev-python/easyprocess 0.3-r1 1.0 1.1: Easy to use Python subprocess interface
 dev-python/ecdsa 0.17.0: ECDSA cryptographic signature library in pure Python
@@ -8555,7 +8555,7 @@ dev-python/flufl-bounce 4.0: Email bounce detectors
 dev-python/flufl-i18n 3.2 4.0: A high level API for Python internationalization
 dev-python/flufl-lock 6.0 7.0: NFS-safe file locking with timeouts for POSIX systems
 dev-python/flufl-testing 0.8: Small collection of test tool plugins
-dev-python/fonttools 4.28.4 4.28.5: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.28.4 4.28.5 4.29.0: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/fqdn 1.5.1-r1: RFC-compliant FQDN validation and manipulation for Python
 dev-python/freezegun 1.1.0-r1: Let your Python tests travel through time
 dev-python/fritzconnection 1.7.1 1.7.2 1.8.0 1.9.0 1.9.1: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
@@ -8655,7 +8655,7 @@ dev-python/inflection 0.5.1: A port of Ruby on Rails' inflector to Python
 dev-python/influxdb 5.3.0-r1: InfluxDB client
 dev-python/iniconfig 1.1.1: Brain-dead simple config-ini parsing
 dev-python/iniparse 0.5: Better INI parser for Python
-dev-python/installer 0.4.0_p20220115 0.4.0_p20220124: A library for installing Python wheels
+dev-python/installer 0.4.0_p20220124: A library for installing Python wheels
 dev-python/intelhex 2.3.0: Python library for Intel HEX files manipulations
 dev-python/intervaltree 3.1.0: Editable interval tree data structure for Python 2 and 3
 dev-python/intreehooks 1.0: Load a PEP 517 backend from inside the source tree
@@ -8785,7 +8785,7 @@ dev-python/mamba 0.11.2: Python test runner born under the banner of Behavior Dr
 dev-python/mando 0.6.4-r1: Create Python CLI apps with little to no effort at all!
 dev-python/manuel 1.10.1: Lets you mix and match traditional doctests with custom test syntax
 dev-python/markdown 3.3.6: Python implementation of the markdown markup language
-dev-python/markdown-it-py 2.0.0: Python port of markdown-it, Markdown parser
+dev-python/markdown-it-py 2.0.0 2.0.1: Python port of markdown-it, Markdown parser
 dev-python/markdown2 2.4.2: Python Markdown language reimplementation
 dev-python/markups 3.1.3: A wrapper around various text markups
 dev-python/markupsafe 1.1.1-r1 2.0.1: Implements a XML/HTML/XHTML Markup safe string for Python
@@ -8887,7 +8887,7 @@ dev-python/ntplib 0.4.0: Python NTP library
 dev-python/nuitka 0.6.19 0.6.19.1 0.6.19.2 0.6.19.3 0.6.19.4: Python to native compiler
 dev-python/numexpr 2.8.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.21.1-r1 1.21.2-r1 1.21.3-r1 1.21.4 1.21.4-r2 1.21.5 1.22.0-r1 1.22.1: Fast array and numerical python library
-dev-python/numpydoc 1.1.0: Sphinx extension to support docstrings in Numpy format
+dev-python/numpydoc 1.1.0 1.2: Sphinx extension to support docstrings in Numpy format
 dev-python/oauth2client 4.1.3-r1: Library for accessing resources protected by OAuth 2.0
 dev-python/oauthlib 3.1.1: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.5.0: Draws Python object reference graphs with graphviz
@@ -8946,7 +8946,7 @@ dev-python/patsy 0.5.2: Python module to describe statistical models and design 
 dev-python/pbkdf2 1.3-r1: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 5.8.0: Inject some useful and sensible default behaviors into setuptools
 dev-python/pdfrw 0.4_p1: PDF file reader/writer library
-dev-python/pdm-pep517 0.10.0: A PEP 517 backend for PDM that supports PEP 621 metadata
+dev-python/pdm-pep517 0.10.0 0.10.1: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.10.0: Auto-generate API documentation for Python projects
 dev-python/pebble 4.6.3: Threading and multiprocessing eye-candy
 dev-python/pecan 1.4.0 1.4.1: A WSGI object-dispatching web framework, lean, fast, with few dependencies
@@ -9015,7 +9015,7 @@ dev-python/ptyprocess 0.7.0: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix 2.20191221-r1: Get a public suffix for a domain name using the Public Suffix List
 dev-python/pudb 2021.1 2021.2 2022.1: A full-screen, console-based Python debugger
 dev-python/pulsectl 21.10.5 22.1.0 22.1.1 22.1.3: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
-dev-python/pure_eval 0.2.1-r1: Safely evaluate AST nodes without side effects
+dev-python/pure_eval 0.2.1-r1 0.2.2: Safely evaluate AST nodes without side effects
 dev-python/puremagic 1.11: Pure python implementation of magic file detection
 dev-python/pushbullet-py 0.12.0: A simple python client for pushbullet.com
 dev-python/pweave 0.30.3-r1: Scientific report generator and literate programming tool
@@ -9023,7 +9023,6 @@ dev-python/py 1.11.0 1.11.0-r1: library with cross-python path, ini-parsing, io,
 dev-python/py-amqp 5.0.9: Low-level AMQP client for Python (fork of amqplib)
 dev-python/py-cpuinfo 8.0.0: Get CPU info with pure Python 2 & 3
 dev-python/py-ubjson 0.16.1: Universal Binary JSON encoder/decoder
-dev-python/py-zabbix 1.1.7: Zabbix module for Python
 dev-python/pyClamd 0.4.0-r2: python interface to Clamd (Clamav daemon)
 dev-python/pyFFTW 0.12.0-r1 0.13.0 9999: A pythonic python wrapper around FFTW
 dev-python/pyGPG 0.2 9999: A python interface wrapper for gnupg's gpg command
@@ -9192,8 +9191,8 @@ dev-python/pytest-env 0.6.2: py.test plugin that allows you to add environment v
 dev-python/pytest-expect 1.1.0-r1: py.test plugin that stores test expectations by saving the set of failing tests
 dev-python/pytest-faulthandler 2.0.1: Pytest plugin that activates the fault handler module for tests
 dev-python/pytest-fixture-config 1.7.0-r1: Virtualenv fixture for py.test
-dev-python/pytest-flake8 1.0.7: py.test plugin for flake8
-dev-python/pytest-flakes 4.0.3 4.0.4: Collection of small Python functions & classes
+dev-python/pytest-flake8 1.0.7: pytest plugin for flake8
+dev-python/pytest-flakes 4.0.4: Collection of small Python functions & classes
 dev-python/pytest-forked 1.4.0: run tests in isolated forked subprocesses
 dev-python/pytest-freezegun 0.4.2: Easily freeze time in pytest test + fixtures
 dev-python/pytest-helpers-namespace 2021.3.24: Provides a helpers pytest namespace
@@ -9207,7 +9206,7 @@ dev-python/pytest-markdown 1.0.2: Write unit tests in Python to test actual stat
 dev-python/pytest-metadata 1.11.0: A plugin for pytest that provides access to test session metadata
 dev-python/pytest-mock 3.6.1: Thin-wrapper around the mock package for easier use with pytest
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
-dev-python/pytest-param-files 0.3.3: Pytest parametrize decorators from external files.
+dev-python/pytest-param-files 0.3.3 0.3.4: Pytest parametrize decorators from external files.
 dev-python/pytest-plus 0.2: PyTest Plus Plugin - extends pytest functionality
 dev-python/pytest-pylint 0.18.0: pytest plugin to check source code with pylint
 dev-python/pytest-qt 3.3.0 4.0.2: Pytest plugin for PyQt5 and PySide2 applications
@@ -9523,7 +9522,7 @@ dev-python/sqlparse 0.4.2: A non-validating SQL parser module for Python
 dev-python/ssh2-python 0.26.0: Super fast SSH2 protocol library, Python bindings for libssh2
 dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4 9999: Small convenience library for fetching files securely
-dev-python/stack_data 0.1.3-r1: Extract data from Python tracebacks for informative displays
+dev-python/stack_data 0.1.3-r1 0.1.4: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20200531-r2: Suite of tools for PDF files manipulation written in Python
 dev-python/starlette 0.17.1 0.18.0: The little ASGI framework that shines
 dev-python/statsd 3.3.0: A simple statsd client
@@ -11364,7 +11363,7 @@ dev-vcs/fossil 2.16-r1: Simple, high-reliability, source control management, and
 dev-vcs/git 2.32.0-r1 2.33.1 2.34.1 2.34.1-r1 2.35.0_rc2 9999 9999-r1 9999-r2 9999-r3: stupid content tracker: distributed VCS designed for speed and efficiency
 dev-vcs/git-annex 8.20200810: manage files with git, without checking their contents into git
 dev-vcs/git-big-picture 1.0.0 1.1.1 1.1.1-r1: Visualization tool for Git repositories
-dev-vcs/git-cola 3.8 3.9 3.10.1 3.11.0: The highly caffeinated git GUI
+dev-vcs/git-cola 3.10.1 3.11.0: The highly caffeinated git GUI
 dev-vcs/git-crypt 0.6.0: transparent file encryption in git
 dev-vcs/git-extras 6.3.0: Git utilities -- repo summary, repl, changelog population, author commit percentages and more
 dev-vcs/git-filter-repo 2.33.0 2.34.0: Quickly rewrite git repository history (filter-branch replacement)
