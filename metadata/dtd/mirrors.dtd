@@ -1,27 +1,21 @@
-<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/dtd/mirrors.dtd,v 1.3 2009/12/03 09:43:39 robbat2 Exp $ -->
 <!-- This file is used for keeping the new mirrors.xml file -->
 
 <!--
   element: mirrors
-  description: A set of mirrorgroups followed by a list of countries with their code
+  description: A set of mirrorgroups
   example: <mirrors>
              <mirrorgroup country="US" region="North America">
                ...
              </mirrorgroup>
              ...
-             <countries>
-               <country code="CA">Canada</country>
-               ...
-             </countries>
            </mirrors>
 -->
 
-<!ELEMENT mirrors (mirrorgroup*, countries)>
+<!ELEMENT mirrors (mirrorgroup*)>
 
 <!--
   element: mirrorgroup
   description: Group mirrors by region and country.
-               The country code must exist in //countries/country
   example: <mirrorgroup region="South America" country="BZ">
              <mirror>
                ...
@@ -32,7 +26,8 @@
 
 <!ELEMENT mirrorgroup (mirror*)>
 <!ATTLIST mirrorgroup region CDATA #REQUIRED
-                      country IDREF #REQUIRED>
+                      country CDATA #REQUIRED
+                      countryname CDATA #IMPLIED>
 <!--
   element: mirror
   description: One per mirror; name the mirror and provide one or more uris
@@ -70,20 +65,3 @@
               ipv6 (Y|y|N|n) "n"
               partial (Y|y|N|n) "n"
               protocol (http|ftp|rsync) "http">
-
-<!--
-  element: countries
-  description: A list of countries with their code and name
-  example: <countries>
-             <country code="CA">Canada</country>
-           <countries>
--->
-<!ELEMENT countries (country*)>
-
-<!--
-  element: country
-  description: A country with its code
-  example: <country code="CA">Canada</country>
--->
-<!ELEMENT country (#PCDATA)>
-<!ATTLIST country code ID #REQUIRED>
