@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install test unpack
+DEPEND=|| ( app-arch/plzip app-arch/pdlzip app-arch/lzip )
+DESCRIPTION=Copy data from one file or block device to another with read-error recovery
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/ddrescue/ddrescue.html
+INHERIT=toolchain-funcs flag-o-matic unpacker
+IUSE=static
+KEYWORDS=~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux
+LICENSE=GPL-2+
+SLOT=0
+SRC_URI=mirror://gnu/ddrescue/ddrescue-1.26.tar.lz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	unpacker	03b2fab39d555f46843c92f44a40a721
+_md5_=ab174c612567921b2f949130d69503be
