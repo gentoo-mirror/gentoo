@@ -1,0 +1,15 @@
+BDEPEND=doc? ( virtual/latex-base )
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=dev-libs/gmp:0=[cxx(+)] sci-libs/cddlib:0=
+DESCRIPTION=Compute Groebner fans and tropical varieties
+EAPI=8
+HOMEPAGE=https://users-math.au.dk/~jensen/software/gfan/gfan.html
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~arm ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=dev-libs/gmp:0=[cxx(+)] sci-libs/cddlib:0=
+SLOT=0
+SRC_URI=https://users-math.au.dk/~jensen/software/gfan/gfan0.6.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=319a12e21580e61f2b1d09e7c9d28bf7
