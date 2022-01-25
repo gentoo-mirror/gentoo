@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/xmrig/xmrig/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="Apache-2.0 GPL-3+ MIT"
@@ -22,7 +22,7 @@ IUSE="cpu_flags_x86_sse4_1 donate hwloc opencl +ssl"
 
 DEPEND="
 	dev-libs/libuv:=
-	hwloc? ( sys-apps/hwloc:= )
+	hwloc? ( >=sys-apps/hwloc-2.5.0:= )
 	opencl? ( virtual/opencl )
 	ssl? ( dev-libs/openssl:= )
 "
