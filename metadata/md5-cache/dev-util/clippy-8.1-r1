@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/flex sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare setup
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) virtual/libelf:=
+DESCRIPTION=Standalone clippy tool built from FRR sources
+EAPI=8
+HOMEPAGE=https://frrouting.org/
+INHERIT=autotools python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) virtual/libelf:=
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/FRRouting/frr/archive/frr-8.1.tar.gz -> clippy-8.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	25287947a5a70b86268775aaf87e3467	python-single-r1	9783802d3840cbbd78c02b313df760cc
+_md5_=b3ea42aea33f9994b31215690d0dfc48
