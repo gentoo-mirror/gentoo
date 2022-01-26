@@ -10,7 +10,7 @@ ETYPE="sources"
 K_EXP_GENPATCHES_NOUSE="1"
 
 # Just get basic genpatches, -pf patch set already includes vanilla-linux updates
-K_GENPATCHES_VER="2"
+K_GENPATCHES_VER="1"
 
 # -pf already sets EXTRAVERSION to kernel Makefile
 K_NOSETEXTRAVERSION="1"
@@ -39,16 +39,16 @@ SRC_URI="${KERNEL_URI}
 	https://github.com/pfactum/pf-kernel/compare/v${SHPV}...v${SHPV}-pf${PV/*_p/}.diff -> ${P}.patch
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz
-	https://gitlab.com/alfredchen/projectc/-/raw/master/${SHPV}/prjc_v${SHPV}-r${PRJC_R}.patch
-	https://dev.gentoo.org/~mpagano/genpatches/trunk/${SHPV}/5021_BMQ-and-PDS-gentoo-defaults.patch -> 5021_BMQ-and-PDS-gentoo-defaults-${SHPV}.patch"
+	https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.16/sched/0001-prjc.patch -> prjc-v${SHPV}-1uo.patch
+	https://dev.gentoo.org/~mpagano/genpatches/trunk/5.15/5021_BMQ-and-PDS-gentoo-defaults.patch -> 5021_BMQ-and-PDS-gentoo-defaults-5.15.patch"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 S="${WORKDIR}/linux-${PVR}-pf"
 
 PATCHES=( "${DISTDIR}/${P}.patch"
-	"${DISTDIR}/prjc_v${SHPV}-r${PRJC_R}.patch"
-	"${DISTDIR}/5021_BMQ-and-PDS-gentoo-defaults-${SHPV}.patch" )
+	"${DISTDIR}/prjc-v${SHPV}-1uo.patch"
+	"${DISTDIR}/5021_BMQ-and-PDS-gentoo-defaults-5.15.patch" )
 
 K_EXTRAEINFO="For more info on pf-sources and details on how to report problems,
 	see: ${HOMEPAGE}."
