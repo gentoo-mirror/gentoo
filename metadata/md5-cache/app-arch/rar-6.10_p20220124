@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install unpack
+DEPEND=all_sfx? ( app-arch/unrar )
+DESCRIPTION=RAR compressor/uncompressor
+EAPI=7
+HOMEPAGE=https://rarlab.com/
+IUSE=all_sfx
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=RAR BSD BSD-2
+RDEPEND=sys-libs/glibc
+RESTRICT=mirror bindist
+SLOT=0
+SRC_URI=x86? ( https://mirror.whissi.de/distfiles/rar/rarlinux-x32-6.10_p20220124.tar.gz ) amd64? ( https://mirror.whissi.de/distfiles/rar/rarlinux-x64-6.10_p20220124.tar.gz ) all_sfx? ( https://mirror.whissi.de/distfiles/rar/rarlinux-x32-6.10_p20220124.tar.gz https://mirror.whissi.de/distfiles/rar/rarlinux-x64-6.10_p20220124.tar.gz https://mirror.whissi.de/distfiles/rar/winrar-x64-6.10_p20220124.exe )
+_md5_=18ee330a5cc50c729438dfb7ffc87e13
