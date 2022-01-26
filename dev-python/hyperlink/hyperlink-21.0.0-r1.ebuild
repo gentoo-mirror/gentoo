@@ -1,9 +1,11 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{8..10} )
+
 inherit distutils-r1
 
 DESCRIPTION="A featureful, correct URL for Python"
@@ -12,14 +14,14 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 
 RDEPEND="dev-python/idna[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
 
-src_test() {
+python_test() {
 	# suppresses hypothesis health checks
 	local -x CI=1
-	distutils-r1_src_test
+	epytest
 }
