@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://github.com/pypa/setuptools https://pypi.org/project/setuptools/
 INHERIT=distutils-r1 multiprocessing
 IUSE=test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=~amd64 ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
 PDEPEND=>=dev-python/certifi-2016.9.26[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools_scm[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 RDEPEND=dev-python/appdirs[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/more-itertools[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/ordered-set[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/packaging[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0=[xml(+)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[xml(+)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml(+)] )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/s/setuptools/setuptools-60.5.0.tar.gz https://dev.gentoo.org/~floppym/python/python-gentoo-patches-3.10.0_p1.tar.xz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	25287947a5a70b86268775aaf87e3467	python-r1	4c008ab1e6c02cbead059dfe8b864c26	distutils-r1	94da33c8715be375258447cf8042f827
-_md5_=246d3f5823505d2e58cc1a7837a704bc
+_md5_=88e14cdaf505db17c89a65d03b291d2d
