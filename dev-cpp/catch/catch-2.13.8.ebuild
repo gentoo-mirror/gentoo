@@ -1,7 +1,7 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -13,9 +13,9 @@ if [[ ${PV} == *9999 ]]; then
 else
 	MY_P=${PN^}2-${PV}
 	SRC_URI="https://github.com/catchorg/Catch2/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
-
 	S="${WORKDIR}/${MY_P}"
+
+	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
 fi
 
 DESCRIPTION="Modern C++ header-only framework for unit-tests"
@@ -38,7 +38,7 @@ src_configure() {
 		-DBUILD_TESTING=$(usex test)
 	)
 	use test &&
-		mycmakeargs+=(-DPYTHON_EXECUTABLE="${PYTHON}")
+		mycmakeargs+=( -DPYTHON_EXECUTABLE="${PYTHON}" )
 
 	cmake_src_configure
 }
