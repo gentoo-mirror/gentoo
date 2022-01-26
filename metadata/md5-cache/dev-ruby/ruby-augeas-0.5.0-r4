@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://augeas.net/
 INHERIT=multilib ruby-fakegem
 IUSE=ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 doc test test
-KEYWORDS=amd64 ~arm ~hppa ppc ~ppc64 ~sparc x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ppc ~ppc64 ~sparc x86
 LICENSE=LGPL-2.1
 RDEPEND=>=app-admin/augeas-1.1.0 ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=http://download.augeas.net/ruby/ruby-augeas-0.5.0.gem
 _eclasses_=multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	05a317c9b860e5661cc9baf18c442e1c	ruby-fakegem	53b774322e7124b47b10a03fa0e089eb
-_md5_=c4a39d675528f4f0453be66491306a94
+_md5_=6c56d22f16d34218ef7ec450a37739b7
