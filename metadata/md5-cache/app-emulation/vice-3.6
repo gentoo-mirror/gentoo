@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://vice-emu.sourceforge.io/
 INHERIT=multibuild toolchain-funcs xdg
 IUSE=alsa cpuhistory debug doc ethernet ffmpeg flac gif +gtk headless jpeg lame mpg123 ogg openmp oss parport pci png portaudio pulseaudio sdl zlib
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2+
 RDEPEND=virtual/libintl alsa? ( media-libs/alsa-lib ) ethernet? ( net-libs/libpcap sys-libs/libcap ) ffmpeg? ( media-video/ffmpeg:= ) flac? ( media-libs/flac ) gif? ( media-libs/giflib:= ) gtk? ( dev-libs/atk dev-libs/glib:2 media-libs/fontconfig:1.0 media-libs/glew:0= sys-libs/readline:= virtual/opengl x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/pango ) jpeg? ( virtual/jpeg ) lame? ( media-sound/lame ) mpg123? ( media-sound/mpg123 ) ogg? ( media-libs/libogg media-libs/libvorbis ) parport? ( sys-libs/libieee1284 ) pci? ( sys-apps/pciutils ) png? ( media-libs/libpng:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( media-libs/libsdl2[video] media-libs/sdl2-image sys-libs/readline:= ) zlib? ( sys-libs/zlib:= )
 REQUIRED_USE=|| ( gtk headless sdl ) gtk? ( zlib )
 SLOT=0
 SRC_URI=mirror://sourceforge/vice-emu/releases/vice-3.6.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=e386cb01e51a9e61aadc179c05a194b8
+_md5_=e213f5dacc7b8d5ac947a12525f53d2c
