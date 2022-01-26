@@ -1,0 +1,16 @@
+BDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( >=dev-python/fixtures-3.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testscenarios-0.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testtools-2.3.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/beautifulsoup4-4.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pylint-1.9.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/toml[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) test? ( >=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/GitPython-1.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pyyaml-5.3.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/unittest-or-fail[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A security linter from OpenStack Security
+EAPI=8
+HOMEPAGE=https://github.com/PyCQA/bandit
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64 ~arm ~arm64 ~s390 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/GitPython-1.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pyyaml-5.3.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/b/bandit/bandit-1.7.2.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	25287947a5a70b86268775aaf87e3467	python-r1	4c008ab1e6c02cbead059dfe8b864c26	distutils-r1	94da33c8715be375258447cf8042f827
+_md5_=7b8383e9c063528492b890083d29d622
