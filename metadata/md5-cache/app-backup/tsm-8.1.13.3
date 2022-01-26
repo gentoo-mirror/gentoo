@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.ibm.com/us-en/marketplace/data-protection-and-recovery
 INHERIT=readme.gentoo-r1 rpm systemd pax-utils
 IUSE=acl java +tsm-cit +tsm-hw
-KEYWORDS=-* ~amd64
+KEYWORDS=-* amd64
 LICENSE=Apache-1.1 Apache-2.0 JDOM BSD-2 CC-PD Boost-1.0 MIT CPL-1.0 HPND Exolab dom4j EPL-1.0 FTL icu unicode IBM Info-ZIP LGPL-2 LGPL-2.1 openafs-krb5-a ZLIB MPL-1.0 MPL-1.1 NPL-1.1 openssl OPENLDAP RSA public-domain W3C || ( BSD GPL-2+ ) gSOAP libpng tsm
 RDEPEND=acct-group/tsm dev-libs/expat dev-libs/libxml2 sys-fs/fuse:0 acl? ( sys-apps/acl ) java? ( >=virtual/jre-1.7 ) || ( sys-libs/libxcrypt[compat] sys-libs/glibc[crypt(+)] )
 RESTRICT=strip
 SLOT=0
 SRC_URI=ftp://ftp.software.ibm.com/storage/tivoli-storage-management/patches/client/v8r1/Linux/LinuxX86/BA/v8113/8.1.13.3-TIV-TSMBAC-LinuxX86.tar
 _eclasses_=readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1	pax-utils	fce6ad998516159787b92e8043167889
-_md5_=fe0b0e79957972ab774b3d69f3ffddd0
+_md5_=172551301d9cb0a32f1e11d520c2f279
