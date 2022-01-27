@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ RDEPEND="
 	app-crypt/libsecret
 	dev-libs/nss
 	dev-libs/libbsd
-	|| ( dev-libs/libffi-compat:7 dev-libs/libffi:0/7 )
+	dev-libs/libffi:0/8
 	dev-libs/libpcre
 	media-libs/alsa-lib
 	media-libs/openal
@@ -32,7 +32,7 @@ RDEPEND="
 	net-misc/curl[adns]
 	net-print/cups
 	sys-apps/dbus
-	virtual/jre:1.8
+	virtual/jre:*
 	virtual/opengl
 	x11-apps/xrandr
 	x11-libs/libXScrnSaver
@@ -50,7 +50,7 @@ RDEPEND="
 S="${WORKDIR}"
 
 QA_PREBUILT="
-	/usr/bin/minecraft-launcher
+	usr/bin/minecraft-launcher
 "
 
 src_install() {
