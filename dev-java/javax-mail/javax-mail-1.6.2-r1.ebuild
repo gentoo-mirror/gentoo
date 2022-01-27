@@ -20,15 +20,13 @@ LICENSE="|| ( CDDL GPL-2-with-classpath-exception )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
-# No clue how to deal with ${S}/exclude.xml
-# RESTRICT="test"
-
 # Common dependencies
 # POM: mail/pom.xml
 # javax.activation:activation:1.1 -> !!!groupId-not-found!!!
 
 CP_DEPEND="
 	dev-java/jakarta-activation-api:1
+	dev-java/jakarta-activation:2
 "
 
 DEPEND="${CP_DEPEND}
@@ -70,11 +68,7 @@ src_test() {
 		JAVA_TEST_RUN_ONLY="${JAVA_TEST_RUN_ONLY//\//.}"
 	popd
 
-	# With higher Java versions tests run forever.
-	local vm_version="$(java-config -g PROVIDES_VERSION)"
-	if [[ "${vm_version}" == "1.8" ]] ; then
-		java-pkg-simple_src_test
-	fi
+	java-pkg-simple_src_test
 }
 
 src_install() {

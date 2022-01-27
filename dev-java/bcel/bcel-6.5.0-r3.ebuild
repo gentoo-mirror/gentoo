@@ -35,7 +35,7 @@ DEPEND="
 		dev-java/commons-lang:3.6
 		dev-java/jna:4
 		dev-java/jmh-core:0
-		dev-java/oracle-javamail:0
+		dev-java/javax-mail:0
 	)
 "
 
@@ -49,7 +49,7 @@ S="${WORKDIR}/${P}-src"
 
 JAVA_SRC_DIR="src/main/java"
 
-JAVA_TEST_GENTOO_CLASSPATH="commons-collections-4,commons-io-1,commons-lang-3.6,jmh-core,jna-4,junit-4,oracle-javamail"
+JAVA_TEST_GENTOO_CLASSPATH="commons-collections-4,commons-io-1,commons-lang-3.6,jmh-core,jna-4,junit-4,javax-mail"
 JAVA_TEST_SRC_DIR="src/test/java"
 JAVA_TEST_RESOURCE_DIRS=(
 	"src/test/resources"
