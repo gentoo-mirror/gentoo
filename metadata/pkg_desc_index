@@ -1304,6 +1304,7 @@ app-containers/cadvisor 0.36.0: Analyzes resource usage and performance characte
 app-containers/conmon 2.0.30 2.0.31: An OCI container runtime monitor
 app-containers/containerd 1.4.11 1.4.12 1.5.9: A daemon to control runC
 app-containers/containers-storage 1.37.0 1.38.0: containers/storage library
+app-containers/cosign 1.5.0: container signing utility
 app-containers/cri-o 1.21.0 1.21.4 1.22.1 1.23.0: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.18.0 1.21.0 1.22.0 1.23.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 0.19.1-r1 1.2 1.3: A fast and low-memory footprint OCI Container Runtime fully written in C
@@ -3399,7 +3400,7 @@ app-text/q-text-as-data 2.0.10: A CLI tool that allows direct execution of SQL-l
 app-text/qpdf 10.3.2 10.4.0 10.5.0: Command-line tool for structural, content-preserving transformation of PDF files
 app-text/qpdfview 0.4.18 0.4.18_p1 0.4.18_p20211227: A tabbed document viewer
 app-text/rarian 0.8.1-r3: A documentation metadata library
-app-text/recode 3.7.9 3.7.10: Convert files between various character sets
+app-text/recode 3.7.9 3.7.11: Convert files between various character sets
 app-text/reed 5.4-r1: This is a text pager (text file viewer), used to display etexts
 app-text/refbase 0.9.6_p20180223: Web-based solution for managing scientific literature, references and citations
 app-text/restview 2.9.2: reStructuredText viewer
@@ -8241,7 +8242,7 @@ dev-python/argon2-cffi 21.3.0-r1 21.3.0-r2: CFFI bindings to the Argon2 password
 dev-python/argon2-cffi-bindings 21.2.0: Low-level CFFI bindings for the Argon2 password hashing library
 dev-python/argparse-manpage 1.5-r1 2 2.1: Automatically build man-pages for your Python project
 dev-python/arpeggio 1.10.2: Parser interpreter based on PEG grammars
-dev-python/arrow 1.2.1-r1: Better dates and times for Python
+dev-python/arrow 1.2.1-r1 1.2.2: Better dates and times for Python
 dev-python/asgiref 3.4.1-r1 3.5.0: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.4.0: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.25 0.9.26: Evaluator of Python expression using ast module
@@ -8638,7 +8639,7 @@ dev-python/hyperframe 5.2.0 6.0.1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.32.1 6.33.0 6.34.2 6.35.1 6.36.0: A library for property based testing
 dev-python/icalendar 4.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5: File identification library for Python
+dev-python/identify 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6: File identification library for Python
 dev-python/idna 3.3: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.1.7: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
@@ -8994,7 +8995,7 @@ dev-python/podman-py 3.2.1: A library to interact with a Podman server
 dev-python/poetry-core 1.0.7: Poetry PEP 517 Build Backend
 dev-python/polib 1.1.1: A library to manipulate gettext files (.po and .mo files)
 dev-python/polygon 3.0.7: Python package to handle polygonal shapes in 2D
-dev-python/pony 0.7.14: Python ORM with beautiful query syntax
+dev-python/pony 0.7.14 0.7.15: Python ORM with beautiful query syntax
 dev-python/pooch 1.5.2 1.6.0: Manage your Python library's sample data files
 dev-python/portend 3.0.0: TCP port monitoring utilities
 dev-python/poyo 0.5.0: A lightweight YAML Parser for Python
@@ -9008,7 +9009,7 @@ dev-python/progress 1.6: Easy to use progress bars
 dev-python/progressbar 2.5: Text progressbar library for python
 dev-python/progressbar2 3.55.0 4.0.0: Text progressbar library for python
 dev-python/prometheus_client 0.12.0 0.13.0: Python client for the Prometheus monitoring system
-dev-python/prompt_toolkit 3.0.24: Building powerful interactive command lines in Python
+dev-python/prompt_toolkit 3.0.24 3.0.26: Building powerful interactive command lines in Python
 dev-python/proto-plus 1.19.2 1.19.7 1.19.8 1.19.9: Beautiful, Pythonic protocol buffers
 dev-python/protobuf-python 3.16.0 3.17.0 3.17.1 3.17.2 3.17.3 3.19.1 9999: Google's Protocol Buffers - Python bindings
 dev-python/prov 2.0.0: W3C provenance data dodel library
@@ -9356,7 +9357,7 @@ dev-python/readme_renderer 32.0: a library for rendering "readme" descriptions f
 dev-python/readthedocs-sphinx-ext 2.1.4: Code specific for Read the Docs and Sphinx
 dev-python/rebulk 3.1.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1: Python docutils-compatibility bridge to CommonMark
-dev-python/redis-py 4.1.0 4.1.1: Python client for Redis key-value store
+dev-python/redis-py 4.1.0 4.1.1 4.1.2: Python client for Redis key-value store
 dev-python/reedsolomon 1.5.4: Pure-Python Reed Solomon encoder/decoder
 dev-python/reflink 0.2.1-r1: Python wrapper around the reflink system calls
 dev-python/regex 2021.11.10 2022.1.18: Alternative regular expression module to replace re
@@ -9559,7 +9560,7 @@ dev-python/tempita 0.5.3-r3: A very small text templating language
 dev-python/tempora 4.1.2 5.0.0: Objects and routines pertaining to date and time
 dev-python/tenacity 8.0.1: General-purpose retrying library
 dev-python/termcolor 1.1.0-r2: ANSII Color formatting for output in terminal
-dev-python/terminado 0.12.1 0.13.0: Terminals served to term.js using Tornado websockets
+dev-python/terminado 0.12.1 0.13.0 0.13.1: Terminals served to term.js using Tornado websockets
 dev-python/terminaltables 3.1.10 3.1.10-r1 9999: Generate simple tables in terminals from a nested list of strings
 dev-python/test_server 0.0.31: Server to test HTTP clients
 dev-python/testfixtures 6.18.3: A collection of helpers and mock objects for unit tests and doc tests
@@ -13437,7 +13438,7 @@ media-libs/glm 0.9.9.8-r1: OpenGL Mathematics
 media-libs/glpng 1.46-r1: OpenGL PNG image library
 media-libs/glu 9.0.2 9999: The OpenGL Utility Library
 media-libs/glyr 1.0.10: Music related metadata searchengine, both with commandline interface and C API
-media-libs/gmmlib 21.3.3 21.3.5 22.0.0 22.0.1 9999: Intel Graphics Memory Management Library
+media-libs/gmmlib 21.3.3 21.3.5 22.0.0 22.0.1 22.0.2 9999: Intel Graphics Memory Management Library
 media-libs/gnonlin 1.4.0-r1: Set of GStreamer elements to ease the creation of non-linear multimedia editors
 media-libs/graphene 1.10.6 1.10.6-r1: A thin layer of types for graphic libraries
 media-libs/grilo 0.3.14: A framework for easy media discovery and browsing
@@ -13631,7 +13632,7 @@ media-libs/libvisio 0.1.7 9999: Library parsing the file format of MS Visio docu
 media-libs/libvisual 0.4.0-r3: Abstraction library between applications and audio visualisation plugins
 media-libs/libvorbis 1.3.7: The Ogg Vorbis sound file format library
 media-libs/libvpx 1.7.0-r1 1.9.0 1.10.0 1.11.0: WebM VP8 and VP9 Codec SDK
-media-libs/libwebp 1.1.0 1.2.0 1.2.1: A lossy image compression format
+media-libs/libwebp 1.1.0 1.2.0 1.2.1 1.2.2: A lossy image compression format
 media-libs/libwmf 0.2.8.4-r9: A library for reading vector images in Microsoft's Windows Metafile Format (WMF)
 media-libs/libxmi 1.3-r1: C/C++ function library for rasterizing 2-D vector graphics
 media-libs/libxspf 1.2.1: Playlist handling library
@@ -14136,7 +14137,7 @@ media-sound/din 52: a software musical instrument and audio synthesizer
 media-sound/dir2ogg 0.13-r1: Converts mp3, m4a, wma, and wav files to Ogg Vorbis format
 media-sound/drumstick 2.5.0: Qt/C++ wrapper for ALSA sequencer
 media-sound/dvda-author 10.06-r1: Author a DVD-Audio DVD
-media-sound/easyeffects 6.1.5 6.2.1: Limiter, auto volume and many other plugins for PipeWire applications
+media-sound/easyeffects 6.1.5 6.2.1 6.2.2: Limiter, auto volume and many other plugins for PipeWire applications
 media-sound/easytag 2.4.3-r2: GTK+ utility for editing MP2, MP3, MP4, FLAC, Ogg and other media tags
 media-sound/ecasound 2.9.3: a package for multitrack audio processing
 media-sound/elisa 21.08.3 21.12.1: Simple music player by KDE
@@ -14531,7 +14532,7 @@ media-video/oxine 0.7.1-r5: OSD frontend for Xine
 media-video/parole 4.16.0: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1: Simple animated Gif screen recorder
 media-video/pgmfindclip 1.13: automatically find a clipping border for a sequence of pgm images
-media-video/pipewire 0.3.30-r2 0.3.36 0.3.42-r1 0.3.43-r3 9999: Multimedia processing graphs
+media-video/pipewire 0.3.30-r2 0.3.36 0.3.42-r1 0.3.43-r3 0.3.44 9999: Multimedia processing graphs
 media-video/pitivi 0.999-r5: A non-linear video editor using the GStreamer multimedia framework
 media-video/popcorntime-bin 0.4.6: BitTorrent client that includes an integrated media player
 media-video/projectx 0.91.0.10-r3: Converts, splits and demuxes DVB and other MPEG recordings
@@ -16124,7 +16125,7 @@ sci-biology/STAR 2.5.3a: STAR aligner: align RNA-seq reads to reference genome u
 sci-biology/aaindex 9.1-r1: Amino acid indices and similarity matrices
 sci-biology/abyss 2.3.4: Assembly By Short Sequences - a de novo, parallel, paired-end sequence assembler
 sci-biology/amap 2.2-r4: Protein multiple-alignment-based sequence annealing
-sci-biology/augustus 2.5.5: Eukaryotic gene predictor
+sci-biology/augustus 2.5.5 3.4.0: Eukaryotic gene predictor
 sci-biology/bamtools 2.5.2 9999: A programmer's API and an end-user's toolkit for handling BAM files
 sci-biology/bcftools 1.13: Utilities for variant calling and manipulating VCF and BCF files
 sci-biology/bedtools 2.29.2 2.30.0: Tools for manipulation and analysis of BED, GFF/GTF, VCF, SAM/BAM file formats
@@ -16339,7 +16340,7 @@ sci-electronics/geda 1.9.2-r1: GPL Electronic Design Automation (gEDA):gaf core 
 sci-electronics/geda-suite 20171223-r1: Metapackage for all components for a full-featured gEDA/gaf system
 sci-electronics/gerbv 2.7.0: A RS-274X (Gerber) and NC drill (Excellon) file viewer
 sci-electronics/gnetman 0.0.1_pre20110124: A GNU Netlist Manipulation Library
-sci-electronics/gnucap 0.35.20091207-r1: GNUCap is the GNU Circuit Analysis Package
+sci-electronics/gnucap 0.35.20091207-r1 20210107: GNUCap is the GNU Circuit Analysis Package
 sci-electronics/gsmc 1.1-r2: A GTK program for doing Smith Chart calculations
 sci-electronics/gspeakers 0.11-r2: GTK based loudspeaker enclosure and crossovernetwork designer
 sci-electronics/gspiceui 1.1.0: GUI frontend for Ngspice and Gnucap
