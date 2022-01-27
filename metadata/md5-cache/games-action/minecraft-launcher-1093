@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=An open-world game whose gameplay revolves around breaking and placing blocks
+EAPI=8
+HOMEPAGE=https://www.minecraft.net/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop xdg
+KEYWORDS=-* ~amd64
+LICENSE=Mojang
+RDEPEND=>=x11-libs/gtk+-2.24.32-r1[X(+)] app-crypt/libsecret dev-libs/nss dev-libs/libbsd dev-libs/libffi:0/8 dev-libs/libpcre media-libs/alsa-lib media-libs/openal net-libs/gnutls[idn] net-misc/curl[adns] net-print/cups sys-apps/dbus virtual/jre:* virtual/opengl x11-apps/xrandr x11-libs/libXScrnSaver x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrender x11-libs/libXtst x11-libs/xcb-util
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://launcher.mojang.com/v1/objects/ce9e6169550628003e22de8086e9fe1186c2285e/minecraft-launcher -> minecraft-launcher-1093 https://launcher.mojang.com/download/minecraft-launcher.svg
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=3ead2055b079bb4a13dfc161ed3c5efb
