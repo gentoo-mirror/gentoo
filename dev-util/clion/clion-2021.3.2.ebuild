@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -30,6 +30,7 @@ RDEPEND="
 	dev-libs/nspr
 	dev-libs/nss
 	dev-util/cmake
+	dev-util/ninja
 	media-libs/alsa-lib
 	media-libs/freetype:2
 	media-libs/mesa
@@ -58,14 +59,15 @@ src_prepare() {
 	default
 
 	local remove_me=(
-		bin/gdb/linux
-		bin/lldb/linux
 		bin/cmake
+		bin/lldb/linux
+		bin/gdb/linux
 		license/CMake*
 		lib/pty4j-native/linux/aarch64
 		lib/pty4j-native/linux/arm
 		lib/pty4j-native/linux/mips64el
 		lib/pty4j-native/linux/ppc64le
+		plugins/remote-dev-server/selfcontained
 	)
 
 	use amd64 || remove_me+=( lib/pty4j-native/linux/x86_64)
@@ -86,7 +88,7 @@ src_install() {
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}"/bin/{clion.sh,fsnotifier,clang/linux/{clangd,clang-tidy,clazy-standalone}}
+	fperms 755 "${dir}"/bin/{clion.sh,fsnotifier,inspect.sh,ltedit.sh,repair,clang/linux/{clangd,clang-tidy,clazy-standalone,llvm-symbolizer},ninja/linux/ninja}
 
 	if [[ -d jbr ]]; then
 		fperms 755 "${dir}"/jbr/bin/{jaotc,java,javac,jdb,jjs,jrunscript,keytool,pack200,rmid,rmiregistry,serialver,unpack200}
