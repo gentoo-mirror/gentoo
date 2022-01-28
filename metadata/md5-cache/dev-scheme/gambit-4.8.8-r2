@@ -1,14 +1,15 @@
+BDEPEND=app-text/ghostscript-gpl emacs? ( >=app-editors/emacs-23.1:* )
 DEFINED_PHASES=compile configure install postinst postrm
-DEPEND=ssl? ( dev-libs/openssl:0= ) emacs? ( >=app-editors/emacs-23.1:* )
+DEPEND=ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Gambit-C is a native Scheme to C compiler and interpreter
-EAPI=6
+EAPI=8
 HOMEPAGE=http://www.iro.umontreal.ca/~gambit/
 INHERIT=elisp-common
 IUSE=emacs ssl static
-KEYWORDS=~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Apache-2.0 LGPL-2.1 )
 RDEPEND=ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=http://www-labs.iro.umontreal.ca/~gambit/download/gambit/v4.8/source/gambit-v4_8_8.tgz
-_eclasses_=eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	elisp-common	cf4fd1b0835b9f3e638724840468064a
-_md5_=48772434a9fb293e6aeb5af59c1cedd4
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a
+_md5_=03b1e7deebb9c64232f7a3f4ce6ecef5
