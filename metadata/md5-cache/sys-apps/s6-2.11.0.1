@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure prepare
+DEPEND=execline? ( >=dev-lang/execline-2.8.2.0:=[static-libs?] ) >=dev-libs/skalibs-2.11.1.0:=[static-libs?]
+DESCRIPTION=skarnet.org's small and secure supervision software suite
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6/
+INHERIT=toolchain-funcs
+IUSE=+execline static static-libs
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=ISC
+RDEPEND=execline? ( >=dev-lang/execline-2.8.2.0:=[static-libs?] ) >=dev-libs/skalibs-2.11.1.0:=[static-libs?]
+REQUIRED_USE=static? ( static-libs )
+SLOT=0/2.11
+SRC_URI=https://www.skarnet.org/software/s6/s6-2.11.0.1.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=a12fadaa0d105d062763ce672242467e
