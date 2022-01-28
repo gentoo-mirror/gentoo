@@ -1,25 +1,26 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake flag-o-matic xdg
 
 DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition"
 HOMEPAGE="https://keepassxc.org"
 
-if [[ "${PV}" != 9999 ]] ; then
+if [[ "${PV}" != *9999 ]] ; then
 	if [[ "${PV}" == *_beta* ]] ; then
 		SRC_URI="https://github.com/keepassxreboot/keepassxc/archive/${PV/_/-}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${P/_/-}"
 	else
 		#SRC_URI="https://github.com/keepassxreboot/keepassxc/archive/${PV}.tar.gz -> ${P}.tar.gz"
 		SRC_URI="https://github.com/keepassxreboot/keepassxc/releases/download/${PV}/${P}-src.tar.xz"
-		KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
+		KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 	fi
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/keepassxreboot/${PN}"
+	[[ "${PV}" != 9999 ]] && EGIT_BRANCH="master"
 fi
 
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
@@ -48,7 +49,7 @@ RDEPEND="
 		x11-libs/libXi
 		x11-libs/libXtst
 	)
-	keeshare? ( dev-libs/quazip:0= )
+	keeshare? ( sys-libs/zlib:=[minizip] )
 	yubikey? ( sys-auth/ykpers )
 "
 
@@ -63,7 +64,7 @@ BDEPEND="
 "
 
 src_prepare() {
-	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != 9999 ]] && [[ ! -f .version ]] ; then
+	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != *9999 ]] && [[ ! -f .version ]] ; then
 		printf '%s' "${PV}" > .version || die
 	fi
 
@@ -83,7 +84,6 @@ src_configure() {
 		-DWITH_XC_BROWSER="$(usex browser)"
 		-DWITH_XC_FDOSECRETS=ON
 		-DWITH_XC_KEESHARE="$(usex keeshare)"
-		-DWITH_XC_KEESHARE_SECURE="$(usex keeshare)"
 		-DWITH_XC_NETWORKING="$(usex network)"
 		-DWITH_XC_SSHAGENT=ON
 		-DWITH_XC_UPDATECHECK=OFF
@@ -91,6 +91,9 @@ src_configure() {
 	)
 	if [[ "${PV}" == *_beta* ]] ; then
 		mycmakeargs+=( -DOVERRIDE_VERSION="${PV/_/-}" )
+	fi
+	if [[ "${PV}" != 9999 ]] ; then
+		mycmakeargs+=( -DWITH_XC_KEESHARE_SECURE="$(usex keeshare)" )
 	fi
 	cmake_src_configure
 }
