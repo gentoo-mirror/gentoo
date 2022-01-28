@@ -5,21 +5,25 @@ EAPI=8
 
 inherit autotools systemd
 
-# version voodoo needed only for non-release tarballs: 4.0.0_rc1 => 4.0.0rc1
-MY_PV="${PV/_beta/b}"
-MY_PV="${MY_PV/_rc/rc}"
-MY_P="${PN}-${MY_PV}"
-
 DESCRIPTION="An authoritative only, high performance, open source name server"
 HOMEPAGE="http://www.nlnetlabs.nl/projects/nsd"
-SRC_URI="http://www.nlnetlabs.nl/downloads/${PN}/${MY_P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
-[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="~amd64 ~x86"
-IUSE="bind8-stats dnstap ipv6 libevent minimal-responses mmap munin +nsec3 ratelimit root-server runtime-checks ssl systemd"
+if [[ "${PV}" == *9999 ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/NLnetLabs/nsd.git"
+else
+	# version voodoo needed only for non-release tarballs: 4.0.0_rc1 => 4.0.0rc1
+	MY_PV="${PV/_beta/b}"
+	MY_PV="${MY_PV/_rc/rc}"
+	MY_P="${PN}-${MY_PV}"
 
-S="${WORKDIR}/${MY_P}"
+	[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
+	KEYWORDS="~amd64 ~x86"
+	SRC_URI="http://www.nlnetlabs.nl/downloads/${PN}/${MY_P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
+fi
+IUSE="bind8-stats dnstap ipv6 libevent minimal-responses mmap munin +nsec3 ratelimit root-server runtime-checks ssl systemd"
 
 RDEPEND="
 	acct-group/nsd
@@ -30,9 +34,7 @@ RDEPEND="
 	)
 	libevent? ( dev-libs/libevent )
 	munin? ( net-analyzer/munin )
-	ssl? (
-		dev-libs/openssl:0=
-	)
+	ssl? ( dev-libs/openssl:0= )
 	systemd? ( sys-apps/systemd )
 "
 DEPEND="${RDEPEND}"
@@ -45,8 +47,6 @@ BDEPEND="
 PATCHES=(
 	# Fix the paths in the munin plugin to match our install
 	"${FILESDIR}"/nsd_munin_.patch
-
-	"${FILESDIR}/${P}-no_ssl.patch" #832213
 )
 
 src_prepare() {
