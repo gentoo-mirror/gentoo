@@ -1,6 +1,6 @@
 BDEPEND=ccache? ( dev-util/ccache ) doc? ( dev-ruby/asciidoctor ) dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=dev-libs/botan:2 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= sys-libs/zlib:= autotype? ( dev-qt/qtx11extras:5 x11-libs/libX11 x11-libs/libXtst ) keeshare? ( sys-libs/zlib:=[minizip] ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite ) dev-qt/linguist-tools:5 dev-qt/qttest:5
+DEPEND=app-crypt/argon2:= dev-libs/libgcrypt:= >=dev-libs/libsodium-1.0.12:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= sys-libs/zlib:= autotype? ( dev-qt/qtx11extras:5 x11-libs/libX11 x11-libs/libXi x11-libs/libXtst ) keeshare? ( sys-libs/zlib:=[minizip] ) yubikey? ( sys-auth/ykpers ) dev-qt/linguist-tools:5 dev-qt/qttest:5
 DESCRIPTION=KeePassXC - KeePass Cross-platform Community Edition
 EAPI=8
 HOMEPAGE=https://keepassxc.org
@@ -9,8 +9,8 @@ INHERIT=cmake flag-o-matic xdg git-r3
 IUSE=autotype browser ccache doc keeshare +network test yubikey
 LICENSE=LGPL-2.1 GPL-2 GPL-3
 PROPERTIES=live
-RDEPEND=dev-libs/botan:2 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= sys-libs/zlib:= autotype? ( dev-qt/qtx11extras:5 x11-libs/libX11 x11-libs/libXtst ) keeshare? ( sys-libs/zlib:=[minizip] ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite )
+RDEPEND=app-crypt/argon2:= dev-libs/libgcrypt:= >=dev-libs/libsodium-1.0.12:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= sys-libs/zlib:= autotype? ( dev-qt/qtx11extras:5 x11-libs/libX11 x11-libs/libXi x11-libs/libXtst ) keeshare? ( sys-libs/zlib:=[minizip] ) yubikey? ( sys-auth/ykpers )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=1a603f4f31de5d8fbe9a99ad07227236
+_md5_=a3477b3c5efad8b9ef955512141a8807
