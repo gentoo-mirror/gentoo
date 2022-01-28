@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/Date-Manip dev-perl/File-HomeDir dev-perl/Inline >=dev-perl/Mail-Mbox-MessageParser-1.40.01 dev-perl/TimeDate virtual/perl-Digest-MD5 test? ( dev-perl/Test-Compile dev-perl/Test-Pod dev-perl/Test-Pod-Coverage ) dev-lang/perl
+DESCRIPTION=Search normal or compressed mailbox using a regular expression or dates
+EAPI=8
+HOMEPAGE=https://github.com/coppit/grepmail
+INHERIT=perl-module
+IUSE=test test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-perl/Date-Manip dev-perl/File-HomeDir dev-perl/Inline >=dev-perl/Mail-Mbox-MessageParser-1.40.01 dev-perl/TimeDate virtual/perl-Digest-MD5 dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/D/DC/DCOPPIT/grepmail-5.3111.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=ac9b9baf08685724d1cd8ebd252ccbd8
