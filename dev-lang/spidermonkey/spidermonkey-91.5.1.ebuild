@@ -14,7 +14,7 @@ PYTHON_REQ_USE="ssl"
 
 WANT_AUTOCONF="2.1"
 
-inherit autotools check-reqs flag-o-matic llvm prefix python-any-r1 toolchain-funcs
+inherit autotools check-reqs flag-o-matic llvm multiprocessing prefix python-any-r1 toolchain-funcs
 
 MY_PN="mozjs"
 MY_PV="${PV/_pre*}" # Handle Gentoo pre-releases
@@ -219,6 +219,9 @@ src_prepare() {
 	eapply "${WORKDIR}"/spidermonkey-patches
 
 	default
+
+	# Make cargo respect MAKEOPTS
+	export CARGO_BUILD_JOBS="$(makeopts_jobs)"
 
 	# sed-in toolchain prefix
 	sed -i \
