@@ -42,7 +42,7 @@
 # relevant to the packages using distutils-r1.
 #
 # For more information, please see the Python Guide:
-# https://dev.gentoo.org/~mgorny/python-guide/
+# https://projects.gentoo.org/python/guide/
 
 case "${EAPI:-0}" in
 	[0-5])
@@ -862,13 +862,13 @@ _distutils-r1_backend_to_key() {
 
 	local backend=${1}
 	case ${backend} in
-		flit_core.buildapi)
+		flit_core.buildapi|flit.buildapi)
 			echo flit
 			;;
 		pdm.pep517.api)
 			echo pdm
 			;;
-		poetry.core.masonry.api)
+		poetry.core.masonry.api|poetry.masonry.api)
 			echo poetry
 			;;
 		setuptools.build_meta|setuptools.build_meta:__legacy__)
@@ -950,9 +950,30 @@ distutils-r1_python_compile() {
 				eerror "(backend: ${build_backend})"
 				die "DISTUTILS_USE_PEP517 value incorrect"
 			fi
+
+			# fix deprecated backends up
+			local new_backend=
+			case ${build_backend} in
+				flit.buildapi)
+					new_backend=flit_core.buildapi
+					;;
+				poetry.masonry.api)
+					new_backend=poetry.core.masonry.api
+					;;
+			esac
+
+			if [[ -n ${new_backend} ]]; then
+				if [[ ! ${_DISTUTILS_DEPRECATED_BACKEND_WARNED} ]]; then
+					eqawarn "${build_backend} backend is deprecated.  Please see:"
+					eqawarn "https://projects.gentoo.org/python/guide/distutils.html#deprecated-pep-517-backends"
+					eqawarn "The eclass will be using ${new_backend} instead."
+					_DISTUTILS_DEPRECATED_BACKEND_WARNED=1
+				fi
+				build_backend=${new_backend}
+			fi
 		fi
 
-		einfo "Building a wheel via ${build_backend}"
+		einfo "  Building the wheel via ${build_backend}"
 		"${EPYTHON}" -c "import ${build_backend%:*}; \
 			import os; \
 			${build_backend/:/.}.build_wheel(os.environ['WHEEL_BUILD_DIR'])" ||
@@ -964,6 +985,7 @@ distutils-r1_python_compile() {
 		fi
 
 		local root=${BUILD_DIR}/install
+		einfo "  Installing the wheel to ${root}"
 		# NB: --compile-bytecode does not produce the correct paths,
 		# and python_optimize doesn't handle being called outside D,
 		# so we just defer compiling until the final merge
@@ -982,14 +1004,30 @@ distutils-r1_python_compile() {
 			esetup.py clean -a
 		fi
 
+		# copy executables to python-exec directory
+		# we do it early so that we can alter bindir recklessly
+		local bindir=${root}${EPREFIX}/usr/bin
+		local rscriptdir=${root}$(python_get_scriptdir)
+		[[ -d ${rscriptdir} ]] &&
+			die "${rscriptdir} should not exist!"
+		if [[ -d ${bindir} ]]; then
+			mkdir -p "${rscriptdir}" || die
+			cp -a --reflink=auto "${bindir}"/. "${rscriptdir}"/ || die
+		fi
+
 		# enable venv magic inside the install tree
-		mkdir -p "${root}${EPREFIX}"/usr/bin || die
-		ln -s "${PYTHON}" "${root}${EPREFIX}/usr/bin/${EPYTHON}" || die
-		ln -s "${EPYTHON}" "${root}${EPREFIX}/usr/bin/python3" || die
-		ln -s "${EPYTHON}" "${root}${EPREFIX}/usr/bin/python" || die
-		cat > "${root}${EPREFIX}"/usr/pyvenv.cfg <<-EOF || die
+		mkdir -p "${bindir}" || die
+		ln -s "${PYTHON}" "${bindir}/${EPYTHON}" || die
+		ln -s "${EPYTHON}" "${bindir}/python3" || die
+		ln -s "${EPYTHON}" "${bindir}/python" || die
+		cat > "${bindir}"/pyvenv.cfg <<-EOF || die
 			include-system-site-packages = true
 		EOF
+
+		# we need to change shebangs to point to the venv-python
+		find "${bindir}" -type f -exec sed -i \
+			-e "1s@^#!\(${EPREFIX}/usr/bin/\(python\|pypy\)\)@#!${root}\1@" \
+			{} + || die
 	fi
 }
 
@@ -1105,16 +1143,9 @@ distutils-r1_python_install() {
 	local scriptdir=${EPREFIX}/usr/bin
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
 		local root=${BUILD_DIR}/install
-		local rscriptdir=${root}$(python_get_scriptdir)
-		[[ -d ${rscriptdir} ]] &&
-			die "${rscriptdir} should not exist!"
-		# remove venv magic
-		rm "${root}${EPREFIX}"/usr/{pyvenv.cfg,bin/{python,python3,${EPYTHON}}} || die
-		find "${root}${EPREFIX}"/usr/bin -empty -delete || die
-		if [[ ! ${DISTUTILS_SINGLE_IMPL} && -d ${root}${EPREFIX}/usr/bin ]]; then
-			mkdir -p "${rscriptdir%/*}" || die
-			mv "${root}${EPREFIX}/usr/bin" "${rscriptdir}" || die
-		fi
+		# remove the altered bindir, executables from the package
+		# are already in scriptdir
+		rm -r "${root}${scriptdir}" || die
 	else
 		local root=${D%/}/_${EPYTHON}
 		[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D%/}

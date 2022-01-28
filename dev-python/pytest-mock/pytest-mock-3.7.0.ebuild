@@ -15,17 +15,20 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 
-RDEPEND=">=dev-python/pytest-6[${PYTHON_USEDEP}]"
-BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
+RDEPEND="
+	>=dev-python/pytest-6[${PYTHON_USEDEP}]"
+BDEPEND="
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	test? (
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+	)"
 
 distutils_enable_tests pytest
 
-src_prepare() {
-	sed -e 's/runpytest_subprocess(/&"-p","no:xprocess",/' -i tests/test_pytest_mock.py || die
-	distutils-r1_src_prepare
-}
-
 python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	local -x PYTEST_PLUGINS=pytest_mock,pytest_asyncio.plugin
+
 	if has_version dev-python/mock; then
 		local EPYTEST_DESELECT=(
 			tests/test_pytest_mock.py::test_standalone_mock
