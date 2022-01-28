@@ -5,17 +5,22 @@ EAPI=8
 
 PYTHON_REQ_USE="sqlite"
 PYTHON_COMPAT=( python3_{8..10} )
-EGIT_REPO_URI="https://github.com/buildbot/${PN}.git"
-inherit readme.gentoo-r1 git-r3 systemd distutils-r1
+inherit readme.gentoo-r1 systemd distutils-r1
+
+MY_PV="${PV/_p/.post}"
+MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="BuildBot build automation system"
 HOMEPAGE="https://buildbot.net/
 	https://github.com/buildbot/buildbot
 	https://pypi.org/project/buildbot/"
-S="${S}/master"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~amd64-linux ~x86-linux"
+
 IUSE="crypt docker examples irc test"
 RESTRICT="!test? ( test )"
 
@@ -86,8 +91,7 @@ src_install() {
 	doman docs/buildbot.1
 
 	if use examples; then
-		insinto /usr/share/doc/${PF}
-		doins -r docs/examples
+		dodoc -r docs/examples
 	fi
 
 	newconfd "${FILESDIR}/buildmaster.confd" buildmaster
