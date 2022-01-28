@@ -1,13 +1,13 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit desktop python-r1 xdg
 
 # Hash used for this version
-GIT_PV="b80f3485b6ec324aec1dc20f28296a8891ad70dd"
+GIT_PV="483f4b3f2d9a125606d47597ae7eff3b38e5bf9d"
 
 DESCRIPTION="GTK image viewer for comic book archives"
 HOMEPAGE="https://github.com/multiSnow/mcomix3"
@@ -15,7 +15,7 @@ SRC_URI="https://github.com/multiSnow/mcomix3/archive/${GIT_PV}.tar.gz -> ${P}.t
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="${PYTHON_DEPS}"
@@ -56,9 +56,6 @@ src_install() {
 
 	insinto /usr/share/metainfo
 	doins mime/mcomix.appdata.xml
-
-	insinto /usr/share/mime/packages
-	doins mime/mcomix.xml
 
 	dodoc README.rst TODO
 }
