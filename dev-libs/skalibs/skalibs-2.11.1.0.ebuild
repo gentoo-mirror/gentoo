@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -11,7 +11,7 @@ SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc ipv6 static-libs"
 
 HTML_DOCS=( doc/. )
@@ -19,9 +19,8 @@ HTML_DOCS=( doc/. )
 src_prepare() {
 	default
 
-	# Avoid QA warning for LDFLAGS addition; avoid overriding -fstack-protector
-	sed -i -e 's/.*-Wl,--hash-style=both$/:/' -e '/-fno-stack-protector$/d' \
-		configure || die
+	# Avoid QA warning for LDFLAGS addition
+	sed -i -e 's/.*-Wl,--hash-style=both$/:/' configure || die
 
 	sed -i -e '/AR := /d' -e '/RANLIB := /d' Makefile || die
 }
@@ -29,13 +28,16 @@ src_prepare() {
 src_configure() {
 	tc-export AR CC RANLIB
 
-	econf \
-		--datadir=/etc \
-		--dynlibdir=/usr/$(get_libdir) \
-		--libdir=/usr/$(get_libdir)/${PN} \
-		--sysdepdir=/usr/$(get_libdir)/${PN} \
-		--enable-clock \
-		--enable-shared \
-		$(use_enable static-libs static) \
+	local myconf=(
+		--datadir=/etc
+		--dynlibdir=/usr/$(get_libdir)
+		--libdir=/usr/$(get_libdir)/${PN}
+		--sysdepdir=/usr/$(get_libdir)/${PN}
+		--enable-clock
+		--enable-shared
+		$(use_enable static-libs static)
 		$(use_enable ipv6)
+	)
+
+	econf "${myconf[@]}"
 }
