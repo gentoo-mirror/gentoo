@@ -1,12 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit gnome2-utils meson
 
 MY_PN="ding"
 MY_P="${MY_PN}-${PV}"
-COMMIT="093f01a7b52a77bccfc094f1b771cdac"
+COMMIT="29844c90747e6a91c4d2d74313c49ce1"
 
 DESCRIPTION="Fork from the desktop-icons project, with several enhancements like Drag'n'Drop"
 HOMEPAGE="https://gitlab.com/rastersoft/desktop-icons-ng"
@@ -14,7 +14,7 @@ SRC_URI="https://gitlab.com/rastersoft/desktop-icons-ng/uploads/${COMMIT}/${MY_P
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 COMMON_DEPEND="dev-libs/glib:2"
