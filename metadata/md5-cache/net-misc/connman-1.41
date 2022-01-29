@@ -11,6 +11,6 @@ LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.16 >=sys-apps/dbus-1.2.24 sys-libs/readline:0= bluetooth? ( net-wireless/bluez ) iptables? ( >=net-firewall/iptables-1.4.8 ) iwd? ( net-wireless/iwd ) l2tp? ( net-dialup/xl2tpd ) nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) ofono? ( net-misc/ofono ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) policykit? ( sys-auth/polkit ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wifi? ( >=net-wireless/wpa_supplicant-2.0[dbus] ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) wispr? ( net-libs/gnutls ) virtual/tmpfiles
 REQUIRED_USE=^^ ( iptables nftables )
 SLOT=0
-SRC_URI=https://git.kernel.org/pub/scm/network/connman/connman.git/snapshot/connman-6f1315d1960fc3f71bca9b3044f4f2b1560aea5f.tar.gz
+SRC_URI=https://www.kernel.org/pub/linux/network/connman/connman-1.41.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
-_md5_=28578255270f5c523b64977f820b6d23
+_md5_=ff894fefadc505d811145f2473b3a760

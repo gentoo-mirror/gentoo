@@ -291,6 +291,7 @@ acct-group/pushgateway 0: A group for app-metrics/pushgateway
 acct-group/pvpgn 0: Group for pvpgn (gaming server for Battle.Net compatible clients)
 acct-group/qemu 0-r1: System group: qemu
 acct-group/qmail 0-r1: System group: qmail
+acct-group/quagga 0-r1: System group: quagga
 acct-group/quassel 0-r1: System group: quassel
 acct-group/rabbitmq 0: A group for net-misc/rabbitmq-server
 acct-group/rabbitmq_exporter 0: A group for app-metrics/rabbitmq_exporter
@@ -723,6 +724,7 @@ acct-user/qmailp 0-r1: user for qmail-getpw
 acct-user/qmailq 0-r1: user for qmail queue
 acct-user/qmailr 0-r1: user for qmail-rspawn and qmail-remote
 acct-user/qmails 0-r1: user for qmail-smtpd
+acct-user/quagga 0-r1: System user: quagga
 acct-user/quassel 0-r1: System user: quassel
 acct-user/rabbitmq 0: A user for net-misc/rabbitmq-server
 acct-user/rabbitmq_exporter 0: A user for app-metrics/rabbitmq_exporter
@@ -8696,7 +8698,7 @@ dev-python/jaraco-text 3.6.0-r1 3.7.0: Text utilities used by other projects by 
 dev-python/jc 1.17.7 1.18.1 1.18.2: Converts the output of popular command-line tools and file-types to JSON
 dev-python/jdcal 1.4.1: Julian dates from proleptic Gregorian and Julian calendars
 dev-python/jedi 0.17.2-r1 0.18.0: Autocompletion library for Python
-dev-python/jeepney 0.6.0 0.7.0 0.7.1: Low-level, pure Python DBus protocol wrapper
+dev-python/jeepney 0.6.0 0.7.0 0.7.1 0.7.1-r1: Low-level, pure Python DBus protocol wrapper
 dev-python/jellyfish 0.8.9 0.9.0: Python module for doing approximate and phonetic matching of strings
 dev-python/jikanpy 4.3.2: Python wrapper for jikan.moe API
 dev-python/jinja 2.11.3 3.0.3: A full-featured template engine for Python
@@ -8717,12 +8719,12 @@ dev-python/jsonmerge 1.8.0: Merge a series of JSON documents
 dev-python/jsonpatch 1.32: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
 dev-python/jsonpickle 2.0.0 2.1.0: Python library for serializing any arbitrary object graph into JSON
 dev-python/jsonpointer 2.2: Identify specific nodes in a JSON document (according to draft 08)
-dev-python/jsonref 0.1: An implementation of JSON Reference for Python
+dev-python/jsonref 0.1 0.1-r1: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
 dev-python/jsonschema 4.3.3 4.4.0 4.4.0-r1: An implementation of JSON-Schema validation for Python
 dev-python/jsonxs 0.6: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9: Create JUnit XML test result documents
-dev-python/jupyter 1.0.0-r3: Jupyter metapackage. Install all the Jupyter components in one go
+dev-python/jupyter 1.0.0-r3 1.0.0-r4: Jupyter metapackage. Install all the Jupyter components in one go
 dev-python/jupyter-lsp 1.5.0 1.5.1: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-server-proxy 3.1.0 3.2.0 3.2.1: Jupyter notebook server extension to proxy web services
 dev-python/jupyter_client 6.1.12 7.1.0: Jupyter protocol implementation and client libraries
@@ -8759,7 +8761,7 @@ dev-python/leather 0.3.4: Python charting for 80% of humans
 dev-python/lesscpy 0.15.0: A compiler written in Python for the LESS language
 dev-python/libarchive-c 3.2-r1 4.0: A Python interface to libarchive
 dev-python/libcloud 3.3.0: Unified Interface to the Cloud - python support libs
-dev-python/liblarch 3.1.0: Library to handle directed acyclic graphs
+dev-python/liblarch 3.1.0 3.1.0-r1: Library to handle directed acyclic graphs
 dev-python/libnacl 1.7.2-r1: Python ctypes wrapper for libsodium
 dev-python/libpillowfight 0.3.0_p20210816: Small library containing various image processing algorithms
 dev-python/libpy_simdjson 0.4.0: Python bindings for simdjson using libpy
@@ -8779,7 +8781,7 @@ dev-python/logbook 1.5.3: A logging replacement for Python
 dev-python/logfury 1.0.1: Boilerplate library for logging method calls
 dev-python/logical-unification 0.4.4 0.4.5: Logical unification in Python
 dev-python/loguru 0.5.3: Python logging made (stupidly) simple
-dev-python/logutils 0.3.5: The logutils package provides a set of handlers for the Python standard
+dev-python/logutils 0.3.5 0.3.5-r1: The logutils package provides a set of handlers for the Python standard
 dev-python/loky 3.0.0: Robust and reusable Executor for joblib
 dev-python/lunr 0.6.1: A Python implementation of Lunr.js
 dev-python/lxml 4.7.1: A Pythonic binding for the libxml2 and libxslt libraries
@@ -8803,7 +8805,7 @@ dev-python/mccabe 0.6.1-r2: flake8 plugin: McCabe complexity checker
 dev-python/mdit-py-plugins 0.3.0: Collection of plugins for markdown-it-py
 dev-python/mdurl 0.1.0: Markdown URL utilities
 dev-python/mdx_gh_links 0.2: An extension which adds links to GitHub users, repositories, issues and commits
-dev-python/mecab-python 0.996: Python binding for MeCab
+dev-python/mecab-python 0.996 0.996-r1: Python binding for MeCab
 dev-python/mechanize 0.4.7: Stateful programmatic web browsing in Python
 dev-python/mediafile 0.8.1 0.9.0 0.9.0-r1: Read and write audio files' tags in Python
 dev-python/memory_profiler 0.60: A module for monitoring memory usage of a python program
@@ -8812,7 +8814,7 @@ dev-python/mergedict 1.0.0: A Python 'dict' with a merge() method
 dev-python/metakernel 0.27.5 0.28.2: Metakernel for Jupyter
 dev-python/micawber 0.5.4: A small library for extracting rich content from urls
 dev-python/mimerender 0.6.0: RESTful HTTP Content Negotiation for Flask, Bottle, web.py and webapp2
-dev-python/minidb 2.0.5: Simple SQLite-based object store
+dev-python/minidb 2.0.5 2.0.5-r1: Simple SQLite-based object store
 dev-python/minikanren 1.0.2 1.0.3: Relational programming in Python
 dev-python/minimock 1.3.0: The simplest possible mock library
 dev-python/miniupnpc 2.2.3: Python bindings for UPnP client library
@@ -8864,7 +8866,7 @@ dev-python/nbclassic 0.3.3 0.3.4 0.3.5: Jupyter Notebook as a Jupyter Server Ext
 dev-python/nbclient 0.5.5: A client library for executing Jupyter notebooks
 dev-python/nbconvert 6.3.0-r1 6.4.0-r1 6.4.1: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.0 3.1.1: Diff and merge of Jupyter Notebooks
-dev-python/nbformat 5.1.3: Reference implementation of the Jupyter Notebook format
+dev-python/nbformat 5.1.3 5.1.3-r1: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.8.7 0.8.8: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.9.6: A py.test plugin to validate Jupyter notebooks
 dev-python/ndg-httpsclient 0.5.1: Provides enhanced HTTPS support for httplib and urllib2 using PyOpenSSL
@@ -8886,7 +8888,7 @@ dev-python/nose2 0.10.0: Next generation unittest with plugins
 dev-python/nose_fixes 1.3: A plugin to make nose behave better
 dev-python/nose_warnings_filters 0.1.5-r3: A python module to inject warning filters during nosetest
 dev-python/notebook 6.4.6 6.4.7 6.4.8: Jupyter Interactive Notebook
-dev-python/notify2 0.3.1-r2: Python interface to DBus notifications
+dev-python/notify2 0.3.1-r2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nototools 0.2.16: Noto fonts support tools and scripts plus web site generation
 dev-python/nptyping 1.4.4: Type hints for Numpy
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
@@ -14940,7 +14942,7 @@ net-dns/nsd 4.3.8 4.3.9 9999: An authoritative only, high performance, open sour
 net-dns/odsclient 1.03-r1: Client for the Open Domain Server's dynamic dns
 net-dns/opendnssec 2.1.10-r2: An open-source turn-key solution for DNSSEC
 net-dns/openresolv 3.12.0: A framework for managing DNS information
-net-dns/pdns 4.4.1-r1 4.4.2 4.5.2 4.5.2-r1 4.5.3: The PowerDNS Daemon
+net-dns/pdns 4.4.1-r1 4.4.2 4.5.2 4.5.2-r1 4.5.3 4.6.0: The PowerDNS Daemon
 net-dns/pdns-recursor 4.4.7 4.5.7 4.6.0-r1: The PowerDNS Recursor
 net-dns/pdnsd 1.2.9a-r2: Proxy DNS server with permanent caching
 net-dns/rbldnsd 0.998b-r2: DNS server designed to serve blacklist zones
@@ -15457,7 +15459,7 @@ net-misc/clusterssh 4.16 9999: Concurrent Multi-Server Terminal Access
 net-misc/cmst 2021.12.02 2022.01.05: Qt GUI for Connman with system tray icon
 net-misc/cni-plugins 0.8.6 0.8.7 0.9.0 0.9.1: Standard networking plugins for container networking
 net-misc/connect 1.105: SSH Proxy Command
-net-misc/connman 1.40 1.40_p20220125 9999: Provides a daemon for managing internet connections
+net-misc/connman 1.40 1.41 9999: Provides a daemon for managing internet connections
 net-misc/connman-gtk 1.1.1-r1: GTK GUI for Connman
 net-misc/connman-json-client 1.0_p20150721-r2: An ncurses UI for connman
 net-misc/connman-notify 0_pre20191003-r2 0_pre20191003-r3: Desktop notification integration for connman
@@ -15969,7 +15971,7 @@ net-wireless/hostap-utils 0.4.7-r1: Utilities for Intersil Prism2/2.5/3 based IE
 net-wireless/hostapd 2.9-r6 2.10 9999: IEEE 802.11 wireless LAN Host AP daemon
 net-wireless/inspectrum 0.2.3 9999: Tool for analysing captured signals from software-defined radio receivers
 net-wireless/iw 5.9 5.16: nl80211 configuration utility for wireless devices using the mac80211 stack
-net-wireless/iwd 1.20 1.21 1.22 9999: Wireless daemon for linux
+net-wireless/iwd 1.20 1.21 1.22 1.23 9999: Wireless daemon for linux
 net-wireless/iwgtk 0.4: Lightweight, graphical wifi management utility for Linux
 net-wireless/jackit 0.0_p20170918-r1: Exploit Code for Mousejack
 net-wireless/kismet 2021.08.1-r1 2022.01.3 9999: IEEE 802.11 wireless LAN sniffer
