@@ -2981,7 +2981,7 @@ app-misc/tmux 3.1c 3.2a 9999: Terminal multiplexer
 app-misc/tmux-mem-cpu-load 3.4.0 9999: CPU, RAM memory, and load monitor for use with tmux
 app-misc/tmux-xpanes 4.1.3-r1: tmux-based terminal divider
 app-misc/tmux2html 0.1.11: Render full tmux windows or individual panes as HTML
-app-misc/tmuxp 1.5.4 1.6.5 1.7.2-r1 1.8.2 1.9.2: tmux session manager. built on libtmux
+app-misc/tmuxp 1.5.4 1.6.5 1.7.2-r1 1.8.2 1.9.2 1.9.4: tmux session manager. built on libtmux
 app-misc/todo 2.11.0 2.12.0-r1: A CLI-based TODO list manager
 app-misc/toilet 0.3-r1: The Other Implementations letters. Figlet replacement
 app-misc/tpconfig 3.1.3-r3: Touchpad config for ALPS and Synaptics TPs. Controls tap/click behaviour
@@ -6073,9 +6073,9 @@ dev-ml/csexp 1.3.2-r1 1.5.1: Parsing and printing of S-expressions in Canonical 
 dev-ml/cudf 0.9-r2: Library to parse, pretty print, and evaluate CUDF documents
 dev-ml/dose3 5.0.1_p16-r4 6.0.1_p2-r1 6.1-r1 7.0.0: Library to perform analysis on package repositories
 dev-ml/dune 1.11.4 2.1.0 2.7.1 2.8.2 2.8.4 2.9.0 2.9.1 2.9.3: A composable build system for OCaml
-dev-ml/dune-build-info 2.9.1: Embed locations informations inside executable and libraries
-dev-ml/dune-configurator 2.8.2-r1 2.8.4 2.9.0 2.9.1: A composable build system for OCaml
-dev-ml/dune-private-libs 2.8.2-r1 2.8.4 2.9.0 2.9.1: A composable build system for OCaml
+dev-ml/dune-build-info 2.9.1 2.9.3: Embed locations informations inside executable and libraries
+dev-ml/dune-configurator 2.8.2-r1 2.8.4 2.9.0 2.9.1 2.9.3: A composable build system for OCaml
+dev-ml/dune-private-libs 2.8.2-r1 2.8.4 2.9.0 2.9.1 2.9.3: A composable build system for OCaml
 dev-ml/dune-site 2.9.1: Embed locations informations inside executable and libraries
 dev-ml/duration 0.1.3: Duration - conversions to various time units
 dev-ml/easy-format 1.2.0: Pretty-printing library for OCaml
@@ -6201,7 +6201,7 @@ dev-ml/qtest 2.11.2: Inline (Unit) Tests for OCaml
 dev-ml/re 1.9.0 1.10.3: Regular expression library for OCaml
 dev-ml/react 1.2.1-r1: OCaml module for functional reactive programming
 dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental changes in data structures
-dev-ml/reason 3.7.0-r1: Simple, fast & type safe language that leverages JavaScript and OCaml
+dev-ml/reason 3.7.0-r2: Simple, fast & type safe language that leverages JavaScript and OCaml
 dev-ml/result 1.5: Compat result type
 dev-ml/rresult 0.5.0 0.6.0 0.7.0: Result value combinators for OCaml
 dev-ml/sedlex 2.3-r1: An OCaml lexer generator for Unicode
@@ -8766,7 +8766,7 @@ dev-python/libnacl 1.7.2-r1: Python ctypes wrapper for libsodium
 dev-python/libpillowfight 0.3.0_p20210816: Small library containing various image processing algorithms
 dev-python/libpy_simdjson 0.4.0: Python bindings for simdjson using libpy
 dev-python/libsass 0.21.0: A straightforward binding of libsass for Python
-dev-python/libtmux 0.8.5 0.9.0 0.10.1: python api for tmux
+dev-python/libtmux 0.8.5 0.9.0 0.10.1 0.10.3: python api for tmux
 dev-python/libvirt-python 7.7.0 7.10.0 8.0.0 9999: libvirt Python bindings
 dev-python/line_profiler 3.3.1 3.4.0: Line-by-line profiler
 dev-python/lit 11.1.0 12.0.1 13.0.0 13.0.1_rc3 13.0.1.9999 14.0.0.9999: A stand-alone install of the LLVM suite testing tool
@@ -8836,7 +8836,7 @@ dev-python/mock 4.0.3: Rolling backport of unittest.mock for all Pythons
 dev-python/mongoengine 0.23.1: A Python Object-Document-Mapper for working with MongoDB
 dev-python/mongomock 3.23.0: Library to help testing Python code that interacts with MongoDB via Pymongo
 dev-python/more-itertools 8.12.0 8.12.0-r1: More routines for operating on iterables, beyond itertools
-dev-python/moto 2.2.17 2.2.20 2.3.1 2.3.2 3.0.0 3.0.1: Mock library for boto
+dev-python/moto 2.2.17 2.2.20 2.3.1 2.3.2 3.0.0 3.0.1 3.0.2: Mock library for boto
 dev-python/mpdlcd 0.5.2: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.0.3 3.1.3: Message Passing Interface for Python
 dev-python/mpmath 1.2.1: Python library for arbitrary-precision floating-point arithmetic
@@ -9378,7 +9378,7 @@ dev-python/requests-futures 1.0.0: Asynchronous Python HTTP for Humans
 dev-python/requests-kerberos 0.14.0: A Kerberos authentication handler for python-requests
 dev-python/requests-mock 1.9.3: Mock out responses from the requests package
 dev-python/requests-ntlm 1.1.0-r1: HTTP NTLM authentication using the requests library
-dev-python/requests-oauthlib 1.3.0: This project provides first-class OAuth library support for Requests
+dev-python/requests-oauthlib 1.3.0 1.3.1: This project provides first-class OAuth library support for Requests
 dev-python/requests-toolbelt 0.9.1: A utility belt for advanced users of python-requests
 dev-python/requests-unixsocket 0.2.0 0.3.0-r1: Use requests to talk HTTP via a UNIX domain socket
 dev-python/requests_download 0.1.2: A convenient function to download to a file using requests
@@ -19426,7 +19426,7 @@ xfce-extra/xfce4-alsa-plugin 0.3.0: Simple ALSA volume control for xfce4-panel
 xfce-extra/xfce4-battery-plugin 1.1.4: A battery monitor panel plugin for the Xfce desktop environment
 xfce-extra/xfce4-calculator-plugin 0.7.1: A calculator plugin for the Xfce4 panel
 xfce-extra/xfce4-clipman-plugin 1.6.2: A clipboard manager plug-in for the Xfce panel
-xfce-extra/xfce4-cpufreq-plugin 1.2.5: A panel plugin for showing information about cpufreq settings
+xfce-extra/xfce4-cpufreq-plugin 1.2.5 1.2.6: A panel plugin for showing information about cpufreq settings
 xfce-extra/xfce4-cpugraph-plugin 1.2.5: A system load plug-in for the Xfce panel
 xfce-extra/xfce4-datetime-plugin 0.8.1: A panel plug-in with date, time and embedded calender
 xfce-extra/xfce4-dict 0.8.4: A dict.org querying application and panel plug-in for the Xfce desktop
