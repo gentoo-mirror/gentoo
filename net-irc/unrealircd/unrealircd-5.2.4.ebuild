@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 SSL_CERT_MANDATORY=1
 inherit autotools ssl-cert systemd
@@ -13,19 +13,17 @@ SRC_URI="https://www.unrealircd.org/downloads/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux"
-IUSE="class-nofakelag curl geoip +operoverride operoverride-verify"
+IUSE="class-nofakelag curl +operoverride operoverride-verify +prefixaq showlistmodes"
 
 RDEPEND="acct-group/unrealircd
 	acct-user/unrealircd
 	>=app-crypt/argon2-20171227-r1:=
 	dev-libs/libpcre2
 	dev-libs/libsodium:=
-	dev-libs/openssl:=
-	dev-libs/jansson:=
+	dev-libs/openssl:0=
 	>=net-dns/c-ares-1.7:=
 	virtual/libcrypt:=
-	curl? ( net-misc/curl[adns] )
-	geoip? ( dev-libs/libmaxminddb )"
+	curl? ( net-misc/curl[adns] )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
@@ -71,14 +69,13 @@ src_configure() {
 		--with-system-argon2 \
 		--with-system-cares \
 		--with-system-pcre2 \
-		--with-system-sodium \
-		--with-system-jansson \
 		--enable-dynamic-linking \
 		--enable-ssl="${EPREFIX}"/usr \
 		$(use_enable curl libcurl "${EPREFIX}"/usr) \
+		$(use_enable prefixaq) \
+		$(use_with showlistmodes) \
 		$(use_with !operoverride no-operoverride) \
-		$(use_with operoverride-verify) \
-		$(use_enable geoip libmaxminddb)
+		$(use_with operoverride-verify)
 }
 
 src_install() {
@@ -148,10 +145,10 @@ pkg_postinst() {
 
 	local unrealircd_conf="${EROOT}"/etc/${PN}/${PN}.conf
 	# Fix up the default cloak keys.
-	if grep -qe '"and another one";$' "${unrealircd_conf}" && grep -qe '"Oozahho1raezoh0iMee4ohvegaifahv5xaepeitaich9tahdiquaid0geecipahdauVaij3zieph4ahi";$' "${unrealircd_conf}"; then
+	if grep -qe '"and another one";$' "${unrealircd_conf}" && grep -qe '"aoAr1HnR6gl3sJ7hVz4Zb7x4YwpW";$' "${unrealircd_conf}"; then
 		ebegin "Generating cloak-keys"
 		local keys=(
-			$(su ${PN} -s /bin/sh -c "${PN} -k 2>&1 | tail -n 6 | head -n 3")
+			$(su ${PN} -s /bin/sh -c "${PN} -k 2>&1 | tail -n 3")
 		)
 		[[ -n ${keys[0]} || -n ${keys[1]} || -n ${keys[2]} ]]
 		eend $?
@@ -160,11 +157,11 @@ pkg_postinst() {
 		sed -i \
 			-e '/cloak-keys/ {
 n
-s/"Oozahho1raezoh0iMee4ohvegaifahv5xaepeitaich9tahdiquaid0geecipahdauVaij3zieph4ahi";/'${keys[0]}'/
+s/"aoAr1HnR6gl3sJ7hVz4Zb7x4YwpW";/"'"${keys[0]}"'";/
 n
-s/"and another one";/'${keys[1]}'/
+s/"and another one";/"'"${keys[1]}"'";/
 n
-s/"and another one";/'${keys[2]}'/
+s/"and another one";/"'"${keys[2]}"'";/
 }' \
 			"${unrealircd_conf}"
 		eend $?
