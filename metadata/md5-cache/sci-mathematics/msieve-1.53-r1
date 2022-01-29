@@ -1,7 +1,7 @@
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile configure install
 DEPEND=ecm? ( sci-mathematics/gmp-ecm ) mpi? ( virtual/mpi ) zlib? ( sys-libs/zlib )
 DESCRIPTION=A C library implementing a suite of algorithms to factor large integers
-EAPI=7
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/msieve/
 INHERIT=toolchain-funcs
 IUSE=zlib +ecm mpi
@@ -11,4 +11,4 @@ RDEPEND=ecm? ( sci-mathematics/gmp-ecm ) mpi? ( virtual/mpi ) zlib? ( sys-libs/z
 SLOT=0
 SRC_URI=mirror://sourceforge/msieve/msieve/Msieve%20v1.53/msieve153_src.tar.gz -> msieve-1.53.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=4a02451609e2e2a977ddac41bef846be
+_md5_=25192422fffd61f6913002e55ded9baf
