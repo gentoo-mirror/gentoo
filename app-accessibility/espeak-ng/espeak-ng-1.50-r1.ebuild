@@ -11,7 +11,7 @@ SRC_URI="https://github.com/espeak-ng/espeak-ng/archive/${PV}.tar.gz -> ${P}.tar
 
 LICENSE="GPL-3+ Turkowski unicode"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="+async +klatt l10n_ru l10n_zh man mbrola +sound"
 
 COMMON_DEPEND="
@@ -67,14 +67,16 @@ src_configure() {
 
 src_compile() {
 	# see docs/building.md
+	# The -j1s from compile/test/install may be droppable in next release
+	# (after 1.50). Several bugs have been fixed upstream in git.
 	emake -j1
 }
 
 src_test() {
-	emake check
+	emake check -j1
 }
 
 src_install() {
-	emake DESTDIR="${D}" VIMDIR=/usr/share/vimfiles install
+	emake DESTDIR="${D}" VIMDIR=/usr/share/vimfiles install -j1
 	rm "${ED}"/usr/lib*/*.la || die
 }
