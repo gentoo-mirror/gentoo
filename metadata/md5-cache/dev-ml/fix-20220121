@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Facilities for memoization and fixed points
+EAPI=7
+HOMEPAGE=https://gitlab.inria.fr/fpottier/fix
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/20220121
+SRC_URI=https://gitlab.inria.fr/fpottier/fix/-/archive/20220121/fix-20220121.tar.gz
+_eclasses_=dune	45f8b4ed9487a03522a647f3f33cb404
+_md5_=da798144a77d761fa4d25ce87ec3fff5
