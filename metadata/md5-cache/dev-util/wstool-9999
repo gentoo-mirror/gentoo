@@ -1,16 +1,15 @@
-BDEPEND=dev-python/sphinx >=dev-vcs/git-1.8.2.1[curl] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+BDEPEND=dev-python/pyyaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/vcstools-0.1.38[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/sphinx test? ( dev-vcs/git dev-vcs/bzr dev-vcs/mercurial dev-vcs/subversion ) test? ( dev-python/pyyaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/vcstools-0.1.38[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/nose-1.3.7-r4[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-python/pyyaml[python_targets_python3_8(-)?] >=dev-python/vcstools-0.1.38[python_targets_python3_8(-)?] test? ( dev-python/nose[python_targets_python3_8(-)?] dev-python/coverage[python_targets_python3_8(-)?] dev-vcs/git dev-vcs/bzr dev-vcs/mercurial dev-vcs/subversion )
 DESCRIPTION=Commands to manage several local SCM repositories for ROS
 EAPI=7
 HOMEPAGE=https://wiki.ros.org/wstool
-INHERIT=git-r3 distutils-r1
-IUSE=test python_targets_python3_8
+INHERIT=distutils-r1 git-r3
+IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=dev-python/pyyaml[python_targets_python3_8(-)?] >=dev-python/vcstools-0.1.38[python_targets_python3_8(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 )
-REQUIRED_USE=|| ( python_targets_python3_8 )
+RDEPEND=dev-python/pyyaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/vcstools-0.1.38[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	2ef22bd6f28c31c87e8d8da97217e5c9
-_md5_=f676168058658b8a119ed810ff96167c
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	2ef22bd6f28c31c87e8d8da97217e5c9	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=097e1d81e26066f2e4a841343d60501a
