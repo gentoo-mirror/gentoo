@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 WANT_AUTOCONF="2.1"
 
@@ -34,16 +34,15 @@ S="${WORKDIR}/${MY_MOZ_P}"
 
 MOZ_GENERATE_LANGPACKS=1
 MOZ_L10N_SOURCEDIR="${S}/${P}-l10n"
-inherit autotools check-reqs desktop flag-o-matic mozcoreconf-v6 mozextension mozlinguas-v2 pax-utils toolchain-funcs xdg-utils
+inherit autotools check-reqs desktop edos2unix flag-o-matic mozcoreconf-v6 mozlinguas-v2 pax-utils toolchain-funcs xdg-utils
 
 DESCRIPTION="Seamonkey Web Browser"
 HOMEPAGE="https://www.seamonkey-project.org/"
 
-PATCH="${PN}-2.53.8_beta1-patches-01"
+PATCH="${PN}-2.53.10.2-patches-01"
 SRC_URI+="
-	https://dev.gentoo.org/~polynomial-c/mozilla/patchsets/${PATCH}.tar.xz
-	https://dev.gentoo.org/~polynomial-c/mozilla/${PN}-2.53.8.1-rust-1.45.0.patch.xz
-	system-libvpx? ( https://dev.gentoo.org/~polynomial-c/mozilla/${PN}-2.53.3-system_libvpx-1.8.patch.xz )
+	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PATCH}.tar.gz
+	system-libvpx? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-2.53.3-system_libvpx-1.8.patch.gz )
 
 "
 
@@ -53,7 +52,7 @@ SYSTEM_IUSE=( +system-{av1,harfbuzz,icu,jpeg,libevent,libvpx,png,sqlite} )
 IUSE="+chatzilla cpu_flags_arm_neon +crypt dbus debug +gmp-autoupdate +ipc jack
 lto pulseaudio +roaming selinux startup-notification test wifi"
 IUSE+=" ${SYSTEM_IUSE[@]}"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 
 RESTRICT="!test? ( test )"
 
@@ -66,7 +65,7 @@ BDEPEND="
 	dev-lang/perl
 	>=sys-devel/binutils-2.16.1
 	virtual/pkgconfig
-	<virtual/rust-1.56.0
+	>=virtual/rust-1.58.1
 	amd64? ( ${ASM_DEPEND} )
 	lto? ( sys-devel/binutils[gold] )
 	x86? ( ${ASM_DEPEND} )
@@ -122,7 +121,7 @@ COMMON_DEPEND="
 	system-libevent? ( >=dev-libs/libevent-2.0:0= )
 	system-libvpx? ( >=media-libs/libvpx-1.8.0:0=[postproc] )
 	system-png? ( >=media-libs/libpng-1.6.31:0=[apng] )
-	system-sqlite? ( >=dev-db/sqlite-3.31.0:3[secure-delete,debug=] )
+	system-sqlite? ( >=dev-db/sqlite-3.36.0:3[secure-delete,debug=] )
 	wifi? (
 		kernel_linux? (
 			>=dev-libs/dbus-glib-0.72
@@ -189,7 +188,7 @@ src_prepare() {
 	eapply "${WORKDIR}"/mozilla
 
 	# https://bugzilla.mozilla.org/show_bug.cgi?id=1623054
-	eapply "${FILESDIR}/${PN}-2.53.7-ownertab.patch"
+	eapply "${FILESDIR}/${PN}-2.53.10.2-ownertab.patch"
 
 	# Shell scripts sometimes contain DOS line endings; bug 391889
 	grep -rlZ --include="*.sh" $'\r$' . |
@@ -200,7 +199,6 @@ src_prepare() {
 
 	use system-libvpx \
 		&& eapply -p2 "${WORKDIR}/${PN}-2.53.3-system_libvpx-1.8.patch"
-	eapply "${WORKDIR}"/${PN}-2.53.8.1-rust-1.45.0.patch
 
 	# Allow user to apply any additional patches without modifing ebuild
 	eapply_user
@@ -403,6 +401,9 @@ src_configure() {
 
 	# use startup-cache for faster startup time
 	mozconfig_annotate '' --enable-startupcache
+
+	# Broken on some arches
+	mozconfig_annotate '' --disable-elf-hack
 
 	# Use an objdir to keep things organized.
 	echo "mk_add_options MOZ_OBJDIR=${BUILD_OBJ_DIR}" >> "${S}"/.mozconfig
