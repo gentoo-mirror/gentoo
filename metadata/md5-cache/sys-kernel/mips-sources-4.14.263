@@ -1,6 +1,6 @@
 BDEPEND=!build? ( sys-apps/sed )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DESCRIPTION=Kernel.org sources for MIPS-based machines
+DESCRIPTION=Linux-Mips GIT sources for MIPS-based machines, dated 20180128
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:MIPS
 INHERIT=kernel-2
@@ -9,7 +9,7 @@ KEYWORDS=-* ~mips
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=4.19.219
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.19.219.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz https://dev.gentoo.org/~kumba/distfiles/mips-sources-4.19.0-patches-v3.tar.xz
+SLOT=4.14.263
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.14.263.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.tar.xz https://dev.gentoo.org/~kumba/distfiles/mipsgit-4.14.0-20180128.diff.xz https://dev.gentoo.org/~kumba/distfiles/mips-sources-4.14.0-patches-v3.tar.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	kernel-2	0504e914bab621103eb74f52fad0fc6d
-_md5_=938b165af698e6c68f65224be6f8da8d
+_md5_=4269894499f03063110e0709116c0bc8
