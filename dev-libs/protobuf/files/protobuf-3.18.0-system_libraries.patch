@@ -1,6 +1,24 @@
---- /Makefile.am
-+++ /Makefile.am
-@@ -11,28 +11,10 @@
+From 10b2d5bb5a4d1b7529cb781e5513940ad6db4ada Mon Sep 17 00:00:00 2001
+From: Arfrever Frehtes Taifersar Arahesis <Arfrever@Apache.Org>
+Date: Sat, 29 Jan 2022 22:46:38 +0800
+Subject: [PATCH] protobuf-3.18.0: system_libraries
+
+Use system version of GoogleTest,
+which will unbundle gtest, gmock libraries
+
+Signed-off-by: Arfrever Frehtes Taifersar Arahesis <Arfrever@Apache.Org>
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+ Makefile.am     | 20 +-------------------
+ configure.ac    |  7 -------
+ src/Makefile.am | 33 ++++++---------------------------
+ 3 files changed, 7 insertions(+), 53 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 7ce954e..c1493e0 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -11,28 +11,10 @@ SUBDIRS = . src
  # Always include third_party directories in distributions.
  DIST_SUBDIRS = src conformance benchmarks third_party/googletest
  
@@ -30,9 +48,11 @@
  	  echo "Making clean in conformance"; \
  	  cd conformance && $(MAKE) $(AM_MAKEFLAGS) clean; \
  	fi; \
---- /configure.ac
-+++ /configure.ac
-@@ -236,12 +236,5 @@
+diff --git a/configure.ac b/configure.ac
+index 4a6d50a..6301bd6 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -236,12 +236,5 @@ if test "x$ANDROID_TEST" = xyes; then
  fi
  AC_SUBST([LIBLOG_LIBS])
  
@@ -45,11 +65,13 @@
 -
  AC_CONFIG_FILES([Makefile src/Makefile benchmarks/Makefile conformance/Makefile protobuf.pc protobuf-lite.pc])
  AC_OUTPUT
---- /src/Makefile.am
-+++ /src/Makefile.am
-@@ -703,19 +703,11 @@
-   google/protobuf/testing/file.cc                              \
-   google/protobuf/testing/file.h
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 1cfd885..73c2c6d 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -720,19 +720,11 @@ COMMON_TEST_SOURCES =                                          \
+   google/protobuf/testing/googletest.cc                        \
+   google/protobuf/testing/googletest.h
  
 -GOOGLETEST_BUILD_DIR=../third_party/googletest/googletest
 -GOOGLEMOCK_BUILD_DIR=../third_party/googletest/googlemock
@@ -68,7 +90,7 @@
  # Disable optimization for tests unless the user explicitly asked for it,
  # since test_util.cc takes forever to compile with optimization (with GCC).
  # See configure.ac for more info.
-@@ -807,12 +799,8 @@
+@@ -825,12 +817,8 @@ $(am_protobuf_test_OBJECTS): unittest_proto_middleman
  # Run cpp_unittest again with PROTOBUF_TEST_NO_DESCRIPTORS defined.
  protobuf_lazy_descriptor_test_LDADD = $(PTHREAD_LIBS) libprotobuf.la \
                        libprotoc.la                                   \
@@ -83,7 +105,7 @@
  protobuf_lazy_descriptor_test_CXXFLAGS = $(NO_OPT_CXXFLAGS)
  protobuf_lazy_descriptor_test_SOURCES =                        \
    google/protobuf/compiler/cpp/cpp_unittest.cc                 \
-@@ -833,11 +821,7 @@
+@@ -851,11 +839,7 @@ COMMON_LITE_TEST_SOURCES =                                             \
  # full runtime and we want to make sure this test builds without full
  # runtime.
  protobuf_lite_test_LDADD = $(PTHREAD_LIBS) libprotobuf-lite.la     \
@@ -96,7 +118,7 @@
  protobuf_lite_test_CXXFLAGS = $(NO_OPT_CXXFLAGS)
  protobuf_lite_test_SOURCES =                                           \
    google/protobuf/lite_unittest.cc                                     \
-@@ -849,11 +833,7 @@
+@@ -867,11 +851,7 @@ $(am_protobuf_lite_test_OBJECTS): unittest_proto_middleman
  # gtest when building the test internally our memory sanitizer doesn't detect
  # memory leaks (don't know why).
  protobuf_lite_arena_test_LDADD = $(PTHREAD_LIBS) libprotobuf-lite.la \
@@ -109,7 +131,7 @@
  protobuf_lite_arena_test_CXXFLAGS = $(NO_OPT_CXXFLAGS)
  protobuf_lite_arena_test_SOURCES =       \
    google/protobuf/lite_arena_unittest.cc \
-@@ -863,8 +843,7 @@
+@@ -881,8 +861,7 @@ $(am_protobuf_lite_arena_test_OBJECTS): unittest_proto_middleman
  
  # Test plugin binary.
  test_plugin_LDADD = $(PTHREAD_LIBS) libprotobuf.la libprotoc.la \
@@ -118,4 +140,7 @@
 +                    -lgtest
  test_plugin_SOURCES =                                          \
    google/protobuf/compiler/mock_code_generator.cc              \
-   google/protobuf/testing/file.cc                              \
+   google/protobuf/compiler/test_plugin.cc                      \
+-- 
+2.34.1
+

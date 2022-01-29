@@ -11,8 +11,8 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/nemtrif/utfcpp"
 	EGIT_SUBMODULES=()
 else
-	FTEST_GIT_REVISION=""
-	FTEST_DATE=""
+	FTEST_GIT_REVISION="1e14b77c2ab8489386fc7046a8bced696c0fc4d6"
+	FTEST_DATE="20211106174116"
 fi
 
 DESCRIPTION="UTF-8 C++ library"
@@ -26,7 +26,7 @@ fi
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 

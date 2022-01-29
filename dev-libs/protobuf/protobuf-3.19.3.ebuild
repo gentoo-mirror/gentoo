@@ -21,8 +21,8 @@ else
 fi
 
 LICENSE="BSD"
-SLOT="0/27"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+SLOT="0/30"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="emacs examples static-libs test zlib"
 RESTRICT="!test? ( test )"
 
@@ -33,8 +33,8 @@ RDEPEND="emacs? ( app-editors/emacs:* )
 	zlib? ( sys-libs/zlib[${MULTILIB_USEDEP}] )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-3.15.0-disable_no-warning-test.patch"
-	"${FILESDIR}/${PN}-3.16.0-system_libraries.patch"
+	"${FILESDIR}/${PN}-3.19.0-disable_no-warning-test.patch"
+	"${FILESDIR}/${PN}-3.19.0-system_libraries.patch"
 	"${FILESDIR}/${PN}-3.16.0-protoc_input_output_files.patch"
 )
 
@@ -58,6 +58,12 @@ src_prepare() {
 	# https://github.com/protocolbuffers/protobuf/issues/8460
 	sed -e "/^TEST(AnyTest, TestPackFromSerializationExceedsSizeLimit) {$/a\\  if (sizeof(void*) == 4) {\n    GTEST_SKIP();\n  }" -i src/google/protobuf/any_test.cc || die
 
+	# https://github.com/protocolbuffers/protobuf/issues/9392
+	sed -e "s/^AC_PROG_OBJC$/AS_CASE([\$target_os], [darwin*], [AC_PROG_OBJC], [AM_CONDITIONAL([am__fastdepOBJC], [false])])/" -i configure.ac || die
+
+	# https://github.com/protocolbuffers/protobuf/issues/9433
+	sed -e "/^[[:space:]]*static_assert(alignof(T) <= 8, \"\");$/d" -i src/google/protobuf/descriptor.cc || die
+
 	eautoreconf
 }
 
@@ -74,7 +80,6 @@ src_configure() {
 
 multilib_src_configure() {
 	local options=(
-		OBJC="$(tc-getBUILD_CC)"
 		$(use_enable static-libs static)
 		$(use_with zlib)
 	)

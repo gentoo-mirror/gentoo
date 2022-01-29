@@ -50,10 +50,6 @@ src_prepare() {
 	cmake_src_prepare
 
 	sed -e "s:\${DIR_SHARE_OPENCC}/doc:share/doc/${PF}:" -i doc/CMakeLists.txt || die
-
-	# https://github.com/BYVoid/OpenCC/issues/550
-	# https://github.com/BYVoid/OpenCC/commit/736b93d3d16fdf0548bdaae2922569199615e919
-	sed -e "s:#ifdef ENABLE_DARTS:#if 1:" -i src/Common.hpp || die
 }
 
 src_configure() {

@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-PYTHON_COMPAT=( python3_{8..10} )
+JAVA_PKG_IUSE="doc source"
 
-inherit distutils-r1
+inherit java-pkg-2 java-pkg-simple
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -13,7 +13,7 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_SUBMODULES=()
 fi
 
-DESCRIPTION="Google's Protocol Buffers - Python bindings"
+DESCRIPTION="Google's Protocol Buffers - Java bindings"
 HOMEPAGE="https://developers.google.com/protocol-buffers/ https://github.com/protocolbuffers/protobuf"
 if [[ "${PV}" == "9999" ]]; then
 	SRC_URI=""
@@ -23,41 +23,33 @@ fi
 
 LICENSE="BSD"
 SLOT="0/30"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE=""
 
-BDEPEND="${PYTHON_DEPS}
-	~dev-libs/protobuf-${PV}
-	dev-python/namespace-google[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]"
-DEPEND="${PYTHON_DEPS}
-	~dev-libs/protobuf-${PV}"
-RDEPEND="${BDEPEND}"
+BDEPEND="~dev-libs/protobuf-${PV}
+	>=virtual/jdk-1.8:*"
+DEPEND=">=virtual/jdk-1.8:*"
+RDEPEND=">=virtual/jre-1.8:*"
 
-S="${WORKDIR}/protobuf-${PV}/python"
+S="${WORKDIR}/protobuf-${PV}/java"
 
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_CHECKOUT_DIR="${WORKDIR}/protobuf-${PV}"
 fi
 
-python_prepare_all() {
+src_prepare() {
 	pushd "${WORKDIR}/protobuf-${PV}" > /dev/null || die
 	eapply_user
 	popd > /dev/null || die
 
-	distutils-r1_python_prepare_all
+	java-pkg-2_src_prepare
 }
 
-python_configure_all() {
-	mydistutilsargs=(--cpp_implementation)
+src_compile() {
+	"${BROOT}/usr/bin/protoc" --java_out=core/src/main/java -I../src ../src/google/protobuf/descriptor.proto || die
+	JAVA_SRC_DIR="core/src/main/java" JAVA_JAR_FILENAME="protobuf.jar" java-pkg-simple_src_compile
 }
 
-python_test() {
-	esetup.py test
-}
-
-python_install_all() {
-	distutils-r1_python_install_all
-
-	find "${ED}" -name "*.pth" -type f -delete || die
+src_install() {
+	JAVA_SRC_DIR="core/src/main/java" JAVA_JAR_FILENAME="protobuf.jar" java-pkg-simple_src_install
 }

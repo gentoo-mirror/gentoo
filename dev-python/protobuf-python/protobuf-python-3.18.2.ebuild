@@ -22,8 +22,8 @@ else
 fi
 
 LICENSE="BSD"
-SLOT="0/30"
-KEYWORDS=""
+SLOT="0/29"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE=""
 
 BDEPEND="${PYTHON_DEPS}
@@ -42,6 +42,7 @@ fi
 
 python_prepare_all() {
 	pushd "${WORKDIR}/protobuf-${PV}" > /dev/null || die
+	eapply "${FILESDIR}/${PN}-3.13.0-google.protobuf.pyext._message.PyUnknownFieldRef.patch"
 	eapply_user
 	popd > /dev/null || die
 
