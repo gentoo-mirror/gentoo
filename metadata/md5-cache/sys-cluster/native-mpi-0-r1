@@ -1,8 +1,10 @@
 DEFINED_PHASES=install postinst
 DESCRIPTION=Use native OS MPI in prefix environment
-EAPI=6
+EAPI=8
 HOMEPAGE=https://prefix.gentoo.org
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64-linux ~x86-linux
 LICENSE=GPL-3
 SLOT=0
-_md5_=f7ecfefa4c0eb017b93dedccad8a9c4b
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=14efff72bfc9282d4109252864e1581a
