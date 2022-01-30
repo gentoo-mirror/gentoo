@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/
 DEFINED_PHASES=configure prepare test
 DEPEND=curl? ( net-misc/curl:0= ) varlink? ( dev-libs/libvarlink:= )
 DESCRIPTION=Additional and alternative Nagios plugins for Linux
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/madrisan/nagios-plugins-linux
 INHERIT=autotools
 IUSE=curl varlink
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=curl? ( net-misc/curl:0= ) varlink? ( dev-libs/libvarlink:= )
 SLOT=0
-SRC_URI=https://github.com/madrisan/nagios-plugins-linux/releases/download/v28/nagios-plugins-linux-28.tar.xz -> nagios-plugins-linux-madrisan-28.tar.xz
+SRC_URI=https://github.com/madrisan/nagios-plugins-linux/releases/download/v30/nagios-plugins-linux-30.tar.xz -> nagios-plugins-linux-madrisan-30.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
-_md5_=75af50de6fba694c4f39682a9ee7ca40
+_md5_=ff51ba722974ff6e7c0f87ef0174ad23
