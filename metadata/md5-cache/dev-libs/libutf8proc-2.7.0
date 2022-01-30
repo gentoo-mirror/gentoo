@@ -1,0 +1,14 @@
+BDEPEND=test? ( =app-i18n/unicode-data-14.0* || ( dev-lang/ruby:2.6 dev-lang/ruby:2.7 ) virtual/rubygems )
+DEFINED_PHASES=compile install prepare test
+DESCRIPTION=A clean C Library for processing UTF-8 Unicode data
+EAPI=8
+HOMEPAGE=https://github.com/JuliaStrings/utf8proc
+INHERIT=ruby-single toolchain-funcs
+IUSE=cjk static-libs test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0/2.7.0
+SRC_URI=https://github.com/JuliaStrings/utf8proc/archive/v2.7.0.tar.gz -> libutf8proc-2.7.0.tar.gz cjk? ( https://dev.gentoo.org/~hattya/distfiles/libutf8proc-EastAsianWidth-14.0.0.xz )
+_eclasses_=ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-single	214d0508e74b80c85efcef39699cb9a2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=9523176a62920660ec87b2661ec4f254
