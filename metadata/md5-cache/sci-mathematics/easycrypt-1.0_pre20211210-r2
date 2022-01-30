@@ -1,8 +1,8 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
-DEFINED_PHASES=compile install test
+DEFINED_PHASES=compile install prepare test
 DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=sci-mathematics/why3-1.4:= dev-ml/batteries:= dev-ml/camlzip:= dev-ml/dune-build-info:= dev-ml/dune-site:= dev-ml/ocaml-inifiles:= dev-ml/pcre-ocaml:= dev-ml/yojson:= dev-ml/zarith:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Computer-Aided Cryptographic Proofs
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/EasyCrypt/easycrypt
 INHERIT=dune
 IUSE=+ocamlopt
@@ -12,4 +12,4 @@ RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=sci-mathematics/why3-1.4:= dev-ml
 SLOT=0/1.0_pre20211210
 SRC_URI=https://github.com/EasyCrypt/easycrypt/archive/49aec58ea63a64adcf5fbabcc14c6739f337b206.tar.gz -> easycrypt-1.0_pre20211210.tar.gz
 _eclasses_=dune	45f8b4ed9487a03522a647f3f33cb404
-_md5_=7d9df0050e18ac45acbfa6b6bf1b98bf
+_md5_=9cbf1a38349517c3b9c6d3b4c813a398
