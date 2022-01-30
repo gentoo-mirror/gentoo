@@ -1,0 +1,16 @@
+BDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare setup test
+DESCRIPTION=Performance analysis and visualization of the system boot process
+EAPI=8
+HOMEPAGE=https://github.com/xrmx/bootchart
+INHERIT=linux-info python-single-r1 systemd toolchain-funcs
+IUSE=+cairo python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_pypy3? ( dev-python/pycairo[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/pycairo[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pycairo[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pycairo[python_targets_python3_10(-)] ) ) sys-apps/lsb-release
+REQUIRED_USE=cairo? ( ^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+RESTRICT=!cairo? ( test )
+SLOT=0
+SRC_URI=https://github.com/xrmx/bootchart/archive/0.14.9.tar.gz -> bootchart2-0.14.9.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-single-r1	003123b4d7119cfd295a7566b1830904	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=89369945f7ff53ccdc39221e1ec21240
