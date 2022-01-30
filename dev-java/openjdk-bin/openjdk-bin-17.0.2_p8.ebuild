@@ -30,19 +30,17 @@ MY_PV=${PV/_p/+}
 SLOT=${MY_PV%%[.+]*}
 
 SRC_URI="
-	$(abi_uri arm)
 	$(abi_uri aarch64 arm64)
 	$(abi_uri x64 amd64)
 	$(abi_uri x64 amd64 musl)
-	$(abi_uri ppc64le ppc64)
 	$(abi_uri x64 x64-macos)
 "
 
 DESCRIPTION="Prebuilt Java JDK binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptium.net"
 LICENSE="GPL-2-with-classpath-exception"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x64-macos"
-IUSE="alsa cups headless-awt selinux source"
+KEYWORDS="~amd64 ~arm64 ~x64-macos"
+IUSE="alsa cups +gentoo-vm headless-awt selinux source"
 
 RDEPEND="
 	>=sys-apps/baselayout-java-0.1.0-r1
@@ -124,7 +122,7 @@ src_install() {
 	# provide stable symlink
 	dosym "${P}" "/opt/${PN}-${SLOT}"
 
-	java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
+	use gentoo-vm && java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
 	java-vm_set-pax-markings "${ddest}"
 	java-vm_revdep-mask
 	java-vm_sandbox-predict /dev/random /proc/self/coredump_filter
@@ -132,4 +130,16 @@ src_install() {
 
 pkg_postinst() {
 	java-vm-2_pkg_postinst
+
+	if use gentoo-vm ; then
+		ewarn "WARNING! You have enabled the gentoo-vm USE flag, making this JDK"
+		ewarn "recognised by the system. This will almost certainly break"
+		ewarn "many java ebuilds as they are not ready for openjdk-${SLOT}"
+	else
+		ewarn "The experimental gentoo-vm USE flag has not been enabled so this JDK"
+		ewarn "will not be recognised by the system. For example, simply calling"
+		ewarn "\"java\" will launch a different JVM. This is necessary until Gentoo"
+		ewarn "fully supports Java ${SLOT}. This JDK must therefore be invoked using its"
+		ewarn "absolute location under ${EPREFIX}/opt/${P}."
+	fi
 }
