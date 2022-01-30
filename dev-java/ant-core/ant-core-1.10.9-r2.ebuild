@@ -39,7 +39,7 @@ DEPEND="${CDEPEND}
 		dev-java/jdepend:0
 		dev-java/jsch:0
 		dev-java/log4j:0
-		dev-java/oracle-javamail:0
+		dev-java/javax-mail:0
 		dev-java/sun-jai-bin:0
 		dev-java/xalan:0
 		dev-java/xml-commons-resolver:0
@@ -107,7 +107,7 @@ src_compile() {
 			jdepend
 			jsch
 			log4j
-			oracle-javamail
+			javax-mail
 			sun-jai-bin
 			xalan
 			xml-commons-resolver
