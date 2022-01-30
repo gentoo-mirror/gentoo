@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/bigarray-compat:= dev-ml/integers:= test? ( dev-ml/ounit2 dev-ml/lwt ) >=dev-ml/findlib-1.0.4-r1
+DESCRIPTION=Library for binding to C libraries using pure OCaml
+EAPI=7
+HOMEPAGE=https://github.com/ocamllabs/ocaml-ctypes
+INHERIT=findlib
+IUSE=test +ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/bigarray-compat:= dev-ml/integers:= dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=!test? ( test )
+SLOT=0/0.20.0
+SRC_URI=https://github.com/ocamllabs/ocaml-ctypes/archive/0.20.0.tar.gz -> ocaml-ctypes-0.20.0.tar.gz
+_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_md5_=98e9f4de5781ccb3aa7a177584978d79
