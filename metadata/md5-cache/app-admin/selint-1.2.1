@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure prepare
+DEPEND=dev-libs/confuse:= dev-libs/uthash test? ( dev-libs/check )
+DESCRIPTION=Static code analysis of refpolicy style SELinux policy
+EAPI=8
+HOMEPAGE=https://github.com/TresysTechnology/selint/wiki
+IUSE=test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/confuse:= dev-libs/uthash
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/TresysTechnology/selint/releases/download/v1.2.1/selint-1.2.1.tar.gz
+_md5_=4766c88deb78c80a4b98c53f775a803e
