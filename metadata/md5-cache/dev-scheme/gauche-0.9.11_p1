@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://practical-scheme.net/gauche/
 INHERIT=autotools
 IUSE=ipv6 mbedtls test
-KEYWORDS=~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=sys-libs/gdbm virtual/libcrypt:= mbedtls? ( net-libs/mbedtls:= )
 RESTRICT=!test? ( test )
-SLOT=0/0.97
-SRC_URI=mirror://sourceforge/gauche/Gauche-0.9.10.tgz https://dev.gentoo.org/~hattya/distfiles/gauche-0.9.10-sys-ctermid.patch.xz
+SLOT=0/0.98
+SRC_URI=https://github.com/shirok/Gauche/releases/download/release0_9_11_p1/Gauche-0.9.11-p1.tgz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
-_md5_=dfb5e9902c96fc7ffad33e968a057ebc
+_md5_=7ad262df5a13ad2533093d8389363b23
