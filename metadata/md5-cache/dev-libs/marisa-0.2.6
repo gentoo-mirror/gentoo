@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/s-yata/marisa-trie https://code.google.com/archive/p/marisa-trie/
 INHERIT=autotools distutils-r1 toolchain-funcs
 IUSE=python static-libs python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=amd64 arm64 ~hppa ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 arm64 ~hppa ppc ppc64 ~riscv ~sparc x86
 LICENSE=|| ( BSD-2 LGPL-2.1+ )
 RDEPEND=python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
 SLOT=0
 SRC_URI=https://github.com/s-yata/marisa-trie/archive/v0.2.6.tar.gz -> marisa-0.2.6.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	46a97aac0e3039b269e9738b9132e60d
-_md5_=2459752d1e059e3024237431ba28f2f2
+_md5_=0e9968ded311e256ed1d5f1ee086bef5
