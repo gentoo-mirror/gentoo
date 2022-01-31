@@ -1,0 +1,14 @@
+BDEPEND=app-doc/doxygen app-text/pandoc virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure prepare setup test unpack
+DEPEND=>=dev-libs/ell-0.30.0 elibc_musl? ( sys-libs/argp-standalone ) >=sys-kernel/linux-headers-5.6
+DESCRIPTION=Daemon that performs multipath TCP path management related operations.
+EAPI=8
+HOMEPAGE=https://github.com/intel/mptcpd/
+INHERIT=autotools linux-info systemd git-r3
+IUSE=debug doc
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=>=dev-libs/ell-0.30.0 elibc_musl? ( sys-libs/argp-standalone )
+SLOT=0/9999
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	linux-info	2f039741fe92bcea55c78806d16ac0f5	systemd	2736b403a83f194b59b767f3b344c2c1	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=26e69a5159246d10ab7088b109aa398b
