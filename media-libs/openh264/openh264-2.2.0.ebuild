@@ -6,11 +6,10 @@ EAPI=8
 inherit toolchain-funcs multilib-minimal
 
 MOZVER=39
-MY_OPENH264_COMMIT="2c4379535ca62afafd39ca232f2e3592895b1fd7"
 MY_GMP_COMMIT="e3935759360861812d33cbd3b713e25f1de1ecb5"
 DESCRIPTION="Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages"
-HOMEPAGE="https://www.openh264.org/"
-SRC_URI="https://github.com/cisco/openh264/archive/${MY_OPENH264_COMMIT}.tar.gz -> ${P}.tar.gz
+HOMEPAGE="https://www.openh264.org/ https://github.com/cisco/openh264"
+SRC_URI="https://github.com/cisco/openh264/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mozilla/gmp-api/archive/${MY_GMP_COMMIT}.tar.gz -> gmp-api-Firefox${MOZVER}-${MY_GMP_COMMIT}.tar.gz"
 LICENSE="BSD"
 SLOT="0/6.1" # subslot = openh264 soname version
@@ -26,8 +25,6 @@ BDEPEND="
 DOCS=( LICENSE CONTRIBUTORS README.md )
 
 PATCHES=( "${FILESDIR}/${PN}-2.1.0-pkgconfig-pathfix.patch" )
-
-S="${WORKDIR}/openh264-${MY_OPENH264_COMMIT}"
 
 src_prepare() {
 	default
