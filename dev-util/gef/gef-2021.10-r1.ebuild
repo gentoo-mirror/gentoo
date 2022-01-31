@@ -44,6 +44,12 @@ BDEPEND="doc? ( dev-python/mkdocs )
 		')
 	)"
 
+src_prepare() {
+	default
+
+	sed -i -e '/pylint/d' requirements.txt || die
+}
+
 src_compile() {
 	# Tries to compile tests
 	:
