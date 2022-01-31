@@ -1,0 +1,16 @@
+BDEPEND=dev-python/setuptools_scm[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools_scm_git_archive[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/toml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] doc? ( app-text/asciidoc ) test? ( dev-python/mock[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/nose[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( >=dev-python/six-1.7.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/pyproject2setuppy-22[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Convert text with ANSI color codes to HTML
+EAPI=7
+HOMEPAGE=https://pypi.org/project/ansi2html/ https://github.com/pycontribs/ansi2html
+INHERIT=distutils-r1
+IUSE=doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=LGPL-3+
+RDEPEND=>=dev-python/six-1.7.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/a/ansi2html/ansi2html-1.7.0.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	46a97aac0e3039b269e9738b9132e60d
+_md5_=efb5ed6435b508958bb5734b74e0cc2e
