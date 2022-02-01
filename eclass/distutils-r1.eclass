@@ -128,6 +128,24 @@ esac
 # It is available only in non-PEP517 mode.  It needs to be set before
 # the inherit line.
 
+# @ECLASS-VARIABLE: DISTUTILS_DEPS
+# @OUTPUT_VARIABLE
+# @DESCRIPTION:
+# This is an eclass-generated build-time dependency string for the build
+# system packages.  This string is automatically appended to BDEPEND
+# unless DISTUTILS_OPTIONAL is used.  This variable is available only
+# in PEP 517 mode.
+#
+# Example use:
+# @CODE
+# DISTUTILS_OPTIONAL=1
+# # ...
+# RDEPEND="${PYTHON_DEPS}"
+# BDEPEND="
+#     ${PYTHON_DEPS}
+#     ${DISTUTILS_DEPS}"
+# @CODE
+
 if [[ ! ${_DISTUTILS_R1} ]]; then
 
 [[ ${EAPI} == 6 ]] && inherit eutils xdg-utils
@@ -156,7 +174,7 @@ _distutils_set_globals() {
 
 		# installer is used to install the wheel
 		# tomli is used to read build-backend from pyproject.toml
-		bdep+='
+		bdep='
 			>=dev-python/installer-0.4.0_p20220124[${PYTHON_USEDEP}]
 			dev-python/tomli[${PYTHON_USEDEP}]'
 		case ${DISTUTILS_USE_PEP517} in
@@ -183,6 +201,11 @@ _distutils_set_globals() {
 				die "Unknown DISTUTILS_USE_PEP517=${DISTUTILS_USE_PEP517}"
 				;;
 		esac
+	elif [[ ${DISTUTILS_OPTIONAL} ]]; then
+		if [[ ${DISTUTILS_USE_SETUPTOOLS} ]]; then
+			eqawarn "QA Notice: DISTUTILS_USE_SETUPTOOLS is not used when DISTUTILS_OPTIONAL"
+			eqawarn "is enabled."
+		fi
 	else
 		local setuptools_dep='>=dev-python/setuptools-42.0.2[${PYTHON_USEDEP}]'
 
@@ -213,15 +236,31 @@ _distutils_set_globals() {
 		[[ -n ${rdep} ]] && rdep="$(python_gen_cond_dep "${rdep}")"
 	fi
 
-	RDEPEND="${PYTHON_DEPS} ${rdep}"
-	if [[ ${EAPI} != 6 ]]; then
-		BDEPEND="${PYTHON_DEPS} ${bdep}"
-	else
-		DEPEND="${PYTHON_DEPS} ${bdep}"
+	if [[ ${DISTUTILS_USE_PEP517} ]]; then
+		if [[ ${DISTUTILS_DEPS+1} ]]; then
+			if [[ ${DISTUTILS_DEPS} != "${bdep}" ]]; then
+				eerror "DISTUTILS_DEPS have changed between inherits!"
+				eerror "Before: ${DISTUTILS_DEPS}"
+				eerror "Now   : ${bdep}"
+				die "DISTUTILS_DEPS integrity check failed"
+			fi
+		else
+			DISTUTILS_DEPS=${bdep}
+			readonly DISTUTILS_DEPS
+		fi
 	fi
-	REQUIRED_USE=${PYTHON_REQUIRED_USE}
+
+	if [[ ! ${DISTUTILS_OPTIONAL} ]]; then
+		RDEPEND="${PYTHON_DEPS} ${rdep}"
+		if [[ ${EAPI} != 6 ]]; then
+			BDEPEND="${PYTHON_DEPS} ${bdep}"
+		else
+			DEPEND="${PYTHON_DEPS} ${bdep}"
+		fi
+		REQUIRED_USE=${PYTHON_REQUIRED_USE}
+	fi
 }
-[[ ! ${DISTUTILS_OPTIONAL} ]] && _distutils_set_globals
+_distutils_set_globals
 unset -f _distutils_set_globals
 
 # @ECLASS-VARIABLE: PATCHES
@@ -544,6 +583,9 @@ esetup.py() {
 	if [[ ${DISTUTILS_USE_SETUPTOOLS} == pyproject.toml ]]; then
 		setup_py=( -m pyproject2setuppy )
 	elif [[ ! -f setup.py ]]; then
+		if [[ ! -f setup.cfg ]]; then
+			die "${FUNCNAME}: setup.py nor setup.cfg not found"
+		fi
 		setup_py=( -c "from setuptools import setup; setup()" )
 	fi
 
@@ -1316,8 +1358,10 @@ distutils-r1_run_phase() {
 	local -x LDSHARED="${CC} ${ldopts}" LDCXXSHARED="${CXX} ${ldopts}"
 
 	"${@}"
+	local ret=${?}
 
 	cd "${_DISTUTILS_INITIAL_CWD}" || die
+	return "${ret}"
 }
 
 # @FUNCTION: _distutils-r1_run_common_phase
@@ -1375,14 +1419,14 @@ _distutils-r1_run_foreach_impl() {
 
 distutils-r1_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
-
+	local ret=0
 	local _DISTUTILS_DEFAULT_CALLED
 
 	# common preparations
 	if declare -f python_prepare_all >/dev/null; then
-		python_prepare_all
+		python_prepare_all || ret=${?}
 	else
-		distutils-r1_python_prepare_all
+		distutils-r1_python_prepare_all || ret=${?}
 	fi
 
 	if [[ ! ${_DISTUTILS_DEFAULT_CALLED} ]]; then
@@ -1390,35 +1434,45 @@ distutils-r1_src_prepare() {
 	fi
 
 	if declare -f python_prepare >/dev/null; then
-		_distutils-r1_run_foreach_impl python_prepare
+		_distutils-r1_run_foreach_impl python_prepare || ret=${?}
 	fi
+
+	return ${ret}
 }
 
 distutils-r1_src_configure() {
+	debug-print-function ${FUNCNAME} "${@}"
+	local ret=0
+
 	python_export_utf8_locale
 	[[ ${EAPI} == 6 ]] && xdg_environment_reset # Bug 577704
 
 	if declare -f python_configure >/dev/null; then
-		_distutils-r1_run_foreach_impl python_configure
+		_distutils-r1_run_foreach_impl python_configure || ret=${?}
 	fi
 
 	if declare -f python_configure_all >/dev/null; then
-		_distutils-r1_run_common_phase python_configure_all
+		_distutils-r1_run_common_phase python_configure_all || ret=${?}
 	fi
+
+	return ${ret}
 }
 
 distutils-r1_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
+	local ret=0
 
 	if declare -f python_compile >/dev/null; then
-		_distutils-r1_run_foreach_impl python_compile
+		_distutils-r1_run_foreach_impl python_compile || ret=${?}
 	else
-		_distutils-r1_run_foreach_impl distutils-r1_python_compile
+		_distutils-r1_run_foreach_impl distutils-r1_python_compile || ret=${?}
 	fi
 
 	if declare -f python_compile_all >/dev/null; then
-		_distutils-r1_run_common_phase python_compile_all
+		_distutils-r1_run_common_phase python_compile_all || ret=${?}
 	fi
+
+	return ${ret}
 }
 
 # @FUNCTION: _distutils-r1_clean_egg_info
@@ -1428,20 +1482,29 @@ distutils-r1_src_compile() {
 # Those files ended up being unversioned, and caused issues:
 # https://bugs.gentoo.org/534058
 _distutils-r1_clean_egg_info() {
+	if [[ ${DISTUTILS_USE_PEP517} ]]; then
+		die "${FUNCNAME} is not implemented in PEP517 mode"
+	fi
+
 	rm -rf "${BUILD_DIR}"/lib/*.egg-info || die
 }
 
 distutils-r1_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
+	local ret=0
 
 	if declare -f python_test >/dev/null; then
-		_distutils-r1_run_foreach_impl python_test
-		_distutils-r1_run_foreach_impl _distutils-r1_clean_egg_info
+		_distutils-r1_run_foreach_impl python_test || ret=${?}
+		if [[ ! ${DISTUTILS_USE_PEP517} ]]; then
+			_distutils-r1_run_foreach_impl _distutils-r1_clean_egg_info
+		fi
 	fi
 
 	if declare -f python_test_all >/dev/null; then
-		_distutils-r1_run_common_phase python_test_all
+		_distutils-r1_run_common_phase python_test_all || ret=${?}
 	fi
+
+	return ${ret}
 }
 
 # @FUNCTION: _distutils-r1_check_namespace_pth
@@ -1473,20 +1536,23 @@ _distutils-r1_check_namespace_pth() {
 
 distutils-r1_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
+	local ret=0
 
 	if declare -f python_install >/dev/null; then
-		_distutils-r1_run_foreach_impl python_install
+		_distutils-r1_run_foreach_impl python_install || ret=${?}
 	else
-		_distutils-r1_run_foreach_impl distutils-r1_python_install
+		_distutils-r1_run_foreach_impl distutils-r1_python_install || ret=${?}
 	fi
 
 	if declare -f python_install_all >/dev/null; then
-		_distutils-r1_run_common_phase python_install_all
+		_distutils-r1_run_common_phase python_install_all || ret=${?}
 	else
-		_distutils-r1_run_common_phase distutils-r1_python_install_all
+		_distutils-r1_run_common_phase distutils-r1_python_install_all || ret=${?}
 	fi
 
 	_distutils-r1_check_namespace_pth
+
+	return ${ret}
 }
 
 _DISTUTILS_R1=1
