@@ -2,7 +2,7 @@ BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=asn1? ( >=dev-libs/libtasn1-3.4:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) libffi? ( dev-libs/libffi:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) systemd? ( sys-apps/systemd:= ) trust? ( app-misc/ca-certificates )
 DESCRIPTION=Provides a standard configuration setup for installing PKCS#11
-EAPI=7
+EAPI=8
 HOMEPAGE=https://p11-glue.github.io/p11-glue/p11-kit.html
 INHERIT=multilib-minimal
 IUSE=+asn1 debug +libffi systemd +trust abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
@@ -11,6 +11,6 @@ LICENSE=MIT
 RDEPEND=asn1? ( >=dev-libs/libtasn1-3.4:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) libffi? ( dev-libs/libffi:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) systemd? ( sys-apps/systemd:= ) trust? ( app-misc/ca-certificates )
 REQUIRED_USE=trust? ( asn1 )
 SLOT=0
-SRC_URI=https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz
+SRC_URI=https://github.com/p11-glue/p11-kit/releases/download/0.24.1/p11-kit-0.24.1.tar.xz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib-build	75c3a5814f2cb851f641711bfcc100c0	multilib-minimal	4b0f1857965db8869a729948d5277e0b
-_md5_=7d95c980ca597c498b996327183ee22c
+_md5_=5efaa83236f05bf24609d73a69fc5375
