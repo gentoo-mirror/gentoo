@@ -18,7 +18,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -39,6 +39,7 @@ BDEPEND="
 			>=dev-python/jaraco-path-3.2.0[${PYTHON_USEDEP}]
 			dev-python/mock[${PYTHON_USEDEP}]
 			dev-python/pip[${PYTHON_USEDEP}]
+			dev-python/pip-run[${PYTHON_USEDEP}]
 			dev-python/sphinx[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
 			dev-python/pytest-fixture-config[${PYTHON_USEDEP}]
@@ -60,6 +61,12 @@ src_prepare() {
 	# remove bundled dependencies, setuptools will switch to system deps
 	# automatically
 	rm -r */_vendor || die
+
+	# remove the ugly */extern hack that breaks on unvendored deps
+	rm -r */extern || die
+	find -name '*.py' -exec sed \
+		-e 's:from \w*[.]extern ::' -e 's:\w*[.]extern[.]::' \
+		-i {} + || die
 
 	# apply distutils patches to the bundled distutils
 	pushd setuptools/_distutils >/dev/null || die
@@ -84,6 +91,7 @@ python_test() {
 		setuptools/tests/test_virtualenv.py::test_no_missing_dependencies
 		'setuptools/tests/test_virtualenv.py::test_pip_upgrade_from_source[None]'
 		setuptools/tests/test_virtualenv.py::test_test_command_install_requirements
+		setuptools/tests/test_setuptools.py::test_its_own_wheel_does_not_contain_tests
 		# unhappy with pytest-xdist?
 		setuptools/tests/test_easy_install.py::TestUserInstallTest::test_local_index
 		# TODO
