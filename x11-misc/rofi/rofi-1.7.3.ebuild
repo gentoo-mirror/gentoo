@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,11 +11,15 @@ SRC_URI="https://github.com/davatorium/rofi/releases/download/${PV}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+drun test +windowmode"
 RESTRICT="!test? ( test )"
 
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+	virtual/pkgconfig
+"
 RDEPEND="
 	dev-libs/glib:2
 	gnome-base/librsvg:2
