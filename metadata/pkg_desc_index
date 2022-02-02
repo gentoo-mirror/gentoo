@@ -905,7 +905,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.23 1.22.31 1.22.37 1.22.40 1.22.41 1.22.42 1.22.43 1.22.44 1.22.45 1.22.46: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.23 1.22.31 1.22.37 1.22.40 1.22.41 1.22.42 1.22.43 1.22.44 1.22.45 1.22.46 1.22.47: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.2 1.28.3: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8314,8 +8314,8 @@ dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.20.23 1.20.31 1.20.37 1.20.40 1.20.41 1.20.42 1.20.43 1.20.44 1.20.45 1.20.46 9999: The AWS SDK for Python
-dev-python/botocore 1.23.23 1.23.31 1.23.37 1.23.40 1.23.41 1.23.42 1.23.43 1.23.44 1.23.45 1.23.46 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.20.23 1.20.31 1.20.37 1.20.40 1.20.41 1.20.42 1.20.43 1.20.44 1.20.45 1.20.46 1.20.47 9999: The AWS SDK for Python
+dev-python/botocore 1.23.23 1.23.31 1.23.37 1.23.40 1.23.41 1.23.42 1.23.43 1.23.44 1.23.45 1.23.46 1.23.47 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2-r1: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8505,7 +8505,7 @@ dev-python/emoji 1.6.1 1.6.3: Emoji for Python
 dev-python/empy 3.3.4 3.3.4-r1: A powerful and robust templating system for Python
 dev-python/enrich 1.2.6 1.2.7 1.2.7-r1: Extend rich functionality
 dev-python/entrypoint2 0.2.4 1.0: Easy to use command-line interface for python modules
-dev-python/entrypoints 0.3-r2 0.3-r3: Discover and load entry points from installed packages
+dev-python/entrypoints 0.3-r2 0.3-r3 0.4: Discover and load entry points from installed packages
 dev-python/environs 9.3.4: Python library for simplified environment variable parsing
 dev-python/enzyme 0.4.1-r2 9999: Python video metadata parser
 dev-python/eradicate 2.0.0 2.0.0-r1: Removes commented-out code from Python files
@@ -8603,7 +8603,7 @@ dev-python/github3 3.0.0: A wrapper for the GitHub API written in python
 dev-python/glob2 0.7: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.4-r1: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.1 2.1.2: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.3.1: Core Library for Google Client Libraries
+dev-python/google-api-core 2.3.1 2.5.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.34.0 2.35.0 2.36.0: Google API Client for Python
 dev-python/google-apitools 0.5.32: Python library to manipulate Google APIs
 dev-python/google-auth 2.3.3-r1 2.4.0 2.5.0 2.6.0: Google Authentication Library
@@ -8901,7 +8901,7 @@ dev-python/nototools 0.2.16: Noto fonts support tools and scripts plus web site 
 dev-python/nptyping 1.4.4: Type hints for Numpy
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
-dev-python/nuitka 0.6.19 0.6.19.1 0.6.19.2 0.6.19.3 0.6.19.4: Python to native compiler
+dev-python/nuitka 0.6.19.4 0.6.19.5: Python to native compiler
 dev-python/numexpr 2.8.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.21.5 1.22.0-r1 1.22.1: Fast array and numerical python library
 dev-python/numpydoc 1.1.0 1.2: Sphinx extension to support docstrings in Numpy format
@@ -9394,7 +9394,7 @@ dev-python/requests_download 0.1.2: A convenient function to download to a file 
 dev-python/requests_pkcs12 1.10: Adds PKCS#12 support to the Python requests library in a clean way
 dev-python/requestsexceptions 1.4.0: Finds the correct path to exceptions in the requests library
 dev-python/resolvelib 0.5.4 0.8.1: provides a Resolver class that includes dependency resolution logic
-dev-python/responses 0.16.0 0.17.0: Utility for mocking out the Python Requests library
+dev-python/responses 0.16.0 0.17.0 0.18.0: Utility for mocking out the Python Requests library
 dev-python/restructuredtext-lint 1.3.0: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1: Decorator for retrying when exceptions occur
 dev-python/retrying 1.3.3: General-purpose retrying library
@@ -9422,7 +9422,7 @@ dev-python/rtslib-fb 2.1.74: A Python object API for managing the Linux LIO kern
 dev-python/ruamel-std-pathlib 0.8.0 0.9.0 0.9.1: Ruamel enhancements to pathlib and pathlib2
 dev-python/ruamel-yaml 0.17.19 0.17.20: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.6: C-based reader/scanner and emitter for dev-python/ruamel-yaml
-dev-python/s3transfer 0.5.0-r2: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.5.0-r2 0.5.1: An Amazon S3 Transfer Manager
 dev-python/sabyenc 4.0.2: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.6 0.1.7 0.1.7-r1: wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif_om 1.0.4: Classes implementing the SARIF 2.1.0 object model
@@ -9616,7 +9616,7 @@ dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on t
 dev-python/trustme 0.9.0: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/tubes 0.2.0-r1: Flow control and backpressure for event-driven applications
 dev-python/tvdb_api 3.0.2: Python interface to thetvdb.com API
-dev-python/twine 3.7.0 3.7.0-r1: Collection of utilities for publishing packages on PyPI
+dev-python/twine 3.7.0 3.7.0-r1 3.8.0: Collection of utilities for publishing packages on PyPI
 dev-python/twisted 21.7.0 21.7.0-r1: An asynchronous networking framework written in Python
 dev-python/twython 3.9.1: An easy way to access Twitter data with Python
 dev-python/txAMQP 0.8.2: Python library for communicating with AMQP peers using Twisted
