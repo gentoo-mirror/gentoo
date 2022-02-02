@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) app-arch/lz4 app-arch/zstd
+DESCRIPTION=Open-source postgresql extension for clustering/multi-node setups
+EAPI=7
+HOMEPAGE=https://www.citusdata.com/
+INHERIT=postgres-multi
+IUSE=postgres_targets_postgres13 postgres_targets_postgres12
+KEYWORDS=~amd64
+LICENSE=POSTGRESQL AGPL-3
+RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) app-arch/lz4 app-arch/zstd
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/citusdata/citus/archive/v10.1.4.tar.gz -> citus-10.1.4.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	user-info	df8c432bdcb3cdcef6c8250f0ab9e4ea	user	532ab7f2ae477f0333be1eacc343821c	postgres	3ff7ea72ed39efa38ebaead171fd5da4	postgres-multi	fb7c39e4a2aced93f5986224677a9070
+_md5_=6b9492bce16dc042114ec4b5817ba881
