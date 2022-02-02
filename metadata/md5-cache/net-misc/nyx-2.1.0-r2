@@ -1,16 +1,16 @@
-BDEPEND=test? ( net-libs/stem[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?] net-vpn/tor dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0=[ncurses,sqlite(-)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[ncurses,sqlite(-)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[ncurses,sqlite(-)] ) >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+BDEPEND=test? ( net-libs/stem[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] net-vpn/tor dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0=[ncurses,sqlite(-)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[ncurses,sqlite(-)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[ncurses,sqlite(-)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[ncurses,sqlite(-)] ) >=dev-python/setuptools-42.0.2[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Utility to monitor real time Tor status information
 EAPI=8
 HOMEPAGE=https://nyx.torproject.org
 INHERIT=distutils-r1
-IUSE=test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9
+IUSE=test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~arm ~mips ~ppc ~ppc64 ~x86
 LICENSE=GPL-3
-RDEPEND=net-libs/stem[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?] net-vpn/tor python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0=[ncurses,sqlite(-)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[ncurses,sqlite(-)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[ncurses,sqlite(-)] )
-REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=net-libs/stem[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] net-vpn/tor python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0=[ncurses,sqlite(-)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[ncurses,sqlite(-)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[ncurses,sqlite(-)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[ncurses,sqlite(-)] )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/n/nyx/nyx-2.1.0.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	242601d395f54f27cfbc76e53f5e0203
-_md5_=598fd0024e35d28a77ba2e4dc93ef8b2
+_md5_=c1ff622d9c26b914db23b25b75a513a8
