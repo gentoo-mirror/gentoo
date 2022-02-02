@@ -3,7 +3,9 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..9} )
+
 inherit distutils-r1 flag-o-matic optfeature
 
 DESCRIPTION="Python to native compiler"
@@ -28,13 +30,12 @@ DOCS=( Changelog.pdf Developer_Manual.pdf README.pdf )
 distutils-r1_src_prepare() {
 	# remove vendored version of SCons that is Python2 only
 	# this should be removed when upstream removes support for Python2
-	rm -vR "${S}/${PN}/build/inline_copy/lib/scons-2.3.2/SCons"  || die
+	rm -vR "${PN}/build/inline_copy/lib/scons-2.3.2/SCons" || die
 	eapply_user
 }
 
 python_install() {
 	distutils-r1_python_install
-	python_optimize
 	doman doc/nuitka3.1 doc/nuitka3-run.1
 }
 
