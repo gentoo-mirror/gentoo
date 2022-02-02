@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/llvm-mirror/libunwind"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos"
 IUSE="debug static-libs test"
 RESTRICT="!test? ( test )"
 
@@ -27,6 +27,7 @@ BDEPEND="
 
 LLVM_COMPONENTS=( libunwind libcxx llvm/cmake )
 LLVM_TEST_COMPONENTS=( libcxxabi )
+LLVM_PATCHSET=${PV/_/-}
 llvm.org_set_globals
 
 python_check_deps() {
