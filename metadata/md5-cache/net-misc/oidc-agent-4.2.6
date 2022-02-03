@@ -1,16 +1,16 @@
 BDEPEND=test? ( dev-libs/check )
 DEFINED_PHASES=install postinst postrm prepare
-DEPEND=app-crypt/libsecret dev-libs/libsodium:= media-gfx/qrencode net-libs/libmicrohttpd:= sys-libs/libseccomp
+DEPEND=app-crypt/libsecret dev-libs/libsodium:= media-gfx/qrencode net-libs/libmicrohttpd:= sys-libs/libseccomp elibc_musl? ( sys-libs/argp-standalone )
 DESCRIPTION=Agent and tools for managing OpenID Connect tokens on the command line
 EAPI=8
 HOMEPAGE=https://github.com/indigo-dc/oidc-agent
-INHERIT=xdg-utils
+INHERIT=flag-o-matic xdg-utils
 IUSE=test
 KEYWORDS=~amd64 ~riscv
 LICENSE=MIT
-RDEPEND=app-crypt/libsecret dev-libs/libsodium:= media-gfx/qrencode net-libs/libmicrohttpd:= sys-libs/libseccomp
+RDEPEND=app-crypt/libsecret dev-libs/libsodium:= media-gfx/qrencode net-libs/libmicrohttpd:= sys-libs/libseccomp elibc_musl? ( sys-libs/argp-standalone )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/indigo-dc/oidc-agent/archive/v4.2.6.tar.gz -> oidc-agent-4.2.6.tar.gz
-_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=5298cf28b54a6f83c6bbc3c435732a7a
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=6a9a22ad72785ef1fffe9e49cb040043
