@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/iso-relax:0 dev-java/relaxng-datatype:0 dev-java/xml-commons-resolver:0 dev-java/xsdlib:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Multi-Schema XML Validator, a Java tool for validating XML documents
+EAPI=8
+HOMEPAGE=https://msv.java.net/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=BSD Apache-2.0
+RDEPEND=dev-java/iso-relax:0 dev-java/relaxng-datatype:0 dev-java/xml-commons-resolver:0 dev-java/xsdlib:0 dev-java/xerces:2 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://search.maven.org/remotecontent?filepath=net/java/dev/msv/msv-core/2013.6.1/msv-core-2013.6.1-sources.jar
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=b8604b81bfbc9da693a12bdb29d3f3f6
