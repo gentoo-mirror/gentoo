@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools flag-o-matic xdg-utils
 
@@ -82,11 +82,12 @@ src_configure() {
 	# is hard-coded throughout the source code, so passing anything else to
 	# ./configure --docdir just causes problems. Later, we'll put things right.
 	#
-	# micropython is for specific use in an upstream project
+	# micropython is for specific use in an upstream project, so is quickjs.
 	econf \
 		--enable-gmpxx \
 		--disable-samplerate \
 		--disable-micropy \
+		--disable-quickjs \
 		--docdir="${EPREFIX}"/usr/share/giac/doc \
 		$(use_enable static-libs static) \
 		$(use_enable gui)  \
