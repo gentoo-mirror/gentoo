@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/xml-commons-resolver:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=dev-java/xml-commons-external:1.4 dev-java/xml-commons-resolver:0 virtual/jdk:1.8 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Xerces Java XML parser
-EAPI=7
+EAPI=8
 HOMEPAGE=https://xerces.apache.org/xerces2-j/index.html
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=dev-java/xml-commons-resolver:0 >=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=dev-java/xml-commons-external:1.4 dev-java/xml-commons-resolver:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=2
-SRC_URI=https://repo1.maven.org/maven2/xerces/xercesImpl/2.12.1/xercesImpl-2.12.1-sources.jar -> xerces-2.12.1.jar
+SRC_URI=mirror://apache/xerces/j/source/Xerces-J-src.2.12.2.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=daf45c388760eac7bf49c3dd9fe759ac
+_md5_=c4d1f3154363ac324331a4fce488a011
