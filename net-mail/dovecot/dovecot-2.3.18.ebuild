@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-1 lua5-3 )
 # do not add a ssl USE flag.  ssl is mandatory
@@ -11,7 +11,7 @@ inherit autotools flag-o-matic lua-single ssl-cert systemd toolchain-funcs
 MY_P="${P/_/.}"
 #MY_S="${PN}-ce-${PV}"
 major_minor="$(ver_cut 1-2)"
-sieve_version="0.5.15"
+sieve_version="0.5.18"
 if [[ ${PV} == *_rc* ]]; then
 	rc_dir="rc/"
 else
@@ -32,27 +32,28 @@ LICENSE="LGPL-2.1 MIT"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 IUSE_DOVECOT_AUTH="kerberos ldap lua mysql pam postgres sqlite"
-IUSE_DOVECOT_COMPRESS="bzip2 lzma lz4 zlib zstd"
+IUSE_DOVECOT_COMPRESS="lz4 zstd"
 IUSE_DOVECOT_OTHER="argon2 caps doc ipv6 lucene managesieve rpc
-	selinux sieve solr static-libs suid systemd tcpd textcat unwind"
+	selinux sieve solr static-libs stemmer suid systemd tcpd textcat unwind"
 
 IUSE="${IUSE_DOVECOT_AUTH} ${IUSE_DOVECOT_COMPRESS} ${IUSE_DOVECOT_OTHER}"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 DEPEND="
+	app-arch/bzip2
+	app-arch/xz-utils
 	dev-libs/icu:=
 	dev-libs/openssl:0=
+	sys-libs/zlib:=
 	virtual/libiconv
 	argon2? ( dev-libs/libsodium:= )
-	bzip2? ( app-arch/bzip2 )
 	caps? ( sys-libs/libcap )
 	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap )
 	lua? ( ${LUA_DEPS} )
 	lucene? ( >=dev-cpp/clucene-2.3 )
 	lz4? ( app-arch/lz4 )
-	lzma? ( app-arch/xz-utils )
 	mysql? ( dev-db/mysql-connector-c:0= )
 	pam? ( sys-libs/pam:= )
 	postgres? ( dev-db/postgresql:* !dev-db/postgresql[ldap,threads] )
@@ -60,12 +61,12 @@ DEPEND="
 	selinux? ( sec-policy/selinux-dovecot )
 	solr? ( net-misc/curl dev-libs/expat )
 	sqlite? ( dev-db/sqlite:* )
+	stemmer? ( dev-libs/snowball-stemmer:= )
 	suid? ( acct-group/mail )
 	systemd? ( sys-apps/systemd:= )
 	tcpd? ( sys-apps/tcp-wrappers )
 	textcat? ( app-text/libexttextcat )
 	unwind? ( sys-libs/libunwind:= )
-	zlib? ( sys-libs/zlib:= )
 	zstd? ( app-arch/zstd:= )
 	virtual/libcrypt:=
 	"
@@ -119,30 +120,30 @@ src_configure() {
 		--with-rundir="${EPREFIX}/run/dovecot" \
 		--with-statedir="${EPREFIX}/var/lib/dovecot" \
 		--with-moduledir="${EPREFIX}/usr/$(get_libdir)/dovecot" \
-		--without-stemmer \
 		--disable-rpath \
+		--with-bzlib \
 		--without-libbsd \
+		--with-lzma \
 		--with-icu \
 		--with-ssl \
+		--with-zlib \
 		$( use_with argon2 sodium ) \
-		$( use_with bzip2 bzlib ) \
 		$( use_with caps libcap ) \
 		$( use_with kerberos gssapi ) \
 		$( use_with lua ) \
 		$( use_with ldap ) \
 		$( use_with lucene ) \
 		$( use_with lz4 ) \
-		$( use_with lzma ) \
 		$( use_with mysql ) \
 		$( use_with pam ) \
 		$( use_with postgres pgsql ) \
 		$( use_with sqlite ) \
 		$( use_with solr ) \
+		$( use_with stemmer ) \
 		$( use_with systemd ) \
 		$( use_with tcpd libwrap ) \
 		$( use_with textcat ) \
 		$( use_with unwind libunwind ) \
-		$( use_with zlib ) \
 		$( use_with zstd ) \
 		$( use_enable static-libs static ) \
 		${conf}
@@ -157,6 +158,7 @@ src_configure() {
 			--localstatedir="${EPREFIX}/var" \
 			--enable-shared \
 			--with-dovecot="${S}" \
+			$( use_with ldap ) \
 			$( use_with managesieve )
 	fi
 }
