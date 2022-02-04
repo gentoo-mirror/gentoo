@@ -1,6 +1,6 @@
 DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=dev-java/jackson-core:0 dev-java/jackson-databind:0 dev-java/snakeyaml:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
-DESCRIPTION=Support for reading and writing YAML-encoded data via Jackson abstractions.
+DESCRIPTION=Support for reading and writing YAML-encoded data via Jackson abstractions
 EAPI=8
 HOMEPAGE=https://github.com/FasterXML/jackson-dataformats-text
 INHERIT=java-pkg-2 java-pkg-simple
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/FasterXML/jackson-dataformats-text/archive/refs/tags/jackson-dataformats-text-2.13.0.tar.gz -> jackson-dataformat-yaml-2.13.0.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=fcdd4b098d5ecb5729097ff5183b9215
+_md5_=ca2a7dd38013f43ec0536295094ec1b4
