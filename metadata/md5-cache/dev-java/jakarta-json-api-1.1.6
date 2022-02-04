@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=JSR 374 (JSON Processing) API
+EAPI=8
+HOMEPAGE=https://projects.eclipse.org/projects/ee4j.jsonp
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=|| ( EPL-2.0 GPL-2-with-classpath-exception )
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=1
+SRC_URI=https://github.com/eclipse-ee4j/jsonp/archive/refs/tags/1.1-1.1.6-RELEASE.tar.gz -> jakarta-json-api-1.1.6.tar.gz
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=234bd2a80766918d82190bc2e150345c

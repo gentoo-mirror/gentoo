@@ -4993,9 +4993,9 @@ dev-java/ant-junitlauncher 1.10.9: Apache Ant's optional tasks depending on
 dev-java/ant-swing 1.10.9: Apache Ant's optional tasks for Swing
 dev-java/ant-testutil 1.10.9: Apache Ant's optional test utility classes
 dev-java/ant-xz 1.10.9: Apache Ant's optional tasks for XZ compression
-dev-java/antlr 2.7.7-r9 3.2-r1 3.5.2-r1 3.5.2-r2 4.5.1 4.5.3-r1: A parser generator for many languages
-dev-java/antlr-runtime 3.5.2: ANTLR 3 Runtime
-dev-java/antlr-tool 3.5.2: The ANTLR 3 tool
+dev-java/antlr 2.7.7-r9 3.2-r1 3.5.2-r1 3.5.2-r2 4.5.1 4.5.3-r1 4.9.3: A parser generator for many languages
+dev-java/antlr-runtime 3.5.2 4.9.3: ANTLR 4 Runtime
+dev-java/antlr-tool 3.5.2 4.9.3: The ANTLR 4 grammar compiler
 dev-java/aopalliance 1.0-r2 1.0-r3: Aspect-Oriented Programming (AOP) Alliance classes
 dev-java/apache-rat-core 0.13: The core functionality, shared by the Ant tasks and the Maven plugin
 dev-java/apache-rat-tasks 0.13: A plugin for Apache Ant that runs Apache Rat to audit the source
@@ -5112,13 +5112,18 @@ dev-java/iso-relax 20050331-r5: Interfaces useful for applications which support
 dev-java/j2objc-annotations 1.2-r1: Annotations for the J2ObjC Java to Objective-C translator
 dev-java/jackcess 4.0.0: A pure Java library for reading from and writing to MS Access databases
 dev-java/jackrabbit-webdav 2.10.1 2.10.1-r2 2.21.7: Generic WebDAV Library
-dev-java/jackson-annotations 2.9.10 2.13.0: Core annotations used for value types, used by Jackson data binding package.
+dev-java/jackson-annotations 2.13.0: Core annotations used for value types, used by Jackson data binding package.
+dev-java/jackson-core 2.13.0: Core Jackson processing abstractionis (Streaming API), implementation for JSON
+dev-java/jackson-databind 2.13.0: General data-binding functionality for Jackson: works on core streaming API
+dev-java/jackson-dataformat-yaml 2.13.0: Support for reading and writing YAML-encoded data via Jackson abstractions.
+dev-java/jackson-module-jakarta-xmlbind 2.13.0: Support for using Jakarta XML Bind (aka JAXB 3.0) annotations.
 dev-java/jacl 1.4.1-r1: Jacl is an implementation of Tcl written in Java
 dev-java/jacoco 0.7.9: Java Code Coverage library
 dev-java/jai-imageio-core 1.4.0: Java Advanced Imaging Image I/O Tools API core (standalone)
 dev-java/jai-imageio-jpeg2000 1.4.0: JPEG2000 support for Java Advanced Imaging Image I/O Tools API
 dev-java/jakarta-activation 1.2.2 2.0.1: Jakarta Activation
 dev-java/jakarta-activation-api 1.2.2 2.1.0: Jakarta Activation API jar
+dev-java/jakarta-json-api 1.1.6: JSR 374 (JSON Processing) API
 dev-java/jakarta-oro 2.0.8-r5: A set of text-processing Java classes
 dev-java/jakarta-regexp 1.3-r6 1.4-r3 1.5-r1: 100% Pure Java Regular Expression package
 dev-java/jakarta-xml-soap-api 1.4.2: SOAP with Attachments API for Java (SAAJ) API (Eclipse Project for JAX-WS)
@@ -5181,6 +5186,7 @@ dev-java/jnr-posix 3.0.10-r1: Lightweight cross-platform POSIX emulation layer f
 dev-java/jnr-x86asm 1.0.2-r2: A pure-java port of asmjit
 dev-java/joda-convert 2.2.2: Library to convert Objects to and from String
 dev-java/joda-time 2.10.10-r1: Date and time library to replace JDK date handling
+dev-java/jol-core 0.16: Java Object Layout: Core
 dev-java/jopt-simple 4.6 4.6-r1 5.0: A Java library for parsing command line options
 dev-java/jrobin 1.6.0-r1: JRobin is a 100% pure Java alternative to RRDTool
 dev-java/jsch 0.1.54 0.1.54-r1 0.1.55: JSch is a pure Java implementation of SSH2
@@ -18426,14 +18432,14 @@ www-client/fetch 1.0-r3 1.0-r4: HTTP download tool built atop the HTTP fetcher l
 www-client/firefox 91.5.0 91.5.1 96.0.3: Firefox Web Browser
 www-client/firefox-bin 91.5.1 96.0.3: Firefox Web Browser
 www-client/google-chrome 98.0.4758.80: The web browser from Google
-www-client/google-chrome-beta 98.0.4758.80: The web browser from Google
+www-client/google-chrome-beta 99.0.4844.17: The web browser from Google
 www-client/google-chrome-unstable 99.0.4844.17: The web browser from Google
 www-client/httrack 3.49.2-r2: HTTrack Website Copier, Open Source Offline Browser
 www-client/jd 2.8.9_p150226-r2: gtk2 based 2ch browser written in C++
 www-client/links 2.25-r3: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.2.1-r100 2.3 9999: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0_pre6-r2 2.9.0_pre9: An excellent console-based web browser with ssl support
-www-client/microsoft-edge 97.0.1072.76: The web browser from Microsoft
+www-client/microsoft-edge 98.0.1108.43: The web browser from Microsoft
 www-client/microsoft-edge-beta 98.0.1108.27-r1 98.0.1108.39 98.0.1108.42: The web browser from Microsoft
 www-client/microsoft-edge-dev 99.0.1135.6-r1 99.0.1141.0-r1 99.0.1150.2: The web browser from Microsoft
 www-client/midori 9.0: A lightweight web browser based on WebKitGTK+
@@ -18470,7 +18476,7 @@ www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
 www-misc/wsmake 0.6.4-r1: Website pre-processor features tag substitution and page ordering
 www-plugins/browserpass 3.0.7: WebExtension host binary for app-admin/pass, a UNIX password manager
-www-plugins/chrome-binary-plugins 98.0.4758.80_beta 98.0.4758.80 99.0.4844.17_alpha: Binary plugins from Google Chrome for use in Chromium
+www-plugins/chrome-binary-plugins 98.0.4758.80 99.0.4844.17_alpha 99.0.4844.17_beta: Binary plugins from Google Chrome for use in Chromium
 www-plugins/gosuslugi-plugin 3.1.1.0: Crypto-provider browser plugin for russian e-gov site https://gosuslugi.ru/
 www-plugins/lightspark 0.8.2-r1 0.8.3 0.8.4 0.8.5: High performance flash player
 www-plugins/passff-host 1.2.3-r1: Host app for the PassFF WebExtension
