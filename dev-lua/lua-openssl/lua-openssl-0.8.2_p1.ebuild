@@ -40,8 +40,6 @@ BDEPEND="
 	test? ( ${RDEPEND} )
 "
 
-DOCS=( "README.md" "samples/." )
-
 src_prepare() {
 	default
 
@@ -115,9 +113,6 @@ lua_src_install() {
 	)
 
 	emake "${myemakeargs[@]}" install
-
-	insinto "$(lua_get_lmod_dir)"
-	doins -r "lib/."
 
 	popd
 }
