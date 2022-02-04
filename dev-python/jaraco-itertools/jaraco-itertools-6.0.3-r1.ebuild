@@ -3,7 +3,9 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{8..10} )
+
 inherit distutils-r1
 
 MY_P=${P/-/.}
@@ -14,7 +16,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ppc ppc64 ~riscv ~s390 sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 
 RDEPEND="
 	dev-python/inflect[${PYTHON_USEDEP}]
@@ -37,5 +39,4 @@ python_test() {
 		__path__ = __import__('pkgutil').extend_path(__path__, __name__)
 	EOF
 	epytest --doctest-modules
-	rm jaraco/__init__.py || die
 }
