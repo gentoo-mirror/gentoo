@@ -1,10 +1,11 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{7..10} )
+EAPI=8
 
-inherit distutils-r1
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{8..10} )
+inherit distutils-r1 optfeature
 
 DESCRIPTION="Python binding to libudev"
 HOMEPAGE="https://pyudev.readthedocs.io/en/latest/ https://github.com/pyudev/pyudev"
@@ -21,15 +22,14 @@ RESTRICT="test"
 RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 	virtual/udev
-	qt5? ( dev-python/PyQt5[${PYTHON_USEDEP}] )
 "
-DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]
+BDEPEND="
 	test? (
 		dev-python/docutils[${PYTHON_USEDEP}]
 		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 DOCS=( CHANGES.rst README.rst )
 
@@ -50,4 +50,8 @@ python_prepare_all() {
 	sed -e '/@settings/s/(/(deadline=None,/' -i tests{,/_device_tests}/*.py || die
 
 	distutils-r1_python_prepare_all
+}
+
+pkg_postinst() {
+	optfeature "PyQt5 bindings" "dev-python/PyQt5"
 }
