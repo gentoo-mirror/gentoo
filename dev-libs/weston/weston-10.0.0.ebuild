@@ -18,13 +18,13 @@ if [[ ${PV} = *9999* ]]; then
 	SRC_URI="${SRC_PATCHES}"
 else
 	SRC_URI="https://wayland.freedesktop.org/releases/${P}.tar.xz"
-	KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="MIT CC-BY-SA-3.0"
 SLOT="0"
 
-IUSE="colord +desktop +drm editor examples fbdev fullscreen +gles2 headless ivi jpeg kiosk +launch lcms pipewire rdp remoting +resize-optimization screen-sharing +suid systemd test wayland-compositor webp +X xwayland"
+IUSE="colord +desktop +drm editor examples fbdev fullscreen +gles2 headless ivi jpeg kiosk lcms pipewire rdp remoting +resize-optimization screen-sharing +seatd +suid systemd test wayland-compositor webp +X xwayland"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -40,14 +40,14 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=dev-libs/libinput-0.8.0
-	>=dev-libs/wayland-1.17.0
-	>=dev-libs/wayland-protocols-1.18
+	>=dev-libs/wayland-1.18.0
+	>=dev-libs/wayland-protocols-1.24
 	lcms? ( media-libs/lcms:2 )
 	media-libs/libpng:0=
 	webp? ( media-libs/libwebp:0= )
 	jpeg? ( virtual/jpeg:0= )
 	>=x11-libs/cairo-1.11.3
-	>=x11-libs/libdrm-2.4.68
+	>=x11-libs/libdrm-2.4.95
 	>=x11-libs/libxkbcommon-0.5.0
 	>=x11-libs/pixman-0.25.2
 	x11-misc/xkeyboard-config
@@ -66,18 +66,18 @@ RDEPEND="
 	gles2? (
 		media-libs/mesa[gles2,wayland]
 	)
-	pipewire? ( >=media-video/pipewire-0.2:= )
+	pipewire? ( >=media-video/pipewire-0.3:= )
 	rdp? ( >=net-misc/freerdp-2.0.0_rc2:= )
 	remoting? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
 	)
+	seatd? ( sys-auth/seatd:= )
 	systemd? (
 		sys-auth/pambase[systemd]
 		>=sys-apps/dbus-1.6
 		>=sys-apps/systemd-209[pam]
 	)
-	launch? ( sys-auth/pambase )
 	X? (
 		>=x11-libs/libxcb-1.9
 		x11-libs/libX11
@@ -95,7 +95,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-pipewire-0.3.patch
+	"${FILESDIR}"/${PN}-10.0.0-backend-default.patch
 )
 
 src_configure() {
@@ -107,11 +107,11 @@ src_configure() {
 		$(meson_use screen-sharing screenshare)
 		$(meson_use wayland-compositor backend-wayland)
 		$(meson_use X backend-x11)
-		$(meson_use fbdev backend-fbdev)
+		$(meson_use fbdev deprecated-backend-fbdev)
 		-Dbackend-default=auto
 		$(meson_use gles2 renderer-gl)
-		$(meson_use launch weston-launch)
 		$(meson_use xwayland)
+		$(meson_use seatd launcher-libseat)
 		$(meson_use systemd)
 		$(meson_use remoting)
 		$(meson_use pipewire)
@@ -139,14 +139,12 @@ src_test() {
 	xdg_environment_reset
 
 	# devices test usually fails.
+	# xwayland test can fail if X11 socket already exists.
 	cd "${BUILD_DIR}" || die
-	meson test $(meson test --list | grep -Fxv devices) || die
+	meson test $(meson test --list | grep -Exv "devices|xwayland") || die
 }
 
 src_install() {
 	meson_src_install
-	if use launch && use suid; then
-		chmod u+s "${ED}"/usr/bin/weston-launch || die
-	fi
 	readme.gentoo_create_doc
 }
