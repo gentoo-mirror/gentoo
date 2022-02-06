@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -9,13 +9,15 @@ HOMEPAGE="https://wiki.linuxfoundation.org/realtime/start"
 
 CKV="$(ver_cut 1-3)"
 K_SECURITY_UNSUPPORTED="1"
+K_DEBLOB_AVAILABLE="1"
 RT_PATCHSET="${PV/*_p}"
+RC_PATCHSET="1"
 
 inherit kernel-2
 detect_version
 
 K_BRANCH_ID="${KV_MAJOR}.${KV_MINOR}"
-RT_FILE="patch-${K_BRANCH_ID}.${KV_PATCH}-rt${RT_PATCHSET}.patch.xz"
+RT_FILE="patch-${K_BRANCH_ID}.${KV_PATCH}-rt${RT_PATCHSET}-rc${RC_PATCHSET}.patch.xz"
 RT_URI="https://www.kernel.org/pub/linux/kernel/projects/rt/${K_BRANCH_ID}/${RT_FILE} \
 		https://www.kernel.org/pub/linux/kernel/projects/rt/${K_BRANCH_ID}/older/${RT_FILE}"
 
