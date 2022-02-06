@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-python/sphinx ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre dev-libs/openssl:= sys-libs/zlib:=
+DESCRIPTION=A high-performance multi-threaded backup (and restore) toolset for MySQL
+EAPI=8
+HOMEPAGE=https://github.com/maxbube/mydumper
+INHERIT=cmake
+IUSE=doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre dev-libs/openssl:= sys-libs/zlib:=
+SLOT=0
+SRC_URI=https://github.com/maxbube/mydumper/archive/v0.11.5-2.tar.gz -> mydumper-0.11.5-2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=27f1c2ab6b110e79133183790c9d374a
