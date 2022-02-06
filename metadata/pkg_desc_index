@@ -267,6 +267,7 @@ acct-group/pcscd 0-r1: System group: pcscd
 acct-group/pdns 0-r1: System group: pdns
 acct-group/pdnsd 0-r1: System group: pdnsd
 acct-group/pgagent 0: A group for dev-db/pgagent
+acct-group/pipewire 0: System group: pipewire
 acct-group/pkcs11 0: Group for dev-libs/opencryptoki
 acct-group/placement 0-r1: System group: placement
 acct-group/plex 0-r1: Plex Media Server group
@@ -700,6 +701,7 @@ acct-user/pcscd 0-r1: A user for pcsc-lite
 acct-user/pdns 0-r1: System user: pdns
 acct-user/pdnsd 0-r1: user for pdns daemon
 acct-user/pgbouncer 0: PgBouncer program user
+acct-user/pipewire 0: User for running PipeWire as a system-wide instance
 acct-user/placement 0-r1: User for the placement openstack service
 acct-user/plex 0-r1: Plex Media Server user
 acct-user/polkitd 0-r1: System user: polkitd
@@ -2475,7 +2477,7 @@ app-emulation/spim 8.0-r3: MIPS Simulator
 app-emulation/uade 2.13-r2: Unix Amiga Delitracker Emulator - plays old Amiga tunes through UAE emulation
 app-emulation/vagrant 2.2.7-r1 2.2.9-r1 2.2.18-r1: A tool for building and distributing development environments
 app-emulation/vendor-reset 0.1.0 9999: Linux kernel vendor specific hardware reset module
-app-emulation/vice 3.5-r1 3.6 3.6.1: The Versatile Commodore Emulator
+app-emulation/vice 3.6.1: The Versatile Commodore Emulator
 app-emulation/virt-manager 2.2.1-r3 3.1.0 3.2.0 3.2.0-r1 9999: A graphical tool for administering virtual machines
 app-emulation/virt-viewer 7.0 8.0 9.0 10.0 10.0_p20210730: Graphical console client for connecting to virtual machines
 app-emulation/virt-what 1.21: Detects if the current machine is running in a virtual machine
@@ -5555,8 +5557,8 @@ dev-libs/hyperscan 5.4.0: High-performance regular expression matching library
 dev-libs/hyphen 2.8.8-r1: ALTLinux hyphenation library
 dev-libs/icinga-php-library 0.6.1-r1: Icinga PHP libraries for Icinga Web 2
 dev-libs/icinga-php-thirdparty 0.10.0-r1: Icinga PHP libraries for Icinga Web 2
-dev-libs/icu 70.1-r1: International Components for Unicode
-dev-libs/icu-layoutex 70.1: External layout part of International Components for Unicode
+dev-libs/icu 69.1-r1 70.1-r1: International Components for Unicode
+dev-libs/icu-layoutex 69.1 70.1: External layout part of International Components for Unicode
 dev-libs/icu-le-hb 1.0.3-r1: ICU Layout Engine API on top of HarfBuzz shaping library
 dev-libs/igraph 0.8.5 0.9.2 0.9.4: Creating and manipulating undirected and directed graphs
 dev-libs/iksemel 1.4-r1: eXtensible Markup Language parser library designed for Jabber applications
@@ -5923,6 +5925,7 @@ dev-libs/stfl 0.24-r4: A library which implements a curses-based widget set for 
 dev-libs/template-glib 3.34.0: Templating library for GLib
 dev-libs/tinyxml 2.6.2-r4: Simple and small C++ XML parser
 dev-libs/tinyxml2 7.1.0 8.0.0 9.0.0: A simple, small, efficient, C++ XML parser
+dev-libs/tllist 1.0.5: Header-only implementation of a typed linked list in C
 dev-libs/tntnet 3.0: Modular, multithreaded web application server extensible with C++
 dev-libs/tomsfastmath 0.13.1-r1: Fast public domain large integer arithmetic library
 dev-libs/totem-pl-parser 3.26.6: Playlist parsing library
@@ -9452,7 +9455,7 @@ dev-python/serpent 1.40: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.2.2: Allow customization of the process title
-dev-python/setuptools 59.8.0 60.5.0 60.7.1: Collection of extensions to Distutils
+dev-python/setuptools 60.5.0 60.7.1: Collection of extensions to Distutils
 dev-python/setuptools-git 1.2-r2: Setuptools revision control system plugin for Git
 dev-python/setuptools_rust 0.12.1: a plugin for setuptools to build Rust Python extensions
 dev-python/setuptools_scm 6.0.1-r1 6.3.2 6.4.0 6.4.1: Manage versions by scm tags via setuptools
@@ -11717,7 +11720,7 @@ games-emulation/dosbox 0.74.3 0.75_pre4302 9999: DOS emulator
 games-emulation/dosbox-staging 0.76.0 0.77.0-r1 0.77.1 0.78.0 0.78.1: Modernized DOSBox soft-fork
 games-emulation/emutos 1.1.1: Single-user single-tasking operating system for 32-bit Atari computer emulators
 games-emulation/fbzx 4.8.0: Full Screen Sinclair Spectrum emulator
-games-emulation/fceux 2.6.1: Portable Famicom/NES emulator, an evolution of the original FCE Ultra
+games-emulation/fceux 2.6.1 2.6.2: Portable Famicom/NES emulator, an evolution of the original FCE Ultra
 games-emulation/gcube 0.4-r2: Gamecube emulator
 games-emulation/generator 0.35_p4-r1: Sega Genesis / Mega Drive emulator
 games-emulation/gens 2.15.5-r2: Sega Genesis/CD/32X emulator
@@ -12150,7 +12153,7 @@ games-strategy/majesty-demo 1.0.0-r1: Control your own kingdom in this simulatio
 games-strategy/maxr 0.2.9: Mechanized Assault and Exploration Reloaded
 games-strategy/megaglest 3.11.1-r100 3.13.0: Cross-platform 3D realtime strategy game
 games-strategy/megaglest-data 3.11.1-r1 3.13.0: Data files for the cross-platform 3D realtime strategy game MegaGlest
-games-strategy/naev 0.8.2 0.9.1 0.9.2: 2D space trading and combat game, in a similar vein to Escape Velocity
+games-strategy/naev 0.8.2 0.9.2: 2D space trading and combat game, in a similar vein to Escape Velocity
 games-strategy/netherearth 0.52-r1: A remake of the SPECTRUM game Nether Earth
 games-strategy/openra 20190314-r100: A free RTS engine supporting games like Command & Conquer, Red Alert and Dune2k
 games-strategy/s25rttr 0.9.1: Open source remake of The Settlers II: Gold Edition (needs original data files)
@@ -12365,6 +12368,8 @@ gnustep-libs/performance 0.5.0: Help improve the performance of GNUstep applicat
 gnustep-libs/renaissance 0.9.0-r1: GNUstep Renaissance allows to describe user interfaces XML files
 gnustep-libs/sope 5.1.1 5.2.0: A set of frameworks forming a complete Web application server environment
 gnustep-libs/sqlclient 1.8.1-r1: GNUstep lightweight database abstraction layer
+gui-apps/foot 1.11.0: Fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.11.0: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
 gui-apps/grim 1.3.1 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.6-r1 0.7 9999: gtk based greeter for greetd
 gui-apps/kanshi 1.1.0 9999: dynamic display configuration (autorandr for wayland)
@@ -13437,6 +13442,7 @@ media-libs/exempi 2.4.5-r1: Port of the Adobe XMP SDK to work on UNIX
 media-libs/exiftool 12.30 12.33: Read and write meta information in image, audio and video files
 media-libs/faac 1.30: Free MPEG-4 audio codecs by AudioCoding.com
 media-libs/faad2 2.10.0: AAC audio decoding library
+media-libs/fcft 3.0.0: Simple library for font loading and glyph rasterization
 media-libs/fdk-aac 2.0.2: Fraunhofer AAC codec library
 media-libs/ffmpegsource 2.23 9999: A libav/ffmpeg based source library for easy frame accurate access
 media-libs/fidlib 0.9.10-r1: Run-time filter design and execution library
@@ -14559,7 +14565,7 @@ media-video/oxine 0.7.1-r5: OSD frontend for Xine
 media-video/parole 4.16.0: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1: Simple animated Gif screen recorder
 media-video/pgmfindclip 1.13: automatically find a clipping border for a sequence of pgm images
-media-video/pipewire 0.3.30-r2 0.3.36 0.3.42-r1 0.3.43-r3 0.3.44-r1 9999: Multimedia processing graphs
+media-video/pipewire 0.3.30-r2 0.3.36 0.3.42-r1 0.3.43-r3 0.3.44-r1 0.3.45 9999: Multimedia processing graphs
 media-video/pitivi 0.999-r5: A non-linear video editor using the GStreamer multimedia framework
 media-video/popcorntime-bin 0.4.6: BitTorrent client that includes an integrated media player
 media-video/projectx 0.91.0.10-r3: Converts, splits and demuxes DVB and other MPEG recordings
@@ -15077,7 +15083,7 @@ net-im/rocketchat-desktop-bin 3.7.6: The Ultimate Open Source Web Chat Platform
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-amm 1.1.1 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.8.5 0.9.2: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 5.28.0 5.29.1: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 5.29.1 5.30.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/skype-dbus-mock 0_pre20181011: Mocked systemd dbus interface for skype 8.30+
 net-im/skypeforlinux 8.78.0.161-r2 8.79.0.92 8.79.0.95 8.80.0.143: Instant messaging client, with support for audio and video
 net-im/slack 4.22.0: Team collaboration tool
@@ -15085,7 +15091,7 @@ net-im/spectrum2 2.1.0: An open source instant messaging transport
 net-im/swift 4.0.2-r102: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/teams 1.4.00.7556-r1 1.4.00.13653-r2 1.4.00.26453-r1: Microsoft Teams, an Office 365 multimedia collaboration client, pre-release
 net-im/telegram-desktop 3.1.8 3.3.0 3.4.3 3.4.8: Official desktop client for Telegram
-net-im/telegram-desktop-bin 3.3.0 3.4.3 3.4.8: Official desktop client for Telegram (binary package)
+net-im/telegram-desktop-bin 3.4.8 3.5.0: Official desktop client for Telegram (binary package)
 net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection Managers
 net-im/telepathy-logger 0.8.2-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
@@ -15335,7 +15341,7 @@ net-libs/usrsctp 0.9.3.0_p20201102 0.9.5.0: A cross-platform userland SCTP stack
 net-libs/wandio 4.2.3_p1-r1: C library for simple and efficient file IO
 net-libs/webkit-gtk 2.34.3 2.34.4: Open source web browser engine
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
-net-libs/xdp-tools 1.2.0: The libxdp library and various tools for use with XDP
+net-libs/xdp-tools 1.2.2: The libxdp library and various tools for use with XDP
 net-libs/xrootd 5.0.3-r1 5.3.1 5.4.0: Extended ROOT remote file server
 net-libs/xrootd-ceph 5.0.3 5.3.1 5.4.0: xrootd OSS plug-in for interfacing with Ceph storage platform
 net-libs/zeromq 4.3.3-r1 4.3.4-r1: A brokerless kernel
@@ -15761,7 +15767,7 @@ net-misc/yandex-disk 0.1.5.1039_p1: CLI to access Yandex Disk file storage servi
 net-misc/you-get 0.4.1545 0.4.1555: Utility to download media contents from the web
 net-misc/youtube-dl 2021.06.06 2021.12.17 9999: Download videos from YouTube.com (and more sites...)
 net-misc/youtube-viewer 3.9.7 9999: A command line utility for viewing youtube-videos in Mplayer
-net-misc/yt-dlp 2022.1.21 2022.2.4: youtube-dl fork with additional features and fixes
+net-misc/yt-dlp 2022.2.4: youtube-dl fork with additional features and fixes
 net-misc/ytfzf 2.1: Posix script to find and watch youtube videos from the terminal
 net-misc/zerotier 1.6.3 1.6.4: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r1: An ssh wrapper enabling zmodem up/download in ssh
@@ -17952,8 +17958,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.176 5.4.177 5.10.96 5.10.97 5.15.19 5.15.20 5.16.5 5.16.6: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.176 5.4.177 5.10.96 5.10.97 5.15.19 5.15.20 5.16.5 5.16.6: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.176 5.4.177 5.10.96 5.10.97 5.10.98 5.15.19 5.15.20 5.15.21 5.16.5 5.16.6 5.16.7: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.176 5.4.177 5.10.96 5.10.97 5.10.98 5.15.19 5.15.20 5.15.21 5.16.5 5.16.6 5.16.7: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.4.296 4.4.297 4.4.298 4.4.299 4.4.300 4.4.301 4.4.302 4.9.294 4.9.295 4.9.296 4.9.297 4.9.298 4.9.299 4.14.259 4.14.260 4.14.261 4.14.262 4.14.263 4.14.264 4.19.222 4.19.223 4.19.224 4.19.225 4.19.226 4.19.227 5.4.173 5.4.174 5.4.175 5.4.176 5.4.177 5.10.93 5.10.94 5.10.95 5.10.96 5.10.97 5.10.98 5.15.19 5.15.20 5.15.21 5.16.5 5.16.6 5.16.7: Full sources including the Gentoo patchset for the 5.16 kernel tree
 sys-kernel/git-sources 5.17_rc1 5.17_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3 4: Gentoo fork of installkernel script from debianutils
@@ -17969,7 +17975,7 @@ sys-kernel/pf-sources 5.15_p6-r1 5.16_p2: Linux kernel fork that includes the pf
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201 5.10.63_p20211029 5.10.9999: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.4.277_p224-r1 4.9.286_p189 4.14.250_p124 4.14.256_p125 4.19.217_p95 4.19.223_p100 5.4.154_p65 5.4.161_p67 5.10.78_p55 5.10.90_p60 5.15.3_p21 5.15.12_p25 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.176 5.4.177 5.10.96 5.10.97 5.15.19 5.15.20 5.16.5 5.16.6: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.176 5.4.177 5.10.96 5.10.97 5.10.98 5.15.19 5.15.20 5.15.21 5.16.5 5.16.6 5.16.7: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.4.302 4.9.299 4.14.264 4.19.227 5.4.177 5.10.98 5.15.21 5.16.7: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.16.4: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18153,7 +18159,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.176 5.4.177 5.10.96 5.10.97 5.15.19 5.15.20 5.16.5 5.16.6: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.176 5.4.177 5.10.96 5.10.97 5.10.98 5.15.19 5.15.20 5.15.21 5.16.5 5.16.6 5.16.7: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18601,7 +18607,7 @@ x11-base/xorg-server 1.20.14 21.1.2-r4 21.1.3 9999: X.Org X servers
 x11-base/xorg-sgml-doctools 1.11: SGML entities and XML/CSS stylesheets used in X.Org docs
 x11-base/xorg-x11 7.4-r3: An X11 implementation maintained by the X.Org Foundation (meta package)
 x11-base/xwayland 21.1.4: Standalone X server running under Wayland
-x11-drivers/nvidia-drivers 390.147 460.91.03-r2 470.62.22 470.94 470.103.01 495.44-r2 495.46-r10 510.39.01 510.47.03: NVIDIA Accelerated Graphics Driver
+x11-drivers/nvidia-drivers 390.147 460.91.03-r2 470.62.22 470.94 470.103.01 495.44-r2 495.46-r10 510.47.03: NVIDIA Accelerated Graphics Driver
 x11-drivers/xf86-input-elographics 1.4.2: Elographics input driver
 x11-drivers/xf86-input-evdev 2.10.6: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.3: X.Org driver for joystick input devices
@@ -19214,9 +19220,9 @@ x11-terms/aterm 1.0.1-r4: rxvt compatible terminal emulator with transparency su
 x11-terms/cool-retro-term 1.1.1-r2: terminal emulator which mimics the look and feel of the old cathode tube screens
 x11-terms/gnome-terminal 3.40.3 3.42.2: A terminal emulator for GNOME
 x11-terms/guake 3.8.1: Drop-down terminal for GNOME
-x11-terms/kitty 0.23.1-r1 0.24.1 0.24.2 9999: Fast, feature-rich, GPU-based terminal
-x11-terms/kitty-shell-integration 0.24.1 0.24.2 9999: Shell integration scripts for kitty, a GPU-based terminal emulator
-x11-terms/kitty-terminfo 0.23.1-r1 0.24.1 0.24.2 9999: Terminfo for kitty, a GPU-based terminal emulator
+x11-terms/kitty 0.23.1-r1 0.24.2 9999: Fast, feature-rich, GPU-based terminal
+x11-terms/kitty-shell-integration 0.24.2 9999: Shell integration scripts for kitty, a GPU-based terminal emulator
+x11-terms/kitty-terminfo 0.23.1-r1 0.24.2 9999: Terminfo for kitty, a GPU-based terminal emulator
 x11-terms/kterm 6.2.0-r7: Japanese Kanji X Terminal
 x11-terms/lilyterm 0.9.9.4-r2 99999: a terminal emulator based off of libvte that aims to be fast and lightweight
 x11-terms/mate-terminal 1.24.1: The MATE Terminal
