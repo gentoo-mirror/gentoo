@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -51,10 +51,10 @@ EGO_SUM=(
 	"github.com/schollz/mnemonicode v1.0.1/go.mod"
 	"github.com/schollz/pake/v3 v3.0.2"
 	"github.com/schollz/pake/v3 v3.0.2/go.mod"
-	"github.com/schollz/peerdiscovery v1.6.9"
-	"github.com/schollz/peerdiscovery v1.6.9/go.mod"
-	"github.com/schollz/progressbar/v3 v3.8.3"
-	"github.com/schollz/progressbar/v3 v3.8.3/go.mod"
+	"github.com/schollz/peerdiscovery v1.6.11"
+	"github.com/schollz/peerdiscovery v1.6.11/go.mod"
+	"github.com/schollz/progressbar/v3 v3.8.6"
+	"github.com/schollz/progressbar/v3 v3.8.6/go.mod"
 	"github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod"
 	"github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod"
 	"github.com/spaolacci/murmur3 v1.1.0"
@@ -69,28 +69,27 @@ EGO_SUM=(
 	"github.com/twmb/murmur3 v1.1.5/go.mod"
 	"github.com/twmb/murmur3 v1.1.6"
 	"github.com/twmb/murmur3 v1.1.6/go.mod"
-	"golang.org/x/crypto v0.0.0-20210817164053-32db794688a5/go.mod"
-	"golang.org/x/crypto v0.0.0-20210921155107-089bfa567519"
-	"golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod"
-	"golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod"
-	"golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6"
-	"golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6/go.mod"
+	"golang.org/x/crypto v0.0.0-20220131195533-30dcbda58838"
+	"golang.org/x/crypto v0.0.0-20220131195533-30dcbda58838/go.mod"
+	"golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2/go.mod"
+	"golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd"
+	"golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd/go.mod"
 	"golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod"
 	"golang.org/x/sys v0.0.0-20210423082822-04245dca01da/go.mod"
 	"golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1/go.mod"
 	"golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c/go.mod"
-	"golang.org/x/sys v0.0.0-20210910150752-751e447fb3d0/go.mod"
-	"golang.org/x/sys v0.0.0-20211002104244-808efd93c36d"
-	"golang.org/x/sys v0.0.0-20211002104244-808efd93c36d/go.mod"
+	"golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e/go.mod"
+	"golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27"
+	"golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27/go.mod"
 	"golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod"
-	"golang.org/x/term v0.0.0-20210615171337-6886f2dfbf5b/go.mod"
 	"golang.org/x/term v0.0.0-20210927222741-03fcf44c2211"
 	"golang.org/x/term v0.0.0-20210927222741-03fcf44c2211/go.mod"
 	"golang.org/x/text v0.3.0/go.mod"
-	"golang.org/x/text v0.3.3/go.mod"
 	"golang.org/x/text v0.3.6/go.mod"
 	"golang.org/x/text v0.3.7"
 	"golang.org/x/text v0.3.7/go.mod"
+	"golang.org/x/time v0.0.0-20211116232009-f0f3c7e86c11"
+	"golang.org/x/time v0.0.0-20211116232009-f0f3c7e86c11/go.mod"
 	"golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod"
 	"gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod"
 	"gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15"
@@ -117,7 +116,6 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-disable-network-tests-r1.patch"
-	"${FILESDIR}/${P}-tcp-const.patch"
 )
 
 DOCS=( README.md )

@@ -13,6 +13,7 @@ inherit ecm kde.org optfeature
 
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://apps.kde.org/dolphin/ https://userbase.kde.org/Dolphin"
+SRC_URI="mirror://kde/stable/release-service/21.12.2/src/dolphin-21.12.2.1.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
