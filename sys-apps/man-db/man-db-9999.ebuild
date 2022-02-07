@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,46 +6,40 @@ EAPI=7
 inherit systemd prefix tmpfiles
 
 DESCRIPTION="A man replacement that utilizes berkdb instead of flat files"
-HOMEPAGE="http://www.nongnu.org/man-db/"
-if [[ "${PV}" = 9999* ]] ; then
+HOMEPAGE="https://gitlab.com/cjwatson/man-db https://www.nongnu.org/man-db/"
+if [[ ${PV} == *9999 ]] ; then
 	inherit autotools git-r3
-	EGIT_REPO_URI="https://git.savannah.gnu.org/git/man-db.git"
+	EGIT_REPO_URI="https://gitlab.com/cjwatson/man-db.git"
 else
+	# TODO: Change tarballs to gitlab too...?
 	SRC_URI="mirror://nongnu/${PN}/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="berkdb +gdbm +manpager nls +seccomp selinux static-libs zlib"
+IUSE="berkdb +manpager nls +seccomp selinux static-libs zlib"
 
-CDEPEND="
-	!sys-apps/man
+CDEPEND="!sys-apps/man
 	>=dev-libs/libpipeline-1.5.0
 	sys-apps/groff
-	gdbm? ( sys-libs/gdbm:= )
-	!gdbm? ( berkdb? ( sys-libs/db:= ) )
-	!berkdb? ( !gdbm? ( sys-libs/gdbm:= ) )
+	!berkdb? ( sys-libs/gdbm:= )
+	berkdb? ( sys-libs/db:= )
 	seccomp? ( sys-libs/libseccomp )
-	zlib? ( sys-libs/zlib )
-"
+	zlib? ( sys-libs/zlib )"
 DEPEND="${CDEPEND}"
-BDEPEND="
-	app-arch/xz-utils
+BDEPEND="app-arch/xz-utils
 	virtual/pkgconfig
 	nls? (
 		>=app-text/po4a-0.45
 		sys-devel/gettext
 		virtual/libiconv
 		virtual/libintl
-	)
-"
-RDEPEND="
-	${CDEPEND}
+	)"
+RDEPEND="${CDEPEND}
 	acct-group/man
 	acct-user/man
-	selinux? ( sec-policy/selinux-mandb )
-"
+	selinux? ( sec-policy/selinux-mandb )"
 PDEPEND="manpager? ( app-text/manpager )"
 
 PATCHES=(
@@ -53,17 +47,11 @@ PATCHES=(
 	"${FILESDIR}"/man-db-2.9.3-darwin-libdb-intl.patch
 )
 
-pkg_setup() {
-	if (use gdbm && use berkdb) || (use !gdbm && use !berkdb) ; then #496150
-		ewarn "Defaulting to USE=gdbm due to ambiguous berkdb/gdbm USE flag settings"
-	fi
-}
-
 src_unpack() {
-	if [[ "${PV}" == *9999 ]] ; then
+	if [[ ${PV} == *9999 ]] ; then
 		git-r3_src_unpack
 
-		# We need to mess with gnulib :-/
+		# We need to mess with gnulib
 		EGIT_REPO_URI="https://git.savannah.gnu.org/r/gnulib.git" \
 		EGIT_CHECKOUT_DIR="${WORKDIR}/gnulib" \
 		git-r3_src_unpack
@@ -74,6 +62,7 @@ src_unpack() {
 
 src_prepare() {
 	default
+
 	if [[ "${PV}" == *9999 ]] ; then
 		local bootstrap_opts=(
 			--gnulib-srcdir=../gnulib
@@ -101,7 +90,7 @@ src_prepare() {
 }
 
 src_configure() {
-	# set sections we want to search by default
+	# Set sections we want to search by default
 	local sections="1 1p 8 2 3 3p 4 5 6 7 9 0p tcl n l p o"
 	sections+=" 1x 2x 3x 4x 5x 6x 7x 8x"
 	case ${CHOST} in
@@ -121,25 +110,29 @@ src_configure() {
 	local myeconfargs=(
 		--with-systemdtmpfilesdir="${EPREFIX}"/usr/lib/tmpfiles.d
 		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)"
-		--disable-setuid #662438
+		--disable-setuid # bug #662438
 		--enable-cache-owner=man
 		--with-sections="${sections}"
+
 		$(use_enable nls)
 		$(use_enable static-libs static)
 		$(use_with seccomp libseccomp)
-		--with-db=$(usex gdbm gdbm $(usex berkdb db gdbm))
+
+		--with-db=$(usex berkdb db gdbm)
 	)
+
 	case ${CHOST} in
 		*-solaris*|*-darwin*)
 			myeconfargs+=(
-				$(use_with nls libiconv-prefix ${EPREFIX}/usr)
-				$(use_with nls libintl-prefix ${EPREFIX}/usr)
+				$(use_with nls libiconv-prefix "${EPREFIX}"/usr)
+				$(use_with nls libintl-prefix "${EPREFIX}"/usr)
 			)
 			;;
 	esac
+
 	econf "${myeconfargs[@]}"
 
-	# Disable color output from groff so that the manpager can add it. #184604
+	# Disable color output from groff so that the manpager can add it. bug #184604
 	sed -i \
 		-e '/^#DEFINE.*\<[nt]roff\>/{s:^#::;s:$: -c:}' \
 		src/man_db.conf || die
@@ -151,11 +144,11 @@ src_configure() {
 
 src_install() {
 	default
-	dodoc docs/{HACKING,TODO}
+	dodoc docs/{HACKING.md,TODO}
 	find "${ED}" -type f -name "*.la" -delete || die
 
 	exeinto /etc/cron.daily
-	newexe "${FILESDIR}"/man-db.cron-r1 man-db #289884
+	newexe "${FILESDIR}"/man-db.cron-r1 man-db # bug #289884
 
 	insinto /etc/sandbox.d
 	doins 15man-db
@@ -168,8 +161,8 @@ pkg_preinst() {
 	# see bug  #602588 comment 18
 	local _replacing_version=
 	local _setgid_vuln=0
-	for _replacing_version in ${REPLACING_VERSIONS}; do
-		if ver_test '2.7.6.1-r2' -le "${_replacing_version}"; then
+	for _replacing_version in ${REPLACING_VERSIONS} ; do
+		if ver_test '2.7.6.1-r2' -le "${_replacing_version}" ; then
 			debug-print "Skipping security bug #602588 ... existing installation (${_replacing_version}) should not be affected!"
 		else
 			_setgid_vuln=1
@@ -194,8 +187,17 @@ pkg_preinst() {
 pkg_postinst() {
 	tmpfiles_process man-db.conf
 
-	if [[ $(ver_cut 2 ${REPLACING_VERSIONS}) -lt 7 ]] ; then
-		einfo "Rebuilding man-db from scratch with new database format!"
-		su man -s /bin/sh -c 'mandb --quiet --create' 2>/dev/null
+	if [[ -n "${REPLACING_VERSIONS}" ]] ; then
+		local _replacing_version=
+
+		for _replacing_version in ${REPLACING_VERSIONS} ; do
+			if [[ $(ver_cut 2 ${_replacing_version}) -lt 7 ]] ; then
+				einfo "Rebuilding man-db from scratch with new database format!"
+				su man -s /bin/sh -c 'mandb --quiet --create' 2>/dev/null
+
+				# No need to run it again if we hit one
+				break
+			fi
+		done
 	fi
 }
