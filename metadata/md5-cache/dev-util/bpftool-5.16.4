@@ -1,0 +1,15 @@
+BDEPEND=dev-util/patchutils || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) dev-python/docutils
+DEFINED_PHASES=compile install postinst prepare setup unpack
+DEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= ) >=sys-kernel/linux-headers-5.8
+DESCRIPTION=Tool for inspection and simple manipulation of eBPF programs and maps
+EAPI=8
+HOMEPAGE=https://kernel.org/
+INHERIT=estack linux-info optfeature python-any-r1 toolchain-funcs
+IUSE=caps
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.16.4.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	optfeature	30ce9dec2b8943338c9b015bd32bac6a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-any-r1	1ff02d11ad6a5e4729b321ce843e0a33
+_md5_=223312e21130fe58ea7c24b976d92925
