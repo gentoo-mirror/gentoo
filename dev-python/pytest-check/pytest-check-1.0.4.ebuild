@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
+KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86"
 
 RDEPEND=">=dev-python/pytest-6[${PYTHON_USEDEP}]"
 BDEPEND="dev-python/flit_core[${PYTHON_USEDEP}]"
@@ -24,6 +24,12 @@ BDEPEND="dev-python/flit_core[${PYTHON_USEDEP}]"
 distutils_enable_tests --install pytest
 
 src_prepare() {
-	default
-	mv src/pytest_check pytest_check
+	mv src/pytest_check pytest_check || die
+
+	# Fix expecting result in case pytest throws deprecation warnings
+	sed -e '/fnmatch_lines/s/\* /\*/g' \
+		-e '/fnmatch_lines/s/ \*/\*/g' \
+		-i tests/test_check.py || die
+
+	distutils-r1_src_prepare
 }
