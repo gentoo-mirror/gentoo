@@ -1,6 +1,6 @@
 BDEPEND=dev-python/docutils
 DEFINED_PHASES=compile install postinst test
-DEPEND=care? ( app-arch/libarchive:0= ) sys-libs/talloc care? ( dev-libs/uthash ) test? ( dev-util/valgrind )
+DEPEND=care? ( app-arch/libarchive:0= ) sys-libs/talloc care? ( dev-libs/uthash ) elibc_musl? ( sys-libs/queue-standalone ) test? ( dev-util/valgrind )
 DESCRIPTION=User-space implementation of chroot, mount --bind, and binfmt_misc
 EAPI=8
 HOMEPAGE=https://proot-me.github.io
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/proot-me/PRoot/archive/v5.3.0.tar.gz -> proot-5.3.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=5c14dc715e6621e18a7349e81ddee20a
+_md5_=55fe8617f1616d39fb9288201a41e92c
