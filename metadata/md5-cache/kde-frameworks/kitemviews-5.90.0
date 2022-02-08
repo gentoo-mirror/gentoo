@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org
 IUSE=nls test debug designer doc test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5 >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=5/5.90
 SRC_URI=mirror://kde/stable/frameworks/5.90/kitemviews-5.90.0.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	ecm	36917df90b51554478635e34da581fac	kde.org	2c51d68845490f23d6f76d49cabdac5d
-_md5_=5be7018e05f1f870a260e0e1a8feaf11
+_md5_=ede531b527f8a8c0f29410c900bccad1
