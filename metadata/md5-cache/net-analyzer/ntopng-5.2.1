@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=dev-db/mysql-connector-c:= dev-db/sqlite:3 dev-libs/hiredis:= dev-libs/json-c:= dev-libs/libmaxminddb dev-libs/libsodium:= dev-libs/openssl:= net-analyzer/rrdtool net-libs/libpcap >=net-libs/nDPI-4.2:= >=net-libs/zeromq-3:= net-misc/curl sys-libs/libcap sys-libs/zlib
+DESCRIPTION=Network traffic analyzer with web interface
+EAPI=8
+HOMEPAGE=https://www.ntop.org/
+INHERIT=autotools toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-db/mysql-connector-c:= dev-db/sqlite:3 dev-libs/hiredis:= dev-libs/json-c:= dev-libs/libmaxminddb dev-libs/libsodium:= dev-libs/openssl:= net-analyzer/rrdtool net-libs/libpcap >=net-libs/nDPI-4.2:= >=net-libs/zeromq-3:= net-misc/curl sys-libs/libcap sys-libs/zlib acct-user/ntopng acct-group/ntopng dev-db/redis
+SLOT=0
+SRC_URI=https://github.com/ntop/ntopng/archive/5.2.1.tar.gz -> ntopng-5.2.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=2c94e0fa7bddcc480e161e59c37d50d2
