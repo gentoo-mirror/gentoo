@@ -1,0 +1,16 @@
+BDEPEND=test? ( app-text/ghostscript-gpl app-text/mupdf app-text/poppler[cairo,png,tiff] dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pdfrw[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pillow[tiff,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pytest-xdist[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/scipy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] media-gfx/imagemagick[jpeg,jpeg2k,lcms,png,-q8,-q32,tiff] media-libs/exiftool media-libs/netpbm[jpeg] ) test? ( dev-python/pikepdf[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] gui? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[tk] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[tk] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[tk] ) ) >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Losslessly convert raster images to PDF
+EAPI=8
+HOMEPAGE=https://gitlab.mister-muffin.de/josch/img2pdf
+INHERIT=distutils-r1
+IUSE=gui test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3+
+RDEPEND=dev-python/pikepdf[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] gui? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[tk] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[tk] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[tk] ) ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/i/img2pdf/img2pdf-0.4.3.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	242601d395f54f27cfbc76e53f5e0203
+_md5_=5cee959a43264ca2525705e4a53f61c6
