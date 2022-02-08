@@ -1,0 +1,15 @@
+BDEPEND=app-doc/doxygen[dot] sys-devel/flex virtual/os-headers virtual/pkgconfig virtual/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=>=net-libs/libpcap-0.8 dev-libs/libyaml dev-libs/openssl:= net-libs/wandio ncurses? ( sys-libs/ncurses:= ) numa? ( sys-process/numactl )
+DESCRIPTION=A library and tools for trace processing
+EAPI=8
+HOMEPAGE=https://research.wand.net.nz/software/libtrace.php
+INHERIT=autotools
+IUSE=doc ncurses numa
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RDEPEND=>=net-libs/libpcap-0.8 dev-libs/libyaml dev-libs/openssl:= net-libs/wandio ncurses? ( sys-libs/ncurses:= ) numa? ( sys-process/numactl )
+SLOT=0
+SRC_URI=https://github.com/LibtraceTeam/libtrace/archive//4.0.18-1.tar.gz -> libtrace-4.0.18_p1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=0c0b0346f5008f1e0fe45a3b93fbbe52
