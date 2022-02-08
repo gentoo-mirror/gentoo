@@ -114,6 +114,7 @@ src_configure() {
 		$(meson_use dell plugin_dell)
 		$(meson_use fastboot plugin_fastboot)
 		$(meson_use flashrom plugin_flashrom)
+		$(meson_use gusb plugin_uf2)
 		$(meson_use logitech plugin_logitech_bulkcontroller)
 		$(meson_use modemmanager plugin_modem_manager)
 		$(meson_use nvme plugin_nvme)
