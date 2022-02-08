@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org
 IUSE=X test debug +handbook test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
 RDEPEND=app-text/docbook-xml-dtd:4.2 dev-libs/openssl:0 >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5[ssl] >=dev-qt/qtprintsupport-5.15.2:5 >=dev-qt/qtsvg-5.15.2:5 >=dev-qt/qttest-5.15.2:5 >=dev-qt/qtwidgets-5.15.2:5 =kde-frameworks/kauth-5.90*:5 =kde-frameworks/kcodecs-5.90*:5 =kde-frameworks/kcompletion-5.90*:5 =kde-frameworks/kconfig-5.90*:5 =kde-frameworks/kconfigwidgets-5.90*:5 =kde-frameworks/kcoreaddons-5.90*:5 =kde-frameworks/kcrash-5.90*:5 =kde-frameworks/kdbusaddons-5.90*:5 >=kde-frameworks/kded-5.90:5 =kde-frameworks/kdoctools-5.90*:5 =kde-frameworks/kemoticons-5.90*:5 =kde-frameworks/kglobalaccel-5.90*:5 =kde-frameworks/kguiaddons-5.90*:5 =kde-frameworks/ki18n-5.90*:5 =kde-frameworks/kiconthemes-5.90*:5 =kde-frameworks/kio-5.90*:5 =kde-frameworks/kitemviews-5.90*:5 =kde-frameworks/kjobwidgets-5.90*:5 =kde-frameworks/knotifications-5.90*:5[X=] =kde-frameworks/kparts-5.90*:5 =kde-frameworks/kservice-5.90*:5 =kde-frameworks/ktextwidgets-5.90*:5 =kde-frameworks/kunitconversion-5.90*:5 =kde-frameworks/kwidgetsaddons-5.90*:5 =kde-frameworks/kwindowsystem-5.90*:5[X=] =kde-frameworks/kxmlgui-5.90*:5 =kde-frameworks/solid-5.90*:5 virtual/libintl X? ( >=dev-qt/qtx11extras-5.15.2:5 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libxcb ) >=dev-qt/qtxml-5.15.2:5 >=kde-frameworks/countryflags-5.90:5 =kde-frameworks/kinit-5.90*:5 =kde-frameworks/kitemmodels-5.90*:5 >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 RESTRICT=test !test? ( test ) !test? ( test )
 SLOT=5/5.90
 SRC_URI=mirror://kde/stable/frameworks/5.90/portingAids/kdelibs4support-5.90.0.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	ecm	36917df90b51554478635e34da581fac	kde.org	2c51d68845490f23d6f76d49cabdac5d
-_md5_=5d4c2a0fbda6779f6eff2d1a57d0607f
+_md5_=4cae8999d9a3c5f5e4eead9a141e0345
