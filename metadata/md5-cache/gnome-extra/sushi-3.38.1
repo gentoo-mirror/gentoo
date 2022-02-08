@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gitlab.gnome.org/GNOME/sushi
 INHERIT=gnome.org meson xdg
 IUSE=office wayland +X
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2+
 RDEPEND=media-libs/libepoxy >=app-text/evince-3.0[introspection] media-libs/freetype:2 >=x11-libs/gdk-pixbuf-2.23.0[introspection] >=dev-libs/glib-2.29.14:2 media-libs/gstreamer:1.0[introspection] media-libs/gst-plugins-base:1.0[introspection] >=x11-libs/gtk+-3.13.2:3[introspection,wayland?,X?] >=x11-libs/gtksourceview-4.0.3:4[introspection] >=media-libs/harfbuzz-0.9.9:= >=dev-libs/gobject-introspection-1.54:= media-libs/musicbrainz:5= net-libs/webkit-gtk:4[introspection] >=dev-libs/gjs-1.40 >=gnome-base/nautilus-3.1.90 office? ( app-office/libreoffice )
 REQUIRED_USE=|| ( wayland X )
 SLOT=0
 SRC_URI=mirror://gnome/sources/sushi/3.38/sushi-3.38.1.tar.xz
 _eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	7ee47726753a2bd062a05f6643d849da	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=dcbf09195c00ef895b87b673e59cc965
+_md5_=0aece987c929fa4c50035308ae6544b0

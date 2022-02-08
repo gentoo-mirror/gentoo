@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Apps/Photos
 INHERIT=gnome.org gnome2-utils meson python-any-r1 virtualx xdg
 IUSE=flickr test upnp-av test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3+ LGPL-2+ CC0-1.0
 RDEPEND=media-libs/babl >=x11-libs/cairo-1.14.0 >=x11-libs/gdk-pixbuf-2.36.8:2 >=media-libs/gegl-0.4.0:0.4[cairo,raw] sci-geosciences/geocode-glib >=media-libs/gexiv2-0.10.8 >=dev-libs/glib-2.62.0:2 >=net-libs/gnome-online-accounts-3.8.0:= >=media-libs/grilo-0.3.5:0.3= gnome-base/gsettings-desktop-schemas >=x11-libs/gtk+-3.22.16:3 >=dev-libs/libdazzle-3.26.0 >=dev-libs/libgdata-0.17.13:0=[gnome-online-accounts] >=net-libs/libgfbgraph-0.2.1:0.2 >=gui-libs/libhandy-1.1.90:1= virtual/jpeg:0 >=media-libs/libpng-1.6:0= app-misc/tracker:3= sys-apps/dbus net-misc/gnome-online-miners[flickr?] upnp-av? ( media-plugins/grilo-plugins:0.3[upnp-av] ) flickr? ( media-plugins/grilo-plugins:0.3[flickr] ) app-misc/tracker-miners:3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-photos/40/gnome-photos-40.0.tar.xz
 _eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	7ee47726753a2bd062a05f6643d849da	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	1ff02d11ad6a5e4729b321ce843e0a33	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857
-_md5_=9ae432cd3ca0408408ebdc7068343913
+_md5_=3bfe76073680f406b9d387b69dfdd336
