@@ -43,7 +43,7 @@ aggressive in protecting even orphaned files. Instead,
 use FEATURES="unmerge-orphans" which is almost identical
 in behaviour.
 
-## Delaying the migration
+## Delaying the migration *or* circular dependencies
 
 If for whatever reason you do *not* wish to switch now -
 which is only delaying the inevitable - you
@@ -52,6 +52,11 @@ need to take the following steps:
 * mask the system USE flag of sys-libs/libxcrypt
 * mask >=virtual/libcrypt-2
 * unmask virtual/libcrypt:0/1
+
+If hitting circular dependencies involving Python 3.10,
+see the wiki for more details [3], but the same steps
+listed above must be taken (mask newer libcrypt temporarily,
+do a world upgrade, then unmask).
 
 ## Migrating early
 
@@ -102,3 +107,4 @@ For more information or troubleshooting tips, please see:
 [0] https://bugs.gentoo.org/802267
 [1] https://bugs.gentoo.org/802807
 [2] https://bugs.gentoo.org/802210
+[3] https://wiki.gentoo.org/wiki/User:Sam/Portage_help/Circular_dependencies#Python_and_libcrypt
