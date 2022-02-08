@@ -54,9 +54,6 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
 
-# https://mail.kde.org/pipermail/distributions/2022-February/001130.html
-PATCHES=( "${FILESDIR}/${PN}-5.23.5-fix-comic-ProvidersUrl.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package share KF5Purpose)

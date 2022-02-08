@@ -151,10 +151,6 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 PATCHES=(
 	"${FILESDIR}/${PN}-5.21.5-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
-	# https://mail.kde.org/pipermail/distributions/2022-February/001129.html
-	"${FILESDIR}/${PN}-5.23.5-fix-wallpaperplugin-ProvidersUrl.patch"
-	# https://mail.kde.org/pipermail/distributions/2022-February/001133.html
-	"${FILESDIR}/${PN}-5.23.5-fix-kcmfontinst-ProvidersUrl.patch"
 )
 
 src_prepare() {
