@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KDE_ORG_COMMIT=4644d51f4b52e83fc1b4d02b380d80d9d57e76fa
+KDE_ORG_COMMIT=ce2caf493a1343fbd9f8e4c85baf6a61c057f242
 inherit qt5-build
 
 DESCRIPTION="Wayland platform plugin for Qt"
@@ -32,6 +32,14 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-util/wayland-scanner
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-QTBUG-90037-QTBUG-91264.patch"
+	"${FILESDIR}/${P}-fix-qmake-deps.patch"
+	"${FILESDIR}/${P}-remove-mWaitingForUpdateDelivery.patch"
+	"${FILESDIR}/${P}-guard-mResizeDirty.patch"
+	"${FILESDIR}/${P}-fixup-mutexes.patch"
+)
 
 src_configure() {
 	local myqmakeargs=(
