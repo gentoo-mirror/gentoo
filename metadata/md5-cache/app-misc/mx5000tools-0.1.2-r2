@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/glib:2 media-libs/netpbm:=
+DESCRIPTION=Tools for controlling the LCD on a Logitech MX5000 keyboard
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20160409073317/http://home.gna.org/mx5000tools/
+INHERIT=autotools
+KEYWORDS=amd64 ppc ppc64 x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib:2 media-libs/netpbm:=
+SLOT=0
+SRC_URI=https://web.archive.org/web/20170225160711/http://download.gna.org/mx5000tools/mx5000tools-0.1.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=b9882af8a1d149d49db152127647945e

@@ -1,0 +1,16 @@
+BDEPEND=dev-python/python-distutils-extra[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-util/intltool python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-libs/gobject-introspection dev-python/dbus-python[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pexpect[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] x11-libs/gtk+:3[introspection]
+DESCRIPTION=A lightweight user-configuration application
+EAPI=8
+HOMEPAGE=https://github.com/bluesabre/mugshot
+INHERIT=distutils-r1 gnome2-utils xdg-utils
+IUSE=gnome libreoffice webcam python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=amd64 x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/gobject-introspection dev-python/dbus-python[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pexpect[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pycairo[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] sys-apps/accountsservice sys-apps/shadow gnome? ( gnome-base/gnome-control-center ) libreoffice? ( || ( app-office/libreoffice-bin app-office/libreoffice ) ) webcam? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-good:1.0 gnome? ( media-libs/clutter-gtk[introspection] media-video/cheese[introspection] ) ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+SLOT=0
+SRC_URI=https://github.com/bluesabre/mugshot/archive/mugshot-0.4.3.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	5560689d3cb005ec97659ff697b42684	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555
+_md5_=ad31ab74c961120b0cda42dbf03224bb

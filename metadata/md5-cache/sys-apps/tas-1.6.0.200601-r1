@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=install postinst setup unpack
+DESCRIPTION=Supermicro Thin-Agent Service for monitoring through the BMC/IPMI
+EAPI=8
+HOMEPAGE=https://www.supermicro.com
+INHERIT=linux-info optfeature systemd
+KEYWORDS=-* amd64 x86
+LICENSE=BSD supermicro
+RDEPEND=net-misc/networkmanager sys-apps/ethtool sys-apps/net-tools sys-apps/smartmontools sys-block/storcli sys-devel/bc sys-fs/lsscsi sys-fs/mdadm
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://www.supermicro.com/wftp/utility/TAS/TAS_1.6.0_build.200601.zip
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	optfeature	30ce9dec2b8943338c9b015bd32bac6a	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=974e22a918128fbb050de9cd0a8b4b2f

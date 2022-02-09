@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare
+DESCRIPTION=Statifier is a tool for creating portable, self-containing Linux executables
+EAPI=8
+HOMEPAGE=http://statifier.sourceforge.net
+INHERIT=flag-o-matic multilib-build toolchain-funcs
+IUSE=abi_x86_32 abi_x86_x32 abi_x86_64
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=app-shells/bash sys-apps/coreutils virtual/awk
+REQUIRED_USE=|| ( abi_x86_32 abi_x86_x32 abi_x86_64 )
+SLOT=0
+SRC_URI=https://sourceforge.net/projects/statifier/files/statifier/1.7.4/statifier-1.7.4.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib-build	75c3a5814f2cb851f641711bfcc100c0
+_md5_=cbf6d059f698489bf6024ea682e869c4

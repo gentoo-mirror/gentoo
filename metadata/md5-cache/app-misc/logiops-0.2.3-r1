@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test
+DEPEND=dev-libs/libconfig:=[cxx] dev-libs/libevdev virtual/libudev systemd? ( sys-apps/systemd )
+DESCRIPTION=An unofficial userspace driver for HID++ Logitech devices
+EAPI=8
+HOMEPAGE=https://github.com/PixlOne/logiops
+INHERIT=cmake linux-info
+IUSE=systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/libconfig:=[cxx] dev-libs/libevdev virtual/libudev systemd? ( sys-apps/systemd )
+SLOT=0
+SRC_URI=https://github.com/PixlOne/logiops/archive/refs/tags/v0.2.3.tar.gz -> logiops-0.2.3.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	linux-info	2f039741fe92bcea55c78806d16ac0f5
+_md5_=e9397618ff8286e399e9932fbb35fa77

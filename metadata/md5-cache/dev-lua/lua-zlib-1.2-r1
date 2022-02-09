@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-libs/zlib lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
+DESCRIPTION=Simple streaming interface to zlib for Lua
+EAPI=8
+HOMEPAGE=https://github.com/brimworks/lua-zlib
+INHERIT=cmake lua
+IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86
+LICENSE=MIT
+RDEPEND=sys-libs/zlib lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
+SLOT=0
+SRC_URI=https://github.com/brimworks/lua-zlib/archive/v1.2.tar.gz -> lua-zlib-1.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua	f41923d10bccf946e7ce65f103ab577d
+_md5_=bda3437ebdd55685923d21a4568d5ddc

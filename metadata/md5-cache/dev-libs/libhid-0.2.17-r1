@@ -1,0 +1,15 @@
+BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=virtual/libusb:0=
+DESCRIPTION=Provides a generic and flexible way to access and interact with USB HID devices
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=autotools
+IUSE=doc
+KEYWORDS=amd64 ppc ppc64 x86
+LICENSE=GPL-2 GPL-2+
+RDEPEND=virtual/libusb:0=
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~conikost/files/libhid-0.2.17.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=0618020d5c951ceaf992d28635351616

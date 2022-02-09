@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=This is the command-line version of the Steam client for dedicated servers
+EAPI=8
+HOMEPAGE=https://developer.valvesoftware.com/wiki/SteamCMD
+INHERIT=readme.gentoo-r1
+KEYWORDS=-* amd64 x86
+LICENSE=LGPL-2.1+ Steam
+RDEPEND=acct-group/steamcmd acct-user/steamcmd app-misc/dtach
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz -> steamcmd-1.0.tar.gz
+_eclasses_=readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1
+_md5_=ab7c4566fe47607a108ab8efca15c522

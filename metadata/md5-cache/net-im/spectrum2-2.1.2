@@ -1,0 +1,17 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=acct-group/spectrum acct-user/spectrum dev-libs/boost:=[nls] dev-libs/expat dev-libs/libev:= dev-libs/log4cxx dev-libs/jsoncpp:= dev-libs/openssl:0= dev-libs/popt dev-libs/protobuf:= net-dns/libidn:0= >=net-im/swift-4.0.2-r2:= net-misc/curl sys-libs/zlib:= frotz? ( !games-engines/frotz ) irc? ( net-im/libcommuni ) mysql? ( || ( dev-db/mariadb-connector-c dev-db/mysql-connector-c ) ) postgres? ( dev-libs/libpqxx:= ) purple? ( dev-libs/glib net-im/pidgin:= ) sms? ( app-mobilephone/smstools ) sqlite? ( dev-db/sqlite:3 ) twitter? ( net-misc/curl ) whatsapp? ( net-im/transwhat ) doc? ( app-doc/doxygen ) test? ( dev-util/cppunit )
+DESCRIPTION=An open source instant messaging transport
+EAPI=8
+HOMEPAGE=https://www.spectrum.im
+INHERIT=cmake systemd tmpfiles
+IUSE=doc frotz irc mysql postgres purple sms +sqlite test twitter whatsapp xmpp
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=acct-group/spectrum acct-user/spectrum dev-libs/boost:=[nls] dev-libs/expat dev-libs/libev:= dev-libs/log4cxx dev-libs/jsoncpp:= dev-libs/openssl:0= dev-libs/popt dev-libs/protobuf:= net-dns/libidn:0= >=net-im/swift-4.0.2-r2:= net-misc/curl sys-libs/zlib:= frotz? ( !games-engines/frotz ) irc? ( net-im/libcommuni ) mysql? ( || ( dev-db/mariadb-connector-c dev-db/mysql-connector-c ) ) postgres? ( dev-libs/libpqxx:= ) purple? ( dev-libs/glib net-im/pidgin:= ) sms? ( app-mobilephone/smstools ) sqlite? ( dev-db/sqlite:3 ) twitter? ( net-misc/curl ) whatsapp? ( net-im/transwhat ) virtual/tmpfiles
+REQUIRED_USE=|| ( mysql postgres sqlite ) test? ( irc )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/SpectrumIM/spectrum2/archive/2.1.2.tar.gz -> spectrum2-2.1.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
+_md5_=3f9f4df46eb7ab86c289fbd54a8dc3e5

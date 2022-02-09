@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( dev-lua/busted[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?,lua_targets_lua5-4(-)?] dev-lua/lua_cliargs[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?,lua_targets_lua5-4(-)?] lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) )
+DEFINED_PHASES=compile install prepare test
+DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
+DESCRIPTION=Platform independent system calls for Lua
+EAPI=8
+HOMEPAGE=https://github.com/o-lim/luasystem/
+INHERIT=lua toolchain-funcs
+IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86
+LICENSE=MIT
+RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/o-lim/luasystem/archive/v0.2.1-0.tar.gz -> luasystem-0.2.1_p0.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua	f41923d10bccf946e7ce65f103ab577d
+_md5_=b6d9cb2288abd7a6630ee825e7007a1b
