@@ -1,13 +1,14 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit qmake-utils xdg-utils
 
 DESCRIPTION="Graphical wireless scanning for Linux"
 HOMEPAGE="https://sourceforge.net/projects/linssid/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}_${PV}.orig.tar.gz"
+S="${WORKDIR}/${P}/${PN}-app"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -29,9 +30,9 @@ RDEPEND="
 	x11-libs/libxkbcommon[X]
 "
 
-S="${WORKDIR}/${P}/${PN}-app"
-
 DOCS=( README_${PV} )
+
+PATCHES=( "${FILESDIR}/${PN}-3.6-qwt620.patch" )
 
 src_prepare() {
 	default
