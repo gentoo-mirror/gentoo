@@ -1,14 +1,15 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure postinst postrm preinst prepare unpack
-DEPEND=app-arch/libarchive:= media-libs/libepoxy media-libs/libsdl2[sound,joystick,video] sys-libs/zlib x11-libs/gtk+:3 dev-util/desktop-file-utils x11-misc/shared-mime-info
-DESCRIPTION=A portable Nintendo Entertainment System emulator written in C++
-EAPI=7
+DEPEND=app-arch/libarchive:= media-libs/libglvnd media-libs/libsdl2[joystick,sound] sys-libs/zlib:= x11-libs/fltk:1[opengl]
+DESCRIPTION=Portable Nintendo Entertainment System emulator written in C++
+EAPI=8
 HOMEPAGE=http://0ldsk00l.ca/nestopia/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools xdg git-r3
 IUSE=doc
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=app-arch/libarchive:= media-libs/libepoxy media-libs/libsdl2[sound,joystick,video] sys-libs/zlib x11-libs/gtk+:3
+RDEPEND=app-arch/libarchive:= media-libs/libglvnd media-libs/libsdl2[joystick,sound] sys-libs/zlib:= x11-libs/fltk:1[opengl]
 SLOT=0
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=f466865cee20aecebc483b4f5d0c2334
+_md5_=0dc7540ce27da491fccb28903511f3e3
