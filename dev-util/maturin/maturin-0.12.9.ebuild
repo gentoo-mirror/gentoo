@@ -17,7 +17,7 @@ CRATES="
 	backtrace-0.3.64
 	base64-0.13.0
 	bitflags-1.3.2
-	block-buffer-0.10.1
+	block-buffer-0.10.2
 	block-buffer-0.9.0
 	block-modes-0.7.0
 	block-padding-0.2.1
@@ -300,7 +300,7 @@ BDEPEND="
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-zig-tests.patch
+	"${FILESDIR}"/${PN}-0.12.8-zig-tests.patch
 )
 
 python_prepare_all() {
