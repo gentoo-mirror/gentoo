@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop pax-utils xdg
 
@@ -96,7 +96,7 @@ src_install() {
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass.sh
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass-empty.sh
 	fperms -R +x /opt/${PN}/resources/app/out/vs/base/node
-	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg
+	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
 	dosym "../../opt/${PN}/bin/codium" "usr/bin/vscodium"
 	dosym "../../opt/${PN}/bin/codium" "usr/bin/codium"
 	domenu "${FILESDIR}/vscodium.desktop"
