@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-libs/zlib[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
+DESCRIPTION=Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
+EAPI=7
+HOMEPAGE=https://sourceware.org/binutils/
+INHERIT=libtool toolchain-funcs multilib-minimal
+IUSE=64-bit-bfd cet multitarget nls static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+LICENSE=|| ( GPL-3 LGPL-3 )
+RDEPEND=sys-libs/zlib[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-devel/binutils-config-5
+SLOT=0/2.38
+SRC_URI=mirror://gnu/binutils/binutils-2.38.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.38.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.38-patches-2.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib-build	75c3a5814f2cb851f641711bfcc100c0	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_md5_=82d37abd39a17108314808b8ceab67a5
