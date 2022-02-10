@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/apjanke/ronn-ng
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 doc test test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=MIT
 RDEPEND=!app-text/ronn ruby_targets_ruby26? ( >=dev-ruby/kramdown-2.1:2[ruby_targets_ruby26(-)] >=dev-ruby/mustache-0.7.0[ruby_targets_ruby26(-)] >=dev-ruby/nokogiri-1.9.0:0[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/kramdown-2.1:2[ruby_targets_ruby27(-)] >=dev-ruby/mustache-0.7.0[ruby_targets_ruby27(-)] >=dev-ruby/nokogiri-1.9.0:0[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/ronn-ng-0.9.1.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	05a317c9b860e5661cc9baf18c442e1c	ruby-fakegem	dddecd606533494bed613319a843100e
-_md5_=df62fd37b619a6b79665fe28cc367d0d
+_md5_=71c113894fae9dc690fec32a82905fdc

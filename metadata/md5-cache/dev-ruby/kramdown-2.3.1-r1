@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://kramdown.gettalong.org/
 INHERIT=ruby-fakegem
 IUSE=latex test ruby_targets_ruby26 ruby_targets_ruby27 doc test test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=MIT
 RDEPEND=latex? ( dev-texlive/texlive-latex dev-texlive/texlive-latexextra ) ruby_targets_ruby26? ( dev-ruby/rexml[ruby_targets_ruby26(-)] >=dev-ruby/rouge-1.8[ruby_targets_ruby26(-)] >=dev-ruby/stringex-1.5.1[ruby_targets_ruby26(-)] !!<dev-ruby/kramdown-1.17.0-r2:0[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( dev-ruby/rexml[ruby_targets_ruby27(-)] >=dev-ruby/rouge-1.8[ruby_targets_ruby27(-)] >=dev-ruby/stringex-1.5.1[ruby_targets_ruby27(-)] !!<dev-ruby/kramdown-1.17.0-r2:0[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://rubygems.org/gems/kramdown-2.3.1.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	ruby-utils	08ae6f9c60b19aabce3f66a30cce9a2d	ruby-ng	05a317c9b860e5661cc9baf18c442e1c	ruby-fakegem	dddecd606533494bed613319a843100e
-_md5_=08629f6d0b636bcc91a3e3dcdb5f4934
+_md5_=7a7b16d7f43989aabe75a9a5279320d2
