@@ -3,16 +3,18 @@
 
 EAPI=7
 
-inherit autotools flag-o-matic multilib-minimal toolchain-funcs
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/gnupg.asc
+inherit autotools flag-o-matic multilib-minimal toolchain-funcs verify-sig
 
 DESCRIPTION="General purpose crypto library based on the code used in GnuPG"
 HOMEPAGE="https://www.gnupg.org/"
 SRC_URI="mirror://gnupg/${PN}/${P}.tar.bz2"
+SRC_URI+=" verify-sig? ( mirror://gnupg/${PN}/${P}.tar.bz2.sig )"
 
 LICENSE="LGPL-2.1 MIT"
 SLOT="0/20" # subslot = soname major version
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="+asm cpu_flags_arm_neon cpu_flags_arm_aes cpu_flags_arm_sha1 cpu_flags_arm_sha2 cpu_flags_ppc_altivec cpu_flags_ppc_vsx2 cpu_flags_ppc_vsx3 cpu_flags_x86_aes cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_padlock cpu_flags_x86_sha cpu_flags_x86_sse4_1 doc o-flag-munging static-libs"
+#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="+asm cpu_flags_arm_neon cpu_flags_arm_aes cpu_flags_arm_sha1 cpu_flags_arm_sha2 cpu_flags_ppc_altivec cpu_flags_ppc_vsx2 cpu_flags_ppc_vsx3 cpu_flags_x86_aes cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_padlock cpu_flags_x86_sha cpu_flags_x86_sse4_1 doc +o-flag-munging static-libs"
 
 # Build system only has --disable-arm-crypto-support right now
 # If changing this, update src_configure logic too.
@@ -30,12 +32,12 @@ REQUIRED_USE="
 
 RDEPEND=">=dev-libs/libgpg-error-1.25[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( virtual/texi2dvi )"
+BDEPEND="doc? ( virtual/texi2dvi )
+	verify-sig? ( sec-keys/openpgp-keys-gnupg )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-multilib-syspath.patch
 	"${FILESDIR}"/${PN}-powerpc-darwin.patch
-	"${FILESDIR}"/${PN}-1.9.4-arm-neon-compile-fix.patch
 )
 
 MULTILIB_CHOST_TOOLS=(
@@ -64,6 +66,12 @@ multilib_src_configure() {
 		use cpu_flags_ppc_vsx2 || local -x gcry_cv_gcc_inline_asm_ppc_altivec=no
 		# power9 vector extension, aka arch 3.00 ISA
 		use cpu_flags_ppc_vsx3 || local -x gcry_cv_gcc_inline_asm_ppc_arch_3_00=no
+	fi
+
+	# Workaround for GCC < 11.3 bug
+	# https://git.gnupg.org/cgi-bin/gitweb.cgi?p=libgcrypt.git;a=commitdiff;h=0b399721ce9709ae25f9d2050360c5ab2115ae29
+	if use arm64 && tc-is-gcc && (($(gcc-major-version) == 11)) && (($(gcc-minor-version) <= 2)) && (($(gcc-micro-version) == 0)); then
+		append-flags -fno-tree-loop-vectorize
 	fi
 
 	local myeconfargs=(
