@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/autoconf-archive sys-devel/bison sys-devel/flex doc? ( dev-lang/perl ) perl? ( dev-lang/swig ) python? ( dev-lang/swig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=perl? ( dev-lang/perl:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) )
+DEPEND=perl? ( dev-lang/perl:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
 DESCRIPTION=Library to support AppArmor userspace utilities
 EAPI=8
 HOMEPAGE=https://gitlab.com/apparmor/apparmor/wikis/home
 INHERIT=autotools distutils-r1 perl-functions
-IUSE=doc +perl +python static-libs python_targets_python3_8 python_targets_python3_9
+IUSE=doc +perl +python static-libs python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=perl? ( dev-lang/perl:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=perl? ( dev-lang/perl:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://launchpad.net/apparmor/3.0/3.0.3/+download/apparmor-3.0.3.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	5560689d3cb005ec97659ff697b42684	perl-functions	fea344a91ebf37efadf172c6a3de5a72
-_md5_=9054eb6262a8650e0cd2c5489ce475db
+_md5_=d35974089499db85e64bbfbe12b8ddf0
