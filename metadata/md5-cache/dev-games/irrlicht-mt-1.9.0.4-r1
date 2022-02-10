@@ -1,14 +1,14 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/libpng:0= sys-libs/zlib virtual/jpeg:0 virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm x11-base/xorg-proto
+DEPEND=~dev-games/irrlicht-mt-headers-1.9.0.4 media-libs/libpng:0= sys-libs/zlib virtual/jpeg:0 virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm x11-base/xorg-proto
 DESCRIPTION=Minetest's fork of dev-games/irrlicht
 EAPI=8
 HOMEPAGE=https://github.com/minetest/irrlicht
 INHERIT=cmake
 KEYWORDS=~amd64 ~riscv
 LICENSE=ZLIB
-RDEPEND=media-libs/libpng:0= sys-libs/zlib virtual/jpeg:0 virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm
+RDEPEND=~dev-games/irrlicht-mt-headers-1.9.0.4 media-libs/libpng:0= sys-libs/zlib virtual/jpeg:0 virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm
 SLOT=0
 SRC_URI=https://github.com/minetest/irrlicht/archive/refs/tags/1.9.0mt4.tar.gz -> irrlicht-mt-1.9.0.4.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=1c5ea3d4fb21871774c66fa53db2c4b5
+_md5_=6a3b267f4a885be81bc80a187fdbf97d
