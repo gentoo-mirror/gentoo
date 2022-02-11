@@ -2,7 +2,7 @@ BDEPEND=>=app-text/scdoc-1.9.7 >=dev-lang/go-1.13 >=dev-lang/go-1.12 app-arch/un
 DEFINED_PHASES=compile install postinst unpack
 DEPEND=notmuch? ( net-mail/notmuch:= )
 DESCRIPTION=Email client for your terminal
-EAPI=7
+EAPI=8
 HOMEPAGE=https://aerc-mail.org
 INHERIT=go-module git-r3
 IUSE=notmuch
@@ -12,4 +12,4 @@ RDEPEND=notmuch? ( net-mail/notmuch:= )
 RESTRICT=strip
 SLOT=0
 _eclasses_=go-module	6be3eb7a42e4cecb88f18356a783ee35	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=b2de5d2205611f037ecc5ab45c17545d
+_md5_=f5b47810c98cc9c6d7d71e8c0031b6ff
