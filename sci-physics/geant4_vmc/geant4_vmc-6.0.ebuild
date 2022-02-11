@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -20,12 +20,12 @@ HOMEPAGE="https://github.com/vmc-project/geant4_vmc"
 
 LICENSE="GPL-3"
 SLOT="4"
-IUSE="doc examples geant3 +g4root +mtroot vgm test"
+IUSE="doc examples geant3 +g4root vgm test"
 
 RDEPEND="
-	<sci-physics/geant-4.11[c++17,opengl,geant3?]
+	>=sci-physics/geant-4.11[c++17,opengl,geant3?]
 	sci-physics/root:=[c++17,-vmc]
-	sci-physics/vmc:=[c++17]
+	>=sci-physics/vmc-2.0:=[c++17]
 	vgm? ( sci-physics/vgm:= )"
 DEPEND="${RDEPEND}"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
@@ -33,7 +33,6 @@ RESTRICT="
 	!examples? ( test )
 	!geant3? ( test )
 	!g4root? ( test )
-	!mtroot? ( test )
 	!test? ( test )
 	!vgm? ( test )"
 
@@ -44,7 +43,6 @@ src_configure() {
 		-DGeant4VMC_USE_VGM="$(usex vgm)"
 		-DGeant4VMC_USE_GEANT4_G3TOG4="$(usex geant3)"
 		-DGeant4VMC_USE_G4Root="$(usex g4root)"
-		-DGeant4VMC_BUILD_MTRoot="$(usex mtroot)"
 		-DGeant4VMC_BUILD_EXAMPLES="$(usex test)"
 		-DGeant4VMC_INSTALL_EXAMPLES="$(usex examples)"
 	)
@@ -57,7 +55,6 @@ src_compile() {
 		local dirs=(
 			source
 			$(usev g4root)
-			$(usev mtroot)
 			$(usev examples)
 		)
 		local d

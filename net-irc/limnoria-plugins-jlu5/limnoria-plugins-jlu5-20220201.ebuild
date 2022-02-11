@@ -1,18 +1,18 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit vcs-snapshot
 
-COMMIT="3ea070a8036e7262c6fdbd39bf2c7d6407a20f7c"
+MY_PV="${PV:0:4}.${PV:4:2}.${PV:6:2}"
 
 DESCRIPTION="A collection of plugins for the Limnoria IRC bot"
 HOMEPAGE="https://github.com/jlu5/SupyPlugins"
-SRC_URI="https://github.com/jlu5/SupyPlugins/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/jlu5/SupyPlugins/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD GPL-2+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 SLOT=0
 
 RDEPEND="
