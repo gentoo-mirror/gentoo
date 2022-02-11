@@ -1,0 +1,16 @@
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DESCRIPTION=Team collaboration tool
+EAPI=8
+HOMEPAGE=https://www.slack.com
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop multilib-build optfeature pax-utils unpacker xdg
+IUSE=appindicator suid abi_x86_64
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=app-accessibility/at-spi2-atk:2[abi_x86_64(-)?] app-accessibility/at-spi2-core:2[abi_x86_64(-)?] dev-libs/atk:0[abi_x86_64(-)?] dev-libs/expat:0[abi_x86_64(-)?] dev-libs/glib:2[abi_x86_64(-)?] dev-libs/nspr:0[abi_x86_64(-)?] dev-libs/nss:0[abi_x86_64(-)?] media-libs/alsa-lib:0[abi_x86_64(-)?] media-libs/mesa:0[abi_x86_64(-)?] net-print/cups:0[abi_x86_64(-)?] sys-apps/dbus:0[abi_x86_64(-)?] x11-libs/cairo:0[abi_x86_64(-)?] x11-libs/gdk-pixbuf:2[abi_x86_64(-)?] x11-libs/gtk+:3[abi_x86_64(-)?] x11-libs/libdrm:0[abi_x86_64(-)?] x11-libs/libX11:0[abi_x86_64(-)?] x11-libs/libxcb:0/1.12[abi_x86_64(-)?] x11-libs/libXcomposite:0[abi_x86_64(-)?] x11-libs/libXdamage:0[abi_x86_64(-)?] x11-libs/libXext:0[abi_x86_64(-)?] x11-libs/libXfixes:0[abi_x86_64(-)?] x11-libs/libxkbcommon:0[abi_x86_64(-)?] x11-libs/libxkbfile:0[abi_x86_64(-)?] x11-libs/libXrandr:0[abi_x86_64(-)?] x11-libs/pango:0[abi_x86_64(-)?] appindicator? ( dev-libs/libappindicator:3[abi_x86_64(-)?] )
+REQUIRED_USE=|| ( abi_x86_64 )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://downloads.slack-edge.com/releases/linux/4.23.0/prod/x64/slack-desktop-4.23.0-amd64.deb
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib-build	75c3a5814f2cb851f641711bfcc100c0	optfeature	30ce9dec2b8943338c9b015bd32bac6a	pax-utils	fce6ad998516159787b92e8043167889	unpacker	03b2fab39d555f46843c92f44a40a721	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=227bfb9766649a3ae0450ba6fac0dc8a
