@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit bash-completion-r1 pam systemd
 
@@ -11,7 +11,7 @@ SRC_URI="http://mmonit.com/monit/dist/${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ppc ~ppc64 x86 ~amd64-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux"
 IUSE="ipv6 pam ssl"
 
 RDEPEND="sys-libs/zlib:=
@@ -42,9 +42,12 @@ src_configure() {
 src_install() {
 	default
 
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}"/monit.logrotate monit
+
 	insinto /etc; insopts -m600; doins monitrc
 	newinitd "${FILESDIR}"/monit.initd-5.0-r1 monit
-	systemd_dounit "${FILESDIR}"/${PN}.service
+	systemd_dounit system/startup/${PN}.service
 
 	use pam && newpamd "${FILESDIR}"/${PN}.pamd ${PN}
 
