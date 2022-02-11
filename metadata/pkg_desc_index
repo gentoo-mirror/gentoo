@@ -1119,7 +1119,7 @@ app-arch/innoextract 1.9: A tool to unpack installers created by Inno Setup
 app-arch/lbzip2 2.5_p20181227-r1: Parallel bzip2 utility
 app-arch/lcab 1.0_beta12: CAB file creation tool
 app-arch/lha 114i_p20201004: Utility for creating and opening lzh archives
-app-arch/libarchive 3.5.2 3.5.3 3.6.0: Multi-format archive and compression library
+app-arch/libarchive 3.5.3 3.6.0: Multi-format archive and compression library
 app-arch/libpar2 0.4: A library for par2, extracted from par2cmdline
 app-arch/lrzip 0.641-r1: Long Range ZIP or Lzma RZIP optimized for compressing large files
 app-arch/lunzip 1.13: Decompressor for the lzip format, written in C
@@ -9388,7 +9388,7 @@ dev-python/reflink 0.2.1-r1: Python wrapper around the reflink system calls
 dev-python/regex 2021.11.10 2022.1.18: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6-r2: similar to bencode from the BitTorrent project
 dev-python/reno 3.5.0: Release notes manager, storing release notes in a git repo and building docs
-dev-python/reportlab 3.6.3 3.6.5 3.6.6: Tools for generating printable PDF documents from any data source
+dev-python/reportlab 3.6.5 3.6.6: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r1: A tiny LRU cache implementation and decorator
 dev-python/repoze-sphinx-autointerface 0.8: Sphinx extension: auto-generates API docs from Zope interfaces
 dev-python/requests 2.27.1: HTTP library for human beings
@@ -9502,7 +9502,7 @@ dev-python/sphinx-autodoc-typehints 1.13.1 1.14.1 1.15.3 1.16.0: Type hints supp
 dev-python/sphinx-bootstrap-theme 0.8.0-r1 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-epytext 0.0.4: Sphinx epytext extension
 dev-python/sphinx-gallery 0.10.1: Sphinx extension to automatically generate an examples gallery
-dev-python/sphinx-issues 1.2.0 2.0.0 3.0.0 3.0.1: Sphinx extension for linking to your project's issue tracker
+dev-python/sphinx-issues 3.0.1: Sphinx extension for linking to your project's issue tracker
 dev-python/sphinx-jinja 1.1.0 1.2.1-r1 1.4.0: A sphinx extension to include jinja based templates into a sphinx doc
 dev-python/sphinx-multiversion 0.2.4: Add support for multiple versions to sphinx
 dev-python/sphinx-notfound-page 0.8: Create a custom 404 page with absolute URLs hardcoded
@@ -17956,7 +17956,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.176 5.4.177 5.4.178 5.10.96 5.10.97 5.10.98 5.10.99 5.15.19 5.15.20 5.15.21 5.15.22 5.16.5 5.16.6 5.16.7 5.16.8: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.176 5.4.177 5.4.178 5.10.96 5.10.97 5.10.98 5.10.99 5.15.19 5.15.20 5.15.21 5.15.22 5.16.5 5.16.6 5.16.7 5.16.8: Pre-built Linux kernel with genpatches
-sys-kernel/gentoo-sources 4.4.296 4.4.297 4.4.298 4.4.299 4.4.300 4.4.301 4.4.302 4.9.294 4.9.295 4.9.296 4.9.297 4.9.298 4.9.299 4.9.300 4.14.259 4.14.260 4.14.261 4.14.262 4.14.263 4.14.264 4.14.265 4.19.222 4.19.223 4.19.224 4.19.225 4.19.226 4.19.227 4.19.228 5.4.173 5.4.174 5.4.175 5.4.176 5.4.177 5.4.178 5.10.93 5.10.94 5.10.95 5.10.96 5.10.97 5.10.98 5.10.99 5.15.19 5.15.20 5.15.21 5.15.22 5.16.5 5.16.6 5.16.7 5.16.8: Full sources including the Gentoo patchset for the 5.16 kernel tree
+sys-kernel/gentoo-sources 4.9.294 4.9.295 4.9.296 4.9.297 4.9.298 4.9.299 4.9.300 4.9.301 4.14.259 4.14.260 4.14.261 4.14.262 4.14.263 4.14.264 4.14.265 4.14.266 4.19.222 4.19.223 4.19.224 4.19.225 4.19.226 4.19.227 4.19.228 4.19.229 5.4.173 5.4.174 5.4.175 5.4.176 5.4.177 5.4.178 5.4.179 5.10.93 5.10.94 5.10.95 5.10.96 5.10.97 5.10.98 5.10.99 5.10.100 5.15.19 5.15.20 5.15.21 5.15.22 5.15.23 5.16.5 5.16.6 5.16.7 5.16.8 5.16.9: Full sources including the Gentoo patchset for the 5.16 kernel tree
 sys-kernel/git-sources 5.17_rc1 5.17_rc2 5.17_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 1 2 3 4: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 1: Wrap kernel-install from systemd-boot as installkernel
@@ -17972,7 +17972,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201 5.10.63_p20211029 5.10.9999: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.225_p101 5.4.170_p68 5.10.90_p61-r1 5.15.19_p29 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/vanilla-kernel 5.4.176 5.4.177 5.4.178 5.10.96 5.10.97 5.10.98 5.10.99 5.15.19 5.15.20 5.15.21 5.15.22 5.16.5 5.16.6 5.16.7 5.16.8: Linux kernel built from vanilla upstream sources
-sys-kernel/vanilla-sources 4.4.302 4.9.301 4.14.266 4.19.229 5.4.179 5.10.100 5.15.23 5.16.9: Full sources for the Linux kernel
+sys-kernel/vanilla-sources 4.9.301 4.14.266 4.19.229 5.4.179 5.10.100 5.15.23 5.16.9: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.16.4: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1: The sd-bus library, extracted from systemd
