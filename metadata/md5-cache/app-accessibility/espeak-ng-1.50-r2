@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig man? ( || ( app-text/ronn-ng app-text/ronn ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=!app-accessibility/espeak mbrola? ( app-accessibility/mbrola ) sound? ( media-libs/pcaudiolib )
+DESCRIPTION=Software speech synthesizer for English, and some other languages
+EAPI=7
+HOMEPAGE=https://github.com/espeak-ng/espeak-ng
+INHERIT=autotools
+IUSE=+async +klatt l10n_ru l10n_zh man mbrola +sound
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-3+ unicode
+RDEPEND=!app-accessibility/espeak mbrola? ( app-accessibility/mbrola ) sound? ( media-libs/pcaudiolib ) sound? ( media-sound/sox )
+SLOT=0
+SRC_URI=https://github.com/espeak-ng/espeak-ng/archive/1.50.tar.gz -> espeak-ng-1.50.tar.gz https://dev.gentoo.org/~ulm/distfiles/espeak-ng-1.50-ieee80.patch.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=a8645fa6ce7c3872679587cb3c577075
