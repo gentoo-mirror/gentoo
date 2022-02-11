@@ -5354,7 +5354,7 @@ dev-lang/gforth 0.7.3-r2: GNU Forth is a fast and portable implementation of the
 dev-lang/ghc 8.8.4-r1 8.10.4-r1 8.10.5-r1 8.10.6 9.0.1-r1: The Glasgow Haskell Compiler
 dev-lang/gnat-gpl 2020 2021-r1: GNAT Ada Compiler - GPL version
 dev-lang/gnuprologjava 0.2.6-r1: GNU Prolog for Java is an implementation of ISO Prolog as a Java library
-dev-lang/go 1.17.5 1.17.6 9999: A concurrent garbage collected and typesafe programming language
+dev-lang/go 1.17.5 1.17.6 1.17.7 9999: A concurrent garbage collected and typesafe programming language
 dev-lang/go-bootstrap 1.16.6: Bootstrap package for dev-lang/go
 dev-lang/gprolog 1.4.5 1.5.0: A native Prolog compiler with constraint solving over finite domains (FD)
 dev-lang/haxe 4.2.4-r2: Multi-target universal programming language
@@ -5896,12 +5896,12 @@ dev-libs/rinutils 0.10.0: Set of C headers containing macros and static function
 dev-libs/rlog 1.4: A C++ logging library
 dev-libs/rocclr 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0: Radeon Open Compute Common Language Runtime
 dev-libs/rocksdb 6.14.6-r1 6.15.5 6.17.3: Embeddable, persistent key-value store for fast storage
-dev-libs/rocm-comgr 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.3.0-r1: Radeon Open Compute Code Object Manager
-dev-libs/rocm-device-libs 3.7.0 3.8.0 3.9.0-r1 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 9999: Radeon Open Compute Device Libraries
+dev-libs/rocm-comgr 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.3.0-r1 4.5.2: Radeon Open Compute Code Object Manager
+dev-libs/rocm-device-libs 3.7.0 3.8.0 3.9.0-r1 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 9999: Radeon Open Compute Device Libraries
 dev-libs/rocm-hostcall 2.7.0: Radeon Open Compute hostcall API
-dev-libs/rocm-opencl-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0: Radeon Open Compute OpenCL Compatible Runtime
-dev-libs/rocr-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 9999: Radeon Open Compute Runtime
-dev-libs/roct-thunk-interface 4.0.0 4.1.0 4.2.0 4.3.0 9999: Radeon Open Compute Thunk Interface
+dev-libs/rocm-opencl-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2: Radeon Open Compute OpenCL Compatible Runtime
+dev-libs/rocr-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 9999: Radeon Open Compute Runtime
+dev-libs/roct-thunk-interface 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 9999: Radeon Open Compute Thunk Interface
 dev-libs/rremove 1.0.5: A simple library to recursively delete non-empty directories
 dev-libs/s2n 0.10.21-r1 1.0.0: Simple, small, fast and secure C99 implementation of the TLS/SSL protocols
 dev-libs/satyr 0.38 0.39: Satyr is a collection of low-level algorithms for program failure processing
@@ -11291,7 +11291,7 @@ dev-util/rej 0.16-r1: A utility for solving diff/patch rejects
 dev-util/rinstall 0.1.1: Utility for declarative installation of programs
 dev-util/rizin 0.3.4: reverse engineering framework for binary analysis
 dev-util/rocm-clang-ocl 4.3.0: OpenCL compilation with clang compiler
-dev-util/rocm-cmake 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 9999: Radeon Open Compute CMake Modules
+dev-util/rocm-cmake 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 9999: Radeon Open Compute CMake Modules
 dev-util/rocm-smi 4.0.0 9999: ROCm System Management Interface
 dev-util/rocminfo 3.7.0 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 9999: ROCm Application for Reporting System Info
 dev-util/roctracer 4.0.0-r1 4.2.0 4.3.0-r1: Callback/Activity Library for Performance tracing AMD GPU's
@@ -14114,7 +14114,7 @@ media-sound/alsamixergui 0.9.0.1.2-r4: FLTK based amixer Frontend
 media-sound/alsaplayer 0.99.81-r2: A heavily multi-threaded pluggable audio player
 media-sound/amsynth 1.12.4: Virtual analogue synthesizer
 media-sound/apetag 1.12-r3: Command-line ape 2.0 tagger
-media-sound/apulse 0.1.13: PulseAudio emulation for ALSA
+media-sound/apulse 0.1.13-r1: PulseAudio emulation for ALSA
 media-sound/aqualung 1.1-r101: Music player for a wide range of formats designed for gapless playback
 media-sound/ardour 6.9 9999: Digital Audio Workstation
 media-sound/ario 1.6: GTK client for MPD inspired by Rhythmbox but much lighter and faster
@@ -17747,7 +17747,7 @@ sys-devel/libtool 2.4.6-r6 9999: A shared library tool for developers
 sys-devel/lld 11.1.0 11.1.0-r1 12.0.1 13.0.0 13.0.1 14.0.0_rc1 14.0.0.9999 15.0.0.9999: The LLVM linker (link editor)
 sys-devel/llvm 11.1.0 12.0.1 13.0.0 13.0.1 14.0.0_rc1 14.0.0.9999 15.0.0.9999: Low Level Virtual Machine
 sys-devel/llvm-common 11.1.0 12.0.1 13.0.0 13.0.1 14.0.0_rc1 14.0.0.9999 15.0.0.9999: Common files shared between multiple slots of LLVM
-sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 4.2.0 4.3.0-r1: Radeon Open Compute llvm,lld,clang
+sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 4.2.0 4.3.0-r1 4.5.2: Radeon Open Compute llvm,lld,clang
 sys-devel/llvmgold 11 12 13-r1 14 15: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19: GNU macro processor
 sys-devel/make 4.3: Standard tool to compile source trees
