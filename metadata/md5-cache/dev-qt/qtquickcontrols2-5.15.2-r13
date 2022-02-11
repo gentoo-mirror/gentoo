@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install nofetch postinst postrm prepare test unpack
+DEPEND==dev-qt/qtcore-5.15.2* =dev-qt/qtdeclarative-5.15.2* =dev-qt/qtgui-5.15.2* widgets? ( =dev-qt/qtwidgets-5.15.2* ) test? ( =dev-qt/qttest-5.15.2* )
+DESCRIPTION=Set of next generation Qt Quick controls for the Qt5 framework
+EAPI=8
+HOMEPAGE=https://community.kde.org/Qt5PatchCollection https://invent.kde.org/qt/qt/ https://www.qt.io/
+INHERIT=qt5-build
+IUSE=widgets debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND==dev-qt/qtcore-5.15.2* =dev-qt/qtdeclarative-5.15.2* =dev-qt/qtgui-5.15.2* widgets? ( =dev-qt/qtwidgets-5.15.2* ) =dev-qt/qtgraphicaleffects-5.15.2*
+RESTRICT=test
+SLOT=5/5.15
+SRC_URI=https://invent.kde.org/qt/qt/qtquickcontrols2/-/archive/d8d6b14b9907adbc6ce307d52be34aaa761a58fa/qtquickcontrols2-d8d6b14b9907adbc6ce307d52be34aaa761a58fa.tar.gz -> qtquickcontrols2-5.15.2-d8d6b14b.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	virtualx	fa024aa649b6bd544144bf94893d402c	kde.org	2c51d68845490f23d6f76d49cabdac5d	qt5-build	06b03342d17b2518822a24fe0399d1ae
+_md5_=f6ff10a47b44f6e1bd7d646241db03fd
