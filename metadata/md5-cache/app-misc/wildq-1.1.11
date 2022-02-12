@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Command-line TOML/JSON/INI/YAML/XML processor using jq c bindings
+EAPI=7
+HOMEPAGE=https://pypi.org/project/wildq/ https://github.com/ahmet2mir/wildq
+INHERIT=distutils-r1
+IUSE=hcl toml xml python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-python/jq[python_targets_python3_8(-)?,python_targets_python3_9(-)?] hcl? ( dev-python/pyhcl[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) toml? ( dev-python/toml[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) xml? ( dev-python/xmltodict[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+SRC_URI=mirror://pypi/w/wildq/wildq-1.1.11.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	5560689d3cb005ec97659ff697b42684
+_md5_=451702f8ccca2cfcc2faedf9be31bb74
