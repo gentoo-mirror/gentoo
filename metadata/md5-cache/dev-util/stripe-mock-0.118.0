@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.10
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Mock HTTP server that responds like the real Stripe API
+EAPI=7
+HOMEPAGE=https://github.com/stripe/stripe-mock
+INHERIT=golang-build golang-vcs-snapshot
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT ISC BSD-2
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/stripe/stripe-mock/archive/v0.118.0.tar.gz -> stripe-mock-0.118.0.tar.gz
+_eclasses_=golang-base	701bf25399a8bb1be2c97aabbccc91c9	golang-build	e38d04a2d2785fd051e9e1e3c1334862	golang-vcs-snapshot	7ff6c1586fadbbe43a294f4e9dfabd19
+_md5_=27e5206b81e173e1d85728c77a03d49a
