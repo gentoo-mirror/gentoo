@@ -41,7 +41,7 @@ BDEPEND="
 DEPEND="
 	${LUA_DEPS}
 	>=dev-libs/glib-2.62
-	>=media-video/pipewire-0.3.43:=
+	>=media-video/pipewire-0.3.45:=
 	virtual/libc
 	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd )
@@ -61,7 +61,7 @@ RDEPEND="${DEPEND}
 DOCS=( {NEWS,README}.rst )
 
 PATCHES=(
-	"${FILESDIR}"/${P}-default-nodes-handle-nodes-without-Routes.patch
+	"${FILESDIR}"/${P}-restore-stream-do-not-crash-if-config.properties-is-.patch
 )
 
 src_configure() {
@@ -80,6 +80,17 @@ src_configure() {
 	)
 
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+
+	# We copy the default config, so that Gentoo tools can pick up on any
+	# updates and /etc does not end up with stale overrides.
+	# If a reflinking CoW filesystem is used (e.g. Btrfs), then the files
+	# will not actually get stored twice until modified.
+	insinto /etc
+	doins -r ${ED}/usr/share/wireplumber
 }
 
 pkg_postinst() {
