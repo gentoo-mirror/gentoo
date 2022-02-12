@@ -1,0 +1,17 @@
+BDEPEND=x11-base/xorg-proto virtual/pkgconfig qt5? ( || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-libs/libpcre dev-qt/qtcore:5 sys-devel/bison ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 dev-util/ninja >=dev-util/cmake-3.20.5 doc? ( python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] ) )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/miniz dev-util/glslang x11-libs/libX11 x11-libs/libxcb:= x11-libs/xcb-util-keysyms virtual/opengl pyside2? ( python_single_target_python3_9? ( dev-python/pyside2[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pyside2[python_targets_python3_10(-)] ) ) qt5? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 )
+DESCRIPTION=A stand-alone graphics debugging tool
+EAPI=8
+HOMEPAGE=https://renderdoc.org https://github.com/baldurk/renderdoc
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools cmake optfeature python-single-r1 docs xdg
+IUSE=pyside2 qt5 python_single_target_python3_9 python_single_target_python3_10 doc
+KEYWORDS=~amd64
+LICENSE=BSD BSD-2 CC-BY-3.0 GPL-3+ MIT OFL-1.1 public-domain ZLIB
+RDEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/miniz dev-util/glslang x11-libs/libX11 x11-libs/libxcb:= x11-libs/xcb-util-keysyms virtual/opengl pyside2? ( python_single_target_python3_9? ( dev-python/pyside2[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pyside2[python_targets_python3_10(-)] ) ) qt5? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 )
+REQUIRED_USE=doc? ( qt5 ) pyside2? ( qt5 ) qt5? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 ) )
+SLOT=0
+SRC_URI=https://github.com/baldurk/renderdoc/archive/refs/tags/v1.18.tar.gz -> renderdoc-1.18.tar.gz qt5? ( https://github.com/baldurk/swig/archive/renderdoc-modified-7.tar.gz -> swig-renderdoc-7.tar.gz )
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	optfeature	30ce9dec2b8943338c9b015bd32bac6a	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-single-r1	3c5721adc30f98c39739c5970a4762d8	docs	7c38d94fa7c1b4235fe571dc09e018df	xdg	6024fbc93167fad782e2032933654857
+_md5_=e6501856b86c1a70793c05edcd2141f1
