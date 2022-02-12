@@ -1,12 +1,12 @@
 DEFINED_PHASES=configure
-DEPEND=app-arch/libarchive[bzip2?,lzma?] zlib? ( app-arch/libarchive[zlib] ) dev-libs/rremove
+DEPEND=app-arch/libarchive[bzip2?,lzma?,zlib(+)?] dev-libs/rremove
 DESCRIPTION=Utility to view the differences between two source code archives
 EAPI=7
 HOMEPAGE=https://frigidcode.com/code/archdiff/
 IUSE=+bzip2 +lzma +zlib
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=app-arch/libarchive[bzip2?,lzma?] zlib? ( app-arch/libarchive[zlib] ) dev-libs/rremove app-misc/colordiff
+RDEPEND=app-arch/libarchive[bzip2?,lzma?,zlib(+)?] dev-libs/rremove app-misc/colordiff
 SLOT=0
 SRC_URI=https://frigidcode.com/code/archdiff/archdiff-1.1.6.tar.gz
-_md5_=98e8c2553179e19073925d52897a82fc
+_md5_=ca53ce201f07e4199b824ec04a2c5410
