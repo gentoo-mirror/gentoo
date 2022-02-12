@@ -1,0 +1,17 @@
+BDEPEND=>=sys-devel/automake-1.13.4 >=sys-devel/gettext-0.18.2 virtual/pkgconfig dev-util/gdbus-codegen sys-devel/bison introspection? ( >=dev-libs/gobject-introspection-1.40 ) doc? ( >=dev-util/gtk-doc-1.20 dev-libs/libxslt ) || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/pyparsing[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/pyparsing[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/pyparsing[python_targets_python3_8(-)] ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare setup
+DEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arch/zstd:= >=app-crypt/gpgme-1.1.8:= >=dev-libs/appstream-glib-0.5.10:= >=dev-libs/glib-2.56:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= dev-libs/libassuan:= >=dev-util/ostree-2020.8:=[gpg(+)] || ( dev-util/ostree[curl] dev-util/ostree[soup] ) >=gnome-base/dconf-0.26:= >=net-libs/libsoup-2.4:= sys-apps/bubblewrap sys-apps/dbus >=sys-fs/fuse-2.9.9:0= sys-apps/xdg-dbus-proxy X? ( x11-apps/xauth x11-libs/libXau:= ) x11-libs/gdk-pixbuf:2= policykit? ( >=sys-auth/polkit-0.98:= ) seccomp? ( sys-libs/libseccomp:= ) systemd? ( sys-apps/systemd:= )
+DESCRIPTION=Linux application sandboxing and distribution framework
+EAPI=7
+HOMEPAGE=https://flatpak.org/
+INHERIT=autotools linux-info python-any-r1
+IUSE=doc gtk kde introspection policykit seccomp systemd X
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+PDEPEND=gtk? ( sys-apps/xdg-desktop-portal-gtk ) kde? ( kde-plasma/xdg-desktop-portal-kde )
+RDEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arch/zstd:= >=app-crypt/gpgme-1.1.8:= >=dev-libs/appstream-glib-0.5.10:= >=dev-libs/glib-2.56:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= dev-libs/libassuan:= >=dev-util/ostree-2020.8:=[gpg(+)] || ( dev-util/ostree[curl] dev-util/ostree[soup] ) >=gnome-base/dconf-0.26:= >=net-libs/libsoup-2.4:= sys-apps/bubblewrap sys-apps/dbus >=sys-fs/fuse-2.9.9:0= sys-apps/xdg-dbus-proxy X? ( x11-apps/xauth x11-libs/libXau:= ) x11-libs/gdk-pixbuf:2= policykit? ( >=sys-auth/polkit-0.98:= ) seccomp? ( sys-libs/libseccomp:= ) systemd? ( sys-apps/systemd:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/flatpak/flatpak/releases/download/1.12.5/flatpak-1.12.5.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	linux-info	2f039741fe92bcea55c78806d16ac0f5	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-any-r1	bc1411c089dadb4205aafaf7c464a7a0
+_md5_=ca192a17177ca50b6ca0b39c2693e717
