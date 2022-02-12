@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 media-sound/fluidsynth:=[jack?,alsa?,pulseaudio?]
+DESCRIPTION=Qt application to control FluidSynth
+EAPI=8
+HOMEPAGE=https://qsynth.sourceforge.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake desktop xdg
+IUSE=+alsa debug jack pulseaudio
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 media-sound/fluidsynth:=[jack?,alsa?,pulseaudio?]
+REQUIRED_USE=|| ( alsa jack pulseaudio )
+SLOT=0
+SRC_URI=mirror://sourceforge/qsynth/qsynth-0.9.6.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg	6024fbc93167fad782e2032933654857
+_md5_=b4b368b0ae8b921abe4bf84977423b0f
