@@ -20,12 +20,12 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 # be packaged.  Some extra steps are required before running the tests:
 # 1. Download junit4-ant 2.7.x from https://mvnrepository.com/artifact/com.carrotsearch.randomizedtesting/junit4-ant
 # 2. Set EANT_GENTOO_CLASSPATH_EXTRA to the path to junit4-ant-2.7.*.jar
-# 3. arm, arm64 and ppc64 only: Install test dependencies that are unkeyworded
+# 3. ppc64 only: Install test dependencies that are unkeyworded
 # 4. Set ALLOW_TEST="all"
 RESTRICT="test"
 
 CDEPEND="
-	app-arch/lz4
+	app-arch/lz4:=
 "
 
 # The version requirement on mvel is strict; mvel-2.4.* generates source files
@@ -36,9 +36,9 @@ DEPEND="
 	dev-libs/xxhash
 	test? (
 		dev-java/junit:4
-		!arm? ( !arm64? ( !ppc64? (
+		!ppc64? (
 			dev-java/randomized-runner:0
-		) ) )
+		)
 	)
 	${CDEPEND}
 "
@@ -68,7 +68,7 @@ pkg_setup() {
 src_prepare() {
 	eapply "${FILESDIR}/${P}-print-os-props.patch"
 	eapply "${FILESDIR}/${P}-skip-ivy.patch"
-	cp "${FILESDIR}/${P}-Makefile" Makefile || die "Failed to copy Makefile"
+	cp "${FILESDIR}/${P}-r1-Makefile" Makefile || die "Failed to copy Makefile"
 	cp "${FILESDIR}/${P}-gentoo-classpath.xml" gentoo-classpath.xml ||
 		die "Failed to copy Gentoo classpath injection XML"
 	java-pkg-2_src_prepare

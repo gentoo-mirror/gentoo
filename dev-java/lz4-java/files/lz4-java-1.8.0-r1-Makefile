@@ -27,11 +27,11 @@ SONAME = liblz4-java.so
 # C compiler arguments may be obtained by running 'ant -v compile-jni',
 # as long as dev-java/cpptasks is in the classpath
 CFLAGS := -fPIC $(CFLAGS)
-# '--as-needed' causes test failure
-LDFLAGS := $(LDFLAGS) -Wl,--no-as-needed
 
 $(OUT_DIR)/$(SONAME): $(OBJS) | $(OUT_DIR)
-	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,-soname,$(SONAME) -o $@ -llz4 $^
+	# '-llz4' must be listed after this package's objects
+	# https://wiki.gentoo.org/wiki/Project:Quality_Assurance/As-needed#Importance_of_linking_order
+	$(CC) $(CFLAGS) -shared $(LDFLAGS) -Wl,-soname,$(SONAME) -o $@ $^ -llz4
 
 $(OBJS_DIR_PREFIX)/%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c -o $@ \
