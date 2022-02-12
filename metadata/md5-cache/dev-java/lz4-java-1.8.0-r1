@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/mvel:2.3 dev-libs/xxhash test? ( dev-java/junit:4 !arm? ( !arm64? ( !ppc64? ( dev-java/randomized-runner:0 ) ) ) ) app-arch/lz4 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DEPEND=>=virtual/jdk-1.8:* dev-java/mvel:2.3 dev-libs/xxhash test? ( dev-java/junit:4 !ppc64? ( dev-java/randomized-runner:0 ) ) app-arch/lz4:= >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=LZ4 compression for Java
 EAPI=8
 HOMEPAGE=https://github.com/lz4/lz4-java
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-ant-2 toolchain-funcs
 IUSE=doc source test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=>=virtual/jre-1.8:* app-arch/lz4 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* app-arch/lz4:= >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/lz4/lz4-java/archive/refs/tags/1.8.0.tar.gz -> lz4-java-1.8.0.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	262d853e2dd1056dc103b953dfc113b9
-_md5_=dc113fa13d8a1a41ac45d383b6bd1ff7
+_md5_=25ff8ec876b9bfb378c4296b85321a01
