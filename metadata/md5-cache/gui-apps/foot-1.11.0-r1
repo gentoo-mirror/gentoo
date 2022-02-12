@@ -9,8 +9,8 @@ INHERIT=meson xdg
 IUSE=+grapheme-clustering
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-libs/wayland media-libs/fcft media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:= media-libs/fcft[harfbuzz] ) || ( >=sys-libs/ncurses-6.3 ~gui-apps/foot-terminfo-1.11.0 )
+RDEPEND=dev-libs/wayland media-libs/fcft media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:= media-libs/fcft[harfbuzz] ) || ( >=sys-libs/ncurses-6.3[-minimal] ~gui-apps/foot-terminfo-1.11.0 )
 SLOT=0
 SRC_URI=https://codeberg.org/dnkl/foot/archive/1.11.0.tar.gz -> foot-1.11.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=8aa4c5b813cac488c8bad556b293b687
+_md5_=1aa1aae9f67d1291e4f01b5dcf1a6f25
