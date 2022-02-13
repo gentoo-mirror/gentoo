@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure
+DEPEND=dev-libs/libfido2:= dev-libs/openssl:= sys-libs/pam
+DESCRIPTION=PAM module for FIDO2 and U2F keys
+EAPI=8
+HOMEPAGE=https://github.com/Yubico/pam-u2f
+INHERIT=flag-o-matic pam
+IUSE=debug
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD ISC
+RDEPEND=dev-libs/libfido2:= dev-libs/openssl:= sys-libs/pam
+SLOT=0
+SRC_URI=https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.2.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	pam	e44a1dd98f13e1ad76de01e919bde1f1
+_md5_=282a9749694c3f7f1bb6be87ceff49ce
