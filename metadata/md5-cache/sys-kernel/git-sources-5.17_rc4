@@ -1,0 +1,16 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=>=sys-devel/patch-2.7.6-r4
+DESCRIPTION=The very latest -git version of the Linux kernel
+EAPI=8
+HOMEPAGE=https://www.kernel.org
+INHERIT=kernel-2
+IUSE=symlink build
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.17_rc4
+SRC_URI=https://git.kernel.org/torvalds/p/v5.17-rc4/v5.16 -> patch-5.17-rc4.patch https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	kernel-2	0504e914bab621103eb74f52fad0fc6d
+_md5_=167b3c234600baad54fd12b54ae05df1
