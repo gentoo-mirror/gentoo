@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/translate/translate
 INHERIT=distutils-r1
 IUSE=+html +ical +ini +subtitles +yaml doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 arm64 x86
 LICENSE=GPL-2
 RDEPEND=>=dev-python/six-1.11.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] !dev-python/pydiff app-text/iso-codes >=dev-python/chardet-3.0.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/cheroot[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/lxml-4.3.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pycountry-19.8.18[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/python-levenshtein-0.12.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyparsing-3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/ruamel-yaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] sys-devel/gettext html? ( dev-python/utidylib[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) ical? ( dev-python/vobject[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) ini? ( >=dev-python/iniparse-0.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) subtitles? ( media-video/gaupol[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) yaml? ( dev-python/pyyaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[sqlite] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[sqlite] )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/translate/translate/archive/refs/tags/3.5.3.tar.gz -> translate-3.5.3.gh.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	5560689d3cb005ec97659ff697b42684
-_md5_=fad74bbe4c0cdae773f6d7fe0f7391f6
+_md5_=c9ad944d88479102a1e582e5f190d086
