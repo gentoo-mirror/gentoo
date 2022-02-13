@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/go nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=dev-lang/go nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) >=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=acct-group/lxd app-arch/xz-utils >=app-containers/lxc-3.0.0[apparmor?,seccomp(+)] dev-db/sqlite:3 dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6?] sys-libs/libcap virtual/udev
 DESCRIPTION=Fast, dense and secure container management
@@ -12,5 +12,5 @@ RDEPEND=acct-group/lxd app-arch/xz-utils >=app-containers/lxc-3.0.0[apparmor?,se
 RESTRICT=test
 SLOT=0
 SRC_URI=https://linuxcontainers.org/downloads/lxd/lxd-4.0.9.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxd/lxd-4.0.9.tar.gz.asc )
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	go-module	6be3eb7a42e4cecb88f18356a783ee35	linux-info	2f039741fe92bcea55c78806d16ac0f5	optfeature	30ce9dec2b8943338c9b015bd32bac6a	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	go-module	a5549ce5cf5b836fcc14e388fe516f90	linux-info	2f039741fe92bcea55c78806d16ac0f5	optfeature	30ce9dec2b8943338c9b015bd32bac6a	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
 _md5_=b65a13ee352b07248bd91c2ea0b53664

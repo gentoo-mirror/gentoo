@@ -1,4 +1,4 @@
-BDEPEND=dev-go/go-md2man test? ( seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? ( sys-libs/libapparmor ) ) >=dev-lang/go-1.12 app-arch/unzip
+BDEPEND=dev-go/go-md2man test? ( seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? ( sys-libs/libapparmor ) ) >=dev-lang/go-1.16 app-arch/unzip
 DEFINED_PHASES=compile install setup test unpack
 DEPEND=seccomp? ( sys-libs/libseccomp )
 DESCRIPTION=runc container cli tools
@@ -12,5 +12,5 @@ RDEPEND=seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? ( 
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/opencontainers/runc/archive/v1.0.2.tar.gz -> runc-1.0.2.tar.gz
-_eclasses_=go-module	6be3eb7a42e4cecb88f18356a783ee35	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5
+_eclasses_=go-module	a5549ce5cf5b836fcc14e388fe516f90	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5
 _md5_=ced26f27eb3e08e1ff6039b2446b4eeb

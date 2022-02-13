@@ -1,4 +1,4 @@
-BDEPEND=dev-util/promu >=dev-lang/go-1.12 app-arch/unzip
+BDEPEND=dev-util/promu >=dev-lang/go-1.16 app-arch/unzip
 DEFINED_PHASES=compile install setup unpack
 DESCRIPTION=Prometheus exporter for MongoDB
 EAPI=7
@@ -9,5 +9,5 @@ LICENSE=Apache-2.0 AGPL-3 BSD MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/percona/mongodb_exporter/archive/v0.11.0.tar.gz -> mongodb_exporter-0.11.0.tar.gz
-_eclasses_=go-module	6be3eb7a42e4cecb88f18356a783ee35	user-info	df8c432bdcb3cdcef6c8250f0ab9e4ea	user	532ab7f2ae477f0333be1eacc343821c
+_eclasses_=go-module	a5549ce5cf5b836fcc14e388fe516f90	user-info	df8c432bdcb3cdcef6c8250f0ab9e4ea	user	532ab7f2ae477f0333be1eacc343821c
 _md5_=aff2c3724dffada359b53a68569eb7cb

@@ -1,4 +1,4 @@
-BDEPEND=acct-group/notary acct-user/notary >=dev-lang/go-1.12 app-arch/unzip
+BDEPEND=acct-group/notary acct-user/notary >=dev-lang/go-1.16 app-arch/unzip
 DEFINED_PHASES=compile install unpack
 DESCRIPTION=A project that allows anyone to have trust over arbitrary collections of data
 EAPI=8
@@ -10,5 +10,5 @@ RDEPEND=acct-group/notary acct-user/notary
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/theupdateframework/notary/archive/v0.7.0.tar.gz -> notary-0.7.0.tar.gz
-_eclasses_=go-module	6be3eb7a42e4cecb88f18356a783ee35
+_eclasses_=go-module	a5549ce5cf5b836fcc14e388fe516f90
 _md5_=1af471faf492b8d0485676c34929e658

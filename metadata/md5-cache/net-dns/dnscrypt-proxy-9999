@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.13 filecaps? ( sys-libs/libcap ) >=dev-lang/go-1.12 app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-lang/go-1.13 filecaps? ( sys-libs/libcap ) >=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=A flexible DNS proxy, with support for encrypted DNS protocols
 EAPI=7
@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=acct-group/dnscrypt-proxy acct-user/dnscrypt-proxy filecaps? ( sys-libs/libcap )
 RESTRICT=strip
 SLOT=0
-_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	go-module	6be3eb7a42e4cecb88f18356a783ee35	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	go-module	a5549ce5cf5b836fcc14e388fe516f90	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=8accf26c2fc6228b6b5bc470696537b5
