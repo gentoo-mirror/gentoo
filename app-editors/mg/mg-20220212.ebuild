@@ -1,17 +1,17 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
 DESCRIPTION="MicroGnuEmacs, a port from the BSDs"
-HOMEPAGE="https://homepage.boetes.org/software/mg/"
+HOMEPAGE="https://github.com/hboetes/mg"
 SRC_URI="https://github.com/hboetes/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ppc ~ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="livecd"
 
 RDEPEND="
