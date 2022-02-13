@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=dev-java/jackson-annotations-2.13.0:2 >=dev-java/jackson-core-2.13.0:0 >=dev-java/jackson-databind-2.13.0:0 >=dev-java/stax2-api-4.2.1:0 >=dev-java/woodstox-core-6.2.7:0 >=virtual/jdk-1.8:* test? ( dev-java/jackson-module-jakarta-xmlbind:0 dev-java/jaxb-api:3 dev-java/sjsxp:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Data format extension for Jackson
+EAPI=8
+HOMEPAGE=https://github.com/FasterXML/jackson-dataformat-xml
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-java/jackson-annotations-2.13.0:2 >=dev-java/jackson-core-2.13.0:0 >=dev-java/jackson-databind-2.13.0:0 >=dev-java/stax2-api-4.2.1:0 >=dev-java/woodstox-core-6.2.7:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/FasterXML/jackson-dataformat-xml/archive/jackson-dataformat-xml-2.13.0.tar.gz
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=865dfc4bf139fca8a41831f3005a01d2
