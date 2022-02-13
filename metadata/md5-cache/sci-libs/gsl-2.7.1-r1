@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.gnu.org/software/gsl/
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=cblas-external +deprecated static-libs
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ~ppc64 ~riscv ~s390 sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ~ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris
 LICENSE=GPL-3
 RDEPEND=cblas-external? ( virtual/cblas:= )
 SLOT=0/27
 SRC_URI=mirror://gnu/gsl/gsl-2.7.1.tar.gz https://dev.gentoo.org/~sam/distfiles/sci-libs/gsl/gsl-2.7-cblas.patch.bz2
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
-_md5_=f19b19bdc994b634e398b2043bde0371
+_md5_=b069e2c766f0c8ca7cdb6759d7937024
