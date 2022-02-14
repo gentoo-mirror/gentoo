@@ -1,7 +1,7 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit elisp
 
@@ -17,7 +17,7 @@ RDEPEND="app-emacs/async
 	app-emacs/popup"
 BDEPEND="${RDEPEND}"
 
-PATCHES="${FILESDIR}/${P}-no-autoload-check.patch"
+PATCHES="${FILESDIR}/${PN}-3.8.0-no-autoload-check.patch"
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
