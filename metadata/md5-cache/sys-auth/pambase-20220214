@@ -1,0 +1,16 @@
+BDEPEND=|| ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/jinja[python_targets_python3_8(-)] ) )
+DEFINED_PHASES=configure install postinst setup test
+DESCRIPTION=PAM base configuration files
+EAPI=7
+HOMEPAGE=https://github.com/gentoo/pambase
+INHERIT=pam python-any-r1 readme.gentoo-r1
+IUSE=caps debug elogind gnome-keyring homed minimal mktemp +nullok pam_krb5 pam_ssh +passwdqc pwhistory pwquality securetty selinux +sha512 systemd yescrypt
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=>=sys-libs/pam-1.4.0 elogind? ( sys-auth/elogind[pam] ) gnome-keyring? ( gnome-base/gnome-keyring[pam] ) mktemp? ( sys-auth/pam_mktemp ) pam_krb5? ( >=sys-libs/pam-1.4.0 sys-auth/pam_krb5 ) caps? ( sys-libs/libcap[pam] ) pam_ssh? ( sys-auth/pam_ssh ) passwdqc? ( >=sys-auth/passwdqc-1.4.0-r1 ) pwquality? ( dev-libs/libpwquality[pam] ) selinux? ( sys-libs/pam[selinux] ) sha512? ( >=sys-libs/pam-1.4.0 ) homed? ( sys-apps/systemd[homed] ) systemd? ( sys-apps/systemd[pam] ) yescrypt? ( sys-libs/libxcrypt[system] )
+REQUIRED_USE=?? ( elogind systemd ) ?? ( passwdqc pwquality ) ?? ( sha512 yescrypt ) pwhistory? ( || ( passwdqc pwquality ) ) homed? ( !pam_krb5 ) pam_krb5? ( !homed )
+RESTRICT=binchecks
+SLOT=0
+SRC_URI=https://github.com/gentoo/pambase/archive/pambase-20220214.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	pam	e44a1dd98f13e1ad76de01e919bde1f1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-any-r1	bc1411c089dadb4205aafaf7c464a7a0	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1
+_md5_=13ae7557e63b006dea449f6795e5d00c
