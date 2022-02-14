@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre ) gtk? ( x11-libs/gtk+:2 ) virtual/pkgconfig doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.5 dev-libs/libxslt virtual/imagemagick-tools[png] )
+DESCRIPTION=Geographic Objects for PostgreSQL
+EAPI=7
+HOMEPAGE=https://postgis.net
+INHERIT=autotools postgres-multi toolchain-funcs
+IUSE=address-standardizer doc gtk static-libs topology postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre ) gtk? ( x11-libs/gtk+:2 )
+REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.osgeo.org/postgis/source/postgis-3.2.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	user-info	df8c432bdcb3cdcef6c8250f0ab9e4ea	user	532ab7f2ae477f0333be1eacc343821c	postgres	3ff7ea72ed39efa38ebaead171fd5da4	postgres-multi	fb7c39e4a2aced93f5986224677a9070
+_md5_=a958b035f9394c3ab41fba42d9d1780a
