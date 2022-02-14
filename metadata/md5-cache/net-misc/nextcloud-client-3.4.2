@@ -1,17 +1,17 @@
-BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=dev-db/sqlite-3.34:3 >=dev-libs/openssl-1.1.0:0= dev-libs/qtkeychain:=[qt5(+)] dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtquickcontrols2:5 dev-qt/qtsvg:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 sys-libs/zlib dolphin? ( kde-frameworks/kcoreaddons:5 kde-frameworks/kio:5 ) nautilus? ( dev-python/nautilus-python ) webengine? ( dev-qt/qtwebengine:5[widgets] ) dev-qt/linguist-tools:5 dev-qt/qtconcurrent:5 dev-qt/qtxml:5 gnome-base/librsvg doc? ( dev-python/sphinx dev-tex/latexmk dev-texlive/texlive-latexextra virtual/latex-base ) dolphin? ( kde-frameworks/extra-cmake-modules ) test? ( dev-util/cmocka dev-qt/qttest:5 )
 DESCRIPTION=Desktop Syncing Client for Nextcloud
 EAPI=8
 HOMEPAGE=https://github.com/nextcloud/desktop
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=cmake xdg
-IUSE=doc dolphin nautilus test webengine
+INHERIT=cmake virtualx xdg
+IUSE=doc dolphin nautilus test webengine test
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=CC-BY-3.0 GPL-2
 RDEPEND=>=dev-db/sqlite-3.34:3 >=dev-libs/openssl-1.1.0:0= dev-libs/qtkeychain:=[qt5(+)] dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtquickcontrols2:5 dev-qt/qtsvg:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 sys-libs/zlib dolphin? ( kde-frameworks/kcoreaddons:5 kde-frameworks/kio:5 ) nautilus? ( dev-python/nautilus-python ) webengine? ( dev-qt/qtwebengine:5[widgets] )
-RESTRICT=!test? ( test )
+RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/nextcloud/desktop/archive/v3.4.2.tar.gz -> nextcloud-client-3.4.2.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	xdg	6024fbc93167fad782e2032933654857
-_md5_=335bd805b65f8e4281da60d52d875bca
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857
+_md5_=5ffe7f159dcd4b190c25d6a4f69210f2
