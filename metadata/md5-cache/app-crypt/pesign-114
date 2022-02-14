@@ -1,0 +1,14 @@
+BDEPEND=sys-apps/help2man virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=dev-libs/nspr dev-libs/nss dev-libs/openssl:= dev-libs/popt sys-apps/util-linux >=sys-libs/efivar-38 sys-boot/gnu-efi
+DESCRIPTION=Tools for manipulating signed PE-COFF binaries
+EAPI=8
+HOMEPAGE=https://github.com/rhboot/pesign
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/nspr dev-libs/nss dev-libs/openssl:= dev-libs/popt sys-apps/util-linux >=sys-libs/efivar-38
+SLOT=0
+SRC_URI=https://github.com/rhboot/pesign/archive/114.tar.gz -> pesign-114.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=b713b9e8dfbae45ebf5f2675db13dfaa
