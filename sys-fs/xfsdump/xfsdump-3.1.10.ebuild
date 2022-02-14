@@ -11,28 +11,28 @@ SRC_URI="https://www.kernel.org/pub/linux/utils/fs/xfs/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ppc ppc64 -sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 -sparc ~x86"
 IUSE="ncurses nls"
 
-RDEPEND="
-	>=sys-apps/attr-2.4.19
-	sys-apps/dmapi
+RDEPEND=">=sys-apps/attr-2.4.19
 	sys-apps/util-linux
 	sys-fs/e2fsprogs
 	>=sys-fs/xfsprogs-3.2.0
-	ncurses? ( sys-libs/ncurses:0= )
-"
+	ncurses? ( sys-libs/ncurses:= )"
 DEPEND="${RDEPEND}
 	nls? (
 		sys-devel/gettext
-	)
-"
+	)"
 BDEPEND="ncurses? ( virtual/pkgconfig )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.1.9-prompt-overflow.patch #335115
-	"${FILESDIR}"/${PN}-3.1.9-no-symlink.patch #311881
-	"${FILESDIR}"/${PN}-3.1.6-linguas.patch #561664
+	# bug #335115
+	"${FILESDIR}"/${PN}-3.1.9-prompt-overflow.patch
+	# bug #311881
+	"${FILESDIR}"/${PN}-3.1.9-no-symlink.patch
+	# bug #561664
+	"${FILESDIR}"/${PN}-3.1.6-linguas.patch
+
 	"${FILESDIR}"/${PN}-3.1.9-fix-docs.patch
 	"${FILESDIR}"/${PN}-3.1.9-skip-inventory-debian-subfolder.patch
 )
@@ -43,17 +43,20 @@ src_prepare() {
 		include/builddefs.in \
 		|| die
 
+	# bug #605852
 	sed -i \
 		-e "s:enable_curses=[a-z]*:enable_curses=$(usex ncurses):" \
 		-e "s:libcurses=\"[^\"]*\":libcurses='$(use ncurses && $(tc-getPKG_CONFIG) --libs ncurses)':" \
-		configure || die #605852
+		configure || die
 
 	default
 }
 
 src_configure() {
-	unset PLATFORM #184564
-	export OPTIMIZER=${CFLAGS}
+	# bug #184564
+	unset PLATFORM
+
+	export OPTIMIZER="${CFLAGS}"
 	export DEBUG=-DNDEBUG
 
 	local myeconfargs=(
@@ -62,10 +65,11 @@ src_configure() {
 		--libexecdir="${EPREFIX}/usr/$(get_libdir)"
 		--sbindir="${EPREFIX}/sbin"
 	)
+
 	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
-	# enable verbose build
+	# Enable verbose build
 	emake V=1
 }
