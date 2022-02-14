@@ -6,8 +6,8 @@ INHERIT=bash-completion-r1 elisp-common
 IUSE=+git X emacs dmenu importers
 KEYWORDS=amd64 ~arm arm64 ~ppc64 x86 ~x64-macos
 LICENSE=GPL-2
-RDEPEND=app-crypt/gnupg media-gfx/qrencode >=app-text/tree-1.7.0 git? ( dev-vcs/git ) X? ( x11-misc/xclip ) elibc_Darwin? ( app-misc/getopt ) dmenu? ( x11-misc/dmenu x11-misc/xdotool ) emacs? ( >=app-editors/emacs-23.1:* >=app-emacs/f-0.11.0 >=app-emacs/s-1.9.0 >=app-emacs/with-editor-2.5.11 )
+RDEPEND=app-crypt/gnupg media-gfx/qrencode[png(+)] >=app-text/tree-1.7.0 git? ( dev-vcs/git ) X? ( x11-misc/xclip ) elibc_Darwin? ( app-misc/getopt ) dmenu? ( x11-misc/dmenu x11-misc/xdotool ) emacs? ( >=app-editors/emacs-23.1:* >=app-emacs/f-0.11.0 >=app-emacs/s-1.9.0 >=app-emacs/with-editor-2.5.11 )
 SLOT=0
 SRC_URI=https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	elisp-common	cf4fd1b0835b9f3e638724840468064a
-_md5_=d6c68d1c3d5ec3fd56bba9b9284f7f1b
+_md5_=3ad28e282427f6e932901d902a49b2fb
