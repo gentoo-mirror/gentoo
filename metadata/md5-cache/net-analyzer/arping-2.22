@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.habets.pp.se/synscan/programs.php?prog=arping
 INHERIT=autotools fcaps
 IUSE=test +filecaps
-KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=net-libs/libpcap net-libs/libnet:1.1 !net-misc/iputils[arping(+)] filecaps? ( sys-libs/libcap )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/ThomasHabets/arping/archive/arping-2.22.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	fcaps	ac252c3cc67b265cd7ea456f8d58e150
-_md5_=98b543ec227d69d75a214f744a8f047f
+_md5_=5ae108fb3a3d8248784bdb953b3350f4
