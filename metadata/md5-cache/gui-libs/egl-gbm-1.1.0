@@ -5,10 +5,10 @@ DESCRIPTION=GBM EGL external platform library
 EAPI=8
 HOMEPAGE=https://github.com/NVIDIA/egl-gbm
 INHERIT=meson
-KEYWORDS=amd64
+KEYWORDS=amd64 ~arm64
 LICENSE=MIT
 RDEPEND=>=media-libs/mesa-21.2[gbm(+)] x11-libs/libdrm !<x11-drivers/nvidia-drivers-495.46-r20[wayland(-)]
 SLOT=0
 SRC_URI=https://github.com/NVIDIA/egl-gbm/archive/1.1.0.tar.gz -> egl-gbm-1.1.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	meson	9f3e84959ae1d60e19bc91f212774dcc
-_md5_=1a52623e8394acd138f140f4466f7428
+_md5_=f97a4e9605a8a104ea96d785d69da17c
