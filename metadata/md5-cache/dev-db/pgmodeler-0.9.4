@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install setup test
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) postgres_targets_postgres10? ( dev-db/postgresql:10= ) dev-libs/icu:= dev-libs/libxml2:= dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5
+DESCRIPTION=PostgreSQL Database Modeler
+EAPI=7
+HOMEPAGE=https://pgmodeler.io
+INHERIT=desktop postgres qmake-utils
+IUSE=postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) postgres_targets_postgres10? ( dev-db/postgresql:10= ) dev-libs/icu:= dev-libs/libxml2:= dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5
+SLOT=0
+SRC_URI=https://github.com/pgmodeler/pgmodeler/archive/v0.9.4.tar.gz -> pgmodeler-0.9.4.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	user-info	df8c432bdcb3cdcef6c8250f0ab9e4ea	user	532ab7f2ae477f0333be1eacc343821c	postgres	3ff7ea72ed39efa38ebaead171fd5da4	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
+_md5_=47fef56754d0781243e7f36b9ac639cf
