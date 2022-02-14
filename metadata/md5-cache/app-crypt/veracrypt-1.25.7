@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig asm? ( dev-lang/yasm )
+DEFINED_PHASES=compile configure install postinst setup test
+DEPEND=sys-fs/lvm2 sys-fs/fuse:0 x11-libs/wxGTK:3.0-gtk3[X?] app-admin/sudo dev-libs/pkcs11-helper
+DESCRIPTION=Disk encryption with strong security based on TrueCrypt
+EAPI=8
+HOMEPAGE=https://www.veracrypt.fr/en/Home.html
+INHERIT=desktop flag-o-matic linux-info pax-utils toolchain-funcs wxwidgets
+IUSE=+asm cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_x86_ssse3 doc X
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD truecrypt-3.0
+RDEPEND=sys-fs/lvm2 sys-fs/fuse:0 x11-libs/wxGTK:3.0-gtk3[X?] app-admin/sudo dev-libs/pkcs11-helper
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://github.com/veracrypt/VeraCrypt/archive/VeraCrypt_1.25.7.tar.gz -> veracrypt-1.25.7.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	linux-info	2f039741fe92bcea55c78806d16ac0f5	pax-utils	fce6ad998516159787b92e8043167889	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
+_md5_=4e41104ac98da062657a3a1b9d44b0ac
