@@ -3,27 +3,32 @@
 
 EAPI=7
 
-inherit cmake toolchain-funcs
+inherit cmake flag-o-matic toolchain-funcs
 
-DESCRIPTION="Support for parallel scientific applications"
+DESCRIPTION="Scalable Algorithms for Parallel Adaptive Mesh Refinement on Forests of Octrees"
 HOMEPAGE="http://www.p4est.org/"
 
-if [[ ${PV} == *9999 ]]; then
+LIBSC_VERSION="2.8.3"
+
+if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cburstedde/${PN}.git"
 	EGIT_BRANCH="develop"
+	SRC_URI=""
 else
 	SRC_URI="https://github.com/cburstedde/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="LGPL-2.1+"
+LICENSE="GPL-2+"
 SLOT="0"
-IUSE="debug examples mpi openmp threads"
+
+# TODO petsc
+IUSE="debug doc examples mpi openmp threads +vtk-binary"
 
 RDEPEND="
+	~sci-libs/libsc-${LIBSC_VERSION}[mpi=,openmp=,threads=]
 	sys-apps/util-linux
-	sys-libs/zlib
 	virtual/blas
 	virtual/lapack
 	mpi? ( virtual/mpi[romio] )"
@@ -31,7 +36,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.8.3-fix_build_system.patch
+	"${FILESDIR}"/${P}-fix_build_system.patch
 	"${FILESDIR}"/${P}-set_version.patch
 )
 
@@ -56,10 +61,7 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	rm -r "${ED}"/usr/include/getopt.h \
-		"${ED}"/usr/include/getopt_int.h \
-		"${ED}"/usr/include/sc_builtin || die "rm failed"
-
-	mv "${ED}"/usr/share/docs/SC/* "${ED}"/usr/share/doc/${P}/ || die "mv failed"
+	rm "${ED}"/usr/lib/cmake/Modules/FindSC.cmake || die "rm failed"
+	mv "${ED}"/usr/share/docs/P4EST/* "${ED}"/usr/share/doc/${P}/ || die "mv failed"
 	rm -r "${ED}"/usr/share/docs || die "rm failed"
 }

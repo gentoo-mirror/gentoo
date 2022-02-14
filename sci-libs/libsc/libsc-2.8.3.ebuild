@@ -31,8 +31,8 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.8.3-fix_build_system.patch
 	"${FILESDIR}"/${P}-set_version.patch
+	"${FILESDIR}"/${P}-fix_build_system.patch
 )
 
 pkg_pretend() {
