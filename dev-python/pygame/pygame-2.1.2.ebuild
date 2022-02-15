@@ -30,7 +30,7 @@ RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]
 	!X? ( >=media-libs/libsdl2-1.2.5[threads] )"
 DEPEND="${RDEPEND}
 	test? (
-		media-libs/sdl2-image[gif,jpeg,png]
+		media-libs/sdl2-image[gif,jpeg,png,tiff]
 		media-libs/sdl2-mixer[mp3,vorbis,wav]
 	)"
 # fontconfig used for fc-list
@@ -65,7 +65,7 @@ python_test() {
 	local -x SDL_VIDEODRIVER=dummy
 	local -x SDL_AUDIODRIVER=disk
 	distutils_install_for_testing --via-root
-	script -eqc "${EPYTHON} -m pygame.tests" || die
+	script -eqc "${EPYTHON} -m pygame.tests -v" || die
 }
 
 python_install() {
