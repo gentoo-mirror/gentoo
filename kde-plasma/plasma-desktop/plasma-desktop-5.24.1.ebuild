@@ -120,8 +120,6 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/override-include-dirs.patch" # downstream patch
-	# https://mail.kde.org/pipermail/distributions/2022-February/001140.html
-	"${FILESDIR}/${P}-attica-add-granular-cache-pref.patch"
 )
 
 src_prepare() {
