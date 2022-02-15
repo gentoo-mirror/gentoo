@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install
+DEPEND=dev-db/sqlite dev-libs/glib dev-libs/libgcrypt dev-libs/mxml virtual/pkgconfig test? ( dev-util/cmocka )
+DESCRIPTION=Implementation of OMEMO (XEP-0384) in C
+EAPI=7
+HOMEPAGE=https://github.com/gkdr/libomemo
+IUSE=static-libs test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-db/sqlite dev-libs/glib dev-libs/libgcrypt dev-libs/mxml
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gkdr/libomemo/archive/v0.8.0.tar.gz -> libomemo-0.8.0.tar.gz
+_md5_=e7eb8d37bc77adb1d0bd855bd85b0889
