@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://racket-lang.org/
 INHERIT=desktop optfeature readme.gentoo-r1
 IUSE=+chez +doc +futures +jit minimal +places +threads
-KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~ppc ~ppc64 x86
 LICENSE=|| ( MIT Apache-2.0 ) chez? ( Apache-2.0 ) !chez? ( LGPL-3 )
 RDEPEND=!dev-tex/slatex dev-db/sqlite:3 dev-libs/libffi:=
 REQUIRED_USE=chez? ( futures places ) futures? ( jit threads ) places? ( threads )
 SLOT=0/8.3
 SRC_URI=minimal? ( https://download.racket-lang.org/installers/8.3/racket-minimal-8.3-src-builtpkgs.tgz ) !minimal? ( https://download.racket-lang.org/installers/8.3/racket-8.3-src-builtpkgs.tgz )
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1
-_md5_=8fedb1fbbcc4c56e5007518e1afaecca
+_md5_=0a031df7e009e635ca9076a4860cebb6
