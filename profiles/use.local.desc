@@ -6050,7 +6050,7 @@ net-libs/libetpan:lmdb - Use dev-db/lmdb as cache DB
 net-libs/libgsasl:gcrypt - Use dev-libs/libgcrypt for low-level crypto
 net-libs/libgsasl:ntlm - Add support for Microsoft's NTLM mechanism using net-libs/libntlm
 net-libs/libiio:aio - Enable asynchronous IO support
-net-libs/libiscsi:rdma - Enable infiniband support via sys-fabric/librdmacm
+net-libs/libiscsi:rdma - Enable infiniband support via sys-cluster/rdma-core
 net-libs/libisds:openssl - Use dev-libs/openssl as crypto backend instead of app-crypt/gpgme and dev-libs/libgcrypt
 net-libs/libmicrohttpd:epoll - Use epoll() system call
 net-libs/libmicrohttpd:thread-names - Assign thread names to internal threads, useful for dependent apps debugging
@@ -7978,7 +7978,7 @@ sys-block/fio:gnuplot - Install tools for generating gnuplots
 sys-block/fio:io-uring - Enable efficient I/O via sys-libs/liburing.
 sys-block/fio:numa - Enable numa support
 sys-block/fio:rbd - Enable Rados block device support via sys-cluster/ceph
-sys-block/fio:rdma - Enable infiniband support via sys-fabric/librdmacm
+sys-block/fio:rdma - Enable infiniband support via sys-cluster/rdma-core
 sys-block/fio:tcmalloc - Link against dev-util/google-perftools by default which will speed up USE=rbd up to 20%
 sys-block/fio:zbc - Enable ZBC & ZAC disks via sys-block/libzbc.
 sys-block/gparted:wayland - Enable interim workaround to allow running GParted under Wayland by granting permission to the X11 display using x11-apps/xhost.
@@ -8221,13 +8221,6 @@ sys-devel/sparse:llvm - Build the sparse-llvm utility
 sys-devel/sparse:xml - Build the c2xml utility (requires dev-libs/libxml2)
 sys-fabric/mstflint:adb-generic-tools - Enable compiling the following tools: mstreg and mstlink
 sys-fabric/mstflint:inband - Enable firmware updates for Mellanox SwitchX and ConnectIB devices
-sys-fabric/ofed:diags - Add dignostic tools for infiniband
-sys-fabric/ofed:ibacm - Add support for userspace pre-connection services
-sys-fabric/ofed:opensm - Add OpenSM - Subnet manager for infiniband
-sys-fabric/ofed:perftest - Add perftest utils
-sys-fabric/ofed:qperf - Add rdma tests
-sys-fabric/ofed:rds - Tools to manage rds sockets
-sys-fabric/ofed:srp - Suport for userspace part for srp initiator
 sys-fabric/opensm:tools - Install ssld extra tool
 sys-firmware/edk2-ovmf:binary - Use pre-built binaries
 sys-firmware/intel-microcode:hostonly - only install ucode(s) supported by currently available (=online) processor(s)
