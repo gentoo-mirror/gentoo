@@ -5,11 +5,11 @@ DESCRIPTION=collection of games from NetBSD
 EAPI=7
 HOMEPAGE=https://www.polyomino.org.uk/computer/software/bsd-games/
 INHERIT=toolchain-funcs
-KEYWORDS=~amd64 ~hppa ~x86
+KEYWORDS=~alpha ~amd64 ~hppa ~x86
 LICENSE=BSD
 RDEPEND=sys-apps/miscfiles sys-libs/ncurses:=[unicode(+)] !games-puzzle/hangman !games-misc/wumpus acct-group/gamestat
 RESTRICT=test
 SLOT=0/3
 SRC_URI=https://github.com/msharov/bsd-games/archive/refs/tags/v3.1.tar.gz -> bsd-games-3.1.tar.gz https://dev.gentoo.org/~sam/distfiles/games-misc/bsd-games/bsd-games-3.1-verbose-build.patch.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=8fb94cbf7f6c24b54409d0105dbd99c0
+_md5_=8e59095756fedff3e32d38e890fe905d
