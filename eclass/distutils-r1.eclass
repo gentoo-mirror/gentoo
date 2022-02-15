@@ -424,11 +424,9 @@ distutils_enable_sphinx() {
 		python_check_deps() {
 			use doc || return 0
 
-			local hasv_args=( -b )
-			[[ ${EAPI} == 6 ]] && hasv_args=( --host-root )
 			local p
 			for p in dev-python/sphinx "${_DISTUTILS_SPHINX_PLUGINS[@]}"; do
-				has_version "${hasv_args[@]}" "${p}[${PYTHON_USEDEP}]" ||
+				python_has_version "${p}[${PYTHON_USEDEP}]" ||
 					return 1
 			done
 		}
@@ -990,18 +988,18 @@ _distutils-r1_get_backend() {
 }
 
 # @FUNCTION: distutils_pep517_install
-# @USAGE: [<root>]
+# @USAGE: <root>
 # @DESCRIPTION:
 # Build the wheel for the package in the current directory using PEP 517
-# backend and install it into <root>.  If <root> is not specified,
-# ${BUILD_DIR}/install is used.
+# backend and install it into <root>.
 #
 # This function is intended for expert use only.  It does not handle
 # wrapping executables.
 distutils_pep517_install() {
 	debug-print-function ${FUNCNAME} "${@}"
+	[[ ${#} -eq 1 ]] || die "${FUNCNAME} takes exactly one argument: root"
 
-	local root=${1:-${BUILD_DIR}/install}
+	local root=${1}
 	local -x WHEEL_BUILD_DIR=${BUILD_DIR}/wheel
 	mkdir -p "${WHEEL_BUILD_DIR}" || die
 
