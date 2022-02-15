@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=>=app-misc/openrgb-0.7:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/openal dev-cpp/nlohmann_json
+DEPEND=>=app-misc/openrgb-0.7:= dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] media-libs/openal dev-cpp/nlohmann_json
 DESCRIPTION=Plugin for OpenRGB with various Effects that can be synced across devices
 EAPI=8
 HOMEPAGE=https://gitlab.com/OpenRGBDevelopers/OpenRGBEffectsPlugin
 INHERIT=qmake-utils
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=>=app-misc/openrgb-0.7:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/openal
+RDEPEND=>=app-misc/openrgb-0.7:= dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] media-libs/openal
 SLOT=0
 SRC_URI=https://gitlab.com/OpenRGBDevelopers/OpenRGBEffectsPlugin/-/archive/a7222bdbcd3c52e13d96993a33c5648f1306aeba/OpenRGBEffectsPlugin-a7222bdbcd3c52e13d96993a33c5648f1306aeba.tar.bz2
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
-_md5_=f5bf9902ba8b4b0811ec8fccb59ecdf7
+_md5_=a492e0b26610a6aede9b2ac9247bdda3
