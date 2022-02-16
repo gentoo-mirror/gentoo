@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/swaywm/swayidle
 INHERIT=meson
 IUSE=elogind +man systemd
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~ppc64 ~riscv x86
 LICENSE=MIT
 RDEPEND=dev-libs/wayland elogind? ( >=sys-auth/elogind-237[policykit] ) systemd? ( >=sys-apps/systemd-237[policykit] )
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0
 SRC_URI=https://github.com/swaywm/swayidle/archive/1.7.1.tar.gz -> swayidle-1.7.1.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc
-_md5_=8e7d09fa1c75670986065bc109cbbb52
+_md5_=25f77d5e3dbf89113855e2aeaa2ca58b
