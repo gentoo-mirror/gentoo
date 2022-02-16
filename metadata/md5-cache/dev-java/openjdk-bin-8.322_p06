@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://adoptium.net
 INHERIT=java-vm-2
 IUSE=alsa cups examples headless-awt selinux source
-KEYWORDS=amd64 arm64 ~ppc64 ~x64-macos
+KEYWORDS=amd64 ~arm arm64 ppc64 ~x64-macos
 LICENSE=GPL-2-with-classpath-exception
 RDEPEND=>=sys-apps/baselayout-java-0.1.0-r1 kernel_linux? ( media-libs/fontconfig:1.0 media-libs/freetype:2 >=sys-libs/glibc-2.2.5:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) arm? ( dev-libs/libffi-compat:6 ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) ) dev-java/java-config app-eselect/eselect-java
 RESTRICT=preserve-libs strip
 SLOT=8
-SRC_URI=arm64? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_aarch64_linux_hotspot_8u322b06.tar.gz ) ppc64? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_ppc64le_linux_hotspot_8u322b06.tar.gz ) amd64? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_x64_linux_hotspot_8u322b06.tar.gz ) x64-macos? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_x64_mac_hotspot_8u322b06.tar.gz )
+SRC_URI=arm? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_arm_linux_hotspot_8u322b06.tar.gz ) arm64? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_aarch64_linux_hotspot_8u322b06.tar.gz ) ppc64? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_ppc64le_linux_hotspot_8u322b06.tar.gz ) amd64? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_x64_linux_hotspot_8u322b06.tar.gz ) x64-macos? ( https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_x64_mac_hotspot_8u322b06.tar.gz )
 _eclasses_=multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	java-vm-2	17023d02489084b3fad787af43425844
-_md5_=74c71e971140131f24c7cc102bd82431
+_md5_=a89f1085c4c5c42a30e6d904b449dda6
