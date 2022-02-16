@@ -1,16 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="ninja"
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 DISTUTILS_USE_SETUPTOOLS=no
 DISTUTILS_SINGLE_IMPL=1
 
-inherit bash-completion-r1 cmake cuda distutils-r1 flag-o-matic multilib readme.gentoo-r1 toolchain-funcs xdg-utils
+inherit bash-completion-r1 cmake cuda distutils-r1 flag-o-matic readme.gentoo-r1 toolchain-funcs xdg-utils
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="
@@ -22,12 +22,12 @@ if [[ ${PV} = *9999* ]]; then
 else
 	SRC_URI="
 		http://ftp.gromacs.org/gromacs/${PN}-${PV/_/-}.tar.gz
-		doc? ( https://ftp.gromacs.org/manual/manual-${PV/_/-}.pdf )
+		doc? ( https://ftp.gromacs.org/manual/manual-${PV/_/-}.pdf -> manual-${PV}.pdf )
 		test? ( http://ftp.gromacs.org/regressiontests/regressiontests-${PV/_/-}.tar.gz )"
-	KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 fi
 
-ACCE_IUSE="cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_x86_fma4 cpu_flags_x86_avx cpu_flags_x86_avx2"
+ACCE_IUSE="cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_x86_fma4 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_arm_neon"
 
 DESCRIPTION="The ultimate molecular dynamics simulation package"
 HOMEPAGE="http://www.gromacs.org/"
@@ -37,28 +37,24 @@ HOMEPAGE="http://www.gromacs.org/"
 #        base,    vmd plugins, fftpack from numpy,  blas/lapck from netlib,        memtestG80 library,  mpi_thread lib
 LICENSE="LGPL-2.1 UoI-NCSA !mkl? ( !fftw? ( BSD ) !blas? ( BSD ) !lapack? ( BSD ) ) cuda? ( LGPL-3 ) threads? ( BSD )"
 SLOT="0/${PV}"
-IUSE="X blas cuda +custom-cflags +doc build-manual double-precision +fftw +gmxapi +gmxapi-legacy +hwloc lapack +lmfit mkl mpi +offensive opencl openmp +python +single-precision test +threads +tng ${ACCE_IUSE}"
+IUSE="blas clang clang-cuda cuda  +custom-cflags +doc build-manual double-precision +fftw +gmxapi +gmxapi-legacy +hwloc lapack mkl mpi +offensive opencl openmp +python +single-precision test +threads +tng ${ACCE_IUSE}"
 
 CDEPEND="
-	X? (
-		x11-libs/libX11
-		x11-libs/libSM
-		x11-libs/libICE
-		)
 	blas? ( virtual/blas )
-	cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.14 )
+	cuda? ( >=dev-util/nvidia-cuda-toolkit-11[profiler] )
 	opencl? ( virtual/opencl )
 	fftw? ( sci-libs/fftw:3.0= )
 	hwloc? ( sys-apps/hwloc:= )
 	lapack? ( virtual/lapack )
-	lmfit? ( sci-libs/lmfit:= )
 	mkl? ( sci-libs/mkl )
-	mpi? ( virtual/mpi )
+	mpi? ( virtual/mpi[cxx] )
+	sci-libs/lmfit:=
+	>=dev-cpp/muParser-2.3:=
 	${PYTHON_DEPS}
-	!sci-chemistry/gmxapi
 	"
 BDEPEND="${CDEPEND}
 	virtual/pkgconfig
+	clang? ( >=sys-devel/clang-6:* )
 	build-manual? (
 		app-doc/doxygen
 		$(python_gen_cond_dep '
@@ -70,13 +66,15 @@ BDEPEND="${CDEPEND}
 		dev-texlive/texlive-latexextra
 		media-gfx/imagemagick
 	)"
-RDEPEND="${CDEPEND}"
+RDEPEND="${CDEPEND}
+	<sci-chemistry/dssp-4"
 
 REQUIRED_USE="
 	|| ( single-precision double-precision )
 	doc? ( !build-manual )
 	cuda? ( single-precision )
 	cuda? ( !opencl )
+	clang-cuda? ( clang cuda )
 	mkl? ( !blas !fftw !lapack )
 	${PYTHON_REQUIRED_USE}"
 
@@ -87,8 +85,6 @@ RESTRICT="!test? ( test )"
 if [[ ${PV} != *9999 ]]; then
 	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
-
-PATCHES=( "${FILESDIR}/${PN}-2020-pytest.patch" )
 
 pkg_pretend() {
 	[[ $(gcc-version) == "4.1" ]] && die "gcc 4.1 is not supported by gromacs"
@@ -119,6 +115,19 @@ src_prepare() {
 	# -on apple: there is framework support
 
 	xdg_environment_reset #591952
+
+	# we can use clang as default
+	if use clang && ! tc-is-clang ; then
+		export CC=${CHOST}-clang
+		export CXX=${CHOST}-clang++
+	else
+		tc-export CXX CC
+	fi
+	# clang-cuda need to filter mfpmath
+	if use clang-cuda ; then
+		filter-mfpmath sse
+		filter-mfpmath i386
+	fi
 
 	cmake_src_prepare
 
@@ -163,15 +172,23 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs_pre=( ) extra fft_opts=( )
+	local acce="AUTO"
 
 	if use custom-cflags; then
 		#go from slowest to fastest acceleration
-		local acce="None"
-		use cpu_flags_x86_sse2 && acce="SSE2"
-		use cpu_flags_x86_sse4_1 && acce="SSE4.1"
-		use cpu_flags_x86_fma4 && acce="AVX_128_FMA"
-		use cpu_flags_x86_avx && acce="AVX_256"
-		use cpu_flags_x86_avx2 && acce="AVX2_256"
+		acce="None"
+		if (use amd64 || use x86); then
+			use cpu_flags_x86_sse2 && acce="SSE2"
+			use cpu_flags_x86_sse4_1 && acce="SSE4.1"
+			use cpu_flags_x86_fma4 && acce="AVX_128_FMA"
+			use cpu_flags_x86_avx && acce="AVX_256"
+			use cpu_flags_x86_avx2 && acce="AVX2_256"
+			use cpu_flags_x86_avx512f && acce="AVX_512"
+		elif (use arm); then
+			use cpu_flags_arm_neon && acce="ARM_NEON"
+		elif (use arm64); then
+			use cpu_flags_arm_neon && acce="ARM_NEON_ASIMD"
+		fi
 	else
 		strip-flags
 	fi
@@ -197,16 +214,11 @@ src_configure() {
 		fft_opts=( -DGMX_FFT_LIBRARY=fftpack )
 	fi
 
-	if use lmfit; then
-		local lmfit_opts=( -DGMX_USE_LMFIT=EXTERNAL )
-	else
-		local lmfit_opts=( -DGMX_USE_LMFIT=INTERNAL )
-	fi
-
 	mycmakeargs_pre+=(
 		"${fft_opts[@]}"
 		"${lmfit_opts[@]}"
-		-DGMX_X11=$(usex X)
+		-DGMX_USE_LMFIT=EXTERNAL
+		-DGMX_USE_MUPARSER=EXTERNAL
 		-DGMX_EXTERNAL_BLAS=$(usex blas)
 		-DGMX_EXTERNAL_LAPACK=$(usex lapack)
 		-DGMX_OPENMP=$(usex openmp)
@@ -217,6 +229,7 @@ src_configure() {
 		-DGMX_DEFAULT_SUFFIX=off
 		-DGMX_SIMD="$acce"
 		-DGMX_VMD_PLUGIN_PATH="${EPREFIX}/usr/$(get_libdir)/vmd/plugins/*/molfile/"
+		-DGMX_DSSP_PROGRAM_PATH="${EPREFIX}/usr/bin/dssp"
 		-DBUILD_TESTING=$(usex test)
 		-DGMX_BUILD_UNITTESTS=$(usex test)
 		-DPYTHON_EXECUTABLE="${EPREFIX}/usr/bin/${EPYTHON}"
@@ -231,46 +244,25 @@ src_configure() {
 			[[ ${x} = "double" ]] && suffix="_d"
 		local p
 		[[ ${x} = "double" ]] && p="-DGMX_DOUBLE=ON" || p="-DGMX_DOUBLE=OFF"
-		local cuda=( "-DGMX_GPU=OFF" )
-		[[ ${x} = "float" ]] && use cuda && \
-			cuda=( "-DGMX_GPU=ON" )
-		local opencl=( "-DGMX_USE_OPENCL=OFF" )
-		use opencl && opencl=( "-DGMX_USE_OPENCL=ON" ) cuda=( "-DGMX_GPU=ON" )
+		local gpu=( "-DGMX_GPU=OFF" )
+		[[ ${x} = "float" ]] && use cuda && gpu=( "-DGMX_GPU=CUDA" )
+		[[ ${x} = "float" ]] && use cuda-clang && gpu=( "-DGMX_GPU=CUDA" "-DGMX_CLANG_CUDA=ON" )
+		use opencl && gpu=( "-DGMX_GPU=OPENCL" )
 		mycmakeargs=(
 			${mycmakeargs_pre[@]} ${p}
-			-DGMX_MPI=OFF
+			-DGMX_MPI=$(usex mpi)
 			-DGMX_THREAD_MPI=$(usex threads)
 			-DGMXAPI=$(usex gmxapi)
 			-DGMX_INSTALL_LEGACY_API=$(usex gmxapi-legacy)
-			"${opencl[@]}"
-			"${cuda[@]}"
+			"${gpu[@]}"
 			"$(use test && echo -DREGRESSIONTEST_PATH="${WORKDIR}/${P}_${x}/tests")"
 			-DGMX_BINARY_SUFFIX="${suffix}"
 			-DGMX_LIBS_SUFFIX="${suffix}"
 			-DGMX_PYTHON_PACKAGE=$(usex python)
-			)
+		)
 		BUILD_DIR="${WORKDIR}/${P}_${x}" cmake_src_configure
 		[[ ${CHOST} != *-darwin* ]] || \
 		  sed -i '/SET(CMAKE_INSTALL_NAME_DIR/s/^/#/' "${WORKDIR}/${P}_${x}/gentoo_rules.cmake" || die
-		use mpi || continue
-		einfo "Configuring for ${x} precision with mpi"
-		mycmakeargs=(
-			${mycmakeargs_pre[@]} ${p}
-			-DGMX_THREAD_MPI=OFF
-			-DGMX_MPI=ON
-			-DGMX_OPENMM=OFF
-			-DGMXAPI=OFF
-			"${opencl[@]}"
-			"${cuda[@]}"
-			-DGMX_BUILD_MDRUN_ONLY=ON
-			-DBUILD_SHARED_LIBS=OFF
-			-DGMX_BUILD_MANUAL=OFF
-			-DGMX_BINARY_SUFFIX="_mpi${suffix}"
-			-DGMX_LIBS_SUFFIX="_mpi${suffix}"
-			)
-		BUILD_DIR="${WORKDIR}/${P}_${x}_mpi" CC="mpicc" cmake_src_configure
-		[[ ${CHOST} != *-darwin* ]] || \
-		  sed -i '/SET(CMAKE_INSTALL_NAME_DIR/s/^/#/' "${WORKDIR}/${P}_${x}_mpi/gentoo_rules.cmake" || die
 	done
 }
 
@@ -290,10 +282,6 @@ src_compile() {
 			BUILD_DIR="${WORKDIR}/${P}_${x}"\
 				cmake_src_compile manual
 		fi
-		use mpi || continue
-		einfo "Compiling for ${x} precision with mpi"
-		BUILD_DIR="${WORKDIR}/${P}_${x}_mpi"\
-			cmake_src_compile
 	done
 }
 
@@ -321,10 +309,6 @@ src_install() {
 				newdoc "${DISTDIR}/manual-${PV}.pdf" "${PN}-manual-${PV}.pdf"
 			fi
 		fi
-
-		use mpi || continue
-		BUILD_DIR="${WORKDIR}/${P}_${x}_mpi" \
-			cmake_src_install
 	done
 
 	if use tng; then
@@ -345,9 +329,8 @@ src_install() {
 
 pkg_postinst() {
 	einfo
-	einfo  "Please read and cite:"
-	einfo  "Gromacs 4, J. Chem. Theory Comput. 4, 435 (2008). "
-	einfo  "https://dx.doi.org/10.1021/ct700301q"
+	einfo  "Please read and cite gromacs related papers from list:"
+	einfo  "https://www.gromacs.org/Gromacs_papers"
 	einfo
 	readme.gentoo_print_elog
 }
