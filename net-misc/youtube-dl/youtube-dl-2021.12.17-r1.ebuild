@@ -5,14 +5,16 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
-inherit bash-completion-r1 distutils-r1 git-r3 optfeature
+inherit bash-completion-r1 distutils-r1 optfeature
 
 DESCRIPTION="Download videos from YouTube.com (and more sites...)"
 HOMEPAGE="https://youtube-dl.org/"
-EGIT_REPO_URI="https://github.com/ytdl-org/${PN}.git"
+SRC_URI="https://youtube-dl.org/downloads/${PV}/${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-solaris"
 IUSE="+yt-dlp"
 
 RDEPEND="
@@ -28,17 +30,13 @@ python_prepare_all() {
 	sed -i '/flake8/d' Makefile || die
 }
 
-python_compile_all() {
-	emake youtube-dl.{bash-completion,fish,zsh}
-}
-
 python_test() {
 	emake offlinetest
 }
 
 python_install_all() {
 	dodoc AUTHORS ChangeLog README.md docs/supportedsites.md
-	#doman youtube-dl.1 # would require pandoc in live ebuild
+	doman youtube-dl.1
 
 	newbashcomp youtube-dl.bash-completion youtube-dl
 
@@ -47,6 +45,8 @@ python_install_all() {
 
 	insinto /usr/share/fish/vendor_completions.d
 	doins youtube-dl.fish
+
+	rm -r "${ED}"/usr/{etc,share/doc/youtube_dl} || die
 
 	# keep man pages / completions either way given they are useful
 	# for yt-dlp's compatibility wrapper which tries to mimic options
