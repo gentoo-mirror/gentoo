@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.slf4j.org
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=MIT
 RDEPEND=~dev-java/slf4j-api-1.7.32:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/qos-ch/slf4j/archive/refs/tags/v_1.7.32.tar.gz -> slf4j-1.7.32.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=174df60dd0ba651334971552872057c6
+_md5_=ff60226beb4d0b17c6b6a4c92cdb3dfa
