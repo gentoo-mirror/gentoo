@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
-DEPEND=client? ( net-misc/wget[ssl] ) firewalld? ( net-firewall/firewalld ) gdbm? ( sys-libs/gdbm ) gpg? ( app-crypt/gpgme dev-libs/libassuan dev-libs/libgpg-error ) iptables? ( net-firewall/iptables ) nfqueue? ( net-libs/libnetfilter_queue ) server? ( !nfqueue? ( !udp-server? ( net-libs/libpcap ) ) )
+DEPEND=client? ( net-misc/wget[ssl] ) firewalld? ( net-firewall/firewalld ) gdbm? ( sys-libs/gdbm ) gpg? ( app-crypt/gpgme:= dev-libs/libassuan dev-libs/libgpg-error ) iptables? ( net-firewall/iptables ) nfqueue? ( net-libs/libnetfilter_queue ) server? ( !nfqueue? ( !udp-server? ( net-libs/libpcap ) ) )
 DESCRIPTION=Single Packet Authorization and Port Knocking application
 EAPI=7
 HOMEPAGE=https://www.cipherdyne.org/fwknop/
@@ -8,9 +8,9 @@ INHERIT=autotools linux-info readme.gentoo-r1 systemd tmpfiles
 IUSE=+client extras firewalld gdbm gpg +iptables nfqueue +server static-libs udp-server
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=client? ( net-misc/wget[ssl] ) firewalld? ( net-firewall/firewalld ) gdbm? ( sys-libs/gdbm ) gpg? ( app-crypt/gpgme dev-libs/libassuan dev-libs/libgpg-error ) iptables? ( net-firewall/iptables ) nfqueue? ( net-libs/libnetfilter_queue ) server? ( !nfqueue? ( !udp-server? ( net-libs/libpcap ) ) ) virtual/tmpfiles
+RDEPEND=client? ( net-misc/wget[ssl] ) firewalld? ( net-firewall/firewalld ) gdbm? ( sys-libs/gdbm ) gpg? ( app-crypt/gpgme:= dev-libs/libassuan dev-libs/libgpg-error ) iptables? ( net-firewall/iptables ) nfqueue? ( net-libs/libnetfilter_queue ) server? ( !nfqueue? ( !udp-server? ( net-libs/libpcap ) ) ) virtual/tmpfiles
 REQUIRED_USE=nfqueue? ( server ) server? ( ^^ ( firewalld iptables ) ) udp-server? ( server )
 SLOT=0
 SRC_URI=https://www.cipherdyne.org/fwknop/download/fwknop-2.6.10.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	linux-info	2f039741fe92bcea55c78806d16ac0f5	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
-_md5_=29690a7e3c17286052b58be259a88d2b
+_md5_=eb3d534f71efeef63dbf9a9391df625e

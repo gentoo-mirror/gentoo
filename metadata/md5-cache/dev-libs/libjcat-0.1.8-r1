@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] dev-python/setuptools[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9[xml] dev-python/setuptools[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml] dev-python/setuptools[python_targets_python3_8(-)] ) ) gtk-doc? ( dev-util/gtk-doc ) man? ( sys-apps/help2man ) test? ( net-libs/gnutls[tools] ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
+DEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
 DESCRIPTION=Library and tool for reading and writing Jcat files
 EAPI=7
 HOMEPAGE=https://github.com/hughsie/libjcat
@@ -8,9 +8,9 @@ INHERIT=meson python-any-r1 vala xdg-utils
 IUSE=+gpg gtk-doc +introspection +man +pkcs7 test vala
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
-RDEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
+RDEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/hughsie/libjcat/archive/0.1.9.tar.gz -> libjcat-0.1.9.tar.gz
+SRC_URI=https://github.com/hughsie/libjcat/archive/0.1.8.tar.gz -> libjcat-0.1.8.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	bc1411c089dadb4205aafaf7c464a7a0	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	78150b86094c58851346877cbf691245	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=9fd234dd7b85c058d5c43b1ef0ea285b
+_md5_=0e050cdabd1d9e9181980e844241a493
