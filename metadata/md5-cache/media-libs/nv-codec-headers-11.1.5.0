@@ -4,10 +4,10 @@ EAPI=7
 HOMEPAGE=https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git
 INHERIT=multilib-minimal
 IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
 RDEPEND=>=x11-drivers/nvidia-drivers-470.57.02[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 SLOT=0
 SRC_URI=https://github.com/FFmpeg/nv-codec-headers/releases/download/n11.1.5.0/nv-codec-headers-11.1.5.0.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib-build	75c3a5814f2cb851f641711bfcc100c0	multilib-minimal	4b0f1857965db8869a729948d5277e0b
-_md5_=87a414a8bb55850c33e3de0c125f12e4
+_md5_=80dc68f5251be426f9f9d7667bbd2fd0
