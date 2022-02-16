@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.nongnu.org/devilspie2/
 INHERIT=lua-single plocale toolchain-funcs
 IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3+
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXinerama x11-libs/libwnck:3
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=mirror://nongnu/devilspie2/devilspie2-0.44.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	plocale	89c6aac5da68423465e6fd79fb4ad5fb
-_md5_=8c4f9e710096b737bd00c761d539f708
+_md5_=fd1a7d05a789cbdce413df85dfbed2ce
