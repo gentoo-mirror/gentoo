@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN="${PN/PEAR-/}"
 MY_PV="${PV/_/}"
@@ -17,7 +17,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="app-crypt/gnupg
-	dev-lang/php:*[posix,unicode]
+	dev-lang/php:*[posix(-),unicode(-)]
 	dev-php/PEAR-Console_CommandLine
 	dev-php/PEAR-Exception"
 BDEPEND="test? ( ${RDEPEND} <dev-php/phpunit-9 )"
@@ -33,8 +33,8 @@ src_prepare() {
 }
 
 src_test() {
-	local -x GNUPGHOME="${HOME}"
-	phpunit --verbose tests/ || die "test suite failed"
+	local -x GNUPGHOME="${T}"
+	phpunit --verbose --do-not-cache-result tests/ || die "test suite failed"
 }
 
 src_install() {
