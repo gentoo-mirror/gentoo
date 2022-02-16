@@ -1,20 +1,20 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic autotools
 
 DESCRIPTION="VoIP library for Telegram clients"
 HOMEPAGE="https://github.com/telegramdesktop/libtgvoip"
 
-LIBTGVOIP_COMMIT="0c0a6e476df58ee441490da72ca7a32f83e68dbd"
+LIBTGVOIP_COMMIT="a090c6a8f7bfb365b301d85bb8c9664d71321c5c"
 SRC_URI="https://github.com/telegramdesktop/libtgvoip/archive/${LIBTGVOIP_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${LIBTGVOIP_COMMIT}"
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 IUSE="+dsp +alsa pulseaudio"
 
 DEPEND="
@@ -40,9 +40,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# Not using the CMake build despite being the preferred one, because
+	# it's lacking relevant configure options.
 	local myconf=(
-		# EAPI8: Remove --disable-static
-		--disable-static
 		--disable-dsp  # WebRTC is linked from tg_owt
 		$(use_with alsa)
 		$(use_with pulseaudio pulse)

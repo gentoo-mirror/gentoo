@@ -1,27 +1,27 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit xdg cmake python-any-r1
+inherit xdg cmake python-any-r1 optfeature flag-o-matic
 
 DESCRIPTION="Official desktop client for Telegram"
 HOMEPAGE="https://desktop.telegram.org"
 
 MY_P="tdesktop-${PV}-full"
 SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
-IUSE="+dbus enchant +hunspell screencast +spell wayland webkit +X"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
+IUSE="+dbus enchant +hunspell screencast +spell wayland +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
 	)
-	webkit? ( dbus )
 "
 
 RDEPEND="
@@ -29,6 +29,7 @@ RDEPEND="
 	app-arch/lz4:=
 	dev-cpp/abseil-cpp:=
 	dev-libs/jemalloc:=[-lazy-lock]
+	dev-libs/libdispatch
 	dev-libs/openssl:=
 	dev-libs/xxhash
 	>=dev-qt/qtcore-5.15:5
@@ -39,12 +40,11 @@ RDEPEND="
 	>=dev-qt/qtwidgets-5.15:5[png,X?]
 	media-fonts/open-sans
 	media-libs/fontconfig:=
-	~media-libs/libtgvoip-2.4.4_p20210302
-	>=media-libs/libtgvoip-2.4.4_p20210302-r2
+	~media-libs/libtgvoip-2.4.4_p20220117
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20210914[screencast=,X=]
+	~media-libs/tg_owt-0_pre20220209[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	dbus? (
@@ -55,7 +55,6 @@ RDEPEND="
 	enchant? ( app-text/enchant:= )
 	hunspell? ( >=app-text/hunspell-1.7:= )
 	wayland? ( kde-frameworks/kwayland:= )
-	webkit? ( net-libs/webkit-gtk:= )
 	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}
@@ -69,12 +68,13 @@ BDEPEND="
 "
 # dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
-S="${WORKDIR}/${MY_P}"
-
 PATCHES=(
-	"${FILESDIR}/tdesktop-3.1.0-jemalloc-only-telegram.patch"
-	"${FILESDIR}/tdesktop-3.1.0-fix-openssl3.patch"
+	"${FILESDIR}/tdesktop-3.5.2-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
 )
+
+# Current desktop-file-utils-0.26 does not understand Version=1.5
+QA_DESKTOP_FILE="usr/share/applications/${PN}.desktop"
 
 pkg_pretend() {
 	if has ccache ${FEATURES}; then
@@ -99,11 +99,11 @@ src_configure() {
 	local mycmakeargs=(
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
+		-DDESKTOP_APP_QT6=OFF
 
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X no yes)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland no yes)
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus no yes)
-		-DDESKTOP_APP_DISABLE_WEBKITGTK=$(usex webkit no yes)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell no yes)  # enables hunspell (recommended)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
 	)
@@ -131,6 +131,10 @@ src_configure() {
 		)
 	fi
 
+	# Fix for RISCV, as well as any other platforms that might generate libatomic calls
+	# Upstreamed in >3.4.3
+	append-ldflags '-pthread'
+
 	cmake_src_configure
 }
 
@@ -143,4 +147,6 @@ pkg_postinst() {
 		ewarn "Versions of dev-qt/qtcore lower than 5.15.2-r10 might cause telegram"
 		ewarn "to crash when pasting big images from the clipboard."
 	fi
+	optfeature_header
+	optfeature "shop payment support (requires USE=dbus enabled)" net-libs/webkit-gtk
 }
