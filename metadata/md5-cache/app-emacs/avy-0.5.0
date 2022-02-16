@@ -1,13 +1,13 @@
 BDEPEND=>=app-editors/emacs-24:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DESCRIPTION=A websocket implementation in elisp
-EAPI=7
-HOMEPAGE=https://github.com/ahyatt/emacs-websocket
+DESCRIPTION=Jump to arbitrary positions in visible text and quickly select
+EAPI=8
+HOMEPAGE=https://github.com/abo-abo/avy
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=>=app-editors/emacs-24:*
 SLOT=0
-SRC_URI=https://github.com/ahyatt/emacs-websocket/archive/1.12.tar.gz -> websocket-1.12.tar.gz
+SRC_URI=https://github.com/abo-abo/avy/archive/refs/tags/0.5.0.tar.gz -> avy-0.5.0.tar.gz
 _eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	elisp	532fa549a4f54b2a3f83b827b272a4a9
-_md5_=4a502fd7fc4a99799ac2ea62ed0dc485
+_md5_=fd8f192c2adc79fa3561ad025d6ffe66
