@@ -1,15 +1,14 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare unpack
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure install
 DEPEND=dev-libs/expat dev-libs/libxml2 curl? ( net-misc/curl[ssl] ) doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) openssl? ( dev-libs/openssl:= ) !openssl? ( app-crypt/gnupg app-crypt/gpgme:= dev-libs/libgcrypt:= ) test? ( net-libs/gnutls )
 DESCRIPTION=Client library for accessing ISDS Soap services
 EAPI=7
 HOMEPAGE=http://xpisar.wz.cz/libisds/
-INHERIT=autotools git-r3
 IUSE=+curl debug doc nls openssl test
+KEYWORDS=amd64 ~mips x86
 LICENSE=LGPL-3
-PROPERTIES=live
 RDEPEND=dev-libs/expat dev-libs/libxml2 curl? ( net-misc/curl[ssl] ) doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) openssl? ( dev-libs/openssl:= ) !openssl? ( app-crypt/gnupg app-crypt/gpgme:= dev-libs/libgcrypt:= )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=17700a3ed46ad9b69a3b977ea0ed60ad
+SRC_URI=http://xpisar.wz.cz/libisds/dist/libisds-0.11.1.tar.xz
+_md5_=7e76a8d7a3959f7dd661c73b634647c6
