@@ -30,3 +30,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	virtual/cron
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-KCronHelper-return-error.patch
+	"${FILESDIR}"/${P}-CVE-2022-24986.patch
+)
