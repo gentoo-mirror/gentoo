@@ -1,16 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_REMOVE_MODULES_LIST=( FindFreetype )
 LUA_COMPAT=( luajit )
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit xdg cmake lua-single python-single-r1
+inherit cmake lua-single python-single-r1 xdg
 
-OBS_BROWSER_COMMIT="f1a61c5a2579e5673765c31a47c2053d4b502d4b"
-CEF_DIR="cef_binary_4280_linux64"
+OBS_BROWSER_COMMIT="b0d687937af876b52b69c46e276b4ab601b07f0e"
+CEF_DIR="cef_binary_4638_linux64"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -43,6 +43,7 @@ BDEPEND="
 	python? ( dev-lang/swig )
 "
 DEPEND="
+	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
@@ -55,10 +56,12 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
+	media-libs/libglvnd
 	media-libs/x264:=
 	media-video/ffmpeg:=[x264]
 	net-misc/curl
 	sys-apps/dbus
+	sys-apps/pciutils
 	sys-libs/zlib:=
 	virtual/udev
 	x11-libs/libX11
@@ -70,6 +73,7 @@ DEPEND="
 	alsa? ( media-libs/alsa-lib )
 	browser? (
 		app-accessibility/at-spi2-atk
+		app-accessibility/at-spi2-core:2
 		dev-libs/atk
 		dev-libs/expat
 		dev-libs/glib
@@ -77,7 +81,10 @@ DEPEND="
 		dev-libs/nss
 		media-libs/alsa-lib
 		media-libs/fontconfig
+		media-libs/mesa[gbm(+)]
 		net-print/cups
+		x11-libs/cairo
+		x11-libs/libdrm
 		x11-libs/libXScrnSaver
 		x11-libs/libXcursor
 		x11-libs/libXdamage
@@ -107,16 +114,14 @@ RDEPEND="${DEPEND}"
 
 QA_PREBUILT="
 	usr/lib*/obs-plugins/chrome-sandbox
+	usr/lib*/obs-plugins/libcef.so
 	usr/lib*/obs-plugins/libEGL.so
 	usr/lib*/obs-plugins/libGLESv2.so
-	usr/lib*/obs-plugins/libcef.so
+	usr/lib*/obs-plugins/libvk_swiftshader.so
+	usr/lib*/obs-plugins/libvulkan.so.1
 	usr/lib*/obs-plugins/swiftshader/libEGL.so
 	usr/lib*/obs-plugins/swiftshader/libGLESv2.so
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-26.1.2-python-3.8.patch"
-)
 
 pkg_setup() {
 	use lua && lua-single_pkg_setup
@@ -137,7 +142,7 @@ src_unpack() {
 src_configure() {
 	local libdir=$(get_libdir)
 	local mycmakeargs=(
-		$(usex browser -DCEF_ROOT_DIR=../${CEF_DIR} '')
+		$(usev browser -DCEF_ROOT_DIR=../${CEF_DIR})
 		-DBUILD_BROWSER=$(usex browser)
 		-DBUILD_VST=no
 		-DENABLE_WAYLAND=$(usex wayland)
@@ -196,23 +201,5 @@ pkg_postinst() {
 		elog "either the 'alsa' or the 'pulseaudio' USE-flag needs to"
 		elog "be enabled."
 		elog
-	fi
-
-	if ! has_version "sys-apps/dbus"; then
-		elog
-		elog "The 'sys-apps/dbus' package is not installed, but"
-		elog "could be used for disabling hibernating, screensaving,"
-		elog "and sleeping.  Where it is not installed,"
-		elog "'xdg-screensaver reset' is used instead"
-		elog "(if 'x11-misc/xdg-utils' is installed)."
-		elog
-	fi
-
-	if use python; then
-		ewarn "This ebuild applies a patch that is not yet accepted upstream,"
-		ewarn "and while it fixes Python support at least to some extent, it"
-		ewarn "may cause other issues."
-		ewarn ""
-		ewarn "Please report any such issues to the Gentoo maintainer."
 	fi
 }
