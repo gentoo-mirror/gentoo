@@ -1,11 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.84.0
+KFMIN=5.88.0
 QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
@@ -14,11 +15,14 @@ DESCRIPTION="Libraries for messaging functions"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
-KEYWORDS="amd64 arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE=""
 
+# bug 579630
+RESTRICT="test"
+
 DEPEND="
-	>=app-crypt/gpgme-1.8.0-r1[cxx,qt5]
+	>=app-crypt/gpgme-1.8.0-r1:=[cxx,qt5]
 	>=app-crypt/qca-2.3.0:2
 	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -67,6 +71,3 @@ DEPEND="
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-# bug 579630
-RESTRICT="test"
