@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
+EAPI=7
+HOMEPAGE=https://gitlab.com/post-factum/pf-kernel/-/wikis/README https://dev.gentoo.org/~mpagano/genpatches/
+INHERIT=kernel-2 optfeature
+IUSE=symlink build
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.16_p4
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz https://github.com/pfactum/pf-kernel/compare/v5.16...v5.16-pf4.diff -> pf-sources-5.16_p4.patch https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.16-1.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.16-1.extras.tar.xz https://dev.gentoo.org/~juippis/distfiles/prjc-v5.16-3uo.patch https://dev.gentoo.org/~mpagano/genpatches/trunk/5.15/5021_BMQ-and-PDS-gentoo-defaults.patch -> 5021_BMQ-and-PDS-gentoo-defaults-5.15.patch
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	kernel-2	0504e914bab621103eb74f52fad0fc6d	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=05f6427170b21922178f43544c2a54a7
