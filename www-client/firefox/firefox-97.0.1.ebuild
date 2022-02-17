@@ -828,7 +828,6 @@ src_configure() {
 			mozconfig_add_options_ac '+lto' --enable-lto=full
 			if tc-ld-is-gold; then
 				mozconfig_add_options_ac "linker is set to gold" --enable-linker=gold
-				export MOZ_FORCE_GOLD=1
 			else
 				mozconfig_add_options_ac "linker is set to bfd" --enable-linker=bfd
 			fi
@@ -850,7 +849,6 @@ src_configure() {
 		else
 			if tc-ld-is-gold; then
 				mozconfig_add_options_ac "linker is set to gold" --enable-linker=gold
-				export MOZ_FORCE_GOLD=1
 			else
 				mozconfig_add_options_ac "linker is set to bfd" --enable-linker=bfd
 			fi
