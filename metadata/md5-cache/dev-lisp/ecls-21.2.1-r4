@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://common-lisp.net/project/ecl/
 INHERIT=readme.gentoo-r1
 IUSE=cxx debug emacs gengc precisegc cpu_flags_x86_sse +threads +unicode X
-KEYWORDS=amd64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux
+KEYWORDS=amd64 ~ppc ppc64 ~sparc x86 ~amd64-linux
 LICENSE=BSD-2 LGPL-2.1+
 RDEPEND=dev-libs/gmp:0= dev-libs/libffi:= dev-libs/libatomic_ops >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:=
 RESTRICT=test
 SLOT=0/21.2.1
 SRC_URI=https://common-lisp.net/project/ecl/static/files/release/ecl-21.2.1.tgz
 _eclasses_=readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1
-_md5_=0c478e31aac554d5a8ff06fcfdca8500
+_md5_=e9394ca442987b3c9954d09987bbe325
