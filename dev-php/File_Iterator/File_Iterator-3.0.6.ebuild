@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 MY_PN="php-file-iterator"
 
@@ -18,12 +18,12 @@ IUSE=""
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="dev-php/fedora-autoloader
-	>=dev-lang/php-5.6:*"
+	>=dev-lang/php-7.3:*"
 
 src_install() {
 	insinto /usr/share/php/File/Iterator
 	doins -r src/*
-	doins "${FILESDIR}/autoload.php"
+	newins "${FILESDIR}/autoload-2.0.2.php" autoload.php
 }
 
 pkg_postinst() {
