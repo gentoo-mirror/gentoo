@@ -1,0 +1,17 @@
+BDEPEND=dev-libs/libxslt >=sys-devel/gettext-0.17 virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 >=dev-util/gtk-doc-1.9 ) app-text/docbook-xsl-ns-stylesheets introspection? ( >=dev-libs/gobject-introspection-0.9.8 ) vala? ( || ( dev-lang/vala:0.54[vapigen(+)] dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] ) ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/glib-2.28:2 >=x11-misc/colord-0.1.27:=[introspection?,vala?] x11-libs/gtk+:3[introspection?] >=gui-libs/gtk-4.4:4[introspection?]
+DESCRIPTION=GTK support library for colord
+EAPI=7
+HOMEPAGE=https://www.freedesktop.org/software/colord/
+INHERIT=meson vala
+IUSE=doc +introspection vala
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc64 ~riscv ~x86
+LICENSE=LGPL-3+
+RDEPEND=>=dev-libs/glib-2.28:2 >=x11-misc/colord-0.1.27:=[introspection?,vala?] x11-libs/gtk+:3[introspection?] >=gui-libs/gtk-4.4:4[introspection?]
+REQUIRED_USE=vala? ( introspection )
+RESTRICT=test
+SLOT=0/1
+SRC_URI=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.3.0.tar.xz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	78150b86094c58851346877cbf691245
+_md5_=80a466e60f24eb0eaeec6a4c6c8b1c22
