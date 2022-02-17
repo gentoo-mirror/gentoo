@@ -20,7 +20,7 @@ LICENSE="Apache-2.0"
 SLOT="2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
-# We don't have junit-vintage and junit-jupiter 
+# We don't have junit-vintage and junit-jupiter
 RESTRICT="test"
 
 # Common dependencies
@@ -142,6 +142,28 @@ JAVA_RESOURCE_DIRS=(
 #	JAVA_TEST_RESOURCE_DIRS=(
 #		"${PN}/src/test/resources"
 #	)
+
+src_compile() {
+	java-pkg-simple_src_compile
+
+	# Process the @Plugin annotation used on Log4j 2 built-in plugins
+	# to generate a serialized plugin listing file
+	# https://logging.apache.org/log4j/2.x/manual/plugins.html
+	local processor="org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor"
+	local classes="target/classes"
+	local classpath="${JAVA_JAR_FILENAME}:$(\
+		java-pkg_getjars --build-only --with-dependencies \
+		"${JAVA_GENTOO_CLASSPATH},${JAVA_CLASSPATH_EXTRA}")"
+	# Just in case java-pkg-simple.eclass changes the path in the future
+	mkdir -p "${classes}" || die "Failed to create directory for classes"
+	ejavac -d "${classes}" -cp "${classpath}" \
+		-proc:only -processor "${processor}" \
+		$(find "${JAVA_SRC_DIR}" -name "*.java")
+	# Update the JAR to include the serialized plugin listing file
+	local jar="$(java-config -j)"
+	"${jar}" -uf "${JAVA_JAR_FILENAME}" -C "${classes}" . ||
+		die "Failed to update JAR"
+}
 
 src_install() {
 	default # https://bugs.gentoo.org/789582
