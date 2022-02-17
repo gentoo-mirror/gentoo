@@ -4,7 +4,7 @@
 EAPI=8
 
 # Set this var for any releases except stable
-RC_SUFFIX="-ebd087e2ad"
+RC_SUFFIX="-8c2c64c175"
 
 inherit java-pkg-2 systemd
 
