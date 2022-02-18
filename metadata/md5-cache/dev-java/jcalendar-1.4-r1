@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile configure install preinst prepare setup
+DEPEND=dev-java/jgoodies-looks:2.6 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DESCRIPTION=Java date chooser bean for graphically picking a date
+EAPI=8
+HOMEPAGE=https://www.toedter.com/en/jcalendar/
+INHERIT=java-pkg-2 java-ant-2
+IUSE=doc source
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-java/jgoodies-looks:2.6 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test
+SLOT=1.2
+SRC_URI=https://www.toedter.com/download/jcalendar-1.4.zip
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	262d853e2dd1056dc103b953dfc113b9
+_md5_=ff762bccc6ee9eeb630e6018920e1a84
