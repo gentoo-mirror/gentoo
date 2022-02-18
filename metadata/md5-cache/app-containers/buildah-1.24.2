@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install prepare test unpack
+DEPEND=app-crypt/gpgme:= app-containers/skopeo dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:= sys-fs/lvm2:= sys-libs/libseccomp:= selinux? ( sys-libs/libselinux:= )
+DESCRIPTION=A tool that facilitates building OCI images
+EAPI=7
+HOMEPAGE=https://github.com/containers/buildah
+INHERIT=bash-completion-r1 go-module
+IUSE=selinux
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0
+RDEPEND=app-crypt/gpgme:= app-containers/skopeo dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:= sys-fs/lvm2:= sys-libs/libseccomp:= selinux? ( sys-libs/libselinux:= )
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/containers/buildah/archive/v1.24.2.tar.gz -> buildah-1.24.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	go-module	ea6b447321803e690cb8d3e006fd01a3
+_md5_=5c1aed2baf32765eee36f6bea225107d
