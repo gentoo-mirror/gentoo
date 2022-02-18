@@ -1,16 +1,16 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare setup unpack
+DEFINED_PHASES=compile configure install prepare setup
 DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
 DESCRIPTION=Security sandbox for any type of processes
 EAPI=7
 HOMEPAGE=https://firejail.wordpress.com/
-INHERIT=toolchain-funcs python-single-r1 linux-info git-r3
+INHERIT=toolchain-funcs python-single-r1 linux-info
 IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home test +userns +whitelist X python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
 REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	linux-info	2f039741fe92bcea55c78806d16ac0f5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=75aea18a8bf4d02b846ddbb243a3b38e
+SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.68/firejail-0.9.68.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	linux-info	2f039741fe92bcea55c78806d16ac0f5
+_md5_=6dafc5e213e58a9564acbd017a0e3ad8

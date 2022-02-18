@@ -1335,7 +1335,7 @@ app-containers/k3d 4.4.2 5.2.2 5.3.0: k3d creates k3s clusters in docker
 app-containers/kompose 1.22.0: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 4.0.11_p1-r1 4.0.12: A userspace interface for the Linux kernel containment features
 app-containers/lxc-templates 3.0.4: Old style template scripts for LXC
-app-containers/lxd 4.0.8-r2 4.0.9: Fast, dense and secure container management
+app-containers/lxd 4.0.8-r3 4.0.9-r1: Fast, dense and secure container management
 app-containers/nerdctl 0.14.0 0.15.0 0.16.0 0.16.1: Docker-compatible CLI for containerd, with support for Compose
 app-containers/podman 3.4.4: Library and podman tool for running OCI-based containers in Pods
 app-containers/reg 0.16.1: Docker registry v2 command line client
@@ -2093,7 +2093,7 @@ app-doc/gimp-help 2.10.0-r1: GNU Image Manipulation Program help files
 app-doc/gnucash-docs 4.4 4.5 4.8: Documentation package for GnuCash
 app-doc/halibut 1.2: yet another free document preparation system
 app-doc/jargon 4.4.7-r1: A compendium of hacker slang illuminating many aspects of hackish tradition
-app-doc/kicad-doc 5.1.12 6.0.1: Electronic Schematic and PCB design tools manuals
+app-doc/kicad-doc 5.1.12 6.0.2: Electronic Schematic and PCB design tools manuals
 app-doc/lapack-docs 3.1.1: Documentation reference and man pages for lapack implementations
 app-doc/linkers-and-loaders 1-r1: The Linkers and Loaders book
 app-doc/linux-device-drivers 2-r1 3-r1: Howto write linux device drivers (updated for Linux 2.6)
@@ -2459,7 +2459,7 @@ app-emulation/libdsk 1.5.8 1.5.18: LIBDSK is a library for accessing discs and d
 app-emulation/libguestfs 1.38.6-r104 1.44.1-r1 1.46.0-r2: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/libguestfs-appliance 1.38.0 1.40.1: VM appliance disk image used in libguestfs package
 app-emulation/libspectrum 1.5.0: Spectrum emulation library
-app-emulation/libvirt 7.7.0-r1 7.10.0-r2 8.0.0 9999: C toolkit to manipulate virtual machines
+app-emulation/libvirt 7.7.0-r2 7.10.0-r3 8.0.0-r1 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 4.0.0: GLib and GObject mappings for libvirt
 app-emulation/libvirt-snmp 0.0.4: Provides SNMP functionality for libvirt
 app-emulation/nemu 2.5.0-r1: ncurses interface for QEMU
@@ -12250,11 +12250,11 @@ gnome-base/libgtop 2.40.0-r1: A library that provides top functionality to appli
 gnome-base/librsvg 2.40.21 2.50.7 2.52.5 2.52.6: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 40.2 41.2: Default file manager for the GNOME desktop
 gnome-extra/chrome-gnome-shell 10-r4: GNOME Shell integration for Chrome/Chromium, Firefox, Vivaldi, Opera browsers
-gnome-extra/cinnamon 5.0.6 5.2.7: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon 5.0.6-r1 5.2.7-r1: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 5.0.2 5.2.1: Cinnamons's main interface to configure various aspects of the desktop
-gnome-extra/cinnamon-desktop 5.0.0 5.2.0: A collection of libraries and utilites used by Cinnamon
+gnome-extra/cinnamon-desktop 5.0.0 5.2.1: A collection of libraries and utilites used by Cinnamon
 gnome-extra/cinnamon-menus 5.0.0 5.2.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 5.0.7 5.2.0: Screensaver for Cinnamon
+gnome-extra/cinnamon-screensaver 5.0.7 5.2.1: Screensaver for Cinnamon
 gnome-extra/cinnamon-session 5.0.1 5.2.0: Cinnamon session manager
 gnome-extra/cinnamon-settings-daemon 5.0.4 5.2.0: Cinnamon's settings daemon
 gnome-extra/cinnamon-translations 5.0.2 5.2.2: Translation data for Cinnamon
@@ -12306,7 +12306,7 @@ gnome-extra/libgsf 1.14.47 1.14.48: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2019.02.14 2020.03.04: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6: A nautilus extension for sending files to locations
-gnome-extra/nemo 5.0.4 5.2.3: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo 5.0.4 5.2.4: A file manager for Cinnamon, forked from Nautilus
 gnome-extra/nemo-fileroller 5.0.1 5.2.0: Nemo file-roller integration
 gnome-extra/nm-applet 1.22.0-r1 1.24.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
@@ -13257,7 +13257,7 @@ media-gfx/gthumb 3.10.4: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r1: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 media-gfx/hugin 2020.0.0-r1 2021.0.0 9999: GUI for the creation & processing of panoramic images
-media-gfx/hydrus 467 468-r1 469 471 9999: A booru-like media organizer for the desktop
+media-gfx/hydrus 468-r1 469 472 473 9999: A booru-like media organizer for the desktop
 media-gfx/icon-slicer 0.3: utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
 media-gfx/igal 2.0-r1: Static HTML image gallery generator
@@ -13438,7 +13438,7 @@ media-libs/dssi 1.1.1-r1: Plugin API for software instruments with user interfac
 media-libs/dumb 0.9.3-r3 2.0.3: Module/tracker based music format parser and player library
 media-libs/elgato-streamdeck 0.8.1 9999: Python library to control the Elgato Stream Deck
 media-libs/elles_icc_profiles 20160501.0932-r1: Elle Stone's well-behaved RGB and grey ICC profiles
-media-libs/embree 3.13.0-r2 3.13.2: Collection of high-performance ray tracing kernels
+media-libs/embree 3.13.0-r2 3.13.2 3.13.3: Collection of high-performance ray tracing kernels
 media-libs/esdl 1.3.1: Erlang bindings for the SDL library
 media-libs/exempi 2.4.5-r1: Port of the Adobe XMP SDK to work on UNIX
 media-libs/exiftool 12.30 12.33: Read and write meta information in image, audio and video files
@@ -13454,7 +13454,7 @@ media-libs/fluidsynth-dssi 1.0.0-r1: DSSI Soft Synth Interface
 media-libs/fontconfig 2.13.1-r2 2.13.93: A library for configuring and customizing font access
 media-libs/freealut 1.1.0-r4: The OpenAL Utility Toolkit
 media-libs/freeglut 3.2.1-r2 3.2.2: A free OpenGL utility toolkit, the open-sourced alternative to the GLUT library
-media-libs/freeimage 3.18.0-r3 3.18.0-r4: Image library supporting many formats
+media-libs/freeimage 3.18.0-r3 3.18.0-r5: Image library supporting many formats
 media-libs/freetype 2.11.0-r1 2.11.0-r2 2.11.1 9999: High-quality and portable font engine
 media-libs/freeverb3 3.2.1-r2: Reverb and Impulse Response Convolution plug-ins (Audacious/JACK)
 media-libs/ftgl 2.1.3_rc5: library to use arbitrary fonts in OpenGL applications
@@ -14982,8 +14982,8 @@ net-firewall/arptables 0.0.5-r2: set up, maintain, and inspect the tables of ARP
 net-firewall/conntrack-tools 1.4.5 1.4.6-r1: Connection tracking userspace tools
 net-firewall/ebtables 2.0.11-r3: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
 net-firewall/ferm 2.5.1 2.6: Command line util for managing firewall rules
-net-firewall/firehol 3.1.6-r2 3.1.7: iptables firewall generator
-net-firewall/firewalld 1.0.2 1.0.3: A firewall daemon with D-Bus interface providing a dynamic firewall
+net-firewall/firehol 3.1.6-r3 3.1.7-r1: iptables firewall generator
+net-firewall/firewalld 1.0.2-r1 1.0.3-r1: A firewall daemon with D-Bus interface providing a dynamic firewall
 net-firewall/fwbuilder 5.3.7 6.0.0_rc1: A firewall management GUI for iptables, PF, Cisco routers and more
 net-firewall/fwknop 2.6.10-r3: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r1: A nice iptables firewall script
@@ -14999,9 +14999,9 @@ net-firewall/nufw 2.2.22-r3: An enterprise grade authenticating firewall based o
 net-firewall/pglinux 2.3.1_p20171006-r1: Privacy oriented firewall application
 net-firewall/psad 2.4.6: Port Scanning Attack Detection daemon
 net-firewall/rtsp-conntrack 5.3: RTSP conntrack module for Netfilter
-net-firewall/sanewall 1.1.6-r3: iptables firewall generator (fork of firehol)
-net-firewall/shorewall 5.2.8: A high-level tool for configuring Netfilter
-net-firewall/ufw 0.36: A program used to manage a netfilter firewall
+net-firewall/sanewall 1.1.6-r4: iptables firewall generator (fork of firehol)
+net-firewall/shorewall 5.2.8-r1: A high-level tool for configuring Netfilter
+net-firewall/ufw 0.36-r1: A program used to manage a netfilter firewall
 net-firewall/xtables-addons 3.13 3.18: iptables extensions not yet accepted in the main kernel
 net-fs/autofs 5.1.6-r2 5.1.8-r1: Kernel based automounter
 net-fs/btfs 2.22 2.23: a bittorrent filesystem based on FUSE
@@ -15592,7 +15592,7 @@ net-misc/midentd 2.3.1-r2: ident daemon with masquerading and fake replies suppo
 net-misc/mikutter 4.1.7 9999: Simple, powerful and moeful twitter client
 net-misc/minidlna 1.3.0-r2: DLNA/UPnP-AV compliant media server
 net-misc/minissdpd 1.5.20190824 1.5.20200928 1.5.20211105: MiniSSDP Daemon
-net-misc/miniupnpd 2.3.0: MiniUPnP IGD Daemon
+net-misc/miniupnpd 2.3.0-r1: MiniUPnP IGD Daemon
 net-misc/mobile-broadband-provider-info 20210805: Database of mobile broadband service providers
 net-misc/modemmanager 1.18.4 1.18.6: Modem and mobile broadband management libraries
 net-misc/monmotha 2.3.8-r1: MonMotha IPTables-based firewall script
@@ -15930,7 +15930,7 @@ net-vpn/iodine 0.7.0-r3: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
 net-vpn/libreswan 3.32-r4 4.3-r2 4.4-r4 4.4-r5 4.5 4.6: IPsec implementation for Linux, fork of Openswan
 net-vpn/logmein-hamachi 2.1.0.198 2.1.0.203: LogMeIn Hamachi VPN tunneling engine
-net-vpn/mullvad-netns 0.2 0.3 9999: Script to run a command within a Mullvad network namespace
+net-vpn/mullvad-netns 0.2-r1 0.3-r1 9999: Script to run a command within a Mullvad network namespace
 net-vpn/networkmanager-fortisslvpn 1.2.8-r2 1.2.10 1.3.90: NetworkManager Fortinet SSLVPN compatible plugin
 net-vpn/networkmanager-l2tp 1.8.0 1.8.2-r1 1.8.6: NetworkManager L2TP plugin
 net-vpn/networkmanager-libreswan 1.2.12 1.2.14: NetworkManager libreswan plugin
@@ -16378,13 +16378,13 @@ sci-electronics/gtkwave 3.3.106: A wave viewer for LXT, LXT2, VZT, GHW and stand
 sci-electronics/gwave 20190116: Analog waveform viewer for SPICE-like simulations
 sci-electronics/irsim 9.7.93: IRSIM is a "switch-level" simulator
 sci-electronics/iverilog 10.3 11.0 9999: A Verilog simulation and synthesis tool
-sci-electronics/kicad 5.1.12-r2 6.0.1 9999: Electronic Schematic and PCB design tools
-sci-electronics/kicad-footprints 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools footprint libraries
+sci-electronics/kicad 5.1.12-r2 6.0.2 9999: Electronic Schematic and PCB design tools
+sci-electronics/kicad-footprints 5.1.12 6.0.2 9999: Electronic Schematic and PCB design tools footprint libraries
 sci-electronics/kicad-i18n 5.1.12: Electronic Schematic and PCB design tools GUI translations
-sci-electronics/kicad-meta 5.1.12 6.0.1: Electronic Schematic and PCB design tools (meta package)
-sci-electronics/kicad-packages3d 5.1.12-r1 6.0.1 9999: Electronic Schematic and PCB design tools 3D package libraries
-sci-electronics/kicad-symbols 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools symbol libraries
-sci-electronics/kicad-templates 5.1.12 6.0.1 9999: Electronic Schematic and PCB design tools project templates
+sci-electronics/kicad-meta 5.1.12 6.0.2: Electronic Schematic and PCB design tools (meta package)
+sci-electronics/kicad-packages3d 5.1.12-r1 6.0.2 9999: Electronic Schematic and PCB design tools 3D package libraries
+sci-electronics/kicad-symbols 5.1.12 6.0.2 9999: Electronic Schematic and PCB design tools symbol libraries
+sci-electronics/kicad-templates 5.1.12 6.0.2 9999: Electronic Schematic and PCB design tools project templates
 sci-electronics/klayout 0.27 0.27.3 0.27.7 9999: Viewer and editor for GDS and OASIS integrated circuit layouts
 sci-electronics/ktechlab 0.50.0-r2: IDE for microcontrollers and electronics
 sci-electronics/labone 21.08.20515-r1: Platform independent instrument control for Zurich Instruments devices
@@ -17267,7 +17267,7 @@ sys-apps/fbset 2.1: A utility to set the framebuffer videomode
 sys-apps/fd 8.2.1 8.3.1: Alternative to find that provides sensible defaults for 80% of the use cases
 sys-apps/file 5.41 9999: identify a file's format by scanning binary data for patterns
 sys-apps/findutils 4.8.0 4.8.0-r1 4.9.0: GNU utilities for finding files
-sys-apps/firejail 0.9.64.4 0.9.66 9999: Security sandbox for any type of processes
+sys-apps/firejail 0.9.68 9999: Security sandbox for any type of processes
 sys-apps/firejail-lts 0.9.56.2-r1 0.9.56.2-r2: Security sandbox for any type of processes; LTS version
 sys-apps/fix-gnustack 0.1: Utility to report and remove the executable flag from an ELF object's GNU_STACK
 sys-apps/flashrom 1.2-r3 9999: Utility for reading, writing, erasing and verifying flash ROM chips
@@ -17656,7 +17656,7 @@ sys-cluster/galera 25.3.28-r2 25.3.35 26.4.8-r1 26.4.10-r1: Synchronous multi-ma
 sys-cluster/ganglia 3.7.1-r3: A scalable distributed monitoring system for clusters and grids
 sys-cluster/ganglia-web 3.7.3-r2: Web frontend for sys-cluster/ganglia
 sys-cluster/gasnet 1.32.0: Networking middleware for partitioned global address space (PGAS) language
-sys-cluster/glusterfs 8.5-r1 8.6 9.4 10.0: GlusterFS is a powerful network/cluster filesystem
+sys-cluster/glusterfs 8.6 9.4 9.5 10.1: GlusterFS is a powerful network/cluster filesystem
 sys-cluster/gmqtt 0.3.1 0.3.2 0.4.1: MQTT broker library with cluster support that implements MQTT V5.0 and V3.1.1
 sys-cluster/hpl 2.0-r4 2.3: Portable Implementation of the Linpack Benchmark for Distributed-Memory Clusters
 sys-cluster/hpx 1.7.1-r1 9999: C++ runtime system for parallel and distributed applications

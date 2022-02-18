@@ -5,10 +5,10 @@ DESCRIPTION=kernel routing and traffic control utilities
 EAPI=7
 HOMEPAGE=https://wiki.linuxfoundation.org/networking/iproute2
 INHERIT=toolchain-funcs git-r3
-IUSE=atm berkdb bpf caps elf +iptables ipv6 libbsd minimal selinux
+IUSE=atm berkdb bpf caps elf +iptables libbsd minimal selinux
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) libbsd? ( dev-libs/libbsd ) selinux? ( sys-libs/libselinux )
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=c95e85ae1d407cacc646ee1b1da8f2b8
+_md5_=946923486038ae8afa71f4033fac93b9
