@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.16 >=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=install prepare unpack
+DESCRIPTION=Docker-compatible CLI for containerd, with support for Compose
+EAPI=7
+HOMEPAGE=https://github.com/containerd/nerdctl
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD BSD-2 ISC MIT
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/zmedico/nerdctl/archive/refs/tags/v0.17.0-vendor.tar.gz -> nerdctl-0.17.0-vendor.tar.gz
+_eclasses_=go-module	ea6b447321803e690cb8d3e006fd01a3
+_md5_=4b4f16ba77cd3db7f0a29ffbdba5e2d8
