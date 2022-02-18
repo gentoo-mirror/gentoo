@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,8 +15,8 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm -x86"
-	UPSTREAM_VER=2
+	KEYWORDS="~amd64 ~arm -x86"
+	UPSTREAM_VER=3
 	SECURITY_VER=
 	GENTOO_VER=
 
@@ -95,7 +95,7 @@ src_prepare() {
 	[[ -n ${GENTOO_VER} ]] && eapply "${WORKDIR}"/patches-gentoo
 
 	# Symlinks do not work on fat32 volumes
-	eapply "${FILESDIR}"/${PN}-4.14-efi.patch
+	eapply "${FILESDIR}"/${PN}-4.15-efi.patch
 
 	# Enable XSM-FLASK
 	use flask && eapply "${FILESDIR}"/${PN}-4.15-flask.patch

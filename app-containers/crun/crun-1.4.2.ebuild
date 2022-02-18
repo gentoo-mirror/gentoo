@@ -1,11 +1,11 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit autotools python-any-r1
+inherit python-any-r1
 
 DESCRIPTION="A fast and low-memory footprint OCI Container Runtime fully written in C"
 HOMEPAGE="https://github.com/containers/crun"
@@ -13,12 +13,12 @@ SRC_URI="https://github.com/containers/${PN}/releases/download/${PV}/${P}.tar.gz
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
 IUSE="+bpf +caps criu +seccomp systemd static-libs"
 
 DEPEND="
+	dev-libs/yajl:=
 	sys-kernel/linux-headers
-	>=dev-libs/yajl-2.0.0
 	caps? ( sys-libs/libcap )
 	criu? ( >=sys-process/criu-3.15 )
 	seccomp? ( sys-libs/libseccomp )
@@ -27,23 +27,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
+	virtual/pkgconfig
 "
 
 # the crun test suite is comprehensive to the extent that tests will fail
 # within a sandbox environment, due to the nature of the privileges
 # required to create linux "containers".
 RESTRICT="test"
-
-DOCS=( README.md )
-
-PATCHES=( "${FILESDIR}/libcrun-linkage.patch" )
-
-src_prepare() {
-	default
-
-	# for libcrun-linkage.patch
-	eautoreconf
-}
 
 src_configure() {
 	local myeconfargs=(
