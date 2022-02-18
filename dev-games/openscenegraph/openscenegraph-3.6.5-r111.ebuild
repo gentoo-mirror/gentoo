@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,16 +8,17 @@ LUA_COMPAT=( lua5-1 )
 WX_GTK_VER="3.0-gtk3"
 inherit cmake flag-o-matic lua-single wxwidgets
 
-MY_COMMIT="b02abe200c4847e73b887b064a89ea1758a5b733"
+MY_PN="OpenSceneGraph"
+MY_P=${MY_PN}-${PV}
 
-DESCRIPTION="OpenMW-specific fork of OpenSceneGraph"
-HOMEPAGE="https://github.com/OpenMW/osg"
-SRC_URI="https://github.com/OpenMW/osg/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/osg-${MY_COMMIT}"
+DESCRIPTION="Open source high performance 3D graphics toolkit"
+HOMEPAGE="http://www.openscenegraph.org/"
+SRC_URI="https://github.com/${PN}/${MY_PN}/archive/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_PN}-${MY_P}"
 
 LICENSE="wxWinLL-3 LGPL-2.1"
-SLOT="0/162" # NOTE: CHECK WHEN BUMPING! Subslot is SOVERSION
-KEYWORDS="~amd64 ~arm64 ~x86"
+SLOT="0/161" # NOTE: CHECK WHEN BUMPING! Subslot is SOVERSION
+KEYWORDS="~amd64 ~arm64 ~hppa ~ppc64 ~x86"
 IUSE="
 	collada curl dicom debug doc egl examples ffmpeg fltk fox gdal
 	gif glut gstreamer jpeg las lua openexr openinventor osgapps pdf png
@@ -38,7 +39,6 @@ BDEPEND="
 	doc? ( app-doc/doxygen )
 "
 RDEPEND="
-	!dev-games/openscenegraph
 	media-libs/mesa[egl(+)?]
 	virtual/glu
 	virtual/opengl
@@ -66,6 +66,8 @@ RDEPEND="
 	openexr? (
 		media-libs/ilmbase:=
 		media-libs/openexr:=
+		dev-libs/imath:=
+		>=media-libs/openexr-3:=
 	)
 	openinventor? ( media-libs/coin )
 	pdf? ( app-text/poppler[cairo] )
@@ -87,10 +89,11 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/openscenegraph-3.6.3-cmake.patch
-	"${FILESDIR}"/openscenegraph-3.6.3-docdir.patch
-	"${FILESDIR}"/openscenegraph-3.6.5-use_boost_asio.patch
-	"${FILESDIR}"/openscenegraph-3.6.5-cmake_lua_version.patch
+	"${FILESDIR}"/${PN}-3.6.3-cmake.patch
+	"${FILESDIR}"/${PN}-3.6.3-docdir.patch
+	"${FILESDIR}"/${PN}-3.6.5-use_boost_asio.patch
+	"${FILESDIR}"/${PN}-3.6.5-cmake_lua_version.patch
+	"${FILESDIR}"/${PN}-3.6.5-openexr3.patch
 )
 
 pkg_setup() {
