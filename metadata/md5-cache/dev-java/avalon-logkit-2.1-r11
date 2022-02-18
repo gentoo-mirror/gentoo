@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://avalon.apache.org/closed.html
 INHERIT=java-pkg-2 java-ant-2
 IUSE=doc source test
-KEYWORDS=~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=Apache-2.0
 RDEPEND=dev-java/log4j-12-api:2 java-virtuals/jms:0 dev-java/javax-mail:0 java-virtuals/servlet-api:3.0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=2.0
 SRC_URI=https://archive.apache.org/dist/excalibur/avalon-logkit/source/avalon-logkit-2.1-src.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	262d853e2dd1056dc103b953dfc113b9
-_md5_=dc795d2f41c5d2aaf110aad737e47355
+_md5_=cd72ab59b5bc7342beba9240d575e035
