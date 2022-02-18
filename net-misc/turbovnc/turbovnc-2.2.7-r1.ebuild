@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit desktop cmake java-pkg-opt-2
+inherit cmake desktop java-pkg-opt-2
 
 DESCRIPTION="A fast replacement for TigerVNC"
 HOMEPAGE="https://www.turbovnc.org/"
@@ -17,9 +17,9 @@ IUSE="gnutls +ssl"
 DEPEND="
 	app-arch/bzip2
 	media-libs/freetype
-	>=media-libs/libjpeg-turbo-2.0.0[java?]
+	>=media-libs/libjpeg-turbo-2.0.0:=[java?]
 	sys-libs/zlib
-	virtual/jdk:1.8
+	>=virtual/jdk-1.8:*
 	virtual/opengl
 	x11-libs/libfontenc
 	x11-libs/libX11
@@ -39,6 +39,10 @@ RDEPEND="
 	${DEPEND}
 	x11-apps/xkbcomp
 "
+
+# net-misc/turbovnc does not build this file, it merely copies it
+# from media-libs/libjpeg-turbo
+QA_PREBUILT="usr/share/turbovnc/classes/libturbojpeg.so"
 
 src_prepare() {
 	use java && java-pkg-opt-2_src_prepare
@@ -97,7 +101,7 @@ src_install() {
 	rm -rf "${ED}"/etc/init.d/ || die
 	rm -rf "${ED}"/etc/sysconfig/ || die
 
-	find "${ED}"/usr/share/man/man1/ -name Xserver.1\* -print0 | xargs -0 rm || die
+	find "${ED}"/usr/share/man/man1/ -name Xserver.1\* -delete || die
 
 	einstalldocs
 }
