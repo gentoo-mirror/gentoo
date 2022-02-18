@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip doc? ( dev-tex/latex2html ) mpi? ( app-admin/chrpath ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=app-arch/lz4:= cuda? ( >=dev-util/nvidia-cuda-toolkit-5.5 ) mpi? ( dev-libs/boost:=[mpi] sci-libs/hdf5[mpi] ) !mpi? ( !sci-libs/hdf5[mpi] ) octave? ( >=sci-mathematics/octave-3.6.4-r1:= )
+DESCRIPTION=Fast approximate nearest neighbor searches in high dimensional spaces
+EAPI=8
+HOMEPAGE=https://github.com/mariusmuja/flann
+INHERIT=cmake cuda flag-o-matic toolchain-funcs
+IUSE=cuda doc examples mpi octave openmp
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD
+RDEPEND=app-arch/lz4:= cuda? ( >=dev-util/nvidia-cuda-toolkit-5.5 ) mpi? ( dev-libs/boost:=[mpi] sci-libs/hdf5[mpi] ) !mpi? ( !sci-libs/hdf5[mpi] ) octave? ( >=sci-mathematics/octave-3.6.4-r1:= )
+SLOT=0
+SRC_URI=https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz -> flann-1.9.1.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	cuda	8d9c9803e990e31a336935435383ac43
+_md5_=ce29179de9150c9fa17cba14df405b74
