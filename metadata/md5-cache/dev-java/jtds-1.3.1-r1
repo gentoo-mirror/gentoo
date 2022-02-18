@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/jcifs:1.1 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=jTDS - SQL Server and Sybase JDBC driver
+EAPI=8
+HOMEPAGE=http://jtds.sourceforge.net
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-java/jcifs:1.1 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test
+SLOT=1.3
+SRC_URI=mirror://sourceforge/project/jtds/jtds/1.3.1/jtds-1.3.1-src.zip
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=147b65254780bf184be8a303aee971f5
