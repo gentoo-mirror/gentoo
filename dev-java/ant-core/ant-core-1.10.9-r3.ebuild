@@ -35,7 +35,7 @@ DEPEND="${CDEPEND}
 		dev-java/jakarta-oro:2.0
 		dev-java/jdepend:0
 		dev-java/jsch:0
-		dev-java/log4j:0
+		dev-java/log4j-12-api:2
 		dev-java/javax-mail:0
 		dev-java/sun-jai-bin:0
 		dev-java/xalan:0
@@ -103,7 +103,7 @@ src_compile() {
 			jakarta-regexp-1.4
 			jdepend
 			jsch
-			log4j
+			log4j-12-api-2
 			javax-mail
 			sun-jai-bin
 			xalan
