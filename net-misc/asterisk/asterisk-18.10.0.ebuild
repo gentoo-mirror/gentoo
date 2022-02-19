@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ HOMEPAGE="https://www.asterisk.org/"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/asterisk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
 	voicemail_storage_odbc
@@ -107,6 +107,7 @@ QA_DT_NEEDED="/usr/lib.*/libasteriskssl[.]so[.][0-9]\+"
 _make_args=(
 	"NOISY_BUILD=yes"
 	"ASTDBDIR=\$(ASTDATADIR)/astdb"
+	"ASTVARRUNDIR=/run/asterisk"
 	"ASTCACHEDIR=/var/cache/asterisk"
 	"OPTIMIZE="
 	"DEBUG="
@@ -300,11 +301,11 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newinitd "${FILESDIR}"/initd-16.16.2-r1 asterisk
+	newinitd "${FILESDIR}"/initd-16.22.0-18.8.0 asterisk
 	newconfd "${FILESDIR}"/confd-16.16.2-r1 asterisk
 
 	systemd_dounit "${FILESDIR}"/asterisk.service
-	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles3.conf asterisk.conf
+	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles-16.22.0-18.8.0.conf asterisk.conf
 	systemd_install_serviced "${FILESDIR}"/asterisk.service.conf
 
 	# Reset diropts else dodoc uses it for doc installations.
