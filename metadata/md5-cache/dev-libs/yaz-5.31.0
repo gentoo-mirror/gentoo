@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://www.indexdata.dk/yaz
 INHERIT=autotools
 IUSE=gnutls tcpd ziffy
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 arm ~arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 ~sparc ~x86
 LICENSE=BSD GPL-2
 RDEPEND=dev-libs/icu:= dev-libs/libxml2 dev-libs/libxslt sys-libs/readline:= sys-libs/ncurses:= virtual/libintl !gnutls? ( dev-libs/openssl:0= ) gnutls? ( net-libs/gnutls:= ) tcpd? ( sys-apps/tcp-wrappers ) ziffy? ( net-libs/libpcap )
 SLOT=0/5
 SRC_URI=http://ftp.indexdata.dk/pub/yaz/yaz-5.31.0.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
-_md5_=bd19dcf7c781aa1b892c0c5a2edc9820
+_md5_=20911471b7be15cbc128bcc04bae9e58
