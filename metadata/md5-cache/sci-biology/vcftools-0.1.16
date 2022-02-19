@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=sys-libs/zlib dev-lang/perl:= lapack? ( virtual/lapack )
+DESCRIPTION=Tools for working with VCF (Variant Call Format) files
+EAPI=8
+HOMEPAGE=http://vcftools.sourceforge.net/
+INHERIT=autotools flag-o-matic perl-functions toolchain-funcs
+IUSE=lapack
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RDEPEND=sys-libs/zlib dev-lang/perl:= lapack? ( virtual/lapack )
+SLOT=0
+SRC_URI=https://github.com/vcftools/vcftools/releases/download/v0.1.16/vcftools-0.1.16.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	perl-functions	fea344a91ebf37efadf172c6a3de5a72
+_md5_=faeb202e0aded0cb660ea87d6d7be81b
