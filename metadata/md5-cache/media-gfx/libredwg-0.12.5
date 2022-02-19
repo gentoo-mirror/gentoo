@@ -1,0 +1,17 @@
+BDEPEND=|| ( sys-devel/gcc[sanitize] sys-libs/compiler-rt-sanitizers[asan(-)] ) dev-vcs/git sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install prepare setup unpack
+DEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
+DESCRIPTION=C library to handle DWG files
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/libredwg/
+INHERIT=autotools docs python-single-r1 perl-functions
+IUSE=debug python perl static-libs doc python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64
+LICENSE=GPL-3 MIT
+RDEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/LibreDWG/libredwg/archive/refs/tags/0.12.5.tar.gz -> libredwg-0.12.5.tar.gz https://github.com/zserge/jsmn/archive/85695f3d5903b1cd5b4030efe50db3b4f5f3c928.tar.gz -> libredwg-85695f3d5903b1cd5b4030efe50db3b4f5f3c928.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	docs	7c38d94fa7c1b4235fe571dc09e018df	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	perl-functions	fea344a91ebf37efadf172c6a3de5a72
+_md5_=3512480eef0bf872f506ea126bf1eeb2

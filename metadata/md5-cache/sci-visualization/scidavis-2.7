@@ -1,0 +1,19 @@
+BDEPEND=dev-qt/linguist-tools:5 test? ( dev-libs/unittest++ dev-cpp/gtest ) dev-util/ninja >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen media-gfx/graphviz ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=muparser? ( dev-cpp/muParser ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sci-libs/gsl:= sys-libs/zlib[minizip] x11-libs/qwt:5 x11-libs/qwtplot3d origin? ( sci-libs/liborigin ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_8? ( >=dev-python/PyQt5-5.15.6[python_targets_python3_8(-)] dev-python/PyQt5-sip[python_targets_python3_8(-)] >=dev-python/sip-6:5[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/PyQt5-5.15.6[python_targets_python3_9(-)] dev-python/PyQt5-sip[python_targets_python3_9(-)] >=dev-python/sip-6:5[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/PyQt5-5.15.6[python_targets_python3_10(-)] dev-python/PyQt5-sip[python_targets_python3_10(-)] >=dev-python/sip-6:5[python_targets_python3_10(-)] ) )
+DESCRIPTION=Application for Scientific Data Analysis and Visualization
+EAPI=8
+HOMEPAGE=http://scidavis.sourceforge.net/ https://github.com/SciDAVis/scidavis/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=python-single-r1 cmake docs virtualx xdg
+IUSE=doc +muparser origin python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 doc test
+KEYWORDS=~amd64
+LICENSE=GPL-2+ ZLIB
+PROPERTIES=test_network
+RDEPEND=muparser? ( dev-cpp/muParser ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sci-libs/gsl:= sys-libs/zlib[minizip] x11-libs/qwt:5 x11-libs/qwtplot3d origin? ( sci-libs/liborigin ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_8? ( >=dev-python/PyQt5-5.15.6[python_targets_python3_8(-)] dev-python/PyQt5-sip[python_targets_python3_8(-)] >=dev-python/sip-6:5[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/PyQt5-5.15.6[python_targets_python3_9(-)] dev-python/PyQt5-sip[python_targets_python3_9(-)] >=dev-python/sip-6:5[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/PyQt5-5.15.6[python_targets_python3_10(-)] dev-python/PyQt5-sip[python_targets_python3_10(-)] >=dev-python/sip-6:5[python_targets_python3_10(-)] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/scidavis/scidavis-2.7.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	docs	7c38d94fa7c1b4235fe571dc09e018df	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857
+_md5_=97dfb0d4a516c8c820b203bf109f7a9d
