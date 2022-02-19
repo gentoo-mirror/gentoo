@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare unpack
+DESCRIPTION=A modern IRC server written in Go
+EAPI=8
+HOMEPAGE=https://ergo.chat/ https://github.com/ergochat/ergo
+INHERIT=go-module systemd
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0
+RDEPEND=acct-user/oragono acct-group/oragono
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/ergochat/ergo/archive/v2.9.1.tar.gz -> ergo-2.9.1.tar.gz
+_eclasses_=go-module	ea6b447321803e690cb8d3e006fd01a3	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=77317e55c60798ca2b08fc612515944e
