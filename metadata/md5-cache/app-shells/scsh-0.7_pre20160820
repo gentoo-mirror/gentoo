@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare unpack
+DEPEND=~dev-scheme/scsh-lib-0.7_pre20160820
+DESCRIPTION=Unix shell embedded in Scheme
+EAPI=8
+HOMEPAGE=https://www.scsh.net/
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=~dev-scheme/scsh-lib-0.7_pre20160820
+SLOT=0
+SRC_URI=https://github.com/scheme/scsh/archive/114432435e4eadd54334df6b37fcae505079b49f.tar.gz -> scsh-0.7_pre20160820.tar.gz https://github.com/scheme/rx/archive/d3231ad13de2b44e3ee173b1c9d09ff165e8b6d5.tar.gz -> scsh-0.7_pre20160820_rx.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=50ca4f5293db85f05c6139fc8f31b62f
