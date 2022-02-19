@@ -3,7 +3,7 @@
 
 EAPI=8
 
-H=59b227b1aab315cdaa798648e47c4c4a8f71ddba
+H=52e993f3b39416eeb4df6262491d4a42d0b35232
 NEED_EMACS=25.1
 
 inherit elisp
@@ -22,7 +22,6 @@ BDEPEND="${RDEPEND}"
 
 DOCS=( CONTRIBUTING.md README.md THANKS.md )
 ELISP_TEXINFO="doc/racket-mode.texi"
-PATCHES=( "${FILESDIR}/${PN}-racket-util.el-defvar.patch" )
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
