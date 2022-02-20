@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,12 +11,12 @@ MY_PN=modsecurity
 MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="Application firewall and intrusion detection for Apache"
-HOMEPAGE="https://www.modsecurity.org/"
-SRC_URI="https://www.modsecurity.org/tarball/${PV}/${MY_P}.tar.gz"
+HOMEPAGE="https://github.com/SpiderLabs/ModSecurity"
+SRC_URI="https://github.com/SpiderLabs/ModSecurity/releases/download/v${PV}/${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc fuzzyhash geoip jit json lua mlogc"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
@@ -25,6 +25,7 @@ COMMON_DEPEND="dev-libs/apr
 	dev-libs/apr-util[openssl]
 	dev-libs/libxml2
 	dev-libs/libpcre[jit?]
+	virtual/libcrypt:=
 	fuzzyhash? ( app-crypt/ssdeep )
 	json? ( dev-libs/yajl )
 	lua? ( ${LUA_DEPS} )
@@ -87,7 +88,7 @@ src_compile() {
 src_install() {
 	apache-module_src_install
 
-	dodoc CHANGES README.md modsecurity.conf-recommended
+	dodoc CHANGES README.md modsecurity.conf-recommended unicode.mapping
 
 	if use doc; then
 		dodoc -r doc/apache/html
