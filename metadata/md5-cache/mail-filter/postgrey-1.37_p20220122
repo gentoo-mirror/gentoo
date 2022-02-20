@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DEPEND=acct-group/postgrey acct-user/postgrey
+DESCRIPTION=Postgrey is a Postfix policy server implementing greylisting
+EAPI=8
+HOMEPAGE=https://postgrey.schweikert.ch/
+INHERIT=systemd
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/postgrey acct-user/postgrey >=dev-lang/perl-5.6.0 dev-perl/Net-Server dev-perl/IO-Multiplex dev-perl/BerkeleyDB dev-perl/Net-DNS dev-perl/NetAddr-IP dev-perl/Net-RBLClient dev-perl/Parse-Syslog virtual/perl-Digest-SHA >=sys-libs/db-4.1
+SLOT=0
+SRC_URI=https://github.com/schweikert/postgrey/archive/c589bb9b727be9e1caaef6aa809a5ced688d9509.tar.gz -> postgrey-1.37_p20220122.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=aefd9fc279a1bb67c83697a1f4001d55
