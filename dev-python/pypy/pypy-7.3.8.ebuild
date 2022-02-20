@@ -18,7 +18,7 @@ S="${WORKDIR}/${MY_P}-src"
 LICENSE="MIT"
 # pypy -c 'import sysconfig; print sysconfig.get_config_var("SOABI")'
 SLOT="0/73"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="bzip2 gdbm +jit ncurses sqlite tk"
 
 RDEPEND="
@@ -41,9 +41,6 @@ src_prepare() {
 		"${WORKDIR}/${PATCHSET}"
 	)
 	default
-
-	sed -e "s^@EPREFIX@^${EPREFIX}^" \
-		-i lib-python/2.7/distutils/command/install.py || die
 }
 
 src_compile() {
@@ -109,6 +106,11 @@ src_test() {
 		--ignore=lib-python/2.7/test/test_urllib2net.py
 		# lots of free space
 		--ignore=lib-python/2.7/test/test_zipfile64.py
+
+		# broken by expat-2.4.5
+		--ignore=lib-python/2.7/test/test_minidom.py
+		--ignore=lib-python/2.7/test/test_xml_etree.py
+		--ignore=lib-python/2.7/test/test_xml_etree_c.py
 	)
 
 	./pypy-c ./pypy/test_all.py --pypy=./pypy-c -vv \
