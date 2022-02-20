@@ -3161,7 +3161,7 @@ app-portage/porticron 0.7.1: cron script to sync portage and send update mails t
 app-portage/portpeek 3.2.2: A helper program for maintaining the package.keyword and package.unmask files
 app-portage/pram 10: Tool to ease merging Pull Requests and git patches
 app-portage/prefix-toolkit 8 9: Utilities for users of Gentoo Prefix
-app-portage/recover-broken-vdb 0.0.9 1.0.0 9999: Check Portage's VDB for internal inconsistency on ELF metadata
+app-portage/recover-broken-vdb 1.0.0 9999: Check Portage's VDB for internal inconsistency on ELF metadata
 app-portage/repo-commit 0.4.1-r1 9999: A repository commit helper
 app-portage/repoman 2.3.23 3.0.2 3.0.3-r1 9999: Repoman is a Quality Assurance tool for Gentoo ebuilds
 app-portage/smart-live-rebuild 1.3.7 1.4.0 9999: Check live packages for updates and emerge them as necessary
@@ -5322,7 +5322,7 @@ dev-lang/closure-compiler-bin 20211107: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
 dev-lang/crystal 1.1.0 1.1.1 1.2.1 1.2.2: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
-dev-lang/duktape 2.4.0 2.5.0-r1 2.6.0 2.7.0: Embeddable Javascript engine
+dev-lang/duktape 2.6.0 2.7.0-r1: Embeddable Javascript engine
 dev-lang/elixir 1.11.4 1.11.4-r1 1.12.1 1.12.2 1.12.3: Elixir programming language
 dev-lang/erlang 23.3.4 23.3.4.8 24.0.2 24.1.4 24.1.7 24.2 24.2.1: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.512: Combine interpreter of esoteric languages
@@ -5474,7 +5474,7 @@ dev-libs/cppcodec 0.2 9999: C++11 library to encode/decode base64, base64url, ba
 dev-libs/crc32c 1.0.6-r1 1.1.1 1.1.2-r1: CRC32C implementation with support for CPU-specific acceleration instructions
 dev-libs/criterion 2.4_pre20210114 2.4_pre20211218 2.4.0_rc: Cross platform unit testing framework for C and C++
 dev-libs/crossguid 0_pre20150817: Lightweight cross platform C++ GUID/UUID library
-dev-libs/crypto++ 8.2.0-r2 8.4.0 8.5.0 8.6.0: C++ class library of cryptographic schemes
+dev-libs/crypto++ 8.6.0: C++ class library of cryptographic schemes
 dev-libs/cudnn 8.3.0.98 8.3.1.22: NVIDIA Accelerated Deep Learning on GPU library
 dev-libs/cvector 1.0.3.1: An ANSI C implementation of dynamic arrays (approximation of C++ vectors)
 dev-libs/cxxopts 2.2.1-r1: Lightweight C++ command line option parser
@@ -5806,7 +5806,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.5 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.0 2.7.4 2.7.7: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/metee 3.1.0 3.1.2: Cross-platform access library for Intel CSME HECI interface
-dev-libs/mimalloc 1.7.3 1.7.5 2.0.3-r1 2.0.5: mimalloc is a compact general purpose allocator with excellent performance
+dev-libs/mimalloc 2.0.3-r1 2.0.5: mimalloc is a compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniz 2.1.0-r2 9999: A lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
@@ -11116,7 +11116,7 @@ dev-util/dialog 1.3.20211107 1.3.20211214 1.3.20220117: Tool to display dialog b
 dev-util/diff-cover 5.0.1: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/difffilter 0.3.3-r1: Filter files out of unified diffs using POSIX extended regular expressions
-dev-util/diffoscope 197 201 202 203-r1 204: Will try to get to the bottom of what makes files or directories different
+dev-util/diffoscope 201 204: Will try to get to the bottom of what makes files or directories different
 dev-util/diffstat 1.63 1.64: Display a histogram of diff changes
 dev-util/diffuse 0.6.0 0.7.2 0.7.3: A graphical tool to compare and merge text files
 dev-util/dirdiff 2.1-r3: A tool for differing and merging directories
@@ -13251,7 +13251,7 @@ media-gfx/gozer 0.7-r3: tool for rendering arbitrary text as graphics, using ttf
 media-gfx/gphoto2 2.5.27 2.5.28: Free, redistributable digital camera software application
 media-gfx/gphotofs 0.5-r1: FUSE file system for interfacing with digital cameras using gphoto2
 media-gfx/gpicview 0.2.5-r2: A Simple and Fast Image Viewer for X
-media-gfx/graphicsmagick 1.3.36 1.3.37 9999: Collection of tools and libraries for many image formats
+media-gfx/graphicsmagick 1.3.37 9999: Collection of tools and libraries for many image formats
 media-gfx/graphite2 1.3.14-r1 1.3.14_p20210810 1.3.14_p20210810-r1: Library providing rendering capabilities for complex non-Roman writing systems
 media-gfx/graphviz 2.49.0: Open Source Graph Visualization Software
 media-gfx/grub-splashes 20091109: Collection of grub splashes
@@ -14683,7 +14683,7 @@ net-analyzer/egressor 1.0-r2: tool for checking router configuration
 net-analyzer/etherape 0.9.20: A graphical network monitor for Unix modeled after etherman
 net-analyzer/ethloop 10-r4: Local simulator for testing Linux QoS disciplines
 net-analyzer/ettercap 0.8.3.1 9999: A suite for man in the middle attacks
-net-analyzer/fail2ban 0.11.2 0.11.2-r1 0.11.2-r2 0.11.2-r4 9999: Scans log files and bans IPs that show malicious signs
+net-analyzer/fail2ban 0.11.2-r4 9999: Scans log files and bans IPs that show malicious signs
 net-analyzer/firewalk 5.0-r2: A tool for determining a firewall's rule set
 net-analyzer/flent 1.3.2: The FLExible Network Tester
 net-analyzer/flow-tools 0.68.6-r1: library and programs to process reports from NetFlow data
@@ -14868,7 +14868,7 @@ net-analyzer/suricata 5.0.8 6.0.4: High performance Network IDS, IPS and Network
 net-analyzer/symon 2.88: Performance and information monitoring tool
 net-analyzer/synscan 5.02: A fast asynchronous half-open TCP portscanner
 net-analyzer/syweb 0.65-r1: Web frontend to symon
-net-analyzer/tcpdump 4.9.3-r4 4.99.0 4.99.1 9999: A tool for network monitoring and data acquisition
+net-analyzer/tcpdump 4.99.1 9999: A tool for network monitoring and data acquisition
 net-analyzer/tcpflow 1.6.1: A tool for monitoring, capturing and storing TCP connections flows
 net-analyzer/tcping 1.3.6: Check if a desired port is reachable via TCP
 net-analyzer/tcpreen 1.4.4: TCP network re-engineering tool
@@ -14896,7 +14896,7 @@ net-analyzer/upnpscan 0.4-r3: Scans the network for UPnP capable devices
 net-analyzer/vnstat 1.17-r1 2.8 2.9 9999: Console-based network traffic monitor that keeps statistics of network usage
 net-analyzer/wapiti 3.0.5 9999: Web-application vulnerability scanner
 net-analyzer/webfuzzer 0.2.0-r2: Poor man's web vulnerability scanner
-net-analyzer/wireshark 3.4.10 3.4.11 3.6.0-r1 3.6.1 3.6.2 9999: A network protocol analyzer formerly known as ethereal
+net-analyzer/wireshark 3.6.1 3.6.2 9999: A network protocol analyzer formerly known as ethereal
 net-analyzer/xnetload 1.11.3-r1: Displays a count and a graph of the traffic over a specified network connection
 net-analyzer/xprobe 0.3-r1: Active OS fingerprinting tool - this is Xprobe2
 net-analyzer/yersinia 0.8.2 9999: A framework for layer 2 attacks
@@ -15117,7 +15117,7 @@ net-irc/dccserver 0.5-r1: linux implementation of the mirc dccserver command
 net-irc/eggdrop 1.8.4-r1 1.9.0 1.9.1: An IRC bot extensible with C or TCL
 net-irc/emech 3.0.99_p3-r1: UNIX compatible IRC bot programmed in the C language
 net-irc/epic5 2.0.1-r1: Epic5 IRC Client
-net-irc/ergo 2.8.0 2.9.1 2.9.1-r1: A modern IRC server written in Go
+net-irc/ergo 2.9.1 2.9.1-r1: A modern IRC server written in Go
 net-irc/hexchat 2.14.3-r101 2.16.0 2.16.1 9999: Graphical IRC client based on XChat
 net-irc/ii 1.8 9999: A minimalist FIFO and filesystem-based IRC client
 net-irc/inspircd 3.12.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
@@ -15150,7 +15150,7 @@ net-irc/rhapsody 0.28b: IRC client intended to be displayed on a text console
 net-irc/scrollz 2.3-r1: Advanced IRC client based on ircII
 net-irc/sic 1.2-r1: An extremely simple IRC client
 net-irc/telepathy-idle 0.2.2: Full-featured IRC connection manager for Telepathy
-net-irc/unrealircd 5.2.2 5.2.4 6.0.2: An advanced Internet Relay Chat daemon
+net-irc/unrealircd 5.2.4 6.0.2: An advanced Internet Relay Chat daemon
 net-irc/weechat 3.3 3.4 9999: Portable and multi-interface IRC client
 net-irc/znc 1.8.2 1.8.2-r1 9999: An advanced IRC Bouncer
 net-irc/znc-clientbuffer 1.0.48: A ZNC module which provides client specific buffers
@@ -15735,7 +15735,7 @@ net-misc/tiers 1.1: Random network topography generator
 net-misc/tigervnc 1.9.0-r2 1.11.0-r4 1.12.0-r1 9999: Remote desktop viewer display system
 net-misc/tipcutils 2.0.3: Utilities for TIPC (Transparent Inter-Process Communication)
 net-misc/ttytter 2.1.00: A multi-functional, console-based Twitter client
-net-misc/turbovnc 2.2.6 2.2.7-r1: A fast replacement for TigerVNC
+net-misc/turbovnc 2.2.7-r1: A fast replacement for TigerVNC
 net-misc/ubridge 0.9.18: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfaces
 net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redundancy Protocol (CARP)
 net-misc/udpcast 20200328: Multicast file transfer tool
@@ -15920,7 +15920,7 @@ net-proxy/tsocks 1.8_beta5-r9: Transparent SOCKS v4 proxying library
 net-proxy/wwwoffle 2.9i-r2: Web caching proxy suitable for non-permanent Internet connections
 net-proxy/ziproxy 3.3.1-r2: A forwarding, non-caching, compressing web proxy server
 net-voip/captagent 6.3.1-r1: 100% Open-Source Packet Capture Agent for HEP
-net-voip/sipvicious 0.3.0 0.3.3 0.3.4: SIPVicious is a SIP security package
+net-voip/sipvicious 0.3.4: SIPVicious is a SIP security package
 net-voip/telepathy-gabble 0.18.4-r4: A XMPP connection manager, handles single and multi user chats and voice calls
 net-voip/telepathy-rakia 0.8.0-r1: A SIP connection manager for Telepathy based around the Sofia-SIP library
 net-voip/telepathy-salut 0.8.1-r5: A link-local XMPP connection manager for Telepathy
@@ -17364,7 +17364,7 @@ sys-apps/minised 1.15: a smaller, cheaper and faster sed implementation
 sys-apps/miscfiles 1.5-r3: Miscellaneous files
 sys-apps/mlocate 0.26-r3: Merging locate is an utility to index and quickly search for files
 sys-apps/mlxup-bin 4.13.0: Mellanox Update and Query Utility
-sys-apps/moreutils 0.66 0.67: A collection of tools that nobody thought to write when Unix was young
+sys-apps/moreutils 0.67: A collection of tools that nobody thought to write when Unix was young
 sys-apps/most 5.1.0: Paging program that displays, one windowful at a time, the contents of a file
 sys-apps/mount-gtk 1.4.5.1: GTK+ based UDisks2 frontend
 sys-apps/mouseemu 0.15: Emulates scrollwheel, right- & left-click for one-button mice/touchpads
@@ -17391,7 +17391,7 @@ sys-apps/pcsc-slb-rf72-drv 1.1.0-r2: Schlumberger Reflex 72 Serial Smartcard Rea
 sys-apps/pcsc-tools 1.5.6 1.5.7: PC/SC Architecture smartcard tools
 sys-apps/pick 4.0.0: A fuzzy search tool for the command-line
 sys-apps/pkgcore 0.12.8 0.12.9 9999: a framework for package management
-sys-apps/plocate 1.1.11 1.1.13 1.1.14 1.1.15: Posting locate is a much faster locate
+sys-apps/plocate 1.1.14 1.1.15: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r6: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pmount-gui 0_pre20130806: A simple graphical frontend for pmount
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
@@ -17632,7 +17632,7 @@ sys-boot/os-prober 1.78-r1 1.79-r1 1.79-r2 9999: Utility to detect other OSs on 
 sys-boot/palo 2.14 2.15 9999: PALO: PArisc Linux Loader
 sys-boot/plymouth 0.9.5-r1 0.9.6_pre20211225 22.02.122 9999: Graphical boot animation (splash) and logger
 sys-boot/plymouth-openrc-plugin 0.1.3: Plymouth plugin for OpenRC
-sys-boot/raspberrypi-firmware 1.20201022 1.20201201 1.20210108 1.20210527 1.20211029 1.20211118 9999: Raspberry Pi (all versions) bootloader and GPU firmware
+sys-boot/raspberrypi-firmware 1.20210527 1.20211029 1.20211118 9999: Raspberry Pi (all versions) bootloader and GPU firmware
 sys-boot/refind 0.11.4 0.12.0-r1 0.13.2: The UEFI Boot Manager by Rod Smith
 sys-boot/sgibootcd 0.13: Creates burnable CD images for SGI LiveCDs
 sys-boot/shim 15.5-r1: Fedora's signed UEFI shim
@@ -17796,7 +17796,7 @@ sys-firmware/iwl7260-ucode 0.16.242414: Firmware for Intel (R) Dual Band Wireles
 sys-firmware/iwl8000-ucode 16.242414.0: Firmware for Intel (R) Wireless 8260 and 4165
 sys-firmware/midisport-firmware 1.2-r1: Firmware for M-Audio/Midiman USB MIDI devices
 sys-firmware/nvidia-firmware 340.32-r1: Kernel and mesa firmware for nouveau (video accel and pgraph)
-sys-firmware/raspberrypi-wifi-ucode 20190114.1_p9 20190114.1_p10 20190114.1_p11: Most up-to-date uCode for the Broadcom wifi chips on Raspberry Pi SBCs
+sys-firmware/raspberrypi-wifi-ucode 20190114.1_p11: Most up-to-date uCode for the Broadcom wifi chips on Raspberry Pi SBCs
 sys-firmware/seabios 1.12.0 1.12.0-r1 1.14.0 1.14.0-r1 1.14.0-r2: Open Source implementation of a 16-bit x86 BIOS
 sys-firmware/sgabios 0.1_pre8-r1 0.1_pre10: serial graphics adapter bios option rom for x86
 sys-firmware/sigrok-firmware-fx2lafw 0.1.7-r1 9999: Firmware for Cypress FX2 chips for use as simple logic analyzer hardware
@@ -18108,7 +18108,7 @@ sys-process/minit 0.10-r1: a small yet feature-complete init
 sys-process/nmon 16g 16i 16j 16m: Nigel's performance MONitor for CPU, memory, network, disks, etc...
 sys-process/numactl 2.0.14 9999: Utilities and libraries for NUMA systems
 sys-process/numad 0.5-r3 9999: The NUMA daemon that manages application locality
-sys-process/parallel 20211122 20211222 20220122: A shell tool for executing jobs in parallel locally or on remote machines
+sys-process/parallel 20211222 20220122: A shell tool for executing jobs in parallel locally or on remote machines
 sys-process/pkill-darwin 1.0: pgrep(1) and pkill(1) for Darwin
 sys-process/prll 0.6.4: A utility for parallelizing execution of shell functions
 sys-process/procenv 0.51: command-line utility to show process environment
