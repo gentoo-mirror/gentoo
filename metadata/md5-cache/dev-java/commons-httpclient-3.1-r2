@@ -2,7 +2,7 @@ DEFINED_PHASES=compile configure install preinst prepare setup
 DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/ant-junit:0 ) dev-java/commons-logging:0 dev-java/commons-codec:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=The Jakarta Commons HttpClient library
 EAPI=7
-HOMEPAGE=https://hc.apache.org/
+HOMEPAGE=https://hc.apache.org/httpclient-legacy/
 INHERIT=java-pkg-2 java-ant-2
 IUSE=doc examples source test
 KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~amd64-linux ~x86-linux
@@ -12,4 +12,4 @@ RESTRICT=test
 SLOT=3
 SRC_URI=mirror://apache/httpcomponents/commons-httpclient/source/commons-httpclient-3.1-src.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	262d853e2dd1056dc103b953dfc113b9
-_md5_=149a8543fcc714306ef2a571da12f5d6
+_md5_=4bfadc2ca13c5ff2db0bdd47f2f9d72c
