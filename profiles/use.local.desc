@@ -3927,6 +3927,7 @@ media-gfx/blender:dds - Adds DDS textures support to Blender.
 media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles render engine.
 media-gfx/blender:fluid - Adds fluid simulation support via the built-in Mantaflow library.
 media-gfx/blender:headless - Build without graphical support (renderfarm, server mode only).
+media-gfx/blender:nanovdb - Enable nanoVDB support in Cycles. Uses less memory than regular openVDB when rendering.
 media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
 media-gfx/blender:oidn - Enable OpenImageDenoiser Support
 media-gfx/blender:opencl - Allow OpenCL Graphics Acceleration. This may require extra graphics card drivers.
@@ -4066,7 +4067,10 @@ media-gfx/openvdb:abi5-compat - Disables newer features to maintain compatibilit
 media-gfx/openvdb:abi6-compat - Disables newer features to maintain compatibility with ABI6.
 media-gfx/openvdb:abi7-compat - Disables newer features to maintain compatibility with ABI7.
 media-gfx/openvdb:abi8-compat - Disables newer features to maintain compatibility with ABI8.
+media-gfx/openvdb:abi9-compat - Disables newer features to maintain compatibility with ABI9.
 media-gfx/openvdb:blosc - Allow using blosc compression via dev-libs/c-blosc
+media-gfx/openvdb:cuda - Enable support for CUDA in NanoVDB.
+media-gfx/openvdb:nanovdb - A lightweight, header only, and GPU friendly version of VDB.
 media-gfx/openvdb:numpy - Build pyopenvdb with support for dev-python/numpy
 media-gfx/openvdb:utils - Build utility binaries
 media-gfx/photoqt:devil - Support additional image formats using media-libs/devil
