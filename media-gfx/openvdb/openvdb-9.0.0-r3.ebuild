@@ -14,16 +14,17 @@ SRC_URI="https://github.com/AcademySoftwareFoundation/${PN}/archive/v${PV}.tar.g
 LICENSE="MPL-2.0"
 SLOT="0/9"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 +blosc doc numpy python static-libs test utils zlib abi6-compat abi7-compat +abi8-compat"
+IUSE="cpu_flags_x86_avx cpu_flags_x86_sse4_2 +blosc cuda doc +nanovdb numpy python static-libs test utils zlib abi6-compat abi7-compat abi8-compat +abi9-compat"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	numpy? ( python )
-	^^ ( abi6-compat abi7-compat abi8-compat )
+	cuda? ( nanovdb )
+	^^ ( abi6-compat abi7-compat abi8-compat abi9-compat )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
 RDEPEND="
-	>=dev-cpp/tbb-2021.4.0:=
+	>=dev-cpp/tbb-2020.3:=
 	dev-libs/boost:=
 	dev-libs/jemalloc:=
 	dev-libs/log4cplus:=
@@ -37,6 +38,7 @@ RDEPEND="
 	x11-libs/libXinerama
 	x11-libs/libXrandr
 	blosc? ( dev-libs/c-blosc:= )
+	cuda? ( >=dev-util/nvidia-cuda-toolkit-11 )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
@@ -62,7 +64,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-7.1.0-0001-Fix-multilib-header-source.patch"
 	"${FILESDIR}/${PN}-8.1.0-glfw-libdir.patch"
 	"${FILESDIR}/${PN}-9.0.0-fix-atomic.patch"
 	"${FILESDIR}/${PN}-9.0.0-numpy.patch"
@@ -83,12 +84,12 @@ src_configure() {
 		version=7
 	elif use abi8-compat; then
 		version=8
+	elif use abi9-compat; then
+		version=9
 	else
 		die "OpenVDB ABI version is not compatible"
 	fi
 
-	# TODO: add NanoVDB?
-	# https://academysoftwarefoundation.github.io/openvdb/NanoVDB_HowToBuild.html
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}/"
 		-DOPENVDB_ABI_VERSION_NUMBER="${version}"
@@ -106,7 +107,15 @@ src_configure() {
 		-DUSE_COLORED_OUTPUT=ON
 		-DUSE_IMATH_HALF=ON
 		-DUSE_LOG4CPLUS=ON
+		-DUSE_NANOVDB=$(usex nanovdb)
 	)
+
+	if use nanovdb; then
+		mycmakeargs+=(
+			-DNANOVDB_BUILD_UNITTESTS=$(usex test)
+			-DNANOVDB_USE_CUDA=$(usex cuda)
+		)
+	fi
 
 	if use python; then
 		mycmakeargs+=(
