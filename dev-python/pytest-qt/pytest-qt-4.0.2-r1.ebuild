@@ -1,8 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 virtualx
@@ -21,13 +22,11 @@ RDEPEND="dev-python/QtPy[gui,testlib,widgets(+),${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
 		dev-python/PyQt5[gui,testlib,widgets,${PYTHON_USEDEP}]
-		$(python_gen_cond_dep '
-			dev-python/pyside2[gui,testlib,widgets,${PYTHON_USEDEP}]
-			' python3_{8..9} )
+		dev-python/pyside2[gui,testlib,widgets,${PYTHON_USEDEP}]
 	)
 "
 
-distutils_enable_tests --install pytest
+distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 
 src_test() {
@@ -50,11 +49,6 @@ python_test() {
 		tests/test_basics.py::test_qt_api_ini_config_with_envvar
 	)
 
-	distutils_install_for_testing
 	PYTEST_QT_API="pyqt5" epytest || die
-	if [[ "${EPYTHON}" == "python3.10" ]]; then
-		return
-	else
-		PYTEST_QT_API="pyside2" epytest || die
-	fi
+	PYTEST_QT_API="pyside2" epytest || die
 }
