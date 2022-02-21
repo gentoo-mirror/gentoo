@@ -1,9 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{7..9} pypy3 )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+EAPI=8
+PYTHON_COMPAT=( python3_{7..10} pypy3 )
 
 inherit distutils-r1
 
@@ -19,18 +18,19 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	app-misc/jq
 	dev-python/argcomplete[${PYTHON_USEDEP}]
-	>=dev-python/pyyaml-3.11[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-5.3.1[${PYTHON_USEDEP}]
+	dev-python/toml[${PYTHON_USEDEP}]
 	dev-python/xmltodict[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	test? (
-		dev-python/toml[${PYTHON_USEDEP}]
 		dev-python/wheel[${PYTHON_USEDEP}]
 	)
 "
 
 PATCHES=(
-	"${FILESDIR}/yq-2.11.1-tests.patch"
+	"${FILESDIR}/yq-2.13.0-tests.patch"
 )
 
 python_prepare_all() {
