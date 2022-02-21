@@ -49,7 +49,7 @@ RDEPEND="
 	net-libs/ignition-transport:8=
 	sci-libs/ignition-common:3=
 	sci-libs/ignition-fuel-tools:4=
-	x11-libs/qwt:6=[qt5(+)]
+	<x11-libs/qwt-6.2.0:6=[qt5(+)]
 "
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
@@ -65,6 +65,7 @@ CMAKE_BUILD_TYPE=RelWithDebInfo
 PATCHES=(
 	"${FILESDIR}/qwt.patch"
 	"${FILESDIR}/cmake.patch"
+	"${FILESDIR}/ffmpeg5.patch"
 )
 
 src_configure() {
