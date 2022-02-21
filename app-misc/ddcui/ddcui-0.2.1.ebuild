@@ -9,9 +9,7 @@ DESCRIPTION="Graphical user interface for ddcutil - control monitor settings"
 HOMEPAGE="https://www.ddcutil.com/ddcui_main/"
 SRC_URI="https://github.com/rockowitz/ddcui/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-# seg fault on launch
-# https://github.com/rockowitz/ddcui/issues/34
-KEYWORDS=""
+KEYWORDS="~amd64"
 LICENSE="GPL-2+"
 SLOT="0"
 
@@ -25,6 +23,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-build.patch"
+)
 
 src_prepare() {
 	# move docs to correct dir
