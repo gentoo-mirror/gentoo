@@ -17,6 +17,10 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="doc? ( app-doc/doxygen )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.3.1-fix-version.patch
+)
+
 src_prepare() {
 	if ! use doc ; then
 		sed -i -e '/add_subdirectory(doc/d' CMakeLists.txt || die
@@ -34,7 +38,6 @@ src_configure() {
 		# Avoid Boost dependency
 		-DSKIP_PERFORMANCE_COMPARISON=ON
 
-		-DSKIP_PORTABILITY_TEST=ON
 		-DWITH_WERROR=OFF
 	)
 
