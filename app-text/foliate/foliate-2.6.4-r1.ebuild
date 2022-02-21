@@ -1,9 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PLOCALES="cs_CS de_DE es eu fr_FR id_ID ie it ko nb nl nn pt_BR ru_RU sv tr uk zh_CN zh_TW"
-inherit meson plocale xdg-utils gnome2-utils
+EAPI=8
+PLOCALES="cs de es eu fr id ie it ko nb nl nn pt_BR ru sv tr uk zh_CN zh_TW"
+PYTHON_COMPAT=( python3_{8..10} )
+inherit meson python-any-r1 plocale xdg gnome2-utils
 SRC_URI="https://github.com/johnfactotum/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="gtk ebook reader built with gjs"
 HOMEPAGE="https://github.com/johnfactotum/foliate/"
@@ -25,6 +26,8 @@ RDEPEND="dev-libs/gjs
 
 src_prepare() {
 	default
+	python_fix_shebang build-aux/meson
+	xdg_environment_reset
 
 	plocale_find_changes "${S}"/po '' '.po'
 
@@ -37,15 +40,11 @@ src_prepare() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 	gnome2_schemas_update
 }
