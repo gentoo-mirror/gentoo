@@ -5,7 +5,7 @@ EAPI="7"
 
 MY_PV="${PV/_pre*}"
 MY_P="pulseaudio-${MY_PV}"
-
+MY_PATCHSET="pulseaudio-daemon-15.0-patchset-1"
 inherit bash-completion-r1 gnome2-utils meson-multilib optfeature systemd tmpfiles udev
 
 DESCRIPTION="Libraries for PulseAudio clients"
@@ -17,6 +17,7 @@ if [[ ${PV} = 9999 ]]; then
 	EGIT_REPO_URI="https://gitlab.freedesktop.org/pulseaudio/pulseaudio"
 else
 	SRC_URI="https://freedesktop.org/software/pulseaudio/releases/${MY_P}.tar.xz"
+	SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/pulseaudio-daemon/${MY_PATCHSET}.tar.bz2"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
 
@@ -71,9 +72,9 @@ BDEPEND="
 
 DOCS=( NEWS README )
 
+# patches merged upstream, to be removed with 16.0 bump
 PATCHES=(
-	"${FILESDIR}"/pulseaudio-15.0-xice-xsm-xtst-daemon-only.patch
-	"${FILESDIR}"/${PV}-no-aec.patch
+	"${WORKDIR}"/${MY_PATCHSET}/
 )
 
 src_prepare() {
@@ -87,6 +88,7 @@ multilib_src_configure() {
 		--localstatedir="${EPREFIX}"/var
 
 		-Ddaemon=false
+		-Dclient=true
 		$(meson_native_use_bool doc doxygen)
 		-Dgcov=false
 		# tests involve random modules, so just do them for the native # TODO: tests should run always
@@ -170,6 +172,15 @@ multilib_src_install() {
 	# The files referenced in the DOCS array do not exist in the multilib source directory,
 	# therefore clear the variable when calling the function that will access it.
 	DOCS= meson_src_install
+
+	# Upstream installs 'pactl' if client is built, with all symlinks except for
+	# 'pulseaudio', 'pacmd' and 'pasuspender' which are installed if server is built.
+	# This trips QA warning, workaround:
+	# - install missing aliases in media-libs/libpulse (client build)
+	# - remove corresponding symlinks in media-sound/pulseaudio-daemonclient (server build)
+	bashcomp_alias pactl pulseaudio
+	bashcomp_alias pactl pacmd
+	bashcomp_alias pactl pasuspender
 
 	if multilib_is_native_abi; then
 		if use doc; then
