@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,30 +11,32 @@ SRC_URI="https://github.com/tpm2-software/${PN}/releases/download/${PV}/${P}.tar
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc64 x86"
-IUSE="doc +fapi gcrypt +openssl static-libs test"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+IUSE="doc +fapi +openssl mbedtls static-libs test"
 
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="^^ ( gcrypt openssl )
-		fapi? ( openssl !gcrypt )"
+REQUIRED_USE="^^ ( mbedtls openssl )
+		fapi? ( openssl !mbedtls )"
 
 RDEPEND="acct-group/tss
 	acct-user/tss
-	fapi? (
-		dev-libs/json-c
-		net-misc/curl
-	)
-	gcrypt? ( dev-libs/libgcrypt:0= )
-	openssl? ( dev-libs/openssl:0= )"
+	fapi? ( dev-libs/json-c:=
+		>=net-misc/curl-7.80.0 )
+	mbedtls? ( net-libs/mbedtls:= )
+	openssl? ( dev-libs/openssl:= )"
+
 DEPEND="${RDEPEND}
-	test? ( dev-util/cmocka )"
-BDEPEND="virtual/pkgconfig
+	test? ( app-crypt/swtpm
+		dev-libs/uthash
+		dev-util/cmocka
+		fapi? ( >=net-misc/curl-7.80.0 ) )"
+BDEPEND="sys-apps/acl
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.4.1-configure.ac-wrap-PKG_CHECK_MODULES-in-braces.patch"
-	"${FILESDIR}/${PN}-2.4.2-Dont-run-systemd-sysusers-in-Makefile.patch"
+	"${FILESDIR}/${PN}-3.1.0-Dont-run-systemd-sysusers-in-Makefile.patch"
 )
 
 pkg_setup() {
@@ -57,10 +59,12 @@ src_configure() {
 		$(use_enable fapi) \
 		$(use_enable static-libs static) \
 		$(use_enable test unit) \
-		--disable-tcti-mssim \
+		$(use_enable test integration) \
+		$(use_enable test self-generated-certificate) \
+		--disable-tcti-libtpms \
 		--disable-defaultflags \
 		--disable-weakcrypto \
-		--with-crypto="$(usex gcrypt gcrypt ossl)" \
+		--with-crypto="$(usex mbedtls mbed ossl)" \
 		--with-runstatedir=/run \
 		--with-udevrulesdir="$(get_udevdir)/rules.d" \
 		--with-udevrulesprefix=60- \
