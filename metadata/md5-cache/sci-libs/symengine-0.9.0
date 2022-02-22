@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/symengine/symengine
 INHERIT=cmake llvm toolchain-funcs
 IUSE=arb benchmarks boost debug doc ecm +flint llvm +mpc +mpfr openmp test tcmalloc +threads
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=dev-libs/gmp:= sys-libs/binutils-libs:= arb? ( sci-mathematics/arb:= ) boost? ( dev-libs/boost:= ) ecm? ( sci-mathematics/gmp-ecm ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) llvm? ( <sys-devel/llvm-14:= ) tcmalloc? ( dev-util/google-perftools )
 RESTRICT=!test? ( test )
 SLOT=0/0.9
 SRC_URI=https://github.com/symengine/symengine/archive/v0.9.0.tar.gz -> symengine-0.9.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	llvm	8b7c4e5fc38650215226b5186859d0d4
-_md5_=9a2954755e5cddd999ad10488d376574
+_md5_=7bc9516ea7c6aad05256d45a3a4add9f
