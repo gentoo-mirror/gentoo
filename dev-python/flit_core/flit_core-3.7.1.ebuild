@@ -6,6 +6,7 @@ EAPI=7
 
 DISTUTILS_USE_PEP517=standalone
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
+
 inherit distutils-r1
 
 DESCRIPTION="Simplified packaging of Python modules (core module)"
@@ -24,10 +25,6 @@ RDEPEND="
 BDEPEND="
 	test? ( dev-python/testpath[${PYTHON_USEDEP}] )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-fix-relative-imports-init-version.patch
-)
 
 distutils_enable_tests pytest
 
