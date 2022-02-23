@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* dev-java/cglib:3 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:0 )
+DESCRIPTION=Transparent threading solution for non-freezing Swing applications.
+EAPI=8
+HOMEPAGE=http://spin.sourceforge.net
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RDEPEND=>=virtual/jre-1.8:* dev-java/cglib:3 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge/project/spin/spin/v1.5/spin-1.5-all.zip
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=984cd140f0e1608edb5169aa2fcebee2
