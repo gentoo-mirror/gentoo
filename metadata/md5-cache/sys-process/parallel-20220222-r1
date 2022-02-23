@@ -2,7 +2,7 @@ BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-oletange-20210423 ) verify-sig? ( 
 DEFINED_PHASES=configure unpack
 DEPEND=dev-lang/perl:= dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-IO
 DESCRIPTION=A shell tool for executing jobs in parallel locally or on remote machines
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.gnu.org/software/parallel/ https://git.savannah.gnu.org/cgit/parallel.git/
 INHERIT=verify-sig
 IUSE=verify-sig
@@ -12,4 +12,4 @@ RDEPEND=dev-lang/perl:= dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-
 SLOT=0
 SRC_URI=mirror://gnu/parallel/parallel-20220222.tar.bz2 verify-sig? ( mirror://gnu/parallel/parallel-20220222.tar.bz2.sig )
 _eclasses_=verify-sig	f933d5d7363ccab1615d9b8b416ea28f
-_md5_=200931750abc4370a366f9c98507160c
+_md5_=dafa8c46b2dbf8ff3e42f66bcae17907
