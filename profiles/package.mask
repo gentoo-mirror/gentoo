@@ -159,13 +159,6 @@ dev-python/django-pglocks
 java-virtuals/script-api
 dev-java/jsr223
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-01-23)
-# Java-libraries with no consumers and depending on virtual/{jdk,jre}-1.6
-# Removal in 30 days.
-dev-java/yanfs
-dev-java/xp
-dev-java/felix-gogo-runtime
-
 # Eray Aslan <eras@gentoo.org> (2022-01-24)
 # Mask experimental software
 =mail-mta/postfix-3.8*
@@ -174,14 +167,6 @@ dev-java/felix-gogo-runtime
 # Breaks many GNOME packages.
 # https://bugs.gentoo.org/831474
 =dev-util/meson-0.61*
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2022-01-22)
-# Prelink support is being removed from glibc and was
-# already somewhat broken for a while...
-# hmaccalc hard-depends on it (?).
-# Removal in 30 days.
-sys-devel/prelink
-app-crypt/hmaccalc
 
 # James Beddek <telans@posteo.de> (2022-01-19)
 # FFmpeg 5.0 ABI/API changes break many packages.
