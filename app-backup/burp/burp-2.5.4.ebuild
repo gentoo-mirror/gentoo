@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools systemd
 
@@ -11,25 +11,28 @@ SRC_URI="https://github.com/grke/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="acl ipv6 test xattr"
 
 RESTRICT="!test? ( test )"
 
-CDEPEND="acct-group/burp
+COMMON_DEPEND="acct-group/burp
 	acct-user/burp
 	dev-libs/uthash
 	dev-libs/openssl:0=
 	net-libs/librsync:=
 	sys-libs/ncurses:0=
+	sys-libs/libcap
 	sys-libs/zlib
 	virtual/libcrypt:=
 	acl? ( sys-apps/acl )
 	xattr? ( sys-apps/attr )"
-DEPEND="${CDEPEND}
+DEPEND="${COMMON_DEPEND}
+	elibc_musl? ( sys-libs/queue-standalone )
 	test? ( dev-libs/check )"
-BDEPEND="virtual/pkgconfig"
-RDEPEND="${CDEPEND}
+BDEPEND=">=sys-devel/autoconf-2.71
+	virtual/pkgconfig"
+RDEPEND="${COMMON_DEPEND}
 	virtual/logger"
 
 PATCHES=(
@@ -49,13 +52,12 @@ src_configure() {
 		--localstatedir=/var
 		--sysconfdir=/etc/burp
 		--enable-largefile
+		--runstatedir=/run
 		$(use_enable acl)
 		$(use_enable ipv6)
 		$(use_enable xattr)
 	)
-	# --runstatedir option will only work from autoconf-2.70 onwards
-	runstatedir='/run' \
-		econf "${myeconfargs[@]}"
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
@@ -81,25 +83,19 @@ src_install() {
 }
 
 pkg_postinst() {
-	ewarn
-	ewarn "You are installing a development version of burp. These versions contain"
-	ewarn "new features but might have unexpected issues. It is recommended by upstream"
-	ewarn "to use the current stable version (i.e. currently the 2.2 branch) instead."
-	ewarn
-
 	elog "Burp ebuilds now support the autoupgrade mechanism in both"
 	elog "client and server mode. In both cases it is disabled by"
 	elog "default. You almost certainly do NOT want to enable it in"
 	elog "client mode because upgrades obtained this way will not be"
 	elog "managed by Portage."
 
-	if [[ ! -e /etc/burp/CA/index.txt ]]; then
+	if [[ ! -e ${EROOT}/etc/burp/CA/index.txt ]]; then
 		elog ""
 		elog "At first run burp server will generate DH parameters and SSL"
 		elog "certificates.  You should adjust configuration before."
 		elog "Server configuration is located at"
 		elog ""
-		elog "  /etc/burp/burp-server.conf"
+		elog "  ${EROOT}/etc/burp/burp-server.conf"
 		elog ""
 	fi
 
@@ -112,7 +108,7 @@ pkg_postinst() {
 			ewarn "the server config file by default. If you use bedup, please"
 			ewarn "update your scripts to invoke it as"
 			ewarn ""
-			ewarn "  bedup -c /etc/burp/burp-server.conf"
+			ewarn "  bedup -c ${EROOT}/etc/burp/burp-server.conf"
 			ewarn ""
 			ewarn "Otherwise deduplication will not work!"
 			break
