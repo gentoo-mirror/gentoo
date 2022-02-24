@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -59,6 +59,7 @@ RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.23.0-fix-font-size.patch
+	"${FILESDIR}"/${PN}-2.22.1-free_font.patch
 )
 
 DOCS=( DEDICATION HACKING README.md ROADMAP )
