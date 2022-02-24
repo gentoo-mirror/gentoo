@@ -1,8 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
@@ -14,7 +15,7 @@ S="${WORKDIR}"/${P/_p/-post}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	>=dev-python/httplib2-0.9.1[${PYTHON_USEDEP}]
@@ -37,16 +38,6 @@ distutils_enable_tests nose
 PATCHES=(
 	"${FILESDIR}/oauth2client-4.1.3-py38.patch"
 )
-
-python_prepare() {
-	# keyring is not fuly supported by pypy yet, because dbus-python can't support pypy
-	# oauth2client -> keyring -> secretstorage -> dbus-python
-	# https://github.com/mitya57/secretstorage/issues/10
-	case $PYTHON in
-		pypy|*pypy|*pypy3|pypy3) \
-			find "${BUILD_DIR}/.." -name '*keyring*py' -delete ;;
-	esac
-}
 
 python_test() {
 	nosetests -v \
