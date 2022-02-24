@@ -1,12 +1,11 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-#not sure why, but eapi 7 fails
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit eapi7-ver python-single-r1 gnome2-utils cmake-utils
+inherit cmake gnome2-utils python-single-r1
 
 DESCRIPTION="Universal Software Radio Peripheral (USRP) Hardware Driver"
 HOMEPAGE="https://kb.ettus.com"
@@ -32,14 +31,15 @@ RDEPEND="${PYTHON_DEPS}
 	e300? ( virtual/udev )
 	usb? ( virtual/libusb:1 )
 	dev-libs/boost:=
-	sys-libs/ncurses:0[tinfo]
+	sys-libs/ncurses:0=
 	$(python_gen_cond_dep '
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	')
 "
-
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+#zip an gzip are directly used by the build system
+BDEPEND="
 	doc? ( app-doc/doxygen )
 	$(python_gen_cond_dep '
 	dev-python/mako[${PYTHON_USEDEP}]
@@ -49,8 +49,7 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.0.0.0-tinfo.patch"
-	"${FILESDIR}/${PN}-4.1.0.4-hidden-visibility-tests.patch"
+	"${FILESDIR}/${PN}-4.1.0.5-hidden-visibility-tests.patch"
 )
 
 S="${WORKDIR}/${P}/host"
@@ -61,16 +60,16 @@ src_unpack() {
 }
 
 src_prepare() {
-	cmake-utils_src_prepare
+	cmake_src_prepare
 
 	gnome2_environment_reset #534582
-
-	#rpath is set for apple and no one else, just remove the conditional
-	sed -i -e '/if(APPLE)/d' -e '/endif(APPLE)/d' CMakeLists.txt || die
 }
 
 src_configure() {
-	mycmakeargs=(
+	#https://gitlab.kitware.com/cmake/cmake/-/issues/23236
+	#https://github.com/EttusResearch/uhd/pull/560
+	local mycmakeargs=(
+		-DCURSES_NEED_NCURSES=ON
 		-DENABLE_LIBUHD=ON
 		-DENABLE_C_API=ON
 		-DENABLE_MAN_PAGES=ON
@@ -92,21 +91,22 @@ src_configure() {
 		-DPYTHON_EXECUTABLE="${PYTHON}"
 		-DPKG_DOC_DIR="${EPREFIX}/usr/share/doc/${PF}"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
+
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	python_optimize
 	use utils && python_fix_shebang "${ED}"/usr/$(get_libdir)/${PN}/utils/
-	if [ "${PV}" != "9999" ]; then
-		rm -rf "${ED}/usr/bin/uhd_images_downloader"
-		rm -rf "${ED}/usr/share/man/man1/uhd_images_downloader.1"
+	if [[ "${PV}" != "9999" ]]; then
+		rm -r "${ED}/usr/bin/uhd_images_downloader" || die
+		rm -r "${ED}/usr/share/man/man1/uhd_images_downloader.1" || die
 	fi
 
 	insinto /lib/udev/rules.d/
 	doins "${S}/utils/uhd-usrp.rules"
 
-	rm -rf "${WORKDIR}/images/winusb_driver"
+	rm -r "${WORKDIR}/images/winusb_driver" || die
 	if ! use b100; then
 		rm "${WORKDIR}"/images/usrp_b100* || die
 	fi
@@ -138,10 +138,4 @@ src_install() {
 	fi
 	insinto /usr/share/${PN}
 	doins -r "${WORKDIR}/images"
-}
-
-src_test() {
-	#we can disable the python tests
-	#ctest -E 'py*'
-	PYTHON_PATH=python/ cmake-utils_src_test
 }

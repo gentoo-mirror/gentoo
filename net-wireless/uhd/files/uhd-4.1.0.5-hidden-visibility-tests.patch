@@ -7,20 +7,18 @@ Subject: [PATCH] Build uhd_test library as static when
 * A uhd_test.so lacks the necessary symbols for testing
   due to default visibility set to hidden.
 ---
- tests/common/CMakeLists.txt | 3 +-
- 1 file changed, 1 insertion(+), 2 deletion(-)
+ tests/common/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tests/common/CMakeLists.txt b/tests/common/CMakeLists.txt
 index ac0e1b4492..36c9f9b076 100644
 --- a/tests/common/CMakeLists.txt
 +++ b/tests/common/CMakeLists.txt
-@@ -8,7 +8,8 @@
+@@ -8,6 +8,6 @@
  # Build uhd_test static lib
  ########################################################################
- include_directories("${CMAKE_SOURCE_DIR}/lib/include")
--add_library(uhd_test ${CMAKE_CURRENT_SOURCE_DIR}/mock_ctrl_iface_impl.cpp
+ include_directories("${UHD_SOURCE_DIR}/lib/include")
+-add_library(uhd_test
 +add_library(uhd_test STATIC
-+                     ${CMAKE_CURRENT_SOURCE_DIR}/mock_ctrl_iface_impl.cpp
-                      ${CMAKE_CURRENT_SOURCE_DIR}/mock_zero_copy.cpp
-                      ${CMAKE_SOURCE_DIR}/lib/rfnoc/graph_impl.cpp
-                      ${CMAKE_SOURCE_DIR}/lib/rfnoc/async_msg_handler.cpp
+     ${CMAKE_CURRENT_SOURCE_DIR}/mock_zero_copy.cpp
+ )

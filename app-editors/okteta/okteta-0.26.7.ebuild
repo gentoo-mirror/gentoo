@@ -53,8 +53,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-crashfix.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DOMIT_EXAMPLES=ON
