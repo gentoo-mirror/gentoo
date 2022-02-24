@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/bzip2:= dev-cpp/range-v3 dev-libs/cereal sci-libs/lemon sys-libs/zlib:=
+DESCRIPTION=C++ Sequence Analysis Library
+EAPI=8
+HOMEPAGE=https://www.seqan.de/
+INHERIT=cmake
+IUSE=cpu_flags_x86_sse4_2
+KEYWORDS=~amd64 ~amd64-linux
+LICENSE=BSD GPL-3
+RDEPEND=app-arch/bzip2:= dev-cpp/range-v3 dev-libs/cereal sci-libs/lemon sys-libs/zlib:=
+REQUIRED_USE=cpu_flags_x86_sse4_2
+SLOT=0
+SRC_URI=https://github.com/seqan/seqan3/releases/download/3.1.0/seqan3-3.1.0-Source.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68
+_md5_=79bf85e28c26de53181c27b102f90252
