@@ -11,6 +11,8 @@ QMAIL_TLS_F=notqmail-1.08-tls-${QMAIL_TLS_PV}.patch
 
 QMAIL_BIGTODO_F=notqmail-1.08-big-todo.patch
 
+QMAIL_LARGE_DNS="qmail-103.patch"
+
 inherit qmail systemd
 
 if [[ ${PV} == "9999" ]] ; then
@@ -35,6 +37,7 @@ HOMEPAGE="
 "
 SRC_URI="${SRC_URI}
 	https://github.com/DerDakon/genqmail/releases/download/genqmail-${GENQMAIL_PV}/${GENQMAIL_F}
+	https://www.ckdhr.com/ckd/${QMAIL_LARGE_DNS}
 	!vanilla? (
 		highvolume? (
 			https://github.com/notqmail/notqmail/commit/3a22b45974ddd1230da0dfa21f886c3401bee020.patch -> ${QMAIL_BIGTODO_F}
@@ -117,6 +120,10 @@ src_unpack() {
 		fi
 	fi
 }
+
+PATCHES=(
+	"${DISTDIR}/${QMAIL_LARGE_DNS}"
+)
 
 src_prepare() {
 	if ! use vanilla; then
