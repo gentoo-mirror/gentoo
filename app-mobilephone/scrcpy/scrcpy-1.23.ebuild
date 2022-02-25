@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit meson
+inherit meson xdg
 
 DESCRIPTION="Display and control your Android device"
 HOMEPAGE="https://github.com/Genymobile/scrcpy"
@@ -16,7 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
 
 RDEPEND="media-libs/libsdl2[X]
-	media-video/ffmpeg"
+	media-video/ffmpeg
+	virtual/libusb:1"
 DEPEND="${RDEPEND}"
 BDEPEND=""
 
@@ -26,4 +27,8 @@ src_configure() {
 		-Dprebuilt_server="${DISTDIR}/${PN}-server-v${PV}"
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	xdg_pkg_postrm
 }
