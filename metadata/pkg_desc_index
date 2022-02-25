@@ -907,7 +907,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.31 1.22.37 1.22.46 1.22.49 1.22.54 1.22.55 1.22.56 1.22.57 1.22.58 1.22.59 1.22.60 1.22.61 1.22.62: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.31 1.22.37 1.22.46 1.22.49 1.22.54 1.22.55 1.22.56 1.22.57 1.22.58 1.22.59 1.22.60 1.22.61 1.22.62 1.22.63: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.3 1.30.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8237,7 +8237,7 @@ dev-python/ansible-runner 1.4.7-r1 1.4.8: A tool and python library that helps w
 dev-python/ansicolor 0.3.2 9999: Produce ansi color output and colored highlighting and diffing
 dev-python/antlr4-python3-runtime 4.9.3: Python 3 runtime for ANTLR
 dev-python/anyio 3.4.0 3.5.0: Compatibility layer for multiple asynchronous event loop implementations
-dev-python/anyqt 0.0.13: PyQt4/PyQt5 compatibility layer
+dev-python/anyqt 0.0.13 0.0.14: PyQt4/PyQt5 compatibility layer
 dev-python/apipkg 2.1.0: Namespace control and lazy-import mechanism
 dev-python/apispec 5.1.1: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r1 1.4.4-r2: Module for determining appropriate platform-specific dirs
@@ -8311,8 +8311,8 @@ dev-python/blurb 1.0.8: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.20.31 1.20.37 1.20.46 1.20.49 1.20.54 1.21.0 1.21.1 1.21.2 1.21.3 1.21.4 1.21.5 1.21.6 1.21.7 9999: The AWS SDK for Python
-dev-python/botocore 1.23.31 1.23.37 1.23.46 1.23.49 1.23.54 1.24.0 1.24.1 1.24.2 1.24.3 1.24.4 1.24.5 1.24.6 1.24.7 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.20.31 1.20.37 1.20.46 1.20.49 1.20.54 1.21.0 1.21.1 1.21.2 1.21.3 1.21.4 1.21.5 1.21.6 1.21.7 1.21.8 9999: The AWS SDK for Python
+dev-python/botocore 1.23.31 1.23.37 1.23.46 1.23.49 1.23.54 1.24.0 1.24.1 1.24.2 1.24.3 1.24.4 1.24.5 1.24.6 1.24.7 1.24.8 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2-r1 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8342,7 +8342,7 @@ dev-python/cerberus 1.3.2 1.3.4: A lightweight and extensible data-validation li
 dev-python/certifi 3021.3.16-r1: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.14.6 1.15.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.58.0 0.58.1: CloudFormation Linter
+dev-python/cfn-lint 0.58.0 0.58.1 0.58.2: CloudFormation Linter
 dev-python/cftime 1.5.1 1.5.2: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8: Tools and libraries for control groups of Linux
 dev-python/chai 1.1.2: Easy to use mocking, stubbing and spying framework
@@ -8414,7 +8414,7 @@ dev-python/cycler 0.11.0: Composable style cycles
 dev-python/cython 0.29.25 0.29.26 0.29.27 0.29.28: A Python to C compiler
 dev-python/cython-test-exception-raiser 1.0.2 1.0.2-r1: A trivial extension that just raises an exception (for testing)
 dev-python/daemonize 2.5.0: Library for writing system daemons in Python
-dev-python/dask 2021.11.0 2021.12.0 2022.01.0 2022.01.1 2022.02.0: Task scheduling and blocked algorithms for parallel processing
+dev-python/dask 2021.11.0 2021.12.0 2022.01.0 2022.01.1 2022.02.0 2022.02.1: Task scheduling and blocked algorithms for parallel processing
 dev-python/dbfread 2.0.7: Read DBF Files with Python
 dev-python/dbus-python 1.2.18: Python bindings for the D-Bus messagebus
 dev-python/dbutils 2.0.2 2.0.3 3.0.0 3.0.1 3.0.2: Database connections for multi-threaded environments
@@ -8678,7 +8678,7 @@ dev-python/ipdb 0.13.9-r1: IPython-enabled pdb
 dev-python/ipy 1.01 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.6.1 6.9.1: IPython Kernel for Jupyter
 dev-python/ipyparallel 6.3.0-r1 7.1.0 8.1.0 8.1.0-r1 8.2.0: Interactive Parallel Computing with IPython
-dev-python/ipython 7.31.1 8.0.1: Advanced interactive shell for Python
+dev-python/ipython 7.31.1 8.0.1 8.1.0: Advanced interactive shell for Python
 dev-python/ipython_genutils 0.2.0-r2 0.2.0-r3: Vestigial utilities from IPython
 dev-python/ipywidgets 7.6.5 7.6.5-r2: IPython HTML widgets for Jupyter
 dev-python/irc 20.0.0: IRC client framework written in Python
@@ -8902,7 +8902,7 @@ dev-python/nototools 0.2.16: Noto fonts support tools and scripts plus web site 
 dev-python/nptyping 1.4.4: Type hints for Numpy
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
-dev-python/nuitka 0.6.19.4 0.6.19.5 0.6.19.6 0.6.19.7 0.7: Python to native compiler
+dev-python/nuitka 0.6.19.4 0.6.19.5 0.6.19.6 0.6.19.7 0.7 0.7.1: Python to native compiler
 dev-python/numexpr 2.8.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.21.5 1.22.0-r1 1.22.1 1.22.2: Fast array and numerical python library
 dev-python/numpydoc 1.1.0 1.2: Sphinx extension to support docstrings in Numpy format
@@ -8956,7 +8956,7 @@ dev-python/pastel 0.2.1: Bring colors to your terminal
 dev-python/patatt 0.4.9: A simple library to add cryptographic attestation to patches sent via email
 dev-python/patch-ng 1.17.4: Library to parse and apply unified diffs, fork of dev-python/patch
 dev-python/path-and-address 2.0.1: Functions for server CLI applications used by humans
-dev-python/path-py 16.2.0: A module wrapper for os.path
+dev-python/path-py 16.2.0 16.4.0: A module wrapper for os.path
 dev-python/pathspec 0.9.0: Utility library for gitignore style pattern matching of file paths
 dev-python/pathtools 0.1.2-r3: Pattern matching and various utilities for file systems paths
 dev-python/patiencediff 0.2.2: Python implementation of the patiencediff algorithm
@@ -9217,7 +9217,7 @@ dev-python/pytest-forked 1.4.0: run tests in isolated forked subprocesses
 dev-python/pytest-freezegun 0.4.2: Easily freeze time in pytest test + fixtures
 dev-python/pytest-helpers-namespace 2021.3.24: Provides a helpers pytest namespace
 dev-python/pytest-html 3.1.1: Plugin for generating HTML reports for py.test results
-dev-python/pytest-httpbin 1.0.1: Easily test your HTTP library against a local copy of httpbin
+dev-python/pytest-httpbin 1.0.1 1.0.2: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpx 0.18.0 0.19.0 0.20.0: Send responses to HTTPX using pytest
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.1.2: A PyTest plugin which provides an FTP fixture for your tests
@@ -9256,12 +9256,12 @@ dev-python/python-axolotl 0.2.3-r2: A python module for the axolotl protocol
 dev-python/python-axolotl-curve25519 0.4.1_p2-r2: A python wrapper for the curve25519 library with ed25519 signatures
 dev-python/python-bugzilla 3.2.0: A python module for interacting with Bugzilla over XMLRPC
 dev-python/python-caja 1.24.0-r2: Python bindings for the Caja file manager
-dev-python/python-cinderclient 8.2.0 8.2.0-r1: A client for the OpenStack Cinder API
+dev-python/python-cinderclient 8.2.0 8.2.0-r1 8.3.0: A client for the OpenStack Cinder API
 dev-python/python-cstruct 2.1: C-style structs for Python
 dev-python/python-ctags 1.5.0: Exuberant Ctags indexing python bindings
 dev-python/python-daemon 2.3.0-r1: Library to implement a well-behaved Unix daemon process
 dev-python/python-dateutil 2.8.2: Extensions to the standard Python datetime module
-dev-python/python-dbusmock 0.25.0: Easily create mock objects on D-Bus for software testing
+dev-python/python-dbusmock 0.25.0 0.26.1: Easily create mock objects on D-Bus for software testing
 dev-python/python-debian 0.1.43: Python modules to work with Debian-related data formats
 dev-python/python-discid 1.2.0 1.2.0-r1: Python bindings for libdiscid
 dev-python/python-distutils-extra 2.45: Gettext support, themed icons and scrollkeeper-based documentation in distutils
@@ -9278,7 +9278,7 @@ dev-python/python-gflags 3.1.2-r1 3.1.2-r2: Google's Python argument parsing lib
 dev-python/python-glanceclient 3.5.0 3.6.0: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.4.8: A Python wrapper for GnuPG
 dev-python/python-iptables 1.0.0-r1: Python bindings for iptables
-dev-python/python-ironicclient 4.10.0: Python bindings for the Ironic API
+dev-python/python-ironicclient 4.10.0 4.11.0: Python bindings for the Ironic API
 dev-python/python-jose 3.3.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-keystoneclient 4.4.0 4.4.0-r1: Client Library for OpenStack Identity
 dev-python/python-keyutils 0.6: A set of python bindings for keyutils
@@ -9302,7 +9302,7 @@ dev-python/python-musicbrainzngs 0.7.1: Python bindings for the MusicBrainz NGS 
 dev-python/python-nbxmpp 2.0.3 2.0.4: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/python-neutronclient 7.7.0 7.8.0: A client for the OpenStack Quantum API
-dev-python/python-novaclient 17.6.0-r1 17.6.0-r2: A client for the OpenStack Nova API
+dev-python/python-novaclient 17.6.0-r1 17.6.0-r2 17.7.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 5.7.0 5.7.0-r1: A client for the OpenStack APIs
 dev-python/python-poppler-qt5 0.75.0: Python binding for libpoppler-qt5
 dev-python/python-redmine 2.3.0: Python interface to the Redmine REST API
@@ -9560,7 +9560,7 @@ dev-python/svg-path 4.1: SVG path objects and parser
 dev-python/svglib 1.1.0 1.2.0 1.2.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.1: Python Package to write SVG files
 dev-python/swagger-spec-validator 2.7.3 2.7.4: validate Swagger specs against Swagger 1.1 or 2.0 specification
-dev-python/sybil 3.0.0: Automated testing for the examples in your documentation
+dev-python/sybil 3.0.0 3.0.1: Automated testing for the examples in your documentation
 dev-python/symengine 0.8.1-r1 0.9.1: Python wrappers to the symengine C++ library
 dev-python/sympy 1.9: Computer Algebra System in pure Python
 dev-python/tabulate 0.8.9: Pretty-print tabular data
@@ -9576,7 +9576,7 @@ dev-python/termcolor 1.1.0-r2 1.1.0-r3: ANSI Color formatting for output in term
 dev-python/terminado 0.12.1 0.13.0 0.13.1: Terminals served to term.js using Tornado websockets
 dev-python/terminaltables 3.1.10 3.1.10-r1 9999: Generate simple tables in terminals from a nested list of strings
 dev-python/test_server 0.0.36 0.0.37: Server to test HTTP clients
-dev-python/testfixtures 6.18.3: A collection of helpers and mock objects for unit tests and doc tests
+dev-python/testfixtures 6.18.3 6.18.4: A collection of helpers and mock objects for unit tests and doc tests
 dev-python/testpath 0.5.0 0.5.0-r1 0.6.0: Test utilities for code working with files and commands
 dev-python/testresources 2.0.1: A pyunit extension for managing expensive test resources
 dev-python/testscenarios 0.5.0-r1: A pyunit extension for dependency injection
@@ -9608,7 +9608,7 @@ dev-python/tox 3.24.5: virtualenv-based automation of test activities
 dev-python/tqdm 4.62.3: Add a progress meter to your loops in a second
 dev-python/traitlets 5.0.5 5.1.0 5.1.1 5.1.1-r1: A configuration system for Python applications
 dev-python/transitions 0.8.10 0.8.11: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.5.3: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.5.3 3.6.0: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.1.0 22.1.0-r1 22.2.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 3.10.0 3.10.1 3.10.2: Python library for loading and using triangular meshes
@@ -9683,7 +9683,7 @@ dev-python/webassets 2.0: Asset management for Python web development
 dev-python/webcolors 1.11.1: Color names and value formats defined by the HTML and CSS specifications
 dev-python/webencodings 0.5.1-r1: Character encoding aliases for legacy web content
 dev-python/webob 1.8.7: WSGI request and response object
-dev-python/websocket-client 1.2.3: WebSocket client for python with hybi13 support
+dev-python/websocket-client 1.2.3 1.3.1: WebSocket client for python with hybi13 support
 dev-python/websockets 10.0 10.1 10.2: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.10.0: WebSockets support for any application/server
 dev-python/webtest 3.0.0: Helper to test WSGI applications
@@ -11263,7 +11263,7 @@ dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
 dev-util/patdiff 0.14.0-r1: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.18: Recursive-descent parser generators for C
 dev-util/perf 5.8 5.12-r1 5.15-r1: Userland tools for Linux Performance Counters
-dev-util/pkgcheck 0.10.8-r1 0.10.9-r1 9999: pkgcore-based QA utility for ebuild repos
+dev-util/pkgcheck 0.10.9-r1 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 1.7.4-r1 1.8.0-r1 9999: pkg-config compatible replacement with no dependencies other than ANSI C89
 dev-util/pkgdev 0.1.9 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.7.2 9999: Package Changes Analyzer (pkgdiff)
@@ -11311,7 +11311,7 @@ dev-util/sasm 3.10.1: Simple crossplatform IDE for NASM assembly language
 dev-util/scanmem 0.17: Locate and modify variables in executing processes
 dev-util/sccache 0.2.15 9999: ccache/distcc like tool with support for rust and cloud storage
 dev-util/schroot 1.6.10_p7-r1 1.6.10_p12-r2: Utility to execute commands in a chroot environment
-dev-util/scons 4.1.0-r1 4.2.0-r1 4.3.0: Extensible Python-based build utility
+dev-util/scons 4.1.0-r1 4.3.0: Extensible Python-based build utility
 dev-util/sel 0.08.4-r2: A filemanager for shell scripts
 dev-util/serialtalk 1.2-r1 9999: simple command-line tool to talk to serial devices
 dev-util/sgb 20030623-r1 20090810: Stanford GraphBase
@@ -17398,7 +17398,7 @@ sys-apps/pcsc-lite 1.9.0 1.9.1 1.9.4 1.9.5: PC/SC Architecture smartcard middlew
 sys-apps/pcsc-slb-rf72-drv 1.1.0-r2: Schlumberger Reflex 72 Serial Smartcard Reader
 sys-apps/pcsc-tools 1.5.6 1.5.7: PC/SC Architecture smartcard tools
 sys-apps/pick 4.0.0: A fuzzy search tool for the command-line
-sys-apps/pkgcore 0.12.8 0.12.9 9999: a framework for package management
+sys-apps/pkgcore 0.12.9 9999: a framework for package management
 sys-apps/plocate 1.1.14 1.1.15: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r6: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pmount-gui 0_pre20130806: A simple graphical frontend for pmount
