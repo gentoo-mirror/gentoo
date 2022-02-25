@@ -3,8 +3,10 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="threads(+)"
+
 inherit distutils-r1
 
 DESCRIPTION="IPython Kernel for Jupyter"
@@ -13,13 +15,9 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	$(python_gen_cond_dep '
-		<dev-python/importlib_metadata-5.0.0[${PYTHON_USEDEP}]
-		>=dev-python/argcomplete-1.12.3[${PYTHON_USEDEP}]
-	' python3_8 pypy3)
 	>=dev-python/debugpy-1.0.0[${PYTHON_USEDEP}]
 	<dev-python/debugpy-2.0[${PYTHON_USEDEP}]
 	>=dev-python/ipython-7.23.1[${PYTHON_USEDEP}]
@@ -53,6 +51,8 @@ EPYTEST_DESELECT=(
 	# TODO
 	ipykernel/tests/test_debugger.py::test_attach_debug
 	ipykernel/tests/test_debugger.py::test_set_breakpoints
+	ipykernel/tests/test_debugger.py::test_stop_on_breakpoint
+	ipykernel/tests/test_debugger.py::test_breakpoint_in_cell_with_leading_empty_lines
 	ipykernel/tests/test_debugger.py::test_rich_inspect_not_at_breakpoint
 	ipykernel/tests/test_debugger.py::test_rich_inspect_at_breakpoint
 )
@@ -62,9 +62,9 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
-src_install() {
-	distutils-r1_src_install
+python_compile() {
+	distutils-r1_python_compile
 	# Use python3 in kernel.json configuration, bug #784764
 	sed -i -e '/python3.[0-9]\+/s//python3/' \
-		"${ED}"/usr/share/jupyter/kernels/python3/kernel.json || die
+		"${BUILD_DIR}/install${EPREFIX}/usr/share/jupyter/kernels/python3/kernel.json" || die
 }
