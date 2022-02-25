@@ -8,6 +8,7 @@ inherit rpm xdg
 DESCRIPTION="The Ultimate Open Source Web Chat Platform"
 HOMEPAGE="https://rocket.chat"
 SRC_URI="https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/${PV}/rocketchat-${PV}.x86_64.rpm"
+S="${WORKDIR}"
 
 KEYWORDS="-* ~amd64"
 LICENSE="MIT"
@@ -45,8 +46,6 @@ RDEPEND="
 "
 
 QA_PREBUILT="opt/Rocket.Chat/*"
-
-S="${WORKDIR}"
 
 src_install() {
 	# remove files useless for Gentoo
