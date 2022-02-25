@@ -481,10 +481,8 @@ sys-block/fio static
 sci-libs/ipopt hsl
 
 # Lars Wendler <polynomial-c@gentoo.org> (2018-03-14)
-# Broken on all 32bit arches. Globally masked because of sys-apps/dmapi having
-# no active upstream anymore.
 # sys-cluster/ceph is only available on amd64 & x86, unmask per arch
-net-fs/samba dmapi ceph
+net-fs/samba ceph
 
 # Jan Ziak <0xe2.0x9a.0x9b@gmail.com> (2018-03-14)
 # Mask local USE flag to satisfy repoman
