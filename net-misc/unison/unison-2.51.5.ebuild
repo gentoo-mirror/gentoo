@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop xdg-utils
 
 DESCRIPTION="Two-way cross-platform file synchronizer"
-HOMEPAGE="https://www.seas.upenn.edu/~bcpierce/unison/"
+HOMEPAGE="https://www.seas.upenn.edu/~bcpierce/unison/ https://github.com/bcpierce00/unison"
 SRC_URI="https://github.com/bcpierce00/unison/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -17,13 +17,18 @@ IUSE="debug doc gtk +ocamlopt threads"
 BDEPEND="dev-lang/ocaml:=[ocamlopt?]
 	doc? ( app-text/dvipsk
 		app-text/ghostscript-gpl
-		dev-texlive/texlive-latex )"
+		dev-texlive/texlive-latex
+		dev-tex/hevea
+		www-client/lynx
+		)"
 DEPEND="gtk? ( dev-ml/lablgtk:2=[ocamlopt?] )"
 RDEPEND="gtk? ( dev-ml/lablgtk:2=[ocamlopt?]
 	|| ( net-misc/x11-ssh-askpass net-misc/ssh-askpass-fullscreen ) )
 	>=app-eselect/eselect-unison-0.4"
 
 DOCS=( CONTRIB INSTALL NEWS README ROADMAP.txt TODO.txt )
+
+QA_FLAGS_IGNORED="usr/bin/${PN}-fsmonitor-${SLOT}"
 
 src_prepare() {
 	default
@@ -53,7 +58,7 @@ src_compile() {
 	use ocamlopt || myconf+=( NATIVE=false )
 
 	if use doc; then
-		VARTEXFONTS="${T}/fonts" emake "${myconf[@]}" CFLAGS="" HEVEA=false docs
+		VARTEXFONTS="${T}/fonts" emake "${myconf[@]}" CFLAGS="" HEVEA=true docs
 	fi
 
 	# Discard cflags as it will try to pass them to ocamlc...
@@ -80,7 +85,7 @@ src_install() {
 
 	if use doc; then
 		DOCS+=( ../doc/unison-manual.pdf )
-		HTML_DOCS=( "${DISTDIR}/${P}-manual.html" )
+		HTML_DOCS=( "../doc/unison-manual.html" )
 	fi
 
 	einstalldocs
