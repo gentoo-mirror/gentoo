@@ -1,9 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils
+# Needed to build tests for now
+CMAKE_MAKEFILE_GENERATOR=emake
+inherit cmake
 
 DESCRIPTION="C++ template static library of common data structures and algorithms"
 HOMEPAGE="https://lemon.cs.elte.hu/trac/lemon/"
@@ -17,20 +19,17 @@ RESTRICT="!test? ( test )"
 
 REQUIRED_USE="|| ( coin glpk )"
 
-RDEPEND="
-	coin? (
+RDEPEND="coin? (
 		sci-libs/coinor-cbc:=
 		sci-libs/coinor-clp:=
 	)
-	glpk? ( sci-mathematics/glpk:= )
-"
-DEPEND="${RDEPEND}
-	doc? (
+	glpk? ( sci-mathematics/glpk:= )"
+DEPEND="${RDEPEND}"
+BDEPEND="doc? (
 		app-doc/doxygen
 		app-text/ghostscript-gpl
 		dev-libs/mathjax
-	)
-"
+	)"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-multilib.patch
@@ -38,12 +37,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	cmake-utils_src_prepare
-	cmake_comment_add_subdirectory demo
-
-	use doc || cmake_comment_add_subdirectory doc
-	use test || cmake_comment_add_subdirectory test
-
+	local t
 	for t in \
 		max_clique \
 		max_flow \
@@ -53,19 +47,28 @@ src_prepare() {
 		tsp; do
 		sed -i -e "/${t}_test/d" test/CMakeLists.txt || die
 	done
+
 	sed -i \
 		-e '/ADD_TEST(lp_test lp_test)/d' \
 		-e '/ADD_DEPENDENCIES(check lp_test)/d' \
 		test/CMakeLists.txt || die
+
+	cmake_comment_add_subdirectory demo
+
+	use doc || cmake_comment_add_subdirectory doc
+	use test || cmake_comment_add_subdirectory test
+
+	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_SHARED_LIBS=TRUE
 		-DLEMON_ENABLE_COIN=$(usex coin)
 		-DLEMON_ENABLE_GLPK=$(usex glpk)
 	)
+
 	use coin && mycmakeargs+=( -DCOIN_ROOT_DIR="${EPREFIX}/usr" )
+
 	if use doc; then
 		mycmakeargs+=(
 			-DLEMON_DOC_MATHJAX_RELPATH="${EPREFIX}/usr/share/mathjax"
@@ -73,18 +76,21 @@ src_configure() {
 			-DLEMON_DOC_USE_MATHJAX=$(usex doc)
 		)
 	fi
-	cmake-utils_src_configure
-}
 
-src_install() {
-	cmake-utils_src_install
-	# TODO: Upstream needs to see the light of GNUInstallDirs
-	if use doc; then
-		mv "${D}"/usr/share/doc/lemon/html "${D}"/usr/share/doc/${PF} || die
-		rmdir "${D}"/usr/share/doc/lemon || die
-	fi
+	cmake_src_configure
 }
 
 src_test() {
+	cd "${S}" || die
 	emake -C "${BUILD_DIR}" check
+}
+
+src_install() {
+	cmake_src_install
+
+	# TODO: Upstream needs to see the light of GNUInstallDirs
+	if use doc; then
+		mv "${ED}"/usr/share/doc/lemon/html "${ED}"/usr/share/doc/${PF} || die
+		rmdir "${ED}"/usr/share/doc/lemon || die
+	fi
 }
