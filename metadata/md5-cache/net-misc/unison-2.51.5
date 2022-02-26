@@ -1,9 +1,9 @@
-BDEPEND=dev-lang/ocaml:=[ocamlopt?] doc? ( app-text/dvipsk app-text/ghostscript-gpl dev-texlive/texlive-latex )
+BDEPEND=dev-lang/ocaml:=[ocamlopt?] doc? ( app-text/dvipsk app-text/ghostscript-gpl dev-texlive/texlive-latex dev-tex/hevea www-client/lynx )
 DEFINED_PHASES=compile install postinst postrm prepare test
 DEPEND=gtk? ( dev-ml/lablgtk:2=[ocamlopt?] )
 DESCRIPTION=Two-way cross-platform file synchronizer
 EAPI=8
-HOMEPAGE=https://www.seas.upenn.edu/~bcpierce/unison/
+HOMEPAGE=https://www.seas.upenn.edu/~bcpierce/unison/ https://github.com/bcpierce00/unison
 INHERIT=desktop xdg-utils
 IUSE=debug doc gtk +ocamlopt threads
 KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris
@@ -12,4 +12,4 @@ RDEPEND=gtk? ( dev-ml/lablgtk:2=[ocamlopt?] || ( net-misc/x11-ssh-askpass net-mi
 SLOT=2.51
 SRC_URI=https://github.com/bcpierce00/unison/archive/v2.51.5.tar.gz -> unison-2.51.5.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=a336293e15ce975fe0f4b52124f54180
+_md5_=0cf6e397d1f1c0564c9ba53fa5c9d786
