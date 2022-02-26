@@ -3,7 +3,9 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
+
 inherit distutils-r1
 
 DESCRIPTION="A Python client for the Zotero API"
@@ -26,7 +28,8 @@ BDEPEND="
 	test? (
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/httpretty[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 distutils_enable_sphinx doc --no-autodoc
 distutils_enable_tests pytest
