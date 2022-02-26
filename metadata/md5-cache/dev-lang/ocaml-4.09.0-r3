@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://ocaml.org/
 INHERIT=flag-o-matic
 IUSE=emacs flambda latex +ocamlopt spacetime xemacs
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=LGPL-2.1
 PDEPEND=emacs? ( app-emacs/ocaml-mode ) xemacs? ( app-xemacs/ocaml )
 RDEPEND=sys-libs/binutils-libs:= spacetime? ( sys-libs/libunwind:= )
 SLOT=0/4.09
 SRC_URI=https://github.com/ocaml/ocaml/archive/4.09.0.tar.gz -> ocaml-4.09.0.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-lang/ocaml/ocaml-4.09.0-patches-1.tar.bz2
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
-_md5_=244d7b329eff47348829b604d6be1ab4
+_md5_=6bbf1df6223e8356145ebfcdee2ce0db
