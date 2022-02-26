@@ -100,6 +100,15 @@ src_prepare() {
 		-e '/composite-transform.xml/d' \
 		-i tests/compositions/meson.build || die
 
+	# fix 'build'headers from *.cl on gentoo-hardened, bug 739816
+	pushd "${S}/opencl/" || die
+	for file in *.cl; do
+		if [[ -f ${file} ]]; then
+			"${EPYTHON}" cltostring.py "${file}" || die
+		fi
+	done
+	popd || die
+
 	use vala && vala_src_prepare
 }
 

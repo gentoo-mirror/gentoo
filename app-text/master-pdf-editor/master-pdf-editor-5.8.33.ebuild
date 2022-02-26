@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop xdg
 
@@ -16,12 +16,14 @@ KEYWORDS="~amd64"
 RESTRICT="mirror"
 
 RDEPEND="
-	dev-libs/nss
+	sys-libs/glibc
 	>=dev-qt/qtcore-5.12.9:5
 	>=dev-qt/qtgui-5.12.9:5
 	>=dev-qt/qtnetwork-5.12.9:5
 	>=dev-qt/qtprintsupport-5.12.9:5
 	>=dev-qt/qtsvg-5.12.9:5
+	dev-qt/qtwidgets:5
+	media-libs/libglvnd
 	>=media-gfx/sane-backends-1.0
 "
 
