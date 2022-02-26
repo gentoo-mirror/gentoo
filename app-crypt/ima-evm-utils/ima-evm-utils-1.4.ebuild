@@ -3,14 +3,15 @@
 
 EAPI=8
 
-inherit autotools git-r3
+inherit autotools
 
 DESCRIPTION="Supporting tools for IMA and EVM"
 HOMEPAGE="http://linux-ima.sourceforge.net"
-EGIT_REPO_URI="https://git.code.sf.net/p/linux-ima/ima-evm-utils"
+SRC_URI="https://download.sourceforge.net/linux-ima/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug test tpm"
 
 RDEPEND="
