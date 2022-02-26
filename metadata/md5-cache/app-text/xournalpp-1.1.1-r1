@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-apps/lsb-release dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig sys-apps/lsb-release elibc_musl? ( sys-libs/libbacktrace ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=app-text/poppler[cairo] dev-libs/glib dev-libs/libxml2 dev-libs/libzip:= gnome-base/librsvg media-libs/portaudio[cxx] media-libs/libsndfile sys-libs/zlib:= x11-libs/gtk+:3
 DESCRIPTION=Handwriting notetaking software with PDF annotation support
@@ -6,10 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/xournalpp/xournalpp
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
+IUSE=elibc_musl
 KEYWORDS=~amd64 ~ppc64
 LICENSE=GPL-2
 RDEPEND=app-text/poppler[cairo] dev-libs/glib dev-libs/libxml2 dev-libs/libzip:= gnome-base/librsvg media-libs/portaudio[cxx] media-libs/libsndfile sys-libs/zlib:= x11-libs/gtk+:3
 SLOT=0
 SRC_URI=https://github.com/xournalpp/xournalpp/archive/refs/tags/v1.1.1.tar.gz -> xournalpp-1.1.1.tgz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	xdg	6024fbc93167fad782e2032933654857
-_md5_=2faea5632f7c51f2116413b0d0cfbf0c
+_md5_=1ac78fb5927a96d93997d20a39ffbf88
