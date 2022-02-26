@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig boost? ( dev-util/boost-build ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) idn? ( net-dns/libidn:= ) dev-libs/openssl:0= media-libs/fontconfig:= media-libs/freetype:2= virtual/jpeg:0= media-libs/libpng:0= media-libs/tiff:0= sys-libs/zlib:=
+DESCRIPTION=PoDoFo is a C++ library to work with the PDF file format
+EAPI=7
+HOMEPAGE=https://sourceforge.net/projects/podofo/
+INHERIT=cmake flag-o-matic lua-single toolchain-funcs
+IUSE=+boost idn debug test +tools lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) idn? ( net-dns/libidn:= ) dev-libs/openssl:0= media-libs/fontconfig:= media-libs/freetype:2= virtual/jpeg:0= media-libs/libpng:0= media-libs/tiff:0= sys-libs/zlib:=
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) test? ( tools )
+RESTRICT=test
+SLOT=0/0.9.7
+SRC_URI=https://cfhcable.dl.sourceforge.net/project/podofo/podofo/0.9.7/podofo-0.9.7.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99
+_md5_=b283b85e415c6f1cbd0bc23c417df837
