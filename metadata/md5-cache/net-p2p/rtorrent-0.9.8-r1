@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare setup
+DEPEND=~net-libs/libtorrent-0.13.8 >=net-misc/curl-7.19.1 sys-libs/ncurses:0= xmlrpc? ( dev-libs/xmlrpc-c:= ) dev-util/cppunit virtual/pkgconfig
+DESCRIPTION=BitTorrent Client using libtorrent
+EAPI=8
+HOMEPAGE=https://rakshasa.github.io/rtorrent/
+INHERIT=autotools linux-info systemd
+IUSE=debug selinux test xmlrpc
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=~net-libs/libtorrent-0.13.8 >=net-misc/curl-7.19.1 sys-libs/ncurses:0= xmlrpc? ( dev-libs/xmlrpc-c:= ) selinux? ( sec-policy/selinux-rtorrent )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://rtorrent.net/downloads/rtorrent-0.9.8.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	linux-info	2f039741fe92bcea55c78806d16ac0f5	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=bdb6a527ae89bc983d1f49459db5930f
