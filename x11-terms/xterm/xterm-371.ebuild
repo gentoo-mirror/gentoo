@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop flag-o-matic toolchain-funcs
 
@@ -38,12 +38,10 @@ RDEPEND="${DEPEND}
 
 DOCS=( README{,.i18n} ctlseqs.txt )
 
-pkg_setup() {
-	DEFAULTS_DIR="${EPREFIX}"/usr/share/X11/app-defaults
-}
-
 src_configure() {
-	# 454736
+	DEFAULTS_DIR="${EPREFIX}"/usr/share/X11/app-defaults
+
+	# bug #454736
 	# Workaround for ncurses[tinfo] until upstream fixes their buildsystem using
 	# something sane like pkg-config or ncurses5-config and stops guessing libs
 	# Everything gets linked against ncurses anyways, so don't shout
@@ -78,6 +76,7 @@ src_configure() {
 		$(use_with Xaw3d)
 		$(use_with xinerama)
 	)
+
 	econf "${myeconfargs[@]}"
 }
 
