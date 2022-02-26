@@ -1,7 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 
 # forced implicitly
@@ -16,17 +18,24 @@ SLOT="0"
 LICENSE="MIT LGPL-2.1"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
-RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/numpy[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 	test? (
 		dev-python/ipython[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 distutils_enable_tests pytest
 
+src_test() {
+	virtx distutils-r1_src_test
+}
+
 python_test() {
-	virtx epytest -p no:pytest-describe
+	epytest -p no:pytest-describe || die "Tests failed with ${EPYTHON}"
 }
