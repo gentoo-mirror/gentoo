@@ -1,12 +1,11 @@
-BDEPEND=ts-cli? ( virtual/rust ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare unpack
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst prepare unpack
 DESCRIPTION=Tree-sitter is a parser generator tool and an incremental parsing library
 EAPI=8
 HOMEPAGE=https://github.com/tree-sitter/tree-sitter
-INHERIT=toolchain-funcs cargo git-r3
-IUSE=ts-cli debug
-LICENSE=MIT ts-cli? ( Apache-2.0 BSD-2 CC0-1.0 ISC MIT )
+INHERIT=optfeature toolchain-funcs git-r3
+LICENSE=MIT
 PROPERTIES=live
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	cargo	7ea27a358c2ff39754bf66a96c06f3de	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=ef72d2c3f31510b3f051b6bc3405f703
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=8ec56fdb1a4684bd724365f2bc9fc3cf
