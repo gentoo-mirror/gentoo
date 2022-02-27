@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection dev-libs/libgusb[introspection] ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install test
 DEPEND=dev-libs/glib:2 dev-libs/libgusb dev-libs/nss virtual/libusb:1= x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXv x11-libs/pixman !>=sys-auth/libfprint-1.90:0
 DESCRIPTION=Library to add support for consumer fingerprint readers
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/glib:2 dev-libs/libgusb dev-libs/nss virtual/libusb:1= x11-libs
 SLOT=2
 SRC_URI=https://github.com/freedesktop/libfprint/archive/refs/tags/v1.90.7.tar.gz -> libfprint-1.90.7.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	udev	2d229ad4bfa09058e0184b1ca900db32
-_md5_=e74da555c5b7f54afe01ff780527c179
+_md5_=edacc330371ee470b4e61280d399a48a
