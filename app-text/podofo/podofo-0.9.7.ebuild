@@ -28,7 +28,9 @@ RDEPEND="${LUA_DEPS}
 	media-libs/libpng:0=
 	media-libs/tiff:0=
 	sys-libs/zlib:="
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-util/cppunit )
+"
 
 BDEPEND="virtual/pkgconfig
 	boost? ( dev-util/boost-build )"
