@@ -1,0 +1,15 @@
+BDEPEND=man? ( dev-python/docutils ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/glib:2 x11-libs/libxcb x11-libs/xcb-util
+DESCRIPTION=Use external locker as X screen saver
+EAPI=8
+HOMEPAGE=https://bitbucket.org/raymonad/xss-lock
+INHERIT=cmake vcs-snapshot
+IUSE=+man
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/glib:2 x11-libs/libxcb x11-libs/xcb-util
+SLOT=0
+SRC_URI=https://bitbucket.org/raymonad/xss-lock/get/1e158fb20108058dbd62bd51d8e8c003c0a48717.tar.bz2 -> xss-lock-0.3.0_p20140302.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	vcs-snapshot	19dc666868420457132a7514d4621476
+_md5_=4ed9f7134ad8825f712f575c52a5722e
