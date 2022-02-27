@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 FORTRAN_NEEDED=fortran
 FORTRAN_STANDARD="77 90"
 
-inherit desktop fortran-2 python-single-r1 scons-utils toolchain-funcs
+inherit fortran-2 python-single-r1 scons-utils toolchain-funcs
 
 DESCRIPTION="Object-oriented tool suite for chemical kinetics, thermodynamics, and transport"
 HOMEPAGE="https://www.cantera.org"
@@ -17,7 +17,7 @@ SRC_URI="https://github.com/Cantera/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+cti fortran lapack pch +python test"
+IUSE="+cti fortran lapack +python test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -84,7 +84,7 @@ src_configure() {
 		FORTRANFLAGS="${FCFLAGS}"
 		optimize_flags="-Wno-inline"
 		renamed_shared_libraries="no"
-		use_pch=$(usex pch)
+		use_pch="no"
 		## In some cases other order can break the detection of right location of Boost: ##
 		system_fmt="y"
 		system_sundials="y"
@@ -122,11 +122,11 @@ src_install() {
 		rm -r "${D}/usr/share/man" || die "Can't remove man files."
 	else
 		# Run the byte-compile of modules
-		python_optimize "${D}/$(python_get_sitedir)/${PN}"
+		python_optimize "${D}$(python_get_sitedir)/${PN}"
 	fi
 
-	# We install static libs unconditionally here
-	# See https://github.com/gentoo/gentoo/pull/10017#discussion_r229210565
+	# User could remove this line if require static libs for development purpose
+	find "${ED}" -name '*.a' -delete || die
 }
 
 pkg_postinst() {
