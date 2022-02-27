@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils toolchain-funcs
+inherit cmake toolchain-funcs
 
 DESCRIPTION="Utility to convert hex or dec to binary format"
 HOMEPAGE="https://bitbucket.org/PascalRD/i2bits/"
@@ -18,5 +18,5 @@ src_prepare() {
 		-e "1s/^/project(${PN})\n/" \
 		-i CMakeLists.txt || die "can't patch CMakeLists.txt"
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
