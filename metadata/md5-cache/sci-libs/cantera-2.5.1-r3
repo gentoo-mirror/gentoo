@@ -4,8 +4,8 @@ DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) py
 DESCRIPTION=Object-oriented tool suite for chemical kinetics, thermodynamics, and transport
 EAPI=7
 HOMEPAGE=https://www.cantera.org
-INHERIT=desktop fortran-2 python-single-r1 scons-utils toolchain-funcs
-IUSE=+cti fortran lapack pch +python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+INHERIT=fortran-2 python-single-r1 scons-utils toolchain-funcs
+IUSE=+cti fortran lapack +python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) lapack? ( virtual/lapack ) cti? ( python_single_target_python3_8? ( dev-python/ruamel-yaml[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/ruamel-yaml[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/ruamel-yaml[python_targets_python3_10(-)] ) ) python? ( python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/numpy[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] ) ) dev-cpp/yaml-cpp <sci-libs/sundials-5.9.0:0=[lapack?] fortran? ( virtual/fortran )
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( cti ) ^^ ( python_single_target_python3_8 python_single_t
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Cantera/cantera/archive/v2.5.1.tar.gz -> cantera-2.5.1.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	scons-utils	ce050be6e12c98ec6b7f0706e4be9d85
-_md5_=deda02622c1a13d3bf4b9a3d59600a5e
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	scons-utils	ce050be6e12c98ec6b7f0706e4be9d85
+_md5_=a9f3a9251afb0167a23d824da7df0e25
