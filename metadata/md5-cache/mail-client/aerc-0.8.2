@@ -1,0 +1,16 @@
+BDEPEND=>=app-text/scdoc-1.9.7 >=dev-lang/go-1.13 >=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=notmuch? ( net-mail/notmuch:= )
+DESCRIPTION=Email client for your terminal
+EAPI=8
+HOMEPAGE=https://aerc-mail.org
+INHERIT=go-module
+IUSE=notmuch
+KEYWORDS=~amd64 ~ppc64
+LICENSE=Apache-2.0 BSD BSD-2 MIT
+RDEPEND=notmuch? ( net-mail/notmuch:= )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://git.sr.ht/~rjarry/aerc/archive/0.8.2.tar.gz -> aerc-0.8.2.tar.gz https://dev.gentoo.org/~williamh/dist/aerc-0.8.2-vendor.tar.xz
+_eclasses_=go-module	11f18b20461f1739e17be1fd5e5f5974
+_md5_=6832027386293bf74541f1c558caf09f
