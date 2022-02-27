@@ -33,6 +33,18 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2022-02-27)
+# Last release 10 years ago, no other distro packages this,
+# stuck on cmake-utils.eclass and QA issues.
+# Bug #711880, #774519, removal on 2022-03-27.
+net-fs/smbtad
+
+# Sam James <sam@gentoo.org> (2022-02-27)
+# EAPI=6 consumer of deprecated cmake-utils.eclass. No reverse
+# dependencies and will soon be unbuildable with new CMake.
+# bug #774495. Dead HOMEPAGE. Removal on 2022-03-27.
+dev-libs/smack
+
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2022-02-27)
 # Outdated, fails to build with glibc-2.34, bug 806755
 # Has been integrated into net-fs/nfs-utils, please use that instead.
@@ -51,7 +63,7 @@ x11-libs/libyui-qt
 # Masked for removal, needs updates, significant amount of work, no
 # Clang toolchain available to test with
 # Removal on 2022-03-29.  Bug #834306
-sys-apps/tapi
+sys-libs/tapi
 
 # Michał Górny <mgorny@gentoo.org> (2022-02-26)
 # The original Midori browser has been discontinued, and the new

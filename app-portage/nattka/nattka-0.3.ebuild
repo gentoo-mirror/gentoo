@@ -1,18 +1,20 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=( python3_{8..10} )
-inherit distutils-r1 git-r3
+
+inherit distutils-r1
 
 DESCRIPTION="A New Arch Tester Toolkit -- open-source stable-bot replacement"
 HOMEPAGE="https://github.com/mgorny/nattka/"
-EGIT_REPO_URI="https://github.com/mgorny/nattka.git"
+SRC_URI="https://github.com/mgorny/nattka/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="depgraph-order"
 
 RDEPEND="
@@ -23,12 +25,13 @@ RDEPEND="
 	sys-apps/pkgcore[${PYTHON_USEDEP}]
 	depgraph-order? (
 		dev-python/networkx[${PYTHON_USEDEP}]
-	)"
+	)
+"
 BDEPEND="
 	test? (
-		dev-python/networkx[${PYTHON_USEDEP}]
 		dev-python/vcrpy[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 distutils_enable_sphinx doc --no-autodoc
 distutils_enable_tests pytest
