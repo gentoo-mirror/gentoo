@@ -12,7 +12,7 @@ S="${WORKDIR}"/${P}/c++
 
 LICENSE="MIT"
 SLOT="0/091"
-KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 x86"
+KEYWORDS="amd64 ~arm arm64 ppc ppc64 x86"
 IUSE="+ssl test zlib"
 
 RESTRICT="!test? ( test )"
@@ -27,7 +27,9 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	if use arm || use ppc || use mips || [[ ${CHOST} == *i486* ]] ; then
-		append-libs -latomic
+		# append-libs won't work here, cmake doesn't respect it
+		# ... and ldflags gets missed once
+		append-flags -latomic
 	fi
 
 	local mycmakeargs=(
