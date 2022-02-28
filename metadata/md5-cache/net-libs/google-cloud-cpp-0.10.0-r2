@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/protobuf:= dev-libs/crc32c dev-libs/openssl:= net-misc/curl net-libs/grpc:= dev-cpp/gtest
+DESCRIPTION=Google Cloud Client Library for C++
+EAPI=8
+HOMEPAGE=https://cloud.google.com/
+INHERIT=cmake
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/protobuf:= dev-libs/crc32c dev-libs/openssl:= net-misc/curl net-libs/grpc:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/GoogleCloudPlatform/google-cloud-cpp/archive/v0.10.0.tar.gz -> google-cloud-cpp-0.10.0.tar.gz https://github.com/nlohmann/json/releases/download/v3.4.0/json.hpp -> nlohmann-json-3.4.0-json.hpp https://github.com/googleapis/googleapis/archive/6a3277c0656219174ff7c345f31fb20a90b30b97.tar.gz -> googleapis-6a3277c0656219174ff7c345f31fb20a90b30b97.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68
+_md5_=e84a936f04c0ef1f331f00e57c2477c3
