@@ -1,9 +1,10 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils
+CMAKE_MAKEFILE_GENERATOR=emake
+inherit cmake
 
 JSON_VER="3.4.0"
 GOOGLEAPIS_COMMIT="6a3277c0656219174ff7c345f31fb20a90b30b97"
@@ -22,6 +23,7 @@ IUSE=""
 RESTRICT="test"
 RDEPEND="dev-libs/protobuf:=
 	dev-libs/crc32c
+	dev-libs/openssl:=
 	net-misc/curl
 	net-libs/grpc:="
 DEPEND="${RDEPEND}
@@ -29,18 +31,17 @@ DEPEND="${RDEPEND}
 
 DOCS=( README.md )
 PATCHES=(
-	"${FILESDIR}/google-cloud-cpp-0.5.0-openssl.patch"
 	"${FILESDIR}/google-cloud-cpp-0.9.0-offline_nlohmannjson.patch"
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DGOOGLE_CLOUD_CPP_DEPENDENCY_PROVIDER=package
-		-DBUILD_SHARED_LIBS=ON
 		-DBUILD_TESTING=OFF
+		-DCMAKE_CXX_STANDARD=17
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 
 	mkdir -p "${BUILD_DIR}/external/nlohmann_json/src/" || die
 	cp "${DISTDIR}/nlohmann-json-${JSON_VER}-json.hpp" "${BUILD_DIR}/external/nlohmann_json/src/json.hpp" || die
@@ -56,5 +57,5 @@ src_test() {
 		-E internal_parse_rfc3339_test
 	)
 
-	cmake-utils_src_test
+	cmake_src_test
 }
