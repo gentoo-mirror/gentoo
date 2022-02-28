@@ -114,6 +114,10 @@ PATCHES=(
 
 	# Make evolution-data-server integration optional
 	"${FILESDIR}"/${PN}-5.2.7-eds-detection.patch
+
+	# Meson fixes
+	"${FILESDIR}"/${PN}-5.2.7-revert-meson-0.60-fix.patch
+	"${FILESDIR}"/${PN}-5.2.7-meson-0.61-fix.patch
 )
 
 src_prepare() {
