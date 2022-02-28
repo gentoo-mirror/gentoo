@@ -11,7 +11,7 @@ SRC_URI="https://github.com/dunst-project/dunst/archive/v${PV}.tar.gz -> ${P}.ta
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="wayland"
 
 DEPEND="
@@ -38,6 +38,8 @@ BDEPEND="
 	wayland? ( dev-libs/wayland-protocols )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-1.8.0-xdg.patch" )
+
 src_prepare() {
 	default
 
@@ -57,6 +59,7 @@ src_configure() {
 
 src_compile() {
 	local myemakeargs=(
+		SYSCONFDIR="${EPREFIX}/etc/xdg"
 		SYSTEMD="0"
 		WAYLAND="$(usex wayland 1 0)"
 	)
@@ -67,7 +70,7 @@ src_compile() {
 src_install() {
 	local myemakeargs=(
 		PREFIX="${ED}/usr"
-		SYSCONFDIR="${ED}/etc"
+		SYSCONFDIR="${ED}/etc/xdg"
 		SYSTEMD="0"
 		WAYLAND="$(usex wayland 1 0)"
 	)

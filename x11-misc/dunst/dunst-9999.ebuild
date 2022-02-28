@@ -39,6 +39,8 @@ BDEPEND="
 	wayland? ( dev-libs/wayland-protocols )
 "
 
+PATCHES=( "${FILESDIR}/${PN}-1.8.0-xdg.patch" )
+
 src_prepare() {
 	default
 
