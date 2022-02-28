@@ -1,15 +1,15 @@
 BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml(+)] >=dev-lang/python-3.9.9-r1:3.9[xml(+)] >=dev-lang/python-3.8.12_p1-r1:3.8[xml(+)] ) virtual/pkgconfig >=virtual/rust-1.56 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst setup test unpack
-DEPEND=dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/libxcb:=
+DEPEND=dev-libs/glib:2 dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/gtk+:3 x11-libs/libxcb:=
 DESCRIPTION=Flash Player emulator written in Rust
 EAPI=8
 HOMEPAGE=https://ruffle.rs/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cargo desktop flag-o-matic git-r3 python-any-r1 xdg
-IUSE=gui debug
-LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0 ZLIB curl zlib-acknowledgement
+IUSE=debug
+LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0 ZLIB curl
 PROPERTIES=live
-RDEPEND=dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/libxcb:= gui? ( || ( gnome-extra/zenity kde-apps/kdialog ) )
+RDEPEND=dev-libs/glib:2 dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/gtk+:3 x11-libs/libxcb:=
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	cargo	7ea27a358c2ff39754bf66a96c06f3de	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-any-r1	54666a8fa603df658d9284845fc3d755	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=57b445c18ebebb387cf50c54df2fdabf
+_md5_=5c80708f723bb6ee17c91065bc4b0662
