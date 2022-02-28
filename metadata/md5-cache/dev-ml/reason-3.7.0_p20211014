@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/fix:= dev-ml/menhir:= dev-ml/merlin-extend:= dev-ml/ocaml-migrate-parsetree:= dev-ml/result:= dev-ml/utop:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Simple, fast & type safe language that leverages JavaScript and OCaml
+EAPI=8
+HOMEPAGE=https://reasonml.github.io
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/fix:= dev-ml/menhir:= dev-ml/merlin-extend:= dev-ml/ocaml-migrate-parsetree:= dev-ml/result:= dev-ml/utop:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/3.7.0_p20211014
+SRC_URI=https://github.com/reasonml/reason/archive/ccc34729994b4a80d4f6274cc0165cd9113444d6.tar.gz -> reason-3.7.0_p20211014.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	2ef529836d2d3100bfd771a77fcffdf8
+_md5_=c1c2baaec8582fe3bf3a865bbe268185
