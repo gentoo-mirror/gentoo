@@ -47,7 +47,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.58:2
 	dev-libs/json-glib
 	dev-libs/libgudev:=
-	>=dev-libs/libjcat-0.1.0[gpg,pkcs7]
+	>=dev-libs/libjcat-0.1.4[gpg,pkcs7]
 	>=dev-libs/libxmlb-0.1.13:=[introspection?]
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
@@ -86,10 +86,6 @@ DEPEND="
 	x11-libs/pango[introspection]
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-1.7.4-efivar38.patch" #831327
-)
-
 pkg_setup() {
 	python-single-r1_pkg_setup
 	if use nvme ; then
@@ -114,6 +110,7 @@ src_prepare() {
 
 src_configure() {
 	local plugins=(
+		-Dplugin_gpio="true"
 		$(meson_use amt plugin_amt)
 		$(meson_use dell plugin_dell)
 		$(meson_use fastboot plugin_fastboot)
