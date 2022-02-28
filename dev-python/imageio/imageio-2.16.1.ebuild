@@ -18,12 +18,13 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+# over 50% of tests rely on Internet
 PROPERTIES="test_network"
 RESTRICT="test"
 
 RDEPEND="
-	dev-python/numpy[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.20.0[${PYTHON_USEDEP}]
+	>=dev-python/pillow-8.3.2[${PYTHON_USEDEP}]
 	media-libs/freeimage
 "
 # requests for fsspec[github]
