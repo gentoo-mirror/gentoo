@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-text/ghostscript-gpl:= media-gfx/graphicsmagick:= net-misc/curl >=sci-libs/netcdf-4.1:=[hdf5] media-video/ffmpeg:= blas? ( virtual/blas ) fftw? ( sci-libs/fftw:3.0= ) gdal? ( sci-libs/gdal:= ) geos? ( sci-libs/geos ) lapack? ( virtual/lapack ) pcre? ( dev-libs/libpcre:= ) pcre2? ( dev-libs/libpcre2:= ) zlib? ( sys-libs/zlib:= )
+DESCRIPTION=Powerful map generator
+EAPI=8
+HOMEPAGE=https://www.generic-mapping-tools.org
+INHERIT=bash-completion-r1 cmake
+IUSE=blas +fftw ffmpeg +gdal geos gmttria lapack openmp pcre pcre2 threads zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+ gmttria? ( Artistic )
+RDEPEND=app-text/ghostscript-gpl:= media-gfx/graphicsmagick:= net-misc/curl >=sci-libs/netcdf-4.1:=[hdf5] media-video/ffmpeg:= blas? ( virtual/blas ) fftw? ( sci-libs/fftw:3.0= ) gdal? ( sci-libs/gdal:= ) geos? ( sci-libs/geos ) lapack? ( virtual/lapack ) pcre? ( dev-libs/libpcre:= ) pcre2? ( dev-libs/libpcre2:= ) zlib? ( sys-libs/zlib:= ) !sci-biology/probcons sci-geosciences/dcw-gmt sci-geosciences/gshhg-gmt
+REQUIRED_USE=?? ( pcre pcre2 )
+SLOT=6
+SRC_URI=https://github.com/GenericMappingTools/gmt/releases/download/6.3.0/gmt-6.3.0-src.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68
+_md5_=4f2e5c7fcaca43e40fda3d02ebdb283c
