@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install
+DESCRIPTION=Program and library for generating standard and non-standard InChI and InChIKeys
+EAPI=8
+HOMEPAGE=https://www.iupac.org/inchi/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=IUPAC-InChi
+SLOT=0
+SRC_URI=https://www.inchi-trust.org/download/106/INCHI-1-SRC.zip -> inchi-1.06.zip doc? ( https://www.inchi-trust.org/download/106/INCHI-1-DOC.zip -> inchi-1.06-doc.zip )
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=eaaca0d180bdfb0a8aa3de71d542a26b
