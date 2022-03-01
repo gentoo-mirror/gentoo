@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/spyder-ide/qtpy/
 INHERIT=distutils-r1 virtualx
 IUSE=+pyqt5 pyside2 declarative designer gui help location multimedia network opengl positioning printsupport sensors serialport speech sql svg testlib webchannel webengine websockets widgets x11extras xml xmlpatterns test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 test
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm arm64 x86
 LICENSE=MIT
 RDEPEND=dev-python/packaging[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] pyqt5? ( dev-python/PyQt5[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/PyQt5[declarative?,designer?,gui?,help?,location?] dev-python/PyQt5[multimedia?,network?,opengl?,positioning?] dev-python/PyQt5[printsupport?,sensors?,serialport?,speech(-)?,sql?,svg?] dev-python/PyQt5[testlib?,webchannel?,websockets?,widgets?] dev-python/PyQt5[x11extras?,xml(+)?,xmlpatterns?] webengine? ( dev-python/PyQtWebEngine[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) ) pyside2? ( dev-python/pyside2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pyside2[designer?,gui?,help?,location?,multimedia?] dev-python/pyside2[network?,opengl(+)?,positioning?,printsupport?] dev-python/pyside2[sensors?,serialport(+)?,speech?,sql?,svg?] dev-python/pyside2[testlib?,webchannel?,webengine?,websockets?] dev-python/pyside2[widgets?,x11extras?,xml?,xmlpatterns?] declarative? ( dev-python/pyside2[qml,quick] ) ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
 REQUIRED_USE=|| ( pyqt5 pyside2 ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/Q/QtPy/QtPy-2.0.0.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d	virtualx	fa024aa649b6bd544144bf94893d402c
-_md5_=77f3a2fe7093e653ed253b0706ed6ddc
+_md5_=75d5be9e61fed3a4322463e37aa0dd36
