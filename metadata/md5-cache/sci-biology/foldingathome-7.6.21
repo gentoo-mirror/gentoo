@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=config install postinst postrm setup
+DEPEND=dev-util/patchelf
+DESCRIPTION=Folding@Home is a distributed computing project for protein folding
+EAPI=8
+HOMEPAGE=https://foldingathome.org/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=FAH-EULA-2014 FAH-special-permission
+RDEPEND=acct-group/foldingathome acct-group/video acct-user/foldingathome app-arch/bzip2 || ( dev-libs/openssl-compat:1.0.0 =dev-libs/openssl-1.0*:* ) sys-devel/gcc sys-libs/glibc sys-libs/zlib
+RESTRICT=mirror bindist strip
+SLOT=0
+SRC_URI=https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient_7.6.21-64bit-release.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=50de4ff6faf3b5ac3ed140d8e1653c23
