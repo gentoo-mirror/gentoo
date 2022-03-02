@@ -170,14 +170,6 @@ x11-misc/sisctrl
 # Removal after 2022-07-01.  Bug #832953.
 x11-misc/easystroke
 
-# Zoltan Puskas <zoltan@sinustrom.info> (2022-02-07)
-# Fork of sci-libs/opencascade. Upstream unmaintained due to opencascade
-# becoming community friendly and making this fork obsolete. Recommends moving
-# to opencascade. See: https://github.com/tpaviot/oce/issues/745
-# Blocks deprecation of sci-libs/vtk-8.2.0.
-# Removal on 2022-03-01. Bug #832625.
-sci-libs/oce
-
 # Stephan Hartmann <sultan@gentoo.org> (2022-02-06)
 # Dev channel releases are only for people who
 # are developers or want more experimental features
@@ -194,12 +186,6 @@ app-misc/emelfm2
 # fork (wez), so just switch to that. No need for a separate package for the fork.
 # Removal on 2022-02-31. bug #668708.
 media-video/atomicparsley-wez
-
-# Michał Górny <mgorny@gentoo.org> (2022-01-30)
-# NIH package with no revdeps and an awful build system that can't work
-# with PEP 517 builders.  Last release in 2017.
-# Removal on 2022-03-01.  Bug #832366.
-dev-python/python-slip
 
 # Eray Aslan <eras@gentoo.org> (2022-01-24)
 # Mask experimental software
@@ -228,23 +214,6 @@ dev-python/python-slip
 # The main consumer, phpunit, does not initiate the new timer correctly
 # This is likely to cause issues in tests; Unmask if using for other purposes
 >=dev-php/PHP_Timer-5.0
-
-# Florian Schmaus <flow@gentoo.org> (2022-01-02)
-# Unmaintained, upstream gone, only packaged by
-# Gentoo, and the whole idea to unlock based on
-# bluetooth appears to be insecure. Bug #830448
-# Removal after 2022-03-01.
-sys-auth/pam_blue
-
-# Jonas Stein <jstein@gentoo.org> (2022-01-02)
-# Unmaintained and broken.
-# Removal after 2022-03-01.  Bug #830428.
-www-servers/bozohttpd
-
-# Jonas Stein <jstein@gentoo.org> (2021-12-31)
-# Removal after 2022-05-01.  Bug #830331.
-# Broken and upstream needs new maintainer.
-x11-plugins/purple-facebook
 
 # Jonas Stein <jstein@gentoo.org> (2021-12-24)
 # Alpha version
