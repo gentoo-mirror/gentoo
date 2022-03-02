@@ -1,13 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-pkg-simple prefix
 
-DMF="R-${PV}-202109060500"
+DMF="R-${PV}-202111241800"
 
 DESCRIPTION="Ant Compiler Adapter for Eclipse Java Compiler"
 HOMEPAGE="http://www.eclipse.org/"
@@ -15,19 +15,18 @@ SRC_URI="http://download.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV
 
 LICENSE="EPL-1.0"
 KEYWORDS="~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
-SLOT=$(ver_cut 1-2)
+SLOT="4.22"
 IUSE=""
 
-CDEPEND="
-	~dev-java/eclipse-ecj-${PV}:${SLOT}
-	dev-java/ant-core:0
-"
+CDEPEND="~dev-java/eclipse-ecj-${PV}:${SLOT}
+	dev-java/ant-core:0"
+# though technically both could be set to 1.8 and it would
+# compile using jdk 11+, it would not compile using jdk 1.8
+# because eclipse ecj has min jdk 11
 RDEPEND="${CDEPEND}
-	>=virtual/jre-11:*
-"
+	>=virtual/jre-11:*"
 DEPEND="${CDEPEND}
-	>=virtual/jdk-11:*
-"
+	>=virtual/jdk-11:*"
 BDEPEND="app-arch/unzip"
 
 JAVA_GENTOO_CLASSPATH="ant-core,eclipse-ecj-${SLOT}"

@@ -1,14 +1,14 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-pkg-simple
 
 MY_PN="ecj"
-DMF="R-${PV}-202109060500"
+DMF="R-${PV}-202111241800"
 
 DESCRIPTION="Eclipse Compiler for Java"
 HOMEPAGE="http://www.eclipse.org/"
@@ -16,23 +16,19 @@ SRC_URI="http://download.eclipse.org/eclipse/downloads/drops4/${DMF}/${MY_PN}src
 
 LICENSE="EPL-1.0"
 KEYWORDS="~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
-SLOT=$(ver_cut 1-2)
+SLOT="4.22"
 IUSE="+ant"
 
 COMMON_DEP="
 	app-eselect/eselect-java
-	dev-java/ant-core:0
-"
+	dev-java/ant-core:0"
 RDEPEND="${COMMON_DEP}
-	>=virtual/jre-11:*
-"
+	>=virtual/jre-11:*"
 DEPEND="${COMMON_DEP}
 	>=virtual/jdk-11:*
-"
+	app-arch/unzip"
 PDEPEND="
-	app-arch/unzip
-	ant? ( ~dev-java/ant-eclipse-ecj-${PV} )
-"
+	ant? ( ~dev-java/ant-eclipse-ecj-${PV} )"
 
 JAVA_JAR_FILENAME="${MY_PN}.jar"
 JAVA_GENTOO_CLASSPATH="ant-core"
