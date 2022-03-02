@@ -1,18 +1,18 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
+EAPI=8
+PYTHON_COMPAT=( pypy3 python3_{7,8,9,10} )
 inherit python-single-r1 systemd
 
 DESCRIPTION="systemd units to create timers for cron directories and crontab"
 HOMEPAGE="https://github.com/systemd-cron/systemd-cron/"
-SRC_URI="https://github.com/systemd-cron/${PN}/archive/v${PV}.tar.gz -> systemd-cron-${PV}.tar.gz"
+SRC_URI="https://github.com/systemd-cron/systemd-cron/archive/refs/tags/v${PV}.tar.gz -> systemd-cron-${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 sparc x86"
-IUSE="cron-boot etc-crontab-systemd minutely setgid test yearly"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="cron-boot etc-crontab-systemd minutely +runparts setgid test yearly"
 RESTRICT="!test? ( test )"
 
 RDEPEND=">=sys-apps/systemd-217
@@ -69,9 +69,18 @@ src_configure() {
 		--generatordir="$(systemd_get_systemgeneratordir)" \
 		$(my_use_enable cron-boot boot) \
 		$(my_use_enable minutely) \
+		$(my_use_enable runparts) \
 		$(my_use_enable yearly) \
 		$(my_use_enable yearly quarterly) \
 		$(my_use_enable yearly semi_annually) \
 		$(my_use_enable setgid) \
 		--enable-persistent=yes
+}
+
+pkg_postinst() {
+	elog "This package now supports USE=runparts which is enabled by default."
+	elog "This enables the traditional run-parts behavior."
+	elog "If you disable this flag you will get the new behavior of having"
+	elog "multiple jobs for each cron.* entry run in parallel with"
+	elog "separate services/logs/etc."
 }
