@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,19 +7,22 @@ CRATES="
 	ahash-0.6.3
 	aho-corasick-0.7.18
 	ansi_term-0.11.0
-	anyhow-1.0.40
+	anyhow-1.0.55
 	array-macro-1.0.5
 	atty-0.2.14
 	autocfg-1.0.1
-	bitflags-1.2.1
-	bytes-1.0.1
-	cargo-platform-0.1.1
+	bitflags-1.3.2
+	bytes-1.1.0
+	cargo-platform-0.1.2
 	cargo_metadata-0.12.3
-	cc-1.0.68
+	cc-1.0.72
 	cfg-if-1.0.0
 	chrono-0.4.19
 	clap-2.33.3
+	console-0.15.0
 	crossbeam-channel-0.5.1
+	crossbeam-deque-0.8.1
+	crossbeam-epoch-0.9.7
 	crossbeam-utils-0.8.5
 	crossterm-0.19.0
 	crossterm-0.20.0
@@ -35,40 +38,42 @@ CRATES="
 	dirs-next-2.0.0
 	dirs-sys-next-0.1.2
 	either-1.6.1
+	encode_unicode-0.3.6
 	enum-map-0.6.4
 	enum-map-derive-0.4.6
+	erased-serde-0.3.16
+	filetime-0.2.15
 	fnv-1.0.7
 	fuchsia-cprng-0.1.1
-	futures-core-0.3.15
-	getrandom-0.1.16
+	futures-core-0.3.17
 	getrandom-0.2.3
-	half-1.7.1
+	half-1.8.2
 	heck-0.3.3
-	hermit-abi-0.1.18
+	hermit-abi-0.1.19
 	hostname-0.3.1
-	humantime-1.3.0
+	humantime-2.1.0
 	ident_case-1.0.1
-	instant-0.1.9
-	itertools-0.10.1
-	itoa-0.4.7
-	jobserver-0.1.22
+	indicatif-0.15.0
+	instant-0.1.12
+	itertools-0.10.3
+	itoa-0.4.8
+	jobserver-0.1.24
 	lazy_static-1.4.0
-	libbpf-cargo-0.8.1
-	libbpf-rs-0.11.2
-	libbpf-sys-0.4.0-2
-	libc-0.2.96
-	lock_api-0.4.4
+	libbpf-cargo-0.10.0
+	libbpf-rs-0.16.0
+	libbpf-sys-0.6.0-1
+	libc-0.2.107
+	lock_api-0.4.5
 	log-0.4.14
 	maplit-1.0.2
 	match_cfg-0.1.0
-	memchr-2.4.0
+	memchr-2.4.1
 	memmap-0.7.0
-	memmap2-0.3.0
+	memmap2-0.3.1
 	memoffset-0.6.4
-	mio-0.7.11
+	mio-0.7.14
 	miow-0.3.7
-	nix-0.20.0
-	nix-0.21.0
+	nix-0.22.0
 	ntapi-0.3.6
 	num-0.3.1
 	num-complex-0.3.1
@@ -77,40 +82,37 @@ CRATES="
 	num-rational-0.3.2
 	num-traits-0.2.14
 	num_cpus-1.13.0
-	num_enum-0.5.1
-	num_enum_derive-0.5.1
+	num_enum-0.5.4
+	num_enum_derive-0.5.4
+	number_prefix-0.3.0
 	numtoa-0.1.0
-	once_cell-1.7.2
+	once_cell-1.8.0
 	openat-0.1.21
-	os_info-3.0.6
+	os_info-3.0.7
 	owning_ref-0.4.1
-	parking_lot-0.11.1
-	parking_lot_core-0.8.3
-	paste-1.0.5
+	parking_lot-0.11.2
+	parking_lot_core-0.8.5
+	paste-1.0.6
 	pest-2.1.3
-	pkg-config-0.3.19
+	pkg-config-0.3.22
 	plain-0.2.3
-	ppv-lite86-0.2.10
-	proc-macro-crate-0.1.5
+	ppv-lite86-0.2.15
+	proc-macro-crate-1.1.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.27
-	quick-error-1.2.3
-	quote-1.0.9
+	proc-macro2-1.0.32
+	quote-1.0.10
 	rand-0.4.6
-	rand-0.7.3
-	rand-0.8.3
-	rand_chacha-0.2.2
+	rand-0.8.4
 	rand_chacha-0.3.1
 	rand_core-0.3.1
 	rand_core-0.4.2
-	rand_core-0.5.1
-	rand_core-0.6.2
-	rand_hc-0.2.0
-	rand_hc-0.3.0
-	rand_pcg-0.2.1
+	rand_core-0.6.3
+	rand_hc-0.3.1
+	rayon-1.5.1
+	rayon-core-1.9.1
 	rdrand-0.4.0
-	redox_syscall-0.2.8
+	redox_syscall-0.2.10
 	redox_termios-0.1.2
 	redox_users-0.4.0
 	regex-1.5.4
@@ -125,48 +127,49 @@ CRATES="
 	semver-0.11.0
 	semver-1.0.4
 	semver-parser-0.10.2
-	serde-1.0.127
-	serde_cbor-0.11.1
-	serde_derive-1.0.127
-	serde_json-1.0.64
+	serde-1.0.130
+	serde_cbor-0.11.2
+	serde_derive-1.0.130
+	serde_json-1.0.69
 	signal-hook-0.1.17
-	signal-hook-0.3.9
+	signal-hook-0.3.10
 	signal-hook-mio-0.2.1
 	signal-hook-registry-1.4.0
 	slog-2.7.0
-	slog-async-2.6.0
+	slog-async-2.7.0
 	slog-term-2.8.0
-	smallvec-1.6.1
+	smallvec-1.7.0
 	stable_deref_trait-1.2.0
 	static_assertions-1.1.0
 	strsim-0.8.0
 	strsim-0.9.3
-	structopt-0.3.21
-	structopt-derive-0.4.14
+	structopt-0.3.25
+	structopt-derive-0.4.18
 	strum_macros-0.21.1
-	syn-1.0.73
+	syn-1.0.81
 	take_mut-0.2.2
+	tar-0.4.38
 	tempdir-0.3.7
 	tempfile-3.2.0
 	term-0.7.0
+	terminal_size-0.1.17
 	termion-1.5.6
 	textwrap-0.11.0
-	thiserror-1.0.25
-	thiserror-impl-1.0.25
+	thiserror-1.0.30
+	thiserror-impl-1.0.30
 	thread_local-1.1.3
 	threadpool-1.8.1
 	time-0.1.43
-	toml-0.5.7
+	toml-0.5.8
 	ucd-trie-0.1.3
-	unicode-segmentation-1.7.1
-	unicode-width-0.1.8
+	unicode-segmentation-1.8.0
+	unicode-width-0.1.9
 	unicode-xid-0.2.2
 	users-0.11.0
 	vec_map-0.8.2
 	version_check-0.9.3
 	vsprintf-2.0.0
 	walkdir-2.3.2
-	wasi-0.9.0+wasi-snapshot-preview1
 	wasi-0.10.2+wasi-snapshot-preview1
 	wasmer_enumset-1.0.1
 	wasmer_enumset_derive-0.5.0
@@ -174,13 +177,14 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
+	xattr-0.2.2
 	xi-unicode-0.3.0
 	zstd-0.8.0+zstd.1.4.9
 	zstd-safe-4.0.0+zstd.1.4.9
 	zstd-sys-1.5.0+zstd.1.4.9
 "
 
-inherit cargo
+inherit cargo systemd
 
 DESCRIPTION="An interactive tool to view and record historical system data"
 HOMEPAGE="https://github.com/facebookincubator/below"
@@ -195,7 +199,7 @@ KEYWORDS="~amd64 ~ppc64"
 BDEPEND="
 	sys-devel/clang
 	virtual/pkgconfig
-	virtual/rust[rustfmt]
+	>=virtual/rust-1.56[rustfmt]
 "
 RDEPEND="
 	virtual/libelf
@@ -207,12 +211,11 @@ DEPEND="
 "
 
 QA_FLAGS_IGNORED="usr/bin/below"
-PATCHES=(
-	"${FILESDIR}"/${P}-cgroup-parse-fixes-01.patch
-	"${FILESDIR}"/${P}-cgroup-parse-fixes-02.patch
-)
+
 src_install() {
 	cargo_src_install --path below
 
 	keepdir /var/log/below
+
+	systemd_dounit "${FILESDIR}/${PN}.service"
 }
