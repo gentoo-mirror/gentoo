@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=x11-libs/libX11 x11-libs/libXext jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 ) truetype? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama ) xpm? ( x11-libs/libXpm )
+DESCRIPTION=A lightweight window manager initially based on aewm++
+EAPI=8
+HOMEPAGE=https://www.pekwm.se/ https://github.com/pekdon/pekwm
+INHERIT=cmake desktop optfeature
+IUSE=debug +jpeg +png truetype xinerama +xpm
+KEYWORDS=~amd64 ~mips ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/libX11 x11-libs/libXext jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 ) truetype? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama ) xpm? ( x11-libs/libXpm )
+SLOT=0
+SRC_URI=https://github.com/pekdon/pekwm/releases/download/release-0.2.1/pekwm-0.2.1.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	desktop	c0d27bf73aa08ca05b663dbd31fbef28	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=51965414bf1f747f718ba412d0a92faf
