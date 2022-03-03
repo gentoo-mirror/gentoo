@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://untroubled.org/cvm/
 INHERIT=toolchain-funcs
 IUSE=mysql postgres test vpopmail
-KEYWORDS=~amd64 ppc sparc x86
+KEYWORDS=~amd64 ~ppc sparc x86
 LICENSE=GPL-2+
 RDEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0= virtual/libcrypt:= mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql[server] ) vpopmail? ( net-mail/vpopmail )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://untroubled.org/cvm/archive/cvm-0.97.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=d54c691e109e706f8f2b0fc64d1b3e31
+_md5_=a44a51e2082b4ca5ccc7ed15545f8008
