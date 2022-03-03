@@ -1,15 +1,15 @@
-BDEPEND=dev-util/glib-utils virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+BDEPEND=dev-util/glib-utils virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=media-libs/fontconfig media-libs/freetype sys-libs/zlib cairo? ( dev-libs/glib:2 x11-libs/cairo introspection? ( dev-libs/gobject-introspection:= ) ) curl? ( net-misc/curl ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2= ) lcms? ( media-libs/lcms:2 ) nss? ( >=dev-libs/nss-3.19:0 ) png? ( media-libs/libpng:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtxml:5 ) tiff? ( media-libs/tiff:0 ) boost? ( dev-libs/boost )
 DESCRIPTION=PDF rendering library based on the xpdf-3.0 code base
 EAPI=8
 HOMEPAGE=https://poppler.freedesktop.org/
-INHERIT=cmake toolchain-funcs xdg-utils git-r3
+INHERIT=cmake toolchain-funcs xdg-utils
 IUSE=boost cairo cjk curl +cxx debug doc +introspection +jpeg +jpeg2k +lcms nss png qt5 tiff +utils
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=media-libs/fontconfig media-libs/freetype sys-libs/zlib cairo? ( dev-libs/glib:2 x11-libs/cairo introspection? ( dev-libs/gobject-introspection:= ) ) curl? ( net-misc/curl ) jpeg? ( virtual/jpeg:0 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2= ) lcms? ( media-libs/lcms:2 ) nss? ( >=dev-libs/nss-3.19:0 ) png? ( media-libs/libpng:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtxml:5 ) tiff? ( media-libs/tiff:0 ) cjk? ( app-text/poppler-data )
 RESTRICT=test
-SLOT=0/9999
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=30ba01b4d6de325421601512d3a4f3bd
+SLOT=0/119
+SRC_URI=https://poppler.freedesktop.org/poppler-22.03.0.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68
+_md5_=2afaece5a8aa3ce6925eccf38697557a
