@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.lighttpd.net https://github.com/lighttpd
 INHERIT=autotools flag-o-matic lua-single readme.gentoo-r1 systemd toolchain-funcs tmpfiles
 IUSE=bzip2 dbi doc fam gdbm geoip ipv6 kerberos ldap libev lua minimal mmap memcached mysql pcre php postgres rrdtool sasl selinux ssl sqlite test webdav xattr zlib lua_single_target_lua5-1 lua_single_target_lua5-3
-KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc x86
 LICENSE=BSD GPL-2
 RDEPEND=virtual/libcrypt:= bzip2? ( app-arch/bzip2 ) dbi? ( dev-db/libdbi ) fam? ( virtual/fam ) gdbm? ( sys-libs/gdbm:= ) geoip? ( dev-libs/geoip ) ldap? ( >=net-nds/openldap-2.1.26 ) libev? ( >=dev-libs/libev-4.01 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) memcached? ( dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c:= ) pcre? ( >=dev-libs/libpcre-3.1:= ) php? ( dev-lang/php:*[cgi] ) postgres? ( dev-db/postgresql:* ) rrdtool? ( net-analyzer/rrdtool ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( >=dev-libs/openssl-0.9.7:0= ) sqlite? ( dev-db/sqlite:3 ) webdav? ( dev-libs/libxml2 sys-fs/e2fsprogs ) xattr? ( kernel_linux? ( sys-apps/attr ) ) zlib? ( >=sys-libs/zlib-1.1 ) acct-group/lighttpd acct-user/lighttpd selinux? ( sec-policy/selinux-apache ) virtual/tmpfiles
 REQUIRED_USE=kerberos? ( ssl ) lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) ) webdav? ( sqlite )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.55.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
-_md5_=fdc65a31546554e77c0eebb87434aa07
+_md5_=90f7219255a9a09469775616dfc79528

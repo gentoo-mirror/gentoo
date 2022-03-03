@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/janestreet/ppx_bin_prot
 INHERIT=dune
 IUSE=+ocamlopt test
-KEYWORDS=amd64 arm arm64 ppc ppc64 x86
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=dev-ml/base-0.14.0:= dev-ml/findlib:= >=dev-ml/bin_prot-0.14.0:= >=dev-ml/ppx_here-0.14.0:= >=dev-ml/ppxlib-0.18.0:= >=dev-ml/ocaml-migrate-parsetree-2.0.0:= dev-ml/cinaps:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/ppx_bin_prot/archive/v0.14.0.tar.gz -> ppx_bin_prot-0.14.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	2ef529836d2d3100bfd771a77fcffdf8
-_md5_=88f799e2f066d7d92a9a7abae2620f4a
+_md5_=2435cade6f4df4060cb5378b3c61bf7f

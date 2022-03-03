@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/SpamExperts/pyzor
 INHERIT=distutils-r1
 IUSE=doc gdbm gevent mysql pyzord redis test doc python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~alpha amd64 ~hppa ~ia64 ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=pyzord? ( gdbm? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[gdbm] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[gdbm] ) ) gevent? ( dev-python/gevent[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) mysql? ( dev-python/mysqlclient[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) redis? ( dev-python/redis-py[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
 REQUIRED_USE=pyzord? ( || ( gdbm redis ) ) test? ( gdbm redis ) || ( python_targets_python3_8 python_targets_python3_9 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SpamExperts/pyzor/archive/f46159bd6519cebcebf59e9334a7920371111d75.tar.gz -> pyzor-1.0.0_p20200523.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d
-_md5_=e07331de2613a34c07fac7a1ff9a8d83
+_md5_=4a7cd3229443d23cd3d7bd9508487f36

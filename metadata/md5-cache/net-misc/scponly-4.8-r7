@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://github.com/scponly/scponly
 INHERIT=readme.gentoo-r1 toolchain-funcs
 IUSE=chroot +sftp scp winscp gftp rsync unison subversion wildcards quota passwd logging
-KEYWORDS=amd64 ppc sparc x86
+KEYWORDS=amd64 ~ppc sparc x86
 LICENSE=BSD-2
 RDEPEND=sys-apps/sed net-misc/openssh chroot? ( acct-user/scponly acct-group/scponly ) quota? ( sys-fs/quota ) rsync? ( net-misc/rsync ) subversion? ( dev-vcs/subversion ) unison? ( net-misc/unison:= )
 REQUIRED_USE=|| ( sftp scp winscp rsync unison subversion )
 SLOT=0
 SRC_URI=mirror://sourceforge/scponly/scponly-4.8.tgz
 _eclasses_=readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=0bd17097b33d21a8d19fa177c2fbe40b
+_md5_=14470ea3df7c6ca6f184dfafdb199779

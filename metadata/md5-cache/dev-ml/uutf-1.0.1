@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://erratique.ch/software/uutf
 INHERIT=findlib
 IUSE=doc utftrip +ocamlopt test +ocamlopt
-KEYWORDS=amd64 arm arm64 ppc ppc64 x86
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=ISC
 RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-lang/ocaml:=[ocamlopt?]
 REQUIRED_USE=utftrip? ( ocamlopt )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.0.1
 SRC_URI=https://erratique.ch/software/uutf/releases/uutf-1.0.1.tbz
 _eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=b72a59ff745e53a497a6f6fae92b0469
+_md5_=9644152b8012ad5b300977202b4816ff

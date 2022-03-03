@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.mancoosi.org/cudf/
 INHERIT=toolchain-funcs
 IUSE=+ocamlopt llvm-libunwind test
-KEYWORDS=amd64 arm arm64 ppc ppc64 x86
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=LGPL-3
 RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/extlib:= dev-ml/findlib:= dev-libs/glib:2 llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) sys-libs/ncurses:=
 RESTRICT=!test? ( test )
 SLOT=0/0.9
 SRC_URI=https://gforge.inria.fr/frs/download.php/file/36602/cudf-0.9.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=f0d9b5040da3ad068325c2d6c990e077
+_md5_=d8af68629d40b73892e05cb205afd0e4

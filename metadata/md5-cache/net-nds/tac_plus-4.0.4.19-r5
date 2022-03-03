@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.shrubbery.net/tac_plus/
 INHERIT=autotools
 IUSE=debug finger maxsess tcpd skey static-libs
-KEYWORDS=amd64 ppc x86
+KEYWORDS=amd64 ~ppc x86
 LICENSE=HPND RSA GPL-2
 RDEPEND=net-libs/libnsl:= sys-libs/pam virtual/libcrypt:= skey? ( >=sys-auth/skey-1.1.5-r1 ) tcpd? ( sys-apps/tcp-wrappers )
 SLOT=0
 SRC_URI=ftp://ftp.shrubbery.net/pub/tac_plus/tacacs+-F4.0.4.19.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
-_md5_=523aba65d282be6b36c27f609c0876a1
+_md5_=005f644c44b7e70b811eb7d9fca7d9a0

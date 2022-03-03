@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/let-def/ocaml-migrate-parsetree
 INHERIT=dune
 IUSE=+ocamlopt test
-KEYWORDS=amd64 arm arm64 ppc ppc64 x86
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=LGPL-2.1
 RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test ) strip
 SLOT=0/2.2.0
 SRC_URI=https://github.com/let-def/ocaml-migrate-parsetree/archive/v2.2.0.tar.gz -> ocaml-migrate-parsetree-2.2.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	2ef529836d2d3100bfd771a77fcffdf8
-_md5_=b153fa7bd2339a9ac3907cb0d6fd17d2
+_md5_=5bc87b2964dad4cae70d1c0409cd4838
