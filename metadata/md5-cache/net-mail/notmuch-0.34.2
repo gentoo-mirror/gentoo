@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://notmuchmail.org/
 INHERIT=bash-completion-r1 desktop distutils-r1 elisp-common flag-o-matic pax-utils toolchain-funcs xdg-utils
 IUSE=apidoc crypt doc emacs mutt nmbug python test valgrind python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x64-macos
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos
 LICENSE=GPL-3
 RDEPEND=dev-libs/glib dev-libs/gmime:3.0[crypt] >=dev-libs/xapian-1.4.0:= sys-libs/talloc sys-libs/zlib:= emacs? ( >=app-editors/emacs-24.1:* ) python? ( python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) virtual/python-cffi[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) crypt? ( app-crypt/gnupg ) mutt? ( dev-perl/File-Which dev-perl/Mail-Box dev-perl/MailTools dev-perl/String-ShellQuote dev-perl/Term-ReadLine-Gnu virtual/perl-Digest-SHA virtual/perl-File-Path virtual/perl-Getopt-Long dev-perl/Pod-Parser ) nmbug? ( dev-vcs/git )
 REQUIRED_USE=apidoc? ( doc ) nmbug? ( python ) python? ( || ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) test? ( crypt emacs python valgrind )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://notmuchmail.org/releases/notmuch-0.34.2.tar.xz test? ( https://notmuchmail.org/releases/test-databases/database-v1.tar.xz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	desktop	c0d27bf73aa08ca05b663dbd31fbef28	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d	elisp-common	cf4fd1b0835b9f3e638724840468064a	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	pax-utils	fce6ad998516159787b92e8043167889	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=5fd274ad314ed78df1a3b28169217b87
+_md5_=da31259de190475d2bcde54df23a6ef3
