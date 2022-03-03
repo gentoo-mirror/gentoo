@@ -19,7 +19,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="crypt djvu epub +image-backend markdown mobi +pdf +plucker +postscript qml share speech +tiff"
 
-COMMON_DEPEND="
+DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
@@ -50,7 +50,7 @@ COMMON_DEPEND="
 		>=dev-qt/qtgui-${QTMIN}:5[gif,jpeg,png]
 		>=kde-apps/libkexiv2-${PVCUT}:5
 	)
-	markdown? ( app-text/discount )
+	markdown? ( >=app-text/discount-2.2.7-r1 )
 	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:5 )
 	pdf? ( >=app-text/poppler-21.10.0[nss,qt5] )
 	plucker? ( virtual/jpeg:0 )
@@ -59,10 +59,7 @@ COMMON_DEPEND="
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 	tiff? ( media-libs/tiff:0 )
 "
-DEPEND="${COMMON_DEPEND}
-	markdown? ( >=app-text/discount-2.2.7-r1 )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	image-backend? ( >=kde-frameworks/kimageformats-${KFMIN}:5 )
 	qml? (
 		>=dev-qt/qtquickcontrols2-${QTMIN}:5

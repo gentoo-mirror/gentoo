@@ -18,7 +18,7 @@ https://kontact.kde.org/components/kmail.html"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="pch telemetry"
+IUSE="pch speech telemetry"
 
 RESTRICT="test" # bug 616878
 
@@ -38,7 +38,7 @@ COMMON_DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
 	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/libkleo-${PVCUT}:5
@@ -88,6 +88,8 @@ BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
 
+PATCHES=( "${FILESDIR}"/${PN}-21.12.3-speech-optional.patch )
+
 src_prepare() {
 	ecm_src_prepare
 	use handbook || cmake_run_in ktnef cmake_comment_add_subdirectory doc
@@ -108,6 +110,7 @@ pkg_postinst() {
 		optfeature "spam filtering" mail-filter/bogofilter mail-filter/spamassassin
 		optfeature "fancy e-mail headers and useful plugins" kde-apps/kdepim-addons:${SLOT}
 		optfeature "crypto config and certificate details GUI" kde-apps/kleopatra:${SLOT}
+		optfeature "import PIM data from other applications" kde-apps/akonadi-import-wizard:${SLOT}
 	fi
 	ecm_pkg_postinst
 }

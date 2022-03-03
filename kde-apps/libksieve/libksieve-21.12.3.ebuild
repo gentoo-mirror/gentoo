@@ -17,7 +17,7 @@ DESCRIPTION="Common PIM libraries"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE=""
+IUSE="speech"
 
 RESTRICT="test"
 
@@ -31,7 +31,7 @@ RDEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
@@ -50,6 +50,8 @@ DEPEND="${RDEPEND}
 	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 "
+
+PATCHES=( "${FILESDIR}/${PN}-21.12.3-speech-optional.patch" )
 
 src_prepare() {
 	ecm_src_prepare

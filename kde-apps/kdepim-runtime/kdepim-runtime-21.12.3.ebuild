@@ -4,36 +4,51 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
+ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.88.0
 QTMIN=5.15.2
+VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
-DESCRIPTION="Application to manage alarms and other timer based alerts for the desktop"
-HOMEPAGE="https://apps.kde.org/kalarm/ https://userbase.kde.org/KAlarm"
+DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
+HOMEPAGE="https://apps.kde.org/kontact/"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="X"
+IUSE="speech"
 
-DEPEND="
+RESTRICT="test"
+
+# TODO kolab
+RDEPEND="
+	>=app-crypt/qca-2.3.0:2
+	dev-libs/cyrus-sasl:2
+	dev-libs/libical:=
+	dev-libs/qtkeychain:=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtnetworkauth-${QTMIN}:5
+	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
+	>=kde-apps/akonadi-notes-${PVCUT}:5
 	>=kde-apps/kalarmcal-${PVCUT}:5
 	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kimap-${PVCUT}:5
+	>=kde-apps/kldap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
+	>=kde-apps/kmbox-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
-	>=kde-apps/pimcommon-${PVCUT}:5
-	>=kde-frameworks/kauth-${KFMIN}:5
+	>=kde-apps/libkdepim-${PVCUT}:5
+	>=kde-apps/libkgapi-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -42,14 +57,9 @@ DEPEND="
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kcrash-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kdav-${KFMIN}:5
 	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
-	>=kde-frameworks/kidletime-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
@@ -60,21 +70,17 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=media-libs/phonon-4.11.0
-	X? (
-		>=dev-qt/qtx11extras-${QTMIN}:5
-		x11-libs/libX11
-	)
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
-RDEPEND="${DEPEND}
-	>=kde-apps/kdepim-runtime-${PVCUT}:5
+DEPEND="${RDEPEND}
+	>=dev-qt/qtxmlpatterns-${QTMIN}:5
+	test? ( >=kde-apps/kimap-${PVCUT}:5[test] )
 "
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package X Qt5X11Extras)
-		$(cmake_use_find_package X X11)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
+		$(cmake_use_find_package speech Qt5TextToSpeech)
 	)
-
 	ecm_src_configure
 }

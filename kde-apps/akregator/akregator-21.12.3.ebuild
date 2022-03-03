@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/akregator/"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="telemetry"
+IUSE="speech telemetry"
 
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -27,7 +27,7 @@ RDEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/grantleetheme-${PVCUT}:5
 	>=kde-apps/kontactinterface-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5
+	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
 	>=kde-apps/libkdepim-${PVCUT}:5
 	>=kde-apps/messagelib-${PVCUT}:5
 	>=kde-apps/pimcommon-${PVCUT}:5
@@ -54,6 +54,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/grantlee:5
 "
+
+PATCHES=( "${FILESDIR}"/${PN}-21.12.3-speech-optional-{1,2}.patch )
 
 src_configure() {
 	local mycmakeargs=(

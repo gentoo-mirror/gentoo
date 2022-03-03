@@ -4,13 +4,12 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-ECM_TEST="forceoptional"
 KFMIN=5.88.0
 QTMIN=5.15.2
 inherit ecm kde.org
 
-DESCRIPTION="Shell script to create the necessary framework to develop KDE applications"
-HOMEPAGE="https://apps.kde.org/kapptemplate/"
+DESCRIPTION="KDE Task Scheduler"
+HOMEPAGE="https://apps.kde.org/kcron/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -19,17 +18,15 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
-	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
-
-# https://mail.kde.org/pipermail/distributions/2022-February/001124.html
-PATCHES=( "${FILESDIR}/${PN}-21.08.3-fix-ProvidersUrl.patch" )
+RDEPEND="${DEPEND}
+	virtual/cron
+"

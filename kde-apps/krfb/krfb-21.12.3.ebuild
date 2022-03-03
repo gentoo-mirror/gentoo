@@ -61,7 +61,7 @@ RDEPEND="${COMMON_DEPEND}
 	wayland? ( sys-apps/xdg-desktop-portal[screencast] )
 "
 
-PATCHES=( "${FILESDIR}/${P}-optional-pipewire.patch" )
+PATCHES=( "${FILESDIR}/${PN}-21.12.2-optional-pipewire.patch" )
 
 src_configure() {
 	local mycmakeargs=(

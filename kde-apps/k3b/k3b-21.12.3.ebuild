@@ -16,7 +16,7 @@ HOMEPAGE="https://apps.kde.org/k3b/ https://userbase.kde.org/K3b"
 LICENSE="GPL-2 FDL-1.2"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="dvd encode ffmpeg flac mad mp3 musepack sndfile sox taglib vcd vorbis"
+IUSE="dvd encode flac mad mp3 musepack sndfile sox taglib vcd vorbis"
 
 REQUIRED_USE="
 	flac? ( taglib )
@@ -52,7 +52,6 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	media-libs/libsamplerate
 	dvd? ( media-libs/libdvdread:= )
-	ffmpeg? ( media-video/ffmpeg:0= )
 	flac? ( >=media-libs/flac-1.2[cxx] )
 	mp3? ( media-sound/lame )
 	mad? ( media-libs/libmad )
@@ -82,6 +81,7 @@ DOCS+=( ChangeLog {FAQ,PERMISSIONS,README}.txt )
 src_configure() {
 	local mycmakeargs=(
 		-DK3B_BUILD_API_DOCS=OFF
+		-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=OFF
 		-DK3B_BUILD_WAVE_DECODER_PLUGIN=ON
 		-DK3B_ENABLE_HAL_SUPPORT=OFF
 		-DK3B_ENABLE_MUSICBRAINZ=OFF
@@ -89,7 +89,6 @@ src_configure() {
 		-DK3B_DEBUG=$(usex debug)
 		-DK3B_ENABLE_DVD_RIPPING=$(usex dvd)
 		-DK3B_BUILD_EXTERNAL_ENCODER_PLUGIN=$(usex encode)
-		-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=$(usex ffmpeg)
 		-DK3B_BUILD_FLAC_DECODER_PLUGIN=$(usex flac)
 		-DK3B_BUILD_LAME_ENCODER_PLUGIN=$(usex mp3)
 		-DK3B_BUILD_MAD_DECODER_PLUGIN=$(usex mad)
@@ -107,14 +106,11 @@ src_configure() {
 pkg_postinst() {
 	ecm_pkg_postinst
 
-	echo
 	elog "If you get warnings on start-up, uncheck the \"Check system"
 	elog "configuration\" option in the \"Misc\" settings window."
-	echo
-
+	elog
 	local group=cdrom
 	use kernel_linux || group=operator
 	elog "Make sure you have proper read/write permissions on optical device(s)."
 	elog "Usually, it is sufficient to be in the ${group} group."
-	echo
 }
