@@ -8,13 +8,17 @@ inherit cmake desktop prefix wxwidgets xdg
 
 DESCRIPTION="Online multiplayer free software engine for DOOM"
 HOMEPAGE="https://odamex.net/"
-SRC_URI="mirror://sourceforge/${PN}/Odamex/${PV}/${PN}-src-${PV}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${PN}-src-${PV}.tar.xz"
 
 LICENSE="GPL-2+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="+client master +odalaunch portmidi server upnp X"
+IUSE="+client hidpi master +odalaunch portmidi server upnp X"
 REQUIRED_USE="|| ( client master server )"
+
+# protobuf is still bundled. Unfortunately an old version is required for C++98
+# compatibility. We could use C++11, but upstream is concerned about using a
+# completely different protobuf version on a multiplayer-focused engine.
 
 RDEPEND="
 	client? (
@@ -22,11 +26,13 @@ RDEPEND="
 		media-libs/libsdl2[joystick,sound,video]
 		media-libs/sdl2-mixer
 		net-misc/curl
+		!hidpi? ( x11-libs/fltk:1 )
 		portmidi? ( media-libs/portmidi )
 		X? ( x11-libs/libX11 )
 	)
 	odalaunch? ( x11-libs/wxGTK:${WX_GTK_VER}[X] )
 	server? (
+		dev-libs/jsoncpp:=
 		upnp? ( net-libs/miniupnpc:= )
 	)"
 DEPEND="${RDEPEND}"
@@ -35,8 +41,10 @@ BDEPEND="games-util/deutex"
 S="${WORKDIR}/${PN}-src-${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.9.0-Unbundle-miniupnpc.patch"
-	"${FILESDIR}/${PN}-10.0.0-musl.patch"
+	"${FILESDIR}"/${PN}-10.0.0-unbundle-miniupnpc.patch
+	"${FILESDIR}"/${PN}-10.0.0-unbundle-jsoncpp.patch
+	"${FILESDIR}"/${PN}-10.0.0-unbundle-fltk.patch
+	"${FILESDIR}"/${PN}-10.0.0-musl.patch
 )
 
 src_prepare() {
@@ -50,7 +58,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DUSE_INTERNAL_FLTK=$(usex hidpi)
+		-DUSE_INTERNAL_JSONCPP=0
 		-DUSE_INTERNAL_LIBS=0
+		-DUSE_INTERNAL_MINIUPNP=0
 		-DBUILD_CLIENT=$(usex client)
 		-DBUILD_LAUNCHER=$(usex odalaunch)
 		-DBUILD_MASTER=$(usex master)
