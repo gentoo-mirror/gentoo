@@ -1,63 +1,61 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{6..9} )
-
-inherit cmake multiprocessing prefix python-any-r1
+PYTHON_COMPAT=( python3_{8..10} )
+DOCS_BUILDER="doxygen"
+DOCS_DIR="docs"
+DOCS_DEPEND="media-gfx/graphviz"
+inherit cmake docs prefix python-any-r1
 
 DESCRIPTION="AMD's library for BLAS on ROCm"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-${P}.tar.gz
-	https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-${P}.tar.gz"
+S="${WORKDIR}/${PN}-rocm-${PV}"
 
 LICENSE="BSD"
 KEYWORDS="~amd64"
-IUSE="benchmark test"
 SLOT="0/$(ver_cut 1-2)"
+IUSE="benchmark test"
+RESTRICT="!test? ( test )"
 
-BDEPEND="
-	dev-util/rocm-cmake
-	!dev-util/Tensile
+BDEPEND="${PYTHON_DEPS}
+	dev-util/rocm-cmake:${SLOT}
 	$(python_gen_any_dep '
-		dev-python/msgpack[${PYTHON_USEDEP}]
-		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-util/Tensile[${PYTHON_USEDEP}]
 	')
+	dev-util/Tensile:${SLOT}
 "
 
 DEPEND="
 	dev-util/hip:${SLOT}
 	dev-libs/msgpack
-	test? ( virtual/blas
+	test? (
+		virtual/blas
 		dev-cpp/gtest
-		sys-libs/libomp )
-	benchmark? ( virtual/blas
-		sys-libs/libomp )
+		sys-libs/libomp
+	)
+	benchmark? (
+		virtual/blas
+		sys-libs/libomp
+	)
 "
-RESTRICT="!test? ( test )"
 
-python_check_deps() {
-	has_version "dev-python/pyyaml[${PYTHON_USEDEP}]" &&
-	has_version "dev-python/msgpack[${PYTHON_USEDEP}]"
-}
-
-S="${WORKDIR}"/${PN}-rocm-${PV}
-
-PATCHES=("${FILESDIR}"/${PN}-4.3.0-fix-glibc-2.32-and-above.patch
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.3.0-fix-glibc-2.32-and-above.patch
 	"${FILESDIR}"/${PN}-4.3.0-change-default-Tensile-library-dir.patch
 	"${FILESDIR}"/${PN}-4.3.0-link-system-blas.patch
-	"${FILESDIR}"/${PN}-4.3.0-remove-problematic-test-suites.patch )
+	"${FILESDIR}"/${PN}-4.3.0-remove-problematic-test-suites.patch
+	"${FILESDIR}"/${PN}-4.3.0-unbundle-Tensile.patch
+)
+
+python_check_deps() {
+	has_version "dev-util/Tensile[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
-	eapply_user
-
-	pushd "${WORKDIR}"/Tensile-rocm-${PV} || die
-	eapply "${FILESDIR}/Tensile-${PV}-hsaco-compile-specified-arch.patch" # backported from upstream, should remove after 4.3.0
-	eapply "${FILESDIR}/Tensile-4.3.0-output-commands.patch"
-	sed -e "/Number of parallel jobs to launch/s:default=-1:default=$(makeopts_jobs):" -i Tensile/TensileCreateLibrary.py || die
-	popd || die
-
+	cmake_src_prepare
 	# Fit for Gentoo FHS rule
 	sed -e "/PREFIX rocblas/d" \
 		-e "/<INSTALL_INTERFACE/s:include:include/rocblas:" \
@@ -66,12 +64,8 @@ src_prepare() {
 		-e "s:share/doc/rocBLAS:share/doc/${P}:" \
 		-e "/rocm_install_symlink_subdir( rocblas )/d" -i library/src/CMakeLists.txt || die
 
-	# Use setup.py to install Tensile rather than pip
-	sed -r -e "/pip install/s:([^ \"\(]*python) -m pip install ([^ \"\)]*):\1 setup.py install --single-version-externally-managed --root / WORKING_DIRECTORY \2:g" -i cmake/virtualenv.cmake
-
 	sed -e "s:,-rpath=.*\":\":" -i clients/CMakeLists.txt || die
 
-	cmake_src_prepare
 	eprefixify library/src/tensile_host.cpp
 }
 
@@ -82,13 +76,15 @@ src_configure() {
 	addpredict /dev/random
 
 	export PATH="${EPREFIX}/usr/lib/llvm/roc/bin:${PATH}"
+	export TENSILE_SKIP_LIBRARY=1
 
 	local mycmakeargs=(
 		-DTensile_LOGIC="asm_full"
 		-DTensile_COMPILER="hipcc"
 		-DTensile_LIBRARY_FORMAT="msgpack"
 		-DTensile_CODE_OBJECT_VERSION="V3"
-		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}"
+		-DTensile_TEST_LOCAL_PATH="${EPREFIX}/usr/share/Tensile"
+		-DTensile_ROOT="${EPREFIX}/usr/share/Tensile"
 		-DBUILD_WITH_TENSILE=ON
 		-DBUILD_WITH_TENSILE_HOST=ON
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
@@ -107,15 +103,23 @@ src_configure() {
 	sed -e '/RERUN/,+1d' -i "${BUILD_DIR}"/build.ninja || die
 }
 
+src_compile() {
+	docs_compile
+	cmake_src_compile
+}
+
 check_rw_permission() {
-	cmd="[ -r $1 ] && [ -w $1 ]"
-	errormsg="${user} do not have read and write permissions on $1! \n Make sure ${user} is in render group and check the permissions."
+	local cmd="[ -r $1 ] && [ -w $1 ]"
+	local error=0 user
 	if has sandbox ${FEATURES}; then
-		user=portage
-		su portage -c "${cmd}" || die ${errormsg}
+		user="portage"
+		su portage -c "${cmd}" || error=1
 	else
-		user=`whoami`
-		${cmd} || die ${errormsg}
+		user="$(whoami)"
+		${cmd} || error=1
+	fi
+	if [[ "${error}" == 1 ]]; then
+		die "${user} do not have read and write permissions on $1! \n Make sure ${user} is in render group and check the permissions."
 	fi
 }
 
@@ -126,7 +130,7 @@ src_test() {
 	addwrite /dev/kfd
 	addwrite /dev/dri/
 	cd "${BUILD_DIR}/clients/staging" || die
-	ROCBLAS_TENSILE_LIBPATH="${BUILD_DIR}/Tensile/library" ./rocblas-test
+	./rocblas-test || die "Tests failed"
 }
 
 src_install() {
@@ -137,4 +141,7 @@ src_install() {
 		dolib.so clients/librocblas_fortran_client.so
 		dobin clients/staging/rocblas-bench
 	fi
+
+	# Don't install the License (it is installed into the wrong dir)
+	rm "${ED}/usr/share/doc/${P}/LICENSE"* || die
 }
