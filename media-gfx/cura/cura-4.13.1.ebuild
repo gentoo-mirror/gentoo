@@ -7,8 +7,11 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake desktop python-single-r1 xdg
 
-# Never got tagged as 4.13 proper.
-PYNEST2D_PV=4.13_beta
+FDM_MATERIALS_PV=4.13.0
+LIBCHARON_PV=4.13.0
+LIBSAVITAR_PV=4.13.0
+PYNEST2D_PV=4.13_beta # never got tagged as 4.13.0 proper
+URANIUM_PV=4.13.0 # 4.13.1 is identical and so is not packaged in ::gentoo
 
 DESCRIPTION="A 3D model slicing application for 3D printing"
 HOMEPAGE="https://github.com/Ultimaker/Cura"
@@ -30,12 +33,12 @@ BDEPEND="${PYTHON_DEPS}
 "
 RDEPEND="${PYTHON_DEPS}
 	~dev-libs/libarcus-${PV}:=[python,${PYTHON_SINGLE_USEDEP}]
-	~dev-libs/libcharon-${PV}[${PYTHON_SINGLE_USEDEP}]
-	~dev-libs/libsavitar-${PV}:=[python,${PYTHON_SINGLE_USEDEP}]
+	~dev-libs/libcharon-${LIBCHARON_PV}[${PYTHON_SINGLE_USEDEP}]
+	~dev-libs/libsavitar-${LIBSAVITAR_PV}:=[python,${PYTHON_SINGLE_USEDEP}]
 	~dev-python/pynest2d-${PYNEST2D_PV}[${PYTHON_SINGLE_USEDEP}]
-	~dev-python/uranium-${PV}[${PYTHON_SINGLE_USEDEP}]
+	~dev-python/uranium-${URANIUM_PV}[${PYTHON_SINGLE_USEDEP}]
 	~media-gfx/curaengine-${PV}
-	~media-gfx/fdm-materials-${PV}
+	~media-gfx/fdm-materials-${FDM_MATERIALS_PV}
 	dev-qt/qtquickcontrols[widgets]
 	$(python_gen_cond_dep '
 			dev-python/importlib_metadata[${PYTHON_USEDEP}]
