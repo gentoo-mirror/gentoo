@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/company-mode app-emacs/math-symbol-lists >=app-editors/emacs-23.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Completion back-ends for for math unicode symbols and latex tags
+EAPI=8
+HOMEPAGE=https://github.com/vspinu/company-math/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/company-mode app-emacs/math-symbol-lists >=app-editors/emacs-23.1:*
+SLOT=0
+SRC_URI=https://github.com/vspinu/company-math/archive/45778f5731c97a21a83e3b965cbde42018709afd.tar.gz -> company-math-1.4_p20210731.tar.gz
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	elisp	532fa549a4f54b2a3f83b827b272a4a9
+_md5_=dfa0c4f6e53371595507b7008373d3b8
