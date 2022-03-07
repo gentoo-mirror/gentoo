@@ -12,14 +12,16 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dinput experimental +fluidsynth +munt +dynarec new-dynarec +threads +usb vramdump"
+IUSE="dinput +dynarec experimental +fluidsynth +munt new-dynarec +openal +qt5 +threads"
 
 DEPEND="
+	dev-libs/libevdev
 	media-libs/freetype:2=
 	media-libs/libpng:=
 	media-libs/libsdl2
 	media-libs/openal
 	media-libs/rtmidi
+	net-libs/libslirp
 	sys-libs/zlib
 "
 
@@ -27,6 +29,14 @@ RDEPEND="
 	${DEPEND}
 	fluidsynth? ( media-sound/fluidsynth )
 	munt? ( media-libs/munt-mt32emu )
+	openal? ( media-libs/openal )
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtopengl:5
+		dev-qt/qttranslations:5
+		dev-qt/qtwidgets:5
+	)
 "
 
 BDEPEND="virtual/pkgconfig"
@@ -41,10 +51,10 @@ src_configure() {
 		-DMINITRACE="OFF"
 		-DMUNT="$(usex munt)"
 		-DNEW_DYNAREC="$(usex new-dynarec)"
+		-DOPENAL="$(usex openal)"
 		-DPREFER_STATIC="OFF"
+		-DQT="$(usex qt5)"
 		-DRELEASE="ON"
-		-DUSB="$(usex usb)"
-		-DVRAMDUMP="$(usex vramdump)"
 	)
 
 	cmake_src_configure
