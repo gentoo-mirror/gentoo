@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://packages.debian.org/source/sid/schroot
 INHERIT=bash-completion-r1 cmake pam tmpfiles
 IUSE=btrfs +dchroot debug doc lvm nls pam test zfs
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3
 RDEPEND=>=dev-libs/boost-1.42.0:= >=sys-apps/util-linux-2.16 btrfs? ( >=sys-fs/btrfs-progs-0.19-r2 ) lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) zfs? ( sys-fs/zfs ) sys-apps/debianutils dchroot? ( !sys-apps/dchroot ) nls? ( virtual/libintl ) virtual/tmpfiles
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/s/schroot/schroot_1.6.10.orig.tar.xz mirror://debian/pool/main/s/schroot/schroot_1.6.10-12.debian.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	pam	e44a1dd98f13e1ad76de01e919bde1f1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
-_md5_=416abe4b4ed28124b543996a748378cf
+_md5_=fb22e349c765fc5f32c2ad4f61a8f459
