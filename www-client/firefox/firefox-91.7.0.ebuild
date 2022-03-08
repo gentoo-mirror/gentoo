@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-FIREFOX_PATCHSET="firefox-97-patches-03j.tar.xz"
+FIREFOX_PATCHSET="firefox-91esr-patches-05j.tar.xz"
 
 LLVM_MAX_SLOT=13
 
@@ -14,7 +14,7 @@ WANT_AUTOCONF="2.1"
 
 VIRTUALX_REQUIRED="pgo"
 
-MOZ_ESR=
+MOZ_ESR=yes
 
 MOZ_PV=${PV}
 MOZ_PV_SUFFIX=
@@ -59,11 +59,11 @@ HOMEPAGE="https://www.mozilla.com/firefox"
 
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
-SLOT="rapid"
+SLOT="esr"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 
 IUSE="+clang cpu_flags_arm_neon dbus debug eme-free hardened hwaccel"
-IUSE+=" jack libproxy lto +openh264 pgo pulseaudio sndio selinux"
+IUSE+=" jack lto +openh264 pgo pulseaudio sndio selinux"
 IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx system-png +system-webp"
 IUSE+=" wayland wifi"
 
@@ -74,7 +74,6 @@ IUSE+=" screencast"
 
 REQUIRED_USE="debug? ( !system-av1 )
 	pgo? ( lto )
-	wayland? ( dbus )
 	wifi? ( dbus )"
 
 # Firefox-only REQUIRED_USE flags
@@ -86,7 +85,7 @@ BDEPEND="${PYTHON_DEPS}
 	>=dev-util/cbindgen-0.19.0
 	>=net-libs/nodejs-10.23.1
 	virtual/pkgconfig
-	>=virtual/rust-1.57.0
+	>=virtual/rust-1.51.0
 	|| (
 		(
 			sys-devel/clang:13
@@ -113,11 +112,11 @@ BDEPEND="${PYTHON_DEPS}
 			)
 		)
 	)
-	amd64? ( >=dev-lang/nasm-2.14 )
-	x86? ( >=dev-lang/nasm-2.14 )"
+	amd64? ( >=dev-lang/nasm-2.13 )
+	x86? ( >=dev-lang/nasm-2.13 )"
 
 COMMON_DEPEND="
-	>=dev-libs/nss-3.74
+	>=dev-libs/nss-3.68
 	>=dev-libs/nspr-4.32
 	dev-libs/atk
 	dev-libs/expat
@@ -127,38 +126,36 @@ COMMON_DEPEND="
 	>=x11-libs/pango-1.22.0
 	>=media-libs/mesa-10.2:*
 	media-libs/fontconfig
-	>=media-libs/freetype-2.9
+	>=media-libs/freetype-2.4.10
 	kernel_linux? ( !pulseaudio? ( media-libs/alsa-lib ) )
 	virtual/freedesktop-icon-theme
 	>=x11-libs/pixman-0.19.2
-	>=dev-libs/glib-2.42:2
+	>=dev-libs/glib-2.26:2
 	>=sys-libs/zlib-1.2.3
 	>=dev-libs/libffi-3.0.10:=
 	media-video/ffmpeg
 	x11-libs/libX11
+	x11-libs/libxcb
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXrandr
 	x11-libs/libXrender
-	x11-libs/libXtst
-	x11-libs/libxcb
+	x11-libs/libXt
 	dbus? (
 		sys-apps/dbus
 		dev-libs/dbus-glib
 	)
-	libproxy? ( net-libs/libproxy )
 	screencast? ( media-video/pipewire:= )
 	system-av1? (
-		>=media-libs/dav1d-0.9.3:=
+		>=media-libs/dav1d-0.8.1:=
 		>=media-libs/libaom-1.0.0:=
 	)
 	system-harfbuzz? (
 		>=media-libs/harfbuzz-2.8.1:0=
 		>=media-gfx/graphite2-1.3.13
 	)
-	system-icu? ( >=dev-libs/icu-70.1:= )
+	system-icu? ( >=dev-libs/icu-69.1:= )
 	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1 )
 	system-libevent? ( >=dev-libs/libevent-2.0:0=[threads] )
 	system-libvpx? ( >=media-libs/libvpx-1.8.2:0=[postproc] )
@@ -177,7 +174,7 @@ COMMON_DEPEND="
 
 RDEPEND="${COMMON_DEPEND}
 	!www-client/firefox:0
-	!www-client/firefox:esr
+	!www-client/firefox:rapid
 	jack? ( virtual/jack )
 	openh264? ( media-libs/openh264:*[plugin] )
 	pulseaudio? (
@@ -422,7 +419,7 @@ pkg_pretend() {
 		if use pgo || use lto || use debug ; then
 			CHECKREQS_DISK_BUILD="13500M"
 		else
-			CHECKREQS_DISK_BUILD="6500M"
+			CHECKREQS_DISK_BUILD="6400M"
 		fi
 
 		check-reqs_pkg_pretend
@@ -453,19 +450,9 @@ pkg_setup() {
 			[[ -n ${version_lld} ]] && version_lld=$(ver_cut 1 "${version_lld}")
 			[[ -z ${version_lld} ]] && die "Failed to read ld.lld version!"
 
-			# temp fix for https://bugs.gentoo.org/768543
-			# we can assume that rust 1.{49,50}.0 always uses llvm 11
-			local version_rust=$(rustc -Vv 2>/dev/null | grep -F -- 'release:' | awk '{ print $2 }')
-			[[ -n ${version_rust} ]] && version_rust=$(ver_cut 1-2 "${version_rust}")
-			[[ -z ${version_rust} ]] && die "Failed to read version from rustc!"
-
-			if ver_test "${version_rust}" -ge "1.49" && ver_test "${version_rust}" -le "1.50" ; then
-				local version_llvm_rust="11"
-			else
-				local version_llvm_rust=$(rustc -Vv 2>/dev/null | grep -F -- 'LLVM version:' | awk '{ print $3 }')
-				[[ -n ${version_llvm_rust} ]] && version_llvm_rust=$(ver_cut 1 "${version_llvm_rust}")
-				[[ -z ${version_llvm_rust} ]] && die "Failed to read used LLVM version from rustc!"
-			fi
+			local version_llvm_rust=$(rustc -Vv 2>/dev/null | grep -F -- 'LLVM version:' | awk '{ print $3 }')
+			[[ -n ${version_llvm_rust} ]] && version_llvm_rust=$(ver_cut 1 "${version_llvm_rust}")
+			[[ -z ${version_llvm_rust} ]] && die "Failed to read used LLVM version from rustc!"
 
 			if ver_test "${version_lld}" -ne "${version_llvm_rust}" ; then
 				eerror "Rust is using LLVM version ${version_llvm_rust} but ld.lld version belongs to LLVM version ${version_lld}."
@@ -697,11 +684,8 @@ src_configure() {
 		--disable-cargo-incremental \
 		--disable-crashreporter \
 		--disable-install-strip \
-		--disable-parental-controls \
 		--disable-strip \
 		--disable-updater \
-		--enable-negotiateauth \
-		--enable-new-pass-manager \
 		--enable-official-branding \
 		--enable-release \
 		--enable-system-ffi \
@@ -711,7 +695,6 @@ src_configure() {
 		--prefix="${EPREFIX}/usr" \
 		--target="${CHOST}" \
 		--without-ccache \
-		--without-wasm-sandboxed-libraries \
 		--with-intl-api \
 		--with-libclang-path="$(llvm-config --libdir)" \
 		--with-system-nspr \
@@ -729,15 +712,6 @@ src_configure() {
 
 	if ! use x86 && [[ ${CHOST} != armv*h* ]] ; then
 		mozconfig_add_options_ac '' --enable-rust-simd
-	fi
-
-	# For future keywording: This is currently (97.0) only supported on:
-	# amd64, arm, arm64 & x86.
-	# Might want to flip the logic around if Firefox is to support more arches.
-	if use ppc64; then
-		mozconfig_add_options_ac '' --disable-sandbox
-	else
-		mozconfig_add_options_ac '' --enable-sandbox
 	fi
 
 	if [[ -s "${S}/api-google.key" ]] ; then
@@ -781,13 +755,12 @@ src_configure() {
 	mozconfig_use_with system-harfbuzz system-graphite2
 	mozconfig_use_with system-icu
 	mozconfig_use_with system-jpeg
-	mozconfig_use_with system-libevent
+	mozconfig_use_with system-libevent system-libevent "${SYSROOT}${EPREFIX}/usr"
 	mozconfig_use_with system-libvpx
 	mozconfig_use_with system-png
 	mozconfig_use_with system-webp
 
 	mozconfig_use_enable dbus
-	mozconfig_use_enable libproxy
 
 	use eme-free && mozconfig_add_options_ac '+eme-free' --disable-eme
 
@@ -822,8 +795,10 @@ src_configure() {
 			mozconfig_add_options_ac "forcing ld=lld due to USE=clang and USE=lto" --enable-linker=lld
 
 			mozconfig_add_options_ac '+lto' --enable-lto=cross
-
 		else
+			# ld.gold is known to fail:
+			# /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.1/../../../../x86_64-pc-linux-gnu/bin/ld.gold: internal error in set_xindex, at /var/tmp/portage/sys-devel/binutils-2.37_p1-r1/work/binutils-2.37/gold/object.h:1050
+
 			# ThinLTO is currently broken, see bmo#1644409
 			mozconfig_add_options_ac '+lto' --enable-lto=full
 			mozconfig_add_options_ac "linker is set to bfd" --enable-linker=bfd
@@ -938,7 +913,7 @@ src_configure() {
 			if use clang ; then
 				# Nothing to do
 				:;
-			elif use lto ; then
+			elif tc-ld-is-gold || use lto ; then
 				append-ldflags -Wl,--no-keep-memory
 			else
 				append-ldflags -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
@@ -962,8 +937,6 @@ src_configure() {
 
 	# Use system's Python environment
 	export MACH_USE_SYSTEM_PYTHON=1
-	export MACH_SYSTEM_ASSERTED_COMPATIBLE_WITH_MACH_SITE=1
-	export MACH_SYSTEM_ASSERTED_COMPATIBLE_WITH_BUILD_SITE=1
 	export PIP_NO_CACHE_DIR=off
 
 	# Disable notification when build system has finished

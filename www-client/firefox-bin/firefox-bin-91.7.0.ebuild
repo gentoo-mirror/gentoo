@@ -37,7 +37,7 @@ DESCRIPTION="Firefox Web Browser"
 HOMEPAGE="https://www.mozilla.com/firefox"
 
 KEYWORDS="-* amd64 x86"
-SLOT="0/esr$(ver_cut 1)"
+SLOT="esr"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="+alsa +ffmpeg +gmp-autoupdate +pulseaudio selinux wayland"
 
@@ -50,15 +50,17 @@ BDEPEND="app-arch/unzip
 		)
 	)"
 
-CDEPEND="alsa? (
+COMMON_DEPEND="alsa? (
 		!pulseaudio? (
 			media-sound/apulse
 		)
 	)"
 
-DEPEND="${CDEPEND}"
+DEPEND="${COMMON_DEPEND}"
 
-RDEPEND="${CDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	!www-client/firefox-bin:0
+	!www-client/firefox-bin:rapid
 	dev-libs/atk
 	dev-libs/dbus-glib
 	>=dev-libs/glib-2.26:2
