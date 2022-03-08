@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools systemd
 
@@ -49,6 +49,12 @@ src_configure() {
 
 src_install() {
 	default
+
+	if [[ ${PV} != $(sed -n -e 's/^Version: //p' "${ED}/usr/$(get_libdir)/pkgconfig/tss2-tcti-tabrmd.pc" || die) ]] ; then
+		# Safeguard for bug #833887
+		die "pkg-config file version doesn't match ${PV}! Please report a bug!"
+	fi
+
 	find "${D}" -name '*.la' -delete || die
 
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
