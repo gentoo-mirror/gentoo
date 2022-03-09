@@ -24,9 +24,10 @@ distutils_enable_tests pytest
 python_prepare_all() {
 	distutils-r1_python_prepare_all
 
-	# setup.py reads requirements.txt but file is currently from
-	# pypi tarball, only keep pycryptodome either way for bug #828466
-	echo pycryptodome > requirements.txt || die
+	# adjust requires for pycryptodome and optional dependencies (bug #828466)
+	sed -ri requirements.txt \
+		-e "s/^(pycryptodome)x/\1/" \
+		-e "/^(brotli.*|mutagen|websockets)/d" || die
 }
 
 python_test() {
