@@ -1,0 +1,16 @@
+BDEPEND=ncurses? ( virtual/pkgconfig )
+DEFINED_PHASES=compile configure install postinst
+DEPEND=ncurses? ( sys-libs/ncurses:= )
+DESCRIPTION=simple RSS and Atom parser
+EAPI=7
+HOMEPAGE=https://codemadness.org/sfeed-simple-feed-parser.html
+INHERIT=toolchain-funcs savedconfig optfeature
+IUSE=+ncurses +theme-mono theme-mono-highlight theme-newsboat theme-templeos savedconfig
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=ncurses? ( sys-libs/ncurses:= )
+REQUIRED_USE=ncurses? ( ^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos ) )
+SLOT=0
+SRC_URI=https://codemadness.org/releases/sfeed/sfeed-1.3.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=280400250904f745283a9ad229c3d1c2
