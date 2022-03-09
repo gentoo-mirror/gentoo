@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -19,7 +19,7 @@ IUSE=""
 RDEPEND="
 	dev-libs/boost:=[threads(+)]
 	media-libs/assimp
-	<dev-games/ogre-1.10:=[-double-precision]
+	dev-games/ogre:=[-double-precision]
 	virtual/opengl
 	dev-qt/qtwidgets:5
 	dev-qt/qtcore:5
@@ -38,7 +38,6 @@ RDEPEND="
 	dev-ros/pluginlib
 	>=dev-ros/python_qt_binding-0.3.0[${PYTHON_SINGLE_USEDEP}]
 	dev-ros/resource_retriever
-	dev-ros/rosbag[${PYTHON_SINGLE_USEDEP}]
 	dev-ros/rosconsole
 	dev-libs/console_bridge:=
 	dev-ros/roscpp
@@ -69,7 +68,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/yamlcpp.patch" )
+PATCHES=(
+	"${FILESDIR}/yamlcpp.patch"
+	"${FILESDIR}/assimp.patch"
+)
 
 src_test() {
 	virtx ros-catkin_src_test

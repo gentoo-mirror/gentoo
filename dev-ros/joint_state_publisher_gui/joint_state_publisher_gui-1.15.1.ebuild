@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,12 +16,8 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}
 	dev-ros/rospy[${PYTHON_SINGLE_USEDEP}]
-	dev-ros/sensor_msgs[${CATKIN_MESSAGES_PYTHON_USEDEP}]
+	dev-ros/python_qt_binding[${PYTHON_SINGLE_USEDEP}]
+	dev-ros/joint_state_publisher[${PYTHON_SINGLE_USEDEP}]
 "
 DEPEND="${DEPEND}
 	test? ( dev-ros/rostest[${PYTHON_SINGLE_USEDEP}] )"
-
-src_test() {
-	export ROS_PACKAGE_PATH="${S}:${ROS_PACKAGE_PATH}"
-	ros-catkin_src_test
-}
