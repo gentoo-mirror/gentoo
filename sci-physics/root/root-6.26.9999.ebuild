@@ -6,18 +6,18 @@ EAPI=7
 # ninja does not work due to fortran
 CMAKE_MAKEFILE_GENERATOR=emake
 FORTRAN_NEEDED="fortran"
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit cmake cuda elisp-common fortran-2 prefix python-single-r1 toolchain-funcs
+inherit cmake cuda elisp-common fortran-2 python-single-r1 toolchain-funcs
 
 DESCRIPTION="C++ data analysis framework and interpreter from CERN"
 HOMEPAGE="https://root.cern"
 
-IUSE="+X aqua +asimage c++11 c++14 +c++17 cuda cudnn +davix debug emacs
+IUSE="+X aqua +asimage c++14 +c++17 cuda cudnn +davix debug emacs
 	+examples fits fftw fortran +gdml graphviz +gsl http libcxx +minuit
-	mpi mysql odbc +opengl oracle postgres prefix pythia6 pythia8 +python
+	mpi mysql odbc +opengl oracle postgres pythia6 pythia8 +python
 	qt5 R +roofit +root7 shadow sqlite +ssl +tbb test +tmva +unuran uring
-	vc vmc +xml xrootd"
+	vc +xml xrootd"
 RESTRICT="!test? ( test )"
 
 if [[ ${PV} =~ "9999" ]] ; then
@@ -37,14 +37,14 @@ fi
 LICENSE="LGPL-2.1 freedist MSttfEULA LGPL-3 libpng UoI-NCSA"
 
 REQUIRED_USE="
-	^^ ( c++11 c++14 c++17 )
+	^^ ( c++14 c++17 )
 	cuda? ( tmva )
 	cudnn? ( cuda )
 	!X? ( !asimage !opengl !qt5 )
 	davix? ( ssl xml )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	qt5? ( root7 )
-	root7? ( || ( c++14 c++17 ) )
+	root7? ( || ( c++17 ) )
 	tmva? ( gsl )
 	uring? ( root7 )
 "
@@ -168,7 +168,7 @@ src_configure() {
 		-DCMAKE_CUDA_HOST_COMPILER=$(tc-getCXX)
 		-DCMAKE_C_FLAGS="${CFLAGS}"
 		-DCMAKE_CXX_FLAGS="${CXXFLAGS}"
-		-DCMAKE_CXX_STANDARD=$((usev c++11 || usev c++14 || usev c++17) | cut -c4-)
+		-DCMAKE_CXX_STANDARD=$((usev c++14 || usev c++17) | cut -c4-)
 		-DPYTHON_EXECUTABLE="${EPREFIX}/usr/bin/${EPYTHON}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/${PN}/$(ver_cut 1-2)"
 		-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/${PN}/$(ver_cut 1-2)/share/man"
@@ -188,6 +188,7 @@ src_configure() {
 		-Dbuiltin_openui5=ON
 		-Dbuiltin_afterimage=OFF
 		-Dbuiltin_cfitsio=OFF
+		-Dbuiltin_cppzmq=OFF
 		-Dbuiltin_davix=OFF
 		-Dbuiltin_fftw3=OFF
 		-Dbuiltin_freetype=OFF
@@ -207,6 +208,7 @@ src_configure() {
 		-Dbuiltin_veccore=OFF
 		-Dbuiltin_xrootd=OFF
 		-Dbuiltin_xxhash=OFF
+		-Dbuiltin_zeromq=OFF
 		-Dbuiltin_zlib=OFF
 		-Dbuiltin_zstd=OFF
 		-Dalien=OFF
@@ -236,7 +238,6 @@ src_configure() {
 		-Dimt=$(usex tbb)
 		-Dlibcxx=$(usex libcxx)
 		-Dmathmore=$(usex gsl)
-		-Dmemstat=OFF # deprecated
 		-Dminimal=OFF
 		-Dminuit2=$(usex minuit)
 		-Dminuit=$(usex minuit)
@@ -248,14 +249,15 @@ src_configure() {
 		-Dopengl=$(usex opengl)
 		-Doracle=$(usex oracle)
 		-Dpgsql=$(usex postgres)
-		-Dpythia6=$(usex pythia6)
 		-Dpyroot=$(usex python) # python was renamed to pyroot
-		#-Dpyroot_legacy=OFF # set to ON to use legacy PyROOT (6.22 and later)
-		#-Dpyroot_experimental=OFF # set to ON to use new PyROOT (6.20 and earlier)
+		-Dpyroot_legacy=OFF
+		-Dpythia6=$(usex pythia6)
 		-Dpythia8=$(usex pythia8)
 		-Dqt5web=$(usex qt5)
+		-Dqt6web=OFF
 		-Dr=$(usex R)
 		-Droofit=$(usex roofit)
+		-Droofit_multiprocess=OFF
 		-Droot7=$(usex root7)
 		-Drootbench=OFF
 		-Droottest=OFF
@@ -266,6 +268,7 @@ src_configure() {
 		-Dsqlite=$(usex sqlite)
 		-Dssl=$(usex ssl)
 		-Dtcmalloc=OFF
+		-Dtest_distrdf_dask=OFF
 		-Dtest_distrdf_pyspark=OFF
 		-Dtesting=$(usex test)
 		-Dtmva=$(usex tmva)
@@ -273,13 +276,13 @@ src_configure() {
 		-Dtmva-gpu=$(usex cuda)
 		-Dtmva-pymva=$(usex tmva)
 		-Dtmva-rmva=$(usex R)
+		-Dtmva-sofie=OFF
 		-Dunuran=$(usex unuran)
 		-During=$(usex uring)
 		-Dvc=$(usex vc)
 		-Dvdt=OFF
 		-Dveccore=OFF
 		-Dvecgeom=OFF
-		-Dvmc=$(usex vmc)
 		-Dx11=$(usex X)
 		-Dxml=$(usex xml)
 		-Dxrootd=$(usex xrootd)

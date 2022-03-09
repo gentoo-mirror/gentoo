@@ -6,19 +6,19 @@ EAPI=7
 # ninja does not work due to fortran
 CMAKE_MAKEFILE_GENERATOR=emake
 FORTRAN_NEEDED="fortran"
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit cmake cuda elisp-common fortran-2 prefix python-single-r1 toolchain-funcs
+inherit cmake cuda elisp-common fortran-2 python-single-r1 toolchain-funcs
 
 DESCRIPTION="C++ data analysis framework and interpreter from CERN"
 HOMEPAGE="https://root.cern"
 SRC_URI="https://root.cern/download/${PN}_v${PV}.source.tar.gz"
 
-IUSE="+X aqua +asimage c++11 c++14 +c++17 cuda cudnn +davix debug emacs
+IUSE="+X aqua +asimage c++14 +c++17 cuda cudnn +davix debug emacs
 	+examples fits fftw fortran +gdml graphviz +gsl http libcxx +minuit
-	mpi mysql odbc +opengl oracle postgres prefix pythia6 pythia8 +python
-	qt5 R +roofit +root7 shadow sqlite +ssl +tbb test +tmva +unuran vc
-	vmc +xml xrootd"
+	mpi mysql odbc +opengl oracle postgres pythia6 pythia8 +python
+	qt5 R +roofit +root7 shadow sqlite +ssl +tbb test +tmva +unuran uring
+	vc +xml xrootd"
 RESTRICT="!test? ( test )"
 
 SLOT="$(ver_cut 1-2)/$(ver_cut 3)"
@@ -26,15 +26,16 @@ LICENSE="LGPL-2.1 freedist MSttfEULA LGPL-3 libpng UoI-NCSA"
 KEYWORDS="~amd64 ~x86"
 
 REQUIRED_USE="
-	^^ ( c++11 c++14 c++17 )
+	^^ ( c++14 c++17 )
 	cuda? ( tmva )
 	cudnn? ( cuda )
 	!X? ( !asimage !opengl !qt5 )
 	davix? ( ssl xml )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	qt5? ( root7 )
-	root7? ( || ( c++14 c++17 ) )
+	root7? ( || ( c++17 ) )
 	tmva? ( gsl )
+	uring? ( root7 )
 "
 
 CDEPEND="
@@ -42,6 +43,7 @@ CDEPEND="
 	app-arch/zstd
 	app-arch/xz-utils
 	fortran? ( dev-lang/cfortran )
+	dev-cpp/nlohmann_json
 	dev-libs/libpcre:3
 	dev-libs/xxhash
 	media-fonts/dejavu
@@ -98,12 +100,13 @@ CDEPEND="
 	shadow? ( sys-apps/shadow )
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( dev-libs/openssl:0= )
-	tbb? ( >=dev-cpp/tbb-2018:= )
+	tbb? ( dev-cpp/tbb:= )
 	tmva? (
 		$(python_gen_cond_dep '
 			dev-python/numpy[${PYTHON_USEDEP}]
 		')
 	)
+	uring? ( sys-libs/liburing:= )
 	vc? ( dev-libs/vc:= )
 	xml? ( dev-libs/libxml2:2= )
 	xrootd? ( net-libs/xrootd:0= )
@@ -154,13 +157,15 @@ src_configure() {
 		-DCMAKE_CUDA_HOST_COMPILER=$(tc-getCXX)
 		-DCMAKE_C_FLAGS="${CFLAGS}"
 		-DCMAKE_CXX_FLAGS="${CXXFLAGS}"
-		-DCMAKE_CXX_STANDARD=$((usev c++11 || usev c++14 || usev c++17) | cut -c4-)
+		-DCMAKE_CXX_STANDARD=$((usev c++14 || usev c++17) | cut -c4-)
 		-DPYTHON_EXECUTABLE="${EPREFIX}/usr/bin/${EPYTHON}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/${PN}/$(ver_cut 1-2)"
 		-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/${PN}/$(ver_cut 1-2)/share/man"
 		-DCMAKE_INSTALL_LIBDIR="lib"
 		-DDEFAULT_SYSROOT="${EPREFIX}"
 		-DCLING_BUILD_PLUGINS=OFF
+		-Dasserts=OFF
+		-Ddev=OFF
 		-Dexceptions=ON
 		-Dfail-on-missing=ON
 		-Dgnuinstall=OFF
@@ -168,8 +173,11 @@ src_configure() {
 		-Dsoversion=ON
 		-Dbuiltin_llvm=ON
 		-Dbuiltin_clang=ON
+		-Dbuiltin_cling=ON
+		-Dbuiltin_openui5=ON
 		-Dbuiltin_afterimage=OFF
 		-Dbuiltin_cfitsio=OFF
+		-Dbuiltin_cppzmq=OFF
 		-Dbuiltin_davix=OFF
 		-Dbuiltin_fftw3=OFF
 		-Dbuiltin_freetype=OFF
@@ -179,6 +187,7 @@ src_configure() {
 		-Dbuiltin_gsl=OFF
 		-Dbuiltin_lz4=OFF
 		-Dbuiltin_lzma=OFF
+		-Dbuiltin_nlohmannjson=OFF
 		-Dbuiltin_openssl=OFF
 		-Dbuiltin_pcre=OFF
 		-Dbuiltin_tbb=OFF
@@ -188,6 +197,7 @@ src_configure() {
 		-Dbuiltin_veccore=OFF
 		-Dbuiltin_xrootd=OFF
 		-Dbuiltin_xxhash=OFF
+		-Dbuiltin_zeromq=OFF
 		-Dbuiltin_zlib=OFF
 		-Dbuiltin_zstd=OFF
 		-Dalien=OFF
@@ -203,6 +213,7 @@ src_configure() {
 		-Ddataframe=ON
 		-Ddavix=$(usex davix)
 		-Ddcache=OFF
+		-Ddistcc=OFF
 		-Dfcgi=$(usex http)
 		-Dfftw3=$(usex fftw)
 		-Dfitsio=$(usex fits)
@@ -216,7 +227,6 @@ src_configure() {
 		-Dimt=$(usex tbb)
 		-Dlibcxx=$(usex libcxx)
 		-Dmathmore=$(usex gsl)
-		-Dmemstat=OFF # deprecated
 		-Dminimal=OFF
 		-Dminuit2=$(usex minuit)
 		-Dminuit=$(usex minuit)
@@ -233,8 +243,10 @@ src_configure() {
 		-Dpythia6=$(usex pythia6)
 		-Dpythia8=$(usex pythia8)
 		-Dqt5web=$(usex qt5)
+		-Dqt6web=OFF
 		-Dr=$(usex R)
 		-Droofit=$(usex roofit)
+		-Droofit_multiprocess=OFF
 		-Droot7=$(usex root7)
 		-Drootbench=OFF
 		-Droottest=OFF
@@ -245,18 +257,21 @@ src_configure() {
 		-Dsqlite=$(usex sqlite)
 		-Dssl=$(usex ssl)
 		-Dtcmalloc=OFF
+		-Dtest_distrdf_dask=OFF
+		-Dtest_distrdf_pyspark=OFF
 		-Dtesting=$(usex test)
 		-Dtmva=$(usex tmva)
 		-Dtmva-cpu=$(usex tmva)
 		-Dtmva-gpu=$(usex cuda)
 		-Dtmva-pymva=$(usex tmva)
 		-Dtmva-rmva=$(usex R)
+		-Dtmva-sofie=OFF
 		-Dunuran=$(usex unuran)
+		-During=$(usex uring)
 		-Dvc=$(usex vc)
 		-Dvdt=OFF
 		-Dveccore=OFF
 		-Dvecgeom=OFF
-		-Dvmc=$(usex vmc)
 		-Dx11=$(usex X)
 		-Dxml=$(usex xml)
 		-Dxrootd=$(usex xrootd)
