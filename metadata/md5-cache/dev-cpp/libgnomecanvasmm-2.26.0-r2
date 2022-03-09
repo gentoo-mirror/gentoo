@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) >=app-portage/elt-patches-20170815
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=gnome-base/libgnomecanvas-2.6 >=dev-cpp/gtkmm-2.4:2.4
+DESCRIPTION=C++ bindings for libgnomecanvas
+EAPI=8
+HOMEPAGE=https://www.gtkmm.org
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=doc
+KEYWORDS=~alpha amd64 arm ~ia64 ppc ppc64 sparc x86
+LICENSE=LGPL-2.1
+RDEPEND=>=gnome-base/libgnomecanvas-2.6 >=dev-cpp/gtkmm-2.4:2.4
+SLOT=2.6
+SRC_URI=mirror://gnome/sources/libgnomecanvasmm/2.26/libgnomecanvasmm-2.26.0.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	xdg	6024fbc93167fad782e2032933654857	gnome2	397207e07bdf58b07ce295d0bc1049fe
+_md5_=83d340e9c79731f2677f3e2462b07c26
