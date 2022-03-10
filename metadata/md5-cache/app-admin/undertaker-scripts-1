@@ -4,11 +4,11 @@ EAPI=7
 HOMEPAGE=https://github.com/mgorny/undertaker-scripts
 INHERIT=python-single-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=BSD-2
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_8? ( dev-python/jinja[python_targets_python3_8(-)] dev-python/lxml[python_targets_python3_8(-)] dev-python/python-bugzilla[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/jinja[python_targets_python3_9(-)] dev-python/lxml[python_targets_python3_9(-)] dev-python/python-bugzilla[python_targets_python3_9(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/mgorny/undertaker-scripts/archive/v1.tar.gz -> undertaker-scripts-1.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8
-_md5_=38ff3dc966795cf89d5e849ba242c476
+_md5_=f6e041a6b110417034775c53df6a9f06
