@@ -7,7 +7,8 @@ HOMEPAGE=https://gitlab.com/sagemath/lcalc
 IUSE=+double double-double quad-double pari
 KEYWORDS=amd64
 LICENSE=GPL-2+
+RDEPEND=double-double? ( sci-libs/qd:= ) quad-double? ( sci-libs/qd:= ) pari? ( sci-mathematics/pari:= )
 REQUIRED_USE=^^ ( double double-double quad-double )
 SLOT=0/1
 SRC_URI=https://gitlab.com/sagemath/lcalc/uploads/25f029f3c02fcb6c3174972e0ac0e192/lcalc-2.0.5.tar.xz
-_md5_=f0dfd7f30fa37f1d02627576728ffffe
+_md5_=2153b12613f29ef3637fe00858c33c00
