@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.minetest.net
 INHERIT=cmake flag-o-matic lua-single systemd xdg
 IUSE=+client +curl doc +leveldb ncurses nls postgres prometheus redis +server +sound spatial test +truetype lua_single_target_luajit lua_single_target_lua5-1
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=~amd64 ~riscv
 LICENSE=LGPL-2.1+ CC-BY-SA-3.0 OFL-1.1 Apache-2.0
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 dev-libs/gmp:0= dev-libs/jsoncpp:= sys-libs/zlib client? ( app-arch/bzip2 dev-games/irrlicht media-libs/libpng:0= virtual/jpeg:0 virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm sound? ( media-libs/libogg media-libs/libvorbis media-libs/openal ) truetype? ( media-libs/freetype:2 ) ) curl? ( net-misc/curl ) leveldb? ( dev-libs/leveldb:= ) ncurses? ( sys-libs/ncurses:0= ) nls? ( virtual/libintl ) postgres? ( >=dev-db/postgresql-9.5:= ) prometheus? ( dev-cpp/prometheus-cpp ) redis? ( dev-libs/hiredis:= ) server? ( acct-group/minetest acct-user/minetest dev-games/irrlicht-headers ) spatial? ( sci-libs/libspatialindex:= )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) || ( client server )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/minetest/minetest/archive/5.4.1.tar.gz -> minetest-5.4.1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	systemd	2736b403a83f194b59b767f3b344c2c1	xdg	6024fbc93167fad782e2032933654857
-_md5_=f2b7b6bb5de262855edd1d1b3472cfa6
+_md5_=22aa266ad4db200418cbdb53b54ed85e
