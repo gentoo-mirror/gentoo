@@ -6,12 +6,13 @@ EAPI=8
 HOMEPAGE=https://github.com/libratbag/piper
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-single-r1 xdg
-IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+IUSE=test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64
-LICENSE=MIT
+LICENSE=GPL-2
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-libs/gobject-introspection >=dev-libs/libratbag-0.13 gnome-base/librsvg[introspection] x11-libs/gdk-pixbuf[introspection] x11-libs/gtk+:3[introspection] python_single_target_python3_8? ( dev-python/lxml[python_targets_python3_8(-)] dev-python/pycairo[python_targets_python3_8(-)] dev-python/pygobject:3[cairo,python_targets_python3_8(-)] dev-python/python-evdev[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/lxml[python_targets_python3_9(-)] dev-python/pycairo[python_targets_python3_9(-)] dev-python/pygobject:3[cairo,python_targets_python3_9(-)] dev-python/python-evdev[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/lxml[python_targets_python3_10(-)] dev-python/pycairo[python_targets_python3_10(-)] dev-python/pygobject:3[cairo,python_targets_python3_10(-)] dev-python/python-evdev[python_targets_python3_10(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/libratbag/piper/archive/0.5.1.tar.gz -> piper-0.5.1.tar.gz
+SRC_URI=https://github.com/libratbag/piper/archive/0.6.tar.gz -> piper-0.6.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	python-single-r1	3c5721adc30f98c39739c5970a4762d8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=22fa9182437a4352db68a17790fb02da
+_md5_=e054aaaf937d8e150bcb841931bfb0a3
