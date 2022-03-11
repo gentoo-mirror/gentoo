@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-doc/doxygen ) virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=bluetooth? ( net-wireless/bluez:= ) usb? ( virtual/libusb:= )
+DESCRIPTION=Implementation of the OBEX protocol used for transferring data to mobile devices
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/openobex/
+INHERIT=cmake udev
+IUSE=bluetooth doc irda usb
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=bluetooth? ( net-wireless/bluez:= ) usb? ( virtual/libusb:= )
+SLOT=0/2
+SRC_URI=mirror://sourceforge/openobex/1.7.2/openobex-1.7.2-Source.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	udev	2d229ad4bfa09058e0184b1ca900db32
+_md5_=438b3d28601fc089c18169702bc7c372
