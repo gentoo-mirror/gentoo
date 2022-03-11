@@ -1121,7 +1121,7 @@ app-arch/lcab 1.0_beta12: CAB file creation tool
 app-arch/lha 114i_p20201004: Utility for creating and opening lzh archives
 app-arch/libarchive 3.5.3 3.6.0: Multi-format archive and compression library
 app-arch/libpar2 0.4: A library for par2, extracted from par2cmdline
-app-arch/lrzip 0.641-r1 0.650: Long Range ZIP or Lzma RZIP optimized for compressing large files
+app-arch/lrzip 0.641-r1 0.650 0.651: Long Range ZIP or Lzma RZIP optimized for compressing large files
 app-arch/lunzip 1.13: Decompressor for the lzip format, written in C
 app-arch/lxqt-archiver 0.4.0 0.5.0: Qt GUI File Archiver
 app-arch/lz4 1.9.3-r1: Extremely Fast Compression algorithm
@@ -2564,7 +2564,7 @@ app-eselect/eselect-wxwidgets 20180529: Eselect module and wrappers for wxWidget
 app-forensics/afflib 3.7.19: Library that implements the AFF image standard
 app-forensics/afl 2.56b-r1 2.57b-r1 2.57b-r2: american fuzzy lop - compile-time instrumentation fuzzer
 app-forensics/aflplusplus 3.14c-r2 4.00c: A fork of AFL, the popular compile-time instrumentation fuzzer
-app-forensics/aide 0.16.2_p20200614: AIDE (Advanced Intrusion Detection Environment) is a file integrity checker
+app-forensics/aide 0.16.2_p20200614 0.17.4: AIDE (Advanced Intrusion Detection Environment) is a file integrity checker
 app-forensics/air 2.0.0-r2: A GUI front-end to dd/dc3dd
 app-forensics/chkrootkit 0.54 0.55 0.55-r1: Tool to locally check for signs of a rootkit
 app-forensics/cmospwd 5.1-r1: CmosPwd decrypts password stored in cmos used to access BIOS SETUP
@@ -8690,7 +8690,7 @@ dev-python/ipdb 0.13.9-r1: IPython-enabled pdb
 dev-python/ipy 1.01 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.6.1 6.9.1: IPython Kernel for Jupyter
 dev-python/ipyparallel 6.3.0-r1 7.1.0 8.1.0 8.1.0-r1 8.2.0: Interactive Parallel Computing with IPython
-dev-python/ipython 7.31.1 8.0.1 8.1.0: Advanced interactive shell for Python
+dev-python/ipython 7.31.1 8.0.1 8.1.0 8.1.1: Advanced interactive shell for Python
 dev-python/ipython_genutils 0.2.0-r2 0.2.0-r3: Vestigial utilities from IPython
 dev-python/ipywidgets 7.6.5 7.6.5-r2: IPython HTML widgets for Jupyter
 dev-python/irc 20.0.0 20.0.0-r1: IRC client framework written in Python
@@ -8885,7 +8885,7 @@ dev-python/namespace-zope 1-r1: Namespace package declaration for zope
 dev-python/natsort 8.0.2 8.1.0: Natural sorting for Python
 dev-python/nautilus-python 1.2.3-r1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 0.3.3 0.3.4 0.3.5: Jupyter Notebook as a Jupyter Server Extension
-dev-python/nbclient 0.5.5 0.5.11: A client library for executing Jupyter notebooks
+dev-python/nbclient 0.5.5 0.5.11 0.5.13: A client library for executing Jupyter notebooks
 dev-python/nbconvert 6.4.2: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.0 3.1.1: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.1.3 5.1.3-r1: Reference implementation of the Jupyter Notebook format
@@ -8917,7 +8917,7 @@ dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
 dev-python/nuitka 0.7.1 0.7.2 0.7.3: Python to native compiler
 dev-python/numexpr 2.8.1: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 1.21.5 1.22.0-r1 1.22.1 1.22.2: Fast array and numerical python library
+dev-python/numpy 1.21.5 1.22.0-r1 1.22.1 1.22.2 1.22.3: Fast array and numerical python library
 dev-python/numpydoc 1.1.0 1.2: Sphinx extension to support docstrings in Numpy format
 dev-python/oauth2client 4.1.3-r1 4.1.3-r2: Library for accessing resources protected by OAuth 2.0
 dev-python/oauthlib 3.1.1 3.2.0: Spec-compliant and thorough implementation of the OAuth request-signing logic
@@ -11082,7 +11082,7 @@ dev-util/clinfo 3.0.21.02.21 9999: A tool to display info about the system's Ope
 dev-util/clion 2021.3.2: A complete toolset for C and C++ development
 dev-util/clippy 8.1-r1: Standalone clippy tool built from FRR sources
 dev-util/cloc 1.88 1.90: Count Lines of Code
-dev-util/cmake 3.21.4 3.22.2 3.22.3 3.23.0_rc1 3.23.0_rc2 9999: Cross platform Make
+dev-util/cmake 3.22.2 3.22.3 3.23.0_rc3 9999: Cross platform Make
 dev-util/cmake-fedora 2.7.1: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-util/cmocka 1.1.5: Unit testing framework for C
 dev-util/codeblocks 17.12-r303 17.12-r304 20.03-r1 20.03-r2 20.03-r3 20.03-r4 9999: The open source, cross platform, free C, C++ and Fortran IDE
@@ -15533,7 +15533,7 @@ net-misc/dahdi-tools 3.1.0-r2: Userspace tools to configure the kernel modules f
 net-misc/datapipe 1.0-r2: bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
-net-misc/dhcp 4.4.2_p1-r1: ISC Dynamic Host Configuration Protocol (DHCP) client/server
+net-misc/dhcp 4.4.2_p1-r1 4.4.3: ISC Dynamic Host Configuration Protocol (DHCP) client/server
 net-misc/dhcpcd 9.4.0-r1 9.4.1 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
 net-misc/dhcpcd-ui 0.7.8: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2: Utility to send DHCP requests to DHCP servers to see if responding
@@ -17966,9 +17966,9 @@ sys-fs/xfsprogs 5.10.0-r1 5.14.1 5.14.2: xfs filesystem utilities
 sys-fs/xwmfs 0.90: FUSE-based X11 Window-Manager file system
 sys-fs/yaffs2utils 0.2.9: tools for generating YAFFS images
 sys-fs/zerofree 1.1.1-r1: Zeroes out all free space on a filesystem
-sys-fs/zfs 0.8.6-r2 2.0.7 2.1.2-r1 9999: Userland utilities for ZFS Linux kernel module
+sys-fs/zfs 0.8.6-r2 2.0.7 2.1.2-r1 2.1.3 9999: Userland utilities for ZFS Linux kernel module
 sys-fs/zfs-auto-snapshot 1.2.4-r1 9999: ZFS Automatic Snapshot Service for Linux
-sys-fs/zfs-kmod 0.8.6 2.0.7 2.1.2 9999: Linux ZFS kernel module for sys-fs/zfs
+sys-fs/zfs-kmod 0.8.6 2.0.7 2.1.2 2.1.3 9999: Linux ZFS kernel module for sys-fs/zfs
 sys-kernel/bliss-initramfs 8.1.0-r1 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS
 sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel cryptographic drivers
 sys-kernel/dracut 053-r1 055-r4 9999: Generic initramfs generation tool
@@ -17992,7 +17992,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201 5.10.63_p20211029 5.10.9999: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.225_p101 5.4.170_p68 5.10.90_p61-r1 5.15.19_p29 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/vanilla-kernel 5.4.179 5.4.180 5.4.181 5.4.183 5.10.100 5.10.101 5.10.102 5.10.104 5.15.23 5.15.24 5.15.25 5.15.27 5.16.9 5.16.10 5.16.11 5.16.13: Linux kernel built from vanilla upstream sources
-sys-kernel/vanilla-sources 4.9.305 4.14.270 4.19.233 5.4.184 5.10.104 5.15.27 5.16.13: Full sources for the Linux kernel
+sys-kernel/vanilla-sources 4.9.306 4.14.271 4.19.234 5.4.184 5.10.104 5.15.27 5.16.13: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.16.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1: The sd-bus library, extracted from systemd
