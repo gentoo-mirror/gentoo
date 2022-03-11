@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit autotools
 
 DESCRIPTION="Ghostscript and cups printer drivers"
@@ -16,34 +17,29 @@ SLOT="0"
 KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ppc ppc64 sparc x86"
 
 IUSE="cups gimp gtk nls readline ppds static-libs"
+RESTRICT="test"
 REQUIRED_USE="gimp? ( gtk )"
 
 BDEPEND="
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
 "
-# gimp restriction: https://sourceforge.net/p/gimp-print/bugs/725/
-CDEPEND="
-	dev-lang/perl
-	readline? ( sys-libs/readline:0= )
-	cups? ( >=net-print/cups-1.1.14 )
-	gimp? ( media-gfx/gimp:0/2 x11-libs/gtk+:2 )
-	gtk? ( x11-libs/gtk+:2 )
-	nls? ( virtual/libintl )
-"
-RDEPEND="${CDEPEND}"
-DEPEND="${CDEPEND}"
 
-RESTRICT="test"
+# gimp restriction: https://sourceforge.net/p/gimp-print/bugs/725/
+RDEPEND="
+	dev-lang/perl
+	cups? ( >=net-print/cups-1.1.14 )
+	gimp? (
+		media-gfx/gimp:0/2
+		x11-libs/gtk+:2
+	)
+	gtk? ( x11-libs/gtk+:2 )
+	readline? ( sys-libs/readline:0= )
+"
+DEPEND="${RDEPEND}"
 
 DOCS=( AUTHORS ChangeLog NEWS README doc/gutenprint-users-manual.{pdf,odt} )
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.3.1-cflags.patch
-	# From upstream, fixed in next version
-	"${FILESDIR}"/${P}-epson.patch
-	"${FILESDIR}"/${P}-selphy-typo.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-5.3.1-cflags.patch )
 
 src_prepare() {
 	default
@@ -81,11 +77,11 @@ src_install() {
 	dodoc -r doc/gutenprintui2/html
 	rm -r "${ED}"/usr/share/gutenprint/doc || die
 
-	find "${ED}" -name '*.la' -exec rm -f '{}' + || die
+	find "${ED}" -name '*.la' -delete || die
 }
 
 pkg_postinst() {
-	if [[ -z ${ROOT} ]] && [[ -x /usr/sbin/cups-genppdupdate ]]; then
+	if [[ -x /usr/sbin/cups-genppdupdate ]]; then
 		elog "Updating installed printer ppd files"
 		elog $(/usr/sbin/cups-genppdupdate)
 	else
