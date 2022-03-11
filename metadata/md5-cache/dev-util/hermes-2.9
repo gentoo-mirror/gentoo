@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/luafilesystem[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] ) )
+DESCRIPTION=Lua based testing manager
+EAPI=7
+HOMEPAGE=https://github.com/TACC/Hermes
+INHERIT=lua-single prefix
+IUSE=test lua_single_target_lua5-1 lua_single_target_lua5-3
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/luafilesystem[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] )
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/TACC/Hermes/archive/refs/tags/2.9.tar.gz -> hermes-2.9.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99	prefix	d04f14b297013ad1410550c0757f14f8
+_md5_=360fc0d2fbfd60d2634f30f9da34add4
