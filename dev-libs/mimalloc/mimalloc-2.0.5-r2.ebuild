@@ -22,15 +22,10 @@ src_configure() {
 
 		-DMI_INSTALL_TOPLEVEL=ON
 		-DMI_BUILD_TESTS=$(usex test)
+
+		-DMI_BUILD_OBJECT=OFF
+		-DMI_BUILD_STATIC=OFF
 	)
 
 	cmake-multilib_src_configure
-}
-
-src_install() {
-	cmake-multilib_src_install
-
-	rm "${ED}/usr/$(get_libdir)/mimalloc.o" || die
-
-	find "${ED}" -name '*.a' -delete || die
 }
