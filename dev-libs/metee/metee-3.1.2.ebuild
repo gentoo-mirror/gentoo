@@ -6,12 +6,12 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Cross-platform access library for Intel CSME HECI interface"
-HOMEPAGE="https://github.com/intel/compute-runtime"
+HOMEPAGE="https://github.com/intel/metee"
 SRC_URI="https://github.com/intel/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="doc"
 
 BDEPEND="doc? ( app-doc/doxygen )"
