@@ -3,8 +3,8 @@
 
 EAPI=8
 
-CARGO_OPTIONAL=1
-
+MY_PN=tree-sitter
+MY_P=tree-sitter-${PV}
 CRATES="
 	aho-corasick-0.7.15
 	ansi_term-0.11.0
@@ -72,11 +72,11 @@ CRATES="
 	rustc-hash-1.1.0
 	ryu-1.0.5
 	same-file-1.0.6
+	semver-1.0.5
 	serde-1.0.130
 	serde_derive-1.0.130
 	serde_json-1.0.63
 	smallbitvec-2.5.1
-	spin-0.7.1
 	strsim-0.8.0
 	syn-1.0.67
 	tempfile-3.2.0
@@ -114,60 +114,31 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
-inherit toolchain-funcs cargo
+inherit cargo
 
-DESCRIPTION="Tree-sitter is a parser generator tool and an incremental parsing library"
+DESCRIPTION="Command-line tool for creating and testing tree-sitter grammars"
 HOMEPAGE="https://github.com/tree-sitter/tree-sitter"
+SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${MY_P}.tar.gz
+$(cargo_crate_uris)"
+S="${WORKDIR}"/${MY_P}/cli
 
-if [[ ${PV} == *9999* ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
-else
-	SRC_URI="
-		https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
-		ts-cli? ( $(cargo_crate_uris) )
-	"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-fi
-
-LICENSE="MIT ts-cli? ( Apache-2.0 BSD-2 CC0-1.0 ISC MIT )"
+LICENSE="Apache-2.0 BSD-2 CC0-1.0 ISC MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
-IUSE="ts-cli"
+# Test seems to require files (grammar definitions) that we don't have.
+RESTRICT="test"
 
-RDEPEND="ts-cli? ( !dev-util/tree-sitter-cli )"
-BDEPEND="ts-cli? ( virtual/rust )"
+BDEPEND="~dev-libs/tree-sitter-${PV}"
+RDEPEND="~dev-libs/tree-sitter-${PV}[-ts-cli(-)]"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-No-static-libs-gentoo.patch"
-)
-
-src_unpack() {
-	if [[ ${PV} == *9999* ]]; then
-		git-r3_src_unpack
-		use ts-cli && cargo_live_src_unpack
-	else
-		# behaves as default too, so it is ok to call it unconditonally
-		cargo_src_unpack
-	fi
-}
+QA_FLAGS_IGNORED="usr/bin/${MY_PN}"
 
 src_prepare() {
 	default
-	tc-export CC
-}
 
-src_configure() {
-	default
-	use ts-cli && cargo_src_configure
-}
-
-src_compile() {
-	default
-	use ts-cli && cargo_src_compile
-}
-
-src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
-	use ts-cli && cargo_src_install --path "./cli"
+	# Existing build.rs file invokes cc to rebuild the tree-sitter library.
+	# Link with the system one instead.
+	cp "${FILESDIR}"/tree-sitter-cli-0.20.2-r1-build.rs \
+	   "${WORKDIR}"/${MY_P}/lib/binding_rust/build.rs || die
 }
