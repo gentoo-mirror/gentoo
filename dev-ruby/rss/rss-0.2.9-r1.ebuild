@@ -4,20 +4,22 @@
 EAPI=8
 USE_RUBY="ruby26 ruby27 ruby30 ruby31"
 
+RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
+
 inherit ruby-fakegem
 
-DESCRIPTION="A simple PEG library for Ruby"
-HOMEPAGE="https://github.com/evanphx/kpeg"
+DESCRIPTION="Family of libraries that support various formats of XML feeds"
+HOMEPAGE="https://github.com/ruby/rss"
 
-LICENSE="MIT"
-SLOT="1"
+LICENSE="BSD-2"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+SLOT="0"
 IUSE="test"
 
-PATCHES=( "${FILESDIR}/kpeg-1.1.0-utf8.patch" )
+ruby_add_rdepend "dev-ruby/rexml"
 
-ruby_add_bdepend "test? ( dev-ruby/minitest:5 )"
+ruby_add_bdepend "test? ( dev-ruby/test-unit )"
 
-each_ruby_test() {
-	${RUBY} -Ilib:test:. -e 'gem "minitest", "~>5.0"; Dir["test/test_*.rb"].each{|f| require f}' || die
+all_ruby_prepare() {
+	sed -i -e '/bundler/,/^helper.install/ s:^:#:' Rakefile || die
 }
