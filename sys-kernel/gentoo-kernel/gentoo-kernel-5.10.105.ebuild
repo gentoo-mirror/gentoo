@@ -6,14 +6,16 @@ EAPI=7
 inherit kernel-build toolchain-funcs
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 2 ))
-CONFIG_VER=5.15.14
-CONFIG_HASH=8cc461d9cfb256bb831225bb38e29fa944bd890f
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 7 ))
+# https://koji.fedoraproject.org/koji/packageinfo?packageID=8
+CONFIG_VER=5.10.12
+CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
 GENTOO_CONFIG_VER=5.15.5
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="https://www.kernel.org/"
-SRC_URI+=" https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
+SRC_URI+="
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
 	https://github.com/mgorny/gentoo-kernel-config/archive/v${GENTOO_CONFIG_VER}.tar.gz
@@ -33,25 +35,28 @@ SRC_URI+=" https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.x
 	x86? (
 		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-i686-fedora.config
 			-> kernel-i686-fedora.config.${CONFIG_VER}
-	)"
+	)
+"
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="arm? ( savedconfig )"
 
 RDEPEND="
-	!sys-kernel/gentoo-kernel-bin:${SLOT}"
+	!sys-kernel/gentoo-kernel-bin:${SLOT}
+"
 BDEPEND="
-	debug? ( dev-util/pahole )"
+	debug? ( dev-util/pahole )
+"
 PDEPEND="
-	>=virtual/dist-kernel-${PV}"
+	>=virtual/dist-kernel-${PV}
+"
 
 QA_FLAGS_IGNORED="
 	usr/src/linux-.*/scripts/gcc-plugins/.*.so
 	usr/src/linux-.*/vmlinux
-	usr/src/linux-.*/arch/powerpc/kernel/vdso.*/vdso.*.so.dbg
 "
 
 src_prepare() {

@@ -35,7 +35,8 @@ SRC_URI+="
 	x86? (
 		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-i686.config
 			-> kernel-i686.config.${CONFIG_VER}
-	)"
+	)
+"
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
@@ -44,9 +45,11 @@ IUSE="debug"
 
 BDEPEND="
 	debug? ( dev-util/pahole )
-	verify-sig? ( sec-keys/openpgp-keys-kernel )"
+	verify-sig? ( sec-keys/openpgp-keys-kernel )
+"
 PDEPEND="
-	>=virtual/dist-kernel-${PV}"
+	>=virtual/dist-kernel-${PV}
+"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/kernel.org.asc
 

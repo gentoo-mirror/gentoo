@@ -6,7 +6,7 @@ EAPI=7
 inherit kernel-install toolchain-funcs
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 4 ))
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 7 ))
 BINPKG=${P/-bin/}-1
 
 DESCRIPTION="Pre-built Linux kernel with genpatches"
@@ -16,35 +16,39 @@ SRC_URI+="
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
 	amd64? (
-		https://dev.gentoo.org/~mgorny/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
+		https://dev.gentoo.org/~sam/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
 			-> ${BINPKG}.amd64.xpak
 	)
 	arm64? (
-		https://dev.gentoo.org/~mgorny/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
+		https://dev.gentoo.org/~sam/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
 			-> ${BINPKG}.arm64.xpak
 	)
 	ppc64? (
-		https://dev.gentoo.org/~mgorny/binpkg/ppc64le/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
+		https://dev.gentoo.org/~sam/binpkg/ppc64le/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
 			-> ${BINPKG}.ppc64le.xpak
 	)
 	x86? (
-		https://dev.gentoo.org/~mgorny/binpkg/x86/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
+		https://dev.gentoo.org/~sam/binpkg/x86/kernel/sys-kernel/gentoo-kernel/${BINPKG}.xpak
 			-> ${BINPKG}.x86.xpak
-	)"
+	)
+"
 S=${WORKDIR}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
-	!sys-kernel/gentoo-kernel:${SLOT}"
+	!sys-kernel/gentoo-kernel:${SLOT}
+"
 PDEPEND="
-	>=virtual/dist-kernel-${PV}"
+	>=virtual/dist-kernel-${PV}
+"
 BDEPEND="
 	sys-devel/bc
 	sys-devel/flex
 	virtual/libelf
-	virtual/yacc"
+	virtual/yacc
+"
 
 QA_PREBUILT='*'
 
