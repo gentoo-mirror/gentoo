@@ -10,23 +10,26 @@ VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
 DESCRIPTION="Address book API based on KDE Frameworks"
+
 LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	=kde-frameworks/kcodecs-${PVCUT}*:5
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( =dev-qt/qtdeclarative-${QTMIN}*:5 )
+"
 
 src_test() {
-	# bug #566648 (access to /dev/dri/card0 denied), bug #625988
+	# bug #566648 (access to /dev/dri/card0 denied)
 	local myctestargs=(
-		-E "(kcontacts-addresstest|kcontacts-picturetest)"
+		-E "(kcontacts-picturetest)"
 	)
 	ecm_src_test
 }

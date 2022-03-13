@@ -26,7 +26,6 @@ BDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-D_KDE4_DEFAULT_HOME_POSTFIX=4
-		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
 		$(cmake_use_find_package fam FAM)
 	)
 

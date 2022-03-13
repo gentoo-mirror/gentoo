@@ -8,6 +8,7 @@ PVCUT=$(ver_cut 1-2)
 inherit ecm kde.org
 
 DESCRIPTION="Framework to handle super user actions"
+
 LICENSE="LGPL-2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="X"
@@ -17,7 +18,6 @@ RDEPEND="
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	=kde-frameworks/kpty-${PVCUT}*:5
-	=kde-frameworks/kservice-${PVCUT}*:5
 	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}

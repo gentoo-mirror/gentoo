@@ -33,7 +33,6 @@ DOCS=( DESIGN docs/{DESIGN.kconfig,options.md} )
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_PythonModuleGeneration=ON # bug 746866
 		-DKCONFIG_USE_DBUS=$(usex dbus)
 		$(cmake_use_find_package qml Qt5Qml)
 	)
