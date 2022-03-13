@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://coq.inria.fr/
 INHERIT=desktop dune
 IUSE=doc gtk debug +ocamlopt
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-ml/zarith:= || ( dev-ml/num <dev-lang/ocaml-4.09.0[ocamlopt?] ) gtk? ( dev-ml/lablgtk:3=[sourceview,ocamlopt?] dev-ml/lablgtk-sourceview:3=[ocamlopt?] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/coq/coq/archive/V8.15.0.tar.gz -> coq-8.15.0.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	2ef529836d2d3100bfd771a77fcffdf8
-_md5_=11a0e63906d939926e3eb0959425dc5c
+_md5_=b1485dd39cb0ad08c03e41357f67bdc1
