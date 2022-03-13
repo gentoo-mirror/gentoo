@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit xdg cmake python-any-r1 optfeature
 
@@ -12,11 +12,12 @@ HOMEPAGE="https://desktop.telegram.org"
 
 MY_P="tdesktop-${PV}-full"
 SRC_URI="https://github.com/telegramdesktop/tdesktop/releases/download/v${PV}/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
-IUSE="+dbus enchant +hunspell screencast +spell wayland +X"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
+IUSE="+dbus enchant +hunspell +jemalloc screencast +spell wayland +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
@@ -27,7 +28,7 @@ RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
 	dev-cpp/abseil-cpp:=
-	dev-libs/jemalloc:=[-lazy-lock]
+	dev-libs/libdispatch
 	dev-libs/openssl:=
 	dev-libs/xxhash
 	>=dev-qt/qtcore-5.15:5
@@ -38,11 +39,11 @@ RDEPEND="
 	>=dev-qt/qtwidgets-5.15:5[png,X?]
 	media-fonts/open-sans
 	media-libs/fontconfig:=
-	~media-libs/libtgvoip-2.4.4_p20211129
+	~media-libs/libtgvoip-2.4.4_p20220117
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20211207[screencast=,X=]
+	~media-libs/tg_owt-0_pre20220209[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	dbus? (
@@ -52,7 +53,11 @@ RDEPEND="
 	)
 	enchant? ( app-text/enchant:= )
 	hunspell? ( >=app-text/hunspell-1.7:= )
-	wayland? ( kde-frameworks/kwayland:= )
+	jemalloc? ( dev-libs/jemalloc:=[-lazy-lock] )
+	wayland? (
+		dev-qt/qtwayland:=
+		kde-frameworks/kwayland:=
+	)
 	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}
@@ -66,13 +71,15 @@ BDEPEND="
 "
 # dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
-S="${WORKDIR}/${MY_P}"
-
 PATCHES=(
-	"${FILESDIR}/tdesktop-3.1.0-jemalloc-only-telegram.patch"
-	"${FILESDIR}/tdesktop-3.1.0-fix-openssl3.patch"
+	"${FILESDIR}/tdesktop-3.6.0-jemalloc-only-telegram.patch"
 	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
+	"${FILESDIR}/tdesktop-3.5.2-musl.patch"
+	"${FILESDIR}/tdesktop-3.6.0-support-ffmpeg5.patch"
 )
+
+# Current desktop-file-utils-0.26 does not understand Version=1.5
+QA_DESKTOP_FILE="usr/share/applications/${PN}.desktop"
 
 pkg_pretend() {
 	if has ccache ${FEATURES}; then
@@ -89,26 +96,24 @@ src_prepare() {
 	sed -i 's/DESKTOP_APP_USE_PACKAGED/NO_ONE_WILL_EVER_SET_THIS/' \
 		cmake/external/rlottie/CMakeLists.txt || die
 
-	# fix linking with missing libdl (introduced in 3.2.0->3.2.4 upgrade,
-	#  not sure if thanks to removing the -pie flag in the cmakelists...)
-	sed -i 's/${JEMALLOC_LINK_LIBRARIES}/& dl/' \
-		cmake/external/jemalloc/CMakeLists.txt || die
-
 	cmake_src_prepare
 }
 
 src_configure() {
-	# gtk is really needed for image copy-paste due to https://bugreports.qt.io/browse/QTBUG-56595
 	local mycmakeargs=(
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
 		-DDESKTOP_APP_QT6=OFF
 
-		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex X no yes)
-		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex wayland no yes)
-		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex dbus no yes)
-		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex spell no yes)  # enables hunspell (recommended)
+		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex !dbus)
+		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
+		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
+		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !spell)  # enables hunspell (recommended)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
+
+		# This option is heavily discouraged by upstream.
+		# See files/tdesktop-*-jemalloc-optional.patch
+		-DDESKTOP_APP_DISABLE_JEMALLOC=$(usex !jemalloc)
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then
@@ -141,10 +146,17 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	if ! use X && ! use screencast; then
 		elog "both the 'X' and 'screencast' useflags are disabled, screen sharing won't work!"
+		elog
 	fi
 	if has_version '<dev-qt/qtcore-5.15.2-r10'; then
 		ewarn "Versions of dev-qt/qtcore lower than 5.15.2-r10 might cause telegram"
 		ewarn "to crash when pasting big images from the clipboard."
+		ewarn
+	fi
+	if ! use jemalloc && use elibc_glibc; then
+		ewarn "Disabling USE=jemalloc on glibc systems may cause very high RAM usage!"
+		ewarn "Do NOT report issues about RAM usage without enabling this flag first."
+		ewarn
 	fi
 	optfeature_header
 	optfeature "shop payment support (requires USE=dbus enabled)" net-libs/webkit-gtk
