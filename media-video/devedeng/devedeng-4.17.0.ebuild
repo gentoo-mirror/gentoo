@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=no
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 xdg
 
@@ -28,6 +28,9 @@ RDEPEND="
 	|| ( app-cdr/brasero kde-apps/k3b app-cdr/xfburn )"
 
 DEPEND="${PYTHON_DEPS}"
+
+# src/unitests only works against system installed devedeng
+RESTRICT="test"
 
 PATCHES=( "${FILESDIR}"/${PN}-4.14.0-no_compress_man.patch )
 
