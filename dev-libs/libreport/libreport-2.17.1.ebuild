@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ DEPEND="${PYTHON_DEPS}
 	app-admin/augeas
 	app-arch/libarchive:0=
 	>=dev-libs/glib-2.43.4:2
-	dev-libs/satyr:0=
+	>=dev-libs/satyr-0.38:0=
 	dev-libs/json-c:=
 	dev-libs/libxml2:2
 	dev-libs/nettle:=

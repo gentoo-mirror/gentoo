@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{8..9} )
+EAPI=8
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit autotools python-single-r1 tmpfiles xdg
 
@@ -31,6 +31,7 @@ DEPEND="${PYTHON_DEPS}
 	sys-libs/libcap
 	sys-fs/inotify-tools
 	x11-libs/gtk+:3
+	x11-libs/libnotify
 "
 RDEPEND="${DEPEND}
 	acct-user/abrt
@@ -59,14 +60,6 @@ BDEPEND="
 	virtual/pkgconfig
 	>=sys-devel/gettext-0.17
 "
-
-PATCHES=(
-	# https://github.com/abrt/abrt/commit/a6297858575780b9ed3d14cc42983348924d6048
-	"${FILESDIR}/${P}-glib270.patch"
-
-	# https://github.com/abrt/abrt/pull/1580
-	"${FILESDIR}/${P}-lazy-imports.patch"
-)
 
 pkg_setup() {
 	python-single-r1_pkg_setup
