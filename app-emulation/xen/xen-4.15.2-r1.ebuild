@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 	SRC_URI=""
 else
 	KEYWORDS="~amd64 ~arm -x86"
-	UPSTREAM_VER=0
+	UPSTREAM_VER=1
 	SECURITY_VER=
 	GENTOO_VER=
 
@@ -37,8 +37,7 @@ DESCRIPTION="The Xen virtual machine monitor"
 HOMEPAGE="https://www.xenproject.org"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+boot-symlinks debug efi flask"
-REQUIRED_USE="arm? ( debug )"
+IUSE="debug efi flask"
 
 DEPEND="${PYTHON_DEPS}
 	efi? ( >=sys-devel/binutils-2.22[multitarget] )
@@ -54,6 +53,8 @@ RESTRICT="test splitdebug strip"
 
 # Approved by QA team in bug #144032
 QA_WX_LOAD="boot/xen-syms-${PV}"
+
+REQUIRED_USE="arm? ( debug )"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -93,12 +94,8 @@ src_prepare() {
 	# Gentoo's patchset
 	[[ -n ${GENTOO_VER} ]] && eapply "${WORKDIR}"/patches-gentoo
 
-	eapply "${FILESDIR}"/${PN}-4.16-efi.patch
-
-	# Symlinks do not work on fat32 volumes # 829765
-	if ! use boot-symlinks || use efi; then
-		eapply "${FILESDIR}"/${PN}-4.16-no-symlink.patch
-	fi
+	# Symlinks do not work on fat32 volumes
+	eapply "${FILESDIR}"/${PN}-4.15-efi.patch
 
 	# Enable XSM-FLASK
 	use flask && eapply "${FILESDIR}"/${PN}-4.15-flask.patch
