@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,17 +22,17 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-cpp/eigen:3
-	>=dev-cpp/tbb-2021.4.0
+	>=dev-cpp/tbb-2021.4.0:=
 	>=dev-libs/boost-1.73.0:=[nls,threads(+)]
 	dev-libs/cereal
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/gmp:=
 	dev-libs/mpfr:=
-	>=media-gfx/openvdb-8.2
+	dev-libs/imath:=
+	>=media-gfx/openvdb-8.2:=
 	net-misc/curl
 	media-libs/glew:0=
-	media-libs/ilmbase:=
 	media-libs/libpng:0=
 	media-libs/qhull:=
 	sci-libs/libigl
@@ -49,6 +49,10 @@ DEPEND="${RDEPEND}
 	media-libs/qhull[static-libs]
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.4.0-fix-build-with-cereal-1.3.1.patch
+)
+
 S="${WORKDIR}/${MY_PN}-version_${PV}"
 
 src_prepare() {
@@ -62,6 +66,8 @@ src_configure() {
 	setup-wxwidgets
 
 	local mycmakeargs=(
+		-DOPENVDB_FIND_MODULE_PATH="/usr/$(get_libdir)/cmake/OpenVDB"
+
 		-DSLIC3R_BUILD_TESTS=$(usex test)
 		-DSLIC3R_FHS=ON
 		-DSLIC3R_GTK=3
