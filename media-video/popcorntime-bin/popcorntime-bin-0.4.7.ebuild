@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,9 +8,10 @@ inherit unpacker xdg
 DESCRIPTION="BitTorrent client that includes an integrated media player"
 HOMEPAGE="https://github.com/popcorn-official/popcorn-desktop"
 SRC_URI="
-	amd64? ( https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.4.6/Popcorn-Time-${PV}-amd64.deb )
-	x86? ( https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.4.6/Popcorn-Time-${PV}-i386.deb )
+	amd64? ( https://github.com/popcorn-official/popcorn-desktop/releases/download/v${PV}/Popcorn-Time-${PV}-amd64.deb )
+	x86? ( https://github.com/popcorn-official/popcorn-desktop/releases/download/v${PV}/Popcorn-Time-${PV}-i386.deb )
 "
+S="${WORKDIR}"
 
 KEYWORDS="-* ~amd64 ~x86"
 LICENSE="GPL-3"
@@ -46,13 +47,7 @@ RDEPEND="
 
 QA_PREBUILT="opt/Popcorn-Time/*"
 
-S="${WORKDIR}"
-
 src_install() {
-	# remove arm/arm64 files, not needed anyway, avoids QA complaint
-	rm opt/Popcorn-Time/node_modules/bufferutil/prebuilds/linux-arm{,64}/* || die
-	rm opt/Popcorn-Time/node_modules/utf-8-validate/prebuilds/linux-arm{,64}/* || die
-
 	mv "${S}"/* "${ED}" || die
 	dosym ../Popcorn-Time/Popcorn-Time /opt/bin/popcorntime
 }

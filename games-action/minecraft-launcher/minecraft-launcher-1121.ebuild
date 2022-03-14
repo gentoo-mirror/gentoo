@@ -12,6 +12,7 @@ DESCRIPTION="An open-world game whose gameplay revolves around breaking and plac
 HOMEPAGE="https://www.minecraft.net/"
 SRC_URI="https://launcher.mojang.com/v1/objects/ce9e6169550628003e22de8086e9fe1186c2285e/minecraft-launcher -> ${P}
 	https://launcher.mojang.com/download/minecraft-launcher.svg"
+S="${WORKDIR}"
 
 KEYWORDS="-* ~amd64"
 LICENSE="Mojang"
@@ -46,8 +47,6 @@ RDEPEND="
 	x11-libs/libXtst
 	x11-libs/xcb-util
 "
-
-S="${WORKDIR}"
 
 QA_PREBUILT="
 	usr/bin/minecraft-launcher
