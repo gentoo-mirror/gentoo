@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/boost:= dev-cpp/gtest dev-libs/log4cplus mysql? ( dev-db/mysql-connector-c ) !openssl? ( dev-libs/botan:2= ) openssl? ( dev-libs/openssl:0= ) postgres? ( dev-db/postgresql:* )
 DESCRIPTION=High-performance production grade DHCPv4 & DHCPv6 server
 EAPI=7
-HOMEPAGE=http://www.isc.org/kea/
+HOMEPAGE=https://www.isc.org/kea/
 INHERIT=autotools
 IUSE=mysql +openssl postgres samples
 KEYWORDS=~amd64 ~arm64 ~x86
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/boost:= dev-cpp/gtest dev-libs/log4cplus mysql? ( dev-db/mysql-
 SLOT=0
 SRC_URI=ftp://ftp.isc.org/isc/kea/kea-1.8.2.tar.gz ftp://ftp.isc.org/isc/kea/1.8.2/kea-1.8.2.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
-_md5_=13695750a5fa40b708569c20ef8c42db
+_md5_=1935dc77022fa72e17651b817b2d133d
