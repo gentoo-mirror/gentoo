@@ -6,11 +6,11 @@ HOMEPAGE=https://bluesabre.org/menulibre/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=distutils-r1 xdg
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=python_single_target_python3_8? ( dev-python/psutil[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/psutil[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/psutil[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) gnome-base/gnome-menus:3[introspection] x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection] x11-themes/hicolor-icon-theme python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml(+)] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[xml(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml(+)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/bluesabre/menulibre/releases/download/menulibre-2.2.3/menulibre-2.2.3.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	distutils-r1	d540d96908dd5622f3dfa41d167e632d	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=da59c607c496f40e83703df016314432
+_md5_=1ab6f1997c4c8c0616a2e3b282866866
