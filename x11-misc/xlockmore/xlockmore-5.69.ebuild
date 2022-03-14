@@ -1,7 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit autotools flag-o-matic pam
 
 DESCRIPTION="Just another screensaver application for X"
@@ -10,10 +11,11 @@ SRC_URI="
 	https://www.sillycycle.com/xlock/${P/_alpha/ALPHA}.tar.xz
 	https://www.sillycycle.com/xlock/recent-releases/${P/_alpha/ALPHA}.tar.xz
 "
+S="${WORKDIR}/${P/_alpha/ALPHA}"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86"
 IUSE="crypt debug gtk imagemagick motif nas opengl pam truetype xinerama xlockrc vtlock"
 
 REQUIRED_USE="
@@ -21,7 +23,14 @@ REQUIRED_USE="
 	pam? ( !xlockrc )
 	xlockrc? ( !pam )
 "
+
+BDEPEND="virtual/pkgconfig"
 RDEPEND="
+	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libXmu
+	x11-libs/libXpm
+	x11-libs/libXt
 	gtk? ( x11-libs/gtk+:2 )
 	imagemagick? ( media-gfx/imagemagick:= )
 	motif? ( >=x11-libs/motif-2.3:0 )
@@ -33,16 +42,10 @@ RDEPEND="
 	)
 	pam? ( sys-libs/pam )
 	truetype? ( media-libs/freetype:2 )
-	x11-libs/libX11
-	x11-libs/libXext
-	x11-libs/libXmu
-	x11-libs/libXpm
-	x11-libs/libXt
 	xinerama? ( x11-libs/libXinerama )
 "
 DEPEND="
 	${RDEPEND}
-	virtual/pkgconfig
 	x11-base/xorg-proto
 "
 
@@ -50,12 +53,18 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.46-freetype261.patch
 	"${FILESDIR}"/${PN}-5.47-CXX.patch
 	"${FILESDIR}"/${PN}-5.47-strip.patch
-	"${FILESDIR}"/${PN}-5.64_alpha0-LDFLAGS.patch
+	#"${FILESDIR}"/${PN}-5.64_alpha0-LDFLAGS.patch
 )
-S=${WORKDIR}/${P/_alpha/ALPHA}
 
 src_prepare() {
 	default
+
+	sed -i \
+		-e '/XLOCKLIBPATHS="-L/d' \
+		-e '/XMLOCKLIBPATHS="-L/d' \
+		-e 's|/lib|'"${EPREFIX}/$(get_libdir)"'|g' \
+		configure.ac || die
+
 	eautoreconf
 }
 
@@ -63,10 +72,11 @@ src_configure() {
 	local myconf=()
 
 	if use opengl && use truetype; then
-			myconf=( --with-ftgl )
-			append-cppflags -DFTGL213
-		else
-			myconf=( --without-ftgl )
+		append-cppflags -DFTGL213
+
+		myconf=( --with-ftgl )
+	else
+		myconf=( --without-ftgl )
 	fi
 
 	myconf+=(
@@ -91,6 +101,7 @@ src_configure() {
 		--without-esound
 		--without-gtk
 	)
+
 	econf "${myconf[@]}"
 }
 
