@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="2"
 KEYWORDS="~amd64"
 
-RDEPEND=">=app-containers/docker-20.10.3"
+RDEPEND=">=app-containers/docker-cli-20.10.3"
 
 S="${WORKDIR}/compose-${MY_PV}"
 
@@ -40,7 +40,7 @@ src_test() {
 }
 
 pkg_postinst() {
-	has_version =docker-compose-1.* || return
+	has_version =app-containers/docker-compose-1* || return
 	elog
 	elog "docker-compose 2.x is a sub command of docker"
 	elog "Use 'docker compose' from the command line instead of"
