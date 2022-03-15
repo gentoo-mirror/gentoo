@@ -22,6 +22,7 @@ RDEPEND="
 	>=app-arch/libarchive-2.8:=
 	app-arch/zstd:=
 	>=app-crypt/gpgme-1.1.8:=
+	>=dev-libs/appstream-0.12:=
 	>=dev-libs/appstream-glib-0.5.10:=
 	>=dev-libs/glib-2.56:2=
 	>=dev-libs/libxml2-2.4:=
