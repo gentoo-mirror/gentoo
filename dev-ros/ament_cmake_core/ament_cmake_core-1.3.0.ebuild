@@ -1,9 +1,9 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_7,3_8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake python-any-r1
 
@@ -18,7 +18,7 @@ else
 	S="${WORKDIR}/${ROS_PN}-${PV}/${PN}"
 fi
 
-DESCRIPTION="The ability to add Google mock-based tests in the ament buildsystem"
+DESCRIPTION="The core of the ament buildsystem in CMake"
 HOMEPAGE="https://github.com/ament/ament_cmake"
 
 LICENSE="Apache-2.0"
@@ -31,10 +31,10 @@ fi
 IUSE=""
 
 RDEPEND="
-	dev-ros/ament_cmake_core
+	dev-python/ament_package
+	dev-python/catkin_pkg
 "
 DEPEND="${RDEPEND}"
-# Deps here are transitive from ament_cmake_core to have matching python support
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/ament_package[${PYTHON_USEDEP}] dev-python/catkin_pkg[${PYTHON_USEDEP}]')
 	${PYTHON_DEPS}

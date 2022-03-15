@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit cmake python-any-r1
+inherit cmake python-r1
 
 ROS_PN="ament_cmake"
 if [ "${PV#9999}" != "${PV}" ] ; then
@@ -18,7 +18,7 @@ else
 	S="${WORKDIR}/${ROS_PN}-${PV}/${PN}"
 fi
 
-DESCRIPTION="The ability to use Python in the ament buildsystem"
+DESCRIPTION="The ability to add tests in the ament buildsystem"
 HOMEPAGE="https://github.com/ament/ament_cmake"
 
 LICENSE="Apache-2.0"
@@ -30,18 +30,30 @@ else
 fi
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	dev-ros/ament_cmake_core
-"
-DEPEND="${RDEPEND}"
-# Deps here are transitive from ament_cmake_core to have matching python support
-BDEPEND="
-	$(python_gen_any_dep 'dev-python/ament_package[${PYTHON_USEDEP}] dev-python/catkin_pkg[${PYTHON_USEDEP}]')
+		dev-python/ament_package[${PYTHON_USEDEP}]
+		dev-python/catkin_pkg[${PYTHON_USEDEP}]
+	dev-ros/ament_cmake_python
 	${PYTHON_DEPS}
 "
-PATCHES=( "${FILESDIR}/destdir2.patch" )
+RDEPEND="${DEPEND}"
+BDEPEND="${DEPEND}"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-python_check_deps() {
-	has_version "dev-python/ament_package[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/catkin_pkg[${PYTHON_USEDEP}]"
+src_configure() {
+	python_foreach_impl cmake_src_configure
+}
+
+src_compile() {
+	python_foreach_impl cmake_src_compile
+}
+
+src_test() {
+	python_foreach_impl cmake_src_test
+}
+
+src_install() {
+	python_foreach_impl cmake_src_install
+	python_foreach_impl python_optimize
 }

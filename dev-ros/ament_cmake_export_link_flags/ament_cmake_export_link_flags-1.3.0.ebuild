@@ -1,9 +1,9 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python{3_7,3_8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake python-any-r1
 
@@ -18,7 +18,7 @@ else
 	S="${WORKDIR}/${ROS_PN}-${PV}/${PN}"
 fi
 
-DESCRIPTION="The ability to run Python tests using pytest in the ament buildsystem"
+DESCRIPTION="Export link flags to downstream packages in the ament buildsystem"
 HOMEPAGE="https://github.com/ament/ament_cmake"
 
 LICENSE="Apache-2.0"

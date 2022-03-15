@@ -18,7 +18,7 @@ else
 	S="${WORKDIR}/${ROS_PN}-${PV}/${PN}"
 fi
 
-DESCRIPTION="The ability to use Python in the ament buildsystem"
+DESCRIPTION="Export definitions to downstream packages in the ament buildsystem"
 HOMEPAGE="https://github.com/ament/ament_cmake"
 
 LICENSE="Apache-2.0"
@@ -39,7 +39,6 @@ BDEPEND="
 	$(python_gen_any_dep 'dev-python/ament_package[${PYTHON_USEDEP}] dev-python/catkin_pkg[${PYTHON_USEDEP}]')
 	${PYTHON_DEPS}
 "
-PATCHES=( "${FILESDIR}/destdir2.patch" )
 
 python_check_deps() {
 	has_version "dev-python/ament_package[${PYTHON_USEDEP}]" && \
