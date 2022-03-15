@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/ant-junit:0 dev-java/emma:0 dev-java/jakarta-xml-soap-api:1 dev-java/jmh-core:0 dev-java/hamcrest-core:1.3 dev-java/snakeyaml:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=An open-source implementation of JavaScript written in Java
+EAPI=8
+HOMEPAGE=https://github.com/mozilla/rhino
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~x86
+LICENSE=MPL-1.1 GPL-2
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=1.6
+SRC_URI=https://github.com/mozilla/rhino/archive/Rhino1_7_14_Release.tar.gz -> rhino-1.7.14.tar.gz
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
+_md5_=4f5c5534b43571f5f41a579352da149b
