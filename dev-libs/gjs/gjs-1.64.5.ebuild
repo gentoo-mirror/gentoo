@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,26 +10,28 @@ HOMEPAGE="https://wiki.gnome.org/Projects/Gjs"
 
 LICENSE="MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )"
 SLOT="0"
-IUSE="+cairo examples gtk readline sysprof test"
-KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
+IUSE="+cairo examples gtk readline +sysprof test"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.58.0
 	dev-libs/libffi:=
-	>=dev-libs/gobject-introspection-1.66.1:=
-	dev-lang/spidermonkey:78
-	cairo? ( x11-libs/cairo[X,svg] )
+	>=dev-libs/gobject-introspection-1.61.2:=
+	dev-lang/spidermonkey:68
+	cairo? ( x11-libs/cairo[X] )
 	readline? ( sys-libs/readline:0= )
 "
 DEPEND="${RDEPEND}
-	sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 )
+	sysprof? ( >=dev-util/sysprof-capture-3.33.2:3 )
+	virtual/pkgconfig
 	test? ( sys-apps/dbus
 		>=x11-libs/gtk+-3.20:3[introspection] )
 "
-BDEPEND="
-	virtual/pkgconfig
-"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-gcc-11-support.patch
+)
 
 src_configure() {
 	# FIXME: add systemtap/dtrace support, like in glib:2
