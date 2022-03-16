@@ -4,12 +4,13 @@
 EAPI="7"
 WANT_LIBTOOL="none"
 
-inherit autotools flag-o-matic pax-utils \
+inherit autotools flag-o-matic multiprocessing pax-utils \
 	python-utils-r1 toolchain-funcs verify-sig
 
-MY_P="Python-${PV%_p*}"
+MY_PV=${PV/_rc/rc}
+MY_P="Python-${MY_PV%_p*}"
 PYVER=$(ver_cut 1-2)
-PATCHSET="python-gentoo-patches-${PV}"
+PATCHSET="python-gentoo-patches-${MY_PV}"
 
 DESCRIPTION="An interpreted, interactive, object-oriented programming language"
 HOMEPAGE="https://www.python.org/"
@@ -17,68 +18,61 @@ SRC_URI="https://www.python.org/ftp/python/${PV%_*}/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mgorny/dist/python/${PATCHSET}.tar.xz
 	verify-sig? (
 		https://www.python.org/ftp/python/${PV%_*}/${MY_P}.tar.xz.asc
-	)"
+	)
+"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="PSF-2"
 SLOT="${PYVER}"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE="berkdb bluetooth build examples gdbm hardened +ncurses +readline +sqlite +ssl tk wininst +xml"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="bluetooth build examples gdbm hardened +ncurses +readline +sqlite +ssl test tk wininst +xml"
+RESTRICT="!test? ( test )"
 
 # Do not add a dependency on dev-lang/python to this ebuild.
 # If you need to apply a patch which requires python for bootstrapping, please
 # run the bootstrap code on your dev box and include the results in the
 # patchset. See bug 447752.
 
-RDEPEND="app-arch/bzip2:=
+RDEPEND="
+	app-arch/bzip2:=
+	app-arch/xz-utils:=
+	dev-lang/python-exec[python_targets_python3_8(-)]
 	dev-libs/libffi:=
+	sys-apps/util-linux:=
 	>=sys-libs/zlib-1.1.3:=
 	virtual/libcrypt:=
 	virtual/libintl
-	berkdb? ( || (
-		sys-libs/db:5.3
-		sys-libs/db:4.8
-	) )
 	gdbm? ( sys-libs/gdbm:=[berkdb] )
 	ncurses? ( >=sys-libs/ncurses-5.2:= )
 	readline? ( >=sys-libs/readline-4.1:= )
 	sqlite? ( >=dev-db/sqlite-3.3.8:3= )
-	ssl? ( dev-libs/openssl:= )
+	ssl? ( >=dev-libs/openssl-1.1.1:= )
 	tk? (
 		>=dev-lang/tcl-8.0:=
 		>=dev-lang/tk-8.0:=
 		dev-tcltk/blt:=
 		dev-tcltk/tix
 	)
-	xml? ( >=dev-libs/expat-2.1:= )"
+	xml? ( >=dev-libs/expat-2.1:= )
+"
 # bluetooth requires headers from bluez
-DEPEND="${RDEPEND}
-	bluetooth? ( net-wireless/bluez )"
+DEPEND="
+	${RDEPEND}
+	bluetooth? ( net-wireless/bluez )
+	test? ( app-arch/xz-utils[extra-filters(+)] )
+"
 BDEPEND="
+	sys-devel/autoconf-archive
 	virtual/awk
 	virtual/pkgconfig
 	verify-sig? ( sec-keys/openpgp-keys-python )
-	!sys-devel/gcc[libffi(-)]"
+	!sys-devel/gcc[libffi(-)]
+"
 RDEPEND+="
-	!build? ( app-misc/mime-types )
-	!<=dev-lang/python-exec-2.4.6-r1"
+	build? ( app-misc/mime-types )
+"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/python.org.asc
-
-pkg_setup() {
-	if use berkdb; then
-		ewarn "'bsddb' module is out-of-date and no longer maintained inside"
-		ewarn "dev-lang/python. 'bsddb' and 'dbhash' modules have been additionally"
-		ewarn "removed in Python 3. A maintained alternative of 'bsddb3' module"
-		ewarn "is provided by dev-python/bsddb3."
-	else
-		if has_version "=${CATEGORY}/${PN}-${PV%%.*}*[berkdb]"; then
-			ewarn "You are migrating from =${CATEGORY}/${PN}-${PV%%.*}*[berkdb]"
-			ewarn "to =${CATEGORY}/${PN}-${PV%%.*}*[-berkdb]."
-			ewarn "You might need to migrate your databases."
-		fi
-	fi
-}
 
 src_unpack() {
 	if use verify-sig; then
@@ -100,25 +94,19 @@ src_prepare() {
 	default
 
 	sed -i -e "s:@@GENTOO_LIBDIR@@:$(get_libdir):g" \
-		Lib/distutils/command/install.py \
-		Lib/distutils/sysconfig.py \
-		Lib/site.py \
-		Lib/sysconfig.py \
-		Lib/test/test_site.py \
-		Makefile.pre.in \
-		Modules/Setup.dist \
-		Modules/getpath.c \
 		setup.py || die "sed failed to replace @@GENTOO_LIBDIR@@"
+
+	# force correct number of jobs
+	# https://bugs.gentoo.org/737660
+	local jobs=$(makeopts_jobs "${MAKEOPTS}" "$(get_nproc)")
+	sed -i -e "s:-j0:-j${jobs}:" Makefile.pre.in || die
+	sed -i -e "/self\.parallel/s:True:${jobs}:" setup.py || die
 
 	eautoreconf
 }
 
 src_configure() {
-	# dbm module can be linked against berkdb or gdbm.
-	# Defaults to gdbm when both are enabled, #204343.
 	local disable
-	use berkdb    || use gdbm || disable+=" dbm"
-	use berkdb    || disable+=" _bsddb"
 	# disable automagic bluetooth headers detection
 	use bluetooth || export ac_cv_header_bluetooth_bluetooth_h=no
 	use gdbm      || disable+=" gdbm"
@@ -152,53 +140,50 @@ src_configure() {
 		use hardened && replace-flags -O3 -O2
 	fi
 
-	if tc-is-cross-compiler; then
-		# Force some tests that try to poke fs paths.
-		export ac_cv_file__dev_ptc=no
-		export ac_cv_file__dev_ptmx=yes
+	# https://bugs.gentoo.org/700012
+	if is-flagq -flto || is-flagq '-flto=*'; then
+		append-cflags $(test-flags-CC -ffat-lto-objects)
 	fi
 
-	# Export CXX so it ends up in /usr/lib/python2.X/config/Makefile.
+	# Export CXX so it ends up in /usr/lib/python3.X/config/Makefile.
 	tc-export CXX
-	# The configure script fails to use pkg-config correctly.
-	# http://bugs.python.org/issue15506
-	export ac_cv_path_PKG_CONFIG=$(tc-getPKG_CONFIG)
+
+	# Fix implicit declarations on cross and prefix builds. Bug #674070.
+	use ncurses && append-cppflags -I"${ESYSROOT}"/usr/include/ncursesw
 
 	local dbmliborder
 	if use gdbm; then
 		dbmliborder+="${dbmliborder:+:}gdbm"
 	fi
-	if use berkdb; then
-		dbmliborder+="${dbmliborder:+:}bdb"
-	fi
 
 	local myeconfargs=(
-		# The check is broken on clang, and gives false positive:
-		# https://bugs.gentoo.org/596798
-		# (upstream dropped this flag in 3.2a4 anyway)
-		ac_cv_opt_olimit_ok=no
 		# glibc-2.30 removes it; since we can't cleanly force-rebuild
 		# Python on glibc upgrade, remove it proactively to give
 		# a chance for users rebuilding python before glibc
 		ac_cv_header_stropts_h=no
 
-		--with-fpectl
 		--enable-shared
 		--enable-ipv6
-		--with-threads
-		--enable-unicode=ucs4
 		--infodir='${prefix}/share/info'
 		--mandir='${prefix}/share/man'
 		--with-computed-gotos
 		--with-dbmliborder="${dbmliborder}"
 		--with-libc=
 		--enable-loadable-sqlite-extensions
+		--without-ensurepip
 		--with-system-expat
 		--with-system-ffi
-		--without-ensurepip
 	)
 
-	OPT="" econf "${myeconfargs[@]}"
+	# disable implicit optimization/debugging flags
+	local -x OPT=
+	# pass system CFLAGS & LDFLAGS as _NODIST, otherwise they'll get
+	# propagated to sysconfig for built extensions
+	local -x CFLAGS_NODIST=${CFLAGS}
+	local -x LDFLAGS_NODIST=${LDFLAGS}
+	local -x CFLAGS= LDFLAGS=
+
+	econf "${myeconfargs[@]}"
 
 	if grep -q "#define POSIX_SEMAPHORES_NOT_ENABLED 1" pyconfig.h; then
 		eerror "configure has detected that the sem_open function is broken."
@@ -211,11 +196,13 @@ src_compile() {
 	# Ensure sed works as expected
 	# https://bugs.gentoo.org/594768
 	local -x LC_ALL=C
+	# Prevent using distutils bundled by setuptools.
+	# https://bugs.gentoo.org/823728
+	export SETUPTOOLS_USE_DISTUTILS=stdlib
 
-	# Avoid invoking pgen for cross-compiles.
-	touch Include/graminit.h Python/graminit.c
-
-	emake
+	# also need to clear the flags explicitly here or they end up
+	# in _sysconfigdata*
+	emake CPPFLAGS= CFLAGS= LDFLAGS=
 
 	# Work around bug 329499. See also bug 413751 and 457194.
 	if has_version dev-libs/libffi[pax-kernel]; then
@@ -233,7 +220,13 @@ src_test() {
 	fi
 
 	# Skip failing tests.
-	local skipped_tests="distutils gdb"
+	local skipped_tests="gdb"
+
+	if use sparc ; then
+		# bug #788022
+		skipped_tests+=" multiprocessing_fork"
+		skipped_tests+=" multiprocessing_forkserver"
+	fi
 
 	for test in ${skipped_tests}; do
 		mv "${S}"/Lib/test/test_${test}.py "${T}"
@@ -241,15 +234,13 @@ src_test() {
 
 	# bug 660358
 	local -x COLUMNS=80
+	local -x PYTHONDONTWRITEBYTECODE=
 
-	# Daylight saving time problem
-	# https://bugs.python.org/issue22067
-	# https://bugs.gentoo.org/610628
-	local -x TZ=UTC
+	local jobs=$(makeopts_jobs "${MAKEOPTS}" "$(get_nproc)")
 
-	# Rerun failed tests in verbose mode (regrtest -w).
-	emake test EXTRATESTOPTS="-w" < /dev/tty
-	local result="$?"
+	emake test EXTRATESTOPTS="-u-network -j${jobs}" \
+		CPPFLAGS= CFLAGS= LDFLAGS= < /dev/tty
+	local result=$?
 
 	for test in ${skipped_tests}; do
 		mv "${T}/test_${test}.py" "${S}"/Lib/test
@@ -261,7 +252,7 @@ src_test() {
 	done
 
 	elog "If you would like to run them, you may:"
-	elog "cd '${EPREFIX}/usr/$(get_libdir)/python${PYVER}/test'"
+	elog "cd '${EPREFIX}/usr/lib/python${PYVER}/test'"
 	elog "and run the tests separately."
 
 	if [[ ${result} -ne 0 ]]; then
@@ -270,21 +261,38 @@ src_test() {
 }
 
 src_install() {
-	local libdir=${ED}/usr/$(get_libdir)/python${PYVER}
+	local libdir=${ED}/usr/lib/python${PYVER}
 
 	emake DESTDIR="${D}" altinstall
 
-	sed -e "s/\(LDFLAGS=\).*/\1/" -i "${libdir}/config/Makefile" || die
+	# Remove static library
+	rm "${ED}"/usr/$(get_libdir)/libpython*.a || die
 
 	# Fix collisions between different slots of Python.
-	mv "${ED}/usr/bin/2to3" "${ED}/usr/bin/2to3-${PYVER}" || die
-	mv "${ED}/usr/bin/pydoc" "${ED}/usr/bin/pydoc${PYVER}" || die
-	mv "${ED}/usr/bin/idle" "${ED}/usr/bin/idle${PYVER}" || die
-	rm "${ED}/usr/bin/smtpd.py" || die
+	rm "${ED}/usr/$(get_libdir)/libpython3.so" || die
 
-	use berkdb || rm -r "${libdir}/"{bsddb,dbhash.py*,test/test_bsddb*} || die
+	# Cheap hack to get version with ABIFLAGS
+	local abiver=$(cd "${ED}/usr/include"; echo python*)
+	if [[ ${abiver} != python${PYVER} ]]; then
+		# Replace python3.X with a symlink to python3.Xm
+		rm "${ED}/usr/bin/python${PYVER}" || die
+		dosym "${abiver}" "/usr/bin/python${PYVER}"
+		# Create python3.X-config symlink
+		dosym "${abiver}-config" "/usr/bin/python${PYVER}-config"
+		# Create python-3.5m.pc symlink
+		dosym "python-${PYVER}.pc" "/usr/$(get_libdir)/pkgconfig/${abiver/${PYVER}/-${PYVER}}.pc"
+	fi
+
+	# python seems to get rebuilt in src_install (bug 569908)
+	# Work around it for now.
+	if has_version dev-libs/libffi[pax-kernel]; then
+		pax-mark E "${ED}/usr/bin/${abiver}"
+	else
+		pax-mark m "${ED}/usr/bin/${abiver}"
+	fi
+
 	use sqlite || rm -r "${libdir}/"{sqlite3,test/test_sqlite*} || die
-	use tk || rm -r "${ED}/usr/bin/idle${PYVER}" "${libdir}/"{idlelib,lib-tk} || die
+	use tk || rm -r "${ED}/usr/bin/idle${PYVER}" "${libdir}/"{idlelib,tkinter,test/test_tk*} || die
 
 	use wininst || rm "${libdir}/distutils/command/"wininst-*.exe || die
 
@@ -292,6 +300,7 @@ src_install() {
 
 	if use examples; then
 		docinto examples
+		find Tools -name __pycache__ -exec rm -fr {} + || die
 		dodoc -r Tools
 	fi
 	insinto /usr/share/gdb/auto-load/usr/$(get_libdir) #443510
@@ -320,15 +329,24 @@ src_install() {
 	python_domodule epython.py
 
 	# python-exec wrapping support
+	local pymajor=${PYVER%.*}
 	local scriptdir=${D}$(python_get_scriptdir)
 	mkdir -p "${scriptdir}" || die
-	# python
-	ln -s "../../../bin/python${PYVER}" \
-		"${scriptdir}/python" || die
-	# python-config
-	ln -s "../../../bin/python${PYVER}-config" \
+	# python and pythonX
+	ln -s "../../../bin/${abiver}" \
+		"${scriptdir}/python${pymajor}" || die
+	ln -s "python${pymajor}" "${scriptdir}/python" || die
+	# python-config and pythonX-config
+	# note: we need to create a wrapper rather than symlinking it due
+	# to some random dirname(argv[0]) magic performed by python-config
+	cat > "${scriptdir}/python${pymajor}-config" <<-EOF || die
+		#!/bin/sh
+		exec "${abiver}-config" "\${@}"
+	EOF
+	chmod +x "${scriptdir}/python${pymajor}-config" || die
+	ln -s "python${pymajor}-config" \
 		"${scriptdir}/python-config" || die
-	# 2to3, pydoc, pyvenv
+	# 2to3, pydoc
 	ln -s "../../../bin/2to3-${PYVER}" \
 		"${scriptdir}/2to3" || die
 	ln -s "../../../bin/pydoc${PYVER}" \
@@ -338,9 +356,4 @@ src_install() {
 		ln -s "../../../bin/idle${PYVER}" \
 			"${scriptdir}/idle" || die
 	fi
-
-	# python2* is no longer wrapped, so just symlink it
-	local pymajor=${PYVER%.*}
-	dosym "python${PYVER}" "/usr/bin/python${pymajor}"
-	dosym "python${PYVER}-config" "/usr/bin/python${pymajor}-config"
 }
