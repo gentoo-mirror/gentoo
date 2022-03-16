@@ -1,13 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=rtlsdr? ( net-wireless/rtl-sdr:= virtual/libusb:1 ) soapysdr? ( net-wireless/soapysdr:= ) sys-devel/make >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
+DEPEND=rtlsdr? ( net-wireless/rtl-sdr:= virtual/libusb:1 ) soapysdr? ( net-wireless/soapysdr:= ) dev-libs/openssl:=
 DESCRIPTION=Decode OOK modulated signals
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/merbanan/rtl_433
-INHERIT=cmake-utils git-r3
-IUSE=+rtlsdr soapysdr
+INHERIT=cmake git-r3
+IUSE=+rtlsdr soapysdr test
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=rtlsdr? ( net-wireless/rtl-sdr:= virtual/libusb:1 ) soapysdr? ( net-wireless/soapysdr:= )
+RDEPEND=rtlsdr? ( net-wireless/rtl-sdr:= virtual/libusb:1 ) soapysdr? ( net-wireless/soapysdr:= ) dev-libs/openssl:=
+RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	9f813bb3c47cf2e60619a663b87c5f4e	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake-utils	f40ef5c4fb8eda19cca8d6604bef497e	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=be1f6020d7c0efbb4b76d3b3794825b0
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=49e06bb231d898853c20504f1467d4e0
