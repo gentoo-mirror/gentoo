@@ -3,9 +3,9 @@
 
 EAPI=7
 
-inherit netsurf desktop
+inherit netsurf desktop toolchain-funcs
 
-DESCRIPTION="a free, open source web browser"
+DESCRIPTION="A free, open source web browser"
 HOMEPAGE="https://www.netsurf-browser.org/"
 SRC_URI="http://download.netsurf-browser.org/netsurf/releases/source/${P}-src.tar.gz"
 
@@ -95,6 +95,7 @@ _emake() {
 		NETSURF_FB_FONTPATH="${EPREFIX}/usr/share/fonts/dejavu"
 		NETSURF_USE_VIDEO=NO
 	)
+
 	emake "${netsurf_makeconf[@]}" $@
 }
 
@@ -124,7 +125,7 @@ src_install() {
 		# See earlier comments about rsvg.h.
 		_emake NETSURF_USE_RSVG=NO TARGET=framebuffer DESTDIR="${D}" install
 		elog "framebuffer binary has been installed as netsurf-fb"
-		make_desktop_entry "${EPREFIX}"/usr/bin/netsurf-fb \
+		make_desktop_entry "${EPREFIX}/usr/bin/netsurf-fb %u" \
 						   NetSurf-framebuffer \
 						   netsurf \
 						   "Network;WebBrowser"
@@ -132,7 +133,7 @@ src_install() {
 	if use gtk2 ; then
 		_emake TARGET=gtk2 DESTDIR="${D}" install
 		elog "netsurf gtk2 version has been installed as netsurf-gtk2"
-		make_desktop_entry "${EPREFIX}"/usr/bin/netsurf-gtk2 \
+		make_desktop_entry "${EPREFIX}/usr/bin/netsurf-gtk2 %u" \
 						   NetSurf-gtk2 \
 						   netsurf \
 						   "Network;WebBrowser"
@@ -140,7 +141,7 @@ src_install() {
 	if use gtk ; then
 		_emake TARGET=gtk3 DESTDIR="${D}" install
 		elog "netsurf gtk3 version has been installed as netsurf-gtk3"
-		make_desktop_entry "${EPREFIX}"/usr/bin/netsurf-gtk3 \
+		make_desktop_entry "${EPREFIX}/usr/bin/netsurf-gtk3 %u" \
 						   NetSurf-gtk3 \
 						   netsurf \
 						   "Network;WebBrowser"
