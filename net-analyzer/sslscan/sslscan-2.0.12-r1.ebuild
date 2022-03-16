@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # sslscan builds against a static openssl library to allow weak ciphers
 # to be enabled so that they can be tested.
-OPENSSL_RELEASE_TAG="OpenSSL_1_1_1k"
+OPENSSL_RELEASE_TAG="OpenSSL_1_1_1n"
 
 DESCRIPTION="Fast SSL configuration scanner"
 HOMEPAGE="https://github.com/rbsec/sslscan"
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/rbsec/sslscan/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 # Requires a docker environment
 RESTRICT="test"
