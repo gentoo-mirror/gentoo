@@ -24,6 +24,7 @@ REQUIRED_USE="?? ( optimize tbb )"
 # properly set up.
 RESTRICT="test"
 
+# ffmpeg: https://dev.opencascade.org/content/build-error-when-compiling-against-ffmpeg-5
 RDEPEND="
 	!app-eselect/eselect-opencascade
 	dev-lang/tcl:=
@@ -44,7 +45,7 @@ RDEPEND="
 		dev-qt/qtwidgets:5
 		dev-qt/qtxml:5
 	)
-	ffmpeg? ( media-video/ffmpeg:= )
+	ffmpeg? ( <media-video/ffmpeg-5:= )
 	freeimage? ( media-libs/freeimage )
 	tbb? ( <dev-cpp/tbb-2021.4 )
 	vtk? ( sci-libs/vtk:=[rendering] )
