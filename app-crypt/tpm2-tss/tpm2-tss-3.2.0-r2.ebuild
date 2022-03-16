@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools linux-info tmpfiles udev
+inherit autotools linux-info multilib-minimal tmpfiles udev
 
 DESCRIPTION="TCG Trusted Platform Module 2.0 Software Stack"
 HOMEPAGE="https://github.com/tpm2-software/tpm2-tss"
@@ -21,10 +21,10 @@ REQUIRED_USE="^^ ( mbedtls openssl )
 
 RDEPEND="acct-group/tss
 	acct-user/tss
-	fapi? ( dev-libs/json-c:=
-		>=net-misc/curl-7.80.0 )
-	mbedtls? ( net-libs/mbedtls:= )
-	openssl? ( dev-libs/openssl:= )"
+	fapi? ( dev-libs/json-c:=[${MULTILIB_USEDEP}]
+		>=net-misc/curl-7.80.0[${MULTILIB_USEDEP}] )
+	mbedtls? ( net-libs/mbedtls:=[${MULTILIB_USEDEP}] )
+	openssl? ( dev-libs/openssl:=[${MULTILIB_USEDEP}] )"
 
 DEPEND="${RDEPEND}
 	test? ( app-crypt/swtpm
@@ -58,15 +58,15 @@ src_prepare() {
 	eautoreconf
 }
 
-src_configure() {
-	econf \
+multilib_src_configure() {
+	ECONF_SOURCE=${S} econf \
 		--localstatedir=/var \
 		$(use_enable doc doxygen-doc) \
 		$(use_enable fapi) \
 		$(use_enable static-libs static) \
-		$(use_enable test unit) \
-		$(use_enable test integration) \
-		$(use_enable test self-generated-certificate) \
+		$(multilib_native_use_enable test unit) \
+		$(multilib_native_use_enable test integration) \
+		$(multilib_native_use_enable test self-generated-certificate) \
 		--disable-tcti-libtpms \
 		--disable-defaultflags \
 		--disable-weakcrypto \
@@ -78,7 +78,7 @@ src_configure() {
 		--with-tmpfilesdir="/usr/lib/tmpfiles.d"
 }
 
-src_install() {
+multilib_src_install() {
 	default
 
 	if [[ ${PV} != $(sed -n -e 's/^Version: //p' "${ED}/usr/$(get_libdir)/pkgconfig/tss2-sys.pc" || die) ]] ; then

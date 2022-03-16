@@ -19,7 +19,7 @@ KEYWORDS="-* ~amd64"
 IUSE="mssql mysql postgres sybase"
 
 RDEPEND="
-	>=dev-java/openjdk-8:*[javafx]
+	<dev-java/openjdk-17:*[javafx]
 	>=virtual/jre-1.8:*
 	mssql? ( dev-java/jtds:1.3 )
 	mysql? ( dev-java/jdbc-mysql:0 )
