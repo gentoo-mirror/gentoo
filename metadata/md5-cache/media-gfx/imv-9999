@@ -1,4 +1,4 @@
-BDEPEND=app-text/asciidoc wayland? ( dev-util/wayland-scanner ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-text/asciidoc wayland? ( dev-util/wayland-scanner ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=dev-libs/glib:2 dev-libs/inih media-libs/libglvnd[X?] x11-libs/cairo x11-libs/libxkbcommon[X?] x11-libs/pango X? ( x11-libs/libX11 x11-libs/libxcb:= ) freeimage? ( media-libs/freeimage ) gif? ( media-libs/libnsgif ) heif? ( media-libs/libheif:= ) icu? ( dev-libs/icu:= ) !icu? ( dev-libs/libgrapheme ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) svg? ( >=gnome-base/librsvg-2.44:2 ) tiff? ( media-libs/tiff ) wayland? ( dev-libs/wayland ) !sys-apps/renameutils X? ( x11-base/xorg-proto ) test? ( dev-util/cmocka )
 DESCRIPTION=Minimal image viewer designed for tiling window manager users
@@ -13,5 +13,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/inih media-libs/libglvnd[X?] x11-libs/cairo x11
 REQUIRED_USE=|| ( X wayland )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	96bca76bf96533b38e3d4e09d1306490	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=d4119f93628d4b173e55778c565841cc

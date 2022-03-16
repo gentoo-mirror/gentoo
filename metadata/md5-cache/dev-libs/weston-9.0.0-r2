@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
 DEPEND=>=dev-libs/libinput-0.8.0 >=dev-libs/wayland-1.17.0 >=dev-libs/wayland-protocols-1.18 lcms? ( media-libs/lcms:2 ) media-libs/libpng:0= webp? ( media-libs/libwebp:0= ) jpeg? ( virtual/jpeg:0= ) >=x11-libs/cairo-1.11.3 >=x11-libs/libdrm-2.4.68 >=x11-libs/libxkbcommon-0.5.0 >=x11-libs/pixman-0.25.2 x11-misc/xkeyboard-config fbdev? ( >=sys-libs/mtdev-1.1.0 >=virtual/udev-136 ) colord? ( >=x11-misc/colord-0.1.27 ) drm? ( >=media-libs/mesa-17.1[gbm(+)] >=sys-libs/mtdev-1.1.0 >=virtual/udev-136 ) editor? ( x11-libs/pango ) examples? ( x11-libs/pango ) gles2? ( media-libs/mesa[gles2,wayland] ) pipewire? ( >=media-video/pipewire-0.2:= ) rdp? ( >=net-misc/freerdp-2.0.0_rc2:= ) remoting? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) systemd? ( sys-auth/pambase[systemd] >=sys-apps/dbus-1.6 >=sys-apps/systemd-209[pam] ) launch? ( sys-auth/pambase ) X? ( >=x11-libs/libxcb-1.9 x11-libs/libX11 ) xwayland? ( x11-base/xwayland x11-libs/cairo[X,xcb(+)] >=x11-libs/libxcb-1.9 x11-libs/libXcursor )
 DESCRIPTION=Wayland reference compositor
@@ -13,5 +13,5 @@ REQUIRED_USE=colord? ( lcms ) drm? ( gles2 ) pipewire? ( drm ) remoting? ( drm g
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://wayland.freedesktop.org/releases/weston-9.0.0.tar.xz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	96bca76bf96533b38e3d4e09d1306490	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
 _md5_=350b16bf778cc2aad85caf9ce117f886
