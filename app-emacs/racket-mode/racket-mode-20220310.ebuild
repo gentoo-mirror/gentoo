@@ -3,7 +3,7 @@
 
 EAPI=8
 
-H=3027de086eb0b77ac8ae81acceeddab91c66ba0e
+H=e321d8ecfb1bc94c3772ef4d20df0ddf9c9c9d76
 NEED_EMACS=25.1
 
 inherit elisp
@@ -35,7 +35,8 @@ src_compile() {
 }
 
 src_test() {
-	emake test-racket
+	# Set PLTUSERHOME to a safe temp dir to evade writing to ~
+	PLTUSERHOME="${T}"/racket-mode/test-racket emake test-racket
 }
 
 src_install() {
