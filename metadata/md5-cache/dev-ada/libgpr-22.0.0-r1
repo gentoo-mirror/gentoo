@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile configure install setup
+DEFINED_PHASES=compile configure install prepare setup
 DEPEND=dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-)] !net-libs/grpc dev-ada/gprbuild[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-)]
 DESCRIPTION=Ada library to handle GPRbuild project files
 EAPI=7
@@ -12,4 +12,4 @@ REQUIRED_USE=ada_target_gnat_2021 || ( shared static-libs static-pic )
 SLOT=0/22.0.0
 SRC_URI=https://github.com/AdaCore/gprbuild/archive/refs/tags/v22.0.0.tar.gz -> gprbuild-22.0.0.tar.gz
 _eclasses_=ada	dd7d6e1357088d74546d8e11f7f485fc	multiprocessing	61c959fc55c15c00bbb1079d6a71370b
-_md5_=3d0dec34312ebdb18d2bb5fc4a79211f
+_md5_=1322a3356c268c3d3f148f2be7bfb702
