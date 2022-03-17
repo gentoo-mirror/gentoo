@@ -11,7 +11,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://aomedia.googlesource.com/aom"
 else
 	SRC_URI="https://storage.googleapis.com/aom-releases/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86"
 fi
 
 DESCRIPTION="Alliance for Open Media AV1 Codec SDK"
@@ -65,6 +65,26 @@ multilib_src_configure() {
 		-DENABLE_AVX=$(usex cpu_flags_x86_avx ON OFF)
 		-DENABLE_AVX2=$(usex cpu_flags_x86_avx2 ON OFF)
 	)
+
+	# For 32-bit multilib builds, force some intrinsics on to work around
+	# bug #816027. libaom seems to do runtime detection for some targets
+	# at least, so this isn't an issue.
+	if ! multilib_is_native_abi && use amd64 ; then
+		mycmakeargs+=(
+			-DENABLE_SSE3=ON
+			-DENABLE_SSSE3=ON
+		)
+	fi
+
+	# On ARM32-on-ARM64, things end up failing if NEON is off, bug #835456
+	# Just force generic, given it's a niche situation.
+	# TODO: could try forcing armv7 or similar?
+	if use arm && ! use cpu_flags_arm_neon && [[ $(uname -p) == "aarch64" ]] ; then
+		ewarn "Forcing generic for arm32-on-arm64 build (bug #835456)"
+		mycmakeargs+=(
+			-DAOM_TARGET_CPU=generic
+		)
+	fi
 
 	cmake_src_configure
 }
