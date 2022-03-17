@@ -41,8 +41,11 @@ src_test() {
 
 pkg_postinst() {
 	has_version =app-containers/docker-compose-1* || return
-	elog
-	elog "docker-compose 2.x is a sub command of docker"
-	elog "Use 'docker compose' from the command line instead of"
-	elog "'docker-compose'"
+	ewarn
+	ewarn "docker-compose 2.x is a sub command of docker"
+	ewarn "Use 'docker compose' from the command line instead of"
+	ewarn "'docker-compose'"
+	ewarn "If you need to keep 1.x around, please run the following"
+	ewarn "command before your next --depclean"
+	ewarn "# emerge --noreplace docker-compose:0"
 }
