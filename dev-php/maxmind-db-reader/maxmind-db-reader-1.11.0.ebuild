@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 MY_PN="MaxMind-DB-Reader-php"
 MY_P="${MY_PN}-${PV}"
@@ -10,7 +10,7 @@ PHP_EXT_S="${S}/ext"
 PHP_EXT_NAME="maxminddb"
 PHP_EXT_OPTIONAL_USE="extension"
 
-USE_PHP="php7-3 php7-4 php8-0"
+USE_PHP="php7-4 php8-0 php8-1"
 
 inherit php-ext-source-r3
 
