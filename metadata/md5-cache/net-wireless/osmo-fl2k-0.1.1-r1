@@ -1,0 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=virtual/libusb:1
+DESCRIPTION=turns FL2000-based USB 3.0 to VGA adapters into low cost DACs
+EAPI=8
+HOMEPAGE=https://osmocom.org/projects/osmo-fl2k/wiki
+INHERIT=cmake flag-o-matic linux-info udev
+IUSE=udev
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=virtual/libusb:1 media-sound/sox sys-apps/pv
+SLOT=0
+SRC_URI=https://git.osmocom.org/osmo-fl2k/snapshot/v0.1.1.tar.gz -> osmo-fl2k-0.1.1.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	linux-info	2f039741fe92bcea55c78806d16ac0f5	udev	2d229ad4bfa09058e0184b1ca900db32
+_md5_=fdea7def8f31a27a6ad67974d33f9edd
