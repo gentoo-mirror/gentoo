@@ -1,0 +1,15 @@
+BDEPEND=app-arch/zip
+DEFINED_PHASES=compile configure preinst prepare setup
+DEPEND=virtual/jdk:1.8 >=media-sound/pulseaudio-0.9.11 >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=Plugins for javax.sound
+EAPI=8
+HOMEPAGE=https://icedtea.classpath.org
+INHERIT=java-pkg-2
+IUSE=+doc
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2-with-linking-exception
+RDEPEND=virtual/jdk:1.8 >=media-sound/pulseaudio-0.9.11 >=dev-java/java-config-2.2.0-r3
+SLOT=0
+SRC_URI=https://icedtea.classpath.org/download/source/icedtea-sound-1.0.1.tar.xz
+_eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2
+_md5_=994a2a48b6b5c961bddb0a9e8ccda750
