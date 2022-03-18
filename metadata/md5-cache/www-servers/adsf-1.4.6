@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/ddfreyne/adsf/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 test test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rack-1.0.0:*[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ddfreyne/adsf/archive/1.4.6.tar.gz -> adsf-1.4.6.tar.gz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	ruby-utils	4e22efed0e6cba1c59b5ad83d18f6c43	ruby-ng	ecfb52bd53bc07c3e261907a64675d73	ruby-fakegem	a2ab5d49020ecc73fc555a726c9c04a4
-_md5_=c97d2de6872157110bad48ad96fab9d6
+_md5_=3b5cf99fde3c709a1e1b3ac8fe2f43f0
