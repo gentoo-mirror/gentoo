@@ -4,12 +4,12 @@ DEPEND=>=app-eselect/eselect-emacs-1.15 X? ( x11-libs/libXau ) X? ( x11-base/xor
 DESCRIPTION=Attach to an already running Emacs
 EAPI=7
 HOMEPAGE=http://meltin.net/hacks/emacs/
-INHERIT=elisp multilib desktop xdg-utils
+INHERIT=elisp desktop xdg-utils
 IUSE=X
 KEYWORDS=amd64 ~ppc x86 ~x86-linux ~ppc-macos
 LICENSE=GPL-2+
 RDEPEND=>=app-eselect/eselect-emacs-1.15 X? ( x11-libs/libXau ) >=app-editors/emacs-23.1:*
 SLOT=0
 SRC_URI=http://meltin.net/hacks/emacs/src/gnuserv-3.12.8.tar.gz
-_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	elisp	532fa549a4f54b2a3f83b827b272a4a9	multilib	de4beb52bfa93c4c5d96792a6b5e1784	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=7588f0ca0ffa2911b82800f33795f858
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	elisp	532fa549a4f54b2a3f83b827b272a4a9	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=c0b67d32d8e08abeac813ef2c227ca0f
