@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -11,27 +11,35 @@ SRC_URI="https://github.com/USCiLab/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="doc test"
-
 RESTRICT="!test? ( test )"
 
-DEPEND="test? ( dev-libs/boost )"
+BDEPEND="doc? ( app-doc/doxygen )"
+DEPEND="dev-libs/rapidjson"
 
 src_prepare() {
-	sed -i -e '/set(CMAKE_CXX_FLAGS "-Wall -g -Wextra -Wshadow -pedantic -Wold-style-cast ${CMAKE_CXX_FLAGS}")/d' CMakeLists.txt || die
-
 	if ! use doc ; then
 		sed -i -e '/add_subdirectory(doc/d' CMakeLists.txt || die
 	fi
+
+	# remove bundled rapidjson
+	rm -r include/cereal/external/rapidjson || die 'could not remove bundled rapidjson'
 
 	cmake_src_prepare
 }
 
 src_configure() {
+	# TODO: drop bundled doctest, rapidxml (bug #792444)
+
 	local mycmakeargs=(
-		-DJUST_INSTALL_CEREAL=$(usex !test)
+		-DBUILD_TESTS=$(usex test)
+
+		# Avoid Boost dependency
+		-DSKIP_PERFORMANCE_COMPARISON=ON
+
 		-DWITH_WERROR=OFF
 	)
+
 	cmake_src_configure
 }

@@ -1,82 +1,114 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CRATES="
-	ahash-0.7.2
+	ahash-0.7.6
 	ansi_term-0.11.0
+	ansi_term-0.12.1
 	atty-0.2.14
 	autocfg-1.0.1
 	base64-0.13.0
 	bitflags-1.2.1
+	bitflags-1.3.2
 	byteorder-1.4.3
 	cbindgen-0.9.1
-	cc-1.0.67
+	cc-1.0.72
+	cfg-if-0.1.10
 	cfg-if-1.0.0
 	clap-2.33.3
-	concread-0.2.9
-	crossbeam-0.8.0
-	crossbeam-channel-0.5.1
-	crossbeam-deque-0.8.0
-	crossbeam-epoch-0.9.3
-	crossbeam-queue-0.3.1
-	crossbeam-utils-0.8.3
+	clap-2.34.0
+	concread-0.2.21
+	crossbeam-0.8.1
+	crossbeam-channel-0.5.2
+	crossbeam-deque-0.8.1
+	crossbeam-epoch-0.9.6
+	crossbeam-queue-0.3.3
+	crossbeam-utils-0.8.6
+	fastrand-1.7.0
 	fernet-0.1.4
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
-	getrandom-0.2.2
-	hermit-abi-0.1.18
-	instant-0.1.9
+	getrandom-0.1.16
+	getrandom-0.2.4
+	hashbrown-0.11.2
+	hermit-abi-0.1.17
+	hermit-abi-0.1.19
+	instant-0.1.12
 	itoa-0.4.7
-	jobserver-0.1.21
+	itoa-1.0.1
+	jobserver-0.1.24
 	lazy_static-1.4.0
-	libc-0.2.93
-	lock_api-0.4.3
+	libc-0.2.113
+	libc-0.2.82
+	lock_api-0.4.5
+	log-0.4.13
 	log-0.4.14
-	memoffset-0.6.3
-	once_cell-1.7.2
-	openssl-0.10.33
-	openssl-sys-0.9.61
-	parking_lot-0.11.1
-	parking_lot_core-0.8.3
+	lru-0.7.2
+	memoffset-0.6.5
+	once_cell-1.9.0
+	openssl-0.10.38
+	openssl-sys-0.9.72
+	parking_lot-0.11.2
+	parking_lot_core-0.8.5
 	paste-0.1.18
 	paste-impl-0.1.18
-	pkg-config-0.3.19
+	pin-project-lite-0.2.8
+	pkg-config-0.3.24
 	ppv-lite86-0.2.10
+	ppv-lite86-0.2.16
+	proc-macro2-1.0.24
+	proc-macro2-1.0.36
 	proc-macro-hack-0.5.19
-	proc-macro2-1.0.26
-	quote-1.0.9
-	rand-0.8.3
-	rand_chacha-0.3.0
-	rand_core-0.6.2
-	rand_hc-0.3.0
-	redox_syscall-0.2.6
+	quote-1.0.15
+	quote-1.0.8
+	rand-0.7.3
+	rand-0.8.4
+	rand_chacha-0.2.2
+	rand_chacha-0.3.1
+	rand_core-0.5.1
+	rand_core-0.6.3
+	rand_hc-0.2.0
+	rand_hc-0.3.1
+	redox_syscall-0.1.57
+	redox_syscall-0.2.10
 	remove_dir_all-0.5.3
 	ryu-1.0.5
+	ryu-1.0.9
 	scopeguard-1.1.0
-	serde-1.0.125
-	serde_derive-1.0.125
-	serde_json-1.0.64
-	smallvec-1.6.1
+	serde-1.0.119
+	serde-1.0.135
+	serde_derive-1.0.119
+	serde_derive-1.0.135
+	serde_json-1.0.61
+	serde_json-1.0.78
+	smallvec-1.8.0
 	strsim-0.8.0
-	syn-1.0.69
-	synstructure-0.12.4
-	tempfile-3.2.0
+	syn-1.0.58
+	syn-1.0.86
+	synstructure-0.12.6
+	tempfile-3.1.0
+	tempfile-3.3.0
 	textwrap-0.11.0
+	tokio-1.15.0
+	tokio-macros-1.7.0
 	toml-0.5.8
 	unicode-width-0.1.8
+	unicode-width-0.1.9
 	unicode-xid-0.2.1
+	unicode-xid-0.2.2
 	uuid-0.8.2
-	vcpkg-0.2.11
+	vcpkg-0.2.15
 	vec_map-0.8.2
-	version_check-0.9.3
+	version_check-0.9.4
 	wasi-0.10.2+wasi-snapshot-preview1
+	wasi-0.9.0+wasi-snapshot-preview1
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	zeroize-1.2.0
-	zeroize_derive-1.0.1
+	zeroize-1.5.0
+	zeroize_derive-1.3.1
 "
 
 PYTHON_COMPAT=( python3_{8,9,10} )
@@ -84,7 +116,7 @@ PYTHON_COMPAT=( python3_{8,9,10} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit multilib flag-o-matic autotools distutils-r1 systemd tmpfiles db-use cargo
+inherit autotools distutils-r1 systemd tmpfiles cargo
 
 DESCRIPTION="389 Directory Server (core libraries and daemons)"
 HOMEPAGE="https://directory.fedoraproject.org/"
@@ -101,14 +133,13 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # lib389 tests (which is most of the suite) can't find their own modules.
 RESTRICT="test"
 
-# always list newer first
 # Do not add any AGPL-3 BDB here!
 # See bug 525110, comment 15.
-BERKDB_SLOTS=( 5.3 4.8 )
 
 DEPEND="
 	>=app-crypt/mit-krb5-1.7-r100[openldap]
-	>=dev-libs/cyrus-sasl-2.1.19[kerberos]
+	dev-db/lmdb:=
+	>=dev-libs/cyrus-sasl-2.1.19:2[kerberos]
 	>=dev-libs/icu-60.2:=
 	dev-libs/nspr
 	>=dev-libs/nss-3.22[utils]
@@ -117,12 +148,9 @@ DEPEND="
 	dev-libs/openssl:0=
 	>=net-analyzer/net-snmp-5.1.2:=
 	net-nds/openldap[sasl]
-	|| (
-		$(for slot in ${BERKDB_SLOTS[@]} ; do printf '%s\n' "sys-libs/db:${slot}" ; done)
-	)
 	sys-libs/cracklib
-	sys-fs/e2fsprogs
-	sys-libs/zlib
+	sys-libs/db:5.3
+	|| ( sys-fs/e2fsprogs sys-libs/e2fsprogs-libs )
 	pam-passthru? ( sys-libs/pam )
 	selinux? (
 		$(python_gen_cond_dep '
@@ -145,8 +173,7 @@ BDEPEND=">=sys-devel/autoconf-2.69-r5
 
 # perl dependencies are for logconv.pl
 RDEPEND="${DEPEND}
-	!dev-libs/svrcore
-	!net-nds/389-ds-base:0
+	!net-nds/389-ds-base:1.4
 	acct-user/dirsrv
 	acct-group/dirsrv
 	${PYTHON_DEPS}
@@ -179,17 +206,12 @@ PATCHES=(
 distutils_enable_tests pytest
 
 src_prepare() {
-	# this is for upstream GitHub issue 4292
+	# https://github.com/389ds/389-ds-base/issues/4292
 	if use !systemd; then
 		sed -i \
 			-e 's|WITH_SYSTEMD = 1|WITH_SYSTEMD = 0|' \
 			Makefile.am || die
 	fi
-
-	# GH issue 4092
-	sed -i \
-		-e 's|@localstatedir@/run|/run|' \
-		ldap/admin/src/defaults.inf.in || die
 
 	default
 
@@ -218,7 +240,7 @@ src_configure() {
 		--with-pythonexec="${PYTHON}"
 		--with-fhs
 		--with-openldap
-		--with-db-inc="$(db_includedir)"
+		--with-db-inc="${EPREFIX}"/usr/include/db5.3
 		--disable-cockpit
 	)
 
