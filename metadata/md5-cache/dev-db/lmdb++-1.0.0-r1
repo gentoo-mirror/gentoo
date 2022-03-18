@@ -1,0 +1,12 @@
+DEFINED_PHASES=install test
+DESCRIPTION=C++11 wrapper for the LMDB database library
+EAPI=8
+HOMEPAGE=https://github.com/hoytech/lmdbxx
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=public-domain
+RDEPEND=dev-db/lmdb
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hoytech/lmdbxx/archive/1.0.0.tar.gz -> lmdbxx-1.0.0.tar.gz
+_md5_=adedc16d4d71d05cef9e07c12a5877af
