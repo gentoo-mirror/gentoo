@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=prepare setup test
+DEPEND=net-firewall/nftables:=[modern-kernel] dev-libs/jansson:= dev-libs/libev:=
+DESCRIPTION=nftables load balancer
+EAPI=8
+HOMEPAGE=https://github.com/zevenet/nftlb
+INHERIT=linux-info autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=AGPL-3
+RDEPEND=net-firewall/nftables:=[modern-kernel] dev-libs/jansson:= dev-libs/libev:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/zevenet/nftlb/archive/v1.0.tar.gz -> nftlb-1.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=884d6181424ba8979156022b3beddf57
