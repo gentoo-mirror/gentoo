@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.63 1.22.70 1.22.71 1.22.73 1.22.74 1.22.75 1.22.76: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.63 1.22.70 1.22.71 1.22.73 1.22.74 1.22.75 1.22.76 1.22.77: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.28.3 1.30.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -2273,7 +2273,7 @@ app-emacs/emacs-jabber 0.8.92: A Jabber client for Emacs
 app-emacs/emacs-w3m 1.4.632_pre20181112: emacs-w3m is an interface program of w3m on Emacs
 app-emacs/emacs-wget 0.5.0-r1: Wget interface for Emacs
 app-emacs/emhacks 20070920-r1: Useful Emacs Lisp libraries, including gdiff, jjar, jmaker, swbuff, and tabbar
-app-emacs/emms 4.4 5.3 5.4: The Emacs Multimedia System
+app-emacs/emms 5.4 10: The Emacs Multimedia System
 app-emacs/epl 0.9: A convenient high-level API for package.el
 app-emacs/erobot 2.1.0-r1: Battle-bots for Emacs!
 app-emacs/eselect-mode 1.4.16 1.4.17 9999: Emacs major mode for editing eselect files
@@ -8334,8 +8334,8 @@ dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the stand
 dev-python/boolean-py 3.8: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.21.8 1.21.15 1.21.16 1.21.18 1.21.19 1.21.20 1.21.21 9999: The AWS SDK for Python
-dev-python/botocore 1.24.8 1.24.15 1.24.16 1.24.18 1.24.19 1.24.20 1.24.21 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.21.8 1.21.15 1.21.16 1.21.18 1.21.19 1.21.20 1.21.21 1.21.22 9999: The AWS SDK for Python
+dev-python/botocore 1.24.8 1.24.15 1.24.16 1.24.18 1.24.19 1.24.20 1.24.21 1.24.22 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.2-r1 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8590,9 +8590,9 @@ dev-python/flufl-bounce 4.0: Email bounce detectors
 dev-python/flufl-i18n 4.0: A high level API for Python internationalization
 dev-python/flufl-lock 7.0-r1: NFS-safe file locking with timeouts for POSIX systems
 dev-python/flufl-testing 0.8: Small collection of test tool plugins
-dev-python/fonttools 4.29.1 4.30.0: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.29.1 4.30.0 4.31.1: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/fqdn 1.5.1-r1: RFC-compliant FQDN validation and manipulation for Python
-dev-python/freezegun 1.1.0-r1 1.2.0: Let your Python tests travel through time
+dev-python/freezegun 1.1.0-r1 1.2.0 1.2.1: Let your Python tests travel through time
 dev-python/fritzconnection 1.7.1 1.7.2 1.8.0 1.9.0 1.9.1: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
 dev-python/frozen-flask 0.18: Freezes a Flask application into a set of static files
 dev-python/frozenlist 1.3.0: A list-like structure which implements collections.abc.MutableSequence
@@ -8868,7 +8868,7 @@ dev-python/mock 4.0.3: Rolling backport of unittest.mock for all Pythons
 dev-python/mongoengine 0.23.1: A Python Object-Document-Mapper for working with MongoDB
 dev-python/mongomock 4.0.0: Library to help testing Python code that interacts with MongoDB via Pymongo
 dev-python/more-itertools 8.12.0-r1: More routines for operating on iterables, beyond itertools
-dev-python/moto 2.2.17 2.2.20 2.3.1 2.3.2 3.0.0 3.0.1 3.0.2 3.0.3 3.0.4 3.0.5 3.1.0: Mock library for boto
+dev-python/moto 2.2.17 2.2.20 2.3.1 2.3.2 3.0.0 3.0.1 3.0.2 3.0.3 3.0.4 3.0.5 3.1.0 3.1.1: Mock library for boto
 dev-python/mpdlcd 0.5.2-r1: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.1.3: Message Passing Interface for Python
 dev-python/mpmath 1.2.1: Python library for arbitrary-precision floating-point arithmetic
@@ -9041,7 +9041,7 @@ dev-python/poyo 0.5.0: A lightweight YAML Parser for Python
 dev-python/precis-i18n 1.0.3 1.0.4: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r1: A library for stubbing in Python
 dev-python/pretty-yaml 21.10.1: PyYAML-based module to produce pretty and readable YAML-serialized data
-dev-python/prettytable 3.0.0 3.1.0 3.1.1 3.2.0: Easily displaying tabular data in a visually appealing ASCII table format
+dev-python/prettytable 3.1.0 3.1.1 3.2.0: Easily displaying tabular data in a visually appealing ASCII table format
 dev-python/priority 1.3.0 2.0.0-r1: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 2.1.2: Tools for testing processes
 dev-python/progress 1.6: Easy to use progress bars
@@ -9202,7 +9202,7 @@ dev-python/pyrfc3339 1.1: Generates and parses RFC 3339 timestamps
 dev-python/pyroute2 0.5.14: A pure Python netlink and Linux network configuration library
 dev-python/pyrqlite 2.1.1: Python client for rqlite
 dev-python/pyrsistent 0.18.1: Persistent/Functional/Immutable data structures
-dev-python/pyscard 2.0.2: Smart card support in python
+dev-python/pyscard 2.0.2 2.0.3: Smart card support in python
 dev-python/pyscreenshot 3.0: Python screenshot library
 dev-python/pyserial 3.5-r1: Python Serial Port extension
 dev-python/pyside2 5.15.2-r1: Python bindings for the Qt framework
@@ -9228,7 +9228,7 @@ dev-python/pytest-bdd 5.0.0: BDD library for the pytest runner
 dev-python/pytest-cache 1.0-r2: mechanisms for caching across test runs
 dev-python/pytest-check 1.0.4: pytest plugin that allows multiple failures per test
 dev-python/pytest-codeblocks 0.13.0 0.14.0: Extract code blocks from markdown
-dev-python/pytest-console-scripts 1.2.2 1.3: Pytest plugin for testing console scripts
+dev-python/pytest-console-scripts 1.2.2 1.3 1.3.1: Pytest plugin for testing console scripts
 dev-python/pytest-cov 3.0.0-r1: py.test plugin for coverage reporting
 dev-python/pytest-datadir 1.3.1: Pytest plugin for manipulating test data directories and files
 dev-python/pytest-describe 2.0.1: Describe-style plugin for pytest
@@ -9263,7 +9263,7 @@ dev-python/pytest-salt-factories 0.911.0: The new generation of the pytest-salt 
 dev-python/pytest-services 2.2.1: Collection of fixtures and utility functions to run service processes for pytest
 dev-python/pytest-shutil 1.7.0-r2: A goodie-bag of unix shell and environment tools for py.test
 dev-python/pytest-subtesthack 0.1.2-r1: A hack for test fixtures, needed for hypothesis inside py.test
-dev-python/pytest-subtests 0.6.0 0.7.0: unittest subTest() support and subtests fixture
+dev-python/pytest-subtests 0.7.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.4: py.test plugin that changes the default look and feel of py.test
 dev-python/pytest-tempdir 2019.10.12: Pytest plugin to support for a predictable and repeatable temporary directory
 dev-python/pytest-testinfra 6.4.0 6.5.0 6.6.0: Write unit tests in Python to test actual state of your servers
@@ -9292,7 +9292,7 @@ dev-python/python-debian 0.1.43: Python modules to work with Debian-related data
 dev-python/python-discid 1.2.0-r1: Python bindings for libdiscid
 dev-python/python-distutils-extra 2.45: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/python-docs 2.7.18 3.6.14 3.7.11 3.8.11 3.9.6: HTML documentation for Python
-dev-python/python-dotenv 0.19.2-r1 0.19.2-r2: Manage .env files
+dev-python/python-dotenv 0.19.2-r2: Manage .env files
 dev-python/python-editor 1.0.4-r1: Programmatically open an editor, capture the result
 dev-python/python-efl 1.25.0 1.26.0: Python bindings for Enlightenment Foundation Libraries
 dev-python/python-email-validator 1.1.3: A robust email syntax and deliverability validation library
@@ -9420,7 +9420,7 @@ dev-python/requests_download 0.1.2: A convenient function to download to a file 
 dev-python/requests_pkcs12 1.10: Adds PKCS#12 support to the Python requests library in a clean way
 dev-python/requestsexceptions 1.4.0: Finds the correct path to exceptions in the requests library
 dev-python/resolvelib 0.5.4 0.8.1: provides a Resolver class that includes dependency resolution logic
-dev-python/responses 0.18.0 0.19.0: Utility for mocking out the Python Requests library
+dev-python/responses 0.18.0 0.19.0 0.20.0: Utility for mocking out the Python Requests library
 dev-python/restructuredtext-lint 1.3.0 1.4.0: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1: Decorator for retrying when exceptions occur
 dev-python/retrying 1.3.3: General-purpose retrying library
@@ -9454,7 +9454,7 @@ dev-python/sarge 0.1.6 0.1.7 0.1.7-r1: wrapper for subprocess which provides com
 dev-python/sarif_om 1.0.4: Classes implementing the SARIF 2.1.0 object model
 dev-python/scandir 1.10.0-r2: A better directory iterator and faster os.walk()
 dev-python/scikit-build 0.12.0: Improved build system generator for Python C/C++/Fortran/Cython extensions
-dev-python/scipy 1.6.3 1.7.1-r1 1.7.3 1.8.0: Scientific algorithms library for Python
+dev-python/scipy 1.7.3 1.8.0: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r1: A very small text templating language
 dev-python/scrypt 0.8.18 0.8.20: Bindings for the scrypt key derivation function library
 dev-python/seaborn 0.11.1 0.11.2: Statistical data visualization
@@ -9464,7 +9464,7 @@ dev-python/semantic_version 2.9.0: Python library providing a few tools handling
 dev-python/semver 2.13.0: A Python module for semantic versioning
 dev-python/send2trash 1.8.0: Sends files to the Trash (or Recycle Bin)
 dev-python/sentinels 1.0.0: Python Sentinels class which are objects with special meanings
-dev-python/sentry-sdk 1.5.6 1.5.7: Python client for Sentry
+dev-python/sentry-sdk 1.5.6 1.5.7 1.5.8: Python client for Sentry
 dev-python/serpent 1.40: A simple serialization library based on ast.literal_eval
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0: Service identity verification for pyOpenSSL
@@ -9688,7 +9688,7 @@ dev-python/vecrec 0.3.0 0.3.1: 2D vector and rectangle classes
 dev-python/verboselogs 1.7: Verbose logging for Python's logging module
 dev-python/versioneer 0.21 0.22: Easy VCS-based management of project version strings
 dev-python/vine 5.0.0: Python Promises
-dev-python/virtualenv 20.13.3: Virtual Python Environment builder
+dev-python/virtualenv 20.13.3 20.13.4: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.6: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 4.8.4-r1: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r1: A tiny pythonic visitor implementation
@@ -11096,7 +11096,7 @@ dev-util/clinfo 3.0.21.02.21 9999: A tool to display info about the system's Ope
 dev-util/clion 2021.3.2: A complete toolset for C and C++ development
 dev-util/clippy 8.1-r1: Standalone clippy tool built from FRR sources
 dev-util/cloc 1.88 1.90: Count Lines of Code
-dev-util/cmake 3.22.2 3.22.3 3.23.0_rc3 9999: Cross platform Make
+dev-util/cmake 3.22.2 3.22.3 3.23.0_rc3 3.23.0_rc4 9999: Cross platform Make
 dev-util/cmake-fedora 2.7.1: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-util/cmocka 1.1.5: Unit testing framework for C
 dev-util/codeblocks 17.12-r303 17.12-r304 20.03-r1 20.03-r2 20.03-r3 20.03-r4 9999: The open source, cross platform, free C, C++ and Fortran IDE
@@ -13310,7 +13310,7 @@ media-gfx/imagemagick 6.9.12.28 6.9.12.29 6.9.12.35 6.9.12.35-r1 7.1.0.13 7.1.0.
 media-gfx/imageworsener 1.3.3 1.3.4: Utility for image scaling and processing
 media-gfx/img2pdf 0.4.1-r1 0.4.3: Losslessly convert raster images to PDF
 media-gfx/imv 4.3.1 9999: Minimal image viewer designed for tiling window manager users
-media-gfx/inkscape 1.1-r1 1.1.1 9999: SVG based generic vector-drawing program
+media-gfx/inkscape 1.1-r1 1.1.1 1.1.2 9999: SVG based generic vector-drawing program
 media-gfx/iscan 2.30.4.2-r1 3.65.0: EPSON Image Scan v3 for Linux
 media-gfx/iscan-data 1.39.0.1: Image Scan! for Linux data files
 media-gfx/iscan-plugin-esdip 1.0.0.5-r1: Plugin for 'epkowa' backend for image manipulation
@@ -16949,7 +16949,7 @@ sci-visualization/opendx-samples 4.4.0-r2: Samples for IBM Data Explorer
 sci-visualization/paraview 5.9.0 5.9.1: Powerful scientific data visualization application
 sci-visualization/pythonprop 0.30: Scripts to prepare and plot VOACAP propagation predictions
 sci-visualization/quickplot 0.10.6-r1 1.0.1_rc: A fast interactive 2D plotter
-sci-visualization/scidavis 2.4.0-r2 2.4.0_p20211117 2.7: Application for Scientific Data Analysis and Visualization
+sci-visualization/scidavis 2.4.0_p20211117 2.7: Application for Scientific Data Analysis and Visualization
 sci-visualization/spectromatic 1.0-r3: Generates time-frequency analysis images from wav files
 sci-visualization/spyview 2018.12.24 9999: 2D and 3D data visualization and analysis program
 sci-visualization/tensorboard 2.5.0 2.7.0 2.8.0: TensorFlow's Visualization Toolkit
@@ -17779,10 +17779,10 @@ sys-devel/automake 1.11.6-r3 1.13.4-r2 1.15.1-r2 1.16.3-r1 1.16.4 1.16.5 9999: U
 sys-devel/automake-wrapper 11: wrapper for automake to manage multiple automake versions
 sys-devel/bc 1.07.1-r3: Handy console-based calculator utility
 sys-devel/bin86 0.16.21-r1: Assembler and loader used to create kernel bootsector
-sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1 2.37_p1-r1 2.37_p1-r2 2.38 9999: Tools necessary to build programs
+sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38 9999: Tools necessary to build programs
 sys-devel/binutils-apple 3.2.6 8.2.1-r1 8.2.1-r101 11.3.1-r1: Darwin assembler as(1) and static linker ld(1), Xcode Tools 11.3.1
 sys-devel/binutils-config 5.4 5.4.1 9999: Utility to change the binutils version being used
-sys-devel/binutils-hppa64 2.35.2 2.36.1-r2 2.37_p1 2.37_p1-r1 2.37_p1-r2 2.38: Tools necessary to build programs
+sys-devel/binutils-hppa64 2.35.2 2.36.1-r2 2.37_p1-r2 2.38: Tools necessary to build programs
 sys-devel/bison 3.7.6 3.8.1 3.8.2: A general-purpose (yacc-compatible) parser generator
 sys-devel/bmake 20220116 20220214 20220303: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
@@ -18018,7 +18018,7 @@ sys-kernel/vanilla-sources 4.9.307 4.14.272 4.19.235 5.4.185 5.10.106 5.15.29 5.
 sys-kernel/zen-sources 5.15.10 5.16.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1: The sd-bus library, extracted from systemd
-sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1 2.37_p1-r1 2.37_p1-r2 2.38: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
+sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r1: BlocksRuntime library needed for clang's -fblocks support
 sys-libs/compiler-rt 11.1.0 12.0.1 13.0.0 13.0.1 14.0.0_rc4 14.0.0.9999 15.0.0.9999: Compiler runtime library for clang (built-in part)
 sys-libs/compiler-rt-sanitizers 11.1.0-r1 12.0.1 13.0.0 13.0.0-r1 13.0.1 14.0.0_rc4 14.0.0.9999 15.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
