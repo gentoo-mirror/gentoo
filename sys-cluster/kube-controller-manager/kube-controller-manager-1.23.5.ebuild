@@ -10,14 +10,13 @@ SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kuber
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="hardened"
 
 COMMON_DEPEND="acct-group/kube-controller-manager
 	acct-user/kube-controller-manager"
 DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}
-	!sys-cluster/kubernetes"
+RDEPEND="${COMMON_DEPEND}"
 BDEPEND=">=dev-lang/go-1.17"
 
 RESTRICT+=" test"
