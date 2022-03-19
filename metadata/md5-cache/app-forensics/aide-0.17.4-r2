@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://aide.github.io/ https://github.com/aide/aide
 INHERIT=autotools readme.gentoo-r1
 IUSE=acl audit curl e2fs mhash selinux xattr zlib
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/libpcre acl? ( virtual/acl ) audit? ( sys-process/audit ) curl? ( net-misc/curl ) e2fs? ( sys-fs/e2fsprogs ) !mhash? ( dev-libs/libgcrypt:0= dev-libs/libgpg-error ) mhash? ( app-crypt/mhash ) selinux? ( sys-libs/libselinux ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib ) selinux? ( sec-policy/selinux-aide )
 SLOT=0
 SRC_URI=https://github.com/aide/aide/releases/download/v0.17.4/aide-0.17.4.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1
-_md5_=cc5421b970272087b277c5740dbfb0ba
+_md5_=3149bdcfff14298dfe5f6f8e3d391826
