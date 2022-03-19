@@ -6026,7 +6026,7 @@ dev-lua/lua-bit32 5.3.5.1-r1: Backported Lua bit manipulation library
 dev-lua/lua-cjson 2.1.0.8-r1: A fast JSON encoding/parsing module for Lua
 dev-lua/lua-openssl 0.8.2_p1: OpenSSL binding for Lua
 dev-lua/lua-term 0.7-r1: Terminal operations for Lua
-dev-lua/lua-unbound 1.0.0: A simple interface to the readline and history libraries
+dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.3-r1: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
 dev-lua/lua_cliargs 3.0_p2-r1: A command-line argument parsing module for Lua
@@ -8641,7 +8641,7 @@ dev-python/grpcio 1.43.0: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.43.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.43.0: Protobuf code generator for gRPC
 dev-python/gsd 2.5.0: GSD - file format specification and a library to read and write it
-dev-python/gssapi 1.7.2 1.7.3: Low and high level wrappers around the GSSAPI C libraries
+dev-python/gssapi 1.7.3: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.16.3 1.18.4 1.18.6 1.20.1: A Python Interface to GStreamer
 dev-python/guessit 3.4.2: Python library for guessing information from video filenames
 dev-python/guzzle_sphinx_theme 0.7.11-r1: Sphinx theme used by Guzzle
@@ -9471,7 +9471,7 @@ dev-python/serpent 1.40: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.2.2: Allow customization of the process title
-dev-python/setuptools 60.5.0 60.7.1 60.8.0 60.9.0 60.9.1 60.9.2 60.10.0: Collection of extensions to Distutils
+dev-python/setuptools 60.5.0 60.9.2 60.10.0: Collection of extensions to Distutils
 dev-python/setuptools-git 1.2-r2: Setuptools revision control system plugin for Git
 dev-python/setuptools_rust 0.12.1: a plugin for setuptools to build Rust Python extensions
 dev-python/setuptools_scm 6.4.1: Manage versions by scm tags via setuptools
@@ -9561,7 +9561,7 @@ dev-python/spyder 5.2.2: The Scientific Python Development Environment
 dev-python/spyder-kernels 2.2.1: Kernels used by spyder on its ipython console
 dev-python/spyder-terminal 1.2.1: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.5.0: Plugin for Spyder to run tests and view the results
-dev-python/sqlalchemy 1.3.24 1.4.26-r1 1.4.27 1.4.27-r3 1.4.28 1.4.29 1.4.30 1.4.31 1.4.32: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.3.24 1.4.27 1.4.31 1.4.32: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-migrate 0.13.0: SQLAlchemy Schema Migration Tools
 dev-python/sqlalchemy-rqlite 1.1 1.1.1: A SQLAlchemy dialect for rqlite
 dev-python/sqlitedict 1.7.0 2.0.0: Persistent dict in Python, backed by SQLite and pickle
@@ -17998,8 +17998,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.181 5.4.183 5.4.184 5.4.185 5.10.102 5.10.104 5.10.105 5.10.106 5.15.25 5.15.27 5.15.28 5.15.29 5.16.11 5.16.13 5.16.14 5.16.15: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.181 5.4.183 5.4.184 5.4.185 5.10.102 5.10.104 5.10.105 5.10.106 5.15.25 5.15.27 5.15.28 5.15.29 5.16.11 5.16.13 5.16.14 5.16.15: Pre-built Linux kernel with genpatches
+sys-kernel/gentoo-kernel 5.4.181 5.4.183 5.4.184 5.4.185 5.4.186 5.10.102 5.10.104 5.10.105 5.10.106 5.10.107 5.15.25 5.15.27 5.15.28 5.15.29 5.15.30 5.16.11 5.16.13 5.16.14 5.16.15 5.16.16: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.181 5.4.183 5.4.184 5.4.185 5.4.186 5.10.102 5.10.104 5.10.105 5.10.106 5.10.107 5.15.25 5.15.27 5.15.28 5.15.29 5.15.30 5.16.11 5.16.13 5.16.14 5.16.15 5.16.16: Pre-built Linux kernel with genpatches
 sys-kernel/gentoo-sources 4.9.301 4.9.302 4.9.303 4.9.304 4.9.305 4.9.306 4.9.307 4.14.266 4.14.267 4.14.268 4.14.269 4.14.270 4.14.271 4.14.272 4.19.229 4.19.230 4.19.231 4.19.232 4.19.233 4.19.234 4.19.235 5.4.179 5.4.180 5.4.181 5.4.182 5.4.183 5.4.184 5.4.185 5.4.186 5.10.102 5.10.103 5.10.104 5.10.105 5.10.106 5.10.107 5.15.25 5.15.26 5.15.27 5.15.28 5.15.29 5.15.30 5.16.11 5.16.12 5.16.13 5.16.14 5.16.15 5.16.16: Full sources including the Gentoo patchset for the 5.16 kernel tree
 sys-kernel/git-sources 5.17_rc1 5.17_rc2 5.17_rc3 5.17_rc4 5.17_rc5 5.17_rc6 5.17_rc7 5.17_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 3 5: Gentoo fork of installkernel script from debianutils
@@ -18015,7 +18015,7 @@ sys-kernel/pf-sources 5.15_p6-r1 5.16_p2 5.16_p3 5.16_p4 5.16_p5: Linux kernel f
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 4.19.9999 5.4.79_p20201201-r1 5.4.9999 5.10.11_p20210201 5.10.63_p20211029 5.10.9999: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.225_p101 5.4.170_p68 5.10.90_p61-r1 5.15.19_p29 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.181 5.4.183 5.4.184 5.4.185 5.10.102 5.10.104 5.10.105 5.10.106 5.15.25 5.15.27 5.15.28 5.15.29 5.16.11 5.16.13 5.16.14 5.16.15: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.181 5.4.183 5.4.184 5.4.185 5.4.186 5.10.102 5.10.104 5.10.105 5.10.106 5.10.107 5.15.25 5.15.27 5.15.28 5.15.29 5.15.30 5.16.11 5.16.13 5.16.14 5.16.15 5.16.16: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.307 4.14.272 4.19.235 5.4.186 5.10.107 5.15.30 5.16.16: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.16.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18200,7 +18200,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.181 5.4.183 5.4.184 5.4.185 5.10.102 5.10.104 5.10.105 5.10.106 5.15.25 5.15.27 5.15.28 5.15.29 5.16.11 5.16.13 5.16.14 5.16.15: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.181 5.4.183 5.4.184 5.4.185 5.4.186 5.10.102 5.10.104 5.10.105 5.10.106 5.10.107 5.15.25 5.15.27 5.15.28 5.15.29 5.15.30 5.16.11 5.16.13 5.16.14 5.16.15 5.16.16: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
