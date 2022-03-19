@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=sys-libs/zlib bzip2? ( app-arch/bzip2 ) curl? ( net-misc/curl ) lzma? ( app-arch/xz-utils )
+DESCRIPTION=C library for high-throughput sequencing data formats
+EAPI=8
+HOMEPAGE=http://www.htslib.org/
+INHERIT=toolchain-funcs
+IUSE=+bzip2 curl +lzma
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=sys-libs/zlib bzip2? ( app-arch/bzip2 ) curl? ( net-misc/curl ) lzma? ( app-arch/xz-utils )
+SLOT=0/3
+SRC_URI=mirror://sourceforge/samtools/1.15/htslib-1.15.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=90275b521abf89b977a9f97ebb76fef3
