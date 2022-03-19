@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
+DESCRIPTION=A web gallery in one single PHP file
+EAPI=8
+HOMEPAGE=https://sye.dk/sfpg/
+INHERIT=webapp
+IUSE=vhosts
+KEYWORDS=~amd64 ~x86
+LICENSE=sfpg
+RDEPEND=dev-lang/php[gd] virtual/httpd-php app-admin/webapp-config
+RESTRICT=bindist mirror
+SLOT=4.9.0
+SRC_URI=https://sye.dk/sfpg/Single_File_PHP_Gallery_4.9.0.zip
+_eclasses_=webapp	60f2eb31dec733d05e8114cc078ebc33
+_md5_=1212e3ee4651da5f842c7cc9c42047d5
