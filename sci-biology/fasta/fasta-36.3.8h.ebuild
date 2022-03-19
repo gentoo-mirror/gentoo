@@ -1,13 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
-inherit epatch flag-o-matic toolchain-funcs
+inherit flag-o-matic toolchain-funcs
+
+MY_PV="${PV}_04-May-2020"
 
 DESCRIPTION="FASTA is a DNA and Protein sequence alignment software package"
 HOMEPAGE="https://fasta.bioch.virginia.edu/fasta_www2/fasta_down.shtml"
-SRC_URI="http://faculty.virginia.edu/wrpearson/${PN}/${PN}36/${P}.tar.gz"
+SRC_URI="https://github.com/wrpearson/fasta36/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}36-${MY_PV}"
 
 LICENSE="fasta"
 SLOT="0"
@@ -15,8 +18,7 @@ KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="debug cpu_flags_x86_sse2 test"
 RESTRICT="!test? ( test )"
 
-DEPEND="test? ( app-shells/tcsh )"
-RDEPEND=""
+BDEPEND="test? ( app-shells/tcsh )"
 
 src_prepare() {
 	CC_ALT=
@@ -43,17 +45,17 @@ src_prepare() {
 	export CC_ALT="${CC_ALT}"
 	export ALT="${ALT}"
 
-	epatch "${FILESDIR}"/${P}-ldflags.patch
+	eapply "${FILESDIR}"/${P}-ldflags.patch
 
 	sed \
 		-e 's:-ffast-math::g' \
 		-i make/Makefile* || die
 
+	eapply_user
 }
 
 src_compile() {
-	cd src || die
-	emake -f ../make/Makefile.linux${ALT} CC="${CC_ALT} ${CFLAGS}" HFLAGS="${LDFLAGS} -o" all
+	emake -C src -f ../make/Makefile.linux${ALT} CC="${CC_ALT} ${CFLAGS}" HFLAGS="${LDFLAGS} -o" all
 }
 
 src_test() {
@@ -62,17 +64,17 @@ src_test() {
 }
 
 src_install() {
-	local bin
 	dobin bin/*
 
-	pushd bin > /dev/null || die
-	for bin in *36; do
-		dosym ${bin} /usr/bin/${bin%36}
-	done
-	popd
+	pushd bin >/dev/null || die
+		local i
+		for i in *36; do
+			dosym ${i} /usr/bin/${i%36}
+		done
+	popd >/dev/null || die
 
 	insinto /usr/share/${PN}
-	doins -r conf/* data seq
+	doins -r conf/. data seq
 
 	doman doc/{prss3.1,fasta36.1,fasts3.1,fastf3.1,ps_lav.1,map_db.1}
 	dodoc  FASTA_LIST README doc/{README.versions,readme*,fasta*,changes*}
