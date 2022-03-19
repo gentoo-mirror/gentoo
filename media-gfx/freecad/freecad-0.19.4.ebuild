@@ -20,7 +20,7 @@ else
 	MY_PV=$(ver_cut 1-2)
 	MY_PV=$(ver_rs 1 '_' ${MY_PV})
 	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-		https://raw.githubusercontent.com/waebbl/waebbl-gentoo/master/patches/${P}-0005-Make-smesh-compile-with-vtk9.patch.xz"
+		https://raw.githubusercontent.com/waebbl/waebbl-gentoo/master/patches/${PN}-0.19.2-0005-Make-smesh-compile-with-vtk9.patch.xz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/FreeCAD-${PV}"
 fi
@@ -33,9 +33,9 @@ IUSE="debug headless pcl test"
 RESTRICT="!test? ( test )"
 
 FREECAD_EXPERIMENTAL_MODULES="cloud plot ship"
-FREECAD_STABLE_MODULES="addonmgr fem idf image inspection material
-	openscad part-design path points raytracing robot show surface
-	techdraw tux"
+FREECAD_STABLE_MODULES="addonmgr drawing fem idf image inspection
+	material openscad part-design path points raytracing robot show
+	surface	techdraw tux"
 
 for module in ${FREECAD_STABLE_MODULES}; do
 	IUSE="${IUSE} +${module}"
@@ -68,7 +68,7 @@ RDEPEND="
 	sci-libs/flann[openmp]
 	sci-libs/hdf5:=[fortran,zlib]
 	>=sci-libs/med-4.0.0-r1[python,${PYTHON_SINGLE_USEDEP}]
-	sci-libs/opencascade:=[vtk(+)]
+	<sci-libs/opencascade-7.6.0:=[vtk(+)]
 	sci-libs/orocos_kdl:=
 	sys-libs/zlib
 	virtual/glu
@@ -80,14 +80,14 @@ RDEPEND="
 	)
 	fem? ( sci-libs/vtk:=[boost(+),python,qt5,rendering,${PYTHON_SINGLE_USEDEP}] )
 	openscad? ( media-gfx/openscad )
-	pcl? ( sci-libs/pcl:=[opengl,openni2(+),qt5(+),vtk(+)] )
+	pcl? ( >=sci-libs/pcl-1.8.1:=[opengl,openni2(+),qt5(+),vtk(+)] )
 	$(python_gen_cond_dep '
 		dev-libs/boost:=[python,threads(+),${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 		>=dev-python/pivy-0.6.5[${PYTHON_USEDEP}]
 		dev-python/pybind11[${PYTHON_USEDEP}]
-		dev-python/pyside2[gui,svg,webchannel,webengine,${PYTHON_USEDEP}]
+		dev-python/pyside2[gui,svg,${PYTHON_USEDEP}]
 		dev-python/shiboken2[${PYTHON_USEDEP}]
 		addonmgr? ( dev-python/GitPython[${PYTHON_USEDEP}] )
 		fem? ( dev-python/ply[${PYTHON_USEDEP}] )
@@ -120,11 +120,14 @@ REQUIRED_USE="
 	inspection? ( points )
 	path? ( robot )
 	ship? ( image plot )
+	techdraw? ( drawing )
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.19_pre20201231-0003-Gentoo-specific-don-t-check-vcs.patch
+	"${FILESDIR}"/${P}-Gentoo-specific-don-t-check-vcs.patch
 	"${FILESDIR}"/${PN}-0.19.1-0001-Gentoo-specific-Remove-ccache-usage.patch
+	"${WORKDIR}"/${PN}-0.19.2-0005-Make-smesh-compile-with-vtk9.patch
+	"${FILESDIR}"/${PN}-0.19.2-0006-add-boost-serialization-to-find_package.patch
 )
 
 DOCS=( CODE_OF_CONDUCT.md ChangeLog.txt README.md )
@@ -145,6 +148,8 @@ src_prepare() {
 	# Fix desktop file
 	sed -e 's/Exec=FreeCAD/Exec=freecad/' -i src/XDGData/org.freecadweb.FreeCAD.desktop || die
 
+	find "${S}" -type f -exec dos2unix -q {} \; || die "failed to convert to unix line endings"
+
 	cmake_src_prepare
 }
 
@@ -156,8 +161,8 @@ src_configure() {
 		-DBUILD_CLOUD=$(usex cloud)
 		-DBUILD_COMPLETE=OFF					# deprecated
 		-DBUILD_DRAFT=ON
-		-DBUILD_DRAWING=ON
-		-DBUILD_ENABLE_CXX_STD:STRING="C++17"	# needed for current git master
+		-DBUILD_DRAWING=$(usex drawing)
+		-DBUILD_ENABLE_CXX_STD:STRING="C++17"	# needed for >=boost-1.77.0
 		-DBUILD_FEM=$(usex fem)
 		-DBUILD_FEM_NETGEN=OFF
 		-DBUILD_FLAT_MESH=ON
@@ -223,10 +228,8 @@ src_configure() {
 	)
 
 	if use debug; then
-		# BUILD_SANDBOX currently broken, see
-		# https://forum.freecadweb.org/viewtopic.php?f=4&t=36071&start=30#p504595
 		mycmakeargs+=(
-			-DBUILD_SANDBOX=OFF
+			-DBUILD_SANDBOX=ON
 			-DBUILD_TEMPLATE=ON
 		)
 	else
@@ -263,7 +266,6 @@ src_install() {
 
 	if ! use headless; then
 		dosym -r /usr/$(get_libdir)/${PN}/bin/FreeCAD /usr/bin/freecad
-		mv "${ED}"/usr/$(get_libdir)/${PN}/share/* "${ED}"/usr/share || die "failed to move shared resources"
 	fi
 	dosym -r /usr/$(get_libdir)/${PN}/bin/FreeCADCmd /usr/bin/freecadcmd
 
@@ -297,23 +299,23 @@ pkg_postinst() {
 	einfo "https://wiki.freecadweb.org/Installing#External_software_supported_by_FreeCAD"
 	optfeature_header "Computational utilities"
 	optfeature "BLAS library" sci-libs/openblas
-	optfeature "statistical computation with Python" dev-python/pandas
-	optfeature "scientific computation with Python" dev-python/scipy
-	optfeature "symbolic math with Python" dev-python/sympy
+	optfeature "Statistical computation with Python" dev-python/pandas
+	optfeature "Use scientific computation with Python" dev-python/scipy
+	optfeature "Use symbolic math with Python" dev-python/sympy
 	optfeature_header "Imaging, Plotting and Rendering utilities"
-	optfeature "dependency graphs" media-gfx/graphviz
+	optfeature "Dependency graphs" media-gfx/graphviz
 	optfeature "PBR Rendering" media-gfx/povray
 	optfeature_header "Import / Export"
-	optfeature "interacting with git repositories" dev-python/GitPython
-	optfeature "working with COLLADA documents" dev-python/pycollada
+	optfeature "Interact with git repositories" dev-python/GitPython
+	optfeature "Work with COLLADA documents" dev-python/pycollada
 	optfeature "YAML importer and emitter" dev-python/pyyaml
-	optfeature "importing and exporting 2D AutoCAD DWG files" media-gfx/libredwg
-	optfeature "importing and exporting geospatial data formats" sci-libs/gdal
-	optfeature "working with projection data" sci-libs/proj
+	optfeature "Importing and exporting 2D AutoCAD DWG files" media-gfx/libredwg
+	optfeature "Importing and exporting geospatial data formats" sci-libs/gdal
+	optfeature "Working with projection data" sci-libs/proj
 	optfeature_header "Meshing and FEM"
 	optfeature "FEM mesh generator" sci-libs/gmsh
-	optfeature "triangulating meshes" sci-libs/gts
-	optfeature "visualization" sci-visualization/paraview
+	optfeature "Triangulating meshes" sci-libs/gts
+	optfeature "Visualization" sci-visualization/paraview
 }
 
 pkg_postrm() {
