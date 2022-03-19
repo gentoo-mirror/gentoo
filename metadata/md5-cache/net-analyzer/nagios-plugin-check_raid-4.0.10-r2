@@ -4,11 +4,11 @@ DESCRIPTION=Nagios/Icinga plugin to check current server's RAID status
 EAPI=6
 HOMEPAGE=https://github.com/glensc/nagios-plugin-check_raid
 INHERIT=perl-module
-IUSE=3ware aacraid dmraid hpa hpsa megaraid-sas megaraid-scsi mpt mpt-sas2
+IUSE=3ware aacraid dmraid hpa hpsa megaraid-sas mpt mpt-sas2
 KEYWORDS=~amd64 ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=dev-perl/Monitoring-Plugin dev-perl/Module-Pluggable sys-apps/smartmontools sys-fs/lsscsi 3ware? ( sys-block/tw_cli ) aacraid? ( sys-block/arcconf ) dmraid? ( sys-fs/dmraid ) hpa? ( sys-block/hpacucli ) hpsa? ( sys-apps/cciss_vol_status ) megaraid-sas? ( sys-block/megacli ) megaraid-scsi? ( sys-block/megarc ) mpt-sas2? ( sys-block/sas2ircu ) mpt? ( sys-block/mpt-status ) dev-lang/perl:=
+RDEPEND=dev-perl/Monitoring-Plugin dev-perl/Module-Pluggable sys-apps/smartmontools sys-fs/lsscsi 3ware? ( sys-block/tw_cli ) aacraid? ( sys-block/arcconf ) dmraid? ( sys-fs/dmraid ) hpa? ( sys-block/hpacucli ) hpsa? ( sys-apps/cciss_vol_status ) megaraid-sas? ( sys-block/megacli ) mpt-sas2? ( sys-block/sas2ircu ) mpt? ( sys-block/mpt-status ) dev-lang/perl:=
 SLOT=0
 SRC_URI=https://github.com/glensc/nagios-plugin-check_raid/archive/4.0.10.tar.gz -> nagios-plugin-check_raid-4.0.10.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
-_md5_=2adb7b203075e6d3cb516b2f0015d648
+_md5_=0ab606f99ba0cacdcf1b194ee4698937
