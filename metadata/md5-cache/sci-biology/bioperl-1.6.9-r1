@@ -1,0 +1,18 @@
+BDEPEND=dev-perl/Module-Build dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/libwww-perl !minimal? ( dev-perl/Algorithm-Munkres dev-perl/Array-Compare dev-perl/YAML dev-perl/Bio-ASN1-EntrezGene dev-perl/Clone dev-perl/Convert-Binary-C dev-perl/Data-Stag dev-perl/GD dev-perl/Graph >=dev-perl/HTML-Parser-3.60 dev-perl/List-MoreUtils dev-perl/Math-Random dev-perl/PostScript dev-perl/Set-Scalar dev-perl/SOAP-Lite dev-perl/Sort-Naturally dev-perl/Spreadsheet-ParseExcel >=virtual/perl-Storable-2.05 >=dev-perl/SVG-2.26 >=dev-perl/SVG-Graph-0.01 dev-perl/URI >=dev-perl/XML-DOM-XPath-0.13 dev-perl/XML-Parser >=dev-perl/XML-SAX-0.15 dev-perl/XML-Simple dev-perl/XML-Twig >=dev-perl/XML-Writer-0.4 dev-perl/XML-DOM dev-perl/XML-XPath ) graphviz? ( dev-perl/GraphViz ) sqlite? ( dev-perl/DBD-SQLite ) dev-lang/perl
+DESCRIPTION=Perl tools for bioinformatics - Core modules
+EAPI=8
+HOMEPAGE=http://www.bioperl.org/
+INHERIT=perl-module
+IUSE=minimal graphviz sqlite +db +network +run test
+KEYWORDS=amd64 x86
+LICENSE=|| ( Artistic GPL-1+ )
+PDEPEND=db? ( >=sci-biology/bioperl-db-1.6.9 ) network? ( >=sci-biology/bioperl-network-1.6.9 ) run? ( >=sci-biology/bioperl-run-1.6.9 )
+RDEPEND=dev-perl/libwww-perl !minimal? ( dev-perl/Algorithm-Munkres dev-perl/Array-Compare dev-perl/YAML dev-perl/Bio-ASN1-EntrezGene dev-perl/Clone dev-perl/Convert-Binary-C dev-perl/Data-Stag dev-perl/GD dev-perl/Graph >=dev-perl/HTML-Parser-3.60 dev-perl/List-MoreUtils dev-perl/Math-Random dev-perl/PostScript dev-perl/Set-Scalar dev-perl/SOAP-Lite dev-perl/Sort-Naturally dev-perl/Spreadsheet-ParseExcel >=virtual/perl-Storable-2.05 >=dev-perl/SVG-2.26 >=dev-perl/SVG-Graph-0.01 dev-perl/URI >=dev-perl/XML-DOM-XPath-0.13 dev-perl/XML-Parser >=dev-perl/XML-SAX-0.15 dev-perl/XML-Simple dev-perl/XML-Twig >=dev-perl/XML-Writer-0.4 dev-perl/XML-DOM dev-perl/XML-XPath ) graphviz? ( dev-perl/GraphViz ) sqlite? ( dev-perl/DBD-SQLite ) dev-lang/perl:=
+REQUIRED_USE=minimal? ( !graphviz )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/C/CJ/CJFIELDS/BioPerl-1.6.901.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	eebd0164fe61f4f7b64a683e83fdceb1	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_md5_=e2bc1ba3ce7d3071e3bfff1ff59b93fa
