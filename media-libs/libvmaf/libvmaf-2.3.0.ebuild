@@ -21,6 +21,9 @@ fi
 LICENSE="BSD-2-with-patent"
 SLOT="0"
 
+# upstream issue, see bug #835471
+RESTRICT="test"
+
 BDEPEND="
 	dev-lang/nasm
 "
@@ -32,6 +35,11 @@ S="${WORKDIR}/vmaf-${PV}"
 multilib_src_configure() {
 	EMESON_SOURCE="${S}/libvmaf"
 	meson_src_configure
+}
+
+multilib_src_install() {
+	meson_src_install
+	find "${D}" -name '*.la' -delete -o -name '*.a' -delete || die
 }
 
 multilib_src_install_all() {
