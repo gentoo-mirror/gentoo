@@ -31,9 +31,13 @@ CONFIG_CHECK="
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-systemd-paths.patch
+	"${FILESDIR}"/${PN}-systemd-paranoia.patch
+)
+
 src_install() {
 	cmake_src_install
-	rm -r "${ED}"/etc/modules-load.d/ || die
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	doman doc/${PN}.1
 }
