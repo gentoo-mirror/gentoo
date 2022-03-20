@@ -1,5 +1,6 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare test
-DEPEND=dev-lua/luaposix sys-libs/readline
+DEPEND=dev-lua/luaposix sys-libs/readline:=
 DESCRIPTION=A simple interface to the readline and history libraries
 EAPI=8
 HOMEPAGE=https://pjb.com.au/comp/lua/readline.html
@@ -7,10 +8,10 @@ INHERIT=lua toolchain-funcs
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=MIT
-RDEPEND=dev-lua/luaposix sys-libs/readline
+RDEPEND=dev-lua/luaposix sys-libs/readline:=
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://pjb.com.au/comp/lua/readline-3.0.tar.gz -> lua-readline-3.0.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua	f41923d10bccf946e7ce65f103ab577d
-_md5_=481c8864d517b8f96ce7acd41c4e6383
+_md5_=a341b95a32a81aaaa5a5a90478d876a2
