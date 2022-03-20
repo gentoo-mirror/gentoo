@@ -5536,7 +5536,7 @@ dev-libs/geoip 1.6.12 1.6.12-r1: GeoIP Legacy C API
 dev-libs/gf-complete 2.0.0-r1: A Comprehensive Open Source Library for Galois Field Arithmetic
 dev-libs/gf2x 1.3.0: C/C++ routines for fast arithmetic in GF(2)[x]
 dev-libs/girara 0.3.5 0.3.6 9999: UI library that focuses on simplicity and minimalism
-dev-libs/gjs 1.64.4 1.64.5 1.70.1: Javascript bindings for GNOME
+dev-libs/gjs 1.64.4 1.64.5 1.70.1 1.72.0: Javascript bindings for GNOME
 dev-libs/glib 2.70.4 2.72.0: The GLib library of C routines
 dev-libs/gmime 2.6.23-r1 3.2.7 3.2.9: A C/C++ MIME creation and parser library with support for S/MIME, PGP, and Unix mbox spools
 dev-libs/gmp 6.2.1-r1 6.2.1-r2: Library for arbitrary-precision arithmetic on different type of numbers
@@ -5675,7 +5675,7 @@ dev-libs/libgpiod 1.4.1 1.6.3: C library and tools for interacting with the linu
 dev-libs/libgrapheme 1: Unicode string library
 dev-libs/libgudev 236 237-r1: GObject bindings for libudev
 dev-libs/libgusb 0.3.10: GObject wrapper for libusb
-dev-libs/libgweather 40.0: Location and timezone database and weather-lookup library
+dev-libs/libgweather 4.0.0 40.0: Location and timezone database and weather-lookup library
 dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and interact with USB HID devices
 dev-libs/libical 3.0.12 3.0.14: Implementation of basic iCAL protocols
 dev-libs/libiconv 1.15 1.16: GNU charset conversion library for libc which doesn't implement it
@@ -12285,9 +12285,9 @@ gnome-base/gnome-mime-data 2.18.0: MIME data for Gnome
 gnome-base/gnome-panel 3.42.0: The GNOME Flashback Panel
 gnome-base/gnome-session 41.3: Gnome session manager
 gnome-base/gnome-settings-daemon 41.0: Gnome Settings Daemon
-gnome-base/gnome-shell 41.4: Provides core UI functions for the GNOME desktop
+gnome-base/gnome-shell 41.4 42.0: Provides core UI functions for the GNOME desktop
 gnome-base/gnome-vfs 2.24.4-r5: Gnome Virtual Filesystem
-gnome-base/gsettings-desktop-schemas 41.0: Collection of GSettings schemas for GNOME desktop
+gnome-base/gsettings-desktop-schemas 41.0 42.0: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.48.1-r1: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r3: Library to construct graphical interfaces at runtime
 gnome-base/libgnomecanvas 2.30.3-r1: The Gnome 2 Canvas library
@@ -12336,7 +12336,7 @@ gnome-extra/gnome-shell-extension-desktop-icons-ng 0.24.0 38.0: Fork from the de
 gnome-extra/gnome-shell-extension-gsconnect 48: KDE Connect implementation for Gnome Shell
 gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20210603 1.2.0_p20210727: Keyboard-driven layer for GNOME Shell with tiling support
 gnome-extra/gnome-shell-extension-weather-in-the-clock 20211108: Display the current weather in the clock
-gnome-extra/gnome-shell-extensions 41.2: JavaScript extensions for GNOME Shell
+gnome-extra/gnome-shell-extensions 41.2 42.0: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 41.1: Unofficial extension pack providing GNOME 2-like features
 gnome-extra/gnome-software 41.4: Gnome install & update software
 gnome-extra/gnome-system-monitor 41.0: The Gnome System Monitor
@@ -12447,8 +12447,8 @@ gui-libs/greetd 0.6.1 0.7.0 0.8.0: ipc based login daemon
 gui-libs/gtk 4.6.1: GTK is a multi-platform toolkit for creating graphical user interfaces
 gui-libs/gtk-layer-shell 0.1.0-r1 0.6.0: Library to create desktop components for Wayland using the Layer Shell protocol
 gui-libs/gtksourceview 5.3.2: A text widget implementing syntax highlighting and other features
-gui-libs/libadwaita 1.0.1 1.0.2: Building blocks for modern adaptive GNOME applications
-gui-libs/libhandy 1.4.0 1.5.0: Building blocks for modern adaptive GNOME apps
+gui-libs/libadwaita 1.0.1 1.0.2 1.1.0: Building blocks for modern adaptive GNOME applications
+gui-libs/libhandy 1.4.0 1.6.1: Building blocks for modern adaptive GNOME apps
 gui-libs/libwpe 1.12.0: Platform-agnostic interfaces for WPE WebKit
 gui-libs/neatvnc 0.4.0 9999: liberally licensed VNC server library with a clean interface
 gui-libs/tepl 5.0.1-r1 6.00.0-r1: GtkSourceView-based text editors and IDE helper library
@@ -16034,7 +16034,7 @@ net-wireless/bss 0.8-r2: Bluetooth stack smasher / fuzzer
 net-wireless/crackle 0.1-r1: Crackle cracks BLE Encryption (AKA Bluetooth Smart)
 net-wireless/crda 4.14: Central Regulatory Domain Agent for wireless networks
 net-wireless/dump1090 4.0 5.0 6.1 9999: simple Mode S decoder for RTLSDR devices
-net-wireless/gnome-bluetooth 3.34.5: Bluetooth graphical utilities integrated with GNOME
+net-wireless/gnome-bluetooth 3.34.5 42.0: Bluetooth graphical utilities integrated with GNOME
 net-wireless/gnuradio 3.8.4.0 3.8.5.0 9999: Toolkit that provides signal processing blocks to implement software radios
 net-wireless/gobi_loader 0.7-r2: gobi_loader is a firmware loader for Qualcomm Gobi USB chipsets
 net-wireless/gqrx 2.14.6 2.15.8 9999: Software defined radio receiver powered by GNU Radio and Qt
@@ -18133,7 +18133,7 @@ sys-power/switcheroo-control 2.4: D-Bus service to check the availability of dua
 sys-power/thermald 2.4.6 2.4.7 2.4.8: Thermal daemon for Intel architectures
 sys-power/tuxedo-cc-wmi 0.1.4-r1: Kernel Module for Tuxedo WMI
 sys-power/uhubctl 2.4.0: USB hub per-port power control
-sys-power/upower 0.99.12-r1: D-Bus abstraction for enumerating power devices, querying history and statistics
+sys-power/upower 0.99.12-r1 0.99.17: D-Bus abstraction for enumerating power devices, querying history and statistics
 sys-process/acct 6.6.4-r3: GNU system accounting utilities
 sys-process/anacron 2.3-r4: a periodic command scheduler
 sys-process/at 3.2.2-r2 3.2.2-r4 3.2.4 3.2.5: Queues jobs for later execution
@@ -19444,7 +19444,7 @@ x11-wm/matwm2 0.1.2_pre3-r1: Simple EWMH compatible window manager with titlebar
 x11-wm/metacity 3.42.0: GNOME Flashback window manager
 x11-wm/muffin 5.0.2 5.2.0: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 41.4: GNOME compositing window manager based on Clutter
+x11-wm/mutter 41.4 42.0: GNOME compositing window manager based on Clutter
 x11-wm/notion 3_p2015061300-r100 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r3 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r1: Small and fast window manager
