@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -28,7 +28,7 @@ BDEPEND="
 	dev-util/glib-utils
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
-	gtk-doc? ( dev-util/gtk-doc
+	gtk-doc? ( >=dev-util/gi-docgen-2021.1
 		app-text/docbook-xml-dtd:4.3 )
 	vala? ( $(vala_depend) )
 "
