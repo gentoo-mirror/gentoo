@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="5"
-IUSE=""
+IUSE="speech"
 
 DEPEND="
 	dev-libs/grantlee:5
@@ -30,7 +30,7 @@ DEPEND="
 	>=kde-apps/akonadi-notes-20.12.2:5
 	>=kde-apps/kmime-20.12.2:5
 	>=kde-apps/kontactinterface-20.12.2:5
-	>=kde-apps/kpimtextedit-20.12.2:5
+	>=kde-apps/kpimtextedit-20.12.2:5[speech=]
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -50,4 +50,5 @@ PATCHES=(
 	"${FILESDIR}/${P}-implicit-dep.patch"
 	"${FILESDIR}/${P}-missing-lib.patch"
 	"${FILESDIR}/${P}-akonadi-21.12.0.patch" # bug 830580
+	"${FILESDIR}/${P}-speech-optional.patch" # bug 835128
 )
