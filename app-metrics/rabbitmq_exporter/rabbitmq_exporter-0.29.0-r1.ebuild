@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 EGO_PN=github.com/kbudde/rabbitmq_exporter
 EGO_VENDOR=(
@@ -18,7 +18,7 @@ EGO_VENDOR=(
 	"golang.org/x/sys 2be51725563103c17124a318f1745b66f2347acb github.com/golang/sys"
 )
 
-inherit user golang-build golang-vcs-snapshot
+inherit golang-build golang-vcs-snapshot
 
 DESCRIPTION="Rabbitmq exporter for Prometheus"
 HOMEPAGE="https://github.com/kbudde/rabbitmq_exporter"
@@ -28,12 +28,12 @@ LICENSE="MIT Apache-2.0 BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="dev-util/promu"
+DEPEND="acct-group/rabbitmq_exporter
+	acct-user/rabbitmq_exporter"
+	RDEPEND="${DEPEND}"
+BDEPEND="dev-util/promu"
 
-pkg_setup() {
-	enewgroup ${PN}
-	enewuser ${PN} -1 -1 -1 ${PN}
-}
+RESTRICT+=" test "
 
 src_prepare() {
 	default
@@ -52,8 +52,8 @@ src_install() {
 	dobin bin/${PN}
 	dodoc *.md
 	popd || die
-	keepdir /var/log/${PN}
-	fowners ${PN}:${PN} /var/log/${PN}
 	newconfd "${FILESDIR}"/${PN}.confd ${PN}
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
+	keepdir /var/log/${PN}
+	fowners ${PN}:${PN} /var/log/${PN}
 }
