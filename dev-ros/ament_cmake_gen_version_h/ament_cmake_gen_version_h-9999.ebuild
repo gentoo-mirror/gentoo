@@ -18,7 +18,7 @@ else
 	S="${WORKDIR}/${ROS_PN}-${PV}/${PN}"
 fi
 
-DESCRIPTION="Export dependencies to downstream packages in the ament buildsystem in CMake"
+DESCRIPTION="Generate a C header containing the version number of the package"
 HOMEPAGE="https://github.com/ament/ament_cmake"
 
 LICENSE="Apache-2.0"
@@ -28,21 +28,30 @@ if [ "${PV#9999}" != "${PV}" ] ; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE=""
+IUSE="test"
 
 RDEPEND="
 	dev-ros/ament_cmake_core
-	dev-ros/ament_cmake_libraries
-	dev-ros/ament_cmake_gen_version_h
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		dev-ros/ament_cmake_gtest
+	)"
 # Deps here are transitive from ament_cmake_core to have matching python support
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/ament_package[${PYTHON_USEDEP}] dev-python/catkin_pkg[${PYTHON_USEDEP}]')
 	${PYTHON_DEPS}
 "
+RESTRICT="test" # fixme
 
 python_check_deps() {
 	has_version "dev-python/ament_package[${PYTHON_USEDEP}]" && \
 		has_version "dev-python/catkin_pkg[${PYTHON_USEDEP}]"
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_TESTING=$(usex test ON OFF)
+	)
+	cmake_src_configure
 }
