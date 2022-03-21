@@ -126,7 +126,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	app-text/iso-codes
-	>=dev-qt/qdbus-${QTMIN}:5
+	>=dev-qt/qdbus-${QTMIN}:*
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=dev-qt/qtpaths-${QTMIN}:5
 	>=dev-qt/qtquickcontrols-${QTMIN}:5[widgets]
@@ -145,7 +145,13 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-desktop-5.23.90:5
 	policykit? ( sys-apps/accountsservice )
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	|| (
+		>=dev-qt/qtwaylandscanner-${QTMIN}:5
+		<dev-qt/qtwayland-5.15.3:5
+	)
+	virtual/pkgconfig
+"
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
 PATCHES=(
