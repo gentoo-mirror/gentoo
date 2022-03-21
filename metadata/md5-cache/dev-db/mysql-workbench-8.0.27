@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.mysql.com/products/workbench/
 INHERIT=gnome2 flag-o-matic python-single-r1 cmake
 IUSE=debug doc python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[sqlite] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[sqlite] ) app-crypt/libsecret dev-libs/glib:2 dev-cpp/antlr-cpp:4 dev-cpp/atkmm:* dev-cpp/pangomm:1.4 >=dev-cpp/glibmm-2.14:2 dev-cpp/gtkmm:3.0 dev-libs/atk >=net-libs/libssh-0.8.5[server] x11-libs/pango x11-libs/gtk+:3 gnome-base/libglade:2.0 >=x11-libs/cairo-1.5.12[glib,svg] >=dev-libs/rapidjson-1.1.0 dev-libs/libsigc++:2 >=dev-libs/boost-1.55.0[nls] >=dev-cpp/ctemplate-0.95 >=dev-libs/libxml2-2.6.2:2 dev-libs/libzip dev-libs/libpcre[cxx] >=sci-libs/gdal-1.11.1-r1 virtual/opengl || ( sys-fs/e2fsprogs dev-libs/ossp-uuid ) dev-libs/tinyxml[stl] >=dev-db/mysql-connector-c++-1.1.8 =dev-db/mysql-connector-c++-1* dev-db/vsqlite++ || ( dev-db/libiodbc dev-db/unixODBC ) dev-python/pexpect >=dev-python/paramiko-1.7.4 app-admin/sudo >=sys-apps/net-tools-1.60_p20120127084908
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community-8.0.27-src.tar.gz https://www.antlr.org/download/antlr-4.9.1-complete.jar
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	xdg	6024fbc93167fad782e2032933654857	gnome2	397207e07bdf58b07ce295d0bc1049fe	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	cmake	9f12546ab831b81c615d90e6b9e34e68
-_md5_=08e199c00ad335168bcc007d7e06fc54
+_md5_=e5a06c68d3b6696f6f99f21d96fc62ec
