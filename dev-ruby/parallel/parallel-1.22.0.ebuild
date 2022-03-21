@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby26 ruby27"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
@@ -18,7 +18,7 @@ HOMEPAGE="https://github.com/grosser/parallel"
 LICENSE="MIT"
 SRC_URI="https://github.com/grosser/parallel/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~riscv"
 SLOT="1"
 IUSE="test"
 
@@ -38,16 +38,8 @@ all_ruby_prepare() {
 		-e '1i require "tempfile"; gem "activerecord", "~>6.0.0"' spec/cases/helper.rb || die
 	sed -i -e '3irequire "timeout"' spec/spec_helper.rb || die
 
-	# Avoid a failing spec regarding to pipes. The spec seems like it
-	# should always fail.
-	sed -e '/does not open unnecessary pipes/,/end/ s:^:#:' \
-		-i spec/parallel_spec.rb || die
-
 	# Avoid fragile ar sqlite tests. They throw ReadOnly errors every now and then.
 	sed -i -e '/works with SQLite in/,/end/ s:^:#:' spec/parallel_spec.rb || die
-
-	# Avoid spec broken on Ruby 2.1 that clearly doesn't match code and doesn't really test anything
-	sed -i -e '/doesnt use Etc.nprocessors in Ruby 2.1 and below/,/end/ s:^:#:' spec/parallel_spec.rb || die
 }
 
 each_ruby_test() {
