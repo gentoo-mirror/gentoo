@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://pwr-solaar.github.io/Solaar/
 INHERIT=linux-info udev xdg distutils-r1
 IUSE=doc appindicator libnotify python_single_target_python3_8 python_single_target_python3_9
-KEYWORDS=amd64 ~arm ~x86
+KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/plugdev python_single_target_python3_8? ( dev-python/psutil[python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] dev-python/python-xlib[python_targets_python3_8(-)] >=dev-python/pyudev-0.13[python_targets_python3_8(-)] dev-python/pyyaml[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/psutil[python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] dev-python/python-xlib[python_targets_python3_9(-)] >=dev-python/pyudev-0.13[python_targets_python3_9(-)] dev-python/pyyaml[python_targets_python3_9(-)] ) x11-libs/gtk+:3[introspection] appindicator? ( dev-libs/libappindicator:3[introspection] ) libnotify? ( x11-libs/libnotify[introspection] ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
-SRC_URI=https://github.com/pwr-Solaar/Solaar/archive/1.1.1.tar.gz -> solaar-1.1.1.tar.gz
+SRC_URI=https://github.com/pwr-Solaar/Solaar/archive/1.1.2rc2.tar.gz -> solaar-1.1.2rc2.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	2f039741fe92bcea55c78806d16ac0f5	udev	2d229ad4bfa09058e0184b1ca900db32	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8	distutils-r1	d540d96908dd5622f3dfa41d167e632d
-_md5_=b43797a6db8bc40e59118ded3ed59533
+_md5_=437267c7a59855ac66c42429ef36e323
