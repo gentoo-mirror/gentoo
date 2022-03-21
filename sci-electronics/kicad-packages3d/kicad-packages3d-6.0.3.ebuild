@@ -20,7 +20,7 @@ else
 		KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 	fi
 
-	S="${WORKDIR}/${PN/3d/3D}-${MY_PV}-02c0df0309784b30de2d65ca2c7385942591135c"
+	S="${WORKDIR}/${PN/3d/3D}-${MY_PV}-6ff98426fd51d53c55bc48025d66d3d0b0c5df92"
 fi
 
 IUSE="+occ"

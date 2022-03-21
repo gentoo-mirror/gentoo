@@ -1,7 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit autotools
 
 DESCRIPTION="Asynchronous Network Library"
 HOMEPAGE="https://think-async.com https://github.com/chriskohlhoff/asio"
@@ -9,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}/${P}.tar.bz2"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc examples test"
 RESTRICT="!test? ( test )"
 
@@ -20,8 +22,14 @@ DEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-cpp20ex.patch"
+)
+
 src_prepare() {
 	default
+
+	eautoreconf
 
 	if ! use test; then
 		# Don't build nor install any examples or unittests
@@ -45,5 +53,11 @@ src_install() {
 		emake clean
 		dodoc -r src/examples
 		docompress -x /usr/share/doc/${PF}/examples
+
+		# Make links to the example .cpp files work
+		# https://bugs.gentoo.org/828648
+		if use doc; then
+			dosym ../examples /usr/share/doc/${PF}/src/examples
+		fi
 	fi
 }
