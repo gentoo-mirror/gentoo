@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
 PYTHON_COMPAT=( python3_{8..10} )
@@ -13,12 +13,11 @@ HOMEPAGE="https://developer.gnome.org/libpeas/stable/"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 IUSE="glade +gtk gtk-doc lua +python vala"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )
-	python? ( ${PYTHON_REQUIRED_USE} )
-	gtk-doc? ( gtk )"
+	python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
 	>=dev-libs/glib-2.38:2
@@ -50,6 +49,8 @@ BDEPEND="
 PATCHES=(
 	# Gentoo-specific lua tweak hack
 	"${FILESDIR}"/1.26.0-lua.patch
+
+	"${FILESDIR}"/${PV}-meson-Fix-disabling-gtk_doc.patch
 )
 
 pkg_setup() {
@@ -58,8 +59,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	xdg_src_prepare
-	use vala && vala_src_prepare
+	default
+	use vala && vala_setup
 }
 
 src_configure() {
@@ -82,4 +83,13 @@ src_configure() {
 
 src_test() {
 	virtx meson_src_test
+}
+
+src_install() {
+	meson_src_install
+
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/libpeas{,-gtk}-1.0 "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
 }
