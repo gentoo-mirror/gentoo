@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://www.squid-cache.org/
 INHERIT=autotools flag-o-matic linux-info pam systemd toolchain-funcs
 IUSE=caps gnutls ipv6 pam ldap samba sasl kerberos nis radius ssl snmp selinux logrotate test ecap esi ssl-crtd mysql postgres sqlite systemd perl qos tproxy +htcp +wccp +wccpv2
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/squid acct-user/squid virtual/libcrypt:= caps? ( >=sys-libs/libcap-2.16 ) pam? ( sys-libs/pam ) ldap? ( net-nds/openldap ) kerberos? ( virtual/krb5 ) qos? ( net-libs/libnetfilter_conntrack ) ssl? ( !gnutls? ( dev-libs/openssl:0= ) dev-libs/nettle:= ) sasl? ( dev-libs/cyrus-sasl ) systemd? ( sys-apps/systemd:= ) ecap? ( net-libs/libecap:1 ) esi? ( dev-libs/expat dev-libs/libxml2 ) gnutls? ( >=net-libs/gnutls-3.1.5:= ) logrotate? ( app-admin/logrotate ) >=sys-libs/db-4:* dev-libs/libltdl:0 samba? ( net-fs/samba ) perl? ( dev-lang/perl ) mysql? ( dev-perl/DBD-mysql ) postgres? ( dev-perl/DBD-Pg ) selinux? ( sec-policy/selinux-squid ) sqlite? ( dev-perl/DBD-SQLite )
 REQUIRED_USE=tproxy? ( caps ) qos? ( caps )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://www.squid-cache.org/Versions/v4/squid-4.17.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	linux-info	2f039741fe92bcea55c78806d16ac0f5	pam	e44a1dd98f13e1ad76de01e919bde1f1	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=85fa10ea99b2304493bf28234751ea2f
+_md5_=0de51845105675d8804ca66e88b60bc0
