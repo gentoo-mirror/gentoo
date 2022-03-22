@@ -1,19 +1,18 @@
 # Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-CMAKE_ECLASS=cmake
-inherit cmake-multilib git-r3 gnome2-utils
+inherit cmake-multilib gnome2-utils
 
 DESCRIPTION="Library for encoding and decoding .avif files"
 HOMEPAGE="https://github.com/AOMediaCodec/libavif"
-EGIT_REPO_URI="https://github.com/AOMediaCodec/libavif.git"
+SRC_URI="https://github.com/AOMediaCodec/libavif/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 # See bug #822336 re subslot
 SLOT="0/${PV}"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="+aom dav1d examples extras gdk-pixbuf rav1e svt-av1"
 
 REQUIRED_USE="|| ( aom dav1d )"
@@ -28,6 +27,10 @@ DEPEND="media-libs/libpng[${MULTILIB_USEDEP}]
 	svt-av1? ( >=media-libs/svt-av1-0.8.6 )"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-dav1d-1.0.0.patch
+)
 
 multilib_src_configure() {
 	local mycmakeargs=(
