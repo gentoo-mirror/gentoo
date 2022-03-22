@@ -14,10 +14,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+ocamlopt"
 
 DEPEND="
-	>=dev-lang/ocaml-3.10[ocamlopt?]
-	dev-ml/gsl-ocaml
-	dev-ml/lablgl[glut]
-	dev-ml/ocamlsdl
+	>=dev-lang/ocaml-3.10:=[ocamlopt?]
+	dev-ml/gsl-ocaml:=
+	dev-ml/lablgl:=[glut]
+	dev-ml/ocamlsdl:=[opengl]
 	x11-apps/xdpyinfo"
 RDEPEND="${DEPEND}"
 PATCHES=(
@@ -28,8 +28,12 @@ PATCHES=(
 
 src_prepare() {
 	default
-	MAKEOPTS+=" -j1 VERSION=${PV}"
+	MAKEOPTS="-j1"
 	use ocamlopt || MAKEOPTS+=" TARGETS=flashdot_bytecode BYTECODENAME=flashdot"
+	sed -i \
+		-e "s|^VERSION.*|VERSION := ${PV}|" \
+		Makefile \
+		|| die
 	sed -i \
 		-e 's:Gsl_matrix:Gsl.Matrix:g' \
 		-e 's:Gsl_rng:Gsl.Rng:g' \
