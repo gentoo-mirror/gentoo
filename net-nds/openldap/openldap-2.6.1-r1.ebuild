@@ -19,7 +19,8 @@ SRC_URI="
 	mirror://gentoo/${BIS_P}"
 
 LICENSE="OPENLDAP GPL-2"
-SLOT="0"
+# Subslot added for bug #835654
+SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 
 IUSE_DAEMON="argon2 +cleartext crypt experimental minimal samba tcpd"
@@ -41,6 +42,7 @@ S=${WORKDIR}/${PN}-OPENLDAP_REL_ENG_${MY_PV}
 
 # openssl is needed to generate lanman-passwords required by samba
 COMMON_DEPEND="
+	kernel_linux? ( sys-apps/util-linux )
 	ssl? (
 		!gnutls? (
 			>=dev-libs/openssl-1.0.1h-r2:0=[${MULTILIB_USEDEP}]
@@ -71,7 +73,7 @@ COMMON_DEPEND="
 		kerberos? (
 			virtual/krb5
 			kinit? ( !app-crypt/heimdal )
-			)
+		)
 	)
 "
 DEPEND="${COMMON_DEPEND}
