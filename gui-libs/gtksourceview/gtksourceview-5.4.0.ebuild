@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit gnome.org meson vala virtualx xdg
 
@@ -12,13 +12,15 @@ LICENSE="LGPL-2.1+"
 SLOT="5"
 
 IUSE="gtk-doc +introspection sysprof +vala"
-REQUIRED_USE="vala? ( introspection ) gtk-doc? ( introspection )"
-
+REQUIRED_USE="
+	gtk-doc? ( introspection )
+	vala? ( introspection )
+"
 KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-libs/glib-2.70:2
-	>=gui-libs/gtk-4.4:4[introspection?]
+	>=gui-libs/gtk-4.5:4[introspection?]
 	>=dev-libs/libxml2-2.6:2
 	introspection? ( >=dev-libs/gobject-introspection-1.70.0:= )
 	>=dev-libs/fribidi-0.19.7
@@ -37,8 +39,9 @@ BDEPEND="
 "
 
 src_prepare() {
-	use vala && vala_src_prepare
-	xdg_src_prepare
+	default
+	use vala && vala_setup
+	xdg_environment_reset
 }
 
 src_configure() {
