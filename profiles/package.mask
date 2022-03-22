@@ -347,11 +347,6 @@ www-client/midori
 # bug #811891
 sys-apps/dmapi
 
-# Sam James <sam@gentoo.org> (2022-02-24)
-# No release since 2013, partly depends on stale dev-python/eventlet;
-# no reverse dependencies. Removal on 2022-03-24.
-dev-python/socketpool
-
 # Anton Fischl <github@fischl-online.de> (2022-02-23)
 # Version 2.5.* is not meant for production according to upstream
 =app-backup/burp-2.5*
@@ -374,17 +369,6 @@ dev-python/socketpool
 <sci-electronics/kicad-symbols-6.0.2
 <sci-electronics/kicad-templates-6.0.2
 <app-doc/kicad-doc-6.0.2
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-02-15)
-# Java libraries without consumers. Removal in 30 days.
-dev-java/upnplib
-dev-java/apple-java-extensions-bin
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-02-13)
-# This package is completely broken and some libraries existing only for
-# it cause unneeded workload for Java team. Removal in 30 days.
-# Bug #831106, bug #784107.
-games-strategy/triplea
 
 # Jonas Stein <jstein@gentoo.org> (2022-02-11)
 # Blocks gtk2 removal, which is EOL
