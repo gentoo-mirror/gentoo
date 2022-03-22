@@ -26,7 +26,8 @@ RDEPEND="${DEPEND}
 DOCS=( README.md COPYING CHANGELOG )
 PATCHES=( "${FILESDIR}/${PN}-1.10.3-disable-Werror.patch"
 	  "${FILESDIR}/${PN}-1.10.3-disable-strip.patch"
-	  "${FILESDIR}/${PN}-1.10.3-dont-call-toolchain-directly.patch" )
+	  "${FILESDIR}/${PN}-1.10.3-dont-call-toolchain-directly.patch"
+	  "${FILESDIR}/${PN}-1.10.5-fix-pconf-element.patch" )
 
 pkg_setup() {
 	if tc-is-clang; then
