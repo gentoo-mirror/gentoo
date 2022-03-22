@@ -3989,7 +3989,7 @@ dev-db/mytop 1.9.1: mytop - a top clone for mysql
 dev-db/ocp 0.2-r1 0.3 9999: Oracle copy tool
 dev-db/opendbx 1.4.5-r2 1.4.6-r4 1.4.6-r5 1.5.0-r3: OpenDBX - A database abstraction layer
 dev-db/oracle-instantclient 18.5.0.0 19.11.0.0.0 21.3.0.0.0: Oracle 18c Instant Client with SDK
-dev-db/percona-server 8.0.25.15 8.0.26.16: Fully compatible, enhanced and open source drop-in replacement for MySQL
+dev-db/percona-server 8.0.25.15-r1 8.0.26.16-r1: Fully compatible, enhanced and open source drop-in replacement for MySQL
 dev-db/percona-toolkit 2.2.20 3.0.9 3.0.13 3.1.0-r1 3.2.1 3.3.0 3.3.1: Advanced command-line tools to perform a variety of MySQL and system tasks
 dev-db/percona-xtrabackup 2.4.15 2.4.24 8.0.25.17 8.0.26.18: Hot backup utility for MySQL based servers
 dev-db/percona-xtrabackup-bin 2.4.13-r1: MySQL hot backup software. non-blocking backups for InnoDB/XtraDB databases
@@ -12573,7 +12573,7 @@ kde-apps/kiriki 21.08.3 21.12.3: An addictive and fun dice game
 kde-apps/kiten 21.08.3 21.12.3: KDE Japanese dictionary and reference
 kde-apps/kitinerary 21.08.3-r1 21.12.3: Data Model and Extraction System for Travel Reservation information
 kde-apps/kjumpingcube 21.08.3 21.12.3: Tactical one or two player game
-kde-apps/kldap 21.08.3 21.12.3: Library for interacting with LDAP servers
+kde-apps/kldap 21.08.3-r1 21.12.3-r1: Library for interacting with LDAP servers
 kde-apps/kleopatra 21.08.3-r1 21.12.3: Certificate manager and GUI for OpenPGP and CMS cryptography
 kde-apps/klettres 21.08.3 21.12.3: Alphabet learning application
 kde-apps/klickety 21.08.3 21.12.3: An adaptation of the Clickomania game
@@ -15412,8 +15412,8 @@ net-mail/checkpassword-pam 0.99-r1: checkpassword-compatible authentication prog
 net-mail/cmd5checkpw 0.30-r2 0.30-r3: A checkpassword compatible authentication program that used CRAM-MD5 authentication mode
 net-mail/courier-imap 5.1.2-r1 5.1.3-r1 5.1.4 5.1.7: An IMAP daemon designed specifically for maildirs
 net-mail/courierpassd 1.1.2-r2: Courierpassd is a utility for changing a user's password from across a network
-net-mail/cyrus-imapd 3.0.13-r3 3.0.14-r3 3.0.15-r3 3.0.16-r1 3.0.17 3.4.2-r1 3.4.3-r1: The Cyrus IMAP Server
-net-mail/dbmail 3.2.3-r4 3.2.5-r1: Fast and scalable sql based email services
+net-mail/cyrus-imapd 3.0.13-r4 3.0.14-r4 3.0.15-r4 3.0.16-r2 3.0.17-r1 3.4.2-r2 3.4.3-r2: The Cyrus IMAP Server
+net-mail/dbmail 3.2.3-r5 3.2.5-r2: Fast and scalable sql based email services
 net-mail/django-mailman3 1.3.4 1.3.7: Django-based interfaces interacting with Mailman 3
 net-mail/dot-forward 0.71-r4: reads sendmail's .forward files under qmail
 net-mail/dovecot 2.3.14.1-r1 2.3.17.1 2.3.18: An IMAP and POP3 server written with security primarily in mind
@@ -15489,7 +15489,7 @@ net-mail/smtptools 0.2.3-r1: A collection of tools to send or receive mails with
 net-mail/swaks 20201014.0: Swiss Army Knife SMTP; Command line SMTP testing, including TLS and AUTH
 net-mail/t-prot 3.4: TOFU protection - display filter for RFC822 messages
 net-mail/tnef 1.4.18: Decodes MS-TNEF MIME attachments
-net-mail/tpop3d 1.5.5-r3: An extensible POP3 server with vmail-sql/MySQL support
+net-mail/tpop3d 1.5.5-r4: An extensible POP3 server with vmail-sql/MySQL support
 net-mail/vchkuser 0.4-r1: qmail-spp plugin to check recipient existance with vpopmail
 net-mail/vpopmail 5.4.33-r9: Collection of programs to manage virtual email on Qmail servers
 net-mail/vqadmin 2.3.7-r1: A web based control pannel to manage Virtual Qmail Domains
@@ -15552,7 +15552,7 @@ net-misc/dahdi-tools 3.1.0-r2: Userspace tools to configure the kernel modules f
 net-misc/datapipe 1.0-r2: bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
-net-misc/dhcp 4.4.2_p1-r1 4.4.3: ISC Dynamic Host Configuration Protocol (DHCP) client/server
+net-misc/dhcp 4.4.2_p1-r2 4.4.3-r1: ISC Dynamic Host Configuration Protocol (DHCP) client/server
 net-misc/dhcpcd 9.4.0-r1 9.4.1 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
 net-misc/dhcpcd-ui 0.7.8: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2: Utility to send DHCP requests to DHCP servers to see if responding
@@ -15830,13 +15830,13 @@ net-misc/zerotier 1.6.3 1.6.4: A software-based managed Ethernet switch for plan
 net-misc/zssh 1.5c-r1: An ssh wrapper enabling zmodem up/download in ssh
 net-misc/zsync 0.6.2-r2: Partial/differential file download client over HTTP which uses the rsync algorithm
 net-nds/389-ds-base 1.4.4.19-r1 2.1.0: 389 Directory Server (core libraries and daemons)
-net-nds/adtool 1.3.3-r1: Utility for Active Directory administration
+net-nds/adtool 1.3.3-r2: Utility for Active Directory administration
 net-nds/gssproxy 0.8.4-r2: daemon to proxy GSSAPI context establishment and channel handling
 net-nds/jxplorer 3.3.1.2-r1: Fully functional LDAP browser written in Java
-net-nds/ldapvi 1.7_p20101214-r2: Manage LDAP entries with a text editor
+net-nds/ldapvi 1.7_p20101214-r3: Manage LDAP entries with a text editor
 net-nds/led 1.111: A general purpose LDAP editor
 net-nds/nsscache 0.39: commandline tool to sync directory services to local cache
-net-nds/openldap 2.4.57-r2 2.4.58-r2 2.4.59-r2 2.5.4-r1 2.6.1: LDAP suite of application and development tools
+net-nds/openldap 2.4.57-r2 2.4.58-r2 2.4.59-r2 2.5.4-r1 2.6.1-r1: LDAP suite of application and development tools
 net-nds/phpldapadmin 1.2.5: phpLDAPadmin is a web-based tool for managing all aspects of your LDAP server
 net-nds/rpcbind 1.2.6 9999: portmap replacement which supports RPC over various protocols
 net-nds/shelldap 1.5.1: A handy shell-like interface for browsing LDAP servers and editing their content
@@ -17956,7 +17956,7 @@ sys-fs/mp3fs 0.91-r2 1.1.1-r1: A read-only FUSE filesystem which transcodes FLAC
 sys-fs/mtd-utils 2.1.4: MTD userspace tools (NFTL, JFFS2, NAND, FTL, UBI)
 sys-fs/mtools 4.0.35 4.0.37 4.0.38: Utilities to access MS-DOS disks from Unix without mounting them
 sys-fs/mtpfs 1.1-r6: A FUSE filesystem providing access to MTP devices
-sys-fs/multipath-tools 0.8.6-r1 0.8.7 0.8.8: Device mapper target autoconfig
+sys-fs/multipath-tools 0.8.6-r1 0.8.7 0.8.8 0.8.9: Device mapper target autoconfig
 sys-fs/ncdu 1.15.1-r1 1.16-r1: NCurses Disk Usage
 sys-fs/nilfs-utils 2.2.2-r1 2.2.8: A New Implementation of a Log-structured File System for Linux
 sys-fs/ntfs3g 2021.8.22 2021.8.22-r3: Open source read-write NTFS driver that runs under FUSE
