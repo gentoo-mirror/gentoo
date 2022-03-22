@@ -1,7 +1,7 @@
 BDEPEND=!build? ( sys-apps/sed ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
 DESCRIPTION=Raspberry Pi kernel sources
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/raspberrypi/linux
 INHERIT=kernel-2 git-r3
 IUSE=symlink build
@@ -11,4 +11,4 @@ RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-d
 RESTRICT=binchecks strip
 SLOT=5.10.9999
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	kernel-2	7177fbdc34a8efdcb5b739d8a9673adb	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=b1332c114229071831ab79ff1c246576
+_md5_=3eb9da528a564979ebfb3482a036d189
