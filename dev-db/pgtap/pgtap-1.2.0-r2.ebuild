@@ -31,7 +31,7 @@ src_configure() {
 }
 
 src_install() {
-	default
+	postgres-multi_src_install
 
 	rm -r ${ED}/usr/share/doc/postgresql* || die "Failed to remove improper doc locations"
 	dodoc doc/pgtap.mmd
