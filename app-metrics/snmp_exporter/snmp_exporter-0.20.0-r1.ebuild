@@ -34,7 +34,8 @@ src_compile() {
 }
 
 src_install() {
-	dobin bin/*
+	dobin bin/generator
+	newbin bin/${PN}-${PV} ${PN}
 	dodoc {README,CONTRIBUTING}.md generator/{FORMAT,README}.md generator/generator.yml
 	insinto /etc/snmp_exporter
 	newins snmp.yml snmp.yml.example
