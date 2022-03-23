@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://hc.apache.org/httpcomponents-client
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=dev-java/commons-codec:0 dev-java/commons-logging:0 dev-java/httpcore:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=4
 SRC_URI=mirror://apache/httpcomponents/httpclient/source/httpcomponents-client-4.5.13-src.tar.gz
 _eclasses_=java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	java-pkg-simple	6b49cf40f97e7a6458469114e1712118
-_md5_=3114eed2239e969585fa5bc9c01ea02b
+_md5_=0b16d0c37c6db7936e06532fcecc8729
