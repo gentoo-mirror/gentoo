@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
-COMMIT="2d6591aa0835768c437c221c88840ac0c99a50dc"
+COMMIT="574c39cce3231c69bc9a02ac475c27d944bdb113"
 DESCRIPTION="FFmpeg built specifically for codec support in Chromium-based browsers"
 HOMEPAGE="https://ffmpeg.org/"
 SRC_URI="https://dev.gentoo.org/~chewi/distfiles/${P}.tar.gz"
@@ -16,7 +16,7 @@ LICENSE="
 	gpl? ( GPL-2 )
 "
 
-KEYWORDS="amd64 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64"
 
 # Options to use as use_enable in the foo[:bar] form.
 # This will feed configure with $(use_enable foo bar)
@@ -94,7 +94,7 @@ RDEPEND="
 	vaapi? ( >=x11-libs/libva-1.2.1-r1:0= )
 	video_cards_nvidia? ( >=media-libs/nv-codec-headers-9.1.23.1 )
 	vdpau? ( >=x11-libs/libvdpau-0.7 )
-	vulkan? ( >=media-libs/vulkan-loader-1.1.97:= )
+	vulkan? ( >=media-libs/vulkan-loader-1.2.189:= )
 "
 
 DEPEND="${RDEPEND}
@@ -114,7 +114,7 @@ RESTRICT="
 S="${WORKDIR}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}.patch
+	"${FILESDIR}"/${PN}-100.patch
 	"${FILESDIR}"/chromium.patch
 )
 
@@ -181,7 +181,7 @@ src_configure() {
 	fi
 
 	local extra_libs
-	if use arm || use ppc ; then
+	if use arm || use ppc || use mips || [[ ${CHOST} == *i486* ]] ; then
 		# bug #782811
 		# bug #790590
 		extra_libs+="$(test-flags-CCLD -latomic) "
@@ -195,6 +195,7 @@ src_configure() {
 		--cxx="$(tc-getCXX)" \
 		--ar="$(tc-getAR)" \
 		--nm="$(tc-getNM)" \
+		--strip="$(tc-getSTRIP)" \
 		--ranlib="$(tc-getRANLIB)" \
 		--pkg-config="$(tc-getPKG_CONFIG)" \
 		--optflags="${CFLAGS}" \
