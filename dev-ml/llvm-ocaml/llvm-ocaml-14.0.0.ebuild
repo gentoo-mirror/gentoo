@@ -11,7 +11,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0/${PV}"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="debug test"
 RESTRICT="!test? ( test )"
 
@@ -26,7 +26,6 @@ BDEPEND="
 	dev-lang/perl
 	dev-ml/findlib
 	>=dev-util/cmake-3.16
-	test? ( dev-ml/ounit2 )
 	${PYTHON_DEPS}"
 
 LLVM_COMPONENTS=( llvm cmake third-party )
