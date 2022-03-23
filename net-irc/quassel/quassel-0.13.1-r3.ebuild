@@ -7,12 +7,8 @@ inherit cmake xdg-utils pax-utils systemd
 
 if [[ ${PV} != *9999* ]]; then
 	MY_P=${PN}-${PV/_/-}
-	if [[ ${PV} == *_rc* ]] ; then
-		SRC_URI="https://github.com/quassel/quassel/archive/refs/tags/${PV/_/-}.tar.gz -> ${P}.tar.gz"
-	else
-		SRC_URI="https://quassel-irc.org/pub/${MY_P}.tar.bz2"
-		KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~sparc-solaris"
-	fi
+	SRC_URI="https://quassel-irc.org/pub/${MY_P}.tar.bz2"
+	KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86 ~amd64-linux ~sparc-solaris"
 	S="${WORKDIR}/${MY_P}"
 else
 	EGIT_REPO_URI=( "https://github.com/${PN}/${PN}" )
@@ -21,21 +17,24 @@ fi
 
 DESCRIPTION="Qt/KDE IRC client supporting a remote daemon for 24/7 connectivity"
 HOMEPAGE="https://quassel-irc.org/"
-
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="bundled-icons crypt +dbus debug kde ldap monolithic oxygen postgres +server snorenotify spell syslog test urlpreview X"
-RESTRICT="!test? ( test )"
+IUSE="bundled-icons crypt +dbus debug kde ldap monolithic oxygen postgres +server
+snorenotify spell +ssl syslog urlpreview X"
 
-SERVER_DEPEND="acct-group/quassel
+SERVER_DEPEND="
+	acct-group/quassel
 	acct-user/quassel
 	dev-qt/qtscript:5
 	crypt? ( app-crypt/qca:2[ssl] )
 	ldap? ( net-nds/openldap:= )
 	postgres? ( dev-qt/qtsql:5[postgres] )
 	!postgres? ( dev-qt/qtsql:5[sqlite] dev-db/sqlite:3[threadsafe(+),-secure-delete] )
-	syslog? ( virtual/logger )"
-GUI_DEPEND="dev-qt/qtgui:5
+	syslog? ( virtual/logger )
+"
+
+GUI_DEPEND="
+	dev-qt/qtgui:5
 	dev-qt/qtmultimedia:5
 	dev-qt/qtwidgets:5
 	!bundled-icons? (
@@ -57,10 +56,12 @@ GUI_DEPEND="dev-qt/qtgui:5
 	)
 	snorenotify? ( >=x11-libs/snorenotify-0.7.0 )
 	spell? ( kde-frameworks/sonnet:5 )
-	urlpreview? ( dev-qt/qtwebengine:5[widgets] )"
-DEPEND=">=dev-libs/boost-1.54:=
+	urlpreview? ( dev-qt/qtwebengine:5[widgets] )
+"
+
+DEPEND="
 	dev-qt/qtcore:5
-	dev-qt/qtnetwork:5[ssl]
+	dev-qt/qtnetwork:5[ssl?]
 	sys-libs/zlib
 	monolithic? (
 		${SERVER_DEPEND}
@@ -69,27 +70,33 @@ DEPEND=">=dev-libs/boost-1.54:=
 	!monolithic? (
 		server? ( ${SERVER_DEPEND} )
 		X? ( ${GUI_DEPEND} )
-	)"
+	)
+"
 RDEPEND="${DEPEND}"
-BDEPEND="dev-qt/linguist-tools:5
-	kde-frameworks/extra-cmake-modules:5"
-
-DEPEND+=" test? ( dev-cpp/gtest dev-qt/qttest )"
+BDEPEND="
+	dev-qt/linguist-tools:5
+	kde-frameworks/extra-cmake-modules
+"
 
 DOCS=( AUTHORS ChangeLog README.md )
 
-REQUIRED_USE="|| ( X server monolithic )
+REQUIRED_USE="
+	|| ( X server monolithic )
 	crypt? ( || ( server monolithic ) )
 	kde? ( dbus spell )
 	ldap? ( || ( server monolithic ) )
 	postgres? ( || ( server monolithic ) )
 	snorenotify? ( || ( X monolithic ) )
 	spell? ( || ( X monolithic ) )
-	syslog? ( || ( server monolithic ) )"
+	syslog? ( || ( server monolithic ) )
+"
+
+PATCHES=( "${FILESDIR}/${P}-qt5.14.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_TESTING=$(usex test)
+		-DUSE_QT4=OFF
+		-DUSE_QT5=ON
 		-DUSE_CCACHE=OFF
 		-DCMAKE_SKIP_RPATH=ON
 		-DEMBED_DATA=OFF
@@ -108,8 +115,8 @@ src_configure() {
 		-DWANT_QTCLIENT=$(usex X)
 	)
 
-	if use server || use monolithic ; then
-		mycmakeargs+=( $(cmake_use_find_package crypt Qca-qt5) )
+	if use server || use monolithic; then
+		mycmakeargs+=( $(cmake_use_find_package crypt QCA2-QT5) )
 	fi
 
 	cmake_src_configure
@@ -119,31 +126,27 @@ src_install() {
 	cmake_src_install
 
 	if use server ; then
-		# Needs PaX marking, bug #346255
-		pax-mark m "${ED}"/usr/bin/quasselcore
+		# needs PAX marking wrt bug#346255
+		pax-mark m "${ED}/usr/bin/quasselcore"
 
-		# Init scripts & systemd unit
+		# init scripts & systemd unit
 		newinitd "${FILESDIR}"/quasselcore.init-r1 quasselcore
 		newconfd "${FILESDIR}"/quasselcore.conf-r1 quasselcore
 		systemd_dounit "${FILESDIR}"/quasselcore.service
 
 		# logrotate
 		insinto /etc/logrotate.d
-		newins "${FILESDIR}"/quassel.logrotate quassel
+		newins "${FILESDIR}/quassel.logrotate" quassel
 	fi
 }
 
-src_test() {
-	LD_LIBRARY_PATH="${BUILD_DIR}/lib:${LD_LIBRARY_PATH}" cmake_src_test
-}
-
 pkg_postinst() {
-	if use monolithic ; then
+	if use monolithic && use ssl ; then
 		elog "Information on how to enable SSL support for client/core connections"
 		elog "is available at http://bugs.quassel-irc.org/projects/quassel-irc/wiki/Client-Core_SSL_support."
 	fi
 
-	if use server ; then
+	if use server; then
 		einfo "If you want to generate SSL certificate remember to run:"
 		einfo "	emerge --config =${CATEGORY}/${PF}"
 	fi
@@ -161,17 +164,15 @@ pkg_postrm() {
 }
 
 pkg_config() {
-	if use server ; then
-		# Generate the pem file only when it does not already exist
-		QUASSEL_DIR="${EROOT}"/var/lib/${PN}
-
-		if [[ ! -f "${QUASSEL_DIR}/quasselCert.pem" ]] ; then
-			einfo "Generating Quassel SSL certificate to: \"${QUASSEL_DIR}/quasselCert.pem\""
+	if use server && use ssl; then
+		# generate the pem file only when it does not already exist
+		QUASSEL_DIR=/var/lib/${PN}
+		if [ ! -f "${QUASSEL_DIR}/quasselCert.pem" ]; then
+			einfo "Generating QUASSEL SSL certificate to: \"${QUASSEL_DIR}/quasselCert.pem\""
 			openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 				-keyout "${QUASSEL_DIR}/quasselCert.pem" \
 				-out "${QUASSEL_DIR}/quasselCert.pem"
-
-			# Permissions for the key
+			# permissions for the key
 			chown ${PN}:${PN} "${QUASSEL_DIR}/quasselCert.pem"
 			chmod 400 "${QUASSEL_DIR}/quasselCert.pem"
 		else

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit pam libtool tmpfiles toolchain-funcs
+inherit pam multilib libtool systemd tmpfiles toolchain-funcs
 
 MY_P="${P/_/}"
 MY_P="${MY_P/beta/b}"
@@ -22,7 +22,7 @@ else
 	SRC_URI="https://www.sudo.ws/sudo/dist/${uri_prefix}${MY_P}.tar.gz
 		ftp://ftp.sudo.ws/pub/sudo/${uri_prefix}${MY_P}.tar.gz"
 	if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~sparc-solaris"
+		KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86 ~sparc-solaris"
 	fi
 fi
 
@@ -43,6 +43,7 @@ DEPEND="
 			net-nds/openldap:=[sasl]
 		)
 	)
+	nls? ( virtual/libintl )
 	pam? ( sys-libs/pam )
 	sasl? ( dev-libs/cyrus-sasl )
 	skey? ( >=sys-auth/skey-1.1.5-r1 )
@@ -61,6 +62,7 @@ RDEPEND="
 BDEPEND="
 	sys-devel/bison
 	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
 "
 
 S="${WORKDIR}/${MY_P}"
@@ -163,10 +165,10 @@ src_install() {
 	default
 
 	if use ldap ; then
-		dodoc README.LDAP.md
+		dodoc README.LDAP
 
 		cat <<-EOF > "${T}"/ldap.conf.sudo
-		# See ldap.conf(5) and README.LDAP.md for details
+		# See ldap.conf(5) and README.LDAP for details
 		# This file should only be readable by root
 
 		# supported directives: host, port, ssl, ldap_version

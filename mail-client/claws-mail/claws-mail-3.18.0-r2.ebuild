@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit autotools desktop python-any-r1 xdg
 
@@ -15,13 +15,13 @@ if [[ "${PV}" == *9999 ]] ; then
 	EGIT_REPO_URI="https://git.claws-mail.org/readonly/claws.git"
 else
 	SRC_URI="https://www.claws-mail.org/download.php?file=releases/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86"
 fi
 
 SLOT="0"
 LICENSE="GPL-3"
 
-IUSE="+appindicator archive bogofilter calendar clamav dbus debug dillo doc gdata +gnutls gtk2 +imap ipv6 ldap +libcanberra +libnotify litehtml networkmanager nls nntp +notification pdf perl +pgp rss session sieve smime spamassassin spam-report spell startup-notification svg valgrind webkit xface"
+IUSE="+appindicator archive bogofilter calendar clamav dbus debug dillo doc gdata +gnutls +imap ipv6 ldap +libcanberra +libnotify litehtml networkmanager nls nntp +notification pdf perl +pgp rss session sieve smime spamassassin spam-report spell startup-notification svg valgrind xface"
 REQUIRED_USE="
 	appindicator? ( notification )
 	libcanberra? ( notification )
@@ -36,6 +36,7 @@ COMMONDEPEND="
 	sys-libs/zlib:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2[jpeg]
+	x11-libs/gtk+:2
 	x11-libs/libX11
 	x11-libs/pango
 	archive? (
@@ -54,11 +55,6 @@ COMMONDEPEND="
 	gdata? ( >=dev-libs/libgdata-0.17.2 )
 	dillo? ( www-client/dillo )
 	gnutls? ( >=net-libs/gnutls-3.0 )
-	!gtk2? (
-		x11-libs/gtk+:3
-		webkit? ( net-libs/webkit-gtk:4 )
-	)
-	gtk2? ( >=x11-libs/gtk+-2.24:2 )
 	imap? ( >=net-libs/libetpan-0.57 )
 	ldap? ( >=net-nds/openldap-2.0.7:= )
 	litehtml? (
@@ -72,10 +68,7 @@ COMMONDEPEND="
 	notification? (
 		dev-libs/glib:2
 		appindicator? ( dev-libs/libindicate:3[gtk] )
-		libcanberra? (
-			!gtk2? ( media-libs/libcanberra[gtk3] )
-			gtk2? ( media-libs/libcanberra[gtk] )
-		)
+		libcanberra? (  media-libs/libcanberra[gtk] )
 		libnotify? ( x11-libs/libnotify )
 	)
 	pdf? ( app-text/poppler[cairo] )
@@ -117,12 +110,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.17.5-enchant-2_default.patch"
 )
 
-pkg_setup() {
-	if [[ "${PV}" == 9999 ]] && ! use gtk2 ; then
-		EGIT_BRANCH="gtk3"
-	fi
-}
-
 src_prepare() {
 	xdg_src_prepare
 	eautoreconf
@@ -134,6 +121,7 @@ src_configure() {
 
 	local myeconfargs=(
 		--disable-bsfilter-plugin
+		--disable-fancy-plugin
 		--disable-generic-umpc
 		--disable-jpilot #735118
 		--enable-acpi_notifier-plugin
@@ -188,12 +176,6 @@ src_configure() {
 		myeconfargs+=( --disable-libetpan )
 	fi
 
-	if use gtk2 ; then
-		myeconfargs+=( --disable-fancy-plugin )
-	else
-		myeconfargs+=( $(use_enable webkit fancy-plugin) )
-	fi
-
 	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
@@ -228,8 +210,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	if ! use gtk2 ; then
-		ewarn "When upgrading from version 3.x please re-load any plugin you use"
-	fi
+	ewarn "When upgrading from version <3.18 please re-load any plugin you use"
 	xdg_pkg_postinst
 }

@@ -22,7 +22,7 @@ else
 	SRC_URI="https://www.sudo.ws/sudo/dist/${uri_prefix}${MY_P}.tar.gz
 		ftp://ftp.sudo.ws/pub/sudo/${uri_prefix}${MY_P}.tar.gz"
 	if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~sparc-solaris"
+		KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~sparc-solaris"
 	fi
 fi
 
@@ -159,14 +159,20 @@ src_configure() {
 	econf "${myeconfargs[@]}"
 }
 
+src_test() {
+	# See bug #667600 for TZ workaround
+	# Note: drop this after 1.9.8_p2! Should be fixed upstream.
+	TZ=UTC default
+}
+
 src_install() {
 	default
 
 	if use ldap ; then
-		dodoc README.LDAP.md
+		dodoc README.LDAP
 
 		cat <<-EOF > "${T}"/ldap.conf.sudo
-		# See ldap.conf(5) and README.LDAP.md for details
+		# See ldap.conf(5) and README.LDAP for details
 		# This file should only be readable by root
 
 		# supported directives: host, port, ssl, ldap_version
