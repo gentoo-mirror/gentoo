@@ -4,7 +4,7 @@ DEPEND=!build? ( python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0=[ssl(+)] 
 DESCRIPTION=The package management and distribution system for Gentoo
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Portage
-INHERIT=distutils-r1 linux-info tmpfiles prefix
+INHERIT=distutils-r1 linux-info toolchain-funcs tmpfiles prefix
 IUSE=apidoc build doc gentoo-dev +ipc +native-extensions +rsync-verify selinux test xattr python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitweb.gentoo.org/proj/portage.git/snapshot/portage-3.0.30.tar.bz2
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d	linux-info	2f039741fe92bcea55c78806d16ac0f5	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8	prefix	d04f14b297013ad1410550c0757f14f8
-_md5_=70dc6ce4d43e37292edcb91781760db9
+_md5_=6149f73c7874b9852b3cb3d0f6c16211

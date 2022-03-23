@@ -1,10 +1,10 @@
 BDEPEND=acct-group/nullmail acct-user/nullmail sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
-DEFINED_PHASES=config configure install postinst postrm prepare
+DEFINED_PHASES=compile config configure install postinst postrm prepare
 DEPEND=ssl? ( net-libs/gnutls:0= ) test? ( sys-apps/ucspi-tcp[ipv6] sys-process/daemontools )
 DESCRIPTION=Simple relay-only local mail transport agent
 EAPI=7
 HOMEPAGE=http://untroubled.org/nullmailer/ https://github.com/bruceg/nullmailer
-INHERIT=autotools flag-o-matic systemd
+INHERIT=autotools flag-o-matic systemd toolchain-funcs
 IUSE=ssl test
 KEYWORDS=amd64 arm arm64 ~hppa ppc ~ppc64 ~riscv x86 ~x64-cygwin
 LICENSE=GPL-2
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://untroubled.org/nullmailer/archive/nullmailer-2.2.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=9a1cabcfc1963381fc3b2ed0731c54ee
+_md5_=014e12ab05f5839516a26a53912e01b8

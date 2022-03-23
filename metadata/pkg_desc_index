@@ -2195,7 +2195,7 @@ app-editors/vscode 1.63.2 1.64.2 1.65.2: Multiplatform Visual Studio Code from M
 app-editors/vscodium 1.63.2 1.64.2 1.65.2: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r1: A cross-platform hex editor designed specially for large files
-app-editors/xemacs 21.4.24-r3 21.4.24-r4 21.5.34-r6 21.5.34-r7 21.5.9999: highly customizable open source text editor and application development system
+app-editors/xemacs 21.4.24-r5 21.4.24-r6 21.5.34-r8 21.5.34-r9 21.5.9999: highly customizable open source text editor and application development system
 app-editors/xmlcopyeditor 1.2.1.3-r1 1.3.0.0: XML Copy Editor is a fast, free, validating XML editor
 app-editors/xvile 9.8t-r1: VI Like Emacs -- yet another full-featured vi clone
 app-editors/yudit 2.9.6: Free (Y)unicode text editor for all unices
@@ -2725,7 +2725,7 @@ app-metrics/alertmanager 0.21.0-r3 0.22.2 0.23.0: Alertmanager for alerts sent b
 app-metrics/bind_exporter 0.3.0: Prometheus exporter for BIND
 app-metrics/blackbox_exporter 0.18.0-r2 0.19.0: Prometheus exporter for blackbox probing via HTTP, HTTPS, DNS, TCP and ICMP
 app-metrics/burrow_exporter 0.0.6-r2: Prometheus exporter for Burrow
-app-metrics/collectd 5.12.0-r3 5.12.0-r4: Collects system statistics and provides mechanisms to store the values
+app-metrics/collectd 5.12.0-r5 5.12.0-r6: Collects system statistics and provides mechanisms to store the values
 app-metrics/consul_exporter 0.7.1: Prometheus exporter for consul metrics
 app-metrics/dnsmasq_exporter 0.2.0-r1: prometheus exporter for dnsmasq
 app-metrics/elasticsearch_exporter 1.3.0: Elasticsearch stats exporter for Prometheus
@@ -3084,7 +3084,7 @@ app-office/kraft 0.95: Software to manage quotes and invoices in small enterpris
 app-office/ktimetracker 5.0.1-r1: Todo management and time tracker
 app-office/ledger 3.2.1: Double-entry accounting system with a command-line reporting interface
 app-office/libalkimia 8.1.0-r1: Library with common classes and functionality used by KDE finance applications
-app-office/libreoffice 7.2.5.2-r1 7.2.6.2 7.3.1.3 7.3.9999 9999: A full office productivity suite
+app-office/libreoffice 7.2.5.2-r1 7.2.6.2 7.3.1.3-r1 7.3.9999 9999: A full office productivity suite
 app-office/libreoffice-bin 7.2.5.2: A full office productivity suite. Binary package
 app-office/libreoffice-bin-debug 7.2.5.2: LibreOffice, a full office productivity suite. Binary package, debug info
 app-office/libreoffice-l10n 7.2.5.2 7.2.6.2 7.3.1.3: Translations for the Libreoffice suite
@@ -6037,7 +6037,7 @@ dev-lua/luaevent 0.4.6-r1: Binding of libevent for Lua
 dev-lua/luaexpat 1.3.0-r1: LuaExpat is a SAX XML parser based on the Expat library
 dev-lua/luafilesystem 1.8.0-r101: File System Library for the Lua programming language
 dev-lua/luajson 1.3.4-r100: JSON Parser/Constructor for Lua
-dev-lua/lualdap 1.3.0-r1: A lua binding for the OpenLDAP client libraries
+dev-lua/lualdap 1.3.0-r2: A lua binding for the OpenLDAP client libraries
 dev-lua/luaossl 20200709-r1: Most comprehensive OpenSSL module in the Lua universe
 dev-lua/luaposix 35.0-r103 35.1: Bindings for POSIX APIs
 dev-lua/luarocks 3.8.0: A package manager for the Lua programming language
@@ -7283,7 +7283,7 @@ dev-perl/Net-IRR 0.80.0-r2: Internet Route Registry daemon (IRRd) client
 dev-perl/Net-Ident 1.250.0: lookup the username on the remote end of a TCP/IP connection
 dev-perl/Net-Jabber 2.0.0-r2: Jabber Perl library
 dev-perl/Net-LDAP-Server 0.430.0-r2: LDAP server side protocol handling
-dev-perl/Net-LDAPapi 3.0.7: Perl5 Module Supporting LDAP API
+dev-perl/Net-LDAPapi 3.0.7-r1: Perl5 Module Supporting LDAP API
 dev-perl/Net-LibIDN 0.120.0-r3: Perl bindings for GNU Libidn
 dev-perl/Net-LibIDN2 1.10.0: Perl bindings for GNU Libidn2
 dev-perl/Net-Netmask 2.0.100: Parse, manipulate and lookup IP network blocks
@@ -7957,7 +7957,7 @@ dev-perl/namespace-clean 0.270.0-r1: Keep imports and functions out of your name
 dev-perl/pcsc-perl 1.4.14-r1: A Perl Module for PC/SC SmartCard access
 dev-perl/perl-headers 0.0.2: Generated .ph equivalents of system headers
 dev-perl/perl-ldap 0.680.0: Perl modules which provide an object-oriented interface to LDAP servers
-dev-perl/perl-mozldap 1.5.3-r1: Mozilla PerLDAP
+dev-perl/perl-mozldap 1.5.3-r2: Mozilla PerLDAP
 dev-perl/prefork 1.50.0: Optimized module loading for forking or non-forking processes
 dev-perl/rename 1.1100.0: A filename renaming utility based on perl regular expression
 dev-perl/self 0.360.0: provides '$self' in OO code
@@ -10685,7 +10685,7 @@ dev-ruby/ruby-gtksourceview 3.4.3: Ruby bindings for gtksourceview
 dev-ruby/ruby-gtksourceview3 3.4.3: Ruby gtksourceview-3.x bindings
 dev-ruby/ruby-gtksourceview4 3.4.3: Ruby GtkSourceView4 bindings
 dev-ruby/ruby-hmac 0.4.0-r2: A common interface to HMAC functionality as documented in RFC2104
-dev-ruby/ruby-ldap 0.9.20 0.9.20-r1: A Ruby interface to some LDAP libraries
+dev-ruby/ruby-ldap 0.9.20-r2 0.9.20-r3: A Ruby interface to some LDAP libraries
 dev-ruby/ruby-libsecret 3.4.3: Ruby libsecret bindings
 dev-ruby/ruby-macho 2.2.0 2.3.0 2.5.0 2.5.1: A library for viewing and manipulating Mach-O files in Ruby
 dev-ruby/ruby-mp3info 0.8.10-r1: A pure Ruby library for access to mp3 files (internal infos and tags)
@@ -12412,7 +12412,7 @@ gnustep-libs/netclasses 1.1.0: An asynchronous networking library for GNUstep
 gnustep-libs/pantomime 1.3.0: A set of Objective-C classes that model a mail system
 gnustep-libs/performance 0.5.0: Help improve the performance of GNUstep applications
 gnustep-libs/renaissance 0.9.0-r1: GNUstep Renaissance allows to describe user interfaces XML files
-gnustep-libs/sope 5.1.1 5.2.0: A set of frameworks forming a complete Web application server environment
+gnustep-libs/sope 5.1.1-r1 5.2.0-r1: A set of frameworks forming a complete Web application server environment
 gnustep-libs/sqlclient 1.8.1-r1: GNUstep lightweight database abstraction layer
 gui-apps/foot 1.11.0-r1: Fast, lightweight and minimalistic Wayland terminal emulator
 gui-apps/foot-terminfo 1.11.0-r1: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
@@ -15893,7 +15893,7 @@ net-p2p/mldonkey 3.1.7-r3: Multi-network P2P application written in Ocaml, with 
 net-p2p/ncdc 1.22.1-r1 9999: ncurses directconnect client
 net-p2p/nicotine+ 2.2.2 3.1.1 3.2.0 3.2.1: A fork of nicotine, a Soulseek client in Python
 net-p2p/opendchub 0.8.2-r1: hub software for Direct Connect
-net-p2p/qbittorrent 4.3.8 4.3.9 4.4.0-r1 4.4.1 9999: BitTorrent client in C++ and Qt
+net-p2p/qbittorrent 4.3.8 4.3.9 4.4.0-r1 4.4.1-r1 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.6.3-r2 2.7.2.1375: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.5-r2 0.6.5-r3 0.6.6 0.6.6-r1: P2P private sharing application
 net-p2p/rtorrent 0.9.7 0.9.7-r1 0.9.8 0.9.8-r1: BitTorrent Client using libtorrent
