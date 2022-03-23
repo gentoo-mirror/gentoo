@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-libs/pegtl >=dev-libs/libsodium-0.4.5:= >=dev-libs/protobuf-2.5.0:= >=sys-cluster/libqb-0.16.0:= sys-devel/gcc:*[cxx] >=sys-libs/libcap-ng-0.7.0 >=sys-libs/libseccomp-2.0.0 >=sys-process/audit-2.7.7 dbus? ( dev-libs/glib:2 sys-apps/dbus sys-auth/polkit[introspection] ) ldap? ( net-nds/openldap:= ) systemd? ( sys-apps/systemd ) umockdev? ( dev-util/umockdev ) app-text/asciidoc dev-cpp/catch:0 dbus? ( dev-libs/libxml2 dev-libs/libxslt dev-util/gdbus-codegen )
+DESCRIPTION=Daemon protecting your computer against BadUSB
+EAPI=7
+HOMEPAGE=https://github.com/USBGuard/usbguard
+INHERIT=autotools bash-completion-r1
+IUSE=dbus ldap policykit selinux static-libs systemd test umockdev
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/pegtl >=dev-libs/libsodium-0.4.5:= >=dev-libs/protobuf-2.5.0:= >=sys-cluster/libqb-0.16.0:= sys-devel/gcc:*[cxx] >=sys-libs/libcap-ng-0.7.0 >=sys-libs/libseccomp-2.0.0 >=sys-process/audit-2.7.7 dbus? ( dev-libs/glib:2 sys-apps/dbus sys-auth/polkit[introspection] ) ldap? ( net-nds/openldap:= ) systemd? ( sys-apps/systemd ) umockdev? ( dev-util/umockdev ) virtual/udev selinux? ( sec-policy/selinux-usbguard )
+REQUIRED_USE=test? ( static-libs )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/USBGuard/usbguard/releases/download/usbguard-1.1.0/usbguard-1.1.0.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	bash-completion-r1	d3a60385655d9b402be765a6de333245
+_md5_=d178233fe18ea03cd3e7a5d5e5a2f323
