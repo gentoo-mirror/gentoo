@@ -25,6 +25,7 @@ RDEPEND="!games-engines/zoom
 	media-sound/mpg123
 	sys-apps/dbus
 	sys-apps/util-linux
+	sys-libs/glibc
 	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libxcb
@@ -68,7 +69,7 @@ src_prepare() {
 
 	# The tarball doesn't contain an icon, so extract it from the binary
 	bbe -s -b '/<svg width="32"/:/<\x2fsvg>\n/' -e 'J 1;D' zoom \
-		>zoom-icon.svg && [[ -s zoom-icon.svg ]] \
+		>videoconference-zoom.svg && [[ -s videoconference-zoom.svg ]] \
 		|| die "Extraction of icon failed"
 
 	if ! use pulseaudio; then
@@ -88,7 +89,7 @@ src_prepare() {
 src_install() {
 	insinto /opt/zoom
 	exeinto /opt/zoom
-	doins -r json ringtone sip timezones translations
+	doins -r cef json ringtone sip timezones translations
 	doins *.pcm Embedded.properties version.txt
 	doexe zoom zopen ZoomLauncher *.sh
 	dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
@@ -118,9 +119,8 @@ src_install() {
 
 		(	# Remove libs and plugins with unresolved soname dependencies
 			cd "${ED}"/opt/zoom || die
-			rm -r Qt/labs/location QtQml/RemoteObjects \
-				QtQuick/LocalStorage QtQuick/Particles.2 QtQuick/Scene2D \
-				QtQuick/Scene3D QtQuick/XmlListModel \
+			rm -r Qt/labs/location QtQuick/LocalStorage QtQuick/Particles.2 \
+				QtQuick/Scene2D QtQuick/Scene3D QtQuick/XmlListModel \
 				platforms/libqeglfs.so platforms/libqlinuxfb.so || die
 			use wayland || rm -r libQt5Wayland*.so* QtWayland wayland* \
 				platforms/libqwayland*.so || die
@@ -135,11 +135,15 @@ src_install() {
 		fi
 	fi
 
-	make_wrapper zoom /opt/zoom{/zoom,} $(usev bundled-qt /opt/zoom)
-	make_desktop_entry "zoom %U" Zoom zoom-icon "" \
-		"MimeType=x-scheme-handler/zoommtg;application/x-zoom;"
-	doicon zoom-icon.svg
-	doicon -s scalable zoom-icon.svg
+	make_wrapper zoom /opt/zoom{/zoom,} /opt/zoom:/opt/zoom/cef
+	make_desktop_entry "zoom %U" Zoom videoconference-zoom \
+		"Network;VideoConference;" \
+		"MimeType=$(printf '%s;' \
+			x-scheme-handler/zoommtg \
+			x-scheme-handler/zoomus \
+			application/x-zoom)"
+	doicon videoconference-zoom.svg
+	doicon -s scalable videoconference-zoom.svg
 	readme.gentoo_create_doc
 }
 
