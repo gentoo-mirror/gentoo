@@ -1,14 +1,15 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install postinst unpack
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst
 DEPEND=acct-group/turnserver acct-user/turnserver >dev-libs/libevent-2.1.8:= mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis:= ) sqlite? ( dev-db/sqlite )
 DESCRIPTION=coturn TURN server project
 EAPI=7
 HOMEPAGE=https://github.com/coturn/coturn
-INHERIT=systemd tmpfiles git-r3
+INHERIT=systemd tmpfiles
 IUSE=mongodb mysql postgres redis sqlite
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-PROPERTIES=live
 RDEPEND=acct-group/turnserver acct-user/turnserver >dev-libs/libevent-2.1.8:= mongodb? ( dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis:= ) sqlite? ( dev-db/sqlite ) virtual/tmpfiles
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=b77a18c3213849779d55344bd0a798fb
+SRC_URI=https://github.com/coturn/coturn/archive/4.5.2.tar.gz -> coturn-4.5.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	11d91b11caf3bbb725c7d9eba90335c8
+_md5_=2b154a8509be80d5484a6015252e1d34
