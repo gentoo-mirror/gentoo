@@ -1,0 +1,13 @@
+BDEPEND=app-misc/jq >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DESCRIPTION=Support Ubuntu AppIndicators and KStatusNotifierItems in Gnome
+EAPI=8
+HOMEPAGE=https://github.com/ubuntu/gnome-shell-extension-appindicator
+INHERIT=gnome2-utils meson
+KEYWORDS=amd64 ~arm64 ~ppc64 x86
+LICENSE=GPL-2
+RDEPEND=app-eselect/eselect-gnome-shell-extensions dev-libs/libappindicator:3 >=gnome-base/gnome-shell-3.34
+SLOT=0
+SRC_URI=https://github.com/ubuntu/gnome-shell-extension-appindicator/archive/v42.tar.gz -> gnome-shell-extension-appindicator-42.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4
+_md5_=24a3773206f2dac398b4fc1aea47efc6
