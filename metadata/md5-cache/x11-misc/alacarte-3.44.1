@@ -1,0 +1,17 @@
+BDEPEND=>=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[xml] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) >=gnome-base/gnome-menus-3.5.3:3[introspection]
+DESCRIPTION=Simple GNOME menu editor
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/alacarte
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2 python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[xml] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] ) python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) >=gnome-base/gnome-menus-3.5.3:3[introspection] x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection]
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0
+SRC_URI=mirror://gnome/sources/alacarte/3.44/alacarte-3.44.1.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	xdg	6024fbc93167fad782e2032933654857	gnome2	397207e07bdf58b07ce295d0bc1049fe	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-single-r1	3c5721adc30f98c39739c5970a4762d8
+_md5_=f9fce66dfda3c5c785594c79b4f77b31
