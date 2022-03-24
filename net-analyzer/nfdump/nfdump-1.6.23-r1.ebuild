@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools
+inherit autotools toolchain-funcs
 
 DESCRIPTION="A set of tools to collect and process netflow data"
 HOMEPAGE="https://github.com/phaag/nfdump"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/phaag/nfdump/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug doc jnat ftconv nfpcapd nfprofile nftrack nsel readpcap sflow"
 
 REQUIRED_USE="?? ( jnat nsel )"
@@ -36,9 +36,9 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.6.19-compiler.patch
+	"${FILESDIR}"/${P}-autotools.patch
+	"${FILESDIR}"/${P}-m4-dir-automake.patch
 	"${FILESDIR}"/${PN}-1.6.19-libft.patch
-	"${FILESDIR}"/${PN}-1.6.23-m4-dir.patch
 )
 
 DOCS=( AUTHORS ChangeLog README.md )
@@ -54,6 +54,8 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-export CC
+
 	# --without-ftconf is not handled well, bug #322201
 	econf \
 		$(use ftconv && echo "--enable-ftconv --with-ftpath=/usr") \
