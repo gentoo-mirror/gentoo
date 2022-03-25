@@ -314,6 +314,7 @@ app-containers/lxc:tools - Build and install additional command line tools
 app-containers/lxd:apparmor - Enable AppArmor support
 app-containers/podman:apparmor - Enable AppArmor support.
 app-containers/podman:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
+app-containers/podman:cgroup-hybrid - Default to hybrid (legacy) cgroup hierarchy instead of unified (modern).
 app-containers/podman:fuse - Enables fuse dependencies (fuse-overlayfs is especially useful for rootless mode).
 app-containers/podman:init - Enables catatonit dependency required for podman run --init.
 app-containers/podman:rootless - Enables dependencies for running in rootless mode.
@@ -321,7 +322,6 @@ app-containers/runc:apparmor - Enable AppArmor support.
 app-containers/runc:kmem - Enable Kernel Memory Accounting.
 app-containers/skopeo:btrfs - Enables dependencies for the "btrfs" graph driver.
 app-containers/snapd:apparmor - Enable AppArmor support.
-app-containers/snapd:cgroup-hybrid - Default to hybrid (legacy) cgroup hierarchy instead of unified (modern).
 app-containers/snapd:forced-devmode - Automatically disable application confinement if feature detection fails.
 app-crypt/aespipe:asm - Enable assembly modules
 app-crypt/aespipe:cpu_flags_x86_padlock - Use VIA padlock instructions, detected at run time, code still works on non-padlock processors
