@@ -1,6 +1,6 @@
 BDEPEND=!build? ( sys-apps/sed )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DESCRIPTION=Full Linux 5.4 kernel sources with the CONFIG_PREEMPT_RT patch
+DESCRIPTION=Full Linux 4.19 kernel sources with the CONFIG_PREEMPT_RT patch
 EAPI=8
 HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel https://wiki.linuxfoundation.org/realtime/start
 INHERIT=kernel-2
@@ -9,7 +9,7 @@ KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=5.4.170_p68
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.4.170.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.170-rt68.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.4/older/patch-5.4.170-rt68.patch.xz
+SLOT=4.19.235_p106
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.19.235.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.19/patch-4.19.235-rt106.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.19/older/patch-4.19.235-rt106.patch.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	kernel-2	f9d6a14b50d3be154a492a47c7d341a0
-_md5_=7433e098049f0396cfc033411f0d8182
+_md5_=202aa5da9e26e17e9a804c739b2980e7
