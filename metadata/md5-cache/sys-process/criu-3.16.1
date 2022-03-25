@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://criu.org/ https://github.com/checkpoint-restore/
 INHERIT=toolchain-funcs linux-info python-r1
 IUSE=bpf doc gnutls nftables selinux setproctitle static-libs test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 -riscv
 LICENSE=GPL-2 LGPL-2.1
 RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3= net-libs/libnet:1.1= sys-libs/libcap:= bpf? ( dev-libs/libbpf:= ) gnutls? ( net-libs/gnutls:= ) nftables? ( net-libs/gnutls:= ) selinux? ( sys-libs/libselinux:= ) setproctitle? ( dev-libs/libbsd:= ) dev-python/protobuf-python[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/checkpoint-restore/criu/archive/v3.16.1/criu-3.16.1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-r1	8638751691200e941f26fe0ac3aef1d1
-_md5_=7cebfcd7483b4a8b1cab7ac201483a03
+_md5_=e625459bdae8b32110dcd7521c86ba0a
