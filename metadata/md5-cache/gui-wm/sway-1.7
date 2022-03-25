@@ -1,6 +1,6 @@
 BDEPEND=>=dev-libs/wayland-protocols-1.24 >=dev-util/meson-0.60.0 virtual/pkgconfig man? ( >=app-text/scdoc-1.9.3 ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-libs/json-c-0.13:0= >=dev-libs/libinput-1.6.0:0= sys-auth/seatd:= dev-libs/libpcre >=dev-libs/wayland-1.20.0 x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman media-libs/mesa[gles2,libglvnd(+)] swaybar? ( x11-libs/gdk-pixbuf:2 ) swaybg? ( gui-apps/swaybg ) swayidle? ( gui-apps/swayidle ) swaylock? ( gui-apps/swaylock ) wallpapers? ( x11-libs/gdk-pixbuf:2[jpeg] ) X? ( x11-libs/libxcb:0= ) >=gui-libs/wlroots-0.15:=[X=] <gui-libs/wlroots-0.16:=[X=]
+DEPEND=>=dev-libs/json-c-0.13:0= >=dev-libs/libinput-1.6.0:0= sys-auth/seatd:= dev-libs/libpcre >=dev-libs/wayland-1.20.0 x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman media-libs/mesa[gles2,libglvnd(+)] swaybar? ( x11-libs/gdk-pixbuf:2 ) swaybg? ( gui-apps/swaybg ) swayidle? ( gui-apps/swayidle ) swaylock? ( gui-apps/swaylock ) tray? ( || ( sys-apps/systemd sys-auth/elogind sys-libs/basu ) ) wallpapers? ( x11-libs/gdk-pixbuf:2[jpeg] ) X? ( x11-libs/libxcb:0= ) >=gui-libs/wlroots-0.15:=[X=] <gui-libs/wlroots-0.16:=[X=]
 DESCRIPTION=i3-compatible Wayland window manager
 EAPI=7
 HOMEPAGE=https://swaywm.org
@@ -8,8 +8,8 @@ INHERIT=meson
 IUSE=+man +swaybar +swaybg +swayidle +swaylock +swaymsg +swaynag tray wallpapers X
 KEYWORDS=amd64 arm64 ~ppc64 ~riscv x86
 LICENSE=MIT
-RDEPEND=x11-misc/xkeyboard-config >=dev-libs/json-c-0.13:0= >=dev-libs/libinput-1.6.0:0= sys-auth/seatd:= dev-libs/libpcre >=dev-libs/wayland-1.20.0 x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman media-libs/mesa[gles2,libglvnd(+)] swaybar? ( x11-libs/gdk-pixbuf:2 ) swaybg? ( gui-apps/swaybg ) swayidle? ( gui-apps/swayidle ) swaylock? ( gui-apps/swaylock ) wallpapers? ( x11-libs/gdk-pixbuf:2[jpeg] ) X? ( x11-libs/libxcb:0= ) >=gui-libs/wlroots-0.15:=[X=] <gui-libs/wlroots-0.16:=[X=]
+RDEPEND=x11-misc/xkeyboard-config >=dev-libs/json-c-0.13:0= >=dev-libs/libinput-1.6.0:0= sys-auth/seatd:= dev-libs/libpcre >=dev-libs/wayland-1.20.0 x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman media-libs/mesa[gles2,libglvnd(+)] swaybar? ( x11-libs/gdk-pixbuf:2 ) swaybg? ( gui-apps/swaybg ) swayidle? ( gui-apps/swayidle ) swaylock? ( gui-apps/swaylock ) tray? ( || ( sys-apps/systemd sys-auth/elogind sys-libs/basu ) ) wallpapers? ( x11-libs/gdk-pixbuf:2[jpeg] ) X? ( x11-libs/libxcb:0= ) >=gui-libs/wlroots-0.15:=[X=] <gui-libs/wlroots-0.16:=[X=]
 SLOT=0
 SRC_URI=https://github.com/swaywm/sway/archive/1.7.tar.gz -> sway-1.7.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4
-_md5_=cf3675af338ad7ae7efc39260d34720c
+_md5_=c3f1d73f75c9e03862326b4de3e612ad
