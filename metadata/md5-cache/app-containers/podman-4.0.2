@@ -1,16 +1,16 @@
 BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
 DEFINED_PHASES=compile install postinst preinst prepare unpack
-DEPEND=app-crypt/gpgme:= >=app-containers/conmon-2.0.0 cgroup-hybrid? ( >=app-containers/runc-1.0.0_rc6 ) !cgroup-hybrid? ( app-containers/crun ) dev-libs/libassuan:= dev-libs/libgpg-error:= >=net-misc/cni-plugins-0.8.6 sys-fs/lvm2 sys-libs/libseccomp:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) init? ( app-containers/catatonit ) rootless? ( app-containers/slirp4netns ) selinux? ( sys-libs/libselinux:= ) dev-go/go-md2man
+DEPEND=app-crypt/gpgme:= >=app-containers/conmon-2.0.0 || ( >=app-containers/runc-1.0.0_rc6 app-containers/crun ) dev-libs/libassuan:= dev-libs/libgpg-error:= >=net-misc/cni-plugins-0.8.6 sys-fs/lvm2 sys-libs/libseccomp:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) init? ( app-containers/catatonit ) rootless? ( app-containers/slirp4netns ) selinux? ( sys-libs/libselinux:= ) dev-go/go-md2man
 DESCRIPTION=Library and podman tool for running OCI-based containers in Pods
 EAPI=7
 HOMEPAGE=https://github.com/containers/podman/
 INHERIT=bash-completion-r1 flag-o-matic go-module tmpfiles
-IUSE=apparmor btrfs cgroup-hybrid +fuse +init +rootless selinux
+IUSE=apparmor btrfs +fuse +init +rootless selinux
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0
-RDEPEND=app-crypt/gpgme:= >=app-containers/conmon-2.0.0 cgroup-hybrid? ( >=app-containers/runc-1.0.0_rc6 ) !cgroup-hybrid? ( app-containers/crun ) dev-libs/libassuan:= dev-libs/libgpg-error:= >=net-misc/cni-plugins-0.8.6 sys-fs/lvm2 sys-libs/libseccomp:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) init? ( app-containers/catatonit ) rootless? ( app-containers/slirp4netns ) selinux? ( sys-libs/libselinux:= ) fuse? ( sys-fs/fuse-overlayfs ) virtual/tmpfiles
+RDEPEND=app-crypt/gpgme:= >=app-containers/conmon-2.0.0 || ( >=app-containers/runc-1.0.0_rc6 app-containers/crun ) dev-libs/libassuan:= dev-libs/libgpg-error:= >=net-misc/cni-plugins-0.8.6 sys-fs/lvm2 sys-libs/libseccomp:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) init? ( app-containers/catatonit ) rootless? ( app-containers/slirp4netns ) selinux? ( sys-libs/libselinux:= ) fuse? ( sys-fs/fuse-overlayfs ) virtual/tmpfiles
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/containers/podman/archive/v4.0.2.tar.gz -> podman-4.0.2.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	go-module	3b47b6e0e18257d2abb17663c575fc36	tmpfiles	77e6bbd03f93a72e9b42dd64c3dea92e
-_md5_=d6cb436b904ceec7ffaafc96130e2a86
+_md5_=e9a0fbae77f3cc78660262df5a2d2767
