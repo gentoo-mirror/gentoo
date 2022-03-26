@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module bash-completion-r1
 
-DESCRIPTION="The world's fastest framework for building websites"
+DESCRIPTION="Fast static HTML and CSS website generator"
 HOMEPAGE="https://gohugo.io https://github.com/gohugoio/hugo"
 SRC_URI="
 	https://github.com/gohugoio/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
@@ -20,10 +20,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc +sass"
 
-BDEPEND=">=dev-lang/go-1.16.0"
+BDEPEND=">=dev-lang/go-1.18"
 RDEPEND="
-	media-libs/libwebp
-	sass? ( dev-libs/libsass )
+	media-libs/libwebp:=
+	sass? ( dev-libs/libsass:= )
 "
 DEPEND="${RDEPEND}"
 
@@ -43,9 +43,9 @@ src_compile() {
 	mkdir -pv bin || die
 	local my_import_path="github.com/gohugoio/hugo/common"
 	local mybuildtags="-tags $(usev sass "extended,")nodeploy"
-	go build -ldflags \
+	ego build -ldflags \
 		"-X ${my_import_path}/hugo.buildDate=$(date --iso-8601=seconds) -X ${my_import_path}/hugo.vendorInfo=Gentoo" \
-		${mybuildtags} -o "${S}/bin/hugo" || die
+		${mybuildtags} -o "${S}/bin/hugo"
 
 	bin/hugo gen man --dir man || die
 
