@@ -1,0 +1,17 @@
+BDEPEND=virtual/fortran virtual/pkgconfig test? ( sci-libs/coinor-sample ) doc? ( app-doc/doxygen media-gfx/graphviz )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps[mpi?] ) sparse? ( sci-libs/cholmod )
+DESCRIPTION=COIN-OR linear programming solver
+EAPI=8
+HOMEPAGE=https://github.com/coin-or/Clp
+INHERIT=docs toolchain-funcs
+IUSE=examples glpk metis mpi mumps sparse static-libs test doc
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=EPL-1.0
+RDEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps[mpi?] ) sparse? ( sci-libs/cholmod )
+REQUIRED_USE=mpi? ( mumps )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz -> coinor-clp-1.17.6.tar.gz
+_eclasses_=docs	8ed2a8a28ff109e7a3582c9abb7fe327	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_md5_=990fd5fe53a2108148900ffc31960b3f
