@@ -32,3 +32,5 @@ DEPEND="
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-KDEBUG-444378.patch" )

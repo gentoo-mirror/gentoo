@@ -40,6 +40,8 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${PVCUT}:5
 "
 
+PATCHES=( "${FILESDIR}/${P}-KDEBUG-451165.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package opds KF5Syndication)
