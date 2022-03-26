@@ -4,11 +4,11 @@ DESCRIPTION=Multi-container orchestration for Docker
 EAPI=8
 HOMEPAGE=https://github.com/docker/compose
 INHERIT=bash-completion-r1 go-module
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0
 RDEPEND=>=app-containers/docker-cli-20.10.3
 RESTRICT=strip
 SLOT=2
 SRC_URI=https://github.com/docker/compose/archive/v2.3.3.tar.gz -> docker-compose-2.3.3.tar.gz https://dev.gentoo.org/~williamh/dist/docker-compose-2.3.3-deps.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	3b47b6e0e18257d2abb17663c575fc36
-_md5_=3cb8fe47b468979d9c615aae8b1ee5f0
+_md5_=014af38048504c717856e7349868cbba
