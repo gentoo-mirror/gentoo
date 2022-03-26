@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/cglib/cglib
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=examples source test
-KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* dev-java/ant-core:0 dev-java/asm:9 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=3
 SRC_URI=https://github.com/cglib/cglib/archive//RELEASE_3_3_0.tar.gz -> cglib-RELEASE_3_3_0.tar.gz
 _eclasses_=java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	8a2b8811bad7877b5ec349bddeceabb6
-_md5_=4efd6da8441105f707bc74f2ef9640f4
+_md5_=ce17e92c57e18188a5d7ac54ab915579
