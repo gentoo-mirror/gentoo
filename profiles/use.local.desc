@@ -308,6 +308,7 @@ app-containers/lxc:tools - Build and install additional command line tools
 app-containers/lxd:apparmor - Enable AppArmor support
 app-containers/podman:apparmor - Enable AppArmor support.
 app-containers/podman:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
+app-containers/podman:cgroup-hybrid - Default to hybrid (legacy) cgroup hierarchy instead of unified (modern).
 app-containers/podman:fuse - Enables fuse dependencies (fuse-overlayfs is especially useful for rootless mode).
 app-containers/podman:init - Enables catatonit dependency required for podman run --init.
 app-containers/podman:rootless - Enables dependencies for running in rootless mode.
@@ -905,7 +906,6 @@ app-misc/skim:tmux - Install sk-tmux script to run skim in a tmux pane
 app-misc/skim:vim - Install vim plugin for skim
 app-misc/sphinx:id64 - use 64-bit document and word IDs
 app-misc/sphinx:mariadb - Add mariadb database support
-app-misc/sphinx:re2 - use the dev-libs/re2 regular expression library
 app-misc/sphinx:stemmer - Enable language stemming support
 app-misc/task:sync - Enable "task sync" support
 app-misc/tmux:utempter - Include libutempter support
