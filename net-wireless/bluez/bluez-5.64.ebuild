@@ -72,14 +72,6 @@ PATCHES=(
 	# Fedora patches
 	# http://www.spinics.net/lists/linux-bluetooth/msg40136.html
 	"${FILESDIR}"/0001-obex-Use-GLib-helper-function-to-manipulate-paths.patch
-
-	# This reverts commit ac2c2e10b3adb432a572b618c6f53cabb6b3c80b. It
-	# causes problems with Logitech MX wireless input devices (see
-	# https://github.com/bluez/bluez/issues/220 )
-	#"${FILESDIR}"/0001-Revert-attrib-Make-use-of-bt_att_resend.patch
-	# Instead of reverting, try another fix that seems to work as
-	# reported in upstream bug
-	"${FILESDIR}"/${PN}-5.63-use-queue_push_tail.patch
 )
 
 pkg_setup() {
@@ -112,9 +104,6 @@ pkg_setup() {
 
 src_prepare() {
 	default
-
-	# Skip test failing due to fixes for https://github.com/bluez/bluez/issues/220
-	sed -i -e 's:unit_tests += unit/test-hog::' Makefile.am || die
 
 	# http://www.spinics.net/lists/linux-bluetooth/msg38490.html
 	if ! use systemd; then
