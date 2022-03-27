@@ -1,0 +1,15 @@
+BDEPEND=dev-go/gox >=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst test unpack
+DEPEND=acct-group/gitlab-runner acct-user/gitlab-runner
+DESCRIPTION=The official GitLab Runner, written in Go
+EAPI=8
+HOMEPAGE=https://gitlab.com/gitlab-org/gitlab-runner
+INHERIT=go-module systemd tmpfiles
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=acct-group/gitlab-runner acct-user/gitlab-runner virtual/tmpfiles
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://gitlab.com/gitlab-org/gitlab-runner/-/archive/v14.9.1/gitlab-runner-v14.9.1.tar.gz -> gitlab-runner-14.9.1.tar.gz https://dev.gentoo.org/~williamh/dist/gitlab-runner-14.9.1-deps.tar.xz
+_eclasses_=go-module	3b47b6e0e18257d2abb17663c575fc36	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=777a8b2ad7104e17f1b917c642fdc228
