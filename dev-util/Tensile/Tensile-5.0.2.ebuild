@@ -9,7 +9,8 @@ inherit distutils-r1 prefix
 
 DESCRIPTION="Stretching GPU performance for GEMMs and tensor contractions"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/Tensile"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz
+		https://github.com/littlewu2508/littlewu2508.github.io/raw/main/gentoo-distfiles/${P}-PR1419.patch.gz"
 S="${WORKDIR}/${PN}-rocm-${PV}"
 
 LICENSE="MIT"
@@ -29,15 +30,17 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-4.3.0-output-commands.patch
-		  "${FILESDIR}"/${PN}-4.3.0-hsaco-compile-specified-arch.patch
-		  "${FILESDIR}"/${PN}-4.3.0-gfx1031.patch
-		  "${FILESDIR}"/${PN}-4.3.0-fix-arch-parse.patch
-		  "${FILESDIR}"/${PN}-4.3.0-use-ninja.patch
+		  "${FILESDIR}"/${PN}-5.0.2-gfx1031.patch
+		  "${FILESDIR}"/${PN}-5.0.2-fix-arch-parse.patch
+		  "${FILESDIR}"/${PN}-5.0.2-use-ninja.patch
+		  "${WORKDIR}"/${PN}-5.0.2-PR1419.patch
 	  )
+
+CMAKE_USE_DIR="${WORKDIR}/Source"
 
 src_prepare() {
 	distutils-r1_src_prepare
-	eapply $(prefixify_ro "${FILESDIR}"/${PN}-4.3.0-gentoopath.patch)
+	eapply $(prefixify_ro "${FILESDIR}"/${PN}-5.0.2-gentoopath.patch)
 
 	pushd ${PN} || die
 
@@ -49,15 +52,9 @@ src_prepare() {
 	sed -e "s,\${Tensile_ROOT}/bin/,,g" -i Source/TensileCreateLibrary.cmake cmake/TensileConfig.cmake || die # ${Tensile_ROOT}/bin does not exists; call command directly
 
 	local Tensile_share_dir="\"${EPREFIX}/usr/share/${PN}\""
-	sed -e "/HipClangVersion/s/0,0,0/$(hipconfig -v)/" \
-		-e "/SourcePath/s,globalParameters\[\"ScriptPath\"\],${Tensile_share_dir}," \
-		-i Common.py || die
+	sed -e "/HipClangVersion/s/0,0,0/$(hipconfig -v)/" -i Common.py || die
 
-	sed  -e "/CMAKE_CXX_COMPILER/s,globalParameters\[\"ROCmBinPath\"\],\"${EPREFIX}/usr/lib/hip/bin\"," -i ClientExecutable.py || die
-
-	sed -e "/scriptDir/s,os.path.dirname(os.path.realpath(__file__)),${Tensile_share_dir}," -i ReplacementKernels.py || die
-
-	sed -e "s,os.path.dirname(os.path.realpath(__file__)),${Tensile_share_dir},g" -i ${PN}.py || die
+	sed -e "s,os.path.dirname(os.path.realpath(__file__)),${Tensile_share_dir},g" -i ReplacementKernels.py Common.py ${PN}.py || die
 
 	sed -e "s|os\.path\.dirname.*$|\"${EPREFIX}/usr/share/Tensile/Source\", end='')|" -i __init__.py || die
 
@@ -80,7 +77,7 @@ src_install() {
 
 	pushd ${PN} || die
 	insinto /usr/share/${PN}
-	doins -r Configs Perf ReplacementKernels ReplacementKernels-cov3 Source
+	doins -r Configs Perf ReplacementKernels ReplacementKernels-cov3 Source CustomKernels
 	insinto /usr/$(get_libdir)/cmake/${PN}
 	doins cmake/*.cmake
 }
