@@ -3,16 +3,11 @@
 
 EAPI=8
 
-inherit flag-o-matic
+inherit autotools flag-o-matic
 
 MY_P="${P/_/-}"
-if [[ ${PV} = *9999* ]]; then
-	inherit autotools git-r3
-	EGIT_REPO_URI="https://github.com/MidnightCommander/mc.git"
-else
-	SRC_URI="http://ftp.midnight-commander.org/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x86-solaris"
-fi
+SRC_URI="http://ftp.midnight-commander.org/${MY_P}.tar.xz"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x86-solaris"
 
 DESCRIPTION="GNU Midnight Commander is a text based file manager"
 HOMEPAGE="https://midnight-commander.org"
@@ -23,18 +18,22 @@ IUSE="+edit gpm nls sftp +slang spell test unicode X"
 
 REQUIRED_USE="spell? ( edit )"
 
-RDEPEND=">=dev-libs/glib-2.30.0:2
+RDEPEND="
+	>=dev-libs/glib-2.30.0:2
 	gpm? ( sys-libs/gpm )
 	kernel_linux? ( sys-fs/e2fsprogs )
 	sftp? ( net-libs/libssh2 )
 	slang? ( >=sys-libs/slang-2 )
 	!slang? ( sys-libs/ncurses:=[unicode(+)?] )
 	spell? ( app-text/aspell )
-	X? ( x11-libs/libX11
+	X? (
+		x11-libs/libX11
 		x11-libs/libICE
 		x11-libs/libXau
 		x11-libs/libXdmcp
-		x11-libs/libSM )"
+		x11-libs/libSM
+	)
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/xz-utils
@@ -47,6 +46,10 @@ RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/${MY_P}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.8.26-ncurses-mouse.patch
+)
+
 pkg_pretend() {
 	if use slang && use unicode ; then
 		ewarn "\"unicode\" USE flag only takes effect when the \"slang\" USE flag is disabled."
@@ -55,16 +58,8 @@ pkg_pretend() {
 
 src_prepare() {
 	default
-
-	if [[ ${PV} == *9999* ]] ; then
-		eautoreconf
-		# taken from autogen.sh script
-		xgettext --keyword=_ --keyword=N_ --keyword=Q_ --output=- \
-			$(find . -name '*.[ch]') | sed -ne '/^#:/{s/#://;s/:[0-9]*/\
-			  /g;s/ //g;p;}' | grep -v '^$' | sort | uniq > po/POTFILES.in \
-			  || die
-		./version.sh ${S} || die
-	fi
+	# patch touches configure.ac
+	eautoreconf
 }
 
 src_configure() {
