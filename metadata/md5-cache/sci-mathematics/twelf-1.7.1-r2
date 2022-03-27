@@ -1,9 +1,9 @@
 DEFINED_PHASES=compile install postinst postrm prepare
 DEPEND=>=dev-lang/mlton-20180207 doc? ( virtual/latex-base app-text/texi2html ) emacs? ( >=app-editors/emacs-23.1:* )
 DESCRIPTION=Implementation of the logical framework LF
-EAPI=6
+EAPI=8
 HOMEPAGE=http://twelf.org/
-INHERIT=elisp-common multilib
+INHERIT=elisp-common
 IUSE=doc emacs examples
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
@@ -11,5 +11,5 @@ RDEPEND=>=dev-lang/mlton-20180207 doc? ( virtual/latex-base app-text/texi2html )
 RESTRICT=test
 SLOT=0/1.7.1
 SRC_URI=http://twelf.plparty.org/releases/twelf-src-1.7.1.tar.gz
-_eclasses_=eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	elisp-common	f9c72486dbcb18b633c9d0949211d86e	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8
-_md5_=3f74bd2a1cb3329163c5601478e0df0a
+_eclasses_=elisp-common	f9c72486dbcb18b633c9d0949211d86e
+_md5_=71800e353bd7603fad6982201a69f30a
