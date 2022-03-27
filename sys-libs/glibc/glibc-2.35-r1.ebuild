@@ -20,7 +20,7 @@ SLOT="2.2"
 EMULTILIB_PKG="true"
 
 # Gentoo patchset (ignored for live ebuilds)
-PATCH_VER=3
+PATCH_VER=4
 PATCH_DEV=dilfridge
 
 if [[ ${PV} == 9999* ]]; then
@@ -859,9 +859,6 @@ src_prepare() {
 		eapply "${WORKDIR}"/patches
 		einfo "Done."
 	fi
-
-	# TODO: We can drop this once patch is gone from our patchset
-	append-cppflags -DGENTOO_USE_CLONE3
 
 	default
 
