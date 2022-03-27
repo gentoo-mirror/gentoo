@@ -7,11 +7,11 @@ HOMEPAGE=https://www.scribus.net/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake desktop flag-o-matic python-single-r1 xdg
 IUSE=+boost debug examples graphicsmagick hunspell +minimal osg +pdf scripts +templates tk python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=amd64 ppc ~ppc64 x86
+KEYWORDS=amd64 ppc ppc64 x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[tk?] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[tk?] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[tk?] ) app-text/libmspub app-text/libqxp app-text/poppler:= dev-libs/hyphen dev-libs/icu:0= dev-libs/librevenge dev-libs/libxml2 dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:0=[icu] media-libs/lcms:2 media-libs/libcdr media-libs/libfreehand media-libs/libpagemaker media-libs/libpng:0= media-libs/libvisio media-libs/libzmf media-libs/tiff:0 net-print/cups sys-libs/zlib[minizip] virtual/jpeg:0= x11-libs/cairo[X,svg] boost? ( dev-libs/boost:= ) graphicsmagick? ( media-gfx/graphicsmagick:= ) hunspell? ( app-text/hunspell:= ) osg? ( dev-games/openscenegraph:= ) pdf? ( app-text/podofo:0= ) scripts? ( python_single_target_python3_8? ( dev-python/pillow[tk?,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pillow[tk?,python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pillow[tk?,python_targets_python3_10(-)] ) ) app-text/ghostscript-gpl
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) tk? ( scripts )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/scribus/scribus-devel/1.5.8/scribus-1.5.8.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	desktop	c0d27bf73aa08ca05b663dbd31fbef28	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg	6024fbc93167fad782e2032933654857
-_md5_=2398121a62b3e09efcac05e9d15ded0f
+_md5_=9c055c4672f984f29ea486bc73c73a32
