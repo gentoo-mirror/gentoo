@@ -1,6 +1,6 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-util/rocminfo:0/5.0 =sys-devel/llvm-roc-5.0.2*[runtime] dev-libs/rocm-comgr:0/5.0
+DEPEND=dev-util/rocminfo:0/5.0 =sys-devel/llvm-roc-5.0.2*[runtime] dev-libs/rocm-comgr:0/5.0 virtual/opengl
 DESCRIPTION=C++ Heterogeneous-Compute Interface for Portability
 EAPI=8
 HOMEPAGE=https://github.com/ROCm-Developer-Tools/hipamd
@@ -8,8 +8,8 @@ INHERIT=cmake prefix
 IUSE=debug profile
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-util/rocminfo:0/5.0 =sys-devel/llvm-roc-5.0.2*[runtime] dev-libs/rocm-comgr:0/5.0 dev-perl/URI-Encode dev-libs/roct-thunk-interface:0/5.0
+RDEPEND=dev-util/rocminfo:0/5.0 =sys-devel/llvm-roc-5.0.2*[runtime] dev-libs/rocm-comgr:0/5.0 virtual/opengl dev-perl/URI-Encode dev-libs/roct-thunk-interface:0/5.0
 SLOT=0/5.0
 SRC_URI=https://github.com/ROCm-Developer-Tools/hipamd/archive/rocm-5.0.2.tar.gz -> rocm-hipamd-5.0.2.tar.gz https://github.com/ROCm-Developer-Tools/HIP/archive/rocm-5.0.2.tar.gz -> rocm-hip-5.0.2.tar.gz https://github.com/ROCm-Developer-Tools/ROCclr/archive/rocm-5.0.2.tar.gz -> rocclr-5.0.2.tar.gz https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/rocm-5.0.2.tar.gz -> rocm-opencl-runtime-5.0.2.tar.gz profile? ( https://github.com/ROCm-Developer-Tools/roctracer/archive/refs/tags/rocm-5.0.2.tar.gz -> rocm-tracer-5.0.2.tar.gz https://github.com/ROCm-Developer-Tools/hipamd/files/8311148/hip_prof_str_diff.gz -> 5.0.2-update-header.patch.gz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=4a2d30f1f4a4c0893537d3e39bced1a4
+_md5_=fb459f8b18ead3f5da9fb4dbc2389263
