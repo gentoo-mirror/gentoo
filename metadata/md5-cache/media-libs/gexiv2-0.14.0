@@ -2,7 +2,7 @@ BDEPEND=dev-util/glib-utils gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=media-gfx/exiv2-0.26:= >=dev-libs/glib-2.46.0:2 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=GObject-based wrapper around the Exiv2 library
-EAPI=7
+EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/gexiv2
 INHERIT=meson python-r1 vala
 IUSE=gtk-doc +introspection python static-libs test +vala python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
@@ -12,6 +12,6 @@ RDEPEND=>=media-gfx/exiv2-0.26:= >=dev-libs/glib-2.46.0:2 introspection? ( >=dev
 REQUIRED_USE=python? ( introspection || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) test? ( python introspection ) vala? ( introspection )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://gnome/sources/gexiv2/0.13/gexiv2-0.13.0.tar.xz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	90ec077adb232bf2b37ddedde0146a60
-_md5_=251be0abe3aae305688d3b98ce1ca541
+SRC_URI=mirror://gnome/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1	vala	90ec077adb232bf2b37ddedde0146a60
+_md5_=9db12e4efb035105eaa3bb699b1ed4e0
