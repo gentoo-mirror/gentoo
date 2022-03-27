@@ -24,6 +24,7 @@ DEPEND="
 	dev-util/rocminfo:${SLOT}
 	=sys-devel/llvm-roc-${PV}*[runtime]
 	dev-libs/rocm-comgr:${SLOT}
+	virtual/opengl
 "
 RDEPEND="${DEPEND}
 	dev-perl/URI-Encode
