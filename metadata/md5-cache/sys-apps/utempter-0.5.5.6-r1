@@ -1,0 +1,13 @@
+BDEPEND=acct-group/utmp app-arch/rpm2targz
+DEFINED_PHASES=install prepare unpack
+DESCRIPTION=App that allows non-privileged apps to write utmp (login) info
+EAPI=8
+HOMEPAGE=https://www.redhat.com/
+INHERIT=flag-o-matic rpm toolchain-funcs
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=|| ( MIT LGPL-2 )
+RDEPEND=acct-group/utmp !sys-libs/libutempter
+SLOT=0
+SRC_URI=mirror://gentoo/utempter-0.5.5-6.src.rpm
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0
+_md5_=643696f608ab656a1d382c83731cc4fa
