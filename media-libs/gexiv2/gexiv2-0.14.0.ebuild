@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -32,22 +32,30 @@ RDEPEND="
 	>=media-gfx/exiv2-0.26:=
 	>=dev-libs/glib-2.46.0:2
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
-	python? ( ${PYTHON_DEPS}
-		dev-python/pygobject:3[${PYTHON_USEDEP}] )
+	python? (
+		${PYTHON_DEPS}
+		dev-python/pygobject:3[${PYTHON_USEDEP}]
+	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/glib-utils
-	gtk-doc? ( dev-util/gtk-doc
-		app-text/docbook-xml-dtd:4.3 )
+	gtk-doc? (
+		dev-util/gtk-doc
+		app-text/docbook-xml-dtd:4.3
+	)
 	test? ( media-gfx/exiv2[xmp] )
 	virtual/pkgconfig
 	vala? ( $(vala_depend) )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PV}-clean-up-python-support.patch
+)
+
 src_prepare() {
 	default
-	use vala && vala_src_prepare
+	use vala && vala_setup
 }
 
 src_configure() {
