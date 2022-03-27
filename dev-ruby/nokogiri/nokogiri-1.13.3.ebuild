@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby26 ruby27 ruby30"
+USE_RUBY="ruby26 ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md ROADMAP.md SECURITY.md"
 
@@ -37,7 +37,6 @@ ruby_add_rdepend ">=dev-ruby/racc-1.4:0"
 
 ruby_add_bdepend "
 	dev-ruby/mini_portile2:2.8
-	>=dev-ruby/pkg-config-1.1.7
 	>=dev-ruby/rexical-1.0.7
 	dev-ruby/rdoc
 	test? ( dev-ruby/minitest )"

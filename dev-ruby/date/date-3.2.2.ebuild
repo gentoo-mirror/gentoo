@@ -5,15 +5,15 @@ EAPI=8
 USE_RUBY="ruby26 ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_BINWRAP=""
-RUBY_FAKEGEM_EXTENSIONS="ext/io/wait/extconf.rb"
+RUBY_FAKEGEM_EXTENSIONS=(ext/date/extconf.rb)
 RUBY_FAKEGEM_EXTRADOC="README.md"
-RUBY_FAKEGEM_GEMSPEC="io-wait.gemspec"
+RUBY_FAKEGEM_GEMSPEC="date.gemspec"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Waits until IO is readable or writable without blocking"
-HOMEPAGE="https://github.com/ruby/io-wait"
-SRC_URI="https://github.com/ruby/io-wait/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="A subclass of Object includes Comparable module for handling dates"
+HOMEPAGE="https://github.com/ruby/date"
+SRC_URI="https://github.com/ruby/date/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -21,10 +21,10 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc 
 IUSE=""
 
 all_ruby_prepare() {
-	sed -e 's/__FILE__/"'${RUBY_FAKEGEM_GEMSPEC}'"/' \
+	sed -e 's/__dir__/"."/' \
+		-e 's/__FILE__/"'${RUBY_FAKEGEM_GEMSPEC}'"/' \
 		-e 's/git ls-files -z/find * -print0/' \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
-	sed -e '/task :test/ s:^:#:' -i Rakefile || die
 }
 
 each_ruby_test() {
