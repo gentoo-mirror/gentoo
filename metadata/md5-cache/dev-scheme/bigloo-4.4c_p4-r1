@@ -1,5 +1,5 @@
 BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) sys-apps/texinfo
-DEFINED_PHASES=compile configure install postinst postrm test
+DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=dev-libs/boehm-gc[threads] dev-libs/libpcre2:= dev-libs/libunistring:= dev-libs/openssl:= alsa? ( media-libs/alsa-lib ) avahi? ( net-dns/avahi ) flac? ( media-libs/flac ) gmp? ( dev-libs/gmp:= ) gpg? ( app-crypt/gnupg ) gstreamer? ( media-libs/gst-plugins-base:1.0= media-libs/gstreamer:1.0= ) java? ( virtual/jdk:* ) libuv? ( dev-libs/libuv:= ) mp3? ( media-sound/mpg123 ) pulseaudio? ( media-sound/pulseaudio ) sqlite? ( dev-db/sqlite:3= )
 DESCRIPTION=Practical Scheme Compiler with many extensions
 EAPI=8
@@ -13,4 +13,4 @@ REQUIRED_USE=flac? ( alsa ) mp3? ( alsa )
 SLOT=0
 SRC_URI=ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-4.tar.gz
 _eclasses_=elisp-common	f9c72486dbcb18b633c9d0949211d86e	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=4c727f2087c48833a5f7258f19a6e540
+_md5_=5ea5c3b7f19fcbddbb4b8a12bc397818
