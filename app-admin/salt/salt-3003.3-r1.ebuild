@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 PYTHON_COMPAT=( python3_{7..9} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+
 inherit systemd distutils-r1
 
 DESCRIPTION="Salt is a remote execution and configuration manager"
@@ -91,6 +91,7 @@ BDEPEND="
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
 		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/libcloud[${PYTHON_USEDEP}]
+		net-dns/bind-tools
 		>=dev-python/virtualenv-20.0.20[${PYTHON_USEDEP}]
 		!x86? ( >=dev-python/boto3-1.3.15[${PYTHON_USEDEP}] )
 	)"
@@ -105,8 +106,9 @@ PATCHES=(
 	"${FILESDIR}/salt-3003-skip-tests-that-oom-machine.patch"
 	"${FILESDIR}/salt-3003-gentoolkit-revdep.patch"
 	"${FILESDIR}/salt-3002-tests.patch"
-	"${FILESDIR}/salt-3003-tests.patch"
+	"${FILESDIR}/salt-3003.3-tests.patch"
 	"${FILESDIR}/salt-3003.1-tests.patch"
+	"${FILESDIR}/salt-3003.3-jinja.patch"
 )
 
 python_prepare_all() {
