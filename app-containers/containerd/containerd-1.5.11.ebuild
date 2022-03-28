@@ -1,8 +1,8 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-GIT_REVISION=1407cab509ff0d96baa4f0eb6ff9980270e6e620
+EAPI=8
+GIT_REVISION=3df54a852345ae127d1fa3092b95168e4a88e2f8
 inherit go-module systemd
 
 DESCRIPTION="A daemon to control runC"
@@ -25,9 +25,7 @@ RDEPEND="
 	~app-containers/runc-1.0.3
 "
 
-# bug #835367 for Go < 1.18 dep
 BDEPEND="
-	<dev-lang/go-1.18
 	dev-go/go-md2man
 	virtual/pkgconfig
 "
