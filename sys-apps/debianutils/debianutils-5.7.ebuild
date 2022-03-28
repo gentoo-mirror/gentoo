@@ -1,13 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit flag-o-matic
+inherit autotools flag-o-matic
 
 DESCRIPTION="A selection of tools from Debian"
 HOMEPAGE="https://packages.qa.debian.org/d/debianutils.html"
-SRC_URI="mirror://debian/pool/main/d/${PN}/${PN}_${PV}.orig.tar.xz"
+SRC_URI="mirror://debian/pool/main/d/${PN}/${PN}_${PV}.orig.tar.gz"
 
 LICENSE="BSD GPL-2 SMAIL"
 SLOT="0"
@@ -22,9 +22,15 @@ PDEPEND="
 		)
 	)"
 
-#S="${WORKDIR}/${PN}"
-
 PATCHES=( "${FILESDIR}"/${PN}-3.4.2-no-bs-namespace.patch )
+
+src_prepare() {
+	# Avoid adding po4a dependency, upstream refreshes manpages.
+	sed -i -e '/SUBDIRS/s|po4a||' Makefile.am || die
+
+	default
+	eautoreconf
+}
 
 src_configure() {
 	use static && append-ldflags -static
