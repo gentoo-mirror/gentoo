@@ -1,11 +1,9 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install
 DESCRIPTION=Spectre & Meltdown vulnerability/mitigation checker for Linux
 EAPI=8
 HOMEPAGE=https://github.com/speed47/spectre-meltdown-checker
-INHERIT=git-r3
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://github.com/speed47/spectre-meltdown-checker/archive/v0.45.tar.gz -> spectre-meltdown-checker-0.45.tar.gz
 _md5_=d17ac1d9585af60d9b24a0279c9f40dd
