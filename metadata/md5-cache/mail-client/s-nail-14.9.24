@@ -1,0 +1,15 @@
+BDEPEND=app-arch/xz-utils[extra-filters(-)] virtual/awk
+DEFINED_PHASES=compile configure install
+DEPEND=sys-libs/ncurses:0= virtual/libiconv idn? ( net-dns/libidn2 ) net? ( ssl? ( dev-libs/openssl:0= ) kerberos? ( virtual/krb5 ) ) !mail-client/mailx !net-mail/mailutils !mail-client/nail
+DESCRIPTION=Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
+EAPI=8
+HOMEPAGE=https://www.sdaoden.eu/code.html
+INHERIT=toolchain-funcs
+IUSE=idn kerberos net ssl
+KEYWORDS=~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD BSD-4 ISC RSA
+RDEPEND=sys-libs/ncurses:0= virtual/libiconv idn? ( net-dns/libidn2 ) net? ( ssl? ( dev-libs/openssl:0= ) kerberos? ( virtual/krb5 ) ) !mail-client/mailx !net-mail/mailutils !mail-client/nail
+SLOT=0
+SRC_URI=https://ftp.sdaoden.eu/s-nail-14.9.24.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_md5_=8395287ca4a240f895788b381bafda77
