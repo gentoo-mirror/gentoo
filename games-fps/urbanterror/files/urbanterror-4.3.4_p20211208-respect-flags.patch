@@ -1,21 +1,7 @@
-Author: Nils Freydank <holgersson@posteo.de>
-Date:   Fri Nov 17 20:30:00 2017 +0100
-
-Respect CFLAGS, CPPFLAGS etc. This patch is inspired
-by hasufell’s patch.
-
-Edit 2018-03-19: Now with server support!
-Edit 2018-09-01: Update to take Makefile changes into account.
-
---- a/Makefile	2018-07-08 11:00:00.000000000 +0200
-+++ b/Makefile	2018-09-01 11:00:00.000000001 +0200
-@@ -308,34 +308,33 @@
- CLIENT_EXTRA_FILES=
- 
- ifneq (,$(findstring "$(PLATFORM)", "linux" "gnu_kfreebsd" "kfreebsd-gnu" "gnu"))
--  BASE_CFLAGS = -Wall -fno-strict-aliasing -Wimplicit -Wstrict-prototypes \
--    -pipe -DUSE_ICON -DARCH_STRING=\\\"$(ARCH)\\\"
-+  BASE_CFLAGS = -DUSE_ICON -DARCH_STRING=\\\"$(ARCH)\\\"
+--- a/Makefile
++++ b/Makefile
+@@ -322,30 +322,30 @@ ifneq (,$(findstring "$(PLATFORM)", "linux" "gnu_kfreebsd" "kfreebsd-gnu" "gnu")
+     -pipe -DUSE_ICON -DARCH_STRING=\\\"$(ARCH)\\\"
    CLIENT_CFLAGS += $(SDL_CFLAGS)
  
 -  OPTIMIZEVM = -O3
@@ -55,7 +41,7 @@ Edit 2018-09-01: Update to take Makefile changes into account.
      HAVE_VM_COMPILED=true
    endif
    ifeq ($(ARCH),armv7l)
-@@ -1143,7 +1142,7 @@
+@@ -1153,7 +1153,7 @@ endif
  
  define DO_CC
  $(echo_cmd) "CC $<"
@@ -64,7 +50,7 @@ Edit 2018-09-01: Update to take Makefile changes into account.
  endef
  
  define DO_CC_ALTIVEC
-@@ -1153,7 +1152,7 @@
+@@ -1163,7 +1163,7 @@ endef
  
  define DO_REF_CC
  $(echo_cmd) "REF_CC $<"
@@ -73,7 +59,7 @@ Edit 2018-09-01: Update to take Makefile changes into account.
  endef
  
  define DO_REF_CC_ALTIVEC
-@@ -1171,7 +1170,7 @@
+@@ -1181,7 +1181,7 @@ endef
  
  define DO_BOT_CC
  $(echo_cmd) "BOT_CC $<"
@@ -82,7 +68,7 @@ Edit 2018-09-01: Update to take Makefile changes into account.
  endef
  
  ifeq ($(GENERATE_DEPENDENCIES),1)
-@@ -1185,7 +1184,7 @@
+@@ -1195,7 +1195,7 @@ endef
  
  define DO_DED_CC
  $(echo_cmd) "DED_CC $<"
@@ -91,4 +77,3 @@ Edit 2018-09-01: Update to take Makefile changes into account.
  endef
  
  define DO_WINDRES
-

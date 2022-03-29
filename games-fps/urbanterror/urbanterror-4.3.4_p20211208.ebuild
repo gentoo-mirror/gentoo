@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit desktop flag-o-matic toolchain-funcs xdg-utils
 
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/mickael9/ioq3.git"
 	EGIT_BRANCH="urt"
 else
-	COMMIT_ID="0429c03056720523d27ca71d5a4aa3e8d00709e7"
+	COMMIT_ID="c988f7669bd70b59beb384563d4c8304062ae011"
 	SRC_URI="https://github.com/mickael9/ioq3/archive/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/ioq3-${COMMIT_ID}"
 	KEYWORDS="~amd64 ~x86"
@@ -22,27 +22,31 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+altgamma +client +curl debug mumble openal +opus server +skeetshootmod voip vorbis"
-REQUIRED_USE="|| ( client server )
-		voip? ( opus )"
+REQUIRED_USE="
+	|| ( client server )
+	voip? ( opus )
+"
 
 DOCS=( ChangeLog README.md README.ioq3.md md4-readme.txt )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.3.4_p20180708-fix-build_system.patch
+	"${FILESDIR}"/${PN}-4.3.4_p20211208-respect-flags.patch
 )
 
 RDEPEND="
 	client? (
-		media-libs/libsdl2:=[X,sound,joystick,opengl,video]
+		media-libs/libsdl2[X,sound,joystick,opengl,video]
 		mumble? ( media-sound/mumble:= )
 		openal? ( media-libs/openal:= )
-		opus? ( media-libs/opusfile:= )
-		vorbis? ( media-libs/libvorbis:= )
+		opus? ( media-libs/opusfile )
+		vorbis? ( media-libs/libvorbis )
 	)
 	curl? ( net-misc/curl )
 	~games-fps/urbanterror-data-4.3.4
 	sys-libs/zlib:=[minizip]
 	virtual/jpeg:0
+	x11-libs/libX11
+	x11-libs/libXxf86vm
 "
 
 DEPEND="${RDEPEND}"
@@ -57,9 +61,8 @@ pkg_pretend() {
 }
 
 src_configure() {
-	default
-
 	tc-export CC
+	default
 }
 
 src_compile() {
