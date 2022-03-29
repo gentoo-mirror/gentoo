@@ -13,7 +13,7 @@ SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="debug dnstap snmp sodium systemd test"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
@@ -23,6 +23,10 @@ DEPEND="${LUA_DEPS}
 	systemd? ( sys-apps/systemd:0= )
 	snmp? ( net-analyzer/net-snmp )
 	sodium? ( dev-libs/libsodium:= )
+	elibc_glibc? (
+		arm? ( >=sys-libs/glibc-2.34 )
+		x86? ( >=sys-libs/glibc-2.34 )
+	)
 	dev-libs/openssl:=
 	>=dev-libs/boost-1.35:="
 RDEPEND="${DEPEND}
