@@ -1,21 +1,20 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MODULES_OPTIONAL_USE="driver"
 inherit desktop flag-o-matic linux-mod multilib readme.gentoo-r1 \
 	systemd toolchain-funcs unpacker
 
 NV_KERNEL_MAX="5.15"
-NV_URI="https://download.nvidia.com/XFree86/"
-NV_PIN="470.86"
+NV_PIN="470.103.01"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://developer.nvidia.com/vulkan-driver"
 SRC_URI="
 	https://developer.nvidia.com/vulkan-beta-${PV//.}-linux -> NVIDIA-Linux-x86_64-${PV}.run
-	$(printf "${NV_URI}%s/%s-${NV_PIN}.tar.bz2 " \
+	$(printf "https://download.nvidia.com/XFree86/%s/%s-${NV_PIN}.tar.bz2 " \
 		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})"
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S="${WORKDIR}"
@@ -213,18 +212,18 @@ src_install() {
 
 	local skip_files=(
 		# nvidia_icd/layers(vulkan): skip with -X too as it uses libGLX_nvidia
-		$(usex X '' '
+		$(usev !X "
 			libGLX_nvidia libglxserver_nvidia
 			libnvidia-ifr
-			nvidia_icd.json nvidia_layers.json')
-		$(usex wayland '' 'libnvidia-vulkan-producer')
+			nvidia_icd.json nvidia_layers.json")
+		$(usev !wayland libnvidia-vulkan-producer)
 		libGLX_indirect # non-glvnd unused fallback
 		libnvidia-gtk nvidia-{settings,xconfig} # built from source
 		libnvidia-egl-wayland 10_nvidia_wayland # gui-libs/egl-wayland
 	)
 	local skip_modules=(
-		$(usex X '' 'nvfbc vdpau xdriver')
-		$(usex driver '' 'gsp')
+		$(usev !X "nvfbc vdpau xdriver")
+		$(usev !driver gsp)
 		installer nvpd # handled separately / built from source
 	)
 	local skip_types=(
@@ -244,7 +243,7 @@ src_install() {
 	local DOC_CONTENTS="\
 Trusted users should be in the 'video' group to use NVIDIA devices.
 You can add yourself by using: gpasswd -a my-user video\
-$(usex driver "
+$(usev driver "
 
 Like all out-of-tree kernel modules, it is necessary to rebuild
 ${PN} after upgrading or rebuilding the Linux kernel
@@ -258,8 +257,8 @@ ensure \`eselect kernel list\` points to the kernel that will be
 booted before building and preferably reboot after upgrading
 ${PN} (the ebuild will emit a warning if mismatching).
 
-See '${EPREFIX}/etc/modprobe.d/nvidia.conf' for modules options." '')\
-$(use amd64 && usex abi_x86_32 '' "
+See '${EPREFIX}/etc/modprobe.d/nvidia.conf' for modules options.")\
+$(use amd64 && usev !abi_x86_32 "
 
 Note that without USE=abi_x86_32 on ${PN}, 32bit applications
 (typically using wine / steam) will not be able to use GPU acceleration.")
