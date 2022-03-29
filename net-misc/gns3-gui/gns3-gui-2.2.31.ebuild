@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 virtualx xdg
@@ -20,17 +20,13 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	>=dev-python/distro-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.7.0[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.3.1[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.0[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.5.4[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
 	dev-python/PyQt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
-
-PATCHES=(
-	"${FILESDIR}"/${P}-tests.patch
-)
 
 src_prepare() {
 	default

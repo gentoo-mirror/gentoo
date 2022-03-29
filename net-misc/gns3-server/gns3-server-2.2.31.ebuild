@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 optfeature systemd
@@ -23,11 +23,11 @@ RDEPEND="
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/async_timeout-3.0.1[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.6.0[${PYTHON_USEDEP}]
-	>=dev-python/jinja-3.0.1[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.0.3[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.7.0[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.0[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-8.0.0[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.3.1[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.5.4[${PYTHON_USEDEP}]
 	net-misc/ubridge
 	sys-apps/busybox
 "
