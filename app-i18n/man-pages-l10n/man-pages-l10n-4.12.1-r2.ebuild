@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-MY_L10N=(de es fr it nl pl pt-BR ro)
+MY_L10N=(cs da de el es fi fr hu id it mk nb nl pl pt-BR ro sr sv)
 IUSE="${MY_L10N[@]/#/l10n_}"
 REQUIRED_USE="|| ( ${MY_L10N[@]/#/l10n_} )"
 
@@ -26,7 +26,7 @@ RDEPEND="virtual/man
 BDEPEND="app-text/po4a
 	dev-lang/perl"
 
-DOCS=(AUTHORS.md CHANGES.md README.md)
+DOCS=(AUTHORS.md CHANGES.md CONTRIBUTING.md README.md)
 
 src_prepare() {
 	default
@@ -42,8 +42,23 @@ src_prepare() {
 		de/xzless.1
 		de/xzmore.1
 		# sys-apps/shadow
-		{de,es,nl,pl}/groups.1
+		{cs,de,es,hu,nl,pl}/groups.1
 		de/su.1
+		# sys-apps/sysvinit
+		de/last.1
+		de/mesg.1
+		de/mountpoint.1
+		de/utmpdump.1
+		de/wall.1
+		{de,es,fr,pl}/initscript.5
+		{de,es,fr,pl}/inittab.5
+		fr/bootlogd.8
+		de/halt.8
+		{de,es,fr,pl}/init.8
+		{fr,pl}/killall5.8
+		{fr,pl}/pidof.8
+		de/runlevel.8
+		de/sulogin.8
 		# sys-process/procps
 		{de,fr,pl}/free.1
 		{de,fr}/pgrep.1
