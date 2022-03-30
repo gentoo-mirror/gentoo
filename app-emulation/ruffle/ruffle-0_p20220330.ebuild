@@ -15,15 +15,7 @@ CRATES="
 	arrayvec-0.5.2
 	arrayvec-0.7.2
 	ash-0.34.0+1.2.203
-	ashpd-0.2.2
-	async-broadcast-0.3.4
 	async-channel-1.6.1
-	async-executor-1.4.1
-	async-io-1.6.0
-	async-lock-2.5.0
-	async-recursion-0.3.2
-	async-task-4.1.0
-	async-trait-0.1.52
 	atk-sys-0.15.1
 	atty-0.2.14
 	autocfg-1.1.0
@@ -33,14 +25,14 @@ CRATES="
 	bit-vec-0.6.3
 	bitflags-1.3.2
 	bitflags_serde_shim-0.2.2
-	bitstream-io-1.2.0
+	bitstream-io-1.3.0
 	bitvec-0.19.6
 	block-0.1.6
 	block-buffer-0.10.2
 	bstr-0.2.17
 	build_const-0.2.2
 	bumpalo-3.9.1
-	bytemuck-1.7.3
+	bytemuck-1.8.0
 	bytemuck_derive-1.0.1
 	byteorder-1.4.3
 	bytes-1.1.0
@@ -51,14 +43,14 @@ CRATES="
 	cc-1.0.73
 	cesu8-1.1.0
 	cexpr-0.4.0
-	cfg-expr-0.10.1
+	cfg-expr-0.10.2
 	cfg-if-0.1.10
 	cfg-if-1.0.0
 	cfg_aliases-0.1.1
 	chrono-0.4.19
 	clang-sys-1.3.1
-	clap-3.1.2
-	clap_derive-3.1.2
+	clap-3.1.6
+	clap_derive-3.1.4
 	clipboard-0.5.0
 	clipboard-win-2.2.0
 	cocoa-0.24.0
@@ -86,24 +78,23 @@ CRATES="
 	cpufeatures-0.2.1
 	crc-1.8.1
 	crc32fast-1.3.2
-	crossbeam-channel-0.5.2
+	crossbeam-channel-0.5.4
 	crossbeam-deque-0.8.1
-	crossbeam-epoch-0.9.7
-	crossbeam-utils-0.8.7
+	crossbeam-epoch-0.9.8
+	crossbeam-utils-0.8.8
 	crypto-common-0.1.3
 	csv-1.1.6
 	csv-core-0.1.10
 	ctor-0.1.21
 	cty-0.2.2
-	curl-0.4.42
-	curl-sys-0.4.52+curl-7.81.0
+	curl-0.4.43
+	curl-sys-0.4.53+curl-7.82.0
 	d3d12-0.4.1
 	darling-0.13.1
 	darling_core-0.13.1
 	darling_macro-0.13.1
 	deflate-0.8.6
 	deflate-1.0.0
-	derivative-2.2.0
 	derive-try-from-primitive-1.0.0
 	diff-0.1.12
 	digest-0.10.3
@@ -112,15 +103,12 @@ CRATES="
 	dispatch-0.2.0
 	dlib-0.5.0
 	downcast-rs-1.2.0
-	easy-parallel-3.2.0
 	either-1.6.1
-	embed-resource-1.6.5
+	embed-resource-1.7.1
 	encode_unicode-0.3.6
 	encoding_rs-0.8.30
-	enum-map-2.0.2
+	enum-map-2.1.0
 	enum-map-derive-0.8.0
-	enumflags2-0.7.3
-	enumflags2_derive-0.7.3
 	enumset-1.0.8
 	enumset_derive-0.5.5
 	env_logger-0.9.0
@@ -149,13 +137,13 @@ CRATES="
 	gdk-sys-0.15.1
 	generational-arena-0.2.8
 	generic-array-0.14.5
-	getrandom-0.2.5
+	getrandom-0.2.6
 	gif-0.11.3
-	gio-sys-0.15.6
-	glib-sys-0.15.6
+	gio-sys-0.15.7
+	glib-sys-0.15.7
 	glob-0.3.0
 	glow-0.11.2
-	gobject-sys-0.15.5
+	gobject-sys-0.15.9
 	gpu-alloc-0.5.3
 	gpu-alloc-types-0.2.0
 	gpu-descriptor-0.2.2
@@ -165,7 +153,6 @@ CRATES="
 	hashbrown-0.9.1
 	heck-0.4.0
 	hermit-abi-0.1.19
-	hex-0.4.3
 	hexf-parse-0.2.1
 	http-0.2.6
 	humantime-2.1.0
@@ -176,27 +163,27 @@ CRATES="
 	indicatif-0.16.2
 	inplace_it-0.3.3
 	instant-0.1.12
-	isahc-1.6.0
+	isahc-1.7.0
 	itoa-0.4.8
 	itoa-1.0.1
 	jni-0.19.0
 	jni-sys-0.3.0
 	jobserver-0.1.24
 	jpeg-decoder-0.1.22
-	jpeg-decoder-0.2.2
+	jpeg-decoder-0.2.3
 	js-sys-0.3.55
 	khronos-egl-4.1.0
 	lazy_static-1.4.0
 	lazycell-1.3.0
 	lexical-core-0.7.6
-	libc-0.2.119
-	libflate-1.1.2
+	libc-0.2.120
+	libflate-1.2.0
 	libflate_lz77-1.1.0
 	libloading-0.7.3
 	libnghttp2-sys-0.1.7+1.45.0
-	libz-sys-1.1.3
+	libz-sys-1.1.5
 	lock_api-0.4.6
-	log-0.4.14
+	log-0.4.16
 	lyon-0.17.10
 	lyon_algorithms-0.17.7
 	lyon_geom-0.17.6
@@ -217,7 +204,7 @@ CRATES="
 	miniz_oxide-0.3.7
 	miniz_oxide-0.4.4
 	miniz_oxide-0.5.1
-	mio-0.8.0
+	mio-0.8.1
 	miow-0.3.7
 	naga-0.8.5
 	ndk-0.5.0
@@ -232,7 +219,7 @@ CRATES="
 	nix-0.23.1
 	nom-5.1.2
 	nom-6.1.2
-	nom-7.1.0
+	nom-7.1.1
 	ntapi-0.3.7
 	num-complex-0.3.1
 	num-derive-0.3.3
@@ -241,8 +228,8 @@ CRATES="
 	num-rational-0.3.2
 	num-traits-0.2.14
 	num_cpus-1.13.1
-	num_enum-0.5.6
-	num_enum_derive-0.5.6
+	num_enum-0.5.7
+	num_enum_derive-0.5.7
 	number_prefix-0.4.0
 	objc-0.2.7
 	objc-foundation-0.1.1
@@ -250,10 +237,9 @@ CRATES="
 	objc_id-0.1.1
 	oboe-0.4.5
 	oboe-sys-0.4.5
-	once_cell-1.9.0
+	once_cell-1.10.0
 	openssl-probe-0.1.5
 	openssl-sys-0.9.72
-	ordered-stream-0.0.1
 	os_str_bytes-6.0.0
 	output_vt100-0.1.3
 	pango-sys-0.15.1
@@ -269,18 +255,17 @@ CRATES="
 	pin-utils-0.1.0
 	pkg-config-0.3.24
 	png-0.16.8
-	png-0.17.3
+	png-0.17.5
 	polling-2.2.0
-	pollster-0.2.5
 	ppv-lite86-0.2.16
-	pretty_assertions-1.1.0
+	pretty_assertions-1.2.0
 	primal-check-0.3.1
 	proc-macro-crate-1.1.3
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
 	proc-macro2-1.0.36
 	profiling-1.0.5
-	quote-1.0.15
+	quote-1.0.17
 	radium-0.5.3
 	rand-0.8.5
 	rand_chacha-0.3.1
@@ -289,17 +274,18 @@ CRATES="
 	raw-window-handle-0.4.2
 	rayon-1.5.1
 	rayon-core-1.9.1
-	redox_syscall-0.2.10
+	redox_syscall-0.2.11
 	redox_users-0.4.0
-	regex-1.5.4
+	regex-1.5.5
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
 	regress-0.4.1
 	renderdoc-sys-0.7.1
-	rfd-0.7.0
+	rfd-0.8.1
 	rle-decode-fast-1.0.3
 	ron-0.7.0
 	rustc-hash-1.1.0
+	rustc_version-0.4.0
 	rustdct-0.6.0
 	rustfft-5.1.1
 	ryu-1.0.9
@@ -309,12 +295,10 @@ CRATES="
 	scoped-tls-1.0.0
 	scoped_threadpool-0.1.9
 	scopeguard-1.1.0
+	semver-1.0.6
 	serde-1.0.136
 	serde_derive-1.0.136
 	serde_json-1.0.79
-	serde_repr-0.1.7
-	sha1-0.6.1
-	sha1_smol-1.0.0
 	sha2-0.10.2
 	shlex-0.1.1
 	sid-0.6.1
@@ -335,13 +319,13 @@ CRATES="
 	symphonia-bundle-mp3-0.5.0
 	symphonia-core-0.5.0
 	symphonia-metadata-0.5.0
-	syn-1.0.86
+	syn-1.0.90
 	synstructure-0.12.6
 	system-deps-6.0.2
 	tap-1.0.1
-	termcolor-1.1.2
+	termcolor-1.1.3
 	terminal_size-0.1.17
-	textwrap-0.14.2
+	textwrap-0.15.0
 	thiserror-1.0.30
 	thiserror-impl-1.0.30
 	tiff-0.6.1
@@ -349,9 +333,9 @@ CRATES="
 	tinyvec-1.5.1
 	tinyvec_macros-0.1.0
 	toml-0.5.8
-	tracing-0.1.31
-	tracing-attributes-0.1.19
-	tracing-core-0.1.22
+	tracing-0.1.32
+	tracing-attributes-0.1.20
+	tracing-core-0.1.23
 	tracing-futures-0.2.5
 	transpose-0.2.1
 	typenum-1.15.0
@@ -368,6 +352,7 @@ CRATES="
 	waker-fn-1.1.0
 	walkdir-2.3.2
 	wasi-0.10.2+wasi-snapshot-preview1
+	wasi-0.11.0+wasi-snapshot-preview1
 	wasm-bindgen-0.2.78
 	wasm-bindgen-backend-0.2.78
 	wasm-bindgen-futures-0.4.28
@@ -395,12 +380,12 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-0.30.0
-	windows_aarch64_msvc-0.30.0
-	windows_i686_gnu-0.30.0
-	windows_i686_msvc-0.30.0
-	windows_x86_64_gnu-0.30.0
-	windows_x86_64_msvc-0.30.0
+	windows-0.33.0
+	windows_aarch64_msvc-0.33.0
+	windows_i686_gnu-0.33.0
+	windows_i686_msvc-0.33.0
+	windows_x86_64_gnu-0.33.0
+	windows_x86_64_msvc-0.33.0
 	winit-0.26.1
 	winreg-0.10.1
 	wyz-0.2.0
@@ -408,12 +393,7 @@ CRATES="
 	x11-dl-2.19.1
 	xcb-0.8.2
 	xcursor-0.3.4
-	xml-rs-0.8.4
-	zbus-2.1.1
-	zbus_macros-2.1.1
-	zbus_names-2.1.0
-	zvariant-3.1.2
-	zvariant_derive-3.1.2"
+	xml-rs-0.8.4"
 # python is needed by xcb-0.8.2 until update to >=0.10
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="xml(+)"
