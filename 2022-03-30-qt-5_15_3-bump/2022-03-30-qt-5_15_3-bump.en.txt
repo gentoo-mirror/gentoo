@@ -1,0 +1,23 @@
+Title: Qt 5.15.3 version bump with binary path changes
+Author: Andreas Sturmlechner <asturm@gentoo.org>
+Posted: 2022-03-30
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: >=dev-qt/qtcore-5.15.3
+
+Up until Qt 5.15.2 we were using qtchooser to provide unversioned links to Qt
+binaries in PATH, like qmake, moc, qmljs etc. Starting with 5.15.3 [1] such
+links will be installed by each respective Qt package and '5'-version-suffixed,
+e.g. qmake becomes qmake5, qml becomes qml5 etc., mirroring Qt6.
+
+If you develop with Qt5 and rely on unversioned binaries for your workflow,
+dev-qt/qtchooser as a tool for quickly switching between multiple Qt
+installations (e.g. Qt3, Qt4 and Qt5) can still be manually installed. The
+'default' Qt version in PATH is then controlled via config in
+/etc/xdg/qtchooser.
+
+Otherwise, dev-qt/qtchooser will be slated for cleanup on your next
+emerge --depclean run.
+
+[1] https://archives.gentoo.org/gentoo-dev/message/
+5f3681b5b28dabeb5339d44e9585d29f

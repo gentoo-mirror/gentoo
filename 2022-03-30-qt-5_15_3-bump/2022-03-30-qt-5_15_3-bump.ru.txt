@@ -1,0 +1,25 @@
+Title: Новая версия Qt 5.15.3 меняет имена исполняемых файлов
+Author: Andreas Sturmlechner <asturm@gentoo.org>
+Translator: Alexey Sokolov <alexey+gentoo@asokolov.org>
+Posted: 2022-03-30
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: >=dev-qt/qtcore-5.15.3
+
+В версиях Qt по 5.15.2 мы использовали qtchooser, чтобы устанавливать 
+исполняемые файлы Qt в PATH без номера версии, такие как qmake, moc, 
+qmljs и т.д. Начиная с версии 5.15.3 [1] эти файлы будут установлены самим 
+соответствующим пакетом Qt и будут заканчиваться на "5": например, qmake 
+станет qmake5, qml станет qml5 и т.д., так же, как это делает Qt 6.
+
+Если вы используете Qt5 при разработке, и ваш рабочий процесс зависит от 
+этих файлов без версии, вы всё ещё можете установить dev-qt/qtchooser — 
+инструмент для быстрого переключения между различными установленными Qt 
+(например, Qt3, Qt4, Qt5). В таком случае версия Qt в PATH по умолчанию 
+настраивается в /etc/xdg/qtchooser.
+
+В противном случае dev-qt/qtchooser будет удалён при следующем запуске 
+emerge --depclean.
+
+[1] https://archives.gentoo.org/gentoo-dev/message/
+5f3681b5b28dabeb5339d44e9585d29f
