@@ -20,33 +20,40 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="dri3 +drm gnutls java nls +opengl server xinerama +xorgmodule"
+REQUIRED_USE="dri3? ( drm )"
 
 CDEPEND="
 	virtual/jpeg:0
 	sys-libs/zlib:=
-	>=x11-libs/fltk-1.3.1
-	sys-libs/pam
+	x11-libs/fltk:1
 	x11-libs/libX11
 	x11-libs/libXext
+	x11-libs/libXi
+	x11-libs/libXrandr
 	x11-libs/libXrender
 	x11-libs/pixman
 	gnutls? ( net-libs/gnutls:= )
 	nls? ( virtual/libiconv )
 	server? (
+		dev-libs/libbsd
+		dev-libs/openssl:0=
+		sys-libs/pam
 		x11-libs/libXau
 		x11-libs/libXdamage
 		x11-libs/libXdmcp
+		x11-libs/libXfixes
 		x11-libs/libXfont2
 		x11-libs/libXtst
-		>=x11-libs/pixman-0.27.2
-		>=x11-apps/xauth-1.0.3
+		x11-libs/pixman
+		x11-libs/xtrans
+		x11-apps/xauth
+		x11-apps/xinit
+		x11-apps/xkbcomp
 		x11-apps/xsetroot
-		>=x11-misc/xkeyboard-config-2.4.1-r3
+		x11-misc/xkeyboard-config
+		opengl? ( media-libs/libglvnd[X] )
 		xorgmodule? ( =x11-base/xorg-server-${XSERVER_VERSION%.*}* )
-		drm? ( x11-libs/libdrm )
-		dev-libs/openssl:0=
 	)
-	xinerama? ( x11-libs/libXinerama )
 	"
 
 RDEPEND="${CDEPEND}
@@ -57,26 +64,20 @@ RDEPEND="${CDEPEND}
 	)"
 
 DEPEND="${CDEPEND}
-	nls? ( sys-devel/gettext )
-	java? ( virtual/jdk:1.8 )
-	x11-base/xorg-proto
-	media-libs/fontconfig
-	x11-libs/libICE
-	x11-libs/libSM
-	x11-libs/libXcursor
-	x11-libs/libXfixes
-	x11-libs/libXft
-	x11-libs/libXi
+	drm? ( x11-libs/libdrm )
 	server? (
-		dev-libs/libbsd
-		x11-libs/libxkbfile
-		x11-libs/libxshmfence
-		virtual/pkgconfig
 		media-fonts/font-util
+		x11-base/xorg-proto
+		x11-libs/libxcvt
+		x11-libs/libxkbfile
 		x11-misc/util-macros
-		>=x11-libs/xtrans-1.3.3
-		opengl? ( >=media-libs/mesa-10.3.4-r1 )
+		opengl? ( media-libs/mesa )
 	)"
+
+BDEPEND="
+	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
+	"
 
 PATCHES=(
 	# Restore Java viewer
@@ -189,12 +190,14 @@ src_install() {
 		done
 		rm -r "${ED}"/usr/{sbin,libexec} || die
 		rm -r "${ED}"/usr/share/man/man8 || die
+		rm -r "${ED}"/etc || die
 	fi
 }
 
 pkg_postinst() {
-	local OPTIONAL_DM="gnome-base/gdm x11-misc/lightdm x11-misc/sddm x11-misc/slim"
+	xdg_pkg_postinst
 
+	local OPTIONAL_DM="gnome-base/gdm x11-misc/lightdm x11-misc/sddm x11-misc/slim"
 	use server && \
 		optfeature_header "Install any additional display manager package:" && \
 		optfeature "proper session support" ${OPTIONAL_DM}
