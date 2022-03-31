@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ RUBY_FAKEGEM_GEMSPEC="puma.gemspec"
 RUBY_FAKEGEM_EXTENSIONS=(ext/puma_http11/extconf.rb)
 RUBY_FAKEGEM_EXTENSION_LIBDIR=lib/puma
 
-inherit multilib ruby-fakegem
+inherit ruby-fakegem
 
 DESCRIPTION="a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack"
 HOMEPAGE="https://puma.io/"
@@ -24,8 +24,10 @@ IUSE=""
 DEPEND+=" dev-libs/openssl:0 test? ( net-misc/curl )"
 RDEPEND+=" dev-libs/openssl:0="
 
+PATCHES=( "${FILESDIR}/${P}-logwriter-test.patch" )
+
 ruby_add_bdepend "virtual/ruby-ssl
-	test? ( dev-ruby/rack >=dev-ruby/minitest-5.9:5 >=dev-ruby/test-unit-3.0:2 )"
+	test? ( dev-ruby/localhost dev-ruby/rack >=dev-ruby/minitest-5.9:5 >=dev-ruby/test-unit-3.0:2 )"
 
 ruby_add_rdepend "dev-ruby/nio4r:2"
 
