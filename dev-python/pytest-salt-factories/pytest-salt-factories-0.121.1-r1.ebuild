@@ -1,7 +1,7 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 inherit distutils-r1
@@ -16,25 +16,18 @@ KEYWORDS="amd64 ~arm ~arm64 x86"
 IUSE="test"
 
 RDEPEND="
+	>=dev-python/pytest-6.1.1[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/pytest-tempdir[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
-	>=dev-python/pytest-6.0.0[${PYTHON_USEDEP}]
-	dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
 	dev-python/pyzmq[${PYTHON_USEDEP}]
 	dev-python/msgpack[${PYTHON_USEDEP}]
 	>=app-admin/salt-3001.0[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	${RDEPEND}
-	test? (
-		dev-python/pyfakefs[${PYTHON_USEDEP}]
-		dev-python/pytest-subtests[${PYTHON_USEDEP}]
-	)
-"
+BDEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/pytest-salt-factories-0.911.0-tests.patch"
+	"${FILESDIR}/pytest-salt-factories-0.121.1-tests.patch"
 )
 
 distutils_enable_tests --install pytest
@@ -44,7 +37,7 @@ python_prepare_all() {
 	sed -r -e '/(setuptools|setup_requires)/ d' -i setup.cfg || die
 
 	sed -i 's:tool.setuptools_scm:tool.disabled:' pyproject.toml || die
-	printf '__version__ = "%s"\n' "${PV}" > src/saltfactories/version.py || die
+	printf '__version__ = "%s"\n' "${PV}" > saltfactories/version.py || die
 	distutils-r1_python_prepare_all
 }
 
@@ -64,7 +57,7 @@ python_test() {
 		cleanup() { rm -f "${tempdir}" || die; }
 
 		trap cleanup EXIT
-		env SHELL="/bin/bash" TMPDIR="${tempdir}" \
+		SHELL="/bin/bash" TMPDIR="${tempdir}" \
 			pytest -vv || die "Tests failed with ${EPYTHON}"
 	)
 }
