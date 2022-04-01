@@ -1,0 +1,17 @@
+BDEPEND=app-arch/innoextract app-arch/unzip
+DEFINED_PHASES=install nofetch postinst postrm preinst pretend setup unpack
+DESCRIPTION=Adventure through the twin worlds of Stark and Arcadia, seen through the eyes of an 18-year old student
+EAPI=8
+HOMEPAGE=https://www.gog.com/game/the_longest_journey
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=check-reqs desktop wrapper xdg
+IUSE=+hd +hd-fmv
+KEYWORDS=~amd64
+LICENSE=GOG-EULA
+PDEPEND=hd? ( games-rpg/the-longest-journey-hd ) hd-fmv? ( games-rpg/the-longest-journey-hd-fmv )
+RDEPEND=>=games-engines/scummvm-2.5.1[opengl,truetype,vorbis]
+RESTRICT=bindist fetch
+SLOT=0
+SRC_URI=setup_the_longest_journey_142_lang_update_(24607).exe setup_the_longest_journey_142_lang_update_(24607)-1.bin
+_eclasses_=check-reqs	82234bf011d5453330773cd5fc3f0199	desktop	c0d27bf73aa08ca05b663dbd31fbef28	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=8cca9d84818db78507b9bf88caa78fbc
