@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="tk"
 
 inherit xdg cmake python-single-r1
@@ -15,7 +15,7 @@ S="${WORKDIR}/${P^}"
 
 LICENSE="GPL-3+ Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+plugins system-mathjax"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -53,12 +53,15 @@ DOCS=( ChangeLog.txt README.md )
 
 src_configure() {
 	local mycmakeargs=(
+		-DTRY_NEWER_FINDPYTHON3=1
+		-DPython3_INCLUDE_DIR="$(python_get_includedir)"
+		-DPython3_LIBRARY="$(python_get_library_path)"
+		-DPython3_EXECUTABLE="${PYTHON}"
+
 		-DINSTALL_BUNDLED_DICTS=0
-		-DUSE_SYSTEM_LIBS=1
 		-DSYSTEM_LIBS_REQUIRED=1
-		-DPYTHON_EXECUTABLE="${PYTHON}"
-		-DPYTHON_LIBRARY="$(python_get_library_path)"
-		-DPYTHON_INCLUDE_DIR="$(python_get_includedir)"
+		-DUSE_SYSTEM_LIBS=1
+		-DUSE_QT6=0
 	)
 	use system-mathjax && mycmakeargs+=( -DMATHJAX_DIR="${EPREFIX}"/usr/share/mathjax )
 
