@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -104,7 +104,7 @@ src_install() {
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass.sh
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass-empty.sh
 	fperms -R +x /opt/${PN}/resources/app/out/vs/base/node
-	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg
+	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
 	dosym "../../opt/${PN}/bin/code" "usr/bin/vscode"
 	dosym "../../opt/${PN}/bin/code" "usr/bin/code"
 	domenu "${FILESDIR}/vscode.desktop"
@@ -118,4 +118,12 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "You may want to install some additional utils, check in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
+
+	if has_version -r ">=gui-libs/wlroots-0.15"; then
+		elog
+		elog "The wayland backend of vscode crashes with >=gui-libs/wlroots-0.15"
+		elog "This will be fixed upstream in a later release"
+		elog "Please run the xwayland version for now, on wlroots based DEs."
+		elog "For more information, see https://bugs.gentoo.org/834082"
+	fi
 }
