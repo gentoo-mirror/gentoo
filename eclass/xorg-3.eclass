@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: xorg-3.eclass
@@ -8,7 +8,7 @@
 # Author: Tomáš Chvátal <scarabeus@gentoo.org>
 # Author: Donnie Berkholz <dberkholz@gentoo.org>
 # Author: Matt Turner <mattst88@gentoo.org>
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @PROVIDES: multilib-minimal
 # @BLURB: Reduces code duplication in the modularized X11 ebuilds.
 # @DESCRIPTION:
@@ -52,19 +52,19 @@ fi
 # we need to inherit autotools first to get the deps
 inherit autotools libtool multilib toolchain-funcs flag-o-matic \
 	${FONT_ECLASS} ${GIT_ECLASS}
+unset FONT_ECLASS GIT_ECLASS
 
 if [[ ${XORG_MULTILIB} == yes ]]; then
 	inherit multilib-minimal
 fi
 
-EXPORTED_FUNCTIONS="src_prepare src_configure src_unpack src_compile src_install pkg_postinst pkg_postrm"
 case "${EAPI:-0}" in
-	7) ;;
+	[7-8]) ;;
 	*) die "EAPI=${EAPI} is not supported" ;;
 esac
 
 # exports must be ALWAYS after inherit
-EXPORT_FUNCTIONS ${EXPORTED_FUNCTIONS}
+EXPORT_FUNCTIONS src_prepare src_configure src_unpack src_compile src_install pkg_postinst pkg_postrm
 
 IUSE=""
 
@@ -143,12 +143,10 @@ if [[ ${PN} != util-macros ]] ; then
 	# Required even by xorg-server
 	[[ ${PN} == "font-util" ]] || EAUTORECONF_DEPEND+=" >=media-fonts/font-util-1.2.0"
 fi
-WANT_AUTOCONF="latest"
-WANT_AUTOMAKE="latest"
 for arch in ${XORG_EAUTORECONF_ARCHES}; do
 	EAUTORECONF_DEPENDS+=" ${arch}? ( ${EAUTORECONF_DEPEND} )"
 done
-unset arch
+unset arch XORG_EAUTORECONF_ARCHES
 BDEPEND+=" ${EAUTORECONF_DEPENDS}"
 [[ ${XORG_EAUTORECONF} != no ]] && BDEPEND+=" ${EAUTORECONF_DEPEND}"
 unset EAUTORECONF_DEPENDS
@@ -226,7 +224,6 @@ DOC_DEPEND="
 	doc? (
 		|| ( app-text/asciidoc dev-ruby/asciidoctor )
 		app-text/xmlto
-		app-doc/doxygen
 		app-text/docbook-xml-dtd:4.1.2
 		app-text/docbook-xml-dtd:4.2
 		app-text/docbook-xml-dtd:4.3
