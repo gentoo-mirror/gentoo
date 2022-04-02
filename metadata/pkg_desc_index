@@ -262,7 +262,7 @@ acct-group/oprofile 0-r1: A group for dev-util/oprofile JIT code processing
 acct-group/oragono 0: Group for the Oragono IRC server
 acct-group/ossec 0-r1: Group for net-analyzer/ossec-hids
 acct-group/p2p 0: Group for mldonkey
-acct-group/partimag 0: A group for sys-block/partimage
+acct-group/partimag 0-r1: A group for sys-block/partimage
 acct-group/pcap 0: Group for capturing network traffic
 acct-group/pcscd 0-r1: System group: pcscd
 acct-group/pdns 0-r1: System group: pdns
@@ -700,6 +700,7 @@ acct-user/ossec 0-r1: net-analyzer/ossec-hids (agentlessd, analysisd, monitord)
 acct-user/ossecm 0-r1: net-analyzer/ossec-hids (csyslogd, maild)
 acct-user/ossecr 0-r1: net-analyzer/ossec-hids (remoted)
 acct-user/p2p 0: User for mldonkey
+acct-user/partimag 0: A user for sys-block/partimag
 acct-user/pcap 0: User for capturing network traffic
 acct-user/pcscd 0-r1: A user for pcsc-lite
 acct-user/pdns 0-r1: System user: pdns
@@ -17475,7 +17476,7 @@ sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 1.14 1.15-r1 1.16: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.6-r4: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 6.8 7.0: OPAL firmware utilities
-sys-apps/openrc 0.43.5-r1 0.44.10 9999: OpenRC manages the services, startup and shutdown of a host
+sys-apps/openrc 0.44.10 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/opentmpfiles 0.1.1 0.1.2 0.1.3 0.1.3-r1 0.2: A standalone utility to process systemd-style tmpfiles.d files
 sys-apps/osinfo-db 20220214: osinfo database files
 sys-apps/osinfo-db-tools 1.10.0: Tools for managing the osinfo database
@@ -17679,7 +17680,7 @@ sys-block/noflushd 2.8-r1: A daemon to spin down your disks and force accesses t
 sys-block/open-iscsi 2.1.4-r2: A performant, transport independent, multi-platform implementation of RFC3720
 sys-block/open-isns 0.101: iSNS server and client for Linux
 sys-block/parted 3.4: Create, destroy, resize, check, copy partitions and file systems
-sys-block/partimage 0.6.9-r2: Console-based application to efficiently save raw partition data to image file
+sys-block/partimage 0.6.9-r2 0.6.9-r3: Console-based application to efficiently save raw partition data to image file
 sys-block/partitionmanager 21.08.3 21.12.3: Utility for management of disks, partitions and file systems
 sys-block/perccli 7.5.007.0529 7.5.007.0529-r2: LINUX PERCCLI Utility For All Dell HBA/PERC Controllers
 sys-block/qla-fc-firmware 20101015: QLogic Linux Fibre Channel HBA Firmware for ql2xxx cards
