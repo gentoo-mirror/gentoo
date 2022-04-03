@@ -1,4 +1,4 @@
-BDEPEND=dev-util/glib-utils gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( media-gfx/exiv2[xmp] ) virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 dev-lang/vala:0.48 dev-lang/vala:0.46 ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/glib-utils gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( media-gfx/exiv2[xmp] ) virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=media-gfx/exiv2-0.26:= >=dev-libs/glib-2.46.0:2 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=GObject-based wrapper around the Exiv2 library
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( introspection || ( python_targets_python3_8 python_target
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1	vala	33c0b843352ad51c4ba5632b0c13f25c
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1	vala	9badd41d5aab740ae5ac301c4416c5f8
 _md5_=9db12e4efb035105eaa3bb699b1ed4e0
