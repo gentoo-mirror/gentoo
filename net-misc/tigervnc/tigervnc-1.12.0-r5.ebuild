@@ -9,7 +9,7 @@ inherit autotools cmake flag-o-matic java-pkg-opt-2 optfeature systemd xdg
 XSERVER_VERSION="21.1.1"
 
 DESCRIPTION="Remote desktop viewer display system"
-HOMEPAGE="http://www.tigervnc.org"
+HOMEPAGE="https://www.tigervnc.org"
 SRC_URI="https://github.com/TigerVNC/tigervnc/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	server? (
 		ftp://ftp.freedesktop.org/pub/xorg/individual/xserver/xorg-server-${XSERVER_VERSION}.tar.xz
@@ -182,6 +182,9 @@ src_install() {
 		# comment out pam_selinux.so, the server does not start if missing
 		# part of bug #746227
 		sed -i -e '/pam_selinux/s/^/#/' "${ED}"/etc/pam.d/tigervnc || die
+
+		# install vncserver to /usr/bin too, see bug #836620
+		dosym -r /usr/libexec/vncserver /usr/bin/vncserver
 	else
 		local f
 		for f in x0vncserver vncconfig; do
