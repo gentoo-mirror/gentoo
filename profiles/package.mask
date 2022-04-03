@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Matt Turner <mattst88@gentoo.org> (2022-03-27)
+# Dead package. Homepage doesn't resolve. Unmaintained in Gentoo for at
+# least 6 years.
+# Removal on 2022-05-02
+app-pda/gtkpod
+
 # Ulrich Müller <ulm@gentoo.org> (2022-04-01)
 # Illegal instruction errors seen by several users.
 # Masked for testing. (bug #835930)
@@ -403,12 +409,6 @@ dev-tex/pdfannotextractor
 # Bug #824558.
 =sys-kernel/gentoo-sources-5.14.19
 =sys-kernel/vanilla-sources-5.14.19
-
-# Mart Raudsepp <leio@gentoo.org> (2021-11-11)
-# Needs testing to ensure valac-0.54 works for existing packages
->=dev-libs/vala-common-0.53
-dev-lang/vala:0.54
-dev-lang/vala:0.56
 
 # Ionen Wolkens <ionen@gentoo.org> (2021-10-09)
 # Vulkan beta driver branch aimed at Vulkan developers for testing
