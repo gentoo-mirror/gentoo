@@ -1,9 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-RELEASE_COMMIT="c49c317f3bf19001c06f189d0706b6a3a2d6533c"
+# Upstream is moving tags repeatedly, then we use commit hash.
+RELEASE_COMMIT="1fb9ddd71fbf6f0252509aced527be459e240366"
 
 inherit xdg cmake
 
@@ -20,7 +21,6 @@ RESTRICT="!test? ( test )"
 RDEPEND="dev-db/sqlite:3
 	dev-libs/glib:2
 	dev-libs/jansson:=
-	dev-libs/libevent:=
 	dev-libs/openssl:=
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -29,14 +29,15 @@ RDEPEND="dev-db/sqlite:3
 	dev-qt/qtwidgets:5
 	net-libs/libsearpc
 	~net-misc/seafile-${PV}
-	shibboleth? ( dev-qt/qtwebengine:5[widgets] )
-	sys-libs/zlib"
+	sys-libs/zlib
+	virtual/opengl
+	shibboleth? ( dev-qt/qtwebengine:5[widgets] )"
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )"
 BDEPEND="dev-qt/linguist-tools:5"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-select-qt5.patch"
+	"${FILESDIR}/${PN}-8.0.6-select-qt5.patch"
 	"${FILESDIR}/${PN}-7.0.9-qt-5.15.patch"
 )
 

@@ -1,11 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-RELEASE_COMMIT="2493113afb174b1a0e6f860512922b69c05cee69"
+# Upstream is moving tags repeatedly, then we use commit hash.
+RELEASE_COMMIT="7a61feaba63006d11c09d1020593ba3fcb3fc717"
 
 inherit autotools python-single-r1 vala
 
@@ -29,22 +30,31 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/libevent:=
 	net-libs/libsearpc[${PYTHON_SINGLE_USEDEP}]
 	net-misc/curl
-	sys-libs/zlib"
-DEPEND="${RDEPEND}
+	sys-apps/util-linux
+	sys-libs/zlib
+	elibc_musl? ( sys-libs/fts-standalone )"
+DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}
 	$(vala_depend)"
 
 S="${WORKDIR}/${PN}-${RELEASE_COMMIT}"
 
 src_prepare() {
 	default
-	sed -i -e 's/valac /${VALAC} /' lib/Makefile.am || die
 	eautoreconf
 	vala_src_prepare
+}
+
+src_configure() {
+	local myeconfargs=(
+		--disable-static
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
 	default
 	# Remove unnecessary .la files
-	find "${ED}" -name '*.la' -o -name '*.a' -delete || die
-	python_fix_shebang "${ED}"/usr/bin
+	find "${ED}" -name '*.la' -delete || die
+	python_fix_shebang "${ED}"/usr/bin/seaf-cli
 }
