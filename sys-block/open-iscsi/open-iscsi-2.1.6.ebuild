@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools linux-info flag-o-matic toolchain-funcs udev systemd
+inherit autotools linux-info flag-o-matic toolchain-funcs systemd
 
 DESCRIPTION="A performant, transport independent, multi-platform implementation of RFC3720"
 HOMEPAGE="https://www.open-iscsi.com/"
@@ -11,8 +11,9 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0/0.2"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~mips ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug infiniband +tcp rdma systemd"
+REQUIRED_USE="infiniband? ( rdma ) || ( rdma tcp )"
 
 DEPEND="
 	sys-apps/kmod
@@ -27,10 +28,9 @@ RDEPEND="${DEPEND}
 	sys-apps/util-linux"
 BDEPEND="virtual/pkgconfig"
 
-REQUIRED_USE="infiniband? ( rdma ) || ( rdma tcp )"
-
 PATCHES=(
-	"${FILESDIR}/${PN}-2.1.1-Makefiles.patch"
+	"${FILESDIR}"/${PN}-2.1.1-Makefiles.patch
+	"${FILESDIR}"/open-iscsi-2.1.6-Makefiles.patch
 )
 
 pkg_setup() {
@@ -82,6 +82,7 @@ src_prepare() {
 
 src_configure() {
 	use debug && append-cppflags -DDEBUG_TCP -DDEBUG_SCSI
+
 	append-lfs-flags
 }
 
@@ -97,7 +98,8 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${ED}" sbindir="/usr/sbin" install
+	emake DESTDIR="${ED}" sbindir="/usr/sbin" SED="${EPREFIX}/bin/sed" install
+
 	# Upstream make is not deterministic, per bug #601514
 	rm -f "${ED}"/etc/initiatorname.iscsi
 
