@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
-DISTUTILS_USE_SETUPTOOLS=no
+PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 virtualx xdg-utils
 
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/otsaloma/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="spell"
 
 RDEPEND="
@@ -35,10 +35,10 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-DOCS=( AUTHORS.md NEWS.md TODO.md README.md README.aeidon.md )
+DOCS=( AUTHORS.md NEWS.md README.md README.aeidon.md )
 
 python_test() {
-	virtx pytest -vv
+	virtx epytest
 }
 
 pkg_postinst() {
