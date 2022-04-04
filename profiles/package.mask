@@ -91,7 +91,7 @@ media-sound/xnoise
 
 # Piotr Karbowski <slashbeast@gentoo.org> (2022-03-25)
 # Abandoned upstream, officialy limited to kernel 5.6,
-# no longer builds with kernel >=5.14. Use kernel's 
+# no longer builds with kernel >=5.14. Use kernel's
 # CONFIG_USB_RTL8152 and CONFIG_USB_USBNET since 5.13.
 # Removal on 2022-04-25.
 net-misc/realtek-r8152
@@ -361,13 +361,6 @@ app-misc/emelfm2
 # Bug: https://bugs.gentoo.org/830020
 ~sys-fs/zfs-0.8.6
 ~sys-fs/zfs-kmod-0.8.6
-
-# Ulrich Müller <ulm@gentoo.org> (2022-01-15)
-# Pretest versions, masked for testing.
-~app-editors/emacs-28.0.90
-~app-editors/emacs-28.0.91
-~app-editors/emacs-28.0.92
-~app-editors/emacs-28.0.93
 
 # Brian Evans <grknight@gentoo.org> (2022-01-07)
 # The main consumer, phpunit, does not initiate the new timer correctly

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs
+inherit elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs #autotools
 
 if [[ ${PV##*.} = 9999 ]]; then
 	inherit git-r3
