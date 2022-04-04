@@ -3,15 +3,15 @@
 
 EAPI=8
 
-inherit xdg cmake git-r3
+inherit xdg cmake
 
 DESCRIPTION="Qt GUI to control the JACK Audio Connection Kit and ALSA sequencer connections"
 HOMEPAGE="https://qjackctl.sourceforge.io/"
-EGIT_REPO_URI="https://git.code.sf.net/p/qjackctl/code"
+SRC_URI="mirror://sourceforge/qjackctl/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa dbus debug portaudio"
 
 BDEPEND="dev-qt/linguist-tools:5"
@@ -30,6 +30,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	dev-qt/qtsvg:5
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.9.1-disable-git.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
