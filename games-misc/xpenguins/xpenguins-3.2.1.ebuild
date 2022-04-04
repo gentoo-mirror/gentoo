@@ -19,5 +19,7 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXpm"
-DEPEND="${RDEPEND}"
-BDEPEND="x11-base/xorg-proto"
+DEPEND="
+	${RDEPEND}
+	x11-base/xorg-proto"
+BDEPEND="virtual/pkgconfig"
