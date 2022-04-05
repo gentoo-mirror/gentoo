@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-lang/tk:= =dev-lang/ocaml-4.13*:=[ocamlopt?,X(+)?] dev-ml/findlib >=dev-ml/findlib-1.0.4-r1
+DEPEND=dev-lang/tk:= >=dev-lang/ocaml-4.14:=[ocamlopt?,X(+)?] dev-ml/findlib >=dev-ml/findlib-1.0.4-r1
 DESCRIPTION=OCaml interface to the Tcl/Tk GUI framework
 EAPI=7
 HOMEPAGE=https://garrigue.github.io/labltk/
@@ -7,8 +7,8 @@ INHERIT=findlib toolchain-funcs
 IUSE=+ocamlopt X +ocamlopt
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=QPL-1.0 LGPL-2
-RDEPEND=dev-lang/tk:= =dev-lang/ocaml-4.13*:=[ocamlopt?,X(+)?] dev-lang/ocaml:=[ocamlopt?]
-SLOT=0/8.06.11
-SRC_URI=https://github.com/garrigue/labltk/archive/8.06.11.tar.gz -> labltk-8.06.11.tar.gz
+RDEPEND=dev-lang/tk:= >=dev-lang/ocaml-4.14:=[ocamlopt?,X(+)?] dev-lang/ocaml:=[ocamlopt?]
+SLOT=0/8.06.12
+SRC_URI=https://github.com/garrigue/labltk/archive/8.06.12.tar.gz -> labltk-8.06.12.tar.gz
 _eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=977a08f227fe8b83853d146e34884bf9
+_md5_=e5c47b918ade4c9f43195ec275f94874
