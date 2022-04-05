@@ -1,20 +1,17 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson xdg
 
 DESCRIPTION="Music audio files viewer and analiser"
 HOMEPAGE="https://www.sonicvisualiser.org/ https://github.com/sonic-visualiser/sonic-visualiser"
-# original location is this, but there is an certificate issue:
-# https://code.soundsoftware.ac.uk/attachments/download/2811/sonic-visualiser-4.4.tar.gz
-# the tarball from github misses some files so it cannot be used
-SRC_URI="https://dev.gentoo.org/~fordfrog/distfiles/${P}.tar.gz"
+SRC_URI="https://code.soundsoftware.ac.uk/attachments/download/2820/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="id3tag jack mad ogg opus osc +portaudio pulseaudio test"
 
 BDEPEND="
