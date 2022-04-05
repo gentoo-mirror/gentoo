@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{9,10} )
 PYTHON_REQ_USE="xml(+)"
 inherit check-reqs estack flag-o-matic multiprocessing python-any-r1 qt5-build toolchain-funcs
 
@@ -30,7 +30,7 @@ fi
 SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-5.15.2_p20211019-jumbo-build.patch.bz2
 	ppc64? ( https://dev.gentoo.org/~gyakovlev/distfiles/${PN}-5.15.2-r1-chromium87-ppc64le.tar.xz )"
 
-IUSE="alsa bindist designer geolocation +jumbo-build kerberos pulseaudio +system-ffmpeg +system-icu widgets"
+IUSE="alsa bindist designer geolocation +jumbo-build kerberos pulseaudio screencast +system-ffmpeg +system-icu widgets"
 REQUIRED_USE="designer? ( widgets )"
 
 RDEPEND="
@@ -80,6 +80,7 @@ RDEPEND="
 	geolocation? ( =dev-qt/qtpositioning-${QT5_PV}* )
 	kerberos? ( virtual/krb5 )
 	pulseaudio? ( media-sound/pulseaudio:= )
+	screencast? ( media-video/pipewire:= )
 	system-ffmpeg? ( media-video/ffmpeg:0= )
 	system-icu? ( >=dev-libs/icu-69.1:= )
 	widgets? (
@@ -106,8 +107,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.15.2_p20210224-chromium-87-v8-icu68.patch" # downstream, bug 757606
 	"${FILESDIR}/${PN}-5.15.2_p20210224-disable-git.patch" # downstream snapshot fix
 	"${FILESDIR}/${PN}-5.15.2_p20211015-pdfium-system-lcms2.patch" # by Debian, QTBUG-61746
+	"${FILESDIR}/${PN}-5.15.3_p20220329-clang14.patch" # by FreeBSD, bug 836604
 	"${WORKDIR}/${PN}-5.15.2_p20211019-jumbo-build.patch" # bug 813957
-	"${FILESDIR}/${PN}-5.15.3_p20220329-clang14.patch" # fixes build with clang 14
 )
 
 qtwebengine_check-reqs() {
@@ -199,6 +200,10 @@ src_prepare() {
 		eapply "${FILESDIR}/${PN}-5.15.2_p20210521-clang-libc++.patch"
 	fi
 
+	if use system-ffmpeg && has_version '>=media-video/ffmpeg-5'; then
+		eapply "${FILESDIR}/${PN}-5.15.3_p20220330-ffmpeg5.patch" # by Archlinux, bug 831437
+	fi
+
 	qt_use_disable_config alsa webengine-alsa src/buildtools/config/linux.pri
 	qt_use_disable_config pulseaudio webengine-pulseaudio src/buildtools/config/linux.pri
 
@@ -241,6 +246,7 @@ src_configure() {
 		$(qt_use pulseaudio)
 		$(usex system-ffmpeg -system-ffmpeg -qt-ffmpeg)
 		$(qt_use system-icu webengine-icu)
+		$(usex screencast -webengine-webrtc-pipewire '')
 	)
 	qt5-build_src_configure
 }
