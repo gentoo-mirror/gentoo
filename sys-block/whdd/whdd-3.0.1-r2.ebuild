@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DESCRIPTION="Diagnostic and recovery tool for block devices"
 HOMEPAGE="https://whdd.github.io"
@@ -13,17 +13,14 @@ then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}-rel.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	inherit vcs-snapshot
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 
-DEPEND="
-	dev-util/dialog:=
+DEPEND="dev-util/dialog:=
 	sys-libs/ncurses:=[unicode(+)]"
 RDEPEND="${DEPEND}
 	sys-apps/smartmontools"
