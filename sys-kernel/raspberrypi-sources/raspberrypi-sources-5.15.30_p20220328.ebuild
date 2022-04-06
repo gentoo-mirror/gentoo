@@ -11,11 +11,11 @@ inherit kernel-2 linux-info
 detect_version
 
 MY_P=$(ver_cut 4-)
-MY_P="raspberrypi-kernel_1.${MY_P/p/}-1"
+MY_P="1.${MY_P/p/}"
 
 DESCRIPTION="Raspberry Pi kernel sources"
 HOMEPAGE="https://github.com/raspberrypi/linux"
-SRC_URI="https://github.com/raspberrypi/linux/archive/${MY_P}.tar.gz"
+SRC_URI="https://github.com/raspberrypi/linux/archive/${MY_P}.tar.gz -> linux-${KV_FULL}.tar.gz"
 
 KEYWORDS="~arm ~arm64"
 
