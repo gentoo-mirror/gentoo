@@ -1,15 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit qmake-utils vcs-snapshot
-
-GIT_COMMIT="65f0eab8ca0640447d2e84cdc5fadc66d2c07efb"
+inherit qmake-utils
 
 DESCRIPTION="Cross-platform content manager assistant for the PS Vita"
 HOMEPAGE="https://github.com/codestation/qcma"
-SRC_URI="https://github.com/codestation/qcma/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/codestation/qcma/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,12 +22,12 @@ DEPEND="
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	media-libs/vitamtp:0
-	ffmpeg? ( media-video/ffmpeg:0 )
+	ffmpeg? ( media-video/ffmpeg:= )
 	x11-libs/libnotify:0
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-qt/linguist-tools
+	dev-qt/linguist-tools:5
 "
 
 src_prepare() {
@@ -42,6 +40,14 @@ src_prepare() {
 }
 
 src_configure() {
-	lrelease common/resources/translations/*.ts
-	eqmake5 PREFIX="${D}"/usr qcma.pro CONFIG+="QT5_SUFFIX" $(usex ffmpeg "" CONFIG+="DISABLE_FFMPEG")
+	$(qt5_get_bindir)/lrelease common/resources/translations/*.ts || die
+	eqmake5 PREFIX="${EPREFIX}"/usr qcma.pro CONFIG+="QT5_SUFFIX" $(usex ffmpeg "" CONFIG+="DISABLE_FFMPEG")
+}
+
+src_install() {
+	emake DESTDIR="${D}" INSTALL_ROOT="${ED}" install
+	einstalldocs
+
+	insinto /usr/share/${PN}/translations
+	doins common/resources/translations/${PN}_*.qm
 }

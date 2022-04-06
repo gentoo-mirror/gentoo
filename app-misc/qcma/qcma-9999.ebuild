@@ -22,12 +22,12 @@ DEPEND="
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	media-libs/vitamtp:0
-	ffmpeg? ( media-video/ffmpeg:0 )
+	ffmpeg? ( media-video/ffmpeg:= )
 	x11-libs/libnotify:0
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-qt/linguist-tools
+	dev-qt/linguist-tools:5
 "
 
 src_prepare() {
@@ -40,6 +40,14 @@ src_prepare() {
 }
 
 src_configure() {
-	lrelease common/resources/translations/*.ts
-	eqmake5 PREFIX="${D}"/usr qcma.pro CONFIG+="QT5_SUFFIX" $(usex ffmpeg "" CONFIG+="DISABLE_FFMPEG")
+	$(qt5_get_bindir)/lrelease common/resources/translations/*.ts || die
+	eqmake5 PREFIX="${EPREFIX}"/usr qcma.pro CONFIG+="QT5_SUFFIX" $(usex ffmpeg "" CONFIG+="DISABLE_FFMPEG")
+}
+
+src_install() {
+	emake DESTDIR="${D}" INSTALL_ROOT="${ED}" install
+	einstalldocs
+
+	insinto /usr/share/${PN}/translations
+	doins common/resources/translations/${PN}_*.qm
 }
