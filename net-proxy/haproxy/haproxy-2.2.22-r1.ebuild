@@ -16,7 +16,7 @@ if [[ ${PV} != *9999 ]]; then
 	SRC_URI="http://haproxy.1wt.eu/download/$(ver_cut 1-2)/src/${MY_P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~ppc ~x86"
 else
-	EGIT_REPO_URI="http://git.haproxy.org/git/haproxy-$(ver_cut 1-2).git/"
+	EGIT_REPO_URI="https://git.haproxy.org/git/haproxy-$(ver_cut 1-2).git/"
 	EGIT_BRANCH=master
 fi
 
@@ -130,7 +130,7 @@ src_install() {
 	dosym ../sbin/haproxy /usr/bin/haproxy
 
 	newconfd "${FILESDIR}/${PN}.confd" ${PN}
-	newinitd "${FILESDIR}/${PN}.initd-r6" ${PN}
+	newinitd "${FILESDIR}/${PN}.initd-r7" ${PN}
 
 	doman doc/haproxy.1
 
