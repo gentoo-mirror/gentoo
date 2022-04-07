@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -57,6 +57,7 @@ RDEPEND="
 distutils_enable_tests pytest
 
 DOCS=( AUTHORS README.rst docs/installers.rst docs/steam.rst )
+PATCHES=( "${FILESDIR}/${PN}-0.5.9-choose-amdgpu-pro-vulkan-driver.patch" )
 
 python_test() {
 	virtx epytest
