@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ MULTILIB_WRAPPED_HEADERS=(
 )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.37-remove_broken_check.patch"
+	"${FILESDIR}/${PN}-1.44-remove_broken_check.patch"
 )
 
 src_prepare() {
