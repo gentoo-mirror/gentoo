@@ -3,16 +3,20 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
+
 inherit distutils-r1
 
 DESCRIPTION="Python library for async concurrency and I/O"
 HOMEPAGE="
-	https://github.com/python-trio/trio
-	https://pypi.org/project/trio
+	https://github.com/python-trio/trio/
+	https://pypi.org/project/trio/
 "
-SRC_URI="https://github.com/python-trio/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/python-trio/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
@@ -31,9 +35,6 @@ BDEPEND="
 	test? (
 		>=dev-python/astor-0.8.0[${PYTHON_USEDEP}]
 		>=dev-python/immutables-0.6[${PYTHON_USEDEP}]
-		dev-python/ipython[${PYTHON_USEDEP}]
-		>=dev-python/jedi-0.18.0[${PYTHON_USEDEP}]
-		dev-python/pylint[${PYTHON_USEDEP}]
 	)
 "
 
@@ -42,10 +43,8 @@ EPYTEST_DESELECT=(
 	# https://github.com/python-trio/trio/issues/1753
 	trio/tests/test_unix_pipes.py::test_close_at_bad_time_for_send_all
 
-	# Fail with Python 3.10 on 'IPPROTO_MPTCP'
-	# Everything else passes and this is a simple check for exported symbols
-	# Let's try again with the next release (after 0.19.0).
-	trio/tests/test_exports.py::test_static_tool_sees_all_symbols
+	# incompatible ipython version?
+	trio/_core/tests/test_multierror.py::test_ipython_exc_handler
 )
 
 EPYTEST_IGNORE=(
@@ -56,7 +55,12 @@ EPYTEST_IGNORE=(
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source \
-					dev-python/immutables \
-					dev-python/sphinxcontrib-trio \
-					dev-python/sphinx_rtd_theme \
-					dev-python/towncrier
+	dev-python/immutables \
+	dev-python/sphinxcontrib-trio \
+	dev-python/sphinx_rtd_theme \
+	dev-python/towncrier
+
+python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -m "not redistributors_should_skip"
+}
