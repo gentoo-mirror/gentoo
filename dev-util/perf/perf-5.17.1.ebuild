@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..10} )
-inherit bash-completion-r1 estack llvm toolchain-funcs prefix python-r1 linux-info
+PYTHON_COMPAT=( python3_{8..10} )
+inherit bash-completion-r1 estack llvm toolchain-funcs python-r1 linux-info
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
 HOMEPAGE="https://perf.wiki.kernel.org/"
@@ -54,8 +54,8 @@ RDEPEND="audit? ( sys-process/audit )
 	babeltrace? ( dev-util/babeltrace )
 	crypt? ( virtual/libcrypt:= )
 	clang? (
-		<sys-devel/clang-10:*
-		<sys-devel/llvm-10:*
+		sys-devel/clang:=
+		sys-devel/llvm:=
 	)
 	gtk? ( x11-libs/gtk+:2 )
 	java? ( virtual/jre:* )
@@ -96,7 +96,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	use clang && LLVM_MAX_SLOT=9 llvm_pkg_setup
+	use clang && llvm_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
@@ -141,6 +141,10 @@ src_prepare() {
 		popd || die
 	fi
 
+	pushd "${S_K}" >/dev/null || die
+	eapply "${FILESDIR}"/${P}-clang.patch
+	popd || die
+
 	# Drop some upstream too-developer-oriented flags and fix the
 	# Makefile in general
 	sed -i \
@@ -156,11 +160,6 @@ src_prepare() {
 
 	# The code likes to compile local assembly files which lack ELF markings.
 	find -name '*.S' -exec sed -i '$a.section .note.GNU-stack,"",%progbits' {} +
-
-	# Fix shebang to use python from prefix
-	if [[ -n "${EPREFIX}" ]]; then
-		hprefixify ${S_K}/scripts/bpf_helpers_doc.py
-	fi
 }
 
 puse() { usex $1 "" no; }
@@ -222,9 +221,7 @@ perf_make() {
 src_compile() {
 	# test-clang.bin not build with g++
 	if use clang; then
-		pushd "${S_K}/tools/build/feature/" || die
-		make V=1 CXX=${CHOST}-clang++ test-clang.bin || die
-		popd
+		make -C "${S_K}/tools/build/feature" V=1 CXX=${CHOST}-clang++ test-clang.bin || die
 	fi
 	perf_make -f Makefile.perf
 	use doc && perf_make -C Documentation man
