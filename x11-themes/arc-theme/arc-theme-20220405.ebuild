@@ -69,9 +69,6 @@ src_configure() {
 	)
 
 	local emesonargs=(
-		# 4.0 dropped in Gentoo, 4.2 works with 4.6
-		# if we change that to allow auto-detection, a pkg-config dep will be required.
-		-Dgtk4_version=4.2
 		-Dthemes="${themes%,}"
 		$(meson_use gnome-shell gnome_shell_gresource)
 		$(meson_use transparency)
