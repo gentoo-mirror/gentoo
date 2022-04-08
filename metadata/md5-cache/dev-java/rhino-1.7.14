@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/mozilla/rhino
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=MPL-1.1 GPL-2
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=1.6
 SRC_URI=https://github.com/mozilla/rhino/archive/Rhino1_7_14_Release.tar.gz -> rhino-1.7.14.tar.gz
 _eclasses_=java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	8a2b8811bad7877b5ec349bddeceabb6
-_md5_=f4b4d852992c2da64edbf8d341dc74af
+_md5_=e22c22e09284defb9a49b15e471af42c
