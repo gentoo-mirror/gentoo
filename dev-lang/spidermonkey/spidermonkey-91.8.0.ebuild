@@ -5,7 +5,7 @@ EAPI="7"
 
 # Patch version
 FIREFOX_PATCHSET="firefox-91esr-patches-05j.tar.xz"
-SPIDERMONKEY_PATCHSET="spidermonkey-91-patches-03j.tar.xz"
+SPIDERMONKEY_PATCHSET="spidermonkey-91-patches-04j.tar.xz"
 
 LLVM_MAX_SLOT=13
 
@@ -356,6 +356,46 @@ src_test() {
 	fi
 
 	cp "${FILESDIR}"/spidermonkey-91-known-test-failures.txt "${T}"/known_failures.list || die
+
+	# bgo #827960
+	if use ppc; then
+		echo "non262/TypedArray/map-and-filter.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/load/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/load/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/add/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/add/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/exchange/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/exchange/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/store/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/store/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/xor/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/xor/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/sub/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/sub/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-exchange.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/and/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-or.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/false-for-timeout-agent.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-add.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/or/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-sub.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-compareExchange.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/negative-timeout-agent.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-xor.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/value-not-equal.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-no-operation.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/waiterlist-block-indexedposition-wake.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/nan-for-timeout.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-and.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/was-woken-before-timeout.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/no-spurious-wakeup-on-store.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/wait/bigint/waiterlist-order-of-operations-is-fifo.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/compareExchange/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/compareExchange/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/and/bigint/non-shared-bufferdata.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/or/bigint/good-views.js" >> "${T}"/known_failures.list
+		echo "test262/built-ins/Atomics/notify/bigint/notify-all-on-loc.js" >> "${T}"/known_failures.list
+	fi
 
 	if use x86 ; then
 		echo "non262/Date/timeclip.js" >> "${T}"/known_failures.list
