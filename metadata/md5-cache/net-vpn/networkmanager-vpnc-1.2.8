@@ -1,0 +1,17 @@
+BDEPEND=>=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=net-misc/networkmanager-1.2.0:= >=dev-libs/dbus-glib-0.74 >=dev-libs/glib-2.32:2 >=net-vpn/vpnc-0.5.3_p550 gtk? ( >=x11-libs/gtk+-3.4:3 >=app-crypt/libsecret-0.18 >=gui-libs/gtk-4.0:4 >=net-libs/libnma-1.8.36 ) sys-devel/gettext dev-util/intltool virtual/pkgconfig
+DESCRIPTION=NetworkManager VPNC plugin
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/NetworkManager
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=gtk test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2+
+RDEPEND=>=net-misc/networkmanager-1.2.0:= >=dev-libs/dbus-glib-0.74 >=dev-libs/glib-2.32:2 >=net-vpn/vpnc-0.5.3_p550 gtk? ( >=x11-libs/gtk+-3.4:3 >=app-crypt/libsecret-0.18 >=gui-libs/gtk-4.0:4 >=net-libs/libnma-1.8.36 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/NetworkManager-vpnc/1.2/NetworkManager-vpnc-1.2.8.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
+_md5_=1f0aec949d6d2138ea0c8359979935e8
