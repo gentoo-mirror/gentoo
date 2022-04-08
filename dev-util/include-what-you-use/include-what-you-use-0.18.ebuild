@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake llvm python-single-r1
 
@@ -13,17 +13,18 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
-LLVM_MAX_SLOT=12
+LLVM_MAX_SLOT=14
 
 RDEPEND="
-	sys-devel/clang:${LLVM_MAX_SLOT}=
+	sys-devel/clang:${LLVM_MAX_SLOT}
+	sys-devel/llvm:${LLVM_MAX_SLOT}
 	${PYTHON_DEPS}
 "
 DEPEND="${RDEPEND}"
 
-REQUIRED_USE=${PYTHON_REQUIRED_USE}
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 llvm_check_deps() {
 	has_version "sys-devel/clang:${LLVM_SLOT}"
