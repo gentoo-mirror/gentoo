@@ -3,40 +3,34 @@
 
 EAPI=8
 
-# Please bump with dev-libs/icu-layoutex
+# Please bump with dev-libs/icu
 
-PYTHON_COMPAT=( python3_{8..10} )
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/icu.asc
-inherit autotools flag-o-matic multilib-minimal python-any-r1 toolchain-funcs verify-sig
+inherit autotools flag-o-matic multilib-minimal toolchain-funcs verify-sig
 
-DESCRIPTION="International Components for Unicode"
-HOMEPAGE="https://icu.unicode.org/"
+DESCRIPTION="External layout part of International Components for Unicode"
+HOMEPAGE="https://icu-project.org/"
 SRC_URI="https://github.com/unicode-org/icu/releases/download/release-${PV//./-}/icu4c-${PV//./_}-src.tgz"
 SRC_URI+=" verify-sig? ( https://github.com/unicode-org/icu/releases/download/release-${PV//./-}/icu4c-${PV//./_}-src.tgz.asc )"
-S="${WORKDIR}/${PN}/source"
+S="${WORKDIR}/${PN/-layoutex}/source"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
-IUSE="debug doc examples static-libs test"
+#KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+IUSE="debug static-libs test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="${PYTHON_DEPS}
-	sys-devel/autoconf-archive
+DEPEND="
+	~dev-libs/icu-${PV}[${MULTILIB_USEDEP}]
+	dev-libs/icu-le-hb[${MULTILIB_USEDEP}]
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen[dot] )
 	verify-sig? ( sec-keys/openpgp-keys-icu )
 "
 
-MULTILIB_CHOST_TOOLS=(
-	/usr/bin/icu-config
-)
-
-PATCHES=(
-	"${FILESDIR}/${PN}-65.1-remove-bashisms.patch"
-	"${FILESDIR}/${PN}-64.2-darwin.patch"
-	"${FILESDIR}/${PN}-68.1-nonunicode.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-65.1-remove-bashisms.patch" )
 
 src_prepare() {
 	default
@@ -52,15 +46,11 @@ src_prepare() {
 		-e "s:LDFLAGSICUDT=-nodefaultlibs -nostdlib:LDFLAGSICUDT=:" \
 		config/mh-linux || die
 
-	# Append doxygen configuration to configure
-	sed -i \
-		-e 's:icudefs.mk:icudefs.mk Doxyfile:' \
-		configure.ac || die
-
 	eautoreconf
 }
 
 src_configure() {
+	# Use C++14
 	append-cxxflags -std=c++14
 
 	if tc-is-cross-compiler; then
@@ -83,42 +73,35 @@ src_configure() {
 multilib_src_configure() {
 	local myeconfargs=(
 		--disable-renaming
+		# We want a minimal build as this is just for layoutex
+		# so we disable as much as possible
 		--disable-samples
-		--disable-layoutex
+		--disable-extras
+		--disable-icuio
+
+		# This is icu-layoutex, so..
+		--enable-layoutex
+
 		$(use_enable debug)
 		$(use_enable static-libs static)
+
+		# Need tools for tests, otherwise get this in configure:
+		# "## Note: you have disabled ICU's tools. This ICU cannot build its own data or tests.
+		# ## Expect build failures in the 'data', 'test', and other directories."
+		# ... although layoutex has no tests right now anyway, but let's keep this
+		# for the future.
+		$(use_enable test tools)
 		$(use_enable test tests)
-		$(multilib_native_use_enable examples samples)
 	)
 
 	tc-is-cross-compiler && myeconfargs+=(
 		--with-cross-build="${WORKDIR}"/host
 	)
 
-	# Work around cross-endian testing failures with LTO #757681
-	if tc-is-cross-compiler && is-flagq '-flto*' ; then
-		myeconfargs+=( --disable-strict )
-	fi
-
-	# ICU tries to use clang by default
+	# icu tries to use clang by default
 	tc-export CC CXX
 
-	# Make sure we configure with the same shell as we run icu-config
-	# with, or ECHO_N, ECHO_T and ECHO_C will be wrongly defined
-	export CONFIG_SHELL="${EPREFIX}/bin/sh"
-	# Probably have no /bin/sh in prefix-chain
-	[[ -x ${CONFIG_SHELL} ]] || CONFIG_SHELL="${BASH}"
-
 	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
-}
-
-multilib_src_compile() {
-	default
-
-	if multilib_is_native_abi && use doc; then
-		doxygen -u Doxyfile || die
-		doxygen Doxyfile || die
-	fi
 }
 
 multilib_src_test() {
@@ -132,19 +115,13 @@ multilib_src_test() {
 	# CINTLTST_OPTS: cintltst options
 	#   -e: Exhaustive testing
 	#   -v: Increased verbosity
+	pushd layoutex &>/dev/null || die
 	emake -j1 VERBOSE="1" check
+	popd &>/dev/null || die
 }
 
 multilib_src_install() {
+	pushd layoutex &>/dev/null || die
 	default
-
-	if multilib_is_native_abi && use doc; then
-		docinto html
-		dodoc -r doc/html/*
-	fi
-}
-
-multilib_src_install_all() {
-	local HTML_DOCS=( ../readme.html )
-	einstalldocs
+	popd &>/dev/null || die
 }
