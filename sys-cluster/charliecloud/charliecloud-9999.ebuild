@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 
@@ -61,13 +61,13 @@ src_configure() {
 		# Libdir is used as a libexec-style destination.
 		--libdir="${EPREFIX}"/usr/lib
 		# Attempts to call python-exec directly otherwise.
-		--with-sphinx-python=${PYTHON}
+		--with-sphinx-python="${PYTHON}"
 		# This disables -Werror, see also: https://github.com/hpc/charliecloud/pull/808
 		--enable-buggy-build
 		# Do not use bundled version of dev-python/lark-parser.
 		--disable-bundled-lark
 		# Use correct shebang.
-		--with-python=${PYTHON}
+		--with-python="${PYTHON}"
 	)
 	econf "${econf_args[@]}"
 }
