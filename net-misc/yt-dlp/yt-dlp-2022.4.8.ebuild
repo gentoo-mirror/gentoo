@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 inherit bash-completion-r1 distutils-r1 optfeature
 
@@ -12,7 +13,7 @@ SRC_URI="mirror://pypi/${P::1}/${PN}/${P}.tar.gz"
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~hppa ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86 ~x64-macos"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
@@ -24,9 +25,9 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 
 	# adjust requires for pycryptodome and optional dependencies (bug #828466)
-	sed -ri setup.py \
-		-e "s/'(pycryptodome)x'/'\1'/" \
-		-e "s/'(mutagen|websockets)',?//g" || die
+	sed -ri requirements.txt \
+		-e "s/^(pycryptodome)x/\1/" \
+		-e "/^(brotli.*|mutagen|websockets)/d" || die
 }
 
 python_test() {
@@ -58,8 +59,7 @@ pkg_postinst() {
 	has_version media-video/atomicparsley || # allow fallback but don't advertise
 		optfeature "embedding metadata thumbnails in MP4/M4A files" media-libs/mutagen
 
-	if [[ ! ${REPLACING_VERSIONS} ]] ||
-		ver_test ${REPLACING_VERSIONS} -lt 2021.10.22-r2; then
+	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		elog 'A wrapper using "yt-dlp --compat-options youtube-dl" was installed'
 		elog 'as "youtube-dl". This is strictly for compatibility and it is'
 		elog 'recommended to use "yt-dlp" directly, it may be removed in the future.'
