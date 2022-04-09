@@ -37,6 +37,8 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 "
 
+PATCHES=( "${FILESDIR}/${P}-ListItemDragHandle-emit-moveRequest.patch" ) # KDE-bug 451014
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=$(usex examples)

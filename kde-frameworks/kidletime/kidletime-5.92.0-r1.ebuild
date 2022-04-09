@@ -29,6 +29,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-crashfix.patch" ) # KDE-bug 451946
+
 src_prepare() {
 	ecm_src_prepare
 	if ! use xscreensaver; then

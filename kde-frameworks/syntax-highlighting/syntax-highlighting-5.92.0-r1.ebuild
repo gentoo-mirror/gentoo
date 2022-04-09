@@ -8,6 +8,8 @@ QTMIN=5.15.2
 inherit ecm kde.org
 
 DESCRIPTION="Framework for syntax highlighting"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-fix-bash.patch.xz"
+
 LICENSE="MIT"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="nls"
@@ -23,6 +25,8 @@ BDEPEND="
 	dev-lang/perl
 	nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )
 "
+
+PATCHES=( "${WORKDIR}/${P}-fix-bash.patch" ) # KDE-bugs 450478
 
 src_install() {
 	ecm_src_install

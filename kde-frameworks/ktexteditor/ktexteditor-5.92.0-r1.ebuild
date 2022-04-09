@@ -46,6 +46,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:5 )"
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-crash-w-stale-indexes.patch" # KDE-bug 451593
+	"${FILESDIR}/${P}-fix-toggle-comment.patch" # KDE-bug 451471
+)
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package editorconfig EditorConfig)

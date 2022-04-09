@@ -40,7 +40,10 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${P}-KDEBUG-451165.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-KDEBUG-451165.patch"
+	"${FILESDIR}/${P}-fix-valid-tar-recognition.patch" # KDE-bug 450662
+)
 
 src_configure() {
 	local mycmakeargs=(
