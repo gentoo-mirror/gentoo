@@ -4,41 +4,33 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
-MY_PN=zope.component
+MY_PN=${PN/-/.}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Zope Component Architecture"
+DESCRIPTION="Zope support for i18nmessageid (tagging source of i18n strings)"
 HOMEPAGE="
-	https://pypi.org/project/zope.component/
-	https://github.com/zopefoundation/zope.component/
+	https://pypi.org/project/zope.i18nmessageid/
+	https://github.com/zopefoundation/zope.i18nmessageid/
 "
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
-S=${WORKDIR}/${MY_P}
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="ZPL"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
-	dev-python/zope-event[${PYTHON_USEDEP}]
-	>=dev-python/zope-interface-4.1.0[${PYTHON_USEDEP}]
-"
-BDEPEND="
-	test? (
-		dev-python/zope-configuration[${PYTHON_USEDEP}]
-		dev-python/zope-i18nmessageid[${PYTHON_USEDEP}]
-		dev-python/zope-testing[${PYTHON_USEDEP}]
-	)
+	dev-python/six[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests unittest
 
 src_prepare() {
 	# strip rdep specific to namespaces
-	sed -i -e "/'setuptools'/d" setup.py || die
+	sed -i -e "s:'setuptools',::" setup.py || die
 	distutils-r1_src_prepare
 }
 
