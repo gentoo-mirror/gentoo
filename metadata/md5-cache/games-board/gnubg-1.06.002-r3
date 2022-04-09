@@ -12,6 +12,6 @@ LICENSE=GPL-3+
 RDEPEND=dev-libs/glib:2 dev-libs/gmp:= media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:= net-misc/curl sys-libs/readline:= virtual/libintl x11-libs/cairo[svg] x11-libs/pango gui? ( media-libs/libcanberra[gtk3] x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) sqlite? ( dev-db/sqlite:3 )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 SLOT=0
-SRC_URI=https://ftp.gnu.org/gnu/gnubg/gnubg-release-1.06.002-sources.tar.gz
+SRC_URI=mirror://gnu/gnu/gnubg/gnubg-release-1.06.002-sources.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	desktop	c0d27bf73aa08ca05b663dbd31fbef28	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=41fe6fd30d76d7847d4ad9b51805bbe1
+_md5_=4c2501f82769b631fe98e05543fa17b9
