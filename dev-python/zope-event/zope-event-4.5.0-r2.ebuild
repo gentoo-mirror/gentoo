@@ -8,22 +8,19 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
-MY_P=${P/-/.}
-DESCRIPTION="General purpose exceptions for Zope packages"
+MY_PN=${PN/-/.}
+MY_P=${MY_PN}-${PV}
+DESCRIPTION="Event publishing / dispatch, used by Zope Component Architecture"
 HOMEPAGE="
-	https://pypi.org/project/zope.exceptions/
-	https://github.com/zopefoundation/zope.exceptions/
+	https://pypi.org/project/zope.event/
+	https://github.com/zopefoundation/zope.event/
 "
-SRC_URI="mirror://pypi/${PN::1}/${PN/-/.}/${MY_P}.tar.gz"
+SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="ZPL"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-
-RDEPEND="
-	dev-python/zope-interface[${PYTHON_USEDEP}]
-"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 distutils_enable_tests unittest
 
