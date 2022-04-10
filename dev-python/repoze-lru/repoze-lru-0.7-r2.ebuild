@@ -3,7 +3,9 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
+
 inherit distutils-r1
 
 MY_PN=${PN/-/.}
@@ -19,14 +21,11 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="repoze"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ia64 ppc ~ppc64 ~riscv x86"
-
-RDEPEND="dev-python/namespace-repoze[${PYTHON_USEDEP}]"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86"
 
 distutils_enable_tests unittest
 
-python_install_all() {
-	distutils-r1_python_install_all
-
-	find "${D}" -name '*.pth' -delete || die
+python_compile() {
+	distutils-r1_python_compile
+	find "${BUILD_DIR}" -name '*.pth' -delete || die
 }
