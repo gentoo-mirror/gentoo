@@ -1,15 +1,15 @@
 BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( >=app-text/po4a-0.45 sys-devel/gettext virtual/libiconv virtual/libintl ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst preinst prepare unpack
-DEPEND=!sys-apps/man >=dev-libs/libpipeline-1.5.0 sys-apps/groff !berkdb? ( sys-libs/gdbm:= ) berkdb? ( sys-libs/db:= ) seccomp? ( sys-libs/libseccomp ) zlib? ( sys-libs/zlib )
-DESCRIPTION=A man replacement that utilizes berkdb instead of flat files
+DEPEND=>=dev-libs/libpipeline-1.5.0 sys-apps/groff sys-libs/gdbm:= seccomp? ( sys-libs/libseccomp ) zlib? ( sys-libs/zlib )
+DESCRIPTION=A man replacement that utilizes dbm instead of flat files
 EAPI=7
 HOMEPAGE=https://gitlab.com/cjwatson/man-db https://www.nongnu.org/man-db/
 INHERIT=systemd prefix tmpfiles autotools git-r3
-IUSE=berkdb +manpager nls +seccomp selinux static-libs zlib
+IUSE=+manpager nls +seccomp selinux static-libs zlib
 LICENSE=GPL-3
 PDEPEND=manpager? ( app-text/manpager )
 PROPERTIES=live
-RDEPEND=!sys-apps/man >=dev-libs/libpipeline-1.5.0 sys-apps/groff !berkdb? ( sys-libs/gdbm:= ) berkdb? ( sys-libs/db:= ) seccomp? ( sys-libs/libseccomp ) zlib? ( sys-libs/zlib ) acct-group/man acct-user/man selinux? ( sec-policy/selinux-mandb ) virtual/tmpfiles
+RDEPEND=>=dev-libs/libpipeline-1.5.0 sys-apps/groff sys-libs/gdbm:= seccomp? ( sys-libs/libseccomp ) zlib? ( sys-libs/zlib ) acct-group/man acct-user/man selinux? ( sec-policy/selinux-mandb ) virtual/tmpfiles
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	prefix	eab3c99d77fe00506c109c8a736186f7	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=9211e6f14359829bd275d41cd332259c
+_md5_=d3de14d21b94aed9a64be796712ea47b
