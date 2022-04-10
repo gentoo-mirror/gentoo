@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* dev-java/findbugs-annotations:0 dev-java/jna:4 test? ( dev-java/mockito:4 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Offers convenience for attaching an agent to the local or a remote VM
+EAPI=8
+HOMEPAGE=https://bytebuddy.net/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8-sources.jar test? ( https://codeload.github.com/raphw/byte-buddy/tar.gz/byte-buddy-1.12.8 -> byte-buddy-1.12.8.tar.gz )
+_eclasses_=java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	8a2b8811bad7877b5ec349bddeceabb6
+_md5_=92bc1e8ac4e3b6c2b67e4862e9fa908a
