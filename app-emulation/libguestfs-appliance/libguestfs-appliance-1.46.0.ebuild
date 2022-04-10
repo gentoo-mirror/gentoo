@@ -1,7 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+# Bump with app-emulation/libguestfs and app-emulation/libguestfs (if any new release there)
 
 CHECKREQS_DISK_USR=500M
 CHECKREQS_DISK_BUILD=500M
@@ -18,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 BDEPEND="app-arch/xz-utils"
-# Mixing libguestfs versions causes weird problems. #501588
+# Mixing libguestfs versions causes weird problems, bug #501588
 RDEPEND="!<app-emulation/libguestfs-${PV}"
 
 src_unpack() {
@@ -29,8 +31,9 @@ src_unpack() {
 
 src_install() {
 	dodir /usr/share/guestfs
-	cd "${ED}"/usr/share/guestfs || die
+	cd "${ED}"/usr/share/guestfs || Die
 	unpack ${A}
+
 	cd appliance || die
 	dodoc README*
 	# Don't rm README.* here, at least README.fixed is needed for libguestfs, see
@@ -38,5 +41,10 @@ src_install() {
 	chmod 755 . || die
 	chmod 644 * || die
 
-	newenvd "${FILESDIR}"/env.file 99"${PN}"
+	newenvd "${FILESDIR}"/env.file 99${PN}
+}
+
+pkg_postinst() {
+	# bug #776790
+	elog "Please run . ${EROOT}/etc/profile before attempting to use this package!"
 }

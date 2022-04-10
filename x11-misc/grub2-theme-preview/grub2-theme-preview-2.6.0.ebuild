@@ -1,10 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7..9} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -28,3 +27,6 @@ RDEPEND="app-emulation/qemu
 		sys-boot/grub:2[grub_platforms_pc]
 	)
 "
+DEPEND="test? ( dev-python/parameterized[${PYTHON_USEDEP}] )"
+
+distutils_enable_tests pytest
