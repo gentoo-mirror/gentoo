@@ -25,13 +25,13 @@ fi
 
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
 SLOT="0"
-IUSE="autotype browser ccache doc keeshare +network test yubikey"
+IUSE="autotype browser doc keeshare +network test yubikey"
 
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-crypt/argon2:=
-	dev-libs/botan:2
+	dev-libs/botan:2=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -60,7 +60,6 @@ DEPEND="
 	dev-qt/qttest:5
 "
 BDEPEND="
-	ccache? ( dev-util/ccache )
 	doc? ( dev-ruby/asciidoctor )
 "
 
@@ -77,7 +76,9 @@ src_configure() {
 	filter-flags -flto*
 
 	local mycmakeargs=(
-		-DWITH_CCACHE="$(usex ccache)"
+		# Gentoo users enable ccache via e.g. FEATURES=ccache or
+		# other means. We don't want the build system to enable it for us.
+		-DWITH_CCACHE=OFF
 		-DWITH_GUI_TESTS=OFF
 		-DWITH_TESTS="$(usex test)"
 		-DWITH_XC_AUTOTYPE="$(usex autotype)"
