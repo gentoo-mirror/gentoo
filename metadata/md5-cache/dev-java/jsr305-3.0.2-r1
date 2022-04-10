@@ -2,13 +2,13 @@ DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Annotations for Software Defect Detection in Java
 EAPI=8
-HOMEPAGE=http://jcp.org/en/jsr/detail?id=305
+HOMEPAGE=https://jcp.org/en/jsr/detail?id=305
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=source doc
 KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=BSD
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
-SRC_URI=http://central.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar -> jsr305-3.0.2.jar
+SRC_URI=https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
 _eclasses_=java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	8a2b8811bad7877b5ec349bddeceabb6
-_md5_=7a780abe7c735da8574df679c0235bc8
+_md5_=f010bcb7603d30304cccc69595761b8d
