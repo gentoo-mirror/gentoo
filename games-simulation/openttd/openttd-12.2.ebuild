@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake xdg-utils
 
 DESCRIPTION="A clone of Transport Tycoon Deluxe"
 HOMEPAGE="https://www.openttd.org/"
@@ -19,6 +19,10 @@ REQUIRED_USE="!dedicated? ( || ( allegro sdl ) )"
 RESTRICT="test" # needs a graphics set in order to test
 
 RDEPEND="
+	dedicated? (
+		acct-group/openttd
+		acct-user/openttd
+	)
 	!dedicated? (
 		allegro? ( media-libs/allegro:5 )
 		fluidsynth? ( media-sound/fluidsynth )
@@ -37,10 +41,13 @@ RDEPEND="
 	lzma? ( app-arch/xz-utils )
 	lzo? ( dev-libs/lzo:2 )
 	png? ( media-libs/libpng:0= )
-	zlib? ( sys-libs/zlib:= )"
+	zlib? ( sys-libs/zlib:= )
+"
 DEPEND="${RDEPEND}"
-BDEPEND=">=games-util/grfcodec-6.0.6_p20210310
-	virtual/pkgconfig"
+BDEPEND="
+	>=games-util/grfcodec-6.0.6_p20210310
+	virtual/pkgconfig
+"
 PDEPEND="
 	!dedicated? (
 		openmedia? (
@@ -49,12 +56,11 @@ PDEPEND="
 		)
 	)
 	openmedia? ( >=games-misc/opengfx-0.6.1 )
-	timidity? ( media-sound/timidity++ )"
+	timidity? ( media-sound/timidity++ )
+"
 
 DOCS=( docs/directory_structure.md )
-PATCHES=(
-	"${FILESDIR}/${PN}-1.11.2_dont_compress_man.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-1.11.2_dont_compress_man.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -69,7 +75,7 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibLZMA=$(usex !lzma)
 		-DCMAKE_DISABLE_FIND_PACKAGE_LZO=$(usex !lzo)
 		-DCMAKE_DISABLE_FIND_PACKAGE_PNG=$(usex !png)
-		# N.B. regarding #807364: CMAKE_DISABLE_FIND_PACKAGE_SDL is used only
+		# N.B. regarding #807364 and #828984: CMAKE_DISABLE_FIND_PACKAGE_SDL is used only
 		# with USE="allegro -sdl" combination flags. There no other way to
 		# completely disable SDL1 support.
 		-DCMAKE_DISABLE_FIND_PACKAGE_SDL=ON
@@ -77,15 +83,21 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_SSE=$(usex !cpu_flags_x86_sse)
 		-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=$(usex !zlib)
 	)
+
 	cmake_src_configure
 }
 
 src_install() {
 	cmake_src_install
-	newinitd "${FILESDIR}"/${PN}.initd-r1 ${PN}
+	if use dedicated ; then
+		newconfd "${FILESDIR}"/openttd.confd openttd
+		newinitd "${FILESDIR}"/openttd.initd-r1 openttd
+	fi
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
+
 	if ! use openmedia ; then
 		elog
 		elog "OpenTTD was compiled without the 'openmedia' USE flag."
@@ -101,4 +113,8 @@ pkg_postinst() {
 		elog "OR from the DOS version you need: "
 		elog "SAMPLE.CAT TRG1.GRF TRGC.GRF TRGH.GRF TRGI.GRF TRGT.GRF"
 	fi
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
