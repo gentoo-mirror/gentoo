@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig test? ( net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare unpack
+BDEPEND=virtual/pkgconfig test? ( net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) ) virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= net-libs/http-parser:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( virtual/krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-dialup/freeradius-client:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 DESCRIPTION=Openconnect SSL VPN server
 EAPI=8
 HOMEPAGE=https://ocserv.gitlab.io/www/index.html
-INHERIT=systemd autotools git-r3
+INHERIT=systemd
 IUSE=geoip kerberos +lz4 otp pam radius +seccomp systemd tcpd test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= net-libs/http-parser:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( virtual/krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-dialup/freeradius-client:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=ftp://ftp.infradead.org/pub/ocserv/ocserv-1.1.6.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=92ee468368c28bb24bdd1672f30a2c17
