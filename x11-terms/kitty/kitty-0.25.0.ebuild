@@ -10,8 +10,12 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/kovidgoyal/kitty.git"
 else
-	SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 ~x86"
+	inherit verify-sig
+	SRC_URI="
+		https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz
+		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )"
+	VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/kovidgoyal.gpg"
+	KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Fast, feature-rich, GPU-based terminal"
@@ -19,11 +23,11 @@ HOMEPAGE="https://sw.kovidgoyal.net/kitty/"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+X debug test wayland"
+IUSE="+X debug test transfer wayland"
 REQUIRED_USE="
 	|| ( X wayland )
 	${PYTHON_REQUIRED_USE}"
-RESTRICT="!test? ( test )"
+RESTRICT="!X? ( test ) !test? ( test ) !transfer? ( test ) !wayland? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -37,9 +41,10 @@ RDEPEND="
 	sys-libs/zlib:=
 	x11-libs/libxkbcommon[X?]
 	x11-misc/xkeyboard-config
+	~x11-terms/kitty-shell-integration-${PV}
 	~x11-terms/kitty-terminfo-${PV}
-	>x11-terms/kitty-terminfo-0.23.1-r0
 	X? ( x11-libs/libX11 )
+	transfer? ( net-libs/librsync:= )
 	wayland? ( dev-libs/wayland )"
 DEPEND="
 	${RDEPEND}
@@ -57,6 +62,7 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( $(python_gen_cond_dep 'dev-python/pillow[${PYTHON_USEDEP}]') )
 	wayland? ( dev-util/wayland-scanner )"
+[[ ${PV} == 9999 ]] || BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-kovidgoyal )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.23.1-flags.patch
@@ -65,10 +71,18 @@ PATCHES=(
 src_prepare() {
 	default
 
-	sed "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" -i setup.py || die
-	sed "s/else linux_backends/else [$(usev X "'x11',")$(usev wayland "'wayland'")]/" \
-		-i kitty_tests/check_build.py || die
-	use X || sed "/glfw_path('x11')/s/x11/wayland/" -i kitty_tests/glfw.py || die
+	sed -i "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" setup.py || die
+
+	if use !transfer; then
+		sed -i 's/rs_cflag =/& []#/;/files.*rsync/d' setup.py || die
+		rm -r kittens/transfer || die
+	fi
+
+	# test relies on 'who' command which doesn't detect users with pid-sandbox
+	rm kitty_tests/utmp.py || die
+
+	# test may fail/hang depending on environment and shell initialization scripts
+	rm kitty_tests/ssh.py || die
 
 	# skip docs for live version
 	[[ ${PV} != 9999 ]] || sed -i '/exists.*_build/,/docs(ddir)/d' setup.py || die
@@ -79,14 +93,14 @@ src_compile() {
 	export PKGCONFIG_EXE=$(tc-getPKG_CONFIG)
 
 	local setup=(
-		${EPYTHON} setup.py
+		${EPYTHON} setup.py linux-package
 		--disable-link-time-optimization
 		--ignore-compiler-warnings
 		--libdir-name=$(get_libdir)
+		--shell-integration="enabled no-rc"
 		--update-check-interval=0
 		--verbose
 		$(usev debug --debug)
-		linux-package
 	)
 
 	echo "${setup[*]}"
@@ -105,7 +119,8 @@ src_install() {
 	insinto /usr
 	doins -r linux-package/.
 
-	fperms +x /usr/bin/kitty
+	fperms +x /usr/bin/kitty \
+		/usr/$(get_libdir)/kitty/shell-integration/ssh/{askpass.py,kitty}
 }
 
 pkg_postinst() {
@@ -113,4 +128,5 @@ pkg_postinst() {
 
 	optfeature "in-terminal image display with kitty icat" media-gfx/imagemagick
 	optfeature "audio-based terminal bell support" media-libs/libcanberra
+	optfeature "opening links from the terminal" x11-misc/xdg-utils
 }
