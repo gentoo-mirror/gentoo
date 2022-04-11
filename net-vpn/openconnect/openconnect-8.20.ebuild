@@ -86,6 +86,10 @@ src_unpack() {
 }
 
 src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}/8.20-rsa-securid.patch"
+		"${FILESDIR}/8.20-insecure-crypto.patch"
+	)
 	default
 	if [[ ${PV} == 9999 ]]; then
 		eautoreconf
