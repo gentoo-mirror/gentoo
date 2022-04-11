@@ -40,3 +40,9 @@ BDEPEND="
 	)
 	dev-util/wayland-scanner
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-layer-shell-reset.patch
+	"${FILESDIR}"/${P}-guard-subsurface-parent-access.patch # bug 452044
+	"${FILESDIR}"/${P}-fix-crash-on-screen-setup-change.patch # bug 452318
+)
