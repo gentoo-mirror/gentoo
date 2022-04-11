@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install prepare
 DEPEND=net-libs/libnsl:= sys-libs/pam virtual/libcrypt:= skey? ( >=sys-auth/skey-1.1.5-r1 ) tcpd? ( sys-apps/tcp-wrappers )
 DESCRIPTION=An updated version of Cisco's TACACS+ server
 EAPI=7
-HOMEPAGE=http://www.shrubbery.net/tac_plus/
+HOMEPAGE=https://www.shrubbery.net/tac_plus/
 INHERIT=autotools pam
 IUSE=debug finger maxsess tcpd skey static-libs
 KEYWORDS=amd64 ~ppc x86
@@ -12,4 +12,4 @@ RDEPEND=net-libs/libnsl:= sys-libs/pam virtual/libcrypt:= skey? ( >=sys-auth/ske
 SLOT=0
 SRC_URI=ftp://ftp.shrubbery.net/pub/tac_plus/tacacs+-F4.0.4.27a.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	pam	e44a1dd98f13e1ad76de01e919bde1f1
-_md5_=f586950914c3496e26e533860600689b
+_md5_=a68fc2dbb5ed3c1e9434fced9b3ec6a2
