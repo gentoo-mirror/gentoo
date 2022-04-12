@@ -43,7 +43,6 @@ RDEPEND="${LUA_DEPS}
 	dev-libs/libsodium:=
 	dev-libs/openssl:0=[-bindist(-)]
 	dev-libs/snowball-stemmer:=
-	>=dev-libs/xxhash-0.8.0
 	sys-apps/file
 	sys-libs/zlib
 	blas? (
@@ -53,8 +52,9 @@ RDEPEND="${LUA_DEPS}
 	cpu_flags_x86_ssse3? ( dev-libs/hyperscan )
 	jemalloc? ( dev-libs/jemalloc:= )
 "
+# This version is also affected with bug #830624
 DEPEND="${RDEPEND}
-	dev-cpp/doctest
+	<dev-cpp/doctest-2.4.7
 "
 BDEPEND="
 	dev-util/ragel
@@ -70,7 +70,7 @@ PATCHES=(
 src_prepare() {
 	cmake_src_prepare
 
-	rm -vrf contrib/{doctest,fmt,lua-{argparse,bit},snowball,xxhash,zstd} || die
+	rm -vrf contrib/{doctest,fmt,lua-{argparse,bit},snowball,zstd} || die
 
 	> cmake/Toolset.cmake || die #827550
 
@@ -88,7 +88,6 @@ src_configure() {
 
 		-DSYSTEM_DOCTEST=ON
 		-DSYSTEM_FMT=ON
-		-DSYSTEM_XXHASH=ON
 		-DSYSTEM_ZSTD=ON
 
 		-DENABLE_BLAS=$(usex blas ON OFF)
