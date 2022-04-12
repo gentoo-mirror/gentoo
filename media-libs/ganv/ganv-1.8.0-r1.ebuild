@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE='threads(+)'
 inherit flag-o-matic waf-utils python-any-r1
 
@@ -19,7 +19,7 @@ RDEPEND="
 	dev-cpp/glibmm:2
 	dev-cpp/gtkmm:2.4
 	x11-libs/gtk+:2
-	graphviz? ( media-gfx/graphviz[gtk] )
+	graphviz? ( media-gfx/graphviz[gtk2] )
 	introspection? (
 		app-text/yelp-tools
 		dev-libs/gobject-introspection:=[doctool] )

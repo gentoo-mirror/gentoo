@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 inherit autotools flag-o-matic java-pkg-opt-2 python-single-r1 qmake-utils
@@ -14,11 +14,11 @@ SRC_URI="https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-re
 
 LICENSE="CPL-1.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris"
-IUSE="+cairo devil doc examples gtk gts guile java lasi lefty nls pdf perl postscript python qt5 ruby svg tcl webp X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris"
+IUSE="+cairo devil doc examples gtk2 gts guile java lasi lefty nls pdf perl postscript python qt5 ruby svg tcl webp X"
 
 REQUIRED_USE="
-	!cairo? ( !X !gtk !postscript !lasi )
+	!cairo? ( !X !gtk2 !postscript !lasi )
 	pdf? ( cairo )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -41,7 +41,10 @@ RDEPEND="
 		>=x11-libs/pango-1.12
 	)
 	devil? ( media-libs/devil[png,jpeg] )
-	gtk? ( x11-libs/gtk+:2 )
+	gtk2? (
+		x11-libs/gdk-pixbuf:2
+		x11-libs/gtk+:2
+	)
 	gts? ( sci-libs/gts )
 	guile? ( dev-scheme/guile )
 	java? ( >=virtual/jre-1.8:* )
@@ -71,7 +74,6 @@ DEPEND="${RDEPEND}
 BDEPEND="
 	sys-devel/flex
 	sys-devel/libtool
-	x11-libs/gdk-pixbuf:2
 	virtual/pkgconfig
 	doc? (
 		app-text/ghostscript-gpl
@@ -101,7 +103,7 @@ BDEPEND="
 #   needs 'pangocairo' enabled in graphviz configuration
 #   gtk-2 depends on pango, cairo and libX11 directly.
 # - gdk-pixbuf
-#   Disabled, GTK-1 junk.
+#   Directly depends on gtk-2 and gdk-pixbuf.
 # - glitz
 #   Disabled, no particular reason
 #   needs 'pangocairo' enabled in graphviz configuration
@@ -190,7 +192,9 @@ src_configure() {
 		--enable-ltdl
 		$(use_with cairo pangocairo)
 		$(use_with devil)
-		$(use_with gtk)
+		$(use_with gtk2 gdk)
+		$(use_with gtk2 gdk-pixbuf)
+		$(use_with gtk2)
 		$(use_with gts)
 		$(use_with qt5 qt)
 		$(use_with lasi)
