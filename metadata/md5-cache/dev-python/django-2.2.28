@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://www.djangoproject.com/ https://pypi.org/project/Django/
 INHERIT=bash-completion-r1 distutils-r1 optfeature verify-sig
 IUSE=doc sqlite test doc python_targets_python3_8 python_targets_python3_9 verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=BSD Apache-2.0 MIT
 RDEPEND=dev-python/pytz[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/sqlparse-0.2.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[sqlite?,threads(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[sqlite?,threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://media.djangoproject.com/releases/2.2/Django-2.2.28.tar.gz verify-sig? ( https://media.djangoproject.com/pgp/Django-2.2.28.checksum.txt )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	779bc733c68a72273cfce64602bada1d	optfeature	d524f291c80f9d21ad80fe978e3ca760	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=291a7f9c065498600b854f5a4da4e672
+_md5_=d2ad090683cb107055ec735d2e8ccc10
