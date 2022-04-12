@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,14 +33,13 @@ CDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/jsonpatch[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/netifaces[${PYTHON_USEDEP}]
 "
-DEPEND="
-		${CDEPEND}
+BDEPEND="
+	${CDEPEND}
 	test? (
 		>=dev-python/httpretty-0.7.1[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/coverage[${PYTHON_USEDEP}]
 	)
 "
@@ -59,7 +58,7 @@ PATCHES=(
 	"${FILESDIR}"/22.1-add-support-for-package_upgrade.patch
 )
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
 
 python_prepare_all() {
 	# Fix location of documentation installation
