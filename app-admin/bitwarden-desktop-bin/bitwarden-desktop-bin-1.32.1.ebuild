@@ -23,6 +23,7 @@ RDEPEND="
 	dev-libs/atk
 	dev-libs/expat
 	dev-libs/glib
+	sys-libs/glibc
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
@@ -46,6 +47,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libXrender
 	x11-libs/libXScrnSaver
+	x11-libs/libxshmfence
 	x11-libs/libXtst
 	x11-libs/pango
 "
@@ -55,7 +57,7 @@ IDEPEND="
 "
 
 QA_PREBUILT="
-	opt/Bitwarden/*.so
+	opt/Bitwarden/*.so*
 	opt/Bitwarden/bitwarden
 	opt/Bitwarden/chrome-sandbox
 "
@@ -70,7 +72,7 @@ src_install() {
 
 	local x
 	for x in 16 32 48 64 256 512; do
-		doicon -s ${x} data/icons/hicolor/${x}*/*
+		doicon -s ${x} usr/share/icons/hicolor/${x}*/*
 	done
 }
 
