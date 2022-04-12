@@ -1,13 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27 ruby30"
+USE_RUBY="ruby26 ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md ROADMAP.md SECURITY.md"
-
-RUBY_FAKEGEM_EXTRAINSTALL="ext"
 
 RUBY_FAKEGEM_GEMSPEC="nokogiri.gemspec"
 
@@ -20,25 +18,25 @@ HOMEPAGE="https://www.nokogiri.org/"
 LICENSE="MIT"
 SRC_URI="https://github.com/sparklemotion/nokogiri/archive/v${PV}.tar.gz -> ${P}-git.tgz"
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 SLOT="0"
 IUSE=""
 
 RDEPEND="${RDEPEND}
-	>=dev-libs/libxml2-2.9.12:=
-	>=dev-libs/libxslt-1.1.34
+	>=dev-libs/libxml2-2.9.13:=
+	>=dev-libs/libxslt-1.1.35
 	sys-libs/zlib
 	virtual/libiconv"
 DEPEND="${DEPEND}
-	>=dev-libs/libxml2-2.9.12
-	>=dev-libs/libxslt-1.1.34
+	>=dev-libs/libxml2-2.9.13
+	>=dev-libs/libxslt-1.1.35
 	sys-libs/zlib
 	virtual/libiconv"
 
 ruby_add_rdepend ">=dev-ruby/racc-1.4:0"
 
 ruby_add_bdepend "
-	>=dev-ruby/pkg-config-1.1.7
+	dev-ruby/mini_portile2:2.8
 	>=dev-ruby/rexical-1.0.7
 	dev-ruby/rdoc
 	test? ( dev-ruby/minitest )"
@@ -58,10 +56,8 @@ all_ruby_prepare() {
 		-e '/reporters/I s:^:#:' \
 		-i test/helper.rb || die
 
+	# There is no need for mini_portile2 to be a runtime dependency on Gentoo
 	sed -i -e '/mini_portile2/ s:^:#:' ${RUBY_FAKEGEM_GEMSPEC} || die
-
-	# Account for fix making it upstream into our libxml2 system version
-	sed -i -e '116 s/using_packaged/using_system/ ; 131 s/if/if false and /' test/html/test_comments.rb || die
 }
 
 each_ruby_configure() {
@@ -96,12 +92,4 @@ each_ruby_compile() {
 
 each_ruby_test() {
 	${RUBY} -Ilib:.:test -e 'Dir["test/**/test_*.rb"].each {|f| require f}' || die
-}
-
-each_ruby_install() {
-	each_fakegem_install
-
-	# Clean up "ext" directory before installing it. nokogumbo expects
-	# the header files and shared object to be in ext.
-	rm -rf ext/java ext/nokogiri/*.o ext/nokogiri/{mkmf.log,Makefile} || die
 }
