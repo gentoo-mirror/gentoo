@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install setup
-DEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 x11-libs/gtk+:2 graphviz? ( media-gfx/graphviz[gtk] ) introspection? ( app-text/yelp-tools dev-libs/gobject-introspection:=[doctool] ) || ( >=dev-lang/python-3.9.9-r1:3.9[threads(+)] >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) dev-util/glib-utils nls? ( virtual/libintl )
+DEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 x11-libs/gtk+:2 graphviz? ( media-gfx/graphviz[gtk2] ) introspection? ( app-text/yelp-tools dev-libs/gobject-introspection:=[doctool] ) || ( >=dev-lang/python-3.10.0_p1-r1:3.10[threads(+)] >=dev-lang/python-3.9.9-r1:3.9[threads(+)] >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) dev-util/glib-utils nls? ( virtual/libintl )
 DESCRIPTION=A GTK+ widget for interactive graph-like environments
 EAPI=7
 HOMEPAGE=http://drobilla.net/software/ganv/
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic waf-utils python-any-r1
 IUSE=+fdgl +graphviz introspection nls
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 x11-libs/gtk+:2 graphviz? ( media-gfx/graphviz[gtk] ) introspection? ( app-text/yelp-tools dev-libs/gobject-introspection:=[doctool] )
+RDEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 x11-libs/gtk+:2 graphviz? ( media-gfx/graphviz[gtk2] ) introspection? ( app-text/yelp-tools dev-libs/gobject-introspection:=[doctool] )
 SLOT=0
 SRC_URI=http://download.drobilla.net/ganv-1.8.0.tar.bz2
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	waf-utils	b105702e851f214f466d51d24ad7efbd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=9aab52bbfbca76b7a7e22a92ba6eaf50
+_md5_=f447e49be2a56e6f0b3ac8157249ba7d
