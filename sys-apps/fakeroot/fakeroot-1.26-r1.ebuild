@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -46,6 +46,10 @@ src_configure() {
 	export ac_cv_header_sys_acl_h=$(usex acl)
 	use acl || export ac_cv_search_acl_get_fd=no # bug 759568
 	use debug && append-cppflags -DLIBFAKEROOT_DEBUGGING
+
+	# https://bugs.gentoo.org/834445
+	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101270
+	filter-flags -fno-semantic-interposition
 
 	econf --disable-static
 }
