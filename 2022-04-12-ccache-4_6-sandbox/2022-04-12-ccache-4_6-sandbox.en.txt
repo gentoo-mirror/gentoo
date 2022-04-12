@@ -1,0 +1,25 @@
+Title: Sandbox issue with ccache 4.6
+Author: Sam James <sam@gentoo.org>
+Posted: 2022-04-12
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: =dev-util/ccache-4.6
+
+Users with ccache enabled for the dev-util/ccache package itself may need
+to temporarily disable ccache in order to upgrade the package.
+
+Users on an earlier version of ccache (<4.6) or newer (>=4.6-r1) are
+unaffected.
+
+For a small window (between 2022-04-09-4:30AM UTC and 2022-04-09-11:27AM UTC),
+the ccache ebuild may have caused a sandbox violation [0] in some circumstances.
+
+To resolve this issue, temporarily re-emerge dev-util/ccache with ccache
+disabled:
+# FEATURES="-ccache" emerge -v1 ">dev-util/ccache-4.6"
+
+The sandbox violations occur when trying to use ccache for any package;
+users who do not have ccache enabled globally (or at least not for ccache
+itself) should also proactively upgrade ccache as above.
+
+[0] https://bugs.gentoo.org/837362
