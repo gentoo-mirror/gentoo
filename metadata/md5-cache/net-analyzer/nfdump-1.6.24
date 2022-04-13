@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/flex virtual/yacc doc? ( app-doc/doxygen media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=app-arch/bzip2 sys-libs/zlib ftconv? ( net-analyzer/flow-tools ) nfpcapd? ( net-libs/libpcap ) nfprofile? ( net-analyzer/rrdtool ) nftrack? ( net-analyzer/rrdtool ) readpcap? ( net-libs/libpcap )
+DESCRIPTION=A set of tools to collect and process netflow data
+EAPI=8
+HOMEPAGE=https://github.com/phaag/nfdump
+INHERIT=autotools toolchain-funcs
+IUSE=debug doc jnat ftconv nfpcapd nfprofile nftrack nsel readpcap sflow
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=app-arch/bzip2 sys-libs/zlib ftconv? ( net-analyzer/flow-tools ) nfpcapd? ( net-libs/libpcap ) nfprofile? ( net-analyzer/rrdtool ) nftrack? ( net-analyzer/rrdtool ) readpcap? ( net-libs/libpcap )
+REQUIRED_USE=?? ( jnat nsel )
+SLOT=0/1.6.24
+SRC_URI=https://github.com/phaag/nfdump/archive/v1.6.24.tar.gz -> nfdump-1.6.24.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	a7813cfab8862ac10bcf3e01efb3f5c4
+_md5_=a775ca5c03a633a17bdc76c93176b0ec
