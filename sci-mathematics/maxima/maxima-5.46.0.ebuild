@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit autotools elisp-common eutils flag-o-matic python-single-r1 xdg-utils
+inherit autotools elisp-common flag-o-matic python-single-r1 xdg-utils
 
 DESCRIPTION="Free computer algebra environment based on Macsyma"
 HOMEPAGE="http://maxima.sourceforge.net/"
@@ -15,16 +15,7 @@ LICENSE="GPL-2 GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
-# Supported lisps
-LISPS=(     sbcl cmucl gcl             ecls clozurecl clisp )
-# <lisp> supports readline: . - no, y - yes
-SUPP_RL=(   .    .     y               .    .         y     )
-# . - just --enable-<lisp>, <flag> - --enable-<flag>
-CONF_FLAG=( .    .     .               ecl  ccl       .     )
-# patch file version; . - no patch
-PATCH_V=(   2    1     .               4    3         1     )
-
-IUSE="emacs gui nls unicode vtk X test ${LISPS[*]}"
+IUSE="clisp clozurecl clozurecl64 cmucl ecls emacs gcl gui nls +sbcl unicode vtk X test"
 RESTRICT="!test? ( test )"
 
 # Languages
@@ -32,6 +23,32 @@ LANGS="de es pt pt_BR"
 for lang in ${LANGS}; do
 	IUSE="${IUSE} l10n_${lang/_/-}"
 done
+
+LISP_DEPEND="
+	clisp? ( dev-lisp/clisp:= )
+	clozurecl? ( dev-lisp/clozurecl app-misc/rlwrap )
+	clozurecl64? ( dev-lisp/clozurecl app-misc/rlwrap )
+	cmucl? ( dev-lisp/cmucl app-misc/rlwrap )
+	ecls? ( dev-lisp/ecls:= app-misc/rlwrap )
+	gcl? ( dev-lisp/gcl[ansi,readline] )
+	sbcl? ( dev-lisp/sbcl:= app-misc/rlwrap )
+"
+
+# LISP_DEPEND is included in both BDEPEND and DEPEND because the various
+# lisp engines are used to both compile and run maxima. It's possible
+# that they don't (all?) need to be listed in DEPEND; who knows.
+BDEPEND="
+	${LISP_DEPEND}
+	test? ( sci-visualization/gnuplot )
+	sys-apps/texinfo
+"
+
+DEPEND="
+	${LISP_DEPEND}
+	virtual/libcrypt:=
+	emacs? ( >=app-editors/emacs-26:* )
+	gui? ( dev-lang/tk:0 )
+"
 
 # texlive-latexrecommended needed by imaxima for breqn.sty
 #
@@ -41,8 +58,11 @@ done
 # It's NON-optional for the scene() command, but that command is
 # currently useless since Tcl/Tk support was dropped in sci-libs/vtk.
 # Thus we include VTK only as an optional dependency.
+#
+# We require app-misc/rlwrap for any lisps that don't support readline
+# themselves.
 RDEPEND="
-	virtual/libcrypt:=
+	${DEPEND}
 	X? (
 		x11-misc/xdg-utils
 		sci-visualization/gnuplot[gd]
@@ -52,113 +72,52 @@ RDEPEND="
 		)
 	)
 	emacs? (
-		>=app-editors/emacs-23.1:*
 		virtual/latex-base
 		app-emacs/auctex
 		app-text/ghostscript-gpl
 		dev-texlive/texlive-latexrecommended
-	)
-	gui? ( dev-lang/tk:0 )"
-
-# generating lisp dependencies
-depends() {
-	local LISP DEP
-	LISP=${LISPS[$1]}
-	DEP="dev-lisp/${LISP}:="
-	if [ "${SUPP_RL[$1]}" = "." ]; then
-		DEP="${DEP} app-misc/rlwrap"
-	fi
-	echo ${DEP}
-}
-
-n=${#LISPS[*]}
-for ((n--; n >= 0; n--)); do
-	LISP=${LISPS[${n}]}
-	RDEPEND="${RDEPEND} ${LISP}? ( $(depends ${n}) )"
-	DEF_DEP="${DEF_DEP} !${LISP}? ( "
-done
-
-# default lisp
-DEF_LISP=0 # sbcl
-ARM_LISP=2 # gcl
-DEF_DEP="${DEF_DEP} arm? ( `depends ${ARM_LISP}` ) !arm? ( `depends ${DEF_LISP}` )"
-
-n=${#LISPS[*]}
-for ((n--; n >= 0; n--)); do
-	DEF_DEP="${DEF_DEP} )"
-done
-
-unset LISP
+	)"
 
 # Maxima can make use of X features like plotting (and launching a PNG
 # viewer) from the console, but you can't use the xmaxima GUI without X.
-REQUIRED_USE="${PYTHON_REQUIRED_USE} gui? ( X )"
-
-RDEPEND="${RDEPEND}
-	${DEF_DEP}"
-
-# Python is used in e.g. doc/info/build_html.sh to build the docs.
-DEPEND="${PYTHON_DEPS}
-	${RDEPEND}
-	test? ( sci-visualization/gnuplot )
-	sys-apps/texinfo"
+REQUIRED_USE="
+	vtk? ( ${PYTHON_REQUIRED_USE} )
+	|| ( clisp clozurecl clozurecl64 cmucl ecls gcl sbcl )
+	gui? ( X )"
 
 TEXMF="${EPREFIX}"/usr/share/texmf-site
 
 pkg_setup() {
 	# Set the PYTHON variable to whatever it should be.
-	python-single-r1_pkg_setup
-
-	local n=${#LISPS[*]}
-
-	for ((n--; n >= 0; n--)); do
-		use ${LISPS[${n}]} && NLISPS="${NLISPS} ${n}"
-	done
-
-	if [ -z "${NLISPS}" ]; then
-		use arm && DEF_LISP=${ARM_LISP}
-		ewarn "No lisp specified in USE flags, choosing ${LISPS[${DEF_LISP}]} as default"
-		NLISPS=${DEF_LISP}
-	fi
+	use vtk && python-single-r1_pkg_setup
 }
 
+PATCHES=(
+	"${FILESDIR}/imaxima-0.patch"
+	"${FILESDIR}/xdg-utils-1.patch"
+	"${FILESDIR}/wish-2.patch"
+	"${FILESDIR}/rmaxima-0.patch"
+	"${FILESDIR}/emacs-0.patch"
+	"${FILESDIR}/clisp-1.patch"
+	"${FILESDIR}/clozurecl-3.patch"
+	"${FILESDIR}/cmucl-1.patch"
+	"${FILESDIR}/sbcl-2.patch"
+)
+
 src_prepare() {
-	local n PATCHES v
-	PATCHES=( emacs-0 rmaxima-0 wish-2 xdg-utils-1
-			  dont-hardcode-python support-new-vtk )
-
-	n=${#PATCHES[*]}
-	for ((n--; n >= 0; n--)); do
-		eapply "${FILESDIR}"/${PATCHES[${n}]}.patch
-	done
-
-	n=${#LISPS[*]}
-	for ((n--; n >= 0; n--)); do
-		v=${PATCH_V[${n}]}
-		if [ "${v}" != "." ]; then
-			eapply "${FILESDIR}"/${LISPS[${n}]}-${v}.patch
-		fi
-	done
-
-	eapply_user
+	default
 
 	# bug #343331
 	rm share/Makefile.in || die
 	rm src/Makefile.in || die
 	touch src/*.mk
 	touch src/Makefile.am
+
 	eautoreconf
 }
 
 src_configure() {
-	local CONFS CONF n lang
-	for n in ${NLISPS}; do
-		CONF=${CONF_FLAG[${n}]}
-		if [ ${CONF} = . ]; then
-			CONF=${LISPS[${n}]}
-		fi
-		CONFS="${CONFS} --enable-${CONF}"
-	done
+	local CONFS=""
 
 	# enable existing translated doc
 	if use nls; then
@@ -175,20 +134,34 @@ src_configure() {
 	#   x86_64-pc-linux-gnu/bin/ld: fatal error: -O1 -Wl: invalid option
 	#   value (expected an integer): 1 -Wl
 	#
-	# when building the maxima.fas library for ECL.
+	# when building the maxima.fas library for ECL. See upstream bugs:
+	#
+	#   * https://sourceforge.net/p/maxima/bugs/3759/
+	#   * https://gitlab.com/embeddable-common-lisp/ecl/-/issues/636
+	#
+	# The 32-bit and 64-bit version of the clozurecl executable
+	# are both called "ccl" on Gentoo, so we need the additional
+	# use_with for clozurecl64. See bugs 665364 and 715278....
+	#
+	# The usex works around https://sourceforge.net/p/maxima/bugs/3757/
 	#
 	econf ${CONFS} \
 		LDFLAGS="$(raw-ldflags)" \
-		$(use_with gui wish) \
+		$(use_enable clisp) \
+		$(use_enable clozurecl ccl) \
+		$(use_enable clozurecl64 ccl64) \
+		$(usex clozurecl64 "--with-ccl64=ccl" "") \
+		$(use_enable cmucl) \
+		$(use_enable ecls ecl) \
 		$(use_enable emacs) \
+		$(use_enable gcl) \
+		$(use_with gui wish) \
+		$(use_enable sbcl) \
 		--with-lispdir="${EPREFIX}/${SITELISP}/${PN}"
 }
 
 src_compile() {
-	# The variable PYTHONBIN is used in one place while building the
-	# German documentation. Some day that script should be converted
-	# to use the value of @PYTHON@ obtained during ./configure.
-	emake PYTHONBIN="${PYTHON}"
+	emake
 	if use emacs; then
 		pushd interfaces/emacs/emaxima > /dev/null
 		elisp-compile *.el
@@ -204,14 +177,10 @@ src_install() {
 	docompress -x /usr/share/info
 	emake DESTDIR="${D}" emacsdir="${EPREFIX}/${SITELISP}/${PN}" install
 
-	use gui && make_desktop_entry xmaxima xmaxima \
-		/usr/share/${PN}/${PV}/xmaxima/maxima-new.png \
-		"Science;Math;Education"
-
 	# do not use dodoc because interfaces can't read compressed files
 	# read COPYING before attempt to remove it from dodoc
 	insinto /usr/share/${PN}/${PV}/doc
-	doins AUTHORS COPYING README README.lisps
+	doins AUTHORS COPYING README README-lisps.md
 	dodir /usr/share/doc
 	dosym ../${PN}/${PV}/doc /usr/share/doc/${PF}
 
@@ -226,6 +195,13 @@ src_install() {
 		insinto /usr/share/${PN}/${PV}/doc/imaxima
 		doins interfaces/emacs/imaxima/README
 		doins -r interfaces/emacs/imaxima/imath-example
+
+		if ! use gcl; then
+			# This emacs package is used to run gcl, maxima, gdb, etc.
+			# all at once and possibly in the same buffer. As such, it's
+			# no use without gcl (more to the point: it requires gcl.el).
+			find "${ED}" -name 'dbl.el' -type f -delete || die
+		fi
 	fi
 
 	if use ecls; then
