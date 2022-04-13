@@ -1294,15 +1294,6 @@ dev-db/mysql:router - Build the MySQL router program
 dev-db/mysql:server - Build the server program
 dev-db/mysql:systemtap - Build support for profiling and tracing using dev-util/systemtap
 dev-db/mysql:test - Install upstream testsuites for end use.
-dev-db/mysql-cluster:client-libs - Build the client libraries from the server package instead of the C Connector packages (not recommended)
-dev-db/mysql-cluster:extraengine - Add support for alternative storage engines (Archive, CSV, Blackhole, Federated(X), Partition)
-dev-db/mysql-cluster:latin1 - Use LATIN1 encoding instead of UTF8
-dev-db/mysql-cluster:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
-dev-db/mysql-cluster:profiling - Add support for statement profiling (requires USE=community).
-dev-db/mysql-cluster:server - Build the server program
-dev-db/mysql-cluster:systemtap - Build support for profiling and tracing using dev-util/systemtap
-dev-db/mysql-cluster:test - Install upstream testsuites for end use.
-dev-db/mysql-cluster:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
 dev-db/mysql-connector-c++:gcov - Build coverage support
 dev-db/mysql-connector-c++:legacy - Build the legacy 1.x API as well as the DevX API
 dev-db/oracle-instantclient:jdbc - Support for XA, Internationalization, and RowSet operations under JDBC
@@ -7902,7 +7893,6 @@ sys-apps/rng-tools:jitterentropy - Enable Jitter RNG entropy support
 sys-apps/rng-tools:nistbeacon - Enable NIST beacon entropy support
 sys-apps/rng-tools:pkcs11 - Enable PKCS11 entropy support
 sys-apps/rng-tools:rtlsdr - Enable atmospheric-static entropy support with net-wireless/rtl-sdr
-sys-apps/rtl-entropy:bladerf - Build with Nuand BladeRF support
 sys-apps/s390-tools:cryptsetup - build the zkey-cryptsetup utility (requires USE=openssl)
 sys-apps/s390-tools:fuse - build cmsfs-fuse to read files stored on a z/VM CMS disk
 sys-apps/s390-tools:ncurses - build hyptop monitoring program
