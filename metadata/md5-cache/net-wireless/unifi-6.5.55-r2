@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.ubnt.com
 INHERIT=java-pkg-2 systemd
 IUSE=systemd
-KEYWORDS=-* ~amd64 ~arm64
+KEYWORDS=-* amd64 ~arm64
 LICENSE=Apache-1.0 Apache-2.0 BSD-1 BSD-2 BSD CDDL EPL-1.0 GPL-2 LGPL-2.1 LGPL-3 MIT ubiquiti
 RDEPEND=acct-group/unifi acct-user/unifi dev-db/mongodb virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3
 RESTRICT=bindist mirror
-SLOT=0/7.0
-SRC_URI=https://dl.ui.com/unifi/7.0.25-43e7fc6711/UniFi.unix.zip -> unifi-7.0.25.zip
+SLOT=0/6.5
+SRC_URI=https://dl.ui.com/unifi/6.5.55-1d0581c00d/UniFi.unix.zip -> unifi-6.5.55.zip
 _eclasses_=java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=9572ca396bf457290c6ed9cb1f796f04
+_md5_=e179557a14daefd37a1b58260a491433
