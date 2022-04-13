@@ -6,14 +6,14 @@ inherit desktop wrapper
 
 SLOT="0"
 PV_STRING="$(ver_cut 2-6)"
-MY_PV="$(ver_cut 1-3)"
+MY_PV="$(ver_cut 1-2)"
 
 MY_PN="idea"
 # Using the most recent Jetbrains Runtime binaries available at the time of writing
 # ( jre 11.0.10 build 1304.4  )
 JRE11_BASE="11_0_13"
 JRE11_VER="1751.21"
-IDEA_VER="2.226147930.1137651295.1647540233-983510988.1643395105"
+IDEA_VER="2.33828453.558307708.1649857043-998802185.1649857043"
 
 # distinguish settings for official stable releases and EAP-version releases
 if [[ "$(ver_cut 7)"x = "prex" ]]
@@ -49,7 +49,7 @@ RDEPEND="${DEPEND}
 
 BDEPEND="dev-util/patchelf"
 RESTRICT="splitdebug"
-S="${WORKDIR}/${MY_PN}-IC-$(ver_cut 4-6)"
+S="${WORKDIR}/${MY_PN}-IC-$(ver_cut 3-6)"
 
 QA_PREBUILT="opt/${PN}-${MY_PV}/*"
 
@@ -114,7 +114,7 @@ src_install() {
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}"/bin/{format.sh,idea.sh,inspect.sh,printenv.py,restart.py,fsnotifier}
+	fperms 755 "${dir}"/bin/{format.sh,idea.sh,inspect.sh,restart.py,fsnotifier}
 	if use amd64; then
 		JRE_DIR=jre64
 	else
