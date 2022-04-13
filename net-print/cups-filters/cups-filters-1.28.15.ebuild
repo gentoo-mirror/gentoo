@@ -4,12 +4,11 @@
 EAPI=8
 
 GENTOO_DEPEND_ON_PERL=no
-
 inherit perl-module systemd flag-o-matic
 
 DESCRIPTION="Cups filters"
 HOMEPAGE="https://wiki.linuxfoundation.org/openprinting/cups-filters"
-SRC_URI="http://www.openprinting.org/download/${PN}/${P}.tar.xz"
+SRC_URI="https://www.openprinting.org/download/${PN}/${P}.tar.xz"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 LICENSE="MIT GPL-2"

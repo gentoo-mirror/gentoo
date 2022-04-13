@@ -15,28 +15,12 @@ MY_P="${P/_/-}"
 
 DESCRIPTION="Cross platform Make"
 HOMEPAGE="https://cmake.org/"
-if [[ ${PV} == 9999 ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.kitware.com/cmake/cmake.git"
-else
-	SRC_URI="https://cmake.org/files/v$(ver_cut 1-2)/${MY_P}.tar.gz"
-	if [[ ${PV} != *_rc* ]] ; then
-		VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/bradking.asc
-		inherit verify-sig
-
-		SRC_URI+=" verify-sig? (
-			https://github.com/Kitware/CMake/releases/download/v$(ver_cut 1-3)/${MY_P}-SHA-256.txt
-			https://github.com/Kitware/CMake/releases/download/v$(ver_cut 1-3)/${MY_P}-SHA-256.txt.asc
-		)"
-
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-
-		BDEPEND="verify-sig? ( sec-keys/openpgp-keys-bradking )"
-	fi
-fi
+SRC_URI="https://cmake.org/files/v$(ver_cut 1-2)/${MY_P}.tar.gz"
 
 LICENSE="CMake"
 SLOT="0"
+[[ "${PV}" = *_rc* ]] || \
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc emacs ncurses qt5 test"
 RESTRICT="!test? ( test )"
 
@@ -58,7 +42,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND+="
+BDEPEND="
 	doc? (
 		dev-python/requests
 		dev-python/sphinx
@@ -110,24 +94,6 @@ cmake_src_bootstrap() {
 		|| die "Bootstrap failed"
 }
 
-src_unpack() {
-	if [[ ${PV} == 9999 ]] ; then
-		git-r3_src_unpack
-	elif ! use verify-sig || [[ ${PV} == *_rc ]] ; then
-		default
-	else
-		cd "${DISTDIR}" || die
-
-		# See https://mgorny.pl/articles/verify-sig-by-example.html#verifying-using-a-checksum-file-with-a-detached-signature
-		verify-sig_verify_detached ${MY_P}-SHA-256.txt{,.asc}
-		verify-sig_verify_unsigned_checksums ${MY_P}-SHA-256.txt sha256 ${MY_P}.tar.gz
-
-		cd "${WORKDIR}" || die
-
-		default
-	fi
-}
-
 src_prepare() {
 	cmake_src_prepare
 
@@ -162,7 +128,7 @@ src_prepare() {
 		-e "s|@GENTOO_PORTAGE_EPREFIX@|${EPREFIX}/|g" \
 		Modules/Platform/{UnixPaths,Darwin}.cmake || die "sed failed"
 
-	if ! has_version -b \>=${CATEGORY}/${PN}-3.13 || ! cmake --version &>/dev/null ; then
+	if ! has_version -b \>=${CATEGORY}/${PN}-3.4.0_rc1 || ! cmake --version &>/dev/null ; then
 		CMAKE_BINARY="${S}/Bootstrap.cmk/cmake"
 		cmake_src_bootstrap
 	fi
