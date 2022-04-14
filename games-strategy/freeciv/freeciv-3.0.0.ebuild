@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-3 )
 
@@ -15,7 +15,7 @@ DESCRIPTION="Multiplayer strategy game (Civilization Clone)"
 HOMEPAGE="http://www.freeciv.org/"
 
 if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
-	SRC_URI="mirror://sourceforge/freeciv/${MY_P}.tar.bz2"
+	SRC_URI="mirror://sourceforge/freeciv/${MY_P}.tar.xz"
 	KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
@@ -170,9 +170,13 @@ src_install() {
 			# delete freeciv-manual from the GAMES_BINDIR, because it's useless.
 			# Note: to have it localized, it should be ran from _postinst, or
 			# something like that, but then it's a PITA to avoid orphan files...
-			./tools/freeciv-manual || die
-			docinto html
-			dodoc classic*.html
+			# freeciv-manual only supports one ruleset argument at a time.
+			for RULESET in alien civ1 civ2 civ2civ3 classic experimental multiplayer sandbox
+			do
+				./tools/freeciv-manual -r ${RULESET} || die
+				docinto html/rulesets/${RULESET}
+				dodoc ${RULESET}*.html
+			done
 		fi
 		if use sdl ; then
 			make_desktop_entry freeciv-sdl "Freeciv (SDL)" freeciv-client
