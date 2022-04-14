@@ -23,17 +23,18 @@ CRATES="
 	bindgen-0.56.0
 	bit-set-0.5.2
 	bit-vec-0.6.3
+	bit_field-0.10.1
 	bitflags-1.3.2
 	bitflags_serde_shim-0.2.2
-	bitstream-io-1.2.0
+	bitstream-io-1.3.0
 	bitvec-0.19.6
 	block-0.1.6
 	block-buffer-0.10.2
 	bstr-0.2.17
 	build_const-0.2.2
 	bumpalo-3.9.1
-	bytemuck-1.8.0
-	bytemuck_derive-1.0.1
+	bytemuck-1.9.1
+	bytemuck_derive-1.1.0
 	byteorder-1.4.3
 	bytes-1.1.0
 	cache-padded-1.2.0
@@ -43,14 +44,14 @@ CRATES="
 	cc-1.0.73
 	cesu8-1.1.0
 	cexpr-0.4.0
-	cfg-expr-0.10.1
+	cfg-expr-0.10.2
 	cfg-if-0.1.10
 	cfg-if-1.0.0
 	cfg_aliases-0.1.1
 	chrono-0.4.19
 	clang-sys-1.3.1
-	clap-3.1.6
-	clap_derive-3.1.4
+	clap-3.1.8
+	clap_derive-3.1.7
 	clipboard-0.5.0
 	clipboard-win-2.2.0
 	cocoa-0.24.0
@@ -78,22 +79,21 @@ CRATES="
 	cpufeatures-0.2.1
 	crc-1.8.1
 	crc32fast-1.3.2
-	crossbeam-channel-0.5.2
+	crossbeam-channel-0.5.4
 	crossbeam-deque-0.8.1
-	crossbeam-epoch-0.9.7
-	crossbeam-utils-0.8.7
+	crossbeam-epoch-0.9.8
+	crossbeam-utils-0.8.8
 	crypto-common-0.1.3
 	csv-1.1.6
 	csv-core-0.1.10
 	ctor-0.1.21
 	cty-0.2.2
-	curl-0.4.42
-	curl-sys-0.4.52+curl-7.81.0
+	curl-0.4.43
+	curl-sys-0.4.53+curl-7.82.0
 	d3d12-0.4.1
 	darling-0.13.1
 	darling_core-0.13.1
 	darling_macro-0.13.1
-	deflate-0.8.6
 	deflate-1.0.0
 	derive-try-from-primitive-1.0.0
 	diff-0.1.12
@@ -104,19 +104,21 @@ CRATES="
 	dlib-0.5.0
 	downcast-rs-1.2.0
 	either-1.6.1
-	embed-resource-1.7.1
+	embed-resource-1.7.2
 	encode_unicode-0.3.6
-	encoding_rs-0.8.30
-	enum-map-2.0.3
+	encoding_rs-0.8.31
+	enum-map-2.1.0
 	enum-map-derive-0.8.0
 	enumset-1.0.8
 	enumset_derive-0.5.5
 	env_logger-0.9.0
 	euclid-0.22.6
 	event-listener-2.5.2
+	exr-1.4.1
 	fastrand-1.7.0
-	flate2-1.0.22
+	flate2-1.0.23
 	float_next_after-0.1.5
+	flume-0.10.12
 	fnv-1.0.7
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
@@ -137,18 +139,19 @@ CRATES="
 	gdk-sys-0.15.1
 	generational-arena-0.2.8
 	generic-array-0.14.5
-	getrandom-0.2.5
+	getrandom-0.2.6
 	gif-0.11.3
-	gio-sys-0.15.6
-	glib-sys-0.15.6
+	gio-sys-0.15.7
+	glib-sys-0.15.7
 	glob-0.3.0
 	glow-0.11.2
-	gobject-sys-0.15.5
+	gobject-sys-0.15.9
 	gpu-alloc-0.5.3
 	gpu-alloc-types-0.2.0
 	gpu-descriptor-0.2.2
 	gpu-descriptor-types-0.1.1
 	gtk-sys-0.15.3
+	half-1.8.2
 	hashbrown-0.11.2
 	hashbrown-0.9.1
 	heck-0.4.0
@@ -158,9 +161,10 @@ CRATES="
 	humantime-2.1.0
 	ident_case-1.0.1
 	idna-0.2.3
-	image-0.23.14
+	image-0.24.1
 	indexmap-1.6.2
 	indicatif-0.16.2
+	inflate-0.4.5
 	inplace_it-0.3.3
 	instant-0.1.12
 	isahc-1.7.0
@@ -170,20 +174,21 @@ CRATES="
 	jni-sys-0.3.0
 	jobserver-0.1.24
 	jpeg-decoder-0.1.22
-	jpeg-decoder-0.2.2
-	js-sys-0.3.55
+	jpeg-decoder-0.2.4
+	js-sys-0.3.57
 	khronos-egl-4.1.0
 	lazy_static-1.4.0
 	lazycell-1.3.0
+	lebe-0.5.1
 	lexical-core-0.7.6
-	libc-0.2.119
-	libflate-1.1.2
+	libc-0.2.120
+	libflate-1.2.0
 	libflate_lz77-1.1.0
 	libloading-0.7.3
 	libnghttp2-sys-0.1.7+1.45.0
-	libz-sys-1.1.3
+	libz-sys-1.1.5
 	lock_api-0.4.6
-	log-0.4.14
+	log-0.4.16
 	lyon-0.17.10
 	lyon_algorithms-0.17.7
 	lyon_geom-0.17.6
@@ -201,12 +206,11 @@ CRATES="
 	minimal-lexical-0.2.1
 	minimp3-0.5.1
 	minimp3-sys-0.3.2
-	miniz_oxide-0.3.7
-	miniz_oxide-0.4.4
 	miniz_oxide-0.5.1
-	mio-0.8.0
+	mio-0.8.1
 	miow-0.3.7
 	naga-0.8.5
+	nanorand-0.7.0
 	ndk-0.5.0
 	ndk-0.6.0
 	ndk-context-0.1.0
@@ -219,17 +223,17 @@ CRATES="
 	nix-0.23.1
 	nom-5.1.2
 	nom-6.1.2
-	nom-7.1.0
+	nom-7.1.1
 	ntapi-0.3.7
-	num-complex-0.3.1
+	num-complex-0.4.0
 	num-derive-0.3.3
 	num-integer-0.1.44
 	num-iter-0.1.42
-	num-rational-0.3.2
+	num-rational-0.4.0
 	num-traits-0.2.14
 	num_cpus-1.13.1
-	num_enum-0.5.6
-	num_enum_derive-0.5.6
+	num_enum-0.5.7
+	num_enum_derive-0.5.7
 	number_prefix-0.4.0
 	objc-0.2.7
 	objc-foundation-0.1.1
@@ -237,7 +241,7 @@ CRATES="
 	objc_id-0.1.1
 	oboe-0.4.5
 	oboe-sys-0.4.5
-	once_cell-1.9.0
+	once_cell-1.10.0
 	openssl-probe-0.1.5
 	openssl-sys-0.9.72
 	os_str_bytes-6.0.0
@@ -254,18 +258,17 @@ CRATES="
 	pin-project-lite-0.2.8
 	pin-utils-0.1.0
 	pkg-config-0.3.24
-	png-0.16.8
 	png-0.17.5
 	polling-2.2.0
 	ppv-lite86-0.2.16
-	pretty_assertions-1.2.0
+	pretty_assertions-1.2.1
 	primal-check-0.3.1
 	proc-macro-crate-1.1.3
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
 	proc-macro2-1.0.36
 	profiling-1.0.5
-	quote-1.0.15
+	quote-1.0.18
 	radium-0.5.3
 	rand-0.8.5
 	rand_chacha-0.3.1
@@ -274,9 +277,9 @@ CRATES="
 	raw-window-handle-0.4.2
 	rayon-1.5.1
 	rayon-core-1.9.1
-	redox_syscall-0.2.10
+	redox_syscall-0.2.11
 	redox_users-0.4.0
-	regex-1.5.4
+	regex-1.5.5
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
 	regress-0.4.1
@@ -286,8 +289,8 @@ CRATES="
 	ron-0.7.0
 	rustc-hash-1.1.0
 	rustc_version-0.4.0
-	rustdct-0.6.0
-	rustfft-5.1.1
+	rustdct-0.7.0
+	rustfft-6.0.1
 	ryu-1.0.9
 	safe_arch-0.6.0
 	same-file-1.0.6
@@ -309,6 +312,7 @@ CRATES="
 	smallvec-1.8.0
 	smithay-client-toolkit-0.15.3
 	socket2-0.4.4
+	spin-0.9.2
 	spirv-0.2.0+1.5.4
 	static_assertions-1.1.0
 	stdweb-0.1.3
@@ -319,23 +323,24 @@ CRATES="
 	symphonia-bundle-mp3-0.5.0
 	symphonia-core-0.5.0
 	symphonia-metadata-0.5.0
-	syn-1.0.87
+	syn-1.0.91
 	synstructure-0.12.6
 	system-deps-6.0.2
 	tap-1.0.1
-	termcolor-1.1.2
+	termcolor-1.1.3
 	terminal_size-0.1.17
 	textwrap-0.15.0
 	thiserror-1.0.30
 	thiserror-impl-1.0.30
-	tiff-0.6.1
+	threadpool-1.8.1
+	tiff-0.7.1
 	time-0.1.43
 	tinyvec-1.5.1
 	tinyvec_macros-0.1.0
 	toml-0.5.8
-	tracing-0.1.31
-	tracing-attributes-0.1.19
-	tracing-core-0.1.22
+	tracing-0.1.32
+	tracing-attributes-0.1.20
+	tracing-core-0.1.23
 	tracing-futures-0.2.5
 	transpose-0.2.1
 	typenum-1.15.0
@@ -352,12 +357,13 @@ CRATES="
 	waker-fn-1.1.0
 	walkdir-2.3.2
 	wasi-0.10.2+wasi-snapshot-preview1
-	wasm-bindgen-0.2.78
-	wasm-bindgen-backend-0.2.78
-	wasm-bindgen-futures-0.4.28
-	wasm-bindgen-macro-0.2.78
-	wasm-bindgen-macro-support-0.2.78
-	wasm-bindgen-shared-0.2.78
+	wasi-0.11.0+wasi-snapshot-preview1
+	wasm-bindgen-0.2.80
+	wasm-bindgen-backend-0.2.80
+	wasm-bindgen-futures-0.4.30
+	wasm-bindgen-macro-0.2.80
+	wasm-bindgen-macro-support-0.2.80
+	wasm-bindgen-shared-0.2.80
 	wayland-client-0.29.4
 	wayland-commons-0.29.4
 	wayland-cursor-0.29.4
@@ -365,7 +371,7 @@ CRATES="
 	wayland-scanner-0.29.4
 	wayland-sys-0.29.4
 	weak-table-0.3.2
-	web-sys-0.3.55
+	web-sys-0.3.57
 	webbrowser-0.6.0
 	weezl-0.1.5
 	wepoll-ffi-0.1.2
@@ -403,7 +409,7 @@ RUFFLE_GIT=(
 	"RustAudio dasp f05a703d247bb504d7e812b51e95f3765d9c5e94 dasp"
 	"ruffle-rs gc-arena 4931b3bc25b2b74174ff5eb9c34ae0dda732778b gc-arena:src/gc-arena"
 	"ruffle-rs h263-rs 023e14c73e565c4c778d41f66cfbac5ece6419b2 h263-rs:h263,h263-rs-yuv:yuv"
-	"ruffle-rs nellymoser 77000f763b58021295429ca5740e3dc3b5228cbd nellymoser-rs:."
+	"ruffle-rs nellymoser 4a33521c29a918950df8ae9fe07e527ac65553f5 nellymoser-rs:."
 	"ruffle-rs nihav-vp6 9416fcc9fc8aab8f4681aa9093b42922214abbd3 nihav_codec_support:nihav-codec-support,nihav_core:nihav-core,nihav_duck:nihav-duck"
 	"ruffle-rs quick-xml 8496365ec1412eb5ba5de350937b6bce352fa0ba quick-xml:."
 	"ruffle-rs rust-flash-lso 19fecd07b9888c4bdaa66771c468095783b52bed flash-lso"
