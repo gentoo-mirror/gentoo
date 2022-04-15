@@ -273,69 +273,12 @@ sci-biology/GBrowse
 # tries to fetch and install all dependencies locally).
 ~dev-python/jaraco-packaging-9.0.0
 
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# Unmaintaned, broken packages, no revdeps.
-# Bugs 832618, 731720, 713684,
-# 733662, 741082, and many others.
-# Removal on 2022-04-16.
-net-wireless/yatebts
-net-wireless/srslte
-net-wireless/gr-scan
-
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# Unmaintaned, broken library with no revdeps.
-# Removal on 2022-04-16. Bug #643444. Bug #749639. Bug #684758.
-net-libs/libosmocore
-
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# 9999-only ebuilds, various other QA issues (no python
-# 3.10, using deprecated EAPI, ...)
-# Removal on 2022-04-15.
-net-libs/libmirisdr
-media-sound/deinvert
-net-wireless/gr-m2k
-net-wireless/libm2k
-
-# Jakov Smolić <jsmolic@gentoo.org> (2022-03-16)
-# Python packages with no revdeps, tests are not
-# enabled, not ported to python 3.10
-# Removal on 2022-04-15.
-net-wireless/soapy_power
-dev-python/simplesoapy
-dev-python/simplespectral
-
-# Fabian Groffen <grobian@gentoo.org> (2022-03-16)
-# little activity upstream, doesn't work with PHP 8.0
-# Removal in 30 days
-www-apps/agendav
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-03-16)
-# Java library without consumers.
-# Removal in 30 days. Bug #835389.
-dev-java/android-util
-
-# Michał Górny <mgorny@gentoo.org> (2022-03-15)
-# No maintainer.  This package is repeatedly non-bumpable due to missing
-# upstream tags.  No revdeps.
-# Removal on 2022-04-14.  Bug #835352.
-dev-python/sphinx-jinja
-
-# Sam James <sam@gentoo.org> (2022-03-15)
-# No reverse dependencies, stuck on deprecated EAPI 5.
-# Removal on 2022-04-15. bug #835350.
-dev-java/headius-options
-
 # John Helmert III <ajak@gentoo.org> (2022-03-13)
 # Arti is not a production-ready Tor client. According to upstream, "do
 # not use this program yet if you seriously need anonymity, privacy,
 # security, or stability." Feel free to unmask if this is not a
 # necessity.
 net-p2p/arti
-
-# Alfredo Tupone <tupone@gentoo.org> (2022-03-13)
-# No revdeps, last update on 2011
-# Removal on 2022-04-13.
-www-apps/rocketwiki-lqfb
 
 # Stephan Hartmann <sultan@gentoo.org> (2022-04-01)
 # Dev channel releases are only for people who
