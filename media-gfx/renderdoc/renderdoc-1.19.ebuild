@@ -13,13 +13,14 @@ AUTOTOOLS_AUTO_DEPEND="no"
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs"
 PYTHON_COMPAT=( python3_{9,10} )
-inherit autotools cmake optfeature python-single-r1 docs xdg
+inherit autotools cmake optfeature python-single-r1 docs qmake-utils verify-sig xdg
 
 DESCRIPTION="A stand-alone graphics debugging tool"
 HOMEPAGE="https://renderdoc.org https://github.com/baldurk/renderdoc"
 SRC_URI="
 	https://github.com/baldurk/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	qt5? ( https://github.com/baldurk/swig/archive/${PN}-modified-${MY_SWIG_VER}.tar.gz -> ${MY_SWIG}.tar.gz )
+	verify-sig? ( https://github.com/baldurk/renderdoc/releases/download/v${PV}/v${PV}.tar.gz.asc -> ${P}.tar.gz.asc )
 "
 
 # renderdoc: MIT
@@ -38,14 +39,14 @@ SRC_URI="
 # swig: GPL-3+ BSD BSD-2
 LICENSE="BSD BSD-2 CC-BY-3.0 GPL-3+ MIT OFL-1.1 public-domain ZLIB"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="pyside2 qt5"
 REQUIRED_USE="doc? ( qt5 ) pyside2? ( qt5 ) qt5? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
 	app-arch/lz4:=
 	app-arch/zstd:=
-	dev-libs/miniz
+	dev-libs/miniz:=
 	dev-util/glslang
 	x11-libs/libX11
 	x11-libs/libxcb:=
@@ -78,6 +79,7 @@ BDEPEND="
 		dev-qt/qtcore:5
 		sys-devel/bison
 	)
+	verify-sig? ( sec-keys/openpgp-keys-baldurkarlsson )
 "
 
 PATCHES=(
@@ -99,19 +101,21 @@ PATCHES=(
 
 	"${FILESDIR}"/${PN}-1.18-system-glslang.patch
 	"${FILESDIR}"/${PN}-1.18-system-compress.patch
-
-	# Check physical device API version and supported extensions.  Fixes
-	# segfault on some GPU/driver combinations.  Will be in release 1.19
-	"${FILESDIR}"/${PN}-1.18-check-api-ver.patch
 )
 
 DOCS=( util/LINUX_DIST_README )
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/baldurkarlsson.gpg
 
 pkg_setup() {
 	use qt5 && python-single-r1_pkg_setup
 }
 
 src_unpack() {
+	if use verify-sig; then
+	   verify-sig_verify_detached "${DISTDIR}"/${P}.tar.gz{,.asc}
+	fi
+
 	# Do not unpack the swig sources here.  CMake will do that if
 	# required.
 	unpack ${P}.tar.gz
@@ -130,6 +134,11 @@ src_prepare() {
 	sed -i "s|../build/lib|${BUILD_DIR}/lib|" \
 		"${S}"/docs/conf.py \
 		|| die 'sed patch doc sys.path failed'
+
+	# Bug #836235
+	sed -i '/#include <stdarg/i #include <time.h>' \
+		"${S}"/renderdoc/os/os_specific.h \
+		|| die 'sed include time.h failed'
 }
 
 src_configure() {
@@ -162,6 +171,10 @@ src_configure() {
 	use qt5 && mycmakeargs+=(
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-DRENDERDOC_SWIG_PACKAGE="${DISTDIR}"/${MY_SWIG}.tar.gz
+
+		# Needed after qtchooser removal, bug #836474.
+		-DQMAKE_QT5_COMMAND="$(qt5_get_bindir)"/qmake
+
 		-DQRENDERDOC_ENABLE_PYSIDE2=$(usex pyside2)
 	)
 
