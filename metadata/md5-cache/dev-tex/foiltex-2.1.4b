@@ -1,6 +1,5 @@
-BDEPEND=app-arch/unzip
+BDEPEND=app-arch/unzip virtual/latex-base >=sys-apps/texinfo-4.2-r5
 DEFINED_PHASES=compile install postinst postrm
-DEPEND=virtual/latex-base >=sys-apps/texinfo-4.2-r5
 DESCRIPTION=LaTeX package used to create foils and slides
 EAPI=7
 HOMEPAGE=ftp://ftp.dante.de/tex-archive/help/Catalogue/entries/foiltex.html
@@ -10,5 +9,5 @@ LICENSE=FoilTeX
 RDEPEND=virtual/latex-base
 SLOT=0
 SRC_URI=mirror://gentoo/foiltex-2.1.4b.zip
-_eclasses_=latex-package	223c086dd062dba43b89726880f9f0c2
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	latex-package	c20e442c3953c765f636630631c96194
 _md5_=e854080020895f8f0ed658159e54564f
