@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,6 +15,7 @@ EGO_SUM=(
 "github.com/iancoleman/strcase v0.0.0-20191112232945-16388991a334/go.mod"
 "github.com/iancoleman/strcase v0.1.0"
 "github.com/iancoleman/strcase v0.1.0/go.mod"
+"github.com/jteeuwen/go-bindata v3.0.7+incompatible"
 "github.com/jteeuwen/go-bindata v3.0.7+incompatible/go.mod"
 "github.com/mattn/go-colorable v0.0.9/go.mod"
 "github.com/mattn/go-colorable v0.1.4/go.mod"
@@ -58,6 +59,8 @@ EGO_SUM=(
 "golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd/go.mod"
 "golang.org/x/sys v0.0.0-20200824131525-c12d262b63d8"
 "golang.org/x/sys v0.0.0-20200824131525-c12d262b63d8/go.mod"
+"golang.org/x/sys v0.0.0-20220412211240-33da011f77ad"
+"golang.org/x/sys v0.0.0-20220412211240-33da011f77ad/go.mod"
 "golang.org/x/text v0.3.0/go.mod"
 )
 go-module_set_globals
