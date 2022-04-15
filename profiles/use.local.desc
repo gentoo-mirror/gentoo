@@ -2515,8 +2515,6 @@ dev-python/scipy:sparse - Adds support for sparse solving with sci-libs/umfpack
 dev-python/shiboken2:docstrings - Expose documentation as Python docstrings (recommended)
 dev-python/shiboken2:numpy - Implicitly convert passed NumPy arrays to Qt lists
 dev-python/shiboken2:vulkan - Generate "QSurface::VulkanSurface" bindings
-dev-python/simplespectral:faster - Use dev-python/scipy to speed up drawing
-dev-python/simplespectral:fastest - Use dev-python/pyFFTW to speed up drawing to the max
 dev-python/subprocess-tee:test-full - Enable full test mode. Pulls in many additional dependencies, and requires having been emerged without this flag first in order to avoid a circular dependency.
 dev-python/sympy:aesara - Add support for dev-python/aesara
 dev-python/sympy:imaging - Add support for dev-python/pillow
@@ -4587,8 +4585,6 @@ media-sound/deadbeef:nullout - Dummy output driver
 media-sound/deadbeef:sc68 - Atari ST and Amiga music player
 media-sound/deadbeef:shellexec - Define custom shell commands that can be called on tracks
 media-sound/deadbeef:supereq - Enable equalizer
-media-sound/deinvert:liquid - improve sound quality using net-libs/liquid-dsp
-media-sound/deinvert:wav - wav file support using media-libs/libsndfile
 media-sound/denemo:alsa - Enable alsa support through media-libs/alsa-lib
 media-sound/denemo:aubio - Enable media-libs/aubio support
 media-sound/denemo:fluidsynth - Enable Fluidsynth MIDI software synthesis using media-sound/fluidsynth
@@ -6080,7 +6076,6 @@ net-libs/liboauth:curl - If enabled, net-misc/curl is used thorugh the libcurl l
 net-libs/liboauth:nss - Use Mozilla NSS (dev-libs/nss) as hash library; if this is disabled, dev-libs/openssl is used instead.
 net-libs/liboping:filecaps - Allow non-root users to use [n]oping utility.
 net-libs/liboping:ncurses - Build ncurses-based version of oping utility (requires sys-libs/ncurses)
-net-libs/libosmocore:pcsc-lite - Enable smartcard support with sys-apps/pcsc-lite
 net-libs/libpcap:netlink - Use dev-libs/libnl to put wireless interfaces in monitor mode.
 net-libs/libpcap:rdma - Enable RDMA capture support using sys-cluster/rdma-core
 net-libs/libpcap:remote - Enable remote packet capture which may expose libpcap-based applications to attacks by malicious remote capture servers!
@@ -7043,8 +7038,6 @@ net-wireless/neard:tools - Build and install 'nfctool' for further NFC debugging
 net-wireless/rtl-sdr:zerocopy - may cause a bus error on some ARM systems
 net-wireless/rtl_433:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
 net-wireless/rtl_433:soapysdr - Build with SoapySDR support
-net-wireless/soapy_power:faster - Use dev-python/scipy to speed up drawing
-net-wireless/soapy_power:fastest - Use dev-python/pyFFTW to speed up drawing to the max
 net-wireless/soapysdr:bladerf - Add support for bladerf hardware
 net-wireless/soapysdr:hackrf - Add support for hackrf hardware
 net-wireless/soapysdr:plutosdr - Add support for Analog Devices ADALM-PLUTO hardware
@@ -7053,11 +7046,6 @@ net-wireless/soapysdr:uhd - Add support for Ettus USRP hardware
 net-wireless/spectools:debug - Build the raw output client for spectools. (for developers)
 net-wireless/spectools:gtk - Build the gtk-2 based client for spectools
 net-wireless/spectools:ncurses - Build the ncurses based client for spectools
-net-wireless/srslte:bladerf - support Nuand BladeRF hardware
-net-wireless/srslte:simcard - support hardware sim cards
-net-wireless/srslte:soapysdr - use soapysdr to support various hardware
-net-wireless/srslte:uhd - support Ettus Research hardware
-net-wireless/srslte:zeromq - enable zeromq message passing
 net-wireless/ubertooth:bluez - use bluez to support clock following and scanning
 net-wireless/ubertooth:ubertooth1-firmware - Build/install ubertooth1-firmware
 net-wireless/uhd:b100 - support B100 hardware
@@ -7102,10 +7090,6 @@ net-wireless/wpa_supplicant:uncommon-eap-types - Add support for GPSK, SAKE, GPS
 net-wireless/wpa_supplicant:wep - Add support for Wired Equivalent Privacy (deprecated 2004)
 net-wireless/wpa_supplicant:wimax - Add support for Wimax EAP-PEER authentication algorithm
 net-wireless/wpa_supplicant:wps - Add support for Wi-Fi Protected Setup
-net-wireless/yatebts:bladerf - Build bladeRF transceiver
-net-wireless/yatebts:rad1 - Build RAD1 transceiver
-net-wireless/yatebts:uhd - Build UHD transceiver
-net-wireless/yatebts:usrp1 - Build USRP1 transceiver
 sci-astronomy/cpl:gasgano - Enable support for sci-astronomy/gasgano file organizer
 sci-astronomy/esomidas:libtirpc - Build against net-libs/libtirpc for RPC support
 sci-astronomy/kstars:fits - Enable support for NASA's sci-libs/cfitsio library
