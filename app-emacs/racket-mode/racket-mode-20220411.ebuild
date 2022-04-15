@@ -3,7 +3,7 @@
 
 EAPI=8
 
-H=d2838248611f01721feeab70cc06a9fc5a7d9bb9
+H=e7efbb52fdf2219532230a199153d8a33889c26f
 NEED_EMACS=25.1
 
 inherit elisp
@@ -11,7 +11,7 @@ inherit elisp
 DESCRIPTION="Emacs modes for Racket: edit, REPL, check-syntax, debug, profile, and more"
 HOMEPAGE="https://github.com/greghendershott/racket-mode/"
 SRC_URI="https://github.com/greghendershott/${PN}/archive/${H}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${H}"
+S="${WORKDIR}"/${PN}-${H}
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -35,7 +35,8 @@ src_compile() {
 }
 
 src_test() {
-	emake test-racket
+	# Set PLTUSERHOME to a safe temp dir to evade writing to ~
+	PLTUSERHOME="${T}"/racket-mode/test-racket emake test-racket
 }
 
 src_install() {
