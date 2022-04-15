@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] dev-python/setuptools[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9[xml] dev-python/setuptools[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml] dev-python/setuptools[python_targets_python3_8(-)] ) ) gtk-doc? ( dev-util/gtk-doc ) man? ( sys-apps/help2man ) test? ( net-libs/gnutls[tools] ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
+DESCRIPTION=Library and tool for reading and writing Jcat files
+EAPI=8
+HOMEPAGE=https://github.com/hughsie/libjcat
+INHERIT=meson python-any-r1 vala xdg-utils
+IUSE=+gpg gtk-doc +introspection +man +pkcs7 test vala
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hughsie/libjcat/archive/0.1.11.tar.gz -> libjcat-0.1.11.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	vala	9badd41d5aab740ae5ac301c4416c5f8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=d4b59ae07fbbfe31647f8546bfa23843
