@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install
+DEPEND=X? ( x11-libs/libX11 )
+DESCRIPTION=libspnav is a replacement for the magellan library with a cleaner API
+EAPI=7
+HOMEPAGE=http://spacenav.sourceforge.net/
+INHERIT=toolchain-funcs
+IUSE=static-libs X
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=app-misc/spacenavd[X?] X? ( x11-libs/libX11 )
+SLOT=0
+SRC_URI=https://github.com/FreeSpacenav/libspnav/releases/download/v1.0/libspnav-1.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_md5_=a2ceadd4fd4ee6981fc515d9f13a08b0
