@@ -1,4 +1,4 @@
-From a22553a612ade8a5e3f90c84166e9fdda16635c9 Mon Sep 17 00:00:00 2001
+From 5ecc80d27276ba978b8c0268aab722fe8f09b394 Mon Sep 17 00:00:00 2001
 From: James Le Cuirot <chewi@gentoo.org>
 Date: Sat, 20 Feb 2021 12:22:24 +0000
 Subject: [PATCH] Unbundle the DUMB library
@@ -7,11 +7,11 @@ Subject: [PATCH] Unbundle the DUMB library
  src/Application/App.cpp   | 2 +-
  src/Audio/ModMusic.cpp    | 2 +-
  src/CMakeLists.txt        | 4 +++-
- thirdparty/CMakeLists.txt | 2 --
- 4 files changed, 5 insertions(+), 5 deletions(-)
+ thirdparty/CMakeLists.txt | 1 -
+ 4 files changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/src/Application/App.cpp b/src/Application/App.cpp
-index 3d4dcc1d..d2c3e583 100644
+index 936a8212..2960ca1d 100644
 --- a/src/Application/App.cpp
 +++ b/src/Application/App.cpp
 @@ -60,7 +60,7 @@
@@ -24,7 +24,7 @@ index 3d4dcc1d..d2c3e583 100644
  
  using namespace slade;
 diff --git a/src/Audio/ModMusic.cpp b/src/Audio/ModMusic.cpp
-index cb8eef8c..2d368fdb 100644
+index cc4b60cf..6d54516d 100644
 --- a/src/Audio/ModMusic.cpp
 +++ b/src/Audio/ModMusic.cpp
 @@ -32,7 +32,7 @@
@@ -37,49 +37,48 @@ index cb8eef8c..2d368fdb 100644
  using namespace slade;
  using namespace audio;
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index 802598f6..222e6040 100644
+index fef3d009..5363802c 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
-@@ -110,6 +110,7 @@ endif()
- pkg_check_modules(fmt REQUIRED fmt>=6)
- include_directories(${fmt_INCLUDE_DIRS})
+@@ -107,6 +107,7 @@ if (NOT NO_LUA)
+ 	find_package(Lua REQUIRED)
+ endif()
  find_package(MPG123 REQUIRED)
 +pkg_check_modules(DUMB REQUIRED dumb>=1.0)
  include_directories(
  	${FREEIMAGE_INCLUDE_DIR}
  	${SFML_INCLUDE_DIR}
-@@ -118,9 +119,9 @@ include_directories(
- 	${CURL_INCLUDE_DIR}
+@@ -114,9 +115,9 @@ include_directories(
+ 	${FTGL_INCLUDE_DIR}
  	${LUA_INCLUDE_DIR}
  	${MPG123_INCLUDE_DIR}
 +	${DUMB_INCLUDE_DIRS}
  	.
  	..
 -	../thirdparty/dumb
+ 	../thirdparty/glad/include
  	./Application
  	)
- 
-@@ -200,6 +201,7 @@ target_link_libraries(slade
- 	${CURL_LIBRARIES}
+@@ -201,6 +202,7 @@ target_link_libraries(slade
+ 	${OPENGL_LIBRARIES}
  	${LUA_LIBRARIES}
  	${MPG123_LIBRARIES}
 +	${DUMB_LIBRARIES}
- 	${fmt_LIBRARIES}
- 	-lstdc++fs
  )
+ 
+ if(LINUX)
 diff --git a/thirdparty/CMakeLists.txt b/thirdparty/CMakeLists.txt
-index 6b0eb504..a3757c91 100644
+index f84cfc8a..2622852b 100644
 --- a/thirdparty/CMakeLists.txt
 +++ b/thirdparty/CMakeLists.txt
-@@ -12,8 +12,6 @@ set(EXTERNAL_SOURCES
+@@ -10,7 +10,6 @@ set(BZIP2_LIBRARIES ${BZIP2_LIBRARIES} PARENT_SCOPE)
+ set(EXTERNAL_SOURCES
+ )
  file(GLOB_RECURSE EXTERNAL_SOURCES
- 	*.cpp
- 	*.cxx
 -	dumb/*.c
--	lua/*.c
  	lzma/C/LzmaDec.c
- 	fmt/*.cc
- 	${SLADE_HEADERS}
+ 	mus2mid/mus2mid.cpp
+ 	zreaders/*.cpp
 -- 
-2.30.0
+2.34.1
 
