@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
+export CTARGET=hppa64-${CHOST#*-}
+
+inherit libtool flag-o-matic gnuconfig multilib toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
 HOMEPAGE="https://sourceware.org/binutils/"
@@ -32,7 +34,7 @@ else
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="-* ~hppa"
 fi
 
 #
@@ -68,6 +70,7 @@ BDEPEND="
 RESTRICT="!test? ( test )"
 
 MY_BUILDDIR=${WORKDIR}/build
+S=${WORKDIR}/${P/-hppa64/}
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]] ; then
@@ -272,14 +275,13 @@ src_configure() {
 		# Ideally we would like automagic-or-disabled here.
 		# But the check does not quite work on i686: bug #760926.
 		$(use_enable cet)
+
+		# No LTO for HPPA64 right now as we don't build kgcc64 with LTO support.
+		$(use_enable pgo pgo-build)
 	)
 
-	if ! is_cross ; then
-		myconf+=( $(use_enable pgo pgo-build lto) )
-
-		if use pgo ; then
-			export BUILD_CFLAGS="${CFLAGS}"
-		fi
+	if use pgo ; then
+		export BUILD_CFLAGS="${CFLAGS}"
 	fi
 
 	echo ./configure "${myconf[@]}"
@@ -400,6 +402,11 @@ src_install() {
 
 	# Trim all empty dirs
 	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
+
+	# the hppa64 hack; this should go into 9999 as a PN-conditional
+	# tweak the default fake list a little bit
+	cd "${D}"/etc/env.d/binutils
+	sed -i '/FAKE_TARGETS=/s:"$: hppa64-linux":' ${CTARGET}-${PV} || die
 }
 
 pkg_postinst() {
