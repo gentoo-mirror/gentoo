@@ -1,16 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
-
-inherit autotools vcs-snapshot
+EAPI="8"
 
 MY_P="${PN^g}2-${PV}"
-EGIT_COMMIT="4a468e48a5d8c2289c53b5d416f632f62ca7f887"
 
 DESCRIPTION="GTK2 binding for Gauche"
 HOMEPAGE="https://practical-scheme.net/gauche/"
-SRC_URI="https://github.com/shirok/${PN^g}2/archive/${EGIT_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
+SRC_URI="https://github.com/shirok/${PN^g}2/releases/download/release-${PV}/${MY_P}.tgz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -23,11 +20,6 @@ RDEPEND="dev-scheme/gauche:=
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${MY_P}"
-
-src_prepare() {
-	default
-	eautoconf
-}
 
 src_compile() {
 	emake stubs
