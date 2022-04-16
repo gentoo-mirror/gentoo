@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare setup
 DEPEND=sys-libs/readline:0=
 DESCRIPTION=Locate and modify variables in executing processes
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/readline:0= gui? ( python_single_target_python3_8? ( >=dev-lang
 REQUIRED_USE=gui? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 ) )
 SLOT=0
 SRC_URI=https://github.com/scanmem/scanmem/archive/v0.17.tar.gz -> scanmem-0.17.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	a7813cfab8862ac10bcf3e01efb3f5c4	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=84fc34d7c443f8fc7579870306bf5671
