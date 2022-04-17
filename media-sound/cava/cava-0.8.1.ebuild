@@ -5,7 +5,7 @@ EAPI=8
 
 inherit autotools
 
-DESCRIPTION="Console-based Audio Visualizer"
+DESCRIPTION="Console-based Audio Visualizer for Alsa"
 HOMEPAGE="https://github.com/karlstav/cava/"
 SRC_URI="https://github.com/karlstav/cava/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -28,7 +28,6 @@ BDEPEND="app-editors/vim-core"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.8.0-gentoo-iniparser4.patch
-	"${FILESDIR}"/${P}-maxed-bars.patch
 )
 
 src_prepare() {
@@ -63,7 +62,7 @@ pkg_postinst() {
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		elog "A default ~/.config/cava/config will be created after initial"
 		elog "use of ${PN}, see it and ${EROOT}/usr/share/doc/${PF}/README*"
-		elog "for configuring audio inputs and more."
+		elog "for configuring audio input and more."
 	fi
 
 	if use !alsa && use !portaudio && use !pulseaudio && use !sndio; then
