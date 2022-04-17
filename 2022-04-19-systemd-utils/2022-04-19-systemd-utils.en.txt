@@ -1,0 +1,42 @@
+Title: Migration to sys-apps/systemd-utils
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2022-04-19
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/systemd-tmpfiles
+Display-If-Installed: sys-apps/systemd-utils
+Display-If-Installed: sys-boot/systemd-boot
+Display-If-Installed: sys-fs/udev
+
+The sys-apps/systemd-utils package was recently added to the gentoo
+repository. This replaces sys-apps/systemd-tmpfiles,
+sys-boot/systemd-boot, and sys-fs/udev with a single package. USE flags
+are provided to allow each component to be enabled or disabled. This
+change was made to significantly ease maintenance of tools split out
+from systemd.
+
+When upgrading to sys-apps/systemd-tmpfiles-250,
+sys-apps/systemd-utils[tmpfiles] will be pulled in as a dependency.
+
+When upgrading to sys-boot/systemd-boot-250,
+sys-apps/systemd-utils[boot] will be pulled in as a dependency.
+
+When upgrading to sys-fs/udev-250, sys-apps/systemd-utils[udev] will be
+pulled in as a dependency.
+
+At a later date, sys-apps/systemd-tmpfiles, sys-boot/systemd-boot, and
+sys-fs/udev will be masked for removal once a suitable version of
+sys-apps/systemd-utils has been marked stable and sufficient time has
+been provided for users to migrate.
+
+Possible problems when upgrading:
+
+1. If sys-fs/eudev is present in the world file (@selected), emerge will
+   abort the upgrade with a unsolvable blocker error. To resolve this,
+   either remove sys-fs/eudev from the world file
+   (emerge --deselect sys-fs/eudev), or disable the 'udev' USE flag for
+   sys-apps/systemd-utils.
+
+2. The 'boot' USE flag on sys-apps/systemd-utils is disabled by default.
+   Users migrating from sys-boot/systemd-boot will need to enable the
+   'boot' USE flag (in package.use) to continue receiving updates.
