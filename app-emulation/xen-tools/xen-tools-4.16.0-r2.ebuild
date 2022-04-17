@@ -61,7 +61,7 @@ else
 fi
 
 DESCRIPTION="Xen tools including QEMU and xl"
-HOMEPAGE="https://www.xenproject.org"
+HOMEPAGE="https://xenproject.org"
 DOCS=( README )
 
 LICENSE="GPL-2"
@@ -69,7 +69,7 @@ SLOT="0/$(ver_cut 1-2)"
 # Inclusion of IUSE ocaml on stabalizing requires maintainer of ocaml to (get off his hands and) make
 # >=dev-lang/ocaml-4 stable
 # Masked in profiles/eapi-5-files instead
-IUSE="api debug doc +hvm +ipxe ocaml ovmf +pam pygrub python +qemu +qemu-traditional +rombios screen selinux sdl static-libs system-ipxe system-qemu system-seabios"
+IUSE="api debug doc +hvm +ipxe ocaml ovmf +pam pygrub python +qemu +qemu-traditional +rombios screen selinux sdl static-libs system-ipxe system-qemu system-seabios systemd"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -359,6 +359,10 @@ src_prepare() {
 		sed -i '/SUBDIRS-$(CONFIG_QEMU_XEN)/s/^/#/g' tools/Makefile || die
 	fi
 
+	# Reset bash completion dir; Bug 472438
+	sed -e "s;^BASH_COMPLETION_DIR      :=.*;BASH_COMPLETION_DIR := $(get_bashcompdir);" \
+		-i config/Paths.mk.in || die
+
 	# xencommons, Bug #492332, sed lighter weight than patching
 	sed -e 's:\$QEMU_XEN -xen-domid:test -e "\$QEMU_XEN" \&\& &:' \
 		-i tools/hotplug/Linux/init.d/xencommons.in || die
@@ -426,6 +430,7 @@ src_configure() {
 		$(use_enable ovmf)
 		$(use_enable pam)
 		$(use_enable rombios)
+		$(use_enable systemd)
 		--with-xenstored=$(usex ocaml 'oxenstored' 'xenstored')
 	)
 
