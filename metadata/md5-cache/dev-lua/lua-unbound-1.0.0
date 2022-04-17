@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.zash.se/luaunbound.html
 INHERIT=lua toolchain-funcs
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=MIT
 RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) net-dns/unbound
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 SLOT=0
 SRC_URI=https://code.zash.se/dl/luaunbound/luaunbound-1.0.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	lua-utils	e69ff116248d78546ae1a234c086fe80	lua	d5c7dbcaf69f3065f5d7ce3b172c2214
-_md5_=bb7dcb5d13d809323f700de5ec0a2712
+_md5_=e2968d0f90d2e8bb24cb0a01e34383b2
