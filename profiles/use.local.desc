@@ -226,7 +226,6 @@ app-arch/unzip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii f
 app-arch/wimlib:fuse - Use fuse libraries
 app-arch/wimlib:iso - Install app-cdr/cdrtools in order to prepare iso images
 app-arch/wimlib:ntfs - Use libntfs-3g library from sys-fs/ntfs3g
-app-arch/wimlib:openssl - Use the SHA-1 message digest from libcrypto instead of compilling another implementation
 app-arch/wimlib:yasm - Use yasm assembler instead of nasm
 app-arch/xz-utils:extra-filters - Build additional filters that are not used in any of the default xz presets. This includes delta and BCJ coders, additional match finders and SHA256 checks.
 app-arch/zip:natspec - Use dev-libs/libnatspec to correctly decode non-ascii file names archived in Windows.
@@ -717,7 +716,6 @@ app-forensics/afflib:qemu - Enable qemu stuff
 app-forensics/afflib:s3 - Enable support for Amazon S3
 app-forensics/aide:curl - Use curl for http,https and ftp backends
 app-forensics/aide:e2fs - Enable support for checking file attributes on ext2/ext3/ext4 filesystems
-app-forensics/aide:postgres - Use postgresql library for storing databases
 app-forensics/chkrootkit:cron - Install cron script for weekly rootkit scans
 app-forensics/honggfuzz:clang - Enable clang support (pull sys-libs/blocksruntime dependency).
 app-forensics/libewf:bfio - Enables libbfio for chaining file in file handling
@@ -1874,7 +1872,6 @@ dev-lang/vala:valadoc - Installs valadoc documentation generation tool
 dev-lang/xsb:mariadb - Enable support for the mariadb database backend
 dev-lang/yap:R - Enable support for connecting R to Prolog
 dev-lang/yap:raptor - Enable support for Raptor RDF syntax libarary
-dev-lang/zig:experimental - Enable builds that do not support all of LLVM's target architectures
 dev-libs/aml:examples - Build and install examples
 dev-libs/antlr-c:debugger - Compiles debug info into the library
 dev-libs/appstream:apt - Enables Debians APT support
@@ -4280,7 +4277,6 @@ media-libs/libtgvoip:dsp - Enable signal processing (echo cancellation, noise su
 media-libs/libvisio:tools - Build conversion tools
 media-libs/libvpx:highbitdepth - Enable 10 and 12 bit support for VP9.
 media-libs/libvpx:postproc - Enable additional post processing filters
-media-libs/libvpx:svc - Enable spatial-svc support (experimental)
 media-libs/libwebp:swap-16bit-csp - Enable byte swapping for 16 bit colorspace
 media-libs/libzmf:tools - Build conversion tools
 media-libs/lilv:dyn-manifest - Add LV2 Dynamic Manifest support. See http://lv2plug.in/ns/ext/dynmanifest/
@@ -7926,6 +7922,7 @@ sys-apps/systemd:tpm - Enable TPM support
 sys-apps/systemd:vanilla - Disable Gentoo-specific behavior and compatibility quirks
 sys-apps/systemd:xkb - Depend on x11-libs/libxkbcommon to allow logind to control the X11 keymap
 sys-apps/systemd-utils:boot - Enable systemd-boot (UEFI boot manager)
+sys-apps/systemd-utils:kmod - Enable kernel module loading via sys-apps/kmod
 sys-apps/systemd-utils:sysusers - Enable systemd-sysusers
 sys-apps/systemd-utils:tmpfiles - Enable systemd-tmpfiles
 sys-apps/systemd-utils:udev - Enable systemd-udev (userspace device manager)
