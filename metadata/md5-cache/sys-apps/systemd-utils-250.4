@@ -5,7 +5,7 @@ DESCRIPTION=Utilities taken from systemd
 EAPI=8
 HOMEPAGE=https://systemd.io/
 INHERIT=bash-completion-r1 flag-o-matic meson-multilib python-any-r1 toolchain-funcs usr-ldscript
-IUSE=+boot selinux +sysusers +tmpfiles test +udev abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
+IUSE=boot selinux sysusers +tmpfiles test +udev abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-2 LGPL-2.1 MIT public-domain
 PDEPEND=udev? ( >=sys-fs/udev-init-scripts-34 )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd-stable/archive/refs/tags/v250.4.tar.gz -> systemd-stable-250.4.tar.gz elibc_musl? ( https://dev.gentoo.org/~floppym/dist/systemd-musl-patches-250.4.tar.gz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	usr-ldscript	5c738dce357b54d5a90e30094d2f983c
-_md5_=73cde7e8ced8b19bdf5d765c4d4b85b3
+_md5_=32567579bb898af4f3af1b49857dfeb7
