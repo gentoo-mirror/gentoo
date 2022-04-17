@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit cmake python-single-r1
 
 if [[ ${PV} == *9999 ]]; then
@@ -11,11 +11,11 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/wdas/partio.git"
 else
 	SRC_URI="https://github.com/wdas/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Library for particle IO and manipulation"
-HOMEPAGE="https://www.disneyanimation.com/technology/partio.html"
+HOMEPAGE="http://partio.us/"
 
 LICENSE="BSD"
 SLOT="0"
@@ -24,7 +24,8 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	media-libs/freeglut
-	sys-libs/zlib:=
+	media-libs/glu
+	sys-libs/zlib
 	virtual/opengl
 "
 
