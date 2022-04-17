@@ -1,12 +1,14 @@
 BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig
 DEFINED_PHASES=configure
-DEPEND=>=dev-libs/glib-2.40:2
+DEPEND=>=dev-libs/glib-2.40:2 test? ( sys-apps/dbus )
 DESCRIPTION=Filtering proxy for D-Bus connections
 EAPI=7
 HOMEPAGE=https://github.com/flatpak/xdg-dbus-proxy
+IUSE=test
 KEYWORDS=amd64 arm arm64 ppc ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.40:2
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.3/xdg-dbus-proxy-0.1.3.tar.xz
-_md5_=a63b3cc10edd4cde15cfd9fff81074e8
+_md5_=10ec6d4d3b8a67d8c72b9befe046a2d5
