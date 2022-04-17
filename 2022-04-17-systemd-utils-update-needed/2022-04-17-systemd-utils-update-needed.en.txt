@@ -1,0 +1,12 @@
+Title: sys-apps/systemd-utils update needed
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2022-04-17
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: =sys-apps/systemd-utils-250.4
+
+The currently installed version of sys-apps/systemd-utils may cause
+kernel modules to fail to load on boot.
+
+Please upgrade to >=sys-apps/systemd-utils-250.4-r1 as soon as possible,
+and certainly before rebooting your system.
