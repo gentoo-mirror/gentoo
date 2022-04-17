@@ -2,7 +2,7 @@ DEFINED_PHASES=compile configure install postinst postrm preinst prepare prerm p
 DEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) efi? ( >=sys-devel/binutils-2.22[multitarget] ) !efi? ( >=sys-devel/binutils-2.22 ) flask? ( sys-apps/checkpolicy )
 DESCRIPTION=The Xen virtual machine monitor
 EAPI=8
-HOMEPAGE=https://www.xenproject.org
+HOMEPAGE=https://xenproject.org
 INHERIT=flag-o-matic mount-boot python-any-r1 toolchain-funcs
 IUSE=+boot-symlinks debug efi flask
 KEYWORDS=~amd64 ~arm -x86
@@ -13,4 +13,4 @@ RESTRICT=test splitdebug strip
 SLOT=0
 SRC_URI=https://downloads.xenproject.org/release/xen/4.16.0/xen-4.16.0.tar.gz https://dev.gentoo.org/~dlan/distfiles/xen-4.16.0-upstream-patches-2.tar.xz https://github.com/hydrapolic/gentoo-dist/raw/master/xen/xen-4.16.0-upstream-patches-2.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	mount-boot	02a45c5e022c08dbc05178522b2772f2	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=9c1fbd6699355467b1ed55dda3f34125
+_md5_=0eed2304bd0fef84d7683ea7656f3cce
