@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://tomcat.apache.org/
 INHERIT=java-pkg-2 java-ant-2 prefix
 IUSE=extra-webapps doc source test
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris
 LICENSE=Apache-2.0
 RDEPEND=dev-java/eclipse-ecj:4.15 dev-java/glassfish-xmlrpc-api:0 ~dev-java/tomcat-servlet-api-9.0.60:4.0 dev-java/wsdl4j:0 acct-group/tomcat acct-user/tomcat >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=9
 SRC_URI=mirror://apache/tomcat/tomcat-9/v9.0.60/src/apache-tomcat-9.0.60-src.tar.gz https://repo.maven.apache.org/maven2/biz/aQute/bnd/biz.aQute.bnd/6.2.0/biz.aQute.bnd-6.2.0.jar https://repo.maven.apache.org/maven2/biz/aQute/bnd/biz.aQute.bndlib/6.2.0/biz.aQute.bndlib-6.2.0.jar
 _eclasses_=java-utils-2	92b5a4d196abffe2dbe3bdc1cf4ef2ae	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=cae9752a9a84bb5aabad3bd81bb93554
+_md5_=8c2d37f1ed5dd1515d09c7e5968ded68
