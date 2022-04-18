@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit cmake desktop flag-o-matic python-any-r1 xdg virtualx
 
 DESCRIPTION="3D photo-realistic skies in real time"
 HOMEPAGE="https://stellarium.org/"
-MY_DSO_VERSION="3.13"
+MY_DSO_VERSION="3.15"
 SRC_URI="
 	https://github.com/Stellarium/stellarium/releases/download/v${PV}/${P}.tar.gz
 	deep-sky? (
@@ -27,8 +27,8 @@ SRC_URI="
 
 LICENSE="GPL-2+ SGI-B-2.0"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 ~riscv x86"
-IUSE="debug deep-sky doc gps media nls stars telescope test"
+KEYWORDS="~amd64 ~ppc64 ~riscv ~x86"
+IUSE="debug deep-sky doc gps media nls stars telescope test webengine"
 
 # Python interpreter is used while building RemoteControl plugin
 BDEPEND="
@@ -38,6 +38,7 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/qtcompress:=
+	dev-qt/qtcharts:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -58,6 +59,7 @@ RDEPEND="
 		dev-qt/qtserialport:5
 		sci-libs/indilib:=
 	)
+	webengine? ( dev-qt/qtwebengine:5[widgets] )
 "
 DEPEND="${RDEPEND}
 	dev-qt/qtconcurrent:5
@@ -68,8 +70,9 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/stellarium-0.20.3-unbundle-indi.patch"
-	"${FILESDIR}/stellarium-0.21.2-unbundle-qtcompress.patch"
 	"${FILESDIR}/stellarium-0.20.3-unbundle-zlib.patch"
+	"${FILESDIR}/stellarium-0.22.1-fix-star-manager-segfault.patch"
+	"${FILESDIR}/stellarium-0.22.1-unbundle-qtcompress.patch"
 )
 
 src_prepare() {
@@ -100,6 +103,8 @@ src_configure() {
 		-DENABLE_NLS="$(usex nls)"
 		-DENABLE_TESTING="$(usex test)"
 		-DUSE_PLUGIN_TELESCOPECONTROL="$(usex telescope)"
+		$(cmake_use_find_package webengine Qt5WebEngine)
+		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
 	)
 	cmake_src_configure
 }
