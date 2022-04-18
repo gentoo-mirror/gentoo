@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 # over 50% of tests rely on Internet
 PROPERTIES="test_network"
 RESTRICT="test"
@@ -31,6 +31,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/fsspec[${PYTHON_USEDEP}]
+		dev-python/imageio-ffmpeg[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/tifffile[${PYTHON_USEDEP}]
@@ -42,10 +43,4 @@ distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# Fails because of system installed freeimage
 	tests/test_core.py::test_findlib2
-)
-
-EPYTEST_IGNORE=(
-	# Needs unpackaged imageio_ffmpeg
-	tests/test_ffmpeg.py
-	tests/test_ffmpeg_info.py
 )
