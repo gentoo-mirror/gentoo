@@ -40,6 +40,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${P}-fix-layer-shell-reset.patch
-	"${FILESDIR}"/${P}-guard-subsurface-parent-access.patch # bug 452044
-	"${FILESDIR}"/${P}-fix-crash-on-screen-setup-change.patch # bug 452318
+	"${FILESDIR}"/${P}-guard-subsurface-parent-access.patch # KDE-bug 452044
+	"${FILESDIR}"/${P}-fix-crash-on-screen-setup-change.patch # KDE-bug 452318
+	"${FILESDIR}"/${P}-fix-race-in-wp_drm_lease_v1.patch # KDE-bug 452435
 )
