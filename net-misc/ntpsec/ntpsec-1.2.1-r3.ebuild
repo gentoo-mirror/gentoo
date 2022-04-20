@@ -54,6 +54,9 @@ BDEPEND=">=app-text/asciidoc-8.6.8
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.9-remove-asciidoctor-from-config.patch"
+	"${FILESDIR}/${PN}-1.2.1-seccomp-rollup.patch"
+	"${FILESDIR}/${PN}-1.2.1-seccomp-rseq-glibc-2.35.patch"
+	"${FILESDIR}/${PN}-1.2.1-build-notests.patch"
 	"${FILESDIR}/${PN}-py3-test-clarify.patch"
 )
 
