@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -13,14 +13,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# Pin dev-libs/ncnn near bundled copy until more stable.
 RDEPEND="
-	~dev-libs/ncnn-20210525[vulkan]
-	dev-util/glslang
+	dev-libs/ncnn:=[vulkan]
 	media-libs/libwebp:=
 	media-libs/vulkan-loader"
 DEPEND="
 	${RDEPEND}
+	dev-util/glslang
 	dev-util/vulkan-headers"
 
 PATCHES=(
@@ -28,7 +27,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	CMAKE_USE_DIR="${S}/src"
+	CMAKE_USE_DIR=${S}/src
 	cmake_src_prepare
 
 	# Update all paths to match installation for models.
