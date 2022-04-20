@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -21,14 +21,25 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/lazr-delegates[${PYTHON_USEDEP}]
-	dev-python/namespace-lazr[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
+	!dev-python/namespace-lazr
 "
 
 distutils_enable_tests pytest
 
-python_install_all() {
-	distutils-r1_python_install_all
+src_prepare() {
+	# strip rdep specific to namespaces
+	sed -i -e "/'setuptools'/d" setup.py || die
+	distutils-r1_src_prepare
+}
 
-	find "${ED}" -name '*.pth' -delete || die
+python_compile() {
+	distutils-r1_python_compile
+	find "${BUILD_DIR}" -name '*.pth' -delete || die
+}
+
+python_test() {
+	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
+	distutils_write_namespace lazr
+	epytest
 }
