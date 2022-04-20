@@ -15,4 +15,4 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 SITEFILE="50${PN}-gentoo.el"
-DOCS="README.md"
+DOCS="README.org"
