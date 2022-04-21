@@ -41,7 +41,7 @@ BDEPEND="
 DEPEND="
 	${LUA_DEPS}
 	>=dev-libs/glib-2.62
-	>=media-video/pipewire-0.3.45:=
+	>=media-video/pipewire-0.3.48:=
 	virtual/libc
 	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd )
@@ -61,10 +61,8 @@ RDEPEND="${DEPEND}
 DOCS=( {NEWS,README}.rst )
 
 PATCHES=(
-	"${FILESDIR}"/${P}-restore-stream-do-not-crash-if-config.properties-is-.patch
-	"${FILESDIR}"/${P}-spa-json-fix-va-list-APIs-for-different-architecture.patch
-	"${FILESDIR}"/${P}-policy-bluetooth-fix-string.find-crash-with-nil-stri.patch
-	"${FILESDIR}"/${P}-si-audio-adapter-relax-format-parsing.patch
+	"${FILESDIR}"/${P}-scripts-policy-device-profile-clear-tables-when-devi.patch
+	"${FILESDIR}"/${P}-config-document-which-options-need-to-be-turned-off-.patch
 )
 
 src_configure() {
