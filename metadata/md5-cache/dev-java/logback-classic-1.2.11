@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=http://logback.qos.ch
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
-KEYWORDS=~amd64 ~arm64 ~ppc64
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=EPL-1.0 LGPL-3
 RDEPEND=virtual/jre:1.8 dev-java/janino:0 dev-java/javax-mail:0 dev-java/logback-core:0 dev-java/reflections:0 dev-java/slf4j-api:0 java-virtuals/servlet-api:3.1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=https://github.com/qos-ch/logback/archive/v_1.2.11.tar.gz -> logback-1.2.11.tar.gz
 _eclasses_=java-utils-2	92b5a4d196abffe2dbe3bdc1cf4ef2ae	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	8a2b8811bad7877b5ec349bddeceabb6
-_md5_=e1c95d93b42eccb72d0f563082dae67f
+_md5_=9dd1cfefed5dc95d5e6c0bcd8d0307b8
