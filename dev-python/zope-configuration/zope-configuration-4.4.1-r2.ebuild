@@ -4,25 +4,37 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-MY_P=${P/-/.}
-DESCRIPTION="General purpose exceptions for Zope packages"
+MY_PN=${PN/-/.}
+MY_P=${MY_PN}-${PV}
+
+DESCRIPTION="Zope Configuration Architecture"
 HOMEPAGE="
-	https://pypi.org/project/zope.exceptions/
-	https://github.com/zopefoundation/zope.exceptions/
+	https://pypi.org/project/zope.configuration/
+	https://github.com/zopefoundation/zope.configuration/
+	https://zopeconfiguration.readthedocs.io/en/latest/
 "
-SRC_URI="mirror://pypi/${PN::1}/${PN/-/.}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="mirror://pypi/${PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="ZPL"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 
 RDEPEND="
+	dev-python/zope-i18nmessageid[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
+	>=dev-python/zope-schema-4.9[${PYTHON_USEDEP}]
+	!dev-python/namespace-zope
+"
+BDEPEND="
+	test? (
+		dev-python/manuel[${PYTHON_USEDEP}]
+		dev-python/zope-testing[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests unittest

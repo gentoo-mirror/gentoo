@@ -4,23 +4,36 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-MY_PN=${PN/-/.}
+MY_PN=zope.component
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Event publishing / dispatch, used by Zope Component Architecture"
+DESCRIPTION="Zope Component Architecture"
 HOMEPAGE="
-	https://pypi.org/project/zope.event/
-	https://github.com/zopefoundation/zope.event/
+	https://pypi.org/project/zope.component/
+	https://github.com/zopefoundation/zope.component/
 "
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="ZPL"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+
+RDEPEND="
+	dev-python/zope-event[${PYTHON_USEDEP}]
+	>=dev-python/zope-interface-4.1.0[${PYTHON_USEDEP}]
+	!dev-python/namespace-zope
+"
+BDEPEND="
+	test? (
+		dev-python/zope-configuration[${PYTHON_USEDEP}]
+		dev-python/zope-i18nmessageid[${PYTHON_USEDEP}]
+		dev-python/zope-testing[${PYTHON_USEDEP}]
+	)
+"
 
 distutils_enable_tests unittest
 
