@@ -87,7 +87,7 @@ inherit distutils-r1 cargo
 DESCRIPTION="A plugin for setuptools to build Rust Python extensions"
 HOMEPAGE="
 	https://github.com/PyO3/setuptools-rust/
-	https://pypi.org/project/setuptools_rust/
+	https://pypi.org/project/setuptools-rust/
 "
 SRC_URI="
 	mirror://pypi/${PN::1}/${PN}/${P}.tar.gz
@@ -110,9 +110,12 @@ BDEPEND="
 	>=dev-python/setuptools_scm-6.3.2[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
-		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			dev-python/cffi[${PYTHON_USEDEP}]
+		' 'python*')
 		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 	)
 "
 
