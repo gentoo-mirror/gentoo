@@ -1,10 +1,10 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # XXX: the tarball here is just the kernel modules split out of the binary
 #      package that comes from VirtualBox-*.run
 
-EAPI=7
+EAPI=8
 
 inherit linux-mod toolchain-funcs
 
