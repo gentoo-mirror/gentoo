@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit elisp-common qmake-utils xdg
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.src.tar.gz -
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="emacs"
 # tests are not fully working and need cmake which isn't yet
 # officially supported.
@@ -38,7 +38,7 @@ RDEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtopengl:5
 	dev-qt/qtwidgets:5
-	media-gfx/opencsg
+	media-gfx/opencsg:=
 	media-libs/fontconfig
 	media-libs/freetype
 	>=media-libs/glew-2.0.0:0=
@@ -58,14 +58,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}"/${P}-0001-Gentoo-specific-Disable-ccache-building.patch )
-
-src_prepare() {
-	default
-	if has_version ">=media-libs/lib3mf-2"; then
-		eapply "${FILESDIR}/${P}-0002-fix-to-find-lib3mf-2.patch"
-	fi
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-0001-Gentoo-specific-Disable-ccache-building.patch
+	"${FILESDIR}"/${P}-0002-fix-to-find-lib3mf-2.patch
+)
 
 src_configure() {
 	if has ccache ${FEATURES}; then
