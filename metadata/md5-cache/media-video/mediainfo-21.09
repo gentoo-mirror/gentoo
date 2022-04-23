@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://mediaarea.net/mediainfo/ https://github.com/MediaArea/MediaInfo
 INHERIT=xdg-utils autotools wxwidgets
 IUSE=curl mms wxwidgets
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 x86
 LICENSE=BSD-2
 RDEPEND=~media-libs/libmediainfo-21.09[curl=,mms=] >=media-libs/libzen-0.4.37 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
 SLOT=0
 SRC_URI=https://mediaarea.net/download/source/mediainfo/21.09/mediainfo_21.09.tar.xz
 _eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6
-_md5_=e07e91004af3489a09a8fafdd600666f
+_md5_=5300a0e4236df20e0df19c45c766c737
