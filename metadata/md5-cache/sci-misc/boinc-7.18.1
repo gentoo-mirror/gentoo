@@ -1,16 +1,16 @@
-BDEPEND=app-text/docbook-xml-dtd:4.4 app-text/docbook2X sys-devel/gettext X? ( virtual/imagemagick-tools[png,tiff] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install postinst postrm prepare setup unpack
+BDEPEND=app-text/docbook-xml-dtd:4.4 app-text/docbook2X sys-devel/gettext X? ( virtual/imagemagick-tools[png,tiff] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm prepare setup
 DEPEND=acct-user/boinc >=app-misc/ca-certificates-20080809 cuda? ( >=dev-util/nvidia-cuda-toolkit-2.1 >=x11-drivers/nvidia-drivers-180.22 ) net-misc/curl[curl_ssl_gnutls(-)=,-curl_ssl_nss(-),curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-apps/util-linux sys-libs/zlib X? ( dev-db/sqlite:3 media-libs/freeglut x11-libs/gtk+:3 x11-libs/libICE >=x11-libs/libnotify-0.7 x11-libs/libSM x11-libs/libXi x11-libs/libXmu x11-libs/wxGTK:3.0-gtk3[X,opengl,webkit] virtual/jpeg )
 DESCRIPTION=The Berkeley Open Infrastructure for Network Computing
 EAPI=8
 HOMEPAGE=https://boinc.berkeley.edu/
-INHERIT=autotools desktop flag-o-matic linux-info wxwidgets xdg-utils git-r3
+INHERIT=autotools desktop flag-o-matic linux-info wxwidgets xdg-utils
 IUSE=X cuda curl_ssl_gnutls +curl_ssl_openssl
+KEYWORDS=~amd64 ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=LGPL-3
-PROPERTIES=live
 RDEPEND=acct-user/boinc >=app-misc/ca-certificates-20080809 cuda? ( >=dev-util/nvidia-cuda-toolkit-2.1 >=x11-drivers/nvidia-drivers-180.22 ) net-misc/curl[curl_ssl_gnutls(-)=,-curl_ssl_nss(-),curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-apps/util-linux sys-libs/zlib X? ( dev-db/sqlite:3 media-libs/freeglut x11-libs/gtk+:3 x11-libs/libICE >=x11-libs/libnotify-0.7 x11-libs/libSM x11-libs/libXi x11-libs/libXmu x11-libs/wxGTK:3.0-gtk3[X,opengl,webkit] virtual/jpeg ) !app-admin/quickswitch
 REQUIRED_USE=^^ ( curl_ssl_gnutls curl_ssl_openssl )
 SLOT=0
-SRC_URI=X? ( https://boinc.berkeley.edu/logo/boinc_glossy2_512_F.tif -> boinc.tif )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	linux-info	3cfb791b045bfb6773a6d0f2d80ce9fd	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=6ddda4d1b45b3fe1eb1df17b19088ac2
+SRC_URI=X? ( https://boinc.berkeley.edu/logo/boinc_glossy2_512_F.tif -> boinc.tif ) https://github.com/BOINC/boinc/archive/client_release/7.18/7.18.1.tar.gz -> boinc-7.18.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	linux-info	3cfb791b045bfb6773a6d0f2d80ce9fd	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=27b614b2ee7785414cde4fad8a00b195
