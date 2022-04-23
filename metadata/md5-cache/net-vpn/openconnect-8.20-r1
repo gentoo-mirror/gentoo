@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig doc? ( || ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] >=dev-lang/python-3.9.9-r1:3.9[xml] >=dev-lang/python-3.8.12_p1-r1:3.8[xml] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv ) >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig doc? ( || ( >=dev-lang/python-3.10.0_p1-r1:3.10[xml] >=dev-lang/python-3.9.9-r1:3.9[xml] >=dev-lang/python-3.8.12_p1-r1:3.8[xml] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv )
 DEFINED_PHASES=configure install prepare pretend setup test unpack
 DEPEND=dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) test? ( net-libs/socket_wrapper sys-libs/uid_wrapper !gnutls? ( dev-libs/openssl:0[weak-ssl-ciphers(-)] ) )
 DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
 EAPI=8
 HOMEPAGE=http://www.infradead.org/openconnect.html
-INHERIT=linux-info python-any-r1 git-r3 autotools
+INHERIT=linux-info python-any-r1
 IUSE=doc +gnutls gssapi libproxy lz4 nls pskc selinux smartcard stoken test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1 GPL-2
-PROPERTIES=live
 RDEPEND=dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2 >=net-vpn/vpnc-scripts-20210402-r1 selinux? ( sec-policy/selinux-vpn )
 RESTRICT=!test? ( test )
 SLOT=0/5
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	3cfb791b045bfb6773a6d0f2d80ce9fd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4
-_md5_=a878719c6136ac07a091ec37a9b393e5
+SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.20.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	3cfb791b045bfb6773a6d0f2d80ce9fd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_md5_=3afa39d87acaf2c696db65a64477e379
