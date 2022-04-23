@@ -8,6 +8,7 @@ inherit desktop xdg
 DESCRIPTION="Helps you collect, organize, cite, and share your research sources"
 HOMEPAGE="https://www.zotero.org"
 SRC_URI="https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=${PV} -> ${P}.tar.bz2"
+S="${WORKDIR}/Zotero_linux-x86_64"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -40,8 +41,6 @@ RDEPEND="
 	x11-libs/pango
 "
 
-S="${WORKDIR}/Zotero_linux-x86_64"
-
 QA_PREBUILT="opt/zotero/*"
 
 src_prepare() {
@@ -53,8 +52,8 @@ src_prepare() {
 		extensions/zoteroOpenOfficeIntegration@zotero.org/defaults/preferences/zoteroOpenOfficeIntegration.js || die
 
 	# fix desktop-file
-	sed -i -e 's#^Exec=.*#Exec=zotero#' zotero.desktop
-	sed -i -e 's#Icon=zotero.*#Icon=zotero#' zotero.desktop
+	sed -i -e 's#^Exec=.*#Exec=zotero#' zotero.desktop || die
+	sed -i -e 's#Icon=zotero.*#Icon=zotero#' zotero.desktop || die
 
 	default
 }
