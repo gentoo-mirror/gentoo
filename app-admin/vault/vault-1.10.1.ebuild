@@ -16,7 +16,7 @@ SRC_URI="https://github.com/zmedico/vault/archive/refs/tags/v${PV}-vendor.tar.gz
 
 LICENSE="MPL-2.0 Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="+webui"
 
 BDEPEND="
@@ -51,10 +51,11 @@ src_prepare() {
 		-e "s/gofumpt/gofmt/g" \
 		-i Makefile || die
 	if [[ -d "${WORKDIR}/http/web_ui" ]]; then
+		rm -rf "${S}/http/web_ui" || die
 		mv "${WORKDIR}/http/web_ui" "${S}/http/web_ui" ||
 			die "mv failed"
 	else
-		mkdir "${S}/http/web_ui" || die
+		mkdir -p "${S}/http/web_ui" || die
 		touch "${S}/http/web_ui/no_web_ui" || die
 	fi
 }
