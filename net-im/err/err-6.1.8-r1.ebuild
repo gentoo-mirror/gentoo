@@ -15,6 +15,8 @@ HOMEPAGE="https://errbot.readthedocs.io/en/latest/"
 SRC_URI="https://github.com/errbotio/errbot/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
+PATCHES="${FILESDIR}/err-6.1.8-fix-irc-backend.patch"
+
 KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
