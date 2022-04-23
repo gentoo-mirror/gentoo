@@ -1,15 +1,15 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PV=$(ver_cut 1-2)
 WX_GTK_VER=3.0-gtk3
 
-inherit autotools desktop flag-o-matic linux-info systemd wxwidgets xdg-utils
+inherit autotools desktop flag-o-matic linux-info wxwidgets xdg-utils
 
 DESCRIPTION="The Berkeley Open Infrastructure for Network Computing"
-HOMEPAGE="https://boinc.ssl.berkeley.edu/"
+HOMEPAGE="https://boinc.berkeley.edu/"
 
 SRC_URI="X? ( https://boinc.berkeley.edu/logo/boinc_glossy2_512_F.tif -> ${PN}.tif )"
 if [[ ${PV} == *9999 ]] ; then
@@ -30,7 +30,6 @@ REQUIRED_USE="^^ ( curl_ssl_gnutls curl_ssl_openssl ) "
 # libcurl must not be using an ssl backend boinc does not support.
 # If the libcurl ssl backend changes, boinc should be recompiled.
 DEPEND="
-	acct-group/boinc
 	acct-user/boinc
 	>=app-misc/ca-certificates-20080809
 	cuda? (
@@ -43,7 +42,6 @@ DEPEND="
 	X? (
 		dev-db/sqlite:3
 		media-libs/freeglut
-		virtual/jpeg:0=
 		x11-libs/gtk+:3
 		x11-libs/libICE
 		>=x11-libs/libnotify-0.7
@@ -92,22 +90,12 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# bug #732024
-	if test "x$(get_libdir)" = "xlib64"; then
-	    sed -i -e 's,/:/lib:/usr/lib:,:/lib64:/usr/lib64:,g' m4/sah_check_lib.m4 || die
-	fi
-
 	default
 
 	# prevent bad changes in compile flags, bug 286701
 	sed -i -e "s:BOINC_SET_COMPILE_FLAGS::" configure.ac || die "sed failed"
 
 	eautoreconf
-
-	# bug #732024
-	if test "x$(get_libdir)" = "xlib64"; then
-	    sed -i -e 's,/lib\([ /;:"]\),/lib64\1,g' configure || die
-	fi
 }
 
 src_configure() {
