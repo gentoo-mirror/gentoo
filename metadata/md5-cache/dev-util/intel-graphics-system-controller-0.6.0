@@ -1,15 +1,15 @@
 BDEPEND=doc? ( || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) app-doc/doxygen || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/metee
+DEPEND=dev-libs/metee:=
 DESCRIPTION=Intel graphics system controller firmware update library
 EAPI=8
 HOMEPAGE=https://github.com/intel/igsc
 INHERIT=cmake python-any-r1
 IUSE=+cli doc
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=dev-libs/metee
-SLOT=0
-SRC_URI=https://github.com/intel/igsc/archive/refs/tags/V0.2.4.tar.gz -> intel-graphics-system-controller-0.2.4.tar.gz
+RDEPEND=dev-libs/metee:=
+SLOT=0/0.6.0
+SRC_URI=https://github.com/intel/igsc/archive/refs/tags/V0.6.0.tar.gz -> intel-graphics-system-controller-0.6.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=93a504f08307b90d9749d4d65431bde7
+_md5_=97cfe7d33ed5d2144871a4cc60b012cf
