@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/execline/
 INHERIT=toolchain-funcs
 IUSE=static static-libs
-KEYWORDS=~amd64 ~arm x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=ISC
 RDEPEND=>=dev-libs/skalibs-2.10.1.0:=[static-libs?]
 REQUIRED_USE=static? ( static-libs )
 SLOT=0/2.8
 SRC_URI=https://www.skarnet.org/software/execline/execline-2.8.2.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=b19f95752c05a5716eb8720cfe51ce53
+_md5_=81d3f97c1efdf47bce6d28f2b72319a9
