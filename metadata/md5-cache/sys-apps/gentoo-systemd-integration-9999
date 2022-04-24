@@ -1,13 +1,13 @@
-BDEPEND=virtual/pkgconfig virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure prepare unpack
 DEPEND=>=sys-apps/systemd-207
 DESCRIPTION=systemd integration files for Gentoo
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Systemd
-INHERIT=systemd autotools git-r3
+INHERIT=systemd udev autotools git-r3
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=>=sys-apps/systemd-207 !sys-fs/eudev !sys-fs/udev
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=dd71ce26ff8e33c2f763b48fe90e5656
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	udev	2d229ad4bfa09058e0184b1ca900db32	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=bb9396c50bde3360256558cc03e613d0
