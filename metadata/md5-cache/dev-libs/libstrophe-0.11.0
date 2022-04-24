@@ -1,5 +1,6 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen )
 DEFINED_PHASES=compile configure install test
-DEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= ) dev-libs/openssl:0= doc? ( app-doc/doxygen )
+DEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= ) dev-libs/openssl:0=
 DESCRIPTION=A simple, lightweight C library for writing XMPP clients
 EAPI=7
 HOMEPAGE=http://strophe.im/libstrophe/
@@ -9,4 +10,4 @@ LICENSE=|| ( MIT GPL-3 )
 RDEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= ) dev-libs/openssl:0=
 SLOT=0
 SRC_URI=https://github.com/strophe/libstrophe/releases/download/0.11.0/libstrophe-0.11.0.tar.xz
-_md5_=7c324c947657e4296d1e870e9ea211f0
+_md5_=c15353694151ad63339d1b459fde1976
