@@ -4,6 +4,16 @@
 # Unmask the flag which corresponds to ARCH.
 -s390
 
+# Sam James <sam@gentoo.org> (2022-04-24)
+# Desktopy stacks not currently keyworded
+alsa
+pulseaudio
+samba
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# gi-docgen (and friends?) not keyworded here
+gtk-doc
+
 # Sam James <sam@gentoo.org> (2022-04-20)
 # dev-vcs/subversion is not keyworded here
 subversion
@@ -22,6 +32,9 @@ llvm-libunwind
 
 # Sam James <sam@gentoo.org> (2021-02-05)
 # No luajit available for s390
+lua_single_target_luajit
+lua_targets_luajit
+luajit
 luajittex
 
 # Matt Turner <mattst88@gentoo.org> (2019-12-05)
@@ -134,3 +147,4 @@ opencl
 
 # sys-libs/libunwind is masked on s390, but enabled on s390x
 unwind
+libunwind

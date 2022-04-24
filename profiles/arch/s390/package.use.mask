@@ -1,6 +1,40 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2022-04-24)
+# sys-apps/systemd is not keyworded here
+sys-auth/pambase homed
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# app-crypt/dieharder and dev-libs/softhsm:2 unkeyworded here
+net-libs/gnutls test-full
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# net-fs/samba unkeyworded here
+net-fs/cifs-utils acl
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# No Rust here, so no librsvg
+media-libs/freetype svg
+
+# Sam James <sam@gentoo.org> (2022-04-20)
+# x11-themes/sound-theme-freedesktop unkeyworded here
+media-libs/libcanberra sound
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# media-libs/libheif isn't keyworded here
+# media-libs/libavif isn't keyworded here
+media-libs/gd avif heif
+media-gfx/graphicsmagick heif
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# Unkeyworded dev-tcltk/* dependencies
+dev-libs/libisoburn launch-frontend launch-frontend-setuid frontend-optional
+
+# Sam James <sam@gentoo.org> (2022-04-24)
+# dev-libs/libzip not keyworded on s390
+dev-lang/php zip
+
 # Sam James <sam@gentoo.org> (2022-04-20)
 # sys-apps/hwloc is not keyworded on s390
 sys-process/htop hwloc
@@ -42,8 +76,8 @@ dev-vcs/subversion ruby
 # Not tested
 dev-python/cssselect doc
 # not really interested in supporting alternative
-# VCS for overlays yet.
-app-portage/layman darcs mercurial
+# VCS for overlays yet. Layman needs SVN for tests too.
+app-portage/layman darcs mercurial test
 dev-python/setuptools_scm test
 # no lua support for vim
 app-editors/vim lua
