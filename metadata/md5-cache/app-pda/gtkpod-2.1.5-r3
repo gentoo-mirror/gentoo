@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.gtkpod.org/
 INHERIT=autotools flag-o-matic gnome2-utils xdg
 IUSE=aac clutter curl cdr flac gstreamer mp3 vorbis
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 FDL-1.2
 RDEPEND=>=dev-libs/gdl-3.6:3 >=dev-libs/glib-2.31:2 >=dev-libs/libxml2-2.7.7:2 >=dev-util/anjuta-3.6 >=media-libs/libgpod-0.8.2 >=media-libs/libid3tag-0.15:= >=x11-libs/gtk+-3.0.8:3 aac? ( media-libs/faad2 ) clutter? ( >=media-libs/clutter-gtk-1.2:1.0 ) curl? ( >=net-misc/curl-7.10 ) flac? ( media-libs/flac ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 cdr? ( >=app-cdr/brasero-3 >=media-libs/libdiscid-0.2.2 media-libs/musicbrainz:5 ) ) mp3? ( media-sound/lame ) vorbis? ( media-libs/libvorbis media-sound/vorbis-tools ) gstreamer? ( media-plugins/gst-plugins-meta:1.0 )
 REQUIRED_USE=cdr? ( gstreamer )
 SLOT=0
 SRC_URI=mirror://sourceforge/gtkpod/gtkpod-2.1.5.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857
-_md5_=4fe6a1deb8f290f0214bf1b8fc4bac95
+_md5_=9494e6b6a0473318e64c8dc86048ba94
