@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/alsa-lib >=media-sound/drumstick-2.4.0
+DESCRIPTION=MIDI monitor for ALSA sequencer
+EAPI=8
+HOMEPAGE=https://kmidimon.sourceforge.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=debug
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/alsa-lib >=media-sound/drumstick-2.4.0
+SLOT=0
+SRC_URI=mirror://sourceforge/kmidimon/kmidimon-1.3.0.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	xdg	6024fbc93167fad782e2032933654857
+_md5_=b3cfb4dc088af669844fa32f0991a41f
