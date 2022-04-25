@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig test? ( dev-python/lit ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-util/spirv-headers sys-devel/llvm:13 !!sys-devel/llvm:0
+DEPEND=dev-util/spirv-headers sys-devel/clang:14 sys-devel/llvm:14 !!sys-devel/llvm:0
 DESCRIPTION=Bi-directional translator between SPIR-V and LLVM IR
 EAPI=8
 HOMEPAGE=https://github.com/KhronosGroup/SPIRV-LLVM-Translator
 INHERIT=cmake flag-o-matic llvm
 IUSE=test +tools
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=UoI-NCSA
-RDEPEND=dev-util/spirv-headers sys-devel/llvm:13
+RDEPEND=dev-util/spirv-headers sys-devel/clang:14 sys-devel/llvm:14
 REQUIRED_USE=test? ( tools )
 RESTRICT=!test? ( test )
-SLOT=13
-SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v13.0.0.tar.gz -> spirv-llvm-translator-13.0.0.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-util/spirv-llvm-translator/spirv-llvm-translator-13.0.0-rename-OpConstFunctionPointerINTEL.patch.bz2
+SLOT=14
+SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v14.0.0.tar.gz -> spirv-llvm-translator-14.0.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	llvm	6f88d422e49b917bf254b2594f3d903c
-_md5_=1d1f0cb0c38a5798c35a9369b2ddd1d6
+_md5_=cabb32907d88ba7e6c438e06a32323f2
