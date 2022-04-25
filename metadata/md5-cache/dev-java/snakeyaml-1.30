@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://bitbucket.org/snakeyaml/snakeyaml
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://bitbucket.org/snakeyaml/snakeyaml/get/snakeyaml-1.30.tar.gz
 _eclasses_=java-utils-2	92b5a4d196abffe2dbe3bdc1cf4ef2ae	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	8a2b8811bad7877b5ec349bddeceabb6
-_md5_=86c073f38f6a1d28b8fdad4443e4648a
+_md5_=5014e3fa46e22db553e98f253185d3f4
