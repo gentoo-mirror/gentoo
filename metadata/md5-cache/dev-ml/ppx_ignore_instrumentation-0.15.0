@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/ppxlib-0.23.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Ignore Jane Street specific instrumentation extensions
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/ppx_ignore_instrumentation
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-ml/ppxlib-0.23.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.15
+SRC_URI=https://github.com/janestreet/ppx_ignore_instrumentation/archive/refs/tags/v0.15.0.tar.gz -> ppx_ignore_instrumentation-0.15.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=0bc4006af1c42594bdf263f8d04939f3
