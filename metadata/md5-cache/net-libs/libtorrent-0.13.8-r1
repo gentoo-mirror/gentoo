@@ -5,11 +5,11 @@ EAPI=6
 HOMEPAGE=https://rakshasa.github.io/rtorrent/
 INHERIT=toolchain-funcs
 IUSE=debug ssl test
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=dev-util/cppunit:= sys-libs/zlib ssl? ( dev-libs/openssl:0= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://rtorrent.net/downloads/libtorrent-0.13.8.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=f5e5df250e5c03d100de07077960836f
+_md5_=1758ed597ac0a2c53d0a2c6e1910e3d5
