@@ -1,33 +1,44 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-TYPESHED_P="typeshed-jedi_v0.16.0"
-DJANGO_STUBS_P="django-stubs-v1.5.0"
+TYPESHED_P="typeshed-ae9d4f4b21bb5e1239816c301da7b1ea904b44c3"
+DJANGO_STUBS_P="django-stubs-fd057010f6cbf176f57d1099e82be46d39b99cb9"
 
 DESCRIPTION="Autocompletion library for Python"
-HOMEPAGE="https://github.com/davidhalter/jedi"
+HOMEPAGE="
+	https://github.com/davidhalter/jedi/
+	https://pypi.org/project/jedi/
+"
 SRC_URI="
 	https://github.com/davidhalter/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz
 	https://github.com/davidhalter/typeshed/archive/${TYPESHED_P#typeshed-}.tar.gz
 		-> ${TYPESHED_P}.tar.gz
 	https://github.com/davidhalter/django-stubs/archive/${DJANGO_STUBS_P#django-stubs-}.tar.gz
-		-> ${DJANGO_STUBS_P/v/}.tar.gz"
+		-> ${DJANGO_STUBS_P/v/}.tar.gz
+"
 
-LICENSE="MIT
-	test? ( Apache-2.0 )"
+LICENSE="
+	MIT
+	test? ( Apache-2.0 )
+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
-RDEPEND="=dev-python/parso-0.7*[${PYTHON_USEDEP}]"
+RDEPEND="
+	=dev-python/parso-0.8*[${PYTHON_USEDEP}]
+"
 
+# RDEPEND needed because of an import jedi inside conf.py
 distutils_enable_sphinx docs \
+	dev-python/parso \
 	dev-python/sphinx_rtd_theme
 distutils_enable_tests pytest
 
@@ -50,22 +61,19 @@ python_prepare_all() {
 }
 
 python_test() {
-	local deselect=(
-		# TODO
-		'test/test_integration.py::test_completion[stdlib:197]'
-		'test/test_integration.py::test_completion[on_import:29]'
-		# assume pristine virtualenv
-		test/test_utils.py::TestSetupReadline::test_local_import
-		test/test_inference/test_imports.py::test_os_issues
+	local EPYTEST_DESELECT=(
 		# fragile
 		test/test_speed.py
+		# assumes pristine virtualenv
+		test/test_inference/test_imports.py::test_os_issues
 	)
-	[[ ${EPYTHON} == python3.10 ]] && deselect+=(
-		# new features increased the match count again
-		test/test_utils.py::TestSetupReadline::test_import
-
+	[[ ${EPYTHON} != python3.8 ]] && EPYTEST_DESELECT+=(
+		# TODO
+		'test/test_integration.py::test_completion[lambdas:112]'
 	)
 
+	# some plugin breaks case-insensitivity on completions
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	# django and pytest tests are very version dependent
-	epytest ${deselect[@]/#/--deselect } -k "not django and not pytest"
+	epytest -k "not django and not pytest"
 }
