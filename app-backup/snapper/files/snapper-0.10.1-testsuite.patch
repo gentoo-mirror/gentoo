@@ -1,10 +1,10 @@
 diff --git a/configure.ac b/configure.ac
-index 3f5c911..a8c9c95 100644
+index 39def82..9b96a32 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -84,6 +84,13 @@ CPPFLAGS="${CPPFLAGS} -DCONF_DIR='\"${SYSCONFIG}\"'"
- 
- PAM_SECURITY=${libdir}/security
+@@ -174,6 +174,13 @@ if test "x$enable_coverage" = "xyes"; then
+         LDFLAGS="${LDFLAGS} --coverage"
+ fi
  
 +AC_ARG_ENABLE([tests], AC_HELP_STRING([--disable-tests],[Disable internal tests support]),
 +		[with_tests=$enableval],[with_tests=yes])
@@ -13,9 +13,9 @@ index 3f5c911..a8c9c95 100644
 +	AC_DEFINE(ENABLE_TESTS, 1, [Enable internal tests support])
 +fi
 +
- AC_ARG_WITH([pam-security], AC_HELP_STRING([--pam-security], [Use a custom pam security directory (default is $libdir/security)]),
- 	[with_pam_security=$withval], [with_pam_security=no])
- AS_IF([test "x$with_pam_security" != xno], [PAM_SECURITY="${with_pam_security}"])
+ PKG_CHECK_MODULES(DBUS, dbus-1)
+ PKG_CHECK_MODULES(XML2, libxml-2.0)
+ PKG_CHECK_MODULES(JSONC, json-c, [], [AC_MSG_WARN([Cannot find json-c. Please install libjson-c-devel])])
 diff --git a/testsuite-cmp/Makefile.am b/testsuite-cmp/Makefile.am
 index 81104bf..9c29477 100644
 --- a/testsuite-cmp/Makefile.am
@@ -34,7 +34,7 @@ index 81104bf..9c29477 100644
  
 +endif
 diff --git a/testsuite-real/Makefile.am b/testsuite-real/Makefile.am
-index ceb0862..9a72775 100644
+index a3bb2e3..c4e88f4 100644
 --- a/testsuite-real/Makefile.am
 +++ b/testsuite-real/Makefile.am
 @@ -2,6 +2,7 @@
@@ -45,7 +45,7 @@ index ceb0862..9a72775 100644
  CXXFLAGS += -std=gnu++11
  
  AM_CPPFLAGS = -I$(top_srcdir)
-@@ -53,3 +54,4 @@ ug_tests_SOURCES = ug-tests.cc
+@@ -56,3 +57,4 @@ ascii_file_SOURCES = ascii-file.cc
  
  EXTRA_DIST = $(test_DATA) $(test_SCRIPTS)
  
