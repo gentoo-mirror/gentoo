@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit linux-mod
 
@@ -27,8 +27,8 @@ MODULE_NAMES="true"
 S="${WORKDIR}/${MY_P}"
 
 pkg_pretend() {
-	if kernel_is lt 2 6 27; then
-		eerror "${PN} require Linux kernel >= 2.6.27"
+	if kernel_is lt 3 0; then
+		eerror "${PN} require Linux kernel >= 3.0"
 		die "Please update your kernel!"
 	fi
 }
@@ -45,5 +45,5 @@ src_install() {
 	MODULE_NAMES=${modules}
 
 	linux-mod_src_install
-	dodoc ChangeLog README.md TODO
+	dodoc ChangeLog README.md
 }

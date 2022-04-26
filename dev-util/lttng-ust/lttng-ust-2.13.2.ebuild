@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
@@ -14,13 +14,12 @@ SRC_URI="https://lttng.org/files/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0/${MY_SLOT}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="examples numa"
 
 DEPEND="
 	dev-libs/userspace-rcu:=
-	numa? ( sys-process/numactl )
-	"
+	numa? ( sys-process/numactl )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/${MY_P}
@@ -35,4 +34,9 @@ src_prepare() {
 
 src_configure() {
 	econf $(use_enable numa)
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
 }
