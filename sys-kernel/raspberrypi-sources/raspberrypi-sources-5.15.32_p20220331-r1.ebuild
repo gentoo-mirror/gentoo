@@ -6,6 +6,7 @@ EAPI=8
 ETYPE=sources
 K_EXP_GENPATCHES_NOUSE=1
 K_GENPATCHES_VER=2
+K_DEBLOB_AVAILABLE=0
 K_DEFCONFIG="bcmrpi_defconfig"
 K_GENPATCHES_VER=1
 K_SECURITY_UNSUPPORTED=1
@@ -21,7 +22,7 @@ MY_P="1.${MY_P/p/}"
 DESCRIPTION="Raspberry Pi kernel sources"
 HOMEPAGE="https://github.com/raspberrypi/linux"
 SRC_URI="
-	https://github.com/raspberrypi/linux/archive/${MY_P}.tar.gz -> linux-${KV_FULL}.tar.gz
+	https://github.com/raspberrypi/linux/archive/${MY_P}.tar.gz -> linux-${OKV}_$(ver_cut 4-)-raspberrypi.tar.gz
 	${GENPATCHES_URI}
 "
 
