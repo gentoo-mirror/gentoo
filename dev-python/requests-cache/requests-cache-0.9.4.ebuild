@@ -11,15 +11,17 @@ inherit distutils-r1 optfeature
 
 HOMEPAGE="
 	https://pypi.org/project/requests-cache/
-	https://github.com/reclosedev/requests-cache/"
+	https://github.com/reclosedev/requests-cache/
+"
 DESCRIPTION="Persistent cache for requests library"
 SRC_URI="
 	https://github.com/reclosedev/requests-cache/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz"
+		-> ${P}.gh.tar.gz
+"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -27,7 +29,8 @@ RDEPEND="
 	dev-python/cattrs[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.0.0[${PYTHON_USEDEP}]
 	dev-python/urllib3[${PYTHON_USEDEP}]
-	>=dev-python/url-normalize-1.4[${PYTHON_USEDEP}]"
+	>=dev-python/url-normalize-1.4[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		dev-python/itsdangerous[${PYTHON_USEDEP}]
@@ -36,9 +39,20 @@ BDEPEND="
 		dev-python/responses[${PYTHON_USEDEP}]
 		dev-python/timeout-decorator[${PYTHON_USEDEP}]
 		dev-python/ujson[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}"/requests-cache-0.9.3-cattrs-22.patch
+)
+
+src_prepare() {
+	# unpin the dep
+	sed -i -e '/cattrs/s:\^:>=:' pyproject.toml || die
+	distutils-r1_src_prepare
+}
 
 python_test() {
 	local EPYTEST_IGNORE=(
