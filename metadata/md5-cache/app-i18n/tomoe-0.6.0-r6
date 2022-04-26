@@ -1,17 +1,17 @@
 BDEPEND=dev-util/glib-utils dev-util/gtk-doc-am dev-util/intltool virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/glib:2 hyperestraier? ( app-text/hyperestraier ) mysql? ( dev-db/mysql-connector-c:= ) ruby? ( ruby_targets_ruby25? ( dev-lang/ruby:2.5 dev-ruby/ruby-glib2[ruby_targets_ruby25] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 dev-ruby/ruby-glib2[ruby_targets_ruby26] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 dev-ruby/ruby-glib2[ruby_targets_ruby27] ) ) subversion? ( dev-vcs/subversion )
+DEPEND=dev-libs/glib:2 hyperestraier? ( app-text/hyperestraier ) mysql? ( dev-db/mysql-connector-c:= ) ruby? ( ruby_targets_ruby26? ( dev-lang/ruby:2.6 dev-ruby/ruby-glib2[ruby_targets_ruby26] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 dev-ruby/ruby-glib2[ruby_targets_ruby27] ) ) subversion? ( dev-vcs/subversion )
 DESCRIPTION=Japanese handwriting recognition engine
 EAPI=7
 HOMEPAGE=http://tomoe.osdn.jp/
 INHERIT=autotools ruby-utils
-IUSE=hyperestraier mysql ruby ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 subversion
+IUSE=hyperestraier mysql ruby ruby_targets_ruby26 ruby_targets_ruby27 subversion
 KEYWORDS=amd64 x86
 LICENSE=LGPL-2.1
-RDEPEND=dev-libs/glib:2 hyperestraier? ( app-text/hyperestraier ) mysql? ( dev-db/mysql-connector-c:= ) ruby? ( ruby_targets_ruby25? ( dev-lang/ruby:2.5 dev-ruby/ruby-glib2[ruby_targets_ruby25] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 dev-ruby/ruby-glib2[ruby_targets_ruby26] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 dev-ruby/ruby-glib2[ruby_targets_ruby27] ) ) subversion? ( dev-vcs/subversion )
-REQUIRED_USE=ruby? ( ^^ ( ruby_targets_ruby25 ruby_targets_ruby26 ruby_targets_ruby27 ) )
+RDEPEND=dev-libs/glib:2 hyperestraier? ( app-text/hyperestraier ) mysql? ( dev-db/mysql-connector-c:= ) ruby? ( ruby_targets_ruby26? ( dev-lang/ruby:2.6 dev-ruby/ruby-glib2[ruby_targets_ruby26] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 dev-ruby/ruby-glib2[ruby_targets_ruby27] ) ) subversion? ( dev-vcs/subversion )
+REQUIRED_USE=ruby? ( ^^ ( ruby_targets_ruby26 ruby_targets_ruby27 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/tomoe/tomoe-0.6.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	ruby-utils	707c7b16c28e3483e51d7ec7f7b0d5ed
-_md5_=40bbbb077752560e321df7e43f775b07
+_md5_=623ffb3685ed12c3064656888fd802f7
