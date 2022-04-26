@@ -5,7 +5,7 @@ EAPI=8
 
 inherit elisp
 
-DESCRIPTION="Key-chord binding helper for use-package-chords"
+DESCRIPTION="Simple way to manage personal keybindings"
 HOMEPAGE="https://github.com/jwiegley/use-package/"
 SRC_URI="https://github.com/jwiegley/use-package/archive/${PV}.tar.gz
 			-> use-package-${PV}.tar.gz"
@@ -15,12 +15,6 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="
-	app-emacs/bind-key
-	app-emacs/key-chord
-"
-BDEPEND="${RDEPEND}"
-
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
@@ -29,5 +23,5 @@ src_compile() {
 
 src_install() {
 	elisp-site-file-install "${FILESDIR}/${SITEFILE}"
-	elisp-install ${PN}.el{,c}
+	elisp-install ${PN} ${PN}.el{,c}
 }
