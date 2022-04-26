@@ -1,5 +1,5 @@
 BDEPEND=app-arch/xz-utils nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-m4 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
-DEFINED_PHASES=configure install test unpack
+DEFINED_PHASES=configure install prepare test unpack
 DEPEND=virtual/libiconv nls? ( sys-devel/gettext virtual/libintl )
 DESCRIPTION=GNU macro processor
 EAPI=7
@@ -12,4 +12,4 @@ RDEPEND=virtual/libiconv nls? ( sys-devel/gettext virtual/libintl )
 SLOT=0
 SRC_URI=mirror://gnu/m4/m4-1.4.19.tar.xz https://dev.gentoo.org/~floppym/dist/m4-1.4.19-test-198-sysval-r1.patch.gz verify-sig? ( mirror://gnu/m4/m4-1.4.19.tar.xz.sig )
 _eclasses_=verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=7ee965c6d4e46c3215d2a0600c045783
+_md5_=4430d3e3a498071dd8a6d54f42a78ad4
