@@ -7,7 +7,7 @@ inherit kernel-install toolchain-funcs
 
 MY_P=linux-${PV%.*}
 GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 4 ))
-BINPKG=${P/-bin/}-1
+BINPKG=${P/-bin/}-r1-1
 
 DESCRIPTION="Pre-built Linux kernel with genpatches"
 HOMEPAGE="https://www.kernel.org/"

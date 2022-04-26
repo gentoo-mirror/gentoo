@@ -6,9 +6,9 @@ EAPI=7
 inherit kernel-build toolchain-funcs
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 3 ))
-CONFIG_VER=5.15.14
-CONFIG_HASH=8cc461d9cfb256bb831225bb38e29fa944bd890f
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 4 ))
+CONFIG_VER=5.15.19
+CONFIG_HASH=ec69da7a42b5b7c3da91572ef22097b069ddbd01
 GENTOO_CONFIG_VER=g1
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
@@ -39,7 +39,7 @@ SRC_URI+="
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="arm? ( savedconfig )"
 
