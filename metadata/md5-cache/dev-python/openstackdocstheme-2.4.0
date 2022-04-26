@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://docs.openstack.org/openstackdocstheme/latest/
 INHERIT=distutils-r1
 IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~alpha amd64 ~arm arm64 ~ia64 ~ppc64 x86
+KEYWORDS=~alpha amd64 ~arm arm64 ~ia64 ~ppc64 ~s390 x86
 LICENSE=Apache-2.0
 RDEPEND=>dev-python/pbr-2.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/dulwich-0.15.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=mirror://pypi/o/openstackdocstheme/openstackdocstheme-2.4.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	7713800ff2cee821dbce961a575875f4
-_md5_=31b415cd7f07b6de62a2b84df41f87aa
+_md5_=5fd69d908da0d551f926602063cc2a1b
