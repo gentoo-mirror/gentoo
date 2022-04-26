@@ -1,13 +1,13 @@
-BDEPEND=app-emacs/bind-key app-emacs/key-chord >=app-editors/emacs-23.1:*
+BDEPEND=>=app-editors/emacs-23.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DESCRIPTION=Key-chord binding helper for use-package-chords
+DESCRIPTION=Simple way to manage personal keybindings
 EAPI=8
 HOMEPAGE=https://github.com/jwiegley/use-package/
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/bind-key app-emacs/key-chord >=app-editors/emacs-23.1:*
+RDEPEND=>=app-editors/emacs-23.1:*
 SLOT=0
 SRC_URI=https://github.com/jwiegley/use-package/archive/2.4.1.tar.gz -> use-package-2.4.1.tar.gz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
-_md5_=a095b6fa3cb7a62db6217ebb470cff21
+_md5_=3eb345e14087e6306639ec0a68501cb4
