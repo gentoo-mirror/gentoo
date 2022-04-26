@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/userspace-rcu:= dev-libs/popt dev-libs/libxml2 ust? ( >=dev-util/lttng-ust-2.13.0:= )
+DESCRIPTION=Linux Trace Toolkit - next generation
+EAPI=8
+HOMEPAGE=https://lttng.org
+IUSE=+ust
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/userspace-rcu:= dev-libs/popt dev-libs/libxml2 ust? ( >=dev-util/lttng-ust-2.13.0:= )
+SLOT=0/2.13
+SRC_URI=https://lttng.org/files/lttng-tools/lttng-tools-2.13.7.tar.bz2
+_md5_=aebc7d61e7f70aa9ef2936339cf95da3
