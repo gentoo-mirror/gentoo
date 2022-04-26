@@ -28,11 +28,11 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		!hppa? ( !sparc? (
-			gnome-base/gnome-keyring
+		!hppa? ( !sparc? ( !s390? (
 			sys-apps/dbus
+			virtual/secret-service
 		)
-	) )
+	) ) )
 "
 
 distutils_enable_tests unittest
