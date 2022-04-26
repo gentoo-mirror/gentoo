@@ -7,11 +7,11 @@ HOMEPAGE=https://desktop.telegram.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=xdg cmake python-any-r1 optfeature
 IUSE=+dbus enchant +hunspell +jemalloc screencast +spell wayland +X
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=BSD GPL-3-with-openssl-exception LGPL-2+
 RDEPEND=!net-im/telegram-desktop-bin app-arch/lz4:= dev-cpp/abseil-cpp:= dev-libs/libdispatch dev-libs/openssl:= dev-libs/xxhash >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5[dbus?,jpeg,png,wayland?,X?] >=dev-qt/qtimageformats-5.15:5 >=dev-qt/qtnetwork-5.15:5[ssl] >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwidgets-5.15:5[png,X?] media-fonts/open-sans media-libs/fontconfig:= ~media-libs/libtgvoip-2.4.4_p20220117 media-libs/openal media-libs/opus:= media-libs/rnnoise ~media-libs/tg_owt-0_pre20220209[screencast=,X=] media-video/ffmpeg:=[opus] sys-libs/zlib:=[minizip] dbus? ( dev-cpp/glibmm:2 dev-qt/qtdbus:5 dev-libs/libdbusmenu-qt[qt5(+)] ) enchant? ( app-text/enchant:= ) hunspell? ( >=app-text/hunspell-1.7:= ) jemalloc? ( dev-libs/jemalloc:=[-lazy-lock] ) wayland? ( dev-qt/qtwayland:= kde-frameworks/kwayland:= ) X? ( x11-libs/libxcb:= )
 REQUIRED_USE=spell? ( ^^ ( enchant hunspell ) )
 SLOT=0
 SRC_URI=https://github.com/telegramdesktop/tdesktop/releases/download/v3.6.1/tdesktop-3.6.1-full.tar.gz
 _eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	cmake	3c38df051095289667b6f09ebd0cc149	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	optfeature	d524f291c80f9d21ad80fe978e3ca760
-_md5_=9629852275b46b3e2783dd5c461cf779
+_md5_=94296270567ac12e57de77f1e2d62bcb
