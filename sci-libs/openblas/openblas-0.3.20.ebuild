@@ -12,7 +12,7 @@ S="${WORKDIR}"/OpenBLAS-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="dynamic eselect-ldso index-64bit openmp pthread relapack test"
 REQUIRED_USE="?? ( openmp pthread )"
 RESTRICT="!test? ( test )"
@@ -27,6 +27,7 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.3.12-shared-blas-lapack.patch"
+	"${FILESDIR}/${PN}-0.3.20-fix-riscv.patch"
 )
 
 pkg_pretend() {
