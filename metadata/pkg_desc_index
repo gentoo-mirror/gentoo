@@ -919,7 +919,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.97 1.22.101 1.23.0: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.97 1.22.101 1.23.0 1.23.1: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8430,8 +8430,8 @@ dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the stand
 dev-python/boolean-py 3.8: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.21.42 1.21.46 1.22.0 9999: The AWS SDK for Python
-dev-python/botocore 1.24.42 1.24.46 1.25.0 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.21.42 1.21.46 1.22.0 1.22.1 9999: The AWS SDK for Python
+dev-python/botocore 1.24.42 1.24.46 1.25.0 1.25.1 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8517,7 +8517,7 @@ dev-python/cppy 1.2.0 1.2.1-r1: C++ header library which makes it easier to writ
 dev-python/crashtest 0.3.1: Python library that makes exceptions handling and inspection easier
 dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/croniter 1.3.4: Python module to provide iteration for datetime object
-dev-python/cryptography 3.4.7-r3 36.0.2: Library providing cryptographic recipes and primitives
+dev-python/cryptography 3.4.7-r3 36.0.2 37.0.0: Library providing cryptographic recipes and primitives
 dev-python/css-parser 1.0.7-r1: A CSS Cascading Style Sheets library (fork of cssutils)
 dev-python/csscompressor 0.9.5: A python port of YUI CSS Compressor
 dev-python/cssselect 1.1.0-r1: parses CSS3 Selectors and translates them to XPath 1.0
@@ -8725,7 +8725,7 @@ dev-python/glob2 0.7: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.7.1-r2 2.7.2-r1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.44.0 2.45.0: Google API Client for Python
+dev-python/google-api-python-client 2.44.0 2.45.0 2.46.0: Google API Client for Python
 dev-python/google-apitools 0.5.32: Python library to manipulate Google APIs
 dev-python/google-auth 2.6.3-r2 2.6.6-r1: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r1: httplib2 Transport for Google Auth
@@ -8774,7 +8774,7 @@ dev-python/hyperframe 5.2.0 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.42.3 6.43.3 6.44.0 6.45.0: A library for property based testing
 dev-python/icalendar 4.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.4.12: File identification library for Python
+dev-python/identify 2.4.12 2.5.0: File identification library for Python
 dev-python/idna 3.3: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.1.7: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
@@ -9587,7 +9587,7 @@ dev-python/setproctitle 1.2.2 1.2.3: Allow customization of the process title
 dev-python/setuptools 60.5.0 60.9.2 60.10.0 61.3.0 61.3.1-r1 62.0.0 62.1.0: Collection of extensions to Distutils
 dev-python/setuptools-declarative-requirements 1.2.0-r1: Requirements Support For Setuptools Declarative setup.cfg
 dev-python/setuptools-git 1.2-r2: Setuptools revision control system plugin for Git
-dev-python/setuptools-rust 0.12.1 1.2.0-r1 1.2.0-r2: A plugin for setuptools to build Rust Python extensions
+dev-python/setuptools-rust 1.3.0: A plugin for setuptools to build Rust Python extensions
 dev-python/setuptools_scm 6.4.1 6.4.2: Manage versions by scm tags via setuptools
 dev-python/setuptools_scm_git_archive 1.1-r4: A setuptools_scm plugin for git archives
 dev-python/setuptools_trial 0.6.0-r1: Setuptools plugin that makes unit tests execute with trial instead of pyunit
@@ -9673,7 +9673,7 @@ dev-python/spyder 5.2.2 5.3.0: The Scientific Python Development Environment
 dev-python/spyder-kernels 2.2.1 2.3.0: Kernels used by spyder on its ipython console
 dev-python/spyder-terminal 1.2.1 1.2.2: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.5.0: Plugin for Spyder to run tests and view the results
-dev-python/sqlalchemy 1.3.24 1.4.31 1.4.32 1.4.34 1.4.35: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.3.24 1.4.31 1.4.32 1.4.34 1.4.35 1.4.36: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-migrate 0.13.0: SQLAlchemy Schema Migration Tools
 dev-python/sqlalchemy-rqlite 1.1 1.1.1: A SQLAlchemy dialect for rqlite
 dev-python/sqlitedict 1.7.0 2.0.0: Persistent dict in Python, backed by SQLite and pickle
@@ -9752,7 +9752,7 @@ dev-python/transitions 0.8.11: A lightweight, object-oriented state machine impl
 dev-python/translate-toolkit 3.6.0: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.1.0 22.1.0-r1 22.2.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.10.8: Python library for loading and using triangular meshes
+dev-python/trimesh 3.10.8 3.11.2: Python library for loading and using triangular meshes
 dev-python/trio 0.20.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trustme 0.9.0: #1 quality TLS certs while you wait, for the discerning tester
@@ -10318,21 +10318,21 @@ dev-ros/xmlrpcpp 1.15.8-r1 1.15.9-r1 1.15.10-r1 1.15.11 1.15.13 1.15.14 9999: C+
 dev-ruby/GeoRuby 2.5.2-r1: Ruby data holder for OGC Simple Features
 dev-ruby/abstract 1.0.0-r4 1.0.0-r5: Library which enable you to define abstract method in Ruby
 dev-ruby/acme-client 2.0.8 2.0.9: A Ruby client for the letsencrypt's ACME protocol
-dev-ruby/actioncable 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Integrated WebSockets for Rails
-dev-ruby/actionmailbox 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Framework for designing email-service layers
-dev-ruby/actionmailer 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Framework for designing email-service layers
-dev-ruby/actionpack 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Eases web-request routing, handling, and response
+dev-ruby/actioncable 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Integrated WebSockets for Rails
+dev-ruby/actionmailbox 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Framework for designing email-service layers
+dev-ruby/actionmailer 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Framework for designing email-service layers
+dev-ruby/actionpack 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Eases web-request routing, handling, and response
 dev-ruby/actionpack-action_caching 1.2.1 1.2.2: Action caching for Action Pack (removed from core in Rails 4.0)
 dev-ruby/actionpack-xml_parser 2.0.1-r1: XML parameters parser for Action Pack (removed from core in Rails 4.0)
-dev-ruby/actiontext 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Edit and display rich text in Rails applications
-dev-ruby/actionview 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Simple, battle-tested conventions and helpers for building web pages
-dev-ruby/activejob 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3 7.0.2.3-r1: Job framework with pluggable queues
+dev-ruby/actiontext 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Edit and display rich text in Rails applications
+dev-ruby/actionview 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Simple, battle-tested conventions and helpers for building web pages
+dev-ruby/activejob 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3 7.0.2.3-r1: Job framework with pluggable queues
 dev-ruby/activeldap 5.2.4 6.0.4 6.1.0: ActiveLDAP provides an activerecord inspired object oriented interface to LDAP
-dev-ruby/activemodel 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Toolkit for building modeling frameworks like Active Record and Active Resource
+dev-ruby/activemodel 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Toolkit for building modeling frameworks like Active Record and Active Resource
 dev-ruby/activemodel-serializers-xml 1.0.2-r1 1.0.2-r2: XML serialization for your Active Model objects and Active Record models
-dev-ruby/activerecord 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
-dev-ruby/activestorage 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Attach cloud and local files in Rails applications
-dev-ruby/activesupport 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Utility Classes and Extension to the Standard Library
+dev-ruby/activerecord 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
+dev-ruby/activestorage 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Attach cloud and local files in Rails applications
+dev-ruby/activesupport 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Utility Classes and Extension to the Standard Library
 dev-ruby/acts_as_list 1.0.4: Capabilities for sorting and reordering a number of objects in a list
 dev-ruby/addressable 2.8.0: A replacement for the URI implementation that is part of Ruby's standard library
 dev-ruby/ae 1.8.2-r1: Assertive Expressive is an assertions library designed for reuse
@@ -10715,10 +10715,10 @@ dev-ruby/rack-openid 1.4.2-r1: Provides a more HTTPish API around the ruby-openi
 dev-ruby/rack-protection 2.1.0 2.2.0: This gem protects against typical web attacks
 dev-ruby/rack-test 1.1.0 1.1.0-r1: Rack::Test is a small, simple testing API for Rack apps
 dev-ruby/radius 0.7.5-r1: Powerful tag-based template system
-dev-ruby/rails 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: ruby on rails is a web-application and persistance framework
+dev-ruby/rails 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: ruby on rails is a web-application and persistance framework
 dev-ruby/rails-dom-testing 2.0.3-r1 2.0.3-r2: Compare doms and assert certain elements exists in doms using Nokogiri
 dev-ruby/rails-html-sanitizer 1.3.0-r1 1.4.1 1.4.2: Sanitize HTML fragments in Rails applications
-dev-ruby/railties 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 7.0.2.2 7.0.2.3: Tools for creating, working with, and running Rails applications
+dev-ruby/railties 5.2.6 5.2.7 5.2.7.1 6.0.4.1 6.0.4.4 6.0.4.7 6.0.4.8 6.1.5 6.1.5.1 7.0.2.2 7.0.2.3: Tools for creating, working with, and running Rails applications
 dev-ruby/rainbow 3.0.0 3.1.1: Colorize printed text on ANSI terminals
 dev-ruby/rake 13.0.3-r1 13.0.4 13.0.6 13.0.6-r1: Make-like scripting in Ruby
 dev-ruby/rake-compiler 1.1.1 1.1.3 1.1.9 1.2.0: Provide a standard and simplified way to build and package Ruby extensions
