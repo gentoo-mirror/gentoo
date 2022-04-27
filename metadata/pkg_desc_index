@@ -6173,6 +6173,7 @@ dev-ml/cmdliner 1.0.4 1.1.1: Declarative definition of command line interfaces f
 dev-ml/core 0.14.0-r4 0.14.1-r1 0.15.0: Jane Street's alternative to the standard library
 dev-ml/core_bench 0.14.0: Micro-benchmarking library for OCaml
 dev-ml/core_kernel 0.14.1-r3 0.14.2-r1 0.15.0: System-independent part of Core
+dev-ml/core_unix 0.15.0: Unix-specific portions of Core
 dev-ml/cppo 1.6.7 1.6.8: An equivalent of the C preprocessor for OCaml programs
 dev-ml/cryptokit 1.16.1-r1: Cryptographic primitives library for Objective Caml
 dev-ml/csexp 1.3.2-r1 1.5.1: Parsing and printing of S-expressions in Canonical form
@@ -6323,7 +6324,7 @@ dev-ml/seq 0.2 0.2.2: Compatibility package for the standard OCaml iterator type
 dev-ml/sexp_pretty 0.15.0: S-expression pretty-printer
 dev-ml/sexplib 0.14.0 0.15.0-r2: Library for automated conversion of OCaml-values to and from S-expressions
 dev-ml/sexplib0 0.14.0 0.15.0-r1: Library for automated conversion of OCaml-values to and from S-expressions
-dev-ml/spawn 0.13.0 0.15.0: Spawning sub-processes
+dev-ml/spawn 0.13.0 0.15.0-r1: Spawning sub-processes
 dev-ml/splittable_random 0.14.0 0.15.0: PRNG that can be split into independent streams
 dev-ml/stdio 0.14.0-r2 0.15.0-r1: Standard IO Library for OCaml
 dev-ml/stdlib-shims 0.2.0 0.3.0: Pure OCaml library that allows replacing Pervasives with Stdlib before 4.08
@@ -8296,7 +8297,7 @@ dev-php/zetacomponents-Base 1.9.1 1.9.3: Base package for any Zeta component
 dev-php/zetacomponents-ConsoleTools 1.7.2-r1: A set of classes to do different actions with the console
 dev-python/3to2 1.1.1-r1: Tool to refactor valid 3.x syntax into valid 2.x syntax
 dev-python/APScheduler 3.8.1 3.9.0 3.9.1: In-process task scheduler with Cron-like capabilities
-dev-python/Arpeggio 1.10.2 2.0.0: Parser interpreter based on PEG grammars
+dev-python/Arpeggio 2.0.0: Parser interpreter based on PEG grammars
 dev-python/Babel 2.9.1 2.10.1: Collection of tools for internationalizing Python applications
 dev-python/BitVector 3.5.0: A pure-Python memory-efficient packed representation for bit arrays
 dev-python/CppHeaderParser 2.7.4: Parse C++ header files and generate a data structure
@@ -8389,7 +8390,7 @@ dev-python/automat 20.2.0: Self-service finite-state machines for the programmer
 dev-python/autopage 0.5.0: A library to provide automatic paging for console output
 dev-python/autopep8 1.6.0 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.0.2-r1: Infer properties from accessor methods
-dev-python/aws-sam-translator 1.40.0 1.42.0 1.43.0 1.44.0 1.45.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.45.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk-python 2.8.0: AWS X-Ray SDK for Python
 dev-python/awxkit 19.4.0 20.0.1 20.1.0 21.0.0: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r1 9999: Python library to work with countries and languages
@@ -8460,7 +8461,7 @@ dev-python/cerberus 1.3.2 1.3.4: A lightweight and extensible data-validation li
 dev-python/certifi 3021.3.16-r1: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.14.6 1.15.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.58.3 0.58.4 0.59.0: CloudFormation Linter
+dev-python/cfn-lint 0.59.0: CloudFormation Linter
 dev-python/cftime 1.5.1 1.5.2 1.6.0: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8: Tools and libraries for control groups of Linux
 dev-python/chai 1.1.2: Easy to use mocking, stubbing and spying framework
@@ -8628,7 +8629,7 @@ dev-python/ephemeral-port-reserve 1.1.4: Bind to an ephemeral port, force it int
 dev-python/eradicate 2.0.0-r1 2.1.0: Removes commented-out code from Python files
 dev-python/errorhandler 2.0.1: Logging framework handler
 dev-python/et_xmlfile 1.1.0-r1: An implementation of lxml.xmlfile for the standard library
-dev-python/etuples 0.3.4 0.3.5: Python S-expression emulation using tuple-like objects
+dev-python/etuples 0.3.5: Python S-expression emulation using tuple-like objects
 dev-python/eventlet 0.33.0: Highly concurrent networking library
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/exam 0.10.6: Helpers for better testing
@@ -8724,7 +8725,7 @@ dev-python/glob2 0.7: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.7.1-r2 2.7.2-r1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.41.0 2.42.0 2.43.0 2.44.0 2.45.0: Google API Client for Python
+dev-python/google-api-python-client 2.44.0 2.45.0: Google API Client for Python
 dev-python/google-apitools 0.5.32: Python library to manipulate Google APIs
 dev-python/google-auth 2.6.3-r2 2.6.6-r1: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r1: httplib2 Transport for Google Auth
@@ -9079,7 +9080,7 @@ dev-python/parse_type 0.6.0: Extension to the parse module
 dev-python/parsedatetime 2.6: Parse human-readable date/time strings
 dev-python/parso 0.8.3-r1: A python parser that supports error recovery and round-trip parsing
 dev-python/partd 1.2.0: Appendable key-value storage
-dev-python/parver 0.3.1 0.3.1-r1: Parse and manipulate version numbers
+dev-python/parver 0.3.1-r1: Parse and manipulate version numbers
 dev-python/passlib 1.7.4-r1: Password hashing framework supporting over 20 schemes
 dev-python/paste 3.5.0-r2: Tools for using a Web Server Gateway Interface stack
 dev-python/pastedeploy 2.1.1-r3: Load, configure, and compose WSGI applications and servers
@@ -9115,7 +9116,7 @@ dev-python/picobox 2.2.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.1.0 1.2.0: Pure-Python implementation of the AMQP
-dev-python/pikepdf 5.0.1 5.1.0 5.1.1 5.1.2: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 5.1.2: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 9.0.0 9.0.0-r1 9.0.1 9.0.1-r1 9.1.0: Python Imaging Library (fork)
 dev-python/pip 22.0.4: Installs python packages -- replacement for easy_install
@@ -9232,7 +9233,7 @@ dev-python/pygal 3.0.0-r2: A python SVG charts generator
 dev-python/pygame 2.1.2-r1: Python bindings for SDL multimedia library
 dev-python/pygame_sdl2 7.3.5-r2: Reimplementation of portions of the pygame API using SDL2
 dev-python/pyghmi 1.5.36 1.5.37 1.5.38 1.5.39: A pure python implementation of IPMI protocol
-dev-python/pygit2 1.9.0 1.9.1: Python bindings for libgit2
+dev-python/pygit2 1.9.1: Python bindings for libgit2
 dev-python/pyglet 1.5.23: Cross-platform windowing and multimedia library for Python
 dev-python/pygments 2.11.2 2.12.0: Pygments is a syntax highlighting package written in Python
 dev-python/pygments-github-lexers 0.0.5: Pygments Github custom lexers
@@ -9324,7 +9325,7 @@ dev-python/pysol_cards 0.12.0 0.14.2: Deal PySol FreeCell cards
 dev-python/pyspectrum2 0.2.0-r1: Implements a protobuf-based interface for Spectrum2 python-based backends
 dev-python/pyspelling 2.7.3: Spell checker automation tool
 dev-python/pyspf 2.0.14-r3: Python implementation of the Sender Policy Framework (SPF)
-dev-python/pyspnego 0.5.0 0.5.1: Library to handle SPNEGO and CredSSP authentication
+dev-python/pyspnego 0.5.1: Library to handle SPNEGO and CredSSP authentication
 dev-python/pysrt 1.1.2 9999: Python library used to edit or create SubRip files
 dev-python/pystache 0.6.0: Updated Python implementation of Mustache templating framework
 dev-python/pysvg 0.2.2_p3: Python SVG document creation library
@@ -9411,7 +9412,7 @@ dev-python/python-efl 1.25.0 1.26.0: Python bindings for Enlightenment Foundatio
 dev-python/python-email-validator 1.1.3 1.2.0: A robust email syntax and deliverability validation library
 dev-python/python-engineio 4.2.1 4.3.0 4.3.1 4.3.2: Python implementation of the Engine.IO realtime server
 dev-python/python-etcd 0.4.5-r1: A python client for etcd
-dev-python/python-evdev 1.4.0 1.5.0: Python library for evdev bindings
+dev-python/python-evdev 1.5.0: Python library for evdev bindings
 dev-python/python-gammu 2.11: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 3.6.0: A client for the OpenStack Glance API
@@ -9438,7 +9439,7 @@ dev-python/python-mimeparse 1.6.0-r3: Basic functions for handling mime-types in
 dev-python/python-mpd 3.0.5: Python MPD client library
 dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-musicbrainzngs 0.7.1: Python bindings for the MusicBrainz NGS and the Cover Art Archive webservices
-dev-python/python-nbxmpp 2.0.3 2.0.4 2.0.6: Python library to use Jabber/XMPP networks in a non-blocking way
+dev-python/python-nbxmpp 2.0.6: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/python-neutronclient 7.8.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 17.7.0: A client for the OpenStack Nova API
@@ -9650,7 +9651,7 @@ dev-python/sphinxcontrib-autoprogram 0.1.7: Documenting CLI programs
 dev-python/sphinxcontrib-bibtex 2.4.2: Sphinx extensions for BibTeX style citations
 dev-python/sphinxcontrib-blockdiag 2.0.0-r1: A sphinx extension for embedding block diagrams using blockdiag
 dev-python/sphinxcontrib-devhelp 1.0.2-r1: Sphinx extension which outputs Devhelp documents
-dev-python/sphinxcontrib-doxylink 1.11.1 1.11.1-r1: Extension to link to external Doxygen API documentation
+dev-python/sphinxcontrib-doxylink 1.11.1-r1: Extension to link to external Doxygen API documentation
 dev-python/sphinxcontrib-github-alt 1.2-r1: Link to GitHub issues, pull requests, commits and users from Sphinx docs
 dev-python/sphinxcontrib-htmlhelp 2.0.0-r1: Sphinx extension which outputs HTML help book
 dev-python/sphinxcontrib-httpdomain 1.8.0 1.8.0-r1: Sphinx domain for documenting HTTP APIs
@@ -9695,7 +9696,7 @@ dev-python/subprocess-tee 0.3.5: subprocess.run replacement with tee(1)-like out
 dev-python/subunit 1.4.0_p20210729: A streaming protocol for test results
 dev-python/suds 1.1.0: Lightweight SOAP client
 dev-python/sure 2.0.0: idiomatic assertion toolkit with human-friendly failure messages
-dev-python/svg-path 4.1 5.0.1 5.1 6.0: SVG path objects and parser
+dev-python/svg-path 6.0: SVG path objects and parser
 dev-python/svglib 1.1.0 1.2.0 1.2.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.1: Python Package to write SVG files
 dev-python/swagger-spec-validator 2.7.3 2.7.4: validate Swagger specs against Swagger 1.1 or 2.0 specification
