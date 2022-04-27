@@ -336,36 +336,6 @@ net-misc/jrdesktop
 # Removal in 30 days.
 dev-java/log4j
 
-# Conrad Kostecki <conikost@gentoo.org> (2022-03-27)
-# Long abandoned upstream, multiple bugs open,
-# no other major distro carries this anymore and
-# depends on deprecated jabber-base.
-# Bug #632622, #655566, #716850, removal on 2022-04-27.
-net-im/gg-transport
-
-# David Seifert <soap@gentoo.org> (2022-03-27)
-# Long abandoned upstreams, segfaults, bunch of tests fail,
-# no other major distro carries this anymore.
-# Bug #631320, #740484, #830090, #836278, removal on 2022-04-26.
-media-libs/libtaginfo
-media-sound/xnoise
-
-# Piotr Karbowski <slashbeast@gentoo.org> (2022-03-25)
-# Abandoned upstream, officialy limited to kernel 5.6,
-# no longer builds with kernel >=5.14. Use kernel's
-# CONFIG_USB_RTL8152 and CONFIG_USB_USBNET since 5.13.
-# Removal on 2022-04-25.
-net-misc/realtek-r8152
-
-# Sam James <sam@gentoo.org> (2022-03-22)
-# Abandoned upstream (archived many years ago), fails
-# to build with modern versions of gnupg, and is
-# stuck on EAPI 5. No reverse dependencies.
-# bug #835388, bug #828948, bug #733010.
-# Maintainers welcome to take over.
-# Removal on 2022-04-22.
-app-crypt/seahorse-sharing
-
 # David Seifert <soap@gentoo.org> (2022-03-20)
 # Mask gcc-8 branch (ended upstream support). Please switch
 # to a fresher gcc branch.
