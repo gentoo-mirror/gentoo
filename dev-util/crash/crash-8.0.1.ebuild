@@ -6,13 +6,18 @@ EAPI=8
 inherit toolchain-funcs
 
 GDB_VERSION=10.2
+
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/crash-utility/crash.git"
 	SRC_URI="mirror://gnu/gdb/gdb-${GDB_VERSION}.tar.gz"
 	EGIT_BRANCH="master"
 	inherit git-r3
 else
+	[[ -n ${UPSTREAM_VER} ]] && \
+		UPSTREAM_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${CAT}/${PN}/${P}-patches-${UPSTREAM_VER}.tar.xz"
+
 	SRC_URI="https://github.com/crash-utility/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+		${UPSTREAM_PATCHSET_URI}
 		mirror://gnu/gdb/gdb-${GDB_VERSION}.tar.gz"
 	KEYWORDS="-* ~alpha ~amd64 ~arm ~ia64 ~ppc64 ~s390 ~x86"
 fi
@@ -28,9 +33,15 @@ IUSE=""
 RESTRICT="test"
 
 src_prepare() {
+	default
+
+	if [[ -n ${UPSTREAM_VER} ]]; then
+		einfo "Try to apply Crash's Upstream patch set"
+		eapply "${WORKDIR}"/patches-upstream
+	fi
+
 	sed -i -e "s|ar -rs|\${AR} -rs|g" Makefile || die
 	ln -s "${DISTDIR}"/gdb-10.2.tar.gz . || die
-	default
 }
 
 src_compile() {
