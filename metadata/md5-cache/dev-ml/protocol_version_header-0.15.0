@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/core:0/0.15 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Protocol aware version negotiation for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/protocol_version_header
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/core:0/0.15 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.15
+SRC_URI=https://github.com/janestreet/protocol_version_header/archive/v0.15.0.tar.gz -> protocol_version_header-0.15.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=3dbf493ca1f4c25406e1d4405d2ef299
