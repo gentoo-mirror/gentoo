@@ -71,7 +71,7 @@ CRATES="
 	string_cache-0.8.3
 	string_cache_codegen-0.5.1
 	syn-1.0.89
-	tendril-0.4.2
+	tendril-0.4.3
 	thin-slice-0.1.1
 	unicode-xid-0.2.2
 	unindent-0.1.8
@@ -118,10 +118,6 @@ BDEPEND="
 		dev-python/pytest[${PYTHON_USEDEP}]
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-fix-distutils-conflict.patch
-)
 
 src_unpack() {
 	cargo_src_unpack
