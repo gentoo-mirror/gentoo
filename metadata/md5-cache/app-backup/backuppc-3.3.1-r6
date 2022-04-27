@@ -3,7 +3,7 @@ DEFINED_PHASES=install postinst prepare setup
 DEPEND=acct-group/backuppc acct-user/backuppc app-admin/apache-tools app-admin/makepasswd dev-lang/perl =www-servers/apache-2.4*
 DESCRIPTION=High-performance backups to a server's disk
 EAPI=7
-HOMEPAGE=http://backuppc.sourceforge.net/
+HOMEPAGE=https://backuppc.github.io/backuppc/index.html
 INHERIT=depend.apache systemd
 IUSE=rss samba
 KEYWORDS=amd64 x86
@@ -12,4 +12,4 @@ RDEPEND=acct-group/backuppc acct-user/backuppc app-admin/apache-tools app-admin/
 SLOT=0
 SRC_URI=https://github.com/backuppc/backuppc/releases/download/3.3.1/BackupPC-3.3.1.tar.gz
 _eclasses_=depend.apache	416d1c5005c5f4594e79812fb7323f0d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=14c6abc0640da3588b3f6d26884f4cee
+_md5_=837656a5c98741c18aa11daadcaaf381
