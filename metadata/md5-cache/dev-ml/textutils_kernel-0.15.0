@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/core:0/0.15 >=dev-ml/uutf-1.0.2:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Text output utilities
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/textutils_kernel
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/core:0/0.15 >=dev-ml/uutf-1.0.2:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.15
+SRC_URI=https://github.com/janestreet/textutils_kernel/archive/refs/tags/v0.15.0.tar.gz -> textutils_kernel-0.15.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=191b5bb09938a72bed13d6e97894182c
