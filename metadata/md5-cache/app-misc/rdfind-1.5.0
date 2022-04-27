@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/autoconf-archive sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=prepare
+DEFINED_PHASES=prepare test
 DEPEND=dev-libs/nettle:=
 DESCRIPTION=Find duplicate files based on their content
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=dev-libs/nettle:=
 SLOT=0
 SRC_URI=https://github.com/pauldreik/rdfind/archive/releases/1.5.0.tar.gz -> rdfind-1.5.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4
-_md5_=adae611f56d579eb54009196c8ae70ef
+_md5_=cb136fe970f523e8e9ad2c89831660dd
