@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 USE_RUBY="ruby26 ruby27"
 
 # this is not null so that the dependencies will actually be filled
@@ -31,7 +31,7 @@ ruby_add_rdepend "~dev-ruby/activesupport-${PV}
 	~dev-ruby/activemodel-${PV}
 	sqlite? ( >=dev-ruby/sqlite3-1.4 )
 	mysql? ( dev-ruby/mysql2:0.5 )
-	postgres? ( >=dev-ruby/pg-1.1:1 )"
+	postgres? ( dev-ruby/pg:1 )"
 
 ruby_add_bdepend "
 	test? (
@@ -54,32 +54,34 @@ all_ruby_prepare() {
 	sed -i -e '/rack-ssl/d' -e 's/~> 3.4/>= 3.4/' ../railties/railties.gemspec || die
 	sed -e '/bcrypt/ s/3.0.0/3.0/' \
 		-i ../Gemfile || die
-	sed -i -e '/byebug/ s:^:#:' test/cases/base_prevent_writes_test.rb || die
 
 	# Add back json in the Gemfile because we dropped some dependencies
 	# earlier that implicitly required it.
 	sed -i -e '$agem "json"' ../Gemfile || die
 
-	# Load correct rails version
-	sed -i -e '2igem "activemodel", "~> 6.1.0"; gem "activejob", "~> 6.1.0"; gem "railties", "~> 6.1.0"' test/cases/helper.rb || die
+	sed -i -e '2igem "railties", "~> 6.0.0"; gem "activemodel", "~> 6.0.0"; gem "psych", "~> 3.0"' test/cases/helper.rb || die
+
+	# Avoid test depending on mysql adapter which we don't support for
+	# this Rails version to simplify our dependencies.
+	rm test/cases/connection_specification/resolver_test.rb || die
 
 	# Avoid single tests using mysql or postgres dependencies.
 	rm test/cases/invalid_connection_test.rb || die
 	sed -e '/test_switching_connections_with_database_url/askip "postgres"' \
-		-i test/cases/connection_adapters/{,legacy_}connection_handlers_multi_db_test.rb || die
+		-i test/cases/connection_adapters/connection_handlers_multi_db_test.rb || die
 
 	# Avoid failing test that makes bad assumptions on database state.
 	sed -i -e '/test_do_not_call_callbacks_for_delete_all/,/^  end/ s:^:#:' \
 		test/cases/associations/has_many_associations_test.rb
 
-	# Avoid tests that no longer work with newer sqlite versions
-	rm -f test/cases/adapters/sqlite3/explain_test.rb || die
-
 	# Avoid test failing to bind limit length in favor of security release
 	sed -i -e '/test_too_many_binds/askip "Fails on Gentoo"' test/cases/bind_parameter_test.rb || die
 
 	# Avoid test failing related to rubygems
-	sed -i -e '/test_generates_absolute_path_with_given_root/askip "rubygems actiovation monitor"' test/cases/tasks/sqlite_rake_test.rb || die
+	sed -i -e '/test_generates_absolute_path_with_given_root/askip "rubygems activation monitor"' test/cases/tasks/sqlite_rake_test.rb || die
+
+	# Avoid test failing due to sqlite EXPLAIN changes
+	rm -f test/cases/adapters/sqlite3/explain_test.rb || die
 }
 
 each_ruby_test() {

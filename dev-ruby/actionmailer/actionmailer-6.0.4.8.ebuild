@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 USE_RUBY="ruby26 ruby27"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
@@ -39,6 +39,7 @@ all_ruby_prepare() {
 	# Set test environment to our hand.
 	rm "${S}/../Gemfile" || die "Unable to remove Gemfile"
 	sed -i -e '/\/load_paths/d' test/abstract_unit.rb || die "Unable to remove load paths"
+	sed -i -e '2igem "railties", "~> 6.0.0" ; gem "activejob", "~> 6.0.0"' test/abstract_unit.rb || die
 
 	# Avoid a test failing only on attachment ordering, since this is a
 	# security release.

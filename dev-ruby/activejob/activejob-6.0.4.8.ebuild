@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
@@ -12,7 +12,6 @@ RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 RUBY_FAKEGEM_BINWRAP=""
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
-RUBY_FAKEGEM_TASK_TEST="MT_NO_PLUGINS=1 test"
 
 inherit ruby-fakegem
 
@@ -38,7 +37,9 @@ ruby_add_bdepend "
 	)"
 
 all_ruby_prepare() {
-	sed -i -e '2igem "activesupport", "~> 6.1.0"' test/helper.rb || die
+	# Set test environment to our hand.
+	sed -i -e '/load_paths/d' test/helper.rb || die "Unable to remove load paths"
+	sed -i -e '2igem "railties", "~> 6.0.0"' test/helper.rb || die
 
 	# Remove all currently unpackaged queues.
 	sed -i -e 's/que queue_classic resque sidekiq sneakers sucker_punch backburner//' \

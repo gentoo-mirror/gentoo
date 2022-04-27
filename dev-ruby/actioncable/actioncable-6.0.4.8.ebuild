@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
@@ -33,7 +33,6 @@ RESTRICT="test"
 
 ruby_add_rdepend "
 	~dev-ruby/actionpack-${PV}:*
-	~dev-ruby/activesupport-${PV}:*
 	dev-ruby/nio4r:2
 	>=dev-ruby/websocket-driver-0.6.1:*
 "

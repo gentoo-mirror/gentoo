@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
@@ -54,12 +54,16 @@ all_ruby_prepare() {
 		-e '/group :doc/,/^end/ s:^:#:' ../Gemfile || die
 	rm ../Gemfile.lock || die
 
-	sed -i -e '3igem "railties", "~> 6.1.0"; gem "activerecord", "~> 6.1.0"' test/abstract_unit.rb || die
+	# Avoid tests failing due to missing logger setup in activerecord,
+	# most likely related to test environment setup.
+	#rm -f test/activerecord/render_partial_with_record_identification_test.rb || die
 
 	# Fix loading of activerecord integration tests. This avoids loading
 	# activerecord twice and thus redefining constants leading to
 	# failures. Bug #719342
-	sed -e '/abstract_unit/arequire "active_record" ; require "active_record/fixtures"' \
+	sed -e '/abstract_unit/arequire "active_record/fixtures"' \
 		-e '/defined/ s/FixtureSet/ActiveRecord::FixtureSet/' \
 		-i test/active_record_unit.rb || die
+
+	sed -i -e '2igem "railties", "~> 6.0.0"; gem "activerecord", "~> 6.0.0"; gem "psych", "~> 3.0"' test/abstract_unit.rb || die
 }

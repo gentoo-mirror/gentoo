@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
@@ -38,5 +38,5 @@ ruby_add_bdepend "
 
 all_ruby_prepare() {
 	# Set test environment to our hand.
-	sed -i -e '/load_paths/d' test/cases/helper.rb || die "Unable to remove load paths"
+	sed -i -e '3igem "psych", "~> 3.0"' test/cases/helper.rb || die "Unable to remove load paths"
 }

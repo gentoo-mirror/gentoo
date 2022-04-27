@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 USE_RUBY="ruby26 ruby27"
 
 RUBY_FAKEGEM_BINWRAP=""
@@ -34,6 +34,6 @@ ruby_add_rdepend "
 	~dev-ruby/activestorage-${PV}
 	~dev-ruby/activesupport-${PV}
 	~dev-ruby/railties-${PV}
-	>=dev-ruby/bundler-1.15.0:*
+	>=dev-ruby/bundler-1.3:*
 	>=dev-ruby/sprockets-rails-2.0.0:*
 "

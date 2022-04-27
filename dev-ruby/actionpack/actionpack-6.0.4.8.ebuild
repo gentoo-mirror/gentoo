@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
@@ -39,7 +39,7 @@ ruby_add_bdepend "
 	test? (
 		dev-ruby/mocha:0.14
 		dev-ruby/bundler
-		>=dev-ruby/capybara-2.15
+		>=dev-ruby/capybara-3.35.0
 		~dev-ruby/activemodel-${PV}
 		~dev-ruby/railties-${PV}
 		>=dev-ruby/rack-cache-1.2:1.2
@@ -57,6 +57,8 @@ all_ruby_prepare() {
 	# Use different timezone notation, this changed at some point due to an external dependency changing.
 	sed -i -e 's/-0000/GMT/' test/dispatch/response_test.rb test/dispatch/cookies_test.rb test/dispatch/session/cookie_store_test.rb || die
 
-	# Avoid tests depending on an unreleased version of selenium-webdriver
-	sed -i -e '/define extra capabilities/,/^  end/ s:^:#:' test/dispatch/system_testing/driver_test.rb || die
+	# Avoid tests that depend on an old dependency
+	rm -f test/dispatch/system_testing/driver_test.rb
+
+	sed -i -e '2igem "railties", "~> 6.0.0"; gem "activerecord", "~> 6.0.0"; gem "psych", "~> 3.0"' test/abstract_unit.rb || die
 }

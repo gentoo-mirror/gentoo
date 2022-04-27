@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
@@ -32,11 +32,8 @@ DEPEND+=" test? ( app-text/mupdf media-gfx/imagemagick[jpeg,png,tiff] media-vide
 
 ruby_add_rdepend "
 	~dev-ruby/actionpack-${PV}:*
-	~dev-ruby/activejob-${PV}:*
 	~dev-ruby/activerecord-${PV}:*
-	~dev-ruby/activesupport-${PV}:*
 	dev-ruby/marcel:1.0
-	>=dev-ruby/mini_mime-1.1.0
 "
 
 ruby_add_bdepend "
@@ -53,9 +50,13 @@ ruby_add_bdepend "
 all_ruby_prepare() {
 	   # Remove items from the common Gemfile that we don't need for this
 		# test run. This also requires handling some gemspecs.
-		sed -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|'mysql'\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|redcarpet\|bcrypt\|uglifier\|aws-sdk-s3\|aws-sdk-sns\|google-cloud-storage\|azure-storage\|blade\|bootsnap\|hiredis\|qunit-selenium\|chromedriver-helper\|redis\|rb-inotify\|sprockets\|stackprof\|websocket-client-simple\|libxml-ruby\|sass-rails\|capybara\|rack-cache\|selenium\|dalli\|listen\|connection_pool\|puma\|mysql2\|webdrivers\|webpacker\|rexml\|webmock\)/ s:^:#:" \
+		sed -i -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|'mysql'\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|redcarpet\|bcrypt\|uglifier\|aws-sdk-s3\|aws-sdk-sns\|google-cloud-storage\|azure-storage\|blade\|bootsnap\|hiredis\|qunit-selenium\|chromedriver-helper\|redis\|rb-inotify\|sprockets\|stackprof\|websocket-client-simple\|libxml-ruby\|sass-rails\|rubocop\|capybara\|rack-cache\|selenium\|dalli\|listen\|connection_pool\|puma\|mysql2\|webdrivers\|webpacker\|rexml\|webmock\)/ s:^:#:" \
 			-e '/dalli/ s/2.7.7/2.7.9/' \
-			-e '/group :\(doc\|job\|rubocop\|test\)/,/^end/ s:^:#:' \
-			-i ../Gemfile || die
+			-e '/:job/,/end/ s:^:#:' \
+			-e '/:test/,/^end/ s:^:#:' \
+			-e '/group :doc/,/^end/ s:^:#:' ../Gemfile || die
 		rm ../Gemfile.lock || die
+
+		# Skip test that has already been updated in later versions upstream
+		sed -i -e '/resized variation of BMP blob/askip "broken test"' test/models/variant_test.rb || die
 }
