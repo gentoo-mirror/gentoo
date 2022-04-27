@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="ncurses?"
 
 inherit desktop distutils-r1 xdg-utils
@@ -13,7 +13,8 @@ DESCRIPTION="User friendly Bitcoin client"
 HOMEPAGE="https://electrum.org/"
 SRC_URI="
 	https://github.com/spesmilo/electrum/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz"
+		-> ${P}.gh.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,7 +22,8 @@ KEYWORDS="amd64 x86"
 IUSE="cli ncurses qrcode +qt5"
 REQUIRED_USE="|| ( cli ncurses qt5 )"
 
-RDEPEND="${PYTHON_DEPS}
+RDEPEND="
+	${PYTHON_DEPS}
 	dev-libs/libsecp256k1
 	>=dev-python/aiohttp-socks-0.3[${PYTHON_USEDEP}]
 	=dev-python/aiorpcX-0.22*[${PYTHON_USEDEP}]
@@ -54,8 +56,8 @@ distutils_enable_tests pytest
 src_prepare() {
 	eapply "${FILESDIR}/3.1.2-no-user-root.patch"
 
-	# Prevent icon from being installed in the wrong location
-	sed -i '/icons_dirname/d' setup.py || die
+	# Prevent data files from being installed in the wrong location
+	sed -i -e '/icons_dirname/d' -e '/applications/d' setup.py || die
 
 	# use backwards-compatible cryptodome API
 	sed -i -e 's:Cryptodome:Crypto:' electrum/crypto.py || die
@@ -78,6 +80,7 @@ src_prepare() {
 
 src_install() {
 	doicon -s 128 electrum/gui/icons/${PN}.png
+	domenu electrum.desktop
 	dodoc RELEASE-NOTES
 	distutils-r1_src_install
 }

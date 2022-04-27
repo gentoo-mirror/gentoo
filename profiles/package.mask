@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Conrad Kostecki <conikost@gentoo.org> (2022-04-27)
+# Old base package for jabber services, which is not being used anymore,
+# as jabber services do now use their own user instead of generic jabber user.
+# Removal in 30 days on 2022-05-27.
+net-im/jabber-base
+
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-22)
 # Blocks removal of vulnerable dev-java/guava:20, bug #833309.
 # Removal on 2022-05-30
@@ -147,6 +153,7 @@ dev-ml/async:0/0.15
 dev-ml/async_extra:0/0.15
 dev-ml/core_bench:0/0.15
 dev-ml/patience_diff:0/0.15
+dev-util/patdiff:0/0.15
 
 # Hans de Graaff <graaff@gentoo.org> (2022-04-23)
 # Obsolete slots that are no longer used by current
