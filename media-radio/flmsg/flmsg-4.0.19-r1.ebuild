@@ -19,3 +19,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS ChangeLog INSTALL README )
+
+src_configure() {
+	# temporary fix until upstream fixes building against system library
+	econf --without-flxmlrpc
+}
