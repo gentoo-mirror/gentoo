@@ -43,15 +43,15 @@ COMMON_DEPEND="
 	>=media-libs/fontconfig-2.12.6
 	>=media-libs/freetype-2.10.2
 	>=media-libs/gegl-0.4.36:0.4[cairo,introspection,lcms,vala?]
-	>=media-libs/gexiv2-0.12.2
+	>=media-libs/gexiv2-0.14.0
 	>=media-libs/harfbuzz-2.6.5:=
 	>=media-libs/lcms-2.9:2
+	media-libs/libjpeg-turbo
 	>=media-libs/libmypaint-1.6.1:=
 	>=media-libs/libpng-1.6.37:0=
 	>=media-libs/tiff-4.1.0:0
 	net-libs/glib-networking[ssl]
 	sys-libs/zlib
-	virtual/jpeg
 	>=x11-libs/cairo-1.16.0
 	>=x11-libs/gdk-pixbuf-2.40.0:2[introspection]
 	>=x11-libs/gtk+-3.24.16:3[introspection]
@@ -167,6 +167,7 @@ src_configure() {
 		--enable-mp
 		--with-appdata-test
 		--with-bug-report-url=https://bugs.gentoo.org/
+		--with-pdbgen
 		--with-xmc
 		--without-libbacktrace
 		--without-webkit

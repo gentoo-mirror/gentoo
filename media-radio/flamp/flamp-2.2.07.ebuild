@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Fldigi helper for transferring files"
 HOMEPAGE="http://www.w1hkj.com"
@@ -13,8 +13,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="media-radio/fldigi
-		 x11-libs/fltk:=
-		 x11-libs/libX11:="
+		x11-libs/fltk:=
+		x11-libs/libX11:="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
