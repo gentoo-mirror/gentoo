@@ -1,0 +1,17 @@
+BDEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( dev-lang/lua:5.1 ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( dev-lang/lua:5.1 ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) test? ( dev-lang/tcl:0= )
+DESCRIPTION=A persistent caching system, key-value and data structures database
+EAPI=7
+HOMEPAGE=https://redis.io
+INHERIT=autotools flag-o-matic systemd toolchain-funcs tmpfiles
+IUSE=+jemalloc tcmalloc luajit test
+KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 x86 ~amd64-linux ~x86-linux ~x86-solaris
+LICENSE=BSD
+RDEPEND=luajit? ( dev-lang/luajit:2 ) !luajit? ( dev-lang/lua:5.1 ) tcmalloc? ( dev-util/google-perftools ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) acct-group/redis acct-user/redis virtual/tmpfiles
+REQUIRED_USE=?? ( tcmalloc jemalloc )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://download.redis.io/releases/redis-5.0.14.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=bd0056f40d3075b618493e606a3c4275
