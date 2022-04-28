@@ -9,7 +9,11 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="A microframework based on Werkzeug, Jinja2 and good intentions"
-HOMEPAGE="https://github.com/pallets/flask/"
+HOMEPAGE="
+	https://palletsprojects.com/p/flask/
+	https://github.com/pallets/flask/
+	https://pypi.org/project/Flask/
+"
 MY_PN="Flask"
 MY_P="${MY_PN}-${PV}"
 if [[ ${PV} == *9999* ]]; then
@@ -32,14 +36,15 @@ RDEPEND="
 	>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
 	>=dev-python/werkzeug-2.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
-		dev-python/importlib_metadata[${PYTHON_USEDEP}]
+		>=dev-python/importlib_metadata-3.6.0[${PYTHON_USEDEP}]
 	' 3.8 3.9)
 "
 BDEPEND="
 	test? (
 		>=dev-python/asgiref-3.2[${PYTHON_USEDEP}]
 		!!dev-python/shiboken2
-	)"
+	)
+"
 
 distutils_enable_sphinx docs \
 	dev-python/pallets-sphinx-themes \
