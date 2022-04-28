@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # Redis does NOT build with Lua 5.2 or newer at this time:
 #  - 5.3 and 5.4 give:
@@ -9,9 +9,11 @@ EAPI=7
 #  - 5.2 fails with:
 # scripting.c:(.text+0x1f9b): undefined reference to `lua_open'
 #    because lua_open became lua_newstate in 5.2
-LUA_COMPAT=( lua5-1 luajit )
+#LUA_COMPAT=( lua5-1 luajit )
 
-inherit autotools flag-o-matic lua-single systemd toolchain-funcs tmpfiles
+# Upstream have deviated too far from vanilla Lua, adding their own APIs
+# like lua_enablereadonlytable
+inherit autotools flag-o-matic systemd toolchain-funcs tmpfiles
 
 DESCRIPTION="A persistent caching system, key-value and data structures database"
 HOMEPAGE="https://redis.io"
@@ -19,7 +21,7 @@ SRC_URI="https://download.redis.io/releases/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="+jemalloc ssl systemd tcmalloc test"
 RESTRICT="!test? ( test )"
 
@@ -54,10 +56,9 @@ REQUIRED_USE="?? ( jemalloc tcmalloc )
 	${LUA_REQUIRED_USE}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.2.3-config.patch
+	"${FILESDIR}"/${PN}-6.2.1-config.patch
 	"${FILESDIR}"/${PN}-5.0-shared.patch
-	"${FILESDIR}"/${PN}-6.0.12-sharedlua.patch
-	"${FILESDIR}"/${PN}-5.0.8-ppc-atomic.patch
+	"${FILESDIR}"/${PN}-6.2.3-ppc-atomic.patch
 	"${FILESDIR}"/${PN}-sentinel-5.0-config.patch
 )
 
@@ -68,8 +69,8 @@ src_prepare() {
 	> tests/unit/memefficiency.tcl || die
 
 	# Copy lua modules into build dir
-	cp "${S}"/deps/lua/src/{fpconv,lua_bit,lua_cjson,lua_cmsgpack,lua_struct,strbuf}.c "${S}"/src || die
-	cp "${S}"/deps/lua/src/{fpconv,strbuf}.h "${S}"/src || die
+	#cp "${S}"/deps/lua/src/{fpconv,lua_bit,lua_cjson,lua_cmsgpack,lua_struct,strbuf}.c "${S}"/src || die
+	#cp "${S}"/deps/lua/src/{fpconv,strbuf}.h "${S}"/src || die
 	# Append cflag for lua_cjson
 	# https://github.com/antirez/redis/commit/4fdcd213#diff-3ba529ae517f6b57803af0502f52a40bL61
 	append-cflags "-DENABLE_CJSON_GLOBAL"
@@ -94,16 +95,16 @@ src_prepare() {
 	# Use the correct pkgconfig name for Lua.
 	# The upstream configure script handles luajit specially, and is not
 	# effected by these changes.
+	# -e "/PKG_CHECK_MODULES.*\<LUA\>/s,lua5.1,${ELUA},g" \
 	sed -i	\
 		-e "/^AC_INIT/s|, [0-9].+, |, $PV, |" \
 		-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
-		-e "/PKG_CHECK_MODULES.*\<LUA\>/s,lua5.1,${ELUA},g" \
 		configure.ac || die "Sed failed for configure.ac"
 	eautoreconf
 }
 
 src_configure() {
-	econf $(use_with lua_single_target_luajit luajit)
+	econf #$(use_with lua_single_target_luajit luajit)
 
 	# Linenoise can't be built with -std=c99, see https://bugs.gentoo.org/451164
 	# also, don't define ANSI/c99 for lua twice
