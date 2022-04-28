@@ -1,10 +1,10 @@
-BDEPEND=doc? ( app-doc/doxygen ) python_single_target_python3_8? ( dev-python/mako[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/mako[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/mako[python_targets_python3_10(-)] ) app-arch/unzip app-arch/gzip dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen ) python_single_target_python3_8? ( dev-python/mako[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/mako[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/mako[python_targets_python3_10(-)] ) app-arch/unzip app-arch/gzip dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] dev-python/requests[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/numpy[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] )
 DESCRIPTION=Universal Software Radio Peripheral (USRP) Hardware Driver
 EAPI=8
 HOMEPAGE=https://kb.ettus.com
-INHERIT=cmake gnome2-utils python-single-r1
+INHERIT=cmake gnome2-utils python-single-r1 udev
 IUSE=+b100 +b200 doc e300 examples +mpmd octoclock +n230 test +usb +usrp1 +usrp2 +utils +x300 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-3
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=!test? ( test )
 SLOT=0/4.1.0
 SRC_URI=https://github.com/EttusResearch/uhd/archive/v4.1.0.5.tar.gz -> EttusResearch-UHD-4.1.0.5.tar.gz https://github.com/EttusResearch/uhd/releases/download/v4.1.0.5/uhd-images_4.1.0.5.tar.xz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=0dc88b93371103ef473a13abb8336aef
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	udev	2d229ad4bfa09058e0184b1ca900db32
+_md5_=c1b71d31bfb3f0b3c27886929eff38c3

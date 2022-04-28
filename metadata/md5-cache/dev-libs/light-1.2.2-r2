@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=configure postinst prepare
-DEPEND=udev? ( virtual/libudev:= ) acct-group/video !sys-power/acpilight
+DEPEND=acct-group/video !sys-power/acpilight udev? ( virtual/libudev:= )
 DESCRIPTION=A program to control backlights (and other hardware lights)
 EAPI=8
 HOMEPAGE=https://github.com/haikarainen/light
@@ -8,8 +8,8 @@ INHERIT=autotools udev
 IUSE=udev
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=acct-group/video !sys-power/acpilight
+RDEPEND=acct-group/video !sys-power/acpilight udev? ( virtual/libudev:= )
 SLOT=0
 SRC_URI=https://github.com/haikarainen/light/archive/v1.2.2.tar.gz -> light-1.2.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4	udev	2d229ad4bfa09058e0184b1ca900db32
-_md5_=74741d661a66e369b1e8cb32d46fc9b8
+_md5_=e09d3e5f13c012556a003acba11c2f3e
