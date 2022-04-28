@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/glib:=
+DESCRIPTION=A TCP-IP emulator used to provide virtual networking services
+EAPI=7
+HOMEPAGE=https://gitlab.freedesktop.org/slirp/libslirp
+INHERIT=meson
+IUSE=static-libs
+KEYWORDS=~amd64 ~arm64 ~m68k ~ppc ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/glib:=
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.7.0/libslirp-v4.7.0.tar.gz -> libslirp-4.7.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	4e69b4b5d15387549776392e83e8c42c
+_md5_=c07866c83776ec27fa4a0d2107939027
