@@ -1,13 +1,13 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install prepare pretend test unpack
+DEFINED_PHASES=compile install prepare pretend test
 DEPEND=>=dev-cpp/tbb-2021.4.0:= sys-libs/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= dev-libs/openssl:= )
 DESCRIPTION=A Modern Linker
 EAPI=8
 HOMEPAGE=https://github.com/rui314/mold
-INHERIT=toolchain-funcs git-r3
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
 LICENSE=AGPL-3
-PROPERTIES=live
 RDEPEND=>=dev-cpp/tbb-2021.4.0:= sys-libs/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= dev-libs/openssl:= )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://github.com/rui314/mold/archive/refs/tags/v1.2.1.tar.gz -> mold-1.2.1.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
 _md5_=7d848f5b5cfbeba4d80feeac430c6106
