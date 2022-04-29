@@ -1,12 +1,12 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 GENTOO_DEPEND_ON_PERL=no
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit autotools gnome2-utils flag-o-matic toolchain-funcs multilib perl-module python-single-r1 xdg
+inherit autotools gnome2-utils flag-o-matic perl-module python-single-r1 xdg
 
 DESCRIPTION="GTK Instant Messenger client"
 HOMEPAGE="https://pidgin.im/"
@@ -136,7 +136,6 @@ DYNAMIC_PRPLS="irc,jabber,simple"
 
 PATCHES=(
 	"${DISTDIR}/${PN}-2.10.9-irc_join_sleep.patch" # 577286
-	"${FILESDIR}/${P}-libpurple_test_fix.patch" #819774
 )
 
 pkg_pretend() {
@@ -162,7 +161,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	xdg_src_prepare
+	xdg_environment_reset
+	default
 	eautoreconf
 }
 
