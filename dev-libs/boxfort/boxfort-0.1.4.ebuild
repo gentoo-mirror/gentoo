@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit meson python-any-r1
 
@@ -14,7 +14,7 @@ S="${WORKDIR}"/BoxFort-${PV}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 -riscv -s390 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 -riscv -s390 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
