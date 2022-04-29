@@ -40,7 +40,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.53-gentoo-fixups.patch"
 	"${FILESDIR}/${PN}-3.21-gentoo-fixup-warnings.patch"
 	"${FILESDIR}/${PN}-3.23-hppa-byte_order.patch"
-	"${FILESDIR}/nss-3.68-ld-fix.patch"
 )
 
 src_prepare() {
@@ -142,7 +141,6 @@ multilib_src_compile() {
 		CCC="$(tc-getCXX)"
 		AR="$(tc-getAR) rc \$@"
 		RANLIB="$(tc-getRANLIB)"
-		LD="$(tc-getLD)"
 		OPTIMIZER=
 		${mybits}
 	)
