@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/cmake virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/nanomsg:= dev-libs/libgit2:= dev-libs/libffi:= dev-libs/boxfort test? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-util/cram[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-util/cram[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-util/cram[python_targets_python3_8(-)] ) ) )
+DEPEND=dev-libs/nanomsg:= dev-libs/libgit2:= dev-libs/libffi:= >=dev-libs/boxfort-0.1.4 test? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-util/cram[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-util/cram[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-util/cram[python_targets_python3_8(-)] ) ) )
 DESCRIPTION=Cross platform unit testing framework for C and C++
 EAPI=8
 HOMEPAGE=https://github.com/Snaipe/Criterion
 INHERIT=meson python-any-r1
 IUSE=test
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=BSD-2 MIT ZLIB
 RDEPEND=dev-libs/nanomsg:= dev-libs/libgit2:= dev-libs/libffi:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Snaipe/Criterion/archive/refs/tags/v2.4.0.tar.gz -> criterion-2.4.0.tar.gz https://github.com/scottt/debugbreak/archive/6b79ec8d8f8d4603111f580a0537f8f31c484c32.tar.gz -> debugbreak-6b79ec8d8f8d4603111f580a0537f8f31c484c32.tar.gz https://github.com/attractivechaos/klib/archive/cdb7e9236dc47abf8da7ebd702cc6f7f21f0c502.tar.gz -> klib-cdb7e9236dc47abf8da7ebd702cc6f7f21f0c502.tar.gz https://github.com/nanopb/nanopb/archive/c9124132a604047d0ef97a09c0e99cd9bed2c818.tar.gz -> nanopb-c9124132a604047d0ef97a09c0e99cd9bed2c818.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	4e69b4b5d15387549776392e83e8c42c	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=b5eb743e6de7af19635951a630a5933f
+_md5_=b38dce55d9487f60a883fa5017b79f2e
