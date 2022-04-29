@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://virt-manager.org/
 INHERIT=meson python-any-r1 xdg
 IUSE=+libvirt sasl +spice +vnc
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango libvirt? ( >=app-emulation/libvirt-0.10.0:=[sasl?] app-emulation/libvirt-glib ) spice? ( >=net-misc/spice-gtk-0.35[sasl?,gtk3] ) vnc? ( >=net-libs/gtk-vnc-0.5.0[sasl?,gtk3(+)] )
 REQUIRED_USE=|| ( spice vnc )
 SLOT=0
 SRC_URI=https://gitlab.com/virt-viewer/virt-viewer/-/archive/f0cc7103becccbce95bdf0c80151178af2bace5a/virt-viewer-f0cc7103becccbce95bdf0c80151178af2bace5a.tar.bz2 -> virt-viewer-10.0_p20210730.tar.bz2
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	4e69b4b5d15387549776392e83e8c42c	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=113bbd20c1eac082996db74854e11e33
+_md5_=0f348f977b8c8f9974f13acd598d91ad
