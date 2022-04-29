@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_MAX_SLOT="14"
+LLVM_MAX_SLOT="12"
 MY_PN="SPIRV-LLVM-Translator"
 MY_P="${MY_PN}-${PV}"
 
@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="UoI-NCSA"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="test +tools"
 REQUIRED_USE="test? ( tools )"
 RESTRICT="!test? ( test )"
@@ -43,7 +43,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DCCACHE_ALLOWED="OFF"
 		-DCMAKE_INSTALL_PREFIX="$(get_llvm_prefix ${LLVM_MAX_SLOT})"
-		-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="${BROOT}/usr/include/spirv"
 		-DLLVM_BUILD_TOOLS=$(usex tools "ON" "OFF")
 		-DLLVM_SPIRV_INCLUDE_TESTS=$(usex test "ON" "OFF")
 		-Wno-dev

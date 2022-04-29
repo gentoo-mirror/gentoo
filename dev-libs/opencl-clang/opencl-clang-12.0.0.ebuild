@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_MAX_SLOT="14"
+LLVM_MAX_SLOT="12"
 
 inherit cmake llvm
 
@@ -13,8 +13,8 @@ SRC_URI="https://github.com/intel/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 S="${WORKDIR}/${PN}-${PV}"
 
 LICENSE="UoI-NCSA"
-SLOT="14"
-KEYWORDS="~amd64"
+SLOT="$(ver_cut 1)"
+KEYWORDS="amd64"
 
 RDEPEND="
 	dev-util/spirv-llvm-translator:${SLOT}=
