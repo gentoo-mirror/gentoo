@@ -24,7 +24,7 @@ CP_DEPEND="dev-java/antlr:3
 	dev-java/netty:0
 	dev-java/asm:9
 	dev-java/commons-compress:0
-	dev-java/guava:20
+	dev-java/guava:0
 	dev-java/jffi:1.2
 	dev-java/jline:2
 	dev-java/icu4j:70
@@ -78,6 +78,10 @@ src_prepare() {
 
 	# needed for launchertest
 	chmod +x tests/shell/test-jython.sh || die
+
+	# https://bugs.gentoo.org/show_bug.cgi?id=833785
+	sed -e 's:\(CharMatcher.\)ASCII:\1ascii():' \
+		-i src/org/python/core/Py{,BaseCode,Unicode}.java || die
 
 	java-pkg-2_src_prepare
 }
