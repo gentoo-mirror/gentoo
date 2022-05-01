@@ -106,6 +106,8 @@ esac
 #
 # - maturin - maturin backend
 #
+# - pbr - pbr backend
+#
 # - pdm - pdm.pep517 backend
 #
 # - poetry - poetry-core backend
@@ -207,6 +209,10 @@ _distutils_set_globals() {
 			maturin)
 				bdep+='
 					>=dev-util/maturin-0.12.7[${PYTHON_USEDEP}]'
+				;;
+			pbr)
+				bdep+='
+					>=dev-python/pbr-5.8.0-r1[${PYTHON_USEDEP}]'
 				;;
 			pdm)
 				bdep+='
@@ -991,6 +997,9 @@ _distutils-r1_backend_to_key() {
 		maturin)
 			echo maturin
 			;;
+		pbr.build)
+			echo pbr
+			;;
 		pdm.pep517.api)
 			echo pdm
 			;;
@@ -1139,11 +1148,7 @@ distutils-r1_python_compile() {
 			fi
 
 			# distutils is parallel-capable since py3.5
-			local jobs=$(makeopts_jobs "${MAKEOPTS} ${*}" INF)
-			if [[ ${jobs} == INF ]]; then
-				local nproc=$(get_nproc)
-				jobs=$(( nproc + 1 ))
-			fi
+			local jobs=$(makeopts_jobs "${MAKEOPTS} ${*}")
 
 			if [[ ${DISTUTILS_USE_PEP517} ]]; then
 				# issue build_ext only if it looks like we have at least
