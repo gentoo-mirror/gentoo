@@ -42,7 +42,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.12.0-librsvg_automagic.patch"
 )
 
 _egit_repo_handler() {
