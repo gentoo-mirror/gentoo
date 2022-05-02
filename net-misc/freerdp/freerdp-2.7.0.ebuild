@@ -1,7 +1,7 @@
 # Copyright 2011-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -12,11 +12,9 @@ if [[ ${PV} == *9999 ]]; then
 		2.*) EGIT_BRANCH="stable-2.0";;
 	esac
 else
-	MY_P=${P%_p*}
-	MY_P=${MY_P/_/-}
+	MY_P=${P/_/-}
 	S="${WORKDIR}/${MY_P}"
-	SRC_URI="https://pub.freerdp.com/releases/${MY_P}.tar.gz
-		https://dev.gentoo.org/~floppym/dist/${P}.tar.gz"
+	SRC_URI="https://pub.freerdp.com/releases/${MY_P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
@@ -90,10 +88,6 @@ BDEPEND="
 	) )
 "
 
-PATCHES=(
-	"${WORKDIR}/${P}"
-)
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test ON OFF)
@@ -121,4 +115,10 @@ src_configure() {
 		-DWITH_WAYLAND=$(usex wayland ON OFF)
 	)
 	cmake_src_configure
+}
+
+src_test() {
+	local myctestargs=()
+	use elibc_musl && myctestargs+=( -E TestBacktrace )
+	cmake_src_test
 }
