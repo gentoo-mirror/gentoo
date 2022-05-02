@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-
+DISTUTILS_USE_PEP517=jupyter
 inherit distutils-r1
 
 DESCRIPTION="Jupyter Notebook as a Jupyter Server Extension"
@@ -16,8 +16,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/jupyter_server[${PYTHON_USEDEP}]
+	>=dev-python/jupyter_server-1.8[${PYTHON_USEDEP}]
 	<dev-python/notebook-7[${PYTHON_USEDEP}]
+	>=dev-python/notebook_shim-0.1.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -28,13 +29,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	# Defining 'pytest_plugins' in a non-top-level conftest is no longer supported:
-	mv ${PN}/conftest.py . || die
-
-	distutils-r1_python_prepare_all
-}
 
 python_install_all() {
 	distutils-r1_python_install_all
