@@ -1,9 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Simple tagging for Django"
@@ -19,8 +20,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-python/django-2.2[${PYTHON_USEDEP}]
 	dev-python/djangorestframework[${PYTHON_USEDEP}]"
-BDEPEND="
-	test? ( ${RDEPEND} )"
+BDEPEND="test? ( ${RDEPEND} )"
 
 python_test() {
 	"${EPYTHON}" -m django test -v 2 --settings=tests.settings ||
