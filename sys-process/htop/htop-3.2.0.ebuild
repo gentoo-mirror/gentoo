@@ -14,12 +14,16 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~
 
 LICENSE="BSD GPL-2+"
 SLOT="0"
-IUSE="caps debug delayacct hwloc lm-sensors openvz unicode vserver"
+IUSE="caps debug delayacct hwloc lm-sensors llvm-libunwind openvz unicode unwind vserver"
 
 BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	sys-libs/ncurses:=[unicode(+)?]
 	hwloc? ( sys-apps/hwloc:= )
+	unwind? (
+		!llvm-libunwind? ( sys-libs/libunwind:= )
+		llvm-libunwind? ( sys-libs/llvm-libunwind:= )
+	)
 	kernel_linux? (
 		caps? ( sys-libs/libcap )
 		delayacct? ( dev-libs/libnl:3 )
@@ -36,7 +40,7 @@ CONFIG_CHECK="~TASKSTATS ~TASK_XACCT ~TASK_IO_ACCOUNTING ~CGROUPS"
 S="${WORKDIR}/${P/_}"
 
 pkg_setup() {
-	if ! has_version sys-process/lsof; then
+	if ! has_version sys-process/lsof ; then
 		ewarn "To use lsof features in htop (what processes are accessing"
 		ewarn "what files), you must have sys-process/lsof installed."
 	fi
@@ -52,7 +56,9 @@ src_prepare() {
 }
 
 src_configure() {
-	[[ ${CBUILD} != ${CHOST} ]] && export ac_cv_file__proc_{meminfo,stat}=yes #328971
+	if [[ ${CBUILD} != ${CHOST} ]] ; then
+		export ac_cv_file__proc_{meminfo,stat}=yes #328971
+	fi
 
 	local myeconfargs=(
 		--enable-unicode
@@ -61,6 +67,7 @@ src_configure() {
 		$(use_enable !hwloc affinity)
 		$(use_enable openvz)
 		$(use_enable unicode)
+		$(use_enable unwind)
 		$(use_enable vserver)
 	)
 
