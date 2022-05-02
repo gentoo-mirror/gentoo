@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit bash-completion-r1 qmake-utils xdg
 
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/user-none/KDocker/archive/${PV}.tar.gz -> ${MY_P}.ta
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
@@ -29,10 +29,6 @@ RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS BUGS ChangeLog CREDITS README.md TODO )
 
-PATCHES=(
-	"${FILESDIR}"/qt-5.14.patch
-)
-
 S=${WORKDIR}/${MY_P}
 
 src_prepare() {
@@ -40,6 +36,8 @@ src_prepare() {
 
 	sed -i -e "/completion.path/s%/etc/bash_completion.d%$(get_bashcompdir)%" \
 		kdocker.pro || die "sed failed"
+	sed -i -e 's|/usr/share/appdata|/usr/share/metainfo|g' kdocker.pro \
+		|| die "sed failed"
 }
 
 src_configure() {
