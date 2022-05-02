@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install pretend
+DEPEND=dev-libs/nettle:0= >=net-libs/gnutls-3.5.7:= virtual/libcrypt:= test? ( dev-util/cppunit )
+DESCRIPTION=C++ library offering some basic functionality for platform-independent programs
+EAPI=8
+HOMEPAGE=https://lib.filezilla-project.org/
+INHERIT=flag-o-matic
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/nettle:0= >=net-libs/gnutls-3.5.7:= virtual/libcrypt:=
+RESTRICT=!test? ( test )
+SLOT=0/25
+SRC_URI=https://download.filezilla-project.org/libfilezilla/libfilezilla-0.37.2.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=b56fc478f74a08d0b388d1064122d2d2
