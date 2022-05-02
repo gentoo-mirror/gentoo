@@ -1,16 +1,16 @@
 BDEPEND=test? ( dev-cpp/gtest ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-util/hip:0/4.3 sci-libs/rocPRIM:0/4.3 benchmark? ( dev-cpp/benchmark )
-DESCRIPTION=Wrapper of rocPRIM or CUB for GPU parallel primitives
+DEPEND=dev-util/hip >=dev-util/rocm-cmake-4.3.0
+DESCRIPTION=Generate pseudo-random and quasi-random numbers
 EAPI=7
-HOMEPAGE=https://github.com/ROCmSoftwarePlatform/hipCUB
+HOMEPAGE=https://github.com/ROCmSoftwarePlatform/rocRAND
 INHERIT=cmake
 IUSE=benchmark test
 KEYWORDS=~amd64
-LICENSE=BSD
-RDEPEND=dev-util/hip:0/4.3 sci-libs/rocPRIM:0/4.3 benchmark? ( dev-cpp/benchmark )
+LICENSE=MIT
+RDEPEND=dev-util/hip
 RESTRICT=!test? ( test )
 SLOT=0/4.3
-SRC_URI=https://github.com/ROCmSoftwarePlatform/hipCUB/archive/rocm-4.3.0.tar.gz -> hipCUB-4.3.0.tar.gz
+SRC_URI=https://github.com/ROCmSoftwarePlatform/rocRAND/archive/rocm-4.3.0.tar.gz -> rocRAND-4.3.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=4e6affddd7c87e3918161e9f2a962bd0
+_md5_=39c8b290e897a608560641b7eb8576ad
