@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 inherit meson gnome2-utils python-any-r1 xdg virtualx
 
@@ -38,6 +38,7 @@ COMMON_DEPEND="
 		>=x11-libs/libXi-1.2 )
 	networkmanager? (
 		>=gnome-extra/nm-applet-1.2.0
+		>=net-libs/libnma-1.8.34
 		>=net-misc/networkmanager-1.2.0:=[modemmanager?]
 
 		modemmanager? ( >=net-misc/modemmanager-0.7 )
@@ -66,6 +67,12 @@ BDEPEND="
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# Fix >=libnma-1.8.34
+	# https://github.com/linuxmint/cinnamon-control-center/commit/0f4d212874c4fbee18b860963d0a5c7bd54dcfd1
+	"${FILESDIR}"/${PN}-5.2.1-fix-libnma.patch
+)
 
 src_prepare() {
 	default
