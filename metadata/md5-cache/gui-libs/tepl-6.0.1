@@ -1,0 +1,16 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.62:2 >=x11-libs/gtk+-3.22:3[introspection?] >=x11-libs/gtksourceview-4.0:4[introspection?] >=gui-libs/amtk-5.0:5[introspection?] dev-libs/icu:= introspection? ( >=dev-libs/gobject-introspection-1.42:= )
+DESCRIPTION=GtkSourceView-based text editors and IDE helper library
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/Tepl https://gitlab.gnome.org/swilmet/tepl
+INHERIT=gnome.org meson virtualx
+IUSE=+introspection gtk-doc test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-3+
+RDEPEND=>=dev-libs/glib-2.62:2 >=x11-libs/gtk+-3.22:3[introspection?] >=x11-libs/gtksourceview-4.0:4[introspection?] >=gui-libs/amtk-5.0:5[introspection?] dev-libs/icu:= introspection? ( >=dev-libs/gobject-introspection-1.42:= )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=6
+SRC_URI=mirror://gnome/sources/tepl/6.0/tepl-6.0.1.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c	virtualx	975d49ff3b3f451efe7a95f230532135
+_md5_=a072fb1fc2b5f7994284044cb855d767
