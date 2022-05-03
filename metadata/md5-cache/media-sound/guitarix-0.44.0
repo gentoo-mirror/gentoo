@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://guitarix.org/
 INHERIT=python-any-r1 waf-utils xdg
 IUSE=bluetooth debug lv2 nls nsm +standalone zeroconf
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) standalone? ( media-fonts/roboto )
 REQUIRED_USE=|| ( lv2 standalone )
 SLOT=0
-SRC_URI=mirror://sourceforge/guitarix/guitarix/guitarix2-0.43.1.tar.xz
+SRC_URI=mirror://sourceforge/guitarix/guitarix/guitarix2-0.44.0.tar.xz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	waf-utils	b105702e851f214f466d51d24ad7efbd	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=96486533abc5354602f88d0d64651251
+_md5_=eab1e45f2538ce7656c2e945c09264ee
