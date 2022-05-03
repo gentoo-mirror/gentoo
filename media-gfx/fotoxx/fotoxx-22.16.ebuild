@@ -61,7 +61,6 @@ pkg_postinst() {
 	optfeature "additional RAW file support" media-gfx/darktable
 	optfeature "video thumbnails & playback" media-video/ffmpeg
 	optfeature "copying images to optical media" app-cdr/dvd+rw-tools
-	optfeature "additional panorama support" media-gfx/hugin
 	optfeature "WEBP file support" media-libs/libwebp
 
 	elog
