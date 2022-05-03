@@ -16,8 +16,8 @@ SRC_URI="https://www.hdfgroup.org/ftp/HDF5/releases/${MAJOR_P}/${MY_P}/src/${MY_
 
 LICENSE="NCSA-HDF"
 SLOT="0/${PV%%_p*}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="cxx debug doc examples fortran +hl mpi ros3 szip test threads unsupported zlib"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="cxx debug doc examples fortran +hl mpi szip test threads unsupported zlib"
 
 REQUIRED_USE="
 	!unsupported? (
@@ -29,10 +29,6 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	mpi? ( virtual/mpi[romio] )
-	ros3? (
-		net-misc/curl
-		dev-libs/openssl:=
-	)
 	szip? ( virtual/szip )
 	zlib? ( sys-libs/zlib:0= )
 "
@@ -43,7 +39,7 @@ BDEPEND="doc? (
 )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.12.1-cmake_installdirs.patch
+	"${FILESDIR}"/${PN}-1.12.2-cmake_installdirs.patch
 )
 
 S="${WORKDIR}/${MY_P}"
@@ -68,10 +64,6 @@ pkg_setup() {
 src_configure() {
 	use sparc && tc-is-gcc && append-flags -fno-tree-ccp # bug 686620
 	local mycmakeargs=(
-		# Workaround needed to allow build with USE=fortran when an older
-		# version is installed. See bug #808633 and
-		# https://github.com/HDFGroup/hdf5/issues/1027 upstream.
-		-DCMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE=ON
 		-DBUILD_STATIC_LIBS=OFF
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
 		-DHDF5_BUILD_EXAMPLES=OFF
@@ -87,7 +79,6 @@ src_configure() {
 		-DHDF5_ENABLE_SZIP_SUPPORT=$(usex szip)
 		-DHDF5_ENABLE_THREADSAFE=$(usex threads)
 		-DHDF5_ENABLE_Z_LIB_SUPPORT=$(usex zlib)
-		-DHDF5_ENABLE_ROS3_VFD:BOOL=$(usex ros3)
 	)
 	cmake_src_configure
 }
