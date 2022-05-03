@@ -1,0 +1,15 @@
+BDEPEND=app-text/App-XML-DocBook-Builder test? ( dev-perl/File-Find-Object dev-perl/IO-All dev-perl/Test-Differences dev-perl/Test-Trap ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=The notorious fortune program
+EAPI=8
+HOMEPAGE=https://www.shlomifish.org/open-source/projects/fortune-mod/ http://www.redellipse.net/code/fortune
+INHERIT=cmake
+IUSE=offensive test
+KEYWORDS=~amd64 ~m68k ~mips
+LICENSE=BSD
+RDEPEND=app-text/recode:= !games-misc/fortune-mod-tao
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/fortune-mod-3.14.0.tar.xz https://github.com/shlomif/fortune-mod/releases/download/fortune-mod-3.14.0/fortune-mod-3.14.0.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_md5_=690ac1e3407926b8647b7724c93ca924
