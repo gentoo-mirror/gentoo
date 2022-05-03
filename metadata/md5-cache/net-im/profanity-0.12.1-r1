@@ -1,4 +1,4 @@
-DEFINED_PHASES=configure
+DEFINED_PHASES=compile configure install
 DEPEND=dev-db/sqlite:3 dev-libs/atk dev-libs/glib:2 dev-libs/libassuan dev-libs/libgpg-error >=dev-libs/libstrophe-0.11.0 net-misc/curl sys-libs/ncurses:=[unicode(+)] virtual/libcrypt:= media-libs/harfbuzz:= gpg? ( app-crypt/gpgme:= ) libnotify? ( x11-libs/libnotify ) omemo? ( net-libs/libsignal-protocol-c dev-libs/libgcrypt:= ) otr? ( net-libs/libotr ) sys-libs/readline:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango xscreensaver? ( x11-libs/libXScrnSaver x11-libs/libX11 ) test? ( dev-util/cmocka )
 DESCRIPTION=A console based XMPP client inspired by Irssi
 EAPI=8
@@ -10,4 +10,4 @@ RDEPEND=dev-db/sqlite:3 dev-libs/atk dev-libs/glib:2 dev-libs/libassuan dev-libs
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://profanity-im.github.io/tarballs/profanity-0.12.1.tar.gz
-_md5_=c86126f9e2723ec59ec41bd3913e780d
+_md5_=e63fd734e50cbdd1576b4173cad0297e
