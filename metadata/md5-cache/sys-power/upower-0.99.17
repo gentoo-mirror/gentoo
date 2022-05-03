@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://upower.freedesktop.org/
 INHERIT=meson python-any-r1 systemd udev xdg-utils
 IUSE=doc +introspection ios selinux test
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv sparc x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.56:2 sys-apps/dbus:= introspection? ( dev-libs/gobject-introspection:= ) kernel_linux? ( >=dev-libs/libgudev-236:= virtual/udev ios? ( >=app-pda/libimobiledevice-1:= >=app-pda/libplist-2:= ) ) selinux? ( sec-policy/selinux-devicekit )
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://gitlab.freedesktop.org/upower/upower/-/archive/v0.99.17/upower-v0.99.17.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	systemd	2736b403a83f194b59b767f3b344c2c1	udev	2d229ad4bfa09058e0184b1ca900db32	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=89286cf415474317453f1d84c7212ff3
+_md5_=d742265d670b49828787ada9ba6c0b96
