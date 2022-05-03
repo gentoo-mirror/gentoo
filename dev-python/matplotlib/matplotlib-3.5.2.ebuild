@@ -107,7 +107,6 @@ BDEPEND="
 		>=media-gfx/graphviz-2.42.3[cairo]
 	)
 	test? (
-		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
@@ -123,19 +122,9 @@ pkg_setup() {
 	unset DISPLAY # bug #278524
 }
 
-use_supported() {
-	case ${1} in
-		wxwidgets)
-			[[ ${EPYTHON} == python3.[678] ]]
-			;;
-	esac
-
-	return 0
-}
-
 use_setup() {
 	local uword="${2:-${1}}"
-	if use_supported "${1}" && use "${1}"; then
+	if use "${1}"; then
 		echo "${uword} = True"
 		echo "${uword}agg = True"
 	else
@@ -163,16 +152,10 @@ python_prepare_all() {
 		"${FILESDIR}"/matplotlib-3.5.2-test.patch
 	)
 
-	# requires jupyter-nbconvert
-	rm lib/matplotlib/tests/test_backend_nbagg.py || die
-
 	sed \
 		-e 's/matplotlib.pyparsing_py[23]/pyparsing/g' \
 		-i lib/matplotlib/{mathtext,fontconfig_pattern}.py \
 		|| die "sed pyparsing failed"
-
-	sed -e 's:\(@pytest.mark.flaky\)(reruns=3):\1:' \
-		-i lib/matplotlib/tests/test_*.py || die
 
 	hprefixify setupext.py
 
