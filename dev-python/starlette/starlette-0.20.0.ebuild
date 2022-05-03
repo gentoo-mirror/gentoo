@@ -9,7 +9,11 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="The little ASGI framework that shines"
-HOMEPAGE="https://www.starlette.io/"
+HOMEPAGE="
+	https://www.starlette.io/
+	https://github.com/encode/starlette/
+	https://pypi.org/project/starlette/
+"
 SRC_URI="
 	https://github.com/encode/starlette/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
@@ -25,10 +29,15 @@ RDEPEND="
 	dev-python/itsdangerous[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	' 3.8 3.9 )
+	' 3.8 3.9)
 "
+# brotli needed for consistent test output
 BDEPEND="
 	test? (
+		|| (
+			dev-python/brotlicffi[${PYTHON_USEDEP}]
+			app-arch/brotli[python,${PYTHON_USEDEP}]
+		)
 		dev-python/trio[${PYTHON_USEDEP}]
 	)
 "
