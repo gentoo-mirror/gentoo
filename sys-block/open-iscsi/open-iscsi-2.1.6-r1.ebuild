@@ -69,10 +69,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	sed -e 's:^\(iscsid.startup\)\s*=.*:\1 = /usr/sbin/iscsid:' \
-		-i etc/iscsid.conf || die
-	sed -e '/[^usr]\/sbin/s@\(/sbin/\)@/usr\1@' \
-		-i etc/systemd/iscsi* || die
 	default
 
 	pushd iscsiuio >/dev/null || die
@@ -98,7 +94,12 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${ED}" sbindir="/usr/sbin" SED="${EPREFIX}/bin/sed" install
+	emake \
+		DESTDIR="${ED}" \
+		sbindir="/usr/sbin" \
+		SED="${EPREFIX}/bin/sed" \
+		systemddir="$(systemd_get_utildir)" \
+		install install_systemd
 
 	# Upstream make is not deterministic, per bug #601514
 	rm -f "${ED}"/etc/initiatorname.iscsi
@@ -113,16 +114,6 @@ src_install() {
 
 	newconfd "${FILESDIR}"/iscsid-conf.d iscsid
 	newinitd "${FILESDIR}"/iscsid-init.d iscsid
-
-	local unit
-	local units=(
-		iscsi{,-init}.service
-		iscsid.{service,socket}
-		iscsiuio.{service,socket}
-	)
-	for unit in ${units[@]} ; do
-		systemd_dounit etc/systemd/${unit}
-	done
 
 	keepdir /var/db/iscsi
 	fperms 700 /var/db/iscsi
