@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 inherit meson-multilib udev python-any-r1
 
 DESCRIPTION="An interface for filesystems implemented in userspace"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/libfuse/libfuse/releases/download/${P}/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="3"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+suid test"
 RESTRICT="!test? ( test )"
 
@@ -36,6 +36,7 @@ pkg_setup() {
 multilib_src_configure() {
 	local emesonargs=(
 		$(meson_use test examples)
+		$(meson_use test tests)
 		-Duseroot=false
 		-Dudevrulesdir="${EPREFIX}$(get_udevdir)/rules.d"
 	)
