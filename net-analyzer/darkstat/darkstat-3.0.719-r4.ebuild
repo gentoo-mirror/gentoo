@@ -8,10 +8,10 @@ inherit autotools
 DESCRIPTION="Network traffic analyzer with cute web interface"
 HOMEPAGE="https://unix4lyfe.org/darkstat/"
 if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="https://github.com/emikulic/darkstat"
+	EGIT_REPO_URI="https://www.unix4lyfe.org/git/darkstat"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/emikulic/darkstat/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://unix4lyfe.org/${PN}/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}"
 
 DARKSTAT_CHROOT_DIR=${DARKSTAT_CHROOT_DIR:-/var/lib/darkstat}
 
-DOCS=( AUTHORS ChangeLog README.md NEWS )
+DOCS=( AUTHORS ChangeLog README NEWS )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.719-strncpy-off-by-one.patch
