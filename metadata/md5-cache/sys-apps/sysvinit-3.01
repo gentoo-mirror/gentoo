@@ -5,10 +5,10 @@ EAPI=7
 HOMEPAGE=https://savannah.nongnu.org/projects/sysvinit
 INHERIT=toolchain-funcs flag-o-matic
 IUSE=selinux ibm static
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2
 RDEPEND=selinux? ( >=sys-libs/libselinux-1.28 ) selinux? ( sec-policy/selinux-shutdown ) !<sys-apps/openrc-0.13
 SLOT=0
 SRC_URI=mirror://nongnu/sysvinit/sysvinit-3.01.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
-_md5_=0e66b98382c59ed28a0d26176bf48eb4
+_md5_=935a906e9417710bfe268046523c618e
