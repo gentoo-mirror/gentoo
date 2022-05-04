@@ -921,7 +921,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.22.97 1.22.101 1.23.0 1.23.1 1.23.2 1.23.3 1.23.4 1.23.5: Universal Command Line Environment for AWS
+app-admin/awscli 1.22.97 1.22.101 1.23.0 1.23.1 1.23.2 1.23.3 1.23.4 1.23.5 1.23.6: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -3117,7 +3117,6 @@ app-misc/trash-cli 0.21.10.24 0.22.4.16: Python scripts to manipulate trash cans
 app-misc/tty-clock 2.3: Displays a simple digital clock on the terminal
 app-misc/ttyload 0.5.3 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.0.8-r2: ttyrec provides tools to record and replay a terminal session
-app-misc/ttysnoop 0.12d-r1: Tool to snoop on login tty's through another tty-device or pseudo-tty
 app-misc/unfoo 1.0.8: A simple bash driven frontend to simplify decompression of files
 app-misc/uptimed 0.4.4 0.4.5 0.4.6: System uptime record daemon that keeps track of your highest uptimes
 app-misc/utimer 0.4-r1: A command line timer and stopwatch
@@ -5311,7 +5310,6 @@ dev-java/kafka-clients 1.1.1: Apache Kafka distributed event streaming platform
 dev-java/leiningen-bin 2.9.1 2.9.8: Automate Clojure projects without setting your hair on fire
 dev-java/libg 2.1.0-r2: Lots of small utilities for bndlib, a swiss army knife for OSGi
 dev-java/lmax-disruptor 3.4.4: A High Performance Inter-Thread Messaging Library
-dev-java/log4j 1.2.17-r3: A low-overhead robust logging package for Java
 dev-java/log4j-12-api 2.17.1 2.17.2: The Apache Log4j 1.x Compatibility API
 dev-java/log4j-api 2.17.1 2.17.2: The Apache Log4j API
 dev-java/log4j-api-java9 2.17.1: The Apache Log4j API (Java 9)
@@ -8436,8 +8434,8 @@ dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the stand
 dev-python/boolean-py 3.8: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.21.42 1.21.46 1.22.0 1.22.1 1.22.2 1.22.3 1.22.4 1.22.5 9999: The AWS SDK for Python
-dev-python/botocore 1.24.42 1.24.46 1.25.0 1.25.1 1.25.2 1.25.3 1.25.4 1.25.5 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.21.42 1.21.46 1.22.0 1.22.1 1.22.2 1.22.3 1.22.4 1.22.5 1.22.6 9999: The AWS SDK for Python
+dev-python/botocore 1.24.42 1.24.46 1.25.0 1.25.1 1.25.2 1.25.3 1.25.4 1.25.5 1.25.6 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8461,7 +8459,7 @@ dev-python/casttube 0.2.1: casttube provides a way to interact with the Youtube 
 dev-python/catkin_pkg 0.4.24 9999: Standalone Python library for the catkin package system
 dev-python/cattrs 1.10.0-r1 22.1.0: Composable complex class support for attrs and dataclasses
 dev-python/cbor 1.0.0-r1: RFC 7049 - Concise Binary Object Representation
-dev-python/cbor2 5.4.2 5.4.2_p1: Pure Python CBOR (de)serializer with extensive tag support
+dev-python/cbor2 5.4.2 5.4.2_p1 5.4.3: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cchardet 2.1.7: High speed universal character encoding detector
 dev-python/cerberus 1.3.2 1.3.4: A lightweight and extensible data-validation library for Python
 dev-python/certifi 3021.3.16-r1: A certifi hack to use system trust store on Linux/FreeBSD
@@ -8523,7 +8521,7 @@ dev-python/cppy 1.2.0-r1 1.2.1-r1: C++ header library which makes it easier to w
 dev-python/crashtest 0.3.1: Python library that makes exceptions handling and inspection easier
 dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/croniter 1.3.4: Python module to provide iteration for datetime object
-dev-python/cryptography 3.4.7-r3 37.0.0 37.0.1: Library providing cryptographic recipes and primitives
+dev-python/cryptography 3.4.7-r3 37.0.0 37.0.1 37.0.2: Library providing cryptographic recipes and primitives
 dev-python/css-parser 1.0.7-r1: A CSS Cascading Style Sheets library (fork of cssutils)
 dev-python/csscompressor 0.9.5: A python port of YUI CSS Compressor
 dev-python/cssselect 1.1.0-r1: parses CSS3 Selectors and translates them to XPath 1.0
@@ -8575,7 +8573,7 @@ dev-python/django-cacheops 6.0: ORM cache with automatic granular event-driven i
 dev-python/django-compressor 2.4.1: Compresses linked and inline JavaScript or CSS into single cached files
 dev-python/django-configurations 2.3.2: A helper for organizing Django settings
 dev-python/django-cors-headers 3.10.1-r1: Django App that adds CORS (Cross-Origin Resource Sharing) headers to responses
-dev-python/django-debug-toolbar 3.2.4 3.2.4-r1 3.3: A configurable set of panels that display debug information
+dev-python/django-debug-toolbar 3.2.4 3.2.4-r1 3.3 3.4: A configurable set of panels that display debug information
 dev-python/django-extensions 3.0.9: A collection of custom extensions for the Django Framework
 dev-python/django-filter 21.1-r2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-gravatar2 1.4.4: Essential Gravatar support for Django
@@ -8731,7 +8729,7 @@ dev-python/glob2 0.7: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.7.1-r2 2.7.2-r1 2.7.3: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.44.0 2.45.0 2.46.0: Google API Client for Python
+dev-python/google-api-python-client 2.44.0 2.45.0 2.46.0 2.47.0: Google API Client for Python
 dev-python/google-apitools 0.5.32: Python library to manipulate Google APIs
 dev-python/google-auth 2.6.3-r2 2.6.6-r1: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r1: httplib2 Transport for Google Auth
@@ -8774,11 +8772,11 @@ dev-python/httpretty 1.1.4: HTTP client mock for Python
 dev-python/httpx 0.22.0-r2: Fully-featured HTTP client which provides sync and async APIs
 dev-python/huawei-lte-api 1.5.4-r1 1.6: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0: Human friendly output for text interfaces using Python
-dev-python/humanize 4.0.0: Common humanization utilities
+dev-python/humanize 4.0.0 4.1.0: Common humanization utilities
 dev-python/hvac 0.11.2: hashicorp vault client in python
 dev-python/hyperframe 5.2.0 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.42.3 6.43.3 6.44.0 6.45.0 6.45.1 6.45.3 6.46.0 6.46.1: A library for property based testing
+dev-python/hypothesis 6.42.3 6.43.3 6.44.0 6.45.0 6.45.1 6.45.3 6.46.0 6.46.1 6.46.2: A library for property based testing
 dev-python/icalendar 4.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.4.12 2.5.0: File identification library for Python
 dev-python/idna 3.3: Internationalized Domain Names in Applications (IDNA)
@@ -9012,7 +9010,7 @@ dev-python/nbclassic 0.3.7: Jupyter Notebook as a Jupyter Server Extension
 dev-python/nbclient 0.5.13 0.6.0 0.6.2: A client library for executing Jupyter notebooks
 dev-python/nbconvert 6.4.5 6.5.0: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.1: Diff and merge of Jupyter Notebooks
-dev-python/nbformat 5.2.0 5.3.0-r1: Reference implementation of the Jupyter Notebook format
+dev-python/nbformat 5.2.0 5.3.0-r1 5.4.0: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.8.8-r1: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.9.6: A py.test plugin to validate Jupyter notebooks
 dev-python/ndg-httpsclient 0.5.1: Provides enhanced HTTPS support for httplib and urllib2 using PyOpenSSL
@@ -9326,7 +9324,7 @@ dev-python/pyside2 5.15.2-r1: Python bindings for the Qt framework
 dev-python/pyside2-tools 5.15.2: PySide development tools (pyside2-lupdate with support for Python)
 dev-python/pysimdjson 4.0.2 4.0.3: Python bindings for simdjson
 dev-python/pysmi 0.3.4: Python Lex & Yacc
-dev-python/pysnmp 4.4.12-r1 4.4.12-r2 999999: Python SNMP library
+dev-python/pysnmp 4.4.12-r2: Python SNMP library
 dev-python/pysnmp-mibs 0.1.6: SNMP framework in Python - MIBs
 dev-python/pysol_cards 0.12.0 0.14.2: Deal PySol FreeCell cards
 dev-python/pyspectrum2 0.2.0-r1: Implements a protobuf-based interface for Spectrum2 python-based backends
@@ -9699,7 +9697,7 @@ dev-python/stestr 3.2.1: A parallel Python test runner built around subunit
 dev-python/stevedore 3.4.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.0.0 8.0.1: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 2.74.0: Stripe python bindings
+dev-python/stripe 2.74.0 2.75.0: Stripe python bindings
 dev-python/subprocess-tee 0.3.5: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.0_p20210729: A streaming protocol for test results
 dev-python/suds-community 1.1.0 1.1.1: Lightweight SOAP client
@@ -9738,7 +9736,7 @@ dev-python/three-merge 0.1.1: Simple Python library to perform a 3-way merge bet
 dev-python/thrift 0.14.1: Python implementation of Thrift
 dev-python/thriftpy2 0.4.14: Pure python approach of Apache Thrift
 dev-python/thunarx-python 0.5.2: Python bindings for the Thunar file manager
-dev-python/tifffile 2022.3.16 2022.3.25 2022.4.8 2022.4.22 2022.4.26 2022.4.28: Read and write TIFF files
+dev-python/tifffile 2022.4.28 2022.5.4: Read and write TIFF files
 dev-python/tikzplotlib 0.9.16 0.9.17 0.9.17-r1 0.10.0 0.10.1: Convert matplotlib figures into TikZ/PGFPlots
 dev-python/timeout-decorator 0.5.0: Timeout decorator
 dev-python/tinycss 0.4: A complete yet simple CSS parser for Python
@@ -15761,7 +15759,6 @@ net-misc/ipsvd 1.0.0-r2: ipsvd is a set of internet protocol service daemons for
 net-misc/iputils 20210722-r1 20211215 99999999: Network monitoring tools including ping and ping6
 net-misc/ipv6calc 2.2.0 3.1.1 3.2.0 4.0.0-r1: IPv6 address calculator
 net-misc/jlj 2.12-r1: Simple console LiveJournal entry system
-net-misc/jrdesktop 0.3.1.0: Java Remote Desktop (jrdesktop) for viewing and/or controlling a distance PC
 net-misc/jwhois 4.0-r1: Advanced Internet Whois client capable of recursive queries
 net-misc/kafka-bin 2.8.1 3.0.1 3.0.1-r1 3.1.0 3.1.0-r1: A high-throughput distributed messaging system
 net-misc/kafkacat 1.5.0: Generic command line non-JVM Apache Kafka producer and consumer
@@ -19120,7 +19117,6 @@ x11-misc/set_opacity 1.0 9999: Tool for set real compositing for windows through
 x11-misc/shared-mime-info 2.1 2.2: The Shared MIME-info Database specification
 x11-misc/shutter 0.99 0.99.2: Feature-rich screenshot program
 x11-misc/simpleswitcher 20191008 99999999: lightweight EWMH window switcher with features and looks of dmenu
-x11-misc/sisctrl 0.0.20051202-r1: tool that allows you to tune SiS drivers from X
 x11-misc/skippy 0.5.0-r1: A full-screen task-switcher providing Apple Expose-like functionality
 x11-misc/slim 1.3.6-r5: Simple Login Manager
 x11-misc/slock 1.4-r1: simple X display locker
