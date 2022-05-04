@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/codehaus/qdox
 INHERIT=java-pkg-2
 IUSE=doc source test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86 ~ppc-macos ~x64-macos
+KEYWORDS=amd64 ~arm ~arm64 ppc64 x86 ~ppc-macos ~x64-macos
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* dev-java/ant-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=1.12
 SRC_URI=https://github.com/codehaus/qdox/archive/qdox-1.12.1.tar.gz
 _eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd
-_md5_=f389c5a4cb4d96607257f60ba5b646af
+_md5_=1c9fd9d27297e50e4978fe0bb41e1e48
