@@ -350,26 +350,6 @@ dev-util/nemiver
 sys-devel/automake:1.13
 sys-devel/automake:1.15
 
-# Sergey Popov <pinkbyte@gentoo.org> (2022-04-05)
-# Upstream is dead long time ago
-# SRC_URI and HOMEPAGE are gone(bug #680362)
-# Has file collision with dev-util/bcc(bug #834093)
-# Suggested modern replacement is incorporated in dev-util/bcc
-# Removal in 30 days
-app-misc/ttysnoop
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-04)
-# Last upstream activities in 2009.
-# Fails to compile with java 11 or higher (bug #831262).
-# Removal in 30 days.
-net-misc/jrdesktop
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-03)
-# Java library without consumers.
-# Multiple vulnerabilities (bug #719146).
-# Removal in 30 days.
-dev-java/log4j
-
 # David Seifert <soap@gentoo.org> (2022-03-20)
 # Mask gcc-8 branch (ended upstream support). Please switch
 # to a fresher gcc branch.
@@ -420,11 +400,6 @@ net-p2p/arti
 # Not usable anymore
 # Removal after 2022-06-01.  Bug #833144.
 x11-misc/i855crt
-
-# Jonas Stein <jstein@gentoo.org> (2022-02-09)
-# Upstream is 404, open bugs, not maintained.
-# Removal after 2022-05-01.  Bug #832954.
-x11-misc/sisctrl
 
 # Jonas Stein <jstein@gentoo.org> (2022-02-08)
 # Not maintained, open bugs, upstream outdated.
