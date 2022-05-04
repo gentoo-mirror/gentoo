@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-libs/glib:2
+DESCRIPTION=Fork from the desktop-icons project, with several enhancements like Drag'n'Drop
+EAPI=8
+HOMEPAGE=https://gitlab.com/rastersoft/desktop-icons-ng
+INHERIT=gnome2-utils meson
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.38 >=gnome-base/nautilus-3.38
+SLOT=0
+SRC_URI=https://gitlab.com/rastersoft/desktop-icons-ng/uploads/eaa0b5e8e61258bd108897fc2fbd2da2/ding-45.0.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c
+_md5_=50264e37074c844e4b1e56e42416c97f
