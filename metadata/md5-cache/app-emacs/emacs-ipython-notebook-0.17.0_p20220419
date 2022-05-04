@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/anaphora app-emacs/dash app-emacs/deferred app-emacs/polymode app-emacs/request app-emacs/websocket app-emacs/with-editor dev-python/ipython dev-python/notebook www-servers/tornado test? ( app-emacs/ert-runner ) >=app-editors/emacs-25:*
+BDEPEND=app-emacs/anaphora app-emacs/dash app-emacs/deferred app-emacs/polymode app-emacs/request app-emacs/websocket app-emacs/with-editor dev-python/ipython dev-python/notebook www-servers/tornado test? ( app-emacs/ert-runner app-emacs/mocker ) >=app-editors/emacs-25:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Jupyter notebook client in Emacs
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/millejoh/emacs-ipython-notebook/archive/388c8f753cfb99b4f82acbdff26bbe27189d2299.tar.gz -> emacs-ipython-notebook-0.17.0_p20220419.tar.gz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
-_md5_=b5c954a3f17e36275fcb0c4f91fcb110
+_md5_=0a1a14a751a792c4d291cd15e236749f
