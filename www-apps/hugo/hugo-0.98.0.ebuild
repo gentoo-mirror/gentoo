@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2018-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ DESCRIPTION="Fast static HTML and CSS website generator"
 HOMEPAGE="https://gohugo.io https://github.com/gohugoio/hugo"
 SRC_URI="
 	https://github.com/gohugoio/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://tastytea.de/files/${P}-vendor.tar.xz
+	https://tastytea.de/files/gentoo/${P}-vendor.tar.xz
 "
 
 # NOTE: To create the vendor tarball, run:
@@ -18,34 +18,45 @@ SRC_URI="
 LICENSE="Apache-2.0 BSD BSD-2 MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +sass"
+IUSE="doc +sass test test-full"
 
-BDEPEND=">=dev-lang/go-1.18"
+BDEPEND="
+	>=dev-lang/go-1.18
+	test? (
+		dev-python/docutils
+		dev-ruby/asciidoctor
+		test-full? ( app-text/pandoc )
+	)
+"
 RDEPEND="
 	media-libs/libwebp:=
 	sass? ( dev-libs/libsass:= )
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-0.92.2-link-to-webp-and-sass.patch" )
+RESTRICT="!test? ( test )"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch"
+	"${FILESDIR}/${PN}-0.96.0-skip-some-tests.patch"
+)
 
 src_configure() {
 	export CGO_ENABLED=1
 	export CGO_CFLAGS="${CFLAGS}"
-	export CGO_CPPFLAGS="${CPPFLAGS} -DLIBWEBP_NO_SRC -DUSE_LIBSASS_SRC"
+	export CGO_CPPFLAGS="${CPPFLAGS}"
 	export CGO_CXXFLAGS="${CXXFLAGS}"
 	export CGO_LDFLAGS="${LDFLAGS}"
+
+	MY_BUILDFLAGS="$(usev sass "-tags extended")"
 
 	default
 }
 
 src_compile() {
 	mkdir -pv bin || die
-	local my_import_path="github.com/gohugoio/hugo/common"
-	local mybuildtags="-tags $(usev sass "extended,")nodeploy"
-	ego build -ldflags \
-		"-X ${my_import_path}/hugo.buildDate=$(date --iso-8601=seconds) -X ${my_import_path}/hugo.vendorInfo=Gentoo" \
-		${mybuildtags} -o "${S}/bin/hugo"
+	ego build -ldflags "-X github.com/gohugoio/hugo/common/hugo.vendorInfo=gentoo:${PVR}" \
+		${MY_BUILDFLAGS} -o "${S}/bin/hugo"
 
 	bin/hugo gen man --dir man || die
 
@@ -57,6 +68,10 @@ src_compile() {
 	if use doc ; then
 		bin/hugo gen doc --dir doc || die
 	fi
+}
+
+src_test() {
+	ego test -race "./..." ${MY_BUILDFLAGS}
 }
 
 src_install() {
