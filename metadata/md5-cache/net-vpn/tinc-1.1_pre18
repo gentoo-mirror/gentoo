@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.tinc-vpn.org/
 INHERIT=autotools systemd
 IUSE=+lzo +ncurses +readline +ssl uml vde upnp +zlib
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=ssl? ( dev-libs/openssl:0= ) lzo? ( dev-libs/lzo:2 ) ncurses? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= ) upnp? ( net-libs/miniupnpc ) zlib? ( sys-libs/zlib ) vde? ( net-misc/vde )
 SLOT=0
 SRC_URI=http://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=604a4cf3da40e27595e5162706a61300
+_md5_=cddfd4f2231c560e2b6c4b4c18bea721
