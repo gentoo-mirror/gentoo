@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://ant.apache.org/ivy/
 INHERIT=java-pkg-2 java-pkg-simple java-osgi
 IUSE=doc source test
-KEYWORDS=~amd64 ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc64 x86
 LICENSE=Apache-2.0
 PROPERTIES=test_network
 RDEPEND=dev-java/ant-core:0 dev-java/bcpg:0 dev-java/bcprov:0 dev-java/httpcomponents-client dev-java/commons-vfs:2 dev-java/httpcore:0 dev-java/jakarta-oro:2.0 dev-java/jsch:0 dev-java/jsch-agent-proxy:0 test? ( dev-java/ant-junit:0 dev-java/ant-junit4:0 dev-java/ant-junitlauncher:0 dev-java/ant-testutil:0 dev-java/hamcrest-core:1.3 dev-java/hamcrest-library:1.3 dev-java/xmlunit:1 ) virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
@@ -13,4 +13,4 @@ RESTRICT=test !test? ( test )
 SLOT=2
 SRC_URI=mirror://apache/ant/ivy/2.5.0/apache-ivy-2.5.0-src.tar.gz
 _eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7	java-osgi	c9b922d3fd7b5c6117f4c4d68e32e881
-_md5_=a419215d9c92b47df08ee5d73b76aa83
+_md5_=407dde03559b20af2e36bc36801654c7
