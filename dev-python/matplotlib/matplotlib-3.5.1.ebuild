@@ -73,9 +73,7 @@ RDEPEND="
 		>=www-servers/tornado-6.0.4[${PYTHON_USEDEP}]
 	)
 	wxwidgets? (
-		$(python_gen_cond_dep '
-			dev-python/wxpython:*[${PYTHON_USEDEP}]
-		' python3_{8,9})
+		dev-python/wxpython:*[${PYTHON_USEDEP}]
 	)
 "
 
