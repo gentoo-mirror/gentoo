@@ -14,8 +14,8 @@ SRC_URI="https://github.com/paulusmack/ppp/archive/${P}.tar.gz
 
 LICENSE="BSD GPL-2"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE="activefilter atm dhcp +eap-tls gtk ipv6 pam radius"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="activefilter atm dhcp +eap-tls gtk ipv6 pam radius systemd"
 
 DEPEND="
 	dev-libs/openssl:0=
@@ -24,6 +24,7 @@ DEPEND="
 	atm? ( net-dialup/linux-atm )
 	gtk? ( x11-libs/gtk+:2 )
 	pam? ( sys-libs/pam )
+	systemd? ( sys-apps/systemd )
 "
 RDEPEND="${DEPEND}
 	!<net-misc/netifrc-0.7.1-r2"
@@ -36,6 +37,9 @@ src_prepare() {
 	mv "${WORKDIR}/dhcp" "${S}/pppd/plugins" || die
 
 	eapply "${WORKDIR}"/patches
+
+	#IPX Support is removed in kernel >= 5.15
+	sed -i 's/-DIPX_CHANGE //' pppd/Makefile.linux || die
 
 	if use atm ; then
 		einfo "Enabling PPPoATM support"
@@ -94,6 +98,11 @@ src_prepare() {
 	else
 		einfo "Disabling radius"
 		sed -i -e '/+= radius/s:^:#:' pppd/plugins/Makefile.linux || die
+	fi
+
+	if use systemd ; then
+		einfo "Enabling systemd notification"
+		sed '/SYSTEMD=/s@^#@@' -i pppd/Makefile.linux || die
 	fi
 
 	# Respect our pkg-config settings.
