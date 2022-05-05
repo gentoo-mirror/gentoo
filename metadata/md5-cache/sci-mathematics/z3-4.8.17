@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-doc/doxygen[dot] ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) gmp? ( dev-libs/gmp:0=[cxx(+),abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) java? ( >=virtual/jdk-1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=An efficient theorem prover
+EAPI=8
+HOMEPAGE=https://github.com/Z3Prover/z3/
+INHERIT=cmake-multilib java-pkg-opt-2 python-single-r1
+IUSE=doc examples gmp isabelle java python abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 java python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=MIT
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) gmp? ( dev-libs/gmp:0=[cxx(+),abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) java? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0/4.8
+SRC_URI=https://github.com/Z3Prover/z3/archive/z3-4.8.17.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	cmake-multilib	7f8d0fb6ae10906fe334997f977e838b	java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=520358e111273c0653f0454f93f4b1e5
