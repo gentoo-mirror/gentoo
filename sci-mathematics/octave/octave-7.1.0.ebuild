@@ -14,7 +14,8 @@ SLOT="0/${PV}"
 IUSE="curl doc fftw +glpk gnuplot gui hdf5 java opengl
 	portaudio postscript +qhull +qrupdate readline sndfile +sparse
 	ssl static-libs sundials X zlib"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+# Issue when building w/ SSL needs investigation
+#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 
 # Although it is listed in INSTALL.OCTAVE as a build tool, Octave runs
 # "makeinfo" from sys-apps/texinfo at runtime to convert its texinfo
@@ -99,7 +100,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.1.0-pkgbuilddir.patch
 	"${FILESDIR}"/${PN}-4.2.2-ncurses-pkgconfig.patch
 	"${FILESDIR}"/${PN}-6.4.0-slibtool.patch
-	"${FILESDIR}"/${PN}-7.1.0-omit-qtchooser-qtver.patch
+	"${FILESDIR}"/${PN}-6.4.0-omit-qtchooser-qtver.patch
 )
 
 src_prepare() {
