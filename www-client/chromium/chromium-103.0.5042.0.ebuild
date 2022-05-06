@@ -13,22 +13,22 @@ inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://chromium.org/"
-PATCHSET="4"
+PATCHSET="2"
 PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz"
 
 LICENSE="BSD"
-SLOT="0/beta"
+SLOT="0/dev"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless +js-type-check kerberos libcxx +official pic +proprietary-codecs pulseaudio screencast selinux +suid +system-ffmpeg +system-harfbuzz +system-icu +system-png vaapi wayland widevine"
+IUSE="+X component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless +js-type-check kerberos libcxx +official pic +proprietary-codecs pulseaudio screencast selinux +suid +system-ffmpeg +system-harfbuzz +system-icu +system-png vaapi wayland widevine"
 REQUIRED_USE="
 	component-build? ( !suid !libcxx )
 	screencast? ( wayland )
+	!headless ( || ( X wayland ) )
 "
 
 COMMON_X_DEPEND="
-	x11-libs/gdk-pixbuf:2
 	x11-libs/libXcomposite:=
 	x11-libs/libXcursor:=
 	x11-libs/libXdamage:=
@@ -38,11 +38,10 @@ COMMON_X_DEPEND="
 	x11-libs/libXrender:=
 	x11-libs/libXtst:=
 	x11-libs/libxshmfence:=
-	virtual/opengl
 "
 
 COMMON_SNAPSHOT_DEPEND="
-	system-icu? ( >=dev-libs/icu-69.1:= )
+	system-icu? ( >=dev-libs/icu-71.1:= )
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
@@ -64,10 +63,12 @@ COMMON_SNAPSHOT_DEPEND="
 		pulseaudio? ( media-sound/pulseaudio:= )
 		sys-apps/pciutils:=
 		kerberos? ( virtual/krb5 )
-		vaapi? ( >=x11-libs/libva-2.7:=[X] )
-		x11-libs/libX11:=
-		x11-libs/libXext:=
-		x11-libs/libxcb:=
+		vaapi? ( >=x11-libs/libva-2.7:=[X?,wayland?] )
+		X? (
+			x11-libs/libX11:=
+			x11-libs/libXext:=
+			x11-libs/libxcb:=
+		)
 		x11-libs/libxkbcommon:=
 		wayland? (
 			dev-libs/wayland:=
@@ -93,31 +94,33 @@ COMMON_DEPEND="
 	media-libs/flac:=
 	sys-libs/zlib:=[minizip]
 	!headless? (
-		${COMMON_X_DEPEND}
+		X? ( ${COMMON_X_DEPEND} )
 		>=app-accessibility/at-spi2-atk-2.26:2
 		>=app-accessibility/at-spi2-core-2.26:2
 		>=dev-libs/atk-2.26
+		media-libs/mesa:=[X?,wayland?]
 		cups? ( >=net-print/cups-1.3.11:= )
 		virtual/udev
 		x11-libs/cairo:=
+		x11-libs/gdk-pixbuf:2
 		x11-libs/pango:=
 	)
 "
 RDEPEND="${COMMON_DEPEND}
 	!headless? (
 		|| (
-			x11-libs/gtk+:3[X,wayland?]
-			gui-libs/gtk:4[X,wayland?]
+			x11-libs/gtk+:3[X?,wayland?]
+			gui-libs/gtk:4[X?,wayland?]
 		)
+		x11-misc/xdg-utils
 	)
-	x11-misc/xdg-utils
 	virtual/ttf-fonts
 	selinux? ( sec-policy/selinux-chromium )
 "
 DEPEND="${COMMON_DEPEND}
 	!headless? (
-		gtk4? ( gui-libs/gtk:4[X,wayland?] )
-		!gtk4? ( x11-libs/gtk+:3[X,wayland?] )
+		gtk4? ( gui-libs/gtk:4[X?,wayland?] )
+		!gtk4? ( x11-libs/gtk+:3[X?,wayland?] )
 	)
 "
 BDEPEND="
@@ -132,6 +135,7 @@ BDEPEND="
 	>=dev-util/gn-0.1807
 	>=dev-util/gperf-3.0.3
 	>=dev-util/ninja-1.7.2
+	dev-vcs/git
 	>=net-libs/nodejs-7.6.0[inspector]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
@@ -243,10 +247,8 @@ src_prepare() {
 	local PATCHES=(
 		"${WORKDIR}/patches"
 		"${FILESDIR}/chromium-93-InkDropHost-crash.patch"
-		"${FILESDIR}/chromium-97-arm-tflite-cast.patch"
 		"${FILESDIR}/chromium-98-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-98-gtk4-build.patch"
-		"${FILESDIR}/chromium-101-libxml-unbundle.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
 		"${FILESDIR}/chromium-cross-compile.patch"
@@ -256,6 +258,11 @@ src_prepare() {
 
 	mkdir -p third_party/node/linux/node-linux-x64/bin || die
 	ln -s "${EPREFIX}"/usr/bin/node third_party/node/linux/node-linux-x64/bin/node || die
+
+	# only required to fulfill gn dependencies
+	touch third_party/blink/tools/merge_web_test_results.pydeps || die
+	mkdir -p third_party/blink/tools/blinkpy/web_tests || die
+	touch third_party/blink/tools/blinkpy/web_tests/merge_results.pydeps || die
 
 	# adjust python interpreter version
 	sed -i -e "s|\(^script_executable = \).*|\1\"${EPYTHON}\"|g" .gn || die
@@ -312,6 +319,7 @@ src_prepare() {
 		third_party/ced
 		third_party/cld_3
 		third_party/closure_compiler
+		third_party/cpuinfo
 		third_party/crashpad
 		third_party/crashpad/crashpad/third_party/lss
 		third_party/crashpad/crashpad/third_party/zlib
@@ -319,8 +327,8 @@ src_prepare() {
 		third_party/cros_system_api
 		third_party/dav1d
 		third_party/dawn
+		third_party/dawn/third_party/gn/webgpu-cts
 		third_party/dawn/third_party/khronos
-		third_party/dawn/third_party/tint
 		third_party/depot_tools
 		third_party/devscripts
 		third_party/devtools-frontend
@@ -348,8 +356,10 @@ src_prepare() {
 		third_party/fdlibm
 		third_party/fft2d
 		third_party/flatbuffers
+		third_party/fp16
 		third_party/freetype
 		third_party/fusejs
+		third_party/fxdiv
 		third_party/highway
 		third_party/libgifcodec
 		third_party/liburlpattern
@@ -367,7 +377,6 @@ src_prepare() {
 		third_party/jstemplate
 		third_party/khronos
 		third_party/leveldatabase
-		third_party/libXNVCtrl
 		third_party/libaddressinput
 		third_party/libaom
 		third_party/libaom/source/libaom/third_party/fastfeat
@@ -409,7 +418,6 @@ src_prepare() {
 		third_party/node
 		third_party/node/node_modules/polymer-bundler/lib/third_party/UglifyJS2
 		third_party/one_euro_filter
-		third_party/opencv
 		third_party/openscreen
 		third_party/openscreen/src/third_party/mozilla
 		third_party/openscreen/src/third_party/tinycbor/src/src
@@ -433,6 +441,7 @@ src_prepare() {
 		third_party/private_membership
 		third_party/protobuf
 		third_party/protobuf/third_party/six
+		third_party/pthreadpool
 		third_party/pyjson5
 		third_party/qcms
 		third_party/rnnoise
@@ -454,6 +463,7 @@ src_prepare() {
 		third_party/swiftshader/third_party/marl
 		third_party/swiftshader/third_party/subzero
 		third_party/swiftshader/third_party/SPIRV-Headers/include/spirv/unified1
+		third_party/swiftshader/third_party/SPIRV-Tools
 		third_party/tensorflow-text
 		third_party/tflite
 		third_party/tflite/src/third_party/eigen3
@@ -462,7 +472,6 @@ src_prepare() {
 		third_party/six
 		third_party/ukey2
 		third_party/unrar
-		third_party/usrsctp
 		third_party/utf
 		third_party/vulkan
 		third_party/web-animations-js
@@ -481,6 +490,7 @@ src_prepare() {
 		third_party/wuffs
 		third_party/x11proto
 		third_party/xcbproto
+		third_party/xnnpack
 		third_party/zxcvbn-cpp
 		third_party/zlib/google
 		url/third_party/mozilla
@@ -528,6 +538,11 @@ src_prepare() {
 		sed -i -e "s|^update_readme||g; s|clang-format|${EPREFIX}/bin/true|g" \
 			generate_gni.sh || die
 		./generate_gni.sh || die
+		popd >/dev/null || die
+
+		pushd third_party/ffmpeg >/dev/null || die
+		cp libavcodec/ppc/h264dsp.c libavcodec/ppc/h264dsp_ppc.c || die
+		cp libavcodec/ppc/h264qpel.c libavcodec/ppc/h264qpel_ppc.c || die
 		popd >/dev/null || die
 	fi
 
@@ -756,6 +771,14 @@ src_configure() {
 	# Disable fatal linker warnings, bug 506268.
 	myconf_gn+=" fatal_linker_warnings=false"
 
+	# Disable external code space for V8 for ppc64. It is disabled for ppc64
+	# by default, but cross-compiling on amd64 enables it again.
+	if tc-is-cross-compiler; then
+		if ! use amd64 && ! use arm64; then
+			myconf_gn+=" v8_enable_external_code_space=false"
+		fi
+	fi
+
 	# Bug 491582.
 	export TMPDIR="${WORKDIR}/temp"
 	mkdir -p -m 755 "${TMPDIR}" || die
@@ -789,6 +812,17 @@ src_configure() {
 		fi
 	fi
 
+	# Disable opaque pointers, https://crbug.com/1316298
+	if tc-is-clang; then
+		if test-flag-CXX -Xclang -no-opaque-pointers; then
+			append-flags -Xclang -no-opaque-pointers
+			if tc-is-cross-compiler; then
+				export BUILD_CXXFLAGS+=" -Xclang -no-opaque-pointers"
+				export BUILD_CFLAGS+=" -Xclang -no-opaque-pointers"
+			fi
+		fi
+	fi
+
 	# Explicitly disable ICU data file support for system-icu/headless builds.
 	if use system-icu || use headless; then
 		myconf_gn+=" icu_use_data_file=false"
@@ -797,25 +831,21 @@ src_configure() {
 	# Enable ozone wayland and/or headless support
 	myconf_gn+=" use_ozone=true ozone_auto_platforms=false"
 	myconf_gn+=" ozone_platform_headless=true"
-	myconf_gn+=" ozone_platform_x11=$(usex headless false true)"
-	if use wayland || use headless; then
-		if use headless; then
-			myconf_gn+=" ozone_platform=\"headless\""
-			myconf_gn+=" use_xkbcommon=false use_gtk=false"
-			myconf_gn+=" use_glib=false use_gio=false"
-			myconf_gn+=" use_pangocairo=false use_alsa=false"
-			myconf_gn+=" use_libpci=false use_udev=false"
-			myconf_gn+=" enable_print_preview=false"
-			myconf_gn+=" enable_remoting=false"
-		else
-			myconf_gn+=" ozone_platform_wayland=true"
-			myconf_gn+=" use_system_libdrm=true"
-			myconf_gn+=" use_system_minigbm=true"
-			myconf_gn+=" use_xkbcommon=true"
-			myconf_gn+=" ozone_platform=\"wayland\""
-		fi
+	if use headless; then
+		myconf_gn+=" ozone_platform=\"headless\""
+		myconf_gn+=" use_xkbcommon=false use_gtk=false"
+		myconf_gn+=" use_glib=false use_gio=false"
+		myconf_gn+=" use_pangocairo=false use_alsa=false"
+		myconf_gn+=" use_libpci=false use_udev=false"
+		myconf_gn+=" enable_print_preview=false"
+		myconf_gn+=" enable_remoting=false"
 	else
-		myconf_gn+=" ozone_platform=\"x11\""
+		myconf_gn+=" use_system_libdrm=true"
+		myconf_gn+=" use_system_minigbm=true"
+		myconf_gn+=" use_xkbcommon=true"
+		myconf_gn+=" ozone_platform_x11=$(usex X true false)"
+		myconf_gn+=" ozone_platform_wayland=$(usex wayland true false)"
+		myconf_gn+=" ozone_platform=$(usex wayland \"wayland\" \"x11\")"
 	fi
 
 	# Enable official builds
@@ -906,7 +936,7 @@ src_install() {
 	doexe out/Release/chrome_crashpad_handler
 
 	ozone_auto_session () {
-		use wayland && ! use headless && echo true || echo false
+		use X && use wayland && ! use headless && echo true || echo false
 	}
 	local sedargs=( -e
 			"s:/usr/lib/:/usr/$(get_libdir)/:g;
