@@ -1,15 +1,13 @@
 BDEPEND=>=app-editors/emacs-23.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DEPEND=java? ( app-emacs/jde )
 DESCRIPTION=Source code browser for Emacs
 EAPI=7
 HOMEPAGE=http://ecb.sourceforge.net/
 INHERIT=elisp readme.gentoo-r1
-IUSE=java
 KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2+
-RDEPEND=java? ( app-emacs/jde ) >=app-editors/emacs-23.1:*
+RDEPEND=>=app-editors/emacs-23.1:*
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ulm/distfiles/ecb-2.50_pre20170728.tar.xz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
-_md5_=b1043286115f9c52bc14b28009a706a8
+_md5_=aca7824ff1468519c38785d386d983f3
