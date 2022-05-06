@@ -6,8 +6,8 @@ EAPI=8
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/netfilter.org.asc
 inherit linux-info verify-sig
 
-DESCRIPTION="Userspace library for interface to user-space helper for conntrack"
-HOMEPAGE="https://www.netfilter.org/projects/libnetfilter_cthelper/"
+DESCRIPTION="netlink interface for conntrack timeout infrastructure in kernel's packet filter"
+HOMEPAGE="https://www.netfilter.org/projects/libnetfilter_cttimeout/"
 SRC_URI="https://www.netfilter.org/projects/${PN}/files/${P}.tar.bz2
 	verify-sig? ( https://www.netfilter.org/projects/${PN}/files/${P}.tar.bz2.sig )"
 
@@ -20,10 +20,15 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig
 	verify-sig? ( sec-keys/openpgp-keys-netfilter )"
 
-CONFIG_CHECK="~NF_CT_NETLINK_HELPER"
+CONFIG_CHECK="~NF_CT_NETLINK_TIMEOUT"
 
 pkg_setup() {
 	linux-info_pkg_setup
+	kernel_is lt 3 4 0 && ewarn "requires at least 3.4.0 kernel version"
+}
 
-	kernel_is lt 3 6 0 && ewarn "requires at least 3.6.0 kernel version"
+src_install() {
+	default
+
+	find "${ED}" -name '*.la' -delete || die
 }
