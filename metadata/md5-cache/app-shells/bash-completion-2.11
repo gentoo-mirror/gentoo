@@ -1,5 +1,5 @@
 DEFINED_PHASES=install postinst prepare setup test
-DEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !!net-fs/mc || ( ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/pexpect[python_targets_python3_9(-)] dev-python/pytest[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/pexpect[python_targets_python3_8(-)] dev-python/pytest[python_targets_python3_8(-)] ) ) )
+DEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !!net-fs/mc || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/pexpect[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/pexpect[python_targets_python3_9(-)] dev-python/pytest[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/pexpect[python_targets_python3_8(-)] dev-python/pytest[python_targets_python3_8(-)] ) ) )
 DESCRIPTION=Programmable Completion for bash
 EAPI=7
 HOMEPAGE=https://github.com/scop/bash-completion
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/scop/bash-completion/releases/download/2.11/bash-completion-2.11.tar.xz eselect? ( https://github.com/mgorny/bashcomp2/releases/download/v2.0.3/bashcomp-2.0.3.tar.gz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	user-info	69a1ed744ec33cf2c910ff2bd6084d11
-_md5_=efda720dde68cd41d9bd489cdcd8b6c6
+_md5_=843271ab8fa8982bd6b9c6bbf8ac4c6f
