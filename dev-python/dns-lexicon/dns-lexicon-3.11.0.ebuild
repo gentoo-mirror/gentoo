@@ -5,11 +5,15 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{8..10} )
+
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Manipulate DNS records on various DNS providers in a standardized/agnostic way"
 HOMEPAGE="https://pypi.org/project/dns-lexicon/"
-SRC_URI="https://github.com/AnalogJ/lexicon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/AnalogJ/lexicon/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 S="${WORKDIR}/lexicon-${PV}"
 
 LICENSE="MIT"
@@ -44,6 +48,8 @@ EPYTEST_IGNORE=(
 	lexicon/tests/providers/test_oci.py
 	# Uses tldextract which needs Internet access to download its database
 	lexicon/tests/providers/test_auto.py
+	# All recordings seem to be broken
+	lexicon/tests/providers/test_namecheap.py
 )
 
 pkg_postinst() {
