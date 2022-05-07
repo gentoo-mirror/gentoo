@@ -922,7 +922,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.23.4 1.23.7 1.23.8: Universal Command Line Environment for AWS
+app-admin/awscli 1.23.4 1.23.7 1.23.8 1.23.9: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8386,7 +8386,7 @@ dev-python/astor 0.8.1 0.8.1-r1: Read/rewrite/write Python ASTs
 dev-python/astroid 2.9.3 2.11.2 2.11.3 2.11.4: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3: Astun parser for python
-dev-python/async-lru 1.0.2_p20201029: Simple lru_cache for asyncio
+dev-python/async-lru 1.0.2_p20201029 1.0.3: Simple lru_cache for asyncio
 dev-python/async_generator 1.10-r1: Making it easy to write async iterators in Python 3.5
 dev-python/async_timeout 4.0.2: Timeout context manager for asyncio programs
 dev-python/asyncstdlib 3.10.2 3.10.2-r1 3.10.3 3.10.4: The missing async toolbox
@@ -8442,8 +8442,8 @@ dev-python/boltons 21.0.0: Pure-python utilities in the same spirit as the stand
 dev-python/boolean-py 3.8 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.22.4 1.22.7 1.22.8 9999: The AWS SDK for Python
-dev-python/botocore 1.25.4 1.25.7 1.25.8 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.22.4 1.22.7 1.22.8 1.22.9 9999: The AWS SDK for Python
+dev-python/botocore 1.25.4 1.25.7 1.25.8 1.25.9 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8603,7 +8603,7 @@ dev-python/django-timezone-field 4.2.1 4.2.3 5.0: A Django app providing databas
 dev-python/django_polymorphic 3.0.0 3.1: Seamless Polymorphic Inheritance for Django Models
 dev-python/djangorestframework 3.13.1 3.13.1-r1: Web APIs with django made easy
 dev-python/dkimpy 1.0.5 1.0.5-r1: DKIM and ARC email signing and verification library
-dev-python/dns-lexicon 3.8.3 3.8.4 3.8.5 3.9.0 3.9.2 3.9.4 3.9.5 3.10.0: Manipulate DNS records on various DNS providers in a standardized/agnostic way
+dev-python/dns-lexicon 3.10.0 3.11.0: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.2.1: DNS toolkit for Python
 dev-python/doc8 0.11.1: Style checker for Sphinx (or other) RST documentation
 dev-python/docker-py 5.0.3: Python client for Docker
@@ -8856,7 +8856,7 @@ dev-python/js2py 0.71: JavaScript to Python Translator & JavaScript interpreter 
 dev-python/jschema_to_python 1.2.3: Generate source code for Python classes from a JSON schema
 dev-python/jsmin 3.0.1: JavaScript minifier
 dev-python/json-rpc 1.13.0: JSON-RPC transport implementation for python
-dev-python/json5 0.9.6: A Python implementation of the JSON5 data format
+dev-python/json5 0.9.6 0.9.7: A Python implementation of the JSON5 data format
 dev-python/jsondiff 1.3.1 2.0.0: Diff JSON and JSON-like structures in Python
 dev-python/jsonext 0.4.2: Well-structured helpers for serializing commonly encountered structures to JSON
 dev-python/jsonmerge 1.8.0: Merge a series of JSON documents
@@ -8865,7 +8865,7 @@ dev-python/jsonpickle 2.1.0: Python library for serializing any arbitrary object
 dev-python/jsonpointer 2.2 2.3: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 0.1-r1 0.2: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.2 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
-dev-python/jsonschema 4.4.0-r1 4.4.0-r2 4.5.1: An implementation of JSON-Schema validation for Python
+dev-python/jsonschema 4.4.0-r2 4.5.1: An implementation of JSON-Schema validation for Python
 dev-python/jsonxs 0.6: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9: Create JUnit XML test result documents
 dev-python/jupyter 1.0.0-r4: Jupyter metapackage. Install all the Jupyter components in one go
@@ -8986,8 +8986,8 @@ dev-python/mmtf-python 1.1.2-r1: The python implementation of the MMTF API, deco
 dev-python/mock 4.0.3: Rolling backport of unittest.mock for all Pythons
 dev-python/mongoengine 0.23.1: A Python Object-Document-Mapper for working with MongoDB
 dev-python/mongomock 4.0.0: Library to help testing Python code that interacts with MongoDB via Pymongo
-dev-python/more-itertools 8.12.0-r1: More routines for operating on iterables, beyond itertools
-dev-python/moto 3.1.5 3.1.6 3.1.7: Mock library for boto
+dev-python/more-itertools 8.12.0-r1 8.13.0: More routines for operating on iterables, beyond itertools
+dev-python/moto 3.1.5 3.1.6 3.1.7 3.1.8: Mock library for boto
 dev-python/mpdlcd 0.5.2-r1: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.1.3: Message Passing Interface for Python
 dev-python/mpmath 1.2.1: Python library for arbitrary-precision floating-point arithmetic
@@ -8999,7 +8999,7 @@ dev-python/multipledispatch 0.6.0: Multiple dispatch
 dev-python/munch 2.5.0-r1: A dot-accessible dictionary (a la JavaScript objects)
 dev-python/munkres 1.1.4: Module implementing munkres algorithm for the Assignment Problem
 dev-python/mygpoclient 1.8: A gpodder.net client library
-dev-python/mypy 0.910-r1 0.921 0.930 0.931 0.940 0.941 0.942 0.950: Optional static typing for Python
+dev-python/mypy 0.942 0.950: Optional static typing for Python
 dev-python/mypy_extensions 0.4.3-r1: Optional static typing for Python
 dev-python/mysql-connector-python 8.0.27: Python client library for MariaDB/MySQL
 dev-python/mysqlclient 2.1.0: Python interface to MySQL
@@ -9022,7 +9022,7 @@ dev-python/nbformat 5.2.0 5.3.0-r1 5.4.0: Reference implementation of the Jupyte
 dev-python/nbsphinx 0.8.8-r1: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.9.6: A py.test plugin to validate Jupyter notebooks
 dev-python/ndg-httpsclient 0.5.1: Provides enhanced HTTPS support for httplib and urllib2 using PyOpenSSL
-dev-python/neovim-remote 2.4.0 2.4.2 9999: A tool that helps control neovim processes
+dev-python/neovim-remote 2.4.0 2.4.2 2.5.0 9999: A tool that helps control neovim processes
 dev-python/nest_asyncio 1.5.5: Patch asyncio to allow nested event loops
 dev-python/netaddr 0.8.0: Network address representation and manipulation library
 dev-python/netcdf4-python 1.5.8: Python/numpy interface to the netCDF C library
@@ -9121,7 +9121,7 @@ dev-python/pep517 0.12.0-r1: Wrappers to build Python packages using PEP 517 hoo
 dev-python/pexpect 4.8.0-r2 4.8.0-r3: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 1.13.1: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r1: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.12.47: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.12.47 8.12.48: Python port of Google's libphonenumber
 dev-python/phply 1.2.5: Lexer and parser for PHP source implemented using PLY
 dev-python/picklemagic 0.0_pre20160415: A library for analysing python pickles safely
 dev-python/pickleshare 0.7.5: A small 'shelve' like datastore with concurrency support
@@ -9271,7 +9271,7 @@ dev-python/pylatex 1.4.1: A Python library for creating LaTeX files and snippets
 dev-python/pylev 1.4.0: Python Levenshtein implementation
 dev-python/pylibacl 0.6.0: POSIX ACLs (Access Control Lists) for Python
 dev-python/pylibmc 1.6.1-r2: Libmemcached wrapper written as a Python extension
-dev-python/pylint 2.12.2 2.13.5 2.13.7 2.13.8: Python code static checker
+dev-python/pylint 2.13.5 2.13.7 2.13.8: Python code static checker
 dev-python/pylru 1.2.0 1.2.1: A least recently used (LRU) cache for Python
 dev-python/pyls-spyder 0.4.0-r1: Spyder extensions for the python language server
 dev-python/pymad 0.10-r1: Python wrapper for libmad MP3 decoding in python
@@ -9666,7 +9666,7 @@ dev-python/sphinxcontrib-autoprogram 0.1.7: Documenting CLI programs
 dev-python/sphinxcontrib-bibtex 2.4.2: Sphinx extensions for BibTeX style citations
 dev-python/sphinxcontrib-blockdiag 2.0.0-r1: A sphinx extension for embedding block diagrams using blockdiag
 dev-python/sphinxcontrib-devhelp 1.0.2-r1: Sphinx extension which outputs Devhelp documents
-dev-python/sphinxcontrib-doxylink 1.11.1-r1 1.11.2: Extension to link to external Doxygen API documentation
+dev-python/sphinxcontrib-doxylink 1.11.1-r1 1.11.2 1.12.0: Extension to link to external Doxygen API documentation
 dev-python/sphinxcontrib-github-alt 1.2-r1: Link to GitHub issues, pull requests, commits and users from Sphinx docs
 dev-python/sphinxcontrib-htmlhelp 2.0.0-r1: Sphinx extension which outputs HTML help book
 dev-python/sphinxcontrib-httpdomain 1.8.0-r1: Sphinx domain for documenting HTTP APIs
@@ -9767,7 +9767,7 @@ dev-python/transitions 0.8.11: A lightweight, object-oriented state machine impl
 dev-python/translate-toolkit 3.6.0: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.1.0 22.1.0-r1 22.2.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.10.8 3.11.2: Python library for loading and using triangular meshes
+dev-python/trimesh 3.10.8 3.11.2 3.12.0: Python library for loading and using triangular meshes
 dev-python/trio 0.20.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trustme 0.9.0: #1 quality TLS certs while you wait, for the discerning tester
@@ -9884,7 +9884,7 @@ dev-python/ytmusicapi 0.21.0: Unofficial API for YouTube Music
 dev-python/zc-lockfile 2.0: Basic inter-process locks
 dev-python/zconfig 3.6.0 3.6.0-r1: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.1.0-r2: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.38.4 0.38.5: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.38.4 0.38.5 0.38.6: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.8.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 4.4.1-r2 5.0.1: Zope Component Architecture
 dev-python/zope-configuration 4.4.1-r2: Zope Configuration Architecture
