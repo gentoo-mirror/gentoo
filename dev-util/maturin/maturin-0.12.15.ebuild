@@ -10,11 +10,11 @@ CRATES="
 	aes-soft-0.6.4
 	aesni-0.10.0
 	aho-corasick-0.7.18
-	anyhow-1.0.56
+	anyhow-1.0.57
 	async-io-1.6.0
 	atty-0.2.14
 	autocfg-1.1.0
-	backtrace-0.3.64
+	backtrace-0.3.65
 	base64-0.13.0
 	bitflags-1.3.2
 	block-buffer-0.10.2
@@ -30,22 +30,23 @@ CRATES="
 	bzip2-sys-0.1.11+1.0.8
 	cache-padded-1.2.0
 	camino-1.0.7
-	cargo-options-0.1.3
+	cargo-options-0.1.4
 	cargo-platform-0.1.2
-	cargo-zigbuild-0.8.1
+	cargo-zigbuild-0.8.7
 	cargo_metadata-0.14.2
-	cbindgen-0.21.0
+	cbindgen-0.23.0
 	cc-1.0.73
 	cfg-if-0.1.10
 	cfg-if-1.0.0
 	charset-0.1.3
 	chunked_transfer-1.4.0
 	cipher-0.2.5
-	clap-3.1.8
-	clap_complete-3.1.1
-	clap_complete_fig-3.1.4
+	clap-3.1.17
+	clap_complete-3.1.4
+	clap_complete_fig-3.1.5
 	clap_derive-3.1.7
-	combine-4.6.3
+	clap_lex-0.2.0
+	combine-4.6.4
 	concurrent-queue-1.2.2
 	configparser-3.0.0
 	console-0.15.0
@@ -71,8 +72,8 @@ CRATES="
 	env_logger-0.7.1
 	fastrand-1.7.0
 	fat-macho-0.4.5
-	filetime-0.2.15
-	flate2-1.0.22
+	filetime-0.2.16
+	flate2-1.0.23
 	fnv-1.0.7
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
@@ -104,23 +105,23 @@ CRATES="
 	idna-0.2.3
 	ignore-0.4.18
 	indexmap-1.8.1
-	indoc-1.0.4
+	indoc-1.0.6
 	instant-0.1.12
 	itertools-0.10.3
 	itoa-1.0.1
-	js-sys-0.3.56
+	js-sys-0.3.57
 	keyring-1.1.2
 	lazy_static-1.4.0
 	lddtree-0.2.9
-	libc-0.2.122
-	log-0.4.16
+	libc-0.2.125
+	log-0.4.17
 	mailparse-0.13.8
 	matches-0.1.9
-	memchr-2.4.1
+	memchr-2.5.0
 	mime-0.3.16
 	mime_guess-2.0.4
 	minijinja-0.15.0
-	miniz_oxide-0.4.4
+	miniz_oxide-0.5.1
 	multipart-0.18.0
 	native-tls-0.2.10
 	nb-connect-1.2.0
@@ -128,23 +129,24 @@ CRATES="
 	num-0.3.1
 	num-bigint-0.3.3
 	num-complex-0.3.1
-	num-integer-0.1.44
-	num-iter-0.1.42
+	num-integer-0.1.45
+	num-iter-0.1.43
 	num-rational-0.3.2
-	num-traits-0.2.14
-	num_threads-0.1.5
-	object-0.27.1
+	num-traits-0.2.15
+	num_threads-0.1.6
+	object-0.28.3
 	once_cell-1.10.0
 	opaque-debug-0.3.0
-	openssl-0.10.38
+	openssl-0.10.40
+	openssl-macros-0.1.0
 	openssl-probe-0.1.5
-	openssl-sys-0.9.72
+	openssl-sys-0.9.73
 	os_str_bytes-6.0.0
 	os_type-2.4.0
 	parking-2.0.0
 	path-slash-0.1.4
 	percent-encoding-2.1.0
-	pin-project-lite-0.2.8
+	pin-project-lite-0.2.9
 	pin-utils-0.1.0
 	pkg-config-0.3.25
 	plain-0.2.3
@@ -156,11 +158,11 @@ CRATES="
 	proc-macro-crate-1.1.3
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.37
+	proc-macro2-1.0.38
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.4
 	quick-error-1.2.3
-	quote-1.0.17
+	quote-1.0.18
 	quoted_printable-0.4.5
 	rand-0.8.5
 	rand_chacha-0.3.1
@@ -186,11 +188,11 @@ CRATES="
 	secret-service-2.0.1
 	security-framework-2.6.1
 	security-framework-sys-2.6.1
-	semver-1.0.7
-	serde-1.0.136
-	serde_derive-1.0.136
-	serde_json-1.0.79
-	serde_repr-0.1.7
+	semver-1.0.9
+	serde-1.0.137
+	serde_derive-1.0.137
+	serde_json-1.0.81
+	serde_repr-0.1.8
 	sha2-0.10.2
 	sha2-0.9.9
 	shlex-1.1.0
@@ -201,30 +203,29 @@ CRATES="
 	static_assertions-1.1.0
 	strsim-0.10.0
 	subtle-2.4.1
-	syn-1.0.91
+	syn-1.0.92
 	tar-0.4.38
 	target-lexicon-0.12.3
 	tempfile-3.3.0
 	termcolor-1.1.3
 	terminal_size-0.1.17
 	textwrap-0.15.0
-	thiserror-1.0.30
-	thiserror-impl-1.0.30
+	thiserror-1.0.31
+	thiserror-impl-1.0.31
 	thread_local-1.1.4
 	time-0.3.9
 	time-macros-0.2.4
-	tinyvec-1.5.1
+	tinyvec-1.6.0
 	tinyvec_macros-0.1.0
-	toml-0.5.8
-	toml_edit-0.14.2
+	toml-0.5.9
+	toml_edit-0.14.3
 	typenum-1.15.0
 	unicase-2.6.0
-	unicode-bidi-0.3.7
+	unicode-bidi-0.3.8
 	unicode-linebreak-0.1.2
 	unicode-normalization-0.1.19
 	unicode-width-0.1.9
-	unicode-xid-0.2.2
-	unindent-0.1.8
+	unicode-xid-0.2.3
 	untrusted-0.7.1
 	ureq-2.4.0
 	url-2.2.2
@@ -235,43 +236,47 @@ CRATES="
 	waker-fn-1.1.0
 	walkdir-2.3.2
 	wasi-0.10.2+wasi-snapshot-preview1
-	wasm-bindgen-0.2.79
-	wasm-bindgen-backend-0.2.79
-	wasm-bindgen-macro-0.2.79
-	wasm-bindgen-macro-support-0.2.79
-	wasm-bindgen-shared-0.2.79
-	web-sys-0.3.56
+	wasm-bindgen-0.2.80
+	wasm-bindgen-backend-0.2.80
+	wasm-bindgen-macro-0.2.80
+	wasm-bindgen-macro-support-0.2.80
+	wasm-bindgen-shared-0.2.80
+	web-sys-0.3.57
 	webpki-0.22.0
-	webpki-roots-0.22.2
+	webpki-roots-0.22.3
 	wepoll-ffi-0.1.2
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	xattr-0.2.2
+	xattr-0.2.3
 	zbus-1.9.1
 	zbus_macros-1.9.1
 	zip-0.6.2
 	zvariant-2.10.0
 	zvariant_derive-2.10.0"
 CRATES_TEST="
+	indoc-1.0.4
 	libc-0.2.119
-	libc-0.2.121
+	libc-0.2.123
 	lock_api-0.4.7
 	once_cell-1.9.0
 	parking_lot-0.12.0
 	parking_lot_core-0.9.2
-	proc-macro2-1.0.36
-	pyo3-0.16.3
+	proc-macro2-1.0.37
+	pyo3-0.16.4
 	pyo3-build-config-0.16.0
-	pyo3-build-config-0.16.3
+	pyo3-build-config-0.16.4
 	pyo3-ffi-0.16.0
-	pyo3-ffi-0.16.3
-	pyo3-macros-0.16.3
-	pyo3-macros-backend-0.16.3
+	pyo3-ffi-0.16.4
+	pyo3-macros-0.16.4
+	pyo3-macros-backend-0.16.4
+	python3-dll-a-0.2.0
 	scopeguard-1.1.0
 	smallvec-1.8.0
-	syn-1.0.90
+	syn-1.0.91
+	unicode-xid-0.2.2
+	unindent-0.1.8
 	windows-sys-0.34.0
 	windows_aarch64_msvc-0.34.0
 	windows_i686_gnu-0.34.0
@@ -349,7 +354,10 @@ python_test() {
 	local -x PIP_CONFIG_FILE=${T}/pip.conf
 	local -x VIRTUALENV_SYSTEM_SITE_PACKAGES=1
 
-	cargo_src_test -- --skip locked_doesnt_build_without_cargo_lock
+	# pyo3_no_extension_module is xfail but passes with >=rust-1.60, still
+	# need looking into but is not known to cause issues, disable for now.
+	cargo_src_test -- --skip locked_doesnt_build_without_cargo_lock \
+		--skip pyo3_no_extension_module
 }
 
 python_install_all() {
