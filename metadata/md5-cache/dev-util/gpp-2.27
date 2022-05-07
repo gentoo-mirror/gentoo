@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=prepare
+DESCRIPTION=A generic preprocessor
+EAPI=8
+HOMEPAGE=https://logological.org/gpp https://github.com/logological/gpp
+INHERIT=autotools
+KEYWORDS=~amd64
+LICENSE=LGPL-3+
+SLOT=0
+SRC_URI=https://github.com/logological/gpp/archive/refs/tags/2.27.tar.gz -> gpp-2.27.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4
+_md5_=29f297b17743cb0e7c251624f144a13c
