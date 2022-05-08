@@ -157,6 +157,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=media-libs/libcdr-0.1.0
 	>=media-libs/libepoxy-1.3.1[X]
 	>=media-libs/libfreehand-0.1.0
+	media-libs/libjpeg-turbo:=
 	media-libs/libpagemaker
 	>=media-libs/libpng-1.4:0=
 	>=media-libs/libvisio-0.1.0
@@ -167,7 +168,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	net-misc/curl
 	sci-mathematics/lpsolve
 	sys-libs/zlib
-	virtual/jpeg:0
 	virtual/opengl
 	x11-libs/cairo[X]
 	x11-libs/libXinerama
@@ -279,9 +279,6 @@ BDEPEND="
 			(	sys-devel/clang:12
 				sys-devel/llvm:12
 				=sys-devel/lld-12*	)
-			(	sys-devel/clang:11
-				sys-devel/llvm:11
-				=sys-devel/lld-11*	)
 		)
 	)
 	odk? ( >=app-doc/doxygen-1.8.4 )
