@@ -9,7 +9,6 @@ DESCRIPTION="A community-driven, freely-licensed binary distribution of Microsof
 HOMEPAGE="https://vscodium.com/"
 SRC_URI="
 	amd64? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-x64-${PV}.tar.gz -> ${P}-amd64.tar.gz )
-	arm? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-armhf-${PV}.tar.gz -> ${P}-arm.tar.gz )
 	arm64? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-arm64-${PV}.tar.gz -> ${P}-arm64.tar.gz )
 "
 
@@ -34,7 +33,7 @@ LICENSE="
 	W3C
 "
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE=""
 
 RDEPEND="
@@ -68,17 +67,18 @@ RDEPEND="
 "
 
 QA_PREBUILT="
+	/opt/vscodium/chrome_crashpad_handler
+	/opt/vscodium/chrome-sandbox
 	/opt/vscodium/codium
 	/opt/vscodium/libEGL.so
 	/opt/vscodium/libffmpeg.so
 	/opt/vscodium/libGLESv2.so
-	/opt/vscodium/libvulkan.so*
-	/opt/vscodium/chrome-sandbox
 	/opt/vscodium/libvk_swiftshader.so
-	/opt/vscodium/swiftshader/libEGL.so
-	/opt/vscodium/swiftshader/libGLESv2.so
+	/opt/vscodium/libvulkan.so*
 	/opt/vscodium/resources/app/extensions/*
 	/opt/vscodium/resources/app/node_modules.asar.unpacked/*
+	/opt/vscodium/swiftshader/libEGL.so
+	/opt/vscodium/swiftshader/libGLESv2.so
 "
 
 S="${WORKDIR}"
@@ -92,6 +92,7 @@ src_install() {
 	insinto "/opt/${PN}"
 	doins -r *
 	fperms +x /opt/${PN}/{,bin/}codium
+	fperms +x /opt/${PN}/chrome_crashpad_handler
 	fperms 4711 /opt/${PN}/chrome-sandbox
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass.sh
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass-empty.sh
