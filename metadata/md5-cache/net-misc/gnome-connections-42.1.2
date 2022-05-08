@@ -1,0 +1,17 @@
+BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) dev-libs/glib dev-util/glib-utils dev-util/itstool sys-devel/gettext virtual/pkgconfig test? ( dev-libs/appstream-glib dev-util/desktop-file-utils ) app-arch/xz-utils >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=dev-libs/gobject-introspection >=dev-libs/glib-2.50:2 >=x11-libs/gtk+-3.22:3[introspection] >=net-libs/gtk-vnc-0.4.4[vala] >=gui-libs/libhandy-1.2.0:1[vala] >=dev-libs/libxml2-2.7.8 app-crypt/libsecret[vala] >=net-misc/freerdp-2.0.0:0=
+DESCRIPTION=A remote desktop client for the GNOME desktop environment
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/connections
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson python-any-r1 vala xdg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-libs/gobject-introspection >=dev-libs/glib-2.50:2 >=x11-libs/gtk+-3.22:3[introspection] >=net-libs/gtk-vnc-0.4.4[vala] >=gui-libs/libhandy-1.2.0:1[vala] >=dev-libs/libxml2-2.7.8 app-crypt/libsecret[vala] >=net-misc/freerdp-2.0.0:0=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-connections/42/gnome-connections-42.1.2.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	vala	9badd41d5aab740ae5ac301c4416c5f8	xdg	6024fbc93167fad782e2032933654857
+_md5_=a156a135cac96a7c79ed11f7a52a3217
