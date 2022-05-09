@@ -12,7 +12,7 @@ inherit python-single-r1 cmake docs virtualx xdg
 
 DESCRIPTION="Application for Scientific Data Analysis and Visualization"
 HOMEPAGE="http://scidavis.sourceforge.net/ https://github.com/SciDAVis/scidavis/"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/SciDAVis/scidavis/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+ ZLIB"
 KEYWORDS="~amd64"
@@ -56,13 +56,6 @@ BDEPEND="
 		dev-cpp/gtest
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-2.7-install-locations.patch"
-	"${FILESDIR}/${PN}-2.7-find-qwtplot3d.patch"
-	"${FILESDIR}/${PN}-2.7-fix-build-if-sip4-installed.patch"
-	"${FILESDIR}/${P}-fix-buildfailure.patch"
-)
 
 src_prepare() {
 	cmake_src_prepare
