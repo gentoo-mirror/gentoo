@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install preinst prepare setup
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DESCRIPTION=GNU implementation of the JavaBeans Activation Framework
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/classpathx/jaf/jaf.html
+INHERIT=java-pkg-2 java-ant-2
+IUSE=doc source
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-2-with-linking-exception
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=1
+SRC_URI=mirror://gnu/classpathx/activation-1.1.2.tar.gz
+_eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0
+_md5_=01d86091ef756a34b7d61a16cbdf8fc6
