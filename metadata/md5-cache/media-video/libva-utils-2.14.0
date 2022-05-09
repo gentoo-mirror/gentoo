@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://01.org/linuxmedia/vaapi
 INHERIT=meson
 IUSE=examples putsurface test +vainfo wayland X
-KEYWORDS=amd64 arm64 ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm64 ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=>=x11-libs/libva-2.14.0:=[drm(+),wayland?,X?] wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 )
 REQUIRED_USE=putsurface? ( || ( wayland X ) ) || ( examples putsurface test vainfo )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/intel/libva-utils/archive/2.14.0.tar.gz -> libva-utils-2.14.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c
-_md5_=b658871efcc5369d7cedfd858e6e3eb0
+_md5_=19cce533dd6038e352bec797208e22e1
