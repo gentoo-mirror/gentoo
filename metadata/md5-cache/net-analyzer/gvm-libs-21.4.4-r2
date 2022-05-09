@@ -1,7 +1,7 @@
 BDEPEND=dev-vcs/git sys-devel/bison sys-devel/flex virtual/pkgconfig doc? ( app-doc/doxygen[dot] app-doc/xmltoman app-text/htmldoc dev-perl/CGI dev-perl/SQL-Translator ) test? ( dev-libs/cgreen ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=acct-user/gvm app-crypt/gpgme:= dev-libs/glib:2 dev-libs/hiredis:= dev-libs/libgcrypt:= dev-libs/libgpg-error dev-libs/libxml2:= dev-perl/UUID net-libs/gnutls:= net-libs/libnet:1.1 net-libs/libssh:= sys-apps/util-linux sys-libs/libxcrypt:= sys-libs/zlib ldap? ( net-nds/openldap:= ) radius? ( net-dialup/freeradius-client )
-DESCRIPTION=Greenbone Vulnerability Management (GVM) libraries, previously named openvas-libraries
+DESCRIPTION=Greenbone Vulnerability Management (GVM) libraries
 EAPI=8
 HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/gvm-libs/
 INHERIT=cmake toolchain-funcs
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/greenbone/gvm-libs/archive/v21.4.4.tar.gz -> gvm-libs-21.4.4.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=fdaaa5609e8221d33461a797792c3e83
+_md5_=3cc023539eb33bc6c7ba43b7fe9f9a46
