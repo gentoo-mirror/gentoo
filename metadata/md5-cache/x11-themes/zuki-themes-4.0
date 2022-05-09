@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/sassc >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Zuki themes for GTK, gnome-shell and more
+EAPI=8
+HOMEPAGE=https://github.com/lassekongo83/zuki-themes
+INHERIT=meson
+IUSE=gnome-shell gtk2 xfce
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=>=x11-themes/gnome-themes-standard-3.6 gtk2? ( >=x11-themes/gtk-engines-murrine-0.98.1.1 )
+SLOT=0
+SRC_URI=https://github.com/lassekongo83/zuki-themes/archive/v4.0.tar.gz -> zuki-themes-4.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	meson	4e69b4b5d15387549776392e83e8c42c
+_md5_=67f24d990e82d288a925036f4492556b
