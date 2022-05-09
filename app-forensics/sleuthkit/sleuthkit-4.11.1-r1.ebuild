@@ -36,7 +36,7 @@ DEPEND="
 		dev-java/commons-lang:3.6
 		>=dev-java/commons-validator-1.6:0
 		>=dev-java/gson-2.8.5:2.6
-		dev-java/guava:20
+		dev-java/guava:0
 		>=dev-java/jdbc-postgresql-9.4:0
 		>=dev-java/joda-time-2.4:0
 		dev-java/sparsebitset:0
@@ -245,7 +245,7 @@ src_compile() {
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" commons-lang:3.6
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" commons-validator
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" gson:2.6
-		java-pkg_jar-from --into "${TSK_JAR_DIR}" guava:20
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" guava
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" jdbc-postgresql
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" joda-time
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" sparsebitset

@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 JAVA_PKG_BSFIX_NAME="build.xml build-unix.xml"
 inherit autotools java-pkg-opt-2 java-ant-2
@@ -10,43 +10,22 @@ DESCRIPTION="A collection of file system and media management forensic analysis 
 HOMEPAGE="https://www.sleuthkit.org/sleuthkit/"
 # TODO: sqlite-jdbc does not exist in the tree, we bundle it for now
 #		See: https://bugs.gentoo.org/690010
-# TODO: SparseBitSet does not exist in the tree, we bundle it for now
-#		See: https://bugs.gentoo.org/690012
 # TODO: Upstream uses a very specific version of libewf which is not in
 #       the tree anymore. So we statically compile and link to sleuthkit.
 #       Hopefully upstream will figure something out in the future.
 #		See: https://bugs.gentoo.org/689752
-# TODO: gson-2.8.5 does not exist in the tree. Building it seems to
-# 		require Java 9. We have Java 11 in the tree but I don't see a
-# 		way to use it as a gentoo-vm in order to build gson. Sleuthkit
-# 		upstream still uses Java 8.
-# 		See: https://bugs.gentoo.org/706274
-# TODO: commons-validator-1.6 does not exist in the tree. The latest version
-#		as of writing this ebuild is 1.4.1, for which the build fails. As
-#		per #711930, this is a security sensitive bump. We're gonna fetch
-#		the jar file here and file a bug request for a bump as well:
-#		    https://bugs.gentoo.org/721020
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.tar.gz
 	java? (
-		https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar
 		http://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.25.2/sqlite-jdbc-3.25.2.jar
-		http://repo1.maven.org/maven2/com/zaxxer/SparseBitSet/1.1/SparseBitSet-1.1.jar
-		https://repo1.maven.org/maven2/commons-validator/commons-validator/1.6/commons-validator-1.6.jar
 	)
 	ewf? ( https://github.com/sleuthkit/libewf_64bit/archive/VisualStudio_2010.tar.gz -> sleuthkit-libewf_64bit-20130416.tar.gz )"
 
 LICENSE="BSD CPL-1.0 GPL-2+ IBM java? ( Apache-2.0 )"
-SLOT="0/13" # subslot = major soname version
-KEYWORDS="amd64 ~hppa ppc x86"
-IUSE="aff doc ewf java postgres static-libs test +threads zlib"
+SLOT="0/19" # subslot = major soname version
+KEYWORDS="~amd64 ~hppa ~ppc ~x86"
+IUSE="aff doc ewf java static-libs test +threads zlib"
 RESTRICT="!test? ( test )"
 
-#
-# Note: It is not possible to move the dep on dev-java/jdbc-postgresql
-# inside a conditional postgres? block because java sources import
-# org.postgres unconditionally as of writing this (version 4.6.4). The
-# postgres USE flag will be used for the TSK postgresql support however.
-#
 DEPEND="
 	dev-db/sqlite:3
 	dev-lang/perl:*
@@ -55,11 +34,13 @@ DEPEND="
 	java? (
 		>=dev-java/c3p0-0.9.5:0
 		dev-java/commons-lang:3.6
-		dev-java/guava:20
+		>=dev-java/commons-validator-1.6:0
+		>=dev-java/gson-2.8.5:2.6
+		dev-java/guava:0
 		>=dev-java/jdbc-postgresql-9.4:0
 		>=dev-java/joda-time-2.4:0
+		dev-java/sparsebitset:0
 	)
-	postgres? ( dev-db/postgresql:= )
 	zlib? ( sys-libs/zlib )
 "
 # TODO: add support for not-in-tree libraries libvhdi and libvmdk
@@ -75,13 +56,16 @@ RDEPEND="${DEPEND}
 "
 DEPEND="${DEPEND}
 	java? ( virtual/jdk:1.8 )
-	doc? ( app-doc/doxygen )
 	test? ( >=dev-util/cppunit-1.2.1 )
+"
+BDEPEND="
+	doc? ( app-doc/doxygen )
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.1.0-tools-shared-libs.patch
 	"${FILESDIR}"/${PN}-4.6.4-default-jar-location-fix.patch
+	"${FILESDIR}"/${PN}-4.10.1-exclude-usr-local.patch
 )
 
 src_unpack() {
@@ -122,6 +106,10 @@ src_prepare() {
 	sed -e '/AM_CXXFLAGS/ s/-Werror//g' \
 		-i tsk/util/Makefile.am \
 		-i tsk/pool/Makefile.am || die
+	# Remove -static from LDFLAGS because it doesn't actually create
+	# a static binary. It confuses libtool, who then inserts rpath
+	sed -e '/LDFLAGS/ s/-static//' \
+		-i tools/pooltools/Makefile.am || die
 
 	if use java; then
 		pushd "${S}"/bindings/java &>/dev/null || die
@@ -212,8 +200,6 @@ src_configure() {
 		$(use_with aff afflib)
 		$(use_with zlib)
 	)
-	# Workaround the automagic detection of postgresql
-	local -x ac_cv_lib_pq_PQlibVersion="$(usex postgres)"
 	# TODO: add support for non-existing libraries libvhdi and libvmdk
 	# myeconfargs+=(
 	# 	$(use_with vhdi libvhdi)
@@ -242,15 +228,19 @@ src_compile() {
 
 	# Create symlinks of jars for the required dependencies
 	if use java; then
-		pushd "${S}"/bindings/java &>/dev/null || die
-
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" c3p0
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" commons-lang:3.6
-		java-pkg_jar-from --into "${TSK_JAR_DIR}" guava:20
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" commons-validator
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" gson:2.6
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" guava
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" jdbc-postgresql
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" joda-time
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" sparsebitset
 
-		popd &>/dev/null || die
+		# case-uco needs gson and expects it under case-uco/java/lib
+		# symlink it to the jar dir we create for java bindings
+		ln -s "${TSK_JAR_DIR}" "${S}"/case-uco/java/lib || die
+		ln -s ./gson.jar "${TSK_JAR_DIR}"/gson-2.8.5.jar || die
 	fi
 
 	# Create the doc output dirs if requested
@@ -262,14 +252,20 @@ src_compile() {
 }
 
 src_install() {
+	# Give it an existing bogus ivy home #756766
+	local -x IVY_HOME="${T}"
 	local f
 
 	if use java; then
 		pushd "${S}"/bindings/java &>/dev/null || die
 
-		java-pkg_newjar "dist/${P}.jar" "${PN}.jar"
+		# Install case-uco
+		pushd "${S}"/case-uco/java &>/dev/null || die
+		java-pkg_newjar "dist/${PN}-caseuco-${PV}".jar "${PN}-caseuco.jar"
+		popd || die
 
-		# Install the bundled jar files
+		# Install the bundled jar files as well as the
+		# sleuthkit jar installed here by case-uco
 		pushd "${TSK_JAR_DIR}" &>/dev/null || die
 		for f in *; do
 			# Skip the symlinks java-pkg_jar-from created
@@ -286,6 +282,8 @@ src_install() {
 	fi
 
 	default
+	# Default install target for case-uco installs the jar in the wrong place
+	rm -r "${ED}"/usr/share/java
 
 	# It unconditionally builds both api and jni docs
 	# We install conditionally based on the provided use flags
