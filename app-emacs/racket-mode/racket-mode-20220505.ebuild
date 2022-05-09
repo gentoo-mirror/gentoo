@@ -3,7 +3,7 @@
 
 EAPI=8
 
-H=e321d8ecfb1bc94c3772ef4d20df0ddf9c9c9d76
+H=fbb4a4664e2cc2b5d21eee62735f73b7f0272e60
 NEED_EMACS=25.1
 
 inherit elisp
@@ -11,7 +11,7 @@ inherit elisp
 DESCRIPTION="Emacs modes for Racket: edit, REPL, check-syntax, debug, profile, and more"
 HOMEPAGE="https://github.com/greghendershott/racket-mode/"
 SRC_URI="https://github.com/greghendershott/${PN}/archive/${H}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${H}"
+S="${WORKDIR}"/${PN}-${H}
 
 LICENSE="GPL-2+"
 SLOT="0"
