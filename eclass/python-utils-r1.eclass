@@ -43,7 +43,7 @@ inherit multiprocessing toolchain-funcs
 # All supported Python implementations, most preferred last.
 _PYTHON_ALL_IMPLS=(
 	pypy3
-	python3_{8..10}
+	python3_{8..11}
 )
 readonly _PYTHON_ALL_IMPLS
 
@@ -83,7 +83,7 @@ _python_verify_patterns() {
 	local impl pattern
 	for pattern; do
 		case ${pattern} in
-			-[23]|3.[89]|3.10)
+			-[23]|3.[89]|3.1[01])
 				continue
 				;;
 		esac
@@ -132,7 +132,7 @@ _python_set_impls() {
 			# please keep them in sync with _PYTHON_ALL_IMPLS
 			# and _PYTHON_HISTORICAL_IMPLS
 			case ${i} in
-				pypy3|python2_7|python3_[89]|python3_10)
+				pypy3|python2_7|python3_[89]|python3_1[01])
 					;;
 				jython2_7|pypy|pypy1_[89]|pypy2_0|python2_[5-6]|python3_[1-7])
 					obsolete+=( "${i}" )
@@ -245,7 +245,7 @@ _python_impl_matches() {
 				[[ ${impl} == python${pattern/./_} || ${impl} == pypy3 ]] &&
 					return 0
 				;;
-			3.8|3.10)
+			3.8|3.1[01])
 				[[ ${impl} == python${pattern/./_} ]] && return 0
 				;;
 			*)
@@ -461,6 +461,8 @@ _python_export() {
 						PYTHON_PKG_DEP=">=dev-lang/python-3.9.9-r1:3.9";;
 					python3.10)
 						PYTHON_PKG_DEP=">=dev-lang/python-3.10.0_p1-r1:3.10";;
+					python3.11)
+						PYTHON_PKG_DEP=">=dev-lang/python-3.11.0_beta1-r1:3.11";;
 					python*)
 						PYTHON_PKG_DEP="dev-lang/python:${impl#python}";;
 					pypy)
@@ -1286,6 +1288,9 @@ epytest() {
 		-Wdefault
 		# override color output
 		"--color=${color}"
+		# count is more precise when we're dealing with a large number
+		# of tests
+		-o console_output_style=count
 		# disable the undesirable-dependency plugins by default to
 		# trigger missing argument strips.  strip options that require
 		# them from config files.  enable them explicitly via "-p ..."

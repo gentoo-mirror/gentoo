@@ -851,6 +851,97 @@ _distutils-r1_check_all_phase_mismatch() {
 	fi
 }
 
+# @FUNCTION: _distutils-r1_print_package_versions
+# @INTERNAL
+# @DESCRIPTION:
+# Print the version of the relevant build system packages to aid
+# debugging.
+_distutils-r1_print_package_versions() {
+	local packages=()
+
+	if [[ ${DISTUTILS_USE_PEP517} ]]; then
+		packages+=(
+			dev-python/gpep517
+			dev-python/installer
+		)
+		case ${DISTUTILS_USE_PEP517} in
+			flit)
+				packages+=(
+					dev-python/flit_core
+				)
+				;;
+			flit_scm)
+				packages+=(
+					dev-python/flit_core
+					dev-python/flit_scm
+					dev-python/setuptools_scm
+				)
+				;;
+			hatchling)
+				packages+=(
+					dev-python/hatchling
+				)
+				;;
+			jupyter)
+				packages+=(
+					dev-python/jupyter_packaging
+					dev-python/setuptools
+					dev-python/setuptools_scm
+					dev-python/wheel
+				)
+				;;
+			maturin)
+				packages+=(
+					dev-util/maturin
+				)
+				;;
+			pbr)
+				packages+=(
+					dev-python/pbr
+					dev-python/setuptools
+					dev-python/wheel
+				)
+				;;
+			pdm)
+				packages+=(
+					dev-python/pdm-pep517
+					dev-python/setuptools
+				)
+				;;
+			poetry)
+				packages+=(
+					dev-python/poetry-core
+				)
+				;;
+			setuptools)
+				packages+=(
+					dev-python/setuptools
+					dev-python/setuptools_scm
+					dev-python/wheel
+				)
+				;;
+		esac
+	else
+		case ${DISTUTILS_USE_SETUPTOOLS} in
+			manual|no)
+				return
+				;;
+			*)
+				packages+=(
+					dev-python/setuptools
+				)
+				;;
+		esac
+	fi
+
+	local pkg
+	einfo "Build system packages:"
+	for pkg in "${packages[@]}"; do
+		local installed=$(best_version "${pkg}")
+		einfo "  $(printf '%-30s' "${pkg}"): ${installed#${pkg}-}"
+	done
+}
+
 # @FUNCTION: distutils-r1_python_prepare_all
 # @DESCRIPTION:
 # The default python_prepare_all(). It applies the patches from PATCHES
@@ -893,6 +984,10 @@ distutils-r1_python_prepare_all() {
 		# create source copies for each implementation
 		python_copy_sources
 	fi
+
+	python_export_utf8_locale
+	[[ ${EAPI} == 6 ]] && xdg_environment_reset # Bug 577704
+	_distutils-r1_print_package_versions
 
 	_DISTUTILS_DEFAULT_CALLED=1
 }
@@ -1091,12 +1186,38 @@ distutils_pep517_install() {
 	local -x WHEEL_BUILD_DIR=${BUILD_DIR}/wheel
 	mkdir -p "${WHEEL_BUILD_DIR}" || die
 
+	if [[ -n ${mydistutilsargs[@]} ]]; then
+		die "mydistutilsargs are banned in PEP517 mode (use DISTUTILS_ARGS)"
+	fi
+
+	local config_settings=
+	if [[ -n ${DISTUTILS_ARGS[@]} ]]; then
+		case ${DISTUTILS_USE_PEP517} in
+			setuptools)
+				config_settings=$(
+					"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
+						import json
+						import sys
+						print(json.dumps({"--global-option": sys.argv[1:]}))
+					EOF
+				)
+				;;
+			*)
+				die "DISTUTILS_ARGS are not supported by ${DISTUTILS_USE_PEP517}"
+				;;
+		esac
+	fi
+
 	local build_backend=$(_distutils-r1_get_backend)
 	einfo "  Building the wheel for ${PWD#${WORKDIR}/} via ${build_backend}"
+	local config_args=()
+	[[ -n ${config_settings} ]] &&
+		config_args+=( --config-json "${config_settings}" )
 	local wheel=$(
 		gpep517 build-wheel --backend "${build_backend}" \
 				--output-fd 3 \
-				--wheel-dir "${WHEEL_BUILD_DIR}" 3>&1 >&2 ||
+				--wheel-dir "${WHEEL_BUILD_DIR}" \
+				"${config_args[@]}" 3>&1 >&2 ||
 			die "Wheel build failed"
 	)
 	[[ -n ${wheel} ]] || die "No wheel name returned"
@@ -1181,10 +1302,6 @@ distutils-r1_python_compile() {
 	esac
 
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
-		if [[ -n ${DISTUTILS_ARGS[@]} || -n ${mydistutilsargs[@]} ]]; then
-			die "DISTUTILS_ARGS are not supported in PEP-517 mode"
-		fi
-
 		# python likes to compile any module it sees, which triggers sandbox
 		# failures if some packages haven't compiled their modules yet.
 		addpredict "${EPREFIX}/usr/lib/${EPYTHON}"
@@ -1600,9 +1717,6 @@ distutils-r1_src_prepare() {
 distutils-r1_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 	local ret=0
-
-	python_export_utf8_locale
-	[[ ${EAPI} == 6 ]] && xdg_environment_reset # Bug 577704
 
 	if declare -f python_configure >/dev/null; then
 		_distutils-r1_run_foreach_impl python_configure || ret=${?}
