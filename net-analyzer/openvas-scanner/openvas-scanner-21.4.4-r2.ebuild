@@ -3,43 +3,37 @@
 
 EAPI=8
 
-CMAKE_MAKEFILE_GENERATOR="emake"
 inherit cmake toolchain-funcs
 
-DESCRIPTION="Greenbone vulnerability management libraries, previously named openvas-libraries"
-HOMEPAGE="https://www.greenbone.net/en/ https://github.com/greenbone/gvm-libs/"
-SRC_URI="https://github.com/greenbone/gvm-libs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+MY_PN="openvas"
+MY_DN="openvassd"
 
-LICENSE="GPL-2+"
+DESCRIPTION="Open Vulnerability Assessment Scanner"
+HOMEPAGE="https://www.greenbone.net https://github.com/greenbone/openvas-scanner/"
+SRC_URI="https://github.com/greenbone/openvas-scanner/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 SLOT="0"
+LICENSE="GPL-2 GPL-2+"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc ldap test radius"
+IUSE="doc snmp test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	acct-group/gvm
 	acct-user/gvm
 	app-crypt/gpgme:=
+	dev-db/redis
 	dev-libs/glib:2
-	dev-libs/hiredis:=
 	dev-libs/libgcrypt:=
 	dev-libs/libgpg-error
-	dev-libs/libxml2:=
-	dev-perl/UUID
+	dev-libs/libksba
+	>=net-analyzer/gvm-libs-${PV}
+	snmp? ( net-analyzer/net-snmp:= )
 	net-libs/gnutls:=
-	net-libs/libnet:1.1
+	net-libs/libpcap
 	net-libs/libssh:=
-	sys-apps/util-linux
-	sys-libs/libxcrypt:=
-	sys-libs/zlib
-	ldap? ( net-nds/openldap:= )
-	radius? ( net-dialup/freeradius-client )"
-
-RDEPEND="
-	${DEPEND}"
-
+"
+RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-vcs/git
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
@@ -50,15 +44,21 @@ BDEPEND="
 		dev-perl/CGI
 		dev-perl/SQL-Translator
 	)
-	test? ( dev-libs/cgreen )"
+	test? ( dev-libs/cgreen )
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-20.8.1-disable-automagic-dep.patch
+	"${FILESDIR}"/${PN}-7.0.1-disable-automagic-dep.patch
+	"${FILESDIR}"/${PN}-7.0.1-fix-linking-with-lld.patch
+	#qa fix for rpath
+	"${FILESDIR}"/${PN}-20.8.1-rpath-qa-fix.patch
 )
 
 src_prepare() {
 	cmake_src_prepare
-	# QA-Fix | Remove doxygen warnings for !CLANG
+	# QA-Fix | Correct FHS/Gentoo policy paths for 7.0.0
+	sed -i -e "s*/doc/openvas-scanner/*/doc/openvas-scanner-${PV}/*g" "${S}"/src/CMakeLists.txt || die
+	# QA-Fix | Remove !CLANG doxygen warnings for 7.0.0
 	if use doc; then
 		if ! tc-is-clang; then
 		   local f
@@ -74,8 +74,7 @@ src_prepare() {
 
 	#Remove tests that doesn't work in the network sandbox
 	if use test; then
-		sed -i 's/add_test (networking-test networking-test)/ /g' base/CMakeLists.txt || die
-		sed -i 's/add_test (util-test util-test)/ /g' boreas/CMakeLists.txt || die
+		sed -i 's/add_test (pcap-test pcap-test)/ /g' misc/CMakeLists.txt || die
 	fi
 }
 
@@ -83,10 +82,8 @@ src_configure() {
 	local mycmakeargs=(
 		"-DLOCALSTATEDIR=${EPREFIX}/var"
 		"-DSYSCONFDIR=${EPREFIX}/etc"
-		"-DGVM_RUN_DIR=${EPREFIX}/var/lib/gvm"
-		"-DBUILD_TESTS=$(usex test)"
-		"-DBUILD_WITH_RADIUS=$(usex radius)"
-		"-DBUILD_WITH_LDAP=$(usex ldap)"
+		"-DSBINDIR=${EPREFIX}/usr/bin"
+		"-DBUILD_WITH_SNMP=$(usex snmp)"
 	)
 	cmake_src_configure
 }
@@ -109,7 +106,20 @@ src_install() {
 	fi
 	cmake_src_install
 
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/${MY_DN}.logrotate" "${MY_DN}"
+
 	# Set proper permissions on required files/directories
-	keepdir /var/lib/gvm
-	fowners -R gvm:gvm /var/lib/gvm
+	keepdir /var/log/gvm
+	if ! use prefix; then
+		fowners gvm:gvm /var/log/gvm
+	fi
+
+	keepdir /var/lib/openvas/{gnupg,plugins}
+	if ! use prefix; then
+		fowners -R gvm:gvm /var/lib/openvas
+	fi
+
+	insinto /etc/openvas
+	doins "${FILESDIR}/openvas.conf"
 }
