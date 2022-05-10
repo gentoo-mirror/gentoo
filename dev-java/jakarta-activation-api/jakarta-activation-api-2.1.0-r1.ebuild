@@ -13,16 +13,16 @@ inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Jakarta Activation API jar"
 HOMEPAGE="https://eclipse-ee4j.github.io/jaf/"
-SRC_URI="https://github.com/eclipse-ee4j/jaf/archive/refs/tags/${PV}.tar.gz -> jakarta-activation-${PV}.tar.gz"
+SRC_URI="https://github.com/eclipse-ee4j/jaf/archive/${PV}.tar.gz -> jakarta-activation-${PV}.tar.gz"
 
 LICENSE="EPL-1.0"
 SLOT="2"
 KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 
-DEPEND=">=virtual/jdk-1.8:*"
+DEPEND=">=virtual/jdk-11:*"
 RDEPEND=">=virtual/jre-1.8:*"
 
-DOCS=( ../{CONTRIBUTING,LICENSE,NOTICE,README}.md )
+DOCS=( ../{CONTRIBUTING,NOTICE,README}.md )
 
 S="${WORKDIR}/jaf-${PV}/api"
 

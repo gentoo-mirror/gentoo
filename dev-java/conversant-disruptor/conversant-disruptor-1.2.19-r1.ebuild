@@ -26,7 +26,7 @@ KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 # test? org.slf4j:slf4j-api:1.7.30 -> >=dev-java/slf4j-api-1.7.30:0
 
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 	test? (
 		dev-java/slf4j-api:0
 	)

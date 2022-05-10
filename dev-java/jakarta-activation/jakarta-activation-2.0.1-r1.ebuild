@@ -12,15 +12,15 @@ MAVEN_ID="com.sun.activation:jakarta.activation:2.0.1"
 inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Jakarta Activation"
-HOMEPAGE="https://github.com/eclipse-ee4j/jaf/jakarta.activation"
-SRC_URI="https://github.com/eclipse-ee4j/jaf/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/eclipse-ee4j/jaf"
+SRC_URI="https://github.com/eclipse-ee4j/jaf/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="EPL-1.0"
 SLOT="2"
 KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 "
 
 RDEPEND="

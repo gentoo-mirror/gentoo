@@ -41,13 +41,13 @@ CP_DEPEND="
 # test? junit:junit:4.13.1 -> >=dev-java/junit-4.13.2:4
 
 DEPEND="${CP_DEPEND}
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 	dev-java/osgi-core-api:0"
 
 RDEPEND="${CP_DEPEND}
 	>=virtual/jre-1.8:*"
 
-DOCS=( LICENSE {README,SECURITY}.md release-notes/{CREDITS,VERSION} )
+DOCS=( {README,SECURITY}.md release-notes/{CREDITS,VERSION} )
 
 S="${WORKDIR}/woodstox-${P}"
 
