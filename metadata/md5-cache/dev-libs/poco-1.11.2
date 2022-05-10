@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-libs/libpcre-8.42 mysql? ( !mariadb? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib )
+DEPEND=>=dev-libs/libpcre-8.42 activerecord? ( !app-arch/arc ) mysql? ( !mariadb? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib )
 DESCRIPTION=C++ libraries for building network-based applications
 EAPI=8
 HOMEPAGE=https://pocoproject.org/
@@ -8,10 +8,10 @@ INHERIT=cmake
 IUSE=7z activerecord cppparser +crypto +data examples +file2pagecompiler iodbc +json mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc sqlite +ssl test +util +xml +zip
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Boost-1.0
-RDEPEND=>=dev-libs/libpcre-8.42 mysql? ( !mariadb? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib )
+RDEPEND=>=dev-libs/libpcre-8.42 activerecord? ( !app-arch/arc ) mysql? ( !mariadb? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib )
 REQUIRED_USE=7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) pagecompiler? ( json net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) ssl? ( util ) test? ( data? ( sqlite ) json util xml )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.11.2-release.tar.gz -> poco-1.11.2.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=95d5000c8340da70f76ad29049876772
+_md5_=fb5c9083247f2cfef6eb67cf0dad4f30
