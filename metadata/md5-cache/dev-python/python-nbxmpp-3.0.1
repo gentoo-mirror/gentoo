@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-libs/gobject-introspection net-libs/libsoup[introspection] dev-python/idna[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/precis-i18n[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/unittest-or-fail[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/gpep517-3[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-60.5.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/wheel[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Python library to use Jabber/XMPP networks in a non-blocking way
+EAPI=8
+HOMEPAGE=https://dev.gajim.org/gajim/python-nbxmpp/ https://pypi.org/project/nbxmpp/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/gobject-introspection net-libs/libsoup[introspection] dev-python/idna[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/precis-i18n[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gajim.org/gajim/python-nbxmpp/-/archive/nbxmpp-3.0.1/python-nbxmpp-nbxmpp-3.0.1.tar.bz2
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	491b9bc4e96bbae35530dfcff3069584
+_md5_=5f4d66a652411fb311d99b039aef26c7
