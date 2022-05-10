@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-DESCRIPTION=Jakarta Activation
+DEPEND=>=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Jakarta Activation API jar
 EAPI=8
-HOMEPAGE=https://github.com/eclipse-ee4j/jaf/jakarta.activation
+HOMEPAGE=https://eclipse-ee4j.github.io/jaf/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=EPL-1.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=2
-SRC_URI=https://github.com/eclipse-ee4j/jaf/archive/refs/tags/2.0.1.tar.gz -> jakarta-activation-2.0.1.tar.gz
+SRC_URI=https://github.com/eclipse-ee4j/jaf/archive/2.1.0.tar.gz -> jakarta-activation-2.1.0.tar.gz
 _eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7
-_md5_=7f0e440412a7e71b24a67d2a1355bcd1
+_md5_=1ab8555b3a957d389e447120417be772

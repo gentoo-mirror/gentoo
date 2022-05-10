@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* >=dev-java/jakarta-activation-1.2.2:1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-11:* >=dev-java/jakarta-activation-1.2.2:1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Jakarta Mail API
 EAPI=8
 HOMEPAGE=https://eclipse-ee4j.github.io/mail/
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/eclipse-ee4j/mail/archive/refs/tags/1.6.7.tar.gz -> javax-mail-1.6.7.tar.gz
 _eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7
-_md5_=f23ccfe629108df360e2d8c45fde5df8
+_md5_=4f2134451cece532730774e7a4819886
