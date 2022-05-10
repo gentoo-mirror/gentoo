@@ -4,8 +4,9 @@
 EAPI=7
 
 DESCRIPTION="Icinga PHP libraries for Icinga Web 2"
-HOMEPAGE="https://github.com/Icinga/icinga-php-thirdparty"
-SRC_URI="https://github.com/Icinga/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/Icinga/icinga-php-library"
+MY_GITHUB_AUTHOR="Icinga"
+SRC_URI="https://github.com/${MY_GITHUB_AUTHOR}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -16,7 +17,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_install() {
-	insinto "/usr/share/icinga-php/vendor"
+	insinto "/usr/share/icinga-php/ipl"
 	cd "${S}"
 	doins -r *
 }
