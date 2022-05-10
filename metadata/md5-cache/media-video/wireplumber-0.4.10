@@ -1,16 +1,17 @@
-BDEPEND=dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst setup test unpack
+BDEPEND=dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=dev-libs/glib-2.62 >=media-video/pipewire-0.3.48:= virtual/libc virtual/libintl elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
 DESCRIPTION=Replacement for pipewire-media-session
 EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/pipewire/wireplumber
-INHERIT=lua-single meson systemd git-r3
+INHERIT=lua-single meson systemd
 IUSE=elogind system-service systemd test lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=dev-libs/glib-2.62 >=media-video/pipewire-0.3.48:= virtual/libc virtual/libintl elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd ) system-service? ( acct-user/pipewire acct-group/pipewire )
 REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ?? ( elogind systemd ) system-service? ( systemd )
 RESTRICT=!test? ( test )
 SLOT=0/0.4
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	meson	4e69b4b5d15387549776392e83e8c42c	systemd	2736b403a83f194b59b767f3b344c2c1	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.10/wireplumber-0.4.10.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	meson	4e69b4b5d15387549776392e83e8c42c	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=b55190120928fcd5a5d841aabe4a0649
