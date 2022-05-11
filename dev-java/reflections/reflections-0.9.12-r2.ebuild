@@ -30,7 +30,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 CP_DEPEND="
 	dev-java/dom4j:1
-	dev-java/gson:2.6
+	dev-java/gson:2.9
 	dev-java/javassist:3
 	dev-java/slf4j-api:0
 	dev-java/slf4j-simple:0
@@ -43,7 +43,7 @@ CP_DEPEND="
 # test? junit:junit:4.13 -> >=dev-java/junit-4.13.2:4
 
 DEPEND="
-	java-virtuals/servlet-api:2.5
+	dev-java/tomcat-servlet-api:2.5
 	>=virtual/jdk-1.8:*
 	${CP_DEPEND}
 "
@@ -54,7 +54,7 @@ RDEPEND="
 
 S="${WORKDIR}/${P}"
 
-JAVA_CLASSPATH_EXTRA="servlet-api-2.5"
+JAVA_CLASSPATH_EXTRA="tomcat-servlet-api-2.5"
 JAVA_SRC_DIR=( "src/main/java" )
 
 JAVA_TEST_GENTOO_CLASSPATH="junit-4"
