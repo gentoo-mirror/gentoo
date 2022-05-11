@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit autotools python-single-r1
+inherit autotools python-any-r1
 
 DESCRIPTION="Libtpms-based TPM emulator"
 HOMEPAGE="https://github.com/stefanberger/swtpm"
@@ -16,8 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="fuse +gnutls seccomp test"
 RESTRICT="!test? ( test )"
-
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="fuse? (
 		dev-libs/glib:2
@@ -32,14 +30,15 @@ RDEPEND="fuse? (
 	acct-user/tss
 	dev-libs/openssl:0=
 	dev-libs/json-glib
-	dev-libs/libtpms
-	${PYTHON_DEPS}"
+	dev-libs/libtpms"
 
 DEPEND="${RDEPEND}
 	test? (
 		net-misc/socat
 		dev-tcltk/expect
 	)"
+
+BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.6.0-fix-localca-path.patch"
