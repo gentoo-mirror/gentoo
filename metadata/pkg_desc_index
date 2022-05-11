@@ -5573,7 +5573,7 @@ dev-libs/c-blosc 1.21.1: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.15: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1: RPC/Serialization system with capabilities support
-dev-libs/capstone 4.0.2-r2 5.0_rc2: disassembly/disassembler framework + bindings
+dev-libs/capstone 4.0.2-r2 5.0_rc2-r1: disassembly/disassembler framework + bindings
 dev-libs/cdk 5.0.20210324-r2 5.0.20211216: A library of curses widgets
 dev-libs/cereal 1.3.0-r2 1.3.2 1.3.2-r2: Header-only C++11 serialization library
 dev-libs/cgilib 0.7-r1: A simple and lightweight interface to the CGI for C and C++ programs
@@ -11462,7 +11462,7 @@ dev-util/qbs 1.18.0 1.19.1: Modern build tool for software projects
 dev-util/qdevicemonitor 1.0.1-r2 9999: Crossplatform log viewer for Android, iOS and text files
 dev-util/qstlink2 1.2.3: GUI and CLI ST-Link V2(Debugger/Programmer) client
 dev-util/quilt 0.67 9999: quilt patch manager
-dev-util/radare2 5.6.8: unix-like reverse engineering framework and commandline tools
+dev-util/radare2 5.6.8-r1: unix-like reverse engineering framework and commandline tools
 dev-util/ragel 6.10 7.0.0.12 7.0.4 7.0.4-r1 7.0.4-r2: Compiles finite state machines from regular languages into executable code
 dev-util/rats 2.4: RATS - Rough Auditing Tool for Security
 dev-util/rbtools 2.0.1: Command line tools for use with Review Board
@@ -11473,7 +11473,7 @@ dev-util/redo 0.42c 99999: Smaller, easier, more powerful, and more reliable tha
 dev-util/regexxer 0.10-r1: An interactive tool for performing search and replace operations
 dev-util/rej 0.16-r1: A utility for solving diff/patch rejects
 dev-util/rinstall 0.1.1: Utility for declarative installation of programs
-dev-util/rizin 0.3.4: reverse engineering framework for binary analysis
+dev-util/rizin 0.3.4 0.3.4-r1: reverse engineering framework for binary analysis
 dev-util/rocm-clang-ocl 4.3.0: OpenCL compilation with clang compiler
 dev-util/rocm-cmake 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2-r1 9999: Radeon Open Compute CMake Modules
 dev-util/rocm-smi 4.0.0 4.3.0 4.5.2 5.0.2 9999: ROCm System Management Interface Library
@@ -12450,15 +12450,15 @@ gnome-base/libgtop 2.40.0-r1: A library that provides top functionality to appli
 gnome-base/librsvg 2.40.21 2.52.6 2.52.7 2.54.0 2.54.1: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 41.2 42.0 42.1.1: Default file manager for the GNOME desktop
 gnome-extra/chrome-gnome-shell 10-r5: GNOME Shell integration for Chrome/Chromium, Firefox, Vivaldi, Opera browsers
-gnome-extra/cinnamon 5.0.6-r1 5.2.7-r2 5.2.7-r3: A fork of GNOME Shell with layout similar to GNOME 2
-gnome-extra/cinnamon-control-center 5.0.2 5.2.1-r1: Cinnamons's main interface to configure various aspects of the desktop
-gnome-extra/cinnamon-desktop 5.0.0 5.2.1: A collection of libraries and utilites used by Cinnamon
-gnome-extra/cinnamon-menus 5.0.0 5.2.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 5.0.7 5.2.1: Screensaver for Cinnamon
-gnome-extra/cinnamon-session 5.0.1 5.2.0: Cinnamon session manager
-gnome-extra/cinnamon-settings-daemon 5.0.4 5.2.0: Cinnamon's settings daemon
-gnome-extra/cinnamon-translations 5.0.2 5.2.2: Translation data for Cinnamon
-gnome-extra/cjs 5.0.1 5.2.0: Linux Mint's fork of gjs for Cinnamon
+gnome-extra/cinnamon 5.2.7-r3: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon-control-center 5.2.1-r1: Cinnamons's main interface to configure various aspects of the desktop
+gnome-extra/cinnamon-desktop 5.2.1: A collection of libraries and utilites used by Cinnamon
+gnome-extra/cinnamon-menus 5.2.0: Cinnamon's library for the Desktop Menu fd.o specification
+gnome-extra/cinnamon-screensaver 5.2.1: Screensaver for Cinnamon
+gnome-extra/cinnamon-session 5.2.0: Cinnamon session manager
+gnome-extra/cinnamon-settings-daemon 5.2.0: Cinnamon's settings daemon
+gnome-extra/cinnamon-translations 5.2.2: Translation data for Cinnamon
+gnome-extra/cjs 5.2.0: Linux Mint's fork of gjs for Cinnamon
 gnome-extra/eiciel 0.9.13.1: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.42.4 3.44.0 3.44.1: Evolution groupware backend
 gnome-extra/evolution-ews 3.42.4 3.44.0 3.44.1: Evolution module for connecting to Microsoft Exchange Web Services
@@ -12503,8 +12503,8 @@ gnome-extra/libgsf 1.14.48 1.14.49: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2019.02.14 2020.03.04: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6: A nautilus extension for sending files to locations
-gnome-extra/nemo 5.0.4 5.2.4: A file manager for Cinnamon, forked from Nautilus
-gnome-extra/nemo-fileroller 5.0.1 5.2.0: Nemo file-roller integration
+gnome-extra/nemo 5.2.4: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo-fileroller 5.2.0: Nemo file-roller integration
 gnome-extra/nm-applet 1.24.0 1.26.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
 gnome-extra/pch-session 40.2 41.2 42.0: Unofficial gnome based session with different default settings and extensions
@@ -18949,7 +18949,7 @@ x11-libs/startup-notification 0.12-r1: Application startup notification and feed
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.28.2-r209 0.66.2 0.68.0: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r2 3.0.4-r302 3.0.4-r303 3.0.5.1: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
-x11-libs/xapp 2.2.4 2.2.8: Cross-desktop libraries and common resources
+x11-libs/xapp 2.2.8: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-util 0.4.0-r2: X C-language Bindings sample implementations
 x11-libs/xcb-util-cursor 0.1.3-r3: X C-language Bindings sample implementations
@@ -19599,7 +19599,7 @@ x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.24.2: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r1: Simple EWMH compatible window manager with titlebars and frames
 x11-wm/metacity 3.42.0 3.44.0: GNOME Flashback window manager
-x11-wm/muffin 5.0.2 5.2.0: Compositing window manager forked from Mutter for use with Cinnamon
+x11-wm/muffin 5.2.0: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 41.4 42.0-r1 42.1: GNOME compositing window manager based on Clutter
 x11-wm/notion 3_p2015061300-r100 9999: Notion is a tiling, tabbed window manager for the X window system
