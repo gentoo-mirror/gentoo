@@ -27,10 +27,6 @@ BDEPEND="
 	>=dev-lang/go-1.13
 "
 
-PATCHES=(
-	"${FILESDIR}"/0001-fix-desktop-file.patch
-)
-
 src_unpack() {
 	if [[ ${PV} == *9999 ]]; then
 		git-r3_src_unpack
@@ -41,9 +37,9 @@ src_unpack() {
 }
 
 src_compile() {
-	LDFLAGS= \
+	unset LDFLAGS
 	emake GOFLAGS="$(usex notmuch "-tags=notmuch" "")" \
-		PREFIX="${EPREFIX}/usr"VERSION=${PV}  all
+		PREFIX="${EPREFIX}/usr" VERSION=${PV}  all
 }
 
 src_install() {
