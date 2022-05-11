@@ -1,15 +1,16 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare unpack
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
 DEPEND=net-libs/libpcap sys-apps/hwloc:0= dev-libs/libbsd dev-libs/openssl:0= netlink? ( dev-libs/libnl:3 ) pcre? ( dev-libs/libpcre ) airdrop-ng? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) airgraph-ng? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) experimental? ( sys-libs/zlib ) sqlite? ( >=dev-db/sqlite-3.4 )
 DESCRIPTION=WLAN tools for breaking 802.11 WEP/WPA keys
 EAPI=8
 HOMEPAGE=http://www.aircrack-ng.org
-INHERIT=toolchain-funcs distutils-r1 flag-o-matic autotools git-r3
+INHERIT=toolchain-funcs distutils-r1 flag-o-matic autotools
 IUSE=+airdrop-ng +airgraph-ng +netlink +pcre +sqlite +experimental python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=net-libs/libpcap sys-apps/hwloc:0= dev-libs/libbsd dev-libs/openssl:0= netlink? ( dev-libs/libnl:3 ) pcre? ( dev-libs/libpcre ) airdrop-ng? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) airgraph-ng? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) experimental? ( sys-libs/zlib ) sqlite? ( >=dev-db/sqlite-3.4 ) kernel_linux? ( net-wireless/iw net-wireless/wireless-tools sys-apps/ethtool sys-apps/usbutils sys-apps/pciutils ) sys-apps/hwdata airdrop-ng? ( net-wireless/lorcon[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 REQUIRED_USE=airdrop-ng? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) airgraph-ng? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	491b9bc4e96bbae35530dfcff3069584	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://github.com/aircrack-ng/aircrack-ng/archive/refs/tags/1.7.tar.gz -> aircrack-ng-1.7.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	491b9bc4e96bbae35530dfcff3069584	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4
 _md5_=58b25b8ea20d4c3e78d1323c96b53ecc
