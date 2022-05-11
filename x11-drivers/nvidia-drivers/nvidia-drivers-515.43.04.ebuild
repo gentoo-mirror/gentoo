@@ -8,21 +8,23 @@ inherit desktop flag-o-matic linux-mod multilib readme.gentoo-r1 \
 	systemd toolchain-funcs unpacker user-info
 
 NV_KERNEL_MAX="5.17"
+NV_URI="https://download.nvidia.com/XFree86/"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://www.nvidia.com/download/index.aspx"
 SRC_URI="
-	amd64? ( https://us.download.nvidia.com/XFree86/Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
-	arm64? ( https://us.download.nvidia.com/XFree86/aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
-	$(printf "https://github.com/NVIDIA/%s/archive/refs/tags/${PV}.tar.gz -> %s-${PV}.tar.gz " \
-		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})"
+	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
+	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
+		$(printf "${NV_URI}%s/%s-${PV}.tar.bz2 " \
+			nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})"
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S="${WORKDIR}"
 
 LICENSE="NVIDIA-r2 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* ~amd64 ~arm64"
-IUSE="+X abi_x86_32 abi_x86_64 +driver persistenced +static-libs +tools wayland"
+#KEYWORDS="-* ~amd64 ~arm64" # beta version, keeping unkeyworded
+IUSE="+X abi_x86_32 abi_x86_64 +driver kernel-open persistenced +static-libs +tools wayland"
+REQUIRED_USE="kernel-open? ( driver )"
 
 COMMON_DEPEND="
 	acct-group/video
@@ -88,6 +90,7 @@ pkg_setup() {
 	use driver || return
 
 	local CONFIG_CHECK="
+		BACKLIGHT_CLASS_DEVICE
 		PROC_FS
 		~DRM_KMS_HELPER
 		~SYSVIPC
@@ -108,6 +111,7 @@ pkg_setup() {
 		nvidia-modeset(video:kernel)
 		nvidia-peermem(video:kernel)
 		nvidia-uvm(video:kernel)"
+	use kernel-open && MODULE_NAMES=${MODULE_NAMES//:kernel/:kernel-open}
 
 	linux-mod_pkg_setup
 
@@ -154,7 +158,7 @@ src_prepare() {
 
 	# prevent detection of incomplete kernel DRM support (bug #603818)
 	sed 's/defined(CONFIG_DRM/defined(CONFIG_DRM_KMS_HELPER/g' \
-		-i kernel/conftest.sh || die
+		-i kernel{,-open}/conftest.sh || die
 
 	# adjust service files
 	sed 's/__USER__/nvpd/' \
@@ -165,6 +169,10 @@ src_prepare() {
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
 	cp "${FILESDIR}"/nvidia-470.conf "${T}"/nvidia.conf || die
 	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
+
+	# makefile attempts to install wayland library even if not built
+	use wayland || sed -i 's/ WAYLAND_LIB_install$//' \
+		nvidia-settings/src/Makefile || die
 }
 
 src_compile() {
@@ -176,6 +184,7 @@ src_compile() {
 		HOST_LD="$(tc-getBUILD_LD)"
 		NV_USE_BUNDLED_LIBJANSSON=0
 		NV_VERBOSE=1 DO_STRIP= MANPAGE_GZIP= OUTPUTDIR=out
+		WAYLAND_AVAILABLE=$(usex wayland 1 0)
 		XNVCTRL_CFLAGS=-fPIC #840389
 	)
 
@@ -224,7 +233,7 @@ src_install() {
 			nvidia_icd.json nvidia_layers.json")
 		$(usev !wayland libnvidia-vulkan-producer)
 		libGLX_indirect # non-glvnd unused fallback
-		libnvidia-gtk nvidia-{settings,xconfig} # built from source
+		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
 		libnvidia-egl-gbm 15_nvidia_gbm # gui-libs/egl-gbm
 		libnvidia-egl-wayland 10_nvidia_wayland # gui-libs/egl-wayland
 	)
@@ -437,6 +446,13 @@ pkg_postinst() {
 		fi
 		ewarn "...then downgrade to a legacy branch if possible. For details, see:"
 		ewarn "https://www.nvidia.com/object/IO_32667.html"
+	fi
+
+	if use kernel-open; then
+		ewarn
+		ewarn "Open source variant of ${PN} was selected, be warned it is experimental"
+		ewarn "and only usable with Turing / Ampere and later GPUs. Please also see:"
+		ewarn "${EROOT}/usr/share/doc/${PF}/html/kernel_open.html"
 	fi
 
 	if use !abi_x86_32 && [[ -v NV_HAD_ABI32 ]]; then
