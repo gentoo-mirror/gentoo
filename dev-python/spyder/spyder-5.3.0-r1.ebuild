@@ -4,12 +4,12 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_USE_PEP517=setuptools
 
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="cd0c65d943595da438410559811a5809bf0227a3"
+DOCS_PV="f99196cc267b07fa7ad56f0134744b545fa21fcd"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -48,20 +48,21 @@ RDEPEND="
 	>=dev-python/pickleshare-0.4[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.3[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0[${PYTHON_USEDEP}]
-	>=dev-python/python-lsp-black-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/python-lsp-black-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
 	>=dev-python/pyzmq-17[${PYTHON_USEDEP}]
-	~dev-python/qdarkstyle-3.0.2[${PYTHON_USEDEP}]
+	>=dev-python/qdarkstyle-3.0.2[${PYTHON_USEDEP}]
+	<dev-python/qdarkstyle-3.1.0[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.1.10[${PYTHON_USEDEP}]
 	>=dev-python/qtawesome-1.0.2[${PYTHON_USEDEP}]
-	>=dev-python/qtconsole-5.2.1[${PYTHON_USEDEP}]
-	<dev-python/qtconsole-5.3.0[${PYTHON_USEDEP}]
-	>=dev-python/QtPy-1.5.0[${PYTHON_USEDEP},svg,webengine]
+	>=dev-python/qtconsole-5.3.0[${PYTHON_USEDEP}]
+	<dev-python/qtconsole-5.4.0[${PYTHON_USEDEP}]
+	>=dev-python/QtPy-2.0.1[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.2.0[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-2.3.0[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.3.0[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
@@ -121,10 +122,11 @@ python_prepare_all() {
 	# runs against things packaged in external-deps dir
 	rm conftest.py || die
 
-	# Do not depend on pyqt5<5.13, this dependency is carried by QtPy[pyqt5]
-	# Do not depend on pyqtwebengine<5.13, this dependency is carried by QtPy[webengine]
+	# Do not depend on pyqt5<5.16, this dependency is carried by QtPy[pyqt5]
+	# Do not depend on pyqtwebengine<5.16, this dependency is carried by QtPy[webengine]
 	# Do not depend on parso and jedi, this is dependency is carried in python-lsp-server
 	# Do not depend on python-lsp-server, this dependency is carried in pyls-spyder
+	# Do not depend on ipython, this dependency is carried in spyder-kernels
 	# The explicit version requirements only make things more complicated, if e.g.
 	# pyls-spyder gains compatibility with a newer version of python-lsp-server
 	# in a new release it will take time for this information to propagate into
@@ -138,6 +140,7 @@ python_prepare_all() {
 		-e '/parso/d' \
 		-e '/jedi/d' \
 		-e '/pylint/d' \
+		-e '/ipython/d' \
 			requirements/conda.txt || die
 	sed -i \
 		-e "/'pyqt5[ 0-9<=>.,]*',/d" \
@@ -146,6 +149,7 @@ python_prepare_all() {
 		-e "/'parso[ 0-9<=>.,]*',/d" \
 		-e "/'jedi[ 0-9<=>.,]*',/d" \
 		-e "/'pylint[ 0-9<=>.,]*',/d" \
+		-e "/'ipython[ 0-9<=>.,]*',/d" \
 			setup.py || die
 	sed -i \
 		-e "/^PYLS_REQVER/c\PYLS_REQVER = '>=0.0.1'" \
@@ -153,9 +157,10 @@ python_prepare_all() {
 		-e "/^PARSO_REQVER/c\PARSO_REQVER = '>=0.0.1'" \
 		-e "/^JEDI_REQVER/c\JEDI_REQVER = '>=0.0.1'" \
 		-e "/^PYLINT_REQVER/c\PYLINT_REQVER = '>=0.0.1'" \
+		-e "/^IPYTHON_REQVER/c\IPYTHON_REQVER = '>=0.0.1'" \
 			spyder/dependencies.py || die
 
-	# do not check deps, fails because we removed pyqt5 dependency above
+	# do not check deps, fails because we removed dependencies above
 	sed -i -e 's:test_dependencies_for_spyder_setup_install_requires_in_sync:_&:' \
 		spyder/tests/test_dependencies_in_sync.py || die
 
@@ -185,14 +190,14 @@ pkg_postinst() {
 	optfeature "Import Matlab workspace files in the Variable Explorer" dev-python/scipy
 	optfeature "Run Cython files in the IPython console" dev-python/cython
 	optfeature "The hdf5/h5py plugin" dev-python/h5py
-	optfeature "The line profiler plugin" dev-python/spyder-line-profiler
-	optfeature "The memory profiler plugin" dev-python/spyder-memory-profiler
+	# optfeature "The line profiler plugin" dev-python/spyder-line-profiler
+	# optfeature "The memory profiler plugin" dev-python/spyder-memory-profiler
 	# spyder-autopep8 does not have a release (yet)
 	# and are not compatible with >=spyder-4.0.0 at the moment
 	# optfeature "The autopep8 plugin" dev-python/spyder-autopep8
-	optfeature "Vim key bindings" dev-python/spyder-vim
+	# optfeature "Vim key bindings" dev-python/spyder-vim
 	optfeature "Unittest support" dev-python/spyder-unittest
-	optfeature "Jupyter notebook support" dev-python/spyder-notebook
+	# optfeature "Jupyter notebook support" dev-python/spyder-notebook
 	optfeature "System terminal inside spyder" dev-python/spyder-terminal
 	# spyder-reports not yet updated to >=spyder-4.0.0
 	# optfeature "Markdown reports using Pweave" dev-python/spyder-reports
