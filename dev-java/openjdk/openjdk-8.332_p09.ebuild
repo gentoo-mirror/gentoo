@@ -1,50 +1,23 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit check-reqs eapi7-ver flag-o-matic java-pkg-2 java-vm-2 multiprocessing pax-utils toolchain-funcs
+inherit check-reqs eapi8-dosym flag-o-matic java-pkg-2 java-vm-2 multiprocessing toolchain-funcs
 
-# we need latest -ga tag from hg, but want to keep build number as well
+# we need latest -ga tag from git, but want to keep build number as well
 # as _p component of the gentoo version string.
 
-MY_PV=$(ver_rs 1 'u' 2 '-' ${PV%_p*}-ga)
-MY_PN_AARCH64="${PN}-aarch64-shenandoah"
-MY_PV_AARCH64="$(ver_rs 1 'u' 2 '-' ${PV/_p/-b})"
-MY_P_AARCH64="${MY_PN_AARCH64/#${PN}-}-jdk${MY_PV_AARCH64}"
-
-BASE_URI="https://hg.${PN}.java.net/jdk8u/jdk8u"
-AARCH64_URI="https://hg.${PN}.java.net/aarch64-port/jdk8u-shenandoah"
+MY_PV="$(ver_rs 1 'u' 2 '-' ${PV%_p*}-ga)"
+SLOT="${PV%%[.+]*}"
 
 DESCRIPTION="Open source implementation of the Java programming language"
 HOMEPAGE="https://openjdk.java.net"
-SRC_URI="
-	!arm64? (
-		${BASE_URI}/archive/jdk${MY_PV}.tar.bz2 -> ${P}.tar.bz2
-		${BASE_URI}/corba/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-corba-${PV}.tar.bz2
-		${BASE_URI}/hotspot/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-hotspot-${PV}.tar.bz2
-		${BASE_URI}/jaxp/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-jaxp-${PV}.tar.bz2
-		${BASE_URI}/jaxws/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-jaxws-${PV}.tar.bz2
-		${BASE_URI}/jdk/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-jdk-${PV}.tar.bz2
-		${BASE_URI}/langtools/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-langtools-${PV}.tar.bz2
-		${BASE_URI}/nashorn/archive/jdk${MY_PV}.tar.bz2 -> ${PN}-nashorn-${PV}.tar.bz2
-	)
-	arm64? (
-		${AARCH64_URI}/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-${PV}.tar.bz2
-		${AARCH64_URI}/corba/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-corba-${PV}.tar.bz2
-		${AARCH64_URI}/hotspot/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-hotspot-${PV}.tar.bz2
-		${AARCH64_URI}/jaxp/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-jaxp-${PV}.tar.bz2
-		${AARCH64_URI}/jaxws/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-jaxws-${PV}.tar.bz2
-		${AARCH64_URI}/jdk/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-jdk-${PV}.tar.bz2
-		${AARCH64_URI}/langtools/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-langtools-${PV}.tar.bz2
-		${AARCH64_URI}/nashorn/archive/${MY_P_AARCH64}.tar.bz2 -> ${MY_PN_AARCH64}-nashorn-jdk${PV}.tar.bz2
-	)
-"
+SRC_URI="https://github.com/openjdk/jdk${SLOT}u/archive/refs/tags/jdk${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 arm64 ppc64 x86"
-IUSE="alsa debug cups doc examples headless-awt javafx +jbootstrap pch selinux source"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+IUSE="alsa debug cups doc examples headless-awt javafx +jbootstrap selinux source"
 
 COMMON_DEPEND="
 	media-libs/freetype:2=
@@ -90,7 +63,13 @@ DEPEND="
 	)
 "
 
+BDEPEND="
+	virtual/pkgconfig
+"
+
 PDEPEND="javafx? ( dev-java/openjfx:${SLOT} )"
+
+S="${WORKDIR}/jdk${SLOT}u-jdk${MY_PV}"
 
 PATCHES=( "${FILESDIR}/openjdk-8-insantiate-arrayallocator.patch" )
 
@@ -125,16 +104,6 @@ pkg_setup() {
 	java-pkg-2_pkg_setup
 }
 
-src_unpack() {
-	default
-	mv -v "jdk${SLOT}u"* "${P}" || die
-
-	local repo
-	for repo in corba hotspot jdk jaxp jaxws langtools nashorn; do
-		mv -v "${repo}-"* "${P}/${repo}" || die
-	done
-}
-
 src_prepare() {
 	default
 
@@ -162,11 +131,15 @@ src_configure() {
 
 	local myconf=(
 			--disable-ccache
+			--disable-freetype-bundling
+			--disable-precompiled-headers
 			--enable-unlimited-crypto
 			--with-boot-jdk="${JDK_HOME}"
 			--with-extra-cflags="${CFLAGS}"
 			--with-extra-cxxflags="${CXXFLAGS}"
 			--with-extra-ldflags="${LDFLAGS}"
+			--with-freetype-lib="$( $(tc-getPKG_CONFIG) --variable=libdir freetype2 )"
+			--with-freetype-include="$( $(tc-getPKG_CONFIG) --variable=includedir freetype2)/freetype2"
 			--with-giflib=system
 			--with-jtreg=no
 			--with-jobs=1
@@ -184,13 +157,6 @@ src_configure() {
 			$(tc-is-clang && echo "--with-toolchain-type=clang")
 		)
 
-	# PaX breaks pch, bug #601016
-	if use pch && ! host-is-pax; then
-		myconf+=( --enable-precompiled-headers )
-	else
-		myconf+=( --disable-precompiled-headers )
-	fi
-
 	(
 		unset _JAVA_OPTIONS JAVA JAVA_TOOL_OPTIONS JAVAC MAKE XARGS
 		CFLAGS= CXXFLAGS= LDFLAGS= \
@@ -204,6 +170,8 @@ src_compile() {
 	local myemakeargs=(
 		JOBS=$(makeopts_jobs)
 		LOG=debug
+		CFLAGS_WARNINGS_ARE_ERRORS= # No -Werror
+		NICE= # Use PORTAGE_NICENESS, don't adjust further down
 		$(usex doc docs '')
 		$(usex jbootstrap bootcycle-images images)
 	)
@@ -212,7 +180,7 @@ src_compile() {
 
 src_install() {
 	local dest="/usr/$(get_libdir)/${PN}-${SLOT}"
-	local ddest="${ED%/}/${dest#/}"
+	local ddest="${ED}/${dest#/}"
 
 	cd "${S}"/build/*-release/images/j2sdk-image || die
 
@@ -237,7 +205,7 @@ src_install() {
 	dodir "${dest}"
 	cp -pPR * "${ddest}" || die
 
-	dosym ../../../../../../etc/ssl/certs/java/cacerts "${dest}"/jre/lib/security/cacerts
+	dosym -r /etc/ssl/certs/java/cacerts "${dest}"/jre/lib/security/cacerts
 
 	java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
 	java-vm_set-pax-markings "${ddest}"

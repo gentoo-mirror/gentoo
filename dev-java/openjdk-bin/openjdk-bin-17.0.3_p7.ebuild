@@ -6,24 +6,36 @@ EAPI=8
 inherit java-vm-2 toolchain-funcs
 
 abi_uri() {
+	local baseuri="https://github.com/adoptium/temurin${SLOT}-binaries/releases/download/jdk-${MY_PV}/"
+	local musl=
 	local os=linux
+
 	case ${2} in
 		*-macos)    os=mac      ;;
 		*-solaris)  os=solaris  ;;
 	esac
+
+	if [[ ${3} == musl ]]; then
+		os=alpine-linux
+		musl=true
+	fi
+
 	echo "${2-$1}? (
-			https://github.com/adoptium/temurin${SLOT}-binaries/releases/download/jdk-${MY_PV}/OpenJDK${SLOT}U-jdk_${1}_${os}_hotspot_${MY_PV//+/_}.tar.gz
-		)"
+		${musl:+ elibc_musl? ( }
+			${baseuri}/OpenJDK${SLOT}U-jdk_${1}_${os}_hotspot_${MY_PV//+/_}.tar.gz
+		${musl:+ ) } )"
 }
 
 MY_PV=${PV/_p/+}
 SLOT=${MY_PV%%[.+]*}
 
 SRC_URI="
-	$(abi_uri arm)
 	$(abi_uri aarch64 arm64)
-	$(abi_uri ppc64le ppc64)
+	$(abi_uri arm)
 	$(abi_uri x64 amd64)
+	$(abi_uri x64 amd64 musl)
+	$(abi_uri aarch64 arm64-macos)
+	$(abi_uri ppc64le ppc64)
 	$(abi_uri x64 x64-macos)
 "
 
@@ -39,7 +51,8 @@ RDEPEND="
 		media-libs/fontconfig:1.0
 		media-libs/freetype:2
 		media-libs/harfbuzz
-		>=sys-libs/glibc-2.2.5:*
+		elibc_glibc? ( >=sys-libs/glibc-2.2.5:* )
+		elibc_musl? ( sys-libs/musl )
 		sys-libs/zlib
 		alsa? ( media-libs/alsa-lib )
 		cups? ( net-print/cups )
@@ -104,8 +117,7 @@ src_install() {
 	fi
 
 	rm -v lib/security/cacerts || die
-	dosym ../../../../etc/ssl/certs/java/cacerts \
-		"${dest}"/lib/security/cacerts
+	dosym -r /etc/ssl/certs/java/cacerts "${dest}"/lib/security/cacerts
 
 	dodir "${dest}"
 	cp -pPR * "${ddest}" || die
@@ -121,4 +133,16 @@ src_install() {
 
 pkg_postinst() {
 	java-vm-2_pkg_postinst
+
+	if use gentoo-vm ; then
+		ewarn "WARNING! You have enabled the gentoo-vm USE flag, making this JDK"
+		ewarn "recognised by the system. This will almost certainly break"
+		ewarn "many java ebuilds as they are not ready for openjdk-${SLOT}"
+	else
+		ewarn "The experimental gentoo-vm USE flag has not been enabled so this JDK"
+		ewarn "will not be recognised by the system. For example, simply calling"
+		ewarn "\"java\" will launch a different JVM. This is necessary until Gentoo"
+		ewarn "fully supports Java ${SLOT}. This JDK must therefore be invoked using its"
+		ewarn "absolute location under ${EPREFIX}/opt/${P}."
+	fi
 }
