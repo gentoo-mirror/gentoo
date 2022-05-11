@@ -8,17 +8,19 @@ PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
-DESCRIPTION="Identify specific nodes in a JSON document (according to draft 08)"
+DESCRIPTION="Color names and value formats defined by the HTML and CSS specifications"
 HOMEPAGE="
-	https://github.com/stefankoegl/python-json-pointer/
-	https://pypi.org/project/jsonpointer/
+	https://github.com/ubernostrum/webcolors/
+	https://pypi.org/project/webcolors/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-LICENSE="BSD"
 SLOT="0"
+LICENSE="BSD"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
-python_test() {
-	"${EPYTHON}" tests.py || die "Tests fail with ${EPYTHON}"
-}
+BDEPEND="
+	dev-python/six[${PYTHON_USEDEP}]
+"
+
+distutils_enable_tests unittest
