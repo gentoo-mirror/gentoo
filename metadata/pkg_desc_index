@@ -8741,7 +8741,7 @@ dev-python/gitdb 4.0.8 4.0.9: GitDB is a pure-Python git object database
 dev-python/github3 3.0.0 3.1.0 3.1.1-r1 3.1.2 3.2.0: A wrapper for the GitHub API written in python
 dev-python/glob2 0.7: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
-dev-python/gmpy 2.1.2: Python bindings for GMP, MPC, MPFR and MPIR libraries
+dev-python/gmpy 2.1.2 2.1.2-r1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.7.1-r2 2.7.2-r1 2.7.3: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.44.0 2.45.0 2.46.0 2.47.0: Google API Client for Python
 dev-python/google-apitools 0.5.32: Python library to manipulate Google APIs
@@ -15758,7 +15758,7 @@ net-misc/httpstat 1.3.1: httpstat visualizes cURL statistics in a way of beauty 
 net-misc/httptype 1.3.9-r1: Returns the http host software of a website
 net-misc/hylafaxplus 7.0.3-r1: Enterprise client-server fax package for class 1 and 2 fax modems
 net-misc/iaxmodem 1.3.3: Software modem that uses an IAX channel instead of a traditional phone line
-net-misc/icaclient 21.8.0.40 21.9.0.25 22.3.0.24: ICA Client for Citrix Presentation servers
+net-misc/icaclient 21.8.0.40 21.9.0.25 22.3.0.24-r1: ICA Client for Citrix Presentation servers
 net-misc/icecast 2.4.4-r1: Opensource alternative to shoutcast that supports mp3, ogg and aac streaming
 net-misc/ices 2.0.2-r1: Icecast OGG streaming client, supports on the fly re-encoding
 net-misc/ifenslave 1.1.0-r6: Attach and detach slave interfaces to a bonding device
@@ -18167,8 +18167,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.188 5.4.190 5.4.191 5.4.192 5.10.109 5.10.112-r1 5.10.113 5.10.114 5.15.32-r1 5.15.35-r1 5.15.36 5.15.37 5.15.38 5.17.4-r1 5.17.5 5.17.6: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.188 5.4.190 5.4.191 5.4.192 5.10.109 5.10.112-r1 5.10.113 5.10.114 5.15.32-r1 5.15.35-r1 5.15.36 5.15.37 5.15.38 5.17.4-r1 5.17.5 5.17.6: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.188 5.4.190 5.4.191 5.4.192 5.4.193 5.10.109 5.10.112-r1 5.10.113 5.10.114 5.10.115 5.15.32-r1 5.15.35-r1 5.15.36 5.15.37 5.15.38 5.15.39 5.17.4-r1 5.17.5 5.17.6 5.17.7: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.188 5.4.190 5.4.191 5.4.192 5.4.193 5.10.109 5.10.112-r1 5.10.113 5.10.114 5.10.115 5.15.32-r1 5.15.35-r1 5.15.36 5.15.37 5.15.38 5.15.39 5.17.4-r1 5.17.5 5.17.6 5.17.7: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.309 4.9.311 4.9.312 4.9.313 4.14.275 4.14.276 4.14.277 4.14.278 4.19.237 4.19.238 4.19.239 4.19.240 4.19.241 4.19.242 5.4.188 5.4.189 5.4.190 5.4.191 5.4.192 5.4.193 5.10.109 5.10.110 5.10.112-r1 5.10.113 5.10.114 5.10.115 5.15.32-r1 5.15.33 5.15.35-r1 5.15.36 5.15.37 5.15.38 5.15.39 5.17.1 5.17.1-r1 5.17.2 5.17.4-r1 5.17.5 5.17.6 5.17.7: Full sources including the Gentoo patchset for the 5.17 kernel tree
 sys-kernel/git-sources 5.18_rc1 5.18_rc2 5.18_rc3 5.18_rc4 5.18_rc5 5.18_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 3 5: Gentoo fork of installkernel script from debianutils
@@ -18184,7 +18184,7 @@ sys-kernel/pf-sources 5.15_p6-r1 5.16_p2 5.16_p3 5.16_p4 5.16_p5 5.16_p7 5.17_p1
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.235_p106 4.19.237_p107 5.4.182_p72-r1 5.10.106_p64 5.15.29_p37 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.188 5.4.190 5.4.191 5.4.192 5.10.109 5.10.113 5.10.114 5.15.32 5.15.36 5.15.37 5.15.38 5.17.5 5.17.6: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.188 5.4.190 5.4.191 5.4.192 5.4.193 5.10.109 5.10.113 5.10.114 5.10.115 5.15.32 5.15.36 5.15.37 5.15.38 5.15.39 5.17.5 5.17.6 5.17.7: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.313 4.14.278 4.19.242 5.4.193 5.10.115 5.15.39 5.17.7: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.17.1: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18369,7 +18369,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.188 5.4.190 5.4.191 5.4.192 5.10.109 5.10.112 5.10.113 5.10.114 5.15.32 5.15.35 5.15.36 5.15.37 5.15.38 5.17.4 5.17.5 5.17.6: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.188 5.4.190 5.4.191 5.4.192 5.4.193 5.10.109 5.10.112 5.10.113 5.10.114 5.10.115 5.15.32 5.15.35 5.15.36 5.15.37 5.15.38 5.15.39 5.17.4 5.17.5 5.17.6 5.17.7: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam

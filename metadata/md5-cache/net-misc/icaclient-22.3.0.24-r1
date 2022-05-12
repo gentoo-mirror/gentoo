@@ -1,6 +1,6 @@
 DEFINED_PHASES=install nofetch postinst postrm prepare setup
 DESCRIPTION=ICA Client for Citrix Presentation servers
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.citrix.com/
 INHERIT=desktop wrapper xdg-utils
 IUSE=l10n_de l10n_es l10n_fr l10n_ja l10n_zh-CN
@@ -11,4 +11,4 @@ RESTRICT=mirror strip userpriv fetch
 SLOT=0
 SRC_URI=amd64? ( linuxx64-22.3.0.24.tar.gz ) x86? ( linuxx86-22.3.0.24.tar.gz )
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=0abd0726a4810d017513216c6ecc752a
+_md5_=334e41e5dc475e0321104c130bdebf77
