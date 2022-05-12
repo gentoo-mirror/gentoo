@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=dev-libs/libevdev media-libs/freetype:2= media-libs/libpng:= media-libs/libsdl2 media-libs/openal media-libs/rtmidi net-libs/libslirp sys-libs/zlib qt5? ( x11-libs/libXi )
+DEPEND=app-emulation/faudio dev-libs/libevdev media-libs/freetype:2= media-libs/libpng:= media-libs/libsdl2 media-libs/openal media-libs/rtmidi net-libs/libslirp sys-libs/zlib qt5? ( x11-libs/libXi )
 DESCRIPTION=Emulator of x86-based machines based on PCem
 EAPI=8
 HOMEPAGE=https://github.com/86Box/86Box
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=dinput +dynarec experimental +fluidsynth +munt new-dynarec +openal +qt5 +threads
 KEYWORDS=~amd64
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libevdev media-libs/freetype:2= media-libs/libpng:= media-libs/libsdl2 media-libs/openal media-libs/rtmidi net-libs/libslirp sys-libs/zlib qt5? ( x11-libs/libXi ) fluidsynth? ( media-sound/fluidsynth ) munt? ( media-libs/munt-mt32emu ) openal? ( media-libs/openal ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qttranslations:5 dev-qt/qtwidgets:5 )
+RDEPEND=app-emulation/faudio dev-libs/libevdev media-libs/freetype:2= media-libs/libpng:= media-libs/libsdl2 media-libs/openal media-libs/rtmidi net-libs/libslirp sys-libs/zlib qt5? ( x11-libs/libXi ) fluidsynth? ( media-sound/fluidsynth ) munt? ( media-libs/munt-mt32emu ) openal? ( media-libs/openal ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qttranslations:5 dev-qt/qtwidgets:5 )
 SLOT=0
 SRC_URI=https://github.com/86Box/86Box/archive/refs/tags/v3.4.1.tar.gz -> 86Box-3.4.1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=b902a31141cfbc58976d76e4209a0c89
+_md5_=e20ca492820b98b61965a90c69cb18f0
