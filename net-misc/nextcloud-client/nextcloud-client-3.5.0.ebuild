@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake xdg
+inherit cmake virtualx xdg
 
 DESCRIPTION="Desktop Syncing Client for Nextcloud"
 HOMEPAGE="https://github.com/nextcloud/desktop"
@@ -11,13 +11,14 @@ SRC_URI="https://github.com/nextcloud/desktop/archive/v${PV/_/-}.tar.gz -> ${P}.
 
 LICENSE="CC-BY-3.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="doc dolphin nautilus test webengine"
 RESTRICT="!test? ( test )"
 
-COMMON_DEPEND=">=dev-db/sqlite-3.34:3
+COMMON_DEPEND="
+	>=dev-db/sqlite-3.34:3
 	>=dev-libs/openssl-1.1.0:0=
-	dev-libs/qtkeychain[qt5(+)]
+	dev-libs/qtkeychain:=[qt5(+)]
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
@@ -33,9 +34,10 @@ COMMON_DEPEND=">=dev-db/sqlite-3.34:3
 		kde-frameworks/kio:5
 	)
 	nautilus? ( dev-python/nautilus-python )
-	webengine? ( dev-qt/qtwebengine:5[widgets] )"
-
-DEPEND="${COMMON_DEPEND}
+	webengine? ( dev-qt/qtwebengine:5[widgets] )
+"
+DEPEND="
+	${COMMON_DEPEND}
 	dev-qt/linguist-tools:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtxml:5
@@ -50,11 +52,9 @@ DEPEND="${COMMON_DEPEND}
 	test? (
 		dev-util/cmocka
 		dev-qt/qttest:5
-	)"
-
+	)
+"
 RDEPEND="${COMMON_DEPEND}"
-
-PATCHES=( "${FILESDIR}"/${PN}-3.3.4-inkscape_to_rsvg.patch )
 
 S="${WORKDIR}/desktop-${PV/_/-}"
 
@@ -78,10 +78,22 @@ src_configure() {
 		$(cmake_use_find_package webengine Qt5WebEngineWidgets)
 		-DBUILD_SHELL_INTEGRATION_DOLPHIN=$(usex dolphin)
 		-DBUILD_SHELL_INTEGRATION_NAUTILUS=$(usex nautilus)
-		-DUNIT_TESTING=$(usex test)
+		-DBUILD_TESTING=$(usex test)
 	)
 
 	cmake_src_configure
+}
+
+src_test() {
+	virtx cmake_src_test
+}
+
+src_compile() {
+	local compile_targets=(all)
+	if use doc; then
+		compile_targets+=(doc doc-man)
+	fi
+	cmake_src_compile ${compile_targets[@]}
 }
 
 pkg_postinst() {
