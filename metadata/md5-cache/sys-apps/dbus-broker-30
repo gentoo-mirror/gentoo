@@ -1,0 +1,15 @@
+BDEPEND=doc? ( dev-python/docutils ) virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=audit? ( >=sys-process/audit-3.0 >=sys-libs/libcap-ng-0.6 ) launcher? ( >=dev-libs/expat-2.2 >=sys-apps/systemd-230:0= ) selinux? ( >=sys-libs/libselinux-3.2 )
+DESCRIPTION=Linux D-Bus Message Broker
+EAPI=8
+HOMEPAGE=https://github.com/bus1/dbus-broker/wiki
+INHERIT=meson
+IUSE=audit doc +launcher selinux
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=Apache-2.0
+RDEPEND=audit? ( >=sys-process/audit-3.0 >=sys-libs/libcap-ng-0.6 ) launcher? ( >=dev-libs/expat-2.2 >=sys-apps/systemd-230:0= ) selinux? ( >=sys-libs/libselinux-3.2 ) launcher? ( sys-apps/dbus )
+SLOT=0
+SRC_URI=https://github.com/bus1/dbus-broker/releases/download/v30/dbus-broker-30.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3
+_md5_=cdea82944a2b82ea92166636668bea11
