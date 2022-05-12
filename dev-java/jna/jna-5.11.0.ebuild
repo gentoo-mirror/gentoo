@@ -4,7 +4,7 @@
 EAPI=8
 
 JAVA_PKG_IUSE="doc source test"
-MAVEN_ID="net.java.dev.jna:jna:5.10.0"
+MAVEN_ID="net.java.dev.jna:jna:5.11.0"
 
 inherit java-pkg-2 java-ant-2 toolchain-funcs
 
@@ -45,7 +45,7 @@ RDEPEND="
 
 DOCS=( README.md CHANGES.md OTHERS TODO )
 PATCHES=(
-	"${FILESDIR}/${PV}-build.xml.patch"
+	"${FILESDIR}/5.10.0-build.xml.patch"
 	"${FILESDIR}/4.2.2-makefile-flags.patch"
 )
 
