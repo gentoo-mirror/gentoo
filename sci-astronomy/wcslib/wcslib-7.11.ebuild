@@ -24,10 +24,6 @@ BDEPEND="
 	>=sys-devel/flex-2.6.0
 	virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}/${P}-tofits.patch"
-)
-
 src_configure() {
 	# workaround until upstream fix it properly
 	append-fflags $(test-flags-FC -fallow-argument-mismatch)
@@ -57,11 +53,6 @@ src_configure() {
 	fi
 	econf "${myconf[@]}"
 	sed -i -e 's/COPYING\*//' GNUmakefile || die
-}
-
-src_test() {
-	# -j1 to work around a race condition
-	emake -j1 check
 }
 
 src_install () {
