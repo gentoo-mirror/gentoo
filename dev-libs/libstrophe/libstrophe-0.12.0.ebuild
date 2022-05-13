@@ -6,7 +6,8 @@ DESCRIPTION="A simple, lightweight C library for writing XMPP clients"
 HOMEPAGE="http://strophe.im/libstrophe/"
 SRC_URI="https://github.com/strophe/${PN}/releases/download/${PV}/${P}.tar.xz"
 LICENSE="|| ( MIT GPL-3 )"
-SLOT="0"
+# Subslot: ${SONAME}.1 to differentiate from previous versions without SONAME
+SLOT="0/0.1"
 KEYWORDS="~amd64"
 IUSE="doc expat gnutls"
 
