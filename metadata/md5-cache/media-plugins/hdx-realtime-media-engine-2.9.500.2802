@@ -1,14 +1,14 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=install nofetch postinst setup unpack
 DESCRIPTION=HDX RealTime Media Engine plugin for Citrix Workspace App
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.citrix.com/
 INHERIT=unpacker
 KEYWORDS=~amd64 ~x86
 LICENSE=icaclient
-RDEPEND=>=net-misc/icaclient-20.12.0.12-r1 || ( media-sound/pulseaudio media-sound/apulse )
+RDEPEND=>=net-misc/icaclient-20.12.0.12-r1 || ( media-video/pipewire media-sound/pulseaudio media-sound/apulse )
 RESTRICT=fetch mirror strip
 SLOT=0
-SRC_URI=amd64? ( HDX_RealTime_Media_Engine_2.9.300_for_Linux_x64.zip ) x86? ( HDX_RealTime_Media_Engine_2.9.300_for_Linux.zip )
+SRC_URI=amd64? ( HDX_RealTime_Media_Engine_2.9.500_for_Linux_x64.zip ) x86? ( HDX_RealTime_Media_Engine_2.9.500_for_Linux.zip )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	unpacker	697382d119fd3d195f110b7979184285
-_md5_=f3729c98580f773e81f1817dd5f2c4e9
+_md5_=456636aa49323e5fc1e6d9c9f2068cee
