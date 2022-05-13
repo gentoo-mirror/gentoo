@@ -183,8 +183,9 @@ acct-group/kube-controller-manager 0-r1: System group: kube-controller-manager
 acct-group/kube-scheduler 0-r1: System group: kube-scheduler
 acct-group/kvm 0-r1: System group: kvm
 acct-group/ldap 0: System group: ldap
+acct-group/libreoffice 0: System group: libreoffice
 acct-group/libvirt 0-r1: System group: libvirt
-acct-group/lightdm 0: A group for x11-misc/lightdm
+acct-group/lightdm 0-r1: A group for x11-misc/lightdm
 acct-group/lighttpd 0-r1: System group: lighttpd
 acct-group/litecoin 0: Group for net-p2p/litecoind
 acct-group/lldpd 0-r1: System group: lldpd
@@ -324,7 +325,7 @@ acct-group/rrdcached 0: System group: rrdcached
 acct-group/rslsync 0: A group for net-p2p/resilio-sync
 acct-group/rspamd 0-r1: Group for rspamd - Rapid spam filtering system
 acct-group/rstudio-server 0-r1: group for sci-mathematics/rstudio
-acct-group/rt 0: A group for www-apps/rt
+acct-group/rt 0-r1: A group for www-apps/rt
 acct-group/rtkit 0-r1: Group for the Realtime Policy and Watchdog Daemon
 acct-group/rundeck 0: A group for app-misc/rundeck-bin
 acct-group/rwhoisd 0: Group for net-misc/rwhoisd
@@ -628,6 +629,8 @@ acct-user/kube-apiserver 0-r1: user for kube-apiserver
 acct-user/kube-controller-manager 0-r1: user for kube-controller-manager
 acct-user/kube-scheduler 0-r1: user for kube-scheduler
 acct-user/ldap 0: A user for ldap
+acct-user/libreoffice 0: A user for the headless LibreOffice server
+acct-user/lightdm 0: A user for x11-misc/lightdm
 acct-user/lighttpd 0-r1: A user for lighttpd
 acct-user/litecoin 0: User for net-p2p/litecoind
 acct-user/lldpd 0-r1: User for net-misc/lldpd
@@ -766,6 +769,7 @@ acct-user/rrdcached 0: A user for net-analyzer/rrdtool
 acct-user/rslsync 0: A user for net-p2p/resilio-sync
 acct-user/rspamd 0-r1: User for rspamd - Rapid spam filtering system
 acct-user/rstudio-server 0-r1: user for sci-mathematics/rstudio
+acct-user/rt 0: A user for www-apps/rt
 acct-user/rtkit 0-r1: User for the Realtime Policy and Watchdog Daemon
 acct-user/rundeck 0: A user for app-misc/rundeck-bin
 acct-user/rwhoisd 0: User for net-misc/rwhoisd
@@ -3194,7 +3198,7 @@ app-office/kraft 0.95: Software to manage quotes and invoices in small enterpris
 app-office/ktimetracker 5.0.1-r1: Todo management and time tracker
 app-office/ledger 3.2.1: Double-entry accounting system with a command-line reporting interface
 app-office/libalkimia 8.1.0-r1 8.1.1: Library with common classes and functionality used by KDE finance applications
-app-office/libreoffice 7.2.6.2-r1 7.3.2.2-r1 7.3.3.2-r2 7.3.9999 9999: A full office productivity suite
+app-office/libreoffice 7.2.6.2-r1 7.3.2.2-r1 7.3.3.2-r3 7.3.9999 9999: A full office productivity suite
 app-office/libreoffice-bin 7.2.6.2: A full office productivity suite. Binary package
 app-office/libreoffice-bin-debug 7.2.6.2: LibreOffice, a full office productivity suite. Binary package, debug info
 app-office/libreoffice-l10n 7.2.6.2 7.3.2.2 7.3.3.2: Translations for the Libreoffice suite
@@ -4059,7 +4063,7 @@ dev-db/barman 2.12: Administration tool for disaster recovery of PostgreSQL serv
 dev-db/bucardo 5.4.1: An asynchronous PostgreSQL replication system
 dev-db/cdb 0.75-r4: Fast, reliable, simple package for creating and reading constant databases
 dev-db/citus 9.5.10 10.0.6 10.1.3 10.1.4 10.2.4 10.2.5 11.0.1_beta0: Open-source postgresql extension for clustering/multi-node setups
-dev-db/cockroach 2.1.5 19.1.1: open source database for building cloud services
+dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
 dev-db/cpp-driver 2.11.0: DataStax C/C++ Driver for Cassandra
 dev-db/datadraw 3.1.1: feature rich database generator for high performance C applications
 dev-db/etcd 3.3.23 3.3.24 3.4.14 3.4.16: Highly-available key value store for shared configuration and service discovery
@@ -5676,7 +5680,7 @@ dev-libs/imath 3.1.4-r3 3.1.4-r4 3.1.5: Imath basic math package
 dev-libs/inih 53 55: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r2 4.1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 22.13.22789-r2 22.16.22992-r2 22.17.23034 22.18.23063: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-compute-runtime 22.13.22789-r2 22.16.22992-r2 22.17.23034 22.18.23063 22.19.23136: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-library 0_pre20211123-r1: A user mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.1.0-r1 0.2.0-r1 0.3.0-r1 0.4.2: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1: Intelligent Storage Acceleration Library
@@ -6030,7 +6034,7 @@ dev-libs/skalibs 2.9.3.0 2.11.1.0 2.11.2.0: General-purpose libraries from skarn
 dev-libs/snowball-stemmer 2.1.0-r1 2.2.0: Snowball compiler and stemming algorithms
 dev-libs/softhsm 2.6.1-r2: A software PKCS#11 implementation
 dev-libs/sord 0.16.8-r1 9999: Library for storing RDF data in memory
-dev-libs/spdlog 1.8.2 1.8.5 1.8.5-r1 1.9.2 1.9.2-r1 9999: Very fast, header only, C++ logging library
+dev-libs/spdlog 1.9.2 1.9.2-r1 1.10.0 9999: Very fast, header only, C++ logging library
 dev-libs/spsdeclib 5.1-r2: Kryoflux SPS Decoder Library
 dev-libs/squareball 0.2.0 9999: A general-purpose library for C99
 dev-libs/starpu 1.2.6-r1 1.3.9: Unified runtime system for heterogeneous multicore architectures
@@ -13685,7 +13689,7 @@ media-libs/glm 0.9.9.8-r1: OpenGL Mathematics
 media-libs/glpng 1.46-r1: OpenGL PNG image library
 media-libs/glu 9.0.2 9999: The OpenGL Utility Library
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
-media-libs/gmmlib 22.1.2 9999: Intel Graphics Memory Management Library
+media-libs/gmmlib 22.1.2 22.1.3 9999: Intel Graphics Memory Management Library
 media-libs/gnonlin 1.4.0-r1: Set of GStreamer elements to ease the creation of non-linear multimedia editors
 media-libs/graphene 1.10.6-r1 1.10.8: A thin layer of types for graphic libraries
 media-libs/grilo 0.3.14: A framework for easy media discovery and browsing
@@ -15068,7 +15072,7 @@ net-analyzer/snortalog 2.4.3-r1: A powerful perl script that summarizes snort lo
 net-analyzer/snortsam 2.70-r1: Snort plugin that allows automated blocking of IP addresses on several firewalls
 net-analyzer/softflowd 1.0.0: flow-based network traffic analyser capable of Cisco NetFlow data export
 net-analyzer/speedtest++ 0.0.20210829: High performance speedtest.net CLI
-net-analyzer/speedtest-cli 2.1.3: Command line interface for testing internet bandwidth using speedtest.net
+net-analyzer/speedtest-cli 2.1.3-r1: Command line interface for testing internet bandwidth using speedtest.net
 net-analyzer/sqlninja 0.2.6_p1-r1: A SQL Server injection & takeover tool
 net-analyzer/squid-graph 3.2-r2: Squid logfile analyzer and traffic grapher
 net-analyzer/squidsites 1.01-r2: A tool to parse Squid access log file and to generate reports
@@ -16259,7 +16263,7 @@ net-wireless/suwidgets 0.1.0-r1: graphical library containing all SigDigger's cu
 net-wireless/tempestsdr 0.0_p20200221 9999: Remote video eavesdropping using a software-defined radio platform
 net-wireless/ubertooth 2018.12.1 2020.12.1 9999: open source wireless development platform suitable for Bluetooth experimentation
 net-wireless/uhd 4.1.0.5 4.2.0.0: Universal Software Radio Peripheral (USRP) Hardware Driver
-net-wireless/unifi 6.5.55-r2 7.0.25-r2 7.1.61 7.1.61-r1: A Management Controller for Ubiquiti Networks UniFi APs
+net-wireless/unifi 6.5.55-r2 7.0.25-r2 7.1.61 7.1.61-r1 7.1.65: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.3 9999: Universal Radio Hacker: investigate wireless protocols like a boss
 net-wireless/wavemon 0.9.3-r1 0.9.4: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r5: WLAN tool for breaking 802.11 WEP keys
@@ -16923,7 +16927,7 @@ sci-libs/superlu_mt 3.1-r1: Multithreaded sparse LU factorization library
 sci-libs/symengine 0.6.0-r1 0.7.0-r1 0.8.1-r1 0.9.0: Fast symbolic manipulation library, written in C++
 sci-libs/symmetrica 3.0.1: C library for representation theory, combinatorics, and more
 sci-libs/szip 2.1.1: Extended-Rice lossless compression algorithm implementation
-sci-libs/ta-lib 0.4.0: Technical Analysis Library for analyzing financial markets trends
+sci-libs/ta-lib 0.4.0 0.4.0-r1: Technical Analysis Library for analyzing financial markets trends
 sci-libs/tamu_anova 0.2-r1: ANOVA Extensions to the GNU Scientific Library
 sci-libs/taucs 2.2-r1: C library of sparse linear solvers
 sci-libs/tensorflow 2.5.0-r3 2.7.0 2.8.0: Computation framework using data flow graphs for scalable machine learning
@@ -18637,7 +18641,7 @@ www-apps/prewikka 5.2.0: Graphical front-end analysis console for the Prelude Fr
 www-apps/radicale 3.1.5 3.1.7: A simple CalDAV calendar server
 www-apps/redmine 4.1.5 4.2.3: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.0.0 2.1.0: Issue-tracking system with command-line, web, and e-mail interfaces
-www-apps/rt 4.4.4-r1: RT is an enterprise-grade ticketing system
+www-apps/rt 4.4.4-r2: RT is an enterprise-grade ticketing system
 www-apps/rutorrent 3.8-r1 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
 www-apps/selfoss 2.18-r2: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/sfpg 4.9.0: A web gallery in one single PHP file
@@ -18936,7 +18940,7 @@ x11-libs/libtinynotify-systemwide 0.1 9999: A system-wide notifications module f
 x11-libs/libva 2.13.0-r2 2.14.0 9999: Video Acceleration (VA) API for Linux
 x11-libs/libva-compat 1.8.3-r1 1.8.3-r2: Video Acceleration (VA) API for Linux
 x11-libs/libva-intel-driver 2.4.1-r1 9999: HW video decode support for Intel integrated graphics
-x11-libs/libva-intel-media-driver 22.1.0-r1 22.3.1 9999: Intel Media Driver for VAAPI (iHD)
+x11-libs/libva-intel-media-driver 22.1.0-r1 22.3.1 22.4.1 9999: Intel Media Driver for VAAPI (iHD)
 x11-libs/libva-vdpau-driver 0.7.4-r5: VDPAU Backend for Video Acceleration (VA) API
 x11-libs/libvdpau 1.5: VDPAU wrapper and trace libraries
 x11-libs/libwnck 2.31.0-r1 40.1: A window navigation construction kit
@@ -19068,7 +19072,7 @@ x11-misc/kronometer 2.2.3: Stopwatch application
 x11-misc/ktsuss 2.1: Graphical version of su written in C and GTK+ 2
 x11-misc/libinput-gestures 2.56 9999: Actions gestures on your touchpad using libinput
 x11-misc/light-locker 1.9.0-r2: A simple locker using lightdm
-x11-misc/lightdm 1.30.0-r2: A lightweight display manager
+x11-misc/lightdm 1.30.0-r3: A lightweight display manager
 x11-misc/lightdm-gtk-greeter 2.0.7-r1 2.0.8: LightDM GTK+ Greeter
 x11-misc/lightdm-mini-greeter 0.3.4 0.4.0 0.5.0 0.5.1: A Minimal, Configurable, Single-User GTK3 LightDM Greeter
 x11-misc/lineak-defaultplugin 0.9.0-r2: Mute/unmute and other macros for LINEAK
