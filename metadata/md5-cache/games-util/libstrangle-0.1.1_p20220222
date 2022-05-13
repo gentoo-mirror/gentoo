@@ -7,8 +7,8 @@ INHERIT=multilib multilib-minimal toolchain-funcs
 IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=sys-apps/grep[pcre] elibc_glibc? ( || ( >=sys-libs/glibc-2.35-r4 ( >=sys-libs/glibc-2.34-r12 <sys-libs/glibc-2.35 ) ) )
+RDEPEND=sys-apps/grep[pcre]
 SLOT=0
 SRC_URI=https://gitlab.com/torkel104/libstrangle/-/archive/0273e318e3b0cc759155db8729ad74266b74cb9b/libstrangle-0.1.1_p20220222.tar.gz
 _eclasses_=multilib	4a33c9008e5ee30cb8840a3fdc24df2b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b
-_md5_=225afa5197111936e001ac974e1eb94c
+_md5_=450eae0dd25c2ba907603a814c8b64cf
