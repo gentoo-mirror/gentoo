@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/commenter app-emacs/epc >=app-editors/emacs-24.4:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Emacs major mode for the Nim programming language support
+EAPI=8
+HOMEPAGE=https://github.com/nim-lang/nim-mode/
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+PDEPEND=app-emacs/flycheck-nimsuggest
+RDEPEND=app-emacs/commenter app-emacs/epc >=app-editors/emacs-24.4:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/nim-lang/nim-mode/archive/744e076f0bea1c5ddc49f92397d9aa98ffa7eff8.tar.gz -> nim-mode-0.4.2_p20211102.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=e685d44dfd6ce743889274a6a82c465f
