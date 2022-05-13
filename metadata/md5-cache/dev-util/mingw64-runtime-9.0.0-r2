@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install setup
+DESCRIPTION=Free Win64 runtime and import library definitions
+EAPI=8
+HOMEPAGE=https://www.mingw-w64.org/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=headers-only idl libraries tools
+KEYWORDS=~amd64 ~x86
+LICENSE=ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain tools? ( GPL-3+ )
+RESTRICT=strip
+SLOT=0
+SRC_URI=mirror://sourceforge/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v9.0.0.tar.bz2
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=645828b4f81903c35881eadaab0d5f6c
