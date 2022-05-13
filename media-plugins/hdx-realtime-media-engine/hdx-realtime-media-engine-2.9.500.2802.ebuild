@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit unpacker
 
@@ -21,6 +21,7 @@ BDEPEND="app-arch/unzip"
 RDEPEND="
 	>=net-misc/icaclient-20.12.0.12-r1
 	|| (
+		media-video/pipewire
 		media-sound/pulseaudio
 		media-sound/apulse
 	)
