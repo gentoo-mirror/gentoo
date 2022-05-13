@@ -27,7 +27,7 @@ tc_is_live() {
 
 if tc_is_live ; then
 	EGIT_REPO_URI="https://gcc.gnu.org/git/gcc.git"
-	# naming style:
+	# Naming style:
 	# gcc-10.1.0_pre9999 -> gcc-10-branch
 	#  Note that the micro version is required or lots of stuff will break.
 	#  To checkout master set gcc_LIVE_BRANCH="master" in the ebuild before
@@ -55,32 +55,76 @@ is_crosscompile() {
 	[[ ${CHOST} != ${CTARGET} ]]
 }
 
-# General purpose version check.  Without a second arg matches up to minor version (x.x.x)
+# @FUNCTION: tc_version_is_at_least
+# @USAGE: ver1 [ver2]
+# @DESCRIPTION:
+# General purpose version check. Without a second argument, matches
+# up to minor version (x.x.x).
 tc_version_is_at_least() {
 	ver_test "${2:-${GCC_RELEASE_VER}}" -ge "$1"
 }
 
-# General purpose version range check
+# @FUNCTION: tc_version_is_between
+# @USAGE: ver1 ver2
+# @DESCRIPTION:
+# General purpose version range check.
 # Note that it matches up to but NOT including the second version
 tc_version_is_between() {
 	tc_version_is_at_least "${1}" && ! tc_version_is_at_least "${2}"
 }
 
+# @ECLASS_VARIABLE: TOOLCHAIN_GCC_PV
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Used to override GCC version. Useful for e.g. live ebuilds or snapshots.
+# Defaults to ${PV}.
+
+# @ECLASS_VARIABLE: GCC_PV
+# @INTERNAL
+# @DESCRIPTION:
+# Internal variable representing (spoofed) GCC version.
 GCC_PV=${TOOLCHAIN_GCC_PV:-${PV}}
+
+# @ECLASS_VARIABLE: GCC_PVR
+# @INTERNAL
+# @DESCRIPTION:
+# Full GCC version including revision.
 GCC_PVR=${GCC_PV}
 [[ ${PR} != "r0" ]] && GCC_PVR=${GCC_PVR}-${PR}
 
+# @ECLASS_VARIABLE: GCC_RELEASE_VER
+# @INTERNAL
+# @DESCRIPTION:
 # GCC_RELEASE_VER must always match 'gcc/BASE-VER' value.
 # It's an internal representation of gcc version used for:
 # - versioned paths on disk
 # - 'gcc -dumpversion' output. Must always match <digit>.<digit>.<digit>.
 GCC_RELEASE_VER=$(ver_cut 1-3 ${GCC_PV})
 
+# @ECLASS_VARIABLE: GCC_BRANCH_VER
+# @INTERNAL
+# @DESCRIPTION:
+# GCC branch version.
 GCC_BRANCH_VER=$(ver_cut 1-2 ${GCC_PV})
+# @ECLASS_VARIABLE: GCCMAJOR
+# @INTERNAL
+# @DESCRIPTION:
+# Major GCC version.
 GCCMAJOR=$(ver_cut 1 ${GCC_PV})
+# @ECLASS_VARIABLE: GCCMINOR
+# @INTERNAL
+# @DESCRIPTION:
+# Minor GCC version.
 GCCMINOR=$(ver_cut 2 ${GCC_PV})
+# @ECLASS_VARIABLE: GCCMICRO
+# @INTERNAL
+# @DESCRIPTION:
+# GCC micro version.
 GCCMICRO=$(ver_cut 3 ${GCC_PV})
 
+# @ECLASS_VARIABLE: GCC_CONFIG_VER
+# @INTERNAL
+# @DESCRIPTION:
 # Ideally this variable should allow for custom gentoo versioning
 # of binary and gcc-config names not directly tied to upstream
 # versioning. In practice it's hard to untangle from gcc/BASE-VER
@@ -92,13 +136,13 @@ GCC_CONFIG_VER=${GCC_RELEASE_VER}
 # 1.2.3_pYYYYMMDD (or 1.2.3_preYYYYMMDD for unreleased major versions): weekly snapshots
 # 1.2.3_rcYYYYMMDD: release candidates
 if [[ ${GCC_PV} == *_pre* ]] ; then
-	# weekly snapshots
+	# Weekly snapshots
 	SNAPSHOT=${GCCMAJOR}-${GCC_PV##*_pre}
 elif [[ ${GCC_PV} == *_p* ]] ; then
-	# weekly snapshots
+	# Weekly snapshots
 	SNAPSHOT=${GCCMAJOR}-${GCC_PV##*_p}
 elif [[ ${GCC_PV} == *_rc* ]] ; then
-	# release candidates
+	# Release candidates
 	SNAPSHOT=${GCC_PV%_rc*}-RC-${GCC_PV##*_rc}
 fi
 
@@ -121,7 +165,7 @@ fi
 
 DATAPATH=${TOOLCHAIN_DATAPATH:-${PREFIX}/share/gcc-data/${CTARGET}/${GCC_CONFIG_VER}}
 
-# Dont install in /usr/include/g++-v3/, but in gcc internal directory.
+# Don't install in /usr/include/g++-v3/, but instead to gcc's internal directory.
 # We will handle /usr/include/g++-v3/ with gcc-config ...
 STDCXX_INCDIR=${TOOLCHAIN_STDCXX_INCDIR:-${LIBPATH}/include/g++-v${GCC_BRANCH_VER/\.*/}}
 
@@ -148,11 +192,14 @@ if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
 	IUSE+=" objc-gc" TC_FEATURES+=( objc-gc )
 	IUSE+=" libssp objc++"
 	IUSE+=" +openmp"
+
 	tc_version_is_at_least 4.3 && IUSE+=" fixed-point"
 	tc_version_is_at_least 4.7 && IUSE+=" go"
+
 	# sanitizer support appeared in gcc-4.8, but <gcc-5 does not
 	# support modern glibc.
 	tc_version_is_at_least 5 && IUSE+=" +sanitize"  TC_FEATURES+=( sanitize )
+
 	# Note:
 	#   <gcc-4.8 supported graphite, it required forked ppl
 	#     versions which we dropped.  Since graphite was also experimental in
@@ -161,15 +208,18 @@ if [[ ${PN} != "kgcc64" && ${PN} != gcc-* ]] ; then
 	#   <gcc-6.5 supported graphite, it required old incompatible isl
 	tc_version_is_at_least 6.5 &&
 		IUSE+=" graphite" TC_FEATURES+=( graphite )
+
 	tc_version_is_between 4.9 8 && IUSE+=" cilk"
 	tc_version_is_at_least 4.9 && IUSE+=" ada"
 	tc_version_is_at_least 4.9 && IUSE+=" vtv"
 	tc_version_is_at_least 5.0 && IUSE+=" jit"
 	tc_version_is_between 5.0 9 && IUSE+=" mpx"
 	tc_version_is_at_least 6.0 && IUSE+=" +pie +ssp +pch"
+
 	# systemtap is a gentoo-specific switch: bug #654748
 	tc_version_is_at_least 8.0 &&
 		IUSE+=" systemtap" TC_FEATURES+=( systemtap )
+
 	tc_version_is_at_least 9.0 && IUSE+=" d"
 	tc_version_is_at_least 9.1 && IUSE+=" lto"
 	tc_version_is_at_least 10 && IUSE+=" cet"
@@ -266,6 +316,10 @@ PDEPEND=">=sys-devel/gcc-config-2.3"
 
 #---->> S + SRC_URI essentials <<----
 
+# @ECLASS_VARIABLE: TOOLCHAIN_SET_S
+# @DESCRIPTION:
+# Used to override value of S for snapshots and such. Mainly useful
+# if needing to set GCC_TARBALL_SRC_URI.
 : ${TOOLCHAIN_SET_S:=yes}
 
 # Set the source directory depending on whether we're using
@@ -322,7 +376,7 @@ gentoo_urls() {
 #	PIE_VER
 #	PIE_GCC_VER
 #			These variables control patching in various updates for the logic
-#			controlling Position Independant Executables. PIE_VER is expected
+#			controlling Position Independent Executables. PIE_VER is expected
 #			to be the version of this patch, and PIE_GCC_VER the gcc version of
 #			the patch:
 #			An example:
@@ -362,7 +416,7 @@ get_gcc_src_uri() {
 	if tc_is_live ; then
 		: # Nothing to do w/git snapshots.
 	elif [[ -n ${GCC_TARBALL_SRC_URI} ]] ; then
-		# pull gcc tarball from another location. Frequently used by gnat-gpl.
+		# Pull gcc tarball from another location. Frequently used by gnat-gpl.
 		GCC_SRC_URI="${GCC_TARBALL_SRC_URI}"
 	elif [[ -n ${SNAPSHOT} ]] ; then
 		GCC_SRC_URI="https://gcc.gnu.org/pub/gcc/snapshots/${SNAPSHOT}/gcc-${SNAPSHOT}.tar.xz"
@@ -564,7 +618,7 @@ do_gcc_PIE_patches() {
 	want_pie || return 0
 	use vanilla && return 0
 
-	einfo "Applying pie patches ..."
+	einfo "Applying PIE patches ..."
 	eapply "${WORKDIR}"/piepatch/*.patch
 
 	BRANDING_GCC_PKGVERSION="${BRANDING_GCC_PKGVERSION}, pie-${PIE_VER}"
@@ -649,7 +703,7 @@ make_gcc_hard() {
 		fi
 	fi
 
-	# We want to be able to control the PIEe patch logic via something other
+	# We want to be able to control the PIE patch logic via something other
 	# than ALL_CFLAGS...
 	sed -e '/^ALL_CFLAGS/iHARD_CFLAGS = ' \
 		-e 's|^ALL_CFLAGS = |ALL_CFLAGS = $(HARD_CFLAGS) |' \
@@ -747,7 +801,7 @@ toolchain_src_configure() {
 	# issues with 3rd party jar implementations. bug #384291
 	export JAR=no
 
-	# For hardened gcc 4.3 piepatchset to build the hardened specs
+	# For hardened gcc 4.3: add the pie patchset to build the hardened specs
 	# file (build.specs) to use when building gcc.
 	if ! tc_version_is_at_least 4.4 && want_minispecs ; then
 		setup_minispecs_gcc_build_specs
