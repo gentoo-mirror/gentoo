@@ -15,6 +15,9 @@ HOMEPAGE="http://www.haproxy.org"
 if [[ ${PV} != *9999 ]]; then
 	SRC_URI="http://haproxy.1wt.eu/download/$(ver_cut 1-2)/src/${MY_P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
+elif [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://git.haproxy.org/git/haproxy.git/"
+	EGIT_BRANCH=master
 else
 	EGIT_REPO_URI="https://git.haproxy.org/git/haproxy-$(ver_cut 1-2).git/"
 	EGIT_BRANCH=master
@@ -22,11 +25,9 @@ fi
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+crypt doc examples +slz +net_ns +pcre pcre-jit pcre2 pcre2-jit prometheus-exporter
-ssl systemd +threads tools vim-syntax zlib lua 51degrees wurfl"
+IUSE="+crypt doc examples slz +net_ns +pcre pcre-jit prometheus-exporter
+ssl systemd +threads tools vim-syntax +zlib lua 51degrees wurfl"
 REQUIRED_USE="pcre-jit? ( pcre )
-	pcre2-jit? ( pcre2 )
-	pcre? ( !pcre2 )
 	lua? ( ${LUA_REQUIRED_USE} )
 	?? ( slz zlib )"
 
@@ -34,16 +35,13 @@ BDEPEND="virtual/pkgconfig"
 DEPEND="
 	crypt? ( virtual/libcrypt:= )
 	pcre? (
-		dev-libs/libpcre
-		pcre-jit? ( dev-libs/libpcre[jit] )
-	)
-	pcre2? (
 		dev-libs/libpcre2:=
-		pcre2-jit? ( dev-libs/libpcre2:=[jit] )
+		pcre-jit? ( dev-libs/libpcre2:=[jit] )
 	)
 	ssl? (
 		dev-libs/openssl:0=
 	)
+	slz? ( dev-libs/libslz:= )
 	systemd? ( sys-apps/systemd )
 	zlib? ( sys-libs/zlib )
 	lua? ( ${LUA_DEPS} )"
@@ -54,7 +52,11 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/${MY_P}"
 
 DOCS=( CHANGELOG CONTRIBUTING MAINTAINERS README )
-EXTRAS=( admin/halog admin/iprange dev/tcploop dev/hpack )
+CONTRIBS=( halog iprange )
+# ip6range is present in 1.6, but broken.
+ver_test ${PV} -ge 1.7.0 && CONTRIBS+=( ip6range spoa_example tcploop )
+# TODO: mod_defender - requires apache / APR, modsecurity - the same
+ver_test ${PV} -ge 1.8.0 && CONTRIBS+=( hpack )
 
 haproxy_use() {
 	(( $# != 2 )) && die "${FUNCNAME} <USE flag> <make option>"
@@ -74,16 +76,17 @@ src_compile() {
 	local -a args=(
 		V=1
 		TARGET=linux-glibc
+		# Switching to PCRE2 by default, bug 838013
+		PCRE=
+		PCRE_JIT=
 	)
 
 	# TODO: PCRE2_WIDTH?
 	args+=( $(haproxy_use threads THREAD) )
 	args+=( $(haproxy_use crypt LIBCRYPT) )
 	args+=( $(haproxy_use net_ns NS) )
-	args+=( $(haproxy_use pcre PCRE) )
-	args+=( $(haproxy_use pcre-jit PCRE_JIT) )
-	args+=( $(haproxy_use pcre2 PCRE2) )
-	args+=( $(haproxy_use pcre2-jit PCRE2_JIT) )
+	args+=( $(haproxy_use pcre PCRE2) )
+	args+=( $(haproxy_use pcre-jit PCRE2_JIT) )
 	args+=( $(haproxy_use ssl OPENSSL) )
 	args+=( $(haproxy_use slz SLZ) )
 	args+=( $(haproxy_use zlib ZLIB) )
@@ -91,28 +94,28 @@ src_compile() {
 	args+=( $(haproxy_use 51degrees 51DEGREES) )
 	args+=( $(haproxy_use wurfl WURFL) )
 	args+=( $(haproxy_use systemd SYSTEMD) )
-	args+=( $(haproxy_use prometheus-exporter PROMEX) )
+
+	# For now, until the strict-aliasing breakage will be fixed
+	append-cflags -fno-strict-aliasing
 
 	# Bug #668002
 	if use ppc || use arm || use hppa; then
 		TARGET_LDFLAGS=-latomic
 	fi
 
+	if use prometheus-exporter; then
+		EXTRA_OBJS="contrib/prometheus-exporter/service-prometheus.o"
+	fi
+
 	# HAProxy really needs some of those "SPEC_CFLAGS", like -fno-strict-aliasing
-	emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB=${ESYSROOT}/usr/$(get_libdir) ${args[@]}
-	emake -C admin/systemd CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB=${ESYSROOT}/usr/$(get_libdir) SBINDIR=/usr/sbin
+	emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" ${args[@]}
+	emake -C contrib/systemd SBINDIR=/usr/sbin
 
 	if use tools ; then
-		for extra in ${EXTRAS[@]} ; do
-			if [ "${extra}" = "admin/halog" ]; then
-				emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB=${ESYSROOT}/usr/$(get_libdir) ${args[@]} admin/halog/halog
-			elif [ "${extra}" = "dev/hpack" ]; then
-				emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB=${ESYSROOT}/usr/$(get_libdir) ${args[@]} dev/hpack/{decode,gen-enc,gen-rht}
-			else
-				# Those two includes are a workaround for hpack Makefile missing those
-				emake -C ${extra} \
-					CFLAGS="${CFLAGS} -I../../include/ -I../../ebtree/" OPTIMIZE="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" ${args[@]}
-			fi
+		for contrib in ${CONTRIBS[@]} ; do
+			# Those two includes are a workaround for hpack Makefile missing those
+			emake -C contrib/${contrib} \
+				CFLAGS="${CFLAGS} -I../../include/ -I../../ebtree/" OPTIMIZE="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" ${args[@]}
 		done
 	fi
 }
@@ -126,7 +129,7 @@ src_install() {
 
 	doman doc/haproxy.1
 
-	systemd_dounit admin/systemd/haproxy.service
+	systemd_dounit contrib/systemd/haproxy.service
 
 	einstalldocs
 
@@ -142,14 +145,13 @@ src_install() {
 	fi
 
 	if use tools ; then
-		has admin/halog "${EXTRAS[@]}" && dobin admin/halog/halog
-		has admin/iprange "${EXTRAS[@]}" && { newbin admin/iprange/iprange haproxy_iprange; newbin admin/iprange/ip6range haproxy_ip6range; }
-		has dev/tcploop "${EXTRAS[@]}" && newbin dev/tcploop/tcploop haproxy_tcploop
-		has dev/hpack "${EXTRAS[@]}" && {
-			newbin dev/hpack/gen-rht haproxy_gen-rht
-			newbin dev/hpack/gen-enc haproxy_gen-enc
-			newbin dev/hpack/decode haproxy_decode
-		}
+		has halog "${CONTRIBS[@]}" && dobin contrib/halog/halog
+		has "iprange" "${CONTRIBS[@]}" && newbin contrib/iprange/iprange haproxy_iprange
+		has "ip6range" "${CONTRIBS[@]}" && newbin contrib/ip6range/ip6range haproxy_ip6range
+		has "spoa_example" "${CONTRIBS[@]}" && newbin contrib/spoa_example/spoa haproxy_spoa_example
+		has "spoa_example" "${CONTRIBS[@]}" && newdoc contrib/spoa_example/README README.spoa_example
+		has "tcploop" "${CONTRIBS[@]}" && newbin contrib/tcploop/tcploop haproxy_tcploop
+		has "hpack" "${CONTRIBS[@]}" && newbin contrib/hpack/gen-rht haproxy_hpack
 	fi
 
 	if use examples ; then
@@ -160,7 +162,7 @@ src_install() {
 
 	if use vim-syntax ; then
 		insinto /usr/share/vim/vimfiles/syntax
-		doins admin/syntax-highlight/haproxy.vim
+		doins contrib/syntax-highlight/haproxy.vim
 	fi
 }
 
