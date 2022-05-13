@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare
+DESCRIPTION=Fast SSL configuration scanner
+EAPI=8
+HOMEPAGE=https://github.com/rbsec/sslscan
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/rbsec/sslscan/archive/2.0.13.tar.gz -> sslscan-2.0.13.tar.gz https://github.com/openssl/openssl/archive/OpenSSL_1_1_1n.tar.gz -> sslscan-OpenSSL_1_1_1n.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_md5_=7609e3dfbd5bd6abbfa6752d18bdebf6
