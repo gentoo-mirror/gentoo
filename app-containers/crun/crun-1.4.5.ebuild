@@ -13,8 +13,8 @@ SRC_URI="https://github.com/containers/${PN}/releases/download/${PV}/${P}.tar.xz
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64"
-IUSE="+bpf +caps criu +seccomp systemd static-libs"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv"
+IUSE="+bpf +caps criu +seccomp selinux systemd static-libs"
 
 DEPEND="
 	dev-libs/yajl:=
@@ -24,7 +24,8 @@ DEPEND="
 	seccomp? ( sys-libs/libseccomp )
 	systemd? ( sys-apps/systemd:= )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	selinux? ( sec-policy/selinux-container )"
 BDEPEND="
 	${PYTHON_DEPS}
 	virtual/pkgconfig
@@ -45,7 +46,9 @@ src_configure() {
 		$(usex static-libs '--enable-shared --enable-static' '--enable-shared --disable-static' '' '')
 	)
 
-	econf "${myeconfargs[@]}"
+	# Need https://github.com/containers/libocispec/pull/107 to be merged & land in
+	# a crun release that syncs up w/ latest version, then can drop CONFIG_SHELL
+	CONFIG_SHELL="${BROOT}/bin/bash" econf "${myeconfargs[@]}"
 }
 
 src_compile() {
