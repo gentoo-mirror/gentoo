@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -25,11 +25,14 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	>=dev-libs/libfmt-6.1.2:=
+	>=dev-libs/libfmt-8.0.0:=
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-libfmt-8-fix.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-force_external_fmt.patch"
+	"${FILESDIR}/${PN}-1.9.2-fix-clone-test.patch"
+)
 
 src_prepare() {
 	cmake_src_prepare
