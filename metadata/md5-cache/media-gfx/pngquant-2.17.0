@@ -1,5 +1,6 @@
-DEFINED_PHASES=configure install prepare
-DEPEND=media-libs/libpng:0= media-gfx/libimagequant:= sys-libs/zlib:= lcms? ( media-libs/lcms:2 ) virtual/pkgconfig
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install prepare pretend setup
+DEPEND=media-libs/libpng:0= media-gfx/libimagequant:= sys-libs/zlib:= lcms? ( media-libs/lcms:2 )
 DESCRIPTION=Command-line utility and library for lossy compression of PNG images
 EAPI=7
 HOMEPAGE=https://pngquant.org/ https://github.com/kornelski/pngquant
@@ -13,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/kornelski/pngquant/archive/2.17.0.tar.gz -> pngquant-2.17.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=0ffbc06e82522c47dadc39ebbd468c7a
+_md5_=baebc220cccfd0d769116a72dc3db014
