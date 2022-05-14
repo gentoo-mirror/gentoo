@@ -15,8 +15,16 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/python-ldap/python-ldap.git"
 	inherit git-r3
 else
-	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-solaris"
+	# Snapshot for various new OpenLDAP fixes, bug #835637
+	# (There were a bunch of followup commits and general other
+	# serious bugfixes we want.)
+	MY_COMMIT="7f30c4721ea2ca4373ed7860e6467781f0afa758"
+
+	#SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+	SRC_URI="https://github.com/python-ldap/python-ldap/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${MY_COMMIT}
+
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x86-solaris"
 fi
 
 LICENSE="MIT PSF-2"
