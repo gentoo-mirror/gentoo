@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit vcs-snapshot
 
-COMMIT="eaf99ec03bb60da78612d8a73e47fba1f6708b0a"
+COMMIT="d09a37d7caf524a4a4b70f036038aaa9fd838974"
 
 DESCRIPTION="Collection of plugins for Supybot/Limnoria I wrote or forked"
 HOMEPAGE="https://github.com/ProgVal/Supybot-plugins"

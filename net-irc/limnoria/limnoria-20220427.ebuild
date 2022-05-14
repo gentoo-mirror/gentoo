@@ -1,10 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=no
 DISTUTILS_IN_SOURCE_BUILD=yes # needed for tests
 inherit distutils-r1
 
@@ -44,13 +43,9 @@ RDEPEND="
 	!net-irc/supybot-plugins"
 BDEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
-PATCHES=(
-	"${FILESDIR}/${P}-rss-testRemoveAliasedFeed-mock_data.patch" # GH#1479
-)
-
 python_prepare_all() {
 	# replace "installed on ${timestamp}" with real version
-	echo "version='${MY_PV}'" > "${S}"/src/version.py || die
+	echo "version='${MY_PV//-/.}'" > "${S}"/src/version.py || die
 	distutils-r1_python_prepare_all
 }
 
@@ -60,7 +55,11 @@ python_test() {
 	EXCLUDE_PLUGINS=()
 	# intermittent failure due to issues loading libsandbox.so from LD_PRELOAD
 	# runs successfully when running the tests on the installed system
-	EXCLUDE_PLUGINS+=( --exclude="${PLUGINS_DIR}/Unix" )
+	EXCLUDE_PLUGINS+=(
+		--exclude="${PLUGINS_DIR}/Unix"
+		--exclude="${PLUGINS_DIR}/Aka"
+		--exclude="${PLUGINS_DIR}/Misc"
+	)
 	"${EPYTHON}" "${BUILD_DIR}"/scripts/supybot-test "${BUILD_DIR}/../test" \
 		--plugins-dir="${PLUGINS_DIR}" --no-network \
 		--disable-multiprocessing "${EXCLUDE_PLUGINS[@]}" \
