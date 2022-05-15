@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig test? ( app-shells/tcsh )
-DEFINED_PHASES=compile install prepare setup test
+DEFINED_PHASES=compile install prepare pretend setup test
 DEPEND=virtual/blas
 DESCRIPTION=Multithreaded sparse LU factorization library
 EAPI=8
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://portal.nersc.gov/project/sparse/superlu/superlu_mt_3.1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=6bc6c74616824a2d71bf505f9d7a548c
+_md5_=9aea64ed440e70aa08c06b066eb3099e
