@@ -5,13 +5,13 @@ DESCRIPTION=Linux application sandboxing and distribution framework
 EAPI=7
 HOMEPAGE=https://flatpak.org/
 INHERIT=linux-info python-any-r1
-IUSE=doc gtk kde introspection policykit seccomp systemd X
+IUSE=doc introspection policykit seccomp systemd X
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1+
-PDEPEND=gtk? ( sys-apps/xdg-desktop-portal-gtk ) kde? ( kde-plasma/xdg-desktop-portal-kde )
+PDEPEND=sys-apps/xdg-desktop-portal
 RDEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arch/zstd:= >=app-crypt/gpgme-1.1.8:= >=dev-libs/appstream-0.12:= >=dev-libs/appstream-glib-0.5.10:= >=dev-libs/glib-2.56:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= dev-libs/libassuan:= >=dev-util/ostree-2020.8:=[gpg(+)] || ( dev-util/ostree[curl] dev-util/ostree[soup] ) >=gnome-base/dconf-0.26:= >=net-libs/libsoup-2.4:= sys-apps/bubblewrap sys-apps/dbus >=sys-fs/fuse-2.9.9:0= sys-apps/xdg-dbus-proxy X? ( x11-apps/xauth x11-libs/libXau:= ) x11-libs/gdk-pixbuf:2= policykit? ( >=sys-auth/polkit-0.98:= ) seccomp? ( sys-libs/libseccomp:= ) systemd? ( sys-apps/systemd:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flatpak/flatpak/releases/download/1.13.2/flatpak-1.13.2.tar.xz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	a6f11292b0a7bb371aa10fec195f78a0	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=51d9c652b3654ca54cebadb8ecf62cf2
+_md5_=657b01d248782a5db4419f14af01a67e
