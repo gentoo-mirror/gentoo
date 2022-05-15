@@ -12,9 +12,16 @@ SRC_URI="https://github.com/voretaq7/radmind/releases/download/${P}/${P}.tar.gz"
 LICENSE="HPND"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="pam zlib"
 
-DEPEND="dev-libs/openssl:0="
+DEPEND="
+	dev-libs/openssl:0=
+	net-libs/libnsl
+	pam? ( sys-libs/pam )
+	zlib? ( sys-libs/zlib )
+"
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.0-gentoo.patch
@@ -33,6 +40,15 @@ src_prepare() {
 	rm -f {,libsnet/}aclocal.m4 || die
 
 	eautoreconf
+}
+
+src_configure() {
+	local myconf=(
+		$(use_enable pam)
+		$(use_enable zlib)
+	)
+
+	econf "${myconf[@]}"
 }
 
 src_install() {
