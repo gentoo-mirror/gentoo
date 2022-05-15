@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/brunoos/luasec
 INHERIT=lua toolchain-funcs
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ppc ~ppc64 ~sparc x86
 LICENSE=MIT
 RDEPEND=>=dev-lua/luasocket-3.0_rc1_p20200328-r103[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?,lua_targets_lua5-4(-)?] dev-libs/openssl:0= lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 SLOT=0
 SRC_URI=https://github.com/brunoos/luasec/archive/v1.1.0.tar.gz -> luasec-1.1.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	lua-utils	e69ff116248d78546ae1a234c086fe80	lua	d5c7dbcaf69f3065f5d7ce3b172c2214
-_md5_=e5c1ab0cac5083d674aacd6abe068163
+_md5_=985b9bb0cabdeb98c1df699863a772ae
