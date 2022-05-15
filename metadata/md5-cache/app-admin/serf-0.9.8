@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=Service orchestration and management tool
+EAPI=7
+HOMEPAGE=https://www.serfdom.io/
+INHERIT=go-module systemd
+KEYWORDS=~amd64
+LICENSE=MPL-2.0 Apache-2.0 BSD MIT
+RDEPEND=acct-user/serf acct-group/serf
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/hashicorp/serf/archive/v0.9.8.tar.gz -> serf-0.9.8.tar.gz https://dev.gentoo.org/~zmedico/dist/serf-0.9.8-deps.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=1c8da28ac6c65e3fde56fa067b281416
