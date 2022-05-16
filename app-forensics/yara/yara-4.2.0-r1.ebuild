@@ -26,6 +26,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 PDEPEND="python? ( =dev-python/yara-python-$(ver_cut 1)* )"
 
+PATCHES=( "${FILESDIR}/${PN}-$(ver_cut 1-2)-test.patch" )
+
 src_prepare() {
 	default
 	eautoreconf
@@ -51,5 +53,5 @@ src_install() {
 
 	# TODO: Allow tests to work against dyn. lib rather than building
 	# statically just for tests.
-	find "${ED}" -name '*.a' -delete || die
+	find "${ED}" -name '*.a' -o -name '*.la' -delete || die
 }
