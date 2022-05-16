@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen virtual/latex-base ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 fortran? ( virtual/fortran )
-DEFINED_PHASES=configure install prepare setup test
+DEFINED_PHASES=configure install prepare pretend setup test
 DEPEND=sci-mathematics/glpk:0= >=sys-apps/hwloc-2.3.0:0= blas? ( virtual/blas ) cuda? ( dev-util/nvidia-cuda-toolkit x11-drivers/nvidia-drivers ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5:0= ) mpi? ( virtual/mpi ) opencl? ( virtual/opencl ) opengl? ( media-libs/freeglut:0= ) valgrind? ( dev-util/valgrind ) fortran? ( virtual/fortran )
 DESCRIPTION=Unified runtime system for heterogeneous multicore architectures
 EAPI=7
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=https://files.inria.fr/starpu/starpu-1.3.9/starpu-1.3.9.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	cuda	15edbf8fd9df209322f42c06ecf59a96	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=872082a2d26ada46c530ed7c8de27d67
+_md5_=1b52141bd821f1ee7741869f4c5e9b88

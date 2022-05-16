@@ -1,5 +1,5 @@
 BDEPEND=doc? ( app-doc/doxygen )
-DEFINED_PHASES=configure install pretend
+DEFINED_PHASES=configure install pretend setup
 DEPEND=dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.1* =sci-libs/fflas-ffpack-2.4* virtual/cblas virtual/lapack opencl? ( virtual/opencl ) dev-libs/ntl:= sci-libs/iml dev-libs/mpfr:= sci-mathematics/flint
 DESCRIPTION=C++ template library for integer and finite-field linear algebra
 EAPI=7
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.1* =sci-libs/fflas-ffpack-2.4* v
 SLOT=0
 SRC_URI=https://github.com/linbox-team/linbox/releases/download/v1.6.3/linbox-1.6.3.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
-_md5_=8d16da78864aea075c4e9164bb4f6190
+_md5_=6c3e3175e2bcbe8dfa7e117b54191c80
