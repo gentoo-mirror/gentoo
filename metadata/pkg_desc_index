@@ -2703,7 +2703,7 @@ app-forensics/scalpel 2.0: A high performance file carver
 app-forensics/sleuthkit 4.10.1-r3 4.10.1-r5 4.11.1-r1: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124: A forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.0.1: Framework for analyzing volatile memory
-app-forensics/yara 4.2.0: A malware identification and classification tool
+app-forensics/yara 4.2.0-r1 4.2.1: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -4146,7 +4146,7 @@ dev-db/sqlite 3.38.2 3.38.3 3.38.5: SQL database engine
 dev-db/sqlitebrowser 3.12.1 3.12.2 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r5: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.2.1-r1: Powerful cross-platform SQLite database manager
-dev-db/sqlmap 1.6.2 9999: An automatic SQL injection and database takeover tool
+dev-db/sqlmap 1.6.2 1.6.4 9999: An automatic SQL injection and database takeover tool
 dev-db/textsearch_ja 9.0.0: Integrated Full-Text-Search for Japanese language using morphological analyze
 dev-db/timescaledb 2.5.2-r1 2.6.0 2.6.1: Open-source time-series SQL database
 dev-db/tinycdb 0.78: A very fast and simple package for creating and reading constant data bases
@@ -11558,7 +11558,7 @@ dev-util/uftrace 0.10-r1 0.11: Function (graph) tracer for user-space
 dev-util/uglifyjs 3.15.5: JavaScript parser, minifier, compressor and beautifier toolkit
 dev-util/umockdev 0.17.6 0.17.7 0.17.8 0.17.9 0.17.10: Mock hardware devices for creating unit tests
 dev-util/uncrustify 0.71.0 0.72.0 0.74.0 9999: C/C++/C#/D/Java/Pawn code indenter and beautifier
-dev-util/unicorn 2.0.0_rc6 9999: A lightweight multi-platform, multi-architecture CPU emulator framework
+dev-util/unicorn 2.0.0_rc6 2.0.0_rc7 9999: A lightweight multi-platform, multi-architecture CPU emulator framework
 dev-util/unifdef 2.12: remove #ifdef'ed lines from a file while otherwise leaving the file alone
 dev-util/usb-robot 0.2.0-r1: USB Reverse engineering tools
 dev-util/valgrind 3.16.1 3.17.0 3.18.1 3.19.0 9999: An open-source memory debugger for GNU/Linux
@@ -13861,6 +13861,7 @@ media-libs/libquvi-scripts 0.9.20131130-r100: Embedded lua scripts for libquvi
 media-libs/libraw 0.20.2: LibRaw is a library for reading RAW files obtained from digital photo cameras
 media-libs/libreplaygain 477-r1: Replay Gain library from Musepack
 media-libs/librosprite 0.1.3-r2: framebuffer abstraction library, written in C
+media-libs/librtprocess 0.12.0: Algorithms for RAW processing from RawTherapee
 media-libs/libsamplerate 0.2.2 9999: Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio
 media-libs/libsbsms 2.3.0: A library for high quality time and pitch scale modification
 media-libs/libsdl 1.2.15_p20210224: Simple Direct Media Layer
@@ -15099,6 +15100,7 @@ net-analyzer/tcptrace 6.6.7_p6: A Tool for analyzing network packet dumps
 net-analyzer/tcptraceroute 1.5_beta7-r3: tcptraceroute is a traceroute implementation using TCP packets
 net-analyzer/tcptrack 1.4.2: Passive per-connection tcp bandwidth monitor
 net-analyzer/telegraf 1.13.3 1.14.5 1.15.2 1.18.0 1.18.1 1.18.2 1.18.3: The plugin-driven server agent for collecting & reporting metrics
+net-analyzer/termshark 2.3.0: A terminal UI for tshark, inspired by Wireshark
 net-analyzer/testssl 3.0.5 3.0.7: Tool to check TLS/SSL cipher support
 net-analyzer/thc-ipv6 3.2-r1 9999: Complete tool set to attack the inherent protocol weaknesses of IPV6 and ICMP6
 net-analyzer/thcrut 1.2.5-r2: Network discovery and fingerprinting tool
@@ -16359,8 +16361,11 @@ sci-astronomy/pal 0.9.7: Positional Astronomy Library
 sci-astronomy/predict 2.2.3-r2: Satellite tracking and orbital prediction
 sci-astronomy/psfex 3.17.1: Extracts models of the Point Spread Function from FITS images
 sci-astronomy/pyephem 3.7.7.1: Astronomical routines for the python programming language
+sci-astronomy/pysiril 0.0.12: Python library to interface Python to a SiriL script
 sci-astronomy/scamp 2.0.4: Astrometric and photometric solutions for astronomical images
 sci-astronomy/sextractor 2.19.5-r1: Extract catalogs of sources from astronomical FITS images
+sci-astronomy/siril 1.0.1 9999: A free astronomical image processing software
+sci-astronomy/sirilic 1.14.3: Preparing acquisition files for processing with the SiriL software
 sci-astronomy/skycat 3.1.3: ESO astronomical image visualizer with catalog access
 sci-astronomy/skymaker 3.10.5: Program that simulates astronomical images
 sci-astronomy/sofa_c 20170420: Library for algorithms for models in fundamental astronomy
