@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=install prepare test
-DEPEND=dev-lang/tk:= >=dev-tcltk/tcllib-1.11 media-libs/tiff:0= >=media-libs/libpng-1.6:0= >=sys-libs/zlib-1.2.7:= x11-libs/libX11 virtual/jpeg:= test? ( x11-apps/xhost media-fonts/font-misc-misc media-fonts/font-cursor-misc )
+DEPEND=dev-lang/tk:= dev-tcltk/tcllib media-libs/tiff:0= media-libs/libpng:0= sys-libs/zlib:= x11-libs/libX11 media-libs/libjpeg-turbo:= test? ( x11-apps/xhost media-fonts/font-misc-misc media-fonts/font-cursor-misc )
 DESCRIPTION=Adds a lot of image formats to Tcl/Tk
 EAPI=7
 HOMEPAGE=http://tkimg.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=autotools edos2unix prefix toolchain-funcs virtualx
 IUSE=doc test static-libs test
 KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=dev-lang/tk:= >=dev-tcltk/tcllib-1.11 media-libs/tiff:0= >=media-libs/libpng-1.6:0= >=sys-libs/zlib-1.2.7:= x11-libs/libX11 virtual/jpeg:=
+RDEPEND=dev-lang/tk:= dev-tcltk/tcllib media-libs/tiff:0= media-libs/libpng:0= sys-libs/zlib:= x11-libs/libX11 media-libs/libjpeg-turbo:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://sourceforge/tkimg/tkimg/1.4/tkimg%201.4.12/Img-1.4.12-Source.tar.gz https://dev.gentoo.org/~tupone/distfiles/tkimg-1.4.12-patchset-1.tar.gz
+SRC_URI=mirror://sourceforge/tkimg/tkimg/1.4/tkimg%201.4.13/Img-1.4.13-Source.tar.gz https://dev.gentoo.org/~tupone/distfiles/tkimg-1.4.12-patchset-1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	edos2unix	33e347e171066657f91f8b0c72ec8773	prefix	eab3c99d77fe00506c109c8a736186f7	virtualx	975d49ff3b3f451efe7a95f230532135
-_md5_=dd9ed95c9433d2acd4f5226b8d5ed8d5
+_md5_=2a4af4d521aa1f40e4e9c3f8908d72f5
