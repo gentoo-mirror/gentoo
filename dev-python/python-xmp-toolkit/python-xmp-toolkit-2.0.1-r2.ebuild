@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
@@ -21,11 +21,8 @@ HOMEPAGE="https://github.com/python-xmp-toolkit/python-xmp-toolkit/ https://pypi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="doc test"
-RESTRICT="!test? ( test )"
 
 DEPEND="
-	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	test? ( media-libs/exempi )
 "
 RDEPEND="
@@ -34,13 +31,5 @@ RDEPEND="
 
 PATCHES=( "${FILESDIR}"/${P}-test.patch )
 
+distutils_enable_sphinx docs
 distutils_enable_tests unittest
-
-python_compile_all() {
-	use doc && emake -C docs html
-}
-
-python_install_all() {
-	use doc && local HTML_DOCS=( docs/.build/html/. )
-	distutils-r1_python_install_all
-}
