@@ -5750,7 +5750,7 @@ dev-libs/libdbusmenu-qt 0.9.3_pre20160218-r3: Library providing Qt implementatio
 dev-libs/libdispatch 5.3.3-r1 5.5: A library for concurrent code execution on multicore hardware
 dev-libs/libdivecomputer 0.6.0-r1 9999: Library for communication with dive computers from various manufacturers
 dev-libs/libdivsufsort 2.0.1-r1: Suffix-sorting library (for BWT)
-dev-libs/libdnet 1.14-r2: simplified, portable interface to several low-level networking routines
+dev-libs/libdnet 1.14-r2 1.16.1: Simplified, portable interface to several low-level networking routines
 dev-libs/libdnsres 0.1a-r3: A non-blocking DNS resolver library
 dev-libs/libdshconfig 0.20.13: Library for parsing dsh.style configuration files
 dev-libs/libdynd 0.7.2-r1: C++ dynamic multi-dimensionnal array library with Python exposure
@@ -5794,7 +5794,7 @@ dev-libs/libgusb 0.3.10: GObject wrapper for libusb
 dev-libs/libgweather 4.0.0 40.0: Location and timezone database and weather-lookup library
 dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and interact with USB HID devices
 dev-libs/libical 3.0.12 3.0.14 3.0.14-r1: Implementation of basic iCAL protocols
-dev-libs/libiconv 1.15 1.16: GNU charset conversion library for libc which doesn't implement it
+dev-libs/libiconv 1.15 1.16 1.17: GNU charset conversion library for libc which doesn't implement it
 dev-libs/libindicate 12.10.1-r3: Library to raise flags on DBus for other components of the desktop
 dev-libs/libindicator 12.10.1-r201 12.10.1-r301: A set of symbols and convience functions that all indicators would like to use
 dev-libs/libinput 1.20.1: Library to handle input devices in Wayland
@@ -14861,7 +14861,7 @@ net-analyzer/argus 3.0.8.3-r1: network Audit Record Generation and Utilization S
 net-analyzer/argus-clients 3.0.8.3: Clients for net-analyzer/argus
 net-analyzer/arp-scan 1.9.7 99999: ARP scanning and fingerprinting tool
 net-analyzer/arp-sk 0.0.16-r2: A swiss knife tool for ARP
-net-analyzer/arping 2.21 2.22 9999: A utility to see if a specific IP is taken and what MAC owns it
+net-analyzer/arping 2.21 2.22 2.23 9999: A utility to see if a specific IP is taken and what MAC owns it
 net-analyzer/arpoison 0.7: A utility to poison ARP caches
 net-analyzer/arpon 3.0: ArpON (Arp handler inspectiON) is a portable Arp handler
 net-analyzer/arptools 1.0.2-r1: a collection of libnet and libpcap based ARP utilities
@@ -14877,8 +14877,8 @@ net-analyzer/bwbar 1.2.3: The kernel.org "Current bandwidth utilization" bar
 net-analyzer/bwm-ng 0.6.2 0.6.3: Bandwidth Monitor NG is a small and simple console-based bandwidth monitor
 net-analyzer/bwmon 1.3-r2: Simple ncurses bandwidth monitor
 net-analyzer/bwping 2.3 2.4 2.5: A tool to measure bandwidth and RTT between two hosts using ICMP
-net-analyzer/cacti 1.2.17 1.2.19: Cacti is a complete frontend to rrdtool
-net-analyzer/cacti-spine 1.2.17 1.2.19 9999: Spine is a fast poller for Cacti (formerly known as Cactid)
+net-analyzer/cacti 1.2.17 1.2.19 1.2.20: Cacti is a complete frontend to rrdtool
+net-analyzer/cacti-spine 1.2.17 1.2.19 1.2.20 9999: Spine is a fast poller for Cacti (formerly known as Cactid)
 net-analyzer/calamaris 2.99.4.5: parses logfiles of a wide variety of web proxy servers and generates reports
 net-analyzer/carl 0.9-r5: An rsync logfile analyzer
 net-analyzer/cbm 0.3 0.3.2: Color Bandwidth Meter
@@ -14907,7 +14907,7 @@ net-analyzer/firewalk 5.0-r2: A tool for determining a firewall's rule set
 net-analyzer/flent 1.3.2: The FLExible Network Tester
 net-analyzer/flow-tools 0.68.6-r1: library and programs to process reports from NetFlow data
 net-analyzer/flowgrind 0.8.0-r2 0.8.2: Network performance measurement tool
-net-analyzer/fping 5.0: A utility to ping multiple hosts at once
+net-analyzer/fping 5.0 5.1: A utility to ping multiple hosts at once
 net-analyzer/fprobe 1.1-r3 1.1-r4: libpcap-based tool to collect network traffic data and emit it as NetFlow flows
 net-analyzer/fragroute 1.2.6-r4: Testing of network intrusion detection systems, firewalls and TCP/IP stacks
 net-analyzer/ftester 1.0: Firewall and Intrusion Detection System testing tool
@@ -14962,7 +14962,7 @@ net-analyzer/mbrowse 0.4.3-r1: MBrowse is a graphical MIB browser
 net-analyzer/mdns-scan 0.5: a tool for scanning for mDNS/DNS-SD published services
 net-analyzer/monitoring-plugins 2.3.1-r2 2.3.1-r3: 50+ standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu
 net-analyzer/mping 2.01: IPv4/6 round-robin multiping client
-net-analyzer/mrtg 2.17.8: A tool to monitor the traffic load on network-links
+net-analyzer/mrtg 2.17.8 2.17.10: A tool to monitor the traffic load on network-links
 net-analyzer/mrtg-ping-probe 2.2.0-r1: Addon mrtg contrib for stats ping/loss packets
 net-analyzer/mtr 0.95 9999: My TraceRoute, an Excellent network diagnostic tool
 net-analyzer/multimon-ng 1.1.9 9999: a fork of multimon, decodes multiple digital transmission modes
@@ -15752,7 +15752,7 @@ net-misc/felix 3.1.3: Calico's per-host agent, responsible for programming route
 net-misc/freerdp 2.7.0-r1 2.9999 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 8.1-r1 8.2.2: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.21.0 1.21.1 1.21.2 9999: Download image galleries and collections from several image hosting sites
-net-misc/geoipupdate 2.3.1 3.1.1 4.3.0 4.8.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
+net-misc/geoipupdate 2.3.1 3.1.1 4.8.0 4.9.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geomyidae 0.34-r1: A daemon to serve the gopher protocol
 net-misc/gerbera 1.11.0 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
@@ -18194,8 +18194,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.191 5.4.193 5.10.113 5.10.115 5.15.37 5.15.39 5.17.7: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.191 5.4.193 5.10.113 5.10.115 5.15.37 5.15.39 5.17.7: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.191 5.4.193 5.4.194 5.10.113 5.10.115 5.10.116 5.15.37 5.15.39 5.15.40 5.17.7 5.17.8: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.191 5.4.193 5.4.194 5.10.113 5.10.115 5.10.116 5.15.37 5.15.39 5.15.40 5.17.7 5.17.8: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.309 4.9.311 4.9.312 4.9.313 4.9.314 4.14.275 4.14.276 4.14.277 4.14.278 4.14.279 4.19.237 4.19.238 4.19.239 4.19.240 4.19.241 4.19.242 4.19.243 5.4.188 5.4.189 5.4.190 5.4.191 5.4.192 5.4.193 5.4.194 5.10.109 5.10.110 5.10.112-r1 5.10.113 5.10.114 5.10.115 5.10.116 5.15.32-r1 5.15.33 5.15.35-r1 5.15.36 5.15.37 5.15.38 5.15.39 5.15.40 5.17.1 5.17.1-r1 5.17.2 5.17.4-r1 5.17.5 5.17.6 5.17.7 5.17.8: Full sources including the Gentoo patchset for the 5.17 kernel tree
 sys-kernel/git-sources 5.18_rc1 5.18_rc2 5.18_rc3 5.18_rc4 5.18_rc5 5.18_rc6 5.18_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 3 5: Gentoo fork of installkernel script from debianutils
@@ -18211,7 +18211,7 @@ sys-kernel/pf-sources 5.15_p6-r1 5.16_p2 5.16_p3 5.16_p4 5.16_p5 5.16_p7 5.17_p1
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.235_p106 4.19.237_p107 5.4.182_p72-r1 5.10.106_p64 5.15.29_p37 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.191 5.4.193 5.10.113 5.10.115 5.15.37 5.15.39 5.17.7: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.191 5.4.193 5.4.194 5.10.113 5.10.115 5.10.116 5.15.37 5.15.39 5.15.40 5.17.7 5.17.8: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.314 4.14.279 4.19.243 5.4.194 5.10.116 5.15.40 5.17.8: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.17.1: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18396,7 +18396,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.191 5.4.193 5.10.113 5.10.115 5.15.37 5.15.39 5.17.7: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.191 5.4.193 5.4.194 5.10.113 5.10.115 5.10.116 5.15.37 5.15.39 5.15.40 5.17.7 5.17.8: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
