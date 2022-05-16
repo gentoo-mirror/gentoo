@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake flag-o-matic toolchain-funcs xdg
 
@@ -16,12 +16,12 @@ SLOT="0"
 if [[ $(( $(ver_cut 2) % 2 )) == 0 ]] ; then
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 fi
-IUSE="dbus dedicated doc fribidi nls server"
+IUSE="dbus dedicated doc nls server"
 
 RDEPEND="
 	acct-group/wesnoth
 	acct-user/wesnoth
-	>=dev-libs/boost-1.50:=[nls,threads(+),icu]
+	dev-libs/boost:=[bzip2,context,icu,nls,threads(+)]
 	>=media-libs/libsdl2-2.0.4:0[joystick,video,X]
 	!dedicated? (
 		dev-libs/glib:2
@@ -29,13 +29,11 @@ RDEPEND="
 		>=media-libs/fontconfig-2.4.1
 		>=media-libs/sdl2-image-2.0.0[jpeg,png]
 		>=media-libs/sdl2-mixer-2.0.0[vorbis]
-		>=media-libs/sdl2-ttf-2.0.12
 		media-libs/libvorbis
 		>=x11-libs/pango-1.22.0
 		>=x11-libs/cairo-1.10.0
 		sys-libs/readline:0=
 		dbus? ( sys-apps/dbus )
-		fribidi? ( dev-libs/fribidi )
 	)"
 DEPEND="${RDEPEND}
 	x11-libs/libX11
@@ -44,10 +42,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}/wesnoth-1.14.14-ar.patch"
-)
 
 src_prepare() {
 	cmake_src_prepare
@@ -95,7 +89,6 @@ src_configure() {
 		-DENABLE_DESKTOP_ENTRY="$(usex !dedicated)"
 		-DENABLE_NLS="$(usex nls)"
 		-DENABLE_NOTIFICATIONS="$(usex dbus)"
-		-DENABLE_FRIBIDI="$(usex fribidi)"
 		-DENABLE_STRICT_COMPILATION="OFF"
 		)
 	cmake_src_configure
@@ -104,8 +97,8 @@ src_configure() {
 src_install() {
 	local DOCS=( README.md changelog.md )
 	cmake_src_install
-	if use dedicated || use server; then
-		rmdir "${ED}/run/wesnothd" || die
+	if use dedicated || use server ; then
+		rmdir "${ED}"/run{/wesnothd,} || die
 		newinitd "${FILESDIR}"/wesnothd.rc-r1 wesnothd
 	fi
 }
