@@ -24,10 +24,6 @@ net-ftp/proftpd memcache
 # so avoid keywording 4.8 slot
 dev-lisp/clisp berkdb
 
-# Matt Turner <mattst88@gentoo.org> (2022-04-18)
-# app-text/nuspell is not keyworded
-app-text/enchant nuspell
-
 # Jakov Smolić <jsmolic@gentoo.org> (2022-04-07)
 # Depends on sys-cluster/ceph which pulls in valgrind, which is
 # unavailable on riscv currently
@@ -82,10 +78,6 @@ sci-astronomy/stellarium webengine
 # but with it installed, anyio passes all tests
 dev-python/anyio test
 
-# Alex Fan <alex.fan.q@gmail.com> (2021-11-19)
-# depends on dev-lang/ocaml
-app-accessibility/brltty ocaml ocamlopt
-
 # Marek Szuba <marecki@gentoo.org> (2021-09-23)
 # mkdocs ecosystem only partly keyworded on riscv, has rather messy
 # Python-target requirements.
@@ -93,16 +85,13 @@ dev-python/backrefs doc
 dev-python/pyspelling doc
 dev-python/wcmatch doc
 
-# Marek Szuba <marecki@gentoo.org> (2021-09-19)
-# media-gfx/nvidia-texture-tools reports arch as unknown, fails to build
-media-libs/devil nvtt
-
-# Alex Fan <alexfanqi@yahoo.com> (2021-09-13)
+# Alex Fan <alex.fan.q@gmail.com> (2022-05-16)
 # These depend on Haskell:
 #  - dev-vcs/darcs
 app-portage/layman darcs
 #  - app-text/pandoc
 sys-cluster/ceph pmdk
+app-text/nuspell doc
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-09-15)
 # Marek Szuba <marecki@gentoo.org> (2021-09-07)
@@ -124,12 +113,6 @@ dev-ruby/dalli test
 # Jonathan Davies <jpds@protonmail.com> (2021-09-03)
 # Requires CPU with SSSE3 support
 net-analyzer/suricata hyperscan
-
-# Marek Szuba <marecki@gentoo.org> (2021-09-02)
-# dev-python/pebble not keyworded here due to failing tests.
-# That said, with pebble-4.6.3 installed manually
-# (and without testing) all nbconvert-6.0.7 tests passed.
-dev-python/nbconvert test
 
 # Yixun Lan <dlan@gentoo.org> (2021-08-29)
 #  sys-apps/fwupd not tested, USE=spi,uefi,dell
@@ -155,10 +138,10 @@ gnome-base/gnome-shell browser-extension
 
 # Alex Fan <alexfanqi@yahoo.com> (2021-08-17)
 # dependencies not keyworded/tested
-kde-plasma/plasma-meta grub plymouth
+kde-plasma/plasma-meta plymouth
 
 # Marek Szuba <marecki@gentoo.org> (2021-08-17)
-# sys-libs/libfaketime does not work properly on this arch
+# sys-libs/libfaketime does not work properly on this arch, bug #844958
 sys-auth/sssd test
 
 # Marek Szuba <marecki@gentoo.org> (2021-08-11)
@@ -205,7 +188,7 @@ media-gfx/gimp lua
 www-servers/nginx nginx_modules_http_lua
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-11)
-# Causes 35 tests to fail with "fatal llvm error"
+# Causes 35 tests to fail with "fatal llvm error", bug #844946
 dev-db/postgresql llvm
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
@@ -213,7 +196,7 @@ dev-db/postgresql llvm
 sys-cluster/slurm ucx
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
-# net-dialup/mgetty fails to compile on this arch
+# net-dialup/mgetty fails to compile on this arch, bug #844955
 mail-mta/courier fax
 
 # Marek Szuba <marecki@gentoo.org> (2021-07-05)
@@ -221,15 +204,8 @@ mail-mta/courier fax
 #  - sci-libs/vtk
 media-libs/opencv vtk
 sci-libs/opencascade vtk
-#  - dev-util/aruba
-sys-block/thin-provisioning-tools test
 
 # This doesn't work for (any) riscv yet.
 dev-libs/libpcre2 jit
 dev-libs/libpcre jit
 www-servers/nginx pcre-jit
-
-# app-shells/fish not keyworded due to failing tests (Bug #807742).
-# That said, with fish-3.3.1-r1 installed manually (and without testing)
-# all argcomplete-1.12.3 tests passed.
-dev-python/argcomplete test
