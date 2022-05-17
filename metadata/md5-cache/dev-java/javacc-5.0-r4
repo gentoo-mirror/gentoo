@@ -2,7 +2,7 @@ DEFINED_PHASES=compile configure install preinst prepare setup test
 DEPEND=dev-java/junit:0 >=virtual/jdk-1.8:* test? ( dev-java/ant-junit:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=Java Compiler Compiler - The Java Parser Generator
 EAPI=8
-HOMEPAGE=https://javacc.java.net/
+HOMEPAGE=https://javacc.github.io/javacc/
 INHERIT=java-pkg-2 java-ant-2
 IUSE=doc examples source test
 KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://java.net/projects/javacc/downloads/download/javacc-5.0src.tar.gz
 _eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0
-_md5_=264abd75d63f97cc128ab86ab0d73c6c
+_md5_=d89460767e9b517238fbed3a2464460d
