@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://code.videolan.org/videolan/libplacebo
 INHERIT=meson-multilib python-any-r1
 IUSE=glslang lcms +opengl +shaderc test +vulkan abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~amd64 ~ppc64 ~x86
+KEYWORDS=~amd64 ppc64 ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=glslang? ( dev-util/glslang[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) lcms? ( media-libs/lcms:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) opengl? ( media-libs/libepoxy[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) shaderc? ( >=media-libs/shaderc-2017.2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) vulkan? ( dev-util/vulkan-headers media-libs/vulkan-loader[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 REQUIRED_USE=vulkan? ( || ( glslang shaderc ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/192
 SRC_URI=https://code.videolan.org/videolan/libplacebo/-/archive/v4.192.1/libplacebo-v4.192.1.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=06719e49afc8b80d32d2333d0a5c67d4
+_md5_=cdf7166de28b0f643a68f74b3ee9d4ef
