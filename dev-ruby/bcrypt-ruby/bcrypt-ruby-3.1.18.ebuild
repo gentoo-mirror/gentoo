@@ -14,13 +14,13 @@ RUBY_FAKEGEM_NAME="bcrypt"
 
 RUBY_FAKEGEM_EXTENSIONS=(ext/mri/extconf.rb)
 
-inherit multilib ruby-fakegem
+inherit ruby-fakegem
 
 DESCRIPTION="An easy way to keep your users' passwords secure"
 HOMEPAGE="https://github.com/codahale/bcrypt-ruby"
 LICENSE="MIT"
 
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 SLOT="0"
 IUSE=""
 
