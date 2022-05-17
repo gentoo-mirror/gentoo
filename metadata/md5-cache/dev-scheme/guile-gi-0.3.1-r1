@@ -5,6 +5,7 @@ DESCRIPTION=Bindings for GObject Introspection and libgirepository for Guile
 EAPI=8
 HOMEPAGE=https://spk121.github.io/guile-gi/
 INHERIT=autotools
+IUSE=static-libs
 KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=>=dev-scheme/guile-2.0.9:= dev-libs/gobject-introspection x11-libs/gtk+:3[introspection]
@@ -12,4 +13,4 @@ RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/spk121/guile-gi/archive/v0.3.1.tar.gz -> guile-gi-0.3.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
-_md5_=c3d351999dcc7c3e7cd3958159534a19
+_md5_=68427dafefc38fe906b96fd6c39dbe8b
