@@ -5,11 +5,11 @@ DESCRIPTION=Bindings for GObject Introspection and libgirepository for Guile
 EAPI=8
 HOMEPAGE=https://spk121.github.io/guile-gi/
 INHERIT=virtualx autotools git-r3
-IUSE=static-libs test
+IUSE=test
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=dev-scheme/guile-2.0.9:= dev-libs/gobject-introspection x11-libs/gtk+:3[introspection]
 RESTRICT=strip !test? ( test )
 SLOT=0
 _eclasses_=virtualx	975d49ff3b3f451efe7a95f230532135	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=693f135961472c1fc65f464572fbcfad
+_md5_=249a833e9d8286f54abd2b607db7a13f
