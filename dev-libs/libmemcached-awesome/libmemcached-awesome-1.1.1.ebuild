@@ -33,8 +33,12 @@ src_configure() {
 	cmake_src_configure
 }
 
-# Running tests:
-#
-# FEATURES="test -network-sandbox" \
-# USE="test" \
-# emerge dev-libs/libmemcached-awesome
+src_test() {
+	local myctestargs=(
+		# memcached_regression_lp583031: needs network, bug #845123
+		# bin/memaslap: tries to use Portage HOMEDIR, bug #845123
+		-E "(memcached_regression_lp583031|bin/memaslap)"
+	)
+
+	cmake_src_test
+}
