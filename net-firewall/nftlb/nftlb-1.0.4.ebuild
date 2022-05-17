@@ -1,7 +1,7 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit linux-info autotools
 
@@ -24,13 +24,18 @@ RDEPEND="${DEPEND}"
 RESTRICT="test"
 
 PATCHES=(
-	"${FILESDIR}/nftlb-0.6-tests.patch"
-	"${FILESDIR}/nftlb-0.6-musl.patch"
+	"${FILESDIR}/nftlb-1.0-tests.patch"
+	"${FILESDIR}/nftlb-1.0-musl.patch"
 )
 
 pkg_setup() {
-	local CONFIG_CHECK="~NF_TABLES ~NFT_NUMGEN
-		~NFT_HASH ~NF_NAT ~IP_NF_NAT"
+	local CONFIG_CHECK="
+		~NF_TABLES
+		~NFT_NUMGEN
+		~NFT_HASH
+		~NF_NAT
+		~IP_NF_NAT
+	"
 
 	linux-info_pkg_setup
 
