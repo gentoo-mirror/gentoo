@@ -5,9 +5,9 @@ DESCRIPTION=A PAM module that can mount volumes for a user session
 EAPI=7
 HOMEPAGE=http://pam-mount.sourceforge.net
 IUSE=crypt ssl selinux
-KEYWORDS=amd64 ~ppc x86
+KEYWORDS=amd64 ppc x86
 LICENSE=GPL-3
 RDEPEND=>=sys-libs/pam-0.99 >=sys-libs/libhx-3.12.1:= >=sys-apps/util-linux-2.20:= >=dev-libs/libxml2-2.6:= dev-libs/libpcre2 crypt? ( >=sys-fs/cryptsetup-1.1.0:= ) ssl? ( dev-libs/openssl:0= ) selinux? ( sys-libs/libselinux )
 SLOT=0
 SRC_URI=mirror://sourceforge/pam-mount/pam_mount-2.18.tar.xz
-_md5_=724d6ae5dd85d0da768b020e1d75615d
+_md5_=2456058c248d8578cb2a4f3cabbdafb2
