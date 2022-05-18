@@ -1,24 +1,24 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-WX_GTK_VER="3.0"
+WX_GTK_VER="3.0-gtk3"
 inherit cmake wxwidgets
 
 MY_PN="weather_routing_pi"
 if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/seandepagnier/${MY_PN}.git"
+	EGIT_REPO_URI="https://github.com/rgleason/${MY_PN}.git"
 else
-	SRC_URI="https://github.com/seandepagnier/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/rgleason/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${MY_PN}-${PV}"
 fi
 
 DESCRIPTION="Weather Routing Plugin for OpenCPN"
-HOMEPAGE="https://github.com/seandepagnier/weather_routing_pi/"
+HOMEPAGE="https://github.com/rgleason/weather_routing_pi/"
 
 LICENSE="GPL-3+"
 SLOT="0"
