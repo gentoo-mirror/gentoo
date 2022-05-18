@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit multiprocessing toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="The UEFI Boot Manager by Rod Smith"
 HOMEPAGE="https://www.rodsbooks.com/refind/"
@@ -11,16 +11,11 @@ SRC_URI="mirror://sourceforge/project/${PN}/${PV}/${PN}-src-${PV}.tar.gz"
 
 LICENSE="BSD GPL-2 GPL-3 FDL-1.3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 FS_USE="btrfs +ext2 +ext4 hfs +iso9660 ntfs reiserfs"
 IUSE="${FS_USE} custom-cflags doc"
 
 DEPEND="sys-boot/gnu-efi"
-
-PATCHES=(
-	"${FILESDIR}/makefile.patch"
-	"${FILESDIR}/${P}-gcc10.patch" # Bug 723244
-)
 
 DOCS=( README.txt )
 
@@ -50,7 +45,8 @@ src_prepare() {
 	default
 
 	# bug 598647 - PIE not supported
-	sed -e '/^CFLAGS/s:$: -fno-PIE:' -i Make.common || die
+	sed -e '/^CFLAGS/s/$/ -fno-PIE/' -i Make.common || die
+	sed -e '1 i\.NOTPARALLEL:' -i filesystems/Makefile || die
 }
 
 src_compile() {
@@ -76,8 +72,6 @@ src_compile() {
 		GNUEFILIB="/usr/$(get_libdir)"
 		EFILIB="/usr/$(get_libdir)"
 		EFICRT0="/usr/$(get_libdir)"
-		EDK2BASE="${UDK_WORKSPACE}"
-		EDK2_DRIVER_BASENAMES="${fs_names[*]}"
 		FILESYSTEMS="${fs_names[*]}"
 		FILESYSTEMS_GNUEFI="${fs_names[*]}"
 	)
@@ -89,9 +83,9 @@ src_compile() {
 }
 
 src_install() {
-	exeinto "/usr/lib/${PN}"
+	exeinto "/usr/$(get_libdir)/${PN}"
 	doexe refind-install
-	dosym "../lib/${PN}/refind-install" "/usr/sbin/refind-install"
+	dosym "../$(get_libdir)/${PN}/refind-install" "/usr/sbin/refind-install"
 
 	if use doc; then
 		doman "docs/man/"*
@@ -99,7 +93,7 @@ src_install() {
 	fi
 	einstalldocs
 
-	insinto "/usr/lib/${PN}/refind"
+	insinto "/usr/$(get_libdir)/${PN}/refind"
 	doins "refind/refind_${EFIARCH}.efi"
 	doins "refind.conf-sample"
 	doins -r images icons fonts banners
@@ -108,7 +102,7 @@ src_install() {
 		doins -r "drivers_${EFIARCH}"
 	fi
 
-	insinto "/usr/lib/${PN}/refind/tools_${EFIARCH}"
+	insinto "/usr/$(get_libdir)/${PN}/refind/tools_${EFIARCH}"
 	doins "gptsync/gptsync_${EFIARCH}.efi"
 
 	insinto "/etc/refind.d"
@@ -120,7 +114,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "rEFInd has been built and installed into ${EROOT}/usr/lib/${PN}"
+	elog "rEFInd has been built and installed into ${EROOT}/usr/$(get_libdir)/${PN}"
 	elog "You will need to use the command 'refind-install' to install"
 	elog "the binaries into your EFI System Partition"
 	elog ""
@@ -133,7 +127,7 @@ pkg_postinst() {
 	elog ""
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "A sample configuration can be found at"
-		elog "${EROOT}/usr/lib/${PN}/refind/refind.conf-sample"
+		elog "${EROOT}/usr/$(get_libdir)/${PN}/refind/refind.conf-sample"
 	else
 		if ver_test "${REPLACING_VERSIONS}" -lt "0.12.0"; then
 			ewarn "This new version uses sys-apps/gptfdisk instead of sys-block/parted"
