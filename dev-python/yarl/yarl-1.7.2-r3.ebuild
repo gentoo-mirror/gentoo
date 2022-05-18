@@ -26,12 +26,15 @@ RDEPEND="
 	>=dev-python/multidict-4.0[${PYTHON_USEDEP}]
 	>=dev-python/idna-2.0[${PYTHON_USEDEP}]
 "
+BDEPEND="
+	dev-python/cython[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/alabaster
 
-src_configure() {
+python_configure_all() {
 	> .install-cython || die
 	emake cythonize
 }
