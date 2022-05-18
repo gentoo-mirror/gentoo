@@ -4,17 +4,19 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
 DESCRIPTION="The missing async toolbox"
 HOMEPAGE="
 	https://github.com/maxfischer2781/asyncstdlib/
-	https://pypi.org/project/asyncstdlib/"
+	https://pypi.org/project/asyncstdlib/
+"
 SRC_URI="
 	https://github.com/maxfischer2781/asyncstdlib/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz"
+		-> ${P}.gh.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
