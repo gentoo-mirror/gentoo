@@ -8,7 +8,7 @@ MY_PN="${PN%-*}"
 inherit desktop
 
 DESCRIPTION="Mattermost Desktop application"
-HOMEPAGE="https://about.mattermost.com/"
+HOMEPAGE="https://mattermost.com/"
 
 SRC_URI="
 	amd64? ( https://releases.mattermost.com/desktop/${PV}/mattermost-desktop-${PV}-linux-x64.tar.gz )

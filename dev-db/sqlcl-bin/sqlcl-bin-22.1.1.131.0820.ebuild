@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86"
 BDEPEND="app-arch/unzip"
 RDEPEND="dev-db/oracle-instantclient
 	dev-java/java-config:2
-	>=virtual/jre-1.8"
+	>=virtual/jre-11"
 
 S="${WORKDIR}"
 
