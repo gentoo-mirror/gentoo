@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 PYTHON_REQ_USE="ncurses?"
 
@@ -11,8 +11,8 @@ inherit desktop distutils-r1 gnome2-utils xdg-utils
 
 MY_P="Electron-Cash-${PV}"
 DESCRIPTION="Lightweight Bitcoin Cash client (BCH fork of Electrum)"
-HOMEPAGE="https://github.com/fyookball/electrum/"
-SRC_URI="https://github.com/fyookball/electrum/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/Electron-Cash/Electron-Cash"
+SRC_URI="https://github.com/Electron-Cash/Electron-Cash/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -36,6 +36,7 @@ RDEPEND="
 	dev-python/dnspython[${PYTHON_USEDEP}]
 	dev-python/ecdsa[${PYTHON_USEDEP}]
 	dev-python/jsonrpclib[${PYTHON_USEDEP}]
+	dev-python/pathvalidate[${PYTHON_USEDEP}]
 	dev-python/pbkdf2[${PYTHON_USEDEP}]
 	dev-python/pyaes[${PYTHON_USEDEP}]
 	dev-python/PySocks[${PYTHON_USEDEP}]
