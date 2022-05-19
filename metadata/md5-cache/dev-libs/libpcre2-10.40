@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.pcre.org/
 INHERIT=libtool multilib-minimal usr-ldscript verify-sig
 IUSE=bzip2 +jit libedit +pcre16 pcre32 +readline static-libs unicode zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr verify-sig
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=BSD
 RDEPEND=bzip2? ( app-arch/bzip2 ) libedit? ( dev-libs/libedit ) readline? ( sys-libs/readline:= ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=?? ( libedit readline )
 SLOT=0/3
 SRC_URI=https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.bz2 https://ftp.pcre.org/pub/pcre/pcre2-10.40.tar.bz2 verify-sig? ( https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.bz2.sig ) https://dev.gentoo.org/~whissi/dist/libpcre2/libpcre2-10.36-patchset-01.tar.xz https://dev.gentoo.org/~polynomial-c/dist/libpcre2-10.36-patchset-01.tar.xz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	usr-ldscript	5c738dce357b54d5a90e30094d2f983c	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=b5c751cb9a408cc0e9bebe84df4ba4b8
+_md5_=911f7e1cc6d96bb9bc9dfb026aadda7a
