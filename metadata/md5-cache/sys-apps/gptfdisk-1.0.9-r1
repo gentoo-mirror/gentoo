@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://www.rodsbooks.com/gdisk/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=ncurses static
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=!static? ( dev-libs/popt ncurses? ( sys-libs/ncurses:=[unicode(+)] ) kernel_linux? ( sys-apps/util-linux ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/gptfdisk/gptfdisk-1.0.9.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
-_md5_=1bcd1af7f0df62b1456a203da0909a20
+_md5_=2baf10a1b00a79d5fbfce3aa9395b450
