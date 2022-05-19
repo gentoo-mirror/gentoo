@@ -5,9 +5,9 @@ EAPI=8
 
 inherit rpm xdg
 
-DESCRIPTION="The Ultimate Open Source Web Chat Platform"
-HOMEPAGE="https://rocket.chat"
-SRC_URI="https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/${PV}/rocketchat-${PV}-linux-x86_64.rpm"
+DESCRIPTION="Unofficial electron-based wrapper around WhatsApp Web"
+HOMEPAGE="https://github.com/diospiroverde/WazzApp"
+SRC_URI="https://lx-dynamics.com/wazzapp-${PV}.x86_64.rpm"
 S="${WORKDIR}"
 
 KEYWORDS="-* ~amd64"
@@ -19,40 +19,41 @@ LICENSE="
 SLOT="0"
 
 RDEPEND="
-	app-accessibility/at-spi2-atk:2
+	app-accessibility/at-spi2-atk
+	app-accessibility/at-spi2-core
 	dev-libs/atk
 	dev-libs/expat
-	dev-libs/libappindicator
+	dev-libs/glib
 	dev-libs/nspr
 	dev-libs/nss
-	media-fonts/noto-emoji
 	media-libs/alsa-lib
+	media-libs/mesa
 	net-print/cups
+	sys-apps/dbus
 	sys-libs/glibc
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf:2
+	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
-	x11-libs/libnotify
-	x11-libs/libxcb
+	x11-libs/libdrm
 	x11-libs/libX11
+	x11-libs/libxcb
 	x11-libs/libXcomposite
-	x11-libs/libXcursor
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXi
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
-	x11-libs/libXrender
-	x11-libs/libXtst
-	x11-libs/libXScrnSaver
 	x11-libs/pango
 "
 
-QA_PREBUILT="opt/Rocket.Chat/*"
+QA_PREBUILT="opt/wazzapp/*"
+
+src_prepare() {
+	default
+	# Fix desktop file to pass validation
+	sed -i -e '/MimeType=whatsapp/d' usr/share/applications/wazzapp.desktop || die
+}
 
 src_install() {
-	# remove files useless for Gentoo
-	rm -r usr/lib || die
 	mv "${S}"/* "${ED}" || die
 }
