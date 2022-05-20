@@ -2435,7 +2435,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 0.7: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.2 0.3: Contributed packages to Org
-app-emacs/org-mode 9.4.6 9.5.2 9.5.3 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.4.6 9.5.2 9.5.3-r1 9999: An Emacs mode for notes and project planning
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
@@ -11203,7 +11203,7 @@ dev-util/bitrise 1.24.0: Run your Bitrise.io automations on any Mac or Linux mac
 dev-util/bloaty 0_p20170420 1.1 9999: A size profiler for binaries
 dev-util/bnfc 2.8.3: A compiler front-end generator
 dev-util/boost-build 1.78.0-r1 1.79.0: A system for large project software construction, simple to use and powerful
-dev-util/bpftool 5.16.15 5.17.4: Tool for inspection and simple manipulation of eBPF programs and maps
+dev-util/bpftool 5.16.15 5.17.4 5.17.7: Tool for inspection and simple manipulation of eBPF programs and maps
 dev-util/bpftrace 0.14.1 0.14.1-r1: High-level tracing language for eBPF
 dev-util/bsdiff 4.3-r4: bsdiff: Binary Differencer using a suffix alg
 dev-util/btyacc 3.0-r4: Backtracking YACC - modified from Berkeley YACC
@@ -15449,7 +15449,7 @@ net-libs/libmrss 0.19.2-r1: A C-library for parsing and writing RSS 0.91/0.92/1.
 net-libs/libnatpmp 20150609: An alternative protocol to UPnP IGD specification
 net-libs/libndp 1.8: Library for Neighbor Discovery Protocol
 net-libs/libnet 1.0.2a-r7 1.2 1.2.9999: library providing an API for commonly used low-level network functions
-net-libs/libnetconf2 2.1.7: C library for building NETCONF servers and clients
+net-libs/libnetconf2 2.1.7 2.1.11: C library for building NETCONF servers and clients
 net-libs/libnetfilter_acct 1.0.3: Library providing interface to extended accounting infrastructure
 net-libs/libnetfilter_conntrack 1.0.8 1.0.9: Programming interface (API) to the in-kernel connection tracking state table
 net-libs/libnetfilter_cthelper 1.0.0-r1 1.0.1-r1: Userspace library for interface to user-space helper for conntrack
@@ -15499,8 +15499,8 @@ net-libs/libtrace 4.0.15_p1 4.0.17_p1 4.0.18_p1 9999: A library and tools for tr
 net-libs/libupnp 1.14.12-r1: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 0.21.0: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
 net-libs/libvncserver 0.9.13: library for creating vnc servers
-net-libs/libwebsockets 4.3.1: A flexible pure-C library for implementing network protocols
-net-libs/libyang 2.0.164: YANG data modeling language library
+net-libs/libwebsockets 4.3.1 4.3.2: A flexible pure-C library for implementing network protocols
+net-libs/libyang 2.0.164 2.0.194: YANG data modeling language library
 net-libs/libzapojit 0.0.3-r1: GLib/GObject wrapper for the SkyDrive and Hotmail REST APIs
 net-libs/liquid-dsp 1.3.2 9999: digital signal processing library for software-defined radios
 net-libs/loudmouth 1.5.3-r3 1.5.4: Lightweight C Jabber library
@@ -15829,7 +15829,7 @@ net-misc/netkit-rsh 0.17-r14: Netkit's Remote Shell Suite: rexec{,d} rlogin{,d} 
 net-misc/netkit-talk 0.17-r7: Netkit - talkd
 net-misc/netkit-telnetd 0.17-r12 0.17-r13: Standard Linux telnet client and server
 net-misc/netkit-timed 0.17-r10: Netkit - timed
-net-misc/netopeer2 2.1.16: Server for implementing NETCONF configuration management
+net-misc/netopeer2 2.1.16 2.1.23: Server for implementing NETCONF configuration management
 net-misc/netpipe 1.0.0_beta2-r2: tool to reliably distribute binary data using UDP broadcasting techniques
 net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3: Small tool for altering forwarded network data in real time
@@ -15931,7 +15931,7 @@ net-misc/streamtuner 0.99.99-r5: Stream directory browser for browsing internet 
 net-misc/stunnel 5.59 5.64: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.15 1.2.16: Open source implementation of the STUN protocol
 net-misc/suite3270 4.0_p13 4.0_p14 4.1_p11: Complete 3270 access package
-net-misc/sysrepo 2.1.42: YANG-based configuration and operational state data store
+net-misc/sysrepo 2.1.42 2.1.64: YANG-based configuration and operational state data store
 net-misc/taptap 1.0: A program to link two /dev/net/tun to form virtual ethernet
 net-misc/taylor-uucp 1.07-r4: Taylor UUCP
 net-misc/tcpsound 0.3.1-r1: Play sounds in response to network traffic
@@ -17971,7 +17971,7 @@ sys-devel/binutils-apple 3.2.6 8.2.1-r1 8.2.1-r101: Darwin Xtools matching Xcode
 sys-devel/binutils-config 5.4 5.4.1 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r1 2.38-r2: Tools necessary to build programs
 sys-devel/bison 3.7.6 3.8.2: A general-purpose (yacc-compatible) parser generator
-sys-devel/bmake 20220303 20220330 20220418: NetBSD's portable make
+sys-devel/bmake 20220330 20220418: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
 sys-devel/clang 12.0.1 13.0.1 14.0.1-r1 14.0.3 15.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 12.0.1 13.0.1 14.0.1 14.0.3 15.0.0.9999: Common files shared between multiple slots of clang
