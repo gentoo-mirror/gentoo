@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison sys-devel/flex || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=<sys-devel/clang-14:= !!sys-devel/llvm:0
+DEPEND=<sys-devel/clang-15:= !!sys-devel/llvm:0
 DESCRIPTION=Intel SPMD Program Compiler
 EAPI=7
 HOMEPAGE=https://ispc.github.io/
@@ -8,8 +8,8 @@ INHERIT=cmake python-any-r1 llvm
 IUSE=examples
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD BSD-2 UoI-NCSA
-RDEPEND=<sys-devel/clang-14:=
+RDEPEND=<sys-devel/clang-15:=
 SLOT=0
 SRC_URI=https://github.com/ispc/ispc/archive/v1.17.0.tar.gz -> ispc-1.17.0.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	llvm	6f88d422e49b917bf254b2594f3d903c
-_md5_=8323d908116f4bfbe564fe46991e37f5
+_md5_=087097f46568f022346440bd424cb2c7
