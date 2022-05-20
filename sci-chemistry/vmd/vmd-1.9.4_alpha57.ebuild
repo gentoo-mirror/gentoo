@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{8..9} )
+EAPI=8
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cuda desktop flag-o-matic prefix python-single-r1 toolchain-funcs xdg
 
@@ -13,7 +13,7 @@ MY_PV="${PV/_alpha/a}"
 MY_P="${PN}-${MY_PV}"
 SRC_URI="
 	${MY_P}.src.tar.gz
-	https://dev.gentoo.org/~pacho/${PN}/${P}-gentoo-patches.tar.xz
+	fetch+https://dev.gentoo.org/~pacho/${PN}/${PN}-1.9.4_alpha57-gentoo-patches.tar.xz
 "
 
 SLOT="0"
@@ -62,7 +62,7 @@ S="${WORKDIR}/${MY_P}"
 
 VMD_DOWNLOAD="http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD"
 
-# Binary only plugin!!
+# Binary only plugin
 QA_PREBUILT="usr/lib*/vmd/plugins/LINUX/tcl/intersurf/bin/intersurf.so"
 QA_FLAGS_IGNORED_amd64=" usr/lib64/vmd/plugins/LINUX/tcl/volutil/volutil"
 QA_FLAGS_IGNORED_x86=" usr/lib/vmd/plugins/LINUX/tcl/volutil/volutil"
@@ -70,16 +70,15 @@ QA_FLAGS_IGNORED_x86=" usr/lib/vmd/plugins/LINUX/tcl/volutil/volutil"
 pkg_nofetch() {
 	elog "Please download ${MY_P}.src.tar.gz from"
 	elog "${VMD_DOWNLOAD}"
-	elog "after agreeing to the license and get"
-	elog "https://dev.gentoo.org/~pacho/${PN}/${P}-gentoo-patches.tar.xz"
-	elog "Place them into your DISTDIR directory."
+	elog "after agreeing to the license."
+	elog "Place it into your DISTDIR directory."
 }
 
 src_prepare() {
 	# Apply user patches from ${WORKDIR} to allow patching on patches
 	# subdir too
 	cd "${WORKDIR}"
-	xdg_src_prepare
+	default
 
 	# https://www.ks.uiuc.edu/Research/vmd/mailing_list/vmd-l/32121.html
 	# https://www.ks.uiuc.edu/Research/vmd/mailing_list/vmd-l/32116.html
