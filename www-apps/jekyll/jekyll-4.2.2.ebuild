@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26"
+USE_RUBY="ruby26 ruby27"
 
 inherit ruby-fakegem
 
@@ -28,16 +28,16 @@ ruby_add_rdepend "
 	>=dev-ruby/colorator-1.0
 	>=dev-ruby/em-websocket-0.5
 	dev-ruby/i18n:1
-	>=dev-ruby/kramdown-2.1:2
+	>=dev-ruby/kramdown-2.3:2
 	dev-ruby/kramdown-parser-gfm:1
 	dev-ruby/liquid:4
 	>=dev-ruby/mercenary-0.4.0
 	>=dev-ruby/pathutil-0.9
 	=dev-ruby/rouge-3*
 	>=dev-ruby/safe_yaml-1.0
-	>=dev-ruby/terminal-table-1.8:0
+	dev-ruby/terminal-table:2
 	>=www-apps/jekyll-sass-converter-2.0
-	>=www-apps/jekyll-watch-2.0
+	>=www-apps/jekyll-watch-2.2.1-r1
 "
 
 ruby_add_bdepend "
@@ -57,8 +57,6 @@ ruby_add_bdepend "
 "
 
 all_ruby_prepare() {
-	# reported upstream https://github.com/jekyll/jekyll/issues/8556
-	eapply "${FILESDIR}"/jekyll-missingdep.patch
 	eapply "${FILESDIR}"/jekyll-3.6.0-test-helper.patch
 
 	# Drop tests requiring bundler
