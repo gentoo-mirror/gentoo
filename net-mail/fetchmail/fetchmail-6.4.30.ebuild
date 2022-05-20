@@ -1,23 +1,22 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
-PYTHON_REQ_USE="tk?"
+PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_REQ_USE="tk"
 
 inherit autotools python-single-r1 systemd tmpfiles toolchain-funcs
 
 DESCRIPTION="the legendary remote-mail retrieval and forwarding utility"
 HOMEPAGE="https://www.fetchmail.info/"
-SRC_URI="mirror://sourceforge/${PN}/${P/_/-}.tar.xz"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2 public-domain"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
-IUSE="kerberos nls +python socks +ssl tk"
-REQUIRED_USE="tk? ( python )
-	python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="ssl nls kerberos tk socks"
+REQUIRED_USE="tk? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="acct-user/fetchmail
 	ssl? (
@@ -30,7 +29,7 @@ RDEPEND="acct-user/fetchmail
 	nls? ( virtual/libintl )
 	!elibc_glibc? ( sys-fs/e2fsprogs )
 	socks? ( net-proxy/dante )
-	python? (
+	tk? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
 			dev-python/future[${PYTHON_USEDEP}]
@@ -46,22 +45,21 @@ HTML_DOCS="*.html"
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.3.26-python-optional.patch
 )
-
-S=${WORKDIR}/${P/_/-}
+S=${WORKDIR}/${P/_/.}
 
 pkg_setup() {
-	use python && python-single-r1_pkg_setup
+	use tk && python-single-r1_pkg_setup
 }
 
 src_prepare() {
 	default
 	# don't compile during src_install
-	use python && : > "${S}"/py-compile
+	use tk && : > "${S}"/py-compile
 	eautoreconf
 }
 
 src_configure() {
-	use python || export PYTHON=:
+	use tk || export PYTHON=:
 
 	econf \
 		--enable-RPA \
@@ -82,7 +80,6 @@ src_compile() {
 
 src_install() {
 	default
-	use python && python_doscript contrib/fetchmail-oauth2.py
 
 	newinitd "${FILESDIR}"/fetchmail.initd fetchmail
 	newconfd "${FILESDIR}"/fetchmail.confd fetchmail
@@ -97,7 +94,7 @@ src_install() {
 		[ -f "${f}" ] && dodoc "${f}"
 	done
 
-	use python && python_optimize
+	use tk && python_optimize
 }
 
 pkg_postinst() {
