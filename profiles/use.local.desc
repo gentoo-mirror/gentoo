@@ -652,6 +652,7 @@ app-emulation/vkd3d-proton:extras - Install extra tools and demos in /usr/lib/vk
 app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
 app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
+app-emulation/wine-staging:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-staging:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-staging:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-staging:gecko - Add support for the Gecko engine when using iexplore
@@ -676,6 +677,7 @@ app-emulation/wine-staging:usb - Use virtual/libusb to provide USB support
 app-emulation/wine-staging:vkd3d - Use app-emulation/vkd3d to provide Direct3D 12 support
 app-emulation/wine-staging:vulkan - Enable Vulkan drivers
 app-emulation/wine-vanilla:capi - Enable ISDN support via CAPI
+app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-vanilla:custom-cflags - Bypass strip-flags; use at your own peril
 app-emulation/wine-vanilla:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-vanilla:faudio - Pull in app-emulation/faudio to provide XAudio2 functionality
