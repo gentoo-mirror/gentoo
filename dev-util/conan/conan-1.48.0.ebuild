@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1
@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-python/colorama-0.3.3[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.0.2[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.14.1[${PYTHON_USEDEP}]
-	>=dev-python/jinja-2.10.1[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
 	>=dev-python/node-semver-0.8[${PYTHON_USEDEP}]
 	>=dev-python/patch-ng-1.17.4[${PYTHON_USEDEP}]
 	>=dev-python/pluginbase-0.5[${PYTHON_USEDEP}]
