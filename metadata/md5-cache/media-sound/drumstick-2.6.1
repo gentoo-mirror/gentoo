@@ -1,0 +1,17 @@
+BDEPEND=dev-libs/libxslt dev-qt/linguist-tools:5 virtual/pkgconfig x11-misc/shared-mime-info doc? ( app-doc/doxygen[dot] app-text/docbook-xsl-stylesheets ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-libs/alsa-lib fluidsynth? ( media-sound/fluidsynth ) network? ( dev-qt/qtnetwork:5 ) pulseaudio? ( media-sound/pulseaudio )
+DESCRIPTION=Qt/C++ wrapper for ALSA sequencer
+EAPI=8
+HOMEPAGE=https://drumstick.sourceforge.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=doc fluidsynth network pulseaudio
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-libs/alsa-lib fluidsynth? ( media-sound/fluidsynth ) network? ( dev-qt/qtnetwork:5 ) pulseaudio? ( media-sound/pulseaudio )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://sourceforge/drumstick/drumstick-2.6.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	xdg	6024fbc93167fad782e2032933654857
+_md5_=877df275dce0036f5173b0409f993bb7
