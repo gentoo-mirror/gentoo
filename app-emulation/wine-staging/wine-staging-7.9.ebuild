@@ -7,11 +7,11 @@ PLOCALES="ar ast bg ca cs da de el en en_US eo es fa fi fr he hi hr hu it ja ko 
 PLOCALE_BACKUP="en"
 
 inherit autotools estack flag-o-matic multilib-minimal pax-utils plocale toolchain-funcs virtualx wrapper xdg-utils
-
 MY_PN="${PN%%-*}"
-MY_P="${MY_PN}-${PV}"
+MY_PV="${PV/_/-}"
+MY_P="${MY_PN}-${MY_PV}"
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ ${MY_PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://source.winehq.org/git/wine.git"
 	EGIT_BRANCH="master"
 	inherit git-r3
@@ -19,30 +19,43 @@ if [[ ${PV} == "9999" ]] ; then
 	#KEYWORDS=""
 else
 	MAJOR_V=$(ver_cut 1)
-	SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.x/${MY_P}.tar.xz"
+	MINOR_V=$(ver_cut 2)
+	if [[ ${MINOR_V} != "0" ]] ; then
+		MINOR_V="x"
+	fi
+	SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.${MINOR_V}/${MY_P}.tar.xz"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
 S="${WORKDIR}/${MY_P}"
 
+STAGING_P="wine-staging-${MY_PV}"
+STAGING_DIR="${WORKDIR}/${STAGING_P}"
 GWP_V="20211122"
 PATCHDIR="${WORKDIR}/gentoo-wine-patches"
 
-DESCRIPTION="Free implementation of Windows(tm) on Unix, without external patchsets"
+DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
 HOMEPAGE="https://www.winehq.org/"
 SRC_URI="${SRC_URI}
 	https://dev.gentoo.org/~sarnex/distfiles/wine/gentoo-wine-patches-${GWP_V}.tar.xz
 "
 
+if [[ ${MY_PV} == "9999" ]] ; then
+	STAGING_EGIT_REPO_URI="https://github.com/wine-staging/wine-staging.git"
+else
+	SRC_URI="${SRC_URI}
+	staging? ( https://github.com/wine-staging/wine-staging/archive/v${MY_PV}.tar.gz -> ${STAGING_P}.tar.gz )"
+fi
+
 LICENSE="LGPL-2.1"
-SLOT="${PV}"
-IUSE="+abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups custom-cflags dos +fontconfig +gecko gphoto2 gssapi gstreamer kerberos ldap mingw +mono mp3 netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl test +threads +truetype udev +udisks +unwind usb v4l vkd3d vulkan +X +xcomposite xinerama"
+SLOT="${MY_PV}"
+IUSE="+abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups custom-cflags dos +fontconfig +gecko gphoto2 gssapi gstreamer kerberos ldap mingw +mono mp3 netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pipelight pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl staging test +threads +truetype udev +udisks +unwind usb v4l vulkan +X +xcomposite xinerama"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 	X? ( truetype )
 	crossdev-mingw? ( mingw )
 	elibc_glibc? ( threads )
 	osmesa? ( opengl )
-	test? ( abi_x86_32 )
-	vkd3d? ( vulkan )" # osmesa-opengl #286560 # X-truetype #551124
+	pipelight? ( staging )
+	test? ( abi_x86_32 )" # osmesa-opengl #286560 # X-truetype #551124
 
 # FIXME: the test suite is unsuitable for us; many tests require net access
 # or fail due to Xvfb's opengl limitations.
@@ -75,7 +88,7 @@ COMMON_DEPEND="
 		media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
 		media-plugins/gst-plugins-meta:1.0[${MULTILIB_USEDEP}]
 	)
-	kerberos? ( virtual/krb5[${MULTILIB_USEDEP}] )
+	kerberos? ( virtual/krb5:0=[${MULTILIB_USEDEP}] )
 	ldap? ( net-nds/openldap:=[${MULTILIB_USEDEP}] )
 	netapi? ( net-fs/samba[netapi(+),${MULTILIB_USEDEP}] )
 	nls? ( sys-devel/gettext[${MULTILIB_USEDEP}] )
@@ -91,13 +104,13 @@ COMMON_DEPEND="
 	scanner? ( media-gfx/sane-backends:=[${MULTILIB_USEDEP}] )
 	sdl? ( media-libs/libsdl2:=[haptic,joystick,${MULTILIB_USEDEP}] )
 	ssl? ( net-libs/gnutls:=[${MULTILIB_USEDEP}] )
+	staging? ( sys-apps/attr[${MULTILIB_USEDEP}] )
 	truetype? ( >=media-libs/freetype-2.0.0[${MULTILIB_USEDEP}] )
 	udev? ( virtual/libudev:=[${MULTILIB_USEDEP}] )
 	udisks? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	unwind? ( sys-libs/libunwind[${MULTILIB_USEDEP}] )
 	usb? ( virtual/libusb:1[${MULTILIB_USEDEP}]  )
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
-	vkd3d? ( >=app-emulation/vkd3d-1.2[${MULTILIB_USEDEP}] )
 	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 	xcomposite? ( x11-libs/libXcomposite[${MULTILIB_USEDEP}] )
 	xinerama? ( x11-libs/libXinerama[${MULTILIB_USEDEP}] )"
@@ -107,7 +120,7 @@ RDEPEND="${COMMON_DEPEND}
 	>app-eselect/eselect-wine-0.3
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
 	gecko? ( app-emulation/wine-gecko:2.47.2[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:7.1.1 )
+	mono? ( app-emulation/wine-mono:7.2.0 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -124,6 +137,10 @@ DEPEND="${COMMON_DEPEND}
 	${BDEPEND}
 	>=sys-kernel/linux-headers-2.6
 	X? ( x11-base/xorg-proto )
+	staging? (
+		dev-lang/perl
+		dev-perl/XML-Simple
+	)
 	xinerama? ( x11-base/xorg-proto )"
 
 # These use a non-standard "Wine" category, which is provided by
@@ -141,12 +158,11 @@ PATCHES=(
 PATCHES_BIN=()
 
 # https://bugs.gentoo.org/show_bug.cgi?id=635222
-if [[ ${#PATCHES_BIN[@]} -ge 1 ]] || [[ ${PV} == 9999 ]]; then
+if [[ ${#PATCHES_BIN[@]} -ge 1 ]] || [[ ${MY_PV} == 9999 ]]; then
 	DEPEND+=" dev-util/patchbin"
 fi
 
 wine_compiler_check() {
-	# Ensure compiler support
 	# Ensure compiler support
 	# (No checks here as of 2022)
 	return 0
@@ -167,39 +183,53 @@ wine_env_vcs_vars() {
 	local pn_live_var="${PN//[-+]/_}_LIVE_COMMIT"
 	local pn_live_val="${pn_live_var}"
 	eval pn_live_val='$'${pn_live_val}
+	if [[ ! -z ${pn_live_val} ]]; then
+		if use staging; then
+			eerror "Because of the multi-repo nature of ${MY_PN}, ${pn_live_var}"
+			eerror "cannot be used to set the commit. Instead, you may use the"
+			eerror "environment variables:"
+			eerror "  EGIT_OVERRIDE_COMMIT_WINE"
+			eerror "  EGIT_OVERRIDE_COMMIT_WINE_STAGING_WINE_STAGING"
+			eerror
+			return 1
+		fi
+	fi
 	if [[ ! -z ${EGIT_COMMIT} ]]; then
-		eerror "Commits must now be specified using the environmental variables"
-		eerror "EGIT_OVERRIDE_COMMIT_WINE"
+		eerror "Commits must now be specified using the environment variables:"
+		eerror "  EGIT_OVERRIDE_COMMIT_WINE"
+		eerror "  EGIT_OVERRIDE_COMMIT_WINE_STAGING_WINE_STAGING"
 		eerror
 		return 1
 	fi
 }
 
 pkg_pretend() {
-	wine_build_environment_check || die
+	if [[ ${MERGE_TYPE} != binary ]] ; then
+		wine_build_environment_check || die
 
-	# Verify OSS support
-	if use oss; then
-		if ! has_version ">=media-sound/oss-4"; then
-			eerror "You cannot build wine with USE=oss without having support from"
-			eerror ">=media-sound/oss-4 (only available through external repos)"
-			eerror
-			die
+		# Verify OSS support
+		if use oss; then
+			if ! has_version ">=media-sound/oss-4"; then
+				eerror "You cannot build wine with USE=oss without having support from"
+				eerror ">=media-sound/oss-4 (only available through external repos)"
+				eerror
+				die
+			fi
 		fi
-	fi
 
-	if use crossdev-mingw && [[ ! -v MINGW_BYPASS ]]; then
-		local mingw=-w64-mingw32
-		for mingw in $(usev abi_x86_64 x86_64${mingw}) $(usev abi_x86_32 i686${mingw}); do
-			type -P ${mingw}-gcc && continue
-			eerror "With USE=crossdev-mingw, you must prepare the MinGW toolchain"
-			eerror "yourself by installing sys-devel/crossdev then running:"
-			eerror
-			eerror "    crossdev --target ${mingw}"
-			eerror
-			eerror "For more information, please see: https://wiki.gentoo.org/wiki/Mingw"
-			die "USE=crossdev-mingw is enabled, but ${mingw}-gcc was not found"
-		done
+		if use crossdev-mingw && [[ ! -v MINGW_BYPASS ]]; then
+			local mingw=-w64-mingw32
+			for mingw in $(usev abi_x86_64 x86_64${mingw}) $(usev abi_x86_32 i686${mingw}); do
+				type -P ${mingw}-gcc && continue
+				eerror "With USE=crossdev-mingw, you must prepare the MinGW toolchain"
+				eerror "yourself by installing sys-devel/crossdev then running:"
+				eerror
+				eerror "    crossdev --target ${mingw}"
+				eerror
+				eerror "For more information, please see: https://wiki.gentoo.org/wiki/Mingw"
+				die "USE=crossdev-mingw is enabled, but ${mingw}-gcc was not found"
+			done
+		fi
 	fi
 }
 
@@ -207,7 +237,7 @@ pkg_setup() {
 	wine_build_environment_check || die
 	wine_env_vcs_vars || die
 
-	WINE_VARIANT="${PN#wine}-${PV}"
+	WINE_VARIANT="${PN#wine}-${MY_PV}"
 	WINE_VARIANT="${WINE_VARIANT#-}"
 
 	MY_PREFIX="${EPREFIX}/usr/lib/wine-${WINE_VARIANT}"
@@ -221,8 +251,21 @@ pkg_setup() {
 }
 
 src_unpack() {
-	if [[ ${PV} == "9999" ]] ; then
+	if [[ ${MY_PV} == "9999" ]] ; then
 		EGIT_CHECKOUT_DIR="${S}" git-r3_src_unpack
+		if use staging; then
+			local CURRENT_WINE_COMMIT=${EGIT_VERSION}
+
+			EGIT_CHECKOUT_DIR="${STAGING_DIR}" EGIT_REPO_URI="${STAGING_EGIT_REPO_URI}" git-r3_src_unpack
+
+			local COMPAT_WINE_COMMIT=$("${STAGING_DIR}/patches/patchinstall.sh" --upstream-commit) || die
+
+			if [[ "${CURRENT_WINE_COMMIT}" != "${COMPAT_WINE_COMMIT}" ]]; then
+				einfo "The current Staging patchset is not guaranteed to apply on this WINE commit."
+				einfo "If src_prepare fails, try emerging with the env var WINE_COMMIT."
+				einfo "Example: EGIT_OVERRIDE_COMMIT_WINE=${COMPAT_WINE_COMMIT} emerge -1 wine"
+			fi
+		fi
 	fi
 
 	default
@@ -240,6 +283,23 @@ src_prepare() {
 	}
 
 	local md5="$(md5sum server/protocol.def)"
+
+	if use staging; then
+		ewarn "Applying the Wine-Staging patchset. Any bug reports to the"
+		ewarn "Wine bugzilla should explicitly state that staging was used."
+
+		local STAGING_EXCLUDE="-W winemenubuilder-Desktop_Icon_Path" #652176
+		use pipelight || STAGING_EXCLUDE="${STAGING_EXCLUDE} -W Pipelight"
+
+		# Launch wine-staging patcher in a subshell, using eapply as a backend, and gitapply.sh as a backend for binary patches
+		ebegin "Running Wine-Staging patch installer"
+		(
+			set -- DESTDIR="${S}" --backend=eapply --no-autoconf --all ${STAGING_EXCLUDE}
+			cd "${STAGING_DIR}/patches"
+			source "${STAGING_DIR}/patches/patchinstall.sh"
+		)
+		eend $? || die "Failed to apply Wine-Staging patches"
+	fi
 
 	default
 	eapply_bin
@@ -329,7 +389,7 @@ multilib_src_configure() {
 		$(use_with gphoto2 gphoto)
 		$(use_with gssapi)
 		$(use_with gstreamer)
-		--disable-hal
+		--enable-hal
 		$(use_with kerberos krb5)
 		$(use_with ldap)
 		# TODO: Will bug 685172 still need special handling?
@@ -353,12 +413,15 @@ multilib_src_configure() {
 		$(use_with unwind)
 		$(use_with usb)
 		$(use_with v4l v4l2)
-		$(use_enable vkd3d)
 		$(use_with vulkan)
 		$(use_with X x)
 		$(use_with X xfixes)
 		$(use_with xcomposite)
 		$(use_with xinerama)
+	)
+
+	use staging && myconf+=(
+		--with-xattr
 	)
 
 	local PKG_CONFIG
@@ -434,9 +497,13 @@ multilib_src_install_all() {
 }
 
 pkg_postinst() {
-	eselect wine register ${P}
+	eselect wine register ${PN}-${MY_PV}
 	if [[ ${PN} == "wine-vanilla" ]]; then
-		eselect wine register --vanilla ${P} || die
+		eselect wine register --vanilla ${PN}-${MY_PV} || die
+	else
+		if use staging; then
+			eselect wine register --staging ${PN}-${MY_PV} || die
+		fi
 	fi
 
 	eselect wine update --all --if-unset || die
@@ -458,9 +525,13 @@ pkg_postinst() {
 }
 
 pkg_prerm() {
-	eselect wine deregister ${P}
+	eselect wine deregister ${PN}-${MY_PV}
 	if [[ ${PN} == "wine-vanilla" ]]; then
-		eselect wine deregister --vanilla ${P} || die
+		eselect wine deregister --vanilla ${PN}-${MY_PV} || die
+	else
+		if use staging; then
+			eselect wine deregister --staging  ${PN}-${MY_PV}|| die
+		fi
 	fi
 
 	eselect wine update --all --if-unset || die
