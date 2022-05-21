@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) postgres_targets_postgres10? ( dev-db/postgresql:10= ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= ) sys-devel/bison virtual/pkgconfig
+DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) postgres_targets_postgres10? ( dev-db/postgresql:10= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= ) sys-devel/bison virtual/pkgconfig
 DESCRIPTION=Connection pool server for PostgreSQL
 EAPI=7
 HOMEPAGE=https://www.pgpool.net/
 INHERIT=autotools postgres-multi
-IUSE=doc memcached pam ssl static-libs postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6
+IUSE=doc memcached pam ssl static-libs postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10
 KEYWORDS=amd64 x86
 LICENSE=BSD
-RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) postgres_targets_postgres10? ( dev-db/postgresql:10= ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= )
+RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) postgres_targets_postgres10? ( dev-db/postgresql:10= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=https://www.pgpool.net/download.php?f=pgpool-II-4.2.1.tar.gz -> pgpool-II-4.2.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	ef8ac3104af5b45aff7aa01c342f0f59	postgres-multi	67d8361b394ded18c2e915e9e493e5f7
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	8f9102af4a3f35d1c700d85892ffecbb	postgres-multi	67d8361b394ded18c2e915e9e493e5f7
 _md5_=ccac8a4693591f1a73e116cd82083719
