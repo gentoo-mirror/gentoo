@@ -9,7 +9,8 @@ IUSE=debug doc emacs examples java mono profile readline test threads trail java
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 LGPL-2
 RDEPEND=net-libs/libnsl:0= readline? ( sys-libs/readline:= ) java? ( >=virtual/jdk-1.8:* ) mono? ( dev-lang/mono ) doc? ( sys-apps/texinfo ) emacs? ( >=app-editors/emacs-23.1:* ) java? ( >=dev-java/java-config-2.2.0-r3 )
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://dl.mercurylang.org/release/mercury-srcdist-22.01.1.tar.gz https://dev.gentoo.org/~keri/distfiles/mercury/mercury-22.01.1-gentoo-patchset-0.tar.gz
+SRC_URI=https://dl.mercurylang.org/release/mercury-srcdist-22.01.1.tar.gz https://dev.gentoo.org/~keri/distfiles/mercury/mercury-22.01.1-gentoo-patchset-1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	elisp-common	e7aaa047873789f549ea3df2f04b2145	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=5e30507ec2219ea730e1643bbe9ca788
+_md5_=a33682a192786841e4fa17fd27d5361f
