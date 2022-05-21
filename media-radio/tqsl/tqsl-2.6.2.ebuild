@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,14 +18,10 @@ RDEPEND="
 	dev-libs/expat:=
 	dev-libs/openssl:0=
 	net-misc/curl:=
-	sys-libs/db:=
+	dev-db/lmdb:=
 	sys-libs/zlib:=
 	x11-libs/wxGTK:${WX_GTK_VER}="
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.5.9-lib_suffix.patch
-)
 
 DOCS=( AUTHORS.txt INSTALL README )
 HTML_DOCS=( html/. )
