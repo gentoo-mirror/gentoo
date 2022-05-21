@@ -7,11 +7,11 @@ HOMEPAGE=https://renderdoc.org https://github.com/baldurk/renderdoc
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools cmake optfeature python-single-r1 docs qmake-utils verify-sig xdg
 IUSE=pyside2 qt5 python_single_target_python3_9 python_single_target_python3_10 doc verify-sig
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=BSD BSD-2 CC-BY-3.0 GPL-3+ MIT OFL-1.1 public-domain ZLIB
 RDEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/miniz:= dev-util/glslang x11-libs/libX11 x11-libs/libxcb:= x11-libs/xcb-util-keysyms virtual/opengl pyside2? ( python_single_target_python3_9? ( dev-python/pyside2[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pyside2[python_targets_python3_10(-)] ) ) qt5? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 )
 REQUIRED_USE=doc? ( qt5 ) pyside2? ( qt5 ) qt5? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 ) )
 SLOT=0
 SRC_URI=https://github.com/baldurk/renderdoc/archive/refs/tags/v1.19.tar.gz -> renderdoc-1.19.tar.gz qt5? ( https://github.com/baldurk/swig/archive/renderdoc-modified-7.tar.gz -> swig-renderdoc-7.tar.gz ) verify-sig? ( https://github.com/baldurk/renderdoc/releases/download/v1.19/v1.19.tar.gz.asc -> renderdoc-1.19.tar.gz.asc )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	optfeature	d524f291c80f9d21ad80fe978e3ca760	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	docs	8ed2a8a28ff109e7a3582c9abb7fe327	qmake-utils	59420c906278d16deaaa629f9d115707	verify-sig	0748d665fa664a87add00152ed046e16	xdg	6024fbc93167fad782e2032933654857
-_md5_=5901d96108fdd1cc4fb8c3d39bd9b827
+_md5_=c20e8b9980959bae9c0687d86b4d4eca
