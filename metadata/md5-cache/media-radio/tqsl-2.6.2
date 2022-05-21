@@ -1,14 +1,14 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/expat:= dev-libs/openssl:0= net-misc/curl:= sys-libs/db:= sys-libs/zlib:= x11-libs/wxGTK:3.0-gtk3=
+DEPEND=dev-libs/expat:= dev-libs/openssl:0= net-misc/curl:= dev-db/lmdb:= sys-libs/zlib:= x11-libs/wxGTK:3.0-gtk3=
 DESCRIPTION=ARRL Logbook of the World
 EAPI=8
 HOMEPAGE=https://www.arrl.org/tqsl-download
 INHERIT=cmake wxwidgets
 KEYWORDS=~amd64 ~x86
 LICENSE=LOTW
-RDEPEND=dev-libs/expat:= dev-libs/openssl:0= net-misc/curl:= sys-libs/db:= sys-libs/zlib:= x11-libs/wxGTK:3.0-gtk3=
+RDEPEND=dev-libs/expat:= dev-libs/openssl:0= net-misc/curl:= dev-db/lmdb:= sys-libs/zlib:= x11-libs/wxGTK:3.0-gtk3=
 SLOT=0
-SRC_URI=https://www.arrl.org/tqsl/tqsl-2.5.9.tar.gz
+SRC_URI=https://www.arrl.org/tqsl/tqsl-2.6.2.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6
-_md5_=56347208fb0b9d26b7d7a57b28d8d10d
+_md5_=93a5c800602a002b34624f3204647952
