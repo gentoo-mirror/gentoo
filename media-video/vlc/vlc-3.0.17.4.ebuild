@@ -127,7 +127,7 @@ RDEPEND="
 		sys-libs/libraw1394
 	)
 	jack? ( virtual/jack )
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? ( media-libs/libjpeg-turbo:0 )
 	kate? ( media-libs/libkate )
 	libass? (
 		media-libs/fontconfig:1.0
@@ -231,6 +231,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.6-fdk-aac-2.0.0.patch # bug 672290
 	"${FILESDIR}"/${PN}-3.0.11.1-configure_lua_version.patch
 	"${FILESDIR}"/${PN}-3.0.14-fix-live-address-api.patch # bug 835072
+	"${FILESDIR}"/${PN}-3.0.17.3-dav1d-1.0.0.patch # bug 835787
 )
 
 DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
