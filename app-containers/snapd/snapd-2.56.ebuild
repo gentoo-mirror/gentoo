@@ -3,13 +3,10 @@
 
 EAPI=7
 
-EGO_PN="github.com/snapcore/${PN}"
-inherit autotools bash-completion-r1 flag-o-matic golang-vcs-snapshot linux-info readme.gentoo-r1 systemd xdg-utils
+inherit autotools bash-completion-r1 flag-o-matic go-module linux-info readme.gentoo-r1 systemd xdg-utils
 
 DESCRIPTION="Service and tools for management of snap packages"
 HOMEPAGE="http://snapcraft.io/"
-
-MY_S="${S}/src/github.com/snapcore/${PN}"
 
 SRC_URI="https://github.com/snapcore/${PN}/releases/download/${PV}/${PN}_${PV}.vendor.tar.xz -> ${P}.tar.xz"
 MY_PV=${PV}
@@ -70,20 +67,18 @@ src_prepare() {
 	default
 	# Update apparmor profile to allow libtinfow.so*
 	sed -i 's/libtinfo/libtinfo{,w}/' \
-		"${MY_S}/cmd/snap-confine/snap-confine.apparmor.in" || die
+		"cmd/snap-confine/snap-confine.apparmor.in" || die
 
 	if ! use forced-devmode; then
 		sed -e 's#return !apparmorFull#if !apparmorFull {\n\t\tpanic("USE=forced-devmode is disabled")\n\t}\n\treturn false#' \
-			-i "${MY_S}/sandbox/forcedevmode.go" || die
-		grep -q 'panic("USE=forced-devmode is disabled")' "${MY_S}/sandbox/forcedevmode.go" || die "failed to disable forced-devmode"
+			-i "sandbox/forcedevmode.go" || die
+		grep -q 'panic("USE=forced-devmode is disabled")' "sandbox/forcedevmode.go" || die "failed to disable forced-devmode"
 	fi
 
-	sed -i 's:command -v git >/dev/null:false:' -i "${MY_S}/mkversion.sh" || die
+	sed -i 's:command -v git >/dev/null:false:' -i "mkversion.sh" || die
 
-	pushd "${MY_S}" >/dev/null || die
 	./mkversion.sh "${PV}"
-	popd >/dev/null || die
-	pushd "${MY_S}/cmd" >/dev/null || die
+	pushd "cmd" >/dev/null || die
 	eautoreconf
 }
 
@@ -100,7 +95,7 @@ src_configure() {
 	export CGO_CPPFLAGS="${CPPFLAGS}"
 	export CGO_CXXFLAGS="${CXXFLAGS}"
 
-	pushd "${MY_S}/cmd" >/dev/null || die
+	pushd "${S}/cmd" >/dev/null || die
 	econf --libdir="${EPREFIX}/usr/lib" \
 		--libexecdir="${EPREFIX}/usr/lib/snapd" \
 		$(use_enable apparmor) \
@@ -110,34 +105,34 @@ src_configure() {
 
 src_compile() {
 	export -n GOCACHE XDG_CACHE_HOME
-	export GO111MODULE=off GOBIN="${S}/bin" GOPATH="${S}"
+	export GOBIN="${S}/bin"
 
 	local file
-	for file in "${MY_S}/po/"*.po; do
+	for file in "${S}/po/"*.po; do
 		msgfmt "${file}" -o "${file%.po}.mo" || die
 	done
 
-	emake -C "${MY_S}/data" "${SNAPD_MAKEARGS[@]}"
+	emake -C "${S}/data" "${SNAPD_MAKEARGS[@]}"
 
 	local -a flags=(-buildmode=pie -ldflags "-s -linkmode external -extldflags '${LDFLAGS}'" -trimpath)
 	local -a staticflags=(-buildmode=pie -ldflags "-s -linkmode external -extldflags '${LDFLAGS} -static'" -trimpath)
 
 	local cmd
 	for cmd in snap snapd snap-bootstrap snap-failure snap-preseed snap-recovery-chooser snap-repair snap-seccomp; do
-		go build -o "${GOBIN}/${cmd}" "${flags[@]}" \
+		go build ${GOFLAGS} -mod=vendor -o "${GOBIN}/${cmd}" "${flags[@]}" \
 		    -v -x "github.com/snapcore/${PN}/cmd/${cmd}"
 		[[ -e "${GOBIN}/${cmd}" ]] || die "failed to build ${cmd}"
 	done
 	for cmd in snapctl snap-exec snap-update-ns; do
-		go build -o "${GOBIN}/${cmd}" "${staticflags[@]}" \
+		go build ${GOFLAGS} -mod=vendor -o "${GOBIN}/${cmd}" "${staticflags[@]}" \
 		    -v -x "github.com/snapcore/${PN}/cmd/${cmd}"
 		[[ -e "${GOBIN}/${cmd}" ]] || die "failed to build ${cmd}"
 	done
 }
 
 src_install() {
-	emake -C "${MY_S}/data" install "${SNAPD_MAKEARGS[@]}" DESTDIR="${D}"
-	emake -C "${MY_S}/cmd" install "${SNAPD_MAKEARGS[@]}" DESTDIR="${D}"
+	emake -C "${S}/data" install "${SNAPD_MAKEARGS[@]}" DESTDIR="${D}"
+	emake -C "${S}/cmd" install "${SNAPD_MAKEARGS[@]}" DESTDIR="${D}"
 
 	if use apparmor; then
 		mv "${ED}/etc/apparmor.d/usr.lib.snapd.snap-confine"{,.real} || die
@@ -151,19 +146,19 @@ src_install() {
 
 	exeinto /usr/lib/snapd
 	doexe "${GOBIN}/"{snapd,snap-bootstrap,snap-failure,snap-exec,snap-preseed,snap-recovery-chooser,snap-repair,snap-seccomp,snap-update-ns} \
-		"${MY_S}/"{cmd/snap-discard-ns/snap-discard-ns,cmd/snap-gdb-shim/snap-gdb-shim,cmd/snap-mgmt/snap-mgmt} \
-		"${MY_S}/data/completion/bash/"{complete.sh,etelpmoc.sh,}
+		"${S}/"{cmd/snap-discard-ns/snap-discard-ns,cmd/snap-gdb-shim/snap-gdb-shim,cmd/snap-mgmt/snap-mgmt} \
+		"${S}/data/completion/bash/"{complete.sh,etelpmoc.sh,}
 
-	dobashcomp "${MY_S}/data/completion/bash/snap"
+	dobashcomp "${S}/data/completion/bash/snap"
 
 	insinto /usr/share/zsh/site-functions
-	doins "${MY_S}/data/completion/zsh/_snap"
+	doins "${S}/data/completion/zsh/_snap"
 
 	insinto "/usr/share/polkit-1/actions"
-	doins "${MY_S}/data/polkit/io.snapcraft.snapd.policy"
+	doins "${S}/data/polkit/io.snapcraft.snapd.policy"
 
-	dodoc "${MY_S}/packaging/ubuntu-16.04/changelog"
-	domo "${MY_S}/po/"*.mo
+	dodoc "${S}/packaging/ubuntu-16.04/changelog"
+	domo "${S}/po/"*.mo
 
 	readme.gentoo_create_doc
 }
