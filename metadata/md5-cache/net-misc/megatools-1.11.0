@@ -1,0 +1,14 @@
+BDEPEND=app-text/asciidoc virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/glib:2 dev-libs/openssl:0= net-libs/glib-networking[ssl] net-misc/curl
+DESCRIPTION=Command line tools and C library for accessing Mega cloud storage
+EAPI=8
+HOMEPAGE=https://megatools.megous.com
+INHERIT=meson
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 dev-libs/openssl:0= net-libs/glib-networking[ssl] net-misc/curl
+SLOT=0
+SRC_URI=https://megatools.megous.com/builds/megatools-1.11.0.20220519.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3
+_md5_=4e68ad0d32e65d6543f48d8d77a9f083
