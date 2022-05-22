@@ -61,12 +61,12 @@
 	</xs:complexType>
 
 	<xs:complexType name='ownerType'>
-		<xs:all>
+		<xs:sequence>
 			<xs:element name='email' type='emailType'
 				minOccurs='1' maxOccurs='1'/>
 			<xs:element name='name' type='xs:token'
 				minOccurs='0' maxOccurs='1'/>
-		</xs:all>
+		</xs:sequence>
 		<xs:attribute name='type' type='ownerTypeAttrType'
 			use='required'/>
 	</xs:complexType>
