@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/commons-logging:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=An open source Java library for parsing font files
+EAPI=8
+HOMEPAGE=https://pdfbox.apache.org/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-java/commons-logging:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://apache/pdfbox/2.0.26/pdfbox-2.0.26-src.zip test? ( https://issues.apache.org/jira/secure/attachment/12684264/SourceSansProBold.otf https://issues.apache.org/jira/secure/attachment/12896461/NotoEmoji-Regular.ttf https://issues.apache.org/jira/secure/attachment/12809395/DejaVuSansMono.ttf https://issues.apache.org/jira/secure/attachment/13036376/NotoSansSC-Regular.otf http://mirrors.ctan.org/fonts/opensans/type1/OpenSans-Regular.pfb )
+_eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7
+_md5_=95807f682d8ad24783965f88fafb6575
