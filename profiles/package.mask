@@ -33,6 +33,34 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-05-22)
+# Doesn't support Python 3.10, out of date, unmaintained in Gentoo.
+# Removal on 2022-06-22. bug #731674, bug #846158.
+net-misc/omniORB
+
+# Sam James <sam@gentoo.org> (2022-05-22)
+# No upstream activity since 2017. Doesn't support Python 3.10.
+# Removal on 2022-06-22. bug #845732.
+dev-python/gevent-websocket
+
+# Sam James <sam@gentoo.org> (2022-05-22)
+# Several open bugs. No upstream activity for a while, doesn't
+# support Python 3.10+, test suite not being run. Removal on 2022-06-22.
+# bug #625800, bug #796974, bug #796977, bug #831916, bug #845888.
+dev-python/sqlalchemy-migrate
+
+# Sam James <sam@gentoo.org> (2022-05-22)
+# No upstream activity since 2015, no reverse dependencies,
+# no Python 3.10 support. Removal on 2022-06-22. bug #845822.
+dev-python/pypeg2
+
+# Sam James <sam@gentoo.org> (2022-05-22)
+# Unmaintained, no upstream activity since 2013, upstream repository disappeared.
+# Long obsolete with no reverse dependencies, as now integrated within pytest.
+# Doesn't support Python 3.10+.
+# Removal on 2022-06-22. bug #700944, bug #845834
+dev-python/pytest-cache
+
 # Sam James <sam@gentoo.org> (2022-05-21)
 # No activity upstream since 2018, unmaintained upstream, does not support
 # Python 3.10+. Removal on 2022-06-21. bug #845726.
