@@ -1,0 +1,17 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=cuda? ( dev-util/nvidia-cuda-toolkit:= ) client? ( virtual/cblas ) opencl? ( virtual/opencl )
+DESCRIPTION=Tuned OpenCL BLAS
+EAPI=8
+HOMEPAGE=https://github.com/CNugteren/CLBlast
+INHERIT=cmake
+IUSE=client cuda examples +opencl test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=Apache-2.0
+RDEPEND=cuda? ( dev-util/nvidia-cuda-toolkit:= ) client? ( virtual/cblas ) opencl? ( virtual/opencl )
+REQUIRED_USE=^^ ( cuda opencl ) test? ( client )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/CNugteren/CLBlast/archive/refs/tags/1.5.2.tar.gz -> clblast-1.5.2.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_md5_=0e6cf31a3c187ce302c5dae7786c5b3a
