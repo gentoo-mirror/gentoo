@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
+EAPI=8
 CMAKE_ECLASS=cmake
+
 inherit cmake-multilib flag-o-matic systemd
 
 if [[ ${PV} == *9999 ]] ; then
@@ -14,7 +14,7 @@ else
 	MY_P="${MY_PN}-${PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="mirror://sourceforge/project/${PN}/${PV}/${MY_P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Run OpenGL applications remotely with full 3D hardware acceleration"
@@ -93,7 +93,9 @@ src_install() {
 	systemd_dounit "${FILESDIR}/vgl.service"
 
 	# Rename glxinfo to vglxinfo to avoid conflict with x11-apps/mesa-progs
+	# and eglinfo to veglinto because of conflict with mesa-progs[egl]
 	mv "${D}"/usr/bin/{,v}glxinfo || die
+	mv "${D}"/usr/bin/{,v}eglinfo || die
 
 	# Remove license files, bug 536284
 	rm "${D}"/usr/share/doc/${PF}/{LGPL.txt*,LICENSE*} || die
