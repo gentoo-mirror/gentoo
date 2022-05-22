@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/s6/
 INHERIT=toolchain-funcs
 IUSE=+execline static static-libs
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=ISC
 RDEPEND=execline? ( >=dev-lang/execline-2.8.3.0:=[static-libs?] ) >=dev-libs/skalibs-2.11.2.0:=[static-libs?]
 REQUIRED_USE=static? ( static-libs )
 SLOT=0/2.11
 SRC_URI=https://www.skarnet.org/software/s6/s6-2.11.1.0.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=d5c656e738db78c6313a5a612aeb1e02
+_md5_=da3031cd4fbad1ff6a7a81324df40990
