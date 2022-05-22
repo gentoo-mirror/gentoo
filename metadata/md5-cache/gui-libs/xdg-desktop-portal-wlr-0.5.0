@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/emersion/xdg-desktop-portal-wlr
 INHERIT=meson
 IUSE=elogind systemd
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=>=media-video/pipewire-0.3.34:= dev-libs/inih dev-libs/wayland || ( systemd? ( >=sys-apps/systemd-237 ) elogind? ( >=sys-auth/elogind-237 ) sys-libs/basu ) sys-apps/xdg-desktop-portal
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0/9999
 SRC_URI=https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v0.5.0/xdg-desktop-portal-wlr-0.5.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3
-_md5_=2214c6b45246944482d2d98a2e8362cc
+_md5_=17d33e851fbd08da18b37ec633627bec
