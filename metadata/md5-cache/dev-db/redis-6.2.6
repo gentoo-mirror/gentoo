@@ -5,13 +5,13 @@ DESCRIPTION=A persistent caching system, key-value and data structures database
 EAPI=7
 HOMEPAGE=https://redis.io
 INHERIT=autotools flag-o-matic lua-single systemd toolchain-funcs tmpfiles
-IUSE=+jemalloc ssl systemd tcmalloc test lua_single_target_luajit lua_single_target_lua5-1
+IUSE=+jemalloc selinux ssl systemd tcmalloc test lua_single_target_luajit lua_single_target_lua5-1
 KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x86-solaris
 LICENSE=BSD
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools ) acct-group/redis acct-user/redis virtual/tmpfiles
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) jemalloc? ( >=dev-libs/jemalloc-5.1:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools ) acct-group/redis acct-user/redis selinux? ( sec-policy/selinux-redis ) virtual/tmpfiles
 REQUIRED_USE=?? ( jemalloc tcmalloc ) ^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.redis.io/releases/redis-6.2.6.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=0b0e94fd523f149b464c098d33ef7f0b
+_md5_=f9e50d2058a680df5643ae758306a705

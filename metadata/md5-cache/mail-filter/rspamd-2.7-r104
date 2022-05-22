@@ -1,16 +1,16 @@
 BDEPEND=dev-util/ragel virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) acct-group/rspamd acct-user/rspamd app-arch/zstd:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/icu:= dev-libs/libev dev-libs/libsodium:= dev-libs/snowball-stemmer:= sys-apps/file sys-libs/zlib blas? ( virtual/blas virtual/lapack ) cpu_flags_x86_ssse3? ( dev-libs/hyperscan ) jemalloc? ( dev-libs/jemalloc:= ) dev-libs/openssl:0=[-bindist(-)] pcre2? ( dev-libs/libpcre2:=[jit=] ) !pcre2? ( dev-libs/libpcre[jit=] )
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) acct-group/rspamd acct-user/rspamd app-arch/zstd:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/icu:= dev-libs/libev dev-libs/libsodium:= dev-libs/snowball-stemmer:= sys-apps/file sys-libs/zlib blas? ( virtual/blas virtual/lapack ) cpu_flags_x86_ssse3? ( dev-libs/hyperscan ) jemalloc? ( dev-libs/jemalloc:= ) dev-libs/openssl:0=[-bindist(-)] pcre2? ( dev-libs/libpcre2:=[jit=] ) !pcre2? ( dev-libs/libpcre[jit=] ) selinux? ( sec-policy/selinux-spamassassin )
 DESCRIPTION=Rapid spam filtering system
 EAPI=7
 HOMEPAGE=https://rspamd.com https://github.com/rspamd/rspamd
 INHERIT=cmake lua-single pax-utils systemd tmpfiles
-IUSE=blas cpu_flags_x86_ssse3 jemalloc +jit pcre2 lua_single_target_luajit lua_single_target_lua5-1
+IUSE=blas cpu_flags_x86_ssse3 jemalloc +jit pcre2 selinux lua_single_target_luajit lua_single_target_lua5-1
 KEYWORDS=amd64 x86
 LICENSE=Apache-2.0 Boost-1.0 BSD BSD-1 BSD-2 CC0-1.0 LGPL-3 MIT public-domain unicode ZLIB
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) acct-group/rspamd acct-user/rspamd app-arch/zstd:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/icu:= dev-libs/libev dev-libs/libsodium:= dev-libs/snowball-stemmer:= sys-apps/file sys-libs/zlib blas? ( virtual/blas virtual/lapack ) cpu_flags_x86_ssse3? ( dev-libs/hyperscan ) jemalloc? ( dev-libs/jemalloc:= ) dev-libs/openssl:0=[-bindist(-)] pcre2? ( dev-libs/libpcre2:=[jit=] ) !pcre2? ( dev-libs/libpcre[jit=] ) virtual/tmpfiles
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) acct-group/rspamd acct-user/rspamd app-arch/zstd:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/icu:= dev-libs/libev dev-libs/libsodium:= dev-libs/snowball-stemmer:= sys-apps/file sys-libs/zlib blas? ( virtual/blas virtual/lapack ) cpu_flags_x86_ssse3? ( dev-libs/hyperscan ) jemalloc? ( dev-libs/jemalloc:= ) dev-libs/openssl:0=[-bindist(-)] pcre2? ( dev-libs/libpcre2:=[jit=] ) !pcre2? ( dev-libs/libpcre[jit=] ) selinux? ( sec-policy/selinux-spamassassin ) virtual/tmpfiles
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
 SLOT=0
 SRC_URI=https://github.com/rspamd/rspamd/archive/2.7.tar.gz -> rspamd-2.7.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	pax-utils	91d47e5d20627c717aa878b9167c62a8	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=ce0277b7b190c2c1611a4df3e44bb45d
+_md5_=3d089aa35287e5eff41bd98ce6e7cac6
