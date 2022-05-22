@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=https://www.kernel.org/
 INHERIT=kernel-build
 IUSE=debug savedconfig +initramfs test
-KEYWORDS=amd64 ~arm64 ~ppc ppc64 x86
+KEYWORDS=amd64 arm64 ~ppc ppc64 x86
 LICENSE=GPL-2
 PDEPEND=>=virtual/dist-kernel-5.4.195
 RDEPEND=!sys-kernel/gentoo-kernel-bin:5.4.195 || ( sys-kernel/installkernel-gentoo sys-kernel/installkernel-systemd-boot ) initramfs? ( >=sys-kernel/dracut-049-r3 ) virtual/libelf
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
 SLOT=5.4.195
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-199.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-199.extras.tar.xz https://github.com/mgorny/gentoo-kernel-config/archive/g1.tar.gz -> gentoo-kernel-config-g1.tar.gz amd64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-x86_64.config -> kernel-x86_64.config.5.4.21 ) arm64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-aarch64.config -> kernel-aarch64.config.5.4.21 ) ppc64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-ppc64le.config -> kernel-ppc64le.config.5.4.21 ) x86? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-i686.config -> kernel-i686.config.5.4.21 )
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	dist-kernel-utils	31e337cd76e9e16709e65d794fb58be2	mount-boot	02a45c5e022c08dbc05178522b2772f2	kernel-install	149f830e772fdf45b278492c8c00d505	kernel-build	bd657f7e4c30bd73e086fec87ecb48b3
-_md5_=a9855861683541eeba1349e2bd177f6e
+_md5_=7564678921f67a4ba602f0e57926847b
