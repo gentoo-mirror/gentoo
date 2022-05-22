@@ -1,0 +1,16 @@
+BDEPEND=test? ( sys-apps/coreutils ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=dev-db/sqlite dev-libs/boost:= dev-libs/openssl:= net-libs/http-parser:= net-libs/libpcap sys-libs/libcap-ng sys-libs/zlib:= cairo? ( x11-libs/cairo )
+DESCRIPTION=A tool for monitoring, capturing and storing TCP connections flows
+EAPI=8
+HOMEPAGE=https://github.com/simsong/tcpflow
+INHERIT=autotools flag-o-matic
+IUSE=cairo test
+KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=GPL-3
+RDEPEND=dev-db/sqlite dev-libs/boost:= dev-libs/openssl:= net-libs/http-parser:= net-libs/libpcap sys-libs/libcap-ng sys-libs/zlib:= cairo? ( x11-libs/cairo )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://api.github.com/repos/simsong/be13_api/tarball/c81521d768bb78499c069fcd7c47adc8eee0350c -> be13_api-20170924.tar.gz https://api.github.com/repos/simsong/dfxml/tarball/7d11eaa7da8d31f588ce8aecb4b4f5e7e8169ba6 -> dfxml-20170921.tar.gz https://github.com/simsong/tcpflow/archive/refs/tags/tcpflow-1.6.1.tar.gz -> tcpflow-1.6.1-tag.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=be135a76490831e633ad220bc468a536
