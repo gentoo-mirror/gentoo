@@ -3,8 +3,8 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{8..11} )
-DISTUTILS_USE_PEP517=setuptools
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
@@ -22,7 +22,10 @@ HOMEPAGE="
 	https://github.com/facelessuser/backrefs/
 	https://pypi.org/project/backrefs/
 "
-SRC_URI="https://github.com/facelessuser/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/facelessuser/backrefs/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
@@ -35,10 +38,6 @@ BDEPEND="
 		dev-vcs/git
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-fix-regex-unrecognized-escape.patch"
-)
 
 distutils_enable_tests pytest
 
