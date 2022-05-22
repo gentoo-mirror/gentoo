@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
+DEPEND=>=sys-fs/fuse-2.8.0:0 >=net-misc/curl-7.22.0 dev-libs/boost:= >=net-libs/libtorrent-rasterbar-0.16.0:=
+DESCRIPTION=a bittorrent filesystem based on FUSE
+EAPI=8
+HOMEPAGE=https://github.com/johang/btfs
+INHERIT=autotools python-r1
+IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=>=sys-fs/fuse-2.8.0:0 >=net-misc/curl-7.22.0 dev-libs/boost:= >=net-libs/libtorrent-rasterbar-0.16.0:= python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+SLOT=0
+SRC_URI=https://github.com/johang/btfs/archive/v2.24.tar.gz -> btfs-2.24.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1
+_md5_=1c8f50e00837d298473ab19a027a2486
