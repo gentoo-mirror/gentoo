@@ -4,7 +4,7 @@ DEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm
 DESCRIPTION=A screen color temperature adjusting software
 EAPI=8
 HOMEPAGE=http://jonls.dk/redshift/
-INHERIT=flag-o-matic systemd autotools python-r1
+INHERIT=flag-o-matic systemd autotools gnome2-utils python-r1
 IUSE=appindicator geoclue gtk nls python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-3
@@ -12,5 +12,5 @@ RDEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdr
 REQUIRED_USE=gtk? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
 SLOT=0
 SRC_URI=https://github.com/jonls/redshift/archive/v1.12.tar.gz -> redshift-1.12.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	systemd	2736b403a83f194b59b767f3b344c2c1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1
-_md5_=a1bc0a4f963b383e22da0dea6b78c657
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	systemd	2736b403a83f194b59b767f3b344c2c1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1
+_md5_=dcab71a240521966f267e54796ea6d71
