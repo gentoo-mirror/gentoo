@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/djberg96/sys-uname
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 test test
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=Apache-2.0
 RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/ffi-1.1[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( >=dev-ruby/ffi-1.1[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/ffi-1.1[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/ffi-1.1[ruby_targets_ruby31(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=1
 SRC_URI=https://rubygems.org/gems/sys-uname-1.2.2.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	ruby-utils	707c7b16c28e3483e51d7ec7f7b0d5ed	ruby-ng	6b9d651000093b5c0463204b7aa07fef	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
-_md5_=23c50cfd8276a4ea44676c97ed17117f
+_md5_=27b5ab33eb03148b1d7827e8cd433142
