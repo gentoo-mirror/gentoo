@@ -1,9 +1,8 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit autotools flag-o-matic linux-info xdg multilib-minimal pam systemd toolchain-funcs
+EAPI=8
+inherit autotools linux-info xdg multilib-minimal optfeature pam toolchain-funcs
 
 MY_PV="${PV/_beta/b}"
 MY_PV="${MY_PV/_rc/rc}"
@@ -19,7 +18,7 @@ else
 #	SRC_URI="https://github.com/apple/cups/releases/download/v${MY_PV}/${MY_P}-source.tar.gz"
 	SRC_URI="https://github.com/OpenPrinting/cups/releases/download/v${MY_PV}/cups-${MY_PV}-source.tar.gz"
 	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != *_rc* ]] ; then
-		KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	fi
 fi
 
@@ -28,9 +27,8 @@ HOMEPAGE="https://www.cups.org/ https://github.com/OpenPrinting/cups"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="acl dbus debug kerberos pam selinux +ssl static-libs systemd +threads usb X xinetd zeroconf"
+IUSE="acl dbus debug kerberos pam selinux +ssl static-libs systemd usb X xinetd zeroconf"
 
-REQUIRED_USE="usb? ( threads )"
 # upstream includes an interactive test which is a nono for gentoo
 RESTRICT="test"
 
@@ -57,7 +55,7 @@ DEPEND="
 	usb? ( virtual/libusb:1 )
 	X? ( x11-misc/xdg-utils )
 	xinetd? ( sys-apps/xinetd )
-	zeroconf? ( >=net-dns/avahi-0.6.31-r2[${MULTILIB_USEDEP}] )
+	zeroconf? ( >=net-dns/avahi-0.6.31-r2[dbus,${MULTILIB_USEDEP}] )
 "
 RDEPEND="${DEPEND}
 	acct-group/lp
@@ -67,9 +65,19 @@ RDEPEND="${DEPEND}
 PDEPEND=">=net-print/cups-filters-1.0.43"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.2.6-fix-install-perms.patch"
-	"${FILESDIR}/${PN}-1.4.4-nostrip.patch"
-	"${FILESDIR}/${PN}-2.3.3-user-AR.patch"
+	"${FILESDIR}/${PN}-2.4.1-nostrip.patch"
+	"${FILESDIR}/${PN}-2.4.1-user-AR.patch"
+
+	# Upstream patches applied by Fedora
+	# https://github.com/OpenPrinting/cups/pull/329
+	"${FILESDIR}"/0001-cups-fix-uninit-value-jump.patch
+	# https://github.com/OpenPrinting/cups/issues/340
+	"${FILESDIR}"/${PN}-2.4.1-resolve-uri.patch
+	# https://src.fedoraproject.org/rpms/cups/blob/rawhide/f/cups.spec#_79
+	"${FILESDIR}"/0001-Footer-message-corrected.patch
+	"${FILESDIR}"/0001-Fix-some-web-interface-issues.patch
+	# https://bugzilla.redhat.com/show_bug.cgi?id=2073268
+	"${FILESDIR}"/0001-cups-tls-gnutls.c-Use-always-GNUTLS_SHUT_WR.patch
 )
 
 MULTILIB_CHOST_TOOLS=(
@@ -134,8 +142,6 @@ src_prepare() {
 multilib_src_configure() {
 	export DSOFLAGS="${LDFLAGS}"
 
-	einfo LINGUAS=\"${LINGUAS}\"
-
 	# explicitly specify compiler wrt bug 524340
 	#
 	# need to override KRB5CONFIG for proper flags
@@ -146,12 +152,20 @@ multilib_src_configure() {
 		KRB5CONFIG="${EPREFIX}"/usr/bin/${CHOST}-krb5-config
 		--libdir="${EPREFIX}"/usr/$(get_libdir)
 		--localstatedir="${EPREFIX}"/var
+		# Follow Fedora permission setting
+		--with-cupsd-file-perm=0755
 		--with-exe-file-perm=755
+		--with-log-file-perm=0640
+		# Used by Debian, also prevents printers from getting
+		# disabled and users not knowing how to re-enable them
+		--with-error-policy=retry-job
+		# Used in Debian and Fedora
+		--enable-sync-on-close
+		#
 		--with-rundir="${EPREFIX}"/run/cups
 		--with-cups-user=lp
 		--with-cups-group=lp
 		--with-docdir="${EPREFIX}"/usr/share/cups/html
-		--with-languages="${LINGUAS}"
 		--with-system-groups=lpadmin
 		--with-xinetd="${EPREFIX}"/etc/xinetd.d
 		$(multilib_native_use_enable acl)
@@ -162,14 +176,19 @@ multilib_src_configure() {
 		$(use_enable kerberos gssapi)
 		$(multilib_native_use_enable pam)
 		$(use_enable static-libs static)
-		$(use_enable threads)
-		$(use_enable ssl gnutls)
-		$(use_enable systemd)
+		$(use_with ssl tls gnutls)
+		$(use_with systemd ondemand systemd)
 		$(multilib_native_use_enable usb libusb)
-		$(use_enable zeroconf avahi)
-		--disable-dnssd
+		$(use_with zeroconf dnssd avahi)
 		$(multilib_is_native_abi && echo --enable-libpaper || echo --disable-libpaper)
 	)
+
+	# Handle empty LINGUAS properly, bug #771162
+	if [ -n "${LINGUAS+x}" ] ; then
+		myeconfargs+=(
+			--with-languages="${LINGUAS}"
+		)
+	fi
 
 	if tc-is-static-only; then
 		myeconfargs+=(
@@ -177,10 +196,12 @@ multilib_src_configure() {
 		)
 	fi
 
-	econf "${myeconfargs[@]}"
-
 	# install in /usr/libexec always, instead of using /usr/lib/cups, as that
 	# makes more sense when facing multilib support.
+	sed -i -e 's:CUPS_SERVERBIN="$exec_prefix/lib/cups":CUPS_SERVERBIN="$exec_prefix/libexec/cups":g' configure ||die
+
+	econf "${myeconfargs[@]}"
+
 	sed -i -e "s:SERVERBIN.*:SERVERBIN = \"\$\(BUILDROOT\)${EPREFIX}/usr/libexec/cups\":" Makedefs || die
 	sed -i -e "s:#define CUPS_SERVERBIN.*:#define CUPS_SERVERBIN \"${EPREFIX}/usr/libexec/cups\":" config.h || die
 	sed -i -e "s:cups_serverbin=.*:cups_serverbin=\"${EPREFIX}/usr/libexec/cups\":" cups-config || die
@@ -231,7 +252,7 @@ multilib_src_install_all() {
 		$(usex dbus dbus '')
 	)
 	[[ -n ${neededservices[@]} ]] && neededservices="need ${neededservices[@]}"
-	cp "${FILESDIR}"/cupsd.init.d-r3 "${T}"/cupsd || die
+	cp "${FILESDIR}"/cupsd.init.d-r4 "${T}"/cupsd || die
 	sed -i -e "s/@neededservices@/${neededservices}/" "${T}"/cupsd || die
 	doinitd "${T}"/cupsd
 
@@ -255,9 +276,6 @@ multilib_src_install_all() {
 		rm -r "${ED}"/etc/xinetd.d || die
 	fi
 
-	keepdir /usr/libexec/cups/driver /usr/share/cups/{model,profiles} \
-		/var/cache/cups /var/log/cups /var/spool/cups/tmp
-
 	keepdir /etc/cups/{interfaces,ppd,ssl}
 
 	if ! use X ; then
@@ -271,18 +289,14 @@ multilib_src_install_all() {
 	rm -r "${ED}"/usr/share/cups/banners || die
 
 	# the following are created by the init script
-	rm -r "${ED}"/var/cache/cups || die
+	rm -r "${ED}"/var/cache || die
 	rm -r "${ED}"/run || die
-}
 
-pkg_preinst() {
-	xdg_pkg_preinst
+	keepdir /usr/libexec/cups/driver /usr/share/cups/{model,profiles} /var/log/cups /var/spool/cups/tmp
 }
 
 pkg_postinst() {
-	# Update desktop file database and gtk icon cache (bug 370059)
 	xdg_pkg_postinst
-
 	local v
 
 	for v in ${REPLACING_VERSIONS}; do
@@ -300,9 +314,7 @@ pkg_postinst() {
 		elog "take a look at: https://wiki.gentoo.org/wiki/Printing"
 		break
 	done
-}
 
-pkg_postrm() {
-	# Update desktop file database and gtk icon cache (bug 370059)
-	xdg_pkg_postrm
+	optfeature_header "CUPS may need installing the following for certain features to work:"
+	use zeroconf && optfeature "local hostname resolution using a hostname.local naming scheme" sys-auth/nss-mdns
 }
