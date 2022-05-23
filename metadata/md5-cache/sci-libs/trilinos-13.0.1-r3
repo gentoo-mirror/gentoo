@@ -1,11 +1,11 @@
 BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=!dev-cpp/kokkos dev-libs/boost:= sys-libs/binutils-libs:= virtual/blas virtual/lapack virtual/mpi adolc? ( sci-libs/adolc ) arprec? ( sci-libs/arprec ) clp? ( sci-libs/coinor-clp ) cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 ) eigen? ( dev-cpp/eigen:3 ) glpk? ( sci-mathematics/glpk ) gtest? ( dev-cpp/gtest ) hdf5? ( sci-libs/hdf5:=[mpi] ) hypre? ( sci-libs/hypre:= ) hwloc? ( sys-apps/hwloc:= ) matio? ( sci-libs/matio ) mkl? ( sci-libs/mkl ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps ) netcdf? ( sci-libs/netcdf:= ) petsc? ( sci-mathematics/petsc ) qd? ( sci-libs/qd ) scalapack? ( sci-libs/scalapack ) scotch? ( sci-libs/scotch:= ) sparse? ( sci-libs/cxsparse sci-libs/umfpack ) superlu? ( sci-libs/superlu:= ) taucs? ( sci-libs/taucs ) tbb? ( dev-cpp/tbb:= ) tvmet? ( dev-libs/tvmet ) yaml? ( dev-cpp/yaml-cpp:= ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libX11 ) virtual/pkgconfig
 DESCRIPTION=Scientific library collection for large scale problems
 EAPI=7
 HOMEPAGE=http://trilinos.sandia.gov/
 INHERIT=cmake toolchain-funcs multilib
-IUSE=adolc arprec clp cuda eigen glpk gtest hdf5 hwloc hypre matio metis mkl mumps netcdf petsc qd scalapack scotch sparse superlu taucs tbb test threads tvmet yaml zlib X
+IUSE=adolc arprec clp cuda eigen glpk gtest hdf5 hwloc hypre matio metis mkl mumps netcdf openmp petsc qd scalapack scotch sparse superlu taucs tbb test threads tvmet yaml zlib X
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD LGPL-2.1
 RDEPEND=!dev-cpp/kokkos dev-libs/boost:= sys-libs/binutils-libs:= virtual/blas virtual/lapack virtual/mpi adolc? ( sci-libs/adolc ) arprec? ( sci-libs/arprec ) clp? ( sci-libs/coinor-clp ) cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 ) eigen? ( dev-cpp/eigen:3 ) glpk? ( sci-mathematics/glpk ) gtest? ( dev-cpp/gtest ) hdf5? ( sci-libs/hdf5:=[mpi] ) hypre? ( sci-libs/hypre:= ) hwloc? ( sys-apps/hwloc:= ) matio? ( sci-libs/matio ) mkl? ( sci-libs/mkl ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps ) netcdf? ( sci-libs/netcdf:= ) petsc? ( sci-mathematics/petsc ) qd? ( sci-libs/qd ) scalapack? ( sci-libs/scalapack ) scotch? ( sci-libs/scotch:= ) sparse? ( sci-libs/cxsparse sci-libs/umfpack ) superlu? ( sci-libs/superlu:= ) taucs? ( sci-libs/taucs ) tbb? ( dev-cpp/tbb:= ) tvmet? ( dev-libs/tvmet ) yaml? ( dev-cpp/yaml-cpp:= ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libX11 )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/trilinos/Trilinos/archive/trilinos-release-13-0-1.tar.gz -> trilinos-13.0.1.tar.gz https://dev.gentoo.org/~tamiko/distfiles/trilinos-13.0.0-patches-r0.tar.xz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=b3a0fcf874a997bdc9c085f62e76b8bc
+_md5_=c571e6de43c2bc3870541bc34c6329c4
