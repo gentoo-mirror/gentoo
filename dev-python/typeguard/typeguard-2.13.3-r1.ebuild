@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
@@ -32,6 +32,11 @@ BDEPEND="
 distutils_enable_tests pytest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+PATCHES=(
+	# backport from https://github.com/agronholm/typeguard/pull/243
+	"${FILESDIR}"/${P}-test.patch
+)
 
 python_test() {
 	local EPYTEST_IGNORE=(
