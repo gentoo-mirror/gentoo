@@ -58,7 +58,7 @@
     <!ELEMENT bugs-to (#PCDATA)>
     <!-- specify a type of package identification tracker -->
     <!ELEMENT remote-id (#PCDATA)>
-      <!ATTLIST remote-id type (bitbucket|cpan|cpan-module|cpe|cran|ctan|freecode|freshmeat|gentoo|github|gitlab|gitorious|google-code|heptapod|launchpad|pear|pecl|pypi|rubyforge|rubygems|sourceforge|sourceforge-jp|vim) #REQUIRED>
+      <!ATTLIST remote-id type (bitbucket|cpan|cpan-module|cpe|cran|ctan|gentoo|github|gitlab|gitorious|google-code|heptapod|launchpad|osdn|pear|pecl|pypi|rubygems|sourceforge|sourceforge-jp|vim) #REQUIRED>
 
   <!-- category/package information for cross-linking in descriptions
     and useflag descriptions -->
@@ -68,7 +68,7 @@
 <!-- Common attributes -->
 
 <!-- the lang attribute, specifies the language of this tag in the
-  form of a ISO 639-1 language code. This is only useful for
+  form of an IETF (BCP 47) language tag. This is only useful for
   descriptions of various kinds. If a tag with this attribute is
   included there must be a description in the default language "en" -->
   <!ATTLIST description lang CDATA "en" >
