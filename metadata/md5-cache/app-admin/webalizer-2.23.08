@@ -3,12 +3,12 @@ DEPEND=>=sys-libs/db-4.2:* >=sys-libs/zlib-1.1.4 >=media-libs/libpng-1.2:0= >=me
 DESCRIPTION=Webserver log file analyzer
 EAPI=5
 HOMEPAGE=http://www.webalizer.org/
-INHERIT=versionator epatch webapp db-use
+INHERIT=flag-o-matic versionator epatch webapp db-use
 IUSE=bzip2 xtended geoip nls vhosts
 KEYWORDS=~alpha amd64 ~arm ~hppa ppc ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=>=sys-libs/db-4.2:* >=sys-libs/zlib-1.1.4 >=media-libs/libpng-1.2:0= >=media-libs/gd-1.8.3[png] dev-libs/geoip bzip2? ( app-arch/bzip2 ) app-admin/webapp-config
 SLOT=0
 SRC_URI=ftp://ftp.mrunix.net/pub/webalizer/webalizer-2.23-08-src.tar.bz2 xtended? ( http://patrickfrei.ch/webalizer/rb30/webalizer-2.23-08-RB30-patch.tar.gz ) https://dev.gentoo.org/~blueness/webalizer/webalizer.conf.gz ftp://ftp.mrunix.net/pub/webalizer/geodb//webalizer-geodb-20140201.tgz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	versionator	d3fb3ba33acc3bbbdc4d7970227c100d	epatch	28f0f3c0226306ec5f49e13bf851f171	webapp	d872f28d7595b70dd46545199ef35fb0	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	db-use	867a9246a45efc09934e0f8e3380c813
-_md5_=e2acfc2858fe35b76e66820b9477c2d5
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	28f0f3c0226306ec5f49e13bf851f171	ltprune	97143780d341cc8d8f1d4c6187a36d29	preserve-libs	a8e50acee31b5759b4df1f7707cae54b	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	versionator	d3fb3ba33acc3bbbdc4d7970227c100d	webapp	d872f28d7595b70dd46545199ef35fb0	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	db-use	867a9246a45efc09934e0f8e3380c813
+_md5_=a7e7308f0ee168a7b425c8ba733e8247
