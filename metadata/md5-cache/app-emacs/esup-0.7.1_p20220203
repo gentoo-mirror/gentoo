@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/s test? ( app-emacs/buttercup app-emacs/dash app-emacs/noflet app-emacs/undercover ) >=app-editors/emacs-25.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Benchmark Emacs Startup time without ever leaving it
+EAPI=8
+HOMEPAGE=https://github.com/jschaf/esup/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/s >=app-editors/emacs-25.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jschaf/esup/archive/4b49c8d599d4cc0fbf994e9e54a9c78e5ab62a5f.tar.gz -> esup-0.7.1_p20220203.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=02a17c6c0de0318e90be56ce6886f323
