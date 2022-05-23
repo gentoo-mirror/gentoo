@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=prepare
+DEFINED_PHASES=install prepare
 DEPEND=>=x11-libs/libdrm-2.4.23 >=x11-libs/libva-2.0.0
 DESCRIPTION=Intel C for Media RunTime GPU kernel manager
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=>=x11-libs/libdrm-2.4.23 >=x11-libs/libva-2.0.0
 SLOT=0
 SRC_URI=https://github.com/intel/cmrt/archive/refs/tags/1.0.6.tar.gz -> cmrt-1.0.6.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
-_md5_=921459383fa1e04aee90355507fe8bbd
+_md5_=5bddb0efefc3e1510328d1064b082650
