@@ -44,7 +44,7 @@ REQUIRED_USE="
 	lto? ( !debug )
 "
 
-MIN_QT="5.6.0"
+MIN_QT="5.12.0"
 
 QT_DEPS="
 	>=dev-qt/qtconcurrent-${MIN_QT}:5
@@ -76,10 +76,6 @@ RDEPEND="
 	>=virtual/jre-1.8.0:*
 	virtual/opengl
 "
-
-if [[ ${PV} != 9999 ]]; then
-	PATCHES=( "${FILESDIR}/${PN}-iconfix.patch" )
-fi
 
 src_prepare() {
 	cmake_src_prepare
