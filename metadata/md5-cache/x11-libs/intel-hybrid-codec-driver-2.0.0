@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=x11-libs/cmrt-1.0.6 >=x11-libs/libdrm-2.4.45 >=x11-libs/libva-1.0.16[abi_x86_64(-)?]
+DESCRIPTION=Libva support for partially hardware accelerated encode and decode on Haswell and newer
+EAPI=8
+HOMEPAGE=https://github.com/intel/intel-hybrid-driver
+INHERIT=autotools multilib-minimal
+IUSE=wayland X abi_x86_64
+KEYWORDS=~amd64 ~amd64-linux
+LICENSE=MIT
+RDEPEND=>=x11-libs/cmrt-1.0.6 >=x11-libs/libdrm-2.4.45 >=x11-libs/libva-1.0.16[abi_x86_64(-)?]
+REQUIRED_USE=|| ( abi_x86_64 )
+SLOT=0
+SRC_URI=https://github.com/intel/intel-hybrid-driver/archive/edead0c17e2818bc0fee0ea644f85ab81bbe6f7a.tar.gz -> intel-hybrid-codec-driver-2.0.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_md5_=01dd181f0fc3bde48c4af071bb675c1f
