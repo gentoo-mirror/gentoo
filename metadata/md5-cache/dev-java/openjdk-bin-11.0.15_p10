@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://adoptium.net
 INHERIT=java-vm-2 toolchain-funcs
 IUSE=alsa cups headless-awt selinux source
-KEYWORDS=amd64 ~arm ~arm64 ppc64 ~x64-macos
+KEYWORDS=amd64 ~arm arm64 ppc64 ~x64-macos
 LICENSE=GPL-2-with-classpath-exception
 RDEPEND=>=sys-apps/baselayout-java-0.1.0-r1 kernel_linux? ( media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/harfbuzz elibc_glibc? ( >=sys-libs/glibc-2.2.5:* ) elibc_musl? ( sys-libs/musl ) sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) ) dev-java/java-config app-eselect/eselect-java
 RESTRICT=preserve-libs splitdebug
 SLOT=11
 SRC_URI=arm? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15+10//OpenJDK11U-jdk_arm_linux_hotspot_11.0.15_10.tar.gz ) arm64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15+10//OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.15_10.tar.gz ) amd64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15+10//OpenJDK11U-jdk_x64_linux_hotspot_11.0.15_10.tar.gz ) amd64? ( elibc_musl? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15+10//OpenJDK11U-jdk_x64_alpine-linux_hotspot_11.0.15_10.tar.gz ) ) ppc64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15+10//OpenJDK11U-jdk_ppc64le_linux_hotspot_11.0.15_10.tar.gz ) x64-macos? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15+10//OpenJDK11U-jdk_x64_mac_hotspot_11.0.15_10.tar.gz )
 _eclasses_=multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	java-vm-2	69658c0814b27f9cbe466a24e6621d23
-_md5_=e58a3e16ab1b88c3982af3953936b4bf
+_md5_=dea4981e5e1337e9b1942afcf485a104
