@@ -38,6 +38,7 @@ src_prepare() {
 
 	# Don't install NEWS.org into /usr/share/doc.
 	sed -i '/NEWS.org/,+1 d' meson.build || die
+	sed -i '/mu4e-about.org/d' mu4e/meson.build || die
 
 	# Instead, put it in /usr/share/doc/${PF}.
 	sed -i "/MU_DOC_DIR/s/mu/${PF}/" mu4e/meson.build || die
@@ -49,7 +50,6 @@ src_configure() {
 		$(meson_feature readline)
 		# NOTE: Guile interface is deprecated to be removed shortly.
 		-Dguile=disabled
-		-Dtoys=disabled
 	)
 	meson_src_configure
 }
@@ -62,6 +62,10 @@ src_install() {
 	# mu4e-info.
 	docompress -x /usr/share/doc/${PF}/NEWS.org
 	dodoc NEWS.org
+
+	# Same as above.
+	docompress -x /usr/share/doc/${PF}/mu4e-about.org
+	dodoc mu4e/mu4e-about.org
 }
 
 pkg_preinst() {
