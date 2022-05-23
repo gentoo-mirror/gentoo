@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="f99196cc267b07fa7ad56f0134744b545fa21fcd"
+DOCS_PV="d43d6cd46b6eb7675ec690b0dff573ca03f2e301"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -26,11 +26,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# The test suite often hangs or does not work. Technically spyder requires
-# pyqt5<13, which we do not have in ::gentoo any more. Likely this is the reason
-# many of the tests fail or hang. RESTRICTing because IMO it is not worth the
-# several hours I spend every single version bump checking which tests do and
-# do not work. Spyder itself works fine with pyqt5>13.
+# The test suite often hangs or does not work. RESTRICTing because IMO it is
+# not worth the several hours I would have to spend every single version bump
+# checking which tests do and do not work.
 RESTRICT="test"
 
 RDEPEND="
@@ -51,17 +49,17 @@ RDEPEND="
 	>=dev-python/python-lsp-black-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-17[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-22.1.0[${PYTHON_USEDEP}]
 	>=dev-python/qdarkstyle-3.0.2[${PYTHON_USEDEP}]
 	<dev-python/qdarkstyle-3.1.0[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.1.10[${PYTHON_USEDEP}]
 	>=dev-python/qtawesome-1.0.2[${PYTHON_USEDEP}]
 	>=dev-python/qtconsole-5.3.0[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.4.0[${PYTHON_USEDEP}]
-	>=dev-python/QtPy-2.0.1[${PYTHON_USEDEP},svg,webengine]
+	>=dev-python/QtPy-2.1.0[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.3.0[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.3.1[${PYTHON_USEDEP}]
 	<dev-python/spyder-kernels-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
