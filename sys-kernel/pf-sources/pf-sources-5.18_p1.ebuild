@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # Define what default functions to run
 ETYPE="sources"
@@ -27,7 +27,7 @@ SHPV="${PV/_p*/}"
 
 # https://gitlab.com/alfredchen/projectc/ revision for a major version,
 # e.g. prjc-v5.14-r2 = 2
-PRJC_R=1
+PRJC_R=0
 
 inherit kernel-2 optfeature
 detect_version
@@ -39,16 +39,16 @@ SRC_URI="${KERNEL_URI}
 	https://github.com/pfactum/pf-kernel/compare/v${SHPV}...v${SHPV}-pf${PV/*_p/}.diff -> ${P}.patch
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz
-	https://dev.gentoo.org/~juippis/distfiles/prjc-v${SHPV}-3uo.patch
-	https://dev.gentoo.org/~mpagano/genpatches/trunk/5.15/5021_BMQ-and-PDS-gentoo-defaults.patch -> 5021_BMQ-and-PDS-gentoo-defaults-5.15.patch"
+	https://gitlab.com/alfredchen/projectc/-/raw/master/${SHPV}/prjc_v${SHPV}-r${PRJC_R}.patch
+	https://gitlab.com/torvic9/linux-stable/-/commit/7d83680518b4c6a5dcd92f25f0e455ae5ed17a7e.patch -> pf-sources-5.18-pf1-add_missing_includes.patch"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 S="${WORKDIR}/linux-${PVR}-pf"
 
 PATCHES=( "${DISTDIR}/${P}.patch"
-	"${DISTDIR}/prjc-v${SHPV}-3uo.patch"
-	"${DISTDIR}/5021_BMQ-and-PDS-gentoo-defaults-5.15.patch" )
+	"${DISTDIR}/prjc_v${SHPV}-r${PRJC_R}.patch" 
+	"${DISTDIR}/pf-sources-5.18-pf1-add_missing_includes.patch" )
 
 K_EXTRAEINFO="For more info on pf-sources and details on how to report problems,
 	see: ${HOMEPAGE}."
