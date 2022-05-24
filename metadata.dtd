@@ -64,7 +64,7 @@
     and useflag descriptions -->
   <!ELEMENT pkg (#PCDATA) >
   <!ELEMENT cat (#PCDATA) >
-          
+
 <!-- Common attributes -->
 
 <!-- the lang attribute, specifies the language of this tag in the
@@ -76,14 +76,14 @@
   <!ATTLIST slots lang CDATA "en" >
   <!ATTLIST use lang CDATA "en" >
 
-<!-- The restrict attribute, this attribute specifies restrictions on 
-  the applicability of tags on versions. The format of this attribute is 
+<!-- The restrict attribute, this attribute specifies restrictions on
+  the applicability of tags on versions. The format of this attribute is
   equal to the format of DEPEND lines in ebuilds. Only package
   dependency specifications conforming to EAPI=0 syntax are allowed.
   The dependency specification may only contain references to the
   package itself and no other package.
-  
-  For required tags, there must be either an unrestricted version, or a 
+
+  For required tags, there must be either an unrestricted version, or a
   version that is default restricted. -->
   <!ATTLIST maintainer restrict CDATA #IMPLIED >
   <!ATTLIST longdescription restrict CDATA #IMPLIED >
