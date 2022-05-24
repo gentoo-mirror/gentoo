@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure postinst prepare
+DEPEND=>=dev-lang/execline-2.8.2.0:=[static-libs?] >=dev-libs/skalibs-2.11.1.0:=[static-libs?] >=sys-apps/s6-2.11.0.1:=[execline,static-libs?]
+DESCRIPTION=Service manager for the s6 supervision suite
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6-rc/
+INHERIT=toolchain-funcs
+IUSE=static static-libs
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=ISC
+RDEPEND=>=dev-lang/execline-2.8.2.0:=[static-libs?] >=dev-libs/skalibs-2.11.1.0:=[static-libs?] >=sys-apps/s6-2.11.0.1:=[execline,static-libs?]
+REQUIRED_USE=static? ( static-libs )
+SLOT=0/0.5
+SRC_URI=https://www.skarnet.org/software/s6-rc/s6-rc-0.5.3.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=0a16958cdaa2e3ec85f5d18938eaf150

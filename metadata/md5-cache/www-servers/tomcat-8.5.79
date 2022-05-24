@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test
+DEPEND=dev-java/eclipse-ecj:4.15 ~dev-java/tomcat-servlet-api-8.5.79:3.1 app-admin/pwgen dev-java/ant-core >=virtual/jdk-1.8:* doc? ( dev-java/glassfish-xmlrpc-api:0 dev-java/wsdl4j:0 ) test? ( >=dev-java/ant-junit-1.9:0 dev-java/easymock:3.2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DESCRIPTION=Tomcat Servlet-3.1/JSP-2.3/EL-3.0/WebSocket-1.1/JASPIC-1.1 Container
+EAPI=8
+HOMEPAGE=https://tomcat.apache.org/
+INHERIT=java-pkg-2 java-ant-2 prefix
+IUSE=extra-webapps doc source test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+LICENSE=Apache-2.0
+RDEPEND=dev-java/eclipse-ecj:4.15 ~dev-java/tomcat-servlet-api-8.5.79:3.1 acct-group/tomcat acct-user/tomcat >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=8.5
+SRC_URI=mirror://apache/tomcat/tomcat-8/v8.5.79/src/apache-tomcat-8.5.79-src.tar.gz
+_eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0	prefix	eab3c99d77fe00506c109c8a736186f7
+_md5_=6fecbc278fa842e188fa386a6ef59362
