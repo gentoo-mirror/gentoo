@@ -3,16 +3,19 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..11} )
+
 inherit distutils-r1
 
-DESCRIPTION="JavaScript minifier"
-HOMEPAGE="https://pypi.org/project/jsmin/ https://github.com/tikitu/jsmin/"
+DESCRIPTION="A python port of YUI CSS Compressor"
+HOMEPAGE="
+	https://github.com/sprymix/csscompressor
+	https://pypi.org/project/csscompressor/
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-KEYWORDS="amd64 ~riscv x86"
-LICENSE="MIT"
+LICENSE="BSD"
 SLOT="0"
+KEYWORDS="~amd64 ~riscv ~x86"
 
-distutils_enable_tests unittest
+distutils_enable_tests pytest
