@@ -8,28 +8,25 @@ PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
-DESCRIPTION="a library for rendering \"readme\" descriptions for Warehouse"
+DESCRIPTION="A dot-accessible dictionary (a la JavaScript objects)"
 HOMEPAGE="
-	https://github.com/pypa/readme_renderer/
-	https://pypi.org/project/readme-renderer/
+	https://github.com/Infinidat/munch/
+	https://pypi.org/project/munch/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-LICENSE="Apache-2.0"
-SLOT="0"
+LICENSE="MIT"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+SLOT="0"
 
 RDEPEND="
-	>=dev-python/bleach-2.1.0[${PYTHON_USEDEP}]
-	>=dev-python/docutils-0.13.1[${PYTHON_USEDEP}]
-	>=dev-python/pygments-2.5.2[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	dev-python/pbr[${PYTHON_USEDEP}]
 	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
+		>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	)
 "
-
-DOCS=( README.rst )
 
 distutils_enable_tests pytest
