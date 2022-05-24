@@ -1,15 +1,14 @@
-<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/dtd/glsa.dtd,v 1.17 2008/04/04 17:04:39 neysx Exp $ -->
 <!ELEMENT glsa  (title,synopsis,product,announced,revised,bug*,access?,affected,background?,description,impact,workaround,resolution,references,license?,metadata*)>
 <!ATTLIST glsa  id  CDATA   #REQUIRED>
 
-<!-- 
+<!--
     Element:      title
-    Description:  Provides a 4-5 word description about the advisory 
-    Example:      <title>Buffer overflow vulnerability found in openssl-0.9.5</title> 
+    Description:  Provides a 4-5 word description about the advisory
+    Example:      <title>Buffer overflow vulnerability found in openssl-0.9.5</title>
 -->
 <!ELEMENT title  (#PCDATA)>
 
-<!-- 
+<!--
     Element:      synopsis
     Description:  Small, to-the-point description about the GLSA
 
@@ -20,21 +19,21 @@
 -->
 <!ELEMENT synopsis   (#PCDATA)>
 
-<!-- 
+<!--
     Element:      product
     Description:  Defines what type of security announcement this is.
-    
+
                   Valid types are:
-                  - ebuild         A Portage-provided ebuild has a security 
+                  - ebuild         A Portage-provided ebuild has a security
                                    issue
                   - informational  This GLSA is purely informational, no Gentoo
                                    system is affected
-                  - infrastructure The security issue involves the Gentoo 
+                  - infrastructure The security issue involves the Gentoo
                                    infrastructure
-    
+
                   The text contains one keyword that defines the issue.
                   Note: All type values but 'ebuild' are considered deprecated.
-     
+
     Example: <product type="ebuild">openssl</product>
     Example: <product type="infrastructure">rsync mirror</product>
 -->
@@ -54,7 +53,7 @@
     Element:      revised
     Description:  Last revision date of the GLSA
     Attribute:    @count: number of revisions
-    
+
     Example: <revised count="02">2003-11-20</revised>
 -->
 <!ELEMENT revised (#PCDATA)>
@@ -74,7 +73,7 @@
     Description:  Type of access necessary to exploit the security issue
                   This element should only be used when product@type = 'ebuild'
     Occurrence:    The access element can occur 0 or 1 time
-    
+
     Example: <access>Remote</access>
 -->
 <!ELEMENT access    (#PCDATA)>
@@ -82,10 +81,10 @@
 <!--
     Element:      affected
     Description:  Describe what the affected subjects are.
-    
+
                   If product@type = 'ebuild', the child elements are 'package'
                   If product@type = 'portage', the child elements are 'package'
-                  If product@type = 'infrastructure', the child elements are 
+                  If product@type = 'infrastructure', the child elements are
                   'service'
 
 -->
@@ -93,19 +92,19 @@
 
 <!--
     Element:      package
-    Description:  Provide all necessary information regarded the affected 
-                  packages. It also contains information about the affected 
+    Description:  Provide all necessary information regarded the affected
+                  packages. It also contains information about the affected
                   architectures, if automatic updates can be done and the update
 
                   The "update" attribute contains the path to the non-vulnerable
                   version of the package
 
-                  The "auto" attribute contains either "yes" or "no" and tells 
-                  Portage that the package can be updated automatically (to be 
+                  The "auto" attribute contains either "yes" or "no" and tells
+                  Portage that the package can be updated automatically (to be
                   implemented) without further user interaction
 
                   The "arch" attribute contains either the architecture (as used
-                  by ACCEPT_KEYWORDS) or the "*" value (in case all 
+                  by ACCEPT_KEYWORDS) or the "*" value (in case all
                   architectures are affected)
 
     Occurrence:   The package element can occur 0, 1 or more times
@@ -129,11 +128,11 @@
 
 <!--
     Element:      unaffected
-    Description:  Version of the fixed (or unaffected) package. In case the 
+    Description:  Version of the fixed (or unaffected) package. In case the
                   package is superseded by another package, you need to
                   define that package using the "name" attribute.
 
-                  The r* range information is revision-specific. For instance, 
+                  The r* range information is revision-specific. For instance,
                   rge foo-1.2.3-r4  ==  >=foo-1.2.3-r4 && <foo-1.2.4
 
     Example:
@@ -148,7 +147,7 @@
     Element:      service
     Description:  Provide information about the Gentoo services that are
                   affected by the security advisory. Portage must be able
-                  to parse this information to make decisions (for instance, 
+                  to parse this information to make decisions (for instance,
                   ignore an rsync server or a certain distfiles mirror).
 
                   The type attribute can be one of "rsync", "web", "mirror".
@@ -156,7 +155,7 @@
                   The fixed attribute (denoting if the problem has been solved)
                   can be one of "yes" or "no". If not used, the default value is
                   "no".
-                  
+
     Occurrence:   The service element can occur 0, 1 or more times
     Example: <service type="rsync">rsync://rsync.someserver.tld/gentoo-portage</service>
 -->
@@ -206,7 +205,7 @@
 <!--
     Element:      background
     Description:  Provides a background of the affected package(s)/service(s)
-                  The background element contains only "<p>"s in which the text 
+                  The background element contains only "<p>"s in which the text
                   is placed
 
 -->
@@ -221,12 +220,12 @@
 
 <!--
     Element:      impact
-    Description:  Provides information about the impact that the security issue 
+    Description:  Provides information about the impact that the security issue
                   can have
 
                   The "impact" element contains only "<p>"s.
 
-                  The type element gives a short term, such as 
+                  The type element gives a short term, such as
                   "Denial of Service", "Buffer Overflow", ...
 
 -->
@@ -235,7 +234,7 @@
 
 <!--
     Element:      workaround
-    Description:  Provides information about how the security issue can be 
+    Description:  Provides information about how the security issue can be
                   (temporarily) resolved through a work-around
 
                   The "workaround" element contains only "<p>"s and "<code>"s.
@@ -244,7 +243,7 @@
 
 <!--
     Element:      resolution
-    Description:  Provides information about how the security issue can be 
+    Description:  Provides information about how the security issue can be
                   resolved.
 
                   The "resolution" element contains only "<p>"s and "<code>"s.
@@ -254,7 +253,7 @@
 <!--
     Element:      references
     Description:  Provides links to resources / references available online.
-                  
+
                   The "reference" element contains only "<uri>"s.
 -->
 <!ELEMENT references    (uri*)>
@@ -273,8 +272,8 @@
 
 <!--
     Element:      li
-    Description:  Element of a listing 
- 
+    Description:  Element of a listing
+
     Example:    <ul>
                   <li>This is element one</li>
                   <li>This is a second element</li>
@@ -298,16 +297,16 @@
 -->
 <!ELEMENT i             (#PCDATA)>
 
-<!-- 
+<!--
     Element:      br
     Description:  hard line break
 
-    Example:      And then: <br/> 
+    Example:      And then: <br/>
                   KABLAM!
 -->
 <!ELEMENT br            (#PCDATA)>
 
-<!-- 
+<!--
     Element:      license
     Description:  Add license information
 
@@ -321,7 +320,7 @@
 
     Example:      <metadata tag="approved">Level 1</metadata>
 
-    On request of plasmaroo, metadata can contain all elements again. 
+    On request of plasmaroo, metadata can contain all elements again.
 -->
 <!ELEMENT metadata  (#PCDATA|metadata)*>
 <!ATTLIST metadata tag      CDATA #REQUIRED
