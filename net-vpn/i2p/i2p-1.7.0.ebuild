@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,40 +7,42 @@ inherit java-pkg-2 java-ant-2 systemd
 
 DESCRIPTION="A privacy-centric, anonymous network"
 HOMEPAGE="https://geti2p.net"
-SRC_URI="https://download.i2p2.de/releases/${PV}/i2psource_${PV}.tar.bz2"
+SRC_URI="https://files.i2p-projekt.de/${PV}/i2psource_${PV}.tar.bz2"
 
 LICENSE="Apache-2.0 Artistic BSD CC-BY-2.5 CC-BY-3.0 CC-BY-SA-3.0 EPL-1.0 GPL-2 GPL-3 LGPL-2.1 LGPL-3 MIT public-domain WTFPL-2"
 SLOT="0"
 
 # Until the deps reach other arches
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="nls test"
 RESTRICT="!test? ( test )"
 
 # dev-java/ant-core is automatically added due to java-ant-2.eclass
-CP_DEPEND="
-	dev-java/java-service-wrapper:0
-	dev-java/tomcat-servlet-api:4.0
-"
+CP_DEPEND="dev-java/java-service-wrapper:0"
 
 DEPEND="${CP_DEPEND}
-	dev-java/eclipse-ecj:*
+	|| (
+		virtual/jdk:1.8
+		virtual/jdk:11
+	)
 	nls? ( >=sys-devel/gettext-0.19 )
-	virtual/jdk:1.8
 	test? (
 		dev-java/ant-junit4:0
 		dev-java/hamcrest-core:1.3
 		dev-java/hamcrest-library:1.3
 		dev-java/junit:4
-		dev-java/mockito:0
+		dev-java/mockito:4
 	)
 "
 
 RDEPEND="${CP_DEPEND}
 	acct-user/i2p
 	acct-group/i2p
-	virtual/jre:1.8
 	net-libs/nativebiginteger:0
+	|| (
+		virtual/jre:1.8
+		virtual/jre:11
+	)
 "
 
 EANT_BUILD_TARGET="pkg"
@@ -49,13 +51,6 @@ EANT_TEST_TARGET="junit.test"
 JAVA_ANT_ENCODING="UTF-8"
 
 src_prepare() {
-	if use test; then
-		# no *streaming as requiring >dev-java/mockito-1.9.5
-		sed -e "/streaming.*junit\.test/d" \
-			-i build.xml ||
-			die "unable to remove ministreaming tests"
-	fi
-
 	# as early as possible to allow generic patches to be applied
 	default
 
@@ -109,18 +104,9 @@ src_prepare() {
 }
 
 src_test() {
-	# store built version of jars, overwritten by testing
-	mv "${S}/pkg-temp/lib/"{i2p,router}.jar "${T}" ||
-		die "unable to save jars before tests"
-
 	# generate test classpath
-	local classpath
-	classpath="$(java-pkg_getjars --build-only junit-4,hamcrest-core-1.3,hamcrest-library-1.3,mockito)"
+	local classpath="$(java-pkg_getjars --build-only junit-4,hamcrest-core-1.3,hamcrest-library-1.3,mockito-4)"
 	EANT_TEST_EXTRA_ARGS="-Djavac.classpath=${classpath}" java-pkg-2_src_test
-
-	# redo work undone by testing
-	mv "${T}/"{i2p,router}.jar "${S}/pkg-temp/lib/" ||
-		die "unable to restore jars after tests"
 }
 
 src_install() {
@@ -128,7 +114,7 @@ src_install() {
 	cd "${S}/pkg-temp" || die
 
 	# we remove system installed jar and install the others
-	rm lib/{javax.servlet,wrapper}.jar || \
+	rm lib/wrapper.jar || \
 		die "unable to remove locally built jar already found in system"
 	java-pkg_dojar lib/*.jar
 
