@@ -1842,6 +1842,7 @@ dev-lang/rust:dist - Install dist tarballs (used for bootstrapping)
 dev-lang/rust:miri - Install miri, an interpreter for Rust's mid-level intermediate representation (requires USE=nightly)
 dev-lang/rust:nightly - Enable nightly (UNSTABLE) features
 dev-lang/rust:parallel-compiler - Build a multi-threaded rustc (experimental, not tested by upstream)
+dev-lang/rust:profiler - Build the profiler runtime and rust-demangler tool (needed for '-C profile-generate' or '-C instrument-coverage' codegen opts)
 dev-lang/rust:rls - Install rls, Rust Language Server (used with IDEs supporting RLS protocol)
 dev-lang/rust:rust-src - Install rust-src, needed by developer tools and for build-std (cross)
 dev-lang/rust:rustfmt - Install rustfmt, Rust code formatter
