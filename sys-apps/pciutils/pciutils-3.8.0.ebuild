@@ -58,9 +58,21 @@ check_binutils_version() {
 		# 2.38
 		# ```
 		local ver=$($(tc-getLD) --version 2>&1 | head -1 | rev | cut -d' ' -f1 | rev)
+
+		if ! [[ ${ver} =~ [0-9].[0-9][0-9] ]] ; then
+			# Skip if unrecognised format so we don't pass something
+			# odd into ver_cut.
+			return
+		fi
+
 		ver_major=$(ver_cut 1 "${ver}")
 		ver_minor=$(ver_cut 2 "${ver}")
 
+		# We use 2.37 here, not 2.35, as https://github.com/pciutils/pciutils/issues/98 mentions
+		# because we've had other miscompiles with older Binutils (not just build failures!)
+		# and we don't want people running any unsupported versions of Binutils. An example
+		# of this is where glibc is completely broken with old binutils: bug #802036. It's
+		# just not sustainable to support.
 		if [[ ${ver_major} -eq 2 && ${ver_minor} -lt 37 ]] ; then
 			eerror "Old version of binutils activated! ${P} cannot be built with an old version."
 			eerror "Please follow these steps:"
