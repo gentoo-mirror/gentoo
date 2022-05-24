@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-24.4:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs Lisp macro to simulate user input non-interactively
+EAPI=8
+HOMEPAGE=https://github.com/DarwinAwardWinner/with-simulated-input/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-24.4:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/DarwinAwardWinner/with-simulated-input/archive/v3.0.tar.gz -> with-simulated-input-3.0.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=f5cabdb0a3cc8bd31ffe576c8269e103
