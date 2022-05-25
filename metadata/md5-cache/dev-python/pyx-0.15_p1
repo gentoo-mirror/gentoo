@@ -1,0 +1,16 @@
+BDEPEND=dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] virtual/tex-base dev-texlive/texlive-basic doc? ( virtual/latex-base || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[latex,python_targets_python3_10(-)] dev-python/sphinx_selective_exclude[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[latex,python_targets_python3_9(-)] dev-python/sphinx_selective_exclude[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[latex,python_targets_python3_8(-)] dev-python/sphinx_selective_exclude[python_targets_python3_8(-)] ) ) ) test? ( dev-python/sphinx[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/sphinx_selective_exclude[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/testfixtures[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/gpep517-3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-60.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/wheel[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=Python package for the generation of encapsulated PostScript figures
+EAPI=8
+HOMEPAGE=https://github.com/pyx-project/pyx https://pyx-project.org/ https://pypi.org/project/PyX/
+INHERIT=distutils-r1
+IUSE=doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] virtual/tex-base dev-texlive/texlive-basic python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~grozin/pyx-0.15_p1.tar.bz2 test? ( https://www.w3.org/Graphics/SVG/Test/20110816/archives/W3C_SVG_11_TestSuite.tar.gz )
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
+_md5_=dddb536f1f5f1989bb79a5ee08d0b4dc
