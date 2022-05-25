@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Conversion between markup formats (binary package)
+EAPI=8
+HOMEPAGE=https://pandoc.org/
+IUSE=+pandoc-symlink
+KEYWORDS=-* ~amd64
+LICENSE=GPL-2
+RDEPEND=pandoc-symlink? ( !app-text/pandoc )
+SLOT=0
+SRC_URI=amd64? ( https://github.com/jgm/pandoc/releases/download/2.18/pandoc-2.18-linux-amd64.tar.gz ) arm64? ( https://github.com/jgm/pandoc/releases/download/2.18/pandoc-2.18-linux-arm64.tar.gz )
+_md5_=ab5af9c764c285ff5abbc4af6c0e681e
