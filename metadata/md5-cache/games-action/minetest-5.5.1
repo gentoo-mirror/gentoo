@@ -1,0 +1,18 @@
+BDEPEND=doc? ( app-doc/doxygen media-gfx/graphviz ) nls? ( sys-devel/gettext ) dev-util/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) app-arch/zstd dev-db/sqlite:3 dev-libs/gmp:0= dev-libs/jsoncpp:= sys-libs/zlib client? ( >=dev-games/irrlicht-mt-1.9.0.4 media-libs/freetype:2 media-libs/libpng:0= media-libs/libjpeg-turbo virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm sound? ( media-libs/libvorbis media-libs/openal ) ) curl? ( net-misc/curl ) leveldb? ( dev-libs/leveldb:= ) ncurses? ( sys-libs/ncurses:0= ) nls? ( virtual/libintl ) postgres? ( >=dev-db/postgresql-9.5:= ) prometheus? ( dev-cpp/prometheus-cpp ) redis? ( dev-libs/hiredis:= ) server? ( acct-group/minetest acct-user/minetest >=dev-games/irrlicht-mt-headers-1.9.0.4 ) spatial? ( sci-libs/libspatialindex:= )
+DESCRIPTION=A free open-source voxel game engine with easy modding and game creation
+EAPI=8
+HOMEPAGE=https://www.minetest.net
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic lua-single systemd xdg
+IUSE=+client +curl doc leveldb ncurses nls postgres prometheus redis +server +sound spatial test lua_single_target_luajit lua_single_target_lua5-1
+KEYWORDS=~amd64 ~riscv
+LICENSE=LGPL-2.1+ CC-BY-SA-3.0 OFL-1.1 Apache-2.0
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) app-arch/zstd dev-db/sqlite:3 dev-libs/gmp:0= dev-libs/jsoncpp:= sys-libs/zlib client? ( >=dev-games/irrlicht-mt-1.9.0.4 media-libs/freetype:2 media-libs/libpng:0= media-libs/libjpeg-turbo virtual/opengl x11-libs/libX11 x11-libs/libXxf86vm sound? ( media-libs/libvorbis media-libs/openal ) ) curl? ( net-misc/curl ) leveldb? ( dev-libs/leveldb:= ) ncurses? ( sys-libs/ncurses:0= ) nls? ( virtual/libintl ) postgres? ( >=dev-db/postgresql-9.5:= ) prometheus? ( dev-cpp/prometheus-cpp ) redis? ( dev-libs/hiredis:= ) server? ( acct-group/minetest acct-user/minetest >=dev-games/irrlicht-mt-headers-1.9.0.4 ) spatial? ( sci-libs/libspatialindex:= )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) || ( client server )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/minetest/minetest/archive/5.5.1.tar.gz -> minetest-5.5.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	systemd	2736b403a83f194b59b767f3b344c2c1	xdg	6024fbc93167fad782e2032933654857
+_md5_=19573cfd79e21ceaf339d4507dcae018

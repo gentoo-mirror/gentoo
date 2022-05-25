@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/dash test? ( app-emacs/buttercup app-emacs/noflet app-emacs/undercover ) >=app-editors/emacs-24.4:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Browse and import bibliographic references with Emacs
+EAPI=8
+HOMEPAGE=https://github.com/cpitclaudel/biblio.el/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/dash >=app-editors/emacs-24.4:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/cpitclaudel/biblio.el/archive/517ec18f00f91b61481214b178f7ae0b8fbc499b.tar.gz -> biblio-0.2_p20210418.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=de3833b0ccbbc8ba168c1cf7f28f8456
