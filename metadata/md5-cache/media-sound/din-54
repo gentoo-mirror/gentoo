@@ -7,11 +7,11 @@ HOMEPAGE=https://dinisnoise.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools edos2unix xdg
 IUSE=+alsa jack
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/tcl:0= media-libs/libsdl:= virtual/glu virtual/opengl alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack )
 REQUIRED_USE=|| ( alsa jack )
 SLOT=0
 SRC_URI=https://archive.org/download/dinisnoise_source_code/din-54.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	edos2unix	33e347e171066657f91f8b0c72ec8773	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=861f856c79ea9e7cfd90ed7e6ef9b04a
+_md5_=47641be04e9d460c8e5699f91e549430
