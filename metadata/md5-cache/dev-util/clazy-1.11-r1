@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://apps.kde.org/clazy
 INHERIT=cmake llvm python-any-r1
 IUSE=test
-KEYWORDS=~amd64 ~arm64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=LGPL-2+
 RDEPEND=<sys-devel/clang-15:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://kde/stable/clazy/1.11/src/clazy-1.11.tar.xz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	llvm	6f88d422e49b917bf254b2594f3d903c	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=7fd465f36aa8a884e1f0e97729bf563f
+_md5_=42bc600469a82e19cb3aef959243993c

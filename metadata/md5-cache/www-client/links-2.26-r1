@@ -7,11 +7,11 @@ HOMEPAGE=http://links.twibright.com/
 IDEPEND=X? ( dev-util/desktop-file-utils )
 INHERIT=autotools desktop toolchain-funcs xdg-utils
 IUSE=brotli bzip2 fbcon freetype gpm ipv6 jpeg libevent livecd lzip lzma ssl suid svga tiff unicode webp X zlib zstd
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris
 LICENSE=GPL-2
 RDEPEND=dev-libs/libbsd brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) fbcon? ( media-libs/libpng:0= ) freetype? ( media-libs/fontconfig media-libs/freetype ) gpm? ( sys-libs/gpm ) jpeg? ( media-libs/libjpeg-turbo:= ) libevent? ( dev-libs/libevent:0= ) livecd? ( media-libs/libpng:0= sys-libs/gpm media-libs/libjpeg-turbo:= ) lzip? ( app-arch/lzip ) lzma? ( app-arch/xz-utils ) ssl? ( dev-libs/openssl:0= ) svga? ( media-libs/libpng:0= media-libs/svgalib ) tiff? ( media-libs/tiff:0 ) webp? ( media-libs/libwebp:= ) X? ( media-libs/libpng:0= x11-libs/libXext ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd )
 REQUIRED_USE=!livecd? ( fbcon? ( gpm ) ) svga? ( suid )
 SLOT=2
 SRC_URI=http://links.twibright.com/download/links-2.26.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=696ff8179bd485538718c4458fd8cf18
+_md5_=f0f59e7511fef41622597765d96d538d

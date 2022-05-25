@@ -18190,7 +18190,7 @@ sys-fs/udev-init-scripts 34 35 9999: udev startup scripts for openrc
 sys-fs/udftools 2.3: Ben Fennema's tools for packet writing and the UDF filesystem
 sys-fs/udiskie 2.4.0 2.4.1 2.4.2: An automatic disk mounting service using udisks
 sys-fs/udisks 2.9.4: Daemon providing interfaces to work with storage devices
-sys-fs/unionfs-fuse 2.1 2.2 9999: Self-syncing tree-merging file system based on FUSE
+sys-fs/unionfs-fuse 2.1 2.2 2.2-r1 9999: Self-syncing tree-merging file system based on FUSE
 sys-fs/vhba 20211218: Virtual (SCSI) Host Bus Adapter kernel module for the CDEmu suite
 sys-fs/vzquota 3.1: OpenVZ VPS disk quota utility
 sys-fs/xfsdump 3.1.9-r1 3.1.10: xfs dump/restore utilities
@@ -18206,8 +18206,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 053-r1 055-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 4.2.6-r3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.195 5.10.117 5.15.41 5.17.9: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.195 5.10.117 5.15.41 5.17.9: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.195 5.4.196 5.10.117 5.10.118 5.15.41 5.15.43 5.17.9 5.17.11: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.195 5.4.196 5.10.117 5.10.118 5.15.41 5.15.43 5.17.9 5.17.11: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.314 4.9.315 4.9.316 4.14.279 4.14.280 4.14.281 4.19.243 4.19.244 4.19.245 5.4.194 5.4.195 5.4.196 5.10.110 5.10.116 5.10.117 5.10.118 5.15.32-r1 5.15.40 5.15.41 5.15.43 5.17.6 5.17.7 5.17.8 5.17.9 5.17.11 5.18.0: Full sources including the Gentoo patchset for the 5.18 kernel tree
 sys-kernel/git-sources 5.18_rc1 5.18_rc2 5.18_rc3 5.18_rc4 5.18_rc5 5.18_rc6 5.18_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
@@ -18223,7 +18223,7 @@ sys-kernel/pf-sources 5.16_p5 5.16_p7 5.17_p5 5.18_p1: Linux kernel fork that in
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.235_p106 4.19.237_p107 5.4.182_p72-r1 5.10.106_p64 5.15.29_p37 5.16.2_p19: Full Linux 5.16 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.195 5.10.117 5.15.41 5.17.9: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.195 5.4.196 5.10.117 5.10.118 5.15.41 5.15.43 5.17.9 5.17.11: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.316 4.14.281 4.19.245 5.4.196 5.10.118 5.15.43 5.17.11 5.18.0: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.17.1: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1: Standalone argp library for use with musl
@@ -18407,7 +18407,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r2: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.195 5.10.117 5.15.41 5.17.9: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.195 5.4.196 5.10.117 5.10.118 5.15.41 5.15.43 5.17.9 5.17.11: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18501,20 +18501,20 @@ virtual/perl-Math-BigInt-FastCalc 0.500.900-r1 0.501.200: Virtual for Math-BigIn
 virtual/perl-Math-BigRat 0.261.400-r2 0.262.100: Virtual for Math-BigRat
 virtual/perl-Math-Complex 1.590.200-r1: Virtual for Math-Complex
 virtual/perl-Memoize 1.30.100_rc-r12: Virtual for Memoize
-virtual/perl-Module-CoreList 5.202.105.200 5.202.203.130: Virtual for Module-CoreList
-virtual/perl-Module-Load 0.360.0-r1: Virtual for Module-Load
-virtual/perl-Module-Load-Conditional 0.740.0: Virtual for Module-Load-Conditional
-virtual/perl-Module-Loaded 0.80.0-r14: Virtual for Module-Loaded
-virtual/perl-Module-Metadata 1.0.37-r1: Virtual for Module-Metadata
-virtual/perl-Net-Ping 2.740.0: Virtual for Net-Ping
-virtual/perl-Params-Check 0.380.0-r11: Virtual for Params-Check
-virtual/perl-Parse-CPAN-Meta 2.150.10-r5: Virtual for Parse-CPAN-Meta
-virtual/perl-Perl-OSType 1.10.0-r5: Virtual for Perl-OSType
-virtual/perl-Pod-Escapes 1.70.0-r8: Virtual for Pod-Escapes
-virtual/perl-Pod-Simple 3.420.0: Virtual for Pod-Simple
-virtual/perl-Safe 2.430.0: Virtual for Safe
-virtual/perl-Scalar-List-Utils 1.550.0-r1 1.560.0: Virtual for Scalar::Util and List::Util, also distributed as Scalar::List::Utils
-virtual/perl-Socket 2.31.0: Virtual for Socket
+virtual/perl-Module-CoreList 5.202.105.200 5.202.203.130 5.202.205.200: Virtual for Module-CoreList
+virtual/perl-Module-Load 0.360.0-r2: Virtual for Module-Load
+virtual/perl-Module-Load-Conditional 0.740.0-r1: Virtual for Module-Load-Conditional
+virtual/perl-Module-Loaded 0.80.0-r15: Virtual for Module-Loaded
+virtual/perl-Module-Metadata 1.0.37-r2: Virtual for Module-Metadata
+virtual/perl-Net-Ping 2.740.0-r1: Virtual for Net-Ping
+virtual/perl-Params-Check 0.380.0-r12: Virtual for Params-Check
+virtual/perl-Parse-CPAN-Meta 2.150.10-r6: Virtual for Parse-CPAN-Meta
+virtual/perl-Perl-OSType 1.10.0-r6: Virtual for Perl-OSType
+virtual/perl-Pod-Escapes 1.70.0-r9: Virtual for Pod-Escapes
+virtual/perl-Pod-Simple 3.420.0 3.430.0: Virtual for Pod-Simple
+virtual/perl-Safe 2.430.0-r1: Virtual for Safe
+virtual/perl-Scalar-List-Utils 1.550.0-r1 1.560.0 1.620.0: Virtual for Scalar::Util and List::Util, also distributed as Scalar::List::Utils
+virtual/perl-Socket 2.31.0 2.33.0: Virtual for Socket
 virtual/perl-Storable 3.230.0: Virtual for Storable
 virtual/perl-Sys-Syslog 0.360.0-r1: Virtual for Sys-Syslog
 virtual/perl-Term-ANSIColor 5.10.0-r1: Virtual for Term-ANSIColor
@@ -18538,8 +18538,8 @@ virtual/perl-autodie 2.340.0-r1: Virtual for autodie
 virtual/perl-bignum 0.510.0-r2 0.650.0: Virtual for bignum
 virtual/perl-if 0.60.900 0.61.0: Virtual for if
 virtual/perl-libnet 3.130.0 3.140.0: Virtual for libnet
-virtual/perl-parent 0.238.0-r1: Virtual for parent
-virtual/perl-podlators 4.140.0-r2: Virtual for podlators
+virtual/perl-parent 0.238.0-r2: Virtual for parent
+virtual/perl-podlators 4.140.0-r3: Virtual for podlators
 virtual/perl-threads 2.260.0: Virtual for threads
 virtual/perl-threads-shared 1.620.0: Virtual for threads-shared
 virtual/perl-version 0.992.800: Virtual for version
