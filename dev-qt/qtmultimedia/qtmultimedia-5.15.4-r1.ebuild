@@ -3,6 +3,7 @@
 
 EAPI=8
 
+QT5_KDEPATCHSET_REV=1
 inherit qt5-build
 
 DESCRIPTION="Multimedia (audio, video, radio, camera) library for the Qt5 framework"

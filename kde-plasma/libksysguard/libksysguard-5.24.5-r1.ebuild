@@ -59,7 +59,11 @@ RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-5.18.80:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.22.80-no-detailed-mem-message.patch" )
+PATCHES=(
+	"${FILESDIR}"/${PN}-5.22.80-no-detailed-mem-message.patch
+	"${FILESDIR}"/${P}-fix-missing-gpu-sensors.patch # KDE-bug 445920
+	"${FILESDIR}"/${P}-fix-missing-selfmade-presets-{1,2}.patch # KDE-bug 450745
+)
 
 src_configure() {
 	local mycmakeargs=(
