@@ -1,0 +1,66 @@
+Title: Migration to GLEP-81 enabled webservers
+Author: Conrad Kostecki <conikost@gentoo.org>
+Posted: 2022-05-20
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: www-servers/apache
+Display-If-Installed: www-servers/nginx
+
+In future, in order to complete the whole GLEP-81 migration,
+the packages www-servers/apache and www-servers/nginx
+will be migrated to GLEP-81.
+
+If changes have been made to the default user and group created
+by one of the both packages, the configuration needs to be updated,
+as otherwise it will be overwritten.
+
+The following configuration settings can be set
+in make.conf or per package in package.env:
+
+1. ACCT_USER_<UPPERCASE_USERNAME>_GROUPS
+   for overriding all default groups.
+
+2. ACCT_USER_<UPPERCASE_USERNAME>_GROUPS_ADD
+   for adding additional groups to default groups.
+
+3. ACCT_USER_<UPPERCASE_USERNAME>_HOME
+   for overriding default home directory.
+
+4. ACCT_USER_<UPPERCASE_USERNAME>_HOME_OWNER
+   for overriding default owner of home directory.
+
+5. ACCT_USER_<UPPERCASE_USERNAME>_HOME_PERMS
+   for overriding default permissions of home directory.
+
+6. ACCT_USER_<UPPERCASE_USERNAME>_SHELL
+   for overriding default assigned shell.
+
+If being set per package in package.env, it needs to
+be set for acct-user/apache or aact-user/nginx,
+depending on which user should be modified.
+
+See [1] for more details on those variables.
+
+** Package acct-user/apache will use username/group 'apache'.
+-> ACCT_USER_APACHE_GROUPS=".."
+-> ACCT_USER_APACHE_GROUPS_ADD=".."
+-> ACCT_USER_APACHE_HOME=".."
+-> ACCT_USER_APACHE_HOME_OWNER=".."
+-> ACCT_USER_APACHE_HOME_PERMS=".."
+-> ACCT_USER_APACHE_SHELL=".."
+
+** Package acct-user/nginx will use username/group 'nginx'.
+-> ACCT_USER_NGINX_GROUPS=".."
+-> ACCT_USER_NGINX_GROUPS_ADD=".."
+-> ACCT_USER_NGINX_HOME=".."
+-> ACCT_USER_NGINX_HOME_OWNER=".."
+-> ACCT_USER_NGINX_HOME_PERMS=".."
+-> ACCT_USER_NGINX_SHELL=".."
+
+Please update configuration parameters before emerging
+both GLEP-81 enabled ebuilds, as otherwise configuration
+will be overwritten to default.
+
+Migration to GLEP-81 will start after 2022-07-01.
+
+[1] https://devmanual.gentoo.org/eclass-reference/acct-user.eclass/index.html
