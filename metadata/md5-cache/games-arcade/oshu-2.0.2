@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=media-libs/libsdl2 media-libs/sdl2-image x11-libs/cairo x11-libs/pango media-video/ffmpeg:=
+DESCRIPTION=Lightweight osu! port
+EAPI=8
+HOMEPAGE=https://github.com/fmang/oshu
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=osu-skin
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3 CC-BY-NC-4.0
+RDEPEND=media-libs/libsdl2 media-libs/sdl2-image x11-libs/cairo x11-libs/pango media-video/ffmpeg:=
+SLOT=0
+SRC_URI=https://github.com/fmang/oshu/archive/2.0.2.tar.gz -> oshu-2.0.2.tar.gz osu-skin? ( https://www.mg0.fr/oshu/skins/osu-v1.tar.gz -> oshu-skin-v1.tar.gz )
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	xdg	6024fbc93167fad782e2032933654857
+_md5_=ba32953ae4da6f0549f662b45379dcbf
