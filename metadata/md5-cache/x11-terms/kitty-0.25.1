@@ -1,18 +1,18 @@
 BDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) sys-libs/ncurses virtual/pkgconfig test? ( python_single_target_python3_8? ( dev-python/pillow[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pillow[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pillow[python_targets_python3_10(-)] ) ) wayland? ( dev-util/wayland-scanner ) verify-sig? ( sec-keys/openpgp-keys-kovidgoyal ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.24.4 ~x11-terms/kitty-terminfo-0.24.4 X? ( x11-libs/libX11 ) transfer? ( net-libs/librsync:= ) wayland? ( dev-libs/wayland ) X? ( x11-base/xorg-proto x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr ) wayland? ( dev-libs/wayland-protocols )
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) media-libs/fontconfig media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.25.1 ~x11-terms/kitty-terminfo-0.25.1 X? ( x11-libs/libX11 ) transfer? ( net-libs/librsync:= ) wayland? ( dev-libs/wayland ) X? ( x11-base/xorg-proto x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr ) wayland? ( dev-libs/wayland-protocols )
 DESCRIPTION=Fast, feature-rich, GPU-based terminal
 EAPI=8
 HOMEPAGE=https://sw.kovidgoyal.net/kitty/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=optfeature python-single-r1 toolchain-funcs xdg verify-sig
+INHERIT=optfeature multiprocessing python-single-r1 toolchain-funcs xdg verify-sig
 IUSE=+X debug test transfer wayland python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 verify-sig
-KEYWORDS=amd64 ~ppc64 x86
+KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.24.4 ~x11-terms/kitty-terminfo-0.24.4 X? ( x11-libs/libX11 ) transfer? ( net-libs/librsync:= ) wayland? ( dev-libs/wayland )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) media-libs/fontconfig media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.25.1 ~x11-terms/kitty-terminfo-0.25.1 X? ( x11-libs/libX11 ) transfer? ( net-libs/librsync:= ) wayland? ( dev-libs/wayland )
 REQUIRED_USE=|| ( X wayland ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 RESTRICT=!X? ( test ) !test? ( test ) !transfer? ( test ) !wayland? ( test )
 SLOT=0
-SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.24.4/kitty-0.24.4.tar.xz verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v0.24.4/kitty-0.24.4.tar.xz.sig )
+SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.25.1/kitty-0.25.1.tar.xz verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v0.25.1/kitty-0.25.1.tar.xz.sig )
 _eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=4e9771f88c811c18a741afa021f96b24
+_md5_=10e9bd71220fd5e21058e12202bb3868
