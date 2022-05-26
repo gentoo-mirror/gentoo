@@ -7,6 +7,9 @@
 # Unmask systemd
 -systemd
 
+# Things we actually can support
+-input_devices_synaptics
+
 # Things without support yet
 java
 llvm
@@ -36,3 +39,6 @@ systemtap
 tk
 tpm
 xemacs
+
+# Things not supposed to ever get support
+video_cards_glint
