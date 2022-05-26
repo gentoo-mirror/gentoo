@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm preinst setup
+DEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=Advanced Linux Driver for Xbox One Wireless Controller
+EAPI=8
+HOMEPAGE=https://atar-axis.github.io/xpadneo/
+INHERIT=linux-mod toolchain-funcs udev
+IUSE=dist-kernel
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+SLOT=0
+SRC_URI=https://github.com/atar-axis/xpadneo/archive/v0.9.2.tar.gz -> xpadneo-0.9.2.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6664f4f4bab4499208eeb02eb4dddf1d	udev	2d229ad4bfa09058e0184b1ca900db32
+_md5_=ebe65ed99541bdafdd12b6aea3197e23
