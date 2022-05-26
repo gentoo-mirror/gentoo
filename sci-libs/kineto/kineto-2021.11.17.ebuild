@@ -6,10 +6,10 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..11} )
 inherit python-any-r1 cmake
 
-CommitId=135412d2646f3bd753c8f1cfd33616110bbccd27
+CommitId=659a7f99ee737103273ef60551bfe1611c2d2cba
 
-DESCRIPTION="Facebook GEneral Matrix Multiplication"
-HOMEPAGE="https://github.com/pytorch/FBGEMM"
+DESCRIPTION="part of the PyTorch Profiler"
+HOMEPAGE="https://github.com/pytorch/kineto"
 SRC_URI="https://github.com/pytorch/${PN}/archive/${CommitId}.tar.gz
 	-> ${P}.tar.gz"
 
@@ -18,11 +18,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
-DEPEND="
-	dev-libs/asmjit
-	dev-libs/cpuinfo
+RDEPEND="
+	dev-libs/libfmt
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	test? ( dev-cpp/gtest )
 	${PYTHON_DEPS}
@@ -31,21 +30,13 @@ RESTRICT="!test? ( test )"
 
 S="${WORKDIR}"/${PN}-${CommitId}
 
-PATCHES=(
-	"${FILESDIR}"/${P}-gentoo.patch
-)
-
 src_prepare() {
-	rm test/RowWiseSparseAdagradFusedTest.cc || die
-	rm test/SparseAdagradTest.cc || die
+	eapply "${FILESDIR}"/${P}-gentoo.patch
+	cd libkineto
 	cmake_src_prepare
 }
 
 src_configure() {
-	local mycmakeargs=(
-		-DFBGEMM_LIBRARY_TYPE=shared
-		-DFBGEMM_BUILD_BENCHMARKS=OFF
-		-DFBGEMM_BUILD_TESTS=$(usex test ON OFF)
-	)
+	cd libkineto
 	cmake_src_configure
 }
