@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit optfeature python-single-r1 toolchain-funcs xdg
+inherit optfeature multiprocessing python-single-r1 toolchain-funcs xdg
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
@@ -15,7 +15,7 @@ else
 		https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz
 		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )"
 	VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/kovidgoyal.gpg"
-	KEYWORDS="amd64 ~ppc64 x86"
+	KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Fast, feature-rich, GPU-based terminal"
@@ -29,10 +29,10 @@ REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}"
 RESTRICT="!X? ( test ) !test? ( test ) !transfer? ( test ) !wayland? ( test )"
 
+# dlopen: fontconfig,libglvnd
 RDEPEND="
 	${PYTHON_DEPS}
 	media-libs/fontconfig
-	media-libs/freetype:2
 	media-libs/harfbuzz:=
 	media-libs/lcms:2
 	media-libs/libglvnd[X?]
@@ -71,7 +71,9 @@ PATCHES=(
 src_prepare() {
 	default
 
-	sed -i "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" setup.py || die
+	sed -e "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" \
+		-e "/num_workers = /s/=.*/= $(makeopts_jobs)/" \
+		-i setup.py || die
 
 	if use !transfer; then
 		sed -i 's/rs_cflag =/& []#/;/files.*rsync/d' setup.py || die
@@ -80,6 +82,9 @@ src_prepare() {
 
 	# test relies on 'who' command which doesn't detect users with pid-sandbox
 	rm kitty_tests/utmp.py || die
+
+	# test may fail/hang depending on environment and shell initialization scripts
+	rm kitty_tests/{shell_integration,ssh}.py || die
 
 	# skip docs for live version
 	[[ ${PV} != 9999 ]] || sed -i '/exists.*_build/,/docs(ddir)/d' setup.py || die
@@ -116,7 +121,8 @@ src_install() {
 	insinto /usr
 	doins -r linux-package/.
 
-	fperms +x /usr/bin/kitty
+	fperms +x /usr/bin/kitty \
+		/usr/$(get_libdir)/kitty/shell-integration/ssh/{askpass.py,kitty}
 }
 
 pkg_postinst() {

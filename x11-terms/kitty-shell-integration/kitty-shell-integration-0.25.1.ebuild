@@ -10,7 +10,7 @@ S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 RESTRICT="test" # intended to be ran on the full kitty package
 
 src_compile() { :; }
@@ -31,4 +31,7 @@ src_install() {
 	dosym -r /usr/share/{kitty/shell-integration/zsh/completions,zsh/site-functions}/_kitty
 	# zsh integration is handled automatically without needing to modify rc files,
 	# but may require user intervention depending on zsh invocation or if remote
+
+	# this is used internally by the ssh kitten and is not useful there
+	rm -r "${ED}"/usr/share/kitty/shell-integration/ssh || die
 }
