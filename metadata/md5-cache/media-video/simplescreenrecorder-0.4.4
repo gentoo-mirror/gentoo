@@ -7,11 +7,11 @@ HOMEPAGE=https://www.maartenbaert.be/simplescreenrecorder
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake-multilib flag-o-matic xdg
 IUSE=+asm jack mp3 opengl pulseaudio theora v4l vorbis vpx x264 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-libs/alsa-lib:0= media-video/ffmpeg[vorbis?,vpx?,x264?,mp3?,theora?] x11-libs/libX11[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] x11-libs/libXext x11-libs/libXfixes[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] x11-libs/libXi x11-libs/libXinerama virtual/glu[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] v4l? ( media-libs/libv4l ) jack? ( virtual/jack ) opengl? ( media-libs/libglvnd[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,X] ) pulseaudio? ( media-sound/pulseaudio )
 REQUIRED_USE=abi_x86_32? ( opengl )
 SLOT=0
 SRC_URI=https://github.com/MaartenBaert/ssr/archive/0.4.4.tar.gz -> simplescreenrecorder-0.4.4.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	cmake-multilib	7f8d0fb6ae10906fe334997f977e838b	xdg	6024fbc93167fad782e2032933654857
-_md5_=3241361a4f5fa8251949311e355daa07
+_md5_=7b8574fc6c28c93cc62cd3519dad4934
