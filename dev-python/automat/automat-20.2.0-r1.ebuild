@@ -28,7 +28,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/automat-0.8.0-no-setup-py-m2r-import.patch"
 	"${FILESDIR}/test_visualize-twisted-import-errors.patch"
 	"${FILESDIR}/${P}-py311.patch"
 )
@@ -38,6 +37,12 @@ distutils_enable_tests pytest
 EPYTEST_IGNORE=(
 	benchmark
 )
+
+src_prepare() {
+	# strip m2r dep
+	sed -i -e "/'m2r'/d" setup.py || die
+	distutils-r1_src_prepare
+}
 
 python_install_all() {
 	if use examples; then
