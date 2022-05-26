@@ -13,7 +13,7 @@ HOMEPAGE="https://apps.kde.org/kstars/ https://edu.kde.org/kstars/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+ GPL-3+"
@@ -33,7 +33,6 @@ COMMON_DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwebsockets-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
@@ -52,7 +51,7 @@ COMMON_DEPEND="
 		sci-libs/gsl:=
 		>=sci-libs/indilib-1.9.1
 		sci-libs/libnova:=
-		sci-libs/stellarsolver
+		>=sci-libs/stellarsolver-2.2
 	)
 	password? ( dev-libs/qtkeychain:= )
 	raw? ( media-libs/libraw:= )
