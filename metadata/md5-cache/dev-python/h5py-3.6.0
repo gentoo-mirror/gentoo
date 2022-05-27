@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.h5py.org/ https://github.com/h5py/h5py/ https://pypi.org/project/h5py/
 INHERIT=distutils-r1
 IUSE=examples test doc python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=sci-libs/hdf5:=[hl(+)] >=dev-python/numpy-1.14.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/h/h5py/h5py-3.6.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
-_md5_=355407003461f1ae4716f2ccedba2940
+_md5_=bc7159076d60a75c77ea9f04ff3211e6
