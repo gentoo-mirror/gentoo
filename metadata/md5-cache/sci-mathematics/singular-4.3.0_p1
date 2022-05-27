@@ -4,12 +4,12 @@ DEPEND=dev-lang/perl dev-libs/gmp:0 dev-libs/ntl:= sci-libs/cddlib sci-mathemati
 DESCRIPTION=Computer algebra system for polynomial computations
 EAPI=8
 HOMEPAGE=https://www.singular.uni-kl.de/ https://github.com/Singular/Singular
-INHERIT=autotools elisp-common flag-o-matic
+INHERIT=autotools elisp-common
 IUSE=emacs examples polymake +readline static-libs
 KEYWORDS=~amd64 ~ppc ~riscv ~x86 ~x86-linux
 LICENSE=BSD GPL-2 GPL-3
 RDEPEND=dev-lang/perl dev-libs/gmp:0 dev-libs/ntl:= sci-libs/cddlib sci-mathematics/flint emacs? ( >=app-editors/emacs-23.1:* ) polymake? ( sci-mathematics/polymake ) readline? ( sys-libs/readline )
 SLOT=0
-SRC_URI=ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-3-0/singular-4.3.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	elisp-common	e7aaa047873789f549ea3df2f04b2145	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
-_md5_=02a8ccdb7e2428e5f8d219c8a4221408
+SRC_URI=ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-3-0/singular-4.3.0p1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	elisp-common	e7aaa047873789f549ea3df2f04b2145
+_md5_=05176a68fb782962f58992e9e3f13c8c
