@@ -13,7 +13,7 @@ SRC_URI="https://github.com/stuarthayhurst/alphabetical-grid-extension/archive/r
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
@@ -34,10 +34,11 @@ src_compile() { :; }
 
 src_install() {
 	einstalldocs
+	mv docs/icon.svg extension || die
+	cd extension || die
 	insinto /usr/share/glib-2.0/schemas
 	doins schemas/*.xml
-	rm -rf README.md LICENSE.txt Makefile schemas || die
-	mv -v ui/* . || die # Searches for these files in parent dir
+	rm -rf schemas || die
 	insinto /usr/share/gnome-shell/extensions/"${extension_uuid}"
 	doins -r *
 }
