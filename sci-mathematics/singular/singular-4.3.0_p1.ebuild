@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools elisp-common flag-o-matic
+inherit autotools elisp-common
 
 MY_PN=Singular
 MY_PV=$(ver_rs 3 '')
@@ -14,7 +14,7 @@ MY_DIR=$(ver_rs 1- '-' ${MY_DIR2})
 DESCRIPTION="Computer algebra system for polynomial computations"
 HOMEPAGE="https://www.singular.uni-kl.de/ https://github.com/Singular/Singular"
 SRC_URI="ftp://jim.mathematik.uni-kl.de/pub/Math/${MY_PN}/SOURCES/${MY_DIR}/${PN}-${MY_PV}.tar.gz"
-S="${WORKDIR}/${PN}-${MY_DIR2}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD GPL-2 GPL-3"
 SLOT="0"
@@ -37,8 +37,7 @@ SITEFILE=60${PN}-gentoo.el
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.2.1-htmldoc.patch"
-	"${FILESDIR}/${PN}-4.3.0-slibtool.patch"
-	"${FILESDIR}/${PN}-4.3.0-includes.patch"
+	"${FILESDIR}/${PN}-4.3.0_p1-gcc12.patch"
 )
 
 src_prepare() {
