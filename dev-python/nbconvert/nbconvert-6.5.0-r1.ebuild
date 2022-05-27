@@ -9,12 +9,18 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Converting Jupyter Notebooks"
-HOMEPAGE="https://nbconvert.readthedocs.io/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+HOMEPAGE="
+	https://nbconvert.readthedocs.io/
+	https://github.com/jupyter/nbconvert/
+	https://pypi.org/project/nbconvert/
+"
+SRC_URI="
+	mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
+"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
@@ -25,8 +31,7 @@ RDEPEND="
 	dev-python/jupyter_core[${PYTHON_USEDEP}]
 	dev-python/jupyterlab_pygments[${PYTHON_USEDEP}]
 	>=dev-python/markupsafe-2.0[${PYTHON_USEDEP}]
-	>=dev-python/mistune-0.8.1[${PYTHON_USEDEP}]
-	<dev-python/mistune-2[${PYTHON_USEDEP}]
+	>=dev-python/mistune-2.0.2[${PYTHON_USEDEP}]
 	dev-python/nbclient[${PYTHON_USEDEP}]
 	dev-python/nbformat[${PYTHON_USEDEP}]
 	>=dev-python/pandocfilters-1.4.1[${PYTHON_USEDEP}]
@@ -45,6 +50,10 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}"/${P}-mistune-2.patch
+)
 
 src_test() {
 	mkdir -p "${HOME}/.local" || die
