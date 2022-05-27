@@ -5,7 +5,7 @@ DESCRIPTION=A robust, optimal, and maintainable programming language
 EAPI=8
 HOMEPAGE=https://ziglang.org/
 INHERIT=cmake llvm check-reqs
-IUSE=test
+IUSE=test +threads
 KEYWORDS=~amd64 ~arm ~arm64
 LICENSE=MIT
 RDEPEND=sys-devel/clang:13 >=sys-devel/lld-13 <sys-devel/lld-14 sys-devel/llvm:13[llvm_targets_AArch64,llvm_targets_AMDGPU,llvm_targets_ARM,llvm_targets_AVR,llvm_targets_BPF,llvm_targets_Hexagon,llvm_targets_Lanai,llvm_targets_Mips,llvm_targets_MSP430,llvm_targets_NVPTX,llvm_targets_PowerPC,llvm_targets_RISCV,llvm_targets_Sparc,llvm_targets_SystemZ,llvm_targets_WebAssembly,llvm_targets_X86,llvm_targets_XCore]
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	llvm	6f88d422e49b917bf254b2594f3d903c	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c
-_md5_=82419e62ba5bde6ea828b95845644b76
+_md5_=9ba951e3edffb827bdd66d5d7e6cbb2f
