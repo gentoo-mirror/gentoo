@@ -13,8 +13,8 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
-IUSE="amt archive bash-completion bluetooth dell elogind fastboot flashrom gnutls gtk-doc gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test thunderbolt tpm uefi"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+IUSE="amt archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test thunderbolt tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
 	dell? ( uefi )
@@ -28,6 +28,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 RESTRICT="!test? ( test )"
 
 BDEPEND="$(vala_depend)
+	>=dev-util/meson-0.60.0
 	virtual/pkgconfig
 	gtk-doc? ( dev-util/gtk-doc )
 	bash-completion? ( >=app-shells/bash-completion-2.0 )
@@ -55,7 +56,11 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=net-libs/libsoup-2.51.92:2.4[introspection?]
 	net-misc/curl
 	archive? ( app-arch/libarchive:= )
-	dell? ( >=sys-libs/libsmbios-2.4.0 )
+	cbor? ( dev-libs/libcbor )
+	dell? (
+		>=app-crypt/tpm2-tss-2.0
+		>=sys-libs/libsmbios-2.4.0
+	)
 	elogind? ( >=sys-auth/elogind-211 )
 	flashrom? ( >=sys-apps/flashrom-1.2-r3 )
 	gnutls? ( net-libs/gnutls )
@@ -63,7 +68,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	logitech? ( dev-libs/protobuf-c:= )
 	lzma? ( app-arch/xz-utils )
 	modemmanager? ( net-misc/modemmanager[qmi] )
-	policykit? ( >=sys-auth/polkit-0.103 )
+	policykit? ( >=sys-auth/polkit-0.114 )
 	sqlite? ( dev-db/sqlite )
 	systemd? ( >=sys-apps/systemd-211 )
 	tpm? ( app-crypt/tpm2-tss:= )
@@ -74,9 +79,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		sys-libs/efivar
 	)
 "
-# Block sci-chemistry/chemical-mime-data for bug #701900
 RDEPEND="
-	!<sci-chemistry/chemical-mime-data-0.1.94-r4
 	${COMMON_DEPEND}
 	sys-apps/dbus
 "
@@ -109,47 +112,49 @@ src_prepare() {
 
 src_configure() {
 	local plugins=(
-		-Dplugin_gpio="true"
-		$(meson_use amt plugin_amt)
-		$(meson_use dell plugin_dell)
-		$(meson_use fastboot plugin_fastboot)
-		$(meson_use flashrom plugin_flashrom)
-		$(meson_use gusb plugin_uf2)
-		$(meson_use logitech plugin_logitech_bulkcontroller)
-		$(meson_use modemmanager plugin_modem_manager)
-		$(meson_use nvme plugin_nvme)
-		$(meson_use sqlite)
+		-Dplugin_gpio="enabled"
+		$(meson_feature amt plugin_amt)
+		$(meson_feature dell plugin_dell)
+		$(meson_feature fastboot plugin_fastboot)
+		$(meson_feature flashrom plugin_flashrom)
+		$(meson_feature gusb plugin_uf2)
+		$(meson_feature logitech plugin_logitech_bulkcontroller)
+		$(meson_feature modemmanager plugin_modem_manager)
+		$(meson_feature nvme plugin_nvme)
 		$(meson_use spi plugin_intel_spi)
-		$(meson_use synaptics plugin_synaptics_mst)
-		$(meson_use synaptics plugin_synaptics_rmi)
-		$(meson_use thunderbolt plugin_thunderbolt)
-		$(meson_use tpm plugin_tpm)
-		$(meson_use uefi plugin_uefi_capsule)
+		$(meson_feature synaptics plugin_synaptics_mst)
+		$(meson_feature synaptics plugin_synaptics_rmi)
+		$(meson_feature thunderbolt plugin_thunderbolt)
+		$(meson_feature tpm plugin_tpm)
+		$(meson_feature uefi plugin_uefi_capsule)
 		$(meson_use uefi plugin_uefi_capsule_splash)
-		$(meson_use uefi plugin_uefi_pk)
+		$(meson_feature uefi plugin_uefi_pk)
 	)
-	use ppc64 && plugins+=( -Dplugin_msr="false" )
-	use riscv && plugins+=( -Dplugin_msr="false" )
+	if use ppc64 || use riscv ; then
+		plugins+=( -Dplugin_msr="disabled" )
+	fi
 
 	local emesonargs=(
 		--localstatedir "${EPREFIX}"/var
 		-Dbuild="$(usex minimal standalone all)"
-		-Dconsolekit="false"
-		-Dcurl="true"
+		-Dconsolekit="disabled"
+		-Dcurl="enabled"
 		-Ddocs="$(usex gtk-doc gtkdoc none)"
 		-Defi_binary="false"
-		-Dsupported_build="true"
-		$(meson_use archive libarchive)
+		-Dsupported_build="enabled"
+		$(meson_feature archive libarchive)
 		$(meson_use bash-completion bash_completion)
-		$(meson_use bluetooth bluez)
-		$(meson_use elogind)
-		$(meson_use gnutls)
-		$(meson_use gusb)
-		$(meson_use lzma)
+		$(meson_feature bluetooth bluez)
+		$(meson_feature cbor)
+		$(meson_feature elogind)
+		$(meson_feature gnutls)
+		$(meson_feature gusb)
+		$(meson_feature lzma)
 		$(meson_use man)
-		$(meson_use introspection)
-		$(meson_use policykit polkit)
-		$(meson_use systemd)
+		$(meson_feature introspection)
+		$(meson_feature policykit polkit)
+		$(meson_feature sqlite)
+		$(meson_feature systemd)
 		$(meson_use test tests)
 
 		${plugins[@]}
