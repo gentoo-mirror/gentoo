@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=install prepare
-DEPEND=dev-libs/libevent[ssl,threads] dev-libs/openssl:0= net-libs/libnet:1.1 net-libs/libpcap elibc_musl? ( sys-libs/fts-standalone ) test? ( dev-libs/check )
+DEPEND=dev-libs/libevent:=[ssl,threads] dev-libs/openssl:0= net-libs/libnet:1.1 net-libs/libpcap elibc_musl? ( sys-libs/fts-standalone ) test? ( dev-libs/check )
 DESCRIPTION=Transparent SSL/TLS interception
 EAPI=7
 HOMEPAGE=https://www.roe.ch/SSLsplit
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
-RDEPEND=dev-libs/libevent[ssl,threads] dev-libs/openssl:0= net-libs/libnet:1.1 net-libs/libpcap elibc_musl? ( sys-libs/fts-standalone )
+RDEPEND=dev-libs/libevent:=[ssl,threads] dev-libs/openssl:0= net-libs/libnet:1.1 net-libs/libpcap elibc_musl? ( sys-libs/fts-standalone )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/droe/sslsplit/archive/0.5.5.tar.gz -> sslsplit-0.5.5.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
-_md5_=95a7988e50d46ec6a177880b65617ca8
+_md5_=422315beb4baddf7feb972e8f518be00
