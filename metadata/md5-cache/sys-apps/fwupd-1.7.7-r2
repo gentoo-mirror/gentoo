@@ -7,7 +7,7 @@ HOMEPAGE=https://fwupd.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=bash-completion-r1 linux-info meson python-single-r1 vala xdg
 IUSE=amt archive bash-completion bluetooth dell elogind fastboot flashrom gnutls gtk-doc gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test thunderbolt tpm uefi python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=!<sci-chemistry/chemical-mime-data-0.1.94-r4 python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=app-arch/gcab-1.0 app-arch/xz-utils >=dev-libs/glib-2.58:2 dev-libs/json-glib dev-libs/libgudev:= >=dev-libs/libjcat-0.1.4[gpg,pkcs7] >=dev-libs/libxmlb-0.1.13:=[introspection?] python_single_target_python3_8? ( dev-python/pygobject:3[cairo,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[cairo,python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[cairo,python_targets_python3_10(-)] ) >=net-libs/libsoup-2.51.92:2.4[introspection?] net-misc/curl archive? ( app-arch/libarchive:= ) dell? ( >=sys-libs/libsmbios-2.4.0 ) elogind? ( >=sys-auth/elogind-211 ) flashrom? ( >=sys-apps/flashrom-1.2-r3 ) gnutls? ( net-libs/gnutls ) gusb? ( >=dev-libs/libgusb-0.3.5[introspection?] ) logitech? ( dev-libs/protobuf-c:= ) lzma? ( app-arch/xz-utils ) modemmanager? ( net-misc/modemmanager[qmi] ) policykit? ( >=sys-auth/polkit-0.103 ) sqlite? ( dev-db/sqlite ) systemd? ( >=sys-apps/systemd-211 ) tpm? ( app-crypt/tpm2-tss:= ) uefi? ( sys-apps/fwupd-efi sys-boot/efibootmgr sys-fs/udisks sys-libs/efivar ) sys-apps/dbus
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ^^ ( elogind minimal systemd ) dell? ( uefi ) fastboot? ( gusb ) logitech? ( gusb ) minimal? ( !introspection ) spi? ( lzma ) synaptics? ( gnutls ) uefi? ( gnutls )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fwupd/fwupd/archive/1.7.7.tar.gz -> fwupd-1.7.7.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	vala	9badd41d5aab740ae5ac301c4416c5f8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=b3b56ff5250d36c5d9ef3b5579ad84d4
+_md5_=8326bfb013feeec6e2ccd85a817bccfc
