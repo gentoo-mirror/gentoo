@@ -1,0 +1,17 @@
+BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=dev-util/intltool-0.35.5 >=sys-devel/gettext-0.18.3 virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5 >=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-db/sqlite:3 >=dev-libs/glib-2.62:2 >=dev-libs/libical-3.0.5:0=[introspection(-)] >=dev-libs/json-glib-1.0.4 >=dev-libs/libmspack-0.4 dev-libs/libxml2:2 >=gnome-extra/evolution-data-server-3.44.2:0= >=mail-client/evolution-3.44.2:2.0 >=net-libs/libsoup-2.58:2.4 >=x11-libs/gtk+-3.10:3 test? ( net-libs/uhttpmock )
+DESCRIPTION=Evolution module for connecting to Microsoft Exchange Web Services
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/Evolution
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake gnome2 optfeature
+IUSE=test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-db/sqlite:3 >=dev-libs/glib-2.62:2 >=dev-libs/libical-3.0.5:0=[introspection(-)] >=dev-libs/json-glib-1.0.4 >=dev-libs/libmspack-0.4 dev-libs/libxml2:2 >=gnome-extra/evolution-data-server-3.44.2:0= >=mail-client/evolution-3.44.2:2.0 >=net-libs/libsoup-2.58:2.4 >=x11-libs/gtk+-3.10:3
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/evolution-ews/3.44/evolution-ews-3.44.2.tar.xz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	optfeature	d524f291c80f9d21ad80fe978e3ca760
+_md5_=0a0878babc442a9ec8ec81d666ac1793
