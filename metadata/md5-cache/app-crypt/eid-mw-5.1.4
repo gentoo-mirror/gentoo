@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=>=sys-apps/pcsc-lite-1.2.9 gtk? ( x11-libs/gdk-pixbuf[jpeg] x11-libs/gtk+:3 dev-libs/libxml2 net-misc/curl[ssl] net-libs/libproxy >=app-crypt/pinentry-1.1.0-r4[gtk] ) p11-kit? ( app-crypt/p11-kit ) virtual/pkgconfig
+DESCRIPTION=Electronic Identity Card middleware supplied by the Belgian Federal Government
+EAPI=8
+HOMEPAGE=https://eid.belgium.be
+INHERIT=autotools desktop gnome2-utils xdg-utils
+IUSE=+dialogs +gtk p11-kit
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=LGPL-3
+RDEPEND=>=sys-apps/pcsc-lite-1.2.9 gtk? ( x11-libs/gdk-pixbuf[jpeg] x11-libs/gtk+:3 dev-libs/libxml2 net-misc/curl[ssl] net-libs/libproxy >=app-crypt/pinentry-1.1.0-r4[gtk] ) p11-kit? ( app-crypt/p11-kit )
+REQUIRED_USE=dialogs? ( gtk )
+SLOT=0
+SRC_URI=https://codeload.github.com/fedict/eid-mw/tar.gz/v5.1.4 -> eid-mw-5.1.4.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3
+_md5_=3ffc5837aa4aa0df3ab5cab5e0c8d2b3
