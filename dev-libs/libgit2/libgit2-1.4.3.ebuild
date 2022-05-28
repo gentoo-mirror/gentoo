@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit cmake python-any-r1
 
 DESCRIPTION="A linkable library for Git"
@@ -34,6 +34,10 @@ BDEPEND="
 	${PYTHON_DEPS}
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-test.patch
+)
 
 src_prepare() {
 	cmake_src_prepare
