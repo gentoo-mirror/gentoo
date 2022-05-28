@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://frrouting.org/
 INHERIT=autotools pam python-single-r1 systemd
 IUSE=doc fpm grpc ipv6 nhrp ospfapi pam rpki snmp test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) acct-user/frr dev-libs/json-c:0= >=net-libs/libyang-2.0.0 sys-libs/libcap sys-libs/readline:0= virtual/libcrypt:= grpc? ( net-libs/grpc:= ) nhrp? ( net-dns/c-ares:0= ) pam? ( sys-libs/pam ) rpki? ( >=net-libs/rtrlib-0.6.3[ssh] ) snmp? ( net-analyzer/net-snmp:= ) python_single_target_python3_8? ( dev-python/ipaddr[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/ipaddr[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/ipaddr[python_targets_python3_10(-)] ) !net-misc/quagga
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/FRRouting/frr/archive/frr-8.2.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	pam	e44a1dd98f13e1ad76de01e919bde1f1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=109e45455508f81ae714832caa60fff6
+_md5_=e7ab21eceac10748f935b6765c4f150a
