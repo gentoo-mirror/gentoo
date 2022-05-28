@@ -7,7 +7,7 @@ HOMEPAGE=https://wiki.gnome.org/Projects/GtkSourceView
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org meson vala virtualx xdg
 IUSE=gtk-doc +introspection sysprof +vala test
-KEYWORDS=amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.70:2 >=gui-libs/gtk-4.5:4[introspection?] >=dev-libs/libxml2-2.6:2 introspection? ( >=dev-libs/gobject-introspection-1.70.0:= ) >=dev-libs/fribidi-0.19.7 media-libs/fontconfig x11-libs/pango[introspection?] >=dev-libs/libpcre2-10.21:=[-recursion-limit(-)] sysprof? ( dev-util/sysprof-capture:4 )
 REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=mirror://gnome/sources/gtksourceview/5.4/gtksourceview-5.4.1.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	vala	9badd41d5aab740ae5ac301c4416c5f8	virtualx	975d49ff3b3f451efe7a95f230532135	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=d5e6536dc40cf4c534ee5c00b617524e
+_md5_=c943abc1052aa96910368f60b7330b12
