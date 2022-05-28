@@ -7,11 +7,11 @@ HOMEPAGE=https://wiki.gnome.org/Apps/Music https://gitlab.gnome.org/GNOME/gnome-
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson python-single-r1 xdg
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-libs/glib-2.67.1:2 >=net-libs/gnome-online-accounts-3.35.90[introspection] >=dev-libs/gobject-introspection-1.54:= >=gui-libs/gtk-4.5.0:4[introspection] >=gui-libs/libadwaita-1.0:1=[introspection] >=media-libs/libmediaart-1.9.1:2.0[introspection] net-libs/libsoup:2.4[introspection] app-misc/tracker:3=[introspection(+)] >=x11-libs/pango-1.44:= python_single_target_python3_8? ( >=dev-python/pygobject-3.36.1:3[cairo,python_targets_python3_8(-)] >=dev-python/pycairo-1.14.0[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pygobject-3.36.1:3[cairo,python_targets_python3_9(-)] >=dev-python/pycairo-1.14.0[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/pygobject-3.36.1:3[cairo,python_targets_python3_10(-)] >=dev-python/pycairo-1.14.0[python_targets_python3_10(-)] ) >=media-libs/grilo-0.3.13:0.3[introspection] >=media-plugins/grilo-plugins-0.3.13:0.3 || ( app-misc/tracker-miners:3[gstreamer] app-misc/tracker-miners:3[ffmpeg] ) x11-libs/libnotify[introspection] media-libs/gstreamer:1.0[introspection] media-libs/gst-plugins-base:1.0[introspection] media-plugins/gst-plugins-meta:1.0 media-plugins/grilo-plugins:0.3[tracker] x11-misc/xdg-user-dirs
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-music/42/gnome-music-42.1.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg	6024fbc93167fad782e2032933654857
-_md5_=5cc1443501763e4a624ed48caea10725
+_md5_=6d876d385f9103fb9fa6cbe69c8ae85b
