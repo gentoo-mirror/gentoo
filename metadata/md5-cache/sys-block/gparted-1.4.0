@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://gparted.org/ https://gitlab.gnome.org/GNOME/gparted/
 INHERIT=gnome2 optfeature virtualx
 IUSE=kde policykit wayland test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 ~riscv x86
 LICENSE=GPL-2+ FDL-1.2+
 RDEPEND=!policykit? ( kde? ( >=kde-plasma/kde-cli-tools-5.8.6-r1[kdesu] ) ) policykit? ( >=sys-auth/polkit-0.102 ) >=dev-cpp/glibmm-2.56.1:2 >=dev-cpp/gtkmm-3.24:3.0 >=dev-libs/glib-2.58.3-r1:2 >=sys-block/parted-3.2:= >=dev-libs/libsigc++-2.10.1:2 >=sys-apps/util-linux-2.33.2 wayland? ( x11-apps/xhost )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/gparted/gparted-1.4.0.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	optfeature	d524f291c80f9d21ad80fe978e3ca760	virtualx	975d49ff3b3f451efe7a95f230532135
-_md5_=0d07a1a55c3e2a7dd522696fef104ab0
+_md5_=cd1b4fc7db05c6b676e6a599293279bd
