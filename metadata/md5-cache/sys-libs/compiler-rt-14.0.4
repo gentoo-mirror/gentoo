@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/cmake-3.16 clang? ( sys-devel/clang ) test? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-python/lit-9.0.1[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-python/lit-9.0.1[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 >=dev-python/lit-9.0.1[python_targets_python3_8(-)] ) ) =sys-devel/clang-14.0.4*:14 ) !test? ( || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=>=sys-devel/llvm-6 !!sys-devel/llvm:0
+DESCRIPTION=Compiler runtime library for clang (built-in part)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=cmake flag-o-matic llvm llvm.org python-any-r1 toolchain-funcs
+IUSE=+abi_x86_32 abi_x86_64 +clang debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+RESTRICT=!test? ( test ) !clang? ( test )
+SLOT=14.0.4
+SRC_URI=https://github.com/llvm/llvm-project/archive/llvmorg-14.0.4.tar.gz https://dev.gentoo.org/~mgorny/dist/llvm/llvm-gentoo-patchset-14.0.4.tar.xz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	llvm	6f88d422e49b917bf254b2594f3d903c	llvm.org	3e1fba85887e8ff8b3cf3ddbdd5d2aac	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_md5_=2aab6f1ae294581154b48fc3a04d920d
