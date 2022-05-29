@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=no
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE='readline,sqlite,threads(+)'
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc examples matplotlib notebook nbconvert qt5 +smp test"
 RESTRICT="!test? ( test )"
 
@@ -23,27 +23,25 @@ RDEPEND="
 	dev-python/backcall[${PYTHON_USEDEP}]
 	dev-python/decorator[${PYTHON_USEDEP}]
 	>=dev-python/jedi-0.16[${PYTHON_USEDEP}]
+	dev-python/matplotlib[${PYTHON_USEDEP}]
+	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.3[${PYTHON_USEDEP}]
 	dev-python/pickleshare[${PYTHON_USEDEP}]
 	>=dev-python/prompt_toolkit-2[${PYTHON_USEDEP}]
 	<dev-python/prompt_toolkit-3.1[${PYTHON_USEDEP}]
-	dev-python/pygments[${PYTHON_USEDEP}]
-	dev-python/traitlets[${PYTHON_USEDEP}]
-	matplotlib? (
-		dev-python/matplotlib[${PYTHON_USEDEP}]
-		dev-python/matplotlib-inline[${PYTHON_USEDEP}]
-	)
+	>=dev-python/pygments-2.4.0[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/stack_data[${PYTHON_USEDEP}]
+	>=dev-python/traitlets-5.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
 	test? (
 		app-text/dvipng[truetype]
 		>=dev-python/ipykernel-5.1.0[${PYTHON_USEDEP}]
-		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 		dev-python/nbformat[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.17[${PYTHON_USEDEP}]
+		>=dev-python/numpy-1.19[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/testpath[${PYTHON_USEDEP}]
 	)
@@ -52,14 +50,16 @@ BDEPEND="
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-2[${PYTHON_USEDEP}]
 		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 distutils_enable_tests pytest
 
 RDEPEND+="
 	nbconvert? (
 		dev-python/nbconvert[${PYTHON_USEDEP}]
-	)"
+	)
+"
 PDEPEND="
 	notebook? (
 		dev-python/notebook[${PYTHON_USEDEP}]
@@ -70,16 +70,15 @@ PDEPEND="
 	smp? (
 		>=dev-python/ipykernel-5.1.0[${PYTHON_USEDEP}]
 		>=dev-python/ipyparallel-6.2.3[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 PATCHES=( "${FILESDIR}"/2.1.0-substitute-files.patch )
 
-DISTUTILS_IN_SOURCE_BUILD=1
-
 python_prepare_all() {
 	# Remove out of date insource files
-	rm IPython/extensions/cythonmagic.py || die
-	rm IPython/extensions/rmagic.py || die
+	#rm IPython/extensions/cythonmagic.py || die
+	#rm IPython/extensions/rmagic.py || die
 
 	# Prevent un-needed download during build
 	if use doc; then
@@ -100,24 +99,29 @@ python_compile_all() {
 	fi
 }
 
+src_test() {
+	virtx distutils-r1_src_test
+}
+
 python_test() {
 	local -x IPYTHON_TESTING_TIMEOUT_SCALE=20
 	local EPYTEST_DESELECT=(
+		# Internet
+		IPython/core/display.py::IPython.core.display.Image.__init__
 		# TODO: looks to be a regression due to a newer dep
 		IPython/core/tests/test_oinspect.py::test_class_signature
 		IPython/core/tests/test_oinspect.py::test_render_signature_long
+		# TODO
+		IPython/extensions/ipython_tests/test_autoreload.py::TestAutoreload::test_smoketest_aimport
+		IPython/extensions/ipython_tests/test_autoreload.py::TestAutoreload::test_smoketest_autoreload
 	)
 	[[ ${EPYTHON} == python3.10 ]] && EPYTEST_DESELECT+=(
 		# TODO
 		IPython/core/tests/test_completer.py::TestCompleter::test_all_completions_dups
 		IPython/core/tests/test_completer.py::TestCompleter::test_deduplicate_completions
-		IPython/core/tests/test_oinspect.py::test_pinfo_docstring_if_detail_and_no_source
-		# fails due to changed argparse output
-		IPython/core/tests/test_magic_arguments.py::test_magic_arguments
-		# py3.10 API incompat, doesn't look important
-		IPython/lib/tests/test_pretty.py::test_pprint_heap_allocated_type
 	)
-	virtx epytest
+	# nonfatal implied by virtx
+	nonfatal epytest || die "Tests failed with ${EPYTHON}"
 }
 
 python_install() {
@@ -142,6 +146,7 @@ python_install_all() {
 }
 
 pkg_postinst() {
+	optfeature "code formatting" dev-python/black
 	optfeature "sympyprinting" dev-python/sympy
 	optfeature "cythonmagic" dev-python/cython
 	optfeature "%lprun magic command" dev-python/line_profiler
