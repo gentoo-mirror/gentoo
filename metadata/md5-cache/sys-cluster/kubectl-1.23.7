@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.17 >=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=CLI to run commands against Kubernetes clusters
+EAPI=7
+HOMEPAGE=https://kubernetes.io
+INHERIT=bash-completion-r1 go-module
+IUSE=hardened
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/kubernetes/kubernetes/archive/v1.23.7.tar.gz -> kubernetes-1.23.7.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=88c58e69ec38a9111b1b4fbad171d56c

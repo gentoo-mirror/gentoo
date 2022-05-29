@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=media-libs/gmmlib-22.0.0:= >=x11-libs/libva-2.14.0[X?]
+DESCRIPTION=Intel Media Driver for VAAPI (iHD)
+EAPI=8
+HOMEPAGE=https://github.com/intel/media-driver
+INHERIT=cmake
+IUSE=+redistributable test X
+KEYWORDS=~amd64
+LICENSE=MIT BSD redistributable? ( no-source-code )
+RDEPEND=>=media-libs/gmmlib-22.0.0:= >=x11-libs/libva-2.14.0[X?]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/intel/media-driver/archive/intel-media-22.4.2.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_md5_=100b7bea6e934880fbf531dcb3928803
