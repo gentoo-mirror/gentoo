@@ -385,18 +385,6 @@ java-virtuals/jms
 # should update to that. #841437
 ~sci-physics/bullet-3.22b
 
-# Conrad Kostecki <conikost@gentoo.org> (2022-04-27)
-# Old base package for jabber services, which is not being used anymore,
-# as jabber services do now use their own user instead of generic jabber user.
-# Removal in 30 days on 2022-05-27.
-net-im/jabber-base
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-22)
-# Blocks removal of vulnerable dev-java/guava:20, bug #833309.
-# Removal on 2022-05-30
-dev-util/checkstyle
-app-emacs/jde
-
 # Mike Pagano <mpagano@gentoo.org> (2022-04-26)
 # These kernels contain a major regression that causes power button
 # to stop working, apparently making it impossible to leave suspend
@@ -472,20 +460,6 @@ dev-ml/core_bench:0/0.15
 dev-ml/patience_diff:0/0.15
 dev-util/patdiff:0/0.15
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-22)
-# Unused java library. Removal on 2022-05-24.
-dev-java/jgraph
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-04-19)
-# Release of the source-based ebuild is from 2014. At the moment
-# impossible to provide source-based ebuild for the current version.
-# Up-to-date binary package exists. Removal on 2022-05-30
-app-text/jabref
-dev-java/glazedlists
-dev-java/jempbox
-dev-java/microba
-dev-java/spin
-
 # David Seifert <soap@gentoo.org> (2022-04-17)
 # Dead library, part of >=sys-fs/e2fsprogs-1.46.5 now, bug #806875,
 # removal on 2022-05-17.
@@ -553,11 +527,6 @@ net-p2p/arti
 <sci-electronics/kicad-symbols-6.0.2
 <sci-electronics/kicad-templates-6.0.2
 <app-doc/kicad-doc-6.0.2
-
-# Jonas Stein <jstein@gentoo.org> (2022-02-11)
-# Not usable anymore
-# Removal after 2022-06-01.  Bug #833144.
-x11-misc/i855crt
 
 # Jonas Stein <jstein@gentoo.org> (2022-02-08)
 # Not maintained, open bugs, upstream outdated.
