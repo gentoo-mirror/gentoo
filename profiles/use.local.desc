@@ -4252,6 +4252,7 @@ media-libs/libprojectm:gles2 - Provide support for OpenGL ES 2 and 3
 media-libs/libpulse:asyncns - Use libasyncns for asynchronous name resolution.
 media-libs/libpulse:doc - Build the doxygen-described API documentation.
 media-libs/libpulse:glib - Add support to dev-libs/glib-based mainloop for the libpulse client library, to allow using libpulse on glib-based programs.
+media-libs/libpulse:valgrind - Compile in valgrind memory hints
 media-libs/libsdl:joystick - Control joystick support (disable at your own risk)
 media-libs/libsdl:sound - Control audio support (disable at your own risk)
 media-libs/libsdl:tslib - Build with tslib support for touchscreen devices
@@ -4762,6 +4763,7 @@ media-sound/pulseaudio-daemon:oss - Enable OSS sink/source (output/input). Depre
 media-sound/pulseaudio-daemon:ssl - Use dev-libs/openssl to provide support for RAOP (AirPort) streaming.
 media-sound/pulseaudio-daemon:system-wide - Allow preparation and installation of the system-wide init script for PulseAudio. Since this support is only supported for embedded situations, do not enable without reading the upstream instructions at https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/WhatIsWrongWithSystemWide/ .
 media-sound/pulseaudio-daemon:systemd - Build with sys-apps/systemd support to replace standalone ConsoleKit.
+media-sound/pulseaudio-daemon:valgrind - Compile in valgrind memory hints
 media-sound/pulseaudio-daemon:webrtc-aec - Uses the webrtc.org AudioProcessing library for enhancing VoIP calls greatly in applications that support it by performing acoustic echo cancellation, analog gain control, noise suppression and other processing.
 media-sound/pulseaudio-modules-bt:fdk - AAC encoding support using media-libs/fdk-aac
 media-sound/pulseaudio-modules-bt:ffmpeg - APTX, APTX-HD encoding support
