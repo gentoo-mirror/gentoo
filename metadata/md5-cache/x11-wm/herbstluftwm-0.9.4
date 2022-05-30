@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) virtual/pkgconfig test? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) ) >=dev-python/pytest-7.0.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender test? ( dev-python/ewmh dev-python/python-xlib x11-apps/xsetroot x11-base/xorg-server[xephyr,xvfb] x11-misc/xdotool x11-terms/xterm )
+DESCRIPTION=A manual tiling window manager for X
+EAPI=8
+HOMEPAGE=https://herbstluftwm.org/
+INHERIT=cmake distutils-r1
+IUSE=+doc python test test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://herbstluftwm.org/tarballs/herbstluftwm-0.9.4.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
+_md5_=2334e6bb53de13b3fa89fa2ca6aaf63f
