@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://gitlab.freedesktop.org/pipewire/${PN}/-/archive/${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 DESCRIPTION="Replacement for pipewire-media-session"
@@ -62,6 +62,14 @@ RDEPEND="${DEPEND}
 
 DOCS=( {NEWS,README}.rst )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-config-fix-enabled-property-to-default-to-true-when.patch
+	"${FILESDIR}"/${P}-m-lua-scripting-allow-converting-GValue-holding-NUL.patch
+	"${FILESDIR}"/${P}-alsa.lua-fix-device-name-deduplication-when-reserva.patch
+	"${FILESDIR}"/${P}-m-default-nodes-don-t-check-if-all-device-nodes-are.patch
+	"${FILESDIR}"/${P}-m-lua-scripting-fix-object-refcounting.patch
+)
+
 src_configure() {
 	local emesonargs=(
 		-Ddoc=disabled # Ebuild not wired up yet (Sphinx, Doxygen?)
@@ -88,7 +96,7 @@ src_install() {
 	# If a reflinking CoW filesystem is used (e.g. Btrfs), then the files
 	# will not actually get stored twice until modified.
 	insinto /etc
-	doins -r ${ED}/usr/share/wireplumber
+	doins -r "${ED}"/usr/share/wireplumber
 }
 
 pkg_postinst() {
