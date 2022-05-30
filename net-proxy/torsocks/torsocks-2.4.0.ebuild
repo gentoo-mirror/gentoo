@@ -1,21 +1,20 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit autotools versionator
+inherit autotools
 
-MY_PV="$(replace_version_separator 3 -)"
-MY_PF="${PN}-${MY_PV}"
-S=${WORKDIR}/${MY_PF}
+UPSTREAM_PF="${PN}-v${PV}"
+S=${WORKDIR}/${UPSTREAM_PF}
 
 DESCRIPTION="Use most socks-friendly applications with Tor"
-HOMEPAGE="https://github.com/dgoulet/torsocks"
-SRC_URI="https://github.com/dgoulet/torsocks/archive/v${MY_PV}.tar.gz -> ${MY_PF}.tar.gz"
+HOMEPAGE="https://gitlab.torproject.org/tpo/core/torsocks"
+SRC_URI="https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v${PV}/${UPSTREAM_PF}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="static-libs"
 
 # We do not depend on tor which might be running on a different box
