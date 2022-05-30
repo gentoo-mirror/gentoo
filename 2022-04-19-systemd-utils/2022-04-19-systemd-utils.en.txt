@@ -10,10 +10,10 @@ Display-If-Installed: sys-fs/udev
 
 The sys-apps/systemd-utils package was recently added to the gentoo
 repository. This replaces sys-apps/systemd-tmpfiles,
-sys-boot/systemd-boot, and sys-fs/udev with a single package. USE flags
-are provided to allow each component to be enabled or disabled. This
-change was made to significantly ease maintenance of tools split out
-from systemd.
+sys-boot/systemd-boot, and sys-fs/udev with a single package, and is
+for OpenRC users. USE flags are provided to allow each component to be enabled
+or disabled. This change was made to significantly ease maintenance of tools
+split out from systemd.
 
 When upgrading to sys-apps/systemd-tmpfiles-250,
 sys-apps/systemd-utils[tmpfiles] will be pulled in as a dependency.
