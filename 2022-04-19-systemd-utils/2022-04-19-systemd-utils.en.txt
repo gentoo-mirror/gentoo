@@ -43,3 +43,8 @@ Possible problems when upgrading:
 2. The 'boot' USE flag on sys-apps/systemd-utils is disabled by default.
    Users migrating from sys-boot/systemd-boot will need to enable the
    'boot' USE flag (in package.use) to continue receiving updates.
+
+3. If you have package.use entries for any of sys-apps/systemd-tmpfiles,
+   sys-boot/systemd-boot, or sys-fs/udev, please update the relevant lines
+   to refer to sys-apps/systemd-utils instead. This might include
+   ABI_X86_32 for some users!
