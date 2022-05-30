@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=!sys-libs/glibc
+DESCRIPTION=Standalone argp library for use with musl
+EAPI=8
+HOMEPAGE=https://github.com/argp-standalone/argp-standalone
+INHERIT=autotools flag-o-matic
+IUSE=static-libs
+KEYWORDS=~amd64 ~arm ~arm64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~x86
+LICENSE=public-domain GPL-2 GPL-3 XC
+SLOT=0
+SRC_URI=https://github.com/argp-standalone/argp-standalone/archive/refs/tags/1.5.0.tar.gz -> argp-standalone-1.5.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=74d2156bac03f1d95ff0967c49e1322e
