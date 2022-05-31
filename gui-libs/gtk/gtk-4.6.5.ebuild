@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit gnome.org gnome2-utils meson optfeature python-any-r1 virtualx xdg
 
 DESCRIPTION="GTK is a multi-platform toolkit for creating graphical user interfaces"
@@ -17,13 +17,13 @@ REQUIRED_USE="
 	test? ( introspection )
 "
 
-KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 COMMON_DEPEND="
 	>=dev-libs/fribidi-0.19.7
 	>=dev-libs/glib-2.66.0:2
 	>=media-libs/graphene-1.9.1[introspection?]
-	>=media-libs/libepoxy-1.4[X(+)?]
+	>=media-libs/libepoxy-1.4[egl,X(+)?]
 	>=x11-libs/cairo-1.14[aqua?,glib,svg,X?]
 	>=x11-libs/gdk-pixbuf-2.30:2[introspection?]
 	>=x11-libs/pango-1.50.0[introspection?]
@@ -102,7 +102,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	xdg_src_prepare
+	default
+	xdg_environment_reset
+
 	# dev-python/docutils installs rst2man.py, not rst2man
 	sed -i -e "s/'rst2man'/'rst2man.py'/" docs/reference/gtk/meson.build || die
 	# Nothing should use gtk4-update-icon-cache and an unversioned one is shipped by dev-util/gtk-update-icon-cache
