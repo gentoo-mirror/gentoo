@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Unofficial extension pack providing GNOME 2-like features"
 HOMEPAGE="http://frippery.org/extensions/index.html"
@@ -10,7 +10,6 @@ SRC_URI="http://frippery.org/extensions/${P}.tgz"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
@@ -18,10 +17,7 @@ RDEPEND="
 	dev-libs/gobject-introspection:=
 	gui-libs/gtk:4[introspection]
 	gnome-base/gnome-menus:3[introspection]
-	|| (
-		=gnome-base/gnome-shell-41*
-		=gnome-base/gnome-shell-40*
-	)
+	=gnome-base/gnome-shell-42*
 	media-libs/clutter:1.0[introspection]
 	x11-libs/pango[introspection]
 "
