@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/m-buffer test? ( app-emacs/load-relative ) >=app-editors/emacs-23.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Test support functions for Emacs
+EAPI=8
+HOMEPAGE=https://github.com/phillord/assess/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/m-buffer >=app-editors/emacs-23.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/phillord/assess/archive/v0.6.tar.gz -> assess-0.6.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=74b63b5eea118918c3fb0c1b35adea85
