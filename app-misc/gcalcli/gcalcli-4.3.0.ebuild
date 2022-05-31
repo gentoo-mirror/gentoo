@@ -1,17 +1,15 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit distutils-r1
 
-MY_PV="4.2.0"
 DESCRIPTION="Google Calendar Command Line Interface"
 HOMEPAGE="https://github.com/insanum/gcalcli"
-SRC_URI="https://github.com/insanum/gcalcli/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/gcalcli-${MY_PV}"
+SRC_URI="https://github.com/insanum/gcalcli/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
