@@ -1,17 +1,17 @@
-BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=app-crypt/gnupg-2.0.0
 DESCRIPTION=A tool for signing and email all UIDs on a set of PGP keys
 EAPI=7
 HOMEPAGE=https://www.phildev.net/pius/ https://github.com/jaymzh/pius
 INHERIT=distutils-r1
-IUSE=test python_targets_python3_8 python_targets_python3_9
+IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=app-crypt/gnupg-2.0.0 dev-lang/perl python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=>=app-crypt/gnupg-2.0.0 dev-lang/perl python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jaymzh/pius/releases/download/v3.0.0/pius-3.0.0.tar.bz2
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
-_md5_=dc955c97025afe8570aca3d63a6fe445
+_md5_=4e614569516bc8e5cac002893c8ad5e9
