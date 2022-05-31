@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -11,12 +11,10 @@ MY_P=${PN}$(ver_cut 1)-v$(ver_cut 2-4)
 
 case ${PV} in
 *_beta*)
-	MY_P+=.b$(printf %02d $(ver_cut 5))
 	DOCS="ReleaseNotes/Beta.$(ver_cut 2-3)-*.txt"
 	;;
 *)
 	if [[ $(ver_cut 4) -gt 0 ]]; then
-		MY_P+=.p$(printf %02d $(ver_cut 4))
 		DOCS="ReleaseNotes/Patch.$(ver_cut 2-3)-*.txt"
 	fi
 	HTML_DOCS="ReleaseNotes/ReleaseNotes.$(ver_cut 2-3).html"
@@ -46,7 +44,7 @@ REQUIRED_USE="
 RDEPEND="
 	dev-libs/expat
 	>=sci-physics/clhep-2.4.5.1:2=[threads?]
-	data? ( ~sci-physics/geant-data-${PV} )
+	data? ( ~sci-physics/geant-data-4.11.0.0 )
 	doc? ( app-doc/geant-docs )
 	gdml? ( dev-libs/xerces-c )
 	hdf5? ( sci-libs/hdf5[threads?] )
