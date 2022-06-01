@@ -9,7 +9,7 @@ if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 else
 	inherit vcs-snapshot
-	COMMIT_HASH="37bdd03d176c5e182c7e8dbdc79c3f71d2a04898"
+	COMMIT_HASH="ded11946c04aeab5526f869174044019ae9e3c32"
 	SRC_URI="https://github.com/airblade/vim-gitgutter/archive/${COMMIT_HASH}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -25,5 +25,5 @@ src_prepare() {
 	default
 
 	# remove unwanted test dir
-	rm -rv test || die
+	rm -r test || die
 }
