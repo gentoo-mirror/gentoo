@@ -1,7 +1,9 @@
 # Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
+
+inherit autotools
 
 DESCRIPTION="Network abstraction layer designed for High Availability use cases"
 HOMEPAGE="https://kronosnet.org"
@@ -10,8 +12,7 @@ SRC_URI="https://kronosnet.org/releases/${P}.tar.xz"
 LICENSE="LGPL-2.1"
 SLOT="0/1"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
-IUSE="doc nss +openssl lz4 lzo2 test zstd"
-RESTRICT="!test? ( test )"
+IUSE="doc nss +openssl zstd lz4 lzo2"
 
 DEPEND=">=sys-cluster/libqb-2.0.0:=
 	dev-libs/libnl:3
@@ -30,29 +31,27 @@ BDEPEND="
 		app-doc/doxygen[dot]
 	)"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.19-no-Werror.patch
-	"${FILESDIR}"/${PN}-1.23-no-extra-fortify-source.patch
-)
+PATCHES=( "${FILESDIR}/${P}-no-Werror.patch" )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
-	local myeconfargs=(
-		$(use_enable doc man)
-
-		--enable-libnozzle
-		--disable-libknet-sctp
-		--enable-compress-zlib
-		--enable-compress-bzip2
-		--enable-compress-lzma
-
-		$(use_enable nss crypto-nss)
-		$(use_enable openssl crypto-openssl)
-		$(use_enable zstd compress-zstd)
-		$(use_enable lz4 compress-lz4)
+	econf_opts=(
+		$(use_enable doc man) \
+		--disable-static \
+		--enable-libnozzle \
+		--disable-libknet-sctp \
+		--enable-compress-zlib \
+		--enable-compress-bzip2 \
+		--enable-compress-lzma \
+		$(use_enable nss crypto-nss) \
+		$(use_enable openssl crypto-openssl) \
+		$(use_enable zstd compress-zstd) \
+		$(use_enable lz4 compress-lz4) \
 		$(use_enable lzo2 compress-lzo2)
-
-		$(use_enable test functional-tests)
 	)
-
-	econf "${myeconfargs[@]}"
+	econf "${econf_opts[@]}"
 }
