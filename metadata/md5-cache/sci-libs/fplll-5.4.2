@@ -1,0 +1,15 @@
+BDEPEND=qd? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/gmp:0 dev-libs/mpfr:0 qd? ( sci-libs/qd )
+DESCRIPTION=Implementations of the floating-point LLL reduction algorithm
+EAPI=8
+HOMEPAGE=https://github.com/fplll/fplll
+INHERIT=autotools
+IUSE=static-libs qd
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/gmp:0 dev-libs/mpfr:0 qd? ( sci-libs/qd )
+SLOT=0/7
+SRC_URI=https://github.com/fplll/fplll/releases/download/5.4.2/fplll-5.4.2.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
+_md5_=42c9f554a796773cb1bc7216eeb1074e
