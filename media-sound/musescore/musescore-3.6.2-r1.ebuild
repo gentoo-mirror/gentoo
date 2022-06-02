@@ -12,7 +12,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/${PN}/MuseScore.git"
 else
 	SRC_URI="https://github.com/musescore/MuseScore/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm64 x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 	S="${WORKDIR}/MuseScore-${PV}"
 fi
 
@@ -92,7 +92,7 @@ src_configure() {
 		-DBUILD_CRASH_REPORTER=OFF
 		-DBUILD_JACK="$(usex jack)"
 		-DBUILD_LAME="$(usex mp3)"
-		-DBUILD_PCH=ON
+		-DBUILD_PCH=OFF
 		-DBUILD_PORTAUDIO="$(usex portaudio)"
 		-DBUILD_PORTMIDI="$(usex portmidi)"
 		-DBUILD_PULSEAUDIO="$(usex pulseaudio)"
