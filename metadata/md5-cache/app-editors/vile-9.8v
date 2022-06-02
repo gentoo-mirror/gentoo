@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/flex virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=>=sys-libs/ncurses-5.2:= virtual/libcrypt:= iconv? ( virtual/libiconv ) perl? ( dev-lang/perl:= )
+DESCRIPTION=VI Like Emacs -- yet another full-featured vi clone
+EAPI=8
+HOMEPAGE=https://invisible-island.net/vile/
+IDEPEND=app-eselect/eselect-vi
+IUSE=perl iconv
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=>=sys-libs/ncurses-5.2:= virtual/libcrypt:= iconv? ( virtual/libiconv ) perl? ( dev-lang/perl:= )
+SLOT=0
+SRC_URI=https://invisible-island.net/archives/vile/current/vile-9.8v.tgz
+_md5_=a34b61e3b28d6425b225e0c5144af436
