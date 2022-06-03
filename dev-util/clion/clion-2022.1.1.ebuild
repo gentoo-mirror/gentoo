@@ -46,12 +46,12 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libXrandr
+	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/libXxf86vm
 	x11-libs/libdrm
 	x11-libs/libxcb
-	x11-libs/libxkbcommon
-	x11-libs/libxshmfence"
+	x11-libs/libxkbcommon"
 
 QA_PREBUILT="opt/${P}/*"
 
@@ -62,6 +62,7 @@ src_prepare() {
 		bin/cmake
 		bin/lldb/linux
 		bin/gdb/linux
+		bin/ninja
 		license/CMake*
 		lib/pty4j-native/linux/aarch64
 		lib/pty4j-native/linux/arm
@@ -88,7 +89,7 @@ src_install() {
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}"/bin/{clion.sh,fsnotifier,inspect.sh,ltedit.sh,repair,clang/linux/{clangd,clang-tidy,clazy-standalone,llvm-symbolizer},ninja/linux/ninja}
+	fperms 755 "${dir}"/bin/{clion.sh,fsnotifier,inspect.sh,ltedit.sh,repair,clang/linux/{clangd,clang-tidy,clazy-standalone,llvm-symbolizer}}
 
 	if [[ -d jbr ]]; then
 		fperms 755 "${dir}"/jbr/bin/{jaotc,java,javac,jdb,jjs,jrunscript,keytool,pack200,rmid,rmiregistry,serialver,unpack200}
@@ -98,7 +99,7 @@ src_install() {
 
 	make_wrapper "${PN}" "${dir}/bin/${PN}.sh"
 	newicon "bin/${PN}.svg" "${PN}.svg"
-	make_desktop_entry "${PN}" "clion" "${PN}" "Development;IDE;"
+	make_desktop_entry "${PN}" "CLion" "${PN}" "Development;IDE;"
 
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	dodir /usr/lib/sysctl.d/
