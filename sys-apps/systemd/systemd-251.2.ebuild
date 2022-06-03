@@ -7,6 +7,8 @@ PYTHON_COMPAT=( python3_{8..10} )
 # Avoid QA warnings
 TMPFILES_OPTIONAL=1
 
+QA_PKGCONFIG_VERSION=$(ver_cut 1)
+
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/systemd/systemd.git"
 	inherit git-r3
@@ -20,7 +22,7 @@ else
 	MY_P=${MY_PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 inherit bash-completion-r1 flag-o-matic linux-info meson-multilib pam python-any-r1 systemd toolchain-funcs udev usr-ldscript
@@ -32,7 +34,7 @@ LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/2"
 IUSE="
 	acl apparmor audit build cgroup-hybrid cryptsetup curl +dns-over-tls elfutils
-	fido2 +gcrypt gnuefi gnutls homed hostnamed-fallback http idn importd +kmod
+	fido2 +gcrypt gnuefi gnutls homed http idn importd +kmod
 	+lz4 lzma nat +openssl pam pcre pkcs11 policykit pwquality qrcode
 	+resolvconf +seccomp selinux split-usr +sysv-utils test tpm vanilla xkb +zstd
 "
@@ -40,12 +42,11 @@ REQUIRED_USE="
 	dns-over-tls? ( || ( gnutls openssl ) )
 	homed? ( cryptsetup pam openssl )
 	importd? ( curl lzma || ( gcrypt openssl ) )
-	policykit? ( !hostnamed-fallback )
 	pwquality? ( homed )
 "
 RESTRICT="!test? ( test )"
 
-MINKV="3.11"
+MINKV="4.15"
 
 COMMON_DEPEND="
 	>=sys-apps/util-linux-2.30:0=[${MULTILIB_USEDEP}]
@@ -118,10 +119,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=acct-user/systemd-resolve-0-r1
 	>=acct-user/systemd-timesync-0-r1
 	>=sys-apps/baselayout-2.2
-	hostnamed-fallback? (
-		acct-group/systemd-hostname
-		sys-apps/dbus-broker
-	)
 	selinux? ( sec-policy/selinux-base-policy[systemd] )
 	sysv-utils? (
 		!sys-apps/openrc[sysv-utils(-)]
@@ -182,7 +179,7 @@ pkg_pretend() {
 		fi
 
 		local CONFIG_CHECK=" ~BINFMT_MISC ~BLK_DEV_BSG ~CGROUPS
-			~DEVTMPFS ~EPOLL ~FANOTIFY ~FHANDLE
+			~CGROUP_BPF ~DEVTMPFS ~EPOLL ~FANOTIFY ~FHANDLE
 			~INOTIFY_USER ~IPV6 ~NET ~NET_NS ~PROC_FS ~SIGNALFD ~SYSFS
 			~TIMERFD ~TMPFS_XATTR ~UNIX ~USER_NS
 			~CRYPTO_HMAC ~CRYPTO_SHA256 ~CRYPTO_USER_API_HASH
@@ -191,9 +188,6 @@ pkg_pretend() {
 
 		use acl && CONFIG_CHECK+=" ~TMPFS_POSIX_ACL"
 		use seccomp && CONFIG_CHECK+=" ~SECCOMP ~SECCOMP_FILTER"
-		kernel_is -lt 3 7 && CONFIG_CHECK+=" ~HOTPLUG"
-		kernel_is -lt 4 7 && CONFIG_CHECK+=" ~DEVPTS_MULTIPLE_INSTANCES"
-		kernel_is -ge 4 10 && CONFIG_CHECK+=" ~CGROUP_BPF"
 
 		if kernel_is -ge 5 10 20; then
 			CONFIG_CHECK+=" ~KCMP"
@@ -243,6 +237,10 @@ src_prepare() {
 
 	# Add local patches here
 	PATCHES+=(
+		"${FILESDIR}/251-format-string.patch"
+		# Breaks Clang. Revert the commit for now and force off F_S=3.
+		# bug #841770.
+		"${FILESDIR}/251-revert-fortify-source-3-fix.patch"
 	)
 
 	if ! use vanilla; then
@@ -253,6 +251,9 @@ src_prepare() {
 		)
 	fi
 
+	# Fails with split-usr.
+	sed -i -e '2i exit 77' test/test-rpm-macros.sh || die
+
 	default
 }
 
@@ -260,9 +261,8 @@ src_configure() {
 	# Prevent conflicts with i686 cross toolchain, bug 559726
 	tc-export AR CC NM OBJCOPY RANLIB
 
-	# Broken with FORTIFY_SOURCE=3 without a patch. And the patch
-	# wasn't backported to 250.x, but it turns out to break Clang
-	# anyway:  bug #841770.
+	# Broken with FORTIFY_SOURCE=3 without a patch. We have to revert
+	# the upstream patch for it because it breaks Clang: bug #841770.
 	#
 	# Our toolchain sets F_S=2 by default w/ >= -O2, so we need
 	# to unset F_S first, then explicitly set 2, to negate any default
@@ -426,16 +426,6 @@ multilib_src_install_all() {
 		dosym ../../../lib/systemd/systemd-shutdown /usr/lib/systemd/systemd-shutdown
 	fi
 
-	# workaround for https://github.com/systemd/systemd/issues/13501
-	if use hostnamed-fallback; then
-		# this file requires dbus-broker
-		insinto /usr/share/dbus-1/system.d/
-		doins "${FILESDIR}/org.freedesktop.hostname1_no_polkit.conf"
-
-		insinto "${rootprefix}/lib/systemd/system/systemd-hostnamed.service.d/"
-		doins "${FILESDIR}/00-hostnamed-network-user.conf"
-	fi
-
 	gen_usr_ldscript -a systemd udev
 }
 
@@ -531,14 +521,6 @@ pkg_postinst() {
 		eerror "for errors. You may need to clean up your system and/or try installing"
 		eerror "systemd again."
 		eerror
-	fi
-
-	if use hostnamed-fallback; then
-		if ! systemctl --root="${ROOT:-/}" is-enabled --quiet dbus-broker.service 2>/dev/null; then
-			ewarn "dbus-broker.service is not enabled, systemd-hostnamed will fail to run."
-			ewarn "To enable dbus-broker.service run the next command as root:"
-			ewarn "systemctl enable dbus-broker.service"
-		fi
 	fi
 }
 
