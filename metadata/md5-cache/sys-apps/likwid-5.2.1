@@ -1,0 +1,16 @@
+BDEPEND=fortran? ( virtual/fortran )
+DEFINED_PHASES=compile install postinst preinst prepare setup
+DEPEND=dev-lang/perl fortran? ( virtual/fortran )
+DESCRIPTION=A performance-oriented tool suite for x86 multicore environments
+EAPI=8
+HOMEPAGE=https://github.com/rrze-likwid/likwid
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps fortran-2 linux-info toolchain-funcs
+IUSE=fortran +filecaps
+KEYWORDS=~amd64
+LICENSE=GPL-3+ BSD MIT
+RDEPEND=dev-lang/perl fortran? ( virtual/fortran )
+SLOT=0
+SRC_URI=https://ftp.fau.de/pub/likwid/likwid-5.2.1.tar.gz
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
+_md5_=5a7a3067c2d3eaab71a6f2717c924812
