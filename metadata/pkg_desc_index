@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.24.5 1.24.10 1.25.0 1.25.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.24.5 1.24.10 1.25.0 1.25.1 1.25.2: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -1455,7 +1455,7 @@ app-crypt/mit-krb5 1.19.2-r4 1.19.3-r2 1.20: MIT Kerberos V
 app-crypt/mit-krb5-appl 1.0.3-r3: Kerberized applications split from the main MIT Kerberos V distribution
 app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addresses
 app-crypt/monkeysphere 0.44: Leverage the OpenPGP web of trust for OpenSSH and Web authentication
-app-crypt/moolticute 0.43.19 9999: Mooltipass crossplatform daemon/tools
+app-crypt/moolticute 0.43.19 0.43.19-r1 9999: Mooltipass crossplatform daemon/tools
 app-crypt/nasty 0.6-r2: Proof-of-concept GPG passphrase recovery tool
 app-crypt/nitrocli 0.3.4 0.3.5 0.4.0 0.4.1: A command line tool for interacting with Nitrokey devices
 app-crypt/nitrokey-app 1.4.2 9999: Cross platform personalization tool for the Nitrokey
@@ -4084,7 +4084,7 @@ dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud ser
 dev-db/cpp-driver 2.11.0: DataStax C/C++ Driver for Cassandra
 dev-db/datadraw 3.1.1: feature rich database generator for high performance C applications
 dev-db/etcd 3.3.24 3.4.16: Highly-available key value store for shared configuration and service discovery
-dev-db/firebird 3.0.4.33054.0-r2: Relational database offering many ANSI SQL:2003 and some SQL:2008 features
+dev-db/firebird 3.0.4.33054.0-r2 3.0.4.33054.0-r3: Relational database offering many ANSI SQL:2003 and some SQL:2008 features
 dev-db/freetds 1.2.18: Tabular Datastream Library
 dev-db/gigabase 3.83-r2: OO-DBMS with interfaces for C/C++/Java/PHP/Perl
 dev-db/gqlplus 1.16-r2: a front-end for Oracle program sqlplus with command-line editing
@@ -8415,14 +8415,14 @@ dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.3: Simple lru_cache for asyncio
 dev-python/async_generator 1.10-r1 1.10-r2: Making it easy to write async iterators in Python 3.5
 dev-python/async_timeout 4.0.2 4.0.2-r1: Timeout context manager for asyncio programs
-dev-python/asyncstdlib 3.10.4: The missing async toolbox
+dev-python/asyncstdlib 3.10.4 3.10.5: The missing async toolbox
 dev-python/atomicwrites 1.4.0-r1 1.4.0-r2: Atomic file writes
 dev-python/atpublic 3.0.1: A decorator to populate __all__ and the module globals
 dev-python/attrs 21.4.0 21.4.0-r1: Attributes without boilerplate
 dev-python/audioread 2.1.9-r1: Wrapper for audio file decoding using FFmpeg or GStreamer
 dev-python/authheaders 0.15.1: A library wrapping email authentication header verification and generation
 dev-python/authres 1.2.0 1.2.0-r1: Parse and generate Authentication-Results headers
-dev-python/autobahn 22.3.2 22.4.2: WebSocket and WAMP for Twisted and Asyncio
+dev-python/autobahn 22.3.2 22.4.2 22.5.1: WebSocket and WAMP for Twisted and Asyncio
 dev-python/autocommand 2.2.1_p20211118: Library to create a command-line program from a function
 dev-python/automat 20.2.0 20.2.0-r1: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.5.0 0.5.1: A library to provide automatic paging for console output
@@ -8430,7 +8430,7 @@ dev-python/autopep8 1.6.0 9999: Automatically formats Python code to conform to 
 dev-python/autoprop 4.0.2-r1 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.45.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk-python 2.8.0: AWS X-Ray SDK for Python
-dev-python/awxkit 21.0.0: Command line interface for Ansible AWX
+dev-python/awxkit 21.0.0 21.1.0: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r1 0.6.0-r2 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
 dev-python/backoff 2.0.1: Function decoration for backoff and retry
@@ -8468,8 +8468,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.23.5 1.23.10 1.24.0 1.24.1 9999: The AWS SDK for Python
-dev-python/botocore 1.26.5 1.26.10 1.27.0 1.27.1 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.23.5 1.23.10 1.24.0 1.24.1 1.24.2 9999: The AWS SDK for Python
+dev-python/botocore 1.26.5 1.26.10 1.27.0 1.27.1 1.27.2 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.19 0.12.19-r1 0.12.20 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8550,7 +8550,7 @@ dev-python/cookies 2.2.1-r1 2.2.1-r2: Friendlier RFC 6265-compliant cookie parse
 dev-python/coreapi 2.3.3-r2: Python client library for Core API
 dev-python/coreschema 0.0.4-r1: Core Schema
 dev-python/cov-core 1.15.0-r3: plugin core for use by pytest-cov, nose-cov and nose2-cov
-dev-python/coverage 6.3.2-r1 6.3.3 6.4: Code coverage measurement for Python
+dev-python/coverage 6.3.2-r1 6.3.3 6.4 6.4.1: Code coverage measurement for Python
 dev-python/cppy 1.2.1-r1: C++ header library which makes it easier to write Python extension modules
 dev-python/crashtest 0.3.1 0.3.1-r1: Python library that makes exceptions handling and inspection easier
 dev-python/crcmod 1.7-r5: Python CRC Generator module
@@ -8560,7 +8560,7 @@ dev-python/css-parser 1.0.7-r1: A CSS Cascading Style Sheets library (fork of cs
 dev-python/csscompressor 0.9.5 0.9.5-r1: A python port of YUI CSS Compressor
 dev-python/cssselect 1.1.0-r1 1.1.0-r2: parses CSS3 Selectors and translates them to XPath 1.0
 dev-python/cssselect2 0.5.0 0.6.0: Parses CSS3 Selectors and translates them to XPath 1.0
-dev-python/cssutils 2.4.0: A CSS Cascading Style Sheets library
+dev-python/cssutils 2.4.0 2.4.1: A CSS Cascading Style Sheets library
 dev-python/csvkit 1.0.7: A suite of utilities for converting to and working with CSV
 dev-python/curtsies 0.3.10: Curses-like terminal wrapper, with colored strings
 dev-python/cvxopt 1.3.0: Python package for convex optimization
@@ -9411,7 +9411,7 @@ dev-python/pytest-rerunfailures 10.2 10.2-r1: pytest plugin to re-run tests to e
 dev-python/pytest-salt 2020.1.27-r3: PyTest Salt Plugin
 dev-python/pytest-salt-factories 0.121.1-r1 1.0.0_rc13: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.1 2.2.1-r1: Collection of fixtures and utility functions to run service processes for pytest
-dev-python/pytest-shell-utilities 1.0.5 1.1.0 1.2.0 1.2.1 1.3.0 1.4.0: pytest plugin: fixtures and code to help with running shell commands on tests
+dev-python/pytest-shell-utilities 1.0.5 1.1.0 1.2.0 1.2.1 1.3.0 1.4.0 1.5.0: pytest plugin: fixtures and code to help with running shell commands on tests
 dev-python/pytest-shutil 1.7.0-r2 1.7.0-r3: A goodie-bag of unix shell and environment tools for py.test
 dev-python/pytest-skip-markers 1.2.0 1.3.0 1.3.0-r1: A Pytest plugin which implements a few useful skip markers
 dev-python/pytest-subtesthack 0.1.2-r1 0.1.2-r2: A hack for test fixtures, needed for hypothesis inside py.test
@@ -9554,7 +9554,7 @@ dev-python/recommonmark 0.7.1 0.7.1-r1: Python docutils-compatibility bridge to 
 dev-python/redis-py 4.1.4 4.2.2 4.3.3: Python client for Redis key-value store
 dev-python/reedsolomon 1.5.4-r1 1.5.4-r2: Pure-Python Reed Solomon encoder/decoder
 dev-python/reflink 0.2.1-r1 0.2.1-r2: Python wrapper around the reflink system calls
-dev-python/regex 2022.4.24: Alternative regular expression module to replace re
+dev-python/regex 2022.4.24 2022.6.2: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6-r2 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 3.5.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 3.6.6 3.6.7 3.6.8 3.6.9: Tools for generating printable PDF documents from any data source
@@ -9663,7 +9663,7 @@ dev-python/sortedcontainers 2.4.0 2.4.0-r1: Python library to sort collections a
 dev-python/soupsieve 2.3.2: A modern CSS selector implementation for BeautifulSoup
 dev-python/speaklater 1.3-r1 1.4: Lazy strings for Python
 dev-python/speg 0.3-r2 0.3-r3: A PEG-based parser interpreter with memoization
-dev-python/sphinx 4.5.0-r1 5.0.0: Python documentation generator
+dev-python/sphinx 4.5.0-r1 5.0.0 5.0.1: Python documentation generator
 dev-python/sphinx-aiohttp-theme 0.1.6: Sphinx theme for aiohttp
 dev-python/sphinx-autoapi 1.8.4: A new approach to API documentation in Sphinx
 dev-python/sphinx-autodoc-typehints 1.18.1: Type hints support for the Sphinx autodoc extension
@@ -9748,7 +9748,7 @@ dev-python/tappy 3.1 3.1-r1: Test Anything Protocol (TAP) tools
 dev-python/tblib 1.7.0: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.2: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 4.3.0 4.4.0: Spotify Web API client
-dev-python/tempest 30.1.0: OpenStack Integration Testing
+dev-python/tempest 30.1.0 31.0.0: OpenStack Integration Testing
 dev-python/tempita 0.5.3-r3: A very small text templating language
 dev-python/tempora 5.0.0 5.0.1: Objects and routines pertaining to date and time
 dev-python/tenacity 8.0.1 8.0.1-r1: General-purpose retrying library
@@ -14298,7 +14298,7 @@ media-plugins/vdr-vdrmanager 0.14: VDR Plugin: remote programming VDR using VDR-
 media-plugins/vdr-vompserver 0.4.1 0.4.1-r1 0.5.1: VDR Plugin: server part for MediaMVP device
 media-plugins/vdr-weatherng 0.0.8_pre3-r1: VDR plugin: show weather for specified place
 media-plugins/vdr-wirbelscan 0.0.7-r1 2018.11.04-r1: VDR Plugin: Scan for channels on DVB-? and on PVR*-Cards
-media-plugins/vdr-xineliboutput 2.2.0-r2 2.2.0-r4 9999: VDR Plugin: Xinelib PlugIn
+media-plugins/vdr-xineliboutput 2.2.0-r2 2.2.0-r4 2.2.0-r5 9999: VDR Plugin: Xinelib PlugIn
 media-plugins/vdr-zappilot 0.0.5-r2: VDR Plugin: browse fast the EPG information without being to switch to a channel
 media-plugins/x42-avldrums 0.4.2 9999: AVLinux Drumkits
 media-plugins/x42-plugins 20220327 99999999: Collection of LV2 plugins
@@ -15859,8 +15859,8 @@ net-misc/netstat-nat 1.4.10: Display NAT connections
 net-misc/networkmanager 1.36.4 1.38.0: A set of co-operative tools that make networking simple and straightforward
 net-misc/nextcloud-client 3.4.3 3.4.4 3.5.0: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
-net-misc/ntp 4.2.8_p15: Network Time Protocol suite/programs
-net-misc/ntpsec 1.2.1-r2 1.2.1-r3 9999: The NTP reference implementation, refactored
+net-misc/ntp 4.2.8_p15 4.2.8_p15-r1: Network Time Protocol suite/programs
+net-misc/ntpsec 1.2.1-r2 1.2.1-r3 1.2.1-r4 9999: The NTP reference implementation, refactored
 net-misc/nx 3.5.99.25 3.5.99.26: NX compression technology core libraries
 net-misc/nxplayer 5.1.24.1-r1 7.6.2.4: Client for NoMachine remote servers
 net-misc/nyx 2.1.0-r3: Utility to monitor real time Tor status information
@@ -17517,7 +17517,7 @@ sys-apps/cpuid 20220224: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.9.7: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
-sys-apps/daisydog 2014.05.30: A very simple /dev/watchdog daemon
+sys-apps/daisydog 2014.05.30 2014.05.30-r1: A very simple /dev/watchdog daemon
 sys-apps/darwin-miscutils 6-r1 8 9 10 11 12: Miscellaneous commands used on macOS, High Sierra 10.13
 sys-apps/dbus 1.12.20-r4 1.12.22-r1 1.14.0-r1: A message bus system, a simple way for applications to talk to each other
 sys-apps/dbus-broker 29 31 9999: Linux D-Bus Message Broker
