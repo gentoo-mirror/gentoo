@@ -1,7 +1,7 @@
-# Copyright 2013-2021 Gentoo Authors
+# Copyright 2013-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd toolchain-funcs
 
@@ -11,7 +11,7 @@ SRC_URI="https://cdn.kernel.org/pub/linux/kernel/v${PV%%.*}.x/linux-${PV}.tar.xz
 
 LICENSE="GPL-2"
 SLOT="0/0"
-KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="nls"
 
 # File collision w/ headers of the deprecated cpufrequtils
@@ -22,7 +22,6 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/cpupower-5.4-cflags.patch"
-	"${FILESDIR}/cpupower-5.4-gcc-10.patch"
 )
 
 S="${WORKDIR}/linux-${PV}"
@@ -48,9 +47,7 @@ src_compile() {
 		LD="$(tc-getCC)"
 		VERSION=${PV}
 	)
-
-	cd tools/power/cpupower || die
-	emake "${myemakeargs[@]}"
+	emake -C tools/power/cpupower "${myemakeargs[@]}"
 }
 
 src_install() {
