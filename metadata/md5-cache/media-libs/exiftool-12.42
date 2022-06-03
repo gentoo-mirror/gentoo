@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Read and write meta information in image, audio and video files
+EAPI=8
+HOMEPAGE=https://exiftool.org/ http://exiftool.sourceforge.net
+INHERIT=perl-module
+IUSE=doc test
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~x64-macos
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://exiftool.org/Image-ExifTool-12.42.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_md5_=5239ffb6f94e22b68b483bb887142dd9
