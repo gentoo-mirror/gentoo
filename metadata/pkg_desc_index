@@ -5954,7 +5954,7 @@ dev-libs/msgpack 3.3.0: MessagePack is a binary-based efficient data interchange
 dev-libs/mxml 3.3: A small XML parsing library that you can use to read XML data files or strings
 dev-libs/nanomsg 1.1.5: High-performance messaging interface for distributed applications
 dev-libs/ncnn 20220420: High-performance neural network inference framework
-dev-libs/nettle 3.7.3: Low-level cryptographic library
+dev-libs/nettle 3.7.3 3.8: Low-level cryptographic library
 dev-libs/newt 0.52.21-r1 0.52.21_p20210816: Redhat's Newt windowing toolkit development files
 dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
 dev-libs/npth 1.6-r1: New GNU Portable Threads Library
@@ -17193,6 +17193,7 @@ sec-keys/openpgp-keys-miniupnp 20201006: OpenPGP keys used to sign miniupnp* pac
 sec-keys/openpgp-keys-mlichvar 20210513: OpenPGP keys used by Miroslav Lichvar
 sec-keys/openpgp-keys-musl 20220407: OpenPGP keys used to sign musl
 sec-keys/openpgp-keys-netfilter 20220326: OpenPGP keys used by the netfilter project
+sec-keys/openpgp-keys-nettle 20220603: OpenPGP keys used by Niels Möller (to sign nettle releases)
 sec-keys/openpgp-keys-nmap 20210416: OpenPGP keys used to sign Nmap releases
 sec-keys/openpgp-keys-notqmail 20210223: OpenPGP keys used to sign notqmail releases
 sec-keys/openpgp-keys-oletange 20210423: OpenPGP keys used by Ole Tange
@@ -17603,7 +17604,7 @@ sys-apps/iproute2 5.15.0 5.17.0 5.18.0-r1 9999: kernel routing and traffic contr
 sys-apps/irqbalance 1.8.0-r1 1.9.0: Distribute hardware interrupts across processors on a multiprocessor system
 sys-apps/isapnptools 1.27: Tools for configuring ISA PnP devices
 sys-apps/iucode_tool 2.3.1-r1: tool to manipulate Intel X86 and X86-64 processor microcode update collections
-sys-apps/kbd 2.4.0 9999: Keyboard and console utilities
+sys-apps/kbd 2.4.0 2.5.0 9999: Keyboard and console utilities
 sys-apps/kcheck 0.0.2-r1 9999: Record and check required kernel symbols are set
 sys-apps/kexec-tools 2.0.22 2.0.23 9999: Load another kernel from the currently executing Linux kernel
 sys-apps/keyutils 1.6.1 1.6.3: Linux Key Management Utilities
@@ -18742,7 +18743,7 @@ www-plugins/pdfjs 2.4.456 2.5.207 2.10.377: A PDF reader in JavaScript
 www-servers/adsf 1.4.3 1.4.5 1.4.6 1.4.6-r1: A Dead Simple Fileserver is a static file server that can launch in a directory
 www-servers/apache 2.4.53 2.4.53-r1: The Apache Web Server
 www-servers/boa 0.94.14_rc21-r2: A very small and very fast http daemon
-www-servers/caddy 2.4.6 2.5.1: Fast, cross-platform HTTP/2 web server with automatic HTTPS
+www-servers/caddy 2.5.1: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 www-servers/civetweb 1.12: Embedded C/C++ web server
 www-servers/fnord 1.11-r2: Yet another small httpd
 www-servers/gatling 0.16-r3: High performance web server
