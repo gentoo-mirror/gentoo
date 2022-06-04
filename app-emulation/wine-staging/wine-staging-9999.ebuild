@@ -120,7 +120,7 @@ RDEPEND="${COMMON_DEPEND}
 	>app-eselect/eselect-wine-0.3
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
 	gecko? ( app-emulation/wine-gecko:2.47.2[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:7.2.0 )
+	mono? ( app-emulation/wine-mono:7.3.0 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -355,7 +355,7 @@ src_configure() {
 	export LDCONFIG=/bin/true
 	use custom-cflags || strip-flags
 	if use mingw; then
-		use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
+		use crossdev-mingw || PATH="${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}"
 
 		# use *FLAGS for mingw, but strip unsupported (e.g. --hash-style=gnu)
 		local mingwcc=${CROSSCC:-$(usex x86 i686 x86_64)-w64-mingw32-gcc}
