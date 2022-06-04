@@ -1,10 +1,10 @@
 DEFINED_PHASES=install
 DESCRIPTION=Icons for use with FVWM
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.fvwm.org/
 KEYWORDS=~alpha amd64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2 FVWM
-RDEPEND=>=x11-wm/fvwm-2.6.2
+RDEPEND=|| ( x11-wm/fvwm3 >=x11-wm/fvwm-2.6.2 )
 SLOT=0
 SRC_URI=mirror://gentoo/fvwm_icons-1.0.tar.bz2
-_md5_=476d83b1355400d92927d6af3ff4de3e
+_md5_=6a5461c753d42e2d845dda3d66867b38

@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-libs/libxslt dev-ruby/asciidoctor ) app-arch/unzip go? ( >=dev-lang/go-1.14 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst prepare setup unpack
+DEPEND=x11-base/xorg-proto
+DESCRIPTION=A multiple large virtual desktop window manager derived from fvwm
+EAPI=8
+HOMEPAGE=http://www.fvwm.org/
+INHERIT=autotools desktop flag-o-matic go-module python-single-r1 git-r3
+IUSE=bidi debug doc go netpbm nls perl png readline rplay stroke svg tk truetype vanilla lock python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+LICENSE=GPL-2+ FVWM go? ( Apache-2.0 BSD MIT )
+PROPERTIES=live
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) !x11-wm/fvwm dev-libs/glib:2 dev-libs/libevent:= dev-lang/perl sys-libs/zlib x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libxcb x11-libs/libXcursor x11-libs/libXdmcp x11-libs/libXext x11-libs/libXfixes x11-libs/libXpm x11-libs/libXrandr x11-libs/libXrender bidi? ( dev-libs/fribidi ) lock? ( x11-misc/xlockmore ) netpbm? ( media-libs/netpbm ) perl? ( tk? ( dev-lang/tk dev-perl/Tk >=dev-perl/X11-Protocol-0.56 ) ) png? ( media-libs/libpng:= ) readline? ( sys-libs/ncurses:= sys-libs/readline:= ) rplay? ( media-sound/rplay ) stroke? ( dev-libs/libstroke ) svg? ( gnome-base/librsvg:2 x11-libs/cairo ) truetype? ( media-libs/fontconfig x11-libs/libXft ) userland_GNU? ( sys-apps/debianutils )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://gitlab.com/Matt.Jolly/fvwm3-go-deps/-/raw/9999/fvwm3-9999-deps.tar.xz?inline=false -> fvwm3-9999-deps.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	go-module	a13d34fe4e2996720e1ca6c53b9ea95a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=e4c6486838759b9d11f996c24001f768
