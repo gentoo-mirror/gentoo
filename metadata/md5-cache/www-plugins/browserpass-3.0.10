@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=WebExtension host binary for app-admin/pass, a UNIX password manager
+EAPI=8
+HOMEPAGE=https://github.com/browserpass/browserpass-native
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=BSD ISC MIT
+RDEPEND=app-crypt/gnupg
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/browserpass/browserpass-native/archive/3.0.10.tar.gz -> browserpass-3.0.10.tar.gz https://dev.gentoo.org/~mattst88/distfiles/browserpass-3.0.10-deps.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=5292c6f90a5f6c0f1f8a49d5d0ee6a5e
