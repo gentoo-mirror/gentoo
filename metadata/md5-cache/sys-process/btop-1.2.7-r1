@@ -1,9 +1,11 @@
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile install postinst postrm prepare
 DESCRIPTION=A monitor of resources
 EAPI=8
 HOMEPAGE=https://github.com/aristocratos/btop
+INHERIT=xdg-utils
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
 SLOT=0
 SRC_URI=https://github.com/aristocratos/btop/archive/refs/tags/v1.2.7.tar.gz -> btop-1.2.7.tar.gz
-_md5_=b0094edd2887870cf432621d341d03a9
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=83d1562424fba0e047eff857fca3bb75
