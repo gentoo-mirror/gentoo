@@ -1,6 +1,5 @@
-BDEPEND=>=app-editors/emacs-24.3:*
+BDEPEND=>=app-emacs/dash-2.18.1 >=app-emacs/f-0.19.0 >=app-emacs/flycheck-32 >=app-emacs/s-1.10.0 >=app-editors/emacs-24.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DEPEND=>=app-emacs/dash-2.18.1 >=app-emacs/f-0.19.0 >=app-emacs/flycheck-32 >=app-emacs/s-1.10.0
 DESCRIPTION=Emacs mode for the Lean 3 theorem prover
 EAPI=8
 HOMEPAGE=https://github.com/leanprover/lean-mode/
@@ -9,6 +8,6 @@ KEYWORDS=~amd64
 LICENSE=GPL-2+
 RDEPEND=>=app-emacs/dash-2.18.1 >=app-emacs/f-0.19.0 >=app-emacs/flycheck-32 >=app-emacs/s-1.10.0 sci-mathematics/lean:0/3 >=app-editors/emacs-24.3:*
 SLOT=0
-SRC_URI=https://github.com/leanprover/lean-mode/archive/c1c68cc946eb31b6ba8faefdceffce1f77ca52df.tar.gz -> lean-mode-20220124.tar.gz
+SRC_URI=https://github.com/leanprover/lean-mode/archive/a4205749d20a09871f0951c34f919d4ee5fbdb55.tar.gz -> lean-mode-20211220.tar.gz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
-_md5_=a76981423a0c02f921f8308858ae446f
+_md5_=8c6b24c4176d876ba236e3f63c09d6be
