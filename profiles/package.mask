@@ -34,6 +34,12 @@
 #--- END OF EXAMPLES ---
 
 # Michał Górny <mgorny@gentoo.org> (2022-06-05)
+# The current version in Gentoo is broken with modern pytest.  The new
+# version (from Dec 2021) fails tests with modern pyflakes.  No revdeps.
+# Removal on 2022-07-05.  Bug #834816.
+dev-python/pytest-flakes
+
+# Michał Górny <mgorny@gentoo.org> (2022-06-05)
 # Barely any upstream activity since 2017.  The LICENSE in ebuild
 # is incorrect and the package bundles sources with non-free license.
 # No revdeps.
@@ -467,11 +473,6 @@ sys-cluster/singularity
 # Unsupported branches, no consumers left, removal on 2023-01-01.
 sys-devel/automake:1.13
 sys-devel/automake:1.15
-
-# Michał Górny <mgorny@gentoo.org> (2022-03-18)
-# The new version breaks building docs w/o Internet access (because it
-# tries to fetch and install all dependencies locally).
-~dev-python/jaraco-packaging-9.0.0
 
 # John Helmert III <ajak@gentoo.org> (2022-03-13)
 # Arti is not a production-ready Tor client. According to upstream, "do
