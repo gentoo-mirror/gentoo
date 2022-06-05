@@ -1,20 +1,21 @@
 # Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit python-single-r1
 
 DESCRIPTION="Scripts to help retiring Gentoo developers"
-HOMEPAGE="https://github.com/mgorny/undertaker-scripts"
+HOMEPAGE="https://github.com/mgorny/gentoo-retirement-scripts/"
 SRC_URI="
-	https://github.com/mgorny/undertaker-scripts/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+	https://github.com/mgorny/gentoo-retirement-scripts/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
 RDEPEND="
@@ -30,8 +31,8 @@ src_compile() {
 }
 
 src_install() {
-	exeinto /opt/undertaker-scripts
+	exeinto /opt/gentoo-retirement-scripts
 	doexe *.py
-	insinto /opt/undertaker-scripts
+	insinto /opt/gentoo-retirement-scripts
 	doins *.template
 }
