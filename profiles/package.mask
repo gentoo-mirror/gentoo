@@ -33,6 +33,14 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2022-06-05)
+# Pending bump since January.  No Python 3.10 compat.  Tests restricted.
+# Uses PEP517-incompatible hacks to build.  Hard requires dev-db/mysql
+# (and blocks dev-db/mariad).  No revdeps in Gentoo.
+# Use dev-python/mysqlclient instead.
+# Removal on 2022-07-05.  Bug #845756.
+dev-python/mysql-connector-python
+
 # Joonas Niilola <juippis@gentoo.org> (2022-06-05)
 # Version which allows wayland-only build, still experimental. Weeding
 # out all bugs before unmasking. Please see bug #848858 and its
@@ -341,59 +349,6 @@ dev-java/commons-jxpath
 # of dependencies.  Packaging a new release poses serious problems.
 # Removal on 2022-06-06.  Bug #836282.
 dev-db/pgadmin4
-
-# Hans de Graaff <graaff@gentoo.org> (2022-05-07)
-# Old slot without reverse dependencies. Originally introduced for
-# dev-ruby/gherkin but no longer used there. Upgrade to the new slotted
-# version. Masked for removal in 30 days.
-dev-ruby/c21e:1
-
-# Michał Górny <mgorny@gentoo.org> (2022-05-06)
-# The "better quality" dependencies of Mailman.  These packages were
-# generally fixed by the Python team but they have no reverse
-# dependencies.  If you need them, please let us know and we'll keep
-# them.
-# Removal on 2022-06-05.  Bug #842888.
-dev-python/authheaders
-dev-python/django-allauth
-dev-python/django-appconf
-dev-python/django-debug-toolbar
-dev-python/flufl-bounce
-dev-python/flufl-i18n
-dev-python/lazr-config
-dev-python/lazr-delegates
-dev-python/python3-openid
-dev-python/rcssmin
-dev-python/rjsmin
-dev-python/robot-detection
-
-# Michał Górny <mgorny@gentoo.org> (2022-05-06)
-# Mailman along with a bunch of dependencies that are of bad quality.
-# At the very least, the Mailman packages need a dedicated maintainer.
-# Their Python dependencies can be maintained by the Python team
-# if someone takes care of getting the tests working.
-# Removal on 2022-06-05.  Bug #842888.
-dev-python/aiosmtpd
-dev-python/django-compressor
-dev-python/django-extensions
-dev-python/django-gravatar2
-dev-python/django-haystack
-dev-python/django-picklefield
-dev-python/django-q
-dev-python/falcon
-dev-python/flufl-testing
-net-mail/django-mailman3
-net-mail/mailman
-net-mail/mailmanclient
-net-mail/mailman-meta
-net-mail/hyperkitty
-net-mail/postorius
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-05-04)
-# Unused java libraries and useless java-virtual. Removal on 2022-06-04
-dev-java/glassfish-jms-api
-dev-java/sun-jms
-java-virtuals/jms
 
 # Matt Turner <mattst88@gentoo.org> (2022-04-30)
 # Masked for testing. Apparently causes crashes. Bug #841857.
