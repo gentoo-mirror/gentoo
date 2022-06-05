@@ -1,44 +1,53 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
+
+MY_PV="${PV/./}"
+MY_PV_WIN64="611"
+URI_AMD64="https://www.rarlab.com/rar/rarlinux-x64-${MY_PV}.tar.gz"
+URI_X86="https://www.rarlab.com/rar/rarlinux-x32-${MY_PV}.tar.gz"
+URI_WIN64="https://www.rarlab.com/rar/winrar-x64-${MY_PV_WIN64}.exe"
+
+inherit unpacker
 
 DESCRIPTION="RAR compressor/uncompressor"
-HOMEPAGE="https://rarlab.com/"
-URI_x86="https://mirror.whissi.de/distfiles/rar/rarlinux-x32-${PV}.tar.gz"
-URI_amd64="https://mirror.whissi.de/distfiles/rar/rarlinux-x64-${PV}.tar.gz"
-URI_w64="https://mirror.whissi.de/distfiles/rar/winrar-x64-${PV}.exe"
-SRC_URI="x86? ( ${URI_x86} )
-	amd64? ( ${URI_amd64} )
-	all_sfx? (
-		${URI_x86}
-		${URI_amd64}
-		${URI_w64}
-	)"
-
-LICENSE="RAR BSD BSD-2"
-SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
-IUSE="all_sfx"
-RESTRICT="mirror bindist"
-
-DEPEND="all_sfx? ( app-arch/unrar )"
-RDEPEND="sys-libs/glibc"
-
+HOMEPAGE="https://www.rarlab.com/"
+SRC_URI="
+	all-sfx? (
+		${URI_AMD64}
+		${URI_X86}
+		${URI_WIN64}
+	)
+	amd64? ( ${URI_AMD64} )
+	x86? ( ${URI_X86} )
+"
 S="${WORKDIR}/${PN}"
 
-QA_FLAGS_IGNORED="opt/rar/default.sfx
+LICENSE="BSD BSD-2 RAR"
+SLOT="0"
+KEYWORDS="-* amd64 x86"
+IUSE="all-sfx"
+RESTRICT="bindist mirror"
+
+RDEPEND="sys-libs/glibc"
+BDEPEND="all-sfx? ( app-arch/unrar )"
+
+DOCS=( "acknow.txt" "rar.txt" "readme.txt" "whatsnew.txt" )
+
+QA_PREBUILT="
+	opt/rar/default.sfx
 	opt/rar/default-elf32.sfx
 	opt/rar/default-elf64.sfx
 	opt/rar/default-win32.sfx
 	opt/rar/default-win64.sfx
+	opt/rar/unrar
+	opt/rar/rar
 	opt/rar/WinCon.SFX
 	opt/rar/WinCon64.SFX
 	opt/rar/Zip.SFX
 	opt/rar/Zip64.SFX
-	opt/rar/unrar
-	opt/rar/rar"
-QA_PRESTRIPPED=${QA_FLAGS_IGNORED}
+"
 
 src_unpack() {
 	local _file
@@ -63,9 +72,7 @@ src_unpack() {
 		fi
 	done
 
-	rm -f "${S}"/license.txt
-
-	if use all_sfx ; then
+	if use all-sfx ; then
 		mkdir sfx
 		cd sfx
 		for _file in ${A}; do
@@ -78,7 +85,7 @@ src_unpack() {
 				fi
 			elif [[ "${_file}" == winrar* ]]; then
 				ln -s "${DISTDIR}"/${_file} w64.rar || die
-				unpack ./w64.rar
+				unpack_rar ./w64.rar
 				mv Default.SFX default-win32.sfx || die
 				mv Default64.SFX default-win64.sfx || die
 			else
@@ -94,16 +101,21 @@ src_install() {
 	exeinto /opt/rar
 	doexe rar unrar
 
-	dodir /opt/bin
-	dosym ../rar/rar /opt/bin/rar
-	dosym ../rar/unrar /opt/bin/unrar
-
 	insinto /opt/rar
-	if use all_sfx ; then
+	doins rarfiles.lst
+
+	if use all-sfx; then
 		doins "${WORKDIR}"/sfx/*.{sfx,SFX}
 	else
 		doins default.sfx
 	fi
-	doins rarfiles.lst
-	dodoc *.txt
+
+	dodir /opt/bin
+	dosym ../rar/rar /opt/bin/rar
+	dosym ../rar/unrar /opt/bin/unrar
+
+	docinto html
+	dodoc order.htm
+
+	einstalldocs
 }
