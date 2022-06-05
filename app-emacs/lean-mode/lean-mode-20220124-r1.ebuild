@@ -17,14 +17,14 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
+BDEPEND="
 	>=app-emacs/dash-2.18.1
 	>=app-emacs/f-0.19.0
 	>=app-emacs/flycheck-32
 	>=app-emacs/s-1.10.0
 "
 RDEPEND="
-	${DEPEND}
+	${BDEPEND}
 	sci-mathematics/lean:0/3
 "
 
