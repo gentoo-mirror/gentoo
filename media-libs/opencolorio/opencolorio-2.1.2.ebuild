@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -13,27 +13,26 @@ SRC_URI="https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/t
 S="${WORKDIR}/OpenColorIO-${PV}"
 
 LICENSE="BSD"
-SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+# TODO: drop .1 on next SONAME bump (2.1 -> 2.2?) as we needed to nudge it
+# to force rebuild of consumers due to changing to openexr 3 changing API.
+SLOT="0/$(ver_cut 1-2).1"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="cpu_flags_x86_sse2 doc opengl python static-libs test"
 REQUIRED_USE="
 	doc? ( python )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
 
-# Not compatible with oiio 2.3
-# https://github.com/AcademySoftwareFoundation/OpenColorIO/issues/1509
-# bug #821073
-# 2.1.1 should be?
+# Works with older OIIO but need to force a version w/ OpenEXR 3
 RDEPEND="
 	dev-cpp/pystring
 	dev-python/pybind11
 	>=dev-cpp/yaml-cpp-0.7.0:=
+	>=dev-libs/imath-3.1.4-r2:=
 	dev-libs/tinyxml
-	media-libs/ilmbase:=
 	opengl? (
 		media-libs/lcms:2
-		media-libs/openimageio:=
+		>=media-libs/openimageio-2.3.12.0-r3:=
 		media-libs/glew:=
 		media-libs/freeglut
 		virtual/opengl
@@ -42,7 +41,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	>=dev-util/cmake-3.16.2-r1
 	virtual/pkgconfig
 	doc? (
 		$(python_gen_cond_dep '
@@ -55,7 +53,9 @@ BDEPEND="
 # Restricting tests, bugs #439790 and #447908
 RESTRICT="test"
 
-CMAKE_BUILD_TYPE=RelWithDebInfo
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.1.1-gcc12.patch
+)
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -66,6 +66,10 @@ src_prepare() {
 
 	sed -i -e "s|LIBRARY DESTINATION lib|LIBRARY DESTINATION $(get_libdir)|g" {,src/bindings/python/,src/OpenColorIO/,src/libutils/oiiohelpers/,src/libutils/oglapphelpers/}CMakeLists.txt || die
 	sed -i -e "s|ARCHIVE DESTINATION lib|ARCHIVE DESTINATION $(get_libdir)|g" {,src/bindings/python/,src/OpenColorIO/,src/libutils/oiiohelpers/,src/libutils/oglapphelpers/}CMakeLists.txt || die
+
+	# Avoid automagic test dependency on OSL, bug #833933
+	# Can cause problems during e.g. OpenEXR unsplitting migration
+	cmake_run_in tests cmake_comment_add_subdirectory osl
 }
 
 src_configure() {
@@ -76,8 +80,8 @@ src_configure() {
 	# - OpenImageIO is required for building ociodisplay and ocioconvert (USE opengl)
 	# - OpenGL, GLUT and GLEW is required for building ociodisplay (USE opengl)
 	local mycmakeargs=(
-		# Don't use imath yet, needs some poking to find the right headers
-		-DOCIO_USE_OPENEXR_HALF=ON
+		-DOCIO_USE_OPENEXR_HALF=OFF
+
 		-DBUILD_SHARED_LIBS=ON
 		-DOCIO_BUILD_STATIC=$(usex static-libs)
 		-DOCIO_BUILD_DOCS=$(usex doc)
