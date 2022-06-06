@@ -81,6 +81,7 @@ pkg_pretend() {
 
 pkg_setup() {
 	check_env
+	java-pkg-2_pkg_setup
 }
 
 src_prepare() {

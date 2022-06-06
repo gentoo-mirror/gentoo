@@ -93,6 +93,7 @@ pkg_pretend() {
 # https://bugs.gentoo.org/823347
 pkg_setup() {
 	check_env
+	java-pkg-2_pkg_setup
 }
 
 src_prepare() {
