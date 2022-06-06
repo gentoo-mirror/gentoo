@@ -9,11 +9,11 @@ DESCRIPTION="Fast static HTML and CSS website generator"
 HOMEPAGE="https://gohugo.io https://github.com/gohugoio/hugo"
 SRC_URI="
 	https://github.com/gohugoio/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://tastytea.de/files/${P}-vendor.tar.xz
+	https://tastytea.de/files/gentoo/${P}-vendor.tar.xz
 "
 
 # NOTE: To create the vendor tarball, run:
-# `go mod vendor && cd .. && tar -cJf ${P}-vendor.tar.xz ${P}/vendor`
+# `go mod vendor && cd .. && tar -caf ${P}-vendor.tar.xz ${P}/vendor`
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT Unlicense"
 SLOT="0"
@@ -39,6 +39,7 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch"
 	"${FILESDIR}/${PN}-0.96.0-skip-some-tests.patch"
+	"${FILESDIR}/${PN}-0.99.1-fix-testdecodeconfig-basic.patch"
 )
 
 src_configure() {
