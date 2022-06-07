@@ -1,6 +1,6 @@
 BDEPEND=nls? ( sys-devel/gettext )
 DEFINED_PHASES=configure prepare setup
-DEPEND=gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev ) virtual/libiconv virtual/libintl sys-kernel/linux-headers
+DEPEND=sys-fs/lvm2 virtual/libiconv virtual/libintl gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev ) sys-kernel/linux-headers
 DESCRIPTION=A utility for management and user-mode mounting of encrypted filesystems
 EAPI=8
 HOMEPAGE=http://cryptmount.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=linux-info
 IUSE=argv0switch cswap fsck +gcrypt +largefile mount +nls +luks +openssl selinux systemd udev
 KEYWORDS=amd64 x86
 LICENSE=GPL-2+
-RDEPEND=gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev ) virtual/libiconv virtual/libintl
+RDEPEND=sys-fs/lvm2 virtual/libiconv virtual/libintl gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
 REQUIRED_USE=luks? ( gcrypt ) openssl? ( gcrypt )
 SLOT=0
 SRC_URI=mirror://sourceforge/cryptmount/cryptmount-5.3.3.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
-_md5_=91ae219931288d3350f2687e54810b17
+_md5_=d4c80a3b1c467457e9e08451c605427c
