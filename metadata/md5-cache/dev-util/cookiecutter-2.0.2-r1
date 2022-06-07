@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/cookiecutter/cookiecutter
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc64 ~x86
 LICENSE=BSD
 RDEPEND=>=dev-python/binaryornot-0.4.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/click-7.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/click-9.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/jinja-2.7[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/jinja-4.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/jinja2-time-0.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/python-slugify-4.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/requests-2.23.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cookiecutter/cookiecutter/archive/2.0.2.tar.gz -> cookiecutter-2.0.2.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	fdadc3f4d9536be810d8cb5ce1f7deeb
-_md5_=f3fb1534a28251a8be99f495f41d1a84
+_md5_=071f86842e18bb5c6798a9c5c2a71815
