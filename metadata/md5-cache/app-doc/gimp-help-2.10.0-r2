@@ -1,12 +1,12 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) sys-devel/gettext || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-libs/libxml2[python,python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-libs/libxml2[python,python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-libs/libxml2[python,python_targets_python3_8(-)] ) ) dev-libs/libxslt
+BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-libs/libxml2[python,python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-libs/libxml2[python,python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-libs/libxml2[python,python_targets_python3_8(-)] ) ) app-text/docbook-xml-dtd dev-lang/perl dev-libs/libxslt sys-devel/gettext
 DEFINED_PHASES=compile configure setup
 DESCRIPTION=GNU Image Manipulation Program help files
 EAPI=8
 HOMEPAGE=https://docs.gimp.org/
 INHERIT=python-any-r1
-KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86
 LICENSE=FDL-1.2
 SLOT=2
 SRC_URI=mirror://gimp/help/gimp-help-2.10.0.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=801ff99e92f1322138f6adebd4a99985
+_md5_=3cdfb362229ff050d7f267d1180bebf6
