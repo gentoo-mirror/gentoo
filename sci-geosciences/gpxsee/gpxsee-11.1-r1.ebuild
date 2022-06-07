@@ -23,7 +23,8 @@ RDEPEND="dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtsql:5
-	dev-qt/qtpositioning:5"
+	dev-qt/qtpositioning:5
+	dev-qt/qtsvg:5"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/linguist-tools:5"
 
