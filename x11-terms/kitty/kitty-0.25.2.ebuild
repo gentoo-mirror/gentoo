@@ -15,7 +15,7 @@ else
 		https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz
 		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )"
 	VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/kovidgoyal.gpg"
-	KEYWORDS="amd64 ~ppc64 x86"
+	KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Fast, feature-rich, GPU-based terminal"
@@ -29,10 +29,10 @@ REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}"
 RESTRICT="!X? ( test ) !test? ( test ) !transfer? ( test ) !wayland? ( test )"
 
+# dlopen: fontconfig,libglvnd
 RDEPEND="
 	${PYTHON_DEPS}
 	media-libs/fontconfig
-	media-libs/freetype:2
 	media-libs/harfbuzz:=
 	media-libs/lcms:2
 	media-libs/libglvnd[X?]
@@ -84,7 +84,7 @@ src_prepare() {
 	rm kitty_tests/utmp.py || die
 
 	# test may fail/hang depending on environment and shell initialization scripts
-	rm kitty_tests/ssh.py || die
+	rm kitty_tests/{shell_integration,ssh}.py || die
 
 	# skip docs for live version
 	[[ ${PV} != 9999 ]] || sed -i '/exists.*_build/,/docs(ddir)/d' setup.py || die
