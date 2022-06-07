@@ -1,0 +1,12 @@
+BDEPEND=iso32? ( dev-libs/libisoburn sys-fs/dosfstools sys-fs/mtools ) iso64? ( dev-libs/libisoburn sys-fs/dosfstools sys-fs/mtools )
+DEFINED_PHASES=compile install postinst postrm preinst prepare prerm pretend
+DESCRIPTION=Memory tester based on PCMemTest
+EAPI=8
+HOMEPAGE=https://www.memtest.org/
+INHERIT=mount-boot
+IUSE=bios32 bios64 +boot efi32 efi64 iso32 iso64
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://github.com/memtest86plus/memtest86plus/archive/refs/tags/v6.00-beta2.tar.gz -> memtest86+-6.00_beta2.tar.gz
+_eclasses_=mount-boot	02a45c5e022c08dbc05178522b2772f2
+_md5_=fee6e5eee063e5420c7d2842345e3f22
