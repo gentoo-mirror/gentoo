@@ -2242,7 +2242,7 @@ app-emacs/assess 0.6: Test support functions for Emacs
 app-emacs/async 1.9.3 1.9.4: Simple library for asynchronous processing in Emacs
 app-emacs/atomic-chrome 2.0.0: Edit text area on Chrome with Emacs using Atomic Chrome
 app-emacs/auctex 11.92 12.2 12.3 13.1: Extensible package for writing and formatting TeX files in Emacs
-app-emacs/auto-complete 1.5.1-r1: Auto-complete package
+app-emacs/auto-complete 1.5.1-r2: Auto-complete package
 app-emacs/autoconf-mode 2.69-r1: Emacs major modes for editing autoconf and autotest input
 app-emacs/avy 0.5.0: Jump to arbitrary positions in visible text and quickly select
 app-emacs/basic-toolkit 0.7: Basic edit toolkit
@@ -2420,7 +2420,7 @@ app-emacs/magit 2.90.1 3.2.0 3.3.0: A Git porcelain inside Emacs
 app-emacs/magit-popup 2.13.0 2.13.2 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 0.12 0.13: Marginalia in the minibuffer
-app-emacs/markdown-mode 2.4 2.5: Major mode for editing Markdown-formatted text files
+app-emacs/markdown-mode 2.4-r1 2.5-r1: Major mode for editing Markdown-formatted text files
 app-emacs/mastodon 1.0.0: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
 app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
@@ -5632,7 +5632,7 @@ dev-libs/editline 1.17.1: line editing library for UNIX call compatible with the
 dev-libs/eekboard 1.0.8_p20121001-r1: An easy to use virtual keyboard toolkit
 dev-libs/efl 1.25.1-r13 1.26.2: Enlightenment Foundation Libraries all-in-one package
 dev-libs/elfutils 0.185 0.186 0.187: Libraries/utilities to handle ELF objects (drop in replacement for libelf)
-dev-libs/ell 0.49 0.50 9999: Embedded Linux Library provides core, low-level functionality for system daemons
+dev-libs/ell 0.49 0.50 0.51 9999: Embedded Linux Library provides core, low-level functionality for system daemons
 dev-libs/eventlog 0.2.12: Support library for syslog-ng
 dev-libs/expat 2.4.6 2.4.7 2.4.8: Stream-oriented XML parser library
 dev-libs/faxpp 0.4-r2: Small, fast and conformant XML pull parser written in C
@@ -8796,7 +8796,7 @@ dev-python/humanize 4.1.0: Common humanization utilities
 dev-python/hvac 0.11.2: hashicorp vault client in python
 dev-python/hyperframe 5.2.0 5.2.0-r1 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.46.2 6.46.3 6.46.7 6.46.9 6.46.11: A library for property based testing
+dev-python/hypothesis 6.46.2 6.46.3 6.46.7 6.46.9 6.46.11 6.47.0: A library for property based testing
 dev-python/icalendar 4.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.1: File identification library for Python
 dev-python/idna 3.3 3.3-r1: Internationalized Domain Names in Applications (IDNA)
@@ -8989,7 +8989,7 @@ dev-python/mkdocs-bootswatch 1.1-r1 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-git-authors-plugin 0.6.2 0.6.3 0.6.4: Mkdocs plugin to display git authors of a page
 dev-python/mkdocs-git-revision-date-localized-plugin 0.11.1 0.12.1 1.0.0 1.0.1: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-i18n 0.4.4: MkDocs i18n plugin
-dev-python/mkdocs-material 8.2.8 8.2.15 8.2.16: A Material Design theme for MkDocs
+dev-python/mkdocs-material 8.2.8 8.2.15 8.2.16 8.3.3: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0.3-r1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.5.0 0.5.0-r1 0.5.0-r2: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-redirects 1.0.4-r1: Plugin for Mkdocs page redirects
@@ -13430,7 +13430,7 @@ media-gfx/flameshot 0.6.0-r1 0.9.0-r1 0.10.1 0.10.2 11.0.0: Powerful yet simple 
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20201107 20220308: postscript font editor and converter
 media-gfx/fotowall 1.0: Qt5 tool for creating wallpapers
-media-gfx/fotoxx 21.60 22.16: Program for improving image files made with a digital camera
+media-gfx/fotoxx 21.60 22.16 22.18: Program for improving image files made with a digital camera
 media-gfx/freecad 0.19.4-r1 9999: QT based Computer Aided Design application
 media-gfx/freepv 0.3.0-r5: Panorama viewer (Quicktime, PangeaVR, GLPanoView formats)
 media-gfx/frogr 1.5: flickr applications for GNOME
@@ -16042,7 +16042,7 @@ net-p2p/litecoind 0.18.1-r1: The offical daemon to run your own (full) Litecoin 
 net-p2p/mktorrent 1.1_p20180912 1.1_p20210130: Simple command line utility to create BitTorrent metainfo files
 net-p2p/mldonkey 3.1.7-r3: Multi-network P2P application written in Ocaml, with Gtk, web & telnet interface
 net-p2p/ncdc 1.22.1-r1 1.23 9999: ncurses directconnect client
-net-p2p/nicotine+ 2.2.2 3.1.1 3.2.0 3.2.1 3.2.2: A fork of nicotine, a Soulseek client in Python
+net-p2p/nicotine+ 2.2.2 3.1.1 3.2.0 3.2.1 3.2.2-r1: A fork of nicotine, a Soulseek client in Python
 net-p2p/opendchub 0.8.2-r1: hub software for Direct Connect
 net-p2p/qbittorrent 4.3.9 4.4.3.1 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.6.3-r2 2.7.2.1375: Resilient, fast and scalable file synchronization tool
@@ -16205,8 +16205,8 @@ net-wireless/hostap-utils 0.4.7-r1: Utilities for Intersil Prism2/2.5/3 based IE
 net-wireless/hostapd 2.9-r6 2.10 9999: IEEE 802.11 wireless LAN Host AP daemon
 net-wireless/inspectrum 0.2.3 9999: Tool for analysing captured signals from software-defined radio receivers
 net-wireless/iw 5.9 5.16: nl80211 configuration utility for wireless devices using the mac80211 stack
-net-wireless/iwd 1.26 1.27 9999: Wireless daemon for linux
-net-wireless/iwgtk 0.4: Lightweight, graphical wifi management utility for Linux
+net-wireless/iwd 1.26 1.27 1.28 9999: Wireless daemon for linux
+net-wireless/iwgtk 0.4 0.5: Lightweight, graphical wifi management utility for Linux
 net-wireless/jackit 0.0_p20170918-r1: Exploit Code for Mousejack
 net-wireless/kismet 2021.08.1-r1 2022.01.3 2022.02.1 9999: IEEE 802.11 wireless LAN sniffer
 net-wireless/kismet-rest 2019.05.02 9999: Kismet REST Python API
@@ -18438,6 +18438,7 @@ virtual/opengl 7.0-r2: Virtual for OpenGL implementation
 virtual/os-headers 0-r2: Virtual for operating system headers
 virtual/package-manager 1: Virtual for the package manager
 virtual/pager 0: Virtual for command-line pagers
+virtual/pandoc 0: Virtual for pandoc
 virtual/perl-Archive-Tar 2.380.0 2.400.0: Virtual for Archive-Tar
 virtual/perl-Attribute-Handlers 1.10.0-r4 1.20.0: Virtual for Attribute-Handlers
 virtual/perl-AutoLoader 5.740.0-r11: Virtual for AutoLoader
