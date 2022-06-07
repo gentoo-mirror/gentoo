@@ -1,10 +1,10 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit cmake python-any-r1 qmake-utils readme.gentoo-r1
+inherit cmake python-any-r1 qmake-utils readme.gentoo-r1 xdg
 
 DESCRIPTION="A modern gaming engine for Doom, Heretic, and Hexen"
 HOMEPAGE="https://www.dengine.net"
@@ -13,7 +13,7 @@ SRC_URI="https://downloads.sourceforge.net/project/deng/Doomsday%20Engine/${PV}/
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="demo freedoom fluidsynth openal tools"
+IUSE="demo +display-mode freedoom fluidsynth openal tools"
 
 RDEPEND="
 	dev-qt/qtcore:5=
@@ -25,6 +25,11 @@ RDEPEND="
 	media-libs/assimp:=
 	net-misc/curl
 	sys-libs/zlib
+	x11-libs/libX11
+	display-mode? (
+		x11-libs/libXrandr
+		x11-libs/libXxf86vm
+	)
 	fluidsynth? ( media-sound/fluidsynth:= )
 	openal? ( media-libs/openal )
 	tools? ( sys-libs/ncurses:0= )
@@ -51,8 +56,9 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DDENG_ASSIMP_EMBEDDED="OFF"
-		-DDENG_ENABLE_TOOLS="$(usex tools)"
+		-DDENG_ASSIMP_EMBEDDED=OFF
+		-DDENG_ENABLE_DISPLAYMODE=$(usex display-mode)
+		-DDENG_ENABLE_TOOLS=$(usex tools)
 		-DPYTHON_EXECUTABLE="${PYTHON}"
 		-DQMAKE=$(qt5_get_bindir)/qmake
 	)
@@ -70,6 +76,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	readme.gentoo_print_elog
 
 	if use tools; then
