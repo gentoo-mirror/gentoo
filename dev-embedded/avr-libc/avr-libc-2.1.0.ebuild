@@ -1,18 +1,17 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI="8"
 
 CHOST="avr"
 CTARGET="avr"
 
-inherit flag-o-matic epatch
+inherit flag-o-matic
 
 DESCRIPTION="C library for Atmel AVR microcontrollers"
 HOMEPAGE="http://www.nongnu.org/avr-libc/"
 SRC_URI="https://savannah.nongnu.org/download/avr-libc/${P}.tar.bz2
-	https://savannah.nongnu.org/download/avr-libc/${PN}-manpages-${PV}.tar.bz2
-	doc? ( https://savannah.nongnu.org/download/avr-libc/${PN}-user-manual-${PV}.tar.bz2 )"
+	https://savannah.nongnu.org/download/avr-libc/${PN}-manpages-${PV}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
@@ -20,7 +19,7 @@ SLOT="0"
 # be any other arch. See bug #620316#c5
 # Don't add more arches to KEYWORDS.
 KEYWORDS="amd64"
-IUSE="doc headers-only"
+IUSE="headers-only"
 
 DEPEND=">=sys-devel/crossdev-0.9.1"
 [[ ${CATEGORY/cross-} != ${CATEGORY} ]] \
@@ -46,7 +45,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch_user #455828
+	default
 
 	# work around broken gcc versions PR45261
 	local mcu
@@ -55,9 +54,6 @@ src_prepare() {
 			sed -i "/HAS_${mcu}=yes/s:yes:no:" configure
 		fi
 	done
-
-	# Install docs in correct directory
-	sed -i -e "/DOC_INST_DIR/s:\$(VERSION):${PVR}:" configure || die
 
 	strip-flags
 	strip-unsupported-flags
@@ -70,8 +66,6 @@ src_install() {
 	# as they would then overwrite libc man pages
 	docinto man/man3
 	dodoc -r "${WORKDIR}"/man/man3/.
-
-	use doc	&& dohtml "${WORKDIR}"/${PN}-user-manual-${PV}/*
 
 	# Make sure diff cross-compilers don't collide #414075
 	mv "${ED}"/usr/share/doc/{${PF},${CTARGET}-${PF}} || die
