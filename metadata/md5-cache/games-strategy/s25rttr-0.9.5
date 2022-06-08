@@ -7,7 +7,7 @@ HOMEPAGE=https://www.siedler25.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop flag-o-matic lua-single toolchain-funcs xdg cmake
 IUSE=test +lua_single_target_lua5-3
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2+ GPL-3 Boost-1.0
 RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) app-arch/bzip2 >=dev-libs/boost-1.73:0=[nls] >=media-libs/libsamplerate-0.1.9 >=media-libs/libsdl2-2.0.10-r2[opengl,sound,video] media-libs/libsndfile media-libs/sdl2-mixer[vorbis,wav] net-libs/miniupnpc virtual/opengl
 REQUIRED_USE=^^ ( lua_single_target_lua5-3 )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Return-To-The-Roots/s25client/releases/download/v0.9.5/s25client_src_v0.9.5.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=f2895e4015631f35b04d52c1aee49d56
+_md5_=47291043fc4ac20b9ba4209fdcb501ed
