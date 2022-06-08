@@ -106,6 +106,8 @@ esac
 #
 # - maturin - maturin backend
 #
+# - no - no PEP517 build system (see below)
+#
 # - pbr - pbr backend
 #
 # - pdm - pdm.pep517 backend
@@ -121,6 +123,17 @@ esac
 #
 # The variable needs to be set before the inherit line.  The eclass
 # adds appropriate build-time dependencies and verifies the value.
+#
+# The special value "no" indicates that the package has no build system.
+# This is not equivalent to unset DISTUTILS_USE_PEP517 (legacy mode).
+# It causes the eclass not to include any build system dependencies
+# and to disable default python_compile() and python_install()
+# implementations.  Baseline Python deps and phase functions will still
+# be set (depending on the value of DISTUTILS_OPTIONAL).  Most of
+# the other eclass functions will work.  Testing venv will be provided
+# in ${BUILD_DIR}/install after python_compile(), and if any (other)
+# files are found in ${BUILD_DIR}/install after python_install(), they
+# will be merged into ${D}.
 
 # @ECLASS_VARIABLE: DISTUTILS_USE_SETUPTOOLS
 # @DEFAULT_UNSET
@@ -211,6 +224,10 @@ _distutils_set_globals() {
 			maturin)
 				bdep+='
 					>=dev-util/maturin-0.12.7[${PYTHON_USEDEP}]'
+				;;
+			no)
+				# undo the generic deps added above
+				bdep=
 				;;
 			pbr)
 				bdep+='
@@ -792,7 +809,7 @@ distutils_install_for_testing() {
 distutils_write_namespace() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	if [[ ! ${DISTUTILS_USE_PEP517} ]]; then
+	if [[ ! ${DISTUTILS_USE_PEP517:-no} != no ]]; then
 		die "${FUNCNAME} is available only in PEP517 mode"
 	fi
 	if [[ ${EBUILD_PHASE} != test || ! ${BUILD_DIR} ]]; then
@@ -914,6 +931,9 @@ _distutils-r1_print_package_versions() {
 				packages+=(
 					dev-util/maturin
 				)
+				;;
+			no)
+				return
 				;;
 			pbr)
 				packages+=(
@@ -1216,6 +1236,10 @@ distutils_pep517_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 	[[ ${#} -eq 1 ]] || die "${FUNCNAME} takes exactly one argument: root"
 
+	if [[ ! ${DISTUTILS_USE_PEP517:-no} != no ]]; then
+		die "${FUNCNAME} is available only in PEP517 mode"
+	fi
+
 	local root=${1}
 	local -x WHEEL_BUILD_DIR=${BUILD_DIR}/wheel
 	mkdir -p "${WHEEL_BUILD_DIR}" || die
@@ -1360,6 +1384,9 @@ distutils-r1_python_compile() {
 			in_iuse debug && use debug &&
 				MATURIN_PEP517_ARGS+=" --cargo-extra-args=--profile=dev"
 			;;
+		no)
+			return
+			;;
 	esac
 
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
@@ -1370,33 +1397,7 @@ distutils-r1_python_compile() {
 		addpredict /usr/lib/portage/pym
 		addpredict /usr/local # bug 498232
 
-		local root=${BUILD_DIR}/install
-		distutils_pep517_install "${root}"
-
-		# copy executables to python-exec directory
-		# we do it early so that we can alter bindir recklessly
-		local bindir=${root}${EPREFIX}/usr/bin
-		local rscriptdir=${root}$(python_get_scriptdir)
-		[[ -d ${rscriptdir} ]] &&
-			die "${rscriptdir} should not exist!"
-		if [[ -d ${bindir} ]]; then
-			mkdir -p "${rscriptdir}" || die
-			cp -a --reflink=auto "${bindir}"/. "${rscriptdir}"/ || die
-		fi
-
-		# enable venv magic inside the install tree
-		mkdir -p "${bindir}" || die
-		ln -s "${PYTHON}" "${bindir}/${EPYTHON}" || die
-		ln -s "${EPYTHON}" "${bindir}/python3" || die
-		ln -s "${EPYTHON}" "${bindir}/python" || die
-		cat > "${bindir}"/pyvenv.cfg <<-EOF || die
-			include-system-site-packages = true
-		EOF
-
-		# we need to change shebangs to point to the venv-python
-		find "${bindir}" -type f -exec sed -i \
-			-e "1s@^#!\(${EPREFIX}/usr/bin/\(python\|pypy\)\)@#!${root}\1@" \
-			{} + || die
+		distutils_pep517_install "${BUILD_DIR}/install"
 	fi
 }
 
@@ -1510,6 +1511,7 @@ distutils-r1_python_install() {
 	_python_check_EPYTHON
 
 	local scriptdir=${EPREFIX}/usr/bin
+	local merge_root=
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
 		local root=${BUILD_DIR}/install
 		# remove the altered bindir, executables from the package
@@ -1521,6 +1523,10 @@ distutils-r1_python_install() {
 				mv "${wrapped_scriptdir}" "${root}${scriptdir}" || die
 			fi
 		fi
+		# prune empty directories to see if ${root} contains anything
+		# to merge
+		find "${BUILD_DIR}"/install -type d -empty -delete || die
+		[[ -d ${BUILD_DIR}/install ]] && merge_root=1
 	else
 		local root=${D%/}/_${EPYTHON}
 		[[ ${DISTUTILS_SINGLE_IMPL} ]] && root=${D%/}
@@ -1547,6 +1553,8 @@ distutils-r1_python_install() {
 		addpredict /usr/local # bug 498232
 
 		if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
+			merge_root=1
+
 			# user may override --install-scripts
 			# note: this is poor but distutils argv parsing is dumb
 
@@ -1575,13 +1583,8 @@ distutils-r1_python_install() {
 		esetup.py "${args[@]}"
 	fi
 
-	if [[ ! ${DISTUTILS_SINGLE_IMPL} || ${DISTUTILS_USE_PEP517} ]]; then
+	if [[ ${merge_root} ]]; then
 		multibuild_merge_root "${root}" "${D%/}"
-		if [[ ${DISTUTILS_USE_PEP517} ]]; then
-			# we need to recompile everything here in order to embed
-			# the correct paths
-			python_optimize "${D%/}$(python_get_sitedir)"
-		fi
 	fi
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 		_distutils-r1_wrap_scripts "${scriptdir}"
@@ -1775,6 +1778,43 @@ distutils-r1_src_configure() {
 	return ${ret}
 }
 
+# @FUNCTION: _distutils-r1_post_python_compile
+# @INTERNAL
+# @DESCRIPTION:
+# Post-phase function called after python_compile.  In PEP517 mode,
+# it adjusts the install tree for venv-style usage.
+_distutils-r1_post_python_compile() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local root=${BUILD_DIR}/install
+	if [[ ${DISTUTILS_USE_PEP517} && -d ${root} ]]; then
+		# copy executables to python-exec directory
+		# we do it early so that we can alter bindir recklessly
+		local bindir=${root}${EPREFIX}/usr/bin
+		local rscriptdir=${root}$(python_get_scriptdir)
+		[[ -d ${rscriptdir} ]] &&
+			die "${rscriptdir} should not exist!"
+		if [[ -d ${bindir} ]]; then
+			mkdir -p "${rscriptdir}" || die
+			cp -a --reflink=auto "${bindir}"/. "${rscriptdir}"/ || die
+		fi
+
+		# enable venv magic inside the install tree
+		mkdir -p "${bindir}" || die
+		ln -s "${PYTHON}" "${bindir}/${EPYTHON}" || die
+		ln -s "${EPYTHON}" "${bindir}/python3" || die
+		ln -s "${EPYTHON}" "${bindir}/python" || die
+		cat > "${bindir}"/pyvenv.cfg <<-EOF || die
+			include-system-site-packages = true
+		EOF
+
+		# we need to change shebangs to point to the venv-python
+		find "${bindir}" -type f -exec sed -i \
+			-e "1s@^#!\(${EPREFIX}/usr/bin/\(python\|pypy\)\)@#!${root}\1@" \
+			{} + || die
+	fi
+}
+
 distutils-r1_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 	local ret=0
@@ -1840,16 +1880,25 @@ distutils-r1_src_test() {
 _distutils-r1_post_python_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local forbidden_package_names=(
-		examples test tests
-		.pytest_cache .hypothesis _trial_temp
-	)
-	local p
-	for p in "${forbidden_package_names[@]}"; do
-		if [[ -d ${D}$(python_get_sitedir)/${p} ]]; then
-			die "Package installs '${p}' package which is forbidden and likely a bug in the build system."
+	local sitedir=${D%/}$(python_get_sitedir)
+	if [[ -d ${sitedir} ]]; then
+		local forbidden_package_names=(
+			examples test tests
+			.pytest_cache .hypothesis _trial_temp
+		)
+		local p
+		for p in "${forbidden_package_names[@]}"; do
+			if [[ -d ${sitedir}/${p} ]]; then
+				die "Package installs '${p}' package which is forbidden and likely a bug in the build system."
+			fi
+		done
+
+		if [[ ${DISTUTILS_USE_PEP517} ]]; then
+			# we need to recompile everything here in order to embed
+			# the correct paths
+			python_optimize "${sitedir}"
 		fi
-	done
+	fi
 }
 
 # @FUNCTION: _distutils-r1_check_namespace_pth
