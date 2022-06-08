@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,19 +6,17 @@ EAPI=7
 inherit cmake
 
 MY_P=CGAL-${PV}
-
 DESCRIPTION="C++ library for geometric algorithms and data structures"
 HOMEPAGE="https://www.cgal.org/"
 SRC_URI="
 	https://github.com/CGAL/cgal/releases/download/v${PV}/${MY_P}.tar.xz
 	doc? ( https://github.com/CGAL/cgal/releases/download/v${PV}/${MY_P}-doc_html.tar.xz )"
-
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-3 GPL-3 Boost-1.0"
 SLOT="0/14"
-KEYWORDS="amd64 ~arm64 x86 ~amd64-linux ~x86-linux"
-IUSE="doc examples +gmp mpfi ntl qt5"
+KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="doc examples +gmp mpfi ntl qt5 +shared"
 
 RDEPEND="
 	dev-cpp/eigen
@@ -28,9 +26,9 @@ RDEPEND="
 	x11-libs/libX11:=
 	virtual/glu:=
 	virtual/opengl:=
-	gmp? ( dev-libs/gmp:=[cxx(+)] )
+	gmp? ( dev-libs/gmp:=[cxx] )
 	mpfi? ( sci-libs/mpfi )
-	ntl? ( dev-libs/ntl:= )
+	ntl? ( dev-libs/ntl )
 	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -57,7 +55,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCGAL_INSTALL_LIB_DIR="$(get_libdir)"
 		-DCGAL_INSTALL_CMAKE_DIR="$(get_libdir)/cmake/CGAL"
-		-DCGAL_HEADER_ONLY=OFF
+		-DCGAL_HEADER_ONLY=$(usex shared OFF ON)
 		-DWITH_LEDA=OFF
 		-DWITH_Eigen3=ON
 		-DWITH_ZLIB=ON
