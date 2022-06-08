@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.24.10 1.25.2 1.25.3: Universal Command Line Environment for AWS
+app-admin/awscli 1.24.10 1.25.2 1.25.3 1.25.4: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8396,7 +8396,7 @@ dev-python/ansicolor 0.3.2 0.3.2-r1 9999: Produce ansi color output and colored 
 dev-python/antlr4-python3-runtime 4.10.1: Python 3 runtime for ANTLR
 dev-python/anyio 3.5.0-r1 3.6.1: Compatibility layer for multiple asynchronous event loop implementations
 dev-python/anyqt 0.0.14: PyQt4/PyQt5 compatibility layer
-dev-python/apipkg 2.1.0 2.1.1: Namespace control and lazy-import mechanism
+dev-python/apipkg 2.1.0 2.1.1 3.0.0: Namespace control and lazy-import mechanism
 dev-python/apispec 5.2.2: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r2: Module for determining appropriate platform-specific dirs
 dev-python/apsw 3.38.1_p1 3.38.5_p1: APSW - Another Python SQLite Wrapper
@@ -8428,12 +8428,12 @@ dev-python/automat 20.2.0 20.2.0-r1: Self-service finite-state machines for the 
 dev-python/autopage 0.5.0 0.5.1: A library to provide automatic paging for console output
 dev-python/autopep8 1.6.0 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.0.2-r1 4.1.0: Infer properties from accessor methods
-dev-python/aws-sam-translator 1.45.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.45.0 1.46.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk-python 2.8.0: AWS X-Ray SDK for Python
 dev-python/awxkit 21.0.0 21.1.0: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r1 0.6.0-r2 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
-dev-python/backoff 2.0.1: Function decoration for backoff and retry
+dev-python/backoff 2.0.1 2.1.0: Function decoration for backoff and retry
 dev-python/backports-entry_points_selectable 1.1.0-r1 1.1.1: Compatibility shim providing selectable entry points
 dev-python/backports-tempfile 1.0-r1: Backport of new features in Python's tempfile module
 dev-python/backports-weakref 1.0_p1-r1: Backport of new features in Python's weakref module
@@ -8468,8 +8468,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.23.10 1.24.2 1.24.3 9999: The AWS SDK for Python
-dev-python/botocore 1.26.10 1.27.2 1.27.3 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.23.10 1.24.2 1.24.3 1.24.4 9999: The AWS SDK for Python
+dev-python/botocore 1.26.10 1.27.2 1.27.3 1.27.4 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8750,9 +8750,9 @@ dev-python/glob2 0.7-r1: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.2 2.1.2-r1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.7.3 2.8.1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.47.0 2.48.0 2.49.0: Google API Client for Python
+dev-python/google-api-python-client 2.47.0 2.48.0 2.49.0 2.50.0: Google API Client for Python
 dev-python/google-apitools 0.5.32 0.5.32-r1: Python library to manipulate Google APIs
-dev-python/google-auth 2.6.6-r1: Google Authentication Library
+dev-python/google-auth 2.6.6-r1 2.7.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r1: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 0.5.1: Google Authentication Library
 dev-python/google-pasta 0.2.0-r1: AST-based Python refactoring library
@@ -8885,12 +8885,12 @@ dev-python/junit-xml 1.9: Create JUnit XML test result documents
 dev-python/jupyter 1.0.0-r4: Jupyter metapackage. Install all the Jupyter components in one go
 dev-python/jupyter-lsp 1.5.1: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-server-proxy 3.2.1: Jupyter notebook server extension to proxy web services
-dev-python/jupyter_client 7.3.1 7.3.2: Jupyter protocol implementation and client libraries
+dev-python/jupyter_client 7.3.1 7.3.2 7.3.3: Jupyter protocol implementation and client libraries
 dev-python/jupyter_console 6.4.3: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter_core 4.10.0: Core common functionality of Jupyter projects
 dev-python/jupyter_kernel_test 0.4.3: Jupyter kernel for octave
 dev-python/jupyter_packaging 0.12.0-r1 0.12.1: Tools to help build and install Jupyter Python packages
-dev-python/jupyter_server 1.17.0: Core services, APIs, and REST endpoints to Jupyter web applications
+dev-python/jupyter_server 1.17.0 1.17.1: Core services, APIs, and REST endpoints to Jupyter web applications
 dev-python/jupyter_server_mathjax 0.2.5: MathJax resources as a Jupyter Server Extension
 dev-python/jupyterlab 3.3.4: JupyterLab computational environment
 dev-python/jupyterlab-lsp 3.10.1: Coding assistance for JupyterLab with Language Server Protocol
@@ -9017,7 +9017,7 @@ dev-python/mypy 0.942 0.950 0.960 0.961: Optional static typing for Python
 dev-python/mypy_extensions 0.4.3-r1: Optional static typing for Python
 dev-python/mysql-connector-python 8.0.27: Python client library for MariaDB/MySQL
 dev-python/mysqlclient 2.1.0: Python interface to MySQL
-dev-python/myst_parser 0.17.2: Extended commonmark compliant parser, with bridges to sphinx
+dev-python/myst_parser 0.17.2 0.18.0: Extended commonmark compliant parser, with bridges to sphinx
 dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plugins
 dev-python/natsort 8.1.0: Natural sorting for Python
 dev-python/nautilus-python 1.2.3-r1: Python bindings for the Nautilus file manager
@@ -9046,7 +9046,7 @@ dev-python/nose-random 1.0.0: Nose plugin to facilitate randomized unit testing
 dev-python/nose2 0.11.0: Next generation unittest with plugins
 dev-python/nose_fixes 1.3: A plugin to make nose behave better
 dev-python/nose_warnings_filters 0.1.5-r3: A python module to inject warning filters during nosetest
-dev-python/notebook 6.4.11: Jupyter Interactive Notebook
+dev-python/notebook 6.4.11 6.4.12: Jupyter Interactive Notebook
 dev-python/notebook_shim 0.1.0: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nototools 0.2.16: Noto fonts support tools and scripts plus web site generation
@@ -9054,7 +9054,7 @@ dev-python/nptyping 2.0.1 2.1.1: Type hints for Numpy
 dev-python/nspektr 0.3.0: Distribution package dependency inspector
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
-dev-python/nuitka 0.7.7 0.8 0.8.1 0.8.2 0.8.3: Python to native compiler
+dev-python/nuitka 0.7.7 0.8 0.8.1 0.8.2 0.8.3 0.8.4: Python to native compiler
 dev-python/numexpr 2.8.1 2.8.1-r1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.21.5 1.22.0-r1 1.22.1 1.22.2 1.22.3 1.22.4: Fast array and numerical python library
 dev-python/numpydoc 1.3.1: Sphinx extension to support docstrings in Numpy format
@@ -9458,7 +9458,7 @@ dev-python/python-lsp-jsonrpc 1.0.0: JSON RPC 2.0 server library
 dev-python/python-lsp-server 1.4.1: Python Language Server for the Language Server Protocol
 dev-python/python-ly 0.9.6 0.9.7: Tool and library for manipulating LilyPond files
 dev-python/python-lzo 1.14-r1: Python interface to lzo
-dev-python/python-magic 0.4.25 0.4.26: Access the libmagic file type identification library
+dev-python/python-magic 0.4.25 0.4.26 0.4.27: Access the libmagic file type identification library
 dev-python/python-markdown-math 0.8: Math extension for Python-Markdown
 dev-python/python-memcached 1.59-r1: Pure python memcached client
 dev-python/python-mimeparse 1.6.0-r3: Basic functions for handling mime-types in python
@@ -9606,7 +9606,7 @@ dev-python/serpent 1.40: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0 21.1.0-r1: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.2.3: Allow customization of the process title
-dev-python/setuptools 62.1.0-r1 62.2.0 62.3.1 62.3.2-r1: Collection of extensions to Distutils
+dev-python/setuptools 62.1.0-r1 62.2.0 62.3.1 62.3.2-r1 62.3.3: Collection of extensions to Distutils
 dev-python/setuptools-declarative-requirements 1.2.0-r1 1.2.0-r2: Requirements Support For Setuptools Declarative setup.cfg
 dev-python/setuptools-git 1.2-r2 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.3.0: A plugin for setuptools to build Rust Python extensions
@@ -9659,6 +9659,7 @@ dev-python/sphinx-notfound-page 0.8: Create a custom 404 page with absolute URLs
 dev-python/sphinx-panels 0.6.0: A sphinx extension for creating panels in a grid layout
 dev-python/sphinx-prompt 1.5.0: Sphinx directive to add unselectable prompt
 dev-python/sphinx-py3doc-enhanced-theme 2.3.2-r1: Enhanced Sphinx theme (based on Python 3 docs)
+dev-python/sphinx-pytest 0.0.3: Helpful pytest fixtures for Sphinx extensions
 dev-python/sphinx-tabs 3.3.1-r1: Tabbed views for Sphinx
 dev-python/sphinx-testing 1.0.1-r2: Testing utility classes and functions for Sphinx extensions
 dev-python/sphinx_ansible_theme 0.8.0 0.9.1: A reusable Ansible Sphinx theme
@@ -9705,7 +9706,7 @@ dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
 dev-python/stack_data 0.2.0: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20200531-r2 1.0.0_p20220330: Suite of tools for PDF files manipulation written in Python
-dev-python/starlette 0.18.0 0.20.0 0.20.1: The little ASGI framework that shines
+dev-python/starlette 0.18.0 0.20.0 0.20.1 0.20.2: The little ASGI framework that shines
 dev-python/statsd 3.3.0: A simple statsd client
 dev-python/statsmodels 0.13.2: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -9777,7 +9778,7 @@ dev-python/translate-toolkit 3.6.0 3.6.1 3.6.2: Toolkit to convert between many 
 dev-python/tree-sitter 0.20.0 0.20.0-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 3.12.3 3.12.5: Python library for loading and using triangular meshes
-dev-python/trio 0.20.0: Python library for async concurrency and I/O
+dev-python/trio 0.20.0 0.21.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trustme 0.9.0 0.9.0-r1: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/tubes 0.2.0-r1 0.2.1: Flow control and backpressure for event-driven applications
