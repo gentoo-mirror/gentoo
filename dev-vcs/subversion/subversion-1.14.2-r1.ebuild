@@ -70,12 +70,13 @@ RDEPEND="${COMMON_DEPEND}
 	perl? ( dev-perl/URI )
 "
 # Note: ctypesgen doesn't need PYTHON_USEDEP, it's used once
-DEPEND="${COMMON_DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	java? ( >=virtual/jdk-1.8:* )
+"
 BDEPEND="
 	virtual/pkgconfig
 	!!<sys-apps/sandbox-1.6
 	doc? ( app-doc/doxygen )
-	java? ( >=virtual/jdk-1.8:* )
 	kwallet? ( kde-frameworks/kdelibs4support:5 )
 	nls? ( sys-devel/gettext )
 	perl? ( dev-lang/swig )
