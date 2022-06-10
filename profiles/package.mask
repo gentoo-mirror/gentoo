@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-06-10)
+# Masked for removal on 2022-07-10. No upstream activity in a long time,
+# no reverse dependencies, and Gentoo maintains a huge number of patches
+# w/ no hope of them being upstreamed. Bug #850958.
+dev-cpp/commoncpp2
+
 # William Hubbs <williamh@gentoo.org> (2022-06-10)
 # The sysvinit use flag is broken. If this is enabled and you are
 # depending on it your system will not boot. bug #850754
@@ -41,11 +47,9 @@
 # Michał Górny <mgorny@gentoo.org> (2022-06-08)
 # pyroute2 is pending version bump for over 1.5 years already.
 # The tests are restricted.  pulseaudio-dlna is the only revdep.
-#
 # pulseaudio-dlna has not seen any upstream activity since 2017,
 # and has had its last release in 2016.  It does not feature a non-live
 # ebuild.
-#
 # Removal on 2022-07-08.  Bug #813990.
 dev-python/pyroute2
 net-misc/pulseaudio-dlna
@@ -354,16 +358,6 @@ dev-python/django-rq
 # Masked for removal. No reverse dependencies, no releases in 2 years,
 # does not support Python 3.10+. Removal on 2022-06-15.
 dev-python/python-iptables
-
-# Michał Górny <mgorny@gentoo.org> (2022-05-11)
-# A backport with no revdeps left.
-# Removal on 2022-06-10.  Bug #843791.
-dev-python/backports-entry_points_selectable
-
-# David Seifert <soap@gentoo.org> (2022-05-11)
-# Declared EOL by upstream at the end of 2020, no revdeps, last version
-# has many issues. Removal on 2022-06-10. Bug #741846, #770760.
-media-gfx/nvidia-texture-tools
 
 # Florian Schmaus <flow@gentoo.org> (2022-05-10)
 # Was split by upstream (and us) into
