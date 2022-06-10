@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-cpp/gtest dev-libs/boost ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/5.0 sci-libs/rocFFT:0/5.0
+DESCRIPTION=CU / ROCM agnostic hip FFT implementation
+EAPI=8
+HOMEPAGE=https://github.com/ROCmSoftwarePlatform/hipFFT
+INHERIT=cmake
+IUSE=benchmark test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/5.0 sci-libs/rocFFT:0/5.0
+RESTRICT=!test? ( test )
+SLOT=0/5.0
+SRC_URI=https://github.com/ROCmSoftwarePlatform/hipFFT/archive/refs/tags/rocm-5.0.2.tar.gz -> hipFFT-rocm-5.0.2.tar.gz test? ( https://github.com/ROCmSoftwarePlatform/rocFFT/archive/rocm-5.0.2.tar.gz -> rocFFT-5.0.2.tar.gz )
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_md5_=99b2f42d45dcc8f27e2b4e755bb822a9
