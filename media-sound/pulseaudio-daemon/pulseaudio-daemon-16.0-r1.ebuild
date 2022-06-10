@@ -32,8 +32,8 @@ SLOT="0"
 # +alsa-plugin as discussed in bug #519530
 # TODO: Find out why webrtc-aec is + prefixed - there's already the always available speexdsp-aec
 # NOTE: The current ebuild sets +X almost certainly just for the pulseaudio.desktop file
-IUSE="+alsa +alsa-plugin aptx +asyncns bluetooth dbus elogind equalizer +gdbm gstreamer +glib gtk ipv6 jack ldac lirc
-native-headset ofono-headset +orc oss selinux sox ssl systemd system-wide tcpd test +udev valgrind +webrtc-aec +X zeroconf"
+IUSE="+alsa +alsa-plugin aptx +asyncns bluetooth dbus elogind equalizer fftw +gdbm +glib gstreamer gtk ipv6 jack ldac lirc
+ofono-headset +orc oss selinux sox ssl systemd system-wide tcpd test +udev valgrind +webrtc-aec +X zeroconf"
 
 RESTRICT="!test? ( test )"
 
@@ -41,11 +41,12 @@ RESTRICT="!test? ( test )"
 # Basically all IUSE are either ${MULTILIB_USEDEP} for client libs or they belong under !daemon ()
 # We duplicate alsa-plugin, {native,ofono}-headset under daemon to let users deal with them at once
 REQUIRED_USE="
-	alsa-plugin? ( alsa )
-	bluetooth? ( dbus )
 	?? ( elogind systemd )
+	alsa-plugin? ( alsa )
+	aptx? ( bluetooth )
+	bluetooth? ( dbus )
 	equalizer? ( dbus )
-	native-headset? ( bluetooth )
+	ldac? ( bluetooth )
 	ofono-headset? ( bluetooth )
 	udev? ( || ( alsa oss ) )
 	zeroconf? ( dbus )
@@ -55,6 +56,10 @@ REQUIRED_USE="
 # - libpcre needed in some cases, bug #472228
 # - media-libs/speexdsp is providing echo canceller implementation and used in resampler
 # TODO: libatomic_ops is only needed on some architectures and conditions, and then at runtime too
+gstreamer_deps="
+	media-libs/gst-plugins-base
+	>=media-libs/gstreamer-1.14
+"
 COMMON_DEPEND="
 	>=media-libs/libpulse-${PV}[dbus?,glib?,systemd?,tcpd?,valgrind?,X?]
 	dev-libs/libatomic_ops
@@ -65,6 +70,7 @@ COMMON_DEPEND="
 		dev-libs/libpcre:3
 	)
 	alsa? ( >=media-libs/alsa-lib-1.0.24 )
+	aptx? ( ${gstreamer_deps} )
 	asyncns? ( >=net-libs/libasyncns-0.1 )
 	bluetooth? (
 		>=net-wireless/bluez-5
@@ -76,16 +82,17 @@ COMMON_DEPEND="
 	dbus? ( >=sys-apps/dbus-1.4.12 )
 	elogind? ( sys-auth/elogind )
 	equalizer? (
-		sci-libs/fftw:3.0
+		sci-libs/fftw:3.0=
+	)
+	fftw? (
+		sci-libs/fftw:3.0=
 	)
 	gdbm? ( sys-libs/gdbm:= )
 	glib? ( >=dev-libs/glib-2.28.0:2 )
-	gstreamer? (
-		media-libs/gst-plugins-base
-		>=media-libs/gstreamer-1.14
-	)
+	gstreamer? ( ${gstreamer_deps} )
 	gtk? ( x11-libs/gtk+:3 )
 	jack? ( virtual/jack )
+	ldac? ( ${gstreamer_deps} )
 	lirc? ( app-misc/lirc )
 	ofono-headset? ( >=net-misc/ofono-1.13 )
 	orc? ( >=dev-lang/orc-0.4.15 )
@@ -126,12 +133,11 @@ RDEPEND="
 		acct-group/pulse-access
 	)
 	bluetooth? (
-		gstreamer? (
-			ldac? ( media-plugins/gst-plugins-ldac )
-			aptx? ( media-plugins/gst-plugins-openaptx )
-		)
+		ldac? ( media-plugins/gst-plugins-ldac )
+		aptx? ( media-plugins/gst-plugins-openaptx )
 	)
 "
+unset gstreamer_deps
 
 # This is a PDEPEND to avoid a circular dep
 PDEPEND="
@@ -164,6 +170,16 @@ src_prepare() {
 }
 
 src_configure() {
+	local enable_bluez5_gstreamer="disabled"
+	if use aptx || use ldac ; then
+		enable_bluez5_gstreamer="enabled"
+	fi
+
+	local enable_fftw="disabled"
+	if use equalizer || use fftw ; then
+		enable_fftw="enabled"
+	fi
+
 	local emesonargs=(
 		--localstatedir="${EPREFIX}"/var
 
@@ -189,12 +205,12 @@ src_configure() {
 		$(meson_feature asyncns)
 		$(meson_feature zeroconf avahi)
 		$(meson_feature bluetooth bluez5)
-		$(meson_feature gstreamer bluez5-gstreamer)
-		$(meson_use native-headset bluez5-native-headset)
+		-Dbluez5-gstreamer=${enable_bluez5_gstreamer}
+		$(meson_use bluetooth bluez5-native-headset)
 		$(meson_use ofono-headset bluez5-ofono-headset)
 		$(meson_feature dbus)
 		$(meson_feature elogind)
-		$(meson_feature equalizer fftw)
+		-Dfftw=${enable_fftw}
 		$(meson_feature glib) # WARNING: toggling this likely changes ABI
 		$(meson_feature glib gsettings) # Supposedly correct?
 		$(meson_feature gstreamer)
@@ -312,9 +328,29 @@ pkg_postinst() {
 		elog ""
 	fi
 
-	if use native-headset && use ofono-headset; then
+	if use bluetooth; then
+		elog "You have enabled bluetooth USE flag for pulseaudio. Daemon will now handle"
+		elog "bluetooth Headset (HSP HS and HSP AG) and Handsfree (HFP HF) profiles using"
+		elog "native headset backend by default. This can be selectively disabled"
+		elog "via runtime configuration arguments to module-bluetooth-discover"
+		elog "in /etc/pulse/default.pa"
+		elog "To disable HFP HF append enable_native_hfp_hf=false"
+		elog "To disable HSP HS append enable_native_hsp_hs=false"
+		elog "To disable HSP AG append headset=auto or headset=ofono"
+		elog "(note this does NOT require enabling USE ofono)"
+		elog ""
+	fi
+
+	if use ofono-headset; then
 		elog "You have enabled both native and ofono headset profiles. The runtime decision"
 		elog "which to use is done via the 'headset' argument of module-bluetooth-discover."
+		elog ""
+	fi
+
+	if use gstreamer; then
+		elog "GStreamer-based RTP implementation modile enabled."
+		elog "To use OPUS payload install media-plugins/gst-plugins-opus"
+		elog "and add enable_opus=1 argument to module-rtp-send"
 		elog ""
 	fi
 
