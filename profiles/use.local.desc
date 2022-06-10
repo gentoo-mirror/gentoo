@@ -4748,13 +4748,13 @@ media-sound/pulseaudio-daemon:alsa-plugin - Request installing media-plugins/als
 media-sound/pulseaudio-daemon:aptx - aptX (HD) over Bluetooth (many Android compatible headphones), requires media-plugins/gst-plugins-openaptx.
 media-sound/pulseaudio-daemon:asyncns - Use libasyncns for asynchronous name resolution.
 media-sound/pulseaudio-daemon:elogind - Use sys-auth/elogind for giving each session a PA client
-media-sound/pulseaudio-daemon:equalizer - Enable the equalizer module (requires sci-libs/fftw).
+media-sound/pulseaudio-daemon:equalizer - Enable the equalizer module (requires sci-libs/fftw and sys-apps/dbus).
+media-sound/pulseaudio-daemon:fftw - Enable the virtual surround sink module (requires sci-libs/fftw).
 media-sound/pulseaudio-daemon:gdbm - Use sys-libs/gdbm to store PulseAudio databases. Recommended for desktop usage. This flag causes the whole package to be licensed under GPL-2 or later.
 media-sound/pulseaudio-daemon:glib - Build the GSettings PA module.
-media-sound/pulseaudio-daemon:gstreamer - Build with support for gstreamer including ability to use bluetooth codecs. For bluetooth codecs see USE ldac and aptx.
+media-sound/pulseaudio-daemon:gstreamer - Build GStreamer-based RTP protocol module which supports more advanced RTP features like OPUS payload encoding.
 media-sound/pulseaudio-daemon:ldac - LDAC over Bluetooth (primarily Sony headphones), requires media-plugins/gst-plugins-ldac.
-media-sound/pulseaudio-daemon:native-headset - Build with native HSP backend for bluez 5.
-media-sound/pulseaudio-daemon:ofono-headset - Build with oFono HFP backend for bluez 5, requires net-misc/ofono.
+media-sound/pulseaudio-daemon:ofono-headset - Build with optional oFono HFP backend for bluez 5, requires net-misc/ofono.
 media-sound/pulseaudio-daemon:oss - Enable OSS sink/source (output/input). Deprecated, upstream does not support this on systems where other sink/source systems are available (i.e.: Linux). The padsp wrapper is now always build if the system supports OSS at all.
 media-sound/pulseaudio-daemon:ssl - Use dev-libs/openssl to provide support for RAOP (AirPort) streaming.
 media-sound/pulseaudio-daemon:system-wide - Allow preparation and installation of the system-wide init script for PulseAudio. Since this support is only supported for embedded situations, do not enable without reading the upstream instructions at https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/WhatIsWrongWithSystemWide/ .
