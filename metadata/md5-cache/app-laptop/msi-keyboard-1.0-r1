@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postrm prerm
+DEPEND=dev-libs/hidapi
+DESCRIPTION=Control backlight of MSI laptop keyboards
+EAPI=8
+HOMEPAGE=https://github.com/makkarpov/msi-keyboard
+INHERIT=toolchain-funcs udev
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-libs/hidapi
+SLOT=0
+SRC_URI=https://github.com/makkarpov/msi-keyboard/archive/v1.0.tar.gz -> msi-keyboard-1.0.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	udev	f3a0a3964e2028a140c181f00eea9712
+_md5_=d07a69c88bc7eab467ea31ad91b6e064
