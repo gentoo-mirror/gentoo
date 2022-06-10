@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.24.10 1.25.2 1.25.3 1.25.4 1.25.5: Universal Command Line Environment for AWS
+app-admin/awscli 1.24.10 1.25.2 1.25.3 1.25.4 1.25.5 1.25.6: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8467,8 +8467,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.23.10 1.24.2 1.24.3 1.24.4 1.24.5 9999: The AWS SDK for Python
-dev-python/botocore 1.26.10 1.27.2 1.27.3 1.27.4 1.27.5 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.23.10 1.24.2 1.24.3 1.24.4 1.24.5 1.24.6 9999: The AWS SDK for Python
+dev-python/botocore 1.26.10 1.27.2 1.27.3 1.27.4 1.27.5 1.27.6 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -9051,13 +9051,13 @@ dev-python/notebook_shim 0.1.0: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nototools 0.2.16: Noto fonts support tools and scripts plus web site generation
 dev-python/nptyping 2.0.1 2.1.1 2.1.2: Type hints for Numpy
-dev-python/nspektr 0.3.0: Distribution package dependency inspector
+dev-python/nspektr 0.3.0 0.4.0: Distribution package dependency inspector
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
 dev-python/nuitka 0.7.7 0.8 0.8.1 0.8.2 0.8.3 0.8.4: Python to native compiler
 dev-python/numexpr 2.8.1 2.8.1-r1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.21.5 1.22.0-r1 1.22.1 1.22.2 1.22.3 1.22.4: Fast array and numerical python library
-dev-python/numpydoc 1.3.1: Sphinx extension to support docstrings in Numpy format
+dev-python/numpydoc 1.3.1 1.4.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauth2client 4.1.3-r2: Library for accessing resources protected by OAuth 2.0
 dev-python/oauthlib 3.2.0: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.5.0 3.5.0-r1: Draws Python object reference graphs with graphviz
@@ -9140,7 +9140,7 @@ dev-python/picobox 2.2.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.2.0: Pure-Python implementation of the AMQP
-dev-python/pikepdf 5.1.2 5.1.3 5.1.4: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 5.1.2 5.1.3 5.1.4 5.1.5: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 9.0.1 9.0.1-r1 9.1.1: Python Imaging Library (fork)
 dev-python/pip 22.0.4 22.0.4-r1 22.1.1 22.1.2: The PyPA recommended tool for installing Python packages
@@ -9706,7 +9706,7 @@ dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
 dev-python/stack_data 0.2.0: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20200531-r2 1.0.0_p20220330: Suite of tools for PDF files manipulation written in Python
-dev-python/starlette 0.18.0 0.20.0 0.20.1 0.20.2: The little ASGI framework that shines
+dev-python/starlette 0.18.0 0.20.0 0.20.1 0.20.2 0.20.3: The little ASGI framework that shines
 dev-python/statsd 3.3.0: A simple statsd client
 dev-python/statsmodels 0.13.2: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -9796,7 +9796,7 @@ dev-python/typish 1.9.3: Functionality for types
 dev-python/typogrify 2.0.7 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzlocal 4.2: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.7.1 2.7.1-r1: A portable, lightweight MessagePack serializer and deserializer
-dev-python/ubelt 1.0.1 1.1.0: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
+dev-python/ubelt 1.0.1 1.1.0 1.1.1: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
 dev-python/ujson 5.2.0-r1 5.3.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.1 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukkonen)
 dev-python/unasync 0.5.0: The async transformation code
