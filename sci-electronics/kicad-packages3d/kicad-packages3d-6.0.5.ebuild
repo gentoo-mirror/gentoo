@@ -14,13 +14,15 @@ if [[ ${PV} == 9999 ]]; then
 else
 	MY_PV="${PV/_rc/-rc}"
 	MY_P="${PN}-${MY_PV}"
+	# Source directory for this package always has the repository hash in the directory name
+	MY_HASH="ac7189ed55d5a3bf5eaa87d31fb97a3e7b5ad80e"
 	SRC_URI="https://gitlab.com/kicad/libraries/${PN}/-/archive/${MY_PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 	if [[ ${PV} != *_rc* ]] ; then
 		KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 	fi
 
-	S="${WORKDIR}/${PN/3d/3D}-${MY_PV}-6ff98426fd51d53c55bc48025d66d3d0b0c5df92"
+	S="${WORKDIR}/${PN/3d/3D}-${MY_PV}-${MY_HASH}"
 fi
 
 IUSE="+occ"

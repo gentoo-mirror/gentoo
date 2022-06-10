@@ -78,10 +78,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-scripts-install-fix.patch"
 )
 
-pkg_pretend() {
-	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-}
-
 pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 
