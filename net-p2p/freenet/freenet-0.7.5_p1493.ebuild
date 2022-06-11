@@ -1,11 +1,11 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 JAVA_PKG_IUSE="doc source"
 
-inherit epatch java-pkg-2 java-ant-2 systemd
+inherit java-pkg-2 java-ant-2 systemd
 
 DESCRIPTION="An encrypted network without censorship"
 HOMEPAGE="https://freenetproject.org/"
@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="GPL-2+ GPL-2 MIT BSD-2 Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="+nss test"
 
 CDEPEND="dev-java/bcprov:0
@@ -65,12 +65,6 @@ S="${WORKDIR}/fred-build0${PV#*p}"
 
 RESTRICT="test" # they're broken in the last release.
 
-MY_PATCHES=(
-	"${FILESDIR}"/0.7.5_p1491-update-for-jna-5.x.patch
-	"${FILESDIR}"/0.7.5_p1483-ext.patch
-	"${FILESDIR}/"0.7.5_p1475-remove-git.patch
-)
-
 pkg_setup() {
 	has_version dev-java/icedtea[cacao] && {
 		ewarn "dev-java/icedtea was built with cacao USE flag."
@@ -94,14 +88,15 @@ src_prepare() {
 	cp "${FILESDIR}"/build-clean.xml build-clean.xml || die
 	cp "${FILESDIR}"/build.properties build.properties || die
 
-	epatch "${MY_PATCHES[@]}"
+	eapply -p0 "${FILESDIR}"/0.7.5_p1483-ext.patch
+	eapply -p1 "${FILESDIR}/"0.7.5_p1475-remove-git.patch
 
 	sed -i -e "s:=/usr/lib:=/usr/$(get_libdir):g" \
 		freenet-wrapper.conf || die "sed failed"
 
 	echo "wrapper.java.classpath.1=/usr/share/freenet/lib/freenet.jar" >> freenet-wrapper.conf || die
 	if use nss; then
-		echo "wrapper.java.additional.6=-Dfreenet.jce.use.NSS=true" >> freenet-wrapper.conf || die
+		echo "wrapper.java.additional.11=-Dfreenet.jce.use.NSS=true" >> freenet-wrapper.conf || die
 	fi
 	local i=2 pkg jars jar
 	local ifs_original=${IFS}
