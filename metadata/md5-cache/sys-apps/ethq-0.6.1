@@ -1,6 +1,5 @@
-BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare test
-DEPEND=sys-libs/ncurses:0=
+DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Ethernet NIC Queue stats viewer
 EAPI=7
 HOMEPAGE=https://github.com/isc-projects/ethq
@@ -8,9 +7,9 @@ INHERIT=toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=MPL-2.0
-RDEPEND=sys-libs/ncurses:0=
+RDEPEND=sys-libs/ncurses:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/isc-projects/ethq/archive/v0_6_1.tar.gz -> ethq-0_6_1.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=aef54ba74d168af1971b04b1f143d6f3
+_md5_=5b427c8212858b6f88a65600e6bd024b
