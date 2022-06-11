@@ -7,7 +7,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/openssl.org.asc
 inherit edo flag-o-matic toolchain-funcs multilib-minimal verify-sig
 
 MY_P=${P/_/-}
-DESCRIPTION="full-strength general purpose cryptography library (including SSL and TLS)"
+DESCRIPTION="Full-strength general purpose cryptography library (including SSL and TLS)"
 HOMEPAGE="https://www.openssl.org/"
 SRC_URI="mirror://openssl/source/${MY_P}.tar.gz
 	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-test-fixes-expiry.patch.xz
@@ -96,9 +96,8 @@ src_prepare() {
 	default
 
 	if use test && use sctp && has network-sandbox ${FEATURES}; then
-		ebegin "Disabling test '80-test_ssl_new.t' which is known to fail with FEATURES=network-sandbox"
+		einfo "Disabling test '80-test_ssl_new.t' which is known to fail with FEATURES=network-sandbox ..."
 		rm test/recipes/80-test_ssl_new.t || die
-		eend $?
 	fi
 
 	# - Make sure the man pages are suffixed (bug #302165)
@@ -133,7 +132,7 @@ src_prepare() {
 
 	append-flags $(test-flags-CC -Wa,--noexecstack)
 
-	# Prefixify Configure shebang (#141906)
+	# Prefixify Configure shebang (bug #141906)
 	sed \
 		-e "1s,/usr/bin/env,${EPREFIX}&," \
 		-i Configure || die
@@ -181,9 +180,10 @@ multilib_src_configure() {
 	local krb5=$(has_version app-crypt/mit-krb5 && echo "MIT" || echo "Heimdal")
 
 	# See if our toolchain supports __uint128_t.  If so, it's 64bit
-	# friendly and can use the nicely optimized code paths. #460790
+	# friendly and can use the nicely optimized code paths, bug #460790.
 	local ec_nistp_64_gcc_128
-	# Disable it for now though #469976
+
+	# Disable it for now though (bug #469976)
 	# echo "__uint128_t i;" > "${T}"/128.c
 	# if ${CC} ${CFLAGS} -c "${T}"/128.c -o /dev/null >&/dev/null ; then
 	# 	ec_nistp_64_gcc_128="enable-ec_nistp_64_gcc_128"
