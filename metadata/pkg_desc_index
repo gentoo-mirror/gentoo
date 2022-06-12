@@ -9931,13 +9931,13 @@ dev-qt/qtconcurrent 5.15.3 5.15.4: Multi-threading concurrence support library f
 dev-qt/qtcore 5.15.3 5.15.4-r2 5.15.4-r3: Cross-platform application development framework
 dev-qt/qtdatavis3d 5.15.3 5.15.4: 3D data visualization library for the Qt5 framework
 dev-qt/qtdbus 5.15.3 5.15.4: Qt5 module for inter-process communication over the D-Bus protocol
-dev-qt/qtdeclarative 5.15.3-r1 5.15.4: The QML and Quick modules for the Qt5 framework
+dev-qt/qtdeclarative 5.15.3-r1 5.15.4 5.15.4-r1: The QML and Quick modules for the Qt5 framework
 dev-qt/qtdiag 5.15.3 5.15.4: Tool for reporting diagnostic information about Qt and its environment
 dev-qt/qtgamepad 5.15.3 5.15.4: Qt module to support gamepad hardware
 dev-qt/qtgraphicaleffects 5.15.3 5.15.4: Set of QML types for adding visual effects to user interfaces
-dev-qt/qtgui 5.15.3 5.15.4 5.15.4-r1: The GUI module and platform plugins for the Qt5 framework
+dev-qt/qtgui 5.15.3 5.15.4 5.15.4-r2: The GUI module and platform plugins for the Qt5 framework
 dev-qt/qthelp 5.15.3 5.15.4: Qt5 module for integrating online documentation into applications
-dev-qt/qtimageformats 5.15.3 5.15.4: Additional format plugins for the Qt image I/O system
+dev-qt/qtimageformats 5.15.3 5.15.4 5.15.4-r1: Additional format plugins for the Qt image I/O system
 dev-qt/qtlocation 5.15.3-r1 5.15.4: Location (places, maps, navigation) library for the Qt5 framework
 dev-qt/qtlockedfile 2.4.1_p20171024: QFile extension with advisory locking functions
 dev-qt/qtmultimedia 5.15.3 5.15.4-r1: Multimedia (audio, video, radio, camera) library for the Qt5 framework
@@ -11354,7 +11354,7 @@ dev-util/gitlab-runner 14.9.2 14.10.1 15.0.0: The official GitLab Runner, writte
 dev-util/glade 3.38.2-r1: A user interface designer for GTK+ and GNOME
 dev-util/glib-utils 2.72.1 2.72.2: Build utilities for GLib using projects
 dev-util/global 6.6.4: tag system to find an object location in various sources
-dev-util/glslang 1.2.198 1.3.204 1.3.211 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
+dev-util/glslang 1.3.211 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
 dev-util/gn 0.1943: GN is a meta-build system that generates build files for Ninja
 dev-util/gnome-builder 3.40.2 42.1: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
@@ -11522,9 +11522,9 @@ dev-util/shunit2 2.1.6-r1 2.1.8: Unit-test framework for Bourne-based shell scri
 dev-util/smem 1.5-r2: A tool that can give numerous reports on memory usage on Linux systems
 dev-util/snakeviz 2.1.1: A web-based viewer for Python profiler output
 dev-util/source-highlight 3.1.9-r1: Generate highlighted source code as an (x)html document
-dev-util/spirv-headers 1.3.204 1.3.211 99999999: Machine-readable files for the SPIR-V Registry
+dev-util/spirv-headers 1.3.211 99999999: Machine-readable files for the SPIR-V Registry
 dev-util/spirv-llvm-translator 12.0.0 13.0.0-r2 14.0.0-r1: Bi-directional translator between SPIR-V and LLVM IR
-dev-util/spirv-tools 1.3.204 1.3.211-r1 99999999: Provides an API and commands for processing SPIR-V modules
+dev-util/spirv-tools 1.3.211-r1 99999999: Provides an API and commands for processing SPIR-V modules
 dev-util/splint 3.1.2-r2: Check C programs for vulnerabilities and programming mistakes
 dev-util/squashdelta 0.1.1 0.1.2 9999: Efficient (partially uncompressed) SquashFS binary delta tool
 dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
@@ -11563,8 +11563,8 @@ dev-util/visual-regexp 3.0-r1 3.1: Type the regexp and visualize it on a sample 
 dev-util/visualvm 2.1.2: Integrates commandline JDK tools and profiling capabilities
 dev-util/vmtouch 1.3.0 1.3.1: Virtual Memory Toucher, portable file system cache diagnostics and control
 dev-util/vtable-dumper 1.2: A tool to list content of virtual tables in a shared library
-dev-util/vulkan-headers 1.3.204 1.3.211 9999: Vulkan Header files and API registry
-dev-util/vulkan-tools 1.3.204 1.3.211 9999: Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS
+dev-util/vulkan-headers 1.3.211 9999: Vulkan Header files and API registry
+dev-util/vulkan-tools 1.3.211 9999: Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS
 dev-util/wachy 0.1.0_alpha6: A dynamic tracing profiler for Linux
 dev-util/wasmer 0.11.0: universal web assembly runtime
 dev-util/watchman 2022.03.28.00 2022.04.11.00: A file watching service
@@ -12852,87 +12852,87 @@ kde-apps/thumbnailers 21.12.3 22.04.2: Thumbnail generators for Mobipocket, PDF/
 kde-apps/umbrello 21.12.3 22.04.2: KDE UML Modeller
 kde-apps/yakuake 21.12.3 22.04.2: Quake-style terminal emulator based on konsole
 kde-apps/zeroconf-ioslave 21.12.3 22.04.2: DNSSD (DNS Service Discovery - part of Rendezvous) ioslave and kded module
-kde-frameworks/attica 5.92.0 5.94.0: Framework providing access to Open Collaboration Services
-kde-frameworks/baloo 5.92.0 5.94.0: Framework for searching and managing metadata
-kde-frameworks/bluez-qt 5.92.0 5.94.0: Qt wrapper for Bluez 5 DBus API
-kde-frameworks/breeze-icons 5.92.0 5.94.0: Breeze SVG icon theme
-kde-frameworks/breeze-icons-rcc 5.92.0 5.94.0: Breeze SVG icon theme binary resource
-kde-frameworks/countryflags 5.92.0 5.94.0: Icons of flags for various countries
-kde-frameworks/extra-cmake-modules 5.92.0 5.94.0: Extra modules and scripts for CMake
-kde-frameworks/frameworkintegration 5.92.0 5.94.0: Framework for integrating Qt applications with KDE Plasma workspaces
-kde-frameworks/kactivities 5.92.0 5.94.0: Framework for working with KDE activities
-kde-frameworks/kactivities-stats 5.92.0 5.94.0: Framework for getting the usage statistics collected by the activities service
-kde-frameworks/kapidox 5.92.0 5.94.0: Framework for building KDE API documentation in a standard format and style
-kde-frameworks/karchive 5.92.0 5.94.0: Framework for reading, creation, and manipulation of various archive formats
-kde-frameworks/kauth 5.92.0 5.94.0: Framework to let applications perform actions as a privileged user
-kde-frameworks/kbookmarks 5.92.0 5.94.0: Framework for managing bookmarks stored in XBEL format
-kde-frameworks/kcalendarcore 5.92.0 5.94.0: Library for interfacing with calendars
-kde-frameworks/kcmutils 5.92.0-r1 5.94.0: Framework to work with KDE System Settings modules
-kde-frameworks/kcodecs 5.92.0 5.94.0: Framework for manipulating strings using various encodings
-kde-frameworks/kcompletion 5.92.0 5.94.0: Framework for common completion tasks such as filename or URL completion
-kde-frameworks/kconfig 5.92.0 5.94.0: Framework for reading and writing configuration
-kde-frameworks/kconfigwidgets 5.92.0-r1 5.94.0: Framework providing an assortment of configuration-related widgets
-kde-frameworks/kcontacts 5.92.0 5.94.0: Address book API based on KDE Frameworks
-kde-frameworks/kcoreaddons 5.92.0 5.94.0: Framework for solving common problems such as caching, randomisation, and more
-kde-frameworks/kcrash 5.92.0 5.94.0: Framework for intercepting and handling application crashes
-kde-frameworks/kdav 5.92.0 5.94.0: DAV protocol implemention with KJobs
-kde-frameworks/kdbusaddons 5.92.0 5.94.0: Framework for registering services and applications per freedesktop standards
-kde-frameworks/kdeclarative 5.92.0 5.94.0: Framework providing integration of QML and KDE work spaces
-kde-frameworks/kded 5.92.0 5.94.0: Central daemon of KDE workspaces
-kde-frameworks/kdelibs4support 5.92.0 5.94.0: Framework easing the development transition from KDELibs 4 to KF 5
-kde-frameworks/kdesu 5.92.0 5.94.0: Framework to handle super user actions
-kde-frameworks/kdnssd 5.92.0 5.94.0: Framework for network service discovery using Zeroconf
-kde-frameworks/kdoctools 5.92.0 5.94.0: Tools to generate documentation in various formats from DocBook files
-kde-frameworks/kemoticons 5.92.0 5.94.0: Framework for converting text emoticons to graphical representations
+kde-frameworks/attica 5.92.0 5.94.0 5.95.0: Framework providing access to Open Collaboration Services
+kde-frameworks/baloo 5.92.0 5.94.0 5.95.0: Framework for searching and managing metadata
+kde-frameworks/bluez-qt 5.92.0 5.94.0 5.95.0: Qt wrapper for Bluez 5 DBus API
+kde-frameworks/breeze-icons 5.92.0 5.94.0 5.95.0: Breeze SVG icon theme
+kde-frameworks/breeze-icons-rcc 5.92.0 5.94.0 5.95.0: Breeze SVG icon theme binary resource
+kde-frameworks/countryflags 5.92.0 5.94.0 5.95.0: Icons of flags for various countries
+kde-frameworks/extra-cmake-modules 5.92.0 5.94.0 5.95.0: Extra modules and scripts for CMake
+kde-frameworks/frameworkintegration 5.92.0 5.94.0 5.95.0: Framework for integrating Qt applications with KDE Plasma workspaces
+kde-frameworks/kactivities 5.92.0 5.94.0 5.95.0: Framework for working with KDE activities
+kde-frameworks/kactivities-stats 5.92.0 5.94.0 5.95.0: Framework for getting the usage statistics collected by the activities service
+kde-frameworks/kapidox 5.92.0 5.94.0 5.95.0: Framework for building KDE API documentation in a standard format and style
+kde-frameworks/karchive 5.92.0 5.94.0 5.95.0: Framework for reading, creation, and manipulation of various archive formats
+kde-frameworks/kauth 5.92.0 5.94.0 5.95.0: Framework to let applications perform actions as a privileged user
+kde-frameworks/kbookmarks 5.92.0 5.94.0 5.95.0: Framework for managing bookmarks stored in XBEL format
+kde-frameworks/kcalendarcore 5.92.0 5.94.0 5.95.0: Library for interfacing with calendars
+kde-frameworks/kcmutils 5.92.0-r1 5.94.0 5.95.0: Framework to work with KDE System Settings modules
+kde-frameworks/kcodecs 5.92.0 5.94.0 5.95.0: Framework for manipulating strings using various encodings
+kde-frameworks/kcompletion 5.92.0 5.94.0 5.95.0: Framework for common completion tasks such as filename or URL completion
+kde-frameworks/kconfig 5.92.0 5.94.0 5.95.0: Framework for reading and writing configuration
+kde-frameworks/kconfigwidgets 5.92.0-r1 5.94.0 5.95.0: Framework providing an assortment of configuration-related widgets
+kde-frameworks/kcontacts 5.92.0 5.94.0 5.95.0: Address book API based on KDE Frameworks
+kde-frameworks/kcoreaddons 5.92.0 5.94.0 5.95.0: Framework for solving common problems such as caching, randomisation, and more
+kde-frameworks/kcrash 5.92.0 5.94.0 5.95.0: Framework for intercepting and handling application crashes
+kde-frameworks/kdav 5.92.0 5.94.0 5.95.0: DAV protocol implemention with KJobs
+kde-frameworks/kdbusaddons 5.92.0 5.94.0 5.95.0: Framework for registering services and applications per freedesktop standards
+kde-frameworks/kdeclarative 5.92.0 5.94.0 5.95.0: Framework providing integration of QML and KDE work spaces
+kde-frameworks/kded 5.92.0 5.94.0 5.95.0: Central daemon of KDE workspaces
+kde-frameworks/kdelibs4support 5.92.0 5.94.0 5.95.0: Framework easing the development transition from KDELibs 4 to KF 5
+kde-frameworks/kdesu 5.92.0 5.94.0 5.95.0: Framework to handle super user actions
+kde-frameworks/kdnssd 5.92.0 5.94.0 5.95.0: Framework for network service discovery using Zeroconf
+kde-frameworks/kdoctools 5.92.0 5.94.0 5.95.0: Tools to generate documentation in various formats from DocBook files
+kde-frameworks/kemoticons 5.92.0 5.94.0 5.95.0: Framework for converting text emoticons to graphical representations
 kde-frameworks/kf-env 5: Environment setting required for all KDE Frameworks apps to run
-kde-frameworks/kfilemetadata 5.92.0 5.94.0: Library for extracting file metadata
-kde-frameworks/kglobalaccel 5.92.0 5.94.0: Framework to handle global shortcuts
-kde-frameworks/kguiaddons 5.92.0 5.94.0: Framework providing assorted high-level user interface components
-kde-frameworks/kholidays 5.92.0 5.94.0: Library to determine holidays and other special events for a geographical region
-kde-frameworks/khtml 5.92.0 5.94.0: KHTML web rendering engine
-kde-frameworks/ki18n 5.92.0 5.94.0: Framework based on Gettext for internationalizing user interface text
-kde-frameworks/kiconthemes 5.92.0 5.94.0: Framework for icon theming and configuration
-kde-frameworks/kidletime 5.92.0-r1 5.94.0: Framework for detection and notification of device idle time
-kde-frameworks/kimageformats 5.92.0-r2 5.94.0: Framework providing additional format plugins for Qt's image I/O system
-kde-frameworks/kinit 5.92.0 5.94.0: Helper library to speed up start of applications on KDE work spaces
-kde-frameworks/kio 5.92.0 5.94.0: Framework providing transparent file and data management
-kde-frameworks/kirigami 5.92.0-r1 5.94.0: Lightweight user interface framework for mobile and convergent applications
-kde-frameworks/kitemmodels 5.92.0 5.94.0: Framework providing data models to help with tasks such as sorting and filtering
-kde-frameworks/kitemviews 5.92.0 5.94.0: Framework providing additional widgets for item models
-kde-frameworks/kjobwidgets 5.92.0 5.94.0: Framework providing assorted widgets for showing the progress of jobs
-kde-frameworks/kjs 5.92.0 5.94.0: ECMAScipt compatible parser and engine
-kde-frameworks/knewstuff 5.92.0-r2 5.94.0-r1: Framework for downloading and sharing additional application data
-kde-frameworks/knotifications 5.92.0 5.94.0: Framework for notifying the user of an event
-kde-frameworks/knotifyconfig 5.92.0 5.94.0: Framework for configuring desktop notifications
-kde-frameworks/kpackage 5.92.0 5.94.0: Framework to install and load packages of non binary content
-kde-frameworks/kparts 5.92.0 5.94.0: Framework providing elaborate user-interface components
-kde-frameworks/kpeople 5.92.0 5.94.0: KDE contact person abstraction library
-kde-frameworks/kplotting 5.92.0 5.94.0: Framework providing easy data-plotting functions
-kde-frameworks/kpty 5.92.0 5.94.0: Framework for pseudo terminal devices and running child processes
-kde-frameworks/kquickcharts 5.92.0 5.94.0: QtQuick plugin providing high-performance charts
-kde-frameworks/kross 5.92.0 5.94.0: Framework for embedding scripting into applications
-kde-frameworks/krunner 5.92.0 5.94.0: Framework for providing different actions given a string query
-kde-frameworks/kservice 5.92.0 5.94.0: Advanced plugin and service introspection
-kde-frameworks/ktexteditor 5.92.0-r1 5.94.0: Framework providing a full text editor component
-kde-frameworks/ktextwidgets 5.92.0 5.94.0: Framework providing an assortment of widgets for displaying and editing text
-kde-frameworks/kunitconversion 5.92.0 5.94.0: Framework for converting units
-kde-frameworks/kwallet 5.92.0 5.94.0: Framework providing desktop-wide storage for passwords
-kde-frameworks/kwayland 5.92.0 5.94.0: Qt-style client and server library wrapper for Wayland libraries
-kde-frameworks/kwidgetsaddons 5.92.0 5.94.0: An assortment of high-level widgets for common tasks
-kde-frameworks/kwindowsystem 5.92.0 5.94.0: Framework providing access to properties and features of the window manager
-kde-frameworks/kxmlgui 5.92.0 5.94.0: Framework for managing menu and toolbar actions in an abstract way
-kde-frameworks/modemmanager-qt 5.92.0 5.94.0: ModemManager bindings for Qt
-kde-frameworks/networkmanager-qt 5.92.0 5.94.0: NetworkManager bindings for Qt
-kde-frameworks/oxygen-icons 5.92.0 5.94.0: Oxygen SVG icon theme
-kde-frameworks/plasma 5.92.0-r2 5.94.0: Plasma framework
-kde-frameworks/prison 5.92.0 5.94.0: QRCode and data matrix barcode library
-kde-frameworks/purpose 5.92.0 5.94.0: Library for providing abstractions to get the developer's purposes fulfilled
-kde-frameworks/qqc2-desktop-style 5.92.0 5.94.0: Style for QtQuickControls 2 that uses QWidget's QStyle for painting
-kde-frameworks/solid 5.92.0 5.94.0: Provider for platform independent hardware discovery, abstraction and management
-kde-frameworks/sonnet 5.92.0 5.94.0: Framework for providing spell-checking through abstraction of popular backends
-kde-frameworks/syndication 5.92.0 5.94.0: Library for parsing RSS and Atom feeds
-kde-frameworks/syntax-highlighting 5.92.0-r1 5.94.0: Framework for syntax highlighting
-kde-frameworks/threadweaver 5.92.0 5.94.0: Framework for managing threads using job and queue-based interfaces
+kde-frameworks/kfilemetadata 5.92.0 5.94.0 5.95.0: Library for extracting file metadata
+kde-frameworks/kglobalaccel 5.92.0 5.94.0 5.95.0: Framework to handle global shortcuts
+kde-frameworks/kguiaddons 5.92.0 5.94.0 5.95.0: Framework providing assorted high-level user interface components
+kde-frameworks/kholidays 5.92.0 5.94.0 5.95.0: Library to determine holidays and other special events for a geographical region
+kde-frameworks/khtml 5.92.0 5.94.0 5.95.0: KHTML web rendering engine
+kde-frameworks/ki18n 5.92.0 5.94.0 5.95.0: Framework based on Gettext for internationalizing user interface text
+kde-frameworks/kiconthemes 5.92.0 5.94.0 5.95.0: Framework for icon theming and configuration
+kde-frameworks/kidletime 5.92.0-r1 5.94.0 5.95.0: Framework for detection and notification of device idle time
+kde-frameworks/kimageformats 5.92.0-r2 5.94.0 5.95.0: Framework providing additional format plugins for Qt's image I/O system
+kde-frameworks/kinit 5.92.0 5.94.0 5.95.0: Helper library to speed up start of applications on KDE work spaces
+kde-frameworks/kio 5.92.0 5.94.0 5.95.0: Framework providing transparent file and data management
+kde-frameworks/kirigami 5.92.0-r1 5.94.0 5.95.0: Lightweight user interface framework for mobile and convergent applications
+kde-frameworks/kitemmodels 5.92.0 5.94.0 5.95.0: Framework providing data models to help with tasks such as sorting and filtering
+kde-frameworks/kitemviews 5.92.0 5.94.0 5.95.0: Framework providing additional widgets for item models
+kde-frameworks/kjobwidgets 5.92.0 5.94.0 5.95.0: Framework providing assorted widgets for showing the progress of jobs
+kde-frameworks/kjs 5.92.0 5.94.0 5.95.0: ECMAScipt compatible parser and engine
+kde-frameworks/knewstuff 5.92.0-r2 5.94.0-r1 5.95.0: Framework for downloading and sharing additional application data
+kde-frameworks/knotifications 5.92.0 5.94.0 5.95.0: Framework for notifying the user of an event
+kde-frameworks/knotifyconfig 5.92.0 5.94.0 5.95.0: Framework for configuring desktop notifications
+kde-frameworks/kpackage 5.92.0 5.94.0 5.95.0: Framework to install and load packages of non binary content
+kde-frameworks/kparts 5.92.0 5.94.0 5.95.0: Framework providing elaborate user-interface components
+kde-frameworks/kpeople 5.92.0 5.94.0 5.95.0: KDE contact person abstraction library
+kde-frameworks/kplotting 5.92.0 5.94.0 5.95.0: Framework providing easy data-plotting functions
+kde-frameworks/kpty 5.92.0 5.94.0 5.95.0: Framework for pseudo terminal devices and running child processes
+kde-frameworks/kquickcharts 5.92.0 5.94.0 5.95.0: QtQuick plugin providing high-performance charts
+kde-frameworks/kross 5.92.0 5.94.0 5.95.0: Framework for embedding scripting into applications
+kde-frameworks/krunner 5.92.0 5.94.0 5.95.0: Framework for providing different actions given a string query
+kde-frameworks/kservice 5.92.0 5.94.0 5.95.0: Advanced plugin and service introspection
+kde-frameworks/ktexteditor 5.92.0-r1 5.94.0 5.95.0: Framework providing a full text editor component
+kde-frameworks/ktextwidgets 5.92.0 5.94.0 5.95.0: Framework providing an assortment of widgets for displaying and editing text
+kde-frameworks/kunitconversion 5.92.0 5.94.0 5.95.0: Framework for converting units
+kde-frameworks/kwallet 5.92.0 5.94.0 5.95.0: Framework providing desktop-wide storage for passwords
+kde-frameworks/kwayland 5.92.0 5.94.0 5.95.0: Qt-style client and server library wrapper for Wayland libraries
+kde-frameworks/kwidgetsaddons 5.92.0 5.94.0 5.95.0: An assortment of high-level widgets for common tasks
+kde-frameworks/kwindowsystem 5.92.0 5.94.0 5.95.0: Framework providing access to properties and features of the window manager
+kde-frameworks/kxmlgui 5.92.0 5.94.0 5.95.0: Framework for managing menu and toolbar actions in an abstract way
+kde-frameworks/modemmanager-qt 5.92.0 5.94.0 5.95.0: ModemManager bindings for Qt
+kde-frameworks/networkmanager-qt 5.92.0 5.94.0 5.95.0: NetworkManager bindings for Qt
+kde-frameworks/oxygen-icons 5.92.0 5.94.0 5.95.0: Oxygen SVG icon theme
+kde-frameworks/plasma 5.92.0-r2 5.94.0 5.95.0: Plasma framework
+kde-frameworks/prison 5.92.0 5.94.0 5.95.0: QRCode and data matrix barcode library
+kde-frameworks/purpose 5.92.0 5.94.0 5.95.0: Library for providing abstractions to get the developer's purposes fulfilled
+kde-frameworks/qqc2-desktop-style 5.92.0 5.94.0 5.95.0: Style for QtQuickControls 2 that uses QWidget's QStyle for painting
+kde-frameworks/solid 5.92.0 5.94.0 5.95.0: Provider for platform independent hardware discovery, abstraction and management
+kde-frameworks/sonnet 5.92.0 5.94.0 5.95.0: Framework for providing spell-checking through abstraction of popular backends
+kde-frameworks/syndication 5.92.0 5.94.0 5.95.0: Library for parsing RSS and Atom feeds
+kde-frameworks/syntax-highlighting 5.92.0-r1 5.94.0 5.95.0: Framework for syntax highlighting
+kde-frameworks/threadweaver 5.92.0 5.94.0 5.95.0: Framework for managing threads using job and queue-based interfaces
 kde-misc/basket 2.49b: Multiple information organizer - a DropDrawers clone
 kde-misc/colord-kde 0.5.0-r2: Provides interfaces and session daemon to colord
 kde-misc/kdeconnect 21.12.3 22.04.2: Adds communication between KDE Plasma and your smartphone
@@ -13961,7 +13961,7 @@ media-libs/sdl2-ttf 2.0.15 2.0.18-r1: Library that allows you to use TrueType fo
 media-libs/sdl_audiolib 0_pre20220410 9999: audio decoding, resampling and mixing library
 media-libs/sg 1.5: Socket Graphics tool for displaying polygons
 media-libs/sge 030809: Graphics extensions library for SDL
-media-libs/shaderc 2022.1 2022.1-r1: Collection of tools, libraries and tests for shader compilation
+media-libs/shaderc 2022.1-r1: Collection of tools, libraries and tests for shader compilation
 media-libs/simage 1.8.0-r1 1.8.1 9999: Image and video texturing library
 media-libs/smpeg 0.4.4-r11: SDL MPEG Player Library
 media-libs/smpeg2 2.0.0-r4: SDL MPEG Player Library
@@ -13993,8 +13993,8 @@ media-libs/vitamtp 2.5.9_pre20160829 9999: Library to interact with PS Vita's US
 media-libs/vo-aacenc 0.1.3 9999: VisualOn AAC encoder library
 media-libs/vo-amrwbenc 0.1.3 9999: VisualOn AMR-WB encoder library
 media-libs/volpack 1.0_p7-r1: Volume rendering library
-media-libs/vulkan-layers 1.3.204 1.3.211 9999: Vulkan Validation Layers
-media-libs/vulkan-loader 1.3.204 1.3.211 9999: Vulkan Installable Client Driver (ICD) Loader
+media-libs/vulkan-layers 1.3.211 9999: Vulkan Validation Layers
+media-libs/vulkan-loader 1.3.211 9999: Vulkan Installable Client Driver (ICD) Loader
 media-libs/waffle 1.7.0-r1 9999: Library that allows selection of GL API and of window system at runtime
 media-libs/webrtc-audio-processing 0.3.1 1.0: AudioProcessing library from the webrtc.org codebase
 media-libs/woff2 1.0.2-r5: Encode/decode WOFF2 font format
