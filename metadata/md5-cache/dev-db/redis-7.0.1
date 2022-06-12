@@ -4,7 +4,7 @@ DEPEND=test? ( dev-lang/tcl:0= ssl? ( dev-tcltk/tls ) )
 DESCRIPTION=A persistent caching system, key-value, and data structures database
 EAPI=8
 HOMEPAGE=https://redis.io
-INHERIT=autotools flag-o-matic systemd toolchain-funcs tmpfiles
+INHERIT=autotools edo flag-o-matic multiprocessing systemd tmpfiles toolchain-funcs
 IUSE=+jemalloc ssl systemd tcmalloc test
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris
 LICENSE=BSD
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( jemalloc tcmalloc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.redis.io/releases/redis-7.0.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=0a6680f0845ffa7507cacbca3de7fce4
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=969662ed802ff9a58794f60567ece293
