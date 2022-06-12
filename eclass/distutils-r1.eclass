@@ -106,6 +106,8 @@ esac
 #
 # - maturin - maturin backend
 #
+# - meson-python - meson-python (mesonpy) backend
+#
 # - no - no PEP517 build system (see below)
 #
 # - pbr - pbr backend
@@ -228,6 +230,10 @@ _distutils_set_globals() {
 			no)
 				# undo the generic deps added above
 				bdep=
+				;;
+			meson-python)
+				bdep+='
+					dev-python/meson-python[${PYTHON_USEDEP}]'
 				;;
 			pbr)
 				bdep+='
@@ -855,7 +861,8 @@ _distutils-r1_disable_ez_setup() {
 # @FUNCTION: _distutils-r1_handle_pyproject_toml
 # @INTERNAL
 # @DESCRIPTION:
-# Generate setup.py for pyproject.toml if requested.
+# Verify whether DISTUTILS_USE_SETUPTOOLS is set correctly
+# for pyproject.toml build systems (in non-PEP517 mode).
 _distutils-r1_handle_pyproject_toml() {
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
 		die "${FUNCNAME} is not implemented in PEP517 mode"
@@ -934,6 +941,11 @@ _distutils-r1_print_package_versions() {
 				;;
 			no)
 				return
+				;;
+			meson-python)
+				packages+=(
+					dev-python/meson-python
+				)
 				;;
 			pbr)
 				packages+=(
@@ -1137,6 +1149,9 @@ _distutils-r1_backend_to_key() {
 		maturin)
 			echo maturin
 			;;
+		mesonpy)
+			echo meson-python
+			;;
 		pbr.build)
 			echo pbr
 			;;
@@ -1304,7 +1319,7 @@ distutils_pep517_install() {
 	)
 	[[ -n ${wheel} ]] || die "No wheel name returned"
 
-	einfo "  Installing the wheel to ${root}"
+	einfo "  Installing ${wheel} to ${root}"
 	gpep517 install-wheel --destdir="${root}" --interpreter="${PYTHON}" \
 			--prefix="${EPREFIX}/usr" "${WHEEL_BUILD_DIR}/${wheel}" ||
 		die "Wheel install failed"
@@ -1327,12 +1342,19 @@ distutils_pep517_install() {
 # @FUNCTION: distutils-r1_python_compile
 # @USAGE: [additional-args...]
 # @DESCRIPTION:
-# The default python_compile(). Runs 'esetup.py build'. Any parameters
-# passed to this function will be appended to setup.py invocation,
-# i.e. passed as options to the 'build' command.
+# The default python_compile().
 #
-# This phase also sets up initial setup.cfg with build directories
-# and copies upstream egg-info files if supplied.
+# If DISTUTILS_USE_PEP517 is set to "no", a no-op.
+#
+# If DISTUTILS_USE_PEP517 is set to any other value, builds a wheel
+# using the PEP517 backend and installs it into ${BUILD_DIR}/install.
+# May additionally call build_ext prior to that when using setuptools
+# and the eclass detects a potential benefit from parallel extension
+# builds.
+#
+# In legacy mode, runs 'esetup.py build'. Any parameters passed to this
+# function will be appended to setup.py invocation, i.e. passed
+# as options to the 'build' command.
 distutils-r1_python_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -1499,12 +1521,14 @@ distutils-r1_python_test() {
 # @FUNCTION: distutils-r1_python_install
 # @USAGE: [additional-args...]
 # @DESCRIPTION:
-# The default python_install(). Runs 'esetup.py install', doing
-# intermediate root install and handling script wrapping afterwards.
+# The default python_install().
+#
+# In PEP517 mode, merges the files from ${BUILD_DIR}/install
+# (if present) to the image directory.
+#
+# In the legacy mode, calls `esetup.py install` to install the package.
 # Any parameters passed to this function will be appended
 # to the setup.py invocation (i.e. as options to the 'install' command).
-#
-# This phase updates the setup.cfg file with install directories.
 distutils-r1_python_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -1514,13 +1538,37 @@ distutils-r1_python_install() {
 	local merge_root=
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
 		local root=${BUILD_DIR}/install
+		local reg_scriptdir=${root}/${scriptdir}
+		local wrapped_scriptdir=${root}$(python_get_scriptdir)
+
+		# we are assuming that _distutils-r1_post_python_compile
+		# has been called and ${root} has not been altered since
+		# let's explicitly verify these assumptions
+
+		# remove files that we've created explicitly
+		rm "${reg_scriptdir}"/{"${EPYTHON}",python3,python,pyvenv.cfg} || die
+		# verify that scriptdir & wrapped_scriptdir both contain
+		# the same files
+		(
+			cd "${reg_scriptdir}" && find . -mindepth 1
+		) | sort > "${T}"/.distutils-files-bin
+		assert "listing ${reg_scriptdir} failed"
+		(
+			if [[ -d ${wrapped_scriptdir} ]]; then
+				cd "${wrapped_scriptdir}" && find . -mindepth 1
+			fi
+		) | sort > "${T}"/.distutils-files-wrapped
+		assert "listing ${wrapped_scriptdir} failed"
+		if ! diff -U 0 "${T}"/.distutils-files-{bin,wrapped}; then
+			die "File lists for ${reg_scriptdir} and ${wrapped_scriptdir} differ (see diff above)"
+		fi
+
 		# remove the altered bindir, executables from the package
 		# are already in scriptdir
-		rm -r "${root}${scriptdir}" || die
+		rm -r "${reg_scriptdir}" || die
 		if [[ ${DISTUTILS_SINGLE_IMPL} ]]; then
-			local wrapped_scriptdir=${root}$(python_get_scriptdir)
 			if [[ -d ${wrapped_scriptdir} ]]; then
-				mv "${wrapped_scriptdir}" "${root}${scriptdir}" || die
+				mv "${wrapped_scriptdir}" "${reg_scriptdir}" || die
 			fi
 		fi
 		# prune empty directories to see if ${root} contains anything
@@ -1728,6 +1776,7 @@ _distutils-r1_run_foreach_impl() {
 	set -- distutils-r1_run_phase "${@}"
 
 	if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
+		local _DISTUTILS_CALLING_FOREACH_IMPL=1
 		python_foreach_impl "${@}"
 	else
 		if [[ ! ${EPYTHON} ]]; then
@@ -1876,7 +1925,8 @@ distutils-r1_src_test() {
 # @FUNCTION: _distutils-r1_post_python_install
 # @INTERNAL
 # @DESCRIPTION:
-# Post-phase function called after python_install.
+# Post-phase function called after python_install.  Performs QA checks.
+# In PEP517 mode, additionally optimizes installed Python modules.
 _distutils-r1_post_python_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
