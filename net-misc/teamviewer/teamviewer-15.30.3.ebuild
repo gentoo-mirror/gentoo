@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,6 +33,7 @@ RDEPEND="
 	media-libs/libglvnd[X]
 	sys-apps/dbus
 	sys-apps/util-linux
+	sys-libs/glibc
 	sys-libs/zlib:0/1[minizip]
 	x11-libs/libICE
 	x11-libs/libSM
@@ -72,14 +73,6 @@ src_prepare() {
 
 src_install() {
 	local dst="/opt/${MY_P}" # install destination
-
-	# Quirk:
-	# Remove Intel 80386 32-bit ELF binary 'libdepend' present in all
-	# archives. It will trip the 'emerge @preserved-libs' logic on amd64
-	# when changing the ABI of one of its dependencies. According to the
-	# TeamViewer devs, this binary is an unused remnant of previous Wine-
-	# based builds and will be removed in future releases anyway
-	rm tv_bin/script/libdepend || die
 
 	insinto ${dst}
 	doins -r tv_bin
