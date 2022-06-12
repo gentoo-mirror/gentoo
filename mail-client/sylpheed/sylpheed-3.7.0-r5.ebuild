@@ -11,7 +11,7 @@ SRC_URI="http://${PN}.sraoss.jp/${PN}/v${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="crypt ipv6 ldap nls oniguruma spell ssl xface"
 
 CDEPEND="net-libs/liblockfile
@@ -32,7 +32,10 @@ DEPEND="${CDEPEND}
 	xface? ( media-libs/compface )"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}"/${PN}-tls-1.3.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-tls-1.3.patch
+	"${FILESDIR}"/${PN}-CVE-2021-37746.patch
+)
 DOCS="AUTHORS ChangeLog* NEW* PLUGIN* README* TODO*"
 
 src_configure() {
