@@ -6,7 +6,7 @@ EAPI=8
 # N.B.: It is no clue in porting to Lua eclasses, as upstream have deviated
 # too far from vanilla Lua, adding their own APIs like lua_enablereadonlytable
 
-inherit autotools flag-o-matic systemd toolchain-funcs tmpfiles
+inherit autotools edo flag-o-matic multiprocessing systemd tmpfiles toolchain-funcs
 
 DESCRIPTION="A persistent caching system, key-value, and data structures database"
 HOMEPAGE="https://redis.io"
@@ -54,9 +54,6 @@ PATCHES=(
 
 src_prepare() {
 	default
-
-	# unstable on jemalloc
-	> tests/unit/memefficiency.tcl || die
 
 	# Append cflag for lua_cjson
 	# https://github.com/antirez/redis/commit/4fdcd213#diff-3ba529ae517f6b57803af0502f52a40bL61
@@ -116,18 +113,30 @@ src_compile() {
 }
 
 src_test() {
-	# Known to fail with FEATURES=usersandbox
-	if has usersandbox ${FEATURES}; then
-		ewarn "You are emerging ${P} with 'usersandbox' enabled." \
-			"Expect some test failures or emerge with 'FEATURES=-usersandbox'!"
+	local runtestargs=(
+		--clients "$(makeopts_jobs)" # see bug #649868
+	)
+
+	if has usersandbox ${FEATURES} || ! has userpriv ${FEATURES}; then
+		ewarn "oom-score-adj related tests will be skipped." \
+			"They are known to fail with FEATURES usersandbox or -userpriv. See bug #756382."
+
+		runtestargs+=(
+			# unit/oom-score-adj was introduced in version 6.2.0
+			--skipunit unit/oom-score-adj # see bug #756382
+
+			# Following test was added in version 7.0.0 to unit/introspection.
+			# It also tries to adjust OOM score.
+			--skiptest "CONFIG SET rollback on apply error"
+		)
 	fi
 
 	if use ssl; then
-		./utils/gen-test-certs.sh
-		./runtest --tls
-	else
-		./runtest
+		edo ./utils/gen-test-certs.sh
+		runtestargs+=( --tls )
 	fi
+
+	edo ./runtest "${runtestargs[@]}"
 }
 
 src_install() {
