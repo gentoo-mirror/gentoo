@@ -35,6 +35,11 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-pyproject-metadata.patch
+	"${FILESDIR}"/${PN}-0.5.0-defaults.patch
+)
+
 distutils_enable_sphinx docs \
 	dev-python/furo \
 	dev-python/sphinx-autodoc-typehints
