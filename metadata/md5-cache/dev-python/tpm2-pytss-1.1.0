@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=app-crypt/tpm2-tss:=[fapi=] fapi? ( >=app-crypt/tpm2-tss-3.0.3:= ) dev-python/cffi[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/asn1crypto[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/cryptography[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pycparser[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( app-crypt/swtpm )
 DESCRIPTION=Python bindings for TSS
 EAPI=8
-HOMEPAGE=https://pypi.org/project/tpm2-pytss/
+HOMEPAGE=https://pypi.org/project/tpm2-pytss https://github.com/tpm2-software/tpm2-pytss
 INHERIT=distutils-r1
 IUSE=+fapi test test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
@@ -12,6 +12,6 @@ RDEPEND=app-crypt/tpm2-tss:=[fapi=] fapi? ( >=app-crypt/tpm2-tss-3.0.3:= ) dev-p
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/tpm2-software/tpm2-pytss/archive/refs/tags/1.1.0.tar.gz -> tpm2-pytss-1.1.0.tar.gz
+SRC_URI=mirror://pypi/t/tpm2-pytss/tpm2-pytss-1.1.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	197b6711aac35c87e9536c55ad3b909d
-_md5_=d01b79ea89600bd7ae805dc1a29d59e7
+_md5_=f856e851db80f503d9967c83c20eaa79
