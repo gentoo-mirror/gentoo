@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit meson python-any-r1
 
 DESCRIPTION="Simple library for font loading and glyph rasterization"
@@ -11,7 +11,9 @@ HOMEPAGE="https://codeberg.org/dnkl/fcft"
 SRC_URI="https://codeberg.org/dnkl/fcft/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 
-LICENSE="MIT"
+# MIT for fcft
+# ZLIB for nanosvg
+LICENSE="MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="examples +harfbuzz +libutf8proc test"
@@ -30,7 +32,7 @@ RDEPEND="
 		dev-libs/wayland
 	)
 	harfbuzz? (
-		media-libs/harfbuzz:=
+		media-libs/harfbuzz:=[truetype]
 	)
 	libutf8proc? (
 		dev-libs/libutf8proc:=
@@ -51,6 +53,7 @@ DEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	app-text/scdoc
+	virtual/pkgconfig
 	examples? (
 		dev-util/wayland-scanner
 	)
@@ -73,6 +76,8 @@ src_configure() {
 		$(meson_feature libutf8proc run-shaping)
 		$(meson_use examples)
 		$(use test && meson_use harfbuzz test-text-shaping)
+		# bundled, tiny, I believe this means we should always include it
+		-Dsvg-backend=nanosvg
 		-Ddocs=enabled
 	)
 
