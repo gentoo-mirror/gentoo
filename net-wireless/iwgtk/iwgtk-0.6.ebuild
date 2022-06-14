@@ -38,6 +38,6 @@ src_prepare() {
 }
 
 src_install() {
-	emake PREFIX="${ED}/usr" install
+	emake DESTDIR="${D}" PREFIX="/usr" install
 	gunzip "${ED}/usr/share/man/man1/iwgtk.1.gz" || die
 }
