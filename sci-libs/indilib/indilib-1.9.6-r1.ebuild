@@ -18,13 +18,13 @@ IUSE="ogg rtlsdr test websocket"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	media-libs/libjpeg-turbo:=
 	net-misc/curl
 	sci-libs/cfitsio:=
 	sci-libs/fftw:3.0=
 	sci-libs/gsl:=
 	sci-libs/libnova:=
 	sys-libs/zlib
-	virtual/jpeg:0
 	virtual/libusb:0
 	ogg? (
 		media-libs/libogg
@@ -66,4 +66,12 @@ src_test() {
 	fi
 
 	BUILD_DIR="${BUILD_DIR}"/test cmake_src_test
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
