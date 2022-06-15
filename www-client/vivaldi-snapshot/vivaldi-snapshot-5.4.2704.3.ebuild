@@ -8,6 +8,8 @@ CHROMIUM_LANGS="
 	af
 	am
 	ar
+	az
+	be
 	bg
 	bn
 	ca
@@ -23,34 +25,41 @@ CHROMIUM_LANGS="
 	es-419
 	es-PE
 	et
+	eu
 	fa
 	fi
 	fil
 	fr
 	fy
 	gd
+	gl
 	gu
 	he
 	hi
 	hr
 	hu
+	hy
 	id
 	io
+	is
 	it
 	ja
 	jbo
+	ka
 	kab
 	kn
 	ko
 	ku
 	lt
 	lv
+	mk
 	ml
 	mr
 	ms
 	nb
 	nl
 	nn
+	pa
 	pl
 	pt-BR
 	pt-PT
@@ -59,7 +68,9 @@ CHROMIUM_LANGS="
 	sc
 	sk
 	sl
+	sq
 	sr
+	sr-Latn
 	sv
 	sw
 	ta
