@@ -4,12 +4,15 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
 DESCRIPTION="Beautiful, Pythonic protocol buffers"
-HOMEPAGE="https://pypi.org/project/proto-plus/ https://github.com/googleapis/proto-plus-python"
+HOMEPAGE="
+	https://github.com/googleapis/proto-plus-python/
+	https://pypi.org/project/proto-plus/
+"
 SRC_URI="
 	https://github.com/googleapis/proto-plus-python/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
@@ -18,14 +21,15 @@ S="${WORKDIR}/${PN}-python-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
-	dev-python/protobuf-python[${PYTHON_USEDEP}]
+	<dev-python/protobuf-python-5[${PYTHON_USEDEP}]
+	>=dev-python/protobuf-python-3.19.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		dev-python/google-api-core[${PYTHON_USEDEP}]
+		>=dev-python/google-api-core-1.31.5[${PYTHON_USEDEP}]
 		dev-python/grpcio[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
 	)
@@ -34,9 +38,3 @@ BDEPEND="
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx_rtd_theme
-
-src_prepare() {
-	# https://github.com/pytest-dev/pytest/issues/9637#issuecomment-1031997415
-	sed -i -e '/staticmethod/d' tests/test_datetime_helpers.py || die
-	distutils-r1_src_prepare
-}
