@@ -1,16 +1,16 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare setup unpack
+DEFINED_PHASES=compile configure install prepare setup
 DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
 DESCRIPTION=Security sandbox for any type of processes
 EAPI=7
 HOMEPAGE=https://firejail.wordpress.com/
-INHERIT=toolchain-funcs python-single-r1 linux-info git-r3
-IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home test +userns +whitelist X python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+INHERIT=toolchain-funcs python-single-r1 linux-info
+IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home test +userns X python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
 REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=75aea18a8bf4d02b846ddbb243a3b38e
+SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.70/firejail-0.9.70.tar.xz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
+_md5_=b3b672642338ac104ff5038962219972
