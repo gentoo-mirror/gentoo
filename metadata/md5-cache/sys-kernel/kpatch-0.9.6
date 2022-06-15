@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup
-DEPEND=app-crypt/pesign dev-libs/openssl:0= sys-libs/zlib sys-apps/pciutils dev-libs/elfutils sys-devel/bison test? ( dev-util/shellcheck-bin ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DEPEND=app-crypt/pesign sys-libs/zlib sys-apps/pciutils dev-libs/elfutils sys-devel/bison test? ( dev-util/shellcheck-bin ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
 DESCRIPTION=Dynamic kernel patching for Linux
 EAPI=7
 HOMEPAGE=https://github.com/dynup/kpatch
 INHERIT=flag-o-matic linux-mod
-IUSE=+kpatch-build +kpatch kmod doc contrib test dist-kernel
+IUSE=contrib +kpatch +kpatch-build kmod test dist-kernel
 KEYWORDS=~amd64
 LICENSE=GPL-2+
-RDEPEND=app-crypt/pesign dev-libs/openssl:0= sys-libs/zlib sys-apps/pciutils kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+RDEPEND=app-crypt/pesign sys-libs/zlib sys-apps/pciutils kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/dynup/kpatch/archive/v0.6.3.tar.gz -> kpatch-0.6.3.tar.gz
+SRC_URI=https://github.com/dynup/kpatch/archive/v0.9.6.tar.gz -> kpatch-0.9.6.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6ff232574f0bcad33767903505553e8d
-_md5_=de1732dc40cfe36c0695f5fb4462229f
+_md5_=5c8ea600d4b14d04025597338c550438
