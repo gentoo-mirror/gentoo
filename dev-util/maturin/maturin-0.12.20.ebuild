@@ -22,7 +22,7 @@ CRATES="
 	block-modes-0.7.0
 	block-padding-0.2.1
 	bstr-0.2.17
-	bumpalo-3.9.1
+	bumpalo-3.10.0
 	byteorder-1.4.3
 	bytes-1.1.0
 	bytesize-1.1.0
@@ -34,9 +34,9 @@ CRATES="
 	cargo-options-0.1.4
 	cargo-platform-0.1.2
 	cargo-xwin-0.8.7
-	cargo-zigbuild-0.8.8
+	cargo-zigbuild-0.9.0
 	cargo_metadata-0.14.2
-	cbindgen-0.23.0
+	cbindgen-0.24.3
 	cc-1.0.73
 	cfb-0.7.0
 	cfg-if-0.1.10
@@ -44,11 +44,11 @@ CRATES="
 	charset-0.1.3
 	chunked_transfer-1.4.0
 	cipher-0.2.5
-	clap-3.1.18
-	clap_complete-3.1.4
-	clap_complete_fig-3.1.5
-	clap_derive-3.1.18
-	clap_lex-0.2.0
+	clap-3.2.4
+	clap_complete-3.2.1
+	clap_complete_fig-3.2.1
+	clap_derive-3.2.4
+	clap_lex-0.2.2
 	cli-table-0.4.7
 	combine-4.6.4
 	concurrent-queue-1.2.2
@@ -105,11 +105,11 @@ CRATES="
 	futures-task-0.3.21
 	futures-util-0.3.21
 	generic-array-0.14.5
-	getrandom-0.2.6
+	getrandom-0.2.7
 	gimli-0.26.1
 	glob-0.3.0
-	globset-0.4.8
-	goblin-0.5.1
+	globset-0.4.9
+	goblin-0.5.2
 	hashbrown-0.11.2
 	heck-0.4.0
 	hermit-abi-0.1.19
@@ -125,7 +125,7 @@ CRATES="
 	instant-0.1.12
 	itertools-0.10.3
 	itoa-1.0.2
-	js-sys-0.3.57
+	js-sys-0.3.58
 	keyring-1.1.2
 	lazy_static-1.4.0
 	lddtree-0.2.9
@@ -141,7 +141,7 @@ CRATES="
 	mime-0.3.16
 	mime_guess-2.0.4
 	minijinja-0.15.0
-	miniz_oxide-0.5.1
+	miniz_oxide-0.5.3
 	msi-0.5.0
 	multipart-0.18.0
 	native-tls-0.2.10
@@ -164,11 +164,11 @@ CRATES="
 	openssl-macros-0.1.0
 	openssl-probe-0.1.5
 	openssl-src-111.20.0+1.1.1o
-	openssl-sys-0.9.73
+	openssl-sys-0.9.74
 	os_str_bytes-6.1.0
 	os_type-2.4.0
 	parking-2.0.0
-	parking_lot-0.12.0
+	parking_lot-0.12.1
 	parking_lot_core-0.9.3
 	path-slash-0.1.4
 	percent-encoding-2.1.0
@@ -218,7 +218,7 @@ CRATES="
 	secret-service-2.0.1
 	security-framework-2.6.1
 	security-framework-sys-2.6.1
-	semver-1.0.9
+	semver-1.0.10
 	serde-1.0.137
 	serde_derive-1.0.137
 	serde_json-1.0.81
@@ -236,7 +236,7 @@ CRATES="
 	static_assertions-1.1.0
 	strsim-0.10.0
 	subtle-2.4.1
-	syn-1.0.95
+	syn-1.0.96
 	tar-0.4.38
 	target-lexicon-0.12.4
 	tempfile-3.3.0
@@ -252,16 +252,16 @@ CRATES="
 	tinyvec_macros-0.1.0
 	toml-0.5.9
 	toml_edit-0.14.4
-	tracing-0.1.34
+	tracing-0.1.35
 	tracing-attributes-0.1.21
-	tracing-core-0.1.26
+	tracing-core-0.1.27
 	tracing-serde-0.1.3
 	tracing-subscriber-0.3.11
 	twox-hash-1.6.3
 	typenum-1.15.0
 	unicase-2.6.0
 	unicode-bidi-0.3.8
-	unicode-ident-1.0.0
+	unicode-ident-1.0.1
 	unicode-linebreak-0.1.2
 	unicode-normalization-0.1.19
 	unicode-width-0.1.9
@@ -269,20 +269,20 @@ CRATES="
 	ureq-2.4.0
 	url-2.2.2
 	uuid-0.8.2
-	uuid-1.1.0
+	uuid-1.1.2
 	valuable-0.1.0
 	vcpkg-0.2.15
 	version_check-0.9.4
 	void-1.0.2
 	waker-fn-1.1.0
 	walkdir-2.3.2
-	wasi-0.10.2+wasi-snapshot-preview1
-	wasm-bindgen-0.2.80
-	wasm-bindgen-backend-0.2.80
-	wasm-bindgen-macro-0.2.80
-	wasm-bindgen-macro-support-0.2.80
-	wasm-bindgen-shared-0.2.80
-	web-sys-0.3.57
+	wasi-0.11.0+wasi-snapshot-preview1
+	wasm-bindgen-0.2.81
+	wasm-bindgen-backend-0.2.81
+	wasm-bindgen-macro-0.2.81
+	wasm-bindgen-macro-support-0.2.81
+	wasm-bindgen-shared-0.2.81
+	web-sys-0.3.58
 	webpki-0.22.0
 	webpki-roots-0.22.3
 	wepoll-ffi-0.1.2
@@ -310,6 +310,7 @@ CRATES_TEST="
 	once_cell-1.10.0
 	once_cell-1.11.0
 	once_cell-1.9.0
+	parking_lot-0.12.0
 	proc-macro2-1.0.38
 	pyo3-0.16.5
 	pyo3-build-config-0.16.0
@@ -320,7 +321,9 @@ CRATES_TEST="
 	pyo3-macros-backend-0.16.5
 	python3-dll-a-0.2.3
 	syn-1.0.94
+	syn-1.0.95
 	target-lexicon-0.12.3
+	unicode-ident-1.0.0
 	unicode-xid-0.2.3
 	unindent-0.1.9"
 DISTUTILS_USE_PEP517=setuptools
