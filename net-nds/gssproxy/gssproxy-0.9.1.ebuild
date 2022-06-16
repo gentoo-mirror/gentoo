@@ -1,10 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-# Can drop after 0.9.0, just for patch
-inherit autotools
+EAPI=8
 
 DESCRIPTION="Daemon to proxy GSSAPI context establishment and channel handling"
 HOMEPAGE="https://github.com/gssapi/gssproxy"
@@ -13,7 +10,7 @@ SRC_URI="https://github.com/gssapi/${PN}/releases/download/v${PV}/${P}.tar.gz"
 LICENSE="BSD-1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
-IUSE="debug selinux systemd hardened"
+IUSE="debug selinux systemd"
 
 COMMON_DEPEND=">=dev-libs/libverto-0.2.2
 	>=dev-libs/ding-libs-0.6.1
@@ -32,10 +29,6 @@ BDEPEND="
 # Many requirements to run tests, including running slapd as root, hence
 # unfeasible.
 RESTRICT="test"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-configure-systemd.patch
-)
 
 # pkg_setup() {
 #	# Here instead of flag-logic in DEPEND, since virtual/krb5 does not
@@ -61,13 +54,6 @@ PATCHES=(
 #		-e "s#\(subprocess.Popen..\"\)slapd#\1/usr/$(get_libdir)/openldap/slapd#" \
 #		"${S}/tests/testlib.py" || die
 # }
-
-src_prepare() {
-	default
-
-	# Just for 0.9.0 systemd patch
-	eautoreconf
-}
 
 src_configure() {
 	local myeconfargs=(
