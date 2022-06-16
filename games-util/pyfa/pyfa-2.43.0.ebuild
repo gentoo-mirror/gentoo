@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="sqlite"
@@ -30,7 +30,7 @@ DEPEND="
 		>=dev-python/cryptography-2.3[${PYTHON_USEDEP}]
 		>=dev-python/logbook-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.3.23[${PYTHON_USEDEP}]
 		>=dev-python/wxpython-4.0.6[webkit,${PYTHON_USEDEP}]
 	')
 	${PYTHON_DEPS}"
@@ -41,9 +41,11 @@ RDEPEND="${DEPEND}
 		>=dev-python/numpy-1.19.2[${PYTHON_USEDEP}]
 		>=dev-python/packaging-16.8[${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		>=dev-python/python-jose-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.0.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-cache-0.8.1[${PYTHON_USEDEP}]
 		>=dev-python/roman-2.0.0[${PYTHON_USEDEP}]
-		>=dev-python/matplotlib-3.1.2[wxwidgets,${PYTHON_USEDEP}]
+		>=dev-python/matplotlib-3.2.2[wxwidgets,${PYTHON_USEDEP}]
 	')"
 BDEPEND="app-arch/zip"
 

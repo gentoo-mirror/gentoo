@@ -1,67 +1,71 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake systemd
 
-MY_P="c-toxcore-${PV}"
 DESCRIPTION="Encrypted P2P, messaging, and audio/video calling platform"
 HOMEPAGE="https://tox.chat https://github.com/TokTok/c-toxcore"
-SRC_URI="https://github.com/TokTok/c-toxcore/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
+SRC_URI="https://github.com/TokTok/c-toxcore/releases/download/v${PV}/c-toxcore-${PV}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0/0.2"
-KEYWORDS="amd64 ~arm x86"
-IUSE="+av daemon dht-node ipv6 log-debug +log-error log-info log-trace log-warn static-libs test"
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="+av debug daemon dht-node ipv6 key-utils log-debug +log-error log-info log-trace log-warn test"
 
 REQUIRED_USE="?? ( log-debug log-error log-info log-trace log-warn )
 		daemon? ( dht-node )"
 RESTRICT="!test? ( test )"
 
 BDEPEND="virtual/pkgconfig"
-DEPEND="
-	>dev-libs/libsodium-0.6.1:=[asm,urandom,-minimal]
+DEPEND="dev-libs/libsodium:=[asm,urandom,-minimal]
+	dev-libs/msgpack
 	av? (
 		media-libs/libvpx:=
 		media-libs/opus
 	)
 	daemon? ( dev-libs/libconfig:= )"
-RDEPEND="
-	${DEPEND}
+
+RDEPEND="${DEPEND}
 	daemon? (
 		acct-group/tox
 		acct-user/tox
-	)"
+	)
+	key-utils? ( || ( sys-devel/gcc[openmp] sys-devel/clang-runtime[openmp] ) )"
 
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	cmake_src_prepare
 
-	# Remove faulty tests
-	local testname=
-	for testname in lan_discovery save_compatibility; do
-		sed -i -e "/^auto_test(${testname})$/d" CMakeLists.txt || die
+	#Remove faulty tests
+	for testname in lan_discovery save_load; do
+		sed -i -e "/^auto_test(${testname})$/d" ./auto_tests/CMakeLists.txt || die
 	done
 }
 
 src_configure() {
 	local mycmakeargs=(
-		-DAUTOTEST=$(usex test)
-		-DBOOTSTRAP_DAEMON=$(usex daemon)
-		-DBUILD_MISC_TESTS=$(usex test)
-		-DBUILD_TOXAV=$(usex av)
-		-DDHT_BOOTSTRAP=$(usex dht-node)
+		-DAUTOTEST=$(usex test ON OFF)
+		-DBOOTSTRAP_DAEMON=$(usex daemon ON OFF)
+		-DBUILD_FUN_UTILS=$(usex key-utils ON OFF)
+		-DBUILD_FUZZ_TESTS=OFF #Upstream reports that this breaks all other tests
+		-DBUILD_MISC_TESTS=$(usex test ON OFF)
+		-DBUILD_TOXAV=$(usex av ON OFF)
+		-DCMAKE_BUILD_TYPE=$(usex debug Debug Release)
+		-DDHT_BOOTSTRAP=$(usex dht-node ON OFF)
 		-DENABLE_SHARED=ON
-		-DENABLE_STATIC=$(usex static-libs)
-		-DMUST_BUILD_TOXAV=$(usex av)
+		-DENABLE_STATIC=OFF
+		-DFULLY_STATIC=OFF
+		-DMUST_BUILD_TOXAV=$(usex av ON OFF)
 	)
 
 	if use test; then
 		mycmakeargs+=(
-			-DTEST_TIMEOUT_SECONDS=120
-			-DUSE_IPV6=$(usex ipv6)
+			-DTEST_TIMEOUT_SECONDS=150
+			-DNON_HERMETIC_TESTS=OFF
+			-DUSE_IPV6=$(usex ipv6 ON OFF)
 		)
 	else
 		mycmakeargs+=(-DUSE_IPV6=OFF)
