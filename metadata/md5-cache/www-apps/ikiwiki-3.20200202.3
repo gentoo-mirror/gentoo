@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-perl/File-chdir dev-perl/File-ReadBackwards dev-perl/File-MimeInfo dev-perl/HTML-LinkExtractor dev-perl/HTML-Tree dev-perl/Net-OpenID-Consumer dev-perl/RPC-XML dev-perl/XML-Feed dev-perl/XML-Twig dev-vcs/cvs[server] dev-vcs/cvsps ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/perl-5.10 app-text/po4a dev-perl/HTML-Parser dev-perl/HTML-Scrubber dev-perl/HTML-Template dev-perl/URI dev-perl/Text-Markdown dev-perl/TimeDate dev-perl/YAML-LibYAML dev-lang/perl
+DESCRIPTION=A wiki compiler
+EAPI=8
+HOMEPAGE=http://ikiwiki.info/
+INHERIT=perl-module
+IUSE=extras minimal test test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-lang/perl-5.10 app-text/po4a dev-perl/HTML-Parser dev-perl/HTML-Scrubber dev-perl/HTML-Template dev-perl/URI dev-perl/Text-Markdown dev-perl/TimeDate dev-perl/YAML-LibYAML !minimal? ( dev-perl/CGI >=dev-perl/CGI-FormBuilder-3.0202 >=dev-perl/CGI-Session-4.14 dev-perl/Mail-Sendmail dev-perl/Term-ReadLine-Gnu dev-perl/XML-Simple media-gfx/imagemagick[perl] extras? ( dev-python/docutils dev-perl/Digest-SHA1 dev-perl/File-MimeInfo dev-perl/RPC-XML dev-perl/XML-Feed dev-perl/LWPx-ParanoidAgent dev-perl/Net-OpenID-Consumer ) ) dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/i/ikiwiki/ikiwiki_3.20200202.3.orig.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_md5_=3524da527b7685d639ef2a70309dc3a2
