@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit toolchain-funcs xdg-utils
 
 DESCRIPTION="A fast, lightweight imageviewer using imlib2"
@@ -10,7 +10,7 @@ SRC_URI="https://feh.finalrewind.org/${P}.tar.bz2"
 
 LICENSE="feh"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~x86"
 IUSE="debug curl exif test xinerama inotify"
 RESTRICT="!test? ( test )"
 
@@ -21,7 +21,7 @@ COMMON_DEPEND="media-libs/imlib2[X]
 	exif? ( media-libs/libexif )
 	xinerama? ( x11-libs/libXinerama )"
 RDEPEND="${COMMON_DEPEND}
-	virtual/jpeg:0"
+	media-libs/libjpeg-turbo:0"
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 	x11-libs/libXt
@@ -37,7 +37,6 @@ pkg_setup() {
 	use_feh() { usex $1 1 0; }
 
 	fehopts=(
-		DESTDIR="${D}"
 		PREFIX="${EPREFIX}"/usr
 		doc_dir='${main_dir}'/share/doc/${PF}
 		example_dir='${main_dir}'/share/doc/${PF}/examples
@@ -55,7 +54,7 @@ src_compile() {
 }
 
 src_install() {
-	emake "${fehopts[@]}" install
+	emake "${fehopts[@]}" DESTDIR="${D}" install
 }
 
 pkg_postinst() {
