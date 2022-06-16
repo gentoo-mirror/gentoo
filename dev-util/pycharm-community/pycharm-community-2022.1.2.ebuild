@@ -34,13 +34,13 @@ RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
 	media-libs/freetype:2=
 	media-libs/harfbuzz
 	media-libs/libglvnd
+	media-libs/libjpeg-turbo:0=
 	media-libs/libpng:0=
 	net-libs/gnutls
 	net-print/cups
 	sys-apps/dbus
 	sys-libs/libcap
 	sys-libs/zlib
-	virtual/jpeg:0=
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXext
@@ -97,9 +97,9 @@ src_install() {
 		rm -r "${JRE_DIR}" || die
 	fi
 
-	fperms 755 "${DIR}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,printenv.py,restart.py}
+	fperms 755 "${DIR}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,restart.py}
 
-	fperms 755 "${DIR}"/"${JRE_DIR}"/bin/{jaotc,java,javac,jcmd,jdb,jfr,jhsdb,jjs,jmap,jps,jrunscript,jstack,jstat,keytool,pack200,rmid,rmiregistry,serialver,unpack200}
+	fperms 755 "${DIR}"/"${JRE_DIR}"/bin/{jaotc,java,javac,jcmd,jdb,jfr,jhsdb,jinfo,jjs,jmap,jps,jrunscript,jstack,jstat,keytool,pack200,rmid,rmiregistry,serialver,unpack200}
 	fperms 755 "${DIR}"/"${JRE_DIR}"/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
 
 	make_wrapper "${PN}" "${DIR}/bin/pycharm.sh"
