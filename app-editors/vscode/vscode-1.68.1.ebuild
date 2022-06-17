@@ -68,17 +68,18 @@ RDEPEND="
 "
 
 QA_PREBUILT="
+	/opt/vscode/chrome_crashpad_handler
+	/opt/vscode/chrome-sandbox
 	/opt/vscode/code
 	/opt/vscode/libEGL.so
 	/opt/vscode/libffmpeg.so
 	/opt/vscode/libGLESv2.so
-	/opt/vscode/libvulkan.so*
-	/opt/vscode/chrome-sandbox
 	/opt/vscode/libvk_swiftshader.so
-	/opt/vscode/swiftshader/libEGL.so
-	/opt/vscode/swiftshader/libGLESv2.so
+	/opt/vscode/libvulkan.so*
 	/opt/vscode/resources/app/extensions/*
 	/opt/vscode/resources/app/node_modules.asar.unpacked/*
+	/opt/vscode/swiftshader/libEGL.so
+	/opt/vscode/swiftshader/libGLESv2.so
 "
 
 src_install() {
@@ -100,6 +101,7 @@ src_install() {
 	insinto "/opt/${PN}"
 	doins -r *
 	fperms +x /opt/${PN}/{,bin/}code
+	fperms +x /opt/${PN}/chrome_crashpad_handler
 	fperms 4711 /opt/${PN}/chrome-sandbox
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass.sh
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass-empty.sh
@@ -118,12 +120,4 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "You may want to install some additional utils, check in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
-
-	if has_version -r ">=gui-libs/wlroots-0.15"; then
-		elog
-		elog "The wayland backend of vscode crashes with >=gui-libs/wlroots-0.15"
-		elog "This will be fixed upstream in a later release"
-		elog "Please run the xwayland version for now, on wlroots based DEs."
-		elog "For more information, see https://bugs.gentoo.org/834082"
-	fi
 }

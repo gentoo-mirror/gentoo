@@ -68,17 +68,18 @@ RDEPEND="
 "
 
 QA_PREBUILT="
+	/opt/vscodium/chrome_crashpad_handler
+	/opt/vscodium/chrome-sandbox
 	/opt/vscodium/codium
 	/opt/vscodium/libEGL.so
 	/opt/vscodium/libffmpeg.so
 	/opt/vscodium/libGLESv2.so
-	/opt/vscodium/libvulkan.so*
-	/opt/vscodium/chrome-sandbox
 	/opt/vscodium/libvk_swiftshader.so
-	/opt/vscodium/swiftshader/libEGL.so
-	/opt/vscodium/swiftshader/libGLESv2.so
+	/opt/vscodium/libvulkan.so*
 	/opt/vscodium/resources/app/extensions/*
 	/opt/vscodium/resources/app/node_modules.asar.unpacked/*
+	/opt/vscodium/swiftshader/libEGL.so
+	/opt/vscodium/swiftshader/libGLESv2.so
 "
 
 S="${WORKDIR}"
@@ -92,6 +93,7 @@ src_install() {
 	insinto "/opt/${PN}"
 	doins -r *
 	fperms +x /opt/${PN}/{,bin/}codium
+	fperms +x /opt/${PN}/chrome_crashpad_handler
 	fperms 4711 /opt/${PN}/chrome-sandbox
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass.sh
 	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass-empty.sh
@@ -110,12 +112,4 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "When compared to the regular VSCode, VSCodium has a few quirks"
 	elog "More information at: https://github.com/VSCodium/vscodium/blob/master/DOCS.md"
-
-	if has_version -r ">=gui-libs/wlroots-0.15"; then
-		elog
-		elog "The wayland backend of vscodium crashes with >=gui-libs/wlroots-0.15"
-		elog "This will be fixed upstream in a later release"
-		elog "Please run the xwayland version for now, on wlroots based DEs."
-		elog "For more information, see https://bugs.gentoo.org/834082"
-	fi
 }
