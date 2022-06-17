@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=prepare
+DEPEND=sys-apps/attr
+DESCRIPTION=Commandline and GUI tools that deal directly with NFSv4 ACLs
+EAPI=8
+HOMEPAGE=https://git.linux-nfs.org/?p=bfields/nfs4-acl-tools.git;a=summary
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/attr
+SLOT=0
+SRC_URI=https://linux-nfs.org/~bfields/nfs4-acl-tools/nfs4-acl-tools-0.3.7.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
+_md5_=94c0684f34bb3f3b32798e915bddb92b
