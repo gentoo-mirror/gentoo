@@ -19,7 +19,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="brotli test"
 RESTRICT="!test? ( test )"
 
@@ -44,6 +44,17 @@ BDEPEND="
 		" python3_{8..11})
 	)
 "
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# unbundle urllib3
+	rm src/urllib3/packages/six.py || die
+	find -name '*.py' -exec sed -i \
+		-e 's:\([.]*\|urllib3\.\)\?packages\.six:six:g' \
+		-e 's:from \([.]*\|urllib3\.\)\?packages import six:import six:g' \
+		{} + || die
+}
 
 python_test() {
 	local -x CI=1
