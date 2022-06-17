@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE='tk?,threads(+)'
 
@@ -29,7 +30,7 @@ SRC_URI="
 # Fonts: BitstreamVera, OFL-1.1
 LICENSE="BitstreamVera BSD matplotlib MIT OFL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
 IUSE="cairo doc excel examples gtk3 latex qt5 tk webagg wxwidgets"
 
 # internal copy of pycxx highly patched
@@ -46,7 +47,6 @@ RDEPEND="
 	>=dev-python/python-dateutil-2.7[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	>=dev-python/six-1.14.0[${PYTHON_USEDEP}]
-	dev-python/versioneer[${PYTHON_USEDEP}]
 	media-fonts/dejavu
 	media-fonts/stix-fonts
 	media-libs/freetype:2
@@ -118,10 +118,6 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-pkg_setup() {
-	unset DISPLAY # bug #278524
-}
-
 use_setup() {
 	local uword="${2:-${1}}"
 	if use "${1}"; then
@@ -161,10 +157,6 @@ python_prepare_all() {
 
 	rm -rf libqhull || die
 
-	export XDG_RUNTIME_DIR="${T}/runtime-dir"
-	mkdir "${XDG_RUNTIME_DIR}" || die
-	chmod 0700 "${XDG_RUNTIME_DIR}" || die
-
 	distutils-r1_python_prepare_all
 }
 
@@ -172,6 +164,11 @@ python_configure_all() {
 	append-flags -fno-strict-aliasing
 	append-cppflags -DNDEBUG  # or get old trying to do triangulation
 	tc-export PKG_CONFIG
+
+	unset DISPLAY # bug #278524
+	export XDG_RUNTIME_DIR="${T}/runtime-dir"
+	mkdir "${XDG_RUNTIME_DIR}" || die
+	chmod 0700 "${XDG_RUNTIME_DIR}" || die
 }
 
 python_configure() {
@@ -190,7 +187,7 @@ python_configure() {
 		system_freetype = True
 		system_qhull = True
 		[packages]
-		tests = $(usex test True False)
+		tests = True
 		[gui_support]
 		agg = True
 		gtk = False
@@ -221,15 +218,13 @@ wrap_setup() {
 }
 
 python_compile() {
-	wrap_setup distutils-r1_python_compile --build-lib="${BUILD_DIR}"/lib
+	wrap_setup distutils-r1_python_compile
+	find "${BUILD_DIR}" -name '*.pth' -delete || die
 }
 
 python_compile_all() {
 	if use doc; then
 		cd doc || die
-
-		# necessary for in-source build
-		local -x PYTHONPATH="${BUILD_DIR}"/build/lib:${PYTHONPATH}
 
 		VARTEXFONTS="${T}"/fonts \
 		emake SPHINXOPTS= O=-Dplot_formats=png:100 html
@@ -255,21 +250,14 @@ python_test() {
 	grep -v system_freetype "${BUILD_DIR}"/setup.cfg \
 		> "${BUILD_DIR}"/test-setup.cfg || die
 	local -x MPLSETUPCFG="${BUILD_DIR}"/test-setup.cfg
-	distutils-r1_python_compile -j1 --build-lib="${BUILD_DIR}"/test-lib
+
+	esetup.py build -j1 --build-lib="${BUILD_DIR}"/test-lib
 	local -x PYTHONPATH=${BUILD_DIR}/test-lib:${PYTHONPATH}
 
 	# speed tests up
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	nonfatal epytest --pyargs matplotlib -m "not network" \
 		-p xdist.plugin -n "$(makeopts_jobs)" || die
-}
-
-python_install() {
-	wrap_setup distutils-r1_python_install
-
-	# mpl_toolkits namespace
-	python_moduleinto mpl_toolkits
-	python_domodule lib/mpl_toolkits/__init__.py
 }
 
 python_install_all() {
@@ -281,6 +269,4 @@ python_install_all() {
 		dodoc -r examples
 		docompress -x /usr/share/doc/${PF}/examples
 	fi
-
-	find "${D}" -name '*.pth' -delete || die
 }
