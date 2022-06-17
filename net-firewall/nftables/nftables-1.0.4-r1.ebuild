@@ -33,7 +33,7 @@ RESTRICT="test? ( userpriv ) !test? ( test )"
 
 RDEPEND="
 	>=net-libs/libmnl-1.0.4:0=
-	>=net-libs/libnftnl-1.2.1:0=
+	>=net-libs/libnftnl-1.2.2:0=
 	gmp? ( dev-libs/gmp:= )
 	json? ( dev-libs/jansson:= )
 	python? ( ${PYTHON_DEPS} )
@@ -57,11 +57,6 @@ REQUIRED_USE="
 	libedit? ( !readline )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-optimize-segfault.patch
-	"${FILESDIR}"/${P}-test-shell-sets.patch
-)
-
 pkg_setup() {
 	if kernel_is ge 3 13; then
 		if use modern-kernel && kernel_is lt 3 18; then
@@ -75,6 +70,9 @@ pkg_setup() {
 }
 
 src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}/nftables-1.0.4-revert-scanner-flags-move-to-own-scope.patch"
+	)
 	default
 
 	if [[ ${PV} =~ ^[9]{4,}$ ]] ; then
