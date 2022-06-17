@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install unpack
+DEPEND=sys-libs/ncurses:=
+DESCRIPTION=Nigel's performance MONitor for CPU, memory, network, disks, etc...
+EAPI=8
+HOMEPAGE=http://nmon.sourceforge.net/
+INHERIT=flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=GPL-3
+RDEPEND=sys-libs/ncurses:=
+SLOT=0
+SRC_URI=mirror://sourceforge/nmon/lmon16n.c
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=e023a94a8de18011020240fe6b5c8c63
