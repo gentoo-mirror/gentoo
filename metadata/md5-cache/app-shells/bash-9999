@@ -1,14 +1,14 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-chetramey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst preinst prepare setup unpack
-DEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl ) readline? ( >=sys-libs/readline-8.2:0= )
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl )
 DESCRIPTION=The standard GNU Bourne again shell
 EAPI=8
 HOMEPAGE=https://tiswww.case.edu/php/chet/bash/bashtop.html
 INHERIT=flag-o-matic toolchain-funcs prefix verify-sig git-r3
 IUSE=afs bashlogger examples mem-scramble +net nls plugins +readline verify-sig
-LICENSE=GPL-3
+LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl ) readline? ( >=sys-libs/readline-8.2:0= )
+RDEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl )
 SLOT=0
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	prefix	eab3c99d77fe00506c109c8a736186f7	verify-sig	0748d665fa664a87add00152ed046e16	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=919da4990c18e7c3b24bca2d6c52f2a3
+_md5_=a889e96d3aaaf79529286d0cd52a1186
