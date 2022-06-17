@@ -17,7 +17,7 @@ SRC_URI="https://launchpad.net/apparmor/${MY_PV}/${PV}/+download/apparmor-${PV}.
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="doc +perl +python static-libs"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -36,12 +36,16 @@ BDEPEND="
 S=${WORKDIR}/apparmor-${PV}/libraries/${PN}
 
 # depends on the package already being installed
-#RESTRICT="test"
+RESTRICT="test"
 
 src_prepare() {
-	rm -r m4 || die "failed to remove bundled macros"
-
 	default
+
+	# We used to rm m4/ but led to this after eautoreconf:
+	# checking whether the libapparmor man pages should be generated... yes
+	# ./configure: 5065: PROG_PODCHECKER: not found
+	# ./configure: 5068: PROG_POD2MAN: not found
+	# checking whether python bindings are enabled... yes
 	eautoreconf
 
 	use python && distutils-r1_src_prepare
@@ -61,10 +65,10 @@ src_compile() {
 	use perl && emake -C swig/perl
 
 	if use python ; then
-		pushd swig/python > /dev/null || die
+		pushd swig/python > /dev/null
 		emake libapparmor_wrap.c
 		distutils-r1_src_compile
-		popd > /dev/null || die
+		popd > /dev/null
 	fi
 }
 
@@ -87,6 +91,7 @@ src_install() {
 	if use python ; then
 		pushd swig/python > /dev/null || die
 		distutils-r1_src_install
+
 		popd > /dev/null || die
 	fi
 
