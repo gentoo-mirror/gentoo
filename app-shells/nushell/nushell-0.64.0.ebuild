@@ -11,25 +11,31 @@ CRATES="
 	aho-corasick-0.7.18
 	alloc-no-stdlib-2.0.3
 	alloc-stdlib-0.2.1
+	alphanumeric-sort-1.4.4
 	ansi-parser-0.8.0
 	ansi-str-0.1.1
 	ansi_term-0.12.1
-	anyhow-1.0.56
+	anyhow-1.0.57
+	array-init-cursor-0.2.0
 	arrayvec-0.4.12
 	arrayvec-0.5.2
 	arrayvec-0.7.2
-	array-init-cursor-0.2.0
-	arrow2-0.10.1
 	arrow-format-0.4.0
+	arrow2-0.11.2
+	as-slice-0.1.5
 	assert_cmd-2.0.4
 	async-stream-0.3.3
 	async-stream-impl-0.3.3
-	async-trait-0.1.53
-	as-slice-0.1.5
+	async-trait-0.1.56
+	atomic-polyfill-0.1.8
 	atty-0.2.14
 	autocfg-1.1.0
-	backtrace-0.3.64
+	backtrace-0.3.65
+	bare-metal-0.2.5
+	bare-metal-1.0.0
 	base64-0.13.0
+	bit_field-0.10.1
+	bitfield-0.13.2
 	bitflags-1.3.2
 	bitpacking-0.8.4
 	block-buffer-0.9.0
@@ -38,13 +44,13 @@ CRATES="
 	brotli-decompressor-2.3.2
 	brownstone-1.1.0
 	bstr-0.2.17
-	bumpalo-3.9.1
+	bumpalo-3.10.0
+	byte-unit-4.0.14
 	bytemuck-1.9.1
 	bytemuck_derive-1.1.0
 	byteorder-1.4.3
-	bytesize-1.1.0
 	bytes-1.1.0
-	byte-unit-4.0.14
+	bytesize-1.1.0
 	calamine-0.18.0
 	capnp-0.14.6
 	cc-1.0.73
@@ -58,14 +64,15 @@ CRATES="
 	codepage-0.1.1
 	comfy-table-5.0.1
 	console-0.15.0
-	const-sha1-0.2.0
-	const_format-0.2.22
+	const_format-0.2.24
 	const_format_proc_macros-0.2.22
 	convert_case-0.4.0
 	core-foundation-0.9.3
 	core-foundation-sys-0.8.3
+	cortex-m-0.7.5
 	cpufeatures-0.2.2
 	crc32fast-1.3.2
+	critical-section-0.2.7
 	crossbeam-channel-0.5.4
 	crossbeam-deque-0.8.1
 	crossbeam-epoch-0.9.8
@@ -80,12 +87,12 @@ CRATES="
 	csv-1.1.6
 	csv-core-0.1.10
 	ctor-0.1.22
-	ctrlc-3.2.1
+	ctrlc-3.2.2
 	cty-0.2.2
 	derive_more-0.99.17
 	dialoguer-0.9.0
-	difflib-0.4.0
 	diff-0.1.12
+	difflib-0.4.0
 	digest-0.9.0
 	digest-0.10.3
 	dirs-4.0.0
@@ -99,7 +106,7 @@ CRATES="
 	dunce-1.0.2
 	ego-tree-0.6.2
 	either-1.6.1
-	embed-resource-1.7.2
+	embedded-hal-0.2.7
 	eml-parser-0.1.3
 	encode_unicode-0.3.6
 	encoding_rs-0.8.31
@@ -115,15 +122,15 @@ CRATES="
 	fastrand-1.7.0
 	fd-lock-3.0.5
 	filesize-0.2.0
-	filetime-0.2.15
-	flate2-1.0.23
+	filetime-0.2.16
+	flate2-1.0.24
 	fnv-1.0.7
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
 	form_urlencoded-1.0.1
+	fs_extra-1.2.0
 	fsevent-0.4.0
 	fsevent-sys-2.0.1
-	fs_extra-1.2.0
 	fuchsia-cprng-0.1.1
 	fuchsia-zircon-0.3.3
 	fuchsia-zircon-sys-0.3.3
@@ -142,80 +149,82 @@ CRATES="
 	generic-array-0.12.4
 	generic-array-0.13.3
 	generic-array-0.14.5
+	gethostname-0.2.3
 	getopts-0.2.21
 	getrandom-0.1.16
 	getrandom-0.2.6
 	getset-0.1.2
-	ghost-0.1.2
+	ghost-0.1.4
 	gimli-0.26.1
-	git2-0.14.2
+	git2-0.14.4
 	gjson-0.8.1
 	glob-0.3.0
 	h2-0.3.13
 	hamcrest2-0.3.0
 	hash32-0.1.1
 	hash32-0.2.1
-	hashbrown-0.11.2
-	hashbrown-0.12.0
-	hashlink-0.7.0
 	hash_hasher-2.0.3
+	hashbrown-0.11.2
+	hashbrown-0.12.1
+	hashlink-0.7.0
 	heapless-0.5.6
-	heapless-0.7.10
+	heapless-0.7.13
 	heck-0.3.3
 	heck-0.4.0
 	hermit-abi-0.1.19
 	hex-0.4.3
 	html5ever-0.25.2
 	htmlescape-0.3.1
-	httparse-1.7.0
+	http-0.2.7
+	http-body-0.4.5
+	httparse-1.7.1
 	httpdate-1.0.2
-	http-0.2.6
-	http-body-0.4.4
 	humantime-1.3.0
-	hyper-0.14.18
+	hyper-0.14.19
 	hyper-tls-0.5.0
 	ical-0.7.0
 	idna-0.2.3
 	indent_write-2.2.0
-	indexmap-1.8.1
+	indexmap-1.8.2
 	inotify-0.7.1
 	inotify-sys-0.1.5
 	instant-0.1.12
 	integer-encoding-3.0.3
-	inventory-0.2.2
-	iovec-0.1.4
+	inventory-0.2.3
 	io-lifetimes-0.6.1
-	ipnet-2.4.0
+	iovec-0.1.4
+	ipnet-2.5.0
+	is-root-0.1.2
 	is_ci-1.1.1
 	is_debug-1.0.1
 	is_executable-1.0.1
 	itertools-0.10.3
 	itoa-0.4.8
-	itoa-1.0.1
+	itoa-1.0.2
 	jobserver-0.1.24
 	joinery-2.1.0
 	js-sys-0.3.57
 	kernel32-sys-0.2.2
-	lazycell-1.3.0
 	lazy_static-1.4.0
-	lexical-6.1.0
-	lexical-core-0.8.3
-	lexical-parse-float-0.8.3
-	lexical-parse-integer-0.8.3
-	lexical-util-0.8.3
-	lexical-write-float-0.8.4
-	lexical-write-integer-0.8.3
-	libc-0.2.123
-	libgit2-sys-0.13.2+1.4.2
+	lazycell-1.3.0
+	lexical-6.1.1
+	lexical-core-0.8.5
+	lexical-parse-float-0.8.5
+	lexical-parse-integer-0.8.6
+	lexical-util-0.8.5
+	lexical-write-float-0.8.5
+	lexical-write-integer-0.8.5
+	libc-0.2.126
+	libgit2-sys-0.13.4+1.4.2
 	libm-0.2.2
 	libproc-0.10.0
 	libsqlite3-sys-0.24.2
 	libssh2-sys-0.2.23
-	libz-sys-1.1.5
+	libz-sys-1.1.8
 	linked-hash-map-0.5.4
-	linux-raw-sys-0.0.42
+	linux-raw-sys-0.0.46
 	lock_api-0.4.7
-	log-0.4.16
+	log-0.4.17
 	lscolors-0.9.0
 	lz4-1.23.3
 	lz4-sys-1.9.3
@@ -224,29 +233,29 @@ CRATES="
 	markup5ever-0.10.1
 	matches-0.1.9
 	md-5-0.10.1
-	memchr-2.4.1
-	memmap2-0.5.3
+	memchr-2.5.0
+	memmap2-0.5.4
 	memoffset-0.6.5
 	meval-0.2.0
 	miette-3.3.0
-	miette-4.5.0
+	miette-4.7.1
 	miette-derive-3.3.0
-	miette-derive-4.5.0
+	miette-derive-4.7.1
 	mime-0.3.16
 	minimal-lexical-0.2.1
-	miniz_oxide-0.4.4
-	miniz_oxide-0.5.1
-	miow-0.2.2
-	miow-0.3.7
+	miniz_oxide-0.5.3
 	mio-0.6.23
-	mio-0.8.2
+	mio-0.8.3
 	mio-extras-2.0.6
+	miow-0.2.2
 	multiversion-0.6.1
 	multiversion-macros-0.6.1
 	native-tls-0.2.10
+	nb-0.1.3
+	nb-1.0.0
 	net2-0.2.37
 	new_debug_unreachable-1.0.4
-	nix-0.23.1
+	nix-0.24.1
 	nodrop-0.1.14
 	nom-1.2.4
 	nom-4.2.3
@@ -254,39 +263,38 @@ CRATES="
 	nom-supreme-0.6.0
 	notify-4.0.17
 	ntapi-0.3.7
+	nu-ansi-term-0.46.0
 	num-0.2.1
 	num-0.4.0
 	num-bigint-0.2.6
 	num-bigint-0.4.3
 	num-complex-0.2.4
-	num-complex-0.4.0
+	num-complex-0.4.1
 	num-format-0.4.0
-	num-integer-0.1.44
-	num-iter-0.1.42
+	num-integer-0.1.45
+	num-iter-0.1.43
 	num-rational-0.2.4
 	num-rational-0.4.0
-	num-traits-0.2.14
+	num-traits-0.2.15
 	num_cpus-1.13.1
-	nu-0.62.0
-	nu-ansi-term-0.45.1
 	objc-0.2.7
-	object-0.27.1
-	once_cell-1.10.0
+	object-0.28.4
+	once_cell-1.12.0
 	opaque-debug-0.3.0
-	openssl-0.10.38
+	openssl-0.10.40
+	openssl-macros-0.1.0
 	openssl-probe-0.1.5
-	openssl-src-111.18.0+1.1.1n
-	openssl-sys-0.9.72
-	ordered-float-1.1.1
+	openssl-src-111.20.0+1.1.1o
+	openssl-sys-0.9.74
 	output_vt100-0.1.3
 	overload-0.1.1
-	owo-colors-3.3.0
+	owo-colors-3.4.0
 	parking_lot-0.11.2
-	parking_lot-0.12.0
+	parking_lot-0.12.1
 	parking_lot_core-0.8.5
-	parking_lot_core-0.9.2
-	parquet2-0.10.3
-	parquet-format-async-temp-0.2.0
+	parking_lot_core-0.9.3
+	parquet-format-async-temp-0.3.0
+	parquet2-0.12.1
 	parse-zoneinfo-0.3.0
 	pathdiff-0.2.1
 	percent-encoding-2.1.0
@@ -301,18 +309,20 @@ CRATES="
 	phf_macros-0.8.0
 	phf_shared-0.8.0
 	phf_shared-0.10.0
-	pin-project-lite-0.2.8
+	pin-project-lite-0.2.9
 	pin-utils-0.1.0
 	pkg-config-0.3.25
 	planus-0.2.0
-	polars-0.20.0
-	polars-arrow-0.20.0
-	polars-core-0.20.0
-	polars-io-0.20.0
-	polars-lazy-0.20.0
-	polars-time-0.20.0
-	polars-utils-0.20.0
+	polars-0.21.1
+	polars-arrow-0.21.1
+	polars-core-0.21.1
+	polars-io-0.21.1
+	polars-lazy-0.21.1
+	polars-ops-0.21.1
+	polars-time-0.21.1
+	polars-utils-0.21.1
 	pori-0.0.0
+	powierza-coefficient-1.0.0
 	ppv-lite86-0.2.16
 	precomputed-hash-0.1.1
 	predicates-2.1.1
@@ -320,17 +330,17 @@ CRATES="
 	predicates-tree-1.0.5
 	pretty_assertions-1.2.1
 	pretty_env_logger-0.4.0
-	procfs-0.12.0
-	proc-macro2-1.0.37
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
 	proc-macro-hack-0.5.19
+	proc-macro2-1.0.39
+	procfs-0.12.0
 	pwd-1.3.1
-	quickcheck-1.0.3
-	quickcheck_macros-1.0.0
 	quick-error-1.2.3
 	quick-xml-0.19.0
 	quick-xml-0.22.0
+	quickcheck-1.0.3
+	quickcheck_macros-1.0.0
 	quote-1.0.18
 	rand-0.4.6
 	rand-0.7.3
@@ -344,54 +354,59 @@ CRATES="
 	rand_distr-0.4.3
 	rand_hc-0.2.0
 	rand_pcg-0.2.1
-	rayon-1.5.2
-	rayon-core-1.9.2
+	rayon-1.5.3
+	rayon-core-1.9.3
 	rdrand-0.4.0
 	redox_syscall-0.2.13
 	redox_users-0.4.3
-	reedline-0.5.0
-	regex-1.5.5
+	reedline-0.7.0
+	regex-1.5.6
 	regex-automata-0.1.10
-	regex-syntax-0.6.25
+	regex-syntax-0.6.26
 	remove_dir_all-0.5.3
 	reqwest-0.11.10
 	result-1.0.0
+	riscv-0.7.0
+	riscv-target-0.1.2
 	roxmltree-0.14.1
 	rstest-0.12.0
 	rusqlite-0.27.0
-	rustc-demangle-0.1.21
-	rustc_version-0.4.0
-	rustix-0.34.3
-	rustversion-1.0.6
 	rust-embed-6.4.0
 	rust-embed-impl-6.2.0
 	rust-embed-utils-7.2.0
 	rust_decimal-0.10.2
-	ryu-1.0.9
+	rustc-demangle-0.1.21
+	rustc_version-0.2.3
+	rustc_version-0.4.0
+	rustix-0.34.8
+	rustversion-1.0.6
+	ryu-1.0.10
 	same-file-1.0.6
-	schannel-0.1.19
+	schannel-0.1.20
 	scopeguard-1.1.0
 	scraper-0.12.0
 	security-framework-2.6.1
 	security-framework-sys-2.6.1
 	selectors-0.22.0
+	semver-0.9.0
 	semver-0.11.0
-	semver-1.0.7
+	semver-1.0.9
+	semver-parser-0.7.0
 	semver-parser-0.10.2
-	serde-1.0.136
-	serde_derive-1.0.136
+	serde-1.0.137
+	serde_derive-1.0.137
 	serde_ini-0.2.0
-	serde_json-1.0.79
-	serde_test-1.0.136
+	serde_json-1.0.81
+	serde_test-1.0.137
 	serde_urlencoded-0.7.1
-	serde_yaml-0.8.23
+	serde_yaml-0.8.24
 	serial_test-0.5.1
 	serial_test_derive-0.5.1
 	servo_arc-0.1.1
 	sha2-0.9.9
 	sha2-0.10.2
 	shadow-rs-0.11.0
-	signal-hook-0.3.13
+	signal-hook-0.3.14
 	signal-hook-mio-0.2.3
 	signal-hook-registry-1.4.0
 	simdutf8-0.1.4
@@ -401,7 +416,7 @@ CRATES="
 	smawk-0.3.1
 	snap-1.0.5
 	socket2-0.4.4
-	spin-0.9.2
+	spin-0.9.3
 	sqlparser-0.16.0
 	stable_deref_trait-1.2.0
 	static_assertions-1.1.0
@@ -420,10 +435,11 @@ CRATES="
 	supports-unicode-1.0.2
 	sxd-document-0.3.2
 	sxd-xpath-0.4.2
+	syn-1.0.96
 	synstructure-0.12.6
-	syn-1.0.91
-	sysinfo-0.23.10
 	sys-locale-0.2.0
+	sysinfo-0.23.13
+	sysinfo-0.24.1
 	tempdir-0.3.7
 	tempfile-3.3.0
 	tendril-0.4.3
@@ -432,49 +448,50 @@ CRATES="
 	termtree-0.2.4
 	textwrap-0.15.0
 	thin-slice-0.1.1
-	thiserror-1.0.30
-	thiserror-impl-1.0.30
+	thiserror-1.0.31
+	thiserror-impl-1.0.31
 	thread_local-1.1.4
 	time-0.1.44
-	tinyvec-1.5.1
+	tinyvec-1.6.0
 	tinyvec_macros-0.1.0
 	titlecase-1.1.0
-	tokio-1.17.0
+	tokio-1.19.2
 	tokio-native-tls-0.3.0
-	tokio-util-0.7.1
+	tokio-util-0.7.3
 	toml-0.5.9
 	tower-service-0.3.1
 	tracing-0.1.34
-	tracing-attributes-0.1.20
 	tracing-core-0.1.26
-	trash-2.0.4
+	trash-2.1.4
 	try-lock-0.2.3
 	typed-arena-1.7.0
 	typenum-1.15.0
 	typetag-0.1.8
 	typetag-impl-0.1.8
 	ucd-trie-0.1.3
-	umask-1.0.1
-	uncased-0.9.6
-	unicode-bidi-0.3.7
+	umask-2.0.0
+	uncased-0.9.7
+	unicode-bidi-0.3.8
+	unicode-ident-1.0.0
 	unicode-linebreak-0.1.2
 	unicode-normalization-0.1.19
 	unicode-segmentation-1.9.0
 	unicode-width-0.1.9
-	unicode-xid-0.2.2
+	unicode-xid-0.2.3
 	url-2.2.2
+	users-0.10.0
 	users-0.11.0
-	utf8parse-0.2.0
-	utf8-width-0.1.6
 	utf-8-0.7.6
+	utf8-width-0.1.6
+	utf8parse-0.2.0
 	uuid-0.8.2
+	vcell-0.1.3
 	vcpkg-0.2.15
 	vec1-1.8.0
 	version_check-0.1.5
 	version_check-0.9.4
 	void-1.0.2
-	vswhom-0.1.0
-	vswhom-sys-0.1.1
+	volatile-register-0.2.1
 	vte-0.10.1
 	vte_generate_state_changes-0.1.1
 	wait-timeout-0.2.0
@@ -498,30 +515,34 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-0.9.1
+	windows-0.37.0
 	windows-sys-0.30.0
-	windows-sys-0.34.0
+	windows-sys-0.36.1
 	windows_aarch64_msvc-0.30.0
-	windows_aarch64_msvc-0.34.0
-	windows_gen-0.9.1
+	windows_aarch64_msvc-0.36.1
+	windows_aarch64_msvc-0.37.0
 	windows_i686_gnu-0.30.0
-	windows_i686_gnu-0.34.0
+	windows_i686_gnu-0.36.1
+	windows_i686_gnu-0.37.0
 	windows_i686_msvc-0.30.0
-	windows_i686_msvc-0.34.0
-	windows_macros-0.9.1
-windows_x86_64_gnu-0.30.0
-windows_x86_64_gnu-0.34.0
-windows_x86_64_msvc-0.30.0
-windows_x86_64_msvc-0.34.0
-winreg-0.10.1
-ws2_32-sys-0.2.1
-xmlparser-0.13.3
-yaml-rust-0.4.5
-zeroize-1.5.4
-zip-0.5.13
-zstd-0.10.0+zstd.1.5.2
-zstd-safe-4.1.4+zstd.1.5.2
-zstd-sys-1.6.3+zstd.1.5.2
+	windows_i686_msvc-0.36.1
+	windows_i686_msvc-0.37.0
+	windows_x86_64_gnu-0.30.0
+	windows_x86_64_gnu-0.36.1
+	windows_x86_64_gnu-0.37.0
+	windows_x86_64_msvc-0.30.0
+	windows_x86_64_msvc-0.36.1
+	windows_x86_64_msvc-0.37.0
+	winreg-0.10.1
+	winres-0.1.12
+	ws2_32-sys-0.2.1
+	xmlparser-0.13.3
+	yaml-rust-0.4.5
+	zeroize-1.5.5
+	zip-0.5.13
+	zstd-0.11.2+zstd.1.5.2
+	zstd-safe-5.0.2+zstd.1.5.2
+	zstd-sys-2.0.1+zstd.1.5.2
 "
 
 inherit cargo
@@ -553,7 +574,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 BDEPEND="
-	>=dev-lang/rust-1.59[nightly]
+	>=virtual/rust-1.60
 	virtual/pkgconfig
 "
 
@@ -561,12 +582,6 @@ QA_FLAGS_IGNORED="usr/bin/nu.*"
 
 src_prepare() {
 	default
-
-	if has_version -b '<virtual/rust-1.59.0'; then
-		# This can be dropped once Rust 1.59.0 is stable, but when we drop this we should update the
-		# BDEPEND to require 1.59.0 as well.
-		sed -i '/^strip = .*/d' Cargo.toml || die
-	fi
 }
 
 src_configure() {
@@ -586,18 +601,15 @@ src_configure() {
 }
 
 src_compile() {
-	cargo_src_compile --workspace -Z namespaced-features
+	cargo_src_compile --workspace
 }
 
 src_test() {
-	# https://github.com/nushell/nushell/issues/4900
-	export -n PORTAGE_COLORMAP
-
-	cargo_src_test -Z namespaced-features
+	cargo_src_test
 }
 
 src_install() {
-	cargo_src_install -Z namespaced-features
+	cargo_src_install
 	local DOCS=( README.md docs/. )
 	einstalldocs
 }
