@@ -67,6 +67,8 @@ python_test() {
 		# we do not package numba
 		tests/link/test_numba.py
 		tests/link/test_numba_performance.py
+		# ..or jax
+		tests/link/test_jax.py
 	)
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
