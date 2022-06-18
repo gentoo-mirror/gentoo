@@ -35,14 +35,13 @@ SRC_URI="${SRC_URI}
 
 LICENSE="LGPL-2.1"
 SLOT="${PV}"
-IUSE="+abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups custom-cflags dos +fontconfig +gecko gphoto2 gssapi gstreamer kerberos ldap mingw +mono mp3 netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl test +threads +truetype udev +udisks +unwind usb v4l vkd3d vulkan +X +xcomposite xinerama"
+IUSE="+abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups custom-cflags dos +fontconfig +gecko gphoto2 gssapi gstreamer kerberos ldap mingw +mono mp3 netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl test +threads +truetype udev +udisks +unwind usb v4l vulkan +X +xcomposite xinerama"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 	X? ( truetype )
 	crossdev-mingw? ( mingw )
 	elibc_glibc? ( threads )
 	osmesa? ( opengl )
-	test? ( abi_x86_32 )
-	vkd3d? ( vulkan )" # osmesa-opengl #286560 # X-truetype #551124
+	test? ( abi_x86_32 )" # osmesa-opengl #286560 # X-truetype #551124
 
 # FIXME: the test suite is unsuitable for us; many tests require net access
 # or fail due to Xvfb's opengl limitations.
@@ -97,7 +96,6 @@ COMMON_DEPEND="
 	unwind? ( sys-libs/libunwind[${MULTILIB_USEDEP}] )
 	usb? ( virtual/libusb:1[${MULTILIB_USEDEP}]  )
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
-	vkd3d? ( >=app-emulation/vkd3d-1.2[${MULTILIB_USEDEP}] )
 	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 	xcomposite? ( x11-libs/libXcomposite[${MULTILIB_USEDEP}] )
 	xinerama? ( x11-libs/libXinerama[${MULTILIB_USEDEP}] )"
@@ -107,7 +105,7 @@ RDEPEND="${COMMON_DEPEND}
 	>app-eselect/eselect-wine-0.3
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
 	gecko? ( app-emulation/wine-gecko:2.47.2[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:7.2.0 )
+	mono? ( app-emulation/wine-mono:7.3.0 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -294,7 +292,7 @@ src_configure() {
 	export LDCONFIG=/bin/true
 	use custom-cflags || strip-flags
 	if use mingw; then
-		use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
+		use crossdev-mingw || PATH="${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}"
 
 		# use *FLAGS for mingw, but strip unsupported (e.g. --hash-style=gnu)
 		local mingwcc=${CROSSCC:-$(usex x86 i686 x86_64)-w64-mingw32-gcc}
@@ -328,7 +326,7 @@ multilib_src_configure() {
 		$(use_with gphoto2 gphoto)
 		$(use_with gssapi)
 		$(use_with gstreamer)
-		--disable-hal
+		--enable-hal
 		$(use_with kerberos krb5)
 		$(use_with ldap)
 		# TODO: Will bug 685172 still need special handling?
@@ -352,7 +350,6 @@ multilib_src_configure() {
 		$(use_with unwind)
 		$(use_with usb)
 		$(use_with v4l v4l2)
-		$(use_enable vkd3d)
 		$(use_with vulkan)
 		$(use_with X x)
 		$(use_with X xfixes)
