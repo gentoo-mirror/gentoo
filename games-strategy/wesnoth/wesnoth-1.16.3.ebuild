@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake flag-o-matic xdg
 
@@ -93,7 +93,7 @@ src_configure() {
 src_install() {
 	local DOCS=( README.md changelog.md )
 	cmake_src_install
-	if use dedicated || use server; then
+	if use dedicated || use server ; then
 		rmdir "${ED}"/run{/wesnothd,} || die
 		newinitd "${FILESDIR}"/wesnothd.rc-r1 wesnothd
 	fi
