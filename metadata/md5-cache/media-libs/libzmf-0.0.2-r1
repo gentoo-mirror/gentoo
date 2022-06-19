@@ -1,7 +1,8 @@
+BDEPEND=doc? ( app-doc/doxygen )
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/icu:= dev-libs/librevenge media-libs/libpng:0= sys-libs/zlib dev-libs/boost doc? ( app-doc/doxygen ) test? ( dev-util/cppunit )
+DEPEND=dev-libs/icu:= dev-libs/librevenge media-libs/libpng:0= sys-libs/zlib dev-libs/boost test? ( dev-util/cppunit )
 DESCRIPTION=Library for parsing Zoner Callisto/Draw documents
-EAPI=6
+EAPI=8
 HOMEPAGE=https://wiki.documentfoundation.org/DLP/Libraries/libzmf
 IUSE=debug doc test tools
 KEYWORDS=amd64 ~arm arm64 ppc ppc64 ~riscv x86
@@ -10,4 +11,4 @@ RDEPEND=dev-libs/icu:= dev-libs/librevenge media-libs/libpng:0= sys-libs/zlib
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://dev-www.libreoffice.org/src/libzmf/libzmf-0.0.2.tar.xz
-_md5_=f653cf5beb73badf0e5523a68d5b7ebb
+_md5_=2bf5b6397d8c485e45f32ab40c6785d4
