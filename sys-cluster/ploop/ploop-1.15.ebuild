@@ -11,7 +11,7 @@ SRC_URI="https://download.openvz.org/utils/ploop/${PV}/src/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 BDEPEND="virtual/pkgconfig"
@@ -24,6 +24,7 @@ RDEPEND="${DEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/disable_create_run_dir.patch
+	"${FILESDIR}"/${PN}-1.15-makedev-include.patch
 )
 
 DOCS=( tools/README )
