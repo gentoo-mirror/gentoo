@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit autotools flag-o-matic multilib-minimal python-single-r1 systemd verify-sig
 
@@ -95,21 +95,21 @@ src_configure() {
 
 multilib_src_configure() {
 	econf \
-		$(use_enable debug) \
-		$(use_enable gost) \
-		$(use_enable dnscrypt) \
-		$(use_enable dnstap) \
-		$(use_enable ecdsa) \
-		$(use_enable ecs subnet) \
+		$(multilib_native_use_enable debug) \
+		$(multilib_native_use_enable gost) \
+		$(multilib_native_use_enable dnscrypt) \
+		$(multilib_native_use_enable dnstap) \
+		$(multilib_native_use_enable ecdsa) \
+		$(multilib_native_use_enable ecs subnet) \
 		$(multilib_native_use_enable redis cachedb) \
-		$(use_enable static-libs static) \
-		$(use_enable systemd) \
+		$(multilib_native_use_enable static-libs static) \
+		$(multilib_native_use_enable systemd) \
 		$(multilib_native_use_with python pythonmodule) \
 		$(multilib_native_use_with python pyunbound) \
-		$(use_with threads pthreads) \
-		$(use_with http2 libnghttp2) \
-		$(use_enable tfo tfo-client) \
-		$(use_enable tfo tfo-server) \
+		$(multilib_native_use_with threads pthreads) \
+		$(multilib_native_use_with http2 libnghttp2) \
+		$(multilib_native_use_enable tfo tfo-client) \
+		$(multilib_native_use_enable tfo tfo-server) \
 		--disable-flto \
 		--disable-rpath \
 		--enable-event-api \
