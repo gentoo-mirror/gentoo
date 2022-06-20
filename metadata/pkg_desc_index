@@ -2913,7 +2913,7 @@ app-misc/blink1 1.98-r2: blink(1) USB RGB LED status light control suite
 app-misc/bottlerocket 0.04c-r2: CLI interface to the X-10 Firecracker Kit
 app-misc/boxes 1.1.2-r3: Draw any kind of boxes around your text
 app-misc/brewtarget 2.3.1-r1: Application to create and manage beer recipes
-app-misc/broot 1.11.1 1.12.0 1.13.1: A new way to see and navigate directory trees
+app-misc/broot 1.11.1 1.12.0 1.13.1 1.13.2: A new way to see and navigate directory trees
 app-misc/btail 0.3-r1: Bayesian logfile filter
 app-misc/byobu 5.130-r1 5.133: A set of profiles for the GNU Screen console window manager (app-misc/screen)
 app-misc/c_rehash 1.7-r1: c_rehash script from OpenSSL
@@ -5203,7 +5203,7 @@ dev-java/commons-net 3.8.0: Client-oriented Java library to implement many Inter
 dev-java/commons-text 1.9: Apache Commons Text is a library focused on algorithms working on strings
 dev-java/commons-validator 1.7: Commons component to validate user input, or data input
 dev-java/commons-vfs 2.0-r2: A single API for accessing various different file systems
-dev-java/conversant-disruptor 1.2.19-r1: Conversant Disruptor - very high throughput Java BlockingQueue
+dev-java/conversant-disruptor 1.2.19-r1 1.2.20: Conversant Disruptor - very high throughput Java BlockingQueue
 dev-java/core-specs-alpha 0.1.24 0.2.44 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
 dev-java/cortado 0.6.0-r2: Multimedia framework for Java written by Fluendo
 dev-java/cpptasks 1.0_beta5-r1: Ant-tasks to compile various source languages and produce executables
@@ -5213,6 +5213,7 @@ dev-java/eclipse-ecj 4.15 4.22-r1: Eclipse Compiler for Java
 dev-java/emma 2.0.5312-r4: Free Java code coverage tool
 dev-java/error-prone-annotations 2.7.1: Java annotations for the Error Prone static analysis tool
 dev-java/failureaccess 30.1.1: Guava's InternalFutureFailureAccess and InternalFutures classes.
+dev-java/fastinfoset 2.1.0: Open Source implementation of the Fast Infoset Standard for Binary XML
 dev-java/fec 1.0.4-r4: Forward Error Correction library in Java
 dev-java/findbugs-annotations 3.0.1: Annotation defined by the FindBugs tool
 dev-java/fontbox 2.0.24 2.0.26: An open source Java library for parsing font files
@@ -5238,18 +5239,19 @@ dev-java/httpcore 4.4.14: Apache HttpComponents Core (blocking I/O)
 dev-java/icedtea 3.21.0: A harness to build OpenJDK using Free Software build tools and dependencies
 dev-java/icedtea-bin 3.16.0 3.16.0-r2: A Gentoo-made binary build of the IcedTea JDK
 dev-java/icedtea-sound 1.0.1-r1: Plugins for javax.sound
-dev-java/icedtea-web 1.8.4-r1 1.8.8 1.8.8-r1: FOSS Java browser plugin and Web Start implementation
+dev-java/icedtea-web 1.8.8-r1: FOSS Java browser plugin and Web Start implementation
 dev-java/icu4j 71.1: A set of Java libraries providing Unicode and Globalization support
 dev-java/iso-relax 20050331-r5: Interfaces useful for applications which support RELAX Core
+dev-java/istack-commons-runtime 4.1.1: istack common utility code
 dev-java/j2objc-annotations 1.2-r1: Annotations for the J2ObjC Java to Objective-C translator
 dev-java/jackcess 4.0.0: A pure Java library for reading from and writing to MS Access databases
 dev-java/jackrabbit-webdav 2.10.1-r2 2.21.7-r1: Generic WebDAV Library
 dev-java/jackson-annotations 2.13.2-r1 2.13.3: Core annotations used for value types, used by Jackson data binding package.
 dev-java/jackson-core 2.13.2-r1 2.13.3: Core Jackson processing abstractions (Streaming API), implementation for JSON
 dev-java/jackson-databind 2.13.2.2 2.13.3: General data-binding functionality for Jackson: works on core streaming API
-dev-java/jackson-dataformat-xml 2.13.2-r1 2.13.3: Data format extension for Jackson
+dev-java/jackson-dataformat-xml 2.13.2-r1 2.13.3 2.13.3-r1: Data format extension for Jackson
 dev-java/jackson-dataformat-yaml 2.13.2-r1 2.13.3: Support for reading and writing YAML-encoded data via Jackson abstractions
-dev-java/jackson-module-jakarta-xmlbind 2.13.2-r1 2.13.3: Support for using Jakarta XML Bind (aka JAXB 3.0) annotations
+dev-java/jackson-module-jakarta-xmlbind 2.13.2-r1 2.13.3 2.13.3-r1: Support for using Jakarta XML Bind (aka JAXB 3.0) annotations
 dev-java/jacl 1.4.1-r2: Jacl is an implementation of Tcl written in Java
 dev-java/jai-imageio-core 1.4.0: Java Advanced Imaging Image I/O Tools API core (standalone)
 dev-java/jai-imageio-jpeg2000 1.4.0: JPEG2000 support for Java Advanced Imaging Image I/O Tools API
@@ -5277,7 +5279,9 @@ dev-java/javassist 3.18.2-r1: Javassist makes Java bytecode manipulation simple
 dev-java/javatoolkit 0.6.7: Collection of Gentoo-specific tools for Java
 dev-java/javax-inject 1-r4: Dependency injection for Java (JSR-330)
 dev-java/javax-mail 1.6.7-r1: Jakarta Mail API
-dev-java/jaxb-api 2.3.3-r1 3.0.1-r1: Jakarta XML Binding API
+dev-java/jaxb-api 2.3.3-r1 3.0.1-r1 4.0.0: Jakarta XML Binding API
+dev-java/jaxb-runtime 4.0.0: JAXB (JSR 222) Reference Implementation
+dev-java/jaxb-stax-ex 2.1.0: Extensions to JSR-173 StAX API.
 dev-java/jaxen 1.2.0-r1: Jaxen is a universal XPath engine for Java
 dev-java/jbig2-imageio 3.0.3: PDFBox JBIG2 ImageIO plugin
 dev-java/jbitcollider-core 0.8-r1: Core classes of jBitcollider: org.bitpedia.collider.core
@@ -5289,9 +5293,9 @@ dev-java/jcifs 1.3.19-r1: Library that implements the CIFS/SMB networking protoc
 dev-java/jcip-annotations 1.0.1-r1: Clean room implementation of the JCIP Annotations
 dev-java/jclasslib 3.1-r1: Java bytecode viewer
 dev-java/jcommander 1.82: Command line parsing framework for Java
-dev-java/jctools-core 2.0.2: Java Concurrency Tools Core Library
+dev-java/jctools-core 2.0.2 3.1.0: Java Concurrency Tools Core Library
 dev-java/jdbc-mysql 8.0.26: JDBC Type 4 driver for MySQL
-dev-java/jdbc-postgresql 9.4_p1206-r1: JDBC Driver for PostgreSQL
+dev-java/jdbc-postgresql 9.4_p1206-r1 42.4.0: Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database
 dev-java/jdepend 2.10: Traverses Java class file directories and generates design quality metrics
 dev-java/jdom 1.1.3-r1 2.0.6-r5 2.0.6.1: Java-based solution for accessing, manipulating, and outputting XML data
 dev-java/jeromq 0.5.2: Pure Java implementation of libzmq
@@ -5338,7 +5342,7 @@ dev-java/lmax-disruptor 3.4.4: A High Performance Inter-Thread Messaging Library
 dev-java/log4j-12-api 2.17.2: The Apache Log4j 1.x Compatibility API
 dev-java/log4j-api 2.17.2: The Apache Log4j API
 dev-java/log4j-api-java9 2.17.1: The Apache Log4j API (Java 9)
-dev-java/log4j-core 2.17.2: The Apache Log4j Implementation
+dev-java/log4j-core 2.17.2 2.17.2-r1: The Apache Log4j Implementation
 dev-java/logback-classic 1.2.11: logback-classic module
 dev-java/logback-core 1.2.11: logback-core module
 dev-java/lucene 2.4.1-r3: High-performance, full-featured text search engine written entirely in Java
@@ -5351,10 +5355,10 @@ dev-java/mersennetwister 0_pre23765-r2: Modified MersenneTwister java port for F
 dev-java/metainf-services 1.7-r1: Generates META-INF/services files automatically
 dev-java/miglayout 4.0-r1: Easy to use yet very powerful Java Swing layout manager
 dev-java/mill-bin 0.10.4: A Java/Scala build tool
-dev-java/mockito 1.9.5-r2 4.4.0 4.6.0: Mockito mock objects library core API and implementation
+dev-java/mockito 1.9.5-r2 4.4.0 4.6.0 4.6.1: Mockito mock objects library core API and implementation
 dev-java/msv 20130601: Multi-Schema XML Validator, a Java tool for validating XML documents
 dev-java/mvel 2.3.2-r1: MVFLEX Expression Language
-dev-java/netty 4.1.35: Async event-driven framework for high performance network applications
+dev-java/netty 4.1.35 4.1.35-r1: Async event-driven framework for high performance network applications
 dev-java/netty-buffer 4.0.36 4.0.36-r1: Async event-driven framework for high performance network applications
 dev-java/netty-common 4.0.36-r2: Async event-driven framework for high performance network applications
 dev-java/netty-transport 4.0.36: Async event-driven framework for high performance network applications
@@ -5386,10 +5390,12 @@ dev-java/rhino 1.7.14: An open-source implementation of JavaScript written in Ja
 dev-java/rome 0.9-r4: Java framework for RSS and Atom feeds
 dev-java/rxtx 2.2_pre2-r2: Native library providing serial and parallel communication for Java
 dev-java/sac 1.3-r4: SAC is a standard interface for CSS parser
+dev-java/saslprep 1.1: SASLprep: Stringprep Profile for User Names and Passwords
 dev-java/sax 2.2.1-r5: SAX: Simple API for XML in Java
 dev-java/saxon 6.5.5-r3 9.2.0.6-r3: A XSLT and XQuery Processor
 dev-java/sbt 0.13.13 0.13.18-r1: sbt is a build tool for Scala and Java projects that aims to do the basics well
 dev-java/sbt-bin 1.3.10: sbt, a build tool for Scala
+dev-java/scram 2.1: Java Implementation of the Salted Challenge Response Authentication Mechanism
 dev-java/sjsxp 1.0.2: Sun Java Streaming XML Parser (SJSXP) is the implementation of JSR 173
 dev-java/slf4j-api 1.7.36: The slf4j API
 dev-java/slf4j-ext 1.7.36: Extensions to the SLF4J API
@@ -5400,6 +5406,7 @@ dev-java/snappy 1.1.7.8: Snappy compressor/decompressor for Java
 dev-java/sparsebitset 1.2: An efficient sparse bitset implementation for Java
 dev-java/spec-alpha 0.1.143 0.2.176 0.2.194: A Clojure library to describe the structure of data and functions
 dev-java/stax2-api 4.2.1-r1: stax2 API is an extension to basic Stax 1.0 API
+dev-java/stringprep 1.1: SASLprep: Stringprep Profile for User Names and Passwords
 dev-java/stringtemplate 3.2.1-r2 4.3.2: A Java template engine
 dev-java/sun-jai-bin 1.1.3-r2: JAI is a class library for managing images
 dev-java/swing-layout 1.0.4-r2: Professional cross platform layouts with Swing
@@ -15267,7 +15274,7 @@ net-im/ejabberd 21.12-r1 22.05-r1: Robust, scalable and extensible XMPP server
 net-im/ekg2 0.4_pre20190315-r1 9999: Text-based, multi-protocol instant messenger
 net-im/element-desktop-bin 1.10.11: A glossy Matrix collaboration client for desktop (binary package)
 net-im/empathy 3.12.14: Telepathy instant messaging and video/audio call client for GNOME
-net-im/err 6.1.7 6.1.8-r1: Multiprotocol chatbot designed to be easily deployable and maintainable
+net-im/err 6.1.7 6.1.8-r1 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
 net-im/gajim 1.3.3-r1 1.3.3_p2 1.4.0 1.4.0-r1 1.4.1 1.4.2: Jabber client written in PyGTK
 net-im/gitter-bin 4.1.0-r1 5.0.1: Chat and network platform
 net-im/libcommuni 3.7.0: A cross-platform IRC framework written with Qt
