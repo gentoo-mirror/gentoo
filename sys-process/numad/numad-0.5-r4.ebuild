@@ -23,6 +23,12 @@ SLOT="0"
 
 CONFIG_CHECK="~NUMA ~CPUSETS"
 
+PATCHES=(
+	"${FILESDIR}/0001-Fix-man-page-directory-creation.patch"
+	"${FILESDIR}/${PN}-0.5-ldlibs.patch"
+	"${FILESDIR}/${PN}-0.5-wformat-security.patch"
+)
+
 src_prepare() {
 	default
 	tc-export CC
