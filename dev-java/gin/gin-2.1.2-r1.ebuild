@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,14 +7,10 @@ JAVA_PKG_IUSE="source"
 
 inherit java-pkg-2 java-ant-2
 
-MY_PN="google-gin"
-MY_P="${MY_PN}-${PV}"
-
-GIN_COMMIT="d62089f5b6ea33d842ab4646b51583c65a8be36b"
-
 DESCRIPTION="Google Gin (GWT INjection)"
 HOMEPAGE="https://gwtplus.github.io/google-gin/"
-SRC_URI="https://github.com/gwtplus/google-gin/archive/${GIN_COMMIT}.zip -> ${MY_P}.zip"
+SRC_URI="https://github.com/gwtplus/google-gin/archive/${PV}.tar.gz -> ${P}.tar.gz"
+
 RESTRICT="mirror"
 SLOT="2.1"
 LICENSE="Apache-2.0"
@@ -32,8 +28,7 @@ RDEPEND="
 		>=virtual/jre-1.8:*"
 DEPEND="
 		${CDEPEND}
-		>=virtual/jdk-1.8:*"
-BDEPEND="app-arch/unzip"
+		virtual/jdk:1.8"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_BUILD_XML="build.xml"
@@ -44,7 +39,7 @@ EANT_GENTOO_CLASSPATH="
 		validation-api-1.0
 "
 
-S="${WORKDIR}/${MY_PN}-${GIN_COMMIT}"
+S="${WORKDIR}/google-gin-${PV}"
 
 JAVA_RM_FILES=(
 	trunk/lib/aopalliance.jar
