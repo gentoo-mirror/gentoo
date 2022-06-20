@@ -1,12 +1,12 @@
-BDEPEND=sys-devel/binutils nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815 sys-devel/gnuconfig || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=Extended attributes tools
-EAPI=7
+EAPI=8
 HOMEPAGE=https://savannah.nongnu.org/projects/attr
-INHERIT=flag-o-matic libtool toolchain-funcs multilib-minimal usr-ldscript autotools git-r3
+INHERIT=autotools flag-o-matic toolchain-funcs multilib-minimal usr-ldscript autotools git-r3
 IUSE=debug nls static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
 LICENSE=LGPL-2.1
 PROPERTIES=live
 SLOT=0
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	libtool	241a8f577b9781a42a7421e53448a44e	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	usr-ldscript	5c738dce357b54d5a90e30094d2f983c	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	136117fb43a9bf5598530e9cc642f710	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=66230ba8c92fe8dec58891f8ea20fa17
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	usr-ldscript	5c738dce357b54d5a90e30094d2f983c	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=8a73384b96ca3d38173fb8d0e81b6736
