@@ -48,6 +48,7 @@ RDEPEND="${COMMON_DEPEND}
 	acct-user/messagebus
 	selinux? ( sec-policy/selinux-dbus )
 	systemd? ( virtual/tmpfiles )
+	X? ( sys-apps/which )
 "
 
 DOC_CONTENTS="

@@ -235,7 +235,7 @@ multilib_src_install_all() {
 		# turns out to only work for GDM (and startx). has been merged into
 		# other desktop (kdm and such scripts)
 		exeinto /etc/X11/xinit/xinitrc.d
-		doexe "${FILESDIR}"/80-dbus
+		newexe "${FILESDIR}"/80-dbus-r1 80-dbus
 	fi
 
 	# Needs to exist for dbus sessions to launch
