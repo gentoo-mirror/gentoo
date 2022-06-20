@@ -295,32 +295,6 @@ dev-python/fusepy
 # does not yet support Python 3.10+. Removal on 2022-06-21. bugs #845720, #797850.
 dev-python/drf-yasg
 
-# Michał Górny <mgorny@gentoo.org> (2022-05-21)
-# No commit activity since 2016.  Requires patching for Python 3.10.
-# No tests.  No revdeps.
-# Removal on 2022-06-20.  Bug #846788.
-dev-python/dicttoxml
-
-# Michał Górny <mgorny@gentoo.org> (2022-05-21)
-# dev-python/mongoengine has had repeated test regressions, and this
-# time I am unable to get them anywhere close to passing.  The current
-# Gentoo version is over a year old.  There are no revdeps to the two
-# packages remaining.
-# Removal on 2022-06-20.  Bug #846656.
-dev-python/flask-mongoengine
-dev-python/mongoengine
-
-# Till Schäfer <till2.schaefer@uni-dortmund.de> (2022-05-20)
-# Upstream unmaintained for a long time.
-# Has known bugs.
-# Removal in 30 days, bug #837092
-kde-misc/playbar2
-
-# Bernd Waibel <waebbl-gentoo@posteo.net> (2022-05-20)
-# No consumers left. Superseded by dev-libs/imath[python]
-# Removal in 30 days. Bug #845810
-dev-python/pyilmbase
-
 # Hans de Graaff <graaff@gentoo.org> (2022-05-20)
 # Unused slots of cucumber components that are no longer or were never
 # used by current cucumber versions. Masked for removal in 30 days.
@@ -338,11 +312,6 @@ dev-util/cucumber-tag-expressions:2
 dev-util/cucumber-tag-expressions:3
 dev-util/cucumber-wire:5
 
-# Sam James <sam@gentoo.org> (2022-05-20)
-# Unmaintained, out of date, failing tests, and uses deprecated eclass methods
-# (EGO_SUM). bug #700846, bug #844445. Removal on 2022-06-20.
-dev-util/kubebuilder
-
 # Matt Turner <mattst88@gentoo.org> (2022-04-30)
 # Masked for testing. Apparently causes crashes. Bug #841857.
 >=x11-libs/libX11-1.8
@@ -351,21 +320,6 @@ dev-util/kubebuilder
 # Apparently the "b" in version means "beta". 3.24 is available, we
 # should update to that. #841437
 ~sci-physics/bullet-3.22b
-
-# Mike Pagano <mpagano@gentoo.org> (2022-04-26)
-# These kernels contain a major regression that causes power button
-# to stop working, apparently making it impossible to leave suspend
-# on some laptops without a (difficult) hard reset.
-~sys-kernel/gentoo-sources-5.10.111
-=sys-kernel/gentoo-sources-5.10.112
-~sys-kernel/gentoo-sources-5.15.34
-=sys-kernel/gentoo-sources-5.15.35
-~sys-kernel/gentoo-sources-5.16.20
-~sys-kernel/gentoo-sources-5.17.3
-=sys-kernel/gentoo-sources-5.17.4
-~sys-kernel/vanilla-sources-5.10.112
-~sys-kernel/vanilla-sources-5.15.35
-~sys-kernel/vanilla-sources-5.17.4
 
 # Alfredo Tupone <tupone@gentoo.org> (2022-04-27)
 # New release of janestreet packages need to tested
@@ -426,14 +380,6 @@ dev-ml/async_extra:0/0.15
 dev-ml/core_bench:0/0.15
 dev-ml/patience_diff:0/0.15
 dev-util/patdiff:0/0.15
-
-# David Seifert <soap@gentoo.org> (2022-04-17)
-# Dead library, part of >=sys-fs/e2fsprogs-1.46.5 now, bug #806875,
-# removal on 2022-05-17.
-# (If you hit blockers, please run:
-# $ emerge --deselect sys-libs/e2fsprogs-libs
-# This is necessary as your world file should not contain dependencies.)
-sys-libs/e2fsprogs-libs
 
 # Marek Szuba <marecki@gentoo.org> (2022-04-14)
 # Singularity has been renamed upstream to Apptainer. Therefore, up-to-date
@@ -572,10 +518,6 @@ net-libs/libsoup:3.0
 # is resolved.  Bug #791259.
 >=media-libs/libopenaptx-0.2.1
 
-# Michał Górny <mgorny@gentoo.org> (2021-05-31)
-# Requires removed media-libs/opencv version.
-<media-plugins/gst-plugins-opencv-1.18
-
 # Ulrich Müller <ulm@gentoo.org> (2021-04-20)
 # Version 3.15 is broken with Emacs 27.2.
 =app-emacs/mic-paren-3.15-r0
@@ -591,10 +533,6 @@ net-libs/libsoup:3.0
 # in some cases.
 # bug #772998
 ~net-misc/openntpd-6.8_p1
-
-# Lars Wendler <polynomial-c@gentoo.org> (2021-02-15)
-# Mask development versions now that they were bumped...
-=net-misc/kea-1.9*
 
 # Michał Górny <mgorny@gentoo.org> (2020-11-10)
 # This old Kodi version requires vulnerable dev-python/pillow
