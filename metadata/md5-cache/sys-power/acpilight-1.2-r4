@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile install postinst setup
+DEFINED_PHASES=compile install postinst postrm setup
 DESCRIPTION=Replacement for xbacklight that uses the ACPI interface to set brightness
 EAPI=7
 HOMEPAGE=https://gitlab.com/wavexx/acpilight/
@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 SLOT=0
 SRC_URI=https://gitlab.com/wavexx/acpilight/-/archive/v1.2/acpilight-v1.2.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	udev	f3a0a3964e2028a140c181f00eea9712
-_md5_=50e909a2acf0c5b008f4d3b71c5dc505
+_md5_=5705d2a9702f7f39b8d361fd7cfc0360
