@@ -2831,9 +2831,10 @@ dev-util/lttng-tools:ust - Support LTTng-UST (Userspace Tracing)
 dev-util/lttng-ust:numa - Enable numa support
 dev-util/massif-visualizer:callgraph - Enable detailed snapshot analysis using media-gfx/kgraphviewer
 dev-util/mdds:valgrind - Add support for memory debugging using dev-util/valgrind
-dev-util/mingw64-runtime:idl - Install idl files.
-dev-util/mingw64-runtime:libraries - Build extra libraries: mangle, pseh, winpthreads.
-dev-util/mingw64-runtime:tools - Build extra tools: gendef, genidl.
+dev-util/mingw64-runtime:default-ucrt - Use ucrt instead of msvcrt-os as the default crt (WARNING: incompatible with each others and also for building Wine with USE=mingw, pick one from the start and keep it)
+dev-util/mingw64-runtime:idl - Install idl files
+dev-util/mingw64-runtime:libraries - Build extra libraries: mangle, pseh, winpthreads
+dev-util/mingw64-runtime:tools - Build extra tools: gendef, genidl, widl
 dev-util/nvidia-cuda-sdk:cuda - Build CUDA binaries
 dev-util/nvidia-cuda-sdk:opencl - Build OpenCL binaries
 dev-util/nvidia-cuda-toolkit:debugger - Install the CUDA debugger
