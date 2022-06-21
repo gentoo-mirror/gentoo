@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-lang/ocaml-4.02.3 dev-ml/cmdliner:= ~dev-ml/opam-format-2.1.0 >=dev-ml/dose3-6 dev-ml/findlib >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.02.3:= dev-ml/cmdliner:= ~dev-ml/opam-format-2.1.0:= >=dev-ml/dose3-6:= dev-ml/findlib >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Core installer for opam packages
 EAPI=7
 HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-lang/ocaml-4.02.3 dev-ml/cmdliner:= ~dev-ml/opam-format-2.1.0 >=dev-ml/dose3-6 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.02.3:= dev-ml/cmdliner:= ~dev-ml/opam-format-2.1.0:= >=dev-ml/dose3-6:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/2.1.0
 SRC_URI=https://github.com/ocaml/opam/releases/download/2.1.0/opam-full-2.1.0.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-ml/opam/opam-2.1.0-dose3-6.patch.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=f437bfb813bc8ca6c20273183a47040b
+_md5_=e77e7df4a0fa4d1c0c475586c5a19298
