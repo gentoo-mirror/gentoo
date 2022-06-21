@@ -915,8 +915,8 @@ app-admin/aerospike-amc-community 4.0.19-r2 5.0.0: Web UI based monitoring tool 
 app-admin/amazon-ec2-init 20101127-r1: Init script to setup Amazon EC2 instance parameters
 app-admin/analog 6.0.13: A webserver log analyzer
 app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
-app-admin/ansible 4.6.0 5.7.0 5.7.1: Model-driven deployment, config management, and command execution framework
-app-admin/ansible-base 2.11.7 2.12.5 2.12.6 2.13.0 9999: Model-driven deployment, config management, and command execution framework
+app-admin/ansible 4.6.0 5.7.0 5.7.1 5.9.0 6.0.0: Model-driven deployment, config management, and command execution framework
+app-admin/ansible-base 2.11.7 2.12.5 2.12.6 2.12.7 2.13.0 2.13.1 9999: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-cmdb 1.30-r1: Ansible Configuration Management Database
 app-admin/ansible-lint 5.4.0 6.2.2 6.3.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 4.6.2 4.6.8: Ansible module for hashicorp vault
@@ -8391,7 +8391,7 @@ dev-python/alembic 1.7.7 1.8.0: database migrations tool, written by the author 
 dev-python/allpairspy 2.5.0: Pairwise test combinations generator
 dev-python/ament_package 0.14.0 0.14.0-r1: Parser for the manifest files in the ament buildsystem
 dev-python/amodem 1.15.3 1.15.3-r1: Transmit data between two computers using audio
-dev-python/aniso8601 9.0.1 9.0.1-r1: A library for parsing ISO 8601 strings
+dev-python/aniso8601 9.0.1-r1: A library for parsing ISO 8601 strings
 dev-python/ansi 0.3.6: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.7.0: Convert text with ANSI color codes to HTML
 dev-python/ansible-compat 2.1.0: Contains functions that facilitate working with various versions of Ansible
@@ -8593,7 +8593,7 @@ dev-python/deprecation 2.1.0: A library to handle automated deprecations
 dev-python/dictdiffer 0.9.0 0.9.0-r1: Dictdiffer is a library that helps you to diff and patch dictionaries
 dev-python/dictpath 0.1.3: Object-oriented dictionary paths
 dev-python/diff-match-patch 20181111 20200713: Diff, match and patch algorithms for plain text
-dev-python/dill 0.3.4-r1 0.3.5 0.3.5.1: Serialize all of Python (almost)
+dev-python/dill 0.3.5.1: Serialize all of Python (almost)
 dev-python/dirty-equals 0.4: Doing dirty (but extremely useful) things with equals
 dev-python/discogs-client 2.3.15 9999: Continuation of the official Python API client for Discogs
 dev-python/diskcache 5.4.0-r1: Disk and file backed cache
@@ -8647,7 +8647,7 @@ dev-python/editables 0.3: A Python library for creating 'editable wheels'
 dev-python/editdistance-s 1.0.0: Fast implementation of edit (Levenshtein) distance
 dev-python/editorconfig-core-py 0.12.3-r1: Clone of EditorConfig core written in Python
 dev-python/elasticsearch-py 7.14.1: Official Python low-level client for Elasticsearch
-dev-python/elementpath 2.5.1 2.5.2 2.5.3: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
+dev-python/elementpath 2.5.3: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/emcee 3.1.2: Python ensemble sampling toolkit for affine-invariant MCMC
 dev-python/emoji 1.7.0: Emoji for Python
 dev-python/empy 3.3.4-r1: A powerful and robust templating system for Python
@@ -8684,7 +8684,7 @@ dev-python/filelock 3.7.1: A platform independent file lock for Python
 dev-python/filetype 1.0.10: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.2.0-r1: Python module import analysis tool
 dev-python/fitsio 1.1.7: Python library to read from and write to FITS files
-dev-python/fixtures 3.0.0-r1 4.0.0: Fixtures, reusable state for writing clean tests and more
+dev-python/fixtures 4.0.0: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 4.0.1-r2: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flake8-polyfill 1.0.2: Polyfill package for Flake8 plugins
 dev-python/flaky 3.7.0-r2: Plugin for nose or py.test that automatically reruns flaky tests
@@ -9102,7 +9102,7 @@ dev-python/parsedatetime 2.6: Parse human-readable date/time strings
 dev-python/parso 0.8.3-r1: A python parser that supports error recovery and round-trip parsing
 dev-python/partd 1.2.0: Appendable key-value storage
 dev-python/parver 0.3.1-r1: Parse and manipulate version numbers
-dev-python/passlib 1.7.4-r1 1.7.4-r2: Password hashing framework supporting over 20 schemes
+dev-python/passlib 1.7.4-r2: Password hashing framework supporting over 20 schemes
 dev-python/paste 3.5.0-r2: Tools for using a Web Server Gateway Interface stack
 dev-python/pastedeploy 2.1.1-r3: Load, configure, and compose WSGI applications and servers
 dev-python/pastel 0.2.1: Bring colors to your terminal
@@ -9382,7 +9382,7 @@ dev-python/pytest-httpserver 1.0.4-r1: HTTP server for pytest to test HTTP clien
 dev-python/pytest-httpx 0.20.0 0.21.0: Send responses to HTTPX using pytest
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.1.3: A PyTest plugin which provides an FTP fixture for your tests
-dev-python/pytest-localserver 0.5.1 0.6.0-r1: Pytest plugin to test server connections locally
+dev-python/pytest-localserver 0.6.0-r1: Pytest plugin to test server connections locally
 dev-python/pytest-markdown 1.0.2: Write unit tests in Python to test actual state of your servers
 dev-python/pytest-metadata 2.0.1: A plugin for pytest that provides access to test session metadata
 dev-python/pytest-mock 3.7.0: Thin-wrapper around the mock package for easier use with pytest
@@ -9515,7 +9515,7 @@ dev-python/pyzmq 22.1.0 23.0.0 23.1.0 23.2.0: Lightweight and super-fast messagi
 dev-python/pyzotero 1.5.4: A Python client for the Zotero API
 dev-python/qdarkstyle 3.0.3 3.1: A dark style sheet for QtWidgets application
 dev-python/qpageview 0.6.2: Page-based viewer widget for Qt5/PyQt5
-dev-python/qrcode 7.3.1 7.3.1-r1: QR Code generator on top of PIL
+dev-python/qrcode 7.3.1-r1: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.11.6 2.13.1: Python bindings for QScintilla
 dev-python/qstylizer 0.2.1-r1: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.1.1-r1: Enables iconic fonts such as Font Awesome in PyQt
@@ -9571,7 +9571,7 @@ dev-python/rope 1.0.0 1.1.1: Python refactoring library
 dev-python/ropemode 0.5: A helper for using rope refactoring library in IDEs
 dev-python/rosdistro 0.8.3 9999: Tools to work with catkinized rosdistro files
 dev-python/rospkg 1.4.0 9999: Standalone Python library for the ROS package system
-dev-python/routes 2.5.1 2.5.1-r1: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
+dev-python/routes 2.5.1-r1: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
 dev-python/rply 0.7.8: Pure python parser generator that also works with RPython
 dev-python/rpy 3.4.5: Python interface to the R Programming Language
 dev-python/rpyc 5.1.0: Remote Python Call (RPyC), a transparent and symmetric RPC library
