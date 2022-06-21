@@ -1,9 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# emacs support disabled due to #99533 #335900
-
-EAPI=7
+EAPI=8
 
 inherit autotools linux-info systemd usr-ldscript multilib-minimal
 
@@ -15,7 +13,7 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="selinux"
 
 RDEPEND="
@@ -44,13 +42,18 @@ src_prepare() {
 
 	# bug #629774
 	eapply "${FILESDIR}"/${P}-glibc-2.26.patch
-
 	# bug #705878
 	eapply "${FILESDIR}"/${P}-gcc-10.patch
+	# bug #829581
+	eapply "${FILESDIR}"/${P}-musl.patch
+	#
+	eapply "${FILESDIR}"/${P}-gcc-include.patch
+	eapply "${FILESDIR}"/${P}-signedness.patch
+	eapply "${FILESDIR}"/${P}-warnings.patch
 
 	eapply_user
 
-	# fix ABI values
+	# Fix ABI values
 	sed -i \
 		-e '/^abi_lev=/s:=.*:=1:' \
 		-e '/^abi_age=/s:=.*:=20:' \
@@ -68,6 +71,7 @@ src_prepare() {
 }
 
 multilib_src_configure() {
+	# emacs support disabled due to bug #99533, bug #335900
 	econf \
 		--disable-static \
 		--sysconfdir="${EPREFIX}"/etc/gpm \
@@ -104,5 +108,5 @@ multilib_src_install_all() {
 
 	newinitd "${FILESDIR}"/gpm.rc6-2 gpm
 	newconfd "${FILESDIR}"/gpm.conf.d gpm
-	systemd_dounit "${FILESDIR}"/gpm.service
+	systemd_newunit "${FILESDIR}"/gpm.service-r1 gpm.service
 }
