@@ -1,6 +1,6 @@
 BDEPEND=app-arch/unzip virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst postrm preinst prepare unpack
-DEPEND=app-arch/bzip2 media-libs/libpng:0 media-libs/libsdl2[sound,video] media-sound/fluidsynth sys-libs/zlib truetype? ( media-libs/freetype ) upnp? ( net-libs/miniupnpc:= ) zstd? ( app-arch/zstd )
+DEPEND=app-arch/bzip2 media-libs/libpng:0 media-libs/libsdl2[sound,video] media-sound/fluidsynth[sdl] sys-libs/zlib truetype? ( media-libs/freetype ) upnp? ( net-libs/miniupnpc:= ) zstd? ( app-arch/zstd )
 DESCRIPTION=A free Transport Tycoon clone
 EAPI=8
 HOMEPAGE=https://www.simutrans.com/
@@ -9,9 +9,9 @@ INHERIT=autotools desktop flag-o-matic optfeature toolchain-funcs xdg
 IUSE=minimal truetype upnp zstd
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=Artistic
-RDEPEND=app-arch/bzip2 media-libs/libpng:0 media-libs/libsdl2[sound,video] media-sound/fluidsynth sys-libs/zlib truetype? ( media-libs/freetype ) upnp? ( net-libs/miniupnpc:= ) zstd? ( app-arch/zstd ) media-sound/fluid-soundfont
+RDEPEND=app-arch/bzip2 media-libs/libpng:0 media-libs/libsdl2[sound,video] media-sound/fluidsynth[sdl] sys-libs/zlib truetype? ( media-libs/freetype ) upnp? ( net-libs/miniupnpc:= ) zstd? ( app-arch/zstd ) media-sound/fluid-soundfont
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/simutrans/simutrans-src-123-0-1.zip !minimal? ( mirror://sourceforge/simutrans/simupak64-123-0.zip -> simutrans_simupak64-123-0.zip ) https://tastytea.de/files/simutrans_language_pack-Base+texts-123.0.1.zip https://github.com/aburch/simutrans/raw/9c84822/simutrans.svg
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	desktop	c0d27bf73aa08ca05b663dbd31fbef28	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	optfeature	d524f291c80f9d21ad80fe978e3ca760	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=5d47c69a140c2e25224e7af87566592c
+_md5_=9914778e9e110e3754047c50eeb7a35f
