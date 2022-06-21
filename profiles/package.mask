@@ -33,6 +33,18 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-06-21)
+# Fails to build with GCC 12, upstream location is gone, no sign of activity,
+# and very few other distributions packaging this. Bug #841824.
+# Removal on 2022-07-21.
+app-backup/kfoldersync
+
+# Sam James <sam@gentoo.org> (2022-06-21)
+# Obsolete, no reverse dependencies, does not run test suite, and doesn't
+# support Python 3.10+. Use app-crypt/gpgme[python] instead.
+# Bugs #845807, #798372, #748531. Removal on 2022-07-21.
+dev-python/pygpgme
+
 # Hans de Graaff <graaff@gentoo.org> (2022-06-19)
 # Obsolete slot. Use a newer slot instead.
 # Removal in 30 days.
@@ -284,16 +296,6 @@ dev-python/pypeg2
 # Doesn't support Python 3.10+.
 # Removal on 2022-06-22. bug #700944, bug #845834
 dev-python/pytest-cache
-
-# Sam James <sam@gentoo.org> (2022-05-21)
-# No activity upstream since 2018, unmaintained upstream, does not support
-# Python 3.10+. Removal on 2022-06-21. bug #845726.
-dev-python/fusepy
-
-# Sam James <sam@gentoo.org> (2022-05-21)
-# Unmaintained in Gentoo, no recent activity upstream, and most importantly
-# does not yet support Python 3.10+. Removal on 2022-06-21. bugs #845720, #797850.
-dev-python/drf-yasg
 
 # Hans de Graaff <graaff@gentoo.org> (2022-05-20)
 # Unused slots of cucumber components that are no longer or were never
