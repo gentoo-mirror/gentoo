@@ -76,6 +76,7 @@ CHECKREQS_DISK_BUILD="900M"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-scripts-install-fix.patch"
+	"${FILESDIR}/${P}-unitialized-variable-fix.patch"
 )
 
 pkg_setup() {

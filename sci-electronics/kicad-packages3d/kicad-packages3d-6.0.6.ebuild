@@ -15,7 +15,7 @@ else
 	MY_PV="${PV/_rc/-rc}"
 	MY_P="${PN}-${MY_PV}"
 	# Source directory for this package always has the repository hash in the directory name
-	MY_HASH="ac7189ed55d5a3bf5eaa87d31fb97a3e7b5ad80e"
+	MY_HASH="6bfd8dfa3adc6ac316b9857977c87f22282c6e24"
 	SRC_URI="https://gitlab.com/kicad/libraries/${PN}/-/archive/${MY_PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 	if [[ ${PV} != *_rc* ]] ; then
