@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=dev-lang/python-3.11.0_beta1-r1:3.11 >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install preinst setup
+DEPEND=sys-apps/pciutils:=
+DESCRIPTION=Dave Jones' handy, informative x86 CPU diagnostic utility
+EAPI=8
+HOMEPAGE=http://www.codemonkey.org.uk/projects/x86info/
+INHERIT=flag-o-matic linux-info python-any-r1 toolchain-funcs
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/pciutils:=
+SLOT=0
+SRC_URI=https://github.com/kernelslacker/x86info/archive/8ea5ed19fae1d209eba9257171a10f7afd474618.tar.gz -> x86info-1.31.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_md5_=56a819e5509b0faaffe9ca33e2726af1
