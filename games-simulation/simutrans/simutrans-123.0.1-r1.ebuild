@@ -32,7 +32,7 @@ DEPEND="
 	app-arch/bzip2
 	media-libs/libpng:0
 	media-libs/libsdl2[sound,video]
-	media-sound/fluidsynth
+	media-sound/fluidsynth[sdl]
 	sys-libs/zlib
 	truetype? ( media-libs/freetype )
 	upnp? ( net-libs/miniupnpc:= )
