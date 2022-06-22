@@ -1,4 +1,4 @@
-BDEPEND=kde-frameworks/extra-cmake-modules:5 dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=kde-frameworks/extra-cmake-modules:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-db/lmdb:= dev-libs/flatbuffers:= >=dev-libs/kasync-0.3:5 >=dev-libs/xapian-1.4.4:0= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 kde-apps/kmime:5 kde-frameworks/kcalendarcore:5 kde-frameworks/kcontacts:5 kde-frameworks/kcoreaddons:5 >=net-libs/kdav2-0.3:5 >=net-libs/kimap2-0.3:5 net-misc/curl sys-libs/readline:0= dev-qt/qtconcurrent:5
 DESCRIPTION=Data access layer handling synchronization, caching and indexing
@@ -11,5 +11,5 @@ RDEPEND=dev-db/lmdb:= dev-libs/flatbuffers:= >=dev-libs/kasync-0.3:5 >=dev-libs/
 RESTRICT=test
 SLOT=5
 SRC_URI=mirror://kde/unstable/sink/0.8.0/src/sink-0.8.0.tar.xz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=2b60d8de79a056a95f06fe72039fc34c

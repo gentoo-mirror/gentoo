@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( app-shells/tcsh ) dev-util/ninja >=dev-util/cmake-3.20.5 virtual/fortran
+BDEPEND=virtual/pkgconfig test? ( app-shells/tcsh ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=virtual/blas virtual/fortran
 DESCRIPTION=Sparse LU factorization library
@@ -12,5 +12,5 @@ RDEPEND=virtual/blas virtual/fortran
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://github.com/xiaoyeli/superlu/archive/refs/tags/v5.3.0.tar.gz -> superlu-5.3.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
 _md5_=a309762c07df554087557f64f03bb651

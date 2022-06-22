@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-text/ronn-ng app-text/ronn ) app-arch/gzip virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=|| ( app-text/ronn-ng app-text/ronn ) app-arch/gzip virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-libs/protobuf-2:= virtual/opengl media-libs/openal net-misc/curl dev-libs/tinyxml >=dev-libs/tinyxml2-6:= dev-libs/libtar dev-cpp/tbb:= >=dev-games/ogre-1.7.4:=[freeimage] <dev-games/ogre-1.10 >=media-libs/freeimage-3.15.4[png] sci-libs/libccd >=media-video/ffmpeg-2.6:0= sci-libs/gts >=sci-physics/bullet-2.82:= >=dev-libs/sdformat-9.1:= dev-qt/qtwidgets:5 dev-qt/qtcore:5 dev-qt/qtopengl:5 dev-libs/boost:=[threads(+)] sci-libs/gdal:= virtual/libusb:1 dev-libs/libspnav media-libs/freeimage sci-libs/hdf5:=[cxx] sys-apps/util-linux media-gfx/graphviz net-libs/ignition-msgs:5= sci-libs/ignition-math:6= net-libs/ignition-transport:8= sci-libs/ignition-common:3= sci-libs/ignition-fuel-tools:4= x11-libs/qwt:6=[qt5(+)] dev-qt/qttest:5 x11-apps/mesa-progs test? ( dev-libs/libxslt )
 DESCRIPTION=A 3D multiple robot simulator with dynamics
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/protobuf-2:= virtual/opengl media-libs/openal net-misc/curl d
 RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://osrf-distributions.s3.amazonaws.com/gazebo/releases/gazebo-11.10.2.tar.bz2
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=47fa96ef64c9034ae98f775f24127ee0

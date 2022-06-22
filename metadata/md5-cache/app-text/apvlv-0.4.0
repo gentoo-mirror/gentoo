@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=app-text/ebook-tools >=app-text/poppler-0.5.0:=[cairo,xpdf-headers(+)] dev-libs/glib:2 dev-libs/libxml2 net-libs/webkit-gtk:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango djvu? ( app-text/djvu ) app-text/ghostscript-gpl media-libs/freetype
 DESCRIPTION=Alf's PDF/DJVU/EPUB Viewer like Vim
@@ -12,5 +12,5 @@ LICENSE=GPL-2
 RDEPEND=app-text/ebook-tools >=app-text/poppler-0.5.0:=[cairo,xpdf-headers(+)] dev-libs/glib:2 dev-libs/libxml2 net-libs/webkit-gtk:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango djvu? ( app-text/djvu )
 SLOT=0
 SRC_URI=https://github.com/naihe2010/apvlv/archive/refs/tags/v0.4.0.tar.gz -> apvlv-0.4.0.tar.gz
-_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	90e2b29417d53718328f3a95227137a0	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	44afbf15c35884f7c840470f1cf05d0d	desktop	c0d27bf73aa08ca05b663dbd31fbef28
 _md5_=1b1d93b9e2881a47b523c196ded84dcc

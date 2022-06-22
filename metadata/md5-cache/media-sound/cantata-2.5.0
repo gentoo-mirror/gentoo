@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=dev-qt/linguist-tools:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5[sqlite] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib virtual/libudev:= cdda? ( media-sound/cdparanoia ) cddb? ( media-libs/libcddb ) cdio? ( dev-libs/libcdio-paranoia:= ) mtp? ( media-libs/libmtp:= ) musicbrainz? ( media-libs/musicbrainz:5= ) replaygain? ( media-libs/libebur128:= media-sound/mpg123 media-video/ffmpeg:0= ) streaming? ( dev-qt/qtmultimedia:5 ) taglib? ( media-libs/taglib[asf(+),mp4(+)] udisks? ( sys-fs/udisks:2 ) ) zeroconf? ( net-dns/avahi ) dev-qt/qtconcurrent:5
 DESCRIPTION=Featureful and configurable Qt client for the music player daemon (MPD)
@@ -14,5 +14,5 @@ REQUIRED_USE=?? ( cdda cdio ) cdda? ( udisks || ( cddb musicbrainz ) ) cddb? ( |
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/CDrummond/cantata/releases/download/v2.5.0/cantata-2.5.0.tar.bz2
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	plocale	7ce00136a77130df46fbbd5966f98a61	qmake-utils	59420c906278d16deaaa629f9d115707	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	plocale	7ce00136a77130df46fbbd5966f98a61	qmake-utils	59420c906278d16deaaa629f9d115707	xdg	6024fbc93167fad782e2032933654857
 _md5_=515950b667ab62849b1776e9320e59ad

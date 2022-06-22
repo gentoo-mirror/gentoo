@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=>=media-libs/glfw-3.2.1 virtual/opengl ispc? ( dev-lang/ispc ) tbb? ( dev-cpp/tbb:= ) tutorial? ( >=media-libs/libpng-1.6.34:0= >=media-libs/openimageio-1.8.7:0= virtual/jpeg:0 )
 DESCRIPTION=Collection of high-performance ray tracing kernels
@@ -13,5 +13,5 @@ REQUIRED_USE=amd64? ( cpu_flags_x86_sse2 ) x86? ( cpu_flags_x86_sse2 )
 RESTRICT=mirror
 SLOT=3
 SRC_URI=https://github.com/embree/embree/archive/v3.13.2.tar.gz -> embree-3.13.2.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
 _md5_=2d171bbafbdf5d65643bde8e6d56af1d

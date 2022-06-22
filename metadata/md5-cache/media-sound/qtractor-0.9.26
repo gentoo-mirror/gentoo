@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dev-qt/qtx11extras:5 media-libs/alsa-lib media-libs/libsndfile media-libs/lilv media-libs/lv2 media-libs/suil virtual/jack aubio? ( media-libs/aubio ) dssi? ( media-libs/dssi ) ladspa? ( media-libs/ladspa-sdk ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) osc? ( media-libs/liblo ) rubberband? ( media-libs/rubberband ) vorbis? ( media-libs/libvorbis ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Audio/MIDI multi-track sequencer written in C++ with the Qt framework
@@ -13,5 +13,5 @@ RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dev-qt/
 REQUIRED_USE=dssi? ( ladspa )
 SLOT=0
 SRC_URI=mirror://sourceforge/qtractor/qtractor-0.9.26.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	xdg	6024fbc93167fad782e2032933654857
 _md5_=dc169f24f3d61a7676775d41dba6987b

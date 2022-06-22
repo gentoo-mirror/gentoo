@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-libs/libgcrypt:0= sys-fs/cryptsetup:= gnome? ( app-crypt/libsecret ) qt5? ( dev-libs/libpwquality dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 kwallet? ( kde-frameworks/kwallet:5 ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Front end to cryptsetup
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libgcrypt:0= sys-fs/cryptsetup:= gnome? ( app-crypt/libsecret )
 REQUIRED_USE=kwallet? ( qt5 )
 SLOT=0
 SRC_URI=https://github.com/mhogomchungu/zuluCrypt/archive/76637bb05af13744bf1734b56f67d6d5cc2343b1.tar.gz -> zulucrypt-5.5.0_pre20180223.tar.gz
-_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	90e2b29417d53718328f3a95227137a0
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=1e353afada59586ea9349f56d432a7b0
