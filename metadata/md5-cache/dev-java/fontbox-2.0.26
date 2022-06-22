@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://pdfbox.apache.org/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ppc64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=dev-java/commons-logging:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/pdfbox/2.0.26/pdfbox-2.0.26-src.zip test? ( https://issues.apache.org/jira/secure/attachment/12684264/SourceSansProBold.otf https://issues.apache.org/jira/secure/attachment/12896461/NotoEmoji-Regular.ttf https://issues.apache.org/jira/secure/attachment/12809395/DejaVuSansMono.ttf https://issues.apache.org/jira/secure/attachment/13036376/NotoSansSC-Regular.otf http://mirrors.ctan.org/fonts/opensans/type1/OpenSans-Regular.pfb )
 _eclasses_=java-utils-2	cfb5f6911bb70204c94ceafd0372c716	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7
-_md5_=6e19bd485d52da59b48f5fc622bb0890
+_md5_=bde951087a895a25b1b1758cd7d910f3
