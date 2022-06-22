@@ -1,7 +1,8 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+CONFIG_CHECK="ACPI_WMI"
 
 inherit linux-mod toolchain-funcs
 
@@ -15,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 BUILD_TARGETS="all"
-MODULE_NAMES="tuxedo_keyboard(tuxedo:${S}:src)"
+MODULE_NAMES="clevo_acpi(tuxedo:${S}:src) clevo_wmi(tuxedo:${S}:src) tuxedo_keyboard(tuxedo:${S}:src) tuxedo_io(tuxedo:${S}:src/tuxedo_io)"
 
 pkg_setup() {
 	linux-mod_pkg_setup
