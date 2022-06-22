@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-lang/perl:* )
+DEFINED_PHASES=install postinst postrm prepare test
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=A testing framework for Vim script
+EAPI=8
+HOMEPAGE=https://www.vim.org/scripts/script.php?script_id=3012 https://github.com/kana/vim-vspec
+INHERIT=edo vim-plugin
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-lang/perl:* || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/kana/vim-vspec/archive/refs/tags/v1.9.2.tar.gz -> vspec-1.9.2.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	89bf54501de4a75f241062d5a56e787f
+_md5_=69409445a5b45eda7a51890964a4c351
