@@ -1,18 +1,20 @@
 # Copyright 2018-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_8 )
+EAPI=8
+
+PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="sqlite"
-inherit git-r3 multiprocessing python-utils-r1 python-single-r1
+inherit edo multiprocessing python-single-r1
 
 DESCRIPTION="Smaller, easier, more powerful, and more reliable than make"
 HOMEPAGE="https://github.com/apenwarr/redo"
-EGIT_REPO_URI="https://github.com/apenwarr/redo"
+SRC_URI="https://github.com/apenwarr/redo/archive/${P}.tar.gz"
+S="${WORKDIR}"/${PN}-${P}
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~hppa ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 BDEPEND="
@@ -22,29 +24,34 @@ BDEPEND="
 	')
 	${PYTHON_DEPS}
 "
-RDEPEND="
-	${BDEPEND}
-"
+RDEPEND="${BDEPEND}"
+
+src_prepare() {
+	default
+
+	sed -i -e "s:which:command -v:" redo/sh.do || die
+	sed -i "1s;^;#!${PYTHON}\n;" docs/md2man.py || die
+}
 
 src_configure() {
 	echo ${PYTHON} > redo/whichpython || die
 }
 
 src_compile() {
-	./do -j$(makeopts_jobs) build || die
+	edo ./do -j$(makeopts_jobs) build
 }
 
 src_test() {
 	local ARCH= CFLAGS= CXXFLAGS= LDFLAGS=
-	./do -j$(makeopts_jobs) test || die
+	edo ./do -j$(makeopts_jobs) test
 }
 
 src_install() {
 	DESTDIR="${D}" \
 	DOCDIR="${D}/usr/share/doc/${PF}" \
 	LIBDIR="${D}/$(python_get_sitedir)/${PN}" \
-	./do -j$(makeopts_jobs) \
-		install || die
+	edo ./do -j$(makeopts_jobs) \
+		install
 
 	python_fix_shebang "${D}"
 
