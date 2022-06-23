@@ -8,8 +8,8 @@ inherit systemd
 DESCRIPTION="Extensible continuous integration server"
 HOMEPAGE="https://jenkins.io/"
 LICENSE="MIT"
-SRC_URI="http://mirrors.jenkins-ci.org/war-stable/${PV}/${PN/-bin/}.war -> ${P}.war"
-SLOT="lts"
+SRC_URI="http://mirrors.jenkins-ci.org/war/${PV}/${PN/-bin/}.war -> ${P}.war"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux"
 IUSE=""
 
@@ -20,8 +20,8 @@ RDEPEND="acct-group/jenkins
 	acct-user/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
-	!dev-util/jenkins-bin:0
-	|| ( virtual/jre:1.8 virtual/jre:11 )"
+	!dev-util/jenkins-bin:lts
+	|| ( virtual/jre:17 virtual/jre:11 )"
 
 S="${WORKDIR}"
 
