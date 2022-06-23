@@ -24,7 +24,7 @@ RDEPEND="
 	dev-libs/tinyxml
 	>=dev-libs/tinyxml2-6:=
 	dev-libs/libtar
-	<dev-cpp/tbb-2021:=
+	dev-cpp/tbb:=
 	>=dev-games/ogre-1.7.4:=[freeimage]
 	<dev-games/ogre-1.10
 	>=media-libs/freeimage-3.15.4[png]
@@ -32,7 +32,7 @@ RDEPEND="
 	>=media-video/ffmpeg-2.6:0=
 	sci-libs/gts
 	>=sci-physics/bullet-2.82:=
-	>=dev-libs/sdformat-9.1:=
+	>=dev-libs/sdformat-9.8:=
 	dev-qt/qtwidgets:5
 	dev-qt/qtcore:5
 	dev-qt/qtopengl:5
@@ -43,13 +43,13 @@ RDEPEND="
 	media-libs/freeimage
 	sci-libs/hdf5:=[cxx]
 	sys-apps/util-linux
-	media-gfx/graphviz
+	>=media-gfx/graphviz-4
 	net-libs/ignition-msgs:5=
 	sci-libs/ignition-math:6=
 	net-libs/ignition-transport:8=
 	sci-libs/ignition-common:3=
 	sci-libs/ignition-fuel-tools:4=
-	<x11-libs/qwt-6.2.0:6=[qt5(+)]
+	x11-libs/qwt:6=[qt5(+)]
 "
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
@@ -63,10 +63,9 @@ BDEPEND="
 "
 CMAKE_BUILD_TYPE=RelWithDebInfo
 PATCHES=(
-	"${FILESDIR}/qwt.patch"
+	"${FILESDIR}/qwt2.patch"
 	"${FILESDIR}/cmake.patch"
-	"${FILESDIR}/ffmpeg5.patch"
-	"${FILESDIR}/ffmpeg4.patch"
+	"${FILESDIR}/gv.patch"
 )
 
 src_configure() {
