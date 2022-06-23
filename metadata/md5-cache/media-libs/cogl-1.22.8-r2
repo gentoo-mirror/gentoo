@@ -1,0 +1,18 @@
+BDEPEND=dev-util/glib-utils >=sys-devel/gettext-0.19 virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=dev-libs/glib-2.32:2 x11-libs/cairo:= >=x11-libs/gdk-pixbuf-2:2 x11-libs/libX11 >=x11-libs/libXcomposite-0.4 x11-libs/libXdamage x11-libs/libXext >=x11-libs/libXfixes-3 >=x11-libs/libXrandr-1.2 virtual/opengl gles2? ( media-libs/mesa[gles2] ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) introspection? ( >=dev-libs/gobject-introspection-1.34.2:= ) kms? ( media-libs/mesa[egl(+),gbm(+)] x11-libs/libdrm:= ) pango? ( >=x11-libs/pango-1.20.0[introspection?] ) wayland? ( >=dev-libs/wayland-1.1.90 media-libs/mesa[egl(+),wayland] )
+DESCRIPTION=A library for using 3D graphics hardware to draw pretty pictures
+EAPI=8
+HOMEPAGE=https://www.cogl3d.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=debug examples gles2 gstreamer +introspection +kms +opengl +pango wayland
+KEYWORDS=~alpha amd64 ~arm arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86
+LICENSE=MIT BSD
+RDEPEND=>=dev-libs/glib-2.32:2 x11-libs/cairo:= >=x11-libs/gdk-pixbuf-2:2 x11-libs/libX11 >=x11-libs/libXcomposite-0.4 x11-libs/libXdamage x11-libs/libXext >=x11-libs/libXfixes-3 >=x11-libs/libXrandr-1.2 virtual/opengl gles2? ( media-libs/mesa[gles2] ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) introspection? ( >=dev-libs/gobject-introspection-1.34.2:= ) kms? ( media-libs/mesa[egl(+),gbm(+)] x11-libs/libdrm:= ) pango? ( >=x11-libs/pango-1.20.0[introspection?] ) wayland? ( >=dev-libs/wayland-1.1.90 media-libs/mesa[egl(+),wayland] )
+REQUIRED_USE=wayland? ( gles2 ) || ( gles2 opengl )
+RESTRICT=test
+SLOT=1.0/20
+SRC_URI=mirror://gnome/sources/cogl/1.22/cogl-1.22.8.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
+_md5_=fe8a00b42cbc0a3b1e894c192b5ac2cb
