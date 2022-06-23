@@ -1,0 +1,15 @@
+BDEPEND=>=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 app-emacs/ht app-emacs/lv app-emacs/markdown-mode app-emacs/spinner test? ( app-emacs/deferred app-emacs/ecukes app-emacs/el-mock app-emacs/ert-runner app-emacs/espuds app-emacs/flycheck app-emacs/undercover ) >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs client/library for the Language Server Protocol
+EAPI=8
+HOMEPAGE=https://emacs-lsp.github.io/lsp-mode/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 app-emacs/ht app-emacs/lv app-emacs/markdown-mode app-emacs/spinner >=app-editors/emacs-26.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/emacs-lsp/lsp-mode/archive/9957623d93b13fabaca8ba35b85da8fcceaeef69.tar.gz -> lsp-mode-8.0.0_p20220620.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=725dfdeccb17b8c8a512863c4985186d
