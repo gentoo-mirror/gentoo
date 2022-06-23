@@ -10,6 +10,6 @@ LICENSE=Vivaldi
 RDEPEND=app-accessibility/at-spi2-atk:2 app-accessibility/at-spi2-core:2 dev-libs/atk dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/mesa[gbm(+)] net-print/cups sys-apps/dbus x11-libs/cairo x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrandr x11-libs/pango[X] || ( gui-libs/gtk:4 x11-libs/gtk+:3 ) proprietary-codecs? ( media-video/ffmpeg-chromium:102 ) widevine? ( www-plugins/chrome-binary-plugins )
 RESTRICT=bindist mirror
 SLOT=0
-SRC_URI=amd64? ( https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_5.4.2704.3-1_amd64.deb ) arm? ( https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_5.4.2704.3-1_armhf.deb ) arm64? ( https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_5.4.2704.3-1_arm64.deb )
+SRC_URI=amd64? ( https://downloads.vivaldi.com/stable/vivaldi-stable_5.3.2679.61-1_amd64.deb ) arm? ( https://downloads.vivaldi.com/stable/vivaldi-stable_5.3.2679.61-1_armhf.deb ) arm64? ( https://downloads.vivaldi.com/stable/vivaldi-stable_5.3.2679.61-1_arm64.deb )
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	chromium-2	fe5bb568da464344d16c90acb1c6e91e	desktop	22952d8f27cac191d75529d4c38e6bfa	unpacker	697382d119fd3d195f110b7979184285	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=c91ac2d27bf30f3918339336bb7d010d
