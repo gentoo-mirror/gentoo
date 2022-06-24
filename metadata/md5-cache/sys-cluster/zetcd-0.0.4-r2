@@ -1,15 +1,15 @@
 BDEPEND=>=dev-lang/go-1.10
 DEFINED_PHASES=compile install test unpack
 DEPEND=acct-group/zetcd acct-user/zetcd
-DESCRIPTION=A ZooKeeper personality for etcd
+DESCRIPTION=ZooKeeper personality for etcd
 EAPI=7
-HOMEPAGE=https://github.com/coreos/zetcd
+HOMEPAGE=https://github.com/etcd-io/zetcd
 INHERIT=golang-build golang-vcs-snapshot
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RDEPEND=acct-group/zetcd acct-user/zetcd
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/coreos/zetcd/archive/v0.0.4.tar.gz -> zetcd-0.0.4.tar.gz https://github.com/coreos/etcd/archive/714e7ec8db7f8398880197be10771fe89c480ee5.tar.gz -> github.com-coreos-etcd-714e7ec8db7f8398880197be10771fe89c480ee5.tar.gz https://github.com/grpc/grpc-go/archive/777daa17ff9b5daef1cfdf915088a2ada3332bf0.tar.gz -> github.com-grpc-grpc-go-777daa17ff9b5daef1cfdf915088a2ada3332bf0.tar.gz https://github.com/golang/protobuf/archive/4bd1920723d7b7c925de087aa32e2187708897f7.tar.gz -> github.com-golang-protobuf-4bd1920723d7b7c925de087aa32e2187708897f7.tar.gz https://github.com/google/go-genproto/archive/ee236bd376b077c7a89f260c026c4735b195e459.tar.gz -> github.com-google-go-genproto-ee236bd376b077c7a89f260c026c4735b195e459.tar.gz
+SRC_URI=https://github.com/etcd-io/zetcd/archive/v0.0.4.tar.gz -> zetcd-0.0.4.tar.gz https://github.com/etcd-io/etcd/archive/714e7ec8db7f8398880197be10771fe89c480ee5.tar.gz -> github.com-etcd-io-etcd-714e7ec8db7f8398880197be10771fe89c480ee5.tar.gz https://github.com/grpc/grpc-go/archive/777daa17ff9b5daef1cfdf915088a2ada3332bf0.tar.gz -> github.com-grpc-grpc-go-777daa17ff9b5daef1cfdf915088a2ada3332bf0.tar.gz https://github.com/golang/protobuf/archive/4bd1920723d7b7c925de087aa32e2187708897f7.tar.gz -> github.com-golang-protobuf-4bd1920723d7b7c925de087aa32e2187708897f7.tar.gz https://github.com/google/go-genproto/archive/ee236bd376b077c7a89f260c026c4735b195e459.tar.gz -> github.com-google-go-genproto-ee236bd376b077c7a89f260c026c4735b195e459.tar.gz
 _eclasses_=golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-build	0bd4f7f8de6ac61b4224cb690c5ea321	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c
-_md5_=fce77c50a374f61b3252d0c9a384cd9c
+_md5_=bc8ef4eaa597d0aa8ea3f5950e8e9462
