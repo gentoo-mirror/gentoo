@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=media-libs/aubio media-libs/vamp-plugin-sdk =sci-libs/fftw-3* || ( >=dev-lang/python-3.11.0_beta1-r1:3.11[threads(+)] >=dev-lang/python-3.10.0_p1-r1:3.10[threads(+)] >=dev-lang/python-3.9.9-r1:3.9[threads(+)] >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] >=dev-python/pypy3-7.3.7-r1:0[threads(+)] )
+DESCRIPTION=Onset detection, pitch tracking, note tracking and tempo tracking plugins
+EAPI=7
+HOMEPAGE=https://www.vamp-plugins.org/
+INHERIT=python-any-r1 waf-utils
+KEYWORDS=-* ~amd64 -x86
+LICENSE=GPL-2
+RDEPEND=media-libs/aubio media-libs/vamp-plugin-sdk =sci-libs/fftw-3*
+SLOT=0
+SRC_URI=https://aubio.org/pub/vamp-aubio-plugins/vamp-aubio-plugins-0.5.1.tar.bz2 https://waf.io/waf-2.0.20
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	waf-utils	e8ae5118de0d41a51336b4317cdcd2d5
+_md5_=54948f4366d5218471d5015f2c9f4973
