@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) dev-util/gtk-doc >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare unpack
-DEPEND=>=dev-libs/glib-2.56 >=dev-libs/libgudev-232 mbim? ( >=net-libs/libmbim-1.18.0 )
+DEPEND=>=dev-libs/glib-2.56 >=dev-libs/libgudev-232 mbim? ( >=net-libs/libmbim-1.18.0 ) qrtr? ( >=net-libs/libqrtr-glib-1.0.0:= )
 DESCRIPTION=Qualcomm MSM (Mobile Station Modem) Interface (QMI) modem protocol library
 EAPI=7
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/libqmi/ https://gitlab.freedesktop.org/mobile-broadband/libqmi
 INHERIT=git-r3 autotools
-IUSE=gtk-doc +mbim
+IUSE=gtk-doc +mbim +qrtr
 LICENSE=LGPL-2
 PROPERTIES=live
-RDEPEND=>=dev-libs/glib-2.56 >=dev-libs/libgudev-232 mbim? ( >=net-libs/libmbim-1.18.0 )
+RDEPEND=>=dev-libs/glib-2.56 >=dev-libs/libgudev-232 mbim? ( >=net-libs/libmbim-1.18.0 ) qrtr? ( >=net-libs/libqrtr-glib-1.0.0:= )
 SLOT=0/5.8
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
-_md5_=73cf44ccfdb0ade688249cc86016ed12
+_md5_=943a3126ec8d421f496ab5403f0ba6b7
