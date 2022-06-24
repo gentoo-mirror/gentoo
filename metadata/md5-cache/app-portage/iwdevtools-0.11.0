@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/help2man || ( sys-apps/util-linux app-misc/getopt ) test? ( app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1 dev-libs/libxml2:2 sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DESCRIPTION=Small tools to aid with Gentoo development, primarily intended for QA
+EAPI=8
+HOMEPAGE=https://github.com/ionenwks/iwdevtools
+INHERIT=meson optfeature
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD-2
+RDEPEND=app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1 dev-libs/libxml2:2 sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ionenwks/iwdevtools/archive/refs/tags/v0.11.0.tar.gz -> iwdevtools-0.11.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	meson	8f48ffde53174aba67239f0da61ac9d3	optfeature	d524f291c80f9d21ad80fe978e3ca760
+_md5_=6ea27f0f1d53b37e54db550a05725d64
