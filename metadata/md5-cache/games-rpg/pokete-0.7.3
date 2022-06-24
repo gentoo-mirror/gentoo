@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst setup
+DESCRIPTION=Terminal-based clone of the game Pokémon
+EAPI=8
+HOMEPAGE=https://github.com/lxgr-linux/pokete
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop python-single-r1 xdg
+IUSE=python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) python_single_target_python3_9? ( >=games-engines/scrap-engine-1.2.0[python_targets_python3_9(-)] dev-python/pygobject[python_targets_python3_9(-)] !kernel_linux? ( >=dev-python/pynput-1.7.6[python_targets_python3_9(-)] ) ) python_single_target_python3_10? ( >=games-engines/scrap-engine-1.2.0[python_targets_python3_10(-)] dev-python/pygobject[python_targets_python3_10(-)] !kernel_linux? ( >=dev-python/pynput-1.7.6[python_targets_python3_10(-)] ) ) python_single_target_python3_11? ( >=games-engines/scrap-engine-1.2.0[python_targets_python3_11(-)] dev-python/pygobject[python_targets_python3_11(-)] !kernel_linux? ( >=dev-python/pynput-1.7.6[python_targets_python3_11(-)] ) )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/lxgr-linux/pokete/archive/refs/tags/0.7.3.tar.gz -> pokete-0.7.3.tar.gz
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=40bcccab30508f079fcf5cc955d7c9ac
