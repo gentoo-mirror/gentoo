@@ -25,7 +25,7 @@ fi
 LICENSE="MIT CC-BY-SA-3.0"
 SLOT="0"
 
-IUSE="colord +desktop +drm editor examples fullscreen +gles2 headless ivi jpeg kiosk lcms pipewire rdp remoting +resize-optimization screen-sharing +seatd +suid systemd test wayland-compositor webp +X xwayland"
+IUSE="colord +desktop +drm editor examples fbdev fullscreen +gles2 headless ivi jpeg kiosk lcms pipewire rdp remoting +resize-optimization screen-sharing +seatd +suid systemd test wayland-compositor webp +X xwayland"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -36,7 +36,7 @@ REQUIRED_USE="
 	screen-sharing? ( rdp )
 	test? ( desktop headless xwayland )
 	wayland-compositor? ( gles2 )
-	|| ( drm headless rdp wayland-compositor X )
+	|| ( drm fbdev headless rdp wayland-compositor X )
 "
 
 RDEPEND="
@@ -52,6 +52,10 @@ RDEPEND="
 	>=x11-libs/libxkbcommon-0.5.0
 	>=x11-libs/pixman-0.25.2
 	x11-misc/xkeyboard-config
+	fbdev? (
+		>=sys-libs/mtdev-1.1.0
+		>=virtual/udev-136
+	)
 	colord? ( >=x11-misc/colord-0.1.27 )
 	drm? (
 		>=media-libs/mesa-17.1[gbm(+)]
@@ -64,7 +68,7 @@ RDEPEND="
 		media-libs/mesa[gles2,wayland]
 	)
 	pipewire? ( >=media-video/pipewire-0.3:= )
-	rdp? ( >=net-misc/freerdp-2.3.0:=[server] )
+	rdp? ( >=net-misc/freerdp-2.2.0:= )
 	remoting? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
@@ -101,6 +105,7 @@ src_configure() {
 		$(meson_use screen-sharing screenshare)
 		$(meson_use wayland-compositor backend-wayland)
 		$(meson_use X backend-x11)
+		$(meson_use fbdev deprecated-backend-fbdev)
 		-Dbackend-default=auto
 		$(meson_use gles2 renderer-gl)
 		$(meson_use xwayland)
@@ -122,6 +127,7 @@ src_configure() {
 		-Dsimple-clients=$(usex examples damage,dmabuf-v4l,im,shm,touch$(usex gles2 ,dmabuf-egl,egl "") "")
 		$(meson_use resize-optimization resize-pool)
 		-Dtest-junit-xml=false
+		-Dtest-gl-renderer=false
 		"${myconf[@]}"
 	)
 	meson_src_configure
