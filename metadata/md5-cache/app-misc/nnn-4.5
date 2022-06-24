@@ -1,13 +1,13 @@
 DEFINED_PHASES=install postinst postrm prepare
-DEPEND=sys-libs/ncurses:0= sys-libs/readline:0=
+DEPEND=sys-libs/ncurses:= sys-libs/readline:= elibc_musl? ( sys-libs/fts-standalone )
 DESCRIPTION=The missing terminal file browser for X
 EAPI=8
 HOMEPAGE=https://github.com/jarun/nnn
-INHERIT=bash-completion-r1 toolchain-funcs xdg-utils
+INHERIT=bash-completion-r1 flag-o-matic toolchain-funcs xdg-utils
 KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=BSD-2
-RDEPEND=sys-libs/ncurses:0= sys-libs/readline:0=
+RDEPEND=sys-libs/ncurses:= sys-libs/readline:= elibc_musl? ( sys-libs/fts-standalone )
 SLOT=0
 SRC_URI=https://github.com/jarun/nnn/archive/v4.5.tar.gz -> nnn-4.5.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=8fa9cfde078f7f20be73d6a02b5ebe73
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=013e57ca87ca31ad5860d62e4f7e5b0c

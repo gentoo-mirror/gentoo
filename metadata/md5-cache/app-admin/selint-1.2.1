@@ -1,13 +1,15 @@
 DEFINED_PHASES=configure prepare
-DEPEND=dev-libs/confuse:= dev-libs/uthash test? ( dev-libs/check )
+DEPEND=dev-libs/confuse:= dev-libs/uthash elibc_musl? ( sys-libs/fts-standalone ) test? ( dev-libs/check )
 DESCRIPTION=Static code analysis of refpolicy style SELinux policy
 EAPI=8
 HOMEPAGE=https://github.com/TresysTechnology/selint/wiki
+INHERIT=flag-o-matic
 IUSE=test
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=Apache-2.0
-RDEPEND=dev-libs/confuse:= dev-libs/uthash
+RDEPEND=dev-libs/confuse:= dev-libs/uthash elibc_musl? ( sys-libs/fts-standalone )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/TresysTechnology/selint/releases/download/v1.2.1/selint-1.2.1.tar.gz
-_md5_=4766c88deb78c80a4b98c53f775a803e
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=ee14742e8cc44df0bdef0d0c89381f96
