@@ -8394,6 +8394,7 @@ sys-libs/glibc:multiarch - enable optimizations for multiple CPU architectures (
 sys-libs/glibc:multilib-bootstrap - Provide prebuilt libgcc.a and crt files if missing. Only needed for ABI switch.
 sys-libs/glibc:nscd - Build, and enable support for, the Name Service Cache Daemon
 sys-libs/glibc:ssp - protect stack of glibc internals
+sys-libs/glibc:stack-realign - Realign the stack in the 32-bit build for compatibility with older binaries at some performance cost
 sys-libs/glibc:static-pie - Enable static PIE support (runtime files for -static-pie gcc option).
 sys-libs/glibc:suid - Make internal pt_chown helper setuid -- not needed if using Linux and have /dev/pts mounted with gid=5
 sys-libs/glibc:systemtap - enable systemtap static probe points
@@ -8429,6 +8430,7 @@ sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt 
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
 sys-libs/musl-nscd:minimal - Only installs the header files
 sys-libs/ncurses:ada - Add bindings for the ADA programming language
+sys-libs/ncurses:stack-realign - Realign the stack in the 32-bit build for compatibility with older binaries at some performance cost. Avoids crashes in older 32-bit binaries. Only affects x86/32-bit multilib builds on amd64.
 sys-libs/ncurses:tinfo - Build curses library (libncurses) sep from the low-level terminfo library (libtinfo) -- usually needed only for binary packages -- but it is binary compatible in either mode
 sys-libs/ncurses:trace - Enable test trace() support in ncurses calls
 sys-libs/ncurses-compat:tinfo - Build curses library (libncurses) sep from the low-level terminfo library (libtinfo) -- usually needed only for binary packages -- but it is binary compatible in either mode
