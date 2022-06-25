@@ -1,16 +1,16 @@
-BDEPEND=>=dev-lang/go-1.18 test? ( dev-python/docutils dev-ruby/asciidoctor test-full? ( app-text/pandoc ) ) >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 test? ( dev-python/docutils dev-ruby/asciidoctor virtual/pandoc ) >=dev-lang/go-1.16 app-arch/unzip
 DEFINED_PHASES=compile configure install test unpack
 DEPEND=media-libs/libwebp:= sass? ( dev-libs/libsass:= )
 DESCRIPTION=Fast static HTML and CSS website generator
 EAPI=8
 HOMEPAGE=https://gohugo.io https://github.com/gohugoio/hugo
 INHERIT=go-module bash-completion-r1
-IUSE=doc +sass test test-full
+IUSE=doc +sass test
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0 BSD BSD-2 MIT Unlicense
 RDEPEND=media-libs/libwebp:= sass? ( dev-libs/libsass:= )
 RESTRICT=!test? ( test ) strip
 SLOT=0
-SRC_URI=https://github.com/gohugoio/hugo/archive/v0.98.0.tar.gz -> hugo-0.98.0.tar.gz https://tastytea.de/files/gentoo/hugo-0.98.0-vendor.tar.xz
+SRC_URI=https://github.com/gohugoio/hugo/archive/v0.101.0.tar.gz -> hugo-0.101.0.tar.gz https://tastytea.de/files/gentoo/hugo-0.101.0-vendor.tar.xz
 _eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=5ec7f9001a5d52e5c42edf23f3d74c77
+_md5_=e65ef61e1274ff4f9bb77df192890787
