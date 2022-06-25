@@ -13,19 +13,19 @@ SRC_URI="
 "
 
 # NOTE: To create the vendor tarball, run:
-# `go mod vendor && cd .. && tar -cJf ${P}-vendor.tar.xz ${P}/vendor`
+# `go mod vendor && cd .. && tar -caf ${P}-vendor.tar.xz ${P}/vendor`
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +sass test test-full"
+IUSE="doc +sass test"
 
 BDEPEND="
 	>=dev-lang/go-1.18
 	test? (
 		dev-python/docutils
 		dev-ruby/asciidoctor
-		test-full? ( app-text/pandoc )
+		virtual/pandoc
 	)
 "
 RDEPEND="
@@ -39,6 +39,7 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch"
 	"${FILESDIR}/${PN}-0.96.0-skip-some-tests.patch"
+	"${FILESDIR}/${PN}-0.99.1-test-timeout.patch"
 )
 
 src_configure() {
