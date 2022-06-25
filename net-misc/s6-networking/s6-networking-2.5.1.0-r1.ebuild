@@ -5,22 +5,29 @@ EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="Service manager for the s6 supervision suite"
-HOMEPAGE="https://www.skarnet.org/software/s6-rc/"
+DESCRIPTION="Suite of small networking utilities for Unix systems"
+HOMEPAGE="https://www.skarnet.org/software/s6-networking/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm x86"
-IUSE="static static-libs"
+KEYWORDS="~amd64 ~x86"
+IUSE="ssl static static-libs"
 
-REQUIRED_USE="static? ( static-libs )"
+REQUIRED_USE="static? ( static-libs )
+	ssl? ( !static !static-libs )"
 
-RDEPEND=">=dev-lang/execline-2.8.2.0:=[static-libs?]
-	>=dev-libs/skalibs-2.11.1.0:=[static-libs?]
-	>=sys-apps/s6-2.11.0.1:=[execline,static-libs?]
+RDEPEND=">=dev-lang/execline-2.8.1.0:=[static-libs(-)?]
+	=dev-libs/skalibs-2.11*:=[static-libs?]
+	>=sys-apps/s6-2.11.0.0:=[execline,static-libs(-)?]
+	ssl? ( dev-libs/libretls )
+	!static? (
+		>=net-dns/s6-dns-2.3.5.2:=
+	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	>=net-dns/s6-dns-2.3.5.2[static-libs(-)?]
+"
 
 HTML_DOCS=( doc/. )
 
@@ -41,21 +48,16 @@ src_configure() {
 		--dynlibdir=/usr/$(get_libdir)
 		--libdir=/usr/$(get_libdir)/${PN}
 		--with-dynlib=/usr/$(get_libdir)
-		--with-lib=/usr/$(get_libdir)/execline
 		--with-lib=/usr/$(get_libdir)/s6
+		--with-lib=/usr/$(get_libdir)/s6-dns
 		--with-lib=/usr/$(get_libdir)/skalibs
 		--with-sysdeps=/usr/$(get_libdir)/skalibs
 		--enable-shared
+		$(use_enable ssl ssl libtls)
 		$(use_enable static allstatic)
 		$(use_enable static static-libc)
 		$(use_enable static-libs static)
 	)
 
 	econf "${myconf[@]}"
-}
-
-pkg_postinst() {
-	ewarn "Databases from ${PN}-0.3.0.0 or earlier must be manually upgraded!"
-	ewarn "See the upgrade notes at ${EROOT}/usr/share/doc/${PF}/html/upgrade.html"
-	ewarn "and the documentation for the s6-rc-format-upgrade utility."
 }

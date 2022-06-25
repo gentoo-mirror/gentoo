@@ -11,14 +11,12 @@ SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm x86"
-IUSE="static static-libs +sysv-utils"
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="+sysv-utils"
 
-REQUIRED_USE="static? ( static-libs )"
-
-RDEPEND=">=dev-lang/execline-2.8.3.0:=[static-libs?]
-	>=dev-libs/skalibs-2.11.2.0:=[static-libs?]
-	>=sys-apps/s6-2.11.1.0:=[execline,static-libs?]
+RDEPEND="dev-lang/execline:=
+	dev-libs/skalibs:=
+	sys-apps/s6:=[execline]
 	sysv-utils? (
 		!sys-apps/systemd[sysv-utils]
 		!sys-apps/sysvinit
@@ -50,9 +48,8 @@ src_configure() {
 		--with-lib=/usr/$(get_libdir)/skalibs
 		--with-sysdeps=/usr/$(get_libdir)/skalibs
 		--enable-shared
-		$(use_enable static allstatic)
-		$(use_enable static static-libc)
-		$(use_enable static-libs static)
+		--disable-allstatic
+		--disable-static-libc
 	)
 
 	econf "${myconf[@]}"

@@ -5,19 +5,19 @@ EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="Suite of DNS client programs and libraries for Unix systems"
-HOMEPAGE="https://www.skarnet.org/software/s6-dns/"
+DESCRIPTION="Set of tiny portable unix utilities"
+HOMEPAGE="https://www.skarnet.org/software/s6-portable-utils/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~x86"
-IUSE="static static-libs"
+SLOT="0"
+KEYWORDS="amd64 ~arm x86"
+IUSE="static"
 
-REQUIRED_USE="static? ( static-libs )"
-
-RDEPEND=">=dev-libs/skalibs-2.11.1.0:=[static-libs?]"
-DEPEND="${RDEPEND}"
+RDEPEND="!static? ( =dev-libs/skalibs-2.11*:= )"
+DEPEND="${RDEPEND}
+	static? ( =dev-libs/skalibs-2.11*[static-libs] )
+"
 
 HTML_DOCS=( doc/. )
 
@@ -40,10 +40,8 @@ src_configure() {
 		--with-dynlib=/usr/$(get_libdir)
 		--with-lib=/usr/$(get_libdir)/skalibs
 		--with-sysdeps=/usr/$(get_libdir)/skalibs
-		--enable-shared
 		$(use_enable static allstatic)
 		$(use_enable static static-libc)
-		$(use_enable static-libs static)
 	)
 
 	econf "${myconf[@]}"
