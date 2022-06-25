@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.7 1.25.12 1.25.13 1.25.14 1.25.15 1.25.16: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.7 1.25.12 1.25.13 1.25.14 1.25.15 1.25.16 1.25.17: Universal Command Line Environment for AWS
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.32.1-r1: Distribution-independent installer framework
@@ -8474,8 +8474,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.7 1.24.12 1.24.13 1.24.14 1.24.15 1.24.16 9999: The AWS SDK for Python
-dev-python/botocore 1.27.7 1.27.12 1.27.13 1.27.14 1.27.15 1.27.16 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.7 1.24.12 1.24.13 1.24.14 1.24.15 1.24.16 1.24.17 9999: The AWS SDK for Python
+dev-python/botocore 1.27.7 1.27.12 1.27.13 1.27.14 1.27.15 1.27.16 1.27.17 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8548,6 +8548,7 @@ dev-python/configargparse 1.5.3: Drop-in replacement for argparse supporting con
 dev-python/configclass 0.2.0: A Python to class to hold configuration values
 dev-python/configobj 5.0.6-r2: Simple config file reader and writer
 dev-python/configshell-fb 1.1.29: A Python library for building configuration shells
+dev-python/configupdater 3.1: Parser like ConfigParser but for updating configuration files
 dev-python/confuse 1.7.0-r1: Confuse is a configuration library for Python that uses YAML
 dev-python/cons 0.4.5: Implementation of Lisp/Scheme-like cons in Python
 dev-python/consonance 0.1.5-r1: WhatsApp's handshake implementation using Noise Protocol
@@ -8564,7 +8565,7 @@ dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/croniter 1.3.5: Python module to provide iteration for datetime object
 dev-python/cryptography 3.4.7-r3 37.0.2-r1 37.0.3: Library providing cryptographic recipes and primitives
 dev-python/css-parser 1.0.7-r1: A CSS Cascading Style Sheets library (fork of cssutils)
-dev-python/csscompressor 0.9.5 0.9.5-r1: A python port of YUI CSS Compressor
+dev-python/csscompressor 0.9.5-r1: A python port of YUI CSS Compressor
 dev-python/cssselect 1.1.0-r2: parses CSS3 Selectors and translates them to XPath 1.0
 dev-python/cssselect2 0.6.0: Parses CSS3 Selectors and translates them to XPath 1.0
 dev-python/cssutils 2.4.0 2.4.1 2.4.2: A CSS Cascading Style Sheets library
@@ -8819,7 +8820,7 @@ dev-python/indexed_gzip 1.6.13: Fast random access of gzip files in Python
 dev-python/inflect 5.6.0: Correctly inflect words and numbers
 dev-python/inflection 0.5.1-r1: A port of Ruby on Rails' inflector to Python
 dev-python/influxdb 5.3.0-r1: InfluxDB client
-dev-python/ini2toml 0.10: Automatically conversion of .ini/.cfg files to TOML equivalents
+dev-python/ini2toml 0.10 0.11 0.11-r1: Automatically conversion of .ini/.cfg files to TOML equivalents
 dev-python/iniconfig 1.1.1-r1: Brain-dead simple config-ini parsing
 dev-python/iniparse 0.5 0.5-r1: Better INI parser for Python
 dev-python/installer 0.5.1 0.5.1-r1: A library for installing Python wheels
@@ -9314,6 +9315,7 @@ dev-python/pypiserver 1.5.0-r2: Minimal PyPI server
 dev-python/pypng 0.0.21-r1: Pure Python PNG image encoder/decoder
 dev-python/pyprof2calltree 1.4.5-r1: convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.3.1: Python interface to the PROJ library
+dev-python/pyproject-fmt 0.3.3: Format your pyproject.toml file
 dev-python/pyproject-metadata 0.5.0: PEP 621 metadata parsing
 dev-python/pyproject2setuppy 22-r1: Cheap setup.py hack to install flit & poetry-based projects
 dev-python/pypugjs 5.9.11: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
@@ -9382,7 +9384,7 @@ dev-python/pytest-localftpserver 1.1.3: A PyTest plugin which provides an FTP fi
 dev-python/pytest-localserver 0.6.0-r1: Pytest plugin to test server connections locally
 dev-python/pytest-markdown 1.0.2: Write unit tests in Python to test actual state of your servers
 dev-python/pytest-metadata 2.0.1: A plugin for pytest that provides access to test session metadata
-dev-python/pytest-mock 3.7.0: Thin-wrapper around the mock package for easier use with pytest
+dev-python/pytest-mock 3.7.0 3.8.1: Thin-wrapper around the mock package for easier use with pytest
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
 dev-python/pytest-param-files 0.3.4: Pytest parametrize decorators from external files.
 dev-python/pytest-plus 0.2-r1: PyTest Plus Plugin - extends pytest functionality
