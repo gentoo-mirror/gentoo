@@ -1,24 +1,28 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit bash-completion-r1
 
 DESCRIPTION="Policy based mounter that gives the ability to mount removable devices as a user"
 HOMEPAGE="https://launchpad.net/pmount"
 SRC_URI="mirror://debian/pool/main/p/${PN}/${PN}_${PV/_/-}.orig.tar.bz2"
-S=${WORKDIR}/${P/_/-}
+S="${WORKDIR}"/${P/_/-}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="crypt"
 
+# cryptsetup is executed at runtime only, no libraries used AFAICT
+# but in DEPEND too as it's checked during configure
 RDEPEND="
 	acct-group/plugdev
 	>=sys-apps/util-linux-2.17.2
 	crypt? ( >=sys-fs/cryptsetup-1.0.6-r2 )"
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-util/intltool
 	sys-devel/gettext"
 
@@ -27,6 +31,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-locale-regex.patch
 	"${FILESDIR}"/${P}-exfat-support.patch
 	"${FILESDIR}"/${P}-limits-musl.patch
+	"${FILESDIR}"/${P}-missing-includes.patch
 )
 
 src_prepare() {
