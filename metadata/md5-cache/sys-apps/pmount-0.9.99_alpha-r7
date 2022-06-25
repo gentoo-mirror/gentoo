@@ -1,14 +1,15 @@
+BDEPEND=dev-util/intltool sys-devel/gettext
 DEFINED_PHASES=configure install postinst prepare test
-DEPEND=acct-group/plugdev >=sys-apps/util-linux-2.17.2 crypt? ( >=sys-fs/cryptsetup-1.0.6-r2 ) dev-util/intltool sys-devel/gettext
+DEPEND=acct-group/plugdev >=sys-apps/util-linux-2.17.2 crypt? ( >=sys-fs/cryptsetup-1.0.6-r2 )
 DESCRIPTION=Policy based mounter that gives the ability to mount removable devices as a user
-EAPI=7
+EAPI=8
 HOMEPAGE=https://launchpad.net/pmount
 INHERIT=bash-completion-r1
 IUSE=crypt
-KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ppc ppc64 sparc x86
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/plugdev >=sys-apps/util-linux-2.17.2 crypt? ( >=sys-fs/cryptsetup-1.0.6-r2 )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/p/pmount/pmount_0.9.99-alpha.orig.tar.bz2
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=5069638ed04ffac970df383585f2b9e2
+_md5_=b1f8c17c5dee4ab63f538da2ea5bae6b
