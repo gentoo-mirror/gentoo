@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst setup
+DEPEND=acct-group/dnsdist acct-user/dnsdist >=dev-libs/boost-1.35:= dev-libs/libedit:= >=dev-libs/protobuf-3:= dnscrypt? ( dev-libs/libsodium:= ) dnstap? ( dev-libs/fstrm:= ) doh? ( www-servers/h2o:=[libh2o] ) lmdb? ( dev-db/lmdb:= ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) systemd? ( sys-apps/systemd:0= ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) net-libs/nghttp2
+DESCRIPTION=A highly DNS-, DoS- and abuse-aware loadbalancer
+EAPI=7
+HOMEPAGE=https://dnsdist.org
+INHERIT=flag-o-matic lua-single
+IUSE=dnscrypt dnstap doh gnutls +lmdb regex remote-logging snmp +ssl systemd test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/dnsdist acct-user/dnsdist >=dev-libs/boost-1.35:= dev-libs/libedit:= >=dev-libs/protobuf-3:= dnscrypt? ( dev-libs/libsodium:= ) dnstap? ( dev-libs/fstrm:= ) doh? ( www-servers/h2o:=[libh2o] ) lmdb? ( dev-db/lmdb:= ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) systemd? ( sys-apps/systemd:0= ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) net-libs/nghttp2
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) dnscrypt? ( ssl ) gnutls? ( ssl ) doh? ( ssl !gnutls )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.powerdns.com/releases/dnsdist-1.7.2.tar.bz2
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f
+_md5_=a764fb81748691c6b67d6502deec6b7c
