@@ -1,6 +1,6 @@
 BDEPEND=dev-cpp/eigen dev-libs/rapidjson doc? ( app-doc/doxygen ) examples? ( dev-qt/linguist-tools:5 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= dev-tcltk/itcl dev-tcltk/itk dev-tcltk/tix media-libs/fontconfig media-libs/freetype:2 media-libs/ftgl virtual/glu virtual/opengl x11-libs/libXmu examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( media-video/ffmpeg:= ) freeimage? ( media-libs/freeimage ) tbb? ( <dev-cpp/tbb-2021.4.0 ) vtk? ( sci-libs/vtk:=[rendering] )
+DEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= dev-tcltk/itcl dev-tcltk/itk dev-tcltk/tix media-libs/fontconfig media-libs/freetype:2 media-libs/ftgl virtual/glu virtual/opengl x11-libs/libXmu examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( media-video/ffmpeg:= ) freeimage? ( media-libs/freeimage ) tbb? ( dev-cpp/tbb:= ) vtk? ( sci-libs/vtk:=[rendering] )
 DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 EAPI=8
 HOMEPAGE=https://www.opencascade.com
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic
 IUSE=debug doc examples ffmpeg freeimage gles2-only json optimize tbb vtk
 KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )
-RDEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= dev-tcltk/itcl dev-tcltk/itk dev-tcltk/tix media-libs/fontconfig media-libs/freetype:2 media-libs/ftgl virtual/glu virtual/opengl x11-libs/libXmu examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( media-video/ffmpeg:= ) freeimage? ( media-libs/freeimage ) tbb? ( <dev-cpp/tbb-2021.4.0 ) vtk? ( sci-libs/vtk:=[rendering] )
+RDEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= dev-tcltk/itcl dev-tcltk/itk dev-tcltk/tix media-libs/fontconfig media-libs/freetype:2 media-libs/ftgl virtual/glu virtual/opengl x11-libs/libXmu examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( media-video/ffmpeg:= ) freeimage? ( media-libs/freeimage ) tbb? ( dev-cpp/tbb:= ) vtk? ( sci-libs/vtk:=[rendering] )
 REQUIRED_USE=?? ( optimize tbb )
 RESTRICT=test
 SLOT=0/7.5
 SRC_URI=https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_3;sf=tgz -> opencascade-7.5.3.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=8ee9db7e98c771fd1d2b8529a34adc02
+_md5_=e6be2817f42fa96b04b74be22e695b30
