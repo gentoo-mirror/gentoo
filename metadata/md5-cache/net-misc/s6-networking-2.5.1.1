@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure prepare
+DEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.12.0.0:= net-dns/s6-dns:= sys-apps/s6:=[execline] ssl? ( dev-libs/libretls )
+DESCRIPTION=Suite of small networking utilities for Unix systems
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6-networking/
+INHERIT=toolchain-funcs
+IUSE=ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.12.0.0:= net-dns/s6-dns:= sys-apps/s6:=[execline] ssl? ( dev-libs/libretls )
+SLOT=0/2.5
+SRC_URI=https://www.skarnet.org/software/s6-networking/s6-networking-2.5.1.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=e4ad21f8071925a0a4f07c61c71d2e05

@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure prepare
-DEPEND=!static? ( >=dev-libs/skalibs-2.11.1.0:= ) static? ( >=dev-libs/skalibs-2.11.1.0[static-libs] )
+DEPEND=!static? ( =dev-libs/skalibs-2.11*:= ) static? ( =dev-libs/skalibs-2.11*[static-libs] )
 DESCRIPTION=Set of tiny linux utilities
 EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/s6-linux-utils/
@@ -7,8 +7,8 @@ INHERIT=toolchain-funcs
 IUSE=static
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=ISC
-RDEPEND=!static? ( >=dev-libs/skalibs-2.11.1.0:= )
+RDEPEND=!static? ( =dev-libs/skalibs-2.11*:= )
 SLOT=0
 SRC_URI=https://www.skarnet.org/software/s6-linux-utils/s6-linux-utils-2.5.1.7.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=f0d4a4064a2b17e194acc68ca7e341a9
+_md5_=429d14491f810735adb88c52c0fd583a

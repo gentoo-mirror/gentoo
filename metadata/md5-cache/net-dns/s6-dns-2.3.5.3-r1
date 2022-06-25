@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure prepare
-DEPEND=>=dev-libs/skalibs-2.11.1.0:=[static-libs?]
+DEPEND==dev-libs/skalibs-2.11*:=[static-libs?]
 DESCRIPTION=Suite of DNS client programs and libraries for Unix systems
 EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/s6-dns/
@@ -7,9 +7,9 @@ INHERIT=toolchain-funcs
 IUSE=static static-libs
 KEYWORDS=~amd64 ~x86
 LICENSE=ISC
-RDEPEND=>=dev-libs/skalibs-2.11.1.0:=[static-libs?]
+RDEPEND==dev-libs/skalibs-2.11*:=[static-libs?]
 REQUIRED_USE=static? ( static-libs )
 SLOT=0/2.3
 SRC_URI=https://www.skarnet.org/software/s6-dns/s6-dns-2.3.5.3.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=f023f2c53cb0e1c0fef1c4d5b0e9d43f
+_md5_=8e5f86b0fb8a1f023aedea11e4984559

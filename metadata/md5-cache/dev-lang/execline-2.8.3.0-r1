@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure prepare
-DEPEND=>=dev-libs/skalibs-2.11.2.0:=[static-libs?]
+DEPEND=>=dev-libs/skalibs-2.11.2.0:=[static-libs(-)?]
 DESCRIPTION=A non-interactive scripting language
 EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/execline/
@@ -7,9 +7,9 @@ INHERIT=toolchain-funcs
 IUSE=static static-libs
 KEYWORDS=amd64 ~arm x86
 LICENSE=ISC
-RDEPEND=>=dev-libs/skalibs-2.11.2.0:=[static-libs?]
+RDEPEND=>=dev-libs/skalibs-2.11.2.0:=[static-libs(-)?]
 REQUIRED_USE=static? ( static-libs )
 SLOT=0/2.8
 SRC_URI=https://www.skarnet.org/software/execline/execline-2.8.3.0.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=048da23b3508130bfe8dfa35bfd653a1
+_md5_=85ec1076faf39adf7bc81524e79aa23d

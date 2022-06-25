@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=>=dev-lang/execline-2.8.3.0:=[static-libs?] >=dev-libs/skalibs-2.11.2.0:=[static-libs?] >=sys-apps/s6-2.11.1.0:=[execline,static-libs?] sysv-utils? ( !sys-apps/systemd[sysv-utils] !sys-apps/sysvinit )
+DEPEND=>=dev-lang/execline-2.8.3.0:=[static-libs(-)?] >=dev-libs/skalibs-2.11.2.0:=[static-libs(-)?] >=sys-apps/s6-2.11.1.0:=[execline,static-libs(-)?] sysv-utils? ( !sys-apps/systemd[sysv-utils] !sys-apps/sysvinit )
 DESCRIPTION=Generates an init binary for s6-based init systems
 EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/s6-linux-init/
@@ -7,9 +7,9 @@ INHERIT=toolchain-funcs
 IUSE=static static-libs +sysv-utils
 KEYWORDS=amd64 ~arm x86
 LICENSE=ISC
-RDEPEND=>=dev-lang/execline-2.8.3.0:=[static-libs?] >=dev-libs/skalibs-2.11.2.0:=[static-libs?] >=sys-apps/s6-2.11.1.0:=[execline,static-libs?] sysv-utils? ( !sys-apps/systemd[sysv-utils] !sys-apps/sysvinit )
+RDEPEND=>=dev-lang/execline-2.8.3.0:=[static-libs(-)?] >=dev-libs/skalibs-2.11.2.0:=[static-libs(-)?] >=sys-apps/s6-2.11.1.0:=[execline,static-libs(-)?] sysv-utils? ( !sys-apps/systemd[sysv-utils] !sys-apps/sysvinit )
 REQUIRED_USE=static? ( static-libs )
 SLOT=0/1.0
 SRC_URI=https://www.skarnet.org/software/s6-linux-init/s6-linux-init-1.0.7.3.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=a3549cc7a34eba73a4148b982719f317
+_md5_=a1fff10820705b2b0e73b64de33e8a4b
