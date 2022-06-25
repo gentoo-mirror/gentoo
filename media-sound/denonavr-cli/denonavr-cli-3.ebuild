@@ -25,3 +25,10 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/denonavr[${PYTHON_USEDEP}]
 "
+BDEPEND="
+	test? (
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+	)
+"
+
+distutils_enable_tests pytest
