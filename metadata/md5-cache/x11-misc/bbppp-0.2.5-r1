@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=install postinst prepare
-DEPEND=x11-libs/libX11
+DEPEND=x11-libs/libX11 elibc_musl? ( net-libs/ppp-defs )
 DESCRIPTION=blackbox ppp frontend/monitor
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/bbtools/
@@ -11,4 +11,4 @@ RDEPEND=x11-libs/libX11 media-fonts/font-adobe-100dpi
 SLOT=0
 SRC_URI=mirror://sourceforge/bbtools/bbppp/bbppp-0.2.5/bbppp-0.2.5.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
-_md5_=f556e9c2c2f28c2c652f9eac5514377d
+_md5_=37cf238d0bb5bdda611e642eead4b1f5
