@@ -14,37 +14,25 @@ SRC_URI="https://github.com/plotly/${PN}/archive/refs/tags/v${PV}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+# Test need some packages not yet in the tree
+# flask_talisman
+# percy
+# ...
+RESTRICT="test"
 
-DEPEND=""
-RDEPEND="${DEPEND}
+RDEPEND="
 	dev-python/future[${PYTHON_USEDEP}]
 	sci-visualization/dash-table[${PYTHON_USEDEP}]
 	sci-visualization/dash-html-components[${PYTHON_USEDEP}]
 	sci-visualization/dash-core-components[${PYTHON_USEDEP}]
 	dev-python/plotly[${PYTHON_USEDEP}]
 	dev-python/flask-compress[${PYTHON_USEDEP}]"
+DEPEND="${RDEPEND}
+	test? ( dev-python/beautifulsoup4 )"
 BDEPEND=""
 
-src_prepare() {
-	distutils-r1_src_prepare
-	cd dash-renderer
-	distutils-r1_src_prepare
-}
+distutils_enable_tests pytest
 
-src_configure() {
-	distutils-r1_src_configure
-	cd dash-renderer
-	distutils-r1_src_configure
-}
-
-src_compile() {
-	distutils-r1_src_compile
-	cd dash-renderer
-	distutils-r1_src_compile
-}
-
-src_install() {
-	distutils-r1_src_install
-	cd dash-renderer
-	distutils-r1_src_install
-}
+PATCHES=(
+	"${FILESDIR}"/0001-Fix-werkzeug-2.1.0-import-dev-tools-error-html-rende.patch
+)
