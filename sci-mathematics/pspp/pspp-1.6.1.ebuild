@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit python-any-r1 xdg
 
@@ -14,9 +14,8 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="cairo doc examples gtk ncurses nls perl postgres test"
+IUSE="doc examples gtk ncurses nls perl postgres test"
 RESTRICT="!test? ( test )"
-REQUIRED_USE="test? ( cairo )"
 
 RDEPEND="
 	dev-libs/libxml2:2
@@ -26,23 +25,23 @@ RDEPEND="
 	sys-libs/readline:0=
 	sys-libs/zlib
 	virtual/libiconv
-	cairo? (
-		x11-libs/cairo[svg]
-		x11-libs/pango
-	)
+	x11-libs/cairo[svg]
+	x11-libs/pango
 	gtk? (
+		dev-util/glib-utils
 		x11-libs/gtk+:3
-		x11-libs/gtksourceview:3.0=
-		>=x11-libs/spread-sheet-widget-0.6
-		cairo? ( dev-util/glib-utils )
+		x11-libs/gtksourceview:4=
+		>=x11-libs/spread-sheet-widget-0.7
 	)
 	postgres? ( dev-db/postgresql:=[server] )"
 DEPEND="${RDEPEND}"
+# which dep for tests: https://savannah.gnu.org/bugs/index.php?62675
 BDEPEND="
+	${PYTHON_DEPS}
 	sys-devel/gettext
 	virtual/pkgconfig
 	doc? ( virtual/latex-base )
-	test? ( ${PYTHON_DEPS} )"
+	test? ( sys-apps/which )"
 
 pkg_pretend() {
 	ewarn "Starting with pspp-1.4.0 the pspp-mode emacs package is no longer"
@@ -50,20 +49,15 @@ pkg_pretend() {
 	ewarn "https://elpa.gnu.org/packages/pspp-mode.html"
 }
 
-pkg_setup() {
-	use test && python-any-r1_pkg_setup
-}
-
 src_prepare() {
 	default
+
 	sed -i '/appdata$/s/appdata$/metainfo/' Makefile.in || die
 }
 
 src_configure() {
 	econf \
-		--disable-static \
 		$(use_enable nls) \
-		$(use_with cairo) \
 		$(use_with gtk gui) \
 		$(use_with perl perl-module) \
 		$(use_with postgres libpq)
@@ -71,6 +65,7 @@ src_configure() {
 
 src_compile() {
 	default
+
 	if use doc; then
 		emake html pdf
 		HTML_DOCS=( doc/pspp{,-dev}.html )
