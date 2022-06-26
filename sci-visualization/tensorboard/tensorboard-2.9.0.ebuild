@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 inherit python-r1
 
 DESCRIPTION="TensorFlow's Visualization Toolkit"
@@ -53,6 +53,8 @@ src_prepare() {
 
 	sed -i -e '/tensorboard-plugin-/d' "${S}/${P}.dist-info/METADATA" || die "failed to remove plugin deps"
 	sed -i -e '/tensorboard-data-server/d' "${S}/${P}.dist-info/METADATA" || die "failed to remove data-server deps"
+	sed -i -e 's/google-auth-oauthlib.*$/google-auth-oauthlib/' "${S}/${P}.dist-info/METADATA" \
+		|| die "failed to relax oauth deps"
 }
 
 src_install() {

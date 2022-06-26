@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 MY_PN="estimator"
 MY_PV=${PV/_rc/-rc}
 MY_P=${MY_PN}-${MY_PV}
@@ -32,7 +32,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/unzip
 	dev-java/java-config
-	>=dev-util/bazel-3.7.2"
+	>=dev-util/bazel-4.2.2"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -49,29 +49,27 @@ src_prepare() {
 	python_copy_sources
 }
 
-src_compile() {
-	export JAVA_HOME=$(java-config --jre-home)
+python_compile() {
+	pushd "${BUILD_DIR}" >/dev/null || die
 
-	do_compile() {
-		ebazel build //tensorflow_estimator/tools/pip_package:build_pip_package
-		ebazel shutdown
+	ebazel build //tensorflow_estimator/tools/pip_package:build_pip_package
+	ebazel shutdown
 
-		local srcdir="${T}/src-${EPYTHON/./_}"
-		mkdir -p "${srcdir}" || die
-		bazel-bin/tensorflow_estimator/tools/pip_package/build_pip_package --src "${srcdir}" || die
-	}
+	local srcdir="${T}/src-${EPYTHON/./_}"
+	mkdir -p "${srcdir}" || die
+	bazel-bin/tensorflow_estimator/tools/pip_package/build_pip_package --src "${srcdir}" || die
 
-	python_foreach_impl run_in_build_dir do_compile
+	popd || die
 }
 
-src_install() {
-	do_install() {
-		cd "${T}/src-${EPYTHON/./_}" || die
-		esetup.py install
-		python_optimize
-	}
-	python_foreach_impl do_install
+src_compile() {
+	export JAVA_HOME=$(java-config --jre-home)
+	distutils-r1_src_compile
+}
 
-	cd "${S}" || die
-	einstalldocs
+python_install() {
+	pushd "${T}/src-${EPYTHON/./_}" >/dev/null || die
+	esetup.py install
+	python_optimize
+	popd || die
 }
