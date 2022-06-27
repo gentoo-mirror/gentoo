@@ -1,14 +1,14 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
 DESCRIPTION="collection of games from NetBSD"
 HOMEPAGE="https://www.polyomino.org.uk/computer/software/bsd-games/"
 SRC_URI="https://github.com/msharov/bsd-games/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-verbose-build.patch.gz"
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-3.1-verbose-build.patch.gz"
 
 LICENSE="BSD"
 # Subslot indicates the fork / new version
@@ -31,7 +31,6 @@ RDEPEND="
 	acct-group/gamestat
 "
 BDEPEND="
-	sys-apps/which
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
@@ -40,6 +39,8 @@ BDEPEND="
 PATCHES=(
 	"${WORKDIR}"/${PN}-3.1-verbose-build.patch
 	"${FILESDIR}"/${PN}-3.1-no-install-manpages-automatically.patch
+	"${FILESDIR}"/${PN}-3.2-no-which.patch
+	"${FILESDIR}"/${P}-no-strip.patch
 )
 
 # Set GAMES_TO_BUILD variable to whatever you want
@@ -52,7 +53,7 @@ src_prepare() {
 
 	# Use completely our own CFLAGS/LDFLAGS, no stripping and so on
 	sed -i \
-		-e 's/+= -std=c11 @pkgcflags@ ${CFLAGS}/= -std=c11 @pkgcflags@ ${CFLAGS}/' \
+		-e 's/+= -std=c11 @pkgcflags@ ${CFLAGS}/= -std=c11 @pkgcflags@ ${CPPFLAGS} ${CFLAGS} ${LDFLAGS}/' \
 		-e 's/+= @pkgldflags@ ${LDFLAGS}/= @pkgldflags@ ${LDFLAGS}/' \
 		-e s'/${INSTALL} -m 755 -s/${INSTALL} -m 755/' \
 		-e '/man[6]dir/d' \
@@ -80,7 +81,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
+	emake CPPFLAGS="${CPPFLAGS}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
