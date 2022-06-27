@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/flex virtual/pkgconfig virtual/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 ssl? ( dev-libs/openssl:0 )
+DEFINED_PHASES=configure install postinst preinst prepare
+DEPEND=dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:= sys-apps/util-linux sys-fs/e2fsprogs:= sys-libs/zlib:= afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( app-arch/brotli:= app-arch/zstd:= dev-libs/libxml2 dev-libs/libical:= net-libs/nghttp2:= sci-libs/shapelib:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) mysql? ( dev-db/mysql-connector-c:= ) nntp? ( !net-nntp/leafnode ) pam? ( >=net-mail/mailbase-1 sys-libs/pam ) perl? ( dev-lang/perl:= virtual/perl-Term-ReadLine ) postgres? ( dev-db/postgresql:* ) ssl? ( >=dev-libs/openssl-1.0.1e:=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) xapian? ( >=dev-libs/xapian-1.4.0:= ) test? ( dev-util/cunit )
+DESCRIPTION=The Cyrus IMAP Server
+EAPI=8
+HOMEPAGE=https://www.cyrusimap.org/
+INHERIT=autotools flag-o-matic pam ssl-cert
+IUSE=afs backup calalarm caps clamav http kerberos ldap mysql nntp pam perl postgres replication +server sieve sqlite ssl static-libs tcpd test xapian ssl
+KEYWORDS=~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=BSD-with-attribution GPL-2
+RDEPEND=dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:= sys-apps/util-linux sys-fs/e2fsprogs:= sys-libs/zlib:= afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( app-arch/brotli:= app-arch/zstd:= dev-libs/libxml2 dev-libs/libical:= net-libs/nghttp2:= sci-libs/shapelib:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) mysql? ( dev-db/mysql-connector-c:= ) nntp? ( !net-nntp/leafnode ) pam? ( >=net-mail/mailbase-1 sys-libs/pam ) perl? ( dev-lang/perl:= virtual/perl-Term-ReadLine ) postgres? ( dev-db/postgresql:* ) ssl? ( >=dev-libs/openssl-1.0.1e:=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) xapian? ( >=dev-libs/xapian-1.4.0:= ) acct-group/mail acct-user/cyrus !mail-mta/courier !net-mail/bincimap !net-mail/courier-imap !net-mail/uw-imap !app-arch/dump
+REQUIRED_USE=afs? ( kerberos ) backup? ( sqlite ) calalarm? ( http ) http? ( sqlite )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/cyrusimap/cyrus-imapd/releases/download/cyrus-imapd-3.4.4/cyrus-imapd-3.4.4.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	pam	e44a1dd98f13e1ad76de01e919bde1f1	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7
+_md5_=28c20e688b9746787b78ff916b7f1d24
