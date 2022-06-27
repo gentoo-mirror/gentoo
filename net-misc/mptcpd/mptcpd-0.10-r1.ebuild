@@ -38,6 +38,10 @@ fi
 
 CONFIG_CHECK="MPTCP"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.9-no-werror.patch
+)
+
 src_prepare() {
 	default
 
@@ -62,4 +66,9 @@ src_compile() {
 
 src_test() {
 	emake check
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
 }

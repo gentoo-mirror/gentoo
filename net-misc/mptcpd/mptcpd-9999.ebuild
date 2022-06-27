@@ -13,7 +13,7 @@ SLOT="0/${PV}"
 IUSE="debug doc"
 
 RDEPEND="
-	>=dev-libs/ell-0.30.0
+	>=dev-libs/ell-0.45.0
 	elibc_musl? ( sys-libs/argp-standalone )
 	"
 DEPEND="
@@ -27,9 +27,6 @@ BDEPEND="
 	)
 	virtual/pkgconfig
 	"
-PATCHES=(
-	"${FILESDIR}/${P}-loopback-monitoring.patch"
-)
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -69,4 +66,9 @@ src_compile() {
 
 src_test() {
 	emake check
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
 }
