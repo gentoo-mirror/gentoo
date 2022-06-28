@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) sys-devel/gettext >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=media-libs/alsa-lib >=xfce-base/xfce4-panel-4.13 x11-libs/gtk+:3[introspection]
+DESCRIPTION=Simple ALSA volume control for xfce4-panel
+EAPI=8
+HOMEPAGE=https://github.com/equeim/xfce4-alsa-plugin
+INHERIT=vala meson
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
+LICENSE=GPL-3
+RDEPEND=media-libs/alsa-lib >=xfce-base/xfce4-panel-4.13 x11-libs/gtk+:3[introspection]
+SLOT=0
+SRC_URI=https://github.com/equeim/xfce4-alsa-plugin/archive/0.3.0.tar.gz -> xfce4-alsa-plugin-0.3.0.tar.gz
+_eclasses_=vala	9badd41d5aab740ae5ac301c4416c5f8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	meson	8f48ffde53174aba67239f0da61ac9d3
+_md5_=ed81716e148ca55241c787439130c664
