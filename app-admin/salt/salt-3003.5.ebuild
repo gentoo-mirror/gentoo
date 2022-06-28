@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit systemd distutils-r1
 
@@ -37,9 +37,9 @@ RDEPEND="
 	dev-python/markupsafe[${PYTHON_USEDEP}]
 	>=dev-python/requests-1.0.0[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/toml[${PYTHON_USEDEP}]
+	>=dev-python/toml-0.10.2[${PYTHON_USEDEP}]
 	dev-python/watchdog[${PYTHON_USEDEP}]
-	libcloud? ( >=dev-python/libcloud-0.14.0[${PYTHON_USEDEP}] )
+	libcloud? ( >=dev-python/libcloud-2.5.0[${PYTHON_USEDEP}] )
 	mako? ( dev-python/mako[${PYTHON_USEDEP}] )
 	ldap? ( dev-python/python-ldap[${PYTHON_USEDEP}] )
 	libvirt? (
@@ -71,63 +71,72 @@ RDEPEND="
 	gnupg? ( dev-python/python-gnupg[${PYTHON_USEDEP}] )
 	profile? ( dev-python/yappi[${PYTHON_USEDEP}] )
 	vim-syntax? ( app-vim/salt-vim )
-	zeromq? ( >=dev-python/pyzmq-19.0.0[${PYTHON_USEDEP}] )
+	zeromq? ( >=dev-python/pyzmq-19.1.0[${PYTHON_USEDEP}] )
 "
 BDEPEND="
 	test? (
 		${RDEPEND}
 		>=dev-python/boto-2.32.1[${PYTHON_USEDEP}]
 		>=dev-python/jsonschema-3.0[${PYTHON_USEDEP}]
-		>=dev-python/libcloud-0.14.0[${PYTHON_USEDEP}]
 		dev-python/mako[${PYTHON_USEDEP}]
 		>=dev-python/mock-2.0.0[${PYTHON_USEDEP}]
-		>=dev-python/moto-0.3.6[${PYTHON_USEDEP}]
+		>=dev-python/moto-1.3.14[${PYTHON_USEDEP}]
 		dev-python/pip[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
+		dev-python/pyopenssl[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
-		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
-		>=dev-python/pytest-salt-factories-0.93.0[${PYTHON_USEDEP}]
+		=dev-python/pytest-salt-factories-0.121*[${PYTHON_USEDEP}]
 		dev-python/pytest-tempdir[${PYTHON_USEDEP}]
-		>=dev-python/virtualenv-20.0.20[${PYTHON_USEDEP}]
+		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
+		dev-python/pytest-subtests[${PYTHON_USEDEP}]
+		dev-python/flaky[${PYTHON_USEDEP}]
+		dev-python/libcloud[${PYTHON_USEDEP}]
 		net-dns/bind-tools
-		!x86? ( >=dev-python/boto3-1.3.15[${PYTHON_USEDEP}] )
+		>=dev-python/virtualenv-20.0.20[${PYTHON_USEDEP}]
+		!x86? ( >=dev-python/boto3-1.19.63[${PYTHON_USEDEP}] )
 	)"
 
 DOCS=( README.rst AUTHORS )
 
-REQUIRED_USE="
-	|| ( raet zeromq )
-	test? ( cheetah genshi )
-"
+REQUIRED_USE="|| ( raet zeromq )
+	test? ( cheetah genshi )"
 RESTRICT="!test? ( test ) x86? ( test )"
 
+# tests currently broken
+RESTRICT+=" test"
+
 PATCHES=(
-	"${FILESDIR}/salt-2019.2.0-skip-tests-that-oom-machine.patch"
-	"${FILESDIR}/salt-3002-dont-realpath-on-tmpdir.patch"
+	"${FILESDIR}/salt-3003-skip-tests-that-oom-machine.patch"
+	"${FILESDIR}/salt-3003-gentoolkit-revdep.patch"
 	"${FILESDIR}/salt-3002-tests.patch"
-	"${FILESDIR}/salt-3002.5-tests.patch"
-	"${FILESDIR}/salt-3002.7-tests.patch"
-	"${FILESDIR}/salt-3004.1-jinja-3.patch"
-	"${FILESDIR}/salt-3002.8-tests.patch"
-	"${FILESDIR}/salt-3002.8-relax-pyzmq-dep.patch"
+	"${FILESDIR}/salt-3003.3-tests.patch"
+	"${FILESDIR}/salt-3003.1-tests.patch"
+	"${FILESDIR}/salt-3004.2-jinja-3.patch"
+	"${FILESDIR}/salt-3003.4-tests.patch"
+	"${FILESDIR}/salt-3003.4-relax-pyzmq-dep.patch"
 )
 
 python_prepare_all() {
 	# remove tests with external dependencies that may not be available, and
 	# tests that don't work in sandbox
-	rm tests/unit/{test_{zypp_plugins,module_names},utils/test_{extend,cache}}.py || die
+	rm tests/unit/{test_{zypp_plugins,module_names},utils/test_extend}.py || die
 	rm tests/unit/modules/test_{file,boto_{vpc,secgroup,elb}}.py || die
 	rm tests/unit/states/test_boto_vpc.py || die
 	rm tests/support/gitfs.py tests/unit/runners/test_git_pillar.py || die
-	rm salt/utils/virtualbox.py || die
+	rm tests/pytests/functional/transport/server/test_req_channel.py || die
 
 	# tests that require network access
 	rm tests/unit/{states,modules}/test_zcbuildout.py || die
+	rm -r tests/integration/cloud || die
+	rm -r tests/kitchen/tests/wordpress/tests || die
+	rm tests/kitchen/test_kitchen.py || die
+	rm tests/unit/modules/test_network.py || die
 
-	sed -i 's:log.trace(:log.debug(:' \
-		salt/fileserver/roots.py salt/grains/core.py salt/states/saltmod.py || die
+	# tests require root access
+	rm tests/integration/pillar/test_git_pillar.py || die
+	rm tests/integration/states/test_supervisord.py || die
+	rm tests/pytests/unit/client/test_ssh.py || die
 
-	# make sure pkg_resources doesn't bomb because pycrypto isn't installed
 	# make sure pkg_resources doesn't bomb because pycrypto isn't installed
 	find "${S}" -name '*.txt' -print0 | xargs -0 sed -e '/pycrypto>/ d ; /pycryptodomex/ d' -i || die
 	# pycryptodome rather than pycryptodomex
@@ -141,6 +150,9 @@ python_prepare() {
 	local abc
 	abc="$("${EPYTHON}" -c 'import collections.abc; print("|".join((c for c in dir(collections.abc) if not c.startswith("_"))))')" || die
 	find -name '*.py' -type f -print0 | xargs -0 sed -r -e "s:collections\\.(${abc}):collections.abc.\\1:g" -i || die
+
+	# removes contextvars, see bug: https://bugs.gentoo.org/799431
+	sed -i '/^contextvars/d' requirements/base.txt || die
 }
 
 python_install_all() {
@@ -158,26 +170,22 @@ python_install_all() {
 }
 
 python_test() {
-	local tempdir
 	# testsuite likes lots of files
-	ulimit -n 3072 || die
+	ulimit -n 4096 || die
 
 	# ${T} is too long a path for the tests to work
-	tempdir="$(mktemp -du --tmpdir=/tmp salt-XXX)"
-	mkdir "${T}/$(basename "${tempdir}")"
-
+	local TMPDIR
+	TMPDIR="$(mktemp --directory --tmpdir=/tmp ${PN}-XXXX)"
 	(
-		cleanup() { rm -f "${tempdir}" || die; }
+		export TMPDIR
+		cleanup() { rm -rf "${TMPDIR}" || die; }
 
 		trap cleanup EXIT
 
-		addwrite "${tempdir}"
-		ln -s "$(realpath --relative-to=/tmp "${T}/$(basename "${tempdir}")")" "${tempdir}" || die
+		addwrite "${TMPDIR}"
 
 		USE_SETUPTOOLS=1 NO_INTERNET=1 SHELL="/bin/bash" \
-			TMPDIR="${tempdir}" \
-			${EPYTHON} tests/runtests.py \
-			--unit-tests --no-report --verbose \
+			"${EPYTHON}" -m pytest -vv \
 			|| die "testing failed with ${EPYTHON}"
 	)
 }

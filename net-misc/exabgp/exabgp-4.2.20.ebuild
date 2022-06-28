@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit tmpfiles systemd distutils-r1
 
@@ -24,7 +24,6 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/psutil[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
 	)
 "
@@ -37,15 +36,17 @@ PATCHES=(
 	"${FILESDIR}/exabgp-4.2.11-less-verbose-logging.patch"
 )
 
+distutils_enable_tests pytest
+
 python_test() {
 	./qa/bin/parsing || die "tests fail with ${EPYTHON}"
-	nosetests -v ./qa/tests/*_test.py || die "tests fail with ${EPYTHON}"
+	epytest
 }
 
 python_install_all() {
 	distutils-r1_python_install_all
 
-	newinitd "${FILESDIR}/${PN}.initd-r1" ${PN}
+	newinitd "${FILESDIR}/${PN}.initd-r2" ${PN}
 	newconfd "${FILESDIR}/${PN}.confd" ${PN}
 
 	newtmpfiles "${FILESDIR}/exabgp.tmpfiles" ${PN}.conf
