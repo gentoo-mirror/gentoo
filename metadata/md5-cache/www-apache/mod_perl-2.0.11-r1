@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=dev-lang/perl[ithreads=] >=dev-perl/Apache-Test-1.420.0 >=www-servers/apache-2.0.47 >=dev-libs/apr-util-1.4 !ithreads? ( www-servers/apache[-apache2_mpms_event,-apache2_mpms_worker,apache2_mpms_prefork] ) dev-perl/Module-Build test? ( >=dev-perl/CGI-3.110.0 dev-perl/Chatbot-Eliza dev-perl/Devel-Symdump dev-perl/HTML-Parser dev-perl/IPC-Run3 dev-perl/libwww-perl www-servers/apache[apache2_modules_version,-apache2_modules_unique_id] !www-apache/mpm_itk ) =www-servers/apache-2* dev-lang/perl
+DESCRIPTION=An embedded Perl interpreter for Apache2
+EAPI=7
+HOMEPAGE=https://perl.apache.org/ https://projects.apache.org/project.html?perl-mod_perl
+INHERIT=depend.apache apache-module perl-module
+IUSE=debug ithreads test
+KEYWORDS=amd64 ~arm ppc ppc64 x86
+LICENSE=Apache-2.0
+PDEPEND=>=dev-perl/Apache-Reload-0.130.0 >=dev-perl/Apache-SizeLimit-0.970.0
+RDEPEND=dev-lang/perl[ithreads=] >=dev-perl/Apache-Test-1.420.0 >=www-servers/apache-2.0.47 >=dev-libs/apr-util-1.4 !ithreads? ( www-servers/apache[-apache2_mpms_event,-apache2_mpms_worker,apache2_mpms_prefork] ) =www-servers/apache-2* dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=1
+SRC_URI=mirror://apache/perl/mod_perl-2.0.11.tar.gz
+_eclasses_=depend.apache	416d1c5005c5f4594e79812fb7323f0d	apache-module	4d0ccd357b5f2d92599030b72f6efb62	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_md5_=9442b12fd1cf89ee76aa7d19f6f96464
