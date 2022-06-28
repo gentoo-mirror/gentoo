@@ -7,14 +7,14 @@ MODULES_OPTIONAL_USE="driver"
 inherit desktop flag-o-matic linux-mod multilib readme.gentoo-r1 \
 	systemd toolchain-funcs unpacker user-info
 
-NV_KERNEL_MAX="5.15"
-NV_PIN="515.48.07"
+NV_KERNEL_MAX="5.18"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
-HOMEPAGE="https://developer.nvidia.com/vulkan-driver"
+HOMEPAGE="https://www.nvidia.com/download/index.aspx"
 SRC_URI="
-	https://developer.nvidia.com/vulkan-beta-${PV//.}-linux -> NVIDIA-Linux-x86_64-${PV}.run
-	$(printf "https://download.nvidia.com/XFree86/%s/%s-${NV_PIN}.tar.bz2 " \
+	amd64? ( https://us.download.nvidia.com/XFree86/Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
+	arm64? ( https://us.download.nvidia.com/XFree86/aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
+	$(printf "https://github.com/NVIDIA/%s/archive/refs/tags/${PV}.tar.gz -> %s-${PV}.tar.gz " \
 		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})
 	https://github.com/NVIDIA/open-gpu-kernel-modules/archive/refs/tags/${PV}.tar.gz
 		-> open-gpu-kernel-modules-${PV}.tar.gz"
@@ -22,8 +22,8 @@ SRC_URI="
 S="${WORKDIR}"
 
 LICENSE="NVIDIA-r2 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
-SLOT="0/vulkan"
-KEYWORDS="-* ~amd64"
+SLOT="0/${PV%%.*}"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="+X abi_x86_32 abi_x86_64 +driver kernel-open persistenced +static-libs +tools wayland"
 REQUIRED_USE="kernel-open? ( driver )"
 
@@ -57,7 +57,7 @@ RDEPEND="
 	)
 	wayland? (
 		gui-libs/egl-gbm
-		>=gui-libs/egl-wayland-1.1.7-r1
+		>=gui-libs/egl-wayland-1.1.10
 		media-libs/libglvnd
 	)"
 DEPEND="
@@ -158,10 +158,10 @@ pkg_setup() {
 
 src_prepare() {
 	# make patches usable across versions
-	rm nvidia-modprobe && mv nvidia-modprobe{-${NV_PIN},} || die
-	rm nvidia-persistenced && mv nvidia-persistenced{-${NV_PIN},} || die
-	rm nvidia-settings && mv nvidia-settings{-${NV_PIN},} || die
-	rm nvidia-xconfig && mv nvidia-xconfig{-${NV_PIN},} || die
+	rm nvidia-modprobe && mv nvidia-modprobe{-${PV},} || die
+	rm nvidia-persistenced && mv nvidia-persistenced{-${PV},} || die
+	rm nvidia-settings && mv nvidia-settings{-${PV},} || die
+	rm nvidia-xconfig && mv nvidia-xconfig{-${PV},} || die
 	mv open-gpu-kernel-modules-${PV} kernel-module-source || die
 
 	default
@@ -414,11 +414,12 @@ https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers"
 	# MODULE:powerd extras
 	if use amd64; then
 		systemd_dounit systemd/system/nvidia-powerd.service
-		dodoc nvidia-dbus.conf
+
+		insinto /usr/share/dbus-1/system.d
+		doins nvidia-dbus.conf
 	fi
 
-	# symlink non-versioned profile for nvidia-settings in case
-	# fails to detect version (i.e. mismatch, or with kernel-open)
+	# symlink non-versioned so nvidia-settings can use it even if misdetected
 	dosym nvidia-application-profiles-${PV}-key-documentation \
 		${paths[APPLICATION_PROFILE]}/nvidia-application-profiles-key-documentation
 }
