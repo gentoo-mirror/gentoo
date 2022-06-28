@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile install postinst setup
-DEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) )
+DEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) )
 DESCRIPTION=A TCP/HTTP reverse proxy for high availability environments
 EAPI=7
 HOMEPAGE=http://www.haproxy.org
 INHERIT=toolchain-funcs flag-o-matic lua-single systemd linux-info
-IUSE=+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter ssl systemd +threads tools vim-syntax zlib lua 51degrees wurfl +lua_single_target_lua5-3
+IUSE=+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter ssl systemd +threads tools vim-syntax zlib lua 51degrees wurfl lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) acct-group/haproxy acct-user/haproxy
-REQUIRED_USE=pcre-jit? ( pcre ) lua? ( ^^ ( lua_single_target_lua5-3 ) ) ?? ( slz zlib )
+RDEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) acct-group/haproxy acct-user/haproxy
+REQUIRED_USE=pcre-jit? ( pcre ) lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) ?? ( slz zlib )
 SLOT=0/2.6
 SRC_URI=http://haproxy.1wt.eu/download/2.6/src/haproxy-2.6.1.tar.gz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	systemd	2736b403a83f194b59b767f3b344c2c1	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
-_md5_=9f7dcc1fff2321fe8969e04f22f971d4
+_md5_=2390b1ec5836bd808d5f160403800390
