@@ -7,8 +7,7 @@ inherit dune
 
 DESCRIPTION="Simple, fast & type safe language that leverages JavaScript and OCaml"
 HOMEPAGE="https://reasonml.github.io"
-SRC_URI="https://registry.npmjs.org/@esy-ocaml/${PN}/-/${P}.tgz"
-S="${WORKDIR}/package"
+SRC_URI="https://github.com/reasonml/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
@@ -16,7 +15,6 @@ KEYWORDS="~amd64"
 IUSE="+ocamlopt"
 
 RDEPEND="
-	<dev-lang/ocaml-4.13.0:=[ocamlopt?]
 	dev-ml/fix:=
 	dev-ml/menhir:=
 	dev-ml/merlin-extend:=
