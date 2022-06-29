@@ -205,27 +205,33 @@ _distutils_set_globals() {
 		fi
 
 		bdep='
-			>=dev-python/gpep517-3[${PYTHON_USEDEP}]'
+			>=dev-python/gpep517-6[${PYTHON_USEDEP}]
+		'
 		case ${DISTUTILS_USE_PEP517} in
 			flit)
 				bdep+='
-					>=dev-python/flit_core-3.7.1[${PYTHON_USEDEP}]'
+					>=dev-python/flit_core-3.7.1[${PYTHON_USEDEP}]
+				'
 				;;
 			flit_scm)
 				bdep+='
-					dev-python/flit_scm[${PYTHON_USEDEP}]'
+					dev-python/flit_scm[${PYTHON_USEDEP}]
+				'
 				;;
 			hatchling)
 				bdep+='
-					>=dev-python/hatchling-0.22.0[${PYTHON_USEDEP}]'
+					>=dev-python/hatchling-1.3.1[${PYTHON_USEDEP}]
+				'
 				;;
 			jupyter)
 				bdep+='
-					>=dev-python/jupyter_packaging-0.11.1[${PYTHON_USEDEP}]'
+					>=dev-python/jupyter_packaging-0.12.0-r1[${PYTHON_USEDEP}]
+				'
 				;;
 			maturin)
 				bdep+='
-					>=dev-util/maturin-0.12.7[${PYTHON_USEDEP}]'
+					>=dev-util/maturin-0.12.17[${PYTHON_USEDEP}]
+				'
 				;;
 			no)
 				# undo the generic deps added above
@@ -233,28 +239,34 @@ _distutils_set_globals() {
 				;;
 			meson-python)
 				bdep+='
-					dev-python/meson-python[${PYTHON_USEDEP}]'
+					dev-python/meson-python[${PYTHON_USEDEP}]
+				'
 				;;
 			pbr)
 				bdep+='
-					>=dev-python/pbr-5.8.0-r1[${PYTHON_USEDEP}]'
+					>=dev-python/pbr-5.8.0-r1[${PYTHON_USEDEP}]
+				'
 				;;
 			pdm)
 				bdep+='
-					>=dev-python/pdm-pep517-0.12.3[${PYTHON_USEDEP}]'
+					>=dev-python/pdm-pep517-1.0.0[${PYTHON_USEDEP}]
+				'
 				;;
 			poetry)
 				bdep+='
-					>=dev-python/poetry-core-1.0.8[${PYTHON_USEDEP}]'
+					>=dev-python/poetry-core-1.0.8[${PYTHON_USEDEP}]
+				'
 				;;
 			setuptools)
 				bdep+='
-					>=dev-python/setuptools-60.5.0[${PYTHON_USEDEP}]
-					dev-python/wheel[${PYTHON_USEDEP}]'
+					>=dev-python/setuptools-62.3.3[${PYTHON_USEDEP}]
+					dev-python/wheel[${PYTHON_USEDEP}]
+				'
 				;;
 			sip)
 				bdep+='
-					>=dev-python/sip-6.5.0-r1[${PYTHON_USEDEP}]'
+					>=dev-python/sip-6.5.0-r1[${PYTHON_USEDEP}]
+				'
 				;;
 			standalone)
 				;;
@@ -473,7 +485,7 @@ distutils_enable_sphinx() {
 	_DISTUTILS_SPHINX_PLUGINS=( "${@}" )
 
 	local deps autodoc=1 d
-	deps=">=dev-python/sphinx-4.4.0[\${PYTHON_USEDEP}]"
+	deps=">=dev-python/sphinx-4.5.0-r1[\${PYTHON_USEDEP}]"
 	for d; do
 		if [[ ${d} == --no-autodoc ]]; then
 			autodoc=
@@ -497,7 +509,7 @@ distutils_enable_sphinx() {
 			use doc || return 0
 
 			local p
-			for p in ">=dev-python/sphinx-4.4.0" \
+			for p in ">=dev-python/sphinx-4.5.0-r1" \
 				"${_DISTUTILS_SPHINX_PLUGINS[@]}"
 			do
 				python_has_version "${p}[${PYTHON_USEDEP}]" ||
@@ -505,7 +517,7 @@ distutils_enable_sphinx() {
 			done
 		}
 	else
-		deps=">=dev-python/sphinx-4.4.0"
+		deps=">=dev-python/sphinx-4.5.0-r1"
 	fi
 
 	sphinx_compile_all() {
@@ -585,10 +597,10 @@ distutils_enable_tests() {
 	local test_pkg
 	case ${1} in
 		nose)
-			test_pkg=">=dev-python/nose-1.3.7-r4"
+			test_pkg=">=dev-python/nose-1.3.7_p20211111_p1-r1"
 			;;
 		pytest)
-			test_pkg=">=dev-python/pytest-7.0.1"
+			test_pkg=">=dev-python/pytest-7.1.2"
 			;;
 		setup.py)
 			;;
@@ -1239,6 +1251,44 @@ _distutils-r1_get_backend() {
 	echo "${build_backend}"
 }
 
+# @FUNCTION: distutils_wheel_install
+# @USAGE: <root> <wheel>
+# @DESCRIPTION:
+# Install the specified wheel into <root>.
+#
+# This function is intended for expert use only.
+distutils_wheel_install() {
+	debug-print-function ${FUNCNAME} "${@}"
+	if [[ ${#} -ne 2 ]]; then
+		die "${FUNCNAME} takes exactly two arguments: <root> <wheel>"
+	fi
+	if [[ -z ${PYTHON} ]]; then
+		die "PYTHON unset, invalid call context"
+	fi
+
+	local root=${1}
+	local wheel=${2}
+
+	einfo "  Installing ${wheel##*/} to ${root}"
+	local cmd=(
+		gpep517 install-wheel
+			--destdir="${root}"
+			--interpreter="${PYTHON}"
+			--prefix="${EPREFIX}/usr"
+			"${wheel}"
+	)
+	printf '%s\n' "${cmd[*]}"
+	"${cmd[@]}" || die "Wheel install failed"
+
+	# remove installed licenses
+	find "${root}$(python_get_sitedir)" -depth \
+		\( -path '*.dist-info/COPYING*' \
+		-o -path '*.dist-info/LICENSE*' \
+		-o -path '*.dist-info/license_files/*' \
+		-o -path '*.dist-info/license_files' \
+		\) -delete || die
+}
+
 # @FUNCTION: distutils_pep517_install
 # @USAGE: <root>
 # @DESCRIPTION:
@@ -1310,27 +1360,20 @@ distutils_pep517_install() {
 	local config_args=()
 	[[ -n ${config_settings} ]] &&
 		config_args+=( --config-json "${config_settings}" )
+	local cmd=(
+		gpep517 build-wheel
+			--backend "${build_backend}"
+			--output-fd 3
+			--wheel-dir "${WHEEL_BUILD_DIR}"
+			"${config_args[@]}"
+	)
+	printf '%s\n' "${cmd[*]}"
 	local wheel=$(
-		gpep517 build-wheel --backend "${build_backend}" \
-				--output-fd 3 \
-				--wheel-dir "${WHEEL_BUILD_DIR}" \
-				"${config_args[@]}" 3>&1 >&2 ||
-			die "Wheel build failed"
+		"${cmd[@]}" 3>&1 >&2 || die "Wheel build failed"
 	)
 	[[ -n ${wheel} ]] || die "No wheel name returned"
 
-	einfo "  Installing ${wheel} to ${root}"
-	gpep517 install-wheel --destdir="${root}" --interpreter="${PYTHON}" \
-			--prefix="${EPREFIX}/usr" "${WHEEL_BUILD_DIR}/${wheel}" ||
-		die "Wheel install failed"
-
-	# remove installed licenses
-	find "${root}$(python_get_sitedir)" -depth \
-		\( -path '*.dist-info/COPYING*' \
-		-o -path '*.dist-info/LICENSE*' \
-		-o -path '*.dist-info/license_files/*' \
-		-o -path '*.dist-info/license_files' \
-		\) -delete || die
+	distutils_wheel_install "${root}" "${WHEEL_BUILD_DIR}/${wheel}"
 
 	# clean the build tree; otherwise we may end up with PyPy3
 	# extensions duplicated into CPython dists
@@ -1547,20 +1590,25 @@ distutils-r1_python_install() {
 
 		# remove files that we've created explicitly
 		rm "${reg_scriptdir}"/{"${EPYTHON}",python3,python,pyvenv.cfg} || die
-		# verify that scriptdir & wrapped_scriptdir both contain
-		# the same files
-		(
-			cd "${reg_scriptdir}" && find . -mindepth 1
-		) | sort > "${T}"/.distutils-files-bin
-		assert "listing ${reg_scriptdir} failed"
-		(
-			if [[ -d ${wrapped_scriptdir} ]]; then
-				cd "${wrapped_scriptdir}" && find . -mindepth 1
+
+		# Automagically do the QA check to avoid issues when bootstrapping
+		# prefix.
+		if type diff &>/dev/null ; then
+			# verify that scriptdir & wrapped_scriptdir both contain
+			# the same files
+			(
+				cd "${reg_scriptdir}" && find . -mindepth 1
+			) | sort > "${T}"/.distutils-files-bin
+			assert "listing ${reg_scriptdir} failed"
+			(
+				if [[ -d ${wrapped_scriptdir} ]]; then
+					cd "${wrapped_scriptdir}" && find . -mindepth 1
+				fi
+			) | sort > "${T}"/.distutils-files-wrapped
+			assert "listing ${wrapped_scriptdir} failed"
+			if ! diff -U 0 "${T}"/.distutils-files-{bin,wrapped}; then
+				die "File lists for ${reg_scriptdir} and ${wrapped_scriptdir} differ (see diff above)"
 			fi
-		) | sort > "${T}"/.distutils-files-wrapped
-		assert "listing ${wrapped_scriptdir} failed"
-		if ! diff -U 0 "${T}"/.distutils-files-{bin,wrapped}; then
-			die "File lists for ${reg_scriptdir} and ${wrapped_scriptdir} differ (see diff above)"
 		fi
 
 		# remove the altered bindir, executables from the package

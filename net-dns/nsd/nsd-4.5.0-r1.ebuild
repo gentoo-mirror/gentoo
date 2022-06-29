@@ -6,10 +6,9 @@ EAPI=8
 inherit autotools systemd
 
 DESCRIPTION="An authoritative only, high performance, open source name server"
-HOMEPAGE="http://www.nlnetlabs.nl/projects/nsd"
-LICENSE="BSD"
-SLOT="0"
-if [[ "${PV}" == *9999 ]] ; then
+HOMEPAGE="https://www.nlnetlabs.nl/projects/nsd"
+
+if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/NLnetLabs/nsd.git"
 else
@@ -18,12 +17,17 @@ else
 	MY_PV="${MY_PV/_rc/rc}"
 	MY_P="${PN}-${MY_PV}"
 
-	[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-	KEYWORDS="~amd64 ~x86"
-	SRC_URI="http://www.nlnetlabs.nl/downloads/${PN}/${MY_P}.tar.gz"
-	S="${WORKDIR}/${MY_P}"
+	if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
+		SRC_URI="https://www.nlnetlabs.nl/downloads/${PN}/${MY_P}.tar.gz"
+		S="${WORKDIR}"/${MY_P}
+
+		KEYWORDS="~amd64 ~x86"
+	fi
 fi
-IUSE="bind8-stats dnstap ipv6 libevent minimal-responses mmap munin +nsec3 ratelimit root-server runtime-checks ssl systemd"
+
+LICENSE="BSD"
+SLOT="0"
+IUSE="bind8-stats debug dnstap libevent minimal-responses mmap munin +nsec3 ratelimit root-server ssl systemd"
 
 RDEPEND="
 	acct-group/nsd
@@ -51,17 +55,20 @@ PATCHES=(
 
 src_prepare() {
 	default
+
 	# Required to get correct pkg-config macros with USE="systemd"
-	# see bugs #663618 and #758050
+	# See bugs #663618 and #758050
 	eautoreconf
 }
 
 src_configure() {
 	local myeconfargs=(
+		--enable-ipv6
 		--enable-largefile
 		--enable-pie
 		--enable-relro-now
 		--enable-tcp-fastopen
+
 		--with-dbfile="${EPREFIX}"/var/db/nsd/nsd.db
 		--with-logfile="${EPREFIX}"/var/log/nsd.log
 		--with-pidfile="${EPREFIX}"/run/nsd/nsd.pid
@@ -69,20 +76,21 @@ src_configure() {
 		--with-xfrdir="${EPREFIX}"/var/db/nsd
 		--with-zonelistfile="${EPREFIX}"/var/db/nsd/zone.list
 		--with-zonesdir="${EPREFIX}"/var/lib/nsd
+
 		$(use_enable bind8-stats)
 		$(use_enable bind8-stats zone-stats)
+		$(use_enable debug checking)
 		$(use_enable dnstap)
-		$(use_enable ipv6)
 		$(use_enable minimal-responses)
 		$(use_enable mmap)
 		$(use_enable nsec3)
 		$(use_enable ratelimit)
 		$(use_enable root-server)
-		$(use_enable runtime-checks checking)
 		$(use_enable systemd)
 		$(use_with libevent)
 		$(use_with ssl)
 	)
+
 	econf "${myeconfargs[@]}"
 }
 
@@ -93,7 +101,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/nsd.initd-r1 nsd
 
-	# install munin plugin and config
+	# Install munin plugin and config
 	if use munin ; then
 		exeinto /usr/libexec/munin/plugins
 		doexe contrib/nsd_munin_
@@ -103,7 +111,7 @@ src_install() {
 
 	systemd_dounit "${FILESDIR}"/nsd.service
 
-	# remove the /run directory that usually resides on tmpfs and is
+	# Remove the /run directory that usually resides on tmpfs and is
 	# being taken care of by the nsd init script anyway (checkpath)
 	rm -r "${ED}"/run || die "Failed to remove /run"
 
