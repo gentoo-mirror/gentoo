@@ -3,8 +3,7 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-{3..4} )
-inherit cmake lua-single xdg
+inherit cmake xdg
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
@@ -18,12 +17,14 @@ DESCRIPTION="Game Boy Advance Emulator"
 HOMEPAGE="https://mgba.io/"
 
 LICENSE="MPL-2.0 BSD LGPL-2.1+ public-domain discord? ( MIT )"
-SLOT="0/10"
-IUSE="debug discord elf ffmpeg gles2 gles3 gui libretro lua opengl +sdl sqlite test"
+SLOT="0/9"
+IUSE="debug discord elf ffmpeg gles2 gles3 gui libretro opengl +sdl sqlite test"
+# gles2/gles3 opengl require can be lifted in next version (bug #835039)
 REQUIRED_USE="
 	|| ( gui sdl )
-	gui? ( || ( gles2 gles3 opengl ) )
-	lua? ( ${LUA_REQUIRED_USE} )"
+	gles2? ( opengl )
+	gles3? ( opengl )
+	gui? ( || ( gles2 opengl ) )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -34,7 +35,6 @@ RDEPEND="
 	ffmpeg? ( media-video/ffmpeg:= )
 	gles2? ( media-libs/libglvnd )
 	gles3? ( media-libs/libglvnd )
-	lua? ( ${LUA_DEPS} )
 	opengl? ( media-libs/libglvnd )
 	gui? (
 		dev-qt/qtcore:5
@@ -48,11 +48,10 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? ( dev-util/cmocka )"
-BDEPEND="lua? ( virtual/pkgconfig )"
 
-pkg_setup() {
-	use lua && lua-single_pkg_setup
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-ffmpeg5.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
@@ -64,7 +63,6 @@ src_configure() {
 		-DBUILD_QT=$(usex gui)
 		-DBUILD_SDL=$(usex sdl)
 		-DBUILD_SUITE=$(usex test)
-		-DENABLE_SCRIPTING=$(usex lua)
 		-DMARKDOWN=OFF #752048
 		-DUSE_DEBUGGERS=$(usex debug)
 		-DUSE_DISCORD_RPC=$(usex discord)
@@ -81,16 +79,8 @@ src_configure() {
 		-DUSE_ZLIB=ON
 		$(usev libretro -DLIBRETRO_LIBDIR="${EPREFIX}"/usr/$(get_libdir)/libretro)
 	)
-	use lua && mycmakeargs+=( -DUSE_LUA=$(ver_cut 1-2 $(lua_get_version)) )
 
 	cmake_src_configure
-}
-
-src_test() {
-	# CMakeLists.txt forces SKIP_RPATH=ON when PREFIX=/usr
-	local -x LD_LIBRARY_PATH=${BUILD_DIR}:${LD_LIBRARY_PATH}
-
-	cmake_src_test
 }
 
 src_install() {
