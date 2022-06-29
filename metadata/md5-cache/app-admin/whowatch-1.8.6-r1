@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
+DEPEND=sys-libs/ncurses:=
+DESCRIPTION=Displays information about users currently logged on in real time
+EAPI=8
+HOMEPAGE=http://wizard.ae.krakow.pl/~mike/ https://github.com/mtsuszycki/whowatch/
+INHERIT=autotools
+KEYWORDS=~amd64 ~arm ~hppa ~mips ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:=
+SLOT=0
+SRC_URI=https://github.com/mtsuszycki/whowatch/releases/download/whowatch-1.8.6/whowatch-1.8.6.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
+_md5_=0934f7855c013451b75fe61b2b1cf5c0
