@@ -1,6 +1,6 @@
 BDEPEND=|| ( sys-devel/gcc[sanitize] sys-libs/compiler-rt-sanitizers[asan(-)] ) dev-vcs/git sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( app-doc/doxygen )
 DEFINED_PHASES=compile configure install prepare setup unpack
-DEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
+DEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
 DESCRIPTION=C library to handle DWG files
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/libredwg/
@@ -8,10 +8,10 @@ INHERIT=autotools docs python-single-r1 perl-functions
 IUSE=debug python perl static-libs doc python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=GPL-3 MIT
-RDEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib
+RDEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/LibreDWG/libredwg/archive/refs/tags/0.12.5.tar.gz -> libredwg-0.12.5.tar.gz https://github.com/zserge/jsmn/archive/85695f3d5903b1cd5b4030efe50db3b4f5f3c928.tar.gz -> libredwg-85695f3d5903b1cd5b4030efe50db3b4f5f3c928.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	docs	8ed2a8a28ff109e7a3582c9abb7fe327	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	perl-functions	fea344a91ebf37efadf172c6a3de5a72
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	docs	8ed2a8a28ff109e7a3582c9abb7fe327	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	perl-functions	fea344a91ebf37efadf172c6a3de5a72
 _md5_=ad924cb3d95e640b1759b667b19c3efa

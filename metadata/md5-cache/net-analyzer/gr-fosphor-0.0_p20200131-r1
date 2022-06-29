@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/swig:0 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/boost:= dev-libs/log4cpp media-libs/freetype =net-wireless/gnuradio-3.8*:0=[qt5,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+DEPEND=dev-libs/boost:= dev-libs/log4cpp media-libs/freetype =net-wireless/gnuradio-3.8*:0=[qt5,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
 DESCRIPTION=gnuradio fosphor block (GPU spectrum display)
 EAPI=8
 HOMEPAGE=https://sdr.osmocom.org/trac/wiki/fosphor
@@ -8,9 +8,9 @@ INHERIT=cmake python-single-r1
 IUSE=glfw qt5 python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/boost:= dev-libs/log4cpp media-libs/freetype =net-wireless/gnuradio-3.8*:0=[qt5,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+RDEPEND=dev-libs/boost:= dev-libs/log4cpp media-libs/freetype =net-wireless/gnuradio-3.8*:0=[qt5,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/osmocom/gr-fosphor/archive/defdd4aca6cd157ccc3b10ea16b5b4f552f34b96.tar.gz -> gr-fosphor-0.0_p20200131.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=9f041f4cc74fb59188a92a559536df5d

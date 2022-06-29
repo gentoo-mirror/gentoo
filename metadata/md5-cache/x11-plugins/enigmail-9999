@@ -1,6 +1,6 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install postinst prepare setup unpack
-DEPEND=( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt5(-)] ) ) !<mail-client/thunderbird-78 || ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) app-arch/zip dev-lang/perl
+DEPEND=( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt5(-)] ) ) !<mail-client/thunderbird-78 || ( >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) app-arch/zip dev-lang/perl
 DESCRIPTION=Mozilla extension to provide GPG support in mail clients
 EAPI=7
 HOMEPAGE=https://www.enigmail.net/
@@ -9,5 +9,5 @@ LICENSE=MPL-2.0 GPL-3
 PROPERTIES=live
 RDEPEND=( >=app-crypt/gnupg-2.0 || ( app-crypt/pinentry[gtk(-)] app-crypt/pinentry[qt5(-)] ) ) !<mail-client/thunderbird-78
 SLOT=0
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=134b7becc1a2667e87f69732a9128aac

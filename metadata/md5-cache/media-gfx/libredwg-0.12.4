@@ -1,6 +1,6 @@
 BDEPEND=|| ( sys-devel/gcc[sanitize] sys-libs/compiler-rt-sanitizers[asan(-)] ) doc? ( app-doc/doxygen )
 DEFINED_PHASES=compile configure install setup
-DEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
+DEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
 DESCRIPTION=C library to handle DWG files
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/libredwg/
@@ -8,10 +8,10 @@ INHERIT=docs python-single-r1 perl-functions
 IUSE=debug python perl static-libs doc python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib
+RDEPEND=python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/LibreDWG/libredwg/releases/download/0.12.4/libredwg-0.12.4.tar.gz
-_eclasses_=docs	8ed2a8a28ff109e7a3582c9abb7fe327	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	perl-functions	fea344a91ebf37efadf172c6a3de5a72
+_eclasses_=docs	8ed2a8a28ff109e7a3582c9abb7fe327	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	perl-functions	fea344a91ebf37efadf172c6a3de5a72
 _md5_=cfefd05003bf189f5ad822f36645255b

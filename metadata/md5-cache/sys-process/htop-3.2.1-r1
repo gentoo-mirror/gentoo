@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.0_beta1-r1:3.11 >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.11.0_beta3:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) virtual/pkgconfig
 DEFINED_PHASES=configure postinst postrm preinst prepare setup
 DEPEND=sys-libs/ncurses:=[unicode(+)?] hwloc? ( sys-apps/hwloc:= ) unwind? ( !llvm-libunwind? ( sys-libs/libunwind:= ) llvm-libunwind? ( sys-libs/llvm-libunwind:= ) ) kernel_linux? ( caps? ( sys-libs/libcap ) delayacct? ( dev-libs/libnl:3 ) lm-sensors? ( sys-apps/lm-sensors ) )
 DESCRIPTION=interactive process viewer
@@ -12,5 +12,5 @@ LICENSE=BSD GPL-2+
 RDEPEND=sys-libs/ncurses:=[unicode(+)?] hwloc? ( sys-apps/hwloc:= ) unwind? ( !llvm-libunwind? ( sys-libs/libunwind:= ) llvm-libunwind? ( sys-libs/llvm-libunwind:= ) ) kernel_linux? ( caps? ( sys-libs/libcap ) delayacct? ( dev-libs/libnl:3 ) lm-sensors? ( sys-apps/lm-sensors ) )
 SLOT=0
 SRC_URI=https://github.com/htop-dev/htop/releases/download/3.2.1/htop-3.2.1.tar.xz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	optfeature	d524f291c80f9d21ad80fe978e3ca760	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	optfeature	d524f291c80f9d21ad80fe978e3ca760	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=d4866799a3ad0b2aff1606d17d578b38

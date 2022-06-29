@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) dev-util/re2c doc? ( app-text/asciidoc app-doc/doxygen dev-libs/libxslt media-gfx/graphviz ) test? ( dev-cpp/gtest )
+BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) dev-util/re2c doc? ( app-text/asciidoc app-doc/doxygen dev-libs/libxslt media-gfx/graphviz ) test? ( dev-cpp/gtest )
 DEFINED_PHASES=compile install postinst postrm setup test
 DESCRIPTION=A small build system similar to make
 EAPI=7
@@ -11,5 +11,5 @@ RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) vim-syntax? ( || ( app-editors/vim
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ninja-build/ninja/archive/v1.11.0.tar.gz -> ninja-1.11.0.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	elisp-common	e7aaa047873789f549ea3df2f04b2145	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	elisp-common	e7aaa047873789f549ea3df2f04b2145	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=8fec16d1fd0d7aa878d4d3b3d232f316

@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig python? ( dev-lang/swig ) doc? ( app-text/asciidoc )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) >=dev-libs/libtracefs-1.3 >=dev-libs/libtraceevent-1.5 sys-kernel/linux-headers test? ( dev-util/cunit )
+DEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) >=dev-libs/libtracefs-1.3 >=dev-libs/libtraceevent-1.5 sys-kernel/linux-headers test? ( dev-util/cunit )
 DESCRIPTION=User-space front-end for Ftrace
 EAPI=8
 HOMEPAGE=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git
@@ -8,10 +8,10 @@ INHERIT=linux-info bash-completion-r1 python-r1 toolchain-funcs
 IUSE=+audit doc python test udis86 +zstd python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+ LGPL-2.1+
-RDEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) >=dev-libs/libtracefs-1.3 >=dev-libs/libtraceevent-1.5
+RDEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) >=dev-libs/libtracefs-1.3 >=dev-libs/libtraceevent-1.5
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 RESTRICT=!test? ( test ) test
 SLOT=0/3.0.2
 SRC_URI=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/trace-cmd-v3.0.2.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15
 _md5_=cb1fc053cbafe5016e9872225a1ae79a

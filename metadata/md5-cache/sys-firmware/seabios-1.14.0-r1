@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare pretend setup unpack
-DEPEND=!binary? ( >=sys-power/iasl-20060912 || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) )
+DEPEND=!binary? ( >=sys-power/iasl-20060912 || ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) )
 DESCRIPTION=Open Source implementation of a 16-bit x86 BIOS
 EAPI=7
 HOMEPAGE=https://www.seabios.org/
@@ -10,5 +10,5 @@ LICENSE=LGPL-3 GPL-3
 REQUIRED_USE=debug? ( !binary )
 SLOT=0
 SRC_URI=!binary? ( https://www.seabios.org/downloads/seabios-1.14.0.tar.gz ) binary? ( https://dev.gentoo.org/~tamiko/distfiles/seabios-1.14.0-bin.tar.xz )
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=38682abc3f953087579285ea26c8b758

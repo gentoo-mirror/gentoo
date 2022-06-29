@@ -1,6 +1,6 @@
 BDEPEND=dev-python/docutils virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst postrm prepare setup
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) gnome-base/nautilus net-misc/dropbox >=dev-libs/glib-2.14 python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] )
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) gnome-base/nautilus net-misc/dropbox >=dev-libs/glib-2.14 python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] )
 DESCRIPTION=Dropbox Nautilus Extension
 EAPI=7
 HOMEPAGE=https://github.com/dropbox/nautilus-dropbox
@@ -8,9 +8,9 @@ INHERIT=autotools python-single-r1 xdg-utils
 IUSE=debug +python_single_target_python3_8
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3 CC-BY-ND-3.0
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) gnome-base/nautilus net-misc/dropbox >=dev-libs/glib-2.14 python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) gnome-base/nautilus net-misc/dropbox >=dev-libs/glib-2.14 python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 )
 SLOT=0
 SRC_URI=https://linux.dropboxstatic.com/packages/nautilus-dropbox-2019.02.14.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
 _md5_=218d8289d7683a5e0b41406ba82fa55f

@@ -7,9 +7,9 @@ INHERIT=apache-module python-single-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 ~arm ~arm64 ppc ~ppc64 x86
 LICENSE=Apache-2.0
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[threads(+)] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9[threads(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10[threads(+)] ) =www-servers/apache-2*
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8[threads(+)] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9[threads(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10[threads(+)] ) =www-servers/apache-2*
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/GrahamDumpleton/mod_wsgi/archive/4.9.0.tar.gz -> mod_wsgi-4.9.0.tar.gz
-_eclasses_=depend.apache	416d1c5005c5f4594e79812fb7323f0d	apache-module	4d0ccd357b5f2d92599030b72f6efb62	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=depend.apache	416d1c5005c5f4594e79812fb7323f0d	apache-module	4d0ccd357b5f2d92599030b72f6efb62	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=f5e4ed726df4e879afc91b71c4195696

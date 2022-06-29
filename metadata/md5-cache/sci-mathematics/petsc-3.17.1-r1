@@ -1,6 +1,6 @@
 BDEPEND=dev-util/cmake sys-apps/which virtual/pkgconfig virtual/fortran
 DEFINED_PHASES=configure install setup
-DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 >=dev-python/pypy3-7.3.7-r1:0 ) virtual/fortran
+DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 >=dev-python/pypy3-7.3.9_p1:0 ) virtual/fortran
 DESCRIPTION=Portable, Extensible Toolkit for Scientific Computation
 EAPI=8
 HOMEPAGE=https://www.mcs.anl.gov/petsc
@@ -12,5 +12,5 @@ RDEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boo
 REQUIRED_USE=afterimage? ( X ) complex-scalars? ( !hypre !superlu ) hdf5? ( mpi ) hypre? ( mpi !superlu ) mumps? ( mpi scotch ) scotch? ( mpi ) superlu? ( !hypre )
 SLOT=0
 SRC_URI=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.17.1.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=291f17b84fca93e1e011add5519ee44d

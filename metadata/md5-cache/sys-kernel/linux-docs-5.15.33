@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 ) dev-python/sphinx dev-python/sphinx_rtd_theme media-libs/fontconfig
+BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 ) dev-python/sphinx dev-python/sphinx_rtd_theme media-libs/fontconfig
 DEFINED_PHASES=compile install prepare setup
 DESCRIPTION=Developer documentation generated from the Linux kernel
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=graphviz? ( media-gfx/graphviz )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=6f57750f725afdeb93217ba6a6bcab29

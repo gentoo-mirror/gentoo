@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-util/scons[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-util/scons[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-util/scons[python_targets_python3_8(-)] ) )
+BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.10.4:3.10 dev-util/scons[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-util/scons[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-util/scons[python_targets_python3_8(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=media-video/ffmpeg:0=[postproc] >=media-libs/libvorbis-1.1 >=media-libs/libogg-1.1 >=media-libs/libtheora-1.1[encode] kate? ( >=media-libs/libkate-0.3.7 )
 DESCRIPTION=A simple converter to create Ogg Theora files
@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=media-video/ffmpeg:0=[postproc] >=media-libs/libvorbis-1.1 >=media-libs/libogg-1.1 >=media-libs/libtheora-1.1[encode] kate? ( >=media-libs/libkate-0.3.7 )
 SLOT=0
 SRC_URI=http://www.v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	scons-utils	c30e32d0d48c308fe47706846020fdfa
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	scons-utils	c30e32d0d48c308fe47706846020fdfa
 _md5_=3a141b3bec8c08fd6efdbd0d42f966d4

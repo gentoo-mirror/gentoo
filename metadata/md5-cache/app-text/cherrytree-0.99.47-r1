@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-util/cpputest ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-util/cpputest ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libxml2:2 dev-libs/spdlog net-misc/curl x11-libs/cairo x11-libs/gtk+:3 x11-libs/pango || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/lxml[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/lxml[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/lxml[python_targets_python3_8(-)] ) )
+DEPEND=app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libxml2:2 dev-libs/spdlog net-misc/curl x11-libs/cairo x11-libs/gtk+:3 x11-libs/pango || ( ( >=dev-lang/python-3.10.4:3.10 dev-python/lxml[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/lxml[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/lxml[python_targets_python3_8(-)] ) )
 DESCRIPTION=A hierarchical note taking application (C++ version)
 EAPI=8
 HOMEPAGE=https://www.giuspen.com/cherrytree https://github.com/giuspen/cherrytree
@@ -13,5 +13,5 @@ RDEPEND=app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gt
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/giuspen/cherrytree/releases/download/0.99.47/cherrytree_0.99.47.tar.xz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	xdg	6024fbc93167fad782e2032933654857
 _md5_=264df738d85b7dbb9069a6a3b89f723c

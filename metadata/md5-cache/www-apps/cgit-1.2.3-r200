@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst prepare prerm setup test
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) acct-group/cgit acct-user/cgit dev-libs/openssl:0= dev-vcs/git highlight? ( python_single_target_python3_8? ( dev-python/pygments[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygments[python_targets_python3_9(-)] ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi doc? ( app-text/docbook-xsl-stylesheets >=app-text/asciidoc-8.5.1 ) app-admin/webapp-config
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) acct-group/cgit acct-user/cgit dev-libs/openssl:0= dev-vcs/git highlight? ( python_single_target_python3_8? ( dev-python/pygments[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygments[python_targets_python3_9(-)] ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi doc? ( app-text/docbook-xsl-stylesheets >=app-text/asciidoc-8.5.1 ) app-admin/webapp-config
 DESCRIPTION=a fast web-interface for git repositories
 EAPI=7
 HOMEPAGE=https://git.zx2c4.com/cgit/about
@@ -7,10 +7,10 @@ INHERIT=lua-single python-single-r1 toolchain-funcs webapp
 IUSE=doc +highlight +lua test lua_single_target_luajit lua_single_target_lua5-1 python_single_target_python3_8 python_single_target_python3_9 vhosts
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) acct-group/cgit acct-user/cgit dev-libs/openssl:0= dev-vcs/git highlight? ( python_single_target_python3_8? ( dev-python/pygments[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygments[python_targets_python3_9(-)] ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi app-admin/webapp-config
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) acct-group/cgit acct-user/cgit dev-libs/openssl:0= dev-vcs/git highlight? ( python_single_target_python3_8? ( dev-python/pygments[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygments[python_targets_python3_9(-)] ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-libs/zlib virtual/httpd-cgi app-admin/webapp-config
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.xz https://git.zx2c4.com/cgit/snapshot/cgit-1.2.3.tar.xz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	webapp	d872f28d7595b70dd46545199ef35fb0
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	webapp	d872f28d7595b70dd46545199ef35fb0
 _md5_=99d24f8adf841ef550bb69088a8117ab

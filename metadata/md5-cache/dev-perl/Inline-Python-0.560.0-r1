@@ -1,6 +1,6 @@
-BDEPEND=virtual/perl-Data-Dumper >=virtual/perl-Digest-MD5-2.500.0 >=dev-perl/Inline-0.460.0 python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Proc-ProcessTable-0.530.0 virtual/perl-Test-Simple dev-perl/Test-Deep dev-perl/Test-Number-Delta virtual/perl-Test ) dev-lang/perl
+BDEPEND=virtual/perl-Data-Dumper >=virtual/perl-Digest-MD5-2.500.0 >=dev-perl/Inline-0.460.0 python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/Proc-ProcessTable-0.530.0 virtual/perl-Test-Simple dev-perl/Test-Deep dev-perl/Test-Number-Delta virtual/perl-Test ) dev-lang/perl
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-lang/perl
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) dev-lang/perl
 DESCRIPTION=Easy implementation of Python extensions
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Inline-Python
@@ -8,10 +8,10 @@ INHERIT=python-single-r1 perl-module
 IUSE=test python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~sparc ~x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=virtual/perl-Data-Dumper >=virtual/perl-Digest-MD5-2.500.0 >=dev-perl/Inline-0.460.0 python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-lang/perl:=
+RDEPEND=virtual/perl-Data-Dumper >=virtual/perl-Digest-MD5-2.500.0 >=dev-perl/Inline-0.460.0 python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) dev-lang/perl:=
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/N/NI/NINE/Inline-Python-0.56.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
 _md5_=ac2bd33bf88aa5e662f55eed32abba95

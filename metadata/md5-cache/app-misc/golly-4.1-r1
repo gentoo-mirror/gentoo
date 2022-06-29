@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst postrm preinst setup
-DEPEND=sys-libs/zlib virtual/opengl x11-libs/wxGTK:3.0-gtk3[X,opengl,sdl,tiff] python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+DEPEND=sys-libs/zlib virtual/opengl x11-libs/wxGTK:3.0-gtk3[X,opengl,sdl,tiff] python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
 DESCRIPTION=simulator for Conway's Game of Life and other cellular automata
 EAPI=8
 HOMEPAGE=http://golly.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=desktop python-single-r1 toolchain-funcs wxwidgets xdg
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=sys-libs/zlib virtual/opengl x11-libs/wxGTK:3.0-gtk3[X,opengl,sdl,tiff] python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+RDEPEND=sys-libs/zlib virtual/opengl x11-libs/wxGTK:3.0-gtk3[X,opengl,sdl,tiff] python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=mirror://sourceforge/golly/golly-4.1-src.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=0e3fcdf11966724765d765b7e1e61fcf

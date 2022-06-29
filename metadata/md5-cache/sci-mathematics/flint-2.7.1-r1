@@ -1,4 +1,4 @@
-BDEPEND=doc? ( dev-python/sphinx app-text/texlive-core dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-tex/latexmk ) || ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) sys-devel/make >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( dev-python/sphinx app-text/texlive-core dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-tex/latexmk ) || ( >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) sys-devel/make >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/gmp:= dev-libs/mpfr:= ntl? ( dev-libs/ntl:= ) virtual/cblas
 DESCRIPTION=Fast Library for Number Theory
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/gmp:= dev-libs/mpfr:= ntl? ( dev-libs/ntl:= ) virtual/cblas
 RESTRICT=!test? ( test )
 SLOT=0/15
 SRC_URI=http://www.flintlib.org/flint-2.7.1.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=a7e148f761fa9ffc51ee0a6158647611
