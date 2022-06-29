@@ -4,6 +4,7 @@ DEPEND=dev-java/java-config app-eselect/eselect-java
 DESCRIPTION=Prebuilt Java JRE binaries provided by Eclipse Temurin
 EAPI=8
 HOMEPAGE=https://adoptopenjdk.net
+IDEPEND=app-eselect/eselect-java
 INHERIT=java-vm-2
 IUSE=alsa cups +gentoo-vm headless-awt selinux
 KEYWORDS=amd64
@@ -12,5 +13,5 @@ RDEPEND=media-libs/fontconfig:1.0 media-libs/freetype:2 >net-libs/libnet-1.1 >=s
 RESTRICT=preserve-libs splitdebug
 SLOT=11
 SRC_URI=amd64? ( https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.14+9/OpenJDK11U-jre_x64_linux_hotspot_11.0.14_9.tar.gz )
-_eclasses_=multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	java-vm-2	74cc81868d66e796e9060ee0fcc925e6
+_eclasses_=multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	java-vm-2	5dd4303f0b659986f096e65e566b9701
 _md5_=fa0214c158eeb8848087e463f57de08c
