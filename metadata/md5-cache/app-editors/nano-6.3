@@ -1,5 +1,5 @@
 BDEPEND=nls? ( sys-devel/gettext ) virtual/pkgconfig
-DEFINED_PHASES=configure install prepare
+DEFINED_PHASES=configure install postrm prepare
 DEPEND=!static? ( >=sys-libs/ncurses-5.9-r1:=[unicode(+)?] sys-libs/ncurses:= magic? ( sys-apps/file ) nls? ( virtual/libintl ) ) static? ( >=sys-libs/ncurses-5.9-r1:=[unicode(+)?] sys-libs/ncurses:=[static-libs(+)] magic? ( sys-apps/file[static-libs(+)] ) nls? ( virtual/libintl ) )
 DESCRIPTION=GNU GPL'd Pico clone with more functionality
 EAPI=8
@@ -13,4 +13,4 @@ REQUIRED_USE=magic? ( !minimal )
 SLOT=0
 SRC_URI=https://www.nano-editor.org/dist/v6/nano-6.3.tar.xz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
-_md5_=daa2241632b0cc1618fe29002ebd76ab
+_md5_=ec828ca7199704fe141928e1440de033
