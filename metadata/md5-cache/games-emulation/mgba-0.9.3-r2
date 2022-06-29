@@ -1,0 +1,18 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=media-libs/libpng:= sys-libs/zlib:=[minizip] debug? ( dev-libs/libedit ) elf? ( dev-libs/elfutils ) ffmpeg? ( media-video/ffmpeg:= ) gles2? ( media-libs/libglvnd ) gles3? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) sdl? ( media-libs/libsdl2[sound,joystick,opengl?,video] ) sqlite? ( dev-db/sqlite:3 ) test? ( dev-util/cmocka )
+DESCRIPTION=Game Boy Advance Emulator
+EAPI=8
+HOMEPAGE=https://mgba.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=debug discord elf ffmpeg gles2 gles3 gui libretro opengl +sdl sqlite test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=MPL-2.0 BSD LGPL-2.1+ public-domain discord? ( MIT )
+RDEPEND=media-libs/libpng:= sys-libs/zlib:=[minizip] debug? ( dev-libs/libedit ) elf? ( dev-libs/elfutils ) ffmpeg? ( media-video/ffmpeg:= ) gles2? ( media-libs/libglvnd ) gles3? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) sdl? ( media-libs/libsdl2[sound,joystick,opengl?,video] ) sqlite? ( dev-db/sqlite:3 )
+REQUIRED_USE=|| ( gui sdl ) gles2? ( opengl ) gles3? ( opengl ) gui? ( || ( gles2 opengl ) )
+RESTRICT=!test? ( test )
+SLOT=0/9
+SRC_URI=https://github.com/mgba-emu/mgba/archive/0.9.3.tar.gz -> mgba-0.9.3.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	xdg	6024fbc93167fad782e2032933654857
+_md5_=e5874db0d776375ca89cb25ab5727562
