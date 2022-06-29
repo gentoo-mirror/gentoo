@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install postinst prepare
+DEPEND=>=x11-libs/libxcb-1.11[xkb] >=x11-libs/xcb-util-0.4.0 >=x11-libs/libXfixes-5.0.3 >=x11-libs/libXdamage-1.1.4-r1 >=x11-libs/libXrandr-1.5.1 >=x11-libs/libXcomposite-0.4.4-r1 >=x11-libs/libXrender-0.9.10 >=x11-libs/libXext-1.3.3 >=x11-libs/cairo-1.14.6[X,xcb(+)] >=x11-libs/pango-1.40.5 >=dev-libs/glib-2.50.3-r1:2 >=x11-base/xcb-proto-1.12-r2 x11-base/xorg-proto
+DESCRIPTION=A mouse friendly tiling window manager
+EAPI=8
+HOMEPAGE=https://www.hzog.net/index.php/Main_Page
+INHERIT=autotools
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=>=x11-libs/libxcb-1.11[xkb] >=x11-libs/xcb-util-0.4.0 >=x11-libs/libXfixes-5.0.3 >=x11-libs/libXdamage-1.1.4-r1 >=x11-libs/libXrandr-1.5.1 >=x11-libs/libXcomposite-0.4.4-r1 >=x11-libs/libXrender-0.9.10 >=x11-libs/libXext-1.3.3 >=x11-libs/cairo-1.14.6[X,xcb(+)] >=x11-libs/pango-1.40.5 >=dev-libs/glib-2.50.3-r1:2
+SLOT=0
+SRC_URI=http://www.hzog.net/pub/page-1.9.9-r1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
+_md5_=9d7c4edcf4a55be407cc2a13ad2803a6
