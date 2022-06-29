@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org
 IUSE=nls +policykit test debug doc test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1+
 PDEPEND=policykit? ( kde-plasma/polkit-kde-agent )
 RDEPEND=>=dev-qt/qtdbus-5.15.3:5 >=dev-qt/qtgui-5.15.3:5 >=dev-qt/qtwidgets-5.15.3:5 =kde-frameworks/kcoreaddons-5.95*:5 policykit? ( >=sys-auth/polkit-qt-0.113.0 ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=5/5.95
 SRC_URI=mirror://kde/stable/frameworks/5.95/kauth-5.95.0.tar.xz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	975d49ff3b3f451efe7a95f230532135	ecm	542fb4c59adc3702f566140a9bdf49f8	kde.org	916c61efa7151f09c7701328b88cafc1
-_md5_=a39ab68b63b1d8178b27f9a8a1273d13
+_md5_=25a34db82a3e1eb97a3330292066c062

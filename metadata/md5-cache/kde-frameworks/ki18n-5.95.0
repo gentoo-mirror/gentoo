@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://kde.org/products/frameworks/
 INHERIT=ecm kde.org python-single-r1
 IUSE=debug doc test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-qt/qtdeclarative-5.15.3:5 sys-devel/gettext virtual/libintl app-text/iso-codes >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=5/5.95
 SRC_URI=mirror://kde/stable/frameworks/5.95/ki18n-5.95.0.tar.xz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	975d49ff3b3f451efe7a95f230532135	ecm	542fb4c59adc3702f566140a9bdf49f8	kde.org	916c61efa7151f09c7701328b88cafc1	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=4d4556a20de87dbd42fc84f5a934072c
+_md5_=3a2be782bfa5f55122f98d21e52c6ab3

@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://community.kde.org/Phonon
 INHERIT=desktop ecm kde.org
 IUSE=debug designer gstreamer pulseaudio +vlc debug
-KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
 LICENSE=|| ( LGPL-2.1 LGPL-3 ) !pulseaudio? ( || ( GPL-2 GPL-3 ) )
 PDEPEND=gstreamer? ( >=media-libs/phonon-gstreamer-4.9.60 ) vlc? ( >=media-libs/phonon-vlc-0.9.60 )
 RDEPEND=dev-qt/qtgui:5 dev-qt/qtwidgets:5 designer? ( dev-qt/designer:5 ) pulseaudio? ( dev-libs/glib:2 media-sound/pulseaudio[glib] ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 SLOT=0
 SRC_URI=mirror://kde/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	975d49ff3b3f451efe7a95f230532135	xdg	6024fbc93167fad782e2032933654857	ecm	542fb4c59adc3702f566140a9bdf49f8	kde.org	916c61efa7151f09c7701328b88cafc1
-_md5_=d64e7d5daeb1fb6f303fe8d275860f91
+_md5_=9d85e0789e569808a67da52225c4d5c6
