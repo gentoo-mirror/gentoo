@@ -59,7 +59,10 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
-PATCHES=( "${FILESDIR}/${P}-revert-QT_FEATURE_foo.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-revert-QT_FEATURE_foo.patch"
+	"${FILESDIR}/${P}-fix-sizeForLabels-double-scaling.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

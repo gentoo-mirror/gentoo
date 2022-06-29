@@ -39,6 +39,8 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
+PATCHES=( "${FILESDIR}/${P}-fix-shortcut-conflict-dialog.patch" )
+
 src_test() {
 	XDG_CURRENT_DESKTOP="KDE" ecm_src_test # bug 789342
 }
