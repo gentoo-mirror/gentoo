@@ -1,0 +1,12 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install
+DESCRIPTION=command line interface for Amazon Web Services
+EAPI=8
+HOMEPAGE=https://aws.amazon.com/cli/ https://github.com/aws/aws-cli/
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=!app-admin/awscli
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.7.11.zip ) arm64? ( https://awscli.amazonaws.com/awscli-exe-linux-aarch64-2.7.11.zip )
+_md5_=54ee502889620398aea865629d93efc0
