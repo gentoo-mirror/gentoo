@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,8 @@ inherit flag-o-matic linux-mod toolchain-funcs
 
 MY_P="${P/dahdi/dahdi-linux}"
 JNET=1.0.14
-GENTOO=3.1.0-r1-v2
+GENTOO_PATCHVERSION=3.1.0-r4
+GENTOO_SOURCEVERSION=3.1.0-r4
 S="${WORKDIR}/${MY_P}"
 
 JNET_DRIVERS="cwain qozap ztgsm"
@@ -16,7 +17,8 @@ DESCRIPTION="Kernel modules for Digium compatible hardware (formerly known as Za
 HOMEPAGE="https://www.asterisk.org"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/dahdi-linux/releases/${MY_P}.tar.gz
 	https://www.junghanns.net/downloads/jnet-dahdi-drivers-${JNET}.tar.gz
-	https://downloads.uls.co.za/gentoo/dahdi/gentoo-dahdi-patchset-${GENTOO}.tar.bz2
+	https://downloads.uls.co.za/gentoo/dahdi/gentoo-dahdi-patches-${GENTOO_PATCHVERSION}.tar.bz2
+	https://downloads.uls.co.za/gentoo/dahdi/gentoo-dahdi-sources-${GENTOO_SOURCEVERSION}.tar.bz2
 	https://downloads.digium.com/pub/telephony/firmware/releases/dahdi-fwload-vpmadt032-1.25.0.tar.gz
 	https://downloads.digium.com/pub/telephony/firmware/releases/dahdi-fw-a4a-a0017.tar.gz
 	https://downloads.digium.com/pub/telephony/firmware/releases/dahdi-fw-a4b-d001e.tar.gz
@@ -38,19 +40,21 @@ SRC_URI="https://downloads.asterisk.org/pub/telephony/dahdi-linux/releases/${MY_
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="flash oslec"
 
-PATCHES=( "${WORKDIR}/dahdi-patchset" )
+PATCHES=( "${WORKDIR}/gentoo-dahdi-patches-${GENTOO_PATCHVERSION}" )
 
 CONFIG_CHECK="MODULES PCI ~CRC_CCITT"
 
-pkg_pretend() {
+pkg_setup() {
 	use oslec && CONFIG_CHECK+=" ECHO"
-	check_extra_config
+	linux-mod_pkg_setup
 }
 
 src_unpack() {
+	local file drv
+
 	unpack ${A}
 	# Copy the firmware tarballs over, the makefile will try and download them otherwise
 	for file in ${A} ; do
@@ -67,6 +71,15 @@ src_unpack() {
 			die "Error linking ${drv}.c from jnet to DAHDI."
 		ln "${WORKDIR}/jnet-dahdi-drivers-${JNET}/${drv}/${drv}.h" "${MY_P}/drivers/dahdi/" ||
 			die "Error linking ${drv}.h from jnet to DAHDI."
+	done
+
+	# Find the stuff from gentoo-sources (ie, modules that has been removed by
+	# upstream and we're re-adding).
+	DAHDI_GENTOO_MODULES=""
+	for file in "${WORKDIR}/gentoo-dahdi-sources-${GENTOO_SOURCEVERSION}"/*; do
+		[[ -d "${file}" ]] && DAHDI_GENTOO_MODULES+=" $(basename "${file}")/"
+		[[ -f "${file}" && "${file}" = *.c ]] && DAHDI_GENTOO_MODULES+=" $(basename "${file}" .c).o"
+		mv -n "${file}" "${MY_P}/drivers/dahdi/" || die "Move of ${file} into dahdi-drivers failed."
 	done
 }
 
@@ -94,7 +107,7 @@ src_compile() {
 src_install() {
 	einfo "Installing kernel module"
 	emake V=1 CC="$(tc-getCC)" LD="$(tc-getLD)" KSRC="${KV_OUT_DIR}" DESTDIR="${D}" \
-		DAHDI_MODULES_EXTRA="${JNET_DRIVERS// /.o }.o$(usex oslec " dahdi_echocan_oslec.o" "")" \
+		DAHDI_MODULES_EXTRA="${JNET_DRIVERS// /.o }.o$(usex oslec " dahdi_echocan_oslec.o" "")${DAHDI_GENTOO_MODULES}" \
 		LDFLAGS="$(raw-ldflags)" install
 
 	# Remove the blank "version" files (these files are all empty, and root owned).
