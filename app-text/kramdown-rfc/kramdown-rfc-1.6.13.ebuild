@@ -5,6 +5,9 @@ EAPI=8
 
 USE_RUBY="ruby26 ruby27"
 
+# The software got renamed from kramdown-rfc2629 to kramdown-rfc,
+# however the gem coordinate is still kramdown-rfc2629.
+RUBY_FAKEGEM_NAME="${PN}2629"
 RUBY_FAKEGEM_RECIPE_TEST="none"
 RUBY_FAKEGEM_EXTRADOC="README.md"
 RUBY_FAKEGEM_EXTRAINSTALL="data"
@@ -21,7 +24,7 @@ KEYWORDS="~amd64"
 ruby_add_rdepend "
 	>=dev-ruby/certified-1.0.0
 	>=dev-ruby/json-2.0.0
-	>=dev-ruby/kramdown-2.3.0
+	>=dev-ruby/kramdown-2.4.0
 	>=dev-ruby/kramdown-parser-gfm-1.1.0
 "
 
