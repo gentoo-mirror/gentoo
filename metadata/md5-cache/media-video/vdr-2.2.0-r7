@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.tvdr.de/
 INHERIT=flag-o-matic strip-linguas toolchain-funcs
 IUSE=bidi debug keyboard html systemd vanilla alternatechannel graphtft naludump permashift pinplugin mainmenuhooks menuorg menuselection resumereset ttxtsubs
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc x86
 LICENSE=GPL-2+
 RDEPEND=media-libs/libjpeg-turbo sys-libs/libcap >=media-libs/fontconfig-2.4.2 >=media-libs/freetype-2 dev-lang/perl >=media-tv/gentoo-vdr-scripts-2.7 media-fonts/corefonts bidi? ( dev-libs/fribidi ) systemd? ( sys-apps/systemd )
 SLOT=0
 SRC_URI=ftp://ftp.tvdr.de/vdr/vdr-2.2.0.tar.bz2 mirror://gentoo/extpng-vdr-2.2.0-gentoo-edition-v1.patch.bz2
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
-_md5_=76f12e06d56aa84e9fad2d036faaeb48
+_md5_=93c0efc882223d15075046dee62aa93c
