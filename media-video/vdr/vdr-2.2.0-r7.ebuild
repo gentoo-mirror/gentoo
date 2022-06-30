@@ -32,7 +32,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 IUSE="bidi debug keyboard html systemd vanilla ${EXT_PATCH_FLAGS} ${EXT_PATCH_FLAGS_RENAMED}"
 
 COMMON_DEPEND="
-	virtual/jpeg:*
+	media-libs/libjpeg-turbo
 	sys-libs/libcap
 	>=media-libs/fontconfig-2.4.2
 	>=media-libs/freetype-2"
@@ -44,7 +44,8 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/corefonts
 	bidi? ( dev-libs/fribidi )
 	systemd? ( sys-apps/systemd )"
-BDEPEND="sys-devel/gettext"
+BDEPEND="sys-devel/gettext
+	virtual/pkgconfig"
 
 CONF_DIR="/etc/vdr"
 CAP_FILE="${S}/capabilities.sh"
@@ -212,9 +213,9 @@ src_prepare() {
 		eend $? "make depend failed"
 
 		eapply "${FILESDIR}/${P}_gcc7extpng.patch"
-		eapply "${FILESDIR}/${P}_gcc11.patch"
 	fi
 
+	eapply "${FILESDIR}/${P}_gcc11.patch"
 	eapply "${FILESDIR}/${P}_gentoo.patch"
 	eapply "${FILESDIR}/${P}_unsignedtosigned.patch"
 	eapply "${FILESDIR}/${P}_glibc-2.24.patch"
