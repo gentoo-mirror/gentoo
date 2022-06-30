@@ -9,7 +9,7 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/realnc/SDL_audiolib.git"
 else
-	SDLAUDIO_COMMIT=""
+	SDLAUDIO_COMMIT="b66a66fedf8f65cacc5ce2ff8ed8d10649c6de31"
 	SRC_URI="https://github.com/realnc/SDL_audiolib/archive/${SDLAUDIO_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN/sdl/SDL}-${SDLAUDIO_COMMIT}"
 	KEYWORDS="~amd64 ~x86"
