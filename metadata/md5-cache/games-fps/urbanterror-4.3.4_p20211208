@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst postrm pretend
-DEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( media-sound/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 sys-libs/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
+DEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( net-voip/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 sys-libs/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
 DESCRIPTION=Hollywood tactical shooter based on the ioquake3 engine
 EAPI=8
 HOMEPAGE=https://urbanterror.info https://github.com/mickael9/ioq3
@@ -7,9 +7,9 @@ INHERIT=desktop flag-o-matic toolchain-funcs xdg-utils
 IUSE=+altgamma +client +curl debug mumble openal +opus server +skeetshootmod voip vorbis
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( media-sound/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 sys-libs/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
+RDEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( net-voip/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 sys-libs/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
 REQUIRED_USE=|| ( client server ) voip? ( opus )
 SLOT=0
 SRC_URI=https://github.com/mickael9/ioq3/archive/c988f7669bd70b59beb384563d4c8304062ae011.tar.gz -> urbanterror-4.3.4_p20211208.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=49cb0c89863159d1f17a76d43cc01c7e
+_md5_=6cd465129040fa9fddada7c61b2ac4b7
