@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.7-r1 1.25.12-r1 1.25.13-r1 1.25.14-r1 1.25.15-r1 1.25.16-r1 1.25.17-r1 1.25.18-r1 1.25.19-r1: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.12-r1 1.25.17-r1 1.25.20: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.11: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
@@ -8481,8 +8481,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.7 1.24.12 1.24.13 1.24.14 1.24.15 1.24.16 1.24.17 1.24.18 1.24.19 9999: The AWS SDK for Python
-dev-python/botocore 1.27.7 1.27.12 1.27.13 1.27.14 1.27.15 1.27.16 1.27.17 1.27.18 1.27.19 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.12 1.24.17 1.24.20 9999: The AWS SDK for Python
+dev-python/botocore 1.27.12 1.27.17 1.27.20 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8808,7 +8808,7 @@ dev-python/humanize 4.1.0 4.2.0 4.2.1 4.2.2: Common humanization utilities
 dev-python/hvac 0.11.2: hashicorp vault client in python
 dev-python/hyperframe 5.2.0 5.2.0-r1 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.46.9 6.46.11 6.47.1 6.47.2 6.47.3 6.47.4 6.47.5 6.48.0 6.48.1: A library for property based testing
+dev-python/hypothesis 6.46.9 6.46.11 6.47.1 6.47.2 6.47.3 6.47.4 6.47.5 6.48.0 6.48.1 6.48.2: A library for property based testing
 dev-python/icalendar 4.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.1: File identification library for Python
 dev-python/idna 3.3-r1: Internationalized Domain Names in Applications (IDNA)
@@ -9551,7 +9551,7 @@ dev-python/reno 3.5.0: Release notes manager, storing release notes in a git rep
 dev-python/reportlab 3.6.6 3.6.7 3.6.8 3.6.9 3.6.10: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
 dev-python/requests 2.27.1-r2 2.28.0-r1 2.28.0-r2 2.28.1: HTTP library for human beings
-dev-python/requests-cache 0.9.4: Persistent cache for requests library
+dev-python/requests-cache 0.9.4 0.9.5: Persistent cache for requests library
 dev-python/requests-credssp 2.0.0: HTTPS CredSSP authentication with the requests library
 dev-python/requests-file 1.5.1-r2: File transport adapter for Requests
 dev-python/requests-futures 1.0.0-r1: Asynchronous Python HTTP for Humans
@@ -9616,8 +9616,8 @@ dev-python/setuptools 62.3.3 62.3.4 62.4.0 62.5.0 62.6.0: Collection of extensio
 dev-python/setuptools-declarative-requirements 1.2.0-r2: Requirements Support For Setuptools Declarative setup.cfg
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.3.0: A plugin for setuptools to build Rust Python extensions
-dev-python/setuptools_scm 6.4.2 7.0.1-r1 7.0.2: Manage versions by scm tags via setuptools
-dev-python/setuptools_scm_git_archive 1.1-r5 1.2 1.3: A setuptools_scm plugin for git archives
+dev-python/setuptools_scm 6.4.2 7.0.1-r1 7.0.2 7.0.3: Manage versions by scm tags via setuptools
+dev-python/setuptools_scm_git_archive 1.1-r5 1.2 1.3 1.4: A setuptools_scm plugin for git archives
 dev-python/setuptools_trial 0.6.0-r1: Setuptools plugin that makes unit tests execute with trial instead of pyunit
 dev-python/sexpdata 0.0.3-r2: a simple S-expression parser/serializer
 dev-python/sgmllib3k 1.0.0-r1: Py3k port of sgmllib
@@ -9774,7 +9774,7 @@ dev-python/tomlkit 0.11.0: Style preserving TOML library
 dev-python/toolz 0.11.2-r1: List processing tools and functional utilities
 dev-python/toposort 1.7-r1: Implements a topological sort algorithm
 dev-python/towncrier 21.9.0: Building newsfiles for your project
-dev-python/tox 3.25.0: virtualenv-based automation of test activities
+dev-python/tox 3.25.0 3.25.1: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 1.1.0: Python bindings for TSS
 dev-python/tqdm 4.64.0: Add a progress meter to your loops in a second
 dev-python/traitlets 5.2.2_p1 5.3.0: A configuration system for Python applications
@@ -9825,7 +9825,7 @@ dev-python/utidylib 0.8: TidyLib Python wrapper
 dev-python/uvicorn 0.17.6 0.18.1 0.18.2: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.15.3 0.15.3-r1 0.16.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.20.0: Python Data Validation for Humans
-dev-python/vcrpy 4.1.1-r1: Automatically mock your HTTP interactions to simplify and speed up testing
+dev-python/vcrpy 4.1.1-r1 4.2.0: Automatically mock your HTTP interactions to simplify and speed up testing
 dev-python/vcstools 0.1.42: Python library for interacting with various VCS systems
 dev-python/vdf 3.4-r1: A module for (de)serialization to and from VDF, Valve's key-value text format
 dev-python/vdirsyncer 0.18.0-r4: Synchronize calendars and contacts
