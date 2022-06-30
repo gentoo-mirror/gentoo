@@ -3067,6 +3067,8 @@ games-emulation/snes9x:libretro - Build libretro port
 games-emulation/snes9x:netplay - Enable playing ROMs over the network (not recommended)
 games-emulation/vbam:link - Enable GBA linking functionality
 games-engines/devilutionx:lto - Build with link time optimization enabled
+games-engines/devilutionx:sodium - Enable network packet encryption using dev-libs/libsodium
+games-engines/devilutionx:zerotier - Enable ZeroTier for online public games
 games-engines/exult:fluidsynth - Compile with support for FluidSynth
 games-engines/exult:sdl2 - Use libsdl2 instead of libsdl
 games-engines/exult:tools - Enable tools
@@ -4366,10 +4368,11 @@ media-libs/sdl2-mixer:playtools - Install playwave and playmus tools (useful for
 media-libs/sdl2-mixer:tremor - enable OGG Vorbis music via libtremor
 media-libs/sdl2-mixer:wav - support WAVE files
 media-libs/sdl2-ttf:harfbuzz - Use media-libs/harfbuzz for enhanced font rendering
-media-libs/sdl_audiolib:fluidsynth - use media-sound/fluidsynth for MIDI
+media-libs/sdl_audiolib:fluidsynth - Enable support for MIDI via media-sound/fluidsynth
 media-libs/sdl_audiolib:mpg123 - Enable support for mp3 decoding via media-sound/mpg123
 media-libs/sdl_audiolib:openmpt - OpenMPT decoder via media-libs/libopenmpt
 media-libs/sdl_audiolib:soxr - Enable SoX Resampler support via media-libs/soxr
+media-libs/sdl_audiolib:wildmidi - Enable support for MIDI via media-sound/wildmidi
 media-libs/sge:image - enable sdl-image support
 media-libs/spandsp:fixed-point - Enable fixed point support
 media-libs/speex:utils - Enables speex commandline utilities (speexenc, speexdec).
