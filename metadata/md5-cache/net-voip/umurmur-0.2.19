@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://github.com/umurmur/umurmur
 INHERIT=autotools systemd readme.gentoo-r1
 IUSE=gnutls mbedtls shm
-KEYWORDS=amd64 ~arm x86
+KEYWORDS=~amd64 ~arm ~x86
 LICENSE=BSD
 RDEPEND=>=dev-libs/protobuf-c-1.0.0_rc2:= dev-libs/libconfig:= gnutls? ( dev-libs/nettle:= >=net-libs/gnutls-3.0.0:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:= ) !mbedtls? ( dev-libs/openssl:0= ) ) acct-group/murmur acct-user/murmur
 SLOT=0
-SRC_URI=https://github.com/umurmur/umurmur/archive/0.2.17.tar.gz -> umurmur-0.2.17.tar.gz
+SRC_URI=https://github.com/umurmur/umurmur/archive/0.2.19.tar.gz -> umurmur-0.2.19.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	systemd	2736b403a83f194b59b767f3b344c2c1	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
-_md5_=6d4d05f90b8983ea9cb19c8e02ca6f53
+_md5_=524923ed319eb858300ff9bea9a4e583

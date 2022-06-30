@@ -4667,12 +4667,6 @@ media-sound/mpd:webdav - Enable using music from a WebDAV share
 media-sound/mpd:wildmidi - Enable MIDI support via wildmidi
 media-sound/mpfc:wav - Enable wav audio codec support
 media-sound/mpg123:int-quality - Use rounding instead of fast truncation for integer output, where possible
-media-sound/mumble:g15 - Enable support for the Logitech G15 LCD (and compatible devices).
-media-sound/mumble:pipewire - Enable pipewire support for audio output.
-media-sound/mumble:rnnoise - Enable alternative noise suppression option based on RNNoise.
-media-sound/mumble:speech - Enable text-to-speech support in Mumble.
-media-sound/murmur:grpc - Use net-libs/grpc to enable remote control capabilities.
-media-sound/murmur:ice - Use dev-libs/Ice to enable remote control capabilities.
 media-sound/musescore:omr - Enable PDF import (OMR - optical music recognition)
 media-sound/musescore:osc - Enable OSC remote control protocol
 media-sound/musescore:portmidi - Enable support for building against media-libs/portmidi
@@ -4822,8 +4816,6 @@ media-sound/supercollider:vim - Enable the SCVIM user interface
 media-sound/supercollider:webengine - Enable the internal help system using QtWebengine
 media-sound/teamspeak-client:system-libcxx - Use sys-libs/libcxx instead of shipped libs.
 media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for handling multiple virtual servers.
-media-sound/umurmur:mbedtls - Use net-libs/mbedtls as TLS provider
-media-sound/umurmur:shm - Enable shared memory support
 media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external services
 media-sound/vimpc:boost - Use boost instead of C++11 libraries
 media-sound/vorbis-tools:kate - Adds support for Ogg Kate subtitles via libkate.
@@ -6866,8 +6858,16 @@ net-proxy/tsocks:envconf - Allow TSOCKS_CONF_FILE to specify configuration file
 net-proxy/tsocks:server-lookups - Allow hostname resolution _for_ SOCKS servers
 net-proxy/tsocks:tordns - Apply tordns patch which allows transparent TORification of the DNS queries
 net-voip/captagent:redis - Enable redis support
+net-voip/mumble:g15 - Enable support for the Logitech G15 LCD (and compatible devices).
+net-voip/mumble:pipewire - Enable pipewire support for audio output.
+net-voip/mumble:rnnoise - Enable alternative noise suppression option based on RNNoise.
+net-voip/mumble:speech - Enable text-to-speech support in Mumble.
+net-voip/murmur:grpc - Use net-libs/grpc to enable remote control capabilities.
+net-voip/murmur:ice - Use dev-libs/Ice to enable remote control capabilities.
 net-voip/telepathy-gabble:jingle - Enable voice calls for jabber
 net-voip/telepathy-gabble:plugins - Enable plugin loader
+net-voip/umurmur:mbedtls - Use net-libs/mbedtls as TLS provider
+net-voip/umurmur:shm - Enable shared memory support
 net-voip/yate:amrnb - use AMR-NB
 net-voip/yate:dahdi - Enable Dahdi driver
 net-voip/yate:gsm - use GSM codec
