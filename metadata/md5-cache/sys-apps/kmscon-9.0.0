@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-util/gtk-doc ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.0.0:= media-libs/mesa[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) gles2? ( >=media-libs/mesa-8.0.3[gles2] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) pixman? ( x11-libs/pixman ) x11-base/xorg-proto
+DESCRIPTION=KMS/DRM based virtual Console Emulator
+EAPI=7
+HOMEPAGE=https://github.com/Aetf/kmscon
+INHERIT=meson flag-o-matic systemd toolchain-funcs
+IUSE=debug doc +drm +fbdev +gles2 +pango pixman systemd +unicode
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT LGPL-2.1 BSD-2
+RDEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.0.0:= media-libs/mesa[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) gles2? ( >=media-libs/mesa-8.0.3[gles2] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) pixman? ( x11-libs/pixman ) x11-misc/xkeyboard-config
+REQUIRED_USE=gles2? ( drm )
+SLOT=0
+SRC_URI=https://github.com/Aetf/kmscon/releases/download/v9.0.0/kmscon-9.0.0.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	8f48ffde53174aba67239f0da61ac9d3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=1e64525d8a48fca525d13aad303b492f
