@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/JSON-XS dev-perl/Text-CSV_XS dev-lang/perl
+DESCRIPTION=pgBadger is a PostgreSQL log analyzer
+EAPI=8
+HOMEPAGE=https://pgbadger.darold.net/
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-perl/JSON-XS dev-perl/Text-CSV_XS dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/darold/pgbadger/archive/v11.8.tar.gz -> pgbadger-11.8.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_md5_=0fa2be43a883776fdd2e08fe438804e5
