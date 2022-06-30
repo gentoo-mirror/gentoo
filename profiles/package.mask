@@ -245,35 +245,6 @@ dev-python/jaraco-packaging
 # no upstream activity in years. Removal on 2022-07-02.
 dev-python/chai
 
-# Sam James <sam@gentoo.org> (2022-05-30)
-# Doesn't support Python 3.10+, maintainer-needed, and out of date.
-# Bugs #818847, #845936, #786585.
-# Removal on 2022-06-30.
-dev-util/dput-ng
-dev-util/distro-info
-dev-util/distro-info-data
-
-# Sam James <sam@gentoo.org> (2022-05-30)
-# No upstream activity since 2019, doesn't even support Python 3.9+ properly,
-# and doesn't support Python 3.10. Bugs #845819, #798384. Removal on 2022-06-30.
-dev-python/pypcap
-
-# Sam James <sam@gentoo.org> (2022-05-30)
-# Obsolete, no new releases since 2015, doesn't support Python 3.10.
-# Bugs #845681, #747982. Removal on 2022-06-30.
-dev-python/3to2
-
-# Sam James <sam@gentoo.org> (2022-05-30)
-# No upstream development since 2017, doesn't support Python 3.10. Bug #845678.
-# Removal on 2022-06-30.
-dev-perl/Inline-Python
-
-# Sam James <sam@gentoo.org> (2022-05-30)
-# Out of date, no tests, and most importantly, doesn't yet support Python 3.10
-# which will soon be the default. Bugs #845783, #822540, #798204.
-# Removal on 2022-06-30.
-dev-python/pycapnp
-
 # Matt Turner <mattst88@gentoo.org> (2022-05-30)
 # libwacom-2 broke ABI compatibility; reverse dependencies need to be updated.
 # Bug #848501
@@ -291,12 +262,6 @@ dev-ruby/regexp_parser:1
 # bugs. Please switch to a newer GCC version using gcc-config.
 # The lowest supported version of GCC is GCC 10.
 <sys-devel/gcc-10
-
-# Sam James <sam@gentoo.org> (2022-05-28)
-# Masked for removal. Dead upstream, no releases in a long time, and superseded
-# by dev-python/python-pam. Fails tests in a few scary ways too. Removal
-# on 2022-06-28. Bugs #833297, #802927.
-dev-python/pypam
 
 # Hans de Graaff <graaff@gentoo.org> (2022-05-20)
 # Unused slots of cucumber components that are no longer or were never
