@@ -1,7 +1,7 @@
 # Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs cmake
 
@@ -12,13 +12,13 @@ HOMEPAGE="
 	https://github.com/simdjson/simdjson
 "
 SRC_URI="
-	https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	test? ( https://github.com/${PN}/${PN}-data/archive/${DATA_HASH}.tar.gz -> ${PN}-data-${PV}.tar.gz )
+	https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	test? ( https://github.com/${PN}/${PN}-data/archive/${DATA_HASH}.tar.gz -> ${PN}-data-${PV}.gh.tar.gz )
 "
 
 LICENSE="Apache-2.0 Boost-1.0 BSD MIT"
-SLOT="0/8"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~x86"
+SLOT="0/9"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="test tools"
 
 BDEPEND="
