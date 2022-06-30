@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Eclass for installing SELinux policy, and optionally
@@ -159,7 +159,7 @@ selinux-policy-2_src_prepare() {
 	if [[ -n ${BASEPOL} ]] && [[ "${BASEPOL}" != "9999" ]]; then
 		cd "${S}"
 		einfo "Applying SELinux policy updates ... "
-		eapply -p0 "${WORKDIR}/0001-full-patch-against-stable-release.patch"
+		eapply -p0 -- "${WORKDIR}/0001-full-patch-against-stable-release.patch"
 	fi
 
 	# Call in eapply_user. We do this early on as we start moving
@@ -180,9 +180,9 @@ selinux-policy-2_src_prepare() {
 	# Apply the additional patches refered to by the module ebuild.
 	# But first some magic to differentiate between bash arrays and strings
 	if [[ "$(declare -p POLICY_PATCH 2>/dev/null 2>&1)" == "declare -a"* ]]; then
-		[[ -n ${POLICY_PATCH[*]} ]] && eapply -d "${S}/refpolicy/policy/modules" "${POLICY_PATCH[@]}"
+		[[ -n ${POLICY_PATCH[*]} ]] && eapply -d "${S}/refpolicy/policy/modules" -- "${POLICY_PATCH[@]}"
 	else
-		[[ -n ${POLICY_PATCH} ]] && eapply -d "${S}/refpolicy/policy/modules" ${POLICY_PATCH}
+		[[ -n ${POLICY_PATCH} ]] && eapply -d "${S}/refpolicy/policy/modules" -- ${POLICY_PATCH}
 	fi
 
 	# Collect only those files needed for this particular module
@@ -368,4 +368,3 @@ selinux-policy-2_pkg_postrm() {
 		done
 	fi
 }
-
