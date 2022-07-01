@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test
+DESCRIPTION=A program used to manage a netfilter firewall
+EAPI=8
+HOMEPAGE=https://launchpad.net/ufw
+INHERIT=bash-completion-r1 distutils-r1 linux-info systemd
+IUSE=examples ipv6 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-3
+RDEPEND=net-firewall/iptables[ipv6(+)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
+SLOT=0
+SRC_URI=https://launchpad.net/ufw/0.36/0.36.1/+download/ufw-0.36.1.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	64c5b9cc381383c9c1ef74fb199293ea	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=0085b762c603005e498a4f1fbe84903c
