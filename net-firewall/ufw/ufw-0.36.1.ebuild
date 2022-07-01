@@ -15,7 +15,7 @@ SRC_URI="https://launchpad.net/ufw/${PV%.*}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="examples ipv6"
 
 RDEPEND="net-firewall/iptables[ipv6(+)?]"
@@ -29,7 +29,7 @@ PATCHES=(
 	# Remove shebang modification.
 	"${FILESDIR}/${P}-shebang.patch"
 	# Fix bash completions, bug #526300
-	"${FILESDIR}/${P}-bash-completion.patch"
+	"${FILESDIR}/${PN}-0.36-bash-completion.patch"
 )
 
 pkg_pretend() {
@@ -134,7 +134,7 @@ python_install_all() {
 	systemd_dounit "${FILESDIR}/ufw.service"
 
 	pushd "${ED}" || die
-	fperms -R 0644 etc/ufw/*.rules
+	chmod -R 0644 etc/ufw/*.rules || die
 	popd || die
 
 	exeinto /usr/share/${PN}
