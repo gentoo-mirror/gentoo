@@ -5,10 +5,10 @@ Revision: 1
 News-Item-Format: 2.0
 Display-If-Installed: =net-mail/mu-1.7.23
 
-Development versions of mu between 1.7.18 and 1.7.25 have a bug causing
-mail file names to sometimes get mangled after moving messages between
-directories. Symptoms include unread messages never being marked as
-read.
+Development versions of mu between 1.7.18 and 1.7.25 (only 1.7.23 was ever
+packaged in Gentoo) have a bug causing mail file names to sometimes get mangled
+after moving messages between directories. Symptoms include unread messages
+never being marked as read.
 
 Affected messages have the ':2,' flag appended multiple times. Using the
 following commands, users can remove the extra flags.
