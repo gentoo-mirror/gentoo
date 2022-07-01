@@ -14,13 +14,14 @@ SRC_URI="mirror://sourceforge/omniorb/${MY_P}.tar.bz2"
 
 LICENSE="LGPL-2 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ~ppc ppc64 ~sparc x86"
 IUSE="doc ipv6 ssl"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	ssl? ( dev-libs/openssl:= )"
 DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	default
