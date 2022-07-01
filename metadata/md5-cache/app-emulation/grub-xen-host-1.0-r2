@@ -4,9 +4,9 @@ DESCRIPTION=Grub2 built as a PV grub per the Xen PV Boot Protocol
 EAPI=8
 HOMEPAGE=https://wiki.xenproject.org/wiki/PvGrub2
 IUSE=pvh
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=BSD-2
 RDEPEND=sys-boot/grub:2=[grub_platforms_xen] pvh? ( >=sys-boot/grub-2.04:2=[grub_platforms_xen-pvh] )
 RESTRICT=binchecks strip test
 SLOT=0
-_md5_=ff649de699031e4e98e7c3d804a0b088
+_md5_=ffb7673b3ab08c326ef3ed3e28a9dd5e
