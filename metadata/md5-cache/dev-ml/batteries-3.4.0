@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/ocamlbuild
-DEFINED_PHASES=install
-DEPEND=>=dev-ml/findlib-1.0.4-r1
+DEFINED_PHASES=compile install
+DEPEND=>=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=A community-maintained standard library extension
 EAPI=7
 HOMEPAGE=https://github.com/ocaml-batteries-team/batteries-included
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/num:= dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ocaml-batteries-team/batteries-included/archive/v3.4.0.tar.gz -> batteries-3.4.0.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=6bc8998711975611f07a4cdabc315ded
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d
+_md5_=541905926411e46cd26d28f43b05c99b

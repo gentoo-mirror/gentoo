@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install
-DEPEND=<dev-lang/ocaml-4.11.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DEPEND=<dev-lang/ocaml-4.11.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=A preprocessor-pretty-printer of ocaml
 EAPI=7
 HOMEPAGE=https://camlp5.github.io/
@@ -10,5 +10,5 @@ LICENSE=BSD
 RDEPEND=<dev-lang/ocaml-4.11.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 SLOT=0/7.11
 SRC_URI=https://github.com/camlp5/camlp5/archive/rel711.tar.gz -> camlp5-7.11.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d
 _md5_=858e2e5a0f0117efb2a6dc3e8b25c9ae

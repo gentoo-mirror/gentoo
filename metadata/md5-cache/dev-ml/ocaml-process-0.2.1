@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/ocamlbuild test? ( dev-ml/alcotest )
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-ml/findlib-1.0.4-r1
+DEPEND=>=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Easy process control for OCaml
 EAPI=7
 HOMEPAGE=https://github.com/dsheets/ocaml-process
@@ -12,5 +12,5 @@ RDEPEND=dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/0.2.1
 SRC_URI=https://github.com/dsheets/ocaml-process/archive/0.2.1.tar.gz -> ocaml-process-0.2.1.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d
 _md5_=07c0f6d6d41f49fe37d91add921a5639

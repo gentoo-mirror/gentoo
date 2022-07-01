@@ -1,6 +1,6 @@
 BDEPEND=doc? ( dev-python/sphinx dev-python/sphinxcontrib-bibtex dev-tex/rubber media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=>=dev-lang/ocaml-4.11:=[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) emacs? ( app-editors/emacs:* ) gtk? ( dev-ml/lablgtk:=[sourceview] ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) sexp? ( dev-ml/ppx_deriving:=[ocamlopt?] dev-ml/ppx_sexp_conv:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt?] ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= ) >=dev-ml/findlib-1.0.4-r1
+DEPEND=>=dev-lang/ocaml-4.11:=[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) emacs? ( app-editors/emacs:* ) gtk? ( dev-ml/lablgtk:=[sourceview] ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) sexp? ( dev-ml/ppx_deriving:=[ocamlopt?] dev-ml/ppx_sexp_conv:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt?] ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Platform for deductive program verification
 EAPI=7
 HOMEPAGE=http://why3.lri.fr/
@@ -13,5 +13,5 @@ REQUIRED_USE=html? ( doc )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/dd74ae7ecfd7d56aff7b17cee7a35559384a600f?filename=why3-2021-20210519-19ADF-src.tar.gz -> why3-2021-20210519-19ADF-src.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	findlib	6afd368dc89c3b53f6686e5752caf50d
 _md5_=c55bcf479c98169798942400abe9bf59

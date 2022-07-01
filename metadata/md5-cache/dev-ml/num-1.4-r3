@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml:=[ocamlopt?]
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/findlib:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DEPEND=dev-ml/findlib:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Library for arbitrary-precision integer and rational arithmetic
 EAPI=7
 HOMEPAGE=https://github.com/ocaml/num
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1-with-linking-exception
 RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 SLOT=0
 SRC_URI=https://github.com/ocaml/num/archive/v1.4.tar.gz -> num-1.4.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d
 _md5_=a4cee0bbe85f59ca3d84da60394db0ad

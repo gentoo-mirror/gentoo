@@ -1,6 +1,6 @@
 BDEPEND=>=dev-ml/topkg-0.9 dev-ml/ocamlbuild dev-ml/findlib dev-ml/opam-installer dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/cmdliner:=[ocamlopt] >=dev-lang/ocaml-4.08:=[ocamlopt] dev-ml/result:=[ocamlopt] dev-ml/stdlib-shims:=[ocamlopt] dev-ml/uchar:=[ocamlopt] >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-4:=
+DEPEND=dev-ml/cmdliner:=[ocamlopt] >=dev-lang/ocaml-4.08:=[ocamlopt] dev-ml/result:=[ocamlopt] dev-ml/stdlib-shims:=[ocamlopt] dev-ml/uchar:=[ocamlopt] >=dev-ml/findlib-1.0.4-r1[ocamlopt?] >=dev-lang/ocaml-4:=
 DESCRIPTION=Combinators to devise OCaml Format pretty-printing functions
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/fmt https://github.com/dbuenzli/fmt
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/cmdliner:=[ocamlopt] >=dev-lang/ocaml-4.08:=[ocamlopt] dev-ml/res
 RESTRICT=!test? ( test )
 SLOT=0/0.9.0
 SRC_URI=https://erratique.ch/software/fmt/releases/fmt-0.9.0.tbz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	opam	dc11e376d9abc263ca618c5741206216
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d	opam	dc11e376d9abc263ca618c5741206216
 _md5_=f531524fa94b0e2011b92cb3f4c36084

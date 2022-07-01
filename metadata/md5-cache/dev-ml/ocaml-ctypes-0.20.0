@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare test
-DEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/bigarray-compat:= dev-ml/integers:= test? ( dev-ml/ounit2 dev-ml/lwt ) >=dev-ml/findlib-1.0.4-r1
+DEPEND=>=dev-lang/ocaml-4.02:= >=dev-libs/libffi-3.3_rc0:= dev-ml/bigarray-compat:= dev-ml/integers:= test? ( dev-ml/ounit2 dev-ml/lwt ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Library for binding to C libraries using pure OCaml
 EAPI=7
 HOMEPAGE=https://github.com/ocamllabs/ocaml-ctypes
@@ -7,9 +7,10 @@ INHERIT=findlib
 IUSE=test +ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/bigarray-compat:= dev-ml/integers:= dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=>=dev-lang/ocaml-4.02:= >=dev-libs/libffi-3.3_rc0:= dev-ml/bigarray-compat:= dev-ml/integers:= dev-lang/ocaml:=[ocamlopt?]
+REQUIRED_USE=ocamlopt
 RESTRICT=!test? ( test )
 SLOT=0/0.20.0
 SRC_URI=https://github.com/ocamllabs/ocaml-ctypes/archive/0.20.0.tar.gz -> ocaml-ctypes-0.20.0.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=39f62d121f95061e5fb9665ec39e9979
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d
+_md5_=4915f8d870486c2c0a1793382301f462

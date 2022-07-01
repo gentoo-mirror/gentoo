@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare test
-DEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/integers:= test? ( dev-ml/ounit2 dev-ml/lwt ) >=dev-ml/findlib-1.0.4-r1
+DEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/integers:= test? ( dev-ml/ounit2 dev-ml/lwt ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Library for binding to C libraries using pure OCaml
 EAPI=7
 HOMEPAGE=https://github.com/ocamllabs/ocaml-ctypes
@@ -11,5 +11,5 @@ RDEPEND=>=dev-lang/ocaml-4.02:=[ocamlopt] >=dev-libs/libffi-3.3_rc0:= dev-ml/int
 RESTRICT=!test? ( test )
 SLOT=0/0.17.1
 SRC_URI=https://github.com/ocamllabs/ocaml-ctypes/archive/0.17.1.tar.gz -> ocaml-ctypes-0.17.1.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d
 _md5_=44cb7e19f04ca495c78cd1ccaec53d34

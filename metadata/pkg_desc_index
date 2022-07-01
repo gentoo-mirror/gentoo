@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.12-r1 1.25.17-r1 1.25.20: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.12-r1 1.25.17-r1 1.25.20 1.25.21: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.11: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
@@ -8441,7 +8441,7 @@ dev-python/autopage 0.5.1: A library to provide automatic paging for console out
 dev-python/autopep8 1.6.0 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.45.0 1.46.0: A library that transform SAM templates into AWS CloudFormation templates
-dev-python/aws-xray-sdk-python 2.8.0: AWS X-Ray SDK for Python
+dev-python/aws-xray-sdk-python 2.8.0 2.10.0: AWS X-Ray SDK for Python
 dev-python/awxkit 21.1.0 21.2.0: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r2 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
@@ -8479,8 +8479,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.12 1.24.17 1.24.20 9999: The AWS SDK for Python
-dev-python/botocore 1.27.12 1.27.17 1.27.20 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.12 1.24.17 1.24.20 1.24.21 9999: The AWS SDK for Python
+dev-python/botocore 1.27.12 1.27.17 1.27.20 1.27.21 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8509,7 +8509,7 @@ dev-python/cbor2 5.4.3: Pure Python CBOR (de)serializer with extensive tag suppo
 dev-python/cchardet 2.1.7: High speed universal character encoding detector
 dev-python/cerberus 1.3.2 1.3.4-r1: A lightweight and extensible data-validation library for Python
 dev-python/certifi 3021.3.16-r2: A certifi hack to use system trust store on Linux/FreeBSD
-dev-python/cffi 1.15.0-r1: Foreign Function Interface for Python calling C code
+dev-python/cffi 1.15.0-r1 1.15.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
 dev-python/cfn-lint 0.60.1 0.61.0 0.61.1: CloudFormation Linter
 dev-python/cftime 1.6.0 1.6.1: Time-handling functionality from netcdf4-python
@@ -9029,7 +9029,7 @@ dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plu
 dev-python/natsort 8.1.0: Natural sorting for Python
 dev-python/nautilus-python 1.2.3-r1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 0.3.7: Jupyter Notebook as a Jupyter Server Extension
-dev-python/nbclient 0.6.3 0.6.4: A client library for executing Jupyter notebooks
+dev-python/nbclient 0.6.3 0.6.4 0.6.5: A client library for executing Jupyter notebooks
 dev-python/nbconvert 6.5.0-r1: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.1-r1: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.4.0: Reference implementation of the Jupyter Notebook format
@@ -9145,7 +9145,7 @@ dev-python/picobox 2.2.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.2.0 1.3.0: Pure-Python implementation of the AMQP
-dev-python/pikepdf 5.1.3 5.1.4 5.1.5 5.2.0: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 5.1.3 5.1.4 5.1.5 5.2.0-r1: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 9.1.1: Python Imaging Library (fork)
 dev-python/pip 22.1.2: The PyPA recommended tool for installing Python packages
@@ -9714,7 +9714,7 @@ dev-python/stestr 3.2.1: A parallel Python test runner built around subunit
 dev-python/stevedore 3.5.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.0.1: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 3.2.0 3.3.0 3.4.0: Stripe python bindings
+dev-python/stripe 3.2.0 3.3.0 3.4.0 3.5.0: Stripe python bindings
 dev-python/subprocess-tee 0.3.5: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.0_p20210729: A streaming protocol for test results
 dev-python/suds-community 1.1.1 1.1.2: Lightweight SOAP client
@@ -9796,7 +9796,7 @@ dev-python/typing-extensions 4.2.0: Backported and Experimental Type Hints for P
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzlocal 4.2: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.7.1-r1: A portable, lightweight MessagePack serializer and deserializer
-dev-python/ubelt 1.1.1: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
+dev-python/ubelt 1.1.1 1.1.2: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
 dev-python/ujson 5.3.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukkonen)
 dev-python/unasync 0.5.0: The async transformation code
@@ -10879,7 +10879,7 @@ dev-ruby/sass 3.5.7 3.5.7-r1 3.7.4 3.7.4-r1: An extension of CSS3, adding nested
 dev-ruby/sass-listen 4.0.0-r1: Fork of guard/listen provides a stable API for users of the ruby Sass CLI
 dev-ruby/sass-rails 5.0.8 5.1.0: Official Ruby-on-Rails Integration with Sass
 dev-ruby/sassc 2.4.0-r1: Use libsass with Ruby
-dev-ruby/sassc-rails 2.1.2-r1: Integrate SassC-Ruby with Rails
+dev-ruby/sassc-rails 2.1.2-r1 2.1.2-r2: Integrate SassC-Ruby with Rails
 dev-ruby/sawyer 0.8.2-r1 0.9.1: Secret User Agent of HTTP
 dev-ruby/sdoc 1.1.0: rdoc generator html with javascript search index
 dev-ruby/seed-fu 2.3.9: Advanced seed data handling for Rails
@@ -11530,7 +11530,7 @@ dev-util/statifier 1.7.4-r2: Statifier is a tool for creating portable, self-con
 dev-util/stepman 0.10.5: Step collection manager for Bitrise CLI
 dev-util/strace 5.17 5.18 9999: A useful diagnostic, instructional, and debugging tool
 dev-util/stressapptest 1.0.9-r1: Stressful Application Test
-dev-util/stripe-mock 0.130.0 0.135.0: Mock HTTP server that responds like the real Stripe API
+dev-util/stripe-mock 0.130.0 0.135.0 0.136.0: Mock HTTP server that responds like the real Stripe API
 dev-util/stubgen 2.08: A member function stub generator for C++
 dev-util/sysdig 0.27.1-r100: A system exploration and troubleshooting tool
 dev-util/sysdig-kmod 0.27.1: Kernel module for dev-util/sysdig
@@ -18272,7 +18272,7 @@ sys-libs/libtermcap-compat 2.0.8-r4: Compatibility package for old termcap-based
 sys-libs/libucontext 1.1-r1 1.2: ucontext implementation featuring glibc-compatible ABI
 sys-libs/libudev-compat 186-r1: Wrapper around libudev.so.1 for packages needing the old libudev.so.0
 sys-libs/libunwind 1.6.2: Portable and efficient API to determine the call-chain of a program
-sys-libs/liburing 2.1-r1 2.1-r2 9999: Efficient I/O with io_uring
+sys-libs/liburing 2.1-r1 2.1-r2 2.2 9999: Efficient I/O with io_uring
 sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utmp (login) info
 sys-libs/libuuid 1.0.3: Portable uuid C library
 sys-libs/libvpd 2.2.8-r1 2.2.9: Library implementation for listing Vital Product Data
