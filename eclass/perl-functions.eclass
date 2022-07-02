@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: perl-functions.eclass
@@ -8,7 +8,7 @@
 # Seemant Kulleen <seemant@gentoo.org>
 # Andreas K. Huettel <dilfridge@gentoo.org>
 # Kent Fredric <kentnl@gentoo.org>
-# @SUPPORTED_EAPIS: 5 6 7 8
+# @SUPPORTED_EAPIS: 6 7 8
 # @BLURB: helper functions eclass for perl modules
 # @DESCRIPTION:
 # The perl-functions eclass is designed to allow easier installation of perl
@@ -16,15 +16,15 @@
 # It provides helper functions, no phases or variable manipulation in
 # global scope.
 
-[[ ${CATEGORY} == "perl-core" ]] && inherit alternatives
-
-case "${EAPI:-0}" in
-	5|6|7|8)
+case ${EAPI} in
+	6|7|8)
 		;;
 	*)
-		die "EAPI=${EAPI} is not supported by perl-functions.eclass"
+		die "${ECLASS}: EAPI ${EAPI:-0} not supported"
 		;;
 esac
+
+[[ ${CATEGORY} == "perl-core" ]] && inherit alternatives
 
 perlinfo_done=false
 
@@ -161,7 +161,7 @@ perl_fix_packlist() {
 
 			# remove files that dont exist
 			cat "${f}" | while read -r entry; do
-				if [ ! -e "${D}/${entry}" ]; then
+				if [[ ! -e ${D}/${entry} ]]; then
 					einfo "Pruning surplus packlist entry ${entry}"
 					grep -v -x -F "${entry}" "${f}" > "${packlist_temp}"
 					mv "${packlist_temp}" "${f}"
@@ -237,9 +237,7 @@ perl_rm_files() {
 # only sense for perl-core packages.
 perl_link_duallife_scripts() {
 	debug-print-function $FUNCNAME "$@"
-	if [[ ${CATEGORY} != perl-core ]] || ! has_version ">=dev-lang/perl-5.8.8-r8" ; then
-		return 0
-	fi
+	[[ ${CATEGORY} != perl-core ]] && return 0
 
 	local i ff
 	if has "${EBUILD_PHASE:-none}" "postinst" "postrm" ; then
@@ -278,12 +276,12 @@ perl_check_env() {
 
 	for i in PERL_MM_OPT PERL5LIB PERL5OPT PERL_MB_OPT PERL_CORE PERLPREFIX; do
 		# Next unless match
-		[ -v $i ] || continue;
+		[[ -v $i ]] || continue;
 
 		# Warn only once, and warn only when one of the bad values are set.
 		# record failure here.
-		if [ ${errored:-0} == 0 ]; then
-			if [ -n "${I_KNOW_WHAT_I_AM_DOING}" ]; then
+		if [[ ${errored:-0} == 0 ]]; then
+			if [[ -n ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 				elog "perl-module.eclass: Suspicious environment values found.";
 			else
 				eerror "perl-module.eclass: Suspicious environment values found.";
@@ -295,7 +293,7 @@ perl_check_env() {
 		value=${!i};
 
 		# Print ENV name/value pair
-		if [ -n "${I_KNOW_WHAT_I_AM_DOING}" ]; then
+		if [[ -n ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 			elog "    $i=\"$value\"";
 		else
 			eerror "    $i=\"$value\"";
@@ -303,10 +301,10 @@ perl_check_env() {
 	done
 
 	# Return if there were no failures
-	[ ${errored:-0} == 0 ] && return;
+	[[ ${errored:-0} == 0 ]] && return;
 
 	# Return if user knows what they're doing
-	if [ -n "${I_KNOW_WHAT_I_AM_DOING}" ]; then
+	if [[ -n ${I_KNOW_WHAT_I_AM_DOING} ]]; then
 		elog "Continuing anyway, seems you know what you're doing."
 		return
 	fi
