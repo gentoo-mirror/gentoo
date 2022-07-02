@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Module-Build dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/List-MoreUtils sci-libs/profphd-utils dev-lang/perl
+DESCRIPTION=Parsers and format conversion utilities used by (e.g.) profphd
+EAPI=8
+HOMEPAGE=http://rostlab.org/
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=dev-perl/List-MoreUtils dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=ftp://rostlab.org/librg-utils-perl/librg-utils-perl-1.0.43.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_md5_=989c02f27ce2de31c74aebdc33e90a22

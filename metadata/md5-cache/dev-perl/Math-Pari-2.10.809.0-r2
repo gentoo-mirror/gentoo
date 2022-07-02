@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Perl interface to PARI
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Math-Pari
+INHERIT=perl-module toolchain-funcs
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~hppa ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/I/IL/ILYAZ/modules/Math-Pari-2.01080900.zip http://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.3.5.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	8eed4e2982026c684ff7c19cd4c88ed0	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=89f76dc14e359a051184dc49b4df6676

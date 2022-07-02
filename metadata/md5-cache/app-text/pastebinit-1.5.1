@@ -4,12 +4,12 @@ DESCRIPTION=A software that lets you send anything you want directly to a pasteb
 EAPI=7
 HOMEPAGE=https://launchpad.net/pastebinit
 INHERIT=python-single-r1
-IUSE=crypt python_single_target_python3_8 python_single_target_python3_9
+IUSE=crypt python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml] ) python_single_target_python3_8? ( dev-python/configobj[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/configobj[python_targets_python3_9(-)] ) crypt? ( app-crypt/gnupg )
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10[xml] ) python_single_target_python3_8? ( dev-python/configobj[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/configobj[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/configobj[python_targets_python3_10(-)] ) crypt? ( app-crypt/gnupg )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=mirror://ubuntu/pool/main/p/pastebinit/pastebinit_1.5.1.orig.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=98e6022b108ec0dcf761094a80e07e2a
+_md5_=96b97c5a75822eafed1ca5c236a30953

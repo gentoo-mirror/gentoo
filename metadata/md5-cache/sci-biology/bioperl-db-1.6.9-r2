@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Module-Build dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=sci-biology/bioperl-1.6.9 dev-perl/DBD-mysql dev-perl/DBI sci-biology/biosql test? ( dev-perl/Data-Stag dev-perl/Sub-Uplevel dev-perl/Test-Warn dev-perl/Test-Exception virtual/perl-Test-Simple ) dev-lang/perl
+DESCRIPTION=Perl tools for bioinformatics - Perl API that accesses the BioSQL schema
+EAPI=8
+HOMEPAGE=http://www.bioperl.org/
+INHERIT=perl-module
+IUSE=test test
+KEYWORDS=amd64 x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=sci-biology/bioperl-1.6.9 dev-perl/DBD-mysql dev-perl/DBI sci-biology/biosql dev-lang/perl:=
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/C/CJ/CJFIELDS/BioPerl-DB-1.006900.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	fea344a91ebf37efadf172c6a3de5a72	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	8eed4e2982026c684ff7c19cd4c88ed0
+_md5_=ec0bd67d52c316d61cf5adb758afcf04
