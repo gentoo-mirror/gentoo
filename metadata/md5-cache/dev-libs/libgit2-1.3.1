@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://libgit2.org/
 INHERIT=cmake python-any-r1
 IUSE=examples gssapi +ssh test +threads trace
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~ppc-macos
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~ppc-macos
 LICENSE=GPL-2-with-linking-exception
 RDEPEND=dev-libs/libpcre:= net-libs/http-parser:= sys-libs/zlib dev-libs/openssl:0= gssapi? ( virtual/krb5 ) ssh? ( net-libs/libssh2 )
 RESTRICT=!test? ( test )
 SLOT=0/1.3
 SRC_URI=https://github.com/libgit2/libgit2/archive/v1.3.1.tar.gz -> libgit2-1.3.1.tar.gz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
-_md5_=9303046d29cdb488368222cef321b854
+_md5_=7193a5fb1730e13c401f949613fa238f

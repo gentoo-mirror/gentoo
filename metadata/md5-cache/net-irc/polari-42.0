@@ -7,11 +7,11 @@ HOMEPAGE=https://wiki.gnome.org/Apps/Polari https://gitlab.gnome.org/GNOME/polar
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson xdg
 IUSE=test
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm ~x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.43.4:2 net-libs/telepathy-glib[introspection] >=dev-libs/gobject-introspection-1.50:= >=dev-libs/gjs-1.69.2 x11-libs/gdk-pixbuf:2[introspection] >=app-text/gspell-1.4.0[introspection] x11-libs/pango[introspection] app-crypt/libsecret[introspection] net-libs/libsoup:2.4[introspection] net-im/telepathy-logger[introspection] >=net-irc/telepathy-idle-0.2
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/polari/42/polari-42.0.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	2cc95670908abda0d67e9e16a6b4341e	xdg	6024fbc93167fad782e2032933654857
-_md5_=70f713e13f6c120fa1925256cf53e622
+_md5_=7bd3b937d8680c3c965f76bf7679cd54
