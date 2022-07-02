@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure prepare test
+DEFINED_PHASES=configure install prepare test
 DEPEND=dev-libs/libffi:= X? ( x11-libs/motif:0 ) gmp? ( >=dev-libs/gmp-5:= )
 DESCRIPTION=Poly/ML is a full implementation of Standard ML
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/libffi:= X? ( x11-libs/motif:0 ) gmp? ( >=dev-libs/gmp-5:= )
 SLOT=0/5.9
 SRC_URI=https://github.com/polyml/polyml/archive/v5.9.tar.gz -> polyml-5.9.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f
-_md5_=4fc8c525ae127d7690f523f6b44b6062
+_md5_=5be47280f5397af3ff78f733d38a0b7c
