@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Command-line static web gallery generator
+EAPI=8
+HOMEPAGE=http://bgoglin.free.fr/llgal/
+INHERIT=perl-module
+IUSE=exif test
+KEYWORDS=amd64 ~ppc x86
+LICENSE=GPL-2
+RDEPEND=dev-perl/Image-Size dev-perl/URI dev-perl/Locale-gettext virtual/imagemagick-tools exif? ( media-libs/exiftool ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bgoglin/llgal/archive/llgal-0.13.19.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
+_md5_=47672e1b43f1d3035b9c6d6e14e77201
