@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://musescore.org/
 INHERIT=cmake qmake-utils xdg check-reqs
 IUSE=alsa debug jack mp3 osc omr portaudio portmidi pulseaudio +sf3 sfz webengine
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-2
 RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
 REQUIRED_USE=portmidi? ( portaudio )
 SLOT=0
 SRC_URI=https://github.com/musescore/MuseScore/archive/v3.6.2.tar.gz -> musescore-3.6.2.tar.gz https://dev.gentoo.org/~fordfrog/distfiles/MuseScore_General-0.2.0.tar.bz2
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	qmake-utils	59420c906278d16deaaa629f9d115707	xdg	6024fbc93167fad782e2032933654857	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c
-_md5_=0ee2ecc91831858ec389a1fd0ae9cc7c
+_md5_=7ac4cf490bea9ba3e5043506411af2d9
