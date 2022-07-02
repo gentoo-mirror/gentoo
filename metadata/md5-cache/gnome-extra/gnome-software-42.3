@@ -1,0 +1,17 @@
+BDEPEND=dev-libs/libxml2:2 dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) app-arch/xz-utils >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-libs/appstream-0.14.0:0= >=x11-libs/gdk-pixbuf-2.32.0:2 >=dev-libs/libxmlb-0.1.7:= >=gui-libs/gtk-4.6:4 >=dev-libs/glib-2.66.0:2 >=dev-libs/json-glib-1.6.0 >=net-libs/libsoup-2.52.0:2.4 >=gui-libs/libadwaita-1.0.1:1 sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) gnome? ( >=gnome-base/gsettings-desktop-schemas-3.18.0 ) sys-auth/polkit firmware? ( >=sys-apps/fwupd-1.5.6 ) flatpak? ( >=sys-apps/flatpak-1.9.1 dev-util/ostree ) udev? ( dev-libs/libgudev ) >=gnome-base/gsettings-desktop-schemas-3.11.5
+DESCRIPTION=Gnome install & update software
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/Software
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson virtualx xdg
+IUSE=flatpak +firmware gnome gtk-doc sysprof udev test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/appstream-0.14.0:0= >=x11-libs/gdk-pixbuf-2.32.0:2 >=dev-libs/libxmlb-0.1.7:= >=gui-libs/gtk-4.6:4 >=dev-libs/glib-2.66.0:2 >=dev-libs/json-glib-1.6.0 >=net-libs/libsoup-2.52.0:2.4 >=gui-libs/libadwaita-1.0.1:1 sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) gnome? ( >=gnome-base/gsettings-desktop-schemas-3.18.0 ) sys-auth/polkit firmware? ( >=sys-apps/fwupd-1.5.6 ) flatpak? ( >=sys-apps/flatpak-1.9.1 dev-util/ostree ) udev? ( dev-libs/libgudev ) >=gnome-base/gsettings-desktop-schemas-3.11.5
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-software/42/gnome-software-42.3.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	8f48ffde53174aba67239f0da61ac9d3	virtualx	975d49ff3b3f451efe7a95f230532135	xdg	6024fbc93167fad782e2032933654857
+_md5_=531dc3fa4709fa24c7ec339c64353908
