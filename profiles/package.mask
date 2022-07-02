@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-07-02)
+# Deprecated dependencies, no activity upstream. Bugs #845615, #796326.
+# Removal on 2022-08-02.
+app-vim/pyclewn
+
 # Michał Górny <mgorny@gentoo.org> (2022-07-02)
 # Last release in 2014.  Archived upstream, and superseded by GeoIP2
 # (not packaged).  There is only one revdep (net-p2p/deluge) for which
@@ -248,20 +253,6 @@ dev-python/polygon
 # Removal on 2022-07-05.  Bug #845756.
 dev-python/mysql-connector-python
 
-# Michał Górny <mgorny@gentoo.org> (2022-06-02)
-# The current Gentoo version requires setup.py to exist which breaks
-# the new versions of its revdeps.  The new upstream release is broken
-# by design and requires installing setuptools in a virtualenv (enjoy
-# pep517) to get the package's version, so fails without Internet.
-# No reply on the bug for 3 months already.
-# Removal on 2022-07-02.  Bug #834534.
-dev-python/jaraco-packaging
-
-# Sam James <sam@gentoo.org> (2022-06-02)
-# No reverse dependencies, uses long-deprecated and abandoned nose for tests,
-# no upstream activity in years. Removal on 2022-07-02.
-dev-python/chai
-
 # Matt Turner <mattst88@gentoo.org> (2022-05-30)
 # libwacom-2 broke ABI compatibility; reverse dependencies need to be updated.
 # Bug #848501
@@ -414,11 +405,6 @@ net-p2p/arti
 <sci-electronics/kicad-symbols-6.0.2
 <sci-electronics/kicad-templates-6.0.2
 <app-doc/kicad-doc-6.0.2
-
-# Jonas Stein <jstein@gentoo.org> (2022-02-08)
-# Not maintained, open bugs, upstream outdated.
-# Removal after 2022-07-01.  Bug #832953.
-x11-misc/easystroke
 
 # Eray Aslan <eras@gentoo.org> (2022-01-24)
 # Mask experimental software

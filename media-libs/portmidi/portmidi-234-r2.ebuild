@@ -3,11 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
-DISTUTILS_OPTIONAL=1
 # ninja: error: build.ninja:521: multiple rules generate pm_java/pmdefaults.jar [-w dupbuild=err]
 CMAKE_MAKEFILE_GENERATOR="emake"
-inherit cmake desktop xdg distutils-r1 java-pkg-opt-2 flag-o-matic
+# Python bindings dropped b/c of bug #855077
+inherit cmake desktop xdg java-pkg-opt-2
 
 MY_P="portmedia-code-r${PV}"
 
@@ -17,10 +16,8 @@ SRC_URI="mirror://sourceforge/project/portmedia/${MY_P}.zip"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86"
-IUSE="debug doc java python static-libs test-programs"
-
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="debug doc java static-libs test-programs"
 
 BDEPEND="
 	app-arch/unzip
@@ -30,11 +27,9 @@ BDEPEND="
 		dev-texlive/texlive-latexextra
 		virtual/latex-base
 	)
-	python? ( dev-python/cython[${PYTHON_USEDEP}] )
 "
 CDEPEND="
 	media-libs/alsa-lib
-	python? ( ${PYTHON_DEPS} )
 "
 RDEPEND="${CDEPEND}
 	java? ( >=virtual/jre-1.8:* )
@@ -51,9 +46,6 @@ PATCHES=(
 	# fix parallel make failures, fix java support, and allow optional
 	# components like test programs and static libs to be skipped
 	"${FILESDIR}"/${P}-cmake.patch
-
-	# add include directories and remove references to missing files
-	"${FILESDIR}"/${PN}-217-r4-python.patch
 )
 
 pkg_setup() {
@@ -97,14 +89,6 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 
-	if use python ; then
-		sed -i -e "/library_dirs=.*linux/s#./linux#${CMAKE_BUILD_DIR}#" pm_python/setup.py || die
-		pushd pm_python > /dev/null
-		append-ldflags -L"${BUILD_DIR}"
-		distutils-r1_src_compile
-		popd > /dev/null
-	fi
-
 	if use doc ; then
 		doxygen || die "doxygen failed"
 		pushd latex > /dev/null
@@ -119,12 +103,6 @@ src_install() {
 	dodoc CHANGELOG.txt README.txt pm_linux/README_LINUX.txt
 
 	use doc && dodoc latex/refman.pdf
-
-	if use python ; then
-		pushd pm_python > /dev/null
-		distutils-r1_src_install
-		popd > /dev/null
-	fi
 
 	if use java ; then
 		newdoc pm_java/README.txt README_JAVA.txt
