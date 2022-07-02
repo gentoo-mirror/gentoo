@@ -3,8 +3,8 @@
 
 EAPI=8
 
-VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/oletange.asc
-inherit verify-sig
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/oletange.asc
+inherit autotools verify-sig
 
 DESCRIPTION="A shell tool for executing jobs in parallel locally or on remote machines"
 HOMEPAGE="https://www.gnu.org/software/parallel/ https://git.savannah.gnu.org/cgit/parallel.git/"
@@ -13,7 +13,7 @@ SRC_URI+=" verify-sig? ( mirror://gnu/${PN}/${P}.tar.bz2.sig )"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 
 RDEPEND="dev-lang/perl:=
 	dev-perl/Devel-Size
@@ -23,6 +23,17 @@ RDEPEND="dev-lang/perl:=
 	virtual/perl-IO"
 DEPEND="${RDEPEND}"
 BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-oletange-20210423 )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-20220622-makefile-completions.patch
+)
+
+src_prepare() {
+	default
+
+	# Only for Makefile/completions patch
+	eautoreconf
+}
 
 src_configure() {
 	econf --docdir="${EPREFIX}"/usr/share/doc/${PF}/html
