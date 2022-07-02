@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit perl-functions
 
@@ -12,7 +12,6 @@ SRC_URI="http://www.proxmox.com/cms_proxmox/cms/upload/vzdump/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="dev-lang/perl:="
 RDEPEND="${DEPEND}
@@ -23,6 +22,10 @@ RDEPEND="${DEPEND}
 	sys-fs/lvm2
 	virtual/mta
 	virtual/perl-Getopt-Long"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2-no-compress.patch
+)
 
 src_compile() {
 	return
