@@ -1,0 +1,17 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare setup unpack
+DEPEND=app-misc/yq net-firewall/conntrack-tools sys-fs/btrfs-progs rootless? ( app-containers/slirp4netns )
+DESCRIPTION=Lightweight Kubernetes
+EAPI=7
+HOMEPAGE=https://k3s.io
+INHERIT=go-module linux-info systemd
+IUSE=+kubectl-symlink rootless
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=kubectl-symlink? ( !sys-cluster/kubectl )
+REQUIRED_USE=|| ( amd64 )
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/zmedico/k3s/archive/refs/tags/v1.24.2+k3s1-vendor.tar.gz -> k3s-1.24.2_p1-vendor.tar.gz https://github.com/k3s-io/containerd/archive/refs/tags/v1.6.6-k3s1.tar.gz -> k3s-containerd-1.6.6-k3s1.tar.gz https://github.com/opencontainers/runc/archive/refs/tags/v1.1.2.tar.gz -> k3s-runc-v1.1.2-r1.tar.gz https://helm.traefik.io/traefik/traefik-10.19.3.tgz https://github.com/rancher/plugins/archive/refs/tags/v1.1.1-k3s1.tar.gz -> k3s-cni-plugins-1.1.1.tar.gz amd64? ( https://github.com/rancher/k3s-root/releases/download/v0.11.0/k3s-root-amd64.tar -> k3s-root-amd64-0.11.0.tar )
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=2f384524686d1ede9c3e9ce58e76ee93
