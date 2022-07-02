@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ LICENSE="GPL-2"
 
 SRC_URI="https://www.lesbonscomptes.com/upmpdcli/downloads/${P}.tar.gz"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="thirdparty"
 
 DEPEND="
@@ -27,6 +27,21 @@ RDEPEND="
 	app-misc/recoll
 	thirdparty? ( dev-python/requests )
 "
+
+src_configure() {
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var/lib \
+		--disable-dependency-tracking \
+		--disable-silent-rules \
+		"--docdir=/usr/share/doc/${P}" \
+		"--htmldir=/usr/share/doc/${P}/html" \
+		--libdir=/usr/lib64 \
+		|| die "Configure failed"
+
+}
 
 src_install() {
 	default
