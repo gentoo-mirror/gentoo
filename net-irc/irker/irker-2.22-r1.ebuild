@@ -31,6 +31,10 @@ RDEPEND="${PYTHON_DEPS}"
 DOCS=( NEWS README hacking.adoc security.adoc )
 HTML_DOCS=( irkerd.html irkerhook.html )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.22-fix-tcpserver.patch
+)
+
 src_prepare() {
 	default
 
