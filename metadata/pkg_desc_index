@@ -8349,6 +8349,7 @@ dev-python/APScheduler 3.9.1: In-process task scheduler with Cron-like capabilit
 dev-python/Arpeggio 2.0.0: Parser interpreter based on PEG grammars
 dev-python/Babel 2.10.1 2.10.2 2.10.3: Collection of tools for internationalizing Python applications
 dev-python/BitVector 3.5.0: A pure-Python memory-efficient packed representation for bit arrays
+dev-python/ConfigArgParse 1.5.3: Drop-in replacement for argparse supporting config files and env variables
 dev-python/CppHeaderParser 2.7.4: Parse C++ header files and generate a data structure
 dev-python/Faker 13.13.0 13.14.0: A Python package that generates fake data for you
 dev-python/GitPython 3.1.27: Library used to interact with Git repositories
@@ -8426,8 +8427,8 @@ dev-python/astroid 2.11.5 2.11.6: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.0.5: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.3: Simple lru_cache for asyncio
+dev-python/async-timeout 4.0.2-r1: Timeout context manager for asyncio programs
 dev-python/async_generator 1.10-r2: Making it easy to write async iterators in Python 3.5
-dev-python/async_timeout 4.0.2-r1: Timeout context manager for asyncio programs
 dev-python/asyncstdlib 3.10.5: The missing async toolbox
 dev-python/atomicwrites 1.4.0-r2: Atomic file writes
 dev-python/atpublic 3.0.1: A decorator to populate __all__ and the module globals
@@ -8550,7 +8551,6 @@ dev-python/colorlog 6.6.0-r1: Log formatting with colors
 dev-python/colorspacious 1.1.2: Powerful, accurate, and easy-to-use Python library for colorspace conversions
 dev-python/commentjson 0.9.0-r1: Add Python and JavaScript style comments in your JSON files
 dev-python/commonmark 0.9.1-r1: Python parser for the CommonMark Markdown spec
-dev-python/configargparse 1.5.3: Drop-in replacement for argparse supporting config files and env variables
 dev-python/configclass 0.2.0: A Python to class to hold configuration values
 dev-python/configobj 5.0.6-r2: Simple config file reader and writer
 dev-python/configshell-fb 1.1.29: A Python library for building configuration shells
@@ -11212,7 +11212,7 @@ dev-util/bloaty 1.1 9999: A size profiler for binaries
 dev-util/bnfc 2.8.3: A compiler front-end generator
 dev-util/boost-build 1.78.0-r1 1.79.0: A system for large project software construction, simple to use and powerful
 dev-util/bootconfig 5.18: Bootconfig tools for kernel command line to support key-value
-dev-util/bpftool 5.17.7 5.18.4: Tool for inspection and simple manipulation of eBPF programs and maps
+dev-util/bpftool 5.17.7 5.18.4 5.18.6: Tool for inspection and simple manipulation of eBPF programs and maps
 dev-util/bpftrace 0.15.0: High-level tracing language for eBPF
 dev-util/breakpad 2022.06.04: implement a crash-reporting system.
 dev-util/bsdiff 4.3-r4: bsdiff: Binary Differencer using a suffix alg
@@ -17989,7 +17989,7 @@ sys-devel/binutils-apple 3.2.6 8.2.1-r1 8.2.1-r101: Darwin Xtools matching Xcode
 sys-devel/binutils-config 5.4 5.4.1 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r1 2.38-r2: Tools necessary to build programs
 sys-devel/bison 3.7.6 3.8.2: A general-purpose (yacc-compatible) parser generator
-sys-devel/bmake 20220418: NetBSD's portable make
+sys-devel/bmake 20220418 20220612: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
 sys-devel/clang 12.0.1 13.0.1 14.0.1-r1 14.0.3 14.0.4 14.0.5 14.0.6 15.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 12.0.1 13.0.1 14.0.1 14.0.3 14.0.4 14.0.5 14.0.6 15.0.0.9999: Common files shared between multiple slots of clang
