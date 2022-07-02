@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.12-r1 1.25.17-r1 1.25.20 1.25.21: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.12-r1 1.25.17-r1 1.25.20 1.25.21 1.25.22: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.11: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r2: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.30.0 1.32.1: Bitwarden password manager desktop client
@@ -3304,7 +3304,7 @@ app-portage/kuroneko 0.1.0 0.1.1 0.1.2 0.1.3: Vulnerability checker using data s
 app-portage/kuroo 1.2.1 9999: Graphical Portage frontend based on KDE Frameworks
 app-portage/layman 2.4.3 9999: Tool to manage Gentoo overlays
 app-portage/metagen 0.7.2 0.7.2-r1 0.7.2-r2 0.7.3 0.7.3-r1 9999: metadata.xml generator for ebuilds
-app-portage/mgorny-dev-scripts 16 17 18 19: Handy scripts for ebuild development and more
+app-portage/mgorny-dev-scripts 16 17 18 19 20: Handy scripts for ebuild development and more
 app-portage/mirrorselect 2.2.6-r2 2.3.0 9999: Tool to help select distfiles mirrors for Gentoo
 app-portage/nattka 0.3.1: A New Arch Tester Toolkit -- open-source stable-bot replacement
 app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-package basis
@@ -8479,8 +8479,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.12 1.24.17 1.24.20 1.24.21 9999: The AWS SDK for Python
-dev-python/botocore 1.27.12 1.27.17 1.27.20 1.27.21 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.12 1.24.17 1.24.20 1.24.21 1.24.22 9999: The AWS SDK for Python
+dev-python/botocore 1.27.12 1.27.17 1.27.20 1.27.21 1.27.22 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8693,7 +8693,7 @@ dev-python/filelock 3.7.1: A platform independent file lock for Python
 dev-python/filetype 1.0.10: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.2.0-r1: Python module import analysis tool
 dev-python/fitsio 1.1.7: Python library to read from and write to FITS files
-dev-python/fixtures 4.0.0: Fixtures, reusable state for writing clean tests and more
+dev-python/fixtures 4.0.0 4.0.1: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 4.0.1-r2: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flake8-polyfill 1.0.2: Polyfill package for Flake8 plugins
 dev-python/flaky 3.7.0-r2: Plugin for nose or py.test that automatically reruns flaky tests
@@ -8814,9 +8814,9 @@ dev-python/ifaddr 0.1.7 0.2.0: Enumerate IP addresses on the local network adapt
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
 dev-python/imageio 2.19.3: Python library for reading and writing image data
 dev-python/imageio-ffmpeg 0.4.7: FFMPEG wrapper for Python
-dev-python/imagesize 1.3.0-r1: Pure Python module for getting image size from png/jpeg/jpeg2000/gif files
+dev-python/imagesize 1.3.0-r1 1.4.1: Pure Python module for getting image size from png/jpeg/jpeg2000/gif files
 dev-python/imapclient 2.2.0 2.2.0-r1: easy-to-use, pythonic, and complete IMAP client library
-dev-python/iminuit 2.11.2 2.12.0: Minuit numerical function minimization in Python
+dev-python/iminuit 2.11.2 2.12.0 2.12.1: Minuit numerical function minimization in Python
 dev-python/immutables 0.18: A high-performance immutable mapping type for Python
 dev-python/importlib_metadata 4.11.4 4.12.0: Read metadata from Python packages
 dev-python/importlib_resources 5.7.1 5.8.0: Read resources from Python packages
@@ -8953,7 +8953,7 @@ dev-python/loguru 0.6.0: Python logging made (stupidly) simple
 dev-python/logutils 0.3.5-r1: The logutils package provides a set of handlers for the Python standard
 dev-python/loky 3.1.0: Robust and reusable Executor for joblib
 dev-python/lunr 0.6.2: A Python implementation of Lunr.js
-dev-python/lxml 4.8.0-r1 4.9.0-r1: A Pythonic binding for the libxml2 and libxslt libraries
+dev-python/lxml 4.8.0-r1 4.9.0-r1 4.9.1: A Pythonic binding for the libxml2 and libxslt libraries
 dev-python/lz4 4.0.1: LZ4 Bindings for Python
 dev-python/m2crypto 0.38.0: A Python crypto and SSL toolkit
 dev-python/makefun 1.13.1 1.14.0: Small library to dynamically create Python functions
@@ -9029,7 +9029,7 @@ dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plu
 dev-python/natsort 8.1.0: Natural sorting for Python
 dev-python/nautilus-python 1.2.3-r1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 0.3.7: Jupyter Notebook as a Jupyter Server Extension
-dev-python/nbclient 0.6.3 0.6.4 0.6.5: A client library for executing Jupyter notebooks
+dev-python/nbclient 0.6.3 0.6.4 0.6.5 0.6.6: A client library for executing Jupyter notebooks
 dev-python/nbconvert 6.5.0-r1: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.1-r1: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.4.0: Reference implementation of the Jupyter Notebook format
@@ -9137,7 +9137,7 @@ dev-python/pep517 0.12.0-r1: Wrappers to build Python packages using PEP 517 hoo
 dev-python/pexpect 4.8.0-r3: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 1.13.1-r1 2.0.0 2.0.1: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r1: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.12.49 8.12.50: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.12.49 8.12.50 8.12.51: Python port of Google's libphonenumber
 dev-python/phply 1.2.5: Lexer and parser for PHP source implemented using PLY
 dev-python/picklemagic 0.0_pre20160415: A library for analysing python pickles safely
 dev-python/pickleshare 0.7.5: A small 'shelve' like datastore with concurrency support
@@ -9147,7 +9147,7 @@ dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.2.0 1.3.0: Pure-Python implementation of the AMQP
 dev-python/pikepdf 5.1.3 5.1.4 5.1.5 5.2.0-r1: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
-dev-python/pillow 9.1.1: Python Imaging Library (fork)
+dev-python/pillow 9.1.1 9.2.0: Python Imaging Library (fork)
 dev-python/pip 22.1.2: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 8.8.0: Install packages and run Python with them
 dev-python/pipenv 2022.6.7: Python Development Workflow for Humans
@@ -9611,7 +9611,7 @@ dev-python/setuptools 62.3.3 62.3.4 62.4.0 62.5.0 62.6.0: Collection of extensio
 dev-python/setuptools-declarative-requirements 1.2.0-r2: Requirements Support For Setuptools Declarative setup.cfg
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.3.0: A plugin for setuptools to build Rust Python extensions
-dev-python/setuptools_scm 6.4.2 7.0.1-r1 7.0.2 7.0.3: Manage versions by scm tags via setuptools
+dev-python/setuptools_scm 6.4.2 7.0.1-r1 7.0.2 7.0.3 7.0.4: Manage versions by scm tags via setuptools
 dev-python/setuptools_scm_git_archive 1.1-r5 1.2 1.3 1.4: A setuptools_scm plugin for git archives
 dev-python/setuptools_trial 0.6.0-r1: Setuptools plugin that makes unit tests execute with trial instead of pyunit
 dev-python/sexpdata 0.0.3-r2: a simple S-expression parser/serializer
@@ -9774,10 +9774,10 @@ dev-python/tpm2-pytss 1.1.0: Python bindings for TSS
 dev-python/tqdm 4.64.0: Add a progress meter to your loops in a second
 dev-python/traitlets 5.2.2_p1 5.3.0: A configuration system for Python applications
 dev-python/transitions 0.8.11: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.6.2 3.7.0: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.6.2 3.7.0 3.7.1: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.0-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.12.5 3.12.6: Python library for loading and using triangular meshes
+dev-python/trimesh 3.12.5 3.12.6 3.12.7: Python library for loading and using triangular meshes
 dev-python/trio 0.20.0 0.21.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trove-classifiers 2022.6.23 2022.6.26: Canonical source for classifiers on PyPI (pypi.org)
@@ -9792,7 +9792,7 @@ dev-python/txaio 22.2.1: Compatibility API between asyncio/Twisted/Trollius
 dev-python/txrequests 0.9.6: Asynchronous Python HTTP for Humans
 dev-python/typed-ast 1.4.3 1.5.4: Python typed-ast backported
 dev-python/typeguard 2.13.3-r1: Run-time type checker for Python
-dev-python/typing-extensions 4.2.0: Backported and Experimental Type Hints for Python 3.7+
+dev-python/typing-extensions 4.2.0 4.3.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzlocal 4.2: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.7.1-r1: A portable, lightweight MessagePack serializer and deserializer
@@ -9805,7 +9805,7 @@ dev-python/unidecode 1.3.4: Module providing ASCII transliterations of Unicode t
 dev-python/unidiff 0.7.3 0.7.4: Unified diff parsing/metadata extraction library
 dev-python/unittest-mixins 1.6-r2: A set of mixin classes and other helpers for unittest test case classes
 dev-python/unittest-or-fail 2: Run unittests or fail if no tests were found
-dev-python/untangle 1.1.1-r1: Convert XML documents into Python objects
+dev-python/untangle 1.1.1-r1 1.2.0: Convert XML documents into Python objects
 dev-python/uranium 4.13.0-r1: A Python framework for building 3D printing related applications
 dev-python/urdf_parser_py 0.4.5: URDF parser for Python
 dev-python/uri_template 1.2.0-r1: URI Template expansion in strict adherence to RFC 6570
@@ -16919,7 +16919,7 @@ sci-libs/scikit-learn 0.24.2 1.0.2 1.1.1: Machine learning library for Python
 sci-libs/scikit-optimize 0.8.1 0.9.0: Sequential model-based optimization library
 sci-libs/scotch 6.1.2 7.0.1-r1: Software for graph, mesh and hypergraph partitioning
 sci-libs/shapelib 1.5.0: Library for manipulating ESRI Shapefiles
-sci-libs/shapely 1.7.1-r1: Geometric objects, predicates, and operations
+sci-libs/shapely 1.7.1-r1 1.8.2: Geometric objects, predicates, and operations
 sci-libs/silo 4.11-r1: A mesh and field I/O library and scientific database
 sci-libs/spglib 1.14.1: Spglib is a C library for finding and handling crystal symmetries
 sci-libs/spqr 2.0.9-r2: Multithreaded multifrontal sparse QR factorization library
