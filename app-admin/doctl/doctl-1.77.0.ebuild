@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 go-module
+inherit bash-completion-r1 edo go-module
 
 DESCRIPTION="A command line tool for DigitalOcean services"
 HOMEPAGE="https://github.com/digitalocean/doctl"
@@ -18,17 +18,17 @@ src_compile() {
 		-X github.com/digitalocean/doctl.Minor=$(ver_cut 2)
 		-X github.com/digitalocean/doctl.Patch=$(ver_cut 3-)
 		-X github.com/digitalocean/doctl.Label=release"
-	GOFLAGS="-v -x -mod=vendor" \
-		go build -ldflags "$LDFLAGS" ./cmd/... || die "build failed"
+	GOFLAGS="-v -x -mod=vendor" ego build -ldflags "$LDFLAGS" ./cmd/...
 
-	./doctl completion bash > doctl.bash || die "completion for bash failed"
-	./doctl completion zsh > doctl.zsh || die "completion for sh failed"
-	./doctl completion fish > doctl.fish || die "completion for fish failed"
+	local completion
+	for completion in bash zsh fish ; do
+		edo ./doctl completion ${completion} > doctl.${completion} \
+			|| die "completion for ${completion} failed"
+	done
 }
 
 src_test() {
-	GOFLAGS="-v -x -mod=vendor" \
-		go test -work ./do/... ./pkg/... . || die "test failed"
+	GOFLAGS="-v -x -mod=vendor" ego test -work ./do/... ./pkg/... .
 }
 
 src_install() {

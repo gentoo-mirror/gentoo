@@ -5,7 +5,7 @@ EAPI=8
 
 EGIT_REPO_URI="https://github.com/digitalocean/${PN}.git"
 
-inherit edo bash-completion-r1 git-r3 go-module
+inherit bash-completion-r1 edo git-r3 go-module
 
 DESCRIPTION="A command line tool for DigitalOcean services"
 HOMEPAGE="https://github.com/digitalocean/doctl"
@@ -22,11 +22,12 @@ src_unpack() {
 src_compile() {
 	LDFLAGS="-X github.com/digitalocean/doctl.Build=$(git rev-parse --short HEAD)
 		-X github.com/digitalocean/doctl.Label=dev"
-	GOFLAGS="-v -x -mod=vendor" go build -ldflags "$LDFLAGS" ./cmd/...
+	GOFLAGS="-v -x -mod=vendor" ego build -ldflags "$LDFLAGS" ./cmd/...
 
 	local completion
 	for completion in bash zsh fish ; do
-		edo ./doctl completion ${completion} > doctl.${completion} || die "completion for ${completion} failed"
+		edo ./doctl completion ${completion} > doctl.${completion} \
+			|| die "completion for ${completion} failed"
 	done
 }
 
