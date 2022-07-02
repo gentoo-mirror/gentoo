@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Module-Build dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=>=dev-lang/perl-5.10 >=x11-libs/gtk+-2.18:2 >=dev-perl/Gtk2-1.120 virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-BaseDir dev-perl/XML-Twig dev-perl/glib-perl x11-misc/numlockx media-gfx/feh dev-lang/perl
+DESCRIPTION=A launcher for starting games in a second X session
+EAPI=8
+HOMEPAGE=https://code.google.com/p/xgamer/
+INHERIT=optfeature perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=>=dev-lang/perl-5.10 >=x11-libs/gtk+-2.18:2 >=dev-perl/Gtk2-1.120 virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-BaseDir dev-perl/XML-Twig dev-perl/glib-perl x11-misc/numlockx media-gfx/feh dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://xgamer.googlecode.com/files/xgamer-0.6.2.tar.gz
+_eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
+_md5_=22c2938a8b0e7e4ea42bc5d9bd310cce

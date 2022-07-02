@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl dev-perl/IO-String dev-perl/NetAddr-IP dev-perl/NetPacket dev-perl/Net-ARP dev-perl/Net-Pcap dev-perl/Readonly dev-perl/TermReadKey dev-perl/Term-ReadLine-Gnu virtual/perl-Data-Dumper virtual/perl-File-Path virtual/perl-Getopt-Long virtual/perl-Sys-Syslog virtual/perl-Time-HiRes dev-lang/perl
+DESCRIPTION=Sweeps up stray ARP queries from a peering LAN
+EAPI=8
+HOMEPAGE=https://github.com/AMS-IX/arpsponge
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=|| ( GPL-1+ Artistic )
+RDEPEND=dev-lang/perl dev-perl/IO-String dev-perl/NetAddr-IP dev-perl/NetPacket dev-perl/Net-ARP dev-perl/Net-Pcap dev-perl/Readonly dev-perl/TermReadKey dev-perl/Term-ReadLine-Gnu virtual/perl-Data-Dumper virtual/perl-File-Path virtual/perl-Getopt-Long virtual/perl-Sys-Syslog virtual/perl-Time-HiRes dev-lang/perl:=
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/AMS-IX/arpsponge/archive/3.17.11.tar.gz -> arpsponge-3.17.11.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
+_md5_=2cbe60cc335f3682b9cea49af17e4e8b

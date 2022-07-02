@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-oletange-20210423 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure prepare unpack
+DEPEND=dev-lang/perl:= dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-IO
+DESCRIPTION=A shell tool for executing jobs in parallel locally or on remote machines
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/parallel/ https://git.savannah.gnu.org/cgit/parallel.git/
+INHERIT=autotools verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=GPL-3+
+RDEPEND=dev-lang/perl:= dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-IO
+SLOT=0
+SRC_URI=mirror://gnu/parallel/parallel-20220622.tar.bz2 verify-sig? ( mirror://gnu/parallel/parallel-20220622.tar.bz2.sig )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=50466dedfcbc580db23b257ec5a08fc2
