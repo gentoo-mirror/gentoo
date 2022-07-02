@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://www.sqlalchemy.org/ https://pypi.org/project/SQLAlchemy/ https://github.com/sqlalchemy/sqlalchemy/
 INHERIT=distutils-r1 optfeature
 IUSE=examples +sqlite test test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha ~amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=MIT
 RDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p1:0=[sqlite?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10[sqlite?] ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11[sqlite?] )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/S/SQLAlchemy/SQLAlchemy-1.4.37.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	64c5b9cc381383c9c1ef74fb199293ea	optfeature	d524f291c80f9d21ad80fe978e3ca760
-_md5_=9064993b1944f53e360e78e017a7c0e1
+_md5_=9991656d4f4ab46a6734fc842eacefe4
