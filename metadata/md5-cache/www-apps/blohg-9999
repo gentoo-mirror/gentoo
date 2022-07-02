@@ -1,6 +1,6 @@
 BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-python/click[python_targets_python3_8(-)?] dev-python/docutils[python_targets_python3_8(-)?] dev-python/feedgenerator[python_targets_python3_8(-)?] dev-python/flask[python_targets_python3_8(-)?] dev-python/flask-babel[python_targets_python3_8(-)?] dev-python/frozen-flask[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/pyyaml[python_targets_python3_8(-)?] dev-python/pygments[python_targets_python3_8(-)?] git? ( dev-python/pygit2[python_targets_python3_8(-)?] ) mercurial? ( >=dev-vcs/mercurial-5.2[python_targets_python3_8(-)?] ) doc? ( dev-python/sphinx )
+DEPEND=dev-python/click[python_targets_python3_8(-)?] dev-python/docutils[python_targets_python3_8(-)?] dev-python/feedgenerator[python_targets_python3_8(-)?] dev-python/flask[python_targets_python3_8(-)?] dev-python/flask-babel[python_targets_python3_8(-)?] dev-python/Frozen-Flask[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/pyyaml[python_targets_python3_8(-)?] dev-python/pygments[python_targets_python3_8(-)?] git? ( dev-python/pygit2[python_targets_python3_8(-)?] ) mercurial? ( >=dev-vcs/mercurial-5.2[python_targets_python3_8(-)?] ) doc? ( dev-python/sphinx )
 DESCRIPTION=A Mercurial (or Git) based blogging engine
 EAPI=7
 HOMEPAGE=https://github.com/rafaelmartins/blohg
@@ -8,9 +8,9 @@ INHERIT=distutils-r1 git-r3
 IUSE=doc git +mercurial test python_targets_python3_8
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-python/click[python_targets_python3_8(-)?] dev-python/docutils[python_targets_python3_8(-)?] dev-python/feedgenerator[python_targets_python3_8(-)?] dev-python/flask[python_targets_python3_8(-)?] dev-python/flask-babel[python_targets_python3_8(-)?] dev-python/frozen-flask[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/pyyaml[python_targets_python3_8(-)?] dev-python/pygments[python_targets_python3_8(-)?] git? ( dev-python/pygit2[python_targets_python3_8(-)?] ) mercurial? ( >=dev-vcs/mercurial-5.2[python_targets_python3_8(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 )
+RDEPEND=dev-python/click[python_targets_python3_8(-)?] dev-python/docutils[python_targets_python3_8(-)?] dev-python/feedgenerator[python_targets_python3_8(-)?] dev-python/flask[python_targets_python3_8(-)?] dev-python/flask-babel[python_targets_python3_8(-)?] dev-python/Frozen-Flask[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/pyyaml[python_targets_python3_8(-)?] dev-python/pygments[python_targets_python3_8(-)?] git? ( dev-python/pygit2[python_targets_python3_8(-)?] ) mercurial? ( >=dev-vcs/mercurial-5.2[python_targets_python3_8(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 )
 REQUIRED_USE=|| ( git mercurial ) test? ( git mercurial ) || ( python_targets_python3_8 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	64c5b9cc381383c9c1ef74fb199293ea	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=d168f09f3b6b17d11efd71ce2f1597eb
+_md5_=1ed6dbd78d57c872aa522097ab4ff63d
