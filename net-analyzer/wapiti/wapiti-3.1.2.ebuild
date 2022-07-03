@@ -6,15 +6,16 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE='xml'
 
-inherit distutils-r1 git-r3
+inherit distutils-r1
 
+MY_P=${PN}3-${PV}
 DESCRIPTION="Web-application vulnerability scanner"
 HOMEPAGE="http://wapiti.sourceforge.net/"
-EGIT_REPO_URI="https://git.code.sf.net/p/wapiti/git wapiti-git"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 # Requires httpx-ntlm (to package)
 #IUSE="ntlm"
 
@@ -39,6 +40,8 @@ BDEPEND+=" test? (
 				)"
 # Many tests require execution of local test php server
 RESTRICT="test"
+
+S=${WORKDIR}/${MY_P}
 
 python_prepare_all() {
 	sed -e 's/"pytest-runner"//' \
