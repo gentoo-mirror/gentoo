@@ -1,12 +1,10 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install postinst unpack
+DEFINED_PHASES=install postinst
 DESCRIPTION=Additional completion definitions for Zsh
 EAPI=8
 HOMEPAGE=https://github.com/zsh-users/zsh-completions
-INHERIT=git-r3
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos
 LICENSE=Apache-2.0 BSD MIT ZSH
-PROPERTIES=live
 RDEPEND=app-shells/zsh
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://github.com/zsh-users/zsh-completions/archive/0.34.0.tar.gz -> zsh-completions-0.34.0.tar.gz
 _md5_=a9dca35ec37d7cb868a27d013de91110
