@@ -22,7 +22,6 @@ RDEPEND="
 	sys-libs/zlib[${MULTILIB_USEDEP}]
 	bzip2? ( app-arch/bzip2[${MULTILIB_USEDEP}] )
 	curl? ( net-misc/curl[${MULTILIB_USEDEP}] )
-	tools? ( !dev-util/smem )
 "
 # Bug #803350
 DEPEND="${RDEPEND}
@@ -77,6 +76,11 @@ multilib_src_install_all() {
 	docinto examples
 	dodoc cookbook.c testprog.c speed.c smem.c
 	dodoc cookbook.f testf77.f
+
+	# https://bugs.gentoo.org/855191
+	if use tools; then
+		rm "${ED}/usr/bin/smem" || die
+	fi
 
 	# Remove static libs
 	find "${ED}" -name '*.a' -delete || die
