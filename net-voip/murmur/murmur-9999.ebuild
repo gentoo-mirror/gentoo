@@ -3,14 +3,14 @@
 
 EAPI=7
 
-inherit cmake systemd readme.gentoo-r1 tmpfiles
+inherit cmake flag-o-matic systemd readme.gentoo-r1 tmpfiles
 
 DESCRIPTION="Mumble is an open source, low-latency, high quality voice chat software"
 HOMEPAGE="https://wiki.mumble.info"
 if [[ "${PV}" == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/mumble-voip/mumble.git"
-	EGIT_SUBMODULES=( '-*' )
+	EGIT_SUBMODULES=( '-*' 3rdparty/FindPythonInterpreter 3rdparty/gsl 3rdparty/tracy )
 else
 	MY_PN="mumble"
 	if [[ "${PV}" == *_pre* ]] ; then
@@ -119,13 +119,18 @@ src_configure() {
 	if [[ "${PV}" != 9999 ]] ; then
 		mycmakeargs+=( -DBUILD_NUMBER="$(ver_cut 3)" )
 	fi
+
+	# https://bugs.gentoo.org/832978
+	# fix tests (and possibly runtime issues) on arches with unsigned chars
+	append-cxxflags -fsigned-char
+
 	cmake_src_configure
 }
 
 src_install() {
 	cmake_src_install
 
-	dodoc README.md CHANGES
+	dodoc README.md
 
 	docinto scripts
 	dodoc -r scripts/server
@@ -159,7 +164,7 @@ src_install() {
 	fowners root:murmur ${etcdir}/murmur.ini
 	fperms 640 ${etcdir}/murmur.ini
 
-	doman man/murmurd.1
+	newman man/mumble-server.1 murmurd.1
 
 	readme.gentoo_create_doc
 }
