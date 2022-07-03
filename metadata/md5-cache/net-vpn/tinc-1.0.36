@@ -3,13 +3,13 @@ DEFINED_PHASES=configure install
 DEPEND=dev-libs/openssl:0= lzo? ( dev-libs/lzo:2 ) zlib? ( sys-libs/zlib )
 DESCRIPTION=tinc is an easy to configure VPN implementation
 EAPI=7
-HOMEPAGE=http://www.tinc-vpn.org/
+HOMEPAGE=https://www.tinc-vpn.org/
 INHERIT=systemd
 IUSE=+lzo uml vde +zlib
 KEYWORDS=amd64 ~arm ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=dev-libs/openssl:0= lzo? ( dev-libs/lzo:2 ) zlib? ( sys-libs/zlib ) vde? ( net-misc/vde )
 SLOT=0
-SRC_URI=http://www.tinc-vpn.org/packages/tinc-1.0.36.tar.gz
+SRC_URI=https://www.tinc-vpn.org/packages/tinc-1.0.36.tar.gz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=d50423bb3f52800cf42fb73d707a1d3e
+_md5_=20a2086d481b2ed8cf95ffa5e1b3428a

@@ -3,13 +3,13 @@ DEFINED_PHASES=configure install postinst prepare
 DEPEND=ssl? ( dev-libs/openssl:0= ) lzo? ( dev-libs/lzo:2 ) ncurses? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= ) upnp? ( net-libs/miniupnpc ) zlib? ( sys-libs/zlib )
 DESCRIPTION=tinc is an easy to configure VPN implementation
 EAPI=7
-HOMEPAGE=http://www.tinc-vpn.org/
+HOMEPAGE=https://www.tinc-vpn.org/
 INHERIT=autotools systemd
 IUSE=+lzo +ncurses +readline +ssl uml vde upnp +zlib
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=ssl? ( dev-libs/openssl:0= ) lzo? ( dev-libs/lzo:2 ) ncurses? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= ) upnp? ( net-libs/miniupnpc ) zlib? ( sys-libs/zlib ) vde? ( net-misc/vde )
 SLOT=0
-SRC_URI=http://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz
+SRC_URI=https://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=cddfd4f2231c560e2b6c4b4c18bea721
+_md5_=ad178db2c942d21e6456c194db4092b8
