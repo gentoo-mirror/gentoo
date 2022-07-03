@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -23,8 +23,10 @@ REQUIRED_USE="
 "
 
 DEPEND="
+	dev-libs/libxml2
+	dev-libs/libxslt
 	dev-libs/xapian:=
-	sys-libs/zlib:=
+	sys-libs/zlib
 	virtual/libiconv
 	chm? (
 		dev-libs/chmlib
@@ -34,6 +36,7 @@ DEPEND="
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtprintsupport:5
+		dev-qt/qtwidgets:5
 		webengine? ( dev-qt/qtwebengine:5[widgets] )
 	)
 	session? (
@@ -56,17 +59,6 @@ RDEPEND="
 	${DEPEND}
 	app-arch/unzip
 "
-
-pkg_pretend() {
-	if has_version "<app-misc/recoll-1.20"; then
-		elog "Installing ${PV} over an 1.19 index is possible,"
-		elog "but there have been small changes in the way"
-		elog "compound words are indexed. So it is best to reset"
-		elog "the index. The best method to reset the index is to"
-		elog "quit all recoll programs and delete the index directory"
-		elog "rm -rf ~/.recoll/xapiandb, then start recoll or recollindex."
-	fi
-}
 
 pkg_setup() {
 	if use inotify; then
