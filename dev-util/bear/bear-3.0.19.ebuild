@@ -1,9 +1,9 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake python-any-r1
 
@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="test"
 
 RDEPEND="
-	>=dev-cpp/nlohmann_json-3.7:=
+	>=dev-cpp/nlohmann_json-3.7.3:=
 	>=dev-db/sqlite-3.14:=
 	>=dev-libs/libfmt-6.2:=
 	dev-libs/protobuf:=
@@ -31,11 +31,15 @@ DEPEND="${RDEPEND}
 	)
 "
 
-BDEPEND="test? (
-	$(python_gen_any_dep '
-		dev-python/lit[${PYTHON_USEDEP}]
-	')
-)"
+BDEPEND="
+	virtual/pkgconfig
+	test? (
+		sys-devel/libtool
+		$(python_gen_any_dep '
+			dev-python/lit[${PYTHON_USEDEP}]
+		')
+	)
+"
 
 RESTRICT="!test? ( test )"
 
