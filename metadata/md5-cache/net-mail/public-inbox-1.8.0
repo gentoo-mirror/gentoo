@@ -1,0 +1,16 @@
+BDEPEND=dev-vcs/git dev-perl/DBD-SQLite virtual/mta dev-perl/URI dev-perl/Plack dev-perl/TimeDate dev-perl/Inline-C dev-perl/Email-Address-XS dev-perl/Search-Xapian dev-perl/Parse-RecDescent dev-perl/Mail-IMAPClient dev-perl/BSD-Resource net-misc/curl dev-perl/Linux-Inotify2 dev-perl/Net-Server virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=An archives-first approach to mailing lists
+EAPI=8
+HOMEPAGE=https://public-inbox.org
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=AGPL-3+
+RDEPEND=dev-vcs/git dev-perl/DBD-SQLite virtual/mta dev-perl/URI dev-perl/Plack dev-perl/TimeDate dev-perl/Inline-C dev-perl/Email-Address-XS dev-perl/Search-Xapian dev-perl/Parse-RecDescent dev-perl/Mail-IMAPClient dev-perl/BSD-Resource net-misc/curl dev-perl/Linux-Inotify2 dev-perl/Net-Server dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://public-inbox.org/public-inbox.git/snapshot/public-inbox-1.8.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
+_md5_=ce5aa4af526eb4d275d64e1fcfb33855
