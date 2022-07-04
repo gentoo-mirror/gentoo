@@ -1,0 +1,16 @@
+BDEPEND=>=app-emulation/libvirt-8.5.0 virtual/perl-ExtUtils-CBuilder dev-perl/Module-Build virtual/pkgconfig test? ( dev-perl/CPAN-Changes dev-perl/Test-More-UTF8 dev-perl/Test-Pod-Coverage dev-perl/XML-XPath virtual/perl-Test-Simple virtual/perl-Time-HiRes ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=app-emulation/libvirt-8.5.0 dev-lang/perl
+DESCRIPTION=API for using the libvirt library from Perl
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Sys-Virt
+INHERIT=perl-module
+IUSE=test examples
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=app-emulation/libvirt-8.5.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/D/DA/DANBERR/Sys-Virt-v8.5.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
+_md5_=87a0f8996ffc23b75359be3a1ccbbc94
