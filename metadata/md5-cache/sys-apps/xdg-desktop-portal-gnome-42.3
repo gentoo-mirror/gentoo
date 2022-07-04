@@ -1,0 +1,16 @@
+BDEPEND=dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-libs/glib:2 gnome-base/gnome-desktop:4= gui-libs/libadwaita:1 media-libs/fontconfig sys-apps/dbus >=sys-apps/xdg-desktop-portal-1.7 >=sys-apps/xdg-desktop-portal-gtk-1.14.0 gui-libs/gtk:4[wayland?,X?]
+DESCRIPTION=Backend implementation for xdg-desktop-portal using GNOME
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org meson systemd xdg
+IUSE=wayland X
+KEYWORDS=~amd64 ~arm ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/glib:2 gnome-base/gnome-desktop:4= gui-libs/libadwaita:1 media-libs/fontconfig sys-apps/dbus >=sys-apps/xdg-desktop-portal-1.7 >=sys-apps/xdg-desktop-portal-gtk-1.14.0 gui-libs/gtk:4[wayland?,X?]
+SLOT=0
+SRC_URI=mirror://gnome/sources/xdg-desktop-portal-gnome/42/xdg-desktop-portal-gnome-42.3.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	2cc95670908abda0d67e9e16a6b4341e	systemd	2736b403a83f194b59b767f3b344c2c1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=dc567d9831c329798294bdadcf125e0a
