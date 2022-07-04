@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	media-libs/libpng:0=
 	media-libs/lcms:2=
 	sys-libs/zlib
-	virtual/jpeg:0=
+	media-libs/libjpeg-turbo:0=
 	systemtap? ( dev-util/systemtap )
 "
 
@@ -147,24 +147,11 @@ pkg_setup() {
 
 	local vm
 	for vm in ${JAVA_PKG_WANT_BUILD_VM}; do
-		if [[ -d ${EPREFIX}/usr/lib/jvm/${vm} ]]; then
+		if [[ -d ${BROOT}/usr/lib/jvm/${vm} ]]; then
 			java-pkg-2_pkg_setup
 			return
 		fi
 	done
-
-	if has_version dev-java/openjdk:${SLOT}; then
-		export JDK_HOME=${EPREFIX}/usr/$(get_libdir)/openjdk-${SLOT}
-	elif use !system-bootstrap ; then
-		local xpakvar="${ARCH^^}_XPAK"
-		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
-	else
-		JDK_HOME=$(best_version dev-java/openjdk-bin:${SLOT})
-		[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
-		JDK_HOME=${JDK_HOME#*/}
-		JDK_HOME=${EPREFIX}/opt/${JDK_HOME%-r*}
-		export JDK_HOME
-	fi
 }
 
 src_prepare() {
@@ -174,6 +161,19 @@ src_prepare() {
 }
 
 src_configure() {
+	if has_version dev-java/openjdk:${SLOT}; then
+		export JDK_HOME=${BROOT}/usr/$(get_libdir)/openjdk-${SLOT}
+	elif use !system-bootstrap ; then
+		local xpakvar="${ARCH^^}_XPAK"
+		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
+	else
+		JDK_HOME=$(best_version -b dev-java/openjdk-bin:${SLOT})
+		[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
+		JDK_HOME=${JDK_HOME#*/}
+		JDK_HOME=${BROOT}/opt/${JDK_HOME%-r*}
+		export JDK_HOME
+	fi
+
 	# Work around stack alignment issue, bug #647954. in case we ever have x86
 	use x86 && append-flags -mincoming-stack-boundary=2
 
@@ -291,7 +291,7 @@ src_install() {
 	einfo "Creating the Class Data Sharing archives and disabling usage tracking"
 	"${ddest}/bin/java" -server -Xshare:dump -Djdk.disableLastUsageTracking || die
 
-	use gentoo-vm && java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
+	use gentoo-vm && java-vm_install-env "${FILESDIR}"/${PN}.env.sh
 	java-vm_revdep-mask
 	java-vm_sandbox-predict /dev/random /proc/self/coredump_filter
 

@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	media-libs/libpng:0=
 	media-libs/lcms:2=
 	sys-libs/zlib
-	virtual/jpeg:0=
+	media-libs/libjpeg-turbo:0=
 	systemtap? ( dev-util/systemtap )
 "
 
@@ -138,14 +138,11 @@ pkg_setup() {
 
 	if use system-bootstrap; then
 		for vm in ${JAVA_PKG_WANT_BUILD_VM}; do
-			if [[ -d ${EPREFIX}/usr/lib/jvm/${vm} ]]; then
+			if [[ -d ${BROOT}/usr/lib/jvm/${vm} ]]; then
 				java-pkg-2_pkg_setup
 				return
 			fi
 		done
-	else
-		local xpakvar="${ARCH^^}_XPAK"
-		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
 	fi
 }
 
@@ -156,6 +153,11 @@ src_prepare() {
 }
 
 src_configure() {
+	if ! use system-bootstrap; then
+		local xpakvar="${ARCH^^}_XPAK"
+		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
+	fi
+
 	# Work around stack alignment issue, bug #647954.
 	use x86 && append-flags -mincoming-stack-boundary=2
 
@@ -276,7 +278,7 @@ src_install() {
 	einfo "Creating the Class Data Sharing archives and disabling usage tracking"
 	"${ddest}/bin/java" -server -Xshare:dump -Djdk.disableLastUsageTracking || die
 
-	java-vm_install-env "${FILESDIR}"/${PN}-${SLOT}.env.sh
+	java-vm_install-env "${FILESDIR}"/${PN}.env.sh
 	java-vm_revdep-mask
 	java-vm_sandbox-predict /dev/random /proc/self/coredump_filter
 
