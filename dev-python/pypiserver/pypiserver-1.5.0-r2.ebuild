@@ -33,7 +33,6 @@ BDEPEND="
 	test? (
 		>=dev-python/passlib-1.6[${PYTHON_USEDEP}]
 		dev-python/setuptools[${PYTHON_USEDEP}]
-		dev-python/twine[${PYTHON_USEDEP}]
 		dev-python/webtest[${PYTHON_USEDEP}]
 	)
 "
@@ -62,7 +61,16 @@ python_test() {
 		tests/test_app.py::test_root_count
 		tests/test_server.py::test_pip_install_open_succeeds
 		tests/test_server.py::test_pip_install_authed_succeeds
+		# seems to rely on internal bottle details
+		tests/test_main.py::test_auto_servers
 	)
+
+	if ! has_version dev-python/twine; then
+		EPYTEST_DESELECT+=(
+			tests/test_server.py::test_twine_upload
+			tests/test_server.py::test_twine_register
+		)
+	fi
 
 	epytest tests
 }
