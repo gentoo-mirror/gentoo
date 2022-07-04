@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 QA_PKGCONFIG_VERSION=$(ver_cut 1)
 
@@ -21,17 +21,18 @@ else
 	SRC_URI="https://github.com/systemd/systemd/archive/refs/tags/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 fi
 
-MUSL_PATCHSET="systemd-musl-patches-250.4"
+MUSL_PATCHSET="systemd-musl-patches-251.2"
 SRC_URI+=" elibc_musl? ( https://dev.gentoo.org/~floppym/dist/${MUSL_PATCHSET}.tar.gz )"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+acl boot +kmod selinux sysusers +tmpfiles test +udev"
 REQUIRED_USE="|| ( boot tmpfiles sysusers udev )"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
+	elibc_musl? ( >=sys-libs/musl-1.2.3 )
 	selinux? ( sys-libs/libselinux:0= )
 	tmpfiles? (
 		acl? ( sys-apps/acl:0= )
@@ -50,10 +51,8 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	boot? (
-		>=sys-boot/gnu-efi-3.0.2
-	)
 	>=sys-kernel/linux-headers-3.11
+	boot? ( >=sys-boot/gnu-efi-3.0.2 )
 "
 RDEPEND="${COMMON_DEPEND}
 	boot? ( !<sys-boot/systemd-boot-250 )
@@ -106,7 +105,6 @@ QA_FLAGS_IGNORED="usr/lib/systemd/boot/efi/.*"
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}/250.4-test-systemd-tmpfiles.standalone.patch"
 	)
 	if use elibc_musl; then
 		PATCHES+=( "${WORKDIR}/${MUSL_PATCHSET}" )
@@ -141,9 +139,11 @@ multilib_src_configure() {
 
 	local emesonargs=(
 		-Drootprefix="${EPREFIX:-/}"
+		-Drootlibdir="${EPREFIX}/usr/$(get_libdir)"
 		-Dsysvinit-path=
 		$(meson_native_use_bool boot efi)
 		$(meson_native_use_bool boot gnu-efi)
+		$(meson_native_use_bool boot kernel-install)
 		$(meson_native_use_bool selinux)
 		$(meson_native_use_bool sysusers)
 		$(meson_use test tests)
@@ -182,7 +182,6 @@ multilib_src_configure() {
 		-Dima=false
 		-Dinitrd=false
 		-Dfirstboot=false
-		-Dkernel-install=false
 		-Dldconfig=false
 		-Dlibcryptsetup=false
 		-Dlibcurl=false
@@ -268,6 +267,7 @@ multilib_src_compile() {
 		if use boot; then
 			targets+=(
 				bootctl
+				kernel-install
 				man/bootctl.1
 				man/kernel-install.8
 				src/boot/efi/linux$(efi_arch).{efi,elf}.stub
@@ -400,7 +400,7 @@ multilib_src_install() {
 	if multilib_is_native_abi; then
 		if use boot; then
 			into /usr
-			dobin bootctl
+			dobin bootctl kernel-install
 			doman man/{bootctl.1,kernel-install.8}
 			insinto usr/lib/systemd/boot/efi
 			doins src/boot/efi/{linux$(efi_arch).{efi,elf}.stub,systemd-boot$(efi_arch).efi}
@@ -429,12 +429,10 @@ multilib_src_install() {
 			doins src/udev/udev.pc
 			doman man/{udev.conf.5,systemd.link.5,hwdb.7,systemd-hwdb.8,udev.7,udevadm.8}
 			newman man/systemd-udevd.service.8 systemd-udevd.8
-
 		fi
 	fi
 	if use udev; then
-		into /usr
-		dolib.so "$(readlink libudev.so.1)" libudev.so{.1,}
+		meson_install --no-rebuild --tags libudev
 		gen_usr_ldscript -a udev
 		insinto "/usr/$(get_libdir)/pkgconfig"
 		doins src/libudev/libudev.pc
@@ -445,7 +443,6 @@ multilib_src_install_all() {
 	einstalldocs
 	if use boot; then
 		into /usr
-		dobin src/kernel-install/kernel-install
 		exeinto usr/lib/kernel/install.d
 		doexe src/kernel-install/*.install
 		dobashcomp shell-completion/bash/bootctl
