@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} )
-TRANS_COMMIT="67f5c654523d22c7843811e5aa852a01742f6f12"
+PYTHON_COMPAT=( python3_{9..11} )
+TRANS_COMMIT="974298653ba71b958e1b6c83f6011f5fefff6236"
 
 inherit cmake toolchain-funcs xdg-utils python-single-r1
 
@@ -25,7 +25,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-qt/qtnetwork:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
-	>=dev-util/rizin-0.3.1:=
+	>=dev-util/rizin-0.4.0:=
 	graphviz? ( media-gfx/graphviz )"
 DEPEND="${COMMON_DEPEND}
 	dev-qt/linguist-tools:5"

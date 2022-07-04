@@ -3,10 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 # This is the commit that the CI for the release commit used
-BINS_COMMIT="aa6a88dcdfaad54335e3935c16ce21a124ff861d"
+BINS_COMMIT="64a6f26369bf5893ecc20cb8984a5ad506ef8566"
 
 inherit meson python-any-r1
 
@@ -27,7 +27,7 @@ RESTRICT="fetch !test? ( test )"
 RDEPEND="
 	sys-apps/file
 	app-arch/lz4:0=
-	dev-libs/capstone:0=
+	<dev-libs/capstone-5:0=
 	dev-libs/libuv:0=
 	dev-libs/libzip:0=
 	dev-libs/openssl:0=
@@ -39,8 +39,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.3.0-typedb-prefix.patch"
-	"${FILESDIR}/${PN}-0.3.2-never-rebuild-parser.patch"
+	"${FILESDIR}/${PN}-0.4.0-never-rebuild-parser.patch"
 )
 
 S="${WORKDIR}/${PN}-v${PV}"
@@ -87,17 +86,9 @@ src_configure() {
 }
 
 src_test() {
-	# Rizin uses data files that it expects to be installed on the
-	# system. To hack around this, we create a tree of what it expects
-	# in ${T}, and patch the tests to support a prefix from the
-	# environment. https://github.com/rizinorg/rizin/issues/1789
-	mkdir -p "${T}/usr/share/${PN}/${PV}" || die
-	ln -sf "${BUILD_DIR}/librz/analysis/d" "${T}/usr/share/${PN}/${PV}/types" || die
-	ln -sf "${BUILD_DIR}/librz/syscall/d" "${T}/usr/share/${PN}/${PV}/syscall" || die
-	ln -sf "${BUILD_DIR}/librz/asm/d" "${T}/usr/share/${PN}/${PV}/opcodes" || die
-	# https://github.com/rizinorg/rizin/issues/1797
-	ln -sf "${BUILD_DIR}/librz/flag/d" "${T}/usr/share/${PN}/${PV}/flag" || die
-	export RZ_PREFIX="${T}/usr"
-
-	meson_src_test
+	# We can select running either unit or integration tests, or all of
+	# them by not passing --suite. According to upstream, integration
+	# tests are more fragile and unit tests are sufficient for testing
+	# packaging, so only run those.
+	meson_src_test --suite unit
 }
