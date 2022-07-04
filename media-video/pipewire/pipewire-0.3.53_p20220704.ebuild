@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]] ; then
-		MY_COMMIT=""
+		MY_COMMIT="a46d4aedd7934cf1068e360f80e61fa2b68f20ff"
 		SRC_URI="https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/${MY_COMMIT}/pipewire-${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
 		S="${WORKDIR}"/${PN}-${MY_COMMIT}
 	else
@@ -264,9 +264,10 @@ multilib_src_install_all() {
 	# Enable required wireplumber alsa and bluez monitors
 	if use sound-server; then
 		dodir /etc/wireplumber/main.lua.d
-		echo "alsa_monitor.enabled = true" > ${D}/etc/wireplumber/main.lua.d/89-gentoo-sound-server-enable-alsa-monitor.lua
+		echo "alsa_monitor.enabled = true" > "${ED}"/etc/wireplumber/main.lua.d/89-gentoo-sound-server-enable-alsa-monitor.lua || die
+
 		dodir /etc/wireplumber/bluetooth.lua.d
-		echo "bluez_monitor.enabled = true" > ${D}/etc/wireplumber/bluetooth.lua.d/89-gentoo-sound-server-enable-bluez-monitor.lua
+		echo "bluez_monitor.enabled = true" > "${ED}"/etc/wireplumber/bluetooth.lua.d/89-gentoo-sound-server-enable-bluez-monitor.lua || die
 	fi
 
 	if ! use systemd; then
@@ -294,6 +295,18 @@ pkg_postinst() {
 	elog
 	elog "  usermod -aG audio <youruser>"
 	elog
+
+	local ver
+	for ver in ${REPLACING_VERSIONS} ; do
+		if ver_test ${ver} -le 0.3.53-r1 && ! use sound-server ; then
+			ewarn "USE=sound-server is disabled! If you want PipeWire to provide"
+			ewarn "your sound, please enable it. See the wiki at"
+			ewarn "https://wiki.gentoo.org/wiki/PipeWire#Replacing_PulseAudio"
+			ewarn "for more details."
+
+			break
+		fi
+	done
 
 	if ! use jack-sdk; then
 		elog "JACK emulation is incomplete and not all programs will work. PipeWire's"

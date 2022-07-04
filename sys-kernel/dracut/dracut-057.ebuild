@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit bash-completion-r1 linux-info optfeature systemd toolchain-funcs
 
@@ -9,9 +9,10 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/dracutdevs/dracut"
 else
-	[[ "${PV}" = *_rc* ]] || \
-	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~mips ppc ppc64 sparc x86"
-	SRC_URI="https://www.kernel.org/pub/linux/utils/boot/${PN}/${P}.tar.xz"
+	if [[ "${PV}" != *_rc* ]]; then
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	fi
+	SRC_URI="https://github.com/dracutdevs/dracut/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 DESCRIPTION="Generic initramfs generation tool"
@@ -19,10 +20,9 @@ HOMEPAGE="https://dracut.wiki.kernel.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="selinux"
+IUSE="selinux test"
 
-# Tests need root privileges, bug #298014
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/cpio
@@ -58,13 +58,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-DOCS=( AUTHORS README.md README.generic README.kernel )
-
 QA_MULTILIB_PATHS="usr/lib/dracut/.*"
 
 PATCHES=(
-	"${FILESDIR}"/053-network-manager.patch
-	"${FILESDIR}"/gentoo-ldconfig-paths.patch
+	"${FILESDIR}"/gentoo-ldconfig-paths-r1.patch
+	"${FILESDIR}"/057-virtiofs-split-usr.patch
 )
 
 src_configure() {
@@ -86,7 +84,28 @@ src_configure() {
 	fi
 }
 
+src_test() {
+	if [[ ${EUID} != 0 ]]; then
+		# Tests need root privileges, bug #298014
+		ewarn "Skipping tests: Not running as root."
+	elif [[ ! -w /dev/kvm ]]; then
+		ewarn "Skipping tests: Unable to access /dev/kvm."
+	else
+		emake -C test check
+	fi
+}
+
 src_install() {
+	local DOCS=(
+		AUTHORS
+		NEWS.md
+		README.md
+		docs/README.cross
+		docs/README.generic
+		docs/README.kernel
+		docs/SECURITY.md
+	)
+
 	default
 
 	docinto html
