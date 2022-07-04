@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -16,11 +16,11 @@ else
 	SRC_URI="https://github.com/intel/media-driver/archive/intel-media-${MY_PV}.tar.gz"
 	S="${WORKDIR}/media-driver-intel-media-${MY_PV}"
 	if [[ ${PV} != *_pre* ]] ; then
-		KEYWORDS="amd64"
+		KEYWORDS="~amd64"
 	fi
 fi
 
-DESCRIPTION="Intel Media Driver for VAAPI (iHD)"
+DESCRIPTION="Intel Media Driver for VA-API (iHD)"
 HOMEPAGE="https://github.com/intel/media-driver"
 
 LICENSE="MIT BSD redistributable? ( no-source-code )"
