@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://bytebuddy.net/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10-sources.jar test? ( https://github.com/raphw/byte-buddy/archive/byte-buddy-1.12.10.tar.gz )
 _eclasses_=java-utils-2	c0a9bd68d938ab2d3a7e237fd05f1dd8	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7
-_md5_=5e2486015b930bf2fe8d5316c84f370f
+_md5_=a84d1e11df46784e9293401131722bf6
