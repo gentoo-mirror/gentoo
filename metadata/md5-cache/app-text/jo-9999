@@ -1,11 +1,11 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare unpack
 DESCRIPTION=JSON output from a shell
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/jpmens/jo
 INHERIT=autotools bash-completion-r1 git-r3
 LICENSE=MIT
 PROPERTIES=live
 SLOT=0
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=30dea3e40b9cf898e75b6239da1cd168
+_md5_=9066009f0c05962b4b85ecef0f6e7304
