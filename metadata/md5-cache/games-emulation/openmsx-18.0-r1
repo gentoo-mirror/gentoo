@@ -1,6 +1,6 @@
 BDEPEND=|| ( >=dev-lang/python-3.11.0_beta3:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=dev-lang/tcl:0= media-libs/alsa-lib media-libs/libogg media-libs/libpng:0= media-libs/libsdl2[joystick=,sound,video] media-libs/libtheora media-libs/libvorbis media-libs/sdl2-ttf >=media-libs/glew-1.3.2:0= sys-libs/zlib virtual/opengl
+DEPEND=dev-lang/tcl:0= media-libs/alsa-lib media-libs/harfbuzz:= media-libs/libogg media-libs/libpng:0= media-libs/libsdl2[joystick=,sound,video] media-libs/libtheora media-libs/libvorbis media-libs/sdl2-ttf >=media-libs/glew-1.3.2:0= sys-libs/zlib virtual/opengl
 DESCRIPTION=MSX emulator that aims for perfection
 EAPI=8
 HOMEPAGE=https://openmsx.org/
@@ -9,8 +9,8 @@ INHERIT=desktop flag-o-matic python-any-r1 readme.gentoo-r1 toolchain-funcs xdg
 IUSE=+joystick
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/tcl:0= media-libs/alsa-lib media-libs/libogg media-libs/libpng:0= media-libs/libsdl2[joystick=,sound,video] media-libs/libtheora media-libs/libvorbis media-libs/sdl2-ttf >=media-libs/glew-1.3.2:0= sys-libs/zlib virtual/opengl
+RDEPEND=dev-lang/tcl:0= media-libs/alsa-lib media-libs/harfbuzz:= media-libs/libogg media-libs/libpng:0= media-libs/libsdl2[joystick=,sound,video] media-libs/libtheora media-libs/libvorbis media-libs/sdl2-ttf >=media-libs/glew-1.3.2:0= sys-libs/zlib virtual/opengl
 SLOT=0
 SRC_URI=https://github.com/openMSX/openMSX/releases/download/RELEASE_18_0/openmsx-18.0.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=0fc9ece374dfdcdcd76f48655f021c3f
+_md5_=ac0a9e818e8d5ad94b009cd8dcdd4283
