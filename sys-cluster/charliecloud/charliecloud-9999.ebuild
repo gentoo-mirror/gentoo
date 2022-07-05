@@ -61,7 +61,7 @@ src_configure() {
 		# Libdir is used as a libexec-style destination.
 		--libdir="${EPREFIX}"/usr/lib
 		# Attempts to call python-exec directly otherwise.
-		--with-sphinx-python="${PYTHON}"
+		--with-sphinx-python="${EPYTHON}"
 		# This disables -Werror, see also: https://github.com/hpc/charliecloud/pull/808
 		--enable-buggy-build
 		# Do not use bundled version of dev-python/lark.
@@ -79,4 +79,5 @@ pkg_postinst() {
 	optfeature "Progress bars during long operations" sys-apps/pv
 	optfeature "Pack and unpack squashfs images" sys-fs/squashfs-tools
 	optfeature "Mount and umount squashfs images" sys-fs/squashfuse
+	optfeature "Build versioning with ch-image" dev-vcs/git
 }
