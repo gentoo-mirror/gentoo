@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools elisp-common readme.gentoo-r1 toolchain-funcs
+inherit elisp-common readme.gentoo-r1 toolchain-funcs #autotools
 
 if [[ ${PV##*.} = 9999 ]]; then
 	inherit git-r3
@@ -138,7 +138,7 @@ SITEFILE="20${EMACS_SUFFIX}-gentoo.el"
 
 src_prepare() {
 	if [[ ${PV##*.} = 9999 ]]; then
-		FULL_VERSION=$(sed -n 's/^AC_INIT([^,]*,[ \t]*\([^ \t,)]*\).*/\1/p' \
+		FULL_VERSION=$(sed -n 's/^AC_INIT([^,]*,[^0-9.]*\([0-9.]*\).*/\1/p' \
 			configure.ac)
 		[[ ${FULL_VERSION} ]] || die "Cannot determine current Emacs version"
 		einfo "Emacs branch: ${EGIT_BRANCH}"
@@ -165,7 +165,7 @@ src_prepare() {
 	# Fix filename reference in redirected man page
 	sed -i -e "/^\\.so/s/etags/&-${EMACS_SUFFIX}/" doc/man/ctags.1 || die
 
-	AT_M4DIR=m4 eautoreconf
+	#AT_M4DIR=m4 eautoreconf
 }
 
 src_configure() {
