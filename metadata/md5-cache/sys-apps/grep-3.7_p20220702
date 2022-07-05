@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-grep ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure prepare unpack
+DEPEND=!static? ( pcre? ( >=dev-libs/libpcre2-7.8-r1 ) sparc? ( dev-libs/libsigsegv ) ) nls? ( virtual/libintl ) virtual/libiconv static? ( pcre? ( >=dev-libs/libpcre2-7.8-r1[static-libs(+)] ) sparc? ( dev-libs/libsigsegv ) )
+DESCRIPTION=GNU regular expression matcher
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/grep/
+INHERIT=flag-o-matic verify-sig
+IUSE=nls pcre static verify-sig
+LICENSE=GPL-3+
+RDEPEND=!static? ( pcre? ( >=dev-libs/libpcre2-7.8-r1 ) sparc? ( dev-libs/libsigsegv ) ) nls? ( virtual/libintl ) virtual/libiconv
+REQUIRED_USE=static? ( !sparc )
+SLOT=0
+SRC_URI=https://meyering.net/grep/grep-3.7.98-c9ac.tar.xz verify-sig? ( https://meyering.net/grep/grep-3.7.98-c9ac.tar.xz.sig )
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=828c16dfbafc92dc58ce3453517d4501
