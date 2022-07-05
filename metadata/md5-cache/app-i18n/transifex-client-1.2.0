@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=The Transifex command-line client
+EAPI=8
+HOMEPAGE=https://github.com/transifex/cli
+INHERIT=go-module
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=Apache-2.0 BSD BSD-2 ISC LGPL-3 MIT MPL-2.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/transifex/cli/archive/refs/tags/v1.2.0.tar.gz -> transifex-client-1.2.0.tar.gz https://gitlab.com/api/v4/projects/35204985/packages/generic/transifex-client/1.2.0/transifex-client-1.2.0-deps.tar.bz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=8ff5a1c8c170282d399684f4765874bf
