@@ -7,34 +7,43 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit flag-o-matic mount-boot python-any-r1 toolchain-funcs
 
-MY_PV=${PV/_/-}
-MY_P=${PN}-${MY_PV}
-
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
 	KEYWORDS="~amd64 ~arm -x86"
-	UPSTREAM_VER=2
-	SECURITY_VER=
-	GENTOO_VER=
 
-	[[ -n ${UPSTREAM_VER} ]] && \
-		UPSTREAM_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${P}-upstream-patches-${UPSTREAM_VER}.tar.xz
-		https://github.com/hydrapolic/gentoo-dist/raw/master/xen/${P}-upstream-patches-${UPSTREAM_VER}.tar.xz"
-	[[ -n ${SECURITY_VER} ]] && \
-		SECURITY_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN}-security-patches-${SECURITY_VER}.tar.xz"
-	[[ -n ${GENTOO_VER} ]] && \
-		GENTOO_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN}-gentoo-patches-${GENTOO_VER}.tar.xz"
-	SRC_URI="https://downloads.xenproject.org/release/xen/${MY_PV}/${MY_P}.tar.gz
-		${UPSTREAM_PATCHSET_URI}
-		${SECURITY_PATCHSET_URI}
-		${GENTOO_PATCHSET_URI}"
+	XEN_PRE_PATCHSET_NUM=0
+	XEN_GENTOO_PATCHSET_NUM=0
+	XEN_PRE_VERSION_BASE=4.16.1
+
+	XEN_BASE_PV="${PV}"
+	if [[ -n "${XEN_PRE_VERSION_BASE}" ]]; then
+		XEN_BASE_PV="${XEN_PRE_VERSION_BASE}"
+	fi
+
+	SRC_URI="https://downloads.xenproject.org/release/xen/${XEN_BASE_PV}/xen-${XEN_BASE_PV}.tar.gz"
+
+	if [[ -n "${XEN_PRE_PATCHSET_NUM}" ]]; then
+		XEN_UPSTREAM_PATCHES_TAG="$(ver_cut 1-3)-pre-patchset-${XEN_PRE_PATCHSET_NUM}"
+		XEN_UPSTREAM_PATCHES_NAME="xen-upstream-patches-${XEN_UPSTREAM_PATCHES_TAG}"
+		SRC_URI+=" https://github.com/Flowdalic/xen-upstream-patches/archive/refs/tags/${XEN_UPSTREAM_PATCHES_TAG}.tar.gz -> ${XEN_UPSTREAM_PATCHES_NAME}.tar.gz"
+		XEN_UPSTREAM_PATCHES_DIR="${WORKDIR}/${XEN_UPSTREAM_PATCHES_NAME}"
+	fi
+	if [[ -n "${XEN_GENTOO_PATCHSET_NUM}" ]]; then
+		XEN_GENTOO_PATCHES_TAG="$(ver_cut 1-3 ${XEN_BASE_PV})-gentoo-patchset-${XEN_GENTOO_PATCHSET_NUM}"
+		XEN_GENTOO_PATCHES_NAME="xen-gentoo-patches-${XEN_GENTOO_PATCHES_TAG}"
+		SRC_URI+=" https://github.com/Flowdalic/xen-gentoo-patches/archive/refs/tags/${XEN_GENTOO_PATCHES_TAG}.tar.gz -> ${XEN_GENTOO_PATCHES_NAME}.tar.gz"
+		XEN_GENTOO_PATCHES_DIR="${WORKDIR}/${XEN_GENTOO_PATCHES_NAME}"
+	fi
 fi
 
 DESCRIPTION="The Xen virtual machine monitor"
 HOMEPAGE="https://xenproject.org"
+
+S="${WORKDIR}/xen-$(ver_cut 1-3 ${XEN_BASE_PV})"
+
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+boot-symlinks debug efi flask"
@@ -55,8 +64,6 @@ RESTRICT="test splitdebug strip"
 # Approved by QA team in bug #144032
 QA_WX_LOAD="boot/xen-syms-${PV}"
 
-S="${WORKDIR}/${MY_P}"
-
 pkg_setup() {
 	python-any-r1_pkg_setup
 	if [[ -z ${XEN_TARGET_ARCH} ]]; then
@@ -73,25 +80,13 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# Upstream's patchset
-	[[ -n ${UPSTREAM_VER} ]] && eapply "${WORKDIR}"/patches-upstream
-
-	# Security patchset
-	if [[ -n ${SECURITY_VER} ]]; then
-	einfo "Try to apply Xen Security patch set"
-		# apply main xen patches
-		# Two parallel systems, both work side by side
-		# Over time they may concdense into one. This will suffice for now
-		source "${WORKDIR}"/patches-security/${PV}.conf
-
-		local i
-		for i in ${XEN_SECURITY_MAIN}; do
-			eapply "${WORKDIR}"/patches-security/xen/$i
-		done
+	if [[ -v XEN_UPSTREAM_PATCHES_DIR ]]; then
+		eapply "${XEN_UPSTREAM_PATCHES_DIR}"
 	fi
 
-	# Gentoo's patchset
-	[[ -n ${GENTOO_VER} ]] && eapply "${WORKDIR}"/patches-gentoo
+	if [[ -v XEN_GENTOO_PATCHES_DIR ]]; then
+		eapply "${XEN_GENTOO_PATCHES_DIR}"
+	fi
 
 	eapply "${FILESDIR}"/${PN}-4.16-efi.patch
 

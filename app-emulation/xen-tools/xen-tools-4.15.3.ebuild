@@ -8,8 +8,6 @@ PYTHON_REQ_USE='ncurses,xml,threads(+)'
 
 inherit bash-completion-r1 flag-o-matic multilib python-single-r1 toolchain-funcs
 
-MY_PV=${PV/_/-}
-
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	REPO="xen.git"
@@ -17,14 +15,6 @@ if [[ ${PV} == *9999 ]]; then
 	S="${WORKDIR}/${REPO}"
 else
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-	UPSTREAM_VER=2
-	SECURITY_VER=
-	# xen-tools's gentoo patches tarball
-	GENTOO_VER=24
-	# xen-tools's gentoo patches version which apply to this specific ebuild
-	GENTOO_GPV=0
-	# xen-tools ovmf's patches
-	OVMF_VER=
 
 	SEABIOS_VER="1.14.0"
 	EDK2_COMMIT="7b4a99be8a39c12d3a7fc4b8db9f0eab4ac688d5"
@@ -33,43 +23,52 @@ else
 	EDK2_BROTLI_COMMIT="666c3280cc11dc433c303d79a83d4ffbdd12cc8d"
 	IPXE_COMMIT="3c040ad387099483102708bb1839110bc788cefb"
 
-	[[ -n ${UPSTREAM_VER} ]] && \
-		UPSTREAM_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${P/-tools/}-upstream-patches-${UPSTREAM_VER}.tar.xz
-		https://github.com/hydrapolic/gentoo-dist/raw/master/xen/${P/-tools/}-upstream-patches-${UPSTREAM_VER}.tar.xz"
-	[[ -n ${SECURITY_VER} ]] && \
-		SECURITY_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN/-tools}-security-patches-${SECURITY_VER}.tar.xz
-		https://github.com/hydrapolic/gentoo-dist/raw/master/xen/${PN/-tools/}-security-patches-${SECURITY_VER}.tar.xz"
-	[[ -n ${GENTOO_VER} ]] && \
-		GENTOO_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN/-tools}-gentoo-patches-${GENTOO_VER}.tar.xz
-		https://github.com/hydrapolic/gentoo-dist/raw/master/xen/${PN/-tools/}-gentoo-patches-${GENTOO_VER}.tar.xz"
-	[[ -n ${OVMF_VER} ]] && \
-		OVMF_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN/-tools}-ovmf-patches-${OVMF_VER}.tar.xz"
+	XEN_PRE_PATCHSET_NUM=
+	XEN_GENTOO_PATCHSET_NUM=0
+	XEN_PRE_VERSION_BASE=
 
-	SRC_URI="https://downloads.xenproject.org/release/xen/${MY_PV}/xen-${MY_PV}.tar.gz
+	XEN_BASE_PV="${PV}"
+	if [[ -n "${XEN_PRE_VERSION_BASE}" ]]; then
+		XEN_BASE_PV="${XEN_PRE_VERSION_BASE}"
+	fi
+
+	SRC_URI="
+	https://downloads.xenproject.org/release/xen/${XEN_BASE_PV}/xen-${XEN_BASE_PV}.tar.gz
 	https://www.seabios.org/downloads/seabios-${SEABIOS_VER}.tar.gz
 	ipxe? ( https://xenbits.xen.org/xen-extfiles/ipxe-git-${IPXE_COMMIT}.tar.gz )
 	ovmf? ( https://github.com/tianocore/edk2/archive/${EDK2_COMMIT}.tar.gz -> edk2-${EDK2_COMMIT}.tar.gz
 		https://github.com/openssl/openssl/archive/OpenSSL_${EDK2_OPENSSL_VERSION}.tar.gz
 		https://github.com/ucb-bar/berkeley-softfloat-3/archive/${EDK2_SOFTFLOAT_COMMIT}.tar.gz -> berkeley-softfloat-${EDK2_SOFTFLOAT_COMMIT}.tar.gz
 		https://github.com/google/brotli/archive/${EDK2_BROTLI_COMMIT}.tar.gz -> brotli-${EDK2_BROTLI_COMMIT}.tar.gz
-		${OVMF_PATCHSET_URI} )
-	${UPSTREAM_PATCHSET_URI}
-	${SECURITY_PATCHSET_URI}
-	${GENTOO_PATCHSET_URI}"
+	)
+	"
 
-	S="${WORKDIR}/xen-${MY_PV}"
+	if [[ -n "${XEN_PRE_PATCHSET_NUM}" ]]; then
+		XEN_UPSTREAM_PATCHES_TAG="$(ver_cut 1-3)-pre-patchset-${XEN_PRE_PATCHSET_NUM}"
+		XEN_UPSTREAM_PATCHES_NAME="xen-upstream-patches-${XEN_UPSTREAM_PATCHES_TAG}"
+		SRC_URI+=" https://github.com/Flowdalic/xen-upstream-patches/archive/refs/tags/${XEN_UPSTREAM_PATCHES_TAG}.tar.gz -> ${XEN_UPSTREAM_PATCHES_NAME}.tar.gz"
+		XEN_UPSTREAM_PATCHES_DIR="${WORKDIR}/${XEN_UPSTREAM_PATCHES_NAME}"
+	fi
+	if [[ -n "${XEN_GENTOO_PATCHSET_NUM}" ]]; then
+		XEN_GENTOO_PATCHES_TAG="4.16.1-gentoo-patchset-${XEN_GENTOO_PATCHSET_NUM}"
+		XEN_GENTOO_PATCHES_NAME="xen-gentoo-patches-${XEN_GENTOO_PATCHES_TAG}"
+		SRC_URI+=" https://github.com/Flowdalic/xen-gentoo-patches/archive/refs/tags/${XEN_GENTOO_PATCHES_TAG}.tar.gz -> ${XEN_GENTOO_PATCHES_NAME}.tar.gz"
+		XEN_GENTOO_PATCHES_DIR="${WORKDIR}/${XEN_GENTOO_PATCHES_NAME}"
+	fi
 fi
 
 DESCRIPTION="Xen tools including QEMU and xl"
 HOMEPAGE="https://xenproject.org"
 DOCS=( README )
 
+S="${WORKDIR}/xen-$(ver_cut 1-3 ${XEN_BASE_PV})"
+
 LICENSE="GPL-2"
 SLOT="0/$(ver_cut 1-2)"
 # Inclusion of IUSE ocaml on stabalizing requires maintainer of ocaml to (get off his hands and) make
 # >=dev-lang/ocaml-4 stable
 # Masked in profiles/eapi-5-files instead
-IUSE="api debug doc +hvm +ipxe lzma ocaml ovmf pygrub python +qemu +qemu-traditional +rombios screen selinux sdl static-libs system-ipxe system-qemu system-seabios systemd zstd"
+IUSE="api debug doc +hvm +ipxe lzma ocaml ovmf pygrub python +qemu +qemu-traditional +rombios screen selinux sdl static-libs system-ipxe system-qemu system-seabios"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -87,9 +86,7 @@ COMMON_DEPEND="
 		dev-libs/glib:2
 		sys-libs/pam
 	)
-	zstd? ( app-arch/zstd )
 	app-arch/bzip2
-	app-arch/zstd
 	dev-libs/libnl:3
 	dev-libs/lzo:2
 	dev-libs/yajl
@@ -228,68 +225,28 @@ pkg_setup() {
 }
 
 src_prepare() {
-	local i
-
-	# Upstream's patchset
-	if [[ -n ${UPSTREAM_VER} ]]; then
-		einfo "Try to apply Xen Upstream patch set"
-		eapply "${WORKDIR}"/patches-upstream
-	fi
-
-	# Security patchset
-	if [[ -n ${SECURITY_VER} ]]; then
-	einfo "Try to apply Xen Security patch set"
-		# apply main xen patches
-		# Two parallel systems, both work side by side
-		# Over time they may concdense into one. This will suffice for now
-		EPATCH_SUFFIX="patch"
-		EPATCH_FORCE="yes"
-
-		source "${WORKDIR}"/patches-security/${PV}.conf || die
-
-		for i in ${XEN_SECURITY_MAIN}; do
-			eapply "${WORKDIR}"/patches-security/xen/$i
-		done
-
-		# apply qemu-xen/upstream patches
-		pushd "${S}"/tools/qemu-xen/ > /dev/null
-		for i in ${XEN_SECURITY_QEMUU}; do
-			eapply "${WORKDIR}"/patches-security/qemuu/$i
-		done
-		popd > /dev/null
-
-		# apply qemu-traditional patches
-		pushd "${S}"/tools/qemu-xen-traditional/ > /dev/null
-		for i in ${XEN_SECURITY_QEMUT}; do
-			eapply "${WORKDIR}"/patches-security/qemut/$i
-		done
-		popd > /dev/null
-	fi
-
 	# move before Gentoo patch, one patch should apply to seabios, to fix gcc-4.5.x build err
 	mv ../seabios-${SEABIOS_VER} tools/firmware/seabios-dir-remote || die
 	pushd tools/firmware/ > /dev/null
 	ln -s seabios-dir-remote seabios-dir || die
 	popd > /dev/null
 
-	# Gentoo's patchset
-	if [[ -n ${GENTOO_VER} && -n ${GENTOO_GPV} ]]; then
-		einfo "Try to apply Gentoo specific patch set"
-		source "${FILESDIR}"/gentoo-patches.conf || die
-		_gpv=_gpv_${PN/-/_}_${PV//./}_${GENTOO_GPV}
-		for i in ${!_gpv}; do
-			eapply "${WORKDIR}"/patches-gentoo/$i
-		done
+	if [[ -v XEN_UPSTREAM_PATCHES_DIR ]]; then
+		eapply "${XEN_UPSTREAM_PATCHES_DIR}"
 	fi
 
-	# Ovmf's patchset
+	if [[ -v XEN_GENTOO_PATCHES_DIR ]]; then
+		rm "${XEN_GENTOO_PATCHES_DIR}"/xen-tools-4.16.0-qemu-bridge.patch || die
+		sed -i 's/qemu-bridge-helper/xen-bridge-helper/' \
+			tools/qemu-xen/include/net/net.h \
+			tools/qemu-xen/meson.build \
+			tools/qemu-xen/qemu-bridge-helper.c \
+			tools/qemu-xen/qemu-options.hx
+
+		eapply "${XEN_GENTOO_PATCHES_DIR}"
+	fi
+
 	if use ovmf; then
-		if [[ -n ${OVMF_VER} ]];then
-			einfo "Try to apply Ovmf patch set"
-			pushd "${WORKDIR}"/edk2-*/ > /dev/null
-			eapply "${WORKDIR}"/patches-ovmf
-			popd > /dev/null
-		fi
 		mv ../edk2-${EDK2_COMMIT} tools/firmware/ovmf-dir-remote || die
 		rm -r tools/firmware/ovmf-dir-remote/CryptoPkg/Library/OpensslLib/openssl || die
 		rm -r tools/firmware/ovmf-dir-remote/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3 || die
@@ -316,7 +273,7 @@ src_prepare() {
 		cp "${DISTDIR}/ipxe-git-${IPXE_COMMIT}.tar.gz" tools/firmware/etherboot/ipxe.tar.gz || die
 
 		# gcc 11
-		cp "${WORKDIR}/patches-gentoo/${PN}-4.15.0-ipxe-gcc11.patch" tools/firmware/etherboot/patches/ipxe-gcc11.patch || die
+		cp "${XEN_GENTOO_PATCHES_DIR}/ipxe/${PN}-4.15.0-ipxe-gcc11.patch" tools/firmware/etherboot/patches/ipxe-gcc11.patch || die
 		echo ipxe-gcc11.patch >> tools/firmware/etherboot/patches/series || die
 	fi
 
@@ -444,7 +401,6 @@ src_configure() {
 		$(use_enable ocaml ocamltools)
 		$(use_enable ovmf)
 		$(use_enable rombios)
-		$(use_enable systemd)
 		--with-xenstored=$(usex ocaml 'oxenstored' 'xenstored')
 	)
 
@@ -462,6 +418,11 @@ src_compile() {
 
 	if test-flag-CC -fno-strict-overflow; then
 		append-flags -fno-strict-overflow
+	fi
+
+	# bug #845099
+	if use ipxe; then
+		local -x NO_WERROR=1
 	fi
 
 	emake CC="$(tc-getCC)" LD="$(tc-getLD)" AR="$(tc-getAR)" RANLIB="$(tc-getRANLIB)" build-tools ${myopt}
