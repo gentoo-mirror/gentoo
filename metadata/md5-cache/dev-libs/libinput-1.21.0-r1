@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/libinput/ https://gitlab.freedesktop.org/libinput/libinput
 INHERIT=meson python-any-r1 udev
 IUSE=doc input_devices_wacom test
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=MIT
 RDEPEND=input_devices_wacom? ( >=dev-libs/libwacom-0.27:= ) >=dev-libs/libevdev-1.9.902 >=sys-libs/mtdev-1.1 virtual/libudev:= virtual/udev
 RESTRICT=!test? ( test )
 SLOT=0/10
 SRC_URI=https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.21.0/libinput-1.21.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	2cc95670908abda0d67e9e16a6b4341e	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	udev	f3a0a3964e2028a140c181f00eea9712
-_md5_=9634f0942af4f2138ad7b373041fa68a
+_md5_=3f62823a777ba06cf03ddf9b1fffd32d
