@@ -3,24 +3,35 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
-inherit desktop flag-o-matic java-pkg-opt-2 linux-info pax-utils python-single-r1 tmpfiles toolchain-funcs udev xdg
+# This absolutely doesn't work with Python 3.10 yet as of 6.1.34.
+# Two problems:
+# 1. The build system (not just in configure, but in src/libs/xpcom18a4/python/Makefile.kmk)
+# insists on trying to detect various Python paths without giving choice of which is used;
+#
+# 2. None of that machinery mentioned in #1. is rigged up for Python 3.10+, and
+# the homebrew Makefile/kbuild stuff is a pain to understand.
+#
+# bug #785835, bug #856121
+PYTHON_COMPAT=( python3_{8,9} )
+inherit desktop edo java-pkg-opt-2 linux-info multilib optfeature pax-utils python-single-r1 tmpfiles toolchain-funcs udev xdg
 
 MY_PN="VirtualBox"
 MY_PV="${PV/beta/BETA}"
 MY_PV="${MY_PV/rc/RC}"
 MY_P=${MY_PN}-${MY_PV}
-[[ "${PV}" == *a ]] && DIR_PV="$(ver_cut 1-3)"
+[[ ${PV} == *a ]] && DIR_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://download.virtualbox.org/virtualbox/${DIR_PV:-${MY_PV}}/${MY_P}.tar.bz2
 	https://dev.gentoo.org/~polynomial-c/${PN}/patchsets/${PN}-6.1.12-patches-01.tar.xz"
+S="${WORKDIR}/${MY_PN}-${DIR_PV:-${MY_PV}}"
 
 LICENSE="GPL-2 dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="~amd64"
+if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
+	KEYWORDS="~amd64"
+fi
 IUSE="alsa debug doc dtrace headless java lvm +opus pam pax-kernel pch pulseaudio +opengl python +qt5 +sdk +udev vboxwebsrv vnc"
 
 COMMON_DEPEND="
@@ -121,11 +132,9 @@ QA_WX_LOAD="
 "
 
 QA_PRESTRIPPED="
-	/usr/lib64/virtualbox/VMMR0.r0
-	/usr/lib64/virtualbox/VBoxDDR0.r0
+	usr/lib64/virtualbox/VMMR0.r0
+	usr/lib64/virtualbox/VBoxDDR0.r0
 "
-
-S="${WORKDIR}/${MY_PN}-${DIR_PV:-${MY_PV}}"
 
 REQUIRED_USE="
 	java? ( sdk )
@@ -135,8 +144,12 @@ REQUIRED_USE="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-vboxr0.patch"
-	"${FILESDIR}/${PN}-6.1.34-python3.10.patch" #852152
+	"${FILESDIR}"/${P}-vboxr0.patch
+	"${FILESDIR}"/${PN}-6.1.34-python3.10.patch # bug #852152
+	"${FILESDIR}"/${PN}-6.1.34-no-pam.patch # bug #843437
+	"${FILESDIR}"/${PN}-6.1.26-configure-include-qt5-path.patch # bug #805365
+	"${FILESDIR}"/${PN}-6.1.34-r3-python.patch
+	"${WORKDIR}"/patches
 )
 
 pkg_pretend() {
@@ -160,17 +173,25 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	python-single-r1_pkg_setup
-
-	tc-ld-disable-gold #bug 488176
-	tc-export CC CXX LD AR RANLIB
-	export HOST_CC="$(tc-getBUILD_CC)"
 }
 
 src_prepare() {
+	default
+
+	# Only add nopie patch when we're on hardened
+	if gcc-specs-pie ; then
+		eapply "${FILESDIR}"/050_virtualbox-5.2.8-nopie.patch
+	fi
+
+	# Only add paxmark patch when we're on pax-kernel
+	if use pax-kernel ; then
+		eapply "${FILESDIR}"/virtualbox-5.2.8-paxmark-bldprogs.patch
+	fi
+
 	# Remove shipped binaries (kBuild,yasm), see bug #232775
 	rm -r kBuild/bin tools || die
 
-	# Replace pointless GCC version check with something less stupid.
+	# Replace pointless GCC version check with something more sensible.
 	# This is needed for the qt5 version check.
 	sed -e 's@^check_gcc$@cc_maj="$(${CC} -dumpversion | cut -d. -f1)" ; cc_min="$(${CC} -dumpversion | cut -d. -f2)"@' \
 		-i configure || die
@@ -207,35 +228,20 @@ src_prepare() {
 			-i "${S}"/Config.kmk || die
 		java-pkg-opt-2_src_prepare
 	fi
-
-	# Only add nopie patch when we're on hardened
-	if gcc-specs-pie ; then
-		eapply "${FILESDIR}/050_virtualbox-5.2.8-nopie.patch"
-	fi
-
-	# Only add paxmark patch when we're on pax-kernel
-	if use pax-kernel ; then
-		eapply "${FILESDIR}"/virtualbox-5.2.8-paxmark-bldprogs.patch
-	fi
-
-	eapply "${FILESDIR}/${PN}-6.1.26-configure-include-qt5-path.patch" #805365
-
-	eapply "${WORKDIR}/patches"
-
-	default
-}
-
-doecho() {
-	echo "$@"
-	"$@" || die
 }
 
 src_configure() {
+	tc-ld-disable-gold # bug #488176
+	tc-export CC CXX LD AR RANLIB
+	export HOST_CC="$(tc-getBUILD_CC)"
+
 	local myconf=(
 		--with-gcc="$(tc-getCC)"
 		--with-g++="$(tc-getCXX)"
+
 		--disable-dbus
 		--disable-kmods
+
 		$(usex alsa '' --disable-alsa)
 		$(usex debug --build-debug '')
 		$(usex doc '' --disable-docs)
@@ -247,6 +253,7 @@ src_configure() {
 		$(usex vboxwebsrv --enable-webservice '')
 		$(usex vnc --enable-vnc '')
 	)
+
 	if ! use headless ; then
 		myconf+=(
 			$(usex opengl '' --disable-opengl)
@@ -258,25 +265,53 @@ src_configure() {
 			--disable-opengl
 		)
 	fi
+
 	if use amd64 && ! has_multilib_profile ; then
 		myconf+=( --disable-vmmraw )
 	fi
+
+	# bug #843437
+	cat >> LocalConfig.kmk <<-EOF || die
+		CFLAGS=${CFLAGS}
+		CXXFLAGS=${CXXFLAGS}
+	EOF
+
 	# not an autoconf script
-	doecho ./configure "${myconf[@]}"
+	edo ./configure "${myconf[@]}"
+
+	# Try to force usage of chosen Python implementation
+	# Commented out for now as it's insufficient (see comment above
+	# PYTHON_COMPAT).
+	# bug #856121, bug #785835
+	#sed -i \
+	#	-e '/VBOX_WITH_PYTHON.*=/d' \
+	#	-e '/VBOX_PATH_PYTHON_INC.*=/d' \
+	#	-e '/VBOX_LIB_PYTHON.*=/d' \
+	#	AutoConfig.kmk || die
+	#
+	#cat >> AutoConfig.kmk <<-EOF || die
+	#	VBOX_WITH_PYTHON=$(usex python 1 0)
+	#	VBOX_PATH_PYTHON_INC=$(python_get_includedir)
+	#	VBOX_LIB_PYTHON=$(python_get_library_path)
+	#EOF
 }
 
 src_compile() {
 	source ./env.sh || die
 
 	# Force kBuild to respect C[XX]FLAGS and MAKEOPTS (bug #178529)
-	MAKEJOBS=$(grep -Eo '(\-j|\-\-jobs)(=?|[[:space:]]*)[[:digit:]]+' <<< ${MAKEOPTS}) #'
-	MAKELOAD=$(grep -Eo '(\-l|\-\-load-average)(=?|[[:space:]]*)[[:digit:]]+' <<< ${MAKEOPTS}) #'
+	MAKEJOBS=$(grep -Eo '(\-j|\-\-jobs)(=?|[[:space:]]*)[[:digit:]]+' <<< ${MAKEOPTS})
+	MAKELOAD=$(grep -Eo '(\-l|\-\-load-average)(=?|[[:space:]]*)[[:digit:]]+' <<< ${MAKEOPTS})
 	MAKEOPTS="${MAKEJOBS} ${MAKELOAD}"
+
 	MAKE="kmk" emake \
 		VBOX_BUILD_PUBLISHER=_Gentoo \
-		TOOL_GXX3_CC="$(tc-getCC)" TOOL_GXX3_CXX="$(tc-getCXX)" \
-		TOOL_GXX3_LD="$(tc-getCXX)" VBOX_GCC_OPT="${CXXFLAGS}" \
-		TOOL_YASM_AS=yasm KBUILD_VERBOSE=2 \
+		TOOL_GXX3_CC="$(tc-getCC)" \
+		TOOL_GXX3_CXX="$(tc-getCXX)" \
+		TOOL_GXX3_LD="$(tc-getCXX)" \
+		VBOX_GCC_OPT="${CXXFLAGS}" \
+		TOOL_YASM_AS=yasm \
+		KBUILD_VERBOSE=2 \
 		VBOX_WITH_VBOXIMGMOUNT=1 \
 		all
 }
@@ -476,8 +511,8 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	if use udev ; then
-		udevadm control --reload-rules \
-			&& udevadm trigger --subsystem-match=usb
+		udevadm control --reload-rules
+		udevadm trigger --subsystem-match=usb
 	fi
 
 	tmpfiles_process virtualbox-vboxusb.conf
@@ -485,27 +520,18 @@ pkg_postinst() {
 	if ! use headless && use qt5 ; then
 		elog "To launch VirtualBox just type: \"virtualbox\"."
 	fi
+
 	elog "You must be in the vboxusers group to use VirtualBox."
 	elog ""
 	elog "The latest user manual is available for download at:"
-	elog "http://download.virtualbox.org/virtualbox/${DIR_PV:-${PV}}/UserManual.pdf"
+	elog "https://download.virtualbox.org/virtualbox/${DIR_PV:-${PV}}/UserManual.pdf"
 	elog ""
-	elog "For advanced networking setups you should emerge:"
-	elog "net-misc/bridge-utils and sys-apps/usermode-utilities"
-	elog ""
-	elog "Starting with version 4.0.0, ${PN} has USB-1 support."
-	elog "For USB-2 support, PXE-boot ability and VRDP support please emerge"
-	elog "  app-emulation/virtualbox-extpack-oracle"
-	elog "package."
-	elog "Starting with version 5.0.0, ${PN} no longer has the \"additions\" and"
-	elog "the \"extension\" USE flag. For installation of the guest additions ISO"
-	elog "image, please emerge"
-	elog "  app-emulation/virtualbox-additions"
-	elog "and for the USB2, USB3, VRDP and PXE boot ROM modules, please emerge"
-	elog "  app-emulation/virtualbox-extpack-oracle"
+
+	optfeature "Advanced networking setups" net-misc/bridge-utils sys-apps/usermode-utilities
+	optfeature "USB2, USB3, PXE boot, and VRDP support" app-emulation/virtualbox-extpack-oracle
+	optfeature "Guest additions ISO" app-emulation/virtualbox-additions
+
 	if ! use udev ; then
-		elog ""
-		elog "WARNING!"
-		elog "Without USE=udev, USB devices will likely not work in ${PN}."
+		ewarn "Without USE=udev, USB devices will likely not work in ${PN}."
 	fi
 }
