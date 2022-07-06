@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]] ; then
-		MY_COMMIT="a46d4aedd7934cf1068e360f80e61fa2b68f20ff"
+		MY_COMMIT="76350cebefe9bdabe24e9d043b83737547c225d8"
 		SRC_URI="https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/${MY_COMMIT}/pipewire-${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
 		S="${WORKDIR}"/${PN}-${MY_COMMIT}
 	else
@@ -93,7 +93,6 @@ RDEPEND="
 	pipewire-alsa? (
 		>=media-libs/alsa-lib-1.1.7[${MULTILIB_USEDEP}]
 	)
-	!pipewire-alsa? ( media-plugins/alsa-plugins[${MULTILIB_USEDEP},pulseaudio] )
 	sound-server? (
 		!media-sound/pulseaudio[daemon(+)]
 		!media-sound/pulseaudio-daemon
@@ -380,6 +379,10 @@ pkg_postinst() {
 
 	optfeature_header "The following can be installed for optional runtime features:"
 	optfeature "restricted realtime capabilities via D-Bus" sys-auth/rtkit
+
+	if use sound-server && ! use pipewire-alsa; then
+		optfeature "ALSA plugin to use PulseAudio interface for output" "media-plugins/alsa-plugins[pulseaudio]"
+	fi
 
 	if has_version 'net-misc/ofono' ; then
 		ewarn "Native backend has become default. Please disable oFono via:"

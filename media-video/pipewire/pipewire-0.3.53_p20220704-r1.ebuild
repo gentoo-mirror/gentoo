@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]] ; then
-		MY_COMMIT=""
+		MY_COMMIT="a46d4aedd7934cf1068e360f80e61fa2b68f20ff"
 		SRC_URI="https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/${MY_COMMIT}/pipewire-${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
 		S="${WORKDIR}"/${PN}-${MY_COMMIT}
 	else
