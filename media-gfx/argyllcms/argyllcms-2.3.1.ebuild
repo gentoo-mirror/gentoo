@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic multiprocessing toolchain-funcs udev
 
@@ -13,22 +13,22 @@ SRC_URI="http://www.argyllcms.com/${MY_P}_src.zip"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~hppa ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~loong ~riscv ~x86"
 IUSE="doc"
 
 RDEPEND="
+	dev-libs/openssl:0=
+	media-libs/libjpeg-turbo:=
 	media-libs/tiff:0
 	sys-libs/zlib
-	virtual/jpeg:0
 	x11-libs/libX11
+	x11-libs/libXScrnSaver
 	x11-libs/libXau
 	x11-libs/libXdmcp
 	x11-libs/libXext
 	x11-libs/libXinerama
 	x11-libs/libXrandr
 	x11-libs/libXxf86vm
-	x11-libs/libXScrnSaver
-	dev-libs/openssl:0=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip
@@ -81,6 +81,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	udev_reload
+
 	elog "If you have a Spyder2 you need to extract the firmware"
 	elog "from the CVSpyder.dll of the windows driver package"
 	elog "and store it as /usr/share/color/spyd2PLD.bin"
