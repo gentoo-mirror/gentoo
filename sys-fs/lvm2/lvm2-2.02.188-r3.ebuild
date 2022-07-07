@@ -206,6 +206,11 @@ src_compile() {
 	fi
 }
 
+src_test() {
+	einfo "Tests are disabled because of device-node mucking, if you want to"
+	einfo "run tests, compile the package and see ${S}/tests"
+}
+
 src_install() {
 	local inst
 	local INSTALL_TARGETS=( install install_tmpfiles_configuration )
@@ -266,6 +271,10 @@ pkg_postinst() {
 		tmpfiles_process lvm2.conf
 	fi
 
+	if use udev; then
+		udev_reload
+	fi
+
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		# This is a new installation
 		ewarn "Make sure the \"lvm\" init script is in the runlevels:"
@@ -292,7 +301,8 @@ pkg_postinst() {
 	fi
 }
 
-src_test() {
-	einfo "Tests are disabled because of device-node mucking, if you want to"
-	einfo "run tests, compile the package and see ${S}/tests"
+pkg_postrm() {
+	if use udev && [[ -z ${REPLACED_BY_VERSION} ]]; then
+		udev_reload
+	fi
 }
