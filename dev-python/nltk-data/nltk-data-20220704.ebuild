@@ -18,6 +18,8 @@ RESTRICT="bindist mirror"
 
 BDEPEND="app-arch/unzip"
 
+# https://github.com/nltk/nltk_data/commits/gh-pages
+
 PACKAGES_ZIP_2020=(
 	# wget -O - https://www.nltk.org/nltk_data/ | xml sel -t -m '//package[@unzip=0]' -v @subdir -o "/" -v @id -n - | sort
 	corpora/comtrans
@@ -109,20 +111,20 @@ PACKAGES_UNPACK_2020=(
 	stemmers/rslp
 	taggers/averaged_perceptron_tagger
 	taggers/averaged_perceptron_tagger_ru
-	taggers/universal_tagset
 	tokenizers/punkt
-)
-
-PACKAGES_UNPACK_2021=(
-	corpora/stopwords
 )
 
 PACKAGES_UNPACK_2021_12=(
 	corpora/inaugural
 	corpora/omw-1.4
-	corpora/sinica_treebank
 	corpora/wordnet2021
 	corpora/wordnet31
+	corpora/sinica_treebank
+)
+
+PACKAGES_UNPACK_2022=(
+	corpora/stopwords
+	taggers/universal_tagset
 )
 
 PACKAGES_UNPACK_EXTRA_2020=(
@@ -145,6 +147,10 @@ PACKAGES_UNPACK_EXTRA_2020=(
 	taggers/maxent_treebank_pos_tagger
 )
 
+PACKAGES_ZIP_EXTRA_2022=(
+	corpora/extended_omw
+)
+
 add_data() {
 	local x version=${1}
 	shift
@@ -157,11 +163,12 @@ add_data() {
 }
 
 add_data 20200312 "${PACKAGES_ZIP_2020[@]}" "${PACKAGES_UNPACK_2020[@]}"
-add_data 20211023 "${PACKAGES_UNPACK_2021[@]}"
 add_data 20211221 "${PACKAGES_UNPACK_2021_12[@]}"
+add_data 20220704 "${PACKAGES_UNPACK_2022[@]}"
 SRC_URI+="
 	extra? ("
 add_data 20200312 "${PACKAGES_UNPACK_EXTRA_2020[@]}"
+add_data 20220704 "${PACKAGES_ZIP_EXTRA_2022[@]}"
 SRC_URI+="
 	)"
 
@@ -186,7 +193,10 @@ src_unpack() {
 	unpack_data 20200312 "${PACKAGES_UNPACK_2020[@]}"
 	unpack_data 20211023 "${PACKAGES_UNPACK_2021[@]}"
 	unpack_data 20211221 "${PACKAGES_UNPACK_2021_12[@]}"
-	use extra && unpack_data 20200312 "${PACKAGES_UNPACK_EXTRA_2020[@]}"
+	unpack_data 20220704 "${PACKAGES_UNPACK_2022[@]}"
+	if use extra; then
+		unpack_data 20200312 "${PACKAGES_UNPACK_EXTRA_2020[@]}"
+	fi
 }
 
 install_zips() {
@@ -207,4 +217,7 @@ src_install() {
 	mv * "${ED}/usr/share/nltk_data/" || die
 
 	install_zips 20200312 "${PACKAGES_ZIP_2020[@]}"
+	if use extra; then
+		install_zips 20220704 "${PACKAGES_ZIP_EXTRA_2022[@]}"
+	fi
 }
