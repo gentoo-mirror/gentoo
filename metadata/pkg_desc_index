@@ -1374,7 +1374,7 @@ app-containers/slirp4netns 1.1.9 1.1.12-r1 1.2.0: User-mode networking for unpri
 app-containers/snapd 2.56 2.56.2: Service and tools for management of snap packages
 app-containers/syft 0.45.1 0.47.0: Generate a Software Bill of Materials from container images and filesystems
 app-containers/umoci 0.2.1 0.4.6: Manipulation tool for OCI images
-app-crypt/acme 1.27.0 1.28.0 9999: An implementation of the ACME protocol
+app-crypt/acme 1.27.0 1.28.0 1.29.0 9999: An implementation of the ACME protocol
 app-crypt/acme-sh 3.0.4 9999: A pure Unix shell script implementing ACME client protocol
 app-crypt/acme-tiny 4.1.0 5.0.1 9999: A tiny, auditable script for Let's Encrypt's ACME Protocol
 app-crypt/acr38u 1.7.11-r3 1.7.11-r4: Non CCID driver for ACR38 AC1038-based Smart Card Reader
@@ -1390,10 +1390,10 @@ app-crypt/bcwipe 1.9.13: Secure file removal utility
 app-crypt/bsign 0.4.5-r1: embed secure hashes (SHA1) and digital signatures (GNU Privacy Guard) into files
 app-crypt/ccid 1.4.35 1.4.36 1.5.0: CCID free software driver
 app-crypt/ccrypt 1.11-r3: Encryption and decryption
-app-crypt/certbot 1.27.0 1.28.0 9999: Let's encrypt client to automate deployment of X.509 certificates
-app-crypt/certbot-apache 1.27.0 1.28.0 9999: Apache plugin for certbot (Let's Encrypt Client)
+app-crypt/certbot 1.27.0 1.28.0 1.29.0 9999: Let's encrypt client to automate deployment of X.509 certificates
+app-crypt/certbot-apache 1.27.0 1.28.0 1.29.0 9999: Apache plugin for certbot (Let's Encrypt Client)
 app-crypt/certbot-dns-nsone 0.39.0-r1 1.18.0: NS1 DNS Authenticator plugin for Certbot (Let's Encrypt Client)
-app-crypt/certbot-nginx 1.27.0 1.28.0 9999: Nginx plugin for certbot (Let's Encrypt Client)
+app-crypt/certbot-nginx 1.27.0 1.28.0 1.29.0 9999: Nginx plugin for certbot (Let's Encrypt Client)
 app-crypt/cfssl 1.4.1 1.6.0: Cloudflare's PKI and TLS toolkit
 app-crypt/chntpw 140201: Offline Windows NT Password & Registry Editor
 app-crypt/ckpass 0.2-r1: ncurses based password database client compatible with KeePass 1.x databases
@@ -12482,7 +12482,7 @@ gnome-extra/eiciel 0.9.13.1: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.44.1 3.44.2 3.44.3: Evolution groupware backend
 gnome-extra/evolution-ews 3.44.1 3.44.2 3.44.3: Evolution module for connecting to Microsoft Exchange Web Services
 gnome-extra/gconf-editor 3.0.1-r1: An editor to the GNOME config system
-gnome-extra/gnome-boxes 42.0.1 42.1: Simple GNOME application to access remote or virtual systems
+gnome-extra/gnome-boxes 42.0.1 42.1 42.3: Simple GNOME application to access remote or virtual systems
 gnome-extra/gnome-calculator 41.1 42.0 42.1 42.2: A calculator application for GNOME
 gnome-extra/gnome-calendar 42.1 42.2: Manage your online calendars with simple and modern interface
 gnome-extra/gnome-characters 42.0: Unicode character map viewer and library
@@ -12590,7 +12590,7 @@ gui-apps/grim 1.3.1 1.4.0-r1 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.7 9999: gtk based greeter for greetd
 gui-apps/kanshi 1.1.0 9999: dynamic display configuration (autorandr for wayland)
 gui-apps/lavalauncher 1.7.1 2.0.0 2.1.0 9999: Simple launcher for wayland
-gui-apps/mako 1.6-r3 9999: A lightweight notification daemon for Wayland. Works on Sway
+gui-apps/mako 1.6-r3 1.7.1 9999: A lightweight notification daemon for Wayland. Works on Sway
 gui-apps/nm-tray 0.4.3-r1 0.5.0: A simple Qt-based NetworkManager front-end
 gui-apps/slurp 1.2.0 1.3.2 9999: Select a region in a Wayland compositor and print it to the standard output
 gui-apps/swappy 1.3.1 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
@@ -18224,7 +18224,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.246_p110 5.4.193_p74 5.10.120_p70 5.15.49_p47 5.18_p11: Full Linux 5.18 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/vanilla-kernel 5.4.199 5.4.200 5.4.201 5.4.202 5.4.203 5.10.123 5.10.124 5.10.125 5.10.127 5.10.128 5.15.48 5.15.49 5.15.50 5.15.51 5.15.52 5.18.5 5.18.6 5.18.7 5.18.8 5.18.9: Linux kernel built from vanilla upstream sources
-sys-kernel/vanilla-sources 4.9.321 4.14.286 4.19.250 5.4.203 5.10.128 5.15.52 5.17.15 5.18.9: Full sources for the Linux kernel
+sys-kernel/vanilla-sources 4.9.322 4.14.287 4.19.251 5.4.204 5.10.129 5.15.53 5.17.15 5.18.9: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.18.3: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1: The sd-bus library, extracted from systemd
