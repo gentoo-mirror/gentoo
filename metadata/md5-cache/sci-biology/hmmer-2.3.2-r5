@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-lang/perl )
+DEFINED_PHASES=compile configure install postinst
+DESCRIPTION=Sequence analysis using profile hidden Markov models
+EAPI=8
+HOMEPAGE=http://hmmer.org/
+INHERIT=toolchain-funcs
+IUSE=cpu_flags_ppc_altivec test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RESTRICT=!test? ( test )
+SLOT=2
+SRC_URI=http://eddylab.org/software/hmmer/2.3.2/hmmer-2.3.2.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=5aebac9d4eaee8ecbd0bff74b7b68c5e

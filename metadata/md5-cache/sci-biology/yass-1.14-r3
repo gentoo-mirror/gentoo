@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=dmalloc? ( dev-libs/dmalloc )
+DESCRIPTION=Genomic similarity search with multiple transition constrained spaced seeds
+EAPI=8
+HOMEPAGE=http://bioinfo.lifl.fr/yass/
+INHERIT=autotools
+IUSE=dmalloc lowmem threads
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dmalloc? ( dev-libs/dmalloc )
+SLOT=0
+SRC_URI=http://bioinfo.lifl.fr/yass/files/yass-1.14.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f
+_md5_=9e0eb1b35801ce703a9a397be6421d47

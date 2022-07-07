@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-lang/perl )
+DEFINED_PHASES=compile configure install
+DEPEND=mpi? ( virtual/mpi ) gsl? ( sci-libs/gsl:= )
+DESCRIPTION=Sequence analysis using profile hidden Markov models
+EAPI=8
+HOMEPAGE=http://hmmer.org/
+INHERIT=toolchain-funcs
+IUSE=cpu_flags_ppc_altivec cpu_flags_x86_sse gsl mpi test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-3
+RDEPEND=mpi? ( virtual/mpi ) gsl? ( sci-libs/gsl:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=66609c69302596b8671531f5be5cf6c1
