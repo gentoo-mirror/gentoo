@@ -5605,7 +5605,7 @@ dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in Hy
 dev-libs/c-blosc 1.21.1: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.15: Ultralightweight JSON parser in ANSI C
-dev-libs/capnproto 0.9.1: RPC/Serialization system with capabilities support
+dev-libs/capnproto 0.9.1 0.10.2: RPC/Serialization system with capabilities support
 dev-libs/capstone 4.0.2-r2 5.0_rc2-r1: disassembly/disassembler framework + bindings
 dev-libs/castxml 0.4.5: C-family abstract syntax tree XML output tool
 dev-libs/cdk 5.0.20210324-r2 5.0.20211216: A library of curses widgets
@@ -10334,11 +10334,11 @@ dev-ros/urdf_tutorial 0.5.0 9999: URDF tutorials
 dev-ros/urg_c 1.0.405 9999: URG Helper / URG Widget / URG Library / urg_c
 dev-ros/urg_node 0.1.15 9999: ROS wrapper for the Hokuyo urg_c library
 dev-ros/uuid_msgs 1.0.6 9999: ROS messages for universally unique identifiers
-dev-ros/visp_auto_tracker 0.12.1 9999: Online automated pattern-based object tracker relying on visual servoing
-dev-ros/visp_bridge 0.11.1 0.12.1 9999: Converts between ROS structures and ViSP structures
-dev-ros/visp_camera_calibration 0.11.1 0.12.1 9999: Calibration of cameras using a customizable pattern and ViSP library
-dev-ros/visp_hand2eye_calibration 0.11.1 0.12.1 9999: Estimates the camera position with respect to its effector using ViSP
-dev-ros/visp_tracker 0.11.1-r1 0.12.1 9999: Wraps the ViSP moving edge tracker provided by the ViSP library
+dev-ros/visp_auto_tracker 0.12.1 0.13.1 9999: Online automated pattern-based object tracker relying on visual servoing
+dev-ros/visp_bridge 0.11.1 0.12.1 0.13.1 9999: Converts between ROS structures and ViSP structures
+dev-ros/visp_camera_calibration 0.11.1 0.12.1 0.13.1 9999: Calibration of cameras using a customizable pattern and ViSP library
+dev-ros/visp_hand2eye_calibration 0.11.1 0.12.1 0.13.1 9999: Estimates the camera position with respect to its effector using ViSP
+dev-ros/visp_tracker 0.13.1 9999: Wraps the ViSP moving edge tracker provided by the ViSP library
 dev-ros/visualization_marker_tutorials 0.11.0 9999: Visualization marker tutorials
 dev-ros/visualization_msgs 1.12.7 1.13.0 1.13.1 9999: Messages used by higher level packages that deal in visualization-specific data
 dev-ros/voxel_grid 1.16.6 1.17.0 1.17.1 9999: Implementation of an efficient 3D voxel grid
@@ -16328,7 +16328,7 @@ ros-meta/simulators 1.5.0 9999: Metapackage for ROS simulation packages
 ros-meta/slam_gmapping 1.4.0 1.4.1 1.4.2 9999: ROS wrapper for OpenSlam's Gmapping
 ros-meta/unique_identifier 1.0.6 9999: ROS messages and interfaces for universally unique identifiers
 ros-meta/vision_opencv 1.15.0 1.16.0 9999: Converts between ROS Image messages and OpenCV images
-ros-meta/vision_visp 0.11.1 0.12.1 9999: Virtual package providing ViSP related packages
+ros-meta/vision_visp 0.11.1 0.12.1 0.13.1 9999: Virtual package providing ViSP related packages
 ros-meta/visualization_tutorials 0.11.0 9999: Metapackage referencing tutorials related to rviz and visualization
 ros-meta/viz 1.5.0 9999: Metapackage for ROS visualization packages
 sci-astronomy/aatm 0.6: Atmospheric Modelling for ALMA Observatory
@@ -16689,7 +16689,7 @@ sci-geosciences/viking 1.10: GPS data editor and analyzer
 sci-geosciences/xtide 2.15.1 2.15.1-r1: XTide provides tide and current predictions in a wide variety of formats
 sci-libs/NNPACK 2020.12.22: acceleration package for neural network computations
 sci-libs/QNNPACK 2019.08.28: Quantized Neural Networks PACKage
-sci-libs/ViSP 3.3.0-r1: Visual Servoing Platform: visual tracking and visual servoing library
+sci-libs/ViSP 3.3.0-r1 3.5.0: Visual Servoing Platform: visual tracking and visual servoing library
 sci-libs/XNNPACK 2022.02.17-r1: library of floating-point neural network inference operators
 sci-libs/adolc 2.7.2 9999: Automatic differentiation system for C/C++
 sci-libs/alglib 3.17.0: Numerical analysis and data processing library
@@ -16884,7 +16884,7 @@ sci-libs/nlopt 2.6.2-r1 2.7.1: Non-linear optimization library
 sci-libs/numkit 1.1.2-r1: Numerical first aid kit (with numpy/scipy)
 sci-libs/o2scl 0.920: Object-oriented Scientific Computing Library
 sci-libs/oc 2.0: Network Data Access Protocol client C library
-sci-libs/octomap 1.9.7: An Efficient Probabilistic 3D Mapping Framework Based on Octrees
+sci-libs/octomap 1.9.8: An Efficient Probabilistic 3D Mapping Framework Based on Octrees
 sci-libs/ogdi 4.1.0-r1: Open Geographical Datastore Interface, a GIS support library
 sci-libs/onnx 1.11.0-r1: Open Neural Network Exchange (ONNX)
 sci-libs/openblas 0.3.18 0.3.19 0.3.20: Optimized BLAS library based on GotoBLAS2
@@ -17056,7 +17056,7 @@ sci-mathematics/wxmaxima 20.12.2 21.11.0 22.04.0: Graphical frontend to Maxima, 
 sci-mathematics/yacas 1.7.0-r1 1.9.1: General purpose computer algebra system
 sci-mathematics/yafu 1.34.3-r1: Yet another factoring utility
 sci-mathematics/z3 4.8.17 4.9.1-r1: An efficient theorem prover
-sci-misc/ViSP-images 3.3.0: ViSP images data set
+sci-misc/ViSP-images 3.3.0 3.5.0: ViSP images data set
 sci-misc/apertium 3.2.0: Shallow-transfer machine Translation engine and toolbox
 sci-misc/boinc 7.18.1-r2 9999: The Berkeley Open Infrastructure for Network Computing
 sci-misc/cdfplayer 12.2.0: Wolfram Player for the interactive Computable Document Format (CDF)
