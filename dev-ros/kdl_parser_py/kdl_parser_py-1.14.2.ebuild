@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,24 +8,19 @@ ROS_SUBDIR=${PN}
 
 inherit ros-catkin
 
-DESCRIPTION="Constructs a KDL tree from an XML robot representation in URDF"
+DESCRIPTION="Python tools to construct a KDL tree from an XML robot representation in URDF"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
 RDEPEND="
-	dev-libs/boost:=
-	dev-ros/roscpp
-	dev-ros/rosconsole
-		dev-libs/console_bridge:=
-	>=dev-ros/urdf-1.13
-	sci-libs/orocos_kdl:=
-	dev-libs/tinyxml2:=
+	>=dev-ros/urdf-1.13[${PYTHON_SINGLE_USEDEP}]
+	$(python_gen_cond_dep "dev-python/python_orocos_kdl[\${PYTHON_USEDEP}]")
 "
 DEPEND="${RDEPEND}
 	test? (
 		dev-ros/rostest[${PYTHON_SINGLE_USEDEP}]
-		dev-cpp/gtest
+		$(python_gen_cond_dep "dev-python/urdf_parser_py[\${PYTHON_USEDEP}]")
 	)"
 
 src_test() {
