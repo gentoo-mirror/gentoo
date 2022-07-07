@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 optfeature systemd
@@ -19,15 +19,15 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	app-emulation/dynamips
 	>=dev-python/aiofiles-0.7.0[${PYTHON_USEDEP}]
-	>=dev-python/aiohttp-3.7.4[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.8.1[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
-	>=dev-python/async-timeout-3.0.1[${PYTHON_USEDEP}]
-	>=dev-python/distro-1.6.0[${PYTHON_USEDEP}]
-	>=dev-python/jinja-3.0.1[${PYTHON_USEDEP}]
+	>=dev-python/async-timeout-4.0.2[${PYTHON_USEDEP}]
+	>=dev-python/distro-1.7.0[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.0.3[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.7.0[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.1[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-8.0.0[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.3.1[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.5.12[${PYTHON_USEDEP}]
 	net-misc/ubridge
 	sys-apps/busybox
 "
