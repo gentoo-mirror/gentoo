@@ -11,33 +11,20 @@ CATKIN_MESSAGES_TRANSITIVE_DEPS="dev-ros/std_msgs dev-ros/geometry_msgs"
 
 inherit ros-catkin
 
-DESCRIPTION="Wraps the ViSP moving edge tracker provided by the ViSP library"
+DESCRIPTION="Estimates the camera position with respect to its effector using ViSP"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
 RDEPEND="
-	dev-libs/boost:=[threads(+)]
-	dev-ros/dynamic_reconfigure
-	dev-ros/geometry_msgs[${CATKIN_MESSAGES_PYTHON_USEDEP}]
 	dev-ros/image_proc
-	dev-ros/image_transport
-	dev-ros/nodelet
-	dev-ros/resource_retriever
 	dev-ros/roscpp
 	dev-ros/sensor_msgs
-	dev-ros/tf[${PYTHON_SINGLE_USEDEP}]
-	dev-ros/rospy[${PYTHON_SINGLE_USEDEP}]
-	$(python_gen_cond_dep "dev-python/numpy[\${PYTHON_USEDEP}]")
-	sci-libs/ViSP:=[opencv,X]
-	dev-libs/console_bridge:=
+	dev-ros/visp_bridge
+	dev-ros/visp_tracker
+	sci-libs/ViSP:=
 "
 DEPEND="${RDEPEND}"
 if [ "${PV#9999}" = "${PV}" ] ; then
 	S="${WORKDIR}/vision_visp-noetic-${PV}/${ROS_SUBDIR}"
 fi
-
-src_compile() {
-	export ROS_PACKAGE_PATH="${S}:${ROS_PACKAGE_PATH}"
-	ros-catkin_src_compile
-}
