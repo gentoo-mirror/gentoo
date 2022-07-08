@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{9,10,11} )
 inherit linux-info python-any-r1 toolchain-funcs
 
 MY_PV="$(ver_cut 1-2)"
@@ -21,7 +21,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sparc ~
 IUSE="graphviz"
 
 DEPEND=""
-RDEPEND="graphviz? ( media-gfx/graphviz )"
+RDEPEND="graphviz? ( >=media-gfx/graphviz-5.0.0 )"
 BDEPEND="${PYTHON_DEPS}
 	dev-python/sphinx
 	dev-python/sphinx_rtd_theme
