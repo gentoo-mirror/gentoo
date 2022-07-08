@@ -29,7 +29,6 @@ RDEPEND="
 	dev-libs/gmp:=
 	>=dev-libs/libebml-1.4.2:=
 	>=dev-libs/libfmt-8.0.1:=
-	<dev-libs/libfmt-9.0.0:=
 	>=dev-libs/pugixml-1.11:=
 	media-libs/flac:=
 	>=media-libs/libmatroska-1.6.3:=
@@ -38,6 +37,7 @@ RDEPEND="
 	sys-libs/zlib
 	dvd? ( media-libs/libdvdread:= )
 	dev-qt/qtcore:5
+	dev-qt/qtsvg:5
 	gui? (
 		dev-qt/qtgui:5
 		dev-qt/qtnetwork:5
@@ -67,6 +67,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/mkvtoolnix-58.0.0-qt5dbus.patch
 	"${FILESDIR}"/mkvtoolnix-67.0.0-no-uic-qtwidgets.patch
+	"${FILESDIR}"/${P}-fmt-9.patch
 )
 
 src_prepare() {
