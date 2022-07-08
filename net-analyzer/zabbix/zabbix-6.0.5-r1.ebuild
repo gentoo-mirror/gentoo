@@ -145,10 +145,6 @@ pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 }
 
-src_prepare() {
-	default
-}
-
 src_configure() {
 	local econf_args=(
 		"$(use_enable agent)"
@@ -201,7 +197,6 @@ src_install() {
 	)
 
 	for dir in "${dirs[@]}"; do
-		dodir "${dir}"
 		keepdir "${dir}"
 	done
 
@@ -260,6 +255,7 @@ src_install() {
 		doins "${S}"/src/go/conf/zabbix_agent2.conf
 		fperms 0640 /etc/zabbix/zabbix_agent2.conf
 		fowners root:zabbix /etc/zabbix/zabbix_agent2.conf
+		keepdir /etc/zabbix/zabbix_agent2.d/plugins.d
 
 		newinitd "${FILESDIR}"/zabbix-agent2.init zabbix-agent2
 
