@@ -1,11 +1,13 @@
-DEFINED_PHASES=install prepare test
+BDEPEND=dev-lang/perl:=
+DEFINED_PHASES=configure install test
 DESCRIPTION=tRNA detection in large-scale genome sequences
-EAPI=6
+EAPI=8
 HOMEPAGE=http://lowelab.ucsc.edu/tRNAscan-SE/
 INHERIT=perl-functions toolchain-funcs
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
+RDEPEND=dev-lang/perl:=
 SLOT=0
 SRC_URI=http://lowelab.ucsc.edu/software/tRNAscan-SE.tar.gz -> trnascan-se-1.31.tar.gz
 _eclasses_=perl-functions	95b2df43c5f3057b6e77bd00b4d953da	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=3f4bcdf31fe276f90a95e2f4b311deae
+_md5_=573bacb37768044a51d4a9ab21cdcf8c
