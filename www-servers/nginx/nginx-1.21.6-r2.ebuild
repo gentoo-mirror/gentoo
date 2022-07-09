@@ -157,7 +157,7 @@ GEOIP2_MODULE_URI="https://github.com/leev/ngx_http_geoip2_module/archive/${GEOI
 GEOIP2_MODULE_WD="${WORKDIR}/ngx_http_geoip2_module-${GEOIP2_MODULE_PV}"
 
 # njs-module (https://github.com/nginx/njs, as-is)
-NJS_MODULE_PV="0.6.1"
+NJS_MODULE_PV="0.7.2"
 NJS_MODULE_P="njs-${NJS_MODULE_PV}"
 NJS_MODULE_URI="https://github.com/nginx/njs/archive/${NJS_MODULE_PV}.tar.gz"
 NJS_MODULE_WD="${WORKDIR}/njs-${NJS_MODULE_PV}"
@@ -166,7 +166,7 @@ NJS_MODULE_WD="${WORKDIR}/njs-${NJS_MODULE_PV}"
 SSL_DEPS_SKIP=1
 AUTOTOOLS_AUTO_DEPEND="no"
 
-inherit autotools lua-single ssl-cert toolchain-funcs perl-module flag-o-matic user systemd multilib pax-utils
+inherit autotools lua-single ssl-cert toolchain-funcs perl-module systemd pax-utils
 
 DESCRIPTION="Robust, small and high performance http and reverse proxy server"
 HOMEPAGE="https://nginx.org"
@@ -203,7 +203,7 @@ LICENSE="BSD-2 BSD SSLeay MIT GPL-2 GPL-2+
 	nginx_modules_http_push_stream? ( GPL-3 )"
 
 SLOT="mainline"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
 
 # Package doesn't provide a real test suite
 RESTRICT="test"
@@ -279,6 +279,8 @@ done
 IUSE="${IUSE} nginx_modules_http_spdy"
 
 CDEPEND="
+	acct-group/nginx
+	acct-user/nginx
 	virtual/libcrypt:=
 	pcre? ( dev-libs/libpcre:= )
 	pcre-jit? ( dev-libs/libpcre:=[jit] )
@@ -342,11 +344,6 @@ REQUIRED_USE="pcre-jit? ( pcre )
 pkg_setup() {
 	NGINX_HOME="/var/lib/nginx"
 	NGINX_HOME_TMP="${NGINX_HOME}/tmp"
-
-	ebegin "Creating nginx user and group"
-	enewgroup ${PN}
-	enewuser ${PN} -1 -1 "${NGINX_HOME}" ${PN}
-	eend $?
 
 	if use libatomic; then
 		ewarn "GCC 4.1+ features built-in atomic operations."
