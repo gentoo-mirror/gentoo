@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( >=dev-lang/python-3.11.0_beta3:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 dev-qt/qthelp:5 ) >=kde-frameworks/extra-cmake-modules-5.96:5
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-qt/qtxml-5.15.4:5 =kde-frameworks/kcoreaddons-5.96*:5 =kde-frameworks/ki18n-5.96*:5 epub? ( app-text/ebook-tools ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:0= ) mobi? ( kde-apps/kdegraphics-mobipocket:5 ) office? ( =kde-frameworks/karchive-5.96*:5 ) pdf? ( app-text/poppler[qt5] ) taglib? ( media-libs/taglib ) kernel_linux? ( sys-apps/attr ) test? ( dev-qt/qttest:5 ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+DESCRIPTION=Library for extracting file metadata
+EAPI=8
+HOMEPAGE=https://kde.org/products/frameworks/
+INHERIT=ecm kde.org optfeature python-any-r1
+IUSE=epub exif ffmpeg mobi office pdf taglib debug doc test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-qt/qtxml-5.15.4:5 =kde-frameworks/kcoreaddons-5.96*:5 =kde-frameworks/ki18n-5.96*:5 epub? ( app-text/ebook-tools ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:0= ) mobi? ( kde-apps/kdegraphics-mobipocket:5 ) office? ( =kde-frameworks/karchive-5.96*:5 ) pdf? ( app-text/poppler[qt5] ) taglib? ( media-libs/taglib ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+RESTRICT=test !test? ( test )
+SLOT=5/5.96
+SRC_URI=mirror://kde/stable/frameworks/5.96/kfilemetadata-5.96.0.tar.xz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	975d49ff3b3f451efe7a95f230532135	ecm	542fb4c59adc3702f566140a9bdf49f8	kde.org	916c61efa7151f09c7701328b88cafc1	optfeature	d524f291c80f9d21ad80fe978e3ca760	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_md5_=5e52dba563c8162b665c3ae845b94b1a
