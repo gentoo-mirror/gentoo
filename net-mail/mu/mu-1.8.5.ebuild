@@ -7,7 +7,7 @@ inherit elisp-common meson
 
 DESCRIPTION="Set of tools to deal with Maildirs, in particular, searching and indexing"
 HOMEPAGE="https://www.djcbsoftware.nl/code/mu/ https://github.com/djcb/mu"
-SRC_URI="https://dev.gentoo.org/~matthew/distfiles/${P}.tar.xz"
+SRC_URI="https://github.com/djcb/mu/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -26,11 +26,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.7.12-optional-mu4e.patch
-	"${FILESDIR}"/${PN}-1.7.12-gcc12.patch
-)
-
 SITEFILE="70mu-gentoo-autoload.el"
 
 src_prepare() {
@@ -40,14 +35,17 @@ src_prepare() {
 	sed -i '/NEWS.org/,+1 d' meson.build || die
 	sed -i '/mu4e-about.org/d' mu4e/meson.build || die
 
+	# Don't compress the info file.
+	sed -i '/gzip/d' build-aux/meson-install-info.sh || die
+
 	# Instead, put it in /usr/share/doc/${PF}.
 	sed -i "/MU_DOC_DIR/s/mu/${PF}/" mu4e/meson.build || die
 }
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature emacs)
 		$(meson_feature readline)
+		-Demacs="$(usex emacs "${EMACS}" emacs-not-enabled)"
 		# NOTE: Guile interface is deprecated to be removed shortly.
 		-Dguile=disabled
 	)
