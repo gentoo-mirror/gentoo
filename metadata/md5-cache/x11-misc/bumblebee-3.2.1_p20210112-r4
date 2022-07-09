@@ -1,10 +1,10 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
-DEFINED_PHASES=configure install prepare
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=dev-libs/glib:2 dev-libs/libbsd sys-apps/kmod x11-libs/libX11 sys-apps/help2man virtual/pkgconfig
 DESCRIPTION=Service providing elegant and stable means of managing Optimus graphics chipsets
 EAPI=7
 HOMEPAGE=https://bumblebee-project.org https://github.com/Bumblebee-Project/Bumblebee
-INHERIT=autotools readme.gentoo-r1 systemd
+INHERIT=autotools readme.gentoo-r1 systemd udev
 IUSE=+bbswitch video_cards_nouveau video_cards_nvidia
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
@@ -13,5 +13,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/libbsd sys-apps/kmod x11-libs/libX11 acct-group
 REQUIRED_USE=|| ( video_cards_nouveau video_cards_nvidia )
 SLOT=0
 SRC_URI=https://github.com/Bumblebee-Project/Bumblebee/archive/8f3d307b6aabbc2cd8444c6e5a4360f3bf2915ec.tar.gz -> bumblebee-3.2.1_p20210112.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=2d1a1efe28e0b5c78d2196810a9a1b04
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	systemd	2736b403a83f194b59b767f3b344c2c1	udev	f3a0a3964e2028a140c181f00eea9712
+_md5_=efcd89307a7dc65499330101aaf509af
