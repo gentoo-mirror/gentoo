@@ -1,0 +1,15 @@
+BDEPEND=acct-user/jellyfin virtual/pkgconfig
+DEFINED_PHASES=install unpack
+DEPEND=acct-user/jellyfin
+DESCRIPTION=Jellyfin puts you in control of managing and streaming your media
+EAPI=8
+HOMEPAGE=https://jellyfin.readthedocs.io/en/latest/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=acct-user/jellyfin dev-util/lttng-ust:0 media-video/ffmpeg[vpx,x264]
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=arm64? ( https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.1_arm64.tar.gz https://repo.jellyfin.org/archive/linux/stable/10.8.1/combined/jellyfin_10.8.1_arm64.tar.gz ) amd64? ( https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.8.1_amd64.tar.gz https://repo.jellyfin.org/archive/linux/stable/10.8.1/combined/jellyfin_10.8.1_amd64.tar.gz )
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=1c0dbb7dd3bc30eb1954966c93c4242e
