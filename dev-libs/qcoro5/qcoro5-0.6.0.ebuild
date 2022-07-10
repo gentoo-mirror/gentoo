@@ -21,6 +21,8 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="dbus examples +network test websockets"
 
+RESTRICT="!test? ( test )"
+
 RDEPEND="
 	dev-qt/qtcore:5
 	dbus? ( dev-qt/qtdbus:5 )
@@ -31,7 +33,10 @@ DEPEND="${RDEPEND}
 		dev-qt/qtconcurrent:5
 		dev-qt/qtwidgets:5
 	)
-	test? ( dev-qt/qtconcurrent:5 )
+	test? (
+		dev-qt/qtconcurrent:5
+		dev-qt/qttest:5
+	)
 "
 
 src_configure() {
