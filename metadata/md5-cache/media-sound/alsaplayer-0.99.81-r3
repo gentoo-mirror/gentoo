@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=media-libs/libsndfile:= sys-libs/zlib:= alsa? ( media-libs/alsa-lib ) audiofile? ( media-libs/audiofile:= ) flac? ( media-libs/flac ) gtk? ( >=x11-libs/gtk+-2.10:2 ) id3tag? ( media-libs/libid3tag:= ) jack? ( virtual/jack ) mad? ( media-libs/libmad ) mikmod? ( media-libs/libmikmod:0 ) nas? ( media-libs/nas ) ogg? ( media-libs/libogg ) opengl? ( virtual/opengl ) vorbis? ( media-libs/libvorbis ) xosd? ( x11-libs/xosd ) oss? ( virtual/os-headers )
+DESCRIPTION=A heavily multi-threaded pluggable audio player
+EAPI=8
+HOMEPAGE=http://www.alsaplayer.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools desktop xdg
+IUSE=+alsa audiofile doc flac gtk id3tag jack mad mikmod nas nls ogg opengl oss vorbis xosd
+KEYWORDS=amd64 ~mips ~ppc ~riscv ~sparc x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libsndfile:= sys-libs/zlib:= alsa? ( media-libs/alsa-lib ) audiofile? ( media-libs/audiofile:= ) flac? ( media-libs/flac ) gtk? ( >=x11-libs/gtk+-2.10:2 ) id3tag? ( media-libs/libid3tag:= ) jack? ( virtual/jack ) mad? ( media-libs/libmad ) mikmod? ( media-libs/libmikmod:0 ) nas? ( media-libs/nas ) ogg? ( media-libs/libogg ) opengl? ( virtual/opengl ) vorbis? ( media-libs/libvorbis ) xosd? ( x11-libs/xosd )
+REQUIRED_USE=|| ( alsa jack nas oss )
+SLOT=0
+SRC_URI=http://www.alsaplayer.org/alsaplayer-0.99.81.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=87d5d694adaf3dc1218137bdfe06032c
