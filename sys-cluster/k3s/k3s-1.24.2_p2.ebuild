@@ -6,7 +6,7 @@ inherit go-module linux-info systemd
 
 DESCRIPTION="Lightweight Kubernetes"
 HOMEPAGE="https://k3s.io"
-K3S_CONTAINERD_VERSION=1.5.13-k3s1
+K3S_CONTAINERD_VERSION=1.6.6-k3s1
 K3S_RUNC_VERSION=v1.1.2
 K3S_ROOT_VERSION=0.11.0
 K3S_TRAEFIK_VERSION=10.19.3
