@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
 PYTHON_REQ_USE='bzip2(+),threads(+)'
 TMPFILES_OPTIONAL=1
 
@@ -11,10 +11,11 @@ inherit distutils-r1 linux-info toolchain-funcs tmpfiles prefix
 
 DESCRIPTION="The package management and distribution system for Gentoo"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Portage"
-SRC_URI="https://gitweb.gentoo.org/proj/portage.git/snapshot/${P}.tar.bz2"
+# Switch back to bzip2 for next release
+SRC_URI="https://gitweb.gentoo.org/proj/portage.git/snapshot/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 SLOT="0"
 IUSE="apidoc build doc gentoo-dev +ipc +native-extensions +rsync-verify selinux test xattr"
 RESTRICT="!test? ( test )"
@@ -85,9 +86,6 @@ pkg_pretend() {
 
 python_prepare_all() {
 	local PATCHES=(
-		"${FILESDIR}/3.0.30-revert-default-enable-soname-dependencies.patch"
-		"${FILESDIR}/3.0.30-revert-run-warn.patch"
-		"${FILESDIR}/3.0.30-qa-checks.patch"
 	)
 
 	distutils-r1_python_prepare_all
