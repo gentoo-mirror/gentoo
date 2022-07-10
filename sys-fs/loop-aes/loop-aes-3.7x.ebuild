@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,6 +17,8 @@ KEYWORDS="~amd64 ~arm ~hppa ~ppc ~sparc ~x86"
 IUSE="cpu_flags_x86_aes extra-ciphers keyscrub cpu_flags_x86_padlock"
 
 DEPEND="app-crypt/loop-aes-losetup"
+
+PATCHES=( "${FILESDIR}"/loop-aes-3.7w-build-initrd_explicit-losetup.patch )
 
 S="${WORKDIR}/${MY_P}"
 
