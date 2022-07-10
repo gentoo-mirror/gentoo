@@ -1,14 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext )
 DEFINED_PHASES=configure install prepare
-DEPEND=x11-libs/libX11 x11-libs/libXt media-libs/libpng:0= nls? ( virtual/libintl ) nls? ( sys-devel/gettext )
+DEPEND=x11-libs/libX11 x11-libs/libXt media-libs/libpng:= nls? ( virtual/libintl )
 DESCRIPTION=A Puzzle Bobble clone similar to Frozen-Bubble
-EAPI=6
+EAPI=8
 HOMEPAGE=http://www.nongnu.org/xbubble/
 INHERIT=desktop
 IUSE=nls
 KEYWORDS=~alpha ~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=x11-libs/libX11 x11-libs/libXt media-libs/libpng:0= nls? ( virtual/libintl )
+RDEPEND=x11-libs/libX11 x11-libs/libXt media-libs/libpng:= nls? ( virtual/libintl )
 SLOT=0
 SRC_URI=http://www.ibiblio.org/pub/mirrors/gnu/ftp/savannah/files/xbubble/xbubble-0.5.8.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa
-_md5_=b76a67f0d346d8e5c245eb86f587ab83
+_md5_=07a5cd301e1f550aebb7be8a3808e22d
