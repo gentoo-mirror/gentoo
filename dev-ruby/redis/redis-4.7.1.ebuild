@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby24 ruby25 ruby26 ruby27"
+USE_RUBY="ruby26 ruby27 ruby30 ruby31"
 
 MY_P="redis-rb-${PV}"
 
@@ -24,20 +24,18 @@ SLOT="4"
 KEYWORDS="~amd64 ~arm64"
 IUSE="doc test"
 
-DEPEND="test? ( =dev-db/redis-5* )"
+DEPEND="test? ( <dev-db/redis-7 )"
 
 RUBY_S="${MY_P}"
 
-PATCHES=( "${FILESDIR}/${PN}-4.1.4-local-redis-server.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.7.1-local-redis-server.patch" )
 
-ruby_add_bdepend "test? ( dev-ruby/mocha )"
+ruby_add_bdepend "test? (
+	dev-ruby/minitest
+	dev-ruby/mocha
+)"
 
 all_ruby_prepare() {
-	# call me impatient, but this way we don't need netcat
-	sed -i \
-		-e '/test_subscribe_past_a_timeout/,+18d' \
-		test/publish_subscribe_test.rb || die "sed failed"
-
 	sed -i -e 's/git ls-files --/echo/' ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	sed -i -e '/test_connection_timeout/askip "requires network"' test/internals_test.rb || die
@@ -46,7 +44,7 @@ all_ruby_prepare() {
 }
 
 each_ruby_test() {
-	RUBY=${RUBY} TMP=${T} MT_NO_PLUGINS=true emake -j1 all
+	RUBY=${RUBY} TMP=${T} MT_NO_PLUGINS=true VERBOSE=true emake -j1 all
 	einfo "Wait 5 seconds for servers to stop"
 	sleep 5
 }
