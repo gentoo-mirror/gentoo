@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://linux-gpib.sourceforge.io/
 INHERIT=readme.gentoo-r1 autotools perl-functions python-single-r1 udev
 IUSE=pcmcia static guile perl php python tcl doc firmware python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm ~x86
 LICENSE=GPL-2
 RDEPEND=sys-libs/readline:= tcl? ( dev-lang/tcl:0= ) guile? ( dev-scheme/guile:12 ) perl? ( dev-lang/perl:= ) php? ( dev-lang/php:= ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) ) firmware? ( sys-apps/fxload ) acct-group/gpib ~sci-libs/linux-gpib-modules-4.3.4
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/linux-gpib/linux-gpib-4.3.4.tar.gz firmware? ( https://linux-gpib.sourceforge.io/firmware/gpib_firmware-2008-08-10.tar.gz )
 _eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	udev	f3a0a3964e2028a140c181f00eea9712
-_md5_=cb16fa65dfbdf3af46f554b6c7d0ffc2
+_md5_=789145d87727f3fb3e5d29d3b65de991
