@@ -24,7 +24,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 DEPEND="acct-user/jellyfin"
 RDEPEND="${DEPEND}
-	dev-util/lttng-ust:0
 	media-video/ffmpeg[vpx,x264]"
 BDEPEND="acct-user/jellyfin"
 INST_DIR="/opt/${PN}"
@@ -33,6 +32,14 @@ QA_PREBUILT="${INST_DIR#/}/*.so ${INST_DIR#/}/jellyfin ${INST_DIR#/}/createdump"
 src_unpack() {
 	unpack ${A}
 	mv ${PN}_${PV} ${P} || die
+}
+
+src_prepare() {
+	default
+
+	# https://github.com/jellyfin/jellyfin/issues/7471
+	# https://github.com/dotnet/runtime/issues/57784
+	rm libcoreclrtraceptprovider.so || die
 }
 
 src_install() {

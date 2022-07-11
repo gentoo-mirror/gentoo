@@ -30,6 +30,13 @@ QA_PREBUILT="*"
 
 S="${WORKDIR}/Prowlarr"
 
+src_prepare() {
+	default
+
+	# https://github.com/dotnet/runtime/issues/57784
+	rm libcoreclrtraceptprovider.so Prowlarr.Update/libcoreclrtraceptprovider.so || die
+}
+
 src_install() {
 	newinitd "${FILESDIR}/${PN}.init" ${PN}
 
