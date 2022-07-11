@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/jakarta-activation-api:2 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-11:* dev-java/jakarta-activation-api:2 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=istack common utility code
 EAPI=8
 HOMEPAGE=https://projects.eclipse.org/projects/ee4j/istack-commons/
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/eclipse-ee4j/jaxb-istack-commons/archive/4.1.1.tar.gz -> jaxb-istack-commons-istack-commons-runtime-4.1.1.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	20f7aa09b49045020177a457e5a1a883
-_md5_=017580c1a2bbab04687dfda83d03bc7b
+_md5_=1c1c306097611f6efc71a12188bff5c2
