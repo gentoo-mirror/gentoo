@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=install
+DEFINED_PHASES=install prepare
 DESCRIPTION=A fork of Sonarr to work with movies a la Couchpotato
 EAPI=8
 HOMEPAGE=https://www.radarr.video
@@ -11,4 +11,4 @@ RESTRICT=bindist strip test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/Radarr/Radarr/releases/download/v4.1.0.6175/Radarr.master.4.1.0.6175.linux-core-x64.tar.gz ) arm? ( https://github.com/Radarr/Radarr/releases/download/v4.1.0.6175/Radarr.master.4.1.0.6175.linux-core-arm.tar.gz ) arm64? ( https://github.com/Radarr/Radarr/releases/download/v4.1.0.6175/Radarr.master.4.1.0.6175.linux-core-arm64.tar.gz )
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=75aa24016066c2c0c8767c88173eb817
+_md5_=b747ba46cdc345e587a5fee8ae840dea
