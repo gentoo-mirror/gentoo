@@ -4,7 +4,7 @@
 # @ECLASS: epatch.eclass
 # @MAINTAINER:
 # base-system@gentoo.org
-# @SUPPORTED_EAPIS: 0 1 2 3 4 5 6
+# @SUPPORTED_EAPIS: 5 6
 # @BLURB: easy patch application functions
 # @DEPRECATED: eapply from EAPI 7
 # @DESCRIPTION:
@@ -13,11 +13,11 @@
 
 if [[ -z ${_EPATCH_ECLASS} ]]; then
 
-case ${EAPI:-0} in
-	0|1|2|3|4|5|6)
+case ${EAPI} in
+	5|6)
 		;;
 	*)
-		die "${ECLASS}: banned in EAPI=${EAPI}; use eapply* instead";;
+		die "${ECLASS}: EAPI ${EAPI:-0} not supported";;
 esac
 
 inherit estack
@@ -52,10 +52,6 @@ EPATCH_COMMON_OPTS="-g0 -E --no-backup-if-mismatch"
 # List of patches not to apply.	 Note this is only file names,
 # and not the full path.  Globs accepted.
 EPATCH_EXCLUDE=""
-# @VARIABLE: EPATCH_SINGLE_MSG
-# @DESCRIPTION:
-# Change the printed message for a single patch.
-EPATCH_SINGLE_MSG=""
 # @VARIABLE: EPATCH_MULTI_MSG
 # @DESCRIPTION:
 # Change the printed message for multiple patches.
@@ -235,13 +231,9 @@ epatch() {
 		fi
 
 		if [[ ${SINGLE_PATCH} == "yes" ]] ; then
-			if [[ -n ${EPATCH_SINGLE_MSG} ]] ; then
-				einfo "${EPATCH_SINGLE_MSG}"
-			else
-				einfo "Applying ${patchname} ..."
-			fi
+			ebegin "Applying ${patchname}"
 		else
-			einfo "  ${patchname} ..."
+			ebegin "  ${patchname}"
 		fi
 
 		# Handle aliased patch command #404447 #461568
