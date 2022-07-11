@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="+l0 +vaapi"
 
 RDEPEND=">=media-libs/gmmlib-22.0.2:="
@@ -41,11 +41,11 @@ BDEPEND="virtual/pkgconfig"
 
 DOCS=( "README.md" "FAQ.md" )
 
-src_prepare() {
-	default
+PATCHES=( "${FILESDIR}/${PN}-22.24.23453-remove-fortify-sources.patch" )
 
+src_prepare() {
 	# Remove '-Werror' from default
-	set -e '/Werror/d' -i CMakeLists.txt || die
+	sed -e '/Werror/d' -i CMakeLists.txt || die
 
 	cmake_src_prepare
 }
