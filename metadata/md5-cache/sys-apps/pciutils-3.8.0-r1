@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://mj.ucw.cz/sw/pciutils/ https://git.kernel.org/?p=utils/pciutils/pciutils.git
 INHERIT=toolchain-funcs multilib-minimal flag-o-matic
 IUSE=dns +kmod static-libs +udev zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=kmod? ( sys-apps/kmod ) udev? ( >=virtual/libudev-208[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) static-libs? ( zlib? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+),abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) ) !static-libs? ( zlib? ( >=sys-libs/zlib-1.2.8-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) ) sys-apps/hwdata
 REQUIRED_USE=static-libs? ( !udev )
 SLOT=0
 SRC_URI=https://mj.ucw.cz/download/linux/pci/pciutils-3.8.0.tar.gz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
-_md5_=572027f45d72d275c444ed0e1b746d84
+_md5_=9e85ba639b613269341ed405181b64a1
