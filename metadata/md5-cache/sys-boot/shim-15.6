@@ -1,0 +1,12 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=install unpack
+DESCRIPTION=Fedora's signed UEFI shim
+EAPI=8
+HOMEPAGE=https://src.fedoraproject.org/rpms/shim
+INHERIT=rpm
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=BSD
+SLOT=0
+SRC_URI=amd64? ( https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/x86_64/shim-x64-15.6-2.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/x86_64/shim-ia32-15.6-2.x86_64.rpm ) x86? ( https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/x86_64/shim-x64-15.6-2.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/x86_64/shim-ia32-15.6-2.x86_64.rpm ) arm64? ( https://kojipkgs.fedoraproject.org/packages/shim/15.6/2/aarch64/shim-aa64-15.6-2.aarch64.rpm )
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0
+_md5_=c52d191bc560789e73def9e6143d3995

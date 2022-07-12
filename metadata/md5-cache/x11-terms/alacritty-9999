@@ -1,9 +1,9 @@
-BDEPEND=dev-util/cmake >=virtual/rust-1.56.0 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-util/cmake >=virtual/rust-1.57.0 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst setup test unpack
 DEPEND=media-libs/fontconfig:= media-libs/freetype:2 x11-libs/libxkbcommon X? ( x11-libs/libxcb:=[xkb] ) || ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 )
 DESCRIPTION=GPU-accelerated terminal emulator
 EAPI=8
-HOMEPAGE=https://github.com/alacritty/alacritty
+HOMEPAGE=https://alacritty.org
 INHERIT=bash-completion-r1 cargo desktop python-any-r1 git-r3
 IUSE=wayland +X debug
 LICENSE=Apache-2.0 Apache-2.0-with-LLVM-exceptions Boost-1.0 BSD BSD-2 CC0-1.0 FTL ISC MIT MPL-2.0 Unlicense WTFPL-2 ZLIB
@@ -12,4 +12,4 @@ RDEPEND=media-libs/fontconfig:= media-libs/freetype:2 x11-libs/libxkbcommon X? (
 REQUIRED_USE=|| ( wayland X )
 SLOT=0
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	52a92ed3815080c5f2caac1905687b1c	desktop	22952d8f27cac191d75529d4c38e6bfa	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=51a63f588fbb4f4aab2ba5ebfea5b4d2
+_md5_=eff2490f2da4f5be27ebe869e95d3567
