@@ -3,6 +3,16 @@
 
 EAPI=8
 
+# 1. Please regularly check (even at the point of bumping) Fedora's packaging
+# for needed backports at https://src.fedoraproject.org/rpms/pipewire/tree/rawhide.
+#
+# 2. Upstream also sometimes amend release notes for the previous release to mention
+# needed patches, e.g. https://gitlab.freedesktop.org/pipewire/pipewire/-/tags/0.3.55#distros
+#
+# 3. Keep an eye on git master (for both PipeWire and WirePlumber) as things
+# continue to move quickly. It's not uncommon for fixes to be made shortly
+# after releases.
+
 PYTHON_COMPAT=( python3_{8..11} )
 
 inherit flag-o-matic meson-multilib optfeature prefix python-any-r1 systemd udev
@@ -28,8 +38,8 @@ HOMEPAGE="https://pipewire.org/"
 LICENSE="MIT LGPL-2.1+ GPL-2"
 # ABI was broken in 0.3.42 for https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/49
 SLOT="0/0.4"
-IUSE="bluetooth doc echo-cancel extra gstreamer jack-client jack-sdk lv2 pipewire-alsa
-sound-server ssl system-service systemd test udev v4l X zeroconf"
+IUSE="bluetooth dbus doc echo-cancel extra gstreamer jack-client jack-sdk lv2
+pipewire-alsa sound-server ssl system-service systemd test udev v4l X zeroconf"
 
 # Once replacing system JACK libraries is possible, it's likely that
 # jack-client IUSE will need blocking to avoid users accidentally
@@ -46,6 +56,7 @@ REQUIRED_USE="
 	jack-sdk? ( !jack-client )
 	system-service? ( systemd )
 	!sound-server? ( !pipewire-alsa )
+	jack-client? ( dbus )
 "
 
 RESTRICT="!test? ( test )"
@@ -63,7 +74,6 @@ BDEPEND="
 RDEPEND="
 	acct-group/audio
 	media-libs/alsa-lib
-	sys-apps/dbus[${MULTILIB_USEDEP}]
 	sys-libs/readline:=
 	sys-libs/ncurses:=[unicode(+)]
 	virtual/libintl[${MULTILIB_USEDEP}]
@@ -75,6 +85,7 @@ RDEPEND="
 		>=net-wireless/bluez-4.101:=
 		virtual/libusb:1
 	)
+	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	echo-cancel? ( media-libs/webrtc-audio-processing:0 )
 	extra? (
 		>=media-libs/libsndfile-1.0.20
@@ -93,7 +104,6 @@ RDEPEND="
 	pipewire-alsa? (
 		>=media-libs/alsa-lib-1.1.7[${MULTILIB_USEDEP}]
 	)
-	!pipewire-alsa? ( media-plugins/alsa-plugins[${MULTILIB_USEDEP},pulseaudio] )
 	sound-server? (
 		!media-sound/pulseaudio[daemon(+)]
 		!media-sound/pulseaudio-daemon
@@ -134,6 +144,7 @@ DOCS=( {README,INSTALL}.md NEWS )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.3.25-enable-failed-mlock-warning.patch
+	"${FILESDIR}"/${P}-jack-mix.patch
 )
 
 # limitsdfile related code taken from =sys-auth/realtime-base-0.1
@@ -170,6 +181,7 @@ multilib_src_configure() {
 	local emesonargs=(
 		-Ddocdir="${EPREFIX}"/usr/share/doc/${PF}
 
+		$(meson_feature dbus)
 		$(meson_native_use_feature zeroconf avahi)
 		$(meson_native_use_feature doc docs)
 		$(meson_native_enabled examples) # TODO: Figure out if this is still important now that media-session gone
@@ -286,6 +298,10 @@ multilib_src_install_all() {
 	fi
 }
 
+pkg_postrm() {
+	use udev && udev_reload
+}
+
 pkg_postinst() {
 	use udev && udev_reload
 
@@ -380,6 +396,10 @@ pkg_postinst() {
 
 	optfeature_header "The following can be installed for optional runtime features:"
 	optfeature "restricted realtime capabilities via D-Bus" sys-auth/rtkit
+
+	if use sound-server && ! use pipewire-alsa; then
+		optfeature "ALSA plugin to use PulseAudio interface for output" "media-plugins/alsa-plugins[pulseaudio]"
+	fi
 
 	if has_version 'net-misc/ofono' ; then
 		ewarn "Native backend has become default. Please disable oFono via:"
