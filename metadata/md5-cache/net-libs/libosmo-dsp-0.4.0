@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=doc? ( app-doc/doxygen dev-texlive/texlive-latexextra ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=sci-libs/fftw:3.0
 DESCRIPTION=A library with SDR DSP primitives
@@ -12,4 +12,4 @@ RDEPEND=sci-libs/fftw:3.0
 SLOT=0/0.4.0
 SRC_URI=https://dev.gentoo.org/~zerochaos/distfiles/libosmo-dsp-0.4.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f
-_md5_=d06dffa91b265b647448c25f81349786
+_md5_=52742c2bb227842e66553a85910eee1c
