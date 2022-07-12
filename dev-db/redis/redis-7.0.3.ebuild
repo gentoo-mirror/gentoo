@@ -14,7 +14,7 @@ SRC_URI="https://download.redis.io/releases/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="+jemalloc selinux ssl systemd tcmalloc test"
 RESTRICT="!test? ( test )"
 
@@ -162,7 +162,7 @@ src_install() {
 	insinto /etc/logrotate.d/
 	newins "${FILESDIR}/${PN}.logrotate" ${PN}
 
-	dodoc 00-RELEASENOTES BUGS CONTRIBUTING MANIFESTO README.md
+	dodoc 00-RELEASENOTES BUGS CONTRIBUTING.md MANIFESTO README.md
 
 	dobin src/redis-cli
 	dosbin src/redis-benchmark src/redis-server src/redis-check-aof src/redis-check-rdb
