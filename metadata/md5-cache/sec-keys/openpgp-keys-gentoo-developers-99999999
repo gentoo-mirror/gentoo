@@ -1,0 +1,14 @@
+BDEPEND=|| ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/python-gnupg[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/python-gnupg[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/python-gnupg[python_targets_python3_9(-)] ) ) sec-keys/openpgp-keys-gentoo-auth test? ( app-crypt/gnupg )
+DEFINED_PHASES=compile install setup test
+DESCRIPTION=Gentoo Authority Keys (GLEP 79)
+EAPI=8
+HOMEPAGE=https://www.gentoo.org/downloads/signatures/
+INHERIT=edo python-any-r1
+IUSE=test
+LICENSE=public-domain
+PROPERTIES=live
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://qa-reports.gentoo.org/output/active-devs.gpg -> openpgp-keys-gentoo-developers-99999999-active-devs.gpg
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_md5_=412dfb48eaead4b98f1286ae1e08b459
