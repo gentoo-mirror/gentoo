@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=sys-libs/libcap-ng sys-process/procps:=
+DESCRIPTION=Userspace KSM helper daemon
+EAPI=8
+HOMEPAGE=https://codeberg.org/pf-kernel/uksmd
+INHERIT=linux-info meson
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=sys-libs/libcap-ng sys-process/procps:=
+SLOT=0
+SRC_URI=https://codeberg.org/pf-kernel/uksmd/archive/f10f38e3adcaf6175e6c4c1846cad72ae9ab2cf2.tar.gz -> uksmd-0_pre20220705.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	2cc95670908abda0d67e9e16a6b4341e
+_md5_=f20a981b60c95ace2c5be178f04140eb
