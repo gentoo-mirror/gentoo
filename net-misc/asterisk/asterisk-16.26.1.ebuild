@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
 
@@ -12,9 +12,10 @@ HOMEPAGE="https://www.asterisk.org/"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/asterisk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
+	+voicemail_storage_file
 	voicemail_storage_odbc
 	voicemail_storage_imap
 )
@@ -22,6 +23,7 @@ IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster 
 IUSE_EXPAND="VOICEMAIL_STORAGE"
 REQUIRED_USE="gtalk? ( xmpp )
 	lua? ( ${LUA_REQUIRED_USE} )
+	^^ ( ${IUSE_VOICEMAIL_STORAGE[*]//+/} )
 	voicemail_storage_odbc? ( odbc )
 "
 
@@ -66,7 +68,7 @@ DEPEND="acct-user/asterisk
 	mysql? ( dev-db/mysql-connector-c:= )
 	newt? ( dev-libs/newt )
 	odbc? ( dev-db/unixODBC )
-	pjproject? ( >=net-libs/pjproject-2.12:= )
+	pjproject? ( >=net-libs/pjproject-2.9:= )
 	portaudio? ( media-libs/portaudio )
 	postgres? ( dev-db/postgresql:* )
 	radius? ( net-dialup/freeradius-client )
@@ -218,6 +220,9 @@ src_configure() {
 	_menuselect --enable cdr_sqlite3_custom menuselect.makeopts
 	_menuselect --enable cel_sqlite3_custom menuselect.makeopts
 
+	# Disable conversion tools (which fails to compile in some cases).
+	_menuselect --disable astdb2bdb menuselect.makeopts
+
 	# The others are based on USE-flag settings
 	_use_select alsa         chan_alsa
 	_use_select bluetooth    chan_mobile
@@ -250,10 +255,9 @@ src_configure() {
 	_use_select xmpp         res_xmpp
 
 	# Voicemail storage ...
-	_menuselect --enable app_voicemail menuselect.makeopts
 	for vmst in "${IUSE_VOICEMAIL_STORAGE[@]}"; do
 		if use "${vmst#+}"; then
-			_menuselect --enable "app_voicemail_${vmst##*_}" menuselect.makeopts
+			_menuselect --enable "$(echo "${vmst##*_}" | tr '[:lower:]' '[:upper:]')_STORAGE" menuselect.makeopts
 		fi
 	done
 
@@ -286,7 +290,7 @@ src_install() {
 	diropts -m 0750 -o root -g asterisk
 	dodir /etc/asterisk
 
-	emake "${_make_args[@]}" install install-headers install-configs
+	emake "${_make_args[@]}" install install-configs
 
 	fowners asterisk: /var/lib/asterisk/astdb
 
@@ -301,8 +305,9 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newinitd "${FILESDIR}"/initd-16.22.0-18.8.0 asterisk
-	newconfd "${FILESDIR}"/confd-16.16.2-r1 asterisk
+	newsbin "${FILESDIR}/asterisk_wrapper-16.26.1-18.12.1" asterisk_wrapper
+	newinitd "${FILESDIR}"/initd-16.26.1-18.12.1 asterisk
+	newconfd "${FILESDIR}"/confd-16.26.1-18.12.1 asterisk
 
 	systemd_dounit "${FILESDIR}"/asterisk.service
 	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles-16.22.0-18.8.0.conf asterisk.conf

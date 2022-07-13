@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://www.asterisk.org/"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/asterisk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
 	voicemail_storage_odbc
@@ -218,6 +218,9 @@ src_configure() {
 	_menuselect --enable cdr_sqlite3_custom menuselect.makeopts
 	_menuselect --enable cel_sqlite3_custom menuselect.makeopts
 
+	# Disable conversion tools (which fails to compile in some cases).
+	_menuselect --disable astdb2bdb menuselect.makeopts
+
 	# The others are based on USE-flag settings
 	_use_select alsa         chan_alsa
 	_use_select bluetooth    chan_mobile
@@ -301,8 +304,9 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newinitd "${FILESDIR}"/initd-16.22.0-18.8.0 asterisk
-	newconfd "${FILESDIR}"/confd-16.16.2-r1 asterisk
+	newsbin "${FILESDIR}/asterisk_wrapper-16.26.1-18.12.1" asterisk_wrapper
+	newinitd "${FILESDIR}"/initd-16.26.1-18.12.1 asterisk
+	newconfd "${FILESDIR}"/confd-16.26.1-18.12.1 asterisk
 
 	systemd_dounit "${FILESDIR}"/asterisk.service
 	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles-16.22.0-18.8.0.conf asterisk.conf

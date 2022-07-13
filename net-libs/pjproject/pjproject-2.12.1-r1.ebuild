@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-
-EAPI=7
+# TODO: Figure out a way to disable SRTP from pjproject entirely.
+EAPI=8
 
 inherit autotools flag-o-matic toolchain-funcs
 
@@ -17,17 +17,10 @@ SLOT="0/${PV}"
 CODEC_FLAGS="g711 g722 g7221 gsm ilbc speex l16"
 VIDEO_FLAGS="sdl ffmpeg v4l2 openh264 libyuv vpx"
 SOUND_FLAGS="alsa portaudio"
-IUSE="amr debug epoll examples ipv6 opus resample silk ssl static-libs webrtc
+IUSE="amr debug epoll examples opus resample silk ssl static-libs webrtc
 	${CODEC_FLAGS} g729
 	${VIDEO_FLAGS}
 	${SOUND_FLAGS}"
-
-PATCHES=(
-	"${FILESDIR}/pjproject-2.9-ssl-enable.patch"
-	"${FILESDIR}/pjproject-2.10-race-condition-between-transport-destroy-and-acquire.patch"
-	"${FILESDIR}/pjproject-2.10-CVE-2020-15260-tls-hostname-check.patch"
-	"${FILESDIR}/pjproject-2.10-CVE-2021-21375-negotiation-failure-crash.patch"
-)
 
 RDEPEND="net-libs/libsrtp:=
 	alsa? ( media-libs/alsa-lib )
@@ -52,13 +45,38 @@ RDEPEND="net-libs/libsrtp:=
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/pjproject-2.12.1-CVE-2022-31031.patch"
+)
+
 src_prepare() {
 	default
 	rm configure || die "Unable to remove unwanted wrapper"
 	mv aconfigure.ac configure.ac || die "Unable to rename configure script source"
 	eautoreconf
 
-	cp "${FILESDIR}/pjproject-2.9-config_site.h" "${S}/pjlib/include/pj/config_site.h" || die "Unable to create config_site.h"
+	cp "${FILESDIR}/pjproject-2.12.1-config_site.h" "${S}/pjlib/include/pj/config_site.h" || die "Unable to create config_site.h"
+}
+
+_pj_enable() {
+	usex "$1" '' "--disable-${2:-$1}"
+}
+
+_pj_get_define() {
+	local r="$(sed -nre "s/^#define[[:space:]]+$1[[:space:]]+//p" "${S}/pjlib/include/pj/config_site.h")"
+	[[ -z "${r}" ]] && die "Unable to fine #define $1 in config_site.h"
+	echo "$r"
+}
+
+_pj_set_define() {
+	local c=$(_pj_get_define "$1")
+	[[ "$c" = "$2" ]] && return 0
+	sed -re "s/^#define[[:space:]]+$1[[:space:]].*/#define $1 $2/" -i "${S}/pjlib/include/pj/config_site.h" || die "sed failed updating $1 to $2."
+	[[ "$(_pj_get_define "$1")" != "$2" ]] && die "sed failed to perform update for $1 to $2."
+}
+
+_pj_use_set_define() {
+	_pj_set_define "$2" $(usex "$1" 1 0)
 }
 
 src_configure() {
@@ -67,40 +85,38 @@ src_configure() {
 	local t
 
 	use debug || append-cflags -DNDEBUG=1
-	use ipv6 && append-cflags -DPJ_HAS_IPV6=1
-	append-cflags -DPJMEDIA_HAS_SRTP=1
 
 	for t in ${CODEC_FLAGS}; do
-		myconf+=( $(use_enable ${t} ${t}-codec) )
+		myconf+=( $(_pj_enable ${t} ${t}-codec) )
 	done
-	myconf+=( $(use_enable g729 bcg729) )
+	myconf+=( $(_pj_enable g729 bcg729) )
 
 	for t in ${VIDEO_FLAGS}; do
-		myconf+=( $(use_enable ${t}) )
+		myconf+=( $(_pj_enable ${t}) )
 		use "${t}" && videnable="--enable-video"
 	done
 
-	[ "${videnable}" = "--enable-video" ] && append-cflags -DPJMEDIA_HAS_VIDEO=1
+	[ "${videnable}" = "--enable-video" ] && _pj_set_define PJMEDIA_HAS_VIDEO 1 || _pj_set_define PJMEDIA_HAS_VIDEO 0
 
 	LD="$(tc-getCC)" econf \
 		--enable-shared \
 		--with-external-srtp \
 		${videnable} \
-		$(use_enable alsa sound) \
-		$(use_enable amr opencore-amr) \
-		$(use_enable epoll) \
-		$(use_enable opus) \
-		$(use_enable portaudio ext-sound) \
-		$(use_enable resample libsamplerate) \
-		$(use_enable resample resample-dll) \
-		$(use_enable resample) \
-		$(use_enable silk) \
-		$(use_enable speex speex-aec) \
-		$(use_enable ssl) \
+		$(_pj_enable alsa sound) \
+		$(_pj_enable amr opencore-amr) \
+		$(_pj_enable epoll) \
+		$(_pj_enable opus) \
+		$(_pj_enable portaudio ext-sound) \
+		$(_pj_enable resample libsamplerate) \
+		$(_pj_enable resample resample-dll) \
+		$(_pj_enable resample) \
+		$(_pj_enable silk) \
+		$(_pj_enable speex speex-aec) \
+		$(_pj_enable ssl) \
+		$(_pj_enable webrtc libwebrtc) \
 		$(use_with gsm external-gsm) \
 		$(use_with portaudio external-pa) \
 		$(use_with speex external-speex) \
-		$(usex webrtc '' --disable-libwebrtc) \
 		"${myconf[@]}"
 }
 
