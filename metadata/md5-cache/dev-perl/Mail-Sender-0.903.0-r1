@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Mail-Sender
 INHERIT=perl-module
 IUSE=minimal test
-KEYWORDS=amd64 ~hppa ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!minimal? ( dev-perl/Authen-NTLM dev-perl/Digest-HMAC dev-perl/IO-Socket-SSL dev-perl/Mozilla-CA dev-perl/Net-SSLeay ) virtual/perl-Carp virtual/perl-Encode virtual/perl-Exporter virtual/perl-IO virtual/perl-MIME-Base64 virtual/perl-Socket virtual/perl-Time-Local dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/C/CA/CAPOEIRAB/Mail-Sender-0.903.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
-_md5_=18b684c55af3ab8006399167f105d5b4
+_md5_=2457e8d8a3383b9a4e527f9e5dcdffd0
