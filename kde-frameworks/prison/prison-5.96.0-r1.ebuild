@@ -18,12 +18,14 @@ RDEPEND="
 	>=dev-qt/qtmultimedia-${QTMIN}:5
 	media-gfx/qrencode:=
 	media-libs/libdmtx
-	media-libs/zxing-cpp
+	media-libs/zxing-cpp:=
 	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
 "
+
+PATCHES=( "${FILESDIR}/${P}-zxing-cpp-1.4.0.patch" )
 
 src_configure() {
 	local mycmakeargs=(
