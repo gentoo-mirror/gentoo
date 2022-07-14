@@ -46,7 +46,7 @@ inherit multiprocessing ninja-utils python-utils-r1 toolchain-funcs
 
 EXPORT_FUNCTIONS src_configure src_compile src_test src_install
 
-BDEPEND=">=dev-util/meson-0.59.4
+BDEPEND=">=dev-util/meson-0.62.2
 	${NINJA_DEPEND}
 	dev-util/meson-format-array
 "
@@ -407,6 +407,7 @@ meson_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local mesontestargs=(
+		--print-errorlogs
 		-C "${BUILD_DIR}"
 		--num-processes "$(makeopts_jobs "${MAKEOPTS}")"
 		"$@"
