@@ -1,15 +1,15 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-doc/doxygen ) virtual/pkgconfig
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-doc/doxygen ) virtual/pkgconfig >=app-portage/elt-patches-20170815
 DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=acct-group/plugdev virtual/libiconv virtual/libusb:1 crypt? ( dev-libs/libgcrypt:0= )
 DESCRIPTION=Implementation of Microsoft's Media Transfer Protocol (MTP)
 EAPI=8
 HOMEPAGE=http://libmtp.sourceforge.net/
-INHERIT=udev
+INHERIT=udev libtool
 IUSE=+crypt doc examples static-libs
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1
 RDEPEND=acct-group/plugdev virtual/libiconv virtual/libusb:1 crypt? ( dev-libs/libgcrypt:0= )
 SLOT=0/9
 SRC_URI=mirror://sourceforge/libmtp/libmtp-1.1.20.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	udev	f3a0a3964e2028a140c181f00eea9712
-_md5_=70005cf239752dc67a6a2c00f0102ef1
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	udev	f3a0a3964e2028a140c181f00eea9712	libtool	241a8f577b9781a42a7421e53448a44e
+_md5_=f6f2324e27c66ab4a7b530455e0f8869
