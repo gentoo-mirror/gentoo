@@ -17,11 +17,10 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="dev-db/sqlite:3
 	dev-libs/libuv:=
-	>=dev-libs/raft-0.13.0"
+	>=dev-libs/raft-0.14.0"
 DEPEND="${RDEPEND}
 	test? ( >=dev-libs/raft-0.13.0[lz4,test] )"
-
-PATCHES=( "${FILESDIR}"/dqlite-1.11.0-fix-version-information.patch )
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	default

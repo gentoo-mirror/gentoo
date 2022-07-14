@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-info meson
+inherit linux-info meson systemd
 
 MY_COMMIT="f10f38e3adcaf6175e6c4c1846cad72ae9ab2cf2"
 
@@ -23,8 +23,11 @@ CONFIG_CHECK="~KSM"
 
 S="${WORKDIR}/uksmd"
 
+PATCHES=( "${FILESDIR}"/uksmd-0-remove-systemd-dep.patch )
+
 src_install() {
 	meson_src_install
 
 	newinitd "${FILESDIR}/uksmd.init" uksmd
+	systemd_dounit uksmd.service
 }
