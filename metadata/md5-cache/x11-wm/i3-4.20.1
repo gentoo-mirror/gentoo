@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=dev-libs/libev dev-libs/libpcre dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb[xkb] x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config test? ( dev-perl/AnyEvent dev-perl/ExtUtils-PkgConfig dev-perl/Inline dev-perl/Inline-C dev-perl/IPC-Run dev-perl/local-lib dev-perl/X11-XCB virtual/perl-Test-Simple x11-base/xorg-server[xephyr] x11-misc/xvfb-run ) doc? ( app-text/asciidoc app-text/xmlto dev-lang/perl )
 DESCRIPTION=An improved dynamic tiling window manager
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libev dev-libs/libpcre dev-libs/yajl x11-libs/cairo[X,xcb(+)] x
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://i3wm.org/downloads/i3-4.20.1.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	2cc95670908abda0d67e9e16a6b4341e	optfeature	d524f291c80f9d21ad80fe978e3ca760	virtualx	975d49ff3b3f451efe7a95f230532135
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	46c25780996ffc397131ecd35a2194a2	optfeature	d524f291c80f9d21ad80fe978e3ca760	virtualx	975d49ff3b3f451efe7a95f230532135
 _md5_=dd4c29bedfcd9585e5bf5c223dae4167

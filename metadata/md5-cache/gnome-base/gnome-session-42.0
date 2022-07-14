@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 x11-libs/xtrans virtual/pkgconfig doc? ( app-text/xmlto app-text/docbook-xml-dtd:4.1.2 ) app-arch/xz-utils >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 x11-libs/xtrans virtual/pkgconfig doc? ( app-text/xmlto app-text/docbook-xml-dtd:4.1.2 ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=dev-libs/glib-2.46.0:2 >=x11-libs/gtk+-3.22.0:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 >=gnome-base/gnome-desktop-3.34.2:3= >=dev-libs/json-glib-0.10 media-libs/mesa[egl(+),gles2,X(+)] media-libs/libepoxy x11-libs/libXcomposite systemd? ( >=sys-apps/systemd-242:0= ) elogind? ( >=sys-auth/elogind-239.4 )
 DESCRIPTION=Gnome session manager
@@ -13,5 +13,5 @@ RDEPEND=>=dev-libs/glib-2.46.0:2 >=x11-libs/gtk+-3.22.0:3 x11-libs/libICE x11-li
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-session/42/gnome-session-42.0.tar.xz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	2cc95670908abda0d67e9e16a6b4341e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	46c25780996ffc397131ecd35a2194a2	xdg	6024fbc93167fad782e2032933654857
 _md5_=352ab1b64794b7f07a5c72ab4f771968

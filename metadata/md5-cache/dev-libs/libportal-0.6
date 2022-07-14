@@ -1,4 +1,4 @@
-BDEPEND=dev-util/glib-utils virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) qt5? ( test? ( dev-qt/linguist-tools ) ) vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-util/glib-utils virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) qt5? ( test? ( dev-qt/linguist-tools ) ) vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-libs/glib-2.58:2 introspection? ( dev-libs/gobject-introspection:= ) gtk? ( x11-libs/gtk+:3 gui-libs/gtk:4 ) qt5? ( dev-qt/qtcore:= dev-qt/qtgui:= dev-qt/qtx11extras:= dev-qt/qtwidgets:= ) qt5? ( test? ( dev-qt/qttest:= ) )
 DESCRIPTION=Flatpak portal library
@@ -13,5 +13,5 @@ REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/1-1-1-1
 SRC_URI=https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	2cc95670908abda0d67e9e16a6b4341e	vala	9badd41d5aab740ae5ac301c4416c5f8	virtualx	975d49ff3b3f451efe7a95f230532135
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	46c25780996ffc397131ecd35a2194a2	vala	9badd41d5aab740ae5ac301c4416c5f8	virtualx	975d49ff3b3f451efe7a95f230532135
 _md5_=7b08d2eda380063b9996baf02fd592fd
