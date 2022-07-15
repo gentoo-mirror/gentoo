@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=net-libs/libnet-1.1.1 net-libs/libpcap ncurses? ( >=sys-libs/ncurses-5.4:= )
+DESCRIPTION=NAST - Network Analyzer Sniffer Tool
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/nast.berlios/
+INHERIT=autotools flag-o-matic
+IUSE=ncurses
+KEYWORDS=~amd64 ~ppc ~ppc64 x86
+LICENSE=GPL-2
+RDEPEND=>=net-libs/libnet-1.1.1 net-libs/libpcap ncurses? ( >=sys-libs/ncurses-5.4:= )
+SLOT=0
+SRC_URI=mirror://sourceforge/nast.berlios/nast-0.2.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
+_md5_=713038c9d475719bef141cbaeff312a2

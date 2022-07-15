@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://linux-gpib.sourceforge.io/
 INHERIT=linux-info linux-mod
 IUSE=debug dist-kernel
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/gpib kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/linux-gpib/linux-gpib-4.3.4.tar.gz
 _eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6ff232574f0bcad33767903505553e8d
-_md5_=57a9c67e9179173bed3cc0626c0f444c
+_md5_=bd0897c9171536b6bea942c48774cbf5
