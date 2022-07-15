@@ -1,13 +1,14 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install
-DEPEND=sys-libs/ncurses:= virtual/pkgconfig
+DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Matrox utility to switch output modes (activate tvout)
-EAPI=6
+EAPI=8
 HOMEPAGE=ftp://platan.vc.cvut.cz/pub/linux/matrox-latest/
-INHERIT=toolchain-funcs
+INHERIT=edo toolchain-funcs
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:=
 SLOT=0
 SRC_URI=ftp://platan.vc.cvut.cz/pub/linux/matrox-latest/matroxset-0.4.tar.gz
-_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=b61a5d77edadd29b207bc8964db3d562
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=59826879e5d411519b5e55bfdd58f168
