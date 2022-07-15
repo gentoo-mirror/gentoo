@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://geopython.github.io/OWSLib/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=BSD
 PROPERTIES=test_network
 RDEPEND=dev-python/lxml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pyproj[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-dateutil[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pytz[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pyyaml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/geopython/owslib/archive/0.26.0.tar.gz -> owslib-0.26.0.gh.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	a012c7f8c0a9dddadb3a4f56364c8f62
-_md5_=133948a766a8000cfbd9020e8b55d790
+_md5_=0f6796089bb7f0ff6735804fb2d1610c
