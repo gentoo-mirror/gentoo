@@ -278,6 +278,9 @@ src_configure() {
 	for mod in "${disable_modules[@]}"; do
 		echo "MODULE_${mod}_STATE=disabled"
 	done >> Makefile || die
+
+	# install epython.py as part of stdlib
+	echo "EPYTHON='python${PYVER}'" > Lib/epython.py || die
 }
 
 src_compile() {
@@ -424,25 +427,9 @@ src_install() {
 		-i "${ED}/etc/conf.d/pydoc-${PYVER}" \
 		"${ED}/etc/init.d/pydoc-${PYVER}" || die "sed failed"
 
-	local -x EPYTHON=python${PYVER}
-	# if not using a cross-compiler, use the fresh binary
-	if ! tc-is-cross-compiler; then
-		cat > python.wrap <<-EOF || die
-			#!/bin/sh
-			export LD_LIBRARY_PATH=\${PWD}\${LD_LIBRARY_PATH+:\${LD_LIBRARY_PATH}}
-			exec ./python "\${@}"
-		EOF
-		chmod +x python.wrap || die
-		local -x PYTHON=./python.wrap
-	else
-		local -x PYTHON=${EPREFIX}/usr/bin/${EPYTHON}
-	fi
-
-	echo "EPYTHON='${EPYTHON}'" > epython.py || die
-	python_domodule epython.py
-
 	# python-exec wrapping support
 	local pymajor=${PYVER%.*}
+	local EPYTHON=python${PYVER}
 	local scriptdir=${D}$(python_get_scriptdir)
 	mkdir -p "${scriptdir}" || die
 	# python and pythonX
@@ -469,4 +456,20 @@ src_install() {
 		ln -s "../../../bin/idle${PYVER}" \
 			"${scriptdir}/idle" || die
 	fi
+}
+
+pkg_postinst() {
+	local v
+	for v in ${REPLACING_VERSIONS}; do
+		if ver_test "${v}" -lt 3.11.0_beta4-r2; then
+			ewarn "Python 3.11.0b4 has changed its module ABI.  The .pyc files"
+			ewarn "installed previously are no longer valid and will be regenerated"
+			ewarn "(or ignored) on the next import.  This may cause sandbox failures"
+			ewarn "when installing some packages and checksum mismatches when removing"
+			ewarn "old versions.  To actively prevent this, rebuild all packages"
+			ewarn "installing Python 3.11 modules, e.g. using:"
+			ewarn
+			ewarn "  emerge -1v /usr/lib/python3.11/site-packages"
+		fi
+	done
 }
