@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-USE_RUBY="ruby26"
+USE_RUBY="ruby26 ruby27"
 inherit depend.apache ruby-ng
 
 DESCRIPTION="Flexible project management web application using the Ruby on Rails framework"
@@ -14,6 +14,10 @@ KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="fastcgi imagemagick ldap markdown +minimagick mysql passenger pdf postgres sqlite"
+
+PATCHES=(
+	"${FILESDIR}/${P}-rails-yaml-safe_load.patch"
+)
 
 ruby_add_bdepend "
 	fastcgi? ( dev-ruby/fcgi )
@@ -34,10 +38,10 @@ ruby_add_bdepend "
 	>=dev-ruby/mini_mime-1.0.1
 	>=dev-ruby/nokogiri-1.11.1
 	dev-ruby/rack-openid
-	dev-ruby/rails:5.2
+	>=dev-ruby/rails-5.2.8.1:5.2
 	>=dev-ruby/rbpdf-1.20.0
 	>=dev-ruby/request_store-1.5.0:0
-	>=dev-ruby/roadie-rails-2.2.0
+	>=dev-ruby/roadie-rails-2.2.0:2
 	dev-ruby/rotp
 	>=dev-ruby/rouge-3.26.0
 	dev-ruby/rqrcode
