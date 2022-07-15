@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure install preinst prepare
+DEFINED_PHASES=configure install postrm preinst prepare
 DESCRIPTION=Taylor UUCP
 EAPI=7
 HOMEPAGE=https://www.airs.com/ian/uucp.html
@@ -9,4 +9,4 @@ LICENSE=GPL-2
 SLOT=0
 SRC_URI=mirror://gnu/uucp/uucp-1.07.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
-_md5_=1300c526214aedf1ca46f83d60b948d7
+_md5_=cd407b07f1dc061dd090fc59dafa4f37
