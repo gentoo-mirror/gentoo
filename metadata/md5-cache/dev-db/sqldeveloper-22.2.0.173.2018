@@ -8,9 +8,9 @@ INHERIT=desktop java-pkg-2
 IUSE=mssql mysql postgres sybase
 KEYWORDS=-* ~amd64
 LICENSE=OTN
-RDEPEND=<dev-java/openjdk-17:*[javafx] >=virtual/jre-1.8:* mssql? ( dev-java/jtds:1.3 ) mysql? ( dev-java/jdbc-mysql:0 ) postgres? ( dev-java/jdbc-postgresql:0 ) sybase? ( dev-java/jtds:1.3 ) >=dev-java/java-config-2.2.0-r3
+RDEPEND=dev-java/openjdk:11[javafx] virtual/jre:11 mssql? ( dev-java/jtds:1.3 ) mysql? ( dev-java/jdbc-mysql:0 ) postgres? ( dev-java/jdbc-postgresql:0 ) sybase? ( dev-java/jtds:1.3 ) >=dev-java/java-config-2.2.0-r3
 RESTRICT=bindist fetch
 SLOT=0
-SRC_URI=sqldeveloper-21.4.3.063.0100-no-jre.zip
+SRC_URI=sqldeveloper-22.2.0.173.2018-no-jre.zip
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd
-_md5_=73c15614648a6ca6b387de4742d83a5f
+_md5_=13a320b78401cb5abd90aa1f95eb61b0
