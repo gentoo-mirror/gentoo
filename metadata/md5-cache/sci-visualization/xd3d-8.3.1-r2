@@ -1,0 +1,15 @@
+BDEPEND=app-shells/tcsh virtual/fortran
+DEFINED_PHASES=configure install prepare setup
+DEPEND=x11-libs/libXpm virtual/fortran
+DESCRIPTION=Scientific visualization tool
+EAPI=8
+HOMEPAGE=http://www.cmap.polytechnique.fr/~jouve/xd3d/
+INHERIT=edo fortran-2 flag-o-matic toolchain-funcs
+IUSE=doc examples
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=x11-libs/libXpm virtual/fortran
+SLOT=0
+SRC_URI=mirror://gentoo/xd3d-8.3.1.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
+_md5_=07ab612820f0e727153d42c51e35e150
