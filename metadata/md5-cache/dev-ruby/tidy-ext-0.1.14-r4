@@ -1,17 +1,17 @@
-BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rspec:2[ruby_targets_ruby26(-)] >=dev-ruby/rspec-core-2.14.8-r2[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:2[ruby_targets_ruby27(-)] >=dev-ruby/rspec-core-2.14.8-r2[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ) virtual/pkgconfig
+BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+DEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 DESCRIPTION=W3C HTML Tidy library implemented as a Ruby extension
 EAPI=8
 HOMEPAGE=https://github.com/carld/tidy
 INHERIT=ruby-fakegem
-IUSE=ruby_targets_ruby26 ruby_targets_ruby27 doc test test
+IUSE=ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test test
 KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ppc ppc64 ~sparc x86
 LICENSE=HTML-Tidy
-RDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
+RDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/tidy-ext-0.1.14.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	ruby-utils	707c7b16c28e3483e51d7ec7f7b0d5ed	ruby-ng	a903a55f81825a114c1845d128a33cd4	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
-_md5_=9e2b45e2bc1eee631a09fed91e39e831
+_md5_=e1c2a84a9c8aa5243a35f6ad0319d34e
