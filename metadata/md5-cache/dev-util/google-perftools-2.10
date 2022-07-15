@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=!ppc64? ( riscv? ( sys-libs/llvm-libunwind:= ) !riscv? ( sys-libs/libunwind:= ) )
+DESCRIPTION=Fast, multi-threaded malloc() and nifty performance analysis tools
+EAPI=8
+HOMEPAGE=https://github.com/gperftools/gperftools
+INHERIT=flag-o-matic autotools vcs-snapshot multilib-minimal
+IUSE=largepages largepages64k +debug minimal optimisememory test static-libs abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=!ppc64? ( riscv? ( sys-libs/llvm-libunwind:= ) !riscv? ( sys-libs/libunwind:= ) )
+RESTRICT=!test? ( test )
+SLOT=0/4
+SRC_URI=https://github.com/gperftools/gperftools/archive/gperftools-2.10.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	vcs-snapshot	19dc666868420457132a7514d4621476	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_md5_=3dde221769330f157c13b1246ab8519d
