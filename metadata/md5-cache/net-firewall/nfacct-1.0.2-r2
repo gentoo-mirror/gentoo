@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install setup
+DEPEND=net-libs/libmnl:= >=net-libs/libnetfilter_acct-1.0.3
+DESCRIPTION=Command line tool to create/retrieve/delete accounting objects in NetFilter
+EAPI=8
+HOMEPAGE=https://www.netfilter.org/projects/nfacct/
+INHERIT=linux-info
+KEYWORDS=amd64 ~arm ~ppc64 x86
+LICENSE=GPL-2
+RDEPEND=net-libs/libmnl:= >=net-libs/libnetfilter_acct-1.0.3
+SLOT=0
+SRC_URI=https://www.netfilter.org/projects/nfacct/files/nfacct-1.0.2.tar.bz2
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
+_md5_=58666293e021d0393687512b2121d6a6
