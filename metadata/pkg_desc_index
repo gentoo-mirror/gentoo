@@ -16716,7 +16716,7 @@ sci-geosciences/opencpn-plugins-meta 4.2.0-r6: Meta ebuild to pull in opencpn pl
 sci-geosciences/osm-gps-map 1.2.0: A GTK+ widget for displaying OpenStreetMap tiles
 sci-geosciences/osm2pgsql 1.4.0-r100 99999999: Converts OSM planet.osm data to a PostgreSQL/PostGIS database
 sci-geosciences/osmctools 0.9-r1: A few really fast tools to convert, filter and update OSM data files
-sci-geosciences/qgis 3.22.0-r4 3.22.5 3.22.6 3.22.7 3.22.7-r1 3.22.7-r2 3.22.8 9999: User friendly Geographic Information System
+sci-geosciences/qgis 3.22.0-r4 3.22.5 3.22.6 3.22.7 3.22.7-r1 3.22.7-r2 3.22.8 3.22.9 9999: User friendly Geographic Information System
 sci-geosciences/qmapshack 1.16.0 1.16.1: GPS mapping utility
 sci-geosciences/readosm 1.0.0e-r1 1.1.0a: Library to extract valid data from an Open Street Map input file
 sci-geosciences/routino 3.3.3-r2: Routing application based on openstreetmap data
@@ -18242,8 +18242,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 055-r4 056 056-r1 057-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 4.2.6-r3 4.2.6-r4 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.203 5.4.204 5.4.205 5.10.128 5.10.129 5.10.130 5.15.52 5.15.53 5.15.54 5.18.9 5.18.10 5.18.11: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.203 5.4.204 5.4.205 5.10.128 5.10.129 5.10.130 5.15.52 5.15.53 5.15.54 5.18.9 5.18.10 5.18.11: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.203 5.4.204 5.4.205 5.4.206 5.10.128 5.10.129 5.10.130 5.10.131 5.15.52 5.15.53 5.15.54 5.15.55 5.18.9 5.18.10 5.18.11 5.18.12: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.203 5.4.204 5.4.205 5.4.206 5.10.128 5.10.129 5.10.130 5.10.131 5.15.52 5.15.53 5.15.54 5.15.55 5.18.9 5.18.10 5.18.11 5.18.12: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.315 4.9.319 4.9.320 4.9.321 4.9.322 4.9.323 4.14.280 4.14.285 4.14.286 4.14.287 4.14.288 4.19.244 4.19.249 4.19.250 4.19.251 4.19.252 5.4.195 5.4.202 5.4.203 5.4.204 5.4.205 5.4.206 5.10.117 5.10.127 5.10.128 5.10.129 5.10.130 5.10.131 5.15.41 5.15.51 5.15.52 5.15.53 5.15.54 5.15.55 5.17.15 5.18.8 5.18.9 5.18.10 5.18.11 5.18.12: Full sources including the Gentoo patchset for the 5.18 kernel tree
 sys-kernel/git-sources 5.19_rc1 5.19_rc2 5.19_rc3 5.19_rc4 5.19_rc5 5.19_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
@@ -18259,7 +18259,7 @@ sys-kernel/pf-sources 5.18_p3: Linux kernel fork that includes the pf-kernel pat
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.246_p110 5.4.193_p74 5.10.120_p70 5.15.49_p47 5.18_p11: Full Linux 5.18 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.203 5.4.204 5.4.205 5.10.128 5.10.129 5.10.130 5.15.52 5.15.53 5.15.54 5.18.9 5.18.10 5.18.11: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.203 5.4.204 5.4.205 5.4.206 5.10.128 5.10.129 5.10.130 5.10.131 5.15.52 5.15.53 5.15.54 5.15.55 5.18.9 5.18.10 5.18.11 5.18.12: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.323 4.14.288 4.19.252 5.4.206 5.10.131 5.15.55 5.18.12: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.18.3: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
@@ -18444,7 +18444,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.203 5.4.204 5.4.205 5.10.128 5.10.129 5.10.130 5.15.52 5.15.53 5.15.54 5.18.9 5.18.10 5.18.11: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.203 5.4.204 5.4.205 5.4.206 5.10.128 5.10.129 5.10.130 5.10.131 5.15.52 5.15.53 5.15.54 5.15.55 5.18.9 5.18.10 5.18.11 5.18.12: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
