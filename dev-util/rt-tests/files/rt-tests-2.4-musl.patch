@@ -20,13 +20,12 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  src/hackbench/hackbench.c             |    4 +
  src/include/musl.h                    |   28 +++++++++++++
  src/lib/rt-utils.c                    |    1 
- src/pi_tests/classic_pi.c             |    2 
  src/pi_tests/tst-mutexpi10.c          |    2 
  src/pmqtest/pmqtest.c                 |    1 
  src/ptsematest/ptsematest.c           |    1 
  src/rt-migrate-test/rt-migrate-test.c |    1 
  src/sched_deadline/cyclicdeadline.c   |    1 
- 12 files changed, 50 insertions(+), 67 deletions(-)
+ 11 files changed, 48 insertions(+), 67 deletions(-)
  create mode 100644 src/include/musl.h
 
 --- a/Makefile
@@ -77,7 +76,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  #include "rt_numa.h"
  
  #include "rt-utils.h"
-@@ -504,12 +505,8 @@ static void *timerthread(void *param)
+@@ -546,12 +547,8 @@ static void *timerthread(void *param)
  {
  	struct thread_param *par = param;
  	struct sched_param schedp;
@@ -90,7 +89,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	struct thread_stat *stat = par->stats;
  	int stopped = 0;
  	cpu_set_t mask;
-@@ -538,14 +535,6 @@ static void *timerthread(void *param)
+@@ -580,14 +577,6 @@ static void *timerthread(void *param)
  	sigaddset(&sigset, par->signal);
  	sigprocmask(SIG_BLOCK, &sigset, NULL);
  
@@ -105,7 +104,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	memset(&schedp, 0, sizeof(schedp));
  	schedp.sched_priority = par->prio;
  	if (setscheduler(0, par->policy, &schedp))
-@@ -599,20 +588,6 @@ static void *timerthread(void *param)
+@@ -641,20 +630,6 @@ static void *timerthread(void *param)
  		stop = now;
  		stop.tv_sec += duration;
  	}
@@ -126,7 +125,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  
  	stat->threadstarted++;
  
-@@ -620,16 +595,10 @@ static void *timerthread(void *param)
+@@ -662,16 +637,10 @@ static void *timerthread(void *param)
  
  		uint64_t diff;
  		unsigned long diff_smi = 0;
@@ -144,7 +143,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  		case MODE_CLOCK_NANOSLEEP:
  			if (par->timermode == TIMER_ABSTIME) {
  				ret = clock_nanosleep(par->clock, TIMER_ABSTIME,
-@@ -750,11 +719,6 @@ static void *timerthread(void *param)
+@@ -792,11 +761,6 @@ static void *timerthread(void *param)
  
  		next.tv_sec += interval.tv_sec;
  		next.tv_nsec += interval.tv_nsec;
@@ -156,7 +155,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  		tsnorm(&next);
  
  		while (tsgreater(&now, &next)) {
-@@ -779,17 +743,6 @@ out:
+@@ -821,17 +785,6 @@ out:
  		pthread_mutex_unlock(&refresh_on_max_lock);
  	}
  
@@ -174,7 +173,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	/* close msr file */
  	if (smi)
  		close(par->msr_fd);
-@@ -1183,7 +1136,8 @@ static void process_options(int argc, ch
+@@ -1227,7 +1180,8 @@ static void process_options(int argc, ch
  		case OPT_VERBOSE: verbose = 1; break;
  		case 'x':
  		case OPT_POSIX_TIMERS:
@@ -184,7 +183,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  		case '?':
  		case OPT_HELP:
  			display_help(0); break;
-@@ -1216,13 +1170,6 @@ static void process_options(int argc, ch
+@@ -1260,13 +1214,6 @@ static void process_options(int argc, ch
  		}
  	}
  
@@ -198,7 +197,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	/* if smp wasn't requested, test for numa automatically */
  	if (!smp) {
  		numa = numa_initialize();
-@@ -1952,7 +1899,6 @@ int main(int argc, char **argv)
+@@ -1993,7 +1940,6 @@ int main(int argc, char **argv)
  
  	}
  
@@ -206,7 +205,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	mode = use_nanosleep + use_system;
  
  	sigemptyset(&sigset);
-@@ -2002,16 +1948,18 @@ int main(int argc, char **argv)
+@@ -2043,16 +1989,18 @@ int main(int argc, char **argv)
  			void *stack;
  			void *currstk;
  			size_t stksize;
@@ -230,15 +229,16 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  			/*  allocate memory for a stack on appropriate node */
 --- a/src/hackbench/hackbench.c
 +++ b/src/hackbench/hackbench.c
-@@ -24,13 +24,15 @@
+@@ -25,7 +25,7 @@
  #include <sys/socket.h>
  #include <sys/wait.h>
  #include <sys/time.h>
 -#include <sys/poll.h>
 +#include <poll.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
  #include <limits.h>
- #include <getopt.h>
- #include <signal.h>
+@@ -34,6 +34,8 @@
  #include <setjmp.h>
  #include <sched.h>
  
@@ -288,17 +288,6 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  #include "rt-utils.h"
  #include "rt-sched.h"
  #include "rt-error.h"
---- a/src/pi_tests/classic_pi.c
-+++ b/src/pi_tests/classic_pi.c
-@@ -34,6 +34,8 @@
- #include <signal.h>
- #include <getopt.h>
- 
-+#include "musl.h"
-+
- /* test timeout */
- #define TIMEOUT 2
- 
 --- a/src/pi_tests/tst-mutexpi10.c
 +++ b/src/pi_tests/tst-mutexpi10.c
 @@ -35,6 +35,8 @@

@@ -19,8 +19,8 @@ KEYWORDS="-* ~amd64"
 IUSE="mssql mysql postgres sybase"
 
 RDEPEND="
-	<dev-java/openjdk-17:*[javafx]
-	>=virtual/jre-1.8:*
+	dev-java/openjdk:11[javafx]
+	virtual/jre:11
 	mssql? ( dev-java/jtds:1.3 )
 	mysql? ( dev-java/jdbc-mysql:0 )
 	postgres? ( dev-java/jdbc-postgresql:0 )
@@ -36,7 +36,7 @@ QA_PREBUILT="
 
 pkg_nofetch() {
 	einfo "Please go to"
-	einfo " ${HOMEPAGE}"
+	einfo " https://www.oracle.com/tools/downloads/sqldev-downloads.html"
 	einfo "and download"
 	einfo " Oracle SQL Developer for other platforms"
 	einfo "         ${SRC_URI}"

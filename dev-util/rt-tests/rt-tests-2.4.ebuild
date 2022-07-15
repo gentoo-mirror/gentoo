@@ -1,14 +1,14 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit python-single-r1 toolchain-funcs
 
 DESCRIPTION="A collection of latency testing tools for the linux(-rt) kernel"
-HOMEPAGE="https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git/about/"
+HOMEPAGE="https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git/"
 SRC_URI="
 	https://kernel.org/pub/linux/utils/rt-tests/${P}.tar.xz
 	https://kernel.org/pub/linux/utils/rt-tests/older/${P}.tar.xz"
