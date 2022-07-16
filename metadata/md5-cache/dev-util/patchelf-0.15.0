@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=prepare
+DESCRIPTION=Small utility to modify the dynamic linker and RPATH of ELF executables
+EAPI=8
+HOMEPAGE=https://github.com/NixOS/patchelf
+INHERIT=autotools
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/NixOS/patchelf/archive/0.15.0.tar.gz -> patchelf-0.15.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f
+_md5_=8ce8cb0b7e95be6740037ee1886e0452
