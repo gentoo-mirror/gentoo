@@ -3,22 +3,20 @@
 
 EAPI=8
 
+KDE_ORG_NAME="kdesdk-kioslaves"
 KFMIN=5.92.0
-QTMIN=5.15.4
 inherit ecm gear.kde.org
 
-DESCRIPTION="KIO worker to discover file systems by DNS-SD (DNS Service Discovery)"
+DESCRIPTION="KIO worker interface to browse Perl documentation"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-2+ || ( Artistic GPL-1+ )"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtdbus-${QTMIN}:5
+	dev-lang/perl
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kdnssd-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 "
