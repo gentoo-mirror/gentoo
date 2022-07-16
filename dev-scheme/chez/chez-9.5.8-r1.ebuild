@@ -3,28 +3,32 @@
 
 EAPI=8
 
-CSV="csv${PV}"
-
 inherit toolchain-funcs
 
 DESCRIPTION="A programming language based on R6RS"
 HOMEPAGE="https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme"
-SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/${CSV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${CSV}"
+SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/csv${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/csv${PV}
 
-# Chez Scheme itself is Apache 2.0, but it vendors LZ4 (BSD-2),
-# Nanopass (MIT), stex (MIT), and zlib (ZLIB).
-LICENSE="Apache-2.0 BSD-2 MIT ZLIB"
+# Chez Scheme itself is Apache 2.0, but it vendors Nanopass and stex
+# which are both MIT licensed.
+LICENSE="Apache-2.0 MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="X examples ncurses threads"
 
 BDEPEND="virtual/pkgconfig"
 RDEPEND="
-	X? ( x11-libs/libX11 )
+	app-arch/lz4:=
+	sys-apps/util-linux
+	sys-libs/zlib:=
 	ncurses? ( sys-libs/ncurses:= )
 "
 DEPEND="${RDEPEND}"
+RDEPEND="
+	${RDEPEND}
+	X? ( x11-libs/libX11 )
+"
 
 src_prepare() {
 	tc-export AR CC CXX LD RANLIB
@@ -52,7 +56,10 @@ src_configure() {
 		--installschemename=chezscheme
 		--installpetitename=chezscheme-petite
 		--installscriptname=chezscheme-script
+		--libkernel
 		--nogzip-man-pages
+		LZ4=$($(tc-getPKG_CONFIG) --libs liblz4)
+		ZLIB=$($(tc-getPKG_CONFIG) --libs zlib)
 	)
 	sh ./configure "${myconfargs[@]}" || die
 }
@@ -62,7 +69,7 @@ src_install() {
 	emake TempRoot="${D}" install
 
 	if ! use examples; then
-		rm -r "${D}/usr/$(get_libdir)/${CSV}/examples" || die
+		rm -r "${D}/usr/$(get_libdir)/csv${PV}/examples" || die
 	fi
 
 	einstalldocs
