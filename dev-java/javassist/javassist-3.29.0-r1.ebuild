@@ -17,7 +17,7 @@ HOMEPAGE="https://www.javassist.org"
 SRC_URI="https://github.com/jboss-javassist/javassist/archive/rel_${PV//./_}_ga.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 LGPL-2.1 MPL-1.1"
-SLOT="3"
+SLOT="3.29"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
 # Tests run: 431,  Failures: 6
