@@ -1,9 +1,11 @@
-DEFINED_PHASES=configure install
+DEFINED_PHASES=configure install prepare
 DESCRIPTION=A library for converting unicode strings to numbers and vice versa
 EAPI=8
 HOMEPAGE=https://billposer.org/Software/libuninum.html
+INHERIT=flag-o-matic
 KEYWORDS=amd64 x86
 LICENSE=GPL-2 GPL-2+ LGPL-2 LGPL-2.1
 SLOT=0
 SRC_URI=https://billposer.org/Software/Downloads/libuninum-2.7.tar.bz2
-_md5_=1c67b12e9654e96a6ccffdf0055268c8
+_eclasses_=toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
+_md5_=33b463433ea19645d4cdc582a221533a
