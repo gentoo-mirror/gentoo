@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit autotools flag-o-matic toolchain-funcs
 
 MY_P=${PN/x/X}-Release-${PV}
@@ -13,8 +13,8 @@ SRC_URI="https://github.com/Xastir/Xastir/archive/Release-${PV}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="geotiff +graphicsmagick"
+KEYWORDS="~amd64 ~x86"
+IUSE="geotiff"
 
 DEPEND=">=x11-libs/motif-2.3:0
 	x11-libs/libXt
@@ -23,10 +23,9 @@ DEPEND=">=x11-libs/motif-2.3:0
 	x11-apps/xfontsel
 	dev-libs/libpcre
 	net-misc/curl
-	sys-libs/db:4.8
+	sys-libs/db:=
 	sci-libs/shapelib
-	!graphicsmagick? ( <media-gfx/imagemagick-7:0=[-hdri,-q32] )
-	graphicsmagick? ( media-gfx/graphicsmagick:=[-q32] )
+	media-gfx/graphicsmagick:=[-q32]
 	geotiff? ( sci-libs/proj
 		sci-libs/libgeotiff:=
 		media-libs/tiff:0 )"
@@ -38,27 +37,24 @@ src_prepare() {
 	eapply_user
 
 	# fix script location (bug #407185)
-	eapply  "${FILESDIR}"/${PN}-2.1.2-scripts.diff
+	eapply  "${FILESDIR}"/${PN}-2.1.8-scripts.diff
 
 	# do not filter duplicate flags (see bug #411095)
 	eapply -p0 "${FILESDIR}"/${PN}-2.0.0-dont-filter-flags.diff
-
-	# fix eautoreconf with >=sys-devel/automake-1.16.5 (see bug #816615)
-	eapply "${FILESDIR}"/${PN}-2.1.6-automake-1.16.5.patch
 
 	eautoreconf
 }
 
 src_configure() {
 	# provide include path to GraphicsMagic for configure stage
-	use graphicsmagick && append-cflags -I/usr/include/GraphicsMagick
+	append-cflags -I/usr/include/GraphicsMagick
 	econf \
 		--with-shapelib \
 		--without-ax25 \
 		--without-festival \
 		--without-gpsman \
-		$(use_with !graphicsmagick imagemagick) \
-		$(use_with graphicsmagick) \
+		--without-imagemagick \
+		--with-graphicsmagick \
 		$(use_with geotiff libproj) \
 		$(use_with geotiff)
 }
