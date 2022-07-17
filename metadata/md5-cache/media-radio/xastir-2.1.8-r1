@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=>=x11-libs/motif-2.3:0 x11-libs/libXt x11-libs/libX11 x11-libs/libXpm x11-apps/xfontsel dev-libs/libpcre net-misc/curl sys-libs/db:= sci-libs/shapelib media-gfx/graphicsmagick:=[-q32] geotiff? ( sci-libs/proj sci-libs/libgeotiff:= media-libs/tiff:0 )
+DESCRIPTION=X Amateur Station Tracking and Information Reporting
+EAPI=8
+HOMEPAGE=https://xastir.org/
+INHERIT=autotools flag-o-matic toolchain-funcs
+IUSE=geotiff
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=x11-libs/motif-2.3:0 x11-libs/libXt x11-libs/libX11 x11-libs/libXpm x11-apps/xfontsel dev-libs/libpcre net-misc/curl sys-libs/db:= sci-libs/shapelib media-gfx/graphicsmagick:=[-q32] geotiff? ( sci-libs/proj sci-libs/libgeotiff:= media-libs/tiff:0 )
+SLOT=0
+SRC_URI=https://github.com/Xastir/Xastir/archive/Release-2.1.8.tar.gz -> xastir-2.1.8.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b
+_md5_=8213877cd8960ae0099bcd2234afc1b4
