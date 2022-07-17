@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/geiser >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Chicken Scheme's implementation of the Geiser protocols
+EAPI=8
+HOMEPAGE=https://gitlab.com/emacs-geiser/chicken/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=app-emacs/geiser dev-scheme/chicken >=app-editors/emacs-26.1:*
+SLOT=0
+SRC_URI=https://gitlab.com/emacs-geiser/chicken/-/archive/0.17/chicken-0.17.tar.gz -> geiser-chicken-0.17.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=6f8a5345583280335862ba1c7c211f7c
