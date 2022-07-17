@@ -3,19 +3,16 @@
 
 EAPI=8
 
-MY_P="${PN}-v${PV}"
-
 inherit autotools
 
 DESCRIPTION="Utility to place icons on the root window"
-HOMEPAGE="https://github.com/antonialoytorrens/idesk/"
-SRC_URI="https://github.com/antonialoytorrens/idesk/releases/download/v1/${MY_P}.tar.gz"
+HOMEPAGE="https://github.com/neagix/idesk"
+SRC_URI="https://github.com/neagix/idesk/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
-
-S="${WORKDIR}/${MY_P}"
+KEYWORDS="~alpha amd64 ~hppa ppc ppc64 sparc x86"
+IUSE="svg"
 
 RDEPEND="
 	dev-libs/glib
@@ -27,12 +24,16 @@ RDEPEND="
 	x11-libs/gtk+:3
 	x11-libs/pango
 	x11-libs/startup-notification
+	svg? (
+		gnome-base/librsvg
+		x11-libs/gdk-pixbuf
+	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1-use-pkg-config-imlib2.patch
+	"${FILESDIR}"/${PN}-0.7.8-use-pkg-config-imlib2.patch
 )
 
 src_prepare() {
@@ -44,5 +45,7 @@ src_prepare() {
 }
 
 src_configure() {
-	econf --enable-libsn
+	econf \
+		--enable-libsn \
+		$(use_enable svg)
 }
