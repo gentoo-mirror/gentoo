@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,7 +34,7 @@ RDEPEND="
 		dev-libs/glib:2
 		x11-libs/gtk+:3
 	)
-	jpeg? ( virtual/jpeg:0 )
+	jpeg? ( media-libs/libjpeg-turbo:= )
 	mp3? ( media-libs/libmad )
 	mpeg2? ( media-libs/libmpeg2 )
 	net? (
