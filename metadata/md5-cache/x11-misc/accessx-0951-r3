@@ -1,13 +1,14 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
-DEPEND=x11-libs/libX11 x11-libs/libXext dev-lang/tk:0= virtual/pkgconfig
+DEPEND=dev-lang/tk:= x11-libs/libX11 x11-libs/libXext
 DESCRIPTION=Interface to the XKEYBOARD extension in X11
-EAPI=6
+EAPI=8
 HOMEPAGE=http://cita.disability.uiuc.edu/software/accessx/freewareaccessx.php
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ppc sparc x86
 LICENSE=GPL-2
-RDEPEND=x11-libs/libX11 x11-libs/libXext dev-lang/tk:0=
+RDEPEND=dev-lang/tk:= x11-libs/libX11 x11-libs/libXext
 SLOT=0
 SRC_URI=http://cmos-eng.rehab.uiuc.edu/accessx/software/accessx0951.tar.gz
 _eclasses_=toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=16d0cefb57971ffc9f3f3beda5886633
+_md5_=f1d8cf14c308b3b46bdec7e0a3fbfd02
