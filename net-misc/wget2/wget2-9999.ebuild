@@ -3,17 +3,15 @@
 
 EAPI=8
 
+inherit autotools git-r3
+
 DESCRIPTION="GNU Wget2 is a file and recursive website downloader"
 HOMEPAGE="https://gitlab.com/gnuwget/wget2"
-if [[ "${PV}" == *9999 ]] ; then
-	inherit autotools git-r3
-	EGIT_REPO_URI="https://gitlab.com/gnuwget/wget2.git"
-else
-	SRC_URI="mirror://gnu/wget/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+EGIT_REPO_URI="https://gitlab.com/gnuwget/wget2.git"
+
 LICENSE="GPL-3"
 SLOT="0/0" # subslot = libwget.so version
+KEYWORDS=""
 IUSE="brotli bzip2 doc +gnutls gpgme +http2 idn lzip lzma openssl pcre psl +ssl test valgrind xattr zlib"
 REQUIRED_USE="valgrind? ( test )"
 
@@ -44,40 +42,35 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen )
+	doc? ( app-doc/doxygen[dot] )
 	valgrind? ( dev-util/valgrind )
 "
 
 RESTRICT="!test? ( test )"
 
 src_unpack() {
-	if [[ "${PV}" == *9999 ]] ; then
-		git-r3_src_unpack
+	git-r3_src_unpack
 
-		# We need to mess with gnulib :-/
-		EGIT_REPO_URI="https://git.savannah.gnu.org/r/gnulib.git" \
-		EGIT_CHECKOUT_DIR="${WORKDIR}/gnulib" \
-		git-r3_src_unpack
-	else
-		default
-	fi
+	# We need to mess with gnulib :-/
+	EGIT_REPO_URI="https://git.savannah.gnu.org/r/gnulib.git" \
+	EGIT_CHECKOUT_DIR="${WORKDIR}/gnulib" \
+	git-r3_src_unpack
 }
 
 src_prepare() {
 	default
-	if [[ "${PV}" == *9999 ]] ; then
-		local bootstrap_opts=(
-			--gnulib-srcdir=../gnulib
-			--no-bootstrap-sync
-			--copy
-			--no-git
-			--skip-po
-		)
-		AUTORECONF="/bin/true" \
-		LIBTOOLIZE="/bin/true" \
-		sh ./bootstrap "${bootstrap_opts[@]}" || die
-		eautoreconf
-	fi
+
+	local bootstrap_opts=(
+		--gnulib-srcdir=../gnulib
+		--no-bootstrap-sync
+		--copy
+		--no-git
+		--skip-po
+	)
+	AUTORECONF="/bin/true" \
+	LIBTOOLIZE="/bin/true" \
+	sh ./bootstrap "${bootstrap_opts[@]}" || die
+	eautoreconf
 }
 
 src_configure() {

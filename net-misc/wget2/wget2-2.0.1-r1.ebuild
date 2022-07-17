@@ -1,7 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+inherit autotools
 
 DESCRIPTION="GNU Wget2 is a file and recursive website downloader"
 HOMEPAGE="https://gitlab.com/gnuwget/wget2"
@@ -40,11 +42,18 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen )
+	doc? ( app-doc/doxygen[dot] )
 	valgrind? ( dev-util/valgrind )
 "
 
 RESTRICT="!test? ( test )"
+
+src_prepare() {
+	default
+	sed -e "/LIBWGET_VERSION/s/2.1.0/${PV}/" \
+		-i configure.ac ||die
+	eautoreconf
+}
 
 src_configure() {
 	local myeconfargs=(
@@ -61,7 +70,7 @@ src_configure() {
 		$(use_with gpgme)
 		$(use_with http2 libnghttp2)
 		$(use_with idn libidn2)
-		$(use_with lzip lz)
+		$(use_with lzip)
 		$(use_with lzma)
 		$(use_with pcre libpcre2)
 		$(use_with psl libpsl)
@@ -76,7 +85,16 @@ src_configure() {
 src_install() {
 	default
 
-	doman docs/man/man{1/*.1,3/*.3}
+	if [[ ${PV} == *9999 ]] ; then
+		if use doc ; then
+			local mpage
+			for mpage in $(find docs/man -type f -regextype grep -regex ".*\.[[:digit:]]$") ; do
+				doman ${mpage}
+			done
+		fi
+	else
+		doman docs/man/man{1/*.1,3/*.3}
+	fi
 
 	find "${D}" -type f -name '*.la' -delete || die
 	rm "${ED}"/usr/bin/${PN}_noinstall || die
