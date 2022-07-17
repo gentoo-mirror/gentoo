@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=dev-libs/glib dev-libs/libxml2 media-libs/freetype media-libs/imlib2[X] media-libs/libart_lgpl x11-libs/libXft x11-libs/gtk+:3 x11-libs/pango x11-libs/startup-notification svg? ( gnome-base/librsvg x11-libs/gdk-pixbuf )
+DESCRIPTION=Utility to place icons on the root window
+EAPI=8
+HOMEPAGE=https://github.com/neagix/idesk
+INHERIT=autotools
+IUSE=svg
+KEYWORDS=~alpha amd64 ~hppa ppc ppc64 sparc x86
+LICENSE=BSD
+RDEPEND=dev-libs/glib dev-libs/libxml2 media-libs/freetype media-libs/imlib2[X] media-libs/libart_lgpl x11-libs/libXft x11-libs/gtk+:3 x11-libs/pango x11-libs/startup-notification svg? ( gnome-base/librsvg x11-libs/gdk-pixbuf )
+SLOT=0
+SRC_URI=https://github.com/neagix/idesk/archive/refs/tags/v0.7.8.tar.gz -> idesk-0.7.8.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f
+_md5_=53f2dad9aace77f272ccfc7b1221ebe3
