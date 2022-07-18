@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=python-r1 toolchain-funcs multilib-minimal
 IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=amd64 ~arm ~arm64 ~mips ~riscv x86
+KEYWORDS=amd64 arm arm64 ~mips ~riscv x86
 LICENSE=GPL-2
 RDEPEND=>=sys-libs/libsepol-3.4:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-libs/libselinux-3.4:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-process/audit-2.2.2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/2
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.4/libsemanage-3.4.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b
-_md5_=1cf5b7eeb3be74a327d5296157ba8cd4
+_md5_=78d36cdbeca812112c76bb0b14816409
