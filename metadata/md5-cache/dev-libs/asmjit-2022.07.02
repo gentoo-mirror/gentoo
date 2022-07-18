@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-cpp/gtest ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Machine code generation for C++
+EAPI=8
+HOMEPAGE=https://asmjit.com/
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=ZLIB
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/asmjit/asmjit/archive/c59847629d3a19da4d10f0be4ac33b43fc4a100f.tar.gz -> asmjit-2022.07.02.tar.gz
+_eclasses_=toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=7a31b22b706d4ca7b03ebe3db16487eb
