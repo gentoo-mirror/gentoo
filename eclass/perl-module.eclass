@@ -7,7 +7,7 @@
 # @AUTHOR:
 # Seemant Kulleen <seemant@gentoo.org>
 # Andreas K. Hüttel <dilfridge@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @PROVIDES: perl-functions
 # @BLURB: eclass for installing Perl module distributions
 # @DESCRIPTION:
@@ -20,7 +20,7 @@
 # instead.
 
 case ${EAPI} in
-	6|7)
+	7)
 		inherit multiprocessing perl-functions
 		PERL_EXPF="src_prepare src_configure src_compile src_test src_install"
 		;;
@@ -39,39 +39,12 @@ esac
 # This variable controls whether a runtime and build time dependency on
 # dev-lang/perl is automatically added by the eclass. It defaults to yes.
 # Set to no to disable, set to noslotop to add a perl dependency without
-# slot operator (EAPI=6). All packages installing into the vendor_perl
+# slot operator. All packages installing into the vendor_perl
 # path must use yes here. (EAPI=8 and later) Also adds a test useflag,
 # a use-conditional build time dependency on virtual/perl-Test-Simple, and
 # the required RESTRICT setting.
 
 case ${EAPI} in
-	6)
-		[[ ${CATEGORY} == perl-core ]] && \
-			PERL_EXPF+=" pkg_postinst pkg_postrm"
-
-		case "${GENTOO_DEPEND_ON_PERL:-yes}" in
-			yes)
-				DEPEND="dev-lang/perl"
-				RDEPEND="dev-lang/perl:="
-				;;
-			noslotop)
-				DEPEND="dev-lang/perl"
-				RDEPEND="dev-lang/perl"
-				;;
-		esac
-
-		if [[ "${GENTOO_DEPEND_ON_PERL_SUBSLOT:-yes}" != "yes" ]]; then
-			eerror "GENTOO_DEPEND_ON_PERL_SUBSLOT=no is banned in EAPI=6 and later. If you don't want a slot operator"
-			die    "set GENTOO_DEPEND_ON_PERL=noslotop instead."
-		fi
-
-		if [[ "${PERL_EXPORT_PHASE_FUNCTIONS}" ]]; then
-			eerror "PERL_EXPORT_PHASE_FUNCTIONS is banned in EAPI=6 and later. Use perl-module.eclass if you need"
-			die    "phase functions, perl-functions.eclass if not."
-		fi
-
-		EXPORT_FUNCTIONS ${PERL_EXPF}
-		;;
 	7)
 		[[ ${CATEGORY} == perl-core ]] && \
 			PERL_EXPF+=" pkg_postinst pkg_postrm"
@@ -90,11 +63,11 @@ case ${EAPI} in
 		esac
 
 		if [[ "${GENTOO_DEPEND_ON_PERL_SUBSLOT:-yes}" != "yes" ]]; then
-			die "GENTOO_DEPEND_ON_PERL_SUBSLOT=no is banned in EAPI=6 and later."
+			die "GENTOO_DEPEND_ON_PERL_SUBSLOT=no is banned."
 		fi
 
 		if [[ "${PERL_EXPORT_PHASE_FUNCTIONS}" ]]; then
-			die "PERL_EXPORT_PHASE_FUNCTIONS is banned in EAPI=6 and later."
+			die "PERL_EXPORT_PHASE_FUNCTIONS is banned."
 		fi
 
 		EXPORT_FUNCTIONS ${PERL_EXPF}
@@ -120,11 +93,11 @@ case ${EAPI} in
 		esac
 
 		if [[ "${GENTOO_DEPEND_ON_PERL_SUBSLOT:-yes}" != "yes" ]]; then
-			die "GENTOO_DEPEND_ON_PERL_SUBSLOT=no is banned in EAPI=6 and later."
+			die "GENTOO_DEPEND_ON_PERL_SUBSLOT=no is banned."
 		fi
 
 		if [[ "${PERL_EXPORT_PHASE_FUNCTIONS}" ]]; then
-			die "PERL_EXPORT_PHASE_FUNCTIONS is banned in EAPI=6 and later."
+			die "PERL_EXPORT_PHASE_FUNCTIONS is banned."
 		fi
 
 		EXPORT_FUNCTIONS ${PERL_EXPF}
@@ -218,7 +191,7 @@ pm_echovar=""
 # Get the ebuild sources ready.
 # This function is to be called during the ebuild src_prepare() phase.
 perl-module_src_prepare() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	default
 
@@ -234,7 +207,7 @@ perl-module_src_prepare() {
 # Configure the ebuild sources.
 # This function is to be called during the ebuild src_configure() phase.
 perl-module_src_configure() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	perl_check_env
 
@@ -251,38 +224,20 @@ perl-module_src_configure() {
 	fi
 
 	if [[ ( ${PREFER_BUILDPL} == yes || ! -f Makefile.PL ) && -f Build.PL ]] ; then
-		case ${EAPI} in
-			6)
-				if grep -q '\(use\|require\)\s*Module::Build::Tiny' Build.PL ; then
-					einfo "Using Module::Build::Tiny"
-					if [[ ${DEPEND} != *dev-perl/Module-Build-Tiny* && ${PN} != Module-Build-Tiny ]]; then
-						eerror "QA Notice: The ebuild uses Module::Build::Tiny but doesn't depend on it."
-						die    " Add dev-perl/Module-Build-Tiny to DEPEND!"
-					fi
-				else
-					einfo "Using Module::Build"
-					if [[ ${DEPEND} != *virtual/perl-Module-Build* && ${DEPEND} != *dev-perl/Module-Build* && ${PN} != Module-Build ]] ; then
-						eerror "QA Notice: The ebuild uses Module::Build but doesn't depend on it."
-						die    " Add dev-perl/Module-Build to DEPEND!"
-					fi
-				fi
-				;;
-			*)
-				if grep -q '\(use\|require\)\s*Module::Build::Tiny' Build.PL ; then
-					einfo "Using Module::Build::Tiny"
-					if [[ ${BDEPEND} != *dev-perl/Module-Build-Tiny* && ${PN} != Module-Build-Tiny ]]; then
-						eerror "QA Notice: The ebuild uses Module::Build::Tiny but doesn't depend on it."
-						eerror " Add dev-perl/Module-Build-Tiny to BDEPEND!"
-					fi
-				else
-					einfo "Using Module::Build"
-					if [[ ${BDEPEND} != *virtual/perl-Module-Build* && ${BDEPEND} != *dev-perl/Module-Build* && ${PN} != Module-Build ]] ; then
-						eerror "QA Notice: The ebuild uses Module::Build but doesn't depend on it."
-						eerror " Add dev-perl/Module-Build to BDEPEND!"
-					fi
-				fi
-				;;
-		esac
+		if grep -q '\(use\|require\)\s*Module::Build::Tiny' Build.PL ; then
+			einfo "Using Module::Build::Tiny"
+			if [[ ${BDEPEND} != *dev-perl/Module-Build-Tiny* && ${PN} != Module-Build-Tiny ]]; then
+				eerror "QA Notice: The ebuild uses Module::Build::Tiny but doesn't depend on it."
+				eerror " Add dev-perl/Module-Build-Tiny to BDEPEND!"
+			fi
+		else
+			einfo "Using Module::Build"
+			if [[ ${BDEPEND} != *virtual/perl-Module-Build* && ${BDEPEND} != *dev-perl/Module-Build* && ${PN} != Module-Build ]] ; then
+				eerror "QA Notice: The ebuild uses Module::Build but doesn't depend on it."
+				eerror " Add dev-perl/Module-Build to BDEPEND!"
+			fi
+		fi
+
 		set -- \
 			--installdirs=vendor \
 			--libdoc= \
@@ -315,11 +270,12 @@ perl-module_src_configure() {
 # Compile the ebuild sources.
 # This function is to be called during the ebuild src_compile() phase.
 perl-module_src_compile() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
+
 	perl_set_version
 
 	case ${EAPI} in
-		6|7)
+		7)
 			if [[ $(declare -p mymake 2>&-) != "declare -a mymake="* ]]; then
 				local mymake_local=(${mymake})
 			else
@@ -338,10 +294,7 @@ perl-module_src_compile() {
 		set -- \
 			OTHERLDFLAGS="${LDFLAGS}" \
 			"${mymake_local[@]}"
-		einfo "emake" "$@"
-		emake "$@" \
-			|| die "Compilation failed"
-#			OPTIMIZE="${CFLAGS}" \
+		emake "$@"
 	fi
 }
 
@@ -372,7 +325,8 @@ perl-module_src_compile() {
 # This code attempts to work out your threadingness and runs tests
 # according to the settings of DIST_TEST using Test::Harness.
 perl-module_src_test() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
+
 	local my_test_control
 	local my_test_verbose
 
@@ -401,7 +355,7 @@ perl-module_src_test() {
 	fi
 
 	case ${EAPI} in
-		6|7)
+		7)
 			;;
 		*)
 			if has 'tests' ${DIST_WIKI} ; then
@@ -416,7 +370,7 @@ perl-module_src_test() {
 	if [[ -f Build ]] ; then
 		./Build test verbose=${my_test_verbose} || die "test failed"
 	elif [[ -f Makefile ]] ; then
-		emake test TEST_VERBOSE=${my_test_verbose} || die "test failed"
+		emake test TEST_VERBOSE=${my_test_verbose}
 	fi
 }
 
@@ -425,7 +379,7 @@ perl-module_src_test() {
 # Install a Perl ebuild.
 # This function is to be called during the ebuild src_install() phase.
 perl-module_src_install() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	perl_set_version
 
@@ -447,12 +401,11 @@ perl-module_src_install() {
 		else
 			local myinst_local=("${myinst[@]}")
 		fi
-		emake "${myinst_local[@]}" ${mytargets} \
-			|| die "emake ${myinst_local[@]} ${mytargets} failed"
+		emake "${myinst_local[@]}" ${mytargets}
 	fi
 
 	case ${EAPI} in
-		6|7)
+		7)
 			;;
 		*)
 			perl_fix_permissions
@@ -476,7 +429,7 @@ perl-module_src_install() {
 	perl_link_duallife_scripts
 
 	case ${EAPI} in
-		6|7)
+		7)
 			;;
 		*)
 			if has 'features' ${DIST_WIKI} ; then
@@ -499,7 +452,8 @@ perl-module_src_install() {
 # links that prevent file collisions for dual-life packages installing scripts.
 # In any other category it immediately exits.
 perl-module_pkg_postinst() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
+
 	if [[ ${CATEGORY} != perl-core ]] ; then
 		eerror "perl-module.eclass: You are calling perl-module_pkg_postinst outside the perl-core category."
 		die    "   This does not do anything; the call can be removed."
@@ -514,7 +468,8 @@ perl-module_pkg_postinst() {
 # links that prevent file collisions for dual-life packages installing scripts.
 # In any other category it immediately exits.
 perl-module_pkg_postrm() {
-	debug-print-function $FUNCNAME "$@"
+	debug-print-function ${FUNCNAME} "$@"
+
 	if [[ ${CATEGORY} != perl-core ]] ; then
 		eerror "perl-module.eclass: You are calling perl-module_pkg_postrm outside the perl-core category."
 		die    "   This does not do anything; the call can be removed."
