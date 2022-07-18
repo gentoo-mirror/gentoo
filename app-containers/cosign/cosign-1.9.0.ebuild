@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-GIT_HASH=4b2c3c0c8ee97f31b9dac3859b40e0a48b8648ee
+GIT_HASH=a4cb262dc3d45a283a6a7513bb767a38a2d3f448
 inherit go-module
 
 DESCRIPTION="container signing utility"
@@ -14,15 +14,11 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.5.0-fix-makefile.patch
-)
-
 RESTRICT="test"
 
 src_compile() {
 	emake \
-		GIT_HASH=${GIT_HASH}
+		GIT_HASH=${GIT_HASH} \
 		GIT_VERSION=v${PV} \
 		GIT_TREESTATE=clean
 }
