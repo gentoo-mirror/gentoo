@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-LLVM_MAX_SLOT=13
+LLVM_MAX_SLOT=14
 inherit bash-completion-r1 llvm multiprocessing toolchain-funcs
 
 BV=${PV}-1
@@ -39,7 +39,6 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.1.0-verbose.patch
 	"${FILESDIR}"/${PN}-0.26.1-gentoo-tests-sandbox.patch
 	"${FILESDIR}"/${PN}-0.27.0-extra-spec-flags.patch
 	"${FILESDIR}"/${PN}-0.27.0-gentoo-tests-long-unix.patch
