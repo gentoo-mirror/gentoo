@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/AFLplusplus/AFLplusplus
 INHERIT=toolchain-funcs llvm optfeature python-single-r1
 IUSE=test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=Apache-2.0
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=sys-devel/llvm-12:= || ( sys-devel/clang:12 sys-devel/clang:13 sys-devel/clang:14 ) !app-forensics/afl
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AFLplusplus/AFLplusplus/archive/4.01c.tar.gz -> aflplusplus-4.01c.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	llvm	6f88d422e49b917bf254b2594f3d903c	optfeature	1a2157392a869265b2afcb63a26c12ac	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=6f7f59ff4ed0dc36ad0bd0572b3ca08a
+_md5_=b648ac12f5b8dd0a913349deba98d11e
