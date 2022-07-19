@@ -12,8 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://salsa.debian.org/installer-team/${PN}.git"
 else
 	SRC_URI="mirror://debian/pool/main/${PN::1}/${PN}/${PN}_${PV}.tar.xz"
-	KEYWORDS="amd64 x86"
-	S="${WORKDIR}"/${PN}
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
@@ -26,14 +25,12 @@ RDEPEND="sys-boot/grub:2[mount]"
 QA_MULTILIB_PATHS="usr/lib/os-prober/.*"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.79-handle-multiple-initrd-paths.patch
 	"${FILESDIR}"/${PN}-1.79-mdraid-detection.patch
 	"${FILESDIR}"/${PN}-1.79-btrfs-subvolume-detection.patch
 	"${FILESDIR}"/${PN}-1.79-use-fstab-name.patch
 	"${FILESDIR}"/${PN}-1.79-mounted-boot-partition-fix.patch
 	"${FILESDIR}"/${PN}-1.79-fix-busy-umount-message.patch
 	"${FILESDIR}"/${PN}-1.79-efi-chroot-blkid-fallback.patch
-	"${FILESDIR}"/${PN}-1.79-ntfs3.patch
 )
 
 DOC_CONTENTS="
