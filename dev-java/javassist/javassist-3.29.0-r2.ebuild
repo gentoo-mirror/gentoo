@@ -17,7 +17,7 @@ HOMEPAGE="https://www.javassist.org"
 SRC_URI="https://github.com/jboss-javassist/javassist/archive/rel_${PV//./_}_ga.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 LGPL-2.1 MPL-1.1"
-SLOT="3.29"
+SLOT="3"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 
 # Tests run: 431,  Failures: 6
@@ -30,10 +30,10 @@ RESTRICT="test"
 # test? junit:junit:[4.13.1,) -> >=dev-java/junit-4.13.2:4
 # test? org.hamcrest:hamcrest-all:1.3 -> !!!artifactId-not-found!!!
 
-DEPEND=">=virtual/jdk-11:*"
+DEPEND=">=virtual/jdk-11:*
+	test? ( dev-java/hamcrest-library:1.3 )"
 
-# https://github.com/jboss-javassist/javassist/blob/rel_3_29_0_ga/pom.xml#L156-L157
-RDEPEND=">=virtual/jre-8:*"
+RDEPEND=">=virtual/jre-1.8:*"
 
 S="${WORKDIR}/${PN}-rel_${PV//./_}_ga"
 
@@ -58,5 +58,7 @@ src_prepare() {
 src_test() {
 	default
 	einfo "Testing"
+	JAVA_PKG_WANT_SOURCE=11
+	JAVA_PKG_WANT_TARGET=11
 	java-pkg-simple_src_test
 }
