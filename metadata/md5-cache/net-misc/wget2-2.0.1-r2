@@ -1,10 +1,9 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) valgrind? ( dev-util/valgrind ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure install prepare
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) valgrind? ( dev-util/valgrind )
+DEFINED_PHASES=configure install
 DEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) !gnutls? ( dev-libs/libgcrypt:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) gpgme? ( app-crypt/gpgme:= dev-libs/libassuan dev-libs/libgpg-error ) http2? ( net-libs/nghttp2 ) idn? ( net-dns/libidn2:= ) lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) pcre? ( dev-libs/libpcre2 ) psl? ( net-libs/libpsl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
 DESCRIPTION=GNU Wget2 is a file and recursive website downloader
 EAPI=8
 HOMEPAGE=https://gitlab.com/gnuwget/wget2
-INHERIT=autotools
 IUSE=brotli bzip2 doc +gnutls gpgme +http2 idn lzip lzma openssl pcre psl +ssl test valgrind xattr zlib
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
@@ -13,5 +12,4 @@ REQUIRED_USE=valgrind? ( test )
 RESTRICT=!test? ( test )
 SLOT=0/0
 SRC_URI=mirror://gnu/wget/wget2-2.0.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=a2364b03ffe93c16341a6efc36d66124
+_md5_=4425b0dea1e7bb002d484e53928acffb
