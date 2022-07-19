@@ -16,9 +16,8 @@ IUSE="hardened"
 COMMON_DEPEND="acct-group/kube-controller-manager
 	acct-user/kube-controller-manager"
 DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}
-	!sys-cluster/kubernetes"
-BDEPEND=">=dev-lang/go-1.16"
+RDEPEND="${COMMON_DEPEND}"
+BDEPEND=">=dev-lang/go-1.18.1"
 
 RESTRICT+=" test"
 S="${WORKDIR}/kubernetes-${PV}"

@@ -1,10 +1,10 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit bash-completion-r1 go-module systemd
+inherit go-module
 
-DESCRIPTION="Kubernetes API server"
+DESCRIPTION="Kubernetes Scheduler"
 HOMEPAGE="https://kubernetes.io"
 SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kubernetes-${PV}.tar.gz"
 
@@ -13,20 +13,18 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="hardened"
 
-COMMON_DEPEND="
-	acct-group/kube-apiserver
-	acct-user/kube-apiserver"
+COMMON_DEPEND="acct-group/kube-scheduler
+	acct-user/kube-scheduler"
 DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}
-	!sys-cluster/kubernetes"
-BDEPEND=">=dev-lang/go-1.16"
+RDEPEND="${COMMON_DEPEND}"
+BDEPEND=">=dev-lang/go-1.18.1"
 
 RESTRICT+=" test"
 S="${WORKDIR}/kubernetes-${PV}"
 
 src_compile() {
 	CGO_LDFLAGS="$(usex hardened '-fno-PIC ' '')" \
-		emake -j1 GOFLAGS=-v GOLDFLAGS="" LDFLAGS="" WHAT=cmd/${PN}
+		emake -j1 GOFLAGS="" GOLDFLAGS="" LDFLAGS="" WHAT=cmd/${PN}
 }
 
 src_install() {
