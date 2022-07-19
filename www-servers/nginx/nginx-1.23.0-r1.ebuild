@@ -113,6 +113,12 @@ HTTP_ECHO_MODULE_P="ngx_http_echo-${HTTP_ECHO_MODULE_PV}"
 HTTP_ECHO_MODULE_URI="https://github.com/openresty/echo-nginx-module/archive/v${HTTP_ECHO_MODULE_PV}.tar.gz"
 HTTP_ECHO_MODULE_WD="${WORKDIR}/echo-nginx-module-${HTTP_ECHO_MODULE_PV}"
 
+# modsecurity for nginx (https://github.com/SpiderLabs/ModSecurity-nginx, https://github.com/SpiderLabs/ModSecurity, Apache-2.0)
+HTTP_SECURITY_MODULE_PV="1.0.3"
+HTTP_SECURITY_MODULE_P="modsecurity-nginx-${HTTP_SECURITY_MODULE_PV}"
+HTTP_SECURITY_MODULE_URI="https://github.com/SpiderLabs/ModSecurity-nginx/archive/refs/tags/v${HTTP_SECURITY_MODULE_PV}.tar.gz"
+HTTP_SECURITY_MODULE_WD="${WORKDIR}/ModSecurity-nginx-${HTTP_SECURITY_MODULE_PV}"
+
 # push-stream-module (http://www.nginxpushstream.com, https://github.com/wandenberg/nginx-push-stream-module, GPL-3)
 HTTP_PUSH_STREAM_MODULE_PV="8c02220d484d7848bc8e3a6d9b1c616987e86f66"
 HTTP_PUSH_STREAM_MODULE_P="ngx_http_push_stream-${HTTP_PUSH_STREAM_MODULE_PV}"
@@ -144,7 +150,7 @@ HTTP_LDAP_MODULE_URI="https://github.com/kvspb/nginx-auth-ldap/archive/${HTTP_LD
 HTTP_LDAP_MODULE_WD="${WORKDIR}/nginx-auth-ldap-${HTTP_LDAP_MODULE_PV}"
 
 # geoip2 (https://github.com/leev/ngx_http_geoip2_module, BSD-2)
-GEOIP2_MODULE_PV="3.3"
+GEOIP2_MODULE_PV="3.4"
 GEOIP2_MODULE_P="ngx_http_geoip2_module-${GEOIP2_MODULE_PV}"
 GEOIP2_MODULE_URI="https://github.com/leev/ngx_http_geoip2_module/archive/${GEOIP2_MODULE_PV}.tar.gz"
 GEOIP2_MODULE_WD="${WORKDIR}/ngx_http_geoip2_module-${GEOIP2_MODULE_PV}"
@@ -181,6 +187,7 @@ SRC_URI="https://nginx.org/download/${P}.tar.gz
 	nginx_modules_http_mogilefs? ( ${HTTP_MOGILEFS_MODULE_URI} -> ${HTTP_MOGILEFS_MODULE_P}.tar.gz )
 	nginx_modules_http_naxsi? ( ${HTTP_NAXSI_MODULE_URI} -> ${HTTP_NAXSI_MODULE_P}.tar.gz )
 	nginx_modules_http_push_stream? ( ${HTTP_PUSH_STREAM_MODULE_URI} -> ${HTTP_PUSH_STREAM_MODULE_P}.tar.gz )
+	nginx_modules_http_security? ( ${HTTP_SECURITY_MODULE_URI} -> ${HTTP_SECURITY_MODULE_P}.tar.gz )
 	nginx_modules_http_slowfs_cache? ( ${HTTP_SLOWFS_CACHE_MODULE_URI} -> ${HTTP_SLOWFS_CACHE_MODULE_P}.tar.gz )
 	nginx_modules_http_sticky? ( ${HTTP_STICKY_MODULE_URI} -> ${HTTP_STICKY_MODULE_P}.tar.bz2 )
 	nginx_modules_http_upload_progress? ( ${HTTP_UPLOAD_PROGRESS_MODULE_URI} -> ${HTTP_UPLOAD_PROGRESS_MODULE_P}.tar.gz )
@@ -191,6 +198,7 @@ SRC_URI="https://nginx.org/download/${P}.tar.gz
 	rtmp? ( ${RTMP_MODULE_URI} -> ${RTMP_MODULE_P}.tar.gz )"
 
 LICENSE="BSD-2 BSD SSLeay MIT GPL-2 GPL-2+
+	nginx_modules_http_security? ( Apache-2.0 )
 	nginx_modules_http_push_stream? ( GPL-3 )"
 
 SLOT="mainline"
@@ -228,6 +236,7 @@ NGINX_MODULES_3RD="
 	http_mogilefs
 	http_naxsi
 	http_push_stream
+	http_security
 	http_slowfs_cache
 	http_sticky
 	http_upload_progress
@@ -299,6 +308,7 @@ CDEPEND="
 	nginx_modules_http_auth_pam? ( sys-libs/pam )
 	nginx_modules_http_metrics? ( dev-libs/yajl:= )
 	nginx_modules_http_dav_ext? ( dev-libs/libxml2 )
+	nginx_modules_http_security? ( dev-libs/modsecurity )
 	nginx_modules_http_auth_ldap? ( net-nds/openldap:=[ssl?] )
 	nginx_modules_stream_geoip? ( dev-libs/geoip )
 	nginx_modules_stream_geoip2? ( dev-libs/libmaxminddb:= )"
@@ -323,6 +333,7 @@ REQUIRED_USE="pcre-jit? ( pcre )
 	nginx_modules_http_naxsi? ( pcre )
 	nginx_modules_http_dav_ext? ( nginx_modules_http_dav nginx_modules_http_xslt )
 	nginx_modules_http_metrics? ( nginx_modules_http_stub_status )
+	nginx_modules_http_security? ( pcre )
 	nginx_modules_http_push_stream? ( ssl )"
 
 pkg_setup() {
@@ -503,6 +514,11 @@ src_configure() {
 	if use nginx_modules_http_echo ; then
 		http_enabled=1
 		myconf+=( --add-module=${HTTP_ECHO_MODULE_WD} )
+	fi
+
+	if use nginx_modules_http_security ; then
+		http_enabled=1
+		myconf+=( --add-module=${HTTP_SECURITY_MODULE_WD} )
 	fi
 
 	if use nginx_modules_http_push_stream ; then
@@ -754,6 +770,11 @@ src_install() {
 	if use nginx_modules_http_echo; then
 		docinto ${HTTP_ECHO_MODULE_P}
 		dodoc "${HTTP_ECHO_MODULE_WD}"/README.markdown
+	fi
+
+	if use nginx_modules_http_security; then
+		docinto ${HTTP_SECURITY_MODULE_P}
+		dodoc "${HTTP_SECURITY_MODULE_WD}"/{AUTHORS,CHANGES,README.md}
 	fi
 
 	if use nginx_modules_http_push_stream; then
