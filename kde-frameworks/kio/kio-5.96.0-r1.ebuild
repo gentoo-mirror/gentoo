@@ -70,6 +70,8 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
+PATCHES=( "${FILESDIR}/${P}-fix-crash-in-dropjob.patch" ) # KDE-bug #454747
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
