@@ -3,7 +3,13 @@
 
 EAPI=8
 
-inherit unpacker xdg
+CHROMIUM_LANGS="
+	am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
+	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
+	sw ta te th tr uk vi zh-CN zh-TW
+"
+
+inherit chromium-2 desktop unpacker xdg
 
 DESCRIPTION="BitTorrent client that includes an integrated media player"
 HOMEPAGE="https://github.com/popcorn-official/popcorn-desktop"
@@ -20,6 +26,7 @@ LICENSE="
 	unRAR OFL CC-BY-SA-3.0 MPL-2.0 android public-domain all-rights-reserved
 "
 SLOT="0"
+RESTRICT="bindist mirror"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2
@@ -51,7 +58,35 @@ RDEPEND="
 
 QA_PREBUILT="opt/Popcorn-Time/*"
 
+pkg_pretend() {
+	chromium_suid_sandbox_check_kernel_config
+}
+
+src_prepare() {
+	default
+	# cleanup languages
+	pushd "opt/Popcorn-Time/locales" || die
+	chromium_remove_language_paks
+	popd || die
+}
+
+src_configure() {
+	chromium_suid_sandbox_check_kernel_config
+	default
+}
+
 src_install() {
-	mv "${S}"/* "${ED}" || die
-	dosym ../Popcorn-Time/Popcorn-Time /opt/bin/popcorntime
+	doicon -s 256 "usr/share/icons/butter.png"
+
+	domenu usr/share/applications/Popcorn-Time.desktop
+
+	local DESTDIR="/opt/Popcorn-Time"
+	pushd "opt/Popcorn-Time" || die
+
+	# Copy all the things in
+	dodir "${DESTDIR}"
+	mv * "${ED}/${DESTDIR}" || die
+
+	dosym "${DESTDIR}"/Popcorn-Time /opt/bin/Popcorn-Time
+	popd || die
 }
