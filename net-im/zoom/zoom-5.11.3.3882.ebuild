@@ -166,10 +166,6 @@ src_install() {
 		actions should help:
 		\\n- Enable compositing in your window manager if it is supported
 		\\n- Alternatively, run the xcompmgr command (from x11-misc/xcompmgr)"
-	use wayland \
-		&& DOC_CONTENTS+="\\n\\nTo enable screen sharing on GNOME Wayland,
-			edit ~/.config/zoomus.conf and change the value of
-			enableWaylandShare to true."
 	readme.gentoo_create_doc
 }
 
