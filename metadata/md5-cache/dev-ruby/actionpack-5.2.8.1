@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/rails/rails
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby26 ruby_targets_ruby27 doc test test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby26? ( ~dev-ruby/activesupport-5.2.8.1[ruby_targets_ruby26(-)] ~dev-ruby/actionview-5.2.8.1[ruby_targets_ruby26(-)] dev-ruby/rack:2.2[ruby_targets_ruby26(-)] >=dev-ruby/rack-test-0.6.3:*[ruby_targets_ruby26(-)] >=dev-ruby/rails-html-sanitizer-1.0.2:1[ruby_targets_ruby26(-)] dev-ruby/rails-dom-testing:2[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( ~dev-ruby/activesupport-5.2.8.1[ruby_targets_ruby27(-)] ~dev-ruby/actionview-5.2.8.1[ruby_targets_ruby27(-)] dev-ruby/rack:2.2[ruby_targets_ruby27(-)] >=dev-ruby/rack-test-0.6.3:*[ruby_targets_ruby27(-)] >=dev-ruby/rails-html-sanitizer-1.0.2:1[ruby_targets_ruby27(-)] dev-ruby/rails-dom-testing:2[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=5.2
 SRC_URI=https://github.com/rails/rails/archive/v5.2.8.1.tar.gz -> rails-5.2.8.1.tgz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	a903a55f81825a114c1845d128a33cd4	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
-_md5_=2dfe9f213482cfd64d8a95a96f1a71b4
+_md5_=64e20a3deb41062be90c3eba400eba01
