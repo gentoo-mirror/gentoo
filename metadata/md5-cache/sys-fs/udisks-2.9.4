@@ -1,5 +1,5 @@
 BDEPEND=app-text/docbook-xsl-stylesheets >=dev-util/gdbus-codegen-2.32 >=dev-util/gtk-doc-am-1.3 virtual/pkgconfig nls? ( >=sys-devel/gettext-0.19.8 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=configure install postinst preinst prepare setup
+DEFINED_PHASES=configure install postinst postrm preinst prepare setup
 DEPEND=>=sys-auth/polkit-0.114 >=sys-libs/libblockdev-2.25[cryptsetup,lvm?,vdo?] virtual/udev acl? ( virtual/acl ) daemon? ( >=dev-libs/glib-2.50:2 >=dev-libs/libatasmart-0.19 >=dev-libs/libgudev-165:= ) elogind? ( >=sys-auth/elogind-219 ) introspection? ( >=dev-libs/gobject-introspection-1.30:= ) lvm? ( sys-fs/lvm2 ) systemd? ( >=sys-apps/systemd-209 ) zram? ( >=sys-libs/libblockdev-2.25[kbd] ) >=sys-kernel/linux-headers-3.1
 DESCRIPTION=Daemon providing interfaces to work with storage devices
 EAPI=7
@@ -13,4 +13,4 @@ REQUIRED_USE=?? ( elogind systemd ) elogind? ( daemon ) systemd? ( daemon ) zram
 SLOT=2
 SRC_URI=https://github.com/storaged-project/udisks/releases/download/udisks-2.9.4/udisks-2.9.4.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	f3a0a3964e2028a140c181f00eea9712	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=2f7c31aa94d3e50ff84ca903dec08ca9
+_md5_=52e367292f51025d964df9950355d338
