@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DESCRIPTION=An ebook and audiobook collection manager for Usenet and BitTorrent users
+EAPI=8
+HOMEPAGE=https://readarr.com/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=acct-group/readarr acct-user/readarr dev-libs/icu dev-util/lttng-ust:0 dev-db/sqlite
+RESTRICT=bindist strip test
+SLOT=0
+SRC_URI=amd64? ( https://github.com/Readarr/Readarr/releases/download/v0.1.1.1320/Readarr.develop.0.1.1.1320.linux-core-x64.tar.gz ) arm? ( https://github.com/Readarr/Readarr/releases/download/v0.1.1.1320/Readarr.develop.0.1.1.1320.linux-core-arm.tar.gz ) arm64? ( https://github.com/Readarr/Readarr/releases/download/v0.1.1.1320/Readarr.develop.0.1.1.1320.linux-core-arm64.tar.gz )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=f256689ea8b2d5244f810e600965e43a
