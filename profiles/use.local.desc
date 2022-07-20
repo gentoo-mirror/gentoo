@@ -2844,6 +2844,8 @@ dev-util/mingw64-runtime:default-ucrt - Use ucrt instead of msvcrt-os as the def
 dev-util/mingw64-runtime:idl - Install idl files
 dev-util/mingw64-runtime:libraries - Build extra libraries: mangle, pseh, winpthreads
 dev-util/mingw64-runtime:tools - Build extra tools: gendef, genidl, widl
+dev-util/muon:archive - Enable extracting wraps using app-arch/libarchive.
+dev-util/muon:libpkgconf - Enable looking up packages via dev-util/pkgconf.
 dev-util/nvidia-cuda-sdk:cuda - Build CUDA binaries
 dev-util/nvidia-cuda-sdk:opencl - Build OpenCL binaries
 dev-util/nvidia-cuda-toolkit:debugger - Install the CUDA debugger
@@ -7781,12 +7783,6 @@ sys-apps/firejail:globalcfg - Enable global config file
 sys-apps/firejail:network - Enable networking features
 sys-apps/firejail:private-home - Enable private home feature
 sys-apps/firejail:userns - Enable attaching a new user namespace to a sandbox (--noroot option)
-sys-apps/firejail-lts:apparmor - Enable support for custom AppArmor profiles
-sys-apps/firejail-lts:globalcfg - Enable global config file
-sys-apps/firejail-lts:network - Enable networking features
-sys-apps/firejail-lts:seccomp - Enable system call filtering
-sys-apps/firejail-lts:userns - Enable attaching a new user namespace to a sandbox (--noroot option)
-sys-apps/firejail-lts:whitelist - Enable file and directory whitelisting
 sys-apps/flashrom:atahpt - Highpoint (HPT) ATA/RAID controller support
 sys-apps/flashrom:atapromise - Support for Promise PDC2026x (FastTrak/Ultra)
 sys-apps/flashrom:atavia - Support for VIA VT6421A SATA controllers
