@@ -1,15 +1,15 @@
-BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
-DEFINED_PHASES=compile configure install prepare test
+BDEPEND=man? ( || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/pyyaml[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/pyyaml[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/pyyaml[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= ) man? ( app-text/scdoc )
 DESCRIPTION=A meson-compatible build system
 EAPI=8
 HOMEPAGE=https://muon.build/
-INHERIT=meson
+INHERIT=meson python-any-r1
 IUSE=+archive +curl +libpkgconf +man
 KEYWORDS=~amd64
 LICENSE=GPL-3 man? ( Apache-2.0 )
 RDEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= ) man? ( app-text/scdoc )
 SLOT=0
 SRC_URI=https://git.sr.ht/~lattis/muon/archive/1d85870cc3b92690d42fa3e480961fb2f708388e.tar.gz -> muon-0_pre20220714.tar.gz man? ( https://mochiro.moe/wrap/meson-docs-0.63.0-40-g280f3423b.tar.gz )
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	46c25780996ffc397131ecd35a2194a2
-_md5_=0839814e0807d544315dee8994bbe1b3
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	46c25780996ffc397131ecd35a2194a2	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_md5_=b9a04d302837d76a968c4e658832bd9a
