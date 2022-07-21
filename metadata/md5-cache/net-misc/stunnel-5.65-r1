@@ -1,0 +1,16 @@
+BDEPEND=ssl? ( dev-libs/openssl:0 ) virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-libs/openssl:0= tcpd? ( sys-apps/tcp-wrappers )
+DESCRIPTION=TLS/SSL - Port Wrapper
+EAPI=8
+HOMEPAGE=https://www.stunnel.org/index.html
+INHERIT=ssl-cert systemd tmpfiles
+IUSE=ipv6 selinux stunnel3 tcpd ssl
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=acct-user/stunnel acct-group/stunnel dev-libs/openssl:0= tcpd? ( sys-apps/tcp-wrappers ) selinux? ( sec-policy/selinux-stunnel ) stunnel3? ( dev-lang/perl ) virtual/tmpfiles
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.stunnel.org/downloads/stunnel-5.65.tar.gz ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.65.tar.gz http://www.usenix.org.uk/mirrors/stunnel/archive/5.x/stunnel-5.65.tar.gz http://ftp.nluug.nl/pub/networking/stunnel/archive/5.x/stunnel-5.65.tar.gz http://www.namesdir.com/mirrors/stunnel/archive/5.x/stunnel-5.65.tar.gz http://stunnel.cybermirror.org/archive/5.x/stunnel-5.65.tar.gz http://mirrors.zerg.biz/stunnel/archive/5.x/stunnel-5.65.tar.gz ftp://mirrors.go-parts.com/stunnel/archive/5.x/stunnel-5.65.tar.gz
+_eclasses_=ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=09e035f6654bbc60a293d086a1a673ee
