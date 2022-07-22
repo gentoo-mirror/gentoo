@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/base-compat-0.7.0:=[profile?] >=dev-haskell/code-page-0.1:=[profile?] >=dev-haskell/ghc-paths-0.1.0.9:=[profile?] >=dev-haskell/syb-0.3:=[profile?] >=dev-lang/ghc-8.10.1:= >=dev-haskell/cabal-3.2.0.0 hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Test interactive Haskell examples
+EAPI=8
+HOMEPAGE=https://github.com/sol/doctest#readme
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-haskell/base-compat-0.7.0:=[profile?] >=dev-haskell/code-page-0.1:=[profile?] >=dev-haskell/ghc-paths-0.1.0.9:=[profile?] >=dev-haskell/syb-0.3:=[profile?] >=dev-lang/ghc-8.10.1:=
+RESTRICT=test
+SLOT=0/0.20.0
+SRC_URI=https://hackage.haskell.org/package/doctest-0.20.0/doctest-0.20.0.tar.gz https://hackage.haskell.org/package/doctest-0.20.0/revision/5.cabal -> doctest-0.20.0.cabal
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	81cdafdd21e27dfc13f0f7b4947fa145
+_md5_=312713e2c07112faa5f69f02ae18ee84

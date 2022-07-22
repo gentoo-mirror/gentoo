@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst postrm setup test
+DEPEND=>=dev-haskell/th-abstraction-0.4:=[profile?] <dev-haskell/th-abstraction-0.5:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( >=dev-haskell/hspec-2 <dev-haskell/hspec-3 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Generic programming library for generalised deriving
+EAPI=8
+HOMEPAGE=https://github.com/dreixel/generic-deriving
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/th-abstraction-0.4:=[profile?] <dev-haskell/th-abstraction-0.5:=[profile?] >=dev-lang/ghc-8.4.3:=
+RESTRICT=!test? ( test )
+SLOT=0/1.14.1
+SRC_URI=https://hackage.haskell.org/package/generic-deriving-1.14.1/generic-deriving-1.14.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	81cdafdd21e27dfc13f0f7b4947fa145
+_md5_=ca5af64cc385e9e5c8e42c2696637750
