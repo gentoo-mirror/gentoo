@@ -15,8 +15,8 @@ fi
 
 PYTHON_COMPAT=( python3_{8..10} )
 inherit python-any-r1
-inherit autotools bash-completion-r1 eutils flag-o-matic ghc-package
-inherit multilib multiprocessing pax-utils toolchain-funcs prefix
+inherit autotools bash-completion-r1 flag-o-matic ghc-package
+inherit multiprocessing pax-utils toolchain-funcs prefix
 inherit check-reqs
 DESCRIPTION="The Glasgow Haskell Compiler"
 HOMEPAGE="https://www.haskell.org/ghc/"
@@ -416,7 +416,9 @@ src_prepare() {
 	fi
 
 	# binpkg may have been built with FEATURES=splitdebug
-	[[ -d "${WORKDIR}/usr/lib/debug" ]] && rm -rf "${WORKDIR}/usr/lib/debug" || die
+	if [[ -d "${WORKDIR}/usr/lib/debug" ]] ; then
+		rm -rf "${WORKDIR}/usr/lib/debug" || die
+	fi
 	find "${WORKDIR}/usr/lib" -type d -empty -delete 2>/dev/null # do not die on failure here
 
 	# ffi headers don't get included in the binpkg for some reason
