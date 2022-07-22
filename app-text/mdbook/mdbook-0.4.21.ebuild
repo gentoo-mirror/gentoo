@@ -6,7 +6,7 @@ EAPI=8
 CRATES="
 	aho-corasick-0.7.18
 	ammonia-3.1.2
-	ansi_term-0.11.0
+	ansi_term-0.12.1
 	anyhow-1.0.43
 	assert_cmd-1.0.7
 	atty-0.2.14
@@ -29,14 +29,14 @@ CRATES="
 	clap_complete-3.0.4
 	cpufeatures-0.1.5
 	ctor-0.1.20
-	difference-2.0.0
+	diff-0.1.12
 	difflib-0.4.0
 	digest-0.8.1
 	digest-0.9.0
 	doc-comment-0.3.3
 	either-1.6.1
-	elasticlunr-rs-2.3.13
-	env_logger-0.7.1
+	elasticlunr-rs-3.0.0
+	env_logger-0.9.0
 	fake-simd-0.1.2
 	filetime-0.2.15
 	float-cmp-0.9.0
@@ -47,12 +47,10 @@ CRATES="
 	fuchsia-zircon-0.3.3
 	fuchsia-zircon-sys-0.3.3
 	futf-0.1.4
-	futures-0.3.16
-	futures-channel-0.3.16
-	futures-core-0.3.16
-	futures-io-0.3.16
+	futures-channel-0.3.21
+	futures-core-0.3.21
 	futures-macro-0.3.16
-	futures-sink-0.3.16
+	futures-sink-0.3.21
 	futures-task-0.3.16
 	futures-util-0.3.16
 	generic-array-0.12.4
@@ -66,20 +64,18 @@ CRATES="
 	hashbrown-0.11.2
 	headers-0.3.4
 	headers-core-0.2.0
-	heck-0.3.3
 	hermit-abi-0.1.19
 	html5ever-0.25.1
 	http-0.2.4
 	http-body-0.4.3
 	httparse-1.5.1
 	httpdate-1.0.1
-	humantime-1.3.0
+	humantime-2.1.0
 	hyper-0.14.11
 	idna-0.2.3
 	indexmap-1.7.0
 	inotify-0.7.1
 	inotify-sys-0.1.5
-	input_buffer-0.4.0
 	iovec-0.1.4
 	itertools-0.10.1
 	itoa-0.4.8
@@ -132,12 +128,11 @@ CRATES="
 	predicates-2.0.1
 	predicates-core-1.0.2
 	predicates-tree-1.0.2
-	pretty_assertions-0.6.1
+	pretty_assertions-1.2.1
 	proc-macro-hack-0.5.19
 	proc-macro-nested-0.1.7
 	proc-macro2-1.0.28
 	pulldown-cmark-0.9.1
-	quick-error-1.2.3
 	quick-error-2.0.1
 	quote-1.0.9
 	rand-0.7.3
@@ -172,20 +167,20 @@ CRATES="
 	string_cache-0.8.1
 	string_cache_codegen-0.5.1
 	strsim-0.10.0
-	strum-0.21.0
-	strum_macros-0.21.1
 	syn-1.0.75
 	tempfile-3.2.0
 	tendril-0.4.2
 	termcolor-1.1.2
 	textwrap-0.14.2
+	thiserror-1.0.31
+	thiserror-impl-1.0.31
 	time-0.1.43
 	tinyvec-1.3.1
 	tinyvec_macros-0.1.0
-	tokio-1.10.0
-	tokio-macros-1.3.0
+	tokio-1.16.1
+	tokio-macros-1.8.0
 	tokio-stream-0.1.7
-	tokio-tungstenite-0.13.0
+	tokio-tungstenite-0.15.0
 	tokio-util-0.6.7
 	toml-0.5.8
 	topological-sort-0.1.0
@@ -194,13 +189,12 @@ CRATES="
 	tracing-core-0.1.19
 	treeline-0.1.0
 	try-lock-0.2.3
-	tungstenite-0.12.0
+	tungstenite-0.14.0
 	typenum-1.13.0
 	ucd-trie-0.1.3
 	unicase-2.6.0
 	unicode-bidi-0.3.6
 	unicode-normalization-0.1.19
-	unicode-segmentation-1.8.0
 	unicode-xid-0.2.2
 	url-2.2.2
 	utf-8-0.7.6
@@ -208,7 +202,7 @@ CRATES="
 	wait-timeout-0.2.0
 	walkdir-2.3.2
 	want-0.3.0
-	warp-0.3.1
+	warp-0.3.2
 	wasi-0.10.2+wasi-snapshot-preview1
 	wasi-0.9.0+wasi-snapshot-preview1
 	winapi-0.2.8
@@ -231,7 +225,7 @@ S="${WORKDIR}/${P/b/B}"
 # CC-BY-4.0/OFL-1.1: embeds fonts inside the executable
 LICENSE="Apache-2.0 BSD CC-BY-4.0 CC0-1.0 ISC MIT MPL-2.0 OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="doc"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
