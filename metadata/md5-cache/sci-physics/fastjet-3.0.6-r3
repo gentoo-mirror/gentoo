@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 plugins? ( virtual/fortran )
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=cgal? ( sci-mathematics/cgal:=[shared(+)] ) plugins? ( sci-physics/siscone:= ) plugins? ( virtual/fortran )
+DEPEND=cgal? ( <sci-mathematics/cgal-5.3:=[shared(+)] ) plugins? ( sci-physics/siscone:= ) plugins? ( virtual/fortran )
 DESCRIPTION=Fast implementation of several recombination jet algorithms
 EAPI=7
 HOMEPAGE=http://www.fastjet.fr/
@@ -8,8 +8,8 @@ INHERIT=autotools flag-o-matic fortran-2
 IUSE=cgal doc examples +plugins
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+
-RDEPEND=cgal? ( sci-mathematics/cgal:=[shared(+)] ) plugins? ( sci-physics/siscone:= ) plugins? ( virtual/fortran )
+RDEPEND=cgal? ( <sci-mathematics/cgal-5.3:=[shared(+)] ) plugins? ( sci-physics/siscone:= ) plugins? ( virtual/fortran )
 SLOT=0
 SRC_URI=http://www.fastjet.fr/repo/fastjet-3.0.6.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	23cb2d46c80c12aa8b25973b4cdcb257	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=3f5bdbc82d1502db81b017820117d500
+_md5_=de0a3564c122e9825147aee11ea131d9
