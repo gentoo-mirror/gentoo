@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="OCaml tool to find/use non-standard packages"
 HOMEPAGE="http://projects.camlcity.org/projects/findlib.html"
@@ -9,7 +9,7 @@ SRC_URI="http://download.camlcity.org/download/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="doc +ocamlopt tk"
 
 DEPEND=">=dev-lang/ocaml-4.02.3-r1:=[ocamlopt?]
