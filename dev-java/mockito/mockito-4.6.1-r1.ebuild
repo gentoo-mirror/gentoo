@@ -6,7 +6,7 @@ EAPI=8
 # Tests not enabled, wants junit-jupiter.
 # "${S}/settings.gradle.kts"
 JAVA_PKG_IUSE="doc source"
-MAVEN_ID="org.mockito:mockito-core:4.6.0"
+MAVEN_ID="org.mockito:mockito-core:4.6.1"
 
 inherit java-pkg-2 java-pkg-simple
 
@@ -16,29 +16,20 @@ SRC_URI="https://github.com/mockito/mockito/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="4"
-KEYWORDS="amd64 ~arm arm64 ppc64 x86"
-
-# Common dependencies
-# POM: ${PN}-core-${PV}.pom
-# net.bytebuddy:byte-buddy:1.12.8 -> >=dev-java/byte-buddy-1.12.8:0
-# net.bytebuddy:byte-buddy-agent:1.12.8 -> >=dev-java/byte-buddy-agent-1.12.8:0
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 CP_DEPEND="
-	dev-java/byte-buddy:0
-	dev-java/byte-buddy-agent:0
-	dev-java/junit:4
+	dev-java/asm:9
+	>=dev-java/byte-buddy-1.12.12:0
 	dev-java/objenesis:0
-	dev-java/opentest4j:0
 "
 
 DEPEND="
+	dev-java/junit:4
+	>=dev-java/opentest4j-1.2.0-r1:0
 	>=virtual/jdk-1.8:*
 	${CP_DEPEND}
 "
-
-# Runtime dependencies
-# POM: ${PN}-core-${PV}.pom
-# org.objenesis:objenesis:3.2 -> >=dev-java/objenesis-3.2:0
 
 RDEPEND="
 	>=virtual/jre-1.8:*
@@ -47,9 +38,18 @@ RDEPEND="
 
 S="${WORKDIR}/${P}"
 
-JAVA_SRC_DIR="src/main/java"
+JAVA_CLASSPATH_EXTRA="
+	junit-4
+	opentest4j
+"
 
-src_install() {
-	java-pkg-simple_src_install
-	einstalldocs # https://bugs.gentoo.org/789582
+JAVA_SRC_DIR="src/main/java"
+JAVA_AUTOMATIC_MODULE_NAME="org.mockito"
+
+src_prepare() {
+	default
+	sed \
+		-e 's:net.bytebuddy.jar.asm:org.objectweb.asm:' \
+		-i src/main/java/org/mockito/internal/creation/bytebuddy/MockMethodAdvice.java \
+		-i src/main/java/org/mockito/internal/creation/bytebuddy/InlineBytecodeGenerator.java || die
 }
