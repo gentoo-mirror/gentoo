@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://netty.io/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* dev-java/commons-logging:0 dev-java/jctools-core:3 dev-java/log4j-12-api:2 dev-java/slf4j-simple:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/netty/netty/archive/refs/tags/netty-4.1.35.Final.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	50b11e64e7ffa307c4cd0347711a69fb
-_md5_=b35c975e34a4e3ad7185b9ca116bccbb
+_md5_=25c641d2e4c440c4bb582a0912bf2f7f
