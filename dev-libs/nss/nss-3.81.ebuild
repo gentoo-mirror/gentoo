@@ -42,6 +42,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.79-gcc-13.patch"
 )
 
+QA_PKGCONFIG_VERSION="${PV}.0"
+
 src_prepare() {
 	default
 
