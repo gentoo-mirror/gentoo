@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -19,9 +19,18 @@ IUSE=""
 
 RESTRICT=test # fails to build test suite
 
-RDEPEND=">=dev-haskell/base16-bytestring-0.1:=[profile?] <dev-haskell/base16-bytestring-0.2:=[profile?]
+RDEPEND=">=dev-haskell/base16-bytestring-0.1:=[profile?]
 	>=dev-lang/ghc-7.10.1:=
 "
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-2.2
 "
+
+src_prepare() {
+	default
+	cabal_chdeps \
+		'base               >= 4.5 && <4.15' 'base               >= 4.5' \
+		'base16-bytestring ^>= 0.1' 'base16-bytestring >= 0.1' \
+		'bytestring        ^>=0.9.2 || ^>= 0.10' 'bytestring        >=0.9.2'
+	eapply_user
+}
