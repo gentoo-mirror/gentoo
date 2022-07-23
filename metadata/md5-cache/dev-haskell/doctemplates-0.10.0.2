@@ -1,4 +1,5 @@
-DEFINED_PHASES=compile configure install postinst postrm setup test
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=dev-haskell/aeson:=[profile?] >=dev-haskell/doclayout-0.4:=[profile?] <dev-haskell/doclayout-0.5:=[profile?] >=dev-haskell/hsyaml-0.2:=[profile?] <dev-haskell/hsyaml-0.3:=[profile?] dev-haskell/safe:=[profile?] dev-haskell/scientific:=[profile?] dev-haskell/text-conversions:=[profile?] dev-haskell/vector:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( dev-haskell/glob dev-haskell/tasty dev-haskell/tasty-golden dev-haskell/tasty-hunit dev-haskell/temporary ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Pandoc-style document templates
 EAPI=8
@@ -11,5 +12,5 @@ RDEPEND=dev-haskell/aeson:=[profile?] >=dev-haskell/doclayout-0.4:=[profile?] <d
 RESTRICT=!test? ( test )
 SLOT=0/0.10.0.2
 SRC_URI=https://hackage.haskell.org/package/doctemplates-0.10.0.2/doctemplates-0.10.0.2.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	81cdafdd21e27dfc13f0f7b4947fa145
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	bd6d32a0289c486284bc0cdc06a639a6
 _md5_=2b4dab8aae7b180a5cfef6c3b60e7097

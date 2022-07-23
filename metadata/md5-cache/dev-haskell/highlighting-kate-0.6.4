@@ -1,4 +1,5 @@
-DEFINED_PHASES=compile configure install postinst postrm setup test
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=dev-haskell/blaze-html-0.4.2:=[profile?] <dev-haskell/blaze-html-0.10:=[profile?] dev-haskell/mtl:=[profile?] dev-haskell/parsec:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-7.4.1:= pcre-light? ( >=dev-haskell/pcre-light-0.4:=[profile?] <dev-haskell/pcre-light-0.5:=[profile?] ) !pcre-light? ( >=dev-haskell/regex-pcre-builtin-0.94.4.8.8.35:=[profile?] ) >=dev-haskell/cabal-1.10 test? ( dev-haskell/diff ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Syntax highlighting
 EAPI=8
@@ -11,5 +12,5 @@ RDEPEND=>=dev-haskell/blaze-html-0.4.2:=[profile?] <dev-haskell/blaze-html-0.10:
 RESTRICT=!test? ( test )
 SLOT=0/0.6.4
 SRC_URI=https://hackage.haskell.org/package/highlighting-kate-0.6.4/highlighting-kate-0.6.4.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	81cdafdd21e27dfc13f0f7b4947fa145
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	bd6d32a0289c486284bc0cdc06a639a6
 _md5_=5e11842af9e3bced023039c2156d7993
