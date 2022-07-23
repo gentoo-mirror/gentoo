@@ -1518,8 +1518,6 @@ dev-haskell/hslogger:network-3 - Use network-3
 dev-haskell/hslua:hardcode-reg-keys - Don't use CAPI to determine the names of certain registry key names but Use hard coded values for instead. This flag is required when compiling against Lua 5.3.3 or earlier, as those do not expose the necessary information in the @lauxlib.h@ header file.
 dev-haskell/hsopenssl:fast-bignum - Enable fast moving of bignums between OpenSSL and GMP (GHC Only)
 dev-haskell/hsyaml-aeson:exe - Enable @exe:yaml-test@ component
-dev-haskell/http:conduit10 - Use version 1.0.x or below of the conduit package (for the test suite).
-dev-haskell/http:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/http-api-data:text-show - Use text-show library for efficient ToHttpApiData implementation.
 dev-haskell/http-client:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/http-streams:network-uri - Get Network.URI from the network-uri package.
@@ -1656,8 +1654,8 @@ dev-haskell/warp:warp-debug - Add additional debuging information
 dev-haskell/wcwidth:cli - Enable command line tool
 dev-haskell/wreq:aws - Enable AWS tests
 dev-haskell/wreq:httpbin - Install client
-dev-haskell/yaml:no-examples - don't build the examples
-dev-haskell/yaml:no-exe - don't install the yaml2json executable
+dev-haskell/yaml:examples - Install the haskell-yaml-examples executable
+dev-haskell/yaml:executable - Install the yaml2json and json2yaml executables
 dev-haskell/yesod-auth:network-uri - Get Network.URI from the network-uri package
 dev-haskell/yesod-form:network-uri - Get Network.URI from the network-uri package
 dev-haskell/zip-archive:executable - Build the Zip executable.
