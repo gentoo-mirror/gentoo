@@ -2217,7 +2217,7 @@ app-editors/qxmledit 0.9.12: Simple Qt-based XML editor
 app-editors/remarkable 1.9.0_pre20210320: Fully featured markdown editor, supports github markdown dialect
 app-editors/retext 7.2.2 7.2.3 9999: Simple editor for Markdown and reStructuredText
 app-editors/sandy 0.4-r1: an ncurses text editor with an easy-to-read, hackable C source
-app-editors/scite 5.1.1 5.1.3 5.1.6: A very powerful, highly configurable, small editor with syntax coloring
+app-editors/scite 5.1.1 5.1.3 5.1.6 5.2.4: A very powerful, highly configurable, small editor with syntax coloring
 app-editors/shed 1.15: Simple Hex EDitor
 app-editors/sublime-text 3_p3211-r1 4_p4107 4_p4113 4_p4121 4_p4126: Sophisticated text editor for code, markup and prose
 app-editors/tea 47.0.0: Small, lightweight Qt text editor
@@ -2742,7 +2742,7 @@ app-forensics/pasco 20040505_p1-r1: IE Activity Parser
 app-forensics/radamsa 0.6: A general purpose fuzzer
 app-forensics/rifiuti 20040505_p1: Recycle Bin Analyzer
 app-forensics/rkhunter 1.4.6-r1: Rootkit Hunter scans for known and unknown rootkits, backdoors, and sniffers
-app-forensics/scalpel 2.0: A high performance file carver
+app-forensics/scalpel 2.0 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.10.1-r5 4.11.1-r1: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124: A forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.0.1: Framework for analyzing volatile memory
@@ -8317,7 +8317,7 @@ dev-php/pecl-http 3.2.4-r1 3.2.5 3.3.0 4.2.1 4.2.2: Extended HTTP Support for PH
 dev-php/pecl-imagick 3.5.1 3.6.0 3.7.0: PHP wrapper for the ImageMagick library
 dev-php/pecl-lzf 1.6.8-r1 1.7.0: This package handles LZF de/compression
 dev-php/pecl-mailparse 3.1.3: PHP extension for parsing and working with RFC822 and MIME compliant messages
-dev-php/pecl-mcrypt 1.0.4: Bindings for the libmcrypt library
+dev-php/pecl-mcrypt 1.0.4 1.0.5: Bindings for the libmcrypt library
 dev-php/pecl-memcache 4.0.5.2-r1 8.0 8.0-r1: PHP extension for using memcached
 dev-php/pecl-memcached 3.1.5-r1 3.2.0 3.2.0-r1: Interface PHP with memcached via libmemcached library
 dev-php/pecl-mongodb 1.10.0: MongoDB database driver for PHP
@@ -14758,7 +14758,7 @@ media-tv/mythtv-status 1.0.1: Displays the current status of MythTV at the comma
 media-tv/nvtv 0.4.7-r3: TV-Out for NVidia cards
 media-tv/plex-media-server 1.24.2.4973 1.24.4.5081 1.25.4.5487 1.25.7.5604 1.25.8.5663: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
-media-tv/tvbrowser-bin 4.2.4: Themeable and easy to use TV Guide - written in Java
+media-tv/tvbrowser-bin 4.2.6: Themeable and easy to use TV Guide - written in Java
 media-tv/tvheadend 4.2.8-r2 9999: Tvheadend is a TV streaming server and digital video recorder
 media-tv/tvnamer 3.0.2: Automatic TV episode file renamer, data from thetvdb.com
 media-tv/v4l-dvb-saa716x 0.0.1_p20170225-r5: driver for saa716x based dvb cards like TT S2-6400 or Skystar 2 eXpress HD
@@ -16073,7 +16073,7 @@ net-nds/openldap 2.4.57-r2 2.4.58-r2 2.4.59-r2 2.6.2 2.6.3: LDAP suite of applic
 net-nds/phpldapadmin 1.2.5 1.2.6.3: phpLDAPadmin is a web-based tool for managing all aspects of your LDAP server
 net-nds/rpcbind 1.2.6 9999: portmap replacement which supports RPC over various protocols
 net-nds/shelldap 1.5.1: A handy shell-like interface for browsing LDAP servers and editing their content
-net-nds/smbldap-tools 0.9.10-r1: Samba LDAP management tools
+net-nds/smbldap-tools 0.9.10-r1 0.9.11: Samba LDAP management tools
 net-nds/tac_plus 4.0.4.27a-r3: An updated version of Cisco's TACACS+ server
 net-nds/yp-tools 4.2.3-r1: Network Information Service tools
 net-news/amphetadesk 0.93.1-r1: AmphetaDesk is a free syndicated news aggregator
@@ -18006,7 +18006,7 @@ sys-cluster/galera 25.3.28-r2 25.3.35 26.4.8-r1 26.4.10-r1: Synchronous multi-ma
 sys-cluster/ganglia 3.7.1-r3: A scalable distributed monitoring system for clusters and grids
 sys-cluster/ganglia-web 3.7.3-r2: Web frontend for sys-cluster/ganglia
 sys-cluster/gasnet 1.32.0: Networking middleware for partitioned global address space (PGAS) language
-sys-cluster/glusterfs 8.6-r1 9.4-r1 9.5-r1 10.1-r1 10.2: GlusterFS is a powerful network/cluster filesystem
+sys-cluster/glusterfs 8.6-r1 9.4-r1 9.5-r1 10.1-r1 10.2-r1: GlusterFS is a powerful network/cluster filesystem
 sys-cluster/gmqtt 0.4.1: MQTT broker library with cluster support that implements MQTT V5.0 and V3.1.1
 sys-cluster/hpl 2.0-r4 2.3: Portable Implementation of the Linpack Benchmark for Distributed-Memory Clusters
 sys-cluster/hpx 1.8.0 9999: C++ runtime system for parallel and distributed applications
@@ -18283,7 +18283,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 4.2.6-r3 4.2.6-r4 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 4.9.315 4.9.319 4.9.320 4.9.321 4.9.322 4.9.323 4.9.324 4.14.280 4.14.285 4.14.286 4.14.287 4.14.288 4.14.289 4.19.244 4.19.249 4.19.250 4.19.251 4.19.252 4.19.253 5.4.195 5.4.202 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.117 5.10.127 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.41 5.15.51 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.17.15 5.18.8 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13: Full sources including the Gentoo patchset for the 5.18 kernel tree
+sys-kernel/gentoo-sources 4.9.315 4.9.319 4.9.320 4.9.321 4.9.322 4.9.323 4.9.324 4.14.280 4.14.285 4.14.286 4.14.287 4.14.288 4.14.289 4.19.244 4.19.249 4.19.250 4.19.251 4.19.252 4.19.253 5.4.195 5.4.202 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.117 5.10.127 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.41 5.15.51 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.15.57 5.17.15 5.18.8 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13 5.18.14: Full sources including the Gentoo patchset for the 5.18 kernel tree
 sys-kernel/git-sources 5.19_rc1 5.19_rc2 5.19_rc3 5.19_rc4 5.19_rc5 5.19_rc6 5.19_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 1: Wrap kernel-install from systemd-boot as installkernel
