@@ -525,6 +525,14 @@ app-emulation/fuse:backend-sdl - Use SDL rendering backend
 app-emulation/fuse:backend-svga - Use svgalib rendering backend
 app-emulation/fuse:memlimit - Add compile-time memory usage limiting
 app-emulation/fuse-utils:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
+app-emulation/ganeti:drbd - Enable DRBD support
+app-emulation/ganeti:experimental - Enable experimental patches. Warning! This will break RPC within major versions if the patches applied differ!
+app-emulation/ganeti:kvm - Enable KVM support
+app-emulation/ganeti:lxc - Enable Linux Containers support
+app-emulation/ganeti:monitoring - Enable the ganeti monitoring daemon
+app-emulation/ganeti:rbd - Enable rados block device support via sys-cluster/ceph
+app-emulation/ganeti:restricted-commands - Enable restricted commands in the node daemon
+app-emulation/ganeti:xen - Enable Xen support
 app-emulation/grub-xen-host:pvh - Build an additional grub bin for pvh.
 app-emulation/hyperd:libvirt - Enable support for KVM via libvirt
 app-emulation/hyperd:xen - Enable support for the Xen Hypervisor
