@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=dev-haskell/async:=[profile?] dev-haskell/stm:=[profile?] dev-haskell/unliftio-core:=[profile?] >=dev-lang/ghc-7.10.1:= >=dev-haskell/cabal-1.22.2.0 test? ( dev-haskell/base64-bytestring dev-haskell/hspec dev-haskell/temporary ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Run external processes, with strong typing of streams
 EAPI=7
-HOMEPAGE=https://haskell-lang.org/library/typed-process
+HOMEPAGE=https://github.com/fpco/typed-process
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
 KEYWORDS=~amd64 ~ppc64 ~x86
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.2.6.0
 SRC_URI=https://hackage.haskell.org/package/typed-process-0.2.6.0/typed-process-0.2.6.0.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	23cb2d46c80c12aa8b25973b4cdcb257	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	bd6d32a0289c486284bc0cdc06a639a6
-_md5_=e2e856612b8d953d88fd0bfa59cb21f3
+_md5_=69d594dc0f9c7f0db2d057d569923a75

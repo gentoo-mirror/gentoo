@@ -525,14 +525,6 @@ app-emulation/fuse:backend-sdl - Use SDL rendering backend
 app-emulation/fuse:backend-svga - Use svgalib rendering backend
 app-emulation/fuse:memlimit - Add compile-time memory usage limiting
 app-emulation/fuse-utils:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
-app-emulation/ganeti:drbd - Enable DRBD support
-app-emulation/ganeti:experimental - Enable experimental patches. Warning! This will break RPC within major versions if the patches applied differ!
-app-emulation/ganeti:kvm - Enable KVM support
-app-emulation/ganeti:lxc - Enable Linux Containers support
-app-emulation/ganeti:monitoring - Enable the ganeti monitoring daemon
-app-emulation/ganeti:rbd - Enable rados block device support via sys-cluster/ceph
-app-emulation/ganeti:restricted-commands - Enable restricted commands in the node daemon
-app-emulation/ganeti:xen - Enable Xen support
 app-emulation/grub-xen-host:pvh - Build an additional grub bin for pvh.
 app-emulation/hyperd:libvirt - Enable support for KVM via libvirt
 app-emulation/hyperd:xen - Enable support for the Xen Hypervisor
@@ -1461,7 +1453,6 @@ dev-haskell/aeson:cffi - Controls whether to include c-ffi bits or pure haskell.
 dev-haskell/aeson:ordered-keymap - Use ordered @Data.Map.Strict@ for KeyMap implementation.
 dev-haskell/aeson-pretty:lib-only - don't build 'aeson-pretty' executable.
 dev-haskell/ansi-terminal:example - Build the example application.
-dev-haskell/ansi-wl-pprint:example - Build the example application.
 dev-haskell/attoparsec-iso8601:developer - operate in developer mode
 dev-haskell/attoparsec-iso8601:fast - compile without optimizations
 dev-haskell/authenticate:network-uri - Get Network.URI from the network-uri package
@@ -1554,7 +1545,6 @@ dev-haskell/lua:export-dynamic - Add all symbols to dynamic symbol table; disabl
 dev-haskell/lua:hardcode-reg-keys - Don't use CAPI to determine the names of certain registry key names but use hard coded values instead. This flag is required when compiling against Lua 5.3.3 or earlier, as those versions do not expose the necessary information in the @lauxlib.h@ header file. Setting this flag should usually be unproblematic, except if the used Lua version has been patched heavily.
 dev-haskell/lua:lua-32bits - Compile Lua with -DLUA_32BITS
 dev-haskell/lua:system-lua - Use @pkg-config@ to discover library and include paths. Setting this flag implies `pkg-config`.
-dev-haskell/lukko:ofd-locking - Enable open file descriptor locking. Available on Linux (kernel 3.15, released Jun 8, 2014).
 dev-haskell/missingh:network-3 - Use network-3
 dev-haskell/mod:semirings - Derive semiring instances
 dev-haskell/monad-logger:template-haskell - Enable Template Haskell support.
