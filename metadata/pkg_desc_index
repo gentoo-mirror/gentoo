@@ -4362,7 +4362,7 @@ dev-haskell/ac-ppm 1.1.1: Trivial package for writing PPM images
 dev-haskell/adjunctions 4.4: Adjunctions and representable functors
 dev-haskell/aeson 2.0.3.0: Fast JSON parsing and encoding
 dev-haskell/aeson-compat 0.3.9-r2: Compatibility layer for aeson
-dev-haskell/aeson-diff 1.1.0.8: Extract and apply patches to JSON documents
+dev-haskell/aeson-diff 1.1.0.9: Extract and apply patches to JSON documents
 dev-haskell/aeson-pretty 0.8.9: JSON pretty-printing library and command-line tool
 dev-haskell/aeson-qq 0.8.3: JSON quasiquoter for Haskell
 dev-haskell/alex 3.2.7.1: Alex is a tool for generating lexical analysers in Haskell
@@ -4403,7 +4403,7 @@ dev-haskell/base64-bytestring 1.0.0.3: Fast base64 encoding and decoding for Byt
 dev-haskell/basement 0.0.11 0.0.12: Foundation scrap box of array & string
 dev-haskell/basic-prelude 0.7.0: An enhanced core prelude; a common foundation for alternate preludes
 dev-haskell/bencode 0.6.1.1: Parser and printer for bencoded data
-dev-haskell/bifunctors 5.5.6 5.5.11: The Bifunctors package authored by Edward Kmett
+dev-haskell/bifunctors 5.5.11: The Bifunctors package authored by Edward Kmett
 dev-haskell/binary 0.8.7.0 0.8.8.0: Binary serialisation for Haskell values using lazy ByteStrings
 dev-haskell/binary-instances 1.0.0.1: Orphan instances for binary
 dev-haskell/binary-orphans 1.0.1: Orphan instances for binary
@@ -4530,7 +4530,7 @@ dev-haskell/dbus 1.2.16: A client library for the D-Bus IPC system
 dev-haskell/dec 0.0.3: Decidable propositions
 dev-haskell/deepseq-generics 0.2.0.0: GHC.Generics-based Control.DeepSeq.rnf implementation
 dev-haskell/dense-linear-algebra 0.1.0.0: Simple and incomplete pure haskell implementation of linear algebra
-dev-haskell/deriving-compat 0.5.8 0.6: Backports of GHC deriving extensions
+dev-haskell/deriving-compat 0.6: Backports of GHC deriving extensions
 dev-haskell/dictionary-sharing 0.1.0.0: Sharing/memoization of class members
 dev-haskell/diff 0.4.0: O(ND) diff algorithm in haskell
 dev-haskell/digest 0.0.1.2: Various cryptographic hashes for bytestrings; CRC32 and Adler32 for now
@@ -4544,6 +4544,7 @@ dev-haskell/dns 4.0.1: DNS library in Haskell
 dev-haskell/doclayout 0.3.0.2 0.4: A prettyprinting library for laying out text documents
 dev-haskell/doctemplates 0.8.2 0.9 0.10.0.2: Pandoc-style document templates
 dev-haskell/doctest 0.16.3 0.20.0: Test interactive Haskell examples
+dev-haskell/doctest-parallel 0.2.3: Test interactive Haskell examples
 dev-haskell/double-conversion 2.0.2.0: Fast conversion between double precision floating point and text
 dev-haskell/drbg 0.5.5: Deterministic random bit generator (aka PRNG) based HMACs, Hashes, and Ciphers
 dev-haskell/easy-file 0.2.2: Cross-platform File handling
@@ -4572,7 +4573,7 @@ dev-haskell/exact-pi 0.5.0.1: Exact rational multiples of pi (and integer powers
 dev-haskell/exceptions 0.10.4-r1: Extensible optionally-pure exceptions
 dev-haskell/executable-path 0.0.3.1: Finding out the full path of the executable
 dev-haskell/extensible-exceptions 0.1.1.4: Extensible exceptions
-dev-haskell/extra 1.7.8: Extra functions I use
+dev-haskell/extra 1.7.10: Extra functions I use
 dev-haskell/fail 4.9.0.0: Forward-compatible MonadFail class
 dev-haskell/failure 0.2.0.3: A simple type class for success/failure computations. (deprecated)
 dev-haskell/fast-logger 3.0.1: A fast logging system
@@ -4596,8 +4597,8 @@ dev-haskell/foldl 1.4.7 1.4.12: Composable, streaming, and efficient left folds
 dev-haskell/foundation 0.0.25 0.0.26.1: Alternative prelude with batteries and no dependencies
 dev-haskell/free 5.1.3 5.1.9: Monads for free
 dev-haskell/fsnotify 0.3.0.1: Cross platform library for file change notification
-dev-haskell/generic-deriving 1.13.1 1.14.1: Generic programming library for generalised deriving
-dev-haskell/generics-sop 0.5.1.0 0.5.1.1: Generic Programming using True Sums of Products
+dev-haskell/generic-deriving 1.14.1: Generic programming library for generalised deriving
+dev-haskell/generics-sop 0.5.1.1: Generic Programming using True Sums of Products
 dev-haskell/geniplate-mirror 0.7.7: Use Template Haskell to generate Uniplate-like functions
 dev-haskell/genvalidity 0.10.0.2: Testing utilities for the validity library
 dev-haskell/genvalidity-hspec 0.7.0.4: Standard spec's for GenValidity instances
@@ -4665,7 +4666,7 @@ dev-haskell/hlint 3.2.7: Source code suggestions
 dev-haskell/hoauth2 1.16.0: Haskell OAuth2 authentication client
 dev-haskell/hostname 1.0-r1: A a cross-platform means of determining the hostname
 dev-haskell/hourglass 0.2.12: simple performant time related library
-dev-haskell/hpack 0.33.0: An alternative format for Haskell packages
+dev-haskell/hpack 0.35.0: A modern format for Haskell packages
 dev-haskell/hps 0.15: Haskell Postscript
 dev-haskell/hs-bibutils 6.8.0.0: Haskell bindings to bibutils, the bibliography conversion utilities
 dev-haskell/hs3 0.5.9: Interface to Amazon's Simple Storage Service (S3)
@@ -4723,8 +4724,8 @@ dev-haskell/http2 3.0.1: HTTP/2 library
 dev-haskell/httpd-shed 0.4.1.1: A simple web-server with an interact style API
 dev-haskell/hunit 1.2.5.2-r1 1.6.0.0 1.6.2.0: A unit testing framework for Haskell
 dev-haskell/hxt 9.3.1.18: A collection of tools for processing XML with Haskell
-dev-haskell/hxt-charproperties 9.4.0.0: Character properties and classes for XML and Unicode
-dev-haskell/hxt-regex-xmlschema 9.2.0.3: A regular expression library for W3C XML Schema regular expressions
+dev-haskell/hxt-charproperties 9.5.0.0: Character properties and classes for XML and Unicode
+dev-haskell/hxt-regex-xmlschema 9.2.0.7: A regular expression library for W3C XML Schema regular expressions
 dev-haskell/hxt-unicode 9.0.2.4: Unicode en-/decoding functions for utf8, iso-latin-* and other encodings
 dev-haskell/icalendar 0.4.0.5-r1: iCalendar data types, parser, and printer
 dev-haskell/iconv 0.4.1.3: String encoding conversion
@@ -4739,7 +4740,7 @@ dev-haskell/inspection-testing 0.4.2.4: GHC plugin to do inspection testing
 dev-haskell/integer-logarithms 1.0.3.1 1.0.3.1-r1: Integer logarithms
 dev-haskell/integer-roots 1.0: Integer roots and perfect powers
 dev-haskell/interpolate 0.2.0: String interpolation done right
-dev-haskell/invariant 0.5.3 0.5.5: Haskell98 invariant functors
+dev-haskell/invariant 0.5.5: Haskell98 invariant functors
 dev-haskell/io-streams 1.5.2.0: Simple, composable, and easy-to-use stream I/O
 dev-haskell/io-streams-haproxy 1.0.1.0-r1: HAProxy protocol 1.5 support for io-streams
 dev-haskell/iproute 1.7.8: IP Routing Table
@@ -4817,7 +4818,7 @@ dev-haskell/monad-control 1.0.2.3: Lift control operations, like exception catch
 dev-haskell/monad-journal 0.8.1: Pure logger typeclass and monad transformer
 dev-haskell/monad-logger 0.3.32: A class of monads which can log messages
 dev-haskell/monad-loops 0.4.3: Monadic loops
-dev-haskell/monad-par 0.3.5: A library for parallel programming based on a monad
+dev-haskell/monad-par 0.3.5-r1: A library for parallel programming based on a monad
 dev-haskell/monad-par-extras 0.3.3-r1: Combinators and extra features for Par monads
 dev-haskell/monad-unlift 0.2.0: Typeclasses for representing monad transformer unlifting
 dev-haskell/monadcatchio-mtl 0.3.1.0-r2: Monad-transformer version of the Control.Exception module
@@ -4893,7 +4894,7 @@ dev-haskell/persistent-postgresql 2.10.1.2: Backend for the persistent library u
 dev-haskell/persistent-qq 2.9.2: Provides a quasi-quoter for raw SQL for persistent
 dev-haskell/persistent-sqlite 2.10.6.2: Backend for the persistent library using sqlite3
 dev-haskell/persistent-template 2.12.0.0: Type-safe, non-relational, multi-backend persistence
-dev-haskell/persistent-test 2.0.3.0: Tests for Persistent
+dev-haskell/persistent-test 2.13.1.3: Tests for Persistent
 dev-haskell/pgp-wordlist 0.1.0.3: Translate between binary data and a human-readable collection of words
 dev-haskell/pid1 0.1.2.0: Do signal handling and orphan reaping for Unix PID1 init processes
 dev-haskell/pipes 4.3.14: Compositional pipelines
@@ -4946,7 +4947,7 @@ dev-haskell/regex-compat-tdfa 0.95.1.4: Unicode Support version of Text.Regex, u
 dev-haskell/regex-pcre 0.95.0.0: Replaces/Enhances Text.Regex
 dev-haskell/regex-pcre-builtin 0.95.1.3.8.43: PCRE Backend for "Text.Regex" (regex-base)
 dev-haskell/regex-posix 0.96.0.0: Replaces/Enhances Text.Regex
-dev-haskell/regex-tdfa 1.3.1.1: Pure Haskell Tagged DFA Backend for "Text.Regex" (regex-base)
+dev-haskell/regex-tdfa 1.3.2: Pure Haskell Tagged DFA Backend for "Text.Regex" (regex-base)
 dev-haskell/rerebase 1.15.0.3: Reexports from "base" with a bunch of other standard libraries
 dev-haskell/resolv 0.1.2.0-r1: Domain Name Service (DNS) lookup via the libresolv standard library routines
 dev-haskell/resource-pool 0.2.3.2: A high-performance striped resource pooling implementation
@@ -5062,13 +5063,13 @@ dev-haskell/text-conversions 0.3.1: Safe conversions between textual types
 dev-haskell/text-icu 0.7.0.1 0.7.1.0: Bindings to the ICU library
 dev-haskell/text-metrics 0.3.0: Calculate various string metrics efficiently
 dev-haskell/text-short 0.1.3 0.1.5: Memory-efficient representation of Unicode text strings
-dev-haskell/text-show 3.8.5 3.9.7: Efficient conversion of values into Text
+dev-haskell/text-show 3.9.7: Efficient conversion of values into Text
 dev-haskell/text-stream-decode 0.1.0.5: Streaming decoding functions for UTF encodings. (deprecated)
 dev-haskell/tf-random 0.5: High-quality splittable pseudorandom number generator
-dev-haskell/th-abstraction 0.3.2.0 0.4.2.0: Nicer interface for reified information about data types
+dev-haskell/th-abstraction 0.4.3.0: Nicer interface for reified information about data types
 dev-haskell/th-compat 0.1.3: Backward- (and forward-)compatible Quote and Code types
-dev-haskell/th-expand-syns 0.4.6.0: Expands type synonyms in Template Haskell ASTs
-dev-haskell/th-lift 0.8.1 0.8.2: Derive Template Haskell's Lift class for datatypes
+dev-haskell/th-expand-syns 0.4.9.0: Expands type synonyms in Template Haskell ASTs
+dev-haskell/th-lift 0.8.2: Derive Template Haskell's Lift class for datatypes
 dev-haskell/th-lift-instances 0.1.14 0.1.19: Lift instances for template-haskell for common data types
 dev-haskell/th-orphans 0.13.10: Orphan instances for TH datatypes
 dev-haskell/th-reify-many 0.1.9: Recurseively reify template haskell datatype info
@@ -11672,7 +11673,7 @@ dev-vcs/cvsgraph 1.7.0-r1: CVS/RCS repository grapher
 dev-vcs/cvsps 2.2_beta1-r1 3.13-r2: Generates patchset information from a CVS repository (supports fast-import)
 dev-vcs/cvsutils 0.2.6: A small bundle of utilities to work with CVS repositories
 dev-vcs/cvsync 2014.08.24.014706 9999: portable CVS repository synchronization utility
-dev-vcs/darcs 2.16.5-r1: a distributed, interactive, smart revision control system
+dev-vcs/darcs 2.16.5-r2: a distributed, interactive, smart revision control system
 dev-vcs/easygit 1.7.5.2: Easy GIT (eg), a frontend for git designed for former cvs and svn users
 dev-vcs/fossil 2.16-r1 2.18: Simple, high-reliability, source control management, and more
 dev-vcs/git 2.32.0-r1 2.33.1 2.34.1 2.34.1-r1 2.35.1 2.35.2 2.35.3 2.36.0 2.36.1 2.37.0 2.37.1 9999 9999-r1 9999-r2 9999-r3: stupid content tracker: distributed VCS designed for speed and efficiency
@@ -18285,7 +18286,7 @@ sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r2 4.2.6-r3 4.2.6-r4 9999: Gentoo automa
 sys-kernel/gentoo-kernel 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.15.57 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13 5.18.14: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.15.57 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13 5.18.14: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.315 4.9.319 4.9.320 4.9.321 4.9.322 4.9.323 4.9.324 4.14.280 4.14.285 4.14.286 4.14.287 4.14.288 4.14.289 4.19.244 4.19.249 4.19.250 4.19.251 4.19.252 4.19.253 5.4.195 5.4.202 5.4.203 5.4.204 5.4.205 5.4.206 5.4.207 5.10.117 5.10.127 5.10.128 5.10.129 5.10.130 5.10.131 5.10.132 5.15.41 5.15.51 5.15.52 5.15.53 5.15.54 5.15.55 5.15.56 5.15.57 5.17.15 5.18.8 5.18.9 5.18.10 5.18.11 5.18.12 5.18.13 5.18.14: Full sources including the Gentoo patchset for the 5.18 kernel tree
-sys-kernel/git-sources 5.19_rc1 5.19_rc2 5.19_rc3 5.19_rc4 5.19_rc5 5.19_rc6 5.19_rc7: The very latest -git version of the Linux kernel
+sys-kernel/git-sources 5.19_rc1 5.19_rc2 5.19_rc3 5.19_rc4 5.19_rc5 5.19_rc6 5.19_rc7 5.19_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 1: Wrap kernel-install from systemd-boot as installkernel
 sys-kernel/kergen 0.1.5: Kernel config generator
