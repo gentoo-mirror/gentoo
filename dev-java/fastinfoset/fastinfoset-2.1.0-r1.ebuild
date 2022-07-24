@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 "
 
 RDEPEND="
@@ -39,8 +39,3 @@ JAVA_RESOURCE_DIRS="src/main/resources"
 JAVA_TEST_GENTOO_CLASSPATH="junit-4"
 JAVA_TEST_SRC_DIR="src/test/java"
 JAVA_TEST_RESOURCE_DIRS="src/test/resources"
-
-src_install() {
-	default # https://bugs.gentoo.org/789582
-	java-pkg-simple_src_install
-}

@@ -20,34 +20,23 @@ LICENSE="EPL-1.0"
 SLOT="4"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
-# Common dependencies
-# POM: runtime/impl/pom.xml
-# com.sun.xml.fastinfoset:FastInfoset:2.1.0 -> !!!groupId-not-found!!!
-# org.glassfish.jaxb:jaxb-core:4.0.0 -> !!!groupId-not-found!!!
-# org.jvnet.staxex:stax-ex:2.1.0 -> !!!groupId-not-found!!!
-
-CP_DEPEND="
-	dev-java/fastinfoset:0
-	dev-java/jaxb-stax-ex:0
-"
-
 DEPEND="
-	dev-java/istack-commons-runtime:0
+	>=dev-java/fastinfoset-2.1.0-r1:0
 	dev-java/jaxb-api:4
+	>=dev-java/jaxb-stax-ex-2.1.0-r1:0
+	dev-java/istack-commons-runtime:0
 	>=virtual/jdk-11:*
-	${CP_DEPEND}
 "
 
 # reason: '<>' with anonymous inner classes is not supported in -source 8
 #   (use -source 9 or higher to enable '<>' with anonymous inner classes)
-RDEPEND="
-	>=virtual/jre-11:*
-	${CP_DEPEND}"
+RDEPEND=">=virtual/jre-11:*"
 
 DOCS=( ../{CONTRIBUTING,NOTICE,README}.md )
 
 S="${WORKDIR}/jaxb-ri-${PV}-RI/jaxb-ri"
 
+JAVA_CLASSPATH_EXTRA="fastinfoset,jaxb-stax-ex"
 JAVA_TEST_GENTOO_CLASSPATH="junit-4"
 
 src_compile() {
@@ -62,7 +51,7 @@ src_compile() {
 	JAVA_SRC_DIR="core/src/main/java"
 	JAVA_RESOURCE_DIRS="core/src/main/resources"
 	JAVA_JAR_FILENAME="core.jar"
-	JAVA_CLASSPATH_EXTRA="istack-commons-runtime,jaxb-api-4"
+	JAVA_CLASSPATH_EXTRA+=" istack-commons-runtime,jaxb-api-4"
 	java-pkg-simple_src_compile
 	JAVA_GENTOO_CLASSPATH_EXTRA+=":core.jar"
 	rm -r target || die
@@ -89,10 +78,6 @@ src_compile() {
 }
 
 src_test() {
-#	einfo "Testing txw-runtime"
-#	JAVA_TEST_SRC_DIR="txw/runtime/src/test/java"
-#	java-pkg-simple_src_test
-
 	einfo "Testing core"
 	JAVA_TEST_SRC_DIR="core/src/test/java"
 	JAVA_TEST_RESOURCE_DIRS="core/src/test/resources"
