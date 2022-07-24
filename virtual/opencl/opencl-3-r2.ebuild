@@ -7,7 +7,7 @@ inherit multilib-build
 
 DESCRIPTION="Virtual for OpenCL API"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 
 RDEPEND="|| ( dev-libs/opencl-icd-loader[${MULTILIB_USEDEP}]
 	dev-libs/ocl-icd[khronos-headers,${MULTILIB_USEDEP}] )"
@@ -19,6 +19,7 @@ pkg_postinst() {
 	elog
 	elog " * open:"
 	elog "    - dev-libs/intel-compute-runtime - integrated Intel GPUs from Broadwell onwards. 64-bit only;"
+	elog "    - dev-libs/pocl - to run OpenCL programs on your CPU, if you do not have a supported GPU;"
 	elog "    - dev-libs/rocm-opencl-runtime - AMD GPUs supported by the amdgpu kernel driver. 64-bit only;"
 	elog "    - media-libs/mesa[opencl] - some older AMD GPUs; see [1]. 32-bit support;"
 	elog
