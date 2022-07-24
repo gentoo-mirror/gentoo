@@ -1,0 +1,17 @@
+BDEPEND=dev-util/glib-utils sys-devel/flex sys-devel/bison virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=app-arch/xz-utils dev-libs/libassuan dev-libs/glib:2 sys-fs/fuse:3 sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( dev-libs/gobject-introspection ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:2.4 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] ) app-text/docbook-xsl-stylesheets dev-libs/libxslt doc? ( dev-util/gtk-doc )
+DESCRIPTION=Operating system and container binary deployment and upgrades
+EAPI=7
+HOMEPAGE=https://ostreedev.github.io/ostree/
+INHERIT=autotools systemd
+IUSE=archive +curl doc dracut gnutls +gpg grub +http2 httpd introspection libmount selinux sodium ssl +soup systemd zeroconf
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=app-arch/xz-utils dev-libs/libassuan dev-libs/glib:2 sys-fs/fuse:3 sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( dev-libs/gobject-introspection ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:2.4 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] )
+REQUIRED_USE=dracut? ( systemd ) http2? ( curl ) httpd? ( || ( curl soup ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2022.5/libostree-2022.5.tar.xz -> ostree-2022.5.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=b392fb93b6abea0e3f873c2ced387825
