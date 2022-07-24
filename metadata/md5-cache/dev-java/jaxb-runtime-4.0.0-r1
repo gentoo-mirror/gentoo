@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/istack-commons-runtime:0 dev-java/jaxb-api:4 >=virtual/jdk-11:* dev-java/fastinfoset:0 dev-java/jaxb-stax-ex:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=dev-java/fastinfoset-2.1.0-r1:0 dev-java/jaxb-api:4 >=dev-java/jaxb-stax-ex-2.1.0-r1:0 dev-java/istack-commons-runtime:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=JAXB (JSR 222) Reference Implementation
 EAPI=8
 HOMEPAGE=https://eclipse-ee4j.github.io/jaxb-ri/
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=EPL-1.0
-RDEPEND=>=virtual/jre-11:* dev-java/fastinfoset:0 dev-java/jaxb-stax-ex:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=4
 SRC_URI=https://github.com/eclipse-ee4j/jaxb-ri/archive/4.0.0-RI.tar.gz -> jaxb-ri-4.0.0.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	50b11e64e7ffa307c4cd0347711a69fb
-_md5_=18271d157fbb6330145e8b0283bbc638
+_md5_=ca630f5ca342fe8d2fae6c7d2228f7ee

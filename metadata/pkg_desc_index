@@ -4165,7 +4165,7 @@ dev-db/pgpool2 4.2.1-r2 4.2.2-r2 4.2.9 4.3.1 4.3.2 9999: Connection pool server 
 dev-db/pgrouting 3.1.1 3.1.2 3.1.3 3.2.1: pgRouting extends PostGIS and PostgreSQL with geospatial routing functionality
 dev-db/pgtap 0.99.0 1.1.0 1.2.0 1.2.0-r2: Unit testing for PostgreSQL
 dev-db/pgxnclient 1.3-r2 1.3.1 1.3.2: PostgreSQL Extension Network Client
-dev-db/phpmyadmin 4.9.6 5.0.3 5.1.0 5.1.1: Web-based administration for MySQL database in PHP
+dev-db/phpmyadmin 4.9.6 5.0.3 5.1.0 5.1.1 5.2.0: Web-based administration for MySQL database in PHP
 dev-db/phppgadmin 7.12.1 7.13.0: Web-based administration for Postgres database in php
 dev-db/plr 8.3.0.17 8.4.1 8.4.5: R language extension for postgresql database
 dev-db/postgis 3.0.3-r3 3.0.5 3.1.3 3.1.5 3.2.0 3.2.1 3.3.0_alpha1 9999: Geographic Objects for PostgreSQL
@@ -4365,7 +4365,7 @@ dev-haskell/aeson-compat 0.3.9-r2: Compatibility layer for aeson
 dev-haskell/aeson-diff 1.1.0.8: Extract and apply patches to JSON documents
 dev-haskell/aeson-pretty 0.8.9: JSON pretty-printing library and command-line tool
 dev-haskell/aeson-qq 0.8.3: JSON quasiquoter for Haskell
-dev-haskell/alex 3.2.5: Alex is a tool for generating lexical analysers in Haskell
+dev-haskell/alex 3.2.7.1: Alex is a tool for generating lexical analysers in Haskell
 dev-haskell/alex-tools 0.4: A set of functions for a common use case of Alex
 dev-haskell/alsa-core 0.5.0.1-r2: Binding to the ALSA Library API (Exceptions)
 dev-haskell/alsa-mixer 0.3.0: Bindings to the ALSA simple mixer API
@@ -4620,6 +4620,7 @@ dev-haskell/gnuidn 0.2.2-r1: Bindings for GNU IDN
 dev-haskell/gnutls 0.2: Bindings for GNU libgnutls
 dev-haskell/graphviz 2999.20.0.4: Bindings to Graphviz for graph visualisation
 dev-haskell/groupoids 4.0: This package has been absorbed into semigroupoids 4.0
+dev-haskell/groups 0.5.3: A group is a monoid with invertibility
 dev-haskell/gsasl 0.3.7: Bindings for GNU libgsasl
 dev-haskell/gtk 0.15.5-r1: Binding to the Gtk+ graphical user interface library
 dev-haskell/gtk2hs-buildtools 0.13.8.0-r1: Tools to build the Gtk2Hs suite of User Interface libraries
@@ -4718,7 +4719,7 @@ dev-haskell/http-media 0.8.0.0: Processing HTTP Content-Type and Accept headers
 dev-haskell/http-reverse-proxy 0.6.0: Reverse proxy HTTP requests, either over raw sockets or with WAI
 dev-haskell/http-streams 0.8.7.2: An HTTP client using io-streams
 dev-haskell/http-types 0.12.3: Generic HTTP types for Haskell (for both client and server code)
-dev-haskell/http2 2.0.3: HTTP/2.0 library including frames and HPACK
+dev-haskell/http2 3.0.1: HTTP/2 library
 dev-haskell/httpd-shed 0.4.1.1: A simple web-server with an interact style API
 dev-haskell/hunit 1.2.5.2-r1 1.6.0.0 1.6.2.0: A unit testing framework for Haskell
 dev-haskell/hxt 9.3.1.18: A collection of tools for processing XML with Haskell
@@ -4843,7 +4844,7 @@ dev-haskell/neat-interpolation 0.5.1.2: A quasiquoter for neat and simple multil
 dev-haskell/netlink 1.1.1.0: Netlink communication for Haskell
 dev-haskell/network 2.4.1.2 2.4.2.2 2.5.0.0 2.6.2.1 2.6.3.1-r1 3.0.1.1: Low-level networking interface
 dev-haskell/network-bsd 2.8.1.0: Network.BSD
-dev-haskell/network-byte-order 0.1.4.0: Network byte order utilities
+dev-haskell/network-byte-order 0.1.6: Network byte order utilities
 dev-haskell/network-conduit 1.1.0: Stream socket data using conduits. (deprecated)
 dev-haskell/network-data 0.5.3: Library for network data structures and their serialization
 dev-haskell/network-info 0.2.0.10: Access the local computer's basic network configuration
@@ -4932,7 +4933,7 @@ dev-haskell/raw-strings-qq 1.1: Raw string literals for Haskell
 dev-haskell/readable 0.3.1: Reading from Text and ByteString
 dev-haskell/readargs 1.2.3: Simple command line argument parsing
 dev-haskell/readline 1.0.3.0-r1: An interface to the GNU readline library
-dev-haskell/rebase 1.4.1: A more progressive alternative to the 'base' package
+dev-haskell/rebase 1.15.0.3: A more progressive alternative to the "base" package
 dev-haskell/recaptcha 0.1.0.4: Functions for using the reCAPTCHA service in web applications
 dev-haskell/reducers 3.12.3-r1: Semigroups, specialized containers and a general map/reduce framework
 dev-haskell/refact 0.3.0.2: Specify refactorings to perform with apply-refact
@@ -4940,13 +4941,13 @@ dev-haskell/reflection 2.1.6: Reifies arbitrary terms into types that can be ref
 dev-haskell/regex-applicative 0.3.3.1: Regex-based parsing with applicative interface
 dev-haskell/regex-applicative-text 0.1.0.1: regex-applicative on text
 dev-haskell/regex-base 0.94.0.0 0.94.0.1: Common "Text.Regex.*" API for Regex matching
-dev-haskell/regex-compat 0.95.2.0: Replaces/Enhances Text.Regex
+dev-haskell/regex-compat 0.95.2.1: Replaces/enhances "Text.Regex"
 dev-haskell/regex-compat-tdfa 0.95.1.4: Unicode Support version of Text.Regex, using regex-tdfa
 dev-haskell/regex-pcre 0.95.0.0: Replaces/Enhances Text.Regex
 dev-haskell/regex-pcre-builtin 0.95.1.3.8.43: PCRE Backend for "Text.Regex" (regex-base)
 dev-haskell/regex-posix 0.96.0.0: Replaces/Enhances Text.Regex
 dev-haskell/regex-tdfa 1.3.1.1: Pure Haskell Tagged DFA Backend for "Text.Regex" (regex-base)
-dev-haskell/rerebase 1.4.1: Reexports from 'base' with a bunch of other standard libraries
+dev-haskell/rerebase 1.15.0.3: Reexports from "base" with a bunch of other standard libraries
 dev-haskell/resolv 0.1.2.0-r1: Domain Name Service (DNS) lookup via the libresolv standard library routines
 dev-haskell/resource-pool 0.2.3.2: A high-performance striped resource pooling implementation
 dev-haskell/resourcet 1.2.4.2: Deterministic allocation and freeing of scarce resources
@@ -4964,7 +4965,7 @@ dev-haskell/sandi 0.5: Data encoding library
 dev-haskell/say 0.1.0.0: Initial project template from stack
 dev-haskell/scientific 0.3.7.0-r1: Numbers represented using scientific notation
 dev-haskell/securemem 0.1.10: abstraction to an auto scrubbing and const time eq, memory chunk
-dev-haskell/selective 0.3: Selective applicative functors
+dev-haskell/selective 0.5: Selective applicative functors
 dev-haskell/semialign 1.2.0.1: Align and Zip type-classes from the common Semialign ancestor
 dev-haskell/semigroupoid-extras 5: Semigroupoids that depend on PolyKinds
 dev-haskell/semigroupoids 5.3.4 5.3.7: Semigroupoids: Category sans id
@@ -4976,7 +4977,7 @@ dev-haskell/servant-server 0.19.1: A family of combinators for defining webservi
 dev-haskell/setenv 0.1.1.3: A cross-platform library for setting environment variables
 dev-haskell/setlocale 1.0.0.9: Haskell bindings to setlocale
 dev-haskell/sha 1.6.4.4: Implementations of the SHA suite of message digest functions
-dev-haskell/shakespeare 2.0.25: A toolkit for making compile-time interpolated templates
+dev-haskell/shakespeare 2.0.30: A toolkit for making compile-time interpolated templates
 dev-haskell/shakespeare-css 1.1.0: Stick your haskell variables into css at compile time. (deprecated)
 dev-haskell/shakespeare-i18n 1.1.0: A type-based approach to internationalization. (deprecated)
 dev-haskell/shakespeare-js 1.3.0: Stick your haskell variables into javascript/coffeescript at compile time
@@ -5133,7 +5134,7 @@ dev-haskell/wai-conduit 3.0.0.4: conduit wrappers for WAI
 dev-haskell/wai-extra 3.1.4.1: Provides some basic WAI handlers and middleware
 dev-haskell/wai-logger 2.3.6: A logging system for WAI
 dev-haskell/wai-test 3.0.0: Unit test framework (built on HUnit) for WAI applications. (deprecated)
-dev-haskell/warp 3.3.13: A fast, light-weight web server for WAI applications
+dev-haskell/warp 3.3.21: A fast, light-weight web server for WAI applications
 dev-haskell/warp-tls 3.2.12: HTTP over TLS support for Warp via the TLS package
 dev-haskell/wavy 0.1.0.0: Process WAVE files in Haskell
 dev-haskell/wcwidth 0.0.2: Native wcwidth
@@ -5244,18 +5245,18 @@ dev-java/cglib 3.3.0-r1: cglib is a powerful, high performance and quality Code 
 dev-java/checker-framework-qual 3.14.0: Annotations for type-checking by the Checker Framework
 dev-java/commons-beanutils 1.9.4-r1: Provides easy-to-use wrappers around Reflection and Introspection APIs
 dev-java/commons-cli 1.5.0: A Java library for working with the command line arguments and options
-dev-java/commons-codec 1.15: Implementations of common encoders and decoders in Java
-dev-java/commons-collections 3.2.2 4.4: Extends the JCF classes with new interfaces, implementations and utilities
+dev-java/commons-codec 1.15 1.15-r1: Implementations of common encoders and decoders in Java
+dev-java/commons-collections 3.2.2 4.4 4.4-r1: Extends the JCF classes with new interfaces, implementations and utilities
 dev-java/commons-compress 1.21: Java API for working with archive files
 dev-java/commons-csv 1.9.0: Simple interface for reading and writing CSV files of various types
 dev-java/commons-daemon 1.3.1: Tools to allow Java programs to run as UNIX daemons
 dev-java/commons-digester 2.1-r2 3.2-r3: Reads XML configuration files to provide initialization of various Java objects
 dev-java/commons-httpclient 3.1-r2: The Jakarta Commons HttpClient library
 dev-java/commons-imaging 1.0_alpha2: Apache Commons Imaging (previously Sanselan) is a pure-Java image library.
-dev-java/commons-io 2.11.0: Utility classes, stream implementations, file filters, and much more
+dev-java/commons-io 2.11.0 2.11.0-r1: Utility classes, stream implementations, file filters, and much more
 dev-java/commons-lang 2.6-r2 3.12.0: Commons components to manipulate core java classes
 dev-java/commons-logging 1.2-r5: An ultra-thin bridge between different Java logging libraries
-dev-java/commons-math 3.6.1-r1: Lightweight, self-contained mathematics and statistics components
+dev-java/commons-math 3.6.1-r1 3.6.1-r2: Lightweight, self-contained mathematics and statistics components
 dev-java/commons-net 3.8.0: Client-oriented Java library to implement many Internet protocols
 dev-java/commons-text 1.9: Apache Commons Text is a library focused on algorithms working on strings
 dev-java/commons-validator 1.7: Commons component to validate user input, or data input
@@ -5270,7 +5271,7 @@ dev-java/eclipse-ecj 4.15 4.22-r1: Eclipse Compiler for Java
 dev-java/emma 2.0.5312-r4: Free Java code coverage tool
 dev-java/error-prone-annotations 2.7.1: Java annotations for the Error Prone static analysis tool
 dev-java/failureaccess 30.1.1: Guava's InternalFutureFailureAccess and InternalFutures classes.
-dev-java/fastinfoset 2.1.0: Open Source implementation of the Fast Infoset Standard for Binary XML
+dev-java/fastinfoset 2.1.0-r1: Open Source implementation of the Fast Infoset Standard for Binary XML
 dev-java/fec 1.0.4-r4: Forward Error Correction library in Java
 dev-java/findbugs-annotations 3.0.1: Annotation defined by the FindBugs tool
 dev-java/fontbox 2.0.26: An open source Java library for parsing font files
@@ -5340,8 +5341,8 @@ dev-java/javax-inject 1-r4: Dependency injection for Java (JSR-330)
 dev-java/javax-jms-api 2.0.3: Jakarta Messaging
 dev-java/javax-mail 1.6.7-r1: Jakarta Mail API
 dev-java/jaxb-api 2.3.3-r1 3.0.1-r1 4.0.0: Jakarta XML Binding API
-dev-java/jaxb-runtime 4.0.0: JAXB (JSR 222) Reference Implementation
-dev-java/jaxb-stax-ex 2.1.0: Extensions to JSR-173 StAX API.
+dev-java/jaxb-runtime 4.0.0-r1: JAXB (JSR 222) Reference Implementation
+dev-java/jaxb-stax-ex 2.1.0-r1: Extensions to JSR-173 StAX API.
 dev-java/jaxen 1.2.0-r1: Jaxen is a universal XPath engine for Java
 dev-java/jbig2-imageio 3.0.3: PDFBox JBIG2 ImageIO plugin
 dev-java/jbitcollider-core 0.8-r1: Core classes of jBitcollider: org.bitpedia.collider.core
@@ -5439,7 +5440,7 @@ dev-java/pdf-renderer 1.0.5-r1: a 100% Java PDF renderer and viewer
 dev-java/pdfbox 2.0.26: Java library and utilities for working with PDF documents
 dev-java/picocli 4.6.3-r1: Java command line parser with both an annotations API and a programmatic API
 dev-java/plexus-classworlds 2.2.3: The class loader framework of the Plexus project
-dev-java/poi 5.0.0: Maven build of Apache POI for Sonar checks
+dev-java/poi 5.0.0 5.2.2: Maven build of Apache POI for Sonar checks
 dev-java/protobuf-java 3.17.3 3.19.3 9999: Google's Protocol Buffers - Java bindings
 dev-java/qdox 1.12.1-r3: Parser for extracting class/interface/method definitions
 dev-java/randomized-runner 2.7.9 2.8.0: JUnit test runner and plugins for running JUnit tests with pseudo-randomness
@@ -5479,7 +5480,7 @@ dev-java/testng 6.9.10-r1: Testing framework inspired by JUnit and NUnit with ne
 dev-java/tomcat-native 1.2.34 1.2.35: Allows Tomcat to use certain native resources for better performance
 dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.109 8.5.81 9.0.64 9.0.65 10.0.22: Tomcat's Servlet API 5.0/JSP API 3.0/EL API 4.0 implementation
 dev-java/treelayout 1.0.3-r1: Efficient and customizable TreeLayout Algorithm in Java.
-dev-java/typesafe-config 1.3.0-r3: A library of arguably useful Java utilities
+dev-java/typesafe-config 1.3.0-r3 1.4.2: A library of arguably useful Java utilities
 dev-java/univocity-parsers 2.9.1: A collection of extremely fast and reliable parsers for Java
 dev-java/validation-api 1.0.0-r1 1.1.0-r1: Bean Validation (JSR-303) API
 dev-java/velocity 2.3: Apache Velocity is a general purpose template engine
@@ -9696,7 +9697,7 @@ dev-python/simplegeneric 0.8.1-r1 0.8.1-r2: Simple generic functions for Python
 dev-python/simplejson 3.17.6: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
 dev-python/simpy 4.0.1: Object-oriented, process-based discrete-event simulation language
-dev-python/sip 4.19.25-r1 6.6.1: Python bindings generator for C/C++ libraries
+dev-python/sip 4.19.25-r1 6.6.1 6.6.2: Python bindings generator for C/C++ libraries
 dev-python/six 1.16.0-r1: Python 2 and 3 compatibility library
 dev-python/slackclient 2.5.0: Client for Slack supporting the Slack Web and Real Time Messaging API
 dev-python/slimit 0.8.1-r1: A JavaScript minifier written in Python

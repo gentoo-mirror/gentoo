@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Open Source implementation of the Fast Infoset Standard for Binary XML
 EAPI=8
 HOMEPAGE=https://projects.eclipse.org/projects/ee4j.jaxb-impl/FastInfoset
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/eclipse-ee4j/jaxb-fi/archive/2.1.0.tar.gz -> fastinfoset-2.1.0.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	50b11e64e7ffa307c4cd0347711a69fb
-_md5_=c8e556358a39e2252bf23182f1fd762b
+_md5_=ba6cebb573ffd71f6ef33049975463c0

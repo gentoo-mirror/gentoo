@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/easymock:3.2 dev-java/commons-lang:3.6 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Extends the JCF classes with new interfaces, implementations and utilities
+EAPI=8
+HOMEPAGE=https://commons.apache.org/proper/commons-collections/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=4
+SRC_URI=mirror://apache/commons/collections/source/commons-collections4-4.4-src.tar.gz -> commons-collections-4.4-src.tar.gz
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	50b11e64e7ffa307c4cd0347711a69fb
+_md5_=495e54bc629ccfda6c5f5311ddd0acbf
