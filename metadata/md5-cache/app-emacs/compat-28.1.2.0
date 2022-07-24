@@ -1,13 +1,13 @@
 BDEPEND=sys-apps/texinfo >=app-editors/emacs-24:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Compatibility libraries for Emacs
 EAPI=8
-HOMEPAGE=https://git.sr.ht/~pkal/compat
+HOMEPAGE=https://git.sr.ht/~pkal/compat/
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=>=app-editors/emacs-24:*
 SLOT=0
-SRC_URI=https://git.sr.ht/~pkal/compat/archive/28.1.1.1.tar.gz -> compat-28.1.1.1.tar.gz
+SRC_URI=https://git.sr.ht/~pkal/compat/archive/2c3233c0e09ef34176787b6e3da4319751ad91e7.tar.gz -> compat-28.1.2.0.tar.gz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
-_md5_=be9ba576a12ed4fb078069736dccf2c2
+_md5_=67a5d3da43a6476f4d44282ec62a51e6
