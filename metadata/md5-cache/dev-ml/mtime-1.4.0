@@ -4,13 +4,13 @@ DEPEND=dev-lang/ocaml:=[ocamlopt] dev-ml/topkg dev-ml/ocamlbuild dev-ml/findlib 
 DESCRIPTION=OCaml module to access monotonic wall-clock time
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/mtime https://github.com/dbuenzli/mtime
-INHERIT=opam
+INHERIT=edo opam
 IUSE=test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=ISC
 RDEPEND=dev-lang/ocaml:=[ocamlopt] >=dev-lang/ocaml-4:=
 RESTRICT=!test? ( test )
-SLOT=0/1.3.0
-SRC_URI=https://erratique.ch/software/mtime/releases/mtime-1.3.0.tbz
-_eclasses_=opam	dc11e376d9abc263ca618c5741206216
-_md5_=51b07a0938d59ce533ee9dff71ac2900
+SLOT=0/1.4.0
+SRC_URI=https://erratique.ch/software/mtime/releases/mtime-1.4.0.tbz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	opam	dc11e376d9abc263ca618c5741206216
+_md5_=ffbf5b830f14f5149ab45e5b344763a9
