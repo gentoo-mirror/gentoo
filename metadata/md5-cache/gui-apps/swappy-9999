@@ -1,13 +1,14 @@
-BDEPEND=app-text/scdoc virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:3 x11-libs/pango dev-util/desktop-file-utils x11-misc/shared-mime-info
+BDEPEND=app-text/scdoc sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
+DEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
 DESCRIPTION=A Wayland native snapshot and editor tool, inspired by Snappy on macOS
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/jtheoof/swappy
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson xdg optfeature git-r3
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:3 x11-libs/pango media-fonts/fontawesome[otf]
+RDEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango media-fonts/fontawesome[otf]
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	optfeature	1a2157392a869265b2afcb63a26c12ac	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=768dac34265ee58b8fb7c826f7cf7ad7
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	optfeature	1a2157392a869265b2afcb63a26c12ac	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=790cb1567862845b33fff989dbd50c69
