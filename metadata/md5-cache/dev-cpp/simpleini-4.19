@@ -1,0 +1,15 @@
+BDEPEND=test? ( virtual/pkgconfig )
+DEFINED_PHASES=compile install
+DEPEND=test? ( dev-cpp/gtest )
+DESCRIPTION=C++ library providing a simple API to read and write INI-style files
+EAPI=8
+HOMEPAGE=https://github.com/brofield/simpleini/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/brofield/simpleini/archive/refs/tags/v4.19.tar.gz -> simpleini-4.19.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	929e29d009c20f55b45c96866ebf47fe
+_md5_=fa3cc989e0d10df253d3921992892392
