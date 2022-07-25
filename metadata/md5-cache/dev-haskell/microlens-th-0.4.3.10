@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=dev-haskell/microlens-0.4.0:=[profile?] <dev-haskell/microlens-0.5:=[profile?] >=dev-haskell/th-abstraction-0.4.1:=[profile?] <dev-haskell/th-abstraction-0.5:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( dev-haskell/tagged ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Automatic generation of record lenses for microlens
 EAPI=8
-HOMEPAGE=https://github.com/monadfix/microlens
+HOMEPAGE=https://github.com/stevenfontanella/microlens
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
 KEYWORDS=~amd64 ~x86
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.4.3.10
 SRC_URI=https://hackage.haskell.org/package/microlens-th-0.4.3.10/microlens-th-0.4.3.10.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	bd6d32a0289c486284bc0cdc06a639a6
-_md5_=142b04f645376abf859b470448817385
+_md5_=623045f456f64096b1cb082c3a4b7b41
