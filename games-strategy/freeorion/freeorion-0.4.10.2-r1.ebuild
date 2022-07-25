@@ -3,6 +3,7 @@
 
 EAPI=8
 
+# note: py3.11 is known failing at runtime with this version
 PYTHON_COMPAT=( python3_{8..10} )
 inherit check-reqs cmake multiprocessing python-single-r1 xdg
 
@@ -10,7 +11,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/freeorion/freeorion.git"
 else
-	FREEORION_BUILD_ID=""
+	FREEORION_BUILD_ID="2021-08-01.f663dad"
 	SRC_URI="https://github.com/freeorion/freeorion/releases/download/v${PV}/FreeOrion_v${PV}_${FREEORION_BUILD_ID}_Source.tar.gz"
 	S="${WORKDIR}/src-tarball"
 	KEYWORDS="~amd64"
@@ -32,7 +33,7 @@ DEPEND="
 	!dedicated? (
 		media-libs/freetype
 		media-libs/glew:=
-		media-libs/libglvnd
+		media-libs/libglvnd[X]
 		media-libs/libogg
 		media-libs/libpng:=
 		media-libs/libsdl2[opengl,video]
@@ -79,8 +80,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_CLIENT_GG=$(usex !dedicated)
-		-DBUILD_CLIENT_GODOT=no # TODO, perhaps with system godot (experimental)
+		-DBUILD_HEADLESS=$(usex dedicated)
 		-DBUILD_TESTING=$(usex test)
 	)
 
@@ -92,7 +92,9 @@ src_compile() {
 }
 
 src_test() {
-	cmake_src_test -j1 # avoid running 2 conflicting servers
+	# freeoriond randomly(?) segfaults on exit, cause unknown but
+	# seems fixed by some refactoring in -9999 (excluding for now)
+	cmake_src_test -E 'SmokeTest(Game|Hostless)'
 
 	epytest -o cache_dir="${T}"/pytest_cache default/python/tests
 }

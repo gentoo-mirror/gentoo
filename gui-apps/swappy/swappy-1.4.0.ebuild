@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson xdg optfeature
 
@@ -22,6 +22,7 @@ SLOT="0"
 DEPEND="
 	dev-libs/glib:2
 	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/pango
 "
@@ -30,15 +31,9 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	app-text/scdoc
+	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-src_prepare() {
-	default
-
-	# See https://github.com/jtheoof/swappy/pull/99
-	sed -i -e 's/Utility;Graphics;Annotation;/Utility;Graphics;/'  src/po/swappy.desktop.in || die "Sed failed!"
-}
 
 src_configure() {
 	local emesonargs=(
