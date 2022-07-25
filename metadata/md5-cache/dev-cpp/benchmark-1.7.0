@@ -1,0 +1,14 @@
+BDEPEND=doc? ( app-doc/doxygen ) test? ( >=dev-cpp/gtest-1.11.0 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A microbenchmark support library
+EAPI=8
+HOMEPAGE=https://github.com/google/benchmark
+INHERIT=cmake flag-o-matic
+IUSE=debug doc lto test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/google/benchmark/archive/v1.7.0.tar.gz -> benchmark-1.7.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=02162b56de3ce58be15eff4adf4c1efa
