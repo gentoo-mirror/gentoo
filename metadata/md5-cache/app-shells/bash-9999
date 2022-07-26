@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst preinst prepare setup test unp
 DEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl )
 DESCRIPTION=The standard GNU Bourne again shell
 EAPI=8
-HOMEPAGE=https://tiswww.case.edu/php/chet/bash/bashtop.html
+HOMEPAGE=https://tiswww.case.edu/php/chet/bash/bashtop.html https://git.savannah.gnu.org/cgit/bash.git
 INHERIT=flag-o-matic toolchain-funcs prefix verify-sig git-r3
 IUSE=afs bashlogger examples mem-scramble +net nls plugins +readline verify-sig
 LICENSE=GPL-3+
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl )
 SLOT=0
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	prefix	eab3c99d77fe00506c109c8a736186f7	verify-sig	0748d665fa664a87add00152ed046e16	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=2672816b418e2856455a8b37b6f741b3
+_md5_=c399385fbb892071ce2063bc6c8ae701
