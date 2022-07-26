@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/linguist-tools:5 sys-devel/gettext virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-db/sqlite:= dev-libs/glib:2 dev-libs/protobuf:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5[sqlite] dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-libs/alsa-lib media-libs/taglib x11-libs/libX11 cdda? ( dev-libs/libcdio:= ) gstreamer? ( media-libs/chromaprint:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) ipod? ( media-libs/libgpod ) moodbar? ( sci-libs/fftw:3.0 ) mtp? ( media-libs/libmtp ) pulseaudio? ( media-sound/pulseaudio ) vlc? ( media-video/vlc ) dev-cpp/gtest dev-libs/boost dev-qt/qttest:5
+DESCRIPTION=Modern music player and library organizer based on Clementine and Qt
+EAPI=8
+HOMEPAGE=https://www.strawberrymusicplayer.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic plocale xdg
+IUSE=cdda debug +gstreamer ipod moodbar mtp pulseaudio +udisks vlc
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-db/sqlite:= dev-libs/glib:2 dev-libs/protobuf:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5[sqlite] dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-libs/alsa-lib media-libs/taglib x11-libs/libX11 cdda? ( dev-libs/libcdio:= ) gstreamer? ( media-libs/chromaprint:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) ipod? ( media-libs/libgpod ) moodbar? ( sci-libs/fftw:3.0 ) mtp? ( media-libs/libmtp ) pulseaudio? ( media-sound/pulseaudio ) vlc? ( media-video/vlc ) gstreamer? ( media-plugins/gst-plugins-meta:1.0 media-plugins/gst-plugins-soup:1.0 media-plugins/gst-plugins-taglib:1.0 ) mtp? ( gnome-base/gvfs[mtp] ) udisks? ( sys-fs/udisks:2 )
+REQUIRED_USE=cdda? ( gstreamer ) || ( gstreamer vlc )
+SLOT=0
+SRC_URI=https://github.com/strawberrymusicplayer/strawberry/releases/download/1.0.7/strawberry-1.0.7.tar.xz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	plocale	7ce00136a77130df46fbbd5966f98a61	xdg	6024fbc93167fad782e2032933654857
+_md5_=a3735f49799331b99baa76204b446a43
