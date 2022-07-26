@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://qmmp.ylsoftware.com
 INHERIT=cmake xdg
 IUSE=aac +alsa analyzer archive bs2b cdda cover crossfade cue curl +dbus enca ffmpeg flac game gnome jack ladspa lyrics +mad midi mms mplayer musepack notifier opus oss pipewire projectm pulseaudio qsui qtmedia scrobbler shout sid sndfile soxr stereo tray udisks +vorbis wavpack xmp
-KEYWORDS=~amd64 x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-libs/taglib x11-libs/libX11 aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) archive? ( app-arch/libarchive ) bs2b? ( media-libs/libbs2b ) cdda? ( dev-libs/libcdio:= dev-libs/libcdio-paranoia ) curl? ( net-misc/curl ) dbus? ( dev-qt/qtdbus:5 ) enca? ( app-i18n/enca ) ffmpeg? ( media-video/ffmpeg:= ) flac? ( media-libs/flac ) game? ( media-libs/game-music-emu ) jack? ( media-libs/libsamplerate virtual/jack ) ladspa? ( media-plugins/cmt-plugins ) mad? ( media-libs/libmad:= media-sound/mpg123:= ) midi? ( media-sound/wildmidi ) mms? ( media-libs/libmms ) mplayer? ( media-video/mplayer ) musepack? ( >=media-sound/musepack-tools-444 ) opus? ( media-libs/opusfile ) pipewire? ( media-video/pipewire ) projectm? ( dev-qt/qtgui:5[-gles2-only] dev-qt/qtopengl:5 media-libs/libprojectm:= ) pulseaudio? ( >=media-sound/pulseaudio-0.9.9 ) qtmedia? ( dev-qt/qtmultimedia:5 ) scrobbler? ( net-misc/curl ) shout? ( media-libs/libshout ) sid? ( >=media-libs/libsidplayfp-1.1.0 ) sndfile? ( media-libs/libsndfile ) soxr? ( media-libs/soxr ) udisks? ( sys-fs/udisks:2 ) vorbis? ( media-libs/libogg media-libs/libvorbis ) wavpack? ( media-sound/wavpack ) xmp? ( media-libs/libxmp )
 REQUIRED_USE=gnome? ( dbus ) shout? ( soxr vorbis ) udisks? ( dbus )
 SLOT=0
 SRC_URI=http://qmmp.ylsoftware.com/files/qmmp-1.6.1.tar.bz2 mirror://sourceforge/qmmp-dev/files/qmmp-1.6.1.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	xdg	6024fbc93167fad782e2032933654857
-_md5_=7c17a4b0852000408f7a933f8cd3a296
+_md5_=d3aa5a090028f71a9ecc2cb012a2b623
