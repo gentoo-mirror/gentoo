@@ -1,0 +1,14 @@
+BDEPEND=app-editors/vim-core virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=>=media-video/ffmpeg-2.6:= media-libs/libjpeg-turbo:= media-libs/libpng
+DESCRIPTION=HTTP Ardour Video Daemon
+EAPI=8
+HOMEPAGE=https://x42.github.io/harvid/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=media-video/ffmpeg-2.6:= media-libs/libjpeg-turbo:= media-libs/libpng
+SLOT=0
+SRC_URI=https://github.com/x42/harvid/archive/v0.9.0.tar.gz -> harvid-0.9.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=ff85811dff2a5a8ea619f59a2a173885
