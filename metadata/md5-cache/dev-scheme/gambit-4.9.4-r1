@@ -4,12 +4,12 @@ DEPEND=ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Gambit-C is a native Scheme to C compiler and interpreter
 EAPI=8
 HOMEPAGE=http://www.iro.umontreal.ca/~gambit/
-INHERIT=elisp-common
+INHERIT=flag-o-matic elisp-common
 IUSE=emacs ssl static
 KEYWORDS=amd64 ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Apache-2.0 LGPL-2.1 )
 RDEPEND=ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=https://github.com/gambit/gambit/archive/tags/v4.9.4.tar.gz -> gambit-4.9.4.tar.gz
-_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145
-_md5_=97b833e1b45d247e2a292e0a9e1ea3e4
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	elisp-common	e7aaa047873789f549ea3df2f04b2145
+_md5_=d0e54544d4d61463b622936f1ff13191

@@ -3,11 +3,11 @@ DEPEND=!dev-scheme/scheme48 virtual/libcrypt:= amd64? ( virtual/libcrypt:=[abi_x
 DESCRIPTION=Unix shell embedded in Scheme
 EAPI=8
 HOMEPAGE=https://www.scsh.net/
-INHERIT=multilib
+INHERIT=flag-o-matic multilib
 KEYWORDS=amd64 ppc sparc x86
 LICENSE=BSD
 RDEPEND=!dev-scheme/scheme48 virtual/libcrypt:= amd64? ( virtual/libcrypt:=[abi_x86_32] )
 SLOT=0
 SRC_URI=ftp://ftp.scsh.net/pub/scsh/0.6/scsh-0.6.7.tar.gz
-_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961
-_md5_=18308ee8e4f36a73ebf249fa239af363
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906
+_md5_=ef6b213b1f6d1368b400549fa24a8936
