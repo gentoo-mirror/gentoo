@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare
 DEPEND=>=dev-lang/ocaml-4.11:=[ocamlopt?] dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= coq? ( sci-mathematics/coq ) emacs? ( app-editors/emacs:* ) gtk? ( dev-ml/lablgtk:=[sourceview] ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) sexp? ( dev-ml/ppx_deriving:=[ocamlopt?] dev-ml/ppx_sexp_conv:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt?] ) zarith? ( dev-ml/zarith:= ) zip? ( dev-ml/camlzip:= ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Platform for deductive program verification
 EAPI=7
-HOMEPAGE=http://why3.lri.fr/
+HOMEPAGE=https://why3.lri.fr/
 INHERIT=autotools findlib
 IUSE=coq doc emacs gtk html hypothesis-selection +ocamlopt sexp zarith zip +ocamlopt
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/dd74ae7ecfd7d56aff7b17cee7a35559384a600f?filename=why3-2021-20210519-19ADF-src.tar.gz -> why3-2021-20210519-19ADF-src.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	findlib	d8fa93cf137156660d0b72144b1e31d9
-_md5_=c55bcf479c98169798942400abe9bf59
+_md5_=6686425110ad177134a701a635640b8b
