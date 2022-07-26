@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.aseprite.org
 INHERIT=cmake desktop ninja-utils toolchain-funcs xdg-utils
 IUSE=kde test webp
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~x86
 LICENSE=Aseprite-EULA
 RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-cpp/json11 dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:= media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl sys-libs/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libxcb:= kde? ( dev-qt/qtcore:5 dev-qt/qtgui:5 kde-frameworks/kio:5 ) webp? ( media-libs/libwebp:= )
 RESTRICT=bindist mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aseprite/aseprite/releases/download/v1.2.35/Aseprite-v1.2.35-Source.zip https://github.com/google/skia/archive/3338e90707323d2cd3a150276acb9f39933deee2.tar.gz -> skia-m102-3338e90707323d2cd3a150276acb9f39933deee2.gh.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	desktop	22952d8f27cac191d75529d4c38e6bfa
-_md5_=46c6f7da66e22bc855400dfd6c469cb2
+_md5_=102a88fc7cdfba02773badc70fa7148f
