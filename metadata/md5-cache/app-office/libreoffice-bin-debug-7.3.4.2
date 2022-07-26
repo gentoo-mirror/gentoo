@@ -4,10 +4,10 @@ DESCRIPTION=LibreOffice, a full office productivity suite. Binary package, debug
 EAPI=7
 HOMEPAGE=https://www.libreoffice.org
 IUSE=gnome java kde
-KEYWORDS=-* ~amd64 ~x86
+KEYWORDS=-* amd64 ~x86
 LICENSE=LGPL-3
 RDEPEND==app-office/libreoffice-bin-7.3.4.2[gnome=,java=,kde=]
 RESTRICT=test strip
 SLOT=0
 SRC_URI=amd64? ( https://tamiko.43-1.org/distfiles/amd64-debug-libreoffice-7.3.4.2.tar.xz kde? ( !java? ( https://tamiko.43-1.org/distfiles/amd64-debug-libreoffice-kde-7.3.4.2.xd3 ) java? ( https://tamiko.43-1.org/distfiles/amd64-debug-libreoffice-kde-java-7.3.4.2.xd3 ) ) gnome? ( !java? ( https://tamiko.43-1.org/distfiles/amd64-debug-libreoffice-gnome-7.3.4.2.xd3 ) java? ( https://tamiko.43-1.org/distfiles/amd64-debug-libreoffice-gnome-java-7.3.4.2.xd3 ) ) !kde? ( !gnome? ( java? ( https://tamiko.43-1.org/distfiles/amd64-debug-libreoffice-java-7.3.4.2.xd3 ) ) ) ) x86? ( https://tamiko.43-1.org/distfiles/x86-debug-libreoffice-7.3.4.2.tar.xz kde? ( https://tamiko.43-1.org/distfiles/x86-debug-libreoffice-kde-7.3.4.2.xd3 ) gnome? ( https://tamiko.43-1.org/distfiles/x86-debug-libreoffice-gnome-7.3.4.2.xd3 ) )
-_md5_=f97bc6101496ee291ab2e0e41cd7e2ee
+_md5_=7db2d2fafd1499306a90e18fe6a899f5
