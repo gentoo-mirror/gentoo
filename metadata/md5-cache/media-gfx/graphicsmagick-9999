@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=dev-libs/libltdl bzip2? ( app-arch/bzip2 ) fpx? ( media-libs/libfpx ) heif? ( media-libs/libheif:= ) imagemagick? ( !media-gfx/imagemagick ) jbig? ( media-libs/jbigkit ) jpeg? ( virtual/jpeg ) jpegxl? ( media-libs/libjxl:= ) lcms? ( media-libs/lcms:2 ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) png? ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl ) svg? ( dev-libs/libxml2 ) tiff? ( media-libs/tiff ) truetype? ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:= ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libSM x11-libs/libXext ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Collection of tools and libraries for many image formats
 EAPI=8
-HOMEPAGE=http://www.graphicsmagick.org/ http://hg.code.sf.net/p/graphicsmagick/code/
+HOMEPAGE=http://www.graphicsmagick.org/ https://hg.osdn.net/view/graphicsmagick/GM
 INHERIT=autotools toolchain-funcs mercurial
 IUSE=bzip2 +cxx debug dynamic-loading fpx heif imagemagick jbig jpeg jpegxl lcms lzma openmp perl png postscript q16 q32 static-libs svg threads tiff truetype webp wmf X zlib
 LICENSE=MIT
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=dev-libs/libltdl bzip2? ( app-arch/bzip2 ) fpx? ( media-libs/libfpx ) heif? ( media-libs/libheif:= ) imagemagick? ( !media-gfx/imagemagick ) jbig? ( media-libs/jbigkit ) jpeg? ( virtual/jpeg ) jpegxl? ( media-libs/libjxl:= ) lcms? ( media-libs/lcms:2 ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) png? ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl ) svg? ( dev-libs/libxml2 ) tiff? ( media-libs/tiff ) truetype? ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:= ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libSM x11-libs/libXext ) zlib? ( sys-libs/zlib )
 SLOT=0/9999
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	mercurial	53b96197cb26db4afb5056f1bbfa4845
-_md5_=9c0cd3be661d9c1f032a1e9194ae3de5
+_md5_=d1d83dc86e4cfcb5836c0e956b503bb6

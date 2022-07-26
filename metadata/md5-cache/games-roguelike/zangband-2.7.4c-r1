@@ -1,0 +1,15 @@
+BDEPEND=acct-group/gamestat sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=acct-group/gamestat sys-libs/ncurses:= x11-libs/libX11 x11-libs/libXaw x11-libs/libXt tk? ( dev-lang/tcl:= dev-lang/tk:= ) x11-base/xorg-proto
+DESCRIPTION=An enhanced version of the Roguelike game Angband
+EAPI=8
+HOMEPAGE=http://www.zangband.org/
+INHERIT=autotools
+IUSE=tk
+KEYWORDS=~amd64 ~x86
+LICENSE=Moria
+RDEPEND=acct-group/gamestat sys-libs/ncurses:= x11-libs/libX11 x11-libs/libXaw x11-libs/libXt tk? ( dev-lang/tcl:= dev-lang/tk:= )
+SLOT=0
+SRC_URI=ftp://ftp.sunet.se/pub/games/Angband/Variant/ZAngband/zangband-2.7.4c.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=482afe18c6cbe479c724cd6a745d283a
