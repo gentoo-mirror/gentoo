@@ -3,7 +3,7 @@ DEPEND=sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_
 DESCRIPTION=A framework for 2D games in Lua
 EAPI=8
 HOMEPAGE=https://love2d.org/
-INHERIT=lua-single xdg-utils
+INHERIT=flag-o-matic lua-single xdg-utils
 IUSE=gme lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=ZLIB
@@ -11,5 +11,5 @@ RDEPEND=sys-libs/zlib lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=https://github.com/love2d/love/releases/download/11.4/love-11.4-linux-src.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=848a3a44d8a3450f49107f3094173e7a
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=21ee3ee191394812841399fac8e66c4c
