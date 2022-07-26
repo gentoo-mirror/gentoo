@@ -1,17 +1,17 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI="8"
 
-inherit autotools linux-mod linux-info toolchain-funcs udev multilib
+inherit autotools linux-mod linux-info toolchain-funcs udev
 
 DESCRIPTION="High-Performance Intra-Node MPI Communication"
-HOMEPAGE="http://knem.gforge.inria.fr/"
+HOMEPAGE="https://knem.gforge.inria.fr/"
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://gforge.inria.fr/git/knem/knem.git"
 	inherit git-r3
 else
-	SRC_URI="http://gforge.inria.fr/frs/download.php/37186/${P}.tar.gz"
+	SRC_URI="https://gitlab.inria.fr/knem/knem/uploads/4a43e3eb860cda2bbd5bf5c7c04a24b6/${P}.tar.gz"
 	KEYWORDS="~amd64 ~riscv ~x86"
 fi
 
@@ -29,8 +29,6 @@ RDEPEND="
 MODULE_NAMES="knem(misc:${S}/driver/linux)"
 BUILD_TARGETS="all"
 BUILD_PARAMS="KDIR=${KERNEL_DIR}"
-
-PATCHES=( "${FILESDIR}/${P}-setup_timer.patch" )
 
 pkg_setup() {
 	linux-info_pkg_setup
@@ -76,4 +74,12 @@ src_install() {
 	# install udev rules
 	udev_dorules "${FILESDIR}/45-knem.rules"
 	rm "${ED}/etc/10-knem.rules" || die
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
