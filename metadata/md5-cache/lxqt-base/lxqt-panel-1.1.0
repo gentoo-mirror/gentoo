@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake
 IUSE=+alsa colorpicker cpuload +desktopswitch +directorymenu dom +kbindicator +mainmenu +mount networkmonitor pulseaudio +quicklaunch lm-sensors +showdesktop +spacer +statusnotifier sysstat +taskbar tray +volume +worldclock
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1 LGPL-2.1+
 RDEPEND=>=dev-libs/libqtxdg-3.9.0 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtx11extras-5.15:5 >=dev-qt/qtxml-5.15:5 kde-frameworks/kwindowsystem:5[X] >=lxde-base/lxmenu-data-0.1.5 >=lxde-base/menu-cache-1.1.0 =lxqt-base/liblxqt-1.1*:= =lxqt-base/lxqt-globalkeys-1.1* x11-libs/libX11 cpuload? ( sys-libs/libstatgrab ) kbindicator? ( x11-libs/libxkbcommon ) lm-sensors? ( sys-apps/lm-sensors:= ) mount? ( kde-frameworks/solid:5 ) networkmonitor? ( sys-libs/libstatgrab ) statusnotifier? ( dev-libs/libdbusmenu-qt[qt5(+)] >=dev-qt/qtconcurrent-5.15:5 ) sysstat? ( >=lxqt-base/libsysstat-0.4.6 ) tray? ( x11-libs/libxcb:= x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXrender x11-libs/xcb-util ) volume? ( alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-sound/pavucontrol-qt media-sound/pulseaudio ) )
 REQUIRED_USE=|| ( desktopswitch mainmenu showdesktop taskbar ) volume? ( || ( alsa pulseaudio ) )
 SLOT=0
 SRC_URI=https://github.com/lxqt/lxqt-panel/releases/download/1.1.0/lxqt-panel-1.1.0.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=28a5f9156770062898d34dfc2190a21f
+_md5_=5f7e7d72f8695cd4b32aa23fe8a72a30

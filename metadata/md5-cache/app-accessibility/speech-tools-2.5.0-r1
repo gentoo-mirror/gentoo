@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://www.cstr.ed.ac.uk/projects/speech_tools/
 INHERIT=autotools toolchain-funcs
 IUSE=nas openmp X
-KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 sparc x86
 LICENSE=FESTIVAL HPND BSD rc regexp-UofT
 RDEPEND=media-libs/alsa-lib sys-libs/ncurses:= nas? ( media-libs/nas ) X? ( x11-libs/libX11 x11-libs/libXt )
 SLOT=0
 SRC_URI=http://www.festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz https://dev.gentoo.org/~neurogeek/speech-tools/speech_tools-2.1-r3-patches.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=52ae52cd93370a0f78621d903e396c9e
+_md5_=9f67ffcc23ee867a0dd4bef0d96138a3

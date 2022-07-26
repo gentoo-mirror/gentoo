@@ -3,9 +3,9 @@ DESCRIPTION=Meta ebuild for LXQt, the Lightweight Desktop Environment
 EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 IUSE=+about admin archiver +desktop-portal +display-manager +filemanager lximage minimal nls +policykit powermanagement processviewer screenshot +sddm ssh-askpass sudo terminal +trash
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=metapackage
 RDEPEND=kde-frameworks/oxygen-icons >=lxde-base/lxmenu-data-0.1.5 =lxqt-base/lxqt-config-1.1* =lxqt-base/lxqt-globalkeys-1.1* =lxqt-base/lxqt-notificationd-1.1* =lxqt-base/lxqt-panel-1.1* =lxqt-base/lxqt-qtplugin-1.1* =lxqt-base/lxqt-runner-1.1* =lxqt-base/lxqt-session-1.1* virtual/ttf-fonts x11-terms/xterm =x11-themes/lxqt-themes-1.1* about? ( =lxqt-base/lxqt-about-1.1* ) admin? ( =lxqt-base/lxqt-admin-1.1* ) archiver? ( app-arch/lxqt-archiver ) desktop-portal? ( gui-libs/xdg-desktop-portal-lxqt ) display-manager? ( sddm? ( >=x11-misc/sddm-0.11.0 ) !sddm? ( x11-misc/lightdm ) ) filemanager? ( =x11-misc/pcmanfm-qt-1.1* ) lximage? ( media-gfx/lximage-qt ) !minimal? ( x11-wm/openbox x11-misc/obconf-qt ) nls? ( dev-qt/qttranslations:5 ) policykit? ( =lxqt-base/lxqt-policykit-1.1* ) powermanagement? ( =lxqt-base/lxqt-powermanagement-1.1* ) processviewer? ( x11-misc/qps:0 ) screenshot? ( x11-misc/screengrab:0 ) sddm? ( >=x11-misc/sddm-0.11.0 ) ssh-askpass? ( =lxqt-base/lxqt-openssh-askpass-1.1* ) sudo? ( =lxqt-base/lxqt-sudo-1.1* ) terminal? ( x11-terms/qterminal:0 ) trash? ( gnome-base/gvfs )
 REQUIRED_USE=trash? ( filemanager )
 SLOT=0
-_md5_=44df67375647a41a1bf968cb1d68f63b
+_md5_=25d621158957767221dc0086378c9a4a
