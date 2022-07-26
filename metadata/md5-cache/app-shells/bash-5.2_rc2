@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-chetramey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl )
+DESCRIPTION=The standard GNU Bourne again shell
+EAPI=7
+HOMEPAGE=https://tiswww.case.edu/php/chet/bash/bashtop.html
+INHERIT=flag-o-matic toolchain-funcs prefix verify-sig
+IUSE=afs bashlogger examples mem-scramble +net nls plugins +readline verify-sig
+LICENSE=GPL-3+
+RDEPEND=>=sys-libs/ncurses-5.2-r2:0= nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=mirror://gnu/bash/bash-5.2-rc2.tar.gz ftp://ftp.cwru.edu/pub/bash/bash-5.2-rc2.tar.gz verify-sig? ( mirror://gnu/bash/bash-5.2-rc2.tar.gz.sig ftp://ftp.cwru.edu/pub/bash/bash-5.2-rc2.tar.gz.sig )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	prefix	eab3c99d77fe00506c109c8a736186f7	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=63ee3ec730ee57aa81ce3e55cc21181a

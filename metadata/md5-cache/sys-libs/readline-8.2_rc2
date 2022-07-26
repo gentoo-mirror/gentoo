@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-chetramey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst preinst prepare test unpack
+DEPEND=>=sys-libs/ncurses-5.9-r3:=[static-libs?,unicode(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
+DESCRIPTION=Another cute console display library
+EAPI=7
+HOMEPAGE=https://tiswww.case.edu/php/chet/readline/rltop.html
+INHERIT=flag-o-matic multilib multilib-minimal preserve-libs toolchain-funcs usr-ldscript verify-sig autotools
+IUSE=static-libs +unicode utils abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr verify-sig
+LICENSE=GPL-3
+RDEPEND=>=sys-libs/ncurses-5.9-r3:=[static-libs?,unicode(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
+SLOT=0/8
+SRC_URI=mirror://gnu/readline/readline-8.2-rc2.tar.gz ftp://ftp.cwru.edu/pub/bash/readline-8.2-rc2.tar.gz verify-sig? ( mirror://gnu/readline/readline-8.2-rc2.tar.gz.sig ftp://ftp.cwru.edu/pub/bash/readline-8.2-rc2.tar.gz.sig )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	preserve-libs	a8e50acee31b5759b4df1f7707cae54b	usr-ldscript	5c738dce357b54d5a90e30094d2f983c	verify-sig	0748d665fa664a87add00152ed046e16	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=682416847305ea5f8dcc0f4def777e23
