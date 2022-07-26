@@ -4,11 +4,11 @@ EAPI=8
 HOMEPAGE=https://github.com/mgorny/gentoo-retirement-scripts/
 INHERIT=python-single-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=BSD-2
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) python_single_target_python3_8? ( dev-python/jinja[python_targets_python3_8(-)] dev-python/lxml[python_targets_python3_8(-)] dev-python/python-bugzilla[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/jinja[python_targets_python3_9(-)] dev-python/lxml[python_targets_python3_9(-)] dev-python/python-bugzilla[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/jinja[python_targets_python3_10(-)] dev-python/lxml[python_targets_python3_10(-)] dev-python/python-bugzilla[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/jinja[python_targets_python3_11(-)] dev-python/lxml[python_targets_python3_11(-)] dev-python/python-bugzilla[python_targets_python3_11(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/mgorny/gentoo-retirement-scripts/archive/v2.tar.gz -> gentoo-retirement-scripts-2.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=0a642e2e9475d8a60cd9ba1a7cfb658e
+_md5_=65064d6c52efc53546b0559f2334e211
