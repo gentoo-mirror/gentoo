@@ -6,14 +6,14 @@ inherit desktop wrapper
 
 SLOT="0"
 PV_STRING="$(ver_cut 2-6)"
-MY_PV="$(ver_cut 1-3)"
+MY_PV="$(ver_cut 1-2)"
 
 MY_PN="idea"
 # Using the most recent Jetbrains Runtime binaries available at the time of writing
 # ( jre 11.0.10 build 1304.4  )
 JRE11_BASE="11_0_13"
 JRE11_VER="1751.21"
-IDEA_VER="2.61675052.105843767.1658527855-1305167137.1658527855"
+IDEA_VER="2.49836838.1031729952.1658961170-1305167137.1658527855"
 
 # distinguish settings for official stable releases and EAP-version releases
 if [[ "$(ver_cut 7)"x = "prex" ]]
@@ -49,7 +49,7 @@ RDEPEND="${DEPEND}
 
 BDEPEND="dev-util/patchelf"
 RESTRICT="splitdebug"
-S="${WORKDIR}/${MY_PN}-IC-$(ver_cut 4-6)"
+S="${WORKDIR}/${MY_PN}-IC-$(ver_cut 3-6)"
 
 QA_PREBUILT="opt/${PN}-${MY_PV}/*"
 
@@ -81,6 +81,7 @@ src_prepare() {
 	rm -vrf "${S}"/lib/pty4j-native/linux/ppc64le
 	rm -vf "${S}"/bin/libdbm64*
 	rm -vf "${S}"/lib/pty4j-native/linux/mips64el/libpty.so
+	rm -vf "${S}"/plugins/cwm-plugin/quiche-native/linux-aarch64/libquiche.so
 
 	if [[ -d "${S}"/"${JRE_DIR}" ]]; then
 		for file in "${PLUGIN_DIR}"/{libfxplugins.so,libjfxmedia.so}
@@ -95,7 +96,6 @@ src_prepare() {
 		patchelf --replace-needed libc.so libc.so.6 "${S}"/lib/pty4j-native/linux/aarch64/libpty.so || die "Unable to patch libpty for libc"
 	else
 		rm -vf "${S}"/lib/pty4j-native/linux/{aarch64,arm,x86}/libpty.so
-		patchelf --replace-needed libc.so libc.so.6 "${S}"/lib/pty4j-native/linux/x86-64/libpty.so || die "Unable to patch libpty for libc"
 	fi
 
 	sed -i \
