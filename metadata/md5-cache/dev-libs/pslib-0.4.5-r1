@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/perl dev-libs/glib:2 dev-util/intltool dev-perl/XML-Parser sys-devel/gettext sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( media-libs/tiff:= )
+DESCRIPTION=pslib is a C-library to create PostScript files on the fly
+EAPI=8
+HOMEPAGE=http://pslib.sourceforge.net/
+INHERIT=autotools
+IUSE=debug jpeg png tiff
+KEYWORDS=amd64 ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( media-libs/tiff:= )
+SLOT=0
+SRC_URI=mirror://sourceforge/pslib/pslib-0.4.5.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=c37f53c1effa1bd61ff044732f232110
