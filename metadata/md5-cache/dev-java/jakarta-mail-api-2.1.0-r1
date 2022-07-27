@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/jakarta-activation-api:2 >=virtual/jdk-11:* test? ( >=dev-java/angus-activation-1.0.0-r1:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Jakarta Mail API 2.1 Specification API
+EAPI=8
+HOMEPAGE=https://eclipse-ee4j.github.io/mail/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=EPL-1.0 EPL-2.0 GPL-2-with-classpath-exception
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/eclipse-ee4j/mail/archive/2.1.0.tar.gz -> jakarta-mail-api-2.1.0.tar.gz
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	cc510ad15292e222d436a547adffe6a9
+_md5_=924d5eb9a585b8f8253730b8b2488415
