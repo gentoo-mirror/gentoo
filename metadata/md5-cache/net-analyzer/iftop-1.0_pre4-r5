@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
+DEPEND=net-libs/libpcap sys-libs/ncurses:=
+DESCRIPTION=Display bandwidth usage on an interface
+EAPI=8
+HOMEPAGE=http://www.ex-parrot.com/pdw/iftop/ https://code.blinkace.com/pdw/iftop
+INHERIT=autotools
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=net-libs/libpcap sys-libs/ncurses:=
+SLOT=0
+SRC_URI=http://www.ex-parrot.com/pdw/iftop/download/iftop-1.0pre4.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=928919580a52054b361501dc7d0e7092
