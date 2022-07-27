@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup
+DEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=Kernel Modules for Virtualbox
+EAPI=8
+HOMEPAGE=https://www.virtualbox.org/
+INHERIT=linux-mod toolchain-funcs
+IUSE=pax-kernel dist-kernel
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+SLOT=0/6.1
+SRC_URI=https://github.com/ceamac/virtualbox-modules-dist/releases/download/v6.1.36/vbox-kernel-module-src-6.1.36.tar.xz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6ff232574f0bcad33767903505553e8d
+_md5_=6fac20f4a65e16163ac678572e74a53b

@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
+DEPEND=acct-group/vboxguest acct-group/vboxsf acct-user/vboxguest X? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libXmu x11-libs/libX11 x11-libs/libXt x11-libs/libXext x11-libs/libXau x11-libs/libXdmcp x11-libs/libSM x11-libs/libICE ) sys-apps/dbus >=dev-util/kbuild-0.1.9998.3127 >=dev-lang/yasm-0.6.2 sys-devel/bin86 sys-libs/pam sys-power/iasl x11-base/xorg-proto kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=VirtualBox kernel modules and user-space tools for Gentoo guests
+EAPI=8
+HOMEPAGE=https://www.virtualbox.org/
+INHERIT=edo linux-mod systemd toolchain-funcs udev
+IUSE=X dist-kernel
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+PDEPEND=X? ( x11-drivers/xf86-video-vboxvideo )
+RDEPEND=acct-group/vboxguest acct-group/vboxsf acct-user/vboxguest X? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libXmu x11-libs/libX11 x11-libs/libXt x11-libs/libXext x11-libs/libXau x11-libs/libXdmcp x11-libs/libSM x11-libs/libICE ) sys-apps/dbus kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+SLOT=0/6.1
+SRC_URI=https://download.virtualbox.org/virtualbox/6.1.36/VirtualBox-6.1.36.tar.bz2 https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-6.1.36.tar.bz2
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6ff232574f0bcad33767903505553e8d	systemd	2736b403a83f194b59b767f3b344c2c1	udev	f3a0a3964e2028a140c181f00eea9712
+_md5_=93ac3efcf88afd900ba5b7b5971becc8
