@@ -1,6 +1,5 @@
 BDEPEND=dev-util/gdbus-codegen >=sys-kernel/linux-headers-2.6.32 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install test
-DEPEND=!=dev-util/sysprof-3.34.1-r0
 DESCRIPTION=Static library for sysprof capture data generation
 EAPI=8
 HOMEPAGE=http://sysprof.com/
@@ -8,8 +7,7 @@ INHERIT=gnome.org meson-multilib systemd
 IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-3+ GPL-2+
-RDEPEND=!=dev-util/sysprof-3.34.1-r0
 SLOT=4
 SRC_URI=mirror://gnome/sources/sysprof/3.44/sysprof-3.44.0.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=ec9df6a86b94da59b615247c7630b0f3
+_md5_=62cc26f687e7d4dabad48f790dded4c8
