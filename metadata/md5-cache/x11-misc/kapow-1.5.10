@@ -1,7 +1,8 @@
+BDEPEND=dev-qt/linguist-tools:5
 DEFINED_PHASES=configure install postinst postrm prepare
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/linguist-tools:5
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5
 DESCRIPTION=A punch clock program designed to easily keep track of your hours
-EAPI=7
+EAPI=8
 HOMEPAGE=https://gottcode.org/kapow/
 INHERIT=qmake-utils xdg-utils
 IUSE=l10n_ar l10n_bg l10n_cs l10n_da l10n_de l10n_el l10n_en l10n_es l10n_fr l10n_it l10n_lt l10n_nl l10n_no l10n_pl l10n_pt-BR l10n_pt l10n_ro l10n_ru l10n_sv l10n_tr l10n_uk
@@ -11,4 +12,4 @@ RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:
 SLOT=0
 SRC_URI=https://gottcode.org/kapow/kapow-1.5.10-src.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=9d6f743ffbccc2d93f016ec43d10c43c
+_md5_=6feeb58973cb06bea9e552c92d762f24
