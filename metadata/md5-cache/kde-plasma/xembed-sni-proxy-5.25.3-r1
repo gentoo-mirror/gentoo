@@ -1,14 +1,14 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=>=kde-frameworks/extra-cmake-modules-5.95.0:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install nofetch prepare test unpack
-DEPEND=>=dev-qt/qtcore-5.15.4:5 >=dev-qt/qtdbus-5.15.4:5 >=dev-qt/qtgui-5.15.4:5 >=dev-qt/qtx11extras-5.15.4:5 >=kde-frameworks/extra-cmake-modules-5.92.0:5 >=kde-frameworks/kwindowsystem-5.92.0:5[X] x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image
+DEPEND=>=dev-qt/qtcore-5.15.5:5 >=dev-qt/qtdbus-5.15.5:5 >=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtx11extras-5.15.5:5 >=kde-frameworks/kwindowsystem-5.95.0:5[X] x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image
 DESCRIPTION=Legacy xembed tray icons support for SNI-only system trays
 EAPI=8
 HOMEPAGE=https://invent.kde.org/plasma/plasma-workspace/-/blob/master/xembed-sni-proxy/Readme.md
 INHERIT=cmake plasma.kde.org
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-qt/qtcore-5.15.4:5 >=dev-qt/qtdbus-5.15.4:5 >=dev-qt/qtgui-5.15.4:5 >=dev-qt/qtx11extras-5.15.4:5 >=kde-frameworks/extra-cmake-modules-5.92.0:5 >=kde-frameworks/kwindowsystem-5.92.0:5[X] x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image !kde-plasma/xembed-sni-proxy:0
+RDEPEND=>=dev-qt/qtcore-5.15.5:5 >=dev-qt/qtdbus-5.15.5:5 >=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtx11extras-5.15.5:5 >=kde-frameworks/kwindowsystem-5.95.0:5[X] x11-libs/libxcb x11-libs/libXtst x11-libs/xcb-util-image !kde-plasma/xembed-sni-proxy:0
 SLOT=5
-SRC_URI=mirror://kde/stable/plasma/5.24.6/plasma-workspace-5.24.6.tar.xz
+SRC_URI=mirror://kde/stable/plasma/5.25.3/plasma-workspace-5.25.3.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	kde.org	34ddb6baf66ca3c9fba554b0c7c31cb4	plasma.kde.org	9622322dda51d66780cf4cfd2b3351b8
-_md5_=eb90dde9599065bab3e618ad600bc427
+_md5_=d04ab6fd356d2919e367f12248302cdf

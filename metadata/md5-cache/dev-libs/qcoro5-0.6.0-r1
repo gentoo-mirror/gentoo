@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 ) examples? ( dev-qt/qtconcurrent:5 dev-qt/qtwidgets:5 ) test? ( dev-qt/qtconcurrent:5 dev-qt/qttest:5 )
+DEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 ) websockets? ( dev-qt/qtwebsockets:5 ) examples? ( dev-qt/qtconcurrent:5 dev-qt/qtwidgets:5 ) test? ( dev-qt/qtconcurrent:5 dev-qt/qttest:5 )
 DESCRIPTION=C++ Coroutine Library for Qt5
 EAPI=8
 HOMEPAGE=https://qcoro.dvratil.cz/ https://github.com/danvratil/qcoro
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=dbus examples +network test websockets
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 )
+RDEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 ) websockets? ( dev-qt/qtwebsockets:5 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/danvratil/qcoro/archive/refs/tags/v0.6.0.tar.gz -> qcoro5-0.6.0.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=ee48dd60bfbc2581695f2e3e728e0d2f
+_md5_=5599375fa19f4e480f7d8ea2e341c32c
