@@ -8451,8 +8451,10 @@ sys-libs/libblockdev:nvme - Add nvme support via sys-libs/libnvme
 sys-libs/libblockdev:tools - Build tools
 sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
 sys-libs/libcap:tools - Install captree, which requires dev-lang/go
+sys-libs/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
 sys-libs/libcxx:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependence on gcc.
+sys-libs/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/libcxxabi:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependency on gcc
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:uuid - UUID support via sys-apps/util-linux
@@ -8466,6 +8468,7 @@ sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Us
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt implementations
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
+sys-libs/llvm-libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/musl-nscd:minimal - Only installs the header files
 sys-libs/ncurses:ada - Add bindings for the ADA programming language
 sys-libs/ncurses:stack-realign - Realign the stack in the 32-bit build for compatibility with older binaries at some performance cost. Avoids crashes in older 32-bit binaries. Only affects x86/32-bit multilib builds on amd64.
