@@ -36,6 +36,10 @@ DEPEND="
 	x265? ( media-libs/x265:=[${MULTILIB_USEDEP}] )"
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-dav1d-1.0.0.patch
+)
+
 src_prepare() {
 	default
 
