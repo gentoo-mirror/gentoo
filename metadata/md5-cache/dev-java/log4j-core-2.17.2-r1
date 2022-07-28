@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://logging.apache.org/log4j/2.x/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* dev-java/commons-compress:0 dev-java/commons-csv:0 dev-java/conversant-disruptor:0 dev-java/jackson-core:0 dev-java/jackson-databind:0 dev-java/jackson-dataformat-xml:0 dev-java/jackson-dataformat-yaml:0 dev-java/jakarta-activation-api:1 dev-java/jansi:2 dev-java/javax-mail:0 dev-java/jctools-core:3 dev-java/jeromq:0 dev-java/kafka-clients:0 dev-java/lmax-disruptor:0 ~dev-java/log4j-api-2.17.2:2 dev-java/slf4j-api:0 dev-java/woodstox-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=2
 SRC_URI=mirror://apache/logging/log4j/2.17.2/apache-log4j-2.17.2-src.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	cc510ad15292e222d436a547adffe6a9
-_md5_=2ac9321a89d0e8ff5788e84c6d35bdf1
+_md5_=3227ea8a2db8965109d7fde515029af5
