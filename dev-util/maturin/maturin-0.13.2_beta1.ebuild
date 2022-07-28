@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# This is a beta for additional arch support (ppc, sparc64, mips),
+# feel free to keyword as needed if 0.13.1 does not work.
+
 CRATES="
 	addr2line-0.17.0
 	adler-1.0.2
@@ -22,17 +25,17 @@ CRATES="
 	bstr-0.2.17
 	bumpalo-3.10.0
 	byteorder-1.4.3
-	bytes-1.1.0
+	bytes-1.2.0
 	bytesize-1.1.0
 	bzip2-0.4.3
 	bzip2-sys-0.1.11+1.0.8
 	cab-0.4.1
 	cache-padded-1.2.0
 	camino-1.0.9
-	cargo-options-0.3.0
+	cargo-options-0.3.1
 	cargo-platform-0.1.2
-	cargo-xwin-0.10.0
-	cargo-zigbuild-0.11.1
+	cargo-xwin-0.10.2
+	cargo-zigbuild-0.11.3
 	cargo_metadata-0.15.0
 	cbindgen-0.24.3
 	cc-1.0.73
@@ -41,25 +44,25 @@ CRATES="
 	charset-0.1.3
 	chunked_transfer-1.4.0
 	cipher-0.3.0
-	clap-3.2.8
+	clap-3.2.15
 	clap_complete-3.2.3
 	clap_complete_fig-3.2.4
-	clap_derive-3.2.7
+	clap_derive-3.2.15
 	clap_lex-0.2.4
 	cli-table-0.4.7
 	combine-4.6.4
-	concurrent-queue-1.2.2
+	concurrent-queue-1.2.4
 	configparser-3.0.0
-	console-0.15.0
+	console-0.15.1
 	core-foundation-0.9.3
 	core-foundation-sys-0.8.3
 	cpufeatures-0.2.2
 	crc32fast-1.3.2
-	crossbeam-channel-0.5.5
-	crossbeam-deque-0.8.1
-	crossbeam-epoch-0.9.9
-	crossbeam-utils-0.8.10
-	crypto-common-0.1.4
+	crossbeam-channel-0.5.6
+	crossbeam-deque-0.8.2
+	crossbeam-epoch-0.9.10
+	crossbeam-utils-0.8.11
+	crypto-common-0.1.6
 	crypto-mac-0.11.1
 	data-encoding-2.3.2
 	derivative-2.2.0
@@ -82,7 +85,7 @@ CRATES="
 	enumflags2-0.6.4
 	enumflags2_derive-0.6.4
 	env_logger-0.7.1
-	fastrand-1.7.0
+	fastrand-1.8.0
 	fat-macho-0.4.5
 	filetime-0.2.17
 	flate2-1.0.24
@@ -103,11 +106,11 @@ CRATES="
 	futures-util-0.3.21
 	generic-array-0.14.5
 	getrandom-0.2.7
-	gimli-0.26.1
+	gimli-0.26.2
 	glob-0.3.0
 	globset-0.4.9
-	goblin-0.5.2
-	hashbrown-0.12.2
+	goblin-0.5.3
+	hashbrown-0.12.3
 	heck-0.4.0
 	hermit-abi-0.1.19
 	hkdf-0.11.0
@@ -122,7 +125,7 @@ CRATES="
 	instant-0.1.12
 	itertools-0.10.3
 	itoa-1.0.2
-	js-sys-0.3.58
+	js-sys-0.3.59
 	keyring-1.2.0
 	lazy_static-1.4.0
 	lddtree-0.2.9
@@ -162,12 +165,12 @@ CRATES="
 	openssl-probe-0.1.5
 	openssl-src-111.22.0+1.1.1q
 	openssl-sys-0.9.75
-	os_str_bytes-6.1.0
+	os_str_bytes-6.2.0
 	os_type-2.4.0
 	parking-2.0.0
 	parking_lot-0.12.1
 	parking_lot_core-0.9.3
-	path-slash-0.1.5
+	path-slash-0.2.0
 	percent-encoding-2.1.0
 	pin-project-lite-0.2.9
 	pin-utils-0.1.0
@@ -181,7 +184,7 @@ CRATES="
 	proc-macro-crate-1.1.3
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.40
+	proc-macro2-1.0.42
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.4
 	quick-error-1.2.3
@@ -192,7 +195,7 @@ CRATES="
 	rand_core-0.6.3
 	rayon-1.5.3
 	rayon-core-1.9.3
-	redox_syscall-0.2.13
+	redox_syscall-0.2.16
 	redox_users-0.4.3
 	regex-1.6.0
 	regex-automata-0.1.10
@@ -200,7 +203,7 @@ CRATES="
 	remove_dir_all-0.5.3
 	rfc2047-decoder-0.1.2
 	ring-0.16.20
-	rpassword-6.0.1
+	rpassword-7.0.0
 	rustc-demangle-0.1.21
 	rustc_version-0.4.0
 	rustls-0.20.6
@@ -216,15 +219,14 @@ CRATES="
 	security-framework-2.6.1
 	security-framework-sys-2.6.1
 	semver-1.0.12
-	serde-1.0.138
-	serde_derive-1.0.138
+	serde-1.0.140
+	serde_derive-1.0.140
 	serde_json-1.0.82
 	serde_repr-0.1.8
 	sha2-0.10.2
 	sha2-0.9.9
 	sharded-slab-0.1.4
-	shlex-1.1.0
-	slab-0.4.6
+	slab-0.4.7
 	smallvec-1.9.0
 	smawk-0.3.1
 	socket2-0.4.4
@@ -253,17 +255,17 @@ CRATES="
 	tracing-attributes-0.1.22
 	tracing-core-0.1.28
 	tracing-serde-0.1.3
-	tracing-subscriber-0.3.14
+	tracing-subscriber-0.3.15
 	twox-hash-1.6.3
 	typenum-1.15.0
 	unicase-2.6.0
 	unicode-bidi-0.3.8
-	unicode-ident-1.0.1
+	unicode-ident-1.0.2
 	unicode-linebreak-0.1.2
 	unicode-normalization-0.1.21
 	unicode-width-0.1.9
 	untrusted-0.7.1
-	ureq-2.4.0
+	ureq-2.5.0
 	url-2.2.2
 	uuid-0.8.2
 	uuid-1.1.2
@@ -273,12 +275,12 @@ CRATES="
 	waker-fn-1.1.0
 	walkdir-2.3.2
 	wasi-0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-0.2.81
-	wasm-bindgen-backend-0.2.81
-	wasm-bindgen-macro-0.2.81
-	wasm-bindgen-macro-support-0.2.81
-	wasm-bindgen-shared-0.2.81
-	web-sys-0.3.58
+	wasm-bindgen-0.2.82
+	wasm-bindgen-backend-0.2.82
+	wasm-bindgen-macro-0.2.82
+	wasm-bindgen-macro-support-0.2.82
+	wasm-bindgen-shared-0.2.82
+	web-sys-0.3.59
 	webpki-0.22.0
 	webpki-roots-0.22.4
 	wepoll-ffi-0.1.2
@@ -319,6 +321,7 @@ CRATES_TEST="
 	pyo3-macros-backend-0.16.5
 	python3-dll-a-0.2.3
 	quote-1.0.18
+	redox_syscall-0.2.13
 	smallvec-1.8.0
 	syn-1.0.94
 	syn-1.0.95
@@ -330,18 +333,22 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{8..11} )
 inherit cargo distutils-r1 flag-o-matic
 
+MATURIN_BETA_PV="$(ver_cut 1-3)-beta.$(ver_cut 5)"
+
 DESCRIPTION="Build and publish crates with pyo3, rust-cpython and cffi bindings"
 HOMEPAGE="https://maturin.rs/"
 SRC_URI="
-	https://github.com/PyO3/maturin/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/PyO3/maturin/archive/refs/tags/v${MATURIN_BETA_PV}.tar.gz -> ${P}.gh.tar.gz
 	$(cargo_crate_uris)
 	test? ( $(cargo_crate_uris ${CRATES_TEST}) )"
+S="${WORKDIR}/${PN}-${MATURIN_BETA_PV}"
 
 LICENSE="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 ISC MIT MPL-2.0 openssl
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions
+	BSD CC0-1.0 ISC MIT MPL-2.0 openssl unicode
 	doc? ( CC-BY-4.0 OFL-1.1 )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS=""
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
@@ -361,7 +368,7 @@ BDEPEND="
 		dev-python/virtualenv[${PYTHON_USEDEP}]
 	)"
 
-QA_FLAGS_IGNORED=".*/${PN}"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.12.8-zig-tests.patch
@@ -382,16 +389,16 @@ src_prepare() {
 
 	filter-lto # undefined references with ring crate
 
-	# ensure rustls is disabled on arches where ring crate is problematic,
-	# keep in sync with src_configure below (bug #859577)
-	if use ppc || use ppc64 || use s390; then
+	# setup.py handles most for non-tests, but ensure disabled rustls on arches
+	# where ring crate is problematic -- keep in sync below (bug #859577)
+	if use mips || use ppc || use ppc64 || use s390 || use sparc; then
 		sed -i '/^if platform.machine/s/^if/if True or/' setup.py || die
 	fi
 }
 
 src_configure() {
-	if use ppc || use ppc64 || use s390; then
-		local myfeatures=( upload log human-panic ) # sync with setup.py
+	if use mips || use ppc || use ppc64 || use s390 || use sparc; then
+		local myfeatures=( upload log human-panic )
 		cargo_src_configure --no-default-features
 	fi
 }
