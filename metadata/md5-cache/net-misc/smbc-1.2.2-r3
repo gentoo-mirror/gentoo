@@ -1,15 +1,15 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/popt net-fs/samba sys-libs/ncurses nls? ( sys-devel/gettext )
 DESCRIPTION=Text mode (ncurses) SMB network commander. Features: resume and UTF-8
-EAPI=7
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/smbc/
 INHERIT=autotools
 IUSE=nls debug
-KEYWORDS=~ppc ~x86
+KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/popt net-fs/samba sys-libs/ncurses nls? ( sys-devel/gettext )
 SLOT=0
 SRC_URI=mirror://sourceforge/smbc/smbc-1.2.2.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=01e7210162598f35d715fedaf825e01f
+_md5_=b99f91b5a9ff7e19562ce587e4202662
