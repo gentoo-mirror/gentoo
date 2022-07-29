@@ -7,7 +7,7 @@ HOMEPAGE=https://wiki.gnome.org/Projects/Tracker https://gitlab.gnome.org/GNOME/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=bash-completion-r1 flag-o-matic gnome.org gnome2-utils linux-info meson python-any-r1 systemd vala xdg
 IUSE=gtk-doc +miners stemmer test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2+ LGPL-2.1+
 PDEPEND=miners? ( >=app-misc/tracker-miners-3.3 )
 RDEPEND=>=dev-libs/glib-2.52:2 >=sys-apps/dbus-1.3.2 >=dev-libs/gobject-introspection-1.54:= >=dev-libs/icu-4.8.1.2:= >=dev-libs/json-glib-1.4 >=net-libs/libsoup-2.40.1:2.4 >=dev-libs/libxml2-2.7 >=dev-db/sqlite-3.29.0 stemmer? ( dev-libs/snowball-stemmer:= )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=3/0
 SRC_URI=mirror://gnome/sources/tracker/3.3/tracker-3.3.2.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	systemd	2736b403a83f194b59b767f3b344c2c1	vala	1c07e7167d9ef851ad187f5f3f02d34d	xdg	6024fbc93167fad782e2032933654857
-_md5_=2cd7304a8cfee751482873a28d67e597
+_md5_=b58faa07c60ef442800a54124c41ad76

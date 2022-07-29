@@ -7,11 +7,11 @@ HOMEPAGE=https://gitlab.gnome.org/GNOME/sushi
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org meson xdg
 IUSE=office wayland +X
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~amd64 ~arm arm64 ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2+
 RDEPEND=media-libs/libepoxy >=app-text/evince-3.0[introspection] media-libs/freetype:2 >=x11-libs/gdk-pixbuf-2.23.0[introspection] >=dev-libs/glib-2.29.14:2 media-libs/gstreamer:1.0[introspection] media-libs/gst-plugins-base:1.0[introspection] >=x11-libs/gtk+-3.13.2:3[introspection,wayland?,X?] >=x11-libs/gtksourceview-4.0.3:4[introspection] >=media-libs/harfbuzz-0.9.9:= >=dev-libs/gobject-introspection-1.54:= >=net-libs/webkit-gtk-2.34:4[introspection] >=dev-libs/gjs-1.40 >=gnome-base/nautilus-3.1.90 media-plugins/gst-plugins-gtk:1.0[wayland?,X?] office? ( app-office/libreoffice )
 REQUIRED_USE=|| ( wayland X )
 SLOT=0
 SRC_URI=mirror://gnome/sources/sushi/42/sushi-42.0.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=f9913508614657123e66855bfa82a620
+_md5_=ea2754b92189c026a80b7d7395da3e1d
