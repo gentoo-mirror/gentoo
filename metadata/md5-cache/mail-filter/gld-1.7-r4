@@ -1,14 +1,14 @@
 DEFINED_PHASES=configure install preinst prepare
 DEPEND=sys-libs/zlib dev-libs/openssl:0= !postgres? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:*[server] )
-DESCRIPTION=A standalone anti-spam greylisting algorithm on top of Postfix
+DESCRIPTION=Standalone anti-spam greylisting algorithm on top of Postfix
 EAPI=7
-HOMEPAGE=http://www.gasmi.net/gld.html
+HOMEPAGE=https://www.gasmi.net/gld.html
 INHERIT=toolchain-funcs
 IUSE=postgres
 KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2
 RDEPEND=sys-libs/zlib dev-libs/openssl:0= !postgres? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:*[server] )
 SLOT=0
-SRC_URI=http://www.gasmi.net/down/gld-1.7.tgz
+SRC_URI=https://www.gasmi.net/down/gld-1.7.tgz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=41ed5d3d18d77e66e5f2cdebab907358
+_md5_=07e3885eff58acde463f7ec79891223d
