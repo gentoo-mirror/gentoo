@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=A vulnerability scanner for container images and filesystems
+EAPI=8
+HOMEPAGE=https://www.anchore.com
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/anchore/grype/archive/v0.44.0.tar.gz -> grype-0.44.0.tar.gz https://dev.gentoo.org/~williamh/dist/grype-0.44.0-deps.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=b3fe143883a90f9e0634cd6fe5a4ad34
