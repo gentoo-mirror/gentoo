@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DESCRIPTION=An indexer manager/proxy to integrate with your various PVR apps
+EAPI=8
+HOMEPAGE=https://wiki.servarr.com/prowlarr
+INHERIT=systemd
+KEYWORDS=-* ~amd64 ~arm ~arm64
+LICENSE=GPL-3
+RDEPEND=acct-group/prowlarr acct-user/prowlarr dev-libs/icu dev-util/lttng-ust:0 dev-db/sqlite
+RESTRICT=bindist strip test
+SLOT=0
+SRC_URI=amd64? ( https://github.com/Prowlarr/Prowlarr/releases/download/v0.4.3.1921/Prowlarr.develop.0.4.3.1921.linux-core-x64.tar.gz ) arm? ( https://github.com/Prowlarr/Prowlarr/releases/download/v0.4.3.1921/Prowlarr.develop.0.4.3.1921.linux-core-arm.tar.gz ) arm64? ( https://github.com/Prowlarr/Prowlarr/releases/download/v0.4.3.1921/Prowlarr.develop.0.4.3.1921.linux-core-arm64.tar.gz )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=8933f7c94037bf162308769f9704f092
