@@ -1,62 +1,75 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..2} luajit )
+
+PYTHON_COMPAT=( python3_{8..11} )
+
 WEBAPP_MANUAL_SLOT="yes"
 
-inherit git-r3 lua-single toolchain-funcs webapp
+inherit lua-single python-single-r1 toolchain-funcs webapp
 
 [[ -z "${CGIT_CACHEDIR}" ]] && CGIT_CACHEDIR="/var/cache/${PN}/"
 
+GIT_V="2.25.1"
+
 DESCRIPTION="a fast web-interface for git repositories"
 HOMEPAGE="https://git.zx2c4.com/cgit/about"
-SRC_URI=""
-EGIT_REPO_URI="https://git.zx2c4.com/cgit"
+SRC_URI="https://www.kernel.org/pub/software/scm/git/git-${GIT_V}.tar.xz
+	https://git.zx2c4.com/cgit/snapshot/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc +highlight +lua test"
-REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
+REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) ${PYTHON_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	acct-group/cgit
 	acct-user/cgit
-	dev-vcs/git
-	highlight? ( || ( dev-python/pygments app-text/highlight ) )
 	dev-libs/openssl:0=
+	dev-vcs/git
+	highlight? (
+		$(python_gen_cond_dep 'dev-python/pygments[${PYTHON_USEDEP}]' )
+	)
 	lua? ( ${LUA_DEPS} )
 	sys-libs/zlib
 	virtual/httpd-cgi
 "
 # ebuilds without WEBAPP_MANUAL_SLOT="yes" are broken
-DEPEND="${RDEPEND}
-	doc? ( app-text/docbook-xsl-stylesheets
-		>=app-text/asciidoc-8.5.1 )
+DEPEND="${RDEPEND}"
+BDEPEND="
+	doc? (
+		app-text/docbook-xsl-stylesheets
+		>=app-text/asciidoc-8.5.1
+	)
 "
 
 pkg_setup() {
+	python_setup
 	webapp_pkg_setup
 	use lua && lua-single_pkg_setup
 }
 
-src_prepare() {
-	echo "prefix = ${EPREFIX}/usr" >> cgit.conf
-	echo "libdir = ${EPREFIX}/usr/$(get_libdir)" >> cgit.conf
-	echo "CGIT_SCRIPT_PATH = ${MY_CGIBINDIR}" >> cgit.conf
-	echo "CGIT_DATA_PATH = ${MY_HTDOCSDIR}" >> cgit.conf
-	echo "CACHE_ROOT = ${CGIT_CACHEDIR}" >> cgit.conf
-	echo "DESTDIR = ${D}" >> cgit.conf
-	if use lua; then
-		echo "LUA_PKGCONFIG = ${ELUA}" >> cgit.conf
-	else
-		echo "NO_LUA = 1" >> cgit.conf
-	fi
+src_configure() {
+	rmdir git || die
+	mv "${WORKDIR}"/git-"${GIT_V}" git || die
 
-	eapply_user
+	echo "prefix = ${EPREFIX}/usr" >> cgit.conf || die "echo prefix failed"
+	echo "libdir = ${EPREFIX}/usr/$(get_libdir)" >> cgit.conf || die "echo libdir failed"
+	echo "CGIT_SCRIPT_PATH = ${MY_CGIBINDIR}" >> cgit.conf || die "echo CGIT_SCRIPT_PATH failed"
+	echo "CGIT_DATA_PATH = ${MY_HTDOCSDIR}" >> cgit.conf || die "echo CGIT_DATA_PATH failed"
+	echo "CACHE_ROOT = ${CGIT_CACHEDIR}" >> cgit.conf || die "echo CACHE_ROOT failed"
+	echo "DESTDIR = ${D}" >> cgit.conf || die "echo DESTDIR failed"
+	if use lua; then
+		echo "LUA_PKGCONFIG = ${ELUA}" >> cgit.conf || die "echo LUA_PKGCONFIG failed"
+	else
+		echo "NO_LUA = 1" >> cgit.conf || die "echo NO_LUA failed"
+	fi
 }
 
 src_compile() {
@@ -81,6 +94,7 @@ src_install() {
 	keepdir "${CGIT_CACHEDIR}"
 	fowners ${PN}:${PN} "${CGIT_CACHEDIR}"
 	fperms 700 "${CGIT_CACHEDIR}"
+	python_fix_shebang .
 }
 
 src_test() {
