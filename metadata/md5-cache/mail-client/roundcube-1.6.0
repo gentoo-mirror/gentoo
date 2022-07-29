@@ -1,15 +1,15 @@
-BDEPEND=app-arch/unzip dev-php/composer net-misc/curl >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install postinst prerm setup unpack
 DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
 DESCRIPTION=A browser-based multilingual IMAP client with an application-like user interface
 EAPI=7
 HOMEPAGE=https://roundcube.net
-INHERIT=webapp git-r3
+INHERIT=webapp
 IUSE=change-password enigma exif fileinfo ldap mysql postgres sqlite ssl spell zip vhosts
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-3 BSD PHP-2.02 PHP-3 MIT public-domain
-PROPERTIES=live
 RDEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=dev-lang/php-7.4.0[exif?,fileinfo?,filter,gd,iconv,intl,json(+),ldap?,pdo,postgres?,session,sqlite?,ssl?,unicode,xml,zip?] virtual/httpd-php change-password? ( dev-lang/php[sockets] ) enigma? ( app-crypt/gnupg ) mysql? ( || ( dev-lang/php[mysql] dev-lang/php[mysqli] ) ) spell? ( dev-lang/php[curl,spell] ) app-admin/webapp-config
 REQUIRED_USE=|| ( mysql postgres sqlite )
-SLOT=9999
-_eclasses_=webapp	d872f28d7595b70dd46545199ef35fb0	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SLOT=1.6.0
+SRC_URI=https://github.com/roundcube/roundcubemail/releases/download/1.6.0/roundcubemail-1.6.0-complete.tar.gz
+_eclasses_=webapp	d872f28d7595b70dd46545199ef35fb0
 _md5_=9e5900db22771b4cd6b6a67c9f52f869
