@@ -39,21 +39,24 @@ LICENSE="Apache-2.0 Boost-1.0 BSD BSD-2 GPL-2+ GPL-3 LGPL-3 OFL-1.1 MIT"
 
 SLOT="0"
 
-IUSE="debug lto"
+IUSE="debug lto test"
 REQUIRED_USE="
 	lto? ( !debug )
 "
 
+RESTRICT="!test? ( test )"
+
 MIN_QT="5.12.0"
+QT_SLOT=5
 
 QT_DEPS="
-	>=dev-qt/qtconcurrent-${MIN_QT}:5
-	>=dev-qt/qtcore-${MIN_QT}:5
-	>=dev-qt/qtgui-${MIN_QT}:5
-	>=dev-qt/qtnetwork-${MIN_QT}:5
-	>=dev-qt/qttest-${MIN_QT}:5
-	>=dev-qt/qtwidgets-${MIN_QT}:5
-	>=dev-qt/qtxml-${MIN_QT}:5
+	>=dev-qt/qtconcurrent-${MIN_QT}:${QT_SLOT}
+	>=dev-qt/qtcore-${MIN_QT}:${QT_SLOT}
+	>=dev-qt/qtgui-${MIN_QT}:${QT_SLOT}
+	>=dev-qt/qtnetwork-${MIN_QT}:${QT_SLOT}
+	>=dev-qt/qttest-${MIN_QT}:${QT_SLOT}
+	>=dev-qt/qtwidgets-${MIN_QT}:${QT_SLOT}
+	>=dev-qt/qtxml-${MIN_QT}:${QT_SLOT}
 "
 
 # Required at both build-time and run-time
@@ -61,6 +64,11 @@ COMMON_DEPENDS="
 	${QT_DEPS}
 	>=dev-libs/quazip-1.3:=
 	sys-libs/zlib
+"
+
+BDEPEND="
+	app-text/scdoc
+	kde-frameworks/extra-cmake-modules:5
 "
 
 DEPEND="
@@ -90,8 +98,11 @@ src_configure(){
 		-DCMAKE_INSTALL_PREFIX="/usr"
 		# Resulting binary is named polymc
 		-DLauncher_APP_BINARY_NAME="${PN}"
+		# Force Qt5 to avoid accidentaly building the Qt6 version and breaking things
+		-DLauncher_QT_VERSION_MAJOR=${QT_SLOT}
 
 		-DENABLE_LTO=$(usex lto)
+		-DBUILD_TESTING=$(usex test)
 	)
 
 	if use debug; then
@@ -112,4 +123,7 @@ pkg_postinst() {
 
 	# https://github.com/PolyMC/PolyMC/issues/227
 	optfeature "old Minecraft (<= 1.12.2) support" x11-libs/libXrandr
+
+	optfeature "built-in MangoHud support" games-util/mangohud
+	optfeature "built-in Feral Gamemode support" games-util/gamemode
 }

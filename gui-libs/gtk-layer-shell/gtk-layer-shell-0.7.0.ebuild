@@ -19,27 +19,29 @@ HOMEPAGE="https://github.com/wmww/gtk-layer-shell"
 
 LICENSE="MIT-with-advertising LGPL-3+"
 SLOT="0"
-IUSE="examples gtk-doc test"
+IUSE="examples gtk-doc introspection test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=x11-libs/gtk+-3.24.26:3[introspection,wayland]
+	>=x11-libs/gtk+-3.24.26:3[introspection?,wayland]
 	>=dev-libs/wayland-1.10.0
 	>=dev-libs/wayland-protocols-1.16
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+	dev-util/wayland-scanner
 	virtual/pkgconfig
 	gtk-doc? ( dev-util/gtk-doc )
 	test? ( ${PYTHON_DEPS} )
 "
 
 src_configure() {
-	# Note: next release makes introspection optional
+	# note: Next 0.x release should add support for VAPI (vala)
 	local emesonargs=(
 		$(meson_use examples)
 		$(meson_use gtk-doc docs)
 		$(meson_use test tests)
+		$(meson_use introspection)
 	)
 	meson_src_configure
 }
