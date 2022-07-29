@@ -1,14 +1,13 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=install postinst prepare
-DEPEND=dev-perl/perl-ldap dev-perl/Crypt-SmbHash dev-perl/Digest-SHA1 dev-perl/Unicode-MapUTF8 dev-perl/IO-Socket-SSL net-nds/openldap net-fs/samba
 DESCRIPTION=Samba LDAP management tools
 EAPI=8
 HOMEPAGE=https://github.com/fumiyas/smbldap-tools
 INHERIT=autotools
 KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=dev-perl/perl-ldap dev-perl/Crypt-SmbHash dev-perl/Digest-SHA1 dev-perl/Unicode-MapUTF8 dev-perl/IO-Socket-SSL net-nds/openldap net-fs/samba
+RDEPEND=dev-perl/perl-ldap dev-perl/Crypt-SmbHash dev-perl/Digest-SHA1 dev-perl/Unicode-MapUTF8 dev-perl/IO-Socket-SSL
 SLOT=0
 SRC_URI=https://github.com/fumiyas/smbldap-tools/archive/refs/tags/v0.9.11.tar.gz -> smbldap-tools-0.9.11.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=41ed5927a57547e7f7209d2587bc54f4
+_md5_=ac22b801b612c18684bf584cbc30e827
