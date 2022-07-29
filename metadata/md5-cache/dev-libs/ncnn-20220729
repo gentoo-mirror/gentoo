@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=tools? ( dev-libs/protobuf:= ) vulkan? ( dev-util/glslang media-libs/vulkan-loader ) vulkan? ( dev-util/vulkan-headers )
+DESCRIPTION=High-performance neural network inference framework
+EAPI=8
+HOMEPAGE=https://github.com/Tencent/ncnn/
+INHERIT=cmake
+IUSE=tools +vulkan
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD ZLIB
+RDEPEND=tools? ( dev-libs/protobuf:= ) vulkan? ( dev-util/glslang media-libs/vulkan-loader )
+RESTRICT=test
+SLOT=0/20220729
+SRC_URI=https://github.com/Tencent/ncnn/archive/20220729.tar.gz -> ncnn-20220729.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=bf96cbb852d49d498c3d9830af440b75
