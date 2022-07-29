@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=app-text/scdoc kde-frameworks/extra-cmake-modules:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=>=dev-qt/qtconcurrent-5.12.0:5 >=dev-qt/qtcore-5.12.0:5 >=dev-qt/qtgui-5.12.0:5 >=dev-qt/qtnetwork-5.12.0:5 >=dev-qt/qttest-5.12.0:5 >=dev-qt/qtwidgets-5.12.0:5 >=dev-qt/qtxml-5.12.0:5 >=dev-libs/quazip-1.3:= sys-libs/zlib media-libs/libglvnd >=virtual/jdk-1.8.0:* >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=A custom, open source Minecraft launcher
@@ -6,12 +6,13 @@ EAPI=8
 HOMEPAGE=https://polymc.org/ https://github.com/PolyMC/PolyMC
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake java-pkg-2 optfeature xdg
-IUSE=debug lto
+IUSE=debug lto test
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 Boost-1.0 BSD BSD-2 GPL-2+ GPL-3 LGPL-3 OFL-1.1 MIT
 RDEPEND=>=dev-qt/qtconcurrent-5.12.0:5 >=dev-qt/qtcore-5.12.0:5 >=dev-qt/qtgui-5.12.0:5 >=dev-qt/qtnetwork-5.12.0:5 >=dev-qt/qttest-5.12.0:5 >=dev-qt/qtwidgets-5.12.0:5 >=dev-qt/qtxml-5.12.0:5 >=dev-libs/quazip-1.3:= sys-libs/zlib >=virtual/jre-1.8.0:* virtual/opengl >=dev-java/java-config-2.2.0-r3
 REQUIRED_USE=lto? ( !debug )
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/PolyMC/PolyMC/releases/download/1.3.1/PolyMC-1.3.1.tar.gz -> polymc-1.3.1.tar.gz
+SRC_URI=https://github.com/PolyMC/PolyMC/releases/download/1.4.1/PolyMC-1.4.1.tar.gz -> polymc-1.4.1.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg	6024fbc93167fad782e2032933654857
-_md5_=ffe380a81fd827578ad9fd2205141098
+_md5_=a5ef4e0911552d560a2266eb0acbde42

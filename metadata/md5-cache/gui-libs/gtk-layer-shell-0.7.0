@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) test? ( || ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) test? ( || ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
-DEPEND=>=x11-libs/gtk+-3.24.26:3[introspection,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
+DEPEND=>=x11-libs/gtk+-3.24.26:3[introspection?,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
 DESCRIPTION=Library to create desktop components for Wayland using the Layer Shell protocol
 EAPI=7
 HOMEPAGE=https://github.com/wmww/gtk-layer-shell
 INHERIT=meson python-any-r1
-IUSE=examples gtk-doc test
+IUSE=examples gtk-doc introspection test
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=MIT-with-advertising LGPL-3+
-RDEPEND=>=x11-libs/gtk+-3.24.26:3[introspection,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
+RDEPEND=>=x11-libs/gtk+-3.24.26:3[introspection?,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/wmww/gtk-layer-shell/archive/refs/tags/v0.6.0.tar.gz -> gtk-layer-shell-0.6.0.tar.gz
+SRC_URI=https://github.com/wmww/gtk-layer-shell/archive/refs/tags/v0.7.0.tar.gz -> gtk-layer-shell-0.7.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
-_md5_=fa270f4a03ed93ac76e4822e8e0517e9
+_md5_=d6005facd91ff2a67f0c46beecf41e8c

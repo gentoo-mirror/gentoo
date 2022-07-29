@@ -5,9 +5,9 @@ EAPI=7
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/PulseAudio/
 INHERIT=multilib-minimal
 IUSE=bluetooth daemon +glib jack ofono-headset abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=metapackage
 RDEPEND=>=media-libs/libpulse-16.1[glib?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] daemon? ( >=media-sound/pulseaudio-daemon-16.1[bluetooth?,glib?,jack?,ofono-headset?] )
 SLOT=0
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b
-_md5_=9d81d0889dc56df8063fa3dbfff94ebb
+_md5_=d1cc22cda0f34dfcd70c2e27f265f9c5
