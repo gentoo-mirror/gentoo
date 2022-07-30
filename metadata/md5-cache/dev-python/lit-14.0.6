@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://llvm.org/
 INHERIT=distutils-r1 llvm.org
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ppc64 ~riscv ~sparc ~x86
 LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz.sig )
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	python-r1	7b65c41111cd80a4d4a0921e8d4a310c	distutils-r1	17847def14400dd2ebac1ede4e941c5a	verify-sig	0748d665fa664a87add00152ed046e16	llvm.org	67f55755cc49864ddaddee8d3c7bb68d
-_md5_=341400d05e04f3c2df41ec651e867979
+_md5_=98308cceba298ece1bf1184e20f46f05
