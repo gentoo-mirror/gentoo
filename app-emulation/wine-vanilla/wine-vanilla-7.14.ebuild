@@ -35,7 +35,7 @@ SRC_URI="${SRC_URI}
 
 LICENSE="LGPL-2.1"
 SLOT="${PV}"
-IUSE="+abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups custom-cflags dos +fontconfig +gecko gphoto2 gssapi gstreamer kerberos ldap mingw +mono mp3 netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl test +threads +truetype udev +udisks +unwind usb v4l vulkan +X +xcomposite xinerama"
+IUSE="+abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups custom-cflags dos +fontconfig +gecko gphoto2 gstreamer kerberos ldap mingw +mono mp3 netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl test +threads +truetype udev +udisks +unwind usb v4l vulkan +X +xcomposite xinerama"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 	X? ( truetype )
 	crossdev-mingw? ( mingw )
@@ -69,7 +69,6 @@ COMMON_DEPEND="
 		media-libs/libgphoto2:=[${MULTILIB_USEDEP}]
 		media-libs/libjpeg-turbo:0=[${MULTILIB_USEDEP}]
 	)
-	gssapi? ( virtual/krb5[${MULTILIB_USEDEP}] )
 	gstreamer? (
 		media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
 		media-plugins/gst-plugins-meta:1.0[${MULTILIB_USEDEP}]
@@ -326,9 +325,9 @@ multilib_src_configure() {
 		$(use_with ssl gnutls)
 		$(use_enable gecko mshtml)
 		$(use_with gphoto2 gphoto)
-		$(use_with gssapi)
 		$(use_with gstreamer)
 		--enable-hal
+		$(use_with kerberos gssapi)
 		$(use_with kerberos krb5)
 		$(use_with ldap)
 		# TODO: Will bug 685172 still need special handling?
