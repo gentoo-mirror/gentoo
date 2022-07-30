@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/attoparsec-0.11.3.0:=[profile?] <dev-haskell/attoparsec-0.15:=[profile?] <dev-haskell/hashable-1.5:=[profile?] >=dev-haskell/only-0.1:=[profile?] <dev-haskell/only-0.1.1:=[profile?] >=dev-haskell/scientific-0.3.4.7:=[profile?] <dev-haskell/scientific-0.4:=[profile?] >=dev-haskell/text-short-0.1:=[profile?] <dev-haskell/text-short-0.2:=[profile?] <dev-haskell/unordered-containers-0.3:=[profile?] >=dev-haskell/vector-0.8:=[profile?] <dev-haskell/vector-0.13:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( <dev-haskell/hunit-1.7 >=dev-haskell/quickcheck-2.13 <dev-haskell/quickcheck-2.15 >=dev-haskell/quickcheck-instances-0.3.12 <dev-haskell/quickcheck-instances-0.4 >=dev-haskell/test-framework-0.8 <dev-haskell/test-framework-0.9 >=dev-haskell/test-framework-hunit-0.3 <dev-haskell/test-framework-hunit-0.4 >=dev-haskell/test-framework-quickcheck2-0.3 <dev-haskell/test-framework-quickcheck2-0.4 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=A CSV parsing and encoding library
+EAPI=8
+HOMEPAGE=https://github.com/hvr/cassava
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/attoparsec-0.11.3.0:=[profile?] <dev-haskell/attoparsec-0.15:=[profile?] <dev-haskell/hashable-1.5:=[profile?] >=dev-haskell/only-0.1:=[profile?] <dev-haskell/only-0.1.1:=[profile?] >=dev-haskell/scientific-0.3.4.7:=[profile?] <dev-haskell/scientific-0.4:=[profile?] >=dev-haskell/text-short-0.1:=[profile?] <dev-haskell/text-short-0.2:=[profile?] <dev-haskell/unordered-containers-0.3:=[profile?] >=dev-haskell/vector-0.8:=[profile?] <dev-haskell/vector-0.13:=[profile?] >=dev-lang/ghc-8.4.3:=
+RESTRICT=!test? ( test )
+SLOT=0/0.5.2.0
+SRC_URI=https://hackage.haskell.org/package/cassava-0.5.2.0/cassava-0.5.2.0.tar.gz https://hackage.haskell.org/package/cassava-0.5.2.0/revision/7.cabal -> cassava-0.5.2.0-rev7.cabal
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	bd6d32a0289c486284bc0cdc06a639a6
+_md5_=4e0bcb87b8277b3ab1cca2d6a5f19008

@@ -1455,8 +1455,6 @@ dev-haskell/aeson:ordered-keymap - Use ordered @Data.Map.Strict@ for KeyMap impl
 dev-haskell/aeson-pretty:lib-only - don't build 'aeson-pretty' executable.
 dev-haskell/ansi-terminal:example - Build the example application.
 dev-haskell/atomic-primops:debug - Enable extra internal checks.
-dev-haskell/attoparsec-iso8601:developer - operate in developer mode
-dev-haskell/attoparsec-iso8601:fast - compile without optimizations
 dev-haskell/authenticate:network-uri - Get Network.URI from the network-uri package
 dev-haskell/bifunctors:semigroups - You can disable the use of the `semigroups` package using `-f-semigroups`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/bifunctors:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
@@ -1484,6 +1482,7 @@ dev-haskell/criterion:embed-data-files - Embed the data files in the binary for 
 dev-haskell/crypto-api:all-cpolys - Build all the CMAC polynomes up to 10000 bits instead of just the usual ones
 dev-haskell/cryptonite:integer-gmp - Whether or not to use GMP for some functions
 dev-haskell/cryptonite:target-attributes - use GCC / clang function attributes instead of global target options.
+dev-haskell/dlist:werror - Enable -Werror
 dev-haskell/entropy:halvm - Build for the HaLVM.
 dev-haskell/filestore:maxcount - Make use of a recent (>= 2.3.0) Darcs feature which vastly improves the performance of 'latest'. You should disable this flag if you plan to use gitit with an older version of Darcs, or 'latest' will raise an error.
 dev-haskell/foundation:experimental - enable building experimental features, known as highly unstable or without good support cross-platform
@@ -1503,8 +1502,6 @@ dev-haskell/hakyll:watchserver - wait for filesystem changes and rebuild pages
 dev-haskell/happstack-server:network-uri - Get Network.URI from the network-uri package
 dev-haskell/hashtables:bounds-checking - if on, use bounds-checking array accesses
 dev-haskell/hashtables:detailed-profiling - add detailed profiling information to profiled build-depends
-dev-haskell/hashtables:portable - if on, use only pure Haskell code and no GHC extensions.
-dev-haskell/hashtables:unsafe-tricks - turn on unsafe GHC tricks
 dev-haskell/haskeline:terminfo - Use the terminfo package for POSIX consoles.
 dev-haskell/hdbc-sqlite3:splitbase - Choose the new smaller, split-up package.
 dev-haskell/highlighting-kate:executable - Build the Highlight executable.
@@ -1514,28 +1511,16 @@ dev-haskell/hlint:hsyaml - Use HsYAML instead of yaml
 dev-haskell/hlint:threaded - Build with support for multithreaded execution
 dev-haskell/hps:build-exec - Build the `hps-fractals' executable
 dev-haskell/hs3:network-uri - Get Network.URI from the network-uri package
-dev-haskell/hslogger:network-3 - Use network-3
-dev-haskell/hslua:hardcode-reg-keys - Don't use CAPI to determine the names of certain registry key names but Use hard coded values for instead. This flag is required when compiling against Lua 5.3.3 or earlier, as those do not expose the necessary information in the @lauxlib.h@ header file.
 dev-haskell/hsopenssl:fast-bignum - Enable fast moving of bignums between OpenSSL and GMP (GHC Only)
 dev-haskell/hsyaml-aeson:exe - Enable @exe:yaml-test@ component
 dev-haskell/http-api-data:text-show - Use text-show library for efficient ToHttpApiData implementation.
-dev-haskell/http-client:network-uri - Get Network.URI from the network-uri package.
-dev-haskell/http-streams:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/httpd-shed:buildexamples - Build example executables.
-dev-haskell/httpd-shed:network-bsd - Get Network.BSD from the network-bsd package.
-dev-haskell/httpd-shed:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/io-streams:network - Include network support
 dev-haskell/io-streams:zlib - Include zlib support
 dev-haskell/json:mapdict - Encode Haskell maps as JSON dicts
 dev-haskell/json:parsec - Add support for parsing with Parsec
 dev-haskell/json:pretty - Add support for using pretty printing combinators
 dev-haskell/language-dot:executable - Build the `ppdot' executable
-dev-haskell/lens:benchmark-uniplate - Enable benchmarking against Neil Mitchell's uniplate library for comparative performance analysis. Defaults to being turned off to avoid the extra dependency.
-dev-haskell/lens:dump-splices - Build and run the doctests test-suite.
-dev-haskell/lens:inlining - Generate inline pragmas when using template-haskell. This defaults to enabled, but you can to shut it off to benchmark the relative performance impact, or as last ditch effort to address compile errors resulting from the myriad versions of template-haskell that all purport to be 2.8.
-dev-haskell/lens:j - Attempt a parallel build with GHC 7.8.
-dev-haskell/lens:safe - Disallow unsafeCoerce
-dev-haskell/lens:trustworthy - Assert that we are trustworthy when we can
 dev-haskell/libyaml:no-unicode - Don't enable unicode output. Instead, unicode characters will be escaped.
 dev-haskell/libyaml:system-libyaml - Use the system-wide libyaml instead of the bundled copy
 dev-haskell/linear:template-haskell - You can disable the use of the `template-haskell` package using `-f-template-haskell`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
@@ -1546,13 +1531,14 @@ dev-haskell/lua:export-dynamic - Add all symbols to dynamic symbol table; disabl
 dev-haskell/lua:hardcode-reg-keys - Don't use CAPI to determine the names of certain registry key names but use hard coded values instead. This flag is required when compiling against Lua 5.3.3 or earlier, as those versions do not expose the necessary information in the @lauxlib.h@ header file. Setting this flag should usually be unproblematic, except if the used Lua version has been patched heavily.
 dev-haskell/lua:lua-32bits - Compile Lua with -DLUA_32BITS
 dev-haskell/lua:system-lua - Use @pkg-config@ to discover library and include paths. Setting this flag implies `pkg-config`.
-dev-haskell/missingh:network-3 - Use network-3
 dev-haskell/mod:semirings - Derive semiring instances
 dev-haskell/monad-logger:template-haskell - Enable Template Haskell support.
+dev-haskell/monad-par:chaselev - Use Chase-Lev Deques for higher-perf work-stealing.
 dev-haskell/nats:binary - enable binary instances
 dev-haskell/nats:hashable - enable hashable instances
 dev-haskell/nats:template-haskell - enable template_haskell
 dev-haskell/netlink:generators - build the generator scripts for constants
+dev-haskell/network:devel - using tests for developers
 dev-haskell/network-data:small-base - Build the split-up base package.
 dev-haskell/optparse-simple:build-example - Build the example executable
 dev-haskell/pandoc-citeproc:bibutils - Use Chris Putnam's Bibutils.
@@ -1564,16 +1550,16 @@ dev-haskell/parsec-numbers:parsec1 - use dev-haskell/parsec1 instead of dev-hask
 dev-haskell/parsers:attoparsec - Enable the use of the `attoparsec` package
 dev-haskell/parsers:binary - You can disable the use of the `binary` package using `-f-binary`.
 dev-haskell/parsers:parsec - Enable the use of the `parsec` package
+dev-haskell/path:dev - Turn on development settings.
 dev-haskell/persistent-sqlite:build-sanity-exe - Build a sanity check test executable.
-dev-haskell/pointed:comonad - optional instances
-dev-haskell/pointed:containers - optional instances
-dev-haskell/pointed:kan-extensions - optional instances
-dev-haskell/pointed:semigroupoids - optional instances
-dev-haskell/pointed:semigroups - optional instances
-dev-haskell/pointed:stm - optional instances
-dev-haskell/pointed:tagged - optional instances
-dev-haskell/pointed:transformers - optional instances
-dev-haskell/pointed:unordered-containers - optional instances
+dev-haskell/pointed:comonad - You can disable the use of the `comonad` package using `-f-transformers`.
+dev-haskell/pointed:kan-extensions - You can disable the use of the `kan-extensions` package using `-f-kan-extensions`.
+dev-haskell/pointed:semigroupoids - You can disable the use of the `semigroupoids` package using `-f-semigroupoids`.
+dev-haskell/pointed:semigroups - You can disable the use of the `semigroups` package using `-f-semigroups`.
+dev-haskell/pointed:stm - You can disable the use of the `stm` package using `-f-stm`.
+dev-haskell/pointed:tagged - You can disable the use of the `tagged` package using `-f-tagged`.
+dev-haskell/pointed:transformers - You can disable the use of the `transformers` package using `-f-transformers`.
+dev-haskell/pointed:unordered-containers - You can disable the use of the `unordered-containers` package using `-f-unordered-containers`.
 dev-haskell/publicsuffixlist:create - export Network.PublicSuffixList.Create module
 dev-haskell/publicsuffixlist:runtimelist - read suffix list from dist at startup instead of embedding list into library
 dev-haskell/quickcheck:template-haskell - Enable additional test modules requiring Template Haskell support.
@@ -1595,11 +1581,6 @@ dev-haskell/semigroupoids:contravariant - You can disable the use of the `contra
 dev-haskell/semigroupoids:distributive - You can disable the use of the `distributive` package using `-f-distributive`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users. If disabled we will not supply instances of `Distributive`
 dev-haskell/semigroupoids:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/semigroupoids:unordered-containers - Enable the use of the `unordered-containers` package (and also its dependency `hashable`). Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/semigroups:binary - provide instances for binary package
-dev-haskell/semigroups:transformers - provide instances for transformers package.
-dev-haskell/semirings:containers - Enable the use of the `containers` package. Disabling this may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/semirings:hashable - Enisable the use of the `hashable` package. Disabling this may be useful for accelerating builds in sandboxes for expert users. Note: `-hashable` implies `-unordered-containers`, as we are necessarily not able to supply those instances as well.
-dev-haskell/semirings:unordered-containers - Enable the use of the `unordered-containers` package. Disabling this may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/sendfile:portable - Explicitly enable portable sendfile support (implemented in Haskell)
 dev-haskell/sha:exe - Build a sha1 and a sha384 executable similar to 'md5sum'.
 dev-haskell/shelly:lifted - run the tests against Shelly.Lifted
@@ -1609,15 +1590,14 @@ dev-haskell/skein:force-endianness - Use a manually selected endian when compili
 dev-haskell/skein:reference - Use the reference implementation instead of the optimized one.
 dev-haskell/skylighting:executable - Build the skylighting executable.
 dev-haskell/skylighting-core:executable - Build the skylighting executable.
-dev-haskell/snap-core:portable - No non-haskell unportable code.
-dev-haskell/snap-server:build-pong - Build a server that just returns "PONG"
-dev-haskell/snap-server:openssl - enable https support using dev-haskell/hsopenssl
-dev-haskell/snap-server:portable - no non-haskell unportable code.
+dev-haskell/snap-server:debug - Enable support for debugging.
+dev-haskell/snap-server:openssl - Enable https support using the HsOpenSSL library.
+dev-haskell/snap-server:pong-server - Build a server that just returns "PONG". Normally useful only for benchmarks.
+dev-haskell/snap-server:test-server - Build the blackbox testserver
 dev-haskell/splitmix:optimised-mixer - Use JavaScript for mix32
 dev-haskell/splitmix:random - Providen RandomGen SMGen instance
 dev-haskell/store-core:force-alignment - No description
 dev-haskell/texmath:executable - Compile test executable.
-dev-haskell/texmath:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/texmath:server - Compile webserver.
 dev-haskell/text-short:asserts - Enable runtime-checks via 'assert'
 dev-haskell/thyme:bug-for-bug - bug-for-bug compatibility with time
@@ -2937,16 +2917,11 @@ dev-vcs/git:webdav - Adds support for push'ing to HTTP/HTTPS repositories via DA
 dev-vcs/git-annex:assistant - Enable git-annex assistant and watch command
 dev-vcs/git-annex:benchmark - Enable benchmarking
 dev-vcs/git-annex:dbus - Enable dbus support
-dev-vcs/git-annex:debuglocks - Debug location of MVar/STM deadlocks
 dev-vcs/git-annex:gitlfs - Build with git-lfs library (rather than vendored copy)
-dev-vcs/git-annex:httpclientrestricted - Build with http-client-restricted library (rather than vendored copy)
 dev-vcs/git-annex:magicmime - Use libmagic to determine file MIME types
-dev-vcs/git-annex:networkbsd - Build with network-3.0 which split out network-bsd
 dev-vcs/git-annex:pairing - Enable pairing
-dev-vcs/git-annex:s3 - Enable S3 support
 dev-vcs/git-annex:torrentparser - Use haskell torrent library to parse torrent files
 dev-vcs/git-annex:webapp - Enable git-annex webapp
-dev-vcs/git-annex:webdav - Enable WebDAV support
 dev-vcs/gitg:glade - Install a glade catalog file
 dev-vcs/gitg:python - Install Python bindings for those plugins requiring it.
 dev-vcs/gitolite:contrib - Install user-contributed files

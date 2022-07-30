@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/vector-0.12:=[profile?] <dev-haskell/vector-0.13:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( >=dev-haskell/attoparsec-0.13 <dev-haskell/attoparsec-0.15 >=dev-haskell/quickcheck-2.8.1 <dev-haskell/quickcheck-3 >=dev-haskell/quickcheck-instances-0.3.11 <dev-haskell/quickcheck-instances-0.4 <dev-haskell/rerebase-2 >=dev-haskell/tasty-0.12 <dev-haskell/tasty-2 >=dev-haskell/tasty-hunit-0.9 <dev-haskell/tasty-hunit-0.11 >=dev-haskell/tasty-quickcheck-0.9 <dev-haskell/tasty-quickcheck-0.11 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Vector builder
+EAPI=8
+HOMEPAGE=https://github.com/nikita-volkov/vector-builder
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-haskell/vector-0.12:=[profile?] <dev-haskell/vector-0.13:=[profile?] >=dev-lang/ghc-8.4.3:=
+RESTRICT=!test? ( test )
+SLOT=0/0.3.8.3
+SRC_URI=https://hackage.haskell.org/package/vector-builder-0.3.8.3/vector-builder-0.3.8.3.tar.gz https://hackage.haskell.org/package/vector-builder-0.3.8.3/revision/1.cabal -> vector-builder-0.3.8.3-rev1.cabal
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	haskell-cabal	bd6d32a0289c486284bc0cdc06a639a6
+_md5_=4aa71dae72eada19b44f500190b1eeb6
