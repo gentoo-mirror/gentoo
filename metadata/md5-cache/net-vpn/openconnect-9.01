@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.infradead.org/openconnect/
 INHERIT=linux-info python-any-r1
 IUSE=doc +gnutls gssapi libproxy lz4 nls pskc selinux smartcard stoken test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1 GPL-2
 RDEPEND=dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2 >=net-vpn/vpnc-scripts-20210402-r1 selinux? ( sec-policy/selinux-vpn )
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-9.01.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
-_md5_=803521dbc4f72b03624e6ea341b50849
+_md5_=e0f7ff046bebd4f124299ef16202c2b6
