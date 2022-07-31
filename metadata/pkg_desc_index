@@ -941,7 +941,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.31 1.25.36 1.25.41: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.31 1.25.36 1.25.41 1.25.42: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.11-r1 2.7.16 2.7.20: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.32.1 2022.6.0: Bitwarden password manager desktop client
@@ -8469,7 +8469,7 @@ dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by async
 dev-python/alabaster 0.7.12-r1: A configurable sidebar-enabled Sphinx theme
 dev-python/alagitpull 0.0.23-r2: alabaster sub-theme used on git-pull docs
 dev-python/alembic 1.8.0 1.8.1: Database migrations tool, written by the author of SQLAlchemy
-dev-python/allpairspy 2.5.0: Pairwise test combinations generator
+dev-python/allpairspy 2.5.0 2.5.0-r1: Pairwise test combinations generator
 dev-python/ament_package 0.14.0 0.14.0-r1: Parser for the manifest files in the ament buildsystem
 dev-python/amodem 1.15.3 1.15.3-r1: Transmit data between two computers using audio
 dev-python/aniso8601 9.0.1-r1: A library for parsing ISO 8601 strings
@@ -8553,8 +8553,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.26 1.24.31 1.24.36 1.24.41 9999: The AWS SDK for Python
-dev-python/botocore 1.27.26 1.27.31 1.27.36 1.27.41 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.26 1.24.31 1.24.36 1.24.41 1.24.42 9999: The AWS SDK for Python
+dev-python/botocore 1.27.26 1.27.31 1.27.36 1.27.41 1.27.42 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.4 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8752,7 +8752,7 @@ dev-python/executing 0.8.3 0.9.0 0.9.1: Get information about what a Python fram
 dev-python/expects 0.9.0: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.6-r1: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/fakeredis 1.8.1 1.8.2: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 1.8.1 1.8.2 1.9.0: Fake implementation of redis API for testing purposes
 dev-python/fasteners 0.17.3: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
 dev-python/fastjsonschema 2.15.3-r1 2.16.1: Fast JSON schema validator for Python
@@ -8896,7 +8896,7 @@ dev-python/importlib_resources 5.8.0 5.9.0: Read resources from Python packages
 dev-python/imread 0.7.3-r1: Read Image Files
 dev-python/incremental 21.3.0-r1: Incremental is a small library that versions your Python projects
 dev-python/indexed_gzip 1.6.13: Fast random access of gzip files in Python
-dev-python/inflect 5.6.0 5.6.1 5.6.2: Correctly inflect words and numbers
+dev-python/inflect 5.6.0 5.6.1 5.6.2 6.0.0: Correctly inflect words and numbers
 dev-python/inflection 0.5.1-r1: A port of Ruby on Rails' inflector to Python
 dev-python/influxdb 5.3.0-r1: InfluxDB client
 dev-python/ini2toml 0.11 0.11-r1: Automatically conversion of .ini/.cfg files to TOML equivalents
@@ -9189,7 +9189,7 @@ dev-python/path-and-address 2.0.1: Functions for server CLI applications used by
 dev-python/path-py 16.4.0: A module wrapper for os.path
 dev-python/pathspec 0.9.0-r1: Utility library for gitignore style pattern matching of file paths
 dev-python/pathtools 0.1.2-r3: Pattern matching and various utilities for file systems paths
-dev-python/pathvalidate 2.5.0: A Python library to sanitize/validate a string such as filenames/file-paths/etc
+dev-python/pathvalidate 2.5.0 2.5.1: A Python library to sanitize/validate a string such as filenames/file-paths/etc
 dev-python/patiencediff 0.2.2 0.2.2-r1: Python implementation of the patiencediff algorithm
 dev-python/patsy 0.5.2: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
@@ -9296,7 +9296,7 @@ dev-python/pychm 0.8.6: Python bindings for the chmlib library
 dev-python/pychromecast 9.3.1 12.1.4: Python module to talk to Google Chromecast
 dev-python/pychroot 0.10.4 9999: a python library and cli tool that simplify chroot handling
 dev-python/pyclipper 1.3.0_p2-r1: Cython wrapper for the C++ translation of the Angus Johnson's Clipper library
-dev-python/pycodestyle 2.8.0-r1: Python style guide checker (fka pep8)
+dev-python/pycodestyle 2.8.0-r1 2.9.0: Python style guide checker (fka pep8)
 dev-python/pycollada 0.7.2: Python library for reading and writing COLLADA documents
 dev-python/pycountry 22.3.5: Database of countries, subdivisions, languages, currencies and script
 dev-python/pycparser 2.21-r1: C parser and AST generator written in Python
@@ -9652,7 +9652,7 @@ dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping 
 dev-python/rply 0.7.8: Pure python parser generator that also works with RPython
 dev-python/rpy 3.4.5: Python interface to the R Programming Language
 dev-python/rpyc 5.1.0: Remote Python Call (RPyC), a transparent and symmetric RPC library
-dev-python/rq 1.10.1-r2: simple, lightweight library for creating and processing background jobs
+dev-python/rq 1.10.1-r2 1.11: simple, lightweight library for creating and processing background jobs
 dev-python/rsa 4.8-r2 4.9: Pure-Python RSA implementation
 dev-python/rst-linker 2.3.0: Sphinx plugin to add links and timestamps to the changelog
 dev-python/rtimulib 7.2.1-r2: Python Binding for RTIMULib, a versatile IMU library
@@ -9806,7 +9806,7 @@ dev-python/tabulate 0.8.10: Pretty-print tabular data
 dev-python/tagpy 2018.1-r3: Python Bindings for TagLib
 dev-python/tappy 3.1-r1: Test Anything Protocol (TAP) tools
 dev-python/tblib 1.7.0-r1: Traceback fiddling library for Python
-dev-python/tcolorpy 0.1.2: tcolorpy is a Python library to apply true color for terminal text
+dev-python/tcolorpy 0.1.2 0.1.2-r1: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 4.4.0: Spotify Web API client
 dev-python/tempest 31.0.0 31.1.0: OpenStack Integration Testing
 dev-python/tempita 0.5.3-r3: A very small text templating language
@@ -15605,7 +15605,7 @@ net-libs/netwib 5.39.0: Library of Ethernet, IP, UDP, TCP, ICMP, ARP and RARP pr
 net-libs/nghttp2 1.47.0 1.48.0 9999: HTTP/2 C Library
 net-libs/nghttp3 0_pre20190912 9999: HTTP/3 library written in C
 net-libs/ngtcp2 0.7.0 9999: Implementation of the IETF QUIC Protocol
-net-libs/nodejs 14.19.3 14.20.0 16.15.1 16.16.0 18.3.0 18.4.0 18.6.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
+net-libs/nodejs 14.20.0 16.16.0 18.6.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
 net-libs/ntirpc 4.0-r1: Transport Independent RPC library for nfs-ganesha
 net-libs/ortp 0.23.0-r1: Open Real-time Transport Protocol (RTP, RFC3550) stack
 net-libs/pacparser 1.3.7-r1 1.4.0: Library to parse proxy auto-config files
