@@ -46,8 +46,9 @@ There are several options available:
   Deselect media-sound/pulseaudio-daemon:
   # emerge --deselect media-sound/pulseaudio-daemon
 
-  Then perform a world upgrade:
-  # emerge --ask --update --changed-use --deep @world
+  Then perform a world upgrade with PipeWire on the command line to add
+  it to the world file:
+  # emerge --ask --update --changed-use --deep @world media-video/pipewire
 
   Then depclean:
   # emerge --ask --depclean
