@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/google/gson
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=2.6
 SRC_URI=https://github.com/google/gson/archive/gson-parent-2.9.0.tar.gz -> gson-2.9.0.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	cc510ad15292e222d436a547adffe6a9
-_md5_=11d0f20a85e013ce63bace01baa780aa
+_md5_=f64163ed033262aa955db9062ca93b29
