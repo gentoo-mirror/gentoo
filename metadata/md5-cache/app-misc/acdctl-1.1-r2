@@ -1,11 +1,13 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=configure install
 DEPEND=virtual/libusb:0
 DESCRIPTION=Apple Cinema Display Control
-EAPI=6
+EAPI=8
 HOMEPAGE=https://web.archive.org/web/20090725222711/http://technocage.com:80/~caskey/acdctl/
+INHERIT=toolchain-funcs
 KEYWORDS=ppc
 LICENSE=GPL-2
 RDEPEND=virtual/libusb:0
 SLOT=0
 SRC_URI=http://www.technocage.com/~caskey/acdctl/download/acdctl-1.1.tar.bz2
-_md5_=a7c1b21a717baabc3848a76d71405737
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=f700216a5654cf1bde2c992c710e1d01
