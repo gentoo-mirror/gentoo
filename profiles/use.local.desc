@@ -1523,7 +1523,6 @@ dev-haskell/json:pretty - Add support for using pretty printing combinators
 dev-haskell/language-dot:executable - Build the `ppdot' executable
 dev-haskell/libyaml:no-unicode - Don't enable unicode output. Instead, unicode characters will be escaped.
 dev-haskell/libyaml:system-libyaml - Use the system-wide libyaml instead of the bundled copy
-dev-haskell/linear:template-haskell - You can disable the use of the `template-haskell` package using `-f-template-haskell`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/lpeg:rely-on-shared-lpeg-library - Do not build lpeg from source, but trust that lpeg is made available in other ways, e.g., through a system-wide installation. The loader will be replaced with a placeholder function that only emits a message.
 dev-haskell/lua:allow-unsafe-gc - Allow optimizations which make Lua's garbage collection potentially unsafe; enabling this should be safe if there are no callbacks into Haskell during Lua garbage collection cycles. The flag should be *disabled* if Lua objects can have Haskell finalizers, i.e., @__gc@ metamethods that call Haskell function.
 dev-haskell/lua:apicheck - Compile Lua with -DLUA_USE_APICHECK.
@@ -8911,19 +8910,17 @@ x11-misc/xkbd:xrandr - Enable XRandR support through x11-libs/libXrandr
 x11-misc/xkbset:tk - Install the dev-perl/Tk based xkbset-gui utility
 x11-misc/xlockmore:vtlock - Enables support for virtual terminal locking
 x11-misc/xlockmore:xlockrc - Enables xlockrc for people without PAM
-x11-misc/xmobar:alsa - Use alsa-mixer to get the volume from soundcards
-x11-misc/xmobar:dbus - Publish a service on the session bus for controlling xmobar
-x11-misc/xmobar:inotify - inotify support (modern Linux only). Required for the Mail and MBox plugins
-x11-misc/xmobar:iwlib - Wireless info support via Wext ioctls (deprecated)
-x11-misc/xmobar:mpd - Support mpd plugin
-x11-misc/xmobar:mpris - Enables MPRIS v1, v2 support
-x11-misc/xmobar:rtsopts - Reduce process wakekups frequency to decrease CPU usage
-x11-misc/xmobar:timezone - Enables localized date support
-x11-misc/xmobar:uvmeter - Plugin to show UV data for Australia
-x11-misc/xmobar:weather - Enable weather plugin
-x11-misc/xmobar:wifi - Wireless info support via nl80211. Required for the Wireless plugin on systems running Linux
-x11-misc/xmobar:xft - Use Xft to render text. UTF-8 support included
-x11-misc/xmobar:xpm - Enable usage of xpm for icons
+x11-misc/xmobar:alsa - Use alsa-mixer to get the volume from soundcards.
+x11-misc/xmobar:dbus - Publish a service on the session bus for controlling xmobar.
+x11-misc/xmobar:mpd - MPD support. Needs libmpd installed.
+x11-misc/xmobar:mpris - MPRIS v1, v2 support.
+x11-misc/xmobar:rtsopts - Use -with-rtsopts=-V0 to reduce wakeups.
+x11-misc/xmobar:timezone - Enables localized date support.
+x11-misc/xmobar:uvmeter - UVMeter only useful to australians.
+x11-misc/xmobar:weather - Enable weather plugin.
+x11-misc/xmobar:wifi - Wireless info support via nl80211. Required for the Wireless plugin on systems running Linux, the kernel.
+x11-misc/xmobar:xft - Use Xft to render text. UTF-8 support included.
+x11-misc/xmobar:xpm - Enable usage of xpm for icons.
 x11-misc/xscreensaver:fonts - Install the fonts shipped with XScreenSaver that have clear licensing
 x11-misc/xscreensaver:gdk-pixbuf - Include support for the x11-libs/gdk-pixbuf library in some demos, which will make it possible for them to read GIF, JPEG, and PNG files as well
 x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x11-misc/lightdm
