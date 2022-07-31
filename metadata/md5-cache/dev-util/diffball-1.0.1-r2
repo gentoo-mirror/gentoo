@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/zmedico/diffball
 INHERIT=autotools flag-o-matic
 IUSE=debug
-KEYWORDS=~alpha amd64 ~hppa ~ia64 ~mips ppc ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ~mips ppc ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=BSD
 RDEPEND=>=sys-libs/zlib-1.1.4 >=app-arch/bzip2-1.0.2 app-arch/xz-utils
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/zmedico/diffball/archive/v1.0.1.tar.gz -> diffball-1.0.1.tar.gz https://github.com/zmedico/diffball/pull/1.patch -> diffball-1.0.1-bug_543310_stack_buffer_overflows.patch https://github.com/zmedico/diffball/pull/2.patch -> diffball-1.0.1-bug_708736_cseek_xz_reset_avail_in_out.patch
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906
-_md5_=4c661830d7e5c126d54fd2d1f8038e4f
+_md5_=72b1fd0cea712b14d80c75c4d1e529ac
