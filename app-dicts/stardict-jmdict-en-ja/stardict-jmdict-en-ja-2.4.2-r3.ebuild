@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 FROM_LANG="English"
 TO_LANG="Japanese"
@@ -9,9 +9,8 @@ DICT_PREFIX="jmdict-"
 
 inherit stardict
 
-HOMEPAGE="http://download.huzheng.org/ja/"
+HOMEPAGE="http://download.huzheng.org/ja"
 SRC_URI="http://download.huzheng.org/ja/${P}.tar.bz2"
 
-LICENSE="GDLS"
-KEYWORDS="~amd64 ~ppc ~riscv sparc x86"
-IUSE=""
+LICENSE="CC-BY-SA-3.0 CC-BY-SA-4.0"
+KEYWORDS="~amd64 ~ppc ~riscv ~sparc ~x86"
