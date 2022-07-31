@@ -60,6 +60,24 @@ There are several options available:
   files will need to run `gentoo-pipewire-launcher &` in e.g.
   `~/.xprofile`.
 
+  Users who want to switch to PipeWire providing a PulseAudio daemon
+  may need to `emerge --deselect` packages in their world file which
+  hard-require media-sound/pulseaudio-daemon. There are only a handful
+  of these. A non-exhaustive list:
+  * media-sound/paprefs
+  * media-sound/pasystray
+  * media-sound/pulseaudio-modules-bt (shouldn't be needed anyway)
+  * net-misc/pulseaudio-dlna
+
+  If not using any of those packages anymore, please emerge --deselect
+  them. If still using these, PipeWire as a PulseAudio is not an
+  option at this time.
+
+  (Note that media-libs/libpulse (which PipeWire will be using, don't emerge
+  libpulse manually) provides 'pactl' which can be used as a replacement for
+  e.g. media-sound/pulseaudio-ctl, so personal scripts can be adapted to this
+  if desired.)
+
   systemd users will also need to run the following commands:
   $ systemctl --user --now disable pulseaudio.service pulseaudio.socket
   $ systemctl --user --now enable pipewire.socket pipewire-pulse.socket
