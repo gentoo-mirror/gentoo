@@ -1,7 +1,7 @@
+BDEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv ) zlib? ( app-arch/gzip app-text/dictd )
 DEFINED_PHASES=compile install
-DEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv app-text/goldendict ) zlib? ( app-arch/gzip app-text/dictd )
 DESCRIPTION=Stardict Dictionary English to Traditional Chinese (BIG5)
-EAPI=6
+EAPI=8
 HOMEPAGE=http://download.huzheng.org/zh_TW/
 INHERIT=stardict
 IUSE=+zlib
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RESTRICT=strip
 SLOT=0
 SRC_URI=mirror://sourceforge/stardict/stardict-cdict-big5-2.4.2.tar.bz2
-_eclasses_=stardict	d43f716f9a7f355ead783b3180783bca
-_md5_=b27804f9c00f555874ac91a2cc2d10af
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	stardict	818dfb9a0d6af5ae84e6df1c66f1edb2
+_md5_=38d57e8d93925f0efecb7169336f31dc
