@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://tmux.github.io/
 INHERIT=autotools flag-o-matic
 IUSE=debug selinux systemd utempter vim-syntax
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=ISC
 RDEPEND=dev-libs/libevent:= sys-libs/ncurses:= systemd? ( sys-apps/systemd:= ) utempter? ( sys-libs/libutempter ) kernel_Darwin? ( dev-libs/libutf8proc:= ) selinux? ( sec-policy/selinux-screen ) vim-syntax? ( app-vim/vim-tmux )
 SLOT=0
 SRC_URI=https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906
-_md5_=f8343fda05c4ee7dbfccd5bd8133f52e
+_md5_=e1eb03cd38520ce3a48f2219d5035483
