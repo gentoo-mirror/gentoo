@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit toolchain-funcs unpacker
 
@@ -13,24 +13,15 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~riscv ~x86 ~amd64-linux ~x86-linux"
 
-RDEPEND="
-	sys-libs/ncurses:0=
-"
-DEPEND="
+RDEPEND="sys-libs/ncurses:="
+DEPEND="${RDEPEND}"
+BDEPEND="
 	$(unpacker_src_uri_depends)
-	${RDEPEND}
-	virtual/pkgconfig
-"
+	virtual/pkgconfig"
 
-src_prepare() {
+PATCHES=( "${FILESDIR}"/${PN}-1.12-respect-user-flags.patch )
+
+src_configure() {
 	tc-export CXX PKG_CONFIG
-	sed -i \
-		-e "/^CXXFLAGS=/d" \
-		-e "/^LDFLAGS=/d" \
-		-e  "/^CXX=/d" \
-		configure || die "sed on configure failed"
-
-	eapply_user
-
-	eapply "${FILESDIR}/${PN}-1.6-tinfo.patch"
+	default
 }
