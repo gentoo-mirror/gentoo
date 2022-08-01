@@ -1,29 +1,37 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake xdg-utils
 
 DESCRIPTION="Warcraft: Orcs & Humans for the Stratagus game engine"
-HOMEPAGE="https://wargus.github.io/war1gus.html
-	https://github.com/Wargus/war1gus"
-SRC_URI="https://github.com/Wargus/war1gus/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="
+	https://stratagus.com/war1gus.html
+	https://github.com/Wargus/war1gus/
+"
+SRC_URI="
+	https://github.com/Wargus/war1gus/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-RDEPEND="
+DEPEND="
 	=games-engines/stratagus-${PV}*[theora]
 	media-libs/libpng:0=
 	sys-libs/zlib:=
 	x11-libs/gtk+:2
-	x11-libs/libX11"
-DEPEND="${RDEPEND}"
+	x11-libs/libX11
+"
+RDEPEND="
+	${DEPEND}
+"
 BDEPEND="
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(

@@ -1,32 +1,40 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake xdg-utils
 
 DESCRIPTION="Warcraft II for the Stratagus game engine"
 HOMEPAGE="
 	https://stratagus.com/
-	https://github.com/Wargus/wargus"
-SRC_URI="https://github.com/Wargus/wargus/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	https://github.com/Wargus/wargus/
+"
+SRC_URI="
+	https://github.com/Wargus/wargus/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+bne"
 
-RDEPEND="
+DEPEND="
 	=games-engines/stratagus-${PV}*[theora]
 	media-libs/libpng:0=
 	sys-libs/zlib:=
 	x11-libs/gtk+:2
 	x11-libs/libX11
 	bne? ( app-arch/stormlib:= )
-	!games-strategy/wargus-data"
-DEPEND="${RDEPEND}"
+	!games-strategy/wargus-data
+"
+RDEPEND="
+	${DEPEND}
+"
 BDEPEND="
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 pkg_pretend() {
 	if has_version games-strategy/wargus-data; then
