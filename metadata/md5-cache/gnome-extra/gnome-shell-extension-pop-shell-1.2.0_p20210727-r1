@@ -1,13 +1,13 @@
 BDEPEND=dev-lang/typescript
-DEFINED_PHASES=install postinst
+DEFINED_PHASES=install postinst postrm
 DESCRIPTION=Keyboard-driven layer for GNOME Shell with tiling support
 EAPI=7
 HOMEPAGE=https://github.com/pop-os/shell
 INHERIT=gnome2-utils optfeature
 KEYWORDS=~amd64 ~ppc64
 LICENSE=GPL-3
-RDEPEND=app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-40.1
+RDEPEND=app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-40.1 sys-apps/fd
 SLOT=0
-SRC_URI=https://github.com/pop-os/shell/archive/f7cbe060e8d293bfe3b0b759032a85773b542645.tar.gz -> gnome-shell-extension-pop-shell-1.2.0_p20210603.tar.gz
+SRC_URI=https://github.com/pop-os/shell/archive/475b49dc02386e26fbe6b91a559c77515d96caaf.tar.gz -> gnome-shell-extension-pop-shell-1.2.0_p20210727.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=0e0e0929d28647bde0668bfa1181af37
+_md5_=05bc6283650c75a2569035693570cffb
