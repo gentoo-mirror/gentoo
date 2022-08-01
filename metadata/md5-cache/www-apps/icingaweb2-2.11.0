@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://www.icinga.org/
 INHERIT=depend.apache multilib
 IUSE=apache2 apache2-server fpm ldap mysql nginx pdf postgres apache2
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:7.3[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:7.4[apache2?,cli,fpm?,gd,json,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.0[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.1[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) dev-libs/icinga-php-library dev-libs/icinga-php-thirdparty acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
 REQUIRED_USE=( ^^ ( apache2-server nginx ) ) apache2? ( apache2-server )
 SLOT=0
 SRC_URI=https://codeload.github.com/Icinga/icingaweb2/tar.gz/v2.11.0 -> icingaweb2-2.11.0.tar.gz
 _eclasses_=depend.apache	416d1c5005c5f4594e79812fb7323f0d	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961
-_md5_=3d49a82cfd2c8bff9305a7c92d51f7f3
+_md5_=c800c276d1057bd101658f392d0c225b
