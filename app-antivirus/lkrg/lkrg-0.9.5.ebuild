@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit linux-mod linux-info verify-sig
+inherit linux-mod linux-info systemd verify-sig
 
 DESCRIPTION="Linux Kernel Runtime Guard"
 HOMEPAGE="https://lkrg.org"
@@ -16,10 +16,10 @@ KEYWORDS="~amd64"
 
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-openwall )"
 
-PATCHES=( "${FILESDIR}/${PN}-${PV}-systemd-coredump-umh-whitelist.patch" )
-
-MODULE_NAMES="p_lkrg(misc:${S}:${S})"
+MODULE_NAMES="lkrg(misc:${S}:${S})"
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/openwall.asc"
+
+PATCHES=( "${FILESDIR}/${PN}-0.9.4-gentoo-paths.patch" )
 
 pkg_setup() {
 	CONFIG_CHECK="HAVE_KRETPROBES KALLSYMS_ALL KPROBES JUMP_LABEL"
@@ -37,4 +37,14 @@ src_unpack() {
 	fi
 
 	default
+}
+
+src_install() {
+	linux-mod_src_install
+
+	systemd_dounit scripts/bootup/systemd/lkrg.service
+	newinitd scripts/bootup/openrc/lkrg lkrg.initd
+
+	insinto /lib/sysctl.d
+	newins scripts/bootup/lkrg.conf 01-lkrg.conf
 }
