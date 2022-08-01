@@ -1377,7 +1377,7 @@ app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 4.0.12 5.0.0 5.0.0-r1 5.0.1: A userspace interface for the Linux kernel containment features
 app-containers/lxc-templates 3.0.4: Old style template scripts for LXC
 app-containers/lxd 5.0.0: Fast, dense and secure container management
-app-containers/nerdctl 0.17.1 0.18.0 0.19.0 0.21.0 0.22.0: Docker-compatible CLI for containerd, with support for Compose
+app-containers/nerdctl 0.17.1 0.18.0 0.19.0 0.21.0 0.22.0 0.22.2: Docker-compatible CLI for containerd, with support for Compose
 app-containers/podman 4.1.0 4.1.1: Library and podman tool for running OCI-based containers in Pods
 app-containers/reg 0.16.1-r1: Docker registry v2 command line client
 app-containers/runc 1.0.3 1.1.0 1.1.1 1.1.2: runc container cli tools
@@ -5266,7 +5266,7 @@ dev-java/commons-net 3.8.0: Client-oriented Java library to implement many Inter
 dev-java/commons-text 1.9: Apache Commons Text is a library focused on algorithms working on strings
 dev-java/commons-validator 1.7: Commons component to validate user input, or data input
 dev-java/commons-vfs 2.0-r2: A single API for accessing various different file systems
-dev-java/conversant-disruptor 1.2.19-r1 1.2.20: Conversant Disruptor - very high throughput Java BlockingQueue
+dev-java/conversant-disruptor 1.2.20: Conversant Disruptor - very high throughput Java BlockingQueue
 dev-java/core-specs-alpha 0.1.24 0.2.44 0.2.56: A Clojure library with specs to describe Clojure core macros and functions
 dev-java/cortado 0.6.0-r2: Multimedia framework for Java written by Fluendo
 dev-java/cpptasks 1.0_beta5-r1: Ant-tasks to compile various source languages and produce executables
@@ -5287,7 +5287,7 @@ dev-java/glassfish-xmlrpc-api 1.1.1-r1: Project GlassFish XML RPC API
 dev-java/gnu-jaf 1.1.2-r1: GNU implementation of the JavaBeans Activation Framework
 dev-java/gnu-regexp 1.1.4-r4: GNU regular expression package for Java
 dev-java/gradle-bin 6.8.3 7.1.1 7.2 7.3.3 7.4.2 7.5: A project automation and build tool with a Groovy based DSL
-dev-java/gson 2.8.8-r1 2.9.0-r1 2.9.0-r2: Gson JSON library
+dev-java/gson 2.9.0-r1 2.9.0-r2: Gson JSON library
 dev-java/guava 30.1.1: A collection of Google's core Java libraries
 dev-java/guava-testlib 30.1.1: A set of java classes to assist the tests for Guava itself
 dev-java/guice 5.1.0: Guice is a lightweight dependency injection framework for Java 6 and above
@@ -5313,7 +5313,7 @@ dev-java/jackrabbit-webdav 2.10.1-r2 2.21.7-r1: Generic WebDAV Library
 dev-java/jackson-annotations 2.13.3: Core annotations used for value types, used by Jackson data binding package.
 dev-java/jackson-core 2.13.3: Core Jackson processing abstractions (Streaming API), implementation for JSON
 dev-java/jackson-databind 2.13.3: General data-binding functionality for Jackson: works on core streaming API
-dev-java/jackson-dataformat-xml 2.13.3 2.13.3-r1: Data format extension for Jackson
+dev-java/jackson-dataformat-xml 2.13.3-r1: Data format extension for Jackson
 dev-java/jackson-dataformat-yaml 2.13.3 2.13.3-r1: Support for reading and writing YAML-encoded data via Jackson abstractions
 dev-java/jackson-module-jakarta-xmlbind 2.13.3 2.13.3-r1: Support for using Jakarta XML Bind (aka JAXB 3.0) annotations
 dev-java/jacl 1.4.1-r2: Jacl is an implementation of Tcl written in Java
@@ -5359,7 +5359,7 @@ dev-java/jcifs 1.3.19-r1: Library that implements the CIFS/SMB networking protoc
 dev-java/jcip-annotations 1.0.1-r1: Clean room implementation of the JCIP Annotations
 dev-java/jclasslib 3.1-r1: Java bytecode viewer
 dev-java/jcommander 1.82: Command line parsing framework for Java
-dev-java/jctools-core 2.0.2 3.1.0 3.3.0: Java Concurrency Tools Core Library
+dev-java/jctools-core 3.1.0 3.3.0: Java Concurrency Tools Core Library
 dev-java/jdbc-mysql 8.0.26: JDBC Type 4 driver for MySQL
 dev-java/jdbc-postgresql 42.4.0: Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database
 dev-java/jdepend 2.10: Traverses Java class file directories and generates design quality metrics
@@ -5409,7 +5409,7 @@ dev-java/lmax-disruptor 3.4.4: A High Performance Inter-Thread Messaging Library
 dev-java/log4j-12-api 2.17.2 2.18.0: The Apache Log4j 1.x Compatibility API
 dev-java/log4j-api 2.17.2 2.18.0: The Apache Log4j API
 dev-java/log4j-api-java9 2.17.1: The Apache Log4j API (Java 9)
-dev-java/log4j-core 2.17.2 2.17.2-r1 2.18.0: The Apache Log4j Implementation
+dev-java/log4j-core 2.17.2-r1 2.18.0: The Apache Log4j Implementation
 dev-java/logback-classic 1.2.11: logback-classic module
 dev-java/logback-core 1.2.11: logback-core module
 dev-java/lucene 2.4.1-r3: High-performance, full-featured text search engine written entirely in Java
@@ -5426,7 +5426,7 @@ dev-java/mill-bin 0.10.4 0.10.5: A Java/Scala build tool
 dev-java/mockito 1.9.5-r2 4.6.0-r1 4.6.1-r1: Mockito mock objects library core API and implementation
 dev-java/msv 20130601: Multi-Schema XML Validator, a Java tool for validating XML documents
 dev-java/mvel 2.3.2-r1: MVFLEX Expression Language
-dev-java/netty 4.1.35 4.1.35-r1: Async event-driven framework for high performance network applications
+dev-java/netty 4.1.35-r1: Async event-driven framework for high performance network applications
 dev-java/objenesis 3.2: A library for instantiating Java objects
 dev-java/objenesis-test 3.2: Test library for Objenesis library
 dev-java/openjdk 8.332_p09 11.0.15_p10-r1 17.0.3_p7-r1: Open source implementation of the Java programming language
