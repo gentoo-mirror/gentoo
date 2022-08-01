@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ionenwks/iwdevtools/archive/refs/tags/v${PV}.tar.gz 
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
+KEYWORDS="amd64 arm arm64 hppa ~loong ppc ppc64 ~riscv sparc x86 ~x64-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -28,6 +28,10 @@ BDEPEND="
 	sys-apps/help2man
 	|| ( sys-apps/util-linux app-misc/getopt )
 	test? ( ${RDEPEND} )"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-rcd-plain-name.patch
+)
 
 src_configure() {
 	local emesonargs=(

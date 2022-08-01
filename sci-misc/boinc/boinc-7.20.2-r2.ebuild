@@ -6,7 +6,7 @@ EAPI=8
 MY_PV=$(ver_cut 1-2)
 WX_GTK_VER=3.0-gtk3
 
-inherit autotools desktop flag-o-matic linux-info wxwidgets xdg-utils
+inherit autotools desktop flag-o-matic linux-info optfeature wxwidgets xdg-utils
 
 DESCRIPTION="The Berkeley Open Infrastructure for Network Computing"
 HOMEPAGE="https://boinc.berkeley.edu/"
@@ -23,18 +23,36 @@ fi
 
 LICENSE="LGPL-3"
 SLOT="0"
-IUSE="X cuda curl_ssl_gnutls +curl_ssl_openssl"
 
-REQUIRED_USE="^^ ( curl_ssl_gnutls curl_ssl_openssl ) "
+IUSE_VIDEO_CARDS="
+		video_cards_amdgpu
+		video_cards_intel
+		video_cards_nvidia
+		video_cards_radeonsi
+"
+
+IUSE="${IUSE_VIDEO_CARDS} X cuda curl_ssl_gnutls +curl_ssl_openssl opencl"
+
+REQUIRED_USE="
+	^^ ( curl_ssl_gnutls curl_ssl_openssl )
+	cuda? ( video_cards_nvidia )
+	opencl? ( || ( ${IUSE_VIDEO_CARDS} ) )
+"
 
 # libcurl must not be using an ssl backend boinc does not support.
 # If the libcurl ssl backend changes, boinc should be recompiled.
 DEPEND="
 	acct-user/boinc
-	>=app-misc/ca-certificates-20080809
+	app-misc/ca-certificates
 	cuda? (
-		>=dev-util/nvidia-cuda-toolkit-2.1
-		>=x11-drivers/nvidia-drivers-180.22
+		x11-drivers/nvidia-drivers
+	)
+	opencl? (
+		virtual/opencl
+		video_cards_amdgpu?   ( amd64? ( dev-libs/rocm-opencl-runtime ) )
+		video_cards_intel?    ( amd64? ( dev-libs/intel-compute-runtime ) )
+		video_cards_nvidia?   ( x11-drivers/nvidia-drivers )
+		video_cards_radeonsi? ( media-libs/mesa[opencl] )
 	)
 	dev-libs/openssl:=
 	net-misc/curl[curl_ssl_gnutls(-)=,-curl_ssl_nss(-),curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)]
@@ -44,7 +62,7 @@ DEPEND="
 		media-libs/freeglut
 		media-libs/libjpeg-turbo:=
 		x11-libs/gtk+:3
-		>=x11-libs/libnotify-0.7
+		x11-libs/libnotify
 		x11-libs/libX11
 		x11-libs/libXScrnSaver
 		x11-libs/libxcb:=
@@ -65,7 +83,7 @@ RDEPEND="
 
 PATCHES=(
 	# >=x11-libs/wxGTK-3.0.2.0-r3 has webview removed, bug 587462
-	"${FILESDIR}"/${PN}-${MY_PV}-fix_webview.patch
+	"${FILESDIR}"/${PN}-7.18-fix_webview.patch
 )
 
 pkg_setup() {
@@ -143,7 +161,6 @@ src_install() {
 	rm -r "${ED}"/etc || die "rm failed"
 	find "${D}" -name '*.la' -delete || die "Removing .la files failed"
 
-	sed -e "s/@libdir@/$(get_libdir)/" "${FILESDIR}"/${PN}.init.in > ${PN}.init || die
 	newinitd ${PN}.init ${PN}
 	newconfd "${FILESDIR}"/${PN}.conf ${PN}
 }
@@ -178,14 +195,9 @@ pkg_postinst() {
 	elog "Run as root:"
 	elog "gpasswd -a boinc video"
 	elog
-	# Add information about BOINC supporting OpenCL
-	elog "BOINC supports OpenCL. To use it you have to eselect"
-	if use cuda; then
-		elog "nvidia as the OpenCL implementation, as you are using CUDA."
-	else
-		elog "the correct OpenCL implementation for your graphic card."
-	fi
-	elog
+
+	optfeature_header "If you want to run ATLAS native tasks by LHC@home, you need to install:"
+	optfeature "CERN VM filesystem support" net-fs/cvmfs
 }
 
 pkg_postrm() {
