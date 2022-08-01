@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=json? ( dev-libs/json-c:= ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
+DESCRIPTION=C Library for NVM Express on Linux
+EAPI=8
+HOMEPAGE=https://github.com/linux-nvme/libnvme
+INHERIT=meson
+IUSE=+json ssl +uuid
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=json? ( dev-libs/json-c:= ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
+SLOT=0
+SRC_URI=https://github.com/linux-nvme/libnvme/archive/refs/tags/v1.1.tar.gz -> libnvme-1.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=6a469a63899a83c01fb3a6964726bb0c
