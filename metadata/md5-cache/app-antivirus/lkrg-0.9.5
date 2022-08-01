@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-openwall ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile install postinst postrm preinst setup unpack
+DEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=Linux Kernel Runtime Guard
+EAPI=8
+HOMEPAGE=https://lkrg.org
+INHERIT=linux-mod linux-info systemd verify-sig
+IUSE=dist-kernel verify-sig
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+SLOT=0
+SRC_URI=https://lkrg.org/download/lkrg-0.9.5.tar.gz verify-sig? ( https://lkrg.org/download/lkrg-0.9.5.tar.gz.sign )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6ff232574f0bcad33767903505553e8d	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=b3654a36dfb34cf3a4e5f085c125c87c
