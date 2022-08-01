@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pecl.php.net/memcached
 INHERIT=php-ext-pecl-r3
 IUSE=igbinary json sasl +session test php_targets_php7-4 php_targets_php8-0 php_targets_php8-1
-KEYWORDS=~amd64 arm arm64 ~x86
+KEYWORDS=amd64 arm arm64 x86
 LICENSE=PHP-3.01
 RDEPEND=|| ( dev-libs/libmemcached-awesome[sasl(-)?] >=dev-libs/libmemcached-1.0.14[sasl(-)?] ) sys-libs/zlib igbinary? ( dev-php/igbinary[php_targets_php7-4(-)?,php_targets_php8-0(-)?,php_targets_php8-1(-)?] ) php_targets_php7-4? ( dev-lang/php:7.4[json(+)?,session(-)?] ) php_targets_php8-0? ( dev-lang/php:8.0[json(+)?,session(-)?] ) php_targets_php8-1? ( dev-lang/php:8.1[json(+)?,session(-)?] )
 REQUIRED_USE=|| ( php_targets_php7-4 php_targets_php8-0 php_targets_php8-1 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=7
 SRC_URI=https://pecl.php.net/get/memcached-3.2.0.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	php-ext-source-r3	3c26d87acac034aedf8bf126f7010c8a	php-ext-pecl-r3	5db9384543980900b5ecbac76136b6a8
-_md5_=9eca613e1ea300fc94480af97c885870
+_md5_=23b183b07b49d471f8795c2df1ec7863
