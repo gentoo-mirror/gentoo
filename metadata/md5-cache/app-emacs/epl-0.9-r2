@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/ert-runner ) >=app-editors/emacs-24:*
+BDEPEND=test? ( app-emacs/f ) >=app-editors/emacs-24:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=A convenient high-level API for package.el
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cask/epl/archive/refs/tags/0.9.tar.gz -> epl-0.9.tar.gz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
-_md5_=37f24a7fd2ccb8ba480456b76d5e581b
+_md5_=3bfef452434dab34dbfa969405001ac1

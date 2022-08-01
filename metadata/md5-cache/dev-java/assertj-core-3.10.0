@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://assertj.github.io/doc/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~ppc64
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/byte-buddy-1.12.12:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=3
 SRC_URI=https://github.com/assertj/assertj-core/archive/assertj-core-3.10.0.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	cc510ad15292e222d436a547adffe6a9
-_md5_=a754a210fa687a5fc657db447521eb87
+_md5_=ff1780090e94e0dcc8cd0ef6afae3ca4
