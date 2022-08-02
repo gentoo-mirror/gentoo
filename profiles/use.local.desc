@@ -1798,10 +1798,11 @@ dev-lang/php:xmlwriter - Enable XMLWriter support
 dev-lang/php:xslt - Enable the XSL extension
 dev-lang/polyml:portable - Build the portable interpreter version of Poly/ML instead of native
 dev-lang/python:bluetooth - Build Bluetooth protocol support in socket module
-dev-lang/python:libedit - Link readline extension against dev-libs/libedit instead of sys-libs/readline.
+dev-lang/python:ensurepip - Install the ensurepip module that uses bundled wheels to bootstrap pip and setuptools (if disabled, it will be only possible to use venv `--without-pip`)
+dev-lang/python:libedit - Link readline extension against dev-libs/libedit instead of sys-libs/readline
 dev-lang/python:lto - Optimize the build using Link Time Optimization (LTO)
 dev-lang/python:pgo - Optimize the build using Profile Guided Optimization (PGO)
-dev-lang/python:wininst - Install Windows executables required to create an executable installer for MS Windows.
+dev-lang/python:wininst - Install Windows executables required to create an executable installer for MS Windows
 dev-lang/python-exec:native-symlinks - Install generic symlinks like python and python3. If this flag is disabled, only versioned python3.X executables will be available to end users and ebuilds not using python eclasses.
 dev-lang/qu-prolog:pedro - Pedro subscription/notification communications system
 dev-lang/rakudo:clang - Use Clang to compile the MoarVM backend
