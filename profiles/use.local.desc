@@ -2603,12 +2603,33 @@ dev-qt/qt-docs:xmlpatterns - Install documentation for dev-qt/qtxmlpatterns
 dev-qt/qt3d:gamepad - Add support for gamepad hardware via dev-qt/qtgamepad
 dev-qt/qt3d:qml - Build QML/QtQuick bindings
 dev-qt/qt3d:vulkan - Enable support for Vulkan
+dev-qt/qtbase:X - Build the XCB platform plugin and enable X11 integration
+dev-qt/qtbase:brotli - Enable support for Brotli decompression
+dev-qt/qtbase:concurrent - Build Qt6Concurrent module
+dev-qt/qtbase:dbus - Build Qt6DBus module
+dev-qt/qtbase:egl - Enable EGL integration
+dev-qt/qtbase:eglfs - Build the EGL Full Screen/Single Surface platform plugin
+dev-qt/qtbase:evdev - Enable support for input devices via evdev
+dev-qt/qtbase:gssapi - Enable support for GSSAPI (virtual/krb5)
+dev-qt/qtbase:gtk - Build the GTK platform theme plugin
+dev-qt/qtbase:gui - Build Qt6Gui module
+dev-qt/qtbase:libinput - Enable support for input devices via dev-libs/libinput
+dev-qt/qtbase:libproxy - Use net-libs/libproxy for automatic HTTP/SOCKS proxy configuration
+dev-qt/qtbase:network - Build Qt6Network module
+dev-qt/qtbase:sql - Build Qt6Sql module
+dev-qt/qtbase:systemd - Enable native journald logging support
+dev-qt/qtbase:tslib - Enable support for touchscreen devices via x11-libs/tslib
+dev-qt/qtbase:tuio - Build plugin to receive touch events over the TUIO protocol
+dev-qt/qtbase:vulkan - Enable support for Vulkan
+dev-qt/qtbase:widgets - Build Qt6Widgets module
 dev-qt/qtbluetooth:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtcharts:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtcore:old-kernel - Disable syscalls not available on Linux kernels older than 4.11
 dev-qt/qtcore:systemd - Enable native journald logging support
 dev-qt/qtdatavis3d:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtdeclarative:localstorage - Build the LocalStorage import for QtQuick (requires QtSql)
+dev-qt/qtdeclarative:opengl - Enable OpenGL support
+dev-qt/qtdeclarative:sql - Enable QtSQL support
 dev-qt/qtdeclarative:vulkan - Enable support for Vulkan
 dev-qt/qtdeclarative:widgets - Enable QtWidgets support
 dev-qt/qtdiag:network - Report network information
@@ -2640,6 +2661,16 @@ dev-qt/qtquickcontrols2:widgets - Enable QtWidgets support
 dev-qt/qtscript:scripttools - Build the QtScriptTools module (requires QtWidgets)
 dev-qt/qtsensors:qml - Build QML bindings
 dev-qt/qtspeech:flite - Enable text-to-speech synthesizer plugin using app-accessibility/flite engine
+dev-qt/qttools:assistant - Build Qt Assistant
+dev-qt/qttools:designer - Build Qt Designer
+dev-qt/qttools:distancefieldgenerator - Build Qt Distance Field Generator
+dev-qt/qttools:linguist - Build Qt Linguist
+dev-qt/qttools:pixeltool - Build Qt Pixeltool
+dev-qt/qttools:qdbus - Build the Qt D-Bus Interface and D-Bus Viewer
+dev-qt/qttools:qdoc - Build Qt Documentation Generator
+dev-qt/qttools:qtattributionsscanner - Build Qt Source Code Attribution Scanner
+dev-qt/qttools:qtdiag - Build Qt Diag
+dev-qt/qttools:qtplugininfo - Build Qt Plugin Info
 dev-qt/qtvirtualkeyboard:handwriting - Adds handwriting recognition integration support
 dev-qt/qtwayland:vulkan - Enable support for Vulkan-based server buffer integration
 dev-qt/qtwebchannel:qml - Build QML/QtQuick bindings and imports
