@@ -1,0 +1,15 @@
+BDEPEND=examples? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) ) verify-sig? ( sec-keys/openpgp-keys-waynedavison ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install postinst prepare setup unpack
+DEPEND=acl? ( virtual/acl ) examples? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) dev-lang/perl ) lz4? ( app-arch/lz4 ) ssl? ( dev-libs/openssl:0= ) system-zlib? ( sys-libs/zlib ) xattr? ( kernel_linux? ( sys-apps/attr ) ) xxhash? ( dev-libs/xxhash ) zstd? ( >=app-arch/zstd-1.4 ) >=dev-libs/popt-1.5 iconv? ( virtual/libiconv )
+DESCRIPTION=File transfer program to keep remote files into sync
+EAPI=8
+HOMEPAGE=https://rsync.samba.org/
+INHERIT=flag-o-matic prefix python-single-r1 systemd verify-sig
+IUSE=acl examples iconv ipv6 lz4 ssl stunnel system-zlib xattr xxhash zstd python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 verify-sig
+LICENSE=GPL-3
+RDEPEND=acl? ( virtual/acl ) examples? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) dev-lang/perl ) lz4? ( app-arch/lz4 ) ssl? ( dev-libs/openssl:0= ) system-zlib? ( sys-libs/zlib ) xattr? ( kernel_linux? ( sys-apps/attr ) ) xxhash? ( dev-libs/xxhash ) zstd? ( >=app-arch/zstd-1.4 ) >=dev-libs/popt-1.5 iconv? ( virtual/libiconv )
+REQUIRED_USE=examples? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+SLOT=0
+SRC_URI=https://rsync.samba.org/ftp/rsync/src-previews/rsync-3.2.5pre1.tar.gz verify-sig? ( https://rsync.samba.org/ftp/rsync/src-previews/rsync-3.2.5pre1.tar.gz.asc )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=9077336cb0b472aea14d1b1376f33c56
