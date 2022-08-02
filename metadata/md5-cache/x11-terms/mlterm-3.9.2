@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=http://mlterm.sourceforge.net/
 INHERIT=desktop
 IUSE=+X bidi brltty cairo debug fbcon fcitx freewnn gtk harfbuzz ibus libssh2 m17n-lib nls regis scim skk static-libs uim utempter wayland xft
-KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~ppc ~ppc64 ~riscv x86
 LICENSE=BSD
 RDEPEND=virtual/libcrypt:= X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) bidi? ( dev-libs/fribidi ) brltty? ( app-accessibility/brltty ) cairo? ( x11-libs/cairo[X(+)] ) fbcon? ( media-fonts/unifont ) fcitx? ( app-i18n/fcitx ) freewnn? ( app-i18n/freewnn ) gtk? ( x11-libs/gtk+:3 ) harfbuzz? ( media-libs/harfbuzz[truetype(+)] ) ibus? ( app-i18n/ibus ) libssh2? ( net-libs/libssh2 ) m17n-lib? ( dev-libs/m17n-lib ) nls? ( virtual/libintl ) regis? ( || ( media-libs/sdl-ttf media-libs/sdl2-ttf ) ) scim? ( app-i18n/scim ) skk? ( || ( virtual/skkserv app-i18n/skk-jisyo ) ) uim? ( app-i18n/uim ) utempter? ( sys-libs/libutempter ) wayland? ( dev-libs/wayland x11-libs/libxkbcommon ) xft? ( x11-libs/libXft )
 REQUIRED_USE=|| ( X fbcon wayland )
 SLOT=0
 SRC_URI=mirror://sourceforge/mlterm/mlterm-3.9.2.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa
-_md5_=31063498c1e7e6abea8e022687f4ba44
+_md5_=6761a575f22b94906fe867a5cdb60b3e
