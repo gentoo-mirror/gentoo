@@ -31,6 +31,8 @@ RESTRICT="test"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/linuxcontainers.asc
 
+PATCHES=( "${FILESDIR}"/lxcfs-5.0.1-fix-reinitialization-with-fuse3.patch )
+
 python_check_deps() {
 	python_has_version -b "dev-python/jinja[${PYTHON_USEDEP}]"
 }
