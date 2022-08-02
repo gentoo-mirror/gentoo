@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/ExtUtils-CChecker dev-perl/Module-Build virtual/perl-ExtUtils-CBuilder virtual/perl-ExtUtils-ParseXS dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=XS functions to assist in parsing keyword syntax
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/XS-Parse-Keyword
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.24.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	4f80b00fab088c2f6d68edb55a6c4bf4
+_md5_=a5ef1ebd4bec08ada1fb06f196f98286
