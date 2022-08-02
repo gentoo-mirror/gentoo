@@ -1,0 +1,16 @@
+BDEPEND=app-arch/zip dev-go/gox >=dev-lang/go-1.15.3 filecaps? ( sys-libs/libcap ) >=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=acct-group/vault acct-user/vault
+DESCRIPTION=A tool for managing secrets
+EAPI=7
+HOMEPAGE=https://vaultproject.io/
+INHERIT=fcaps go-module systemd
+IUSE=+webui +filecaps
+KEYWORDS=~amd64 ~arm64
+LICENSE=MPL-2.0 Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT
+RDEPEND=acct-group/vault acct-user/vault filecaps? ( sys-libs/libcap )
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/zmedico/vault/archive/refs/tags/v1.11.2-vendor.tar.gz -> vault-1.11.2-vendor.tar.gz webui? ( https://dev.gentoo.org/~zmedico/dist/vault-1.11.2-webui.tar.xz )
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=668064f193327672401ce5ffdb8b7054

@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-bindata >=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile configure install postinst unpack
+DEPEND=libvirt? ( app-emulation/libvirt:=[qemu] )
+DESCRIPTION=Single Node Kubernetes Cluster
+EAPI=7
+HOMEPAGE=https://github.com/kubernetes/minikube https://kubernetes.io
+INHERIT=bash-completion-r1 go-module toolchain-funcs
+IUSE=hardened libvirt
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-4.0 CC-BY-SA-4.0 CC0-1.0 GPL-2 ISC LGPL-3 MIT MPL-2.0 WTFPL-2 ZLIB || ( LGPL-3+ GPL-2 ) || ( Apache-2.0 LGPL-3+ ) || ( Apache-2.0 CC-BY-4.0 )
+RDEPEND=libvirt? ( app-emulation/libvirt:=[qemu] )
+RESTRICT=strip test
+SLOT=0
+SRC_URI=https://github.com/zmedico/minikube/archive/refs/tags/v1.26.1-vendor.tar.gz -> minikube-1.26.1-vendor.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=c365582772d7fec63d3feb481b3ce693
