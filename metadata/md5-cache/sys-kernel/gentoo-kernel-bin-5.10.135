@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/bc sys-devel/flex virtual/libelf virtual/yacc test? ( dev-tcltk/expect sys-apps/coreutils sys-kernel/dracut sys-fs/e2fsprogs amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) ppc? ( app-emulation/qemu[qemu_softmmu_targets_ppc] ) ppc64? ( app-emulation/qemu[qemu_softmmu_targets_ppc64] ) x86? ( app-emulation/qemu[qemu_softmmu_targets_i386] ) )
+DEFINED_PHASES=config configure install postinst postrm preinst prepare prerm pretend test unpack
+DESCRIPTION=Pre-built Linux kernel with Gentoo patches
+EAPI=7
+HOMEPAGE=https://www.kernel.org/
+INHERIT=kernel-install toolchain-funcs
+IUSE=+initramfs test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=>=virtual/dist-kernel-5.10.135
+RDEPEND=!sys-kernel/gentoo-kernel:5.10.135 || ( sys-kernel/installkernel-gentoo sys-kernel/installkernel-systemd-boot ) initramfs? ( >=sys-kernel/dracut-049-r3 ) virtual/libelf
+RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
+SLOT=5.10.135
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.10-144.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.10-144.extras.tar.xz amd64? ( https://dev.gentoo.org/~mgorny/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-5.10.135-1.xpak -> gentoo-kernel-5.10.135-1.amd64.xpak ) arm64? ( https://dev.gentoo.org/~mgorny/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-5.10.135-1.xpak -> gentoo-kernel-5.10.135-1.arm64.xpak ) ppc64? ( https://dev.gentoo.org/~mgorny/binpkg/ppc64le/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-5.10.135-1.xpak -> gentoo-kernel-5.10.135-1.ppc64le.xpak ) x86? ( https://dev.gentoo.org/~mgorny/binpkg/x86/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-5.10.135-1.xpak -> gentoo-kernel-5.10.135-1.x86.xpak )
+_eclasses_=dist-kernel-utils	31e337cd76e9e16709e65d794fb58be2	mount-boot	02a45c5e022c08dbc05178522b2772f2	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-install	149f830e772fdf45b278492c8c00d505
+_md5_=586deb0cf758ce1c86146b2ef8e7122e
