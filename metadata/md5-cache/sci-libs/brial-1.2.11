@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/boost sci-libs/m4ri[png=]
+DESCRIPTION=A C++ library for polynomials over boolean rings
+EAPI=8
+HOMEPAGE=https://github.com/BRiAl/BRiAl
+INHERIT=toolchain-funcs
+IUSE=png
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=BSD GPL-2+
+RDEPEND=dev-libs/boost sci-libs/m4ri[png=]
+SLOT=0
+SRC_URI=https://github.com/BRiAl/BRiAl/releases/download/1.2.11/brial-1.2.11.tar.bz2
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=9dae471825e137e8b5306faea96ef251
