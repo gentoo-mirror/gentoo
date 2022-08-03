@@ -11,17 +11,14 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0/${PV}"
-IUSE="curl doc fftw +glpk gnuplot gui hdf5 java json opengl
-	portaudio postscript +qhull +qrupdate readline sndfile +sparse
-	ssl static-libs sundials X zlib"
-# Issue when building w/ SSL needs investigation
-#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+IUSE="curl doc fftw +glpk gnuplot gui hdf5 java json opengl portaudio postscript +qhull +qrupdate readline sndfile +sparse ssl static-libs sundials X zlib"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 
 # Although it is listed in INSTALL.OCTAVE as a build tool, Octave runs
 # "makeinfo" from sys-apps/texinfo at runtime to convert its texinfo
 # documentation to text (see scripts/help/help.m).
 #
-# (un)zip isn't mentioned, but there's a test that uses it (bug 775254).
+# (un)zip isn't mentioned, but there's a test that uses it (bug #775254).
 #
 RDEPEND="
 	app-arch/bzip2
@@ -29,14 +26,14 @@ RDEPEND="
 	app-arch/zip
 	app-text/ghostscript-gpl
 	sys-apps/texinfo
-	dev-libs/libpcre:3=
-	sys-libs/ncurses:0=
+	dev-libs/libpcre:=
+	sys-libs/ncurses:=
 	sys-libs/zlib
 	virtual/blas
 	virtual/lapack
-	curl? ( net-misc/curl:0= )
+	curl? ( net-misc/curl:= )
 	fftw? ( sci-libs/fftw:3.0= )
-	glpk? ( sci-mathematics/glpk:0= )
+	glpk? ( sci-mathematics/glpk:= )
 	gnuplot? ( sci-visualization/gnuplot )
 	gui? (
 		dev-qt/qtcore:5
@@ -48,15 +45,15 @@ RDEPEND="
 		dev-qt/qtwidgets:5
 		x11-libs/qscintilla:=
 	)
-	hdf5? ( sci-libs/hdf5:0= )
+	hdf5? ( sci-libs/hdf5:= )
 	java? ( >=virtual/jre-1.8:* )
 	json? ( dev-libs/rapidjson )
 	opengl? (
-		media-libs/freetype:2=
-		media-libs/fontconfig:1.0=
+		media-libs/freetype:=
+		media-libs/fontconfig:=
 		virtual/glu
 		>=x11-libs/fltk-1.3:1=[opengl,xft]
-		x11-libs/gl2ps:0=
+		x11-libs/gl2ps:=
 	)
 	portaudio? ( media-libs/portaudio )
 	postscript? (
@@ -64,27 +61,30 @@ RDEPEND="
 		media-gfx/pstoedit
 		media-gfx/transfig
 	)
-	qhull? ( media-libs/qhull:0= )
-	qrupdate? ( sci-libs/qrupdate:0= )
-	readline? ( sys-libs/readline:0= )
+	qhull? ( media-libs/qhull:= )
+	qrupdate? ( sci-libs/qrupdate:= )
+	readline? ( sys-libs/readline:= )
 	sndfile? ( media-libs/libsndfile )
 	sparse? (
-		sci-libs/arpack:0=
-		sci-libs/camd:0=
-		sci-libs/ccolamd:0=
-		sci-libs/cholmod:0=
-		sci-libs/colamd:0=
-		sci-libs/cxsparse:0=
-		sci-libs/umfpack:0=
+		sci-libs/arpack:=
+		sci-libs/camd:=
+		sci-libs/ccolamd:=
+		sci-libs/cholmod:=
+		sci-libs/colamd:=
+		sci-libs/cxsparse:=
+		sci-libs/umfpack:=
 	)
 	ssl? (
-		dev-libs/openssl:0=
+		dev-libs/openssl:=
 	)
-	sundials? ( >=sci-libs/sundials-4:0= )
-	X? ( x11-libs/libX11:0= )"
-DEPEND="${RDEPEND}
+	sundials? ( >=sci-libs/sundials-4:= )
+	X? ( x11-libs/libX11:= )
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-util/gperf
 	virtual/imagemagick-tools
+	virtual/pkgconfig
 	doc? (
 		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-plaingeneric
@@ -92,11 +92,10 @@ DEPEND="${RDEPEND}
 		virtual/latex-base
 	)
 	java? ( >=virtual/jdk-1.8:* )
+	gui? ( dev-qt/linguist-tools:5 )
 	qrupdate? ( app-misc/pax-utils )
-	sparse? ( app-misc/pax-utils )"
-BDEPEND="
-	virtual/pkgconfig
-	gui? ( dev-qt/linguist-tools:5 )"
+	sparse? ( app-misc/pax-utils )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.1.0-pkgbuilddir.patch
@@ -120,13 +119,16 @@ src_prepare() {
 }
 
 src_configure() {
-	# unfortunate dependency on mpi from hdf5 (bug #302621)
+	# Unfortunate dependency on mpi from hdf5 (bug #302621)
 	use hdf5 && has_version sci-libs/hdf5[mpi] && \
 		export CXX=mpicxx CC=mpicc FC=mpif77 F77=mpif77
 
-	# tell autoconf where to find qt binaries, fix bug #837752
-	export MOC="$(qt5_get_bindir)/moc" UIC="$(qt5_get_bindir)/uic" RCC="$(qt5_get_bindir)/rcc" \
-		LRELEASE="$(qt5_get_bindir)/lrelease" QCOLLECTIONGENERATOR="$(qt5_get_bindir)/qcollectiongenerator" \
+	# Tell autoconf where to find qt binaries, fix bug #837752
+	export MOC="$(qt5_get_bindir)/moc" \
+		UIC="$(qt5_get_bindir)/uic" \
+		RCC="$(qt5_get_bindir)/rcc" \
+		LRELEASE="$(qt5_get_bindir)/lrelease" \
+		QCOLLECTIONGENERATOR="$(qt5_get_bindir)/qcollectiongenerator" \
 		QHELPGENERATOR="$(qt5_get_bindir)/qhelpgenerator"
 
 	# Some of these use_with flags are a bit mismatched. The configure
@@ -180,7 +182,8 @@ src_configure() {
 }
 
 src_compile() {
-	export VARTEXFONTS="${T}/fonts" # otherwise it will write to /var/cache/fonts/ and trip sandbox
+	# Otherwise it will write to /var/cache/fonts/ and trip sandbox
+	export VARTEXFONTS="${T}/fonts"
 
 	default
 
