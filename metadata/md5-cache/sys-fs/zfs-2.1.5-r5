@@ -6,6 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/openzfs/zfs
 INHERIT=autotools bash-completion-r1 dist-kernel-utils distutils-r1 flag-o-matic linux-info pam systemd udev usr-ldscript verify-sig
 IUSE=custom-cflags debug dist-kernel kernel-builtin minimal nls pam python +rootfs test-suite python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 split-usr verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=BSD-2 CDDL MIT
 PDEPEND=dist-kernel? ( ~sys-fs/zfs-kmod-2.1.5[dist-kernel] )
 RDEPEND=net-libs/libtirpc:= sys-apps/util-linux sys-libs/zlib virtual/libudev:= dev-libs/openssl:0= !minimal? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) ) pam? ( sys-libs/pam ) python? ( virtual/python-cffi[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) !kernel-builtin? ( ~sys-fs/zfs-kmod-2.1.5:= ) !prefix? ( virtual/udev ) sys-fs/udev-init-scripts virtual/awk dist-kernel? ( virtual/dist-kernel:= ) rootfs? ( app-arch/cpio app-misc/pax-utils !<sys-kernel/genkernel-3.5.1.1 ) test-suite? ( app-shells/ksh sys-apps/kmod[tools] sys-apps/util-linux sys-devel/bc sys-block/parted sys-fs/lsscsi sys-fs/mdadm sys-process/procps )
@@ -14,4 +15,4 @@ RESTRICT=test
 SLOT=0/5
 SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.1.5/zfs-2.1.5.tar.gz https://dev.gentoo.org/~sam/distfiles/sys-fs/zfs/zfs-2.1.5-patches.tar.xz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.1.5/zfs-2.1.5.tar.gz.asc )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	dist-kernel-utils	31e337cd76e9e16709e65d794fb58be2	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	7b65c41111cd80a4d4a0921e8d4a310c	distutils-r1	e3b0f72d558eb613ff83262d22cbf887	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	pam	e44a1dd98f13e1ad76de01e919bde1f1	systemd	2736b403a83f194b59b767f3b344c2c1	udev	f3a0a3964e2028a140c181f00eea9712	usr-ldscript	5c738dce357b54d5a90e30094d2f983c	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=1e59727e3e64112c7fad387e55467493
+_md5_=89a1ca0b02b028fd6c26fbb8f1b582e8
