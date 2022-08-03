@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=|| ( >=dev-python/pypy3-exe-7.3.9_p3:3.9-7.3.9[bzip2?,ncurses?] >=dev-python/pypy3-exe-bin-7.3.9_p3:3.9-7.3.9 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy3-bin-7.3.0:0 test? ( || ( >=dev-lang/python-2.7.10_p15:2.7 ) !!dev-python/pytest-forked )
+DESCRIPTION=A fast, compliant alternative implementation of the Python (3.9) language
+EAPI=8
+HOMEPAGE=https://www.pypy.org/ https://foss.heptapod.net/pypy/pypy/
+INHERIT=pax-utils python-any-r1 toolchain-funcs
+IUSE=bzip2 +ensurepip gdbm +jit ncurses sqlite test tk
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=|| ( >=dev-python/pypy3-exe-7.3.9_p3:3.9-7.3.9[bzip2?,ncurses?] >=dev-python/pypy3-exe-bin-7.3.9_p3:3.9-7.3.9 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy3-bin-7.3.0:0
+RESTRICT=test
+SLOT=0/pypy39-pp73-336
+SRC_URI=https://buildbot.pypy.org/pypy/pypy3.9-v7.3.9-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.9-gentoo-patches-7.3.9_p4.tar.xz
+_eclasses_=pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_md5_=8ee5a5e555ecdc3516b4f08a672ddddd
