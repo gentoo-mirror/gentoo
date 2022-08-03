@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.musicpd.org/clients/ncmpc/ https://github.com/MusicPlayerDaemon/ncmpc
 INHERIT=meson
 IUSE=async-connect chat-screen doc +help-screen key-screen +library-screen lirc lyrics-screen +mouse nls outputs-screen pcre search-screen +song-screen
-KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ppc ppc64 ~sparc ~x86
 LICENSE=GPL-2+
 RDEPEND=media-libs/libmpdclient sys-libs/ncurses:=[unicode(+)] lirc? ( app-misc/lirc ) pcre? ( dev-libs/libpcre2 )
 SLOT=0
 SRC_URI=https://www.musicpd.org/download/ncmpc/0/ncmpc-0.47.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=85a7142b667a6c19a707baa02d106888
+_md5_=06c921f02b351608e97788855e9aaa48
