@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://systemd.io/
 INHERIT=bash-completion-r1 flag-o-matic meson-multilib python-any-r1 toolchain-funcs udev usr-ldscript
 IUSE=+acl boot +kmod selinux sysusers +tmpfiles test +udev abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2 LGPL-2.1 MIT public-domain
 PDEPEND=udev? ( >=sys-fs/udev-init-scripts-34 )
 RDEPEND=elibc_musl? ( >=sys-libs/musl-1.2.3 ) selinux? ( sys-libs/libselinux:0= ) tmpfiles? ( acl? ( sys-apps/acl:0= ) ) udev? ( >=sys-apps/util-linux-2.30:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] sys-libs/libcap:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] virtual/libcrypt:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] acl? ( sys-apps/acl:0= ) kmod? ( >=sys-apps/kmod-15:0= ) ) !udev? ( >=sys-apps/util-linux-2.30:0= sys-libs/libcap:0= virtual/libcrypt:= ) boot? ( !<sys-boot/systemd-boot-250 ) tmpfiles? ( !<sys-apps/systemd-tmpfiles-250 ) udev? ( acct-group/audio acct-group/cdrom acct-group/dialout acct-group/disk acct-group/input acct-group/kmem acct-group/kvm acct-group/lp acct-group/render acct-group/sgx acct-group/tape acct-group/tty acct-group/video !sys-apps/gentoo-systemd-integration !sys-apps/hwids[udev] !<sys-fs/udev-250 !sys-fs/eudev ) !sys-apps/systemd
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd-stable/archive/refs/tags/v251.3.tar.gz -> systemd-stable-251.3.tar.gz elibc_musl? ( https://dev.gentoo.org/~floppym/dist/systemd-musl-patches-251.2.tar.gz )
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	udev	f3a0a3964e2028a140c181f00eea9712	usr-ldscript	5c738dce357b54d5a90e30094d2f983c
-_md5_=0a89c6da4fc9b0568c42f6a7f2ed3067
+_md5_=2fb2d42600694af4d2ede5ebe0abcd27
