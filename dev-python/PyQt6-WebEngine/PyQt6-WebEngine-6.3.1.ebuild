@@ -8,10 +8,12 @@ PYTHON_COMPAT=( python3_{8..11} )
 inherit distutils-r1 flag-o-matic multiprocessing qmake-utils
 
 QT_PV="6.3:6" # minimum tested qt version
+MY_P="${P/-/_}"
 
 DESCRIPTION="Python bindings for QtWebEngine"
 HOMEPAGE="https://www.riverbankcomputing.com/software/pyqtwebengine/"
-SRC_URI="mirror://pypi/${P::1}/${PN}/${P}.tar.gz"
+SRC_URI="mirror://pypi/${P::1}/${PN}/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -42,8 +44,7 @@ src_prepare() {
 src_configure() {
 	append-cxxflags -std=c++17 # for clang and old gcc that default to <17
 
-	# hack: currently lacking qt6_get_bindir (or alternatively have
-	# qmake6 in PATH like qmake5 is so it wouldn't matter)
+	# workaround until bug 863395 has something to offer
 	local qmake6=$(qt5_get_bindir)/qmake6
 	qmake6=${qmake6//qt5/qt6}
 

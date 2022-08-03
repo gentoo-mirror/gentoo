@@ -16,9 +16,9 @@ SRC_URI="mirror://pypi/${P::1}/${PN}/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-# currently keeping defaults in sync with qtbase, and beside that trying to
-# stay minimal'ish given each builds relatively slowly (but still subject to
-# change if something is needed by most consumers)
+# currently keeping defaults in sync with qtbase (no extra deps), but trying
+# to stay minimal'ish given each builds relatively slowly (subject to change,
+# perhaps more or less depending on consumers and if qtbase is ever split)
 IUSE="
 	+dbus debug qml designer examples gles2-only +gui help multimedia
 	+network opengl positioning printsupport quick quick3d serialport
@@ -59,7 +59,7 @@ DEPEND="
 	websockets? ( >=dev-qt/qtwebsockets-${QT_PV} )"
 RDEPEND="
 	${DEPEND}
-	>=dev-python/PyQt6_sip-13.4[${PYTHON_USEDEP}]"
+	>=dev-python/PyQt6-sip-13.4[${PYTHON_USEDEP}]"
 BDEPEND="
 	>=dev-python/PyQt-builder-1.11[${PYTHON_USEDEP}]
 	>=dev-qt/qtbase-${QT_PV}
@@ -84,8 +84,7 @@ src_configure() {
 		echo ${*/#/${state}}
 	}
 
-	# hack: currently lacking qt6_get_bindir (or alternatively have
-	# qmake6 in PATH like qmake5 is so it wouldn't matter)
+	# workaround until bug 863395 has something to offer
 	local qmake6=$(qt5_get_bindir)/qmake6
 	qmake6=${qmake6//qt5/qt6}
 
