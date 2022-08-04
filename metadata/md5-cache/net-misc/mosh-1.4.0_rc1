@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/openssl:= dev-libs/protobuf:= sys-libs/ncurses:= sys-libs/zlib virtual/ssh client? ( dev-lang/perl dev-perl/IO-Tty ) utempter? ( sys-libs/libutempter )
+DESCRIPTION=Mobile shell that supports roaming and intelligent local echo
+EAPI=8
+HOMEPAGE=https://mosh.org
+INHERIT=autotools bash-completion-r1
+IUSE=+client examples +mosh-hardening +server syslog ufw +utempter
+LICENSE=GPL-3
+RDEPEND=dev-libs/openssl:= dev-libs/protobuf:= sys-libs/ncurses:= sys-libs/zlib virtual/ssh client? ( dev-lang/perl dev-perl/IO-Tty ) utempter? ( sys-libs/libutempter )
+REQUIRED_USE=|| ( client server ) examples? ( client )
+SLOT=0
+SRC_URI=https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0-rc1/mosh-1.4.0-rc1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=ded316f5a55a5c8ea681a8528424664a
