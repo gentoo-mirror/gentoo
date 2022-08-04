@@ -29,9 +29,5 @@ BDEPEND="
 	dev-python/wheel[${PYTHON_USEDEP}]
 "
 
-PATCHES=(
-	"${FILESDIR}"/pyroute2-0.7.1-specify-build-backend-in-pyproject.toml.patch
-)
-
 # tests need root access
 RESTRICT="test"
