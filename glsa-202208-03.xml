@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-03">
+    <title>Babel: Remote code execution</title>
+    <synopsis>A vulnerability in Babel could result in remote code execution.</synopsis>
+    <product type="ebuild">Babel</product>
+    <announced>2022-08-04</announced>
+    <revised count="1">2022-08-04</revised>
+    <bug>786954</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/Babel" auto="yes" arch="*">
+            <unaffected range="ge">2.9.1</unaffected>
+            <vulnerable range="lt">2.9.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Babel is a collection of tools for internationalizing Python applications.</p>
+    </background>
+    <description>
+        <p>Babel does not properly restrict which sources a locale can be loaded from. If Babel loads an attacker-controlled .dat file, arbitrary code execution can be achieved via unsafe Pickle deserialization.</p>
+    </description>
+    <impact type="normal">
+        <p>An attacker with filesystem access and control over the locales Babel loads can achieve code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Babel users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/Babel-2.9.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20095">CVE-2021-20095</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-04T13:53:26.311668Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-04T13:53:26.316368Z">ajak</metadata>
+</glsa>
