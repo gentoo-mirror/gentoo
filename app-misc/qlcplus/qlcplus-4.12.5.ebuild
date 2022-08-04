@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit qmake-utils udev virtualx xdg
 
@@ -37,9 +37,14 @@ RDEPEND="
 	virtual/libusb:1
 	virtual/udev
 "
+IDEPEND="
+	dev-util/desktop-file-utils
+"
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
 "
+
+PATCHES=( "${FILESDIR}"/qlcplus-4.12.5-fix-test-issue.patch )
 
 src_prepare() {
 	default
@@ -60,6 +65,20 @@ src_install() {
 	emake INSTALL_ROOT="${D}" install
 }
 
+pkg_postinst() {
+	udev_reload
+
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+}
+
 src_test() {
 	virtx emake check
+}
+
+pkg_postrm() {
+	udev_reload
+
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }

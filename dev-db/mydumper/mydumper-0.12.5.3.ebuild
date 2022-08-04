@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,7 +34,7 @@ PATCHES=(
 
 src_prepare() {
 	# respect user cflags; do not expand ${CMAKE_C_FLAGS} (!)
-	sed -i -e 's|-Werror -O3 -g|${CMAKE_C_FLAGS}|' CMakeLists.txt || die
+	sed -i -e 's|-O3 -g -Werror|${CMAKE_C_FLAGS}|' CMakeLists.txt || die
 
 	# fix doc install path
 	sed -i -e "s|share/doc/mydumper|share/doc/${PF}|" docs/CMakeLists.txt || die
