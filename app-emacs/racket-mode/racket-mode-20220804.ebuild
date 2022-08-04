@@ -3,7 +3,7 @@
 
 EAPI=8
 
-H=52e993f3b39416eeb4df6262491d4a42d0b35232
+H=89238bde54b3e9b6c85c6ce8437aa44a73fb71e1
 NEED_EMACS=25.1
 
 inherit elisp
@@ -15,7 +15,7 @@ S="${WORKDIR}"/${PN}-${H}
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-scheme/racket:=[-minimal]"
 BDEPEND="${RDEPEND}"
