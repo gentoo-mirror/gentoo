@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=mail-filter/libmilter:= reports? ( dev-perl/DBI )
+DESCRIPTION=Open source DMARC implementation
+EAPI=7
+HOMEPAGE=http://www.trusteddomain.org/opendmarc/
+INHERIT=autotools systemd
+IUSE=spf +reports
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ppc ppc64 sparc x86
+LICENSE=BSD
+RDEPEND=mail-filter/libmilter:= reports? ( dev-perl/DBI ) acct-user/opendmarc reports? ( dev-perl/DBD-mysql dev-perl/HTTP-Message dev-perl/Switch ) spf? ( mail-filter/libspf2 )
+SLOT=0/3
+SRC_URI=https://github.com/trusteddomainproject/OpenDMARC/archive/rel-opendmarc-1-4-1-1.tar.gz -> opendmarc-1.4.1.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=b1fcc06b6db5aae592e266e6044c4c17

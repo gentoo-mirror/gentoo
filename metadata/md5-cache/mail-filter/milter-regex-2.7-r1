@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=acct-user/milter-regex >=mail-filter/libmilter-1.0.2_p2:= virtual/yacc
+DESCRIPTION=A milter-based regular expression filter
+EAPI=7
+HOMEPAGE=https://www.benzedrine.ch/milter-regex.html
+INHERIT=toolchain-funcs
+KEYWORDS=amd64 x86
+LICENSE=BSD
+RDEPEND=acct-user/milter-regex >=mail-filter/libmilter-1.0.2_p2:=
+SLOT=0
+SRC_URI=https://www.benzedrine.ch/milter-regex-2.7.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=cf946dcd8cb454dfa3b80db58313b4a7
