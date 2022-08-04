@@ -6519,6 +6519,7 @@ net-misc/modemmanager:qrtr - Enable support for the QMI over IPC Router bus (QRT
 net-misc/mosh:client - Build network client
 net-misc/mosh:examples - Include example scripts
 net-misc/mosh:mosh-hardening - Enable compiler and linker options to frustrate memory corruption exploits
+net-misc/mosh:nettle - Use dev-libs/nettle for some cryptographic functions instead of dev-libs/openssl. With Nettle, some of mosh's own code is used for OCB.
 net-misc/mosh:server - Build network server
 net-misc/mosh:ufw - Install net-firewall/ufw rule set
 net-misc/mosh:utempter - Include libutempter support
