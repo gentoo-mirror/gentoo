@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-04">
+    <title>libmcpp: Denial of service</title>
+    <synopsis>Multiple vulnerabilities in libmcpp could result in a denial of service condition.</synopsis>
+    <product type="ebuild">libmcpp</product>
+    <announced>2022-08-04</announced>
+    <revised count="1">2022-08-04</revised>
+    <bug>718808</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-cpp/libmcpp" auto="yes" arch="*">
+            <unaffected range="ge">2.7.2_p5</unaffected>
+            <vulnerable range="lt">2.7.2_p5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libmcpp is a portable C/C++ preprocessor.</p>
+    </background>
+    <description>
+        <p>A buffer overflow and an out-of-bounds read vulnerability have been discovered in libmcpp, which could be exploited for denial of service.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker that can provide crafted input to libmcpp could achieve denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libmcpp users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-cpp/libmcpp-2.7.2_p5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-14274">CVE-2019-14274</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-04T13:53:45.282478Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-04T13:53:45.286989Z">ajak</metadata>
+</glsa>
