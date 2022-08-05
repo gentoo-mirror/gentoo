@@ -83,6 +83,9 @@ There are several options available:
   $ systemctl --user --now enable pipewire.socket pipewire-pulse.socket
   $ systemctl --user --now disable pipewire-media-session.service
   $ systemctl --user --force enable wireplumber.service
+  
+  Root user may replace --user with --global to change system default
+  configuration for all of the above commands.
 
 2. To use PulseAudio's daemon for sound, users should disable USE=sound-server
   for PipeWire, enable USE=daemon on media-sound/pulseaudio, and add
@@ -118,8 +121,8 @@ There are several options available:
 
   Alternatively, systemd users can run the following commands as root to change
   the default for all users:
-  # systemctl --user --global --enable pulseaudio.service pulseaudio.socket
-  # systemctl --user --global --force enable pipewire.socket pipewire-pulse.socket
+  # systemctl --global enable pulseaudio.service pulseaudio.socket
+  # systemctl --global --force disable pipewire.socket pipewire-pulse.socket
 
   (If taking this option, the services must be started manually as a one-off as
   a user.)
@@ -154,8 +157,8 @@ There are several options available:
 
    Alternatively, systemd users can run the following commands as root to change
    the default for all users,  again for the purposes of non-audio PipeWire use:
-   # systemctl --user --global --enable pipewire.socket
-   # systemctl --user --global --force enable wireplumber.service
+   # systemctl --global enable pipewire.socket
+   # systemctl --global --force enable wireplumber.service
 
    (If taking this option, the services must be started manually as a one-off as
    a user.)
