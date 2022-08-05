@@ -13,7 +13,7 @@ SRC_URI="
 	arm64? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-arm64-${PV}.tar.gz -> ${P}-arm64.tar.gz )
 "
 
-RESTRICT="mirror strip bindist"
+RESTRICT="strip bindist"
 
 LICENSE="
 	Apache-2.0
@@ -95,8 +95,7 @@ src_install() {
 	fperms +x /opt/${PN}/{,bin/}codium
 	fperms +x /opt/${PN}/chrome_crashpad_handler
 	fperms 4711 /opt/${PN}/chrome-sandbox
-	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass.sh
-	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/askpass-empty.sh
+	fperms 755 /opt/${PN}/resources/app/extensions/git/dist/{askpass,git-editor}{,-empty}.sh
 	fperms -R +x /opt/${PN}/resources/app/out/vs/base/node
 	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
 	dosym "../../opt/${PN}/bin/codium" "usr/bin/vscodium"
