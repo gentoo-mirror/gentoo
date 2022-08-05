@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://bitbucket.org/onionnetworks/
 INHERIT=flag-o-matic toolchain-funcs java-pkg-2 java-ant-2
 IUSE=doc source
-KEYWORDS=amd64 ~arm x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=BSD-2
 RDEPEND=dev-java/log4j-12-api:2 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~monsieurp/packages/fec-1.0.4.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0
-_md5_=7d70d372b9eed42b170f499f094f751b
+_md5_=631e0243b2be1529efbdaac21c897890
