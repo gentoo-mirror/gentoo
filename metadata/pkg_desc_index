@@ -6101,12 +6101,12 @@ dev-libs/rinutils 0.10.0: Set of C headers containing macros and static function
 dev-libs/rlog 1.4: A C++ logging library
 dev-libs/rocclr 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0: Radeon Open Compute Common Language Runtime
 dev-libs/rocksdb 6.14.6-r1 6.15.5 6.17.3: Embeddable, persistent key-value store for fast storage
-dev-libs/rocm-comgr 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.3.0-r1 4.5.2 5.0.2: Radeon Open Compute Code Object Manager
-dev-libs/rocm-device-libs 3.7.0 3.8.0 3.9.0-r1 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2 9999: Radeon Open Compute Device Libraries
+dev-libs/rocm-comgr 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.3.0-r1 4.5.2 5.0.2 5.1.3: Radeon Open Compute Code Object Manager
+dev-libs/rocm-device-libs 3.7.0 3.8.0 3.9.0-r1 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2 5.1.3 9999: Radeon Open Compute Device Libraries
 dev-libs/rocm-hostcall 2.7.0: Radeon Open Compute hostcall API
 dev-libs/rocm-opencl-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2-r1: Radeon Open Compute OpenCL Compatible Runtime
-dev-libs/rocr-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2: Radeon Open Compute Runtime
-dev-libs/roct-thunk-interface 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2 9999: Radeon Open Compute Thunk Interface
+dev-libs/rocr-runtime 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2 5.1.3: Radeon Open Compute Runtime
+dev-libs/roct-thunk-interface 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2 5.1.3 9999: Radeon Open Compute Thunk Interface
 dev-libs/rremove 1.0.5: A simple library to recursively delete non-empty directories
 dev-libs/s2n 0.10.21-r1 1.0.0: Simple, small, fast and secure C99 implementation of the TLS/SSL protocols
 dev-libs/satyr 0.38 0.39: Satyr is a collection of low-level algorithms for program failure processing
@@ -11268,7 +11268,7 @@ dev-texlive/texlive-xetex 2021-r1: TeXLive XeTeX and packages
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/ROPgadget 6.6 6.7 6.8 9999: Search for gadgets in binaries to facilitate your ROP exploitation
-dev-util/Tensile 4.3.0-r1 5.0.2-r1: Stretching GPU performance for GEMMs and tensor contractions
+dev-util/Tensile 4.3.0-r1 5.0.2-r2: Stretching GPU performance for GEMMs and tensor contractions
 dev-util/abi-compliance-checker 2.3-r1 9999: A tool for checking backward compatibility of a C/C++ library
 dev-util/abi-dumper 1.2-r1: Dump ABI of an ELF object containing DWARF debug info
 dev-util/abootimg 20150323: Manipulate Android boot images
@@ -11463,7 +11463,7 @@ dev-util/heaptrack 1.4.0 9999: Fast heap memory profiler
 dev-util/herdtools7 7.51: The Herd toolsuite to deal with .cat memory models
 dev-util/hermes 2.8_p20180315 2.9 9999: Lua based testing manager
 dev-util/hfstospell 0.5.3: HFST spell checker library and command line tool
-dev-util/hip 4.0.0 4.0.0-r1 4.1.0 4.1.0-r1 4.2.0 4.3.0 4.3.0-r1 4.3.0-r2 5.0.2-r2: C++ Heterogeneous-Compute Interface for Portability
+dev-util/hip 4.0.0 4.0.0-r1 4.1.0 4.1.0-r1 4.2.0 4.3.0 4.3.0-r1 4.3.0-r2 5.0.2-r2 5.1.3: C++ Heterogeneous-Compute Interface for Portability
 dev-util/howdoi 2.0.19: A code search tool
 dev-util/huc 0.1-r1: HTML umlaut conversion tool
 dev-util/hxd 0.70.02-r2: Binary to hexadecimal converter
@@ -11578,13 +11578,13 @@ dev-util/regexxer 0.10-r2: An interactive tool for performing search and replace
 dev-util/rej 0.16-r1: A utility for solving diff/patch rejects
 dev-util/rinstall 0.1.1 0.2.0: Utility for declarative installation of programs
 dev-util/rizin 0.4.0 0.4.0-r1: reverse engineering framework for binary analysis
-dev-util/rocm-clang-ocl 4.3.0 5.0.2: OpenCL compilation with clang compiler
-dev-util/rocm-cmake 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2-r1 9999: Radeon Open Compute CMake Modules
-dev-util/rocm-smi 4.0.0 4.3.0 4.5.2 5.0.2 9999: ROCm System Management Interface Library
-dev-util/rocm_bandwidth_test 4.3.0 5.0.2: Bandwidth test for ROCm
-dev-util/rocminfo 3.7.0 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 5.0.2 9999: ROCm Application for Reporting System Info
-dev-util/rocprofiler 4.3.0 5.0.2: Callback/Activity Library for Performance tracing AMD GPU's
-dev-util/roctracer 4.0.0-r1 4.2.0-r1 4.3.0-r2 5.0.2: Callback/Activity Library for Performance tracing AMD GPU's
+dev-util/rocm-clang-ocl 4.3.0 5.0.2-r1: OpenCL compilation with clang compiler
+dev-util/rocm-cmake 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 4.5.2 5.0.2-r1 5.1.3 9999: Radeon Open Compute CMake Modules
+dev-util/rocm-smi 4.0.0 4.3.0 4.5.2 5.0.2 5.1.3 9999: ROCm System Management Interface Library
+dev-util/rocm_bandwidth_test 4.3.0 5.0.2-r1: Bandwidth test for ROCm
+dev-util/rocminfo 3.7.0 3.8.0 3.9.0 3.10.0 4.0.0 4.1.0 4.2.0 4.3.0 5.0.2 5.1.3 9999: ROCm Application for Reporting System Info
+dev-util/rocprofiler 4.3.0 5.0.2 5.1.3: Callback/Activity Library for Performance tracing AMD GPU's
+dev-util/roctracer 4.0.0-r1 4.2.0-r1 4.3.0-r2 5.0.2 5.1.3: Callback/Activity Library for Performance tracing AMD GPU's
 dev-util/ropper 1.13.7 9999: Use to display information about binary files in different file formats
 dev-util/rosdep 0.21.0 9999: Command-line tool for installing ROS system dependencies
 dev-util/rosinstall 0.7.8 9999: Command-line tools for maintaining a workspace of projects for ROS
@@ -16071,7 +16071,7 @@ net-misc/you-get 0.4.1555 0.4.1602 0.4.1620: Utility to download media contents 
 net-misc/youtube-dl 2021.12.17-r1 9999: Download videos from YouTube.com (and more sites...)
 net-misc/youtube-viewer 3.10.1 9999: A command line utility for viewing youtube-videos in Mplayer
 net-misc/yt-dlp 2022.6.29 2022.7.18: youtube-dl fork with additional features and fixes
-net-misc/ytfzf 2.4.0: Posix script to find and watch youtube videos from the terminal
+net-misc/ytfzf 2.4.0 2.4.1: Posix script to find and watch youtube videos from the terminal
 net-misc/ytmdl 2022.3.16: Simple app to get songs from youtube in mp3 format
 net-misc/zerotier 1.6.4: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r1: An ssh wrapper enabling zmodem up/download in ssh
@@ -16995,13 +16995,13 @@ sci-libs/pytorch 1.11.0 1.12.0: Tensors and Dynamic neural networks in Python
 sci-libs/qd 2.3.23: Quad-double and double-double float arithmetics
 sci-libs/qfits 6.2.0: ESO stand-alone C library offering easy access to FITS files
 sci-libs/qrupdate 1.1.2-r2: Library for updating of QR and Cholesky decompositions
-sci-libs/rocBLAS 4.3.0 4.3.0-r1 5.0.2-r1: AMD's library for BLAS on ROCm
-sci-libs/rocFFT 4.0.0-r1 4.3.0-r1 5.0.2: Next generation FFT implementation for ROCm
+sci-libs/rocBLAS 4.3.0 4.3.0-r1 5.0.2-r2: AMD's library for BLAS on ROCm
+sci-libs/rocFFT 4.0.0-r1 4.3.0-r1 5.0.2-r1: Next generation FFT implementation for ROCm
 sci-libs/rocPRIM 4.0.0-r1 4.3.0-r2 5.0.2: HIP parallel primitives for developing performant GPU-accelerated code on ROCm
 sci-libs/rocRAND 4.0.0-r1 4.3.0-r1 5.0.2: Generate pseudo-random and quasi-random numbers
 sci-libs/rocSOLVER 4.3.0-r1 5.0.2: Implementation of a subset of LAPACK functionality on the ROCm platform
 sci-libs/rocSPARSE 4.0.0-r1 4.3.0-r3 5.0.2: Basic Linear Algebra Subroutines for sparse computation
-sci-libs/rocThrust 4.0.0-r1 4.3.0-r2 5.0.2: HIP back-end for the parallel algorithm library Thrust
+sci-libs/rocThrust 4.0.0-r1 4.3.0-r2 5.0.2-r1: HIP back-end for the parallel algorithm library Thrust
 sci-libs/rosetta-db 3.4: Essential database for rosetta
 sci-libs/rtabmap 0.20.13-r1 0.20.18 9999: Real-Time Appearance-Based Mapping (RGB-D Graph SLAM)
 sci-libs/rtree 0.9.7 1.0.0: R-Tree spatial index for Python GIS
