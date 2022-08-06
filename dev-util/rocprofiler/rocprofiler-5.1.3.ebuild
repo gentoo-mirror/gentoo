@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -27,7 +27,6 @@ BDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-4.3.0-nostrip.patch"
-		"${FILESDIR}/${PN}-4.3.0-ldflag.patch"
 		"${FILESDIR}/${PN}-4.3.0-no-aqlprofile.patch"
 		"${FILESDIR}/${PN}-5.0.2-gentoo-location.patch" )
 
