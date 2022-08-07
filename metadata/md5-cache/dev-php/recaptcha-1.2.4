@@ -1,0 +1,13 @@
+BDEPEND=test? ( dev-lang/php <dev-php/phpunit-8 )
+DEFINED_PHASES=install postinst test
+DESCRIPTION=PHP client library for Google's reCAPTCHA service
+EAPI=8
+HOMEPAGE=https://github.com/google/recaptcha
+IUSE=examples test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-lang/php
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/google/recaptcha/archive/1.2.4.tar.gz -> recaptcha-1.2.4.tar.gz
+_md5_=c76f8cb06bf61644f9aabebc1a2c0255
