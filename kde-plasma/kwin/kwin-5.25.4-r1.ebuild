@@ -39,7 +39,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kcrash-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5=
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5=[X]
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5=
 	>=kde-frameworks/kitemviews-${KFMIN}:5
@@ -101,6 +101,8 @@ BDEPEND="
 	dev-util/wayland-scanner
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
+
+PATCHES=( "${FILESDIR}/${P}-drm-fix-blob-updating.patch" ) # KDE-bug 449285
 
 src_prepare() {
 	ecm_src_prepare
