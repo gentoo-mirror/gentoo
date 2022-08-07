@@ -32,7 +32,7 @@ BDEPEND="
 	)
 "
 
-LLVM_COMPONENTS=( runtimes compiler-rt cmake llvm/cmake )
+LLVM_COMPONENTS=( compiler-rt cmake llvm/cmake )
 LLVM_PATCHSET=9999-1
 llvm.org_set_globals
 
@@ -77,15 +77,27 @@ src_configure() {
 			local -x CC=${CHOST}-clang
 			local -x CXX=${CHOST}-clang++
 		fi
+
 		strip-unsupported-flags
 	fi
 
-	local mycmakeargs=(
-		-DLLVM_ENABLE_RUNTIMES=compiler-rt
-		# this only adds unnecessary req on llvm-lit directory
-		-DLLVM_INCLUDE_TESTS=OFF
+	if ! test_compiler; then
+		local nolib_flags=( -nodefaultlibs -lc )
 
+		if test_compiler "${nolib_flags[@]}"; then
+			local -x LDFLAGS="${LDFLAGS} ${nolib_flags[*]}"
+			ewarn "${CC} seems to lack runtime, trying with ${nolib_flags[*]}"
+		elif test_compiler "${nolib_flags[@]}" -nostartfiles; then
+			# Avoiding -nostartfiles earlier on for bug #862540
+			nolib_flags+=( -nostartfiles )
+			local -x LDFLAGS="${LDFLAGS} ${nolib_flags[*]}"
+			ewarn "${CC} seems to lack runtime, trying with ${nolib_flags[*]}"
+		fi
+	fi
+
+	local mycmakeargs=(
 		-DCOMPILER_RT_INSTALL_PATH="${EPREFIX}/usr/lib/clang/${SLOT}"
+
 		-DCOMPILER_RT_INCLUDE_TESTS=$(usex test)
 		-DCOMPILER_RT_BUILD_LIBFUZZER=OFF
 		-DCOMPILER_RT_BUILD_MEMPROF=OFF
