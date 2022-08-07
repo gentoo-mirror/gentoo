@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN="ADOdb"
 DESCRIPTION="Database abstraction layer for PHP"
@@ -36,5 +36,5 @@ src_install() {
 
 	insinto "/usr/share/php/${PN}"
 	doins *.php
-	doins -r contrib datadict drivers lang pear perf replicate session xsl
+	doins -r datadict drivers lang pear perf session xsl
 }
