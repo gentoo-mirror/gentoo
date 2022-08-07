@@ -3,11 +3,18 @@
 
 EAPI=8
 
-inherit rpm xdg
+CHROMIUM_LANGS="
+	am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
+	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
+	sw ta te th tr uk vi zh-CN zh-TW
+"
+
+inherit chromium-2 desktop rpm xdg
 
 DESCRIPTION="JupyterLab desktop application, based on Electron"
 HOMEPAGE="https://jupyter.org/"
 SRC_URI="https://github.com/jupyterlab/${PN%%-bin}/releases/download/v$(ver_rs 3 -)/JupyterLab-Setup-Fedora.rpm -> ${P}.rpm"
+S="${WORKDIR}"
 
 KEYWORDS="-* ~amd64"
 # Electron bundles a bunch of things
@@ -16,6 +23,7 @@ LICENSE="
 	unRAR OFL CC-BY-SA-3.0 MPL-2.0 android public-domain all-rights-reserved
 "
 SLOT="0"
+RESTRICT="bindist mirror"
 
 RDEPEND="
 	app-accessibility/at-spi2-atk
@@ -49,14 +57,50 @@ RDEPEND="
 
 QA_PREBUILT="opt/JupyterLab/*"
 
-S="${WORKDIR}"
+pkg_pretend() {
+	chromium_suid_sandbox_check_kernel_config
+}
+
+src_prepare() {
+	default
+	# cleanup languages
+	pushd "opt/JupyterLab/locales" || die
+	chromium_remove_language_paks
+	popd || die
+}
+
+src_configure() {
+	chromium_suid_sandbox_check_kernel_config
+	default
+}
 
 src_install() {
-	# remove files useless for Gentoo
-	rm -r usr/lib || die
-	mv "${S}"/* "${ED}" || die
-	# add convenience symlink to launch from cli
-	dosym ../JupyterLab/jupyterlab-desktop /opt/bin/jupyterlab-desktop
+	for size in {16,32,48,64,128,256,512}; do
+		doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/jupyterlab-desktop.png"
+	done
+
+	domenu usr/share/applications/jupyterlab-desktop.desktop
+
+	local DESTDIR="/opt/JupyterLab"
+	pushd "opt/JupyterLab" || die
+
+	exeinto "${DESTDIR}"
+	doexe chrome-sandbox chrome_crashpad_handler jupyterlab-desktop *.so*
+
+	exeinto "${DESTDIR}/swiftshader"
+	doexe swiftshader/*.so*
+
+	insinto "${DESTDIR}"
+	doins *.pak *.bin *.json *.dat
+	insopts -m0755
+	doins -r locales resources
+
+	# Chrome-sandbox requires the setuid bit to be specifically set.
+	# see https://github.com/electron/electron/issues/17972
+	fperms 4755 "${DESTDIR}"/chrome-sandbox
+
+	dosym "${DESTDIR}"/jupyterlab-desktop /opt/bin/jupyterlab-desktop
+	popd || die
 }
 
 pkg_postinst() {
