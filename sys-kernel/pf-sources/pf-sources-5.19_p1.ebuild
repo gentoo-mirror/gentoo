@@ -30,7 +30,7 @@ PFPV="${PV/_p/-pf}"
 
 # https://gitlab.com/alfredchen/projectc/ revision for a major version,
 # e.g. prjc-v5.14-r2 = 2
-PRJC_R=2
+PRJC_R=0
 
 inherit kernel-2 optfeature
 detect_version
@@ -79,7 +79,15 @@ src_prepare() {
 }
 
 pkg_postinst() {
+	# Fixes "wrongly" detected directory name, bgo#862534.
+	local KV_FULL="${PFPV}"
 	kernel-2_pkg_postinst
 
 	optfeature "userspace KSM helper" sys-process/uksmd
+}
+
+pkg_postrm() {
+	# Same here, bgo#862534.
+	local KV_FULL="${PFPV}"
+	kernel-2_pkg_postrm
 }
