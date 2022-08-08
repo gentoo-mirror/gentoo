@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/linux-rdma/rdma-core
 INHERIT=cmake python-single-r1 udev systemd
 IUSE=neigh python static-libs systemd valgrind python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 sparc ~x86
 LICENSE=|| ( GPL-2 ( CC0-1.0 MIT BSD BSD-with-attribution ) )
 RDEPEND=dev-lang/perl virtual/libudev:= neigh? ( dev-libs/libnl:3 ) systemd? ( sys-apps/systemd:= ) valgrind? ( dev-util/valgrind ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) !sys-fabric/infiniband-diags !sys-fabric/libibverbs !sys-fabric/librdmacm !sys-fabric/libibumad !sys-fabric/ibacm !sys-fabric/libibmad !sys-fabric/srptools !sys-fabric/infinipath-psm !sys-fabric/libcxgb3 !sys-fabric/libcxgb4 !sys-fabric/libmthca !sys-fabric/libmlx4 !sys-fabric/libmlx5 !sys-fabric/libocrdma !sys-fabric/libnes
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/linux-rdma/rdma-core/archive/v41.0.tar.gz -> rdma-core-41.0.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	udev	f3a0a3964e2028a140c181f00eea9712	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=d55e9f179167daaed60ad0e9bde4af24
+_md5_=fafe230bc475edcb3985c8c6b0a7a4ae
