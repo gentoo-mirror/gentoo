@@ -1,9 +1,11 @@
 DEFINED_PHASES=-
+DEPEND=elibc_musl? ( sys-libs/argp-standalone )
 DESCRIPTION=tool to manipulate Intel X86 and X86-64 processor microcode update collections
 EAPI=7
 HOMEPAGE=https://gitlab.com/iucode-tool/
 KEYWORDS=-* amd64 x86
 LICENSE=GPL-2
+RDEPEND=elibc_musl? ( sys-libs/argp-standalone )
 SLOT=0
 SRC_URI=https://gitlab.com/iucode-tool/releases/raw/master/iucode-tool_2.3.1.tar.xz
-_md5_=270af7d09764141fbf63e569a86ca33a
+_md5_=db745f8e43dc023f5259ec46194ad848

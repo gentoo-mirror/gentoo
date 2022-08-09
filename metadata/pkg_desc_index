@@ -2353,6 +2353,7 @@ app-emacs/elpher 3.3.3 3.4.1 3.4.2: Practical and friendly Gopher and Gemini cli
 app-emacs/elpy 1.35.0_p20220321: Emacs Python Development Environment
 app-emacs/elscreen 20180321: Frame configuration management for GNU Emacs modelled after GNU Screen
 app-emacs/emacs-bazel-mode 0_p20220707: Emacs major modes for the Bazel build system support
+app-emacs/emacs-ccls 0_pre20220510: Emacs client for ccls, a C/C++ language server
 app-emacs/emacs-common 1.8: Common files needed by all GNU Emacs versions
 app-emacs/emacs-daemon 0.22-r1: Gentoo support for Emacs running as a server in the background
 app-emacs/emacs-eix 0.0.0 9999: Eix integration for GNU Emacs
@@ -11394,7 +11395,7 @@ dev-util/debugedit 5.0-r1: Create debuginfo and source file distributions
 dev-util/dejagnu 1.6.2 1.6.3: Framework for testing other programs
 dev-util/desktop-file-utils 0.26-r1 0.26-r2: Command line utilities to work with desktop menu entries
 dev-util/devhelp 41.2: An API documentation browser for GNOME
-dev-util/dialog 1.3.20220414 1.3.20220526: Tool to display dialog boxes from a shell
+dev-util/dialog 1.3.20220414 1.3.20220526 1.3.20220728: Tool to display dialog boxes from a shell
 dev-util/diff-cover 5.0.1 6.5.0 6.5.0-r1: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/difffilter 0.3.3-r1: Filter files out of unified diffs using POSIX extended regular expressions
@@ -13775,7 +13776,7 @@ media-libs/glm 0.9.9.8-r1: OpenGL Mathematics
 media-libs/glpng 1.46-r1: OpenGL PNG image library
 media-libs/glu 9.0.2 9999: The OpenGL Utility Library
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
-media-libs/gmmlib 22.1.4 22.1.5 22.1.6 22.1.7 9999: Intel Graphics Memory Management Library
+media-libs/gmmlib 22.1.5 22.1.6 22.1.7 9999: Intel Graphics Memory Management Library
 media-libs/gnonlin 1.4.0-r1: Set of GStreamer elements to ease the creation of non-linear multimedia editors
 media-libs/graphene 1.10.8: A thin layer of types for graphic libraries
 media-libs/grilo 0.3.14: A framework for easy media discovery and browsing
@@ -15587,7 +15588,7 @@ net-libs/libsrtp 1.6.0-r1 2.2.0 2.3.0-r1: Open-source implementation of the Secu
 net-libs/libssh 0.9.6 9999: Access a working SSH implementation by means of a library
 net-libs/libssh2 1.10.0 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r1 9999: Simple RFC-compliant TELNET implementation as a C library
-net-libs/libtirpc 1.3.2 1.3.2-r1: Transport Independent RPC library (SunRPC replacement)
+net-libs/libtirpc 1.3.2 1.3.2-r1 1.3.3: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtorrent 0.13.8-r2: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 1.2.16 1.2.17 2.0.6 2.0.7: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.18_p1 4.0.19_p1: A library and tools for trace processing
@@ -16343,7 +16344,7 @@ net-wireless/suwidgets 0.1.0-r1: graphical library containing all SigDigger's cu
 net-wireless/tempestsdr 0.0_p20200221 9999: Remote video eavesdropping using a software-defined radio platform
 net-wireless/ubertooth 2018.12.1 2020.12.1 9999: open source wireless development platform suitable for Bluetooth experimentation
 net-wireless/uhd 4.1.0.5 4.2.0.0: Universal Software Radio Peripheral (USRP) Hardware Driver
-net-wireless/unifi 6.5.55-r2 7.1.67 7.1.68 7.2.91: A Management Controller for Ubiquiti Networks UniFi APs
+net-wireless/unifi 6.5.55-r2 7.1.67 7.1.68 7.2.91 7.2.92: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.3 9999: Universal Radio Hacker: investigate wireless protocols like a boss
 net-wireless/wavemon 0.9.3-r1 0.9.4: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r5: WLAN tool for breaking 802.11 WEP keys
@@ -17676,7 +17677,7 @@ sys-apps/iotools 1.5: Simple commands to access hardware device registers
 sys-apps/ipmicfg 1.33.2.220126: An in-band utility for configuring Supermicro IPMI devices
 sys-apps/ipmitool 1.8.18_p20201004-r1 1.8.18_p20201004-r2 1.8.18_p20201004-r3: Utility for controlling IPMI enabled devices
 sys-apps/ipmiutil 3.0.6 3.0.9 3.1.6 3.1.7 3.1.8: IPMI Management Utilities
-sys-apps/iproute2 5.15.0 5.18.0-r1 9999: kernel routing and traffic control utilities
+sys-apps/iproute2 5.15.0 5.18.0-r1 5.19.0 9999: kernel routing and traffic control utilities
 sys-apps/irqbalance 1.8.0-r1 1.9.0: Distribute hardware interrupts across processors on a multiprocessor system
 sys-apps/isapnptools 1.27: Tools for configuring ISA PnP devices
 sys-apps/iucode_tool 2.3.1-r1: tool to manipulate Intel X86 and X86-64 processor microcode update collections
@@ -18448,7 +18449,7 @@ sys-process/fcron 3.2.1-r8 3.3.1: A command scheduler with extended capabilities
 sys-process/ftop 1.0-r1: Monitor open files and filesystems
 sys-process/glances 3.2.2 3.2.4.2 3.2.5 3.2.6.4 3.2.7: CLI curses based monitoring tool
 sys-process/gnome-usage 3.38.1: A nice way to view information about use of system resources
-sys-process/htop 3.1.2-r1 3.2.0 3.2.1 3.2.1-r1 9999: interactive process viewer
+sys-process/htop 3.1.2-r1 3.2.0 3.2.1 3.2.1-r1 3.2.1-r2 9999: interactive process viewer
 sys-process/incron 0.5.12_p20171113 0.5.12_p20171113-r1: inotify based cron daemon
 sys-process/iotop 0.6: Top-like UI used to show which process is using the I/O
 sys-process/iotop-c 1.19 1.20 1.21 9999: top utility for IO (C port)
