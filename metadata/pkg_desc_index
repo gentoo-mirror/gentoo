@@ -943,7 +943,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.11.0 1.11.0-r1 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.36 1.25.41 1.25.46: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.36 1.25.41 1.25.46 1.25.47: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.11-r1 2.7.16 2.7.20: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.32.1 2022.6.0: Bitwarden password manager desktop client
@@ -8517,7 +8517,7 @@ dev-python/autobahn 22.5.1-r1 22.6.1 22.7.1: WebSocket and WAMP for Twisted and 
 dev-python/autocommand 2.2.1_p20211118: Library to create a command-line program from a function
 dev-python/automat 20.2.0-r1: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.5.1: A library to provide automatic paging for console output
-dev-python/autopep8 1.6.0 9999: Automatically formats Python code to conform to the PEP 8 style guide
+dev-python/autopep8 1.6.0 1.7.0 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.46.0 1.47.0 1.48.0 1.49.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk-python 2.10.0: AWS X-Ray SDK for Python
@@ -8558,8 +8558,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.36 1.24.41 1.24.46 9999: The AWS SDK for Python
-dev-python/botocore 1.27.36 1.27.41 1.27.46 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.36 1.24.41 1.24.46 1.24.47 9999: The AWS SDK for Python
+dev-python/botocore 1.27.36 1.27.41 1.27.46 1.27.47 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.21 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8776,7 +8776,7 @@ dev-python/fixtures 4.0.1: Fixtures, reusable state for writing clean tests and 
 dev-python/flake8 4.0.1-r2 5.0.1 5.0.2 5.0.3 5.0.4: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flake8-polyfill 1.0.2: Polyfill package for Flake8 plugins
 dev-python/flaky 3.7.0-r2: Plugin for nose or py.test that automatically reruns flaky tests
-dev-python/flask 2.1.2 2.1.3 2.2.1: A microframework based on Werkzeug, Jinja2 and good intentions
+dev-python/flask 2.1.2 2.1.3 2.2.1 2.2.2: A microframework based on Werkzeug, Jinja2 and good intentions
 dev-python/flask-api 3.0: Browsable web APIs for Flask
 dev-python/flask-assets 0.12: Flask webassets integration
 dev-python/flask-babel 2.0.0: i18n and l10n support for Flask based on Babel and pytz
@@ -8835,7 +8835,7 @@ dev-python/glob2 0.7-r1: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.2-r1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.8.2: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.53.0 2.54.0 2.55.0: Google API Client for Python
+dev-python/google-api-python-client 2.53.0 2.54.0 2.55.0 2.56.0: Google API Client for Python
 dev-python/google-apitools 0.5.32-r1: Python library to manipulate Google APIs
 dev-python/google-auth 2.9.0 2.9.1 2.10.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r1: httplib2 Transport for Google Auth
@@ -8993,7 +8993,7 @@ dev-python/kgb 7.1.1: Python function spy support for unit tests
 dev-python/kiwisolver 1.4.3 1.4.4: An efficient C++ implementation of the Cassowary constraint solving algorithm
 dev-python/klein 21.8.0: micro-framework for developing production-ready web services with Python
 dev-python/kombu 5.2.4: AMQP Messaging Framework for Python
-dev-python/krb5 0.3.0-r1: Kerberos API bindings for Python
+dev-python/krb5 0.3.0-r1 0.4.0: Kerberos API bindings for Python
 dev-python/lark 1.1.2: Python module to propose a modern general-purpose parsing library for Python
 dev-python/latexcodec 2.0.1: Lexer and codec to work with LaTeX code in Python
 dev-python/lazy-object-proxy 1.7.1-r1: A fast and thorough lazy object proxy
@@ -9082,7 +9082,7 @@ dev-python/mkdocs_pymdownx_material_extras 1.0.7 1.1.3 2.1 2.2 2.2.1: Custom alt
 dev-python/mmtf-python 1.1.2-r1 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 4.0.3-r1: Rolling backport of unittest.mock for all Pythons
 dev-python/mongomock 4.1.2: Library to help testing Python code that interacts with MongoDB via Pymongo
-dev-python/more-itertools 8.13.0: More routines for operating on iterables, beyond itertools
+dev-python/more-itertools 8.13.0 8.14.0: More routines for operating on iterables, beyond itertools
 dev-python/moto 3.1.16 3.1.17: Mock library for boto
 dev-python/mpdlcd 0.5.2-r1: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.1.3: Message Passing Interface for Python
@@ -9295,7 +9295,7 @@ dev-python/pybind11 2.9.2-r1 2.10.0: AST-based Python refactoring library
 dev-python/pybtex 0.24.0: BibTeX-compatible bibliography processor
 dev-python/pybtex-docutils 1.0.2: A docutils backend for pybtex
 dev-python/pycairo 1.21.0: Python bindings for the cairo library
-dev-python/pycares 4.2.1: Python interface for c-ares
+dev-python/pycares 4.2.1 4.2.2: Python interface for c-ares
 dev-python/pycdio 2.1.1: Python OO interface to libcdio (CD Input and Control library)
 dev-python/pychm 0.8.6: Python bindings for the chmlib library
 dev-python/pychromecast 9.3.1 12.1.4: Python module to talk to Google Chromecast
@@ -9679,7 +9679,7 @@ dev-python/semantic_version 2.10.0: Python library providing a few tools handlin
 dev-python/semver 2.13.0: A Python module for semantic versioning
 dev-python/send2trash 1.8.0-r1: Sends files to the Trash (or Recycle Bin)
 dev-python/sentinels 1.0.0: Python Sentinels class which are objects with special meanings
-dev-python/sentry-sdk 1.6.0 1.7.2 1.8.0 1.9.0 1.9.1 1.9.2: Python client for Sentry
+dev-python/sentry-sdk 1.6.0 1.7.2 1.8.0 1.9.0 1.9.1 1.9.2 1.9.3: Python client for Sentry
 dev-python/serpent 1.41: A simple serialization library based on ast.literal_eval
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0-r1: Service identity verification for pyOpenSSL
@@ -9713,7 +9713,7 @@ dev-python/slimit 0.8.1-r1: A JavaScript minifier written in Python
 dev-python/slixmpp 1.8.2 9999: Python 3 library for XMPP
 dev-python/smartypants 2.0.1-r1: ASCII quote-dot-dash to HTML entity converter
 dev-python/smmap 5.0.0: A pure Python implementation of a sliding window memory map manager
-dev-python/snakeoil 0.9.5 0.9.7 0.9.9 0.9.10 0.9.11 9999: misc common functionality and useful optimizations
+dev-python/snakeoil 0.9.5 0.9.7 0.9.10 0.9.12 9999: misc common functionality and useful optimizations
 dev-python/snaketrace 0.3.1: An strace-like tool for Python audit events
 dev-python/snappy 0.6.1: Python library for the snappy compression library from Google
 dev-python/snapshottest 0.6.0: Snapshot Testing utils for Python
@@ -9833,7 +9833,7 @@ dev-python/three-merge 0.1.1: Simple Python library to perform a 3-way merge bet
 dev-python/thrift 0.16.0: Python implementation of Thrift
 dev-python/thriftpy2 0.4.14-r1: Pure python approach of Apache Thrift
 dev-python/thunarx-python 0.5.2: Python bindings for the Thunar file manager
-dev-python/tifffile 2022.5.4 2022.7.28 2022.7.31 2022.8.3: Read and write TIFF files
+dev-python/tifffile 2022.5.4 2022.7.28 2022.7.31 2022.8.3 2022.8.8: Read and write TIFF files
 dev-python/tikzplotlib 0.10.1: Convert matplotlib figures into TikZ/PGFPlots
 dev-python/timeout-decorator 0.5.0-r1: Timeout decorator
 dev-python/tinycss 0.4-r1: A complete yet simple CSS parser for Python
@@ -9936,7 +9936,7 @@ dev-python/websocket-client 1.3.2 1.3.3: WebSocket client for python with hybi13
 dev-python/websockets 10.3: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.10.0-r1: WebSockets support for any application/server
 dev-python/webtest 3.0.0-r1: Helper to test WSGI applications
-dev-python/werkzeug 2.1.2 2.2.0 2.2.1: Collection of various utilities for WSGI applications
+dev-python/werkzeug 2.1.2 2.2.0 2.2.1 2.2.2: Collection of various utilities for WSGI applications
 dev-python/whatever 0.6-r1: Easy anonymous functions by partial application of operators
 dev-python/whatthepatch 1.0.2: A patch parsing and application library.
 dev-python/wheel 0.37.1-r1: A built-package format for Python
