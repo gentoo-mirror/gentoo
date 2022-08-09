@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install
+DEPEND=>=x11-libs/libdockapp-0.7:= x11-libs/libX11 x11-libs/libXext x11-libs/libXpm
+DESCRIPTION=a dockapp to monitor: CPU, Memory, Uptime, IRQs, Paging and Swap activity
+EAPI=8
+HOMEPAGE=https://github.com/voyageur/wmsysmon
+INHERIT=toolchain-funcs
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=>=x11-libs/libdockapp-0.7:= x11-libs/libX11 x11-libs/libXext x11-libs/libXpm
+SLOT=0
+SRC_URI=https://github.com/voyageur/wmsysmon/archive/0.8.0.tar.gz -> wmsysmon-0.8.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=69f7d4614fc367e0871b23c236c3b934
