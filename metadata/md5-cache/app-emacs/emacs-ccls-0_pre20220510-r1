@@ -1,14 +1,13 @@
-BDEPEND=>=app-editors/emacs-23.1:*
+BDEPEND=app-emacs/dash app-emacs/lsp-mode >=app-editors/emacs-25.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DEPEND=app-emacs/lsp-mode
 DESCRIPTION=Emacs client for ccls, a C/C++ language server
 EAPI=8
 HOMEPAGE=https://github.com/emacs-lsp/emacs-ccls
 INHERIT=elisp
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=app-emacs/lsp-mode >=app-editors/emacs-23.1:*
+RDEPEND=app-emacs/dash app-emacs/lsp-mode >=app-editors/emacs-25.1:*
 SLOT=0
 SRC_URI=https://github.com/emacs-lsp/emacs-ccls/archive/ae74a39303457a5e6976dd1c6816cde97d357a0d.tar.gz -> emacs-ccls-0_pre20220510.tar.gz
 _eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
-_md5_=481e0322690e186130f4afb3ac2a1e87
+_md5_=aeb0381d6fd18ebe2fe60d02de1940bb
