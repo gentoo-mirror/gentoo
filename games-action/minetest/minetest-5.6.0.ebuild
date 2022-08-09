@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
 
@@ -14,32 +14,32 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2.1+ CC-BY-SA-3.0 OFL-1.1 Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
-IUSE="+client +curl doc +leveldb ncurses nls postgres prometheus redis +server +sound spatial test +truetype"
-REQUIRED_USE="
-	${LUA_REQUIRED_USE}
+IUSE="+client +curl doc leveldb ncurses nls postgres prometheus redis +server +sound spatial test"
+
+REQUIRED_USE="${LUA_REQUIRED_USE}
 	|| ( client server )"
+
 RESTRICT="!test? ( test )"
 
 RDEPEND="${LUA_DEPS}
 	$(lua_gen_impl_dep 'deprecated' lua5-1)
+	app-arch/zstd
 	dev-db/sqlite:3
 	dev-libs/gmp:0=
 	dev-libs/jsoncpp:=
 	sys-libs/zlib
 	client? (
-		app-arch/bzip2
-		dev-games/irrlicht
+		>=dev-games/irrlicht-mt-1.9.0.7
+		media-libs/freetype:2
 		media-libs/libpng:0=
-		virtual/jpeg:0
+		media-libs/libjpeg-turbo
 		virtual/opengl
 		x11-libs/libX11
 		x11-libs/libXxf86vm
 		sound? (
-			media-libs/libogg
 			media-libs/libvorbis
 			media-libs/openal
 		)
-		truetype? ( media-libs/freetype:2 )
 	)
 	curl? ( net-misc/curl )
 	leveldb? ( dev-libs/leveldb:= )
@@ -51,7 +51,7 @@ RDEPEND="${LUA_DEPS}
 	server? (
 		acct-group/minetest
 		acct-user/minetest
-		dev-games/irrlicht-headers
+		>=dev-games/irrlicht-mt-headers-1.9.0.7
 	)
 	spatial? ( sci-libs/libspatialindex:= )"
 DEPEND="${RDEPEND}"
@@ -63,15 +63,14 @@ BDEPEND="
 	nls? ( sys-devel/gettext )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-5.4.1-gcc11.patch
 	"${FILESDIR}"/${PN}-5.4.1-system_puc_lua.patch
 )
 
 src_prepare() {
 	cmake_src_prepare
 
-	# remove bundled libraries
-	rm -rf lib || die
+	# remove bundled libraries other than bitop
+	rm -rf lib/{gmp,jsoncpp,lua} || die
 
 	# To avoid TEXTRELs on riscv
 	append-flags -fPIC
@@ -86,12 +85,12 @@ src_configure() {
 		-DCUSTOM_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
 		-DCUSTOM_EXAMPLE_CONF_DIR="${EPREFIX}/usr/share/doc/${PF}"
 		-DCUSTOM_LOCALEDIR="${EPREFIX}/usr/share/${PN}/locale"
+		-DCUSTOM_MANDIR="${EPREFIX}/usr/share/man"
 		-DCUSTOM_SHAREDIR="${EPREFIX}/usr/share/${PN}"
 		-DENABLE_CURL=$(usex curl)
 		-DENABLE_CURSES=$(usex ncurses)
-		-DENABLE_FREETYPE=$(usex truetype)
 		-DENABLE_GETTEXT=$(usex nls)
-		-DENABLE_GLES=0
+		-DENABLE_GLES=no
 		-DENABLE_LEVELDB=$(usex leveldb)
 		-DENABLE_LUAJIT=$(usex lua_single_target_luajit)
 		-DENABLE_POSTGRESQL=$(usex postgres)

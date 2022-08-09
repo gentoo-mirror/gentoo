@@ -20,9 +20,10 @@ KEYWORDS="~amd64 ~riscv"
 RDEPEND="~dev-games/irrlicht-mt-headers-${PV}
 	media-libs/libpng:0=
 	sys-libs/zlib
-	virtual/jpeg:0
+	media-libs/libjpeg-turbo
 	virtual/opengl
 	x11-libs/libX11
+	x11-libs/libXi
 	x11-libs/libXxf86vm"
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
