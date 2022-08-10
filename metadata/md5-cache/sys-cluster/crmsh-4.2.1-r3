@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare setup
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) >=sys-cluster/pacemaker-1.1.9
+DESCRIPTION=Pacemaker command line interface for management and configuration
+EAPI=7
+HOMEPAGE=https://crmsh.github.io/
+INHERIT=autotools python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~hppa ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) >=sys-cluster/pacemaker-1.1.9 python_single_target_python3_8? ( dev-python/lxml[python_targets_python3_8(-)] dev-python/parallax[python_targets_python3_8(-)] dev-python/setuptools[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/lxml[python_targets_python3_9(-)] dev-python/parallax[python_targets_python3_9(-)] dev-python/setuptools[python_targets_python3_9(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+SLOT=0
+SRC_URI=https://github.com/crmsh/crmsh/archive/4.2.1.tar.gz -> crmsh-4.2.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=179966afb51511b690cf415d8bf2c09e
