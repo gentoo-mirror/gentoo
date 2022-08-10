@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-06">
+    <title>lxml: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in lxml, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">lxml</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>777579</bug>
+    <bug>829053</bug>
+    <bug>856598</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/lxml" auto="yes" arch="*">
+            <unaffected range="ge">4.9.1</unaffected>
+            <vulnerable range="lt">4.9.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>lxml is a Pythonic binding for the libxml2 and libxslt libraries.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in lxml. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All lxml users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/lxml-4.9.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28957">CVE-2021-28957</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43818">CVE-2021-43818</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2309">CVE-2022-2309</uri>
+        <uri>GHSL-2021-1037</uri>
+        <uri>GHSL-2021-1038</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T03:53:32.555864Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T03:53:32.562720Z">ajak</metadata>
+</glsa>
