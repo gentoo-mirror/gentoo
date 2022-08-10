@@ -1,0 +1,15 @@
+BDEPEND=>=app-editors/emacs-26:*[libxml2] app-emacs/dash app-emacs/f app-emacs/parsebib app-emacs/queue app-emacs/s app-emacs/string-inflection test? ( app-emacs/ht app-emacs/yaml ) >=app-editors/emacs-26:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=CSL 1.0.2 Citation Processor for Emacs
+EAPI=8
+HOMEPAGE=https://github.com/andras-simonyi/citeproc-el
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-26:*[libxml2] app-emacs/dash app-emacs/f app-emacs/parsebib app-emacs/queue app-emacs/s app-emacs/string-inflection >=app-editors/emacs-26:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/andras-simonyi/citeproc-el/archive/0.9.1.tar.gz -> citeproc-el-0.9.1.tar.gz
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=97d03043107578c98c258906effcee53
