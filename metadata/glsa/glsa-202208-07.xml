@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-07">
+    <title>LibRaw: Stack buffer overread</title>
+    <synopsis>A buffer overread in LibRaw might allow an attacker to cause denial of service.</synopsis>
+    <product type="ebuild">libraw</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>793956</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libraw" auto="yes" arch="*">
+            <unaffected range="ge">0.20.2</unaffected>
+            <vulnerable range="lt">0.20.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>LibRaw is a library for reading RAW files obtained from digital photo cameras.</p>
+    </background>
+    <description>
+        <p>LibRaw incorrectly handles parsing DNG fields in some cases, potentially resulting in a buffer overread leading to denial of service.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker capable of providing crafted input to LibRaw could trigger denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All LibRaw users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libraw-0.20.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24870">CVE-2020-24870</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T04:06:16.242209Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T04:06:16.247568Z">ajak</metadata>
+</glsa>

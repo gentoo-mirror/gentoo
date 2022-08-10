@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-10">
+    <title>Spice Server: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Spice Server, the worst of which may result in the remote execution of arbitrary code.</synopsis>
+    <product type="ebuild">spice</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>746920</bug>
+    <bug>792618</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/spice" auto="yes" arch="*">
+            <unaffected range="ge">0.15.0</unaffected>
+            <vulnerable range="lt">0.15.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Provides a complete open source solution for remote access to virtual machines in a seamless way so you can play videos, record audio, share USB devices and share folders without complications.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Spice Server, please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Spice Server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/spice-0.15.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-14355">CVE-2021-14355</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20201">CVE-2021-20201</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T04:07:16.230391Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T04:07:16.235454Z">ajak</metadata>
+</glsa>
