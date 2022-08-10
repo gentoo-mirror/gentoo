@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-19">
+    <title>aiohttp: Open redirect vulnerability</title>
+    <synopsis>An open redirect vulnerability has been discovered in aiohttp.</synopsis>
+    <product type="ebuild">aiohttp</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>772932</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/aiohttp" auto="yes" arch="*">
+            <unaffected range="ge">3.7.4</unaffected>
+            <vulnerable range="lt">3.7.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python.</p>
+    </background>
+    <description>
+        <p>A bug in aiohttp.web_middlewares.normalize_path_middleware creates an open redirect vulnerability.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker use this vulnerability to craft a link that, while appearing to be a link to an aiohttp-based website, redirects users to an arbitrary attacker-controlled URL.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All aiohttp users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/aiohttp-3.7.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21330">CVE-2021-21330</uri>
+        <uri>GHSA-v6wp-4m6f-gcjg</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T22:31:38.516415Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T22:31:38.521134Z">ajak</metadata>
+</glsa>
