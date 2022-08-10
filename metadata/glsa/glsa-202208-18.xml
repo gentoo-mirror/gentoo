@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-18">
+    <title>Motion: Denial of service</title>
+    <synopsis>A vulnerability in Motion allows a remote attacker to cause denial of service.</synopsis>
+    <product type="ebuild">motion</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>760714</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-video/motion" auto="yes" arch="*">
+            <unaffected range="ge">4.3.2</unaffected>
+            <vulnerable range="lt">4.3.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Motion is a program that monitors the video signal from one or more cameras and is able to detect motions.</p>
+    </background>
+    <description>
+        <p>The Motion HTTP server does not correctly perform URL decoding. If the HTTP server receives a request for a URL containing an incomplete percent-encoded character, a flaw in parsing results in an infinite loop trying to parse the rest of the character, which eventually results in a denial of service condition when reading out-of-bounds.</p>
+    </description>
+    <impact type="low">
+        <p>A remote attacker can trigger a denial of service condition in Motion.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Motion users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-video/motion-4.3.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-26566">CVE-2020-26566</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T22:31:25.890188Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T22:31:25.895137Z">ajak</metadata>
+</glsa>
