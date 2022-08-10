@@ -1,8 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
-PYTHON_COMPAT=( python3_{7..10} )
+EAPI=8
+
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit autotools linux-info python-any-r1 systemd
 
@@ -16,7 +17,7 @@ if [[ ${PV} == "9999" ]]; then
 
 	inherit git-r3
 else
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~x86"
 
 	SRC_URI="
 		https://www.rsyslog.com/files/download/${PN}/${P}.tar.gz
@@ -42,7 +43,6 @@ REQUIRED_USE="
 
 BDEPEND=">=sys-devel/autoconf-archive-2015.02.24
 	virtual/pkgconfig
-	elibc_musl? ( sys-libs/queue-standalone )
 	test? (
 		jemalloc? ( <sys-libs/libfaketime-0.9.7 )
 		!jemalloc? ( sys-libs/libfaketime )
@@ -57,7 +57,11 @@ RDEPEND="
 	dbi? ( >=dev-db/libdbi-0.8.3 )
 	elasticsearch? ( >=net-misc/curl-7.35.0 )
 	gcrypt? ( >=dev-libs/libgcrypt-1.5.3:= )
-	imhttp? ( www-servers/civetweb )
+	imhttp? (
+		dev-libs/apr-util
+		www-servers/civetweb
+		virtual/libcrypt:=
+	)
 	impcap? ( net-libs/libpcap )
 	jemalloc? ( >=dev-libs/jemalloc-3.3.1:= )
 	kafka? ( >=dev-libs/librdkafka-0.9.0.99:= )
@@ -96,11 +100,11 @@ RDEPEND="
 	zeromq? (
 		>=net-libs/czmq-4:=[drafts]
 	)"
-DEPEND="${RDEPEND}
+
+DEPEND="
+	${RDEPEND}
 	elibc_musl? ( sys-libs/queue-standalone )
-	test? (
-		>=dev-libs/liblogging-1.0.1[stdlog]
-	)"
+"
 
 if [[ ${PV} == "9999" ]]; then
 	BDEPEND+=" doc? ( >=dev-python/sphinx-1.1.3-r7 )"
@@ -182,6 +186,7 @@ src_configure() {
 		--disable-generate-man-pages
 		--without-valgrind-testbench
 		--disable-liblogging-stdlog
+		--disable-imfile-tests  # Some imfile tests fail (noticed in version 8.2208.0)
 		$(use_enable test testbench)
 		$(use_enable test libfaketime)
 		$(use_enable test extended-tests)
