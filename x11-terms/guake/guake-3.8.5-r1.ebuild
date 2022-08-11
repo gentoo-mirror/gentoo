@@ -12,7 +12,7 @@ PLOCALES="ca cs de el es fa fi fr gl hr hu id it ja ko nb nl pa pl pt_BR ru sv t
 
 DESCRIPTION="Drop-down terminal for GNOME"
 HOMEPAGE="http://guake-project.org/"
-SRC_URI="https://github.com/Guake/guake/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Guake/guake/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -65,6 +65,7 @@ python_install() {
 	sed -e "/^SCHEMA_DIR/s|=.*|= \"${EPREFIX}/usr/share/glib-2.0/schemas\"|" \
 		-e "/def get_default_data_dir/{n;s|=.*|= \"${EPREFIX}/usr/share/guake\"|}" \
 		-i "${BUILD_DIR}/install$(python_get_sitedir)"/guake/paths.py || die
+	python_optimize "${BUILD_DIR}/install$(python_get_sitedir)"/guake/paths.py
 
 	distutils-r1_python_install
 }
