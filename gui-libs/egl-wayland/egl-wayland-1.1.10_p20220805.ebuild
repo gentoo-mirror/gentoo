@@ -5,21 +5,26 @@ EAPI=8
 
 inherit meson
 
+EGLWAYLAND_HASH="885f0a5e91fe9cfbfbcd98ff01f6b83503decef3"
+
 DESCRIPTION="EGLStream-based Wayland external platform"
 HOMEPAGE="https://github.com/NVIDIA/egl-wayland"
-SRC_URI="https://github.com/NVIDIA/egl-wayland/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/NVIDIA/egl-wayland/archive/${EGLWAYLAND_HASH}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${EGLWAYLAND_HASH}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-libs/wayland
 	!<x11-drivers/nvidia-drivers-470.57.02[wayland(-)]"
 DEPEND="
 	${RDEPEND}
+	dev-libs/wayland-protocols
 	gui-libs/eglexternalplatform
-	>=media-libs/libglvnd-1.3.4"
+	>=media-libs/libglvnd-1.3.4
+	x11-libs/libdrm"
 BDEPEND="dev-util/wayland-scanner"
 
 PATCHES=(
