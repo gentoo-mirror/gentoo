@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} )
+PYTHON_COMPAT=( python3_{7..11} )
 
 inherit cmake python-r1
 
@@ -13,8 +13,6 @@ HOMEPAGE="https://github.com/nmeum/android-tools/ https://developer.android.com/
 MY_PV="${PV//_/}"
 SRC_URI="https://github.com/nmeum/android-tools/releases/download/${MY_PV}/${PN}-${MY_PV}.tar.xz
 	https://dev.gentoo.org/~zmedico/dist/${PN}-31.0.3-no-gtest.patch
-	https://dev.gentoo.org/~zmedico/dist/${PN}-31.0.3-disable-werror-boringssl.patch
-	https://dev.gentoo.org/~zmedico/dist/${PN}-31.0.3_p1-install-e2fsdroid-ext2simg.patch
 "
 S="${WORKDIR}/${PN}-${MY_PV}"
 
@@ -51,13 +49,6 @@ src_prepare() {
 	cd "${S}/vendor/libziparchive" || die
 	eapply "${S}/patches/libziparchive/0004-Remove-the-useless-dependency-on-gtest.patch"
 	cd "${S}"
-	eapply "${DISTDIR}/${PN}-31.0.3-disable-werror-boringssl.patch"
-	cd "${S}/vendor/boringssl" || die
-	eapply "${S}/patches/boringssl/0011-Disable-Werror.patch"
-	cd "${S}/vendor/adb" || die
-	eapply "${FILESDIR}/${PN}-31.0.3_p1-gcc12.patch"
-	cd "${S}"
-	eapply "${DISTDIR}/${PN}-31.0.3_p1-install-e2fsdroid-ext2simg.patch"
 	rm -r patches || die
 	cmake_src_prepare
 }
