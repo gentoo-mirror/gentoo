@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson xdg
+inherit meson xdg systemd
 
 DESCRIPTION="Fast, lightweight and minimalistic Wayland terminal emulator"
 HOMEPAGE="https://codeberg.org/dnkl/foot"
@@ -12,7 +12,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 ~arm64"
 IUSE="+grapheme-clustering"
 
 COMMON_DEPEND="
@@ -28,8 +28,8 @@ COMMON_DEPEND="
 "
 DEPEND="
 	${COMMON_DEPEND}
-	dev-libs/wayland-protocols
 	dev-libs/tllist
+	dev-libs/wayland-protocols
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -39,9 +39,15 @@ RDEPEND="
 	)
 "
 BDEPEND="
-	dev-util/wayland-scanner
 	app-text/scdoc
+	dev-util/wayland-scanner
 "
+
+src_prepare() {
+	default
+	# disable the systemd dep, we install the unit file manually
+	sed -i "s/systemd', required: false)$/', required: false)/" "${S}"/meson.build || die
+}
 
 src_configure() {
 	local emesonargs=(
@@ -51,11 +57,16 @@ src_configure() {
 		-Dterminfo=disabled
 	)
 	meson_src_configure
+
+	sed 's|@bindir@|/usr/bin|g' "${S}/"/foot-server@.service.in > foot-server@.service
 }
 
 src_install() {
-	local DOCS=( CHANGELOG.md README.md )
+	local DOCS=( CHANGELOG.md README.md LICENSE )
 	meson_src_install
 
+	# foot unconditionally installs CHANGELOG.md, README.md and LICENSE.
+	# we handle this via DOCS and dodoc instead.
 	rm -r "${ED}/usr/share/doc/${PN}" || die
+	systemd_douserunit foot-server@.service "${S}"/foot-server@.socket
 }
