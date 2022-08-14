@@ -16,7 +16,7 @@ IUSE=""
 RDEPEND="
 	dev-libs/glib:2
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-3.28
+	>=gnome-base/gnome-shell-3.36
 "
 DEPEND=""
 BDEPEND=""
