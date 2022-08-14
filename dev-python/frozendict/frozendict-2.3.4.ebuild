@@ -10,11 +10,13 @@ inherit distutils-r1
 
 DESCRIPTION="A simple immutable mapping for python"
 HOMEPAGE="
-	https://github.com/Marco-Sulla/python-frozendict
-	https://pypi.python.org/pypi/frozendict
+	https://github.com/Marco-Sulla/python-frozendict/
+	https://pypi.org/project/frozendict/
 "
-SRC_URI="https://github.com/Marco-Sulla/python-frozendict/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-
+SRC_URI="
+	https://github.com/Marco-Sulla/python-frozendict/archive/v${PV}.tar.gz
+		-> ${P}.gh.tar.gz
+"
 S="${WORKDIR}/python-${P}"
 
 LICENSE="MIT"
