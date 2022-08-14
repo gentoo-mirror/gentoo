@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-24">
+    <title>GNU C Library: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in the GNU C Library, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">glibc</product>
+    <announced>2022-08-14</announced>
+    <revised count="1">2022-08-14</revised>
+    <bug>803437</bug>
+    <bug>807935</bug>
+    <bug>831096</bug>
+    <bug>831212</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-libs/glibc" auto="yes" arch="*">
+            <unaffected range="ge">2.34</unaffected>
+            <vulnerable range="lt">2.34</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNU C library is the standard C library used by Gentoo Linux systems. It provides programs with basic facilities and interfaces to system calls. ld.so is the dynamic linker which prepares dynamically linked programs for execution by resolving runtime dependencies and related functions.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GNU C Library. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU C Library users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-libs/glibc-2.34-r7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3998">CVE-2021-3998</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3999">CVE-2021-3999</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35942">CVE-2021-35942</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38604">CVE-2021-38604</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23218">CVE-2022-23218</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23219">CVE-2022-23219</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-14T14:29:01.578271Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-14T14:29:01.583276Z">sam</metadata>
+</glsa>
