@@ -1,10 +1,10 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9,10} )
-inherit flag-o-matic prefix python-single-r1 systemd
+PYTHON_COMPAT=( python3_{8..10} )
+inherit prefix python-single-r1 systemd
 
 DESCRIPTION="File transfer program to keep remote files into sync"
 HOMEPAGE="https://rsync.samba.org/"
@@ -31,7 +31,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="acl examples iconv ipv6 lz4 ssl stunnel system-zlib xattr xxhash zstd"
+IUSE="acl examples iconv lz4 ssl stunnel system-zlib xattr xxhash zstd"
 REQUIRED_USE+=" examples? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="acl? ( virtual/acl )
@@ -78,16 +78,12 @@ src_prepare() {
 }
 
 src_configure() {
-	# Force enable IPv6 on musl - upstream bug:
-	# https://bugzilla.samba.org/show_bug.cgi?id=10715
-	use elibc_musl && use ipv6 && append-cppflags -DINET6
-
 	local myeconfargs=(
 		--with-rsyncd-conf="${EPREFIX}"/etc/rsyncd.conf
 		--without-included-popt
+		--enable-ipv6
 		$(use_enable acl acl-support)
 		$(use_enable iconv)
-		$(use_enable ipv6)
 		$(use_enable lz4)
 		$(use_enable ssl openssl)
 		$(use_with !system-zlib included-zlib)
