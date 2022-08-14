@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-28">
+    <title>Puma: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Puma, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">puma</product>
+    <announced>2022-08-14</announced>
+    <revised count="1">2022-08-14</revised>
+    <bug>794034</bug>
+    <bug>817893</bug>
+    <bug>833155</bug>
+    <bug>836431</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/puma" auto="yes" arch="*">
+            <unaffected range="ge">5.6.4</unaffected>
+            <vulnerable range="lt">5.6.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Puma. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Puma users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/puma-5.6.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29509">CVE-2021-29509</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41136">CVE-2021-41136</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23634">CVE-2022-23634</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24790">CVE-2022-24790</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-14T21:41:58.068305Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-14T21:41:58.074010Z">sam</metadata>
+</glsa>
