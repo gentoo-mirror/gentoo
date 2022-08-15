@@ -10,11 +10,18 @@ inherit cmake distutils-r1 toolchain-funcs
 
 DESCRIPTION="disassembly/disassembler framework + bindings"
 HOMEPAGE="http://www.capstone-engine.org/"
-SRC_URI="https://github.com/capstone-engine/capstone/archive/${PV/_rc/-rc}.tar.gz -> ${P}.tar.gz"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/capstone-engine/capstone.git"
+	EGIT_REPO_BRANCH="next"
+else
+	SRC_URI="https://github.com/capstone-engine/capstone/archive/${PV/_rc/-rc}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+fi
 
 LICENSE="BSD"
 SLOT="0/5" # libcapstone.so.5
-KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 IUSE="python test"
 RDEPEND="python? ( ${PYTHON_DEPS} )"
@@ -26,10 +33,6 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 distutils_enable_tests setup.py
 
 S=${WORKDIR}/${P/_rc/-rc}
-
-PATCHES=(
-	"${FILESDIR}"/${P}-pkgconfig.patch
-)
 
 if [[ ${PV} == *_rc* ]]; then
 	# Upstream doesn't flag release candidates (bug 858350)
