@@ -4,20 +4,27 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
+
 inherit distutils-r1
 
-MY_P="${PN^}-${PV}"
+MY_P=${P^}
 DESCRIPTION="Ctypes-based simple ImageMagick binding for Python"
-HOMEPAGE="http://wand-py.org/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+HOMEPAGE="
+	https://docs.wand-py.org/
+	https://github.com/emcconville/wand/
+	https://pypi.org/project/Wand/
+"
+SRC_URI="mirror://pypi/${MY_P::1}/${PN^}/${MY_P}.tar.gz"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="media-gfx/imagemagick"
+RDEPEND="
+	media-gfx/imagemagick
+"
 BDEPEND="
 	test? (
 		media-gfx/imagemagick[fftw,jpeg,png,truetype,xml]
