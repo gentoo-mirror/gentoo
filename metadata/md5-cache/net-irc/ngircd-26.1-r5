@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://ngircd.barton.de/
 INHERIT=tmpfiles systemd verify-sig
 IUSE=debug gnutls ident irc-plus +ipv6 pam +ssl strict-rfc tcpd test zlib verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~x86 ~x64-macos
+KEYWORDS=amd64 arm arm64 ~x86 ~x64-macos
 LICENSE=GPL-2
 RDEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib ) virtual/tmpfiles
 RESTRICT=test
 SLOT=0
 SRC_URI=https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.xz verify-sig? ( https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.xz.sig )
 _eclasses_=tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=590f337dec681fe6a87c8f8c54ecad7e
+_md5_=b0d848bcaa96aea560d2a9a788aabcc0
