@@ -36,6 +36,10 @@ DEPEND="
 	x265? ( media-libs/x265:=[${MULTILIB_USEDEP}] )"
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.12.0-fix-bashism.patch
+)
+
 src_prepare() {
 	default
 
@@ -57,6 +61,7 @@ multilib_src_configure() {
 		$(use_enable gdk-pixbuf)
 		$(use_enable rav1e)
 		$(use_enable threads multithreading)
+		$(use_enable test tests)
 		$(use_enable x265)
 	)
 	ECONF_SOURCE="${S}" econf "${econf_args[@]}"
