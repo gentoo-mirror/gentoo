@@ -1,0 +1,12 @@
+DEFINED_PHASES=install prepare test
+DEPEND=tk? ( >=dev-lang/tk-8.5 dev-tcltk/tcllib ) dev-perl/Cairo dev-perl/JSON-MaybeXS dev-perl/Pango virtual/perl-Getopt-Long
+DESCRIPTION=Ridiculously functional reminder program
+EAPI=8
+HOMEPAGE=https://dianne.skoll.ca/projects/remind/
+IUSE=tk
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=tk? ( >=dev-lang/tk-8.5 dev-tcltk/tcllib )
+SLOT=0
+SRC_URI=https://dianne.skoll.ca/projects/remind/download/remind-04.00.02.tar.gz
+_md5_=a678f64217a32880671dd820448e8ef3
