@@ -1,6 +1,6 @@
 BDEPEND=man? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=>=dev-libs/wayland-protocols-1.14 dev-libs/wayland media-libs/libpng x11-libs/pixman jpeg? ( virtual/jpeg )
+DEPEND=dev-libs/wayland >=dev-libs/wayland-protocols-1.14 media-libs/libpng x11-libs/pixman jpeg? ( media-libs/libjpeg-turbo )
 DESCRIPTION=Grab images from a Wayland compositor
 EAPI=8
 HOMEPAGE=https://github.com/emersion/grim
@@ -8,7 +8,7 @@ INHERIT=bash-completion-r1 meson git-r3
 IUSE=+man jpeg
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=>=dev-libs/wayland-protocols-1.14 dev-libs/wayland media-libs/libpng x11-libs/pixman jpeg? ( virtual/jpeg )
+RDEPEND=dev-libs/wayland >=dev-libs/wayland-protocols-1.14 media-libs/libpng x11-libs/pixman jpeg? ( media-libs/libjpeg-turbo )
 SLOT=0
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=1fc312f0aab1f23ad3c8d62f0a27b7af
+_md5_=02f36ada20cd9e274e52c8fd8ec61a3b
