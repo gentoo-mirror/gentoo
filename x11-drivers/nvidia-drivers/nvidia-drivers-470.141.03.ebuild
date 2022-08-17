@@ -21,7 +21,7 @@ S="${WORKDIR}"
 
 LICENSE="NVIDIA-r2 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64"
 IUSE="+X abi_x86_32 abi_x86_64 +driver persistenced +static-libs +tools wayland"
 
 COMMON_DEPEND="
@@ -456,6 +456,7 @@ pkg_postinst() {
 		elog "Of note, may possibly cause issues with SLI and Reverse PRIME."
 		elog
 		elog "This version of ${PN} only supports EGLStream which is only"
-		elog "supported by a few wayland compositors (e.g. kwin / mutter, not sway)."
+		elog "supported by a few wayland compositors (e.g. kwin / mutter, not sway),"
+		elog "and is barely tested (X11 is recommended for this legacy branch)."
 	fi
 }
