@@ -4,7 +4,7 @@
 # please keep this ebuild at EAPI 7 -- sys-apps/portage dep
 EAPI=7
 
-# please bump dev-python/ensurepip-wheels along with this package!
+# please bump dev-python/ensurepip-setuptools along with this package!
 
 DISTUTILS_USE_PEP517=standalone
 PYTHON_TESTED=( python3_{8..11} pypy3 )
