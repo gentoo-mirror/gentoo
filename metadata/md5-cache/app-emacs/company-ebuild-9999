@@ -1,0 +1,12 @@
+BDEPEND=app-emacs/company-mode app-emacs/ebuild-mode >=app-editors/emacs-25.1:* >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Company backend for editing Ebuild files
+EAPI=8
+HOMEPAGE=https://gitweb.gentoo.org/proj/company-ebuild.git
+INHERIT=elisp git-r3
+LICENSE=GPL-2+
+PROPERTIES=live
+RDEPEND=app-emacs/company-mode app-emacs/ebuild-mode >=app-editors/emacs-25.1:*
+SLOT=0
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=e3d656063c5aebfb4869feca146fb89e
