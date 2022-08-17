@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd bash-completion-r1 autotools tmpfiles
 
@@ -10,7 +10,7 @@ HOMEPAGE="https://lldpd.github.io/"
 SRC_URI="http://media.luffy.cx/files/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0/4.9.0"
+SLOT="0/4.9.1"
 KEYWORDS="~amd64 ~x86"
 IUSE="cdp doc +dot1 +dot3 edp fdp graph +lldpmed old-kernel sanitizers
 	seccomp sonmp snmp static-libs test readline xml"
@@ -37,12 +37,6 @@ BDEPEND="virtual/pkgconfig
 "
 
 REQUIRED_USE="graph? ( doc )"
-
-PATCHES=(
-	# Can drop both of these on next release; upstream.
-	"${FILESDIR}/${P}-glibc-2.33.patch"
-	"${FILESDIR}/${P}-r2-glibc-2.33.patch"
-)
 
 src_prepare() {
 	default
