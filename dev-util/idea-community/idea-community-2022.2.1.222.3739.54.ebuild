@@ -6,14 +6,15 @@ inherit desktop wrapper
 
 SLOT="0"
 PV_STRING="$(ver_cut 2-6)"
-MY_PV="$(ver_cut 1-2)"
+MY_PV="$(ver_cut 1-3)"
 
 MY_PN="idea"
 # Using the most recent Jetbrains Runtime binaries available at the time of writing
 # ( jre 11.0.10 build 1304.4  )
 JRE11_BASE="11_0_13"
 JRE11_VER="1751.21"
-IDEA_VER="2.49836838.1031729952.1658961170-1305167137.1658527855"
+IDEA_VER="2.151348410.2082789468.1660859635-1531039212.1660859635"
+
 
 # distinguish settings for official stable releases and EAP-version releases
 if [[ "$(ver_cut 7)"x = "prex" ]]
@@ -49,7 +50,7 @@ RDEPEND="${DEPEND}
 
 BDEPEND="dev-util/patchelf"
 RESTRICT="splitdebug"
-S="${WORKDIR}/${MY_PN}-IC-$(ver_cut 3-6)"
+S="${WORKDIR}/${MY_PN}-IC-$(ver_cut 4-6)"
 
 QA_PREBUILT="opt/${PN}-${MY_PV}/*"
 
