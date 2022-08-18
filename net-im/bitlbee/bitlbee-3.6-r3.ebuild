@@ -12,7 +12,7 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://get.bitlbee.org/src/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="irc to IM gateway that support multiple IM protocols"
@@ -63,6 +63,9 @@ BDEPEND="${PYTHON_DEPS}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.5-systemd-user.patch"
+	"${FILESDIR}/${PN}-3.5-libcheck.patch"
+	"${FILESDIR}/${PN}-3.5-libevent.patch"
+	"${FILESDIR}/${P}-disabled-plugins-use.patch"
 	"${FILESDIR}/${P}-system-json-parser.patch"
 )
 
