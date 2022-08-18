@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools toolchain-funcs
 
@@ -22,7 +22,8 @@ DEPEND="dev-db/mysql-connector-c:=
 	dev-libs/openssl:=
 	net-analyzer/rrdtool
 	net-libs/libpcap
-	>=net-libs/nDPI-3.0:=
+	>=net-libs/nDPI-4.2:=
+	<net-libs/nDPI-4.4:=
 	>=net-libs/zeromq-3:=
 	net-misc/curl
 	sys-libs/libcap
@@ -34,11 +35,9 @@ RDEPEND="${DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.2-mysqltool.patch"
-	"${FILESDIR}/${PN}-4.2-parallel-make.patch"
-	"${FILESDIR}/${PN}-4.0-ndpi-includes.patch"
-	"${FILESDIR}/${PN}-4.2-PKG_CONFIG.patch"
-	"${FILESDIR}/${PN}-4.2-nogit.patch"
+	"${FILESDIR}"/${PN}-5.2.1-mysqltool.patch
+	"${FILESDIR}"/${PN}-5.2.1-ndpi-linking.patch
+	"${FILESDIR}"/${PN}-5.2.1-build-system.patch
 )
 
 src_prepare() {
@@ -50,7 +49,7 @@ src_prepare() {
 		-e "s/@SHORT_VERSION@/${PV}/g" \
 		-e "s/@GIT_DATE@/$(date)/g" \
 		-e "s/@GIT_RELEASE@/${PV}.$(date +%y%m%d)/g" \
-		-e "s/@GIT_BRANCH@//g" < "${S}/configure.seed" \
+		-e "s/@GIT_BRANCH@//g" < "${S}/configure.ac.in" \
 		> "${S}/configure.ac" || die
 
 	eautoreconf
@@ -58,7 +57,12 @@ src_prepare() {
 
 src_configure() {
 	tc-export PKG_CONFIG
-	default
+
+	# configure.ac.in at least has some bashisms(?) which get lost(?)
+	# in conversion to configure.ac (like [ -> nothing?) so just force
+	# bash for now. It's still not quite right but at least upstream will be
+	# testing with it. TODO: fix this!
+	CONFIG_SHELL="${BROOT}/bin/bash" econf
 }
 
 src_compile() {
