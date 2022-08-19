@@ -5,7 +5,7 @@ EAPI="8"
 
 # Patch version
 FIREFOX_PATCHSET="firefox-102esr-patches-01j.tar.xz"
-SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-01j.tar.xz"
+SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-02j.tar.xz"
 
 LLVM_MAX_SLOT=14
 
@@ -71,7 +71,7 @@ IUSE="clang cpu_flags_arm_neon debug +jit lto test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="${PYTHON_DEPS}
-	>=virtual/rust-1.51.0
+	>=virtual/rust-1.59.0
 	virtual/pkgconfig
 	test? (
 		$(python_gen_any_dep 'dev-python/six[${PYTHON_USEDEP}]')
@@ -131,9 +131,9 @@ python_check_deps() {
 
 pkg_pretend() {
 	if use test ; then
-		CHECKREQS_DISK_BUILD="7600M"
+		CHECKREQS_DISK_BUILD="7000M"
 	else
-		CHECKREQS_DISK_BUILD="6400M"
+		CHECKREQS_DISK_BUILD="6000M"
 	fi
 
 	check-reqs_pkg_pretend
@@ -142,9 +142,9 @@ pkg_pretend() {
 pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary ]] ; then
 		if use test ; then
-			CHECKREQS_DISK_BUILD="7600M"
+			CHECKREQS_DISK_BUILD="7000M"
 		else
-			CHECKREQS_DISK_BUILD="6400M"
+			CHECKREQS_DISK_BUILD="6000M"
 		fi
 
 		check-reqs_pkg_setup
@@ -326,8 +326,9 @@ src_configure() {
 		fi
 	fi
 
-	export MACH_USE_SYSTEM_PYTHON=1
-	export PIP_NO_CACHE_DIR=off
+	# Use system's Python environment
+	export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="none"
+	export PIP_NETWORK_INSTALL_RESTRICTED_VIRTUALENVS=mach
 
 	# Show flags we will use
 	einfo "Build CFLAGS:    ${CFLAGS}"
