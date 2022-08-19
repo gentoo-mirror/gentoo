@@ -32,6 +32,12 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	# Allows us to rm the tests as before. Will be included in next
+	# release.
+	"${FILESDIR}"/mold-1.4.1-glob-tests.patch
+)
+
 pkg_pretend() {
 	# Requires a c++20 compiler, see #831473
 	if [[ ${MERGE_TYPE} != binary ]]; then
