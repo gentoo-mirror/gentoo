@@ -35,6 +35,8 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	# remove tests the need network
 	"${FILESDIR}/opentelemetry-cpp-1.5.0-tests.patch"
+	# bug #865029
+	"${FILESDIR}/opentelemetry-cpp-1.6.0-dont-install-nosend.patch"
 )
 
 src_configure() {
