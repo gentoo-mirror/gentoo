@@ -10,8 +10,8 @@ inherit edo flag-o-matic multilib-build toolchain-funcs
 # ideally update only on mingw64-runtime bumps or if there's known issues
 # (please report) to avoid rebuilding the entire toolchain too often.
 # Do _p1++ rather than revbump if changing without bumping mingw64 itself.
-BINUTILS_PV=2.37 # 2.38 needs bug #838106
-GCC_PV=11.3.0
+BINUTILS_PV=2.39
+GCC_PV=12.2.0
 MINGW_PV=$(ver_cut 1-3)
 
 DESCRIPTION="All-in-one mingw64 toolchain intended for building Wine without crossdev"
@@ -31,7 +31,7 @@ LICENSE="
 	LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 )
 	ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain"
 SLOT="0"
-KEYWORDS="-* amd64 x86"
+#KEYWORDS="-* ~amd64 ~x86"
 IUSE="+abi_x86_32 custom-cflags debug"
 
 RDEPEND="
@@ -45,7 +45,6 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}"/mingw64-runtime-10.0.0-tmp-files-clash.patch
 	"${FILESDIR}"/gcc-11.3.0-plugin-objdump.patch
-	"${FILESDIR}"/gcc-11.3.0-musl-calloc.patch
 )
 
 pkg_pretend() {
@@ -94,10 +93,12 @@ src_compile() {
 		--prefix="${prefix}"
 		--host=${CHOST}
 		--disable-cet
+		--disable-default-execstack
 		--disable-nls
 		--disable-shared
 		--with-system-zlib
 		--without-debuginfod
+		--without-msgpack
 	)
 	mwt-binutils() {
 		# symlink gcc's lto plugin for AR (bug #854516)
