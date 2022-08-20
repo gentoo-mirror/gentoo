@@ -22,7 +22,7 @@ LICENSE="Apache-2.0"
 # same build of ERTS that was used when compiling the code.  See
 # http://erlang.org/doc/system_principles/misc.html for more information.
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="doc emacs java +kpoll odbc sctp ssl systemd tk wxwidgets"
 
 RDEPEND="
@@ -151,6 +151,12 @@ src_install() {
 	newinitd "${FILESDIR}"/epmd.init-r2 epmd
 	newconfd "${FILESDIR}"/epmd.confd-r2 epmd
 	use systemd && systemd_newunit "${FILESDIR}"/epmd.service-r1 epmd.service
+}
+
+src_test() {
+	# Only run a subset of tests to test that everything was built
+	# successfully, otherwise we will be here for a long time.
+	emake kernel_test ARGS="-suite os_SUITE"
 }
 
 pkg_postinst() {
