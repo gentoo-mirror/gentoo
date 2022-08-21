@@ -546,123 +546,11 @@ dev-haskell/recaptcha
 dev-haskell/regex-pcre-builtin
 dev-haskell/riff
 dev-haskell/say
-dev-haskell/semigroupoid-extras
-dev-haskell/sendfile
-dev-haskell/shakespeare-css
-dev-haskell/shakespeare-i18n
-dev-haskell/shakespeare-js
-dev-haskell/shakespeare-text
-dev-haskell/shell-escape
-dev-haskell/size-based
-dev-haskell/stack-bin
-dev-haskell/stmonadtrans
-dev-haskell/store
-dev-haskell/store-core
-dev-haskell/stream
-dev-haskell/stringable
-dev-haskell/stringprep
-dev-haskell/stringsearch
-dev-haskell/syb-with-class
-dev-haskell/system-posix-redirect
-dev-haskell/tagshare
-dev-haskell/tagstream-conduit
-dev-haskell/tasty-ant-xml
-dev-haskell/tensor
-dev-haskell/testing-feat
-dev-haskell/testing-type-modifiers
-dev-haskell/text-binary
-dev-haskell/text-stream-decode
-dev-haskell/th-utilities
-dev-haskell/thyme
-dev-haskell/top
-dev-haskell/unexceptionalio
-dev-haskell/uniqueid
-dev-haskell/unixutils
-dev-haskell/uri
-dev-haskell/uri-bytestring
-dev-haskell/uri-bytestring-aeson
-dev-haskell/uri-encode
-dev-haskell/url
-dev-haskell/uuagc
-dev-haskell/uuagc-cabal
-dev-haskell/uulib
-dev-haskell/vector-space
-dev-haskell/wai-conduit
-dev-haskell/wai-test
-dev-haskell/wavy
-dev-haskell/with-location
-dev-haskell/wl-pprint
-dev-haskell/wl-pprint-text
-dev-haskell/wx
-dev-haskell/wxc
-dev-haskell/wxcore
-dev-haskell/wxdirect
-dev-haskell/xmlgen
-dev-haskell/yesod-auth
-dev-haskell/yesod-auth-hashdb
-dev-haskell/yesod-default
-dev-haskell/yesod-json
-dev-haskell/zlib-conduit
-dev-haskell/zlib-enum
-dev-util/bustle
-games-board/goatee-gtk
-sci-mathematics/agda
-sci-mathematics/agda-stdlib
-www-apps/gitit
-
-# Sam James <sam@gentoo.org> (2022-07-22)
-# Severely broken, unbuildable with modern glibc, several versions out of date,
-# needs a big rework. Bugs #766294, #775545, #855197, #727912, #831868, #696938,
-# and #531996, #836111, #818721. Removal on 2022-08-22.
-sci-mathematics/rstudio
-dev-haskell/pandoc-citeproc
-
-# Hans de Graaff <graaff@gentoo.org> (2022-07-20)
-# Obsolete ruby26-only slot without reverse dependencies. Use a newer
-# slot instead. Masked for removal in 30 days.
-dev-ruby/activeldap:5
-dev-ruby/web-console:3
-
-# Sam James <sam@gentoo.org> (2022-07-19)
-# Unaddressed file collisions, fails to build with slibtool, EAPI 6, and
-# out of date. Bugs #800617, #658318. No reverse dependencies in ::gentoo
-# and needs a dependency in ::sci to run tests. Removal on 2022-08-19.
-sci-libs/io_lib
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2022-07-19)
-# No upstream commits since 2017, broken by yr.no widget discontinuation.
-# Replaced by kde-misc/kweather from KDE Plasma Mobile Gear.
-# Removal on 2022-08-18.
-kde-misc/plasma-applet-weather-widget
-
-# Sam James <sam@gentoo.org> (2022-07-17)
-# Code quality issues, out of date by several versions in Gentoo,
-# unmaintained, and several open bugs: bugs #521272, #729684, #855230.
-# Removal on 2022-08-17.
-dev-db/gigabase
 
 # Hans de Graaff <graaff@gentoo.org> (2022-07-16)
 # No longer supported upstream. Use a newer ruby version instead.
 # Masked for removal in 30 days.
 dev-lang/ruby:2.6
-
-# Sam James <sam@gentoo.org> (2022-07-15)
-# No activity upstream since early 2021, uses deprecated Go eclass,
-# open bugs: bug #680358, bug #844694. Removal on 2022-08-15.
-dev-util/docker-ls
-
-# Bernard Cafarelli <voyageur@gentoo.org> (2022-07-14)
-# Dead upstream (last release in 2013, no tarballs or git download)
-# No reverse dependencies for a long time, several test and build failures
-# Bug #857948, removal on 2022-08-13.
-net-misc/csync
-
-# David Seifert <soap@gentoo.org> (2022-07-14)
-# Unmaintained, no other major distro carries this, code quality is
-# abysmal, build system has major issues, tons of patches, EAPI 6,
-# no other revdeps in tree. Bug #822762, #831874, removal on 2022-08-13.
-sci-visualization/opendx
-sci-visualization/opendx-samples
 
 # Marek Szuba <marecki@gentoo.org> (2022-07-13)
 # Upstream has switched from CMake to hand-crafted Makefiles (yes, TO them),
@@ -670,26 +558,6 @@ sci-visualization/opendx-samples
 # QA violations in Gentoo. Mask until all of the latter have been resolved
 # and the jumbo patch fixing the former has been thoroughly tested.
 >media-gfx/gmic-3.1.0
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-07-12)
-# Unused java libraries, all asm-* included in dev-java/asm,
-# log4j-api-java9 never to be used as a package. Removal on 2022-08-12.
-dev-java/asm-analysis
-dev-java/asm-commons
-dev-java/asm-tree
-dev-java/asm-util
-dev-java/log4j-api-java9
-
-# Sam James <sam@gentoo.org> (2022-07-12)
-# Huge number of open bugs, deprecated upstream (they recommend
-# using other video editors like Shotcut, Kdenlive, ...). Removal on 2022-08-12.
-# Bugs #372053, #438248, #740528, #778338, #832380, #834406.
-media-video/kino
-
-# Matt Turner <mattst88@gentoo.org> (2022-07-11)
-# Dead package upstream. No reverse dependencies.
-# Removal on 2022-08-11.
-x11-libs/gtk+extra
 
 # Fabian Groffen <grobian@gentoo.org> (2022-07-02)
 # Segfaults handling SPF validations (warn on permerror), like the
