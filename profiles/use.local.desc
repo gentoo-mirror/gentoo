@@ -1542,11 +1542,6 @@ dev-haskell/nats:template-haskell - enable template_haskell
 dev-haskell/network:devel - using tests for developers
 dev-haskell/network-data:small-base - Build the split-up base package.
 dev-haskell/optparse-simple:build-example - Build the example executable
-dev-haskell/pandoc-citeproc:bibutils - Use Chris Putnam's Bibutils.
-dev-haskell/pandoc-citeproc:debug - Turn on debug tracing.
-dev-haskell/pandoc-citeproc:embed-data-files - Embed locale files into the library (needed for windows packaging)
-dev-haskell/pandoc-citeproc:static - Use static linking.
-dev-haskell/pandoc-citeproc:unicode-collation - Use Haskell bindings to the International Components for Unicode (ICU) libraries
 dev-haskell/parsec-numbers:parsec1 - use dev-haskell/parsec1 instead of dev-haskell/parsec
 dev-haskell/parsers:attoparsec - Enable the use of the `attoparsec` package
 dev-haskell/parsers:binary - You can disable the use of the `binary` package using `-f-binary`.
@@ -1573,8 +1568,6 @@ dev-haskell/quickcheck-classes-base:binary-laws - Include infrastructure for tes
 dev-haskell/quickcheck-classes-base:unary-laws - Include infrastructure for testing class laws of unary type constructors.
 dev-haskell/recaptcha:network-uri - Get Network.URI from the network-uri package.
 dev-haskell/sandi:conduit - Build with conduit
-dev-haskell/semigroupoid-extras:profunctors - You can disable the use of the `profunctors` package using `-f-profunctors`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/sendfile:portable - Explicitly enable portable sendfile support (implemented in Haskell)
 dev-haskell/sha:exe - Build a sha1 and a sha384 executable similar to 'md5sum'.
 dev-haskell/shelly:lifted - run the tests against Shelly.Lifted
 dev-haskell/simple-sendfile:allow-bsd - Allow use of BSD sendfile (disable on GNU/kFreeBSD)
@@ -1588,22 +1581,15 @@ dev-haskell/snap-server:openssl - Enable https support using the HsOpenSSL libra
 dev-haskell/snap-server:pong-server - Build a server that just returns "PONG". Normally useful only for benchmarks.
 dev-haskell/snap-server:test-server - Build the blackbox testserver
 dev-haskell/splitmix:optimised-mixer - Use JavaScript for mix32
-dev-haskell/store-core:force-alignment - No description
 dev-haskell/texmath:executable - Compile test executable.
 dev-haskell/texmath:server - Compile webserver.
 dev-haskell/text-short:asserts - Enable runtime-checks via 'assert'
-dev-haskell/thyme:bug-for-bug - bug-for-bug compatibility with time
-dev-haskell/thyme:lens - use the full lens package
-dev-haskell/thyme:show-internal - instance Show of internal representation
 dev-haskell/tls:compat - Accept SSLv2 compatible handshake.
 dev-haskell/tls:network - Use the base network library.
 dev-haskell/transformers-base:orphaninstances - Build instances for orphan datatypes.
 dev-haskell/unicode-collation:doctests - Run doctests as part of test suite. Use with: @--write-ghc-environment-files=always@.
 dev-haskell/unicode-collation:executable - Build the unicode-collate executable.
 dev-haskell/unix-compat:old-time - build against old-time package
-dev-haskell/uri-encode:network-uri - Get Network.URI from the network-uri package.
-dev-haskell/uri-encode:tools - Build executables.
-dev-haskell/uuagc:loag - Use MiniSat as external SAT-solver to schedule all Linear Ordered AGs
 dev-haskell/vector:boundschecks - Enable bounds checking
 dev-haskell/vector:internalchecks - Enable internal consistency checks at the cost of a significant performance penalty
 dev-haskell/vector:unsafechecks - Enable bounds checking in unsafe operations at the cost of a significant performance penalty
@@ -2812,8 +2798,6 @@ dev-util/bpftool:caps - Use sys-libs/libcap to enable unprivileged run support
 dev-util/bpftrace:fuzzing - Build bpftrace for fuzzing
 dev-util/buildbot:docker - Add support for worker docker command steps
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
-dev-util/bustle:interactivetests - Build interactive test programs
-dev-util/bustle:threaded - Build with the multi-threaded runtime
 dev-util/cargo-audit:fix - Add support for 'fix' subcommand (experimental)
 dev-util/catalyst:ccache - Enables ccache support
 dev-util/catalyst:iso - Pulls in the depends for building iso images
@@ -7567,10 +7551,6 @@ sci-libs/vtk:rendering - Building Redering modules
 sci-libs/vtk:tbb - Use dev-cpp/tbb to handle smp support
 sci-libs/vtk:views - Building Views modules
 sci-libs/vtk:web - Install web component
-sci-mathematics/agda:cpphs - Use cpphs instead of cpp.
-sci-mathematics/agda:debug - Enable debugging features that may slow Agda down.
-sci-mathematics/agda:enable-cluster-counting - Enable the --count-clusters flag. (If enable-cluster-counting is False, then the --count-clusters flag triggers an error message.)
-sci-mathematics/agda:stdlib - Install the standard library.
 sci-mathematics/bertini:optimization - Accept upstream's choices for -O option.
 sci-mathematics/cadabra:jupyter - Build the Cadabra Jupyter kernel
 sci-mathematics/cgal:mpfi - Enable support for multiple recision interval arithmetic via sci-libs/mpfi
@@ -7647,7 +7627,6 @@ sci-mathematics/polymake:ppl - Enable dev-libs/ppl interface for convex hull com
 sci-mathematics/polymake:singular - Enable the interface to sci-mathematics/singular for ideal related computations.
 sci-mathematics/primecount:executable - Build the primecount CLI executable
 sci-mathematics/primesieve:executable - Build the primesieve CLI executable
-sci-mathematics/rstudio:server - Build and install the RStudio server
 sci-mathematics/singular:polymake - Enable the interface to TOPCOM
 sci-mathematics/slepc:complex-scalars - Make scalars complex
 sci-mathematics/stp:cryptominisat - Enable sci-mathematics/cryptominisat support
@@ -8637,7 +8616,6 @@ www-apps/cgit:highlight - Enable source code highlighting
 www-apps/cgit:lua - Enable support for Lua scripting
 www-apps/drupal:uploadprogress - Install dev-php/pecl-uploadprogress package
 www-apps/gitea:acct - User and group management via acct-*/git packages
-www-apps/gitit:plugins - enables optional plugin runtime loader
 www-apps/hugo:sass - Enable SASS/SCSS support
 www-apps/icingaweb2:apache2-server - Adds support for the apache2-server
 www-apps/icingaweb2:fpm - Adds FPM support to php
