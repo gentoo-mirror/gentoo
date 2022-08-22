@@ -11,6 +11,20 @@ index 7c8f90e9fb5d3..71cb01935000b 100644
  #include <string>
  #if __cplusplus >= 201703L
 
+diff --git a/src/rgw/rgw_string.h b/src/rgw/rgw_string.h
+index 257daa9c1fe6e..90e64f98a2587 100644
+--- a/src/rgw/rgw_string.h
++++ b/src/rgw/rgw_string.h
+@@ -8,6 +8,8 @@
+ #include <stdlib.h>
+ #include <limits.h>
+ #include <string_view>
++#include <string>
++#include <stdexcept>
+ 
+ #include <boost/container/small_vector.hpp>
+ 
+
 diff --git a/src/test/encoding.cc b/src/test/encoding.cc
 index 6d252fae18b71..f18901cbd27d9 100644
 --- a/src/test/encoding.cc
