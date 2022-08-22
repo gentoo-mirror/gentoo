@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,6 +10,7 @@ SRC_URI="
 	amd64? ( ${BOOTSTRAP_DIST}/go-linux-amd64-bootstrap-${PV}.tbz )
 	arm? ( ${BOOTSTRAP_DIST}/go-linux-arm-bootstrap-${PV}.tbz )
 	arm64? ( ${BOOTSTRAP_DIST}/go-linux-arm64-bootstrap-${PV}.tbz )
+	loong? ( ${BOOTSTRAP_DIST}/go-linux-loong64-bootstrap-${PV}.tbz )
 	ppc64? (
 		big-endian? ( ${BOOTSTRAP_DIST}/go-linux-ppc64-bootstrap-${PV}.tbz )
 		!big-endian? ( ${BOOTSTRAP_DIST}/go-linux-ppc64le-bootstrap-${PV}.tbz )
@@ -23,7 +24,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="-* amd64 arm arm64 ppc64 ~riscv ~s390 x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 IUSE="big-endian"
 RESTRICT="strip"
 QA_PREBUILT="*"
