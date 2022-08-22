@@ -2,15 +2,15 @@ BDEPEND=dev-lang/perl virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=sys-libs/zlib caps? ( sys-libs/libcap ) dbus? ( sys-apps/dbus ) http-proxy? ( net-libs/libhubbub ) libev? ( dev-libs/libev ) libevent? ( dev-libs/libevent:= ) libuv? ( dev-libs/libuv:= ) sqlite3? ( dev-db/sqlite:= ) ssl? ( !mbedtls? ( dev-libs/openssl:0= ) mbedtls? ( net-libs/mbedtls:= ) )
 DESCRIPTION=A flexible pure-C library for implementing network protocols
-EAPI=7
+EAPI=8
 HOMEPAGE=https://libwebsockets.org/
 INHERIT=cmake
-IUSE=access-log caps cgi client dbus generic-sessions http-proxy http2 ipv6 +lejp libev libevent libuv mbedtls peer-limits server-status smtp socks5 sqlite3 ssl threads zip
-KEYWORDS=amd64 arm arm64 ppc ~ppc64 x86
+IUSE=access-log caps cgi client dbus extensions generic-sessions http-proxy http2 ipv6 +lejp libev libevent libuv mbedtls peer-limits server-status smtp socks5 sqlite3 ssl threads zip
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=sys-libs/zlib caps? ( sys-libs/libcap ) dbus? ( sys-apps/dbus ) http-proxy? ( net-libs/libhubbub ) libev? ( dev-libs/libev ) libevent? ( dev-libs/libevent:= ) libuv? ( dev-libs/libuv:= ) sqlite3? ( dev-db/sqlite:= ) ssl? ( !mbedtls? ( dev-libs/openssl:0= ) mbedtls? ( net-libs/mbedtls:= ) )
 REQUIRED_USE=access-log? ( http2 ) generic-sessions? ( smtp sqlite3 ) http-proxy? ( client ) mbedtls? ( ssl ) smtp? ( libuv ) socks5? ( client http-proxy ) ?? ( libev libevent )
 SLOT=0/19
-SRC_URI=https://github.com/warmcat/libwebsockets/archive/v4.3.1.tar.gz -> libwebsockets-4.3.1.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=6ecf3408dd20fa1efc3935436ce0ac69
+SRC_URI=https://github.com/warmcat/libwebsockets/archive/v4.3.2.tar.gz -> libwebsockets-4.3.2.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=1e2a72e363b180f2c27bdf9d4997cafd
