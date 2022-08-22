@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -11,8 +11,8 @@ SRC_URI="https://github.com/warmcat/libwebsockets/archive/v${PV}.tar.gz -> ${P}.
 
 LICENSE="MIT"
 SLOT="0/19" # libwebsockets.so.19
-KEYWORDS="amd64 arm arm64 ppc ~ppc64 x86"
-IUSE="access-log caps cgi client dbus generic-sessions http-proxy http2 ipv6
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="access-log caps cgi client dbus extensions generic-sessions http-proxy http2 ipv6
 	+lejp libev libevent libuv mbedtls peer-limits server-status smtp socks5
 	sqlite3 ssl threads zip"
 
@@ -74,6 +74,7 @@ src_configure() {
 		-DLWS_WITH_STRUCT_JSON=$(usex lejp)
 		-DLWS_WITH_THREADPOOL=$(usex threads)
 		-DLWS_WITH_ZIP_FOPS=$(usex zip)
+		-DLWS_WITHOUT_EXTENSIONS=$(usex !extensions)
 		-DLWS_WITHOUT_TESTAPPS=ON
 	)
 
