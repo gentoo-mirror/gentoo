@@ -4,20 +4,21 @@
 EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit lua-single meson mono-env python-single-r1 xdg
+inherit flag-o-matic lua-single meson mono-env python-single-r1 xdg
 
 DESCRIPTION="Graphical IRC client based on XChat"
 HOMEPAGE="https://hexchat.github.io/"
 
 if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
+	# We need to empty SRC_URI or else mono-env breaks the live ebuild
 	SRC_URI=""
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
 	SRC_URI="https://dl.hexchat.net/${PN}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86 ~amd64-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux"
 fi
 
 LICENSE="GPL-2 plugin-fishlim? ( MIT )"
@@ -74,6 +75,9 @@ pkg_setup() {
 }
 
 src_configure() {
+	# LTO type mismatch, https://bugs.gentoo.org/861458
+	filter-lto
+
 	local emesonargs=(
 		-Ddbus-service-use-appid=false
 		-Dinstall-appdata=false

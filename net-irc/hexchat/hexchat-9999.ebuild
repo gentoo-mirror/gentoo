@@ -6,7 +6,7 @@ EAPI=7
 LUA_COMPAT=( lua5-{1..4} luajit )
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit lua-single meson mono-env python-single-r1 xdg
+inherit flag-o-matic lua-single meson mono-env python-single-r1 xdg
 
 DESCRIPTION="Graphical IRC client based on XChat"
 HOMEPAGE="https://hexchat.github.io/"
@@ -75,6 +75,9 @@ pkg_setup() {
 }
 
 src_configure() {
+	# LTO type mismatch, https://bugs.gentoo.org/861458
+	filter-lto
+
 	local emesonargs=(
 		-Ddbus-service-use-appid=false
 		-Dinstall-appdata=false
