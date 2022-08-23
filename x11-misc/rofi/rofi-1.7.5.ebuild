@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs
+inherit autotools toolchain-funcs xdg-utils
 
 DESCRIPTION="A window switcher, run dialog and dmenu replacement"
 HOMEPAGE="https://github.com/davatorium/rofi"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/davatorium/rofi/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+drun test +windowmode"
 RESTRICT="!test? ( test )"
 
@@ -22,19 +22,15 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/glib:2
-	gnome-base/librsvg:2
-	media-libs/freetype
-	virtual/jpeg
 	x11-libs/cairo[X,xcb(+)]
-	x11-libs/libXft
-	x11-libs/libXinerama
-	x11-libs/libxcb
+	x11-libs/gdk-pixbuf:2
+	x11-libs/libxcb:=
 	x11-libs/libxkbcommon[X]
 	x11-libs/pango[X]
 	x11-libs/startup-notification
 	x11-libs/xcb-util
+	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-wm
-	x11-libs/xcb-util-xrm
 	x11-misc/xkeyboard-config
 "
 DEPEND="
@@ -68,4 +64,10 @@ pkg_postinst() {
 			elog "For more information, please see https://github.com/davatorium/rofi/releases/tag/1.7.0"
 		fi
 	done
+
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
