@@ -16,7 +16,7 @@ SRC_URI="https://archive.mozilla.org/pub/security/nss/releases/${RTM_NAME}/src/$
 LICENSE="|| ( MPL-2.0 GPL-2 LGPL-2.1 )"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
-IUSE="cacert test utils cpu_flags_ppc_altivec cpu_flags_ppc_vsx"
+IUSE="cacert test +utils cpu_flags_ppc_altivec cpu_flags_ppc_vsx"
 RESTRICT="!test? ( test )"
 # pkg-config called by nss-config -> virtual/pkgconfig in RDEPEND
 RDEPEND="
@@ -50,6 +50,7 @@ src_prepare() {
 	fi
 
 	pushd coreconf >/dev/null || die
+
 	# hack nspr paths
 	echo 'INCLUDES += -I$(DIST)/include/dbm' \
 		>> headers.mk || die "failed to append include"
@@ -60,6 +61,7 @@ src_prepare() {
 
 	# Respect LDFLAGS
 	sed -i -e 's/\$(MKSHLIB) -o/\$(MKSHLIB) \$(LDFLAGS) -o/g' rules.mk
+
 	popd >/dev/null || die
 
 	# Fix pkgconfig file for Prefix
@@ -201,6 +203,9 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
+	einfo "Tests can take a *long* time, especially on a multilib system."
+	einfo "30-45+ minutes per lib configuration. Bug #852755"
+
 	# https://www.linuxfromscratch.org/blfs/view/svn/postlfs/nss.html
 	# https://firefox-source-docs.mozilla.org/security/nss/legacy/nss_sources_building_testing/index.html#running_the_nss_test_suite
 	# https://www-archive.mozilla.org/projects/security/pki/nss/testnss_32.html (older)
@@ -218,7 +223,7 @@ multilib_src_test() {
 	# after x86.
 	local objdir=$(find "${BUILD_DIR}"/dist -maxdepth 1 -iname Linux* | rev | cut -d/ -f1 | rev)
 
-        # Can tweak to a subset of tests in future if we need to, but would prefer not
+	# Can tweak to a subset of tests in future if we need to, but would prefer not
 	OBJDIR="${objdir}" DIST="${BUILD_DIR}/dist" MOZILLA_ROOT="${BUILD_DIR}" ./all.sh || die
 }
 
@@ -287,7 +292,7 @@ multilib_src_install() {
 
 	# create an nss-softokn.pc from nss.pc for libfreebl and some private headers
 	# bug 517266
-	sed 	-e 's#Libs:#Libs: -lfreebl#' \
+	sed -e 's#Libs:#Libs: -lfreebl#' \
 		-e 's#Cflags:#Cflags: -I${includedir}/private#' \
 		*/lib/pkgconfig/nss.pc >"${ED}"/usr/$(get_libdir)/pkgconfig/nss-softokn.pc \
 		|| die "could not create nss-softokn.pc"
