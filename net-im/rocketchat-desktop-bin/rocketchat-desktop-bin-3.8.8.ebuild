@@ -4,9 +4,9 @@
 EAPI=8
 
 CHROMIUM_LANGS="
-	am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
+	af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
-	sw ta te th tr uk vi zh-CN zh-TW
+	sw ta te th tr ur uk vi zh-CN zh-TW
 "
 
 inherit chromium-2 desktop rpm xdg
@@ -87,9 +87,6 @@ src_install() {
 
 	exeinto "${DESTDIR}"
 	doexe chrome-sandbox rocketchat-desktop *.so*
-
-	exeinto "${DESTDIR}/swiftshader"
-	doexe swiftshader/*.so*
 
 	insinto "${DESTDIR}"
 	doins *.pak *.bin *.json *.dat
