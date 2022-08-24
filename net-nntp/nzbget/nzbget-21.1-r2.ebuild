@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools systemd
 
@@ -11,10 +11,11 @@ MY_P=${PN}-${PV/_pre/-testing-r}
 DESCRIPTION="A command-line based binary newsgrabber supporting .nzb files"
 HOMEPAGE="https://nzbget.net/"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${MY_PV}/${MY_P}-src.tar.gz -> ${P}.tar.gz"
+S=${WORKDIR}/${PN}-${PV/_pre*/-testing}
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm ppc x86"
+KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE="debug gnutls ncurses +parcheck ssl test zlib"
 RESTRICT="!test? ( test )"
 
@@ -43,9 +44,14 @@ BDEPEND="
 	)
 	virtual/pkgconfig
 "
+
 DOCS=( ChangeLog README nzbget.conf )
 
-S=${WORKDIR}/${PN}-${PV/_pre*/-testing}
+PATCHES=(
+	# https://bugs.gentoo.org/805896
+	# https://github.com/nzbget/nzbget/pull/793
+	"${FILESDIR}/${P}-openssl-3.patch"
+)
 
 src_prepare() {
 	default
