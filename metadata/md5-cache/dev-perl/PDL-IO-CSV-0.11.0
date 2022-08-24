@@ -1,0 +1,16 @@
+BDEPEND=>=virtual/perl-Exporter-5.570.0 >=dev-perl/PDL-2.6.0 dev-perl/Text-CSV_XS virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Test-Simple-0.880.0 >=dev-perl/Test-Number-Delta-1.60.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Load/save PDL from/to CSV file (optimized for speed and large data)
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/PDL-IO-CSV
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=virtual/perl-Exporter-5.570.0 >=dev-perl/PDL-2.6.0 dev-perl/Text-CSV_XS dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/K/KM/KMX/PDL-IO-CSV-0.011.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	4f80b00fab088c2f6d68edb55a6c4bf4
+_md5_=67f79b6754518824718f4bdb1db5aaad
