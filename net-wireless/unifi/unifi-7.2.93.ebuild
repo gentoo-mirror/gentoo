@@ -4,13 +4,13 @@
 EAPI=8
 
 # Set this var for any releases except stable
-# RC_SUFFIX=""
+RC_SUFFIX="-0d2bdb3a0e"
 
 inherit java-pkg-2 readme.gentoo-r1 systemd
 
 DESCRIPTION="A Management Controller for Ubiquiti Networks UniFi APs"
 HOMEPAGE="https://www.ubnt.com"
-SRC_URI="https://dl.ui.com/unifi/${PV}/UniFi.unix.zip -> ${P}.zip"
+SRC_URI="https://dl.ui.com/unifi/${PV}${RC_SUFFIX}/UniFi.unix.zip -> ${P}.zip"
 S="${WORKDIR}/UniFi"
 
 KEYWORDS="-* ~amd64 ~arm64"
