@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -22,4 +22,4 @@ DEPEND="${RDEPEND}
 	dev-util/ignition-cmake:2"
 BDEPEND="dev-util/ignition-cmake:2"
 CMAKE_BUILD_TYPE=RelWithDebInfo
-S="${WORKDIR}/ign-msgs-${PN}5_${PV}"
+S="${WORKDIR}/gz-msgs-ignition-msgs5_${PV}"
