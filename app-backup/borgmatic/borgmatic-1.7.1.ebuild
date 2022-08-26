@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -15,7 +15,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 
 # borg is called as an external tool, hence no pythonic stuff
 RDEPEND="app-backup/borgbackup
@@ -59,6 +59,9 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "To generate a sample configuration file, run:"
 		elog "    generate-borgmatic-config"
+	else
+		ewarn "Please note that since version 1.7.0 ${PN} no longer supports old-style command-line action flags like '--create', '--list', etc."
+		ewarn "Make sure all your scripts use actions, e.g. 'create', 'list' and so on"
 	fi
 	elog
 	elog "Systemd users wishing to periodically run borgmatic can use the provided timer and service units."
