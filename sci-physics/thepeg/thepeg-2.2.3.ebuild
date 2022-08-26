@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools elisp-common java-pkg-opt-2
 
@@ -19,16 +19,16 @@ SRC_URI="https://www.hepforge.org/archive/thepeg/${MY_P}.tar.bz2
 		${TEST_URI}/MRST2001nlo.LHgrid ) )"
 
 LICENSE="GPL-2"
-SLOT="0/20"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="c++11 emacs fastjet hepmc java lhapdf static-libs test zlib"
+SLOT="0/30"
+KEYWORDS="~amd64"
+IUSE="emacs fastjet hepmc java lhapdf static-libs test zlib"
 RESTRICT="!test? ( test )"
 
 CDEPEND="
 	sci-libs/gsl:0=
 	emacs? ( >=app-editors/emacs-23.1:* )
 	fastjet? ( sci-physics/fastjet:0= )
-	hepmc? ( sci-physics/hepmc:0= )
+	hepmc? ( sci-physics/hepmc:3= )
 	lhapdf? ( >=sci-physics/lhapdf-6.0:0= )
 	zlib? ( sys-libs/zlib:0= )"
 DEPEND="${CDEPEND}
@@ -60,9 +60,9 @@ src_prepare() {
 src_configure() {
 	econf \
 		$(use_enable static-libs static) \
-		$(use_enable c++11 stdcxx11) \
 		$(use_with fastjet fastjet "${EPREFIX}"/usr) \
 		$(use_with hepmc hepmc "${EPREFIX}"/usr) \
+		$(use_with hepmc hepmcversion 3) \
 		$(use_with java javagui) \
 		$(use_with lhapdf lhapdf "${EPREFIX}"/usr) \
 		--without-rivet \
@@ -87,6 +87,8 @@ src_install() {
 	LDPATH="${EPREFIX}/usr/$(get_libdir)/ThePEG"
 	EOF
 	doenvd "${T}"/50${PN}
+
+	find "${ED}" -name '*.la' -delete || die
 }
 
 pkg_postinst() {
