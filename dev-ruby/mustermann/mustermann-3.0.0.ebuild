@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby26 ruby27 ruby30 ruby31"
+USE_RUBY="ruby27 ruby30 ruby31"
 
 # There are specs but they depend heavily on unpackaged code.
 RUBY_FAKEGEM_RECIPE_TEST="none"
@@ -17,8 +17,8 @@ DESCRIPTION="A library implementing patterns that behave like regular expression
 HOMEPAGE="https://github.com/sinatra/mustermann"
 
 LICENSE="MIT"
-SLOT="1"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+SLOT="$(ver_cut 1)"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE=""
 
 ruby_add_rdepend "=dev-ruby/ruby2_keywords-0.0*"
