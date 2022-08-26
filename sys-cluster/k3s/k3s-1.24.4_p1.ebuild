@@ -7,7 +7,7 @@ inherit go-module linux-info systemd
 DESCRIPTION="Lightweight Kubernetes"
 HOMEPAGE="https://k3s.io"
 K3S_CONTAINERD_VERSION=1.6.6-k3s1
-K3S_RUNC_VERSION=v1.1.2
+K3S_RUNC_VERSION=v1.1.3
 K3S_ROOT_VERSION=0.11.0
 K3S_TRAEFIK_VERSION=10.19.3
 K3S_TRAEFIK_PACKAGE_VERSION=00
@@ -18,7 +18,7 @@ MY_PV=${PV%_p*}+k3s${PV#*_p}
 SRC_URI="https://github.com/zmedico/k3s/archive/refs/tags/v${MY_PV}-vendor.tar.gz -> ${P}-vendor.tar.gz
 	${EGO_SUM_SRC_URI}
 	https://github.com/k3s-io/containerd/archive/refs/tags/v${K3S_CONTAINERD_VERSION}.tar.gz -> k3s-containerd-${K3S_CONTAINERD_VERSION}.tar.gz
-	https://github.com/opencontainers/runc/archive/refs/tags/${K3S_RUNC_VERSION}.tar.gz -> k3s-runc-${K3S_RUNC_VERSION}-r1.tar.gz
+	https://github.com/opencontainers/runc/archive/refs/tags/${K3S_RUNC_VERSION}.tar.gz -> k3s-runc-${K3S_RUNC_VERSION}.tar.gz
 	https://helm.traefik.io/traefik/traefik-${K3S_TRAEFIK_VERSION}.tgz
 	https://github.com/rancher/plugins/archive/refs/tags/v${K3S_CNIPLUGINS_VERSION}-k3s1.tar.gz -> k3s-cni-plugins-${K3S_CNIPLUGINS_VERSION}.tar.gz
 	amd64? ( https://github.com/rancher/k3s-root/releases/download/v${K3S_ROOT_VERSION}/k3s-root-amd64.tar -> k3s-root-amd64-${K3S_ROOT_VERSION}.tar )"
@@ -61,7 +61,7 @@ src_prepare() {
 
 	local RUNC_DIR=build/src/github.com/opencontainers/runc
 	mkdir -p "${RUNC_DIR}" || die
-	tar -x --strip-components=1 -f "${DISTDIR}/k3s-runc-${K3S_RUNC_VERSION}-r1.tar.gz" -C "${RUNC_DIR}" || die
+	tar -x --strip-components=1 -f "${DISTDIR}/k3s-runc-${K3S_RUNC_VERSION}.tar.gz" -C "${RUNC_DIR}" || die
 
 	# Disable download for files fetched via SRC_URI.
 	sed -e 's:^[[:space:]]*curl:#\0:' \
