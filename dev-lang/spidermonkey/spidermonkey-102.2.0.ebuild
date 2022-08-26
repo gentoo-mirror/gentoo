@@ -5,7 +5,7 @@ EAPI="8"
 
 # Patch version
 FIREFOX_PATCHSET="firefox-102esr-patches-01j.tar.xz"
-SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-02j.tar.xz"
+SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-03j.tar.xz"
 
 LLVM_MAX_SLOT=14
 

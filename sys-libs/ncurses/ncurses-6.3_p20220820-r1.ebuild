@@ -55,6 +55,25 @@ if [[ ${PV} == *_p* ]] ; then
 		20220402
 		20220409
 		20220416
+		20220423
+		20220430
+		20220501
+		20220507
+		20220514
+		20220521
+		20220529
+		20220604
+		20220612
+		20220618
+		20220625
+		20220703
+		20220709
+		20220716
+		20220724
+		20220729
+		20220806
+		20220813
+		20220820
 
 		# Latest patch is just _pN = $(ver_cut 4)
 		$(ver_cut 4)
@@ -79,7 +98,7 @@ fi
 LICENSE="MIT"
 # The subslot reflects the SONAME.
 SLOT="0/6"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="ada +cxx debug doc gpm minimal profile +stack-realign static-libs test tinfo trace"
 RESTRICT="!test? ( test )"
 
@@ -331,11 +350,6 @@ multilib_src_install() {
 			$(usex tinfo 'tinfow tinfo' '')
 	fi
 
-	if ! tc-is-static-only ; then
-		# Provide a link for -lcurses.
-		ln -sf libncurses$(get_libname) "${ED}"/usr/$(get_libdir)/libcurses$(get_libname) || die
-	fi
-
 	# Don't delete '*.dll.a', needed for linking, bug #631468
 	if ! use static-libs; then
 		find "${ED}"/usr/ -name '*.a' ! -name '*.dll.a' -delete || die
@@ -348,6 +362,13 @@ multilib_src_install() {
 	# -FIXME-
 	dosym $(sed 's@[^/]\+@..@g' <<< $(get_libdir))/share/terminfo \
 		/usr/$(get_libdir)/terminfo
+
+	# Remove obsolete libcurses symlink that is created by the build
+	# system. Technically, this could be also achieved
+	# via --disable-overwrite but it also moves headers implicitly,
+	# and we do not want to do this yet.
+	# bug #836696
+	rm "${ED}"/usr/$(get_libdir)/libcurses* || die
 }
 
 multilib_src_install_all() {
