@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Checks ansible playbooks for practices and behaviour that can be improved"
 HOMEPAGE="https://github.com/ansible/ansible-lint"
 # PyPI tarballs do not contain all the data files needed by the tests
-SRC_URI="https://github.com/ansible/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ansible/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -19,9 +19,10 @@ KEYWORDS="~amd64 ~riscv"
 
 RDEPEND="
 	>=app-admin/ansible-base-2.12.0[${PYTHON_USEDEP}]
-	>=dev-python/ansible-compat-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/ansible-compat-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/enrich-1.2.6[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-4.6.0[${PYTHON_USEDEP}]
+	dev-python/filelock[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.9.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	>=dev-python/rich-9.5.1[${PYTHON_USEDEP}]
@@ -57,6 +58,7 @@ EPYTEST_DESELECT=(
 	test/test_prerun.py::test_prerun_reqs_v1
 	test/test_prerun.py::test_prerun_reqs_v2
 	test/test_prerun.py::test_require_collection_wrong_version
+	test/test_profiles.py::test_profile_listing
 	test/test_rules_collection.py::test_rich_rule_listing
 	test/test_utils.py::test_cli_auto_detect
 	test/test_utils.py::test_template_lookup
@@ -66,7 +68,7 @@ EPYTEST_DESELECT=(
 distutils_enable_tests pytest
 
 python_test() {
-	# As of 6.2.1, without this the test suite still gets confused by the presence of ansible-lint modules
+	# Since 6.2.1, without this the test suite still gets confused by the presence of ansible-lint modules
 	# in both ${ED} and ${S}.
 	cd "${S}" || die
 
