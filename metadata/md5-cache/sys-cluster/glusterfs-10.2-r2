@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.gluster.org/ https://github.com/gluster/glusterfs/
 INHERIT=autotools elisp-common python-single-r1 tmpfiles systemd
 IUSE=debug emacs +fuse georeplication ipv6 +libtirpc rsyslog static-libs tcmalloc test +uring xml python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 LGPL-3+ )
 RDEPEND=acct-group/gluster acct-user/gluster dev-libs/libaio dev-libs/openssl:=[-bindist(-)] net-libs/rpcsvc-proto dev-libs/userspace-rcu:= sys-apps/util-linux sys-libs/readline:= !elibc_glibc? ( sys-libs/argp-standalone ) emacs? ( >=app-editors/emacs-23.1:* ) fuse? ( >=sys-fs/fuse-2.7.0:0 ) georeplication? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) libtirpc? ( net-libs/libtirpc:= ) !libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) ) tcmalloc? ( dev-util/google-perftools ) uring? ( sys-libs/liburing:= ) xml? ( dev-libs/libxml2 ) virtual/tmpfiles
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) georeplication? ( xml ) ipv6? ( libtirpc )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/10
 SRC_URI=https://download.gluster.org/pub/gluster/glusterfs/10/10.2/glusterfs-10.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=5db3542918cda10aa6e04a441d5325d1
+_md5_=268b2d17004bb0a57b3da79e6dc1d37f
