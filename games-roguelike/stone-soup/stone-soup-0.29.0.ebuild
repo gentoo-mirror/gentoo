@@ -13,7 +13,7 @@ HOMEPAGE="https://crawl.develz.org"
 SLOT="0.29"
 
 # Leave empty string if not a _pre release
-COMMITSHA="40bbea3e7347d6647ea791ba38964496f292cc81"
+COMMITSHA=""
 if [ -z "${COMMITSHA}" ]; then
 	# This is a proper release
 	SRC_URI="
@@ -37,7 +37,7 @@ fi
 # Public Domain|CC0: most of tiles
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
