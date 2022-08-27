@@ -52,19 +52,7 @@ multilib_src_configure() {
 	meson_src_configure
 }
 
-multilib_src_test() {
-	meson_src_test
-}
-
-multilib_src_compile() {
-	meson_src_compile
-}
-
-multilib_src_install() {
-	meson_src_install
-}
-
-mutlilib_src_install_all() {
+multilib_src_install_all() {
 	local DOCS=( AUTHORS NEWS README.md )
 	einstalldocs
 }

@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE='threads(+)'
 
-inherit meson-multilib python-single-r1 bash-completion-r1
+inherit meson-multilib python-single-r1
 
 DESCRIPTION="Library to make the use of LV2 plugins as simple as possible for applications"
 HOMEPAGE="http://drobilla.net/software/lilv/"
@@ -59,26 +59,16 @@ multilib_src_configure() {
 	meson_src_configure
 }
 
-multilib_src_test() {
-	meson_src_test
-}
-
-multilib_src_compile() {
-	meson_src_compile
-}
-
 multilib_src_install() {
 	meson_src_install
 	python_optimize
 }
 
-mutlilib_src_install_all() {
+multilib_src_install_all() {
 	local DOCS=( AUTHORS NEWS README.md )
 	einstalldocs
 
-	sed -i "/lv2jack/d" utils/lilv.bash_completion
-	newbashcomp utils/lilv.bash_completion lv2info
-
-	dodir /etc/env.d
-	echo "LV2_PATH=${EPREFIX}/usr/$(get_libdir)/lv2" > "${ED}/etc/env.d/60lv2"
+	newenvd - 60lv2 <<-EOF
+		LV2_PATH=${EPREFIX}/usr/$(get_libdir)/lv2
+	EOF
 }
