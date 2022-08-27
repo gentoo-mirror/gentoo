@@ -1,17 +1,17 @@
-BDEPEND=ruby_targets_ruby26? ( dev-ruby/narray[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( dev-ruby/narray[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby26? ( dev-ruby/narray[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( dev-ruby/narray[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( test? ( dev-ruby/rake[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
+BDEPEND=ruby_targets_ruby27? ( dev-ruby/narray[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby27? ( dev-ruby/narray[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=>=sci-libs/gsl-2.3[deprecated] ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+DEPEND=>=sci-libs/gsl-2.3[deprecated] ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 DESCRIPTION=Ruby interface to GNU Scientific Library
 EAPI=8
 HOMEPAGE=https://github.com/SciRuby/rb-gsl
 INHERIT=ruby-fakegem multilib
-IUSE=doc test ruby_targets_ruby26 ruby_targets_ruby27 doc test test
+IUSE=doc test ruby_targets_ruby27 doc test test
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
-RDEPEND=>=sci-libs/gsl-2.3[deprecated] ruby_targets_ruby26? ( dev-ruby/narray[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( dev-ruby/narray[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
+RDEPEND=>=sci-libs/gsl-2.3[deprecated] ruby_targets_ruby27? ( dev-ruby/narray[ruby_targets_ruby27(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 )
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/gsl-2.1.0.2.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	55326c3bb01904e05d55c73c84c85d07	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	32c657868f5d944ede724c36996ec27a	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
 _md5_=a683a6196d47d1a410a9d2617dfe0943

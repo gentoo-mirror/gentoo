@@ -1,16 +1,16 @@
-BDEPEND=ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+BDEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
 DESCRIPTION=vim plugin: fast file navigation for vim
 EAPI=7
 HOMEPAGE=https://vim.sourceforge.io/scripts/script.php?script_id=3025 https://github.com/wincent/command-t
 INHERIT=vim-plugin ruby-ng
-IUSE=ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30
+IUSE=ruby_targets_ruby27 ruby_targets_ruby30
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
-RDEPEND=|| ( app-editors/vim[ruby] app-editors/gvim[ruby] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
-REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 ruby_targets_ruby30 )
+RDEPEND=|| ( app-editors/vim[ruby] app-editors/gvim[ruby] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
 SLOT=0
 SRC_URI=https://github.com/wincent/command-t/archive/5.0.3.tar.gz -> command-t-5.0.3.tar.gz
-_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	89bf54501de4a75f241062d5a56e787f	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	55326c3bb01904e05d55c73c84c85d07
+_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	89bf54501de4a75f241062d5a56e787f	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	32c657868f5d944ede724c36996ec27a
 _md5_=31081c81d39e742467c4372c3739ca6d
