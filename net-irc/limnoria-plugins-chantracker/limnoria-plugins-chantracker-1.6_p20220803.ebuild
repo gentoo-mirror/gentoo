@@ -1,18 +1,18 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit vcs-snapshot
 
-COMMIT="d8acb0b785924e7d01e65531784aca089368b760"
+COMMIT="0d257df7d63d24610462ad611555741d7655daa9"
 
 DESCRIPTION="supybot ban management and channel flood/spam/repeat protections plugin"
 HOMEPAGE="https://github.com/ncoevoet/ChanTracker"
 SRC_URI="https://github.com/ncoevoet/ChanTracker/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-KEYWORDS="~amd64 ~riscv ~x86"
+KEYWORDS="~amd64 ~x86"
 SLOT=0
 
 RDEPEND="net-irc/limnoria"
