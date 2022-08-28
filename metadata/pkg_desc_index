@@ -986,7 +986,7 @@ app-admin/exo 1.59.0: Command-line tool for everything at Exoscale: compute, sto
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
 app-admin/fetchlog 1.4-r1: Displays the last new messages of a logfile
 app-admin/fifo-cronolog 1.1.1-r1: cronolog wrapper for use with dumb daemons like squid, varnish and so on
-app-admin/filebeat 7.16.2 7.17.1 7.17.3: Lightweight log shipper for Logstash and Elasticsearch
+app-admin/filebeat 7.17.3 7.17.5: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
 app-admin/fluentd 1.14.4: data collector and unified logging layer (project under CNCF)
 app-admin/fsvs 1.2.5-r2: Backup/restore for subversion backends
@@ -1264,7 +1264,7 @@ app-backup/rdedup 1.0.2: data deduplication with compression and public key encr
 app-backup/rdiff-backup 2.0.5-r1: Local/remote mirroring+incremental backup
 app-backup/rdumpfs 0.1: a rsync-based dump file system backup tool
 app-backup/rdup 1.1.15: Generate a file list suitable for full or incremental backups
-app-backup/rear 2.4 2.6: Relax-and-Recover is a setup-and-forget bare metal disaster recovery solution
+app-backup/rear 2.6 2.7: Relax-and-Recover is a setup-and-forget bare metal disaster recovery solution
 app-backup/reoback 1.0_p3-r1: Reoback Backup Solution
 app-backup/restic 0.11.0 0.12.1 0.13.0 0.13.1: A backup program that is fast, efficient and secure
 app-backup/rsnapshot 1.4.4: A filesystem backup utility based on rsync
@@ -1656,7 +1656,7 @@ app-dicts/myspell-da 2.6: Danish dictionaries for myspell/hunspell
 app-dicts/myspell-de 2017.01.12: German (AT,CH,DE) dictionaries for myspell/hunspell
 app-dicts/myspell-de_1901 20170622: German (traditional orthography) dictionaries for myspell/hunspell
 app-dicts/myspell-el 0.9: Greek dictionaries for myspell/hunspell
-app-dicts/myspell-en 20210601-r2 20220701: English dictionaries for myspell/hunspell
+app-dicts/myspell-en 20210601-r2 20220701 20220801: English dictionaries for myspell/hunspell
 app-dicts/myspell-eo 1.01: Esperanto dictionaries for myspell/hunspell
 app-dicts/myspell-es 2.6: Spanish dictionaries for myspell/hunspell
 app-dicts/myspell-et 20030606: Estonian dictionaries for myspell/hunspell
@@ -4186,7 +4186,7 @@ dev-db/pgxnclient 1.3-r2 1.3.1 1.3.2: PostgreSQL Extension Network Client
 dev-db/phpmyadmin 5.2.0: Web-based administration for MySQL database in PHP
 dev-db/phppgadmin 7.12.1 7.13.0: Web-based administration for Postgres database in php
 dev-db/plr 8.3.0.17 8.4.1 8.4.5: R language extension for postgresql database
-dev-db/postgis 3.0.3-r3 3.0.5 3.0.7 3.1.3 3.1.5 3.1.7 3.2.0 3.2.1 3.2.3 3.3.0_rc2 9999: Geographic Objects for PostgreSQL
+dev-db/postgis 3.0.3-r3 3.0.5 3.0.7 3.1.3 3.1.5 3.1.7 3.2.0 3.2.1 3.2.3 3.3.0 9999: Geographic Objects for PostgreSQL
 dev-db/postgresql 10.22 11.17 12.12 13.8 14.5 15_beta3 9999: PostgreSQL RDBMS
 dev-db/pspg 5.5.4: A better pager for psql, mysql, and more
 dev-db/psqlodbc 11.01.0000 13.00.0000: Official ODBC driver for PostgreSQL
@@ -4351,7 +4351,7 @@ dev-games/t4k-common 0.1.1-r1: Library of code shared between tuxmath and tuxtyp
 dev-games/tiled 1.8.6: A general purpose tile map editor
 dev-games/wfmath 1.0.2: Worldforge math library
 dev-go/act 1.6.0: Automated Component Toolkit code generator
-dev-go/delve 1.7.2 1.8.0: A source-level debugger for the Go programming language
+dev-go/delve 1.8.0 1.9.0: A source-level debugger for the Go programming language
 dev-go/fuzzy 0.0.3 0.0.5: Go library that provides fuzzy string matching
 dev-go/get-ego-vendor 0.2.0: Utility to generate EGO_SUM data for ebuilds
 dev-go/go-bindata 3.1.3: A small utility which generates Go code from any file
@@ -12168,7 +12168,7 @@ games-simulation/openttd 12.2-r1: A clone of Transport Tycoon Deluxe
 games-simulation/pmars-sdl 0.9.2e-r1: Portable redcode simulator's sdl port for core war
 games-simulation/searchandrescue 1.7.0-r1: Helicopter based air rescue flight simulator
 games-simulation/senken 0.3.0-r1: city simulation game
-games-simulation/simutrans 0.122.0-r1 123.0.1-r1: A free Transport Tycoon clone
+games-simulation/simutrans 123.0.1-r1: A free Transport Tycoon clone
 games-simulation/simutrans-paksets 123.0.1: PakSets (scenario data) for games-simulation/simutrans
 games-simulation/singularity 1.00-r1: Simulation of a true AI. Go from computer to computer, chased by the whole world
 games-simulation/sky-rogue 1.3.3: A fwooshy rogue-lite action flight simulator
@@ -13349,7 +13349,7 @@ media-gfx/libredwg 0.12.4 0.12.5-r1: C library to handle DWG files
 media-gfx/llgal 0.13.19-r2: Command-line static web gallery generator
 media-gfx/luminance-hdr 2.6.0-r1 2.6.1.1: Graphical user interface that provides a workflow for HDR imaging
 media-gfx/lximage-qt 0.17.0 1.0.0 1.1.0: Qt Image Viewer
-media-gfx/maim 5.6.3 9999: Commandline tool to take screenshots of the desktop
+media-gfx/maim 5.6.3 5.7.4 9999: Commandline tool to take screenshots of the desktop
 media-gfx/mandelbulber 2.26-r1 2.28: Tool to render 3D fractals
 media-gfx/mcomix 1.3.0_pre20211015 2.0.2 9999: GTK image viewer for comic book archives
 media-gfx/meshlab 2020.12-r1: A system for processing and editing unstructured 3D triangular meshes
@@ -15791,7 +15791,7 @@ net-misc/ubridge 0.9.18: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfa
 net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redundancy Protocol (CARP)
 net-misc/udpcast 20200328: Multicast file transfer tool
 net-misc/udpxy 1.0.23.7-r2: Small daemon to relay multicast UDP traffic to client's TCP (HTTP) connection
-net-misc/uftp 4.10.1-r1 5.0-r1: Encrypted UDP based FTP with multicast
+net-misc/uftp 5.0.1: Encrypted UDP based FTP with multicast
 net-misc/unison 2.51.3_p20201127 2.51.4_rc2 2.51.5: Two-way cross-platform file synchronizer
 net-misc/unix2tcp 0.8.2-r1: a connection forwarder that converts Unix sockets into TCP sockets
 net-misc/usbip 5.15: Userspace utilities for a general USB device sharing system over IP networks
