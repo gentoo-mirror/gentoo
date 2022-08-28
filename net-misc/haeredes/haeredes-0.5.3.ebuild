@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SRC_URI="https://hackage.haskell.org/package/${P}/${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE=""
 
 # The test suite requires network access.
@@ -22,10 +22,10 @@ RDEPEND=">=dev-haskell/cmdargs-0.10:=
 	>=dev-haskell/dns-1.4:=
 	>=dev-haskell/iproute-1.2:=
 	>=dev-haskell/parallel-io-0.3:=
-	>=dev-lang/ghc-7.6.2:=
+	>=dev-lang/ghc-9.0.0:=
 "
 DEPEND="${RDEPEND}
-	>=dev-haskell/cabal-1.16.0
+	>=dev-haskell/cabal-3.0.0
 	test? ( >=dev-haskell/doctest-0.9
 		>=dev-haskell/filemanip-0.3.6
 		dev-util/shelltestrunner )
