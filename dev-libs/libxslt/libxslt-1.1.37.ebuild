@@ -6,15 +6,15 @@ EAPI=8
 # Note: Please bump this in sync with dev-libs/libxml2.
 
 PYTHON_COMPAT=( python3_{8..11} )
-inherit autotools python-r1 multilib-minimal
+inherit python-r1 multilib-minimal
 
 DESCRIPTION="XSLT libraries and tools"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libxslt"
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/libxslt"
-	inherit git-r3
+	inherit autotools git-r3
 else
-	inherit gnome.org
+	inherit libtool gnome.org
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
@@ -48,12 +48,7 @@ src_prepare() {
 		eautoreconf
 	else
 		# Prefix always needs elibtoolize if not eautoreconf'd.
-		#elibtoolize
-
-		# Temporarily for Python 3.10 fix (version used for
-		# dist tarballs fails w/ "3.1" error)
-		# See https://gitlab.gnome.org/GNOME/libxslt/-/issues/72.
-		eautoreconf
+		elibtoolize
 	fi
 }
 
@@ -109,6 +104,10 @@ multilib_src_install() {
 		python_foreach_impl run_in_build_dir libxslt_py_emake \
 			DESTDIR="${D}" \
 			install
+
+		# Hack until automake release is made for the optimise fix
+		# https://git.savannah.gnu.org/cgit/automake.git/commit/?id=bde43d0481ff540418271ac37012a574a4fcf097
+		python_foreach_impl python_optimize
 	fi
 }
 

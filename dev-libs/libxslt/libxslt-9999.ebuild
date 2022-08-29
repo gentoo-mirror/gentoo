@@ -104,6 +104,10 @@ multilib_src_install() {
 		python_foreach_impl run_in_build_dir libxslt_py_emake \
 			DESTDIR="${D}" \
 			install
+
+		# Hack until automake release is made for the optimise fix
+		# https://git.savannah.gnu.org/cgit/automake.git/commit/?id=bde43d0481ff540418271ac37012a574a4fcf097
+		python_foreach_impl python_optimize
 	fi
 }
 
