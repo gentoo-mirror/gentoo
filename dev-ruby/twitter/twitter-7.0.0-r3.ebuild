@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-USE_RUBY="ruby25 ruby26 ruby27"
+EAPI=8
+USE_RUBY="ruby27 ruby30"
 
 RUBY_FAKEGEM_RECIPE_DOC="yard"
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
@@ -27,7 +27,7 @@ ruby_add_rdepend "
 	=dev-ruby/equalizer-0.0*
 	dev-ruby/http:4
 	dev-ruby/http-form_data:2
-	>=dev-ruby/http_parser_rb-0.6.0
+	=dev-ruby/http_parser_rb-0.6*
 	>=dev-ruby/memoizable-0.4.2
 	=dev-ruby/multipart-post-2*
 	>=dev-ruby/naught-1.1
