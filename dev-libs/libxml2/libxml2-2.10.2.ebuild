@@ -7,7 +7,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="xml(+)"
-inherit autotools flag-o-matic python-r1 multilib-minimal
+inherit flag-o-matic python-r1 multilib-minimal
 
 XSTS_HOME="http://www.w3.org/XML/2004/xml-schema-test-suite"
 XSTS_NAME_1="xmlschema2002-01-16"
@@ -20,9 +20,9 @@ DESCRIPTION="XML C parser and toolkit"
 HOMEPAGE="http://www.xmlsoft.org/ https://gitlab.gnome.org/GNOME/libxml2"
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/libxml2"
-	inherit git-r3 #autotools
+	inherit autotools git-r3
 else
-	inherit gnome.org #libtool
+	inherit gnome.org libtool
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
@@ -92,12 +92,7 @@ src_prepare() {
 	else
 		# Please do not remove, as else we get references to PORTAGE_TMPDIR
 		# in /usr/lib/python?.?/site-packages/libxml2mod.la among things.
-		#elibtoolize
-
-		# Temporarily for Python 3.10 fix (version used for
-		# dist tarballs fails w/ "3.1" error)
-		# See https://gitlab.gnome.org/GNOME/libxml2/-/issues/392.
-		eautoreconf
+		elibtoolize
 	fi
 }
 
@@ -159,6 +154,10 @@ multilib_src_install() {
 
 	multilib_is_native_abi && use python &&
 		python_foreach_impl run_in_build_dir libxml2_py_emake DESTDIR="${D}" install
+
+	# Hack until automake release is made for the optimise fix
+	# https://git.savannah.gnu.org/cgit/automake.git/commit/?id=bde43d0481ff540418271ac37012a574a4fcf097
+	multilib_is_native_abi && use python && python_foreach_impl python_optimize
 }
 
 multilib_src_install_all() {
