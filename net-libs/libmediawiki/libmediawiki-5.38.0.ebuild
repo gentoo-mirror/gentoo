@@ -1,11 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-ECM_TEST="true"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.96.0
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="C++ interface for MediaWiki based web service as wikipedia.org"
@@ -22,11 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-tests-optional.patch"
-	"${FILESDIR}/${P}-fix-warnings.patch"
-	"${FILESDIR}/${P}-qt-5.15.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-5.37.0-tests-optional.patch" )
 
 src_test() {
 	# bug 646808, 662592
