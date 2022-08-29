@@ -1007,6 +1007,13 @@ app-office/lyx:rcs - Add support for revision control via dev-vcs/rcs
 app-office/lyx:rtf - Add support for RTF import/export packages
 app-office/magicpoint:contrib - Install additional contributed scripts
 app-office/mdbtools:glib - Use functions provided by dev-libs/glib, not built-in
+app-office/sc-im:X - Use x11-misc/xclip for clipboard copy/paste
+app-office/sc-im:ods - Add ods import support
+app-office/sc-im:plots - Add sci-visualization/gnuplot for plotting support
+app-office/sc-im:tmux - Use app-misc/tmux for clipboard copy/paste
+app-office/sc-im:wayland - Use gui-apps/wl-clipboard for clipboard copy/paste
+app-office/sc-im:xls - Add xls support
+app-office/sc-im:xlsx - Add xlsx support
 app-office/scribus:boost - Enable support for Boost based enhancement
 app-office/scribus:hunspell - Enable support for spell checking with app-text/hunspell
 app-office/scribus:minimal - Don't install headers (only required for e.g. plug-in developers)
@@ -2072,6 +2079,7 @@ dev-libs/libverto:libevent - Support event loops using dev-libs/libevent
 dev-libs/libverto:tevent - Support event loops using sys-libs/tevent
 dev-libs/libvoikko:expvfst - Enable experimental features of VFST morphology backend
 dev-libs/libvoikko:hfst - Enable HFST morphology backend
+dev-libs/libxlsxwriter:openssl - Use dev-libs/openssl for MD5 digest
 dev-libs/libxmlb:stemmer - Enable language stemming support
 dev-libs/libzia:ftdi - Enable support for FTDI USB chips
 dev-libs/libzip:mbedtls - Use net-libs/mbedtls as TLS provider
