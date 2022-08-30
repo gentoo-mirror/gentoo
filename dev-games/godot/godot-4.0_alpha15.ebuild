@@ -24,7 +24,7 @@ SLOT="4"
 IUSE="
 	+dbus debug deprecated +fontconfig +gui pulseaudio raycast
 	+runner speech test +theora +tools +udev +upnp +webp"
-RESTRICT="!test? ( test ) !tools? ( test )"
+RESTRICT="!test? ( test ) !tools? ( test ) !webp? ( test )"
 
 # dlopen: alsa-lib,dbus,fontconfig,pulseaudio,speech-dispatcher,udev
 RDEPEND="
