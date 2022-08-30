@@ -1166,7 +1166,7 @@ app-arch/libpar2 0.4: A library for par2, extracted from par2cmdline
 app-arch/lrzip 0.651: Long Range ZIP or Lzma RZIP optimized for compressing large files
 app-arch/lunzip 1.13: Decompressor for the lzip format, written in C
 app-arch/lxqt-archiver 0.4.0 0.5.0 0.6.0: Qt GUI File Archiver
-app-arch/lz4 1.9.3-r1: Extremely Fast Compression algorithm
+app-arch/lz4 1.9.3-r1 1.9.4: Extremely Fast Compression algorithm
 app-arch/lz5 2.0-r1: An efficient compressor with very fast decompression
 app-arch/lzip 1.23: Lossless data compressor based on the LZMA algorithm
 app-arch/lziprecover 1.23: Lziprecover is a data recovery tool and decompressor for lzip compressed files
@@ -1219,7 +1219,7 @@ app-arch/upx-bin 3.96: Ultimate Packer for eXecutables, binary version with prop
 app-arch/vimball 0.5.1 9999: a command-line vimball archive extractor
 app-arch/wimlib 1.13.4-r1: The open source Windows Imaging (WIM) library
 app-arch/xar 1.8.0.0.487.100.1: An easily extensible archive format
-app-arch/xarchiver 0.5.4.18: A GTK+ archive manager that can be used with Thunar
+app-arch/xarchiver 0.5.4.18 0.5.4.19: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
 app-arch/xz-utils 5.2.5-r2 5.2.6 5.3.3_alpha 9999: Utils for managing LZMA compressed files
 app-arch/zip 3.0-r4: Info ZIP (encryption support)
@@ -8775,7 +8775,7 @@ dev-python/lxml 4.9.1: A Pythonic binding for the libxml2 and libxslt libraries
 dev-python/lz4 4.0.2: LZ4 Bindings for Python
 dev-python/m2crypto 0.38.0: A Python crypto and SSL toolkit
 dev-python/makefun 1.14.0: Small library to dynamically create Python functions
-dev-python/mako 1.2.1: A Python templating language
+dev-python/mako 1.2.1 1.2.2: A Python templating language
 dev-python/mamba 0.11.2: Python test runner born under the banner of Behavior Driven Development
 dev-python/mando 0.7.1: Create Python CLI apps with little to no effort at all!
 dev-python/manuel 1.12.4: Lets you mix and match traditional doctests with custom test syntax
@@ -8873,7 +8873,7 @@ dev-python/notebook 6.4.12: Jupyter Interactive Notebook
 dev-python/notebook_shim 0.1.0: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nototools 0.2.16 0.2.17: Noto fonts support tools and scripts plus web site generation
-dev-python/nptyping 2.2.0: Type hints for Numpy
+dev-python/nptyping 2.2.0 2.3.0: Type hints for Numpy
 dev-python/nspektr 0.4.0: Distribution package dependency inspector
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
@@ -9236,7 +9236,7 @@ dev-python/pytest-twisted 1.13.4-r1: A pytest plugin for testing Twisted framewo
 dev-python/pytest-verbose-parametrize 1.7.0: More descriptive parametrized-test IDs for py.test
 dev-python/pytest-virtualenv 1.7.0-r2: Virtualenv fixture for py.test
 dev-python/pytest-xdist 2.5.0-r1: Distributed testing and loop-on-failing modes
-dev-python/pytest-xprocess 0.19.0: Manage external processes across test runs
+dev-python/pytest-xprocess 0.19.0 0.20.0: Manage external processes across test runs
 dev-python/pytest-xvfb 2.0.0-r2: A pytest plugin to run Xvfb for tests
 dev-python/python-augeas 1.1.0-r1: Python bindings for Augeas
 dev-python/python-axolotl 0.2.3-r2: A python module for the axolotl protocol
@@ -9250,7 +9250,7 @@ dev-python/python-ctags 1.5.0: Exuberant Ctags indexing python bindings
 dev-python/python-daemon 2.3.1: Library to implement a well-behaved Unix daemon process
 dev-python/python-dateutil 2.8.2-r1: Extensions to the standard Python datetime module
 dev-python/python-dbusmock 0.28.4: Easily create mock objects on D-Bus for software testing
-dev-python/python-debian 0.1.44: Python modules to work with Debian-related data formats
+dev-python/python-debian 0.1.44 0.1.47: Python modules to work with Debian-related data formats
 dev-python/python-discid 1.2.0-r1: Python bindings for libdiscid
 dev-python/python-distutils-extra 2.47: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/python-docs 2.7.18 3.7.13 3.8.13 3.9.11 3.9.12 3.10.3 3.10.4: HTML documentation for Python
@@ -9347,7 +9347,7 @@ dev-python/qrcode 7.3.1-r1: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.11.6 2.13.1: Python bindings for QScintilla
 dev-python/qstylizer 0.2.1-r1: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.1.1-r1: Enables iconic fonts such as Font Awesome in PyQt
-dev-python/qtconsole 5.3.1: Qt-based console for Jupyter with support for rich media output
+dev-python/qtconsole 5.3.1 5.3.2: Qt-based console for Jupyter with support for rich media output
 dev-python/qtsass 0.3.0-r1: Compile SASS files to Qt stylesheets
 dev-python/quantities 0.13.0-r1: Support for physical quantities with units, based on numpy
 dev-python/quex 0.71.2: Mode Oriented Directly Coded Lexical Analyser Generator
@@ -9599,7 +9599,7 @@ dev-python/tomli-w 1.0.0-r1: A lil' TOML writer
 dev-python/tomlkit 0.11.1 0.11.2 0.11.3 0.11.4: Style preserving TOML library
 dev-python/toolz 0.12.0: List processing tools and functional utilities
 dev-python/toposort 1.7-r1: Implements a topological sort algorithm
-dev-python/towncrier 21.9.0: Building newsfiles for your project
+dev-python/towncrier 21.9.0 22.8.0: Building newsfiles for your project
 dev-python/tox 3.25.1: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 1.1.0: Python bindings for TSS
 dev-python/tqdm 4.64.0: Add a progress meter to your loops in a second
@@ -15567,7 +15567,7 @@ net-misc/dropbox-cli 2022: Cli interface for dropbox (python), part of nautilus-
 net-misc/econnman 1.1_p20160305: ConnMan User Interface written with EFL & python
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electron-cash 4.2.9 4.2.10 4.2.11: Lightweight Bitcoin Cash client (BCH fork of Electrum)
-net-misc/electrum 4.2.2 4.3.0: User friendly Bitcoin client
+net-misc/electrum 4.2.2 4.3.0 4.3.1: User friendly Bitcoin client
 net-misc/electrum-ltc 4.0.9.1: Litecoin thin client
 net-misc/ena-driver 2.2.3-r1 2.6.1: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r2 9999: SSH tarpit that slowly sends and endless banner
@@ -18583,7 +18583,7 @@ www-misc/wsmake 0.6.4-r1: Website pre-processor features tag substitution and pa
 www-plugins/browserpass 3.0.10: WebExtension host binary for app-admin/pass, a UNIX password manager
 www-plugins/chrome-binary-plugins 104.0.5112.101 105.0.5195.52_beta 106.0.5249.12_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/gosuslugi-plugin 3.1.1.0: Crypto-provider browser plugin for russian e-gov site https://gosuslugi.ru/
-www-plugins/lightspark 0.8.2-r1 0.8.3 0.8.4 0.8.5: High performance flash player
+www-plugins/lightspark 0.8.5 0.8.6.1: High performance flash player
 www-plugins/passff-host 1.2.3-r1: Host app for the PassFF WebExtension
 www-plugins/pdfjs 2.10.377 2.14.305: A PDF reader in JavaScript
 www-servers/adsf 1.4.6-r1: A Dead Simple Fileserver is a static file server that can launch in a directory
