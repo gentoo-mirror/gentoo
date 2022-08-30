@@ -3,19 +3,19 @@
 
 EAPI=7
 
-inherit autotools multilib-minimal portability toolchain-funcs
+inherit autotools portability toolchain-funcs
 
 DESCRIPTION="A powerful light-weight programming language designed for extending applications"
 HOMEPAGE="https://www.lua.org/"
-TEST_PV="5.3.4"
+TEST_PV="5.4.4"
 TEST_P="${PN}-${TEST_PV}-tests"
 SRC_URI="
 	https://www.lua.org/ftp/${P}.tar.gz
 	test? ( https://www.lua.org/tests/${TEST_P}.tar.gz )"
 
 LICENSE="MIT"
-SLOT="5.3"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+SLOT="5.4"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+deprecated readline test test-complete"
 
 COMMON_DEPEND="
@@ -33,12 +33,8 @@ RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="!test? ( test )"
 
-MULTILIB_WRAPPED_HEADERS=(
-	/usr/include/lua${SLOT}/luaconf.h
-)
-
 PATCHES=(
-	"${FILESDIR}/lua-5.3.6-make.patch"
+	"${FILESDIR}"/lua-5.4.2-r2-make.patch
 )
 
 src_prepare() {
@@ -54,10 +50,6 @@ src_prepare() {
 
 	sed -i -e 's:\(/README\)\("\):\1.gz\2:g' doc/readme.html || die
 
-	if ! use readline ; then
-		sed -i -e '/#define LUA_USE_READLINE/d' src/luaconf.h || die
-	fi
-
 	# Using dynamic linked lua is not recommended for performance
 	# reasons. http://article.gmane.org/gmane.comp.lang.lua.general/18519
 	# Mainly, this is of concern if your arch is poor with GPRs, like x86
@@ -69,10 +61,10 @@ src_prepare() {
 	eautoreconf
 
 	# custom Makefiles
-	multilib_copy_sources
+	copy_sources
 }
 
-multilib_src_configure() {
+src_configure() {
 	sed -i \
 		-e 's:\(define LUA_ROOT\s*\).*:\1"'${EPREFIX}'/usr/":' \
 		-e "s:\(define LUA_CDIR\s*LUA_ROOT \"\)lib:\1$(get_libdir):" \
@@ -82,7 +74,7 @@ multilib_src_configure() {
 	econf
 }
 
-multilib_src_compile() {
+src_compile() {
 	tc-export CC
 
 	# what to link to liblua
@@ -96,11 +88,12 @@ multilib_src_compile() {
 	cd src
 
 	local myCFLAGS=""
-	use deprecated && myCFLAGS="-DLUA_COMPAT_5_1 -DLUA_COMPAT_5_2"
+	use deprecated && myCFLAGS+="-DLUA_COMPAT_5_3 "
+	use readline && myCFLAGS+="-DLUA_USE_READLINE "
 
 	case "${CHOST}" in
 		*-mingw*) : ;;
-		*) myCFLAGS+=" -DLUA_USE_LINUX" ;;
+		*) myCFLAGS+="-DLUA_USE_LINUX " ;;
 	esac
 
 	emake CC="${CC}" CFLAGS="${myCFLAGS} ${CFLAGS}" \
@@ -113,11 +106,11 @@ multilib_src_compile() {
 			gentoo_all
 }
 
-multilib_src_install() {
+src_install() {
 	emake INSTALL_TOP="${ED}/usr" INSTALL_LIB="${ED}/usr/$(get_libdir)" \
 			V=${SLOT} gentoo_install
 
-	case $SLOT in
+	case ${SLOT} in
 		0)
 			LIBNAME="lua"
 			INCLUDEDIR_SUFFIX=''
@@ -150,9 +143,7 @@ multilib_src_install() {
 	# Older systems called it 'lua53.pc'
 	dosym "lua${SLOT}.pc" "/usr/$(get_libdir)/pkgconfig/lua-${SLOT}.pc"
 	dosym "lua${SLOT}.pc" "/usr/$(get_libdir)/pkgconfig/lua${SLOT/.}.pc"
-}
 
-multilib_src_install_all() {
 	DOCS="README"
 	HTML_DOCS="doc/*.html doc/*.png doc/*.css doc/*.gif"
 	einstalldocs
@@ -179,16 +170,9 @@ src_test() {
 	TEST_MARKER="${T}/test.failed"
 	rm -f "${TEST_MARKER}"
 
-	# If we are failing, set the marker file, and only check it after done all ABIs
-	abi_src_test() {
-		debug-print-function ${FUNCNAME} "$@"
-		TEST_LOG="${T}/test.${MULTIBUILD_ID}.log"
-		eval "${BUILD_DIR}"/src/lua${SLOT} ${TEST_OPTS} all.lua 2>&1 | tee "${TEST_LOG}" || die
-		grep -sq -e "final OK" "${TEST_LOG}" || echo "FAIL ${MULTIBUILD_ID}" >>"${TEST_MARKER}"
-		return 0
-	}
-
-	multilib_foreach_abi abi_src_test
+	TEST_LOG="${T}/test.log"
+	eval "${BUILD_DIR}"/src/lua${SLOT} ${TEST_OPTS} all.lua 2>&1 | tee "${TEST_LOG}" || die
+	grep -sq -e "final OK" "${TEST_LOG}" || echo "FAIL" >>"${TEST_MARKER}"
 
 	if [ -e "${TEST_MARKER}" ]; then
 		cat "${TEST_MARKER}"
