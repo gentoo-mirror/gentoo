@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit optfeature xdg distutils-r1
 
 # Commit of documentation to fetch
-DOCS_PV="d43d6cd46b6eb7675ec690b0dff573ca03f2e301"
+DOCS_PV="9156f446a9225446a2a752ecb669cc3db30094a8"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -18,8 +18,8 @@ HOMEPAGE="
 	https://pypi.org/project/spyder/
 "
 SRC_URI="
-	https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz -> ${PN}-docs-${DOCS_PV}.tar.gz
+	https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz -> ${PN}-docs-${DOCS_PV}.gh.tar.gz
 "
 
 LICENSE="MIT"
@@ -54,12 +54,12 @@ RDEPEND="
 	<dev-python/qdarkstyle-3.1[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.1.10[${PYTHON_USEDEP}]
 	>=dev-python/qtawesome-1.0.2[${PYTHON_USEDEP}]
-	>=dev-python/qtconsole-5.3.0[${PYTHON_USEDEP}]
+	>=dev-python/qtconsole-5.3.2[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.4.0[${PYTHON_USEDEP}]
 	>=dev-python/QtPy-2.1.0[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.3.1[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.3.3[${PYTHON_USEDEP}]
 	<dev-python/spyder-kernels-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
@@ -131,15 +131,6 @@ python_prepare_all() {
 	# the next spyder release. So just remove the dependency and let the other
 	# ebuilds handle the version requirements to speed things up and prevent
 	# issues such as Bug 803269.
-	sed -i \
-		-e '/pyqt5/d' \
-		-e '/pyqtwebengine/d' \
-		-e '/python-lsp-server/d' \
-		-e '/parso/d' \
-		-e '/jedi/d' \
-		-e '/pylint/d' \
-		-e '/ipython/d' \
-			requirements/conda.txt || die
 	sed -i \
 		-e "/'pyqt5[ 0-9<=>.,]*',/d" \
 		-e "/'pyqtwebengine[ 0-9<=>.,]*',/d" \
