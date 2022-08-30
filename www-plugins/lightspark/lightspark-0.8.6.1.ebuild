@@ -1,14 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit cmake toolchain-funcs xdg-utils
+EAPI=8
+
+inherit cmake xdg-utils
 
 DESCRIPTION="High performance flash player"
 HOMEPAGE="https://lightspark.github.io/"
 SRC_URI="
 	https://github.com/lightspark/lightspark/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.tar.gz
+"
 S=${WORKDIR}/${P/_rc*/}
 
 LICENSE="LGPL-3"
@@ -17,32 +19,37 @@ KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_sse2 curl ffmpeg gles2-only nsplugin ppapi profile rtmp"
 
 # Note: no LLVM since it's broken upstream
-RDEPEND="app-arch/xz-utils:0=
-	dev-libs/glib:2=
-	dev-libs/libpcre:3=[cxx]
+RDEPEND="
+	app-arch/xz-utils:=
+	dev-libs/glib
+	dev-libs/libpcre:=[cxx]
 	media-fonts/liberation-fonts
-	media-libs/freetype:2=
-	media-libs/libpng:0=
-	media-libs/libsdl2:0=
-	media-libs/sdl2-mixer:0=
-	sys-libs/zlib:0=
-	x11-libs/cairo:0=
-	x11-libs/libX11:0=
-	x11-libs/pango:0=
-	virtual/jpeg:0=
-	curl? ( net-misc/curl:0= )
-	ffmpeg?	( media-video/ffmpeg:0= )
-	gles2-only? ( media-libs/mesa:0=[gles2] )
+	media-libs/freetype:=
+	media-libs/libjpeg-turbo:=
+	media-libs/libpng:=
+	media-libs/libsdl2
+	media-libs/sdl2-mixer
+	sys-libs/zlib:=
+	x11-libs/cairo
+	x11-libs/libX11
+	x11-libs/pango
+	curl? ( net-misc/curl:= )
+	ffmpeg? ( media-video/ffmpeg:= )
+	gles2-only? ( media-libs/mesa:=[gles2] )
 	!gles2-only? (
-		>=media-libs/glew-1.5.3:0=
+		>=media-libs/glew-1.5.3:=
 		virtual/opengl:0=
 	)
-	rtmp? ( media-video/rtmpdump:0= )"
-DEPEND="${RDEPEND}"
+	rtmp? ( media-video/rtmpdump:= )
+"
+DEPEND="
+	${RDEPEND}
+"
 BDEPEND="
 	amd64? ( dev-lang/nasm )
 	x86? ( dev-lang/nasm )
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(
