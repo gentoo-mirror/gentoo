@@ -45,7 +45,9 @@ BDEPEND="doc? ( app-doc/doxygen[dot] )"
 
 DOCS=( AUTHORS CHANGELOG README )
 
-PATCHES=( "${FILESDIR}/${PN}-0.8.0-tests.patch" )
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.10.1-disable-broken-test.patch
+)
 
 src_prepare() {
 	cmake_src_prepare
@@ -53,22 +55,24 @@ src_prepare() {
 	# just install the examples, do not compile them
 	cmake_comment_add_subdirectory examples
 
-	# keyfile torture test is currently broken
-	sed -e "/torture_keyfiles/d" \
-		-i tests/unittests/CMakeLists.txt || die
-
-	# disable tests that take too long (bug #677006)
-	if use sparc; then
-		sed -e "/torture_threads_pki_rsa/d" -e "/torture_pki_dsa/d" \
-			-i tests/unittests/CMakeLists.txt || die
-	fi
-
 	sed -e "/^check_include_file.*HAVE_VALGRIND_VALGRIND_H/s/^/#DONT /" \
 		-i ConfigureChecks.cmake || die
 
-	if use test && use elibc_musl; then
-		sed -e "/SOLARIS/d" \
-			-i tests/CMakeLists.txt || die
+	if use test; then
+		# keyfile torture test is currently broken
+		sed -e "/torture_keyfiles/d" \
+			-i tests/unittests/CMakeLists.txt || die
+
+		# disable tests that take too long (bug #677006)
+		if use sparc; then
+			sed -e "/torture_threads_pki_rsa/d" -e "/torture_pki_dsa/d" \
+				-i tests/unittests/CMakeLists.txt || die
+		fi
+
+		if use elibc_musl; then
+			sed -e "/SOLARIS/d" \
+				-i tests/CMakeLists.txt || die
+		fi
 	fi
 }
 
@@ -86,6 +90,7 @@ multilib_src_configure() {
 		-DWITH_SERVER=$(usex server)
 		-DWITH_SFTP=$(usex sftp)
 		-DBUILD_STATIC_LIB=$(usex static-libs)
+		# TODO: try enabling {CLIENT,SERVER}_TESTING
 		-DUNIT_TESTING=$(usex test)
 		-DWITH_ZLIB=$(usex zlib)
 	)
