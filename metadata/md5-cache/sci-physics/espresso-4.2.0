@@ -1,16 +1,17 @@
-BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) python_single_target_python3_8? ( >=dev-python/cython-0.26.1[python_targets_python3_8(-)] dev-python/numpy[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/cython-0.26.1[python_targets_python3_9(-)] dev-python/numpy[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/cython-0.26.1[python_targets_python3_10(-)] dev-python/numpy[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/cython-0.26.1[python_targets_python3_11(-)] dev-python/numpy[python_targets_python3_11(-)] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 ) fftw? ( sci-libs/fftw:3.0 ) dev-libs/boost:=[mpi] hdf5? ( sci-libs/hdf5:=[mpi] ) doc? ( app-doc/doxygen[dot] dev-texlive/texlive-latexextra virtual/latex-base )
 DESCRIPTION=Extensible Simulation Package for Research on Soft matter
 EAPI=7
 HOMEPAGE=http://espressomd.org
-INHERIT=cmake cuda python-single-r1 savedconfig git-r3
+INHERIT=cmake cuda python-single-r1 savedconfig
 IUSE=cuda doc examples +fftw +hdf5 test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 savedconfig
+KEYWORDS=~amd64 ~x86 ~amd64-linux
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) python_single_target_python3_8? ( >=dev-python/cython-0.26.1[python_targets_python3_8(-)] dev-python/numpy[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/cython-0.26.1[python_targets_python3_9(-)] dev-python/numpy[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/cython-0.26.1[python_targets_python3_10(-)] dev-python/numpy[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/cython-0.26.1[python_targets_python3_11(-)] dev-python/numpy[python_targets_python3_11(-)] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 ) fftw? ( sci-libs/fftw:3.0 ) dev-libs/boost:=[mpi] hdf5? ( sci-libs/hdf5:=[mpi] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	cuda	15edbf8fd9df209322f42c06ecf59a96	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=712ee87392891c350f0b7e3e6fab58c6
+SRC_URI=https://github.com/espressomd/espresso/releases/download/4.2.0/espresso-4.2.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	cuda	15edbf8fd9df209322f42c06ecf59a96	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d
+_md5_=dad790abc4f93042a7c16c052a920838
