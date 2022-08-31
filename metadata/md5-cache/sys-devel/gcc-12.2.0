@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/binutils-2.30[cet(-)?] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 ) valgrind? ( dev-util/valgrind ) d? ( || ( sys-devel/gcc[d(-)] <sys-devel/gcc-12[d(-)] ) )
+BDEPEND=>=sys-devel/binutils-2.30[cet(-)?] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 ) valgrind? ( dev-util/valgrind )
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
 DEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) sanitize? ( virtual/libcrypt ) systemtap? ( dev-util/systemtap ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=The GNU Compiler Collection
@@ -13,5 +13,5 @@ RDEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv 
 RESTRICT=!test? ( test )
 SLOT=12
 SRC_URI=mirror://gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-12.2.0-patches-1.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-12.2.0-musl-patches-1.tar.xz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	b99e73e24a7f8ce67420f53d9f12dd54
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	97cbb6eb8c334c62a408019524b38cba
 _md5_=a003c9112081e4f62fe73cf45c2d202d
