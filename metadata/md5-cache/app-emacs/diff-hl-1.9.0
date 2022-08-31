@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-vcs/git ) >=app-editors/emacs-25.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Highlight uncommitted changes, jump between and revert them selectively
+EAPI=8
+HOMEPAGE=https://github.com/dgutov/diff-hl/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-25.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/dgutov/diff-hl/archive/37b00f3bad841e131d69442a89cbebc3041d996b.tar.gz -> diff-hl-1.9.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=60ae216764731db937f51c1710d1c245
