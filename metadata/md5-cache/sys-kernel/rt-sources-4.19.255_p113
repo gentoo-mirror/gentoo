@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Full Linux 4.19 kernel sources with the CONFIG_PREEMPT_RT patch
+EAPI=8
+HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel https://wiki.linuxfoundation.org/realtime/start
+INHERIT=kernel-2
+IUSE=symlink build
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=4.19.255_p113
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.19.255.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.19/patch-4.19.255-rt113.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.19/older/patch-4.19.255-rt113.patch.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	aa8997cf13a12b867c4c8c57383b8582
+_md5_=202aa5da9e26e17e9a804c739b2980e7
