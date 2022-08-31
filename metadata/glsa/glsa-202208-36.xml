@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-36">
+    <title>Oracle VirtualBox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Oracle Virtualbox, the worst of which could result in root privilege escalation.</synopsis>
+    <product type="ebuild">virtualbox,virtualbox-additions,virtualbox-extpack-oracle,virtualbox-guest-additions,virtualbox-modules</product>
+    <announced>2022-08-31</announced>
+    <revised count="1">2022-08-31</revised>
+    <bug>785445</bug>
+    <bug>803134</bug>
+    <bug>820425</bug>
+    <bug>831440</bug>
+    <bug>839990</bug>
+    <bug>859391</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/virtualbox" auto="yes" arch="*">
+            <unaffected range="ge">6.1.36</unaffected>
+            <vulnerable range="lt">6.1.36</vulnerable>
+        </package>
+        <package name="app-emulation/virtualbox-additions" auto="yes" arch="*">
+            <unaffected range="ge">6.1.36</unaffected>
+            <vulnerable range="lt">6.1.36</vulnerable>
+        </package>
+        <package name="app-emulation/virtualbox-extpack-oracle" auto="yes" arch="*">
+            <unaffected range="ge">6.1.36</unaffected>
+            <vulnerable range="lt">6.1.36</vulnerable>
+        </package>
+        <package name="app-emulation/virtualbox-guest-additions" auto="yes" arch="*">
+            <unaffected range="ge">6.1.36</unaffected>
+            <vulnerable range="lt">6.1.36</vulnerable>
+        </package>
+        <package name="app-emulation/virtualbox-modules" auto="yes" arch="*">
+            <unaffected range="ge">6.1.36</unaffected>
+            <vulnerable range="lt">6.1.36</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>VirtualBox is a powerful virtualization product from Oracle.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in VirtualBox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All VirtualBox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/virtualbox-6.1.36"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2145">CVE-2021-2145</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2250">CVE-2021-2250</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2264">CVE-2021-2264</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2266">CVE-2021-2266</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2279">CVE-2021-2279</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2280">CVE-2021-2280</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2281">CVE-2021-2281</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2282">CVE-2021-2282</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2283">CVE-2021-2283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2284">CVE-2021-2284</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2285">CVE-2021-2285</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2286">CVE-2021-2286</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2287">CVE-2021-2287</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2291">CVE-2021-2291</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2296">CVE-2021-2296</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2297">CVE-2021-2297</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2306">CVE-2021-2306</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2309">CVE-2021-2309</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2310">CVE-2021-2310</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2312">CVE-2021-2312</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2409">CVE-2021-2409</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2442">CVE-2021-2442</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2443">CVE-2021-2443</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2454">CVE-2021-2454</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2475">CVE-2021-2475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35538">CVE-2021-35538</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35540">CVE-2021-35540</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35542">CVE-2021-35542</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35545">CVE-2021-35545</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21394">CVE-2022-21394</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21465">CVE-2022-21465</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21471">CVE-2022-21471</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21487">CVE-2022-21487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21488">CVE-2022-21488</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21554">CVE-2022-21554</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21571">CVE-2022-21571</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-31T23:36:15.558358Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-31T23:36:15.564378Z">sam</metadata>
+</glsa>
