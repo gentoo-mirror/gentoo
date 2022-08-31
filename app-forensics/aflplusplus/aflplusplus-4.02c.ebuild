@@ -3,18 +3,18 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9,10} )
-LLVM_MAX_SLOT=13
+PYTHON_COMPAT=( python3_{8..10} )
+LLVM_MAX_SLOT=14
 inherit toolchain-funcs llvm optfeature python-single-r1
 
 DESCRIPTION="A fork of AFL, the popular compile-time instrumentation fuzzer"
 HOMEPAGE="https://github.com/AFLplusplus/AFLplusplus"
 SRC_URI="https://github.com/AFLplusplus/AFLplusplus/archive/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/AFLplusplus-${PV}"
+S="${WORKDIR}"/AFLplusplus-${PV}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -25,11 +25,10 @@ RESTRICT="test"
 
 # It turns out we need Clang too
 RDEPEND="${PYTHON_DEPS}
-	>=sys-devel/llvm-11:=
+	>=sys-devel/llvm-13:=
 	|| (
-		sys-devel/clang:11
-		sys-devel/clang:12
 		sys-devel/clang:13
+		sys-devel/clang:${LLVM_MAX_SLOT}
 	)
 	!app-forensics/afl"
 DEPEND="${RDEPEND}
@@ -38,8 +37,9 @@ DEPEND="${RDEPEND}
 QA_PREBUILT="usr/share/afl/testcases/others/elf/small_exec.elf"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.00c-respect-flags.patch
-	"${FILESDIR}"/${PN}-4.00c-no-ignore-errors-makefile.patch
+	"${FILESDIR}"/${PN}-4.02c-respect-flags.patch
+	"${FILESDIR}"/${PN}-4.02c-no-ignore-errors-makefile.patch
+	"${FILESDIR}"/${PN}-4.01c-lld-detect.patch
 )
 
 llvm_check_deps() {
@@ -52,33 +52,29 @@ pkg_setup() {
 	python-single-r1_pkg_setup
 }
 
-src_compile() {
+mymake() {
 	emake \
 		CC="$(tc-getCC)" \
 		CXX="$(tc-getCXX)" \
 		CFLAGS_FLTO="" \
+		LLVM_CONFIG="$(get_llvm_prefix ${LLVM_MAX_SLOT})"/bin/llvm-config \
 		PREFIX="${EPREFIX}/usr" \
 		HELPER_PATH="${EPREFIX}/usr/$(get_libdir)/afl" \
 		DOC_PATH="${EPREFIX}/usr/share/doc/${PF}" \
 		MAN_PATH="${EPREFIX}/usr/share/man/man8"
 }
 
+src_compile() {
+	mymake
+}
+
 src_test() {
-	emake \
-		CC="$(tc-getCC)" \
-		CXX="$(tc-getCXX)"
+	mymake test
 }
 
 src_install() {
-	emake \
-		CC="$(tc-getCC)" \
-		CXX="$(tc-getCXX)" \
-		DESTDIR="${D}" \
-		PREFIX="${EPREFIX}/usr" \
-		HELPER_PATH="${EPREFIX}/usr/$(get_libdir)/afl" \
-		DOC_PATH="${EPREFIX}/usr/share/doc/${PF}" \
-		MAN_PATH="${EPREFIX}/usr/share/man/man8" \
-		install
+	mymake DESTDIR="${D}" install
+	dostrip -x /usr/share/afl/testcases/
 }
 
 pkg_postinst() {
