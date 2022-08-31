@@ -33,7 +33,7 @@ RDEPEND="
 	dev-libs/glib
 	dev-libs/nspr
 	dev-libs/nss
-	dev-python/jupyterlab
+	>=dev-python/jupyterlab-$(ver_cut 1-3)
 	media-libs/alsa-lib
 	media-libs/mesa
 	net-print/cups
