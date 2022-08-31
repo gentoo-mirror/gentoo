@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare unpack
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt x11-libs/libxkbfile x11-base/xorg-proto
+DESCRIPTION=round X clock
+EAPI=8
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/app/oclock
+INHERIT=xorg-3
+KEYWORDS=~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt x11-libs/libxkbfile
+SLOT=0
+SRC_URI=https://www.x.org/releases/individual/app/oclock-1.0.5.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153	xorg-3	38a663574d97f06b6b729046865c8fb6
+_md5_=50b47e7e60da5a76cd76ed06c41c3e9c
