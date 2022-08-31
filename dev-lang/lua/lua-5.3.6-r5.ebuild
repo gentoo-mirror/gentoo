@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools portability toolchain-funcs
+inherit autotools optfeature portability toolchain-funcs
 
 DESCRIPTION="A powerful light-weight programming language designed for extending applications"
 HOMEPAGE="https://www.lua.org/"
@@ -171,7 +171,7 @@ src_test() {
 	rm -f "${TEST_MARKER}"
 
 	TEST_LOG="${T}/test.log"
-	eval "${BUILD_DIR}"/src/lua${SLOT} ${TEST_OPTS} all.lua 2>&1 | tee "${TEST_LOG}" || die
+	eval "${S}"/src/lua${SLOT} ${TEST_OPTS} all.lua 2>&1 | tee "${TEST_LOG}" || die
 	grep -sq -e "final OK" "${TEST_LOG}" || echo "FAIL" >>"${TEST_MARKER}"
 
 	if [ -e "${TEST_MARKER}" ]; then
@@ -183,9 +183,5 @@ src_test() {
 pkg_postinst() {
 	eselect lua set --if-unset "${PN}${SLOT}"
 
-	if has_version "app-editor/emacs"; then
-		if ! has_version "app-emacs/lua-mode"; then
-			einfo "Install app-emacs/lua-mode for lua support for emacs"
-		fi
-	fi
+	optfeature "Lua support for Emacs" app-emacs/lua-mode
 }

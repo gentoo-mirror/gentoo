@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit portability toolchain-funcs
+inherit optfeature portability toolchain-funcs
 
 DESCRIPTION="A powerful light-weight programming language designed for extending applications"
 HOMEPAGE="https://www.lua.org/"
@@ -128,7 +128,7 @@ src_test() {
 	local negative="readonly"
 	local test
 
-	cd "${BUILD_DIR}" || die
+	cd "${S}" || die
 	for test in ${positive}; do
 		test/lua.static test/${test}.lua || die "test $test failed"
 	done
@@ -141,9 +141,5 @@ src_test() {
 pkg_postinst() {
 	eselect lua set --if-unset "${PN}${SLOT}"
 
-	if has_version "app-editor/emacs"; then
-		if ! has_version "app-emacs/lua-mode"; then
-			einfo "Install app-emacs/lua-mode for lua support for emacs"
-		fi
-	fi
+	optfeature "Lua support for Emacs" app-emacs/lua-mode
 }

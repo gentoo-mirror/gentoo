@@ -29,18 +29,18 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/gmp:=
 	dev-libs/mpfr:=
-	dev-libs/imath:=
 	>=media-gfx/openvdb-8.2:=
 	net-misc/curl[adns]
 	media-libs/glew:0=
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	media-libs/qhull:=
 	sci-libs/libigl
 	sci-libs/nlopt
+	=sci-libs/opencascade-7.6*:=
 	>=sci-mathematics/cgal-5.0:=
 	sys-apps/dbus
 	sys-libs/zlib:=
-	virtual/glu
 	virtual/opengl
 	x11-libs/gtk+:3
 	x11-libs/wxGTK:${WX_GTK_VER}[X,opengl]
@@ -52,12 +52,16 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-2.5.0_alpha2-boost-fixes.patch"
 	"${FILESDIR}/${P}-cereal-1.3.1.patch"
+	"${FILESDIR}/${P}-fix-tests.patch"
 )
 
 S="${WORKDIR}/${MY_PN}-version_${MY_PV}"
 
 src_prepare() {
 	sed -i -e 's/PrusaSlicer-${SLIC3R_VERSION}+UNKNOWN/PrusaSlicer-${SLIC3R_VERSION}+Gentoo/g' version.inc || die
+
+  sed -i -e 's/find_package(OpenCASCADE 7.6.2 REQUIRED)/find_package(OpenCASCADE REQUIRED)/g' \
+	  src/occt_wrapper/CMakeLists.txt || die
 	cmake_src_prepare
 }
 
