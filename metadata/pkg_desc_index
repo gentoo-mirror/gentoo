@@ -2126,7 +2126,7 @@ app-doc/abs-guide 10: An in-depth exploration of the art of shell scripting
 app-doc/autobook 1.5: GNU Autoconf, Automake and Libtool
 app-doc/blas-docs 3.1.1: Documentation reference and man pages for blas implementations
 app-doc/cantera-docs 2.5.1 2.6.0: Documentation API reference for Cantera package libraries
-app-doc/casting-spels-emacs 19-r2: Casting SPELs in Lisp - A Comic Book (Emacs Lisp Edition)
+app-doc/casting-spels-emacs 19-r3: Casting SPELs in Lisp - A Comic Book (Emacs Lisp Edition)
 app-doc/cppman 0.5.3: C++ man pages for Linux, with source from cplusplus.com and cppreference.com
 app-doc/csound-manual 6.15-r1 6.16: The Csound reference manual
 app-doc/devmanual 0_pre20220326 0_pre20220625 9999: The Gentoo Development Guide
@@ -5501,7 +5501,7 @@ dev-libs/iniparser 3.1-r2 4.1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
 dev-libs/intel-compute-runtime 22.29.23750-r1 22.30.23789 22.31.23852 22.32.23937 22.34.24023: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-library 0_pre20220526: A user mode driver helper library that provides access to GPU performance counters
-dev-libs/intel-vc-intrinsics 0.4.2-r2 0.5.0-r1: A set of new intrinsics on top of core LLVM IR instructions
+dev-libs/intel-vc-intrinsics 0.4.2-r3 0.5.0-r2: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1: Intelligent Storage Acceleration Library
 dev-libs/isl 0.24-r2 0.25: A library for manipulating integer points bounded by linear constraints
 dev-libs/ivykis 0.42.4: Library for asynchronous I/O readiness notification
@@ -18062,8 +18062,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 055-r4 056 056-r1 057-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r6 4.2.6-r7 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.211 5.10.138 5.15.63 5.18.19 5.19.4: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.211 5.10.138 5.15.63 5.18.19 5.19.4: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.211 5.10.138 5.10.140 5.15.63 5.15.64 5.18.19 5.19.4 5.19.6: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.211 5.10.138 5.10.140 5.15.63 5.15.64 5.18.19 5.19.4 5.19.6: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.321 4.9.324 4.9.325 4.9.326 4.14.286 4.14.289 4.14.290 4.14.291 4.19.250 4.19.253 4.19.254 4.19.255 4.19.256 5.4.203 5.4.208 5.4.209 5.4.210 5.4.211 5.10.135 5.10.136 5.10.137 5.10.138 5.10.139 5.10.140 5.15.59 5.15.60 5.15.61 5.15.62 5.15.63 5.15.64 5.18.19-r1 5.19.2 5.19.2-r1 5.19.3 5.19.4 5.19.5 5.19.6: Full sources including the Gentoo patchset for the 5.19 kernel tree
 sys-kernel/git-sources 6.0_rc1 6.0_rc2 6.0_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
@@ -18079,7 +18079,7 @@ sys-kernel/pf-sources 5.18_p5 5.19_p1 5.19_p2: Linux kernel fork that includes t
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.252_p112 4.19.255_p113 5.4.193_p74 5.4.209_p77 5.10.131_p72 5.15.55_p48: Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.211 5.10.138 5.15.63 5.18.19 5.19.4: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.211 5.10.138 5.10.140 5.15.63 5.15.64 5.18.19 5.19.4 5.19.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.326 4.14.291 4.19.256 5.4.211 5.10.140 5.15.64 5.18.19 5.19.6: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.18.16: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
@@ -18263,7 +18263,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.211 5.10.138 5.15.63 5.18.19 5.19.4: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.211 5.10.138 5.10.140 5.15.63 5.15.64 5.18.19 5.19.4 5.19.6: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
