@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 case ${CHOST} in
 	hppa*)    CTARGET=hppa64-${CHOST#*-};;
@@ -13,16 +13,21 @@ case ${CHOST} in
 esac
 export CTARGET
 TOOLCHAIN_ALLOWED_LANGS="c"
-TOOLCHAIN_PATCH_DEV="slyfox"
+TOOLCHAIN_PATCH_DEV="sam"
+TOOLCHAIN_PATCH_SUFFIX="xz"
+#TOOLCHAIN_GCC_RC=1
+PATCH_GCC_VER="10.4.0"
+PATCH_VER="5"
+MUSL_VER="1"
+MUSL_GCC_VER="10.4.0"
 GCC_TARGET_NO_MULTILIB=true
 
-PATCH_VER="3"
 inherit toolchain
 
 DESCRIPTION="64bit kernel compiler"
 
 # Works on hppa and mips; all other archs, refer to bug #228115
-KEYWORDS="hppa"
+KEYWORDS="~hppa"
 
 # unlike every other target, hppa has not unified the 32/64 bit
 # ports in binutils yet
