@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure prepare
 DEPEND=truetype? ( media-libs/freetype ) png? ( media-libs/gd[png,truetype?] )
-DESCRIPTION=A message sequence chart generator
+DESCRIPTION=Message sequence chart generator
 EAPI=7
-HOMEPAGE=http://www.mcternan.me.uk/mscgen/
+HOMEPAGE=https://www.mcternan.me.uk/mscgen/
 INHERIT=autotools
 IUSE=png truetype
 KEYWORDS=amd64 arm ~arm64 ppc ppc64 x86 ~x64-solaris
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=truetype? ( media-libs/freetype ) png? ( media-libs/gd[png,truetype?] )
 REQUIRED_USE=truetype? ( png )
 RESTRICT=test
 SLOT=0
-SRC_URI=http://www.mcternan.me.uk/mscgen/software/mscgen-src-0.20.tar.gz
+SRC_URI=https://www.mcternan.me.uk/mscgen/software/mscgen-src-0.20.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=5488d04e8d5379cab8c7c6829a64ab92
+_md5_=3773e417c69558dec9f067ada0d95102
