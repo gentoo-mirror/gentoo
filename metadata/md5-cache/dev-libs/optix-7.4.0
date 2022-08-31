@@ -1,0 +1,12 @@
+DEFINED_PHASES=install nofetch unpack
+DESCRIPTION=NVIDIA Ray Tracing Engine
+EAPI=8
+HOMEPAGE=https://developer.nvidia.com/optix
+IUSE=+headers-only
+KEYWORDS=~amd64
+LICENSE=NVIDIA-SDK
+RDEPEND=>=x11-drivers/nvidia-drivers-510
+RESTRICT=bindist mirror !headers-only? ( fetch )
+SLOT=0
+SRC_URI=!headers-only? ( NVIDIA-OptiX-SDK-7.4.0-linux64-x86_64.sh ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/internal/optix_7_device_impl.h -> optix-7.4.0-internal-optix_7_device_impl.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/internal/optix_7_device_impl_exception.h -> optix-7.4.0-internal-optix_7_device_impl_exception.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/internal/optix_7_device_impl_transformations.h -> optix-7.4.0-internal-optix_7_device_impl_transformations.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix.h -> optix-7.4.0-optix.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_7_device.h -> optix-7.4.0-optix_7_device.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_7_host.h -> optix-7.4.0-optix_7_host.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_7_types.h -> optix-7.4.0-optix_7_types.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_denoiser_tiling.h -> optix-7.4.0-optix_denoiser_tiling.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_device.h -> optix-7.4.0-optix_device.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_function_table.h -> optix-7.4.0-optix_function_table.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_function_table_definition.h -> optix-7.4.0-optix_function_table_definition.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_host.h -> optix-7.4.0-optix_host.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_stack_size.h -> optix-7.4.0-optix_stack_size.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_stubs.h -> optix-7.4.0-optix_stubs.h ) headers-only? ( https://developer.download.nvidia.com/redist/optix/v7.4/optix_types.h -> optix-7.4.0-optix_types.h )
+_md5_=8f72cf4a23b8700c5abdc0054c124099
