@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-39">
+    <title>WebKitGTK+: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in WebkitGTK+, the worst of which could result in the arbitrary execution of code.</synopsis>
+    <product type="ebuild">webkit-gtk</product>
+    <announced>2022-08-31</announced>
+    <revised count="1">2022-08-31</revised>
+    <bug>866494</bug>
+    <bug>864427</bug>
+    <bug>856445</bug>
+    <bug>861740</bug>
+    <bug>837305</bug>
+    <bug>845252</bug>
+    <bug>839984</bug>
+    <bug>833568</bug>
+    <bug>832990</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/webkit-gtk" auto="yes" arch="*">
+            <unaffected range="ge">2.36.7</unaffected>
+            <vulnerable range="lt">2.36.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in WebKitGTK+. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All WebKitGTK+ users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/webkit-gtk-2.36.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2294">CVE-2022-2294</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22589">CVE-2022-22589</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22590">CVE-2022-22590</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22592">CVE-2022-22592</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22620">CVE-2022-22620</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22624">CVE-2022-22624</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22628">CVE-2022-22628</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22629">CVE-2022-22629</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22662">CVE-2022-22662</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22677">CVE-2022-22677</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26700">CVE-2022-26700</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26709">CVE-2022-26709</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26710">CVE-2022-26710</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26716">CVE-2022-26716</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26717">CVE-2022-26717</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26719">CVE-2022-26719</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30293">CVE-2022-30293</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30294">CVE-2022-30294</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32784">CVE-2022-32784</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32792">CVE-2022-32792</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32893">CVE-2022-32893</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2022-0002.html">WSA-2022-0002</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2022-0003.html">WSA-2022-0003</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2022-0007.html">WSA-2022-0007</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2022-0008.html">WSA-2022-0008</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-31T23:54:04.006418Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2022-08-31T23:54:04.011928Z">ajak</metadata>
+</glsa>
