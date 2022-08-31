@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/ert-runner ) >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs major mode for ReScript
+EAPI=8
+HOMEPAGE=https://github.com/jjlee/rescript-mode/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-26.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jjlee/rescript-mode/archive/2aae2fbd4971dff965c758ec19688780ed7bff21.tar.gz -> rescript-mode-0.1.0_p20220613.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=905567539f6fe14606bc52f32cd9d93f
