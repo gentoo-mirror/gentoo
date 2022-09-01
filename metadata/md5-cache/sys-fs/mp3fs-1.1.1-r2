@@ -4,11 +4,11 @@ DESCRIPTION=Read-only FUSE filesystem which transcodes FLAC audio files to MP3 w
 EAPI=8
 HOMEPAGE=https://khenriks.github.com/mp3fs/
 IUSE=+flac vorbis
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=media-libs/libid3tag:= media-sound/lame sys-fs/fuse:0= flac? ( >=media-libs/flac-1.1.4 ) vorbis? ( >=media-libs/libvorbis-1.3.0 )
 REQUIRED_USE=|| ( flac vorbis )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/khenriks/mp3fs/releases/download/v1.1.1/mp3fs-1.1.1.tar.gz
-_md5_=9b836b8d2feede225a855dfaee4da298
+_md5_=6a3f79a8b90d5c8bc5836a8c98dea89c
