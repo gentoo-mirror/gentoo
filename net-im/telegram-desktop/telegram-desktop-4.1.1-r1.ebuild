@@ -28,18 +28,22 @@ RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
 	dev-cpp/abseil-cpp:=
+	dev-libs/glib:2
 	dev-libs/libdispatch
+	dev-libs/libsigc++:2
 	dev-libs/openssl:=
 	dev-libs/xxhash
 	media-fonts/open-sans
 	media-libs/fontconfig:=
+	media-libs/libjpeg-turbo:=
 	~media-libs/libtgvoip-2.4.4_p20220503
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20220507[screencast=,X=]
+	~media-libs/tg_owt-0_pre20220507:=[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
+	x11-libs/xcb-util-keysyms
 	dbus? ( dev-cpp/glibmm:2 )
 	enchant? ( app-text/enchant:= )
 	hunspell? ( >=app-text/hunspell-1.7:= )
@@ -117,7 +121,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
-		-DDESKTOP_APP_QT6=$(usex qt6)
+		-DQT_VERSION_MAJOR=$(usex qt6 6 5)
 
 		-DDESKTOP_APP_DISABLE_DBUS_INTEGRATION=$(usex !dbus)
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
