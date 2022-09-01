@@ -26,7 +26,6 @@ BDEPEND="dev-util/wayland-scanner"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.1.6-remove-werror.patch
-	"${FILESDIR}"/${P}-revert-defer-resizes.patch
 )
 
 src_install() {
