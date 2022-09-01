@@ -13,7 +13,7 @@ HOMEPAGE="https://wiki.gnome.org/Projects/NetworkManager"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
 
-IUSE="audit bluetooth +concheck connection-sharing debug dhclient dhcpcd elogind gnutls +gtk-doc +introspection iptables iwd psl libedit lto +nss nftables +modemmanager ofono ovs policykit +ppp resolvconf selinux syslog systemd teamd test +tools vala +wext +wifi"
+IUSE="audit bluetooth +concheck connection-sharing debug dhclient dhcpcd elogind gnutls +gtk-doc +introspection iptables +iwd psl libedit lto +nss nftables +modemmanager ofono ovs policykit +ppp resolvconf selinux syslog systemd teamd test +tools vala +wext +wifi"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -101,7 +101,6 @@ BDEPEND="
 		dev-util/gtk-doc
 		app-text/docbook-xml-dtd:4.1.2
 	)
-	>=dev-util/intltool-0.40
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
 	introspection? (
@@ -207,7 +206,6 @@ multilib_src_configure() {
 		-Diptables=/sbin/iptables
 		-Dnft=/sbin/nft
 		-Ddnsmasq=/usr/sbin/dnsmasq
-		#-Ddnssec_trigger=
 
 		-Ddist_version=${PVR}
 		$(meson_native_use_bool policykit polkit)
