@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst
+DESCRIPTION=Security and system auditing tool
+EAPI=8
+HOMEPAGE=https://cisofy.com/lynis/
+INHERIT=bash-completion-r1 systemd
+IUSE=+cron systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=app-shells/bash cron? ( !systemd? ( virtual/cron ) )
+SLOT=0
+SRC_URI=https://cisofy.com/files/lynis-3.0.8.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=9de4eac5fef519b7b3e7a50c4e71c4b6
