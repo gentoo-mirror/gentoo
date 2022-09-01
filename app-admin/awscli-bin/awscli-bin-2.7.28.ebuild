@@ -20,7 +20,8 @@ LICENSE="
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
 
-RDEPEND="!app-admin/awscli"
+RDEPEND="!app-admin/awscli
+	sys-libs/glibc"
 BDEPEND="app-arch/unzip"
 
 QA_PREBUILT="*"
