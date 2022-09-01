@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 toolchain-funcs
+inherit toolchain-funcs
 
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/dtschump/gmic.git"
@@ -14,7 +14,7 @@ else
 fi
 
 DESCRIPTION="GREYC's Magic Image Converter"
-HOMEPAGE="https://gmic.eu/ https://github.com/dtschump/gmic"
+HOMEPAGE="https://gmic.eu/ https://github.com/GreycLab/gmic"
 
 LICENSE="CeCILL-2 GPL-3"
 SLOT="0"
@@ -66,6 +66,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-3.1.6-ar_so.patch
 	"${FILESDIR}"/${PN}-3.1.6-makefile_automagic.patch
 	"${FILESDIR}"/${PN}-3.1.6-relative_rpath.patch
 )
@@ -100,8 +101,6 @@ gmic_emake() {
 		$@
 }
 
-# FIXME:
-#  - honour user CFLAGS while building C binaries (i.e. 'use_libcgmic')
 src_compile() {
 	gmic_emake lib libc
 	use cli && gmic_emake cli_shared
