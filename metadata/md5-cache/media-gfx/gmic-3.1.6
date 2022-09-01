@@ -3,8 +3,8 @@ DEFINED_PHASES=compile install pretend setup
 DEPEND=sys-libs/zlib:0= curl? ( net-misc/curl ) fftw? ( sci-libs/fftw:3.0=[threads] ) gimp? ( media-gfx/gimp:0/2 >=dev-qt/qtcore-5.2.0:5 >=dev-qt/qtgui-5.2.0:5 >=dev-qt/qtnetwork-5.2.0:5 >=dev-qt/qtwidgets-5.2.0:5 ) graphicsmagick? ( media-gfx/graphicsmagick:0= ) jpeg? ( media-libs/libjpeg-turbo:= ) opencv? ( >=media-libs/opencv-2.3.1a-r1:0= ) openexr? ( dev-libs/imath:= media-libs/openexr:= ) png? ( media-libs/libpng:0= ) qt5? ( >=dev-qt/qtcore-5.2.0:5 >=dev-qt/qtgui-5.2.0:5 >=dev-qt/qtnetwork-5.2.0:5 >=dev-qt/qtwidgets-5.2.0:5 ) tiff? ( media-libs/tiff:0 ) X? ( x11-libs/libX11 x11-libs/libXext )
 DESCRIPTION=GREYC's Magic Image Converter
 EAPI=8
-HOMEPAGE=https://gmic.eu/ https://github.com/dtschump/gmic
-INHERIT=bash-completion-r1 toolchain-funcs
+HOMEPAGE=https://gmic.eu/ https://github.com/GreycLab/gmic
+INHERIT=toolchain-funcs
 IUSE=cli curl ffmpeg fftw gimp graphicsmagick jpeg opencv openexr openmp png qt5 tiff X
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=CeCILL-2 GPL-3
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/zlib:0= curl? ( net-misc/curl ) fftw? ( sci-libs/fftw:3.0=[thre
 REQUIRED_USE=gimp? ( png fftw X ) qt5? ( png fftw X )
 SLOT=0
 SRC_URI=https://gmic.eu/files/source/gmic_3.1.6.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=1a52f8c054f15ef2d98a289a551024c0
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=8114ef4a0303dfcd499c4dd3d094806f
