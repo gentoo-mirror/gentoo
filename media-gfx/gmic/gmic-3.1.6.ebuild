@@ -24,9 +24,6 @@ REQUIRED_USE="
 	qt5? ( png fftw X )
 "
 
-# No test suite, hand-crafted Makefiles barf out on 'emake check'
-RESTRICT="test"
-
 MIN_QT_VER="5.2.0"
 QT_DEPEND="
 	>=dev-qt/qtcore-${MIN_QT_VER}:5
@@ -61,12 +58,16 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
-	gimp? ( dev-qt/linguist-tools:5 )
+	gimp? (
+		dev-qt/linguist-tools:5
+		media-gfx/gimp:0/2
+	)
 	qt5? ( dev-qt/linguist-tools:5 )
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.1.5-makefile_automagic.patch
+	"${FILESDIR}"/${PN}-3.1.6-makefile_automagic.patch
+	"${FILESDIR}"/${PN}-3.1.6-relative_rpath.patch
 )
 
 pkg_pretend() {
@@ -79,6 +80,12 @@ pkg_setup() {
 
 gmic_emake() {
 	emake -j1 -C src \
+		CC="$(tc-getCC)" \
+		CXX="$(tc-getCXX)" \
+		STRIP="/bin/true" \
+		LIB="$(get_libdir)" \
+		OPT_CFLAGS="${CXXFLAGS}" \
+		OPT_LIBS="${LDFLAGS}" \
 		GMIC_USE_CURL=$(usex curl) \
 		GMIC_USE_EXR=$(usex openexr) \
 		GMIC_USE_FFTW=$(usex fftw) \
@@ -94,14 +101,36 @@ gmic_emake() {
 }
 
 # FIXME:
-#  - do not pre-strip binaries
-#  - honour user LDFLAGS on lib{,c}gmic.so
-#  - fix multilib-strict violation on same
-#  - nuke relative DT_RUNPATH on same
-#  - GIMP plug-in dir should only be created if USE=gimp, otherwise it ends up being just /plug-ins
+#  - honour user CFLAGS while building C binaries (i.e. 'use_libcgmic')
 src_compile() {
 	gmic_emake lib libc
 	use cli && gmic_emake cli_shared
 	use gimp && gmic_emake gimp_shared
 	use qt5 && gmic_emake gmic_qt_shared
+}
+
+src_install() {
+	# See below for why this has to name a directory even if USE=-gimp
+	local gimp_plugindir="/deleteme"
+	if use gimp; then
+		if type gimptool &>/dev/null; then
+			gimp_plugindir="$(gimptool --gimpplugindir)/plug-ins"
+		elif type gimptool-2.0 &>/dev/null; then
+			gimp_plugindir="$(gimptool-2.0 --gimpplugindir)/plug-ins"
+		elif type gimptool-2.99 &>/dev/null; then
+			gimp_plugindir="$(gimptool-2.99 --gimpplugindir)/plug-ins"
+		else
+			die "Cannot find GIMP plugin directory"
+		fi
+	fi
+
+	gmic_emake DESTDIR="${ED}" PLUGINDIR="${gimp_plugindir}" install
+
+	# Upstream build scripts create PLUGINDIR and write some files to it
+	# regardless of whether the GIMP plug-in has been built or not, or even
+	# when they haven't been able to execute gimptool to get the base path.
+	use gimp || rm -rf "${ED}/${gimp_plugindir}"
+
+	# These are already gzipped in the source tarballs
+	find "${ED}/usr/share/man" -name "*.gz" -exec gunzip {} \; || die
 }
