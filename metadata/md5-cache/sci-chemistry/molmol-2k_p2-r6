@@ -1,13 +1,13 @@
 DEFINED_PHASES=install prepare setup
-DEPEND=|| ( ( media-libs/mesa[X(+)] x11-libs/libGLw ) media-libs/mesa[motif,X(+)] ) media-libs/libpng:0= media-libs/tiff:0 sys-libs/zlib virtual/glu virtual/jpeg:0 x11-libs/libXpm x11-libs/motif:0 x11-apps/xdpyinfo
+DEPEND=|| ( ( media-libs/mesa[X(+)] x11-libs/libGLw ) media-libs/mesa[motif(-),X(+)] ) media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/tiff:0 sys-libs/zlib virtual/glu x11-libs/libXpm x11-libs/motif:0 x11-apps/xdpyinfo
 DESCRIPTION=Publication-quality molecular visualization package
 EAPI=7
 HOMEPAGE=http://www.csb.yale.edu/userguides/graphics/molmol/molmol_descrip.html http://pjf.net/science/molmol.html
 INHERIT=desktop prefix toolchain-funcs
 KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux
 LICENSE=molmol
-RDEPEND=|| ( ( media-libs/mesa[X(+)] x11-libs/libGLw ) media-libs/mesa[motif,X(+)] ) media-libs/libpng:0= media-libs/tiff:0 sys-libs/zlib virtual/glu virtual/jpeg:0 x11-libs/libXpm x11-libs/motif:0 x11-apps/xdpyinfo
+RDEPEND=|| ( ( media-libs/mesa[X(+)] x11-libs/libGLw ) media-libs/mesa[motif(-),X(+)] ) media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/tiff:0 sys-libs/zlib virtual/glu x11-libs/libXpm x11-libs/motif:0 x11-apps/xdpyinfo
 SLOT=0
 SRC_URI=ftp://ftp.mol.biol.ethz.ch/software/MOLMOL/unix-gzip/molmol-2k.2.0-src.tar.gz ftp://ftp.mol.biol.ethz.ch/software/MOLMOL/unix-gzip/molmol-2k.2.0-doc.tar.gz https://dev.gentoo.org/~soap/distfiles/molmol-patches.tbz2 https://dev.gentoo.org/~pacho/molmol/molmol.png
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=852c119d8aa483dc22f3d4b56210cf3c
+_md5_=cd9fd03de806899b158ccb02cfb9e411
