@@ -51,8 +51,8 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.5.0_alpha2-boost-fixes.patch"
-	"${FILESDIR}/${P}-cereal-1.3.1.patch"
-	"${FILESDIR}/${P}-fix-tests.patch"
+	"${FILESDIR}/${PN}-2.5.0_rc1-cereal-1.3.1.patch"
+	"${FILESDIR}/${PN}-2.5.0_rc1-fix-tests.patch"
 )
 
 S="${WORKDIR}/${MY_PN}-version_${MY_PV}"
@@ -60,8 +60,8 @@ S="${WORKDIR}/${MY_PN}-version_${MY_PV}"
 src_prepare() {
 	sed -i -e 's/PrusaSlicer-${SLIC3R_VERSION}+UNKNOWN/PrusaSlicer-${SLIC3R_VERSION}+Gentoo/g' version.inc || die
 
-  sed -i -e 's/find_package(OpenCASCADE 7.6.2 REQUIRED)/find_package(OpenCASCADE REQUIRED)/g' \
-	  src/occt_wrapper/CMakeLists.txt || die
+	sed -i -e 's/find_package(OpenCASCADE 7.6.2 REQUIRED)/find_package(OpenCASCADE REQUIRED)/g' \
+		src/occt_wrapper/CMakeLists.txt || die
 	cmake_src_prepare
 }
 
