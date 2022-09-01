@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://linuxwacom.github.io/
 INHERIT=linux-info systemd udev xorg-3 meson
 IUSE=test
-KEYWORDS=~alpha amd64 arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~ia64 ~ppc ~ppc64 sparc x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/libwacom-2:= >=x11-base/xorg-server-1.13:= x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXinerama virtual/libudev:= x11-base/xorg-server:= >=x11-base/xorg-server-1.20[xorg]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.1.0/xf86-input-wacom-1.1.0.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	56708ddc53d8b607ed88fd97a56e59dc	systemd	2736b403a83f194b59b767f3b344c2c1	udev	f3a0a3964e2028a140c181f00eea9712	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153	xorg-3	38a663574d97f06b6b729046865c8fb6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=8f2907cd6ccf376fe4aee00a2e224cbb
+_md5_=ce64073f42867144a89c5496293d9b35
