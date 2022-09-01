@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/linguist-tools:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/openssl:= dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 >=net-libs/libsearpc-3.2.0_p1 ~net-misc/seafile-8.0.8 sys-libs/zlib virtual/opengl shibboleth? ( dev-qt/qtwebengine:5[widgets] ) test? ( dev-qt/qttest:5 )
+DESCRIPTION=Seafile desktop client
+EAPI=8
+HOMEPAGE=https://www.seafile.com/ https://github.com/haiwen/seafile-client/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg cmake
+IUSE=shibboleth test
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/openssl:= dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 >=net-libs/libsearpc-3.2.0_p1 ~net-misc/seafile-8.0.8 sys-libs/zlib virtual/opengl shibboleth? ( dev-qt/qtwebengine:5[widgets] )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/haiwen/seafile-client/archive/c8a33cc8f39dd67cf9458585ab19d20ef4656fe9.tar.gz -> seafile-client-8.0.8.tar.gz
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=a3d97bc831c72ed14df1b2dd1d6efe18

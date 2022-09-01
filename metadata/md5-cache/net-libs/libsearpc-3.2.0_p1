@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare setup
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=dev-libs/glib-2.26.0 >=dev-libs/jansson-2.2.1:=
+DESCRIPTION=A simple C language RPC framework
+EAPI=8
+HOMEPAGE=https://github.com/haiwen/libsearpc/ http://seafile.com/
+INHERIT=autotools python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=dev-libs/glib-2.26.0 >=dev-libs/jansson-2.2.1:= python_single_target_python3_8? ( dev-python/simplejson[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/simplejson[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/simplejson[python_targets_python3_10(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0
+SRC_URI=https://github.com/haiwen/libsearpc/archive/54145b03f4240222e336a9a2f402e93facefde65.tar.gz -> libsearpc-3.2.0_p1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=9d6ea96752047e05ac95a0b37dc1dafb
