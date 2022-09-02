@@ -28,7 +28,8 @@ src_prepare() {
 	# Remove bundled z3.
 	# NOTICE: New versions do not need the bundled one but older versions
 	# hardcoded the path relative to "dafny" binary.
-	# While bumping make sure to verify that system's "z3" is used.
+	# While bumping make sure to verify that system's "z3" is used
+	# by, for example, compiling/verifying a simple dafny program.
 	rm -r z3 || die
 }
 
