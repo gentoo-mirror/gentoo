@@ -2236,8 +2236,8 @@ app-editors/vile 9.8t-r2 9.8v 9.8w: VI Like Emacs -- yet another full-featured v
 app-editors/vim 8.2.4586 8.2.5066-r1 9.0.0049 9.0.0099 9999: Vim, an improved vi-style text editor
 app-editors/vim-core 8.2.4586-r1 8.2.5066-r3 9.0.0049-r2 9.0.0099 9999: vim and gvim shared files
 app-editors/vis 0.7 9999: modern, legacy free, simple yet efficient vim-like editor
-app-editors/vscode 1.70.1-r1 1.70.2: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.70.1.22229 1.70.2.22230: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscode 1.70.1-r1 1.70.2 1.71.0: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscodium 1.70.1.22229 1.70.2.22230 1.71.0.22245: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r1: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.4.24-r5 21.4.24-r7 21.5.34-r10 21.5.9999: highly customizable open source text editor and application development system
@@ -5822,7 +5822,7 @@ dev-libs/pocl 1.8-r2 3.0: Portable Computing Language (an implementation of Open
 dev-libs/poco 1.10.1 1.11.2-r1: C++ libraries for building network-based applications
 dev-libs/popt 1.18: Parse Options - Command line parser
 dev-libs/ppl 1.2-r4 1.2-r5: The Parma Polyhedra Library for numerical analysis of complex systems
-dev-libs/protobuf 3.19.3 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
+dev-libs/protobuf 3.19.3 3.20.1 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
 dev-libs/protobuf-c 1.4.0-r1 1.4.1: Protocol Buffers implementation in C
 dev-libs/psimd 2020.05.17: P(ortable) SIMD
 dev-libs/pslib 0.4.5-r1: pslib is a C-library to create PostScript files on the fly
@@ -8583,7 +8583,7 @@ dev-python/github3 3.2.0: A wrapper for the GitHub API written in python
 dev-python/glob2 0.7-r1: Extended version of Python's builtin glob module
 dev-python/glooey 0.3.6: An object-oriented GUI library for pyglet
 dev-python/gmpy 2.1.2-r1: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.8.2: Core Library for Google Client Libraries
+dev-python/google-api-core 2.8.2 2.10.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.55.0 2.56.0 2.57.0 2.58.0: Google API Client for Python
 dev-python/google-apitools 0.5.32-r1: Python library to manipulate Google APIs
 dev-python/google-auth 2.9.1 2.10.0 2.11.0: Google Authentication Library
@@ -8714,6 +8714,7 @@ dev-python/jsonpointer 2.3: Identify specific nodes in a JSON document (accordin
 dev-python/jsonref 0.2: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
 dev-python/jsonschema 4.8.0 4.9.0 4.9.1 4.10.0 4.10.2 4.12.1 4.13.0 4.14.0 4.15.0: An implementation of JSON-Schema validation for Python
+dev-python/jsonschema-spec 0.1.1: JSONSchema Spec with object-oriented paths
 dev-python/jsonxs 0.6-r1: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9: Create JUnit XML test result documents
 dev-python/jupyter 1.0.0-r4: Jupyter metapackage. Install all the Jupyter components in one go
@@ -8897,7 +8898,7 @@ dev-python/odfpy 1.4.2: Python API and tools to manipulate OpenDocument files
 dev-python/olefile 0.46-r2: Python package to parse, read and write Microsoft OLE2 files
 dev-python/openapi-core 0.14.2: Client-side and server-side support for the OpenAPI Specification v3
 dev-python/openapi-schema-validator 0.2.3 0.3.0 0.3.1 0.3.3: OpenAPI schema validation for Python
-dev-python/openapi-spec-validator 0.4.0: OpenAPI 2.0 (aka Swagger) and OpenAPI 3.0 spec validator
+dev-python/openapi-spec-validator 0.4.0 0.5.0: OpenAPI 2.0 (aka Swagger) and OpenAPI 3.0 spec validator
 dev-python/openpyxl 3.0.10: Pure python reader and writer of Excel OpenXML files
 dev-python/openstackdocstheme 2.4.0 3.0.0: Theme and extension support for Sphinx documentation
 dev-python/openstacksdk 0.100.0 0.101.0: A collection of libraries for building applications to work with OpenStack
@@ -8942,6 +8943,7 @@ dev-python/patatt 0.4.9-r1 0.6.2: A simple library to add cryptographic attestat
 dev-python/patch-ng 1.17.4: Library to parse and apply unified diffs, fork of dev-python/patch
 dev-python/path-and-address 2.0.1: Functions for server CLI applications used by humans
 dev-python/path-py 16.4.0: A module wrapper for os.path
+dev-python/pathable 0.4.3: Object-oriented paths
 dev-python/pathspec 0.9.0-r1 0.10.0 0.10.1: Utility library for gitignore style pattern matching of file paths
 dev-python/pathtools 0.1.2-r3: Pattern matching and various utilities for file systems paths
 dev-python/pathvalidate 2.5.0 2.5.1 2.5.2: A Python library to sanitize/validate a string such as filenames/file-paths/etc
@@ -9003,7 +9005,7 @@ dev-python/poyo 0.5.0: A lightweight YAML Parser for Python
 dev-python/precis-i18n 1.0.4: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r2: A library for stubbing in Python
 dev-python/pretty-yaml 21.10.1: PyYAML-based module to produce pretty and readable YAML-serialized data
-dev-python/prettytable 3.3.0 3.4.0: Easily displaying tabular data in a visually appealing ASCII table format
+dev-python/prettytable 3.3.0 3.4.1: Easily displaying tabular data in a visually appealing ASCII table format
 dev-python/priority 1.3.0 1.3.0-r1 2.0.0-r1: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 2.1.2-r1: Tools for testing processes
 dev-python/progress 1.6-r1: Easy to use progress bars
@@ -9012,7 +9014,7 @@ dev-python/progressbar2 4.0.0: Text progressbar library for python
 dev-python/prometheus_client 0.14.1: Python client for the Prometheus monitoring system
 dev-python/prompt_toolkit 3.0.30 3.0.31: Building powerful interactive command lines in Python
 dev-python/proto-plus 1.20.6 1.22.0 1.22.1: Beautiful, Pythonic protocol buffers
-dev-python/protobuf-python 3.19.3-r2 3.19.3-r3 9999: Google's Protocol Buffers - Python bindings
+dev-python/protobuf-python 3.19.3-r2 3.19.3-r3 3.20.1 9999: Google's Protocol Buffers - Python bindings
 dev-python/prov 2.0.0: W3C provenance data dodel library
 dev-python/pslab-python 2.5.0: Python library for communicating with Pocket Science Lab
 dev-python/psutil 5.9.1: Retrieve information on running processes and system utilization
