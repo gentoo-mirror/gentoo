@@ -7,11 +7,11 @@ HOMEPAGE=https://qtox.github.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
 IUSE=notification +spellcheck test X
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-db/sqlcipher dev-libs/libsodium:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5[gif,jpeg,png,X(-)] dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-gfx/qrencode:= media-libs/libexif media-libs/openal media-video/ffmpeg:=[webp,v4l] >=net-libs/tox-0.2.13:=[av] notification? ( x11-libs/snorenotify ) spellcheck? ( kde-frameworks/sonnet:5 ) X? ( x11-libs/libX11 x11-libs/libXScrnSaver )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/qTox/qTox/releases/download/v1.17.6/v1.17.6.tar.gz -> qTox-1.17.6.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	xdg	6024fbc93167fad782e2032933654857
-_md5_=8601796167a28d844942588f6b357805
+_md5_=3ef6acf2c3952fde93982d41e80a2515
