@@ -7,7 +7,7 @@ inherit go-module
 DESCRIPTION="k3d creates k3s clusters in docker"
 HOMEPAGE="https://github.com/rancher/k3d"
 
-K3D_K3S_TAG=v1.22.7-k3s1
+K3D_K3S_TAG=v1.24.4-k3s1
 SRC_URI="https://github.com/rancher/k3d/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0 ISC"
