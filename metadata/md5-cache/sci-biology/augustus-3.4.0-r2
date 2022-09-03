@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile install
+DEPEND=dev-db/sqlite:3 dev-db/mysql++:= dev-db/mysql-connector-c:= dev-libs/boost:=[zlib] sci-biology/bamtools:= sci-biology/samtools:0 sci-libs/gsl:= sci-libs/htslib:= sci-libs/suitesparse sci-mathematics/lpsolve sys-libs/zlib
+DESCRIPTION=Eukaryotic gene predictor
+EAPI=8
+HOMEPAGE=https://bioinf.uni-greifswald.de/augustus/
+INHERIT=docs toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~x86
+LICENSE=Artistic
+RDEPEND=dev-db/sqlite:3 dev-db/mysql++:= dev-db/mysql-connector-c:= dev-libs/boost:=[zlib] sci-biology/bamtools:= sci-biology/samtools:0 sci-libs/gsl:= sci-libs/htslib:= sci-libs/suitesparse sci-mathematics/lpsolve sys-libs/zlib
+SLOT=0
+SRC_URI=https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.4.0.tar.gz -> augustus-3.4.0.tar.gz
+_eclasses_=docs	8ed2a8a28ff109e7a3582c9abb7fe327	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=8e0685d98ec63cf1f73ecd92587e2265
