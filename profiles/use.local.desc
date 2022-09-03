@@ -648,6 +648,13 @@ app-emulation/vkd3d-proton:crossdev-mingw - Use sys-devel/crossdev for the toolc
 app-emulation/vkd3d-proton:extras - Install extra tools and demos in /usr/lib/vkd3d-proton
 app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
 app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
+app-emulation/wine-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
+app-emulation/wine-proton:gecko - Enable mshtml support using app-emulation/wine-gecko
+app-emulation/wine-proton:mono - Enable .NET support using app-emulation/wine-mono
+app-emulation/wine-proton:osmesa - Enable off-screen rendering (OpenGL in bitmaps) support
+app-emulation/wine-proton:perl - Install helpers that require perl (winedump/winemaker)
+app-emulation/wine-proton:sdl - Enable gamepad support using media-libs/libsdl2
+app-emulation/wine-proton:vkd3d - Enable DirectX 12 support using app-emulation/vkd3d
 app-emulation/wine-staging:capi - Enable ISDN support via CAPI
 app-emulation/wine-staging:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-staging:custom-cflags - Bypass strip-flags; use at your own peril
@@ -8579,6 +8586,7 @@ virtual/podofo-build:boost - Add support for boost
 virtual/podofo-build:tools - Build and install commandline tools
 virtual/rust:rustfmt - Install rustfmt, Rust code formatter
 virtual/ssh:minimal - Prefer net-misc/dropbear over net-misc/openssh
+virtual/wine:proton - Enable Valve Software's fork of Wine
 virtual/wine:staging - Enable Wine-Staging's Patchset
 www-apache/mod_backtrace:unwind - Use sys-libs/libunwind to provide better resolution of function names.
 www-apache/mod_musicindex:archive - Add archive support

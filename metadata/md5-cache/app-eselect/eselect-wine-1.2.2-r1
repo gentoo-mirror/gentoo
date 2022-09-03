@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst prerm
+DESCRIPTION=Manage active wine version
+EAPI=8
+HOMEPAGE=https://bitbucket.org/NP-Hardass/eselect-wine
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=app-admin/eselect dev-util/desktop-file-utils !app-emulation/wine:0
+SLOT=0
+SRC_URI=https://bitbucket.org/NP-Hardass/eselect-wine/get/v1.2.2.tar.gz -> eselect-wine-1.2.2.tar.gz
+_md5_=54503c2d7e5e309cea0c3cda3959b535
