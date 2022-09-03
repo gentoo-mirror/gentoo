@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst unpack
 DEPEND=acct-group/grok_exporter acct-user/grok_exporter >=dev-libs/oniguruma-6.9.0
 DESCRIPTION=Unstructured log data exporter for Prometheus
@@ -11,5 +11,5 @@ RDEPEND=acct-group/grok_exporter acct-user/grok_exporter >=dev-libs/oniguruma-6.
 RESTRICT=strip strip
 SLOT=0
 SRC_URI=https://github.com/fstab/grok_exporter/archive/v1.0.0.RC5.tar.gz -> grok_exporter-1.0.0_rc5.tar.gz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=40aeaa057b6cfac3395e8bcfd3e9307b

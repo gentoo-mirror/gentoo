@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install prepare test unpack
 DEPEND=btrfs? ( sys-fs/btrfs-progs ) device-mapper? ( sys-fs/lvm2:= ) dev-go/go-md2man test? ( sys-fs/btrfs-progs sys-fs/lvm2 sys-apps/util-linux )
 DESCRIPTION=containers/storage library
@@ -12,5 +12,5 @@ RDEPEND=btrfs? ( sys-fs/btrfs-progs ) device-mapper? ( sys-fs/lvm2:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/containers/storage/archive/v1.42.0.tar.gz -> containers-storage-1.42.0.tar.gz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=124aeacf6c2a751fc208c20252955da5

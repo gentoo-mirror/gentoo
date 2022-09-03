@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.17 >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.17 >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install unpack
 DEPEND=acct-group/kube-controller-manager acct-user/kube-controller-manager
 DESCRIPTION=Kubernetes Controller Manager
@@ -12,5 +12,5 @@ RDEPEND=acct-group/kube-controller-manager acct-user/kube-controller-manager
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/kubernetes/kubernetes/archive/v1.23.10.tar.gz -> kubernetes-1.23.10.tar.gz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=7c5d50a549ed10a54110d5aae5a0f94b

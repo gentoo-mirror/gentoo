@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile install prepare test unpack
 DEPEND=acct-user/redis_exporter acct-group/redis_exporter
 DESCRIPTION=Prometheus Exporter for Redis Metrics. Supports Redis 2.x, 3.x and 4.x
@@ -11,5 +11,5 @@ RDEPEND=acct-user/redis_exporter acct-group/redis_exporter
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/oliver006/redis_exporter/archive/v1.40.0.tar.gz -> redis_exporter-1.40.0.tar.gz https://dev.gentoo.org/~zmedico/dist/redis_exporter-1.38.0-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=f0eb7046bac2288514a3d9db2efe2e70

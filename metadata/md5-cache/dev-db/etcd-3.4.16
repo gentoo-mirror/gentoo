@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile install postinst prepare test unpack
 DEPEND=server? ( acct-group/etcd acct-user/etcd )
 DESCRIPTION=Highly-available key value store for shared configuration and service discovery
@@ -12,5 +12,5 @@ RDEPEND=server? ( acct-group/etcd acct-user/etcd ) !dev-db/etcdctl virtual/tmpfi
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/etcd-io/etcd/archive/v3.4.16.tar.gz -> etcd-3.4.16.tar.gz https://dev.gentoo.org/~zmedico/dist/etcd-3.4.16-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=1ff6e760b82a80beb9f8b3f05a351fe6

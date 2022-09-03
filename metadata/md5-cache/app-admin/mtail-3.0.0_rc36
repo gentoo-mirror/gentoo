@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install prepare unpack
 DESCRIPTION=A tool for extracting metrics from application logs
 EAPI=7
@@ -11,5 +11,5 @@ RDEPEND=!app-misc/mtail
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/google/mtail/archive/v3.0.0-rc36.tar.gz -> mtail-3.0.0_rc36.tar.gz https://dev.gentoo.org/~zmedico/dist/mtail-3.0.0_rc36-tidy.patch.xz https://dev.gentoo.org/~zmedico/dist/mtail-3.0.0_rc36-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=3770350d24e1f50ffca125029470e199

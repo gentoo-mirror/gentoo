@@ -1,4 +1,4 @@
-BDEPEND=>=app-text/scdoc-1.9.7 >=dev-lang/go-1.13 >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=app-text/scdoc-1.9.7 >=dev-lang/go-1.13 >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst postrm preinst unpack
 DEPEND=notmuch? ( net-mail/notmuch:= )
 DESCRIPTION=Email client for your terminal
@@ -13,5 +13,5 @@ RDEPEND=notmuch? ( net-mail/notmuch:= )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://git.sr.ht/~rjarry/aerc/archive/0.10.0.tar.gz -> aerc-0.10.0.tar.gz https://dev.gentoo.org/~williamh/dist/aerc-0.10.0-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=4a9e0226deee72cbe578ce0deb66c6ab

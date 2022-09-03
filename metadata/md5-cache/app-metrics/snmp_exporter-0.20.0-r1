@@ -1,4 +1,4 @@
-BDEPEND=dev-util/promu >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=dev-util/promu >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install prepare unpack
 DEPEND=acct-group/snmp_exporter acct-user/snmp_exporter net-analyzer/net-snmp
 DESCRIPTION=Prometheus exporter for snmp metrics
@@ -11,5 +11,5 @@ RDEPEND=acct-group/snmp_exporter acct-user/snmp_exporter net-analyzer/net-snmp
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/prometheus/snmp_exporter/archive/v0.20.0.tar.gz -> snmp_exporter-0.20.0.tar.gz https://dev.gentoo.org/~williamh/dist/snmp_exporter-0.20.0-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=dd487aa5163dd899d314384aa3017056

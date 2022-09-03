@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install test unpack
 DEPEND=virtual/libusb:1 virtual/udev media-libs/libmtp
 DESCRIPTION=a simple FUSE filesystem for mounting Android devices as a MTP device
@@ -11,5 +11,5 @@ RDEPEND=virtual/libusb:1 virtual/udev
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/hanwen/go-mtpfs/archive/v1.0.0.tar.gz -> go-mtpfs-1.0.0.tar.gz https://dev.gentoo.org/~williamh/dist/go-mtpfs-1.0.0-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=9cd3bf689422866253112b7cf8319f75

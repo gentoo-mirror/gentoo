@@ -1,4 +1,4 @@
-BDEPEND=dev-util/promu >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=dev-util/promu >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst prepare unpack
 DEPEND=acct-group/mysqld_exporter acct-user/mysqld_exporter
 DESCRIPTION=Prometheus exporter for MySQL server metrics
@@ -11,5 +11,5 @@ RDEPEND=acct-group/mysqld_exporter acct-user/mysqld_exporter
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/prometheus/mysqld_exporter/archive/f5d5289f7627016d8b53b0b3fa7615da8a73b56a.tar.gz -> mysqld_exporter-0.12.1_p20200622.tar.gz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=1fb63ba8ada096ca4f450a4f3fd3ca23
