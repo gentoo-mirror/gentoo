@@ -5,7 +5,7 @@ EAPI=8
 
 DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="doxygen.conf"
-inherit docs
+inherit docs toolchain-funcs
 
 DESCRIPTION="Eukaryotic gene predictor"
 HOMEPAGE="https://bioinf.uni-greifswald.de/augustus/"
@@ -18,13 +18,13 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-db/sqlite:3
-	dev-db/mysql++
-	dev-db/mysql-connector-c
-	dev-libs/boost:=
-	sci-biology/bamtools
+	dev-db/mysql++:=
+	dev-db/mysql-connector-c:=
+	dev-libs/boost:=[zlib]
+	sci-biology/bamtools:=
 	sci-biology/samtools:0
-	sci-libs/gsl
-	sci-libs/htslib
+	sci-libs/gsl:=
+	sci-libs/htslib:=
 	sci-libs/suitesparse
 	sci-mathematics/lpsolve
 	sys-libs/zlib
@@ -32,7 +32,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	default
+	tc-export CC CXX
+
+	emake LINK.cc="$(tc-getCXX)"
+
 	docs_compile
 }
 
