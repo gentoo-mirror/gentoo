@@ -7,10 +7,10 @@ HOMEPAGE=https://www.smplayer.eu/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=plocale qmake-utils toolchain-funcs xdg
 IUSE=autoshutdown bidi debug mpris
-KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux
+KEYWORDS=amd64 ~arm ~hppa ~ppc ~ppc64 x86 ~amd64-linux
 LICENSE=GPL-2+ BSD-2
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5= dev-qt/qtnetwork:5[ssl] dev-qt/qtscript:5 dev-qt/qtsingleapplication[X,qt5(+)] dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib autoshutdown? ( dev-qt/qtdbus:5 ) mpris? ( dev-qt/qtdbus:5 ) || ( media-video/mpv[libass(+),X] media-video/mplayer[bidi?,libass,png,X] )
 SLOT=0
 SRC_URI=https://github.com/smplayer-dev/smplayer/releases/download/v22.2.0/smplayer-22.2.0.tar.bz2
 _eclasses_=plocale	7ce00136a77130df46fbbd5966f98a61	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=c0ec95d2dff5c5bd83c38846c2dbfbd7
+_md5_=5c1a14f9790c42c017bac62b1b31aeda
