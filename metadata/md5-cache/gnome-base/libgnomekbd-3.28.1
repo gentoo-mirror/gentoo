@@ -1,0 +1,15 @@
+BDEPEND=dev-util/glib-utils >=sys-devel/gettext-0.19.6 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.44.0:2 >=x11-libs/gtk+-2.91.7:3[X,introspection?] x11-libs/libX11 >=x11-libs/libxklavier-5.2:=[introspection?] introspection? ( >=dev-libs/gobject-introspection-0.6.7:= )
+DESCRIPTION=Gnome keyboard configuration library
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/libgnomekbd
+INHERIT=gnome.org meson
+IUSE=+introspection
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+LICENSE=LGPL-2+
+RDEPEND=>=dev-libs/glib-2.44.0:2 >=x11-libs/gtk+-2.91.7:3[X,introspection?] x11-libs/libX11 >=x11-libs/libxklavier-5.2:=[introspection?] introspection? ( >=dev-libs/gobject-introspection-0.6.7:= )
+SLOT=0/8
+SRC_URI=mirror://gnome/sources/libgnomekbd/3.28/libgnomekbd-3.28.1.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=92263324f023db591456c363fda450fd
