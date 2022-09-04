@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
+DESCRIPTION=SELinux policy for matrixd
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
+INHERIT=selinux-policy-2
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	selinux-policy-2	60bf468b45e98c5f769b758daaa46ae4
+_md5_=ae61703b9e56e773754aa0fefd72c25b
