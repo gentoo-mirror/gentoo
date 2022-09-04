@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=acct-group/wesnoth acct-user/wesnoth dev-libs/boost:=[bzip2,context,icu,nls,threads(+)] >=media-libs/libsdl2-2.0.4:0[joystick,video,X] !dedicated? ( dev-libs/glib:2 dev-libs/openssl:0= >=media-libs/fontconfig-2.4.1 >=media-libs/sdl2-image-2.0.0[jpeg,png] >=media-libs/sdl2-mixer-2.0.0[vorbis] media-libs/libvorbis >=x11-libs/pango-1.22.0 >=x11-libs/cairo-1.10.0 sys-libs/readline:0= dbus? ( sys-apps/dbus ) ) x11-libs/libX11
+DEPEND=acct-group/wesnoth acct-user/wesnoth dev-libs/boost:=[bzip2,context,icu,nls] >=media-libs/libsdl2-2.0.4:0[joystick,video,X] !dedicated? ( dev-libs/glib:2 dev-libs/openssl:0= >=media-libs/fontconfig-2.4.1 >=media-libs/sdl2-image-2.0.0[jpeg,png] >=media-libs/sdl2-mixer-2.0.0[vorbis] media-libs/libvorbis >=x11-libs/pango-1.22.0 >=x11-libs/cairo-1.10.0 sys-libs/readline:0= dbus? ( sys-apps/dbus ) ) x11-libs/libX11
 DESCRIPTION=Battle for Wesnoth - A fantasy turn-based strategy game
 EAPI=8
 HOMEPAGE=http://www.wesnoth.org https://github.com/wesnoth/wesnoth
@@ -8,8 +8,8 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic xdg
 IUSE=dbus dedicated doc nls server
 LICENSE=GPL-2
-RDEPEND=acct-group/wesnoth acct-user/wesnoth dev-libs/boost:=[bzip2,context,icu,nls,threads(+)] >=media-libs/libsdl2-2.0.4:0[joystick,video,X] !dedicated? ( dev-libs/glib:2 dev-libs/openssl:0= >=media-libs/fontconfig-2.4.1 >=media-libs/sdl2-image-2.0.0[jpeg,png] >=media-libs/sdl2-mixer-2.0.0[vorbis] media-libs/libvorbis >=x11-libs/pango-1.22.0 >=x11-libs/cairo-1.10.0 sys-libs/readline:0= dbus? ( sys-apps/dbus ) )
+RDEPEND=acct-group/wesnoth acct-user/wesnoth dev-libs/boost:=[bzip2,context,icu,nls] >=media-libs/libsdl2-2.0.4:0[joystick,video,X] !dedicated? ( dev-libs/glib:2 dev-libs/openssl:0= >=media-libs/fontconfig-2.4.1 >=media-libs/sdl2-image-2.0.0[jpeg,png] >=media-libs/sdl2-mixer-2.0.0[vorbis] media-libs/libvorbis >=x11-libs/pango-1.22.0 >=x11-libs/cairo-1.10.0 sys-libs/readline:0= dbus? ( sys-apps/dbus ) )
 SLOT=0
 SRC_URI=mirror://sourceforge/wesnoth/wesnoth-1.17.5.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	xdg	6024fbc93167fad782e2032933654857
-_md5_=18a637ddd8bb75a86c946fac48506f6d
+_md5_=f41da7d6cca55a0c0d86f6d10e8956c9

@@ -1,6 +1,6 @@
 BDEPEND=test? ( sys-devel/clang ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[context,threads(+)] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= sys-libs/liburing:= sys-libs/zlib llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) sys-libs/binutils-libs
+DEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[context] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= sys-libs/liburing:= sys-libs/zlib llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) sys-libs/binutils-libs
 DESCRIPTION=An open-source C++ library developed and used at Facebook
 EAPI=8
 HOMEPAGE=https://github.com/facebook/folly
@@ -8,9 +8,9 @@ INHERIT=cmake toolchain-funcs
 IUSE=llvm-libunwind test
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[context,threads(+)] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= sys-libs/liburing:= sys-libs/zlib llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= )
+RDEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[context] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= sys-libs/liburing:= sys-libs/zlib llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= )
 RESTRICT=!test? ( test )
 SLOT=0/2022.07.04.00
 SRC_URI=https://github.com/facebook/folly/releases/download/v2022.07.04.00/folly-v2022.07.04.00.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=7d73c0a4f032a5b5fd306dc13c82d58a
+_md5_=f1348b78a22bb3c96a8c0381722c4ea0

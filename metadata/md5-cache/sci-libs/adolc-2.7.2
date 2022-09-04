@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare test
-DEPEND=boost? ( dev-libs/boost:0= ) mpi? ( sys-cluster/ampi:0= ) sparse? ( sci-libs/colpack:0= )
+DEPEND=boost? ( dev-libs/boost:= ) mpi? ( sys-cluster/ampi:0= ) sparse? ( sci-libs/colpack:0= )
 DESCRIPTION=Automatic differentiation system for C/C++
 EAPI=7
 HOMEPAGE=https://projects.coin-or.org/ADOL-C/
@@ -8,8 +8,8 @@ INHERIT=autotools toolchain-funcs
 IUSE=+boost mpi sparse
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( EPL-1.0 GPL-2 )
-RDEPEND=boost? ( dev-libs/boost:0= ) mpi? ( sys-cluster/ampi:0= ) sparse? ( sci-libs/colpack:0= )
+RDEPEND=boost? ( dev-libs/boost:= ) mpi? ( sys-cluster/ampi:0= ) sparse? ( sci-libs/colpack:0= )
 SLOT=0/2
 SRC_URI=https://github.com/coin-or/ADOL-C/archive/releases/2.7.2.tar.gz -> adolc-2.7.2.tar.gz https://dev.gentoo.org/~sam/distfiles/sci-libs/adolc/adolc-2.7.2-patches.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=ed5ed3558c91fbe7d04732f74e8693f4
+_md5_=e75640200f4b1d91158ee22ddbc356ae

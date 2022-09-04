@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install postinst postrm prepare
-DEPEND=dev-libs/boost:=[threads(+)] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib
+DEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib
 DESCRIPTION=Qt-based MP3 diagnosis and repair tool
 EAPI=7
 HOMEPAGE=http://mp3diags.sourceforge.net
 INHERIT=desktop qmake-utils xdg-utils
 KEYWORDS=~amd64
 LICENSE=LGPL-3 GPL-2
-RDEPEND=dev-libs/boost:=[threads(+)] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib dev-qt/qtsvg:5
+RDEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib dev-qt/qtsvg:5
 SLOT=0
 SRC_URI=mirror://sourceforge/mp3diags/MP3Diags-unstable-1.5.01.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=63ecb07deb00751c9ff7553503b61723
+_md5_=ce9a3b7ddc3bf2faee7b81ecbfabc299

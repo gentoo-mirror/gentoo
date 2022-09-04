@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 sys-devel/m4 sys-devel/libtool php_targets_php7-4? ( dev-lang/php:7.4 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/brotli:0= dev-libs/libaio dev-libs/boost:0= dev-libs/libpcre sys-libs/zlib:0= http2? ( net-libs/nghttp2:0= ) ssl? ( dev-libs/openssl:0= ) php_targets_php7-4? ( dev-lang/php:7.4[cli,sockets?] ) mysql? ( php_targets_php7-4? ( dev-lang/php:7.4[mysql,mysqli(+)] ) ) php_targets_php7-4? ( dev-lang/php:7.4 )
+DEPEND=app-arch/brotli:0= dev-libs/libaio dev-libs/boost:= dev-libs/libpcre sys-libs/zlib:0= http2? ( net-libs/nghttp2:0= ) ssl? ( dev-libs/openssl:0= ) php_targets_php7-4? ( dev-lang/php:7.4[cli,sockets?] ) mysql? ( php_targets_php7-4? ( dev-lang/php:7.4[mysql,mysqli(+)] ) ) php_targets_php7-4? ( dev-lang/php:7.4 )
 DESCRIPTION=Event-driven asynchronous & concurrent & coroutine networking engine
 EAPI=7
 HOMEPAGE=https://www.swoole.co.uk
@@ -8,10 +8,10 @@ INHERIT=php-ext-pecl-r3
 IUSE=debug http2 mysql sockets ssl php_targets_php7-4
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=app-arch/brotli:0= dev-libs/libaio dev-libs/boost:0= dev-libs/libpcre sys-libs/zlib:0= http2? ( net-libs/nghttp2:0= ) ssl? ( dev-libs/openssl:0= ) php_targets_php7-4? ( dev-lang/php:7.4[cli,sockets?] ) mysql? ( php_targets_php7-4? ( dev-lang/php:7.4[mysql,mysqli(+)] ) ) php_targets_php7-4? ( dev-lang/php:7.4 )
+RDEPEND=app-arch/brotli:0= dev-libs/libaio dev-libs/boost:= dev-libs/libpcre sys-libs/zlib:0= http2? ( net-libs/nghttp2:0= ) ssl? ( dev-libs/openssl:0= ) php_targets_php7-4? ( dev-lang/php:7.4[cli,sockets?] ) mysql? ( php_targets_php7-4? ( dev-lang/php:7.4[mysql,mysqli(+)] ) ) php_targets_php7-4? ( dev-lang/php:7.4 )
 REQUIRED_USE=|| ( php_targets_php7-4 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://pecl.php.net/get/swoole-4.4.16.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	php-ext-source-r3	3c26d87acac034aedf8bf126f7010c8a	php-ext-pecl-r3	5db9384543980900b5ecbac76136b6a8
-_md5_=b3addde746493279bf819ffff5ca2eec
+_md5_=24b9522fd15e67dd3140001e4a15159c

@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/capnproto:0 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-i18n/opencc:0= >=dev-cpp/glog-0.3.5:0= dev-cpp/yaml-cpp:0= dev-libs/boost:0=[threads(+)] dev-libs/capnproto:0= dev-libs/leveldb:0= dev-libs/marisa:0= dev-libs/darts dev-libs/utfcpp x11-base/xorg-proto test? ( dev-cpp/gtest )
+DEPEND=app-i18n/opencc:0= >=dev-cpp/glog-0.3.5:0= dev-cpp/yaml-cpp:0= dev-libs/boost:= dev-libs/capnproto:0= dev-libs/leveldb:0= dev-libs/marisa:0= dev-libs/darts dev-libs/utfcpp x11-base/xorg-proto test? ( dev-cpp/gtest )
 DESCRIPTION=RIME (Rime Input Method Engine) core library
 EAPI=7
 HOMEPAGE=https://rime.im/ https://github.com/rime/librime
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=debug test
 KEYWORDS=amd64 arm64 ppc ppc64 x86
 LICENSE=BSD
-RDEPEND=app-i18n/opencc:0= >=dev-cpp/glog-0.3.5:0= dev-cpp/yaml-cpp:0= dev-libs/boost:0=[threads(+)] dev-libs/capnproto:0= dev-libs/leveldb:0= dev-libs/marisa:0=
+RDEPEND=app-i18n/opencc:0= >=dev-cpp/glog-0.3.5:0= dev-cpp/yaml-cpp:0= dev-libs/boost:= dev-libs/capnproto:0= dev-libs/leveldb:0= dev-libs/marisa:0=
 RESTRICT=!test? ( test )
 SLOT=0/1-1.7.3
 SRC_URI=https://github.com/rime/librime/archive/1.7.3.tar.gz -> librime-1.7.3.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=73468b6bc6c68af37f52558e1bdf9d21
+_md5_=7c02a1a6168dfc32939342695bc46c8d

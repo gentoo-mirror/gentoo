@@ -1,6 +1,6 @@
 BDEPEND=>=sys-devel/automake-1.13 || ( >=sys-devel/gcc-7[cxx] >=sys-devel/clang-5 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare pretend
-DEPEND=acct-group/bitcoin acct-user/bitcoin >=dev-libs/boost-1.64.0:=[threads(+)] dev-libs/libevent:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= nat-pmp? ( net-libs/libnatpmp ) virtual/bitcoin-leveldb sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= ) systemtap? ( dev-util/systemtap )
+DEPEND=acct-group/bitcoin acct-user/bitcoin >=dev-libs/boost-1.64.0:= dev-libs/libevent:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= nat-pmp? ( net-libs/libnatpmp ) virtual/bitcoin-leveldb sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= ) systemtap? ( dev-util/systemtap )
 DESCRIPTION=Original Bitcoin crypto-currency wallet for automated services
 EAPI=7
 HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
@@ -8,10 +8,10 @@ INHERIT=autotools bash-completion-r1 db-use systemd flag-o-matic
 IUSE=+asm +berkdb examples +external-signer knots nat-pmp sqlite systemtap test upnp +wallet zeromq
 KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
-RDEPEND=acct-group/bitcoin acct-user/bitcoin >=dev-libs/boost-1.64.0:=[threads(+)] dev-libs/libevent:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= nat-pmp? ( net-libs/libnatpmp ) virtual/bitcoin-leveldb sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
+RDEPEND=acct-group/bitcoin acct-user/bitcoin >=dev-libs/boost-1.64.0:= dev-libs/libevent:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= nat-pmp? ( net-libs/libnatpmp ) virtual/bitcoin-leveldb sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
 REQUIRED_USE=sqlite? ( wallet ) berkdb? ( wallet ) wallet? ( || ( berkdb sqlite ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/a0988140b71485ad12c3c3a4a9573f7c21b1eff8.tar.gz -> bitcoin-v22.0.tar.gz https://bitcoinknots.org/files/22.x/22.0.knots20211108/bitcoin-22.0.knots20211108.patches.txz -> bitcoin-22.0.knots20211108.patches.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	db-use	867a9246a45efc09934e0f8e3380c813	systemd	2736b403a83f194b59b767f3b344c2c1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153
-_md5_=6a95582d2c046c42f1bb998dd3e71343
+_md5_=5759f6f1ed8ad0bb5d5dc8025e58e7a1

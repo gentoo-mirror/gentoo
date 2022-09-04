@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install pretend setup
-DEPEND=dev-libs/boost:0= >=sci-libs/gsl-2:0= virtual/cblas:= eigen? ( dev-cpp/eigen:3 ) armadillo? ( sci-libs/armadillo[lapack] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5:0= ) readline? ( sys-libs/readline:0= ) virtual/pkgconfig
+DEPEND=dev-libs/boost:= >=sci-libs/gsl-2:0= virtual/cblas:= eigen? ( dev-cpp/eigen:3 ) armadillo? ( sci-libs/armadillo[lapack] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5:0= ) readline? ( sys-libs/readline:0= ) virtual/pkgconfig
 DESCRIPTION=Object-oriented Scientific Computing Library
 EAPI=6
 HOMEPAGE=https://web.utk.edu/~asteine1/o2scl/
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic toolchain-funcs
 IUSE=armadillo debug doc examples eigen fftw gsl hdf5 openmp readline static-libs
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3
-RDEPEND=dev-libs/boost:0= >=sci-libs/gsl-2:0= virtual/cblas:= eigen? ( dev-cpp/eigen:3 ) armadillo? ( sci-libs/armadillo[lapack] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5:0= ) readline? ( sys-libs/readline:0= )
+RDEPEND=dev-libs/boost:= >=sci-libs/gsl-2:0= virtual/cblas:= eigen? ( dev-cpp/eigen:3 ) armadillo? ( sci-libs/armadillo[lapack] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5:0= ) readline? ( sys-libs/readline:0= )
 SLOT=0
 SRC_URI=https://github.com/awsteiner/o2scl/releases/download/v0.920/o2scl-0.920.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	desktop	22952d8f27cac191d75529d4c38e6bfa	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	epatch	447396341f5f896d722e435a06f87a4f	eqawarn	c9847c43b3253a276ae2eabddedab3d7	ltprune	97143780d341cc8d8f1d4c6187a36d29	preserve-libs	a8e50acee31b5759b4df1f7707cae54b	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153
-_md5_=1719ec959057676b36a0af8c0c2732c0
+_md5_=d9162b5b403f2cf1e6e449d85935ebc7

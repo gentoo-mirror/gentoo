@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) tutorials? ( dev-python/sphinx dev-python/sphinxcontrib-doxylink ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:=[threads(+)] dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 ) !!dev-cpp/metslib test? ( >=dev-cpp/gtest-1.6.0 )
+DEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:= dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 ) !!dev-cpp/metslib test? ( >=dev-cpp/gtest-1.6.0 )
 DESCRIPTION=2D/3D image and point cloud processing
 EAPI=7
 HOMEPAGE=https://pointclouds.org/
@@ -8,9 +8,9 @@ INHERIT=git-r3 cmake multilib
 IUSE=cuda doc opengl openni openni2 pcap png +qhull qt5 usb vtk cpu_flags_x86_sse test tutorials
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:=[threads(+)] dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 )
+RDEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:= dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 )
 REQUIRED_USE=openni? ( usb ) openni2? ( usb ) tutorials? ( doc )
 RESTRICT=!test? ( test )
 SLOT=0/1.12
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=3d3ca2c0d937dca5ad113c633e5e4a8e
+_md5_=cb21d40f8f68982bcb3b16c9de099f31
