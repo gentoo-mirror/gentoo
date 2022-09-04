@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install nofetch postinst postrm preinst prepare pretend setup
+DESCRIPTION=First person platforming adventure game about a boy who searches for his lost uncle
+EAPI=8
+HOMEPAGE=https://www.humblebundle.com/store/a-story-about-my-uncle
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=check-reqs desktop prefix xdg
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=all-rights-reserved
+RDEPEND=media-libs/libsdl2[opengl,sound,video] sys-apps/bubblewrap >=sys-devel/gcc-3.4 >=sys-libs/glibc-2.14 virtual/opengl
+RESTRICT=bindist fetch splitdebug
+SLOT=0
+SRC_URI=Linux-NoDRM-ASAMU_5188.zip fetch+https://dev.gentoo.org/~chewi/distfiles/ASAMU.png
+_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	desktop	22952d8f27cac191d75529d4c38e6bfa	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=ec898f8d8975583642b7144f2e367764
