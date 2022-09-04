@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=>=dev-libs/boost-1.42.0:= >=sys-apps/util-linux-2.16 btrfs? ( >=sys-fs/btrfs-progs-0.19-r2 ) lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) zfs? ( sys-fs/zfs ) app-arch/xz-utils sys-apps/groff doc? ( app-doc/doxygen media-gfx/graphviz ) nls? ( >=app-text/po4a-0.40 sys-devel/gettext ) test? ( >=dev-util/cppunit-1.10.0 )
+DEPEND=dev-libs/boost:= >=sys-apps/util-linux-2.16 btrfs? ( >=sys-fs/btrfs-progs-0.19-r2 ) lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) zfs? ( sys-fs/zfs ) app-arch/xz-utils sys-apps/groff doc? ( app-doc/doxygen media-gfx/graphviz ) nls? ( >=app-text/po4a-0.40 sys-devel/gettext ) test? ( >=dev-util/cppunit-1.10.0 )
 DESCRIPTION=Utility to execute commands in a chroot environment
 EAPI=7
 HOMEPAGE=https://packages.debian.org/source/sid/schroot
@@ -8,9 +8,9 @@ INHERIT=bash-completion-r1 cmake pam tmpfiles
 IUSE=btrfs +dchroot debug doc lvm nls pam test zfs
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3
-RDEPEND=>=dev-libs/boost-1.42.0:= >=sys-apps/util-linux-2.16 btrfs? ( >=sys-fs/btrfs-progs-0.19-r2 ) lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) zfs? ( sys-fs/zfs ) sys-apps/debianutils dchroot? ( !sys-apps/dchroot ) nls? ( virtual/libintl ) virtual/tmpfiles
+RDEPEND=dev-libs/boost:= >=sys-apps/util-linux-2.16 btrfs? ( >=sys-fs/btrfs-progs-0.19-r2 ) lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) zfs? ( sys-fs/zfs ) sys-apps/debianutils dchroot? ( !sys-apps/dchroot ) nls? ( virtual/libintl ) virtual/tmpfiles
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/s/schroot/schroot_1.6.10.orig.tar.xz mirror://debian/pool/main/s/schroot/schroot_1.6.10-12.debian.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	pam	e44a1dd98f13e1ad76de01e919bde1f1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=fb22e349c765fc5f32c2ad4f61a8f459
+_md5_=d7ea69745b1099d5b2515548889253b2

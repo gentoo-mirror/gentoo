@@ -1,6 +1,6 @@
 BDEPEND=acct-group/murmur acct-user/murmur virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=acct-group/murmur acct-user/murmur >=dev-libs/openssl-1.0.0b:0= >=dev-libs/protobuf-2.2.0:= dev-qt/qtcore:5 dev-qt/qtnetwork:5 || ( dev-qt/qtsql:5[sqlite] dev-qt/qtsql:5[mysql] ) dev-qt/qtxml:5 sys-apps/lsb-release >=sys-libs/libcap-2.15 dbus? ( dev-qt/qtdbus:5 ) ice? ( dev-libs/Ice:= ) zeroconf? ( net-dns/avahi[mdnsresponder-compat] ) >=dev-libs/boost-1.41.0
+DEPEND=acct-group/murmur acct-user/murmur >=dev-libs/openssl-1.0.0b:0= >=dev-libs/protobuf-2.2.0:= dev-qt/qtcore:5 dev-qt/qtnetwork:5 || ( dev-qt/qtsql:5[sqlite] dev-qt/qtsql:5[mysql] ) dev-qt/qtxml:5 sys-apps/lsb-release >=sys-libs/libcap-2.15 dbus? ( dev-qt/qtdbus:5 ) ice? ( dev-libs/Ice:= ) zeroconf? ( net-dns/avahi[mdnsresponder-compat] ) dev-libs/boost
 DESCRIPTION=Mumble is an open source, low-latency, high quality voice chat software
 EAPI=7
 HOMEPAGE=https://wiki.mumble.info
@@ -12,4 +12,4 @@ RDEPEND=acct-group/murmur acct-user/murmur >=dev-libs/openssl-1.0.0b:0= >=dev-li
 SLOT=0
 SRC_URI=https://github.com/mumble-voip/mumble/releases/download/1.3.3/mumble-1.3.3.tar.gz https://dl.mumble.info/mumble-1.3.3.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	systemd	2736b403a83f194b59b767f3b344c2c1	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=74c21a216c4ed17f5c2893ec285313d8
+_md5_=38655ea692bf1d8efb1960a9c8be5cb0

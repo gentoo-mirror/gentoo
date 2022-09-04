@@ -1,6 +1,6 @@
 BDEPEND=>=sys-devel/autoconf-2.69 >=sys-devel/automake-1.13 dev-qt/linguist-tools:5 knots? ( gnome-base/librsvg media-gfx/imagemagick[png] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install postinst postrm prepare pretend
-DEPEND=>=dev-libs/boost-1.58.0:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 system-leveldb? ( virtual/bitcoin-leveldb ) dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
+DEPEND=dev-libs/boost:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 system-leveldb? ( virtual/bitcoin-leveldb ) dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
 DESCRIPTION=An end-user Qt GUI for the Bitcoin crypto-currency
 EAPI=7
 HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
@@ -8,10 +8,10 @@ INHERIT=autotools bash-completion-r1 db-use desktop xdg-utils
 IUSE=+asm +berkdb dbus kde knots +qrcode sqlite +system-leveldb test upnp +wallet zeromq
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
-RDEPEND=>=dev-libs/boost-1.58.0:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 system-leveldb? ( virtual/bitcoin-leveldb ) dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
+RDEPEND=dev-libs/boost:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 system-leveldb? ( virtual/bitcoin-leveldb ) dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
 REQUIRED_USE=sqlite? ( wallet ) berkdb? ( wallet ) wallet? ( || ( berkdb sqlite ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/194b9b8792d9b0798fdb570b79fa51f1d1f5ebaf.tar.gz -> bitcoin-v0.21.1.tar.gz https://bitcoinknots.org/files/0.21.x/0.21.1.knots20210629/bitcoin-0.21.1.knots20210629.patches.txz -> bitcoin-0.21.1.knots20210629.patches.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	db-use	867a9246a45efc09934e0f8e3380c813	desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=a0bdef92f87f53cfb1fb2a610b1f0dbb
+_md5_=5a9604b0091cf6d871d5ee40cd0278e7

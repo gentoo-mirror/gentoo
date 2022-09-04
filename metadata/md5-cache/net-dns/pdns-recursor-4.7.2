@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install postinst setup
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dnstap? ( dev-libs/fstrm ) systemd? ( sys-apps/systemd:0= ) snmp? ( net-analyzer/net-snmp ) sodium? ( dev-libs/libsodium:= ) elibc_glibc? ( arm? ( >=sys-libs/glibc-2.34 ) x86? ( >=sys-libs/glibc-2.34 ) ) dev-libs/openssl:= >=dev-libs/boost-1.35:=[context]
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dnstap? ( dev-libs/fstrm ) systemd? ( sys-apps/systemd:0= ) snmp? ( net-analyzer/net-snmp ) sodium? ( dev-libs/libsodium:= ) elibc_glibc? ( arm? ( >=sys-libs/glibc-2.34 ) x86? ( >=sys-libs/glibc-2.34 ) ) dev-libs/openssl:= dev-libs/boost:=[context]
 DESCRIPTION=The PowerDNS Recursor
 EAPI=7
 HOMEPAGE=https://www.powerdns.com/
@@ -8,10 +8,10 @@ INHERIT=flag-o-matic lua-single
 IUSE=debug dnstap snmp sodium systemd test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-2
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dnstap? ( dev-libs/fstrm ) systemd? ( sys-apps/systemd:0= ) snmp? ( net-analyzer/net-snmp ) sodium? ( dev-libs/libsodium:= ) elibc_glibc? ( arm? ( >=sys-libs/glibc-2.34 ) x86? ( >=sys-libs/glibc-2.34 ) ) dev-libs/openssl:= >=dev-libs/boost-1.35:=[context] !<net-dns/pdns-2.9.20-r1 acct-user/pdns acct-group/pdns
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dnstap? ( dev-libs/fstrm ) systemd? ( sys-apps/systemd:0= ) snmp? ( net-analyzer/net-snmp ) sodium? ( dev-libs/libsodium:= ) elibc_glibc? ( arm? ( >=sys-libs/glibc-2.34 ) x86? ( >=sys-libs/glibc-2.34 ) ) dev-libs/openssl:= dev-libs/boost:=[context] !<net-dns/pdns-2.9.20-r1 acct-user/pdns acct-group/pdns
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.powerdns.com/releases/pdns-recursor-4.7.2.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f
-_md5_=de1fc69faf2bd9d487227c33392e92e8
+_md5_=b4212baf9b6f1eae686da6837d593587

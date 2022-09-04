@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen[dot] )
 DEFINED_PHASES=compile configure install postinst setup
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= >=dev-libs/boost-1.35:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) )
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= dev-libs/boost:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) )
 DESCRIPTION=The PowerDNS Daemon
 EAPI=7
 HOMEPAGE=https://www.powerdns.com/
@@ -8,10 +8,10 @@ INHERIT=flag-o-matic lua-single
 IUSE=debug doc geoip ldap lmdb lua-records mydns mysql postgres remote sodium sqlite systemd tools tinydns test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= >=dev-libs/boost-1.35:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) ) acct-user/pdns acct-group/pdns
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= dev-libs/boost:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) ) acct-user/pdns acct-group/pdns
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) mydns? ( mysql )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f
-_md5_=573441dd3cb674aca1b9b0b8c1c7cecc
+_md5_=850a542693887c0ddc1f71402fe859c1

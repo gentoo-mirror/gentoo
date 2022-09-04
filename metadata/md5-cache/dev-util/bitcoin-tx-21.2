@@ -1,6 +1,6 @@
 BDEPEND=>=sys-devel/automake-1.13 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare pretend
-DEPEND=>=dev-libs/boost-1.68.0:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:=
+DEPEND=dev-libs/boost:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:=
 DESCRIPTION=Command-line Bitcoin transaction tool
 EAPI=7
 HOMEPAGE=https://bitcoincore.org/ https://bitcoinknots.org/
@@ -8,8 +8,8 @@ INHERIT=autotools bash-completion-r1
 IUSE=knots
 KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
-RDEPEND=>=dev-libs/boost-1.68.0:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:=
+RDEPEND=dev-libs/boost:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:=
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/af591f2068d0363c92d9756ca39c43db85e5804c.tar.gz -> bitcoin-v0.21.2.tar.gz https://bitcoinknots.org/files/21.x/21.2.knots20210629/bitcoin-21.2.knots20210629.patches.txz -> bitcoin-21.2.knots20210629.patches.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=5a1c5684b5bce4e04a3845cb90c7e80d
+_md5_=1fe63694b0c9aab0d087faf77a8ed9a5

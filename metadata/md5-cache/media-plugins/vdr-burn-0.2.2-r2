@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm preinst prepare setup unpack
-DEPEND=media-libs/gd[png,truetype,jpeg] media-video/vdr >=dev-libs/boost-1.32.0 media-tv/gentoo-vdr-scripts virtual/linuxtv-dvb-headers
+DEPEND=media-libs/gd[png,truetype,jpeg] media-video/vdr dev-libs/boost media-tv/gentoo-vdr-scripts virtual/linuxtv-dvb-headers
 DESCRIPTION=VDR Plugin: burn records on DVD
 EAPI=7
 HOMEPAGE=https://projects.vdr-developer.org/projects/plg-burn
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=mirror://vdr-developerorg/1252/vdr-burn-0.2.2.tgz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	unpacker	697382d119fd3d195f110b7979184285	vdr-plugin-2	a9325d83cfc0ced6c00746d2d2550840
-_md5_=871bf156cbfb94a49ab878421a7fa8f7
+_md5_=7597402afc4ef1b7a9f2bf76c27d2a7b
