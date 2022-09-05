@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pocoproject.org/
 INHERIT=cmake
 IUSE=7z activerecord cppparser +crypto +data examples +file2pagecompiler iodbc +json mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc sqlite +ssl test +util +xml +zip
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=Boost-1.0
 RDEPEND=>=dev-libs/libpcre-8.42 activerecord? ( !app-arch/arc ) mysql? ( !mariadb? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib )
 REQUIRED_USE=7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) pagecompiler? ( json net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) ssl? ( util ) test? ( data? ( sqlite ) json util xml )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.11.2-release.tar.gz -> poco-1.11.2.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=17620138cc4fce44e1daa0b75e893d3d
+_md5_=487ef1b9b4c7721a51d6e61b0bfcc54c
