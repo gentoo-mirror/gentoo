@@ -26,8 +26,8 @@ RDEPEND="
 		<dev-lang/ocaml-4.09.0[ocamlopt?]
 	)
 	gtk? (
-		dev-ml/lablgtk:3=[sourceview,ocamlopt?]
-		dev-ml/lablgtk-sourceview:3=[ocamlopt?]
+		>=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?]
+		>=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?]
 	)
 "
 DEPEND="${RDEPEND}"
