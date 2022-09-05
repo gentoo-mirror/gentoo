@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/libass/libass
 INHERIT=multilib-minimal verify-sig
 IUSE=+fontconfig abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=ISC
 RDEPEND=>=dev-libs/fribidi-0.19.5-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/freetype-2.5.0.1:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=virtual/libiconv-0-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/harfbuzz-1.2.3:=[truetype,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] fontconfig? ( >=media-libs/fontconfig-2.10.92[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 SLOT=0/9
 SRC_URI=https://github.com/libass/libass/releases/download/0.16.0/libass-0.16.0.tar.xz verify-sig? ( https://github.com/libass/libass/releases/download/0.16.0/libass-0.16.0.tar.xz.asc )
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib-build	87f1b83e21a473787b821ef3d0437bf3	multilib-minimal	4b0f1857965db8869a729948d5277e0b	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=75ae9d7ed2116a46b5b4b547cbf6ffe9
+_md5_=9ad3bef4216883b2482c6e7b35caf24b
