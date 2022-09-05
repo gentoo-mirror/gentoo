@@ -1,5 +1,5 @@
 DEFINED_PHASES=install prepare pretend
-DEPEND=>=sys-libs/binutils-libs-2.29:= sys-libs/libunwind:= app-arch/xz-utils clang? ( sys-libs/blocksruntime ) elibc_musl? ( sys-libs/queue-standalone )
+DEPEND=<sys-libs/binutils-libs-2.39:= sys-libs/libunwind:= app-arch/xz-utils clang? ( sys-libs/blocksruntime ) elibc_musl? ( sys-libs/queue-standalone )
 DESCRIPTION=A general purpose fuzzer with feedback support
 EAPI=8
 HOMEPAGE=https://honggfuzz.dev/
@@ -7,8 +7,8 @@ INHERIT=toolchain-funcs
 IUSE=clang
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=>=sys-libs/binutils-libs-2.29:= sys-libs/libunwind:= app-arch/xz-utils clang? ( sys-libs/blocksruntime )
+RDEPEND=<sys-libs/binutils-libs-2.39:= sys-libs/libunwind:= app-arch/xz-utils clang? ( sys-libs/blocksruntime )
 SLOT=0
 SRC_URI=https://github.com/google/honggfuzz/archive/2.5.tar.gz -> honggfuzz-2.5.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=96464b322155162b23046529ff8a116e
+_md5_=d0616622706f8f43598e4dacd91462ca

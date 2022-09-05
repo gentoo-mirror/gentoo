@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=An obfuscating proxy supporting Tor's pluggable transport protocol obfs4
+EAPI=8
+HOMEPAGE=https://gitlab.com/yawning/obfs4
+INHERIT=go-module
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=BSD CC0-1.0 BZIP2 GPL-3+ MIT public-domain
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://gitlab.com/yawning/obfs4/-/archive/obfs4proxy-0.0.14/obfs4-obfs4proxy-0.0.14.tar.gz -> obfs4proxy-0.0.14.tar.gz https://dev.gentoo.org/~marecki/dists/net-proxy/obfs4proxy/obfs4proxy-0.0.14-deps.tar.xz
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
+_md5_=314fac5b5f3c8cbeead55f86f1f458a7
