@@ -34,9 +34,10 @@ COMMON_DEPEND="
 	java? (
 		>=virtual/jdk-1.8:*
 		x11-libs/libXi
+		!net-misc/tigervnc
 	)
 	ssl? ( dev-libs/openssl:= )
-	!net-misc/tigervnc
+	!net-misc/tigervnc[server]
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -47,7 +48,7 @@ DEPEND="
 	x11-libs/xtrans
 "
 
-PATCHES=( "${FILESDIR}"/"${P}"-fix-musl-compilation.patch )
+PATCHES=( "${FILESDIR}"/"${PN}"-3.0-fix-musl-compilation.patch )
 
 src_prepare() {
 	use java && java-pkg-opt-2_src_prepare

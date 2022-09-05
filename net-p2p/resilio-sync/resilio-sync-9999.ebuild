@@ -1,53 +1,40 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit pax-utils readme.gentoo-r1 systemd tmpfiles unpacker
+inherit pax-utils readme.gentoo-r1 systemd tmpfiles
 
 QA_PREBUILT="usr/bin/rslsync"
-BASE_URI="http://download-cdn.resilio.com/${PV}/Debian/${PN}_${PV}-1_@arch@.deb"
+BASE_URI="https://download-cdn.resilio.com/stable/linux-@arch@/${PN}_@arch@.tar.gz"
 
 DESCRIPTION="Resilient, fast and scalable file synchronization tool"
-HOMEPAGE="https://resilio.com/"
-SRC_URI="
-	amd64? ( ${BASE_URI/@arch@/amd64} )
-	x86? ( ${BASE_URI/@arch@/i386} )
-"
-S="${WORKDIR}"
+HOMEPAGE="https://www.resilio.com"
+SRC_URI="amd64? ( ${BASE_URI//@arch@/x64} )
+	arm? ( ${BASE_URI//@arch@/armhf} )
+	arm64? ( ${BASE_URI//@arch@/arm64} )
+	x86? ( ${BASE_URI//@arch@/i386} )"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE=""
 RESTRICT="bindist mirror"
 
-DEPEND="
-	acct-group/rslsync
+RDEPEND="acct-group/rslsync
 	acct-user/rslsync
-"
+	virtual/libcrypt:="
+DEPEND="${RDEPEND}"
 
-RDEPEND="
-	${DEPEND}
-	|| (
-		sys-libs/libxcrypt[compat]
-		sys-libs/glibc[crypt(+)]
-	)"
+S="${WORKDIR}"
 
 DOC_CONTENTS="You may need to review /etc/resilio-sync/config.json\\n
 Default metadata path is /var/lib/resilio-sync/.sync\\n
 Default web-gui URL is http://localhost:8888/\\n\\n"
 
-src_unpack() {
-	unpacker_src_unpack
-
-	unpack usr/share/man/man1/resilio-sync.1.gz
-}
-
 src_install() {
-	dobin usr/bin/rslsync
+	dobin rslsync
 	pax-mark m "${ED}"/usr/bin/rslsync
-
-	doman resilio-sync.1
 
 	newinitd "${FILESDIR}"/resilio-sync.initd resilio-sync
 	newconfd "${FILESDIR}"/resilio-sync.confd resilio-sync
@@ -60,7 +47,7 @@ src_install() {
 	readme.gentoo_create_doc
 
 	# Generate sample config, uncomment config directives and change values
-	insopts -orslsync -grslsync -m0644
+	insopts -o rslsync -g rslsync -m 0644
 	insinto /etc/resilio-sync
 	newins - config.json < <("${ED}"/usr/bin/rslsync --dump-sample-config | \
 		sed \
@@ -70,8 +57,9 @@ src_install() {
 			-e "/pid_file/s|resilio/resilio|resilio-sync/resilio-sync|g" \
 			|| die "sed failed for config.json" )
 
-	diropts -orslsync -grslsync -m0700
-	keepdir /etc/resilio-sync /var/lib/resilio-sync/.sync /var/log/resilio-sync
+	diropts -o rslsync -g rslsync -m 0700
+	keepdir /etc/resilio-sync /var/lib/resilio-sync/ \
+		/var/lib/resilio-sync/.sync /var/log/resilio-sync
 }
 
 pkg_postinst() {

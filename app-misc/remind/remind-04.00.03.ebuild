@@ -25,6 +25,7 @@ DOCS="docs/* examples/defs.rem "
 
 src_prepare() {
 	default
+	sed -i 's:@CC@ @LDFLAGS@:@CC@ @CFLAGS@ @LDFLAGS@:' "${S}"/src/Makefile.in || die
 	sed -i 's:$(MAKE) -C src install:&-nostripped:' "${S}"/Makefile || die
 }
 
