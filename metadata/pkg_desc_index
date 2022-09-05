@@ -2683,11 +2683,11 @@ app-emulation/virt-manager 3.2.0-r1 4.0.0 4.1.0 9999: A graphical tool for admin
 app-emulation/virt-viewer 10.0_p20210730 11.0: Graphical console client for connecting to virtual machines
 app-emulation/virt-what 1.21: Detects if the current machine is running in a virtual machine
 app-emulation/virtio-win 0.1.190.1 0.1.208.1: VirtIO drivers for Windows virtual machines running on KVM
-app-emulation/virtualbox 6.1.32-r3 6.1.34-r1 6.1.34-r3 6.1.34-r7 6.1.36 6.1.36-r2 6.1.38: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-additions 6.1.32 6.1.34 6.1.36 6.1.38: CD image containing guest additions for VirtualBox
-app-emulation/virtualbox-extpack-oracle 6.1.32 6.1.34 6.1.36 6.1.38: PUEL extensions for VirtualBox
-app-emulation/virtualbox-guest-additions 6.1.32-r1 6.1.34-r1 6.1.34-r2 6.1.34-r3 6.1.36 6.1.38: VirtualBox kernel modules and user-space tools for Gentoo guests
-app-emulation/virtualbox-modules 6.1.32 6.1.34 6.1.36 6.1.38: Kernel Modules for Virtualbox
+app-emulation/virtualbox 6.1.36-r2 6.1.38: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-additions 6.1.36 6.1.38: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-extpack-oracle 6.1.36 6.1.38: PUEL extensions for VirtualBox
+app-emulation/virtualbox-guest-additions 6.1.36 6.1.38: VirtualBox kernel modules and user-space tools for Gentoo guests
+app-emulation/virtualbox-modules 6.1.36 6.1.38: Kernel Modules for Virtualbox
 app-emulation/vkd3d 1.0 1.1 1.1-r1 1.2 1.4 9999: D3D12 to Vulkan translation library
 app-emulation/vkd3d-proton 2.6 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
@@ -2800,7 +2800,7 @@ app-i18n/ibus-handwrite 3.0.0-r1: Hand write recognition/input for IBus
 app-i18n/ibus-hangul 1.5.4: Korean Hangul engine for IBus
 app-i18n/ibus-input-pad 1.4.99_pre20140916: Input Pad for IBus
 app-i18n/ibus-kkc 1.5.22_p20170607: Japanese Kana Kanji conversion engine for IBus
-app-i18n/ibus-libpinyin 1.12.1: Intelligent Pinyin and Bopomofo input methods based on LibPinyin for IBus
+app-i18n/ibus-libpinyin 1.12.1 1.13.0: Intelligent Pinyin and Bopomofo input methods based on LibPinyin for IBus
 app-i18n/ibus-m17n 1.4.9 1.4.10: M17N engine for IBus
 app-i18n/ibus-pinyin 1.5.0-r5: Chinese Pinyin and Bopomofo engines for IBus
 app-i18n/ibus-rime 1.5.0: Chinese Rime Input Method Engine for IBus
@@ -3152,7 +3152,7 @@ app-misc/realpath 1.18: Return the canonicalized absolute pathname
 app-misc/recoll 1.31.0 1.32.0 1.32.2 1.32.5: Personal full text search package
 app-misc/regex-markup 0.10.0-r1: A tool to color syslog files as well
 app-misc/regionset 0.2: Sets the region on DVD drives
-app-misc/remind 03.03.05 04.00.02: Ridiculously functional reminder program
+app-misc/remind 03.03.05 04.00.03: Ridiculously functional reminder program
 app-misc/reptyr 0.8.0 0.9.0: A utility to attach a running program to a new terminal
 app-misc/resolve-march-native 0.9.4 1.0.0 1.0.0-r1: Resolve GCC flag -march=native
 app-misc/rioutil 1.5.4-r1: A utility for accessing various Rio media players
@@ -3206,7 +3206,7 @@ app-misc/tprint 1.1.0-r1: Transparent Print Utility for terminals
 app-misc/tracker 3.3.2 3.3.3: A tagging metadata database, search tool and indexer
 app-misc/tracker-miners 3.3.1: Collection of data extractors for Tracker/Nepomuk
 app-misc/transfolio 1.0.1-r2: Enables data transfer between the PC and the Atari Portfolio
-app-misc/trash-cli 0.22.4.16: Python scripts to manipulate trash cans via the command line
+app-misc/trash-cli 0.22.4.16 0.22.8.21: Python scripts to manipulate trash cans via the command line
 app-misc/tty-clock 2.3: Displays a simple digital clock on the terminal
 app-misc/ttyload 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.0.8-r3: ttyrec provides tools to record and replay a terminal session
@@ -3393,7 +3393,7 @@ app-shells/mpibash 1.3-r1 9999: Parallel scripting right from the Bourne-Again S
 app-shells/nushell 0.65.0 0.66.2: A new type of shell, written in Rust
 app-shells/pdmenu 1.3.6: A simple console menu program
 app-shells/pdsh 2.26-r1 2.34 2.34-r1: A high-performance, parallel remote shell utility
-app-shells/peco 0.5.7 0.5.8: Simplistic interactive filtering tool
+app-shells/peco 0.5.8 0.5.10 9999: Simplistic interactive filtering tool
 app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
@@ -4205,7 +4205,7 @@ dev-db/slony1 2.2.10: A replication system for the PostgreSQL Database Managemen
 dev-db/spatialite 5.0.1-r1: A complete Spatial DBMS in a nutshell built upon sqlite
 dev-db/spatialite-tools 5.0.1-r1: A collection of CLI tools supporting SpatiaLite
 dev-db/sqlcipher 4.5.1: Full Database Encryption for SQLite
-dev-db/sqlcl-bin 22.2.0.172.1718: Oracle SQLcl is the new SQL*Plus
+dev-db/sqlcl-bin 22.2.1.201.1451: Oracle SQLcl is the new SQL*Plus
 dev-db/sqldeveloper 22.2.0.173.2018: Oracle SQL Developer is a graphical tool for database development
 dev-db/sqlite 3.39.2 9999: SQL database engine
 dev-db/sqlitebrowser 3.12.1 3.12.2 9999: A light GUI editor for SQLite databases
@@ -9357,7 +9357,7 @@ dev-python/qiskit-terra 0.19.2: Terra is the foundation on which Qiskit is built
 dev-python/qpageview 0.6.2: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 7.3.1-r1: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.11.6 2.13.1: Python bindings for QScintilla
-dev-python/qstylizer 0.2.1-r1: Stylesheet Generator for PyQt5/PySide2
+dev-python/qstylizer 0.2.1-r1 0.2.2: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.1.1-r1: Enables iconic fonts such as Font Awesome in PyQt
 dev-python/qtconsole 5.3.1 5.3.2: Qt-based console for Jupyter with support for rich media output
 dev-python/qtsass 0.3.0-r1: Compile SASS files to Qt stylesheets
@@ -9535,8 +9535,8 @@ dev-python/sphinxemoji 0.2.0: Extension to use emoji codes in your Sphinx docume
 dev-python/sphobjinv 2.2.2: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.19.0 2.20.0: A light weight Python library for the Spotify Web API
 dev-python/spur 0.3.22: Run commands locally or over SSH using the same interface
-dev-python/spyder 5.3.2 5.3.3: The Scientific Python Development Environment
-dev-python/spyder-kernels 2.3.2 2.3.3: Kernels used by spyder on its ipython console
+dev-python/spyder 5.3.3: The Scientific Python Development Environment
+dev-python/spyder-kernels 2.3.3: Kernels used by spyder on its ipython console
 dev-python/spyder-line-profiler 0.3.1: Plugin to run the python line profiler from within the spyder editor
 dev-python/spyder-terminal 1.2.2: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.5.1: Plugin for Spyder to run tests and view the results
@@ -12463,7 +12463,7 @@ gui-apps/swappy 1.4.0 9999: A Wayland native snapshot and editor tool, inspired 
 gui-apps/swaybg 1.0 1.1.1 9999: A wallpaper utility for Wayland
 gui-apps/swayidle 1.7 1.7.1 9999: Idle management daemon for Wayland
 gui-apps/swaylock 1.3-r1 1.5-r1 1.6-r1 9999: Screen locker for Wayland
-gui-apps/tuigreet 0.7.2 9999: TUI greeter for greetd login manager
+gui-apps/tuigreet 0.7.2 0.8.0 9999: TUI greeter for greetd login manager
 gui-apps/waybar 0.9.12 0.9.13 9999: Highly customizable Wayland bar for Sway and Wlroots based compositors
 gui-apps/wayland-logout 1.4 9999: general logout scripts for wayland compositors
 gui-apps/waypipe 0.7.2-r2 0.8.0-r2 9999: Transparent network proxy for Wayland compositors
@@ -13525,7 +13525,7 @@ media-libs/exempi 2.4.5-r1: Port of the Adobe XMP SDK to work on UNIX
 media-libs/exiftool 12.30 12.33 12.42: Read and write meta information in image, audio and video files
 media-libs/faac 1.30: Free MPEG-4 audio codecs by AudioCoding.com
 media-libs/faad2 2.10.0: AAC audio decoding library
-media-libs/fcft 3.1.2-r1: Simple library for font loading and glyph rasterization
+media-libs/fcft 3.1.2-r1 3.1.3: Simple library for font loading and glyph rasterization
 media-libs/fdk-aac 2.0.2: Fraunhofer AAC codec library
 media-libs/ffmpegsource 2.40 9999: A libav/ffmpeg based source library for easy frame accurate access
 media-libs/fidlib 0.9.10-r1: Run-time filter design and execution library
@@ -15811,7 +15811,7 @@ net-misc/tigervnc 1.12.0-r7 9999: Remote desktop viewer display system
 net-misc/tigervnc-xorg-module 1.12.0: Metapackage for the xorg module provided by tigervnc
 net-misc/tipcutils 2.0.3: Utilities for TIPC (Transparent Inter-Process Communication)
 net-misc/ttytter 2.1.00: A multi-functional, console-based Twitter client
-net-misc/turbovnc 2.2.7-r2 3.0: A fast replacement for TigerVNC
+net-misc/turbovnc 2.2.7-r2 3.0.1: A fast replacement for TigerVNC
 net-misc/ubridge 0.9.18: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfaces
 net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redundancy Protocol (CARP)
 net-misc/udpcast 20200328 20211207: Multicast file transfer tool
@@ -15917,7 +15917,7 @@ net-p2p/ncdc 1.22.1-r1 1.23 9999: ncurses directconnect client
 net-p2p/nicotine+ 2.2.2 3.1.1 3.2.0 3.2.1 3.2.2-r1: A fork of nicotine, a Soulseek client in Python
 net-p2p/opendchub 0.8.2-r1: hub software for Direct Connect
 net-p2p/qbittorrent 4.3.9 4.4.3.1 4.4.3.1-r1 4.4.4 4.4.5 9999: BitTorrent client in C++ and Qt
-net-p2p/resilio-sync 2.6.3-r2 2.7.2.1375: Resilient, fast and scalable file synchronization tool
+net-p2p/resilio-sync 2.7.2.1375 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.5-r2 0.6.5-r3 0.6.6 0.6.6-r1: P2P private sharing application
 net-p2p/rtorrent 0.9.8 0.9.8-r1: BitTorrent Client using libtorrent
 net-p2p/syncthing 1.19.2 1.20.4: Open Source Continuous File Synchronization
@@ -17346,7 +17346,6 @@ sys-apps/baobab 41.0 42.0: Disk usage browser for GNOME
 sys-apps/bar 1.11.1: Console Progress Bar
 sys-apps/baselayout 2.7-r3 2.8 2.8-r2 9999: Filesystem baselayout and init scripts
 sys-apps/baselayout-java 0.1.0-r1: Baselayout for Java
-sys-apps/baselayout-prefix 2.6-r3: Filesystem baselayout and init scripts
 sys-apps/bat 0.20.0 0.21.0: cat(1) clone with syntax highlighting and Git integration
 sys-apps/biosdevname 0.7.3: Sets BIOS-given device names instead of kernel eth* names
 sys-apps/biosdisk 1.01: FreeDOS based BIOS updating utility for Dell machines
