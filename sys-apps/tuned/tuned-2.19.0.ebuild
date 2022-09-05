@@ -66,4 +66,5 @@ pkg_postinst() {
 	optfeature_header
 	optfeature "Optimize for power saving by spinning-down rotational disks" sys-apps/hdparm
 	optfeature "Get hardware info" sys-apps/dmidecode
+	optfeature "Optimize network txqueuelen" sys-apps/iproute2
 }

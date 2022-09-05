@@ -24,17 +24,14 @@ RDEPEND="app-crypt/tpm2-tss:=[fapi=]
 	dev-python/cffi[${PYTHON_USEDEP}]
 	dev-python/asn1crypto[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
-	dev-python/pycparser[${PYTHON_USEDEP}]"
+	dev-python/pycparser[${PYTHON_USEDEP}]
+	dev-python/pyyaml[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}
 	test? ( app-crypt/swtpm )"
 
 BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	dev-python/pkgconfig[${PYTHON_USEDEP}]"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-1.1.0-src-move-package-under-src-directory.patch"
-	)
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
