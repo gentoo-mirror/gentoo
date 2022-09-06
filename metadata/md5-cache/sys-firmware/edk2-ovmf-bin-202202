@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst unpack
+DESCRIPTION=UEFI firmware for 64-bit x86 virtual machines
+EAPI=8
+HOMEPAGE=https://github.com/tianocore/edk2
+INHERIT=readme.gentoo-r1
+LICENSE=BSD-2 MIT
+RDEPEND=!sys-firmware/edk2-ovmf
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~ajak/distfiles/edk2-ovmf-202202-1.xpak
+_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_md5_=bdd72de500b2a2b92271e1d7b44ea94a
