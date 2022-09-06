@@ -3,10 +3,11 @@
 
 EAPI=7
 
-inherit elisp-common libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
+inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
 HOMEPAGE="https://sourceware.org/binutils/"
+
 LICENSE="GPL-3+"
 IUSE="cet default-gold doc gold gprofng multitarget +nls pgo +plugins static-libs test vanilla"
 REQUIRED_USE="default-gold? ( gold )"
@@ -275,9 +276,12 @@ src_configure() {
 		# {native,cross}/binutils, binutils-libs. bug #666100
 		--with-extra-soversion-suffix=gentoo-${CATEGORY}-${PN}-$(usex multitarget mt st)
 
-		# avoid automagic dependency on (currently prefix) systems
+		# Avoid automagic dependency on (currently prefix) systems
 		# systems with debuginfod library, bug #754753
 		--without-debuginfod
+
+		# Avoid automagic dev-libs/msgpack dep, bug #865875
+		--without-msgpack
 
 		# Allow user to opt into CET for host libraries.
 		# Ideally we would like automagic-or-disabled here.
