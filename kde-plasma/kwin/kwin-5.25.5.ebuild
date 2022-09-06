@@ -102,8 +102,6 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${P}-drm-fix-blob-updating.patch" ) # KDE-bug 449285
-
 src_prepare() {
 	ecm_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-5.21.80-gstreamer-optional.patch"
