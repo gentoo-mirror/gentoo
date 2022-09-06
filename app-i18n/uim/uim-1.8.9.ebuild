@@ -1,21 +1,19 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
-inherit autotools elisp-common flag-o-matic gnome2-utils qmake-utils vcs-snapshot
+inherit autotools elisp-common flag-o-matic gnome2-utils qmake-utils
 
 EGIT_COMMIT="d1ac9d9315ff8c57c713b502544fef9b3a83b3e5"
-SIG_PV="0.9.1"
 
 DESCRIPTION="A multilingual input method framework"
 HOMEPAGE="https://github.com/uim/uim"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz
-	https://github.com/${PN}/sigscheme/releases/download/${SIG_PV}/sigscheme-${SIG_PV}.tar.bz2"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.bz2"
 
 LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~hppa ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 kde l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses nls qt5 skk sqlite ssl static-libs xft"
 RESTRICT="test"
 REQUIRED_USE="gtk? ( X )
@@ -79,11 +77,11 @@ RDEPEND="${CDEPEND}
 		)
 		l10n_zh-TW? ( media-fonts/intlfonts )
 	)"
-BDEPEND="dev-util/intltool
-	gnome-base/librsvg
+BDEPEND="gnome-base/librsvg
 	sys-devel/gettext
 	virtual/pkgconfig
-	kde? ( dev-util/cmake )"
+	kde? ( dev-util/cmake )
+	nls? ( dev-util/intltool )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-gentoo.patch
@@ -92,24 +90,17 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-tinfo.patch
 	"${FILESDIR}"/${PN}-Wconversion.patch
 	"${FILESDIR}"/${PN}-xkb.patch
-	"${FILESDIR}"/${PN}-1.8.8-zh-TW.patch
+	"${FILESDIR}"/${PN}-zh-TW.patch
 )
 DOCS=( AUTHORS NEWS README RELNOTE doc )
 
 AT_NO_RECURSIVE="yes"
 SITEFILE="50${PN}-gentoo.el"
 
-src_unpack() {
-	vcs-snapshot_src_unpack
-	rmdir "${S}"/sigscheme || die
-	mv "${WORKDIR}"/sigscheme-${SIG_PV} "${S}"/sigscheme || die
-}
-
 src_prepare() {
 	default
 	sed -i "s:\$libedit_path/lib:/$(get_libdir):g" configure.ac
-	# fix build with >=dev-scheme/chicken-4, bug #656852
-	touch scm/json-parser-expanded.scm
+	use nls || sed -i "/^if .*USE_NLS/,/^fi/d" configure.ac
 	# fix build with "-march=pentium4 -O2", bug #661806
 	use x86 && append-cflags $(test-flags-CC -fno-inline-small-functions)
 
