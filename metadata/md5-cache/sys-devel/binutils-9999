@@ -4,7 +4,7 @@ DEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib
 DESCRIPTION=Tools necessary to build programs
 EAPI=7
 HOMEPAGE=https://sourceware.org/binutils/
-INHERIT=elisp-common libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs git-r3
+INHERIT=libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs git-r3
 IUSE=cet default-gold doc gold gprofng multitarget +nls pgo +plugins static-libs test vanilla
 LICENSE=GPL-3+
 PROPERTIES=live
@@ -12,5 +12,5 @@ RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib
 REQUIRED_USE=default-gold? ( gold )
 RESTRICT=!test? ( test )
 SLOT=9999
-_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=841da30322692187df5c776f1fdceab4
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=464b4c4d371714c35e895941e2caef9c
