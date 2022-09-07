@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext
 DEFINED_PHASES=compile install postinst prepare unpack
-DEPEND=>=sys-libs/libselinux-3.3:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsemanage-3.3:=[python(+),python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsepol-3.3:= sys-libs/libcap-ng:= >=app-admin/setools-4.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] audit? ( >=sys-process/audit-1.5.1[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) pam? ( sys-libs/pam:= ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml] )
+DEPEND=>=sys-libs/libselinux-3.3:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsemanage-3.3:=[python(+),python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsepol-3.3:= sys-libs/libcap-ng:= >=app-admin/setools-4.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] audit? ( >=sys-process/audit-1.5.1[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) pam? ( sys-libs/pam:= ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+)] )
 DESCRIPTION=SELinux core utilities
 EAPI=7
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
@@ -9,9 +9,9 @@ IUSE=audit pam split-usr python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
 PDEPEND=sys-apps/semodule-utils sys-apps/selinux-python
-RDEPEND=>=sys-libs/libselinux-3.3:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsemanage-3.3:=[python(+),python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsepol-3.3:= sys-libs/libcap-ng:= >=app-admin/setools-4.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] audit? ( >=sys-process/audit-1.5.1[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) pam? ( sys-libs/pam:= ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml] ) app-misc/pax-utils
+RDEPEND=>=sys-libs/libselinux-3.3:=[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsemanage-3.3:=[python(+),python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=sys-libs/libsepol-3.3:= sys-libs/libcap-ng:= >=app-admin/setools-4.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] audit? ( >=sys-process/audit-1.5.1[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) pam? ( sys-libs/pam:= ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+)] ) app-misc/pax-utils
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.3/policycoreutils-3.3.tar.gz https://dev.gentoo.org/~perfinion/distfiles/policycoreutils-extra-1.37.tar.bz2
-_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	2d51fd03931e743811ce30d198e4dcfd	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=f1692bbe5b27f1e333a569b0aab66f18
+_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=1cd324d66df9edb53be2faf794ec4be0

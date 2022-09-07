@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( || ( >=dev-lang/python-3.10.4:3.10[xml] >=dev-lang/python-3.9.12:3.9[xml] >=dev-lang/python-3.8.13:3.8[xml] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv )
+BDEPEND=virtual/pkgconfig doc? ( || ( >=dev-lang/python-3.10.4:3.10[xml(+)] >=dev-lang/python-3.9.12:3.9[xml(+)] >=dev-lang/python-3.8.13:3.8[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv )
 DEFINED_PHASES=configure install prepare pretend setup test unpack
 DEPEND=dev-libs/json-parser:0= dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) test? ( net-libs/socket_wrapper sys-libs/uid_wrapper !gnutls? ( dev-libs/openssl:0[weak-ssl-ciphers(-)] ) )
 DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/json-parser:0= dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-9.01.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
-_md5_=567db6349df82527e5f3a18b9e21b013
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_md5_=9afc5c3bc5c0aed77b4fdf13308fd68e
