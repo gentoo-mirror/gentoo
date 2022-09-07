@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install preinst prepare setup
-DEPEND=>=sys-kernel/linux-headers-2.6.25 net-dialup/ppp:= sys-apps/iproute2 tk? ( dev-lang/tk:= )
+DEPEND=>=sys-kernel/linux-headers-2.6.25 elibc_musl? ( net-libs/ppp-defs ) net-dialup/ppp:= sys-apps/iproute2 tk? ( dev-lang/tk:= )
 DESCRIPTION=A user-mode PPPoE client and server suite for Linux
 EAPI=7
 HOMEPAGE=https://dianne.skoll.ca/projects/rp-pppoe/
@@ -12,4 +12,4 @@ RDEPEND=net-dialup/ppp:= sys-apps/iproute2 tk? ( dev-lang/tk:= )
 SLOT=0
 SRC_URI=https://dianne.skoll.ca/projects/rp-pppoe/download/rp-pppoe-3.15.tar.gz https://github.com/paulusmack/ppp/archive/ppp-2.4.9.tar.gz https://dev.gentoo.org/~polynomial-c/dist/rp-pppoe-3.14-patches-01.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
-_md5_=b20f8424adc880f5df17b7a4eda53f14
+_md5_=825b96cadf90adf60425ea350baeaabc
