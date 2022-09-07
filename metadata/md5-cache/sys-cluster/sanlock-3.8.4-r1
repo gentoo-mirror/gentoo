@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig
+BDEPEND=sys-apps/which virtual/pkgconfig
 DEFINED_PHASES=compile install setup
 DEPEND=acct-user/sanlock acct-group/sanlock dev-libs/libaio sys-apps/util-linux python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) )
 DESCRIPTION=shared storage lock manager
@@ -13,4 +13,4 @@ REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 py
 SLOT=0
 SRC_URI=https://releases.pagure.org/sanlock/sanlock-3.8.4.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	2d51fd03931e743811ce30d198e4dcfd	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=b31b41d8c43e9132d5d87d9437adf6fa
+_md5_=a1333762b0928941f216a20282717cd6
