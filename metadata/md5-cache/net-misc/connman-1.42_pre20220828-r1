@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=>=dev-libs/glib-2.16 >=sys-apps/dbus-1.2.24 sys-libs/readline:0= bluetooth? ( net-wireless/bluez ) iptables? ( >=net-firewall/iptables-1.4.8 ) iwd? ( net-wireless/iwd ) l2tp? ( net-dialup/xl2tpd ) nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) ofono? ( net-misc/ofono ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) policykit? ( sys-auth/polkit ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wifi? ( >=net-wireless/wpa_supplicant-2.0[dbus] ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) wispr? ( net-libs/gnutls ) >=sys-kernel/linux-headers-2.6.39
+DESCRIPTION=Provides a daemon for managing internet connections
+EAPI=7
+HOMEPAGE=https://git.kernel.org/pub/scm/network/connman/connman.git/
+INHERIT=autotools systemd tmpfiles
+IUSE=bluetooth debug doc +ethernet examples iptables iwd l2tp networkmanager +nftables ofono openconnect openvpn policykit pptp tools vpnc +wifi wireguard wispr
+KEYWORDS=amd64 arm arm64 ppc ppc64 ~riscv x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.16 >=sys-apps/dbus-1.2.24 sys-libs/readline:0= bluetooth? ( net-wireless/bluez ) iptables? ( >=net-firewall/iptables-1.4.8 ) iwd? ( net-wireless/iwd ) l2tp? ( net-dialup/xl2tpd ) nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) ofono? ( net-misc/ofono ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) policykit? ( sys-auth/polkit ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wifi? ( >=net-wireless/wpa_supplicant-2.0[dbus] ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) wispr? ( net-libs/gnutls ) virtual/tmpfiles
+REQUIRED_USE=^^ ( iptables nftables )
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/network/connman/connman.git/snapshot/connman-cb05780d86c39cfb5e6d9ac2b288bf3244a95d57.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=d0c2c5663a1833902dd08b93167529bc
