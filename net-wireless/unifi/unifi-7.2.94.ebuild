@@ -4,7 +4,7 @@
 EAPI=8
 
 # Set this var for any releases except stable
-RC_SUFFIX="-0d2bdb3a0e"
+RC_SUFFIX="-4d656fb797"
 
 inherit java-pkg-2 readme.gentoo-r1 systemd
 
