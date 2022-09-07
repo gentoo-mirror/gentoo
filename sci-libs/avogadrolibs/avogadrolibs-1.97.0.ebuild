@@ -41,7 +41,7 @@ DEPEND="${RDEPEND}
 	dev-cpp/eigen:3
 	test? ( dev-cpp/gtest )"
 BDEPEND="
-	doc? ( app-doc/doxygen )
+	doc? ( app-doc/doxygen[dot] )
 	qt5? ( dev-qt/linguist-tools:5 )"
 
 PATCHES=(
