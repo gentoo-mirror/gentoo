@@ -45,10 +45,6 @@ BDEPEND="doc? ( app-doc/doxygen[dot] )"
 
 DOCS=( AUTHORS CHANGELOG README )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.10.1-disable-broken-test.patch
-)
-
 src_prepare() {
 	cmake_src_prepare
 
@@ -59,14 +55,26 @@ src_prepare() {
 		-i ConfigureChecks.cmake || die
 
 	if use test; then
-		# keyfile torture test is currently broken
-		sed -e "/torture_keyfiles/d" \
-			-i tests/unittests/CMakeLists.txt || die
+		local skip_tests=(
+			# keyfile torture test is currently broken
+			-e "/torture_keyfiles/d"
 
-		# disable tests that take too long (bug #677006)
+			# Tries to expand ~ which fails w/ portage homedir
+			# (torture_path_expand_tilde_unix and torture_config_make_absolute_no_sshdir)
+			-e "/torture_misc/d"
+			-e "/torture_config/d"
+		)
+
+		# Disable tests that take too long (bug #677006)
 		if use sparc; then
-			sed -e "/torture_threads_pki_rsa/d" -e "/torture_pki_dsa/d" \
-				-i tests/unittests/CMakeLists.txt || die
+			skip_tests+=(
+				-e "/torture_threads_pki_rsa/d"
+				-e "/torture_pki_dsa/d"
+			)
+		fi
+
+		if (( ${#skip_tests[@]} )) ; then
+			sed -i "${skip_tests[@]}" tests/unittests/CMakeLists.txt || die
 		fi
 
 		if use elibc_musl; then
