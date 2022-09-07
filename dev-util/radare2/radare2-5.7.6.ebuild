@@ -8,9 +8,9 @@ inherit bash-completion-r1 toolchain-funcs
 DESCRIPTION="unix-like reverse engineering framework and commandline tools"
 HOMEPAGE="https://www.radare.org"
 
-ARM64_COMMIT=3c5eaba46dab72ecb7d5f5b865a13fdeee95b464
+ARM64_COMMIT=9ab2b0bedde459dc86e079718333de4a63bbbacb
 ARMV7_COMMIT=dde39f69ffea19fc37e681874b12cb4707bc4f30
-BINS_COMMIT=a6d1a0331605b4a5db9aa9260386c850d484dc70
+BINS_COMMIT=602471f72caa60d6ece43c3fa483c43decf7052c
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -30,14 +30,14 @@ SLOT="0"
 IUSE="ssl test"
 
 # Need to audit licenses of the binaries used for testing
-RESTRICT="fetch test"
+RESTRICT="fetch !test? ( test )"
 
 RDEPEND="
 	dev-libs/libzip:=
 	dev-libs/xxhash
 	sys-apps/file
 	sys-libs/zlib
-	<dev-libs/capstone-5:0=
+	dev-libs/capstone:0=
 	ssl? ( dev-libs/openssl:0= )
 "
 DEPEND="
@@ -46,7 +46,7 @@ DEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/CVE-2022-1437.patch" "${FILESDIR}/${PN}-5.5.0-vector35.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.7.0-vector35.patch" )
 
 src_prepare() {
 	default
@@ -79,6 +79,20 @@ src_configure() {
 		$(use_with ssl openssl)
 }
 
+src_test() {
+	ln -fs "${S}/binr/radare2/radare2" "${S}/binr/radare2/r2" || die
+	LDFLAGS=""
+	for i in "${S}"/libr/*; do
+		if [[ -d ${i} ]]; then
+			LDFLAGS+="-R${i} -L${i} "
+			LD_LIBRARY_PATH+=":${i}"
+		fi
+	done
+	export LDFLAGS LD_LIBRARY_PATH
+	export PKG_CONFIG_PATH="${S}/pkgcfg"
+	PATH="${S}/binr/radare2:${PATH}" emake -C test -k unit_tests || die
+}
+
 src_install() {
 	default
 
@@ -102,8 +116,4 @@ src_install() {
 
 	# Create plugins directory although it's currently unsupported by radare2
 	keepdir "/usr/$(get_libdir)/radare2/${PV}" || die
-}
-
-src_test() {
-	emake -C test -k unit_tests || die
 }
