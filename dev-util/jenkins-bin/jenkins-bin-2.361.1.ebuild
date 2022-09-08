@@ -21,7 +21,7 @@ RDEPEND="acct-group/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
 	!dev-util/jenkins-bin:0
-	virtual/jre:11"
+	|| ( virtual/jre:17 virtual/jre:11 )"
 
 S="${WORKDIR}"
 
@@ -39,7 +39,7 @@ src_install() {
 	newinitd "${FILESDIR}"/${PN}-r2.init jenkins
 	newconfd "${FILESDIR}"/${PN}.confd jenkins
 
-	systemd_newunit "${FILESDIR}"/${PN}-r2.service jenkins.service
+	systemd_newunit "${FILESDIR}"/${PN}-r3.service jenkins.service
 
 	fowners jenkins:jenkins /var/log/jenkins ${JENKINS_DIR} ${JENKINS_DIR}/home ${JENKINS_DIR}/backup
 }
