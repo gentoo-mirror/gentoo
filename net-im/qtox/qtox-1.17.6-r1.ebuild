@@ -1,48 +1,49 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-MY_P="qTox-${PV}"
 inherit cmake xdg
 
-DESCRIPTION="qTox is an instant messaging client using the encrypted p2p Tox protocol"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/qTox/qTox.git"
+else
+	MY_P="qTox-${PV}"
+	SRC_URI="https://github.com/qTox/qTox/releases/download/v${PV}/v${PV}.tar.gz -> ${MY_P}.tar.gz"
+	KEYWORDS="amd64 ~x86"
+	S="${WORKDIR}/qTox"
+fi
+
+DESCRIPTION="Instant messaging client using the encrypted p2p Tox protocol"
 HOMEPAGE="https://qtox.github.io/"
-SRC_URI="https://github.com/qTox/qTox/releases/download/v${PV}/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="notification spellcheck test X"
+IUSE="notification +spellcheck test X"
 
 RESTRICT="!test? ( test )"
-
-S="${WORKDIR}/qTox"
 
 BDEPEND="
 	dev-qt/linguist-tools:5
 	virtual/pkgconfig
 "
 RDEPEND="
-	|| (
-		dev-qt/qtgui:5[gif,jpeg,png,X(-)]
-		dev-qt/qtgui:5[gif,jpeg,png,xcb(-)]
-	)
 	dev-db/sqlcipher
 	dev-libs/libsodium:=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
+	dev-qt/qtgui:5[gif(+),jpeg,png,X(-)]
 	dev-qt/qtnetwork:5
 	dev-qt/qtopengl:5
-	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-gfx/qrencode:=
-	media-libs/libexif:=
+	media-libs/libexif
 	media-libs/openal
 	media-video/ffmpeg:=[webp,v4l]
-	net-libs/tox:0/0.2[av]
+	>=net-libs/tox-0.2.13:=[av]
 	notification? ( x11-libs/snorenotify )
 	spellcheck? ( kde-frameworks/sonnet:5 )
 	X? (
@@ -52,7 +53,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
+	X? ( x11-base/xorg-proto )
 "
+
+DOCS=( CHANGELOG.md README.md doc/user_manual_en.md )
 
 src_prepare() {
 	cmake_src_prepare
@@ -66,17 +70,17 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_BUILD_TYPE="Release"
 		-DPLATFORM_EXTENSIONS=$(usex X)
 		-DUPDATE_CHECK=OFF
-		-DUSE_CCACHE=ON
+		-DUSE_CCACHE=OFF
 		-DSPELL_CHECK=$(usex spellcheck)
 		-DSVGZ_ICON=ON
 		-DASAN=OFF
 		-DDESKTOP_NOTIFICATIONS=$(usex notification)
 		-DSTRICT_OPTIONS=OFF
-		-DGIT_DESCRIBE="${PV}"
 	)
+
+	[[ ${PV} != 9999 ]] && mycmakeargs+=( -DGIT_DESCRIBE=${PV} )
 
 	cmake_src_configure
 }
