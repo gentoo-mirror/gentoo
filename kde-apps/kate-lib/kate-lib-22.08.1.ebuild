@@ -46,8 +46,6 @@ RDEPEND="${DEPEND}
 	!<kde-apps/kate-22.08.0:5
 "
 
-PATCHES=( "${FILESDIR}/${P}-unused-dep.patch" )
-
 src_prepare() {
 	ecm_src_prepare
 
