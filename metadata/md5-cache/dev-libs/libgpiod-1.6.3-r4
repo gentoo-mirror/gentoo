@@ -1,4 +1,5 @@
 DEFINED_PHASES=configure install setup
+DEPEND=test? ( >=dev-libs/glib-2.50 >=sys-apps/kmod-18 >=sys-apps/util-linux-2.33.1 >=virtual/libudev-215 )
 DESCRIPTION=C library and tools for interacting with the linux GPIO character device
 EAPI=8
 HOMEPAGE=https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/
@@ -10,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://mirrors.edge.kernel.org/pub/software/libs/libgpiod/libgpiod-1.6.3.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d
-_md5_=8593a2692b578ec6c0b18ebaed6ddf04
+_md5_=bd899a29dd3cddb655e6f1d92824f88c
