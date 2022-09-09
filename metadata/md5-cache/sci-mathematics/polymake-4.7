@@ -1,0 +1,17 @@
+BDEPEND=dev-util/ninja dev-lang/perl
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=libpolymake? ( dev-lang/perl ) dev-libs/boost:= dev-libs/gmp:= dev-libs/libxml2:2= dev-libs/libxslt:= dev-libs/mpfr:= sys-libs/readline:= bliss? ( sci-libs/bliss:=[gmp] ) cdd? ( sci-libs/cddlib:= ) flint? ( sci-mathematics/flint:= ) lrs? ( >=sci-libs/lrslib-051:=[gmp] ) nauty? ( sci-mathematics/nauty:= ) normaliz? ( >=sci-mathematics/normaliz-3.8:= ) ppl? ( dev-libs/ppl:= ) singular? ( sci-mathematics/singular:= )
+DESCRIPTION=Tool for polyhedral geometry and combinatorics
+EAPI=8
+HOMEPAGE=https://polymake.org/
+INHERIT=flag-o-matic ninja-utils toolchain-funcs
+IUSE=bliss +cdd +flint +normaliz libpolymake lrs nauty ppl singular
+KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD GPL-2 GPL-2+ MIT WTFPL-2
+RDEPEND=libpolymake? ( dev-lang/perl ) dev-libs/boost:= dev-libs/gmp:= dev-libs/libxml2:2= dev-libs/libxslt:= dev-libs/mpfr:= sys-libs/readline:= bliss? ( sci-libs/bliss:=[gmp] ) cdd? ( sci-libs/cddlib:= ) flint? ( sci-mathematics/flint:= ) lrs? ( >=sci-libs/lrslib-051:=[gmp] ) nauty? ( sci-mathematics/nauty:= ) normaliz? ( >=sci-mathematics/normaliz-3.8:= ) ppl? ( dev-libs/ppl:= ) singular? ( sci-mathematics/singular:= ) dev-lang/perl dev-perl/JSON dev-perl/Term-ReadLine-Gnu dev-perl/TermReadKey dev-perl/XML-SAX dev-perl/XML-Writer
+REQUIRED_USE=^^ ( bliss nauty )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://polymake.org/lib/exe/fetch.php/download/polymake-4.7-minimal.tar.bz2
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514
+_md5_=86ec4682f6b06c8aad5e914cb24c6a34
