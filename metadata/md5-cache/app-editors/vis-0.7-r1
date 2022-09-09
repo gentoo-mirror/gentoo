@@ -1,0 +1,17 @@
+BDEPEND=test? ( lua_single_target_lua5-3? ( dev-lua/lpeg[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/lpeg[lua_targets_lua5-4(-)] ) lua_single_target_lua5-3? ( dev-lua/busted[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/busted[lua_targets_lua5-4(-)] ) )
+DEFINED_PHASES=configure postinst postrm prepare setup
+DEPEND=dev-libs/libtermkey sys-apps/acl ncurses? ( sys-libs/ncurses:0= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) tre? ( dev-libs/tre )
+DESCRIPTION=modern, legacy free, simple yet efficient vim-like editor
+EAPI=7
+HOMEPAGE=https://github.com/martanne/vis
+INHERIT=lua-single optfeature
+IUSE=+ncurses +lua selinux test tre lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=ISC MIT
+RDEPEND=dev-libs/libtermkey sys-apps/acl ncurses? ( sys-libs/ncurses:0= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) tre? ( dev-libs/tre ) app-eselect/eselect-vi
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/martanne/vis/releases/download/v0.7/vis-0.7.tar.gz test? ( https://github.com/martanne/vis-test/releases/download/v0.5/vis-test-0.5.tar.gz )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=f26b9af58c5e31e4c328f6b40781b6fd
