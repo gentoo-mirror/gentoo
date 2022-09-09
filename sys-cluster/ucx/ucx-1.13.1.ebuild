@@ -8,7 +8,7 @@ inherit autotools toolchain-funcs
 MY_PV=${PV/_/-}
 DESCRIPTION="Unified Communication X"
 HOMEPAGE="https://www.openucx.org"
-SRC_URI="https://github.com/openucx/ucx/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/openucx/ucx/releases/download/v${PV}/${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD"
@@ -27,7 +27,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.13.0-fix-bashisms.patch
 	"${FILESDIR}"/${PN}-1.13.0-fix-fcntl-include-musl.patch
 	"${FILESDIR}"/${PN}-1.13.0-cstdint-include.patch
-	"${FILESDIR}"/${P}-binutils-2.39-ptr-typedef.patch
+	"${FILESDIR}"/${PN}-1.13.0-binutils-2.39-ptr-typedef.patch
 )
 
 pkg_pretend() {
