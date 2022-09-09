@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DESCRIPTION=A portable C++ preprocessor
+EAPI=8
+HOMEPAGE=http://mcpp.sourceforge.net
+INHERIT=autotools
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc64 ~riscv ~x86 ~x86-linux ~x64-macos
+LICENSE=BSD
+SLOT=0
+SRC_URI=mirror://sourceforge/mcpp/mcpp-2.7.2.tar.gz mirror://debian/pool/main/m/mcpp/mcpp_2.7.2-5.debian.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=c860c4d1c43a20c64e404a2f77c865d1
