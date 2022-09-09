@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm preinst prepare
-DEPEND=app-text/hunspell:= app-text/poppler:=[qt5] >=dev-libs/quazip-1.0:0= dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[qt5(+),X] dev-qt/qtsvg:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext video? ( >=media-libs/phonon-4.11.0 )
+DEPEND=app-text/hunspell:= app-text/poppler:=[qt5] >=dev-libs/quazip-1.0:0=[qt5(+)] dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[qt5(+),X] dev-qt/qtsvg:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext video? ( >=media-libs/phonon-4.11.0 )
 DESCRIPTION=Free cross-platform LaTeX editor (fork from texmakerX)
 EAPI=8
 HOMEPAGE=https://www.texstudio.org https://github.com/texstudio-org/texstudio
@@ -9,8 +9,8 @@ INHERIT=desktop qmake-utils xdg
 IUSE=video
 KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=app-text/hunspell:= app-text/poppler:=[qt5] >=dev-libs/quazip-1.0:0= dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[qt5(+),X] dev-qt/qtsvg:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext video? ( >=media-libs/phonon-4.11.0 ) app-text/ghostscript-gpl app-text/psutils media-libs/netpbm virtual/latex-base
+RDEPEND=app-text/hunspell:= app-text/poppler:=[qt5] >=dev-libs/quazip-1.0:0=[qt5(+)] dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[qt5(+),X] dev-qt/qtsvg:5 dev-qt/qttest:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext video? ( >=media-libs/phonon-4.11.0 ) app-text/ghostscript-gpl app-text/psutils media-libs/netpbm virtual/latex-base
 SLOT=0
 SRC_URI=https://github.com/texstudio-org/texstudio/archive/4.3.1.tar.gz -> texstudio-4.3.1.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=db0aec18369da1be7f28036ed5d6fc9f
+_md5_=76196f870858bb25418b49bf86b1687b
