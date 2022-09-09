@@ -3,11 +3,17 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..11} )
+
 inherit distutils-r1
 
 DESCRIPTION="Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP"
-HOMEPAGE="https://github.com/kbr/fritzconnection"
+HOMEPAGE="
+	https://github.com/kbr/fritzconnection/
+	https://pypi.org/project/fritzconnection/
+"
+
 LICENSE="MIT"
 SLOT="0"
 
@@ -22,7 +28,9 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-RDEPEND=">=dev-python/requests-2.22[${PYTHON_USEDEP}]"
+RDEPEND="
+	>=dev-python/requests-2.22[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
@@ -30,3 +38,14 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# flaky (relies on time.sleep(0.01) magically being sufficient)
+	fritzconnection/tests/test_fritzmonitor.py::test_terminate_thread_on_failed_reconnection
+)
+
+src_prepare() {
+	# upstream is pinning for py3.6 compat x_x
+	sed -i -e 's:,<[0-9.]*::' setup.py || die
+	distutils-r1_src_prepare
+}

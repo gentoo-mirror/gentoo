@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1 toolchain-funcs
 
@@ -14,18 +14,17 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 # leechcorepyc ships with a bundled version of the LeechCore library. So we
-# dont't depend on the library here. But we must be aware this module doesn't
+# don't depend on the library here. But we must be aware this module doesn't
 # use the system library.
 DEPEND="virtual/libusb:="
-RDEPEND="${DEPEND}
-	${PYTHON_DEPS}"
+RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.10.2-respect-CC.patch
+	"${FILESDIR}"/${PN}-2.12.0-respect-CC.patch
 )
 
 src_configure() {

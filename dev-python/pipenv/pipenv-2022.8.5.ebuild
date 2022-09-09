@@ -28,13 +28,14 @@ RDEPEND="
 	dev-python/iso8601[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.8.0[${PYTHON_USEDEP}]
 	dev-python/pip[${PYTHON_USEDEP}]
+	dev-python/pyparsing[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.2[${PYTHON_USEDEP}]
 	>=dev-python/virtualenv-20.0.35[${PYTHON_USEDEP}]
 	dev-python/virtualenv-clone[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.26.0[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
 	>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
-	>=dev-python/urllib3-1.26.7[${PYTHON_USEDEP}]
+	dev-python/tomlkit[${PYTHON_USEDEP}]
 	>=dev-python/wheel-0.36.0[${PYTHON_USEDEP}]
 	>=dev-python/zipp-3.6.0[${PYTHON_USEDEP}]
 "
@@ -58,7 +59,8 @@ distutils_enable_tests pytest
 src_prepare() {
 	local pkgName
 	local jobs=$(makeopts_jobs)
-	local packages=( attr cerberus cached_property click colorama idna iso8601 pexpect dateutil requests toml tomli urllib3 zipp )
+	local packages=( attr cerberus cached_property click colorama idna importlib_metadata \
+					 importlib_resources iso8601 pexpect dateutil pyparsing requests toml tomli tomlkit urllib3 zipp )
 	for pkgName in ${packages[@]}; do
 		find ./ -type f -print0 | \
 			xargs --max-procs="${jobs}" --null \
