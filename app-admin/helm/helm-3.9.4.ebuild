@@ -3,8 +3,8 @@
 
 EAPI=8
 inherit bash-completion-r1 go-module
-GIT_COMMIT=a7c043acb5ff905c261cfdc923a35776ba5e66e4
-GIT_SHA=a7c043ac
+GIT_COMMIT=dbc6d8e20fe1d58d50e6ed30f09a04a77e4c68db
+GIT_SHA=dbc6d8e2
 MY_PV=${PV/_rc/-rc.}
 
 DESCRIPTION="Kubernetes Package Manager"
@@ -14,7 +14,7 @@ SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 ~arm64"
 
 RESTRICT=" test"
 
