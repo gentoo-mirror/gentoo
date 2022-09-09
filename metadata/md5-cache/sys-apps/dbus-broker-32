@@ -1,14 +1,15 @@
-BDEPEND=doc? ( dev-python/docutils ) virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
+BDEPEND=doc? ( dev-python/docutils ) virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
 DEPEND=apparmor? ( >=sys-libs/libapparmor-3.0 ) audit? ( >=sys-process/audit-3.0 >=sys-libs/libcap-ng-0.6 ) launcher? ( >=dev-libs/expat-2.2 >=sys-apps/systemd-230:0= ) selinux? ( >=sys-libs/libselinux-3.2 )
 DESCRIPTION=Linux D-Bus Message Broker
 EAPI=8
 HOMEPAGE=https://github.com/bus1/dbus-broker/wiki
-INHERIT=meson git-r3
+INHERIT=meson
 IUSE=apparmor audit doc +launcher selinux
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=apparmor? ( >=sys-libs/libapparmor-3.0 ) audit? ( >=sys-process/audit-3.0 >=sys-libs/libcap-ng-0.6 ) launcher? ( >=dev-libs/expat-2.2 >=sys-apps/systemd-230:0= ) selinux? ( >=sys-libs/libselinux-3.2 ) launcher? ( sys-apps/dbus )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://github.com/bus1/dbus-broker/releases/download/v32/dbus-broker-32.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003
 _md5_=90e3f676e979327ae4094b6faa7536dc
