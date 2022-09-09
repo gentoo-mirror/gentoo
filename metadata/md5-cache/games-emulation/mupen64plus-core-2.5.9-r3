@@ -1,0 +1,16 @@
+BDEPEND=cpu_flags_x86_sse? ( dev-lang/nasm ) virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] sys-libs/zlib[minizip] gles2-only? ( media-libs/libsdl2[gles2] ) lirc? ( app-misc/lirc ) opencv? ( media-libs/opencv:= ) osd? ( media-fonts/dejavu media-libs/freetype:2 virtual/opengl virtual/glu )
+DESCRIPTION=A fork of Mupen64 Nintendo 64 emulator, core library
+EAPI=8
+HOMEPAGE=https://www.mupen64plus.org/
+INHERIT=toolchain-funcs
+IUSE=debugger gles2-only lirc new-dynarec opencv +osd cpu_flags_x86_sse
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] sys-libs/zlib[minizip] gles2-only? ( media-libs/libsdl2[gles2] ) lirc? ( app-misc/lirc ) opencv? ( media-libs/opencv:= ) osd? ( media-fonts/dejavu media-libs/freetype:2 virtual/opengl virtual/glu )
+REQUIRED_USE=gles2-only? ( !osd )
+SLOT=0/2-sdl2
+SRC_URI=https://github.com/mupen64plus/mupen64plus-core/releases/download/2.5.9/mupen64plus-core-src-2.5.9.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=77a069ba03247d1f9463fc0f223cbe56
