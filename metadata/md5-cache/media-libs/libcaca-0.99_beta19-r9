@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen virtual/latex-base >=dev-texlive/texlive-fontsrecommended-2012 >=dev-texlive/texlive-latexextra-2012 dev-texlive/texlive-latexrecommended ) test? ( dev-util/cppunit ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=imlib? ( >=media-libs/imlib2-1.4.6-r2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) ncurses? ( >=sys-libs/ncurses-5.9-r3:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) opengl? ( >=virtual/glu-9.0-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=virtual/opengl-7.0-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/freeglut-2.8.1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] truetype? ( >=media-libs/ftgl-2.1.3_rc5 ) ) slang? ( >=sys-libs/slang-2.2.4-r1 ) X? ( >=x11-libs/libX11-1.6.2 >=x11-libs/libXt-1.1.4 )
+DESCRIPTION=A library that creates colored ASCII-art graphics
+EAPI=7
+HOMEPAGE=http://libcaca.zoy.org/
+INHERIT=autotools ruby-ng flag-o-matic toolchain-funcs multilib-minimal
+IUSE=doc imlib ncurses opengl ruby slang static-libs test truetype X abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
+LICENSE=GPL-2 ISC LGPL-2.1 WTFPL-2
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://libcaca.zoy.org/files/libcaca/libcaca-0.99.beta19.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	32c657868f5d944ede724c36996ec27a	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	87f1b83e21a473787b821ef3d0437bf3	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_md5_=316f4d10440db809c0bae4f71e5f0a5f

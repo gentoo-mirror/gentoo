@@ -1,0 +1,14 @@
+BDEPEND=doc? ( app-doc/doxygen ) test? ( dev-libs/check )
+DEFINED_PHASES=configure install
+DESCRIPTION=Compat library for functions like strlcpy(), strlcat(), strnlen(), getline()
+EAPI=8
+HOMEPAGE=http://ohnopub.net/~ohnobinki/libstrl/
+INHERIT=toolchain-funcs
+IUSE=doc test
+KEYWORDS=amd64 x86 ~amd64-linux ~x64-macos
+LICENSE=LGPL-3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://mirror.ohnopub.net/mirror/libstrl-0.5.1.tar.bz2
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=8f4ebe67baebbdc5afcdf1f687c788bc

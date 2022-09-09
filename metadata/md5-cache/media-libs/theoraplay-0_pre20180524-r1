@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/libtool
+DEFINED_PHASES=compile install
+DEPEND=media-libs/libogg media-libs/libtheora media-libs/libvorbis
+DESCRIPTION=Simple library to make decoding of Ogg Theora videos easier
+EAPI=8
+HOMEPAGE=https://icculus.org/projects/theoraplay/
+INHERIT=edo multilib toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=ZLIB
+RDEPEND=media-libs/libogg media-libs/libtheora media-libs/libvorbis
+SLOT=0
+SRC_URI=https://hg.icculus.org/icculus/theoraplay/archive/7d8701876294.tar.bz2 -> theoraplay-0_pre20180524.tar.bz2
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961
+_md5_=4d02e727c8d383b0717ce2022d0483b3

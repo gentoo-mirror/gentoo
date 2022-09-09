@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/libunistring:= media-video/ffmpeg:= sys-libs/gpm sys-libs/ncurses:=
+DESCRIPTION=Blingful TUIs and character graphics
+EAPI=8
+HOMEPAGE=https://notcurses.com
+INHERIT=cmake
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/libunistring:= media-video/ffmpeg:= sys-libs/gpm sys-libs/ncurses:=
+SLOT=0
+SRC_URI=https://github.com/dankamongmen/notcurses/archive/v3.0.5.tar.gz -> notcurses-3.0.5.tar.gz https://github.com/dankamongmen/notcurses/releases/download/v3.0.5/notcurses-doc-3.0.5.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=0277bebe060b9e89720136d621b8a138

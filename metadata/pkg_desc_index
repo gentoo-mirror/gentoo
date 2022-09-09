@@ -1511,7 +1511,7 @@ app-crypt/shash 0.2.6-r3: Generate or check digests or MACs of files
 app-crypt/signify 31: Cryptographically sign and verify files
 app-crypt/signing-party 2.11: A collection of several tools related to OpenPGP
 app-crypt/simple-tpm-pk11 0.06: Simple PKCS11 provider for TPM chips
-app-crypt/ssdeep 2.14.1: Computes context triggered piecewise hashes (fuzzy hashes)
+app-crypt/ssdeep 2.14.1-r1: Computes context triggered piecewise hashes (fuzzy hashes)
 app-crypt/ssss 0.5.7-r1: Shamir's Secret Sharing Scheme
 app-crypt/stan 0.4.1-r1: Stan analyzes binary streams and calculates statistical information
 app-crypt/stoken 0.92-r2: Software Token for Linux/UNIX
@@ -4058,9 +4058,9 @@ dev-ada/xmlada 22.0.0 2021-r1: Set of modules that provide a simple manipulation
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
 dev-cpp/abseil-cpp 20200923.3 20210324.2 20211102.0 20211102.0-r1 20211102.0-r2: Abseil Common Libraries (C++), LTS Branch
 dev-cpp/aixlog 1.5.0 9999: Header-only C++ logging library
-dev-cpp/amqp-cpp 4.3.10: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
+dev-cpp/amqp-cpp 4.3.10-r1 4.3.16: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
 dev-cpp/antlr-cpp 2.7.7-r1 4.7.2: The ANTLR 4 C++ Runtime
-dev-cpp/argparse 2.1: Argument Parser for Modern C++
+dev-cpp/argparse 2.1-r1 2.6: Argument Parser for Modern C++
 dev-cpp/asio 1.10.8 1.22.1 1.22.2: Asynchronous Network Library
 dev-cpp/atkmm 2.28.2 2.36.2: C++ interface for the ATK library
 dev-cpp/benchmark 1.7.0: A microbenchmark support library
@@ -4100,7 +4100,7 @@ dev-cpp/ms-gsl 3.1.0 4.0.0 9999: Guideline Support Library implementation by Mic
 dev-cpp/muParser 2.3.2-r1 2.3.3: Library for parsing mathematical expressions
 dev-cpp/muParserX 4.0.11: Parsing Expressions with Strings, Complex Numbers, Vectors, Matrices and more
 dev-cpp/nlohmann_json 3.10.5 3.11.2: JSON for Modern C++
-dev-cpp/notcurses 3.0.5: Blingful TUIs and character graphics
+dev-cpp/notcurses 3.0.5-r1: Blingful TUIs and character graphics
 dev-cpp/opentelemetry-cpp 1.3.0-r2 1.4.0 1.6.0: The OpenTelemetry C++ Client
 dev-cpp/pangomm 2.46.2 2.50.0: C++ interface for pango
 dev-cpp/picojson 1.3.0: Header-file-only, JSON parser serializer in C++
@@ -4148,7 +4148,7 @@ dev-db/kdb 3.2.0-r2: Database connectivity and creation framework for various ve
 dev-db/kyotocabinet 1.2.77: A straightforward implementation of DBM
 dev-db/libdbi 0.9.0: A database-independent abstraction layer in C
 dev-db/libdbi-drivers 0.9.0-r1: The libdbi-drivers project maintains drivers for libdbi
-dev-db/libiodbc 3.52.15: ODBC Interface for Linux
+dev-db/libiodbc 3.52.15-r1: ODBC Interface for Linux
 dev-db/libodbc++ 0.2.5-r3: Provides a subset of the well-known JDBC 2.0(tm) and runs on top of ODBC
 dev-db/libzdb 3.1-r1 3.2.2: A thread safe high level multi-database connection pool library
 dev-db/lmdb 0.9.29: An ultra-fast, ultra-compact key-value embedded data store
@@ -5381,7 +5381,7 @@ dev-libs/OpenNI2 2.2_beta2-r1 9999: OpenNI2 SDK
 dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for AMD GPUs
 dev-libs/aml 0.2.1 9999: Event timer executor loop
 dev-libs/angelscript 2.35.1 2.35.1-r1: A flexible, cross-platform scripting library
-dev-libs/antlr-c 3.5.2-r1: The ANTLR3 C Runtime
+dev-libs/antlr-c 3.5.2-r2: The ANTLR3 C Runtime
 dev-libs/appstream 0.14.6: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.7.18-r1 0.8.1: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.0-r4 1.7.0-r5: Apache Portable Runtime Library
@@ -5448,7 +5448,7 @@ dev-libs/date 3.0.0: A date and time library based on the C++11/14/17 <chrono> h
 dev-libs/dbus-c++ 0.9.0-r4 0.9.0-r5: Provides a C++ API for D-BUS
 dev-libs/dbus-glib 0.110 0.112: D-Bus bindings for glib
 dev-libs/dietlibc 0.34: A libc optimized for small size
-dev-libs/ding-libs 0.6.1-r1 0.6.2: Set of utility libraries (mostly used by sssd)
+dev-libs/ding-libs 0.6.1-r1 0.6.2-r1: Set of utility libraries (mostly used by sssd)
 dev-libs/distorm3 3.5.2: The ultimate disassembler library (X86-32, X86-64)
 dev-libs/dmalloc 5.5.2-r7 999999: A Debug Malloc Library
 dev-libs/dotconf 1.3-r2: dot.conf configuration file parser
@@ -5459,7 +5459,7 @@ dev-libs/editline 1.17.1: line editing library for UNIX call compatible with the
 dev-libs/eekboard 1.0.8_p20121001-r1: An easy to use virtual keyboard toolkit
 dev-libs/efl 1.25.1-r13 1.26.2: Enlightenment Foundation Libraries all-in-one package
 dev-libs/elfutils 0.185 0.186 0.187: Libraries/utilities to handle ELF objects (drop in replacement for libelf)
-dev-libs/ell 0.51 0.52 9999: Embedded Linux Library provides core, low-level functionality for system daemons
+dev-libs/ell 0.51 0.52-r1 9999: Embedded Linux Library provides core, low-level functionality for system daemons
 dev-libs/eventlog 0.2.12: Support library for syslog-ng
 dev-libs/expat 2.4.6 2.4.7 2.4.8: Stream-oriented XML parser library
 dev-libs/faxpp 0.4-r2: Small, fast and conformant XML pull parser written in C
@@ -5504,8 +5504,8 @@ dev-libs/icu-le-hb 1.0.3-r1: ICU Layout Engine API on top of HarfBuzz shaping li
 dev-libs/igraph 0.8.5 0.9.2 0.9.4: Creating and manipulating undirected and directed graphs
 dev-libs/iksemel 1.4-r1: eXtensible Markup Language parser library designed for Jabber applications
 dev-libs/imath 3.1.4-r3 3.1.4-r4 3.1.5: Imath basic math package
-dev-libs/inih 55 56: inih (INI not invented here) simple .INI file parser
-dev-libs/iniparser 3.1-r2 4.1: A free stand-alone ini file parsing library
+dev-libs/inih 55 56-r1: inih (INI not invented here) simple .INI file parser
+dev-libs/iniparser 3.1-r3 4.1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
 dev-libs/intel-compute-runtime 22.31.23852 22.32.23937 22.34.24023 22.35.24055: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-library 0_pre20220526: A user mode driver helper library that provides access to GPU performance counters
@@ -5521,8 +5521,8 @@ dev-libs/json-glib 1.6.6-r1: Library providing GLib serialization and deserializ
 dev-libs/json-parser 1.1.0_p20211208: Very low footprint JSON parser written in portable ANSI C
 dev-libs/jsoncpp 1.9.5: C++ JSON reader and writer
 dev-libs/jsonrpc-glib 3.42.0: JSON-RPC library for GLib
-dev-libs/jthread 1.3.3: JThread provides some classes to make use of threads easy on different platforms
-dev-libs/judy 1.0.5-r3: A C library that implements a dynamic array
+dev-libs/jthread 1.3.3-r1: JThread provides some classes to make use of threads easy on different platforms
+dev-libs/judy 1.0.5-r4: A C library that implements a dynamic array
 dev-libs/kasync 0.3.0: C++ library for controlling asynchronous tasks
 dev-libs/kdiagram 2.8.0: Powerful libraries (KChart, KGantt) for creating business diagrams
 dev-libs/keybinder 0.3.2-r300: A library for registering global keyboard shortcuts
@@ -5571,7 +5571,7 @@ dev-libs/libconfig 1.7.3: Libconfig is a simple library for manipulating structu
 dev-libs/libcpuid 0.5.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
 dev-libs/libcroco 0.6.13-r1: Generic Cascading Style Sheet (CSS) parsing and manipulation toolkit
 dev-libs/libcss 0.9.1-r1: CSS parser and selection engine, written in C
-dev-libs/libdaemon 0.14-r3: Simple library for creating daemon processes in C
+dev-libs/libdaemon 0.14-r4: Simple library for creating daemon processes in C
 dev-libs/libdazzle 3.44.0: Experimental new features for GTK+ and GLib
 dev-libs/libdbh 5.0.22: A small library to create and manage 64-bit disk based hash tables
 dev-libs/libdbusmenu 16.04.0-r2: Library to pass menu structure across DBus
@@ -5601,7 +5601,7 @@ dev-libs/libffi-compat 3.2.1-r3 3.3-r2: a portable, high level programming inter
 dev-libs/libfido2 1.11.0: Provides library functionality for FIDO 2.0
 dev-libs/libfilezilla 0.37.2 0.38.1: C++ library offering some basic functionality for platform-independent programs
 dev-libs/libflatarray 0.4.0_pre20201009: Struct of arrays library with object oriented interface for C++
-dev-libs/libfmt 7.1.2 7.1.3 8.0.0-r1 8.0.1-r1 8.1.1 8.1.1-r1 9.0.0 9.1.0 9999: Small, safe and fast formatting library
+dev-libs/libfmt 7.1.2 7.1.3 8.0.0-r1 8.0.1-r1 8.1.1 8.1.1-r1 9.0.0 9.1.0-r1 9999: Small, safe and fast formatting library
 dev-libs/libfstrcmp 0.7 0.7-r1 0.7-r3: Make fuzzy comparisons of strings and byte arrays
 dev-libs/libg15 1.2.7-r1 3.0.7 9999: The libg15 library gives low-level access to the Logitech G15 keyboard
 dev-libs/libg15render 1.2-r2 3.0.4 9999: Small library for display text and graphics on a Logitech G15 keyboard
@@ -5616,7 +5616,7 @@ dev-libs/libgit2-glib 1.1.0: Git library for GLib
 dev-libs/libgnome-games-support 1.8.2 2.0.0: Library for code common to GNOME games
 dev-libs/libgnt 2.14.2 2.14.3: Pidgin's GLib Ncurses Toolkit
 dev-libs/libgpg-error 1.42 1.44 1.45 1.45-r1: Contains error handling functions used by GnuPG software
-dev-libs/libgpiod 1.4.1 1.6.3-r1 1.6.3-r3: C library and tools for interacting with the linux GPIO character device
+dev-libs/libgpiod 1.4.1 1.6.3-r1 1.6.3-r4: C library and tools for interacting with the linux GPIO character device
 dev-libs/libgrapheme 1: Unicode string library
 dev-libs/libgudev 236 237-r1: GObject bindings for libudev
 dev-libs/libgusb 0.3.10: GObject wrapper for libusb
@@ -5658,7 +5658,7 @@ dev-libs/libmodbus 3.1.7 3.1.8: Modbus library which supports RTU communication 
 dev-libs/libmoe 1.5.8-r3: Multi octet character encoding handling library
 dev-libs/libmowgli 2.1.3-r3 9999: Useful set of performance and usability-oriented extensions to C
 dev-libs/libmpack 1.0.5-r3: Simple implementation of msgpack in C
-dev-libs/libmspack 0.10.1_alpha 9999: A library for Microsoft compression formats
+dev-libs/libmspack 0.10.1_alpha-r1 9999: A library for Microsoft compression formats
 dev-libs/libnatspec 0.3.0: library to smooth charset/localization issues
 dev-libs/libnest2d 0.4-r2: Library and framework for the 2D bin packaging problem
 dev-libs/libnfc 1.8.0-r1: Near Field Communications (NFC) library
@@ -5667,7 +5667,7 @@ dev-libs/libnop 2021.11.03: C++ Native Object Protocols
 dev-libs/libnsfb 0.2.2-r1: C library for framebuffer abstraction
 dev-libs/libnsutils 0.1.0-r1: C library for base64 and time
 dev-libs/libofx 0.10.3 0.10.7: Library to support the Open Financial eXchange XML format
-dev-libs/liboil 0.3.17-r3: Library of simple functions that are optimized for various CPUs
+dev-libs/liboil 0.3.17-r4: Library of simple functions that are optimized for various CPUs
 dev-libs/liborcus 0.17.2 9999: Standalone file import filter library for spreadsheet documents
 dev-libs/libotf 0.9.16: Library for handling OpenType fonts (OTF)
 dev-libs/libowfat 0.32-r1 0.32-r5: reimplement libdjb - excellent libraries from Dan Bernstein
@@ -5696,20 +5696,20 @@ dev-libs/librdkafka 1.4.4 1.5.0 1.5.2 1.5.3 1.6.0 1.6.1 1.7.0 1.8.0 1.8.2: Apach
 dev-libs/librelp 1.10.0: An easy to use library for the RELP protocol
 dev-libs/librep 0.92.7-r1: Shared library implementing a Lisp dialect
 dev-libs/libreport 2.16.0 2.17.1: Generic library for reporting software bugs
-dev-libs/libretls 3.5.2: Port of libtls from LibreSSL to OpenSSL
+dev-libs/libretls 3.5.2-r1: Port of libtls from LibreSSL to OpenSSL
 dev-libs/librevenge 0.0.4-r2 9999: Helper library for REVerse ENGineered formats filters
-dev-libs/libsass 3.6.5 9999: A C/C++ implementation of a Sass CSS compiler
+dev-libs/libsass 3.6.5-r1 9999: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libsavitar 4.13.0: C++ implementation of 3mf loading with SIP python bindings
 dev-libs/libsecp256k1 0.1_pre20190401 0.1_pre20201028: Optimized C library for EC operations on curve secp256k1
 dev-libs/libserdes 5.4.0-r1: Avro SerializationDeserialization w/ Confluent schema-registry support
 dev-libs/libserialport 0.1.1-r1 9999: Cross platform serial port access library
 dev-libs/libsigc++ 2.10.7 3.2.0: Typesafe callback system for standard C++
 dev-libs/libsigsegv 2.13 2.14: Library for handling page faults in user mode
-dev-libs/libslz 1.1.0 1.2.0: stateless, zlib-compatible, and very fast compression library
+dev-libs/libslz 1.1.0 1.2.0-r1: Stateless, zlib-compatible, and very fast compression library
 dev-libs/libsodium 1.0.18 1.0.18_p20210617 1.0.18_p20220618: A portable fork of NaCl, a higher-level cryptographic library
 dev-libs/libspnav 0.2.3 0.2.3-r1 0.3 1.0 1.0-r1: libspnav is a replacement for the magellan library with a cleaner API
 dev-libs/libspt 1.1-r4: Library for handling root privilege
-dev-libs/libstrl 0.5.1-r1: Compat library for functions like strlcpy(), strlcat(), strnlen(), getline()
+dev-libs/libstrl 0.5.1-r2: Compat library for functions like strlcpy(), strlcat(), strnlen(), getline()
 dev-libs/libstroke 0.5.1-r1: A Stroke and Gesture recognition Library
 dev-libs/libstrophe 0.12.0 0.12.1 0.12.2: A simple, lightweight C library for writing XMPP clients
 dev-libs/libtar 1.2.20-r5: C library for manipulating tar archives
@@ -5740,7 +5740,7 @@ dev-libs/libusb 1.0.26: Userspace access to USB devices
 dev-libs/libusb-compat 0.1.5-r3: Userspace access to USB devices (libusb-0.1 compat wrapper)
 dev-libs/libusbhp 1.0.2-r1: USB Hotplug Library
 dev-libs/libutf8proc 2.7.0 2.7.0-r1: A clean C Library for processing UTF-8 Unicode data
-dev-libs/libuv 1.44.1 1.44.2 9999: Cross-platform asychronous I/O
+dev-libs/libuv 1.44.1 1.44.2-r1 9999: Cross-platform asychronous I/O
 dev-libs/libvarlink 22 23: C implementation of the Varlink protocol and command line tool
 dev-libs/libverto 0.3.1-r1 0.3.2: Main event loop abstraction library
 dev-libs/libvformat 1.13-r2: Library to read and write vcard files
@@ -5766,7 +5766,7 @@ dev-libs/link-grammar 5.10.5-r1: A Syntactic English parser
 dev-libs/linux-syscall-support 2021.05.03: Linux Syscall Support
 dev-libs/lockdev 1.0.3.1.2-r4: Library for locking devices
 dev-libs/log4cplus 2.0.7: C++ port of the Log for Java (log4j) logging library
-dev-libs/log4cpp 1.1.3-r1: C++ classes for flexible logging to files, syslog and other destinations
+dev-libs/log4cpp 1.1.3-r2: C++ classes for flexible logging to files, syslog and other destinations
 dev-libs/log4cxx 0.11.0: Library of C++ classes for logging to files, syslog and other destinations
 dev-libs/log4sh 1.4.2: A flexible logging framework for shell scripts
 dev-libs/luise 0.1.1-r2: Programming interface for the Wallbraun LCD-USB-Interface
@@ -5787,7 +5787,7 @@ dev-libs/mpc 1.2.1: A library for multiprecision complex arithmetic with exact r
 dev-libs/mpfr 4.1.0-r1 4.1.0_p13-r1: Library for multiple-precision floating-point computations with exact rounding
 dev-libs/msgpack 3.3.0: MessagePack is a binary-based efficient data interchange format
 dev-libs/mxml 3.3 3.3.1: A small XML parsing library that you can use to read XML data files or strings
-dev-libs/nanomsg 1.1.5: High-performance messaging interface for distributed applications
+dev-libs/nanomsg 1.1.5-r1: High-performance messaging interface for distributed applications
 dev-libs/ncnn 20220729: High-performance neural network inference framework
 dev-libs/nettle 3.7.3 3.8 3.8.1: Low-level cryptographic library
 dev-libs/newt 0.52.21_p20210816: Redhat's Newt windowing toolkit development files
@@ -5797,11 +5797,11 @@ dev-libs/nsgenbind 0.8-r1: Generate Javascript-to-DOM bindings from w3c webidl f
 dev-libs/nspr 4.34 4.34.1: Netscape Portable Runtime
 dev-libs/nss 3.68.4 3.79.1 3.82: Mozilla's Network Security Services library that implements PKI support
 dev-libs/nss-pem 1.0.8: PEM file reader for Network Security Services (NSS)
-dev-libs/nsync 1.24.0: C library that exports various synchronization primitives, such as mutexes
+dev-libs/nsync 1.24.0-r1: C library that exports various synchronization primitives, such as mutexes
 dev-libs/ntl 11.5.1-r1 11.5.1-r2: High-performance and portable C++ number theory library
 dev-libs/nwjs 0.67.1: Framework that lets you call all Node.js modules directly from the DOM
 dev-libs/ocl-icd 2.3.0 2.3.1: Alternative to vendor specific OpenCL ICD loaders
-dev-libs/onigmo 6.2.0: Onigmo is a regular expressions library forked from Oniguruma
+dev-libs/onigmo 6.2.0-r1: Onigmo is a regular expressions library forked from Oniguruma
 dev-libs/oniguruma 6.9.8 9999: Regular expression library for different character encodings
 dev-libs/opencl-clang 13.0.0-r1 14.0.0: OpenCL-oriented thin wrapper library around clang
 dev-libs/opencl-icd-loader 2022.01.04 2022.05.18-r1: Official Khronos OpenCL ICD Loader
@@ -5885,7 +5885,7 @@ dev-libs/teakra 20220224: Emulator, assembler, etc for XpertTeak, the DSP used b
 dev-libs/template-glib 3.34.1: Templating library for GLib
 dev-libs/thrift 0.16.0-r1: C++ bindings for Apache Thrift
 dev-libs/tinyxml 2.6.2-r4: Simple and small C++ XML parser
-dev-libs/tinyxml2 9.0.0: A simple, small, efficient, C++ XML parser
+dev-libs/tinyxml2 9.0.0-r1: A simple, small, efficient, C++ XML parser
 dev-libs/tllist 1.0.5-r1 1.1.0: Header-only implementation of a typed linked list in C
 dev-libs/tlsh 4.8.2: Fuzzy matching library
 dev-libs/tntnet 3.0: Modular, multithreaded web application server extensible with C++
@@ -12880,7 +12880,7 @@ kde-plasma/plasma-sdk 5.24.6 5.25.5: Useful applications for Plasma development
 kde-plasma/plasma-systemmonitor 5.24.6 5.25.5: Monitor system sensors, process information and other system resources
 kde-plasma/plasma-thunderbolt 5.24.6 5.25.5: Plasma integration for controlling Thunderbolt devices
 kde-plasma/plasma-vault 5.24.6 5.25.5: Plasma applet and services for creating encrypted vaults
-kde-plasma/plasma-workspace 5.24.6 5.25.5: KDE Plasma workspace
+kde-plasma/plasma-workspace 5.24.6 5.25.5 5.25.5-r1: KDE Plasma workspace
 kde-plasma/plasma-workspace-wallpapers 5.24.6 5.25.5: Wallpapers for the Plasma workspace
 kde-plasma/plymouth-kcm 5.24.6 5.25.5: KDE Plasma control module for Plymouth
 kde-plasma/polkit-kde-agent 5.24.6 5.25.5: PolKit agent module for KDE Plasma
@@ -13612,7 +13612,7 @@ media-libs/libbdplus 0.1.2-r1 0.2.0 9999: Blu-ray library for BD+ decryption
 media-libs/libbluray 1.3.0-r1 1.3.1 1.3.2 9999: Blu-ray playback libraries
 media-libs/libbs2b 3.1.0-r2: Bauer stereophonic-to-binaural DSP library
 media-libs/libbsb 0.0.7: A portable C library for reading and writing BSB format image files
-media-libs/libcaca 0.99_beta19-r8: A library that creates colored ASCII-art graphics
+media-libs/libcaca 0.99_beta19-r8 0.99_beta19-r9: A library that creates colored ASCII-art graphics
 media-libs/libcanberra 0.30-r6 0.30-r7: Portable sound event library
 media-libs/libcdaudio 0.99.12-r3: Library of cd audio related routines
 media-libs/libcddb 1.3.2-r1: A library for accessing a CDDB server
@@ -13620,7 +13620,7 @@ media-libs/libcdr 0.1.7 9999: Library parsing the Corel cdr documents
 media-libs/libchamplain 0.12.20: Clutter based world map renderer
 media-libs/libclastfm 0.5: C API library to the last.fm web service (unofficial)
 media-libs/libcue 2.2.1: CUE Sheet Parser Library
-media-libs/libcuefile 477-r1: Cue File library from Musepack
+media-libs/libcuefile 477-r2: Cue File library from Musepack
 media-libs/libdc1394 2.2.6: Library to interface with IEEE 1394 cameras following the IIDC specification
 media-libs/libdca 0.0.7: Library for decoding DTS Coherent Acoustics streams used in DVD
 media-libs/libde265 1.0.8 9999: Open h.265 video codec implementation
@@ -13639,7 +13639,7 @@ media-libs/libeot 0.01 9999: Library for parsing Embedded OpenType files (Micros
 media-libs/libepoxy 1.5.10-r1 9999: Library for handling OpenGL function pointer management
 media-libs/libexif 0.6.24: Library for parsing, editing, and saving EXIF data
 media-libs/libextractor 1.9-r2: Library to extract metadata from files of arbitrary type
-media-libs/libfame 0.9.1-r3: MPEG-1 and MPEG-4 video encoding library
+media-libs/libfame 0.9.1-r4: MPEG-1 and MPEG-4 video encoding library
 media-libs/libffado 2.4.6: Driver for IEEE1394 (Firewire) audio interfaces
 media-libs/libfishsound 1.0.0: Simple programming interface to decode and encode audio with vorbis or speex
 media-libs/libfpx 1.3.1_p10: A library for manipulating FlashPIX images
@@ -13650,7 +13650,7 @@ media-libs/libggigcp 1.0.2-r1: Libggi extension for advanced color and palette h
 media-libs/libggimisc 2.2.2-r1: Adds support for some special graphical target features
 media-libs/libggiwmh 0.3.2-r1: Window manager hints extensions for libggi
 media-libs/libgig 4.3.0 9999: C++ library for loading Gigasampler and DLS level 1/2 files
-media-libs/libgii 1.0.2-r2: Easy to use, but yet powerful, API for all possible input sources
+media-libs/libgii 1.0.2-r3: Easy to use, but yet powerful, API for all possible input sources
 media-libs/libglvnd 1.4.0 1.5.0 9999: The GL Vendor-Neutral Dispatch library
 media-libs/libgphoto2 2.5.30: Library that implements support for numerous digital cameras
 media-libs/libgpod 0.8.3-r5: Shared library to access the contents of an iPod
@@ -13693,7 +13693,7 @@ media-libs/libmp4v2 2.0.0-r2: Functions for accessing ISO-IEC:14496-1:2001 MPEG-
 media-libs/libmpd 11.8.17-r1: A library handling connections to a MPD server
 media-libs/libmpdclient 2.20: Library for interfacing Music Player Daemon (media-sound/mpd)
 media-libs/libmpeg2 0.5.1-r3: Library for decoding mpeg-2 and mpeg-1 video
-media-libs/libmpeg3 1.8-r2: An mpeg library for linux
+media-libs/libmpeg3 1.8-r3: An MPEG library for linux
 media-libs/libmpris2client 0.1.0-r1: A library to control MPRIS2 compatible players
 media-libs/libmtp 1.1.20 9999: Implementation of Microsoft's Media Transfer Protocol (MTP)
 media-libs/libmygpo-qt 1.1.0 9999: Qt/C++ library wrapping the gpodder.net webservice
@@ -13726,7 +13726,7 @@ media-libs/libquicktime 1.2.4-r3: An enhanced version of the quicktime4linux lib
 media-libs/libquvi 0.9.4-r100: Library for parsing video download links
 media-libs/libquvi-scripts 0.9.20131130-r100: Embedded lua scripts for libquvi
 media-libs/libraw 0.20.2: LibRaw is a library for reading RAW files obtained from digital photo cameras
-media-libs/libreplaygain 477-r1: Replay Gain library from Musepack
+media-libs/libreplaygain 477-r2: Replay Gain library from Musepack
 media-libs/librosprite 0.1.3-r2: framebuffer abstraction library, written in C
 media-libs/librtprocess 0.12.0: Algorithms for RAW processing from RawTherapee
 media-libs/libsamplerate 0.2.2 9999: Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio
@@ -13799,7 +13799,7 @@ media-libs/phat 0.4.1-r2: PHAT is a collection of GTK+ widgets geared toward pro
 media-libs/phonon 4.11.1-r2: KDE multimedia abstraction library
 media-libs/phonon-gstreamer 4.10.0: GStreamer backend for the Phonon multimedia library
 media-libs/phonon-vlc 0.11.3-r1: VLC backend for the Phonon multimedia library
-media-libs/plib 1.8.5-r3: multimedia library used by many games
+media-libs/plib 1.8.5-r4: Multimedia library used by many games
 media-libs/plotutils 2.6-r2: Powerful C/C++ function library for exporting 2-D vector graphics
 media-libs/pnglite 0.1.17-r1: Small and simple library for loading and writing PNG images
 media-libs/portaudio 19.07.00-r2: A free, cross-platform, open-source, audio I/O library
@@ -13813,7 +13813,7 @@ media-libs/quesoglc 0.7.2-r1: Free implementation of the OpenGL Character Render
 media-libs/raptor 2.0.15-r4 2.0.15-r5: The RDF Parser Toolkit
 media-libs/raspberrypi-userland 0_pre20160424 0_pre20201022 9999: Raspberry Pi userspace tools and libraries
 media-libs/raspberrypi-userland-bin 1.20201201: Raspberry Pi userspace tools and libraries
-media-libs/resid 0.16_p2-r1: C++ library to emulate the C64 SID chip
+media-libs/resid 0.16_p2-r2: C++ library to emulate the C64 SID chip
 media-libs/rlottie 0.2_p20210405: A platform independent standalone library that plays Lottie Animations
 media-libs/rnnoise 0.4.1_p20210122: Recurrent neural network for audio noise reduction
 media-libs/rtaudio 5.2.0: A set of cross-platform C++ classes for realtime audio I/O
@@ -13854,7 +13854,7 @@ media-libs/t1lib 5.1.2-r3: A Type 1 Font Rasterizer Library for UNIX/X11
 media-libs/taglib 1.12: Library for reading and editing audio meta data
 media-libs/taglib-extras 1.0.1-r1: Unofficial taglib plugins maintained by the Amarok team
 media-libs/tg_owt 0_pre20220209 0_pre20220507: WebRTC build for Telegram
-media-libs/theoraplay 0_pre20180524: Simple library to make decoding of Ogg Theora videos easier
+media-libs/theoraplay 0_pre20180524-r1: Simple library to make decoding of Ogg Theora videos easier
 media-libs/tiff 4.3.0 4.4.0: Tag Image File Format (TIFF) library
 media-libs/tremor 0_pre20130223-r2: A fixed-point version of the Ogg Vorbis decoder (also known as libvorbisidec)
 media-libs/tse3 0.3.1-r1: TSE3 Sequencer library
@@ -14257,7 +14257,7 @@ media-sound/darkice 1.4: A live audio streamer
 media-sound/darksnow 0.7.1: Streaming GTK+ Front-End based on Darkice Ice Streamer
 media-sound/daudio 0.3-r1: Distributed audio on the local network
 media-sound/dbmeasure 0.0.20100217: ALSA Volume Control Attenuation Measurement Tool
-media-sound/dcadec 0.2.0: DTS Coherent Acoustics decoder with support for HD extensions
+media-sound/dcadec 0.2.0-r1: DTS Coherent Acoustics decoder with support for HD extensions
 media-sound/dcaenc 2-r2: DTS Coherent Acoustics audio encoder
 media-sound/dcd 0.95: A simple command-line based CD Player
 media-sound/deadbeef 1.8.8-r1 1.8.8-r2 1.9.1-r1: DeaDBeeF is a modular audio player similar to foobar2000
@@ -14389,7 +14389,7 @@ media-sound/multimux 0.2.5.2: combines up to 8 audio mono wave ch. into one big 
 media-sound/munt-mt32emu-alsadrv 2.6.1: ALSA MIDI driver for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
 media-sound/mup 6.9: Program for printing music scores
 media-sound/muse 0.9.2_p20161002: Multiple Streaming Engine, an icecast source streamer
-media-sound/musepack-tools 465-r1: Musepack SV8 libraries and utilities
+media-sound/musepack-tools 465-r2: Musepack SV8 libraries and utilities
 media-sound/musescore 3.6.2-r1 9999: WYSIWYG Music Score Typesetter
 media-sound/music-file-organizer 1.0.3: Organizes audio files into directories based on metadata tags
 media-sound/musique 1.5-r1: Qt music player
@@ -14588,7 +14588,7 @@ media-video/chaplin 1.10-r2: This is a program to raw copy chapters from a dvd u
 media-video/cheese 41.1: A cheesy program to take pictures and videos from your webcam
 media-video/cpvts 1.2-r1: raw copy title sets from a DVD to your harddisc
 media-video/devedeng 4.17.0 4.17.0-r1: DevedeNG is a program to create video DVDs and CDs (VCD, sVCD or CVD)
-media-video/dirac 1.0.2-r1: Open Source video codec
+media-video/dirac 1.0.2-r2: Open Source video codec
 media-video/droidcam 1.8.2: Use your phone or tablet as webcam with a v4l device driver and app
 media-video/dv2sub 0.3-r2: Extract info or subtitles from DV stream
 media-video/dvbackup 0.0.4-r2: A small utility for creating backups on DV tapes
@@ -15245,7 +15245,7 @@ net-libs/NativeThread 0_pre20190914-r1: NativeThread for priorities on linux for
 net-libs/accounts-qml 0.7-r1: QML bindings for accounts-qt and signond
 net-libs/accounts-qt 1.16: Qt5 bindings for libaccounts-glib
 net-libs/aqbanking 6.2.5: Generic Online Banking Interface
-net-libs/axtls 2.1.5-r101: Embedded client/server TLSv1 SSL library and small HTTP(S) server
+net-libs/axtls 2.1.5-r102: Embedded client/server TLSv1 SSL library and small HTTP(S) server
 net-libs/biblesync 2.1.0: A multicast protocol to support Bible software shared co-navigation
 net-libs/c-client 2007f-r7: UW IMAP c-client library
 net-libs/canlock 3.3.0: A library for creating and verifying Usenet cancel locks
@@ -15275,7 +15275,7 @@ net-libs/gtk-vnc 1.3.0-r1 1.3.1: VNC viewer widget for GTK
 net-libs/gupnp 1.4.3: An object-oriented framework for creating UPnP devs and control points
 net-libs/gupnp-av 0.14.1: Utility library aiming to ease the handling UPnP A/V profiles
 net-libs/gupnp-igd 1.2.0: Library to handle UPnP IGD port mapping for GUPnP
-net-libs/http-parser 2.9.4-r1: HTTP request/response parser for C
+net-libs/http-parser 2.9.4-r2: HTTP request/response parser for C
 net-libs/ignition-msgs 5.8.0: Protobuf messages and functions for robot applications
 net-libs/ignition-transport 8.3.0: Combines ZeroMQ with Protobufs to create a message passing system
 net-libs/kdav2 0.3.0: KJob based DAV protocol implementation
@@ -15308,7 +15308,7 @@ net-libs/libgrss 0.7.0: Library for easy management of RSS/Atom/Pie feeds
 net-libs/libgsasl 1.10.0: The GNU SASL library
 net-libs/libgssglue 0.4-r1 0.5-r1 0.7: Exports a gssapi interface which calls other random gssapi libraries
 net-libs/libhackrf 2021.03.1 9999: library for communicating with HackRF SDR platform
-net-libs/libhtp 0.5.40: security-aware parser for the HTTP protocol and the related bits and pieces
+net-libs/libhtp 0.5.40-r1: security-aware parser for the HTTP protocol and the related bits and pieces
 net-libs/libhubbub 0.3.7: HTML5 compliant parsing library, written in C
 net-libs/libident 0.32-r1: A small library to interface to the Ident protocol server
 net-libs/libiio 0.21 0.24 9999: Library for interfacing with IIO devices
@@ -15666,7 +15666,7 @@ net-misc/libteam 1.31-r1 9999: Library and tools set for controlling team networ
 net-misc/linux-eoip 0.5: Linux support for proprietary MIkrotik EoIP protocol
 net-misc/linuxptp 2.0-r1 3.1.1-r1: The Linux Precision Time Protocol (PTP) implementation
 net-misc/liveice 2000530-r2: Live Source Client For IceCast
-net-misc/lksctp-tools 1.0.19: Tools for Linux Kernel Stream Control Transmission Protocol implementation
+net-misc/lksctp-tools 1.0.19-r1: Tools for Linux Kernel Stream Control Transmission Protocol implementation
 net-misc/lldpd 1.0.14 1.0.15-r1: Implementation of IEEE 802.1ab (LLDP)
 net-misc/lyricwikia 0.1.11-r1: Python API to get song lyrics from LyricWikia
 net-misc/mcproxy 1.1.1-r2: A multicast proxy for IGMP/MLD

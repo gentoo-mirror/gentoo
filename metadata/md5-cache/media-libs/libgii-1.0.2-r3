@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=X? ( >=x11-libs/libX11-1.6.2 >=x11-libs/libXxf86dga-1.1.4 ) kernel_linux? ( >=sys-kernel/linux-headers-2.6.11 )
+DESCRIPTION=Easy to use, but yet powerful, API for all possible input sources
+EAPI=8
+HOMEPAGE=https://ibiblio.org/ggicore/packages/libgii.html
+INHERIT=autotools
+IUSE=X
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86
+LICENSE=LGPL-2
+RDEPEND=X? ( >=x11-libs/libX11-1.6.2 >=x11-libs/libXxf86dga-1.1.4 )
+SLOT=0
+SRC_URI=mirror://sourceforge/ggi/libgii-1.0.2.src.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=4cdda012428079b60eaeefdf4435e596
