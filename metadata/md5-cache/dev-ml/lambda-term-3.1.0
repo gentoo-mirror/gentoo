@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/camomile:= dev-ml/lwt:= dev-ml/lwt_log:= dev-ml/mew_vi:= dev-ml/react:= dev-ml/zed:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/camomile:= >=dev-ml/lwt-5.4:= dev-ml/lwt_log:= dev-ml/mew_vi:= dev-ml/react:= dev-ml/zed:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Terminal manipulation library for OCaml
 EAPI=7
 HOMEPAGE=https://github.com/ocaml-community/lambda-term
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-ml/camomile:= dev-ml/lwt:= dev-ml/lwt_log:= dev-ml/mew_vi:= dev-ml/react:= dev-ml/zed:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/camomile:= >=dev-ml/lwt-5.4:= dev-ml/lwt_log:= dev-ml/mew_vi:= dev-ml/react:= dev-ml/zed:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/3.1.0
 SRC_URI=https://github.com/ocaml-community/lambda-term/archive/3.1.0.tar.gz -> lambda-term-3.1.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=79465c392ef7a2aaa6839a70b74e78e9
+_md5_=9054264d270d22bdfde5de80bbb23c4e
