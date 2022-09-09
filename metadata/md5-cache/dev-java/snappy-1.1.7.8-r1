@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/xerial/snappy-java/
 INHERIT=java-pkg-2 java-ant-2 toolchain-funcs
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* dev-java/osgi-core:0 app-arch/snappy dev-libs/bitshuffle >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=1.1
 SRC_URI=https://github.com/xerial/snappy-java/archive/1.1.7.8.tar.gz -> snappy-java-1.1.7.8.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0
-_md5_=8d1eee5f4ff7f176979b66360b337ec3
+_md5_=5f8689981d885a59111fdda81c892ac4
