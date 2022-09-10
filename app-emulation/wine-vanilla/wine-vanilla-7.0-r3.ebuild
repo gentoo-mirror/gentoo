@@ -6,23 +6,20 @@ EAPI=8
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit autotools flag-o-matic multilib multilib-build toolchain-funcs wrapper
 
-WINE_GECKO=2.47.3
-WINE_MONO=7.3.0
+WINE_GECKO=2.47.2
+WINE_MONO=7.0.0
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/wine-staging/wine-staging.git"
-	WINE_EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
+	EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
 else
 	(( $(ver_cut 2) )) && WINE_SDIR=$(ver_cut 1).x || WINE_SDIR=$(ver_cut 1).0
-	SRC_URI="
-		https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz
-		https://github.com/wine-staging/wine-staging/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz"
+	S="${WORKDIR}/wine-${PV}"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
-S="${WORKDIR}/wine-${PV}"
 
-DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
+DESCRIPTION="Free implementation of Windows(tm) on Unix, without external patchsets"
 HOMEPAGE="https://www.winehq.org/"
 
 LICENSE="LGPL-2.1+ BSD-2 IJG MIT ZLIB gsm libpng2 libtiff"
@@ -32,7 +29,7 @@ IUSE="
 	llvm-libunwind debug custom-cflags +fontconfig +gecko gphoto2
 	+gstreamer kerberos ldap +mingw +mono netapi nls odbc openal
 	opencl +opengl osmesa pcap perl pulseaudio samba scanner +sdl
-	selinux +ssl +truetype udev udisks +unwind usb v4l +vulkan xattr
+	selinux +ssl +truetype udev udisks +unwind usb v4l +vkd3d +vulkan
 	+xcomposite xinerama"
 REQUIRED_USE="
 	X? ( truetype )
@@ -95,7 +92,7 @@ WINE_COMMON_DEPEND="
 		!llvm-libunwind? ( sys-libs/libunwind:=[${MULTILIB_USEDEP}] )
 	)
 	usb? ( dev-libs/libusb:1[${MULTILIB_USEDEP}] )
-	xattr? ( sys-apps/attr[${MULTILIB_USEDEP}] )"
+	vkd3d? ( >=app-emulation/vkd3d-1.2[${MULTILIB_USEDEP}] )"
 RDEPEND="
 	${WINE_COMMON_DEPEND}
 	app-emulation/wine-desktop-common
@@ -126,8 +123,8 @@ IDEPEND="app-eselect/eselect-wine"
 QA_TEXTRELS="usr/lib/*/wine/i386-unix/*.so" # uses -fno-PIC -Wl,-z,notext
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-7.17-llvm-libunwind.patch
-	"${FILESDIR}"/${PN}-7.17-noexecstack.patch
+	"${FILESDIR}"/${PN}-7.0-llvm-libunwind.patch
+	"${FILESDIR}"/${PN}-7.0-noexecstack.patch
 )
 
 pkg_pretend() {
@@ -149,36 +146,7 @@ pkg_pretend() {
 	fi
 }
 
-src_unpack() {
-	if [[ ${PV} == *9999 ]]; then
-		EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
-		git-r3_src_unpack
-
-		EGIT_COMMIT=$(<"${EGIT_CHECKOUT_DIR}"/staging/upstream-commit) || die
-		EGIT_REPO_URI=${WINE_EGIT_REPO_URI}
-		EGIT_CHECKOUT_DIR=${S}
-		einfo "Fetching Wine commit matching the current patchset by default (${EGIT_COMMIT})"
-		git-r3_src_unpack
-	else
-		default
-	fi
-}
-
 src_prepare() {
-	local staging=(
-		./patchinstall.sh DESTDIR="${S}"
-		--all
-		--backend=eapply
-		--no-autoconf
-		-W winemenubuilder-Desktop_Icon_Path #652176
-		${MY_WINE_STAGING_CONF}
-	)
-
-	# source patcher in a subshell so can use eapply as a backend
-	ebegin "Running ${staging[*]}"
-	( cd ../${P}/patches && . "${staging[@]}" )
-	eend ${?} || die "Failed to apply the patchset"
-
 	# sanity check, bumping these has a history of oversights
 	local geckomono=$(sed -En '/^#define (GECKO|MONO)_VER/{s/[^0-9.]//gp}' \
 		dlls/appwiz.cpl/addons.c || die)
@@ -240,8 +208,8 @@ src_configure() {
 		$(use_with unwind)
 		$(use_with usb)
 		$(use_with v4l v4l2)
+		$(use_with vkd3d)
 		$(use_with vulkan)
-		$(use_with xattr)
 		$(use_with xcomposite)
 		$(use_with xinerama)
 		$(usev !odbc ac_cv_lib_soname_odbc=)
