@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-libs/libfmt:= media-libs/libsdl2[sound] flac? ( media-libs/flac ) fluidsynth? ( media-sound/fluidsynth:= ) libsamplerate? ( media-libs/libsamplerate ) modplug? ( media-libs/libmodplug ) mpg123? ( media-sound/mpg123 ) musepack? ( media-sound/musepack-tools ) openmpt? ( media-libs/libopenmpt ) opus? ( media-libs/opusfile ) sndfile? ( media-libs/libsndfile ) soxr? ( media-libs/soxr ) vorbis? ( media-libs/libvorbis ) wildmidi? ( media-sound/wildmidi )
+DEPEND=dev-libs/libfmt:= media-libs/libsdl2[sound] flac? ( media-libs/flac:= ) fluidsynth? ( media-sound/fluidsynth:= ) libsamplerate? ( media-libs/libsamplerate ) modplug? ( media-libs/libmodplug ) mpg123? ( media-sound/mpg123 ) musepack? ( media-sound/musepack-tools ) openmpt? ( media-libs/libopenmpt ) opus? ( media-libs/opusfile ) sndfile? ( media-libs/libsndfile ) soxr? ( media-libs/soxr ) vorbis? ( media-libs/libvorbis ) wildmidi? ( media-sound/wildmidi )
 DESCRIPTION=Audio decoding, resampling and mixing library for SDL
 EAPI=8
 HOMEPAGE=https://github.com/realnc/SDL_audiolib/
@@ -8,7 +8,7 @@ INHERIT=cmake git-r3
 IUSE=doc flac fluidsynth libsamplerate modplug mpg123 musepack openmpt opus sndfile soxr vorbis wildmidi
 LICENSE=LGPL-3+ BSD-2 || ( MIT Unlicense )
 PROPERTIES=live
-RDEPEND=dev-libs/libfmt:= media-libs/libsdl2[sound] flac? ( media-libs/flac ) fluidsynth? ( media-sound/fluidsynth:= ) libsamplerate? ( media-libs/libsamplerate ) modplug? ( media-libs/libmodplug ) mpg123? ( media-sound/mpg123 ) musepack? ( media-sound/musepack-tools ) openmpt? ( media-libs/libopenmpt ) opus? ( media-libs/opusfile ) sndfile? ( media-libs/libsndfile ) soxr? ( media-libs/soxr ) vorbis? ( media-libs/libvorbis ) wildmidi? ( media-sound/wildmidi )
+RDEPEND=dev-libs/libfmt:= media-libs/libsdl2[sound] flac? ( media-libs/flac:= ) fluidsynth? ( media-sound/fluidsynth:= ) libsamplerate? ( media-libs/libsamplerate ) modplug? ( media-libs/libmodplug ) mpg123? ( media-sound/mpg123 ) musepack? ( media-sound/musepack-tools ) openmpt? ( media-libs/libopenmpt ) opus? ( media-libs/opusfile ) sndfile? ( media-libs/libsndfile ) soxr? ( media-libs/soxr ) vorbis? ( media-libs/libvorbis ) wildmidi? ( media-sound/wildmidi )
 SLOT=0
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=93833156a36e1cf3ed3423cd010f8c27
+_md5_=b39dae8cebf643bb2e963dadc231b258

@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install
+DEPEND=flac? ( media-libs/flac:= ) mp3? ( media-libs/libmad ) vorbis? ( media-libs/libvorbis media-libs/libogg )
+DESCRIPTION=Cuecue converts .cue + [.ogg|.flac|.wav|.mp3] to .cue + .bin
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=toolchain-funcs
+IUSE=flac mp3 +vorbis
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=flac? ( media-libs/flac:= ) mp3? ( media-libs/libmad ) vorbis? ( media-libs/libvorbis media-libs/libogg )
+REQUIRED_USE=|| ( flac mp3 vorbis )
+SLOT=0
+SRC_URI=mirror://gentoo/cuecue-0.2.2.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=f928886e82b833bd03f6c11faaef12ae

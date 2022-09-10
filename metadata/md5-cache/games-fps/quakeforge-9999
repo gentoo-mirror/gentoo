@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig doc? ( app-doc/doxygen[dot] media-gfx/transfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare unpack
-DEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= ) client? ( x11-base/xorg-proto vulkan? ( dev-util/vulkan-headers ) )
+DEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= ) client? ( x11-base/xorg-proto vulkan? ( dev-util/vulkan-headers ) )
 DESCRIPTION=3D engine based on id Software's Quake and QuakeWorld game engines
 EAPI=8
 HOMEPAGE=http://www.quakeforge.net/
@@ -8,7 +8,7 @@ INHERIT=autotools flag-o-matic readme.gentoo-r1 toolchain-funcs git-r3
 IUSE=alsa +client debug doc flac jack ncurses oss png sdl vorbis vulkan wildmidi zlib
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= )
+RDEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= )
 SLOT=0
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=51f8d7023e99f1a19abaa74bafefc55e
+_md5_=8db05b2f36a8b61eeaa23a00d1d8650b

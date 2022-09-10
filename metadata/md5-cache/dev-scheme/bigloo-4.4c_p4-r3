@@ -1,0 +1,16 @@
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) sys-apps/texinfo
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-libs/boehm-gc[threads] dev-libs/libpcre2:= dev-libs/libunistring:= dev-libs/openssl:= alsa? ( media-libs/alsa-lib ) avahi? ( net-dns/avahi ) flac? ( media-libs/flac:= ) gmp? ( dev-libs/gmp:= ) gpg? ( app-crypt/gnupg ) gstreamer? ( media-libs/gst-plugins-base:1.0= media-libs/gstreamer:1.0= ) java? ( virtual/jdk:* ) libuv? ( dev-libs/libuv:= ) mp3? ( media-sound/mpg123 ) pulseaudio? ( media-sound/pulseaudio ) sqlite? ( dev-db/sqlite:3= )
+DESCRIPTION=Practical Scheme Compiler with many extensions
+EAPI=8
+HOMEPAGE=http://www-sop.inria.fr/indes/fp/Bigloo/index.html
+INHERIT=elisp-common toolchain-funcs
+IUSE=alsa avahi emacs flac +gmp gpg gstreamer java libuv mp3 pulseaudio +sqlite
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/boehm-gc[threads] dev-libs/libpcre2:= dev-libs/libunistring:= dev-libs/openssl:= alsa? ( media-libs/alsa-lib ) avahi? ( net-dns/avahi ) flac? ( media-libs/flac:= ) gmp? ( dev-libs/gmp:= ) gpg? ( app-crypt/gnupg ) gstreamer? ( media-libs/gst-plugins-base:1.0= media-libs/gstreamer:1.0= ) java? ( virtual/jdk:* ) libuv? ( dev-libs/libuv:= ) mp3? ( media-sound/mpg123 ) pulseaudio? ( media-sound/pulseaudio ) sqlite? ( dev-db/sqlite:3= ) emacs? ( >=app-editors/emacs-23.1:* ) sys-devel/binutils sys-devel/gdb
+REQUIRED_USE=flac? ( alsa ) mp3? ( alsa )
+SLOT=0
+SRC_URI=ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-4.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=70c12101d07fb1e9d424b3555647946d

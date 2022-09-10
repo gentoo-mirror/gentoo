@@ -1,0 +1,16 @@
+BDEPEND=test? ( media-libs/libsndfile ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
+DESCRIPTION=Image and video texturing library
+EAPI=7
+HOMEPAGE=https://github.com/coin3d/simage/
+INHERIT=cmake flag-o-matic
+IUSE=gif jpeg png qt5 sndfile test tiff vorbis zlib
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ppc ppc64 ~sparc x86
+LICENSE=BSD-1
+RDEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/coin3d/simage/releases/download/v1.8.1/simage-1.8.1-src.tar.gz -> simage-1.8.1.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=b67123d24ebde4c9affcc09df41eb71d

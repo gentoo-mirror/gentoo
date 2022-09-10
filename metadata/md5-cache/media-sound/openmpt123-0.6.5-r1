@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=~media-libs/libopenmpt-0.6.5 flac? ( media-libs/flac:= ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( >=media-libs/libsdl2-2.0.4 ) sndfile? ( media-libs/libsndfile )
+DESCRIPTION=libopenmpt-based command line player for tracked music files (modules)
+EAPI=8
+HOMEPAGE=https://lib.openmpt.org/libopenmpt/
+INHERIT=multilib
+IUSE=flac portaudio pulseaudio sdl sndfile
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=BSD
+RDEPEND=~media-libs/libopenmpt-0.6.5 flac? ( media-libs/flac:= ) pulseaudio? ( media-sound/pulseaudio ) sdl? ( >=media-libs/libsdl2-2.0.4 ) sndfile? ( media-libs/libsndfile )
+SLOT=0
+SRC_URI=https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.6.5+release.autotools.tar.gz
+_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961
+_md5_=7e4c06691cfa584bed835fa206c42e00

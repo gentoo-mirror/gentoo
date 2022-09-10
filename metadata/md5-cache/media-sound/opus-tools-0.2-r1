@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=>=media-libs/libogg-1.3.0 >=media-libs/libopusenc-0.2 >=media-libs/opus-1.1 >=media-libs/opusfile-0.5 flac? ( >=media-libs/flac-1.1.3:= )
+DESCRIPTION=Royalty-free, highly versatile audio codec
+EAPI=8
+HOMEPAGE=https://opus-codec.org/
+INHERIT=autotools
+IUSE=flac
+KEYWORDS=amd64 ~arm64 ppc ppc64 ~riscv x86
+LICENSE=BSD-2
+RDEPEND=>=media-libs/libogg-1.3.0 >=media-libs/libopusenc-0.2 >=media-libs/opus-1.1 >=media-libs/opusfile-0.5 flac? ( >=media-libs/flac-1.1.3:= )
+SLOT=0
+SRC_URI=https://downloads.xiph.org/releases/opus/opus-tools-0.2.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=5d1552331913d4292371be3a53d6e895
