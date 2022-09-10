@@ -1,0 +1,16 @@
+BDEPEND=examples? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) ) verify-sig? ( sec-keys/openpgp-keys-waynedavison ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install postinst prepare setup unpack
+DEPEND=>=dev-libs/popt-1.5 acl? ( virtual/acl ) examples? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) dev-lang/perl ) lz4? ( app-arch/lz4:= ) ssl? ( dev-libs/openssl:= ) system-zlib? ( sys-libs/zlib ) xattr? ( kernel_linux? ( sys-apps/attr ) ) xxhash? ( >=dev-libs/xxhash-0.8 ) zstd? ( >=app-arch/zstd-1.4:= ) iconv? ( virtual/libiconv )
+DESCRIPTION=File transfer program to keep remote files into sync
+EAPI=8
+HOMEPAGE=https://rsync.samba.org/
+INHERIT=prefix python-single-r1 systemd verify-sig
+IUSE=acl examples iconv lz4 ssl stunnel system-zlib xattr xxhash zstd python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/popt-1.5 acl? ( virtual/acl ) examples? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) dev-lang/perl ) lz4? ( app-arch/lz4:= ) ssl? ( dev-libs/openssl:= ) system-zlib? ( sys-libs/zlib ) xattr? ( kernel_linux? ( sys-apps/attr ) ) xxhash? ( >=dev-libs/xxhash-0.8 ) zstd? ( >=app-arch/zstd-1.4:= ) iconv? ( virtual/libiconv )
+REQUIRED_USE=examples? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+SLOT=0
+SRC_URI=https://rsync.samba.org/ftp/rsync/src/rsync-3.2.6.tar.gz verify-sig? ( https://rsync.samba.org/ftp/rsync/src/rsync-3.2.6.tar.gz.asc )
+_eclasses_=prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=8217ce91ee3d298c555fd6245eb90302
