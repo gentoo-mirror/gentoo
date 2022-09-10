@@ -3,7 +3,7 @@
 
 EAPI=8
 
-H=77c2d41c9ab041c383dfc60ed6ae562c4e953130
+H=db7baebe64d5c1620c06e9bfca267a81ddc64aca
 NEED_EMACS=25.1
 
 inherit elisp
