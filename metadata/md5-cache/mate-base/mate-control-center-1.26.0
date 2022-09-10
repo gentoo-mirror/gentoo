@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/atk >=dev-libs/glib-2.50:2 dev-libs/libxml2:2 >=gnome-base/dconf-0.13.4 >=gnome-base/librsvg-2.0:2 >=mate-base/libmatekbd-1.17.0 >=mate-base/mate-desktop-1.25.0 >=mate-base/caja-1.20.0 >=mate-base/mate-menus-1.21.0 >=media-libs/fontconfig-1:1.0 media-libs/freetype:2 media-libs/libcanberra:0[gtk3] sys-auth/polkit[introspection] x11-apps/xmodmap x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXcursor x11-libs/libXext >=x11-libs/libXi-1.5 x11-libs/libXrandr x11-libs/libXrender >=x11-libs/libxklavier-4 x11-libs/pango >=x11-wm/marco-1.17.0:= accountsservice? ( sys-apps/accountsservice ) appindicator? ( dev-libs/libappindicator:3 ) app-text/yelp-tools dev-libs/libxml2 dev-util/desktop-file-utils dev-util/glib-utils >=sys-devel/gettext-0.19.8 x11-base/xorg-proto virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils sys-devel/gnuconfig || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info >=mate-base/mate-common-1.26
+DESCRIPTION=The MATE Desktop configuration tool
+EAPI=7
+HOMEPAGE=https://mate-desktop.org
+INHERIT=mate
+IUSE=accountsservice appindicator debug nls
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+LICENSE=FDL-1.1+ GPL-2+ LGPL-2+ LGPL-2.1+ HPND
+RDEPEND=dev-libs/atk >=dev-libs/glib-2.50:2 dev-libs/libxml2:2 >=gnome-base/dconf-0.13.4 >=gnome-base/librsvg-2.0:2 >=mate-base/libmatekbd-1.17.0 >=mate-base/mate-desktop-1.25.0 >=mate-base/caja-1.20.0 >=mate-base/mate-menus-1.21.0 >=media-libs/fontconfig-1:1.0 media-libs/freetype:2 media-libs/libcanberra:0[gtk3] sys-auth/polkit[introspection] x11-apps/xmodmap x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXcursor x11-libs/libXext >=x11-libs/libXi-1.5 x11-libs/libXrandr x11-libs/libXrender >=x11-libs/libxklavier-4 x11-libs/pango >=x11-wm/marco-1.17.0:= accountsservice? ( sys-apps/accountsservice ) appindicator? ( dev-libs/libappindicator:3 )
+SLOT=0
+SRC_URI=https://pub.mate-desktop.org/releases/1.26/mate-control-center-1.26.0.tar.xz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	mate-desktop.org	0da897c64adb500292c6b9db3e424496	mate	e29617c33d6e271931938d0073817dde
+_md5_=984e4ba9737d2e0ceb07e2ea9c1155bc

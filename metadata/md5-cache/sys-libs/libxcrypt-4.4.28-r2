@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl test? ( || ( ( >=dev-lang/python-3.10.4:3.10 dev-python/passlib[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/passlib[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/passlib[python_targets_python3_8(-)] ) ) )
+DEFINED_PHASES=compile configure install preinst prepare pretend setup test
+DEPEND=system? ( elibc_glibc? ( sys-libs/glibc[-crypt(+)] !sys-libs/glibc[crypt(+)] ) elibc_musl? ( !sys-libs/musl[crypt(+)] ) )
+DESCRIPTION=Extended crypt library for descrypt, md5crypt, bcrypt, and others
+EAPI=7
+HOMEPAGE=https://github.com/besser82/libxcrypt
+INHERIT=eapi8-dosym multibuild multilib python-any-r1 flag-o-matic toolchain-funcs multilib-minimal
+IUSE=+compat split-usr static-libs system test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=LGPL-2.1+ public-domain BSD BSD-2
+RDEPEND=system? ( elibc_glibc? ( sys-libs/glibc[-crypt(+)] !sys-libs/glibc[crypt(+)] ) elibc_musl? ( !sys-libs/musl[crypt(+)] ) )
+REQUIRED_USE=split-usr? ( system )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://dev.gentoo.org/~sam/distfiles/sys-libs/libxcrypt/libxcrypt-4.4.28-autotools.tar.xz
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multilib-build	87f1b83e21a473787b821ef3d0437bf3	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_md5_=c3b4af09882f07a9963983159d73c8bb
