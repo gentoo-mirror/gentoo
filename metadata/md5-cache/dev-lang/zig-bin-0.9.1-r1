@@ -1,0 +1,10 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=A robust, optimal, and maintainable programming language
+EAPI=8
+HOMEPAGE=https://ziglang.org/
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=!dev-lang/zig
+SLOT=0
+SRC_URI=amd64? ( https://ziglang.org/download/0.9.1/zig-linux-x86_64-0.9.1.tar.xz ) arm? ( https://ziglang.org/download/0.9.1/zig-linux-armv7a-0.9.1.tar.xz ) arm64? ( https://ziglang.org/download/0.9.1/zig-linux-aarch64-0.9.1.tar.xz ) x86? ( https://ziglang.org/download/0.9.1/zig-linux-i386-0.9.1.tar.xz ) https://codeberg.org/BratishkaErik/distfiles/media/branch/master/zig-0.9.1-fix-detecting-abi.patch
+_md5_=3ac2e4ea35bede17b5bf8197e04cd7a3

@@ -11,6 +11,6 @@ LICENSE=MIT
 RDEPEND=sys-devel/clang:13 >=sys-devel/lld-13 <sys-devel/lld-14 sys-devel/llvm:13 >=sys-libs/zlib-1.2.12 !dev-lang/zig-bin
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz
+SRC_URI=https://ziglang.org/download/0.9.1/zig-0.9.1.tar.xz https://codeberg.org/BratishkaErik/distfiles/media/branch/master/zig-0.9.1-fix-detecting-abi.patch
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	llvm	1c0b36f6ee2ff37bb9ab25cf23563030	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c
-_md5_=f62aba521af2fe185b22ec04ade8fa62
+_md5_=0504235b823b0db5f8ae0cf51d2d581f
