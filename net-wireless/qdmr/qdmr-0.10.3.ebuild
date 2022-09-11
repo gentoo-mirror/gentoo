@@ -1,7 +1,7 @@
 # Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake udev linux-info
 
@@ -14,7 +14,7 @@ else
 	MY_PV="${PV/_/-}"
 	SRC_URI="https://github.com/hmatuschek/qdmr/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_PV}"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -48,4 +48,12 @@ src_prepare() {
 	sed -i 's#666#660#' dist/99-qdmr.rules
 	sed -i "s#/etc/udev/rules.d/#$(get_udevdir)/rules.d#" lib/CMakeLists.txt
 	cmake_src_prepare
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
