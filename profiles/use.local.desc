@@ -267,7 +267,6 @@ app-benchmarks/filebench:auto-completion - Enable command-line autocompletion us
 app-benchmarks/httperf:idleconn - Build with the idleconn program
 app-benchmarks/ioping:netdata - Add support for netdata
 app-benchmarks/ramspeed:pic - Force shared libraries to be built as PIC (this is slower)
-app-benchmarks/stress-ng:apparmor - Add support for AppArmor.
 app-benchmarks/sysbench:aio - Add support for AIO.
 app-benchmarks/sysbench:attachsql - Add support for AttachSQL.
 app-benchmarks/sysbench:drizzle - Add support for Drizzles.
@@ -282,7 +281,6 @@ app-cdr/gaffitter:scripts - Install additional gaffitter scripts for external pr
 app-cdr/mirage2iso:pinentry - Support app-crypt/pinentry password input backend.
 app-containers/apptainer:network - Install network plug-ins
 app-containers/apptainer:suid - Install SUID helper binary
-app-containers/containerd:apparmor - Support for AppArmor
 app-containers/containerd:btrfs - Support for BTRFS snapshot driver
 app-containers/containerd:cri - Support for Kubernetes CRI
 app-containers/containerd:device-mapper - Support for device mapper snapshot driver
@@ -292,7 +290,6 @@ app-containers/cri-o:btrfs - Enables dependencies for the "btrfs" graph driver, 
 app-containers/cri-o:device-mapper - Enables dependencies for the "devicemapper" graph driver, including necessary kernel flags.
 app-containers/crun:bpf - Enable in Kernel, eBPF (enhanced Berkley Packet Filter) support for managing device controllers.
 app-containers/crun:criu - Enable CRIU based checkpoint/restore support
-app-containers/docker:apparmor - Enable AppArmor support.
 app-containers/docker:aufs - Enables dependencies for the "aufs" graph driver, including necessary kernel flags.
 app-containers/docker:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
 app-containers/docker:cli - This is a temporary use flag which pulls in app-containers/docker-cli, the docker command line client. This flag is here to assist in the transition to split packages and will be removed in a future release.
@@ -301,20 +298,15 @@ app-containers/docker:device-mapper - Enables dependencies for the "devicemapper
 app-containers/docker:overlay - Enables dependencies for the "overlay" graph driver, including necessary kernel flags.
 app-containers/docker-credential-helpers:gnome-keyring - Build secretservice helper which works with gnome-keyring or kwallet using D-Bus.
 app-containers/docker-credential-helpers:pass - Build pass helper for the pass utility.
-app-containers/lxc:apparmor - Enable AppArmor support
 app-containers/lxc:io-uring - Enable io_uring support, and use io_uring instead of epoll
 app-containers/lxc:tools - Build and install additional command line tools
-app-containers/lxd:apparmor - Enable AppArmor support
-app-containers/podman:apparmor - Enable AppArmor support.
 app-containers/podman:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
 app-containers/podman:cgroup-hybrid - Default to hybrid (legacy) cgroup hierarchy instead of unified (modern).
 app-containers/podman:fuse - Enables fuse dependencies (fuse-overlayfs is especially useful for rootless mode).
 app-containers/podman:init - Enables catatonit dependency required for podman run --init.
 app-containers/podman:rootless - Enables dependencies for running in rootless mode.
-app-containers/runc:apparmor - Enable AppArmor support.
 app-containers/runc:kmem - Enable Kernel Memory Accounting.
 app-containers/skopeo:btrfs - Enables dependencies for the "btrfs" graph driver.
-app-containers/snapd:apparmor - Enable AppArmor support.
 app-containers/snapd:forced-devmode - Automatically disable application confinement if feature detection fails.
 app-crypt/aespipe:asm - Enable assembly modules
 app-crypt/aespipe:cpu_flags_x86_padlock - Use VIA padlock instructions, detected at run time, code still works on non-padlock processors
@@ -534,7 +526,6 @@ app-emulation/libguestfs:inspect-icons - Use media-gfx/icoutils for accessing/in
 app-emulation/libguestfs:libvirt - Use app-emulation/libvirt to manipulate VMs
 app-emulation/libguestfs:systemtap - Use dev-util/systemtap to inspect VM via "probes"
 app-emulation/libspectrum:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
-app-emulation/libvirt:apparmor - Enable AppArmor support
 app-emulation/libvirt:dtrace - Enable dtrace support via dev-util/systemtap
 app-emulation/libvirt:firewalld - DBus interface to iptables/ebtables allowing for better runtime management of your firewall.
 app-emulation/libvirt:fuse - Allow LXC to use sys-fs/fuse for mountpoints
@@ -4241,7 +4232,6 @@ media-libs/libde265:enc265 - Enable build of enc265 tool
 media-libs/libde265:sdl - Enable video output of dec265 example program with media-libs/libsdl
 media-libs/libde265:tools - Enable installation of varous binary tools
 media-libs/libepoxy:egl - Enable EGL support.
-media-libs/libextractor:apparmor - Enable apparmor support using sys-libs/libapparmor
 media-libs/libextractor:archive - Enable archive support using app-arch/libarchive
 media-libs/libextractor:gsf - Enable OLE2 (MS Office) plug-in support using gnome-extra/libgsf
 media-libs/libextractor:midi - Enable MIDI support through media-libs/libsmf
@@ -7756,7 +7746,6 @@ sys-apps/cpu-x:opencl - Use the virtual/opencl library
 sys-apps/cpu-x:pci - Use the sys-apps/pciutils library for PCI info
 sys-apps/dbus:elogind - Use sys-auth/elogind for session tracking.
 sys-apps/dbus:systemd - Build with sys-apps/systemd at_console support
-sys-apps/dbus-broker:apparmor - Enable AppArmor support
 sys-apps/dbus-broker:launcher - dbus-daemon compatibility launcher
 sys-apps/debianutils:installkernel - Install /sbin/installkernel script (for Linux). installkernel is required whenever a kernel will be installed via make install
 sys-apps/dtc:yaml - support .yaml-encoded device trees
@@ -7943,7 +7932,6 @@ sys-apps/smc-sum:module - Install Supermicro's kernel module.
 sys-apps/superdiag:iso - Install an iso image, which can be used with sys-apps/smc-sum.
 sys-apps/superdiag:usb - Install all files, which are needed for an installation on an usb thumb drive.
 sys-apps/superiotool:pci - Support for PCI-attached "Super I/Os" (e.g. in VIA VT82686A/B).
-sys-apps/systemd:apparmor - Enable AppArmor support
 sys-apps/systemd:audit - Enable support for sys-process/audit
 sys-apps/systemd:cgroup-hybrid - Default to hybrid (legacy) cgroup hierarchy instead of unified (modern).
 sys-apps/systemd:cryptsetup - Enable cryptsetup tools (includes unit generator for crypttab)
