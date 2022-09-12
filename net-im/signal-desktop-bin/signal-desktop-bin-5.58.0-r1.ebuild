@@ -27,6 +27,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
+	dev-libs/wayland
 	media-libs/alsa-lib
 	media-libs/mesa[X(+)]
 	net-print/cups

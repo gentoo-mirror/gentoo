@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-1 )
+LUA_COMPAT=( lua5-4 )
 
 inherit lua-single toolchain-funcs xdg
 
@@ -13,7 +13,7 @@ SRC_URI="https://www.scintilla.org/${PN}${PV//./}.tgz -> ${P}.tgz"
 
 LICENSE="HPND lua? ( MIT )"
 SLOT="0"
-KEYWORDS="amd64 ppc x86 ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~riscv ~x86 ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="lua"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
@@ -92,6 +92,6 @@ src_compile() {
 # want to use the base src_install() as base_src_install()
 
 src_install() {
-	default
+	GTK3=1 default
 	dosym SciTE /usr/bin/scite
 }
