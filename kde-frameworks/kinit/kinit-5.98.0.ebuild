@@ -9,7 +9,7 @@ PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.5
 inherit ecm frameworks.kde.org
 
-DESCRIPTION="Helper library to speed up start of applications on KDE work spaces"
+DESCRIPTION="Helper library to speed up start of applications on KDE workspaces"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
@@ -36,8 +36,6 @@ DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
-
-PATCHES=( "${FILESDIR}/${PN}-5.96.0-with_x11.patch" )
 
 src_configure() {
 	local mycmakeargs=(

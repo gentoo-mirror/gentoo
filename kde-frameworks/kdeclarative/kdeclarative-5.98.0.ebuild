@@ -32,4 +32,6 @@ DEPEND="
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5
 	media-libs/libepoxy
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+"

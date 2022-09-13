@@ -16,7 +16,7 @@ IUSE=""
 
 RESTRICT="test" # bug 574770
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
@@ -26,7 +26,8 @@ DEPEND="
 	=kde-frameworks/kconfigwidgets-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
-	=kde-frameworks/kitemviews-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
+"

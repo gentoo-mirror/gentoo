@@ -18,12 +18,12 @@ IUSE=""
 # All failing, I guess we need a virtual wayland server
 RESTRICT="test"
 
-# slot op: includes qpa/qplatformnativeinterface.h
+# slot ops: includes qpa/qplatformnativeinterface.h, surface_p.h
 RDEPEND="
 	>=dev-libs/wayland-1.15.0
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5=[egl]
-	>=dev-qt/qtwayland-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5=
 	media-libs/libglvnd
 "
 DEPEND="${RDEPEND}

@@ -62,8 +62,6 @@ BDEPEND="
 	dev-util/gperf
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.96.0-with_x11.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X)

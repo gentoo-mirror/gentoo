@@ -65,8 +65,6 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${PN}-5.96.0-with_x11.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
