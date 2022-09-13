@@ -7,7 +7,7 @@ inherit go-module
 DESCRIPTION="Docker-compatible CLI for containerd, with support for Compose"
 HOMEPAGE="https://github.com/containerd/nerdctl"
 
-EGIT_COMMIT="9ddf5226eabcbb7b4b43987f3b0f8d53d86d3bca"
+EGIT_COMMIT="660680b7ddfde1d38a66ec1c7f08f8d89ab92c68"
 # There are too many vendor dependencies to distribute via EGO_SUM (see https://bugs.gentoo.org/721088),
 # so they are instead distributed via a combined tarball.
 SRC_URI="https://github.com/zmedico/nerdctl/archive/refs/tags/v${PV}-vendor.tar.gz -> ${P}-vendor.tar.gz"
