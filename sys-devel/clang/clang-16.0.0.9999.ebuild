@@ -64,7 +64,7 @@ LLVM_TEST_COMPONENTS=(
 	llvm/utils/{lit,llvm-lit,unittest}
 	llvm/utils/{UpdateTestChecks,update_cc_test_checks.py}
 )
-LLVM_PATCHSET=9999-r3
+LLVM_PATCHSET=9999-r4
 LLVM_USE_TARGETS=llvm
 llvm.org_set_globals
 
@@ -202,7 +202,6 @@ get_distribution_components() {
 			clang-format
 			clang-offload-bundler
 			clang-offload-packager
-			clang-offload-wrapper
 			clang-pseudo
 			clang-refactor
 			clang-repl
