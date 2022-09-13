@@ -20,6 +20,8 @@ SRC_URI="https://www.kernel.org/pub/linux/kernel/v${LINUX_V}/${LINUX_PATCH}"
 LINUX_SOURCES="linux-${LINUX_VER}.tar.xz"
 SRC_URI+=" https://www.kernel.org/pub/linux/kernel/v${LINUX_V}/${LINUX_SOURCES}"
 
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/dev-util/perf/perf-5.19-binutils-2.39-patches.tar.xz"
+
 S_K="${WORKDIR}/linux-${LINUX_VER}"
 S="${S_K}/tools/bpf/bpftool"
 
@@ -85,6 +87,12 @@ src_prepare() {
 		eapply "${WORKDIR}"/${P}.patch
 		popd || die
 	fi
+
+	pushd "${S_K}" >/dev/null || die
+	# Used `git format-patch 00b32625982e0c796f0abb8effcac9c05ef55bd3...600b7b26c07a070d0153daa76b3806c1e52c9e00`
+	# bug #868123
+	eapply "${WORKDIR}"/perf-5.19-binutils-2.39-patches
+	popd || die
 
 	# dev-python/docutils installs rst2man.py, not rst2man
 	sed -i -e 's/rst2man/rst2man.py/g' Documentation/Makefile || die
