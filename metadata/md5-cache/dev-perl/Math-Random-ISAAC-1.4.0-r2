@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Math-Random-ISAAC
 INHERIT=perl-module
 IUSE=test
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~riscv x86
 LICENSE=|| ( public-domain MIT Artistic Artistic-2 GPL-1 GPL-2 GPL-3 )
 PDEPEND=dev-perl/Math-Random-ISAAC-XS
 RDEPEND=dev-lang/perl:=
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	4f80b00fab088c2f6d68edb55a6c4bf4
-_md5_=336408c917958161a09b148e24a50490
+_md5_=21a08e362cf2d15517f9b2f76c957972
