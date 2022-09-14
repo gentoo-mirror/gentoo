@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/ace-window app-emacs/cfrs app-emacs/dash app-emacs/ht app-emacs/hydra app-emacs/pfuture app-emacs/s test? ( app-emacs/buttercup ) >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Tree style project file explorer
+EAPI=8
+HOMEPAGE=https://github.com/Alexander-Miller/treemacs/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=app-emacs/ace-window app-emacs/cfrs app-emacs/dash app-emacs/ht app-emacs/hydra app-emacs/pfuture app-emacs/s >=app-editors/emacs-26.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/Alexander-Miller/treemacs/archive/3.0.tar.gz -> treemacs-3.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	c1c17e9c24d72d3bd58c611de8116fb6
+_md5_=1e48f022e52ee0b20234e4765fda3a44
