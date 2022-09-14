@@ -167,7 +167,7 @@ src_compile() {
 		module_glslang_enabled=$(usex gui)
 		module_gridmap_enabled=$(usex deprecated) # fails without deprecated
 		module_mono_enabled=no # unhandled
-		# note raycast is disabled on many arches, see raycast/config.py
+		# note raycast is only enabled on amd64+arm64, see raycast/config.py
 		module_raycast_enabled=$(usex gui $(usex tools $(usex raycast)))
 		module_theora_enabled=$(usex theora)
 		module_upnp_enabled=$(usex upnp)
@@ -175,8 +175,8 @@ src_compile() {
 
 		# let *FLAGS handle these, e.g. can pass -flto as-is
 		debug_symbols=no
+		lto=none
 		optimize=none
-		use_lto=no
 		use_static_cpp=no
 	)
 
