@@ -6,14 +6,13 @@ EAPI=8
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{8..11} )
 KFMIN=5.82.0
-QTMIN=5.15.2
+QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${PV/_rc/-RC}/${PN}-${PV/_rc/-RC}.tar.xz"
-	S="${WORKDIR}/${PN}-${PV/_rc/-RC}"
-	#KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
@@ -21,7 +20,7 @@ HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
 LICENSE="GPL-3"
 SLOT="5"
-IUSE="color-management fftw gif +gsl heif +jpeg jpegxl +mypaint-brush-engine openexr pdf qtmedia +raw webp"
+IUSE="color-management fftw gif +gsl heif jpegxl +mypaint-brush-engine openexr pdf qtmedia +raw webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # bug 630508
@@ -59,6 +58,7 @@ RDEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	media-gfx/exiv2:=
 	media-libs/lcms
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	media-libs/tiff:0
 	sys-libs/zlib
@@ -69,8 +69,7 @@ RDEPEND="${PYTHON_DEPS}
 	fftw? ( sci-libs/fftw:3.0= )
 	gif? ( media-libs/giflib )
 	gsl? ( sci-libs/gsl:= )
-	jpeg? ( media-libs/libjpeg-turbo:= )
-	jpegxl? ( >=media-libs/libjxl-0.7.0 )
+	jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220329 )
 	heif? ( >=media-libs/libheif-1.11:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
@@ -109,8 +108,6 @@ src_configure() {
 		$(cmake_use_find_package gif GIF)
 		$(cmake_use_find_package gsl GSL)
 		$(cmake_use_find_package heif HEIF)
-		$(cmake_use_find_package jpeg JPEG)
-		$(cmake_use_find_package jpeg libjpeg-turbo)
 		$(cmake_use_find_package jpegxl JPEGXL)
 		$(cmake_use_find_package mypaint-brush-engine LibMyPaint)
 		$(cmake_use_find_package openexr OpenEXR)
