@@ -106,3 +106,11 @@ src_install() {
 	distutils-r1_src_install
 	udev_dorules scripts/99-platformio-udev.rules
 }
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
+}
