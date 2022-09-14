@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install test
+DEPEND=cgi? ( dev-perl/URI dev-perl/Digest-SHA1 ) dev-libs/openssl:= geoip? ( >=dev-libs/geoip-1.4.7 ) test? ( dev-perl/Digest-SHA1 )
+DESCRIPTION=IPv6 address calculator
+EAPI=8
+HOMEPAGE=https://www.deepspace6.net/projects/ipv6calc.html
+IUSE=cgi geoip test
+KEYWORDS=~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=cgi? ( dev-perl/URI dev-perl/Digest-SHA1 ) dev-libs/openssl:= geoip? ( >=dev-libs/geoip-1.4.7 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/pbiering/ipv6calc/archive/4.0.1.tar.gz -> ipv6calc-4.0.1.tar.gz
+_md5_=2d3cc18819ce2d41d239f325d71e5ff2
