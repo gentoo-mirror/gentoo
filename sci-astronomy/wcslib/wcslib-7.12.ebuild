@@ -55,17 +55,17 @@ src_configure() {
 	sed -i -e 's/COPYING\*//' GNUmakefile || die
 }
 
-src_test() {
-	# -j1 to work around a race condition
-	emake -j1 check
-}
-
 src_install () {
 	default
 	# static libs share the same symbols as shared (i.e. compiled with PIC)
 	# so they are not compiled twice
-	use static-libs || rm "${ED}"/usr/$(get_libdir)/lib*.a
-	use doc || rm -r \
-		"${ED}"/usr/share/doc/${PF}/html \
-		"${ED}"/usr/share/doc/${PF}/*.pdf
+	if ! use static-libs; then
+		rm "${ED}"/usr/$(get_libdir)/lib*.a || die
+	fi
+
+	if ! use doc; then
+		rm -r \
+			"${ED}"/usr/share/doc/${PF}/html \
+			"${ED}"/usr/share/doc/${PF}/*.pdf || die
+	fi
 }
