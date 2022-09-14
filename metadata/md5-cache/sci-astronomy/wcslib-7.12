@@ -1,5 +1,5 @@
 BDEPEND=>=sys-devel/flex-2.6.0 virtual/pkgconfig fortran? ( virtual/fortran )
-DEFINED_PHASES=configure install setup test
+DEFINED_PHASES=configure install setup
 DEPEND=fits? ( sci-libs/cfitsio:0= ) pgplot? ( sci-libs/pgplot:0= ) fortran? ( virtual/fortran )
 DESCRIPTION=Astronomical World Coordinate System transformations library
 EAPI=8
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-3
 RDEPEND=fits? ( sci-libs/cfitsio:0= ) pgplot? ( sci-libs/pgplot:0= ) fortran? ( virtual/fortran )
 SLOT=0/7
-SRC_URI=ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-7.9.tar.bz2
+SRC_URI=ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-7.12.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=b2be0415615f4d6930b08f2ed8dc55e5
+_md5_=f8e6089935cb404da80cb6e919065950
