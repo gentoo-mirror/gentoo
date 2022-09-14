@@ -127,12 +127,15 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_install() {
 	cargo_src_install
+
 	sed -i \
 		-e "s|@BINDIR@|${EPREFIX}/usr/bin|" \
 		-e "s|@SYSCONFDIR@|${EPREFIX}/etc|" \
 		dist/ipmi-fan-control.service.in || die
+
 	# TODO: add openrc service
 	systemd_newunit dist/ipmi-fan-control.service.in ipmi-fan-control.service
+
 	insinto /etc
 	newins config.sample.toml "${PN}".toml
 }
