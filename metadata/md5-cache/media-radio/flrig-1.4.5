@@ -1,12 +1,14 @@
-DEFINED_PHASES=prepare
+DEFINED_PHASES=configure prepare
 DEPEND=x11-libs/libX11 x11-libs/fltk:1 x11-misc/xdg-utils sys-devel/gettext
 DESCRIPTION=Transceiver control program for Amateur Radio use
 EAPI=8
 HOMEPAGE=http://www.w1hkj.com/flrig-help/index.html
+INHERIT=flag-o-matic
 IUSE=nls
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 x11-libs/fltk:1 x11-misc/xdg-utils
 SLOT=0
 SRC_URI=mirror://sourceforge/fldigi/flrig-1.4.5.tar.gz
-_md5_=0de23162ac0784e65ac8afdcfbd21430
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=456ed0b54334120b01292a50cf8927cc
