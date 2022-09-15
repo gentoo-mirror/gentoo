@@ -1,6 +1,6 @@
 BDEPEND=dev-util/gperf media-gfx/graphicsmagick[jpeg,png,svg] sys-devel/gettext
 DEFINED_PHASES=compile install postinst postrm preinst
-DEPEND=app-text/libpaper dev-libs/fribidi gnome-base/librsvg:2 >=media-libs/libpng-1.2:0= >=media-libs/freetype-2:2 media-libs/libsdl[X,joystick] media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/sdl-gfx:= media-gfx/libimagequant sys-libs/zlib x11-libs/cairo
+DEPEND=app-text/libpaper:= dev-libs/fribidi gnome-base/librsvg:2 >=media-libs/libpng-1.2:0= >=media-libs/freetype-2:2 media-libs/libsdl[X,joystick] media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/sdl-gfx:= media-gfx/libimagequant sys-libs/zlib x11-libs/cairo
 DESCRIPTION=Drawing program designed for young children
 EAPI=8
 HOMEPAGE=https://www.tuxpaint.org/
@@ -8,8 +8,8 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop optfeature toolchain-funcs xdg
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=app-text/libpaper dev-libs/fribidi gnome-base/librsvg:2 >=media-libs/libpng-1.2:0= >=media-libs/freetype-2:2 media-libs/libsdl[X,joystick] media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/sdl-gfx:= media-gfx/libimagequant sys-libs/zlib x11-libs/cairo
+RDEPEND=app-text/libpaper:= dev-libs/fribidi gnome-base/librsvg:2 >=media-libs/libpng-1.2:0= >=media-libs/freetype-2:2 media-libs/libsdl[X,joystick] media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/sdl-gfx:= media-gfx/libimagequant sys-libs/zlib x11-libs/cairo
 SLOT=0
 SRC_URI=mirror://sourceforge/tuxpaint/tuxpaint-0.9.28-sdl1.tar.gz -> tuxpaint-0.9.28.tar.gz
 _eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	optfeature	1a2157392a869265b2afcb63a26c12ac	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=7c0c19aaf4b2b37e08412c22b940f58a
+_md5_=a734a3afd01c7841b4c00d5232093621
