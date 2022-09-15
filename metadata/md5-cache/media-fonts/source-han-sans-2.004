@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm setup
+DESCRIPTION=Pan-CJK OpenType/CFF font family
+EAPI=8
+HOMEPAGE=https://github.com/adobe-fonts/source-han-sans/
+INHERIT=font optfeature
+IUSE=l10n_ja l10n_ko +l10n_zh-CN l10n_zh-HK l10n_zh-TW X
+KEYWORDS=~alpha amd64 arm arm64 ~ia64 ~loong ppc ppc64 ~riscv sparc x86 ~x64-macos
+LICENSE=OFL-1.1
+REQUIRED_USE=|| ( l10n_ja l10n_ko l10n_zh-CN l10n_zh-HK l10n_zh-TW )
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=l10n_ja? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansJP.zip -> source-han-sans-ja-2.004.zip ) l10n_ko? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansKR.zip -> source-han-sans-ko-2.004.zip ) l10n_zh-CN? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansCN.zip -> source-han-sans-zh_CN-2.004.zip ) l10n_zh-HK? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansHK.zip -> source-han-sans-zh_HK-2.004.zip ) l10n_zh-TW? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansTW.zip -> source-han-sans-zh_TW-2.004.zip )
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61	optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=ded84c88bae72fd11a8e4cfd04f1456d
