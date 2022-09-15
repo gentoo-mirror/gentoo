@@ -25,7 +25,7 @@ RDEPEND="media-fonts/cantarell
 	media-fonts/ubuntu-font-family
 	media-libs/fontconfig
 	|| (
-		media-fonts/source-pro
+		media-fonts/source-code-pro
 		media-fonts/anonymous-pro
 		media-fonts/cascadia-code
 		media-fonts/fantasque-sans-mono
