@@ -29,11 +29,6 @@ DEPEND="${RDEPEND}
 	dev-libs/boost
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-cmake.patch
-	"${FILESDIR}"/${P}-fix-cppcheck-warnings.patch
-)
-
 src_prepare() {
 	cmake_src_prepare
 	sed -e "/install.*INSTALL_DOC_DIR/d" -i CMakeLists.txt || die
