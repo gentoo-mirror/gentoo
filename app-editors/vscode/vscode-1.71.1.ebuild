@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop pax-utils xdg
+inherit desktop pax-utils xdg optfeature
 
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
@@ -49,6 +49,7 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
+	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
@@ -122,4 +123,5 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "You may want to install some additional utils, check in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
+	optfeature "keyring support inside vscode" "gnome-base/gnome-keyring"
 }

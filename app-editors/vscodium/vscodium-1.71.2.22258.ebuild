@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop pax-utils xdg
+inherit desktop pax-utils xdg optfeature
 
 DESCRIPTION="A community-driven, freely-licensed binary distribution of Microsoft's VSCode"
 HOMEPAGE="https://vscodium.com/"
@@ -48,7 +48,7 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
-	net-print/cups
+	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
@@ -114,4 +114,5 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "When compared to the regular VSCode, VSCodium has a few quirks"
 	elog "More information at: https://github.com/VSCodium/vscodium/blob/master/DOCS.md"
+	optfeature "keyring support inside vscode" "gnome-base/gnome-keyring"
 }
