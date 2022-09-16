@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare setup
-DEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] )
+DEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] )
 DESCRIPTION=Multi-Language Management
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
@@ -7,9 +7,9 @@ INHERIT=ada multiprocessing
 IUSE=ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] )
-REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
+RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] )
+REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gprbuild/archive/refs/tags/v22.0.0.tar.gz -> gprbuild-22.0.0.tar.gz https://github.com/AdaCore/xmlada/archive/refs/tags/v22.0.0.tar.gz -> xmlada-22.0.0.tar.gz https://github.com/AdaCore/gprconfig_kb/archive/refs/tags/v22.0.0.tar.gz -> gprconfig_kb-22.0.0.tar.gz
 _eclasses_=ada	fc6c14ed095d505642b43326b744689f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=1805a73067092a856188399d53a51c9b
+_md5_=5f6d8bd85a6275ade65b8e6058bb21bf
