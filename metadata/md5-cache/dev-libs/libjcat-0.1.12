@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.11.0_beta4:3.11[xml(+)] dev-python/setuptools[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10[xml(+)] dev-python/setuptools[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9[xml(+)] dev-python/setuptools[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8[xml(+)] dev-python/setuptools[python_targets_python3_8(-)] ) ) gtk-doc? ( dev-util/gtk-doc ) man? ( sys-apps/help2man ) test? ( net-libs/gnutls[tools] ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
+DESCRIPTION=Library and tool for reading and writing Jcat files
+EAPI=8
+HOMEPAGE=https://github.com/hughsie/libjcat
+INHERIT=meson python-any-r1 vala xdg-utils
+IUSE=+gpg gtk-doc +introspection +man +pkcs7 test vala
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/glib:2 dev-libs/json-glib:= gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) introspection? ( dev-libs/gobject-introspection:= ) pkcs7? ( net-libs/gnutls ) vala? ( dev-lang/vala:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hughsie/libjcat/archive/0.1.12.tar.gz -> libjcat-0.1.12.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	vala	1c07e7167d9ef851ad187f5f3f02d34d	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_md5_=bc5382565f5f7bd74cd7f4241c49a2f6
