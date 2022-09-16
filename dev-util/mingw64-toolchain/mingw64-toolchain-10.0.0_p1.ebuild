@@ -31,7 +31,7 @@ LICENSE="
 	LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 )
 	ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 x86"
 IUSE="+abi_x86_32 custom-cflags debug"
 
 RDEPEND="
@@ -289,7 +289,7 @@ pkg_postinst() {
 		elog "packages to depend on without needing a manual crossdev setup."
 		elog
 		elog "Settings are oriented only for what these need and simplicity."
-		elog "Please use sys-devel/crossdev for full toolchain/customization:"
+		elog "Use sys-devel/crossdev if need full toolchain/customization:"
 		elog "    https://wiki.gentoo.org/wiki/Mingw"
 		elog "    https://wiki.gentoo.org/wiki/Crossdev"
 	fi
