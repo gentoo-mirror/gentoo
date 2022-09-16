@@ -4,12 +4,12 @@ DESCRIPTION=Translates addresses into filename, line number, and function names
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada
-IUSE=ada_target_gnat_2020 ada_target_gnat_2021
+IUSE=ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] )
 REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/884f3b229457c995ddebb46a16a7cc50ed837c90?filename=gnatsymbolize-2021-20210518-19D3B-src.tar.gz -> gnatsymbolize-2021-20210518-19D3B-src.tar.gz
-_eclasses_=ada	75db68482cacd143b310392c931f1e58
+_eclasses_=ada	fc6c14ed095d505642b43326b744689f
 _md5_=9bc6b928259028ce0efbd29f6c427374
