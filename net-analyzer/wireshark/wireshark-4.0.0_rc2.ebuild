@@ -26,8 +26,8 @@ fi
 LICENSE="GPL-2"
 SLOT="0/${PV}"
 IUSE="androiddump bcg729 brotli +capinfos +captype ciscodump +dftest doc dpauxmon"
-IUSE+=" +dumpcap +editcap http2 ilbc kerberos libxml2 lto lua lz4 maxminddb"
-IUSE+=" +mergecap +minizip +netlink opus +plugins plugin-ifdemo +pcap +qt5 +randpkt"
+IUSE+=" +dumpcap +editcap +gui http2 ilbc kerberos libxml2 lto lua lz4 maxminddb"
+IUSE+=" +mergecap +minizip +netlink opus +plugins plugin-ifdemo +pcap qt6 +randpkt"
 IUSE+=" +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl"
 IUSE+=" sdjournal test +text2pcap tfshark +tshark +udpdump zlib +zstd"
 
@@ -38,7 +38,8 @@ RESTRICT="!test? ( test )"
 
 # TODO: wifidump/libssh automagic?
 # bug #753062 for speexdsp
-RDEPEND="acct-group/pcap
+RDEPEND="
+	acct-group/pcap
 	>=dev-libs/glib-2.50.0:2
 	dev-libs/libpcre2
 	>=net-dns/c-ares-1.14.0:=
@@ -49,7 +50,7 @@ RDEPEND="acct-group/pcap
 	ciscodump? ( >=net-libs/libssh-0.6 )
 	filecaps? ( sys-libs/libcap )
 	http2? ( >=net-libs/nghttp2-1.11.0:= )
-	ilbc? ( media-libs/libilbc )
+	ilbc? ( media-libs/libilbc:= )
 	kerberos? ( virtual/krb5 )
 	libxml2? ( dev-libs/libxml2 )
 	lua? ( ${LUA_DEPS} )
@@ -59,27 +60,36 @@ RDEPEND="acct-group/pcap
 	netlink? ( dev-libs/libnl:3 )
 	opus? ( media-libs/opus )
 	pcap? ( net-libs/libpcap )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtmultimedia:5
-		dev-qt/qtprintsupport:5
-		dev-qt/qtwidgets:5
+	gui? (
 		x11-misc/xdg-utils
+		qt6? (
+			dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
+			dev-qt/qt5compat:6
+			dev-qt/qtmultimedia:6
+		)
+		!qt6? (
+			dev-qt/qtcore:5
+			dev-qt/qtgui:5
+			dev-qt/qtmultimedia:5
+			dev-qt/qtprintsupport:5
+			dev-qt/qtwidgets:5
+		)
 	)
 	sbc? ( media-libs/sbc )
-	sdjournal? ( sys-apps/systemd )
+	sdjournal? ( sys-apps/systemd:= )
 	smi? ( net-libs/libsmi )
 	snappy? ( app-arch/snappy )
-	spandsp? ( media-libs/spandsp )
-	sshdump? ( >=net-libs/libssh-0.6 )
+	spandsp? ( media-libs/spandsp:= )
+	sshdump? ( >=net-libs/libssh-0.6:= )
 	ssl? ( >=net-libs/gnutls-3.5.8:= )
 	zlib? ( sys-libs/zlib )
-	zstd? ( app-arch/zstd:= )"
+	zstd? ( app-arch/zstd:= )
+"
 DEPEND="${RDEPEND}"
 # TODO: 4.0.0_rc1 release notes say:
 # "Perl is no longer required to build Wireshark, but may be required to build some source code files and run code analysis checks."
-BDEPEND="${PYTHON_DEPS}
+BDEPEND="
+	${PYTHON_DEPS}
 	dev-lang/perl
 	sys-devel/flex
 	sys-devel/gettext
@@ -88,18 +98,26 @@ BDEPEND="${PYTHON_DEPS}
 		app-doc/doxygen
 		dev-ruby/asciidoctor
 	)
-	qt5? (
-		dev-qt/linguist-tools:5
+	gui? (
+		qt6? (
+			dev-qt/qttools:6[linguist]
+		)
+		!qt6? (
+			dev-qt/linguist-tools:5
+		)
 	)
 	test? (
 		$(python_gen_any_dep '
 			dev-python/pytest[${PYTHON_USEDEP}]
 			dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		')
-	)"
-RDEPEND="${RDEPEND}
-	qt5? ( virtual/freedesktop-icon-theme )
-	selinux? ( sec-policy/selinux-wireshark )"
+	)
+"
+RDEPEND="
+	${RDEPEND}
+	gui? ( virtual/freedesktop-icon-theme )
+	selinux? ( sec-policy/selinux-wireshark )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.0-redhat.patch
@@ -122,6 +140,8 @@ pkg_setup() {
 src_configure() {
 	local mycmakeargs
 
+	python_setup
+
 	# Workaround bug #213705. If krb5-config --libs has -lcrypto then pass
 	# --with-ssl to ./configure. (Mimics code from acinclude.m4).
 	if use kerberos ; then
@@ -135,20 +155,17 @@ src_configure() {
 		esac
 	fi
 
-	if use qt5 ; then
-		#export QT_MIN_VERSION=5.3.0
+	if use gui ; then
 		append-cxxflags -fPIC -DPIC
 	fi
-
-	python_setup
 
 	mycmakeargs+=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_{Asciidoctor,DOXYGEN}=$(usex !doc)
 		$(use androiddump && use pcap && echo -DEXTCAP_ANDROIDDUMP_LIBPCAP=yes)
-		$(usex qt5 LRELEASE=$(qt5_get_bindir)/lrelease '')
-		$(usex qt5 MOC=$(qt5_get_bindir)/moc '')
-		$(usex qt5 RCC=$(qt5_get_bindir)/rcc '')
-		$(usex qt5 UIC=$(qt5_get_bindir)/uic '')
+		$(usex gui LRELEASE=$(qt5_get_bindir)/lrelease '')
+		$(usex gui MOC=$(qt5_get_bindir)/moc '')
+		$(usex gui RCC=$(qt5_get_bindir)/rcc '')
+		$(usex gui UIC=$(qt5_get_bindir)/uic '')
 		-DBUILD_androiddump=$(usex androiddump)
 		-DBUILD_capinfos=$(usex capinfos)
 		-DBUILD_captype=$(usex captype)
@@ -169,7 +186,10 @@ src_configure() {
 		-DBUILD_tfshark=$(usex tfshark)
 		-DBUILD_tshark=$(usex tshark)
 		-DBUILD_udpdump=$(usex udpdump)
-		-DBUILD_wireshark=$(usex qt5)
+
+		-DBUILD_wireshark=$(usex gui)
+		-DUSE_qt6=$(usex qt6)
+
 		-DENABLE_WERROR=OFF
 		-DENABLE_BCG729=$(usex bcg729)
 		-DENABLE_BROTLI=$(usex brotli)
@@ -237,7 +257,7 @@ src_install() {
 		doins ${dir}/*.h
 	done
 
-	if use qt5 ; then
+	if use gui ; then
 		local s
 
 		for s in 16 32 48 64 128 256 512 1024 ; do
