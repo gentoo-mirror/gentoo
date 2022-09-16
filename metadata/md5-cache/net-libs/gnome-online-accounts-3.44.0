@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20170815 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=>=dev-libs/glib-2.52:2 >=app-crypt/libsecret-0.5 >=dev-libs/json-glib-0.16 dev-libs/libxml2:2 >=net-libs/libsoup-2.42:2.4 net-libs/rest:0.7 >=net-libs/webkit-gtk-2.26.0:4 >=x11-libs/gtk+-3.19.12:3 x11-libs/pango introspection? ( >=dev-libs/gobject-introspection-0.6.2:= ) kerberos? ( app-crypt/gcr:0=[gtk] app-crypt/mit-krb5 ) vala? ( || ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) ) dev-libs/libxslt >=dev-util/gdbus-codegen-2.30.0 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-libs/gobject-introspection-common gnome-base/gnome-common
+DEPEND=>=dev-libs/glib-2.52:2 >=app-crypt/libsecret-0.5 >=dev-libs/json-glib-0.16 dev-libs/libxml2:2 >=net-libs/libsoup-2.42:2.4 net-libs/rest:0.7 >=net-libs/webkit-gtk-2.26.0:4 >=x11-libs/gtk+-3.19.12:3 x11-libs/pango introspection? ( >=dev-libs/gobject-introspection-0.6.2:= ) kerberos? ( app-crypt/gcr:0=[gtk] app-crypt/mit-krb5 ) vala? ( || ( dev-lang/vala:0.56 ) ) dev-libs/libxslt >=dev-util/gdbus-codegen-2.30.0 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-libs/gobject-introspection-common gnome-base/gnome-common
 DESCRIPTION=GNOME framework for accessing online accounts
 EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/GnomeOnlineAccounts
@@ -14,5 +14,5 @@ RDEPEND=>=dev-libs/glib-2.52:2 >=app-crypt/libsecret-0.5 >=dev-libs/json-glib-0.
 REQUIRED_USE=vala? ( introspection )
 SLOT=0/1
 SRC_URI=mirror://gnome/sources/gnome-online-accounts/3.44/gnome-online-accounts-3.44.0.tar.xz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	vala	1c07e7167d9ef851ad187f5f3f02d34d
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	vala	160a8a30a6cb9aa601e5441c643a7c61
 _md5_=1b67457c7da41276f21372b6fb31c938

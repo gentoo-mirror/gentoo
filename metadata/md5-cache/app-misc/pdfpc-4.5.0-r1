@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=|| ( dev-lang/vala:0.56 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=app-text/discount app-text/poppler:=[cairo] dev-libs/glib:2 dev-libs/json-glib dev-libs/libgee:0.8= gnome-base/librsvg net-libs/webkit-gtk:4= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-plugins/gst-plugins-gtk:1.0= media-plugins/gst-plugins-cairo:1.0= )
 DESCRIPTION=Presenter console with multi-monitor support for PDF files
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=app-text/discount app-text/poppler:=[cairo] dev-libs/glib:2 dev-libs/json-glib dev-libs/libgee:0.8= gnome-base/librsvg net-libs/webkit-gtk:4= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-plugins/gst-plugins-gtk:1.0= media-plugins/gst-plugins-cairo:1.0= )
 SLOT=0
 SRC_URI=https://github.com/pdfpc/pdfpc/archive/v4.5.0.tar.gz -> pdfpc-4.5.0.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	vala	1c07e7167d9ef851ad187f5f3f02d34d
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	vala	160a8a30a6cb9aa601e5441c643a7c61
 _md5_=554c704ee5c2a75532339b55bf94b305
