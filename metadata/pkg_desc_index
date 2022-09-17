@@ -2690,7 +2690,7 @@ app-emulation/virtualbox-additions 6.1.36 6.1.38: CD image containing guest addi
 app-emulation/virtualbox-extpack-oracle 6.1.36 6.1.38: PUEL extensions for VirtualBox
 app-emulation/virtualbox-guest-additions 6.1.36 6.1.38: VirtualBox kernel modules and user-space tools for Gentoo guests
 app-emulation/virtualbox-modules 6.1.36 6.1.38: Kernel Modules for Virtualbox
-app-emulation/vkd3d 1.0 1.1 1.1-r1 1.2 1.4 9999: D3D12 to Vulkan translation library
+app-emulation/vkd3d 1.2 1.4-r1: D3D12 to Vulkan translation library
 app-emulation/vkd3d-proton 2.6 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.2 2.47.3: A Mozilla Gecko based version of Internet Explorer for Wine
@@ -3342,7 +3342,7 @@ app-portage/grs 0.7 0.8-r1 9999: Suite to build Gentoo Reference Systems
 app-portage/gs-elpa 0.2.1-r1: g-sorcery backend for elisp packages
 app-portage/gverify 2: gentoo.git signature verification tool
 app-portage/hackport 0.7.2.2 9999: Hackage and Portage integration tool
-app-portage/iwdevtools 0.11.7 0.11.8 9999: Small tools to aid with Gentoo development, primarily intended for QA
+app-portage/iwdevtools 0.11.8 9999: Small tools to aid with Gentoo development, primarily intended for QA
 app-portage/java-ebuilder 0.5.1-r1 9999: Java team tool for semi-automatic creation of ebuilds from pom.xml
 app-portage/kuroneko 0.1.3: Vulnerability checker using data scraped from Gentoo Bugzilla
 app-portage/kuroo 1.2.1-r1 1.2.2 9999: Graphical Portage frontend based on KDE Frameworks
@@ -5927,7 +5927,7 @@ dev-libs/tree-sitter-rust 0.20.1: Rust grammar for Tree-sitter
 dev-libs/tree-sitter-scala 0.19.0: Scala grammar for Tree-sitter
 dev-libs/tree-sitter-tsq 0.19.0: Tree-sitter query language grammar for Tree-sitter
 dev-libs/tree-sitter-typescript 0.20.1: TypeScript grammar for Tree-sitter
-dev-libs/trio 1.16 1.17: Portable string functions, focus on the *printf() and *scanf() clones
+dev-libs/trio 1.17: Portable string functions, focus on the *printf() and *scanf() clones
 dev-libs/tvision 2.2.3: Text User Interface that implements the well known CUA widgets
 dev-libs/tvmet 1.7.2-r2: Tiny Vector Matrix library using Expression Templates
 dev-libs/ucl 1.03-r1: the UCL Compression Library
@@ -11298,7 +11298,7 @@ dev-util/mage 1.11.0 1.13.0: make/rake like tool using go
 dev-util/makeheaders 0_p4: simple utility that will automatically generate header files
 dev-util/makepp 2.0.99.2: GNU make replacement
 dev-util/massif-visualizer 0.7.0-r1: Tool visualising massif data
-dev-util/maturin 0.13.1 0.13.2 0.13.3: Build and publish crates with pyo3, rust-cpython and cffi bindings
+dev-util/maturin 0.13.2 0.13.3: Build and publish crates with pyo3, rust-cpython and cffi bindings
 dev-util/maxcso 1.13.0 9999: Fast cso compressor
 dev-util/mdds 2.0.3 9999: Collection of multi-dimensional data structure and indexing algorithm
 dev-util/meld 3.20.4 3.22.0: A graphical diff and merge tool
@@ -11812,7 +11812,7 @@ games-emulation/gens 2.15.5-r2: Sega Genesis/CD/32X emulator
 games-emulation/gngb 20060309-r1: Gameboy / Gameboy Color emulator
 games-emulation/gngeo 0.8-r2: A NeoGeo emulator
 games-emulation/gnuboy 1.0.3-r4: Gameboy emulator with multiple renderers
-games-emulation/hatari 2.4.0 2.4.1: Atari ST emulator
+games-emulation/hatari 2.4.1: Atari ST emulator
 games-emulation/higan 116_pre20210818: Multi-system emulator focused on accuracy, preservation, and configurability
 games-emulation/jrommanager 1.8_p27-r1: A Mame and Retrogaming Rom Manager, Java alternative to ClrMamePro
 games-emulation/libretro-bnes 0.0.1_pre20180723 9999: bNES libretro port
@@ -14605,7 +14605,7 @@ media-video/cheese 41.1: A cheesy program to take pictures and videos from your 
 media-video/cpvts 1.2-r1: raw copy title sets from a DVD to your harddisc
 media-video/devedeng 4.17.0 4.17.0-r1: DevedeNG is a program to create video DVDs and CDs (VCD, sVCD or CVD)
 media-video/dirac 1.0.2-r2: Open Source video codec
-media-video/droidcam 1.8.2: Use your phone or tablet as webcam with a v4l device driver and app
+media-video/droidcam 1.8.2-r1: Use your phone or tablet as webcam with a v4l device driver and app
 media-video/dv2sub 0.3-r2: Extract info or subtitles from DV stream
 media-video/dvbackup 0.0.4-r2: A small utility for creating backups on DV tapes
 media-video/dvbsnoop 1.4.50-r2: DVB/MPEG stream analyzer program
@@ -15868,8 +15868,8 @@ net-misc/yandex-disk 0.1.5.1039_p1 0.1.6.1074_p1: CLI to access Yandex Disk file
 net-misc/you-get 0.4.1602 0.4.1620: Utility to download media contents from the web
 net-misc/youtube-dl 2021.12.17-r1 9999: Download videos from YouTube.com (and more sites...)
 net-misc/youtube-viewer 3.10.1 9999: A command line utility for viewing youtube-videos in Mplayer
-net-misc/yt-dlp 2022.8.19 2022.9.1: youtube-dl fork with additional features and fixes
-net-misc/ytfzf 2.4.1 2.5.0: Posix script to find and watch youtube videos from the terminal
+net-misc/yt-dlp 2022.9.1: youtube-dl fork with additional features and fixes
+net-misc/ytfzf 2.5.0: Posix script to find and watch youtube videos from the terminal
 net-misc/ytmdl 2022.3.16: Simple app to get songs from youtube in mp3 format
 net-misc/zerotier 1.6.4 1.10.1: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r1: An ssh wrapper enabling zmodem up/download in ssh
