@@ -8,13 +8,13 @@ inherit bash-completion-r1 cmake pam tmpfiles
 MY_P=${PN}_${PV/_p/-}
 
 DESCRIPTION="Utility to execute commands in a chroot environment"
-HOMEPAGE="https://packages.debian.org/source/sid/schroot"
-SRC_URI="mirror://debian/pool/main/${PN::1}/${PN}/${MY_P/%-*/}.orig.tar.xz
+HOMEPAGE="https://codeberg.org/shelter/reschroot"
+SRC_URI="https://codeberg.org/shelter/reschroot/archive/release/re${P/%_p*}.tar.gz -> ${P/%_p*}.tar.gz
 	mirror://debian/pool/main/${PN::1}/${PN}/${MY_P}.debian.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
 IUSE="btrfs +dchroot debug doc lvm nls pam test zfs"
 RESTRICT="!test? ( test )"
 
@@ -46,10 +46,10 @@ RDEPEND="${COMMON_DEPEND}
 	nls? ( virtual/libintl )
 "
 
-S="${WORKDIR}/${PN}-${PV/%_p*/}"
+S="${WORKDIR}/re${PN}"
 
 src_unpack() {
-	unpack ${MY_P/%-*/}.orig.tar.xz
+	unpack "${P/%_p*}".tar.gz
 	cd "${S}"
 	unpack ${MY_P}.debian.tar.xz
 }
@@ -94,12 +94,30 @@ src_test() {
 		ewarn "Disabling tests because you are not root"
 		return 0
 	fi
-
-	cmake_src_test
+	# -j1 to prevent race between test/setup-test-data and test/cleanup-test-data
+	cmake_src_test -j1
 }
 
 src_install() {
 	cmake_src_install
+
+	# debian-stype PS1 for chroot
+	# checks for /etc/debian_chroot file, which is created by schroot
+	insinto /etc/bash/bashrc.d
+	doins "${FILESDIR}/schroot_prompt.sh"
+
+	# gentoo /var/tmp/portage handler
+	# e.g. portage.base.tmpdir=/var/tmp/portage in config file
+	# will use a subdirectory of hosts $PORTAGE_TMPDIR
+	exeinto /etc/schroot/setup.d
+	doexe "${FILESDIR}/11gentoo"
+
+	# support for zfs clone options.
+	# zfs.clone.options=com.sun:auto-snapshot=false
+	if use zfs; then
+		exeinto /etc/schroot/setup.d
+		doexe "${FILESDIR}/06zfscloneopts"
+	fi
 
 	keepdir /var/lib/schroot/{session,unpack,union/{overlay,underlay}}
 
