@@ -1,0 +1,16 @@
+BDEPEND=app-shells/bash sys-apps/util-linux[hardlink(-)?]
+DEFINED_PHASES=install postinst postrm preinst prepare
+DESCRIPTION=A flat colorful Design icon theme
+EAPI=8
+HOMEPAGE=https://github.com/vinceliuice/Tela-icon-theme
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+IUSE=+standard black blue brown green grey orange pink purple red yellow manjaro ubuntu +hardlink kde
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=GPL-3+
+REQUIRED_USE=|| ( standard black blue brown green grey orange pink purple red yellow manjaro ubuntu )
+RESTRICT=binchecks strip test
+SLOT=0
+SRC_URI=https://github.com/vinceliuice/Tela-icon-theme/archive/refs/tags/2022-08-28.tar.gz -> tela-icon-theme-20220828.tar.gz
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=44bd769c4f2b9496dd0a91fbbd9fde2f
