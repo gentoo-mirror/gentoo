@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-)]
+DESCRIPTION=Set of modules that provide a simple manipulation of XML streams
+EAPI=7
+HOMEPAGE=http://libre.adacore.com/
+INHERIT=ada multiprocessing
+IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
+KEYWORDS=amd64 x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
+SLOT=0
+SRC_URI=https://community.download.adacore.com/v1/6a2cf72f308cc787926b12ddc20993fcf2b8ea79?filename=xmlada-2021-20210518-19D50-src.tar.gz -> xmlada-2021-20210518-19D50-src.tar.gz
+_eclasses_=ada	fc6c14ed095d505642b43326b744689f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
+_md5_=3de59e158ab66699d6b604987a994e3d
