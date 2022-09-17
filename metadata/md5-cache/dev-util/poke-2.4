@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/flex sys-devel/bison sys-apps/help2man virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/boehm-gc:= dev-libs/libatomic_ops sys-devel/gettext sys-libs/readline:= test? ( dev-util/dejagnu )
+DESCRIPTION=Extensible editor for structured binary data
+EAPI=8
+HOMEPAGE=https://www.jemarch.net/poke
+IUSE=pvm-profiling nls test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/boehm-gc:= dev-libs/libatomic_ops sys-devel/gettext sys-libs/readline:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnu/poke/poke-2.4.tar.gz
+_md5_=50a1df248619978d3848b70f44304b54
