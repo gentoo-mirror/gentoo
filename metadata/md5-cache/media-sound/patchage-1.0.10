@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
-DEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 media-libs/ganv alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) jack-dbus? ( dev-libs/dbus-glib sys-apps/dbus ) dev-libs/boost <dev-libs/libfmt-9:=
+DEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 media-libs/ganv alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) jack-dbus? ( dev-libs/dbus-glib sys-apps/dbus ) dev-libs/boost >=dev-libs/libfmt-9:=
 DESCRIPTION=Modular patch bay for JACK-based audio and MIDI systems
 EAPI=8
 HOMEPAGE=https://drobilla.net/software/patchage
@@ -12,6 +12,6 @@ LICENSE=GPL-2
 RDEPEND=dev-cpp/glibmm:2 dev-cpp/gtkmm:2.4 media-libs/ganv alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) jack-dbus? ( dev-libs/dbus-glib sys-apps/dbus )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://download.drobilla.net/patchage-1.0.8.tar.xz
+SRC_URI=https://download.drobilla.net/patchage-1.0.10.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=696993a0d9c904bf99ac929e6326e0fc
+_md5_=8ef72b106cd5c1f73c0d0a3532a3ced3
