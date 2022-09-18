@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop readme.gentoo-r1 wrapper xdg-utils
+inherit desktop linux-info readme.gentoo-r1 wrapper xdg-utils
 
 DESCRIPTION="Video conferencing and web conferencing service"
 HOMEPAGE="https://zoom.us/"
@@ -53,7 +53,7 @@ RDEPEND="!games-engines/zoom
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
 	opencl? ( virtual/opencl )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	wayland? ( dev-libs/wayland )
 	!bundled-libjpeg-turbo? ( >=media-libs/libjpeg-turbo-2.0.5 )
 	!bundled-qt? (
@@ -77,6 +77,7 @@ RDEPEND="!games-engines/zoom
 BDEPEND="dev-util/bbe
 	bundled-libjpeg-turbo? ( dev-util/patchelf )"
 
+CONFIG_CHECK="~USER_NS ~PID_NS ~NET_NS ~SECCOMP_FILTER"
 QA_PREBUILT="opt/zoom/*"
 
 src_prepare() {
