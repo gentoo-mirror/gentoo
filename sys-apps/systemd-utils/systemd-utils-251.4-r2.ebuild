@@ -26,8 +26,8 @@ SRC_URI+=" elibc_musl? ( https://dev.gentoo.org/~floppym/dist/${MUSL_PATCHSET}.t
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="+acl boot +kmod selinux sysusers +tmpfiles test +udev"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+IUSE="+acl boot +kmod selinux split-usr sysusers +tmpfiles test +udev"
 REQUIRED_USE="|| ( boot tmpfiles sysusers udev )"
 RESTRICT="!test? ( test )"
 
@@ -97,7 +97,7 @@ TMPFILES_OPTIONAL=1
 UDEV_OPTIONAL=1
 
 python_check_deps() {
-	has_version -b "dev-python/jinja[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/jinja[${PYTHON_USEDEP}]"
 }
 
 QA_EXECSTACK="usr/lib/systemd/boot/efi/*"
@@ -105,9 +105,14 @@ QA_FLAGS_IGNORED="usr/lib/systemd/boot/efi/.*"
 
 src_prepare() {
 	local PATCHES=(
+		# Breaks Clang. Revert the commit for now and force off F_S=3.
+		"${FILESDIR}/251-revert-fortify-source-3-fix.patch"
 	)
+
 	if use elibc_musl; then
 		PATCHES+=( "${WORKDIR}/${MUSL_PATCHSET}" )
+		# Applied upstream in 251.3
+		rm "${WORKDIR}/${MUSL_PATCHSET}/0001-Add-sys-file.h-for-LOCK_.patch" || die
 	fi
 	default
 
@@ -117,7 +122,7 @@ src_prepare() {
 	sed -i -e "/${rpath_pattern}/d" meson.build || die
 }
 
-multilib_src_configure() {
+src_configure() {
 	# When bumping to 251, please keep this, but add the revert patch
 	# like in sys-apps/systemd!
 	#
@@ -137,8 +142,14 @@ multilib_src_configure() {
 		append-cppflags -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
 	fi
 
+	multilib-minimal_src_configure
+}
+
+multilib_src_configure() {
 	local emesonargs=(
-		-Drootprefix="${EPREFIX:-/}"
+		$(meson_use split-usr)
+		$(meson_use split-usr split-bin)
+		-Drootprefix="$(usex split-usr "${EPREFIX:-/}" "${EPREFIX}/usr")"
 		-Drootlibdir="${EPREFIX}/usr/$(get_libdir)"
 		-Dsysvinit-path=
 		$(meson_native_use_bool boot efi)
@@ -396,6 +407,11 @@ multilib_src_test() {
 	fi
 }
 
+src_install() {
+	local rootprefix="$(usex split-usr '' /usr)"
+	meson-multilib_src_install
+}
+
 multilib_src_install() {
 	if multilib_is_native_abi; then
 		if use boot; then
@@ -406,27 +422,27 @@ multilib_src_install() {
 			doins src/boot/efi/{linux$(efi_arch).{efi,elf}.stub,systemd-boot$(efi_arch).efi}
 		fi
 		if use sysusers; then
-			into /
+			into "${rootprefix:-/}"
 			newbin systemd-sysusers{.standalone,}
 			doman man/{systemd-sysusers.8,sysusers.d.5}
 		fi
 		if use tmpfiles; then
-			into /
+			into "${rootprefix:-/}"
 			newbin systemd-tmpfiles{.standalone,}
 			doman man/{systemd-tmpfiles.8,tmpfiles.d.5}
 		fi
 		if use udev; then
-			into /
+			into "${rootprefix:-/}"
 			dobin udevadm systemd-hwdb
-			dosym ../../bin/udevadm /lib/systemd/systemd-udevd
+			dosym ../../bin/udevadm "${rootprefix}"/lib/systemd/systemd-udevd
 
-			exeinto /lib/udev
+			exeinto "${rootprefix}"/lib/udev
 			doexe src/udev/{ata_id,cdrom_id,fido_id,mtd_probe,scsi_id,v4l_id}
 
-			insinto /lib/udev/rules.d
+			insinto "${rootprefix}"/lib/udev/rules.d
 			doins rules.d/*.rules
 
-			insinto /lib/udev/hwdb.d
+			insinto "${rootprefix}"/lib/udev/hwdb.d
 			doins hwdb.d/*.hwdb
 
 			insinto /usr/share/pkgconfig
@@ -467,7 +483,7 @@ multilib_src_install_all() {
 		doins src/udev/udev.conf
 		keepdir /etc/udev/{hwdb.d,rules.d}
 
-		insinto /lib/systemd/network
+		insinto "${rootprefix}"/lib/systemd/network
 		doins network/99-default.link
 
 		# Remove to avoid conflict with elogind
