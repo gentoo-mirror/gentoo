@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile configure install
-DEPEND=x11-libs/libX11 x11-libs/libICE x11-libs/libSM x11-libs/libXpm x11-libs/libXext jpeg? ( virtual/jpeg:0 ) x11-base/xorg-proto
+DEPEND=x11-libs/libX11 x11-libs/libICE x11-libs/libSM x11-libs/libXpm x11-libs/libXext jpeg? ( media-libs/libjpeg-turbo:= ) x11-base/xorg-proto
 DESCRIPTION=Monitor the utilization level of memory, cache and swap space
-EAPI=6
+EAPI=8
 HOMEPAGE=http://www.tigr.net/
 INHERIT=toolchain-funcs
 IUSE=jpeg
 KEYWORDS=amd64 ppc ppc64 sparc x86
 LICENSE=GPL-2
-RDEPEND=x11-libs/libX11 x11-libs/libICE x11-libs/libSM x11-libs/libXpm x11-libs/libXext jpeg? ( virtual/jpeg:0 )
+RDEPEND=x11-libs/libX11 x11-libs/libICE x11-libs/libSM x11-libs/libXpm x11-libs/libXext jpeg? ( media-libs/libjpeg-turbo:= )
 SLOT=0
 SRC_URI=http://www.tigr.net/afterstep/download/asmem/asmem-1.12.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=2d85d46e4251e142c41e64f1557eea30
+_md5_=16a2ea50bcb85668d2667dc1110f6e10
