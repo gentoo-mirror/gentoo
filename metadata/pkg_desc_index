@@ -3361,7 +3361,7 @@ app-portage/porticron 0.7.1: cron script to sync portage and send update mails t
 app-portage/portpeek 3.2.2 3.2.2-r1: A helper program for maintaining the package.keyword and package.unmask files
 app-portage/pram 10: Tool to ease merging Pull Requests and git patches
 app-portage/prefix-toolkit 8 9: Utilities for users of Gentoo Prefix
-app-portage/recover-broken-vdb 1.0.0 9999: Check Portage's VDB for internal inconsistency on ELF metadata
+app-portage/recover-broken-vdb 1.0.0-r1 9999: Check Portage's VDB for internal inconsistency on ELF metadata
 app-portage/repo-commit 0.4.1-r1 9999: A repository commit helper
 app-portage/repoman 3.0.3-r2: Repoman is a Quality Assurance tool for Gentoo ebuilds
 app-portage/smart-live-rebuild 1.4.0 9999: Check live packages for updates and emerge them as necessary
@@ -4087,6 +4087,7 @@ dev-cpp/gtksourceviewmm 3.18.0-r2: C++ bindings for gtksourceview
 dev-cpp/gulrak-filesystem 1.5.12: Header-only single-file std::filesystem compatible helper library
 dev-cpp/highway 0.16.0-r1 0.17.0 1.0.1 9999: Performance-portable, length-agnostic SIMD with runtime dispatch
 dev-cpp/htmlcxx 0.87: A simple non-validating CSS 1 and HTML parser for C++
+dev-cpp/jarowinkler-cpp 1.0.2: Fast Jaro and Jaro Winkler distance
 dev-cpp/json11 1.0.0: A tiny JSON library for C++11
 dev-cpp/kokkos 3.1.01-r1: C++ Performance Portability Programming EcoSystem
 dev-cpp/libcmis 0.5.2-r1 9999: C++ client library for the CMIS interface
@@ -4113,6 +4114,7 @@ dev-cpp/pstreams 1.0.1: C++ wrapper for the POSIX.2 functions popen(3) and pclos
 dev-cpp/pystring 1.1.3-r1: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.10.0-r1 0.11.0 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
+dev-cpp/rapidfuzz-cpp 1.6.0: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.4.1: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r1: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 0.6.3 9999: C++ fast hash map and hash set using robin hood hashing
@@ -8705,6 +8707,7 @@ dev-python/jaraco-path 3.4.0: Miscellaneous path functions
 dev-python/jaraco-stream 3.0.3-r1: Routines for handling streaming data
 dev-python/jaraco-test 5.1.0: Testing support by jaraco
 dev-python/jaraco-text 3.8.1 3.9.1: Text utilities used by other projects by developer jaraco
+dev-python/jarowinkler 1.2.1: Fast fuzzy string matching using Jaro and Jaro-Winkler similarity
 dev-python/jc 1.21.0 1.21.2: Converts the output of popular command-line tools and file-types to JSON
 dev-python/jdcal 1.4.1-r1: Julian dates from proleptic Gregorian and Julian calendars
 dev-python/jedi 0.18.1: Autocompletion library for Python
@@ -8977,7 +8980,7 @@ dev-python/pecan 1.4.2: A WSGI object-dispatching web framework, lean, fast, wit
 dev-python/peewee 3.15.1 3.15.2: Small Python ORM
 dev-python/pefile 2022.5.30 9999: Module to read and work with Portable Executable (PE) files
 dev-python/pelican-minify 0.9-r1: An HTML minification plugin for Pelican, the static site generator
-dev-python/pendulum 2.1.2-r1: Drop-in replacement for the standard datetime class
+dev-python/pendulum 2.1.2-r2: Drop-in replacement for the standard datetime class
 dev-python/pep517 0.13.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pexpect 4.8.0-r3: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 1.13.1-r1 2.0.1: Python implementation of PostgreSQL meta commands
@@ -9349,7 +9352,7 @@ dev-python/pytools 2022.1.12: Collection of tools missing from the Python standa
 dev-python/pytrie 0.4.0-r1: A pure Python implementation of the trie data structure
 dev-python/pytz 2022.1 2022.2 2022.2.1: World timezone definitions for Python
 dev-python/pytz_deprecation_shim 0.1.0_p0-r2: Shims to make deprecation of pytz easier
-dev-python/pytzdata 2020.1-r1: The Olson timezone database for Python
+dev-python/pytzdata 2020.1-r2: The Olson timezone database for Python
 dev-python/pyu2f 0.1.5-r1: Python based U2F host library
 dev-python/pyudev 0.23.2 0.24.0: Python binding to libudev
 dev-python/pyupgrade 2.37.3 2.38.0: Tool + pre-commit hook to automatically upgrade syntax for newer Pythons
@@ -9381,6 +9384,8 @@ dev-python/quex 0.71.2: Mode Oriented Directly Coded Lexical Analyser Generator
 dev-python/radon 5.1.0-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r4: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
+dev-python/rapidfuzz 2.9.0: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz_capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.0-r1: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
 dev-python/rdflib 6.2.0: RDF library containing a triple store and parser/serializer
@@ -9478,7 +9483,7 @@ dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures.
 dev-python/simber 0.2.4: Simple, minimal and powerful logging library for Python
 dev-python/simpervisor 0.4: Simple Python3 Supervisor library
 dev-python/simplebayes 1.5.8: memory-based, optional-persistence naive bayesian text classifier
-dev-python/simpleeval 0.9.12: A simple, safe single expression evaluator library
+dev-python/simpleeval 0.9.12-r1: A simple, safe single expression evaluator library
 dev-python/simplegeneric 0.8.1-r2: Simple generic functions for Python
 dev-python/simplejson 3.17.6: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
@@ -9534,7 +9539,7 @@ dev-python/sphinxcontrib-bibtex 2.4.2 2.5.0: Sphinx extensions for BibTeX style 
 dev-python/sphinxcontrib-blockdiag 3.0.0: A sphinx extension for embedding block diagrams using blockdiag
 dev-python/sphinxcontrib-devhelp 1.0.2-r1: Sphinx extension which outputs Devhelp documents
 dev-python/sphinxcontrib-doxylink 1.12.2: Extension to link to external Doxygen API documentation
-dev-python/sphinxcontrib-github-alt 1.2-r1: Link to GitHub issues, pull requests, commits and users from Sphinx docs
+dev-python/sphinxcontrib-github-alt 1.2-r2: Link to GitHub issues, pull requests, commits and users from Sphinx docs
 dev-python/sphinxcontrib-htmlhelp 2.0.0-r1: Sphinx extension which outputs HTML help book
 dev-python/sphinxcontrib-httpdomain 1.8.0-r1: Sphinx domain for documenting HTTP APIs
 dev-python/sphinxcontrib-jsmath 1.0.1-r2: Sphinx extension which renders display math in HTML via JavaScript
@@ -14302,7 +14307,7 @@ media-sound/fluidsynth 2.2.8 2.2.9: Software real-time synthesizer based on the 
 media-sound/fmdrv 1.0.7: Console mode MIDI player with builtin userland OPL2 driver
 media-sound/fmit 1.0.15-r3: Free Music Instrument Tuner
 media-sound/fmtools 2.0.7: A collection of programs for controlling v4l radio card drivers
-media-sound/frescobaldi 3.2 3.2-r1: A LilyPond sheet music text editor
+media-sound/frescobaldi 3.2-r1: A LilyPond sheet music text editor
 media-sound/gbsplay 0.0.91-r2: Nintendo Gameboy sound player for GBS format
 media-sound/gigedit 1.2.0-r1 9999: An instrument editor for gig files
 media-sound/gimmix 0.5.7.2-r1: a graphical music player daemon (MPD) client using GTK+2
@@ -14922,7 +14927,7 @@ net-analyzer/prelude-lml 5.2.0: The prelude log analyzer
 net-analyzer/prelude-lml-rules 5.2.0: Prelude LML community ruleset
 net-analyzer/prettyping 1.0.1: Ping wrapper that produces coloured, easily readable output
 net-analyzer/pypacker 4.9 5.1: Fast and simple packet creation and parsing library for Python
-net-analyzer/python-gvm 21.1.3 21.11.0: Greenbone Vulnerability Management Python Library
+net-analyzer/python-gvm 21.11.0: Greenbone Vulnerability Management Python Library
 net-analyzer/raddump 0.3.1: RADIUS packet interpreter
 net-analyzer/rain 1.2.9_beta1-r1: powerful tool for testing stability of utilizing IP protocols
 net-analyzer/rrdcollect 0.2.10: Read system statistical data and feed it to RRDtool
@@ -16401,7 +16406,7 @@ sci-chemistry/autodock_vina 1.1.2-r1: Program for drug discovery, molecular dock
 sci-chemistry/avogadro2 1.95.1 1.97.0: Advanced molecule editor and visualizer 2
 sci-chemistry/bodr 10: The Blue Obelisk Data Repository listing element and isotope properties
 sci-chemistry/cara-bin 1.8.4-r2: Analysis of NMR spectra and Computer Aided Resonance Assignment
-sci-chemistry/chemex 2021.4.0_p6: Program to fit chemical exchange induced shift and relaxation data
+sci-chemistry/chemex 2021.4.0_p6 2022.0.1: Program to fit chemical exchange induced shift and relaxation data
 sci-chemistry/chemical-mime-data 0.1.94-r4: A collection of data files to add support for chemical MIME types
 sci-chemistry/chemtool 1.6.14: A GTK program for drawing organic molecules
 sci-chemistry/clashlist 3.17-r1: Build lists of van der Waals clashes from an input PDB file
@@ -18243,7 +18248,7 @@ sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
 sys-process/below 0.5.0: An interactive tool to view and record historical system data
 sys-process/bottom 0.6.6 0.6.8: A graphical process/system monitor with a customizable interface
-sys-process/bpytop 1.0.61-r1 1.0.63 1.0.67 1.0.68: Linux/OSX/FreeBSD resource monitor
+sys-process/bpytop 1.0.68-r1: Linux/OSX/FreeBSD resource monitor
 sys-process/btop 1.2.8 1.2.9: A monitor of resources
 sys-process/criu 3.14-r2 3.15 3.15-r3 3.16.1 3.17-r1: utility to checkpoint/restore a process tree
 sys-process/cronbase 0.3.7-r8: Base for all cron ebuilds
