@@ -1,20 +1,20 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{8..9} )
+EAPI=8
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit font python-any-r1
 
 DESCRIPTION="Google Noto Emoji fonts"
 HOMEPAGE="https://www.google.com/get/noto/ https://github.com/googlefonts/noto-emoji"
 
-COMMIT="c05b4b47c8250ccd232780cae46d66a8179e77ab"
+COMMIT="e8073ab740292f8d5f19b5de144087ac58044d06"
 SRC_URI="https://github.com/googlefonts/noto-emoji/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="buildfont"
 
 BDEPEND="
@@ -36,8 +36,8 @@ RESTRICT="binchecks strip"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 python_check_deps() {
-	has_version -b "dev-python/fonttools[${PYTHON_USEDEP}]" &&
-	has_version -b "dev-python/nototools[${PYTHON_USEDEP}]"
+	python_has_version -b ">=dev-python/fonttools-4.7.0[${PYTHON_USEDEP}]" &&
+	python_has_version -b ">=dev-python/nototools-0.2.13[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
@@ -89,9 +89,13 @@ src_compile() {
 src_install() {
 	if ! use buildfont; then
 		FONT_S="${S}/fonts"
+		# Drop non used fonts
+		rm -f fonts/*COLR*.ttf || die
 	else
-		mv -i fonts/NotoEmoji-Regular.ttf "${S}" || die
-		# Built font and Regular font
+		# Drop Windows compatible fonts and temporal files
+		rm -f *tmpl.ttf *Windows*.ttf *COLR*.ttf || die
+
+		# Built fonts
 		FONT_S="${S}"
 
 		# Don't lose fancy emoji icons
