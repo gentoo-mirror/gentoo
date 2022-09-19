@@ -7,11 +7,11 @@ HOMEPAGE=https://wiki.gnome.org/Apps/EyeOfGnome https://gitlab.gnome.org/GNOME/e
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson xdg
 IUSE=+exif gtk-doc +introspection +jpeg lcms +svg xmp tiff
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.53.4:2 >=dev-libs/libpeas-0.7.4:=[gtk] >=gnome-base/gnome-desktop-2.91.2:3= >=gnome-base/gsettings-desktop-schemas-42_beta >=x11-misc/shared-mime-info-0.20 >=x11-libs/gdk-pixbuf-2.36.5:2[jpeg?,tiff?] >=x11-libs/gtk+-3.24.15:3[introspection,X] >=gui-libs/libhandy-1.5.0:1 sys-libs/zlib exif? ( >=media-libs/libexif-0.6.14 ) lcms? ( media-libs/lcms:2 ) xmp? ( media-libs/exempi:2 ) jpeg? ( media-libs/libjpeg-turbo:= ) introspection? ( >=dev-libs/gobject-introspection-1.54:= ) svg? ( >=gnome-base/librsvg-2.44.0:2 ) x11-libs/libX11
 REQUIRED_USE=exif? ( jpeg )
 SLOT=1
 SRC_URI=mirror://gnome/sources/eog/42/eog-42.3.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg	6024fbc93167fad782e2032933654857
-_md5_=d5af0fcc1ee5c388703a0f5a261b32bc
+_md5_=ae6d1dcaa0e8871e31cd3458a6d64d5c
