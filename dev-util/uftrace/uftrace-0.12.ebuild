@@ -1,11 +1,12 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( luajit )
+PYTHON_COMPAT=( python3_{8..11} )
 
-inherit bash-completion-r1 lua-single toolchain-funcs
+inherit bash-completion-r1 lua-single python-single-r1 toolchain-funcs
 
 DESCRIPTION="Function (graph) tracer for user-space"
 HOMEPAGE="https://github.com/namhyung/uftrace"
@@ -14,9 +15,12 @@ SRC_URI="https://github.com/namhyung/uftrace/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="capstone lua"
+IUSE="capstone lua python unwind"
 
-REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
+REQUIRED_USE="
+	lua? ( ${LUA_REQUIRED_USE} )
+	python? ( ${PYTHON_REQUIRED_USE} )
+"
 
 RESTRICT="test"
 
@@ -25,6 +29,8 @@ RDEPEND="
 	virtual/libelf:=
 	capstone? ( dev-libs/capstone:0= )
 	lua? ( ${LUA_DEPS} )
+	python? ( ${PYTHON_DEPS} )
+	unwind? ( sys-libs/libunwind:= )
 "
 DEPEND="${RDEPEND}"
 
@@ -37,7 +43,8 @@ src_configure() {
 	local myconf=(
 		--libdir="${EPREFIX}/usr/$(get_libdir)/uftrace"
 		$(use_with capstone)
-		--without-libpython
+		$(use_with unwind libunwind)
+		$(use_with python libpython)
 	)
 	if use lua && use lua_single_target_luajit; then
 		myconf+=(
