@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/gnuwget/wget2
 IUSE=brotli bzip2 doc +gnutls gpgme +http2 idn lzip lzma openssl pcre psl +ssl test valgrind xattr zlib
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-3
+LICENSE=GPL-3+ LGPL-3+
 RDEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) !gnutls? ( dev-libs/libgcrypt:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) gpgme? ( app-crypt/gpgme:= dev-libs/libassuan dev-libs/libgpg-error ) http2? ( net-libs/nghttp2 ) idn? ( net-dns/libidn2:= ) lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) pcre? ( dev-libs/libpcre2 ) psl? ( net-libs/libpsl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=valgrind? ( test )
 RESTRICT=!test? ( test )
 SLOT=0/0
 SRC_URI=mirror://gnu/wget/wget2-2.0.1.tar.gz
-_md5_=04ea00ef63b706f8b78f76d035ee8e23
+_md5_=842e6a79a8d337913166b32b257e9b84
