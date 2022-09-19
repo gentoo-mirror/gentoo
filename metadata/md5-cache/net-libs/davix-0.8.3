@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-doc/doxygen[dot] dev-python/sphinx ) virtual/pkgconfig || ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/libxml2:2= dev-libs/openssl:0= net-libs/gsoap[ssl,-gnutls] net-misc/curl:0= kernel_linux? ( sys-apps/util-linux )
+DESCRIPTION=High-performance file management over WebDAV/HTTP
+EAPI=8
+HOMEPAGE=https://github.com/cern-fts/davix
+INHERIT=cmake python-any-r1
+IUSE=doc ipv6 test tools
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/libxml2:2= dev-libs/openssl:0= net-libs/gsoap[ssl,-gnutls] net-misc/curl:0= kernel_linux? ( sys-apps/util-linux )
+REQUIRED_USE=test? ( tools )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/cern-fts/davix/releases/download/R_0_8_3/davix-0.8.3.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_md5_=238b3f8600beb631f79363441e3a8445

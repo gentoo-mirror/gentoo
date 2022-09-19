@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://geant4.web.cern.ch/
 INHERIT=cmake python-single-r1
 IUSE=+c++17 c++20 +data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl python qt5 raytracerx static-libs tbb threads vtk python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=geant4
 RDEPEND=dev-libs/expat >=sci-physics/clhep-2.4.5.1:2=[threads?] data? ( ~sci-physics/geant-data-4.11.0.0 ) doc? ( app-doc/geant-docs ) gdml? ( dev-libs/xerces-c ) hdf5? ( sci-libs/hdf5[threads?] ) inventor? ( media-libs/SoXt ) motif? ( x11-libs/motif:0 ) opengl? ( virtual/opengl ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_8? ( dev-libs/boost:=[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-libs/boost:=[python,python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)] ) ) qt5? ( dev-qt/qt3d:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 opengl? ( dev-qt/qtopengl:5 ) ) raytracerx? ( x11-libs/libX11 x11-libs/libXmu ) vtk? ( sci-libs/vtk:=[qt5] )
 REQUIRED_USE=^^ ( c++17 c++20 ) inventor? ( opengl ) motif? ( opengl ) python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ) qt5? ( opengl ) tbb? ( threads ) vtk? ( qt5 )
 SLOT=4
 SRC_URI=https://geant4-data.web.cern.ch/geant4-data/releases/geant4-v11.0.2.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=c92f2e3ea7aff5838f3c9241f47f1bda
+_md5_=9f83bff745dbbc3e293e57e6316e4c2f
