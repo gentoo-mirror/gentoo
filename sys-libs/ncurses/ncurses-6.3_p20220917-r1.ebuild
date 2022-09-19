@@ -11,10 +11,12 @@ MY_P="${PN}-${MY_PV}"
 DESCRIPTION="Console display library"
 HOMEPAGE="https://www.gnu.org/software/ncurses/ https://invisible-island.net/ncurses/"
 # Keep invisible-mirror.net here as some users reported 403 forbidden with invisible-island.net
-SRC_URI="mirror://gnu/ncurses/${MY_P}.tar.gz
+SRC_URI="
+	mirror://gnu/ncurses/${MY_P}.tar.gz
 	https://invisible-island.net/archives/${PN}/${MY_P}.tar.gz
 	https://invisible-mirror.net/archives/${PN}/${MY_P}.tar.gz
-	verify-sig? ( mirror://gnu/ncurses/${MY_P}.tar.gz.sig )"
+	verify-sig? ( mirror://gnu/ncurses/${MY_P}.tar.gz.sig )
+"
 
 GENTOO_PATCH_DEV=sam
 GENTOO_PATCH_PV=6.3_p20220910
@@ -85,6 +87,7 @@ if [[ ${PV} == *_p* ]] ; then
 		20220820
 		20220827
 		20220903
+		20220910
 
 		# Latest patch is just _pN = $(ver_cut 4)
 		$(ver_cut 4)
@@ -100,27 +103,27 @@ if [[ ${PV} == *_p* ]] ; then
 		patch_url=
 		my_patch_index=
 
+		# We keep a bunch of mirrors here as we've had reports of invisible*.net
+		# being 403 forbidden for some users.
+		urls=(
+			"https://invisible-island.net/archives/${PN}/${PV/_p*}/${MY_P}-%s"
+			"https://invisible-mirror.net/archives/${PN}/${PV/_p*}/${MY_P}-%s"
+			"https://dev.gentoo.org/~${GENTOO_PATCH_DEV}/distfiles/${CATEGORY}/${PN}/${MY_P}-%s"
+		)
+
 		for ((my_patch_index=0; my_patch_index < "${#PATCH_DATES[@]}"; my_patch_index++)); do
-			patch_url="$(printf "https://invisible-island.net/archives/${PN}/${PV/_p*}/${MY_P}-%s" ${PATCH_DATES[${my_patch_index}]}.patch.gz)"
-			# TODO: replace with loop
-			SRC_URI+=" ${patch_url}"
-			SRC_URI+=" verify-sig? ( ${patch_url}.asc )"
-
-			patch_url="$(printf "https://invisible-mirror.net/archives/${PN}/${PV/_p*}/${MY_P}-%s" ${PATCH_DATES[${my_patch_index}]}.patch.gz)"
-			# TODO: replace with loop
-			SRC_URI+=" ${patch_url}"
-			SRC_URI+=" verify-sig? ( ${patch_url}.asc )"
-
-			patch_url="$(printf "https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${MY_P}-%s" ${PATCH_DATES[${my_patch_index}]}.patch.gz)"
-			# TODO: replace with loop
-			SRC_URI+=" ${patch_url}"
-			SRC_URI+=" verify-sig? ( ${patch_url}.asc )"
+			for url in "${urls[@]}" ; do
+				patch_url="$(printf ${urls} ${PATCH_DATES[${my_patch_index}]}.patch.gz)"
+				SRC_URI+=" ${patch_url}"
+				SRC_URI+=" verify-sig? ( ${patch_url}.asc )"
+			done
 
 			UPSTREAM_PATCHES+=( "${WORKDIR}"/${MY_P}-${PATCH_DATES[${my_patch_index}]}.patch )
 		done
 
 		unset patch_url
 		unset my_patch_index
+		unset urls
 	fi
 
 	SRC_URI+=" https://dev.gentoo.org/~${GENTOO_PATCH_DEV}/distfiles/${CATEGORY}/${PN}/${GENTOO_PATCH_NAME}.tar.xz"
@@ -129,7 +132,7 @@ fi
 LICENSE="MIT"
 # The subslot reflects the SONAME.
 SLOT="0/6"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="ada +cxx debug doc gpm minimal profile +stack-realign static-libs test tinfo trace"
 RESTRICT="!test? ( test )"
 
@@ -385,11 +388,6 @@ multilib_src_install() {
 			$(usex tinfo 'tinfow tinfo' '')
 	fi
 
-	if ! tc-is-static-only ; then
-		# Provide a link for -lcurses.
-		ln -sf libncurses$(get_libname) "${ED}"/usr/$(get_libdir)/libcurses$(get_libname) || die
-	fi
-
 	# Don't delete '*.dll.a', needed for linking, bug #631468
 	if ! use static-libs; then
 		find "${ED}"/usr/ -name '*.a' ! -name '*.dll.a' -delete || die
@@ -402,6 +400,13 @@ multilib_src_install() {
 	# -FIXME-
 	dosym $(sed 's@[^/]\+@..@g' <<< $(get_libdir))/share/terminfo \
 		/usr/$(get_libdir)/terminfo
+
+	# Remove obsolete libcurses symlink that is created by the build
+	# system. Technically, this could be also achieved
+	# via --disable-overwrite but it also moves headers implicitly,
+	# and we do not want to do this yet.
+	# bug #836696
+	rm "${ED}"/usr/$(get_libdir)/libcurses* || die
 }
 
 multilib_src_install_all() {
