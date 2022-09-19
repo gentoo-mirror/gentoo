@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://maxima.sourceforge.net/
 INHERIT=autotools elisp-common flag-o-matic python-single-r1 xdg-utils
 IUSE=clisp clozurecl clozurecl64 cmucl ecls emacs gcl gui nls +sbcl vtk X test l10n_de l10n_es l10n_pt l10n_pt-BR python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2 GPL-2+
 RDEPEND=clisp? ( dev-lisp/clisp:= ) clozurecl? ( dev-lisp/clozurecl app-misc/rlwrap ) clozurecl64? ( dev-lisp/clozurecl app-misc/rlwrap ) cmucl? ( dev-lisp/cmucl app-misc/rlwrap ) ecls? ( dev-lisp/ecls:= app-misc/rlwrap ) gcl? ( dev-lisp/gcl[ansi,readline] ) sbcl? ( dev-lisp/sbcl:= app-misc/rlwrap ) virtual/libcrypt:= emacs? ( >=app-editors/emacs-26:* ) gui? ( dev-lang/tk:0 ) X? ( x11-misc/xdg-utils sci-visualization/gnuplot[gd] vtk? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) sci-libs/vtk[python,rendering,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] ) ) emacs? ( virtual/latex-base app-emacs/auctex app-text/ghostscript-gpl dev-texlive/texlive-latexrecommended )
 REQUIRED_USE=vtk? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ) || ( clisp clozurecl clozurecl64 cmucl ecls gcl sbcl ) gui? ( X )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/maxima/maxima-5.46.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
-_md5_=1f877a260fd07ecac4ebd06c155302a8
+_md5_=500baeca116f3d07f872cdbd556d21e4
