@@ -945,7 +945,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.56 1.25.61 1.25.64 1.25.65 1.25.66 1.25.67 1.25.70 1.25.71 1.25.75: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.56 1.25.61 1.25.64 1.25.65 1.25.66 1.25.67 1.25.70 1.25.71 1.25.75 1.25.76: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 1.32.1 2022.6.0: Bitwarden password manager desktop client
@@ -5606,7 +5606,7 @@ dev-libs/libevent 2.1.11 2.1.12 2.1.9999 9999: Library to execute a function whe
 dev-libs/libezV24 0.1.1-r1 0.1.1-r2: library that provides an easy API to Linux serial ports
 dev-libs/libf2c 20130927-r1: Library that converts FORTRAN to C source
 dev-libs/libfastjson 0.99.8-r1 0.99.9-r1: Fork of the json-c library, which is optimized for liblognorm processing
-dev-libs/libffi 3.3-r2 3.4.2-r1 3.4.2-r2: a portable, high level programming interface to various calling conventions
+dev-libs/libffi 3.3-r2 3.4.2-r1 3.4.2-r2 3.4.3: a portable, high level programming interface to various calling conventions
 dev-libs/libffi-compat 3.2.1-r3 3.3-r2: a portable, high level programming interface to various calling conventions
 dev-libs/libfido2 1.11.0: Provides library functionality for FIDO 2.0
 dev-libs/libfilezilla 0.37.2 0.38.1 0.39.1-r1: C++ library offering some basic functionality for platform-independent programs
@@ -8265,7 +8265,7 @@ dev-python/asgiref 3.5.2: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.5.1: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.27: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1-r1: Read/rewrite/write Python ASTs
-dev-python/astroid 2.11.6 2.12.2 2.12.3 2.12.4 2.12.5 2.12.8 2.12.9: Abstract Syntax Tree for logilab packages
+dev-python/astroid 2.11.6 2.12.2 2.12.3 2.12.4 2.12.5 2.12.8 2.12.9 2.12.10: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.0.7 2.0.8: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3: Astun parser for python
 dev-python/async-lru 1.0.3: Simple lru_cache for asyncio
@@ -8324,8 +8324,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.56 1.24.61 1.24.63 1.24.64 1.24.65 1.24.66 1.24.69 1.24.70 1.24.74 9999: The AWS SDK for Python
-dev-python/botocore 1.27.56 1.27.61 1.27.63 1.27.64 1.27.65 1.27.66 1.27.69 1.27.70 1.27.74 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.56 1.24.61 1.24.63 1.24.64 1.24.65 1.24.66 1.24.69 1.24.70 1.24.74 1.24.75 9999: The AWS SDK for Python
+dev-python/botocore 1.27.56 1.27.61 1.27.63 1.27.64 1.27.65 1.27.66 1.27.69 1.27.70 1.27.74 1.27.75 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.22.1 0.23: Syntax highlighting and autocompletion for the Python interpreter
@@ -8502,7 +8502,7 @@ dev-python/editorconfig-core-py 0.12.3-r1: Clone of EditorConfig core written in
 dev-python/elasticsearch-py 7.14.1 7.17.6: Official Python low-level client for Elasticsearch
 dev-python/elementpath 3.0.1 3.0.2: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/emcee 3.1.2: Python ensemble sampling toolkit for affine-invariant MCMC
-dev-python/emoji 1.7.0 2.0.0: Emoji for Python
+dev-python/emoji 2.0.0 2.1.0: Emoji for Python
 dev-python/empy 3.3.4-r1: A powerful and robust templating system for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 22.2.2: Shared pip wheel for ensurepip Python module
@@ -9018,7 +9018,7 @@ dev-python/pocketlint 0.24: Shared code for running pylint against rhinstaller p
 dev-python/pockets 0.9.1-r2: Collection of helpful Python tools
 dev-python/podcastparser 0.6.8-r1: Podcast parser for the gpodder client
 dev-python/podman-py 4.0.0 4.2.0: A library to interact with a Podman server
-dev-python/poetry-core 1.0.8 1.1.0: Poetry PEP 517 Build Backend
+dev-python/poetry-core 1.0.8 1.1.0 1.2.0: Poetry PEP 517 Build Backend
 dev-python/polib 1.1.1: A library to manipulate gettext files (.po and .mo files)
 dev-python/pony 0.7.16: Python ORM with beautiful query syntax
 dev-python/pooch 1.6.0: Manage your Python library's sample data files
@@ -9040,7 +9040,7 @@ dev-python/protobuf-python 3.19.3-r2 3.19.3-r3 3.20.1 9999: Google's Protocol Bu
 dev-python/prov 2.0.0: W3C provenance data dodel library
 dev-python/pslab-python 2.5.0: Python library for communicating with Pocket Science Lab
 dev-python/psutil 5.9.1: Retrieve information on running processes and system utilization
-dev-python/psycopg 2.9.3 3.0.16 3.1 3.1.1: PostgreSQL database adapter for Python
+dev-python/psycopg 2.9.3 3.0.16 3.1 3.1.1 3.1.2: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix 2.20191221-r2: Get a public suffix for a domain name using the Public Suffix List
 dev-python/pudb 2022.1.1 2022.1.2: A full-screen, console-based Python debugger
@@ -9244,7 +9244,7 @@ dev-python/pytest-param-files 0.3.4: Pytest parametrize decorators from external
 dev-python/pytest-plus 0.2-r1: PyTest Plus Plugin - extends pytest functionality
 dev-python/pytest-pylint 0.18.0: pytest plugin to check source code with pylint
 dev-python/pytest-qt 4.1.0: Pytest plugin for PyQt5 and PySide2 applications
-dev-python/pytest-regressions 2.3.1: Easy to use fixtures to write regression tests
+dev-python/pytest-regressions 2.3.1 2.4.1: Easy to use fixtures to write regression tests
 dev-python/pytest-rerunfailures 10.2-r1: pytest plugin to re-run tests to eliminate flaky failures
 dev-python/pytest-salt 2020.1.27-r3: PyTest Salt Plugin
 dev-python/pytest-salt-factories 0.121.1-r1 1.0.0_rc13 1.0.0_rc20: The new generation of the pytest-salt Plugin
@@ -9751,7 +9751,7 @@ dev-python/xmlschema 2.0.1 2.0.2 2.0.3 2.0.4: An XML Schema validator and decode
 dev-python/xmltodict 0.13.0-r1: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.9: Python wrapper for running a display inside X virtual framebuffer
 dev-python/xxhash 3.0.0: Python binding for the xxHash library
-dev-python/yamlpath 3.6.4: Command-line processors for YAML/JSON/Compatible data
+dev-python/yamlpath 3.6.4 3.6.5: Command-line processors for YAML/JSON/Compatible data
 dev-python/yapf 0.32.0: A formatter for Python files
 dev-python/yappi 1.3.6: Yet Another Python Profiler
 dev-python/yapsy 1.12.2: A fat-free DIY Python plugin management toolkit
@@ -17869,7 +17869,7 @@ sys-cluster/wulfware 2.6.0: Applications to monitor on a beowulf- or GRID-style 
 sys-cluster/zetcd 0.0.4-r2: ZooKeeper personality for etcd
 sys-cluster/zookeeper-bin 3.7.1 3.8.0: A high-performance coordination service for distributed applications
 sys-cluster/zookeepercli 1.0.12: Simple, lightweight, dependable CLI for ZooKeeper
-sys-devel/autoconf 2.13-r2 2.13-r3 2.69-r5 2.69-r6 2.69-r7 2.71-r1 2.71-r2 2.71-r3 9999: Used to create autoconfiguration files
+sys-devel/autoconf 2.13-r2 2.13-r3 2.69-r5 2.69-r6 2.69-r7 2.71-r1 2.71-r2 2.71-r4 9999: Used to create autoconfiguration files
 sys-devel/autoconf-archive 2021.02.19 2021.02.19-r1 2022.02.11 2022.09.03: GNU Autoconf Macro Archive
 sys-devel/autoconf-dickey 2.52_p20210509: Fork of sys-devel/autoconf for Thomas Dickey's packages
 sys-devel/autoconf-wrapper 20220130: wrapper for autoconf to manage multiple autoconf versions
