@@ -1,8 +1,8 @@
-BDEPEND=virtual/rust >=virtual/rust-1.37.0 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/rust >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst test unpack
 DEPEND=app-arch/xz-utils net-misc/curl:=[http2,ssl] dev-libs/openssl:0=
 DESCRIPTION=Rust toolchain installer
-EAPI=7
+EAPI=8
 HOMEPAGE=https://rust-lang.github.io/rustup/
 INHERIT=bash-completion-r1 cargo prefix git-r3
 IUSE=debug
@@ -12,4 +12,4 @@ RDEPEND=app-arch/xz-utils net-misc/curl:=[http2,ssl] dev-libs/openssl:0=
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	52a92ed3815080c5f2caac1905687b1c	prefix	eab3c99d77fe00506c109c8a736186f7	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=89783dd2d54617b25ef5eaa3ca07f273
+_md5_=b9c7036004d12b1f9336a834eae8ece4
