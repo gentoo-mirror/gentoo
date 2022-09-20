@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-make ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=guile? ( >=dev-scheme/guile-1.8:= )
+DESCRIPTION=Standard tool to compile source trees
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/make/make.html
+INHERIT=flag-o-matic verify-sig
+IUSE=guile nls static verify-sig
+LICENSE=GPL-3+
+RDEPEND=guile? ( >=dev-scheme/guile-1.8:= ) nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=https://alpha.gnu.org/gnu/make/make-4.3.90.tar.gz verify-sig? ( https://alpha.gnu.org/gnu/make/make-4.3.90.tar.gz.sig )
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=81a8d5e78a3411add148146957c8e2d7
