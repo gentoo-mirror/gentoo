@@ -18,7 +18,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="$(ver_cut 1)"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 IUSE="+binutils-plugin debug doc exegesis libedit +libffi ncurses test xar xml z3"
 RESTRICT="!test? ( test )"
 
@@ -65,7 +65,7 @@ PDEPEND="
 
 LLVM_COMPONENTS=( llvm cmake third-party )
 LLVM_MANPAGES=1
-LLVM_PATCHSET=${PV}
+LLVM_PATCHSET=${PV/_/-}
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals
 
@@ -284,7 +284,6 @@ get_distribution_components() {
 			llvm-readobj
 			llvm-reduce
 			llvm-remark-size-diff
-			llvm-remarkutil
 			llvm-rtdyld
 			llvm-sim
 			llvm-size

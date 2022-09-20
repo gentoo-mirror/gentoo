@@ -11,16 +11,15 @@ HOMEPAGE="https://libclc.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( MIT BSD )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE_VIDEO_CARDS="video_cards_nvidia video_cards_r600 video_cards_radeonsi"
 IUSE="${IUSE_VIDEO_CARDS}"
 REQUIRED_USE="|| ( ${IUSE_VIDEO_CARDS} )"
 
-LLVM_MAX_SLOT=16
+LLVM_MAX_SLOT=15
 BDEPEND="
 	${PYTHON_DEPS}
 	|| (
-		sys-devel/clang:16
 		sys-devel/clang:15
 		sys-devel/clang:14
 		sys-devel/clang:13

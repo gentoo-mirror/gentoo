@@ -11,7 +11,7 @@ HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos"
 IUSE="
 	debug hwloc offload ompt test
 	llvm_targets_AMDGPU llvm_targets_NVPTX
@@ -92,8 +92,6 @@ multilib_src_configure() {
 		-DLIBOMP_INSTALL_ALIASES=OFF
 		# disable unnecessary hack copying stuff back to srcdir
 		-DLIBOMP_COPY_EXPORTS=OFF
-		# disable until upstream fixes it to use positive logic
-		-DDISABLE_OMPD_GDB_PLUGIN=ON
 	)
 
 	if use offload; then
