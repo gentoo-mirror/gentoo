@@ -3591,8 +3591,8 @@ app-text/openpaperwork-gtk 2.1.0-r1 2.1.1: Paperwork plugins
 app-text/opensp 1.5.2-r7: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2: Conversion between markup formats
 app-text/pandoc-bin 2.19 2.19.1 2.19.2: Conversion between markup formats (binary package)
-app-text/paperwork 2.1.0 2.1.1: a personal document manager for scanned documents (and PDFs)
-app-text/paperwork-backend 2.1.0 2.1.1: Backend part of Paperwork (Python API, no UI)
+app-text/paperwork 2.1.0 2.1.1-r1: a personal document manager for scanned documents (and PDFs)
+app-text/paperwork-backend 2.1.0 2.1.1-r1: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
 app-text/par 1.53.0: a paragraph reformatter, vaguely similar to fmt, but better
 app-text/pastebinit 1.5.1 1.5.1-r1: A software that lets you send anything you want directly to a pastebin
@@ -17889,7 +17889,7 @@ sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling a
 sys-devel/clang 13.0.1 14.0.6-r1 15.0.0 15.0.0-r1 15.0.1 15.0.1.9999 16.0.0_pre20220918 16.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 13.0.1 14.0.6 15.0.0 15.0.1 15.0.1.9999 16.0.0_pre20220918 16.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-runtime 13.0.1 14.0.6 15.0.0-r1 15.0.1 15.0.1.9999 16.0.0_pre20220918 16.0.0.9999: Meta-ebuild for clang runtime libraries
-sys-devel/clang-toolchain-symlinks 15 16: Symlinks to use Clang on GCC-free system
+sys-devel/clang-toolchain-symlinks 14 15 16: Symlinks to use Clang on GCC-free system
 sys-devel/cons 2.3.0-r1: Extensible perl-based build utility
 sys-devel/cproc 0_pre20220805 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20211121 20220205 20220424 20220617 20220709 20220818 99999999: Gentoo Cross-toolchain generator
@@ -17910,11 +17910,11 @@ sys-devel/icecream 1.3.1 1.4: Distributed compiler with a central scheduler to s
 sys-devel/kgcc64 10.3.0 10.4.0 11.3.0 12.2.0: 64bit kernel compiler
 sys-devel/libtool 2.4.6-r6 2.4.7 9999: A shared library tool for developers
 sys-devel/lld 13.0.1 14.0.6 15.0.0 15.0.1 15.0.1.9999 16.0.0_pre20220918 16.0.0.9999: The LLVM linker (link editor)
-sys-devel/lld-toolchain-symlinks 15 16: Symlinks to use LLD on binutils-free system
+sys-devel/lld-toolchain-symlinks 14 15 16: Symlinks to use LLD on binutils-free system
 sys-devel/llvm 13.0.1 14.0.6-r2 15.0.0 15.0.1 15.0.1.9999 16.0.0_pre20220918 16.0.0.9999: Low Level Virtual Machine
 sys-devel/llvm-common 13.0.1 14.0.6 15.0.0 15.0.1 15.0.1.9999 16.0.0_pre20220918 16.0.0.9999: Common files shared between multiple slots of LLVM
 sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 4.2.0 4.3.0-r1 4.5.2 5.0.2: Radeon Open Compute llvm,lld,clang
-sys-devel/llvm-toolchain-symlinks 15 16: Symlinks to use LLVM on binutils-free system
+sys-devel/llvm-toolchain-symlinks 14 15 16: Symlinks to use LLVM on binutils-free system
 sys-devel/llvmgold 13-r2 14 15 16: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19: GNU macro processor
 sys-devel/make 4.3 9999: Standard tool to compile source trees
@@ -18106,8 +18106,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 055-r4 056 056-r1 057-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r6 4.2.6-r7 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.213 5.10.143 5.15.68 5.19.9: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.213 5.10.143 5.15.68 5.19.9: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.213 5.4.214 5.10.143 5.10.144 5.15.68 5.15.69 5.19.9 5.19.10: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.213 5.4.214 5.10.143 5.10.144 5.15.68 5.15.69 5.19.9 5.19.10: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.321 4.9.324 4.9.325 4.9.326 4.9.327 4.9.328 4.9.329 4.14.286 4.14.289 4.14.290 4.14.291 4.14.292 4.14.293 4.14.294 4.19.250 4.19.255 4.19.256 4.19.257 4.19.258 4.19.259 5.4.203 5.4.210 5.4.211 5.4.212 5.4.213 5.4.214 5.10.135 5.10.138 5.10.139 5.10.140 5.10.141 5.10.142 5.10.143 5.10.144 5.15.59 5.15.62 5.15.63 5.15.64 5.15.65 5.15.67 5.15.68 5.15.69 5.19.4 5.19.5 5.19.6 5.19.7 5.19.8 5.19.9 5.19.10: Full sources including the Gentoo patchset for the 5.19 kernel tree
 sys-kernel/git-sources 6.0_rc1 6.0_rc2 6.0_rc3 6.0_rc4 6.0_rc5 6.0_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
@@ -18123,7 +18123,7 @@ sys-kernel/pf-sources 5.18_p5 5.19_p1 5.19_p2 5.19_p3 5.19_p4: Linux kernel fork
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.252_p112 4.19.255_p113 5.4.193_p74 5.4.209_p77 5.10.131_p72 5.15.55_p48: Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.213 5.10.143 5.15.68 5.19.9: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.213 5.4.214 5.10.143 5.10.144 5.15.68 5.15.69 5.19.9 5.19.10: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.329 4.14.294 4.19.259 5.4.214 5.10.144 5.15.69 5.19.10: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.18.16: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
@@ -18307,7 +18307,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.213 5.10.143 5.15.68 5.19.9: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.213 5.4.214 5.10.143 5.10.144 5.15.68 5.15.69 5.19.9 5.19.10: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1 5.0 6.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
