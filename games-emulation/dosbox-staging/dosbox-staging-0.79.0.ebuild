@@ -1,7 +1,7 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit meson xdg
 
 DESCRIPTION="Modernized DOSBox soft-fork"
@@ -10,8 +10,10 @@ SRC_URI="https://github.com/dosbox-staging/dosbox-staging/archive/v${PV}.tar.gz 
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="+alsa debug dynrec +fluidsynth mt-32 network opengl"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE="+alsa debug dynrec +fluidsynth mt-32 network opengl slirp test"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	debug? ( sys-libs/ncurses:0= )
@@ -22,13 +24,16 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 	mt-32? ( media-libs/munt-mt32emu )
 	network? ( media-libs/sdl2-net )
 	opengl? ( virtual/opengl )
+	slirp? ( net-libs/libslirp )
+	media-libs/iir1
 	media-libs/libpng:0=
 	media-libs/libsdl2[joystick,opengl?,video,X]
 	media-libs/opusfile
+	media-libs/speexdsp
 	sys-libs/zlib
 	!games-emulation/dosbox"
 DEPEND="${RDEPEND}"
-BDEPEND=""
+BDEPEND="test? ( dev-cpp/gtest )"
 
 DOCS=( AUTHORS README THANKS )
 
@@ -44,7 +49,11 @@ src_prepare() {
 }
 
 src_configure() {
+	# Do not look for static libraries
+	# speexdsp system flag needs to be manually enabled
 	local emesonargs=(
+		-Ddefault_library=shared
+		-Dsystem_libraries=speexdsp
 		$(meson_use alsa use_alsa)
 		$(meson_use debug)
 		-Ddynamic_core=$(usex dynrec dynrec dyn-x86)
@@ -52,6 +61,8 @@ src_configure() {
 		$(meson_use mt-32 use_mt32emu)
 		$(meson_use network use_sdl2_net)
 		$(meson_use opengl use_opengl)
+		$(meson_use slirp use_slirp)
+		$(meson_feature test unit_tests)
 	)
 	meson_src_configure
 }
