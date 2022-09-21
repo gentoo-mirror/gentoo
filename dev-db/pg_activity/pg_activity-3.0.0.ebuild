@@ -24,6 +24,7 @@ RDEPEND="
 BDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	test? (
+		dev-python/psycopg:0[${PYTHON_USEDEP}]
 		dev-python/psycopg:2[${PYTHON_USEDEP}]
 	)
 "
