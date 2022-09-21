@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen[dot] )
+BDEPEND=doc? ( app-doc/doxygen[dot] dev-qt/qdoc:5 )
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 net-libs/libproxy test? ( dev-qt/qttest:5 )
 DESCRIPTION=Signon daemon for libaccounts-glib
@@ -13,4 +13,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.61/signond-VERSION_8.61.tar.gz -> signond-8.61.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
-_md5_=38a814f894b930e9e82a547940f9a694
+_md5_=62c6d3ffa0bbdfb3d7227a99dc6280ff
