@@ -4,7 +4,7 @@ DEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:=
 DESCRIPTION=Drivers and user-space daemon to control Razer devices on GNU/Linux
 EAPI=8
 HOMEPAGE=https://openrazer.github.io/ https://github.com/openrazer/openrazer/
-INHERIT=desktop systemd udev xdg-utils distutils-r1 python-r1 linux-mod
+INHERIT=desktop readme.gentoo-r1 systemd udev xdg-utils distutils-r1 python-r1 linux-mod
 IUSE=+client +daemon test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 dist-kernel
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
@@ -13,5 +13,5 @@ REQUIRED_USE=client? ( daemon ) daemon? ( || ( python_targets_python3_8 python_t
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/openrazer/openrazer/archive/v3.4.0.tar.gz -> openrazer-3.4.0.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	e3b0f72d558eb613ff83262d22cbf887	linux-info	bbfa385d6907d7948d49a5e107bd654d	linux-mod	6ff232574f0bcad33767903505553e8d
-_md5_=0d3d588e9b2ef6e72fd86a289a4036f3
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	e3b0f72d558eb613ff83262d22cbf887	linux-info	bbfa385d6907d7948d49a5e107bd654d	linux-mod	6ff232574f0bcad33767903505553e8d
+_md5_=336e23b935b0a076ace559262beee1d1
