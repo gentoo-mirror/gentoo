@@ -6,10 +6,10 @@ inherit go-module systemd
 
 DESCRIPTION="A tool for service discovery, monitoring and configuration"
 HOMEPAGE="https://www.consul.io"
-GIT_COMMIT="94542765739cff9b09469e1fc5e738ae8a334038"
+GIT_COMMIT="0e046bbb34f12b4a38c6c2dc6497426761f0b02f"
 
 SRC_URI="https://github.com/hashicorp/consul/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~zmedico/dist/consul-1.12.3-deps.tar.xz"
+	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 
 LICENSE="MPL-2.0 Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT"
 RESTRICT+=" test"
@@ -22,6 +22,11 @@ COMMON_DEPEND="
 	acct-user/consul"
 	DEPEND="${COMMON_DEPEND}"
 	RDEPEND="${COMMON_DEPEND}"
+
+src_prepare() {
+	default
+	sed -e 's|^GIT_DATE=.*|GIT_DATE=2022-08-11T19:07:00Z|' -i GNUmakefile || die
+}
 
 src_compile() {
 	# The dev target sets causes build.sh to set appropriate XC_OS
