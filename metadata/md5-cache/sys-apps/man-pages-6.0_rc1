@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install prepare unpack
+DEFINED_PHASES=compile install postinst prepare unpack
 DESCRIPTION=A somewhat comprehensive collection of Linux man pages
 EAPI=8
 HOMEPAGE=https://www.kernel.org/doc/man-pages/
@@ -9,4 +9,4 @@ RDEPEND=virtual/man !<sys-apps/keyutils-1.5.9-r4 !<dev-libs/libbsd-0.8.3-r1
 RESTRICT=binchecks
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git/snapshot/man-pages-6.0-rc1.tar.gz mirror://gentoo/man-pages-gentoo-2.tar.bz2 https://dev.gentoo.org/~cardoe/files/man-pages-gentoo-2.tar.bz2
-_md5_=22e2a7ecac16f66326c9bc84ee6caed9
+_md5_=179e93a6a2e4f128cf9f2afbce50ebb0
