@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure install postinst postrm preinst prepare
-DEPEND=dev-libs/boost:= dev-libs/zziplib:= media-libs/libpng media-libs/libsdl2 media-libs/sdl2-image[png] media-libs/sdl2-net media-libs/sdl2-ttf media-video/ffmpeg:=[mp3,vorbis] sys-libs/zlib virtual/opengl virtual/glu alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) speex? ( media-libs/speex ) upnp? ( net-libs/miniupnpc )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=dev-libs/boost:= dev-libs/zziplib:= media-libs/libpng media-libs/libsdl2 media-libs/sdl2-image[png] media-libs/sdl2-net media-libs/sdl2-ttf media-video/ffmpeg:=[mp3,vorbis] sys-libs/zlib virtual/opengl virtual/glu alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) speex? ( media-libs/speex media-libs/speexdsp ) upnp? ( net-libs/miniupnpc )
 DESCRIPTION=An enhanced version of the game engine from the classic Mac game, Marathon
 EAPI=8
 HOMEPAGE=http://source.bungie.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=autotools optfeature prefix xdg
+INHERIT=autotools optfeature prefix toolchain-funcs xdg
 IUSE=alsa curl speex upnp
 KEYWORDS=~amd64
 LICENSE=GPL-3+ BitstreamVera OFL-1.1
-RDEPEND=dev-libs/boost:= dev-libs/zziplib:= media-libs/libpng media-libs/libsdl2 media-libs/sdl2-image[png] media-libs/sdl2-net media-libs/sdl2-ttf media-video/ffmpeg:=[mp3,vorbis] sys-libs/zlib virtual/opengl virtual/glu alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) speex? ( media-libs/speex ) upnp? ( net-libs/miniupnpc )
+RDEPEND=dev-libs/boost:= dev-libs/zziplib:= media-libs/libpng media-libs/libsdl2 media-libs/sdl2-image[png] media-libs/sdl2-net media-libs/sdl2-ttf media-video/ffmpeg:=[mp3,vorbis] sys-libs/zlib virtual/opengl virtual/glu alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) speex? ( media-libs/speex media-libs/speexdsp ) upnp? ( net-libs/miniupnpc )
 SLOT=0
 SRC_URI=https://github.com/Aleph-One-Marathon/alephone/archive/refs/tags/release-20220115.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	optfeature	1a2157392a869265b2afcb63a26c12ac	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=921e2d595ca374f30bc93ae1c4f0eb91
+_md5_=3a1352a398b181206e54bb8f6792ed66
