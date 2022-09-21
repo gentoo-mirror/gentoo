@@ -3,20 +3,20 @@
 
 EAPI=8
 
-COMMIT_HASH="ba180706d607945d8b419301f4362471d97a306a"
+H=1142f73e05fef6a57141b8328944b13872d4135e
 
 inherit toolchain-funcs
 
 DESCRIPTION="Purely functional programming language with first class types"
 HOMEPAGE="https://idris-lang.org/"
 
-if [[ "${PV}" == *9999* ]]; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/idris-lang/Idris2.git"
+	EGIT_REPO_URI="https://github.com/idris-lang/${PN^}.git"
 else
-	SRC_URI="https://github.com/idris-lang/Idris2/archive/${COMMIT_HASH}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/idris-lang/${PN^}/archive/${H}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${PN^}-${COMMIT_HASH}"
+	S="${WORKDIR}/${PN^}-${H}"
 fi
 
 LICENSE="BSD"
@@ -58,6 +58,8 @@ src_prepare() {
 	sed -i 's|$(HOME)/.idris2|/usr/lib/idris2|g' ./config.mk || die
 
 	# Bad tests
+	# Weird Racket Futures (parallelism) test, might need further investigation
+	sed -i 's|, "futures001"||g' ./tests/Main.idr || die
 	# > Missing incremental compile data, reverting to whole program compilation
 	sed -i 's|"chez033",||g' ./tests/Main.idr || die
 
@@ -68,14 +70,14 @@ src_configure() {
 	export IDRIS2_VERSION=${PV}
 	export SCHEME=$(usex chez chezscheme racket)
 
-	if use chez; then
+	if use chez ; then
 		export IDRIS2_CG=chez
 		export BOOTSTRAP_TARGET=bootstrap
-	elif use racket; then
+	elif use racket ; then
 		export IDRIS2_CG=racket
 		export BOOTSTRAP_TARGET=bootstrap-racket
 	else
-		die "Neither chez nor racket was chosen"
+		die 'Neither "chez" nor "racket" was chosen'
 	fi
 }
 
@@ -93,13 +95,11 @@ src_test() {
 }
 
 src_install() {
-	# "DESTDIR" variable is not respected
-	emake IDRIS2_PREFIX="${D}/usr/lib/idris2" PREFIX="${D}/usr/lib/idris2" install
-
+	# "DESTDIR" variable is not respected, use "PREFIX" instead
+	emake IDRIS2_PREFIX="${D}"/usr/lib/idris2 PREFIX="${D}"/usr/lib/idris2 install
 	dosym ../lib/${PN}/bin/${PN} /usr/bin/${PN}
-
-	einstalldocs
 
 	# Install documentation
 	use doc && dodoc -r ./docs/build/html
+	einstalldocs
 }
