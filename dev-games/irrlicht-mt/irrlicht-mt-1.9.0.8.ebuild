@@ -23,6 +23,7 @@ RDEPEND="~dev-games/irrlicht-mt-headers-${PV}
 	media-libs/libjpeg-turbo
 	virtual/opengl
 	x11-libs/libX11
+	x11-libs/libXi
 	x11-libs/libXxf86vm"
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
