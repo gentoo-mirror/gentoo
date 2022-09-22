@@ -17,7 +17,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://archive.mesa3d.org/${MY_P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris"
 fi
 
 LICENSE="MIT"
@@ -25,14 +25,15 @@ SLOT="0"
 RESTRICT="!test? ( test )"
 
 RADEON_CARDS="r300 r600 radeon radeonsi"
-VIDEO_CARDS="${RADEON_CARDS} freedreno intel lima nouveau panfrost v3d vc4 virgl vivante vmware"
+VIDEO_CARDS="${RADEON_CARDS} d3d12 freedreno intel lima nouveau panfrost v3d vc4 virgl vivante vmware"
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
 
 IUSE="${IUSE_VIDEO_CARDS}
 	cpu_flags_x86_sse2 d3d9 debug gles1 +gles2 +llvm
-	lm-sensors opencl osmesa selinux test unwind vaapi valgrind vdpau vulkan
+	lm-sensors opencl osmesa +proprietary-codecs selinux
+	test unwind vaapi valgrind vdpau vulkan
 	vulkan-overlay wayland +X xa xvmc zink +zstd"
 
 REQUIRED_USE="
@@ -109,12 +110,12 @@ RDEPEND="${RDEPEND}
 # 1. List all the working slots (with min versions) in ||, newest first.
 # 2. Update the := to specify *max* version, e.g. < 10.
 # 3. Specify LLVM_MAX_SLOT, e.g. 9.
-LLVM_MAX_SLOT="14"
+LLVM_MAX_SLOT="15"
 LLVM_DEPSTR="
 	|| (
+		sys-devel/llvm:15[${MULTILIB_USEDEP}]
 		sys-devel/llvm:14[${MULTILIB_USEDEP}]
 		sys-devel/llvm:13[${MULTILIB_USEDEP}]
-		sys-devel/llvm:12[${MULTILIB_USEDEP}]
 	)
 	<sys-devel/llvm-$((LLVM_MAX_SLOT + 1)):=[${MULTILIB_USEDEP}]
 "
@@ -176,6 +177,7 @@ RDEPEND="${RDEPEND}
 unset {LLVM,CLANG}_DEPSTR{,_AMDGPU}
 
 DEPEND="${RDEPEND}
+	video_cards_d3d12? ( dev-util/directx-headers[${MULTILIB_USEDEP}] )
 	valgrind? ( dev-util/valgrind )
 	wayland? ( >=dev-libs/wayland-protocols-1.24 )
 	X? (
@@ -223,11 +225,12 @@ llvm_check_deps() {
 
 pkg_pretend() {
 	if use vulkan; then
-		if ! use video_cards_freedreno &&
+		if ! use video_cards_d3d12 &&
+		   ! use video_cards_freedreno &&
 		   ! use video_cards_intel &&
 		   ! use video_cards_radeonsi &&
 		   ! use video_cards_v3d; then
-			ewarn "Ignoring USE=vulkan     since VIDEO_CARDS does not contain freedreno, intel, radeonsi, or v3d"
+			ewarn "Ignoring USE=vulkan     since VIDEO_CARDS does not contain d3d12, freedreno, intel, radeonsi, or v3d"
 		fi
 	fi
 
@@ -239,19 +242,21 @@ pkg_pretend() {
 	fi
 
 	if use vaapi; then
-		if ! use video_cards_r600 &&
+		if ! use video_cards_d3d12 &&
+		   ! use video_cards_r600 &&
 		   ! use video_cards_radeonsi &&
 		   ! use video_cards_nouveau; then
-			ewarn "Ignoring USE=vaapi      since VIDEO_CARDS does not contain r600, radeonsi, or nouveau"
+			ewarn "Ignoring USE=vaapi      since VIDEO_CARDS does not contain d3d12, r600, radeonsi, or nouveau"
 		fi
 	fi
 
 	if use vdpau; then
-		if ! use video_cards_r300 &&
+		if ! use video_cards_d3d12 &&
+		   ! use video_cards_r300 &&
 		   ! use video_cards_r600 &&
 		   ! use video_cards_radeonsi &&
 		   ! use video_cards_nouveau; then
-			ewarn "Ignoring USE=vdpau      since VIDEO_CARDS does not contain r300, r600, radeonsi, or nouveau"
+			ewarn "Ignoring USE=vdpau      since VIDEO_CARDS does not contain d3d12, r300, r600, radeonsi, or nouveau"
 		fi
 	fi
 
@@ -329,7 +334,8 @@ multilib_src_configure() {
 		emesonargs+=(-Dgallium-nine=false)
 	fi
 
-	if use video_cards_r600 ||
+	if use video_cards_d3d12 ||
+	   use video_cards_r600 ||
 	   use video_cards_radeonsi ||
 	   use video_cards_nouveau; then
 		emesonargs+=($(meson_feature vaapi gallium-va))
@@ -338,7 +344,12 @@ multilib_src_configure() {
 		emesonargs+=(-Dgallium-va=disabled)
 	fi
 
-	if use video_cards_r300 ||
+	if use video_cards_d3d12; then
+		emesonargs+=($(meson_feature vaapi gallium-d3d12-video))
+	fi
+
+	if use video_cards_d3d12 ||
+	   use video_cards_r300 ||
 	   use video_cards_r600 ||
 	   use video_cards_radeonsi ||
 	   use video_cards_nouveau; then
@@ -375,6 +386,7 @@ multilib_src_configure() {
 	gallium_enable video_cards_freedreno freedreno
 	gallium_enable video_cards_intel crocus i915 iris
 	gallium_enable video_cards_lima lima
+	gallium_enable video_cards_d3d12 d3d12
 	gallium_enable video_cards_nouveau nouveau
 	gallium_enable video_cards_panfrost panfrost
 	gallium_enable video_cards_v3d v3d
@@ -400,6 +412,7 @@ multilib_src_configure() {
 	if use vulkan; then
 		vulkan_enable video_cards_freedreno freedreno
 		vulkan_enable video_cards_intel intel
+		vulkan_enable video_cards_d3d12 microsoft-experimental
 		vulkan_enable video_cards_radeonsi amd
 		vulkan_enable video_cards_v3d broadcom
 	fi
@@ -432,6 +445,7 @@ multilib_src_configure() {
 		$(meson_feature zstd)
 		$(meson_use cpu_flags_x86_sse2 sse2)
 		-Dvalgrind=$(usex valgrind auto disabled)
+		-Dvideo-codecs=$(usex proprietary-codecs "h264dec,h264enc,h265dec,h265enc,vc1dec" "")
 		-Dgallium-drivers=$(driver_list "${GALLIUM_DRIVERS[*]}")
 		-Dvulkan-drivers=$(driver_list "${VULKAN_DRIVERS[*]}")
 		--buildtype $(usex debug debug plain)
