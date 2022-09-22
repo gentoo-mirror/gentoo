@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://dev.gentoo.org/~mpagano/genpatches
 INHERIT=kernel-2
 IUSE=experimental symlink build
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86
+KEYWORDS=hppa
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=5.4.203
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.4-208.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-208.base.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-5.4-208.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.4-208.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-208.extras.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-5.4-208.extras.tar.xz experimental? ( https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.4-208.experimental.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-208.experimental.tar.xz https://dev.gentoo.org/~whissi/dist/genpatches/genpatches-5.4-208.experimental.tar.xz )
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	aa8997cf13a12b867c4c8c57383b8582
-_md5_=5424098fecd845ccb5ea485d00b9b631
+_md5_=9a9f08c51907b29d9d77241fc1f04f56
