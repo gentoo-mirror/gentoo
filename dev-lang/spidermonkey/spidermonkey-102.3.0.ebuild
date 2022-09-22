@@ -4,8 +4,8 @@
 EAPI="8"
 
 # Patch version
-FIREFOX_PATCHSET="firefox-102esr-patches-01j.tar.xz"
-SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-03j.tar.xz"
+FIREFOX_PATCHSET="firefox-102esr-patches-02j.tar.xz"
+SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-04j.tar.xz"
 
 LLVM_MAX_SLOT=14
 
@@ -290,11 +290,9 @@ src_configure() {
 		$(use_enable test tests)
 	)
 
-	# Temporary fix against rust-1.63, bgo#870193
-	# if ! use x86 && [[ ${CHOST} != armv*h* ]] ; then
-	#	myeconfargs+=( --enable-rust-simd )
-	#fi
-	myeconfargs+=( --disable-rust-simd )
+	if ! use x86 && [[ ${CHOST} != armv*h* ]] ; then
+		myeconfargs+=( --enable-rust-simd )
+	fi
 
 	# Modifications to better support ARM, bug 717344
 	if use cpu_flags_arm_neon ; then
