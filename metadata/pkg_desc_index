@@ -2745,7 +2745,7 @@ app-eselect/eselect-wine 1.2.2 1.2.2-r1: Manage active wine version
 app-eselect/eselect-wxwidgets 20180529: Eselect module and wrappers for wxWidgets
 app-forensics/afflib 3.7.19-r1: Library that implements the AFF image standard
 app-forensics/afl 2.56b-r1 2.57b-r1 2.57b-r2: american fuzzy lop - compile-time instrumentation fuzzer
-app-forensics/aflplusplus 4.01c-r1 4.02c-r1: A fork of AFL, the popular compile-time instrumentation fuzzer
+app-forensics/aflplusplus 4.01c-r1 4.02c-r1 4.03c: A fork of AFL, the popular compile-time instrumentation fuzzer
 app-forensics/aide 0.17.4-r2: AIDE (Advanced Intrusion Detection Environment) is a file integrity checker
 app-forensics/air 2.0.0-r2: A GUI front-end to dd/dc3dd
 app-forensics/chkrootkit 0.54 0.55 0.55-r1: Tool to locally check for signs of a rootkit
@@ -5857,7 +5857,7 @@ dev-libs/quazip 1.2 1.3-r1 1.3-r2: Simple C++ wrapper over Gilles Vollant's ZIP/
 dev-libs/raft 0.14.0 0.15.0: C implementation of the Raft consensus protocol
 dev-libs/rapidjson 1.1.0-r2 1.1.0-r3 9999: A fast JSON parser/generator for C++ with both SAX/DOM style API
 dev-libs/rasqal 0.9.33: Library that handles Resource Description Framework (RDF)
-dev-libs/rccl 4.0.0-r2 4.3.0-r1 5.0.2: ROCm Communication Collectives Library (RCCL)
+dev-libs/rccl 4.0.0-r2 4.3.0-r1 5.0.2 5.1.3: ROCm Communication Collectives Library (RCCL)
 dev-libs/re2 0.2021.11.01 0.2022.04.01 0.2022.06.01: An efficient, principled regular expression library
 dev-libs/redis-ipc 0.0.6: A (redis) client library for using redis as system IPC msg/event bus
 dev-libs/redland 1.0.17-r3: High-level interface for the Resource Description Framework
@@ -11054,7 +11054,7 @@ dev-texlive/texlive-xetex 2021-r1: TeXLive XeTeX and packages
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 9999: Visualization of hierarchical data, especially pofiled stack traces
 dev-util/ROPgadget 6.9 7.0 7.1 9999: Search for gadgets in binaries to facilitate your ROP exploitation
-dev-util/Tensile 4.3.0-r1 5.0.2-r2: Stretching GPU performance for GEMMs and tensor contractions
+dev-util/Tensile 4.3.0-r1 5.0.2-r2 5.1.3: Stretching GPU performance for GEMMs and tensor contractions
 dev-util/abi-compliance-checker 2.3-r1 9999: A tool for checking backward compatibility of a C/C++ library
 dev-util/abi-dumper 1.2-r1: Dump ABI of an ELF object containing DWARF debug info
 dev-util/abootimg 20150323: Manipulate Android boot images
@@ -16674,10 +16674,10 @@ sci-libs/h5hut 1.99.13-r1: High-Performance I/O Library for Particle-based Simul
 sci-libs/h5part 1.6.6: Portable High Performance Parallel Data Interface to HDF5
 sci-libs/hdf 4.2.15-r1: General purpose library and format for storing scientific data
 sci-libs/hdf5 1.10.5 1.10.5-r1 1.12.1 1.12.1-r1 1.12.2-r1 1.12.2-r2 1.12.2-r4 1.12.2-r5: General purpose library and file format for storing scientific data
-sci-libs/hipBLAS 4.3.0 5.0.2: ROCm BLAS marshalling library
-sci-libs/hipCUB 4.0.0-r1 4.3.0-r1 5.0.2: Wrapper of rocPRIM or CUB for GPU parallel primitives
-sci-libs/hipFFT 4.3.0 5.0.2: CU / ROCM agnostic hip FFT implementation
-sci-libs/hipSPARSE 4.0.0-r2 4.3.0-r2 5.0.2: ROCm SPARSE marshalling library
+sci-libs/hipBLAS 4.3.0 5.0.2 5.1.3: ROCm BLAS marshalling library
+sci-libs/hipCUB 4.0.0-r1 4.3.0-r1 5.0.2 5.1.3: Wrapper of rocPRIM or CUB for GPU parallel primitives
+sci-libs/hipFFT 4.3.0 5.0.2 5.1.3: CU / ROCM agnostic hip FFT implementation
+sci-libs/hipSPARSE 4.0.0-r2 4.3.0-r2 5.0.2 5.1.3: ROCm SPARSE marshalling library
 sci-libs/htslib 1.15.1: C library for high-throughput sequencing data formats
 sci-libs/hypre 2.20.0 2.21.0 2.24.0: Parallel matrix preconditioners library
 sci-libs/idlcoyote 20161220 99999999: GDL library from D. Fannings IDL courses
@@ -16751,7 +16751,7 @@ sci-libs/mc 1.5: 2D/3D AFEM code for nonlinear geometric PDE
 sci-libs/med 4.1.0 4.1.1: A library to store and exchange meshed data or computation results
 sci-libs/metis 5.1.0-r5: A package for unstructured serial graph partitioning
 sci-libs/minuit 5.34.14: A C++ physics analysis tool for function minimization
-sci-libs/miopen 4.3.0 5.0.2: AMD's Machine Intelligence Library
+sci-libs/miopen 4.3.0 5.0.2 5.1.3: AMD's Machine Intelligence Library
 sci-libs/mkl 2020.4.304: Intel Math Kernel Library
 sci-libs/mpfi 1.5.4: Multiple precision interval arithmetic library based on MPFR
 sci-libs/mpir 3.0.0-r1: Library for arbitrary precision integer arithmetic (fork of gmp)
@@ -16792,13 +16792,13 @@ sci-libs/pytorch 1.11.0 1.12.0: Tensors and Dynamic neural networks in Python
 sci-libs/qd 2.3.23: Quad-double and double-double float arithmetics
 sci-libs/qfits 6.2.0: ESO stand-alone C library offering easy access to FITS files
 sci-libs/qrupdate 1.1.2-r2: Library for updating of QR and Cholesky decompositions
-sci-libs/rocBLAS 4.3.0 4.3.0-r1 5.0.2-r2: AMD's library for BLAS on ROCm
-sci-libs/rocFFT 4.0.0-r1 4.3.0-r1 5.0.2-r1: Next generation FFT implementation for ROCm
-sci-libs/rocPRIM 4.0.0-r1 4.3.0-r2 5.0.2: HIP parallel primitives for developing performant GPU-accelerated code on ROCm
-sci-libs/rocRAND 4.0.0-r1 4.3.0-r1 5.0.2: Generate pseudo-random and quasi-random numbers
-sci-libs/rocSOLVER 4.3.0-r1 5.0.2: Implementation of a subset of LAPACK functionality on the ROCm platform
-sci-libs/rocSPARSE 4.0.0-r1 4.3.0-r3 5.0.2: Basic Linear Algebra Subroutines for sparse computation
-sci-libs/rocThrust 4.0.0-r1 4.3.0-r2 5.0.2-r1: HIP back-end for the parallel algorithm library Thrust
+sci-libs/rocBLAS 4.3.0 4.3.0-r1 5.0.2-r2 5.1.3: AMD's library for BLAS on ROCm
+sci-libs/rocFFT 4.0.0-r1 4.3.0-r1 5.0.2-r1 5.1.3: Next generation FFT implementation for ROCm
+sci-libs/rocPRIM 4.0.0-r1 4.3.0-r2 5.0.2 5.1.3: HIP parallel primitives for developing performant GPU-accelerated code on ROCm
+sci-libs/rocRAND 4.0.0-r1 4.3.0-r1 5.0.2 5.1.3: Generate pseudo-random and quasi-random numbers
+sci-libs/rocSOLVER 4.3.0-r1 5.0.2 5.1.3: Implementation of a subset of LAPACK functionality on the ROCm platform
+sci-libs/rocSPARSE 4.0.0-r1 4.3.0-r3 5.0.2 5.1.3: Basic Linear Algebra Subroutines for sparse computation
+sci-libs/rocThrust 4.0.0-r1 4.3.0-r2 5.0.2-r1 5.1.3: HIP back-end for the parallel algorithm library Thrust
 sci-libs/rosetta-db 3.4: Essential database for rosetta
 sci-libs/rtabmap 0.20.13-r1 0.20.18 9999: Real-Time Appearance-Based Mapping (RGB-D Graph SLAM)
 sci-libs/rtree 0.9.7 1.0.0: R-Tree spatial index for Python GIS
