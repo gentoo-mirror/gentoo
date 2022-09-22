@@ -1,0 +1,14 @@
+DEFINED_PHASES=install prepare
+DEPEND=!static? ( dev-libs/popt ncurses? ( sys-libs/ncurses:=[unicode(+)] ) kernel_linux? ( sys-apps/util-linux ) ) static? ( dev-libs/popt[static-libs(+)] ncurses? ( sys-libs/ncurses:=[unicode(+),static-libs(+)] ) kernel_linux? ( sys-apps/util-linux[static-libs(+)] ) ) virtual/pkgconfig
+DESCRIPTION=GPT partition table manipulator for Linux
+EAPI=8
+HOMEPAGE=https://www.rodsbooks.com/gdisk/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=ncurses static
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=!static? ( dev-libs/popt ncurses? ( sys-libs/ncurses:=[unicode(+)] ) kernel_linux? ( sys-apps/util-linux ) )
+SLOT=0
+SRC_URI=mirror://sourceforge/gptfdisk/gptfdisk/1.0.9/gptfdisk-1.0.9.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=1c9ee0db877abc44da9d079e8abd0e29
