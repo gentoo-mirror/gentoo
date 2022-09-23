@@ -24,6 +24,7 @@ RESTRICT="test"
 
 # slot op: various private QtWaylandClient headers
 COMMON_DEPEND="
+	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
@@ -157,6 +158,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
 	"${FILESDIR}/${P}-widgetexplorer-recurse-containments.patch" # https://mail.kde.org/pipermail/distributions/2022-September/001287.html
 	"${FILESDIR}/${P}-delay-ksplash-until-after-env-setup.patch" # KDE-bug 458865 w/ Qt 5.15.6
+	"${FILESDIR}/${P}-fonts-honor-and-present-system-defaults.patch" # KDE-bug 416140
+	"${FILESDIR}/${P}-prevent-panel-go-out-of-screen.patch" # git master and Plasma/5.24 branch double revert
 )
 
 src_prepare() {
