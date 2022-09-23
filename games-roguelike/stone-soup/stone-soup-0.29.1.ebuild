@@ -13,31 +13,33 @@ HOMEPAGE="https://crawl.develz.org"
 SLOT="0.29"
 
 # Leave empty string if not a _pre release
-COMMITSHA="40bbea3e7347d6647ea791ba38964496f292cc81"
+COMMITSHA=""
 if [ -z "${COMMITSHA}" ]; then
-	# This is a proper release
+	# This is a tagged release
+	# Note the archive URI and file layout changed upstream between 0.29.0 and 0.29.1
 	SRC_URI="
-		https://github.com/crawl/crawl/releases/download/${PV}/${PN/-/_}-${PV}.zip
-		https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${SLOT}.png
-		https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${SLOT}.svg
+		https://github.com/crawl/crawl/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	"
-	MY_P="stone_soup-${PV}"
+	MY_P="crawl-${PV}/crawl-ref"
 else
 	# This is a _pre release
 	SRC_URI="
 		https://github.com/crawl/crawl/archive/${COMMITSHA}.tar.gz -> ${P}.tar.gz
-		https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${SLOT}.png
-		https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${SLOT}.svg
 	"
 	MY_P="crawl-${COMMITSHA}/crawl-ref"
 fi
+SRC_URI="
+	${SRC_URI}
+	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${SLOT}.png
+	https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${SLOT}.svg
+"
 
 # 3-clause BSD: mt19937ar.cc, MSVC/stdint.h
 # 2-clause BSD: all contributions by Steve Noonan and Jesse Luehrs
 # Public Domain|CC0: most of tiles
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
@@ -142,7 +144,9 @@ src_compile() {
 		BUILD_LUA=
 		AR="$(tc-getAR)"
 		CFOPTIMIZE=''
-		CFOTHERS="${CXXFLAGS}"
+		# -DLUA_COMPAT_OPENLIB=1 is required to enable the
+		# deprecated (in 5.1) luaL_openlib API (#869671)
+		CFOTHERS="${CXXFLAGS} -DLUA_COMPAT_OPENLIB=1"
 		CONTRIBS=
 		DATADIR="/usr/share/${PN}-${SLOT}"
 		FORCE_CC="$(tc-getCC)"
