@@ -28,13 +28,9 @@ DOCS=( CREDITS HISTORY README )
 S="${WORKDIR}/${MY_PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.5.16-fix-makefile.patch"
+	"${FILESDIR}/${PN}-3.0.14-fix-makefile.patch"
 	"${FILESDIR}/${PN}-2.5.3-fix-build-intel-lib.patch"
 )
-
-src_prepare() {
-	default
-}
 
 src_compile() {
 	local myconf
