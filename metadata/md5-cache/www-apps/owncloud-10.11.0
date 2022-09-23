@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=app-admin/webapp-config
+DESCRIPTION=Web-based storage application where all your data is under your own control
+EAPI=8
+HOMEPAGE=https://owncloud.org
+INHERIT=webapp
+IUSE=+curl mysql postgres +sqlite vhosts
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=AGPL-3
+RDEPEND=>=dev-lang/php-7.0[curl?,filter,gd,hash(+),intl,json(+),mysql?,pdo,posix,postgres?,session,simplexml,sqlite?,xmlreader,xmlwriter,zip] virtual/httpd-php app-admin/webapp-config
+REQUIRED_USE=|| ( mysql postgres sqlite )
+SLOT=10.11.0
+SRC_URI=https://download.owncloud.com/server/stable/owncloud-10.11.0.tar.bz2
+_eclasses_=webapp	67df5bab481d0b9428f9ab7b3de690e4
+_md5_=d82debdf52b5d04df7cc3c222cbca141
