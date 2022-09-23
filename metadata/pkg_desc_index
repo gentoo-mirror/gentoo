@@ -1094,7 +1094,7 @@ app-admin/sshguard 2.4.2 99999: protects hosts from brute force attacks against 
 app-admin/stow 2.3.1: GNU Stow is a symlink farm manager
 app-admin/su-exec 0.2: Switch user and group id and exec
 app-admin/sud 1.3-r1: A daemon to execute processes with special privileges in a nosuid environment
-app-admin/sudo 1.9.10-r1 1.9.11_p2 1.9.11_p3 9999: Allows users or groups to run commands as other users
+app-admin/sudo 1.9.10-r1 1.9.11_p2 1.9.11_p3-r1 9999: Allows users or groups to run commands as other users
 app-admin/superadduser 1.15: Interactive adduser script from Slackware
 app-admin/supervisor 4.2.2 4.2.4: A system for controlling process state under UNIX
 app-admin/sxid 4.2-r2: suid, sgid file and directory checking
@@ -1227,7 +1227,7 @@ app-arch/zoo 2.10-r5: Manipulate archives of files in compressed form
 app-arch/zopfli 1.0.3: Very good, but slow, deflate or zlib compression
 app-arch/zpaq 7.15-r1: Journaling incremental deduplicating archiving compressor
 app-arch/zpaq-extras 3: A set of additional compression profiles for app-arch/zpaq
-app-arch/zstd 1.4.9 1.5.2 1.5.2-r1: zstd fast compression library
+app-arch/zstd 1.4.9 1.5.2 1.5.2-r2: zstd fast compression library
 app-backup/amanda 3.5.1-r3: The Advanced Maryland Automatic Network Disk Archiver
 app-backup/attic 0.16-r1 9999: Attic is a deduplicating backup program written in Python
 app-backup/backintime 1.3.1 1.3.2 9999: Backup system inspired by TimeVault and FlyBack
@@ -11155,7 +11155,7 @@ dev-util/cram 0.7-r2: Functional testing framework for command line applications
 dev-util/crash 7.3.1 8.0.0-r1 8.0.1 9999: Red Hat crash utility; used for analyzing kernel core dumps
 dev-util/cscope 15.9: Interactively examine a C program
 dev-util/csup 20060318-r1: A rewrite of CVSup
-dev-util/ctags 20190331-r1 20211017.0 20220828.0 99999999: Exuberant Ctags creates tags files for code browsing in editors
+dev-util/ctags 20190331-r1 20211017.0 20220828.0-r1 99999999: Exuberant Ctags creates tags files for code browsing in editors
 dev-util/cucumber 3.2.0 7.1.0 8.0.0: Executable feature scenarios
 dev-util/cucumber-ci-environment 9.0.4 9.1.0: Detect CI Environment from environment variables
 dev-util/cucumber-compatibility-kit 9.2.1-r1: Kit to check compatibility with official cucumber implementation
@@ -17399,7 +17399,7 @@ sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
 sys-apps/daisydog 2014.05.30 2014.05.30-r1: A very simple /dev/watchdog daemon
 sys-apps/darwin-miscutils 6-r1 8 9 10 11 12: Miscellaneous commands used on macOS, High Sierra 10.13
-sys-apps/dbus 1.12.22-r2 1.14.0-r4 1.14.0-r5: A message bus system, a simple way for applications to talk to each other
+sys-apps/dbus 1.12.22-r2 1.14.0-r4 1.14.0-r6: A message bus system, a simple way for applications to talk to each other
 sys-apps/dbus-broker 31 32 9999: Linux D-Bus Message Broker
 sys-apps/dcfldd 1.7 1.7.1: enhanced dd with features for forensics and security
 sys-apps/dchroot 0.12.1: Utility for managing chroots for non-root users
@@ -17777,7 +17777,7 @@ sys-boot/colo 1.22: CObalt LOader - Modern bootloader for Cobalt MIPS machines
 sys-boot/cromwell 2.40-r3: Xbox boot loader
 sys-boot/cromwell-bin 2.40-r1: Xbox boot loader precompiled binaries from xbox-linux.org
 sys-boot/dvhtool 1.0.1-r2: Tool to copy kernel(s) into the volume header on SGI MIPS-based workstations
-sys-boot/efibootmgr 17 18: User-space application to modify the EFI boot manager
+sys-boot/efibootmgr 17-r1 18-r1: User-space application to modify the EFI boot manager
 sys-boot/elilo 3.16-r5: Linux boot loader for EFI-based systems such as IA-64
 sys-boot/gnu-efi 3.0.12 3.0.14 3.0.15: Library for build EFI Applications
 sys-boot/grub 2.06-r3 9999: GNU GRUB boot loader
@@ -18172,7 +18172,7 @@ sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 13
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
 sys-libs/libseccomp 2.5.4 2.5.4-r1 9999: high level interface to Linux seccomp filter
 sys-libs/libselinux 3.3 3.4 9999: SELinux userland library
-sys-libs/libsemanage 3.3 3.4 9999: SELinux kernel and policy management library
+sys-libs/libsemanage 3.3 3.4-r1 9999: SELinux kernel and policy management library
 sys-libs/libsepol 3.3 3.4 9999: SELinux binary policy representation library
 sys-libs/libservicelog 1.1.18 1.1.19: Provides a library for logging service-related events
 sys-libs/libsmbios 2.4.3: Provide access to (SM)BIOS information
@@ -18255,7 +18255,7 @@ sys-process/bpytop 1.0.68-r1: Linux/OSX/FreeBSD resource monitor
 sys-process/btop 1.2.8 1.2.9: A monitor of resources
 sys-process/criu 3.14-r2 3.15 3.15-r3 3.16.1 3.17-r1: utility to checkpoint/restore a process tree
 sys-process/cronbase 0.3.7-r8: Base for all cron ebuilds
-sys-process/cronie 1.5.7 1.6.0-r2 1.6.1: Cronie is a standard UNIX daemon cron based on the original vixie-cron
+sys-process/cronie 1.6.1-r1: Cronie is a standard UNIX daemon cron based on the original vixie-cron
 sys-process/cronutils 1.9: Utilities to assist running batch processing jobs
 sys-process/ctop 0.7.7: Top-like interface for container-metrics
 sys-process/daemontools 0.76-r8: Collection of tools for managing UNIX services
