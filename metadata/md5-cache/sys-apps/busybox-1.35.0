@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst preinst prepare
-DEPEND=virtual/libcrypt:= !static? ( selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam ) static? ( virtual/libcrypt[static-libs] selinux? ( sys-libs/libselinux[static-libs(+)] ) ) sys-kernel/linux-headers
+DEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam ) static? ( virtual/libcrypt[static-libs] selinux? ( sys-libs/libselinux[static-libs(+)] ) ) sys-kernel/linux-headers
 DESCRIPTION=Utilities for rescue and embedded systems
 EAPI=7
 HOMEPAGE=https://www.busybox.net/
 INHERIT=flag-o-matic savedconfig toolchain-funcs
 IUSE=debug ipv6 livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd savedconfig
 LICENSE=GPL-2
-RDEPEND=virtual/libcrypt:= !static? ( selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
+RDEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
 REQUIRED_USE=pam? ( !static )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.busybox.net/downloads/busybox-1.35.0.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341
-_md5_=a848ead87f96e3aef4f70e462f8e9359
+_md5_=0f99fcd9cfcec1324a0b28ef359def99
