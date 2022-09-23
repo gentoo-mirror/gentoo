@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-libs/boost:= dev-libs/json-c:= dev-libs/libxml2 dev-libs/icu:= sys-apps/acl sys-apps/dbus sys-apps/util-linux >=sys-fs/btrfs-progs-3.17.1 sys-libs/zlib virtual/libintl lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) xattr? ( sys-apps/attr ) app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gettext virtual/pkgconfig
+DESCRIPTION=Command-line program for btrfs and lvm snapshot management
+EAPI=8
+HOMEPAGE=http://snapper.io/
+INHERIT=autotools systemd
+IUSE=doc lvm pam test systemd xattr
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/boost:= dev-libs/json-c:= dev-libs/libxml2 dev-libs/icu:= sys-apps/acl sys-apps/dbus sys-apps/util-linux >=sys-fs/btrfs-progs-3.17.1 sys-libs/zlib virtual/libintl lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) xattr? ( sys-apps/attr )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/openSUSE/snapper/archive/v0.10.3.tar.gz -> snapper-0.10.3.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=b5082136f303a2ee36b086afe6d2ddc8
