@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9,10} )
 PYTHON_REQ_USE="xml(+)"
 CHROMIUM_VER="94.0.4606.126"
-CHROMIUM_PATCHES_VER="101.0.4951.64"
+CHROMIUM_PATCHES_VER="104.0.5112.81"
 
 inherit check-reqs estack flag-o-matic multiprocessing python-any-r1 qt6-build
 
@@ -85,11 +85,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	media-libs/libglvnd
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-widevine.patch
-	"${FILESDIR}"/${P}-favicon.patch
-)
 
 python_check_deps() {
 	python_has_version "dev-python/html5lib[${PYTHON_USEDEP}]"
