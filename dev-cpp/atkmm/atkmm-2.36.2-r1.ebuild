@@ -12,17 +12,17 @@ HOMEPAGE="https://www.gtkmm.org"
 LICENSE="LGPL-2.1+"
 SLOT="2.36"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris"
-IUSE="doc"
+IUSE="gtk-doc"
 
 DEPEND="
-	>=dev-cpp/glibmm-2.68.0:2.68[doc?,${MULTILIB_USEDEP}]
+	>=dev-cpp/glibmm-2.68.0:2.68[gtk-doc?,${MULTILIB_USEDEP}]
 	>=dev-libs/atk-2.33.3[${MULTILIB_USEDEP}]
-	dev-libs/libsigc++:3[doc?,${MULTILIB_USEDEP}]
+	dev-libs/libsigc++:3[gtk-doc?,${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? (
+	gtk-doc? (
 		app-doc/doxygen[dot]
 		dev-lang/perl
 		dev-libs/libxslt
@@ -32,7 +32,7 @@ BDEPEND="
 
 multilib_src_configure() {
 	local emesonargs=(
-		$(meson_native_use_bool doc build-documentation)
+		$(meson_native_use_bool gtk-doc build-documentation)
 	)
 	meson_src_configure
 }
