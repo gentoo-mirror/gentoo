@@ -1,13 +1,13 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI="8"
 
-FIREFOX_PATCHSET="firefox-102esr-patches-02j.tar.xz"
+FIREFOX_PATCHSET="firefox-91esr-patches-10j.tar.xz"
 
 LLVM_MAX_SLOT=14
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
 WANT_AUTOCONF="2.1"
@@ -48,7 +48,7 @@ if [[ ${PV} == *_rc* ]] ; then
 fi
 
 PATCH_URIS=(
-	https://dev.gentoo.org/~{juippis,whissi,slashbeast}/mozilla/patchsets/${FIREFOX_PATCHSET}
+	https://dev.gentoo.org/~{juippis,polynomial-c,whissi}/mozilla/patchsets/${FIREFOX_PATCHSET}
 )
 
 SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}.source.tar.xz
@@ -63,29 +63,21 @@ SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 
 IUSE="+clang cpu_flags_arm_neon dbus debug eme-free hardened hwaccel"
-IUSE+=" jack libproxy lto +openh264 pgo pulseaudio sndio selinux"
-IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx system-png system-python-libs +system-webp"
+IUSE+=" jack lto +openh264 pgo pulseaudio sndio selinux"
+IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx system-png +system-webp"
 IUSE+=" wayland wifi"
-
-# Thunderbird-only USE flags.
-IUSE+=" +system-librnp"
 
 REQUIRED_USE="debug? ( !system-av1 )
 	pgo? ( lto )
 	wifi? ( dbus )"
 
-# Thunderbird-only dependencies.
-TB_ONLY_DEPEND="!<x11-plugins/enigmail-2.2
-	selinux? ( sec-policy/selinux-thunderbird )
-	!system-librnp? ( dev-libs/jsoncpp )
-	system-librnp? ( dev-util/librnp:= )"
 BDEPEND="${PYTHON_DEPS}
 	app-arch/unzip
 	app-arch/zip
-	>=dev-util/cbindgen-0.24.3
-	net-libs/nodejs
+	>=dev-util/cbindgen-0.24.0
+	>=net-libs/nodejs-10.23.1
 	virtual/pkgconfig
-	virtual/rust
+	>=virtual/rust-1.51.0
 	|| (
 		(
 			sys-devel/clang:14
@@ -104,71 +96,64 @@ BDEPEND="${PYTHON_DEPS}
 			)
 		)
 	)
-	amd64? ( >=dev-lang/nasm-2.14 )
-	x86? ( >=dev-lang/nasm-2.14 )"
+	amd64? ( >=dev-lang/nasm-2.13 )
+	x86? ( >=dev-lang/nasm-2.13 )"
 
-COMMON_DEPEND="${TB_ONLY_DEPEND}
+COMMON_DEPEND="
+	>=dev-libs/nss-3.68
+	>=dev-libs/nspr-4.32
 	dev-libs/atk
 	dev-libs/expat
-	dev-libs/glib:2
-	dev-libs/libffi:=
-	>=dev-libs/nss-3.79
-	>=dev-libs/nspr-4.34
-	media-libs/alsa-lib
-	media-libs/fontconfig
-	media-libs/freetype
-	media-libs/mesa
-	media-video/ffmpeg
-	sys-libs/zlib
-	virtual/freedesktop-icon-theme
-	virtual/opengl
-	x11-libs/cairo[X]
+	>=x11-libs/cairo-1.10[X]
+	>=x11-libs/gtk+-3.4.0:3[X]
 	x11-libs/gdk-pixbuf
-	x11-libs/gtk+:3[X]
+	>=x11-libs/pango-1.22.0
+	>=media-libs/mesa-10.2:*
+	media-libs/fontconfig
+	>=media-libs/freetype-2.4.10
+	kernel_linux? ( !pulseaudio? ( media-libs/alsa-lib ) )
+	virtual/freedesktop-icon-theme
+	>=x11-libs/pixman-0.19.2
+	>=dev-libs/glib-2.26:2
+	>=sys-libs/zlib-1.2.3
+	>=dev-libs/libffi-3.0.10:=
+	media-video/ffmpeg
 	x11-libs/libX11
+	x11-libs/libxcb:=
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXrandr
-	x11-libs/libXtst
-	x11-libs/libxcb:=
-	x11-libs/libxkbcommon[X]
-	x11-libs/pango
-	x11-libs/pixman
+	x11-libs/libXrender
+	x11-libs/libXt
 	dbus? (
-		dev-libs/dbus-glib
 		sys-apps/dbus
+		dev-libs/dbus-glib
 	)
-	jack? ( virtual/jack )
-	libproxy? ( net-libs/libproxy )
-	sndio? ( >=media-sound/sndio-1.8.0-r1 )
 	system-av1? (
-		>=media-libs/dav1d-1.0.0:=
+		>=media-libs/dav1d-0.8.1:=
 		>=media-libs/libaom-1.0.0:=
 	)
 	system-harfbuzz? (
-		>=media-gfx/graphite2-1.3.13
 		>=media-libs/harfbuzz-2.8.1:0=
+		>=media-gfx/graphite2-1.3.13
 	)
-	system-icu? ( >=dev-libs/icu-71.1:= )
+	system-icu? ( >=dev-libs/icu-69.1:= )
 	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1 )
 	system-libevent? ( >=dev-libs/libevent-2.0:0=[threads] )
 	system-libvpx? ( >=media-libs/libvpx-1.8.2:0=[postproc] )
 	system-png? ( >=media-libs/libpng-1.6.35:0=[apng] )
 	system-webp? ( >=media-libs/libwebp-1.1.0:0= )
-	wayland? (
-		x11-libs/gtk+:3[wayland]
-		x11-libs/libdrm
-		x11-libs/libxkbcommon[wayland]
-	)
 	wifi? (
 		kernel_linux? (
+			sys-apps/dbus
 			dev-libs/dbus-glib
 			net-misc/networkmanager
-			sys-apps/dbus
 		)
-	)"
+	)
+	jack? ( virtual/jack )
+	selinux? ( sec-policy/selinux-mozilla )
+	sndio? ( media-sound/sndio )"
 
 RDEPEND="${COMMON_DEPEND}
 	jack? ( virtual/jack )
@@ -178,7 +163,9 @@ RDEPEND="${COMMON_DEPEND}
 			media-sound/pulseaudio
 			>=media-sound/apulse-0.1.12-r4
 		)
-	)"
+	)
+	selinux? ( sec-policy/selinux-mozilla )
+	!<x11-plugins/enigmail-2.2"
 
 DEPEND="${COMMON_DEPEND}
 	x11-libs/libICE
@@ -188,7 +175,10 @@ DEPEND="${COMMON_DEPEND}
 			media-sound/pulseaudio
 			>=media-sound/apulse-0.1.12-r4[sdk]
 		)
-	)"
+	)
+	wayland? ( >=x11-libs/gtk+-3.11:3[wayland] )
+	amd64? ( virtual/opengl )
+	x86? ( virtual/opengl )"
 
 S="${WORKDIR}/${PN}-${PV%_*}"
 
@@ -217,7 +207,7 @@ llvm_check_deps() {
 
 MOZ_LANGS=(
 	af ar ast be bg br ca cak cs cy da de dsb
-	el en-CA en-GB en-US es-AR es-ES es-MX et eu
+	el en-CA en-GB en-US es-AR es-ES et eu
 	fi fr fy-NL ga-IE gd gl he hr hsb hu
 	id is it ja ka kab kk ko lt lv ms nb-NO nl nn-NO
 	pa-IN pl pt-BR pt-PT rm ro ru
@@ -369,7 +359,7 @@ pkg_pretend() {
 		if use pgo || use lto || use debug ; then
 			CHECKREQS_DISK_BUILD="13500M"
 		else
-			CHECKREQS_DISK_BUILD="6600M"
+			CHECKREQS_DISK_BUILD="6400M"
 		fi
 
 		check-reqs_pkg_pretend
@@ -414,6 +404,13 @@ pkg_setup() {
 				eerror "    llvm/clang/lld/rust chain depending on your @world updates)"
 				die "LLVM version used by Rust (${version_llvm_rust}) does not match with ld.lld version (${version_lld})!"
 			fi
+		fi
+
+		if ! use clang && [[ $(gcc-major-version) -eq 11 ]] \
+			&& ! has_version -b ">sys-devel/gcc-11.1.0:11" ; then
+			# bug 792705
+			eerror "Using GCC 11 to compile firefox is currently known to be broken (see bug #792705)."
+			die "Set USE=clang or select <gcc-11 to build ${CATEGORY}/${P}."
 		fi
 
 		python-any-r1_pkg_setup
@@ -511,6 +508,14 @@ src_prepare() {
 		rm -v "${WORKDIR}"/firefox-patches/*-LTO-Only-enable-LTO-*.patch || die
 	fi
 
+	if use system-av1 && has_version "<media-libs/dav1d-1.0.0"; then
+		rm -v "${WORKDIR}"/firefox-patches/0033-bgo-835788-dav1d-1.0.0-support.patch || die
+		elog "<media-libs/dav1d-1.0.0 detected, removing 1.0.0 compat patch."
+	elif ! use system-av1; then
+		rm -v "${WORKDIR}"/firefox-patches/0033-bgo-835788-dav1d-1.0.0-support.patch || die
+		elog "-system-av1 USE flag detected, removing 1.0.0 compat patch."
+	fi
+
 	eapply "${WORKDIR}/firefox-patches"
 
 	# Allow user to apply any additional patches without modifing ebuild
@@ -545,6 +550,9 @@ src_prepare() {
 	einfo "Removing pre-built binaries ..."
 	find "${S}"/third_party -type f \( -name '*.so' -o -name '*.o' \) -print -delete || die
 
+	# Clearing checksums where we have applied patches
+	moz_clear_vendor_checksums target-lexicon-0.9.0
+
 	# Create build dir
 	BUILD_DIR="${WORKDIR}/${PN}_build"
 	mkdir -p "${BUILD_DIR}" || die
@@ -571,7 +579,6 @@ src_configure() {
 		einfo "Enforcing the use of clang due to USE=clang ..."
 		have_switched_compiler=yes
 		AR=llvm-ar
-		AS=llvm-as
 		CC=${CHOST}-clang
 		CXX=${CHOST}-clang++
 		NM=llvm-nm
@@ -625,14 +632,10 @@ src_configure() {
 		--allow-addon-sideload \
 		--disable-cargo-incremental \
 		--disable-crashreporter \
-		--disable-gpsd \
 		--disable-install-strip \
-		--disable-parental-controls \
 		--disable-strip \
 		--disable-updater \
 		--enable-js-shell \
-		--enable-negotiateauth \
-		--enable-new-pass-manager \
 		--enable-official-branding \
 		--enable-release \
 		--enable-system-ffi \
@@ -642,7 +645,6 @@ src_configure() {
 		--prefix="${EPREFIX}/usr" \
 		--target="${CHOST}" \
 		--without-ccache \
-		--without-wasm-sandboxed-libraries \
 		--with-intl-api \
 		--with-libclang-path="$(llvm-config --libdir)" \
 		--with-system-nspr \
@@ -660,15 +662,6 @@ src_configure() {
 
 	if ! use x86 && [[ ${CHOST} != armv*h* ]] ; then
 		mozconfig_add_options_ac '' --enable-rust-simd
-	fi
-
-	# For future keywording: This is currently (97.0) only supported on:
-	# amd64, arm, arm64 & x86.
-	# Might want to flip the logic around if Firefox is to support more arches.
-	if use ppc64; then
-		mozconfig_add_options_ac '' --disable-sandbox
-	else
-		mozconfig_add_options_ac '' --enable-sandbox
 	fi
 
 	if [[ -s "${S}/api-google.key" ]] ; then
@@ -712,18 +705,12 @@ src_configure() {
 	mozconfig_use_with system-harfbuzz system-graphite2
 	mozconfig_use_with system-icu
 	mozconfig_use_with system-jpeg
-	mozconfig_use_with system-libevent
+	mozconfig_use_with system-libevent system-libevent "${ESYSROOT}/usr"
 	mozconfig_use_with system-libvpx
 	mozconfig_use_with system-png
 	mozconfig_use_with system-webp
 
-	if use system-librnp; then
-		mozconfig_add_options_ac "+system-librnp" --enable-compile-environment
-		mozconfig_use_with system-librnp
-	fi
-
 	mozconfig_use_enable dbus
-	mozconfig_use_enable libproxy
 
 	use eme-free && mozconfig_add_options_ac '+eme-free' --disable-eme
 
@@ -732,20 +719,22 @@ src_configure() {
 		append-ldflags "-Wl,-z,relro -Wl,-z,now"
 	fi
 
-	local myaudiobackends=""
-	use jack && myaudiobackends+="jack,"
-	use sndio && myaudiobackends+="sndio,"
-	use pulseaudio && myaudiobackends+="pulseaudio,"
-	! use pulseaudio && myaudiobackends+="alsa,"
+	mozconfig_use_enable jack
 
-	mozconfig_add_options_ac '--enable-audio-backends' --enable-audio-backends="${myaudiobackends::-1}"
+	mozconfig_use_enable pulseaudio
+	# force the deprecated alsa sound code if pulseaudio is disabled
+	if use kernel_linux && ! use pulseaudio ; then
+		mozconfig_add_options_ac '-pulseaudio' --enable-alsa
+	fi
+
+	mozconfig_use_enable sndio
 
 	mozconfig_use_enable wifi necko-wifi
 
 	if use wayland ; then
-		mozconfig_add_options_ac '+x11+wayland' --enable-default-toolkit=cairo-gtk3-x11-wayland
+		mozconfig_add_options_ac '+wayland' --enable-default-toolkit=cairo-gtk3-wayland
 	else
-		mozconfig_add_options_ac '+x11' --enable-default-toolkit=cairo-gtk3
+		mozconfig_add_options_ac '' --enable-default-toolkit=cairo-gtk3
 	fi
 
 	if use lto ; then
@@ -754,8 +743,10 @@ src_configure() {
 			mozconfig_add_options_ac "forcing ld=lld due to USE=clang and USE=lto" --enable-linker=lld
 
 			mozconfig_add_options_ac '+lto' --enable-lto=cross
-
 		else
+			# ld.gold is known to fail:
+			# /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.1/../../../../x86_64-pc-linux-gnu/bin/ld.gold: internal error in set_xindex, at /var/tmp/portage/sys-devel/binutils-2.37_p1-r1/work/binutils-2.37/gold/object.h:1050
+
 			# ThinLTO is currently broken, see bmo#1644409
 			mozconfig_add_options_ac '+lto' --enable-lto=full
 			mozconfig_add_options_ac "linker is set to bfd" --enable-linker=bfd
@@ -870,7 +861,7 @@ src_configure() {
 			if use clang ; then
 				# Nothing to do
 				:;
-			elif use lto ; then
+			elif tc-ld-is-gold || use lto ; then
 				append-ldflags -Wl,--no-keep-memory
 			else
 				append-ldflags -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
@@ -893,13 +884,7 @@ src_configure() {
 	export MOZ_MAKE_FLAGS="${MAKEOPTS}"
 
 	# Use system's Python environment
-	PIP_NETWORK_INSTALL_RESTRICTED_VIRTUALENVS=mach
-
-	if use system-python-libs; then
-		export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="system"
-	else
-		export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="none"
-	fi
+	export MACH_USE_SYSTEM_PYTHON=1
 
 	# Disable notification when build system has finished
 	export MOZ_NOSPAM=1
@@ -1001,16 +986,6 @@ src_install() {
 		cat "${FILESDIR}"/gentoo-hwaccel-prefs.js \
 		>>"${GENTOO_PREFS}" \
 		|| die "failed to add prefs to force hardware-accelerated rendering to all-gentoo.js"
-
-		if use wayland; then
-			cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set hwaccel wayland prefs"
-			pref("gfx.x11-egl.force-enabled",          false);
-			EOF
-		else
-			cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set hwaccel x11 prefs"
-			pref("gfx.x11-egl.force-enabled",          true);
-			EOF
-		fi
 	fi
 
 	# Force the graphite pref if USE=system-harfbuzz is enabled, since the pref cannot disable it
@@ -1149,14 +1124,6 @@ pkg_postinst() {
 		elog "one generic Mozilla ${PN^} shortcut."
 		elog "If you still want to be able to select between running Mozilla ${PN^}"
 		elog "on X11 or Wayland, you have to re-create these shortcuts on your own."
-	fi
-
-	# bug 835078
-	if use hwaccel && has_version "x11-drivers/xf86-video-nouveau"; then
-		ewarn "You have nouveau drivers installed in your system and 'hwaccel' "
-		ewarn "enabled for Firefox. Nouveau / your GPU might not support the "
-		ewarn "required EGL, so either disable 'hwaccel' or try the workaround "
-		ewarn "explained in https://bugs.gentoo.org/835078#c5 if Firefox crashes."
 	fi
 
 	optfeature_header "Optional runtime features:"

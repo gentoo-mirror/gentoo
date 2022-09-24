@@ -11,7 +11,7 @@ SRC_URI="https://github.com/rnpgp/rnp/archive/refs/tags/v${PV}.tar.gz -> ${P}.ta
 
 LICENSE="Apache-2.0 BSD BSD-2"
 SLOT="0/0.16.1"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm64 ~ppc64 x86"
 IUSE="+botan man test"
 
 RDEPEND="app-arch/bzip2
@@ -52,7 +52,6 @@ src_configure() {
 
 	# OpenSSL support is still not as complete as botan.
 	# https://github.com/rnpgp/rnp/issues/1642 AEAD,
-	# https://github.com/rnpgp/rnp/issues/1902 BRAINPOOL,
 	# https://github.com/rnpgp/rnp/issues/1877 SM2,
 	# https://github.com/openssl/openssl/issues/2046 TWOFISH.
 	else
