@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-08">
+    <title>Smokeping: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Smokeping, the worst of which could result in root privilege escalation.</synopsis>
+    <product type="ebuild">smokeping</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>631140</bug>
+    <bug>602652</bug>
+    <access>local</access>
+    <affected>
+        <package name="net-analyzer/smokeping" auto="yes" arch="*">
+            <vulnerable range="le">2.7.3-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Smokeping is a powerful latency measurement tool</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Smokeping. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A local attacker which gains access to the smokeping user could gain root privileges.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for Smokeping. We recommend that users remove it:</p>
+        
+        <code>
+          # emerge --ask --depclean "net-analyzer/smokeping"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-20147">CVE-2017-20147</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:34:27.263575Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:34:27.268533Z">ajak</metadata>
+</glsa>

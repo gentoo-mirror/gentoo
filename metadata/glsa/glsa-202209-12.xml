@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-12">
+    <title>GRUB: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GRUB, the worst of which may allow for secureboot bypass.</synopsis>
+    <product type="ebuild">grub</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>850535</bug>
+    <bug>835082</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-boot/grub" auto="yes" arch="*">
+            <unaffected range="ge">2.06</unaffected>
+            <vulnerable range="lt">2.06</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU GRUB is a multiboot boot loader used by most Linux systems.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GRUB. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GRUB users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-boot/grub-2.06-r3"
+        </code>
+        
+        <p>After upgrading, make sure to run the grub-install command with options appropriate for your system. See the GRUB2 Gentoo Wiki page for directions. Your system will be vulnerable until this action is performed.</p>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3695">CVE-2021-3695</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3696">CVE-2021-3696</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3697">CVE-2021-3697</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3981">CVE-2021-3981</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28733">CVE-2022-28733</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28734">CVE-2022-28734</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28735">CVE-2022-28735</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28736">CVE-2022-28736</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28737">CVE-2022-28737</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:35:30.406656Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:35:30.411250Z">ajak</metadata>
+</glsa>

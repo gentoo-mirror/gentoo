@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-10">
+    <title>Logcheck: Root privilege escalation</title>
+    <synopsis>A vulnerability has been discovered in Logcheck&#39;s ebuilds which could allow for root privilege escalation.</synopsis>
+    <product type="ebuild">logcheck</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>630752</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/logcheck" auto="yes" arch="*">
+            <vulnerable range="le">1.3.23</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Logcheck mails anomalies in the system logfiles to the administrator.</p>
+    </background>
+    <description>
+        <p>The pkg_postinst phase of the Logcheck ebuilds recursively chown the /etc/logcheck and /var/lib/logcheck directories. If the logcheck adds hardlinks to other files in these directories, the chown call will follow the link and transfer ownership of any file to the logcheck user.</p>
+    </description>
+    <impact type="normal">
+        <p>A local attacker with access to the logcheck user could escalate to root privileges.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for Logcheck. We recommend that users remove it:</p>
+        
+        <code>
+          # emerge --ask --depclean "app-admin/logcheck"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-20148">CVE-2017-20148</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:34:57.482832Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:34:57.487714Z">ajak</metadata>
+</glsa>

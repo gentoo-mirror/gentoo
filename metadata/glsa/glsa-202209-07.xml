@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-07">
+    <title>Mrxvt: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Mrxvt which could allow for arbitrary code execution</synopsis>
+    <product type="ebuild">mrxvt</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>791004</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="x11-terms/mrxvt" auto="yes" arch="*">
+            <vulnerable range="le">0.5.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mrxvt is a multi-tabbed rxvt clone with XFT, transparent background and CJK support.</p>
+    </background>
+    <description>
+        <p>Mrxvt mishandles certain escape sequences, some of which allow for shell command execution.</p>
+    </description>
+    <impact type="normal">
+        <p>An attacker with sufficient access to write arbitrary text to the Mrxvt terminal could execute arbitrary code.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for Mrxvt. We recommend that users remove it:</p>
+        
+        <code>
+          # emerge --ask --depclean "x11-terms/mrxvt"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33477">CVE-2021-33477</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:34:13.204482Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:34:13.210077Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-13">
+    <title>libaacplus: Denial of Service</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libaacplus, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">libaacplus</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>618000</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/libaacplus" auto="yes" arch="*">
+            <vulnerable range="le">2.0.2-r3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libaacplus is an HE-AAC+ v2 library, based on the reference implementation.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libaacplus. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued suport for libaacplus. We recommend that users remove it:</p>
+        
+        <code>
+          # emerge --ask --depclean "media-libs/libaacplus"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-7603">CVE-2017-7603</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-7604">CVE-2017-7604</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-7605">CVE-2017-7605</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:35:43.192701Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:35:43.197563Z">ajak</metadata>
+</glsa>
