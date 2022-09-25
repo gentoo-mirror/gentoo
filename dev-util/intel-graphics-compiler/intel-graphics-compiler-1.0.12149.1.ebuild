@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="debug"
 
 DEPEND="
@@ -39,9 +39,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.0.9-no_Werror.patch"
 	"${FILESDIR}/${PN}-1.0.8173-opencl-clang_version.patch"
 	"${FILESDIR}/${PN}-1.0.8365-disable-git.patch"
-	"${FILESDIR}/${PN}-1.0.11485-fix-BiF-caching.patch"
-	"${FILESDIR}/${PN}-1.0.11485-update-raytracing-llvm14.patch"
-	"${FILESDIR}/${PN}-1.0.11485-wrap-getNumArgOperands.patch"
 	"${FILESDIR}/${PN}-1.0.11485-include-opencl-c.patch"
 )
 
