@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install preinst prepare setup
+DEPEND=dev-db/lmdb:= dev-libs/libconfig:= net-misc/curl crypt? ( dev-libs/libsodium:= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) mqtt? ( app-misc/mosquitto ) tours? ( sys-apps/util-linux )
+DESCRIPTION=Stores and accesses location data published by the OwnTracks apps
+EAPI=8
+HOMEPAGE=https://owntracks.org
+IDEPEND=acct-group/owntracks acct-user/owntracks
+INHERIT=lua-single prefix systemd toolchain-funcs
+IUSE=crypt +http greenwich kill lua +mqtt +ping +tours lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm
+LICENSE=GPL-2+ MIT
+RDEPEND=acct-group/owntracks acct-user/owntracks dev-db/lmdb:= dev-libs/libconfig:= net-misc/curl crypt? ( dev-libs/libsodium:= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) mqtt? ( app-misc/mosquitto ) tours? ( sys-apps/util-linux )
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) tours? ( http )
+SLOT=0
+SRC_URI=https://github.com/owntracks/recorder/archive/0.9.1.tar.gz -> owntracks-recorder-0.9.1.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	prefix	eab3c99d77fe00506c109c8a736186f7	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=ad22344a58c5e9373ba8ba48abd8a448
