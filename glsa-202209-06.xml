@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-06">
+    <title>Rizin: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Rizin, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">rizin</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>861524</bug>
+    <bug>868999</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-util/rizin" auto="yes" arch="*">
+            <unaffected range="ge">0.4.1</unaffected>
+            <vulnerable range="lt">0.4.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Rizin is a reverse engineering framework for binary analysis.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Rizin. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Rizin users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-util/rizin-0.4.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34612">CVE-2022-34612</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36039">CVE-2022-36039</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36040">CVE-2022-36040</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36041">CVE-2022-36041</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36042">CVE-2022-36042</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36043">CVE-2022-36043</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36044">CVE-2022-36044</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:33:58.550630Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:33:58.562441Z">ajak</metadata>
+</glsa>
