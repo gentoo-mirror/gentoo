@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install
+DEPEND=x11-libs/libX11 x11-libs/libXScrnSaver x11-base/xorg-proto
+DESCRIPTION=A simple tool to retrieve the X screensaver state
+EAPI=8
+HOMEPAGE=https://tools.suckless.org/x/xssstate
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=x11-libs/libX11 x11-libs/libXScrnSaver
+SLOT=0
+SRC_URI=https://dl.suckless.org/tools/xssstate-1.1.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=49106212c9f61eb015167de0ebce0fc8

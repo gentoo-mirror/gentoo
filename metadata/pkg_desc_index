@@ -1228,7 +1228,7 @@ app-arch/zoo 2.10-r5: Manipulate archives of files in compressed form
 app-arch/zopfli 1.0.3: Very good, but slow, deflate or zlib compression
 app-arch/zpaq 7.15-r1: Journaling incremental deduplicating archiving compressor
 app-arch/zpaq-extras 3: A set of additional compression profiles for app-arch/zpaq
-app-arch/zstd 1.4.9 1.5.2 1.5.2-r2: zstd fast compression library
+app-arch/zstd 1.4.9 1.5.2 1.5.2-r2 1.5.2-r3: zstd fast compression library
 app-backup/amanda 3.5.1-r3: The Advanced Maryland Automatic Network Disk Archiver
 app-backup/attic 0.16-r1 9999: Attic is a deduplicating backup program written in Python
 app-backup/backintime 1.3.1 1.3.2 9999: Backup system inspired by TimeVault and FlyBack
@@ -1525,7 +1525,7 @@ app-crypt/tpm2-pkcs11 1.8.0: A PKCS#11 interface for TPM2 hardware
 app-crypt/tpm2-tools 5.2-r1: Tools for the TPM 2.0 TSS
 app-crypt/tpm2-totp 0.3.0-r1: Attest the trustworthiness of a device against a human using time-based OTP
 app-crypt/tpm2-tss 3.2.0-r3 3.2.0-r4: TCG Trusted Platform Module 2.0 Software Stack
-app-crypt/tpm2-tss-engine 1.1.0-r1: OpenSSL Engine for TPM2 devices
+app-crypt/tpm2-tss-engine 1.1.0-r1 1.1.0-r2: OpenSSL Engine for TPM2 devices
 app-crypt/trousers 0.3.15: An open-source TCG Software Stack (TSS) v1.1 implementation
 app-crypt/ubuntu-keyring 2020.02.11.2 2020.06.17.1 2021.03.26: GnuPG archive keys of the Ubuntu archive
 app-crypt/veracrypt 1.24_p8 1.25.7 1.25.9: Disk encryption with strong security based on TrueCrypt
@@ -4134,7 +4134,7 @@ dev-cpp/tree 3.17: An STL-like tree class
 dev-cpp/valijson 0.7: Header-only C++ library for JSON Schema validation
 dev-cpp/waylandpp 0.2.8 0.2.9 0.2.10 1.0.0 9999: Wayland C++ bindings
 dev-cpp/websocketpp 0.8.2: C++/Boost Asio based websocket client/server library
-dev-cpp/yaml-cpp 0.7.0-r1: YAML parser and emitter in C++
+dev-cpp/yaml-cpp 0.7.0-r1 0.7.0-r2: YAML parser and emitter in C++
 dev-db/apgdiff 2.7.0: A simple PostgreSQL diff tool that is useful for schema upgrades
 dev-db/barman 2.12-r1 2.19: Administration tool for disaster recovery of PostgreSQL servers
 dev-db/bucardo 5.4.1: An asynchronous PostgreSQL replication system
@@ -4206,7 +4206,7 @@ dev-db/pspg 5.5.4: A better pager for psql, mysql, and more
 dev-db/psqlodbc 11.01.0000 13.00.0000: Official ODBC driver for PostgreSQL
 dev-db/qdbm 1.8.78-r4: Quick Database Manager
 dev-db/qt5-sqlcipher 1.0.11-r1: Qt SQL driver plugin for SQLCipher
-dev-db/redis 6.0.16 6.2.6 6.2.7-r1 7.0.4 7.0.5: A persistent caching system, key-value, and data structures database
+dev-db/redis 6.0.16 6.2.7-r1 7.0.4 7.0.5: A persistent caching system, key-value, and data structures database
 dev-db/repmgr 5.1.0: PostgreSQL Replication Manager
 dev-db/rqlite 7.4.0 7.5.0 7.5.1 7.6.0 7.6.1: Replicated SQLite using the Raft consensus protocol
 dev-db/slony1 2.2.10: A replication system for the PostgreSQL Database Management System
@@ -5564,7 +5564,7 @@ dev-libs/libatomic_ops 7.6.12 7.6.14: Implementation for atomic memory update op
 dev-libs/libax25 0.0.12_rc5: AX.25 library for hamradio applications
 dev-libs/libb64 2.0.0.1: Fast Base64 encoding/decoding routines
 dev-libs/libbase58 0.1.4-r1: C implementation of Bitcoin's base58 encoding
-dev-libs/libbpf 0.8.1 1.0.0 9999: Stand-alone build of libbpf from the Linux kernel
+dev-libs/libbpf 0.8.1 1.0.0-r1 9999: Stand-alone build of libbpf from the Linux kernel
 dev-libs/libbsd 0.11.6: Library to provide useful functions commonly found on BSD systems
 dev-libs/libbson 1.18.0: Library routines related to building,parsing and iterating BSON documents
 dev-libs/libbulletml 0.0.6: A Library of Bullet Markup Language
@@ -13428,7 +13428,7 @@ media-gfx/opencsg 1.5.1-r1: The Constructive Solid Geometry rendering library
 media-gfx/openmesh 7.1-r1: A generic data structure to represent and manipulate polygonal meshes
 media-gfx/openscad 2021.01-r4 9999: The Programmers Solid 3D CAD Modeller
 media-gfx/opentoonz 1.4.0: An open-source full-featured 2D animation creation software
-media-gfx/openvdb 7.0.0-r4 7.1.0-r5 8.0.1-r4 8.1.0 8.2.0-r3 8.2.0-r7 9.0.0-r4: Library for the efficient manipulation of volumetric data
+media-gfx/openvdb 7.0.0-r4 7.1.0-r5 8.0.1-r4 8.1.0 8.2.0-r3 8.2.0-r7 9.0.0-r4 9.1.0: Library for the efficient manipulation of volumetric data
 media-gfx/optipng 0.7.7-r1: Compress PNG files without affecting image quality
 media-gfx/oxipng 6.0.0 6.0.1: Multithreaded lossless PNG compression optimizer written in Rust
 media-gfx/panini 0.73.0: OpenGL-based panoramic image viewer
@@ -13520,7 +13520,7 @@ media-libs/a52dec 0.7.4-r8: library for decoding ATSC A/52 streams used in DVD
 media-libs/aalib 1.4_rc5-r9: A ASCII-Graphics Library
 media-libs/aften 0.0.8-r2: A/52 (AC-3) audio encoder
 media-libs/allegro 4.4.3.1 5.2.7.0-r1: Cross-platform library aimed at video game and multimedia programming
-media-libs/alsa-lib 1.2.7.2: Advanced Linux Sound Architecture Library
+media-libs/alsa-lib 1.2.7.2 1.2.7.2-r1: Advanced Linux Sound Architecture Library
 media-libs/alsa-oss 1.1.8: Advanced Linux Sound Architecture OSS compatibility layer
 media-libs/alsa-topology-conf 1.2.5.1: ALSA topology configuration files
 media-libs/alsa-ucm-conf 1.2.7.2: ALSA ucm configuration files
@@ -19191,7 +19191,7 @@ x11-misc/xsnow 3.2.2 3.3.0: let it snow on your desktop and windows
 x11-misc/xsr 1.0.0: X Steps Recorder
 x11-misc/xsri 2.1.0_p17_p12: The xsri wallpaper setter from RedHat
 x11-misc/xss-lock 0.3.0_p20140302-r2: Use external locker as X screen saver
-x11-misc/xssstate 1.1: A simple tool to retrieve the X screensaver state
+x11-misc/xssstate 1.1 1.1-r1: A simple tool to retrieve the X screensaver state
 x11-misc/xteddy 2.2: A cuddly teddy bear (or other image) for your X desktop
 x11-misc/xtermcontrol 3.8: xtermcontrol enables dynamic control of XFree86 xterm properties
 x11-misc/xtitle 1.0.4: Set window title and icon name for an X11 terminal window

@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.openntpd.org/
 INHERIT=systemd
 IUSE=constraints selinux
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD GPL-2
 RDEPEND=!net-misc/ntp[-openntpd] constraints? ( dev-libs/libretls:= ) acct-group/openntpd acct-user/openntpd selinux? ( sec-policy/selinux-ntp )
 SLOT=0
 SRC_URI=mirror://openbsd/OpenNTPD/openntpd-6.8p1.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=16cf046345b891ad77595a5849ee08cd
+_md5_=7c2b24f95e5aac1984b0721eab0b833a
