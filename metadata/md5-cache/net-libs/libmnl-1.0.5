@@ -1,5 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=install unpack
+DEPEND=elibc_musl? ( sys-libs/queue-standalone )
 DESCRIPTION=Minimalistic netlink library
 EAPI=8
 HOMEPAGE=https://netfilter.org/projects/libmnl/
@@ -10,4 +11,4 @@ LICENSE=LGPL-2.1
 SLOT=0/0.2.0
 SRC_URI=https://www.netfilter.org/projects/libmnl/files/libmnl-1.0.5.tar.bz2 verify-sig? ( https://www.netfilter.org/projects/libmnl/files/libmnl-1.0.5.tar.bz2.sig )
 _eclasses_=verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=dfb4c251b53827a51ab050e41c254ad9
+_md5_=66621d259f9e70d022e064eb80a903c0
