@@ -8,7 +8,6 @@ PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
-MY_P=${P/-py}
 DESCRIPTION="A module wrapper for os.path"
 HOMEPAGE="
 	https://github.com/jaraco/path/
@@ -16,9 +15,8 @@ HOMEPAGE="
 "
 SRC_URI="
 	https://github.com/jaraco/path/archive/v${PV}.tar.gz
-		-> ${MY_P}.gh.tar.gz
+		-> ${P}.gh.tar.gz
 "
-S=${WORKDIR}/${MY_P}
 
 SLOT="0"
 LICENSE="MIT"
@@ -26,8 +24,6 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
-	!<dev-python/pytest-shutil-1.7.0-r1
-	!<dev-python/pytest-virtualenv-1.7.0-r1
 "
 BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
