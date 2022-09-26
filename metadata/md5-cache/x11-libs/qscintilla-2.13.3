@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install unpack
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 designer? ( dev-qt/designer:5 )
+DESCRIPTION=Qt port of Neil Hodgson's Scintilla C++ editor control
+EAPI=8
+HOMEPAGE=https://www.riverbankcomputing.com/software/qscintilla/intro
+INHERIT=flag-o-matic qmake-utils
+IUSE=designer doc
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 designer? ( dev-qt/designer:5 )
+SLOT=0/15
+SRC_URI=https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.3/QScintilla_src-2.13.3.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	qmake-utils	59420c906278d16deaaa629f9d115707
+_md5_=186ada1a857516b173d406900592174f
