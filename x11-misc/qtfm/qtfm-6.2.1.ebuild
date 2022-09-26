@@ -3,16 +3,16 @@
 
 EAPI=8
 
-inherit cmake git-r3 xdg
+inherit qmake-utils xdg
 
 DESCRIPTION="Small, lightweight file manager based on pure Qt"
 HOMEPAGE="https://qtfm.eu/"
-EGIT_REPO_URI="https://github.com/rodlie/qtfm/"
+SRC_URI="https://github.com/rodlie/qtfm/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS=""
-IUSE="+dbus ffmpeg imagemagick"
+KEYWORDS="~amd64 ~x86"
+IUSE="+dbus shared"
 
 RDEPEND="
 	dev-qt/qtconcurrent:5
@@ -22,8 +22,6 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	sys-apps/file
 	dbus? ( dev-qt/qtdbus:5 )
-	ffmpeg? ( media-video/ffmpeg )
-	imagemagick? ( >=media-gfx/imagemagick-7:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -32,10 +30,16 @@ BDEPEND="
 "
 
 src_configure() {
-	local mycmakeargs=(
-		-DENABLE_DBUS=$(usex dbus)
-		-DENABLE_FFMPEG=$(usex ffmpeg)
-		-DENABLE_MAGICK=$(usex imagemagick)
-	)
-	cmake_src_configure
+	eqmake5 \
+		$(usex dbus '' 'CONFIG+=no_dbus CONFIG+=no_tray') \
+		$(usex shared 'CONFIG+=sharedlib' '') \
+		$(usex shared 'CONFIG+=with_includes' '') \
+		LIBDIR="/usr/$(get_libdir)" \
+		PREFIX="/usr" \
+		XDGDIR="/etc/xdg"
+}
+
+src_install() {
+	emake INSTALL_ROOT="${D}" install
+	einstalldocs
 }

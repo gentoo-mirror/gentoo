@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic qmake-utils
 
@@ -9,16 +9,17 @@ DESCRIPTION="Qt port of Neil Hodgson's Scintilla C++ editor control"
 HOMEPAGE="https://www.riverbankcomputing.com/software/qscintilla/intro"
 
 MY_PN=QScintilla
-MY_P=${MY_PN}-${PV/_pre/.dev}
+MY_P=${MY_PN}_src-${PV/_pre/.dev}
 if [[ ${PV} == *_pre* ]]; then
 	SRC_URI="https://dev.gentoo.org/~pesa/distfiles/${MY_P}.tar.gz"
 else
 	SRC_URI="https://www.riverbankcomputing.com/static/Downloads/${MY_PN}/${PV}/${MY_P}.tar.gz"
 fi
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3"
 SLOT="0/15"
-KEYWORDS="amd64 arm arm64 ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="designer doc"
 
 RDEPEND="
@@ -30,14 +31,12 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${MY_P}
-
 src_unpack() {
 	default
 
 	# Sub-slot sanity check
 	local subslot=${SLOT#*/}
-	local version=$(sed -nre 's:.*VERSION\s*=\s*([0-9\.]+):\1:p' "${S}"/Qt4Qt5/qscintilla.pro || die)
+	local version=$(sed -nre 's:.*VERSION\s*=\s*([0-9\.]+):\1:p' "${S}"/src/qscintilla.pro || die)
 	local major=${version%%.*}
 	if [[ ${subslot} != ${major} ]]; then
 		eerror
@@ -59,24 +58,23 @@ qsci_run_in() {
 src_configure() {
 	if use designer; then
 		# prevent building against system version (bug 466120)
-		append-cxxflags -I../Qt4Qt5
-		append-ldflags -L../Qt4Qt5
+		append-cxxflags -I../src
+		append-ldflags -L../src
 	fi
 
-	qsci_run_in Qt4Qt5 eqmake5
-	use designer && qsci_run_in designer-Qt4Qt5 eqmake5
+	qsci_run_in src eqmake5
+	use designer && qsci_run_in designer eqmake5
 }
 
 src_compile() {
-	qsci_run_in Qt4Qt5 emake
-	use designer && qsci_run_in designer-Qt4Qt5 emake
+	qsci_run_in src emake
+	use designer && qsci_run_in designer emake
 }
 
 src_install() {
-	qsci_run_in Qt4Qt5 emake INSTALL_ROOT="${D}" install
-	use designer && qsci_run_in designer-Qt4Qt5 emake INSTALL_ROOT="${D}" install
+	qsci_run_in src emake INSTALL_ROOT="${D}" install
+	use designer && qsci_run_in designer emake INSTALL_ROOT="${D}" install
 
-	DOCS=( ChangeLog NEWS )
-	use doc && HTML_DOCS=( doc/html-Qt4Qt5/. )
+	use doc && local HTML_DOCS=( doc/html/. )
 	einstalldocs
 }
