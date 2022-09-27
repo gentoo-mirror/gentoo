@@ -59,7 +59,7 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS )
 
 PATCHES=(
-	"${FILESDIR}/${P}-no-strip.patch"
+	"${FILESDIR}/${PN}-6.3.1-no-strip.patch"
 )
 
 # Ensure the path returned by get_llvm_prefix() contains clang as well.

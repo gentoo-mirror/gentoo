@@ -5,7 +5,7 @@ EAPI=8
 
 # TODO: Add PyPy once officially supported. See also:
 #     https://bugreports.qt.io/browse/PYSIDE-535
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake python-r1 virtualx
 
@@ -97,8 +97,8 @@ DEPEND="${RDEPEND}
 # testlib is toggled by the gui flag on qtbase
 
 PATCHES=(
-	"${FILESDIR}/${P}-no-strip.patch"
-	"${FILESDIR}/${P}-fix-designer-plugin-install-location.patch"
+	"${FILESDIR}/${PN}-6.3.1-no-strip.patch"
+	"${FILESDIR}/${PN}-6.3.1-fix-designer-plugin-install-location.patch"
 )
 
 src_configure() {
