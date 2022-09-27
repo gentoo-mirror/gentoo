@@ -1,0 +1,12 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Command line shell and scripting interface for Drupal
+EAPI=8
+HOMEPAGE=https://github.com/drush-ops/drush
+INHERIT=bash-completion-r1
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-lang/php[cli,ctype,json(+),simplexml] dev-php/PEAR-Console_Table
+SLOT=0
+SRC_URI=https://github.com/drush-ops/drush/archive/6.7.0.tar.gz -> drush-6.7.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=015cea9eb05e8c7f57a34332403fe9c6
