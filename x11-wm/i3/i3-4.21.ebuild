@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson optfeature virtualx
 
@@ -13,7 +13,7 @@ if [[ "${PV}" = *9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://i3wm.org/downloads/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
 LICENSE="BSD"
