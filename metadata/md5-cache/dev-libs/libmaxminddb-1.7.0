@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=test? ( dev-perl/IPC-Run3 )
+DESCRIPTION=C library for the MaxMind DB file format
+EAPI=8
+HOMEPAGE=https://github.com/maxmind/libmaxminddb
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=Apache-2.0
+RESTRICT=!test? ( test )
+SLOT=0/0.0.7
+SRC_URI=https://github.com/maxmind/libmaxminddb/releases/download/1.7.0/libmaxminddb-1.7.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=bac70b9b350c46f6a369f400c4a32573

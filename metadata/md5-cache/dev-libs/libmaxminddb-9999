@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=test? ( dev-perl/IPC-Run3 )
 DESCRIPTION=C library for the MaxMind DB file format
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/maxmind/libmaxminddb
 INHERIT=toolchain-funcs autotools git-r3
 IUSE=test
@@ -11,4 +11,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0/0.0.7
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=670850c3a1540fb8e5113c65482ff1a7
+_md5_=bac70b9b350c46f6a369f400c4a32573
