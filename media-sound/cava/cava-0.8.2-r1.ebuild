@@ -11,16 +11,16 @@ SRC_URI="https://github.com/karlstav/cava/archive/refs/tags/${PV}.tar.gz -> ${P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="alsa +ncurses portaudio pulseaudio sdl sndio"
 
 RDEPEND="
 	dev-libs/iniparser:4
-	sci-libs/fftw:=
+	sci-libs/fftw:3.0=
 	alsa? ( media-libs/alsa-lib )
 	ncurses? ( sys-libs/ncurses:= )
 	portaudio? ( media-libs/portaudio )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	sdl? ( media-libs/libsdl2[opengl,video] )
 	sndio? ( media-sound/sndio:= )"
 DEPEND="${RDEPEND}"
