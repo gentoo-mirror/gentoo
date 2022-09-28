@@ -1,0 +1,17 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.13 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=dev-libs/glib-2.44:2 >=dev-libs/json-glib-0.99.2[introspection?] >=net-libs/libsoup-3.0.8:3.0[introspection?] introspection? ( >=dev-libs/gobject-introspection-1.54:= ) >=sci-geosciences/geocode-glib-3.26.4:0
+DESCRIPTION=GLib helper library for geocoding services
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/geocode-glib
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org meson xdg
+IUSE=gtk-doc +introspection test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-libs/glib-2.44:2 >=dev-libs/json-glib-0.99.2[introspection?] >=net-libs/libsoup-3.0.8:3.0[introspection?] introspection? ( >=dev-libs/gobject-introspection-1.54:= ) >=sci-geosciences/geocode-glib-3.26.4:0
+RESTRICT=!test? ( test )
+SLOT=2
+SRC_URI=mirror://gnome/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=084bae52ecda525d662e3da1c5cc6b90

@@ -1,0 +1,17 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gi-docgen-2021.6 ) vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/glib-2.44.0:2 >=net-libs/libsoup-2.99.2:3.0 dev-libs/json-glib:0[introspection?] dev-libs/libxml2:2 app-misc/ca-certificates introspection? ( >=dev-libs/gobject-introspection-1.74.0:= )
+DESCRIPTION=Helper library for RESTful services
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/Librest
+INHERIT=gnome.org meson vala
+IUSE=gtk-doc +introspection test vala
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=>=dev-libs/glib-2.44.0:2 >=net-libs/libsoup-2.99.2:3.0 dev-libs/json-glib:0[introspection?] dev-libs/libxml2:2 app-misc/ca-certificates introspection? ( >=dev-libs/gobject-introspection-1.74.0:= )
+REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=1.0
+SRC_URI=mirror://gnome/sources/rest/0.9/rest-0.9.1.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	vala	160a8a30a6cb9aa601e5441c643a7c61
+_md5_=281f9b874a7c3bd40c3c5637fca1526e
