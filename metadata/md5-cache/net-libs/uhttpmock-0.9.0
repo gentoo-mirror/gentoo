@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/glib-2.38.0:2 >=net-libs/libsoup-3.1.2:3.0 introspection? ( >=dev-libs/gobject-introspection-0.9.7:= )
+DESCRIPTION=HTTP web service mocking library
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/pwithnall/uhttpmock
+INHERIT=gnome.org meson vala
+IUSE=gtk-doc +introspection vala
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-libs/glib-2.38.0:2 >=net-libs/libsoup-3.1.2:3.0 introspection? ( >=dev-libs/gobject-introspection-0.9.7:= )
+REQUIRED_USE=vala? ( introspection )
+SLOT=1.0
+SRC_URI=https://gitlab.freedesktop.org/pwithnall/uhttpmock/-/archive/0.9.0/uhttpmock-0.9.0.tar.bz2
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	vala	160a8a30a6cb9aa601e5441c643a7c61
+_md5_=0e9206ac4422a97cc1794fb1b15e976e
