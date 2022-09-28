@@ -1,9 +1,11 @@
 DEFINED_PHASES=compile install postinst prepare
 DESCRIPTION=SCSIPing pings a host on the SCSI-chain
-EAPI=7
-HOMEPAGE=https://www.vanheusden.com/Linux/
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=toolchain-funcs
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
 SLOT=0
-SRC_URI=https://www.vanheusden.com/Linux/scsiping-0.0.1.tgz
-_md5_=9161b7739d6461facbef0bf083100d28
+SRC_URI=mirror://gentoo/scsiping-0.0.1.tgz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=09705205ff7bfabccc59d0eb47a4da18
