@@ -3,7 +3,7 @@
 
 EAPI=7
 inherit go-module
-EGIT_COMMIT=3fa6c506726962bff3db4a9956f2bc662b77a12e
+EGIT_COMMIT=3843ac7b5e8a88a2b46aca9daf26c431de830bc3
 
 DESCRIPTION="Replicated SQLite using the Raft consensus protocol"
 HOMEPAGE="https://github.com/rqlite/rqlite https://www.philipotoole.com/tag/rqlite/"
