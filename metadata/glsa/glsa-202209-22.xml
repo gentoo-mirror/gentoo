@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-22">
+    <title>Kitty: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been found in Kitty which could allow for arbitrary code execution with user input.</synopsis>
+    <product type="ebuild">kitty</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>868543</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-terms/kitty" auto="yes" arch="*">
+            <unaffected range="ge">0.26.2</unaffected>
+            <vulnerable range="lt">0.26.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Kitty is a fast, feature-rich, GPU-based terminal.</p>
+    </background>
+    <description>
+        <p>Carter Sande discovered that maliciously constructed control sequences can cause Kitty to display a notification that, when clicked, can cause Kitty to execute arbitrary commands.</p>
+    </description>
+    <impact type="normal">
+        <p>Kitty can produce notifications that, when clicked, can execute arbitrary commands.</p>
+    </impact>
+    <workaround>
+        <p>Avoid clicking unexpected notifications.</p>
+    </workaround>
+    <resolution>
+        <p>All Kitty users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-terms/kitty-0.26.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41322">CVE-2022-41322</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:24:10.185134Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:24:10.190433Z">ajak</metadata>
+</glsa>
