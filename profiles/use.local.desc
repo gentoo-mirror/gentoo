@@ -1481,19 +1481,10 @@ dev-haskell/dlist:werror - Enable -Werror
 dev-haskell/entropy:halvm - Build for the HaLVM.
 dev-haskell/foundation:experimental - enable building experimental features, known as highly unstable or without good support cross-platform
 dev-haskell/hackage-security:lukko - Use @lukko@ for file-locking, otherwise use @GHC.IO.Handle.Lock@
-dev-haskell/hashtables:bounds-checking - if on, use bounds-checking array accesses
-dev-haskell/hashtables:detailed-profiling - add detailed profiling information to profiled build-depends
 dev-haskell/haskeline:terminfo - Use the terminfo package for POSIX consoles.
 dev-haskell/hdbc-sqlite3:splitbase - Choose the new smaller, split-up package.
-dev-haskell/hlint:gpl - Use GPL libraries, specifically hscolour
-dev-haskell/hlint:hsyaml - Use HsYAML instead of yaml
-dev-haskell/hlint:threaded - Build with support for multithreaded execution
-dev-haskell/hsopenssl:fast-bignum - Enable fast moving of bignums between OpenSSL and GMP (GHC Only)
-dev-haskell/hsyaml-aeson:exe - Enable @exe:yaml-test@ component
 dev-haskell/http-api-data:text-show - Use text-show library for efficient ToHttpApiData implementation.
 dev-haskell/httpd-shed:buildexamples - Build example executables.
-dev-haskell/io-streams:network - Include network support
-dev-haskell/io-streams:zlib - Include zlib support
 dev-haskell/libyaml:no-unicode - Don't enable unicode output. Instead, unicode characters will be escaped.
 dev-haskell/libyaml:system-libyaml - Use the system-wide libyaml instead of the bundled copy
 dev-haskell/lpeg:rely-on-shared-lpeg-library - Do not build lpeg from source, but trust that lpeg is made available in other ways, e.g., through a system-wide installation. The loader will be replaced with a placeholder function that only emits a message.
@@ -1504,20 +1495,11 @@ dev-haskell/nats:binary - enable binary instances
 dev-haskell/nats:hashable - enable hashable instances
 dev-haskell/nats:template-haskell - enable template_haskell
 dev-haskell/network:devel - using tests for developers
-dev-haskell/optparse-simple:build-example - Build the example executable
 dev-haskell/parsec-numbers:parsec1 - use dev-haskell/parsec1 instead of dev-haskell/parsec
 dev-haskell/parsers:attoparsec - Enable the use of the `attoparsec` package
 dev-haskell/parsers:binary - You can disable the use of the `binary` package using `-f-binary`.
 dev-haskell/parsers:parsec - Enable the use of the `parsec` package
 dev-haskell/persistent-sqlite:build-sanity-exe - Build a sanity check test executable.
-dev-haskell/pointed:comonad - You can disable the use of the `comonad` package using `-f-transformers`.
-dev-haskell/pointed:kan-extensions - You can disable the use of the `kan-extensions` package using `-f-kan-extensions`.
-dev-haskell/pointed:semigroupoids - You can disable the use of the `semigroupoids` package using `-f-semigroupoids`.
-dev-haskell/pointed:semigroups - You can disable the use of the `semigroups` package using `-f-semigroups`.
-dev-haskell/pointed:stm - You can disable the use of the `stm` package using `-f-stm`.
-dev-haskell/pointed:tagged - You can disable the use of the `tagged` package using `-f-tagged`.
-dev-haskell/pointed:transformers - You can disable the use of the `transformers` package using `-f-transformers`.
-dev-haskell/pointed:unordered-containers - You can disable the use of the `unordered-containers` package using `-f-unordered-containers`.
 dev-haskell/quickcheck:template-haskell - Enable additional test modules requiring Template Haskell support.
 dev-haskell/quickcheck-classes:aeson - Enable the use of the `aeson` package. This may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/quickcheck-classes:binary-laws - Include infrastructure for testing class laws of binary type constructors. Disabling `unary-laws` while keeping `binary-laws` enabled is an unsupported configuration.
@@ -1536,10 +1518,6 @@ dev-haskell/skein:force-endianness - Use a manually selected endian when compili
 dev-haskell/skein:reference - Use the reference implementation instead of the optimized one.
 dev-haskell/skylighting:executable - Build the skylighting executable.
 dev-haskell/skylighting-core:executable - Build the skylighting executable.
-dev-haskell/snap-server:debug - Enable support for debugging.
-dev-haskell/snap-server:openssl - Enable https support using the HsOpenSSL library.
-dev-haskell/snap-server:pong-server - Build a server that just returns "PONG". Normally useful only for benchmarks.
-dev-haskell/snap-server:test-server - Build the blackbox testserver
 dev-haskell/splitmix:optimised-mixer - Use JavaScript for mix32
 dev-haskell/texmath:executable - Compile test executable.
 dev-haskell/texmath:server - Compile webserver.
@@ -1558,7 +1536,6 @@ dev-haskell/vector-algorithms:boundschecks - Enable bounds checking.
 dev-haskell/vector-algorithms:internalchecks - Enable internal consistency checks at the cost of a significant performance penalty.
 dev-haskell/vector-algorithms:properties - Enable quickcheck tests.
 dev-haskell/vector-algorithms:unsafechecks - Enable bounds checking in unsafe operations at the cost of a significant performance penalty.
-dev-haskell/vector-instances:hashable - use dev-haskell/hashable
 dev-haskell/void:safe - dissable effective but unsafe coersions
 dev-haskell/wai-app-static:print - print debug info.
 dev-haskell/warp:allow-sendfilefd - Allow use of sendfileFd (not available on GNU/kFreeBSD)
