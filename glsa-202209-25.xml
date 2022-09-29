@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-25">
+    <title>Zutty: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Zutty which could allow for arbitrary code execution.</synopsis>
+    <product type="ebuild">zutty</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>868495</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-terms/zutty" auto="yes" arch="*">
+            <unaffected range="ge">0.13</unaffected>
+            <vulnerable range="lt">0.13</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Zutty is an X terminal emulator rendering through OpenGL ES Compute Shaders.</p>
+    </background>
+    <description>
+        <p>Zutty does not correctly handle invalid DECRQSS commands, which can be exploited to run arbitrary commands in the terminal.</p>
+    </description>
+    <impact type="normal">
+        <p>Untrusted text written to the Zutty terminal can achieve arbitrary code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Zutty users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-terms/zutty-0.13"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41138">CVE-2022-41138</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:24:54.456443Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:24:54.462355Z">ajak</metadata>
+</glsa>
