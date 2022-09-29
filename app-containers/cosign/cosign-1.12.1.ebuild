@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-GIT_HASH=a4cb262dc3d45a283a6a7513bb767a38a2d3f448
+GIT_HASH=0baa044bea61e7c16d56023be20ead3d9204b24a
 inherit go-module
 
 DESCRIPTION="container signing utility"
