@@ -26,9 +26,12 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.5.3-nostrip.patch
 	"${FILESDIR}"/${PN}-2.5.3-i-hate-yacc.patch
 	"${FILESDIR}"/${PN}-2.5.3-false-flags.patch
+	"${FILESDIR}"/${PN}-2.5.3-clang16.patch
 )
 
 src_prepare() {
 	default
-	tc-export CC
+
+	tc-export CC RANLIB
+	export AR="$(tc-getAR) ru" #720706
 }
