@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake gnome2 readme.gentoo-r1
 
 DESCRIPTION="Integrated mail, addressbook and calendaring functionality"
-HOMEPAGE="https://wiki.gnome.org/Apps/Evolution"
+HOMEPAGE="https://wiki.gnome.org/Apps/Evolution https://gitlab.gnome.org/GNOME/evolution"
 
 # Note: explicitly "|| ( LGPL-2 LGPL-3 )", not "LGPL-2+".
 LICENSE="|| ( LGPL-2 LGPL-3 ) CC-BY-SA-3.0 FDL-1.3+ OPENLDAP"
@@ -14,7 +14,7 @@ SLOT="2.0"
 
 IUSE="archive +bogofilter geolocation gtk-doc highlight ldap spamassassin spell ssl +weather ytnef"
 
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 # glade-3 support is for maintainers only per configure.ac
 # pst is not mature enough and changes API/ABI frequently
@@ -23,17 +23,16 @@ KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 # automagic libunity dep
 # >=gspell-1.8 to ensure it uses enchant:2 like webkit-gtk
 DEPEND="
-	>=app-crypt/gcr-3.4:=[gtk]
 	>=app-text/enchant-2.2.0:2
 	>=dev-db/sqlite-3.7.17
-	>=dev-libs/glib-2.56:2[dbus]
+	>=dev-libs/glib-2.66:2[dbus]
 	>=dev-libs/libxml2-2.7.3:2
 	>=gnome-base/gnome-desktop-2.91.3:3=
 	>=gnome-base/gsettings-desktop-schemas-2.91.92
 	>=gnome-extra/evolution-data-server-${PV}:=[gtk,weather?]
 	>=media-libs/libcanberra-0.25[gtk3]
-	>=net-libs/libsoup-2.42:2.4
-	>=net-libs/webkit-gtk-2.28.0:4=[spell?]
+	>=net-libs/libsoup-3.0:3.0
+	>=net-libs/webkit-gtk-2.38.0:4.1=[spell?]
 	>=x11-libs/cairo-1.9.15[glib]
 	>=x11-libs/gdk-pixbuf-2.24:2
 	>=x11-libs/gtk+-3.22:3
@@ -53,7 +52,7 @@ DEPEND="
 		>=media-libs/libchamplain-0.12:0.12[gtk]
 		>=media-libs/clutter-1.0.0:1.0
 		>=media-libs/clutter-gtk-0.90:1.0
-		>=sci-geosciences/geocode-glib-3.10.0:0 )
+		>=sci-geosciences/geocode-glib-3.26.3:2 )
 	ldap? ( >=net-nds/openldap-2:= )
 	spamassassin? ( mail-filter/spamassassin )
 	spell? ( >=app-text/gspell-1.8:= )
@@ -61,7 +60,10 @@ DEPEND="
 		>=dev-libs/nspr-4.6.1
 		>=dev-libs/nss-3.11
 	)
-	weather? ( >=dev-libs/libgweather-3.91.0:4= )
+	weather? (
+		>=dev-libs/libgweather-4.2.0:4=
+		>=sci-geosciences/geocode-glib-3.26.3:2
+	)
 	ytnef? ( net-mail/ytnef )
 "
 RDEPEND="${DEPEND}
@@ -118,8 +120,7 @@ src_configure() {
 		-DENABLE_GSPELL=$(usex spell)
 		-DENABLE_TEXT_HIGHLIGHT=$(usex highlight)
 		-DENABLE_WEATHER=$(usex weather)
-		-DWITH_GWEATHER4=ON
-		-DENABLE_CONTACT_MAPS=$(usex geolocation)
+		-DENABLE_CONTACT_MAPS=OFF # was $(usex geolocation), this will come back libchamplain gets it's libsoup3 port
 		-DENABLE_YTNEF=$(usex ytnef)
 		-DENABLE_PST_IMPORT=OFF
 		-DWITH_GLADE_CATALOG=OFF
