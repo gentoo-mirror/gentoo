@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.bitlbee.org/
 INHERIT=python-any-r1 systemd toolchain-funcs
 IUSE=debug +gnutls ipv6 libevent nss otr +plugins selinux test xinetd purple twitter +xmpp
-KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ppc ~ppc64 x86
 LICENSE=GPL-2
 RDEPEND=acct-group/bitlbee acct-user/bitlbee dev-libs/glib:2 dev-libs/json-parser:= purple? ( net-im/pidgin ) libevent? ( dev-libs/libevent:= ) otr? ( >=net-libs/libotr-4 ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( nss? ( dev-libs/nss ) !nss? ( dev-libs/openssl:0= ) ) xinetd? ( sys-apps/xinetd )
 REQUIRED_USE=|| ( purple xmpp ) purple? ( plugins ) test? ( xmpp )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://get.bitlbee.org/src/bitlbee-3.6.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=4a32eaddb860aa7ceae3e6d3d379c685
+_md5_=1a2f335a698d8f9a7fc7ca4224d00392
