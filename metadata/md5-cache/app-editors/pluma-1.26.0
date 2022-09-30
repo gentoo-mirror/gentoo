@@ -1,0 +1,17 @@
+BDEPEND=>=app-portage/elt-patches-20170815 app-arch/xz-utils sys-devel/gnuconfig || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=dev-libs/atk >=dev-libs/glib-2.50:2 >=dev-libs/libpeas-1.2.0[gtk] >=dev-libs/libxml2-2.5:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3[introspection?] >=x11-libs/gtksourceview-4.0.2:4 x11-libs/libICE x11-libs/libX11 >=x11-libs/libSM-1.0 x11-libs/pango introspection? ( >=dev-libs/gobject-introspection-0.9.3:= ) spell? ( >=app-text/enchant-1.6:= >=app-text/iso-codes-0.35 ) !!app-editors/mate-text-editor ~app-text/docbook-xml-dtd-4.1.2 app-text/yelp-tools dev-util/glib-utils dev-util/gtk-doc dev-util/gtk-doc-am >=sys-devel/libtool-2.2.6:2 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-util/desktop-file-utils x11-misc/shared-mime-info >=mate-base/mate-common-1.26
+DESCRIPTION=Pluma text editor for the MATE desktop
+EAPI=7
+HOMEPAGE=https://mate-desktop.org
+INHERIT=mate python-single-r1 virtualx
+IUSE=+introspection spell test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+LICENSE=FDL-1.1+ GPL-2+ LGPL-2+
+RDEPEND=dev-libs/atk >=dev-libs/glib-2.50:2 >=dev-libs/libpeas-1.2.0[gtk] >=dev-libs/libxml2-2.5:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3[introspection?] >=x11-libs/gtksourceview-4.0.2:4 x11-libs/libICE x11-libs/libX11 >=x11-libs/libSM-1.0 x11-libs/pango introspection? ( >=dev-libs/gobject-introspection-0.9.3:= ) spell? ( >=app-text/enchant-1.6:= >=app-text/iso-codes-0.35 ) !!app-editors/mate-text-editor python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) >=mate-base/mate-desktop-1.9[introspection?] virtual/libintl
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://pub.mate-desktop.org/releases/1.26/pluma-1.26.0.tar.xz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	mate-desktop.org	0da897c64adb500292c6b9db3e424496	mate	e29617c33d6e271931938d0073817dde	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	virtualx	644887c82aefdf12001489391fca4f02
+_md5_=6c99eb02df2e5cc0daced00e581e5770

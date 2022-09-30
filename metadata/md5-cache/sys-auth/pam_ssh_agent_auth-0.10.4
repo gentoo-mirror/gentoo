@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/openssl:= sys-libs/pam
+DESCRIPTION=Simple module to authenticate users against their ssh-agent keys
+EAPI=8
+HOMEPAGE=http://pamsshagentauth.sourceforge.net
+INHERIT=autotools toolchain-funcs pam
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/openssl:= sys-libs/pam virtual/ssh
+SLOT=0
+SRC_URI=https://github.com/jbeverly/pam_ssh_agent_auth/archive/refs/tags/pam_ssh_agent_auth-0.10.4.tar.gz https://github.com/floodyberry/ed25519-donna/archive/8757bd4cd209cb032853ece0ce413f122eef212c.tar.gz -> pam_ssh_agent_auth-ed25519-donna.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153	pam	e44a1dd98f13e1ad76de01e919bde1f1
+_md5_=0926bea616df918263efa4e1af21c4eb
