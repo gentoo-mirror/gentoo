@@ -65,14 +65,14 @@ COMMON_DEPEND="
 	dev-perl/Parse-Yapp
 	>=net-libs/gnutls-3.4.7[${MULTILIB_USEDEP}]
 	>=sys-fs/e2fsprogs-1.46.4-r51[${MULTILIB_USEDEP}]
-	>=sys-libs/ldb-2.5.0[ldap(+)?,${MULTILIB_USEDEP}]
-	<sys-libs/ldb-2.6.0[ldap(+)?,${MULTILIB_USEDEP}]
+	>=sys-libs/ldb-2.4.4[ldap(+)?,${MULTILIB_USEDEP}]
+	<sys-libs/ldb-2.5.0[ldap(+)?,${MULTILIB_USEDEP}]
 	sys-libs/libcap[${MULTILIB_USEDEP}]
 	sys-libs/liburing:=[${MULTILIB_USEDEP}]
 	sys-libs/ncurses:0=
 	sys-libs/readline:0=
 	>=sys-libs/talloc-2.3.3[${MULTILIB_USEDEP}]
-	>=sys-libs/tdb-1.4.6[${MULTILIB_USEDEP}]
+	>=sys-libs/tdb-1.4.4[${MULTILIB_USEDEP}]
 	>=sys-libs/tevent-0.11.0[${MULTILIB_USEDEP}]
 	sys-libs/zlib[${MULTILIB_USEDEP}]
 	virtual/libcrypt:=[${MULTILIB_USEDEP}]
@@ -115,7 +115,6 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-util/cmocka-1.1.3[${MULTILIB_USEDEP}]
-	dev-perl/JSON
 	net-libs/libtirpc[${MULTILIB_USEDEP}]
 	|| (
 		net-libs/rpcsvc-proto
@@ -144,7 +143,7 @@ BDEPEND="${PYTHON_DEPS}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.4.0-pam.patch"
-	"${FILESDIR}/${PN}-4.16.1-netdb-defines.patch"
+	"${FILESDIR}/ldb-2.5.2-skip-wav-tevent-check.patch"
 	"${FILESDIR}/${PN}-4.15.9-libunwind-automagic.patch"
 )
 
@@ -331,17 +330,4 @@ multilib_src_test() {
 
 pkg_postinst() {
 	tmpfiles_process samba.conf
-
-	if [[ -z ${REPLACING_VERSIONS} ]] ; then
-		elog "Be aware that this release contains the best of all of Samba's"
-		elog "technology parts, both a file server (that you can reasonably expect"
-		elog "to upgrade existing Samba 3.x releases to) and the AD domain"
-		elog "controller work previously known as 'samba4'."
-		elog
-	fi
-	if [[ "${PV}" != *_rc* ]] ; then
-		elog "For further information and migration steps make sure to read "
-		elog "https://samba.org/samba/history/${P}.html "
-		elog "https://wiki.samba.org/index.php/Samba4/HOWTO "
-	fi
 }

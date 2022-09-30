@@ -1,32 +1,33 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
-inherit autotools bash-completion-r1 linux-info multilib pam python-single-r1
+inherit autotools bash-completion-r1 linux-info pam python-single-r1
 
 DESCRIPTION="Tools for Managing Linux CIFS Client Filesystems"
-HOMEPAGE="https://wiki.samba.org/index.php/LinuxCIFS_utils"
+HOMEPAGE="https://wiki.samba.org/index.php/LinuxCIFS_utils https://git.samba.org/cifs-utils.git/?p=cifs-utils.git"
 SRC_URI="https://ftp.samba.org/pub/linux-cifs/${PN}/${P}.tar.bz2"
-
-SRC_URI+=" https://dev.gentoo.org/~polynomial-c/${P}-kerberos_mount_regression_fix.patch.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x86-linux"
 IUSE="+acl +ads +caps creds pam +python systemd"
 
 RDEPEND="
-	!net-fs/mount-cifs
-	sys-apps/keyutils:=
 	ads? (
+		sys-apps/keyutils:=
 		sys-libs/talloc
 		virtual/krb5
 	)
 	caps? ( sys-libs/libcap-ng )
-	pam? ( sys-libs/pam )
+	creds? ( sys-apps/keyutils:= )
+	pam? (
+		sys-apps/keyutils:=
+		sys-libs/pam
+	)
 	python? ( ${PYTHON_DEPS} )
 "
 DEPEND="${RDEPEND}"
@@ -44,7 +45,7 @@ DOCS="doc/linux-cifs-client-guide.odt"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.12-ln_in_destdir.patch" #766594
-	"${WORKDIR}/${P}-kerberos_mount_regression_fix.patch" #809023
+	"${FILESDIR}/${PN}-6.15-musl.patch"
 )
 
 pkg_setup() {
