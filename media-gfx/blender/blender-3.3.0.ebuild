@@ -18,7 +18,7 @@ else
 	SRC_URI="https://download.blender.org/source/${P}.tar.xz"
 	# Update these between major releases.
 	TEST_TARBALL_VERSION="$(ver_cut 1-2).0"
-	SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.xz )"
+	#SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.xz )"
 	KEYWORDS="~amd64 ~arm ~arm64"
 fi
 
@@ -30,7 +30,7 @@ IUSE="+bullet +dds +fluid +openexr +tbb \
 	man +nanovdb ndof nls openal +oidn +openimageio +openmp +opensubdiv \
 	+openvdb optix +osl +pdf +potrace +pugixml pulseaudio sdl +sndfile \
 	test +tiff valgrind"
-RESTRICT="!test? ( test )"
+RESTRICT="!test? ( test ) test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	alembic? ( openexr )
@@ -54,7 +54,7 @@ RDEPEND="${PYTHON_DEPS}
 		dev-python/zstandard[${PYTHON_USEDEP}]
 	')
 	media-libs/freetype:=[brotli]
-	media-libs/libepoxy:=
+	media-libs/glew:*
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	media-libs/libsamplerate
@@ -125,6 +125,12 @@ BDEPEND="
 	)
 	nls? ( sys-devel/gettext )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.2.2-support-building-with-musl-libc.patch
+	"${FILESDIR}"/${PN}-3.2.2-Cycles-add-option-to-specify-OptiX-runtime-root-dire.patch
+	"${FILESDIR}"/${PN}-3.2.2-Fix-T100845-wrong-Cycles-OptiX-runtime-compilation-i.patch
+)
 
 blender_check_requirements() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -198,7 +204,7 @@ src_prepare() {
 
 	if use test; then
 		# Without this the tests will try to use /usr/bin/blender and /usr/share/blender/ to run the tests.
-		sed -e "s|set(TEST_INSTALL_DIR.*|set(TEST_INSTALL_DIR ${ED}/usr/)|g" -i tests/CMakeLists.txt || die
+		sed -e "s|string(REPLACE.*|set(TEST_INSTALL_DIR ${ED}/usr/)|g" -i tests/CMakeLists.txt || die
 		sed -e "s|string(REPLACE.*|set(TEST_INSTALL_DIR ${ED}/usr/)|g" -i build_files/cmake/Modules/GTestTesting.cmake || die
 	fi
 }
@@ -261,6 +267,7 @@ src_configure() {
 		-DWITH_STATIC_LIBS=OFF
 		-DWITH_SYSTEM_EIGEN3=ON
 		-DWITH_SYSTEM_FREETYPE=ON
+		-DWITH_SYSTEM_GLEW=ON
 		-DWITH_SYSTEM_LZO=ON
 		-DWITH_TBB=$(usex tbb)
 		-DWITH_USD=OFF
