@@ -2,17 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_8 python3_9 python3_10 )
+PYTHON_COMPAT=( python3_8 python3_9 python3_10 python3_11 )
 
 inherit distutils-r1
 
 DESCRIPTION="Secure backup system using gnupg to encrypt data"
 HOMEPAGE="https://duplicity.gitlab.io/"
-SRC_URI="https://code.launchpad.net/${PN}/$(ver_cut 1-2)-series/$(ver_cut 1-3)/+download/${P}.tar.gz"
+SRC_URI="https://gitlab.com/duplicity/duplicity/-/archive/rel.${PV}/duplicity-rel.${PV}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="s3 test"
 
 CDEPEND="
@@ -40,6 +40,8 @@ RESTRICT="test"
 PATCHES=(
 	"${FILESDIR}/${P}-fix-docs-cmd.patch"
 )
+
+S="${WORKDIR}/duplicity-rel.${PV}"
 
 python_test() {
 	esetup.py test
