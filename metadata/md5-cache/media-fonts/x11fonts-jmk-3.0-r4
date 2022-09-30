@@ -1,13 +1,13 @@
-BDEPEND=>=x11-misc/imake-1.0.8-r1 >=x11-apps/mkfontscale-1.2.0 x11-apps/bdftopcf X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=sys-devel/gcc >=x11-misc/imake-1.0.8-r1 >=x11-apps/mkfontscale-1.2.0 x11-apps/bdftopcf X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=configure install postinst postrm setup
 DESCRIPTION=This package contains character-cell fonts for use with X
-EAPI=7
-HOMEPAGE=http://www.jmknoble.net/fonts/
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
 INHERIT=font toolchain-funcs
 IUSE=X
 KEYWORDS=~alpha amd64 arm ~ia64 ~loong ppc ~s390 sparc x86
 LICENSE=GPL-2
 SLOT=0
-SRC_URI=http://www.pobox.com/~jmknoble/fonts/jmk-x11-fonts-3.0.tar.gz
+SRC_URI=mirror://gentoo/jmk-x11-fonts-3.0.tar.gz
 _eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=80e02ad13d57791f28704fa339928295
+_md5_=1df82547d83978f5c1d9956b8db832d9
