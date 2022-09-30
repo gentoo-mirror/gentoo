@@ -1,0 +1,14 @@
+BDEPEND=app-text/rman sys-devel/gcc >=x11-misc/imake-1.0.8-r1
+DEFINED_PHASES=compile configure install
+DEPEND=x11-libs/libX11 x11-libs/libXaw x11-libs/libXt x11-base/xorg-proto
+DESCRIPTION=Simple hex calculator for X
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=toolchain-funcs
+KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux
+LICENSE=HPND
+RDEPEND=x11-libs/libX11 x11-libs/libXaw x11-libs/libXt
+SLOT=0
+SRC_URI=mirror://gentoo/hexcalc-1.11.tar.Z
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=fc06842f173f8e9717642f5075d6164e

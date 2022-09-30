@@ -1,4 +1,4 @@
-BDEPEND=app-text/rman virtual/pkgconfig x11-base/xorg-proto >=x11-misc/imake-1.0.8-r1 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=app-text/rman sys-devel/gcc virtual/pkgconfig x11-base/xorg-proto >=x11-misc/imake-1.0.8-r1 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst postrm prepare
 DEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libXmu x11-libs/libXrender emacs? ( >=app-editors/emacs-23.1:* ) imlib? ( media-libs/imlib2[X] ) !imlib? ( gif? ( media-libs/giflib:= ) png? ( >=media-libs/libpng-1.4:0= ) ) m17n-lib? ( dev-libs/m17n-lib[X] fontconfig? ( media-libs/fontconfig ) ) mng? ( media-libs/libmng:= ) truetype? ( x11-libs/libXft media-libs/fontconfig ) x11-libs/libxkbfile
 DESCRIPTION=X11 based presentation tool
@@ -13,4 +13,4 @@ REQUIRED_USE=imlib? ( !gif !png )
 SLOT=0
 SRC_URI=ftp://sh.wide.ad.jp/WIDE/free-ware/mgp-snap/mgp-snap-20121015.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b
-_md5_=08fd46f322666d5eb8a697a133f26bba
+_md5_=fb3164bcd28f9c32c264c18c55db5f0b

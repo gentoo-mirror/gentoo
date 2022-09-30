@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig
+BDEPEND=virtual/pkgconfig X? ( sys-devel/gcc )
 DEFINED_PHASES=compile configure install prepare
 DEPEND=sys-libs/ncurses:0= X? ( x11-libs/libX11 ) X? ( >=x11-misc/imake-1.0.8-r1 )
 DESCRIPTION=Shows currently transmitting beacons of the International Beacon Project (IBP)
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/ncurses:0= X? ( x11-libs/libX11 )
 SLOT=0
 SRC_URI=http://www.pa3fwm.nl/software/ibp/ibp-0.21.tgz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=a7146ae856ddffaa140ee2ea0b828b34
+_md5_=e0a8661ae57b1eeb875d7f65feb855e1

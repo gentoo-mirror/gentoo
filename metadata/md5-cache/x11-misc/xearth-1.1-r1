@@ -1,6 +1,6 @@
-BDEPEND=app-text/rman x11-base/xorg-proto >=x11-misc/imake-1.0.8-r1
+BDEPEND=app-text/rman sys-devel/gcc >=x11-misc/imake-1.0.8-r1
 DEFINED_PHASES=compile configure install
-DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXt
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXt x11-base/xorg-proto
 DESCRIPTION=Set the X root window to an image of the Earth
 EAPI=7
 HOMEPAGE=https://hewgill.com/xearth/original/
@@ -11,4 +11,4 @@ RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXt
 SLOT=0
 SRC_URI=ftp://cag.lcs.mit.edu/pub/tuna/xearth-1.1.tar.gz ftp://ftp.cs.colorado.edu/users/tuna/xearth-1.1.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=111d5e4d6a7bb1941435ac171adabbc7
+_md5_=2f10d4a4457e094a695f6c6ecaad8d79

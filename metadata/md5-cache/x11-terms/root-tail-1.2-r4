@@ -1,6 +1,6 @@
-BDEPEND=>=x11-misc/imake-1.0.8-r1 app-text/rman x11-base/xorg-proto x11-misc/gccmakedep
+BDEPEND=app-text/rman sys-devel/gcc x11-misc/gccmakedep >=x11-misc/imake-1.0.8-r1
 DEFINED_PHASES=compile configure install prepare
-DEPEND=x11-libs/libXext x11-libs/libX11
+DEPEND=x11-libs/libXext x11-libs/libX11 x11-base/xorg-proto
 DESCRIPTION=Terminal to display (multiple) log files on the root window
 EAPI=7
 HOMEPAGE=http://oldhome.schmorp.de/marc/root-tail.html
@@ -12,4 +12,4 @@ RDEPEND=x11-libs/libXext x11-libs/libX11
 SLOT=0
 SRC_URI=http://oldhome.schmorp.de/marc/data/root-tail-1.2.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153
-_md5_=974eebfa67db34f9226cab8e5129740d
+_md5_=e3baa8198a4fb740c05597ce5947535a

@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig x11-misc/gccmakedep >=x11-misc/imake-1.0.8-r1
+BDEPEND=sys-devel/gcc virtual/pkgconfig x11-misc/gccmakedep >=x11-misc/imake-1.0.8-r1
 DEFINED_PHASES=compile configure install postinst prepare
 DEPEND=app-text/rman sys-libs/ncurses:= x11-libs/libXaw x11-libs/libXmu x11-libs/libXpm x11-libs/libxkbfile Xaw3d? ( x11-libs/libXaw3d ) !<games-board/xgammon-0.98-r3 !<games-board/xscrabble-2.10-r4
 DESCRIPTION=Japanese Kanji X Terminal
@@ -12,4 +12,4 @@ RDEPEND=app-text/rman sys-libs/ncurses:= x11-libs/libXaw x11-libs/libXmu x11-lib
 SLOT=0
 SRC_URI=mirror://gentoo/kterm-6.2.0.tar.gz mirror://gentoo/kterm-6.2.0-wpi.patch.gz mirror://gentoo/kterm-6.2.0.ext02.patch.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=6e9ab3c0ba1ceb46481989f2cf361035
+_md5_=04a08bb3ddc34e806d7a1ea44a06da46
