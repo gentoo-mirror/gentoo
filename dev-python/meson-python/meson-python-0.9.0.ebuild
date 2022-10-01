@@ -20,15 +20,16 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 
 RDEPEND="
-	>=dev-python/pyproject-metadata-0.5.0[${PYTHON_USEDEP}]
+	>=dev-python/pyproject-metadata-0.6.1[${PYTHON_USEDEP}]
 	>=dev-python/tomli-1.0.0[${PYTHON_USEDEP}]
-	>=dev-util/meson-0.60.0[${PYTHON_USEDEP}]
+	>=dev-util/meson-0.63.0[${PYTHON_USEDEP}]
 	dev-util/patchelf
 "
 BDEPEND="
+	dev-python/cython[${PYTHON_USEDEP}]
 	test? (
 		dev-python/GitPython[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
