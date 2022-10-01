@@ -9,7 +9,7 @@ MY_PN="Bitwarden"
 
 DESCRIPTION="Bitwarden password manager desktop client"
 HOMEPAGE="https://bitwarden.com/"
-SRC_URI="https://github.com/bitwarden/desktop/releases/download/v${PV}/Bitwarden-${PV}-amd64.deb"
+SRC_URI="https://github.com/bitwarden/clients/releases/download/desktop-v${PV}/Bitwarden-${PV}-amd64.deb"
 S="${WORKDIR}"
 
 LICENSE="GPL-3"
@@ -60,6 +60,7 @@ QA_PREBUILT="
 	opt/Bitwarden/*.so*
 	opt/Bitwarden/bitwarden
 	opt/Bitwarden/chrome-sandbox
+	opt/Bitwarden/chrome_crashpad_handler
 "
 
 src_install() {
@@ -71,7 +72,7 @@ src_install() {
 	domenu usr/share/applications/bitwarden.desktop
 
 	local x
-	for x in 16 32 48 64 256 512; do
+	for x in 16 32 64 128 256 512; do
 		doicon -s ${x} usr/share/icons/hicolor/${x}*/*
 	done
 }
