@@ -5,14 +5,14 @@ EAPI=8
 USE_RUBY="ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_BINWRAP=""
-RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
-RUBY_FAKEGEM_GEMSPEC="net-smtp.gemspec"
+RUBY_FAKEGEM_EXTRADOC="README.md"
+RUBY_FAKEGEM_GEMSPEC="net-pop.gemspec"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Simple Mail Transfer Protocol client library for Ruby"
-HOMEPAGE="https://github.com/ruby/net-smtp"
-SRC_URI="https://github.com/ruby/net-smtp/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Ruby client library for POP3"
+HOMEPAGE="https://github.com/ruby/net-pop"
+SRC_URI="https://github.com/ruby/net-pop/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
