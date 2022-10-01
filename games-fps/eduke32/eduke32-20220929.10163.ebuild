@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop toolchain-funcs xdg-utils
 
-EGIT_COMMIT="e27a7b621"
+EGIT_COMMIT="2b3f691cd"
 MY_BUILD="$(ver_cut 2)"
 MY_DATE="$(ver_cut 1)"
 MY_PV_HRP="5.4"
@@ -19,7 +19,7 @@ DESCRIPTION="An open source engine port of the classic PC first person shooter D
 HOMEPAGE="http://www.eduke32.com/"
 SRC_URI="
 	http://dukeworld.com/eduke32/synthesis/${MY_DATE}-${MY_BUILD}-${EGIT_COMMIT}/${PN}_src_${MY_DATE}-${MY_BUILD}-${EGIT_COMMIT}.tar.xz
-	https://www.eduke32.com/images/eduke32_classic.png
+	http://www.eduke32.com/images/eduke32_classic.png
 	hrp? ( http://www.duke4.org/files/nightfright/hrp/duke3d_hrp.zip -> duke3d_hrp-${MY_PV_HRP}.zip )
 	offensive? ( http://www.duke4.org/files/nightfright/related/duke3d_xxx.zip -> duke3d_xxx-${MY_PV_OFFENSIVE_XXX}.zip )
 	opl? ( https://www.moddb.com/downloads/mirror/95750/102/ce9e8f422c6cccdb297852426e96740a -> duke3d_musopl-${MY_PV_OPL}.zip )
