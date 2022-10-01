@@ -2,14 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{8..11} )
 
-inherit meson python-single-r1 xdg
+inherit gnome.org meson python-single-r1 xdg
 
 DESCRIPTION="OS-native connector counterpart for GNOME Shell browser extension"
 HOMEPAGE="https://wiki.gnome.org/Projects/GnomeShellIntegration"
-SRC_URI="https://gitlab.gnome.org/nE0sIghT/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
-S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="GPL-3+"
 SLOT="0"
