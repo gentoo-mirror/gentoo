@@ -20,14 +20,10 @@ KEYWORDS="~amd64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
-	dev-python/cached-property[${PYTHON_USEDEP}]
 	>=dev-python/cerberus-1.3.2[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.4.4[${PYTHON_USEDEP}]
 	>=dev-python/idna-3.2[${PYTHON_USEDEP}]
-	dev-python/importlib_metadata[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' 3.8)
-	dev-python/iso8601[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.8.0[${PYTHON_USEDEP}]
 	dev-python/pip[${PYTHON_USEDEP}]
 	dev-python/pyparsing[${PYTHON_USEDEP}]
@@ -38,9 +34,7 @@ RDEPEND="
 	dev-python/toml[${PYTHON_USEDEP}]
 	>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	dev-python/tomlkit[${PYTHON_USEDEP}]
-	>=dev-python/urllib3-1.26.7[${PYTHON_USEDEP}]
 	>=dev-python/wheel-0.36.0[${PYTHON_USEDEP}]
-	>=dev-python/zipp-3.6.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -62,7 +56,8 @@ distutils_enable_tests pytest
 src_prepare() {
 	local pkgName
 	local jobs=$(makeopts_jobs)
-	local packages=( attr cerberus cached_property click colorama idna importlib_metadata importlib_resources iso8601 pexpect dateutil pyparsing requests toml tomli tomlkit urllib3 zipp )
+	local packages=( attr cerberus click colorama idna importlib_metadata \
+					 importlib_resources pexpect pyparsing requests toml tomli tomlkit urllib3 )
 	for pkgName in ${packages[@]}; do
 		find ./ -type f -print0 | \
 			xargs --max-procs="${jobs}" --null \
