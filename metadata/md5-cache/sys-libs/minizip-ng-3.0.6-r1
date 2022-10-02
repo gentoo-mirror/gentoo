@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/bzip2 app-arch/xz-utils sys-libs/zlib-ng virtual/libiconv compat? ( !sys-libs/zlib[minizip] ) openssl? ( dev-libs/openssl:= ) zstd? ( app-arch/zstd:= )
+DESCRIPTION=Fork of the popular zip manipulation library found in the zlib distribution
+EAPI=8
+HOMEPAGE=https://github.com/zlib-ng/minizip-ng
+INHERIT=cmake
+IUSE=compat openssl test zstd
+KEYWORDS=~amd64 ~x86
+LICENSE=ZLIB
+RDEPEND=app-arch/bzip2 app-arch/xz-utils sys-libs/zlib-ng virtual/libiconv compat? ( !sys-libs/zlib[minizip] ) openssl? ( dev-libs/openssl:= ) zstd? ( app-arch/zstd:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/zlib-ng/minizip-ng/archive/refs/tags/3.0.6.tar.gz -> minizip-ng-3.0.6.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=47ac935136359f67c057a2a13f87a959
