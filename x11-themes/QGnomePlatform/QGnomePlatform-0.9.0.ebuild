@@ -21,7 +21,7 @@ RDEPEND="
 	gnome-base/gsettings-desktop-schemas
 	sys-apps/xdg-desktop-portal
 	x11-libs/gtk+:3[X]
-	>=x11-themes/adwaita-qt-1.4.1
+	>=x11-themes/adwaita-qt-1.4.2
 "
 DEPEND="${RDEPEND}"
 BDEPEND="${RDEPEND}"
