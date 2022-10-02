@@ -1,32 +1,28 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit autotools eutils
+inherit autotools
 
 DESCRIPTION="A documentation metadata library"
 HOMEPAGE="https://rarian.freedesktop.org/"
-SRC_URI="https://${PN}.freedesktop.org/Releases/${P}.tar.gz
-	https://dev.gentoo.org/~eva/distfiles/${PN}/${P}-r3-patches.tar.xz"
+SRC_URI="
+	https://${PN}.freedesktop.org/Releases/${P}.tar.gz
+	https://dev.gentoo.org/~soap/distfiles/${P}-r4-patches.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris ~x86-solaris"
-IUSE="static-libs"
 
 RDEPEND="
 	dev-libs/libxslt
 	dev-libs/tinyxml
 	|| (
 		sys-apps/util-linux
-		app-misc/getopt )
-"
-DEPEND="${RDEPEND}
-	!<app-text/scrollkeeper-9999
-"
-
-DOCS=( ChangeLog NEWS README )
+		app-misc/getopt
+	)"
+DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${WORKDIR}"/0001-Fix-uri-of-omf-files-produced-by-rarian-sk-preinstal.patch
@@ -38,6 +34,7 @@ PATCHES=(
 	"${WORKDIR}"/0007-Remove-the-nonexistent-dist-gzip-Automake-option.patch
 	"${WORKDIR}"/0008-Fix-OMF-category-parsing.patch
 	"${WORKDIR}"/0009-Allow-the-getopt-command-to-be-customized-at-configu.patch
+	"${WORKDIR}"/0010-Wimplicit-int.patch
 )
 
 src_prepare() {
@@ -55,8 +52,7 @@ src_configure() {
 
 	econf \
 		--localstatedir="${EPREFIX}"/var \
-		$(use_enable static-libs static) \
-		${myconf[@]}
+		"${myconf[@]}"
 }
 
 src_install() {
