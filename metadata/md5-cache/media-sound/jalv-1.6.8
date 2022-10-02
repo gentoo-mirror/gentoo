@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-libs/serd dev-libs/sord media-libs/lilv media-libs/lv2 media-libs/sratom media-libs/suil gtk? ( x11-libs/gtk+:3 ) jack? ( virtual/jack ) portaudio? ( media-libs/portaudio ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
+DESCRIPTION=Simple but fully featured LV2 host for Jack
+EAPI=8
+HOMEPAGE=https://drobilla.net/software/jalv.html
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=meson qmake-utils flag-o-matic xdg
+IUSE=gtk jack portaudio qt5
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-libs/serd dev-libs/sord media-libs/lilv media-libs/lv2 media-libs/sratom media-libs/suil gtk? ( x11-libs/gtk+:3 ) jack? ( virtual/jack ) portaudio? ( media-libs/portaudio ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
+SLOT=0
+SRC_URI=https://download.drobilla.net/jalv-1.6.8.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	qmake-utils	59420c906278d16deaaa629f9d115707	flag-o-matic	29a755b1291d64133634d80b0328f153	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=1a6175e46e5137e5b5e5b0158a6b9369
