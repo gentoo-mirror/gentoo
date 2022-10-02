@@ -1,19 +1,20 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 # Check this on updates
-LLVM_MAX_SLOT=13
+LLVM_MAX_SLOT=15
 
 inherit cmake llvm toolchain-funcs python-single-r1
 
 DESCRIPTION="Advanced shading language for production GI renderers"
 HOMEPAGE="http://opensource.imageworks.com/?p=osl"
-SRC_URI="https://github.com/imageworks/OpenShadingLanguage/archive/v${PV}-dev.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/OpenShadingLanguage-${PV}-dev"
+# If a development release, please don't keyword!
+SRC_URI="https://github.com/imageworks/OpenShadingLanguage/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/OpenShadingLanguage-${PV}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -26,6 +27,7 @@ X86_CPU_FEATURES=(
 CPU_FEATURES=( ${X86_CPU_FEATURES[@]/#/cpu_flags_x86_} )
 
 IUSE="doc partio qt5 test ${CPU_FEATURES[@]%:*} python"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -56,20 +58,14 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-# Restricting tests as Makefile handles them differently
-RESTRICT="test"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.12.4.1-openexr-3-imath.patch
-)
-
 llvm_check_deps() {
 	has_version -r "sys-devel/clang:${LLVM_SLOT}"
 }
 
 pkg_setup() {
-	use python && python-single-r1_pkg_setup
 	llvm_pkg_setup
+
+	use python && python-single-r1_pkg_setup
 }
 
 src_configure() {
@@ -83,9 +79,10 @@ src_configure() {
 	[[ -z ${mysimd} ]] && mysimd=("0")
 
 	local gcc="$(tc-getCC)"
-	# LLVM needs CPP11. Do not disable.
 	local mycmakeargs=(
-		-DCMAKE_CXX_STANDARD=14
+		# Still needed?
+		# See https://github.com/AcademySoftwareFoundation/OpenShadingLanguage/pull/1454
+		#-DCMAKE_CXX_STANDARD=14
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}"
 		-DINSTALL_DOCS=$(usex doc)
 		-DUSE_CCACHE=OFF
@@ -95,8 +92,18 @@ src_configure() {
 		-DUSE_PARTIO=$(usex partio)
 		-DUSE_QT=$(usex qt5)
 		-DUSE_PYTHON=$(usex python)
+		-DPYTHON_VERSION="${EPYTHON/python}"
 		-DUSE_SIMD="$(IFS=","; echo "${mysimd[*]}")"
 	)
 
 	cmake_src_configure
+}
+
+src_test() {
+	# TODO: investigate failures
+	local myctestargs=(
+		-E "(osl-imageio|osl-imageio.opt|render-background|render-bumptest|render-mx-furnace-burley-diffuse|render-mx-furnace-sheen|render-mx-burley-diffuse|render-mx-conductor|render-mx-generalized-schlick|render-mx-generalized-schlick-glass|render-microfacet|render-oren-nayar|render-uv|render-veachmis|render-ward)"
+	)
+
+	cmake_src_test
 }
