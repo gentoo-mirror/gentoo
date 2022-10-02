@@ -1,0 +1,17 @@
+BDEPEND=>=dev-libs/appstream-glib-0.7.10 dev-libs/libxml2 dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( net-libs/gnutls[tools] ) || ( dev-lang/vala:0.56 ) x11-libs/gtk+:3[introspection] net-libs/webkit-gtk:4.1[introspection] dev-libs/gmime:3.0[vala] app-crypt/gcr:0[introspection,vala] dev-libs/libgee:0.8[introspection] media-libs/gsound[vala] app-text/gspell[vala] gui-libs/libhandy:1[vala] app-crypt/libsecret[introspection,vala] net-libs/libsoup:3.0[introspection,vala] app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-libs/glib-2.68:2 >=x11-libs/gtk+-3.24.23:3 >=net-libs/webkit-gtk-2.38:4.1= >=dev-libs/gmime-3.2.4:3.0 >=dev-db/sqlite-3.24:3 x11-libs/cairo[glib] app-text/enchant:2 >=dev-libs/folks-0.11:0= >=app-crypt/gcr-3.10.1:0= >=dev-libs/libgee-0.8.5:0.8= net-libs/gnome-online-accounts media-libs/gsound >=app-text/gspell-1.7:= >=dev-libs/icu-60:= app-text/iso-codes >=dev-libs/json-glib-1.0 >=gui-libs/libhandy-1.2.1:1= >=dev-libs/libpeas-1.24.0 >=app-crypt/libsecret-0.11 net-libs/libsoup:3.0 dev-libs/snowball-stemmer:= >=dev-libs/libxml2-2.7.8:2 ytnef? ( >=net-mail/ytnef-1.9.3 )
+DESCRIPTION=A lightweight, easy-to-use, feature-rich email client
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/Geary
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson vala virtualx xdg
+IUSE=test ytnef test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=LGPL-2.1+ CC-BY-3.0 CC-BY-SA-3.0
+RDEPEND=>=dev-libs/glib-2.68:2 >=x11-libs/gtk+-3.24.23:3 >=net-libs/webkit-gtk-2.38:4.1= >=dev-libs/gmime-3.2.4:3.0 >=dev-db/sqlite-3.24:3 x11-libs/cairo[glib] app-text/enchant:2 >=dev-libs/folks-0.11:0= >=app-crypt/gcr-3.10.1:0= >=dev-libs/libgee-0.8.5:0.8= net-libs/gnome-online-accounts media-libs/gsound >=app-text/gspell-1.7:= >=dev-libs/icu-60:= app-text/iso-codes >=dev-libs/json-glib-1.0 >=gui-libs/libhandy-1.2.1:1= >=dev-libs/libpeas-1.24.0 >=app-crypt/libsecret-0.11 net-libs/libsoup:3.0 dev-libs/snowball-stemmer:= >=dev-libs/libxml2-2.7.8:2 ytnef? ( >=net-mail/ytnef-1.9.3 ) gnome-base/gsettings-desktop-schemas
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/geary/43/geary-43.0.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	vala	160a8a30a6cb9aa601e5441c643a7c61	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857
+_md5_=77bbabef16a705318f1169461ce7dd43
