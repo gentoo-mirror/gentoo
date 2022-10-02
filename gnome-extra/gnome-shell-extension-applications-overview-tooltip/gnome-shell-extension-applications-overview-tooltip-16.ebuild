@@ -4,32 +4,31 @@
 EAPI=8
 inherit gnome2-utils
 
-DESCRIPTION="Changes your wallpaper daily to the bing.com background image"
-HOMEPAGE="https://github.com/neffo/bing-wallpaper-gnome-extension"
-SRC_URI="https://github.com/neffo/bing-wallpaper-gnome-extension/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Show tooltip with full name and description"
+HOMEPAGE="https://github.com/RaphaelRochet/applications-overview-tooltip"
+SRC_URI="https://github.com/RaphaelRochet/applications-overview-tooltip/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+# https://github.com/RaphaelRochet/applications-overview-tooltip/issues/7
+LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	dev-libs/glib:2
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-3.36
+	>=gnome-base/gnome-shell-40
 "
 DEPEND=""
 BDEPEND=""
 
-S="${WORKDIR}/bing-wallpaper-gnome-extension-${PV}"
-extension_uuid="BingWallpaper@ineffable-gmail.com"
+S="${WORKDIR}/${P/gnome-shell-extension-}"
+extension_uuid="applications-overview-tooltip@RaphaelRochet"
 
 src_install() {
 	einstalldocs
-	rm -f README.md LICENSE || die
 	insinto /usr/share/glib-2.0/schemas
 	doins schemas/*.xml
-	rm -rf schemas
+	rm -rf README.md schemas || die
 	insinto /usr/share/gnome-shell/extensions/"${extension_uuid}"
 	doins -r *
 }
