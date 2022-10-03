@@ -1201,7 +1201,7 @@ app-arch/rzip 2.1-r4: Compression program for large files
 app-arch/sharutils 4.15.2-r2: Tools to deal with shar archives
 app-arch/snappy 1.1.9-r1: A high-speed compression/decompression library by Google
 app-arch/stenc 1.1.1: SCSI Tape Encryption Manager enables AES support for LTO drives
-app-arch/stormlib 9.23-r1: Library to read and write MPQ archives (Diablo, StarCraft)
+app-arch/stormlib 9.23-r1 9.24: Library to read and write MPQ archives (Diablo, StarCraft)
 app-arch/stuffit 5.2.0.611-r1: Aladdin Software's StuffIt and StuffIt Expander
 app-arch/tapeutils 0.4-r1: Utilities for manipulation of tapes and tape image files
 app-arch/tar 1.34: Use this to make tarballs :)
@@ -4119,7 +4119,7 @@ dev-cpp/pstreams 1.0.1: C++ wrapper for the POSIX.2 functions popen(3) and pclos
 dev-cpp/pystring 1.1.3-r1: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
-dev-cpp/rapidfuzz-cpp 1.7.0: Rapid fuzzy string matching in C++
+dev-cpp/rapidfuzz-cpp 1.7.0 1.8.0: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.4.1: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r1: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 0.6.3 9999: C++ fast hash map and hash set using robin hood hashing
@@ -8252,7 +8252,7 @@ dev-python/carbon 1.1.10: Backend data caching and persistence daemon for Graphi
 dev-python/case 1.5.3: Python unittest Utilities
 dev-python/casttube 0.2.1: casttube provides a way to interact with the Youtube Chromecast api
 dev-python/catkin_pkg 0.4.24 0.5.2 9999: Standalone Python library for the catkin package system
-dev-python/cattrs 22.1.0: Composable complex class support for attrs and dataclasses
+dev-python/cattrs 22.1.0 22.2.0: Composable complex class support for attrs and dataclasses
 dev-python/cbor 1.0.0-r1: RFC 7049 - Concise Binary Object Representation
 dev-python/cbor2 5.4.3: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cchardet 2.1.7: High speed universal character encoding detector
@@ -8260,7 +8260,7 @@ dev-python/cerberus 1.3.2 1.3.4-r1: A lightweight and extensible data-validation
 dev-python/certifi 3021.3.16-r2: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.15.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.64.1 0.65.1 0.66.0: CloudFormation Linter
+dev-python/cfn-lint 0.64.1 0.65.1 0.66.0 0.66.1: CloudFormation Linter
 dev-python/cftime 1.6.1 1.6.2: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8-r1: Tools and libraries for control groups of Linux
 dev-python/chameleon 3.10.1: Fast HTML/XML template compiler for Python
@@ -8546,15 +8546,15 @@ dev-python/httpcore 0.15.0: A minimal low-level HTTP client
 dev-python/httplib2 0.20.4: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4-r1: HTTP client mock for Python
 dev-python/httpx 0.23.0: Fully-featured HTTP client which provides sync and async APIs
-dev-python/huawei-lte-api 1.6.1: API For huawei LAN/WAN LTE Modems
+dev-python/huawei-lte-api 1.6.1 1.6.3: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0: Human friendly output for text interfaces using Python
 dev-python/humanize 4.3.0 4.4.0: Common humanization utilities
 dev-python/hvac 0.11.2 1.0.0 1.0.2: hashicorp vault client in python
 dev-python/hyperframe 5.2.0 5.2.0-r1 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.54.5 6.54.6 6.55.0: A library for property based testing
+dev-python/hypothesis 6.54.5 6.54.6 6.55.0 6.56.0: A library for property based testing
 dev-python/icalendar 4.1.0: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.5.3 2.5.5: File identification library for Python
+dev-python/identify 2.5.3 2.5.5 2.5.6: File identification library for Python
 dev-python/idna 3.3-r1 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
@@ -8564,7 +8564,7 @@ dev-python/imagesize 1.4.1: Pure Python module for getting image size from png/j
 dev-python/imapclient 2.3.1: easy-to-use, pythonic, and complete IMAP client library
 dev-python/iminuit 2.16.0 2.17.0: Minuit numerical function minimization in Python
 dev-python/immutables 0.18 0.19: A high-performance immutable mapping type for Python
-dev-python/importlib_metadata 4.12.0 4.13.0: Read metadata from Python packages
+dev-python/importlib_metadata 4.12.0 4.13.0 5.0.0: Read metadata from Python packages
 dev-python/importlib_resources 5.9.0: Read resources from Python packages
 dev-python/imread 0.7.3-r1: Read Image Files
 dev-python/incremental 21.3.0-r1: Incremental is a small library that versions your Python projects
@@ -8769,7 +8769,7 @@ dev-python/multipledispatch 0.6.0-r1: Multiple dispatch
 dev-python/munch 2.5.0-r2: A dot-accessible dictionary (a la JavaScript objects)
 dev-python/munkres 1.1.4-r1: Module implementing munkres algorithm for the Assignment Problem
 dev-python/mygpoclient 1.9: A gpodder.net client library
-dev-python/mypy 0.971 0.981: Optional static typing for Python
+dev-python/mypy 0.971 0.981 0.982: Optional static typing for Python
 dev-python/mypy_extensions 0.4.3-r1: Optional static typing for Python
 dev-python/mysqlclient 2.1.1: Python interface to MySQL
 dev-python/myst_parser 0.18.0 0.18.1: Extended commonmark compliant parser, with bridges to sphinx
@@ -9284,7 +9284,7 @@ dev-python/quex 0.71.2: Mode Oriented Directly Coded Lexical Analyser Generator
 dev-python/radon 5.1.0-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r4: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
-dev-python/rapidfuzz 2.10.2 2.10.3: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 2.10.2 2.10.3 2.11.0: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rapidfuzz_capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.0-r1: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
@@ -9359,7 +9359,7 @@ dev-python/selenium 4.4.3 4.5.0: Python language binding for Selenium Remote Con
 dev-python/semantic_version 2.10.0: Python library providing a few tools handling SemVer in Python
 dev-python/semver 2.13.0: A Python module for semantic versioning
 dev-python/send2trash 1.8.0-r1: Sends files to the Trash (or Recycle Bin)
-dev-python/sentry-sdk 1.9.7 1.9.8 1.9.9: Python client for Sentry
+dev-python/sentry-sdk 1.9.7 1.9.8 1.9.9 1.9.10: Python client for Sentry
 dev-python/serpent 1.41: A simple serialization library based on ast.literal_eval
 dev-python/serverfiles 0.3.1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service_identity 21.1.0-r1: Service identity verification for pyOpenSSL
@@ -9477,7 +9477,7 @@ dev-python/stestr 3.2.1 4.0.1: A parallel Python test runner built around subuni
 dev-python/stevedore 4.0.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.0.1: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 4.1.0: Stripe python bindings
+dev-python/stripe 4.1.0 4.2.0: Stripe python bindings
 dev-python/subprocess-tee 0.3.5: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.0_p20210729: A streaming protocol for test results
 dev-python/suds-community 1.1.2: Lightweight SOAP client
@@ -9542,7 +9542,7 @@ dev-python/transitions 0.9.0: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.7.2 3.7.3: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.0-r1 0.20.1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0-r1: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.14.1 3.15.2: Python library for loading and using triangular meshes
+dev-python/trimesh 3.14.1 3.15.2 3.15.3: Python library for loading and using triangular meshes
 dev-python/trio 0.21.0 0.22.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0 0.12.0-r1: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trove-classifiers 2022.8.31 2022.9.26: Canonical source for classifiers on PyPI (pypi.org)
@@ -11065,7 +11065,7 @@ dev-util/cucumber-wire 0.0.1-r1 6.2.1: Executable feature scenarios
 dev-util/cunit 2.1_p3 2.1_p3-r1: C Unit Test Framework
 dev-util/cutils 1.6-r4: C language utilities
 dev-util/cutter 2.1.0 2.1.2: A Qt and C++ GUI for rizin reverse engineering framework
-dev-util/cvise 2.4.0-r2 2.5.0-r1: Super-parallel Python port of the C-Reduce
+dev-util/cvise 2.4.0-r2 2.5.0-r1 2.6.0: Super-parallel Python port of the C-Reduce
 dev-util/cwdiff 0.4.0 9999: A script that wraps wdiff to support directories and colorize the output
 dev-util/d-feet 0.3.16: D-Feet is a powerful D-Bus debugger
 dev-util/dbus-test-runner 19.04.0-r2: Run executables under a new DBus session for testing
