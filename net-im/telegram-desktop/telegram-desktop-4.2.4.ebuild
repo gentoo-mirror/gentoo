@@ -17,13 +17,19 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
-IUSE="+dbus enchant +hunspell +jemalloc screencast +spell qt6 wayland +X"
+IUSE="+dbus enchant +fonts +hunspell +jemalloc screencast +spell qt6 qt6-imageformats wayland +X"
 REQUIRED_USE="
 	spell? (
 		^^ ( enchant hunspell )
 	)
+	qt6-imageformats? ( qt6 )
 "
 
+KIMAGEFORMATS_RDEPEND="
+	media-libs/libavif:=
+	media-libs/libheif:=
+	media-libs/libjxl
+"
 RDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
@@ -33,7 +39,6 @@ RDEPEND="
 	dev-libs/libsigc++:2
 	dev-libs/openssl:=
 	dev-libs/xxhash
-	media-fonts/open-sans
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo:=
 	~media-libs/libtgvoip-2.4.4_p20220503
@@ -55,12 +60,15 @@ RDEPEND="
 		>=dev-qt/qtnetwork-5.15:5[ssl]
 		>=dev-qt/qtsvg-5.15:5
 		>=dev-qt/qtwidgets-5.15:5[png,X?]
+		kde-frameworks/kcoreaddons:=
 	)
 	qt6? (
-		dev-qt/qtbase:6[dbus?,gui,network,opengl,widgets,X?]
-		dev-qt/qtsvg:6
 		dev-qt/qt5compat:6
+		dev-qt/qtbase:6[dbus?,gui,network,opengl,widgets,X?]
+		dev-qt/qtimageformats:6
+		dev-qt/qtsvg:6
 		wayland? ( dev-qt/qtwayland:6 )
+		qt6-imageformats? ( ${KIMAGEFORMATS_RDEPEND} )
 	)
 	X? ( x11-libs/libxcb:= )
 "
@@ -76,10 +84,9 @@ BDEPEND="
 # dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
 PATCHES=(
-	"${FILESDIR}/tdesktop-3.6.0-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram.patch"
 	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
 	"${FILESDIR}/tdesktop-3.5.2-musl.patch"
-	"${FILESDIR}/tdesktop-4.0.2-fix-gcc12-cstdint.patch"
 )
 
 # Current desktop-file-utils-0.26 does not understand Version=1.5
@@ -92,32 +99,28 @@ pkg_pretend() {
 		ewarn "check bug https://bugs.gentoo.org/715114 for more info"
 		ewarn
 	fi
-	if use qt6; then
-		ewarn "Qt6 support in gentoo is experimental."
-		ewarn "Please report any issues you may find, but don't expect"
-		ewarn "everything to work correctly as of yet."
-		ewarn
-	fi
 }
 
 src_prepare() {
-	# no explicit toggle, doesn't build with the system one #752417
-	sed -i 's/DESKTOP_APP_USE_PACKAGED/NO_ONE_WILL_EVER_SET_THIS/' \
-		cmake/external/rlottie/CMakeLists.txt || die
+	# Bundle kde-frameworks/kimageformats for qt6, since it's impossible to
+	#   build in gentoo right now.
+	if use qt6-imageformats; then
+		sed -e 's/DESKTOP_APP_USE_PACKAGED_LAZY/TRUE/' -i \
+			cmake/external/kimageformats/CMakeLists.txt
+		printf "%s\n" \
+			'Q_IMPORT_PLUGIN(QAVIFPlugin)' \
+			'Q_IMPORT_PLUGIN(HEIFPlugin)' \
+			'Q_IMPORT_PLUGIN(QJpegXLPlugin)' \
+			>> cmake/external/qt/qt_static_plugins/qt_static_plugins.cpp
+	fi
+
+	# kde-frameworks/kcoreaddons is bundled when using qt6, see:
+	#   cmake/external/kcoreaddons/CMakeLists.txt
 
 	cmake_src_prepare
 }
 
 src_configure() {
-	# DESKTOP_APP_DISABLE_JEMALLOC is heavily discouraged by upstream, as the
-	# glibc allocator results in high memory usage.
-	# https://github.com/telegramdesktop/tdesktop/issues/16084
-	# https://github.com/desktop-app/cmake_helpers/pull/91#issuecomment-881788003
-
-	# DESKTOP_APP_QT6=OFF force-enables DESKTOP_APP_DISABLE_WAYLAND_INTEGRATION
-	# This means that REQUIRED_USE="wayland? ( qt6 )", but a lot of people
-	# enable USE=wayland globally, so we instead silently disable it...
-
 	local mycmakeargs=(
 		-DTDESKTOP_LAUNCHER_BASENAME="${PN}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON  # header only lib, some git version. prevents warnings.
@@ -129,6 +132,7 @@ src_configure() {
 		-DDESKTOP_APP_DISABLE_JEMALLOC=$(usex !jemalloc)
 		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !spell)  # enables hunspell (recommended)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
+		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)  # use system fonts instead of bundled ones
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then
@@ -160,8 +164,8 @@ src_configure() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	if ! use X && ! use screencast; then
-		elog "both the 'X' and 'screencast' useflags are disabled, screen sharing won't work!"
-		elog
+		ewarn "both the 'X' and 'screencast' USE flags are disabled, screen sharing won't work!"
+		ewarn
 	fi
 	if has_version '<dev-qt/qtcore-5.15.2-r10'; then
 		ewarn "Versions of dev-qt/qtcore lower than 5.15.2-r10 might cause telegram"
@@ -169,8 +173,16 @@ pkg_postinst() {
 		ewarn
 	fi
 	if ! use jemalloc && use elibc_glibc; then
+		# https://github.com/telegramdesktop/tdesktop/issues/16084
+		# https://github.com/desktop-app/cmake_helpers/pull/91#issuecomment-881788003
 		ewarn "Disabling USE=jemalloc on glibc systems may cause very high RAM usage!"
 		ewarn "Do NOT report issues about RAM usage without enabling this flag first."
+		ewarn
+	fi
+	if use qt6; then
+		ewarn "Qt6 support in gentoo is experimental."
+		ewarn "Please report any issues you may find, but don't expect"
+		ewarn "everything to work correctly as of yet."
 		ewarn
 	fi
 	if use wayland && ! use qt6; then
@@ -180,6 +192,13 @@ pkg_postinst() {
 		ewarn "These integrations are only supported when built with Qt6."
 		ewarn
 	fi
+	if use qt6 && ! use qt6-imageformats; then
+		elog "Enable USE=qt6-imageformats for AVIF, HEIF and JpegXL support"
+		elog
+	fi
 	optfeature_header
 	optfeature "shop payment support (requires USE=dbus enabled)" net-libs/webkit-gtk:4
+	if ! use qt6; then
+		optfeature "AVIF, HEIF and JpegXL image support" kde-frameworks/kimageformats
+	fi
 }
