@@ -6,7 +6,7 @@ EAPI=8
 # Please bump with app-editors/vim and app-editors/gvim
 
 VIM_VERSION="9.0"
-inherit vim-doc flag-o-matic bash-completion-r1 prefix desktop xdg-utils
+inherit bash-completion-r1 desktop flag-o-matic prefix toolchain-funcs vim-doc xdg-utils
 
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
@@ -29,9 +29,6 @@ IUSE="nls acl minimal"
 # ncurses is only needed by ./configure, so no subslot operator required
 DEPEND=">=sys-libs/ncurses-5.2-r2:0"
 BDEPEND="sys-devel/autoconf"
-# Avoid icon file collision, bug #673880
-RDEPEND="!<app-editors/vim-8.2.4328-r1"
-PDEPEND="!minimal? ( app-vim/gentoo-syntax )"
 
 pkg_setup() {
 	# people with broken alphabets run into trouble. bug #82186.
@@ -42,7 +39,7 @@ pkg_setup() {
 src_prepare() {
 	if [[ ${PV} != 9999* ]] ; then
 		# Gentoo patches to fix runtime issues, cross-compile errors, etc
-		eapply "${WORKDIR}/vim-patches-vim-9.0.0049-patches"
+		eapply "${WORKDIR}"/vim-patches-vim-9.0.0049-patches
 	fi
 
 	# Fixup a script to use awk instead of nawk
@@ -146,6 +143,14 @@ src_configure() {
 
 	# Keep Gentoo Prefix env contained within the EPREFIX
 	use prefix && myconf+=( --without-local-dir )
+
+	if tc-is-cross-compiler ; then
+		export vim_cv_getcwd_broken=no \
+			   vim_cv_memmove_handles_overlap=yes \
+			   vim_cv_stat_ignores_slash=yes \
+			   vim_cv_terminfo=yes \
+			   vim_cv_toupper_broken=no
+	fi
 
 	econf "${myconf[@]}"
 }
