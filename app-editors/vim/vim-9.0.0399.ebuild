@@ -6,12 +6,12 @@ EAPI=8
 # Please bump with app-editors/vim-core and app-editors/gvim
 
 VIM_VERSION="9.0"
-LUA_COMPAT=( lua5-1 luajit )
+LUA_COMPAT=( lua5-{1..4} luajit )
 PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="threads(+)"
-USE_RUBY="ruby26 ruby27"
+USE_RUBY="ruby27 ruby30 ruby31"
 
-inherit vim-doc flag-o-matic bash-completion-r1 lua-single python-single-r1 ruby-single desktop xdg-utils
+inherit vim-doc flag-o-matic bash-completion-r1 lua-single python-single-r1 ruby-single toolchain-funcs desktop xdg-utils
 
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
@@ -224,6 +224,10 @@ src_configure() {
 		fi
 
 		if use lua; then
+			# -DLUA_COMPAT_OPENLIB=1 is required to enable the
+			# deprecated (in 5.1) luaL_openlib API (#874690)
+			use lua_single_target_lua5-1 && append-cppflags -DLUA_COMPAT_OPENLIB=1
+
 			myconf+=(
 				--enable-luainterp
 				$(use_with lua_single_target_luajit luajit)
@@ -245,6 +249,14 @@ src_configure() {
 
 	# keep prefix env contained within the EPREFIX
 	use prefix && myconf+=( --without-local-dir )
+
+	if tc-is-cross-compiler ; then
+		export vim_cv_getcwd_broken=no \
+			   vim_cv_memmove_handles_overlap=yes \
+			   vim_cv_stat_ignores_slash=yes \
+			   vim_cv_terminfo=yes \
+			   vim_cv_toupper_broken=no
+	fi
 
 	econf \
 		--with-modified-by=Gentoo-${PVR} \
@@ -293,7 +305,9 @@ src_test() {
 	# Too sensitive to leaked environment variables.
 	# - Test_term_mouse_multiple_clicks_to_select_mode
 	# Hangs.
-	export TEST_SKIP_PAT='\(Test_expand_star_star\|Test_exrc\|Test_job_tty_in_out\|Test_spelldump_bang\|Test_fuzzy_completion_env\|Test_term_mouse_multiple_clicks_to_select_mode\)'
+	# - Test_spelldump
+	# Hangs.
+	export TEST_SKIP_PAT='\(Test_expand_star_star\|Test_exrc\|Test_job_tty_in_out\|Test_spelldump_bang\|Test_fuzzy_completion_env\|Test_term_mouse_multiple_clicks_to_select_mode\|Test_spelldump\)'
 
 	emake -j1 -C src/testdir nongui
 }

@@ -11,7 +11,7 @@ PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="threads(+)"
 USE_RUBY="ruby27 ruby30 ruby31"
 
-inherit vim-doc flag-o-matic xdg-utils bash-completion-r1 prefix lua-single python-single-r1 ruby-single
+inherit bash-completion-r1 flag-o-matic lua-single prefix python-single-r1 ruby-single toolchain-funcs vim-doc xdg-utils
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -29,7 +29,7 @@ HOMEPAGE="https://vim.sourceforge.io/ https://github.com/vim/vim"
 
 LICENSE="vim"
 SLOT="0"
-IUSE="acl aqua crypt cscope debug lua motif netbeans nls perl python racket ruby selinux session sound tcl"
+IUSE="acl aqua crypt cscope debug lua minimal motif netbeans nls perl python racket ruby selinux session sound tcl"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -76,6 +76,7 @@ BDEPEND="
 	lua? ( ${LUA_DEPS} )
 	nls? ( sys-devel/gettext )
 "
+PDEPEND="!minimal? ( app-vim/gentoo-syntax )"
 
 # various failures (bugs #630042 and #682320)
 RESTRICT="test"
@@ -209,6 +210,10 @@ src_configure() {
 	)
 
 	if use lua; then
+		# -DLUA_COMPAT_OPENLIB=1 is required to enable the
+		# deprecated (in 5.1) luaL_openlib API (#874690)
+		use lua_single_target_lua5-1 && append-cppflags -DLUA_COMPAT_OPENLIB=1
+
 		myconf+=(
 			--enable-luainterp
 			$(use_with lua_single_target_luajit luajit)
@@ -245,6 +250,14 @@ src_configure() {
 		# configure or the source, which would be much more hackish.
 		# after all vim does it right, only interix is badly broken (again)
 		export ac_cv_func_sigaction=no
+	fi
+
+	if tc-is-cross-compiler ; then
+		export vim_cv_getcwd_broken=no \
+			   vim_cv_memmove_handles_overlap=yes \
+			   vim_cv_stat_ignores_slash=yes \
+			   vim_cv_terminfo=yes \
+			   vim_cv_toupper_broken=no
 	fi
 
 	econf \
