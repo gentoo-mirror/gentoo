@@ -4,12 +4,10 @@ DEPEND=>=sys-libs/ncurses-5.2-r2:0
 DESCRIPTION=vim and gvim shared files
 EAPI=8
 HOMEPAGE=https://vim.sourceforge.io/ https://github.com/vim/vim
-INHERIT=vim-doc flag-o-matic bash-completion-r1 prefix desktop xdg-utils git-r3
+INHERIT=bash-completion-r1 desktop flag-o-matic prefix toolchain-funcs vim-doc xdg-utils git-r3
 IUSE=nls acl minimal
 LICENSE=vim
-PDEPEND=!minimal? ( app-vim/gentoo-syntax )
 PROPERTIES=live
-RDEPEND=!<app-editors/vim-8.2.4328-r1
 SLOT=0
-_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	prefix	eab3c99d77fe00506c109c8a736186f7	desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	ac0e315a3688929e34ac75b139e7349a	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=12848f638006f14b3dffd92631debea3
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	desktop	22952d8f27cac191d75529d4c38e6bfa	flag-o-matic	29a755b1291d64133634d80b0328f153	prefix	eab3c99d77fe00506c109c8a736186f7	vim-doc	f088862726f2bc672c57b1063b81ec52	xdg-utils	ac0e315a3688929e34ac75b139e7349a	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=cd18801aade99c36918c525e4673f030
