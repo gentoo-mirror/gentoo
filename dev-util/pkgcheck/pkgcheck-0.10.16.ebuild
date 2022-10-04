@@ -8,8 +8,7 @@ DISTUTILS_IN_SOURCE_BUILD=1
 inherit elisp-common distutils-r1 optfeature
 
 if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/pkgcore/pkgcheck.git
-		https://github.com/pkgcore/pkgcheck.git"
+	EGIT_REPO_URI="https://github.com/pkgcore/pkgcheck.git"
 	inherit git-r3
 else
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
