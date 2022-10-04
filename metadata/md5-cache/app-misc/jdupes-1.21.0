@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=Identify duplicate files on the filesystem
+EAPI=8
+HOMEPAGE=https://github.com/jbruchon/jdupes
+INHERIT=toolchain-funcs
+IUSE=+dedupe lowmem hardened
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/jbruchon/jdupes/archive/refs/tags/v1.21.0.tar.gz -> jdupes-1.21.0.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=a25f2dde75fa3799d3510bcfc0578a6b
