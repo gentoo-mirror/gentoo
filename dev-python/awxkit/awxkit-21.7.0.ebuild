@@ -9,8 +9,14 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Command line interface for Ansible AWX"
-HOMEPAGE="https://github.com/ansible/awx"
-SRC_URI="https://github.com/ansible/awx/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
+HOMEPAGE="
+	https://github.com/ansible/awx/
+	https://pypi.org/project/awxkit/
+"
+SRC_URI="
+	https://github.com/ansible/awx/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz
+"
 S="${WORKDIR}/awx-${PV}/awxkit"
 
 LICENSE="Apache-2.0"
@@ -23,6 +29,7 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/urllib3[${PYTHON_USEDEP}]
 	dev-python/websocket-client[${PYTHON_USEDEP}]
+	dev-python/pyjwt[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]

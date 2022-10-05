@@ -18,17 +18,12 @@ SRC_URI="mirror://pypi/${PN::1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~riscv"
 
-RDEPEND="
-	<dev-python/jarowinkler-2[${PYTHON_USEDEP}]
-	>=dev-python/jarowinkler-1.2.2[${PYTHON_USEDEP}]
-"
 # all these are header-only libraries
 DEPEND="
 	>=dev-cpp/taskflow-3.0.0
-	>=dev-cpp/jarowinkler-cpp-1.0.0
-	>=dev-cpp/rapidfuzz-cpp-1.0.1
+	>=dev-cpp/rapidfuzz-cpp-1.8.0
 	dev-python/numpy[${PYTHON_USEDEP}]
 "
 BDEPEND="
