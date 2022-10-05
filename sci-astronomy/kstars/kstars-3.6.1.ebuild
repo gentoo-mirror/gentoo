@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KFMIN=5.82.0
-QTMIN=5.15.2
+QTMIN=5.15.5
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Desktop Planetarium"
@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/kstars/ https://edu.kde.org/kstars/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+ GPL-3+"
@@ -73,8 +73,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 "
-
-PATCHES=( "${FILESDIR}/${P}-obsolete-header.patch" ) # bug 867814
 
 src_configure() {
 	local mycmakeargs=(
