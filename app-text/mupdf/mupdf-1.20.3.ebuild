@@ -10,12 +10,12 @@ inherit desktop flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="A lightweight PDF viewer and toolkit written in portable C"
 HOMEPAGE="https://mupdf.com/ https://git.ghostscript.com/?p=mupdf.git"
-SRC_URI="https://mupdf.com/downloads/archive/${P}-source.tar.xz"
+SRC_URI="https://mupdf.com/downloads/archive/${P}-source.tar.gz"
 S="${WORKDIR}"/${P}-source
 
 LICENSE="AGPL-3"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="+javascript opengl ssl X"
 REQUIRED_USE="opengl? ( javascript )"
 
@@ -24,15 +24,16 @@ REQUIRED_USE="opengl? ( javascript )"
 # install system's freeglut.
 RDEPEND="
 	dev-libs/gumbo
-	media-libs/freetype:2=
+	media-libs/freetype:2
 	media-libs/harfbuzz:=[truetype]
 	media-libs/jbig2dec:=
 	media-libs/libpng:0=
 	>=media-libs/openjpeg-2.1:2=
-	virtual/jpeg
+	>=media-libs/libjpeg-turbo-1.5.3-r2:0=
 	javascript? ( >=dev-lang/mujs-1.0.7:= )
 	opengl? ( >=media-libs/freeglut-3.0.0 )
 	ssl? ( >=dev-libs/openssl-1.1:0= )
+	sys-libs/zlib
 	X? (
 		x11-libs/libX11
 		x11-libs/libXext
@@ -51,6 +52,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.15-openssl-x11.patch
 	# General cross fixes from Debian (refreshed)
 	"${FILESDIR}"/${PN}-1.19.0-cross-fixes.patch
+	"${FILESDIR}"/${PN}-1.20.0-lcms2.patch
 )
 
 src_prepare() {
@@ -68,6 +70,11 @@ src_prepare() {
 		-e "1iverbose = yes" \
 		-e "1ibuild = debug" \
 		-i Makerules || die "Failed adding build variables to Makerules in src_prepare()"
+
+	# Adjust MuPDF version in .pc file created by the
+	# mupdf-1.10a-add-desktop-pc-xpm-files.patch file
+	sed -e "s/Version: \(.*\)/Version: ${PV}/" \
+		-i platform/debian/${PN}.pc || die "Failed substituting version in ${PN}.pc"
 }
 
 _emake() {
