@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
-EGIT_COMMIT="65c0f12fe64af71a5c76f2b8450dfc1ae853a52f"
+EGIT_COMMIT="f829f43a06bfbbdf026b5455d74482d476dd7a02"
 MY_PN="${PN/intel-/}"
 MY_P="${MY_PN}-${PV}"
 
@@ -16,8 +16,8 @@ SRC_URI="https://github.com/intel/${MY_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}
 S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
 
 LICENSE="MIT"
-SLOT="0/101"
-KEYWORDS="amd64"
+SLOT="0/114"
+KEYWORDS="~amd64"
 
 DEPEND="x11-libs/libdrm"
 RDEPEND="${DEPEND}"
