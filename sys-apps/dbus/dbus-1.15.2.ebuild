@@ -1,14 +1,18 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 TMPFILES_OPTIONAL=1
 
-# At least at the moment, while a CMake port exists, it's not recommended
-# for distributions.
-# https://gitlab.freedesktop.org/dbus/dbus/-/blob/master/CONTRIBUTING.md#L189
+# From 1.15.0 release notes:
+# "• Add a Meson build system. This is currently considered experimental,
+#  but the intention is for it to replace Autotools and/or CMake in future
+#  releases, preferably both. Please test!"
+# We haven't migrated to it yet as it's experimental but our elogind
+# patch needs adjusting too (and upstreaming, ideally!)
+# https://gitlab.freedesktop.org/dbus/dbus/-/blob/master/NEWS#L31
 inherit autotools flag-o-matic linux-info python-any-r1 readme.gentoo-r1 systemd tmpfiles virtualx multilib-minimal
 
 DESCRIPTION="A message bus system, a simple way for applications to talk to each other"
@@ -66,16 +70,8 @@ DOC_CONTENTS="
 TBD="${WORKDIR}/${P}-tests-build"
 
 PATCHES=(
-	"${FILESDIR}/dbus-enable-elogind.patch"
-	"${FILESDIR}/dbus-daemon-optional.patch" # bug #653136
-
-	"${FILESDIR}/dbus-1.14.0-x-autoconf-fixes.patch"
-	"${FILESDIR}/dbus-1.12.22-check-fd.patch"
-
-	# https://bugs.gentoo.org/836560
-	"${FILESDIR}/dbus-1.14.0-oom_score_adj.patch"
-
-	"${FILESDIR}/dbus-1.14.0-clang-15-configure.patch"
+	"${FILESDIR}/dbus-1.15.0-enable-elogind.patch"
+	"${FILESDIR}/dbus-1.15.0-daemon-optional.patch" # bug #653136
 )
 
 pkg_setup() {
