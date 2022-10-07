@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install
+DEPEND=>=sys-fs/fuse-2.8.6:0= lzma? ( >=app-arch/xz-utils-5.0.4:= ) zlib? ( >=sys-libs/zlib-1.2.5-r2:= ) lzo? ( >=dev-libs/lzo-2.06:= ) lz4? ( >=app-arch/lz4-0_p106:= ) zstd? ( app-arch/zstd:= ) virtual/pkgconfig
+DESCRIPTION=FUSE filesystem to mount squashfs archives
+EAPI=7
+HOMEPAGE=https://github.com/vasi/squashfuse
+INHERIT=autotools flag-o-matic
+IUSE=lz4 lzma lzo static-libs +zlib zstd
+KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD-2
+RDEPEND=>=sys-fs/fuse-2.8.6:0= lzma? ( >=app-arch/xz-utils-5.0.4:= ) zlib? ( >=sys-libs/zlib-1.2.5-r2:= ) lzo? ( >=dev-libs/lzo-2.06:= ) lz4? ( >=app-arch/lz4-0_p106:= ) zstd? ( app-arch/zstd:= )
+REQUIRED_USE=|| ( lz4 lzma lzo zlib zstd )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/vasi/squashfuse/releases/download/0.1.105/squashfuse-0.1.105.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=96aac43b391879e00c9edaa563095535
