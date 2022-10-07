@@ -1,10 +1,8 @@
 <!-- Metadata for a category -->
 <!ELEMENT catmetadata ( (longdescription)* )>
-<!ATTLIST catmetadata pkgname CDATA "">
 
 <!-- Metadata for a package -->
 <!ELEMENT pkgmetadata ( (maintainer|longdescription|slots|stabilize-allarches|use|upstream)* )>
-<!ATTLIST pkgmetadata pkgname CDATA "">
 
   <!-- One tag for each maintainer of a package, multiple allowed-->
   <!ELEMENT maintainer (email|name|description)+>
