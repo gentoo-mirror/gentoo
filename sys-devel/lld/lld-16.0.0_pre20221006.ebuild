@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..11} )
-inherit cmake flag-o-matic llvm llvm.org multilib python-any-r1
+inherit cmake flag-o-matic llvm llvm.org python-any-r1
 
 DESCRIPTION="The LLVM linker (link editor)"
 HOMEPAGE="https://llvm.org/"
@@ -29,7 +29,7 @@ BDEPEND="
 	)
 "
 PDEPEND="
-	sys-devel/lld-toolchain-symlinks:${PV%%.*}
+	sys-devel/lld-toolchain-symlinks:${LLVM_MAJOR}
 "
 
 LLVM_COMPONENTS=( lld cmake libunwind/include/mach-o )
@@ -41,7 +41,7 @@ python_check_deps() {
 }
 
 pkg_setup() {
-	LLVM_MAX_SLOT=${PV%%.*} llvm_pkg_setup
+	LLVM_MAX_SLOT=${LLVM_MAJOR} llvm_pkg_setup
 	use test && python-any-r1_pkg_setup
 }
 
