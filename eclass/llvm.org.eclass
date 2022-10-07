@@ -7,6 +7,7 @@
 # @AUTHOR:
 # Michał Górny <mgorny@gentoo.org>
 # @SUPPORTED_EAPIS: 7 8
+# @PROVIDES: git-r3
 # @BLURB: Common bits for fetching & unpacking llvm.org projects
 # @DESCRIPTION:
 # The llvm.org eclass provides common code to fetch and unpack parts
@@ -82,6 +83,7 @@ if [[ -z ${_LLVM_SOURCE_TYPE+1} ]]; then
 					die "Unknown snapshot: ${PV}"
 					;;
 			esac
+			export EGIT_VERSION=${EGIT_COMMIT}
 			;;
 		*)
 			_LLVM_SOURCE_TYPE=tar
