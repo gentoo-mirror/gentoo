@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-USE_RUBY="ruby25 ruby26 ruby27 ruby30"
+EAPI=8
+USE_RUBY="ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_TASK_TEST="spec"
 RUBY_FAKEGEM_RECIPE_DOC="yard"
@@ -17,8 +17,8 @@ SRC_URI="https://github.com/jneen/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 
-SLOT="2"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~x86"
+SLOT="$(ver_cut 1)"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE=""
 
 ruby_add_bdepend "doc? ( dev-ruby/redcarpet )
