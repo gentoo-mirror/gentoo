@@ -21,11 +21,12 @@ SRC_URI="
 RESTRICT="mirror test"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 DEPEND="acct-user/jellyfin"
 RDEPEND="${DEPEND}
+	dev-libs/icu
 	media-video/ffmpeg[vpx,x264]
-	dev-libs/icu"
+	sys-libs/glibc"
 BDEPEND="acct-user/jellyfin"
 INST_DIR="/opt/${PN}"
 QA_PREBUILT="${INST_DIR#/}/*.so ${INST_DIR#/}/jellyfin ${INST_DIR#/}/createdump"

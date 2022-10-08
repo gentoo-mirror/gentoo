@@ -16,12 +16,13 @@ SRC_URI="https://dl.grafana.com/oss/release/grafana-${PV}.linux-amd64.tar.gz -> 
 RESTRICT="mirror"
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 
 DEPEND="acct-group/grafana
 	acct-user/grafana"
 RDEPEND="${DEPEND}
-	media-libs/fontconfig"
+	media-libs/fontconfig
+	sys-libs/glibc"
 
 QA_PREBUILT="usr/bin/grafana-*"
 QA_PRESTRIPPED=${QA_PREBUILT}
