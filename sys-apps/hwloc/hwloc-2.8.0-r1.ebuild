@@ -19,7 +19,7 @@ IUSE="cairo +cpuid cuda debug nvml +pci static-libs svg udev xml X video_cards_n
 #         anyone with hardware is welcome to step up and help test to get it re-added.
 # video-cards_nvidia: libXext/libX11 deps are only here, see HWLOC_GL_REQUIRES usage in config/hwloc.m4
 RDEPEND=">=sys-libs/ncurses-5.9-r3:=[${MULTILIB_USEDEP}]
-	cairo? ( >=x11-libs/cairo-1.12.14-r4[X?,svg?,${MULTILIB_USEDEP}] )
+	cairo? ( >=x11-libs/cairo-1.12.14-r4[X?,svg(+)?,${MULTILIB_USEDEP}] )
 	cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.19-r1:= )
 	nvml? ( x11-drivers/nvidia-drivers[${MULTILIB_USEDEP}] )
 	pci? (

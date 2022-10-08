@@ -13,10 +13,8 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-# Note: can drop test infra + which dep in next release!
-IUSE="doc examples gtk ncurses nls perl postgres test"
-RESTRICT="!test? ( test )"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
+IUSE="doc examples gtk ncurses nls perl postgres"
 
 RDEPEND="
 	dev-libs/libxml2:2
@@ -26,7 +24,7 @@ RDEPEND="
 	sys-libs/readline:0=
 	sys-libs/zlib
 	virtual/libiconv
-	x11-libs/cairo[svg]
+	x11-libs/cairo[svg(+)]
 	x11-libs/pango
 	gtk? (
 		dev-util/glib-utils
@@ -36,13 +34,11 @@ RDEPEND="
 	)
 	postgres? ( dev-db/postgresql:=[server] )"
 DEPEND="${RDEPEND}"
-# which dep for tests: https://savannah.gnu.org/bugs/index.php?62675
 BDEPEND="
 	${PYTHON_DEPS}
 	sys-devel/gettext
 	virtual/pkgconfig
-	doc? ( virtual/latex-base )
-	test? ( sys-apps/which )"
+	doc? ( virtual/latex-base )"
 
 pkg_pretend() {
 	ewarn "Starting with pspp-1.4.0 the pspp-mode emacs package is no longer"
