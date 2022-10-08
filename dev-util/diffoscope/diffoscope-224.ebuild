@@ -14,7 +14,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="acl binutils bzip2 libcaca colord cpio +diff docx dtc e2fsprogs file
 find gettext gif gpg haskell hdf5 hex imagemagick iso java llvm lzma
 mono opendocument pascal pdf postscript R rpm sqlite squashfs
@@ -88,6 +88,7 @@ EPYTEST_DESELECT=(
 	# Needs triage
 	tests/comparators/test_binary.py::test_with_compare_details_and_tool_not_found
 	tests/comparators/test_rlib.py::test_item3_deflate_llvm_bitcode
+	tests/comparators/test_gif.py::test_has_visuals
 
 	# img2txt based failures, bug #797688
 	tests/comparators/test_ico_image.py::test_diff
@@ -104,6 +105,9 @@ EPYTEST_DESELECT=(
 
 	# Formatting
 	tests/test_source.py::test_code_is_black_clean
+
+	# Fails on ZFS
+	tests/test_main.py::test_non_unicode_filename
 )
 
 distutils_enable_tests pytest
