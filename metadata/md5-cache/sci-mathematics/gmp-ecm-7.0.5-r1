@@ -1,15 +1,15 @@
 BDEPEND=dev-libs/libxslt app-text/docbook-xsl-stylesheets
 DEFINED_PHASES=compile configure install pretend setup
-DEPEND=dev-libs/gmp:= cuda? ( dev-util/nvidia-cuda-toolkit x11-drivers/nvidia-drivers )
+DEPEND=dev-libs/gmp:=
 DESCRIPTION=Elliptic Curve Method for Integer Factorization
 EAPI=8
 HOMEPAGE=https://gitlab.inria.fr/zimmerma/ecm
 INHERIT=toolchain-funcs
-IUSE=cuda +custom-tune openmp static-libs cpu_flags_x86_sse2
+IUSE=+custom-tune openmp cpu_flags_x86_sse2
 KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86 ~ppc-macos ~x64-macos
 LICENSE=GPL-3 LGPL-3
-RDEPEND=dev-libs/gmp:= cuda? ( dev-util/nvidia-cuda-toolkit x11-drivers/nvidia-drivers )
+RDEPEND=dev-libs/gmp:=
 SLOT=0
 SRC_URI=https://gitlab.inria.fr/zimmerma/ecm/uploads/89f6f0d65d3e980cef33dc922004e4b2/ecm-7.0.5.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=be473b7c266f789279dabd75879c95ef
+_md5_=5022270b135ee93ec394b6246037f97d
