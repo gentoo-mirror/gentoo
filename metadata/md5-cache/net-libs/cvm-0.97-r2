@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0= virtual/libcrypt:= mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql[server] ) vpopmail? ( net-mail/vpopmail ) test? ( app-editors/vim dev-db/sqlite )
+DEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0= virtual/libcrypt:= mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:*[server] ) vpopmail? ( net-mail/vpopmail ) test? ( app-editors/vim dev-db/sqlite )
 DESCRIPTION=Credential Validation Modules by Bruce Guenter
 EAPI=7
 HOMEPAGE=http://untroubled.org/cvm/
@@ -7,9 +7,9 @@ INHERIT=toolchain-funcs
 IUSE=mysql postgres test vpopmail
 KEYWORDS=~amd64 ~ppc sparc x86
 LICENSE=GPL-2+
-RDEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0= virtual/libcrypt:= mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql[server] ) vpopmail? ( net-mail/vpopmail )
+RDEPEND=dev-db/cdb:= >=dev-libs/bglibs-2.04:0= virtual/libcrypt:= mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:*[server] ) vpopmail? ( net-mail/vpopmail )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://untroubled.org/cvm/archive/cvm-0.97.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=a44a51e2082b4ca5ccc7ed15545f8008
+_md5_=c9a1c1e4fc5cf275389f1bdcf16382c9
