@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake python-single-r1
 
@@ -24,7 +24,7 @@ DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	x11-libs/cairo[X,xcb(+)]
-	x11-libs/libxcb:=[xkb]
+	x11-libs/libxcb:=
 	x11-libs/xcb-util
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-image
@@ -43,6 +43,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-fix-prefix.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_ALSA="$(usex alsa)"
@@ -55,6 +57,7 @@ src_configure() {
 		-DENABLE_PULSEAUDIO="$(usex pulseaudio)"
 		# Bug 767949
 		-DENABLE_CCACHE="OFF"
+		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}/etc/"
 	)
 
 	cmake_src_configure
