@@ -5,8 +5,8 @@ HOMEPAGE=https://llvm.org/
 INHERIT=bash-completion-r1 llvm.org
 IUSE=default-compiler-rt default-libcxx default-lld llvm-libunwind
 LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
-PDEPEND=sys-devel/clang:* default-compiler-rt? ( =sys-libs/compiler-rt-16.0.0* llvm-libunwind? ( sys-libs/llvm-libunwind ) !llvm-libunwind? ( sys-libs/libunwind ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=sys-libs/libcxx-16.0.0_pre20221006 ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( sys-devel/lld ) !default-lld? ( sys-devel/binutils )
+PDEPEND=sys-devel/clang:* default-compiler-rt? ( sys-devel/clang-runtime[compiler-rt] llvm-libunwind? ( sys-libs/llvm-libunwind ) !llvm-libunwind? ( sys-libs/libunwind ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=sys-libs/libcxx-16.0.0_pre20221006 ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( sys-devel/lld ) !default-lld? ( sys-devel/binutils )
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/archive/5a0722e0469894564dd9b0ee1d4f8c291d09c776.tar.gz -> llvm-project-5a0722e0469894564dd9b0ee1d4f8c291d09c776.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	llvm.org	96dbec9ffb4c4da2a695d4560442d62d
-_md5_=f8b77144dbc01dc4cf071b686112a466
+_md5_=ea933c514ef5c93ab74db227e6b8061b
