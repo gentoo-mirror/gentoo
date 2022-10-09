@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=meson-python
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit fortran-2 distutils-r1 multiprocessing
@@ -44,7 +44,7 @@ fi
 
 LICENSE="BSD LGPL-2"
 SLOT="0"
-IUSE="doc"
+IUSE="doc +pythran"
 
 # umfpack is technically optional but it's preferred to have it available.
 DEPEND="
@@ -58,16 +58,15 @@ RDEPEND="
 	${DEPEND}
 	dev-python/pillow[${PYTHON_USEDEP}]
 "
-# TODO: restore pythran optionality?
 BDEPEND="
 	dev-lang/swig
 	>=dev-python/cython-0.29.18[${PYTHON_USEDEP}]
 	dev-python/pybind11[${PYTHON_USEDEP}]
-	dev-python/pythran[${PYTHON_USEDEP}]
 	>=dev-util/meson-0.62.2
 	dev-util/patchelf
 	virtual/pkgconfig
 	doc? ( app-arch/unzip )
+	pythran? ( dev-python/pythran[${PYTHON_USEDEP}] )
 	test? ( dev-python/pytest-xdist[${PYTHON_USEDEP}] )"
 
 PATCHES=(
@@ -87,6 +86,10 @@ src_unpack() {
 	if use doc; then
 		unzip -qo "${DISTDIR}"/${PN}-html-${DOC_PV}.zip -d html || die
 	fi
+}
+
+src_configure() {
+	export SCIPY_USE_PYTHRAN=$(usex pythran 1 0)
 }
 
 python_test() {
