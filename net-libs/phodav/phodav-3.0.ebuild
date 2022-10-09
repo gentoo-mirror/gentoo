@@ -1,24 +1,26 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit gnome.org meson systemd udev
 
 DESCRIPTION="WebDav server implementation using libsoup"
-HOMEPAGE="https://wiki.gnome.org/phodav"
+HOMEPAGE="https://wiki.gnome.org/phodav https://gitlab.gnome.org/GNOME/phodav"
 
 LICENSE="LGPL-2.1+"
-SLOT="2.0"
-KEYWORDS="~alpha amd64 arm arm64 ppc ppc64 x86"
+SLOT="3.0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="gtk-doc systemd test zeroconf"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/glib-2.51.2:2
-	>=net-libs/libsoup-2.48:2.4
+	>=net-libs/libsoup-3.0.0:3.0
 	dev-libs/libxml2
 	zeroconf? ( net-dns/avahi[dbus] )
+
+	!net-libs/phodav:2.0
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -30,10 +32,6 @@ BDEPEND="
 	gtk-doc? ( dev-util/gtk-doc )
 	test? ( gnome-base/dconf )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PV}-meson-Allow-specifying-systemd-udev-directories.patch
-)
 
 src_prepare() {
 	default
