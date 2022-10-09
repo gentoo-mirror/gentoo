@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit meson python-any-r1
 
@@ -14,7 +14,7 @@ SRC_URI="https://releases.pagure.org/libosinfo/${P}.tar.xz"
 LICENSE="GPL-2+"
 SLOT="0"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-libs/glib-2.44:2
 	dev-libs/json-glib
 	>=app-arch/libarchive-3.0.0:=
-	net-libs/libsoup:2.4
+	net-libs/libsoup:3.0
 	>=dev-libs/libxml2-2.6.0
 "
 # perl dep is for pod2man (manpages)
@@ -39,14 +39,9 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PV}-use-libsoup-2.4.patch
-)
-
 python_check_deps() {
-	use test && \
-		has_version "dev-python/pytest[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/requests[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/pytest[${PYTHON_USEDEP}]" && \
+	python_has_version "dev-python/requests[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
