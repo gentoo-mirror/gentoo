@@ -38,9 +38,7 @@ RDEPEND="
 	dev-python/PySocks[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	crypt? ( dev-python/python-gnupg[${PYTHON_USEDEP}] )
-	ssl? ( dev-python/pyopenssl[${PYTHON_USEDEP}] )
-	!net-irc/supybot
-	!net-irc/supybot-plugins"
+	ssl? ( dev-python/pyopenssl[${PYTHON_USEDEP}] )"
 BDEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
 python_prepare_all() {
@@ -55,7 +53,11 @@ python_test() {
 	EXCLUDE_PLUGINS=()
 	# intermittent failure due to issues loading libsandbox.so from LD_PRELOAD
 	# runs successfully when running the tests on the installed system
-	EXCLUDE_PLUGINS+=( --exclude="${PLUGINS_DIR}/Unix" )
+	EXCLUDE_PLUGINS+=(
+		--exclude="${PLUGINS_DIR}/Unix"
+		--exclude="${PLUGINS_DIR}/Aka"
+		--exclude="${PLUGINS_DIR}/Misc"
+	)
 	"${EPYTHON}" "${BUILD_DIR}"/scripts/supybot-test "${BUILD_DIR}/../test" \
 		--plugins-dir="${PLUGINS_DIR}" --no-network \
 		--disable-multiprocessing "${EXCLUDE_PLUGINS[@]}" \
