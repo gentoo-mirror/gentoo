@@ -18,6 +18,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
 
+PATCHES=(
+	"${FILESDIR}/pipenv-2022.9.24-inject-site-packages.patch"
+)
+
 RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	>=dev-python/cerberus-1.3.2[${PYTHON_USEDEP}]
