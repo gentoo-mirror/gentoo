@@ -8,12 +8,9 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 virtualx
 
-COMMIT="2ccf0d1e6ccaba24bd05b379065ba43bd935c7bf"
-
 DESCRIPTION="Plugin for Spyder to enable Vim keybindings"
 HOMEPAGE="https://github.com/spyder-ide/spyder-vim"
-SRC_URI="https://github.com/spyder-ide/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://github.com/spyder-ide/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -31,7 +28,7 @@ DEPEND="test? (
 	dev-python/pytest-qt[${PYTHON_USEDEP}]
 )"
 
-DOCS=( "README.rst" "doc/example.gif" )
+DOCS=( "README.md" "RELEASE.md" "doc/example.gif" )
 
 distutils_enable_tests pytest
 
