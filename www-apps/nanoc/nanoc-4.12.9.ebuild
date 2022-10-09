@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby26 ruby27"
+USE_RUBY="ruby27 ruby30"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
@@ -67,7 +67,7 @@ doc? (
 all_ruby_prepare() {
 	# Avoid unneeded development dependencies
 	sed -i -e '/simplecov/I s:^:#:' \
-		-e '/codecov/I s:^:#:' ../common/spec/spec_helper_head_core.rb || die
+		-e '/codecov/I s:^:#:' test/helper.rb ../common/spec/spec_helper_head_core.rb || die
 	sed -i -e '/coverall/I s:^:#:' \
 		-e '/rubocop/ s:^:#:' Rakefile || die
 
@@ -84,9 +84,10 @@ all_ruby_prepare() {
 	rm spec/nanoc/filters/less_spec.rb \
 	   test/filters/test_{markaby,rainpress}.rb || die
 
+	# Avoid tests that are specific to haml 6.x which is currently not packaged
+	sed -i -e '/test_filter_\(with_proper_indentation\|error\)/askip "haml 6"' test/filters/test_haml.rb || die
+
 	# Avoid non-fatal failing tests due to specifics in the environment
-	#sed -i -e '145askip "gentoo"' spec/nanoc/cli/error_handler_spec.rb || die
-	#sed -i -e '/watches with --watch/askip "gentoo"' spec/nanoc/cli/commands/compile_spec.rb || die
 	sed -i -e '124askip "ordering issues"' -e '168askip "ordering issues"' spec/nanoc/data_sources/filesystem_spec.rb || die
 }
 
