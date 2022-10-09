@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/commons-collections:4 dev-java/commons-io:1 dev-java/commons-lang:3.6 dev-java/jna:4 dev-java/jmh-core:0 dev-java/javax-mail:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/commons-collections:4 dev-java/commons-io:1 dev-java/commons-lang:3.6 dev-java/javax-mail:0 dev-java/jmh-core:0 dev-java/jna:4 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Apache Commons Bytecode Engineering Library
 EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-bcel/
@@ -10,6 +10,6 @@ LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-SRC_URI=mirror://apache/commons/bcel/source/bcel-6.5.0-src.tar.gz -> bcel-6.5.0-sources.tar.gz
+SRC_URI=mirror://apache/commons/bcel/source/bcel-6.5.0-src.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	f12881bcef20aecfcb172218e0b260f7
-_md5_=e76cf0726e5f8a5cab751740ddbae2f3
+_md5_=13cf90dddad2eb4416cb12cd61281788
