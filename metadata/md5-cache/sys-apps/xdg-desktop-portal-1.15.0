@@ -1,5 +1,5 @@
 BDEPEND=dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=configure
+DEFINED_PHASES=configure postinst
 DEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) screencast? ( >=media-video/pipewire-0.3:= ) systemd? ( sys-apps/systemd )
 DESCRIPTION=Desktop integration portal
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib >=sys-fs/fuse-3.10.0:3[suid] x
 SLOT=0
 SRC_URI=https://github.com/flatpak/xdg-desktop-portal/releases/download/1.15.0/xdg-desktop-portal-1.15.0.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=81ca4295bd622e36a5cebe3f27437d0f
+_md5_=022fceaa43e7be630cb81aa4cc7f6d85
