@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 optfeature systemd
@@ -17,17 +17,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	acct-group/gns3
+	acct-user/gns3
 	app-emulation/dynamips
 	>=dev-python/aiofiles-0.7.0[${PYTHON_USEDEP}]
-	>=dev-python/aiohttp-3.7.4[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.8.1[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
-	>=dev-python/async-timeout-3.0.1[${PYTHON_USEDEP}]
-	>=dev-python/distro-1.6.0[${PYTHON_USEDEP}]
+	>=dev-python/async-timeout-4.0.2[${PYTHON_USEDEP}]
+	>=dev-python/distro-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.0.3[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.0[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.1[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-8.0.0[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.5.4[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.9.5[${PYTHON_USEDEP}]
 	net-misc/ubridge
 	sys-apps/busybox
 "
@@ -36,6 +38,10 @@ BDEPEND="
 		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-2.2.33.1-openrc-posix-complaint.patch"
+	)
 
 distutils_enable_tests pytest
 
@@ -53,6 +59,7 @@ python_install() {
 	distutils-r1_python_install
 
 	systemd_dounit init/gns3.service.systemd
+	newinitd init/gns3.service.openrc gns3server
 
 	mkdir -p "${D}$(python_get_sitedir)/gns3server/compute/docker/resources/bin" || die
 	ln -s /bin/busybox "${D}$(python_get_sitedir)/gns3server/compute/docker/resources/bin/busybox" || die

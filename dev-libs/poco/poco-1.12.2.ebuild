@@ -12,8 +12,8 @@ S="${WORKDIR}/${PN}-${P}-release"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 x86"
-IUSE="7z activerecord cppparser +crypto +data examples +file2pagecompiler iodbc +json mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc sqlite +ssl test +util +xml +zip"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+IUSE="7z activerecord cppparser +crypto +data examples +file2pagecompiler iodbc +json mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite +ssl test +util +xml +zip"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	7z? ( xml )
@@ -22,6 +22,7 @@ REQUIRED_USE="
 	mongodb? ( data )
 	mysql? ( data )
 	odbc? ( data )
+	postgres? ( data )
 	pagecompiler? ( json net util xml )
 	pocodoc? ( cppparser util xml )
 	sqlite? ( data )
@@ -33,8 +34,9 @@ BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	>=dev-libs/libpcre-8.42
 	activerecord? ( !app-arch/arc )
-	mysql? ( !mariadb? ( dev-db/mysql-connector-c:0= )
-	mariadb? ( dev-db/mariadb-connector-c:0= ) )
+	mysql? ( dev-db/mysql-connector-c:0= )
+	mariadb? ( dev-db/mariadb-connector-c:0= )
+	postgres? ( dev-db/postgresql:= )
 	odbc? (
 		iodbc? ( dev-db/libiodbc )
 		!iodbc? ( dev-db/unixODBC )
@@ -67,17 +69,11 @@ src_prepare() {
 			Crypto/testsuite/src/RSATest.cpp || die
 	fi
 
-	if use mariadb ; then
-		# Fix MariaDB detection
-		sed -i -e 's~/usr/include/mysql~~' \
-			-e 's/STATUS "Couldn/FATAL_ERROR "Couldn/' \
+	# Fix MariaDB and MySQL detection
+	sed -i -e 's~/usr/include/mysql~~' \
+		-e 's/mysqlclient_r/mysqlclient/' \
+		-e 's/STATUS "Couldn/FATAL_ERROR "Couldn/' \
 		cmake/FindMySQL.cmake || die
-	else
-		# Fix MySQL detection
-		sed -i -e 's/mysqlclient_r/mysqlclient/' \
-			-e 's/STATUS "Couldn/FATAL_ERROR "Couldn/' \
-		cmake/FindMySQL.cmake || die
-	fi
 
 	# Add missing directory that breaks the build
 	mkdir -p Encodings/testsuite/data || die
@@ -99,8 +95,8 @@ src_configure() {
 		-DENABLE_DATA="$(usex data)"
 		-DENABLE_DATA_MYSQL="$(usex mysql)"
 		-DENABLE_DATA_ODBC="$(usex odbc)"
+		-DENABLE_DATA_POSTGRESQL="$(usex postgres)"
 		-DENABLE_DATA_SQLITE="$(usex sqlite)"
-		-DENABLE_DATA_POSTGRESQL=OFF
 		-DENABLE_JSON="$(usex util)"
 		-DENABLE_MONGODB="$(usex mongodb)"
 		-DENABLE_NET="$(usex net)"
@@ -110,6 +106,7 @@ src_configure() {
 		-DENABLE_PAGECOMPILER_FILE2PAGE="$(usex file2pagecompiler)"
 		-DENABLE_PDF="$(usex pdf)"
 		-DENABLE_POCODOC="$(usex pocodoc)"
+		-DENABLE_PROMETHEUS="$(usex prometheus)"
 		-DENABLE_SEVENZIP="$(usex 7z)"
 		-DENABLE_TESTS="$(usex test)"
 		-DENABLE_UTIL="$(usex util)"
@@ -121,7 +118,7 @@ src_configure() {
 }
 
 src_test() {
-	POCO_BASE="${S}" cmake_src_test
+	POCO_BASE="${S}" cmake_src_test -E DataPostgreSQL
 }
 
 src_install() {
