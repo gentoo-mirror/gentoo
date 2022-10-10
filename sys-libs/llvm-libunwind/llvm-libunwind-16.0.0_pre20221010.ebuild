@@ -50,7 +50,6 @@ pkg_setup() {
 }
 
 multilib_src_configure() {
-	local use_compiler_rt=OFF
 	local libdir=$(get_libdir)
 
 	# https://github.com/llvm/llvm-project/issues/56825
@@ -65,13 +64,8 @@ multilib_src_configure() {
 
 	# link to compiler-rt
 	# https://github.com/gentoo/gentoo/pull/21516
-	if tc-is-clang; then
-		local compiler_rt=$($(tc-getCC) ${CFLAGS} ${CPPFLAGS} \
-		   ${LD_FLAGS} -print-libgcc-file-name)
-		if [[ ${compiler_rt} == *libclang_rt* ]]; then
-			use_compiler_rt=ON
-		fi
-	fi
+	local use_compiler_rt=OFF
+	[[ $(tc-get-c-rtlib) == compiler-rt ]] && use_compiler_rt=ON
 
 	local mycmakeargs=(
 		-DCMAKE_CXX_COMPILER_TARGET="${CHOST}"
@@ -80,12 +74,10 @@ multilib_src_configure() {
 		-DLLVM_LIBDIR_SUFFIX=${libdir#lib}
 		-DLLVM_INCLUDE_TESTS=OFF
 		-DLIBUNWIND_ENABLE_ASSERTIONS=$(usex debug)
+		-DLIBUNWIND_ENABLE_CROSS_UNWINDING=ON
 		-DLIBUNWIND_ENABLE_STATIC=$(usex static-libs)
 		-DLIBUNWIND_INCLUDE_TESTS=$(usex test)
 		-DLIBUNWIND_INSTALL_HEADERS=ON
-
-		# temporarily disabled due to upstream regression
-		-DLIBUNWIND_ENABLE_CROSS_UNWINDING=OFF
 
 		# avoid dependency on libgcc_s if compiler-rt is used
 		-DLIBUNWIND_USE_COMPILER_RT=${use_compiler_rt}
