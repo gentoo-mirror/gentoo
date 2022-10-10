@@ -2238,8 +2238,8 @@ app-editors/vile 9.8t-r2 9.8v 9.8w: VI Like Emacs -- yet another full-featured v
 app-editors/vim 9.0.0099-r1 9.0.0399 9.0.0655-r1 9999: Vim, an improved vi-style text editor
 app-editors/vim-core 9.0.0099 9.0.0399 9.0.0655 9999: vim and gvim shared files
 app-editors/vis 0.7 0.7-r1 9999: modern, legacy free, simple yet efficient vim-like editor
-app-editors/vscode 1.71.2-r1 1.72.0: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.71.2.22258-r1 1.72.0.22279: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscode 1.71.2-r1 1.72.0-r1: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscodium 1.71.2.22258-r1 1.72.0.22279-r1: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r1: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.4.24-r5 21.4.24-r7 21.5.34-r10 21.5.9999: highly customizable open source text editor and application development system
@@ -3275,10 +3275,10 @@ app-office/kraft 0.95: Software to manage quotes and invoices in small enterpris
 app-office/ktimetracker 5.0.1-r1: Todo management and time tracker
 app-office/ledger 3.2.1-r1: Double-entry accounting system with a command-line reporting interface
 app-office/libalkimia 8.1.1: Library with common classes and functionality used by KDE finance applications
-app-office/libreoffice 7.3.4.2-r1 7.3.5.2 7.3.6.2 7.3.9999 9999: A full office productivity suite
+app-office/libreoffice 7.3.4.2-r1 7.3.6.2 7.3.9999 9999: A full office productivity suite
 app-office/libreoffice-bin 7.3.4.2: A full office productivity suite. Binary package
 app-office/libreoffice-bin-debug 7.3.4.2: LibreOffice, a full office productivity suite. Binary package, debug info
-app-office/libreoffice-l10n 7.3.4.2 7.3.5.2 7.3.6.2: Translations for the Libreoffice suite
+app-office/libreoffice-l10n 7.3.4.2 7.3.6.2: Translations for the Libreoffice suite
 app-office/libreoffice-voikko 5.0-r1: Free Finnish spell checking and hyphenation for LibreOffice
 app-office/lyx 2.3.6.1-r1 2.3.6.1-r2: WYSIWYM frontend for LaTeX, DocBook, etc
 app-office/magicpoint 1.13a_p20121015-r2: X11 based presentation tool
@@ -8437,7 +8437,7 @@ dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based
 dev-python/exam 0.10.6: Helpers for better testing
 dev-python/exceptiongroup 1.0.0_rc8 1.0.0_rc9: Backport of PEP 654 (exception groups)
 dev-python/execnet 1.9.0-r1: Rapid multi-Python deployment
-dev-python/executing 0.10.0 1.0.0 1.1.0: Get information about what a Python frame is currently doing
+dev-python/executing 0.10.0 1.0.0 1.1.0 1.1.1: Get information about what a Python frame is currently doing
 dev-python/expects 0.9.0: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.6-r1 0.9.7: Module for manipulating ID3 (v1 + v2) tags in Python
@@ -8727,7 +8727,7 @@ dev-python/markdown2 2.4.3 2.4.5: Python Markdown language reimplementation
 dev-python/markups 3.1.3: A wrapper around various text markups
 dev-python/markupsafe 1.1.1-r1 2.1.1: Implements a XML/HTML/XHTML Markup safe string for Python
 dev-python/marshmallow 3.16.0 3.17.0 3.17.1 3.18.0: A library for converting to and from native Python datatypes
-dev-python/matplotlib 3.5.1-r2 3.5.2-r3 3.5.3 3.6.0-r1: Pure python plotting library with matlab like syntax
+dev-python/matplotlib 3.5.1-r2 3.5.2-r3 3.5.3 3.6.0-r1 3.6.1: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.6: Inline Matplotlib backend for Jupyter
 dev-python/matrix-common 1.2.1 1.3.0: Common code for Synapse, Sydent and Sygnal
 dev-python/matterhook 0.2-r2: Interact with Mattermost incoming webhooks easily
@@ -8997,7 +8997,7 @@ dev-python/pycson 0.8-r1 0.8-r2 0.8-r3: A python parser for the Coffeescript Obj
 dev-python/pycuda 2021.1: Python wrapper for NVIDIA CUDA
 dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
 dev-python/pycurl 7.45.1: Python bindings for curl/libcurl
-dev-python/pycurl-requests 0.2.1: Requests-compatible interface for PycURL
+dev-python/pycurl-requests 0.2.1 0.5.0: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.5-r1: Set of facilities to extend Python with C++
 dev-python/pydantic 1.10.2: Data parsing and validation using Python type hints
 dev-python/pydata-sphinx-theme 0.7.2: Bootstrap-based Sphinx theme from the PyData community
@@ -9227,7 +9227,7 @@ dev-python/python-mimeparse 1.6.0-r3: Basic functions for handling mime-types in
 dev-python/python-mpd 3.0.5: Python MPD client library
 dev-python/python-mpv 1.0.1: Python interface to the mpv media player
 dev-python/python-musicbrainzngs 0.7.1: Python bindings for the MusicBrainz NGS and the Cover Art Archive webservices
-dev-python/python-nbxmpp 2.0.6 3.2.1 3.2.2 3.2.3: Python library to use Jabber/XMPP networks in a non-blocking way
+dev-python/python-nbxmpp 2.0.6 3.2.1 3.2.2 3.2.3 3.2.4: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/python-neutronclient 8.1.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.1.0: A client for the OpenStack Nova API
@@ -12653,87 +12653,87 @@ kde-apps/sweeper 22.04.3 22.08.1: Privacy settings widget to clean unwanted trac
 kde-apps/thumbnailers 22.04.3 22.08.1: Thumbnail generators for Mobipocket, PDF/PS and RAW files
 kde-apps/umbrello 22.04.3 22.08.1: KDE UML Modeller
 kde-apps/yakuake 22.04.3 22.08.1: Quake-style terminal emulator based on konsole
-kde-frameworks/attica 5.96.0 5.98.0: Framework providing access to Open Collaboration Services
-kde-frameworks/baloo 5.96.0 5.98.0: Framework for searching and managing metadata
-kde-frameworks/bluez-qt 5.96.0 5.98.0: Qt wrapper for Bluez 5 DBus API
-kde-frameworks/breeze-icons 5.96.0 5.98.0: Breeze SVG icon theme
-kde-frameworks/breeze-icons-rcc 5.96.0 5.98.0: Breeze SVG icon theme binary resource
-kde-frameworks/countryflags 5.96.0 5.98.0: Icons of flags for various countries
-kde-frameworks/extra-cmake-modules 5.96.0 5.98.0: Extra modules and scripts for CMake
-kde-frameworks/frameworkintegration 5.96.0 5.98.0: Framework for integrating Qt applications with KDE Plasma workspaces
-kde-frameworks/kactivities 5.96.0 5.98.0: Framework for working with KDE activities
-kde-frameworks/kactivities-stats 5.96.0 5.98.0: Framework for getting the usage statistics collected by the activities service
-kde-frameworks/kapidox 5.96.0 5.98.0: Framework for building KDE API documentation in a standard format and style
-kde-frameworks/karchive 5.96.0 5.98.0: Framework for reading, creation, and manipulation of various archive formats
-kde-frameworks/kauth 5.96.0 5.98.0: Framework to let applications perform actions as a privileged user
-kde-frameworks/kbookmarks 5.96.0 5.98.0: Framework for managing bookmarks stored in XBEL format
-kde-frameworks/kcalendarcore 5.96.0 5.98.0: Library for interfacing with calendars
-kde-frameworks/kcmutils 5.96.0 5.98.0: Framework to work with KDE System Settings modules
-kde-frameworks/kcodecs 5.96.0 5.98.0: Framework for manipulating strings using various encodings
-kde-frameworks/kcompletion 5.96.0 5.98.0: Framework for common completion tasks such as filename or URL completion
-kde-frameworks/kconfig 5.96.0 5.98.0: Framework for reading and writing configuration
-kde-frameworks/kconfigwidgets 5.96.0 5.98.0: Framework providing an assortment of configuration-related widgets
-kde-frameworks/kcontacts 5.96.0 5.98.0: Address book API based on KDE Frameworks
-kde-frameworks/kcoreaddons 5.96.0 5.98.0: Framework for solving common problems such as caching, randomisation, and more
-kde-frameworks/kcrash 5.96.0 5.98.0: Framework for intercepting and handling application crashes
-kde-frameworks/kdav 5.96.0 5.98.0: DAV protocol implemention with KJobs
-kde-frameworks/kdbusaddons 5.96.0 5.98.0: Framework for registering services and applications per freedesktop standards
-kde-frameworks/kdeclarative 5.96.0 5.98.0: Framework providing integration of QML and KDE work spaces
-kde-frameworks/kded 5.96.0 5.98.0: Central daemon of KDE workspaces
-kde-frameworks/kdelibs4support 5.96.0 5.98.0: Framework easing the development transition from KDELibs 4 to KF 5
-kde-frameworks/kdesu 5.96.0 5.98.0: Framework to handle super user actions
-kde-frameworks/kdnssd 5.96.0 5.98.0: Framework for network service discovery using Zeroconf
-kde-frameworks/kdoctools 5.96.0 5.98.0: Tools to generate documentation in various formats from DocBook files
-kde-frameworks/kemoticons 5.96.0 5.98.0: Framework for converting text emoticons to graphical representations
+kde-frameworks/attica 5.96.0 5.99.0: Framework providing access to Open Collaboration Services
+kde-frameworks/baloo 5.96.0 5.99.0: Framework for searching and managing metadata
+kde-frameworks/bluez-qt 5.96.0 5.99.0: Qt wrapper for Bluez 5 DBus API
+kde-frameworks/breeze-icons 5.96.0 5.99.0: Breeze SVG icon theme
+kde-frameworks/breeze-icons-rcc 5.96.0 5.99.0: Breeze SVG icon theme binary resource
+kde-frameworks/countryflags 5.96.0 5.99.0: Icons of flags for various countries
+kde-frameworks/extra-cmake-modules 5.96.0 5.99.0: Extra modules and scripts for CMake
+kde-frameworks/frameworkintegration 5.96.0 5.99.0: Framework for integrating Qt applications with KDE Plasma workspaces
+kde-frameworks/kactivities 5.96.0 5.99.0: Framework for working with KDE activities
+kde-frameworks/kactivities-stats 5.96.0 5.99.0: Framework for getting the usage statistics collected by the activities service
+kde-frameworks/kapidox 5.96.0 5.99.0: Framework for building KDE API documentation in a standard format and style
+kde-frameworks/karchive 5.96.0 5.99.0: Framework for reading, creation, and manipulation of various archive formats
+kde-frameworks/kauth 5.96.0 5.99.0: Framework to let applications perform actions as a privileged user
+kde-frameworks/kbookmarks 5.96.0 5.99.0: Framework for managing bookmarks stored in XBEL format
+kde-frameworks/kcalendarcore 5.96.0 5.99.0: Library for interfacing with calendars
+kde-frameworks/kcmutils 5.96.0 5.99.0: Framework to work with KDE System Settings modules
+kde-frameworks/kcodecs 5.96.0 5.99.0: Framework for manipulating strings using various encodings
+kde-frameworks/kcompletion 5.96.0 5.99.0: Framework for common completion tasks such as filename or URL completion
+kde-frameworks/kconfig 5.96.0 5.99.0: Framework for reading and writing configuration
+kde-frameworks/kconfigwidgets 5.96.0 5.99.0: Framework providing an assortment of configuration-related widgets
+kde-frameworks/kcontacts 5.96.0 5.99.0: Address book API based on KDE Frameworks
+kde-frameworks/kcoreaddons 5.96.0 5.99.0: Framework for solving common problems such as caching, randomisation, and more
+kde-frameworks/kcrash 5.96.0 5.99.0: Framework for intercepting and handling application crashes
+kde-frameworks/kdav 5.96.0 5.99.0: DAV protocol implemention with KJobs
+kde-frameworks/kdbusaddons 5.96.0 5.99.0: Framework for registering services and applications per freedesktop standards
+kde-frameworks/kdeclarative 5.96.0 5.99.0: Framework providing integration of QML and KDE work spaces
+kde-frameworks/kded 5.96.0 5.99.0: Central daemon of KDE workspaces
+kde-frameworks/kdelibs4support 5.96.0 5.99.0: Framework easing the development transition from KDELibs 4 to KF 5
+kde-frameworks/kdesu 5.96.0 5.99.0: Framework to handle super user actions
+kde-frameworks/kdnssd 5.96.0 5.99.0: Framework for network service discovery using Zeroconf
+kde-frameworks/kdoctools 5.96.0 5.99.0: Tools to generate documentation in various formats from DocBook files
+kde-frameworks/kemoticons 5.96.0 5.99.0: Framework for converting text emoticons to graphical representations
 kde-frameworks/kf-env 5: Environment setting required for all KDE Frameworks apps to run
-kde-frameworks/kfilemetadata 5.96.0 5.98.0: Library for extracting file metadata
-kde-frameworks/kglobalaccel 5.96.0-r1 5.98.0: Framework to handle global shortcuts
-kde-frameworks/kguiaddons 5.96.0 5.98.0: Framework providing assorted high-level user interface components
-kde-frameworks/kholidays 5.96.0 5.98.0: Library to determine holidays and other special events for a geographical region
-kde-frameworks/khtml 5.96.0-r1 5.98.0: KHTML web rendering engine
-kde-frameworks/ki18n 5.96.0 5.98.0: Framework based on Gettext for internationalizing user interface text
-kde-frameworks/kiconthemes 5.96.0 5.98.0: Framework for icon theming and configuration
-kde-frameworks/kidletime 5.96.0 5.98.0: Framework for detection and notification of device idle time
-kde-frameworks/kimageformats 5.96.0 5.98.0: Framework providing additional format plugins for Qt's image I/O system
-kde-frameworks/kinit 5.96.0-r1 5.98.0: Helper library to speed up start of applications on KDE workspaces
-kde-frameworks/kio 5.96.0-r3 5.98.0: Framework providing transparent file and data management
-kde-frameworks/kirigami 5.96.0-r1 5.98.0: Lightweight user interface framework for mobile and convergent applications
-kde-frameworks/kitemmodels 5.96.0 5.98.0: Framework providing data models to help with tasks such as sorting and filtering
-kde-frameworks/kitemviews 5.96.0 5.98.0: Framework providing additional widgets for item models
-kde-frameworks/kjobwidgets 5.96.0-r1 5.98.0: Framework providing assorted widgets for showing the progress of jobs
-kde-frameworks/kjs 5.96.0 5.98.0: ECMAScipt compatible parser and engine
-kde-frameworks/knewstuff 5.96.0 5.98.0: Framework for downloading and sharing additional application data
-kde-frameworks/knotifications 5.96.0 5.98.0-r1: Framework for notifying the user of an event
-kde-frameworks/knotifyconfig 5.96.0 5.98.0: Framework for configuring desktop notifications
-kde-frameworks/kpackage 5.96.0 5.98.0: Framework to install and load packages of non binary content
-kde-frameworks/kparts 5.96.0 5.98.0: Framework providing elaborate user-interface components
-kde-frameworks/kpeople 5.96.0 5.98.0: KDE contact person abstraction library
-kde-frameworks/kplotting 5.96.0 5.98.0: Framework providing easy data-plotting functions
-kde-frameworks/kpty 5.96.0 5.98.0: Framework for pseudo terminal devices and running child processes
-kde-frameworks/kquickcharts 5.96.0 5.98.0: QtQuick plugin providing high-performance charts
-kde-frameworks/kross 5.96.0 5.98.0: Framework for embedding scripting into applications
-kde-frameworks/krunner 5.96.0 5.98.0: Framework for providing different actions given a string query
-kde-frameworks/kservice 5.96.0 5.98.0: Advanced plugin and service introspection
-kde-frameworks/ktexteditor 5.96.0-r1 5.98.0: Framework providing a full text editor component
-kde-frameworks/ktextwidgets 5.96.0 5.98.0: Framework providing an assortment of widgets for displaying and editing text
-kde-frameworks/kunitconversion 5.96.0 5.98.0: Framework for converting units
-kde-frameworks/kwallet 5.96.0 5.98.0: Framework providing desktop-wide storage for passwords
-kde-frameworks/kwayland 5.96.0 5.98.0-r1: Qt-style client and server library wrapper for Wayland libraries
-kde-frameworks/kwidgetsaddons 5.96.0 5.98.0: An assortment of high-level widgets for common tasks
-kde-frameworks/kwindowsystem 5.96.0 5.98.0: Framework providing access to properties and features of the window manager
-kde-frameworks/kxmlgui 5.96.0 5.98.0: Framework for managing menu and toolbar actions in an abstract way
-kde-frameworks/modemmanager-qt 5.96.0 5.98.0: ModemManager bindings for Qt
-kde-frameworks/networkmanager-qt 5.96.0 5.98.0: NetworkManager bindings for Qt
-kde-frameworks/oxygen-icons 5.96.0 5.98.0: Oxygen SVG icon theme
-kde-frameworks/plasma 5.96.0-r1 5.98.0-r1: Plasma framework
-kde-frameworks/prison 5.96.0-r1 5.98.0: QRCode and data matrix barcode library
-kde-frameworks/purpose 5.96.0 5.98.0: Library for providing abstractions to get the developer's purposes fulfilled
-kde-frameworks/qqc2-desktop-style 5.96.0-r1 5.98.0: Style for QtQuickControls 2 that uses QWidget's QStyle for painting
-kde-frameworks/solid 5.96.0 5.98.0: Provider for platform independent hardware discovery, abstraction and management
-kde-frameworks/sonnet 5.96.0 5.98.0: Framework for providing spell-checking through abstraction of popular backends
-kde-frameworks/syndication 5.96.0 5.98.0: Library for parsing RSS and Atom feeds
-kde-frameworks/syntax-highlighting 5.96.0 5.98.0: Framework for syntax highlighting
-kde-frameworks/threadweaver 5.96.0 5.98.0: Framework for managing threads using job and queue-based interfaces
+kde-frameworks/kfilemetadata 5.96.0 5.99.0: Library for extracting file metadata
+kde-frameworks/kglobalaccel 5.96.0-r1 5.99.0: Framework to handle global shortcuts
+kde-frameworks/kguiaddons 5.96.0 5.99.0: Framework providing assorted high-level user interface components
+kde-frameworks/kholidays 5.96.0 5.99.0: Library to determine holidays and other special events for a geographical region
+kde-frameworks/khtml 5.96.0-r1 5.99.0: KHTML web rendering engine
+kde-frameworks/ki18n 5.96.0 5.99.0: Framework based on Gettext for internationalizing user interface text
+kde-frameworks/kiconthemes 5.96.0 5.99.0: Framework for icon theming and configuration
+kde-frameworks/kidletime 5.96.0 5.99.0: Framework for detection and notification of device idle time
+kde-frameworks/kimageformats 5.96.0 5.99.0: Framework providing additional format plugins for Qt's image I/O system
+kde-frameworks/kinit 5.96.0-r1 5.99.0: Helper library to speed up start of applications on KDE workspaces
+kde-frameworks/kio 5.96.0-r3 5.99.0: Framework providing transparent file and data management
+kde-frameworks/kirigami 5.96.0-r1 5.99.0: Lightweight user interface framework for mobile and convergent applications
+kde-frameworks/kitemmodels 5.96.0 5.99.0: Framework providing data models to help with tasks such as sorting and filtering
+kde-frameworks/kitemviews 5.96.0 5.99.0: Framework providing additional widgets for item models
+kde-frameworks/kjobwidgets 5.96.0-r1 5.99.0: Framework providing assorted widgets for showing the progress of jobs
+kde-frameworks/kjs 5.96.0 5.99.0: ECMAScipt compatible parser and engine
+kde-frameworks/knewstuff 5.96.0 5.99.0: Framework for downloading and sharing additional application data
+kde-frameworks/knotifications 5.96.0 5.99.0: Framework for notifying the user of an event
+kde-frameworks/knotifyconfig 5.96.0 5.99.0: Framework for configuring desktop notifications
+kde-frameworks/kpackage 5.96.0 5.99.0: Framework to install and load packages of non binary content
+kde-frameworks/kparts 5.96.0 5.99.0: Framework providing elaborate user-interface components
+kde-frameworks/kpeople 5.96.0 5.99.0: KDE contact person abstraction library
+kde-frameworks/kplotting 5.96.0 5.99.0: Framework providing easy data-plotting functions
+kde-frameworks/kpty 5.96.0 5.99.0: Framework for pseudo terminal devices and running child processes
+kde-frameworks/kquickcharts 5.96.0 5.99.0: QtQuick plugin providing high-performance charts
+kde-frameworks/kross 5.96.0 5.99.0: Framework for embedding scripting into applications
+kde-frameworks/krunner 5.96.0 5.99.0: Framework for providing different actions given a string query
+kde-frameworks/kservice 5.96.0 5.99.0: Advanced plugin and service introspection
+kde-frameworks/ktexteditor 5.96.0-r1 5.99.0: Framework providing a full text editor component
+kde-frameworks/ktextwidgets 5.96.0 5.99.0: Framework providing an assortment of widgets for displaying and editing text
+kde-frameworks/kunitconversion 5.96.0 5.99.0: Framework for converting units
+kde-frameworks/kwallet 5.96.0 5.99.0: Framework providing desktop-wide storage for passwords
+kde-frameworks/kwayland 5.96.0 5.99.0: Qt-style client and server library wrapper for Wayland libraries
+kde-frameworks/kwidgetsaddons 5.96.0 5.99.0: An assortment of high-level widgets for common tasks
+kde-frameworks/kwindowsystem 5.96.0 5.99.0: Framework providing access to properties and features of the window manager
+kde-frameworks/kxmlgui 5.96.0 5.99.0: Framework for managing menu and toolbar actions in an abstract way
+kde-frameworks/modemmanager-qt 5.96.0 5.99.0: ModemManager bindings for Qt
+kde-frameworks/networkmanager-qt 5.96.0 5.99.0: NetworkManager bindings for Qt
+kde-frameworks/oxygen-icons 5.96.0 5.99.0: Oxygen SVG icon theme
+kde-frameworks/plasma 5.96.0-r1 5.99.0: Plasma framework
+kde-frameworks/prison 5.96.0-r1 5.99.0: QRCode and data matrix barcode library
+kde-frameworks/purpose 5.96.0 5.99.0: Library for providing abstractions to get the developer's purposes fulfilled
+kde-frameworks/qqc2-desktop-style 5.96.0-r1 5.99.0: Style for QtQuickControls 2 that uses QWidget's QStyle for painting
+kde-frameworks/solid 5.96.0 5.99.0: Provider for platform independent hardware discovery, abstraction and management
+kde-frameworks/sonnet 5.96.0 5.99.0: Framework for providing spell-checking through abstraction of popular backends
+kde-frameworks/syndication 5.96.0 5.99.0: Library for parsing RSS and Atom feeds
+kde-frameworks/syntax-highlighting 5.96.0 5.99.0: Framework for syntax highlighting
+kde-frameworks/threadweaver 5.96.0 5.99.0: Framework for managing threads using job and queue-based interfaces
 kde-misc/basket 2.49b: Multiple information organizer - a DropDrawers clone
 kde-misc/bismuth 3.1.3 3.1.4: Tiling window management script for Kwin
 kde-misc/colord-kde 0.5.0_p20220907: Provides interfaces and session daemon to colord
@@ -18908,7 +18908,7 @@ x11-misc/kapow 1.5.10: A punch clock program designed to easily keep track of yo
 x11-misc/kaqaz 1.2.0-r4: Modern note manager
 x11-misc/kbdd 0.7.1: Very simple layout switcher
 x11-misc/kdocker 5.3 5.4: Helper to dock any application into the system tray
-x11-misc/kronometer 2.2.3 2.2.80: Stopwatch application
+x11-misc/kronometer 2.2.3 2.2.91: Stopwatch application
 x11-misc/ktsuss 2.1: Graphical version of su written in C and GTK+ 2
 x11-misc/libinput-gestures 2.73: Actions gestures on your touchpad using libinput
 x11-misc/light-locker 1.9.0-r2: A simple locker using lightdm
