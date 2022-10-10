@@ -27,16 +27,16 @@ LICENSE="GPL-2"
 SLOT="0/${PV}"
 IUSE="androiddump bcg729 brotli +capinfos +captype ciscodump +dftest doc dpauxmon"
 IUSE+=" +dumpcap +editcap +gui http2 ilbc kerberos libxml2 lto lua lz4 maxminddb"
-IUSE+=" +mergecap +minizip +netlink opus +plugins plugin-ifdemo +pcap qt6 +randpkt"
+IUSE+=" +mergecap +minizip +netlink opus +plugins +pcap qt6 +randpkt"
 IUSE+=" +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl"
-IUSE+=" sdjournal test +text2pcap tfshark +tshark +udpdump zlib +zstd"
+IUSE+=" sdjournal test +text2pcap tfshark +tshark +udpdump wifi zlib +zstd"
 
-REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )
-	plugin-ifdemo? ( plugins )"
+REQUIRED_USE="
+	lua? ( ${LUA_REQUIRED_USE} )
+"
 
 RESTRICT="!test? ( test )"
 
-# TODO: wifidump/libssh automagic?
 # bug #753062 for speexdsp
 RDEPEND="
 	acct-group/pcap
@@ -47,7 +47,7 @@ RDEPEND="
 	media-libs/speexdsp
 	bcg729? ( media-libs/bcg729 )
 	brotli? ( app-arch/brotli:= )
-	ciscodump? ( >=net-libs/libssh-0.6 )
+	ciscodump? ( >=net-libs/libssh-0.6:= )
 	filecaps? ( sys-libs/libcap )
 	http2? ( >=net-libs/nghttp2-1.11.0:= )
 	ilbc? ( media-libs/libilbc:= )
@@ -69,6 +69,7 @@ RDEPEND="
 		)
 		!qt6? (
 			dev-qt/qtcore:5
+			dev-qt/qtconcurrent:5
 			dev-qt/qtgui:5
 			dev-qt/qtmultimedia:5
 			dev-qt/qtprintsupport:5
@@ -82,6 +83,7 @@ RDEPEND="
 	spandsp? ( media-libs/spandsp:= )
 	sshdump? ( >=net-libs/libssh-0.6:= )
 	ssl? ( >=net-libs/gnutls-3.5.8:= )
+	wifi? ( >=net-libs/libssh-0.6:= )
 	zlib? ( sys-libs/zlib )
 	zstd? ( app-arch/zstd:= )
 "
@@ -115,7 +117,12 @@ BDEPEND="
 "
 RDEPEND="
 	${RDEPEND}
-	gui? ( virtual/freedesktop-icon-theme )
+	gui? (
+		virtual/freedesktop-icon-theme
+		!qt6? (
+			dev-qt/qtdeclarative:5
+		)
+	)
 	selinux? ( sec-policy/selinux-wireshark )
 "
 
@@ -207,11 +214,12 @@ src_configure() {
 		-DENABLE_OPUS=$(usex opus)
 		-DENABLE_PCAP=$(usex pcap)
 		-DENABLE_PLUGINS=$(usex plugins)
-		-DENABLE_PLUGIN_IFDEMO=$(usex plugin-ifdemo)
+		-DENABLE_PLUGIN_IFDEMO=OFF
 		-DENABLE_SBC=$(usex sbc)
 		-DENABLE_SMI=$(usex smi)
 		-DENABLE_SNAPPY=$(usex snappy)
 		-DENABLE_SPANDSP=$(usex spandsp)
+		-DBUILD_wifidump=$(usex wifi)
 		-DENABLE_ZLIB=$(usex zlib)
 		-DENABLE_ZSTD=$(usex zstd)
 	)
