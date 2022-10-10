@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-11:* ~dev-java/slf4j-api-2.0.3:0 test? ( ~dev-java/slf4j-api-2.0.3:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=SLF4J Simple binding
+EAPI=8
+HOMEPAGE=https://www.slf4j.org
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=>=virtual/jre-1.8:* ~dev-java/slf4j-api-2.0.3:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/qos-ch/slf4j/archive/v_2.0.3.tar.gz -> slf4j-2.0.3.tar.gz
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	f12881bcef20aecfcb172218e0b260f7
+_md5_=d829db58be1b486a67e0071fe94d6737

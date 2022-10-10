@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) || ( ( >=dev-lang/python-3.10.4:3.10 dev-libs/libxml2[python,python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-libs/libxml2[python,python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-libs/libxml2[python,python_targets_python3_8(-)] ) ) app-text/docbook-xml-dtd dev-lang/perl dev-libs/libxslt sys-devel/gettext
+BDEPEND=|| ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-libs/libxml2[python,python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-libs/libxml2[python,python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-libs/libxml2[python,python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-libs/libxml2[python,python_targets_python3_8(-)] ) ) app-text/docbook-xml-dtd dev-lang/perl dev-libs/libxslt sys-devel/gettext
 DEFINED_PHASES=compile configure setup
 DESCRIPTION=GNU Image Manipulation Program help files
 EAPI=8
@@ -9,4 +9,4 @@ LICENSE=FDL-1.2
 SLOT=2
 SRC_URI=mirror://gimp/help/gimp-help-2.10.0.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
-_md5_=ca991dce2ab6cb0a8a4278848a47c286
+_md5_=18591773b5a2e12454237a438788fd48
