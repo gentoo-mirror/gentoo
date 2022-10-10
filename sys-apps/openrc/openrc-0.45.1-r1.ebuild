@@ -13,7 +13,7 @@ if [[ ${PV} =~ ^9{4,}$ ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/OpenRC/openrc/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="BSD-2"
@@ -39,7 +39,12 @@ RDEPEND="${COMMON_DEPEND}
 			!sys-apps/systemd[sysv-utils(-)]
 			!sys-apps/sysvinit
 		)
-		!sysv-utils? ( >=sys-apps/sysvinit-2.86-r6[selinux?] )
+		!sysv-utils? (
+			|| (
+				>=sys-apps/sysvinit-2.86-r6[selinux?]
+				sys-apps/s6-linux-init[sysv-utils(-)]
+			)
+		)
 		virtual/tmpfiles
 	)
 	selinux? (
