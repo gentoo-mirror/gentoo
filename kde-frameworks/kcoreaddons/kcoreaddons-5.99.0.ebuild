@@ -14,6 +14,7 @@ IUSE="dbus fam nls"
 
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5[icu]
+	virtual/libudev:=
 	dbus? ( >=dev-qt/qtdbus-${QTMIN}:5 )
 	fam? ( virtual/fam )
 "

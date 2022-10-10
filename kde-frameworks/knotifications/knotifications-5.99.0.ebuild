@@ -37,8 +37,6 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="nls? ( >=dev-qt/linguist-tools-${QTMIN}:5 )"
 
-PATCHES=( "${FILESDIR}/${P}-without_x11.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package dbus dbusmenu-qt5)

@@ -10,9 +10,10 @@ VIRTUALX_REQUIRED="test"
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework providing additional format plugins for Qt's image I/O system"
+
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="avif eps heif jpegxl openexr"
+IUSE="avif eps heif jpegxl openexr raw"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -22,6 +23,7 @@ DEPEND="
 	heif? ( >=media-libs/libheif-1.10.0:= )
 	jpegxl? ( media-libs/libjxl )
 	openexr? ( >=media-libs/openexr-3:= )
+	raw? ( media-libs/libraw:= )
 "
 RDEPEND="${DEPEND}"
 
@@ -34,7 +36,7 @@ src_configure() {
 		$(cmake_use_find_package eps Qt5PrintSupport)
 		-DKIMAGEFORMATS_HEIF=$(usex heif)
 		$(cmake_use_find_package openexr OpenEXR)
+		$(cmake_use_find_package raw LibRaw)
 	)
-
 	ecm_src_configure
 }

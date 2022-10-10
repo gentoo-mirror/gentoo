@@ -8,14 +8,20 @@ QTMIN=5.15.5
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Framework for detection and notification of device idle time"
+
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="X xscreensaver"
+IUSE="wayland X xscreensaver"
 
 REQUIRED_USE="xscreensaver? ( X )"
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
+	wayland? (
+		dev-libs/wayland
+		>=dev-qt/qtgui-${QTMIN}:5=[wayland]
+		>=dev-qt/qtwayland-${QTMIN}:5
+	)
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libX11
@@ -27,7 +33,10 @@ DEPEND="
 		x11-libs/libXScrnSaver
 	)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	wayland? ( >=dev-libs/plasma-wayland-protocols-1.7.0 )
+"
+BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
 src_prepare() {
 	ecm_src_prepare
@@ -38,6 +47,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake_use_find_package wayland Qt5WaylandClient)
 		$(cmake_use_find_package X X11)
 		$(cmake_use_find_package X XCB)
 	)
