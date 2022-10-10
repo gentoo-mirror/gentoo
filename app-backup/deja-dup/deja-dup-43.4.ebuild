@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson gnome2-utils vala xdg
 
@@ -24,16 +24,19 @@ BDEPEND="
 	test? ( dev-libs/appstream-glib )
 "
 
+# deja-dup can not recognize duplicity-1.0.0 and throws an error
+# https://gitlab.gnome.org/World/deja-dup/-/issues/334
 DEPEND="
-	>=app-backup/duplicity-0.7.14
-	>=app-crypt/libsecret-0.18.6[vala]
-	>=dev-libs/glib-2.64:2[dbus]
+	>=gui-libs/libadwaita-1.0:1
+	>=dev-libs/glib-2.70.0:2
+	>=dev-libs/libgpg-error-1.33
+	>=gui-libs/gtk-4.6:4
 	>=dev-libs/json-glib-1.2
-	dev-libs/libgpg-error
-	>=gui-libs/libhandy-1.0:1
-	>=net-libs/libsoup-2.48:2.4
-	>=x11-libs/gtk+-3.22:3
-	>=x11-libs/libnotify-0.7
+	>=dev-libs/glib-2.64:2[dbus]
+	>=app-crypt/libsecret-0.18.6[vala]
+	>=net-libs/libsoup-3.0:3.0
+	>=app-backup/duplicity-0.8.21
+	<app-backup/duplicity-1.0.0
 "
 
 RDEPEND="${DEPEND}
@@ -43,7 +46,7 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	default
-	vala_src_prepare
+	vala_setup
 }
 
 pkg_postinst() {
