@@ -1,13 +1,13 @@
-BDEPEND=doc? ( app-doc/doxygen )
-DEFINED_PHASES=compile install
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile install prepare
 DESCRIPTION=Portable string functions, focus on the *printf() and *scanf() clones
 EAPI=8
 HOMEPAGE=https://daniel.haxx.se/projects/trio/
-INHERIT=docs
+INHERIT=autotools docs
 IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=trio
 SLOT=0
 SRC_URI=https://github.com/orbea/trio/releases/download/v1.17/trio-1.17.tar.gz
-_eclasses_=docs	8ed2a8a28ff109e7a3582c9abb7fe327
-_md5_=c89fd6a7c229188649150da303450b51
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	docs	8ed2a8a28ff109e7a3582c9abb7fe327
+_md5_=135a220c9596a51940e5cf9f6ef36697
