@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ SRC_URI="https://github.com/troglobit/libite/releases/download/v${PV}/${P}.tar.x
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 src_configure() {
 	econf --enable-static=no
@@ -17,6 +17,7 @@ src_configure() {
 
 src_install() {
 	default
-	find "${D}" -name '*.la' -delete || die
-	rm "${D}/usr/share/doc/${PF}/LICENSE" || die
+
+	find "${ED}" -name '*.la' -delete || die
+	rm "${ED}"/usr/share/doc/${PF}/LICENSE || die
 }
