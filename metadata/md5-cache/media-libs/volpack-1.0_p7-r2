@@ -1,11 +1,13 @@
 BDEPEND=sys-devel/m4
-DEFINED_PHASES=compile install
+DEFINED_PHASES=compile configure install
 DESCRIPTION=Volume rendering library
 EAPI=8
 HOMEPAGE=https://amide.sourceforge.net/packages.html
+INHERIT=flag-o-matic
 IUSE=doc examples
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 SLOT=0
 SRC_URI=mirror://sourceforge/amide/volpack-1.0c7.tgz
-_md5_=b40c792d725ef644f7ed87355f98576c
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=7168518314231ed27252087bd89460e5
