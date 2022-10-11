@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://netfilter.org/projects/nftables/
 INHERIT=edo linux-info distutils-r1 systemd verify-sig
 IUSE=debug doc +gmp json libedit +modern-kernel python +readline static-libs test xtables python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 verify-sig
-KEYWORDS=~amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=~amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2
 RDEPEND=>=net-libs/libmnl-1.0.4:0= >=net-libs/libnftnl-1.2.3:0= gmp? ( dev-libs/gmp:= ) json? ( dev-libs/jansson:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) readline? ( sys-libs/readline:= ) xtables? ( >=net-firewall/iptables-1.6.1:= )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) ) libedit? ( !readline )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://netfilter.org/projects/nftables/files/nftables-1.0.5.tar.bz2 verify-sig? ( https://netfilter.org/projects/nftables/files/nftables-1.0.5.tar.bz2.sig )
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=b95bedafdf47f46a1f0cf38ab7bb19f3
+_md5_=e279ff3b9e460d0987e4f4a95b8d7546
