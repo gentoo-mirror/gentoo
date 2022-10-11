@@ -4855,7 +4855,7 @@ dev-java/ant-commons-logging 1.10.9: Apache Ant's optional tasks depending on co
 dev-java/ant-commons-net 1.10.9: Apache Ant's optional tasks depending on commons-net
 dev-java/ant-contrib 1.0_beta6_pre20201123-r1: Ant-contrib tasks for Apache Ant
 dev-java/ant-core 1.10.9-r5: Java-based build tool similar to 'make' that uses XML configuration files
-dev-java/ant-eclipse-ecj 4.15-r1 4.22-r1: Ant Compiler Adapter for Eclipse Java Compiler
+dev-java/ant-eclipse-ecj 4.15-r1 4.22-r2 4.25: Ant Compiler Adapter for Eclipse Java Compiler
 dev-java/ant-ivy 2.5.0-r1: Ivy is a free java based dependency manager
 dev-java/ant-jai 1.10.9: Apache Ant's optional tasks depending on sun-jai-bin
 dev-java/ant-javamail 1.10.9-r1: Apache Ant's optional tasks depending on gnu-jaf-1
@@ -4925,7 +4925,7 @@ dev-java/cortado 0.6.0-r2: Multimedia framework for Java written by Fluendo
 dev-java/cpptasks 1.0_beta5-r1: Ant-tasks to compile various source languages and produce executables
 dev-java/dom4j 2.1.3: flexible XML framework for Java
 dev-java/easymock 2.5.2 3.3.1-r1: Mock Objects for interfaces in JUnit tests by generating them on the fly
-dev-java/eclipse-ecj 4.15 4.22-r1: Eclipse Compiler for Java
+dev-java/eclipse-ecj 4.15 4.22-r1 4.25: Eclipse Compiler for Java
 dev-java/emma 2.0.5312-r4: Free Java code coverage tool
 dev-java/error-prone-annotations 2.7.1: Java annotations for the Error Prone static analysis tool
 dev-java/failureaccess 30.1.1: Guava's InternalFutureFailureAccess and InternalFutures classes.
@@ -5150,10 +5150,10 @@ dev-java/swingx-ws 1.0_p20110515-r2: Utilities and widgets to integrate Swing GU
 dev-java/swt 3.7.2-r3 3.8.2-r4 4.10-r2: GTK based SWT Library
 dev-java/system-rules 1.19.0: A collection of JUnit rules for testing code which uses java.lang.System.
 dev-java/testng 6.9.10-r1: Testing framework inspired by JUnit and NUnit with new features
-dev-java/tomcat-el-api 8.5.83 9.0.68 10.0.27 10.1.0: Tomcat's EL API 5.0 implementation
-dev-java/tomcat-jsp-api 8.5.83 9.0.68 10.0.27 10.1.0: Tomcat's JSP API 3.1 implementation
+dev-java/tomcat-el-api 8.5.83 9.0.68 10.0.27 10.1.0 10.1.1: Tomcat's EL API 5.0 implementation
+dev-java/tomcat-jsp-api 8.5.83 9.0.68 10.0.27 10.1.0 10.1.1: Tomcat's JSP API 3.1 implementation
 dev-java/tomcat-native 1.2.35: Allows Tomcat to use certain native resources for better performance
-dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.109 8.5.82 8.5.83 9.0.65 9.0.67 9.0.68 10.0.23 10.0.26 10.0.27 10.1.0-r1: Tomcat's Servlet API 6.0 implementation
+dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.109 8.5.82 8.5.83 9.0.65 9.0.67 9.0.68 10.0.23 10.0.26 10.0.27 10.1.0-r1 10.1.1: Tomcat's Servlet API 6.0 implementation
 dev-java/treelayout 1.0.3-r1: Efficient and customizable TreeLayout Algorithm in Java.
 dev-java/typesafe-config 1.4.2: A library of arguably useful Java utilities
 dev-java/univocity-parsers 2.9.1: A collection of extremely fast and reliable parsers for Java
@@ -12263,7 +12263,7 @@ gnome-base/libglade 2.6.4-r3: Library to construct graphical interfaces at runti
 gnome-base/libgnomecanvas 2.30.3-r1: The Gnome 2 Canvas library
 gnome-base/libgnomekbd 3.26.1 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r1: A library that provides top functionality to applications
-gnome-base/librsvg 2.40.21 2.54.4-r1 2.54.5-r1: Scalable Vector Graphics (SVG) rendering library
+gnome-base/librsvg 2.40.21 2.54.4-r1 2.54.5-r1 2.55.1: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 42.2 43.0: Default file manager for the GNOME desktop
 gnome-extra/cinnamon 5.2.7-r4: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 5.2.1-r2 5.2.1-r3: Cinnamons's main interface to configure various aspects of the desktop
@@ -15159,7 +15159,7 @@ net-irc/ngircd 26.1-r5: An IRC server written from scratch
 net-irc/ninja 1.5.9_pre14-r2: Ninja IRC Client
 net-irc/onis 0.8.2-r1: onis not irc stats
 net-irc/pisg 0.73-r1: Perl IRC Statistics Generator
-net-irc/polari 42.0: An IRC client for GNOME
+net-irc/polari 42.0 43.0: An IRC client for GNOME
 net-irc/psybnc 2.3.2.9-r4: A multi-user and multi-server gateway to IRC networks
 net-irc/quassel 0.14.0-r1 9999: Qt/KDE IRC client supporting a remote daemon for 24/7 connectivity
 net-irc/quasselgrep 0_p20200830: Tool for searching quassel logs from the commandline
@@ -18580,7 +18580,7 @@ www-servers/servefile 0.5.1-r1 0.5.2 0.5.3: Serve a single file via HTTP
 www-servers/sniproxy 0.6.0-r1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1: A fast and very simple Ruby web server
-www-servers/tomcat 8.5.82 8.5.83 9.0.65 9.0.67 9.0.68 10.0.23 10.0.26 10.0.27 10.1.0-r1: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+www-servers/tomcat 8.5.82 8.5.83 9.0.65 9.0.67 9.0.68 10.0.23 10.0.26 10.0.27 10.1.0-r1 10.1.1: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
 www-servers/uwsgi 2.0.19.1-r109: uWSGI server for Python web applications
 www-servers/varnish 7.1.1: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
