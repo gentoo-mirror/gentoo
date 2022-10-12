@@ -4,14 +4,21 @@
 EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
-PYTHON_COMPAT=( python3_{8..10} )
+# In alpha26 bundled spidermonkey-78.6.0 does not build with python 3.11.
+PYTHON_COMPAT=( python3_10 )
 inherit desktop toolchain-funcs multiprocessing python-any-r1 wxwidgets xdg
 
 DESCRIPTION="A free, real-time strategy game"
 HOMEPAGE="https://play0ad.com/"
 LICENSE="BitstreamVera CC-BY-SA-3.0 GPL-2 LGPL-2.1 LPPL-1.3c MIT ZLIB"
-# Upstream signs releases (and only them) with app-crypt/minisign.
-# The (public) key can be found on https://play0ad.com/download/source.
+# Upstream signs releases with app-crypt/minisign which is not supported
+# by IUSE="verify-sig", bug #783066. As a workaround the minisign key
+# is hardcoded and verifed manually in this ebuild.
+#
+# The public key can be found upstream - last update was w/ alpha 26:
+# https://trac.wildfiregames.com/wiki/VerifyingYourDownloads
+MINISIGN_KEY="RWTWLbO12+ig3lUExIor3xd6DdZaYFEozn8Bu8nIzY3ImuRYQszIQyyy"
+
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/0ad/0ad"
@@ -23,7 +30,6 @@ elif [[ ${PV} == *_pre* ]]; then
 else
 	# Trailing whitespace for IUSE append below
 	IUSE="verify-sig "
-	MINISIGN_KEY="RWT0hFWv57I2RFoJwLVjxEr44JOq/RkEx1oT0IA3PPPICnSF7HFKW1CT"
 	MY_P="0ad-${PV/_/-}"
 	SRC_URI="
 		http://releases.wildfiregames.com/${MY_P}-unix-build.tar.xz
@@ -40,8 +46,8 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE+="editor +lobby nvtt pch test"
 
 RESTRICT="test"
-CHECKREQS_DISK_BUILD="9000M" # 8769732 KiB (8.3 GiB) for alpha 25
-CHECKREQS_DISK_USR="3500M" # 3545972 KiB (3.3 GiB)
+CHECKREQS_DISK_BUILD="9000M" # 8795916 KiB (8.3 GiB) for alpha 26
+CHECKREQS_DISK_USR="3500M" # 3555340 KiB (3.3 GiB)
 
 # Premake adds '-s' to some LDFLAGS. Simply sed'ing it out leads to
 # build and/or startup issues.
@@ -56,8 +62,8 @@ BDEPEND="
 	virtual/rust
 	test? ( dev-lang/perl )
 "
-# Upstream uses minisign which is not supported by verify-sign, bug #783066.
-# Signatures are only provided for releases.
+
+# For IUSE="verify-sig", see note about SRC_URI block.
 if [[ ( ${PV} != *9999 ) && ( ${PV} != *_p* ) ]]; then
 	BDEPEND+=" app-crypt/minisign"
 fi
@@ -91,8 +97,6 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.0.24b_alpha-respect-tc.patch
 	"${FILESDIR}"/${PN}-0.0.25b_alpha-fix-setuptools.patch
-	"${FILESDIR}"/${PN}-0.0.25b_alpha-python3.10.patch
-	"${FILESDIR}"/${PN}-0.0.25b_alpha-fix-name-collision-glibc.patch
 )
 
 pkg_setup() {
