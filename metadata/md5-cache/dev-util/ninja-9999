@@ -3,12 +3,12 @@ DEFINED_PHASES=compile install postinst postrm setup test unpack
 DESCRIPTION=A small build system similar to make
 EAPI=8
 HOMEPAGE=https://ninja-build.org/
-INHERIT=edo bash-completion-r1 elisp-common python-any-r1 toolchain-funcs git-r3
+INHERIT=edo bash-completion-r1 elisp-common flag-o-matic python-any-r1 toolchain-funcs git-r3
 IUSE=doc emacs test
 LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=emacs? ( >=app-editors/emacs-23.1:* )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=964c7bbaed1bd1f2d3b00f870e8d91d8
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=6e7281298fcfff4df431f925213b4466
