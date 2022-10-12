@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-DESCRIPTION=Tomcat's EL API 5.0 implementation
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/tomcat-el-api-8.5.83:3.0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Tomcat's Servlet API 6.0 implementation
 EAPI=8
 HOMEPAGE=https://tomcat.apache.org/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris
 LICENSE=Apache-2.0
-RDEPEND=>=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-SLOT=3.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/tomcat-el-api-8.5.83:3.0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=3.1
 SRC_URI=mirror://apache/tomcat/tomcat-8/v8.5.83/src/apache-tomcat-8.5.83-src.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	257a59d157060d7bd51a13e68c614dd5
-_md5_=5951a5bcc0dbb63771e8830b37dc31e2
+_md5_=e865ef92561225668986c155522f9a48
