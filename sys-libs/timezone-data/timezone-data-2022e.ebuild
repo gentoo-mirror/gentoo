@@ -24,7 +24,7 @@ RDEPEND="
 "
 
 src_unpack() {
-	mkdir -p "${S}" && cd "${S}" || die
+	mkdir "${S}" && cd "${S}" || die
 	default
 }
 
@@ -35,7 +35,9 @@ src_prepare() {
 	sed -i -e 's/check_tables check_web/check_tables/g' \
 		Makefile || die "Failed to disable check_web"
 
-	tc-is-cross-compiler && cp -pR "${S}" "${S}"-native
+	if tc-is-cross-compiler ; then
+		cp -pR "${S}" "${S}"-native || die
+	fi
 }
 
 src_configure() {
@@ -137,13 +139,6 @@ pkg_preinst() {
 
 	# Trim the symlink by hand to avoid portage's automatic protection checks.
 	rm -f "${EROOT}"/usr/share/zoneinfo/posix
-
-	if has_version "<=${CATEGORY}/${PN}-2015c" ; then
-		elog "Support for accessing posix/ and right/ directly has been dropped to match"
-		elog "upstream.  There is no need to set TZ=posix/xxx as it is the same as TZ=xxx."
-		elog "For TZ=right/, you can use TZ=../zoneinfo-leaps/xxx instead.  See this post"
-		elog "for details: https://mm.icann.org/pipermail/tz/2015-February/022024.html"
-	fi
 }
 
 configure_tz_data() {
@@ -170,7 +165,7 @@ configure_tz_data() {
 	local tzpath="${EROOT}/usr/share/zoneinfo/${tz}"
 
 	if [[ ! -e ${tzpath} ]]; then
-		ewarn "The timezone specified in ${src} is not valid."
+		ewarn "The timezone specified in ${src} is not valid!"
 		return 1
 	fi
 
