@@ -2486,7 +2486,7 @@ app-emacs/nim-mode 0.4.2_p20211102: Emacs major mode for the Nim programming lan
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.0 5.1: Add support for DocBook 5 schemas to NXML
 app-emacs/nxml-gentoo-schemas 20220730 20220916: Extension for nxml-mode with Gentoo-specific schemas
-app-emacs/nxml-libvirt-schemas 7.10.0 8.7.0: Extension for nxml-mode with libvirt schemas
+app-emacs/nxml-libvirt-schemas 7.10.0 8.7.0 8.8.0: Extension for nxml-mode with libvirt schemas
 app-emacs/nxml-svg-schemas 1.1.20081123-r1: Extension for nxml-mode with SVG 1.1 schemas
 app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 0.7: Completion style that matches multiple regexps in any order
@@ -2656,7 +2656,7 @@ app-emulation/libdsk 1.5.18: LIBDSK is a library for accessing discs and disc im
 app-emulation/libguestfs 1.48.0 1.48.3 1.48.4: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/libguestfs-appliance 1.46.0: VM appliance disk image used in libguestfs package
 app-emulation/libspectrum 1.5.0: Spectrum emulation library
-app-emulation/libvirt 7.7.0-r2 8.2.0 8.7.0 9999: C toolkit to manipulate virtual machines
+app-emulation/libvirt 7.7.0-r2 8.2.0 8.7.0 8.8.0 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 4.0.0: GLib and GObject mappings for libvirt
 app-emulation/libvirt-snmp 0.0.4: Provides SNMP functionality for libvirt
 app-emulation/nemu 2.5.0-r1 3.0.0: ncurses interface for QEMU
@@ -5604,7 +5604,7 @@ dev-libs/libpipeline 1.5.6: A pipeline manipulation library
 dev-libs/libplatform 2.1.0.1-r2 9999: Platform support library used by libCEC and binary add-ons for Kodi
 dev-libs/libpo6 0.8.0: Hyperdex libpo6 support library
 dev-libs/libportal 0.6: Flatpak portal library
-dev-libs/libpqxx 7.4.1: Standard front-end for writing C++ programs that use PostgreSQL
+dev-libs/libpqxx 7.4.1 7.7.4: Standard front-end for writing C++ programs that use PostgreSQL
 dev-libs/libprelude 5.2.0-r10: Prelude-SIEM Framework Library
 dev-libs/libpreludedb 5.2.0: Framework to easy access to the Prelude database
 dev-libs/libpthread-stubs 0.4-r1: Pthread functions stubs for platforms missing them
@@ -7489,7 +7489,7 @@ dev-perl/Sys-Mmap 0.200.0: Uses mmap to map in a file as a Perl variable
 dev-perl/Sys-SigAction 0.230.0-r1: Perl extension for Consistent Signal Handling
 dev-perl/Sys-Statistics-Linux 0.660.0-r2: Collect linux system statistics
 dev-perl/Sys-Syscall 0.250.0-r3: Access system calls that Perl doesn't normally provide access to
-dev-perl/Sys-Virt 7.0.0 7.5.0 8.1.0 8.3.0 8.4.0 8.5.0: API for using the libvirt library from Perl
+dev-perl/Sys-Virt 7.0.0 7.5.0 8.1.0 8.3.0 8.4.0 8.5.0 8.8.0: API for using the libvirt library from Perl
 dev-perl/Sysadm-Install 0.480.0-r1: Typical installation tasks for system administrators
 dev-perl/TAP-Parser-SourceHandler-pgTAP 3.350.0-r1: Stream TAP from pgTAP test scripts
 dev-perl/Taint-Runtime 0.30.0-r2: Runtime enable taint checking
@@ -8696,7 +8696,7 @@ dev-python/libpillowfight 0.3.0_p20210816: Small library containing various imag
 dev-python/libpy_simdjson 0.4.0: Python bindings for simdjson using libpy
 dev-python/libsass 0.21.0-r1: A straightforward binding of libsass for Python
 dev-python/libtmux 0.14.2 0.15.4 0.15.7: python api for tmux
-dev-python/libvirt-python 7.7.0 8.2.0 8.7.0 9999: libvirt Python bindings
+dev-python/libvirt-python 7.7.0 8.2.0 8.7.0 8.8.0 9999: libvirt Python bindings
 dev-python/license-expression 30.0.0: Parse, compare, simplify and normalize license expressions
 dev-python/line_profiler 3.5.1: Line-by-line profiler
 dev-python/linkify-it-py 2.0.0: Links recognition library with full unicode support
@@ -9257,7 +9257,7 @@ dev-python/python-xmp-toolkit 2.0.1-r2: Library for working with XMP metadata
 dev-python/python-zipstream 1.1.4: A zip archive generator
 dev-python/python3-lxc 3.0.4: Python bindings for LXC
 dev-python/python3-saml 1.14.0: OneLogin's SAML Python Toolkit
-dev-python/python3-xapp 2.2.1-r1: Python bindings for x11-libs/xapp
+dev-python/python3-xapp 2.2.1-r1 2.2.2: Python bindings for x11-libs/xapp
 dev-python/python_orocos_kdl 1.5.1 9999: Python bindings for KDL
 dev-python/pythondialog 3.5.3: A Python module for making simple text/console-mode user interfaces
 dev-python/pythran 0.11.0 0.12.0 0.12.0-r1: Ahead of Time compiler for numeric kernels
@@ -11444,7 +11444,7 @@ dev-vcs/svneverever 1.5.0 1.6.0 1.7.1 1.7.1-r1 1.7.1-r2: Tool collecting path en
 dev-vcs/tig 2.5.5 2.5.6 2.5.7 9999: text mode interface for git
 dev-vcs/tkcvs 9.3.2: Tcl/Tk-based graphical interface to CVS with Subversion support
 dev-vcs/topgit 0.19.13: A different patch queue manager
-dev-vcs/tortoisehg 5.8.1 5.9.1 5.9.3 6.1 6.1.2 6.2 6.2.1 9999: Set of graphical tools for Mercurial
+dev-vcs/tortoisehg 5.9.3 6.2.1 6.2.3 9999: Set of graphical tools for Mercurial
 dev-vcs/vcsh 1.20190621.4: Manage config files in $HOME via fake bare git repositories
 games-action/0verkill 0.16-r4: A bloody 2D action deathmatch-like game in ASCII-ART
 games-action/a-story-about-my-uncle 5188: First person platforming adventure game about a boy who searches for his lost uncle
@@ -11785,7 +11785,7 @@ games-engines/residualvm 0.3.1-r2 9999: A cross-platform 3D game interpreter for
 games-engines/scrap-engine 1.2.0: Terminal-based Python game engine involving objects on a map
 games-engines/scummvm 2.5.1-r1 2.6.0-r1 9999: Reimplementation of the SCUMM game engine used in Lucasarts adventures
 games-engines/scummvm-tools 2.2.0-r1: utilities for the SCUMM game engine
-games-engines/solarus 1.3.1-r100: An open-source Zelda-like 2D game engine
+games-engines/solarus 1.6.5 9999: An open-source Zelda-like 2D game engine
 games-engines/stratagus 3.2.0 3.3.0 3.3.1 3.3.2: A realtime strategy game engine
 games-engines/xzip 1.8.2-r3: X interface to Z-code based text games
 games-engines/zoom 1.1.5-r1: Fast, clean, modern Z-code interpreter for X
@@ -11909,6 +11909,7 @@ games-misc/rfksay 0.1-r1: Like cowsay, but different because it involves robots 
 games-misc/robotfindskitten 2.7182818.701-r1: Help robot find kitten
 games-misc/sdljoytest 11102003: SDL app to test joysticks and game controllers
 games-misc/sex 1.0-r3: Spouts silly mad-lib-style porn-like text
+games-misc/solarus-quest-editor 1.6.5 9999: This is the package for people who want to create Solarus quests. It expands the player's package with game-making tools.
 games-misc/sound-of-sorting 0.6.6_pre20151107-r1: Visualization and Audibilization of Sorting Algorithms
 games-misc/typespeed 0.6.5-r2: Test your typing speed, and get your fingers CPS
 games-misc/usolitaire 0.2.1 0.2.1-r1: solitaire in your terminal
@@ -12097,8 +12098,8 @@ games-rpg/vendetta-online-bin 1.8.296-r1: Space-based MMORPG
 games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic computer RPG inspiration for Fallout
 games-rpg/wastesedge 0.3.8: Role playing game to showcase the adonthell engine
 games-rpg/xu4 0.9-r1: A remake of the computer game Ultima IV
-games-rpg/zsdx 1.9.0-r1: Free 2D Zelda fangame
-games-rpg/zsxd 1.9.0-r1: Free 2D Zelda fangame parody
+games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
+games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
 games-server/bedrock-server 1.19.20.02 1.19.30.04 1.19.31.01: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
@@ -12145,7 +12146,7 @@ games-sports/trigger 0.6.1-r1: Free OpenGL rally car racing game
 games-sports/trophy 2.0.4: 2D Racing Game
 games-sports/ultimatestunts 0.7.7-r1: Remake of the famous Stunts game
 games-sports/xmoto 0.6.1-r100: A challenging 2D motocross platform game, where physics play an important role
-games-strategy/0ad 0.0.25b_alpha-r1: A free, real-time strategy game
+games-strategy/0ad 0.0.26_alpha: A free, real-time strategy game
 games-strategy/augustus 3.1.0: Feature-enhanced open source re-implementation of Caesar III
 games-strategy/colobot 0.1.12 0.2.0_alpha 9999: A real-time strategy game, where you can program your bots
 games-strategy/colobot-data 0.1.12 0.2.0_alpha: Data package for colobot (Colonize with Bots)
@@ -12269,15 +12270,15 @@ gnome-base/libgnomekbd 3.26.1 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r1: A library that provides top functionality to applications
 gnome-base/librsvg 2.40.21 2.54.4-r1 2.54.5-r1 2.55.1: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 42.2 43.0: Default file manager for the GNOME desktop
-gnome-extra/cinnamon 5.2.7-r4: A fork of GNOME Shell with layout similar to GNOME 2
-gnome-extra/cinnamon-control-center 5.2.1-r2 5.2.1-r3: Cinnamons's main interface to configure various aspects of the desktop
-gnome-extra/cinnamon-desktop 5.2.1: A collection of libraries and utilites used by Cinnamon
-gnome-extra/cinnamon-menus 5.2.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 5.2.1: Screensaver for Cinnamon
-gnome-extra/cinnamon-session 5.2.0: Cinnamon session manager
-gnome-extra/cinnamon-settings-daemon 5.2.0-r1: Cinnamon's settings daemon
-gnome-extra/cinnamon-translations 5.2.2: Translation data for Cinnamon
-gnome-extra/cjs 5.2.0: Linux Mint's fork of gjs for Cinnamon
+gnome-extra/cinnamon 5.2.7-r4 5.4.12: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon-control-center 5.2.1-r2 5.2.1-r3 5.4.7: Cinnamons's main interface to configure various aspects of the desktop
+gnome-extra/cinnamon-desktop 5.2.1 5.4.2: A collection of libraries and utilites used by Cinnamon
+gnome-extra/cinnamon-menus 5.2.0 5.4.0: Cinnamon's library for the Desktop Menu fd.o specification
+gnome-extra/cinnamon-screensaver 5.2.1 5.4.4: Screensaver for Cinnamon
+gnome-extra/cinnamon-session 5.2.0 5.4.0: Cinnamon session manager
+gnome-extra/cinnamon-settings-daemon 5.2.0-r1 5.4.5: Cinnamon's settings daemon
+gnome-extra/cinnamon-translations 5.2.2 5.4.2: Translation data for Cinnamon
+gnome-extra/cjs 5.2.0 5.4.1: Linux Mint's fork of gjs for Cinnamon
 gnome-extra/eiciel 0.9.13.1: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.44.4-r2 3.46.0: Evolution groupware backend
 gnome-extra/evolution-ews 3.44.3-r1 3.44.4-r1 3.46.0: Evolution module for connecting to Microsoft Exchange Web Services
@@ -12321,8 +12322,8 @@ gnome-extra/libgsf 1.14.49 1.14.50: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2020.03.04: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6-r1: A nautilus extension for sending files to locations
-gnome-extra/nemo 5.2.4-r1: A file manager for Cinnamon, forked from Nautilus
-gnome-extra/nemo-fileroller 5.2.0: Nemo file-roller integration
+gnome-extra/nemo 5.2.4-r1 5.4.3: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo-fileroller 5.2.0 5.4.1: Nemo file-roller integration
 gnome-extra/nm-applet 1.28.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
 gnome-extra/pch-session 42.0: Unofficial gnome based session with different default settings and extensions
@@ -13815,7 +13816,7 @@ media-libs/wxsvg 1.5.11-r1 1.5.23: C++ library to create, manipulate and render 
 media-libs/x264 0.0.20190903-r1 0.0.20220222 9999: A free library for encoding X264/AVC streams
 media-libs/x265 3.4 3.5-r2 9999: Library for encoding video streams into the H.265/HEVC format
 media-libs/xine-lib 1.2.11-r2 1.2.12-r4 1.2.9999: Core libraries for Xine movie player
-media-libs/xvid 1.3.7: High performance/quality MPEG-4 video de-/encoding solution
+media-libs/xvid 1.3.7 1.3.7-r1: High performance/quality MPEG-4 video de-/encoding solution
 media-libs/zimg 2.9.2 3.0.1 3.0.2 3.0.3 3.0.4 9999: Scaling, colorspace conversion, and dithering library
 media-libs/zita-alsa-pcmi 0.5.1: Provides easy access to ALSA PCM devices
 media-libs/zita-convolver 4.0.3: C++ library implementing a real-time convolution matrix
@@ -16754,7 +16755,7 @@ sci-libs/umfpack 5.7.9: Unsymmetric multifrontal sparse LU factorization library
 sci-libs/volk 2.5.0 2.5.1: vector optimized library of kernels
 sci-libs/voro++ 0.4.6-r1: 3D Voronoi cell software library
 sci-libs/votca-tools 1.6.4 2021.2: Votca tools library
-sci-libs/vtk 9.0.3-r5 9.1.0-r3: The Visualization Toolkit
+sci-libs/vtk 9.0.3-r5 9.1.0-r4: The Visualization Toolkit
 sci-libs/xdmf2 1.0_p141226-r4: eXtensible Data Model and Format
 sci-libs/xdrfile 1.1.4: Library to read gromacs trajectory and topology files
 sci-libs/xgks-pmel 2.5.5: PMEL fork of XGKS, an X11-based version of the ANSI Graphical Kernel System
@@ -17926,7 +17927,7 @@ sys-fs/dmg2img 1.6.7-r1: Converts Apple DMG files to standard HFS+ images
 sys-fs/dmraid 1.0.0_rc16-r5: Device-mapper RAID tool and library
 sys-fs/dosfstools 4.2: DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat
 sys-fs/duperemove 0.11.3: Btrfs and xfs deduplication utility
-sys-fs/e2fsprogs 1.46.5-r1: Standard EXT2/EXT3/EXT4 filesystem utilities
+sys-fs/e2fsprogs 1.46.5-r1 1.46.5-r2: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-fs/e2tools 0.1.0-r1: utilities to read, write, and manipulate files in an ext2/ext3 filesystem
 sys-fs/ecryptfs-utils 111_p20170609-r1: eCryptfs userspace utilities
 sys-fs/encfs 1.9.5-r1 1.9.5-r2: An implementation of encrypted filesystem in user-space using FUSE
@@ -18816,7 +18817,7 @@ x11-libs/startup-notification 0.12-r1: Application startup notification and feed
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.28.2-r209 0.68.0 0.70.0: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r3 3.0.5.1: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
-x11-libs/xapp 2.2.8: Cross-desktop libraries and common resources
+x11-libs/xapp 2.2.8 2.2.15: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-util 0.4.0-r2: X C-language Bindings sample implementations
 x11-libs/xcb-util-cursor 0.1.3-r4: X C-language Bindings sample implementations
@@ -19463,7 +19464,7 @@ x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.24.2 1.26.0: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r2: Simple EWMH compatible window manager with titlebars and frames
 x11-wm/metacity 3.44.0 3.46.0: GNOME Flashback window manager
-x11-wm/muffin 5.2.0 5.2.1: Compositing window manager forked from Mutter for use with Cinnamon
+x11-wm/muffin 5.2.0 5.2.1 5.4.7: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 42.3 42.4-r1 42.5 43.0: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 9999: Notion is a tiling, tabbed window manager for the X window system

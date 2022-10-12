@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=media-libs/sdl2-ttf-2.0.12
+DESCRIPTION=An open-source Zelda-like 2D game engine
+EAPI=8
+HOMEPAGE=https://www.solarus-games.org/
+INHERIT=cmake lua-single optfeature virtualx
+IUSE=doc lua_single_target_luajit lua_single_target_lua5-1 test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=media-libs/sdl2-ttf-2.0.12
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/solarus-games/solarus/-/archive/v1.6.5/solarus-v1.6.5.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	optfeature	1a2157392a869265b2afcb63a26c12ac	virtualx	644887c82aefdf12001489391fca4f02
+_md5_=85d39c150495ad31fa657495efba1242
