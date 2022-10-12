@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install
+DEPEND=acct-group/grafana acct-user/grafana
+DESCRIPTION=Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
+EAPI=8
+HOMEPAGE=https://grafana.org
+INHERIT=systemd
+KEYWORDS=-* ~amd64
+LICENSE=AGPL-3
+RDEPEND=acct-group/grafana acct-user/grafana media-libs/fontconfig sys-libs/glibc
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://dl.grafana.com/oss/release/grafana-9.2.0.linux-amd64.tar.gz -> grafana-bin-9.2.0.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=3e77bdb261afab82290b400d1f46933d
