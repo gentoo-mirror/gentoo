@@ -5732,7 +5732,7 @@ dev-libs/openobex 1.7.2-r3: Implementation of the OBEX protocol used for transfe
 dev-libs/openpace 1.1.2: Cryptographic library for EAC version 2
 dev-libs/opensc 0.22.0: Libraries and applications to access smartcards
 dev-libs/openspecfun 0.5.3 0.5.5: A collection of special mathematical functions
-dev-libs/openssl 1.0.2u-r1 1.1.1q 1.1.1r 3.0.5 3.0.6: Robust, full-featured Open Source Toolkit for the Transport Layer Security (TLS)
+dev-libs/openssl 1.0.2u-r1 1.1.1q 3.0.5: Robust, full-featured Open Source Toolkit for the Transport Layer Security (TLS)
 dev-libs/openssl-compat 1.0.2u-r2 1.1.1o: Full-strength general purpose cryptography library (including SSL and TLS)
 dev-libs/optix 7.4.0 7.5.0: NVIDIA Ray Tracing Engine
 dev-libs/ossp-uuid 1.6.2-r7: An ISO-C:1999 API with CLI for generating DCE, ISO/IEC and RFC compliant UUID
@@ -5879,7 +5879,7 @@ dev-libs/zziplib 0.13.72 0.13.72-r1: Lightweight library for extracting data fro
 dev-lisp/abcl 1.9.0: Armed Bear Common Lisp is a Common Lisp implementation for the JVM
 dev-lisp/alexandria 1.4: A collection of portable utilities for Common Lisp
 dev-lisp/asdf 3.3.5: ASDF is Another System Definition Facility for Common Lisp
-dev-lisp/c2ffi 14.0.0.20220729: Clang-based FFI wrapper generator for Common Lisp
+dev-lisp/c2ffi 14.0.0.20220729-r1: Clang-based FFI wrapper generator for Common Lisp
 dev-lisp/cl-ppcre 2.0.11 2.1.0: CL-PPCRE is a portable regular expression library for Common Lisp
 dev-lisp/cl-ppcre-unicode 2.0.11 2.1.0: CL-PPCRE is a portable regular expression library for Common Lisp
 dev-lisp/cl-unicode 0.1.5: Provides Common Lisp implementations with knowledge about Unicode characters
@@ -11401,7 +11401,7 @@ dev-vcs/git-cola 3.12.0 4.0.1 4.0.2: The highly caffeinated git GUI
 dev-vcs/git-crypt 0.6.0: transparent file encryption in git
 dev-vcs/git-delete-merged-branches 7.2.0: Command-line tool to delete merged Git branches
 dev-vcs/git-extras 6.4.0 6.5.0: Git utilities -- repo summary, repl, changelog population, and many more
-dev-vcs/git-filter-repo 2.33.0 2.34.0 2.38.0: Quickly rewrite git repository history (filter-branch replacement)
+dev-vcs/git-filter-repo 2.34.0-r1 2.38.0-r1: Quickly rewrite git repository history (filter-branch replacement)
 dev-vcs/git-flow 1.12.3-r2: Git extensions to provide high-level repository operations
 dev-vcs/git-lfs 3.1.2 3.1.4 3.2.0 9999: Command line extension and specification for managing large files with git
 dev-vcs/git-machete 3.12.1: Probably the sharpest git repo organizer & rebase/merge workflow automation tool
@@ -15338,7 +15338,7 @@ net-libs/ntirpc 4.0-r1: Transport Independent RPC library for nfs-ganesha
 net-libs/ortp 0.23.0-r1: Open Real-time Transport Protocol (RTP, RFC3550) stack
 net-libs/pacparser 1.4.0: Library to parse proxy auto-config files
 net-libs/phodav 2.5 3.0: WebDav server implementation using libsoup
-net-libs/pjproject 2.12.1-r1: Open source SIP, Media, and NAT Traversal Library
+net-libs/pjproject 2.12.1-r1 2.12.1-r2: Open source SIP, Media, and NAT Traversal Library
 net-libs/ppp-defs 0: Shim header for net/ppp_defs.h on musl
 net-libs/quiche 0.14.0 0.15.0 0.16.0 9999: Implementation of the QUIC transport protocol and HTTP/3
 net-libs/qxmpp 1.2.0 1.4.0 9999: A cross-platform C++ XMPP client library based on the Qt framework
@@ -15381,7 +15381,7 @@ net-mail/amavis-logwatch 1.51.04: A log analyzer for amavisd-new
 net-mail/asmail 2.1-r2: A small mail monitor similar to xbiff
 net-mail/automx2 2022.0 2022.1: Email client autoconfiguration service
 net-mail/autorespond 2.0.4 2.0.5: Autoresponder add on package for qmailadmin
-net-mail/b4 0.8.0: Utility for fetching patchsets from public-inbox
+net-mail/b4 0.8.0 0.10.1: Utility for fetching patchsets from public-inbox
 net-mail/checkpassword 0.90-r5: A uniform password checking interface for root applications
 net-mail/checkpassword-pam 0.99-r1: checkpassword-compatible authentication program w/pam support
 net-mail/cmd5checkpw 0.30-r2 0.30-r3: A checkpassword compatible authentication program using CRAM-MD5
@@ -16699,7 +16699,7 @@ sci-libs/p4est 2.3.1-r1 2.3.3 2.8-r1 9999: Scalable Algorithms for Parallel Adap
 sci-libs/parmetis 4.0.3-r2: Parallel (MPI) unstructured graph partitioning library
 sci-libs/pastix 5.2.3 6.0.3: Parallel solver for very large sparse linear systems
 sci-libs/pcl 1.12.0 1.12.1 1.12.1-r1 9999: 2D/3D image and point cloud processing
-sci-libs/pdal 2.4.0-r1: A C++ library for translating and manipulating point cloud data
+sci-libs/pdal 2.4.0-r1 2.4.3: A C++ library for translating and manipulating point cloud data
 sci-libs/pgplot 5.2.2-r7: FORTRAN/C device-independent scientific graphic library
 sci-libs/plplot 5.15.0-r104: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r2: Small, fast library to generate primes in order
@@ -18162,6 +18162,7 @@ sys-power/sispmctl 4.1-r1: GEMBIRD SiS-PM control utility
 sys-power/suspend 1.0_p20190605 1.0_p20200924: Userspace Software Suspend and S2Ram
 sys-power/switcheroo-control 2.4 2.6: D-Bus service to check the availability of dual-GPU
 sys-power/thermald 2.5 2.5.1: Thermal daemon for Intel architectures
+sys-power/tlp 1.5.0: Optimize laptop battery life
 sys-power/uhubctl 2.4.0: USB hub per-port power control
 sys-power/upower 0.99.20: D-Bus abstraction for enumerating power devices, querying history and statistics
 sys-process/acct 6.6.4-r3: GNU system accounting utilities
