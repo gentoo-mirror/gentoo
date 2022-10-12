@@ -30,8 +30,3 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	sed -i -e '/addopts/d' pyproject.toml || die
-	distutils-r1_src_prepare
-}
