@@ -1,36 +1,28 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit systemd toolchain-funcs udev python-any-r1
+inherit edo systemd toolchain-funcs python-any-r1 udev
 
 MY_PN="qemu"
 MY_P="${MY_PN}-${PV}"
 
-SRC_URI="http://wiki.qemu.org/download/${MY_P}.tar.xz"
-KEYWORDS="amd64 ~ppc ~ppc64 x86"
-
 DESCRIPTION="QEMU Guest Agent (qemu-ga) for use when running inside a VM"
 HOMEPAGE="https://wiki.qemu.org/Features/GuestAgent"
+SRC_URI="http://wiki.qemu.org/download/${MY_P}.tar.xz"
 
 LICENSE="GPL-2 BSD-2"
 SLOT="0"
-IUSE=""
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="dev-libs/glib"
-
-DEPEND="${RDEPEND}
-	${PYTHON_DEPS}"
+DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}"
 
 S="${WORKDIR}/${MY_P}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.2.0-sysmacros.patch #580924
-	"${FILESDIR}"/${PN}-4.2.0-fix-shutdown.patch #681874
-)
 
 src_configure() {
 	tc-export AR LD OBJCOPY RANLIB
@@ -44,7 +36,7 @@ src_configure() {
 		--disable-linux-user
 		--disable-system
 		--disable-strip
-		--disable-tools
+		--enable-tools
 		--disable-werror
 		--enable-guest-agent
 		--python="${PYTHON}"
@@ -52,16 +44,12 @@ src_configure() {
 		--cxx="$(tc-getCXX)"
 		--host-cc="$(tc-getBUILD_CC)"
 	)
-	echo "./configure ${myconf[*]}"
-	./configure "${myconf[@]}" || die
-}
 
-src_compile() {
-	emake V=1 qemu-ga
+	edo ./configure "${myconf[@]}"
 }
 
 src_install() {
-	dobin qemu-ga
+	dobin build/qga/qemu-ga
 
 	# Normal init stuff
 	newinitd "${FILESDIR}/qemu-ga.init-r1" qemu-guest-agent
