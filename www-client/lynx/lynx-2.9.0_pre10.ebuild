@@ -1,7 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/thomasdickey.asc
+inherit verify-sig
 
 case ${PV} in
 	*_pre*) MY_P="${PN}${PV/_pre/dev.}" ;;
@@ -11,63 +14,64 @@ esac
 
 DESCRIPTION="An excellent console-based web browser with ssl support"
 HOMEPAGE="https://lynx.invisible-island.net/"
-SRC_URI="https://invisible-mirror.net/archives/lynx/tarballs/${MY_P}.tar.bz2"
+SRC_URI="https://invisible-mirror.net/archives/${PN}/tarballs/${MY_P}.tar.bz2"
+SRC_URI+=" verify-sig? ( https://invisible-mirror.net/archives/${PN}/tarballs/${MY_P}.tar.bz2.asc )"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="bzip2 cjk gnutls idn ipv6 nls ssl unicode"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="bzip2 cjk gnutls idn nls ssl"
 
 RDEPEND="
-	sys-libs/ncurses:=[unicode(+)?]
+	sys-libs/ncurses:=[unicode(+)]
 	sys-libs/zlib
+	bzip2? ( app-arch/bzip2 )
+	idn? ( net-dns/libidn:= )
 	nls? ( virtual/libintl )
 	ssl? (
 		!gnutls? (
-			dev-libs/openssl:0=
+			dev-libs/openssl:=
 		)
 		gnutls? (
-			dev-libs/libgcrypt:0=
+			dev-libs/libgcrypt:=
 			>=net-libs/gnutls-2.6.4:=
 		)
-	)
-	bzip2? ( app-arch/bzip2 )
-	idn? ( net-dns/libidn:0= )
+	)"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
+	verify-sig? ( sec-keys/openpgp-keys-thomasdickey )
 "
 
-DEPEND="${RDEPEND}
-	nls? ( sys-devel/gettext )
-	virtual/pkgconfig"
-
-S=${WORKDIR}/${MY_P}
-
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.8.6-mint.patch
-	"${FILESDIR}"/${PN}-2.8.9_p1-parallel.patch
+	"${FILESDIR}/${PN}-2.9.0_pre9-mint.patch"
+	"${FILESDIR}/${PN}-2.9.0_pre9-parallel.patch"
 )
 
 src_configure() {
 	local myconf=(
-		--enable-nested-tables
 		--enable-cgi-links
+		--enable-color-style
+		--enable-externs
+		--enable-file-upload
+		--enable-included-msgs
+		--enable-ipv6
+		--enable-nested-tables
+		--enable-nsl-fork
 		--enable-persistent-cookies
 		--enable-prettysrc
-		--enable-nsl-fork
-		--enable-file-upload
 		--enable-read-eta
-		--enable-color-style
 		--enable-scrollbar
-		--enable-included-msgs
-		--enable-externs
+		--with-screen=ncursesw
 		--with-zlib
-		$(use_enable nls)
-		$(use_enable idn idna)
-		$(use_enable ipv6)
 		$(use_enable cjk)
-		$(use_enable unicode japanese-utf8)
+		$(use_enable idn idna)
+		$(use_enable nls)
 		$(use_with bzip2 bzlib)
-		--with-screen=$(usex unicode ncursesw ncurses)
 	)
+
 	if use ssl; then
 		myconf+=(
 			--with-$(usex gnutls gnutls ssl)="${EPREFIX}/usr"
@@ -94,10 +98,8 @@ src_install() {
 
 	sed -i "s|^HELPFILE.*$|HELPFILE:file://localhost/usr/share/doc/${PF}/lynx_help/lynx_help_main.html|" \
 			"${ED}"/etc/lynx.cfg || die "lynx.cfg not found"
-	if use unicode ; then
-		sed -i '/^#CHARACTER_SET:/ c\CHARACTER_SET:utf-8' \
-				"${ED}"/etc/lynx.cfg || die "lynx.cfg not found"
-	fi
+	sed -i '/^#CHARACTER_SET:/ c\CHARACTER_SET:utf-8' \
+			"${ED}"/etc/lynx.cfg || die "lynx.cfg not found"
 
 	dodoc CHANGES COPYHEADER PROBLEMS README
 	dodoc -r docs lynx_help
