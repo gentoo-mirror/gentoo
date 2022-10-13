@@ -22,7 +22,7 @@ IUSE="bluetooth pulseaudio X"
 RESTRICT="test"
 
 DEPEND="
-	>=app-crypt/qca-2.3.0:2[ssl]
+	>=app-crypt/qca-2.3.0:2[qt5(+),ssl]
 	>=dev-libs/wayland-1.15.0
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5

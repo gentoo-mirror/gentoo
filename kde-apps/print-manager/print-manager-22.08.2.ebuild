@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=5.96.0
-PLASMA_MINIMAL=5.16.5
 QTMIN=5.15.5
 inherit ecm gear.kde.org
 
@@ -40,7 +39,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
-	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
+	kde-plasma/kde-cli-tools:5
 	gtk? ( app-admin/system-config-printer )
 "
 

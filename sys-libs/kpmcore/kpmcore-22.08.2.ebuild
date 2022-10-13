@@ -28,6 +28,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=sys-apps/util-linux-2.33.2
-	sys-auth/polkit-qt
+	>=sys-auth/polkit-qt-0.113.0[qt5(+)]
 "
 RDEPEND="${DEPEND}"

@@ -42,7 +42,7 @@ COMMON_DEPEND="
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libX11
-		x11-libs/libxcb[xkb]
+		x11-libs/libxcb
 		x11-libs/libxkbfile
 	)
 "

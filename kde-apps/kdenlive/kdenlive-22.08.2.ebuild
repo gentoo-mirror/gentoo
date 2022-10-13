@@ -9,7 +9,7 @@ ECM_TEST="true"
 KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
-inherit ecm gear.kde.org
+inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Non-linear video editing suite by KDE"
 HOMEPAGE="https://kdenlive.org/en/"
@@ -63,7 +63,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
-	media-video/ffmpeg[encode,sdl,X]
+	media-video/ffmpeg[encode,libass,sdl,X]
+	media-video/mediainfo
 "
 BDEPEND="sys-devel/gettext"
 
@@ -74,4 +75,9 @@ src_configure() {
 		$(cmake_use_find_package v4l LibV4L2)
 	)
 	ecm_src_configure
+}
+
+pkg_postinst() {
+	ecm_pkg_postinst
+	optfeature "VP8 and VP9 codec support" "media-video/ffmpeg[vpx]"
 }

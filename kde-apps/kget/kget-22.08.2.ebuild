@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="bittorrent gpg kde mms sqlite"
 
 RDEPEND="
-	>=app-crypt/qca-2.3.0:2
+	>=app-crypt/qca-2.3.0:2[qt5(+)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5

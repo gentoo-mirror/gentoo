@@ -20,7 +20,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND="
-	dev-libs/qtkeychain:=
+	dev-libs/qtkeychain:=[qt5(+)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5

@@ -15,7 +15,7 @@ inherit ecm gear.kde.org
 DESCRIPTION="Dolphin plugin for ISO loopback device mounting"
 HOMEPAGE="https://apps.kde.org/dolphin_plugins/"
 
-LICENSE="GPL-2" # TODO: CHECK
+LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE=""

@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
 COMMON_DEPEND="
-	>=app-crypt/qca-2.3.0:2
+	>=app-crypt/qca-2.3.0:2[qt5(+)]
 	>=dev-libs/gmp-6.0.0a:0=
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtnetwork-${QTMIN}:5

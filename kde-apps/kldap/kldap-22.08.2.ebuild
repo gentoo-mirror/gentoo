@@ -20,7 +20,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/cyrus-sasl
-	dev-libs/qtkeychain:=
+	dev-libs/qtkeychain:=[qt5(+)]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5

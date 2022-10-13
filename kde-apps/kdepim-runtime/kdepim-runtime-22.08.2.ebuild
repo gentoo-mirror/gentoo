@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_QTHELP="true"
+ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
 KFMIN=5.96.0
@@ -11,63 +11,77 @@ QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org
 
-DESCRIPTION="Libraries for messaging functions"
+DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
+HOMEPAGE="https://apps.kde.org/kontact/"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="speech"
 
-# bug 579630
 RESTRICT="test"
 
-DEPEND="
-	>=app-crypt/gpgme-1.16.0:=[cxx,qt5]
-	>=app-crypt/qca-2.3.0:2
-	>=dev-libs/grantlee-5.2.0:5
+# TODO kolab
+RDEPEND="
+	>=app-crypt/qca-2.3.0:2[qt5(+)]
+	dev-libs/cyrus-sasl:2
+	dev-libs/libical:=
+	dev-libs/qtkeychain:=[qt5(+)]
+	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtnetworkauth-${QTMIN}:5
 	>=dev-qt/qtwebengine-${QTMIN}:5[widgets]
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-apps/akonadi-${PVCUT}:5
+	>=kde-apps/akonadi-calendar-${PVCUT}:5
 	>=kde-apps/akonadi-contacts-${PVCUT}:5
 	>=kde-apps/akonadi-mime-${PVCUT}:5
-	>=kde-apps/akonadi-search-${PVCUT}:5
-	>=kde-apps/grantleetheme-${PVCUT}:5
-	>=kde-apps/incidenceeditor-${PVCUT}:5
+	>=kde-apps/akonadi-notes-${PVCUT}:5
+	>=kde-apps/kcalutils-${PVCUT}:5
 	>=kde-apps/kidentitymanagement-${PVCUT}:5
+	>=kde-apps/kimap-${PVCUT}:5
 	>=kde-apps/kldap-${PVCUT}:5
 	>=kde-apps/kmailtransport-${PVCUT}:5
 	>=kde-apps/kmbox-${PVCUT}:5
 	>=kde-apps/kmime-${PVCUT}:5
-	>=kde-apps/kpimtextedit-${PVCUT}:5[speech=]
-	>=kde-apps/libgravatar-${PVCUT}:5
 	>=kde-apps/libkdepim-${PVCUT}:5
-	>=kde-apps/libkleo-${PVCUT}:5
-	>=kde-frameworks/karchive-${KFMIN}:5
+	>=kde-apps/libkgapi-${PVCUT}:5
 	>=kde-frameworks/kcalendarcore-${KFMIN}:5
+	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcontacts-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
-	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kdav-${KFMIN}:5
+	>=kde-frameworks/kholidays-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
-	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/knotifyconfig-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	>=kde-frameworks/sonnet-${KFMIN}:5
-	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
+	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		>=dev-qt/qtxmlpatterns-${QTMIN}:5
+		>=kde-apps/kimap-${PVCUT}:5[test]
+	)
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
+		$(cmake_use_find_package speech Qt5TextToSpeech)
+	)
+	ecm_src_configure
+}
