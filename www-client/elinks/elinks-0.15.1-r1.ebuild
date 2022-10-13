@@ -59,6 +59,16 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-no-mouse-build.patch
+)
+
+pkg_setup() {
+	use lua && lua-single_pkg_setup
+
+	python-any-r1_pkg_setup
+}
+
 src_configure() {
 	local emesonargs=(
 		-D88-colors=true
