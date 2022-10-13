@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=unpack
+DEPEND=sys-devel/flex virtual/yacc
+DESCRIPTION=Generate C function prototypes from C source code
+EAPI=8
+HOMEPAGE=https://invisible-island.net/cproto/
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~alpha amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=public-domain
+SLOT=0
+SRC_URI=https://invisible-island.net/archives/cproto/cproto-4.7t.tgz verify-sig? ( https://invisible-island.net/archives/cproto/cproto-4.7t.tgz.asc )
+_eclasses_=verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=ade5983b23d86eca3a0587283d0bcb31
