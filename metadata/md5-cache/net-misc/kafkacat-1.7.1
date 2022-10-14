@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install postinst
+DEPEND=>=dev-libs/librdkafka-0.9.4 avro? ( dev-libs/avro-c dev-libs/libserdes ) json? ( dev-libs/yajl )
+DESCRIPTION=Generic command line non-JVM Apache Kafka producer and consumer
+EAPI=7
+HOMEPAGE=https://github.com/edenhill/kcat
+INHERIT=toolchain-funcs
+IUSE=+avro +json
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=>=dev-libs/librdkafka-0.9.4 avro? ( dev-libs/avro-c dev-libs/libserdes ) json? ( dev-libs/yajl )
+SLOT=0
+SRC_URI=https://github.com/edenhill/kcat/archive/1.7.1.tar.gz -> kcat-1.7.1.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=29330d4f8c78d9a8c43e99b0f2ac20d2
