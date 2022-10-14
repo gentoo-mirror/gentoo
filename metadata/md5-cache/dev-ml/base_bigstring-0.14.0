@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt=] dev-ml/base:= dev-ml/ppx_jane:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt=] dev-ml/base:= dev-ml/ppx_jane:= =dev-ml/ppx_compare-0.14*:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=String type based on Bigarray, for use in I/O and C-bindings
 EAPI=7
 HOMEPAGE=https://github.com/janestreet/base_bigstring
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv x86
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt=] dev-ml/base:= dev-ml/ppx_jane:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt=] dev-ml/base:= dev-ml/ppx_jane:= =dev-ml/ppx_compare-0.14*:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/base_bigstring/archive/v0.14.0.tar.gz -> base_bigstring-0.14.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=dea925e6135e4aed947d682c531fd11e
+_md5_=792cfcc5ab703292b35ff8fe641e646c
