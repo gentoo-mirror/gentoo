@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=Symlinks to use LLD on binutils-free system
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:LLVM
+INHERIT=multilib
+IUSE=multilib-symlinks +native-symlinks
+LICENSE=public-domain
+PROPERTIES=live
+RDEPEND=sys-devel/lld:16
+SLOT=16
+_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144
+_md5_=3fa53631b81df9b23e28ea3341e23e48
