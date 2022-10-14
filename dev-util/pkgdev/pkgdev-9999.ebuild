@@ -10,7 +10,8 @@ inherit distutils-r1
 if [[ ${PV} == *9999 ]] ; then
 	PKGDEV_DOCS_PREBUILT=0
 
-	EGIT_REPO_URI="https://github.com/pkgcore/pkgdev.git"
+	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/pkgcore/pkgdev.git
+		https://github.com/pkgcore/pkgdev.git"
 	inherit git-r3
 else
 	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
@@ -34,9 +35,9 @@ if [[ ${PV} == *9999 ]] ; then
 else
 	# https://github.com/pkgcore/pkgdev/blob/main/requirements/install.txt
 	RDEPEND="
-		>=dev-python/snakeoil-0.9.12[${PYTHON_USEDEP}]
-		>=dev-util/pkgcheck-0.10.15[${PYTHON_USEDEP}]
-		>=sys-apps/pkgcore-0.12.14[${PYTHON_USEDEP}]
+		>=dev-python/snakeoil-0.10.1[${PYTHON_USEDEP}]
+		>=dev-util/pkgcheck-0.10.16[${PYTHON_USEDEP}]
+		>=sys-apps/pkgcore-0.12.16[${PYTHON_USEDEP}]
 	"
 fi
 
