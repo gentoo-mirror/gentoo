@@ -14,11 +14,31 @@ LICENSE="icaclient"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
 IUSE="l10n_de l10n_es l10n_fr l10n_ja l10n_zh-CN"
-RESTRICT="mirror strip userpriv fetch"
+RESTRICT="mirror strip fetch"
 
 ICAROOT="/opt/Citrix/ICAClient"
 
 QA_PREBUILT="${ICAROOT#/}/*"
+
+# we have binaries for two conflicting kerberos implementations
+# https://bugs.gentoo.org/792090
+# https://bugs.gentoo.org/775995
+REQUIRES_EXCLUDE="
+	libgssapi.so.3
+	libgssapi_krb5.so.2 libkrb5.so.3
+"
+# we have binaries which wouls still support gstreamer:0.10
+REQUIRES_EXCLUDE="${REQUIRES_EXCLUDE}
+	libgstapp-0.10.so.0
+	libgstbase-0.10.so.0
+	libgstinterfaces-0.10.so.0
+	libgstpbutils-0.10.so.0
+	libgstreamer-0.10.so.0
+"
+# we have binaries which depend on some ancient libunwind
+REQUIRES_EXCLUDE="${REQUIRES_EXCLUDE}
+	libunwind.so.1
+"
 
 RDEPEND="
 	app-crypt/libsecret
@@ -36,8 +56,9 @@ RDEPEND="
 	media-libs/gst-plugins-base:1.0
 	media-libs/gstreamer:1.0
 	media-libs/libogg
-	media-libs/libjpeg-turbo
+	media-libs/libpulse
 	media-libs/libvorbis
+	media-libs/mesa
 	media-libs/speex
 	net-libs/libsoup:2.4
 	net-libs/webkit-gtk:4
@@ -109,9 +130,6 @@ src_install() {
 	doexe *.DLL libproxy.so wfica AuthManagerDaemon PrimaryAuthManager selfservice ServiceRecord
 
 	exeinto "${ICAROOT}"/lib
-	if use amd64 ; then
-		rm lib/ctxjpeg_fb_8.so || die
-	fi
 	doexe lib/*.so
 
 	for dest in "${ICAROOT}"{,/nls/en{,.UTF-8}} ; do
@@ -221,10 +239,14 @@ src_install() {
 
 	# 651926
 	domenu "${FILESDIR}"/*.desktop
+
+	insinto /usr/share/mime/packages
+	doins desktop/Citrix-mime_types.xml
 }
 
 pkg_postinst() {
 	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 
 	local inidest="${ROOT}${ICAROOT}/config"
 	if [[ ! -e "${inidest}"/module.ini ]] ; then
@@ -235,4 +257,5 @@ pkg_postinst() {
 
 pkg_postrm() {
 	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
