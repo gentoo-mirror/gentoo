@@ -3,10 +3,26 @@
 
 EAPI=8
 
-# Sometimes there's no dist tarball available post-release and upstream
-# encourage distros to make their own. Set to 1 if none is available, 0 otherwise.
-MAN_PAGES_GENTOO_DIST=1
+# Maintenance notes:
+# - Upstream are very friendly, do approach them if have any questions;
+#
+# - It's considered fine (and somewhat encouraged) for us to make snapshots
+#   if we want specific fixes, perhaps aligned with newer kernels, glibc, etc.
+#   Just generate it with 'make dist'. We can set DISTVERSION if we want a vanity
+#   name or if the comit hash is too long;
+#
+# - If we do use a snapshot, *don't* grab it directly from git and use it
+#   raw in the ebuild. Use 'make dist' as above;
+#
+# - Sometimes there's no dist tarball available post-release and upstream
+#   encourage distros to make their own. Set MAN_PAGES_GENTOO_DIST to 1 if none is
+#   available, 0 otherwise.
+MAN_PAGES_GENTOO_DIST=0
 GENTOO_PATCH=2
+
+if [[ ${PV} != 6.00 ]] ; then
+	die "Please use 9999 as a template for the next bump for SRC_URI fixes."
+fi
 
 DESCRIPTION="A somewhat comprehensive collection of Linux man pages"
 HOMEPAGE="https://www.kernel.org/doc/man-pages/"
@@ -20,11 +36,11 @@ elif [[ ${PV} == *_rc* ]] ; then
 	S="${WORKDIR}"/${MY_P}
 else
 	if [[ ${MAN_PAGES_GENTOO_DIST} -eq 1 ]] ; then
-		SRC_URI="https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}.tar.xz"
+		SRC_URI="https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-gentoo.tar.xz"
 	else
 		SRC_URI="
-			https://www.kernel.org/pub/linux/docs/man-pages/Archive/${P}.tar.xz
-			https://www.kernel.org/pub/linux/docs/man-pages/${P}.tar.xz
+			https://www.kernel.org/pub/linux/docs/man-pages/Archive/${P}.tar.xz -> ${P}-upstream.tar.xz
+			https://www.kernel.org/pub/linux/docs/man-pages/${P}.tar.xz -> ${P}-upstream.tar.xz
 		"
 	fi
 
