@@ -1,21 +1,25 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="ssl(+),threads(+)"
 
-inherit distutils-r1 flag-o-matic
+inherit distutils-r1
 
 DESCRIPTION="Coroutine-based network library"
-HOMEPAGE="https://www.gevent.org/ https://pypi.org/project/gevent/"
+HOMEPAGE="
+	https://www.gevent.org/
+	https://github.com/gevent/gevent/
+	https://pypi.org/project/gevent/
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="doc examples test"
 RESTRICT="!test? ( test )"
 
@@ -34,22 +38,15 @@ BDEPEND="
 		dev-python/dnspython[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 distutils_enable_sphinx doc
-
-# Tests take long and fail terribly a few times.
-# It also seems that they require network access.
-#RESTRICT="test"
 
 python_prepare_all() {
 	export GEVENTSETUP_EMBED="false"
 
 	distutils-r1_python_prepare_all
-}
-
-python_configure_all() {
-	append-flags -fno-strict-aliasing
 }
 
 python_test() {
