@@ -23,7 +23,7 @@ else
 	MY_P=${MY_PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 inherit bash-completion-r1 flag-o-matic linux-info meson-multilib pam python-any-r1 systemd toolchain-funcs udev usr-ldscript
@@ -168,8 +168,8 @@ BDEPEND="
 "
 
 python_check_deps() {
-	has_version -b "dev-python/jinja[${PYTHON_USEDEP}]" &&
-	has_version -b "dev-python/lxml[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/jinja[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/lxml[${PYTHON_USEDEP}]"
 }
 
 QA_FLAGS_IGNORED="usr/lib/systemd/boot/efi/.*"
@@ -235,11 +235,7 @@ src_unpack() {
 
 src_prepare() {
 	local PATCHES=(
-		# Breaks Clang. Revert the commit for now and force off F_S=3.
-		# bug #841770.
-		"${FILESDIR}/251-revert-fortify-source-3-fix.patch"
-		# bug #863218
-		"${FILESDIR}/251-glibc-2.36.patch"
+		"${FILESDIR}/252-rc1-cryptsetup.patch"
 	)
 
 	if ! use vanilla; then
@@ -287,9 +283,8 @@ multilib_src_configure() {
 		-Dpamlibdir="$(getpam_mod_dir)"
 		# avoid bash-completion dep
 		-Dbashcompletiondir="$(get_bashcompdir)"
-		# make sure we get /bin:/sbin in PATH
 		$(meson_use split-usr)
-		-Dsplit-bin=true
+		$(meson_use split-usr split-bin)
 		-Drootprefix="$(usex split-usr "${EPREFIX:-/}" "${EPREFIX}/usr")"
 		-Drootlibdir="${EPREFIX}/usr/$(get_libdir)"
 		# Avoid infinite exec recursion, bug 642724
@@ -371,6 +366,7 @@ multilib_src_test() {
 
 multilib_src_install_all() {
 	local rootprefix=$(usex split-usr '' /usr)
+	local sbin=$(usex split-usr sbin bin)
 
 	# meson doesn't know about docdir
 	mv "${ED}"/usr/share/doc/{systemd,${PF}} || die
@@ -379,19 +375,19 @@ multilib_src_install_all() {
 	dodoc "${FILESDIR}"/nsswitch.conf
 
 	if ! use resolvconf; then
-		rm -f "${ED}${rootprefix}"/sbin/resolvconf || die
+		rm -f "${ED}${rootprefix}/${sbin}"/resolvconf || die
 	fi
 
 	rm "${ED}"/etc/init.d/README || die
 	rm "${ED}${rootprefix}"/lib/systemd/system-generators/systemd-sysv-generator || die
 
 	if ! use sysv-utils; then
-		rm "${ED}${rootprefix}"/sbin/{halt,init,poweroff,reboot,runlevel,shutdown,telinit} || die
+		rm "${ED}${rootprefix}/${sbin}"/{halt,init,poweroff,reboot,runlevel,shutdown,telinit} || die
 		rm "${ED}"/usr/share/man/man1/init.1 || die
 		rm "${ED}"/usr/share/man/man8/{halt,poweroff,reboot,runlevel,shutdown,telinit}.8 || die
 	fi
 
-	if ! use resolvconf && ! use sysv-utils; then
+	if ! use resolvconf && ! use sysv-utils && use split-usr; then
 		rmdir "${ED}${rootprefix}"/sbin || die
 	fi
 
