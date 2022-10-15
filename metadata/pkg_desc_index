@@ -2706,7 +2706,7 @@ app-emulation/wine-gecko 2.47.2 2.47.3: A Mozilla Gecko based version of Interne
 app-emulation/wine-mono 7.0.0 7.3.0 7.3.1: Replacement for the .NET runtime and class libraries in Wine
 app-emulation/wine-proton 7.0.4 7.0.9999: Valve Software's fork of Wine
 app-emulation/wine-staging 7.16 7.17 7.18 9999: Free implementation of Windows(tm) on Unix, with Wine-Staging patchset
-app-emulation/wine-vanilla 7.0-r2 7.0-r3 7.16 7.17 7.18 9999: Free implementation of Windows(tm) on Unix, without external patchsets
+app-emulation/wine-vanilla 7.0-r2 7.0-r3 7.16 7.17 7.18 7.19 9999: Free implementation of Windows(tm) on Unix, without external patchsets
 app-emulation/winetricks 20210206 20220411 99999999: Easy way to install DLLs needed to work around problems in Wine
 app-emulation/x48 0.6.4-r2: HP48 Calculator Emulator
 app-emulation/xcpc 0.37.0-r1: XCPC is a portable Amstrad CPC 464/664/6128 emulator written in C
@@ -11959,7 +11959,7 @@ games-puzzle/fish-fillets 1.0.1-r100: Underwater puzzle game - find a safe way o
 games-puzzle/five-or-more 3.32.3: Remove colored balls from the board by forming lines
 games-puzzle/flobopuyo 0.20-r3: Clone of the famous PuyoPuyo game
 games-puzzle/freesweep 1.0.2: Console Minesweeper
-games-puzzle/galaxis 1.8-r1: Curses-based clone of the nifty little Macintosh freeware game Galaxis
+games-puzzle/galaxis 1.10: Curses-based clone of the nifty little Macintosh freeware game Galaxis
 games-puzzle/gemdropx 0.9-r3: Puzzle game where it's your job to clear the screen of gems
 games-puzzle/gfifteen 1.0.3-r2: Graphical implementation of the sliding puzzle game fifteen
 games-puzzle/glightoff 1.0.0-r1: A simple (but not so easy to solve!) puzzle game
@@ -14325,7 +14325,7 @@ media-sound/mpdas 0.4.5: AudioScrobbler client for MPD written in C++
 media-sound/mpdscribble 0.24: An MPD client that submits information to Audioscrobbler
 media-sound/mpfc 1.3.8.1-r4: Music Player For Console
 media-sound/mpg123 1.30.2: a realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3
-media-sound/mpg321 0.3.2: A realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3
+media-sound/mpg321 0.3.2-r1: A realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3
 media-sound/mplay 0.80: A Curses front-end for mplayer
 media-sound/mps-youtube 0.2.8-r3 9999: Terminal-based YouTube player and downloader
 media-sound/mt-daapd 0.2.4.2-r1: A multi-threaded implementation of Apple's DAAP server
@@ -15780,7 +15780,7 @@ net-misc/websocat 1.6.0-r2 1.9.0 1.10.0 1.11.0: Command-line client for WebSocke
 net-misc/websocketd 0.4.1: Like inetd, but for WebSockets
 net-misc/wget 1.21.3 1.21.3-r1: Network utility to retrieve files from the WWW
 net-misc/wget2 2.0.1 2.0.1-r2 9999: GNU Wget2 is a file and recursive website downloader
-net-misc/whatmask 1.2-r1: little C program to compute different subnet mask notations
+net-misc/whatmask 1.2-r1: Little C program to compute different subnet mask notations
 net-misc/whois 5.5.13-r1 9999: improved Whois Client
 net-misc/wol 0.7.1-r3: Implements Wake On LAN (Magic Paket) functionality in a small program
 net-misc/wput 0.6.2 0.6.2_p20130413_p11: Tiny program like wget, to upload files/whole directories via FTP
@@ -17454,7 +17454,7 @@ sys-apps/nawk 20180827: Brian Kernighan's pattern scanning and processing langua
 sys-apps/net-tools 2.10 9999: Standard Linux networking tools
 sys-apps/netkit-base 0.17-r9: Old-style inetd
 sys-apps/netplug 1.2.9.2-r3: Brings up/down ethernet ports automatically with cable detection
-sys-apps/noexec 1.1.0-r1: a package for preventing processes from using exec system calls
+sys-apps/noexec 1.1.0-r2: Package for preventing processes from using exec system calls
 sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 1.16 1.16-r1 2.0 2.0-r1 2.1.1 2.1.2: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
@@ -17759,14 +17759,14 @@ sys-cluster/keepalived 2.2.4 2.2.7: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.23.2: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: Kubernetes API server
-sys-cluster/kube-controller-manager 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: Kubernetes API server
+sys-cluster/kube-controller-manager 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: Kubernetes Scheduler
-sys-cluster/kubeadm 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.22.14 1.23.11 1.24.5 1.25.1 1.25.2: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: Kubernetes Scheduler
+sys-cluster/kubeadm 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.22.14 1.23.11 1.24.5 1.24.7 1.25.1 1.25.3: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6: A client for kubelet
 sys-cluster/legion 21.09.0-r1 9999: A data-centric parallel programming system
 sys-cluster/libcircle 0.3.0: API for distributing embarrassingly parallel workloads using self-stabilization
@@ -18689,7 +18689,7 @@ x11-base/xorg-server 21.1.4 9999: X.Org X servers
 x11-base/xorg-sgml-doctools 1.12: SGML entities and XML/CSS stylesheets used in X.Org docs
 x11-base/xorg-x11 7.4-r3: An X11 implementation maintained by the X.Org Foundation (meta package)
 x11-base/xwayland 22.1.3 9999: Standalone X server running under Wayland
-x11-drivers/nvidia-drivers 390.154 470.141.03 510.85.02 515.49.19 515.65.01 515.76 520.56.06: NVIDIA Accelerated Graphics Driver
+x11-drivers/nvidia-drivers 390.154 470.141.03 510.85.02 515.49.19 515.65.01 520.56.06: NVIDIA Accelerated Graphics Driver
 x11-drivers/xf86-input-elographics 1.4.2: Elographics input driver
 x11-drivers/xf86-input-evdev 2.10.6: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.3: X.Org driver for joystick input devices
