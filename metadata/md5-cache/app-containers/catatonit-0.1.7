@@ -1,9 +1,12 @@
-DEFINED_PHASES=configure install
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
 DESCRIPTION=A container init that is so simple it's effectively brain-dead
 EAPI=7
 HOMEPAGE=https://github.com/openSUSE/catatonit
+INHERIT=autotools
 KEYWORDS=amd64 arm64 ~ppc64 ~riscv
 LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://github.com/openSUSE/catatonit/archive/v0.1.7.tar.gz -> catatonit-0.1.7.tar.gz https://github.com/openSUSE/catatonit/pull/19.patch -> catatonit-0.1.7-automake.patch
-_md5_=f12fa4a0f82c03d7dbc08ee7b1c48eff
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=337fc6e6a0e2ce71366a7ed8a8168f3d
