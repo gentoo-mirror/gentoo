@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen dev-qt/qthelp:5 )
+BDEPEND=doc? ( app-doc/doxygen dev-qt/qdoc:5 dev-qt/qthelp:5 )
 DEFINED_PHASES=compile configure install prepare
 DEPEND=dev-qt/qtcore:5 dev-qt/qtdeclarative:5 net-libs/accounts-qt net-libs/signond test? ( dev-qt/qtgui:5 dev-qt/qttest:5 )
 DESCRIPTION=QML bindings for accounts-qt and signond
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/accounts-qml-module/-/archive/VERSION_0.7/accounts-qml-module-VERSION_0.7.tar.gz https://dev.gentoo.org/~asturm/distfiles/accounts-qml-0.7-patches-1.tar.xz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
-_md5_=f886dc1a0489181a00c7a4fe2b2b610b
+_md5_=143c22f062cac358c4be7125c0877992
