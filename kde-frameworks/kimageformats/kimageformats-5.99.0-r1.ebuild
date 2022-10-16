@@ -29,6 +29,8 @@ RDEPEND="${DEPEND}"
 
 DOCS=( src/imageformats/AUTHORS )
 
+PATCHES=( "${FILESDIR}"/${P}-avif-perf-{1,2}.patch )
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIMAGEFORMATS_JXL=$(usex jpegxl)
