@@ -1,0 +1,14 @@
+BDEPEND=app-text/rman sys-devel/bison sys-devel/flex sys-devel/gcc >=x11-misc/imake-1.0.8-r1
+DEFINED_PHASES=compile configure install prepare
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXpm x11-libs/libXt x11-base/xorg-proto
+DESCRIPTION=TWM descendant that implements a Virtual Desktop
+EAPI=8
+HOMEPAGE=http://www.vtwm.org/
+INHERIT=flag-o-matic toolchain-funcs
+KEYWORDS=~alpha ~amd64 ppc sparc x86
+LICENSE=MIT
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXpm x11-libs/libXt x11-apps/xsetroot
+SLOT=0
+SRC_URI=http://www.vtwm.org/downloads/vtwm-5.4.7.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=4787b6a331a4d1fa1f50466d52bba747
