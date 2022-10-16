@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-06">
+    <title>libvirt: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libvirt, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">libvirt,libvirt-python</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>746119</bug>
+    <bug>799713</bug>
+    <bug>812317</bug>
+    <bug>836128</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/libvirt" auto="yes" arch="*">
+            <unaffected range="ge">8.2.0</unaffected>
+            <vulnerable range="lt">8.2.0</vulnerable>
+        </package>
+        <package name="dev-python/libvirt-python" auto="yes" arch="*">
+            <unaffected range="ge">8.2.0</unaffected>
+            <vulnerable range="lt">8.2.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libvirt is a C toolkit for manipulating virtual machines.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libvirt. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libvirt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/libvirt-8.2.0"
+        </code>
+        
+        <p>All libvirt-python users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/libvirt-python-8.2.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14339">CVE-2020-14339</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25637">CVE-2020-25637</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3631">CVE-2021-3631</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3667">CVE-2021-3667</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0897">CVE-2022-0897</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:42:10.219617Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:42:10.224150Z">ajak</metadata>
+</glsa>

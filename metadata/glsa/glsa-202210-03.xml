@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-03">
+    <title>libxml2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libxml2, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">libxml2</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>833809</bug>
+    <bug>842261</bug>
+    <bug>865727</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libxml2" auto="yes" arch="*">
+            <unaffected range="ge">2.10.2</unaffected>
+            <vulnerable range="lt">2.10.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libxml2 is the XML C parser and toolkit developed for the GNOME project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libxml2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libxml2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libxml2-2.10.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23308">CVE-2022-23308</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29824">CVE-2022-29824</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:40:08.100268Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:40:08.111318Z">ajak</metadata>
+</glsa>

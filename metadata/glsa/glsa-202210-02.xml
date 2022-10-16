@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-02">
+    <title>OpenSSL: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in OpenSSL, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">openssl</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>741570</bug>
+    <bug>809980</bug>
+    <bug>832339</bug>
+    <bug>835343</bug>
+    <bug>842489</bug>
+    <bug>856592</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/openssl" auto="yes" arch="*">
+            <unaffected range="ge">1.1.1q</unaffected>
+            <vulnerable range="lt">1.1.1q</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenSSL is an Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) as well as a general purpose cryptography library.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenSSL. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenSSL users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/openssl-1.1.1q"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-1968">CVE-2020-1968</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3711">CVE-2021-3711</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3712">CVE-2021-3712</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4160">CVE-2021-4160</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0778">CVE-2022-0778</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1292">CVE-2022-1292</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1473">CVE-2022-1473</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2097">CVE-2022-2097</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:27:07.365886Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:27:07.370780Z">ajak</metadata>
+</glsa>
