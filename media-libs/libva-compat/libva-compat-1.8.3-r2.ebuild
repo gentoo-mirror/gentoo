@@ -26,7 +26,7 @@ RDEPEND=">=x11-libs/libdrm-2.4.46[${MULTILIB_USEDEP}]
 	egl? ( >=media-libs/mesa-9.1.6[egl(+),${MULTILIB_USEDEP}] )
 	opengl? ( >=virtual/opengl-7.0-r1[${MULTILIB_USEDEP}] )
 	wayland? ( >=dev-libs/wayland-1.0.6[${MULTILIB_USEDEP}] )
-	!x11-libs/libva:0/0"
+	!media-libs/libva:0/0"
 
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -61,6 +61,6 @@ multilib_src_install() {
 
 pkg_postinst() {
 	optfeature_header
-	optfeature "Older Intel GPU support" x11-libs/libva-intel-driver
-	optfeature "Newer Intel GPU support" x11-libs/libva-intel-media-driver
+	optfeature "Older Intel GPU support" media-libs/libva-intel-driver
+	optfeature "Newer Intel GPU support" media-libs/libva-intel-media-driver
 }

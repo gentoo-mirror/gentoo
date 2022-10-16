@@ -30,12 +30,11 @@ IUSE="+redistributable test X"
 RESTRICT="!test? ( test )"
 
 DEPEND=">=media-libs/gmmlib-22.0.0:=
-	>=x11-libs/libva-2.14.0[X?]
+	>=media-libs/libva-2.14.0[X?]
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-20.2.0_x11_optional.patch
 	"${FILESDIR}"/${PN}-21.4.2-Remove-unwanted-CFLAGS.patch
 	"${FILESDIR}"/${PN}-20.4.5_testing_in_src_test.patch
 )
@@ -46,7 +45,7 @@ src_configure() {
 		-DMEDIA_RUN_TEST_SUITE=$(usex test)
 		-DBUILD_TYPE=Release
 		-DPLATFORM=linux
-		-DUSE_X11=$(usex X)
+		-DCMAKE_DISABLE_FIND_PACKAGE_X11=$(usex !X)
 		-DENABLE_NONFREE_KERNELS=$(usex redistributable)
 		-DLATEST_CPP_NEEDED=ON # Seems to be the best option for now
 	)

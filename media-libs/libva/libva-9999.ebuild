@@ -19,7 +19,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1)"
-IUSE="opengl wayland X"
+IUSE="+drm opengl wayland X"
 REQUIRED_USE="opengl? ( X )"
 
 RDEPEND="
@@ -63,6 +63,6 @@ multilib_src_configure() {
 
 pkg_postinst() {
 	optfeature_header
-	optfeature "Older Intel GPU support" x11-libs/libva-intel-driver
-	optfeature "Newer Intel GPU support" x11-libs/libva-intel-media-driver
+	optfeature "Older Intel GPU support" media-libs/libva-intel-driver
+	optfeature "Newer Intel GPU support" media-libs/libva-intel-media-driver
 }

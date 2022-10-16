@@ -14,12 +14,12 @@ if [[ ${PV} = *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/intel/libva"
 else
 	SRC_URI="https://github.com/intel/libva/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1)"
-IUSE="+drm opengl wayland X"
+IUSE="opengl wayland X"
 REQUIRED_USE="opengl? ( X )"
 
 RDEPEND="
@@ -63,6 +63,6 @@ multilib_src_configure() {
 
 pkg_postinst() {
 	optfeature_header
-	optfeature "Older Intel GPU support" x11-libs/libva-intel-driver
-	optfeature "Newer Intel GPU support" x11-libs/libva-intel-media-driver
+	optfeature "Older Intel GPU support" media-libs/libva-intel-driver
+	optfeature "Newer Intel GPU support" media-libs/libva-intel-media-driver
 }
