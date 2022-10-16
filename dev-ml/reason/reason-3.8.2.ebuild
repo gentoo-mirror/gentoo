@@ -3,14 +3,11 @@
 
 EAPI=8
 
-H=ccc34729994b4a80d4f6274cc0165cd9113444d6
-
 inherit dune
 
 DESCRIPTION="Simple, fast & type safe language that leverages JavaScript and OCaml"
 HOMEPAGE="https://reasonml.github.io"
-SRC_URI="https://github.com/reasonml/${PN}/archive/${H}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${H}"
+SRC_URI="https://github.com/reasonml/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
