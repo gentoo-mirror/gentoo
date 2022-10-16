@@ -182,6 +182,7 @@ acct-group/kibana 0-r1: Kibana program group
 acct-group/kismet 0-r1: net-wireless/kismet
 acct-group/kmem 0-r1: System group: kmem
 acct-group/knot 0-r1: System group: knot
+acct-group/knot-resolver 0: System group: knot-resolver
 acct-group/kube-apiserver 0-r1: System group: kube-apiserver
 acct-group/kube-controller-manager 0-r1: System group: kube-controller-manager
 acct-group/kube-scheduler 0-r1: System group: kube-scheduler
@@ -639,6 +640,7 @@ acct-user/keystone 0-r1: user for the keystone openstack service
 acct-user/kibana 0-r1: Kibana program user
 acct-user/kismet 0-r1: net-wireless/kismet
 acct-user/knot 0-r1: User for knot DNS server
+acct-user/knot-resolver 0: System user: knot-resolver
 acct-user/kube-apiserver 0-r1: user for kube-apiserver
 acct-user/kube-controller-manager 0-r1: user for kube-controller-manager
 acct-user/kube-scheduler 0-r1: user for kube-scheduler
@@ -14663,7 +14665,7 @@ media-video/x264-encoder 0.0.20190903 0.0.20220222 9999: A free commandline enco
 media-video/xine-ui 0.99.12 0.99.13: Xine movie player
 media-video/xvattr 1.3-r3: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12: GTK2-configuration dialog for xvid4
-media-video/yle-dl 20220830: Download media files from Yle Areena
+media-video/yle-dl 20220830 20221015: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1: A bi-directional ping utility
 net-analyzer/alive 2.0.5: A periodic ping program
 net-analyzer/angst 0.4b-r3: an active sniffer that provides methods for aggressive sniffing on switched LANs
@@ -14991,6 +14993,7 @@ net-dns/hash-slinger 3.1 3.2: Various tools to generate DNS records like SSHFP, 
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3: Toolkit for Internationalized Domain Names (IDN)
 net-dns/knot 3.1.5 3.1.7 3.1.8 3.1.9 3.2.0 3.2.1-r1: High-performance authoritative-only DNS server
+net-dns/knot-resolver 5.5.3: A scaleable caching DNS resolver
 net-dns/ldns-utils 1.8.0-r3: Set of utilities to simplify various dns(sec) tasks
 net-dns/libidn 1.41: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.3: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
@@ -16978,6 +16981,7 @@ sec-keys/openpgp-keys-joelrosdahl 20220409: OpenPGP keys used by Joel Rosdahl
 sec-keys/openpgp-keys-kamildudka 20220525: OpenPGP keys used by Kamil Dudka
 sec-keys/openpgp-keys-karelzak 20220331: OpenPGP keys used by Karel Zak
 sec-keys/openpgp-keys-kernel 20201103: OpenPGP keys used to sign Linux kernel releases
+sec-keys/openpgp-keys-knot-resolver 20221016: OpenPGP keys used by the Knot Resolver developers
 sec-keys/openpgp-keys-kovidgoyal 20220106: OpenPGP keys used by Kovid Goyal
 sec-keys/openpgp-keys-lassecollin 202204066: OpenPGP keys used by Lasse Collin
 sec-keys/openpgp-keys-libarchive 20220324: OpenPGP keys used by the libarchive project
