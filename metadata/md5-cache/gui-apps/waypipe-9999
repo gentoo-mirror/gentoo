@@ -1,6 +1,6 @@
 BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) virtual/pkgconfig man? ( app-text/scdoc ) test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
-DEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-util/systemtap ) vaapi? ( x11-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
+DEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-util/systemtap ) vaapi? ( media-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
 DESCRIPTION=Transparent network proxy for Wayland compositors
 EAPI=7
 HOMEPAGE=https://gitlab.freedesktop.org/mstoeckl/waypipe
@@ -8,9 +8,9 @@ INHERIT=meson python-any-r1 git-r3
 IUSE=dmabuf ffmpeg lz4 man systemtap test vaapi zstd cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_sse3 cpu_flags_arm_neon
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-util/systemtap ) vaapi? ( x11-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
+RDEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-util/systemtap ) vaapi? ( media-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
 REQUIRED_USE=vaapi? ( ffmpeg )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=b4a1b030cfe25b83ff3bc012b16837ff
+_md5_=8d844ce9c0bda1278b0b24c1a4e612ae
