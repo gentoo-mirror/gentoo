@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
@@ -19,11 +19,11 @@ SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
 IUSE="extras"
 
-BDEPEND="
+RDEPEND="
 	>=dev-python/vine-5.0.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
-		>=dev-python/case-1.3.1[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		>=dev-python/pytest-rerunfailures-6.0[${PYTHON_USEDEP}]
 	)
 "
