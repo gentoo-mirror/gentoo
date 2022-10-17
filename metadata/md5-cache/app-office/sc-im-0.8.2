@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/andmarti1424/sc-im
 INHERIT=lua-single toolchain-funcs flag-o-matic
 IUSE=X plots wayland xls xlsx lua ods tmux lua_single_target_luajit lua_single_target_lua5-1
-KEYWORDS=amd64 ~arm64
+KEYWORDS=amd64 ~arm ~arm64
 LICENSE=BSD-4
 RDEPEND=sys-libs/ncurses:= lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ods? ( dev-libs/libxml2 dev-libs/libzip ) plots? ( sci-visualization/gnuplot ) tmux? ( app-misc/tmux ) wayland? ( gui-apps/wl-clipboard ) X? ( x11-misc/xclip ) xls? ( dev-libs/libxls ) xlsx? ( dev-libs/libxlsxwriter dev-libs/libxml2 dev-libs/libzip )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
 SLOT=0
 SRC_URI=https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz -> sc-im-0.8.2.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	flag-o-matic	29a755b1291d64133634d80b0328f153
-_md5_=e0948e641134c112c87b38f0609ebd21
+_md5_=8c1f051dba6047a135381db8927f0d27
