@@ -27,6 +27,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-python/python-distutils-extra[${PYTHON_USEDEP}]
+	dev-util/intltool
 "
 
 src_install() {
