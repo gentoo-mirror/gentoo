@@ -10,7 +10,6 @@ SRC_URI="http://download.savannah.nongnu.org/releases/guile-json/${P}.tar.gz"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 RESTRICT="strip"
 
 RDEPEND=">=dev-scheme/guile-2.0.0:="

@@ -23,7 +23,6 @@ BDEPEND="
 "
 
 DOCS=( readme.org news.org doc/html )
-ELISP_REMOVE=".dir-locals.el"
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
