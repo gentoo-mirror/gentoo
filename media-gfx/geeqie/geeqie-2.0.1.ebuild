@@ -4,17 +4,16 @@
 EAPI=8
 LUA_COMPAT=( lua5-{3,4} )
 
-inherit git-r3 lua-single meson optfeature xdg
+inherit lua-single meson optfeature xdg
 
 DESCRIPTION="A lightweight GTK image viewer forked from GQview"
 HOMEPAGE="http://www.geeqie.org"
-SRC_URI=""
-# Using github mirror, as geeqie.org does not have a valid SSL certificate
-EGIT_REPO_URI="https://github.com/BestImageViewer/geeqie.git"
+SRC_URI="https://github.com/BestImageViewer/${PN}/releases/download/v${PV}/${P}.tar.xz
+	https://dev.gentoo.org/~voyageur/${P}-ChangeLog.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="debug doc djvu exif ffmpegthumbnailer gpu-accel heif jpeg jpeg2k jpegxl lcms lua map pdf raw spell tiff webp xmp zip"
 
 RDEPEND="gnome-extra/zenity
@@ -51,7 +50,7 @@ REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )
 	map? ( gpu-accel )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.0.1-allow_xxdi.patch"
+	"${FILESDIR}/${P}-allow_xxdi.patch"
 )
 
 src_prepare() {
@@ -90,6 +89,9 @@ src_configure() {
 src_install() {
 	meson_src_install
 
+	# Manually generated ChangeLog
+	dodoc "${WORKDIR}"/${P}-ChangeLog/*
+
 	# The application needs access to some uncompressed doc files.
 	docompress -x /usr/share/doc/${PF}/AUTHORS
 	docompress -x /usr/share/doc/${PF}/ChangeLog
@@ -100,10 +102,9 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	optfeature "Camera import and tethered photography plugins" media-gfx/gphoto2
-	optfeature "Export JPEG plugin" media-gfx/exiv2
 	optfeature "Lens ID plugin" media-libs/exiftool
-	optfeature "Image crop plugin" "media-gfx/exiv2 media-libs/exiftool media-gfx/imagemagick"
-	optfeature "Image rotate plugin (JPEG)" "media-gfx/exiv2 media-gfx/fbida"
-	optfeature "Image rotate plugin (TIFF/PNG)" "media-gfx/exiv2 media-gfx/imagemagick"
+	optfeature "Image crop plugin" "media-libs/exiftool media-gfx/imagemagick"
+	optfeature "Image rotate plugin (JPEG)" media-gfx/fbida
+	optfeature "Image rotate plugin (TIFF/PNG)" media-gfx/imagemagick
 	optfeature "Print preview functionality" app-text/evince
 }

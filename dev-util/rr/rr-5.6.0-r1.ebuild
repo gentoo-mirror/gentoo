@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,7 @@ inherit cmake linux-info python-single-r1
 
 DESCRIPTION="Record and Replay Framework"
 HOMEPAGE="https://rr-project.org/"
-SRC_URI="https://github.com/mozilla/${PN}/archive/${PV}.tar.gz -> mozilla-${P}.tar.gz"
+SRC_URI="https://github.com/rr-debugger/${PN}/archive/${PV}.tar.gz -> mozilla-${P}.tar.gz"
 
 LICENSE="MIT BSD-2"
 SLOT="0"
@@ -19,11 +19,14 @@ IUSE="multilib test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
-	sys-libs/zlib:=
+	${PYTHON_DEPS}
 	dev-libs/capnproto:=
-	${PYTHON_DEPS}"
-RDEPEND="${DEPEND}
-	sys-devel/gdb[xml]"
+	sys-libs/zlib:=
+"
+RDEPEND="
+	${DEPEND}
+	sys-devel/gdb[xml]
+"
 # Add all the deps needed only at build/test time.
 DEPEND+="
 	test? (
@@ -33,7 +36,16 @@ DEPEND+="
 		sys-devel/gdb[xml]
 	)"
 
+QA_FLAGS_IGNORED="
+	usr/lib.*/rr/librrpage.so
+	usr/lib.*/rr/librrpage_32.so
+"
+
 RESTRICT="test" # toolchain and kernel version dependent
+
+PATCHES=(
+	"${FILESDIR}"/${P}-linux-headers-6.0.patch
+)
 
 pkg_setup() {
 	if use kernel_linux; then
