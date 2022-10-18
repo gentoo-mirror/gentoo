@@ -6,8 +6,8 @@ inherit go-module systemd tmpfiles
 
 KEYWORDS="~amd64 ~arm64"
 DESCRIPTION="An etcd backed network fabric for containers"
-HOMEPAGE="https://github.com/coreos/flannel"
-SRC_URI="https://github.com/coreos/flannel/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/flannel-io/flannel"
+SRC_URI="https://github.com/flannel-io/flannel/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 BSD ISC LGPL-3 MIT"
 SLOT="0"
