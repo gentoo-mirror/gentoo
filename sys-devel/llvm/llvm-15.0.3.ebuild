@@ -18,7 +18,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 IUSE="
 	+binutils-plugin debug doc exegesis libedit +libffi ncurses test xar
 	xml z3 zstd
@@ -70,7 +70,7 @@ PDEPEND="
 
 LLVM_COMPONENTS=( llvm cmake third-party )
 LLVM_MANPAGES=1
-LLVM_PATCHSET=9999-r3
+LLVM_PATCHSET=${PV/_/-}
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals
 
