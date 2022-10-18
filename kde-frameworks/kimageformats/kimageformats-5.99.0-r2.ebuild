@@ -29,7 +29,10 @@ RDEPEND="${DEPEND}"
 
 DOCS=( src/imageformats/AUTHORS )
 
-PATCHES=( "${FILESDIR}"/${P}-avif-perf-{1,2}.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-avif-perf-{1,2,3}.patch
+	"${FILESDIR}"/${P}-avif-0.11.0.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
