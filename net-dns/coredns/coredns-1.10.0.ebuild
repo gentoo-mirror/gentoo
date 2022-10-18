@@ -4,7 +4,7 @@
 EAPI=7
 
 # Don't forget to update when bumping. Used in --version output
-EGIT_COMMIT="4293992bb83a5eac1d1e617a40638db6db046283"
+EGIT_COMMIT="596a9f9e67dd9b01e15bc04a999460422fe65166"
 
 inherit fcaps go-module systemd tmpfiles
 
