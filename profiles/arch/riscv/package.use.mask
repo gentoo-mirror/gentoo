@@ -1,6 +1,10 @@
 # Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Xin Yang <yangmame@icloud.com> (2022-10-18)
+# requires qtwebengine, bug #876301
+app-i18n/fcitx-libpinyin dictionary-manager
+
 # Yixun Lan <dlan@gentoo.org> (2022-01-27)
 # This target supports ASAN/etc...
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2022-09-25)
@@ -63,11 +67,6 @@ sys-block/fio rbd
 # sys-process/criu doesn't support riscv (bug #835975)
 # Upstream bug for criu: https://github.com/checkpoint-restore/criu/issues/1702
 app-containers/crun criu
-
-# Alex Fan <alex.fan.q@gmail.com> (2022-02-28)
-# dev-libs/vc is a dummy implementation on this arch
-# krita fails to build with it
-media-gfx/krita vc
 
 # Adel Kara Slimane <adel.ks@zegrapher.com> (2022-02-17)
 # Mask AMF keyword on non-amd64 arches
