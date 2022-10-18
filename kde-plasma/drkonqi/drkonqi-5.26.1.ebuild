@@ -51,7 +51,7 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.25.90-unused-dep.patch" # git master
-	"${WORKDIR}/${P}-revert-add-sentry-support.patch" # bug 871759
+	"${WORKDIR}/${PN}-5.26.0-revert-add-sentry-support.patch" # bug 871759
 )
 
 src_test() {

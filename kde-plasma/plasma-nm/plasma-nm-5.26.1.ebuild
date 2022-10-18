@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 IUSE="modemmanager openconnect teamd"
 
 DEPEND="
-	>=app-crypt/qca-2.3.0:2
+	>=app-crypt/qca-2.3.0:2[qt5(+)]
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -65,7 +65,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${P}-unused-dep.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.26.0-unused-dep.patch" )
 
 src_prepare() {
 	ecm_src_prepare

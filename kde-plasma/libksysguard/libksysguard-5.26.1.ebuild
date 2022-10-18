@@ -62,7 +62,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.22.80-no-detailed-mem-message.patch"
 	# pending upstream:
 	# https://invent.kde.org/plasma/libksysguard/-/merge_requests/238
-	"${FILESDIR}/${P}-with_x11.patch"
+	"${FILESDIR}/${PN}-5.26.0-with_x11.patch"
 )
 
 src_configure() {
