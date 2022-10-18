@@ -1,6 +1,5 @@
-BDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p1:0=[xml(+),sqlite?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10[xml(+),sqlite?] ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-vcs/subversion ) app-text/asciidoc python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p1:0=[xml(+),sqlite?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10[xml(+),sqlite?] ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
-DEPEND=test? ( dev-vcs/subversion )
 DESCRIPTION=Tool to manage Gentoo overlays
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Layman
@@ -13,4 +12,4 @@ REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_p
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb	linux-info	bbfa385d6907d7948d49a5e107bd654d	prefix	eab3c99d77fe00506c109c8a736186f7	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=99710fb7b28253eb04e2be094fac3fea
+_md5_=1128a91000aa2890ef67fe8fd1ef1361

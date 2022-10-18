@@ -1,6 +1,5 @@
-BDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p1:0=[xml(+),sqlite?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10[xml(+),sqlite?] )
+BDEPEND=test? ( dev-vcs/subversion ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p1:0=[xml(+),sqlite?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10[xml(+),sqlite?] )
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test
-DEPEND=test? ( dev-vcs/subversion )
 DESCRIPTION=Tool to manage Gentoo overlays
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Layman
@@ -14,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/layman/layman-2.4.3.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb	linux-info	bbfa385d6907d7948d49a5e107bd654d	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=03bc1294eaa28a7ac0f19644cac44817
+_md5_=741c52907f75d79d7953a16a46413610
