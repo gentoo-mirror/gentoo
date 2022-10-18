@@ -3,7 +3,7 @@
 
 EAPI=7
 inherit bash-completion-r1 go-module toolchain-funcs
-GIT_COMMIT=362d5fdc0a3dbee389b3d3f1034e8023e72bd3a7
+GIT_COMMIT=fe869b5d4da11ba318eb84a3ac00f336411de7ba
 GIT_COMMIT_SHORT=${GIT_COMMIT:0:9}
 
 DESCRIPTION="Single Node Kubernetes Cluster"
