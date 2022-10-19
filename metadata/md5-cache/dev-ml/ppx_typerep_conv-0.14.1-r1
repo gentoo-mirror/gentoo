@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-ml/base-0.14.0:= >=dev-ml/typerep-0.14.0:= >=dev-ml/ppxlib-0.18.0:= <dev-ml/ppxlib-0.21.0:= >=dev-ml/ocaml-compiler-libs-0.11.0:= >=dev-ml/ocaml-migrate-parsetree-2.0.0:= dev-ml/cinaps:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-ml/base-0.14.0:= >=dev-ml/typerep-0.14.0:= >=dev-ml/ppxlib-0.18.0:= <dev-ml/ppxlib-0.21.0:= >=dev-ml/ocaml-compiler-libs-0.11.0:= >=dev-ml/ocaml-migrate-parsetree-2.0.0:= dev-ml/cinaps:= dev-ml/sexplib0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Generation of runtime types from type declarations
 EAPI=7
 HOMEPAGE=https://github.com/janestreet/ppx_typerep_conv
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=MIT
-RDEPEND=>=dev-ml/base-0.14.0:= >=dev-ml/typerep-0.14.0:= >=dev-ml/ppxlib-0.18.0:= <dev-ml/ppxlib-0.21.0:= >=dev-ml/ocaml-compiler-libs-0.11.0:= >=dev-ml/ocaml-migrate-parsetree-2.0.0:= dev-ml/cinaps:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-ml/base-0.14.0:= >=dev-ml/typerep-0.14.0:= >=dev-ml/ppxlib-0.18.0:= <dev-ml/ppxlib-0.21.0:= >=dev-ml/ocaml-compiler-libs-0.11.0:= >=dev-ml/ocaml-migrate-parsetree-2.0.0:= dev-ml/cinaps:= dev-ml/sexplib0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.14.1
 SRC_URI=https://github.com/janestreet/ppx_typerep_conv/archive/v0.14.1.tar.gz -> ppx_typerep_conv-0.14.1.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=dc02ca0a246724ed5b953e4363baee44
+_md5_=3e261ee574e9b0937e504bdcfe440aa2
