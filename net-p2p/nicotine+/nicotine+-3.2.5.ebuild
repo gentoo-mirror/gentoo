@@ -1,9 +1,10 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..11} )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 xdg-utils
 
@@ -13,7 +14,7 @@ SRC_URI="https://github.com/Nicotine-Plus/nicotine-plus/archive/${PV}.tar.gz -> 
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
 DEPEND="${PYTHON_DEPS}"
@@ -27,10 +28,11 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/nicotine-plus-${PV}"
 
-src_install() {
-	distutils-r1_src_install
-	mv "${ED}/usr/share/doc/nicotine" "${ED}/usr/share/doc/${PF}" || die
-}
+EPYTEST_IGNORE=(
+	"test/integration/test_startup.py"
+)
+
+distutils_enable_tests pytest
 
 pkg_postinst() {
 	xdg_icon_cache_update
