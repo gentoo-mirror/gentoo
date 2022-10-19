@@ -5,23 +5,26 @@ EAPI=7
 
 inherit dune
 
-DESCRIPTION="A ppx rewriter for easy construction of s-expressions"
-HOMEPAGE="https://github.com/janestreet/ppx_sexp_message"
+DESCRIPTION="Randomized testing framework, designed for compatibility with Base"
+HOMEPAGE="https://github.com/janestreet/base_quickcheck"
 SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+ocamlopt"
 
 DEPEND="
 	>=dev-ml/base-0.14.0:=
-	dev-ml/findlib:=
-	>=dev-ml/ppx_here-0.14.0:=
-	>=dev-ml/ppx_sexp_conv-0.14.0:=
-	>=dev-ml/ppxlib-0.18.0:=
-	>=dev-ml/ocaml-compiler-libs-0.11.0:=
+	>=dev-ml/ppx_base-0.14.0:=
+	>=dev-ml/ppx_fields_conv-0.14.1:=
+	>=dev-ml/ppx_let-0.14.0:=
+	>=dev-ml/ppx_sexp_message-0.14.0:=
+	>=dev-ml/ppx_sexp_value-0.14.0:=
+	dev-ml/splittable_random:=
+	>=dev-ml/ppxlib-0.22.0:=
 	>=dev-ml/ocaml-migrate-parsetree-2.0.0:=
 	dev-ml/cinaps:=
+	dev-ml/sexplib0:=
 "
 RDEPEND="${DEPEND}"
