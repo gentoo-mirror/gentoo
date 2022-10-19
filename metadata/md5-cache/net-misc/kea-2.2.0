@@ -1,17 +1,18 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install postinst prepare setup unpack
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=dev-libs/boost:= dev-libs/log4cplus doc? ( python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)] dev-python/sphinx_rtd_theme[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/sphinx_rtd_theme[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx_rtd_theme[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx_rtd_theme[python_targets_python3_11(-)] ) ) mysql? ( dev-db/mysql-connector-c ) !openssl? ( dev-libs/botan:2= ) openssl? ( dev-libs/openssl:0= ) postgres? ( dev-db/postgresql:* ) shell? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) test? ( dev-cpp/gtest )
 DESCRIPTION=High-performance production grade DHCPv4 & DHCPv6 server
 EAPI=8
 HOMEPAGE=https://www.isc.org/kea/
 IDEPEND=filecaps? ( sys-libs/libcap )
-INHERIT=autotools fcaps python-single-r1 systemd tmpfiles git-r3
+INHERIT=autotools fcaps python-single-r1 systemd tmpfiles
 IUSE=debug doc mysql +openssl postgres +samples shell test +filecaps python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=ISC BSD SSLeay GPL-2
-PROPERTIES=live
 RDEPEND=dev-libs/boost:= dev-libs/log4cplus doc? ( python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)] dev-python/sphinx_rtd_theme[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/sphinx_rtd_theme[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx_rtd_theme[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx_rtd_theme[python_targets_python3_11(-)] ) ) mysql? ( dev-db/mysql-connector-c ) !openssl? ( dev-libs/botan:2= ) openssl? ( dev-libs/openssl:0= ) postgres? ( dev-db/postgresql:* ) shell? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) acct-group/dhcp acct-user/dhcp virtual/tmpfiles
 REQUIRED_USE=shell? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	fcaps	babe6282ea5c195981bd302af1adaf3a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=ftp://ftp.isc.org/isc/kea/kea-2.2.0.tar.gz ftp://ftp.isc.org/isc/kea/2.2.0/kea-2.2.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	fcaps	babe6282ea5c195981bd302af1adaf3a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=f567a5e04689aa644f0c230c85d4a79c
