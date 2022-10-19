@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # Maintainer notes:
 # - http_rewrite-independent pcre-support makes sense for matching locations without an actual rewrite
@@ -29,15 +29,15 @@ HTTP_BROTLI_MODULE_URI="https://github.com/google/ngx_brotli/archive/v${HTTP_BRO
 HTTP_BROTLI_MODULE_WD="${WORKDIR}/ngx_brotli-${HTTP_BROTLI_MODULE_PV}"
 
 # http_uploadprogress (https://github.com/masterzen/nginx-upload-progress-module, BSD-2 license)
-HTTP_UPLOAD_PROGRESS_MODULE_PV="0.9.2"
-HTTP_UPLOAD_PROGRESS_MODULE_P="ngx_http_upload_progress-${HTTP_UPLOAD_PROGRESS_MODULE_PV}-r1"
-HTTP_UPLOAD_PROGRESS_MODULE_URI="https://github.com/masterzen/nginx-upload-progress-module/archive/v${HTTP_UPLOAD_PROGRESS_MODULE_PV}.tar.gz"
+HTTP_UPLOAD_PROGRESS_MODULE_PV="68b3ab3b64a0cee7f785d161401c8be357bbed12"
+HTTP_UPLOAD_PROGRESS_MODULE_P="ngx_http_upload_progress-${HTTP_UPLOAD_PROGRESS_MODULE_PV}"
+HTTP_UPLOAD_PROGRESS_MODULE_URI="https://github.com/masterzen/nginx-upload-progress-module/archive/${HTTP_UPLOAD_PROGRESS_MODULE_PV}.tar.gz"
 HTTP_UPLOAD_PROGRESS_MODULE_WD="${WORKDIR}/nginx-upload-progress-module-${HTTP_UPLOAD_PROGRESS_MODULE_PV}"
 
-# http_headers_more (https://github.com/agentzh/headers-more-nginx-module, BSD license)
-HTTP_HEADERS_MORE_MODULE_PV="0.33"
+# http_headers_more (https://github.com/openresty/headers-more-nginx-module, BSD license)
+HTTP_HEADERS_MORE_MODULE_PV="d502e41996d24a382bd9c632e3ae3efa0a5fca66"
 HTTP_HEADERS_MORE_MODULE_P="ngx_http_headers_more-${HTTP_HEADERS_MORE_MODULE_PV}"
-HTTP_HEADERS_MORE_MODULE_URI="https://github.com/agentzh/headers-more-nginx-module/archive/v${HTTP_HEADERS_MORE_MODULE_PV}.tar.gz"
+HTTP_HEADERS_MORE_MODULE_URI="https://github.com/openresty/headers-more-nginx-module/archive/${HTTP_HEADERS_MORE_MODULE_PV}.tar.gz"
 HTTP_HEADERS_MORE_MODULE_WD="${WORKDIR}/headers-more-nginx-module-${HTTP_HEADERS_MORE_MODULE_PV}"
 
 # http_cache_purge (http://labs.frickle.com/nginx_ngx_cache_purge/, https://github.com/FRiCKLE/ngx_cache_purge, BSD-2 license)
@@ -59,9 +59,9 @@ HTTP_FANCYINDEX_MODULE_URI="https://github.com/aperezdc/ngx-fancyindex/archive/v
 HTTP_FANCYINDEX_MODULE_WD="${WORKDIR}/ngx-fancyindex-${HTTP_FANCYINDEX_MODULE_PV}"
 
 # http_lua (https://github.com/openresty/lua-nginx-module, BSD license)
-HTTP_LUA_MODULE_PV="0.10.15"
+HTTP_LUA_MODULE_PV="b6d167cf1a93c0c885c28db5a439f2404874cb26"
 HTTP_LUA_MODULE_P="ngx_http_lua-${HTTP_LUA_MODULE_PV}"
-HTTP_LUA_MODULE_URI="https://github.com/openresty/lua-nginx-module/archive/v${HTTP_LUA_MODULE_PV}.tar.gz"
+HTTP_LUA_MODULE_URI="https://github.com/openresty/lua-nginx-module/archive/${HTTP_LUA_MODULE_PV}.tar.gz"
 HTTP_LUA_MODULE_WD="${WORKDIR}/lua-nginx-module-${HTTP_LUA_MODULE_PV}"
 LUA_COMPAT=( luajit )
 
@@ -113,15 +113,14 @@ HTTP_ECHO_MODULE_P="ngx_http_echo-${HTTP_ECHO_MODULE_PV}"
 HTTP_ECHO_MODULE_URI="https://github.com/openresty/echo-nginx-module/archive/v${HTTP_ECHO_MODULE_PV}.tar.gz"
 HTTP_ECHO_MODULE_WD="${WORKDIR}/echo-nginx-module-${HTTP_ECHO_MODULE_PV}"
 
-# mod_security for nginx (https://modsecurity.org/, Apache-2.0)
-# keep the MODULE_P here consistent with upstream to avoid tarball duplication
-HTTP_SECURITY_MODULE_PV="2.9.3"
-HTTP_SECURITY_MODULE_P="modsecurity-${HTTP_SECURITY_MODULE_PV}"
-HTTP_SECURITY_MODULE_URI="https://www.modsecurity.org/tarball/${HTTP_SECURITY_MODULE_PV}/${HTTP_SECURITY_MODULE_P}.tar.gz"
-HTTP_SECURITY_MODULE_WD="${WORKDIR}/${HTTP_SECURITY_MODULE_P}"
+# modsecurity for nginx (https://github.com/SpiderLabs/ModSecurity-nginx, https://github.com/SpiderLabs/ModSecurity, Apache-2.0)
+HTTP_SECURITY_MODULE_PV="1.0.3"
+HTTP_SECURITY_MODULE_P="modsecurity-nginx-${HTTP_SECURITY_MODULE_PV}"
+HTTP_SECURITY_MODULE_URI="https://github.com/SpiderLabs/ModSecurity-nginx/archive/refs/tags/v${HTTP_SECURITY_MODULE_PV}.tar.gz"
+HTTP_SECURITY_MODULE_WD="${WORKDIR}/ModSecurity-nginx-${HTTP_SECURITY_MODULE_PV}"
 
 # push-stream-module (http://www.nginxpushstream.com, https://github.com/wandenberg/nginx-push-stream-module, GPL-3)
-HTTP_PUSH_STREAM_MODULE_PV="0.5.4"
+HTTP_PUSH_STREAM_MODULE_PV="8c02220d484d7848bc8e3a6d9b1c616987e86f66"
 HTTP_PUSH_STREAM_MODULE_P="ngx_http_push_stream-${HTTP_PUSH_STREAM_MODULE_PV}"
 HTTP_PUSH_STREAM_MODULE_URI="https://github.com/wandenberg/nginx-push-stream-module/archive/${HTTP_PUSH_STREAM_MODULE_PV}.tar.gz"
 HTTP_PUSH_STREAM_MODULE_WD="${WORKDIR}/nginx-push-stream-module-${HTTP_PUSH_STREAM_MODULE_PV}"
@@ -151,7 +150,7 @@ HTTP_LDAP_MODULE_URI="https://github.com/kvspb/nginx-auth-ldap/archive/${HTTP_LD
 HTTP_LDAP_MODULE_WD="${WORKDIR}/nginx-auth-ldap-${HTTP_LDAP_MODULE_PV}"
 
 # geoip2 (https://github.com/leev/ngx_http_geoip2_module, BSD-2)
-GEOIP2_MODULE_PV="3.3"
+GEOIP2_MODULE_PV="3.4"
 GEOIP2_MODULE_P="ngx_http_geoip2_module-${GEOIP2_MODULE_PV}"
 GEOIP2_MODULE_URI="https://github.com/leev/ngx_http_geoip2_module/archive/${GEOIP2_MODULE_PV}.tar.gz"
 GEOIP2_MODULE_WD="${WORKDIR}/ngx_http_geoip2_module-${GEOIP2_MODULE_PV}"
@@ -247,8 +246,7 @@ NGINX_MODULES_3RD="
 	stream_javascript
 "
 
-IUSE="aio debug +http +http2 +http-cache +ipv6 libatomic +pcre
-	pcre-jit rtmp selinux ssl threads vim-syntax"
+IUSE="aio debug +http +http2 +http-cache libatomic pcre +pcre2 pcre-jit rtmp selinux ssl threads vim-syntax"
 
 for mod in $NGINX_MODULES_STD; do
 	IUSE="${IUSE} +nginx_modules_http_${mod}"
@@ -283,6 +281,7 @@ CDEPEND="
 	acct-user/nginx
 	virtual/libcrypt:=
 	pcre? ( dev-libs/libpcre:= )
+	pcre2? ( dev-libs/libpcre2:= )
 	pcre-jit? ( dev-libs/libpcre:=[jit] )
 	ssl? (
 		dev-libs/openssl:0=
@@ -308,13 +307,7 @@ CDEPEND="
 	nginx_modules_http_auth_pam? ( sys-libs/pam )
 	nginx_modules_http_metrics? ( dev-libs/yajl:= )
 	nginx_modules_http_dav_ext? ( dev-libs/libxml2 )
-	nginx_modules_http_security? (
-		dev-libs/apr:=
-		dev-libs/apr-util:=
-		dev-libs/libxml2:=
-		net-misc/curl
-		www-servers/apache
-	)
+	nginx_modules_http_security? ( dev-libs/modsecurity )
 	nginx_modules_http_auth_ldap? ( net-nds/openldap:=[ssl?] )
 	nginx_modules_stream_geoip? ( dev-libs/geoip )
 	nginx_modules_stream_geoip2? ( dev-libs/libmaxminddb:= )"
@@ -324,8 +317,7 @@ RDEPEND="${CDEPEND}
 DEPEND="${CDEPEND}
 	arm? ( dev-libs/libatomic_ops )
 	libatomic? ( dev-libs/libatomic_ops )"
-BDEPEND="nginx_modules_http_brotli? ( virtual/pkgconfig )
-	nginx_modules_http_security? ( ${AUTOTOOLS_DEPEND} )"
+BDEPEND="nginx_modules_http_brotli? ( virtual/pkgconfig )"
 PDEPEND="vim-syntax? ( app-vim/nginx-syntax )"
 
 REQUIRED_USE="pcre-jit? ( pcre )
@@ -334,6 +326,8 @@ REQUIRED_USE="pcre-jit? ( pcre )
 	nginx_modules_http_lua? (
 		${LUA_REQUIRED_USE}
 		nginx_modules_http_rewrite
+		pcre
+		!pcre2
 	)
 	nginx_modules_http_naxsi? ( pcre )
 	nginx_modules_http_dav_ext? ( nginx_modules_http_dav nginx_modules_http_xslt )
@@ -376,9 +370,21 @@ src_prepare() {
 	eapply "${FILESDIR}/${PN}-1.4.1-fix-perl-install-path.patch"
 	eapply "${FILESDIR}/${PN}-httpoxy-mitigation-r1.patch"
 
+	if use nginx_modules_http_sticky; then
+		cd "${HTTP_STICKY_MODULE_WD}" || die
+		eapply "${FILESDIR}"/http_sticky-nginx-1.23.0.patch
+		cd "${S}" || die
+	fi
+
 	if use nginx_modules_http_brotli; then
 		cd "${HTTP_BROTLI_MODULE_WD}" || die
 		eapply "${FILESDIR}"/http_brotli-detect-brotli-r3.patch
+		cd "${S}" || die
+	fi
+
+	if use nginx_modules_http_javascript || use nginx_modules_stream_javascript; then
+		cd "${NJS_MODULE_WD}" || die
+		eapply "${FILESDIR}"/http_javascript_cve_2022-38890.patch
 		cd "${S}" || die
 	fi
 
@@ -392,23 +398,9 @@ src_prepare() {
 		cd "${S}" || die
 	fi
 
-	if use nginx_modules_http_security; then
-		cd "${HTTP_SECURITY_MODULE_WD}" || die
-
-		eautoreconf
-
-		if use nginx_modules_http_lua; then
-			sed -i \
-				-e "s|^\(LUA_PKGNAMES\)=.*|\1=\"${ELUA}\"|" \
-				configure || die
-		fi
-
-		cd "${S}" || die
-	fi
-
 	if use nginx_modules_http_upload_progress; then
 		cd "${HTTP_UPLOAD_PROGRESS_MODULE_WD}" || die
-		eapply "${FILESDIR}"/http_uploadprogress-issue_50-r1.patch
+		eapply "${FILESDIR}"/http_uploadprogress-nginx-1.23.0.patch
 		cd "${S}" || die
 	fi
 
@@ -430,27 +422,13 @@ src_prepare() {
 }
 
 src_configure() {
-	# mod_security needs to generate nginx/modsecurity/config before including it
-	if use nginx_modules_http_security; then
-		cd "${HTTP_SECURITY_MODULE_WD}" || die
-
-		./configure \
-			--enable-standalone-module \
-			--disable-mlogc \
-			--with-ssdeep=no \
-			$(use_enable pcre-jit) \
-			$(use_with nginx_modules_http_lua lua) || die "configure failed for mod_security"
-
-		cd "${S}" || die
-	fi
-
 	local myconf=() http_enabled= mail_enabled= stream_enabled=
 
 	use aio       && myconf+=( --with-file-aio )
 	use debug     && myconf+=( --with-debug )
 	use http2     && myconf+=( --with-http_v2_module )
 	use libatomic && myconf+=( --with-libatomic )
-	use pcre      && myconf+=( --with-pcre )
+	use pcre      && myconf+=( --with-pcre --without-pcre2 )
 	use pcre-jit  && myconf+=( --with-pcre-jit )
 	use threads   && myconf+=( --with-threads )
 
@@ -545,7 +523,7 @@ src_configure() {
 
 	if use nginx_modules_http_security ; then
 		http_enabled=1
-		myconf+=( --add-module=${HTTP_SECURITY_MODULE_WD}/nginx/modsecurity )
+		myconf+=( --add-module=${HTTP_SECURITY_MODULE_WD} )
 	fi
 
 	if use nginx_modules_http_push_stream ; then
@@ -655,11 +633,6 @@ src_configure() {
 		myconf+=( --group=${PN} )
 	fi
 
-	local WITHOUT_IPV6=
-	if ! use ipv6; then
-		WITHOUT_IPV6=" -DNGX_HAVE_INET6=0"
-	fi
-
 	if [[ -n "${EXTRA_ECONF}" ]]; then
 		myconf+=( ${EXTRA_ECONF} )
 		ewarn "EXTRA_ECONF applied. Now you are on your own, good luck!"
@@ -671,7 +644,7 @@ src_configure() {
 		--error-log-path="${EPREFIX}"/var/log/${PN}/error_log \
 		--pid-path="${EPREFIX}"/run/${PN}.pid \
 		--lock-path="${EPREFIX}"/run/lock/${PN}.lock \
-		--with-cc-opt="-I${ESYSROOT}/usr/include${WITHOUT_IPV6}" \
+		--with-cc-opt="-I${ESYSROOT}/usr/include" \
 		--with-ld-opt="-L${ESYSROOT}/usr/$(get_libdir)" \
 		--http-log-path="${EPREFIX}"/var/log/${PN}/access_log \
 		--http-client-body-temp-path="${EPREFIX}${NGINX_HOME_TMP}"/client \
@@ -689,8 +662,6 @@ src_configure() {
 }
 
 src_compile() {
-	use nginx_modules_http_security && emake -C "${HTTP_SECURITY_MODULE_WD}"
-
 	# https://bugs.gentoo.org/286772
 	export LANG=C LC_ALL=C
 	emake LINK="${CC} ${LDFLAGS}" OTHERLDFLAGS="${LDFLAGS}"
@@ -803,7 +774,7 @@ src_install() {
 
 	if use nginx_modules_http_security; then
 		docinto ${HTTP_SECURITY_MODULE_P}
-		dodoc "${HTTP_SECURITY_MODULE_WD}"/{CHANGES,README.md,authors.txt}
+		dodoc "${HTTP_SECURITY_MODULE_WD}"/{AUTHORS,CHANGES,README.md}
 	fi
 
 	if use nginx_modules_http_push_stream; then
