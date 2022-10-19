@@ -8489,6 +8489,7 @@ sys-libs/libselinux:pcre2 - Use dev-libs/libpcre2 for fcontext regexes
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt implementations
+sys-libs/libxcrypt:headers-only - Build and install only the headers.
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
 sys-libs/llvm-libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip
