@@ -6,20 +6,18 @@ NEED_EMACS=27
 
 inherit elisp
 
-DESCRIPTION="Completion Overlay Region FUnction"
-HOMEPAGE="https://github.com/minad/corfu"
+DESCRIPTION="Consulting complete-read"
+HOMEPAGE="https://github.com/minad/consult"
 SRC_URI="https://github.com/minad/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-SITEFILE="50${PN}-gentoo.el"
+RDEPEND=">=app-emacs/compat-28.1"
+BDEPEND="${RDEPEND}"
 
-src_prepare() {
-	default
-	mv extensions/*.el . || die
-}
+SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
 	elisp_src_compile

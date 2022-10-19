@@ -1,8 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
-PYTHON_COMPAT=( python3_{7..10} )
+EAPI=8
+
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit autotools linux-info python-any-r1 systemd
 
@@ -16,7 +17,7 @@ if [[ ${PV} == "9999" ]]; then
 
 	inherit git-r3
 else
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~sparc ~x86"
 
 	SRC_URI="
 		https://www.rsyslog.com/files/download/${PN}/${P}.tar.gz
@@ -41,6 +42,7 @@ REQUIRED_USE="
 "
 
 BDEPEND=">=sys-devel/autoconf-archive-2015.02.24
+	sys-apps/lsb-release
 	virtual/pkgconfig
 	test? (
 		jemalloc? ( <sys-libs/libfaketime-0.9.7 )
@@ -111,8 +113,6 @@ if [[ ${PV} == "9999" ]]; then
 	BDEPEND+=" >=sys-devel/bison-2.4.3"
 	BDEPEND+=" >=dev-python/docutils-0.12"
 fi
-
-PATCHES=( "${FILESDIR}"/${P}-skip-omfwd_fast_imuxsock-test.patch )
 
 CONFIG_CHECK="~INOTIFY_USER"
 WARNING_INOTIFY_USER="CONFIG_INOTIFY_USER isn't set. Imfile module on this system will only support polling mode!"
@@ -187,12 +187,14 @@ src_configure() {
 		--disable-generate-man-pages
 		--without-valgrind-testbench
 		--disable-liblogging-stdlog
+		--disable-imfile-tests  # Some imfile tests fail (noticed in version 8.2208.0)
 		$(use_enable test testbench)
 		$(use_enable test libfaketime)
 		$(use_enable test extended-tests)
 		# Input Plugins without dependencies
 		--enable-imbatchreport
 		--enable-imdiag
+		--enable-imdocker
 		--enable-imfile
 		--enable-improg
 		--enable-impstats

@@ -14,13 +14,9 @@ S="${WORKDIR}"/emacs-${P}
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-
-# https://github.com/jorgenschaefer/emacs-buttercup/pull/210
-PATCHES=( "${FILESDIR}"/${P}-properties-equal.patch )
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 
 DOCS=( docs/{running,writing}-tests.md  )
-ELISP_REMOVE="buttercup-pkg.el"
 SITEFILE="50${PN}-gentoo.el"
 
 src_test() {
