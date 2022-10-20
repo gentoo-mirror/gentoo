@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/ipmitool/ipmitool
 INHERIT=autotools systemd
 IUSE=openbmc openipmi static
-KEYWORDS=~amd64 arm64 hppa ~ia64 ppc ppc64 ~x86
+KEYWORDS=~amd64 arm64 hppa ~ia64 ppc ppc64 x86
 LICENSE=BSD
 RDEPEND=dev-libs/openssl:0= sys-libs/readline:0= openbmc? ( sys-apps/systemd:0= )
 SLOT=0
 SRC_URI=https://github.com/ipmitool/ipmitool/archive/refs/tags/IPMITOOL_1_8_19.tar.gz -> ipmitool-1.8.19.tar.gz https://dev.gentoo.org/~ajak/distfiles/sys-apps/ipmitool/enterprise-numbers-1.8.19.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=4e119ecaa1a5d794b98733a56d0e0abd
+_md5_=caedd4b0837c4a51670defeec27f4f46
