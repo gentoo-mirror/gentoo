@@ -3,8 +3,8 @@
 
 EAPI=8
 inherit go-module
-GIT_COMMIT=8fe761b41ffc280e58e82b7fbba4d0d1a05aeb91
-SYFT_VERSION=0.53.4
+GIT_COMMIT=4cda526992d5003dcbab68c9a7479a653dfde008
+SYFT_VERSION=0.59.0
 
 DESCRIPTION="A vulnerability scanner for container images and filesystems"
 HOMEPAGE="https://www.anchore.com"

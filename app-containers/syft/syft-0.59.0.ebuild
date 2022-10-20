@@ -3,7 +3,7 @@
 
 EAPI=8
 inherit go-module
-GIT_COMMIT=69bde44c6e50a5838cdd2c2c821edb0111013178
+GIT_COMMIT=41bc6bb410352845f22766e27dd48ba93aa825a4
 
 DESCRIPTION="Generate a Software Bill of Materials from container images and filesystems"
 HOMEPAGE="https://www.anchore.com"
