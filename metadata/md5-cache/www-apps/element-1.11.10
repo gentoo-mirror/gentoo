@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=|| ( virtual/httpd-basic virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
+DESCRIPTION=A glossy Matrix collaboration client for the web
+EAPI=8
+HOMEPAGE=https://element.io/
+INHERIT=webapp
+IUSE=vhosts
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=app-admin/webapp-config
+SLOT=1.11.10
+SRC_URI=https://github.com/vector-im/element-web/releases/download/v1.11.10/element-v1.11.10.tar.gz
+_eclasses_=webapp	67df5bab481d0b9428f9ab7b3de690e4
+_md5_=ee92082a288da43e1f0593fe76112d7e
