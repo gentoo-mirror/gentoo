@@ -20,7 +20,7 @@ SRC_URI+=" sparc? ( ${GENTOO_BIN_BASEURI}/${MY_P}-sparc64-unknown-linux-gnu.tar.
 
 LICENSE="|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4 UoI-NCSA"
 SLOT="stable"
-KEYWORDS="amd64 arm arm64 ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="amd64 arm arm64 ~mips ppc ppc64 ~s390 sparc x86"
 IUSE="clippy cpu_flags_x86_sse2 doc prefix rls rust-analyzer rust-src rustfmt"
 
 DEPEND=""
@@ -97,6 +97,7 @@ multilib_src_install() {
 	use clippy && components="${components},clippy-preview"
 	use rls && components="${components},rls-preview,${analysis}"
 	use rustfmt && components="${components},rustfmt-preview"
+	use rust-analyzer && components="${components},rust-analyzer-preview"
 	# Rust component 'rust-src' is extracted from separate archive
 	if use rust-src; then
 		einfo "Combining rust and rust-src installers"
@@ -142,7 +143,7 @@ multilib_src_install() {
 		# we need realpath on /usr/bin/* symlink return version-appended binary path.
 		# so /usr/bin/rustc should point to /opt/rust-bin-<ver>/bin/rustc-<ver>
 		local ver_i="${i}-bin-${PV}"
-		ln -v "${ED}/opt/${P}/bin/${i}" "${ED}/opt/${P}/bin/${ver_i}"
+		ln -v "${ED}/opt/${P}/bin/${i}" "${ED}/opt/${P}/bin/${ver_i}" || die
 		dosym "../../opt/${P}/bin/${ver_i}" "/usr/bin/${ver_i}"
 	done
 

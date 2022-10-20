@@ -9,7 +9,7 @@ DESCRIPTION="Virtual for Rust language compiler"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~mips ppc ppc64 ~s390 sparc x86"
+KEYWORDS="~riscv"
 IUSE="rustfmt"
 
 BDEPEND=""
