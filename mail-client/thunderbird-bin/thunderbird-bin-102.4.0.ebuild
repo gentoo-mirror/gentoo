@@ -49,19 +49,19 @@ BDEPEND="app-arch/unzip
 			dev-util/patchelf
 		)
 	)"
-
-CDEPEND="alsa? (
+DEPEND="alsa? (
 		!pulseaudio? (
 			media-sound/apulse
 		)
 	)"
-
-DEPEND="${CDEPEND}"
-
-RDEPEND="${CDEPEND}
-	dev-libs/atk
+RDEPEND="${DEPEND}
+	|| (
+		>=app-accessibility/at-spi2-core-2.46.0:2
+		dev-libs/atk
+	)
 	dev-libs/dbus-glib
 	>=dev-libs/glib-2.26:2
+	media-libs/alsa-lib
 	media-libs/fontconfig
 	>=media-libs/freetype-2.4.10
 	sys-apps/dbus
@@ -69,7 +69,6 @@ RDEPEND="${CDEPEND}
 	>=x11-libs/cairo-1.10[X]
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.11:3[wayland?]
-	x11-libs/libxcb
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
@@ -77,19 +76,21 @@ RDEPEND="${CDEPEND}
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXi
+	x11-libs/libXrandr
 	x11-libs/libXrender
-	x11-libs/libXt
+	x11-libs/libXtst
+	x11-libs/libxcb
 	>=x11-libs/pango-1.22.0
 	ffmpeg? ( media-video/ffmpeg )
 	pulseaudio? ( media-sound/pulseaudio )
-	selinux? ( sec-policy/selinux-mozilla )
+	selinux? ( sec-policy/selinux-thunderbird )
 "
 
 QA_PREBUILT="opt/${MOZ_PN}/*"
 
 MOZ_LANGS=(
 	af ar ast be bg br ca cak cs cy da de dsb
-	el en-CA en-GB en-US es-AR es-ES et eu
+	el en-CA en-GB en-US es-AR es-ES es-MX et eu
 	fi fr fy-NL ga-IE gd gl he hr hsb hu
 	id is it ja ka kab kk ko lt lv ms nb-NO nl nn-NO
 	pa-IN pl pt-BR pt-PT rm ro ru
@@ -273,14 +274,6 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-
-	if ! has_version 'gnome-base/gconf' || ! has_version 'gnome-base/orbit' \
-		|| ! has_version 'net-misc/curl'; then
-		einfo
-		einfo "For using the crashreporter, you need gnome-base/gconf,"
-		einfo "gnome-base/orbit and net-misc/curl emerged."
-		einfo
-	fi
 
 	use ffmpeg || ewarn "USE=-ffmpeg : HTML5 video will not render without media-video/ffmpeg installed"
 
