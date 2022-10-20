@@ -1,0 +1,12 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Scala language-based scripting and REPL
+EAPI=8
+HOMEPAGE=https://ammonite.io/
+IUSE=+scala2-13 scala3-0 +scala3-1
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=virtual/jre-1.8:*
+REQUIRED_USE=|| ( scala2-13 scala3-0 scala3-1 )
+SLOT=0
+SRC_URI=scala2-13? ( https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.5/2.13-2.5.5 -> ammonite-repl-bin-2.5.5-2.13 ) scala3-0? ( https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.5/3.0-2.5.5 -> ammonite-repl-bin-2.5.5-3.0 ) scala3-1? ( https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.5/3.1-2.5.5 -> ammonite-repl-bin-2.5.5-3.1 )
+_md5_=2b220792b18bdc70f56ac08cf4802fa7
