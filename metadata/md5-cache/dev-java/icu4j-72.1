@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/junitparams:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=A set of Java libraries providing Unicode and Globalization support
+EAPI=8
+HOMEPAGE=https://icu.unicode.org
+INHERIT=java-pkg-2 java-pkg-simple verify-sig
+IUSE=doc source test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=icu
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=70
+SRC_URI=https://github.com/unicode-org/icu/archive/refs/tags/release-72-1.tar.gz -> icu-72.1.tar.gz https://github.com/unicode-org/icu/releases/download/release-72-1/SHASUM512.txt.asc
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	257a59d157060d7bd51a13e68c614dd5	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=b34ddca41aa57ab1e745f8e5b7daefeb
