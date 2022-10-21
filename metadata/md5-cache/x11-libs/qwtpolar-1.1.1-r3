@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 x11-libs/qwt:6=[designer,qt5(+),svg] dev-qt/qtconcurrent:5
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 <x11-libs/qwt-6.2:6=[designer,qt5(+),svg,-polar(-)] dev-qt/qtconcurrent:5
 DESCRIPTION=Library for displaying values on a polar coordinate system
 EAPI=7
 HOMEPAGE=https://qwtpolar.sourceforge.io/
 INHERIT=qmake-utils
 KEYWORDS=amd64 x86
 LICENSE=qwt
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 x11-libs/qwt:6=[designer,qt5(+),svg]
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 <x11-libs/qwt-6.2:6=[designer,qt5(+),svg,-polar(-)]
 SLOT=0
 SRC_URI=mirror://sourceforge/qwtpolar/qwtpolar-1.1.1.tar.bz2
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
-_md5_=e4d765a07b3a805721f72c833201c388
+_md5_=af2cac8007ddc68f912609b4724bbfdf
