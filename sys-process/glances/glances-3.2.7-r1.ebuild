@@ -1,17 +1,18 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
 PYTHON_REQ_USE="ncurses"
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 linux-info optfeature
 
 DESCRIPTION="CLI curses based monitoring tool"
 HOMEPAGE="https://github.com/nicolargo/glances"
-SRC_URI="https://github.com/nicolargo/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/nicolargo/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
@@ -33,7 +34,7 @@ BDEPEND="doc? ( dev-python/sphinx_rtd_theme )"
 CONFIG_CHECK="~TASK_IO_ACCOUNTING ~TASK_DELAY_ACCT ~TASKSTATS"
 
 PATCHES=(
-	"${FILESDIR}/disable-update-check.patch"
+	"${FILESDIR}/${PN}-3.2.5-disable-update-check.patch"
 )
 
 distutils_enable_tests setup.py
