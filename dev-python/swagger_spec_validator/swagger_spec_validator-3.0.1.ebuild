@@ -3,16 +3,20 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..11} )
+
 inherit distutils-r1
 
-DESCRIPTION="validate Swagger specs against Swagger 1.1 or 2.0 specification"
-HOMEPAGE="https://github.com/Yelp/swagger_spec_validator"
+DESCRIPTION="Validate Swagger specs against Swagger 1.1 or 2.0 specification"
+HOMEPAGE="
+	https://github.com/Yelp/swagger_spec_validator/
+	https://pypi.org/project/swagger-spec-validator/
+"
 SRC_URI="
 	https://github.com/Yelp/swagger_spec_validator/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
-S="${WORKDIR}/${PN//-/_}-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -21,7 +25,6 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/jsonschema[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
