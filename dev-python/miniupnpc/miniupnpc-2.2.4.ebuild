@@ -3,9 +3,12 @@
 
 EAPI=8
 
-inherit toolchain-funcs verify-sig
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
-DESCRIPTION="MiniSSDP Daemon"
+inherit distutils-r1 verify-sig
+
+DESCRIPTION="Python bindings for UPnP client library"
 HOMEPAGE="
 	http://miniupnp.free.fr/
 	https://miniupnp.tuxfamily.org/
@@ -20,14 +23,14 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE=""
 
 DEPEND="
-	net-libs/libnfnetlink
+	>=net-libs/miniupnpc-${PV}:0=
 "
 RDEPEND="
 	${DEPEND}
-	|| ( net-misc/miniupnpd net-libs/miniupnpc )
 "
 BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-miniupnp )
@@ -35,19 +38,12 @@ BDEPEND="
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/miniupnp.asc
 
-src_configure() {
-	sed -i -e '/#define HAVE_IP_MREQN/{s:/[*]::;s:[*]/::;}' config.h || die
-}
+PATCHES=(
+	"${FILESDIR}"/miniupnpc-2.2.3-shared-lib.patch
+)
 
-src_compile() {
-	emake CC="$(tc-getCC)"
-}
+# DOCS are installed by net-libs/miniupnpc.
+DOCS=()
 
-src_install() {
-	emake DESTDIR="${ED}" install
-	# note: we overwrite upstream's init.d
-	newinitd "${FILESDIR}/${PN}.initd-r2" ${PN}
-	newconfd "${FILESDIR}/${PN}.confd" ${PN}
-	dodoc Changelog.txt README
-	doman minissdpd.1
-}
+# Example test command:
+# python -c 'import miniupnpc; u = miniupnpc.UPnP(); u.discover(); u.selectigd(); print(u.externalipaddress())'
