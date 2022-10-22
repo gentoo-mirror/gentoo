@@ -10174,6 +10174,10 @@ dev-ruby/asciidoctor 2.0.15 2.0.16: Processor for converting AsciiDoc into HTML 
 dev-ruby/asciidoctor-diagram 2.0.5-r1: A set of Asciidoctor extensions that enable you to add diagrams
 dev-ruby/asciimath 1.0.9 2.0.3 2.0.4: A pure Ruby AsciiMath parsing and conversion library
 dev-ruby/ast 2.4.2: A library for working with abstract syntax trees
+dev-ruby/async 1.30.3 2.1.0: A concurrency framework for Ruby
+dev-ruby/async-container 0.16.12: Abstract container-based parallelism using threads and processes
+dev-ruby/async-io 1.34.0: Provides support for asynchonous TCP, UDP, UNIX and SSL sockets
+dev-ruby/async-rspec 1.16.1: Helpers for writing specs against the async gem
 dev-ruby/atomic 1.1.101-r1: An atomic reference implementation for JRuby, Rubinius, and MRI
 dev-ruby/autoprefixer-rails 10.3.1.0 10.4.2.0 10.4.7.0: Add vendor prefixes to CSS rules using values from the Can I Use website
 dev-ruby/aws-eventstream 1.2.0: Amazon Web Services event stream library
@@ -10233,6 +10237,7 @@ dev-ruby/commander 4.6.0: The complete solution for Ruby command-line executable
 dev-ruby/commonmarker 0.23.5 0.23.6: A fast, safe, extensible parser for CommonMark, wrapping the libcmark library
 dev-ruby/concurrent-ruby 1.1.9 1.1.10: Modern concurrency tools including agents, futures, promises, thread pools, more
 dev-ruby/connection_pool 2.2.5: Generic connection pooling for Ruby
+dev-ruby/console 1.15.3: Beautiful logging for Ruby
 dev-ruby/contracts 0.16.1 0.17: provides contracts for Ruby
 dev-ruby/coolio 1.7.1-r1: A high performance event framework for Ruby which uses the libev C library
 dev-ruby/countdownlatch 1.0.0-r2: Synchronization aid to allow threads to wait for operations in other threads
@@ -10304,8 +10309,9 @@ dev-ruby/fattr 2.4.0-r1: fattr.rb is a "fatter attr" for ruby
 dev-ruby/fcgi 0.9.2.1-r2 0.9.2.2: FastCGI library for Ruby
 dev-ruby/ferret 0.11.8.7-r1: A ruby indexing/searching library
 dev-ruby/ffaker 2.20.0 2.21.0: Faster Faker, generates dummy data
-dev-ruby/ffi 1.14.2-r1 1.15.5: Ruby extension for programmatically loading dynamic libraries
-dev-ruby/ffi-compiler 1.0.1-r1: Ruby FFI Rakefile generator
+dev-ruby/ffi 1.14.2-r1 1.15.5 1.15.5-r1: Ruby extension for programmatically loading dynamic libraries
+dev-ruby/ffi-compiler 1.0.1-r1 1.0.1-r2: Ruby FFI Rakefile generator
+dev-ruby/fiber-local 1.0.0: Provides a class-level mixin to make fiber local state easy
 dev-ruby/file-tail 1.2.0-r1: A small ruby library that allows it to 'tail' files in Ruby
 dev-ruby/filesize 0.2.0 0.2.0-r1: small ruby class for handling filesizes with both the SI and binary prefixes
 dev-ruby/filigree 0.4.1: New classes and extensions to core library classes
@@ -10353,7 +10359,7 @@ dev-ruby/hpricot 0.8.6-r6: A fast and liberal HTML parser for Ruby
 dev-ruby/html-pipeline 2.14.2 2.14.3: GitHub HTML processing filters and utilities
 dev-ruby/html2haml 2.2.0-r1: Convert HTML and HTML+Erb to Haml
 dev-ruby/htmlentities 4.3.4-r1: A simple library for encoding/decoding entities in (X)HTML documents
-dev-ruby/http 4.4.1 4.4.1-r1: An easy-to-use client library for making requests from Ruby
+dev-ruby/http 4.4.1 4.4.1-r1 5.1.0: An easy-to-use client library for making requests from Ruby
 dev-ruby/http-accept 1.7.0 2.1.1-r1 2.2.0: Parse Accept and Accept-Language HTTP headers
 dev-ruby/http-cookie 1.0.4 1.0.5: A ruby library to handle HTTP cookies
 dev-ruby/http-form_data 2.3.0: Utility-belt to build form data request bodies
@@ -10371,6 +10377,7 @@ dev-ruby/inflecto 0.0.2-r1: Inflector for ruby
 dev-ruby/instance_storage 1.0.0-r1 2.0.0: Manage class instances with dictionary
 dev-ruby/instantiator 0.0.7-r1: Instantiate an arbitrary Ruby class
 dev-ruby/introspection 0.0.4-r1: Dynamic inspection of the hierarchy of method definitions on a Ruby object
+dev-ruby/io-event 1.0.9: An event loop
 dev-ruby/io-wait 0.2.1 0.2.3: Waits until IO is readable or writable without blocking
 dev-ruby/iobuffer 1.1.2-r4: IO::Buffer is a byte queue which is intended for non-blocking I/O applications
 dev-ruby/itextomml 1.6.1: Native Ruby bindings to itex2MML, which converts itex equations to MathML
@@ -10397,6 +10404,7 @@ dev-ruby/liquid 4.0.3-r1 5.0.1 5.1.0 5.2.0 5.3.0 5.4.0: Template engine for Ruby
 dev-ruby/liquid-c 4.0.0-r1 4.1.0: Liquid performance extension in C
 dev-ruby/listen 3.5.1 3.6.0 3.7.0 3.7.1: Listens to file modifications and notifies you about the changes
 dev-ruby/little-plugger 1.1.4-r1: Module that provides Gem based plugin management
+dev-ruby/llhttp-ffi 0.4.0: Ruby FFI bindings for llhttp
 dev-ruby/locale 2.1.3: A pure ruby library which provides basic APIs for localization
 dev-ruby/localhost 1.1.9: Manage a local CA for self-signed localhost development servers
 dev-ruby/lockfile 2.1.3-r1: A ruby library for creating NFS safe lockfiles
@@ -10586,8 +10594,10 @@ dev-ruby/rspec 2.99.0 3.10.0 3.11.0: A Behaviour Driven Development (BDD) framew
 dev-ruby/rspec-collection_matchers 1.2.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-core 2.99.2-r2 3.10.1 3.10.2 3.11.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-expectations 2.99.2 3.10.1 3.10.2 3.11.0 3.11.1: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec-files 1.1.2: RSpec helpers for buffering and detecting file descriptor leaks
 dev-ruby/rspec-its 1.3.0-r1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-json_expectations 2.2.0-r1: Set of matchers and helpers to allow you test your APIs responses
+dev-ruby/rspec-memory 1.0.3: RSpec helpers for checking memory allocations
 dev-ruby/rspec-mocks 2.99.2-r1 3.10.2 3.10.3 3.11.0 3.11.1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-pending_for 0.1.16: Mark specs pending or skipped for specific Ruby engine / version combinations
 dev-ruby/rspec-rails 4.1.2 5.1.1 5.1.2 6.0.0 6.0.1: RSpec's official Ruby on Rails plugin
@@ -10695,7 +10705,7 @@ dev-ruby/simplecov 0.19.1 0.21.2: Code coverage with a configuration library and
 dev-ruby/simplecov-html 0.12.3: Generates a HTML report of your SimpleCov ruby code coverage results
 dev-ruby/simplecov_json_formatter 0.1.4: JSON formatter for SimpleCov
 dev-ruby/simpleidn 0.2.1-r1: Allows easy conversion from punycode ACE to unicode UTF-8 strings and vice-versa
-dev-ruby/sinatra 2.2.0 2.2.1 2.2.2 3.0.1 3.0.2: A DSL for quickly creating web applications in Ruby with minimal effort
+dev-ruby/sinatra 2.2.0 2.2.0-r1 2.2.1 2.2.2 3.0.1 3.0.2: A DSL for quickly creating web applications in Ruby with minimal effort
 dev-ruby/sinatra-partial 1.0.1-r1: Just the partials helper in a gem
 dev-ruby/singleton 0.1.1: The Singleton module implements the Singleton pattern
 dev-ruby/six 0.2.0-r1: An ultra lite authorization library
@@ -10721,6 +10731,7 @@ dev-ruby/stringio 3.0.1 3.0.2: Pseudo IO class from/to String.
 dev-ruby/strptime 0.2.5-r2: A fast strptime/strftime engine which uses VM
 dev-ruby/strscan 3.0.3 3.0.4: Provides lexical scanning operations on a String
 dev-ruby/subexec 0.2.3-r2: Subexec spawns an external command with a timeout
+dev-ruby/sus 0.13.0: A fast and scalable test runner
 dev-ruby/sync 0.5.0: A module that provides a two-phase lock with a counter
 dev-ruby/syntax 1.2.2: Syntax highlighting for sourcecode and HTML
 dev-ruby/sys-uname 1.2.2: A Ruby interface for getting operating system information
@@ -18066,7 +18077,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.255_p113 5.4.209_p77 5.10.145_p74 5.15.73_p52: Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/vanilla-kernel 5.4.218 5.4.219 5.4.9999 5.10.148 5.10.149 5.10.9999 5.15.74 5.15.9999 5.19.16 5.19.9999: Linux kernel built from vanilla upstream sources
-sys-kernel/vanilla-sources 4.9.330 4.14.295 4.19.261 5.4.219 5.10.149 5.15.74 5.19.16 6.0.2: Full sources for the Linux kernel
+sys-kernel/vanilla-sources 4.9.330 4.14.295 4.19.261 5.4.219 5.10.149 5.15.74 5.19.16 6.0.3: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.19.13: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1: The sd-bus library, extracted from systemd
