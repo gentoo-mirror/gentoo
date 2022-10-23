@@ -4,14 +4,16 @@
 EAPI=8
 
 USE_RUBY="ruby31"
+
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_EXTRADOC="readme.md"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
+
 inherit ruby-fakegem
 
 DESCRIPTION="A concurrency framework for Ruby"
 HOMEPAGE="https://github.com/socketry/async"
-SRC_URI="https://github.com/socketry/async/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/socketry/async/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
@@ -19,7 +21,7 @@ KEYWORDS="~amd64 ~sparc"
 IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/console-1.10:1
-	>=dev-ruby/io-event-1.0.0:1/1.0
+	dev-ruby/io-event:1.1
 	>=dev-ruby/timers-4.1:4"
 
 ruby_add_bdepend "test? (
