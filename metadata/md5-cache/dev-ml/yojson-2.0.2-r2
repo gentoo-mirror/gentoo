@@ -1,6 +1,6 @@
 BDEPEND=>=dev-ml/cppo-1.6.1 test? ( dev-ml/alcotest ) dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install prepare test
-DEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] !dev-ml/seq >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] !!<dev-ml/seq-0.3 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=JSON parsing and pretty-printing library for OCaml
 EAPI=8
 HOMEPAGE=https://github.com/ocaml-community/yojson
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=examples +ocamlopt test
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] !dev-ml/seq >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] !!<dev-ml/seq-0.3 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/2.0.2
 SRC_URI=https://github.com/ocaml-community/yojson/archive/2.0.2.tar.gz -> yojson-2.0.2.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=1aa444eadea6f19a6eb50e8ab5133492
+_md5_=79a3fa2819ec7b30c224ce09bc2bf3f4
