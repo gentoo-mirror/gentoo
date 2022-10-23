@@ -4,18 +4,16 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
-MY_PV="${PV/_p/-}"
 
 inherit lua
 
 DESCRIPTION="Lua String Hashing/Indexing Library"
 HOMEPAGE="https://github.com/lunarmodules/say"
-SRC_URI="https://github.com/Olivine-Labs/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${MY_PV}"
+SRC_URI="https://github.com/lunarmodules/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
@@ -38,7 +36,7 @@ src_test() {
 
 lua_src_install() {
 	insinto $(lua_get_lmod_dir)/say
-	doins src/init.lua
+	doins src/say/init.lua
 
 	einstalldocs
 }
