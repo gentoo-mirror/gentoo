@@ -1,0 +1,15 @@
+BDEPEND=app-crypt/sbsigntools dev-perl/File-Slurp sys-apps/help2man virtual/pkgconfig
+DEFINED_PHASES=configure prepare
+DEPEND=!static? ( dev-libs/openssl:= ) sys-apps/util-linux static? ( dev-libs/openssl:=[static-libs(+)] ) sys-boot/gnu-efi
+DESCRIPTION=Tools for manipulating UEFI secure boot platforms
+EAPI=8
+HOMEPAGE=https://git.kernel.org/cgit/linux/kernel/git/jejb/efitools.git
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=static
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=!static? ( dev-libs/openssl:= ) sys-apps/util-linux
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/jejb/efitools.git/snapshot/efitools-1.9.2.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=fe593a1d7ff1be560be1f5f8255fc0a2
