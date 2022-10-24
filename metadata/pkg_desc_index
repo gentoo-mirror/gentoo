@@ -1098,7 +1098,7 @@ app-admin/sshguard 2.4.2 99999: protects hosts from brute force attacks against 
 app-admin/stow 2.3.1: GNU Stow is a symlink farm manager
 app-admin/su-exec 0.2: Switch user and group id and exec
 app-admin/sud 1.3-r1: A daemon to execute processes with special privileges in a nosuid environment
-app-admin/sudo 1.9.11_p3-r1 9999: Allows users or groups to run commands as other users
+app-admin/sudo 1.9.11_p3-r1 1.9.12 9999: Allows users or groups to run commands as other users
 app-admin/superadduser 1.15: Interactive adduser script from Slackware
 app-admin/supervisor 4.2.2 4.2.4: A system for controlling process state under UNIX
 app-admin/sxid 4.2-r2: suid, sgid file and directory checking
@@ -5523,7 +5523,7 @@ dev-libs/libevent 2.1.11 2.1.12 2.1.9999 9999: Library to execute a function whe
 dev-libs/libezV24 0.1.1-r1 0.1.1-r2: library that provides an easy API to Linux serial ports
 dev-libs/libf2c 20130927-r1: Library that converts FORTRAN to C source
 dev-libs/libfastjson 0.99.8-r1 0.99.9-r1: Fork of the json-c library, which is optimized for liblognorm processing
-dev-libs/libffi 3.3-r2 3.4.2-r1 3.4.2-r2 3.4.3: a portable, high level programming interface to various calling conventions
+dev-libs/libffi 3.3-r2 3.4.2-r2 3.4.4: a portable, high level programming interface to various calling conventions
 dev-libs/libffi-compat 3.2.1-r3 3.3-r2: a portable, high level programming interface to various calling conventions
 dev-libs/libfido2 1.11.0: Provides library functionality for FIDO 2.0
 dev-libs/libfilezilla 0.37.2 0.38.1 0.39.1-r1: C++ library offering some basic functionality for platform-independent programs
@@ -13710,7 +13710,7 @@ media-libs/libtgvoip 2.4.4_p20220117 2.4.4_p20220503: VoIP library for Telegram 
 media-libs/libtheora 1.1.1-r2: The Theora Video Compression Codec
 media-libs/libtiger 0.3.4-r1: A rendering library for Kate streams using Pango and Cairo
 media-libs/libtimidity 0.2.7: MIDI to WAVE converter library
-media-libs/libuninameslist 20211114: Library of unicode annotation data
+media-libs/libuninameslist 20211114 20221022: Library of unicode annotation data
 media-libs/libuvc 0.0.6-r2: A cross-platform library for USB video devices, built atop libusb
 media-libs/libv4l 1.22.1: Separate libraries ebuild from upstream v4l-utils package
 media-libs/libva 2.14.0 2.15.0 2.16.0 9999: Video Acceleration (VA) API for Linux
@@ -15192,7 +15192,7 @@ net-irc/ninja 1.5.9_pre14-r2: Ninja IRC Client
 net-irc/onis 0.8.2-r1: onis not irc stats
 net-irc/pisg 0.73-r1: Perl IRC Statistics Generator
 net-irc/polari 42.0 43.0: An IRC client for GNOME
-net-irc/psybnc 2.3.2.9-r4: A multi-user and multi-server gateway to IRC networks
+net-irc/psybnc 2.3.2.9-r4 2.4.3: A multi-user and multi-server gateway to IRC networks
 net-irc/quassel 0.14.0-r1 9999: Qt/KDE IRC client supporting a remote daemon for 24/7 connectivity
 net-irc/quasselgrep 0_p20200830: Tool for searching quassel logs from the commandline
 net-irc/rbot 0.9.15_p20160325-r3: A ruby IRC bot
@@ -15340,7 +15340,7 @@ net-libs/libssh2 1.10.0 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r1 9999: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.3: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtorrent 0.13.8-r2: BitTorrent library written in C++ for *nix
-net-libs/libtorrent-rasterbar 1.2.16 1.2.17 2.0.6 2.0.7: C++ BitTorrent implementation focusing on efficiency and scalability
+net-libs/libtorrent-rasterbar 1.2.18 2.0.6 2.0.7: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.18_p1 4.0.19_p1: A library and tools for trace processing
 net-libs/libupnp 1.14.13 1.14.14: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 0.21.0 0.22.2: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
@@ -17871,7 +17871,7 @@ sys-devel/llvm-roc 3.7.0-r1 3.8.0 3.9.0 3.10.0 4.0.0 4.0.0-r2 4.0.1 4.1.0 4.1.1 
 sys-devel/llvm-toolchain-symlinks 14-r1 15-r1 16-r1: Symlinks to use LLVM on binutils-free system
 sys-devel/llvmgold 13-r2 14 15 16: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19: GNU macro processor
-sys-devel/make 4.3 4.3.91 9999: Standard tool to compile source trees
+sys-devel/make 4.3 4.3.92 9999: Standard tool to compile source trees
 sys-devel/mold 1.4.2 1.5.1 1.6.0 9999: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
 sys-devel/native-cctools 4 5: Host OS native assembler as and static linker ld
@@ -18062,7 +18062,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r6 4.2.6-r7 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.218 5.4.219 5.10.148 5.10.149 5.15.74 5.19.16: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.218 5.4.219 5.10.148 5.10.149 5.15.74 5.19.16: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 4.9.321 4.9.329 4.9.330 4.14.286 4.14.294 4.14.295 4.19.250 4.19.259 4.19.260 4.19.261 5.4.218 5.4.219 5.10.148 5.10.149 5.15.74 5.19.17 6.0.2 6.0.3: Full sources including the Gentoo patchset for the 6.0 kernel tree
+sys-kernel/gentoo-sources 4.9.321 4.9.329 4.9.330 4.14.286 4.14.294 4.14.295 4.19.250 4.19.259 4.19.260 4.19.261 5.4.219 5.10.149 5.15.74 5.19.17 6.0.3: Full sources including the Gentoo patchset for the 6.0 kernel tree
 sys-kernel/git-sources 6.1_rc1 6.1_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 2: Wrap kernel-install from systemd-boot as installkernel
