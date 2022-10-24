@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig
+BDEPEND=acct-group/dhcp acct-user/dhcp virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst preinst prepare unpack
-DEPEND=acct-group/dhcp acct-user/dhcp client? ( kernel_linux? ( ipv6? ( sys-apps/iproute2 ) sys-apps/net-tools ) ) ldap? ( net-nds/openldap:= ssl? ( dev-libs/openssl:= ) )
+DEPEND=client? ( kernel_linux? ( ipv6? ( sys-apps/iproute2 ) sys-apps/net-tools ) ) ldap? ( net-nds/openldap:= ssl? ( dev-libs/openssl:= ) )
 DESCRIPTION=ISC Dynamic Host Configuration Protocol (DHCP) client/server
 EAPI=7
 HOMEPAGE=https://www.isc.org/dhcp
@@ -12,4 +12,4 @@ RDEPEND=acct-group/dhcp acct-user/dhcp client? ( kernel_linux? ( ipv6? ( sys-app
 SLOT=0
 SRC_URI=ftp://ftp.isc.org/isc/dhcp/dhcp-4.4.3-P1.tar.gz ftp://ftp.isc.org/isc/dhcp/4.4.3-P1/dhcp-4.4.3-P1.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=a42ba7b5b52d713a89eba4151c51c510
+_md5_=001bd042da2b7ad732ee7f84695c1713

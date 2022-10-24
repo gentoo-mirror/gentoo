@@ -1,6 +1,6 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+BDEPEND=acct-group/crontab sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=acct-group/crontab pam? ( sys-libs/pam ) anacron? ( !sys-process/anacron !sys-process/systemd-cron elibc_musl? ( sys-libs/obstack-standalone ) ) selinux? ( sys-libs/libselinux )
+DEPEND=pam? ( sys-libs/pam ) anacron? ( !sys-process/anacron !sys-process/systemd-cron elibc_musl? ( sys-libs/obstack-standalone ) ) selinux? ( sys-libs/libselinux )
 DESCRIPTION=Cronie is a standard UNIX daemon cron based on the original vixie-cron
 EAPI=7
 HOMEPAGE=https://github.com/cronie-crond/cronie
@@ -12,4 +12,4 @@ RDEPEND=acct-group/crontab pam? ( sys-libs/pam ) anacron? ( !sys-process/anacron
 SLOT=0
 SRC_URI=https://github.com/cronie-crond/cronie/archive/cronie-1.6.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	cron	b3117529d23cf99d6166b59608ed94e4	pam	e44a1dd98f13e1ad76de01e919bde1f1	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=f4ab102ebc09edb4a53f699d6d1b7cc2
+_md5_=6cc103b4e220925d60a8f0bd59f114dc
