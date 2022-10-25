@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2022-10-25)
+# Fails to build with Clang 16 but also modern linux-headers. No activity upstream.
+# Removal on 2022-10-25. bug #874420.
+net-misc/wol
+
 # Sam James <sam@gentoo.org> (2022-10-24)
 # Non-free licence which prohibits any patching. Fails to build with Clang 16.
 # Removal on 2022-10-24.
@@ -132,11 +137,6 @@ net-libs/gnet
 # Bugs #670904, #873859
 # Removal on 2022-11-14
 games-mud/gnome-mud
-
-# Sam James <sam@gentoo.org> (2022-10-13)
-# Depends on vulnerable version of Rust. See bug #877005.
-# Will be unmasked once dependency is updated.
-<www-client/seamonkey-2.53.14-r1
 
 # Joshua Kinard <kumba@gentoo.org> (2022-10-13)
 # Difficult-to-resolve build issues on modern toolchains,
