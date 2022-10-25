@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install postinst
+DEPEND=|| ( mail-mta/sendmail mail-mta/postfix ) acct-group/defang acct-user/defang dev-perl/Digest-SHA1 dev-perl/IO-stringy dev-perl/MailTools dev-perl/MIME-tools dev-perl/Unix-Syslog mail-filter/libmilter:= virtual/perl-MIME-Base64 clamav? ( app-antivirus/clamav ) test? ( dev-perl/Test-Class dev-perl/Test-Most )
+DESCRIPTION=Antispam, antivirus and other customizable filters for MTAs with Milter support
+EAPI=8
+HOMEPAGE=https://www.mimedefang.org/
+IUSE=clamav +poll test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=|| ( mail-mta/sendmail mail-mta/postfix ) acct-group/defang acct-user/defang dev-perl/Digest-SHA1 dev-perl/IO-stringy dev-perl/MailTools dev-perl/MIME-tools dev-perl/Unix-Syslog mail-filter/libmilter:= virtual/perl-MIME-Base64 clamav? ( app-antivirus/clamav )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://mimedefang.org/releases/mimedefang-3.1.tar.gz
+_md5_=31c3b984ddaa094d50ddf62fa4642c8c
