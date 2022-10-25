@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://www.singular.uni-kl.de/ https://github.com/Singular/Singular
 INHERIT=elisp-common
 IUSE=emacs examples polymake +readline static-libs
-KEYWORDS=~amd64 ~ppc ~riscv ~x86 ~x86-linux
+KEYWORDS=amd64 ~ppc ~riscv ~x86 ~x86-linux
 LICENSE=BSD GPL-2 GPL-3
 RDEPEND=dev-lang/perl dev-libs/gmp:0 dev-libs/ntl:= sci-libs/cddlib sci-mathematics/flint emacs? ( >=app-editors/emacs-23.1:* ) polymake? ( sci-mathematics/polymake ) readline? ( sys-libs/readline )
 SLOT=0
 SRC_URI=ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-3-1/singular-4.3.1p1.tar.gz
 _eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b
-_md5_=bee9fd5a9cef832bf0c9d7d32531e82f
+_md5_=504355d40dcf4864568bb4383def8d51
