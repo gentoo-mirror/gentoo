@@ -949,7 +949,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0 1.13.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.81 1.25.89 1.25.90 1.25.91 1.25.92 1.25.93 1.25.94 1.25.96 1.25.97: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.81 1.25.89 1.25.97 1.26.0: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 2022.6.0-r1 2022.9.1-r1: Bitwarden password manager desktop client
@@ -3361,7 +3361,7 @@ app-portage/kuroneko 0.1.3: Vulnerability checker using data scraped from Gentoo
 app-portage/kuroo 1.2.2 9999: Graphical Portage frontend based on KDE Frameworks
 app-portage/layman 2.4.3 9999: Tool to manage Gentoo overlays
 app-portage/metagen 0.7.2 0.7.2-r1 0.7.2-r2 0.7.3 0.7.3-r1 9999: metadata.xml generator for ebuilds
-app-portage/mgorny-dev-scripts 25 26 27 28: Handy scripts for ebuild development and more
+app-portage/mgorny-dev-scripts 28 29: Handy scripts for ebuild development and more
 app-portage/mirrorselect 2.2.6-r2 2.3.0-r1 9999: Tool to help select distfiles mirrors for Gentoo
 app-portage/nattka 0.3.1 0.4: A New Arch Tester Toolkit -- open-source stable-bot replacement
 app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-package basis
@@ -4127,7 +4127,7 @@ dev-cpp/pstreams 1.0.1: C++ wrapper for the POSIX.2 functions popen(3) and pclos
 dev-cpp/pystring 1.1.3-r1: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
-dev-cpp/rapidfuzz-cpp 1.7.0 1.8.0: Rapid fuzzy string matching in C++
+dev-cpp/rapidfuzz-cpp 1.7.0 1.8.0 1.9.0: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.4.1: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r1: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 0.6.3 9999: C++ fast hash map and hash set using robin hood hashing
@@ -8248,8 +8248,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.80 1.24.88 1.24.89 1.24.90 1.24.91 1.24.92 1.24.93 1.24.95 1.24.96 9999: The AWS SDK for Python
-dev-python/botocore 1.27.80 1.27.88 1.27.89 1.27.90 1.27.91 1.27.92 1.27.93 1.27.95 1.27.96 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.88 1.24.96 1.25.0 9999: The AWS SDK for Python
+dev-python/botocore 1.27.88 1.27.96 1.28.0 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.23: Syntax highlighting and autocompletion for the Python interpreter
@@ -8314,7 +8314,7 @@ dev-python/cloudpickle 2.2.0: Extended pickling support for Python objects
 dev-python/cloudscraper 1.2.62: A Python module to bypass Cloudflare's anti-bot page
 dev-python/cmd2 2.4.2: Extra features for standard library's cmd module
 dev-python/collective-checkdocs 0.2-r1: Distutils command to view/validate packages's rst text long_descriptions
-dev-python/colorama 0.4.5: ANSI escape character sequences for colored terminal text & cursor positioning
+dev-python/colorama 0.4.5 0.4.6: ANSI escape character sequences for colored terminal text & cursor positioning
 dev-python/colorclass 2.2.2-r1: Colorful worry-free console applications for multiple platforms
 dev-python/coloredlogs 15.0.1: Colored stream handler for the logging module
 dev-python/colorlog 6.7.0: Log formatting with colors
@@ -8479,7 +8479,7 @@ dev-python/flask-compress 1.12 1.13: Compress responses in your Flask app with g
 dev-python/flask-cors 3.0.10-r1: A Flask extension for Cross Origin Resource Sharing (CORS)
 dev-python/flask-debug 0.4.3-r1: Flask extension that displays various debugging insights during development
 dev-python/flask-gravatar 0.5.0: Small extension for Flask to make usage of Gravatar service easy
-dev-python/flask-htmlmin 2.2.0: Minimize your flask rendered html
+dev-python/flask-htmlmin 2.2.0 2.2.1: Minimize your flask rendered html
 dev-python/flask-login 0.6.2: Login session support for Flask
 dev-python/flask-migrate 3.1.0: SQLAlchemy database migrations for Flask applications using Alembic
 dev-python/flask-nav 0.6-r4: Easily create navigation for Flask applications
@@ -8529,7 +8529,7 @@ dev-python/google-api-python-client 2.63.0 2.64.0 2.65.0: Google API Client for 
 dev-python/google-apitools 0.5.32-r1: Python library to manipulate Google APIs
 dev-python/google-auth 2.11.0 2.11.1 2.12.0 2.13.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r1: httplib2 Transport for Google Auth
-dev-python/google-auth-oauthlib 0.5.2 0.5.3: Google Authentication Library
+dev-python/google-auth-oauthlib 0.5.2 0.5.3 0.6.0: Google Authentication Library
 dev-python/google-pasta 0.2.0-r1: AST-based Python refactoring library
 dev-python/google-reauth-python 0.1.1: Python based U2F host library
 dev-python/googleapis-common-protos 1.56.4: Python classes generated from the common protos in the googleapis repository
@@ -8577,7 +8577,7 @@ dev-python/hyperframe 5.2.0 5.2.0-r1 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.56.2 6.56.3: A library for property based testing
 dev-python/icalendar 4.1.0 5.0.0 5.0.1: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.5.5 2.5.6: File identification library for Python
+dev-python/identify 2.5.5 2.5.6 2.5.7: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.1.4: Iterative JSON parser with a Pythonic interface
@@ -8631,7 +8631,7 @@ dev-python/jaraco-stream 3.0.3-r1: Routines for handling streaming data
 dev-python/jaraco-test 5.1.0-r1: Testing support by jaraco
 dev-python/jaraco-text 3.9.1 3.10.0: Text utilities used by other projects by developer jaraco
 dev-python/jarowinkler 1.2.3: Fast fuzzy string matching using Jaro and Jaro-Winkler similarity
-dev-python/jc 1.21.0 1.21.2 1.22.0 1.22.1: Converts the output of popular command-line tools and file-types to JSON
+dev-python/jc 1.22.1: Converts the output of popular command-line tools and file-types to JSON
 dev-python/jdcal 1.4.1-r1: Julian dates from proleptic Gregorian and Julian calendars
 dev-python/jedi 0.18.1 0.18.1-r1: Autocompletion library for Python
 dev-python/jeepney 0.8.0: Low-level, pure Python DBus protocol wrapper
@@ -8739,7 +8739,7 @@ dev-python/markdown2 2.4.3 2.4.5 2.4.6: Python Markdown language reimplementatio
 dev-python/markups 3.1.3: A wrapper around various text markups
 dev-python/markupsafe 1.1.1-r1 2.1.1: Implements a XML/HTML/XHTML Markup safe string for Python
 dev-python/marshmallow 3.16.0 3.17.0 3.17.1 3.18.0: A library for converting to and from native Python datatypes
-dev-python/matplotlib 3.5.1-r2 3.5.2-r3 3.5.3 3.6.1: Pure python plotting library with matlab like syntax
+dev-python/matplotlib 3.5.3 3.6.1: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.6: Inline Matplotlib backend for Jupyter
 dev-python/matrix-common 1.2.1 1.3.0: Common code for Synapse, Sydent and Sygnal
 dev-python/matterhook 0.2-r2: Interact with Mattermost incoming webhooks easily
@@ -8832,7 +8832,7 @@ dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
 dev-python/nuitka 1.1.5 1.1.6: Python to native compiler
 dev-python/numexpr 2.8.3: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 1.21.5 1.22.4 1.23.1 1.23.3 1.23.4: Fast array and numerical python library
+dev-python/numpy 1.22.4 1.23.3 1.23.4: Fast array and numerical python library
 dev-python/numpydoc 1.4.0 1.5.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauth2client 4.1.3-r2: Library for accessing resources protected by OAuth 2.0
 dev-python/oauthlib 3.2.2: Spec-compliant and thorough implementation of the OAuth request-signing logic
@@ -9299,7 +9299,7 @@ dev-python/qpageview 0.6.2: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 7.3.1-r1: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.13.1 2.13.3: Python bindings for QScintilla
 dev-python/qstylizer 0.2.1-r1 0.2.2: Stylesheet Generator for PyQt5/PySide2
-dev-python/qtawesome 1.1.1-r1 1.2.0: Enables iconic fonts such as Font Awesome in PyQt
+dev-python/qtawesome 1.1.1-r1 1.2.0 1.2.1: Enables iconic fonts such as Font Awesome in PyQt
 dev-python/qtconsole 5.3.2: Qt-based console for Jupyter with support for rich media output
 dev-python/qtsass 0.3.2: Compile SASS files to Qt stylesheets
 dev-python/quantities 0.13.0-r1: Support for physical quantities with units, based on numpy
@@ -9307,7 +9307,7 @@ dev-python/quex 0.71.2: Mode Oriented Directly Coded Lexical Analyser Generator
 dev-python/radon 5.1.0-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r4: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
-dev-python/rapidfuzz 2.11.0 2.11.1-r1: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 2.11.0 2.11.1-r1 2.12.0: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rapidfuzz_capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.0-r1: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
@@ -9334,7 +9334,7 @@ dev-python/requests-kerberos 0.14.0-r1: A Kerberos authentication handler for py
 dev-python/requests-mock 1.10.0: Mock out responses from the requests package
 dev-python/requests-ntlm 1.1.0-r1: HTTP NTLM authentication using the requests library
 dev-python/requests-oauthlib 1.3.1: This project provides first-class OAuth library support for Requests
-dev-python/requests-toolbelt 0.9.1-r1 0.10.0: A utility belt for advanced users of python-requests
+dev-python/requests-toolbelt 0.9.1-r1 0.10.0 0.10.1: A utility belt for advanced users of python-requests
 dev-python/requests-unixsocket 0.3.0-r2: Use requests to talk HTTP via a UNIX domain socket
 dev-python/requests_download 0.1.2-r1: A convenient function to download to a file using requests
 dev-python/requests_pkcs12 1.14: Adds PKCS#12 support to the Python requests library in a clean way
@@ -17030,7 +17030,7 @@ sec-keys/openpgp-keys-openzfs 20210419: OpenPGP keys used to sign OpenZFS releas
 sec-keys/openpgp-keys-patch 20220407: OpenPGP keys used by GNU patch
 sec-keys/openpgp-keys-philiphazel 20220416: OpenPGP keys used by Philip Hazel
 sec-keys/openpgp-keys-processone 20220316: OpenPGP keys used by processone/ejabberd
-sec-keys/openpgp-keys-python 20210121: OpenPGP keys used to sign CPython releases
+sec-keys/openpgp-keys-python 20210121 20221025: OpenPGP keys used to sign CPython releases
 sec-keys/openpgp-keys-rust 20210504: Rust Language Tag and Release Signing Key
 sec-keys/openpgp-keys-sed 20220407: OpenPGP keys used by GNU sed
 sec-keys/openpgp-keys-sergehallyn 20220812: OpenPGP keys used by Serge Hallyn
