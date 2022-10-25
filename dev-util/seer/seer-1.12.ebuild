@@ -35,6 +35,10 @@ RDEPEND="
 	sys-devel/gdb
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-build-fixes.patch
+)
+
 src_install() {
 	cmake_src_install
 
