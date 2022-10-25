@@ -24,8 +24,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
-# botocore is x.(y+2).(z-1)
-BOTOCORE_PV="$(ver_cut 1).$(( $(ver_cut 2) + 2)).$(( $(ver_cut 3-) - 1 ))"
+# botocore is x.(y+2).z
+BOTOCORE_PV="$(ver_cut 1).$(( $(ver_cut 2) + 2)).$(ver_cut 3-)"
 RDEPEND="
 	>=dev-python/botocore-${BOTOCORE_PV}[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
