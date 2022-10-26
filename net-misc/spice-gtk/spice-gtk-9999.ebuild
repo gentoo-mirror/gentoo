@@ -6,7 +6,7 @@ EAPI=8
 VALA_MIN_API_VERSION="0.14"
 VALA_USE_DEPEND="vapigen"
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit desktop meson optfeature python-any-r1 readme.gentoo-r1 vala xdg
 
@@ -59,8 +59,8 @@ RDEPEND="
 		)
 	)
 	webdav? (
-		net-libs/phodav:2.0
-		>=net-libs/libsoup-2.49.91:2.4
+		net-libs/phodav:3.0
+		net-libs/libsoup:3.0
 	)
 "
 # TODO: spice-gtk has an automagic dependency on media-libs/libva without a
