@@ -32,6 +32,7 @@ DOCS=( src/imageformats/AUTHORS )
 PATCHES=(
 	"${FILESDIR}"/${P}-avif-perf-{1,2,3}.patch
 	"${FILESDIR}"/${P}-avif-0.11.0.patch
+	"${FILESDIR}"/${P}-jxl-perf.patch
 )
 
 src_configure() {
