@@ -5,10 +5,10 @@ DESCRIPTION=OpenCL-oriented thin wrapper library around clang
 EAPI=8
 HOMEPAGE=https://github.com/intel/opencl-clang
 INHERIT=cmake llvm
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=UoI-NCSA
 RDEPEND=dev-util/spirv-llvm-translator:15= sys-devel/clang:15=[static-analyzer] sys-devel/llvm:15=
 SLOT=15
 SRC_URI=https://github.com/intel/opencl-clang/archive/refs/tags/v15.0.0.tar.gz -> opencl-clang-15.0.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	llvm	29d5332b8530fb760c2ca71ad6706858
-_md5_=2b7bef2e786ed18fc67712a5c7b9f9c5
+_md5_=37fd820a6be8926a3f3b893c038ff348
