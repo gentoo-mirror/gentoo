@@ -1,16 +1,16 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/dune-configurator:= dev-ml/seq:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Iterators for OCaml, both restartable and consumable
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/c-cube/gen/
 INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
-RDEPEND=dev-ml/dune-configurator:= dev-ml/seq:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0/1.0
-SRC_URI=https://github.com/c-cube/gen/archive/refs/tags/v1.0.tar.gz -> gen-1.0.tar.gz
+SRC_URI=https://github.com/c-cube/gen/archive/v1.0.tar.gz -> gen-1.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=24885f5a721b57530e1a66f4649ac67c
+_md5_=3d933141b2ffa8d9e86b06fd570598c1

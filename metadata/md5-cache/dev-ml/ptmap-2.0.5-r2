@@ -1,15 +1,15 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/seq:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Maps of integers implemented as Patricia trees
-EAPI=7
-HOMEPAGE=https://github.com/backtracking/ptmap
+EAPI=8
+HOMEPAGE=https://github.com/backtracking/ptmap/
 INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
-RDEPEND=dev-ml/seq:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.07:=[ocamlopt?] dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/2.0.5
 SRC_URI=https://github.com/backtracking/ptmap/archive/2.0.5.tar.gz -> ptmap-2.0.5.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=d47a3a2595c90872ac1f244fe6703e54
+_md5_=155d88ee0d4a71d9bd6f52fefaf1f025
