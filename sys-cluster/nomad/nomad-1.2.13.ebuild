@@ -3,12 +3,12 @@
 
 EAPI=8
 inherit go-module systemd
-GIT_COMMIT=95514d569610f15ce49b4a7a1a6bfd3e7b3e7b4f
+GIT_COMMIT=6892b138959f03d2fcc02975b61c24c297b360bb
 
 DESCRIPTION="A simple and flexible workload orchestrator"
 HOMEPAGE="https://nomadproject.io"
 SRC_URI="https://github.com/hashicorp/nomad/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-vendor.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
 LICENSE="MPL-2.0"
 SLOT="0"
@@ -17,24 +17,17 @@ IUSE="ui"
 
 RESTRICT=" test"
 
-src_prepare() {
-	default
-	if [[ -d ../vendor ]]; then
-		mv ../vendor . || die
-	fi
-}
-
 src_compile() {
 	local go_ldflags go_tags
 	go_ldflags="-X github.com/hashicorp/nomad/version.GitCommit=${GIT_COMMIT}"
 	go_tags="codegen_generated"
 	go_tags+="$(usex ui ',ui' '' )"
 	CGO_ENABLED=1 \
-		go build \
+		ego build \
 		-ldflags "${go_ldflags}" \
 		-tags "${go_tags}" \
 		-trimpath \
-		-o bin/${PN} || die "compile failed"
+		-o bin/${PN}
 }
 
 src_install() {
