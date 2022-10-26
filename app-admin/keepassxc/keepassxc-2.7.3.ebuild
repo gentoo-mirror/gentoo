@@ -63,6 +63,8 @@ BDEPEND="
 	doc? ( dev-ruby/asciidoctor )
 "
 
+PATCHES=( "${FILESDIR}"/${P}-tests.patch )
+
 src_prepare() {
 	if [[ "${PV}" != *_beta* ]] && [[ "${PV}" != *9999 ]] && [[ ! -f .version ]] ; then
 		printf '%s' "${PV}" > .version || die
