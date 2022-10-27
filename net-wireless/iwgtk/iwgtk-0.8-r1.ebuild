@@ -16,7 +16,7 @@ IUSE=""
 BDEPEND="app-text/scdoc"
 
 DEPEND="
-	dev-libs/atk:0
+	app-accessibility/at-spi2-core:2
 	dev-libs/glib:2
 	gui-libs/gtk:4
 	media-gfx/qrencode:=
