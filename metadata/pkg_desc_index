@@ -949,7 +949,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0 1.13.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.89 1.25.97 1.26.0 1.26.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.89 1.25.97 1.26.0 1.26.1 1.26.2: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 2022.6.0-r1 2022.9.1-r1: Bitwarden password manager desktop client
@@ -1224,7 +1224,7 @@ app-arch/upx-bin 3.96: Ultimate Packer for eXecutables, binary version with prop
 app-arch/vimball 0.5.1 9999: a command-line vimball archive extractor
 app-arch/wimlib 1.13.4-r1: The open source Windows Imaging (WIM) library
 app-arch/xar 1.8.0.0.487.100.1: An easily extensible archive format
-app-arch/xarchiver 0.5.4.19: A GTK+ archive manager that can be used with Thunar
+app-arch/xarchiver 0.5.4.19 0.5.4.20: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
 app-arch/xz-utils 5.2.5-r2 5.2.6 5.2.7 5.3.3_alpha 9999: Utils for managing LZMA compressed files
 app-arch/zip 3.0-r4 3.0-r5: Info ZIP (encryption support)
@@ -8248,8 +8248,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4: Amazon Web Services API
-dev-python/boto3 1.24.88 1.24.96 1.25.0 1.25.1 9999: The AWS SDK for Python
-dev-python/botocore 1.27.88 1.27.96 1.28.0 1.28.1 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.88 1.24.96 1.25.0 1.25.1 1.25.2 9999: The AWS SDK for Python
+dev-python/botocore 1.27.88 1.27.96 1.28.0 1.28.1 1.28.2 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.23 0.23-r1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8350,7 +8350,7 @@ dev-python/cssutils 2.6.0: A CSS Cascading Style Sheets library
 dev-python/csvkit 1.0.7: A suite of utilities for converting to and working with CSV
 dev-python/curtsies 0.4.0 0.4.1: Curses-like terminal wrapper, with colored strings
 dev-python/cvxopt 1.3.0: Python package for convex optimization
-dev-python/cwcwidth 0.1.7: Python bindings for wc(s)width
+dev-python/cwcwidth 0.1.7 0.1.8: Python bindings for wc(s)width
 dev-python/cx_Freeze 6.11.1 6.12.0 6.13.0: Create standalone executables from Python scripts
 dev-python/cycler 0.11.0-r1: Composable style cycles
 dev-python/cython 0.29.32: A Python to C compiler
@@ -8489,7 +8489,7 @@ dev-python/flask-restful 0.3.9: Simple framework for creating REST APIs
 dev-python/flask-script 2.0.6: Flask support for writing external scripts
 dev-python/flask-sphinx-themes 1.0.2-r1: Sphinx Themes for Flask related projects and Flask itself
 dev-python/flask-sqlalchemy 2.5.1 3.0.0 3.0.1 3.0.2: SQLAlchemy support for Flask applications
-dev-python/flatbuffers 2.0.7 22.9.24: RFC 7049 - Concise Binary Object Representation
+dev-python/flatbuffers 2.0.7 22.9.24 22.10.26: RFC 7049 - Concise Binary Object Representation
 dev-python/fleep 1.0.1-r1 9999: File format determination library for Python
 dev-python/flexmock 0.11.3: Testing library to create mocks, stubs and fakes
 dev-python/flit 3.7.1: Simplified packaging of Python modules
@@ -8786,7 +8786,7 @@ dev-python/mpi4py 3.1.3: Message Passing Interface for Python
 dev-python/mpmath 1.2.1: Python library for arbitrary-precision floating-point arithmetic
 dev-python/mrcfile 1.4.1 1.4.2 1.4.3: MRC2014 file format I/O library
 dev-python/msgpack 1.0.4: MessagePack (de)serializer for Python
-dev-python/mss 6.1.0: An ultra fast cross-platform multiple screenshots module in python using ctypes
+dev-python/mss 6.1.0 7.0.0: An ultra fast cross-platform multiple screenshots module in python using ctypes
 dev-python/multidict 6.0.2: multidict implementation
 dev-python/multipledispatch 0.6.0-r1: Multiple dispatch
 dev-python/munch 2.5.0-r2: A dot-accessible dictionary (a la JavaScript objects)
@@ -8936,7 +8936,7 @@ dev-python/pluginbase 1.0.1: Support library for building plugins sytems in Pyth
 dev-python/plumbum 1.7.2-r1 1.8.0: A library for shell script-like programs in python
 dev-python/ply 3.11-r2: Python Lex-Yacc library
 dev-python/plyr 1.0.6-r1: A python wrapper for Glyr
-dev-python/plyvel 1.4.0: Python interface to LevelDB
+dev-python/plyvel 1.4.0 1.5.0: Python interface to LevelDB
 dev-python/pmw 2.0.1-r3: Toolkit for building high-level compound Python widgets using the Tkinter module
 dev-python/pocketlint 0.24: Shared code for running pylint against rhinstaller projects
 dev-python/pockets 0.9.1-r2: Collection of helpful Python tools
@@ -9124,7 +9124,7 @@ dev-python/pysol_cards 0.12.0 0.14.2: Deal PySol FreeCell cards
 dev-python/pyspectrum2 0.2.0-r1: Implements a protobuf-based interface for Spectrum2 python-based backends
 dev-python/pyspelling 2.8.1: Spell checker automation tool
 dev-python/pyspf 2.0.14-r3: Python implementation of the Sender Policy Framework (SPF)
-dev-python/pyspnego 0.6.0 0.6.1: Library to handle SPNEGO and CredSSP authentication
+dev-python/pyspnego 0.6.0 0.6.1 0.6.2: Library to handle SPNEGO and CredSSP authentication
 dev-python/pysrt 1.1.2-r1 9999: Python library used to edit or create SubRip files
 dev-python/pystache 0.6.1: Updated Python implementation of Mustache templating framework
 dev-python/pysvg 0.2.2_p3-r1: Python SVG document creation library
@@ -9132,7 +9132,7 @@ dev-python/pysvn 1.9.15-r1: Object-oriented python bindings for subversion
 dev-python/pytables 3.7.0: Hierarchical datasets for Python
 dev-python/pyte 0.8.1: Simple VTXXX-compatible terminal emulator
 dev-python/pytesseract 0.3.10: Optical character recognition (OCR) tool
-dev-python/pytest 7.1.3: Simple powerful testing with Python
+dev-python/pytest 7.1.3 7.2.0: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.0.4: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.19.0 0.20.1: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 6.0.1: BDD library for the pytest runner
@@ -9140,7 +9140,7 @@ dev-python/pytest-check 1.0.9 1.0.10: pytest plugin that allows multiple failure
 dev-python/pytest-codeblocks 0.16.1: Extract code blocks from markdown
 dev-python/pytest-console-scripts 1.3.1: Pytest plugin for testing console scripts
 dev-python/pytest-cov 3.0.0-r2 4.0.0-r1: pytest plugin for coverage reporting
-dev-python/pytest-datadir 1.3.1-r1: Pytest plugin for manipulating test data directories and files
+dev-python/pytest-datadir 1.3.1-r1 1.4.1: Pytest plugin for manipulating test data directories and files
 dev-python/pytest-describe 2.0.1-r1: Describe-style plugin for pytest
 dev-python/pytest-django 4.5.2: A Django plugin for py.test
 dev-python/pytest-env 0.6.2-r1 0.8.1: py.test plugin that allows you to add environment variables
@@ -9261,6 +9261,7 @@ dev-python/python-vlc 3.0.16120: Python ctypes-based bindings for libvlc
 dev-python/python-xlib 0.31-r1: A fully functional X client library for Python, written in Python
 dev-python/python-xmlsec 1.3.12-r1: Python bindings for the XML Security Library
 dev-python/python-xmp-toolkit 2.0.1-r2: Library for working with XMP metadata
+dev-python/python-zeroconf 0.39.1 0.39.2 0.39.3: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/python-zipstream 1.1.4: A zip archive generator
 dev-python/python3-lxc 3.0.4: Python bindings for LXC
 dev-python/python3-saml 1.14.0: OneLogin's SAML Python Toolkit
@@ -9326,7 +9327,7 @@ dev-python/reno 3.5.0: Release notes manager, storing release notes in a git rep
 dev-python/reportlab 3.6.11-r1 3.6.12: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
 dev-python/requests 2.28.1-r1: HTTP library for human beings
-dev-python/requests-cache 0.9.6: Persistent cache for requests library
+dev-python/requests-cache 0.9.6 0.9.7: Persistent cache for requests library
 dev-python/requests-credssp 2.0.0: HTTPS CredSSP authentication with the requests library
 dev-python/requests-file 1.5.1-r2: File transport adapter for Requests
 dev-python/requests-futures 1.0.0-r1: Asynchronous Python HTTP for Humans
@@ -9567,7 +9568,7 @@ dev-python/transitions 0.9.0: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.7.3: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0-r1: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.14.1 3.15.2 3.15.3 3.15.4 3.15.5 3.15.7: Python library for loading and using triangular meshes
+dev-python/trimesh 3.14.1 3.15.2 3.15.3 3.15.4 3.15.5 3.15.7 3.15.8: Python library for loading and using triangular meshes
 dev-python/trio 0.21.0 0.22.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0 0.12.0-r1: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trove-classifiers 2022.8.31 2022.9.26 2022.10.19: Canonical source for classifiers on PyPI (pypi.org)
@@ -9689,7 +9690,6 @@ dev-python/ytmusicapi 0.22.0 0.23.0 0.24.0: Unofficial API for YouTube Music
 dev-python/zc-lockfile 2.0-r1: Basic inter-process locks
 dev-python/zconfig 3.6.0-r1: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.1.0-r2: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.39.1 0.39.2: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.8.1 3.9.0 3.10.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 4.4.1-r2 5.0.1: Zope Component Architecture
 dev-python/zope-configuration 4.4.1-r2: Zope Configuration Architecture
@@ -13452,10 +13452,10 @@ media-libs/a52dec 0.7.4-r8: library for decoding ATSC A/52 streams used in DVD
 media-libs/aalib 1.4_rc5-r9: A ASCII-Graphics Library
 media-libs/aften 0.0.8-r2: A/52 (AC-3) audio encoder
 media-libs/allegro 4.4.3.1 5.2.7.0-r1: Cross-platform library aimed at video game and multimedia programming
-media-libs/alsa-lib 1.2.7.2 1.2.7.2-r1: Advanced Linux Sound Architecture Library
+media-libs/alsa-lib 1.2.7.2 1.2.7.2-r1 1.2.8: Advanced Linux Sound Architecture Library
 media-libs/alsa-oss 1.1.8: Advanced Linux Sound Architecture OSS compatibility layer
 media-libs/alsa-topology-conf 1.2.5.1: ALSA topology configuration files
-media-libs/alsa-ucm-conf 1.2.7.2: ALSA ucm configuration files
+media-libs/alsa-ucm-conf 1.2.7.2 1.2.8: ALSA ucm configuration files
 media-libs/alure 1.2-r3: The OpenAL Utility Toolkit
 media-libs/amdgpu-pro-vulkan 21.50.1.1376756 21.50.2.1384496 22.10.0.1395274 22.10.3.1420322 22.20.0.1438747 22.20.3.1462318: AMD's closed source vulkan driver, from Radeon Software for Linux
 media-libs/amf-headers 1.4.23 1.4.24 1.4.26: The Advanced Media Framework (AMF) SDK
@@ -13501,7 +13501,7 @@ media-libs/flac 1.3.4 1.4.1 1.4.2: Free lossless audio encoder and decoder
 media-libs/flac-compat 1.3.4: Free lossless audio encoder and decoder
 media-libs/flickcurl 1.26: C library for the Flickr API
 media-libs/fluidsynth-dssi 1.0.0-r1: DSSI Soft Synth Interface
-media-libs/fontconfig 2.13.93 2.14.0-r1: A library for configuring and customizing font access
+media-libs/fontconfig 2.13.93 2.14.0-r1 2.14.1: A library for configuring and customizing font access
 media-libs/freealut 1.1.0-r4: The OpenAL Utility Toolkit
 media-libs/freeglut 3.2.2 3.4.0: A free OpenGL utility toolkit, the open-sourced alternative to the GLUT library
 media-libs/freeimage 3.18.0-r8: Image library supporting many formats
@@ -14171,7 +14171,7 @@ media-sound/abcmidi 2022.09.01: Programs for processing ABC music notation files
 media-sound/aeolus 0.10.4: A synthesised pipe organ emulator
 media-sound/alac_decoder 0.2.0-r2: Basic decoder for Apple Lossless Audio Codec files (ALAC)
 media-sound/alsa-tools 1.2.5: Advanced Linux Sound Architecture tools
-media-sound/alsa-utils 1.2.7-r1: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
+media-sound/alsa-utils 1.2.7-r1 1.2.8: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
 media-sound/alsamixer-app 0.1-r1: simple alsa mixer dockapp
 media-sound/alsamixergui 0.9.0.1.2-r4: FLTK based amixer Frontend
 media-sound/alsaplayer 0.99.81-r4: A heavily multi-threaded pluggable audio player
@@ -15078,7 +15078,7 @@ net-fs/nfs4-acl-tools 0.3.7-r1: Commandline and GUI tools that deal directly wit
 net-fs/openafs 1.8.7 1.8.8.1-r1: The OpenAFS distributed file system
 net-fs/s3backer 1.6.1 1.6.3: FUSE-based single file backing store via Amazon S3
 net-fs/s3fs 1.89 1.91: Amazon S3 mounting via fuse
-net-fs/samba 4.14.13 4.14.14 4.15.7 4.15.9-r1 4.15.10 4.16.4-r1 4.16.5-r1: Samba Suite Version 4
+net-fs/samba 4.14.13 4.14.14 4.15.7 4.15.9-r1 4.15.10 4.16.5-r1: Samba Suite Version 4
 net-fs/smbnetfs 0.6.3: FUSE filesystem for SMB shares
 net-fs/sshfs 3.7.3: Fuse-filesystem utilizing the sftp service
 net-fs/wdfs 1.4.2-r2: WebDAV filesystem with special features for accessing subversion repositories
@@ -15648,7 +15648,7 @@ net-misc/miniupnpd 2.3.1: MiniUPnP IGD Daemon
 net-misc/mobile-broadband-provider-info 20220725: Database of mobile broadband service providers
 net-misc/modemmanager 1.18.10-r1 1.18.12: Modem and mobile broadband management libraries
 net-misc/monmotha 2.3.8-r1: MonMotha IPTables-based firewall script
-net-misc/mosh 1.3.2-r3 1.3.2.95_rc1: Mobile shell that supports roaming and intelligent local echo
+net-misc/mosh 1.3.2-r3 1.4.0: Mobile shell that supports roaming and intelligent local echo
 net-misc/mptcpd 0.10-r1 0.11 9999: Daemon that performs multipath TCP path management related operations.
 net-misc/mrouted 4.2 4.4: IP multicast routing daemon
 net-misc/mstpd 0.1.0: Multiple spanning tree protocol daemon
@@ -19579,6 +19579,6 @@ xfce-extra/xfce4-volumed-pulse 0.2.3: Daemon to control volume up/down and mute 
 xfce-extra/xfce4-wavelan-plugin 0.6.3: A panel plug-in to display wireless interface statistics
 xfce-extra/xfce4-weather-plugin 0.11.0-r1: A weather plug-in for the Xfce desktop environment
 xfce-extra/xfce4-whiskermenu-plugin 2.7.1: Alternate application launcher for Xfce
-xfce-extra/xfce4-windowck-plugin 0.5.0: Panel plugin to put the maximized window title and window buttons on the panel
+xfce-extra/xfce4-windowck-plugin 0.5.0 0.5.1: Panel plugin to put the maximized window title and window buttons on the panel
 xfce-extra/xfce4-xkb-plugin 0.8.3: XKB layout switching panel plug-in for the Xfce desktop environment
 xfce-extra/xfdashboard 1.0.0: Maybe a GNOME shell like dashboard for the Xfce desktop environment
