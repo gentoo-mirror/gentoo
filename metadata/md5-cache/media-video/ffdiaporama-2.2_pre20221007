@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtmultimedia:5 dev-qt/qtsql:5[sqlite] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-gfx/exiv2:= >=media-video/ffmpeg-4:0=[encode] openclipart? ( media-gfx/openclipart[svg,-gzip] )
+DESCRIPTION=Movie creator from photos and video clips
+EAPI=8
+HOMEPAGE=https://ffdiaporama.tuxfamily.org
+INHERIT=qmake-utils xdg-utils
+IUSE=openclipart
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3 CC-BY-3.0
+RDEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtmultimedia:5 dev-qt/qtsql:5[sqlite] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-gfx/exiv2:= >=media-video/ffmpeg-4:0=[encode] openclipart? ( media-gfx/openclipart[svg,-gzip] )
+SLOT=0
+SRC_URI=https://github.com/laurantino/ffdiaporama/archive/cb0bb696bea9846fc63a43056c01ddc1efa4a2a8.tar.gz -> ffdiaporama-2.2_pre20221007.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=e35077bf07fd00a7d9981f165b88dcba
