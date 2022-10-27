@@ -1,17 +1,17 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs savedconfig optfeature
 
-DESCRIPTION="simple RSS and Atom parser"
+DESCRIPTION="Simple RSS and Atom parser"
 HOMEPAGE="https://codemadness.org/sfeed-simple-feed-parser.html"
 SRC_URI="https://codemadness.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 THEMES=( mono{,-highlight} newsboat templeos )
 IUSE="+ncurses +${THEMES[@]/#/theme-}"
@@ -32,9 +32,8 @@ src_configure() {
 
 src_compile() {
 	local ncurses_ldflags=""
-	if use ncurses; then
-		ncurses_ldflags="$("$(tc-getPKG_CONFIG)" --libs ncurses || die)"
-	fi
+	use ncurses && ncurses_ldflags="$($(tc-getPKG_CONFIG) --libs ncurses || die)"
+
 	emake \
 		CC="$(tc-getCC)" \
 		RANLIB="$(tc-getRANLIB)" \
