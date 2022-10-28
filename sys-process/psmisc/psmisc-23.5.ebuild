@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -11,8 +11,8 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-IUSE="ipv6 nls selinux test X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="nls selinux test X"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -31,8 +31,7 @@ BDEPEND="
 DOCS=( AUTHORS ChangeLog NEWS README )
 
 PATCHES=(
-	# https://gitlab.com/psmisc/psmisc/-/issues/35
-	"${FILESDIR}/${PN}-23.4-fuser_regression_revert.patch"
+	"${FILESDIR}"/${P}-fix-killall-pidfd_send_signal.patch
 )
 
 src_configure() {
@@ -46,12 +45,14 @@ src_configure() {
 			ac_cv_func_realloc_0_nonnull=yes
 	fi
 
+	# No longer needed in > 23.5
+	# https://gitlab.com/psmisc/psmisc/-/commit/3fac667430341bdcec733da6eacd88b03813467a
 	# bug #802414
 	touch testsuite/global-conf.exp || die
 
 	local myeconfargs=(
 		--disable-harden-flags
-		$(use_enable ipv6)
+		--enable-ipv6
 		$(use_enable nls)
 		$(use_enable selinux)
 	)

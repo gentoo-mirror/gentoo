@@ -1,12 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-USE_RUBY="ruby25 ruby26 ruby27"
+EAPI=8
+USE_RUBY="ruby27 ruby30 ruby31"
 RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_EXTRADOC="README.md"
 
-RUBY_FAKEGEM_EXTRAINSTALL="xml"
+RUBY_FAKEGEM_EXTRAINSTALL="recog"
+RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
 inherit ruby-fakegem
 
@@ -22,16 +23,8 @@ ruby_add_rdepend "dev-ruby/nokogiri"
 
 ruby_add_bdepend "test? (
 	dev-ruby/regexp_parser
-	dev-ruby/rspec:3
-	dev-util/aruba:1
-	dev-util/cucumber
 )"
 
 all_ruby_prepare() {
 	sed -i -e '/simplecov/I s:^:#:' spec/spec_helper.rb || die
-}
-
-each_ruby_test() {
-	RSPEC_VERSION=3 ruby-ng_rspec
-	ruby-ng_cucumber
 }
