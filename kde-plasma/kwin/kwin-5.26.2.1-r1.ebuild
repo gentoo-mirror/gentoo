@@ -103,6 +103,13 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
+PATCHES=(
+	"${FILESDIR}/${P}-x11window-fix-maximise-freeze.patch" # KDE-bug 461032
+	"${FILESDIR}/${P}-x11-dont-force-QT_NO_GLIB-1.patch" # KDE-bug 450000
+	"${FILESDIR}/${P}-x11-dont-force-QT_QPA_PLATFORM-xcb.patch" # KDE-bug 460980
+	"${FILESDIR}/${P}-nightcolormanager-emit-timing-chang-only-when-changed.patch"
+)
+
 src_prepare() {
 	ecm_src_prepare
 	use multimedia || eapply "${FILESDIR}/${PN}-5.21.80-gstreamer-optional.patch"
