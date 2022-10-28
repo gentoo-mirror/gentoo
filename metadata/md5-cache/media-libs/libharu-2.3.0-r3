@@ -1,16 +1,14 @@
-BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-libs/libfmt-8.0.0:=
-DESCRIPTION=Very fast, header only, C++ logging library
+DEPEND=media-libs/libpng:= sys-libs/zlib:=
+DESCRIPTION=C/C++ library for PDF generation
 EAPI=7
-HOMEPAGE=https://github.com/gabime/spdlog
+HOMEPAGE=http://www.libharu.org/
 INHERIT=cmake
-IUSE=test
-KEYWORDS=amd64 arm arm64 ppc ppc64 x86
-LICENSE=MIT
-RDEPEND=>=dev-libs/libfmt-8.0.0:=
-RESTRICT=!test? ( test )
-SLOT=0/1
-SRC_URI=https://github.com/gabime/spdlog/archive/v1.9.2.tar.gz -> spdlog-1.9.2.tar.gz test? ( https://dev.gentoo.org/~sam/distfiles/dev-libs/spdlog/spdlog-1.9.2-update-catch-glibc-2.34.patch.bz2 )
+KEYWORDS=amd64 ~arm ~arm64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux
+LICENSE=ZLIB
+RDEPEND=media-libs/libpng:= sys-libs/zlib:=
+SLOT=0/2.3.0
+SRC_URI=https://github.com/libharu/libharu/archive/RELEASE_2_3_0.tar.gz -> libharu-2.3.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=8d6a826f41791534dcf999f5a1ba7a54
+_md5_=841a6a0d28161a23b155f2766297dae4
