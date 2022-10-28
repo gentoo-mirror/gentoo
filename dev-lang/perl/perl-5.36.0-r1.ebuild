@@ -6,11 +6,11 @@ EAPI=7
 inherit alternatives flag-o-matic toolchain-funcs multilib multiprocessing
 
 PATCH_VER=1
-CROSS_VER=1.3.6
-PATCH_BASE="perl-5.34.0-patches-${PATCH_VER}"
+CROSS_VER=1.4
+PATCH_BASE="perl-5.36.0-patches-${PATCH_VER}"
 PATCH_DEV=dilfridge
 
-DIST_AUTHOR=XSAWYERX
+DIST_AUTHOR=RJBS
 
 # Greatest first, don't include yourself
 # Devel point-releases are not ABI-intercompatible, but stable point releases are
@@ -46,13 +46,14 @@ SRC_URI="
 	https://dev.gentoo.org/~${PATCH_DEV}/distfiles/${PATCH_BASE}.tar.xz
 	https://github.com/arsv/perl-cross/releases/download/${CROSS_VER}/perl-cross-${CROSS_VER}.tar.gz
 "
+
 HOMEPAGE="https://www.perl.org/"
 
 LICENSE="|| ( Artistic GPL-1+ )"
 SLOT="0/${SUBSLOT}"
 
 if [[ "${PV##*.}" != "9999" ]] && [[ "${PV/rc//}" == "${PV}" ]] ; then
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
 IUSE="berkdb debug doc gdbm ithreads minimal quadmath"
@@ -61,7 +62,7 @@ RDEPEND="
 	berkdb? ( sys-libs/db:= )
 	gdbm? ( >=sys-libs/gdbm-1.8.3:= )
 	app-arch/bzip2
-	sys-libs/zlib
+	>=sys-libs/zlib-1.2.12
 	virtual/libcrypt:=
 "
 DEPEND="${RDEPEND}"
@@ -83,19 +84,19 @@ PDEPEND="
 S="${WORKDIR}/${MY_P}"
 
 dual_scripts() {
-	src_remove_dual      perl-core/Archive-Tar        2.380.0       ptar ptardiff ptargrep
-	src_remove_dual      perl-core/CPAN               2.280.0       cpan
+	src_remove_dual      perl-core/Archive-Tar        2.400.0       ptar ptardiff ptargrep
+	src_remove_dual      perl-core/CPAN               2.330.0       cpan
 	src_remove_dual      perl-core/Digest-SHA         6.20.0        shasum
-	src_remove_dual      perl-core/Encode             3.80.0        enc2xs piconv
-	src_remove_dual      perl-core/ExtUtils-MakeMaker 7.620.0       instmodsh
-	src_remove_dual      perl-core/ExtUtils-ParseXS   3.430.0       xsubpp
-	src_remove_dual      perl-core/IO-Compress        2.102.0        zipdetails
-	src_remove_dual      perl-core/JSON-PP            4.60.0        json_pp
-	src_remove_dual      perl-core/Module-CoreList    5.202.105.200 corelist
+	src_remove_dual      perl-core/Encode             3.170.0       enc2xs piconv
+	src_remove_dual      perl-core/ExtUtils-MakeMaker 7.640.0       instmodsh
+	src_remove_dual      perl-core/ExtUtils-ParseXS   3.450.0       xsubpp
+	src_remove_dual      perl-core/IO-Compress        2.106.0       zipdetails
+	src_remove_dual      perl-core/JSON-PP            4.70.0        json_pp
+	src_remove_dual      perl-core/Module-CoreList    5.202.205.200 corelist
 	src_remove_dual      perl-core/Pod-Checker        1.740.0       podchecker
 	src_remove_dual      perl-core/Pod-Perldoc        3.280.100     perldoc
 	src_remove_dual      perl-core/Pod-Usage          2.10.0       pod2usage
-	src_remove_dual      perl-core/Test-Harness       3.430.0       prove
+	src_remove_dual      perl-core/Test-Harness       3.440.0       prove
 	src_remove_dual      perl-core/podlators          4.140.0       pod2man pod2text
 	src_remove_dual_man  perl-core/podlators          4.140.0       /usr/share/man/man1/perlpodstyle.1
 }
@@ -396,16 +397,6 @@ src_prepare() {
 	#		"Fix broken miniperl on hppa"\
 	#		"https://bugs.debian.org/869122" "https://bugs.gentoo.org/634162"
 
-	add_patch "${FILESDIR}/${P}-gdbm-1.20.patch" "0101-Fix-build-with-gdb120.patch"\
-			"Fix GDBM_File to compile with version 1.20 and earlier"\
-			"https://bugs.gentoo.org/802945"
-
-	if use prefix ; then
-		add_patch "${FILESDIR}/${P}"-fallback-getcwd-pwd.patch "0102-5.34.0-fallback-get-cwd-pwd.patch"\
-			"Fix installation during Prefix bootstrap (finding 'pwd' from coreutils)"\
-			"https://bugs.gentoo.org/818172"
-	fi
-
 	if [[ ${CHOST} == *-solaris* ]] ; then
 		# do NOT mess with nsl, on Solaris this is always necessary,
 		# when -lsocket is used e.g. to get h_errno
@@ -592,8 +583,11 @@ src_configure() {
 
 	# modifying 'optimize' prevents cross configure script from appending required flags
 	if tc-is-cross-compiler; then
-		append-cflags "-fwrapv -fno-strict-aliasing"
+		append-cflags "-fwrapv"
 	fi
+
+	# bug #877659, bug #821577
+	append-cflags -fno-strict-aliasing
 
 	# Autodiscover all old version directories, some of them will even be newer
 	# if you downgrade

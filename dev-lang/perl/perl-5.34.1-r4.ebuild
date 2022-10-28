@@ -46,13 +46,19 @@ SRC_URI="
 	https://dev.gentoo.org/~${PATCH_DEV}/distfiles/${PATCH_BASE}.tar.xz
 	https://github.com/arsv/perl-cross/releases/download/${CROSS_VER}/perl-cross-${CROSS_VER}.tar.gz
 "
+
+SRC_URI+="
+	https://dev.gentoo.org/~dilfridge/distfiles/perl-5.34.1-zlib-1.2.12.patch.xz
+	https://dev.gentoo.org/~dilfridge/distfiles/perl-5.34.1-zlib-1.2.12-encrypt-standard.zip.bin
+"
+
 HOMEPAGE="https://www.perl.org/"
 
 LICENSE="|| ( Artistic GPL-1+ )"
 SLOT="0/${SUBSLOT}"
 
 if [[ "${PV##*.}" != "9999" ]] && [[ "${PV/rc//}" == "${PV}" ]] ; then
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 fi
 
 IUSE="berkdb debug doc gdbm ithreads minimal quadmath"
@@ -89,7 +95,7 @@ dual_scripts() {
 	src_remove_dual      perl-core/Encode             3.80.100_rc   enc2xs piconv
 	src_remove_dual      perl-core/ExtUtils-MakeMaker 7.620.0       instmodsh
 	src_remove_dual      perl-core/ExtUtils-ParseXS   3.430.0       xsubpp
-	src_remove_dual      perl-core/IO-Compress        2.102.0        zipdetails
+	src_remove_dual      perl-core/IO-Compress        2.103.0        zipdetails
 	src_remove_dual      perl-core/JSON-PP            4.60.0        json_pp
 	src_remove_dual      perl-core/Module-CoreList    5.202.203.130 corelist
 	src_remove_dual      perl-core/Pod-Checker        1.740.0       podchecker
@@ -396,6 +402,12 @@ src_prepare() {
 	#		"Fix broken miniperl on hppa"\
 	#		"https://bugs.debian.org/869122" "https://bugs.gentoo.org/634162"
 
+	add_patch "${WORKDIR}/perl-5.34.1-zlib-1.2.12.patch" "0501-5.34.1-zlib-1.2.12.patch"\
+			"Update IO-Compress, Compress-Raw-* to 2.103"\
+			"https://bugs.gentoo.org/837176"
+	# this is the binary chunk that gnu patch can't do
+	cp "${DISTDIR}/perl-5.34.1-zlib-1.2.12-encrypt-standard.zip.bin" "${S}/cpan/IO-Compress/t/files/encrypt-standard.zip" || die
+
 	if use prefix ; then
 		add_patch "${FILESDIR}/${PN}"-5.34.0-fallback-getcwd-pwd.patch "0102-5.34.0-fallback-get-cwd-pwd.patch"\
 			"Fix installation during Prefix bootstrap (finding 'pwd' from coreutils)"\
@@ -588,8 +600,11 @@ src_configure() {
 
 	# modifying 'optimize' prevents cross configure script from appending required flags
 	if tc-is-cross-compiler; then
-		append-cflags "-fwrapv -fno-strict-aliasing"
+		append-cflags "-fwrapv"
 	fi
+
+	# bug #877659, bug #821577
+	append-cflags -fno-strict-aliasing
 
 	# Autodiscover all old version directories, some of them will even be newer
 	# if you downgrade
