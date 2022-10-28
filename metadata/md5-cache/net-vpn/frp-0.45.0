@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=A reverse proxy that exposes a server behind a NAT or firewall to the internet
+EAPI=7
+HOMEPAGE=https://github.com/fatedier/frp
+INHERIT=go-module systemd
+KEYWORDS=~amd64 ~riscv
+LICENSE=Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/zmedico/frp/archive/v0.45.0-vendor.tar.gz -> frp-0.45.0-vendor.tar.gz
+_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=0a7d02f94899ef360d2d47dbe0225cdb
