@@ -11,13 +11,14 @@ HOMEPAGE="https://www.wps.com/office/linux/"
 
 KEYWORDS="~amd64"
 
-SRC_URI="https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/${MY_PV}/${PN}_${PV}.XA_amd64.deb"
+#SRC_URI="https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/${MY_PV}/${PN}_${PV}.XA_amd64.deb"
+SRC_URI="https://wps-linux-personal.wpscdn.cn/wps/download/ep/Linux2019/${MY_PV}/${PN}_${PV}_amd64.deb"
 
 SLOT="0"
 RESTRICT="bindist strip mirror" # mirror as explained at bug #547372
 QA_PREBUILT="*"
 LICENSE="WPS-EULA"
-IUSE=""
+IUSE="systemd"
 
 # Deps got from this (listed in order):
 # rpm -qpR wps-office-10.1.0.5707-1.a21.x86_64.rpm
@@ -39,7 +40,7 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/fontconfig:1.0
 	media-libs/freetype:2
-	 || ( media-libs/flac:0/0 media-libs/flac-compat:8.3.0 )
+	|| ( media-libs/flac:0/0 media-libs/flac-compat:8.3.0 )
 	media-libs/libogg
 	media-libs/libsndfile
 	media-libs/libvorbis
@@ -72,6 +73,7 @@ RDEPEND="
 	dev-libs/libxslt
 	x11-libs/pango
 	virtual/glu
+	systemd? ( sys-apps/systemd )
 "
 DEPEND=""
 BDEPEND=""
@@ -89,6 +91,12 @@ src_install() {
 
 	insinto /opt/kingsoft/wps-office
 	doins -r "${S}"/opt/kingsoft/wps-office/{office6,templates}
+
+	# https://bugs.gentoo.org/878451
+	rm "${S}"/opt/kingsoft/wps-office/office6/libstdc++.so* || die
+
+	# https://bugs.gentoo.org/813138
+	use systemd || { rm "${S}"/opt/kingsoft/wps-office/office6/libdbus-1.so* || die ; }
 
 	fperms 0755 /opt/kingsoft/wps-office/office6/{et,wpp,wps,wpspdf}
 }
