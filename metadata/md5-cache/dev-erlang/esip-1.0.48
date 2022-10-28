@@ -1,0 +1,14 @@
+BDEPEND=dev-util/rebar:0 >=sys-apps/gawk-4.1
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-erlang/fast_tls-1.1.16 >=dev-erlang/stun-1.2.6 >=dev-erlang/p1_utils-1.0.25 dev-lang/erlang:=
+DESCRIPTION=ProcessOne SIP server component
+EAPI=7
+HOMEPAGE=https://github.com/processone/esip
+INHERIT=rebar
+KEYWORDS=~amd64 ~arm ~ia64 ~ppc ~sparc ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-erlang/fast_tls-1.1.16 >=dev-erlang/stun-1.2.6 >=dev-erlang/p1_utils-1.0.25 dev-lang/erlang:=
+SLOT=0
+SRC_URI=https://github.com/processone/esip/archive/1.0.48.tar.gz -> esip-1.0.48.tar.gz
+_eclasses_=rebar	c90ca870377295e338a9682a5b951ef6
+_md5_=947a56c0df6ca052221684a692e98f72
