@@ -3,6 +3,13 @@
 
 EAPI=8
 
+# 1. Please regularly check (even at the point of bumping) Fedora's packaging
+# for needed backports at https://src.fedoraproject.org/rpms/wireplumber/tree/rawhide
+#
+# 2. Keep an eye on git master (for both PipeWire and WirePlumber) as things
+# continue to move quickly. It's not uncommon for fixes to be made shortly
+# after releases.
+
 LUA_COMPAT=( lua5-{3,4} )
 
 inherit lua-single meson systemd
@@ -12,8 +19,8 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_BRANCH="master"
 	inherit git-r3
 else
-	SRC_URI="https://gitlab.freedesktop.org/pipewire/${PN}/-/archive/${PV}/${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
+	SRC_URI="https://gitlab.freedesktop.org/pipewire/${PN}/-/archive/${PV}/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 DESCRIPTION="Replacement for pipewire-media-session"
@@ -42,7 +49,7 @@ BDEPEND="
 DEPEND="
 	${LUA_DEPS}
 	>=dev-libs/glib-2.62
-	>=media-video/pipewire-0.3.48:=
+	>=media-video/pipewire-0.3.53-r1:=
 	virtual/libintl
 	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd )
@@ -62,11 +69,7 @@ RDEPEND="${DEPEND}
 DOCS=( {NEWS,README}.rst )
 
 PATCHES=(
-	"${FILESDIR}"/${P}-config-fix-enabled-property-to-default-to-true-when.patch
-	"${FILESDIR}"/${P}-m-lua-scripting-allow-converting-GValue-holding-NUL.patch
-	"${FILESDIR}"/${P}-alsa.lua-fix-device-name-deduplication-when-reserva.patch
-	"${FILESDIR}"/${P}-m-default-nodes-don-t-check-if-all-device-nodes-are.patch
-	"${FILESDIR}"/${P}-m-lua-scripting-fix-object-refcounting.patch
+	"${FILESDIR}"/${PN}-0.4.10-config-disable-sound-server-parts.patch # defer enabling sound server parts to media-video/pipewire
 )
 
 src_configure() {
