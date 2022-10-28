@@ -28,10 +28,6 @@ SHPV="${PV/_p*/}"
 # Replace "_p" with "-pf"
 PFPV="${PV/_p/-pf}"
 
-# https://gitlab.com/alfredchen/projectc/ revision for a major version,
-# e.g. prjc-v5.14-r2 = 2
-PRJC_R=0
-
 inherit kernel-2 optfeature
 detect_version
 
@@ -40,16 +36,11 @@ HOMEPAGE="https://codeberg.org/pf-kernel/linux/wiki/README
 	https://dev.gentoo.org/~mpagano/genpatches/"
 SRC_URI="https://codeberg.org/pf-kernel/linux/archive/v${PFPV}.tar.gz -> linux-${PFPV}.tar.gz
 	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.base.tar.xz
-	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz
-	https://gitlab.com/torvic9/linux519-vd/-/raw/master/prjc-519-r1-vd-test.patch"
-#	https://gitlab.com/alfredchen/projectc/-/raw/master/${SHPV}/prjc_v${SHPV}-r${PRJC_R}.patch"
+	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 S="${WORKDIR}/linux-${PFPV}"
-
-#PATCHES=( "${DISTDIR}/prjc_v${SHPV}-r${PRJC_R}.patch" )
-PATCHES=( "${DISTDIR}/prjc-519-r1-vd-test.patch" )
 
 K_EXTRAEINFO="For more info on pf-sources and details on how to report problems,
 	see: ${HOMEPAGE}."
