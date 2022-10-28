@@ -12,16 +12,14 @@ SRC_URI="https://curl.haxx.se/download/${P}.tar.xz
 
 LICENSE="curl"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="adns alt-svc brotli +ftp gnutls gopher hsts +http2 idn +imap ipv6 kerberos ldap mbedtls nss +openssl +pop3 +progress-meter rtmp samba +smtp ssh ssl sslv3 static-libs test telnet +tftp threads zstd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="+adns alt-svc brotli +ftp gnutls gopher hsts +http2 idn +imap ipv6 kerberos ldap mbedtls nss +openssl +pop3 +progress-meter rtmp samba +smtp ssh ssl sslv3 static-libs test telnet +tftp websockets zstd"
 IUSE+=" curl_ssl_gnutls curl_ssl_mbedtls curl_ssl_nss +curl_ssl_openssl"
 IUSE+=" nghttp3 quiche"
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/danielstenberg.asc
 
-# c-ares must be disabled for threads
-# only one default ssl provider can be enabled
+# Only one default ssl provider can be enabled
 REQUIRED_USE="
-	threads? ( !adns )
 	ssl? (
 		^^ (
 			curl_ssl_gnutls
@@ -51,6 +49,7 @@ RDEPEND="ldap? ( net-nds/openldap:=[${MULTILIB_USEDEP}] )
 		)
 		nss? (
 			dev-libs/nss:0[${MULTILIB_USEDEP}]
+			dev-libs/nss-pem
 			app-misc/ca-certificates
 		)
 	)
@@ -202,8 +201,8 @@ multilib_src_configure() {
 		--enable-proxy
 		--disable-sspi
 		$(use_enable static-libs static)
-		$(use_enable threads threaded-resolver)
-		$(use_enable threads pthreads)
+		--enable-pthreads
+		--enable-threaded-resolver
 		--disable-versioned-symbols
 		--without-amissl
 		--without-bearssl
@@ -223,14 +222,14 @@ multilib_src_configure() {
 		--without-rustls
 		--without-schannel
 		--without-secure-transport
+		$(use_enable websockets)
 		--without-winidn
 		--without-wolfssl
 		--with-zlib
 		$(use_with zstd)
 	)
 
-	ECONF_SOURCE="${S}" \
-	econf "${myconf[@]}"
+	ECONF_SOURCE="${S}" econf "${myconf[@]}"
 
 	if ! multilib_is_native_abi; then
 		# avoid building the client
@@ -265,7 +264,7 @@ multilib_src_configure() {
 	sed -i -r \
 		-e "/^Libs.private/s:(${libs#|})( |$)::g" \
 		libcurl.pc || die
-	echo "Requires.private: ${priv[*]}" >> libcurl.pc
+	echo "Requires.private: ${priv[*]}" >> libcurl.pc || die
 }
 
 multilib_src_test() {
