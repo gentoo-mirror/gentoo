@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare setup
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-libs/libxml2 media-libs/ftgl media-libs/libsdl[opengl,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] virtual/opengl
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-games/physfs dev-libs/libxml2 media-libs/ftgl media-libs/libsdl[opengl,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] virtual/opengl
 DESCRIPTION=Space adventure/combat game
 EAPI=7
 HOMEPAGE=https://epiar.net/
@@ -8,9 +8,9 @@ INHERIT=autotools flag-o-matic lua-single
 IUSE=+lua_single_target_lua5-1
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-libs/libxml2 media-libs/ftgl media-libs/libsdl[opengl,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] virtual/opengl
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-games/physfs dev-libs/libxml2 media-libs/ftgl media-libs/libsdl[opengl,sound,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] virtual/opengl
 REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
 SLOT=0
 SRC_URI=https://github.com/cthielen/Epiar/archive/0.5.1.tar.gz -> epiar-0.5.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143
-_md5_=af88aa683ff434df0d7450facf34c336
+_md5_=074fb107f813718a4c626870bfab62b6

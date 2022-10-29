@@ -1,6 +1,6 @@
 BDEPEND=app-arch/unzip dev-lang/perl || ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/pyyaml[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/pyyaml[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/pyyaml[python_targets_python3_8(-)] ) ) sys-devel/flex tiles? ( advpng? ( app-arch/advancecomp ) !advpng? ( media-gfx/pngcrush ) ) virtual/pkgconfig virtual/yacc
 DEFINED_PHASES=compile install postinst postrm prepare setup test
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl ) test? ( <dev-cpp/catch-3.0.0:0 ) tiles? ( sys-libs/ncurses:0 )
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl ) test? ( <dev-cpp/catch-3.0.0:0 ) tiles? ( sys-libs/ncurses:0 )
 DESCRIPTION=Role-playing roguelike game of exploration and treasure-hunting in dungeons
 EAPI=8
 HOMEPAGE=https://crawl.develz.org
@@ -8,10 +8,10 @@ INHERIT=desktop python-any-r1 lua-single xdg-utils toolchain-funcs
 IUSE=advpng debug ncurses sound test +tiles +lua_single_target_lua5-1
 KEYWORDS=amd64 x86
 LICENSE=GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl )
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl )
 REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
 RESTRICT=!test? ( test )
 SLOT=0.26
 SRC_URI=https://github.com/crawl/crawl/releases/download/0.26.1/stone_soup-0.26.1.zip https://dev.gentoo.org/~stasibear/distfiles/stone-soup.png -> stone-soup-0.26.png https://dev.gentoo.org/~stasibear/distfiles/stone-soup.svg -> stone-soup-0.26.svg
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=eacc99f7e8ec26f4888582f8e2af2770
+_md5_=8f447315871da037c57fd144cf5d0531
