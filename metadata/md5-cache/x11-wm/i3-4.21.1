@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/libev dev-libs/libpcre2 dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb[xkb] x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config test? ( dev-perl/AnyEvent dev-perl/ExtUtils-PkgConfig dev-perl/Inline dev-perl/Inline-C dev-perl/IPC-Run dev-perl/local-lib dev-perl/X11-XCB virtual/perl-Test-Simple x11-base/xorg-server[xephyr] x11-misc/xvfb-run ) doc? ( app-text/asciidoc app-text/xmlto dev-lang/perl )
+DESCRIPTION=An improved dynamic tiling window manager
+EAPI=8
+HOMEPAGE=https://i3wm.org/
+INHERIT=meson optfeature virtualx
+IUSE=doc test test
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/libev dev-libs/libpcre2 dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb[xkb] x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config dev-lang/perl dev-perl/AnyEvent-I3 dev-perl/JSON-XS
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://i3wm.org/downloads/i3-4.21.1.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac	virtualx	644887c82aefdf12001489391fca4f02
+_md5_=3bd61d0d19804d81b3bb078b311c5ea4
