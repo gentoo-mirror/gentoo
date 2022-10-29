@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit multilib meson-multilib readme.gentoo-r1
+PYTHON_COMPAT=( python3_{8..11} )
+inherit multilib meson-multilib python-any-r1 readme.gentoo-r1
 
 DESCRIPTION="A library for configuring and customizing font access"
 HOMEPAGE="https://fontconfig.org/"
@@ -43,6 +44,7 @@ DEPEND="
 	test? ( dev-libs/json-c )
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-util/gperf
 	virtual/pkgconfig
 	doc? (
@@ -160,7 +162,7 @@ multilib_src_install_all() {
 	fi
 
 	if [[ -e ${ED}/usr/share/doc/fontconfig/ ]] ;  then
-		mv "${ED}"/usr/share/doc/fontconfig/* "${ED}"/usr/share/doc/${P} || die
+		mv "${ED}"/usr/share/doc/fontconfig/* "${ED}"/usr/share/doc/${PF} || die
 		rm -rf "${ED}"/usr/share/doc/fontconfig || die
 	fi
 
