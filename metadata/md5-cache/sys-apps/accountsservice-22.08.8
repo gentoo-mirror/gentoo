@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( || ( ( >=dev-lang/python-3.10.4:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/python-dbusmock[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/python-dbusmock[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/python-dbusmock[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/python-dbusmock[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/glib-2.63.5:2 sys-auth/polkit virtual/libcrypt:= elogind? ( >=sys-auth/elogind-229.4 ) introspection? ( >=dev-libs/gobject-introspection-0.9.12:= ) systemd? ( >=sys-apps/systemd-186:0= )
 DESCRIPTION=D-Bus interfaces for querying and manipulating user account information
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.freedesktop.org/software/accountsservice/accountsservice-22.08.8.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=f7e97c7b601ce202b3947384a143dffa
+_md5_=fdea371ea1c63beb8cbf17d5b8f2aa4b

@@ -1,17 +1,17 @@
 BDEPEND=dev-util/itstool test? ( dev-python/pycodestyle ) >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-0.9.6:= dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-0.9.6:= dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=D-Feet is a powerful D-Bus debugger
 EAPI=7
 HOMEPAGE=https://wiki.gnome.org/Apps/DFeet
 INHERIT=gnome2 meson python-single-r1 virtualx
-IUSE=test +X python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 test
+IUSE=test +X python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 test
 KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2+
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-0.9.6:= >=dev-libs/glib-2.34:2 python_single_target_python3_8? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_10(-)] ) >=sys-apps/dbus-1 X? ( x11-libs/libwnck:3[introspection] )
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-0.9.6:= >=dev-libs/glib-2.34:2 python_single_target_python3_8? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_11(-)] ) >=sys-apps/dbus-1 X? ( x11-libs/libwnck:3[introspection] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/d-feet/0.3/d-feet-0.3.16.tar.xz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	virtualx	644887c82aefdf12001489391fca4f02
-_md5_=667a1f2a742924f82f90cfd6da499d38
+_md5_=f28be6a0b0d1deab52d1e368cb833391

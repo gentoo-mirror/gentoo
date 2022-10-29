@@ -1,4 +1,4 @@
-BDEPEND=>=app-eselect/eselect-pinentry-0.5 app-text/docbook-xml-dtd:4.3 dev-libs/libxslt >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( || ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=>=app-eselect/eselect-pinentry-0.5 app-text/docbook-xml-dtd:4.3 dev-libs/libxslt >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( || ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=>=app-crypt/gcr-3.27.90:0=[gtk] >=app-crypt/gnupg-2.0.28:= >=app-eselect/eselect-pinentry-0.5 app-misc/ca-certificates >=dev-libs/glib-2.44:2 >=dev-libs/libgcrypt-1.2.2:0= pam? ( sys-libs/pam ) selinux? ( sec-policy/selinux-gnome ) ssh-agent? ( net-misc/openssh )
 DESCRIPTION=Password and keyring managing daemon
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-keyring/42/gnome-keyring-42.1.tar.xz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	flag-o-matic	29a755b1291d64133634d80b0328f153	pam	e44a1dd98f13e1ad76de01e919bde1f1	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	virtualx	644887c82aefdf12001489391fca4f02
-_md5_=cc64cf673b39fbca565766fbfe94ba81
+_md5_=9a5ae33ad1075f60255be94c977a7757

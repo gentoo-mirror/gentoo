@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10[xml(+)] >=dev-lang/python-3.9.12:3.9[xml(+)] >=dev-lang/python-3.8.13:3.8[xml(+)] ) dev-util/gdbus-codegen dev-util/glib-utils gtk-doc? ( app-text/docbook-xml-dtd:4.1.2 >=dev-util/gtk-doc-1 ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.11.0_beta4:3.11[xml(+)] >=dev-lang/python-3.10.4:3.10[xml(+)] >=dev-lang/python-3.9.12:3.9[xml(+)] >=dev-lang/python-3.8.13:3.8[xml(+)] ) dev-util/gdbus-codegen dev-util/glib-utils gtk-doc? ( app-text/docbook-xml-dtd:4.1.2 >=dev-util/gtk-doc-1 ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=>=dev-libs/glib-2.44:2 >=dev-libs/json-glib-0.14.0 >=net-libs/libsoup-2.42.0:2.4 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) modemmanager? ( >=net-misc/modemmanager-1.6 ) zeroconf? ( >=net-dns/avahi-0.6.10[dbus] ) x11-libs/libnotify
 DESCRIPTION=A location information D-Bus service
@@ -14,4 +14,4 @@ REQUIRED_USE=vala? ( introspection )
 SLOT=2.0
 SRC_URI=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.6.0/geoclue-2.6.0.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	systemd	5f4bb0758df2e483babf68cd517078ca	vala	160a8a30a6cb9aa601e5441c643a7c61	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=e5a340e45ad41f1c2267d5ba9992b42e
+_md5_=e4497955cb366b5384df3102f317a09f
