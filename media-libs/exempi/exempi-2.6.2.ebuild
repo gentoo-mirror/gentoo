@@ -32,6 +32,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.4.2-iconv.patch
+	"${FILESDIR}"/${PN}-2.6.2-arm-static-build.patch
 )
 
 src_prepare() {
@@ -42,8 +43,10 @@ src_prepare() {
 }
 
 src_configure() {
-	# Valgrind detection is "disabled" due to bug #295875
+	# - --enable-static as --disable-static breaks build
+	# - Valgrind detection is "disabled" due to bug #295875
 	econf \
+		--enable-static \
 		$(use_enable test unittest) \
 		VALGRIND=""
 }
