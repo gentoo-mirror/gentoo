@@ -1,0 +1,16 @@
+BDEPEND=dev-util/gtk-doc-am app-text/docbook-xml-dtd:4.1.2 >=dev-util/intltool-0.35.5 gnome-base/gnome-common virtual/pkgconfig app-text/rarian >=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=dev-libs/glib-2.6:2 >=x11-libs/gtk+-2.24:2 >=gnome-base/gconf-2.10:2 >=gnome-base/libgnomecanvas-2.10 >=gnome-base/libglade-2.4:2.0 >=dev-libs/libxml2-2.6.27:2 >=dev-libs/libxslt-1.1.23
+DESCRIPTION=Project manager for Gnome
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/Planner
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=examples
+KEYWORDS=~alpha ~amd64 ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.6:2 >=x11-libs/gtk+-2.24:2 >=gnome-base/gconf-2.10:2 >=gnome-base/libgnomecanvas-2.10 >=gnome-base/libglade-2.4:2.0 >=dev-libs/libxml2-2.6.27:2 >=dev-libs/libxslt-1.1.23
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~eva/distfiles/planner/planner-0.14.6_p20130520.tar.xz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
+_md5_=4c147355413b4e443e2c1ec72bc914ed
