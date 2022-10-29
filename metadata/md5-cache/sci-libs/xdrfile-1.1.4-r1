@@ -1,0 +1,15 @@
+BDEPEND=fortran? ( virtual/fortran )
+DEFINED_PHASES=configure setup
+DEPEND=fortran? ( virtual/fortran )
+DESCRIPTION=Library to read gromacs trajectory and topology files
+EAPI=8
+HOMEPAGE=http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library
+INHERIT=fortran-2
+IUSE=fortran static-libs
+KEYWORDS=amd64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-3
+RDEPEND=fortran? ( virtual/fortran )
+SLOT=0
+SRC_URI=ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_md5_=75cdc554c5a1bd7bf17618049f3a075c
