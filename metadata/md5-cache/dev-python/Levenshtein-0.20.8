@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pypi.org/project/Levenshtein/ https://github.com/maxbachmann/Levenshtein/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~riscv
+KEYWORDS=~amd64 ~arm ~riscv
 LICENSE=GPL-2+
 RDEPEND=<dev-python/rapidfuzz-3.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/maxbachmann/Levenshtein/archive/v0.20.8.tar.gz -> Levenshtein-0.20.8.gh.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb
-_md5_=b0438697b70d7e601dfe2fd96a5312e7
+_md5_=8ac31037e284ee1d2c71a5f7ab814eee

@@ -5,10 +5,10 @@ EAPI=6
 HOMEPAGE=https://github.com/phillipberndt/pqiv http://www.pberndt.com/Programme/Linux/pqiv/
 INHERIT=linux-info toolchain-funcs xdg-utils
 IUSE=archive ffmpeg imagemagick pdf postscript webp
-KEYWORDS=amd64 ~arm64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.32:2 >=x11-libs/cairo-1.6 x11-libs/gtk+:3 archive? ( app-arch/libarchive:0= ) ffmpeg? ( media-video/ffmpeg:0= ) imagemagick? ( media-gfx/imagemagick:0= ) pdf? ( app-text/poppler:0= ) postscript? ( app-text/libspectre:0= ) webp? ( media-libs/libwebp:0= )
 SLOT=0
 SRC_URI=https://github.com/phillipberndt/pqiv/archive/2.11.tar.gz -> pqiv-2.11.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	bbfa385d6907d7948d49a5e107bd654d	xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=915466e6979dd98ffec452fceda79b24
+_md5_=1319e6bf3fc4e5ea6c05c6bd184c0dc8
