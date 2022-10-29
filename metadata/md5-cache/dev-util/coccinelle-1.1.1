@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-texlive/texlive-latexextra dev-texlive/texlive-fontsextra virtual/latex-base ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt(+)?] dev-ml/menhir:=[ocamlopt?] dev-ml/camlp4:=[ocamlopt?] dev-ml/parmap:=[ocamlopt?] dev-ml/findlib:=[ocamlopt?] emacs? ( >=app-editors/emacs-23.1:* ) pcre? ( dev-libs/libpcre dev-ml/pcre-ocaml:=[ocamlopt?] ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) )
+DESCRIPTION=Program matching and transformation engine
+EAPI=8
+HOMEPAGE=https://coccinelle.gitlabpages.inria.fr/website/
+INHERIT=autotools bash-completion-r1 elisp-common python-single-r1
+IUSE=doc emacs +ocamlopt pcre python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt(+)?] dev-ml/menhir:=[ocamlopt?] dev-ml/camlp4:=[ocamlopt?] dev-ml/parmap:=[ocamlopt?] dev-ml/findlib:=[ocamlopt?] emacs? ( >=app-editors/emacs-23.1:* ) pcre? ( dev-libs/libpcre dev-ml/pcre-ocaml:=[ocamlopt?] ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=strip !test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.inria.fr/coccinelle/coccinelle/-/archive/1.1.1/coccinelle-1.1.1.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=ce6127e0edca4b75f77ee8a5c60a6c8b
