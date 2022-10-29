@@ -8918,7 +8918,7 @@ dev-python/picobox 2.2.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.2.0 1.3.0: Pure-Python implementation of the AMQP
-dev-python/pikepdf 5.6.1 6.2.1: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 6.2.1: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 9.1.1 9.2.0: Python Imaging Library (fork)
 dev-python/pip 22.2.2 22.3: The PyPA recommended tool for installing Python packages
@@ -9341,7 +9341,7 @@ dev-python/requests_download 0.1.2-r1: A convenient function to download to a fi
 dev-python/requests_pkcs12 1.14: Adds PKCS#12 support to the Python requests library in a clean way
 dev-python/requestsexceptions 1.4.0: Finds the correct path to exceptions in the requests library
 dev-python/resolvelib 0.5.4 0.8.1: provides a Resolver class that includes dependency resolution logic
-dev-python/responses 0.21.0 0.22.0: Utility for mocking out the Python Requests library
+dev-python/responses 0.21.0 0.22.0-r1: Utility for mocking out the Python Requests library
 dev-python/restructuredtext-lint 1.4.0: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1-r1: Decorator for retrying when exceptions occur
 dev-python/retrying 1.3.3-r1: General-purpose retrying library
@@ -11395,7 +11395,7 @@ dev-util/wiggle 1.0 1.2: Tool for applying patches that patch cannot apply becau
 dev-util/woke 0.17.1 0.18.1 0.18.2 0.19.0: check source code for non-inclusive language
 dev-util/wstool 0.1.18 9999: Commands to manage several local SCM repositories for ROS
 dev-util/xdelta 1.1.4-r3 3.0.11-r1: Computes changes between binary or text files and creates deltas
-dev-util/xfce4-dev-tools 4.16.0 4.17.0: A set of scripts and m4/autoconf macros that ease build system maintenance
+dev-util/xfce4-dev-tools 4.16.0 4.17.0 4.17.1: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-util/xmlindent 0.2.17-r2: XML stream reformatter for ASCII text, but not UTF-8, written in ANSI C
 dev-util/xxdi 1.0.0: Simple alternative to vim's 'xxd -i' mode
 dev-util/xxdiff 4.0.1_p20170622-r1: A graphical file and directories comparator and merge tool
@@ -18065,8 +18065,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 055-r4 056 056-r2 057-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.5 4.2.6-r6 4.2.6-r7 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.220 5.10.150 5.15.75 5.19.17 6.0.5: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.220 5.10.150 5.15.75 5.19.17 6.0.5: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.220 5.4.221 5.10.150 5.10.151 5.15.75 5.15.76 5.19.17 6.0.5 6.0.6: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.220 5.4.221 5.10.150 5.10.151 5.15.75 5.15.76 5.19.17 6.0.5 6.0.6: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.321 4.9.329 4.9.330 4.9.331 4.14.286 4.14.294 4.14.295 4.14.296 4.19.250 4.19.259 4.19.260 4.19.261 4.19.262 5.4.220 5.4.221 5.10.150 5.10.151 5.15.75 5.15.76 5.19.17 6.0.5 6.0.6: Full sources including the Gentoo patchset for the 6.0 kernel tree
 sys-kernel/git-sources 6.1_rc1 6.1_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
@@ -18082,7 +18082,7 @@ sys-kernel/pf-sources 5.18_p5 5.19_p6 6.0_p1 6.0_p2 6.0_p3: Linux kernel fork th
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1 5.15.61_p20220830: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.255_p113 5.4.209_p77 5.10.145_p74 5.15.73_p52: Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.220 5.4.9999 5.10.150 5.10.9999 5.15.75 5.15.9999 5.19.17 5.19.9999 6.0.5: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.220 5.4.221 5.4.9999 5.10.150 5.10.151 5.10.9999 5.15.75 5.15.76 5.15.9999 5.19.17 5.19.9999 6.0.5 6.0.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.331 4.14.296 4.19.262 5.4.221 5.10.150 5.15.76 5.19.17 6.0.6: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.19.13: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
@@ -18268,7 +18268,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.220 5.10.150 5.15.75 5.19.17 6.0.5: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.220 5.4.221 5.10.150 5.10.151 5.15.75 5.15.76 5.19.17 6.0.5 6.0.6: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1-r1 5.0-r1 6.0-r1: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
