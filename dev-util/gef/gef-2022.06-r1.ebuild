@@ -5,12 +5,17 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit python-single-r1 wrapper
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
+	dev-python/mkdocs-material
+"
+
+inherit python-single-r1 docs wrapper
 
 DESCRIPTION="A GDB Enhanced Features for exploit devs & reversers"
 HOMEPAGE="https://github.com/hugsy/gef"
 
-if [[ ${PV} == *9999 ]]; then
+if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/hugsy/gef"
 else
@@ -20,7 +25,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="doc test"
+IUSE="test"
 # Seem to hang right now?
 RESTRICT="!test? ( test ) test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -36,7 +41,7 @@ RDEPEND="
 		dev-util/unicorn[python,${PYTHON_USEDEP}]
 	')"
 
-BDEPEND="doc? ( dev-python/mkdocs )
+BDEPEND="
 	test? (
 		$(python_gen_cond_dep '
 			dev-python/pytest[${PYTHON_USEDEP}]
@@ -44,35 +49,31 @@ BDEPEND="doc? ( dev-python/mkdocs )
 		')
 	)"
 
+DOCS=( README.md )
+
 src_prepare() {
 	default
 
-	sed -i -e '/pylint/d' requirements.txt || die
+	sed -i -e '/pylint/d' tests/requirements.txt || die
 }
 
 src_compile() {
 	# Tries to compile tests
 	:
+
+	docs_compile
 }
 
 src_install() {
-	insinto /usr/share/${PN}
+	insinto "/usr/share/${PN}"
 	doins -r *.py
 
-	python_optimize "${ED}"/usr/share/${PN}
+	python_optimize "${ED}/usr/share/${PN}"
 
 	make_wrapper "gdb-gef" \
-	"gdb -ex \"source ${EPREFIX}/usr/share/${PN}/gef.py\"" || die
+		"gdb -x \"/usr/share/${PN}/gef.py\"" || die
 
-	if use doc; then
-		# TODO: docs.eclass?
-		mkdocs build -d html || die
-
-		rm "${WORKDIR}"/${P}/html/sitemap.xml.gz || die
-		dodoc -r html/
-	fi
-
-	dodoc README.md
+	einstalldocs
 }
 
 pkg_postinst() {

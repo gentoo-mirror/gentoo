@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 # doesn't build with ninja when qt5 and python USE flags are both enabled
 CMAKE_MAKEFILE_GENERATOR="emake"
@@ -11,43 +11,45 @@ CMAKE_MAKEFILE_GENERATOR="emake"
 inherit cmake flag-o-matic python-single-r1
 
 DESCRIPTION="A free open-source montecarlo raytracing engine"
-HOMEPAGE="http://www.yafaray.org"
-SRC_URI="https://github.com/YafaRay/Core/archive/v${PV}.tar.gz -> ${PN}-core-${PV}.tar.gz"
-
-S="${WORKDIR}/Core-${PV}"
+# Regular homepage is currently down. Upstream is working on this.
+HOMEPAGE="https://www.yafaray.org https://github.com/YafaRay/libYafaRay"
+SRC_URI="https://github.com/YafaRay/libYafaRay/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/libYafaRay-${PV}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+fastmath +fasttrig jpeg opencv openexr png +python qt5 tiff truetype"
+IUSE="+fastmath +fasttrig jpeg opencv png python qt5 tiff truetype"
 RESTRICT="test"
 
-REQUIRED_USE="
-	python? ( ${PYTHON_REQUIRED_USE} )
-"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-# Note: according to upstream, the blender plugin doesn't work with blender-2.8 (yet).
+# Note: according to upstream, the blender plugin doesn't work with >=blender-2.8 (yet).
 RDEPEND="
-	dev-libs/boost:=[nls]
 	dev-libs/libxml2:2
 	sys-libs/zlib
-	jpeg? ( virtual/jpeg:0 )
-	opencv? ( >=media-libs/opencv-3.1.0:= )
-	openexr? ( >=media-libs/openexr-2.2.0:= )
-	png? ( media-libs/libpng:0= )
+	jpeg? ( media-libs/libjpeg-turbo:= )
+	opencv? ( media-libs/opencv:= )
+	png? ( media-libs/libpng:= )
 	python? ( ${PYTHON_DEPS} )
 	qt5? ( dev-qt/qtwidgets:5 )
-	tiff? ( media-libs/tiff:0 )
+	tiff? ( media-libs/tiff )
 	truetype? ( media-libs/freetype:2 )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="python? ( dev-lang/swig )"
+BDEPEND="
+	python? (
+		${PYTHON_DEPS}
+		dev-lang/swig
+	)
+"
 
 PATCHES=(
-	"${FILESDIR}/${P}-0001-Respect-user-pre-defined-CXXFLAGS.patch"
+	"${FILESDIR}"/${P}-0001-respect-distribution-CFLAGS.patch
+	"${FILESDIR}"/${P}-add-missing-limits-header.patch
 )
 
-DOCS=( AUTHORS CHANGELOG CODING INSTALL README )
+DOCS=( AUTHORS.md CHANGELOG.md CODING.md INSTALL.md README.md )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -65,19 +67,20 @@ src_configure() {
 		# enabling BLENDER_ADDON doesn't build anything, but set's some wierd
 		# installation paths, so keep it off and install the files manually.
 		-DBLENDER_ADDON=OFF
-		-DCMAKE_SKIP_RPATH=ON # NULL DT_RUNPATH security problem
 		-DFAST_MATH=$(usex fastmath)
 		-DFAST_TRIG=$(usex fasttrig)
 		-DWITH_Freetype=$(usex truetype)
 		-DWITH_JPEG=$(usex jpeg)
 		-DWITH_OpenCV=$(usex opencv)
-		-DWITH_OpenEXR=$(usex openexr)
+		-DWITH_OpenEXR=OFF # bug #877865
 		-DWITH_PNG=$(usex png)
 		-DWITH_QT=$(usex qt5)
 		-DWITH_TIFF=$(usex tiff)
-		-DWITH_XML_LOADER=ON		# internal
+		-DWITH_XML_LOADER=ON
+		-DWITH_XMLImport=ON
 		-DWITH_YAF_PY_BINDINGS=$(usex python)
 		-DWITH_YAF_RUBY_BINDINGS=OFF
+		-DYAF_DOC_DIR=share/doc/${PF}
 		-DYAF_LIB_DIR=$(get_libdir)
 	)
 
@@ -102,8 +105,6 @@ src_install() {
 			rm -v "${ED}"/usr/$(get_libdir)/yafqt.py || die
 		fi
 	fi
-
-	rm -rv "${ED}"/usr/share/doc/${PN} || die
 }
 
 pkg_postinst() {

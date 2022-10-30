@@ -7,7 +7,7 @@ inherit autotools flag-o-matic font optfeature pam strip-linguas
 
 DESCRIPTION="Modular screen saver and locker for the X Window System"
 HOMEPAGE="https://www.jwz.org/xscreensaver/"
-SRC_URI="https://www.jwz.org/xscreensaver/${P}.tar.gz"
+SRC_URI="https://www.jwz.org/xscreensaver/${P}.1.tar.gz"
 
 # Font license mapping for folder ./hacks/fonts/ as following:
 #   clacon.ttf       -- MIT
@@ -18,18 +18,15 @@ SRC_URI="https://www.jwz.org/xscreensaver/${P}.tar.gz"
 LICENSE="BSD fonts? ( MIT Apache-2.0 )"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="elogind fonts +gdk-pixbuf gdm gles glx +gtk jpeg +locking new-login offensive opengl pam +perl +png selinux suid systemd +xft xinerama"
+IUSE="elogind fonts +gdk-pixbuf gdm gles glx +gtk jpeg +locking new-login offensive pam +perl +png selinux suid systemd xinerama"
 REQUIRED_USE="
-	gdk-pixbuf? ( gtk )
-	gles? ( !glx opengl )
-	glx? ( opengl )
-	gtk? ( png )
-	opengl? ( png )
+	gles? ( !glx )
 	?? ( elogind systemd )
+	gtk? ( || ( gdk-pixbuf png ) )
 "
 
 COMMON_DEPEND="
-	dev-libs/libxml2
+	>=dev-libs/libxml2-2.4.6
 	x11-apps/appres
 	x11-apps/xwininfo
 	x11-libs/libX11
@@ -43,21 +40,19 @@ COMMON_DEPEND="
 		x11-libs/gdk-pixbuf-xlib
 		>=x11-libs/gdk-pixbuf-2.42.0:2
 	)
-	gtk? ( x11-libs/gtk+:2 )
+	gtk? ( >=x11-libs/gtk+-2.22.0:3 )
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	locking? ( virtual/libcrypt:= )
 	new-login? (
 		gdm? ( gnome-base/gdm )
 		!gdm? ( || ( x11-misc/lightdm lxde-base/lxdm ) )
 	)
-	opengl? (
-		virtual/glu
-		virtual/opengl
-	)
+	virtual/glu
+	virtual/opengl
 	pam? ( sys-libs/pam )
 	png? ( media-libs/libpng:= )
 	systemd? ( >=sys-apps/systemd-221 )
-	xft? ( x11-libs/libXft )
+	>=x11-libs/libXft-2.1.0
 	xinerama? ( x11-libs/libXinerama )
 "
 # For USE="perl" see output of `qlist xscreensaver | grep bin | xargs grep '::'`
@@ -89,9 +84,10 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.01-configure.ac-sandbox.patch
 	"${FILESDIR}"/${PN}-6.01-without-gl-makefile.patch
 	"${FILESDIR}"/${PN}-6.01-non-gtk-install.patch
-	"${FILESDIR}"/${PN}-6.01-gtk-detection.patch
 	"${FILESDIR}"/${PN}-6.01-configure-install_sh.patch
 	"${FILESDIR}"/${PN}-6.03-without-gl-configure.patch
+	"${FILESDIR}"/${PN}-6.05-remove-update-icon-cache.patch
+	"${FILESDIR}"/${PN}-6.05-configure-exit-codes.patch
 )
 
 DOCS=( README{,.hacking} )
@@ -127,6 +123,7 @@ src_prepare() {
 			's| Stay.*fucking mask\.$||' \
 			hacks/glx/covid19.man \
 			hacks/config/covid19.xml || die
+		eapply "${FILESDIR}/xscreensaver-6.05-teach-handsy-some-manners.patch"
 	fi
 
 	config_rpath_update "${S}"/config.rpath
@@ -143,10 +140,6 @@ src_configure() {
 
 	unset BC_ENV_ARGS #24568
 
-	# Works similarly to -Werror,
-	# https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration
-	filter-flags -pedantic-errors
-
 	# /proc/interrupts won't always have the keyboard bits needed
 	# Not clear this does anything in 6.03+(?) but let's keep it for now in case.
 	# (See also: configure argument)
@@ -162,14 +155,13 @@ src_configure() {
 		$(use_with glx)
 		$(use_with gtk)
 		$(use_with new-login login-manager)
-		$(use_with opengl gl)
 		$(use_with pam)
 		$(use_with suid setuid-hacks)
 		$(use_with systemd)
 		$(use_with xinerama xinerama-ext)
 		--with-jpeg=$(usex jpeg yes no)
 		--with-png=$(usex png yes no)
-		--with-xft=$(usex xft yes no)
+		--with-xft=yes
 		--with-app-defaults="${EPREFIX}"/usr/share/X11/app-defaults
 		--with-configdir="${EPREFIX}"/usr/share/${PN}/config
 		--with-dpms-ext
@@ -201,7 +193,7 @@ src_compile() {
 
 src_install() {
 	use pam && dodir /etc/pam.d/
-	emake install_prefix="${D}" DESTDIR="${D}" install
+	emake install_prefix="${D}" DESTDIR="${D}" GTK_SHAREDIR="${installprefix}"/usr/share/xscreensaver install
 
 	if use fonts; then
 		# Do not install fonts with unclear licensing
@@ -227,13 +219,17 @@ src_install() {
 	if ! use gtk; then
 		rm "${ED}/usr/bin/xscreensaver-demo" || die
 	fi
+	# Makefile installs xscreensaver.service regardless of --without-systemd
+	if ! use systemd; then
+		rm "${ED}/usr/share/xscreensaver.service" || die
+	fi
 }
 
 pkg_postinst() {
 	use fonts && font_pkg_postinst
 
 	# bug #811885
-	if ! use glx && use opengl; then
+	if ! use glx; then
 		elog "Enable USE='glx' if OpenGL screensavers are crashing."
 	fi
 
