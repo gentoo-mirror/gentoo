@@ -18,17 +18,17 @@ SRC_URI="mirror://pypi/${PN::1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
+KEYWORDS="~amd64 ~arm ~riscv"
 
 # all these are header-only libraries
 DEPEND="
 	>=dev-cpp/taskflow-3.0.0
-	>=dev-cpp/rapidfuzz-cpp-1.8.0
+	>=dev-cpp/rapidfuzz-cpp-1.10.0
 	dev-python/numpy[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/rapidfuzz_capi[${PYTHON_USEDEP}]
-	>=dev-python/scikit-build-0.13.0[${PYTHON_USEDEP}]
+	dev-python/scikit-build[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		dev-python/hypothesis[${PYTHON_USEDEP}]
@@ -37,4 +37,11 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-export RAPIDFUZZ_BUILD_EXTENSION=1
+src_prepare() {
+	# sterilize build flags
+	sed -i -e '/CMAKE_INTERPROCEDURAL_OPTIMIZATION/d' CMakeLists.txt || die
+
+	distutils-r1_src_prepare
+
+	export RAPIDFUZZ_BUILD_EXTENSION=1
+}
