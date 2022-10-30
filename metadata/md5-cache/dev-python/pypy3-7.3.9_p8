@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.pypy.org/ https://foss.heptapod.net/pypy/pypy/
 INHERIT=pax-utils python-any-r1 toolchain-funcs
 IUSE=+ensurepip gdbm +jit ncurses sqlite test tk
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=|| ( >=dev-python/pypy3-exe-7.3.9_p3:3.9-7.3.9[bzip2(+),ncurses?] >=dev-python/pypy3-exe-bin-7.3.9_p3:3.9-7.3.9 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !<dev-python/pypy3-bin-7.3.0:0
 RESTRICT=test
 SLOT=0/pypy39-pp73-336
 SRC_URI=https://buildbot.pypy.org/pypy/pypy3.9-v7.3.9-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.9-gentoo-patches-7.3.9_p8.tar.xz
 _eclasses_=pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
-_md5_=d69e54046bd12a818f8ec8e60f83c880
+_md5_=42bb83702c29345b6437b09ccc87632e
