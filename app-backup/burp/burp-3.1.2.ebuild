@@ -37,7 +37,6 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.1.20-no_mkdir_run.patch
-	"${FILESDIR}"/${PN}-2.1.20-protocol1_by_default.patch
 	"${FILESDIR}"/${PN}-2.0.54-server_user.patch
 )
 
