@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-14">
+    <title>Gitea: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Gitea, the worst of which could lead to denial of service</synopsis>
+    <product type="ebuild">gitea</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>848465</bug>
+    <bug>857819</bug>
+    <bug>868996</bug>
+    <bug>877355</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apps/gitea" auto="yes" arch="*">
+            <unaffected range="ge">1.17.3</unaffected>
+            <vulnerable range="lt">1.17.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Gitea is a painless self-hosted Git service.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Gitea. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Gitea users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apps/gitea-1.17.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1928">CVE-2022-1928</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32149">CVE-2022-32149</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38183">CVE-2022-38183</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42968">CVE-2022-42968</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:10:13.201097Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:10:13.205677Z">ajak</metadata>
+</glsa>
