@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install setup
+DEPEND=ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers )
+DESCRIPTION=Multipurpose relay (SOcket CAT)
+EAPI=8
+HOMEPAGE=http://www.dest-unreach.org/socat/ https://repo.or.cz/socat.git
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=bindist ipv6 readline ssl tcpd
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+LICENSE=GPL-2
+RDEPEND=ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers )
+RESTRICT=test ssl? ( readline? ( bindist ) )
+SLOT=0
+SRC_URI=http://www.dest-unreach.org/socat/download/socat-1.7.4.4.tar.bz2
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=aeba491920b74c508bc33dbbb688a626
