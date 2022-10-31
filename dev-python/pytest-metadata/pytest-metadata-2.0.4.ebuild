@@ -9,7 +9,10 @@ PYTHON_COMPAT=( python3_{8..11} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="A plugin for pytest that provides access to test session metadata"
-HOMEPAGE="https://github.com/pytest-dev/pytest-metadata/"
+HOMEPAGE="
+	https://github.com/pytest-dev/pytest-metadata/
+	https://pypi.org/project/pytest-metadata/
+"
 SRC_URI="
 	https://github.com/pytest-dev/pytest-metadata/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
