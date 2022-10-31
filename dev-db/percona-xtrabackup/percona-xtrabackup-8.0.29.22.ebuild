@@ -1,13 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-inherit cmake flag-o-matic
+inherit cmake
 
-MY_BOOST_VERSION="1.73.0"
+MY_BOOST_VERSION="1.77.0"
 MY_PV=$(ver_rs 3 '-')
 MY_PV="${MY_PV//_pre*}"
 MY_PN="Percona-XtraBackup"
@@ -17,8 +17,7 @@ MY_MAJOR_PV=$(ver_cut 1-2)
 DESCRIPTION="Hot backup utility for MySQL based servers"
 HOMEPAGE="https://www.percona.com/software/mysql-database/percona-xtrabackup"
 SRC_URI="https://www.percona.com/downloads/${MY_PN}-${MY_MAJOR_PV}/${MY_PN}-${MY_PV}/source/tarball/${PN}-${MY_PV}.tar.gz
-	https://dl.bintray.com/boostorg/release/${MY_BOOST_VERSION}/source/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION}).tar.bz2
-"
+	https://boostorg.jfrog.io/artifactory/main/release/${MY_BOOST_VERSION}/source/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION}).tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -48,7 +47,7 @@ RDEPEND="
 	dev-perl/DBD-mysql"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-8.0.25-remove-rpm.patch
+	"${FILESDIR}"/${PN}-8.0.26-remove-rpm.patch
 )
 
 S="${WORKDIR}/percona-xtrabackup-${MY_PV}"
