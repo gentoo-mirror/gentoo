@@ -6,9 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/make/make.html
 INHERIT=flag-o-matic verify-sig
 IUSE=guile nls static verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=GPL-3+
 RDEPEND=guile? ( >=dev-scheme/guile-1.8:= ) nls? ( virtual/libintl )
 SLOT=0
-SRC_URI=https://alpha.gnu.org/gnu/make/make-4.3.92.tar.gz verify-sig? ( https://alpha.gnu.org/gnu/make/make-4.3.92.tar.gz.sig )
+SRC_URI=mirror://gnu/make/make-4.4.tar.gz verify-sig? ( mirror://gnu/make/make-4.4.tar.gz.sig )
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	verify-sig	0748d665fa664a87add00152ed046e16
 _md5_=81a8d5e78a3411add148146957c8e2d7
