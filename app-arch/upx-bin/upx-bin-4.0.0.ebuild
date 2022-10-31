@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit pax-utils
 
@@ -17,9 +17,9 @@ SRC_URI="x86? ( https://github.com/upx/upx/releases/download/v${PV}/${MY_P}-i386
 	ppc? ( https://github.com/upx/upx/releases/download/v${PV}/${MY_P}-powerpc_linux.tar.xz )
 	ppc64? ( https://github.com/upx/upx/releases/download/v${PV}/${MY_P}-powerpc64le_linux.tar.xz )"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ UPX-exception"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86"
 RESTRICT="strip"
 
 RDEPEND="!app-arch/upx"
@@ -35,5 +35,5 @@ src_install() {
 	dobin upx
 	pax-mark -m "${ED}"/opt/bin/upx
 	doman upx.1
-	dodoc upx.doc BUGS NEWS README* THANKS upx.html
+	dodoc NEWS README THANKS upx-doc.html upx-doc.txt
 }
