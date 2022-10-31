@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-26">
+    <title>Shadow: TOCTOU Race</title>
+    <synopsis>A TOCTOU race has been discovered in Shadow, which could result in the unauthorized modification of files.</synopsis>
+    <product type="ebuild">shadow</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>830486</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/shadow" auto="yes" arch="*">
+            <unaffected range="ge">4.12.2</unaffected>
+            <vulnerable range="lt">4.12.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Shadow contains utilities to deal with user accounts</p>
+    </background>
+    <description>
+        <p>A TOCTOU race condition was discovered in shadow. A local attacker with write privileges in a directory removed or copied by usermod/userdel could potentially exploit this flaw when the administrator invokes usermod/userdel.</p>
+    </description>
+    <impact type="normal">
+        <p>An unauthorized user could potentially modify files which they do not have write permissions for.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Shadow users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/shadow-4.12.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2013-4235">CVE-2013-4235</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:22:12.661215Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:22:12.666288Z">ajak</metadata>
+</glsa>
