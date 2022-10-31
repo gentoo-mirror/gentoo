@@ -159,7 +159,7 @@ GEOIP2_MODULE_URI="https://github.com/leev/ngx_http_geoip2_module/archive/${GEOI
 GEOIP2_MODULE_WD="${WORKDIR}/ngx_http_geoip2_module-${GEOIP2_MODULE_PV}"
 
 # njs-module (https://github.com/nginx/njs, as-is)
-NJS_MODULE_PV="0.7.7"
+NJS_MODULE_PV="0.7.8"
 NJS_MODULE_P="njs-${NJS_MODULE_PV}"
 NJS_MODULE_URI="https://github.com/nginx/njs/archive/${NJS_MODULE_PV}.tar.gz"
 NJS_MODULE_WD="${WORKDIR}/njs-${NJS_MODULE_PV}"
@@ -393,12 +393,6 @@ src_prepare() {
 	if use nginx_modules_http_brotli; then
 		cd "${HTTP_BROTLI_MODULE_WD}" || die
 		eapply "${FILESDIR}"/http_brotli-detect-brotli-r3.patch
-		cd "${S}" || die
-	fi
-
-	if use nginx_modules_http_javascript || use nginx_modules_stream_javascript; then
-		cd "${NJS_MODULE_WD}" || die
-		eapply "${FILESDIR}"/http_javascript_cve_2022-38890.patch
 		cd "${S}" || die
 	fi
 
