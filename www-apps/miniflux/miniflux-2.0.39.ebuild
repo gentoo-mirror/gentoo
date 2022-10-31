@@ -12,7 +12,7 @@ SRC_URI+=" https://dev.gentoo.org/~concord/distfiles/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc64"
 
 RESTRICT="test" # requires network access
 
@@ -88,7 +88,7 @@ pkg_config() {
 
 	# Extract the database URL variable instead of just sourcing the config file
 	# because miniflux itself may interpret quotes as part of the URL
-	local DATABASE_URL="$(sed -n 's/^DATABASE_URL=\(.*\)/\1/p' ${EROOT}/etc/${PN}.conf)"
+	local DATABASE_URL="$(sed -n 's/^DATABASE_URL=\(.*\)/\1/p' "${EROOT}/etc/${PN}.conf")"
 	[[ -n "${DATABASE_URL}" ]] || die "Failed getting DATABASE_URL from config file"
 
 	DATABASE_URL="${DATABASE_URL}" "${EROOT}"/usr/bin/miniflux -migrate || die "miniflux -migrate failed. Please check the above output for errors."
