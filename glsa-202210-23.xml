@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-23">
+    <title>libksba: Remote Code Execution</title>
+    <synopsis>An integer overflow vulnerability has been found in libksba which could result in remote code execution.</synopsis>
+    <product type="ebuild">libksba</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>877453</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libksba" auto="yes" arch="*">
+            <unaffected range="ge">1.6.2</unaffected>
+            <vulnerable range="lt">1.6.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Libksba is a X.509 and CMS (PKCS#7) library.</p>
+    </background>
+    <description>
+        <p>An integer overflow in parsing ASN.1 objects could lead to a buffer overflow.</p>
+    </description>
+    <impact type="high">
+        <p>Crafted ASN.1 objects could trigger an integer overflow and buffer overflow to result in remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libksba users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libksba-1.6.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3515">CVE-2022-3515</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:16:48.468327Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:16:48.474794Z">ajak</metadata>
+</glsa>
