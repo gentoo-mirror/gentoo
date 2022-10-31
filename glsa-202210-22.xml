@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-22">
+    <title>RPM: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in RPM, the worst of which could lead to root privilege escalation.</synopsis>
+    <product type="ebuild">rpm</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>830380</bug>
+    <bug>866716</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-arch/rpm" auto="yes" arch="*">
+            <unaffected range="ge">4.18.0</unaffected>
+            <vulnerable range="lt">4.18.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The Red Hat Package Manager (RPM) is a command line driven package management system capable of installing, uninstalling, verifying, querying, and updating computer software packages.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in RPM. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All RPM users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/rpm-4.18.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3521">CVE-2021-3521</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35937">CVE-2021-35937</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35938">CVE-2021-35938</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35939">CVE-2021-35939</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:15:56.870970Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:15:56.876124Z">ajak</metadata>
+</glsa>
