@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-28">
+    <title>exif: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in exif which could result in denial of service.</synopsis>
+    <product type="ebuild">exif</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>783522</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/exif" auto="yes" arch="*">
+            <unaffected range="ge">0.6.22</unaffected>
+            <vulnerable range="lt">0.6.22</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libexif is a library for parsing, editing and saving Exif metadata from images. exif is a small command line interface for libexif.</p>
+    </background>
+    <description>
+        <p>There is a bug in exif&#39;s XML output format which can result in a null pointer dereference when outputting crafted JPEG EXIF data.</p>
+    </description>
+    <impact type="low">
+        <p>A crafted JPEG image can trigger a denial of service in the form of a null pointer dereference.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All exif users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/exif-0.6.22"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27815">CVE-2021-27815</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:23:34.557009Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:23:34.562073Z">ajak</metadata>
+</glsa>

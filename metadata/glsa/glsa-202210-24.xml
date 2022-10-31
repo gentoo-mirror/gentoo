@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-24">
+    <title>FreeRDP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in FreeRDP, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">freerdp</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>876905</bug>
+    <bug>842231</bug>
+    <bug>819534</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/freerdp" auto="yes" arch="*">
+            <unaffected range="ge">2.8.1</unaffected>
+            <vulnerable range="lt">2.8.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FreeRDP is a free implementation of the remote desktop protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FreeRDP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FreeRDP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/freerdp-2.8.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41159">CVE-2021-41159</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41160">CVE-2021-41160</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24882">CVE-2022-24882</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24883">CVE-2022-24883</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39282">CVE-2022-39282</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39283">CVE-2022-39283</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:17:11.581235Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:17:11.586318Z">ajak</metadata>
+</glsa>

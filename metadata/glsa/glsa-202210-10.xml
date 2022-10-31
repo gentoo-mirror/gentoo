@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-10">
+    <title>LibTIFF: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in LibTIFF, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">tiff</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>830981</bug>
+    <bug>837560</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/tiff" auto="yes" arch="*">
+            <unaffected range="ge">4.4.0</unaffected>
+            <vulnerable range="lt">4.4.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>LibTIFF provides support for reading and manipulating TIFF (Tagged Image File Format) images.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in LibTIFF. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All LibTIFF users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/tiff-4.4.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0561">CVE-2022-0561</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0562">CVE-2022-0562</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0865">CVE-2022-0865</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0891">CVE-2022-0891</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0907">CVE-2022-0907</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0908">CVE-2022-0908</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0909">CVE-2022-0909</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0924">CVE-2022-0924</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1056">CVE-2022-1056</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1210">CVE-2022-1210</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1354">CVE-2022-1354</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1355">CVE-2022-1355</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1622">CVE-2022-1622</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1623">CVE-2022-1623</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22844">CVE-2022-22844</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:08:31.094552Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:08:31.101464Z">ajak</metadata>
+</glsa>

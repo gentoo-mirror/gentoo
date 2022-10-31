@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-20">
+    <title>Nicotine+: Denial of Service</title>
+    <synopsis>A vulnerability has been found in Nicotine+ which could result in denial of service.</synopsis>
+    <product type="ebuild">nicotine+</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>835374</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-p2p/nicotine+" auto="yes" arch="*">
+            <unaffected range="ge">3.2.1</unaffected>
+            <vulnerable range="lt">3.2.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Nicotine+ is a fork of nicotine, a Soulseek client in Python.</p>
+    </background>
+    <description>
+        <p>Nicotine+ does not sufficiently validate file path in download requests.</p>
+    </description>
+    <impact type="low">
+        <p>A file path in a download request which contains a null character will cause a crash of Nicotine+.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Nicotine+ users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-p2p/nicotine+-3.2.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45848">CVE-2021-45848</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:14:04.156383Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:14:04.161504Z">ajak</metadata>
+</glsa>

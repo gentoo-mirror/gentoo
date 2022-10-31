@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-12">
+    <title>Lighttpd: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in lighttpd which could result in denial of service.</synopsis>
+    <product type="ebuild">lighttpd</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>869890</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/lighttpd" auto="yes" arch="*">
+            <unaffected range="ge">1.4.67</unaffected>
+            <vulnerable range="lt">1.4.67</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Lighttpd is a lightweight high-performance web server.</p>
+    </background>
+    <description>
+        <p>Lighttpd&#39;s mod_wstunnel does not initialize a handler function pointer if an invalid HTTP request (websocket handshake) is received.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker can trigger a denial of service via making Lighttpd try to call an uninitialized function pointer.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All lighttpd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/lighttpd-1.4.67"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37797">CVE-2022-37797</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41556">CVE-2022-41556</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:09:14.713606Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:09:14.718507Z">ajak</metadata>
+</glsa>

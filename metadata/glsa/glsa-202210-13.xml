@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-13">
+    <title>libgcrypt: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in libgcrypt, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">libgcrypt</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>766213</bug>
+    <bug>795480</bug>
+    <bug>811900</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libgcrypt" auto="yes" arch="*">
+            <unaffected range="ge">1.9.4</unaffected>
+            <vulnerable range="lt">1.9.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libgcrypt is a general purpose cryptographic library derived out of GnuPG.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libgcrypt. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libgcrypt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libgcrypt-1.9.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33560">CVE-2021-33560</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-40528">CVE-2021-40528</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:09:53.561970Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:09:53.566557Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-11">
+    <title>schroot: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in schroot which could result in denial of service of the schroot service.</synopsis>
+    <product type="ebuild">schroot</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>867016</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-util/schroot" auto="yes" arch="*">
+            <unaffected range="ge">1.6.13_p2</unaffected>
+            <vulnerable range="lt">1.6.13_p2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>schroot is a utility to execute commands in a chroot environment.</p>
+    </background>
+    <description>
+        <p>schroot is unecessarily permissive in rules regarding chroot and session names.</p>
+    </description>
+    <impact type="low">
+        <p>A crafted chroot or session name can break the internal state of the schroot service, leading to denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All schroot users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-util/schroot-1.6.13"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2787">CVE-2022-2787</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:08:56.631015Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:08:56.636355Z">ajak</metadata>
+</glsa>

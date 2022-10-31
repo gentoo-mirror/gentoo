@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-32">
+    <title>hiredis, hiredis-py: Multiple Vulnerabilities</title>
+    <synopsis>An integer overflow has been found in hiredis which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">hiredis,hiredis</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>873079</bug>
+    <bug>816318</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/hiredis" auto="yes" arch="*">
+            <unaffected range="ge">1.0.1</unaffected>
+            <vulnerable range="lt">1.0.1</vulnerable>
+        </package>
+        <package name="dev-python/hiredis" auto="yes" arch="*">
+            <unaffected range="ge">2.0.0</unaffected>
+            <vulnerable range="lt">2.0.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>hiredis is a minimalistic C client library for the Redis database.
+
+hiredis-py is a Python extension that wraps hiredis.</p>
+    </background>
+    <description>
+        <p>Hiredis is vulnerable to integer overflow if provided maliciously crafted or corrupted `RESP` `mult-bulk` protocol data. When parsing `multi-bulk` (array-like) replies, hiredis fails to check if `count * sizeof(redisReply*)` can be represented in `SIZE_MAX`. If it can not, and the `calloc()` call doesn&#39;t itself make this check, it would result in a short allocation and subsequent buffer overflow.</p>
+    </description>
+    <impact type="normal">
+        <p>Malicious Redis commands could result in remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All hiredis users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/hiredis-1.0.1"
+        </code>
+        
+        <p>All hiredis-py users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/hiredis-2.0.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32765">CVE-2021-32765</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:29:20.506011Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:29:20.514033Z">ajak</metadata>
+</glsa>
