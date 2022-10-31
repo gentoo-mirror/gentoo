@@ -1,0 +1,15 @@
+BDEPEND=dev-util/glib-utils dev-util/gtk-doc-am dev-util/intltool sys-devel/gettext virtual/pkgconfig introspection? ( >=dev-libs/gobject-introspection-1.66 )
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=>=dev-libs/glib-2.50.0 >=x11-libs/gtk+-3.20:3 >=xfce-base/libxfce4util-4.15.6:=[introspection?] >=xfce-base/libxfce4ui-4.15.7:=[introspection?] introspection? ( >=dev-libs/gobject-introspection-1.66:= )
+DESCRIPTION=Xfce's freedesktop.org specification compatible menu implementation library
+EAPI=8
+HOMEPAGE=https://docs.xfce.org/xfce/garcon/start https://gitlab.xfce.org/xfce/garcon/
+INHERIT=xdg-utils
+IUSE=introspection
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris
+LICENSE=LGPL-2+ FDL-1.1+
+RDEPEND=>=dev-libs/glib-2.50.0 >=x11-libs/gtk+-3.20:3 >=xfce-base/libxfce4util-4.15.6:=[introspection?] >=xfce-base/libxfce4ui-4.15.7:=[introspection?] introspection? ( >=dev-libs/gobject-introspection-1.66:= )
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/xfce/garcon/4.17/garcon-4.17.2.tar.bz2
+_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=0bf6ca201fe2c6195583c467e3a42e34
