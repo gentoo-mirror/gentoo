@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=compile configure install postinst postrm prepare
-DEPEND=gtk2? ( x11-libs/gtk+:2 x11-libs/vte:0= ) !gtk2? ( x11-libs/gtk+:3 x11-libs/vte:2.91= ) sys-apps/texinfo sys-devel/flex virtual/pkgconfig virtual/yacc
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=x11-libs/gtk+:3 x11-libs/vte:2.91= sys-apps/texinfo sys-devel/flex virtual/pkgconfig virtual/yacc
 DESCRIPTION=A small utility for fast and easy GUI building
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/oshazard/gtkdialog
-INHERIT=autotools xdg-utils
-IUSE=gtk2
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools xdg
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
-RDEPEND=gtk2? ( x11-libs/gtk+:2 x11-libs/vte:0= ) !gtk2? ( x11-libs/gtk+:3 x11-libs/vte:2.91= )
+RDEPEND=x11-libs/gtk+:3 x11-libs/vte:2.91=
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~jsmolic/distfiles/gtkdialog-0.8.3_p20200202.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=7252b374c064323da31642970072cae1
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=8c24ee858a37052c497717c83e4f81ba
