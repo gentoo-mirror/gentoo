@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-27">
+    <title>open-vm-tools: Local Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in open-vm-tools which could allow for local privilege escalation.</synopsis>
+    <product type="ebuild">open-vm-tools</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>866227</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/open-vm-tools" auto="yes" arch="*">
+            <unaffected range="ge">12.1.0</unaffected>
+            <vulnerable range="lt">12.1.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>open-vm-tools contains tools for VMware guests.</p>
+    </background>
+    <description>
+        <p>A pipe accessible to unprivileged users in the VMWare guest does not sufficiently sanitize input.</p>
+    </description>
+    <impact type="high">
+        <p>An unprivileged guest user could achieve root privileges within the guest.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All open-vm-tools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/open-vm-tools-12.1.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31676">CVE-2022-31676</uri>
+        <uri>VMSA-2022-0024.1</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:23:04.771992Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:23:04.777600Z">ajak</metadata>
+</glsa>
