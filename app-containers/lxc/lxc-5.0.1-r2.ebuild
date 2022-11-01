@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 linux-info meson optfeature systemd verify-sig
+inherit bash-completion-r1 linux-info meson optfeature systemd toolchain-funcs verify-sig
 
 DESCRIPTION="A userspace interface for the Linux kernel containment features"
 HOMEPAGE="https://linuxcontainers.org/ https://github.com/lxc/lxc"
@@ -13,7 +13,7 @@ SRC_URI="https://linuxcontainers.org/downloads/lxc/${P}.tar.gz
 LICENSE="GPL-2 LGPL-2.1 LGPL-3"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
-IUSE="apparmor +caps examples io-uring man pam seccomp selinux ssl systemd test +tools"
+IUSE="apparmor +caps examples io-uring lto man pam seccomp selinux ssl systemd test +tools"
 
 RDEPEND="acct-group/lxc
 	acct-user/lxc
@@ -67,12 +67,17 @@ VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/linuxcontainers.asc
 
 DOCS=( AUTHORS CONTRIBUTING MAINTAINERS README.md doc/FAQ.txt )
 
+PATCHES=( "${FILESDIR}"/lxc-5.0.1-glibc-2.36.patch
+	"${FILESDIR}"/lxc-5.0.1-use-sd_bus_call_method_async-insteaf-of-asyncv.patch )
+
 pkg_setup() {
 	linux-info_pkg_setup
 }
 
 src_configure() {
 	local emesonargs=(
+		--localstatedir "${EPREFIX}/var"
+
 		-Dcoverity-build=false
 		-Doss-fuzz=false
 
@@ -84,6 +89,7 @@ src_configure() {
 		$(meson_use caps capabilities)
 		$(meson_use examples)
 		$(meson_use io-uring io-uring-event-loop)
+		$(meson_use lto b_lto)
 		$(meson_use man)
 		$(meson_use pam pam-cgroup)
 		$(meson_use seccomp)
@@ -108,6 +114,12 @@ src_configure() {
 	fi
 
 	use tools && local emesonargs+=( -Dcapabilities=true )
+
+	if $(tc-ld-is-gold) || $(tc-ld-is-lld); then
+		local emesonargs+=( -Db_lto_mode=thin )
+	else
+		local emesonargs+=( -Db_lto_mode=default )
+	fi
 
 	meson_src_configure
 }
