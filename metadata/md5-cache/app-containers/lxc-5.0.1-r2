@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://linuxcontainers.org/ https://github.com/lxc/lxc
 INHERIT=bash-completion-r1 linux-info meson optfeature systemd toolchain-funcs verify-sig
 IUSE=apparmor +caps examples io-uring lto man pam seccomp selinux ssl systemd test +tools verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-2 LGPL-2.1 LGPL-3
 RDEPEND=acct-group/lxc acct-user/lxc apparmor? ( sys-libs/libapparmor ) caps? ( sys-libs/libcap[static-libs] ) io-uring? ( >=sys-libs/liburing-2:= ) pam? ( sys-libs/pam ) seccomp? ( sys-libs/libseccomp ) selinux? ( sys-libs/libselinux ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tools? ( sys-libs/libcap[static-libs] )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://linuxcontainers.org/downloads/lxc/lxc-5.0.1.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxc/lxc-5.0.1.tar.gz.asc )
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=4cca4dd0c810a57abe4460a27649161f
+_md5_=edb2a6fb54a2eb52220288b421c61528
