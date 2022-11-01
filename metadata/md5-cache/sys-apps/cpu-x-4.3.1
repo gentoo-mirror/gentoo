@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=test? ( sys-apps/mawk sys-apps/nawk ) dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/pango force-libstatgrab? ( sys-libs/libstatgrab ) !force-libstatgrab? ( sys-process/procps:= ) gui? ( >=x11-libs/gtk+-3.12:3 ) cpu? ( >=dev-libs/libcpuid-0.3.0:= ) gpu? ( >=media-libs/glfw-3.3 media-libs/libglvnd ) pci? ( sys-apps/pciutils ) ncurses? ( sys-libs/ncurses:=[tinfo] ) opencl? ( virtual/opencl )
 DESCRIPTION=A Free software that gathers information on CPU, motherboard and more
 EAPI=8
-HOMEPAGE=https://x0rg.github.io/CPU-X/
+HOMEPAGE=https://thetumultuousunicornofdarkness.github.io/CPU-X/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake gnome2-utils xdg
 IUSE=+cpu force-libstatgrab +gpu +gui +ncurses +nls opencl +pci test
@@ -12,6 +12,6 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/pango force-libstatgrab? ( sys-libs/libstatgrab ) !force-libstatgrab? ( sys-process/procps:= ) gui? ( >=x11-libs/gtk+-3.12:3 ) cpu? ( >=dev-libs/libcpuid-0.3.0:= ) gpu? ( >=media-libs/glfw-3.3 media-libs/libglvnd ) pci? ( sys-apps/pciutils ) ncurses? ( sys-libs/ncurses:=[tinfo] ) opencl? ( virtual/opencl )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/X0rg/CPU-X/archive/v4.3.1.tar.gz -> cpu-x-4.3.1.tar.gz
+SRC_URI=https://github.com/TheTumultuousUnicornOfDarkness/CPU-X/archive/v4.3.1.tar.gz -> cpu-x-4.3.1.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857
-_md5_=6ee38e271809a05f2af76f76ce81b5e0
+_md5_=f4786fd012ccb02d97c38227eae53bfe
