@@ -3,8 +3,6 @@
 
 EAPI=8
 
-H=a2c7e9f306ea8ff935bbeff1eac764291b12ce87
-
 inherit toolchain-funcs
 
 DESCRIPTION="Purely functional programming language with first class types"
@@ -12,11 +10,12 @@ HOMEPAGE="https://idris-lang.org/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/idris-lang/Idris2.git"
+	EGIT_REPO_URI="https://github.com/idris-lang/${PN^}.git"
 else
-	SRC_URI="https://github.com/idris-lang/Idris2/archive/${H}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/idris-lang/${PN^}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${PN^}-${H}"
+	S="${WORKDIR}"/${PN^}-${PV}
 fi
 
 LICENSE="BSD"
@@ -40,8 +39,10 @@ BDEPEND="
 "
 
 # Generated via "SCHEME", not CC
-QA_FLAGS_IGNORED="usr/lib/idris2/bin/idris2_app/idris2
-	usr/lib/idris2/bin/idris2_app/idris2-boot"
+QA_FLAGS_IGNORED="
+	usr/lib/idris2/bin/idris2_app/idris2
+	usr/lib/idris2/bin/idris2_app/idris2-boot
+"
 QA_PRESTRIPPED="${QA_FLAGS_IGNORED}"
 
 src_prepare() {
@@ -58,9 +59,8 @@ src_prepare() {
 	sed -i 's|$(HOME)/.idris2|/usr/lib/idris2|g' ./config.mk || die
 
 	# Bad tests
+	# Weird Racket Futures (parallelism) test, might need further investigation
 	sed -i 's|, "futures001"||g' ./tests/Main.idr || die
-	# > Missing incremental compile data, reverting to whole program compilation
-	sed -i 's|"chez033",||g' ./tests/Main.idr || die
 
 	default
 }
@@ -76,7 +76,7 @@ src_configure() {
 		export IDRIS2_CG=racket
 		export BOOTSTRAP_TARGET=bootstrap-racket
 	else
-		die "Neither chez nor racket was chosen"
+		die 'Neither "chez" nor "racket" was chosen'
 	fi
 }
 
@@ -94,7 +94,7 @@ src_test() {
 }
 
 src_install() {
-	# "DESTDIR" variable is not respected
+	# "DESTDIR" variable is not respected, use "PREFIX" instead
 	emake IDRIS2_PREFIX="${D}"/usr/lib/idris2 PREFIX="${D}"/usr/lib/idris2 install
 	dosym ../lib/${PN}/bin/${PN} /usr/bin/${PN}
 
