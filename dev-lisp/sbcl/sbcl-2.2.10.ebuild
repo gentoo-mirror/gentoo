@@ -7,7 +7,7 @@ inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.2.8
+BV_AMD64=2.2.10
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
@@ -40,10 +40,9 @@ SRC_URI="mirror://sourceforge/sbcl/${P}-source.tar.bz2
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="-* ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
-IUSE="capstone debug doc source +threads +unicode +zstd"
+IUSE="debug doc source +threads +unicode +zstd"
 
-CDEPEND=">=dev-lisp/asdf-3.3:=
-	capstone? ( dev-libs/capstone:0/4 )"
+CDEPEND=">=dev-lisp/asdf-3.3:="
 # bug #843851
 BDEPEND="${CDEPEND}
 		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )"
@@ -102,7 +101,7 @@ src_prepare() {
 	# bugs #486552, #527666, #517004
 	eapply "${FILESDIR}"/bsd-sockets-test-2.0.5.patch
 	# bugs #560276, #561018
-	eapply "${FILESDIR}"/sb-posix-test-1.2.15.patch
+	eapply "${FILESDIR}"/sb-posix-test-2.2.9.patch
 	# bug #767742
 	eapply "${FILESDIR}"/etags-2.1.0.patch
 
@@ -143,8 +142,6 @@ src_prepare() {
 	sed "s,/usr/local/lib,${EPREFIX}/usr/$(get_libdir),g" -i src/runtime/runtime.c || die
 	# change location of /etc/sbclrc ...
 	sed  "s,/etc/sbclrc,${EPREFIX}/etc/sbclrc,g" -i src/code/toplevel.lisp || die
-
-	use capstone || rm -rf contrib/sb-capstone
 
 	find . -type f -name .cvsignore -delete
 }
