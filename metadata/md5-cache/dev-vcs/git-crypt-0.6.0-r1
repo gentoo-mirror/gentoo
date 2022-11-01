@@ -1,11 +1,11 @@
 DEFINED_PHASES=install
-DEPEND=dev-vcs/git
+DEPEND=dev-libs/openssl:= dev-vcs/git
 DESCRIPTION=transparent file encryption in git
 EAPI=7
 HOMEPAGE=https://www.agwa.name/projects/git-crypt/
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-vcs/git
+RDEPEND=dev-libs/openssl:= dev-vcs/git
 SLOT=0
 SRC_URI=https://github.com/AGWA/git-crypt/archive/0.6.0.tar.gz -> git-crypt-0.6.0.tar.gz
-_md5_=1645e930b0a8706b3378dcde160b8ec9
+_md5_=f884359223c39bb68e0635f7cbee4793

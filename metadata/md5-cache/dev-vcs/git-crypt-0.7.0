@@ -1,0 +1,14 @@
+BDEPEND=dev-libs/libxslt
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/openssl:= dev-vcs/git
+DESCRIPTION=Transparent file encryption in git
+EAPI=8
+HOMEPAGE=https://www.agwa.name/projects/git-crypt/
+INHERIT=flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/openssl:= dev-vcs/git
+SLOT=0
+SRC_URI=https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.7.0.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=44b4cd1a5d48dcebf4e8e43319519400
