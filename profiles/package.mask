@@ -314,56 +314,10 @@ dev-python/jarowinkler
 =sys-apps/portage-3.0.37
 =sys-apps/portage-3.0.38
 
-# Matt Turner <mattst88@gentoo.org> (2022-10-01)
-# Depends on lots of unmaintained packages:
-# 	- app-text/gnome-doc-utils
-# 	- dev-libs/libunique:1
-# 	- dev-util/gob
-# 	- x11-libs/gtk+:2
-# Last commit to upstream repository in 2015. Most plugins saw their last
-# upstream commit 10+ years ago. Unmaintained in Gentoo since 2016. Many open
-# bugs: #582138, #686800, #689364, #721246, #799263, #808447, #808450, #808456,
-# #831024.
-# Removal on 2022-11-01
-media-sound/gmpc
-media-plugins/gmpc-alarm
-media-plugins/gmpc-albumview
-media-plugins/gmpc-avahi
-media-plugins/gmpc-awn
-media-plugins/gmpc-discogs
-media-plugins/gmpc-extraplaylist
-media-plugins/gmpc-jamendo
-media-plugins/gmpc-last-fm
-media-plugins/gmpc-libnotify
-media-plugins/gmpc-lyrics
-media-plugins/gmpc-lyricwiki
-media-plugins/gmpc-magnatune
-media-plugins/gmpc-mdcover
-media-plugins/gmpc-mmkeys
-media-plugins/gmpc-mserver
-media-plugins/gmpc-playlistsort
-media-plugins/gmpc-shout
-media-plugins/gmpc-tagedit
-
-# Matt Turner <mattst88@gentoo.org> (2022-10-01)
-# Metapackage that has outlived its purpose. Made some sense in the immediate
-# aftermath of X.Org modularization 15 years ago.
-# Use these instead if desired:
-# - x11-base/xorg-apps
-# - x11-base/xorg-fonts
-# Removal on 2022-11-01. Bugs #755233, #872119.
-x11-base/xorg-x11
-
 # Brian Evans <grknight@gentoo.org> (2022-09-30)
 # Mask RC versions for initial testing
 <dev-lang/php-8.2.0:8.2
 virtual/httpd-php:8.2
-
-# Michał Górny <mgorny@gentoo.org> (2022-09-29)
-# Unfetchable mirror-restricted distfile.  No action from maintainer
-# in over a year.
-# Removal on 2022-10-29.  Bug #789477.
-games-simulation/bcs-demo
 
 # Stephan Hartmann <sultan@gentoo.org> (2022-09-29)
 # Dev channel releases are only for people who
@@ -376,41 +330,9 @@ games-simulation/bcs-demo
 =app-shells/bash-5.2*
 =sys-libs/readline-8.2*
 
-# Michał Górny <mgorny@gentoo.org> (2022-09-26)
-# Bundles a vulnerable version of dev-libs/expat.  The current Gentoo
-# version is from 2014, pending bump to the last upstream release
-# from 2016.  Effectively unmaintained.  EAPI 6.
-# Removal on 2022-10-26.  Bug #253517.
-games-sports/torcs
-
-# Piotr Karbowski <slashbeast@gentoo.org> (2022-09-25)
-# No package in tree depends on dev-python/ssh2-python. Masked for removal.
-# Removal on 2022-10-25.
-dev-python/ssh2-python
-
 # John Helmert III <ajak@gentoo.org> (2022-09-18)
 # Unfixed root privilege escalation, bug #631552
 sys-cluster/slurm
-
-# Michał Górny <mgorny@gentoo.org> (2022-09-18)
-# Obsolete in favor of building via PEP517 mode.  Buggy.  No revdeps
-# left in ::gentoo.
-# Removal on 2022-10-18.  Bug #871522.
-dev-python/pyproject2setuppy
-
-# Pacho Ramos <pacho@gentoo.org> (2022-09-18)
-# ABRT environment keeps breaking more and more on non-Fedora systems.
-# Removal: 2022-10-18.  Bugs #849305, #849092, #849095, #713858.
-app-admin/abrt
-app-admin/gnome-abrt
-dev-libs/libreport
-dev-libs/satyr
-
-# Pacho Ramos <pacho@gentoo.org> (2022-09-18)
-# Unmaintained for a long time and unneeded with current pulseaudio and
-# pipewire versions.
-# Removal: 2022-10-18.
-media-sound/pulseaudio-modules-bt
 
 # Mike Gilbert <floppym@gentoo.org> (2022-09-12)
 # repoman is no longer maintained and has been removed from the portage
@@ -427,11 +349,6 @@ app-portage/repoman
 # Crash due to double-free.
 # https://bugs.gentoo.org/868567
 =sys-apps/gawk-5.2.0
-
-# Marc Schiffbauer <mschiff@gentoo.org> (2022-09-02)
-# Dead upstream, open bugs, removal in 30 days
-# bugs #829447, #836227, #862504
-mail-filter/sigh
 
 # hololeap <hololeap@protonmail.com> (2022-08-21)
 # doctest-parallel does not currently work with Setup.hs (used internally by
