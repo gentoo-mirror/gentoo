@@ -7,7 +7,7 @@ HOMEPAGE=https://sr.ht/~exec64/imv/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson xdg
 IUSE=+X +freeimage gif heif icu jpeg png svg test tiff wayland
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=MIT-with-advertising
 RDEPEND=dev-libs/glib:2 dev-libs/inih media-libs/libglvnd[X?] x11-libs/cairo x11-libs/libxkbcommon[X?] x11-libs/pango X? ( x11-libs/libX11 x11-libs/libxcb:= ) freeimage? ( media-libs/freeimage ) gif? ( media-libs/libnsgif ) heif? ( media-libs/libheif:= ) icu? ( dev-libs/icu:= ) !icu? ( >=dev-libs/libgrapheme-2:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) svg? ( >=gnome-base/librsvg-2.44:2 ) tiff? ( media-libs/tiff ) wayland? ( dev-libs/wayland ) !sys-apps/renameutils
 REQUIRED_USE=|| ( X wayland )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://git.sr.ht/~exec64/imv/archive/4448fb6104d67e3dfff3e71babe257992fce556.tar.gz -> imv-4.3.1_p20211221.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=057918c53b0cc2a6bd52f5b3d4f3bdea
+_md5_=93e47b3f4d4e1b42efa542caa31ca16c
