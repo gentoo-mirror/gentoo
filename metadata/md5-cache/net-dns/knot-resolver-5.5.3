@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-knot-resolver ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst setup test unpack
 DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) acct-group/knot-resolver acct-user/knot-resolver dev-db/lmdb:= dev-libs/libuv:= net-dns/knot:= net-libs/gnutls:= caps? ( sys-libs/libcap-ng ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) kresc? ( dev-libs/libedit ) nghttp2? ( net-libs/nghttp2:= ) systemd? ( sys-apps/systemd:= ) test? ( dev-util/cmocka )
 DESCRIPTION=A scaleable caching DNS resolver
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://secure.nic.cz/files/knot-resolver/knot-resolver-5.5.3.tar.xz verify-sig? ( https://secure.nic.cz/files/knot-resolver/knot-resolver-5.5.3.tar.xz.asc )
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	0748d665fa664a87add00152ed046e16
-_md5_=a959e212f3b8f787abbf7630e5d2417b
+_md5_=4fe17238e992f97efdffa5d19c65b369

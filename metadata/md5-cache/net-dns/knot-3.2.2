@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-python/sphinx ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install test
+DEPEND=acct-group/knot acct-user/knot dev-db/lmdb:= dev-libs/libedit dev-libs/userspace-rcu:= dev-python/lmdb:= net-libs/gnutls:= caps? ( sys-libs/libcap-ng ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) doh? ( net-libs/nghttp2:= ) geoip? ( dev-libs/libmaxminddb:= ) idn? ( !libidn2? ( net-dns/libidn:0= !net-dns/libidn2 ) libidn2? ( net-dns/libidn2:= ) ) quic? ( net-libs/ngtcp2:=[gnutls] ) systemd? ( sys-apps/systemd:= ) xdp? ( dev-libs/libbpf:= net-libs/libmnl:= )
+DESCRIPTION=High-performance authoritative-only DNS server
+EAPI=8
+HOMEPAGE=https://www.knot-dns.cz/
+INHERIT=flag-o-matic systemd
+IUSE=doc caps doh +fastparser idn +libidn2 quic systemd +utils xdp +cookies +dnsproxy dnstap geoip +noudp +onlinesign +queryacl +rrl +stats +synthrecord +whoami
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=acct-group/knot acct-user/knot dev-db/lmdb:= dev-libs/libedit dev-libs/userspace-rcu:= dev-python/lmdb:= net-libs/gnutls:= caps? ( sys-libs/libcap-ng ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) doh? ( net-libs/nghttp2:= ) geoip? ( dev-libs/libmaxminddb:= ) idn? ( !libidn2? ( net-dns/libidn:0= !net-dns/libidn2 ) libidn2? ( net-dns/libidn2:= ) ) quic? ( net-libs/ngtcp2:=[gnutls] ) systemd? ( sys-apps/systemd:= ) xdp? ( dev-libs/libbpf:= net-libs/libmnl:= )
+SLOT=0/13.9.4
+SRC_URI=https://secure.nic.cz/files/knot-dns/knot-3.2.2.tar.xz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=40af3dd919d921d4886379b36496b2ea
