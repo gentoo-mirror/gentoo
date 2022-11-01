@@ -1,0 +1,17 @@
+BDEPEND=>=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 ) test? ( sys-apps/diffutils sys-devel/bc kernel_linux? ( sys-process/procps ) ) verify-sig? ( sec-keys/openpgp-keys-openssl ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=>=app-misc/c_rehash-1.7-r1 tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+DESCRIPTION=Full-strength general purpose cryptography library (including SSL and TLS)
+EAPI=8
+HOMEPAGE=https://www.openssl.org/
+INHERIT=edo flag-o-matic toolchain-funcs multilib-minimal verify-sig
+IUSE=+asm rfc3779 sctp cpu_flags_x86_sse2 sslv3 static-libs test tls-compression tls-heartbeat vanilla verify-sig weak-ssl-ciphers abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt
+LICENSE=openssl
+PDEPEND=app-misc/ca-certificates
+RDEPEND=>=app-misc/c_rehash-1.7-r1 tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) !<net-misc/openssh-8.0_p1-r3
+RESTRICT=!test? ( test )
+SLOT=0/1.1
+SRC_URI=mirror://openssl/source/openssl-1.1.1s.tar.gz verify-sig? ( mirror://openssl/source/openssl-1.1.1s.tar.gz.asc )
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	87f1b83e21a473787b821ef3d0437bf3	multilib-minimal	4b0f1857965db8869a729948d5277e0b	verify-sig	0748d665fa664a87add00152ed046e16
+_md5_=26c5dcff4521b8822ebf2bef14e06cd9
