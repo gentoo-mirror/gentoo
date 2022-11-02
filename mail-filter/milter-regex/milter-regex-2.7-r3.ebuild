@@ -8,7 +8,7 @@ inherit toolchain-funcs
 DESCRIPTION="A milter-based regular expression filter"
 HOMEPAGE="https://www.benzedrine.ch/milter-regex.html"
 SRC_URI="https://www.benzedrine.ch/${P}.tar.gz"
-LICENSE="BSD"
+LICENSE="BSD GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
