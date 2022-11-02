@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
+DISTUTILS_USE_PEP517=setuptools
 inherit systemd distutils-r1
 
 DESCRIPTION="Salt is a remote execution and configuration manager"
@@ -17,33 +18,42 @@ if [[ ${PV} == 9999* ]]; then
 	SRC_URI=""
 else
 	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="cheetah cherrypy ldap libcloud libvirt genshi gnupg keyring mako
+IUSE="
+	cheetah cherrypy ldap libcloud libvirt genshi gnupg keyring mako
 	mongodb neutron	nova openssl portage profile redis selinux test raet
-	+zeromq vim-syntax"
+	+zeromq vim-syntax
+"
 
 RDEPEND="
 	sys-apps/pciutils
 	>=dev-python/distro-1.5[${PYTHON_USEDEP}]
-	dev-python/jinja[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.0.3[${PYTHON_USEDEP}]
+	dev-python/jmespath[${PYTHON_USEDEP}]
 	dev-python/libnacl[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pycryptodome-3.9.8[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/markupsafe[${PYTHON_USEDEP}]
+	>=dev-python/markupsafe-2.0.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-1.0.0[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	>=dev-python/toml-0.10.2[${PYTHON_USEDEP}]
+	dev-python/tomli[${PYTHON_USEDEP}]
 	dev-python/watchdog[${PYTHON_USEDEP}]
-	libcloud? ( >=dev-python/libcloud-2.5.0[${PYTHON_USEDEP}] )
+	libcloud? (
+		dev-python/aiohttp[${PYTHON_USEDEP}]
+		dev-python/aiosignal[${PYTHON_USEDEP}]
+		dev-python/async-timeout[${PYTHON_USEDEP}]
+		>=dev-python/libcloud-2.5.0[${PYTHON_USEDEP}]
+	)
 	mako? ( dev-python/mako[${PYTHON_USEDEP}] )
 	ldap? ( dev-python/python-ldap[${PYTHON_USEDEP}] )
 	libvirt? (
-		$(python_gen_cond_dep 'dev-python/libvirt-python[${PYTHON_USEDEP}]' python3_8)
+		dev-python/libvirt-python[${PYTHON_USEDEP}]
 	)
 	openssl? (
 		dev-libs/openssl:0=[-bindist(-)]
@@ -55,7 +65,7 @@ RDEPEND="
 		>=dev-python/raet-0.6.0[${PYTHON_USEDEP}]
 	)
 	cherrypy? ( >=dev-python/cherrypy-3.2.2[${PYTHON_USEDEP}] )
-	cheetah? ( dev-python/cheetah3[${PYTHON_USEDEP}] )
+	cheetah? ( >=dev-python/cheetah3-3.2.2[${PYTHON_USEDEP}] )
 	genshi? ( dev-python/genshi[${PYTHON_USEDEP}] )
 	mongodb? ( dev-python/pymongo[${PYTHON_USEDEP}] )
 	portage? ( sys-apps/portage[${PYTHON_USEDEP}] )
@@ -63,38 +73,45 @@ RDEPEND="
 	redis? ( dev-python/redis-py[${PYTHON_USEDEP}] )
 	selinux? ( sec-policy/selinux-salt )
 	nova? (
-		$(python_gen_cond_dep '>=dev-python/python-novaclient-2.17.0[${PYTHON_USEDEP}]' python3_8)
+		>=dev-python/python-novaclient-2.17.0[${PYTHON_USEDEP}]
 	)
 	neutron? (
-		$(python_gen_cond_dep '>=dev-python/python-neutronclient-2.3.6[${PYTHON_USEDEP}]' python3_8)
+		>=dev-python/python-neutronclient-2.3.6[${PYTHON_USEDEP}]
 	)
 	gnupg? ( dev-python/python-gnupg[${PYTHON_USEDEP}] )
 	profile? ( dev-python/yappi[${PYTHON_USEDEP}] )
 	vim-syntax? ( app-vim/salt-vim )
-	zeromq? ( >=dev-python/pyzmq-19.1.0[${PYTHON_USEDEP}] )
+	zeromq? ( >=dev-python/pyzmq-19.0.0[${PYTHON_USEDEP}] )
 "
 BDEPEND="
 	test? (
 		${RDEPEND}
 		>=dev-python/boto-2.32.1[${PYTHON_USEDEP}]
+		dev-python/certifi[${PYTHON_USEDEP}]
+		dev-python/cherrypy[${PYTHON_USEDEP}]
 		>=dev-python/jsonschema-3.0[${PYTHON_USEDEP}]
 		dev-python/mako[${PYTHON_USEDEP}]
 		>=dev-python/mock-2.0.0[${PYTHON_USEDEP}]
-		>=dev-python/moto-1.3.14[${PYTHON_USEDEP}]
+		>=dev-python/moto-2.0.0[${PYTHON_USEDEP}]
+		dev-python/passlib
 		dev-python/pip[${PYTHON_USEDEP}]
-		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pyopenssl[${PYTHON_USEDEP}]
-		dev-python/pytest[${PYTHON_USEDEP}]
-		=dev-python/pytest-salt-factories-0.121*[${PYTHON_USEDEP}]
+		>=dev-python/pytest-7.0.1[${PYTHON_USEDEP}]
+		>=dev-python/pytest-salt-factories-1.0.0_rc17[${PYTHON_USEDEP}]
 		dev-python/pytest-tempdir[${PYTHON_USEDEP}]
 		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
+		dev-python/pytest-shell-utilities[${PYTHON_USEDEP}]
+		dev-python/pytest-skip-markers[${PYTHON_USEDEP}]
+		dev-python/pytest-system-statistics[${PYTHON_USEDEP}]
 		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/libcloud[${PYTHON_USEDEP}]
 		net-dns/bind-tools
-		>=dev-python/virtualenv-20.0.20[${PYTHON_USEDEP}]
-		!x86? ( >=dev-python/boto3-1.19.63[${PYTHON_USEDEP}] )
-	)"
+		>=dev-python/virtualenv-20.3.0[${PYTHON_USEDEP}]
+		dev-util/yamllint[${PYTHON_USEDEP}]
+		!x86? ( >=dev-python/boto3-1.17.67[${PYTHON_USEDEP}] )
+	)
+"
 
 DOCS=( README.rst AUTHORS )
 
@@ -102,29 +119,28 @@ REQUIRED_USE="|| ( raet zeromq )
 	test? ( cheetah genshi )"
 RESTRICT="!test? ( test ) x86? ( test )"
 
-# tests currently broken
-RESTRICT+=" test"
-
 PATCHES=(
 	"${FILESDIR}/salt-3003-skip-tests-that-oom-machine.patch"
 	"${FILESDIR}/salt-3003-gentoolkit-revdep.patch"
 	"${FILESDIR}/salt-3002-tests.patch"
-	"${FILESDIR}/salt-3003.3-tests.patch"
 	"${FILESDIR}/salt-3003.1-tests.patch"
-	"${FILESDIR}/salt-3004.2-jinja-3.patch"
-	"${FILESDIR}/salt-3003.4-tests.patch"
-	"${FILESDIR}/salt-3003.4-relax-pyzmq-dep.patch"
-	"${FILESDIR}/salt-3004.2-pyzmq-23.patch"
+	"${FILESDIR}/salt-3005-relax-pyzmq-dep.patch"
+	"${FILESDIR}/salt-3005-tests.patch"
+	"${FILESDIR}/salt-3005.1-no-entry-points.patch"
+	"${FILESDIR}/salt-3005.1-importlib-metadata-5.patch"
+	"${FILESDIR}/salt-3005.1-tests.patch"
 )
 
 python_prepare_all() {
 	# remove tests with external dependencies that may not be available, and
 	# tests that don't work in sandbox
 	rm tests/unit/{test_{zypp_plugins,module_names},utils/test_extend}.py || die
-	rm tests/unit/modules/test_{file,boto_{vpc,secgroup,elb}}.py || die
+	rm tests/unit/modules/test_boto_{vpc,secgroup,elb}.py || die
 	rm tests/unit/states/test_boto_vpc.py || die
 	rm tests/support/gitfs.py tests/unit/runners/test_git_pillar.py || die
 	rm tests/pytests/functional/transport/server/test_req_channel.py || die
+	rm tests/pytests/functional/utils/test_async_event_publisher.py || die
+	rm tests/pytests/functional/runners/test_winrepo.py || die
 
 	# tests that require network access
 	rm tests/unit/{states,modules}/test_zcbuildout.py || die
@@ -132,11 +148,16 @@ python_prepare_all() {
 	rm -r tests/kitchen/tests/wordpress/tests || die
 	rm tests/kitchen/test_kitchen.py || die
 	rm tests/unit/modules/test_network.py || die
+	rm tests/pytests/functional/modules/test_pip.py || die
+	rm tests/pytests/unit/client/ssh/test_ssh.py || die
+	rm -r tests/pytests/{integration,functional}/netapi tests/integration/netapi || die
 
 	# tests require root access
 	rm tests/integration/pillar/test_git_pillar.py || die
 	rm tests/integration/states/test_supervisord.py || die
-	rm tests/pytests/unit/client/test_ssh.py || die
+
+	# removes contextvars, see bug: https://bugs.gentoo.org/799431
+	sed -i '/^contextvars/d' requirements/base.txt || die
 
 	# make sure pkg_resources doesn't bomb because pycrypto isn't installed
 	find "${S}" -name '*.txt' -print0 | xargs -0 sed -e '/pycrypto>/ d ; /pycryptodomex/ d' -i || die
@@ -144,16 +165,6 @@ python_prepare_all() {
 	find "${S}" -name '*.py' -print0 | xargs -0 -- sed -i -e 's:Cryptodome:Crypto:g' -- || die
 
 	distutils-r1_python_prepare_all
-}
-
-python_prepare() {
-	einfo "Fixing collections.abc warnings for ${EPYTHON}"
-	local abc
-	abc="$("${EPYTHON}" -c 'import collections.abc; print("|".join((c for c in dir(collections.abc) if not c.startswith("_"))))')" || die
-	find -name '*.py' -type f -print0 | xargs -0 sed -r -e "s:collections\\.(${abc}):collections.abc.\\1:g" -i || die
-
-	# removes contextvars, see bug: https://bugs.gentoo.org/799431
-	sed -i '/^contextvars/d' requirements/base.txt || die
 }
 
 python_install_all() {
@@ -174,9 +185,25 @@ python_test() {
 	# testsuite likes lots of files
 	ulimit -n 4096 || die
 
+	local -a disable_tests=(
+		# doesn't like the distutils warning
+		batch_retcode
+		multiple_modules_in_batch
+		# hangs indefinitely
+		master_type_disable
+		# needs root
+		runas_env_sudo_group
+		# don't like sandbox
+		split_multibyte_characters_{shiftjis,unicode}
+		# doesn't like sandbox env
+		log_sanitize
+	)
+	local textexpr
+	testexpr=$(printf 'not %s and ' "${disable_tests[@]}")
+
 	# ${T} is too long a path for the tests to work
 	local TMPDIR
-	TMPDIR="$(mktemp --directory --tmpdir=/tmp ${PN}-XXXX)"
+	TMPDIR="$(mktemp --directory --tmpdir=/tmp ${PN}-XXXX)" || die
 	(
 		export TMPDIR
 		cleanup() { rm -rf "${TMPDIR}" || die; }
@@ -186,24 +213,7 @@ python_test() {
 		addwrite "${TMPDIR}"
 
 		USE_SETUPTOOLS=1 NO_INTERNET=1 SHELL="/bin/bash" \
-			"${EPYTHON}" -m pytest -vv \
+			"${EPYTHON}" -m pytest -vv -k "${testexpr%and }" \
 			|| die "testing failed with ${EPYTHON}"
 	)
-}
-
-pkg_postinst() {
-	if use python_targets_python3_8; then
-		if use nova; then
-			ewarn "Salt's nova functionality will not work with python3.8 since"
-			ewarn "dev-python/python-novaclient does not support it yet"
-		fi
-		if use neutron; then
-			ewarn "Salt's neutron functionality will not work with python3.8 since"
-			ewarn "dev-python/python-neutronclient does not support it yet"
-		fi
-		if use libvirt; then
-			ewarn "Salt's libvirt functionality will not work with python3.8 since"
-			ewarn "dev-python/libvirt-python does not support it yet"
-		fi
-	fi
 }
