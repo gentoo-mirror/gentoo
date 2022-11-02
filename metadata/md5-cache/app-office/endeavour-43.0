@@ -1,0 +1,16 @@
+BDEPEND=dev-libs/libxml2:2 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=dev-libs/glib-2.58.0:2 >=gui-libs/gtk-3.92.0:4[introspection?] >=gui-libs/libadwaita-1.2.0:1 >=net-libs/gnome-online-accounts-3.2.0:= >=dev-libs/libpeas-1.17 >=gnome-extra/evolution-data-server-3.33.2:=[gtk] introspection? ( >=dev-libs/gobject-introspection-1.42:= )
+DESCRIPTION=Personal task manager
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/Todo https://gitlab.gnome.org/World/Endeavour
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson xdg
+IUSE=+introspection
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=dev-libs/glib-2.58.0:2 >=gui-libs/gtk-3.92.0:4[introspection?] >=gui-libs/libadwaita-1.2.0:1 >=net-libs/gnome-online-accounts-3.2.0:= >=dev-libs/libpeas-1.17 >=gnome-extra/evolution-data-server-3.33.2:=[gtk] introspection? ( >=dev-libs/gobject-introspection-1.42:= )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/World/Endeavour/-/archive/43.0/Endeavour-43.0.tar.bz2
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg	6024fbc93167fad782e2032933654857
+_md5_=69554a031d01248037de6b0e8d2eb007
