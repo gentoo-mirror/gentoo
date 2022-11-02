@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/go dev-lang/go-bootstrap )
+DEFINED_PHASES=compile install postinst test
+DESCRIPTION=A concurrent garbage collected and typesafe programming language
+EAPI=7
+HOMEPAGE=https://go.dev
+INHERIT=toolchain-funcs
+IUSE=abi_mips_o32 abi_mips_n64 cpu_flags_x86_sse2
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris
+LICENSE=BSD
+RESTRICT=strip
+SLOT=0/1.19.3
+SRC_URI=https://storage.googleapis.com/golang/go1.19.3.src.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=ebbc769be1aa96c6cccb11042dcfa779
