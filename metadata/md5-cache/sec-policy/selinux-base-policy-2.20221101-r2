@@ -1,0 +1,14 @@
+BDEPEND=sys-apps/checkpolicy sys-devel/m4
+DEFINED_PHASES=compile install postinst prepare pretend
+DEPEND==sec-policy/selinux-base-2.20221101-r2[systemd?]
+DESCRIPTION=SELinux policy for core modules
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
+IUSE=systemd +unconfined
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+LICENSE=GPL-2
+PDEPEND=unconfined? ( sec-policy/selinux-unconfined )
+RDEPEND==sec-policy/selinux-base-2.20221101-r2[systemd?]
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20221101/refpolicy-2.20221101.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20221101-r2.tar.bz2
+_md5_=4566a343a8acd3482bab4af3e420a8ca

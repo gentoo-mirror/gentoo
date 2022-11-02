@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-2.20221101-r2
+DESCRIPTION=SELinux policy for milter
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
+INHERIT=selinux-policy-2
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+LICENSE=GPL-2
+RDEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-2.20221101-r2
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20221101/refpolicy-2.20221101.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20221101-r2.tar.bz2
+_eclasses_=selinux-policy-2	ac37c8988fd6d9a7ef5ebc5fcb8b4062
+_md5_=1b6d80518b1a7abe7e617a354931e0e9
