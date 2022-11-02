@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test
+DEPEND=>=app-emulation/qemu-6.0.0-r3[vnc,virtfs,spice] dev-db/sqlite:3= dev-libs/json-c sys-libs/ncurses:=[unicode(+)] virtual/libusb:1 virtual/libudev:= dbus? ( sys-apps/dbus ) network-map? ( media-gfx/graphviz[svg] ) ovf? ( dev-libs/libxml2:2 app-arch/libarchive:= ) remote-api? ( dev-libs/openssl )
+DESCRIPTION=ncurses interface for QEMU
+EAPI=8
+HOMEPAGE=https://github.com/nemuTUI/nemu
+INHERIT=cmake linux-info
+IUSE=dbus network-map +ovf remote-api
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=>=app-emulation/qemu-6.0.0-r3[vnc,virtfs,spice] dev-db/sqlite:3= dev-libs/json-c sys-libs/ncurses:=[unicode(+)] virtual/libusb:1 virtual/libudev:= dbus? ( sys-apps/dbus ) network-map? ( media-gfx/graphviz[svg] ) ovf? ( dev-libs/libxml2:2 app-arch/libarchive:= ) remote-api? ( dev-libs/openssl )
+SLOT=0
+SRC_URI=https://github.com/nemuTUI/nemu/archive/v3.1.0.tar.gz -> nemu-3.1.0.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	linux-info	bbfa385d6907d7948d49a5e107bd654d
+_md5_=a95ea1f9808327ce00f15daac5d889ca

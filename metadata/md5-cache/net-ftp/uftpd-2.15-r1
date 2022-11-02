@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig test? ( net-ftp/ftp net-ftp/tnftp >=net-ftp/tftp-hpa-5.2-r2[client] )
+DEFINED_PHASES=install test
+DEPEND=>=dev-libs/libite-1.5 >=dev-libs/libuev-2.2
+DESCRIPTION=The no nonsense TFTP/FTP server
+EAPI=8
+HOMEPAGE=https://github.com/troglobit/uftpd
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=>=dev-libs/libite-1.5 >=dev-libs/libuev-2.2 !net-misc/uftp !net-ftp/atftp !net-ftp/tftp-hpa[server(+)]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/troglobit/uftpd/releases/download/v2.15/uftpd-2.15.tar.xz
+_md5_=dabf453ac598d104ee938e82e9a33341
