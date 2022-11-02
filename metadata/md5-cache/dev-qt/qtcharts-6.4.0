@@ -1,16 +1,16 @@
-BDEPEND=dev-util/wayland-scanner >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 dev-lang/perl virtual/pkgconfig
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 dev-lang/perl virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/wayland =dev-qt/qtbase-6.3.2*[gui,opengl] =dev-qt/qtdeclarative-6.3.2* media-libs/libglvnd x11-libs/libxkbcommon
-DESCRIPTION=Wayland platform plugin for Qt
+DEPEND==dev-qt/qtbase-6.4.0*[gui,opengl,widgets] =dev-qt/qtdeclarative-6.4.0*
+DESCRIPTION=Chart component library for the Qt6 framework
 EAPI=8
 HOMEPAGE=https://www.qt.io/
 INHERIT=qt6-build
 IUSE=debug test
 KEYWORDS=~amd64
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
-RDEPEND=dev-libs/wayland =dev-qt/qtbase-6.3.2*[gui,opengl] =dev-qt/qtdeclarative-6.3.2* media-libs/libglvnd x11-libs/libxkbcommon
+RDEPEND==dev-qt/qtbase-6.4.0*[gui,opengl,widgets] =dev-qt/qtdeclarative-6.4.0*
 RESTRICT=test
-SLOT=6/6.3
-SRC_URI=https://download.qt.io/official_releases/qt/6.3/6.3.2/submodules/qtwayland-everywhere-src-6.3.2.tar.xz
+SLOT=6/6.4
+SRC_URI=https://download.qt.io/official_releases/qt/6.4/6.4.0/submodules/qtcharts-everywhere-src-6.4.0.tar.xz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	qt6-build	edd14d96b99307aa9bbec29671916250
-_md5_=497933c5a1c7217083b0defdcccaf5ba
+_md5_=6585d67e33c996210fedb3225fd0df44
