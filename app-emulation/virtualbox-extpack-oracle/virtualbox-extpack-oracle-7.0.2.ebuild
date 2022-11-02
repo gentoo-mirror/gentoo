@@ -3,19 +3,9 @@
 
 EAPI=8
 
-MAIN_PV="$(ver_cut 1-3)"
-if [[ ${PV} = *_beta* ]] || [[ ${PV} = *_rc* ]] ; then
-	MY_PV="${MAIN_PV}_$(ver_cut 5-6)"
-	DEP_PV="${MY_PV}"
-	MY_PV="${MY_PV/beta/BETA}"
-	MY_PV="${MY_PV/rc/RC}"
-else
-	MY_PV="${MAIN_PV}"
-	DEP_PV="${MAIN_PV}"
-fi
-#VBOX_BUILD_ID="$(ver_cut 4)"
+MY_PV="$(ver_cut 1-3)"
 MY_PN="Oracle_VM_VirtualBox_Extension_Pack"
-MY_P="${MY_PN}-${MY_PV}" #-${VBOX_BUILD_ID}"
+MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="PUEL extensions for VirtualBox"
 HOMEPAGE="https://www.virtualbox.org/"
@@ -23,16 +13,14 @@ SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.vbox-extpac
 
 LICENSE="PUEL"
 SLOT="0/$(ver_cut 1-2)"
-[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="amd64"
-IUSE=""
+KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip"
 
-RDEPEND="=app-emulation/virtualbox-${DEP_PV}*"
+RDEPEND="=app-emulation/virtualbox-${MY_PV}*"
 
 S="${WORKDIR}"
 
-QA_PREBUILT="/usr/lib*/virtualbox/ExtensionPacks/${MY_PN}/.*"
+QA_PREBUILT="usr/lib*/virtualbox/ExtensionPacks/${MY_PN}/*"
 
 src_install() {
 	insinto /usr/$(get_libdir)/virtualbox/ExtensionPacks/${MY_PN}

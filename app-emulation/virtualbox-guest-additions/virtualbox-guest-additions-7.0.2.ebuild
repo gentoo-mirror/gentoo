@@ -6,56 +6,64 @@ EAPI=8
 inherit edo linux-mod systemd toolchain-funcs udev
 
 MY_PN="VirtualBox"
-MY_PV="${PV/beta/BETA}"
-MY_PV="${MY_PV/rc/RC}"
-MY_P="${MY_PN}-${MY_PV}"
-[[ "${PV}" == *a ]] && DIR_PV="$(ver_cut 1-3)"
+MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
-SRC_URI="https://download.virtualbox.org/virtualbox/${DIR_PV:-${MY_PV}}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${MY_PV}.tar.bz2"
+SRC_URI="https://download.virtualbox.org/virtualbox/${PV}/${MY_P}.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-6.1.36.tar.bz2"
 
-LICENSE="GPL-2"
+# Reminder: see the LICENSE related comment in app-emulation/virtualbox-additions ebuild
+LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT"
 SLOT="0/$(ver_cut 1-2)"
-[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="amd64 x86"
-IUSE="X"
+KEYWORDS="~amd64 ~x86"
+IUSE="+dbus X"
 
 # automount Error: VBoxServiceAutoMountWorker: Group "vboxsf" does not exist
+# TODO: find out what this is, remove comment if obsolete
+
 RDEPEND="
 	acct-group/vboxguest
 	acct-group/vboxsf
 	acct-user/vboxguest
-	X? ( x11-apps/xrandr
+	sys-libs/pam
+	sys-libs/zlib
+	dbus? ( sys-apps/dbus )
+	X? (
+		x11-apps/xrandr
 		x11-apps/xrefresh
-		x11-libs/libXmu
 		x11-libs/libX11
-		x11-libs/libXt
 		x11-libs/libXext
-		x11-libs/libXau
-		x11-libs/libXdmcp
-		x11-libs/libSM
-		x11-libs/libICE )
-	sys-apps/dbus
+		x11-libs/libXmu
+		x11-libs/libXt
+	)
 "
+# some libs here are indirect dependencies, and also needed at compile time.
+# keeping them in DEPEND to avoid warnings from qa-vdb.
 DEPEND="
 	${RDEPEND}
-	>=dev-util/kbuild-0.1.9998.3127
-	>=dev-lang/yasm-0.6.2
-	sys-devel/bin86
-	sys-libs/pam
-	sys-power/iasl
+	x11-libs/libICE
+	x11-libs/libSM
+	x11-libs/libXau
+	x11-libs/libXdmcp
 	x11-base/xorg-proto
+"
+BDEPEND="
+	>=dev-lang/yasm-0.6.2
+	>=dev-util/kbuild-0.1.9998.3127
+	sys-devel/bin86
+	sys-power/iasl
 "
 PDEPEND="
 	X? ( x11-drivers/xf86-video-vboxvideo )
 "
+
 BUILD_TARGETS="all"
 BUILD_TARGET_ARCH="${ARCH}"
 
-S="${WORKDIR}/${MY_PN}-${DIR_PV:-${PV}}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 VBOX_MOD_SRC_DIR="${S}/out/linux.${ARCH}/release/bin/additions/src"
+MODULESD_VBOXSF_ALIASES=("fs-vboxsf vboxsf") # 485996
 
 pkg_setup() {
 	export DISTCC_DISABLE=1 #674256
@@ -84,19 +92,17 @@ src_prepare() {
 
 	# Disable things unused or splitted into separate ebuilds
 	cp "${FILESDIR}/${PN}-5-localconfig" LocalConfig.kmk || die
-	use X || echo "VBOX_WITH_X11_ADDITIONS :=" >> LocalConfig.kmk
+	if ! use X; then
+		echo "VBOX_WITH_X11_ADDITIONS :=" >> LocalConfig.kmk || die
+	fi
 
 	# Remove pointless GCC version check
 	sed -e '/^check_gcc$/d' -i configure || die
 
 	# Respect LDFLAGS (bug #759100)
-	sed -i -e '/TEMPLATE_VBOXR3EXE_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk
+	sed -i -e '/TEMPLATE_VBOXR3EXE_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk || die
 
-	# Do not use hard-coded ld (related to bug #488176)
-	#sed -e '/QUIET)ld /s@ld @$(LD) @' \
-	#	-i src/VBox/Devices/PC/ipxe/Makefile.kmk || die
-
-	eapply "${WORKDIR}/virtualbox-patches-${MY_PV}/patches"
+	eapply "${WORKDIR}/virtualbox-patches-6.1.36/patches"
 	eapply_user
 }
 
@@ -113,6 +119,7 @@ src_configure() {
 		--disable-sdl-ttf
 		--disable-pulse
 		--disable-alsa
+		$(usex dbus '' --disable-dbus)
 		--target-arch=${ARCH}
 		--with-linux="${KV_OUT_DIR}"
 		--build-headless
@@ -208,8 +215,7 @@ src_install() {
 		doins VBoxDRMClient
 		fperms 4755 /usr/bin/VBoxDRMClient
 
-		pushd "${S}"/src/VBox/Additions/x11/Installer &>/dev/null \
-			|| die
+		pushd "${S}"/src/VBox/Additions/x11/Installer &>/dev/null || die
 		newins 98vboxadd-xclient VBoxClient-all
 		fperms 0755 /usr/bin/VBoxClient-all
 		popd &>/dev/null || die

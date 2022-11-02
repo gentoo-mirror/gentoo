@@ -3,6 +3,7 @@
 
 # XXX: the tarball here is just the kernel modules split out of the binary
 #      package that comes from VirtualBox-*.run
+# XXX: update: now it is split from virtualbox-*-Debian~bullseye_amd64.deb
 
 EAPI=8
 
@@ -13,11 +14,9 @@ DESCRIPTION="Kernel Modules for Virtualbox"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://github.com/ceamac/virtualbox-modules-dist/releases/download/v${PV}/${MY_P}.tar.xz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0/$(ver_cut 1-2)"
-[[ "${PV}" == *_beta* ]] || [[ "${PV}" == *_rc* ]] || \
-KEYWORDS="amd64"
-IUSE="pax-kernel"
+KEYWORDS="~amd64"
 
 S="${WORKDIR}"
 
@@ -44,14 +43,6 @@ pkg_setup() {
 	fi
 }
 
-src_prepare() {
-	if use pax-kernel && kernel_is -ge 3 0 0 ; then
-		eapply -p0 "${FILESDIR}"/${PN}-5.2.8-pax-const.patch
-	fi
-
-	default
-}
-
 src_install() {
 	linux-mod_src_install
 	insinto /usr/lib/modules-load.d/
@@ -60,6 +51,8 @@ src_install() {
 
 pkg_postinst() {
 	# Remove vboxpci.ko from current running kernel
+	# This module is obsolete, removed in december 2019, so it may be missing.  No || die
+	# TODO: consider removing this line in the near future
 	find /lib/modules/${KV_FULL}/misc -type f -name "vboxpci.ko" -delete
 	linux-mod_pkg_postinst
 }
