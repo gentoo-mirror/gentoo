@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://criu.org/ https://github.com/checkpoint-restore/
 INHERIT=toolchain-funcs linux-info python-r1
 IUSE=bpf doc gnutls nftables selinux setproctitle static-libs test video_cards_amdgpu python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 -riscv
+KEYWORDS=~amd64 ~arm arm64 ~ppc64 -riscv
 LICENSE=GPL-2 LGPL-2.1
 RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3= net-libs/libnet:1.1= sys-libs/libcap:= bpf? ( dev-libs/libbpf:= ) gnutls? ( net-libs/gnutls:= ) nftables? ( net-libs/gnutls:= ) selinux? ( sys-libs/libselinux:= ) setproctitle? ( dev-libs/libbsd:= ) video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] ) dev-python/protobuf-python[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/checkpoint-restore/criu/archive/v3.17/criu-3.17.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd
-_md5_=f61b268974a5c6045417f54d1ff84a9e
+_md5_=c066b8c3798781fdcd27cb47032f72b0
