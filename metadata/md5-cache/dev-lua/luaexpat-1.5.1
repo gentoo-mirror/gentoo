@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/lunarmodules/luaexpat
 INHERIT=lua toolchain-funcs
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 sparc ~x86
 LICENSE=MIT
 RDEPEND=dev-libs/expat lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 SLOT=0
 SRC_URI=https://github.com/lunarmodules/luaexpat/archive/refs/tags/1.5.1.tar.gz -> luaexpat-1.5.1.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua	d5c7dbcaf69f3065f5d7ce3b172c2214
-_md5_=db75def53e94913ea59538f202762ad8
+_md5_=cb0424db36ae09844bd996f30aa10e4b
