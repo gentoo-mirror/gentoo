@@ -82,6 +82,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# TODO: unbundle basisu (needs packaging)
+	# TODO: unbundle nlohmann-json
+	# TODO: unbundle fmt
 	local mycmakeargs=(
 		-DWZ_DISTRIBUTOR="Gentoo Linux"
 		-DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF
@@ -102,8 +105,6 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-
-	rm "${ED}"/usr/bin/.portable || die
 
 	# We cover licencing within the ebuild itself
 	rm "${ED}"/usr/share/doc/${PF}/COPYING* \
