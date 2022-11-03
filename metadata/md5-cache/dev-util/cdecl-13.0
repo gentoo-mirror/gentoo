@@ -1,15 +1,13 @@
-BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure prepare
+BDEPEND=sys-devel/bison sys-devel/flex
+DEFINED_PHASES=configure
 DEPEND=ncurses? ( sys-libs/ncurses:0= ) readline? ( sys-libs/readline:0= )
 DESCRIPTION=Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
 EAPI=8
 HOMEPAGE=https://github.com/paul-j-lucas/cdecl
-INHERIT=autotools
 IUSE=debug readline ncurses
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ncurses? ( sys-libs/ncurses:0= ) readline? ( sys-libs/readline:0= )
 SLOT=0
-SRC_URI=https://github.com/paul-j-lucas/cdecl/archive/cdecl-13.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=cebb5bc63117e1b28fe2ba984eb4fb41
+SRC_URI=https://github.com/paul-j-lucas/cdecl/releases/download/cdecl-13.0/cdecl-13.0.tar.gz -> cdecl-13.0.release.tar.gz
+_md5_=bf95c0354e950f8ea05d6172cbddd108
