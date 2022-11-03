@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/python-lsp/python-lsp-server
 INHERIT=distutils-r1 optfeature
 IUSE=all-plugins test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
 RDEPEND=dev-python/docstring-to-markdown[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/jedi-0.17.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/python-lsp-jsonrpc-1.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pluggy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] all-plugins? ( >=dev-python/autopep8-1.6.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/flake8-5.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/mccabe-0.7.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pycodestyle-2.9.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pydocstyle-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyflakes-2.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pylint-2.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/rope-0.10.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/yapf[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/whatthepatch-1.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/python-lsp-server/python-lsp-server-1.6.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb	optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=8f48df167da37541c15668d3f67ea244
+_md5_=e7d20e7ed8874c6a9e4b3146b396804e
