@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/cmake-3.16 clang? ( sys-devel/clang ) elibc_glibc? ( net-libs/libtirpc ) test? ( !!<sys-apps/sandbox-2.13 || ( ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 >=dev-python/lit-15[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 >=dev-python/lit-15[python_targets_python3_8(-)] ) ) =sys-devel/clang-15.0.4*:15 sys-libs/compiler-rt:15.0.4 ) !test? ( || ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-15 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=sys-devel/llvm:15 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?] !!sys-devel/llvm:0
+DESCRIPTION=Compiler runtime libraries for clang (sanitizers & xray)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=check-reqs cmake flag-o-matic llvm llvm.org python-any-r1
+IUSE=+abi_x86_32 abi_x86_64 +clang debug test +libfuzzer +memprof +orc +profile +xray +asan +dfsan +lsan +msan +hwasan +tsan +ubsan +safestack +cfi +scudo +shadowcallstack +gwp-asan test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+REQUIRED_USE=|| ( asan dfsan lsan msan hwasan tsan ubsan safestack cfi scudo shadowcallstack gwp-asan libfuzzer orc profile xray ) test? ( cfi? ( ubsan ) gwp-asan? ( scudo ) )
+RESTRICT=!clang? ( test ) !test? ( test ) !test? ( test )
+SLOT=15.0.4
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.4/llvm-project-15.0.4.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.4/llvm-project-15.0.4.src.tar.xz.sig ) https://dev.gentoo.org/~mgorny/dist/llvm/llvm-gentoo-patchset-15.0.4.tar.xz
+_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	llvm	29d5332b8530fb760c2ca71ad6706858	verify-sig	0748d665fa664a87add00152ed046e16	llvm.org	ab48c0803b67a958624f7600ef86081c	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_md5_=e21db074881fbe9a1ec4148b2994241c
