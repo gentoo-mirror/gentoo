@@ -59,6 +59,13 @@ python_test() {
 	virtx ./test.py
 }
 
+src_install() {
+	distutils-r1_src_install
+
+	insinto /usr/share/icons
+	doins -r xdg/hicolor
+}
+
 pkg_postinst() {
 	xdg_pkg_postinst
 
