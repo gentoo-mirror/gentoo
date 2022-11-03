@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-lang/swig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
 DEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
 DESCRIPTION=C Library for NVM Express on Linux
@@ -13,4 +13,4 @@ REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 py
 SLOT=0
 SRC_URI=https://github.com/linux-nvme/libnvme/archive/refs/tags/v1.2.tar.gz -> libnvme-1.2.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	2d51fd03931e743811ce30d198e4dcfd	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=6971489d09ebcc3f01028202b73faf66
+_md5_=b9fe2a4191b901756ce82fa8ef6e7c1a

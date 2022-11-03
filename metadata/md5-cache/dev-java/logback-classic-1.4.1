@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-11:* ~dev-java/janino-3.1.7:0 dev-java/jakarta-mail-api:0 ~dev-java/logback-core-1.4.1:0 >=dev-java/slf4j-api-2.0.0:0 dev-java/jakarta-servlet-api:6 test? ( dev-java/assertj-core:3 dev-java/dom4j:1 dev-java/felix-main:0 dev-java/greenmail:2 dev-java/jul-to-slf4j:0 dev-java/log4j-over-slf4j:0 dev-java/logback-core:0 dev-java/mockito:4 dev-java/osgi-core:0 dev-java/reload4j:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=logback-classic module
+EAPI=8
+HOMEPAGE=https://logback.qos.ch
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=EPL-1.0 LGPL-3
+RDEPEND=>=virtual/jre-1.8:* ~dev-java/janino-3.1.7:0 dev-java/jakarta-mail-api:0 ~dev-java/logback-core-1.4.1:0 >=dev-java/slf4j-api-2.0.0:0 dev-java/jakarta-mail:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/qos-ch/logback/archive/v_1.4.1.tar.gz -> logback-1.4.1.tar.gz
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	257a59d157060d7bd51a13e68c614dd5
+_md5_=4400d3e4d3bc7d3a6399a8199d75a169
