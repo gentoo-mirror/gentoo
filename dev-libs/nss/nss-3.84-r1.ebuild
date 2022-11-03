@@ -5,7 +5,7 @@ EAPI=8
 
 inherit flag-o-matic multilib toolchain-funcs multilib-minimal
 
-NSPR_VER="4.34"
+NSPR_VER="4.35"
 RTM_NAME="NSS_${PV//./_}_RTM"
 
 DESCRIPTION="Mozilla's Network Security Services library that implements PKI support"
@@ -15,7 +15,7 @@ SRC_URI="https://archive.mozilla.org/pub/security/nss/releases/${RTM_NAME}/src/$
 
 LICENSE="|| ( MPL-2.0 GPL-2 LGPL-2.1 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris ~x86-solaris"
 IUSE="cacert test +utils cpu_flags_ppc_altivec cpu_flags_ppc_vsx"
 RESTRICT="!test? ( test )"
 # pkg-config called by nss-config -> virtual/pkgconfig in RDEPEND
@@ -39,8 +39,10 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.53-gentoo-fixups.patch"
 	"${FILESDIR}/${PN}-3.21-gentoo-fixup-warnings.patch"
 	"${FILESDIR}/${PN}-3.23-hppa-byte_order.patch"
-	"${FILESDIR}/${PN}-3.79-gcc-13.patch"
+	"${FILESDIR}/${PN}-3.79-fix-client-cert-crash.patch"
 )
+
+QA_PKGCONFIG_VERSION="${PV}.0"
 
 src_prepare() {
 	default
@@ -50,7 +52,6 @@ src_prepare() {
 	fi
 
 	pushd coreconf >/dev/null || die
-
 	# hack nspr paths
 	echo 'INCLUDES += -I$(DIST)/include/dbm' \
 		>> headers.mk || die "failed to append include"
@@ -145,6 +146,7 @@ multilib_src_compile() {
 		RANLIB="$(tc-getRANLIB)"
 		OPTIMIZER=
 		${mybits}
+		disable_ckbi=0
 	)
 
 	# Take care of nspr settings #436216
@@ -292,7 +294,7 @@ multilib_src_install() {
 
 	# create an nss-softokn.pc from nss.pc for libfreebl and some private headers
 	# bug 517266
-	sed -e 's#Libs:#Libs: -lfreebl#' \
+	sed 	-e 's#Libs:#Libs: -lfreebl#' \
 		-e 's#Cflags:#Cflags: -I${includedir}/private#' \
 		*/lib/pkgconfig/nss.pc >"${ED}"/usr/$(get_libdir)/pkgconfig/nss-softokn.pc \
 		|| die "could not create nss-softokn.pc"
