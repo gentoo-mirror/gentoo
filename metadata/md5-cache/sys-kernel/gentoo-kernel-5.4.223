@@ -1,0 +1,17 @@
+BDEPEND=debug? ( dev-util/pahole ) test? ( dev-tcltk/expect sys-apps/coreutils sys-kernel/dracut sys-fs/e2fsprogs amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) ppc? ( app-emulation/qemu[qemu_softmmu_targets_ppc] ) ppc64? ( app-emulation/qemu[qemu_softmmu_targets_ppc64] ) x86? ( app-emulation/qemu[qemu_softmmu_targets_i386] ) ) || ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) app-arch/cpio sys-devel/bc sys-devel/flex virtual/libelf virtual/yacc
+DEFINED_PHASES=compile config configure install postinst postrm preinst prepare prerm pretend setup test
+DESCRIPTION=Linux kernel built with Gentoo patches
+EAPI=8
+HOMEPAGE=https://www.kernel.org/
+IDEPEND=|| ( sys-kernel/installkernel-gentoo sys-kernel/installkernel-systemd-boot ) initramfs? ( >=sys-kernel/dracut-049-r3 )
+INHERIT=kernel-build
+IUSE=debug savedconfig +initramfs test
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=>=virtual/dist-kernel-5.4.223
+RDEPEND=!sys-kernel/gentoo-kernel-bin:5.4.223 virtual/libelf
+RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
+SLOT=5.4.223
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-228.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.4-228.extras.tar.xz https://github.com/projg2/gentoo-kernel-config/archive/g1.tar.gz -> gentoo-kernel-config-g1.tar.gz amd64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-x86_64.config -> kernel-x86_64.config.5.4.21 ) arm64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-aarch64.config -> kernel-aarch64.config.5.4.21 ) ppc64? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-ppc64le.config -> kernel-ppc64le.config.5.4.21 ) x86? ( https://src.fedoraproject.org/rpms/kernel/raw/2809b7faa6a8cb232cd825096c146b7bdc1e08ea/f/kernel-i686.config -> kernel-i686.config.5.4.21 )
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	dist-kernel-utils	557a93bd51735200952a735894f6628e	mount-boot	02a45c5e022c08dbc05178522b2772f2	kernel-install	238be8d2f82d53a648a5905b57a4969b	kernel-build	556e93c4ddc2e0c5dfa8d7ec5193fa5c
+_md5_=6cee488fb31374a4d7318e114f79d7ca
