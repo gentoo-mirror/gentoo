@@ -1,26 +1,27 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Ridiculously functional reminder program"
 HOMEPAGE="https://dianne.skoll.ca/projects/remind/"
-SRC_URI="https://dianne.skoll.ca/projects/remind/download/${P}.tar.gz"
+SRC_URI="https://dianne.skoll.ca/projects/remind/download/OLD/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="tk"
 
 RDEPEND="
 	tk? ( >=dev-lang/tk-8.5 dev-tcltk/tcllib )
 "
-DOCS="docs/WHATSNEW examples/defs.rem www/README.*"
-
-src_prepare() {
-	default
-	sed -i 's:$(MAKE) install:&-nostripped:' "${S}"/Makefile || die
-}
+DEPEND="${RDEPEND}
+	dev-perl/Cairo
+	dev-perl/JSON-MaybeXS
+	dev-perl/Pango
+	virtual/perl-Getopt-Long
+"
+DOCS="docs/* examples/defs.rem "
 
 src_test() {
 	if [[ ${EUID} -eq 0 ]] ; then
@@ -32,13 +33,10 @@ src_test() {
 
 src_install() {
 	default
-	dobin www/rem2html
 
 	if ! use tk ; then
 		rm \
-			"${D}"/usr/bin/cm2rem* \
 			"${D}"/usr/bin/tkremind \
-			"${D}"/usr/share/man/man1/cm2rem* \
 			"${D}"/usr/share/man/man1/tkremind* \
 			|| die
 	fi
@@ -46,4 +44,6 @@ src_install() {
 	rm "${S}"/contrib/rem2ics-*/{Makefile,rem2ics.spec} || die
 	insinto /usr/share/${PN}
 	doins -r contrib/
+	insinto /usr/share/vim/vimfiles/syntax
+	doins examples/remind.vim
 }

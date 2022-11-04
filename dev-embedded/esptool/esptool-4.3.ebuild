@@ -3,7 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1
@@ -14,7 +15,7 @@ SRC_URI="https://github.com/espressif/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -41,9 +42,17 @@ BDEPEND="
 python_test() {
 	"${EPYTHON}" test/test_imagegen.py || die "test_imagegen.py failed with ${EPYTHON}"
 	"${EPYTHON}" test/test_espsecure.py || die "test_espsecure.py failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py || die "test_espefuse_host.py failed with ${EPYTHON}"
 	"${EPYTHON}" test/test_merge_bin.py || die "test_merge_bin.py failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_image_info.py || die "test_image_info.py failed with ${EPYTHON}"
 	"${EPYTHON}" test/test_modules.py || die "test_modules.py failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32|| die "test_espefuse_host.py esp32 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32c2 || die "test_espefuse_host.py esp32c2 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32c3 || die "test_espefuse_host.py esp32c3 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32s2 || die "test_espefuse_host.py esp32s2 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32s3 || die "test_espefuse_host.py esp32s3 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32s3beta2 || die "test_espefuse_host.py esp32s3beta2 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32h2beta1 || die "test_espefuse_host.py esp32h2beta1 failed with ${EPYTHON}"
+	"${EPYTHON}" test/test_espefuse_host.py esp32c6 || die "test_espefuse_host.py esp32c6 failed with ${EPYTHON}"
 	# test/test_esptool.py and test/test_espefuse.py need real hardware connected
 }
 
