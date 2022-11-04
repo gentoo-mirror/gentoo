@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/linuxdoc-tools app-text/texlive-core dev-texlive/texlive-fontsrecommended virtual/latex-base ) virtual/pkgconfig
+BDEPEND=virtual/pkgconfig doc? ( app-text/linuxdoc-tools app-text/openjade app-text/texlive-core dev-texlive/texlive-fontsrecommended virtual/latex-base ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=|| ( net-firewall/iptables net-firewall/nftables ) >=net-libs/libnfnetlink-1.0.1 dbi? ( dev-db/libdbi ) json? ( dev-libs/jansson:= ) nfacct? ( >=net-libs/libmnl-1.0.4 >=net-libs/libnetfilter_acct-1.0.3 ) nfct? ( >=net-libs/libnetfilter_conntrack-1.0.6 ) nflog? ( >=net-libs/libnetfilter_log-1.0.1 ) mysql? ( dev-db/mysql-connector-c:= ) pcap? ( net-libs/libpcap ) postgres? ( dev-db/postgresql:= ) sqlite? ( dev-db/sqlite:3 )
 DESCRIPTION=A userspace logging daemon for netfilter/iptables related logging
@@ -12,4 +12,4 @@ RDEPEND=|| ( net-firewall/iptables net-firewall/nftables ) >=net-libs/libnfnetli
 SLOT=0
 SRC_URI=https://www.netfilter.org/projects/ulogd/files/ulogd-2.0.8.tar.bz2
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	linux-info	bbfa385d6907d7948d49a5e107bd654d	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=f974dd84bdceed6c2e4b23b7e11b81c7
+_md5_=c1fa1db18689fe50525edc6aad8a34f1
