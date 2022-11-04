@@ -10,12 +10,11 @@
 		<name>Gentoo ProAudio Project</name>
 	</maintainer>
 	<use>
-		<flag name="classic">Enable building of jackd</flag>
-		<flag name="metadata">Enable metadata API</flag>
-		<flag name="pam">Add basic realtime configuration via <pkg>sys-auth/realtime-base</pkg></flag>
-		<flag name="tools">Pull basic tools (e.g. jack_lsp/connect) from <pkg>media-sound/jack-example-tools</pkg></flag>
+		<flag name="jack-net">Build jack_net_* example clients</flag>
+		<flag name="jack-netsource">Build jack_netsource for configuring network sources</flag>
+		<flag name="zalsa">Build the zalsa internal client using <pkg>media-libs/zita-resampler</pkg></flag>
 	</use>
 	<upstream>
-		<remote-id type="github">jackaudio/jack2</remote-id>
+		<remote-id type="github">jackaudio/jack-example-tools</remote-id>
 	</upstream>
 </pkgmetadata>

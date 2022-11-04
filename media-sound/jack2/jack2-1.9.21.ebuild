@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/jackaudio/${PN}.git"
 else
 	SRC_URI="https://github.com/jackaudio/jack2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
@@ -84,6 +84,13 @@ multilib_src_configure() {
 		--portaudio=no
 		--samplerate=$(usex libsamplerate)
 		--winmme=no
+
+		# obsolete options, migrated to media-sound/jack-example-tools
+		# and will be removed entirely next version
+		--example-tools=no
+		--readline=no
+		--sndfile=no
+		--zalsa=no
 	)
 
 	waf-utils_src_configure "${wafargs[@]}"
