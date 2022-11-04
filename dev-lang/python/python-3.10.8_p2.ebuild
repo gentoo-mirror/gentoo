@@ -30,8 +30,8 @@ LICENSE="PSF-2"
 SLOT="${PYVER}"
 KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE="
-	bluetooth build +ensurepip examples gdbm hardened lto +ncurses pgo
-	+readline +sqlite +ssl test tk +xml
+	bluetooth build +ensurepip examples gdbm hardened libedit lto
+	+ncurses pgo +readline +sqlite +ssl test tk +xml
 "
 RESTRICT="!test? ( test )"
 
@@ -43,7 +43,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	app-arch/bzip2:=
 	app-arch/xz-utils:=
-	dev-lang/python-exec[python_targets_python3_9(-)]
+	dev-lang/python-exec[python_targets_python3_10(-)]
 	dev-libs/libffi:=
 	sys-apps/util-linux:=
 	>=sys-libs/zlib-1.1.3:=
@@ -52,7 +52,10 @@ RDEPEND="
 	ensurepip? ( dev-python/ensurepip-wheels )
 	gdbm? ( sys-libs/gdbm:=[berkdb] )
 	ncurses? ( >=sys-libs/ncurses-5.2:= )
-	readline? ( >=sys-libs/readline-4.1:= )
+	readline? (
+		!libedit? ( >=sys-libs/readline-4.1:= )
+		libedit? ( dev-libs/libedit:= )
+	)
 	sqlite? ( >=dev-db/sqlite-3.3.8:3= )
 	ssl? ( >=dev-libs/openssl-1.1.1:= )
 	tk? (
@@ -62,6 +65,7 @@ RDEPEND="
 		dev-tcltk/tix
 	)
 	xml? ( >=dev-libs/expat-2.1:= )
+	!!<sys-apps/sandbox-2.21
 "
 # bluetooth requires headers from bluez
 DEPEND="
@@ -207,6 +211,7 @@ src_configure() {
 		ac_cv_header_stropts_h=no
 
 		--enable-shared
+		--without-static-libpython
 		--enable-ipv6
 		--infodir='${prefix}/share/info'
 		--mandir='${prefix}/share/man'
@@ -221,6 +226,7 @@ src_configure() {
 
 		$(use_with lto)
 		$(use_enable pgo optimizations)
+		$(use_with readline readline "$(usex libedit editline readline)")
 	)
 
 	# disable implicit optimization/debugging flags
@@ -313,7 +319,7 @@ src_compile() {
 		local -x COLUMNS=80
 		local -x PYTHONDONTWRITEBYTECODE=
 
-		addpredict /usr/lib/python3.9/site-packages
+		addpredict "/usr/lib/python${PYVER}/site-packages"
 	fi
 
 	# also need to clear the flags explicitly here or they end up
@@ -354,21 +360,30 @@ src_test() {
 		)
 	fi
 
+	# workaround docutils breaking tests
+	cat > Lib/docutils.py <<-EOF || die
+		raise ImportError("Thou shalt not import!")
+	EOF
+
 	# bug 660358
 	local -x COLUMNS=80
 	local -x PYTHONDONTWRITEBYTECODE=
+	# workaround https://bugs.gentoo.org/775416
+	addwrite "/usr/lib/python${PYVER}/site-packages"
 
-	emake test EXTRATESTOPTS="${test_opts[*]}" \
-		CPPFLAGS= CFLAGS= LDFLAGS= < /dev/tty || die "emake test failed"
+	nonfatal emake test EXTRATESTOPTS="${test_opts[*]}" \
+		CPPFLAGS= CFLAGS= LDFLAGS= < /dev/tty
+	local ret=${?}
+
+	rm Lib/docutils.py || die
+
+	[[ ${ret} -eq 0 ]] || die "emake test failed"
 }
 
 src_install() {
 	local libdir=${ED}/usr/lib/python${PYVER}
 
 	emake DESTDIR="${D}" altinstall
-
-	# Remove static library
-	rm "${ED}"/usr/$(get_libdir)/libpython*.a || die
 
 	# Fix collisions between different slots of Python.
 	rm "${ED}/usr/$(get_libdir)/libpython3.so" || die
