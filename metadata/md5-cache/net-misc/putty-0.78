@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( app-doc/halibut ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=!net-misc/pssh gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/pango ) gssapi? ( virtual/krb5 )
+DESCRIPTION=A Free Telnet/SSH Client
+EAPI=8
+HOMEPAGE=https://www.chiark.greenend.org.uk/~sgtatham/putty/
+INHERIT=cmake desktop xdg-utils
+IUSE=debug doc +gtk gssapi
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=!net-misc/pssh gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/pango ) gssapi? ( virtual/krb5 )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~matthew/distfiles/putty-icons.tar.bz2 https://the.earth.li/~sgtatham/putty/0.78/putty-0.78.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	desktop	7eb20ad915a0a318176d51bc2508ff5c
+_md5_=ba8f70162f6e2d1d557ab0e07cc9e971
