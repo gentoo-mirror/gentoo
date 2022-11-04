@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=virtual/jack alsa? ( media-libs/alsa-lib media-libs/libsamplerate ) jack-net? ( || ( media-sound/jack2[libsamplerate] media-video/pipewire[jack-sdk(-)] ) ) jack-netsource? ( media-libs/libsamplerate opus? ( media-libs/opus[custom-modes] ) ) readline? ( sys-libs/readline:= ) sndfile? ( media-libs/libsndfile ) zalsa? ( media-libs/alsa-lib media-libs/zita-alsa-pcmi media-libs/zita-resampler:= ) !<media-sound/jack-audio-connection-kit-0.126.0 !<media-sound/jack2-1.9.21
+DESCRIPTION=Official examples and tools from the JACK project
+EAPI=8
+HOMEPAGE=https://jackaudio.org/
+INHERIT=meson
+IUSE=alsa jack-net jack-netsource opus +readline sndfile zalsa
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ zalsa? ( GPL-3+ )
+RDEPEND=virtual/jack alsa? ( media-libs/alsa-lib media-libs/libsamplerate ) jack-net? ( || ( media-sound/jack2[libsamplerate] media-video/pipewire[jack-sdk(-)] ) ) jack-netsource? ( media-libs/libsamplerate opus? ( media-libs/opus[custom-modes] ) ) readline? ( sys-libs/readline:= ) sndfile? ( media-libs/libsndfile ) zalsa? ( media-libs/alsa-lib media-libs/zita-alsa-pcmi media-libs/zita-resampler:= ) !<media-sound/jack-audio-connection-kit-0.126.0 !<media-sound/jack2-1.9.21
+SLOT=0
+SRC_URI=https://github.com/jackaudio/jack-example-tools/archive/refs/tags/3.tar.gz -> jack-example-tools-3.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=e9eda5104e263dd2e0bbed119dcce27f
