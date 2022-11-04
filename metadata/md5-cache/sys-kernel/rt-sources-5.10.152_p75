@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Full Linux 5.10 kernel sources with the CONFIG_PREEMPT_RT patch
+EAPI=8
+HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel https://wiki.linuxfoundation.org/realtime/start
+INHERIT=kernel-2
+IUSE=symlink build
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.10.152_p75
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.10.152.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.10/patch-5.10.152-rt75.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.10/older/patch-5.10.152-rt75.patch.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	6058f6e6a6269e48cd88f4956944c8d5
+_md5_=202aa5da9e26e17e9a804c739b2980e7
