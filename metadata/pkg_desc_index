@@ -1216,7 +1216,7 @@ app-arch/unp 2.0_pre9: Script for unpacking various file formats
 app-arch/unrar 6.1.7 6.2.1: Uncompress rar files
 app-arch/unrpa 2.3.0: Ren'Py's RPA data file extractor
 app-arch/unshield 1.4.3: InstallShield CAB file extractor
-app-arch/unzip 6.0_p26 6.0_p27: unzipper for pkzip-compressed files
+app-arch/unzip 6.0_p26 6.0_p27-r1: unzipper for pkzip-compressed files
 app-arch/upx 4.0.0: Ultimate Packer for eXecutables (free version using UCL compression and not NRV)
 app-arch/upx-bin 4.0.0: Ultimate Packer for eXecutables, binary version with proprietary NRV compression
 app-arch/vimball 0.5.1 9999: a command-line vimball archive extractor
@@ -1225,7 +1225,7 @@ app-arch/xar 1.8.0.0.487.100.1: An easily extensible archive format
 app-arch/xarchiver 0.5.4.19 0.5.4.20: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
 app-arch/xz-utils 5.2.7 5.3.3_alpha 9999: Utils for managing LZMA compressed files
-app-arch/zip 3.0-r4 3.0-r5: Info ZIP (encryption support)
+app-arch/zip 3.0-r4 3.0-r6: Info ZIP (encryption support)
 app-arch/zoo 2.10-r5: Manipulate archives of files in compressed form
 app-arch/zopfli 1.0.3: Very good, but slow, deflate or zlib compression
 app-arch/zpaq 7.15-r1: Journaling incremental deduplicating archiving compressor
@@ -2188,7 +2188,7 @@ app-editors/ghostwriter 2.0.2 2.1.4 2.1.6: Cross-platform, aesthetic, distractio
 app-editors/gnome-latex 3.40.0: Integrated LaTeX environment for GNOME
 app-editors/gnome-text-editor 42.2 43.1: A simple text editor for the GNOME desktop
 app-editors/gummi 0.8.3: Simple LaTeX editor for GTK+ users
-app-editors/gvim 9.0.0099 9.0.0399 9.0.0655 9.0.0828 9999: GUI version of the Vim text editor
+app-editors/gvim 9.0.0099 9.0.0399 9.0.0655 9.0.0828-r1 9999: GUI version of the Vim text editor
 app-editors/hexcurse 1.60.0: ncurses based hex editor
 app-editors/hexedit 1.6: View and edit files in hex or ASCII
 app-editors/hteditor 2.1.1_pre20161206: A file viewer, editor and analyzer for text, binary, and executable files
@@ -2235,8 +2235,8 @@ app-editors/ted 2.23-r3: X-based rich text editor
 app-editors/texworks 0.6.7: A simple interface for working with TeX documents
 app-editors/uemacs-pk 4.0.15_p20180719: uEmacs/PK is an enhanced version of MicroEMACS
 app-editors/vile 9.8t-r2 9.8v 9.8w: VI Like Emacs -- yet another full-featured vi clone
-app-editors/vim 9.0.0099-r1 9.0.0399 9.0.0655-r1 9.0.0828 9999: Vim, an improved vi-style text editor
-app-editors/vim-core 9.0.0099 9.0.0399 9.0.0655 9.0.0828 9999: vim and gvim shared files
+app-editors/vim 9.0.0099-r1 9.0.0399 9.0.0655-r1 9.0.0828-r1 9999: Vim, an improved vi-style text editor
+app-editors/vim-core 9.0.0099 9.0.0399 9.0.0655 9.0.0828-r1 9999: vim and gvim shared files
 app-editors/vis 0.7 0.7-r1 9999: modern, legacy free, simple yet efficient vim-like editor
 app-editors/vscode 1.72.0-r1 1.72.1 1.72.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium 1.72.0.22279-r1 1.72.1.22284 1.72.2.22289: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
@@ -5290,7 +5290,7 @@ dev-lang/starlark-rust 0.8.0: A Rust implementation of the Starlark language
 dev-lang/swi-prolog 8.4.1 8.4.2 8.5.11 8.5.12: Versatile implementation of the Prolog programming language
 dev-lang/swig 4.0.2 4.1.0: Simplified Wrapper and Interface Generator
 dev-lang/tcc 0.9.27_p20211022 9999: A very small C compiler for ix86/amd64
-dev-lang/tcl 8.6.11 8.6.12: Tool Command Language
+dev-lang/tcl 8.6.11 8.6.12-r1: Tool Command Language
 dev-lang/teyjus 2.1-r2: Higher-order logic programming language Lambda Prolog
 dev-lang/tk 8.6.11.1 8.6.12: Tk Widget Set
 dev-lang/tuprolog 3.2.0: tuProlog is a light-weight Prolog for Internet applications and infrastructures
@@ -5863,7 +5863,7 @@ dev-libs/uriparser 0.9.6 0.9.7: Strictly RFC 3986 compliant URI parsing library 
 dev-libs/userspace-rcu 0.13.2: Userspace RCU (read-copy-update) library
 dev-libs/utfcpp 3.2.1 9999: UTF-8 C++ library
 dev-libs/uthash 2.3.0: An easy-to-use hash implementation for C programmers
-dev-libs/uulib 0.5.20-r1 0.5.20-r2: Library that supports Base64 (MIME), uuencode, xxencode and binhex coding
+dev-libs/uulib 0.5.20-r1 0.5.20-r3: Library that supports Base64 (MIME), uuencode, xxencode and binhex coding
 dev-libs/vala-common 0.56.3: Build infrastructure for packages that use Vala
 dev-libs/vc 1.4.1-r1 1.4.2 1.4.3: SIMD Vector Class Library for C++
 dev-libs/voikko-fi 2.5-r1: Finnish dictionary for libvoikko based spell checkers (vvfst format)
@@ -13595,7 +13595,7 @@ media-libs/libcue 2.2.1: CUE Sheet Parser Library
 media-libs/libcuefile 477-r2: Cue File library from Musepack
 media-libs/libdc1394 2.2.6: Library to interface with IEEE 1394 cameras following the IIDC specification
 media-libs/libdca 0.0.7: Library for decoding DTS Coherent Acoustics streams used in DVD
-media-libs/libde265 1.0.8 9999: Open h.265 video codec implementation
+media-libs/libde265 1.0.8 1.0.9 9999: Open h.265 video codec implementation
 media-libs/libdiscid 0.6.2: Client library to create MusicBrainz enabled tagging applications
 media-libs/libdmtx 0.7.7: Barcode data matrix reading and writing library
 media-libs/libdv 1.0.0-r4: Software codec for dv-format video (camcorders etc)
@@ -13787,7 +13787,7 @@ media-libs/qhull 2020.2-r3: Geometry library
 media-libs/qtav 1.12.0-r3: Multimedia playback framework based on Qt + FFmpeg
 media-libs/quarter 1.1.0-r1: GUI binding for using Coin/Open Inventor with Qt
 media-libs/quesoglc 0.7.2-r1: Free implementation of the OpenGL Character Renderer (GLC)
-media-libs/raptor 2.0.15-r6: The RDF Parser Toolkit
+media-libs/raptor 2.0.15-r7: The RDF Parser Toolkit
 media-libs/raspberrypi-userland 0_pre20160424 0_pre20201022 9999: Raspberry Pi userspace tools and libraries
 media-libs/raspberrypi-userland-bin 1.20201201: Raspberry Pi userspace tools and libraries
 media-libs/resid 0.16_p2-r2: C++ library to emulate the C64 SID chip
@@ -17913,7 +17913,7 @@ sys-firmware/seabios 1.14.0-r2 1.16.0: Open Source implementation of a 16-bit x8
 sys-firmware/seabios-bin 1.16.0: Open Source implementation of a 16-bit x86 BIOS
 sys-firmware/sgabios 0.1_pre10: serial graphics adapter bios option rom for x86
 sys-firmware/sigrok-firmware-fx2lafw 0.1.7-r1 9999: Firmware for Cypress FX2 chips for use as simple logic analyzer hardware
-sys-firmware/sof-firmware 2.1.1-r1 2.2: Sound Open Firmware (SOF) binary files
+sys-firmware/sof-firmware 2.1.1-r1 2.2 2.2.2: Sound Open Firmware (SOF) binary files
 sys-firmware/tt-s2-6400-firmware 0.5.1: Firmware for the Technotrend S2-6400 DVB Card
 sys-firmware/vgabios 0.7a 0.7a-r1 0.8a: VGA BIOS implementation
 sys-firmware/zd1201-firmware 0.14-r1: Firmware for ZyDAS 1201 based USB 802.11b Network WiFi devices
@@ -18087,7 +18087,7 @@ sys-libs/cygwin-crypt 1.4-r1: Cygwin Encryption/Decryption utility and library
 sys-libs/db 4.8.30-r6 4.8.30-r7 5.3.28-r8 6.0.35-r4 6.1.38-r1 6.2.38-r1 18.1.32-r1 18.1.40-r1: Oracle Berkeley DB
 sys-libs/efivar 37 38: Tools and library to manipulate EFI variables
 sys-libs/fortify-headers 0.7 1.1 9999: A standalone implementation of fortify source
-sys-libs/freeipmi 1.6.9 1.6.10: Provides Remote-Console and System Management Software as per IPMI v1.5/2.0
+sys-libs/freeipmi 1.6.9 1.6.10 1.6.10-r1: Provides Remote-Console and System Management Software as per IPMI v1.5/2.0
 sys-libs/fts-standalone 1.2.7: Standalone fts library for use with musl
 sys-libs/gdbm 1.23: Standard GNU database libraries
 sys-libs/glibc 2.19-r2 2.30-r9 2.31-r7 2.32-r8 2.33-r14 2.34-r14 2.35-r8 2.35-r10 2.35-r11 2.36-r3 2.36-r4 2.36-r5 9999: GNU libc C library
