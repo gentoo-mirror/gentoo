@@ -2181,11 +2181,11 @@ app-editors/fe 2.0-r1: A small and easy to use folding editor
 app-editors/featherpad 1.1.0 1.2.0 1.3.1: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/focuswriter 1.7.6: Fullscreen and distraction-free word processor
 app-editors/fte 20110708-r1: Lightweight text-mode editor
-app-editors/gedit 42.2: A text editor for the GNOME desktop
-app-editors/gedit-plugins 42.1: Collection of extra plugins for the gedit Text Editor
+app-editors/gedit 42.2 43.1: A text editor for the GNOME desktop
+app-editors/gedit-plugins 42.1 43.1: Collection of extra plugins for the gedit Text Editor
 app-editors/ghex 42.3 43.0 9999: GNOME hexadecimal editor
 app-editors/ghostwriter 2.0.2 2.1.4 2.1.6: Cross-platform, aesthetic, distraction-free markdown editor
-app-editors/gnome-latex 3.40.0: Integrated LaTeX environment for GNOME
+app-editors/gnome-latex 3.40.0 3.42.0: Integrated LaTeX environment for GNOME
 app-editors/gnome-text-editor 42.2 43.1: A simple text editor for the GNOME desktop
 app-editors/gummi 0.8.3: Simple LaTeX editor for GTK+ users
 app-editors/gvim 9.0.0099 9.0.0399 9.0.0655 9.0.0828-r1 9999: GUI version of the Vim text editor
@@ -8113,7 +8113,7 @@ dev-python/BitVector 3.5.0: A pure-Python memory-efficient packed representation
 dev-python/ConfigArgParse 1.5.3: Drop-in replacement for argparse supporting config files and env variables
 dev-python/CppHeaderParser 2.7.4: Parse C++ header files and generate a data structure
 dev-python/DBUtils 3.0.2 3.0.2-r1: Database connections for multi-threaded environments
-dev-python/Faker 15.1.1 15.1.3: A Python package that generates fake data for you
+dev-python/Faker 15.1.1 15.1.3 15.2.0: A Python package that generates fake data for you
 dev-python/Frozen-Flask 0.18-r1: Freezes a Flask application into a set of static files
 dev-python/GitPython 3.1.27: Library used to interact with Git repositories
 dev-python/GridDataFormats 0.6.0 1.0.1: Reading and writing of data on regular grids in Python
@@ -8450,7 +8450,7 @@ dev-python/etuples 0.3.8: Python S-expression emulation using tuple-like objects
 dev-python/eventlet 0.33.1: Highly concurrent networking library
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/exam 0.10.6: Helpers for better testing
-dev-python/exceptiongroup 1.0.0: Backport of PEP 654 (exception groups)
+dev-python/exceptiongroup 1.0.0 1.0.1: Backport of PEP 654 (exception groups)
 dev-python/execnet 1.9.0-r1: Rapid multi-Python deployment
 dev-python/executing 0.10.0 1.0.0 1.1.0 1.1.1 1.2.0: Get information about what a Python frame is currently doing
 dev-python/expects 0.9.0: Expressive and extensible TDD/BDD assertion library for Python
@@ -8580,7 +8580,7 @@ dev-python/hvac 0.11.2 1.0.0 1.0.2: hashicorp vault client in python
 dev-python/hyperframe 5.2.0 5.2.0-r1 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.56.2 6.56.3 6.56.4: A library for property based testing
-dev-python/icalendar 4.1.0 5.0.0 5.0.1: Package used for parsing and generating iCalendar files (RFC 2445)
+dev-python/icalendar 4.1.0 5.0.0 5.0.1 5.0.2: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.6 2.5.7 2.5.8: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
@@ -8835,7 +8835,7 @@ dev-python/nptyping 2.3.1: Type hints for Numpy
 dev-python/nspektr 0.4.0: Distribution package dependency inspector
 dev-python/ntlm-auth 1.5.0: Calculates NTLM Authentication codes
 dev-python/ntplib 0.4.0: Python NTP library
-dev-python/nuitka 1.1.5 1.1.6 1.1.7: Python to native compiler
+dev-python/nuitka 1.1.5 1.1.6 1.1.7 1.1.8: Python to native compiler
 dev-python/numexpr 2.8.3 2.8.4: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.22.4 1.23.3 1.23.4: Fast array and numerical python library
 dev-python/numpydoc 1.4.0 1.5.0: Sphinx extension to support docstrings in Numpy format
@@ -9158,7 +9158,7 @@ dev-python/pytest-helpers-namespace 2021.12.29-r1: Provides a helpers pytest nam
 dev-python/pytest-html 3.1.1: Plugin for generating HTML reports for py.test results
 dev-python/pytest-httpbin 1.0.2: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpserver 1.0.6: HTTP server for pytest to test HTTP clients
-dev-python/pytest-httpx 0.21.0 0.21.1: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.21.0 0.21.1 0.21.2: Send responses to HTTPX using pytest
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.1.3 1.1.4: A PyTest plugin which provides an FTP fixture for your tests
 dev-python/pytest-localserver 0.7.0: Pytest plugin to test server connections locally
@@ -9313,7 +9313,7 @@ dev-python/quex 0.71.2: Mode Oriented Directly Coded Lexical Analyser Generator
 dev-python/radon 5.1.0-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r4: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
-dev-python/rapidfuzz 2.12.0 2.13.0: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 2.12.0 2.13.0 2.13.1: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rapidfuzz_capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.0-r1: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
@@ -9644,7 +9644,7 @@ dev-python/watchgod 0.8.2-r1: Simple, modern file watching and code reload in Py
 dev-python/wcag-contrast-ratio 0.9-r1: A library for computing contrast ratios, as required by WCAG 2.0
 dev-python/wcmatch 8.4.1: Wildcard/glob file name matcher
 dev-python/wcwidth 0.2.5-r1: Measures number of Terminal column cells of wide-character codes
-dev-python/weasyprint 55.0 56.0 56.1 57.0: Visual rendering engine for HTML and CSS that can export to PDF
+dev-python/weasyprint 55.0 56.0 56.1 57.0 57.1: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webassets 2.0: Asset management for Python web development
 dev-python/webcolors 1.12: Color names and value formats defined by the HTML and CSS specifications
 dev-python/webencodings 0.5.1-r2: Character encoding aliases for legacy web content
@@ -9656,7 +9656,7 @@ dev-python/webtest 3.0.0-r1: Helper to test WSGI applications
 dev-python/werkzeug 2.2.2: Collection of various utilities for WSGI applications
 dev-python/whatever 0.6-r1: Easy anonymous functions by partial application of operators
 dev-python/whatthepatch 1.0.2: A patch parsing and application library.
-dev-python/wheel 0.37.1-r1 0.38.0: A built-package format for Python
+dev-python/wheel 0.37.1-r1 0.38.0 0.38.1: A built-package format for Python
 dev-python/whichcraft 0.6.1-r1: Cross-platform cross-python shutil.which functionality
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
@@ -12293,7 +12293,7 @@ gnome-base/gnome-mime-data 2.18.0-r1: MIME data for Gnome
 gnome-base/gnome-panel 3.44.0-r2 3.46.0: The GNOME Flashback Panel
 gnome-base/gnome-session 42.0 43.0: Gnome session manager
 gnome-base/gnome-settings-daemon 42.2-r4 43.0: Gnome Settings Daemon
-gnome-base/gnome-shell 42.4-r4 42.5-r2 43.0: Provides core UI functions for the GNOME desktop
+gnome-base/gnome-shell 42.4-r4 42.5-r2 43.0 43.1: Provides core UI functions for the GNOME desktop
 gnome-base/gsettings-desktop-schemas 42.0 43.0: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.48.1-r2 1.50.2-r1: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r3: Library to construct graphical interfaces at runtime
@@ -12342,7 +12342,7 @@ gnome-extra/gnome-shell-extension-desktop-icons-ng 45.0 46 47: Fork from the des
 gnome-extra/gnome-shell-extension-gsconnect 50: KDE Connect implementation for Gnome Shell
 gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20210603-r1 1.2.0_p20210727-r1 1.2.0_p20220928: Keyboard-driven layer for GNOME Shell with tiling support
 gnome-extra/gnome-shell-extension-weather-in-the-clock 20220504: Display the current weather in the clock
-gnome-extra/gnome-shell-extensions 42.3 43.0-r1: JavaScript extensions for GNOME Shell
+gnome-extra/gnome-shell-extensions 42.3 43.0-r1 43.1: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 42.1 43.0: Unofficial extension pack providing GNOME 2-like features
 gnome-extra/gnome-software 42.4 43.0 43.1: Gnome install & update software
 gnome-extra/gnome-system-monitor 42.0: The Gnome System Monitor
@@ -12442,7 +12442,7 @@ gui-apps/wcm 0.7.0 9999: Wayfire Config Manager
 gui-apps/wf-recorder 0.2.1-r1 0.3.0-r1 9999: Screen recorder for wlroots-based compositors
 gui-apps/wf-shell 0.7.0 9999: A compiz like 3D wayland compositor
 gui-apps/wl-clipboard 2.1.0 9999: Wayland clipboard utilities
-gui-libs/amtk 5.4.1: Actions, Menus and Toolbars Kit for GTK+ applications
+gui-libs/amtk 5.4.1 5.6.0: Actions, Menus and Toolbars Kit for GTK+ applications
 gui-libs/display-manager-init 1.0-r4 1.1.1: RC init files for starting display and login managers
 gui-libs/egl-gbm 1.1.0: GBM EGL external platform library
 gui-libs/egl-wayland 1.1.7-r1 1.1.9_p20211123 1.1.11-r1: EGLStream-based Wayland external platform
@@ -12457,7 +12457,7 @@ gui-libs/libhandy 1.6.3 1.8.0: Building blocks for modern adaptive GNOME apps
 gui-libs/libpanel 1.0.1 1.0.2: A dock/panel library for GTK 4
 gui-libs/libwpe 1.12.3 1.14.0: Platform-agnostic interfaces for WPE WebKit
 gui-libs/neatvnc 0.4.0 9999: liberally licensed VNC server library with a clean interface
-gui-libs/tepl 5.0.1-r1 6.0.2: GtkSourceView-based text editors and IDE helper library
+gui-libs/tepl 5.0.1-r1 6.0.2 6.2.0: GtkSourceView-based text editors and IDE helper library
 gui-libs/vte 0.70.0 0.70.1: Library providing a virtual terminal emulator widget
 gui-libs/vte-common 0.70.0 0.70.1: Library providing a virtual terminal emulator widget
 gui-libs/wayfire-plugins-extra 0.7.0-r1 9999: extra plugins for wayfire
@@ -18759,7 +18759,7 @@ x11-libs/gtk-mac-integration 2.0.5-r1: Menubar, doc and app bundle integration f
 x11-libs/gtkdatabox 1.0.0-r1: Gtk+ Widgets for live display of large amounts of fluctuating numerical data
 x11-libs/gtkglext 1.2.0-r5: GL extensions for Gtk+ 2.0
 x11-libs/gtkmathview 0.8.0-r4: Rendering engine for MathML documents
-x11-libs/gtksourceview 2.10.5-r3 3.24.11-r1 4.8.2: A text widget implementing syntax highlighting and other features
+x11-libs/gtksourceview 2.10.5-r3 3.24.11-r1 4.8.2 4.8.4: A text widget implementing syntax highlighting and other features
 x11-libs/libFS 1.0.8 1.0.9: X.Org FS library
 x11-libs/libGLw 8.0.0-r1: Mesa GLw library
 x11-libs/libICE 1.0.10-r1: X.Org Inter-Client Exchange library
@@ -19487,7 +19487,7 @@ x11-wm/matwm2 0.1.2_pre3-r2: Simple EWMH compatible window manager with titlebar
 x11-wm/metacity 3.44.0 3.46.0: GNOME Flashback window manager
 x11-wm/muffin 5.2.1 5.4.7-r1: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 42.4-r1 42.5 43.0: GNOME compositing window manager based on Clutter
+x11-wm/mutter 42.4-r1 42.5 43.0 43.1: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r3 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r1: Small and fast window manager

@@ -1,0 +1,16 @@
+BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=dev-util/gtk-doc-am-1.14 dev-util/itstool >=sys-devel/gettext-0.19.6:0 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=dev-libs/glib-2.70:2 >=x11-libs/gtk+-3.22:3 >=app-text/gspell-1.8:0= >=gui-libs/amtk-5.6:= >=x11-libs/gtksourceview-4.0:4 >=gui-libs/tepl-6.2:= >=dev-libs/libgee-0.10:0.8= gnome-base/gsettings-desktop-schemas x11-libs/gdk-pixbuf:2 x11-libs/pango introspection? ( >=dev-libs/gobject-introspection-1.30.0:= ) gnome-base/dconf
+DESCRIPTION=Integrated LaTeX environment for GNOME
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/swilmet/gnome-latex
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=+introspection +latexmk rubber
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=>=dev-libs/glib-2.70:2 >=x11-libs/gtk+-3.22:3 >=app-text/gspell-1.8:0= >=gui-libs/amtk-5.6:= >=x11-libs/gtksourceview-4.0:4 >=gui-libs/tepl-6.2:= >=dev-libs/libgee-0.10:0.8= gnome-base/gsettings-desktop-schemas x11-libs/gdk-pixbuf:2 x11-libs/pango introspection? ( >=dev-libs/gobject-introspection-1.30.0:= ) gnome-base/dconf virtual/latex-base x11-themes/hicolor-icon-theme latexmk? ( dev-tex/latexmk ) rubber? ( dev-tex/rubber )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-latex/3.42/gnome-latex-3.42.0.tar.xz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
+_md5_=51c93fd7abe76d98fcc1a48a348c5217
