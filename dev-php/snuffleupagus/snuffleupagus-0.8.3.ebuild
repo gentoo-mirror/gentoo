@@ -7,8 +7,9 @@ PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 PHP_EXT_ECONF_ARGS=( --enable-${PN} )
 PHP_EXT_S="${S}/src"
+PHP_EXT_NEEDED_USE="session(+)"
 
-USE_PHP="php7-4 php8-0"
+USE_PHP="php7-4 php8-0 php8-1"
 
 inherit php-ext-source-r3
 
@@ -29,6 +30,9 @@ src_prepare() {
 		src/tests/session_encryption/crypt_session_read_uncrypt.phpt || die
 	sed -i -e 's~%a/src~%a~' \
 		src/tests/disable_function/disabled_functions_runtime.phpt || die
+	# Fix bad test reference
+	sed -i -e 's~%src/~%s~' \
+		src/tests/deny_writable/deny_writable_execution_simulation.phpt || die
 	php-ext-source-r3_src_prepare
 }
 
