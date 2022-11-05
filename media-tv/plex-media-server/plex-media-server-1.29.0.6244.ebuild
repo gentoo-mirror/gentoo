@@ -1,23 +1,24 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit readme.gentoo-r1 systemd unpacker
 
-MY_PV="${PV}-2b1b51db9"
+MY_PV="${PV}-819d3678c"
 MY_URI="https://downloads.plex.tv/plex-media-server-new"
 
 DESCRIPTION="Free media library that is intended for use with a plex client"
 HOMEPAGE="https://www.plex.tv/"
 SRC_URI="
 	amd64? ( ${MY_URI}/${MY_PV}/debian/plexmediaserver_${MY_PV}_amd64.deb )
+	arm64? ( ${MY_URI}/${MY_PV}/debian/plexmediaserver_${MY_PV}_arm64.deb )
 	x86? ( ${MY_URI}/${MY_PV}/debian/plexmediaserver_${MY_PV}_i386.deb )"
 S="${WORKDIR}"
 
 LICENSE="Plex"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* ~amd64 ~arm64 ~x86"
 RESTRICT="mirror bindist"
 
 DEPEND="
@@ -41,7 +42,7 @@ src_install() {
 
 	# Add user config file
 	mkdir -p "${ED}/etc/default" || die
-	cp "${FILESDIR}/plexmediaserver" "${ED}/etc/default/" || die
+	cp usr/lib/plexmediaserver/lib/plexmediaserver.default "${ED}"/etc/default/plexmediaserver || die
 
 	# Copy main files over to image and preserve permissions so it is portable
 	cp -rp usr/ "${ED}" || die
@@ -53,8 +54,7 @@ src_install() {
 	keepdir /var/lib/plexmediaserver
 	fowners plex:plex /var/lib/plexmediaserver
 
-	newinitd "${FILESDIR}/${PN}.init.d" ${PN}
-	newconfd "${FILESDIR}/${PN}.conf.d" ${PN}
+	newinitd usr/lib/plexmediaserver/lib/plexmediaserver.init "${PN}"
 
 	systemd_dounit "${ED}"/usr/lib/plexmediaserver/lib/plexmediaserver.service
 	keepdir /var/lib/plexmediaserver
