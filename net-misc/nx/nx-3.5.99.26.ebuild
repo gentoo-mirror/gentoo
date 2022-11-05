@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ArcticaProject/nx-libs/archive/${PV}.tar.gz -> nx-li
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc x86"
+KEYWORDS="amd64 ~arm64 ~ppc ~riscv x86"
 
 RDEPEND="dev-libs/libxml2
 	>=media-libs/libpng-1.2.8:0=
@@ -45,6 +45,8 @@ S="${WORKDIR}/nx-libs-${PV}"
 PATCHES=(
 	# https://github.com/ArcticaProject/nx-libs/pull/1012
 	"${FILESDIR}/${PN}-3.5.99.26-binutils-2.36.patch"
+	# https://github.com/ArcticaProject/nx-libs/pull/1023
+	"${FILESDIR}/${PN}-3.5.99.26-riscv64-support.patch"
 )
 
 src_prepare() {
