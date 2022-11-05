@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/texinfo sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=>=sys-libs/gdbm-1.8.0:= virtual/libcrypt:= emacs? ( >=app-editors/emacs-23.1:* ) gmp? ( dev-libs/gmp:= ) readline? ( sys-libs/readline:0= )
+DESCRIPTION=Shared library implementing a Lisp dialect
+EAPI=8
+HOMEPAGE=https://sawfish.fandom.com/
+INHERIT=autotools elisp-common flag-o-matic
+IUSE=emacs gmp readline
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=sys-libs/gdbm-1.8.0:= virtual/libcrypt:= emacs? ( >=app-editors/emacs-23.1:* ) gmp? ( dev-libs/gmp:= ) readline? ( sys-libs/readline:0= )
+SLOT=0
+SRC_URI=https://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=fcbe237515e14af894edd25c61dc31d1
