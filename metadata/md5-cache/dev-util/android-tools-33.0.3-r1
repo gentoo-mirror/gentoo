@@ -5,12 +5,12 @@ DESCRIPTION=Android platform tools (adb, fastboot, and mkbootimg)
 EAPI=8
 HOMEPAGE=https://github.com/nmeum/android-tools/ https://developer.android.com/
 INHERIT=cmake python-r1
-IUSE=python python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+IUSE=python udev python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=Apache-2.0 BSD-2
-RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= virtual/libusb:1= dev-util/android-udev-rules python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) )
+RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= virtual/libusb:1= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/nmeum/android-tools/releases/download/33.0.3/android-tools-33.0.3.tar.xz https://dev.gentoo.org/~zmedico/dist/android-tools-31.0.3-no-gtest.patch
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd
-_md5_=e7f728891112348a1279cf7ebc935fd4
+_md5_=d88a9ea7e7189030e1b78537d00b4fa4
