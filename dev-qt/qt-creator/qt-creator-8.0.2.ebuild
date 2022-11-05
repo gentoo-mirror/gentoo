@@ -71,6 +71,7 @@ QT_PV="5.15.2:5"
 BDEPEND="
 	>=dev-qt/linguist-tools-${QT_PV}
 	doc? ( >=dev-qt/qdoc-${QT_PV} )
+	help? ( !webengine? ( virtual/pkgconfig ) )
 "
 CDEPEND="
 	clang? (
@@ -179,6 +180,8 @@ src_prepare() {
 		src/libs/CMakeLists.txt
 	cmake_use_remove_addsubdirectory qml advanceddockingsystem \
 		src/libs/CMakeLists.txt
+	cmake_use_remove_addsubdirectory clang clangtools \
+		src/plugins/CMakeLists.txt
 	cmake_use_remove_addsubdirectory test test \
 		src/plugins/mcusupport/CMakeLists.txt
 
@@ -213,7 +216,8 @@ src_prepare() {
 
 	if use help && ! use webengine; then
 		# unbundled gumbo doesn't use cmake
-		local gumbo_dep='pkg_check_modules(gumbo REQUIRED IMPORTED_TARGET gumbo)\n'
+		local gumbo_dep='find_package(PkgConfig REQUIRED)\n'
+		gumbo_dep+='pkg_check_modules(gumbo REQUIRED IMPORTED_TARGET gumbo)\n'
 		sed -i -e '/^\s*gumbo/s|gumbo|PkgConfig::gumbo|' \
 			-e "/^find_package(litehtml/s|^|${gumbo_dep}|" \
 			src/libs/qlitehtml/src/CMakeLists.txt || die
@@ -336,7 +340,6 @@ src_configure() {
 		# Clang stuff
 		-DBUILD_PLUGIN_CLANGCODEMODEL=$(usex clang)
 		-DBUILD_PLUGIN_CLANGFORMAT=$(usex clang)
-		-DBUILD_PLUGIN_CLANGTOOLS=$(usex clang)
 
 		# QML stuff
 		# -DBUILD_PLUGIN_QMLDESIGNER=$(usex qml) #Qt6 only
@@ -360,6 +363,7 @@ src_configure() {
 			-DClang_DIR="${CLANG_PREFIX}/$(get_libdir)/cmake/clang"
 			-DLLVM_DIR="${CLANG_PREFIX}/$(get_libdir)/cmake/llvm"
 			-DCLANGTOOLING_LINK_CLANG_DYLIB=YES
+			-DBUILD_PLUGIN_CLANGTOOLS=YES
 		)
 	fi
 	if use help; then
