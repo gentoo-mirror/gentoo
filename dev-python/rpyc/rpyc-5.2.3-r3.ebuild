@@ -4,6 +4,8 @@
 EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{8..10} )
+# Teleporting currently does not work with python-3.11
+# see https://github.com/tomerfiliba-org/rpyc/issues/513
 
 inherit distutils-r1
 
@@ -11,21 +13,25 @@ DESCRIPTION="Remote Python Call (RPyC), a transparent and symmetric RPC library"
 HOMEPAGE="https://rpyc.readthedocs.io/en/latest/
 	https://pypi.org/project/rpyc/
 	https://github.com/tomerfiliba-org/rpyc"
-SRC_URI="https://github.com/tomerfiliba-org/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # USE flags gdb, numpy are used *only* to run tests depending on these packages
-IUSE="test numpy gdb"
+IUSE="test numpy gdb gevent"
 RESTRICT="!test? ( test )"
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-	numpy? ( dev-python/numpy[${PYTHON_USEDEP}] dev-python/pandas[${PYTHON_USEDEP}] )
+
+CDEPEND="numpy? ( dev-python/numpy[${PYTHON_USEDEP}] dev-python/pandas[${PYTHON_USEDEP}] )
+	gevent? ( dev-python/gevent[${PYTHON_USEDEP}] )
 	gdb? ( sys-devel/gdb )"
 
-RDEPEND="dev-python/plumbum[${PYTHON_USEDEP}]
-	dev-python/gevent[${PYTHON_USEDEP}]"
+DEPEND="${CDEPEND}
+	dev-python/setuptools[${PYTHON_USEDEP}]"
+
+RDEPEND="${CDEPEND}
+	dev-python/plumbum[${PYTHON_USEDEP}]"
 
 src_prepare() {
 	default
@@ -46,6 +52,10 @@ src_prepare() {
 	then rm tests/test_service_pickle.py || die "rm test_service_pickle.py failed"
 	fi
 
+	if ! use gevent
+	then rm tests/test_gevent_server.py || die "rm test_gevent_server.py failed"
+	fi
+
 	if ! use gdb
 	then rm tests/test_gdb.py || die "rm test_gdb.py failed"
 	fi
@@ -55,7 +65,7 @@ python_test() {
 	# for some reason, when tests are run via pytest or nose, some of them hung
 	pushd tests > /dev/null || die "pushd tests failed"
 	for x in test_*.py
-	do ${PYTHON} ${x} || die "${x} failed"
+	do PYTHONPATH="${WORKDIR}"/${P}-${EPYTHON/./_}/install/usr/lib/${EPYTHON}/site-packages ${EPYTHON} ${x} || die "${x} failed"
 	done
 	popd > /dev/null
 }
