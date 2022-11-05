@@ -5,10 +5,14 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..11} pypy3 )
+
 inherit distutils-r1
 
-DESCRIPTION="py.test plugin that changes the default look and feel of py.test"
-HOMEPAGE="https://github.com/Teemu/pytest-sugar https://pypi.org/project/pytest-sugar/"
+DESCRIPTION="Plugin that changes the default look and feel of pytest"
+HOMEPAGE="
+	https://github.com/Teemu/pytest-sugar/
+	https://pypi.org/project/pytest-sugar/
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
