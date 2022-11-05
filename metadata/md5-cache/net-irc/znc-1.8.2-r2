@@ -1,11 +1,11 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) perl? ( >=dev-lang/swig-3.0.0 >=dev-lang/perl-5.10 ) python? ( >=dev-lang/swig-3.0.0 >=dev-lang/perl-5.10 ) test? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) dev-qt/qtnetwork:5 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) perl? ( >=dev-lang/swig-4.0.1 >=dev-lang/perl-5.10 ) python? ( >=dev-lang/swig-4.0.1 >=dev-lang/perl-5.10 ) test? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) dev-qt/qtnetwork:5 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile config configure install postinst prepare setup test
 DEPEND=icu? ( dev-libs/icu:= ) nls? ( dev-libs/boost:=[nls] ) perl? ( >=dev-lang/perl-5.10:= ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) sasl? ( >=dev-libs/cyrus-sasl-2 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= ) zlib? ( sys-libs/zlib:0= )
 DESCRIPTION=An advanced IRC Bouncer
 EAPI=8
 HOMEPAGE=https://znc.in
 INHERIT=cmake python-single-r1 readme.gentoo-r1 systemd
-IUSE=+ipv6 +icu nls perl python +ssl sasl tcl test +zlib python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+IUSE=+icu nls perl python +ssl sasl tcl test +zlib python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=icu? ( dev-libs/icu:= ) nls? ( dev-libs/boost:=[nls] ) perl? ( >=dev-lang/perl-5.10:= ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) sasl? ( >=dev-libs/cyrus-sasl-2 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= ) zlib? ( sys-libs/zlib:0= ) acct-user/znc acct-group/znc
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.8.2
 SRC_URI=https://znc.in/releases/archive/znc-1.8.2.tar.gz test? ( https://github.com/google/googletest/archive/1.8.1.tar.gz -> gtest-1.8.1.tar.gz )
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=676f92e7d607ab2f0a07ba88ea799b0f
+_md5_=c2bbda327910d6613633d85e2d65aed7
