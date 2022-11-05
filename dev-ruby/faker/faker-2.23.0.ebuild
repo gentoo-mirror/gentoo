@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby26 ruby27"
+USE_RUBY="ruby27 ruby30 ruby31"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 
@@ -20,7 +20,7 @@ SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/i18n-1.6:1 !!<dev-ruby/faker-1.9.6-r1"
+ruby_add_rdepend ">=dev-ruby/i18n-1.8.11:1"
 
 ruby_add_bdepend "test? ( dev-ruby/timecop )"
 
