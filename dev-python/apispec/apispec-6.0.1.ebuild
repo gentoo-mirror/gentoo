@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
@@ -23,13 +23,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/bottle[${PYTHON_USEDEP}]
-		dev-python/mock[${PYTHON_USEDEP}]
-		>=dev-python/marshmallow-3.13.0[${PYTHON_USEDEP}]
+		>=dev-python/marshmallow-3.18.0[${PYTHON_USEDEP}]
 	)
 "
 
