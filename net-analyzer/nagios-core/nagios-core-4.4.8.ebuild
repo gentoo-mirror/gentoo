@@ -90,8 +90,6 @@ RDEPEND="${CONFIGURE_DEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}/${P}-upgrade-sslfix.patch" )
-
 src_configure() {
 	local myconf
 
