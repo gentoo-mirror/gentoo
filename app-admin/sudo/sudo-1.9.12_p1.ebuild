@@ -10,6 +10,7 @@ MY_P="${MY_P/beta/b}"
 
 DESCRIPTION="Allows users or groups to run commands as other users"
 HOMEPAGE="https://www.sudo.ws/"
+
 if [[ ${PV} == 9999 ]] ; then
 	inherit mercurial
 	EHG_REPO_URI="https://www.sudo.ws/repos/sudo"
@@ -22,18 +23,23 @@ else
 		*_beta*|*_rc*) uri_prefix=beta/ ;;
 	esac
 
-	SRC_URI="https://www.sudo.ws/sudo/dist/${uri_prefix}${MY_P}.tar.gz
+	SRC_URI="
+		https://www.sudo.ws/sudo/dist/${uri_prefix}${MY_P}.tar.gz
 		ftp://ftp.sudo.ws/pub/sudo/${uri_prefix}${MY_P}.tar.gz
 		verify-sig? (
 			https://www.sudo.ws/sudo/dist/${uri_prefix}${MY_P}.tar.gz.sig
 			ftp://ftp.sudo.ws/pub/sudo/${uri_prefix}${MY_P}.tar.gz.sig
-		)"
-	if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
+		)
+	"
+
+	if [[ ${PV} != *_beta* && ${PV} != *_rc* ]] ; then
 		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~sparc-solaris"
 	fi
 
 	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-sudo )"
 fi
+
+S="${WORKDIR}/${MY_P}"
 
 # Basic license is ISC-style as-is, some files are released under
 # 3-clause BSD license
@@ -73,19 +79,12 @@ BDEPEND+="
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/${MY_P}"
-
 REQUIRED_USE="
 	?? ( pam skey )
 	?? ( gcrypt ssl )
 "
 
 MAKEOPTS+=" SAMPLES="
-
-PATCHES=(
-	"${FILESDIR}"/${P}-mips-build.patch
-	"${FILESDIR}"/${P}-CVE-2022-43995.patch
-)
 
 src_prepare() {
 	default
