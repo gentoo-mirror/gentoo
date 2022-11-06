@@ -16,7 +16,11 @@ else
 fi
 
 DESCRIPTION="Rapid spam filtering system"
-HOMEPAGE="https://rspamd.com https://github.com/rspamd/rspamd"
+HOMEPAGE="
+	https://rspamd.com
+	https://github.com/rspamd/rspamd
+"
+
 LICENSE="Apache-2.0 Boost-1.0 BSD BSD-1 BSD-2 CC0-1.0 LGPL-3 MIT public-domain unicode ZLIB"
 SLOT="0"
 IUSE="blas cpu_flags_x86_ssse3 jemalloc +jit selinux test"
@@ -43,6 +47,7 @@ RDEPEND="${LUA_DEPS}
 	dev-libs/libsodium:=
 	dev-libs/openssl:0=[-bindist(-)]
 	dev-libs/snowball-stemmer:=
+	>=dev-libs/xxhash-0.8.0
 	sys-apps/file
 	sys-libs/zlib
 	blas? (
@@ -62,15 +67,16 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/rspamd-3.0-cmake-lua-version.patch"
-	"${FILESDIR}/rspamd-3.2-unbundle-lua.patch"
-	"${FILESDIR}/rspamd-2.5-unbundle-snowball.patch"
+	"${FILESDIR}/${PN}-3.0-cmake-lua-version.patch"
+	"${FILESDIR}/${PN}-3.2-unbundle-lua.patch"
+	"${FILESDIR}/${PN}-2.5-unbundle-snowball.patch"
+	"${FILESDIR}/${PN}-3.3-remove-test-case.patch"
 )
 
 src_prepare() {
 	cmake_src_prepare
 
-	rm -vrf contrib/{doctest,fmt,lua-{argparse,bit},snowball,zstd} || die
+	rm -vrf contrib/{doctest,fmt,lua-{argparse,bit},snowball,xxhash,zstd} || die
 
 	> cmake/Toolset.cmake || die #827550
 
@@ -88,6 +94,7 @@ src_configure() {
 
 		-DSYSTEM_DOCTEST=ON
 		-DSYSTEM_FMT=ON
+		-DSYSTEM_XXHASH=ON
 		-DSYSTEM_ZSTD=ON
 
 		-DENABLE_BLAS=$(usex blas ON OFF)
