@@ -6,7 +6,8 @@ EAPI=8
 MY_PN="${PN%-*}"
 MY_PV="${PV/_rc/-rc}"
 
-inherit desktop xdg
+PYTHON_COMPAT=( python3_{8..11} )
+inherit desktop python-single-r1 xdg
 
 DESCRIPTION="Mattermost Desktop application"
 HOMEPAGE="https://mattermost.com/"
@@ -17,8 +18,10 @@ LICENSE="Apache-2.0 GPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
 # Starting with 5.2.0 upstream dropped x86 for their binary release #879519
 KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	>=app-accessibility/at-spi2-core-2.46.0:2[X]
 	dev-libs/expat
 	dev-libs/glib:2
@@ -76,6 +79,7 @@ src_install() {
 	doexe *.so *.so.* "${MY_PN}"
 
 	dosym -r "/opt/${MY_PN}/${MY_PN}" "/usr/bin/${MY_PN}"
+	find "/opt/${MY_PN}/resources" -type l -name python3 -exec dosym -r "${PYTHON}" "{}" \; || die
 
 	make_desktop_entry "${MY_PN}" Mattermost "${MY_PN}"
 
