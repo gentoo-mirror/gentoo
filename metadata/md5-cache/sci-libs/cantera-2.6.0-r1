@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.cantera.org
 INHERIT=fortran-2 python-single-r1 scons-utils toolchain-funcs
 IUSE=+cti fortran lapack +python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=BSD
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) lapack? ( virtual/lapack ) cti? ( python_single_target_python3_8? ( dev-python/ruamel-yaml[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/ruamel-yaml[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/ruamel-yaml[python_targets_python3_10(-)] ) ) python? ( python_single_target_python3_8? ( dev-python/numpy[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/numpy[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] ) ) dev-cpp/yaml-cpp !lapack? ( sci-libs/sundials:0= ) lapack? ( <sci-libs/sundials-5.3.0:0=[lapack?] ) fortran? ( virtual/fortran )
 REQUIRED_USE=python? ( cti ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Cantera/cantera/archive/v2.6.0.tar.gz -> cantera-2.6.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	scons-utils	c30e32d0d48c308fe47706846020fdfa
-_md5_=f27bc5681149ffe357cdaaef691c2b8d
+_md5_=21c86faa1e5fce07dcd76366cd46bb24
