@@ -4,7 +4,7 @@
 EAPI=7
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/thomasdickey.asc
-inherit flag-o-matic toolchain-funcs multilib multilib-minimal preserve-libs usr-ldscript verify-sig
+inherit flag-o-matic toolchain-funcs multilib-minimal preserve-libs usr-ldscript verify-sig
 
 MY_PV="${PV:0:3}"
 MY_P="${PN}-${MY_PV}"
@@ -134,7 +134,7 @@ LICENSE="MIT"
 # The subslot reflects the SONAME.
 SLOT="0/6"
 #KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="ada +cxx debug doc gpm minimal profile +stack-realign static-libs test tinfo trace"
+IUSE="ada +cxx debug doc gpm minimal profile split-usr +stack-realign static-libs test tinfo trace"
 RESTRICT="!test? ( test )"
 
 DEPEND="gpm? ( sys-libs/gpm[${MULTILIB_USEDEP}] )"
@@ -415,8 +415,6 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	# We need the basic terminfo files in /etc for embedded/recovery, bug #37026
-	einfo "Installing basic terminfo files in /etc..."
 	local terms=(
 		# Dumb/simple values that show up when using the in-kernel VT.
 		ansi console dumb linux
@@ -430,25 +428,34 @@ multilib_src_install_all() {
 		screen{,-256color}
 		screen.xterm-256color
 	)
-	local x
-	for x in "${terms[@]}"; do
-		local termfile=$(find "${ED}"/usr/share/terminfo/ -name "${x}" 2>/dev/null)
-		local basedir=$(basename "$(dirname "${termfile}")")
+	if use split-usr ; then
+		local x
+		# We need the basic terminfo files in /etc for embedded/recovery, bug #37026
+		einfo "Installing basic terminfo files in /etc..."
+		for x in "${terms[@]}"; do
+			local termfile=$(find "${ED}"/usr/share/terminfo/ -name "${x}" 2>/dev/null)
+			local basedir=$(basename "$(dirname "${termfile}")")
 
-		if [[ -n ${termfile} ]] ; then
-			dodir "/etc/terminfo/${basedir}"
-			mv "${termfile}" "${ED}/etc/terminfo/${basedir}/" || die
-			dosym "../../../../etc/terminfo/${basedir}/${x}" \
-				"/usr/share/terminfo/${basedir}/${x}"
-		fi
-	done
+			if [[ -n ${termfile} ]] ; then
+				dodir "/etc/terminfo/${basedir}"
+				mv "${termfile}" "${ED}/etc/terminfo/${basedir}/" || die
+				dosym "../../../../etc/terminfo/${basedir}/${x}" \
+					"/usr/share/terminfo/${basedir}/${x}"
+			fi
+		done
 
-	echo "CONFIG_PROTECT_MASK=\"/etc/terminfo\"" | newenvd - 50ncurses
+		echo "CONFIG_PROTECT_MASK=\"/etc/terminfo\"" | newenvd - 50ncurses
 
-	use minimal && rm -r "${ED}"/usr/share/terminfo*
-	# Because ncurses5-config --terminfo returns the directory we keep it
-	# bug #245374
-	keepdir /usr/share/terminfo
+		use minimal && rm -r "${ED}"/usr/share/terminfo*
+		# Because ncurses5-config --terminfo returns the directory we keep it
+		# bug #245374
+		keepdir /usr/share/terminfo
+	elif use minimal ; then
+		# Keep only the basic terminfo files
+		find "${ED}"/usr/share/terminfo/ \
+			-type f ${terms[*]/#/! -name } -delete , \
+			-type d -empty -delete || die
+	fi
 
 	cd "${S}" || die
 	dodoc ANNOUNCE MANIFEST NEWS README* TO-DO doc/*.doc
