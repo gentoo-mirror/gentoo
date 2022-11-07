@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.abisource.com/projects/link-grammar/ https://www.link.cs.cmu.edu/link/
 INHERIT=autotools python-r1 out-of-source
 IUSE=aspell +hunspell python python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv sparc ~x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-db/sqlite:3 dev-libs/libpcre2:= aspell? ( app-text/aspell ) hunspell? ( app-text/hunspell ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) ) !sci-mathematics/minisat
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0/5
 SRC_URI=https://www.abisource.com/downloads/link-grammar/5.11.0/link-grammar-5.11.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	out-of-source	6dc5829f04ddee3f91b9bb274a701fdb
-_md5_=4abc7ae8d9bebdf3a8332198b071cde0
+_md5_=921af159abc5d5db36609a46db8bff07

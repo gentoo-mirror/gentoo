@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Apps/EyeOfGnome/Plugins https://gitlab.gnome.org/GNOME/eog-plugins
 INHERIT=gnome.org meson python-single-r1
 IUSE=+exif map picasa +python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.53.4:2 >=dev-libs/libpeas-1.14.1:= >=media-gfx/eog-41.0 exif? ( >=media-libs/libexif-0.6.16 ) map? ( media-libs/libchamplain:0.12[gtk] >=media-libs/clutter-1.9.4:1.0 >=media-libs/clutter-gtk-1.1.2:1.0 ) picasa? ( >=dev-libs/libgdata-0.9.1:= ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) dev-libs/glib[dbus] dev-libs/libpeas:=[gtk,python,python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) gnome-base/gsettings-desktop-schemas media-gfx/eog[introspection] x11-libs/gtk+:3[introspection] x11-libs/pango[introspection] )
 REQUIRED_USE=map? ( exif ) python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/eog-plugins/42/eog-plugins-42.2.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=1ca9a1d684f7fdd74685ef2f448a288b
+_md5_=c69bf37026d27e5a85824d0b80e0212d

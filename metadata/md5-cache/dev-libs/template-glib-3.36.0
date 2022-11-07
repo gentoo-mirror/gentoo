@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/template-glib
 INHERIT=gnome.org meson vala
 IUSE=gtk-doc +introspection test vala
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:=
 REQUIRED_USE=vala? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=mirror://gnome/sources/template-glib/3.36/template-glib-3.36.0.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	vala	160a8a30a6cb9aa601e5441c643a7c61
-_md5_=6a1dd56ef4c5772b6b6e3789938a1ed3
+_md5_=be92f728dd0bb3785174b7f50fbc2505
