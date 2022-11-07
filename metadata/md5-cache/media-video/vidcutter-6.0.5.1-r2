@@ -1,6 +1,6 @@
 BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) dev-python/setuptools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=dev-python/setuptools-65.3.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=>=media-video/mpv-0.25[libmpv] dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=>=media-video/mpv-0.25:=[libmpv] dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=FFmpeg-based simple video cutter & joiner with a modern PyQt5 GUI
 EAPI=7
 HOMEPAGE=http://vidcutter.ozmartians.com https://github.com/ozmartian/vidcutter
@@ -8,9 +8,9 @@ INHERIT=distutils-r1 xdg
 IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=>=media-video/mpv-0.25[libmpv] >=dev-python/PyQt5-5.7[dbus,multimedia,widgets,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pyopengl[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] media-video/ffmpeg[X,encode] media-video/mediainfo python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
+RDEPEND=>=media-video/mpv-0.25:=[libmpv] >=dev-python/PyQt5-5.7[dbus,multimedia,widgets,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pyopengl[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] media-video/ffmpeg[X,encode] media-video/mediainfo python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
-SRC_URI=https://github.com/ozmartian/vidcutter/archive/6.0.5.1.tar.gz -> vidcutter-6.0.5.1.tar.gz
+SRC_URI=https://github.com/ozmartian/vidcutter/archive/6.0.5.1.tar.gz -> vidcutter-6.0.5.1.tar.gz https://github.com/ozmartian/vidcutter/commit/1d88825feb5a73a50d019914ba9d0008562a58ce.patch -> vidcutter-6.0.5.1-libmpv-api2.patch
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=56c5a37d34da5c30c2f47d4c25531ace
+_md5_=8f04e4dce5d36ffb64a2b53433aaa201

@@ -1,13 +1,13 @@
 BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst postrm prepare unpack
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-video/mpv[libmpv] x11-libs/libX11
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-video/mpv:=[libmpv] x11-libs/libX11
 DESCRIPTION=Cross-platform libmpv-based multimedia player with uncluttered design
 EAPI=7
 HOMEPAGE=http://bakamplayer.u8sand.net/
 INHERIT=qmake-utils git-r3 xdg-utils
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-video/mpv[libmpv] x11-libs/libX11
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-video/mpv:=[libmpv] x11-libs/libX11
 SLOT=0
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	git-r3	2347f8fe2d392b2a091191f94be37e6f	xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=2a6a382b050d6c8a0c2497e16407b747
+_md5_=1cd6e6bb70d29164c7d940e809a1cd1f
