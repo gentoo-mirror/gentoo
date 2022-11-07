@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst unpack
+DESCRIPTION=A robust, optimal, and maintainable programming language
+EAPI=8
+HOMEPAGE=https://ziglang.org/
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=!dev-lang/zig
+SLOT=0
+SRC_URI=amd64? ( https://ziglang.org/download/0.10.0/zig-linux-x86_64-0.10.0.tar.xz ) arm? ( https://ziglang.org/download/0.10.0/zig-linux-armv7a-0.10.0.tar.xz ) arm64? ( https://ziglang.org/download/0.10.0/zig-linux-aarch64-0.10.0.tar.xz ) riscv? ( https://ziglang.org/download/0.10.0/zig-linux-riscv64-0.10.0.tar.xz ) x86? ( https://ziglang.org/download/0.10.0/zig-linux-i386-0.10.0.tar.xz )
+_md5_=677f48ba2658022adae3694cf136c092
