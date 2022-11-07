@@ -9,7 +9,7 @@ inherit elisp
 
 DESCRIPTION="Generic interaction mode between Emacs and different Scheme implementations"
 HOMEPAGE="https://gitlab.com/emacs-geiser/geiser/"
-SRC_URI="https://gitlab.com/emacs-geiser/${PN}/-/archive/${PV}/${P}.tar.gz"
+SRC_URI="https://gitlab.com/emacs-geiser/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
