@@ -3,7 +3,7 @@
 
 EAPI=8
 
-JWC_VERSION=10.8.0
+JWC_VERSION=10.8.1
 
 PYTHON_COMPAT=( python3_{8..11} )
 inherit cmake python-any-r1
@@ -42,7 +42,7 @@ DEPEND="
 	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5
 	media-libs/libsdl2
-	media-video/mpv[libmpv]
+	media-video/mpv:=[libmpv]
 	sys-libs/zlib
 	virtual/opengl
 	x11-libs/libX11

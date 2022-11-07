@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit qmake-utils
+inherit qmake-utils xdg-utils
 
 DESCRIPTION="Cross-platform libmpv-based multimedia player with uncluttered design"
 HOMEPAGE="http://bakamplayer.u8sand.net/"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/u8sand/Baka-MPlayer/archive/v${PV}.tar.gz -> ${P}.ta
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE=""
 
 BDEPEND="
@@ -25,20 +25,27 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	media-video/mpv[libmpv]
-	x11-libs/libX11"
+	media-video/mpv:=[libmpv]
+	x11-libs/libX11
+"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/Baka-MPlayer-${PV}"
 
-PATCHES=( "${FILESDIR}/${P}-gcc5.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-gcc5.patch"
+	"${FILESDIR}/${P}-mpv23.patch"
+	"${FILESDIR}/${P}-playlist-regression.patch"
+	"${FILESDIR}/${P}-libmpv-api2.patch"
+)
 
 src_prepare() {
 	default
-	# no need to install license
-	sed -e '/^INSTALLS/s:license::' -i src/Baka-MPlayer.pro || die
-	# put manual in our docdir
-	sed -e '/^manual.path/s:'${PN}':'${PF}':' -i src/Baka-MPlayer.pro || die
+	# don't install license, man.gz, install the latter manually
+	sed -e "/^INSTALLS/s:\sman\slicense::" \
+		-e '/^manual.path/s:'${PN}':'${PF}':' \
+		-i src/Baka-MPlayer.pro || die
+	gunzip DOCS/baka-mplayer.1.gz || die
 }
 
 src_configure() {
@@ -48,4 +55,17 @@ src_configure() {
 		lrelease="$(qt5_get_bindir)"/lrelease \
 		lupdate="$(qt5_get_bindir)"/lupdate \
 		src/Baka-MPlayer.pro
+}
+
+src_install() {
+	default
+	doman DOCS/baka-mplayer.1
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
