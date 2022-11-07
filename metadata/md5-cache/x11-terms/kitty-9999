@@ -10,8 +10,8 @@ IUSE=+X test transfer wayland python_single_target_python3_8 python_single_targe
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) dev-libs/openssl:= media-libs/fontconfig media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-9999 ~x11-terms/kitty-terminfo-9999 X? ( x11-libs/libX11 ) transfer? ( net-libs/librsync:= ) wayland? ( dev-libs/wayland )
-REQUIRED_USE=|| ( X wayland ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
-RESTRICT=!X? ( test ) !test? ( test ) !transfer? ( test ) !wayland? ( test )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) || ( X wayland ) test? ( X transfer wayland )
+RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	optfeature	1a2157392a869265b2afcb63a26c12ac	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=dd1a0fc1f23adaf5513a1f27343232fa
+_md5_=8291ef90222d4e2e7380e75f26dc3824
