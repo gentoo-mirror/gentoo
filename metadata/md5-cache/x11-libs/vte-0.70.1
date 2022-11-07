@@ -7,11 +7,11 @@ HOMEPAGE=https://wiki.gnome.org/Apps/Terminal/VTE https://gitlab.gnome.org/GNOME
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org meson python-any-r1 vala xdg
 IUSE=+crypt debug gtk-doc +icu +introspection systemd +vala vanilla
-KEYWORDS=amd64
+KEYWORDS=amd64 ~arm64
 LICENSE=LGPL-3+ GPL-3+
 RDEPEND=>=x11-libs/gtk+-3.24.22:3[introspection?] >=dev-libs/fribidi-1.0.0 >=dev-libs/glib-2.52:2 crypt? ( >=net-libs/gnutls-3.2.7:0= ) icu? ( dev-libs/icu:= ) >=x11-libs/pango-1.22.0 >=dev-libs/libpcre2-10.21:= systemd? ( >=sys-apps/systemd-220:= ) sys-libs/zlib introspection? ( >=dev-libs/gobject-introspection-1.56:= ) x11-libs/pango[introspection?] ~gui-libs/vte-common-0.70.1[systemd?]
 REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
 SLOT=2.91
 SRC_URI=https://gitlab.gnome.org/GNOME/vte/-/archive/0.70.1/vte-0.70.1.tar.bz2 !vanilla? ( https://dev.gentoo.org/~mattst88/distfiles/vte-0.70.0-command-notify.patch.xz )
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	vala	160a8a30a6cb9aa601e5441c643a7c61	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=619ae2ecc0786fce26bb0e7e15159772
+_md5_=ea6835ffc68036461849fbeeac4ddb29
