@@ -7,7 +7,7 @@ HOMEPAGE=https://neovim.io
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake lua-single optfeature xdg
 IUSE=+lto +nvimpager test +tui lua_single_target_luajit lua_single_target_lua5-1
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86 ~x64-macos
+KEYWORDS=~amd64 ~arm arm64 ~riscv ~x86 ~x64-macos
 LICENSE=Apache-2.0 vim
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) >=dev-lua/luv-1.44.2[lua_single_target_luajit(-)?,lua_single_target_lua5-1(-)?] lua_single_target_luajit? ( dev-lua/lpeg[lua_targets_luajit(-)] dev-lua/mpack[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/lpeg[lua_targets_lua5-1(-)] dev-lua/mpack[lua_targets_lua5-1(-)] ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) >=dev-libs/libuv-1.44.2:= >=dev-libs/libvterm-0.3 >=dev-libs/msgpack-3.0.0:= >=dev-libs/tree-sitter-0.20.2:= tui? ( >=dev-libs/libtermkey-0.22 >=dev-libs/unibilium-2.0.0:0= ) app-eselect/eselect-vi
 REQUIRED_USE=test? ( lua_single_target_luajit )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/neovim/neovim/archive/v0.8.0.tar.gz -> neovim-0.8.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg	6024fbc93167fad782e2032933654857
-_md5_=1ace9fe566f41ca2a8a06f1aac983b81
+_md5_=0daeb17b8095393702ddeaa38d161ad5
