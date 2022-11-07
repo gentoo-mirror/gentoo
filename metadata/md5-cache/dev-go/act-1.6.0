@@ -1,13 +1,11 @@
-BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
-DEFINED_PHASES=compile install unpack
+BDEPEND=dev-lang/go
+DEFINED_PHASES=compile install
 DESCRIPTION=Automated Component Toolkit code generator
 EAPI=8
 HOMEPAGE=https://github.com/Autodesk/AutomaticComponentToolkit
-INHERIT=go-module toolchain-funcs
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=BSD-2
-RESTRICT=test strip
+RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/Autodesk/AutomaticComponentToolkit/archive/v1.6.0.tar.gz -> act-1.6.0.tar.gz
-_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=51441cc60250c650583f5b7348c72b7e
+_md5_=1a0ed705d0dc2eb98d3895e262bbda59
