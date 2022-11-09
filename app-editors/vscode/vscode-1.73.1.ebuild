@@ -71,6 +71,7 @@ RDEPEND="
 "
 
 QA_PREBUILT="
+	/opt/vscode/bin/code-tunnel
 	/opt/vscode/chrome_crashpad_handler
 	/opt/vscode/chrome-sandbox
 	/opt/vscode/code
