@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-02">
+    <title>lesspipe: Arbitrary Code Exeecution</title>
+    <synopsis>A vulnerability has been found in lesspipe which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">lesspipe</product>
+    <announced>2022-11-10</announced>
+    <revised count="1">2022-11-10</revised>
+    <bug>865631</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/lesspipe" auto="yes" arch="*">
+            <unaffected range="ge">2.06</unaffected>
+            <vulnerable range="lt">2.06</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>lesspipe is a preprocessor for less.</p>
+    </background>
+    <description>
+        <p>lesspipe has support for parsing Perl storable (&#34;PST&#34;) files,</p>
+    </description>
+    <impact type="normal">
+        <p>A crafted Perl storable file which is passed into lesspipe could result in arbitrary code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All lesspipe users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/lesspipe-2.06"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44542">CVE-2022-44542</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-10T16:33:11.165769Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-10T16:33:11.170829Z">ajak</metadata>
+</glsa>
