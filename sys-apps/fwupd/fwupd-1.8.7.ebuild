@@ -9,12 +9,12 @@ inherit linux-info meson python-single-r1 vala udev xdg
 
 DESCRIPTION="Aims to make updating firmware on Linux automatic, safe and reliable"
 HOMEPAGE="https://fwupd.org"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86"
-IUSE="amt archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="amt archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
 	dell? ( uefi )
@@ -24,6 +24,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	modemmanager? ( gusb )
 	spi? ( lzma )
 	synaptics? ( gnutls )
+	test? ( gusb )
 	uefi? ( gnutls )
 "
 RESTRICT="!test? ( test )"
@@ -32,6 +33,9 @@ BDEPEND="$(vala_depend)
 	>=dev-util/meson-0.60.0
 	virtual/pkgconfig
 	gtk-doc? (
+		$(python_gen_cond_dep '
+			>=dev-python/markdown-3.2[${PYTHON_USEDEP}]
+		')
 		>=dev-util/gi-docgen-2021.1
 	)
 	bash-completion? ( >=app-shells/bash-completion-2.0 )
@@ -56,7 +60,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 	')
-	>=net-libs/libsoup-2.51.92:2.4[introspection?]
 	net-misc/curl
 	archive? ( app-arch/libarchive:= )
 	cbor? ( dev-libs/libcbor )
@@ -93,9 +96,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.3-docgen_deps_test.patch
-	"${FILESDIR}"/${PN}-1.8.3-gresource_quirks_paths.patch
-	"${FILESDIR}"/${PN}-1.8.3-installed_tests.patch
+	"${FILESDIR}"/${PN}-1.8.6-installed_tests.patch
 )
 
 pkg_setup() {
@@ -115,11 +116,6 @@ src_prepare() {
 	sed -e "/test('thunderbolt-self-test', e, env: test_env, timeout : 120)/d" \
 		-i plugins/thunderbolt/meson.build || die
 
-	sed -e '/platform-integrity/d' \
-		-i plugins/meson.build || die #753521
-
-	sed -e "/install_dir.*'doc'/s/fwupd/${PF}/" \
-		-i data/builder/meson.build || die
 	sed -e "/install_dir.*'doc'/s/doc/gtk-doc/" \
 		-i docs/meson.build || die
 
@@ -127,11 +123,9 @@ src_prepare() {
 }
 
 src_configure() {
-	# TODO (maybe): acpi_phat, bcm57xx, cfu, cpu, emmc, ep963x, mtd, nitrokey,
-	#   parade_lspcon, pixart_rf, realtek_mst, scsi, redfish, upower
 	local plugins=(
 		-Dplugin_gpio="enabled"
-		$(meson_feature amt plugin_amt)
+		$(meson_feature amt plugin_intel_me)
 		$(meson_feature dell plugin_dell)
 		$(meson_feature fastboot plugin_fastboot)
 		$(meson_feature flashrom plugin_flashrom)
@@ -157,7 +151,6 @@ src_configure() {
 		-Dconsolekit="disabled"
 		-Dcurl="enabled"
 		-Defi_binary="false"
-		-Dgresource_quirks="disabled"
 		-Dsupported_build="enabled"
 		-Dudevdir="${EPREFIX}$(get_udevdir)"
 		$(meson_feature archive libarchive)
@@ -181,6 +174,10 @@ src_configure() {
 	use uefi && emesonargs+=( -Defi_os_dir="gentoo" )
 	export CACHE_DIRECTORY="${T}"
 	meson_src_configure
+}
+
+src_test() {
+	LC_ALL="C" meson_src_test
 }
 
 src_install() {
