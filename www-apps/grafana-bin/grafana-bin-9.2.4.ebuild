@@ -52,7 +52,7 @@ src_install() {
 	fperms 0750 /var/lib/grafana/{dashboards,plugins}
 }
 
-postinst() {
+pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		# This is a new installation
 
