@@ -42,6 +42,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${P}-strict-prototypes-clang16.patch
 )
 
 _egit_repo_handler() {
