@@ -15,7 +15,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 LANGS="el en es pt"
-IUSE="ao doc +ecm examples gc +glpk gui static-libs test"
+IUSE="ao doc +ecm examples gc +glpk gui test"
 for X in ${LANGS} ; do
 	IUSE="${IUSE} l10n_${X}"
 done
@@ -75,11 +75,6 @@ src_configure() {
 
 		# Get the big-L flags from fltk's LDFLAGS.
 		append-ldflags $(fltk-config --ldflags | sed -e 's/\(-L\S*\)\s.*/\1/')
-	else
-		# see https://trac.sagemath.org/ticket/31563#comment:91 onwards.
-		# Unless this variable is defined a non existent function will be requested.
-		# The spelling is correct - upstream is French.
-		append-cppflags -DUSE_OBJET_BIDON=1
 	fi
 
 	# Using libsamplerate is currently broken
@@ -89,14 +84,19 @@ src_configure() {
 	# ./configure --docdir just causes problems. Later, we'll put things right.
 	#
 	# micropython is for specific use in an upstream project, so is quickjs.
+	# Note that disabling fltk is not a real option. It just skip autodetection
+	# but doesn't disable compiling against fltk. png is needed as part of fltk
+	# support.
+	#
+	# As of 1.9.0.25, --{en,dis}able-gui is no op. The only way to disable gui is
+	# use the fltk enable flag.
 	econf \
 		--enable-gmpxx \
 		--disable-samplerate \
 		--disable-micropy \
 		--disable-quickjs \
 		--docdir="${EPREFIX}"/usr/share/giac/doc \
-		$(use_enable static-libs static) \
-		$(use_enable gui)  \
+		$(use_enable gui fltk)  \
 		$(use_enable gui png)  \
 		$(use_enable ao) \
 		$(use_enable ecm) \
