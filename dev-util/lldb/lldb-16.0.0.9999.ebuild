@@ -52,7 +52,7 @@ BDEPEND="
 "
 
 LLVM_COMPONENTS=( lldb cmake llvm/utils )
-LLVM_TEST_COMPONENTS=( llvm/lib/Testing/Support )
+LLVM_TEST_COMPONENTS=( llvm/lib/Testing/Support third-party )
 llvm.org_set_globals
 
 pkg_setup() {
@@ -87,7 +87,7 @@ src_configure() {
 		# of -ltinfo)
 		-DCURSES_NEED_NCURSES=ON
 
-		-DLLDB_EXTERNAL_CLANG_RESOURCE_DIR="${BROOT}/usr/lib/clang/${LLVM_VERSION}"
+		-DLLDB_EXTERNAL_CLANG_RESOURCE_DIR="${BROOT}/usr/lib/clang/${LLVM_MAJOR}"
 
 		-DLLVM_MAIN_SRC_DIR="${WORKDIR}/llvm"
 		-DPython3_EXECUTABLE="${PYTHON}"
