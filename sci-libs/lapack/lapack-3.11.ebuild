@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit cmake
+# Some additional tests are run if Python is found
+PYTHON_COMPAT=( python3_{8..11} )
+inherit cmake python-any-r1
 
 DESCRIPTION="BLAS,CBLAS,LAPACK,LAPACKE reference implementations"
 HOMEPAGE="https://www.netlib.org/lapack/"
@@ -11,12 +13,11 @@ SRC_URI="https://github.com/Reference-LAPACK/lapack/archive/v${PV}.tar.gz -> ${P
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 # TODO: static-libs 64bit-index
 IUSE="lapacke deprecated doc eselect-ldso test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	!app-eselect/eselect-cblas
 	virtual/fortran
@@ -24,8 +25,17 @@ RDEPEND="
 		>=app-eselect/eselect-blas-0.2
 		>=app-eselect/eselect-lapack-0.2
 	)
-	doc? ( app-doc/blas-docs )"
+	doc? ( app-doc/blas-docs )
+"
 DEPEND="${RDEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	test? ( ${PYTHON_DEPS} )
+"
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
