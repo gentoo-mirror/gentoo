@@ -3,22 +3,21 @@
 
 EAPI=8
 
-# We may want to grab backports from the SDL-1.2 branch upstream or
-# even take snapshots from it in future, as no SDL 1 / 1.2.x releases
-# will be made anymore.
+# Check SDL-1.2 branch for possible backports/new snapshots
 
 inherit multilib-minimal
 
-MY_P="${P/sdl-/SDL_}"
+SDL_NET_COMMIT="091c95c031769f48d3ffaacddfdea1af999f4446"
 
+MY_PN="${PN/sdl-/SDL_}"
 DESCRIPTION="Simple Direct Media Layer Network Support Library"
 HOMEPAGE="https://github.com/libsdl-org/SDL_net"
-SRC_URI="https://www.libsdl.org/projects/SDL_net/release/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="https://github.com/libsdl-org/SDL_net/archive/${SDL_NET_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/${MY_PN}-${SDL_NET_COMMIT}
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-solaris"
 
 RDEPEND="media-libs/libsdl[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}"
