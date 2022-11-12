@@ -948,7 +948,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0 1.13.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.25.89 1.25.97 1.26.0 1.26.1 1.26.2 1.26.3 1.26.4 1.26.5 1.27.0 1.27.1 1.27.2 1.27.3 1.27.4 1.27.5 1.27.7: Universal Command Line Environment for AWS
+app-admin/awscli 1.25.89 1.25.97 1.26.0 1.26.1 1.26.2 1.26.3 1.26.4 1.26.5 1.27.0 1.27.1 1.27.2 1.27.3 1.27.4 1.27.5 1.27.7 1.27.8: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 2022.6.0-r1 2022.9.1-r1: Bitwarden password manager desktop client
@@ -8256,8 +8256,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4 2.49.0-r5: Amazon Web Services API
-dev-python/boto3 1.24.96 1.25.5 1.26.4 1.26.5 1.26.7 9999: The AWS SDK for Python
-dev-python/botocore 1.27.96 1.28.5 1.29.4 1.29.5 1.29.7 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.24.96 1.25.5 1.26.4 1.26.5 1.26.7 1.26.8 9999: The AWS SDK for Python
+dev-python/botocore 1.27.96 1.28.5 1.29.4 1.29.5 1.29.7 1.29.8 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.23 0.23-r1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8749,7 +8749,7 @@ dev-python/markdown-it-py 2.1.0-r2: Python port of markdown-it, Markdown parser
 dev-python/markdown2 2.4.6: Python Markdown language reimplementation
 dev-python/markups 3.1.3: A wrapper around various text markups
 dev-python/markupsafe 1.1.1-r1 2.1.1: Implements a XML/HTML/XHTML Markup safe string for Python
-dev-python/marshmallow 3.16.0 3.17.0 3.17.1 3.18.0: A library for converting to and from native Python datatypes
+dev-python/marshmallow 3.18.0 3.19.0: A library for converting to and from native Python datatypes
 dev-python/matplotlib 3.5.3 3.6.1 3.6.2: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.6: Inline Matplotlib backend for Jupyter
 dev-python/matrix-common 1.2.1 1.3.0: Common code for Synapse, Sydent and Sygnal
@@ -8891,7 +8891,7 @@ dev-python/parse_type 0.6.0: Extension to the parse module
 dev-python/parsedatetime 2.6 2.6-r1: Parse human-readable date/time strings
 dev-python/parso 0.8.3-r1: A python parser that supports error recovery and round-trip parsing
 dev-python/partd 1.3.0: Appendable key-value storage
-dev-python/parver 0.3.1-r1: Parse and manipulate version numbers
+dev-python/parver 0.3.1-r1 0.4: Parse and manipulate version numbers
 dev-python/passlib 1.7.4-r2: Password hashing framework supporting over 20 schemes
 dev-python/paste 3.5.2: Tools for using a Web Server Gateway Interface stack
 dev-python/pastedeploy 2.1.1-r3 3.0.1: Load, configure, and compose WSGI applications and servers
@@ -8914,7 +8914,7 @@ dev-python/pdm-pep517 1.0.4 1.0.5: A PEP 517 backend for PDM that supports PEP 6
 dev-python/pdoc3 0.10.0: Auto-generate API documentation for Python projects
 dev-python/pebble 5.0.2: Threading and multiprocessing eye-candy
 dev-python/pecan 1.4.2: A WSGI object-dispatching web framework, lean, fast, with few dependencies
-dev-python/peewee 3.15.3: Small Python ORM
+dev-python/peewee 3.15.3 3.15.4: Small Python ORM
 dev-python/pefile 2022.5.30 9999: Module to read and work with Portable Executable (PE) files
 dev-python/pelican-minify 0.9-r1: An HTML minification plugin for Pelican, the static site generator
 dev-python/pendulum 2.1.2-r2: Drop-in replacement for the standard datetime class
@@ -8930,7 +8930,7 @@ dev-python/picobox 2.2.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r1: Exif manipulation with pure Python
 dev-python/pika 1.2.0 1.3.0: Pure-Python implementation of the AMQP
-dev-python/pikepdf 6.2.1 6.2.2: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 6.2.1 6.2.2 6.2.3: Python library to work with pdf files based on qpdf
 dev-python/pilkit 2.0: A collection of utilities and processors for the Python Imaging Libary
 dev-python/pillow 9.1.1 9.2.0 9.3.0: Python Imaging Library (fork)
 dev-python/pip 22.2.2 22.3 22.3.1: The PyPA recommended tool for installing Python packages
@@ -9146,7 +9146,7 @@ dev-python/pyte 0.8.1: Simple VTXXX-compatible terminal emulator
 dev-python/pytesseract 0.3.10: Optical character recognition (OCR) tool
 dev-python/pytest 7.1.3 7.2.0: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.0.4: pytest plugin for aiohttp support
-dev-python/pytest-asyncio 0.19.0 0.20.1: Library for testing asyncio code with pytest
+dev-python/pytest-asyncio 0.19.0 0.20.1 0.20.2: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 6.0.1 6.1.0-r1 6.1.1: BDD library for the pytest runner
 dev-python/pytest-check 1.0.10: pytest plugin that allows multiple failures per test
 dev-python/pytest-codeblocks 0.16.1: Extract code blocks from markdown
