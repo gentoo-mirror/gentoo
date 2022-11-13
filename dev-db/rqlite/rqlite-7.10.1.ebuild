@@ -3,12 +3,12 @@
 
 EAPI=7
 inherit go-module
-EGIT_COMMIT=61aa316141d12c5a67481af2a3fd4282ab858d3e
+EGIT_COMMIT=22af9fdcb9a1093136f1eae7e18d4067dea29c64
 
 DESCRIPTION="Replicated SQLite using the Raft consensus protocol"
 HOMEPAGE="https://github.com/rqlite/rqlite https://www.philipotoole.com/tag/rqlite/"
 SRC_URI="https://github.com/rqlite/rqlite/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~zmedico/dist/rqlite-7.7.2-deps.tar.xz"
+	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 
 LICENSE="MIT Apache-2.0 BSD CC0-1.0 MPL-2.0"
 SLOT="0"
