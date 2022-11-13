@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit ssl-cert systemd tmpfiles
 
@@ -20,8 +20,8 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="ipv6 selinux stunnel3 tcpd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="selinux stunnel3 tcpd"
 
 DEPEND="
 	dev-libs/openssl:0=
@@ -51,7 +51,6 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		--libdir="${EPREFIX}/usr/$(get_libdir)"
-		$(use_enable ipv6)
 		$(use_enable tcpd libwrap)
 		--with-ssl="${EPREFIX}"/usr
 		--disable-fips
@@ -67,10 +66,6 @@ src_install() {
 		"${ED}"/usr/share/man/man8/stunnel.{fr,pl}.8
 	use stunnel3 || rm -f "${ED}"/usr/bin/stunnel3
 
-	# The binary was moved to /usr/bin with 4.21,
-	# symlink for backwards compatibility
-	dosym ../bin/stunnel /usr/sbin/stunnel
-
 	dodoc AUTHORS.md BUGS.md CREDITS.md PORTS.md README.md TODO.md
 	docinto html
 	dodoc doc/stunnel.html doc/en/VNC_StunnelHOWTO.html tools/ca.html \
@@ -84,6 +79,8 @@ src_install() {
 
 	systemd_dounit "${S}/tools/stunnel.service"
 	newtmpfiles "${FILESDIR}"/stunnel.tmpfiles.conf stunnel.conf
+
+	find "${ED}" -name '*.la' -delete || die
 }
 
 pkg_postinst() {

@@ -67,10 +67,6 @@ src_install() {
 		"${ED}"/usr/share/man/man8/stunnel.{fr,pl}.8
 	use stunnel3 || rm -f "${ED}"/usr/bin/stunnel3
 
-	# The binary was moved to /usr/bin with 4.21,
-	# symlink for backwards compatibility
-	dosym ../bin/stunnel /usr/sbin/stunnel
-
 	dodoc AUTHORS.md BUGS.md CREDITS.md PORTS.md README.md TODO.md
 	docinto html
 	dodoc doc/stunnel.html doc/en/VNC_StunnelHOWTO.html tools/ca.html \
