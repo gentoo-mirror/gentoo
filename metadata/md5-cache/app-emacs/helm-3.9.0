@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/async app-emacs/popup >=app-editors/emacs-23.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Emacs incremental completion and selection narrowing framework
+EAPI=8
+HOMEPAGE=https://emacs-helm.github.io/helm/ https://github.com/emacs-helm/helm/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/async app-emacs/popup >=app-editors/emacs-23.1:*
+SLOT=0
+SRC_URI=https://github.com/emacs-helm/helm/archive/v3.9.0.tar.gz -> helm-3.9.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=7bb2497a8430fccbe640dd04df04689c
