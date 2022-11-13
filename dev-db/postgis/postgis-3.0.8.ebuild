@@ -37,7 +37,7 @@ RDEPEND="${POSTGRES_DEP}
 	dev-libs/libxml2:2
 	dev-libs/protobuf-c:=
 	>=sci-libs/geos-3.6.0
-	<sci-libs/proj-8:=
+	sci-libs/proj:=
 	>=sci-libs/gdal-1.10.0:=
 	address-standardizer? ( dev-libs/libpcre )
 	gtk? ( x11-libs/gtk+:2 )
