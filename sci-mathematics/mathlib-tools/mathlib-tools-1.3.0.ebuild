@@ -11,18 +11,21 @@ inherit distutils-r1
 DESCRIPTION="Development tools for Lean's mathlib"
 HOMEPAGE="https://github.com/leanprover-community/mathlib-tools"
 
-if [[ "${PV}" == *9999* ]]; then
+if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/leanprover-community/${PN}.git"
 else
-	SRC_URI="https://github.com/leanprover-community/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	H=1ce2e7143b2456867f4a671a078a4e9af3c73c11
+	SRC_URI="https://github.com/leanprover-community/${PN}/archive/${H}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${H}
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
 
-DEPEND="
+BDEPEND="
 	>=dev-python/GitPython-2.1.11[${PYTHON_USEDEP}]
 	>=dev-python/toml-0.10.0[${PYTHON_USEDEP}]
 	dev-python/PyGithub[${PYTHON_USEDEP}]
@@ -36,7 +39,7 @@ DEPEND="
 	dev-python/tqdm[${PYTHON_USEDEP}]
 "
 RDEPEND="
-	${DEPEND}
+	${BDEPEND}
 	sci-mathematics/lean:0/3
 "
 
