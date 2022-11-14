@@ -3,27 +3,38 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit meson python-single-r1 xdg
 
-DESCRIPTION="GTK configuration application for libratbag"
+DESCRIPTION="GTK application to configure gaming devices"
 HOMEPAGE="https://github.com/libratbag/piper"
 SRC_URI="https://github.com/libratbag/piper/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/lxml[${PYTHON_USEDEP}]
+	')
 	virtual/pkgconfig
+	test? (
+		$(python_gen_cond_dep '
+			dev-python/flake8[${PYTHON_USEDEP}]
+		')
+		dev-libs/appstream
+	)
 "
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/gobject-introspection
-	>=dev-libs/libratbag-0.13
+	>=dev-libs/libratbag-0.14
 	gnome-base/librsvg[introspection]
 	x11-libs/gdk-pixbuf[introspection]
 	x11-libs/gtk+:3[introspection]
@@ -40,12 +51,15 @@ DEPEND="
 	virtual/libudev
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-disable-flake8-linting.patch
-)
+PATCHES=( "${FILESDIR}/${P}-fix-tests.patch" )
 
 src_configure() {
 	python_setup
+
+	local emesonargs=(
+		$(meson_use test tests)
+	)
+
 	meson_src_configure
 }
 
