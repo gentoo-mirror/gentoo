@@ -1,24 +1,29 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..11} )
+MY_PV="${PV/_/-}"
+MY_PV="${MY_PV^^}"
+MY_P="${PN}-${MY_PV}"
 
-inherit autotools gnome2-utils python-single-r1 xdg
+inherit autotools gnome2-utils optfeature python-single-r1 xdg
 
 DESCRIPTION="News Aggregator for RDF/RSS/CDF/Atom/Echo feeds"
 HOMEPAGE="https://lzone.de/liferea/"
-SRC_URI="https://github.com/lwindolf/${PN}/releases/download/v${PV}/${P}.tar.bz2"
+SRC_URI="https://github.com/lwindolf/${PN}/releases/download/v${MY_PV}/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-db/sqlite:3
+	dev-libs/fribidi
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
 	dev-libs/json-glib
@@ -27,7 +32,8 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/libxslt
 	gnome-base/gsettings-desktop-schemas
 	net-libs/libsoup:2.4
-	net-libs/webkit-gtk:4
+	net-libs/webkit-gtk:4=
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/pango"
 DEPEND="${RDEPEND}"
@@ -35,7 +41,7 @@ BDEPEND="dev-util/intltool
 	virtual/pkgconfig"
 
 src_prepare() {
-	xdg_src_prepare
+	default
 
 	sed -i -e 's#$(datadir)/appdata#$(datadir)/metainfo#g' \
 		Makefile.am || die
@@ -62,10 +68,9 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
 
-	elog "Additional features can be enabled via"
-	elog "\tapp-crypt/libsecret[introspection] for Libsecret Support plugin"
-	elog "\tdev-python/pycairo and x11-libs/gdk-pixbuf[introspection] for Tray Icon (GNOME Classic) plugin"
-	elog "\tmedia-libs/gstreamer[introspection] for Media Player plugin"
-	elog "\tnet-misc/networkmanager for monitoring network status"
-	elog "\tx11-libs/libnotify[introspection] for Popup Notifications plugin"
+	optfeature "Libsecret Support plugin" app-crypt/libsecret[introspection]
+	optfeature "Tray Icon (GNOME Classic) plugin" "dev-python/pycairo x11-libs/gdk-pixbuf[introspection]"
+	optfeature "Media Player plugin" media-libs/gstreamer[introspection]
+	optfeature "monitoring network status" net-misc/networkmanager
+	optfeature "Popup Notifications plugin" x11-libs/libnotify[introspection]
 }
