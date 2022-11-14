@@ -1,15 +1,15 @@
-BDEPEND=html? ( dev-ruby/asciidoctor ) nts? ( virtual/pkgconfig ) sechash? ( nettle? ( virtual/pkgconfig ) nss? ( virtual/pkgconfig ) ) virtual/w3m virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=html? ( dev-ruby/asciidoctor ) nts? ( virtual/pkgconfig ) sechash? ( nettle? ( virtual/pkgconfig ) nss? ( virtual/pkgconfig ) ) sys-devel/bison virtual/w3m virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst preinst prepare unpack
-DEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) libedit? ( dev-libs/libedit ) !libedit? ( sys-libs/readline:= ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) seccomp? ( sys-libs/libseccomp )
+DEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) readline? ( dev-libs/libedit ) seccomp? ( sys-libs/libseccomp )
 DESCRIPTION=NTP client and server programs
 EAPI=8
 HOMEPAGE=https://chrony.tuxfamily.org/ https://git.tuxfamily.org/chrony/chrony.git
 INHERIT=edo systemd tmpfiles toolchain-funcs git-r3
-IUSE=+caps +cmdmon debug html ipv6 libedit libtomcrypt +nettle nss +ntp +nts +phc pps +refclock +rtc samba +seccomp +sechash selinux
+IUSE=+caps +cmdmon debug html ipv6 libtomcrypt +nettle nss +ntp +nts +phc pps +readline +refclock +rtc samba +seccomp +sechash selinux
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) libedit? ( dev-libs/libedit ) !libedit? ( sys-libs/readline:= ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-chronyd ) virtual/tmpfiles
+RDEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) readline? ( dev-libs/libedit ) seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-chronyd ) virtual/tmpfiles
 REQUIRED_USE=sechash? ( || ( nettle nss libtomcrypt ) ) nettle? ( !nss ) nss? ( !nettle ) libtomcrypt? ( !nettle !nss ) !sechash? ( !nss ) !sechash? ( !nts? ( !nettle ) ) html
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=81ae8828068f05e8db2c93737f0733d4
+_md5_=3e36011c5b6977f391ef3f882b9f3140
