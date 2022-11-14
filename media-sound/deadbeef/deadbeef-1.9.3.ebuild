@@ -1,7 +1,7 @@
 # Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools xdg flag-o-matic toolchain-funcs plocale
 
@@ -16,7 +16,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
-IUSE="aac alsa cdda converter cover dts ffmpeg flac +hotkeys lastfm mp3 musepack nls notify nullout opus oss pulseaudio sc68 shellexec +supereq threads vorbis wavpack"
+IUSE="aac alsa cdda converter cover dts ffmpeg flac +hotkeys lastfm libsamplerate mp3 musepack nls notify +nullout opus oss pulseaudio sc68 shellexec +supereq threads vorbis wavpack"
 
 REQUIRED_USE="
 	|| ( alsa oss pulseaudio nullout )
@@ -33,25 +33,27 @@ DEPEND="
 		media-libs/libcddb
 		dev-libs/libcdio-paranoia:=
 	)
-	cover? ( media-libs/imlib2[jpeg,png] )
+	cover? (
+		media-libs/imlib2[jpeg,png]
+	)
 	dts? ( media-libs/libdca )
-	ffmpeg? ( media-video/ffmpeg:= )
+	ffmpeg? ( media-video/ffmpeg )
 	flac? (
 		media-libs/flac:=
 		media-libs/libogg
 	)
+	libsamplerate? ( media-libs/libsamplerate )
 	mp3? ( media-sound/mpg123 )
 	musepack? ( media-sound/musepack-tools )
 	nls? ( virtual/libintl )
 	notify? (
 		sys-apps/dbus
-		dev-libs/libdispatch
 	)
 	opus? ( media-libs/opusfile )
 	pulseaudio? ( media-sound/pulseaudio )
 	vorbis? ( media-libs/libvorbis )
 	wavpack? ( media-sound/wavpack )
-	lastfm? ( dev-libs/libdispatch )
+	dev-libs/libdispatch:=
 "
 
 RDEPEND="${DEPEND}"
@@ -64,7 +66,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/deadbeef-use-ffmpeg-plugin-for-ape-by-default.patch"
+	"${FILESDIR}/deadbeef-1.9.2-drop-Werror.patch"
 )
 
 src_prepare() {
@@ -116,7 +118,6 @@ src_configure () {
 	tc-export CC CXX LD AR NM OBJDUMP RANLIB PKG_CONFIG
 
 	local myconf=(
-		"--disable-static"
 		"--disable-staticlink"
 		"--disable-portable"
 		"--disable-rpath"
@@ -137,7 +138,6 @@ src_configure () {
 		"--disable-sid"
 		"--disable-sndfile"
 		"--disable-soundtouch"
-		"--disable-src"
 		"--disable-tta"
 		"--disable-vfs-zip"
 		"--disable-vtx"
@@ -158,7 +158,6 @@ src_configure () {
 		"$(use_enable cdda cdda-paranoia)"
 		"$(use_enable aac)"
 		"$(use_enable cover artwork)"
-		"$(use_enable cover artwork-imlib2)"
 		"$(use_enable cover artwork-network)"
 		"$(use_enable dts dca)"
 		"$(use_enable ffmpeg)"
@@ -172,6 +171,7 @@ src_configure () {
 		"$(use_enable shellexec)"
 		"$(use_enable shellexec shellexecui)"
 		"$(use_enable lastfm lfm)"
+		"$(use_enable libsamplerate src)"
 		"$(use_enable wavpack)"
 
 		"--enable-gtk3"
