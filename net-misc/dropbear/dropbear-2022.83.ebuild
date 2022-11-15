@@ -13,12 +13,12 @@ SRC_URI="https://matt.ucc.asn.au/dropbear/releases/${P}.tar.bz2
 	https://matt.ucc.asn.au/dropbear/testing/${P}.tar.bz2"
 SRC_URI+=" verify-sig? (
 		https://matt.ucc.asn.au/dropbear/releases/${P}.tar.bz2.asc
-		 https://matt.ucc.asn.au/dropbear/testing/${P}.tar.bz2.asc
+		https://matt.ucc.asn.au/dropbear/testing/${P}.tar.bz2.asc
 	)"
 
 LICENSE="MIT GPL-2" # (init script is GPL-2 #426056)
 SLOT="0"
-KEYWORDS="~alpha ~amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="bsdpty minimal multicall pam +shadow static +syslog test zlib"
 RESTRICT="!test? ( test ) test"
 
@@ -61,7 +61,6 @@ REQUIRED_USE="pam? ( !static )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.46-dbscp.patch
-	"${FILESDIR}"/${PN}-2022.82-x11.patch
 	"${FILESDIR}"/${PN}-2022.82-tests.patch
 )
 
