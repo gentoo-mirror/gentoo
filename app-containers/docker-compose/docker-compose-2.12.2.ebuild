@@ -21,25 +21,24 @@ S="${WORKDIR}/compose-${MY_PV}"
 src_prepare() {
 	default
 	# do not strip
-	sed -i -e 's/-s -w//' builder.Makefile || die
+	sed -i -e 's/-s -w//' Makefile || die
 }
 
 src_compile() {
-	emake -f builder.Makefile GIT_TAG=v${PV}
+	emake VERSION=v${PV}
 }
 
 src_test() {
-	emake -f builder.Makefile test
+	emake test
 }
 
 src_install() {
 	exeinto /usr/libexec/docker/cli-plugins
-	doexe bin/docker-compose
+	doexe bin/build/docker-compose
 	dodoc README.md
 }
 
 pkg_postinst() {
-	has_version =app-containers/docker-compose-1* || return
 	ewarn
 	ewarn "docker-compose 2.x is a sub command of docker"
 	ewarn "Use 'docker compose' from the command line instead of"
