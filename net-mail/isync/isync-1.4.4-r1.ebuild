@@ -24,10 +24,14 @@ RDEPEND="
 	ssl?	( >=dev-libs/openssl-0.9.6:0= )
 	zlib?	( sys-libs/zlib:0= )
 "
-DEPEND=${RDEPEND}
+DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-lang/perl
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-openssl3-eof.patch
+)
 
 src_prepare() {
 	default
