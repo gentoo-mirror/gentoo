@@ -3,13 +3,25 @@
 
 EAPI=8
 
-GAWK_IS_BETA=no
+GAWK_IS_BETA=yes
 
 DESCRIPTION="GNU awk pattern-matching language"
 HOMEPAGE="https://www.gnu.org/software/gawk/gawk.html"
 
-if [[ ${GAWK_IS_BETA} == yes ]] ; then
-	SRC_URI="https://www.skeeve.com/gawk/${P}.tar.gz"
+if [[ ${GAWK_IS_BETA} == yes || ${PV} == *_beta* ]] ; then
+	if [[ ${PV} == *_beta* ]] ; then
+		# Beta versioning is sometimes for the release prior, e.g.
+		# 5.2.1_beta is labelled upstream as 5.2.0b.
+		MY_PV=${PV/_beta/b}
+		MY_PV=$(ver_cut 1-2 ${MY_PV}).$(($(ver_cut 3 ${MY_PV}) - 1))$(ver_cut 4- ${MY_PV})
+		MY_P=${PN}-${MY_PV}
+
+		S="${WORKDIR}"/${MY_P}
+	else
+		MY_P=${P}
+	fi
+
+	SRC_URI="https://www.skeeve.com/gawk/${MY_P}.tar.gz"
 else
 	VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/gawk.asc
 	inherit verify-sig
