@@ -15,9 +15,9 @@ IUSE="sasl xinetd"
 RDEPEND="
 	acct-group/ziproxy
 	acct-user/ziproxy
-	media-libs/giflib:0=
-	media-libs/libpng:0=
-	virtual/jpeg:0
+	media-libs/giflib:=
+	media-libs/libpng:=
+	media-libs/libjpeg-turbo:=
 	sys-libs/zlib
 	sasl? ( dev-libs/cyrus-sasl )
 	xinetd? ( virtual/inetd )
@@ -25,8 +25,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-giflib5.patch
-	"${FILESDIR}"/${P}-fno-common.patch
+	"${FILESDIR}"/${P}-Fix-clang-build-errors.patch
 )
 
 src_prepare() {
