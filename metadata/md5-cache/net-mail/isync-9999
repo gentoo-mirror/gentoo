@@ -3,7 +3,7 @@ DEFINED_PHASES=configure prepare unpack
 DEPEND=berkdb? ( >=sys-libs/db-4.2:= ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( >=dev-libs/openssl-0.9.6:0= ) zlib? ( sys-libs/zlib:0= )
 DESCRIPTION=MailDir mailbox synchronizer
 EAPI=7
-HOMEPAGE=http://isync.sourceforge.net/
+HOMEPAGE=https://isync.sourceforge.io/
 INHERIT=git-r3 autotools
 IUSE=berkdb sasl ssl zlib
 LICENSE=GPL-2
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=berkdb? ( >=sys-libs/db-4.2:= ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( >=dev-libs/openssl-0.9.6:0= ) zlib? ( sys-libs/zlib:0= )
 SLOT=0
 _eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=119727ace05de45b6991c5225c72df3c
+_md5_=f2b88043de39c9632e96be782d9bb285
