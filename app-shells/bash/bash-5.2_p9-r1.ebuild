@@ -108,6 +108,7 @@ PATCHES=(
 
 	# Patches from Chet sent to bash-bug ml
 	"${FILESDIR}"/${PN}-5.0-syslog-history-extern.patch
+	"${FILESDIR}"/${P}-fix-for-extglob-in-compat-mode.patch
 )
 
 pkg_setup() {
