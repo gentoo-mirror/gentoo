@@ -44,13 +44,13 @@ if [[ ${PV} != 9999 ]]; then
 		SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 		S=${WORKDIR}/${P%_*}
 	fi
-	KEYWORDS="amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/grub.git"
 fi
 
-SRC_URI+=" https://dev.gentoo.org/~floppym/dist/${P}-backports-r1.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~floppym/dist/${P}-backports-r2.tar.xz"
 
 PATCHES=(
 	"${WORKDIR}/${P}-backports"
