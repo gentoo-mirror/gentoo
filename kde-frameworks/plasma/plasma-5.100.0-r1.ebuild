@@ -59,6 +59,8 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
+PATCHES=( "${FILESDIR}/${P}-fix-svg-fractional-scaling.patch" ) # KDE-bug 461682
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package !gles2-only OpenGL)
