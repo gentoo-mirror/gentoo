@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-db/redis )
+BDEPEND=test? ( dev-db/redis dev-libs/libevent )
 DEFINED_PHASES=compile install prepare test
 DEPEND=ssl? ( dev-libs/openssl:= )
 DESCRIPTION=Minimalistic C client library for the Redis database
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.1
 SRC_URI=https://github.com/redis/hiredis/archive/v1.1.0.tar.gz -> hiredis-1.1.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=677ad03ffca7ce2623c2d673911fd9ff
+_md5_=a37378cf6c019ca36c3416cfe5966d43
