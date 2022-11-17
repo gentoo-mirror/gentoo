@@ -95,6 +95,9 @@ MULTILIB_CHOST_TOOLS=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.30.0-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
+	"${FILESDIR}"/${P}-proxy-noproxy-tailmatching.patch
+	"${FILESDIR}"/${P}-proxy-noproxy-match-comma.patch
+	"${FILESDIR}"/${P}-noproxy-tailmatch-like-in-7.85.0-and-earlier.patch
 )
 
 src_prepare() {
@@ -110,10 +113,11 @@ multilib_src_configure() {
 	# TODO: in the future, we may want to add wolfssl (https://www.wolfssl.com/)
 	local myconf=()
 
-	myconf+=( --without-gnutls --without-mbedtls --without-nss --without-ssl )
 	myconf+=( --without-ca-fallback --with-ca-bundle="${EPREFIX}"/etc/ssl/certs/ca-certificates.crt  )
 	#myconf+=( --without-default-ssl-backend )
 	if use ssl ; then
+		myconf+=( --without-gnutls --without-mbedtls --without-nss )
+
 		if use gnutls || use curl_ssl_gnutls; then
 			einfo "SSL provided by gnutls"
 			myconf+=( --with-gnutls --with-nettle )
@@ -148,6 +152,7 @@ multilib_src_configure() {
 		fi
 
 	else
+		myconf+=( --without-ssl )
 		einfo "SSL disabled"
 	fi
 
