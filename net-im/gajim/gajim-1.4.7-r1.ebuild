@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9,10} )
 PYTHON_REQ_USE="sqlite,xml(+)"
 DISTUTILS_SINGLE_IMPL=1
 
@@ -21,7 +21,8 @@ S="${WORKDIR}/${P%_p2}"
 
 COMMON_DEPEND="
 	dev-libs/gobject-introspection[cairo(+)]
-	>=x11-libs/gtk+-3.22:3[introspection]"
+	>=x11-libs/gtk+-3.22:3[introspection]
+	x11-libs/gtksourceview:4"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
 	virtual/pkgconfig
@@ -35,16 +36,17 @@ RDEPEND="${COMMON_DEPEND}
 		dev-python/pycurl[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 		dev-python/pyopenssl[${PYTHON_USEDEP}]
-		<dev-python/python-nbxmpp-3[${PYTHON_USEDEP}]
-		>=dev-python/python-nbxmpp-2.0.4[${PYTHON_USEDEP}]
+		>=dev-python/python-nbxmpp-3.0.0[${PYTHON_USEDEP}]
+		<dev-python/python-nbxmpp-4.0.0[${PYTHON_USEDEP}]
 		x11-libs/libXScrnSaver
 		app-crypt/libsecret[crypt,introspection]
 		dev-python/keyring[${PYTHON_USEDEP}]
 		>=dev-python/secretstorage-3.1.1[${PYTHON_USEDEP}]
 		dev-python/css-parser[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
-		net-libs/libsoup[introspection]
+		net-libs/libsoup:2.4[introspection]
 		media-libs/gsound[introspection]
+		dev-python/pillow[${PYTHON_USEDEP}]
 		crypt? (
 			dev-python/pycryptodome[${PYTHON_USEDEP}]
 			>=dev-python/python-gnupg-0.4.0[${PYTHON_USEDEP}] )
@@ -71,7 +73,6 @@ RDEPEND="${COMMON_DEPEND}
 			app-text/hunspell
 		)
 		upnp? ( net-libs/gupnp-igd[introspection] )
-		webp? ( dev-python/pillow[${PYTHON_USEDEP}] )
 	')"
 
 src_install() {
@@ -92,6 +93,5 @@ pkg_postrm() {
 	xdg_desktop_database_update
 }
 
-# tests in this release don't work, see also:
-# https://dev.gajim.org/gajim/gajim/-/issues/10755
+# Tests are unfortunately regularly broken
 RESTRICT="test"
