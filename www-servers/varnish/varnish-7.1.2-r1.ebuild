@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit autotools systemd python-r1
 
@@ -13,15 +13,17 @@ SRC_URI="http://varnish-cache.org/_downloads/${P}.tgz"
 
 LICENSE="BSD-2 GPL-2"
 SLOT="0/2"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
-IUSE="jemalloc jit static-libs"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="jemalloc jit static-libs unwind"
 
 CDEPEND="
-	sys-libs/readline:0=
+	sys-libs/readline:=
 	dev-libs/libedit
-	dev-libs/libpcre[jit?]
-	jemalloc? ( dev-libs/jemalloc )
-	sys-libs/ncurses:0="
+	dev-libs/libpcre2[jit?]
+	sys-libs/ncurses:=
+	jemalloc? ( dev-libs/jemalloc:= )
+	unwind? ( sys-libs/libunwind:= )
+"
 
 #varnish compiles stuff at run time
 RDEPEND="
@@ -39,18 +41,19 @@ DEPEND="
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RESTRICT="test" #315725
+PATCHES=( "${FILESDIR}/${PN}-7.1.2-disable-tests.patch" )
 
 src_prepare() {
+	default
+
 	# Remove -Werror bug #528354
-	sed -i -e 's/-Werror\([^=]\)/\1/g' configure.ac
+	sed -i -e 's/-Werror\([^=]\)/\1/g' configure.ac || die
 
 	# Upstream doesn't put varnish.m4 in the m4/ directory
 	# We link because the Makefiles look for the file in
 	# the original location
-	ln -sf ../varnish.m4 m4/varnish.m4
+	ln -sf ../varnish.m4 m4/varnish.m4 || die
 
-	default
 	eautoreconf
 }
 
@@ -59,6 +62,7 @@ src_configure() {
 		$(use_enable static-libs static)
 		$(use_enable jit pcre2-jit)
 		$(use_with jemalloc)
+		$(use_with unwind)
 	)
 	econf "${myeconfargs[@]}"
 }
