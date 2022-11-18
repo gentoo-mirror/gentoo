@@ -7,13 +7,13 @@ inherit edo toolchain-funcs flag-o-matic
 
 MY_P="${PN}${PV//.}"
 DESCRIPTION="Info ZIP (encryption support)"
-HOMEPAGE="http://www.info-zip.org/"
+HOMEPAGE="https://infozip.sourceforge.net/Zip.html"
 SRC_URI="mirror://sourceforge/infozip/${MY_P}.zip"
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="Info-ZIP"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux"
 IUSE="bzip2 crypt natspec unicode"
 
 DEPEND="${RDEPEND}"
@@ -38,6 +38,7 @@ src_prepare() {
 }
 
 src_configure() {
+	# Needed for Clang 16
 	append-flags -std=gnu89
 
 	append-cppflags \

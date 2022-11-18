@@ -10,7 +10,7 @@ MY_PV="${MY_PV%_p*}"
 MY_P="${PN}${MY_PV}"
 
 DESCRIPTION="unzipper for pkzip-compressed files"
-HOMEPAGE="http://www.info-zip.org/"
+HOMEPAGE="https://infozip.sourceforge.net/UnZip.html"
 SRC_URI="mirror://sourceforge/infozip/${MY_P}.tar.gz
 	mirror://debian/pool/main/u/${PN}/${PN}_${PV/_p/-}.debian.tar.xz"
 
@@ -73,6 +73,7 @@ src_configure() {
 		*) die "Unknown target; please update the ebuild to handle ${CHOST}	" ;;
 	esac
 
+	# Needed for Clang 16
 	append-flags -std=gnu89
 
 	[[ ${CHOST} == *linux* ]] && append-cppflags -DNO_LCHMOD
