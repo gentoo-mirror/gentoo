@@ -18,7 +18,7 @@ inherit flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="A set of utilities for converting to/from the netpbm (and related) formats"
 HOMEPAGE="https://netpbm.sourceforge.net/"
-SRC_URI="https://github.com/ceamac/netpbm-make-dist/releases/download/v${PV}/${P}.tar.xz"
+SRC_URI="https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}.tar.xz"
 
 LICENSE="Artistic BSD GPL-2 IJG LGPL-2.1 MIT public-domain"
 SLOT="0/advanced"
