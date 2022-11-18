@@ -2499,7 +2499,7 @@ app-emacs/nxml-svg-schemas 1.1.20081123-r1: Extension for nxml-mode with SVG 1.1
 app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 0.7: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
-app-emacs/org-contrib 0.2 0.3: Contributed packages to Org
+app-emacs/org-contrib 0.2 0.3 0.4: Contributed packages to Org
 app-emacs/org-mode 9.4.6 9.5.3-r1 9.5.4 9.5.5 9999: An Emacs mode for notes and project planning
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
@@ -2520,7 +2520,7 @@ app-emacs/polymode 0.2.2_p20220322: Framework for Multiple Major Modes in Emacs
 app-emacs/popup 0.5.3 0.5.8 0.5.9: Visual popup interface library for Emacs
 app-emacs/popwin 1.0.0 1.0.2: Popup window manager for Emacs
 app-emacs/pos-tip 0.4.6 0.4.6_p20191227: Show tooltip at point
-app-emacs/posframe 0.8.5 1.1.7 1.1.8: Pop up a frame at point
+app-emacs/posframe 1.1.7 1.1.8 1.2.0: Pop up a frame at point
 app-emacs/pov-mode 3.3-r1: Major mode for Povray scene files
 app-emacs/powershell 0.3_pre20220402: GNU Emacs mode for editing and running PowerShell code
 app-emacs/projectile 2.5.0-r1 2.6.0: A project interaction library for Emacs
@@ -2597,7 +2597,7 @@ app-emacs/uboat 1.2: Generate u-boat-death messages, patterned after Iron Coffin
 app-emacs/undercover 0.8.1: Test coverage library for Emacs
 app-emacs/undo-tree 0.6.6 0.8.1: Undo trees and visualization
 app-emacs/uptimes 3.7 3.8: Track and display emacs session uptimes
-app-emacs/use-package 2.4.1: Declaration macro for simplifying your Emacs configuration
+app-emacs/use-package 2.4.1 2.4.4: Declaration macro for simplifying your Emacs configuration
 app-emacs/uxntal-mode 0.2: GNU Emacs major mode for the uxntal assembly language
 app-emacs/vertico 0.26 0.27 0.28: Vertical interactive completion
 app-emacs/vhdl-mode 3.38.1 3.38.3: VHDL-mode for Emacs
@@ -3416,7 +3416,7 @@ app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh-bin 7.2.6 7.2.7 7.3.0: PowerShell - binary precompiled for glibc
+app-shells/pwsh-bin 7.2.6-r1 7.2.7-r1 7.3.0-r1: PowerShell - binary precompiled for glibc
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -4243,7 +4243,7 @@ dev-db/tora 3.2-r2: SQL IDE for Oracle, MySQL and PostgreSQL dbs
 dev-db/unixODBC 2.3.9: complete ODBC driver manager
 dev-db/vsqlite++ 0.3.13-r1: VSQLite++ - A well designed and portable SQLite3 Wrapper for C++
 dev-db/wxsqlite3 3.2.1-r1: C++ wrapper around the public domain SQLite 3.x database
-dev-dotnet/dotnet-sdk-bin 3.1.422-r2 3.1.423-r3 5.0.408-r3 6.0.401-r3 6.0.402-r1 7.0.100: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 3.1.422-r3 3.1.423-r4 5.0.408-r4 6.0.401-r4 6.0.402-r2 7.0.100-r1: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/libgdiplus 6.0.2-r2: Library for using System.Drawing with Mono
 dev-dotnet/monocalendar 0.7.2: iCal clone for .NET
 dev-dotnet/ndesk-dbus 0.6.1a: Managed D-Bus Implementation for .NET
@@ -5208,7 +5208,7 @@ dev-lang/closure-compiler-bin 20211107: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
 dev-lang/crystal 1.5.0: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
-dev-lang/dafny-bin 3.8.1 3.9.0 3.9.1: Verification-aware programming language
+dev-lang/dafny-bin 3.8.1-r1 3.9.0-r1 3.9.1-r1: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/eisl 2.60 2.62 2.63: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.12.3 1.13.3 1.13.4 1.14.0: Elixir programming language
@@ -15072,7 +15072,7 @@ net-fs/nfs4-acl-tools 0.3.7-r1: Commandline and GUI tools that deal directly wit
 net-fs/openafs 1.8.7 1.8.8.1-r1: The OpenAFS distributed file system
 net-fs/s3backer 1.6.1 1.6.3: FUSE-based single file backing store via Amazon S3
 net-fs/s3fs 1.89 1.91: Amazon S3 mounting via fuse
-net-fs/samba 4.14.13 4.14.14 4.15.7 4.15.9-r1 4.15.10 4.15.11 4.15.12 4.16.5-r1 4.16.6 4.16.7: Samba Suite Version 4
+net-fs/samba 4.15.7 4.15.9-r1 4.15.10 4.15.11 4.15.12 4.16.5-r1 4.16.6 4.16.7: Samba Suite Version 4
 net-fs/smbnetfs 0.6.3: FUSE filesystem for SMB shares
 net-fs/sshfs 3.7.3: Fuse-filesystem utilizing the sftp service
 net-fs/wdfs 1.4.2-r2: WebDAV filesystem with special features for accessing subversion repositories
@@ -15565,7 +15565,7 @@ net-misc/exabgp 4.2.21: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/fatrat 1.2.0_beta2_p20161204: Qt5-based download/upload manager
 net-misc/felix 3.1.3: Calico's per-host agent, responsible for programming routes and security policy
-net-misc/freerdp 2.8.1 2.9999 9999: Free implementation of the Remote Desktop Protocol
+net-misc/freerdp 2.8.1 2.9.0 2.9999 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 8.2.2: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.22.4-r1 1.23.0-r1 1.23.1-r1 1.23.3 1.23.5 9999: Download image galleries and collections from several image hosting sites
 net-misc/geoipupdate 2.3.1 3.1.1 4.8.0 4.9.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
