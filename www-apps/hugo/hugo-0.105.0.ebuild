@@ -39,7 +39,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch
-	"${FILESDIR}"/${PN}-0.96.0-skip-some-tests.patch
+	"${FILESDIR}"/${PN}-0.104.3-skip-some-tests.patch
 	"${FILESDIR}"/${PN}-0.99.1-test-timeout.patch
 	"${DISTDIR}"/${PN}-0.101.0-libwebp-1.2.3.patch
 )
