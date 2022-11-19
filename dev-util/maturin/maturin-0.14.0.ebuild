@@ -11,12 +11,17 @@ CRATES="
 	ahash-0.7.6
 	aho-corasick-0.7.19
 	anyhow-1.0.66
+	askama-0.11.1
+	askama_derive-0.11.2
+	askama_escape-0.10.3
+	askama_shared-0.12.2
 	async-io-1.10.0
 	async-lock-2.6.0
 	atty-0.2.14
 	autocfg-1.1.0
 	backtrace-0.3.66
 	base64-0.13.1
+	bincode-1.3.3
 	bitflags-1.3.2
 	block-buffer-0.10.3
 	block-buffer-0.9.0
@@ -46,7 +51,7 @@ CRATES="
 	chunked_transfer-1.4.0
 	cipher-0.3.0
 	clap-3.2.23
-	clap-4.0.22
+	clap-4.0.26
 	clap_complete-4.0.5
 	clap_complete_fig-4.0.1
 	clap_derive-3.2.18
@@ -79,7 +84,7 @@ CRATES="
 	derivative-2.2.0
 	dialoguer-0.10.2
 	diff-0.1.13
-	digest-0.10.5
+	digest-0.10.6
 	digest-0.9.0
 	dirs-4.0.0
 	dirs-sys-0.3.7
@@ -123,6 +128,7 @@ CRATES="
 	gimli-0.26.2
 	glob-0.3.0
 	globset-0.4.9
+	goblin-0.5.4
 	goblin-0.6.0
 	hashbrown-0.12.3
 	heck-0.4.0
@@ -134,7 +140,7 @@ CRATES="
 	humantime-serde-1.1.1
 	idna-0.3.0
 	ignore-0.4.18
-	indexmap-1.9.1
+	indexmap-1.9.2
 	indicatif-0.17.2
 	indoc-1.0.7
 	instant-0.1.12
@@ -156,13 +162,15 @@ CRATES="
 	memoffset-0.6.5
 	mime-0.3.16
 	mime_guess-2.0.4
-	minijinja-0.25.0
+	minijinja-0.26.0
+	minimal-lexical-0.2.1
 	miniz_oxide-0.5.4
 	msi-0.5.0
 	multipart-0.18.0
 	native-tls-0.2.11
 	nb-connect-1.2.0
 	nix-0.22.3
+	nom-7.1.1
 	normalize-line-endings-0.3.0
 	normpath-0.3.2
 	nu-ansi-term-0.46.0
@@ -184,13 +192,14 @@ CRATES="
 	openssl-src-111.24.0+1.1.1s
 	openssl-sys-0.9.77
 	os_pipe-1.1.1
-	os_str_bytes-6.3.1
+	os_str_bytes-6.4.0
 	os_type-2.6.0
 	output_vt100-0.1.3
 	overload-0.1.1
 	parking-2.0.0
 	parking_lot-0.12.1
 	parking_lot_core-0.9.4
+	paste-1.0.9
 	path-slash-0.2.1
 	pep440-0.2.0
 	percent-encoding-2.2.0
@@ -216,8 +225,8 @@ CRATES="
 	rand-0.8.5
 	rand_chacha-0.3.1
 	rand_core-0.6.4
-	rayon-1.5.3
-	rayon-core-1.9.3
+	rayon-1.6.0
+	rayon-core-1.10.1
 	redox_syscall-0.2.16
 	redox_users-0.4.3
 	regex-1.7.0
@@ -246,13 +255,13 @@ CRATES="
 	semver-1.0.14
 	serde-1.0.147
 	serde_derive-1.0.147
-	serde_json-1.0.87
+	serde_json-1.0.88
 	serde_repr-0.1.9
 	sha2-0.10.6
 	sha2-0.9.9
 	sharded-slab-0.1.4
 	shlex-1.1.0
-	similar-2.2.0
+	similar-2.2.1
 	slab-0.4.7
 	smallvec-1.10.0
 	smawk-0.3.1
@@ -290,7 +299,7 @@ CRATES="
 	tracing-log-0.1.3
 	tracing-serde-0.1.3
 	tracing-subscriber-0.3.16
-	trycmd-0.14.3
+	trycmd-0.14.4
 	twox-hash-1.6.3
 	typenum-1.15.0
 	unicase-2.6.0
@@ -299,11 +308,13 @@ CRATES="
 	unicode-linebreak-0.1.4
 	unicode-normalization-0.1.22
 	unicode-width-0.1.10
+	uniffi_bindgen-0.21.0
+	uniffi_meta-0.21.0
 	untrusted-0.7.1
 	ureq-2.5.0
 	url-2.3.1
 	uuid-0.8.2
-	uuid-1.2.1
+	uuid-1.2.2
 	valuable-0.1.0
 	vcpkg-0.2.15
 	version_check-0.9.4
@@ -319,6 +330,7 @@ CRATES="
 	web-sys-0.3.60
 	webpki-0.22.0
 	webpki-roots-0.22.5
+	weedle2-4.0.0
 	wepoll-ffi-0.1.2
 	which-4.3.0
 	winapi-0.3.9
@@ -350,8 +362,10 @@ CRATES="
 # additional crates used by test-crates/* test packages,
 # `grep test-crates tests/run.rs` to see which are needed
 CRATES_TEST="
+	cargo_metadata-0.14.2
 	cc-1.0.73
 	cc-1.0.74
+	indexmap-1.9.1
 	libc-0.2.134
 	once_cell-1.15.0
 	parking_lot_core-0.9.3
@@ -362,8 +376,12 @@ CRATES_TEST="
 	pyo3-macros-0.17.3
 	pyo3-macros-backend-0.17.3
 	python3-dll-a-0.2.6
+	serde_json-1.0.87
 	syn-1.0.102
 	target-lexicon-0.12.4
+	uniffi-0.21.0
+	uniffi_build-0.21.0
+	uniffi_macros-0.21.0
 	unindent-0.1.10"
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{8..11} )
@@ -372,18 +390,16 @@ inherit cargo distutils-r1 flag-o-matic
 DESCRIPTION="Build and publish crates with pyo3, rust-cpython and cffi bindings"
 HOMEPAGE="https://maturin.rs/"
 SRC_URI="
-	https://github.com/PyO3/maturin/archive/refs/tags/v${PV/_beta/-beta.}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/PyO3/maturin/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	$(cargo_crate_uris)
 	test? ( $(cargo_crate_uris ${CRATES_TEST}) )"
-S="${WORKDIR}/${P/_beta/-beta.}"
 
 LICENSE="
 	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD
 	CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 openssl
 	doc? ( CC-BY-4.0 OFL-1.1 )"
 SLOT="0"
-# unkeyworded beta for testing upcoming 0.14.0
-#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
@@ -392,7 +408,7 @@ RDEPEND="
 		dev-python/tomli[${PYTHON_USEDEP}]
 	' 3.{8..10} pypy3)"
 BDEPEND="
-	>=dev-python/setuptools-rust-1.4[${PYTHON_USEDEP}]
+	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	doc? ( app-text/mdbook )
 	test? (
 		${RDEPEND}
