@@ -1,0 +1,30 @@
+Title: LVM2 default USE flag change
+Author: David Seifert <soap@gentoo.org>
+Posted: 2022-11-19
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-fs/lvm2
+
+The Gentoo Base System team has recently switched from the disabling
+"device-mapper-only" flag to the enabling "lvm" (bug #718910).
+
+After considering most reverse dependencies of sys-fs/lvm2, the Base System Team
+has decided that the majority of Gentoo users are unlikely to use the LVM2
+components of sys-fs/lvm2, instead relying solely on it providing device-mapper
+functionality.
+
+To this end, we will disable the default enabled flag "+lvm" on sys-fs/lvm2
+on 2023-01-01. If you do not have USE=lvm somehow globally enabled, this means
+you will lose LVM2 (but not device-mapper!) functionality, so enable it in your
+config if your boot configuration depends on it or if you depend on any of the
+lvm2-* daemons.
+
+Furthermore, we have considered other default enabled USE flags too, and have
+come to the conclusion that USE=+thin makes even less sense than USE=+lvm.
+Thin-provisioned LVM volumes are an important use case in certain VM hosting
+scenarios, but unlikely to be relevant for the large majority of Gentoo users.
+
+In summary:
+- Enable USE="lvm" if you use lvm2 (but not needed for device-mapper) as described above.
+- Enable USE="lvm thin" if you use thin as described above.
+- If you don't know what LVM2 is, you don't need to take any action.
