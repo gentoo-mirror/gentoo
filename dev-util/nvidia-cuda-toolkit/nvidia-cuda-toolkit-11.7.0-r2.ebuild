@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs toolchain-funcs unpacker
 
-DRIVER_PV="510.47.03"
+DRIVER_PV="515.43.04"
 
 DESCRIPTION="NVIDIA CUDA Toolkit (compiler and friends)"
 HOMEPAGE="https://developer.nvidia.com/cuda-zone"
@@ -25,16 +25,16 @@ RESTRICT="bindist mirror"
 RDEPEND="
 	<sys-devel/gcc-12_pre[cxx]
 	>=x11-drivers/nvidia-drivers-450.80.02
-	debugger? (
-		dev-libs/openssl
-	)
 	nsight? (
 		dev-libs/libpfm
-		dev-libs/openssl
+		dev-libs/wayland
+		|| (
+			dev-libs/openssl-compat:1.1.1
+			=dev-libs/openssl-1.1.1*
+		)
 		sys-libs/zlib
 	)
 	vis-profiler? (
-		dev-libs/openssl
 		>=virtual/jre-1.8:*
 	)"
 
