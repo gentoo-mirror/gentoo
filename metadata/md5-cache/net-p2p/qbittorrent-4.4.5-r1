@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-libs/boost:= >=dev-libs/openssl-1.1.1:= dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5 dev-qt/qtxml:5 >=net-libs/libtorrent-rasterbar-1.2.14:= >=sys-libs/zlib-1.2.11 dbus? ( dev-qt/qtdbus:5 ) gui? ( dev-libs/geoip dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 )
+DEPEND=dev-libs/boost:= >=dev-libs/openssl-1.1.1:= dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5 dev-qt/qtxml:5 <net-libs/libtorrent-rasterbar-2:= >=sys-libs/zlib-1.2.11 dbus? ( dev-qt/qtdbus:5 ) gui? ( dev-libs/geoip dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 )
 DESCRIPTION=BitTorrent client in C++ and Qt
 EAPI=8
 HOMEPAGE=https://www.qbittorrent.org
@@ -9,9 +9,9 @@ INHERIT=cmake multibuild systemd xdg
 IUSE=+dbus +gui webui
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/boost:= >=dev-libs/openssl-1.1.1:= dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5 dev-qt/qtxml:5 >=net-libs/libtorrent-rasterbar-1.2.14:= >=sys-libs/zlib-1.2.11 dbus? ( dev-qt/qtdbus:5 ) gui? ( dev-libs/geoip dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 )
+RDEPEND=dev-libs/boost:= >=dev-libs/openssl-1.1.1:= dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5 dev-qt/qtxml:5 <net-libs/libtorrent-rasterbar-2:= >=sys-libs/zlib-1.2.11 dbus? ( dev-qt/qtdbus:5 ) gui? ( dev-libs/geoip dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 )
 REQUIRED_USE=dbus? ( gui ) || ( gui webui )
 SLOT=0
 SRC_URI=https://github.com/qbittorrent/qBittorrent/archive/release-4.4.5.tar.gz -> qbittorrent-4.4.5.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	multibuild	d26d81f242cb193d899a72bca423d0bd	systemd	5f4bb0758df2e483babf68cd517078ca	xdg	6024fbc93167fad782e2032933654857
-_md5_=5cbfa02f6b4e562f15895980aa1276e8
+_md5_=526e8ba2e07ef5aad8de416568fc0f7f
