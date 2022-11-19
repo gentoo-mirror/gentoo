@@ -3395,7 +3395,7 @@ app-shells/dash 0.5.11.5: Debian Almquist Shell
 app-shells/dsh 0.25.10-r1: Distributed Shell
 app-shells/esh 0.8.5-r3: A UNIX Shell with a simplified Scheme syntax
 app-shells/fish 3.4.0 3.5.1 9999: Friendly Interactive SHell
-app-shells/fzf 0.34.0 0.35.0: General-purpose command-line fuzzy finder, written in Golang
+app-shells/fzf 0.34.0 0.35.0 0.35.1: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0: POSIX-compatible shell written in Guile Scheme
 app-shells/gentoo-bashcomp 20190211-r1: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
@@ -4092,7 +4092,7 @@ dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
 dev-cpp/doctest 2.4.9: The fastest feature-rich C++11/14/17/20 single-header testing framework
 dev-cpp/edencommon 2022.08.29.00 2022.09.12.00: Shared library for Watchman and Eden projects
 dev-cpp/eigen 3.4.0-r1: C++ template library for linear algebra
-dev-cpp/elfio 3.10: ELF reader/producer header-only C++ library
+dev-cpp/elfio 3.10 3.11: ELF reader/producer header-only C++ library
 dev-cpp/folly 2022.03.28.00-r1 2022.08.29.00 2022.09.12.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gemmlowp 2021.12.20: Low-precision matrix multiplication
 dev-cpp/gflags 2.2.1-r1 2.2.2 9999: Google's C++ argument parsing library
@@ -4143,7 +4143,7 @@ dev-cpp/sourcetrail 2019.3.46-r2: A cross-platform source explorer for C/C++ and
 dev-cpp/sparsehash 2.0.4: An extremely memory-efficient hash_map implementation
 dev-cpp/string-theory 3.3 3.4 3.5: A flexible modern C++ library for string manipulation and storage
 dev-cpp/taskflow 3.3.0 9999: Modern C++ Parallel Task Programming
-dev-cpp/tbb 2020.3 2021.5.0-r1 2021.7.0: High level abstract threading library
+dev-cpp/tbb 2020.3 2021.5.0-r1 2021.7.0 2021.7.0-r1: High level abstract threading library
 dev-cpp/tclap 1.2.5: Simple templatized C++ library for parsing command line arguments
 dev-cpp/termcolor 2.1.0: A header-only C++ library for printing colored messages to the terminal
 dev-cpp/tree 3.17: An STL-like tree class
@@ -17874,7 +17874,7 @@ sys-devel/llvm-toolchain-symlinks 14-r1 15-r1 16-r1: Symlinks to use LLVM on bin
 sys-devel/llvmgold 13-r2 14 15 16: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19: GNU macro processor
 sys-devel/make 4.3 4.4 9999: Standard tool to compile source trees
-sys-devel/mold 1.6.0-r1 1.7.0 9999: A Modern Linker
+sys-devel/mold 1.6.0-r1 1.7.1 9999: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
 sys-devel/native-cctools 4 5: Host OS native assembler as and static linker ld
 sys-devel/parity 2.0.1: A POSIX to native Win32 Cross-Compiler Tool (requires Visual Studio)
@@ -18139,10 +18139,10 @@ sys-libs/liburing 2.1-r2 2.2 2.3 9999: Efficient I/O with io_uring
 sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utmp (login) info
 sys-libs/libuuid 1.0.3: Portable uuid C library
 sys-libs/libvpd 2.2.8-r1 2.2.9: Library implementation for listing Vital Product Data
-sys-libs/libxcrypt 4.4.28-r1 4.4.28-r2 4.4.32: Extended crypt library for descrypt, md5crypt, bcrypt, and others
+sys-libs/libxcrypt 4.4.28-r1 4.4.28-r2 4.4.33: Extended crypt library for descrypt, md5crypt, bcrypt, and others
 sys-libs/llvm-libunwind 13.0.1-r1 14.0.6-r1 15.0.3 15.0.4 15.0.5 15.0.5.9999 16.0.0_pre20221113 16.0.0.9999: C++ runtime stack unwinder from LLVM
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
-sys-libs/minizip-ng 3.0.6-r1: Fork of the popular zip manipulation library found in the zlib distribution
+sys-libs/minizip-ng 3.0.6-r1 3.0.7: Fork of the popular zip manipulation library found in the zlib distribution
 sys-libs/mtdev 1.1.6: Multitouch Protocol Translation Library
 sys-libs/musl 1.2.2-r8 1.2.3 1.2.3-r5 9999: Light, fast and simple C library focused on standards-conformance and safety
 sys-libs/musl-nscd 1.1.1-r1 9999: musl-nscd is an implementation of the NSCD protocol for the musl libc
@@ -18452,7 +18452,7 @@ www-apache/mod_nss 1.0.18: SSL/TLS module for the Apache HTTP server
 www-apache/mod_perl 2.0.11-r1: An embedded Perl interpreter for Apache2
 www-apache/mod_qos 11.66 11.70 11.71 11.72: A QOS module for the apache webserver
 www-apache/mod_rpaf 0.8.4: Reverse proxy add forward module
-www-apache/mod_security 2.9.5 2.9.5-r1: Application firewall and intrusion detection for Apache
+www-apache/mod_security 2.9.5 2.9.5-r1 2.9.6: Application firewall and intrusion detection for Apache
 www-apache/mod_vdbh 1.0.3-r2: An Apache2 module for mass virtual hosting using a MySQL database
 www-apache/mod_whatkilledus 2.01-r1: Debug segmentation faults in Apache threads
 www-apache/mod_wsgi 4.7.1-r1 4.9.0: An Apache2 module for running Python WSGI applications
