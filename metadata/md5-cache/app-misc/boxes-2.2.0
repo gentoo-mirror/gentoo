@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://boxes.thomasjensen.com/ https://github.com/ascii-boxes/boxes
 INHERIT=toolchain-funcs
 IUSE=test
-KEYWORDS=~alpha ~amd64 ~ia64 ~mips ~ppc ppc64 sparc ~x86
+KEYWORDS=~alpha amd64 ~ia64 ~mips ppc ppc64 sparc x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/libpcre2[pcre32] dev-libs/libunistring:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ascii-boxes/boxes/archive/v2.2.0.tar.gz -> boxes-2.2.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=1ba83cf2c6c4b71edb416e477a1d92e5
+_md5_=cde35f0bdae4e1e23fdb678d139567d8
