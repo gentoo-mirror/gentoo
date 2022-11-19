@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm prepare
 DEPEND=sys-libs/ncurses:= emacs? ( >=app-editors/emacs-23.1:* ) jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:= ) tiff? ( media-libs/tiff:= ) X? ( x11-libs/libX11 )
 DESCRIPTION=Graphics Layout Engine
 EAPI=7
-HOMEPAGE=http://glx.sourceforge.net/
+HOMEPAGE=https://glx.sourceforge.net
 INHERIT=autotools elisp-common flag-o-matic
 IUSE=doc emacs jpeg png tiff vim-syntax X
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/ncurses:= emacs? ( >=app-editors/emacs-23.1:* ) jpeg? ( virtual
 SLOT=0
 SRC_URI=mirror://sourceforge/glx/gle-graphics-4.2.5f-src.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153
-_md5_=3fba299da069af0a718b02dc01c55d4a
+_md5_=930f3ecb7926334be8091764b2187689
