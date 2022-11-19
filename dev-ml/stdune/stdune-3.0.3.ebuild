@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit dune multiprocessing
 
-DESCRIPTION="A composable build system for OCaml"
+DESCRIPTION="Dune's unstable standard library"
 HOMEPAGE="https://github.com/ocaml/dune"
 SRC_URI="https://github.com/ocaml/dune/archive/${PV}.tar.gz -> dune-${PV}.tar.gz"
 S="${WORKDIR}/dune-${PV}"
@@ -18,7 +18,8 @@ RESTRICT="test"
 
 BDEPEND="~dev-ml/dune-${PV}"
 DEPEND="
-	dev-ml/stdune:=
+	dev-ml/pp:=[ocamlopt?]
+	dev-ml/dyn:=[ocamlopt?]
 "
 RDEPEND="${DEPEND}"
 
