@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/coin-or/Clp
 INHERIT=docs toolchain-funcs
 IUSE=examples glpk metis mpi mumps sparse static-libs test doc
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~loong ~x86 ~amd64-linux ~x86-linux
 LICENSE=EPL-1.0
 RDEPEND=sci-libs/coinor-osi:= sci-libs/coinor-utils:= glpk? ( sci-mathematics/glpk:= sci-libs/amd ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps[mpi?] ) sparse? ( sci-libs/cholmod )
 REQUIRED_USE=mpi? ( mumps )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz -> coinor-clp-1.17.6.tar.gz
 _eclasses_=docs	2af4a2f0074bd646101ce0f66ca6dd03	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=990fd5fe53a2108148900ffc31960b3f
+_md5_=35d37ef88875be722d7538e523fefa92
