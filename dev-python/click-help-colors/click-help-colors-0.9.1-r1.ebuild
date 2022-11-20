@@ -3,18 +3,20 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..11} )
+
 inherit distutils-r1
 
 DESCRIPTION="Colorization of help messages in Click"
 HOMEPAGE="https://github.com/click-contrib/click-help-colors"
 SRC_URI="
 	https://github.com/click-contrib/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 IUSE="examples"
 
 RDEPEND="dev-python/click[${PYTHON_USEDEP}]"
