@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=sys-libs/ncurses:0=
+DESCRIPTION=Classic TECO editor, Predecessor to EMACS
+EAPI=8
+HOMEPAGE=https://www.ibiblio.org/pub/linux/apps/editors/tty/ https://www.ibiblio.org/pub/academic/computer-science/history/pdp-11/teco/
+INHERIT=toolchain-funcs flag-o-matic readme.gentoo-r1
+IUSE=doc
+KEYWORDS=~alpha ~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+LICENSE=freedist
+RDEPEND=sys-libs/ncurses:0=
+SLOT=0
+SRC_URI=https://www.ibiblio.org/pub/linux/apps/editors/tty/teco.tar.gz -> teco-36_p19940820.tar.gz doc? ( https://dev.gentoo.org/~ulm/distfiles/tecodoc.tar.gz )
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_md5_=f733f6d3a5a7d865ab93a05b81962155
