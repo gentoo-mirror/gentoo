@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=OWASP ModSecurity Core Rule Set
+EAPI=8
+HOMEPAGE=https://coreruleset.org/
+INHERIT=optfeature
+IUSE=+apache2
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=apache2? ( >=www-apache/mod_security-2.9.6 )
+SLOT=0
+SRC_URI=https://github.com/coreruleset/coreruleset/archive/v3.3.4.tar.gz -> modsecurity-crs-3.3.4.tar.gz
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=5e2e2b8b29fee7cc2266c7209ecab318
