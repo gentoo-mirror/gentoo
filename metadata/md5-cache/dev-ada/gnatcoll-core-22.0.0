@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=|| ( >=dev-ada/libgpr-2021 ~dev-ada/libgpr-22.0.0 ) dev-ada/libgpr:=[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic?] dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+DEPEND=|| ( >=dev-ada/libgpr-2021 ~dev-ada/libgpr-22.0.0 ) dev-ada/libgpr:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared?,static-libs?,static-pic?] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-)]
 DESCRIPTION=GNAT Component Collection Core packages
 EAPI=7
 HOMEPAGE=http://libre.adacore.com
@@ -7,9 +7,9 @@ INHERIT=ada multiprocessing
 IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=|| ( >=dev-ada/libgpr-2021 ~dev-ada/libgpr-22.0.0 ) dev-ada/libgpr:=[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic?]
-REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0 )
+RDEPEND=|| ( >=dev-ada/libgpr-2021 ~dev-ada/libgpr-22.0.0 ) dev-ada/libgpr:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared?,static-libs?,static-pic?]
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0/22.0.0
 SRC_URI=https://github.com/AdaCore/gnatcoll-core/archive/refs/tags/v22.0.0.tar.gz -> gnatcoll-core-22.0.0.tar.gz
 _eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=ee4aff3f4caef5dad56d65ed8fd0c529
+_md5_=eac4c141d4f933c3724ec429f55e7295
