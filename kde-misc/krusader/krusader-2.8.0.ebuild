@@ -3,13 +3,13 @@
 
 EAPI=8
 
-KDE_ORG_COMMIT="10d5ec93f0c68ac68240c7c1fb98ba993499beb7"
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.82.0
 QTMIN=5.15.5
 inherit ecm kde.org optfeature
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
