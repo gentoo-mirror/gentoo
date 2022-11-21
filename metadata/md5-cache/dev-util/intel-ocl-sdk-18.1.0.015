@@ -1,0 +1,14 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=install unpack
+DESCRIPTION=Intel's implementation of the OpenCL standard
+EAPI=8
+HOMEPAGE=https://www.intel.com/content/www/us/en/developer/articles/tool/opencl-drivers.html#cpu-section
+INHERIT=rpm
+KEYWORDS=-* ~amd64
+LICENSE=Intel-SDP
+RDEPEND=dev-libs/libxml2 sys-libs/ncurses-compat sys-libs/zlib sys-process/numactl >=virtual/opencl-3
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/15532/l_opencl_p_18.1.0.015.tgz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0
+_md5_=9953fcae8397fef39f384103b088f010
