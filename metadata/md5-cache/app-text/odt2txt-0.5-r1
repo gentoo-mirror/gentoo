@@ -1,7 +1,8 @@
-DEFINED_PHASES=compile install
-DEPEND=!app-office/unoconv sys-libs/zlib virtual/libiconv sys-apps/groff
+BDEPEND=sys-apps/groff
+DEFINED_PHASES=configure install
+DEPEND=!app-office/unoconv sys-libs/zlib virtual/libiconv
 DESCRIPTION=A simple converter from OpenDocument Text to plain text
-EAPI=6
+EAPI=8
 HOMEPAGE=http://stosberg.net/odt2txt/
 INHERIT=toolchain-funcs
 KEYWORDS=~alpha amd64 ~arm ~arm64 ~ia64 ppc64 ~sparc x86
@@ -10,4 +11,4 @@ RDEPEND=!app-office/unoconv sys-libs/zlib virtual/libiconv
 SLOT=0
 SRC_URI=https://github.com/dstosberg/odt2txt/archive/v0.5.tar.gz -> odt2txt-0.5.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=6e9407dc86ea45cbff06d6f8a25eea4d
+_md5_=bd08c747f08ba6c2e2d6148a54fa0fbe

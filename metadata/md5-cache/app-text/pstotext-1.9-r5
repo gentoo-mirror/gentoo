@@ -1,6 +1,6 @@
-DEFINED_PHASES=install prepare
+DEFINED_PHASES=configure install
 DESCRIPTION=Extract ASCII text from a PostScript or PDF file
-EAPI=6
+EAPI=8
 HOMEPAGE=http://www.cs.wisc.edu/~ghost/doc/pstotext.htm
 INHERIT=toolchain-funcs
 KEYWORDS=amd64 ~hppa ppc ppc64 x86
@@ -9,4 +9,4 @@ RDEPEND=app-text/ghostscript-gpl
 SLOT=0
 SRC_URI=ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/contrib/pstotext-1.9.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=ac8c2f6df03899faeea1d47d451151da
+_md5_=c93779a6221d4e5915e5b8cab752e0c8
