@@ -1,6 +1,6 @@
-BDEPEND=dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-)]
 DEFINED_PHASES=compile install setup test
-DEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) glib? ( dev-ada/gtkada[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic(-)?] dev-libs/glib )
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) glib? ( dev-ada/gtkada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared?,static-libs?,static-pic(-)?] dev-libs/glib )
 DESCRIPTION=Simple API to spawn processes
 EAPI=7
 HOMEPAGE=https://github.com/AdaCore/spawn
@@ -8,9 +8,9 @@ INHERIT=ada multiprocessing
 IUSE=glib +shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3 gcc-runtime-library-exception-3.1
-RDEPEND=ada_target_gnat_2020? ( dev-lang/gnat-gpl:9.3.1[ada] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) glib? ( dev-ada/gtkada[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic(-)?] dev-libs/glib )
-REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0 )
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) glib? ( dev-ada/gtkada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared?,static-libs?,static-pic(-)?] dev-libs/glib )
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0/22.0.0
 SRC_URI=https://github.com/AdaCore/spawn/archive/refs/tags/v22.0.0.tar.gz -> spawn-22.0.0.tar.gz
 _eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=4826efcc164cd43fa61aa84b8b6f4d31
+_md5_=ace36d8c7c375d86189c6ecf55ab1621

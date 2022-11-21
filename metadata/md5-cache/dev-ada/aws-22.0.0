@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=dev-ada/gnatcoll-core:=[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-),shared,static-libs] dev-libs/openssl dev-ada/gprbuild[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-)]
+DEPEND=dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),-ada_target_gcc_12_2_0(-),shared,static-libs] dev-libs/openssl dev-ada/gprbuild[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),-ada_target_gcc_12_2_0(-)]
 DESCRIPTION=A complete Web development framework
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/tools/aws/
@@ -7,9 +7,9 @@ INHERIT=ada multiprocessing
 IUSE=ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-ada/gnatcoll-core:=[ada_target_gnat_2020(-)?,ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-),shared,static-libs] dev-libs/openssl
-REQUIRED_USE=^^ ( ada_target_gnat_2020 ada_target_gnat_2021 )
+RDEPEND=dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),-ada_target_gcc_12_2_0(-),shared,static-libs] dev-libs/openssl
+REQUIRED_USE=ada_target_gnat_2021
 SLOT=0
 SRC_URI=https://github.com/AdaCore/aws/archive/refs/tags/v22.0.0.tar.gz -> aws-22.0.0.tar.gz https://github.com/AdaCore/templates-parser/archive/refs/tags/v22.0.0.tar.gz -> templates-parser-22.0.0.tar.gz
 _eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=c206319489744911713c5ce32140b401
+_md5_=5737ecaaedcda623b6fe09ab291d1f6e
