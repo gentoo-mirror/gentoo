@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-07">
+    <title>sysstat: Arbitrary Code Execution</title>
+    <synopsis>An integer overflow vulnerability has been found in sysstat which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">sysstat</product>
+    <announced>2022-11-22</announced>
+    <revised count="1">2022-11-22</revised>
+    <bug>880543</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-admin/sysstat" auto="yes" arch="*">
+            <unaffected range="ge">12.7.1</unaffected>
+            <vulnerable range="lt">12.7.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>sysstat is a package containing a number of performance monitoring utilities for Linux, including sar, mpstat, iostat and sa tools.</p>
+    </background>
+    <description>
+        <p>On 32 bit systems, an integer overflow can be triggered when displaying activity data files.</p>
+    </description>
+    <impact type="normal">
+        <p>Arbitrary code execution can be achieved via sufficiently crafted malicious input.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All sysstat users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/sysstat-12.7.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39377">CVE-2022-39377</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-22T03:51:28.943709Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-22T03:51:28.948154Z">ajak</metadata>
+</glsa>
