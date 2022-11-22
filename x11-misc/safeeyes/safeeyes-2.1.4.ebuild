@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_REQ_USE="tk"  # for site-packages/Xlib/ext/randr.py
 
 inherit xdg distutils-r1
 
@@ -14,14 +14,10 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE=""
 
-CDEPEND="${PYTHON_DEPS}"
-DEPEND="${CDEPEND}
-	>=dev-python/setuptools-38.6.0[${PYTHON_USEDEP}]
-	"
-RDEPEND="${CDEPEND}
+RDEPEND="
 	dev-libs/libappindicator:3[introspection]
 	dev-python/Babel[${PYTHON_USEDEP}]
 	dev-python/croniter[${PYTHON_USEDEP}]
