@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -14,7 +14,7 @@ S="${WORKDIR}/${MYP}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc"
 
 RDEPEND="
@@ -37,7 +37,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake all $(usex doc docs "")
+	emake all $(usev doc docs)
 }
 
 src_install() {
