@@ -3995,6 +3995,7 @@ media-gfx/freecad:addonmgr - Build the addon manager module for automatic handli
 media-gfx/freecad:cloud - Build the Cloud workbench, to access cloud providers (mostly Amazon S3).
 media-gfx/freecad:designer - Build and install the Qt designer plugin, so the FreeCAD widgets can be used from within designer.
 media-gfx/freecad:fem - Build the FEM module and workbench which provides Finite Element Analysis (FEA) workflows
+media-gfx/freecad:gui - Build FreeCAD with a Qt based GUI. If built without setting this USE flag, FreeCAD can be used in a headless mode, for server-side instances. The Python modules are available, without their GUI parts though, if this is unset.
 media-gfx/freecad:headless - Build FreeCAD without a GUI, usable for server-side instances. The Python modules are still available, without their GUI parts though.
 media-gfx/freecad:idf - Build the IDF module to provide file exchange capabilities with IDF files
 media-gfx/freecad:image - Build the image module and workbench for working with bitmap images
