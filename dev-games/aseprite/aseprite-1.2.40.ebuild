@@ -66,11 +66,11 @@ S="${WORKDIR}"
 
 PATCHES=(
 	"${FILESDIR}/skia-${SKIA_VER}_remove_angle2.patch"
-	"${FILESDIR}/${PN}-1.2.35_check_colorSpace.patch"
-	"${FILESDIR}/${PN}-1.2.35_shared_libarchive.patch"
-	"${FILESDIR}/${PN}-1.2.35_shared_json11.patch"
-	"${FILESDIR}/${PN}-1.2.35_shared_webp.patch"
+	"${FILESDIR}/${PN}-1.2.40_shared_libarchive.patch"
+	"${FILESDIR}/${PN}-1.2.40_shared_json11.patch"
+	"${FILESDIR}/${PN}-1.2.40_shared_webp.patch"
 	"${FILESDIR}/${PN}-1.2.35_laf_fixes.patch"
+	"${FILESDIR}/${PN}-1.2.40_musl_pthreads.patch"
 )
 
 src_prepare() {

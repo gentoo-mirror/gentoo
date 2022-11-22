@@ -1,7 +1,7 @@
-From b7b1563f0a7b913bac62673b1629755eb2adafc3 Mon Sep 17 00:00:00 2001
+From d92660c3187d0e7d5a0b7b2210f328d0d0bf73f2 Mon Sep 17 00:00:00 2001
 From: "Azamat H. Hackimov" <azamat.hackimov@gmail.com>
 Date: Sun, 10 Jul 2022 19:53:06 +0300
-Subject: [PATCH] Use shared json11 library
+Subject: [PATCH 2/3] Use shared json11 library
 
 Added option -DUSE_SHARED_JSON11
 ---
@@ -10,7 +10,7 @@ Added option -DUSE_SHARED_JSON11
  2 files changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 26e09c418..306049917 100644
+index 85d447ac8..69ab97ed8 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -50,6 +50,7 @@ option(USE_SHARED_CMARK   "Use your installed copy of cmark" off)
@@ -21,7 +21,7 @@ index 26e09c418..306049917 100644
  option(USE_SHARED_ZLIB    "Use your installed copy of zlib" off)
  option(USE_SHARED_LIBARCHIVE "Use your installed copy of libarchive" off)
  option(USE_SHARED_LIBPNG  "Use your installed copy of libpng" off)
-@@ -308,6 +309,12 @@ else()
+@@ -301,6 +302,12 @@ else()
  endif()
  include_directories(${JPEG_INCLUDE_DIRS})
  
@@ -35,7 +35,7 @@ index 26e09c418..306049917 100644
    find_library(CMARK_LIBRARIES NAMES cmark)
    find_path(CMARK_INCLUDE_DIRS NAMES cmark.h)
 diff --git a/third_party/CMakeLists.txt b/third_party/CMakeLists.txt
-index 12017190f..f499545b6 100644
+index e0a11c9c6..63ad42f23 100644
 --- a/third_party/CMakeLists.txt
 +++ b/third_party/CMakeLists.txt
 @@ -123,7 +123,9 @@ if(NOT USE_SHARED_CMARK)
@@ -50,5 +50,5 @@ index 12017190f..f499545b6 100644
  # libarchive
  if(NOT USE_SHARED_LIBARCHIVE)
 -- 
-2.35.1
+2.37.4
 

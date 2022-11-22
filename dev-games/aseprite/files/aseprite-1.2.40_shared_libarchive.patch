@@ -1,7 +1,7 @@
-From ddc7f2c19fd104e99bc49210b1f6ac3f5cec1548 Mon Sep 17 00:00:00 2001
+From dcad402ec83ca298cc206a1e8170b13c3f9a40fd Mon Sep 17 00:00:00 2001
 From: "Azamat H. Hackimov" <azamat.hackimov@gmail.com>
 Date: Fri, 9 Oct 2020 02:18:36 +0300
-Subject: [PATCH] Make LibArchive as shared library dependency
+Subject: [PATCH 1/3] Make LibArchive as shared library dependency
 
 ---
  CMakeLists.txt             | 11 +++++++++++
@@ -10,7 +10,7 @@ Subject: [PATCH] Make LibArchive as shared library dependency
  3 files changed, 32 insertions(+), 19 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1e7692679..26e09c418 100644
+index e9814380d..85d447ac8 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -51,6 +51,7 @@ option(USE_SHARED_CURL    "Use your installed copy of curl" off)
@@ -53,7 +53,7 @@ index c42768ff6..e0495f98f 100644
    tinyexpr)
  
 diff --git a/third_party/CMakeLists.txt b/third_party/CMakeLists.txt
-index 2c0a08248..12017190f 100644
+index 96a82829d..e0a11c9c6 100644
 --- a/third_party/CMakeLists.txt
 +++ b/third_party/CMakeLists.txt
 @@ -126,24 +126,26 @@ endif()
@@ -102,5 +102,5 @@ index 2c0a08248..12017190f 100644
  # benchmark
  if(ENABLE_BENCHMARKS)
 -- 
-2.35.1
+2.37.4
 
