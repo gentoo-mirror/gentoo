@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-10">
+    <title>Pillow: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Pillow, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">pillow</product>
+    <announced>2022-11-22</announced>
+    <revised count="1">2022-11-22</revised>
+    <bug>855683</bug>
+    <bug>878769</bug>
+    <bug>832598</bug>
+    <bug>830934</bug>
+    <bug>811450</bug>
+    <bug>802090</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/pillow" auto="yes" arch="*">
+            <unaffected range="ge">9.3.0</unaffected>
+            <vulnerable range="lt">9.3.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The friendly PIL fork.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Pillow. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Pillow users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pillow-9.3.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23437">CVE-2021-23437</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-34552">CVE-2021-34552</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22815">CVE-2022-22815</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22816">CVE-2022-22816</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22817">CVE-2022-22817</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24303">CVE-2022-24303</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45198">CVE-2022-45198</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45199">CVE-2022-45199</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-22T03:53:25.971741Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-22T03:53:25.978803Z">ajak</metadata>
+</glsa>
