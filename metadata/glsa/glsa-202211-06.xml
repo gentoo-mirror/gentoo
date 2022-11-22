@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-06">
+    <title>Mozilla Firefox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Firefox, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">firefox,firefox-bin</product>
+    <announced>2022-11-22</announced>
+    <revised count="1">2022-11-22</revised>
+    <bug>881403</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/firefox" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">107.0</unaffected>
+            <unaffected range="ge" slot="esr">102.5.0</unaffected>
+            <vulnerable range="lt" slot="rapid">107.0</vulnerable>
+            <vulnerable range="lt" slot="esr">102.5.0</vulnerable>
+        </package>
+        <package name="www-client/firefox-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">107.0</unaffected>
+            <unaffected range="ge" slot="esr">102.5.0</unaffected>
+            <vulnerable range="lt" slot="rapid">107.0</vulnerable>
+            <vulnerable range="lt" slot="esr">102.5.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Firefox is a popular open-source web browser from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Firefox ESR binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-102.5.0"
+        </code>
+        
+        <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-102.5.0"
+        </code>
+        
+        <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-107.0"
+        </code>
+        
+        <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-107.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40674">CVE-2022-40674</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45403">CVE-2022-45403</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45404">CVE-2022-45404</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45405">CVE-2022-45405</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45406">CVE-2022-45406</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45407">CVE-2022-45407</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45408">CVE-2022-45408</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45409">CVE-2022-45409</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45410">CVE-2022-45410</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45411">CVE-2022-45411</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45412">CVE-2022-45412</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45413">CVE-2022-45413</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45415">CVE-2022-45415</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45416">CVE-2022-45416</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45417">CVE-2022-45417</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45418">CVE-2022-45418</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45419">CVE-2022-45419</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45420">CVE-2022-45420</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45421">CVE-2022-45421</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-22T03:51:05.820873Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-22T03:51:05.825843Z">ajak</metadata>
+</glsa>
