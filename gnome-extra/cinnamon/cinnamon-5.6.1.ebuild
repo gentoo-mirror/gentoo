@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit meson gnome2-utils pax-utils python-single-r1 xdg
@@ -27,9 +27,9 @@ DEPEND="
 	>=dev-libs/glib-2.52.0:2[dbus]
 	>=dev-libs/gobject-introspection-1.29.15:=
 	dev-libs/libxml2:2
-	>=gnome-extra/cinnamon-desktop-5.4:0=
-	>=gnome-extra/cinnamon-menus-5.4
-	>=gnome-extra/cjs-5.4[cairo]
+	>=gnome-extra/cinnamon-desktop-5.6:0=
+	>=gnome-extra/cinnamon-menus-5.6
+	>=gnome-extra/cjs-5.6[cairo]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.100[introspection]
 	virtual/opengl
@@ -39,8 +39,8 @@ DEPEND="
 	x11-libs/libX11
 	>=x11-libs/libXfixes-5.0
 	x11-libs/pango[introspection]
-	>=x11-libs/xapp-2.2.15[introspection]
-	>=x11-wm/muffin-5.4[introspection]
+	>=x11-libs/xapp-2.4.1[introspection]
+	>=x11-wm/muffin-5.6[introspection]
 
 	eds? (
 		gnome-extra/evolution-data-server
@@ -74,28 +74,31 @@ RDEPEND="
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]
 		dev-python/tinycss2[${PYTHON_USEDEP}]
-		>=dev-python/python3-xapp-2.2.2[${PYTHON_USEDEP}]
+		>=dev-python/python3-xapp-2.4.0[${PYTHON_USEDEP}]
 	')
 	>=gnome-base/dconf-0.4.1
 	>=gnome-base/gsettings-desktop-schemas-2.91.91
 	>=gnome-base/libgnomekbd-2.91.4
-	>=gnome-extra/cinnamon-control-center-5.4[networkmanager=]
-	>=gnome-extra/cinnamon-screensaver-5.4
-	>=gnome-extra/cinnamon-session-5.4
-	>=gnome-extra/cinnamon-settings-daemon-5.4
-	>=gnome-extra/nemo-5.4
+	>=gnome-extra/cinnamon-control-center-5.6[networkmanager=]
+	>=gnome-extra/cinnamon-screensaver-5.6
+	>=gnome-extra/cinnamon-session-5.6
+	>=gnome-extra/cinnamon-settings-daemon-5.6
+	>=gnome-extra/nemo-5.6
 	gnome-extra/polkit-gnome
 	media-libs/gsound
 	net-libs/libsoup:2.4[introspection]
 	net-misc/wget
 	sys-apps/accountsservice[introspection]
+	sys-apps/coreutils
+	sys-apps/pciutils
+	sys-apps/util-linux
 	sys-power/upower[introspection]
 	x11-misc/xdg-utils
 	x11-themes/adwaita-icon-theme
 	x11-themes/gnome-themes-standard
 
 	nls? (
-		>=gnome-extra/cinnamon-translations-5.4
+		>=gnome-extra/cinnamon-translations-5.6
 	)
 "
 BDEPEND="

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit meson python-single-r1 xdg
 
@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 COMMON_DEPEND="
 	${PYTHON_DEPS}
 	>=dev-libs/glib-2.37.3:2[dbus]
-	>=gnome-extra/cinnamon-desktop-5.4:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 	sys-apps/dbus
 	sys-libs/pam
 	>=x11-libs/gtk+-3.22:3[introspection]
@@ -40,7 +40,7 @@ RDEPEND="
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]
-		>=dev-python/python3-xapp-2.2.2[${PYTHON_USEDEP}]
+		>=dev-python/python3-xapp-2.4.0[${PYTHON_USEDEP}]
 	')
 
 	systemd? ( >=sys-apps/systemd-31 )

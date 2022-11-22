@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit meson gnome2-utils python-single-r1 readme.gentoo-r1 virtualx xdg
 
@@ -30,14 +30,14 @@ COMMON_DEPEND="
 	>=dev-libs/gobject-introspection-0.9.12:=
 	>=dev-libs/libxml2-2.7.8:2
 	gnome-base/dconf:0=
-	>=gnome-extra/cinnamon-desktop-5.4:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 	gnome-extra/libgsf:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.10.0:3[introspection]
 	x11-libs/libX11
 	>=x11-libs/pango-1.40.0
-	>=x11-libs/xapp-2.2.15
+	>=x11-libs/xapp-2.4.1
 
 	exif? ( >=media-libs/libexif-0.6.20:= )
 	selinux? ( sys-libs/libselinux )
@@ -50,7 +50,7 @@ RDEPEND="
 	')
 	x11-themes/adwaita-icon-theme
 
-	nls? ( >=gnome-extra/cinnamon-translations-5.4 )
+	nls? ( >=gnome-extra/cinnamon-translations-5.6 )
 "
 PDEPEND="
 	>=gnome-base/gvfs-0.1.2

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit meson gnome2-utils python-any-r1 xdg virtualx
 
@@ -21,8 +21,8 @@ RESTRICT="test"
 COMMON_DEPEND="
 	>=dev-libs/glib-2.44.0:2
 	>=gnome-base/libgnomekbd-3.0.0:0=
-	>=gnome-extra/cinnamon-desktop-5.4:0=
-	>=gnome-extra/cinnamon-menus-5.4:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
+	>=gnome-extra/cinnamon-menus-5.6:0=
 	media-libs/fontconfig
 	>=sys-auth/polkit-0.103
 	>=sys-power/upower-0.99.8
@@ -36,7 +36,6 @@ COMMON_DEPEND="
 	colord? ( >=x11-misc/colord-0.1.14:0= )
 	input_devices_wacom? (
 		>=dev-libs/libwacom-0.7:=
-		>=gnome-extra/cinnamon-settings-daemon-5.4:0=
 		>=x11-libs/libXi-1.2 )
 	networkmanager? (
 		>=gnome-extra/nm-applet-1.2.0

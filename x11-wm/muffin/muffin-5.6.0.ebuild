@@ -25,7 +25,7 @@ COMDEPEND="
 	>=dev-libs/fribidi-1.0.0
 	>=dev-libs/glib-2.61.1:2
 	>=dev-libs/json-glib-0.12.0[introspection?]
-	>=gnome-extra/cinnamon-desktop-5.4:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 	>=x11-libs/libXcomposite-0.4
 	x11-libs/libXcursor
 	x11-libs/libXdamage

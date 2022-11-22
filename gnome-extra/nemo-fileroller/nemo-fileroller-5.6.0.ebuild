@@ -7,7 +7,7 @@ inherit meson
 
 DESCRIPTION="Nemo file-roller integration"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/nemo-extensions"
-SRC_URI="https://github.com/linuxmint/nemo-extensions/archive/5.4.0.tar.gz -> nemo-extensions-5.4.0.tar.gz"
+SRC_URI="https://github.com/linuxmint/nemo-extensions/archive/5.6.0.tar.gz -> nemo-extensions-5.6.0.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -22,4 +22,4 @@ RDEPEND="
 	app-arch/file-roller
 "
 
-S="${WORKDIR}/nemo-extensions-5.4.0/${PN}"
+S="${WORKDIR}/nemo-extensions-5.6.0/${PN}"

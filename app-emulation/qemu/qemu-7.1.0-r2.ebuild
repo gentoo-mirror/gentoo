@@ -16,7 +16,7 @@ QEMU_DOC_USEFLAG="+doc"
 PYTHON_COMPAT=( python3_{8,9,10,11} )
 PYTHON_REQ_USE="ncurses,readline"
 
-FIRMWARE_ABI_VERSION="7.2.0"
+FIRMWARE_ABI_VERSION="7.1.0"
 
 inherit linux-info toolchain-funcs python-r1 udev fcaps readme.gentoo-r1 \
 		pax-utils xdg-utils
@@ -41,7 +41,7 @@ else
 	fi
 
 	S="${WORKDIR}/${MY_P}"
-	[[ "${PV}" != *_rc* ]] && KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="QEMU + Kernel-based Virtual Machine userland tools"
@@ -60,7 +60,7 @@ IUSE="accessibility +aio alsa bpf bzip2 capstone +caps +curl debug ${QEMU_DOC_US
 	plugins +png pulseaudio python rbd sasl +seccomp sdl sdl-image selinux
 	+slirp
 	smartcard snappy spice ssh static static-user systemtap test udev usb
-	usbredir vde +vhost-net vhost-user-fs virgl virtfs +vnc vte xattr xen
+	usbredir vde +vhost-net virgl virtfs +vnc vte xattr xen
 	zstd"
 
 COMMON_TARGETS="
@@ -117,7 +117,8 @@ IUSE+=" ${use_softmmu_targets} ${use_user_targets}"
 RESTRICT="!test? ( test )"
 # Allow no targets to be built so that people can get a tools-only build.
 # Block USE flag configurations known to not work.
-REQUIRED_USE="${PYTHON_REQUIRED_USE}
+REQUIRED_USE="caps seccomp
+	${PYTHON_REQUIRED_USE}
 	qemu_softmmu_targets_arm? ( fdt )
 	qemu_softmmu_targets_microblaze? ( fdt )
 	qemu_softmmu_targets_mips64el? ( fdt )
@@ -129,7 +130,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	sdl-image? ( sdl )
 	static? ( static-user !alsa !gtk !jack !opengl !pam !pulseaudio !plugins !rbd !snappy !udev )
 	static-user? ( !plugins )
-	vhost-user-fs? ( caps seccomp )
 	virgl? ( opengl )
 	virtfs? ( caps xattr )
 	vnc? ( gnutls )
@@ -306,10 +306,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.2.0-disable-keymap.patch
 	"${FILESDIR}"/${PN}-6.0.0-make.patch
 	"${FILESDIR}"/${PN}-7.1.0-also-build-virtfs-proxy-helper.patch
+	"${FILESDIR}"/${PN}-7.1.0-strings.patch
 	"${FILESDIR}"/${PN}-7.1.0-capstone-include-path.patch
-	#"${FILESDIR}"/${PN}-7.1.0-mips-n32-syscalls.patch
-	#"${FILESDIR}"/${PN}-7.1.0-loong-stat.patch
-	#"${FILESDIR}"/${PN}-7.1.0-faccessat2.patch
+	"${FILESDIR}"/${PN}-7.1.0-mips-n32-syscalls.patch
+	"${FILESDIR}"/${PN}-7.1.0-loong-stat.patch
+	"${FILESDIR}"/${PN}-7.1.0-faccessat2.patch
 )
 
 QA_PREBUILT="
@@ -455,7 +456,7 @@ src_prepare() {
 	sed -i -e 's/-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2//' configure || die
 
 	# Remove bundled modules
-	rm -r dtc meson roms/*/ || die
+	rm -r dtc meson roms/*/ slirp || die
 }
 
 ##
@@ -582,7 +583,7 @@ qemu_src_configure() {
 		$(conf_notuser sdl)
 		$(conf_softmmu sdl-image)
 		$(conf_notuser seccomp)
-		$(conf_notuser slirp)
+		$(conf_notuser slirp slirp system)
 		$(conf_notuser smartcard)
 		$(conf_notuser snappy)
 		$(conf_notuser spice)
@@ -636,16 +637,6 @@ qemu_src_configure() {
 			--disable-tools
 		)
 		local static_flag="static"
-
-		for target in ${IUSE_SOFTMMU_TARGETS}; do
-			if use "qemu_softmmu_targets_${target}"; then
-				conf_opts+=(
-					# For some reason, adding this with the setting set
-					# to on *or* off makes the build always fail.
-					# --with-devices-${target}=gentoo
-				)
-			fi
-		done
 		;;
 	tools)
 		conf_opts+=(
@@ -697,21 +688,6 @@ src_configure() {
 		if use "qemu_softmmu_targets_${target}"; then
 			softmmu_targets+=",${target}-softmmu"
 			softmmu_bins+=( "qemu-system-${target}" )
-
-			# Needed to rework vhost-user-fs handling thanks to https://gitlab.com/qemu-project/qemu/-/commit/5166dab
-			# The option was converted into being configurable by
-			# Kconfig's. So, to enable it, we insert the necessary
-			# options into each arch's softmmu target gentoo.mak file,
-			# then configure with --with-devices-${target}=gentoo.
-			if use vhost-user-fs; then
-				echo "CONFIG_VHOST_USER_FS=y for ${target}-softmmu" || die
-				echo "CONFIG_VIRTIO=y" >> "configs/devices/${target}-softmmu/gentoo.mak" || die
-				echo "CONFIG_VHOST_USER_FS=y" >> "configs/devices/${target}-softmmu/gentoo.mak" || die
-			else
-				echo "CONFIG_VHOST_USER_FS=n for ${target}-softmmu" || die
-				echo "CONFIG_VIRTIO=n" >> "configs/devices/${target}-softmmu/gentoo.mak" || die
-				echo "CONFIG_VHOST_USER_FS=n" >> "configs/devices/${target}-softmmu/gentoo.mak" || die
-			fi
 		fi
 	done
 

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit meson gnome2-utils python-any-r1 xdg-utils
 
@@ -32,7 +32,7 @@ DEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/pango[X]
-	>=x11-libs/xapp-2.2.15
+	>=x11-libs/xapp-2.4.1
 	x11-libs/xtrans
 
 	systemd? ( >=sys-apps/systemd-183 )
@@ -40,7 +40,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=gnome-extra/cinnamon-desktop-5.4:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 "
 BDEPEND="
 	${PYTHON_DEPS}

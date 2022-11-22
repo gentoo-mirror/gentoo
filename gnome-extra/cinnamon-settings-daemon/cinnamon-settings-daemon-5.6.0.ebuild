@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit meson gnome2-utils python-any-r1 xdg
 
@@ -20,7 +20,7 @@ RDEPEND="
 	>=dev-libs/glib-2.40.0:2[dbus]
 	dev-libs/libgudev:=
 	>=gnome-base/libgnomekbd-3.6
-	>=gnome-extra/cinnamon-desktop-5.4:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 	media-libs/fontconfig
 	>=media-libs/lcms-2.2:2
 	media-libs/libcanberra:0=[gtk3,pulseaudio]
