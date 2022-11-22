@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Replicated SQLite using the Raft consensus protocol
+EAPI=7
+HOMEPAGE=https://github.com/rqlite/rqlite https://www.philipotoole.com/tag/rqlite/
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT Apache-2.0 BSD CC0-1.0 MPL-2.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/zmedico/rqlite/archive/v7.11.0-vendor.tar.gz -> rqlite-7.11.0-vendor.tar.gz
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
+_md5_=86b513b585a96db677aca821299a5eb3
