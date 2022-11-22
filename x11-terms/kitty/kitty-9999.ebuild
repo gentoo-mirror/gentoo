@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..11} )
-inherit edo go-module optfeature multiprocessing python-single-r1 toolchain-funcs xdg
+inherit edo optfeature multiprocessing python-single-r1 toolchain-funcs xdg
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -60,19 +60,20 @@ DEPEND="
 	wayland? ( dev-libs/wayland-protocols )"
 BDEPEND="
 	${PYTHON_DEPS}
+	dev-lang/go
 	sys-libs/ncurses
 	virtual/pkgconfig
 	test? ( $(python_gen_cond_dep 'dev-python/pillow[${PYTHON_USEDEP}]') )
 	wayland? ( dev-util/wayland-scanner )"
 [[ ${PV} == 9999 ]] || BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-kovidgoyal )"
 
-# override go-module.eclass' .* to only consider the Go written binary
-QA_FLAGS_IGNORED="usr/bin/kitty-tool"
+QA_FLAGS_IGNORED="usr/bin/kitty-tool" # written in Go
 
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
-		go-module_live_vendor
+		cd "${S}" || die
+		edo go mod vendor
 	else
 		verify-sig_src_unpack
 	fi
@@ -81,12 +82,22 @@ src_unpack() {
 src_prepare() {
 	default
 
-	# seds unfortunately feel easier on maintainenance than patches here
-	sed -e "s/'x11 wayland'/'$(usev X x11) $(usev wayland)'/" \
-		-e "$(usev !X '/gl_libs =/s/=.*/= []/')" \
-		-e "/num_workers =/s/=.*/= $(makeopts_jobs)/" \
-		-e "s/cflags.append.*-O3.*/pass/" -e 's/-O3//' \
-		-i setup.py || die
+	# sed unfortunately feels easier on maintainenance than patches here
+	local sedargs=(
+		-e "/num_workers =/s/=.*/= $(makeopts_jobs)/"
+		-e "s/cflags.append.*-O3.*/pass/" -e 's/-O3//'
+		-e "s/ld_flags.append('-s')/pass/"
+	)
+
+	# kitty is often popular on wayland-only setups, try to allow this
+	use !X && sedargs+=( -e '/gl_libs =/s/=.*/= []/' ) #857918
+	use !X || use !wayland &&
+		sedargs+=( -e "s/'x11 wayland'/'$(usex X x11 wayland)'/" )
+
+	# skip docs for live version, missing dependencies
+	[[ ${PV} == 9999 ]] && sedargs+=( -e '/exists.*_build/,/docs(ddir)/d' )
+
+	sed -i setup.py "${sedargs[@]}" || die
 
 	# test relies on 'who' command which doesn't detect users with pid-sandbox
 	rm kitty_tests/utmp.py || die
@@ -94,8 +105,6 @@ src_prepare() {
 	# test may fail/hang depending on environment and shell initialization scripts
 	rm kitty_tests/{shell_integration,ssh}.py || die
 
-	# skip docs for live version
-	[[ ${PV} != 9999 ]] || sed -i '/exists.*_build/,/docs(ddir)/d' setup.py || die
 }
 
 src_compile() {
@@ -126,13 +135,9 @@ src_install() {
 	insinto /usr
 	doins -r linux-package/.
 
-	fperms +x /usr/bin/kitty \
-		/usr/$(get_libdir)/kitty/shell-integration/ssh/{askpass.py,kitty}
-
-	# go-module.eclass force-restricts strip, allow except for Go
-	# note: placebo given this is not respected by portage (bug #697960)
-	dostrip /
-	dostrip -x /usr/bin/kitty-tool
+	local execbit
+	mapfile -t execbit < <(find linux-package -type f -perm /+x -printf '/usr/%P\n' || die)
+	fperms +x "${execbit[@]}"
 }
 
 pkg_postinst() {
