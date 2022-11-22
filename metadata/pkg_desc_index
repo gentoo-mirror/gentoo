@@ -2677,7 +2677,7 @@ app-emulation/plus42 1.0.9 1.0.10 1.0.12 1.0.13: An Enhanced HP-42S Calculator S
 app-emulation/protontricks 1.9.2: app-emulation/winetricks wrapper for Proton (Steam Play) games
 app-emulation/punes 0.107 0.109-r1: Nintendo Entertainment System (NES) emulator
 app-emulation/q4wine 1.3.13: Qt GUI configuration tool for Wine
-app-emulation/qemu 7.0.0-r3 7.1.0 7.1.0-r1 7.2.0_rc1 9999: QEMU + Kernel-based Virtual Machine userland tools
+app-emulation/qemu 7.0.0-r3 7.1.0 7.1.0-r2 7.2.0_rc1-r1 9999: QEMU + Kernel-based Virtual Machine userland tools
 app-emulation/qemu-guest-agent 6.0.0 7.1.0: QEMU Guest Agent (qemu-ga) for use when running inside a VM
 app-emulation/qemu-init-scripts 0.3.0-r1: Kvm and qemu init scripts
 app-emulation/ruffle 0_p20221015 0_p20221112 9999: Flash Player emulator written in Rust
@@ -3697,7 +3697,7 @@ app-text/vgrep 2.5.1 2.5.2 2.5.5 2.6.0: A pager for grep, git-grep and similar g
 app-text/vilistextum 2.8.0.20200411: HTML to ASCII converter programmed to handle incorrect html
 app-text/wdiff 1.2.2-r2: Create a diff disregarding formatting
 app-text/webgen 1.7.2: A template-based static website generator
-app-text/wgetpaste 2.29-r1 2.30_p20210222-r2 2.32 2.33: Command-line interface to various pastebins
+app-text/wgetpaste 2.29-r1 2.30_p20210222-r2 2.32 2.33-r1: Command-line interface to various pastebins
 app-text/wiki2beamer 0.10.0 0.10.0-r1: Tool to produce LaTeX Beamer code from wiki-like input
 app-text/writerperfect 0.9.6: Various formats to Open document format converter
 app-text/wscr 1.2-r2: A Lightweight and Fast Anagram Solver
@@ -6450,7 +6450,7 @@ dev-perl/Crypt-OpenSSL-RSA 0.310.0 0.320.0 0.330.0: RSA encoding and decoding us
 dev-perl/Crypt-OpenSSL-Random 0.150.0: OpenSSL pseudo-random number generator access
 dev-perl/Crypt-PBKDF2 0.161.520: The PBKDF2 password hashing algorithm
 dev-perl/Crypt-PWSafe3 1.220.0: Read and write Passwordsafe v3 files
-dev-perl/Crypt-PasswdMD5 1.410.0: Provides interoperable MD5-based crypt() functions
+dev-perl/Crypt-PasswdMD5 1.410.0 1.420.0: Provides interoperable MD5-based crypt() functions
 dev-perl/Crypt-Primes 0.500.0-r2: Provable Prime Number Generator suitable for Cryptographic Applications
 dev-perl/Crypt-RC4 2.20.0-r2: Implements the RC4 encryption algorithm
 dev-perl/Crypt-RIPEMD160 0.80.0: Perl extension for the RIPEMD-160 Hash function
@@ -6467,7 +6467,7 @@ dev-perl/Crypt-SmbHash 0.120.0-r3: LM/NT hashing, for Samba's smbpasswd entries
 dev-perl/Crypt-Twofish 2.180.0: The Twofish Encryption Algorithm
 dev-perl/Crypt-URandom 0.360.0-r1: Provide non blocking randomness
 dev-perl/Crypt-X509 0.540.0: Parse a X.509 certificate
-dev-perl/CryptX 0.72.0 0.73.0: Self-contained crypto toolkit
+dev-perl/CryptX 0.72.0 0.73.0 0.77.0: Self-contained crypto toolkit
 dev-perl/Curses 1.370.0-r1 1.380.0: Curses interface modules for Perl
 dev-perl/Curses-UI 0.960.900-r3: Perl UI framework based on the curses library
 dev-perl/CursesWidgets 1.997.0-r3: Provide high level APIs for rapid user interface design on the console in Perl
@@ -8310,7 +8310,7 @@ dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/citeproc-py 0.6.0: Yet another Python CSL Processor
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
 dev-python/clang-python 13.0.1 14.0.6 15.0.3 15.0.4 15.0.5 15.0.5.9999 16.0.0_pre20221113 16.0.0_pre20221120 16.0.0.9999: Python bindings for sys-devel/clang
-dev-python/cleo 0.8.1-r1: Python tool for building testable command-line interfaces
+dev-python/cleo 0.8.1-r1 1.0.0: Python tool for building testable command-line interfaces
 dev-python/cli_helpers 2.3.0 9999: Python helpers for common CLI tasks
 dev-python/click 8.1.3: A Python package for creating beautiful command line interfaces
 dev-python/click-default-group 1.2.2-r1: Extends click. Group to invoke a command without explicit subcommand name
@@ -8413,7 +8413,7 @@ dev-python/django-redis 5.2.0: Full featured redis cache backend for Django
 dev-python/django-sortedm2m 3.1.1: Drop-in replacement for django's many to many field with sorted relations
 dev-python/django-tables2 2.3.4 2.4.1: Table/data-grid framework for Django
 dev-python/django-tagging 0.5.0-r1: Generic tagging application for Django
-dev-python/django-taggit 3.0.0: Simple tagging for Django
+dev-python/django-taggit 3.0.0 3.1.0: Simple tagging for Django
 dev-python/django-timezone-field 5.0: A Django app providing database and form fields for pytz timezone objects
 dev-python/django_polymorphic 3.1: Seamless Polymorphic Inheritance for Django Models
 dev-python/djangorestframework 3.14.0: Web APIs with django made easy
@@ -8649,7 +8649,7 @@ dev-python/jaraco-text 3.9.1 3.10.0 3.11.0: Text utilities used by other project
 dev-python/jarowinkler 1.2.3: Fast fuzzy string matching using Jaro and Jaro-Winkler similarity
 dev-python/jc 1.22.2: Converts the output of popular command-line tools and file-types to JSON
 dev-python/jdcal 1.4.1-r1: Julian dates from proleptic Gregorian and Julian calendars
-dev-python/jedi 0.18.1-r1: Autocompletion library for Python
+dev-python/jedi 0.18.1-r1 0.18.2: Autocompletion library for Python
 dev-python/jeepney 0.8.0: Low-level, pure Python DBus protocol wrapper
 dev-python/jellyfish 0.9.0-r1: Python module for doing approximate and phonetic matching of strings
 dev-python/jinja 2.11.3-r1 3.1.2: A full-featured template engine for Python
@@ -9153,7 +9153,7 @@ dev-python/pytest 7.1.3 7.2.0: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.0.4: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.19.0 0.20.1 0.20.2: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 6.1.1: BDD library for the pytest runner
-dev-python/pytest-check 1.0.10: pytest plugin that allows multiple failures per test
+dev-python/pytest-check 1.0.10 1.1.2: pytest plugin that allows multiple failures per test
 dev-python/pytest-codeblocks 0.16.1: Extract code blocks from markdown
 dev-python/pytest-console-scripts 1.3.1: Pytest plugin for testing console scripts
 dev-python/pytest-cov 4.0.0-r1: pytest plugin for coverage reporting
@@ -9284,7 +9284,7 @@ dev-python/python-zipstream 1.1.4: A zip archive generator
 dev-python/python-zstandard 0.18.0 0.19.0: Zstandard Bindings for Python
 dev-python/python3-lxc 3.0.4: Python bindings for LXC
 dev-python/python3-saml 1.14.0: OneLogin's SAML Python Toolkit
-dev-python/python3-xapp 2.2.2: Python bindings for x11-libs/xapp
+dev-python/python3-xapp 2.2.2 2.4.0: Python bindings for x11-libs/xapp
 dev-python/python_orocos_kdl 1.5.1 9999: Python bindings for KDL
 dev-python/pythondialog 3.5.3: A Python module for making simple text/console-mode user interfaces
 dev-python/pythran 0.11.0 0.12.0 0.12.0-r2: Ahead of Time compiler for numeric kernels
@@ -12313,15 +12313,15 @@ gnome-base/libgnomekbd 3.26.1 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r1 2.40.0-r2: A library that provides top functionality to applications
 gnome-base/librsvg 2.40.21 2.54.4-r1 2.54.5-r1 2.55.1: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 42.2 43.0: Default file manager for the GNOME desktop
-gnome-extra/cinnamon 5.2.7-r4 5.4.12: A fork of GNOME Shell with layout similar to GNOME 2
-gnome-extra/cinnamon-control-center 5.2.1-r2 5.2.1-r3 5.4.7: Cinnamons's main interface to configure various aspects of the desktop
-gnome-extra/cinnamon-desktop 5.2.1 5.4.2: A collection of libraries and utilites used by Cinnamon
-gnome-extra/cinnamon-menus 5.2.0 5.4.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 5.2.1 5.4.4: Screensaver for Cinnamon
-gnome-extra/cinnamon-session 5.2.0 5.4.0: Cinnamon session manager
-gnome-extra/cinnamon-settings-daemon 5.2.0-r1 5.4.5: Cinnamon's settings daemon
-gnome-extra/cinnamon-translations 5.2.2 5.4.2: Translation data for Cinnamon
-gnome-extra/cjs 5.2.0 5.4.1: Linux Mint's fork of gjs for Cinnamon
+gnome-extra/cinnamon 5.2.7-r4 5.6.1: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon-control-center 5.2.1-r2 5.2.1-r3 5.6.0: Cinnamons's main interface to configure various aspects of the desktop
+gnome-extra/cinnamon-desktop 5.2.1 5.6.0: A collection of libraries and utilites used by Cinnamon
+gnome-extra/cinnamon-menus 5.2.0 5.6.0: Cinnamon's library for the Desktop Menu fd.o specification
+gnome-extra/cinnamon-screensaver 5.2.1 5.6.1: Screensaver for Cinnamon
+gnome-extra/cinnamon-session 5.2.0 5.6.0: Cinnamon session manager
+gnome-extra/cinnamon-settings-daemon 5.2.0-r1 5.6.0: Cinnamon's settings daemon
+gnome-extra/cinnamon-translations 5.2.2 5.6.0: Translation data for Cinnamon
+gnome-extra/cjs 5.2.0 5.6.1: Linux Mint's fork of gjs for Cinnamon
 gnome-extra/eiciel 0.9.13.1: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.44.4-r2 3.46.0-r1 3.46.1-r1: Evolution groupware backend
 gnome-extra/evolution-ews 3.44.4-r1 3.46.0 3.46.1: Evolution module for connecting to Microsoft Exchange Web Services
@@ -12367,8 +12367,8 @@ gnome-extra/libgsf 1.14.49 1.14.50: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2020.03.04: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6-r1: A nautilus extension for sending files to locations
-gnome-extra/nemo 5.2.4-r1 5.4.3: A file manager for Cinnamon, forked from Nautilus
-gnome-extra/nemo-fileroller 5.2.0 5.4.1: Nemo file-roller integration
+gnome-extra/nemo 5.2.4-r1 5.6.0: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo-fileroller 5.2.0 5.6.0: Nemo file-roller integration
 gnome-extra/nm-applet 1.28.0 1.30.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
 gnome-extra/pch-session 42.0: Unofficial gnome based session with different default settings and extensions
@@ -18852,7 +18852,7 @@ x11-libs/startup-notification 0.12-r1: Application startup notification and feed
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.28.2-r209 0.68.0 0.70.0 0.70.1: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r3 3.0.5.1: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
-x11-libs/xapp 2.2.8 2.2.15: Cross-desktop libraries and common resources
+x11-libs/xapp 2.2.8 2.4.1: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-util 0.4.0-r2: X C-language Bindings sample implementations
 x11-libs/xcb-util-cursor 0.1.3-r4 0.1.4: X C-language Bindings sample implementations
@@ -19497,7 +19497,7 @@ x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.24.2 1.26.0: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r2: Simple EWMH compatible window manager with titlebars and frames
 x11-wm/metacity 3.44.0 3.46.0: GNOME Flashback window manager
-x11-wm/muffin 5.2.1 5.4.7-r1: Compositing window manager forked from Mutter for use with Cinnamon
+x11-wm/muffin 5.2.1 5.6.0: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 42.4-r1 42.5 43.0 43.1: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 9999: Notion is a tiling, tabbed window manager for the X window system
