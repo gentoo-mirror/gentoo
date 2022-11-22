@@ -8,29 +8,33 @@ inherit toolchain-funcs
 DESCRIPTION="Interpreter and compiler compatible with the ISLisp standard"
 HOMEPAGE="https://github.com/sasagawa888/eisl/"
 SRC_URI="https://github.com/sasagawa888/eisl/archive/v${PV}.tar.gz
-			-> ${P}.tar.gz"
+	-> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="test"  # Tests run cppcheck (and fail)
 
-DOCS=( README-ja.md README.md documents )
+DOCS=( README{,-ja}.md documents )
 
 RDEPEND="sys-libs/ncurses:="
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-2.50-Makefile.patch )
+PATCHES=( "${FILESDIR}"/${PN}-2.63-Makefile.patch )
 
 src_compile() {
-	emake CC="$(tc-getCC)" clean all
+	emake CC="$(tc-getCC)" clean edlis eisl
 }
 
 src_install() {
-	dobin edlis eisl
+	exeinto /usr/bin
+	doexe edlis eisl
 
-	insinto /usr/lib/${PN}
-	doins library/*
+	# Compilation of ISLisp files on installation fails.
+	# Do not compile them and mimic "make install".
+	insinto /usr/share/${PN}
+	doins -r library
+	doins fast.h ffi.h
 
 	einstalldocs
 }

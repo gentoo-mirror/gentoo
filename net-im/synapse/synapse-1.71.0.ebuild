@@ -7,26 +7,84 @@ PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=poetry
 
-inherit distutils-r1 multiprocessing optfeature systemd
+CRATES="
+	aho-corasick-0.7.19
+	anyhow-1.0.66
+	arc-swap-1.5.1
+	autocfg-1.1.0
+	bitflags-1.3.2
+	blake2-0.10.4
+	block-buffer-0.10.3
+	cfg-if-1.0.0
+	crypto-common-0.1.6
+	digest-0.10.5
+	generic-array-0.14.6
+	hex-0.4.3
+	indoc-1.0.7
+	itoa-1.0.4
+	lazy_static-1.4.0
+	libc-0.2.135
+	lock_api-0.4.9
+	log-0.4.17
+	memchr-2.5.0
+	memoffset-0.6.5
+	once_cell-1.15.0
+	parking_lot-0.12.1
+	parking_lot_core-0.9.3
+	proc-macro2-1.0.46
+	pyo3-0.17.2
+	pyo3-build-config-0.17.2
+	pyo3-ffi-0.17.2
+	pyo3-log-0.7.0
+	pyo3-macros-0.17.2
+	pyo3-macros-backend-0.17.2
+	pythonize-0.17.0
+	quote-1.0.21
+	redox_syscall-0.2.16
+	regex-1.6.0
+	regex-syntax-0.6.27
+	ryu-1.0.11
+	scopeguard-1.1.0
+	serde-1.0.147
+	serde_derive-1.0.147
+	serde_json-1.0.87
+	smallvec-1.10.0
+	subtle-2.4.1
+	syn-1.0.102
+	target-lexicon-0.12.4
+	typenum-1.15.0
+	unicode-ident-1.0.5
+	unindent-0.1.10
+	version_check-0.9.4
+	windows-sys-0.36.1
+	windows_aarch64_msvc-0.36.1
+	windows_i686_gnu-0.36.1
+	windows_i686_msvc-0.36.1
+	windows_x86_64_gnu-0.36.1
+	windows_x86_64_msvc-0.36.1
+"
+
+inherit cargo distutils-r1 multiprocessing optfeature systemd
+
+MY_PV="${PV/_rc/rc}"
 
 DESCRIPTION="Reference implementation of Matrix homeserver"
 HOMEPAGE="
 	https://matrix.org/
 	https://github.com/matrix-org/synapse/
 "
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/matrix-org/${PN}.git"
-else
-	MY_PV="${PV/_rc/rc}"
-	SRC_URI="https://github.com/matrix-org/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
-	S="${WORKDIR}/${PN}-${MY_PV}"
-	KEYWORDS="amd64 ~ppc64"
-fi
+SRC_URI="
+	https://github.com/matrix-org/${PN}/archive/v${MY_PV}.tar.gz
+		-> ${P}.gh.tar.gz
+	$(cargo_crate_uris)
+"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="Apache-2.0"
+# Additional licenses needed for Rust crates
+LICENSE+=" Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 MIT Unicode-DFS-2016 Unlicense"
 SLOT="0"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -45,7 +103,7 @@ RDEPEND="${DEPEND}
 		dev-python/ijson[${PYTHON_USEDEP}]
 		>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
 		dev-python/jsonschema[${PYTHON_USEDEP}]
-		>=dev-python/matrix-common-1.2.1[${PYTHON_USEDEP}]
+		>=dev-python/matrix-common-1.3.0[${PYTHON_USEDEP}]
 		dev-python/msgpack[${PYTHON_USEDEP}]
 		dev-python/netaddr[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
@@ -70,6 +128,7 @@ RDEPEND="${DEPEND}
 	')
 "
 BDEPEND="
+	$(python_gen_cond_dep 'dev-python/setuptools-rust[${PYTHON_USEDEP}]')
 	test? (
 		$(python_gen_cond_dep '
 			dev-python/idna[${PYTHON_USEDEP}]
@@ -78,6 +137,9 @@ BDEPEND="
 		postgres? ( dev-db/postgresql[server] )
 	)
 "
+
+# Rust extension
+QA_FLAGS_IGNORED="usr/lib/python3.*/site-packages/synapse/synapse_rust.abi3.so"
 
 src_test() {
 	if use postgres; then
@@ -90,6 +152,10 @@ src_test() {
 		local -x SYNAPSE_POSTGRES=1
 		local -x SYNAPSE_POSTGRES_HOST="${T}"
 	fi
+
+	# This move is necessary otherwise python is not able to locate
+	# synapse_rust.abi3.so.
+	mv synapse{,.hidden} || die
 
 	distutils-r1_src_test
 
