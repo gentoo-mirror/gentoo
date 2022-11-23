@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure prepare
 DEPEND=dev-libs/nettle:0= >=net-libs/gnutls-3.2.0:0= x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXau x11-libs/libXdmcp alsa? ( media-libs/alsa-lib media-libs/libsamplerate ) ao? ( >=media-libs/libao-0.8.6 media-libs/libsamplerate ) kerberos? ( virtual/krb5 ) pcsc-lite? ( >=sys-apps/pcsc-lite-1.6.6 ) oss? ( media-libs/libsamplerate ) pulseaudio? ( media-libs/libsamplerate media-sound/pulseaudio ) xrandr? ( x11-libs/libXrandr ) x11-libs/libXt
 DESCRIPTION=A Remote Desktop Protocol Client
@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/nettle:0= >=net-libs/gnutls-3.2.0:0= x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXau x11-libs/libXdmcp alsa? ( media-libs/alsa-lib media-libs/libsamplerate ) ao? ( >=media-libs/libao-0.8.6 media-libs/libsamplerate ) kerberos? ( virtual/krb5 ) pcsc-lite? ( >=sys-apps/pcsc-lite-1.6.6 ) oss? ( media-libs/libsamplerate ) pulseaudio? ( media-libs/libsamplerate media-sound/pulseaudio ) xrandr? ( x11-libs/libXrandr )
 SLOT=0
 SRC_URI=https://github.com/rdesktop/rdesktop/releases/download/v1.9.0/rdesktop-1.9.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc
 _md5_=4a8c0218b928a7b6790828bddf18dc5c

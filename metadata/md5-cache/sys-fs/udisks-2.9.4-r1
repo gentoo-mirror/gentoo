@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xsl-stylesheets >=dev-util/gdbus-codegen-2.32 >=dev-util/gtk-doc-am-1.3 virtual/pkgconfig nls? ( >=sys-devel/gettext-0.19.8 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig virtual/pkgconfig
+BDEPEND=app-text/docbook-xsl-stylesheets >=dev-util/gdbus-codegen-2.32 >=dev-util/gtk-doc-am-1.3 virtual/pkgconfig nls? ( >=sys-devel/gettext-0.19.8 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm preinst prepare setup
 DEPEND=>=sys-auth/polkit-0.114 >=sys-libs/libblockdev-2.25[cryptsetup,lvm?,vdo(-)?] virtual/udev acl? ( virtual/acl ) daemon? ( >=dev-libs/glib-2.50:2 >=dev-libs/libatasmart-0.19 >=dev-libs/libgudev-165:= ) elogind? ( >=sys-auth/elogind-219 ) introspection? ( >=dev-libs/gobject-introspection-1.30:= ) lvm? ( sys-fs/lvm2 ) systemd? ( >=sys-apps/systemd-209 ) zram? ( >=sys-libs/libblockdev-2.25[kbd] ) >=sys-kernel/linux-headers-3.1
 DESCRIPTION=Daemon providing interfaces to work with storage devices
@@ -12,5 +12,5 @@ RDEPEND=>=sys-auth/polkit-0.114 >=sys-libs/libblockdev-2.25[cryptsetup,lvm?,vdo(
 REQUIRED_USE=?? ( elogind systemd ) elogind? ( daemon ) systemd? ( daemon ) zram? ( systemd )
 SLOT=2
 SRC_URI=https://github.com/storaged-project/udisks/releases/download/udisks-2.9.4/udisks-2.9.4.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	bbfa385d6907d7948d49a5e107bd654d	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	bbfa385d6907d7948d49a5e107bd654d	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	ac0e315a3688929e34ac75b139e7349a
 _md5_=f57991053ab9b469e7cb2ee962b5a87a

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison:0 sys-devel/flex:0 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/bison:0 sys-devel/flex:0 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=acct-group/squid acct-user/squid || ( sys-libs/db:5.3 sys-libs/db:4.8 ) ldap? ( net-nds/openldap:= )
 DESCRIPTION=Combined filter, redirector and access controller plugin for Squid
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=acct-group/squid acct-user/squid || ( sys-libs/db:5.3 sys-libs/db:4.8 ) ldap? ( net-nds/openldap:= )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/s/squidguard/squidguard_1.6.0.orig.tar.gz -> squidguard-1.6.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	db-use	867a9246a45efc09934e0f8e3380c813
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	db-use	867a9246a45efc09934e0f8e3380c813
 _md5_=d52674497f5285ea1aaf0bf60183bb79

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare test
 DEPEND=!elibc_Darwin? ( unwind? ( sys-libs/libunwind ) ) libbsd? ( dev-libs/libbsd:= ) sodium? ( dev-libs/libsodium:= ) !elibc_Darwin? ( sys-apps/util-linux ) doc? ( app-text/asciidoc app-text/xmlto ) pgm? ( virtual/pkgconfig )
 DESCRIPTION=A brokerless kernel
@@ -12,5 +12,5 @@ RDEPEND=!elibc_Darwin? ( unwind? ( sys-libs/libunwind ) ) libbsd? ( dev-libs/lib
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://github.com/zeromq/libzmq/releases/download/v4.3.4/zeromq-4.3.4.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc
 _md5_=e2098f8c5d6e50bfc14543ad1fe97aff

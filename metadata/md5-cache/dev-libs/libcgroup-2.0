@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex elibc_musl? ( sys-libs/fts-standalone ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+BDEPEND=sys-devel/bison sys-devel/flex elibc_musl? ( sys-libs/fts-standalone ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=configure install prepare setup
 DEPEND=pam? ( sys-libs/pam )
 DESCRIPTION=Tools and libraries to configure and manage kernel control groups
@@ -13,5 +13,5 @@ REQUIRED_USE=daemon? ( tools )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/libcgroup/libcgroup/releases/download/v2.0/libcgroup-2.0.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	linux-info	bbfa385d6907d7948d49a5e107bd654d	pam	e44a1dd98f13e1ad76de01e919bde1f1	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	linux-info	bbfa385d6907d7948d49a5e107bd654d	pam	e44a1dd98f13e1ad76de01e919bde1f1	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=eabbc0a2a17888f52de701289dedba4a

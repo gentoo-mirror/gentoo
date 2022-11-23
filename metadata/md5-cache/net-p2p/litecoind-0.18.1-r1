@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
 DEPEND=acct-group/litecoin acct-user/litecoin dev-libs/boost:= <dev-libs/leveldb-1.23:= dev-libs/libevent:=[threads(+)] dev-libs/openssl:=[-bindist(-)] sys-libs/db:4.8[cxx] upnp? ( net-libs/miniupnpc:= )
 DESCRIPTION=The offical daemon to run your own (full) Litecoin node
@@ -11,5 +11,5 @@ LICENSE=MIT ISC GPL-2
 RDEPEND=acct-group/litecoin acct-user/litecoin dev-libs/boost:= <dev-libs/leveldb-1.23:= dev-libs/libevent:=[threads(+)] dev-libs/openssl:=[-bindist(-)] sys-libs/db:4.8[cxx] upnp? ( net-libs/miniupnpc:= )
 SLOT=0
 SRC_URI=https://github.com/litecoin-project/litecoin/archive/v0.18.1.tar.gz -> litecoin-0.18.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	db-use	867a9246a45efc09934e0f8e3380c813	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	db-use	867a9246a45efc09934e0f8e3380c813	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=491f54410dbebe30483bef865fadc6ea

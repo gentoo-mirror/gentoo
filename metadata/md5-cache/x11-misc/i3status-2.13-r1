@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig filecaps? ( sys-libs/libcap ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig filecaps? ( sys-libs/libcap ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst prepare
 DEPEND=>=dev-libs/yajl-2.0.2 dev-libs/confuse:= dev-libs/libnl:3 media-libs/alsa-lib pulseaudio? ( || ( media-sound/pulseaudio media-sound/apulse[sdk] ) ) app-text/asciidoc app-text/xmlto
 DESCRIPTION=generates a status bar for dzen2, xmobar or similar
@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=>=dev-libs/yajl-2.0.2 dev-libs/confuse:= dev-libs/libnl:3 media-libs/alsa-lib pulseaudio? ( || ( media-sound/pulseaudio media-sound/apulse[sdk] ) ) filecaps? ( sys-libs/libcap )
 SLOT=0
 SRC_URI=https://i3wm.org/i3status/i3status-2.13.tar.bz2
-_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc
 _md5_=cf83911ae59739a8ad456a9dd9a73cb6

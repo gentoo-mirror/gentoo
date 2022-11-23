@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/automake-1.13 dev-qt/linguist-tools:5 knots? ( gnome-base/librsvg media-gfx/imagemagick[png] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=>=sys-devel/automake-1.13 dev-qt/linguist-tools:5 knots? ( gnome-base/librsvg media-gfx/imagemagick[png] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst postrm prepare pretend
 DEPEND=dev-libs/boost:= >dev-libs/libsecp256k1-0.1_pre20200911:=[recovery,schnorr] >=dev-libs/univalue-1.0.4:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 virtual/bitcoin-leveldb dbus? ( dev-qt/qtdbus:5 ) dev-libs/libevent:= qrcode? ( media-gfx/qrencode:= ) sqlite? ( >=dev-db/sqlite-3.7.17:= ) upnp? ( >=net-libs/miniupnpc-1.9.20150916:= ) berkdb? ( sys-libs/db:4.8=[cxx] ) zeromq? ( net-libs/zeromq:= )
 DESCRIPTION=An end-user Qt GUI for the Bitcoin crypto-currency
@@ -13,5 +13,5 @@ REQUIRED_USE=sqlite? ( wallet ) berkdb? ( wallet ) wallet? ( || ( berkdb sqlite 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/af591f2068d0363c92d9756ca39c43db85e5804c.tar.gz -> bitcoin-v0.21.2.tar.gz https://bitcoinknots.org/files/21.x/21.2.knots20210629/bitcoin-21.2.knots20210629.patches.txz -> bitcoin-21.2.knots20210629.patches.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	db-use	867a9246a45efc09934e0f8e3380c813	desktop	7eb20ad915a0a318176d51bc2508ff5c	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	db-use	867a9246a45efc09934e0f8e3380c813	desktop	7eb20ad915a0a318176d51bc2508ff5c	xdg-utils	ac0e315a3688929e34ac75b139e7349a
 _md5_=78dde169105dd6e2f5bc92147860e5b2

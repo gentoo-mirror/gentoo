@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 app-arch/xz-utils
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=>=dev-libs/glib-2.32:2 >=media-libs/clutter-1.20.0:1.0 media-libs/clutter-gst:3.0 >=media-libs/clutter-gtk-1.6.0:1.0 >=x11-libs/gtk+-3.5.0:3 x11-libs/libXtst >=media-libs/gstreamer-1.6.0:1.0 >=media-libs/gst-plugins-base-1.6.0:1.0 media-plugins/gst-plugins-meta:1.0 !!<net-misc/spice-gtk-0.19 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=A simple media player written using GStreamer and Clutter
@@ -10,5 +10,5 @@ LICENSE=GPL-2 LGPL-2
 RDEPEND=>=dev-libs/glib-2.32:2 >=media-libs/clutter-1.20.0:1.0 media-libs/clutter-gst:3.0 >=media-libs/clutter-gtk-1.6.0:1.0 >=x11-libs/gtk+-3.5.0:3 x11-libs/libXtst >=media-libs/gstreamer-1.6.0:1.0 >=media-libs/gst-plugins-base-1.6.0:1.0 media-plugins/gst-plugins-meta:1.0 !!<net-misc/spice-gtk-0.19
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/GNOME/snappy/-/archive/ebf8e3ed30013e6577fa8994db40743d2ec05e94/snappy-ebf8e3ed30013e6577fa8994db40743d2ec05e94.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
 _md5_=96adae575d1732528da1df82f1dda1c3

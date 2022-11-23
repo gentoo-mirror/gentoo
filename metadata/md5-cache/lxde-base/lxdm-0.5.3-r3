@@ -1,4 +1,4 @@
-BDEPEND=app-text/iso-codes >=dev-util/intltool-0.40 virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig
+BDEPEND=app-text/iso-codes >=dev-util/intltool-0.40 virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango x11-libs/libX11 x11-libs/libxcb:0= virtual/libcrypt:0= pam? ( sys-libs/pam )
 DESCRIPTION=LXDE Display Manager
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11
 REQUIRED_USE=?? ( elogind systemd ) elogind? ( pam ) systemd? ( pam )
 SLOT=0
 SRC_URI=mirror://sourceforge/lxde/lxdm-0.5.3.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=84f058942ef81a5584e9e3bce96059b9

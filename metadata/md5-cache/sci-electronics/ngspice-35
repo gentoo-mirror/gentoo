@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=sys-libs/ncurses:0= X? ( x11-libs/libXaw x11-libs/libXt x11-libs/libX11 ) fftw? ( sci-libs/fftw:3.0 ) readline? ( sys-libs/readline:0= ) tcl? ( dev-lang/tcl:0 dev-tcltk/blt )
 DESCRIPTION=The Next Generation Spice (Electronic Circuit Simulator)
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/ncurses:0= X? ( x11-libs/libXaw x11-libs/libXt x11-libs/libX11 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/ngspice/ngspice-35.tar.gz doc? ( mirror://sourceforge/ngspice/ngspice-35-manual.pdf )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multibuild	d26d81f242cb193d899a72bca423d0bd	virtualx	644887c82aefdf12001489391fca4f02
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	multibuild	d26d81f242cb193d899a72bca423d0bd	virtualx	644887c82aefdf12001489391fca4f02
 _md5_=b60ac776e53007b83f784fd4f993b5be

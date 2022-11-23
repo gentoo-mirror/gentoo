@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/flex-2.5.2 >=sys-devel/bison-1.22 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=>=sys-devel/flex-2.5.2 >=sys-devel/bison-1.22 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=gtk? ( x11-libs/gtk+:2 ) postgres? ( dev-db/postgresql:* ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0 ) X? ( x11-libs/libXt )
 DESCRIPTION=A freely available and fully compliant implementation of the CORBA standard
@@ -12,5 +12,5 @@ RDEPEND=gtk? ( x11-libs/gtk+:2 ) postgres? ( dev-db/postgresql:* ) ssl? ( dev-li
 RESTRICT=test
 SLOT=0
 SRC_URI=http://www.mico.org/mico-2.3.13.tar.gz https://github.com/ssi-schaefer/mico/compare/2.3.13-raw...2.3.13-gentoo-r14.patch -> mico-2.3.13-gentoo-r14.patch
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc
 _md5_=7d48c2dc7a783573d8fc3c972ec1c4f6

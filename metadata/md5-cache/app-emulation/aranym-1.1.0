@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=dev-libs/gmp:0= media-libs/libsdl2[video] clipboard? ( !kernel_Winnt? ( media-libs/libsdl2[X] x11-libs/libX11 ) ) jpeg? ( virtual/jpeg ) kernel_linux? ( virtual/libudev ) lilo? ( sys-libs/zlib ) opengl? ( virtual/opengl ) osmesa? ( media-libs/mesa[osmesa] ) pmmu? ( dev-libs/mpfr:0= ) usb? ( virtual/libusb:1 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Atari Running on Any Machine, VM running Atari ST/TT/Falcon OS and TOS/GEM apps
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/gmp:0= media-libs/libsdl2[video] clipboard? ( !kernel_Winnt? ( 
 REQUIRED_USE=|| ( jit pmmu standard ) lilo? ( pmmu )
 SLOT=0
 SRC_URI=https://github.com/aranym/aranym/releases/download/ARANYM_1_1_0/aranym_1.1.0.orig.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multibuild	d26d81f242cb193d899a72bca423d0bd	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	multibuild	d26d81f242cb193d899a72bca423d0bd	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=5e7b3f2e4181c2e3fbe715ba7d0e4078
