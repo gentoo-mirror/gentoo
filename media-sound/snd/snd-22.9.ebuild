@@ -23,7 +23,7 @@ RDEPEND="
 		dev-libs/mpfr:=
 	)
 	gsl? ( sci-libs/gsl:= )
-	gui? ( >=x11-libs/motif-2.3:0 )
+	gui? ( x11-libs/motif:0 )
 	jack? ( virtual/jack )
 	ladspa? ( media-libs/ladspa-sdk )
 	notcurses? ( dev-cpp/notcurses )
