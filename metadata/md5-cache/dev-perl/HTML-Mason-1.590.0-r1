@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.masonhq.com/ https://metacpan.org/release/HTML-Mason
 INHERIT=depend.apache perl-module
 IUSE=modperl test modperl
-KEYWORDS=amd64 ppc x86
+KEYWORDS=amd64 ppc ~riscv x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!modperl? ( >=dev-perl/CGI-2.460.0 ) modperl? ( www-apache/libapreq2 >=www-apache/mod_perl-2 ) >=dev-perl/Cache-Cache-1 >=dev-perl/Class-Container-0.70.0 >=dev-perl/Exception-Class-1.150.0 virtual/perl-File-Spec dev-perl/HTML-Parser >=dev-perl/Log-Any-0.80.0 >=dev-perl/Params-Validate-0.70.0 virtual/perl-Scalar-List-Utils modperl? ( =www-servers/apache-2* ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DR/DROLSKY/HTML-Mason-1.59.tar.gz
 _eclasses_=depend.apache	416d1c5005c5f4594e79812fb7323f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	21a0cb6221498d0e7894bdf445b79887
-_md5_=5a9a06c3c89e94517b94164606e1dde9
+_md5_=e478f7406f20d739e38c6971787952ab
