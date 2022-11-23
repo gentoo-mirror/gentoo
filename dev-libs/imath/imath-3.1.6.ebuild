@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake python-single-r1
 
@@ -13,7 +13,7 @@ DESCRIPTION="Imath basic math package"
 HOMEPAGE="https://imath.readthedocs.io"
 SRC_URI="https://github.com/AcademySoftwareFoundation/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 # re-keywording needed for (according to ilmbase keywords): ~x64-macos ~x86-solaris
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="BSD"
@@ -42,8 +42,6 @@ BDEPEND="
 	doc? ( $(python_gen_cond_dep 'dev-python/breathe[${PYTHON_USEDEP}]') )
 	python? ( ${PYTHON_DEPS} )
 "
-
-PATCHES=( "${FILESDIR}"/${P}-half.h-include-intrinsics-for-f16c-capable.patch )
 
 DOCS=( CHANGES.md CONTRIBUTORS.md README.md SECURITY.md docs/PortingGuide2-3.md )
 
