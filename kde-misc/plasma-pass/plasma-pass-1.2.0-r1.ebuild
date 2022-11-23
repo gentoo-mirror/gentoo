@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-KFMIN=5.74.0
-QTMIN=5.15.2
+KFMIN=5.82.0
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="Plasma applet to access password from pass"
@@ -32,8 +32,12 @@ DEPEND="
 	sys-auth/oath-toolkit
 "
 RDEPEND="${DEPEND}
+	app-crypt/gnupg
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 
-PATCHES=( "${FILESDIR}"/${P}-no-werror.patch ) # bug 785832
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-loggingcategories-dir.patch
+	"${FILESDIR}"/${P}-no-werror.patch # bug 785832
+)
