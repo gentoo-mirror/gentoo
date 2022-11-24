@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 VIRTUALX_REQUIRED="test"
 inherit ecm
@@ -15,7 +15,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE="pim"
 
-RESTRICT+=" test" # requires package installed, bug 745408
+RESTRICT="test" # requires package installed, bug 745408
 
 DEPEND="
 	dev-cpp/ctemplate
@@ -28,16 +28,16 @@ DEPEND="
 	kde-frameworks/kcontacts:5
 	kde-frameworks/ki18n:5
 	pim? (
-		>=kde-apps/akonadi-19.04.3:5
-		>=kde-apps/akonadi-contacts-19.04.3:5
+		>=kde-apps/akonadi-22.04.3:5
+		>=kde-apps/akonadi-contacts-22.04.3:5
 		kde-frameworks/kcoreaddons:5
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-qt/qtsvg:5
+"
 
 DOCS=( AUTHORS Changes.txt README.md Releasenotes.txt TODO )
-
-PATCHES=( "${FILESDIR}/${P}-i18n-warning.patch" )
 
 src_configure() {
 	local mycmakeargs=(
