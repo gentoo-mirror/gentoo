@@ -12,7 +12,7 @@ S="${WORKDIR}/desktop-${PV/_/-}"
 
 LICENSE="CC-BY-3.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="doc dolphin nautilus test webengine"
 RESTRICT="!test? ( test )"
 
@@ -29,6 +29,7 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwebsockets:5
 	dev-qt/qtwidgets:5
+	net-libs/libcloudproviders
 	sys-libs/zlib
 	dolphin? (
 		kde-frameworks/kcoreaddons:5
@@ -58,9 +59,6 @@ BDEPEND="
 "
 
 src_prepare() {
-	# We do not package libcloudproviders
-	sed -e "s/pkg_check_modules.*cloudproviders/#&/" -i CMakeLists.txt || die
-
 	# Keep tests in ${T}
 	sed -i -e "s#\"/tmp#\"${T}#g" test/test*.cpp || die
 
