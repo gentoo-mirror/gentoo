@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://varnish-cache.org/
 INHERIT=autotools systemd python-r1
 IUSE=jemalloc jit static-libs unwind python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=BSD-2 GPL-2
 RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) sys-libs/readline:= dev-libs/libedit dev-libs/libpcre2[jit?] sys-libs/ncurses:= jemalloc? ( dev-libs/jemalloc:= ) unwind? ( sys-libs/libunwind:= ) acct-user/varnish acct-group/varnish sys-devel/gcc
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0/2
 SRC_URI=http://varnish-cache.org/_downloads/varnish-7.1.2.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	systemd	5f4bb0758df2e483babf68cd517078ca	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd
-_md5_=c09b7a15bc56556612f3b862b5e0f0e5
+_md5_=77a144f9d3d884fbb907899476db9e4a
