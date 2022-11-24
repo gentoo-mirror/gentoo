@@ -43,7 +43,7 @@ BDEPEND+="
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_DOXYGEN=$(usex doc)
+		-Ddoxygen=$(usex doc)
 	)
 
 	cmake_src_configure
