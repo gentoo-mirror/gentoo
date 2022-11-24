@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
-DEFINED_PHASES=compile configure install prepare
-DEPEND=sys-devel/bison sys-devel/flex test? ( dev-libs/check )
+BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=test? ( dev-libs/check )
 DESCRIPTION=Linux IPv6 Router Advertisement Daemon
 EAPI=8
 HOMEPAGE=https://v6web.litech.org/radvd/
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://v6web.litech.org/radvd/dist/radvd-2.19.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=d8e6dfef90ca06d25fed9200a69315ae
+_md5_=44e24f3a944a99c81891d3f4e68f8216
