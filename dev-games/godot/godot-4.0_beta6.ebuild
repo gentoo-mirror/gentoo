@@ -1,9 +1,9 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit bash-completion-r1 desktop python-any-r1 scons-utils toolchain-funcs xdg
 
 MY_P="${PN}-$(ver_rs 2 -)"
@@ -24,8 +24,8 @@ KEYWORDS="~amd64"
 IUSE="
 	+dbus debug deprecated +fontconfig +gui pulseaudio raycast
 	+runner speech test +theora +tools +udev +upnp +webp"
-# Disable tests until out of beta, tests themselves are new and can be volatile
-RESTRICT="test" # "!test? ( test ) !tools? ( test ) !webp? ( test )"
+# disable tests until out of beta, tests themselves are new and can be volatile
+RESTRICT="test"
 
 # dlopen: alsa-lib,dbus,fontconfig,pulseaudio,speech-dispatcher,udev
 RDEPEND="

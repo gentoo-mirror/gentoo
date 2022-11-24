@@ -412,51 +412,6 @@ dev-libs/cloog
 # Removal in 30 days
 dev-python/pweave
 
-# Jonas Stein <jstein@gentoo.org> (2022-10-26)
-# Dead upstream, open bugs.
-# Removal after 2022-12-24.  Bug #878337.
-app-misc/tpconfig
-
-# Sam James <sam@gentoo.org> (2022-10-24)
-# Non-free licence which prohibits any patching. Fails to build with Clang 16.
-# Removal on 2022-10-24.
-dev-util/sgb
-sci-misc/gt-itm
-
-# Sam James <sam@gentoo.org> (2022-10-24)
-# Fails to build with Clang 16 (code quality issues), no upstream activity
-# in 7 years. Removal on 2022-11-23. bug #874486, bug #791604.
-games-fps/qudos
-
-# David Seifert <soap@gentoo.org> (2022-10-23)
-# Dead package, upstream gone, GTK+2, fails to build with Clang 16 and
-# tests fail. Removal on 2022-11-22. Bug #741200, #875686.
-sci-calculators/grpn
-
-# Hans de Graaff <graaff@gentoo.org> (2022-10-22)
-# Last release upstream 10 years ago. No longer compiles with latest
-# clang (bug #875254) and doubtful that this actually works with recent
-# ruby versions.
-# Masked for removal in 30 days.
-dev-ruby/ruby-sdl
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-21)
-# Barely maintained upstream.  Still lacking support for Python 3.10.
-# All revdeps in Gentoo were pure test deps, and only optional
-# (because they would otherwise block Python 3.10).
-# Removal on 2022-11-20.  Bug #845723.
-dev-python/eventlet
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-17)
-# Unmaintained since 2018.  Requires dev-python/nose.  No revdeps left.
-# Removal on 2022-11-16.  Bug #877375.
-dev-python/case
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-17)
-# dev-python/nose plugin.  No revdeps left.
-# Removal on 2022-11-16.  Bug #877369.
-dev-python/nose_warnings_filters
-
 # John Helmert III <ajak@gentoo.org> (2022-10-16)
 # <OpenSSL-1.1.1 are EOL and contain known vulnerabilities. Users should
 # migrate to a newer branch.
@@ -469,37 +424,6 @@ dev-python/nose_warnings_filters
 # and https://github.com/openssl/openssl/issues/19389.
 =dev-libs/openssl-1.1.1r
 =dev-libs/openssl-3.0.6
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-10-10)
-# Unused Java library. Removal on 2022-11-10.
-dev-java/objenesis-test
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-08)
-# Repository and SRC_URI gone.  Last release in 2012 (guessing
-# by filename).
-# Removal on 2022-11-07.  Bug #876151.
-xfce-extra/transd
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-08)
-# This package is not really required for anything, as it being missing
-# only disables enforcing install_requires.  At the same time, it being
-# installed causes unexpected verbose output that randomly breaks more
-# susceptible test suites (e.g. dev-python/pythran).
-# Removal on 2022-11-07.  Bug #876082.
-dev-python/setuptools-declarative-requirements
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-08)
-# The test suite is broken since at least March.  No revdeps.
-# Removal on 2022-11-07.  Bug #834656.
-dev-python/kazoo
-
-# Sam James <sam@gentoo.org> (2022-10-07)
-# Ancient K&R C codebase which fails to compile with modern Clang; surface
-# level fixes are doable, but then get into various dangerous constructs
-# in the async code which is non-trivial to port to modern compilers.
-# bug #731070, bug #802108, bug #875164.
-# Use media-sound/mpd if looking for a modern alternative. Removal on 2022-11-07.
-media-sound/rplay
 
 # Sam James <sam@gentoo.org> (2022-10-04)
 # Regression for some Intel LCDs which may cause physical damage
