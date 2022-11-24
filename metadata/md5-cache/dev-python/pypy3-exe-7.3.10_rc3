@@ -1,14 +1,14 @@
-BDEPEND=low-memory? ( dev-python/pypy ) !low-memory? ( || ( dev-python/pypy dev-lang/python:2.7 ) )
+BDEPEND=dev-python/pypy
 DEFINED_PHASES=compile configure install prepare pretend setup
 DEPEND=app-arch/bzip2:0= dev-libs/expat:0= dev-libs/libffi:0= >=sys-libs/zlib-1.1.3:0= virtual/libintl:0= ncurses? ( sys-libs/ncurses:0= ) !dev-python/pypy3-exe-bin:3.9-7.3.10_rc3
 DESCRIPTION=PyPy3 executable (build from source)
 EAPI=8
 HOMEPAGE=https://www.pypy.org/
-INHERIT=check-reqs pax-utils python-any-r1 toolchain-funcs
+INHERIT=check-reqs pax-utils toolchain-funcs
 IUSE=+jit low-memory ncurses cpu_flags_x86_sse2
 LICENSE=MIT
 RDEPEND=app-arch/bzip2:0= dev-libs/expat:0= dev-libs/libffi:0= >=sys-libs/zlib-1.1.3:0= virtual/libintl:0= ncurses? ( sys-libs/ncurses:0= ) !dev-python/pypy3-exe-bin:3.9-7.3.10_rc3
 SLOT=3.9-7.3.10_rc3
 SRC_URI=https://buildbot.pypy.org/pypy/pypy3.9-v7.3.10rc3-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.9-gentoo-patches-7.3.10rc3.tar.xz
-_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
-_md5_=7142602d87af32ba5de6f278adc5298d
+_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	pax-utils	91d47e5d20627c717aa878b9167c62a8	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=f3fc318ecd6c3cc51d4da9eddc228ecf

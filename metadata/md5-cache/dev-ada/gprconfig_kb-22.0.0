@@ -1,0 +1,14 @@
+DEFINED_PHASES=install prepare setup
+DESCRIPTION=GPR configuration knowledge base
+EAPI=7
+HOMEPAGE=https://www.adacore.com/
+INHERIT=ada
+IUSE=ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=!=dev-ada/gprbuild-2021*
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
+SLOT=0
+SRC_URI=https://github.com/AdaCore/gprconfig_kb/archive/refs/tags/v22.0.0.tar.gz -> gprconfig_kb-22.0.0.tar.gz
+_eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9
+_md5_=da7b7ca5a3e6c1409bba64dea09fa0c3
