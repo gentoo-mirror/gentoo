@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-xalan-c ) doc? ( app-doc/doxygen[dot] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/icu:= dev-libs/xerces-c[icu]
+DESCRIPTION=XSLT processor for transforming XML into HTML, text, or other XML types
+EAPI=8
+HOMEPAGE=https://apache.github.io/xalan-c/
+INHERIT=cmake verify-sig
+IUSE=doc verify-sig
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/icu:= dev-libs/xerces-c[icu]
+SLOT=0/1.12
+SRC_URI=mirror://apache/xalan/xalan-c/sources/xalan_c-1.12.tar.gz verify-sig? ( https://dlcdn.apache.org/xalan/xalan-c/sources/xalan_c-1.12.tar.gz.asc )
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=e499b896aeea8ef8bc1c37a551d42052
