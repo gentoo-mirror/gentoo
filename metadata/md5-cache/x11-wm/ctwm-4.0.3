@@ -1,16 +1,16 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt jpeg? ( virtual/jpeg ) rplay? ( media-sound/rplay ) xpm? ( x11-libs/libXpm ) app-arch/xz-utils x11-base/xorg-proto
+DEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt jpeg? ( virtual/jpeg ) xpm? ( x11-libs/libXpm ) app-arch/xz-utils x11-base/xorg-proto
 DESCRIPTION=A clean, light window manager
 EAPI=7
 HOMEPAGE=https://ctwm.org/
 INHERIT=cmake flag-o-matic virtualx
-IUSE=jpeg rplay test xpm test
+IUSE=jpeg test xpm test
 KEYWORDS=amd64 ppc x86
 LICENSE=MIT
-RDEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt jpeg? ( virtual/jpeg ) rplay? ( media-sound/rplay ) xpm? ( x11-libs/libXpm )
+RDEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt jpeg? ( virtual/jpeg ) xpm? ( x11-libs/libXpm )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://ctwm.org/dist/ctwm-4.0.3.tar.xz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02
-_md5_=83a480adca5c5d9a0651368431b5ac2c
+_md5_=f28b9a8c239ec757005c407b1f0108cb
