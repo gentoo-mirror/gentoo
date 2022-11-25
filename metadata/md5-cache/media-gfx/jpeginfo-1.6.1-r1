@@ -1,13 +1,14 @@
-DEFINED_PHASES=configure install
-DEPEND=virtual/jpeg:0
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=media-libs/libjpeg-turbo:=
 DESCRIPTION=Prints information and tests integrity of JPEG/JFIF files
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.kokkonen.net/tjko/projects.html
-INHERIT=toolchain-funcs
+INHERIT=autotools toolchain-funcs
 KEYWORDS=~alpha amd64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
-RDEPEND=virtual/jpeg:0
+RDEPEND=media-libs/libjpeg-turbo:=
 SLOT=0
 SRC_URI=https://www.kokkonen.net/tjko/src/jpeginfo-1.6.1.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=bdf9f24752bb176c5c68a85d941f8dcd
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=e22bdbde554f934bfde20df00c4f3fa2

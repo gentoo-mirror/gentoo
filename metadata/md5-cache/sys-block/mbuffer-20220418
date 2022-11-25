@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.maier-komor.de/mbuffer.html
 INHERIT=autotools
 IUSE=debug ssl test
-KEYWORDS=amd64 arm arm64 ~ppc ~riscv x86
+KEYWORDS=amd64 arm arm64 ppc ~riscv x86
 LICENSE=GPL-3
 RDEPEND=ssl? ( dev-libs/openssl:0= )
 REQUIRED_USE=test? ( ssl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.maier-komor.de/software/mbuffer/mbuffer-20220418.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=4e6fba19075b5be4a001f9ab990a03db
+_md5_=db94dd4fc2eeb5fb609c8d9c9f7e8d04

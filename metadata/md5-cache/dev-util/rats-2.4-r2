@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure postinst prepare
+DEPEND=dev-libs/expat:=
+DESCRIPTION=RATS - Rough Auditing Tool for Security
+EAPI=8
+HOMEPAGE=https://github.com/andrew-d/rough-auditing-tool-for-security
+INHERIT=autotools edos2unix
+KEYWORDS=amd64 ~ppc ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=dev-libs/expat:=
+SLOT=0
+SRC_URI=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/rough-auditing-tool-for-security/rats-2.4.tgz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773
+_md5_=edffe92691f515ab41d87ae9056cc8c7
