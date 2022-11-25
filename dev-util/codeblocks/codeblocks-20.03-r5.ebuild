@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
 
@@ -11,7 +11,7 @@ DESCRIPTION="The open source, cross platform, free C, C++ and Fortran IDE"
 HOMEPAGE="https://codeblocks.org/"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz
 https://dev.gentoo.org/~leio/distfiles/${P}-fortran.tar.xz
 https://dev.gentoo.org/~leio/distfiles/${P}-fortran-update-v1.7.tar.xz
@@ -24,7 +24,7 @@ https://dev.gentoo.org/~leio/distfiles/${P}-codecompletion-symbolbrowser-update.
 # https://sourceforge.net/projects/fortranproject
 # https://cbfortran.sourceforge.io
 
-IUSE="contrib debug fortran pch"
+IUSE="contrib debug fortran"
 
 BDEPEND="virtual/pkgconfig"
 
@@ -64,11 +64,16 @@ src_configure() {
 	use contrib || CONF_WITH_LST=$(use_with fortran contrib-plugins FortranProject)
 
 	econf \
+		--disable-pch \
 		--disable-static \
 		$(use_with contrib boost-libdir "${ESYSROOT}/usr/$(get_libdir)") \
 		$(use_enable debug) \
-		$(use_enable pch) \
 		${CONF_WITH_LST}
+}
+
+src_install() {
+	default
+	find "${ED}" -type f -name '*.la' -delete || die
 }
 
 pkg_postinst() {
