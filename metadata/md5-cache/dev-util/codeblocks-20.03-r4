@@ -4,7 +4,7 @@ DEPEND=app-arch/zip >=dev-libs/tinyxml-2.6.2-r3 >=dev-util/astyle-3.1-r2:0/3.1 x
 DESCRIPTION=The open source, cross platform, free C, C++ and Fortran IDE
 EAPI=7
 HOMEPAGE=https://codeblocks.org/
-INHERIT=autotools wxwidgets xdg
+INHERIT=autotools flag-o-matic wxwidgets xdg
 IUSE=contrib debug fortran pch
 KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-3
@@ -12,4 +12,4 @@ RDEPEND=app-arch/zip >=dev-libs/tinyxml-2.6.2-r3 >=dev-util/astyle-3.1-r2:0/3.1 
 SLOT=0
 SRC_URI=mirror://sourceforge/codeblocks/codeblocks-20.03.tar.xz https://dev.gentoo.org/~leio/distfiles/codeblocks-20.03-fortran.tar.xz https://dev.gentoo.org/~leio/distfiles/codeblocks-20.03-fortran-update-v1.7.tar.xz https://dev.gentoo.org/~leio/distfiles/codeblocks-20.03-fortran-update-v1.8.tar.xz https://dev.gentoo.org/~leio/distfiles/codeblocks-20.03-codecompletion-symbolbrowser-update.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=ffa7f99a988090dd61a20c0e396a109b
+_md5_=8a3f126255c56dcdb151fdb9cde4d522
