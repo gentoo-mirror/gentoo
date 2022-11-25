@@ -12,8 +12,8 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/babl.git"
 	SRC_URI=""
 else
-	SRC_URI="https://ftp.gimp.org/pub/${PN}/${PV:0:3}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv -sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris ~x86-solaris"
+	SRC_URI="https://download.gimp.org/pub/${PN}/${PV:0:3}/${P}.tar.xz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv -sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris ~x86-solaris"
 fi
 
 DESCRIPTION="A dynamic, any to any, pixel format conversion library"
@@ -29,16 +29,14 @@ BDEPEND="
 	vala? ( $(vala_depend) )
 "
 RDEPEND="
-	introspection? ( >=dev-libs/gobject-introspection-1.32:= )
-	lcms? ( >=media-libs/lcms-2.8:2 )
+	introspection? ( >=dev-libs/gobject-introspection-1.72:= )
+	lcms? ( >=media-libs/lcms-2.13.1:2 )
 "
 DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
 	gnome2_environment_reset
-
-	sed -i -e 's/Description/description/' meson.build || die # bug 843266
 }
 
 src_configure() {
@@ -61,4 +59,11 @@ src_configure() {
 		$(meson_use cpu_flags_x86_sse4_1 enable-sse4_1)
 	)
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+
+	# Bug 871690
+	dosym -r /usr/"$(get_libdir)"/pkgconfig/babl.pc /usr/"$(get_libdir)"/pkgconfig/babl-0.1.pc
 }

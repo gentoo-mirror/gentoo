@@ -4,20 +4,20 @@
 EAPI=8
 
 LUA_COMPAT=( luajit )
-PYTHON_COMPAT=( python3_{8..10} )
-GNOME2_EAUTORECONF=yes
-VALA_MIN_API_VERSION="0.44"
+PYTHON_COMPAT=( python3_{8..11} )
+VALA_MIN_API_VERSION="0.50"
 VALA_USE_DEPEND=vapigen
 
-inherit gnome2 lua-single python-single-r1 toolchain-funcs vala virtualx
+inherit lua-single meson python-single-r1 vala xdg
 
 DESCRIPTION="GNU Image Manipulation Program"
 HOMEPAGE="https://www.gimp.org/"
-SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${P}.tar.bz2"
+SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${P}.tar.xz"
+
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0/3"
 
-IUSE="aalib alsa aqua doc gnome heif javascript jpeg2k jpegxl lua mng openexr postscript python udev unwind vala vector-icons webp wmf xpm cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse"
+IUSE="X aalib alsa doc gnome heif javascript jpeg2k jpegxl lua mng openexr postscript python test udev unwind vala vector-icons webp wmf xpm"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -28,38 +28,36 @@ RESTRICT="!test? ( test )"
 # media-libs/{babl,gegl} are required to be built with USE="introspection"
 # to fix the compilation checking of /usr/share/gir-1.0/{Babl-0.1gir,Gegl-0.4.gir}
 COMMON_DEPEND="
+	>=app-accessibility/at-spi2-core-2.46.0
 	>=app-text/poppler-0.90.1[cairo]
 	>=app-text/poppler-data-0.4.9
 	>=dev-libs/appstream-glib-0.7.16
-	>=dev-libs/atk-2.34.1
 	>=dev-libs/glib-2.68.0:2
 	>=dev-libs/json-glib-1.4.4
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	>=gnome-base/librsvg-2.40.21:2
 	>=media-gfx/mypaint-brushes-2.0.2:=
-	>=media-libs/babl-0.1.90[introspection,lcms,vala?]
+	>=media-libs/babl-0.1.98[introspection,lcms,vala?]
 	>=media-libs/fontconfig-2.12.6
 	>=media-libs/freetype-2.10.2
-	>=media-libs/gegl-0.4.36:0.4[cairo,introspection,lcms,vala?]
-	>=media-libs/gexiv2-0.12.2
+	>=media-libs/gegl-0.4.40:0.4[cairo,introspection,lcms,vala?]
+	>=media-libs/gexiv2-0.14.0
 	>=media-libs/harfbuzz-2.6.5:=
-	>=media-libs/lcms-2.9:2
+	>=media-libs/lcms-2.13.1:2
+	media-libs/libjpeg-turbo
 	>=media-libs/libmypaint-1.6.1:=
 	>=media-libs/libpng-1.6.37:0=
 	>=media-libs/tiff-4.1.0:0
 	net-libs/glib-networking[ssl]
 	sys-libs/zlib
-	virtual/jpeg
 	>=x11-libs/cairo-1.16.0
 	>=x11-libs/gdk-pixbuf-2.40.0:2[introspection]
 	>=x11-libs/gtk+-3.24.16:3[introspection]
-	x11-libs/libXcursor
 	>=x11-libs/pango-1.44.7
 	aalib? ( media-libs/aalib )
 	alsa? ( >=media-libs/alsa-lib-1.0.0 )
-	aqua? ( >=x11-libs/gtk-mac-integration-2.0.0 )
-	heif? ( >=media-libs/libheif-1.9.1:= )
+	heif? ( >=media-libs/libheif-1.13.0:= )
 	javascript? ( dev-libs/gjs )
 	jpeg2k? ( >=media-libs/openjpeg-2.3.1:2= )
 	jpegxl? ( >=media-libs/libjxl-0.6.1:= )
@@ -82,6 +80,7 @@ COMMON_DEPEND="
 	unwind? ( >=sys-libs/libunwind-1.1.0:= )
 	webp? ( >=media-libs/libwebp-0.6.0:= )
 	wmf? ( >=media-libs/libwmf-0.2.8 )
+	X? ( x11-libs/libXcursor )
 	xpm? ( x11-libs/libXpm )
 "
 
@@ -93,27 +92,24 @@ RDEPEND="
 
 DEPEND="
 	${COMMON_DEPEND}
-	>=dev-lang/perl-5.30.3
-	dev-util/gdbus-codegen
-	dev-util/gtk-update-icon-cache
-	>=dev-util/intltool-0.51.0
-	>=sys-devel/autoconf-2.54
-	>=sys-devel/automake-1.11
-	>=sys-devel/gettext-0.21
-	>=sys-devel/libtool-2.4.6
-	doc? ( dev-util/gi-docgen )
+	test? ( x11-misc/xvfb-run )
 	vala? ( $(vala_depend) )
 "
 
 # TODO: there are probably more atoms in DEPEND which should be in BDEPEND now
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	>=dev-lang/perl-5.30.3
+	dev-util/gdbus-codegen
+	>=sys-devel/gettext-0.21
+	doc? (
+		app-text/yelp-tools
+		dev-libs/gobject-introspection[doctool]
+		dev-util/gi-docgen
+	)
+	virtual/pkgconfig
+"
 
-DOCS=( "AUTHORS" "devel-docs/CODING_STYLE.md" "devel-docs/HACKING.md" "NEWS" "README" "README.i18n" )
-
-# Bugs 685210 (and duplicate 691070)
-PATCHES=(
-	"${FILESDIR}/${PN}-2.10_fix_test-appdata.patch"
-)
+DOCS=( "AUTHORS" "devel-docs/HACKING.md" "NEWS" "README" "README.i18n" )
 
 pkg_setup() {
 	use lua && lua-single_pkg_setup
@@ -124,17 +120,21 @@ pkg_setup() {
 }
 
 src_prepare() {
-	sed -i -e 's/mypaint-brushes-1.0/mypaint-brushes-2.0/' configure.ac || die #737794
+	default
 
-	sed -i -e 's/== "xquartz"/= "xquartz"/' configure.ac || die #494864
-	sed 's:-DGIMP_DISABLE_DEPRECATED:-DGIMP_protect_DISABLE_DEPRECATED:g' -i configure.ac || die #615144
+	sed -i -e 's/mypaint-brushes-1.0/mypaint-brushes-2.0/' meson.build || die #737794
 
-	gnome2_src_prepare  # calls eautoreconf
+	# Fix Gimp  and GimpUI devel doc installation paths
+	sed -i -e "s/'doc'/'gtk-doc'/" devel-docs/reference/gimp/meson.build || die
+	sed -i -e "s/'doc'/'gtk-doc'/" devel-docs/reference/gimp-ui/meson.build || die
 
-	sed 's:-DGIMP_protect_DISABLE_DEPRECATED:-DGIMP_DISABLE_DEPRECATED:g' -i configure || die #615144
-	grep -F -q GIMP_DISABLE_DEPRECATED configure || die #615144, self-test
+	# Fix pygimp.interp python implementation path.
+	# Meson @PYTHON_PATH@ use sandbox path e.g.:
+	# '/var/tmp/portage/media-gfx/gimp-2.99.12/temp/python3.10/bin/python3'
+	sed -i -e 's/@PYTHON_PATH@/'${EPYTHON}'/' plug-ins/python/pygimp.interp.in || die
 
-	export CC_FOR_BUILD="$(tc-getBUILD_CC)"
+	# Set proper intallation path of documentation logo
+	sed -i -e "s/'gimp-@0@'.format(gimp_app_version)/'gimp-@0@.@1@'.format(gimp_app_version, gimp_app_version_micro)/" data/images/meson.build || die
 }
 
 _adjust_sandbox() {
@@ -156,77 +156,67 @@ src_configure() {
 
 	use vala && vala_setup
 
-	local myconf=(
-		GEGL="${EPREFIX}"/usr/bin/gegl-0.4
-		GDBUS_CODEGEN="${EPREFIX}"/usr/bin/gdbus-codegen
+	local emesonargs=(
+		-Denable-default-bin=true
 
-		--enable-default-binary
-
-		--disable-check-update
-		--enable-mp
-		--with-appdata-test
-		--with-bug-report-url=https://bugs.gentoo.org/
-		--with-xmc
-		--without-libbacktrace
-		--without-webkit
-		--without-xvfb-run
-		$(use_enable cpu_flags_ppc_altivec altivec)
-		$(use_enable cpu_flags_x86_mmx mmx)
-		$(use_enable cpu_flags_x86_sse sse)
-		$(use_enable doc gi-docgen)
-		$(use_enable vector-icons)
-		$(use_with aalib aa)
-		$(use_with alsa)
-		$(use_with !aqua x)
-		$(use_with heif libheif)
-		$(use_with javascript)
-		$(use_with jpeg2k jpeg2000)
-		$(use_with jpegxl)
-		$(use_with lua)
-		$(use_with mng libmng)
-		$(use_with openexr)
-		$(use_with postscript gs)
-		$(use_with python)
-		$(use_with udev gudev)
-		$(use_with unwind libunwind)
-		$(use_with vala)
-		$(use_with webp)
-		$(use_with wmf)
-		$(use_with xpm libxpm)
+		-Dcheck-update=no
+		-Denable-multiproc=true
+		-Dappdata-test=disabled
+		-Dbug-report-url=https://bugs.gentoo.org/
+		-Dlibbacktrace=false
+		-Dwebkit-unmaintained=false
+		$(meson_feature aalib aa)
+		$(meson_feature alsa)
+		$(meson_feature doc gi-docgen)
+		$(meson_feature heif)
+		$(meson_feature jpeg2k jpeg2000)
+		$(meson_feature jpegxl jpeg-xl)
+		$(meson_feature mng)
+		$(meson_feature openexr)
+		$(meson_feature postscript ghostscript)
+		$(meson_feature test headless-tests)
+		$(meson_feature udev gudev)
+		$(meson_feature vala vala-plugins)
+		$(meson_feature webp)
+		$(meson_feature wmf)
+		$(meson_feature X xcursor)
+		$(meson_feature xpm)
+		$(meson_use doc g-ir-doc)
+		$(meson_use javascript)
+		$(meson_use lua)
+		$(meson_use python)
+		$(meson_use unwind libunwind)
+		$(meson_use vector-icons)
 	)
 
-	gnome2_src_configure "${myconf[@]}"
+	meson_src_configure
 }
 
 src_compile() {
 	export XDG_DATA_DIRS="${EPREFIX}"/usr/share  # bug 587004
-	gnome2_src_compile
+	meson_src_compile
 }
 
 # for https://bugs.gentoo.org/664938
 _rename_plugins() {
 	einfo 'Renaming plug-ins to not collide with pre-2.10.6 file layout (bug #664938)...'
-	local prefix=gimp-org-
+	local prename=gimp-org-
 	(
 		cd "${ED}"/usr/$(get_libdir)/gimp/2.99/plug-ins || exit 1
 		for plugin_slash in $(ls -d1 */); do
-		    plugin=${plugin_slash%/}
-		    if [[ -f ${plugin}/${plugin} ]]; then
-			# NOTE: Folder and file name need to match for Gimp to load that plug-in
-			#       so "file-svg/file-svg" becomes "${prefix}file-svg/${prefix}file-svg"
-			mv ${plugin}/{,${prefix}}${plugin} || exit 1
-			mv {,${prefix}}${plugin} || exit 1
-		    fi
+			plugin=${plugin_slash%/}
+			if [[ -f ${plugin}/${plugin} ]]; then
+				# NOTE: Folder and file name need to match for Gimp to load that plug-in
+				#       so "file-svg/file-svg" becomes "${prename}file-svg/${prename}file-svg"
+				mv ${plugin}/{,${prename}}${plugin} || exit 1
+				mv {,${prename}}${plugin} || exit 1
+			fi
 		done
 	)
 }
 
-src_test() {
-	virtx emake check
-}
-
 src_install() {
-	gnome2_src_install
+	meson_src_install
 
 	if use python; then
 		python_optimize
@@ -241,13 +231,20 @@ src_install() {
 	# Prevent dead symlink gimp-console.1 from downstream man page compression (bug #433527)
 	mv "${ED}"/usr/share/man/man1/gimp-console{-*,}.1 || die
 
+	# Create symlinks for Gimp exec in /usr/bin
+	dosym "${ESYSROOT}"/usr/bin/gimp-2.99 /usr/bin/gimp
+	dosym "${ESYSROOT}"/usr/bin/gimp-console-2.99 /usr/bin/gimp-console
+	dosym "${ESYSROOT}"/usr/bin/gimp-script-fu-interpreter-3.0 /usr/bin/gimp-script-fu-interpreter
+	dosym "${ESYSROOT}"/usr/bin/gimp-test-clipboard-2.99 /usr/bin/gimp-test-clipboard
+	dosym "${ESYSROOT}"/usr/bin/gimptool-2.99 /usr/bin/gimptool
+
 	_rename_plugins || die
 }
 
 pkg_postinst() {
-	gnome2_pkg_postinst
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	gnome2_pkg_postrm
+	xdg_desktop_database_update
 }
