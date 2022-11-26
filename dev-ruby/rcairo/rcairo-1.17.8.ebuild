@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby27"
 
 RUBY_FAKEGEM_NAME="cairo"
 
@@ -15,7 +15,7 @@ RUBY_FAKEGEM_EXTRADOC="AUTHORS NEWS"
 
 RUBY_FAKEGEM_EXTENSIONS=(ext/cairo/extconf.rb)
 
-inherit multilib ruby-fakegem
+inherit ruby-fakegem
 
 DESCRIPTION="Ruby bindings for cairo"
 HOMEPAGE="https://cairographics.org/rcairo/"
@@ -24,7 +24,7 @@ IUSE=""
 
 SLOT="0"
 LICENSE="|| ( Ruby-BSD GPL-2 )"
-KEYWORDS="amd64 ~ppc ~riscv ~x86"
+KEYWORDS="~amd64 ~ppc ~riscv ~x86"
 
 RDEPEND="${RDEPEND}
 	>=x11-libs/cairo-1.2.0[svg(+)]"
