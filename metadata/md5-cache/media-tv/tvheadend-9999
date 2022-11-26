@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) sys-devel/gettext virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) sys-devel/gettext virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup unpack
 DEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) ffmpeg? ( media-video/ffmpeg:0=[opus?,vpx?,x264?,x265?] ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( virtual/linuxtv-dvb-headers ) ffmpeg? ( opus? ( media-libs/opus ) vpx? ( media-libs/libvpx ) x264? ( media-libs/x264 ) x265? ( media-libs/x265 ) )
 DESCRIPTION=Tvheadend is a TV streaming server and digital video recorder
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) ffmpeg? ( media-video/ffmpeg:0=[opus?,vpx?,x264?,x265?] ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( media-tv/dtv-scan-tables ) xmltv? ( media-tv/xmltv )
 REQUIRED_USE=ddci? ( dvb )
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=b21e46c90b681b73350188bbc1be713b

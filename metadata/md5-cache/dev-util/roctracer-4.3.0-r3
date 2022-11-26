@@ -1,4 +1,4 @@
-BDEPEND=|| ( ( >=dev-lang/python-3.10.4:3.10 dev-python/CppHeaderParser[python_targets_python3_10(-)] dev-python/ply[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/CppHeaderParser[python_targets_python3_8(-)] dev-python/ply[python_targets_python3_8(-)] ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=|| ( ( >=dev-lang/python-3.10.8_p3:3.10 dev-python/CppHeaderParser[python_targets_python3_10(-)] dev-python/ply[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.8.15_p3:3.8 dev-python/CppHeaderParser[python_targets_python3_8(-)] dev-python/ply[python_targets_python3_8(-)] ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/rocr-runtime:0/4.3 dev-util/hip:0/4.3
 DESCRIPTION=Callback/Activity Library for Performance tracing AMD GPU's
@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/rocr-runtime:0/4.3 dev-util/hip:0/4.3
 SLOT=0/4.3
 SRC_URI=https://github.com/ROCm-Developer-Tools/roctracer/archive/rocm-4.3.0.tar.gz -> rocm-tracer-4.3.0.tar.gz https://github.com/ROCm-Developer-Tools/rocprofiler/archive/rocm-4.3.0.tar.gz -> rocprofiler-4.3.0.tar.gz https://github.com/ROCmSoftwarePlatform/hsa-class/archive/f8b387043b9f510afdf2e72e38a011900360d6ab.tar.gz -> hsa-class-f8b3870.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	prefix	eab3c99d77fe00506c109c8a736186f7	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	prefix	eab3c99d77fe00506c109c8a736186f7	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
 _md5_=ba9a2a35b9f797ea7f8d1e07ce549c6f

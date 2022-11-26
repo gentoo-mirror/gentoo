@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.19.8 dev-lang/perl test? ( || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/pytest[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/pytest[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/pytest[python_targets_python3_8(-)] dev-python/requests[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.19.8 dev-lang/perl test? ( || ( ( >=dev-lang/python-3.11.0_p2:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.8_p3:3.10 dev-python/pytest[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.15_p3:3.9 dev-python/pytest[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.15_p3:3.8 dev-python/pytest[python_targets_python3_8(-)] dev-python/requests[python_targets_python3_8(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/glib-2.44:2 dev-libs/json-glib >=app-arch/libarchive-3.0.0:= net-libs/libsoup:3.0 >=dev-libs/libxml2-2.6.0
 DESCRIPTION=Tools for managing the osinfo database
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/glib-2.44:2 dev-libs/json-glib >=app-arch/libarchive-3.0.0:= 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://releases.pagure.org/libosinfo/osinfo-db-tools-1.10.0.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
 _md5_=2f197054ad1ee16aaf84913d6f94f83a
