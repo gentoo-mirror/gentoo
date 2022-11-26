@@ -1,5 +1,5 @@
 BDEPEND=test? ( dev-vcs/git ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p9:0=[bzip2(+),threads(+)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8[bzip2(+),threads(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9[bzip2(+),threads(+)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10[bzip2(+),threads(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11[bzip2(+),threads(+)] ) >=dev-python/setuptools-65.5.1[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install preinst prepare pretend setup test unpack
+DEFINED_PHASES=compile configure install postinst preinst prepare pretend setup test unpack
 DEPEND=!build? ( python_targets_pypy3? ( >=dev-python/pypy3-7.3.9_p9:0=[ssl(+)] ) python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8[ssl(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9[ssl(+)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10[ssl(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11[ssl(+)] ) ) >=app-arch/tar-1.27 dev-lang/python-exec:2 >=sys-apps/sed-4.0.5 sys-devel/patch doc? ( app-text/xmlto ~app-text/docbook-xml-dtd-4.4 ) apidoc? ( dev-python/sphinx[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/sphinx-epytext[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 DESCRIPTION=The package management and distribution system for Gentoo
 EAPI=7
@@ -14,4 +14,4 @@ REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_p
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	da32ffc285e9f13313f2387570e35b87	git-r3	2347f8fe2d392b2a091191f94be37e6f	linux-info	bbfa385d6907d7948d49a5e107bd654d	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=442a4d46aeb66f38c680fae364c4b890
+_md5_=eb7715d02ab07a88992881646cccdbca
