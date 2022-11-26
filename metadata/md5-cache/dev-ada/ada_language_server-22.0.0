@@ -10,8 +10,8 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-)] dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-)] dev-ada/libadalang-tools[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-),shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-)]
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
-RESTRICT=!test? ( test )
+RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AdaCore/ada_language_server/archive/refs/tags/v22.0.0.tar.gz -> ada_language_server-22.0.0.tar.gz
 _eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=0dc444a405bceb6ac4818fd4cea4e73d
+_md5_=f26d9a900941224727ea71a9b74e7a4b
