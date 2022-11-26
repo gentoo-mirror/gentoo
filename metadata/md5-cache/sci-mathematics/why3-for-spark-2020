@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare
-DEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=dev-ml/ocamlbuild-0.14.0 dev-ml/menhir:= <dev-ml/num-1.4:= dev-ml/yojson:= coq? ( >=sci-mathematics/coq-8.9.1 <sci-mathematics/coq-8.12 ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( >=dev-ml/lablgtk-2.18.8:=[sourceview] ) emacs? ( >=app-editors/emacs-23.1:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( >=dev-ml/camlzip-1.07:= )
+DEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=dev-ml/ocamlbuild-0.14.0 dev-ml/menhir:= <dev-ml/num-1.4:= dev-ml/yojson:= doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( >=dev-ml/lablgtk-2.18.8:=[sourceview] ) emacs? ( >=app-editors/emacs-23.1:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( >=dev-ml/camlzip-1.07:= )
 DESCRIPTION=Platform for deductive program verification
 EAPI=7
 HOMEPAGE=https://why3.lri.fr/
 INHERIT=autotools
-IUSE=coq doc emacs gtk html +ocamlopt zarith zip
+IUSE=doc emacs gtk html +ocamlopt zarith zip
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=dev-ml/ocamlbuild-0.14.0 dev-ml/menhir:= <dev-ml/num-1.4:= dev-ml/yojson:= coq? ( >=sci-mathematics/coq-8.9.1 <sci-mathematics/coq-8.12 ) doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( >=dev-ml/lablgtk-2.18.8:=[sourceview] ) emacs? ( >=app-editors/emacs-23.1:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( >=dev-ml/camlzip-1.07:= )
+RDEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=dev-ml/ocamlbuild-0.14.0 dev-ml/menhir:= <dev-ml/num-1.4:= dev-ml/yojson:= doc? ( dev-tex/rubber dev-python/sphinx media-gfx/graphviz dev-python/sphinxcontrib-bibtex ) gtk? ( >=dev-ml/lablgtk-2.18.8:=[sourceview] ) emacs? ( >=app-editors/emacs-23.1:* ) html? ( dev-tex/hevea:= ) zarith? ( dev-ml/zarith:= ) zip? ( >=dev-ml/camlzip-1.07:= )
 REQUIRED_USE=html? ( doc )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/8bb5801e17b8b23453262da69c981c091959eec7?filename=why3-2020-20200429-199EF-src.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=c9e5afa522f8582561a3c88cce691574
+_md5_=bf06db847837f73e72ebff9f16ab469f
