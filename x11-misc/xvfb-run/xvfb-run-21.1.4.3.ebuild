@@ -1,17 +1,17 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN=xorg-server
-MY_PV=${PV/_p/-}
+MY_PV="$(ver_cut 1-3)-$(ver_cut 4)"
 DESCRIPTION="Run a command in a virtual X server environment"
 HOMEPAGE="https://packages.debian.org/sid/xvfb"
 SRC_URI="mirror://debian/pool/main/${MY_PN:0:1}/${MY_PN}/${MY_PN}_${MY_PV}.diff.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="dev-util/patchutils"
