@@ -37,6 +37,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.1.9998.3572-fix-bison.patch"
 	"${FILESDIR}/${PN}-0.1.9998.3572-fix-lto.patch"
 	"${FILESDIR}/${PN}-0.1.9998.3499-implicit-function-declaration.patch"
+	"${FILESDIR}/${PN}-0.1.9998.3499-int-conversion.patch"
+	"${FILESDIR}/${PN}-0.1.9998.3499-fix-CC.patch"
 )
 
 pkg_setup() {
