@@ -39,6 +39,23 @@
 ~dev-libs/glib-2.74.2
 
 # Michał Górny <mgorny@gentoo.org> (2022-11-27)
+# Unresolved LICENSE issue for 3 years now.
+# Removal on 2022-12-27.  Bug #694708.
+app-admin/helm
+
+# Michał Górny <mgorny@gentoo.org> (2022-11-27)
+# Broken with OpenSSL-3.  Last upstream activity in 2021, no reply
+# to the bug.
+# Removal on 2022-12-27.  Bug #805233.
+net-dns/dog
+
+# Michał Górny <mgorny@gentoo.org> (2022-11-27)
+# Broken with modern dev-python/setuptools versions.  Last upstream
+# commit in 2018.  No reverse dependencies.
+# Removal on 2022-12-27.  Bug #822840.
+dev-python/slimit
+
+# Michał Górny <mgorny@gentoo.org> (2022-11-27)
 # Unmaintained.  HOMEPAGE is gone.  Uses GTK+2.
 # Removal on 2022-12-27.  Bug #821118.
 games-util/xgamer
