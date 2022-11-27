@@ -11,7 +11,7 @@ DESCRIPTION="Framework providing access to properties and features of the window
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) MIT"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="X"
+IUSE="wayland X"
 
 RESTRICT="test"
 
@@ -30,6 +30,7 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtwidgets-${QTMIN}:5 )
 "
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
+PDEPEND="wayland? ( >=kde-plasma/kwayland-integration-5.25.5-r1:5 )"
 
 DOCS=( docs/README.kstartupinfo )
 
