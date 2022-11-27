@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare setup
-DEPEND=dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),-ada_target_gcc_12_2_0(-),shared] sci-mathematics/alt-ergo sci-mathematics/why3-for-spark dev-ada/gprbuild[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),-ada_target_gcc_12_2_0(-)]
+DEPEND=dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-),shared] sci-mathematics/alt-ergo sci-mathematics/why3-for-spark dev-ada/gprbuild[ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-)]
 DESCRIPTION=Software development for high-reliability applications
 EAPI=7
 HOMEPAGE=http://libre.adacore.com
 INHERIT=ada
-IUSE=ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
+IUSE=ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,-ada_target_gnat_2020(-),-ada_target_gcc_12_2_0(-),shared] sci-mathematics/alt-ergo sci-mathematics/why3-for-spark
+RDEPEND=dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,-ada_target_gcc_12_2_0(-),shared] sci-mathematics/alt-ergo sci-mathematics/why3-for-spark
 REQUIRED_USE=ada_target_gnat_2021
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/969ce28e217bd5aa4db549a544d20846408a5229?filename=spark-2021-2021-20210519-19A1A-src.tar.gz -> spark-2021-2021-20210519-19A1A-src.tar.gz https://community.download.adacore.com/v1/005d2b2eff627177986d2517eb31e1959bec6f3a?filename=gnat-2021-20210519-19A70-src.tar.gz -> gnat-2021-20210519-19A70-src.tar.gz
-_eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9
+_eclasses_=ada	4770f6893bca382df11995a475063cf0
 _md5_=31cc4444abb462b93703f9936693524e

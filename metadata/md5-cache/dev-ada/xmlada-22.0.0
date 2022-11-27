@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install setup test
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2020(-)]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
 DESCRIPTION=Set of modules that provide a simple manipulation of XML streams
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing
-IUSE=+shared static-libs static-pic ada_target_gnat_2020 ada_target_gnat_2021 ada_target_gcc_12_2_0
+IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] )
 REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0/22.0.0
 SRC_URI=https://github.com/AdaCore/xmlada/archive/refs/tags/v22.0.0.tar.gz -> xmlada-22.0.0.tar.gz
-_eclasses_=ada	7bd0959fb6eeede6d82f6923c8ccfca9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
+_eclasses_=ada	4770f6893bca382df11995a475063cf0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
 _md5_=74f10866ed917c95016928eab8f67c69
