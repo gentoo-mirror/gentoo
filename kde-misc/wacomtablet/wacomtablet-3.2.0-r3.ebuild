@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.60.0
-QTMIN=5.12.3
+KFMIN=5.82.0
+QTMIN=5.15.2
 VIRTUALX_REQUIRED="test"
 inherit ecm kde.org
 
@@ -47,7 +47,20 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
-PATCHES=( "${WORKDIR}/${P}-qt-5.15.patch" )
+PATCHES=(
+	"${WORKDIR}/${P}-qt-5.15.patch"
+	"${WORKDIR}/${P}-qt-5.15-obsoletions.patch"
+	"${WORKDIR}/${P}-no-override-screenspace-w-missing-screen.patch" # KDE-bug 419392
+	"${WORKDIR}/${P}-fix-xsetwacom-adapter.patch"
+	"${WORKDIR}/${P}-Intuos-M-bluetooth.patch" # KDE-bug 418827
+	"${WORKDIR}/${P}-correct-icons.patch"
+	"${WORKDIR}/${P}-drop-empty-X-KDE-PluginInfo-Depends.patch"
+	"${WORKDIR}/${P}-fix-QProcess-invocation.patch"
+	"${WORKDIR}/${P}-turn-off-gesture-support-by-default.patch" # KDE-bug 440556
+	"${WORKDIR}/${P}-only-show-on-X11.patch"
+	"${FILESDIR}/${P}-port-to-QRegularExpression.patch" # pre-requisite for below:
+	"${FILESDIR}/${P}-fix-incorrect-xsetwacom-call.patch" # bug 850652, KDE-bug 454947
+)
 
 src_test() {
 	# test needs DBus, bug 675548
