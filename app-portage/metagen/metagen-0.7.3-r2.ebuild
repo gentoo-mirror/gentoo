@@ -1,8 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
-PYTHON_COMPAT=( python3_{7..10} )
+EAPI="8"
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
@@ -12,7 +13,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux"
 
 IUSE=""
 DEPEND="dev-python/lxml[${PYTHON_USEDEP}]
@@ -23,9 +24,11 @@ python_install_all() {
 	distutils-r1_python_install_all
 	doman docs/metagen.1
 
-	# Bug 814545
-	mv "${ED}"/usr/share/doc/${P}/* "${ED}"/usr/share/doc/${PF}/ || die
-	rmdir "${ED}"/usr/share/doc/${P}/ || die
+	# Bug 814545 and 832069
+	if [[ ${PF} != ${P} ]]; then  # to be robust across bumps
+		mv "${ED}"/usr/share/doc/${P}/* "${ED}"/usr/share/doc/${PF}/ || die
+		rmdir "${ED}"/usr/share/doc/${P}/ || die
+	fi
 }
 
 python_test() {
