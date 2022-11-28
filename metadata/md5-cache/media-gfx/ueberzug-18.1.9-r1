@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=x11-libs/libX11 x11-libs/libXext x11-base/xorg-proto
 DESCRIPTION=Command line util to draw images on terminals by using child windows
 EAPI=8
-HOMEPAGE=https://github.com/seebye/ueberzug/
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
 INHERIT=distutils-r1
 IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 x86
@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=x11-libs/libX11 x11-libs/libXext dev-python/attrs[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/docopt[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/python-xlib[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
-SRC_URI=mirror://pypi/u/ueberzug/ueberzug-18.1.9.tar.gz
+SRC_URI=mirror://gentoo/ueberzug-18.1.9.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	da32ffc285e9f13313f2387570e35b87
-_md5_=65ab5ebde5497d494172112cee8c8425
+_md5_=defad666620043910748f6377108f99c
