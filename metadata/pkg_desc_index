@@ -948,7 +948,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0 1.13.0: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.26.5 1.27.8 1.27.11 1.27.12 1.27.13 1.27.14 1.27.15 1.27.16: Universal Command Line Environment for AWS
+app-admin/awscli 1.26.5 1.27.8 1.27.11 1.27.12 1.27.13 1.27.14 1.27.15 1.27.16 1.27.17: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 2022.6.0-r1 2022.9.1-r1: Bitwarden password manager desktop client
@@ -3376,7 +3376,7 @@ app-portage/porticron 0.7.1-r1: cron script to sync portage and send update mail
 app-portage/portpeek 3.2.2 3.2.2-r1 3.2.3: A helper program for maintaining the package.keyword and package.unmask files
 app-portage/pram 10: Tool to ease merging Pull Requests and git patches
 app-portage/prefix-toolkit 8 9: Utilities for users of Gentoo Prefix
-app-portage/pycargoebuild 0.3.0 0.4.0 0.5.0: A generator for Rust/Cargo ebuilds written in Python
+app-portage/pycargoebuild 0.3.0 0.4.0 0.5.0 0.5.1: A generator for Rust/Cargo ebuilds written in Python
 app-portage/recover-broken-vdb 1.0.0-r1 9999: Check Portage's VDB for internal inconsistency on ELF metadata
 app-portage/repo-commit 0.4.1-r1 9999: A repository commit helper
 app-portage/smart-live-rebuild 1.4.0 9999: Check live packages for updates and emerge them as necessary
@@ -8188,7 +8188,7 @@ dev-python/anyqt 0.2.0: PyQt4/PyQt5 compatibility layer
 dev-python/apipkg 3.0.1: Namespace control and lazy-import mechanism
 dev-python/apispec 6.0.2: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r2: Module for determining appropriate platform-specific dirs
-dev-python/apsw 3.39.4.0: APSW - Another Python SQLite Wrapper
+dev-python/apsw 3.39.4.0 3.40.0.0: APSW - Another Python SQLite Wrapper
 dev-python/argcomplete 2.0.0-r1: Bash tab completion for argparse
 dev-python/argh 0.26.2-r3: A simple argparse wrapper
 dev-python/argon2-cffi 21.3.0-r2: CFFI bindings to the Argon2 password hashing library
@@ -8259,8 +8259,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r4 2.49.0-r5: Amazon Web Services API
-dev-python/boto3 1.25.5 1.26.8 1.26.11 1.26.12 1.26.13 1.26.14 1.26.15 1.26.16 9999: The AWS SDK for Python
-dev-python/botocore 1.28.5 1.29.8 1.29.11 1.29.12 1.29.13 1.29.14 1.29.15 1.29.16 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.25.5 1.26.8 1.26.11 1.26.12 1.26.13 1.26.14 1.26.15 1.26.16 1.26.17 9999: The AWS SDK for Python
+dev-python/botocore 1.28.5 1.29.8 1.29.11 1.29.12 1.29.13 1.29.14 1.29.15 1.29.16 1.29.17 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.23-r1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8292,7 +8292,7 @@ dev-python/cerberus 1.3.2 1.3.4-r1: A lightweight and extensible data-validation
 dev-python/certifi 3021.3.16-r2 3021.3.16-r3: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.15.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.69.1 0.70.0 0.70.1 0.71.0 0.71.1 0.72.0: CloudFormation Linter
+dev-python/cfn-lint 0.69.1 0.70.0 0.70.1 0.71.0 0.71.1 0.72.0 0.72.1: CloudFormation Linter
 dev-python/cftime 1.6.2: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8-r1: Tools and libraries for control groups of Linux
 dev-python/chameleon 3.10.1: Fast HTML/XML template compiler for Python
@@ -8352,7 +8352,7 @@ dev-python/cppy 1.2.1-r1: C++ header library which makes it easier to write Pyth
 dev-python/crashtest 0.4.0 0.4.1: Python library that makes exceptions handling and inspection easier
 dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/croniter 1.3.7 1.3.8: Python module to provide iteration for datetime object
-dev-python/cryptography 38.0.3: Library providing cryptographic recipes and primitives
+dev-python/cryptography 38.0.3 38.0.4: Library providing cryptographic recipes and primitives
 dev-python/css-parser 1.0.8: A CSS Cascading Style Sheets library (fork of cssutils)
 dev-python/csscompressor 0.9.5-r1: A python port of YUI CSS Compressor
 dev-python/cssselect 1.1.0-r2 1.2.0: Parse CSS3 Selectors and translate them to XPath 1.0
@@ -8725,7 +8725,7 @@ dev-python/littleutils 0.2.2: Small personal collection of Python utility functi
 dev-python/livereload 2.6.3: Python LiveReload is an awesome tool for web developers
 dev-python/llfuse 1.4.2: Python bindings for the low-level FUSE API
 dev-python/lmdb 1.3.0: Python bindings for the Lightning Database
-dev-python/lmfit 1.0.3: Non-Linear Least-Squares Minimization and Curve-Fitting for Python
+dev-python/lmfit 1.0.3 1.1.0: Non-Linear Least-Squares Minimization and Curve-Fitting for Python
 dev-python/locket 1.0.0: File-based locks for Python
 dev-python/lockfile 0.12.2-r3: Platform-independent file locking module
 dev-python/logbook 1.5.3-r1: A logging replacement for Python
@@ -9199,7 +9199,7 @@ dev-python/pytest-twisted 1.14.0: A pytest plugin for testing Twisted framework 
 dev-python/pytest-verbose-parametrize 1.7.0: More descriptive parametrized-test IDs for py.test
 dev-python/pytest-virtualenv 1.7.0-r2: Virtualenv fixture for py.test
 dev-python/pytest-xdist 3.0.2: Distributed testing and loop-on-failing modes
-dev-python/pytest-xprocess 0.20.0: Manage external processes across test runs
+dev-python/pytest-xprocess 0.20.0 0.21.0: Manage external processes across test runs
 dev-python/pytest-xvfb 2.0.0-r2: A pytest plugin to run Xvfb for tests
 dev-python/python-augeas 1.1.0-r1: Python bindings for Augeas
 dev-python/python-axolotl 0.2.3-r3: A python module for the axolotl protocol
@@ -9502,7 +9502,7 @@ dev-python/sqlitedict 2.0.0: Persistent dict in Python, backed by SQLite and pic
 dev-python/sqlparse 0.4.3: A non-validating SQL parser module for Python
 dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
-dev-python/stack_data 0.5.1 0.6.0 0.6.1: Extract data from Python tracebacks for informative displays
+dev-python/stack_data 0.5.1 0.6.0 0.6.1 0.6.2: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20220330: Suite of tools for PDF files manipulation written in Python
 dev-python/starlette 0.21.0 0.21.0-r1: The little ASGI framework that shines
 dev-python/statsd 4.0.1: A simple statsd client
