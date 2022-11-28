@@ -1,15 +1,15 @@
 # Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..11} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake python-any-r1
 
 # yes, it needs SOURCE, not just installed one
 # and no, 1.11.0 is not enough
-GTEST_COMMIT="1b18723e874b256c1e39378c6774a90701d70f7a"
+GTEST_COMMIT="e68764c147ea0dac1e8811925c531d937396878e"
 GTEST_FILE="gtest-${GTEST_COMMIT}.tar.gz"
 
 DESCRIPTION="Abseil Common Libraries (C++), LTS Branch"
@@ -22,7 +22,7 @@ LICENSE="
 	test? ( BSD )
 "
 SLOT="0/${PV%%.*}"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="test"
 
 DEPEND=""
@@ -34,10 +34,6 @@ BDEPEND="
 "
 
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-20211102.0-fix-cuda-nvcc-build.patch"
-)
 
 src_prepare() {
 	cmake_src_prepare
@@ -62,11 +58,12 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_CXX_STANDARD=17
 		-DABSL_ENABLE_INSTALL=TRUE
 		-DABSL_LOCAL_GOOGLETEST_DIR="${WORKDIR}/googletest-${GTEST_COMMIT}"
-		-DCMAKE_CXX_STANDARD=17
 		-DABSL_PROPAGATE_CXX_STD=TRUE
-		$(usex test -DBUILD_TESTING=ON '') #intentional usex
+		-DABSL_BUILD_TESTING=$(usex test ON OFF)
+		$(usex test -DBUILD_TESTING=ON '') #intentional usex, it used both variables for tests.
 	)
 	cmake_src_configure
 }
