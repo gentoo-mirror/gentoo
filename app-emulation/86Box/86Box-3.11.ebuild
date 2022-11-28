@@ -39,6 +39,7 @@ RDEPEND="
 		dev-qt/qtopengl:5
 		dev-qt/qttranslations:5
 		dev-qt/qtwidgets:5
+		kde-frameworks/extra-cmake-modules
 	)
 "
 
@@ -55,6 +56,8 @@ src_configure() {
 		-DDEV_BRANCH="$(usex experimental)"
 		-DDINPUT="$(usex dinput)"
 		-DDYNAREC="$(usex dynarec)"
+		-DSLIRP_EXTERNAL="ON"
+		-DMUNT_EXTERNAL="$(usex munt)"
 		-DFLUIDSYNTH="$(usex fluidsynth)"
 		-DMINITRACE="OFF"
 		-DMUNT="$(usex munt)"
