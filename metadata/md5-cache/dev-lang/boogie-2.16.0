@@ -1,0 +1,15 @@
+BDEPEND=virtual/dotnet-sdk:6.0 test? ( dev-python/lit dev-python/OutputCheck )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=SMT-based program verifier
+EAPI=8
+HOMEPAGE=https://github.com/boogie-org/boogie/
+INHERIT=edo multiprocessing
+IUSE=debug test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=virtual/dotnet-sdk:6.0 sci-mathematics/z3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/boogie-org/boogie/archive/v2.16.0.tar.gz -> boogie-2.16.0.tar.gz https://dev.gentoo.org/~xgqt/distfiles/deps/boogie-2.15.8-deps.tar.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
+_md5_=f8b1c0ac3772b8592e31805b9ad77a7f
