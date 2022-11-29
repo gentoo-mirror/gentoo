@@ -41,6 +41,10 @@ BDEPEND+="
 	doc? ( app-doc/doxygen[dot] )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-lto.patch
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-Ddoxygen=$(usex doc)
