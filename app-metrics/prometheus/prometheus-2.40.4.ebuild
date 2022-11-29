@@ -3,7 +3,7 @@
 
 EAPI=8
 inherit go-module systemd
-GIT_COMMIT=965274259f993801d63f553639d248588287120b
+GIT_COMMIT=414d31aee6586a5f29e755ae059b7d7131f1c6c8
 MY_PV=v${PV/_rc/-rc.}
 
 # To create the assets tarball run the following:
@@ -19,7 +19,7 @@ SRC_URI="https://github.com/prometheus/prometheus/archive/${MY_PV}.tar.gz -> ${P
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~riscv"
+KEYWORDS="amd64 ~arm ~riscv"
 
 COMMON_DEPEND="acct-group/prometheus
 	acct-user/prometheus"
