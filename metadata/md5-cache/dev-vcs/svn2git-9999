@@ -2,12 +2,12 @@ BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install unpack
 DEPEND=dev-qt/qtcore:5 dev-vcs/subversion
 DESCRIPTION=Tool for one-time conversion from svn to git
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/svn-all-fast-export/svn2git
-INHERIT=desktop qmake-utils git-r3
+INHERIT=qmake-utils git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=dev-qt/qtcore:5 dev-vcs/subversion dev-vcs/git
 SLOT=0
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=97545a839605c0310e489c1a808cbbb9
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=a0028711ebccdd68dd24cd6f3e65627d
