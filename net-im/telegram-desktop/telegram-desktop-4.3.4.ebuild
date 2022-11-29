@@ -87,6 +87,9 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram.patch"
 	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
+	"${FILESDIR}/tdesktop-4.3.4-fix-disabling-spellcheck.patch"
+	"${FILESDIR}/tdesktop-4.3.4-qt5-incompatibility-1.patch"
+	"${FILESDIR}/tdesktop-4.3.4-qt5-incompatibility-2.patch"
 )
 
 # Current desktop-file-utils-0.26 does not understand Version=1.5
@@ -198,6 +201,6 @@ pkg_postinst() {
 	optfeature_header
 	optfeature "shop payment support (requires USE=dbus enabled)" net-libs/webkit-gtk:4
 	if ! use qt6; then
-		optfeature "AVIF, HEIF and JpegXL image support" kde-frameworks/kimageformats
+		optfeature "AVIF, HEIF and JpegXL image support" kde-frameworks/kimageformats[avif,heif,jpegxl]
 	fi
 }
