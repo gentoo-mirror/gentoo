@@ -9,8 +9,8 @@ inherit elisp
 
 DESCRIPTION="Guile's implementation of the Geiser protocols"
 HOMEPAGE="https://gitlab.com/emacs-geiser/guile/"
-SRC_URI="https://gitlab.com/emacs-geiser/guile/-/archive/${PV}/guile-${PV}.tar.gz
-			-> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/emacs-geiser/guile/-/archive/${PV}/guile-${PV}.tar.bz2
+	-> ${P}.tar.bz2"
 S="${WORKDIR}"/guile-${PV}
 
 LICENSE="BSD"
