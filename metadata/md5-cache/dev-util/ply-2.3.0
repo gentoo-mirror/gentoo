@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install prepare pretend setup
+DEPEND=elibc_musl? ( sys-libs/queue-standalone )
+DESCRIPTION=Dynamic instrumentation of the Linux kernel with BPF and kprobes
+EAPI=7
+HOMEPAGE=https://github.com/iovisor/ply
+INHERIT=autotools linux-info
+IUSE=static-libs
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv
+LICENSE=GPL-2
+RDEPEND=!sys-boot/plymouth
+SLOT=0
+SRC_URI=https://github.com/iovisor/ply/archive/2.3.0.tar.gz -> ply-2.3.0.tar.gz https://github.com/iovisor/ply/commit/1bc183af8703023e377f92716ecd3f339ffffd11.patch -> ply-2.3.0-arm-build-fix.patch
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	linux-info	bbfa385d6907d7948d49a5e107bd654d
+_md5_=bace67196ffb39b795c68540bcef36ca
