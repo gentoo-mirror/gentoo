@@ -1,16 +1,18 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # TODO: vim-plugin, although it's not clear how to make it work here
 inherit elisp-common dune
 
 DESCRIPTION="Context sensitive completion for OCaml in Vim and Emacs"
-HOMEPAGE="https://github.com/ocaml/merlin"
-SRC_URI="https://github.com/ocaml/merlin/releases/download/v${PV}-411/${P}-411.tbz
+HOMEPAGE="https://github.com/ocaml/merlin/"
+SRC_URI="
 	https://github.com/ocaml/merlin/releases/download/v${PV}-412/${P}-412.tbz
-	https://github.com/ocaml/merlin/releases/download/v${PV}-413/${P}-413.tbz"
+	https://github.com/ocaml/merlin/releases/download/v${PV}-413/${P}-413.tbz
+	https://github.com/ocaml/merlin/releases/download/v${PV}-414/${P}-414.tbz
+"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
@@ -19,14 +21,15 @@ IUSE="emacs +ocamlopt test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	>=dev-lang/ocaml-4.12:=[ocamlopt?]
 	dev-ml/csexp:=
-	<dev-ml/yojson-2:=
+	>=dev-ml/yojson-2.0.0:=
 	dev-ml/menhir:=
 	>=dev-ml/dune-2.9:=
 	|| (
-		dev-lang/ocaml:0/4.11
 		dev-lang/ocaml:0/4.12
 		dev-lang/ocaml:0/4.13
+		dev-lang/ocaml:0/4.14
 	)
 	emacs? (
 		>=app-editors/emacs-23.1:*
@@ -34,43 +37,54 @@ RDEPEND="
 		app-emacs/company-mode
 	)
 "
-DEPEND="${RDEPEND}
-	test? ( app-misc/jq )"
+DEPEND="${RDEPEND}"
+# NOTICE: Block dev-ml/seq (which is a back-port of code to ocaml <4.07)
+# because it breaks merlin builds.
+# https://github.com/ocaml/merlin/issues/1500
+BDEPEND="
+	!!<dev-ml/seq-0.3
+	test? ( app-misc/jq )
+"
 
 SITEFILE="50${PN}-gentoo.el"
 
 src_unpack() {
 	default
-	if has_version "dev-lang/ocaml:0/4.11" ; then
-		mv merlin-4.4-411 "${S}" || die
-	elif has_version "dev-lang/ocaml:0/4.12" ; then
-		mv merlin-4.4-412 "${S}" || die
+
+	if has_version "dev-lang/ocaml:0/4.12" ; then
+		mv ${P}-412 "${S}" || die
 	elif has_version "dev-lang/ocaml:0/4.13" ; then
-		mv merlin-4.4-413 "${S}" || die
+		mv ${P}-413 "${S}" || die
+	elif has_version "dev-lang/ocaml:0/4.14" ; then
+		mv ${P}-414 "${S}" || die
 	fi
 }
 
 src_prepare() {
 	default
 
-	# Handle installation via the eclass
+	# Handle ELisp installation via the Emacs Eclass.
 	rm emacs/dune || die
 
-	# rm failing test
+	# This test runs only inside a git repo,
+	# it is not included in merlin release for ocaml 4.12.
+	if [[ -f tests/test-dirs/occurrences/issue1404.t ]] ; then
+		rm tests/test-dirs/occurrences/issue1404.t || die
+	fi
 	rm -r tests/test-dirs/locate/context-detection/cd-mod_constr.t || die
+
+	# Remove seq references from dune build files.
+	sed -i 's|seq||g' src/frontend/ocamlmerlin/dune || die
 }
 
 src_compile() {
 	dune build @install || die
 
 	if use emacs ; then
-		# Build the emacs integration
-		cd emacs || die
-
 		# iedit isn't packaged yet
-		rm merlin-iedit.el || die
+		rm emacs/merlin-iedit.el || die
 
-		elisp-compile *.el
+		BYTECOMPFLAGS="-L emacs" elisp-compile emacs/*.el
 	fi
 }
 
@@ -78,8 +92,7 @@ src_install() {
 	dune_src_install
 
 	if use emacs ; then
-		cd "${S}/emacs" || die
-		elisp-install ${PN} *.el *.elc
+		elisp-install ${PN} emacs/*.el{,c}
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
 	fi
 }
