@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt filecaps? ( sys-libs/libcap ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst preinst prepare test unpack
 DEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) virtual/os-headers
 DESCRIPTION=Network monitoring tools including ping and ping6
-EAPI=7
+EAPI=8
 HOMEPAGE=https://wiki.linuxfoundation.org/networking/iputils
+IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=fcaps meson plocale systemd toolchain-funcs git-r3
 IUSE=+arping caps clockdiff doc idn nls test tracepath +filecaps
-LICENSE=BSD GPL-2+ rdisc
+LICENSE=BSD arping? ( GPL-2+ ) clockdiff? ( BSD ) tracepath? ( GPL-2+ )
 PROPERTIES=live
-RDEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) filecaps? ( sys-libs/libcap )
+RDEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	plocale	7ce00136a77130df46fbbd5966f98a61	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=717ff942750d9a907037d0248ad80bb0
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	plocale	7ce00136a77130df46fbbd5966f98a61	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=d73f60e686a4ad3510d2271b26bb3c9f

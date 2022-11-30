@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare test
+DEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) virtual/os-headers
+DESCRIPTION=Network monitoring tools including ping and ping6
+EAPI=8
+HOMEPAGE=https://wiki.linuxfoundation.org/networking/iputils
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps meson plocale systemd toolchain-funcs
+IUSE=+arping caps clockdiff doc idn nls test tracepath +filecaps
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD arping? ( GPL-2+ ) clockdiff? ( BSD ) tracepath? ( GPL-2+ )
+RDEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/iputils/iputils/archive/20221126.tar.gz -> iputils-20221126.tar.gz https://dev.gentoo.org/~sam/distfiles/net-misc/iputils/iputils-20221126-docs.tar.xz
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	plocale	7ce00136a77130df46fbbd5966f98a61	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=d73f60e686a4ad3510d2271b26bb3c9f
