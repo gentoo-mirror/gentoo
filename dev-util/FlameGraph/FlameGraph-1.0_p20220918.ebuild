@@ -10,12 +10,15 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/brendangregg/FlameGraph.git"
 else
-	SRC_URI="https://dev.gentoo.org/~flow/distfiles/${PN}/${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	COMMIT_ID="d9fcc272b6a08c3e3e5b7919040f0ab5f8952d65"
+	SRC_URI="https://github.com/brendangregg/FlameGraph/archive/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="CDDL"
 SLOT="0"
+
+S="${WORKDIR}/${PN}-${COMMIT_ID}"
 
 RDEPEND="
 	dev-lang/perl
