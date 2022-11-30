@@ -1,40 +1,49 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit libtool multilib-minimal toolchain-funcs
 
 MY_PV=${PV/_p*}
 MY_PV=${MY_PV/_/-}
+
 MANUAL_PV=${MY_PV}
 MANUAL_PV=6.2.1
+
 MY_P=${PN}-${MY_PV}
 PLEVEL=${PV/*p}
+
 DESCRIPTION="Library for arbitrary-precision arithmetic on different type of numbers"
 HOMEPAGE="https://gmplib.org/"
 SRC_URI="ftp://ftp.gmplib.org/pub/${MY_P}/${MY_P}.tar.xz
 	mirror://gnu/${PN}/${MY_P}.tar.xz
 	doc? ( https://gmplib.org/${PN}-man-${MANUAL_PV}.pdf )"
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-arm64-darwin.patch.bz2"
+S="${WORKDIR}"/${MY_P%a}
 
 LICENSE="|| ( LGPL-3+ GPL-2+ )"
 # The subslot reflects the C & C++ SONAMEs.
 SLOT="0/10.4"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+# Unkeyworded temporarily for some more testing
+#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+asm doc +cxx pic static-libs"
 
-BDEPEND="sys-devel/m4
-	app-arch/xz-utils"
-
-S=${WORKDIR}/${MY_P%a}
+BDEPEND="
+	app-arch/xz-utils
+	sys-devel/m4
+"
 
 DOCS=( AUTHORS ChangeLog NEWS README doc/configuration doc/isa_abi_headache )
 HTML_DOCS=( doc )
+
 MULTILIB_WRAPPED_HEADERS=( /usr/include/gmp.h )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.1.0-noexecstack-detect.patch
 	"${FILESDIR}"/${PN}-6.2.1-no-zarch.patch
+	"${WORKDIR}"/${P}-arm64-darwin.patch
+	"${FILESDIR}"/${P}-CVE-2021-43618.patch
 )
 
 src_prepare() {
@@ -77,16 +86,29 @@ multilib_src_configure() {
 
 	tc-export CC
 
-	# --with-pic forces static libraries to be built as PIC
-	# and without TEXTRELs. musl does not support TEXTRELs: bug #707332
-	ECONF_SOURCE="${S}" econf \
-		CC_FOR_BUILD="$(tc-getBUILD_CC)" \
-		--localstatedir="${EPREFIX}"/var/state/gmp \
-		--enable-shared \
-		$(use_enable asm assembly) \
-		$(use_enable cxx) \
-		$(use pic && echo --with-pic) \
+	local myeconfargs=(
+		CC_FOR_BUILD="$(tc-getBUILD_CC)"
+
+		--localstatedir="${EPREFIX}"/var/state/gmp
+		--enable-shared
+
+		# fat is needed to avoid gmp installing either purely generic
+		# or specific-to-used-CPU (which our config.guess refresh prevents at the moment).
+		# Both Fedora and opensuse use this option to tackle the issue, bug #883201.
+		#
+		# This only works for x86, so we're still getting non-performant
+		# builds on other arches until we figure something out!
+		$(use_enable asm fat)
+		$(use_enable asm assembly)
+		$(use_enable cxx)
 		$(use_enable static-libs static)
+
+		# --with-pic forces static libraries to be built as PIC
+		# and without TEXTRELs. musl does not support TEXTRELs: bug #707332
+		$(use pic && echo --with-pic)
+	)
+
+	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
 multilib_src_install() {
@@ -98,7 +120,7 @@ multilib_src_install() {
 	# This requires libgmp
 	local la="${ED}/usr/$(get_libdir)/libgmpxx.la"
 	if ! use static-libs ; then
-		rm -f "${la}"
+		rm -f "${la}" || die
 	fi
 }
 
