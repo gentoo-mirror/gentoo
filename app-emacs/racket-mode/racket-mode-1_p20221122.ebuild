@@ -3,26 +3,27 @@
 
 EAPI=8
 
-H=e7efbb52fdf2219532230a199153d8a33889c26f
+H=b07ffc1541c848a85d8c1afa807ed06cb8e81228
 NEED_EMACS=25.1
 
 inherit elisp
 
 DESCRIPTION="Emacs modes for Racket: edit, REPL, check-syntax, debug, profile, and more"
 HOMEPAGE="https://github.com/greghendershott/racket-mode/"
-SRC_URI="https://github.com/greghendershott/${PN}/archive/${H}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/greghendershott/${PN}/archive/${H}.tar.gz
+	-> ${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${H}
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-scheme/racket:=[-minimal]"
 BDEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}"/${PN}-rkt-source-dir.patch )
 
-DOCS=( CONTRIBUTING.md README.md THANKS.md )
+DOCS=( CONTRIBUTING.org README.org THANKS.org )
 
 ELISP_TEXINFO="doc/racket-mode.texi"
 SITEFILE="50${PN}-gentoo.el"
