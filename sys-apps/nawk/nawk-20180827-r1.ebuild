@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=6
 
 inherit toolchain-funcs
 
@@ -13,16 +13,15 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux"
 
-RDEPEND="
-	app-eselect/eselect-awk"
-
 DEPEND="
-	${RDEPEND}
-	virtual/yacc"
+	virtual/yacc
+"
 
 S="${WORKDIR}/awk-${PV}"
 
-DOCS=( README.md FIXES )
+PATCHES=( "${FILESDIR}/${P}"-parallel-build.patch )
+
+DOCS=( README FIXES )
 
 src_compile() {
 	emake \
@@ -31,7 +30,7 @@ src_compile() {
 		CPPFLAGS=-DHAS_ISBLANK \
 		ALLOC="${LDFLAGS}" \
 		YACC=$(type -p yacc) \
-		YFLAGS="-d -b awkgram"
+		YFLAGS="-d"
 }
 
 src_install() {
@@ -46,9 +45,15 @@ src_install() {
 }
 
 pkg_postinst() {
-	eselect awk update ifunset
+	if has_version app-admin/eselect && has_version app-eselect/eselect-awk
+	then
+		eselect awk update ifunset
+	fi
 }
 
 pkg_postrm() {
-	eselect awk update ifunset
+	if has_version app-admin/eselect && has_version app-eselect/eselect-awk
+	then
+		eselect awk update ifunset
+	fi
 }
