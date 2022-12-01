@@ -5417,7 +5417,7 @@ dev-libs/gf-complete 2.0.0-r1: A Comprehensive Open Source Library for Galois Fi
 dev-libs/gf2x 1.3.0-r1: C/C++ routines for fast arithmetic in GF(2)[x]
 dev-libs/girara 0.3.5 0.3.6 0.3.7 9999: UI library that focuses on simplicity and minimalism
 dev-libs/gjs 1.72.2-r1 1.74.0 1.74.1: Javascript bindings for GNOME
-dev-libs/glib 2.72.3 2.74.1-r1 2.74.2: The GLib library of C routines
+dev-libs/glib 2.72.3 2.74.1-r1 2.74.2 2.74.3: The GLib library of C routines
 dev-libs/gmime 2.6.23-r1 3.2.13: Library for creating and parsing MIME messages
 dev-libs/gmp 6.2.1-r2 6.2.1-r4: Library for arbitrary-precision arithmetic on different type of numbers
 dev-libs/gnulib 2022.02.12.16.27.05 2022.05.26.07.24.56 9999-r1: Gnulib is a library of common routines intended to be shared at the source level
@@ -10627,34 +10627,18 @@ dev-ruby/rss 0.2.9 0.2.9-r1: Family of libraries that support various formats of
 dev-ruby/ruby-atk 3.4.3: Ruby Atk bindings
 dev-ruby/ruby-augeas 0.5.0-r4: Ruby bindings for Augeas
 dev-ruby/ruby-cairo-gobject 3.4.3: Ruby cairo-gobject bindings
-dev-ruby/ruby-clutter 3.4.3: Ruby Clutter bindings
-dev-ruby/ruby-clutter-gdk 3.4.3: Ruby binding of GDK specific API of Clutter
-dev-ruby/ruby-clutter-gstreamer 3.4.3: Ruby Clutter bindings
-dev-ruby/ruby-clutter-gtk 3.4.3: Ruby Clutter-GTK bindings
 dev-ruby/ruby-dict 0.9.4-r5: RFC 2229 client in Ruby
 dev-ruby/ruby-elf 1.0.8-r1: Ruby library to access ELF files information
 dev-ruby/ruby-feedparser 0.9.7 0.10.0: Ruby library to parse ATOM/RSS feeds
 dev-ruby/ruby-filemagic 0.7.3: Ruby binding to libmagic
-dev-ruby/ruby-gdk3 3.4.3: Ruby GDK-3.x bindings
 dev-ruby/ruby-gdkpixbuf2 3.4.3: Ruby GdkPixbuf2 bindings
-dev-ruby/ruby-gegl 3.4.3: Ruby GEGL bindings
 dev-ruby/ruby-gettext 3.3.5 3.3.7 3.4.1 3.4.3: Native Language Support Library and Tools modeled after GNU gettext package
 dev-ruby/ruby-gio2 3.4.3: Ruby binding of gio-2
 dev-ruby/ruby-glib2 3.4.3: Ruby Glib2 bindings
-dev-ruby/ruby-gnome2 3.4.3: Ruby Gnome2 bindings
-dev-ruby/ruby-gnumeric 3.4.3: Ruby Gnumeric bindings
 dev-ruby/ruby-gobject-introspection 3.4.3: Ruby GObjectIntrospection bindings
-dev-ruby/ruby-goffice 3.4.3: Ruby GOffice bindings
-dev-ruby/ruby-gsf 3.4.3: Ruby GSF bindings
-dev-ruby/ruby-gstreamer 3.4.3: Ruby GStreamer bindings
 dev-ruby/ruby-gtk2 3.4.3: Ruby Gtk2 bindings
-dev-ruby/ruby-gtk3 3.4.3: Ruby Gtk3 bindings
-dev-ruby/ruby-gtksourceview 3.4.3: Ruby bindings for gtksourceview
-dev-ruby/ruby-gtksourceview3 3.4.3: Ruby gtksourceview-3.x bindings
-dev-ruby/ruby-gtksourceview4 3.4.3: Ruby GtkSourceView4 bindings
 dev-ruby/ruby-hmac 0.4.0-r2: A common interface to HMAC functionality as documented in RFC2104
 dev-ruby/ruby-ldap 0.9.20-r3: A Ruby interface to some LDAP libraries
-dev-ruby/ruby-libsecret 3.4.3: Ruby libsecret bindings
 dev-ruby/ruby-macho 2.5.1: A library for viewing and manipulating Mach-O files in Ruby
 dev-ruby/ruby-mp3info 0.8.10-r1: A pure Ruby library for access to mp3 files (internal infos and tags)
 dev-ruby/ruby-net-ldap 0.17.0 0.17.1: Pure ruby LDAP client implementation
@@ -10669,14 +10653,9 @@ dev-ruby/ruby-prof 1.4.3: A module for profiling Ruby code
 dev-ruby/ruby-progressbar 1.10.1-r1 1.11.0: A Text Progress Bar Library for Ruby
 dev-ruby/ruby-rc4 0.1.5-r3: A pure Ruby implementation of the Rc4 algorithm
 dev-ruby/ruby-romkan 0.4-r7: A Romaji <-> Kana conversion library for Ruby
-dev-ruby/ruby-rsvg 3.4.3: Ruby bindings for librsvg
 dev-ruby/ruby-shadow 2.5.0-r1 2.5.1: ruby shadow bindings
 dev-ruby/ruby-shout 2.2.2-r2: A Ruby interface to libshout2
 dev-ruby/ruby-termios 1.1.0 1.1.0-r1: A Ruby interface to termios
-dev-ruby/ruby-vte 3.4.3: Ruby vte bindings
-dev-ruby/ruby-vte3 3.4.3: Ruby VTE bindings for use with GTK3
-dev-ruby/ruby-webkit2-gtk 3.4.3: Ruby WebKitGtk+ for Gtk 3.0 bindings
-dev-ruby/ruby-wnck3 3.4.3: Ruby libwnck 3 bindings
 dev-ruby/ruby-xslt 0.9.10 0.9.10-r1: A Ruby class for processing XSLT
 dev-ruby/ruby-yadis 0.3.4-r3: A ruby library for performing Yadis service discovery
 dev-ruby/ruby2_keywords 0.0.4 0.0.5: Shim library for Module#ruby2_keywords
@@ -11170,7 +11149,7 @@ dev-util/ftjam 2.5.3_rc2-r3: A 100% compatible, enhanced implementation of the m
 dev-util/ftnchek 3.3.1-r2: Static analyzer a la 'lint' for Fortran 77
 dev-util/fuzz 0.6-r2: Stress-tests programs by giving them random input
 dev-util/gcovr 5.1 5.2: A Python script for summarizing gcov data
-dev-util/gdbus-codegen 2.72.3 2.74.0 2.74.1 2.74.2: GDBus code and documentation generator
+dev-util/gdbus-codegen 2.72.3 2.74.0 2.74.1 2.74.2 2.74.3: GDBus code and documentation generator
 dev-util/geany 1.38 9999: GTK+ based fast and lightweight IDE
 dev-util/geany-plugins 1.38-r1 1.38-r4: A collection of different plugins for Geany
 dev-util/gef 2022.06-r1 9999: A GDB Enhanced Features for exploit devs & reversers
@@ -11183,7 +11162,7 @@ dev-util/github-cli 2.14.3 2.18.0 9999: GitHub CLI
 dev-util/gitlab-ci-linter 2.2.0: linter for .gitlab-ci.yml files
 dev-util/gitlab-runner 15.4.1 15.5.1 15.6.1: The official GitLab Runner, written in Go
 dev-util/glade 3.40.0: A user interface designer for GTK+ and GNOME
-dev-util/glib-utils 2.72.3 2.74.0 2.74.1 2.74.2: Build utilities for GLib using projects
+dev-util/glib-utils 2.72.3 2.74.0 2.74.1 2.74.2 2.74.3: Build utilities for GLib using projects
 dev-util/global 6.6.4: tag system to find an object location in various sources
 dev-util/glslang 1.3.216 1.3.224-r1 1.3.231-r2 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
 dev-util/gn 0.1943 0.2049: GN is a meta-build system that generates build files for Ninja
@@ -13303,7 +13282,6 @@ media-gfx/gmic 3.0.1-r1 3.1.6: GREYC's Magic Image Converter
 media-gfx/gnofract4d 4.3_p20211108 4.3_p20221114: A program for drawing beautiful mathematically-based images known as fractals
 media-gfx/gnome-font-viewer 41.0 42.0 43.0: Font viewer utility for GNOME
 media-gfx/gnome-photos 42.0-r1 43.0: Access, organize and share your photos on GNOME
-media-gfx/gnome-raw-thumbnailer 3.0.0-r2: A lightweight and fast raw image thumbnailer for GNOME
 media-gfx/gnome-screenshot 41.0: Screenshot utility for GNOME
 media-gfx/gnuclad 0.2.4: Cladogram tree generator mainly used by the GNU/Linux distro timeline project
 media-gfx/gozer 0.7-r4: tool for rendering arbitrary text as graphics, using ttfs and styles
@@ -15671,7 +15649,7 @@ net-misc/netpipe 1.0.0_beta2-r2: tool to reliably distribute binary data using U
 net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3: Small tool for altering forwarded network data in real time
 net-misc/netstat-nat 1.4.10: Display NAT connections
-net-misc/networkmanager 1.38.4 1.40.0 1.40.2 1.40.4: A set of co-operative tools that make networking simple and straightforward
+net-misc/networkmanager 1.38.4 1.40.0 1.40.2 1.40.4 1.40.6: A set of co-operative tools that make networking simple and straightforward
 net-misc/nextcloud-client 3.5.4 3.6.1 3.6.2-r1: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
 net-misc/ntp 4.2.8_p15 4.2.8_p15-r1 4.2.8_p15-r4: Network Time Protocol suite/programs
@@ -16402,7 +16380,6 @@ sci-chemistry/xds-bin 20170930: Software for processing single-crystal X-ray mon
 sci-chemistry/xyza2pipe 20121001: Cross conversion environment of NMR spectra
 sci-electronics/NanoVNA-QT 20200507: Library and GUI software for NanoVNA V2
 sci-electronics/Stage 4.3.0-r1: The Stage Robot Simulator
-sci-electronics/drahnr-oregano 0.84.40: Application for the schematic capturing and simulation of electrical circuits
 sci-electronics/eagle 7.7.0-r1 9.6.2-r3: Autodesk EAGLE schematic and printed circuit board (PCB) layout editor
 sci-electronics/electric 9.03: Complete Electronic Design Automation system for many forms of circuit design
 sci-electronics/electronics-menu 1.0-r1: Creates an "Electronics" desktop menu
@@ -17493,7 +17470,7 @@ sys-apps/opal-utils 7.0: OPAL firmware utilities
 sys-apps/openrazer 3.4.0-r3 3.5.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.45.2-r1 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/opentmpfiles 0.2-r1: A standalone utility to process systemd-style tmpfiles.d files
-sys-apps/osinfo-db 20220516 20220830 20221018: osinfo database files
+sys-apps/osinfo-db 20220516 20220830 20221018 20221130: osinfo database files
 sys-apps/osinfo-db-tools 1.10.0 1.10.0-r1: Tools for managing the osinfo database
 sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32, Elf64, binaries
 sys-apps/paxctld 1.2.3 1.2.5: PaX flags maintenance daemon
@@ -18762,7 +18739,6 @@ x11-libs/fox-wrapper 3: wrapper for fox-config to manage multiple versions
 x11-libs/gdk-pixbuf 2.42.8 2.42.9 2.42.10: Image loading library for GTK+
 x11-libs/gdk-pixbuf-xlib 2.40.2: Deprecated Xlib integration for GdkPixbuf
 x11-libs/gl2ps 1.4.2: OpenGL to PostScript printing library
-x11-libs/gnome-pty-helper 0.40.2-r1: GNOME Setuid helper for opening ptys
 x11-libs/goffice 0.10.52-r1 0.10.53-r1: A library of document-centric objects and utilities
 x11-libs/goocanvas 2.0.4-r2 3.0.0: Canvas widget for GTK+ using the cairo 2D library for drawing
 x11-libs/gtk+ 2.24.33-r2 3.24.34-r1 3.24.35: Gimp ToolKit +
@@ -18848,7 +18824,7 @@ x11-libs/snorenotify 0.7.0-r1: Multi platform Qt notification framework
 x11-libs/spread-sheet-widget 0.7 0.8: GNU Spread Sheet Widget
 x11-libs/startup-notification 0.12-r1: Application startup notification and feedback library
 x11-libs/tslib 1.22: Touchscreen Access Library
-x11-libs/vte 0.28.2-r209 0.68.0 0.70.0 0.70.1: Library providing a virtual terminal emulator widget
+x11-libs/vte 0.68.0 0.70.0 0.70.1: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r3 3.0.5.1: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
 x11-libs/xapp 2.2.8 2.4.1: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
