@@ -2,7 +2,7 @@ BDEPEND=>=sys-devel/bison-1.28 >=sys-devel/flex-2.4.6 sys-devel/gnuconfig >=app-
 DEFINED_PHASES=compile configure install postinst prepare
 DEPEND=acct-group/argus acct-user/argus net-libs/libnsl:= net-libs/libpcap net-libs/libtirpc sys-libs/zlib sasl? ( dev-libs/cyrus-sasl ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
 DESCRIPTION=network Audit Record Generation and Utilization System
-EAPI=7
+EAPI=8
 HOMEPAGE=https://openargus.org/
 INHERIT=autotools toolchain-funcs
 IUSE=debug sasl tcpd
@@ -12,4 +12,4 @@ RDEPEND=acct-group/argus acct-user/argus net-libs/libnsl:= net-libs/libpcap net-
 SLOT=0
 SRC_URI=https://www.qosient.com/argus/dev/argus-3.0.8.3.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=9eb47322446c6d7cef073c20103a6c53
+_md5_=080153696fdabf2f389c1f11e56e8791
