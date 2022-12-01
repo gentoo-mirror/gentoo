@@ -1,25 +1,27 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
+
 inherit distutils-r1
 
 MY_PN="Flask-Babel"
 MY_P="${MY_PN}-${PV}"
-
 DESCRIPTION="i18n and l10n support for Flask based on Babel and pytz"
 HOMEPAGE="
-	https://pythonhosted.org/Flask-Babel/
+	https://python-babel.github.io/flask-babel/
+	https://github.com/python-babel/flask-babel/
 	https://pypi.org/project/Flask-Babel/
-	https://github.com/python-babel/flask-babel/"
-SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+"
+SRC_URI="mirror://pypi/${MY_PN::1}/${MY_PN}/${MY_P}.tar.gz"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/Babel[${PYTHON_USEDEP}]
@@ -29,7 +31,9 @@ RDEPEND="
 	dev-python/werkzeug[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	test? ( dev-python/pytest-mock[${PYTHON_USEDEP}] )
+	test? (
+		dev-python/pytest-mock[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_sphinx docs \
