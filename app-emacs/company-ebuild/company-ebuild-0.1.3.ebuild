@@ -3,7 +3,7 @@
 
 EAPI=8
 
-NEED_EMACS=25.1
+NEED_EMACS=26.2
 
 inherit elisp
 
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://gitweb.gentoo.org/proj/${PN}.git"
 else
 	SRC_URI="https://gitweb.gentoo.org/proj/${PN}.git/snapshot/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~x86 ~x64-macos"
 fi
 
 LICENSE="GPL-2+"
