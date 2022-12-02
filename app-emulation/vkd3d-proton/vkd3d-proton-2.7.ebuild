@@ -23,12 +23,17 @@ else
 	HASH_SPIRV_DXIL=87d5b782bec60822aa878941e6b13c0a9a954c9b
 	HASH_VULKAN=5177b119bbdf463b7b909855a83230253c2d8b68
 	SRC_URI="
-		https://github.com/HansKristian-Work/vkd3d-proton/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/HansKristian-Work/dxil-spirv/archive/${HASH_DXIL}.tar.gz -> ${PN}-dxil-spirv-${HASH_DXIL::10}.tar.gz
-		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV}.tar.gz -> ${PN}-spirv-headers-${HASH_SPIRV::10}.tar.gz
-		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV_DXIL}.tar.gz -> ${PN}-spirv-headers-${HASH_SPIRV_DXIL::10}.tar.gz
-		https://github.com/KhronosGroup/Vulkan-Headers/archive/${HASH_VULKAN}.tar.gz -> ${PN}-vulkan-headers-${HASH_VULKAN::10}.tar.gz"
-	KEYWORDS="-* ~amd64 ~x86"
+		https://github.com/HansKristian-Work/vkd3d-proton/archive/refs/tags/v${PV}.tar.gz
+			-> ${P}.tar.gz
+		https://github.com/HansKristian-Work/dxil-spirv/archive/${HASH_DXIL}.tar.gz
+			-> ${PN}-dxil-spirv-${HASH_DXIL::10}.tar.gz
+		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV}.tar.gz
+			-> ${PN}-spirv-headers-${HASH_SPIRV::10}.tar.gz
+		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV_DXIL}.tar.gz
+			-> ${PN}-spirv-headers-${HASH_SPIRV_DXIL::10}.tar.gz
+		https://github.com/KhronosGroup/Vulkan-Headers/archive/${HASH_VULKAN}.tar.gz
+			-> ${PN}-vulkan-headers-${HASH_VULKAN::10}.tar.gz"
+	KEYWORDS="-* amd64 x86"
 fi
 
 DESCRIPTION="Fork of VKD3D, development branches for Proton's Direct3D 12 implementation"
@@ -161,5 +166,13 @@ pkg_postinst() {
 		elog "	WINEPREFIX=/path/to/prefix setup_vkd3d_proton.sh install --symlink"
 		elog
 		elog "See ${EROOT}/usr/share/doc/${PF}/README.md* for details."
+	fi
+
+	if [[ ! ${REPLACING_VERSIONS##* } ]] ||
+		ver_test ${REPLACING_VERSIONS##* } -lt 2.7
+	then
+		elog
+		elog ">=${PN}-2.7 requires drivers and Wine to support vulkan-1.3, meaning:"
+		elog ">=wine-*-7.1 (or >=wine-proton-7.0), and >=mesa-22.0 (or >=nvidia-drivers-510)"
 	fi
 }
