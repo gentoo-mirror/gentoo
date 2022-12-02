@@ -17,10 +17,7 @@ IUSE="bundled-libjpeg-turbo +bundled-qt opencl pulseaudio wayland"
 RESTRICT="mirror bindist strip"
 
 RDEPEND="!games-engines/zoom
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
@@ -114,7 +111,7 @@ src_install() {
 	dosym -r "/usr/$(get_libdir)/libquazip1-qt5.so" /opt/zoom/libquazip.so
 
 	if use opencl; then
-		doexe aomhost libaomagent.so libclDNN64.so libmkldnn.so
+		doexe aomhost libaomagent.so libclDNN64.so libdvf.so libmkldnn.so
 		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libOpenCL.so.1
 	fi
 
