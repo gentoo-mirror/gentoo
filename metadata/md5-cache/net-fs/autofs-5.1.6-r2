@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/flex virtual/pkgconfig virtual/yacc virtual/pkgconfig
+BDEPEND=sys-devel/flex virtual/pkgconfig app-alternatives/yacc virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=net-libs/libnsl:= >=sys-apps/util-linux-2.20 dmalloc? ( dev-libs/dmalloc[threads] ) ldap? ( >=net-nds/openldap-2.0:= sasl? ( dev-libs/cyrus-sasl dev-libs/libxml2 virtual/krb5 ) ) systemd? ( sys-apps/systemd ) libtirpc? ( net-libs/libtirpc:= ) !libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) ) libtirpc? ( net-libs/rpcsvc-proto )
 DESCRIPTION=Kernel based automounter
@@ -12,4 +12,4 @@ RDEPEND=net-libs/libnsl:= >=sys-apps/util-linux-2.20 dmalloc? ( dev-libs/dmalloc
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.6.tar.xz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=cc400a2a807f7122f0eeac008393f4b2
+_md5_=bf346c877ab1d7aab4b23cd027058ccd

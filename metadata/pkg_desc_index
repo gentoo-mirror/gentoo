@@ -1130,8 +1130,10 @@ app-alternatives/awk 1 2: /bin/awk and /usr/bin/awk symlinks
 app-alternatives/bzip2 1: bzip2 symlink
 app-alternatives/cpio 0: CPIO symlink
 app-alternatives/gzip 0: gzip symlinks
+app-alternatives/lex 0: lex symlinks
 app-alternatives/sh 0: /bin/sh (POSIX shell) symlink
 app-alternatives/tar 0: Tar symlink
+app-alternatives/yacc 0 1: yacc symlinks
 app-antivirus/clamav 0.103.6 0.103.7 0.103.7-r1 0.104.4-r1 0.105.1 1.0.0_rc2: Clam Anti-Virus Scanner
 app-antivirus/clamtk 6.14: A graphical front-end for ClamAV
 app-antivirus/fangfrisch 1.5.0 1.5.0-r1: Update and verify unofficial Clam Anti-Virus signatures
@@ -11399,7 +11401,7 @@ dev-util/xfce4-dev-tools 4.16.0 4.17.0 4.17.1 4.17.2: A set of scripts and m4/au
 dev-util/xmlindent 0.2.17-r2: XML stream reformatter for ASCII text, but not UTF-8, written in ANSI C
 dev-util/xxdi 1.0.0: Simple alternative to vim's 'xxd -i' mode
 dev-util/xxdiff 4.0.1_p20170622-r1: A graphical file and directories comparator and merge tool
-dev-util/yacc 1.9.1-r6: Yacc: Yet Another Compiler-Compiler
+dev-util/yacc 1.9.1-r6 1.9.1-r7: Yacc: Yet Another Compiler-Compiler
 dev-util/yamllint 1.28.0: A linter for YAML files
 dev-util/ydiff 1.2 1.2-r1: Colored, side-by-side diff terminal viewer (ex. cdiff)
 dev-vcs/bfg 1.13.0: A faster alternative to git-filter-branch for removing bad data from git repos
@@ -17821,7 +17823,7 @@ sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2
 sys-devel/binutils-apple 3.2.6 8.2.1-r1 8.2.1-r101: Darwin Xtools matching Xcode Tools binutils-apple
 sys-devel/binutils-config 5.4 5.4.1 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r4: Tools necessary to build programs
-sys-devel/bison 3.7.6 3.8.2: A general-purpose (yacc-compatible) parser generator
+sys-devel/bison 3.7.6 3.8.2 3.8.2-r1: A general-purpose (yacc-compatible) parser generator
 sys-devel/bmake 20220901 20220924 20220928: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
 sys-devel/clang 13.0.1 14.0.6-r1 15.0.5 15.0.6 15.0.6.9999 16.0.0_pre20221126 16.0.0.9999: C language family frontend for LLVM
@@ -17836,7 +17838,7 @@ sys-devel/dev86 0.16.21-r3: Bruce's C compiler - Simple C compiler to generate 8
 sys-devel/distcc 3.3.3-r3 3.4 3.4-r1: Distribute compilation of C code across several machines on a network
 sys-devel/dwz 0.14: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
-sys-devel/flex 2.6.4-r2 2.6.4-r4: The Fast Lexical Analyzer
+sys-devel/flex 2.6.4-r2 2.6.4-r4 2.6.4-r5: The Fast Lexical Analyzer
 sys-devel/gcc 8.5.0-r1 9.5.0 10.4.0 10.4.1_p20221006 10.4.1_p20221124 10.5.9999 11.3.0 11.3.1_p20221007 11.3.1_p20221125 11.4.9999 12.2.0 12.2.1_p20221008 12.2.1_p20221126 12.3.9999 13.0.0_pre20221106 13.0.0_pre20221127 13.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.4 2.5-r1 2.6 2.8 9999: Utility to manage compilers
@@ -18046,8 +18048,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 055-r4 056 056-r2 057-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.6-r6 4.2.6-r7 4.3.1 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.223 5.4.224 5.4.225 5.10.153 5.10.155 5.10.156 5.15.77 5.15.79 5.15.80 6.0.9 6.0.10: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.223 5.4.224 5.4.225 5.10.153 5.10.155 5.10.156 5.15.77 5.15.79 5.15.80 6.0.9 6.0.10: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.223 5.4.224 5.4.225 5.10.153 5.10.155 5.10.156 5.10.157 5.15.77 5.15.79 5.15.80 5.15.81 6.0.9 6.0.10 6.0.11: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.223 5.4.224 5.4.225 5.10.153 5.10.155 5.10.156 5.10.157 5.15.77 5.15.79 5.15.80 5.15.81 6.0.9 6.0.10 6.0.11: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.321 4.9.329 4.9.333 4.9.334 4.14.286 4.14.294 4.14.299 4.14.300 4.19.250 4.19.259 4.19.266 4.19.267 5.4.220 5.4.224 5.4.225 5.10.150 5.10.155 5.10.156 5.10.157 5.15.75 5.15.79 5.15.80 5.15.81 6.0.8 6.0.9 6.0.10 6.0.11: Full sources including the Gentoo patchset for the 6.0 kernel tree
 sys-kernel/git-sources 6.1_rc1 6.1_rc2 6.1_rc3 6.1_rc4 6.1_rc5 6.1_rc6 6.1_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5: Gentoo fork of installkernel script from debianutils
@@ -18063,7 +18065,7 @@ sys-kernel/pf-sources 5.18_p5 5.19_p6 6.0_p1 6.0_p2 6.0_p3 6.0_p4 6.0_p5: Linux 
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.10.9999 5.15.32_p20220331-r1 5.15.61_p20220830: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.19.255_p113 5.4.209_p77 5.10.145_p74 5.10.152_p75 5.15.73_p52: Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.223 5.4.224 5.4.225 5.4.9999 5.10.153 5.10.155 5.10.156 5.10.9999 5.15.77 5.15.79 5.15.80 5.15.9999 5.19.9999 6.0.9 6.0.10: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.223 5.4.224 5.4.225 5.4.9999 5.10.153 5.10.155 5.10.156 5.10.157 5.10.9999 5.15.77 5.15.79 5.15.80 5.15.81 5.15.9999 5.19.9999 6.0.9 6.0.10 6.0.11: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.334 4.14.300 4.19.267 5.4.225 5.10.157 5.15.81 6.0.11: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.19.13: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.3-r2 1.4.1-r1 1.5.0: Standalone argp library for use with musl
@@ -18248,7 +18250,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.223 5.4.224 5.4.225 5.10.153 5.10.155 5.10.156 5.15.77 5.15.79 5.15.80 6.0.9 6.0.10: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.223 5.4.224 5.4.225 5.10.153 5.10.155 5.10.156 5.10.157 5.15.77 5.15.79 5.15.80 5.15.81 6.0.9 6.0.10 6.0.11: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1-r1 5.0-r1 6.0-r1 7.0: Virtual for .NET SDK
 virtual/editor 0-r3: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18407,7 +18409,6 @@ virtual/ttf-fonts 1-r2: Virtual for Serif/Sans/Monospace font packages
 virtual/udev 217-r3 217-r5: Virtual to select between different udev daemon providers
 virtual/w3m 1: Virtual for the w3m web browser
 virtual/wine 0-r10: Virtual for Wine that supports multiple variants and slotting
-virtual/yacc 0: Virtual for yacc (yet another compiler compiler)
 www-apache/anyterm 1.1.29-r1: A terminal anywhere
 www-apache/libapreq2 2.16-r1 2.17: A library for manipulating client request data via the Apache API
 www-apache/mod_auth_kerb 5.4-r5: An Apache authentication module using Kerberos

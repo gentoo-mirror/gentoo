@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig virtual/yacc X? ( x11-apps/bdftopcf x11-apps/mkfontscale )
+BDEPEND=virtual/pkgconfig app-alternatives/yacc X? ( x11-apps/bdftopcf x11-apps/mkfontscale )
 DEFINED_PHASES=compile install postinst preinst prepare
 DEPEND=acct-group/gamestat sys-libs/ncurses:0= X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXpm x11-libs/libXt ) X? ( x11-base/xorg-proto )
 DESCRIPTION=The ultimate old-school single player dungeon exploration game
@@ -12,4 +12,4 @@ RDEPEND=acct-group/gamestat sys-libs/ncurses:0= X? ( x11-libs/libX11 x11-libs/li
 SLOT=0
 SRC_URI=https://nethack.org/download/3.6.6/nethack-366-src.tgz -> nethack-3.6.6.tar.gz
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153
-_md5_=c73c3ef661b82487464c0cec32b92e44
+_md5_=28d1d04f5e7a0f6daaae02972ae52ff6

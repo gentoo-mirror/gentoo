@@ -1,4 +1,4 @@
-BDEPEND=>=sys-apps/gawk-3.1.6 sys-devel/flex virtual/yacc test? ( !~sys-apps/gawk-4.2.1 ) virtual/pkgconfig
+BDEPEND=>=sys-apps/gawk-3.1.6 sys-devel/flex app-alternatives/yacc test? ( !~sys-apps/gawk-4.2.1 ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=acct-group/dictd acct-user/dictd >=sys-apps/coreutils-6.10 dev-libs/libmaa sys-libs/zlib dbi? ( dev-db/libdbi ) judy? ( dev-libs/judy )
 DESCRIPTION=Dictionary Client/Server for the DICT protocol
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/dict/dictd-1.13.0.tar.gz
 _eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=bf9fa45c0752f57f82e627c24e4e2914
+_md5_=1a1b87cb215164c5a75e5a7e8457a7ec
