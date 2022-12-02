@@ -100,7 +100,15 @@ REQUIRED_USE="
 RESTRICT="test"
 
 PATCHES=(
+	# bug #854333
+	"${FILESDIR}"/2.1.5-r2-dracut-non-root.patch
+
 	"${FILESDIR}"/2.1.5-dracut-zfs-missing.patch
+
+	# bug #857228
+	"${FILESDIR}"/2.1.5-dracut-mount.patch
+
+	"${FILESDIR}"/2.1.6-fgrep.patch
 )
 
 pkg_pretend() {
@@ -157,6 +165,15 @@ libsoversion_check() {
 		# to keep package installable
 		[[  ${PV} == "9999" ]] || die
 	fi
+}
+
+src_unpack() {
+	if use verify-sig ; then
+		# Needed for downloaded patch (which is unsigned, which is fine)
+		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.gz{,.asc}
+	fi
+
+	default
 }
 
 src_prepare() {

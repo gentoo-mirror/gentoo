@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake
 
 # Check https://proj.org/download.html for latest data tarball
-PROJ_DATA="proj-data-1.9.tar.gz"
+PROJ_DATA="proj-data-1.12.tar.gz"
 DESCRIPTION="PROJ coordinate transformation software"
 HOMEPAGE="https://proj.org/"
 SRC_URI="https://download.osgeo.org/proj/${P}.tar.gz
@@ -37,10 +37,9 @@ src_unpack() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DDOCDIR="${EPREFIX}"/usr/share/${PF}
 		-DBUILD_TESTING=$(usex test)
-		-DENABLE_CURL=$(usex curl)
 		-DBUILD_PROJSYNC=$(usex curl)
+		-DENABLE_CURL=$(usex curl)
 		-DENABLE_TIFF=$(usex tiff)
 	)
 
