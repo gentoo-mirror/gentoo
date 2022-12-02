@@ -34,6 +34,7 @@ RDEPEND="
 	app-arch/p7zip
 	app-arch/unzip
 	$(python_gen_cond_dep '
+		dev-python/certifi[${PYTHON_USEDEP}]
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		dev-python/distro[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
@@ -53,14 +54,9 @@ RDEPEND="
 	x11-libs/gdk-pixbuf[jpeg]
 "
 
-DOCS=( AUTHORS README.rst docs/installers.rst docs/steam.rst )
-
-PATCHES=(
-	# https://github.com/lutris/lutris/pull/4554
-	"${FILESDIR}/${P}-webkit-gtk-4.1.patch"
-)
-
 distutils_enable_tests pytest
+
+DOCS=( AUTHORS README.rst docs/installers.rst docs/steam.rst )
 
 python_test() {
 	virtx epytest
