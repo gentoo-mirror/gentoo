@@ -1,6 +1,6 @@
 BDEPEND=sys-apps/groff virtual/pkgconfig test? ( sys-process/time )
 DEFINED_PHASES=compile install prepare test
-DEPEND=dev-util/diffstat dev-util/patchutils sys-apps/diffutils sys-apps/findutils virtual/awk sys-apps/grep sys-apps/less sys-apps/sed sys-apps/coreutils sys-devel/patch sys-libs/ncurses:0=
+DEPEND=dev-util/diffstat dev-util/patchutils sys-apps/diffutils sys-apps/findutils app-alternatives/awk sys-apps/grep sys-apps/less sys-apps/sed sys-apps/coreutils sys-devel/patch sys-libs/ncurses:0=
 DESCRIPTION=Tool for applying patches that patch cannot apply because of conflicting changes
 EAPI=7
 HOMEPAGE=https://neil.brown.name/wiggle https://git.neil.brown.name/?p=wiggle.git
@@ -8,9 +8,9 @@ INHERIT=fixheadtails toolchain-funcs
 IUSE=test
 KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=dev-util/diffstat dev-util/patchutils sys-apps/diffutils sys-apps/findutils virtual/awk sys-apps/grep sys-apps/less sys-apps/sed sys-apps/coreutils sys-devel/patch sys-libs/ncurses:0=
+RDEPEND=dev-util/diffstat dev-util/patchutils sys-apps/diffutils sys-apps/findutils app-alternatives/awk sys-apps/grep sys-apps/less sys-apps/sed sys-apps/coreutils sys-devel/patch sys-libs/ncurses:0=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://neil.brown.name/wiggle/wiggle-1.2.tar.gz
 _eclasses_=fixheadtails	1721997ed44d035654efe12da50797ef	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=0ede6d62f61b3b6ac9f89bdd5daa18db
+_md5_=5438e66447713eab36d10dfa2bcb307c
