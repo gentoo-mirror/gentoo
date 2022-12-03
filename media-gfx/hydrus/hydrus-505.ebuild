@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="sqlite"
@@ -58,6 +58,7 @@ RDEPEND="
 		dev-python/twisted[${PYTHON_USEDEP}]
 		media-libs/opencv[python,png,jpeg,${PYTHON_USEDEP}]
 		media-video/ffmpeg
+		media-video/mpv[libmpv,${PYTHON_USEDEP}]
 
 		>=dev-python/QtPy-1.9.0-r4[pyside2,${PYTHON_USEDEP}]
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
