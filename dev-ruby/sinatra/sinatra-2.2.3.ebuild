@@ -22,7 +22,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE=""
 
 ruby_add_rdepend "
-	dev-ruby/mustermann:1
+	dev-ruby/mustermann:2
 	dev-ruby/rack:2.2
 	~dev-ruby/rack-protection-${PV}
 	dev-ruby/tilt:2"
