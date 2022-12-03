@@ -2890,6 +2890,7 @@ dev-util/perf:systemtap - Add support to define SDT event in perf tools.
 dev-util/perf:unwind - Use sys-libs/libunwind for frame unwinding support.
 dev-util/plan9port:freefonts - Don't install BigelowHolmes fonts
 dev-util/poke:machine-interface - Enable machine-interface protocol using dev-libs/json-c
+dev-util/poke:nbd - Enable poking at networked block devices via sys-libs/libnbd.
 dev-util/poke:pvm-profiling - Enable profiling in the PVM
 dev-util/pycharm-community:bundled-jdk - Use bundled jdk
 dev-util/pycharm-professional:bundled-jdk - Use bundled jdk
@@ -8061,6 +8062,12 @@ sys-block/libfabric:rocr - Enable Radeon Open Compute provider
 sys-block/libfabric:usnic - Enable Cisco VIC (virtualized NIC) hardware on Cisco UCS server provider
 sys-block/libfabric:verbs - Enable Linux Infiniband verbs provider
 sys-block/nbd:netlink - Add support for netlink protocol via dev-libs/libnl
+sys-block/nbdkit:ext2 - Enable the ext2 filter via sys-fs/e2fsprogs.
+sys-block/nbdkit:libguestfs - Enable the app-emulation/libguestfs plugin.
+sys-block/nbdkit:libssh - Enable the SSH plugin via net-libs/libssh.
+sys-block/nbdkit:libvirt - Enable the app-emulation/libvirt plugin.
+sys-block/nbdkit:nbd - Enable the nbd plugin via sys-libs/libnbd.
+sys-block/nbdkit:torrent - Enable the torrent plugin via net-libs/libtorrent-rasterbar.
 sys-block/open-iscsi:rdma - Support iSCSI over RDMA
 sys-block/open-iscsi:tcp - Support iSCSI over TCP
 sys-block/parted:debug - Enable debugging as encouraged by upstream: [The default configuration] includes --enable-debug (by default), which contains many assertions. Obviously, these "waste" space, but in the past, they have caught potentially dangerous bugs before they would have done damage, so we think it's worth it. Also, it means we get more bug reports ;)
@@ -8482,6 +8489,8 @@ sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's 
 sys-libs/libcxx:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependence on gcc.
 sys-libs/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/libcxxabi:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependency on gcc
+sys-libs/libnbd:fuse - Install the sys-fs/fuse powered nbdfuse.
+sys-libs/libnbd:uri-support - Enable nbd:// URI support via dev-libs/libxml2.
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:uuid - UUID support via sys-apps/util-linux
 sys-libs/libomp:cuda - Build CUDA offloading plugin (only with USE=offload)

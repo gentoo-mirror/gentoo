@@ -3036,7 +3036,7 @@ app-misc/dvorakng 0.6.0-r1: Dvorak typing tutor
 app-misc/dvtm 0.15-r5 0.15-r6 9999: Dynamic virtual terminal manager
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
-app-misc/elasticsearch 7.17.5 7.17.7 8.5.0: Free and Open, Distributed, RESTful Search Engine
+app-misc/elasticsearch 7.17.5 7.17.7 8.5.2: Free and Open, Distributed, RESTful Search Engine
 app-misc/empty 0.6.21b: Small shell utility, similar to expect(1)
 app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7: Multimedia key daemon that uses the Linux event interface
@@ -10318,7 +10318,7 @@ dev-ruby/exifr 1.3.8 1.3.9 1.3.10: A library to read EXIF info from JPEG and TIF
 dev-ruby/facter 3.14.24: A cross-platform ruby library for retrieving facts from operating systems
 dev-ruby/fakefs 1.2.3 1.3.2: A fake filesystem. Use it in your tests
 dev-ruby/faker 2.22.0 2.23.0: A library for generating fake data such as names, addresses, and phone numbers
-dev-ruby/faraday 0.17.3 1.2.0 1.3.1 2.3.0 2.4.0 2.5.2 2.6.0: HTTP/REST API client library with pluggable components
+dev-ruby/faraday 0.17.3 1.3.1 2.3.0 2.4.0 2.5.2 2.6.0: HTTP/REST API client library with pluggable components
 dev-ruby/faraday-net_http 1.0.1 2.0.3 2.1.0 3.0.0 3.0.1: Faraday adapter for Net::HTTP
 dev-ruby/faraday_middleware 1.0.0 1.1.0 1.2.0: Various middleware for Faraday
 dev-ruby/faraday_middleware-multi_json 0.0.6-r2: Response JSON parser using MultiJson and FaradayMiddleware
@@ -10557,7 +10557,7 @@ dev-ruby/rack 2.2.3 2.2.3.1 2.2.4: A modular Ruby webserver interface
 dev-ruby/rack-attack 6.6.0 6.6.1: A DSL for blocking & throttling abusive clients
 dev-ruby/rack-cache 1.13.0: Enable HTTP caching for Rack-based applications that produce freshness info
 dev-ruby/rack-openid 1.4.2-r1: Provides a more HTTPish API around the ruby-openid library
-dev-ruby/rack-protection 2.2.0 2.2.1 2.2.2 3.0.1 3.0.2: This gem protects against typical web attacks
+dev-ruby/rack-protection 2.2.0 2.2.1 2.2.2 2.2.3 3.0.1 3.0.2 3.0.4: This gem protects against typical web attacks
 dev-ruby/rack-test 1.1.0-r1 2.0.2: Rack::Test is a small, simple testing API for Rack apps
 dev-ruby/radius 0.7.5-r1: Powerful tag-based template system
 dev-ruby/rails 5.2.8.1 6.0.5.1 6.0.6 6.1.6.1 6.1.7 7.0.3.1 7.0.4: ruby on rails is a web-application and persistance framework
@@ -10703,7 +10703,7 @@ dev-ruby/simplecov 0.19.1 0.21.2: Code coverage with a configuration library and
 dev-ruby/simplecov-html 0.12.3: Generates a HTML report of your SimpleCov ruby code coverage results
 dev-ruby/simplecov_json_formatter 0.1.4: JSON formatter for SimpleCov
 dev-ruby/simpleidn 0.2.1-r1: Allows easy conversion from punycode ACE to unicode UTF-8 strings and vice-versa
-dev-ruby/sinatra 2.2.0 2.2.0-r1 2.2.1 2.2.2 3.0.1 3.0.2: A DSL for quickly creating web applications in Ruby with minimal effort
+dev-ruby/sinatra 2.2.0-r1 2.2.2 2.2.3 3.0.2 3.0.4: A DSL for quickly creating web applications in Ruby with minimal effort
 dev-ruby/sinatra-partial 1.0.1-r1: Just the partials helper in a gem
 dev-ruby/singleton 0.1.1: The Singleton module implements the Singleton pattern
 dev-ruby/six 0.2.0-r1: An ultra lite authorization library
@@ -11278,7 +11278,7 @@ dev-util/pkgdev 0.2.3 0.2.4 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.7.2 9999: Package Changes Analyzer (pkgdiff)
 dev-util/plan9port 0_pre20210321: Port of many Plan 9 programs and libraries
 dev-util/ply 2.1.1-r1 2.2.0 2.3.0: Dynamic instrumentation of the Linux kernel with BPF and kprobes
-dev-util/poke 2.3 2.4: Extensible editor for structured binary data
+dev-util/poke 2.3 2.4 2.4-r1 9999: Extensible editor for structured binary data
 dev-util/premake 3.7-r1 4.3-r2 4.4_beta5 5.0.0_alpha16: A makefile generation tool
 dev-util/pretrace 0.4-r2: start dynamically linked applications under debugging environment
 dev-util/promu 0.13.0: Prometheus Utility Tool
@@ -17673,6 +17673,7 @@ sys-block/mpt-status 1.2.0-r1: Query tool to access the running configuration an
 sys-block/ms-sys 2.7.0: A command-line program for writing Microsoft compatible boot records
 sys-block/mtx 1.3.12: Utilities for controlling SCSI media changers and tape drives
 sys-block/nbd 3.21-r1 3.24 9999: Userland client/server for kernel network block device
+sys-block/nbdkit 1.32.4: NBD server with stable plugin ABI and permissive license
 sys-block/ndctl 71.1-r2 72.1: Helper tools and libraries for managing non-volatile memory on Linux
 sys-block/noflushd 2.8-r1: A daemon to spin down your disks and force accesses to be cached
 sys-block/open-iscsi 2.1.4-r2 2.1.8: A performant, transport independent, multi-platform implementation of RFC3720
@@ -18100,6 +18101,7 @@ sys-libs/libhugetlbfs 2.23: Easy hugepage access
 sys-libs/libhx 3.24-r1 3.25: Platform independent library providing basic system functions
 sys-libs/libieee1284 0.2.11-r8: Library to query devices using IEEE1284
 sys-libs/libixp 0.5_p20110208-r3: A stand-alone client/server 9P library including ixpc client
+sys-libs/libnbd 1.14.1: NBD client library in userspace
 sys-libs/libnvme 1.0 1.1 1.2-r1: C Library for NVM Express on Linux
 sys-libs/libomp 13.0.1 14.0.6-r1 15.0.5 15.0.6 15.0.6.9999 16.0.0_pre20221126 16.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 sys-libs/libosinfo 1.10.0 1.10.0-r1: GObject library for managing information about real and virtual OSes
