@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-arch/unzip ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare pretend unpack
+DEPEND=dev-libs/icu:= dev-libs/libedit dev-libs/libtommath
+DESCRIPTION=Relational database offering many ANSI SQL:2003 and some SQL:2008 features
+EAPI=8
+HOMEPAGE=https://www.firebirdsql.org/
+INHERIT=autotools flag-o-matic
+IUSE=doc examples +server xinetd
+KEYWORDS=~amd64 ~x86
+LICENSE=IDPL Interbase-1.0
+RDEPEND=dev-libs/icu:= dev-libs/libedit dev-libs/libtommath acct-group/firebird acct-user/firebird xinetd? ( virtual/inetd ) !sys-cluster/ganglia
+SLOT=0
+SRC_URI=https://github.com/FirebirdSQL/firebird/releases/download/v3.0.10/Firebird-3.0.10.33601-0.tar.bz2 doc? ( ftp://ftpc.inprise.com/pub/interbase/techpubs/ib_b60_doc.zip )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=a12395c7d6008d72ff75fa4404487d82
