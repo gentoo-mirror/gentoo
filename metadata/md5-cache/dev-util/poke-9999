@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/autoconf-2.62 >=sys-devel/automake-2.16 sys-apps/gawk sys-apps/help2man sys-apps/texinfo sys-devel/bison sys-devel/flex virtual/pkgconfig emacs? ( >=app-editors/emacs-23.1:* ) test? ( dev-util/dejagnu nbd? ( sys-block/nbdkit ) ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=sys-devel/autoconf-2.62 >=sys-devel/automake-1.16 sys-apps/gawk sys-apps/help2man sys-apps/texinfo sys-devel/bison sys-devel/flex virtual/pkgconfig emacs? ( >=app-editors/emacs-23.1:* ) test? ( dev-util/dejagnu nbd? ( sys-block/nbdkit ) ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DEPEND=dev-libs/boehm-gc:= dev-libs/libatomic_ops sys-devel/gettext sys-libs/readline:= emacs? ( >=app-editors/emacs-23.1:* ) nbd? ( sys-libs/libnbd ) test? ( nbd? ( sys-libs/libnbd[uri-support] ) )
 DESCRIPTION=Extensible editor for structured binary data
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/boehm-gc:= dev-libs/libatomic_ops sys-devel/gettext sys-libs/re
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=de5baf27ca3b9af8bd603a952d7ba6cc
+_md5_=2dfa035eb935d3c3a4c141d4358a49f2
