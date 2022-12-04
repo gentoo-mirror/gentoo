@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.18.1 >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=sys-apps/acl-2.2.32 >=dev-cpp/gtkmm-4.6:4.0 dev-cpp/glibmm:2.68 >=gnome-base/nautilus-43
+DESCRIPTION=ACL editor for GNOME, with Nautilus extension
+EAPI=8
+HOMEPAGE=https://rofi.roger-ferrer.org/eiciel/ https://github.com/rofirrim/eiciel
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=meson xdg
+IUSE=nautilus xattr
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=sys-apps/acl-2.2.32 >=dev-cpp/gtkmm-4.6:4.0 dev-cpp/glibmm:2.68 >=gnome-base/nautilus-43
+SLOT=0
+SRC_URI=https://github.com/rofirrim/eiciel/archive/refs/tags/0.10.0-rc2.tar.gz -> eiciel-0.10.0_rc2.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=130e807b696457c91b1957a5a1f7b929
