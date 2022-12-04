@@ -46,6 +46,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.5.0-tinygettext.patch
 	"${FILESDIR}"/${PN}-0.6.0-{license,icon,obstack}.patch
 	"${FILESDIR}"/${PN}-0.6.3-missing-include.patch
+	"${FILESDIR}"/${PN}-0.6.3-squirrel-CVE-2021-41556.patch
 	"${FILESDIR}"/${PN}-0.6.3-squirrel-CVE-2022-30292.patch
 )
 
