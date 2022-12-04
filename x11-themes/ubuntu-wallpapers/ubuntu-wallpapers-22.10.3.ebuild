@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="mirror://ubuntu/pool/main/u/${PN}/${MY_P}.orig.tar.gz"
 # Review COPYING file for updates
 LICENSE="CC-BY-SA-3.0"
 
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 RDEPEND=""
@@ -33,6 +33,7 @@ src_install() {
 	doins contest/*.xml
 
 	for i in *.xml.in; do
+		sed -i 's/_name/name/g' ${i}
 		insinto /usr/share/gnome-background-properties
 		newins ${i} ${i/.in/}
 	done

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit python-single-r1 unpacker
 
@@ -84,12 +84,7 @@ RDEPEND="${DEPEND}
 	pcap? ( net-libs/libpcap[abi_x86_32(-)] )
 	png? ( media-libs/libpng:0[abi_x86_32(-)] )
 	scanner? ( media-gfx/sane-backends[abi_x86_32(-)] )
-	ssl? (
-		|| (
-			net-libs/gnutls:0/30.30[abi_x86_32(-)]
-			net-libs/gnutls:0/30[abi_x86_32(-)]
-		)
-	)
+	ssl? ( net-libs/gnutls:0/30.30[abi_x86_32(-)] )
 	v4l? ( media-libs/libv4l[abi_x86_32(-)] )
 	vulkan? ( media-libs/vulkan-loader[abi_x86_32(-)] )
 	dev-libs/glib:2
@@ -145,7 +140,7 @@ src_install() {
 		-e "s:xdg_install_icons(:&\"${ED}\".:" \
 		-e "s:\"\(.*\)/applications:\"${ED}\1/applications:" \
 		-e "s:\"\(.*\)/desktop-directories:\"${ED}\1/desktop-directories:" \
-		"${S}/lib/perl/CXMenuXDG.pm"
+		"${S}/lib/perl/CXMenuXDG.pm" || die
 
 	# Install crossover symlink, bug #476314
 	dosym ../cxoffice/bin/crossover /opt/bin/crossover
@@ -197,35 +192,28 @@ src_install() {
 		-e "s:${ED}::" \
 		"${ED}/opt/cxoffice/lib/perl/CXMenuXDG.pm" \
 		|| die "Could not fix paths in ${ED}/opt/cxoffice/lib/perl/CXMenuXDG.pm"
-	sed -i -e "s:${ED}:/:" \
+	sed -i -e "s:${ED}::" \
 		"${ED}/usr/share/applications/"*"CrossOver.desktop" \
 		|| die "Could not fix paths of *.desktop files"
 
 	# Workaround missing libs
-	# https://www.codeweavers.com/support/forums/general/?t=26;mhl=198658;msg=198658
-	if use gphoto2; then
-		bbe -e 's/libgphoto2_port.so.10/libgphoto2_port.so.12/' "${ED}/opt/cxoffice/lib/wine/gphoto2.ds.so" >tmp || die
-		mv tmp "${ED}/opt/cxoffice/lib/wine/gphoto2.ds.so" || die
-		bbe -e 's/libgphoto2_port.so.10/libgphoto2_port.so.12/' "${ED}/opt/cxoffice/bin/cxdiag" >tmp || die
-		mv tmp "${ED}/opt/cxoffice/bin/cxdiag" || die
-		fperms a+x "/opt/cxoffice/bin/cxdiag"
-	fi
+	#
 	# It tries to load libpcap as packaged in Debian, https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=657900
 	# https://bugs.gentoo.org/721108
 	if use pcap; then
-		bbe -e 's/libpcap.so.0.8/libpcap.so.1.9.1/' "${ED}/opt/cxoffice/lib/wine/wpcap.dll.so" >tmp || die
-		bbe -e 's/libpcap.so.0.8/libpcap.so.1.9.1/' "${ED}/opt/cxoffice/lib64/wine/wpcap.dll.so" >tmp64 || die
-		mv tmp "${ED}/opt/cxoffice/lib/wine/wpcap.dll.so" || die
-		mv tmp64 "${ED}/opt/cxoffice/lib64/wine/wpcap.dll.so" || die
+		bbe -e 's/libpcap.so.0.8/libpcap.so.1.9.1/' "${ED}/opt/cxoffice/lib/wine/i386-unix/wpcap.so" >tmp || die
+		bbe -e 's/libpcap.so.0.8/libpcap.so.1.9.1/' "${ED}/opt/cxoffice/lib/wine/x86_64-unix/wpcap.so" >tmp64 || die
+		mv tmp "${ED}/opt/cxoffice/lib/wine/i386-unix/wpcap.so" || die
+		mv tmp64 "${ED}/opt/cxoffice/lib/wine/x86_64-unix/wpcap.so" || die
 	fi
 
 	# Remove libs that link to openldap
 	if ! use ldap; then
-		rm "${ED}"/opt/cxoffice/lib*/wine/wldap32.dll.so || die
+		rm "${ED}"/opt/cxoffice/lib/wine/{i386,x86_64}-unix/wldap32.so
 	fi
 
 	# Remove libs that link to opencl
 	if ! use opencl; then
-		rm "${ED}"/opt/cxoffice/lib*/wine/opencl.dll.so || die
+		rm "${ED}"/opt/cxoffice/lib/wine/{i386,x86_64}-unix/opencl.so || die
 	fi
 }

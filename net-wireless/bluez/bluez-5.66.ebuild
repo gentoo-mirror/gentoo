@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
-inherit autotools linux-info python-single-r1 readme.gentoo-r1 systemd udev multilib-minimal
+inherit autotools linux-info python-single-r1 systemd udev multilib-minimal #readme.gentoo-r1
 
 DESCRIPTION="Bluetooth Tools and System Daemons for Linux"
 HOMEPAGE="http://www.bluez.org"
@@ -12,7 +12,7 @@ SRC_URI="https://www.kernel.org/pub/linux/bluetooth/${P}.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0/3"
-KEYWORDS="amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~x86"
 IUSE="btpclient cups doc debug deprecated extra-tools experimental +mesh midi +obex +readline selinux systemd test test-programs +udev"
 
 # Since this release all remaining extra-tools need readline support, but this could
@@ -67,12 +67,15 @@ PATCHES=(
 	# https://github.com/bluez/bluez/issues/268
 	"${FILESDIR}"/${PN}-udevadm-path-r1.patch
 
-	# https://github.com/bluez/bluez/issues/267
-	"${FILESDIR}"/${PN}-5.63-musl-limits.patch
-
 	# Fedora patches
 	# http://www.spinics.net/lists/linux-bluetooth/msg40136.html
 	"${FILESDIR}"/0001-obex-Use-GLib-helper-function-to-manipulate-paths.patch
+
+	# https://lore.kernel.org/linux-bluetooth/20220901110719.176944-1-hadess@hadess.net/T/#m9c08d004cd5422783ee1d93154f42303bba9169f
+	"${FILESDIR}"/${PN}-5.66-power-state-adapter-property.patch
+
+	# Fixed in next release
+	"${FILESDIR}"/${P}-transient-hostname-fix.patch
 )
 
 pkg_setup() {
@@ -273,14 +276,15 @@ multilib_src_install_all() {
 
 	einstalldocs
 	use doc && dodoc doc/*.txt
+	# Upstream dropped the example files
 	# Install .json files as examples to be used by meshctl
-	if use mesh; then
-		dodoc tools/mesh-gatt/*.json
-		local DOC_CONTENTS="Some example .json files were installed into
-		/usr/share/doc/${PF} to be used with meshctl. Feel free to
-		uncompress and copy them to ~/.config/meshctl to use them."
-		readme.gentoo_create_doc
-	fi
+	#if use mesh; then
+		#dodoc tools/mesh-gatt/*.json
+	#	local DOC_CONTENTS="Some example .json files were installed into
+	#	/usr/share/doc/${PF} to be used with meshctl. Feel free to
+	#	uncompress and copy them to ~/.config/meshctl to use them."
+	#	readme.gentoo_create_doc
+	#fi
 }
 
 pkg_postinst() {
@@ -288,7 +292,7 @@ pkg_postinst() {
 	systemd_reenable bluetooth.service
 
 	has_version net-dialup/ppp || elog "To use dial up networking you must install net-dialup/ppp"
-	use mesh && readme.gentoo_print_elog
+	#use mesh && readme.gentoo_print_elog
 }
 
 pkg_postrm() {
