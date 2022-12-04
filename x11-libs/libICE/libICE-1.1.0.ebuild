@@ -3,24 +3,24 @@
 
 EAPI=8
 
-XORG_DOC=doc
 XORG_MULTILIB=yes
 XORG_TARBALL_SUFFIX="xz"
 inherit xorg-3
 
-DESCRIPTION="X.Org X Display Manager Control Protocol library"
-
+DESCRIPTION="X.Org Inter-Client Exchange library"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
 
-RDEPEND="elibc_glibc? ( dev-libs/libbsd[${MULTILIB_USEDEP}] )"
-DEPEND="${RDEPEND}
-	x11-base/xorg-proto"
-
-src_configure() {
-	local XORG_CONFIGURE_OPTIONS=(
-		$(use_enable doc docs)
-		$(use_with doc xmlto)
-		--without-fop
+DEPEND="x11-base/xorg-proto
+	x11-libs/xtrans"
+RDEPEND="${DEPEND}
+	elibc_glibc? (
+		|| ( >=sys-libs/glibc-2.36 dev-libs/libbsd[${MULTILIB_USEDEP}] )
 	)
-	xorg-3_src_configure
-}
+"
+
+XORG_CONFIGURE_OPTIONS=(
+	--enable-ipv6
+	--disable-docs
+	--disable-specs
+	--without-fop
+)
