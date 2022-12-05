@@ -4,7 +4,6 @@
 EAPI=8
 
 CRATES="
-	addr2line-0.17.0
 	adler-1.0.2
 	aes-0.7.5
 	ahash-0.3.8
@@ -15,11 +14,10 @@ CRATES="
 	askama_derive-0.11.2
 	askama_escape-0.10.3
 	askama_shared-0.12.2
-	async-io-1.10.0
+	async-io-1.12.0
 	async-lock-2.6.0
 	atty-0.2.14
 	autocfg-1.1.0
-	backtrace-0.3.66
 	base64-0.13.1
 	bincode-1.3.3
 	bitflags-1.3.2
@@ -35,12 +33,11 @@ CRATES="
 	bzip2-0.4.3
 	bzip2-sys-0.1.11+1.0.8
 	cab-0.4.1
-	cache-padded-1.2.0
 	camino-1.1.1
-	cargo-options-0.5.2
+	cargo-options-0.5.3
 	cargo-platform-0.1.2
-	cargo-xwin-0.12.2
-	cargo-zigbuild-0.14.1
+	cargo-xwin-0.13.2
+	cargo-zigbuild-0.14.2
 	cargo_metadata-0.15.2
 	cbindgen-0.24.3
 	cc-1.0.77
@@ -51,18 +48,19 @@ CRATES="
 	chunked_transfer-1.4.0
 	cipher-0.3.0
 	clap-3.2.23
-	clap-4.0.26
-	clap_complete-4.0.5
-	clap_complete_fig-4.0.1
+	clap-4.0.29
+	clap_complete-4.0.6
+	clap_complete_command-0.4.0
+	clap_complete_fig-4.0.2
 	clap_derive-3.2.18
 	clap_derive-4.0.21
 	clap_lex-0.2.4
 	clap_lex-0.3.0
 	cli-table-0.4.7
 	combine-4.6.6
-	concolor-0.0.9
+	concolor-0.0.11
 	concolor-query-0.1.0
-	concurrent-queue-1.2.4
+	concurrent-queue-2.0.0
 	configparser-3.0.2
 	console-0.15.2
 	const-random-0.1.15
@@ -107,7 +105,7 @@ CRATES="
 	fastrand-1.8.0
 	fat-macho-0.4.6
 	filetime-0.2.18
-	flate2-1.0.24
+	flate2-1.0.25
 	fnv-1.0.7
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
@@ -125,7 +123,6 @@ CRATES="
 	futures-util-0.3.25
 	generic-array-0.14.6
 	getrandom-0.2.8
-	gimli-0.26.2
 	glob-0.3.0
 	globset-0.4.9
 	goblin-0.5.4
@@ -133,9 +130,9 @@ CRATES="
 	hashbrown-0.12.3
 	heck-0.4.0
 	hermit-abi-0.1.19
+	hermit-abi-0.2.6
 	hkdf-0.11.0
 	hmac-0.11.0
-	human-panic-1.0.3
 	humantime-2.1.0
 	humantime-serde-1.1.1
 	idna-0.3.0
@@ -144,15 +141,16 @@ CRATES="
 	indicatif-0.17.2
 	indoc-1.0.7
 	instant-0.1.12
-	io-lifetimes-0.7.5
+	io-lifetimes-1.0.3
+	is-terminal-0.4.1
 	itertools-0.10.5
 	itoa-1.0.4
 	js-sys-0.3.60
 	keyring-1.2.0
 	lazy_static-1.4.0
 	lddtree-0.3.2
-	libc-0.2.137
-	linux-raw-sys-0.0.46
+	libc-0.2.138
+	linux-raw-sys-0.1.3
 	lock_api-0.4.9
 	log-0.4.17
 	lzxd-0.1.4
@@ -165,7 +163,7 @@ CRATES="
 	mime_guess-2.0.4
 	minijinja-0.26.0
 	minimal-lexical-0.2.1
-	miniz_oxide-0.5.4
+	miniz_oxide-0.6.2
 	msi-0.5.0
 	multipart-0.18.0
 	native-tls-0.2.11
@@ -184,7 +182,6 @@ CRATES="
 	num-traits-0.2.15
 	num_cpus-1.14.0
 	number_prefix-0.4.0
-	object-0.29.0
 	once_cell-1.16.0
 	opaque-debug-0.3.0
 	openssl-0.10.43
@@ -192,14 +189,13 @@ CRATES="
 	openssl-probe-0.1.5
 	openssl-src-111.24.0+1.1.1s
 	openssl-sys-0.9.78
-	os_pipe-1.1.1
+	os_pipe-1.1.2
 	os_str_bytes-6.4.1
-	os_type-2.6.0
 	output_vt100-0.1.3
 	overload-0.1.1
 	parking-2.0.0
 	parking_lot-0.12.1
-	parking_lot_core-0.9.4
+	parking_lot_core-0.9.5
 	paste-1.0.9
 	path-slash-0.2.1
 	pep440-0.2.0
@@ -209,7 +205,7 @@ CRATES="
 	pkg-config-0.3.26
 	plain-0.2.3
 	platform-info-1.0.1
-	polling-2.4.0
+	polling-2.5.1
 	portable-atomic-0.3.15
 	ppv-lite86-0.2.17
 	pretty_assertions-1.3.0
@@ -222,7 +218,7 @@ CRATES="
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.5
 	quote-1.0.21
-	quoted_printable-0.4.5
+	quoted_printable-0.4.6
 	rand-0.8.5
 	rand_chacha-0.3.1
 	rand_core-0.6.4
@@ -236,10 +232,10 @@ CRATES="
 	remove_dir_all-0.5.3
 	rfc2047-decoder-0.2.0
 	ring-0.16.20
-	rpassword-7.1.0
-	rustc-demangle-0.1.21
+	rpassword-7.2.0
+	rtoolbox-0.0.1
 	rustc_version-0.4.0
-	rustix-0.35.13
+	rustix-0.36.4
 	rustls-0.20.7
 	rustversion-1.0.9
 	ryu-1.0.11
@@ -254,8 +250,8 @@ CRATES="
 	security-framework-2.7.0
 	security-framework-sys-2.6.1
 	semver-1.0.14
-	serde-1.0.147
-	serde_derive-1.0.147
+	serde-1.0.148
+	serde_derive-1.0.148
 	serde_json-1.0.89
 	serde_repr-0.1.9
 	sha2-0.10.6
@@ -266,7 +262,7 @@ CRATES="
 	slab-0.4.7
 	smallvec-1.10.0
 	smawk-0.3.1
-	snapbox-0.4.1
+	snapbox-0.4.3
 	snapbox-macros-0.3.1
 	socket2-0.4.7
 	socks-0.3.4
@@ -274,13 +270,13 @@ CRATES="
 	static_assertions-1.1.0
 	strsim-0.10.0
 	subtle-2.4.1
-	syn-1.0.103
+	syn-1.0.105
 	tar-0.4.38
 	target-lexicon-0.12.5
 	tempfile-3.3.0
 	termcolor-1.1.3
 	terminal_size-0.1.17
-	terminal_size-0.2.2
+	terminal_size-0.2.3
 	textwrap-0.16.0
 	thiserror-1.0.37
 	thiserror-impl-1.0.37
@@ -300,7 +296,7 @@ CRATES="
 	tracing-log-0.1.3
 	tracing-serde-0.1.3
 	tracing-subscriber-0.3.16
-	trycmd-0.14.4
+	trycmd-0.14.5
 	twox-hash-1.6.3
 	typenum-1.15.0
 	unicase-2.6.0
@@ -314,11 +310,11 @@ CRATES="
 	untrusted-0.7.1
 	ureq-2.5.0
 	url-2.3.1
-	uuid-0.8.2
 	uuid-1.2.2
 	valuable-0.1.0
 	vcpkg-0.2.15
 	version_check-0.9.4
+	versions-4.1.0
 	wait-timeout-0.2.0
 	waker-fn-1.1.0
 	walkdir-2.3.2
@@ -353,7 +349,7 @@ CRATES="
 	windows_x86_64_msvc-0.36.1
 	windows_x86_64_msvc-0.42.0
 	xattr-0.2.3
-	xwin-0.2.8
+	xwin-0.2.10
 	yansi-0.5.1
 	zbus-1.9.3
 	zbus_macros-1.9.3
@@ -369,9 +365,11 @@ CRATES_TEST="
 	cc-1.0.74
 	indexmap-1.9.1
 	libc-0.2.134
+	libc-0.2.137
 	once_cell-1.15.0
 	os_str_bytes-6.4.0
 	parking_lot_core-0.9.3
+	parking_lot_core-0.9.4
 	proc-macro2-1.0.46
 	pyo3-0.17.3
 	pyo3-build-config-0.17.3
@@ -379,8 +377,11 @@ CRATES_TEST="
 	pyo3-macros-0.17.3
 	pyo3-macros-backend-0.17.3
 	python3-dll-a-0.2.6
+	serde-1.0.147
+	serde_derive-1.0.147
 	serde_json-1.0.87
 	syn-1.0.102
+	syn-1.0.103
 	target-lexicon-0.12.4
 	uniffi-0.21.0
 	uniffi_build-0.21.0
@@ -448,7 +449,7 @@ src_configure() {
 	filter-lto # undefined references with ring crate
 
 	if use !amd64 && use !x86 && use !arm64 && use !arm; then
-		local myfeatures=( upload log human-panic )
+		local myfeatures=( upload log )
 		cargo_src_configure --no-default-features
 	fi
 }
