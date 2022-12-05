@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://libgadu.net/
 INHERIT=autotools
 IUSE=doc ssl test threads
-KEYWORDS=~alpha amd64 arm arm64 ~ia64 ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/protobuf-c:= sys-libs/zlib ssl? ( net-libs/gnutls:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wojtekka/libgadu/releases/download/1.12.2/libgadu-1.12.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=1c8ccecdcb33c9767e964a8886c491db
+_md5_=a231117e7762d7fa9a81e54a5d099469
