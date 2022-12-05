@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit distutils-r1
 
@@ -19,22 +19,30 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=dev-python/pydiffx-1.0.1-r1[${PYTHON_USEDEP}]
-	>=dev-python/six-1.8.0[${PYTHON_USEDEP}]
-	dev-python/tqdm[${PYTHON_USEDEP}]
-	dev-python/texttable[${PYTHON_USEDEP}]
+	>=dev-python/importlib_metadata-4.12[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
+	>=dev-python/pydiffx-1.1[${PYTHON_USEDEP}]
+	=dev-python/pydiffx-1.1*[${PYTHON_USEDEP}]
+	>=dev-python/six-1.8.0[${PYTHON_USEDEP}]
+	dev-python/texttable[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.3.0[${PYTHON_USEDEP}]
+	dev-python/tqdm[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	test? ( dev-python/kgb[${PYTHON_USEDEP}] )
+	test? (
+		>=dev-python/kgb-6.1[${PYTHON_USEDEP}]
+		dev-python/pytest-env[${PYTHON_USEDEP}]
+		dev-vcs/git
+		dev-vcs/mercurial
+	)
 "
 
 DOCS=( AUTHORS NEWS README.md )
 
 S=${WORKDIR}/${MY_P}
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
 
 src_prepare() {
 	default
@@ -47,6 +55,9 @@ src_prepare() {
 
 	# Fix test that appears to expect case-insentive comparison
 	sed -i -e 's/TEST CONTENT/Test content/' rbtools/utils/tests/test_console.py || die
+
+	# Loosen importlib_metadata dependency
+	sed -i -e '/importlib_metadata/ s/~=/>=/' RBTools.egg-info/requires.txt setup.py || die
 }
 
 python_test() {
