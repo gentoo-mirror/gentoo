@@ -22,8 +22,9 @@ To migrate a system to merged-usr, follow this procedure:
 
 2. Install sys-apps/merge-usr.
 
-3. Run the merge-usr script. The --dryrun option may be used to
-   check for error conditions before running the script for real.
+3. Run the merge-usr script in a root shell (not using 'sudo', as a precautionary
+   measure). The --dryrun option may be used to check for error conditions
+   before running the script for real.
 
 4. Switch to a merged-usr profile.
      eg. eselect profile set default/linux/amd64/17.1/systemd/merged-usr
