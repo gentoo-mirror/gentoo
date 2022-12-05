@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/allegro:0[X,jpeg,png,vorbis] media-libs/libvorbis
+DESCRIPTION=Free open-source game based on the Sonic the Hedgehog universe
+EAPI=8
+HOMEPAGE=https://opensnc.sourceforge.net/
+INHERIT=cmake
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ MIT
+RDEPEND=media-libs/allegro:0[X,jpeg,png,vorbis] media-libs/libvorbis
+RESTRICT=mirror
+SLOT=0
+SRC_URI=mirror://sourceforge/project/opensnc/Open%20Sonic/0.1.4/opensnc-src-0.1.4.tar.gz mirror+https://dev.gentoo.org/~ionen/distfiles/loggcompat-4.4.2.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=e3abf116d3425a5248edbd3e6c25193b
