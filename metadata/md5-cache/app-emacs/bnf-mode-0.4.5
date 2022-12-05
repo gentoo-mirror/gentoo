@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/buttercup app-emacs/undercover ) >=app-editors/emacs-24.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=GNU Emacs major mode for editing BNF grammars
+EAPI=8
+HOMEPAGE=https://github.com/sergeyklay/bnf-mode/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-24.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/sergeyklay/bnf-mode/archive/0.4.5.tar.gz -> bnf-mode-0.4.5.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=d16ad825aa1e1e8da41fd56d046b781d
