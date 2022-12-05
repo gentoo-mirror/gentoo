@@ -1,6 +1,36 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-06)
+# dev-cpp/glog fails tests, needs checknig
+media-libs/opencv glog contribsfm
+
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-06)
+# sci-libs/gdal not keyworded yet
+media-libs/opencv gdal
+
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-06)
+# app-crypt/heimdal not keyworded yet
+net-nds/openldap kerberos
+
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-06)
+# net-vpn/ocserv fails tests, probably kernel config related but needs
+# further investigation.
+net-vpn/openconnect test
+
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-06)
+# dev-python/pyside2 not keyworded yet
+dev-python/QtPy pyside2
+dev-python/qtconsole test
+
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-06)
+# dev-qt/qtwebengine:5 isn't available on loong.
+dev-python/QtPy webengine
+
+# WANG Xuerui <xen0n@gentoo.org> (2022-12-05)
+# app-arch/p7zip fails one test
+kde-apps/kdeutils-meta 7zip
+
 # WANG Xuerui <xen0n@gentoo.org> (2022-12-05)
 # <dev-cpp/tbb-2021 fails to build on loong w/ gcc-13
 sci-libs/spqr tbb
@@ -74,6 +104,7 @@ dev-libs/boost -context
 # WANG Xuerui <xen0n@gentoo.org> (2022-12-02)
 # dev-qt/qtlocation:5 fails to compile with gcc-13 for now.
 dev-python/PyQt5 location
+dev-python/QtPy test
 
 # WANG Xuerui <xen0n@gentoo.org> (2022-12-01)
 # sys-libs/libhugetlbfs isn't buildable here yet due to arch-specific code.
