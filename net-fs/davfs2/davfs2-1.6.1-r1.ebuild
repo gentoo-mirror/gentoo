@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
@@ -11,26 +11,20 @@ SRC_URI="mirror://nongnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc x86"
-IUSE="nls"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
+IUSE="nls split-usr"
 RESTRICT="test"
 
 RDEPEND="dev-libs/libxml2
-	net-libs/neon
+	acct-group/davfs2
+	acct-user/davfs2
+	net-libs/neon:=
 	sys-libs/zlib
 	nls? ( virtual/libintl virtual/libiconv )
 "
-DEPEND="${RDEPEND}
+BDEPEND="
 	nls? ( sys-devel/gettext )
 "
-RDEPEND="${RDEPEND}
-	acct-group/davfs2
-	acct-user/davfs2
-"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.6.0-neon-0.32-support.patch
-)
 
 src_prepare() {
 	local f
@@ -38,14 +32,21 @@ src_prepare() {
 	# Let the package manager handle man page compression
 	while IFS="" read -d $'\0' -r f ; do
 		sed -e '/^manual[58]_DATA/ s/[.]gz//g' -i "${f}" || die
-	done < <(find "${S}"/man -type f -name 'Makefile.in' -print0)
+	done < <(find "${S}"/man -type f -name 'Makefile.am' -print0)
 
 	default
 	eautoreconf
 }
 
 src_configure() {
-	econf --enable-largefile $(use_enable nls)
+	local ssbindir
+	if use split-usr; then
+		ssbindir=${EPREFIX}/sbin
+	else
+		ssbindir=${EPREFIX}/usr/sbin
+	fi
+
+	econf --enable-largefile $(use_enable nls) ssbindir="${ssbindir}"
 }
 
 pkg_postinst() {
