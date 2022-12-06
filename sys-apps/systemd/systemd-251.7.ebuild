@@ -26,7 +26,8 @@ else
 	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 fi
 
-inherit bash-completion-r1 flag-o-matic linux-info meson-multilib pam python-any-r1 systemd toolchain-funcs udev usr-ldscript
+inherit bash-completion-r1 flag-o-matic linux-info meson-multilib pam
+inherit python-any-r1 systemd toolchain-funcs udev usr-ldscript
 
 DESCRIPTION="System and service manager for Linux"
 HOMEPAGE="http://systemd.io/"
@@ -34,7 +35,7 @@ HOMEPAGE="http://systemd.io/"
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0/2"
 IUSE="
-	acl apparmor audit build cgroup-hybrid cryptsetup curl +dns-over-tls elfutils
+	acl apparmor audit cgroup-hybrid cryptsetup curl +dns-over-tls elfutils
 	fido2 +gcrypt gnuefi gnutls homed http idn importd iptables +kmod
 	+lz4 lzma +openssl pam pcre pkcs11 policykit pwquality qrcode
 	+resolvconf +seccomp selinux split-usr +sysv-utils test tpm vanilla xkb +zstd
@@ -130,11 +131,6 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	!sysv-utils? ( sys-apps/sysvinit )
 	resolvconf? ( !net-dns/openresolv )
-	!build? ( || (
-		sys-apps/util-linux[kill(-)]
-		sys-process/procps[kill(+)]
-		sys-apps/coreutils[kill(-)]
-	) )
 	!sys-apps/hwids[udev]
 	!sys-auth/nss-myhostname
 	!sys-fs/eudev
