@@ -3,12 +3,14 @@
 
 EAPI=8
 
+inherit edo
+
 # eg. 20211225 -> 2021-12-25
 MY_PV="${PV:0:4}-${PV:4:2}-${PV:6:2}"
 MY_PN="${PN^}"
 
 # standard comes first
-MY_COLOR_VARIANTS=( standard black blue brown green grey orange pink purple red yellow manjaro ubuntu )
+MY_COLOR_VARIANTS=( standard black blue brown green grey orange pink purple red yellow manjaro ubuntu nord )
 
 inherit xdg
 
@@ -26,7 +28,7 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="+${MY_COLOR_VARIANTS[*]} +hardlink" # this is why standard comes first
+IUSE="+${MY_COLOR_VARIANTS[*]} +hardlink kde" # this is why standard comes first
 
 REQUIRED_USE="|| ( ${MY_COLOR_VARIANTS[*]} )"
 
@@ -47,6 +49,7 @@ src_prepare() {
 
 src_install() {
 	local v variants=(
+		$(usev kde '-c')
 		$(for v in ${MY_COLOR_VARIANTS[@]}; do
 			usev ${v}
 		done)
@@ -61,7 +64,7 @@ src_install() {
 
 	# installs broken symlink (by design, but we remove it due to QA warnings)
 	# https://bugs.gentoo.org/830467
-	find "${ED}" -xtype l -name uav.svg -delete || die "removing broken symlinks failed"
+	edob find "${ED}" -xtype l -print -delete
 
 	einstalldocs
 }
