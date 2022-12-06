@@ -9,7 +9,7 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 fi
 
 inherit linux-info meson pam udev xdg-utils
@@ -54,6 +54,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-241.4-broken-test.patch" # bug 699116
 	"${FILESDIR}/${P}-revert-polkit-automagic.patch"
 	"${FILESDIR}/${P}-clang-undefined-symbol.patch"
+	"${FILESDIR}/${P}-loong.patch"
 )
 
 pkg_setup() {
