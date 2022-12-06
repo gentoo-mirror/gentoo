@@ -1,33 +1,35 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+# Please bump with app-doc/gnucash-docs
 
-inherit cmake gnome2-utils python-single-r1 toolchain-funcs xdg-utils
+PYTHON_COMPAT=( python3_{9..11} )
+
+inherit cmake gnome2-utils python-single-r1 xdg-utils
 
 DESCRIPTION="A personal finance manager"
 HOMEPAGE="https://www.gnucash.org/"
-SRC_URI="https://github.com/Gnucash/${PN}/releases/download/${PV}/${P}.tar.bz2"
+SRC_URI="https://github.com/Gnucash/gnucash/releases/download/${PV}/${P}.tar.bz2"
 
+LICENSE="GPL-2+"
 SLOT="0"
-LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
-IUSE="aqbanking debug doc examples gnome-keyring +gui mysql nls ofx postgres
-	  python quotes register2 smartcard sqlite test"
+IUSE="aqbanking debug doc examples gnome-keyring +gui mysql nls ofx postgres python quotes register2 smartcard sqlite test"
 RESTRICT="!test? ( test )"
 
 # Examples doesn't build unless GUI is also built
 REQUIRED_USE="
 	examples? ( gui )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	smartcard? ( aqbanking )"
+	smartcard? ( aqbanking )
+"
 
 # dev-libs/boost must always be built with nls enabled.
 # net-libs/aqbanking dropped gtk with v6. So, to simplify the
-#   dependency, we just rely on that.
+# dependency, we just rely on that.
 RDEPEND="
 	>=dev-libs/glib-2.56.1:2
 	>=dev-scheme/guile-2.2.0:=[regex]
@@ -73,40 +75,48 @@ RDEPEND="
 		dev-db/libdbi-drivers[sqlite]
 	)
 "
-
-DEPEND="${RDEPEND}
-	>=dev-cpp/gtest-1.8.0
+DEPEND="
+	${RDEPEND}
 	>=sys-devel/gettext-0.20
 	dev-lang/perl
 	dev-perl/XML-Parser
 	sys-devel/libtool
+	test? ( >=dev-cpp/gtest-1.8.0 )
 "
-
 BDEPEND="
 	dev-lang/swig
 	dev-util/cmake
 	virtual/pkgconfig
 "
-
-PDEPEND="doc? (
-	~app-doc/gnucash-docs-${PV}
-	gnome-extra/yelp
-)"
+PDEPEND="
+	doc? (
+		~app-doc/gnucash-docs-${PV}
+		gnome-extra/yelp
+	)
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.8-examples-subdir.patch
 	"${FILESDIR}"/${PN}-3.8-exclude-license.patch
+	"${FILESDIR}"/${P}-drop-broken-test.patch
+	# will be fixed on future version, see
+	# https://github.com/Gnucash/gnucash/pull/1472
+	"${FILESDIR}"/${P}-fix-test.patch
 )
 
-S="${WORKDIR}/${PN}-$(ver_cut 1-2)"
+# guile generates ELF files without use of C or machine code
+# It's a portage false positive, bug #677600
+QA_PREBUILT='*[.]go'
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
-	xdg_environment_reset
 }
 
 src_prepare() {
 	cmake_src_prepare
+
+	# http://debbugs.gnu.org/cgi/bugreport.cgi?bug=38112
+	find "${S}" -name "*.scm" -exec touch {} + || die
 
 	# Fix tests writing to /tmp
 	local fixtestfiles=(
@@ -151,11 +161,6 @@ src_configure() {
 }
 
 src_test() {
-	if use python ; then
-		cp common/test-core/unittest_support.py \
-		   "${BUILD_DIR}"/common/test-core/ || die
-	fi
-
 	LOCALE_TESTS=
 	if type locale >/dev/null 2>&1; then
 		MY_LOCALES="$(locale -a)"
@@ -170,21 +175,19 @@ src_test() {
 		ewarn "'locale' not found."
 	fi
 
-	if [[ ! ${LOCALE_TESTS} ]]; then
+	if [[ ! "${LOCALE_TESTS}" ]]; then
 		ewarn "Disabling test-qof and test-gnc-numeric."
 		echo 'set(CTEST_CUSTOM_TESTS_IGNORE test-qof test-gnc-numeric)' \
-			> "${BUILD_DIR}"/CTestCustom.cmake || die
+			> "${BUILD_DIR}"/CTestCustom.cmake || die "Failed to disable test-qof and test-gnc-numeric!"
 	fi
 
-	cd "${BUILD_DIR}" || die
+	cd "${BUILD_DIR}" || die "Failed to enter ${BUILD_DIR}"
 	XDG_DATA_HOME="${T}/$(whoami)" eninja check
+	cmake_src_test
 }
 
 src_install() {
 	cmake_src_install
-
-	# strip is unable to recognise the format of the input files (*.go)
-	dostrip -x /usr/$(get_libdir)/guile
 
 	if use examples ; then
 		docompress -x /usr/share/doc/${PF}/examples
