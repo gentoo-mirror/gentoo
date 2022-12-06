@@ -466,7 +466,7 @@ tc-ld-is-gold() {
 	# options and not CFLAGS/CXXFLAGS.
 	local base="${T}/test-tc-gold"
 	cat <<-EOF > "${base}.c"
-	int main() { return 0; }
+	int main(void) { return 0; }
 	EOF
 	out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1)
 	rm -f "${base}"*
@@ -499,7 +499,7 @@ tc-ld-is-lld() {
 	# options and not CFLAGS/CXXFLAGS.
 	local base="${T}/test-tc-lld"
 	cat <<-EOF > "${base}.c"
-	int main() { return 0; }
+	int main(void) { return 0; }
 	EOF
 	out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1)
 	rm -f "${base}"*
@@ -538,7 +538,7 @@ tc-ld-force-bfd() {
 	# to its value (like multilib).  #545218
 	local ld=$(tc-getLD "$@")
 	local bfd_ld="${ld%% *}.bfd"
-	local path_ld=$(which "${bfd_ld}" 2>/dev/null)
+	local path_ld=$(type -P "${bfd_ld}" 2>/dev/null)
 	[[ -e ${path_ld} ]] && export LD=${bfd_ld}
 
 	# Set up LDFLAGS to select bfd based on the gcc / clang version.
@@ -583,7 +583,7 @@ _tc-has-openmp() {
 	local base="${T}/test-tc-openmp"
 	cat <<-EOF > "${base}.c"
 	#include <omp.h>
-	int main() {
+	int main(void) {
 		int nthreads, tid, ret = 0;
 		#pragma omp parallel private(nthreads, tid)
 		{
@@ -1083,7 +1083,7 @@ gen_usr_ldscript() {
 		# If they're using gold, manually invoke the old bfd. #487696
 		local d="${T}/bfd-linker"
 		mkdir -p "${d}"
-		ln -sf $(which ${CHOST}-ld.bfd) "${d}"/ld
+		ln -sf $(type -P ${CHOST}-ld.bfd) "${d}"/ld
 		flags+=( -B"${d}" )
 	fi
 	output_format=$($(tc-getCC) "${flags[@]}" 2>&1 | sed -n 's/^OUTPUT_FORMAT("\([^"]*\)",.*/\1/p')
