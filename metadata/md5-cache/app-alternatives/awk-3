@@ -1,4 +1,4 @@
-DEFINED_PHASES=install postrm
+DEFINED_PHASES=install postrm preinst
 DESCRIPTION=/bin/awk and /usr/bin/awk symlinks
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Base/Alternatives
@@ -10,4 +10,4 @@ RDEPEND=!app-eselect/eselect-awk gawk? ( sys-apps/gawk ) busybox? ( sys-apps/bus
 REQUIRED_USE=^^ ( gawk busybox mawk nawk )
 SLOT=0
 _eclasses_=app-alternatives	7e9cb9b9eda5c46d0e04f3c992226ff2
-_md5_=2a3b4fc0629b88a771dbb506b57b690f
+_md5_=e57659d0dec19fe49e06cd62dea91035

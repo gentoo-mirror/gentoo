@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install
+DESCRIPTION=Real Time Log Monitoring and Alerting
+EAPI=8
+HOMEPAGE=https://www.crypt.gen.nz/logsurfer/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=freedist GPL-2+
+RDEPEND=acct-group/logsurfer acct-user/logsurfer
+RESTRICT=bindist
+SLOT=0
+SRC_URI=mirror://sourceforge/logsurfer/logsurfer-1.8.tar.gz
+_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=73c329233272a2bc5fabe4f4ceddb8cf

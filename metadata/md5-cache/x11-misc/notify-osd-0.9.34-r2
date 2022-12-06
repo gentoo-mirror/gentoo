@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=dev-util/glib-utils gnome-base/gnome-common x11-base/xorg-proto virtual/pkgconfig >=dev-libs/dbus-glib-0.98 >=dev-libs/glib-2.16:2 >=x11-libs/gtk+-3.2:3 >=x11-libs/libnotify-0.7 >=x11-libs/libwnck-3:3 x11-libs/libX11 x11-libs/pixman !x11-misc/notification-daemon !x11-misc/qtnotifydaemon
+DESCRIPTION=Canonical's on-screen-display notification agent
+EAPI=8
+HOMEPAGE=https://launchpad.net/notify-osd
+INHERIT=autotools gnome2-utils savedconfig
+IUSE=minimal savedconfig
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=gnome-base/gsettings-desktop-schemas !minimal? ( x11-themes/notify-osd-icons )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://launchpad.net/notify-osd/precise/0.9.34/+download/notify-osd-0.9.34.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341
+_md5_=8f568cfff91c0cb8b61772f9110e11d2
