@@ -5,11 +5,11 @@ DESCRIPTION=GNU GPL'd Pico clone with more functionality
 EAPI=8
 HOMEPAGE=https://www.nano-editor.org/ https://wiki.gentoo.org/wiki/Nano/Basics_Guide
 INHERIT=flag-o-matic autotools git-r3
-IUSE=debug justify magic minimal ncurses nls +spell +split-usr static unicode
+IUSE=debug justify magic minimal ncurses nls +spell static unicode
 LICENSE=GPL-3+ LGPL-2.1+ || ( GPL-3+ FDL-1.2+ )
 PROPERTIES=live
 RDEPEND=!static? ( >=sys-libs/ncurses-5.9-r1:=[unicode(+)?] sys-libs/ncurses:= magic? ( sys-apps/file ) nls? ( virtual/libintl ) )
 REQUIRED_USE=magic? ( !minimal )
 SLOT=0
 _eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=8b44cb85eecd191f34db05500a83bfea
+_md5_=2ea66816eff37e662d8d9f3000a18e3b
