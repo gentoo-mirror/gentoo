@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/libva x11-libs/libdrm[video_cards_intel]
+DESCRIPTION=oneAPI Video Processing Library Intel GPU implementation
+EAPI=8
+HOMEPAGE=https://github.com/oneapi-src/oneVPL-intel-gpu
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=media-libs/libva x11-libs/libdrm[video_cards_intel] >=media-libs/libva-intel-media-driver-22.6.3 || ( media-libs/oneVPL[drm,vaapi] media-libs/intel-mediasdk )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/oneapi-src/oneVPL-intel-gpu/archive/refs/tags/intel-onevpl-22.6.3.tar.gz -> oneVPL-intel-gpu-22.6.3.tar.gz
+_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=6a906e834150f74c69deaaa33396dfe9

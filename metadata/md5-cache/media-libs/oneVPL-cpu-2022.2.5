@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/dav1d media-libs/oneVPL[experimental?] media-libs/svt-av1 media-libs/svt-hevc media-video/ffmpeg x264? ( media-libs/x264 ) openh264? ( media-libs/openh264 )
+DESCRIPTION=oneAPI Video Processing Library CPU implementation
+EAPI=8
+HOMEPAGE=https://github.com/oneapi-src/oneVPL-cpu
+INHERIT=cmake
+IUSE=experimental openh264 test +x264
+KEYWORDS=~amd64
+LICENSE=MIT x264? ( GPL-2 )
+RDEPEND=media-libs/dav1d media-libs/oneVPL[experimental?] media-libs/svt-av1 media-libs/svt-hevc media-video/ffmpeg x264? ( media-libs/x264 ) openh264? ( media-libs/openh264 )
+REQUIRED_USE=^^ ( openh264 x264 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/oneapi-src/oneVPL-cpu/archive/refs/tags/v2022.2.5.tar.gz -> oneVPL-cpu-2022.2.5.tar.gz
+_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=c165ec61cea1067e51c7f048246c2476
