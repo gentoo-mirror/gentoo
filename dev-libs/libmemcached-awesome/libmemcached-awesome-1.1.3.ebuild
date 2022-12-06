@@ -12,7 +12,7 @@ S="${WORKDIR}/libmemcached-${PV}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+libevent sasl test"
 RESTRICT="!test? ( test )"
 
@@ -39,7 +39,7 @@ src_test() {
 	local myctestargs=(
 		# memcached_regression_lp583031: needs network, bug #845123
 		# bin/memaslap: tries to use Portage HOMEDIR, bug #845123
-		-E "(memcached_regression_lp583031|bin/memaslap)"
+		-E "(memcached_regression_lp583031|bin/memaslap|memcached_udp)"
 	)
 
 	cmake_src_test
