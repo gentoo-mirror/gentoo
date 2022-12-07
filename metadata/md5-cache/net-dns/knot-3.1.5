@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install test
 DEPEND=acct-group/knot acct-user/knot dev-db/lmdb dev-libs/libedit dev-libs/userspace-rcu:= dev-python/lmdb net-libs/gnutls:= caps? ( sys-libs/libcap-ng ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) geoip? ( dev-libs/libmaxminddb:= ) idn? ( !libidn2? ( net-dns/libidn:0= !net-dns/libidn2 ) libidn2? ( net-dns/libidn2:= ) ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=High-performance authoritative-only DNS server
 EAPI=8
-HOMEPAGE=https://www.knot-dns.cz/
+HOMEPAGE=https://www.knot-dns.cz/ https://gitlab.nic.cz/knot/knot-dns
 INHERIT=flag-o-matic systemd
 IUSE=doc caps +fastparser idn +libidn2 systemd +utils +cookies +dnsproxy dnstap geoip +noudp +onlinesign +queryacl +rrl +stats +synthrecord +whoami
 KEYWORDS=amd64 ~riscv x86
@@ -12,4 +12,4 @@ RDEPEND=acct-group/knot acct-user/knot dev-db/lmdb dev-libs/libedit dev-libs/use
 SLOT=0
 SRC_URI=https://secure.nic.cz/files/knot-dns/knot-3.1.5.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=c53d4162b2d3e42e1aa43b92b70b4ee0
+_md5_=98b7a92c2c02e06dbab132377c88cde5
