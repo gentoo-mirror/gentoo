@@ -1,11 +1,13 @@
+BDEPEND=dev-lang/perl
 DEFINED_PHASES=install postinst prepare
-DEPEND=dev-lang/perl
 DESCRIPTION=onis not irc stats
-EAPI=6
+EAPI=8
 HOMEPAGE=http://verplant.org/onis/
+INHERIT=perl-functions
 KEYWORDS=amd64 ~ppc x86
 LICENSE=LGPL-2
 RDEPEND=dev-lang/perl
 SLOT=0
 SRC_URI=http://verplant.org/onis/onis-0.8.2.tar.bz2
-_md5_=e906224492f24f363efc7cf41dcd5a8b
+_eclasses_=perl-functions	c3fca037246e877693badea0df3b0ef8
+_md5_=0c49bb0768b924c42457ccb199f039bc
