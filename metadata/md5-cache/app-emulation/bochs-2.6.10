@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/docbook-sgml-utils ) sys-apps/sed >=app-text/opensp-1.5
+BDEPEND=doc? ( app-text/docbook-sgml-utils ) >=app-text/opensp-1.5
 DEFINED_PHASES=configure prepare
 DEPEND=X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm ) sdl? ( media-libs/libsdl ) svga? ( media-libs/svgalib ) readline? ( sys-libs/readline:= ) ncurses? ( sys-libs/ncurses:= ) X? ( x11-base/xorg-proto )
 DESCRIPTION=LGPL-ed pc emulator
@@ -11,4 +11,4 @@ RDEPEND=X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm ) sd
 REQUIRED_USE=avx? ( x86-64 ) gdb? ( !debugger !smp ) debugger? ( !gdb )
 SLOT=0
 SRC_URI=mirror://sourceforge/bochs/bochs-2.6.10.tar.gz
-_md5_=4510eca7c11b7b5c77bfd2f11cf1be5c
+_md5_=975298833fe25259309e7a09922e4a1c

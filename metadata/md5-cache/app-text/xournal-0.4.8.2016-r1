@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=app-text/poppler[cairo] dev-libs/atk dev-libs/glib gnome-base/libgnomecanvas media-libs/freetype media-libs/fontconfig sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango
+DESCRIPTION=An application for notetaking, sketching, and keeping a journal using a stylus
+EAPI=8
+HOMEPAGE=http://xournal.sourceforge.net/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=+pdf vanilla
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-text/poppler[cairo] dev-libs/atk dev-libs/glib gnome-base/libgnomecanvas media-libs/freetype media-libs/fontconfig sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango pdf? ( app-text/poppler[utils] app-text/ghostscript-gpl )
+SLOT=0
+SRC_URI=mirror://sourceforge/xournal/xournal-0.4.8.2016.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1
+_md5_=89c8155e8d62bc292b3e9d45279ecd1c
