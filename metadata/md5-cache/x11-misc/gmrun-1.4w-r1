@@ -1,12 +1,13 @@
-DEFINED_PHASES=configure install
-DEPEND=x11-libs/gtk+:3 virtual/pkgconfig elibc_glibc? ( >=sys-libs/glibc-2.10 )
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure
+DEPEND=x11-libs/gtk+:3
 DESCRIPTION=A GTK-2 based launcher box with bash style auto completion!
 EAPI=8
 HOMEPAGE=https://github.com/wdlkmpx/gmrun
-IUSE=elibc_glibc nls xdg
+IUSE=nls xdg
 KEYWORDS=amd64 ~mips ppc x86
 LICENSE=ISC
 RDEPEND=x11-libs/gtk+:3
 SLOT=0
 SRC_URI=https://github.com/wdlkmpx/gmrun/releases/download/1.4w/gmrun-1.4w.tar.xz
-_md5_=74b50882156ddc8737a6f3e48937808f
+_md5_=9a31bb419ca9023432d55a93b480e5a3
