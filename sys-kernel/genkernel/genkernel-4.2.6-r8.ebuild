@@ -113,6 +113,7 @@ RDEPEND="${PYTHON_DEPS}
 	app-arch/cpio
 	>=app-misc/pax-utils-1.2.2
 	app-portage/elt-patches
+	app-portage/portage-utils
 	dev-util/gperf
 	sys-apps/sandbox
 	sys-devel/autoconf
