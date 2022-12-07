@@ -1,4 +1,3 @@
-BDEPEND=!build? ( sys-apps/sed )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
 DEPEND=>=sys-devel/patch-2.7.6-r4
 DESCRIPTION=The very latest -git version of the Linux kernel
@@ -12,5 +11,5 @@ RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-d
 RESTRICT=binchecks strip
 SLOT=6.1_rc1
 SRC_URI=https://git.kernel.org/torvalds/p/v6.1-rc1/v6.0 -> patch-6.1-rc1.patch https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	222472d400d477278b203edbf50c3b98
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	251644d091f08784e34abea7495fc883
 _md5_=04b03ecba24933874b6d52da3c95bf6c
