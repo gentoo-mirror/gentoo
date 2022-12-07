@@ -42,6 +42,10 @@ RDEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/${PN}"-0.4.8-c99-fix.patch
+)
+
 src_prepare() {
 	default
 

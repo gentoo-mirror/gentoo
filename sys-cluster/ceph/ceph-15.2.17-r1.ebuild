@@ -65,7 +65,6 @@ DEPEND="
 	sys-apps/hwloc:=
 	sys-apps/keyutils:=
 	sys-apps/util-linux:=
-	sys-apps/sed
 	sys-apps/util-linux
 	sys-libs/libcap-ng:=
 	sys-libs/ncurses:0=
@@ -111,7 +110,6 @@ BDEPEND="
 	dev-util/valgrind
 	sys-apps/coreutils
 	sys-apps/grep
-	sys-apps/sed
 	sys-apps/which
 	sys-devel/bc
 	sys-devel/patch
