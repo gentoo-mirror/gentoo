@@ -78,7 +78,7 @@ CRATES="
 	crypto-common-0.1.6
 	crypto-mac-0.11.1
 	ctor-0.1.26
-	data-encoding-2.3.2
+	data-encoding-2.3.3
 	derivative-2.2.0
 	dialoguer-0.10.2
 	diff-0.1.13
@@ -104,7 +104,7 @@ CRATES="
 	event-listener-2.5.3
 	fastrand-1.8.0
 	fat-macho-0.4.6
-	filetime-0.2.18
+	filetime-0.2.19
 	flate2-1.0.25
 	fnv-1.0.7
 	foreign-types-0.3.2
@@ -149,7 +149,7 @@ CRATES="
 	keyring-1.2.0
 	lazy_static-1.4.0
 	lddtree-0.3.2
-	libc-0.2.137
+	libc-0.2.138
 	linux-raw-sys-0.1.3
 	lock_api-0.4.9
 	log-0.4.17
@@ -184,11 +184,11 @@ CRATES="
 	number_prefix-0.4.0
 	once_cell-1.16.0
 	opaque-debug-0.3.0
-	openssl-0.10.43
+	openssl-0.10.44
 	openssl-macros-0.1.0
 	openssl-probe-0.1.5
 	openssl-src-111.24.0+1.1.1s
-	openssl-sys-0.9.78
+	openssl-sys-0.9.79
 	os_pipe-1.1.2
 	os_str_bytes-6.4.1
 	output_vt100-0.1.3
@@ -218,7 +218,7 @@ CRATES="
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.5
 	quote-1.0.21
-	quoted_printable-0.4.5
+	quoted_printable-0.4.6
 	rand-0.8.5
 	rand_chacha-0.3.1
 	rand_core-0.6.4
@@ -235,7 +235,7 @@ CRATES="
 	rpassword-7.2.0
 	rtoolbox-0.0.1
 	rustc_version-0.4.0
-	rustix-0.36.4
+	rustix-0.36.5
 	rustls-0.20.7
 	rustversion-1.0.9
 	ryu-1.0.11
@@ -250,8 +250,8 @@ CRATES="
 	security-framework-2.7.0
 	security-framework-sys-2.6.1
 	semver-1.0.14
-	serde-1.0.148
-	serde_derive-1.0.148
+	serde-1.0.149
+	serde_derive-1.0.149
 	serde_json-1.0.89
 	serde_repr-0.1.9
 	sha2-0.10.6
@@ -270,7 +270,7 @@ CRATES="
 	static_assertions-1.1.0
 	strsim-0.10.0
 	subtle-2.4.1
-	syn-1.0.104
+	syn-1.0.105
 	tar-0.4.38
 	target-lexicon-0.12.5
 	tempfile-3.3.0
@@ -298,7 +298,7 @@ CRATES="
 	tracing-subscriber-0.3.16
 	trycmd-0.14.5
 	twox-hash-1.6.3
-	typenum-1.15.0
+	typenum-1.16.0
 	unicase-2.6.0
 	unicode-bidi-0.3.8
 	unicode-ident-1.0.5
@@ -365,6 +365,7 @@ CRATES_TEST="
 	cc-1.0.74
 	indexmap-1.9.1
 	libc-0.2.134
+	libc-0.2.137
 	once_cell-1.15.0
 	os_str_bytes-6.4.0
 	parking_lot_core-0.9.3
