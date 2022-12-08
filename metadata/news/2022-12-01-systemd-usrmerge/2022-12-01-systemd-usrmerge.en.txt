@@ -1,7 +1,7 @@
 Title: /usr merge for systemd users
 Author: Mike Gilbert <floppym@gentoo.org>
 Posted: 2022-12-01
-Revision: 2
+Revision: 3
 News-Item-Format: 2.0
 Display-If-Installed: sys-apps/systemd
 
@@ -22,14 +22,19 @@ To migrate a system to merged-usr, follow this procedure:
 
 2. Install sys-apps/merge-usr.
 
-3. Run the merge-usr script in a root shell (not using 'sudo', as a precautionary
-   measure). The --dryrun option may be used to check for error conditions
-   before running the script for real.
+3. Run "merge-usr --dryrun" as root to check for conflicts. These will
+   appear with the word ERROR at the start of the line.
 
-4. Switch to a merged-usr profile.
+4. Resolve any conflicts. This may involve deleting duplicate files. If
+   in doubt, seek support in a Gentoo support channel.
+
+5. Run the merge-usr script from a root shell. Avoid running it via sudo
+   directly to avoid locking yourself out if an unexpected error occurs.
+
+6. Switch to a merged-usr profile.
      eg. eselect profile set default/linux/amd64/17.1/systemd/merged-usr
 
-5. Run emerge with the --newuse or --changed-use option to rebuild
+7. Run emerge with the --newuse or --changed-use option to rebuild
    any packages that have a "split-usr" USE flag.
      eg. emerge -uDN @world
 
