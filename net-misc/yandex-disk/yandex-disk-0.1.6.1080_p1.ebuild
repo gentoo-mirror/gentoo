@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit bash-completion-r1 rpm
 
@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="YDSLA"
 SLOT="0"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64 ~x86"
 
 DEPEND="app-arch/gzip"
 RDEPEND="sys-libs/zlib"
