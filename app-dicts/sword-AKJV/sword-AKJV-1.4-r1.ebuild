@@ -7,7 +7,7 @@ SWORD_MINIMUM_VERSION="1.5.1a"
 
 inherit sword-module
 
-DESCRIPTION="Definitions and Symbols from The Two Babylons"
-HOMEPAGE="https://crosswire.org/sword/modules/ModInfo.jsp?modName=2BabDict"
-LICENSE="public-domain"
+DESCRIPTION="American King James Version"
+HOMEPAGE="https://crosswire.org/sword/modules/ModInfo.jsp?modName=AKJV"
+LICENSE="free-noncomm"
 KEYWORDS="~amd64 ~loong ~ppc ~riscv ~x86"
