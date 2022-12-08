@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake desktop xdg flag-o-matic
 
@@ -12,23 +12,24 @@ SRC_URI="https://github.com/coelckers/${PN}/archive/g${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="Apache-2.0 BSD BZIP2 GPL-3 LGPL-2.1+ LGPL-3 MIT
 	non-free? ( Activision ChexQuest3 DOOM-COLLECTORS-EDITION freedist WidePix )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
-IUSE="debug gles2 gtk +non-free openmp telemetry vulkan"
+KEYWORDS="~amd64 ~arm64"
+IUSE="debug gles2 gtk +non-free openmp +swr telemetry vulkan"
 
 DEPEND="
 	app-arch/bzip2
+	media-libs/libjpeg-turbo:0=
 	media-libs/libsdl2[gles2?,opengl,vulkan?]
+	media-libs/libvpx:=
 	media-libs/openal
 	media-libs/zmusic
 	sys-libs/zlib
-	virtual/jpeg:0
 	gtk? ( x11-libs/gtk+:3 )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}-g${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-Introduce-the-BUILD_NONFREE-option.patch"
+	"${FILESDIR}"/${PN}-4.7.1-Introduce-the-BUILD_NONFREE-option.patch
 )
 
 src_prepare() {
@@ -42,7 +43,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# https://bugs.gentoo.org/858749
+	filter-lto
+	append-flags -fno-strict-aliasing
+
 	local mycmakeargs=(
+		-DBUILD_SHARED_LIBS=OFF
 		-DINSTALL_DOCS_PATH="${EPREFIX}/usr/share/doc/${PF}"
 		-DINSTALL_PK3_PATH="${EPREFIX}/usr/share/doom"
 		-DINSTALL_SOUNDFONT_PATH="${EPREFIX}/usr/share/doom"
@@ -52,6 +58,7 @@ src_configure() {
 		-DHAVE_VULKAN="$(usex vulkan)"
 		-DHAVE_GLES2="$(usex gles2)"
 		-DNO_OPENMP="$(usex !openmp)"
+		-DZDOOM_ENABLE_SWR="$(usex swr)"
 		-DBUILD_NONFREE="$(usex non-free)"
 	)
 
