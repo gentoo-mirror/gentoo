@@ -1,14 +1,14 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # deal.II uses its own FindLAPACK.cmake file that calls into the system
 # FindLAPACK.cmake module and does additional internal setup. Do not remove
 # any of these modules:
 CMAKE_REMOVE_MODULES_LIST=""
 
-inherit cmake flag-o-matic
+inherit cmake flag-o-matic verify-sig
 
 DESCRIPTION="Solving partial differential equations with the finite element method"
 HOMEPAGE="https://www.dealii.org/"
@@ -19,8 +19,10 @@ if [[ ${PV} = *9999* ]]; then
 	SRC_URI=""
 else
 	SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz
+		verify-sig? ( https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz.asc )
 		doc? (
 			https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}-offline_documentation.tar.gz
+			verify-sig? ( https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}-offline_documentation.tar.gz.asc )
 			)"
 	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 fi
@@ -28,14 +30,15 @@ fi
 LICENSE="LGPL-2.1+"
 SLOT="0"
 IUSE="
-	adolc assimp arpack cpu_flags_x86_avx cpu_flags_x86_avx512f
+	adolc arborx assimp arpack cgal cpu_flags_x86_avx cpu_flags_x86_avx512f
 	cpu_flags_x86_sse2 cuda +debug doc +examples ginkgo gmsh +gsl hdf5
-	+lapack metis mpi muparser opencascade p4est petsc
-	scalapack slepc +sparse static-libs sundials symengine trilinos
+	+lapack metis mpi muparser opencascade p4est petsc scalapack slepc
+	+sparse static-libs sundials symengine trilinos
 "
 
 # TODO: add slepc use flag once slepc is packaged for gentoo-science
 REQUIRED_USE="
+	arborx? ( trilinos )
 	p4est? ( mpi )
 	slepc? ( petsc )
 	trilinos? ( mpi )"
@@ -44,6 +47,7 @@ RDEPEND="dev-libs/boost:=
 	app-arch/bzip2
 	sys-libs/zlib
 	dev-cpp/tbb:=
+	arborx? ( sci-libs/arborx[mpi=] )
 	adolc? ( sci-libs/adolc )
 	arpack? ( sci-libs/arpack[mpi=] )
 	assimp? ( media-libs/assimp:= )
@@ -73,10 +77,14 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen[dot] dev-lang/perl )"
 
+BDEPEND="
+	verify-sig? ( sec-keys/openpgp-keys-dealii )"
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-9.1.1-no-ld-flags.patch
-	"${FILESDIR}"/${PN}-9.1.1-fix_boost_177.patch
 )
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/dealii.asc"
 
 src_configure() {
 	# deal.II needs a custom build type:
@@ -86,6 +94,7 @@ src_configure() {
 		-DDEAL_II_PACKAGE_VERSION="${PV}"
 		-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=OFF
 		-DDEAL_II_ALLOW_AUTODETECTION=OFF
+		-DDEAL_II_ALLOW_BUNDLED=OFF
 		-DDEAL_II_ALLOW_PLATFORM_INTROSPECTION=OFF
 		-DDEAL_II_COMPILE_EXAMPLES=OFF
 		-DDEAL_II_DOCHTML_RELDIR="share/doc/${P}/html"
@@ -96,8 +105,10 @@ src_configure() {
 		-DDEAL_II_SHARE_RELDIR="share/${PN}"
 		-DDEAL_II_WITH_ZLIB=ON
 		-DDEAL_II_WITH_ADOLC="$(usex adolc)"
+		-DDEAL_II_WITH_ARBORX="$(usex arborx)"
 		-DDEAL_II_WITH_ASSIMP="$(usex assimp)"
 		-DDEAL_II_WITH_ARPACK="$(usex arpack)"
+		-DDEAL_II_WITH_CGAL="$(usex cgal)"
 		-DDEAL_II_WITH_CUDA="$(usex cuda)"
 		-DDEAL_II_WITH_GINKGO="$(usex ginkgo)"
 		-DDEAL_II_COMPONENT_DOCUMENTATION="$(usex doc)"
@@ -105,6 +116,7 @@ src_configure() {
 		-DDEAL_II_WITH_GMSH="$(usex gmsh)"
 		-DDEAL_II_WITH_GSL="$(usex gsl)"
 		-DDEAL_II_WITH_HDF5="$(usex hdf5)"
+		-DDEAL_II_WITH_KOKKOS="$(usex trilinos)"
 		-DDEAL_II_WITH_LAPACK="$(usex lapack)"
 		-DDEAL_II_WITH_METIS="$(usex metis)"
 		-DDEAL_II_WITH_MPI="$(usex mpi)"
@@ -120,6 +132,7 @@ src_configure() {
 		-DBUILD_SHARED_LIBS="$(usex !static-libs)"
 		-DDEAL_II_PREFER_STATIC_LIBS="$(usex static-libs)"
 		-DDEAL_II_WITH_TBB=ON
+		-DDEAL_II_WITH_TASKFLOW=OFF
 		-DDEAL_II_WITH_TRILINOS="$(usex trilinos)"
 	)
 
@@ -140,6 +153,11 @@ src_configure() {
 		mycmakeargs+=( -DDEAL_II_HAVE_SSE2=yes )
 		append-cxxflags "-msse2"
 	fi
+
+	# Unconditionally enable strict C++17 standard. This is necessary for
+	# USE=cgal and USE=kokkos and safe to set for all presently supported
+	# compilers
+	append-cxxflags "-std=c++17"
 
 	cmake_src_configure
 }
