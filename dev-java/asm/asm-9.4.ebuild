@@ -14,7 +14,7 @@ inherit java-pkg-2 java-pkg-simple
 DESCRIPTION="Bytecode manipulation framework for Java"
 HOMEPAGE="https://asm.ow2.io"
 MY_P="ASM_${PV//./_}"
-SRC_URI="https://gitlab.ow2.org/asm/asm/-/archive/${MY_P}/asm-${MY_P}.tar.gz"
+SRC_URI="https://gitlab.ow2.org/asm/asm/-/archive/${MY_P}/asm-${MY_P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="9"
@@ -64,10 +64,12 @@ src_compile() {
 	done
 
 	if use doc; then
+		einfo "Compiling javadocs"
 		JAVA_JAR_FILENAME="ignoreme.jar"
 		JAVA_SRC_DIR=()
 		for module in "${ASM_MODULES[@]}"; do
-			JAVA_SRC_DIR+="$module/src/main/java"
+			rm "$module/src/main/java/module-info.java" || die
+			JAVA_SRC_DIR+=("$module/src/main/java")
 		done
 		java-pkg-simple_src_compile
 	fi
