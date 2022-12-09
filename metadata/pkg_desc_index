@@ -1203,7 +1203,7 @@ app-arch/pixz 1.0.7-r1 9999: Parallel Indexed XZ compressor
 app-arch/plzip 1.9 1.10: Parallel lzip compressor
 app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par files
 app-arch/pxz 5.0_pre20151029-r1 5.0_pre20220509 9999: parallel LZMA compressor (no parallel decompression!)
-app-arch/qpress 1.1-r1: A portable file archiver using QuickLZ algorithm
+app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
 app-arch/rar 6.12: RAR compressor/uncompressor
 app-arch/rpm 4.18.0: Red Hat Package Management Utils
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
@@ -2658,7 +2658,7 @@ app-emulation/dosemu 1.4.1_pre20130107-r5: DOS Emulator
 app-emulation/dxvk 1.10.3 2.0 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.21: Cisco 7200/3600 Simulator
 app-emulation/faudio 21.01 9999: FAudio - Accuracy-focused XAudio reimplementation for open platforms
-app-emulation/firecracker-bin 1.0.0 1.1.0 1.1.1 1.1.2: Secure and fast microVMs for serverless computing (static build)
+app-emulation/firecracker-bin 1.0.0 1.1.0 1.1.1 1.1.2 1.1.3: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 2.5.24 3.0.13 3.0.14 3.0.16: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
 app-emulation/fs-uae-launcher 3.1.66 3.1.68: PyQt5-based launcher for FS-UAE
@@ -12895,7 +12895,7 @@ mail-client/kube 0.7.0-r1: Mail client based on KDE Frameworks
 mail-client/mailx 8.1.2.20180807: The $ mail program, which is used to send mail via shell scripts
 mail-client/mailx-support 20060102-r2: Provides lockspool utility
 mail-client/mutt 2.2.3 2.2.8 2.2.9: A small but very powerful text-based mail client
-mail-client/mutt-wizard 3.2.1-r1 3.3.1 9999: A system for automatically configuring neomutt and isync
+mail-client/mutt-wizard 3.3.1 9999: A system for automatically configuring neomutt and isync
 mail-client/neomutt 20211029 20211029-r1 20220408 20220415 20220429 99999999: A small but very powerful text-based mail client
 mail-client/roundcube 1.4.11 1.5.0 1.5.1 1.5.2 1.5.3 1.6_beta 1.6_rc 1.6.0 9999: A browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
@@ -13286,7 +13286,7 @@ media-gfx/gifsicle 1.93: Create, manipulate, and optimize GIF images and animati
 media-gfx/gimp 2.10.32-r1 2.99.12-r1 2.99.14 9999: GNU Image Manipulation Program
 media-gfx/gimp-arrow-brushes 20190407: Brushes for GIMP with the styles arrow, handpointer, button arrow and cursor
 media-gfx/gmic 3.0.1-r1 3.1.6: GREYC's Magic Image Converter
-media-gfx/gnofract4d 4.3_p20211108 4.3_p20221114: A program for drawing beautiful mathematically-based images known as fractals
+media-gfx/gnofract4d 4.3_p20211108 4.3_p20221114 4.3_p20221125: A program for drawing beautiful mathematically-based images known as fractals
 media-gfx/gnome-font-viewer 41.0 43.0: Font viewer utility for GNOME
 media-gfx/gnome-photos 42.0-r1 43.0: Access, organize and share your photos on GNOME
 media-gfx/gnome-screenshot 41.0: Screenshot utility for GNOME
@@ -15999,7 +15999,7 @@ net-vpn/vpnc 0.5.3_p550-r3 0.5.3_p20220927 9999: Free client for Cisco VPN routi
 net-vpn/vpnc-scripts 20210402-r1 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
 net-vpn/vpncloud 2.3.0: High performance peer-to-peer mesh VPN
 net-vpn/vpncwatch 1.8.1-r1: Keepalive daemon for vpnc on Linux systems
-net-vpn/vtun 3.0.3-r2: Create tunnels over TCP/IP networks with shaping, encryption, and compression
+net-vpn/vtun 3.0.3-r2 3.0.4: Create tunnels over TCP/IP networks with shaping, encryption, and compression
 net-vpn/wireguard-modules 1.0.20220627: Simple yet fast and modern VPN that utilizes state-of-the-art cryptography
 net-vpn/wireguard-tools 1.0.20210424 1.0.20210914: Required tools for WireGuard, such as wg(8) and wg-quick(8)
 net-wireless/aircrack-ng 1.6_p20200722-r1 1.7 9999: WLAN tools for breaking 802.11 WEP/WPA keys
@@ -18515,7 +18515,7 @@ www-apps/postfixadmin 3.3.11-r1 3.3.12: Web Based Management tool for Postfix st
 www-apps/prewikka 5.2.0: Graphical front-end analysis console for the Prelude Framework
 www-apps/prowlarr 0.4.9.2083: An indexer manager/proxy to integrate with your various PVR apps
 www-apps/radarr 4.3.0.6671: A fork of Sonarr to work with movies a la Couchpotato
-www-apps/radicale 3.1.5 3.1.7 3.1.8: A simple CalDAV calendar server
+www-apps/radicale 3.1.8: A simple CalDAV calendar server
 www-apps/readarr 0.1.1.1320: An ebook and audiobook collection manager for Usenet and BitTorrent users
 www-apps/redmine 4.2.7 5.0.2: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.0.0-r1 2.1.0-r1: Issue-tracking system with command-line, web, and e-mail interfaces
