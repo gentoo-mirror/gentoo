@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 || ( ( =dev-qt/qtcore-5.15.7*:5 =dev-qt/qtgui-5.15.7*:5 =dev-qt/qthelp-5.15.7*:5 =dev-qt/qtsql-5.15.7*:5 =dev-qt/qtwidgets-5.15.7*:5 ) ( =dev-qt/qtcore-5.15.5*:5 =dev-qt/qtgui-5.15.5*:5 =dev-qt/qthelp-5.15.5*:5 =dev-qt/qtsql-5.15.5*:5 =dev-qt/qtwidgets-5.15.5*:5 ) ) ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.100:5
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 ( =dev-qt/qtcore-5.15.7*:5 =dev-qt/qtgui-5.15.7*:5 =dev-qt/qthelp-5.15.7*:5 =dev-qt/qtsql-5.15.7*:5 =dev-qt/qtwidgets-5.15.7*:5 ) ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.100:5
 DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
 DEPEND=>=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtmultimedia-5.15.5:5 media-gfx/qrencode:= media-libs/libdmtx media-libs/zxing-cpp:= qml? ( >=dev-qt/qtdeclarative-5.15.5:5 ) test? ( >=dev-qt/qtwidgets-5.15.5:5 ) test? ( dev-qt/qttest:5 ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 DESCRIPTION=QRCode and data matrix barcode library
@@ -12,5 +12,5 @@ RDEPEND=>=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtmultimedia-5.15.5:5 media-gfx/qrencod
 RESTRICT=!test? ( test )
 SLOT=5/5.100
 SRC_URI=mirror://kde/stable/frameworks/5.100/prison-5.100.0.tar.xz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	ecm	61c165e3e2ee9247a96df5f5e3b31472	kde.org	f4e23ee9fed407c2ceb93f819e8d9263	frameworks.kde.org	c2fd5a72d3ab78b02072d048e723db69
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	ecm	34ee807e2538bb1eb631b099fc007b63	kde.org	f4e23ee9fed407c2ceb93f819e8d9263	frameworks.kde.org	c2fd5a72d3ab78b02072d048e723db69
 _md5_=c3fdd220522b631be9a8a20f9de8e79b
