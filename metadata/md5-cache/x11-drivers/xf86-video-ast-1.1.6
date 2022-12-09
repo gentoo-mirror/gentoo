@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare unpack
+DEPEND=x11-base/xorg-proto >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+DESCRIPTION=X.Org driver for ASpeedTech cards
+EAPI=8
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/driver/xf86-video-ast
+INHERIT=xorg-3
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=x11-base/xorg-server:= >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+SLOT=0
+SRC_URI=https://www.x.org/releases/individual/driver/xf86-video-ast-1.1.6.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395	xorg-3	c0aa5351d86840baa910da59e2c4a2dc
+_md5_=f8492d09167f842c576a5537ba9e7327
