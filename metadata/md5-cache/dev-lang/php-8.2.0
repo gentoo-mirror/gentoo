@@ -13,6 +13,6 @@ RDEPEND=>=app-eselect/eselect-php-0.9.7[apache2?,fpm?] >=dev-libs/libpcre2-10.30
 REQUIRED_USE=|| ( cli cgi fpm apache2 embed phpdbg ) cli? ( ^^ ( readline libedit ) ) !cli? ( ?? ( readline libedit ) ) truetype? ( gd zlib ) webp? ( gd zlib ) cjk? ( gd zlib ) exif? ( gd zlib ) xpm? ( gd zlib ) gd? ( zlib ) simplexml? ( xml ) soap? ( xml ) xmlreader? ( xml ) xmlwriter? ( xml ) xslt? ( xml ) ldap-sasl? ( ldap ) oci8-instant-client? ( !ldap ) qdbm? ( !gdbm ) session-mm? ( session !threads ) mysql? ( || ( mysqli pdo ) ) firebird? ( pdo ) mssql? ( pdo )
 RESTRICT=!test? ( test )
 SLOT=8.2
-SRC_URI=https://downloads.php.net/~pierrick/php-8.2.0RC7.tar.xz
+SRC_URI=https://www.php.net/distributions/php-8.2.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	systemd	5f4bb0758df2e483babf68cd517078ca	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=dc05623d162ed9a8b65fdd12fe411c95
+_md5_=e992df1794a410fc611ab9d4ca445526
