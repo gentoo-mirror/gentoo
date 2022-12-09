@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install postinst setup
+DEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) slz? ( dev-libs/libslz:= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) )
+DESCRIPTION=A TCP/HTTP reverse proxy for high availability environments
+EAPI=7
+HOMEPAGE=http://www.haproxy.org
+INHERIT=toolchain-funcs flag-o-matic lua-single systemd linux-info
+IUSE=+crypt doc examples slz +net_ns +pcre pcre-jit prometheus-exporter ssl systemd +threads tools vim-syntax +zlib lua 51degrees wurfl +lua_single_target_lua5-3
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) slz? ( dev-libs/libslz:= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) acct-group/haproxy acct-user/haproxy
+REQUIRED_USE=pcre-jit? ( pcre ) lua? ( ^^ ( lua_single_target_lua5-3 ) ) ?? ( slz zlib )
+SLOT=0/2.2
+SRC_URI=http://haproxy.1wt.eu/download/2.2/src/haproxy-2.2.26.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	systemd	5f4bb0758df2e483babf68cd517078ca	linux-info	7a3f8b289bc442b8151fb29bfefe3b76
+_md5_=b4c9b1d8ac160e27595d532eee31f1b6
