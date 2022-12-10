@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 ) qml? ( dev-qt/qtdeclarative:5= ) websockets? ( dev-qt/qtwebsockets:5 ) examples? ( dev-qt/qtconcurrent:5 dev-qt/qtwidgets:5 ) test? ( dev-qt/qtconcurrent:5 dev-qt/qttest:5 )
+DESCRIPTION=C++ Coroutine Library for Qt5
+EAPI=8
+HOMEPAGE=https://qcoro.dvratil.cz/ https://github.com/danvratil/qcoro
+INHERIT=cmake
+IUSE=dbus examples +network qml test websockets
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=MIT
+RDEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 ) qml? ( dev-qt/qtdeclarative:5= ) websockets? ( dev-qt/qtwebsockets:5 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/danvratil/qcoro/archive/refs/tags/v0.7.0.tar.gz -> qcoro5-0.7.0.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
+_md5_=e305f7e665849a2b2a676ea43b3ef4fa
