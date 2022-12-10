@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
@@ -31,7 +31,7 @@ RDEPEND="
 	>=dev-python/colorama-0.4.6[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.8.2[${PYTHON_USEDEP}]
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
-	>=dev-python/platformdirs-2.5.4[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-2.6[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1[${PYTHON_USEDEP}]
 	>=dev-python/pyproject-api-1.2.1[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
@@ -40,7 +40,7 @@ RDEPEND="
 	>=dev-python/virtualenv-20.17.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/hatch-vcs[${PYTHON_USEDEP}]
+	>=dev-python/hatch-vcs-0.2.1[${PYTHON_USEDEP}]
 	test? (
 		dev-python/build[${PYTHON_USEDEP}]
 		>=dev-python/distlib-0.3.6[${PYTHON_USEDEP}]
@@ -49,13 +49,22 @@ BDEPEND="
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		>=dev-python/pytest-xdist-3.1[${PYTHON_USEDEP}]
 		>=dev-python/re-assert-1.1[${PYTHON_USEDEP}]
-		>=dev-python/time-machine-2.8.2[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			>=dev-python/time-machine-2.8.2[${PYTHON_USEDEP}]
+		' 'python*')
 	)
 "
 
 distutils_enable_tests pytest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+src_prepare() {
+	# the minimal bounds in tox are entirely meaningless and new packaging
+	# breaks setuptools
+	sed -i -e '/packaging/s:>=22::' pyproject.toml || die
+	distutils-r1_src_prepare
+}
 
 python_test() {
 	# devpi_process is not packaged, and has lots of dependencies
@@ -72,6 +81,11 @@ python_test() {
 		# requires devpi*
 		tests/test_provision.py
 	)
+	if ! has_version "dev-python/time_machine[${PYTHON_USEDEP}]"; then
+		EPYTEST_IGNORE+=(
+			tests/util/test_spinner.py
+		)
+	fi
 
 	epytest
 }
