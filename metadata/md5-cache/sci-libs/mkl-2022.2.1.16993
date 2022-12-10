@@ -1,0 +1,15 @@
+BDEPEND=app-arch/xz-utils[extra-filters]
+DEFINED_PHASES=install postinst postrm prepare unpack
+DESCRIPTION=Intel Math Kernel Library
+EAPI=8
+HOMEPAGE=https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html
+INHERIT=unpacker
+IUSE=static-libs
+KEYWORDS=~amd64
+LICENSE=ISSL
+RDEPEND=app-eselect/eselect-blas app-eselect/eselect-lapack sys-libs/libomp
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-2022.2.1-2022.2.1-16993_amd64.deb https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-devel-2022.2.1-2022.2.1-16993_amd64.deb https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-common-2022.2.1-2022.2.1-16993_all.deb https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-common-devel-2022.2.1-2022.2.1-16993_all.deb
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	unpacker	bc57272a0491765c71d973c8cfd35063
+_md5_=b12695f92fbc6617438165888d9b63b2
