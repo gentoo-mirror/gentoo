@@ -1,0 +1,16 @@
+BDEPEND=>=dev-qt/linguist-tools-5.15.5:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 ( =dev-qt/qtcore-5.15.7*:5 =dev-qt/qtgui-5.15.7*:5 =dev-qt/qthelp-5.15.7*:5 =dev-qt/qtsql-5.15.7*:5 =dev-qt/qtwidgets-5.15.7*:5 ) ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.101:5
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-qt/qtcore-5.15.5:5[icu] virtual/libudev:= dbus? ( >=dev-qt/qtdbus-5.15.5:5 ) fam? ( virtual/fam ) test? ( dev-qt/qttest:5 ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+DESCRIPTION=Framework for solving common problems such as caching, randomisation, and more
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org xdg-utils
+IUSE=dbus fam debug doc test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-qt/qtcore-5.15.5:5[icu] virtual/libudev:= dbus? ( >=dev-qt/qtdbus-5.15.5:5 ) fam? ( virtual/fam ) >=dev-qt/qttranslations-5.15.5:5 >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+RESTRICT=!test? ( test )
+SLOT=5/5.101
+SRC_URI=mirror://kde/stable/frameworks/5.101/kcoreaddons-5.101.0.tar.xz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	virtualx	644887c82aefdf12001489391fca4f02	ecm	34ee807e2538bb1eb631b099fc007b63	kde.org	f4e23ee9fed407c2ceb93f819e8d9263	frameworks.kde.org	c2fd5a72d3ab78b02072d048e723db69
+_md5_=88637ea723d33e6f1b074ffde78ed35a
