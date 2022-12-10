@@ -15,8 +15,7 @@
 # @DESCRIPTION:
 # The cmake eclass makes creating ebuilds for cmake-based packages much easier.
 # It provides all inherited features (DOCS, HTML_DOCS, PATCHES) along with
-# out-of-source builds (default), in-source builds and an implementation of the
-# well-known use_enable function for CMake.
+# out-of-source builds (default) and in-source builds.
 
 case ${EAPI} in
 	7|8) ;;
@@ -355,7 +354,7 @@ cmake_src_prepare() {
 
 	default_src_prepare
 
-	# check if CMakeLists.txt exist and if no then die
+	# check if CMakeLists.txt exists and if not then die
 	if [[ ! -e ${CMAKE_USE_DIR}/CMakeLists.txt ]] ; then
 		eerror "Unable to locate CMakeLists.txt under:"
 		eerror "\"${CMAKE_USE_DIR}/CMakeLists.txt\""
