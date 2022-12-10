@@ -27,7 +27,10 @@ IUSE="
 # disable tests until out of beta, tests themselves are new and can be volatile
 RESTRICT="test"
 
-# dlopen: alsa-lib,dbus,fontconfig,pulseaudio,speech-dispatcher,udev
+# libX11 range is temporary while this is being looked into:
+# - https://github.com/godotengine/godot/issues/69352
+# - https://gitlab.freedesktop.org/xorg/lib/libx11/-/issues/170
+# dlopen: alsa-lib,dbus,fontconfig,libX*,pulseaudio,speech-dispatcher,udev
 RDEPEND="
 	app-arch/zstd:=
 	dev-games/recastnavigation:=
@@ -46,7 +49,10 @@ RDEPEND="
 		media-libs/alsa-lib
 		media-libs/libglvnd[X]
 		media-libs/vulkan-loader[X]
-		x11-libs/libX11
+		|| (
+			>x11-libs/libX11-1.8.2-r1
+			<x11-libs/libX11-1.8.2-r1
+		)
 		x11-libs/libXcursor
 		x11-libs/libXext
 		x11-libs/libXi
@@ -71,8 +77,8 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.0-musl.patch
-	"${FILESDIR}"/${PN}-4.0_alpha14-scons.patch
 	"${FILESDIR}"/${PN}-4.0_beta3-headless-header.patch
+	"${FILESDIR}"/${PN}-4.0_beta8-scons.patch
 )
 
 src_prepare() {
