@@ -4,12 +4,14 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-LLVM_MAX_SLOT=14
+LLVM_MAX_SLOT=15
 inherit toolchain-funcs llvm optfeature python-single-r1
 
+AFL_PATCHSET="${PN}-4.04c-patches"
 DESCRIPTION="A fork of AFL, the popular compile-time instrumentation fuzzer"
 HOMEPAGE="https://github.com/AFLplusplus/AFLplusplus"
 SRC_URI="https://github.com/AFLplusplus/AFLplusplus/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${AFL_PATCHSET}.tar.xz"
 S="${WORKDIR}"/AFLplusplus-${PV}
 
 LICENSE="Apache-2.0"
@@ -28,18 +30,18 @@ RDEPEND="${PYTHON_DEPS}
 	>=sys-devel/llvm-13:=
 	|| (
 		sys-devel/clang:13
+		sys-devel/clang:14
 		sys-devel/clang:${LLVM_MAX_SLOT}
 	)
 	!app-forensics/afl"
 DEPEND="${RDEPEND}
 	test? ( dev-util/cmocka )"
 
+QA_FLAGS_IGNORED="afl-gcc-cmplog-pass.so afl-gcc-cmptrs-pass.so"
 QA_PREBUILT="usr/share/afl/testcases/others/elf/small_exec.elf"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.02c-respect-flags.patch
-	"${FILESDIR}"/${PN}-4.02c-no-ignore-errors-makefile.patch
-	"${FILESDIR}"/${PN}-4.01c-lld-detect.patch
+	"${WORKDIR}"/${AFL_PATCHSET}
 )
 
 llvm_check_deps() {
