@@ -18,13 +18,13 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm"
+KEYWORDS="~amd64 ~arm ~arm64"
 
 DOCS=( README.rst )
 
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	tests/test_core.py::TablenamesTest::test_tablenames
-	tests/test_onimport.py::SqliteDictPython24Test::test_py24_error
-)
+python_test() {
+	mkdir -p tests/db || die
+	distutils-r1_python_test
+}
