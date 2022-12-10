@@ -15,16 +15,14 @@ LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kcoreaddons-${PVCUT}:5
 	>=kde-frameworks/ki18n-${PVCUT}:5
 	>=kde-frameworks/kio-${PVCUT}:5
 "
-RDEPEND="${DEPEND}
-	!kde-apps/kdav:5
-"
+DEPEND="${RDEPEND}"
 
 src_test() {
 	# bug 616808 - DavItemFetchJobTest requires D-Bus

@@ -34,7 +34,10 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	wayland? ( >=dev-libs/plasma-wayland-protocols-1.7.0 )
+	wayland? (
+		>=dev-libs/plasma-wayland-protocols-1.7.0
+		>=dev-libs/wayland-protocols-1.27:0
+	)
 "
 BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 

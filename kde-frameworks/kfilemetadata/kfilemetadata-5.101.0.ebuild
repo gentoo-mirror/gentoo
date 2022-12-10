@@ -9,30 +9,29 @@ QTMIN=5.15.5
 inherit ecm frameworks.kde.org optfeature python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
+
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="epub exif ffmpeg mobi office pdf taglib"
+IUSE="epub exif ffmpeg mobi pdf taglib"
 
 RESTRICT="test"
 
-BDEPEND="
-	test? ( ${PYTHON_DEPS} )
-"
 RDEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
+	=kde-frameworks/karchive-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/ki18n-${PVCUT}*:5
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( media-video/ffmpeg:0= )
 	mobi? ( kde-apps/kdegraphics-mobipocket:5 )
-	office? ( =kde-frameworks/karchive-${PVCUT}*:5 )
 	pdf? ( app-text/poppler[qt5] )
 	taglib? ( media-libs/taglib )
 "
 DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
 "
+BDEPEND="test? ( ${PYTHON_DEPS} )"
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
@@ -45,7 +44,6 @@ src_configure() {
 		$(cmake_use_find_package exif LibExiv2)
 		$(cmake_use_find_package ffmpeg FFmpeg)
 		$(cmake_use_find_package mobi QMobipocket)
-		$(cmake_use_find_package office KF5Archive)
 		$(cmake_use_find_package pdf Poppler)
 		$(cmake_use_find_package taglib Taglib)
 	)
