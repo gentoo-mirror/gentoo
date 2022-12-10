@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gnome.org meson vala
+inherit gnome.org meson vala xdg
 
 DESCRIPTION="GNOME framework for accessing online accounts"
 HOMEPAGE="https://wiki.gnome.org/Projects/GnomeOnlineAccounts"
@@ -51,7 +51,7 @@ DEPEND="${RDEPEND}
 BDEPEND="gtk-doc? ( dev-util/gtk-doc )"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-meson-dependencies.patch" 
+	"${FILESDIR}/${P}-fix-meson-dependencies.patch"
 )
 
 src_prepare() {
