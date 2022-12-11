@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://httpd.apache.org/
 INHERIT=autotools toolchain-funcs
 IUSE=ssl
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc64-solaris ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc64-solaris ~x64-solaris
 LICENSE=Apache-2.0
 RDEPEND=>=dev-libs/apr-1.5.0:1= dev-libs/apr-util:1= dev-libs/expat dev-libs/libpcre virtual/libcrypt:= kernel_linux? ( sys-apps/util-linux ) ssl? ( dev-libs/openssl:0= )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://apache/httpd/httpd-2.4.54.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=e51d869918ac4a2130ab01392066fdf5
+_md5_=ca598b7d4fe19c53c342533676a5a857
