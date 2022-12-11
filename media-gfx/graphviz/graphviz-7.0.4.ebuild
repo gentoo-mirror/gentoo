@@ -50,7 +50,7 @@ RDEPEND="
 	lasi? ( media-libs/lasi )
 	pdf? ( app-text/poppler )
 	perl? ( dev-lang/perl:= )
-	postscript? ( app-text/ghostscript-gpl:= )
+	postscript? ( app-text/ghostscript-gpl )
 	python? ( ${PYTHON_DEPS} )
 	qt5? (
 		dev-qt/qtcore:5
