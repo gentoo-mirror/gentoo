@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/libsixel/libsixel
 INHERIT=bash-completion-r1 distutils-r1 meson
 IUSE=curl gd gtk jpeg png python test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
-KEYWORDS=amd64 ~ia64 ~loong x86
+KEYWORDS=amd64 ~arm ~arm64 ~ia64 ~loong x86
 LICENSE=MIT public-domain
 RDEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( virtual/jpeg:0 ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/libsixel/libsixel/archive/v1.10.3.tar.gz -> libsixel-1.10.3.tar.gz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	da32ffc285e9f13313f2387570e35b87	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=8f2e236e78df99ba69cb55e42874a0cc
+_md5_=0a8be1e4a5109060e5838ce2480f90f9
