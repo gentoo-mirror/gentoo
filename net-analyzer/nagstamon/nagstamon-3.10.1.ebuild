@@ -1,44 +1,49 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit python-r1 distutils-r1
+
+distutils_enable_tests pytest
 
 MY_PN="Nagstamon"
 MY_P="${MY_PN}-${PV/_p/-}"
 
 DESCRIPTION="status monitor for the desktop"
 DESCRIPTION="systray monitor for displaying realtime status of several monitoring systems"
-HOMEPAGE="https://nagstamon.ifw-dresden.de"
-SRC_URI="https://nagstamon.ifw-dresden.de/files/stable/${MY_P}.tar.gz"
+HOMEPAGE="https://nagstamon.de"
+SRC_URI="https://github.com/HenriWahl/Nagstamon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+IUSE="test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/PyQt5[gui,multimedia,svg,widgets,${PYTHON_USEDEP}]
+	dev-python/PySocks[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
+	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/secretstorage[${PYTHON_USEDEP}]
 	>=dev-python/python-xlib-0.19[${PYTHON_USEDEP}]
 	dev-python/requests-kerberos[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]"
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	test? ( dev-python/pylint[${PYTHON_USEDEP}] )"
 
-S="${WORKDIR}/${MY_PN}"
+S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}/${PN}-3.0-setup.patch" "${FILESDIR}/${PN}-3.4.1-unknown-version-id.patch" )
+PATCHES=( "${FILESDIR}/${PN}-3.10.1-setup.patch" )
 
 src_prepare() {
 	default_src_prepare
