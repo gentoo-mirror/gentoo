@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gohugo.io https://github.com/gohugoio/hugo
 INHERIT=go-module bash-completion-r1
 IUSE=doc +sass test
-KEYWORDS=~amd64 ~loong ~x86
+KEYWORDS=~amd64 ~arm64 ~loong ~x86
 LICENSE=Apache-2.0 BSD BSD-2 MIT Unlicense
 RDEPEND=>=media-libs/libwebp-1.2.3-r1:= sass? ( dev-libs/libsass:= )
 RESTRICT=!test? ( test ) strip
 SLOT=0
-SRC_URI=https://github.com/gohugoio/hugo/archive/v0.104.3.tar.gz -> hugo-0.104.3.tar.gz https://tastytea.de/files/gentoo/hugo-0.104.3-vendor.tar.xz https://tastytea.de/files/gentoo/hugo-0.101.0-libwebp-1.2.3.patch
+SRC_URI=https://github.com/gohugoio/hugo/archive/v0.107.0.tar.gz -> hugo-0.107.0.tar.gz https://tastytea.de/files/gentoo/hugo-0.107.0-vendor.tar.xz
 _eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=4606472aa7ecf5cd440e5440551e93a4
+_md5_=b267b2aeccf05c867a7367c21ebee21a
