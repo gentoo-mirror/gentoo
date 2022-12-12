@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/ert-runner ) >=app-editors/emacs-25:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Clojure Parser for Emacs Lisp
+EAPI=8
+HOMEPAGE=https://github.com/clojure-emacs/parseclj/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-25:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/clojure-emacs/parseclj/archive/v1.1.0.tar.gz -> parseclj-1.1.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=d18a20a08cf89c7f56cf46e96d8210de

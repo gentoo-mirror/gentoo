@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/ert-runner ) >=app-editors/emacs-25:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Associative data structure functions for Emacs Lisp
+EAPI=8
+HOMEPAGE=https://github.com/plexus/a.el/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-25:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/plexus/a.el/archive/v1.0.0.tar.gz -> a.el-1.0.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=b4ee1127776311b5c822e2c7a7fd1a27
