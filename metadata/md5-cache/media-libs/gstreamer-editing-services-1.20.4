@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://wiki.pitivi.org/wiki/GES
 INHERIT=meson python-r1
 IUSE=+introspection test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 x86
 LICENSE=LGPL-2+
 RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) >=dev-libs/glib-2.40.0:2 dev-libs/libxml2:2 >=media-libs/gstreamer-1.20.4:1.0[introspection?] >=media-libs/gst-plugins-base-1.20.4:1.0[introspection?] >=media-libs/gst-plugins-bad-1.20.4:1.0[introspection?] introspection? ( >=dev-libs/gobject-introspection-0.9.6:= )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=1.0
 SRC_URI=https://gstreamer.freedesktop.org/src/gstreamer-editing-services/gst-editing-services-1.20.4.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	2d51fd03931e743811ce30d198e4dcfd
-_md5_=a4e301c0bbd302e5dcbc6ddc9a31965e
+_md5_=fb83b6cf3e612c187a8652f62f858e29
