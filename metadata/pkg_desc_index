@@ -2251,8 +2251,8 @@ app-editors/vile 9.8w 9.8w-r1: VI Like Emacs -- yet another full-featured vi clo
 app-editors/vim 9.0.0099-r1 9.0.0828-r1 9.0.1000 9999: Vim, an improved vi-style text editor
 app-editors/vim-core 9.0.0099 9.0.0828-r1 9.0.1000 9999: vim and gvim shared files
 app-editors/vis 0.7 0.7-r1 0.8 9999: modern, legacy free, simple yet efficient vim-like editor
-app-editors/vscode 1.73.0 1.73.1: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.72.2.22289 1.73.0.22306 1.73.1.22314: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscode 1.73.0 1.73.1 1.74.0: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscodium 1.72.2.22289 1.73.0.22306 1.73.1.22314 1.74.0.22342: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r1: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.4.24-r5 21.4.24-r7 21.5.34-r10 21.5.9999: highly customizable open source text editor and application development system
@@ -3434,7 +3434,7 @@ app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh-bin 7.2.6-r1 7.2.7-r1 7.3.0-r1: PowerShell - binary precompiled for glibc
+app-shells/pwsh-bin 7.2.7-r1 7.3.0-r1 7.3.1: PowerShell - binary precompiled for glibc
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -5740,7 +5740,7 @@ dev-libs/mmtf-cpp 1.0.0-r1 1.1.0: The pure C++ implementation of the MMTF API, d
 dev-libs/modsecurity 3.0.8: Application firewall and intrusion detection
 dev-libs/mongo-c-driver 1.18.0-r1: Client library written in C for MongoDB
 dev-libs/mpc 1.2.1 1.3.0-r1 1.3.1_rc1: A library for multiprecision complex arithmetic with exact rounding
-dev-libs/mpfr 4.1.0_p13-r1 4.1.1_p1: Library for multiple-precision floating-point computations with exact rounding
+dev-libs/mpfr 4.1.0_p13-r1 4.1.1_p1 4.2.0_rc1: Library for multiple-precision floating-point computations with exact rounding
 dev-libs/msgpack 3.3.0: MessagePack is a binary-based efficient data interchange format
 dev-libs/mxml 3.3.1: A small XML parsing library that you can use to read XML data files or strings
 dev-libs/nanomsg 1.1.5-r1: High-performance messaging interface for distributed applications
@@ -11439,7 +11439,7 @@ dev-vcs/git-annex 10.20220624: manage files with git, without checking their con
 dev-vcs/git-big-picture 1.2.2-r1: Visualization tool for Git repositories
 dev-vcs/git-cola 3.12.0 4.0.1 4.0.2 4.0.3: The highly caffeinated git GUI
 dev-vcs/git-crypt 0.6.0-r1 0.7.0: Transparent file encryption in git
-dev-vcs/git-delete-merged-branches 7.2.0 7.2.1 7.2.1-r1 7.2.2: Command-line tool to delete merged Git branches
+dev-vcs/git-delete-merged-branches 7.2.0 7.2.1 7.2.1-r1 7.2.2 7.3.1: Command-line tool to delete merged Git branches
 dev-vcs/git-extras 6.4.0 6.5.0: Git utilities -- repo summary, repl, changelog population, and many more
 dev-vcs/git-filter-repo 2.34.0-r1 2.38.0-r1: Quickly rewrite git repository history (filter-branch replacement)
 dev-vcs/git-flow 1.12.3-r2: Git extensions to provide high-level repository operations
@@ -12432,7 +12432,7 @@ gui-apps/kanshi 1.3.0: dynamic display configuration (autorandr for wayland)
 gui-apps/lavalauncher 1.7.1 2.0.0 2.1.0 9999: Simple launcher for wayland
 gui-apps/mako 1.7.1 1.7.1-r1 9999: A lightweight notification daemon for Wayland. Works on Sway
 gui-apps/nm-tray 0.5.0: A simple Qt-based NetworkManager front-end
-gui-apps/slurp 1.3.2 9999: Select a region in a Wayland compositor and print it to the standard output
+gui-apps/slurp 1.3.2 1.4.0 9999: Select a region in a Wayland compositor and print it to the standard output
 gui-apps/swappy 1.4.0 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
 gui-apps/swaybg 1.0 1.1.1 9999: A wallpaper utility for Wayland
 gui-apps/swayidle 1.7 1.7.1 1.8.0 9999: Idle management daemon for Wayland
@@ -17048,6 +17048,7 @@ sec-keys/openpgp-keys-tor 20210425 20220216 20221213: OpenPGP keys used by the T
 sec-keys/openpgp-keys-unbound 20220316: OpenPGP keys used by unbound
 sec-keys/openpgp-keys-unrealircd 20220407: OpenPGP keys used to sign UnrealIRCd releases
 sec-keys/openpgp-keys-vinaysajip 20220520: OpenPGP keys used by Vinay Sajip
+sec-keys/openpgp-keys-vincentlefevre 20221213: OpenPGP keys used by Vincent Lefèvre
 sec-keys/openpgp-keys-voikko 20201013: OpenPGP keys used to sign voikko* packages
 sec-keys/openpgp-keys-waynedavison 20220329: OpenPGP keys used by Wayne Davison
 sec-keys/openpgp-keys-weechat 20220316: OpenPGP keys used by the WeeChat project

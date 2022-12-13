@@ -1,0 +1,15 @@
+BDEPEND=man? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/wayland-protocols-1.14 dev-libs/wayland x11-libs/cairo x11-libs/libxkbcommon
+DESCRIPTION=Select a region in a Wayland compositor and print it to the standard output
+EAPI=8
+HOMEPAGE=https://github.com/emersion/slurp
+INHERIT=meson
+IUSE=+man
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=dev-libs/wayland-protocols-1.14 dev-libs/wayland x11-libs/cairo x11-libs/libxkbcommon
+SLOT=0
+SRC_URI=https://github.com/emersion/slurp/archive/v1.4.0.tar.gz -> slurp-1.4.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=c8c8ff4104af13598850ee138fd48269
