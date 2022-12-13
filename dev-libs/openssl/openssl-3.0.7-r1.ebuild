@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/openssl.org.asc
 inherit edo flag-o-matic linux-info toolchain-funcs multilib-minimal multiprocessing verify-sig
@@ -51,6 +51,7 @@ MULTILIB_WRAPPED_HEADERS=(
 )
 
 PATCHES=(
+	"${FILESDIR}"/${P}-x509-CVE-2022-3996.patch
 )
 
 pkg_setup() {
