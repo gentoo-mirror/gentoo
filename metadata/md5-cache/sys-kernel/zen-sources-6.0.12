@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=The Zen Kernel Live Sources
+EAPI=8
+HOMEPAGE=https://github.com/zen-kernel
+INHERIT=kernel-2
+IUSE=symlink build
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=6.0.12
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.0-1.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.0-1.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.0-1.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.0-1.extras.tar.xz https://github.com/zen-kernel/zen-kernel/releases/download/v6.0.12-zen1/v6.0.12-zen1.patch.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	251644d091f08784e34abea7495fc883
+_md5_=95c873030eaccf7a04d03258a87f310a
