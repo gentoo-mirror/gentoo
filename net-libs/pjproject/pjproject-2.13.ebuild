@@ -6,9 +6,9 @@ EAPI=8
 inherit autotools flag-o-matic toolchain-funcs
 
 DESCRIPTION="Open source SIP, Media, and NAT Traversal Library"
-HOMEPAGE="https://www.pjsip.org/"
+HOMEPAGE="https://github.com/pjsip/pjproject https://www.pjsip.org/"
 SRC_URI="https://github.com/pjsip/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0/${PV}"
@@ -39,18 +39,13 @@ RDEPEND=">=net-libs/libsrtp-2.3.0:=
 		media-libs/speexdsp
 	)
 	ssl? (
-		<dev-libs/openssl-3.0.0:0=
+		dev-libs/openssl:0=
 	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/pjproject-2.12.1-CVE-2022-31031.patch"
-	"${FILESDIR}/pjproject-2.12.1-r2-CVE-2022-39244.patch" # 875863
-	"${FILESDIR}/pjproject-2.12.1-r2-CVE-2022-39269.patch" # 875863
-	"${FILESDIR}/pjproject-2.12.1-r2-bashism.patch" # 865719
-	"${FILESDIR}/pjproject-2.12.1-r2-musl.patch" # 867343
 )
 
 src_prepare() {
