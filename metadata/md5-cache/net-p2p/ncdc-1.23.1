@@ -1,0 +1,15 @@
+BDEPEND=dev-util/makeheaders virtual/pkgconfig dev-lang/perl verify-sig? ( sec-keys/openpgp-keys-yorhel ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure unpack
+DEPEND=app-arch/bzip2 dev-db/sqlite:3 >=dev-libs/glib-2.74:2 >=net-libs/gnutls-3:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib geoip? ( dev-libs/libmaxminddb:= )
+DESCRIPTION=Lightweight direct connect client with a friendly ncurses interface
+EAPI=8
+HOMEPAGE=https://dev.yorhel.nl/ncdc
+INHERIT=toolchain-funcs verify-sig
+IUSE=geoip verify-sig
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=MIT
+RDEPEND=app-arch/bzip2 dev-db/sqlite:3 >=dev-libs/glib-2.74:2 >=net-libs/gnutls-3:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib geoip? ( dev-libs/libmaxminddb:= )
+SLOT=0
+SRC_URI=https://dev.yorhel.nl/download/ncdc-1.23.1.tar.gz verify-sig? ( https://dev.yorhel.nl/download/ncdc-1.23.1.tar.gz.asc )
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=77604a0c014c2501090f8c5288ad9ffc
