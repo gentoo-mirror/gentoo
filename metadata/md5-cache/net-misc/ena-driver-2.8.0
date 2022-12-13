@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html
 INHERIT=linux-info linux-mod
 IUSE=dist-kernel
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=https://github.com/amzn/amzn-drivers/archive/ena_linux_2.8.0.tar.gz -> ena-driver-2.8.0-linux.tar.gz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	6b1798e63effe662e8a778c19fbe2107
-_md5_=cd54748e9e4f81d43232dcc21328f701
+_md5_=7d0a648bf5a2a2c71c2fa4ae6a294700
