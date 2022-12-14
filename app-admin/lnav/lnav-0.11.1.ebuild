@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="A curses-based tool for viewing and analyzing log files"
 HOMEPAGE="https://lnav.org"
@@ -11,8 +11,8 @@ SRC_URI="https://github.com/tstack/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="unicode test"
+KEYWORDS="~amd64 ~x86"
+IUSE="pcap test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -21,31 +21,34 @@ RDEPEND="
 	>=dev-db/sqlite-3.9.0
 	dev-libs/libpcre[cxx]
 	>=net-misc/curl-7.23.0
-	sys-libs/ncurses:=[unicode(+)?]
-	sys-libs/readline:0=
-	sys-libs/zlib:0="
+	sys-libs/ncurses:=
+	sys-libs/readline:=
+	sys-libs/zlib:=
+	pcap? ( net-analyzer/wireshark[tshark] )"
+# The tests use ssh-keygen and use dsa and rsa keys (which is why ssl is required)
 DEPEND="${RDEPEND}
-	test? ( dev-cpp/doctest )"
+	test? (
+		net-misc/openssh[ssl]
+		dev-cpp/doctest
+	)"
 
-DOCS=( AUTHORS NEWS README )
+DOCS=( AUTHORS NEWS.md README )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.10.0-disable-tests.patch
-	"${FILESDIR}"/${PN}-0.10.1-gcc12.patch
+	"${FILESDIR}"/${PN}-0.11.0-disable-tests.patch
 )
 
 src_prepare() {
 	default
 
 	eautoreconf
-
-	# These tests use network and expect a running sshd, so we'll just delete them.
-	echo "#! /bin/bash" > test/test_remote.sh || die
 }
 
 src_configure() {
+	filter-lto
+
 	econf \
 		--disable-static \
-		$(use_with test system-doctest) \
-		$(use_with unicode ncursesw)
+		--with-ncurses \
+		$(use_with test system-doctest)
 }
