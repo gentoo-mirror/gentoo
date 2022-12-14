@@ -7,7 +7,7 @@
 # @AUTHOR:
 # Author: Michał Górny <mgorny@gentoo.org>
 # Based on the work of: Krzysztof Pawlik <nelchael@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @PROVIDES: python-r1 python-single-r1
 # @BLURB: A simple eclass to build Python packages using distutils.
 # @DESCRIPTION:
@@ -44,15 +44,9 @@
 # For more information, please see the Python Guide:
 # https://projects.gentoo.org/python/guide/
 
-case "${EAPI:-0}" in
-	[0-5])
-		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
-		;;
-	[6-8])
-		;;
-	*)
-		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
-		;;
+case ${EAPI:-0} in
+	7|8) ;;
+	*) die "EAPI=${EAPI:-0} not supported";;
 esac
 
 # @ECLASS_VARIABLE: DISTUTILS_OPTIONAL
@@ -177,7 +171,6 @@ esac
 
 if [[ ! ${_DISTUTILS_R1} ]]; then
 
-[[ ${EAPI} == 6 ]] && inherit eutils xdg-utils
 inherit multibuild multiprocessing ninja-utils toolchain-funcs
 
 if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
@@ -236,7 +229,7 @@ _distutils_set_globals() {
 				;;
 			meson-python)
 				bdep+='
-					>=dev-python/meson-python-0.10.0-r1[${PYTHON_USEDEP}]
+					>=dev-python/meson-python-0.11.0[${PYTHON_USEDEP}]
 				'
 				;;
 			pbr)
@@ -322,11 +315,7 @@ _distutils_set_globals() {
 
 	if [[ ! ${DISTUTILS_OPTIONAL} ]]; then
 		RDEPEND="${PYTHON_DEPS} ${rdep}"
-		if [[ ${EAPI} != 6 ]]; then
-			BDEPEND="${PYTHON_DEPS} ${bdep}"
-		else
-			DEPEND="${PYTHON_DEPS} ${bdep}"
-		fi
+		BDEPEND="${PYTHON_DEPS} ${bdep}"
 		REQUIRED_USE=${PYTHON_REQUIRED_USE}
 	fi
 }
@@ -539,11 +528,7 @@ distutils_enable_sphinx() {
 	python_compile_all() { sphinx_compile_all; }
 
 	IUSE+=" doc"
-	if [[ ${EAPI} == 6 ]]; then
-		DEPEND+=" doc? ( ${deps} )"
-	else
-		BDEPEND+=" doc? ( ${deps} )"
-	fi
+	BDEPEND+=" doc? ( ${deps} )"
 
 	# we need to ensure successful return in case we're called last,
 	# otherwise Portage may wrongly assume sourcing failed
@@ -624,11 +609,7 @@ distutils_enable_tests() {
 	if [[ -n ${test_deps} ]]; then
 		IUSE+=" test"
 		RESTRICT+=" !test? ( test )"
-		if [[ ${EAPI} == 6 ]]; then
-			DEPEND+=" test? ( ${test_deps} )"
-		else
-			BDEPEND+=" test? ( ${test_deps} )"
-		fi
+		BDEPEND+=" test? ( ${test_deps} )"
 	fi
 
 	# we need to ensure successful return in case we're called last,
@@ -672,7 +653,7 @@ esetup.py() {
 		setup_py=( -c "from setuptools import setup; setup()" )
 	fi
 
-	if [[ ${EAPI} != [67] && ${mydistutilsargs[@]} ]]; then
+	if [[ ${EAPI} != 7 && ${mydistutilsargs[@]} ]]; then
 		die "mydistutilsargs is banned in EAPI ${EAPI} (use DISTUTILS_ARGS)"
 	fi
 
@@ -744,7 +725,7 @@ distutils_install_for_testing() {
 	local install_method=root
 	case ${1} in
 		--via-home)
-			[[ ${EAPI} == [67] ]] || die "${*} is banned in EAPI ${EAPI}"
+			[[ ${EAPI} == 7 ]] || die "${*} is banned in EAPI ${EAPI}"
 			install_method=home
 			shift
 			;;
@@ -895,7 +876,7 @@ _distutils-r1_check_all_phase_mismatch() {
 		eqawarn "QA Notice: distutils-r1_python_${EBUILD_PHASE}_all called"
 		eqawarn "from python_${EBUILD_PHASE}.  Did you mean to use"
 		eqawarn "python_${EBUILD_PHASE}_all()?"
-		[[ ${EAPI} != [67] ]] &&
+		[[ ${EAPI} != 7 ]] &&
 			die "distutils-r1_python_${EBUILD_PHASE}_all called from python_${EBUILD_PHASE}."
 	fi
 }
@@ -1001,7 +982,7 @@ _distutils-r1_print_package_versions() {
 	local pkg
 	einfo "Build system packages:"
 	for pkg in "${packages[@]}"; do
-		local installed=$(best_version "${pkg}")
+		local installed=$(best_version -b "${pkg}")
 		einfo "  $(printf '%-30s' "${pkg}"): ${installed#${pkg}-}"
 	done
 }
@@ -1050,8 +1031,12 @@ distutils-r1_python_prepare_all() {
 	fi
 
 	python_export_utf8_locale
-	[[ ${EAPI} == 6 ]] && xdg_environment_reset # Bug 577704
 	_distutils-r1_print_package_versions
+
+	if [[ -n ${SYSROOT} ]] && ! has_version -b ">=dev-python/gpep517-12"; then
+		ewarn ">=dev-python/gpep517-12 features cross-compilation fixes."
+		ewarn "Please consider upgrading to avoid issues."
+	fi
 
 	_DISTUTILS_DEFAULT_CALLED=1
 }
@@ -1312,29 +1297,24 @@ distutils_pep517_install() {
 	local config_settings=
 	case ${DISTUTILS_USE_PEP517} in
 		meson-python)
-			# TODO: remove the condition once we BDEP on >=0.11
-			if has_version -b ">=dev-python/meson-python-0.11"; then
-				local -x NINJAOPTS=$(get_NINJAOPTS)
-				config_settings=$(
-					"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
-						import json
-						import os
-						import shlex
-						import sys
+			local -x NINJAOPTS=$(get_NINJAOPTS)
+			config_settings=$(
+				"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
+					import json
+					import os
+					import shlex
+					import sys
 
-						ninjaopts = shlex.split(os.environ["NINJAOPTS"])
-						print(json.dumps({
-							"setup-args": sys.argv[1:],
-							"compile-args": [
-								"-v",
-								f"--ninja-args={ninjaopts!r}",
-							],
-						}))
-					EOF
-				)
-			elif [[ -n ${DISTUTILS_ARGS[@]} ]]; then
-				die "DISTUTILS_ARGS requires >=dev-python/meson-python-0.11 (missing BDEP?)"
-			fi
+					ninjaopts = shlex.split(os.environ["NINJAOPTS"])
+					print(json.dumps({
+						"setup-args": sys.argv[1:],
+						"compile-args": [
+							"-v",
+							f"--ninja-args={ninjaopts!r}",
+						],
+					}))
+				EOF
+			)
 			;;
 		setuptools)
 			if [[ -n ${DISTUTILS_ARGS[@]} ]]; then
@@ -1381,16 +1361,18 @@ distutils_pep517_install() {
 
 	local build_backend=$(_distutils-r1_get_backend)
 	einfo "  Building the wheel for ${PWD#${WORKDIR}/} via ${build_backend}"
-	local config_args=()
-	[[ -n ${config_settings} ]] &&
-		config_args+=( --config-json "${config_settings}" )
 	local cmd=(
 		gpep517 build-wheel
 			--backend "${build_backend}"
 			--output-fd 3
 			--wheel-dir "${WHEEL_BUILD_DIR}"
-			"${config_args[@]}"
 	)
+	if [[ -n ${config_settings} ]]; then
+		cmd+=( --config-json "${config_settings}" )
+	fi
+	if [[ -n ${SYSROOT} ]] && has_version -b ">=dev-python/gpep517-12"; then
+		cmd+=( --sysroot "${SYSROOT}" )
+	fi
 	printf '%s\n' "${cmd[*]}"
 	local wheel=$(
 		"${cmd[@]}" 3>&1 >&2 || die "Wheel build failed"
@@ -1453,7 +1435,9 @@ distutils-r1_python_compile() {
 				#
 				# see extension.py for list of suffixes
 				# .pyx is added for Cython
-				if [[ 1 -ne ${jobs} && 2 -eq $(
+				#
+				# esetup.py does not respect SYSROOT, so skip it there
+				if [[ -z ${SYSROOT} && 1 -ne ${jobs} && 2 -eq $(
 					find '(' -name '*.c' -o -name '*.cc' -o -name '*.cpp' \
 						-o -name '*.cxx' -o -name '*.c++' -o -name '*.m' \
 						-o -name '*.mm' -o -name '*.pyx' ')' -printf '\n' |
@@ -1521,7 +1505,7 @@ _distutils-r1_wrap_scripts() {
 
 			debug-print "${FUNCNAME}: installing wrapper at ${bindir}/${basename}"
 			local dosym=dosym
-			[[ ${EAPI} == [67] ]] && dosym=dosym8
+			[[ ${EAPI} == 7 ]] && dosym=dosym8
 			"${dosym}" -r /usr/lib/python-exec/python-exec2 \
 				"${bindir#${EPREFIX}}/${basename}"
 		done
