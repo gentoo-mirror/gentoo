@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/libconfig:= virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm preinst prepare setup
-DEPEND=net-libs/tox:= net-misc/curl sys-kernel/linux-headers sys-libs/ncurses:= audio-notify? ( media-libs/freealut media-libs/openal ) notification? ( x11-libs/libnotify ) debug? ( llvm? ( sys-devel/llvm:* ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) ) qrcode? ( media-gfx/qrencode:= png? ( media-libs/libpng ) ) sound? ( media-libs/openal net-libs/tox:=[av] ) X? ( x11-base/xorg-proto x11-libs/libX11 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=net-libs/tox:= net-misc/curl sys-kernel/linux-headers sys-libs/ncurses:= audio-notify? ( media-libs/freealut media-libs/openal ) notification? ( x11-libs/libnotify ) debug? ( llvm? ( sys-devel/llvm:* ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) qrcode? ( media-gfx/qrencode:= png? ( media-libs/libpng ) ) sound? ( media-libs/openal net-libs/tox:=[av] ) X? ( x11-base/xorg-proto x11-libs/libX11 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=A curses-based client for Tox
 EAPI=7
 HOMEPAGE=https://github.com/JFreegman/toxic
@@ -8,9 +8,9 @@ INHERIT=python-single-r1 xdg
 IUSE=+audio-notify debug games llvm notification png python qrcode +sound +video +X python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=net-libs/tox:= net-misc/curl sys-kernel/linux-headers sys-libs/ncurses:= audio-notify? ( media-libs/freealut media-libs/openal ) notification? ( x11-libs/libnotify ) debug? ( llvm? ( sys-devel/llvm:* ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) ) qrcode? ( media-gfx/qrencode:= png? ( media-libs/libpng ) ) sound? ( media-libs/openal net-libs/tox:=[av] ) X? ( x11-base/xorg-proto x11-libs/libX11 )
+RDEPEND=net-libs/tox:= net-misc/curl sys-kernel/linux-headers sys-libs/ncurses:= audio-notify? ( media-libs/freealut media-libs/openal ) notification? ( x11-libs/libnotify ) debug? ( llvm? ( sys-devel/llvm:* ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) qrcode? ( media-gfx/qrencode:= png? ( media-libs/libpng ) ) sound? ( media-libs/openal net-libs/tox:=[av] ) X? ( x11-base/xorg-proto x11-libs/libX11 )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ) video? ( sound X )
 SLOT=0
 SRC_URI=https://github.com/JFreegman/toxic/archive/v0.11.1.tar.gz -> toxic-0.11.1.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=13471a0f32647bc3ee346b946ed47fe0

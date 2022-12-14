@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-cpp/gtest dev-libs/boost >=sci-libs/fftw-3 sys-libs/libomp ) >=dev-util/cmake-3.22 >=dev-util/rocm-cmake-5.0.2-r1:0/5.0 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=dev-util/hip:= python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 )
+DEPEND=dev-util/hip:= python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
 DESCRIPTION=Next generation FFT implementation for ROCm
 EAPI=8
 HOMEPAGE=https://github.com/ROCmSoftwarePlatform/rocFFT
@@ -8,10 +8,10 @@ INHERIT=cmake check-reqs multiprocessing python-r1
 IUSE=benchmark perfscripts test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=perfscripts? ( >=media-gfx/asymptote-2.61 dev-texlive/texlive-latex dev-tex/latexmk sys-apps/texinfo dev-python/sympy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/scipy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pandas[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 )
+RDEPEND=perfscripts? ( >=media-gfx/asymptote-2.61 dev-texlive/texlive-latex dev-tex/latexmk sys-apps/texinfo dev-python/sympy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/scipy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pandas[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
 REQUIRED_USE=perfscripts? ( benchmark ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0/5.0
 SRC_URI=https://github.com/ROCmSoftwarePlatform/rocFFT/archive/rocm-5.0.2.tar.gz -> rocFFT-5.0.2.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-r1	2d51fd03931e743811ce30d198e4dcfd
 _md5_=7f8317d6ab5093b52906a2fe0ca5afa2

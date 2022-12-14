@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 )
+BDEPEND=virtual/pkgconfig || ( >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 )
 DEFINED_PHASES=configure install prepare setup test
 DEPEND=!static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= ) static-libs? ( lz4? ( app-arch/lz4:=[static-libs(+)] ) sasl? ( dev-libs/cyrus-sasl:=[static-libs(+)] ) ssl? ( dev-libs/openssl:0=[static-libs(+)] ) zstd? ( app-arch/zstd:=[static-libs(+)] ) sys-libs/zlib:=[static-libs(+)] )
 DESCRIPTION=Apache Kafka C/C++ client library
@@ -11,5 +11,5 @@ LICENSE=BSD-2
 RDEPEND=!static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= )
 SLOT=0/1
 SRC_URI=https://github.com/edenhill/librdkafka/archive/v1.5.3.tar.gz -> librdkafka-1.5.3.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=05de04517f0bcc90c55c8019397bb319

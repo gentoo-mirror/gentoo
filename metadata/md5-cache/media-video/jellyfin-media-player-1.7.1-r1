@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/libcec dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5 dev-qt/qtwidgets:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 media-libs/libsdl2 media-video/mpv:=[libmpv] sys-libs/zlib virtual/opengl x11-libs/libX11 x11-libs/libXrandr dbus? ( dev-qt/qtdbus:5 )
 DESCRIPTION=Jellyfin Desktop Client based on Plex Media Player
@@ -11,5 +11,5 @@ LICENSE=GPL-2 BSD MIT
 RDEPEND=dev-libs/libcec dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5 dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5 dev-qt/qtwidgets:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 media-libs/libsdl2 media-video/mpv:=[libmpv] sys-libs/zlib virtual/opengl x11-libs/libX11 x11-libs/libXrandr dbus? ( dev-qt/qtdbus:5 ) ~media-video/jellyfin-web-jmp-bin-10.8.1 !dbus? ( x11-misc/xdg-utils )
 SLOT=0
 SRC_URI=https://github.com/jellyfin/jellyfin-media-player/archive/refs/tags/v1.7.1.tar.gz -> jellyfin-media-player-1.7.1.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=9f186069da6796fbfdc6858fe7094003

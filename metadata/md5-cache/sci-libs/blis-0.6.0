@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 )
+BDEPEND=|| ( >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 )
 DEFINED_PHASES=compile configure install postinst postrm setup test
 DEPEND=eselect-ldso? ( !app-eselect/eselect-cblas >=app-eselect/eselect-blas-0.2 )
 DESCRIPTION=BLAS-like Library Instantiation Software Framework
@@ -12,5 +12,5 @@ RDEPEND=eselect-ldso? ( !app-eselect/eselect-cblas >=app-eselect/eselect-blas-0.
 REQUIRED_USE=?? ( openmp pthread serial ) ?? ( eselect-ldso 64bit-index )
 SLOT=0
 SRC_URI=https://github.com/flame/blis/archive/0.6.0.tar.gz -> blis-0.6.0.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=a5db08afac7d5c2be36458dc3d41a30a

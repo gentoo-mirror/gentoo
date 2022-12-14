@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure setup
-DEPEND=>=dev-libs/dbus-glib-0.60 >=dev-libs/glib-2.30:2 >=net-libs/sofia-sip-1.12.11 >=net-libs/telepathy-glib-0.17.6 >=sys-apps/dbus-0.60 || ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) dev-libs/libxslt
+DEPEND=>=dev-libs/dbus-glib-0.60 >=dev-libs/glib-2.30:2 >=net-libs/sofia-sip-1.12.11 >=net-libs/telepathy-glib-0.17.6 >=sys-apps/dbus-0.60 || ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) dev-libs/libxslt
 DESCRIPTION=A SIP connection manager for Telepathy based around the Sofia-SIP library
 EAPI=7
 HOMEPAGE=https://telepathy.freedesktop.org/
@@ -10,5 +10,5 @@ RDEPEND=>=dev-libs/dbus-glib-0.60 >=dev-libs/glib-2.30:2 >=net-libs/sofia-sip-1.
 RESTRICT=test
 SLOT=0
 SRC_URI=https://telepathy.freedesktop.org/releases/telepathy-rakia/telepathy-rakia-0.8.0.tar.gz https://patch-diff.githubusercontent.com/raw/TelepathyIM/telepathy-rakia/pull/1.patch -> telepathy-rakia-0.8.0-py3.patch
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=82fe7f49a10750928f6e0ec9669045ba

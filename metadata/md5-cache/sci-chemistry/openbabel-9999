@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl doc? ( app-doc/doxygen dev-texlive/texlive-latex ) perl? ( >=dev-lang/swig-2 ) python? ( >=dev-lang/swig-2 ) test? ( dev-lang/python ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
-DEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl )
+DEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl )
 DESCRIPTION=Interconverts file formats used in molecular modeling
 EAPI=8
 HOMEPAGE=https://openbabel.org/
@@ -8,10 +8,10 @@ INHERIT=cmake desktop flag-o-matic perl-functions python-r1 toolchain-funcs wxwi
 IUSE=cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl:= !sci-chemistry/openbabel-perl )
+RDEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl:= !sci-chemistry/openbabel-perl )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) test? ( inchi json !minimal wxwidgets )
 RESTRICT=!test? ( test )
 SLOT=0/7.0.0
 SRC_URI=https://openbabel.org/docs/dev/_static/babel130.png -> openbabel.png http://openbabel.org/OBTitle.jpg -> openbabel.jpg
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	desktop	7eb20ad915a0a318176d51bc2508ff5c	perl-functions	c3fca037246e877693badea0df3b0ef8	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	desktop	7eb20ad915a0a318176d51bc2508ff5c	perl-functions	c3fca037246e877693badea0df3b0ef8	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-r1	2d51fd03931e743811ce30d198e4dcfd	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=b125d73885867c3083da967d79d004a0

@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) || ( ( >=dev-lang/python-3.10.8_p3:3.10 dev-python/m2crypto[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.15_p3:3.9 dev-python/m2crypto[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.15_p3:3.8 dev-python/m2crypto[python_targets_python3_8(-)] ) ) virtual/pkgconfig virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) || ( ( >=dev-lang/python-3.10.9:3.10 dev-python/m2crypto[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 dev-python/m2crypto[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 dev-python/m2crypto[python_targets_python3_8(-)] ) ) virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile install prepare setup test
 DEPEND=!gcrypt? ( dev-libs/openssl:0= ) gcrypt? ( dev-libs/libgcrypt:0= ) dev-libs/libnl:3 net-wireless/wireless-regdb
 DESCRIPTION=Central Regulatory Domain Agent for wireless networks
@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=!gcrypt? ( dev-libs/openssl:0= ) gcrypt? ( dev-libs/libgcrypt:0= ) dev-libs/libnl:3 net-wireless/wireless-regdb
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/mcgrof/crda.git/snapshot/crda-4.14.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=b6bfc35416fa200c36ffc48d435c6765

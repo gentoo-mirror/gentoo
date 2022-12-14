@@ -1,6 +1,6 @@
 BDEPEND=python? ( virtual/pkgconfig dev-lang/swig ) doc? ( app-text/asciidoc )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) ) udis86? ( dev-libs/udis86 ) sys-kernel/linux-headers test? ( dev-util/cunit )
+DEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) ) udis86? ( dev-libs/udis86 ) sys-kernel/linux-headers test? ( dev-util/cunit )
 DESCRIPTION=User-space front-end for Ftrace
 EAPI=7
 HOMEPAGE=https://git.kernel.org/cgit/linux/kernel/git/rostedt/trace-cmd.git
@@ -8,10 +8,10 @@ INHERIT=linux-info bash-completion-r1 python-r1 toolchain-funcs
 IUSE=+audit doc python test udis86 python_targets_python3_8 python_targets_python3_9
 KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=GPL-2+ LGPL-2.1+
-RDEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) ) udis86? ( dev-libs/udis86 )
+RDEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) ) udis86? ( dev-libs/udis86 )
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
 RESTRICT=!test? ( test ) test
 SLOT=0/2.9.1
 SRC_URI=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/trace-cmd-v2.9.1.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-r1	2d51fd03931e743811ce30d198e4dcfd
 _md5_=21d62ebda4dae5fb77e22a3c46cc3e2d

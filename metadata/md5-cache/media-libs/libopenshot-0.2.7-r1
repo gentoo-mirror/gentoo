@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) python? ( dev-lang/swig ) test? ( dev-cpp/catch:0 dev-libs/unittest++ ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis] net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib,contribdnn] ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) )
+DEPEND=dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis] net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib,contribdnn] ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) )
 DESCRIPTION=Video editing library used by OpenShot
 EAPI=8
 HOMEPAGE=https://www.openshot.org/
@@ -8,10 +8,10 @@ INHERIT=cmake python-single-r1 toolchain-funcs
 IUSE=doc examples +imagemagick +opencv +python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis] net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib,contribdnn] ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) )
+RDEPEND=dev-libs/jsoncpp:0= dev-libs/protobuf:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] >=media-libs/libopenshot-audio-0.2.1:0= media-video/ffmpeg:0=[encode,x264,xvid,vpx,mp3,theora,vorbis] net-libs/cppzmq net-libs/zeromq imagemagick? ( >=media-gfx/imagemagick-7:0=[cxx] ) opencv? ( >=media-libs/opencv-4.5.2:=[contrib,contribdnn] ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 RESTRICT=!test? ( test )
 SLOT=0/21
 SRC_URI=https://github.com/OpenShot/libopenshot/archive/v0.2.7.tar.gz -> libopenshot-0.2.7.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=3cca198d7622039d1921b039c3f16a50

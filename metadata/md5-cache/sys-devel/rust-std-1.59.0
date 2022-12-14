@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) ~dev-lang/rust-1.59.0:=
+BDEPEND=|| ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) ~dev-lang/rust-1.59.0:=
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=|| ( >=sys-devel/gcc-4.7:* >=sys-devel/clang-3.5:* )
 DESCRIPTION=Rust standard library, standalone (for crossdev)
@@ -11,5 +11,5 @@ RDEPEND=|| ( >=sys-devel/gcc-4.7:* >=sys-devel/clang-3.5:* )
 RESTRICT=test
 SLOT=stable/1.59
 SRC_URI=https://static.rust-lang.org/dist/rustc-1.59.0-src.tar.xz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	87f1b83e21a473787b821ef3d0437bf3	rust-toolchain	9e3a9f96182f7084ca9c6e173d2f2f5c
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	87f1b83e21a473787b821ef3d0437bf3	rust-toolchain	9e3a9f96182f7084ca9c6e173d2f2f5c
 _md5_=49641fb3185a450035d3246e57a0e402

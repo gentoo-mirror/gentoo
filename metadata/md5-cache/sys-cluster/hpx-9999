@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) >=dev-cpp/asio-1.12.0 dev-libs/boost:= sys-apps/hwloc:= jemalloc? ( dev-libs/jemalloc:= ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) perftools? ( dev-util/google-perftools:= ) tbb? ( dev-cpp/tbb:= ) zlib? ( sys-libs/zlib )
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) >=dev-cpp/asio-1.12.0 dev-libs/boost:= sys-apps/hwloc:= jemalloc? ( dev-libs/jemalloc:= ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) perftools? ( dev-util/google-perftools:= ) tbb? ( dev-cpp/tbb:= ) zlib? ( sys-libs/zlib )
 DESCRIPTION=C++ runtime system for parallel and distributed applications
 EAPI=8
 HOMEPAGE=https://hpx.stellar-group.org/
@@ -8,9 +8,9 @@ INHERIT=git-r3 check-reqs cmake multiprocessing python-single-r1
 IUSE=examples jemalloc mpi papi +perftools tbb zlib python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 LICENSE=Boost-1.0
 PROPERTIES=live
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) >=dev-cpp/asio-1.12.0 dev-libs/boost:= sys-apps/hwloc:= jemalloc? ( dev-libs/jemalloc:= ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) perftools? ( dev-util/google-perftools:= ) tbb? ( dev-cpp/tbb:= ) zlib? ( sys-libs/zlib )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) >=dev-cpp/asio-1.12.0 dev-libs/boost:= sys-apps/hwloc:= jemalloc? ( dev-libs/jemalloc:= ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) perftools? ( dev-util/google-perftools:= ) tbb? ( dev-cpp/tbb:= ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ?? ( jemalloc perftools tbb )
 RESTRICT=test
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=21294c1e359783b6c874f7b3f8a35e46

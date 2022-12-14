@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10[xml(+)] >=dev-lang/python-3.9.15_p3:3.9[xml(+)] >=dev-lang/python-3.8.15_p3:3.8[xml(+)] ) >=sys-apps/checkpolicy-2.8 sys-devel/m4
+BDEPEND=|| ( >=dev-lang/python-3.10.9:3.10[xml(+)] >=dev-lang/python-3.9.16:3.9[xml(+)] >=dev-lang/python-3.8.16:3.8[xml(+)] ) >=sys-apps/checkpolicy-2.8 sys-devel/m4
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=>=sys-apps/policycoreutils-2.8
 DESCRIPTION=Gentoo base policy for SELinux
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=sys-apps/policycoreutils-2.8
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20220520/refpolicy-2.20220520.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20220520-r1.tar.bz2
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=742374f05c60320ea798be0da8226c2d

@@ -1,5 +1,5 @@
 DEFINED_PHASES=install prepare setup
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_8? ( dev-python/PyQt5[gui,widgets,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/PyQt5[gui,widgets,python_targets_python3_9(-)] )
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_8? ( dev-python/PyQt5[gui,widgets,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/PyQt5[gui,widgets,python_targets_python3_9(-)] )
 DESCRIPTION=Educational tool for relational algebra
 EAPI=7
 HOMEPAGE=https://ltworf.github.io/relational/
@@ -7,9 +7,9 @@ INHERIT=python-single-r1
 IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_8? ( dev-python/PyQt5[gui,widgets,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/PyQt5[gui,widgets,python_targets_python3_9(-)] )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_8? ( dev-python/PyQt5[gui,widgets,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/PyQt5[gui,widgets,python_targets_python3_9(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/ltworf/relational/releases/download/2.5/relational_2.5.orig.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=e3f855a4b1eb10a390eb93909616c269

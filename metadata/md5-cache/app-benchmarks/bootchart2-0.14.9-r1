@@ -1,4 +1,4 @@
-BDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.9_p9:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) ) virtual/pkgconfig
+BDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) virtual/pkgconfig
 DEFINED_PHASES=install postinst prepare setup test
 DESCRIPTION=Performance analysis and visualization of the system boot process
 EAPI=8
@@ -7,10 +7,10 @@ INHERIT=linux-info python-single-r1 systemd toolchain-funcs
 IUSE=+cairo python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.9_p9:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_pypy3? ( dev-python/pycairo[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/pycairo[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pycairo[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pycairo[python_targets_python3_10(-)] ) ) sys-apps/lsb-release
+RDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_pypy3? ( dev-python/pycairo[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/pycairo[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pycairo[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pycairo[python_targets_python3_10(-)] ) ) sys-apps/lsb-release
 REQUIRED_USE=cairo? ( ^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 RESTRICT=!cairo? ( test )
 SLOT=0
 SRC_URI=https://github.com/xrmx/bootchart/archive/0.14.9.tar.gz -> bootchart2-0.14.9.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=f01674f1e5f675fb03c0e8acbe96539a

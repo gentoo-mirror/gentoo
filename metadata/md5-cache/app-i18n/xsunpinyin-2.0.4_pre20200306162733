@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.9.15_p3:3.9 >=dev-util/scons-4.4.0[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.15_p3:3.8 >=dev-util/scons-4.4.0[python_targets_python3_8(-)] ) )
+BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.9.16:3.9 >=dev-util/scons-4.4.0[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 >=dev-util/scons-4.4.0[python_targets_python3_8(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=~app-i18n/sunpinyin-2.0.4_pre20200306162733 dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libX11 x11-libs/pango
 DESCRIPTION=Standalone XIM server for SunPinyin
@@ -10,5 +10,5 @@ LICENSE=|| ( CDDL LGPL-2.1 )
 RDEPEND=~app-i18n/sunpinyin-2.0.4_pre20200306162733 dev-libs/glib:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libX11 x11-libs/pango app-i18n/sunpinyin-data
 SLOT=0
 SRC_URI=https://github.com/sunpinyin/sunpinyin/archive/f39c195db08661e894017507842991a1ef70bedf.tar.gz -> sunpinyin-2.0.4_pre20200306162733.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	scons-utils	bec7e6195b3d988724ab87185cb13435
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd	scons-utils	bec7e6195b3d988724ab87185cb13435
 _md5_=a35027fff86f26c5abb142321208401a

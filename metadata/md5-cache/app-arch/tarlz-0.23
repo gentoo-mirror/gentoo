@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-arch/plzip app-arch/pdlzip app-arch/lzip )
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip )
 DEFINED_PHASES=configure unpack
 DEPEND=>=app-arch/lzlib-1.12
 DESCRIPTION=A parallel archiver combining tar and lzip
@@ -10,5 +10,5 @@ LICENSE=GPL-2+
 RDEPEND=>=app-arch/lzlib-1.12
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.23.tar.lz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	unpacker	bc57272a0491765c71d973c8cfd35063
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	unpacker	f03f9c0c03643e8057ad762b297ce01e
 _md5_=027e555902c0504357cbb7fcc8cd69ad

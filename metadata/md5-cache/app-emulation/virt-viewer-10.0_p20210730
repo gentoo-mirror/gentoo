@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) dev-lang/perl virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) dev-lang/perl virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango libvirt? ( >=app-emulation/libvirt-0.10.0:=[sasl?] app-emulation/libvirt-glib ) spice? ( >=net-misc/spice-gtk-0.35[sasl?,gtk3] ) vnc? ( >=net-libs/gtk-vnc-0.5.0[sasl?,gtk3(+)] ) spice? ( >=app-emulation/spice-protocol-0.12.10 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Graphical console client for connecting to virtual machines
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gt
 REQUIRED_USE=|| ( spice vnc )
 SLOT=0
 SRC_URI=https://gitlab.com/virt-viewer/virt-viewer/-/archive/f0cc7103becccbce95bdf0c80151178af2bace5a/virt-viewer-f0cc7103becccbce95bdf0c80151178af2bace5a.tar.bz2 -> virt-viewer-10.0_p20210730.tar.bz2
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	1a218637f27d4c027b92e511707264fd	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=0f348f977b8c8f9974f13acd598d91ad

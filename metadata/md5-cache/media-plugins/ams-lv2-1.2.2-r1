@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install setup
-DEPEND=dev-cpp/gtkmm:2.4 media-libs/lv2 media-libs/lvtk[gtk2] sci-libs/fftw:3.0 x11-libs/cairo x11-libs/gtk+:2 virtual/jack || ( >=dev-lang/python-3.10.8_p3:3.10[threads(+)] >=dev-lang/python-3.9.15_p3:3.9[threads(+)] >=dev-lang/python-3.8.15_p3:3.8[threads(+)] ) virtual/pkgconfig
+DEPEND=dev-cpp/gtkmm:2.4 media-libs/lv2 media-libs/lvtk[gtk2] sci-libs/fftw:3.0 x11-libs/cairo x11-libs/gtk+:2 virtual/jack || ( >=dev-lang/python-3.10.9:3.10[threads(+)] >=dev-lang/python-3.9.16:3.9[threads(+)] >=dev-lang/python-3.8.16:3.8[threads(+)] ) virtual/pkgconfig
 DESCRIPTION=A port of the AMS internal modules to LV2 plugins to create modular synthesizers
 EAPI=7
 HOMEPAGE=https://github.com/blablack/ams-lv2
@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=dev-cpp/gtkmm:2.4 media-libs/lv2 media-libs/lvtk[gtk2] sci-libs/fftw:3.0 x11-libs/cairo x11-libs/gtk+:2 virtual/jack
 SLOT=0
 SRC_URI=https://github.com/blablack/ams-lv2/archive/1.2.2.tar.gz -> ams-lv2-1.2.2.tar.gz
-_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	waf-utils	b339462e3ff724f101dcab3ea5a7a341	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	waf-utils	b339462e3ff724f101dcab3ea5a7a341	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=4a406f82e081d4b2c9e94dfc9fbbbd60

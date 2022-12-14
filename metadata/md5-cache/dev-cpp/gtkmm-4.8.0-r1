@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig gtk-doc? ( app-doc/doxygen[dot] dev-lang/perl dev-libs/libxslt ) || ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=virtual/pkgconfig gtk-doc? ( app-doc/doxygen[dot] dev-lang/perl dev-libs/libxslt ) || ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-cpp/glibmm-2.68.0:2.68[gtk-doc?] >=gui-libs/gtk-4.7.2:4 >=dev-cpp/cairomm-1.15.4:1.16[gtk-doc?] >=dev-cpp/pangomm-2.50.0:2.48[gtk-doc?] >=x11-libs/gdk-pixbuf-2.35.5:2 >=media-libs/libepoxy-1.2 gtk-doc? ( dev-libs/libsigc++:3 )
 DESCRIPTION=C++ interface for GTK+
@@ -12,5 +12,5 @@ RDEPEND=>=dev-cpp/glibmm-2.68.0:2.68[gtk-doc?] >=gui-libs/gtk-4.7.2:4 >=dev-cpp/
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=4.0
 SRC_URI=mirror://gnome/sources/gtkmm/4.8/gtkmm-4.8.0.tar.xz
-_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	virtualx	644887c82aefdf12001489391fca4f02
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	1a218637f27d4c027b92e511707264fd	virtualx	644887c82aefdf12001489391fca4f02
 _md5_=9332e9ee46cedfb5cc4ad0ed8a07ad47

@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10[threads(+)] >=dev-lang/python-3.9.15_p3:3.9[threads(+)] >=dev-lang/python-3.8.15_p3:3.8[threads(+)] ) sys-apps/coreutils virtual/pkgconfig systemtap? ( dev-util/systemtap ) test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
+BDEPEND=|| ( >=dev-lang/python-3.10.9:3.10[threads(+)] >=dev-lang/python-3.9.16:3.9[threads(+)] >=dev-lang/python-3.8.16:3.8[threads(+)] ) sys-apps/coreutils virtual/pkgconfig systemtap? ( dev-util/systemtap ) test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.40.0:= >=net-dns/c-ares-1.17.2:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
 DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
@@ -13,5 +13,5 @@ REQUIRED_USE=inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl?
 RESTRICT=!test? ( test )
 SLOT=0/16
 SRC_URI=https://nodejs.org/dist/v16.18.1/node-v16.18.1.tar.xz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	69394e25812406faa1f90edaf4969395	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	69394e25812406faa1f90edaf4969395	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd	xdg-utils	ac0e315a3688929e34ac75b139e7349a
 _md5_=96eedcc4ff9568fe3ada1b645afa09d7

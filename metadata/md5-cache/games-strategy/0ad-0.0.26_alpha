@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10 ) >=dev-util/premake-5.0.0_alpha12:5 virtual/pkgconfig virtual/rust test? ( dev-lang/perl ) app-crypt/minisign
+BDEPEND=|| ( >=dev-lang/python-3.10.9:3.10 ) >=dev-util/premake-5.0.0_alpha12:5 virtual/pkgconfig virtual/rust test? ( dev-lang/perl ) app-crypt/minisign
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=dev-libs/boost:= dev-libs/icu:= dev-libs/libfmt:0= dev-libs/libsodium dev-libs/libxml2 media-libs/libpng:0 media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal net-libs/enet:1.3 net-libs/miniupnpc:= net-misc/curl sys-libs/zlib virtual/opengl x11-libs/libX11 editor? ( x11-libs/wxGTK:3.0-gtk3[X,opengl] ) lobby? ( net-libs/gloox )
 DESCRIPTION=A free, real-time strategy game
@@ -13,5 +13,5 @@ RDEPEND=dev-libs/boost:= dev-libs/icu:= dev-libs/libfmt:0= dev-libs/libsodium de
 RESTRICT=test
 SLOT=0
 SRC_URI=http://releases.wildfiregames.com/0ad-0.0.26-alpha-unix-build.tar.xz https://releases.wildfiregames.com/0ad-0.0.26-alpha-unix-data.tar.xz verify-sig? ( http://releases.wildfiregames.com/0ad-0.0.26-alpha-unix-build.tar.xz.minisig http://releases.wildfiregames.com/0ad-0.0.26-alpha-unix-data.tar.xz.minisig )
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	flag-o-matic	69394e25812406faa1f90edaf4969395	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd	flag-o-matic	69394e25812406faa1f90edaf4969395	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=a4e3f22cac3a3f908493fbeeea234516
