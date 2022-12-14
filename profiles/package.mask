@@ -534,14 +534,6 @@ www-apps/prewikka
 # Removal on 2022-12-15.  Bug #759931.
 dev-python/pytest-html
 
-# Matt Turner <mattst88@gentoo.org> (2022-11-14)
-# Unmaintained in Gentoo since at least the transition to git. Last release in
-# 2014. Depends on x11-libs/gtk+:2 and gnome-base/gconf. Fails to build with
-# (1) clang-16, (2) with LTO, (3) with -fno-common.
-# Bugs #812137, #864763, #871405, #873886
-# Removal on 2022-12-14
-x11-misc/xnee
-
 # Jonas Stein <jstein@gentoo.org> (2022-11-13)
 # Dead upstream
 # Removal after 2023-01-01.  Bug #881249.
@@ -552,13 +544,6 @@ net-mail/vchkuser
 # Bug #864543
 <dev-lang/erlang-25
 <net-misc/rabbitmq-server-3.11.0
-
-# Matt Turner <mattst88@gentoo.org> (2022-11-11)
-# Relies on function no longer present in the Xserver since v1.20
-# (released May 2018), and no user has noticed. Use xf86-video-nouveau instead.
-# Bug #875053
-# Removal on 2022-12-11
-x11-drivers/xf86-video-nv
 
 # Sam James <sam@gentoo.org> (2022-11-11)
 # Causes memory corruption when building x11-misc/colord on x86
