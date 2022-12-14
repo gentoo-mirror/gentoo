@@ -1,0 +1,16 @@
+BDEPEND=app-text/scdoc >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-user/soju acct-group/soju sqlite? ( dev-db/sqlite:3 )
+DESCRIPTION=soju is a user-friendly IRC bouncer
+EAPI=8
+HOMEPAGE=https://soju.im/
+INHERIT=go-module
+IUSE=sqlite
+KEYWORDS=~amd64 ~riscv
+LICENSE=AGPL-3
+RDEPEND=acct-user/soju acct-group/soju sqlite? ( dev-db/sqlite:3 )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://git.sr.ht/~emersion/soju/refs/download/v0.5.2/soju-0.5.2.tar.gz https://dev.gentoo.org/~sam/distfiles/net-irc/soju/soju-0.5.2-deps.tar.xz
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
+_md5_=dadd456116f126d6d2a49e7d3922fa64
