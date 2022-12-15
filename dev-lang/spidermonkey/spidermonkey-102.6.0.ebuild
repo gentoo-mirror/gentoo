@@ -4,10 +4,10 @@
 EAPI="8"
 
 # Patch version
-FIREFOX_PATCHSET="firefox-102esr-patches-04j.tar.xz"
+FIREFOX_PATCHSET="firefox-102esr-patches-07j.tar.xz"
 SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-04j.tar.xz"
 
-LLVM_MAX_SLOT=14
+LLVM_MAX_SLOT=15
 
 PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="ssl,xml(+)"
@@ -71,26 +71,28 @@ IUSE="clang cpu_flags_arm_neon debug +jit lto test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="${PYTHON_DEPS}
-	>=virtual/rust-1.59.0
-	virtual/pkgconfig
-	test? (
-		$(python_gen_any_dep 'dev-python/six[${PYTHON_USEDEP}]')
-	)
 	|| (
+		(
+			sys-devel/llvm:15
+			clang? (
+				sys-devel/clang:15
+				virtual/rust:0/llvm-15
+				lto? ( sys-devel/lld:15 )
+			)
+		)
 		(
 			sys-devel/llvm:14
 			clang? (
 				sys-devel/clang:14
+				virtual/rust:0/llvm-14
 				lto? ( sys-devel/lld:14 )
 			)
 		)
-		(
-			sys-devel/llvm:13
-			clang? (
-				sys-devel/clang:13
-				lto? ( sys-devel/lld:13 )
-			)
-		)
+	)
+	!clang? ( virtual/rust )
+	virtual/pkgconfig
+	test? (
+		$(python_gen_any_dep 'dev-python/six[${PYTHON_USEDEP}]')
 	)"
 DEPEND=">=dev-libs/icu-71.1:=
 	dev-libs/nspr
@@ -109,6 +111,11 @@ llvm_check_deps() {
 	if use clang ; then
 		if ! has_version -b "sys-devel/clang:${LLVM_SLOT}" ; then
 			einfo "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
+			return 1
+		fi
+
+		if ! has_version -b "virtual/rust:0/llvm-${LLVM_SLOT}" ; then
+			einfo "virtual/rust:0/llvm-${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
 			return 1
 		fi
 
