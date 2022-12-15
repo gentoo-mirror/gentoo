@@ -34,14 +34,11 @@ SRC_URI="https://dev.gentoo.org/~sultan/distfiles/www-client/chromium-bin/${MY_P
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="-* amd64 arm64 ~x86"
-IUSE="cpu_flags_x86_sse2 +suid wayland widevine"
+KEYWORDS="-* amd64 arm64"
+IUSE="cpu_flags_x86_sse2 +suid qt5 wayland widevine"
 
 RDEPEND="
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/libxml2[icu]
@@ -49,13 +46,15 @@ RDEPEND="
 	dev-libs/nspr
 	>=dev-libs/nss-3.26
 	media-libs/alsa-lib
+	media-libs/dav1d:0/6
 	media-libs/flac:0/10-12
 	media-libs/fontconfig
 	>=media-libs/freetype-2.11.0-r1
+	>=media-libs/libaom-3.4.0
 	media-libs/libjpeg-turbo
 	media-libs/libwebp
 	media-libs/mesa[gbm(+)]
-	media-libs/openh264:0/6.1
+	media-libs/openh264:0/7
 	net-misc/curl[ssl]
 	net-print/cups
 	sys-apps/dbus
@@ -86,6 +85,11 @@ RDEPEND="
 	x11-misc/xdg-utils
 	amd64? (
 		widevine? ( www-plugins/chrome-binary-plugins )
+	)
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5[X,wayland?]
+		dev-qt/qtwidgets:5
 	)
 	wayland? ( dev-libs/wayland )
 "
@@ -152,6 +156,10 @@ src_install() {
 
 	if ! use suid; then
 		rm "${CHROMIUM_BIN_HOME}/chrome-sandbox" || die
+	fi
+
+	if ! use qt5; then
+		rm "${CHROMIUM_BIN_HOME}/libqt5_shim.so" || die
 	fi
 
 	# Clean unneeded languages
@@ -228,6 +236,14 @@ pkg_postinst() {
 		elog "by navigating to chrome://flags/#enable-webrtc-pipewire-capturer"
 		elog "inside Chromium or add --enable-features=WebRTCPipeWireCapturer"
 		elog "to CHROMIUM_BIN_FLAGS in /etc/chromium-bin/default."
+	fi
+
+	if use qt5; then
+		elog
+		elog "Qt5 is disabled by default at runtime. You have to enable it"
+		elog "by adding --enable-features=AllowQt5 to CHROMIUM_BIN_FLAGS"
+		elog "in /etc/chromium-bin/default. Afterwards you can select the"
+		elog "Qt5 theme in Settings->Appearance."
 	fi
 
 	elog
