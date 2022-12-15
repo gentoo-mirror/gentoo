@@ -27,11 +27,6 @@ BDEPEND="test? ( dev-lang/perl )"
 
 DOCS=( "manual.txt" "NEWS" "performance.txt" "README.md" "THANKS" )
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.1.0.8-sparse_array_test_fix.patch"
-	"${FILESDIR}/${PN}-2.1.0.8-lua52.patch"
-)
-
 src_prepare() {
 	default
 
@@ -61,22 +56,16 @@ src_compile() {
 }
 
 lua_src_test() {
-	if ! [[ ${ELUA} == "lua5.3" || ${ELUA} == "lua5.4" ]]; then
-		pushd "${BUILD_DIR}" || die
-		cd tests || die
+	pushd "${BUILD_DIR}" || die
+	cd tests || die
 
-		ln -s "${BUILD_DIR}"/cjson.so ./ || die
-		ln -s "${S}"/lua/cjson ./ || die
+	ln -s "${BUILD_DIR}"/cjson.so ./ || die
+	ln -s "${S}"/lua/cjson ./ || die
 
-		./genutf8.pl || die
-		./test.lua || die
+	./genutf8.pl || die
+	./test.lua || die
 
-		popd
-	else
-		ewarn "Not running tests under ${ELUA} because they are known to fail"
-		ewarn "See: https://github.com/openresty/lua-cjson/pull/50"
-		return
-	fi
+	popd
 }
 
 src_test() {
