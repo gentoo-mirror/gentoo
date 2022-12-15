@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=A simple and flexible workload orchestrator
+EAPI=8
+HOMEPAGE=https://nomadproject.io
+INHERIT=go-module systemd
+IUSE=ui
+KEYWORDS=~amd64 ~arm64
+LICENSE=MPL-2.0
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/hashicorp/nomad/archive/v1.4.3.tar.gz -> nomad-1.4.3.tar.gz https://dev.gentoo.org/~williamh/dist/nomad-1.4.3-deps.tar.xz
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=a067253455819cb6f7d28db69a33a1dc
