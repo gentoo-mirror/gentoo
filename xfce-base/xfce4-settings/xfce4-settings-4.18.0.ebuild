@@ -22,9 +22,9 @@ REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=dev-libs/glib-2.50
+	>=dev-libs/glib-2.66.0
 	media-libs/fontconfig
-	>=x11-libs/gtk+-3.20:3
+	>=x11-libs/gtk+-3.24.0:3
 	x11-libs/libX11
 	>=x11-libs/libXcursor-1.1
 	>=x11-libs/libXi-1.3

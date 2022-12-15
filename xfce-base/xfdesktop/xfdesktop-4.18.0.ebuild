@@ -18,9 +18,9 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv 
 IUSE="debug libnotify +thunar"
 
 DEPEND="
-	>=x11-libs/cairo-1.12
-	>=dev-libs/glib-2.50
-	>=x11-libs/gtk+-3.22:3
+	>=x11-libs/cairo-1.16
+	>=dev-libs/glib-2.66.0
+	>=x11-libs/gtk+-3.24.0:3
 	>=x11-libs/libwnck-3.14:3
 	x11-libs/libX11
 	>=xfce-base/exo-0.11:=

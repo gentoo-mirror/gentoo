@@ -18,10 +18,13 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv 
 IUSE="+introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 
+DEPEND="
+	>=dev-libs/glib-2.66.0
+	introspection? ( >=dev-libs/gobject-introspection-1.66:= )
+"
 RDEPEND="
-	>=dev-libs/glib-2.56
-	introspection? ( dev-libs/gobject-introspection:= )"
-DEPEND="${RDEPEND}"
+	${DEPEND}
+"
 BDEPEND="
 	dev-util/intltool
 	dev-util/gtk-doc-am

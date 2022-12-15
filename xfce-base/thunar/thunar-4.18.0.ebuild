@@ -18,9 +18,9 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc
 IUSE="exif introspection libnotify pcre +trash-panel-plugin udisks"
 
 DEPEND="
-	>=dev-libs/glib-2.66
-	>=x11-libs/gdk-pixbuf-2.14
-	>=x11-libs/gtk+-3.22:3
+	>=dev-libs/glib-2.66.0
+	>=x11-libs/gdk-pixbuf-2.40.0
+	>=x11-libs/gtk+-3.24.0:3
 	>=xfce-base/exo-4.17.0:=
 	>=xfce-base/libxfce4ui-4.17.6:=
 	>=xfce-base/libxfce4util-4.17.2:=

@@ -18,9 +18,9 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="networkmanager +panel-plugin policykit"
 
 DEPEND="
-	>=dev-libs/glib-2.50
+	>=dev-libs/glib-2.66.0
 	>=sys-power/upower-0.99.0
-	>=x11-libs/gtk+-3.14:3
+	>=x11-libs/gtk+-3.24.0:3
 	>=x11-libs/libnotify-0.7
 	x11-libs/libX11
 	>=x11-libs/libXrandr-1.2

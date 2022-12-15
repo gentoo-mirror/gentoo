@@ -17,9 +17,8 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="opengl startup-notification +xcomposite +xpresent"
 
-RDEPEND="
-	>=dev-libs/glib-2.20
-	>=x11-libs/gtk+-3.22:3
+DEPEND="
+	>=x11-libs/gtk+-3.24.0:3
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXi
@@ -41,14 +40,11 @@ RDEPEND="
 	)
 	xpresent? ( x11-libs/libXpresent )
 "
-# libICE/libSM: not really used anywhere but checked by configure
-#   https://bugzilla.xfce.org/show_bug.cgi?id=11914
-DEPEND="
-	${RDEPEND}
-	x11-libs/libICE
-	x11-libs/libSM
+RDEPEND="
+	${DEPEND}
 "
 BDEPEND="
+	dev-libs/glib
 	dev-util/intltool
 	sys-devel/gettext
 	virtual/pkgconfig

@@ -19,9 +19,9 @@ IUSE="debug +introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 
 DEPEND="
-	>=dev-libs/glib-2.50
+	>=dev-libs/glib-2.66.0
 	sys-apps/dbus
-	>=xfce-base/libxfce4util-4.17.2:=
+	>=xfce-base/libxfce4util-4.17.3:=
 	introspection? ( >=dev-libs/gobject-introspection-1.66:= )
 "
 RDEPEND="

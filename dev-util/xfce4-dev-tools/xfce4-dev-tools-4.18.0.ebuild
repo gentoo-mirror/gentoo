@@ -4,16 +4,22 @@
 EAPI=8
 
 DESCRIPTION="A set of scripts and m4/autoconf macros that ease build system maintenance"
-HOMEPAGE="https://www.xfce.org/ http://users.xfce.org/~benny/projects/xfce4-dev-tools/"
+HOMEPAGE="
+	https://docs.xfce.org/xfce/xfce4-dev-tools/start
+	https://gitlab.xfce.org/xfce/xfce4-dev-tools/
+"
 SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
-IUSE=""
 
+DEPEND="
+	>=dev-libs/glib-2.66.0
+"
 RDEPEND="
-	>=dev-libs/glib-2.50"
-DEPEND="${RDEPEND}"
+	${DEPEND}
+"
 BDEPEND="
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"

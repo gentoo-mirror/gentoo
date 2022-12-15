@@ -19,9 +19,9 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="libnotify"
 
 DEPEND="
-	>=dev-libs/glib-2.50
+	>=dev-libs/glib-2.66.0
 	dev-libs/libgudev:=
-	>=x11-libs/gtk+-3.20:3
+	>=x11-libs/gtk+-3.24.0:3
 	>=xfce-base/exo-0.10:=
 	>=xfce-base/libxfce4ui-4.12:=
 	>=xfce-base/libxfce4util-4.12:=

@@ -6,7 +6,10 @@ EAPI=8
 inherit xdg-utils vala
 
 DESCRIPTION="Unified widget and session management libs for Xfce"
-HOMEPAGE="https://gitlab.xfce.org/xfce/libxfce4ui/"
+HOMEPAGE="
+	https://docs.xfce.org/xfce/libxfce4ui/start
+	https://gitlab.xfce.org/xfce/libxfce4ui/
+"
 SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="LGPL-2+ GPL-2+"
@@ -16,15 +19,15 @@ IUSE="debug glade +introspection startup-notification system-info vala"
 REQUIRED_USE="vala? ( introspection )"
 
 DEPEND="
-	>=dev-libs/glib-2.50:2
-	>=x11-libs/gtk+-3.22:3[introspection?,X]
+	>=dev-libs/glib-2.66.0
+	>=x11-libs/gtk+-3.24.0:3[introspection?,X]
 	x11-libs/libX11
 	x11-libs/libICE
 	x11-libs/libSM
 	>=xfce-base/libxfce4util-4.17.2:=[introspection?]
 	>=xfce-base/xfconf-4.12:=
 	glade? ( dev-util/glade:3.10 )
-	introspection? ( dev-libs/gobject-introspection:= )
+	introspection? ( >=dev-libs/gobject-introspection-1.66:= )
 	startup-notification? ( x11-libs/startup-notification )
 	system-info? (
 		dev-libs/libgudev

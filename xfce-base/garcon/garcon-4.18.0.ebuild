@@ -18,8 +18,8 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv 
 IUSE="introspection"
 
 DEPEND="
-	>=dev-libs/glib-2.50.0
-	>=x11-libs/gtk+-3.20:3
+	>=dev-libs/glib-2.66.0
+	>=x11-libs/gtk+-3.24.0:3
 	>=xfce-base/libxfce4util-4.15.6:=[introspection?]
 	>=xfce-base/libxfce4ui-4.15.7:=[introspection?]
 	introspection? ( >=dev-libs/gobject-introspection-1.66:= )

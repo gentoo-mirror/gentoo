@@ -6,7 +6,10 @@ EAPI=8
 inherit xdg-utils
 
 DESCRIPTION="A thumbnail service for Thunar"
-HOMEPAGE="https://docs.xfce.org/xfce/thunar/start"
+HOMEPAGE="
+	https://docs.xfce.org/xfce/tumbler/start
+	https://gitlab.xfce.org/xfce/tumbler/
+"
 SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
@@ -15,12 +18,12 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 
 IUSE="curl epub ffmpeg gstreamer jpeg odf pdf raw"
 
 DEPEND="
-	>=dev-libs/glib-2.56:2
+	>=dev-libs/glib-2.66.0
 	media-libs/freetype:2=
 	media-libs/libpng:0=
 	>=sys-apps/dbus-1.6
 	>=xfce-base/libxfce4util-4.17.1:=
-	>=x11-libs/gdk-pixbuf-2.36.2:2
+	>=x11-libs/gdk-pixbuf-2.40.0
 	curl? ( >=net-misc/curl-7.25:= )
 	epub? ( app-text/libgepub )
 	ffmpeg? ( >=media-video/ffmpegthumbnailer-2.0.8:= )
