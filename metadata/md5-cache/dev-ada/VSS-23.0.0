@@ -1,6 +1,6 @@
 BDEPEND=dev-ada/gprbuild[ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2021(-)] test? ( app-i18n/unicode-data dev-ada/xmlada[ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2021(-)] )
 DEFINED_PHASES=compile prepare setup test
-DEPEND=ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] )
+DEPEND=ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2021(-)]
 DESCRIPTION=A high level string and text processing library
 EAPI=7
 HOMEPAGE=https://github.com/AdaCore/VSS
@@ -8,10 +8,10 @@ INHERIT=ada multiprocessing
 IUSE=test ada_target_gnat_2021 ada_target_gcc_12_2_0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3 gcc-runtime-library-exception-3.1
-RDEPEND=ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] )
+RDEPEND=ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gcc_12_2_0(-)?,-ada_target_gnat_2021(-)]
 REQUIRED_USE=ada_target_gcc_12_2_0
 RESTRICT=!test? ( test )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/VSS/archive/refs/tags/v23.0.0.tar.gz -> VSS-23.0.0.tar.gz
 _eclasses_=ada	74e7e253be1d030be8dd460f536a0564	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=406e7fb4cd19784fb314750c395ee1c8
+_md5_=ff66714f5614256de7d77b215e3d2939
