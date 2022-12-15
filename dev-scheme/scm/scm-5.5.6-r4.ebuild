@@ -27,8 +27,11 @@ DEPEND=">=dev-scheme/slib-3.1.5
 	readline? ( sys-libs/libtermcap-compat )"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-multiplefixes.patch"
-	"${FILESDIR}/${P}-respect-ldflags.patch" )
+PATCHES=(
+	"${FILESDIR}"/${P}-multiplefixes.patch
+	"${FILESDIR}"/${P}-ncurses.patch
+	"${FILESDIR}"/${P}-respect-ldflags.patch
+)
 
 src_prepare() {
 	default
@@ -36,6 +39,7 @@ src_prepare() {
 	sed \
 		-e "s|\"gcc\"|\"$(tc-getCC)\"|g" \
 		-e "s|\"ld\"|\"$(tc-getLD)\"|g" \
+		-e "s|\"-shared\"|\"-shared ${LDFLAGS}\"|g" \
 		-i ./build.scm || die
 }
 
