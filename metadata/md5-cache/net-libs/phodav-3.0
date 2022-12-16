@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://wiki.gnome.org/phodav https://gitlab.gnome.org/GNOME/phodav
 INHERIT=gnome.org meson systemd udev
 IUSE=gtk-doc systemd test zeroconf
-KEYWORDS=~alpha amd64 ~arm arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=~alpha amd64 ~arm arm64 ~ppc ppc64 ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.51.2:2 >=net-libs/libsoup-3.0.0:3.0 dev-libs/libxml2 zeroconf? ( net-dns/avahi[dbus] ) !net-libs/phodav:2.0
 RESTRICT=!test? ( test )
 SLOT=3.0
 SRC_URI=mirror://gnome/sources/phodav/3.0/phodav-3.0.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=7745d3402bbbc28cb3ce7c85403c2a2f
+_md5_=1ec921ea4ed0bd8280d8b283d1dd8f33
