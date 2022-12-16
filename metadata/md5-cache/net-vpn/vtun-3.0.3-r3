@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison
 DEFINED_PHASES=configure install prepare setup
-DEPEND=lzo? ( dev-libs/lzo:2 ) socks5? ( net-proxy/dante ) ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib )
+DEPEND=lzo? ( dev-libs/lzo:2 ) socks5? ( net-proxy/dante ) ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib ) dev-libs/libbsd
 DESCRIPTION=Create tunnels over TCP/IP networks with shaping, encryption, and compression
 EAPI=7
 HOMEPAGE=http://vtun.sourceforge.net/
@@ -8,8 +8,8 @@ INHERIT=linux-info
 IUSE=lzo socks5 ssl zlib
 KEYWORDS=~alpha amd64 ppc ~sparc x86
 LICENSE=GPL-2
-RDEPEND=lzo? ( dev-libs/lzo:2 ) socks5? ( net-proxy/dante ) ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib )
+RDEPEND=lzo? ( dev-libs/lzo:2 ) socks5? ( net-proxy/dante ) ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib ) dev-libs/libbsd
 SLOT=0
 SRC_URI=mirror://sourceforge/vtun/vtun-3.0.3.tar.gz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7a3f8b289bc442b8151fb29bfefe3b76
-_md5_=e1a9629499af817eb9f822757d95adde
+_md5_=6ad7163f91396928824c1b7fdb2a3df9
