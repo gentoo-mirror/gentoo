@@ -5,10 +5,10 @@ DESCRIPTION=LXQt daemon for power management and auto-suspend
 EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake xdg-utils
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
 LICENSE=LGPL-2.1 LGPL-2.1+
 RDEPEND=>=dev-libs/libqtxdg-3.10.0 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwidgets-5.15:5 kde-frameworks/kwindowsystem:5 kde-frameworks/kidletime:5 kde-frameworks/solid:5 =lxqt-base/liblxqt-1.2*:= =lxqt-base/lxqt-globalkeys-1.2* sys-power/upower
 SLOT=0
 SRC_URI=https://github.com/lxqt/lxqt-powermanagement/releases/download/1.2.0/lxqt-powermanagement-1.2.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
-_md5_=885c8fd0fdccb1f452644c2de7cbc452
+_md5_=a0383f04606e76fa4484939a1e32fcce
