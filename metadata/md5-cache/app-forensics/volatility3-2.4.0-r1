@@ -5,12 +5,13 @@ DESCRIPTION=Framework for analyzing volatile memory
 EAPI=8
 HOMEPAGE=https://github.com/volatilityfoundation/volatility3/ https://www.volatilityfoundation.org/
 INHERIT=distutils-r1
-IUSE=crypt disasm jsonschema leechcore snappy yara python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=crypt disasm jsonschema leechcore snappy test yara python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-python/pefile-2017.8.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] crypt? ( >=dev-python/pycryptodome-3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) disasm? ( >=dev-libs/capstone-3.0.5[python,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) jsonschema? ( >=dev-python/jsonschema-2.3.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) leechcore? ( >=dev-python/leechcorepyc-2.4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) snappy? ( >=dev-python/snappy-0.6.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) yara? ( >=dev-python/yara-python-3.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+REQUIRED_USE=test? ( yara ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/volatilityfoundation/volatility3/archive/v2.4.0.tar.gz -> volatility3-2.4.0.gh.tar.gz
+SRC_URI=https://github.com/volatilityfoundation/volatility3/archive/v2.4.0.tar.gz -> volatility3-2.4.0.gh.tar.gz test? ( https://downloads.volatilityfoundation.org/volatility3/images/win-xp-laptop-2005-06-25.img.gz -> volatility3-win-xp-laptop-2005-06-25.img.gz https://downloads.volatilityfoundation.org/volatility3/images/linux-sample-1.bin.gz -> volatility3-linux-sample-1.bin.gz )
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	9c5f8e35fdc556c29573796aca3e87ea
-_md5_=b5cdf42182ab22b80f87ed65a0cf762b
+_md5_=a7b4539503570a35279093e5a243fbcd
