@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Alien-SDL-1.446 dev-perl/Capture-Tiny >=virtual/perl-CPAN-1.920.0 >=virtual/perl-ExtUtils-CBuilder-0.260.301 >=dev-perl/File-ShareDir-1.0.0 >=dev-perl/Module-Build-0.400.0 media-libs/libjpeg-turbo virtual/perl-Scalar-List-Utils dev-perl/Tie-Simple media-libs/libpng:0 media-libs/libsdl media-libs/sdl-gfx media-libs/sdl-image media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/smpeg media-libs/tiff:0 virtual/glu virtual/opengl test? ( >=dev-perl/Test-Most-0.210.0 ) dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Simple DirectMedia Layer (SDL) bindings for perl
+EAPI=8
+HOMEPAGE=http://sdl.perl.org/ https://search.cpan.org/dist/SDL/ https://github.com/PerlGameDev/SDL
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=amd64 ~hppa x86
+LICENSE=GPL-2 OFL-1.1
+RDEPEND=>=dev-perl/Alien-SDL-1.446 dev-perl/Capture-Tiny >=virtual/perl-CPAN-1.920.0 >=virtual/perl-ExtUtils-CBuilder-0.260.301 >=dev-perl/File-ShareDir-1.0.0 >=dev-perl/Module-Build-0.400.0 media-libs/libjpeg-turbo virtual/perl-Scalar-List-Utils dev-perl/Tie-Simple media-libs/libpng:0 media-libs/libsdl media-libs/sdl-gfx media-libs/sdl-image media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/smpeg media-libs/tiff:0 virtual/glu virtual/opengl dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/F/FR/FROGGS/SDL-2.548.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	21a0cb6221498d0e7894bdf445b79887
+_md5_=1be226b66e2a80fab7114f165093b99d

@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 dev-lang/mono
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/glib media-libs/freetype media-libs/fontconfig >=media-libs/giflib-5.1.2 media-libs/libexif media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrender x11-libs/libXt !cairo? ( x11-libs/pango )
+DESCRIPTION=Library for using System.Drawing with Mono
+EAPI=7
+HOMEPAGE=https://www.mono-project.com
+INHERIT=autotools dotnet
+IUSE=cairo
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~x86-solaris
+LICENSE=MIT
+RDEPEND=dev-libs/glib media-libs/freetype media-libs/fontconfig >=media-libs/giflib-5.1.2 media-libs/libexif media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrender x11-libs/libXt !cairo? ( x11-libs/pango )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.mono-project.com/sources/libgdiplus/libgdiplus-6.0.2.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	mono-env	87888393b1c1b882d0543087e28ec0b0	dotnet	b5d9e65edb57355919e7f5d438b04ea8
+_md5_=508fc52f5708ea82a46c0e08278d2835

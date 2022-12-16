@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=media-fonts/terminus-font aalib? ( media-libs/aalib[slang] ) dia? ( app-office/dia ) djvu? ( app-text/djvu ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib ) graphicsmagick? ( media-gfx/graphicsmagick:= ) imagemagick? ( virtual/imagemagick-tools ) jpeg? ( media-libs/libjpeg-turbo:= ) pdf? ( >=app-text/poppler-0.31 ) png? ( media-libs/libpng:= ) postscript? ( app-text/libspectre ) readline? ( sys-libs/readline:= ) sdl? ( media-libs/libsdl ) svg? ( media-gfx/inkscape ) tiff? ( media-libs/tiff:= ) xfig? ( media-gfx/xfig )
+DESCRIPTION=Fbi-IMproved is a framebuffer image viewer based on Fbi and inspired from Vim
+EAPI=7
+HOMEPAGE=https://savannah.nongnu.org/projects/fbi-improved
+INHERIT=autotools
+IUSE=aalib bmp dia djvu exif fbcon gif graphicsmagick imagemagick jpeg pcx pdf png postscript readline sdl static svg tiff xfig
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=media-fonts/terminus-font aalib? ( media-libs/aalib[slang] ) dia? ( app-office/dia ) djvu? ( app-text/djvu ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib ) graphicsmagick? ( media-gfx/graphicsmagick:= ) imagemagick? ( virtual/imagemagick-tools ) jpeg? ( media-libs/libjpeg-turbo:= ) pdf? ( >=app-text/poppler-0.31 ) png? ( media-libs/libpng:= ) postscript? ( app-text/libspectre ) readline? ( sys-libs/readline:= ) sdl? ( media-libs/libsdl ) svg? ( media-gfx/inkscape ) tiff? ( media-libs/tiff:= ) xfig? ( media-gfx/xfig )
+SLOT=0
+SRC_URI=http://download.savannah.gnu.org/releases/fbi-improved/fim-0.5-rc3.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=373689f227c1e9a68c630a0a250eb484

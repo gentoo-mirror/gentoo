@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 sys-devel/m4 sys-devel/libtool php? ( php_targets_php7-4? ( dev-lang/php:7.4 ) )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=x11-libs/agg[truetype] sys-libs/zlib expat? ( dev-libs/expat ) jpeg? ( virtual/jpeg ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) openexr? ( media-libs/openexr:= ) perl? ( dev-lang/perl ) png? ( >=media-libs/libpng-1.2.43 ) ruby? ( dev-lang/ruby:* ) tiff? ( media-libs/tiff ) truetype? ( >=media-libs/freetype-2 ) X? ( x11-libs/libXext x11-libs/libXt x11-libs/libICE x11-libs/libSM ) swig? ( dev-lang/swig ) php? ( php_targets_php7-4? ( dev-lang/php:7.4 ) )
+DEPEND=x11-libs/agg[truetype] sys-libs/zlib expat? ( dev-libs/expat ) jpeg? ( media-libs/libjpeg-turbo:= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) openexr? ( media-libs/openexr:= ) perl? ( dev-lang/perl ) png? ( >=media-libs/libpng-1.2.43 ) ruby? ( dev-lang/ruby:* ) tiff? ( media-libs/tiff:= ) truetype? ( >=media-libs/freetype-2 ) X? ( x11-libs/libXext x11-libs/libXt x11-libs/libICE x11-libs/libSM ) swig? ( dev-lang/swig ) php? ( php_targets_php7-4? ( dev-lang/php:7.4 ) )
 DESCRIPTION=A fast, modern and generic image processing library
 EAPI=7
 HOMEPAGE=https://exactcode.com/opensource/exactimage/
@@ -8,10 +8,10 @@ INHERIT=php-ext-source-r3 lua-single toolchain-funcs
 IUSE=expat jpeg lua openexr php perl png ruby swig tiff truetype X php_targets_php7-4 lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=x11-libs/agg[truetype] sys-libs/zlib expat? ( dev-libs/expat ) jpeg? ( virtual/jpeg ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) openexr? ( media-libs/openexr:= ) perl? ( dev-lang/perl ) png? ( >=media-libs/libpng-1.2.43 ) ruby? ( dev-lang/ruby:* ) tiff? ( media-libs/tiff ) truetype? ( >=media-libs/freetype-2 ) X? ( x11-libs/libXext x11-libs/libXt x11-libs/libICE x11-libs/libSM ) php? ( php_targets_php7-4? ( dev-lang/php:7.4 ) )
+RDEPEND=x11-libs/agg[truetype] sys-libs/zlib expat? ( dev-libs/expat ) jpeg? ( media-libs/libjpeg-turbo:= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) openexr? ( media-libs/openexr:= ) perl? ( dev-lang/perl ) png? ( >=media-libs/libpng-1.2.43 ) ruby? ( dev-lang/ruby:* ) tiff? ( media-libs/tiff:= ) truetype? ( >=media-libs/freetype-2 ) X? ( x11-libs/libXext x11-libs/libXt x11-libs/libICE x11-libs/libSM ) php? ( php_targets_php7-4? ( dev-lang/php:7.4 ) )
 REQUIRED_USE=lua? ( swig ) perl? ( swig ) php? ( swig ) ruby? ( swig ) php? ( || ( php_targets_php7-4 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=http://dl.exactcode.de/oss/exact-image/exact-image-1.0.2.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	php-ext-source-r3	3c26d87acac034aedf8bf126f7010c8a	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143
-_md5_=a10f8035deb04259af3768d12a446d25
+_md5_=bcafde1d741d229ea76152db47ec25ea

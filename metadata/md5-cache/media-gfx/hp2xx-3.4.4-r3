@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/texinfo
+DEFINED_PHASES=compile configure install prepare
+DEPEND=jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= sys-libs/zlib ) tiff? ( media-libs/tiff:= ) X? ( x11-libs/libX11 )
+DESCRIPTION=Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
+EAPI=7
+HOMEPAGE=https://www.gnu.org/software/hp2xx/
+INHERIT=toolchain-funcs
+IUSE=jpeg png tiff X
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= sys-libs/zlib ) tiff? ( media-libs/tiff:= ) X? ( x11-libs/libX11 )
+SLOT=0
+SRC_URI=mirror://gnu/hp2xx/hp2xx-3.4.4.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=e8c72ee275935961092a7181294bb873

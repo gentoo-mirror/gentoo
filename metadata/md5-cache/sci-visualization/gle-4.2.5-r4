@@ -1,0 +1,15 @@
+BDEPEND=doc? ( dev-texlive/texlive-latexextra ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=sys-libs/ncurses:= emacs? ( >=app-editors/emacs-23.1:* ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) tiff? ( media-libs/tiff:= ) X? ( x11-libs/libX11 )
+DESCRIPTION=Graphics Layout Engine
+EAPI=7
+HOMEPAGE=https://glx.sourceforge.net
+INHERIT=autotools elisp-common flag-o-matic
+IUSE=doc emacs jpeg png tiff vim-syntax X
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD-2 emacs? ( GPL-2 )
+RDEPEND=sys-libs/ncurses:= emacs? ( >=app-editors/emacs-23.1:* ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) tiff? ( media-libs/tiff:= ) X? ( x11-libs/libX11 ) app-text/ghostscript-gpl virtual/latex-base vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )
+SLOT=0
+SRC_URI=mirror://sourceforge/glx/gle-graphics-4.2.5f-src.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395
+_md5_=654da22a1a7802e0a5412b6c62ce6b80
