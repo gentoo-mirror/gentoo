@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
-DEPEND=dev-libs/expat dev-games/openscenegraph media-libs/openal net-misc/curl sys-libs/zlib virtual/opengl dns? ( net-libs/udns ) gdal? ( sci-libs/gdal ) dev-libs/boost
+DEPEND=dev-libs/expat dev-games/openscenegraph media-libs/openal net-misc/curl sys-libs/zlib virtual/opengl dns? ( net-libs/udns ) gdal? ( sci-libs/gdal:= ) dev-libs/boost
 DESCRIPTION=Development library for simulation games
 EAPI=7
 HOMEPAGE=https://www.flightgear.org/
@@ -8,8 +8,8 @@ INHERIT=cmake toolchain-funcs git-r3
 IUSE=cpu_flags_x86_sse2 +dns debug gdal openmp subversion test
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-libs/expat dev-games/openscenegraph media-libs/openal net-misc/curl sys-libs/zlib virtual/opengl dns? ( net-libs/udns ) gdal? ( sci-libs/gdal ) subversion? ( dev-vcs/subversion )
+RDEPEND=dev-libs/expat dev-games/openscenegraph media-libs/openal net-misc/curl sys-libs/zlib virtual/opengl dns? ( net-libs/udns ) gdal? ( sci-libs/gdal:= ) subversion? ( dev-vcs/subversion )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=2bc1387560d392f3c055587b42b49ad0
+_md5_=3616792f892853bf04b8f286b64430b1
