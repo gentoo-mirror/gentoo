@@ -19,13 +19,15 @@ SRC_URI="https://github.com/toshia/diva/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE=""
 
 ruby_add_rdepend "<dev-ruby/addressable-2.9"
-ruby_add_bdepend "test? ( dev-ruby/simplecov )"
 
 all_ruby_prepare() {
 	sed -i -e '/bundler/ s:^:#:' Rakefile || die
-	sed -i -e '/addressable/ s/2.8/2.9/' -e 's/git ls-files -z/find -print0/' ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -i -e '/addressable/ s/2.8/2.9/' -e 's/git ls-files -z/find * -print0/' ${RUBY_FAKEGEM_GEMSPEC} || die
+
+	# Avoid unneeded dependency on simplecov
+	sed -i -e '/simplecov/I s:^:#:' -e '1irequire "json"' test/test_helper.rb || die
 }
