@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://mate-desktop.org
 INHERIT=mate python-single-r1 linux-info
 IUSE=debug nls python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=CC-BY-ND-3.0 GPL-3+ public-domain
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) dev-libs/atk >=dev-libs/glib-2.50:2 python_single_target_python3_8? ( dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) >=mate-base/caja-1.19.1 mate-extra/caja-extensions media-libs/fontconfig:1.0 media-libs/freetype:2 x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libXinerama x11-libs/pango net-misc/dropbox
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://pub.mate-desktop.org/releases/1.26/caja-dropbox-1.26.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	mate-desktop.org	0da897c64adb500292c6b9db3e424496	mate	e29617c33d6e271931938d0073817dde	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	linux-info	7a3f8b289bc442b8151fb29bfefe3b76
-_md5_=ed6f3b086838d24995cba74f310082ff
+_md5_=a0e160e9f77c4b6753ae6e395782d6c1

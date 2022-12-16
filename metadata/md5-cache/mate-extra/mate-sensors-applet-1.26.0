@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://mate-desktop.org
 INHERIT=mate
 IUSE=+dbus hddtemp libnotify lm-sensors video_cards_nvidia
-KEYWORDS=~amd64 ~arm ~loong ~riscv ~x86
+KEYWORDS=amd64 ~arm ~loong ~riscv x86
 LICENSE=FDL-1.1+ GPL-2+
 PDEPEND=hddtemp? ( dbus? ( sys-fs/udisks:2 ) )
 RDEPEND=>=dev-libs/glib-2.50:2 >=mate-base/mate-panel-1.17.0 >=x11-libs/cairo-1.0.4 x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 hddtemp? ( >=app-admin/hddtemp-0.3_beta13 ) libnotify? ( >=x11-libs/libnotify-0.7 ) lm-sensors? ( sys-apps/lm-sensors ) video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-100.14.09:0[static-libs,tools] ) virtual/libintl
 SLOT=0
 SRC_URI=https://pub.mate-desktop.org/releases/1.26/mate-sensors-applet-1.26.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	mate-desktop.org	0da897c64adb500292c6b9db3e424496	mate	e29617c33d6e271931938d0073817dde
-_md5_=7031b8798f01ff6d39f5396f1cc5faf9
+_md5_=c1e89c4ec20f7fd53093e4248c7c5a7b

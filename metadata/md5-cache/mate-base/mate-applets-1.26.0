@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://mate-desktop.org
 INHERIT=mate
 IUSE=X +cpupower ipv6 netlink policykit +upower
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
 LICENSE=CC-BY-SA-3.0 FDL-1.1+ GPL-2+ GPL-3+ LGPL-2+
 RDEPEND=dev-libs/atk >=dev-libs/dbus-glib-0.74 >=dev-libs/glib-2.50:2 >=dev-libs/libmateweather-1.17.0 >=dev-libs/libxml2-2.5:2 >=gnome-base/libgtop-2.12.0:2= >=gnome-extra/gucharmap-3.0:2.90 >=mate-base/mate-panel-1.25.2 >=net-wireless/wireless-tools-28_pre9:0 >=sys-apps/dbus-1.10.0 x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/gtksourceview:3.0 >=x11-libs/libnotify-0.7 x11-libs/libX11 >=x11-libs/libwnck-3.0:3 x11-libs/pango cpupower? ( sys-power/cpupower policykit? ( >=sys-auth/polkit-0.97:0 ) ) netlink? ( dev-libs/libnl:3 ) upower? ( >=sys-power/upower-0.99.8 ) mate-base/caja mate-base/mate-desktop >=mate-base/mate-settings-daemon-1.6 virtual/libintl
 REQUIRED_USE=policykit? ( cpupower )
 SLOT=0
 SRC_URI=https://pub.mate-desktop.org/releases/1.26/mate-applets-1.26.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	4f729d9211b2e3c00a285d6301a557e1	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	mate-desktop.org	0da897c64adb500292c6b9db3e424496	mate	e29617c33d6e271931938d0073817dde
-_md5_=1c672b4551ec7877434ef065b045e613
+_md5_=18bad0c2c2de6f13474c5e12d150a194

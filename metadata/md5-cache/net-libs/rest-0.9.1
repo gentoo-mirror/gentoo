@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/Librest
 INHERIT=gnome.org meson vala
 IUSE=gtk-doc +introspection test vala
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv sparc ~x86
 LICENSE=LGPL-2.1
 RDEPEND=>=dev-libs/glib-2.44.0:2 >=net-libs/libsoup-2.99.2:3.0 dev-libs/json-glib:0[introspection?] dev-libs/libxml2:2 app-misc/ca-certificates introspection? ( >=dev-libs/gobject-introspection-1.74.0:= )
 REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=1.0
 SRC_URI=mirror://gnome/sources/rest/0.9/rest-0.9.1.tar.xz
 _eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	vala	160a8a30a6cb9aa601e5441c643a7c61
-_md5_=ec860e7ae70c133e2ef85876ac7f43e1
+_md5_=b357cdfc1fc464db36d7211923e1aac3
