@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=x11-libs/libX11 tiff? ( media-libs/tiff:= ) png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) !media-gfx/xli
+DESCRIPTION=Utility to view many different types of images under X11
+EAPI=8
+HOMEPAGE=https://sioseis.ucsd.edu/xloadimage.html https://tracker.debian.org/pkg/xloadimage
+INHERIT=autotools flag-o-matic toolchain-funcs
+IUSE=tiff jpeg png
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=MIT
+RDEPEND=x11-libs/libX11 tiff? ( media-libs/tiff:= ) png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) !media-gfx/xli
+SLOT=0
+SRC_URI=ftp://ftp.x.org/R5contrib/xloadimage.4.1.tar.gz mirror://gentoo/xloadimage-4.1-gentoo-r1.diff.bz2 https://dev.gentoo.org/~sam/distfiles/media-gfx/xloadimage/xloadimage-4.1-fix-build-for-clang16.patch.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395
+_md5_=c771b69451ff9bf415150b064a436c3e
