@@ -1,0 +1,14 @@
+BDEPEND=dev-libs/wayland varlink? ( dev-libs/libvarlink ) virtual/pkgconfig dev-libs/wayland-protocols man? ( >=app-text/scdoc-1.9.3 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=dynamic display configuration (autorandr for wayland)
+EAPI=8
+HOMEPAGE=https://wayland.emersion.fr/kanshi/ https://sr.ht/~emersion/kanshi/
+INHERIT=meson
+IUSE=+man varlink
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/wayland varlink? ( dev-libs/libvarlink )
+SLOT=0
+SRC_URI=https://git.sr.ht/~emersion/kanshi/archive/v1.3.1.tar.gz -> kanshi-1.3.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=468f3ff7a9407be4de46f20302b63daf
