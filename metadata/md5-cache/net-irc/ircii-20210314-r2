@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install
-DEPEND=sys-libs/ncurses:0= virtual/libcrypt:= virtual/libiconv
+DEPEND=dev-libs/openssl:0= sys-libs/ncurses:0= virtual/libcrypt:= virtual/libiconv
 DESCRIPTION=An IRC and ICB client that runs under most UNIX platforms
 EAPI=7
 HOMEPAGE=http://eterna.com.au/ircii/
 INHERIT=toolchain-funcs
 KEYWORDS=amd64 ~ppc ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=BSD
-RDEPEND=sys-libs/ncurses:0= virtual/libcrypt:= virtual/libiconv
+RDEPEND=dev-libs/openssl:0= sys-libs/ncurses:0= virtual/libcrypt:= virtual/libiconv
 SLOT=0
 SRC_URI=https://ircii.warped.com/ircii-20210314.tar.bz2 https://ircii.warped.com/old/ircii-20210314.tar.bz2
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=74cece0008e934ad89af756b51bfd747
+_md5_=964cfb5d645edb270722e568be74447a
