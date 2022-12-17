@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit readme.gentoo-r1
 
@@ -14,7 +14,7 @@ S="${WORKDIR}/${MY_P}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~riscv ~sparc ~x86"
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="debug doc ipv6 ssl static"
+IUSE="debug doc ssl static"
 
 DEPEND="
 	dev-lang/tcl:0=
@@ -28,8 +28,8 @@ RDEPEND="
 DOCS=( AUTHORS FEATURES INSTALL NEWS README THANKS UPGRADING )
 
 src_configure() {
-	econf $(use_enable ssl tls) \
-		$(use_enable ipv6 ipv6)
+	econf --enable-ipv6 \
+		$(use_enable ssl tls)
 
 	emake config
 }
