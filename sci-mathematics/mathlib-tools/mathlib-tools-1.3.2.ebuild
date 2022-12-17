@@ -15,8 +15,10 @@ if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/leanprover-community/${PN}.git"
 else
-	SRC_URI="https://github.com/leanprover-community/${PN}/archive/v${PV}.tar.gz
+	H=1ce2e7143b2456867f4a671a078a4e9af3c73c11
+	SRC_URI="https://github.com/leanprover-community/${PN}/archive/${H}.tar.gz
 		-> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${H}
 	KEYWORDS="~amd64 ~x86"
 fi
 
