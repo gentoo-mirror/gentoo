@@ -950,7 +950,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0 1.13.0 1.14.0-r1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.27.20 1.27.29 1.27.31: Universal Command Line Environment for AWS
+app-admin/awscli 1.27.20 1.27.29 1.27.31 1.27.32: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 2022.6.0-r1 2022.9.1-r1: Bitwarden password manager desktop client
@@ -8273,8 +8273,8 @@ dev-python/binaryornot 0.4.4-r2: Ultra-lightweight pure Python package to guess 
 dev-python/bitarray 2.6.0: Efficient arrays of booleans -- C extension
 dev-python/bitstring 3.1.9: A pure Python module for creation and analysis of binary data
 dev-python/black 22.10.0 22.12.0: The uncompromising Python code formatter
-dev-python/blake3-py 0.3.1: Python bindings for the BLAKE3 cryptographic hash function
-dev-python/blake3-py-c 0.3.1: Python bindings for the BLAKE3 cryptographic hash function
+dev-python/blake3-py 0.3.1 0.3.2: Python bindings for the BLAKE3 cryptographic hash function
+dev-python/blake3-py-c 0.3.1 0.3.2: Python bindings for the BLAKE3 cryptographic hash function
 dev-python/bleach 5.0.1: An easy whitelist-based HTML-sanitizing tool
 dev-python/blessed 1.19.1: Library for making terminal apps using colors, keyboard input and positioning
 dev-python/blessings 1.7-r1: A thin, practical wrapper around terminal coloring, styling, and positioning
@@ -8287,8 +8287,8 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r5: Amazon Web Services API
-dev-python/boto3 1.26.20 1.26.29 1.26.31 9999: The AWS SDK for Python
-dev-python/botocore 1.29.20 1.29.29 1.29.31 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.26.20 1.26.29 1.26.31 1.26.32 9999: The AWS SDK for Python
+dev-python/botocore 1.29.20 1.29.29 1.29.31 1.29.32 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.5: Fast NumPy array functions written in C
 dev-python/bpython 0.23-r1: Syntax highlighting and autocompletion for the Python interpreter
@@ -8395,7 +8395,7 @@ dev-python/cycler 0.11.0-r1: Composable style cycles
 dev-python/cython 0.29.32: A Python to C compiler
 dev-python/cython-test-exception-raiser 1.0.2-r1: A trivial extension that just raises an exception (for testing)
 dev-python/daemonize 2.5.0-r1: Library for writing system daemons in Python
-dev-python/dask 2022.10.1 2022.11.1 2022.12.0: Task scheduling and blocked algorithms for parallel processing
+dev-python/dask 2022.10.1 2022.11.1 2022.12.0 2022.12.1: Task scheduling and blocked algorithms for parallel processing
 dev-python/dbfread 2.0.7-r1: Read DBF Files with Python
 dev-python/dbus-next 0.2.3-r1: The next great DBus library for Python with asyncio support
 dev-python/dbus-python 1.3.2: Python bindings for the D-Bus messagebus
@@ -8655,7 +8655,7 @@ dev-python/irc 20.1.0: IRC client framework written in Python
 dev-python/iso8601 1.1.0: Simple module to parse ISO 8601 dates
 dev-python/isodate 0.6.1-r1: ISO 8601 date/time/duration parser and formatter
 dev-python/isoduration 20.11.0-r1: Operations with ISO 8601 durations
-dev-python/isort 5.10.1-r2 5.11.1 5.11.2: A python utility/library to sort imports
+dev-python/isort 5.10.1-r2 5.11.1 5.11.2 5.11.3: A python utility/library to sort imports
 dev-python/itsdangerous 2.1.2: Various helpers to pass trusted data to untrusted environments and back
 dev-python/itunespy 1.6-r1: A simple library to fetch data from the iTunes Store API
 dev-python/itypes 1.2.0-r1: basic immutable container types for python
@@ -8692,7 +8692,7 @@ dev-python/jsondiff 2.0.0-r1: Diff JSON and JSON-like structures in Python
 dev-python/jsonext 0.4.2-r1: Well-structured helpers for serializing commonly encountered structures to JSON
 dev-python/jsonmerge 1.9.0: Merge a series of JSON documents
 dev-python/jsonpatch 1.32: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
-dev-python/jsonpickle 2.2.0-r1 3.0.0: Python library for serializing any arbitrary object graph into JSON
+dev-python/jsonpickle 2.2.0-r1 3.0.0 3.0.1: Python library for serializing any arbitrary object graph into JSON
 dev-python/jsonpointer 2.3: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 1.0.1: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
@@ -9044,7 +9044,7 @@ dev-python/pycryptodome 3.15.0 3.16.0: A self-contained cryptographic library fo
 dev-python/pycson 0.8-r3: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/pycuda 2021.1: Python wrapper for NVIDIA CUDA
 dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
-dev-python/pycurl 7.45.1: Python bindings for curl/libcurl
+dev-python/pycurl 7.45.1 7.45.2: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.5-r1 7.1.7: Set of facilities to extend Python with C++
 dev-python/pydantic 1.10.2: Data parsing and validation using Python type hints
@@ -9413,7 +9413,7 @@ dev-python/sabyenc 5.4.2 5.4.3 5.4.4: Module providing raw yEnc encoding/decodin
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif_om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/scandir 1.10.0-r3: A better directory iterator and faster os.walk()
-dev-python/scikit-build 0.16.2 0.16.3: Improved build system generator for Python C/C++/Fortran/Cython extensions
+dev-python/scikit-build 0.16.2 0.16.3 0.16.4: Improved build system generator for Python C/C++/Fortran/Cython extensions
 dev-python/scipy 1.8.1 1.9.2 1.9.3 1.9.9999: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
 dev-python/scrypt 0.8.20: Bindings for the scrypt key derivation function library
@@ -9598,7 +9598,7 @@ dev-python/toolz 0.12.0: List processing tools and functional utilities
 dev-python/toposort 1.7-r1: Implements a topological sort algorithm
 dev-python/tornado 6.2: Python web framework and asynchronous networking library
 dev-python/towncrier 22.8.0: Building newsfiles for your project
-dev-python/tox 3.27.1 4.0.5 4.0.8 4.0.9 4.0.11 4.0.12: virtualenv-based automation of test activities
+dev-python/tox 3.27.1 4.0.12: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 1.2.0: Python bindings for TSS
 dev-python/tqdm 4.64.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.5.0 5.6.0 5.7.0 5.7.1: A configuration system for Python applications
