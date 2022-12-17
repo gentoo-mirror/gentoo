@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake xdg-utils
 IUSE=+monitor +touchpad
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=GPL-2 GPL-2+ GPL-3 LGPL-2 LGPL-2+ LGPL-2.1+ WTFPL-2
 RDEPEND=>=dev-libs/libqtxdg-3.10.0 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtx11extras-5.15:5 >=dev-qt/qtxml-5.15:5 =lxqt-base/liblxqt-1.2*:= sys-libs/zlib:= x11-apps/setxkbmap x11-libs/libxcb:= x11-libs/libX11 x11-libs/libXcursor x11-libs/libXfixes monitor? ( kde-plasma/libkscreen:5= ) touchpad? ( virtual/libudev:= x11-drivers/xf86-input-libinput x11-libs/libXi )
 SLOT=0
 SRC_URI=https://github.com/lxqt/lxqt-config/releases/download/1.2.0/lxqt-config-1.2.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
-_md5_=288f702cd39c2e27f191abbb1623fd2d
+_md5_=c727cbd5cec54d94d665563a35e12f14
