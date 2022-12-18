@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-unrealircd ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 dev-libs/openssl:0 virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install postinst prepare unpack
+DEPEND=acct-group/unrealircd acct-user/unrealircd >=app-crypt/argon2-20171227-r1:= dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:= dev-libs/jansson:= >=net-dns/c-ares-1.7:= virtual/libcrypt:= curl? ( net-misc/curl[adns] ) geoip? ( dev-libs/libmaxminddb )
+DESCRIPTION=An advanced Internet Relay Chat daemon
+EAPI=8
+HOMEPAGE=https://www.unrealircd.org/
+INHERIT=autotools ssl-cert systemd tmpfiles verify-sig
+IUSE=class-nofakelag curl geoip +operoverride operoverride-verify verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux
+LICENSE=GPL-2+
+RDEPEND=acct-group/unrealircd acct-user/unrealircd >=app-crypt/argon2-20171227-r1:= dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:= dev-libs/jansson:= >=net-dns/c-ares-1.7:= virtual/libcrypt:= curl? ( net-misc/curl[adns] ) geoip? ( dev-libs/libmaxminddb ) virtual/tmpfiles
+SLOT=0
+SRC_URI=https://www.unrealircd.org/downloads/unrealircd-6.0.4.2.tar.gz verify-sig? ( https://www.unrealircd.org/downloads/unrealircd-6.0.4.2.tar.gz.asc )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=8b24e7c3f1ed835cefa6e9c9fa48814b
