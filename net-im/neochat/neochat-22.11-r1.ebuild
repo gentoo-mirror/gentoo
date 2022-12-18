@@ -53,3 +53,8 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/purpose-${KFMIN}:5
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-crash-notification-settings.patch" # KDE-bug #462853
+	"${FILESDIR}/${P}-hide-dev-settings-loading.patch" # KDE-bug #462900
+)
