@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://qpdf.sourceforge.net/
 INHERIT=cmake bash-completion-r1
 IUSE=doc examples gnutls ssl test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ~ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris
 LICENSE=|| ( Apache-2.0 Artistic-2 )
 RDEPEND=media-libs/libjpeg-turbo:= sys-libs/zlib ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) )
 RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://github.com/qpdf/qpdf/releases/download/v11.2.0/qpdf-11.2.0.tar.gz doc? ( https://github.com/qpdf/qpdf/releases/download/v11.2.0/qpdf-11.2.0-doc.zip )
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=bfd0ad821d9324a50d463563c8991e55
+_md5_=db8cad74bb5428fae6ac89c8adc45ff5
