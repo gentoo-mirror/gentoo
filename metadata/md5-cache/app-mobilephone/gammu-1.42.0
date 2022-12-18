@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://wammu.eu/gammu/
 INHERIT=cmake
 IUSE=bluetooth curl dbi debug irda mysql nls odbc postgres usb
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2= dev-libs/libgudev:= virtual/libiconv bluetooth? ( net-wireless/bluez:= ) curl? ( net-misc/curl:= ) dbi? ( >=dev-db/libdbi-0.8.3:= ) mysql? ( dev-db/mysql-connector-c:= ) nls? ( sys-devel/gettext ) odbc? ( dev-db/unixODBC ) postgres? ( dev-db/postgresql:= ) usb? ( virtual/libusb:1= ) dev-util/dialog
 SLOT=0
 SRC_URI=https://dl.cihar.com/gammu/releases/gammu-1.42.0.tar.bz2
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
-_md5_=8aa964cc8146fb10e979898c34ca991b
+_md5_=5d827e76bccdbb4ebc73566d76eca96e
