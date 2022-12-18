@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/libpcre2-10.40 activerecord? ( !app-arch/arc ) mysql? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) postgres? ( dev-db/postgresql:= ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib:= )
+DESCRIPTION=C++ libraries for building network-based applications
+EAPI=8
+HOMEPAGE=https://pocoproject.org/
+INHERIT=cmake
+IUSE=7z activerecord cppparser +data examples +file2pagecompiler iodbc +json jwt mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite +ssl test +util +xml +zip
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Boost-1.0
+RDEPEND=>=dev-libs/libpcre2-10.40 activerecord? ( !app-arch/arc ) mysql? ( dev-db/mysql-connector-c:0= ) mariadb? ( dev-db/mariadb-connector-c:0= ) postgres? ( dev-db/postgresql:= ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib:= )
+REQUIRED_USE=7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) jwt? ( json ssl ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) postgres? ( data ) pagecompiler? ( json net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) ssl? ( util ) test? ( data? ( sqlite ) json util xml )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.12.2-release.tar.gz -> poco-1.12.2.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
+_md5_=a2835a51b987b2ccb2e370ba157418ca
