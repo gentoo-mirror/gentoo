@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -33,6 +33,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-gcc-4.3.patch
 	"${FILESDIR}"/${P}-missing_nullpointer_check.patch
 	"${FILESDIR}"/${P}-security.patch
+	"${FILESDIR}"/${P}-vbr-stack-smashing.patch # bug 398571
 )
 
 src_prepare() {
