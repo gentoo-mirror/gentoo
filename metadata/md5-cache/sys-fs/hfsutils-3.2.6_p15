@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.mars.org/home/rob/proj/hfs/
 INHERIT=autotools toolchain-funcs
 IUSE=tcl tk
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=tcl? ( dev-lang/tcl:= ) tk? ( dev-lang/tk:= )
 REQUIRED_USE=tk? ( tcl )
@@ -14,4 +14,4 @@ RESTRICT=!tcl? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/h/hfsutils/hfsutils_3.2.6.orig.tar.gz mirror://debian/pool/main/h/hfsutils/hfsutils_3.2.6-15.debian.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=93f1baf11aff4cd0bc66332146c031ba
+_md5_=11a4a2c365195fdfb8d73af1f11f487d
