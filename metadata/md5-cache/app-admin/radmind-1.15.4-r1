@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/Radmind https://sourceforge.net/projects/radmind/
 INHERIT=autotools
 IUSE=pam zlib
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 x86
 LICENSE=HPND
 RDEPEND=dev-libs/openssl:0= net-libs/libnsl pam? ( sys-libs/pam ) zlib? ( sys-libs/zlib )
 SLOT=0
 SRC_URI=https://github.com/voretaq7/radmind/releases/download/radmind-1.15.4/radmind-1.15.4.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=693be68a420300381e8d8bba27a0febb
+_md5_=0e699b26012a992fbb73707dd08393ef
