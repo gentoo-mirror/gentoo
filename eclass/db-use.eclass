@@ -8,7 +8,7 @@
 # maintainer-needed@gentoo.org
 # @AUTHOR:
 # Paul de Vrieze <pauldv@gentoo.org>
-# @SUPPORTED_EAPIS: 5 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: This is a common location for functions that aid the use of sys-libs/db
 # @DESCRIPTION:
 # This eclass is designed to provide helpful functions for depending on
@@ -16,7 +16,6 @@
 
 # multilib is used for get_libname in all EAPI
 case ${EAPI} in
-	5|6) inherit eapi7-ver ;& # fallthrough
 	7|8) inherit multilib ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
@@ -53,7 +52,7 @@ db_findver() {
 
 	PKG="$(best_version $1)"
 	VER="$(ver_cut 1-2 "${PKG/*db-/}")"
-	if [ -d "${EPREFIX}"/usr/include/db$(db_ver_to_slot "$VER") ]; then
+	if [ -d "${ESYSROOT}"/usr/include/db$(db_ver_to_slot "$VER") ]; then
 		#einfo "Found db version ${VER}" >&2
 		echo -n "$VER"
 		return 0
@@ -72,8 +71,8 @@ db_includedir() {
 		VER="$(db_findver sys-libs/db)" || return 1
 		VER="$(db_ver_to_slot "$VER")"
 		echo "include version ${VER}" >&2
-		if [ -d "${EPREFIX}/usr/include/db${VER}" ]; then
-			echo -n "${EPREFIX}/usr/include/db${VER}"
+		if [ -d "${ESYSROOT}/usr/include/db${VER}" ]; then
+			echo -n "${ESYSROOT}/usr/include/db${VER}"
 			return 0
 		else
 			eerror "sys-libs/db package requested, but headers not found" >&2
@@ -84,8 +83,8 @@ db_includedir() {
 		for x in $@
 		do
 			if VER=$(db_findver "=sys-libs/db-${x}*") &&
-			   [ -d "${EPREFIX}/usr/include/db$(db_ver_to_slot $VER)" ]; then
-				echo -n "${EPREFIX}/usr/include/db$(db_ver_to_slot $VER)"
+			   [ -d "${ESYSROOT}/usr/include/db$(db_ver_to_slot $VER)" ]; then
+				echo -n "${ESYSROOT}/usr/include/db$(db_ver_to_slot $VER)"
 				return 0
 			fi
 		done
@@ -103,7 +102,7 @@ db_includedir() {
 db_libname() {
 	if [ $# -eq 0 ]; then
 		VER="$(db_findver sys-libs/db)" || return 1
-		if [ -e "${EPREFIX}/usr/$(get_libdir)/libdb-${VER}$(get_libname)" ]; then
+		if [ -e "${ESYSROOT}/usr/$(get_libdir)/libdb-${VER}$(get_libname)" ]; then
 			echo -n "db-${VER}"
 			return 0
 		else
@@ -115,7 +114,7 @@ db_libname() {
 		for x in $@
 		do
 			if VER=$(db_findver "=sys-libs/db-${x}*"); then
-				if [ -e "${EPREFIX}/usr/$(get_libdir)/libdb-${VER}$(get_libname)" ]; then
+				if [ -e "${ESYSROOT}/usr/$(get_libdir)/libdb-${VER}$(get_libname)" ]; then
 					echo -n "db-${VER}"
 					return 0
 				fi
