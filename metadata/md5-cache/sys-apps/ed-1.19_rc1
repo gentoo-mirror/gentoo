@@ -1,0 +1,12 @@
+BDEPEND=sys-apps/texinfo || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) || ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure unpack
+DESCRIPTION=Your basic line editor
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/ed/
+INHERIT=edo toolchain-funcs unpacker verify-sig
+IUSE=verify-sig
+LICENSE=GPL-2+
+SLOT=0
+SRC_URI=mirror://gnu/ed/ed-1.19-rc1.tar.lz https://download.savannah.gnu.org/releases/ed/ed-1.19-rc1.tar.lz verify-sig? ( mirror://gnu/ed/ed-1.19-rc1.tar.lz.sig https://download.savannah.gnu.org/releases/ed/ed-1.19-rc1.tar.lz.sig )
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	unpacker	f03f9c0c03643e8057ad762b297ce01e	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=68022ae1ec4f3a97977e119a6f36ce54
