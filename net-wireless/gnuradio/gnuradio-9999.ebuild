@@ -18,7 +18,7 @@ if [[ ${PV} =~ "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/gnuradio/gnuradio/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~riscv ~x86"
 fi
 
 IUSE="+audio +alsa +analog +digital channels ctrlport doc dtv examples fec +filter grc iio jack modtool network oss performance-counters portaudio +qt5 sdl soapy test trellis uhd vocoder +utils wavelet zeromq"
@@ -48,8 +48,9 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-libs/boost:=[python,${PYTHON_USEDEP}]')
 	dev-libs/log4cpp:=
-	$(python_gen_cond_dep 'dev-python/six[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/jsonschema[${PYTHON_USEDEP}]')
+	dev-libs/spdlog
+	dev-libs/libfmt:=
 	sci-libs/fftw:3.0=
 	sci-libs/mpir:=
 	sci-libs/volk:=
@@ -119,7 +120,6 @@ DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.2
 	$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/pygccxml[${PYTHON_USEDEP}]')
-	dev-libs/spdlog
 	virtual/pkgconfig
 	doc? (
 		>=app-doc/doxygen-1.5.7.1
@@ -161,12 +161,13 @@ src_configure() {
 		-DENABLE_GRC="$(usex grc)"
 		-DENABLE_GR_IIO="$(usex iio)"
 		-DENABLE_GR_MODTOOL="$(usex modtool)"
+		-DENABLE_GR_BLOCKTOOL="$(usex modtool)"
+		-DENABLE_GR_NETWORK="$(usex network)"
+		-DENABLE_GR_PDU=ON
 		-DENABLE_PERFORMANCE_COUNTERS="$(usex performance-counters)"
 		-DENABLE_TESTING="$(usex test)"
-		-DENABLE_GR_NETWORK="$(usex network)"
 		-DENABLE_GR_QTGUI="$(usex qt5)"
 		-DENABLE_GR_SOAPY="$(usex soapy)"
-		-DENABLE_GR_BLOCKTOOL=OFF		# for now
 		-DENABLE_GR_TRELLIS="$(usex trellis)"
 		-DENABLE_GR_UHD="$(usex uhd)"
 		-DENABLE_GR_UTILS="$(usex utils)"

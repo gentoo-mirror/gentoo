@@ -18,7 +18,7 @@ if [[ ${PV} =~ "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/gnuradio/gnuradio/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~riscv ~x86"
 fi
 
 IUSE="+audio +alsa +analog +digital channels ctrlport doc dtv examples fec +filter grc iio jack modtool network oss performance-counters portaudio +qt5 sdl soapy test trellis uhd vocoder +utils wavelet zeromq"
@@ -48,7 +48,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-libs/boost:=[python,${PYTHON_USEDEP}]')
 	dev-libs/log4cpp:=
-	$(python_gen_cond_dep 'dev-python/six[${PYTHON_USEDEP}]')
 	$(python_gen_cond_dep 'dev-python/jsonschema[${PYTHON_USEDEP}]')
 	dev-libs/spdlog
 	dev-libs/libfmt:=
@@ -134,7 +133,6 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.10.3.0-fix-fmt-v9.patch" #858659
-	"${FILESDIR}/${PN}-3.10.3.0-fix-gcc12.patch" #858665
 )
 
 src_prepare() {
