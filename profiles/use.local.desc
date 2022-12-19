@@ -585,7 +585,6 @@ app-emulation/libvirt:zfs - Enable ZFS backend storage sys-fs/zfs
 app-emulation/nemu:network-map - Adds possibility of exporting network map to SVG
 app-emulation/nemu:ovf - Adds support for OVA/OVF import
 app-emulation/nemu:remote-api - Adds API for remote control
-app-emulation/nemu:savevm - Adds support for QEMU savevm snapshots (experimental, QEMU must be patched)
 app-emulation/nemu:spice - Adds Spice protocol support
 app-emulation/nemu:vnc-client - Adds support for external VNC client
 app-emulation/open-vm-tools:deploypkg - Build deploypkg plugin
@@ -7157,7 +7156,6 @@ sci-biology/exonerate:utils - Install the follow binaries: esd2esi, fasta2esd, f
 sci-biology/fasttree:double-precision - use double precision instead of single-precision floating point (2x memroy required)
 sci-biology/mcl:blast - Add support for NCBI BLAST data
 sci-biology/newick-utils:xml - Uses dev-libs/libxml2 to handle ornaments
-sci-biology/seqan:tools - Build and install SeqAn commandline tools, such as the Yara aligner
 sci-biology/ucsc-genome-browser:server - Install genome browser Web application. If this flag is off, only libraries and utilities from the suite are installed.
 sci-biology/yass:dmalloc - Enable debugging with the dmalloc library
 sci-biology/yass:lowmem - Build for environments with low amounts of memory
@@ -7403,7 +7401,6 @@ sci-libs/gmsh:voro - Enable support to sci-libs/voro++ meshing
 sci-libs/gsl:cblas-external - Link gsl with external cblas provided by (virtual/cblas) instead of shipped internal version
 sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
-sci-libs/hdf5:ros3 - Enable support for read-only S3 access (https://portal.hdfgroup.org/display/HDF5/Configuration+and+Setup+for+HDF5+Read+Only+S3+VFD)
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hipCUB:benchmark - Build and install benchmark binaries.
 sci-libs/hipFFT:benchmark - Build and install benchmark programs hipfft-rider.
@@ -7573,9 +7570,6 @@ sci-libs/vtk:vtkm - Build the vtkm accelerations modules
 sci-libs/vtk:web - Install web component
 sci-mathematics/bertini:optimization - Accept upstream's choices for -O option.
 sci-mathematics/cadabra:jupyter - Build the Cadabra Jupyter kernel
-sci-mathematics/cgal:mpfi - Enable support for multiple recision interval arithmetic via sci-libs/mpfi
-sci-mathematics/cgal:ntl - Enable support for dev-libs/ntl
-sci-mathematics/cgal:shared - Build shared library
 sci-mathematics/cvc4:cln - Use sci-libs/cln
 sci-mathematics/cvc4:proofs - Support for proof generation
 sci-mathematics/cvc4:replay - Turn on the replay feature
