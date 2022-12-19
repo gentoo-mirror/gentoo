@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://gsoap2.sourceforge.net
 INHERIT=autotools
 IUSE=doc debug examples ipv6 gnutls +ssl
-KEYWORDS=~amd64 x86
+KEYWORDS=amd64 x86
 LICENSE=|| ( gSOAP-1.3b GPL-2+-with-openssl-exception ) GPL-2+
 RDEPEND=sys-libs/zlib gnutls? ( net-libs/gnutls ) ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=mirror://sourceforge/gsoap2/gsoap_2.8.114.zip
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=a652e1f7d2ce0a4d906b44d400451010
+_md5_=cc026ccc072520cae173c01c3307630b
