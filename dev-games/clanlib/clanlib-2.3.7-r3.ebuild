@@ -7,14 +7,14 @@ inherit autotools toolchain-funcs
 
 MY_P=ClanLib-${PV}
 DESCRIPTION="Multi-platform game development library"
-HOMEPAGE="http://www.clanlib.org/"
-SRC_URI="http://clanlib.org/download/releases-2.0/${MY_P}.tgz"
+HOMEPAGE="https://github.com/sphair/ClanLib"
+SRC_URI="mirror://gentoo/${MY_P}.tgz"
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="ZLIB"
 SLOT="2.3"
 KEYWORDS="amd64 x86"
-IUSE="doc ipv6 mikmod opengl sound sqlite cpu_flags_x86_sse2 static-libs vorbis X"
+IUSE="doc ipv6 mikmod opengl +sound sqlite cpu_flags_x86_sse2 static-libs vorbis X"
 REQUIRED_USE="opengl? ( X )"
 
 BDEPEND="
