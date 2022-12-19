@@ -1,8 +1,8 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{8..10} )
+EAPI=8
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit gnome2-utils meson python-any-r1 vala xdg
 
@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	dev-libs/libappindicator:3
+	$(vala_depend)
+	dev-libs/libayatana-appindicator:0
 	dev-libs/glib:2
 	dev-libs/json-glib
 	net-libs/libsoup:2.4
@@ -38,7 +39,7 @@ RESTRICT="test"
 
 src_prepare() {
 	default
-	vala_src_prepare
+	vala_setup
 }
 
 src_install() {
