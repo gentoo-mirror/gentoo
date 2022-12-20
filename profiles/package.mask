@@ -630,59 +630,6 @@ games-util/pyfa
 mate-extra/caja-hide
 media-gfx/netpaint
 media-plugins/mythplugins
-media-sound/marrie
-media-tv/tvnamer
-net-analyzer/carl
-net-im/skype-dbus-mock
-sci-libs/bmrblib
-sci-mathematics/relational
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-17)
-# Rarely used package with very high maintenance cost.  Hacky, requires
-# explicit support code for every architecture, effectively preventing
-# it from being keyworded on some of the Gentoo architectures.  The test
-# suite is problematic.  The current release blocks dev-python/greenlet
-# upgrade, the new release fails many tests again.
-# Removal on 2022-12-17.  Bug #879011.
-dev-python/gevent
-dev-python/geventhttpclient
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-17)
-# Requires dev-python/gevent that is going to be masked for removal.
-# net-misc/x2goclient remains as a replacement.
-# Removal on 2022-12-17.  Bug #879011.
-net-misc/pyhoca-cli
-net-misc/pyhoca-gui
-net-misc/python-x2go
-
-# Matthew Smith <matthew@gentoo.org> (2022-11-17)
-# libnet:1.0's remaining rdeps. Dead upstreams.
-# Removal on 2022-12-17. Bug #881677
-net-libs/libnet:1.0
-net-analyzer/angst
-net-analyzer/egressor
-net-analyzer/thcrut
-net-dns/dnshijacker
-net-misc/selfdhcp
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-17)
-# No maintainer.  No upstream activity since 2020.  Multiple bugs
-# reported.
-# Removal on 2022-12-17.  Bug #881673.
-app-admin/prelude-manager
-dev-libs/libprelude
-dev-libs/libpreludedb
-net-analyzer/prelude-correlator
-net-analyzer/prelude-lml-rules
-net-analyzer/prelude-lml
-sec-policy/selinux-prelude
-www-apps/prewikka
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-15)
-# Test-restricted since its introduction in 2016.  Not receiving package
-# maintainer's attention.  No revdeps left.
-# Removal on 2022-12-15.  Bug #759931.
-dev-python/pytest-html
 
 # Jonas Stein <jstein@gentoo.org> (2022-11-13)
 # Dead upstream
