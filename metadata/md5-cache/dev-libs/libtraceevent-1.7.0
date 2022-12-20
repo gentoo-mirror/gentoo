@@ -1,0 +1,14 @@
+BDEPEND=doc? ( app-text/xmlto app-text/asciidoc )
+DEFINED_PHASES=compile configure install
+DESCRIPTION=Linux kernel trace event library
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/
+INHERIT=toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=!<dev-util/trace-cmd-3.0
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/snapshot/libtraceevent-1.7.0.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=b5e14a4f12e2059f573a70a4ea5f125c
