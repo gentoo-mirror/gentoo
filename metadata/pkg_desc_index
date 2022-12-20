@@ -53,7 +53,6 @@ acct-group/chronograf 0-r1: System group: chronograf
 acct-group/cinder 0-r1: System group: cinder
 acct-group/clair 0-r1: System group: clair
 acct-group/clamav 0-r1: System group: clamav
-acct-group/cmd5checkpw 0-r1: System group: cmd5checkpw
 acct-group/cntlm 0: Group for net-proxy/cntlm
 acct-group/cockroach 0: A group for dev-db/cockroach
 acct-group/collectd 0: collectd program group
@@ -519,7 +518,6 @@ acct-user/chronograf 0-r1: User for chronograf
 acct-user/cinder 0-r1: user for the openstack cinder service
 acct-user/clair 0-r1: User for clair
 acct-user/clamav 0-r1: System user: clamav
-acct-user/cmd5checkpw 0-r1: User for cmd5checkpw
 acct-user/cntlm 0: User for net-proxy/cntlm
 acct-user/cockroach 0: A user for dev-db/cockroach
 acct-user/collectd 0: collectd program user
@@ -2648,7 +2646,6 @@ app-emacs/yatex 1.82: Yet Another TeX mode for Emacs
 app-emacs/zenburn 20110907-r1: Zenburn color theme for Emacs
 app-emacs/zenirc 2.112-r1: A full-featured scriptable IRC client for the Emacs text editor
 app-emulation/86Box 3.11: Emulator of x86-based machines based on PCem
-app-emulation/aqemu 0.9.2-r2: Graphical interface for QEMU and KVM emulators, using Qt5
 app-emulation/aranym 1.1.0: Atari Running on Any Machine, VM running Atari ST/TT/Falcon OS and TOS/GEM apps
 app-emulation/bochs 2.6.10 2.7 9999: LGPL-ed pc emulator
 app-emulation/cloud-init 22.2.2 9999: Cloud instance initialisation magic
@@ -2792,7 +2789,6 @@ app-forensics/lynis 3.0.8-r1: Security and system auditing tool
 app-forensics/mac-robber 1.02: mac-robber is a digital forensics and incident response tool that collects data
 app-forensics/magicrescue 1.1.10-r3 1.1.10-r4: Find deleted files in block devices
 app-forensics/memdump 1.01-r1: Simple memory dumper for UNIX-Like systems
-app-forensics/ovaldi 5.10.1.7-r1: Free implementation of OVAL
 app-forensics/pasco 20040505_p1-r1: IE Activity Parser
 app-forensics/radamsa 0.6: A general purpose fuzzer
 app-forensics/rifiuti 20040505_p1: Recycle Bin Analyzer
@@ -3069,7 +3065,6 @@ app-misc/geoclue 2.6.0: A location information D-Bus service
 app-misc/getopt 1.1.6-r1: getopt(1) replacement supporting GNU-style long options
 app-misc/glastree 1.04_p20150525: glastree is a poor mans snapshot utility using hardlinks written in perl
 app-misc/glcdprocdriver 0.1.2-r1: A glue between the graphlcd-base library from the GraphLCD project
-app-misc/glimpse 4.18.6-r1: A index/query system to search a large set of files quickly
 app-misc/gnote 43.0: Desktop note-taking application
 app-misc/gnuit 4.9.5-r2: GNU Interactive Tools - increase speed and efficiency of most daily tasks
 app-misc/go-jira 1.0.28: A simple JIRA commandline client in Go
@@ -3445,7 +3440,6 @@ app-shells/zsh-completions 0.33.0 0.34.0 9999: Additional completion definitions
 app-shells/zsh-syntax-highlighting 0.7.1: Fish shell like syntax highlighting for zsh
 app-text/App-XML-DocBook-Builder 0.100.300-r1: A Perl-based tool to Render DocBook/XML
 app-text/a2ps 4.14-r7 4.14-r8: Any to PostScript filter
-app-text/agrep 2.04-r2: A tool for the fast searching of text allowing for errors in the search pattern
 app-text/aha 0.5.1: Converts ANSI escape sequences of a unix terminal to HTML code
 app-text/aiksaurus 1.2.1-r3: A thesaurus lib, tool, and database
 app-text/an 1.2_p6: Very fast anagram generator with dictionary lookup
@@ -4137,7 +4131,6 @@ dev-cpp/picojson 1.3.0: Header-file-only, JSON parser serializer in C++
 dev-cpp/pngpp 0.2.9: A simple but powerful C++ interface to libpng
 dev-cpp/popl 1.2.0 9999: Header-only C++ program options parser library
 dev-cpp/prometheus-cpp 1.0.1 1.1.0: Prometheus Client Library for Modern C++
-dev-cpp/pstreams 1.0.1: C++ wrapper for the POSIX.2 functions popen(3) and pclose(3)
 dev-cpp/pystring 1.1.3-r1: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
@@ -4166,7 +4159,6 @@ dev-db/bucardo 5.4.1: An asynchronous PostgreSQL replication system
 dev-db/cdb 0.75-r4: Fast, reliable, simple package for creating and reading constant databases
 dev-db/citus 10.2.7 11.0.6 11.1.4: Open-source postgresql extension for clustering/multi-node setups
 dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
-dev-db/cpp-driver 2.11.0: DataStax C/C++ Driver for Cassandra
 dev-db/datadraw 3.1.1: feature rich database generator for high performance C applications
 dev-db/etcd 3.3.24 3.4.16: Highly-available key value store for shared configuration and service discovery
 dev-db/firebird 3.0.4.33054.0-r2 3.0.10.33601.0-r1: Relational database offering many ANSI SQL:2003 and some SQL:2008 features
@@ -4343,7 +4335,6 @@ dev-erlang/pkix 1.0.9: PKIX certificates management library for Erlang
 dev-erlang/proper 1.2 1.3: QuickCheck-inspired property-based testing tool for Erlang
 dev-erlang/protobuffs 0.9.0: Google's Protocol Buffers for Erlang
 dev-erlang/riak_pb 2.2.0.2: Riak Protocol Buffers messages
-dev-erlang/riakc 2.4.2: Erlang clients for Riak
 dev-erlang/sqlite3 1.1.13: SQLite gen_server port for Erlang
 dev-erlang/stringprep 1.0.28 1.0.29: Fast Stringprep implementation for Erlang and Elixir
 dev-erlang/stun 1.0.47 1.2.2 1.2.6: STUN and TURN library for Erlang and Elixir
@@ -7967,9 +7958,6 @@ dev-php/PEAR-Net_UserAgent_Detect 2.5.2-r1: Determines Web browser, version, and
 dev-php/PEAR-Numbers_Words 0.18.1-r1 0.18.2: Provides methods for spelling numerals in words
 dev-php/PEAR-OLE 1.0.0_rc3: Package for reading and writing OLE containers
 dev-php/PEAR-PEAR 1.10.12 1.10.13: PEAR Base System
-dev-php/PEAR-PEAR_PackageFileManager 1.7.2-r2: Updates an existing package.xml file with a new filelist and changelog
-dev-php/PEAR-PEAR_PackageFileManager2 1.0.4-r2: Updates an existing package.xml file with a new filelist and changelog
-dev-php/PEAR-PEAR_PackageFileManager_Plugins 1.0.4-r1: Various methods to check files to update an existing package.xml file
 dev-php/PEAR-PHP_Beautifier 0.1.15-r2: Code Beautifier for PHP
 dev-php/PEAR-PHP_Debug 1.0.3-r3: Provides traces, timings, executed queries, watched variables etc.
 dev-php/PEAR-Pager 2.5.1: Data paging class
@@ -7989,7 +7977,6 @@ dev-php/PEAR-Text_Wiki_BBCode 0.0.4-r3: BBCode parser for Text_Wiki
 dev-php/PEAR-Text_Wiki_Mediawiki 0.2.0_p20140604: Mediawiki parser for Text_Wiki
 dev-php/PEAR-Validate 0.8.5-r1 0.8.6: Validation class
 dev-php/PEAR-Var_Dump 1.0.4-r3: Dump structured information about a variable
-dev-php/PEAR-VersionControl_SVN 0.5.2-r1 0.5.2_p20180314: Simple OO wrapper interface for the Subversion command-line client
 dev-php/PEAR-XML_Parser 1.3.7-r1 1.3.8 1.3.8-r1: XML parsing class based on PHP's SAX parser
 dev-php/PEAR-XML_RSS 1.1.0_alpha1 1.1.0 1.1.0-r1 1.1.0-r2: PHP parser for RDF and RSS documents
 dev-php/PEAR-XML_Serializer 0.21.0-r1: Swiss-army knife for reading and writing XML files
@@ -8003,7 +7990,6 @@ dev-php/SabreAMF 1.5.0: SabreAMF is a Flash Remoting server and client for PHP
 dev-php/Text_Template 1.2.1 2.0.4: A simple template engine
 dev-php/YAML 1.0.6-r3: The Symfony YAML Component
 dev-php/adodb 5.21.4 5.22.2: Database abstraction layer for PHP
-dev-php/agavi 1.0.8: PHP MVC application framework
 dev-php/awl 0.61 0.62: Andrew McMillan's Web Libraries
 dev-php/ca-bundle 1.1.3 1.2.11 1.3.1: Find the system CA bundle or fall back to the Mozilla one
 dev-php/cli-prompt 1.0.0 1.0.3: Allows you to prompt for user input on the command line
@@ -8069,7 +8055,6 @@ dev-php/pecl-zmq 1.1.3_p20211103 9999: PHP Bindings for ZeroMQ messaging
 dev-php/phar-io-manifest 1.0.3 2.0.1 2.0.3: Reading phar.io manifest information from a PHP Archive (PHAR)
 dev-php/phar-io-version 2.0.1 3.0.4 3.1.0: Library for handling version information and constraints
 dev-php/phar-utils 1.1.1 1.1.2: PHAR file format utilities, for when PHP phars you up
-dev-php/phing 2.16.1 2.16.3 2.16.4: PHP project build system based on Apache Ant
 dev-php/php-redmine-api 1.5.9 1.5.16: A simple, object-oriented, PHP Redmine API client
 dev-php/phpDocumentor 2.9.0: Automatic documenting of php api directly from the source
 dev-php/phpcov 5.0.0: CLI frontend for PHP_CodeCoverage
@@ -8077,7 +8062,6 @@ dev-php/phpdepend 2.5.0-r1: Static code analysis for PHP
 dev-php/phpdocumentor-reflection-common 1.0: Common reflection classes used by phpdocumentor to reflect the code structure
 dev-php/phpdocumentor-reflection-docblock 3.1.1: Provide support for annotations via DocBlocks
 dev-php/phpdocumentor-type-resolver 0.2.1: PSR-5 based resolver of Class names, Types and Structural Element Names
-dev-php/phpmd 2.6.0 2.8.2: PHP mess detector
 dev-php/phpspec-prophecy 1.7.0 1.8.0 1.9.0 1.10.0 1.10.1 1.10.3-r1 1.13.0 1.14.0: Highly opinionated mocking framework
 dev-php/phptal 1.3.1: A templating engine for PHP5 that implements Zope Page Templates syntax
 dev-php/phpunit 8.5.11 8.5.14: A PHP Unit Testing framework
@@ -11352,7 +11336,6 @@ dev-util/stepman 0.10.5: Step collection manager for Bitrise CLI
 dev-util/strace 5.17 5.18 5.19 6.0 6.1 9999: A useful diagnostic, instructional, and debugging tool
 dev-util/stressapptest 1.0.9-r1: Stressful Application Test
 dev-util/stripe-mock 0.141.0 0.145.0 0.146.0 0.147.0 0.148.0: Mock HTTP server that responds like the real Stripe API
-dev-util/stubgen 2.08: A member function stub generator for C++
 dev-util/sysdig 0.27.1-r100 0.29.3: A system exploration and troubleshooting tool
 dev-util/sysdig-kmod 0.27.1: Kernel module for dev-util/sysdig
 dev-util/sysprof 3.46.0: System-wide Linux Profiler
@@ -13433,7 +13416,6 @@ media-gfx/xloadimage 4.1-r14 4.1-r15: Utility to view many different types of im
 media-gfx/xpaint 3.1.4-r4: Image editor with tiff, jpeg and png support
 media-gfx/xsane 0.999-r4: Graphical scanning frontend
 media-gfx/xv 3.10a-r22: Interactive image manipulation program supporting a wide variety of formats
-media-gfx/xzgv 0.9.1: Fast and simple GTK+ image viewer
 media-gfx/yafaray 3.5.1-r4: A free open-source montecarlo raytracing engine
 media-gfx/zbar 0.23.90: Library and tools for reading barcodes from images or video
 media-gfx/zgv 5.9-r1: A svgalib console image viewer
@@ -14396,7 +14378,6 @@ media-sound/quodlibet 4.5.0-r1: audio library tagger, manager, and player for GT
 media-sound/rawrec 0.9.991: CLI program to play and record audiofiles
 media-sound/rcenter 0.6.2: Rcenter - A program to control the EMU10K Remote Control
 media-sound/redoflacs 0.30: Bash commandline flac compressor, verifier, organizer, analyzer, retagger
-media-sound/retrovol 0.13: Systemtray volume mixer applet from PuppyLinux
 media-sound/rexima 1.4-r2: A curses-based interactive mixer which can also be used from the command-line
 media-sound/rhythmbox 3.4.6: Music management and playback software for GNOME
 media-sound/rip 1.07-r3: A command-line based audio CD ripper and mp3 encoder
@@ -14456,7 +14437,6 @@ media-sound/toolame 02l-r4: tooLAME - an optimized mpeg 1/2 layer 2 audio encode
 media-sound/ttaenc 3.4.1-r1: True Audio Compressor Software
 media-sound/tudor-volumed 0_pre20110427: Lightweight, desktop environment agnostic volume management daemon
 media-sound/twolame 0.4.0: An optimised MPEG Audio Layer 2 (MP2) encoder
-media-sound/umix 1.0.2-r1: Program for adjusting soundcard volumes
 media-sound/upmpdcli 1.5.19 1.5.20: UPnP Media Renderer front-end for MPD, the Music Player Daemon
 media-sound/vb2rip 1.4: Konami VB2 sound format ripping utility
 media-sound/vbrfixc 0.24-r1: Vbrfix fixes MP3s and re-constructs VBR headers
@@ -14966,7 +14946,6 @@ net-dns/dnscap 1.10.3: Network capture utility designed specifically for DNS tra
 net-dns/dnscrypt-proxy 2.1.2 9999: A flexible DNS proxy, with support for encrypted DNS protocols
 net-dns/dnsdist 1.5.1-r100 1.6.0 1.6.1 1.7.0 1.7.1 1.7.2 1.7.3: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnsmasq 2.85 2.86-r1 2.87: Small forwarding DNS server
-net-dns/dnssec-check 2.2: Tests local resolver for support of DNSSEC validation
 net-dns/dnssec-root 20181220-r1 20210902: The DNSSEC root key(s)
 net-dns/dnssec-tools 2.2.3-r3: Tools to ease the deployment of DNSSEC related technologies
 net-dns/dnssec-validator 2.2.3-r2: Tools to ease the validation of DNSSEC related technologies
@@ -15058,7 +15037,6 @@ net-ftp/frox 0.7.18-r8: A transparent ftp proxy
 net-ftp/ftp 0.17.34.0.2.5.1: Standard Linux FTP client
 net-ftp/ftpbase 0.01-r6: File Transfer Protocol (FTP) base layout
 net-ftp/gftp 2.9.1b: a free multithreaded file transfer client
-net-ftp/gproftpd 8.3.2-r3: GTK frontend to proftpd
 net-ftp/lftp 4.9.2 9999: A sophisticated ftp/sftp/http/https/torrent client and file transfer program
 net-ftp/linksys-tftp 1.2.1-r3: TFTP client suitable for uploading to the Linksys WRT54G Wireless Router
 net-ftp/ncftp 3.2.6-r4 3.2.6-r5: An extremely configurable ftp client
@@ -15382,7 +15360,6 @@ net-mail/autorespond 2.0.4 2.0.5: Autoresponder add on package for qmailadmin
 net-mail/b4 0.8.0 0.10.1: Utility for fetching patchsets from public-inbox
 net-mail/checkpassword 0.90-r5: A uniform password checking interface for root applications
 net-mail/checkpassword-pam 0.99-r1: checkpassword-compatible authentication program w/pam support
-net-mail/cmd5checkpw 0.30-r2 0.30-r3: A checkpassword compatible authentication program using CRAM-MD5
 net-mail/courier-imap 5.1.2-r1 5.1.3-r1 5.1.4 5.1.7 5.1.8 5.2.1: An IMAP daemon designed specifically for maildirs
 net-mail/courierpassd 1.1.2-r2: Courierpassd is a utility for changing a user's password from across a network
 net-mail/cyrus-imapd 3.0.16-r2 3.0.17-r1 3.4.2-r2 3.4.3-r2 3.4.4 3.4.4-r1: The Cyrus IMAP Server
@@ -17397,7 +17374,6 @@ sys-apps/ifplugd 0.28-r11: Brings up/down ethernet ports automatically with cabl
 sys-apps/init-system-helpers 1.60: Helper scripts useful for both OpenRC and systemd
 sys-apps/input-utils 1.3: Small collection of linux input layer utils
 sys-apps/install-xattr 0.8 9999: Wrapper to coreutil's install to preserve Filesystem Extended Attributes
-sys-apps/intel-performance-counter-monitor 2.10: Intel Performance Counter Monitor - A better way to measure CPU utilization
 sys-apps/intel-sa-00075-tools 1.0: Tools from Intel to detect and mitigate the AMT/MEI vulnerability
 sys-apps/inxi 3.3.17.1 3.3.20.1: The CLI inxi collects and prints hardware and system information
 sys-apps/iotools 1.5: Simple commands to access hardware device registers
