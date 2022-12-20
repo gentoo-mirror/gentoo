@@ -14,11 +14,17 @@ KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 
 RDEPEND="
 	dev-libs/glib:2
+	sci-libs/gsl:=
 	sys-apps/dbus
 	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libXinerama
 	x11-libs/libXpm
+	x11-libs/libXtst
+	x11-libs/libxkbcommon
 "
 DEPEND="
 	${RDEPEND}
