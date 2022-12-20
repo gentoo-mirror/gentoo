@@ -19,6 +19,9 @@ you will lose LVM2 (but not device-mapper!) functionality, so enable it in your
 config if your boot configuration depends on it or if you depend on any of the
 lvm2-* daemons.
 
+If you use LVM2 for any partitions, or if you use tools like 'lvchange', you
+should enable USE=lvm.
+
 Furthermore, we have considered other default enabled USE flags too, and have
 come to the conclusion that USE=+thin makes even less sense than USE=+lvm.
 Thin-provisioned LVM volumes are an important use case in certain VM hosting
@@ -26,5 +29,6 @@ scenarios, but unlikely to be relevant for the large majority of Gentoo users.
 
 In summary:
 - Enable USE="lvm" if you use lvm2 (but not needed for device-mapper) as described above.
+  This includes using LVM for any partitions.
 - Enable USE="lvm thin" if you use thin as described above.
 - If you don't know what LVM2 is, you don't need to take any action.
