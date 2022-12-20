@@ -1,0 +1,17 @@
+BDEPEND=dev-cpp/eigen virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=dev-libs/libfmt:= media-libs/glew:0= media-libs/libepoxy media-libs/libjpeg-turbo:0= media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) glut? ( media-libs/freeglut ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+DESCRIPTION=OpenGL 3D space simulator
+EAPI=8
+HOMEPAGE=https://celestia.space https://github.com/CelestiaProject/Celestia
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop lua-single xdg cmake
+IUSE=ffmpeg glut lua nls +qt5 lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libfmt:= media-libs/glew:0= media-libs/libepoxy media-libs/libjpeg-turbo:0= media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) glut? ( media-libs/freeglut ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 )
+REQUIRED_USE=|| ( glut qt5 ) lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
+SLOT=0
+SRC_URI=https://github.com/CelestiaProject/Celestia/archive/9b00246b17a60f0a6dce724be8f7a3bda04809c3.tar.gz -> celestia-1.7.0_pre20221215.tar.gz https://github.com/CelestiaProject/CelestiaContent/archive/bc8208e4474aee9a1096c6479a1e7f298aa98d02.tar.gz -> celestia-1.7.0_pre20221215-data.tar.gz
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	cmake	646b7a2a63596361551a6c1fabf28057
+_md5_=24c3c6906cf364f276364af9e5709c10
