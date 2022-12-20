@@ -95,7 +95,6 @@ app-admin/pass-otp:qrcode - Add support for qrcodes using media-gfx/qrencode
 app-admin/passwordsafe:qr - Enable QR code password display
 app-admin/passwordsafe:xml - Enable XML import support
 app-admin/passwordsafe:yubikey - Enable support for Yubikey
-app-admin/prelude-manager:dbx - Enables Prelude Manager storing Prelude alerts into database through dev-libs/libpreludedb
 app-admin/puppet:augeas - Enable augeas support
 app-admin/puppet:diff - Enable diff support
 app-admin/puppet:rrdtool - Enable rrdtool support
@@ -2508,7 +2507,6 @@ dev-python/qiskit-terra:visualization - Enable visualization modules
 dev-python/rarfile:compressed - Enables the module to support compressed v3 archives by calling the app-arch/unrar.
 dev-python/rfc3986:idna - enable support for the IDNA specification (RFC 5891)
 dev-python/rpyc:gdb - Run tests depending on sys-devel/gdb
-dev-python/rpyc:gevent - Use dev-python/gevent for GeventServer
 dev-python/rpyc:numpy - Run tests depending on dev-python/numpy, dev-python/pandas
 dev-python/scipy:pythran - Use dev-python/pythran to accelerate runtime
 dev-python/scipy:sparse - Adds support for sparse solving with sci-libs/umfpack
@@ -3821,7 +3819,6 @@ mail-filter/opendkim:unbound - Use the unbound dnssec library to perform DKIM DN
 mail-filter/opendmarc:reports - Install the reports binaries: expire, import, reports, params
 mail-filter/opendmarc:spf - Use the mail-filter/libspf2 for Sender Policy Framework checking
 mail-filter/pyzor:gdbm - Enables the Gdbm back-end database engine for pyzord
-mail-filter/pyzor:gevent - Use dev-python/gevent to enable asynchronous operation
 mail-filter/pyzor:mysql - Enables the MySQL back-end database engine for pyzord through dev-python/mysqlclient.
 mail-filter/pyzor:pyzord - Enable the pyzord server daemon
 mail-filter/pyzor:redis - Enables the redis back-end database engine for pyzord through dev-python/redis-py
@@ -5688,7 +5685,6 @@ net-firewall/nufw:nfconntrack - Use netfilter_conntrack
 net-firewall/nufw:nfqueue - Use NFQUEUE instead of QUEUE
 net-firewall/nufw:pam_nuauth - Add support for pam nufw from PAM
 net-firewall/nufw:plaintext - Add support for authentication with plaintext files
-net-firewall/nufw:prelude - Add support/bindings for the Prelude Intrusion Detection System
 net-firewall/pglinux:cron - Install cron script
 net-firewall/shorewall:init - Adds the capability to place the firewall in a safe state prior to bringing up the network interfaces
 net-firewall/shorewall:ipv4 - Installs everything needed to create a full IPv4 firewall
@@ -6655,7 +6651,6 @@ net-misc/remmina:gvnc - Enable GVNC plugin using gtk-vnc, suitable for KVM and V
 net-misc/remmina:kwallet - Enable KDE Wallet plugin
 net-misc/remmina:spice - Support connecting to SPICE-enabled virtual machines
 net-misc/remmina:ssh - Enable support for SSH/SFTP protocol
-net-misc/remmina:x2go - Enable support for X2Go
 net-misc/rsync:rrsync - Install rrsync script to setup restricted rsync users via ssh logins
 net-misc/rsync:stunnel - Provide helper scripts for using rsync via >=net-misc/stunnel-4
 net-misc/rsync:system-zlib - Use system zlib instead of bundled one. This is incompatible with older rsync releases!
@@ -8844,7 +8839,6 @@ www-servers/uwsgi:embedded - Embed plugins instead of building them as real plug
 www-servers/uwsgi:go - Build the gccgo plugin to run Go applications.
 www-servers/uwsgi:json - Support json as a configuration file format.
 www-servers/uwsgi:python-asyncio - Use the EXPERIMENTAL asyncio (tulip) for python3.4 async request dispatching and as LoopEngine (see http://uwsgi-docs.readthedocs.org/en/latest/asyncio.html).
-www-servers/uwsgi:python-gevent - Use dev-python/gevent for async request dispatching and as LoopEngine (see http://projects.unbit.it/uwsgi/wiki/Gevent).
 www-servers/uwsgi:routing - Enable routing support
 www-servers/uwsgi:yajl - Use dev-libs/yajl instead of dev-libs/jansson for parsing JSON configuration files (if USe=json is set)
 www-servers/uwsgi:yaml - Support yaml as a configuration file format.
@@ -8966,7 +8960,6 @@ x11-misc/polybar:ipc - Add support for Inter-Process Messaging
 x11-misc/polybar:mpd - Add support for Music Player Daemon
 x11-misc/polybar:network - Enable network support
 x11-misc/primus:libglvnd - Use media-libs/libglvnd for dispatch
-x11-misc/py3status:gevent - Install extra requirement dev-python/gevent to enable green threads.
 x11-misc/py3status:minimal - Don't depend on x11-misc/i3status if you don't plan to use any of its built-in modules.
 x11-misc/py3status:udev - Install extra requirement dev-python/pyudev to enable udev events monitoring on modules.
 x11-misc/qtfm:dbus - Install the qtfm-tray removable device manager
