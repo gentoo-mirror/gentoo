@@ -33,7 +33,7 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 	udis86? ( dev-libs/udis86 )
 	zstd? ( >=app-arch/zstd-1.4 )
-	>=dev-libs/libtracefs-1.4
+	>=dev-libs/libtracefs-1.6
 	>=dev-libs/libtraceevent-1.5
 "
 DEPEND="${RDEPEND}
@@ -50,7 +50,7 @@ BDEPEND="
 RESTRICT+=" test"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-hang-make-4.4.patch
+	"${FILESDIR}"/${PN}-3.1.4-hang-make-4.4.patch
 )
 
 pkg_setup() {
