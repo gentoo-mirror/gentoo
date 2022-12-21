@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/odoc-parser:= dev-ml/astring:= dev-ml/cmdliner:= dev-ml/cppo:= dev-ml/fpath:= dev-ml/result:= dev-ml/tyxml:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=OCaml documentation generator
+EAPI=8
+HOMEPAGE=http://github.com/ocaml/odoc
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/odoc-parser:= dev-ml/astring:= dev-ml/cmdliner:= dev-ml/cppo:= dev-ml/fpath:= dev-ml/result:= dev-ml/tyxml:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/ocaml/odoc/releases/download/2.2.0/odoc-2.2.0.tbz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_md5_=8c93183fdcdedca5d4be35f551775ba5
