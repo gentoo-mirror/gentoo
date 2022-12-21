@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=postinst postrm preinst prepare
+DEFINED_PHASES=install postinst postrm preinst prepare
 DEPEND=dev-libs/glib:2 sci-libs/gsl:= sys-apps/dbus x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXext x11-libs/libXinerama x11-libs/libXpm x11-libs/libXtst x11-libs/libxkbcommon x11-base/xorg-proto
 DESCRIPTION=let it snow on your desktop and windows
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/glib:2 sci-libs/gsl:= sys-apps/dbus x11-libs/cairo x11-libs/gdk
 SLOT=0
 SRC_URI=https://www.ratrabbit.nl/downloads/xsnow/xsnow-3.6.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=bd296b0f5313887b8a183caa02207e5b
+_md5_=f6a23d2d8146d93d87f7a4635eab290c
