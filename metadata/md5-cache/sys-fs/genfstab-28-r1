@@ -1,10 +1,12 @@
-BDEPEND=app-text/asciidoc
-DEFINED_PHASES=-
+BDEPEND=app-alternatives/awk app-text/asciidoc
+DEFINED_PHASES=test
 DESCRIPTION=Genfstab - generate output suitable for addition to an fstab file
 EAPI=8
 HOMEPAGE=https://github.com/scardracs/genfstab https://man.archlinux.org/man/genfstab.8
+IUSE=test
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/scardracs/genfstab/releases/download/28/genfstab-28.tar.gz
-_md5_=2723d75bb993216e20ff37e0a6a819b3
+_md5_=2510e0a11295d5a6b64ce17b8a3f9706
