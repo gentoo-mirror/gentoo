@@ -18,45 +18,40 @@ HOMEPAGE="https://wayland.freedesktop.org/ https://gitlab.freedesktop.org/waylan
 if [[ ${PV} = *9999* ]]; then
 	SRC_URI="${SRC_PATCHES}"
 else
-	SRC_URI="https://gitlab.freedesktop.org/wayland/${PN}/-/releases/${PV}/downloads/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	SRC_URI="https://gitlab.freedesktop.org/wayland/${PN}/uploads/f5648c818fba5432edc3ea63c4db4813/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 LICENSE="MIT CC-BY-SA-3.0"
 SLOT="0"
 
-IUSE="colord +desktop +drm editor examples fbdev fullscreen +gles2 headless ivi jpeg kiosk lcms pipewire rdp remoting +resize-optimization screen-sharing +seatd +suid systemd test wayland-compositor webp +X xwayland"
+IUSE="+desktop +drm editor examples fullscreen +gles2 headless ivi jpeg kiosk lcms pipewire rdp remoting +resize-optimization screen-sharing +seatd +suid systemd test wayland-compositor webp +X xwayland"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	colord? ( lcms )
 	drm? ( gles2 )
 	pipewire? ( drm )
 	remoting? ( drm gles2 )
 	screen-sharing? ( rdp )
-	test? ( desktop headless xwayland )
+	test? ( desktop headless lcms xwayland )
 	wayland-compositor? ( gles2 )
-	|| ( drm fbdev headless rdp wayland-compositor X )
+	|| ( drm headless rdp wayland-compositor X )
+	|| ( seatd systemd )
 "
 
 RDEPEND="
 	>=dev-libs/libinput-0.8.0
-	>=dev-libs/wayland-1.18.0
+	>=dev-libs/wayland-1.20.0
 	>=dev-libs/wayland-protocols-1.24
-	lcms? ( media-libs/lcms:2 )
+	lcms? ( >=media-libs/lcms-2.9:2 )
 	media-libs/libpng:0=
 	webp? ( media-libs/libwebp:0= )
 	jpeg? ( media-libs/libjpeg-turbo:0= )
 	>=x11-libs/cairo-1.11.3
-	>=x11-libs/libdrm-2.4.95
+	>=x11-libs/libdrm-2.4.108
 	>=x11-libs/libxkbcommon-0.5.0
 	>=x11-libs/pixman-0.25.2
 	x11-misc/xkeyboard-config
-	fbdev? (
-		>=sys-libs/mtdev-1.1.0
-		>=virtual/udev-136
-	)
-	colord? ( >=x11-misc/colord-0.1.27 )
 	drm? (
 		>=media-libs/mesa-17.1[gbm(+)]
 		>=sys-libs/mtdev-1.1.0
@@ -68,7 +63,7 @@ RDEPEND="
 		media-libs/mesa[gles2,wayland]
 	)
 	pipewire? ( >=media-video/pipewire-0.3:= )
-	rdp? ( >=net-misc/freerdp-2.2.0:= )
+	rdp? ( >=net-misc/freerdp-2.3.0:=[server] )
 	remoting? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
@@ -105,7 +100,6 @@ src_configure() {
 		$(meson_use screen-sharing screenshare)
 		$(meson_use wayland-compositor backend-wayland)
 		$(meson_use X backend-x11)
-		$(meson_use fbdev deprecated-backend-fbdev)
 		-Dbackend-default=auto
 		$(meson_use gles2 renderer-gl)
 		$(meson_use xwayland)
@@ -118,7 +112,6 @@ src_configure() {
 		$(meson_use ivi shell-ivi)
 		$(meson_use kiosk shell-kiosk)
 		$(meson_use lcms color-management-lcms)
-		$(meson_use colord color-management-colord)
 		$(meson_use systemd launcher-logind)
 		$(meson_use jpeg image-jpeg)
 		$(meson_use webp image-webp)
@@ -127,7 +120,6 @@ src_configure() {
 		-Dsimple-clients=$(usex examples damage,dmabuf-v4l,im,shm,touch$(usex gles2 ,dmabuf-egl,egl "") "")
 		$(meson_use resize-optimization resize-pool)
 		-Dtest-junit-xml=false
-		-Dtest-gl-renderer=false
 		"${myconf[@]}"
 	)
 	meson_src_configure
@@ -135,11 +127,11 @@ src_configure() {
 
 src_test() {
 	xdg_environment_reset
+	addwrite /dev/dri/
 
-	# devices test usually fails.
 	# xwayland test can fail if X11 socket already exists.
 	cd "${BUILD_DIR}" || die
-	meson test $(meson test --list | grep -Exv "devices|xwayland") || die
+	meson test $(meson test --list | grep -Exv "xwayland") || die
 }
 
 src_install() {
