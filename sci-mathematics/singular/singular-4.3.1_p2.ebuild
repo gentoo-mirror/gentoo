@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools elisp-common flag-o-matic
+inherit elisp-common
 
 MY_PN=Singular
 MY_PV=$(ver_rs 3 '')
@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_DIR2}"
 
 LICENSE="BSD GPL-2 GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~riscv ~x86 ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~riscv ~x86 ~x86-linux"
 IUSE="emacs examples polymake +readline static-libs"
 
 RDEPEND="
@@ -35,24 +35,7 @@ DEPEND="${RDEPEND}"
 
 SITEFILE=60${PN}-gentoo.el
 
-PATCHES=(
-	"${FILESDIR}/${PN}-4.2.1-htmldoc.patch"
-)
-
-src_prepare() {
-	default
-
-	eautoreconf
-}
-
 src_configure() {
-	# Needed to avoid segfaults in the test suite until
-	#
-	#   https://github.com/Singular/Singular/issues/1105
-	#
-	# makes its way into a release.
-	append-cxxflags $(test-flags-CXX -fno-delete-null-pointer-checks)
-
 	local myconf=(
 		--disable-debug
 		--disable-doc
