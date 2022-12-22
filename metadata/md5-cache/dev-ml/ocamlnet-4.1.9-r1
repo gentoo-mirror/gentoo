@@ -1,5 +1,5 @@
 BDEPEND=dev-ml/cppo virtual/pkgconfig
-DEFINED_PHASES=compile configure install
+DEFINED_PHASES=compile configure install prepare
 DEPEND=>=dev-ml/findlib-1.0 >=dev-lang/ocaml-3.10.2:=[ocamlopt?] pcre? ( >=dev-ml/pcre-ocaml-5:= ) tk? ( dev-ml/labltk:= ) ssl? ( net-libs/gnutls:= ) kerberos? ( virtual/krb5 ) zip? ( dev-ml/camlzip:= ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Modules for OCaml application-level Internet protocols
 EAPI=7
@@ -13,4 +13,4 @@ RESTRICT=installsources strip
 SLOT=0/4.1.9
 SRC_URI=http://download.camlcity.org/download/ocamlnet-4.1.9.tar.gz
 _eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=2824c8fcc4952cbb5ca2c34335fb2610
+_md5_=2a17233c4a28e176d867d781cc610bfa
