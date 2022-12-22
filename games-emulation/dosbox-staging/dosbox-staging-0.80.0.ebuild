@@ -11,7 +11,7 @@ SRC_URI="https://github.com/dosbox-staging/dosbox-staging/archive/v${PV}.tar.gz 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+alsa debug dynrec +fluidsynth mt-32 network opengl slirp test"
+IUSE="+alsa debug dynrec +fluidsynth mt-32 network opengl screenshot slirp test"
 
 RESTRICT="!test? ( test )"
 
@@ -24,6 +24,7 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 	mt-32? ( media-libs/munt-mt32emu )
 	network? ( media-libs/sdl2-net )
 	opengl? ( virtual/opengl )
+	screenshot? ( media-libs/sdl2-image )
 	slirp? ( net-libs/libslirp )
 	media-libs/iir1
 	media-libs/libpng:0=
@@ -49,11 +50,7 @@ src_prepare() {
 }
 
 src_configure() {
-	# Do not look for static libraries
-	# speexdsp system flag needs to be manually enabled
 	local emesonargs=(
-		-Ddefault_library=shared
-		-Dsystem_libraries=speexdsp
 		$(meson_use alsa use_alsa)
 		$(meson_use debug)
 		-Ddynamic_core=$(usex dynrec dynrec dyn-x86)
@@ -61,6 +58,7 @@ src_configure() {
 		$(meson_use mt-32 use_mt32emu)
 		$(meson_use network use_sdl2_net)
 		$(meson_use opengl use_opengl)
+		$(meson_use screenshot use_sdl2_image)
 		$(meson_use slirp use_slirp)
 		$(meson_feature test unit_tests)
 	)
