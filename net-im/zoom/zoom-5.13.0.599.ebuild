@@ -103,7 +103,8 @@ src_prepare() {
 src_install() {
 	insinto /opt/zoom
 	exeinto /opt/zoom
-	doins -r cef json ringtone scheduler sip timezones translations
+	doins -r calendar cef email json ringtone scheduler sip timezones \
+		translations
 	doins *.pcm Embedded.properties version.txt
 	doexe zoom zopen ZoomLauncher *.sh
 	dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
