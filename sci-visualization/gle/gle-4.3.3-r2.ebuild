@@ -27,6 +27,7 @@ DEPEND="app-text/ghostscript-gpl
 	dev-qt/qtnetwork:5
 	dev-qt/qtopengl:5
 	dev-qt/qtwidgets:5
+	media-libs/freeglut
 	media-libs/glu
 	media-libs/libpng
 	media-libs/tiff
