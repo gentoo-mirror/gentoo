@@ -11,10 +11,11 @@ inherit distutils-r1
 DESCRIPTION="Sphinx Doxygen renderer"
 HOMEPAGE="
 	https://breathe.readthedocs.io/en/latest/
-	https://github.com/michaeljones/breathe/
+	https://github.com/breathe-doc/breathe/
+	https://pypi.org/project/breathe/
 "
 SRC_URI="
-	https://github.com/michaeljones/breathe/archive/v${PV}.tar.gz
+	https://github.com/breathe-doc/breathe/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
 
@@ -34,3 +35,7 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}"/${P}-sphinx-5.3.0.patch
+)

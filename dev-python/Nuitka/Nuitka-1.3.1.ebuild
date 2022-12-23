@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_10 )
 
 inherit distutils-r1 flag-o-matic optfeature
 
@@ -14,8 +14,7 @@ HOMEPAGE="
 	https://github.com/Nuitka/Nuitka/
 	https://pypi.org/project/Nuitka/
 "
-SRC_URI="https://nuitka.net/releases/${P^}.tar.gz"
-S=${WORKDIR}/${P^}
+SRC_URI="mirror://pypi/${PN::1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -36,7 +35,7 @@ DOCS=( Changelog.pdf Developer_Manual.pdf README.pdf )
 distutils-r1_src_prepare() {
 	# remove vendored version of SCons that is Python2 only
 	# this should be removed when upstream removes support for Python2
-	rm -vR "${PN}/build/inline_copy/lib/scons-2.3.2/SCons" || die
+	rm -vR "nuitka/build/inline_copy/lib/scons-2.3.2/SCons" || die
 	eapply_user
 }
 
