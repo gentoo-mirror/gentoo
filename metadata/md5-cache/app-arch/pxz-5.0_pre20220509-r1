@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure prepare pretend setup unpack
+DEPEND=app-arch/xz-utils
+DESCRIPTION=Parallel implementation of the XZ compression utility
+EAPI=8
+HOMEPAGE=http://jnovy.fedorapeople.org/pxz/
+INHERIT=toolchain-funcs prefix vcs-snapshot
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux
+LICENSE=GPL-2
+RDEPEND=app-arch/xz-utils
+SLOT=0
+SRC_URI=https://github.com/jnovy/pxz/archive/136e5c25daf545753329d7cee1b06ae482fb9c44.tar.gz -> pxz-5.0_pre20220509.tar.gz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	prefix	eab3c99d77fe00506c109c8a736186f7	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
+_md5_=17221880f18f4f0dea6fd217daba3419
