@@ -11,7 +11,7 @@ inherit autotools flag-o-matic lua-single ssl-cert systemd toolchain-funcs
 MY_P="${P/_/.}"
 #MY_S="${PN}-ce-${PV}"
 major_minor="$(ver_cut 1-2)"
-sieve_version="0.5.19"
+sieve_version="0.5.20"
 if [[ ${PV} == *_rc* ]]; then
 	rc_dir="rc/"
 else
@@ -33,7 +33,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~
 
 IUSE_DOVECOT_AUTH="kerberos ldap lua mysql pam postgres sqlite"
 IUSE_DOVECOT_COMPRESS="lz4 zstd"
-IUSE_DOVECOT_OTHER="argon2 caps doc ipv6 lucene managesieve rpc
+IUSE_DOVECOT_OTHER="argon2 caps doc lucene managesieve rpc
 	selinux sieve solr static-libs stemmer suid systemd tcpd textcat unwind"
 
 IUSE="${IUSE_DOVECOT_AUTH} ${IUSE_DOVECOT_COMPRESS} ${IUSE_DOVECOT_OTHER}"
@@ -44,7 +44,7 @@ DEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
 	dev-libs/icu:=
-	dev-libs/openssl:0=
+	dev-libs/openssl:0/1.1
 	sys-libs/zlib:=
 	virtual/libiconv
 	argon2? ( dev-libs/libsodium:= )
@@ -85,7 +85,7 @@ S="${WORKDIR}/${MY_P}"
 PATCHES=(
 	"${FILESDIR}/${PN}"-autoconf-lua-version-v2.patch
 	"${FILESDIR}/${PN}"-socket-name-too-long.patch
-	"${FILESDIR}/${P}"-slibtool.patch # 782631
+	"${FILESDIR}/${PN}"-2.3.19.1-slibtool.patch # 782631
 	"${FILESDIR}"/CVE-2022-30550.patch
 )
 
@@ -234,12 +234,6 @@ src_install() {
 			's/#!include auth-system.conf.ext/!include auth-system.conf.ext/' \
 			"${confd}/10-auth.conf" \
 			|| die "failed to update PAM settings in 10-auth.conf"
-	fi
-
-	# Disable ipv6 if necessary
-	if ! use ipv6; then
-		sed -i -e 's/^#listen = \*, ::/listen = \*/g' "${conf}" \
-			|| die "failed to update listen settings in dovecot.conf"
 	fi
 
 	# Update ssl cert locations
