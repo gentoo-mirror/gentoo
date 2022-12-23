@@ -20,10 +20,7 @@ IUSE="+sound"
 RESTRICT="splitdebug"
 
 RDEPEND="
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
@@ -89,7 +86,7 @@ src_install() {
 	fperms u+s /opt/Signal/chrome-sandbox
 	pax-mark m opt/Signal/signal-desktop opt/Signal/chrome-sandbox
 
-	dosym ../../opt/Signal/${MY_PN} /usr/bin/${MY_PN}
+	dosym -r /opt/Signal/${MY_PN} /usr/bin/${MY_PN}
 }
 
 pkg_postinst() {
