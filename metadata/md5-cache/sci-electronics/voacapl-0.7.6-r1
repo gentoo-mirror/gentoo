@@ -1,15 +1,15 @@
-BDEPEND=virtual/fortran
-DEFINED_PHASES=compile setup
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/fortran
+DEFINED_PHASES=compile prepare setup
 DEPEND=virtual/fortran
 DESCRIPTION=HF propagation prediction tool
 EAPI=7
 HOMEPAGE=https://www.qsl.net/hz1jw/voacapl/index.html
-INHERIT=fortran-2
+INHERIT=autotools fortran-2
 KEYWORDS=amd64 x86
 LICENSE=all-rights-reserved
 RDEPEND=virtual/fortran
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=https://github.com/jawatson/voacapl/archive/v.0.7.6.tar.gz -> voacapl-0.7.6.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=50d207b34b1f80795b1a8c0e35483270
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_md5_=09fe1db2e99de9d0166f641fb9b79831
