@@ -3,15 +3,13 @@
 
 EAPI=8
 
-H=85ae1f6ebea635f35974218be8faf7557390a7e9
+H=6317b5cf181e56253da10e0e5051ac75bbb5c4b2
 
 inherit toolchain-funcs
 
 DESCRIPTION="An assembler and emulator for the Uxn stack-machine, written in ANSI C"
-HOMEPAGE="
-	https://wiki.xxiivv.com/site/uxn.html
-	https://git.sr.ht/~rabbits/uxn/
-"
+HOMEPAGE="https://wiki.xxiivv.com/site/uxn.html
+	https://git.sr.ht/~rabbits/uxn/"
 
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
