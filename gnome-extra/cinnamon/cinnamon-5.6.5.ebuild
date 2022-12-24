@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10,11} )
+PYTHON_COMPAT=( python3_{8..11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit meson gnome2-utils pax-utils python-single-r1 xdg
@@ -20,10 +20,7 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 DEPEND="
 	${PYTHON_DEPS}
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	>=dev-libs/glib-2.52.0:2[dbus]
 	>=dev-libs/gobject-introspection-1.29.15:=
 	dev-libs/libxml2:2

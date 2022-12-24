@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10,11} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit meson gnome2-utils python-single-r1 readme.gentoo-r1 virtualx xdg
 
@@ -22,10 +22,7 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		dev-libs/atk
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	>=dev-libs/glib-2.45.7:2[dbus]
 	>=dev-libs/gobject-introspection-0.9.12:=
 	>=dev-libs/libxml2-2.7.8:2

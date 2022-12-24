@@ -42,10 +42,7 @@ COMDEPEND="
 	x11-libs/libXinerama
 	x11-libs/libXau
 	x11-libs/libICE
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2[introspection?]
-		>=dev-libs/atk-2.5.3[introspection?]
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2[introspection?]
 	>=media-libs/libcanberra-0.26
 	sys-apps/dbus
 	media-libs/libglvnd[X]
