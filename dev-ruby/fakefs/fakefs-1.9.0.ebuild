@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby25 ruby26 ruby27"
+USE_RUBY="ruby30 ruby31"
 
 RUBY_FAKEGEM_RECIPE_TEST="none"
 
@@ -19,7 +19,7 @@ SRC_URI="https://github.com/defunkt/fakefs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm ~hppa ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris ~x86-solaris"
 IUSE=""
 
 ruby_add_bdepend "
@@ -37,7 +37,7 @@ all_ruby_prepare() {
 		-e '/bundler/ s:^:#:' \
 		-e '/minitest\/rg/ s:^:#:' test/test_helper.rb || die
 
-	sed -i -e 's/git ls-files/find/' ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -i -e 's/git ls-files/find */' ${RUBY_FAKEGEM_GEMSPEC} || die
 }
 
 each_ruby_test() {
