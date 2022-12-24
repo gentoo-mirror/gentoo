@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare pretend setup
 DEPEND=media-libs/alsa-lib sys-libs/ncurses:= nas? ( media-libs/nas ) X? ( x11-libs/libX11 x11-libs/libXt )
 DESCRIPTION=Speech tools for Festival Text to Speech engine
 EAPI=8
-HOMEPAGE=http://www.cstr.ed.ac.uk/projects/speech_tools/
+HOMEPAGE=https://www.cstr.ed.ac.uk/projects/speech_tools/
 INHERIT=autotools toolchain-funcs
 IUSE=nas openmp X
 KEYWORDS=~alpha amd64 ~arm ~hppa ~ia64 ~mips ppc ppc64 sparc x86
@@ -12,4 +12,4 @@ RDEPEND=media-libs/alsa-lib sys-libs/ncurses:= nas? ( media-libs/nas ) X? ( x11-
 SLOT=0
 SRC_URI=http://www.festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz https://dev.gentoo.org/~neurogeek/speech-tools/speech_tools-2.1-r3-patches.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=8354ad68414fb389c2ed9839afaf4832
+_md5_=048b55798655a2ca61428bed3ce47ff5
