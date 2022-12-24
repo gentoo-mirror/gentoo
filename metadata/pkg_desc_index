@@ -909,7 +909,7 @@ app-accessibility/accerciser 3.40.0: Interactive Python accessibility explorer
 app-accessibility/at-spi2-atk 2.46.0: Gtk module for bridging AT-SPI to Atk
 app-accessibility/at-spi2-core 2.46.0: D-Bus accessibility specifications and registration daemon
 app-accessibility/brltty 6.1 6.1-r1 6.4 6.4-r1 6.5: Daemon that provides access to the Linux/Unix console for a blind person
-app-accessibility/caribou 0.4.21-r4 0.4.21-r5: Input assistive technology intended for switch and pointer users
+app-accessibility/caribou 0.4.21-r5: Input assistive technology intended for switch and pointer users
 app-accessibility/edbrowse 3.8.2.1-r2: Combination editor, browser, and mail client that is 100% text based
 app-accessibility/emacspeak 56.0-r1 9999: The emacspeak audio desktop
 app-accessibility/emacspeak-ss 1.9.1: adds support for several speech synthesizers to emacspeak
@@ -1248,7 +1248,7 @@ app-backup/bareos 20.0.8 21.1.2 21.1.5-r1: Featureful client/server network back
 app-backup/borgbackup 1.1.17-r1 1.2.1-r2 1.2.2-r1 9999: Deduplicating backup program with compression and authenticated encryption
 app-backup/borgmatic 1.7.2 1.7.4 1.7.5: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.31.2 0.32.5 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
-app-backup/burp 2.4.0-r2 3.1.2: Network backup and restore client and server for Unix and Windows
+app-backup/burp 2.4.0-r2 3.1.2 3.1.4: Network backup and restore client and server for Unix and Windows
 app-backup/ccollect 0.8: Pseudo incremental backup with different exclude lists using hardlinks and rsync
 app-backup/cdbackup 0.7.1-r1: Allows streaming backup utilities to dump/restore from CD-R(W)s or DVD(+/-RW)s
 app-backup/cdbkup 1.0-r4: Performs full/incremental backups of local/remote filesystems onto CD-R(W)s
@@ -5320,7 +5320,7 @@ dev-libs/9libs 1.0-r5: Plan 9 compatibility libraries
 dev-libs/FBGEMM 2022.01.13-r1 2022.07.16: Facebook GEneral Matrix Multiplication
 dev-libs/FP16 2021.03.20-r2: conversion to/from half-precision floating point formats
 dev-libs/FXdiv 2020.12.09: Division via fixed-point multiplication by inverse
-dev-libs/Ice 3.6.5-r2: ICE middleware C++ library and generator tools
+dev-libs/Ice 3.6.5-r2 3.7.8 3.7.8-r1 3.7.8-r2: ICE middleware C++ library and generator tools
 dev-libs/OpenNI 1.5.7.10-r3 9999: OpenNI SDK
 dev-libs/OpenNI2 2.2_beta2-r1 9999: OpenNI2 SDK
 dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for AMD GPUs
@@ -6463,7 +6463,7 @@ dev-perl/Crypt-OpenSSL-EC 1.320.0-r1: Perl extension for OpenSSL EC (Elliptic Cu
 dev-perl/Crypt-OpenSSL-ECDSA 0.100.0: OpenSSL ECDSA (Elliptic Curve Digital Signature Algorithm) Perl extension
 dev-perl/Crypt-OpenSSL-Guess 0.150.0: Guess OpenSSL include path
 dev-perl/Crypt-OpenSSL-RSA 0.310.0 0.320.0 0.330.0: RSA encoding and decoding using the OpenSSL libraries
-dev-perl/Crypt-OpenSSL-Random 0.150.0: OpenSSL pseudo-random number generator access
+dev-perl/Crypt-OpenSSL-Random 0.150.0 0.150.0-r1: OpenSSL pseudo-random number generator access
 dev-perl/Crypt-PBKDF2 0.161.520: The PBKDF2 password hashing algorithm
 dev-perl/Crypt-PWSafe3 1.220.0: Read and write Passwordsafe v3 files
 dev-perl/Crypt-PasswdMD5 1.410.0 1.420.0: Provides interoperable MD5-based crypt() functions
@@ -8016,7 +8016,7 @@ dev-php/jpgraph 4.0.2 4.2.0 4.3.5: Object-oriented graphing library for PHP
 dev-php/json-schema 5.2.10 5.2.11: PHP implementation of JSON schema
 dev-php/jsonlint 1.8.2 1.8.3-r1: JSON Lint for PHP
 dev-php/libchart 1.3: Easy-to-use chart creation library for PHP
-dev-php/libvirt-php 0.5.6 9999: PHP bindings for libvirt
+dev-php/libvirt-php 0.5.6 0.5.7 9999: PHP bindings for libvirt
 dev-php/maxmind-db-reader 1.11.0: PHP reader for the MaxMind database format
 dev-php/metadata-minifier 1.0.0: Small utility library that handles metadata minification and expansion
 dev-php/mmslib 0.97: library for encoding, decoding, and sending MMSes
@@ -8939,7 +8939,7 @@ dev-python/pilkit 2.0: A collection of utilities and processors for the Python I
 dev-python/pillow 9.3.0-r1: Python Imaging Library (fork)
 dev-python/pip 22.3.1: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 8.8.1 8.8.2 9.0.0: Install packages and run Python with them
-dev-python/pipenv 2022.9.24-r1: Python Development Workflow for Humans
+dev-python/pipenv 2022.9.24-r1 2022.11.30: Python Development Workflow for Humans
 dev-python/pivy 0.6.8: Coin3D bindings for Python
 dev-python/pkgconfig 1.5.5-r1: Interface Python with pkg-config
 dev-python/pkginfo 1.8.3 1.9.0 1.9.2: Provides an API for querying the distutils metadata written in a PKG-INFO file
@@ -9284,7 +9284,7 @@ dev-python/python-zipstream 1.1.4: A zip archive generator
 dev-python/python-zstandard 0.19.0: Zstandard Bindings for Python
 dev-python/python3-lxc 3.0.4: Python bindings for LXC
 dev-python/python3-saml 1.14.0: OneLogin's SAML Python Toolkit
-dev-python/python3-xapp 2.2.2 2.4.0: Python bindings for x11-libs/xapp
+dev-python/python3-xapp 2.2.2 2.4.0-r1: Python bindings for x11-libs/xapp
 dev-python/python_orocos_kdl 1.5.1 9999: Python bindings for KDL
 dev-python/pythondialog 3.5.3: A Python module for making simple text/console-mode user interfaces
 dev-python/pythran 0.11.0 0.12.0 0.12.0-r2: Ahead of Time compiler for numeric kernels
@@ -12285,14 +12285,14 @@ gnome-base/libgnomekbd 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r1 2.40.0-r2: A library that provides top functionality to applications
 gnome-base/librsvg 2.40.21 2.55.1: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 42.2 43.1: Default file manager for the GNOME desktop
-gnome-extra/cinnamon 5.2.7-r4 5.6.1: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon 5.2.7-r4 5.6.5: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 5.2.1-r2 5.2.1-r3 5.6.0: Cinnamons's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-desktop 5.2.1 5.6.0: A collection of libraries and utilites used by Cinnamon
 gnome-extra/cinnamon-menus 5.2.0 5.6.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 5.2.1 5.6.1: Screensaver for Cinnamon
+gnome-extra/cinnamon-screensaver 5.2.1 5.6.2: Screensaver for Cinnamon
 gnome-extra/cinnamon-session 5.2.0 5.6.0: Cinnamon session manager
 gnome-extra/cinnamon-settings-daemon 5.2.0-r1 5.6.0: Cinnamon's settings daemon
-gnome-extra/cinnamon-translations 5.2.2 5.6.0: Translation data for Cinnamon
+gnome-extra/cinnamon-translations 5.2.2 5.6.1: Translation data for Cinnamon
 gnome-extra/cjs 5.2.0 5.6.1: Linux Mint's fork of gjs for Cinnamon
 gnome-extra/eiciel 0.9.13.1 0.10.0_rc2: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.44.4-r2 3.46.1-r1 3.46.2: Evolution groupware backend
@@ -12339,8 +12339,8 @@ gnome-extra/libgsf 1.14.50: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2020.03.04 2020.03.04-r1: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6-r1: A nautilus extension for sending files to locations
-gnome-extra/nemo 5.2.4-r1 5.6.0: A file manager for Cinnamon, forked from Nautilus
-gnome-extra/nemo-fileroller 5.2.0 5.6.0: Nemo file-roller integration
+gnome-extra/nemo 5.2.4-r1 5.6.1: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo-fileroller 5.2.0 5.6.1: Nemo file-roller integration
 gnome-extra/nm-applet 1.28.0 1.30.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
 gnome-extra/pch-session 42.0 43.1: Unofficial gnome based session with different default settings and extensions
@@ -12936,7 +12936,7 @@ mail-filter/rblcheck 1.5-r2: Perform lookups in RBL-styles services
 mail-filter/rspamd 2.7-r104 3.3 3.4-r1 9999: Rapid spam filtering system
 mail-filter/scmail 1.3: a mail filter written in Scheme
 mail-filter/sieve-connect 0.90: Sieve Command Line Interface
-mail-filter/spamassassin 3.4.6-r2: An extensible mail filter which can identify and tag spam
+mail-filter/spamassassin 3.4.6-r2 4.0.0: An extensible mail filter which can identify and tag spam
 mail-filter/spamassassin-botnet 0.8-r1: SpamAssassin plugin that attempts to detect messages sent by a botnet
 mail-filter/spampd 2.61: A program to scan messages for Unsolicited Commercial E-mail content
 mail-filter/spamprobe 1.4d-r2: Fast, intelligent, automatic spam detector using Bayesian analysis
@@ -13274,7 +13274,7 @@ media-gfx/frogr 1.5-r1: flickr applications for GNOME
 media-gfx/geeqie 1.7.3-r1 2.0.1-r3 9999: A lightweight GTK image viewer forked from GQview
 media-gfx/gif2png 2.5.14: Converts images from gif format to png format
 media-gfx/gifsicle 1.93: Create, manipulate, and optimize GIF images and animations
-media-gfx/gimp 2.10.32-r3 2.99.12-r3 2.99.14-r1 9999: GNU Image Manipulation Program
+media-gfx/gimp 2.10.32-r3 2.10.32-r4 2.99.12-r3 2.99.14-r1 9999: GNU Image Manipulation Program
 media-gfx/gimp-arrow-brushes 20190407: Brushes for GIMP with the styles arrow, handpointer, button arrow and cursor
 media-gfx/gmic 3.0.1-r3 3.1.6-r1: GREYC's Magic Image Converter
 media-gfx/gnofract4d 4.3_p20211108 4.3_p20221114 4.3_p20221125: A program for drawing beautiful mathematically-based images known as fractals
@@ -13941,7 +13941,7 @@ media-plugins/gst-plugins-x265 1.20.3 1.20.4: H.265 encoder plugin for GStreamer
 media-plugins/gst-plugins-ximagesrc 1.20.3 1.20.4: X11 video capture stream plugin for GStreamer
 media-plugins/gst-plugins-zbar 1.20.3 1.20.4: Bar codes detection in video streams for GStreamer
 media-plugins/gst-transcoder 1.14.1-r1: GStreamer Transcoding API
-media-plugins/hdx-realtime-media-engine 2.9.400.2702 2.9.500.2802: HDX RealTime Media Engine plugin for Citrix Workspace App
+media-plugins/hdx-realtime-media-engine 2.9.400.2702 2.9.500.2802 2.9.500.2802-r1: HDX RealTime Media Engine plugin for Citrix Workspace App
 media-plugins/hexter 1.1.1: Yamaha DX7 modeling DSSI plugin
 media-plugins/imlib2_loaders 1.7.1 1.7.5 1.9.1: Additional image loaders for Imlib2
 media-plugins/ir_lv2 1.3.4-r1: LV2 convolver plugin especially for creating reverb effects
@@ -14373,7 +14373,7 @@ media-sound/ptabtools 0.5.0: Utilities for PowerTab Guitar files (.ptb)
 media-sound/puddletag 2.2.0: Audio tag editor
 media-sound/pulseaudio 16.1: A meta package for PulseAudio (networked sound server)
 media-sound/pulseaudio-ctl 1.70-r1: CLI utility to control PulseAudio volume
-media-sound/pulseaudio-daemon 16.1-r3 16.1-r4: Daemon component of PulseAudio (networked sound server)
+media-sound/pulseaudio-daemon 16.1-r3 16.1-r5: Daemon component of PulseAudio (networked sound server)
 media-sound/pulseeffects 4.8.7: Limiter, compressor, reverberation, equalizer auto volume effects for Pulseaudio
 media-sound/pulsemixer 1.5.1 1.5.1-r1 9999: CLI and curses mixer for PulseAudio
 media-sound/pwavecat 0.4.5: concatenates any number of audio files to stdout
@@ -15106,10 +15106,10 @@ net-im/skypeforlinux 8.90.0.407 8.91.0.404: Instant messaging client, with suppo
 net-im/slack 4.27.156-r1 4.28.182: Team collaboration tool
 net-im/spectrum2 2.1.3: An open source instant messaging transport
 net-im/swift 4.0.2-r102: An elegant, secure, adaptable and intuitive XMPP Client
-net-im/synapse 1.68.0 1.70.1 1.71.0 1.72.0: Reference implementation of Matrix homeserver
+net-im/synapse 1.70.1 1.71.0 1.72.0 1.74.0: Reference implementation of Matrix homeserver
 net-im/teams 1.4.00.7556-r2 1.4.00.13653-r3 1.4.00.26453-r2 1.5.00.10453-r1: Microsoft Teams, an Office 365 multimedia collaboration client, pre-release
 net-im/telegram-desktop 3.6.1-r1 4.3.4-r2 4.4.1: Official desktop client for Telegram
-net-im/telegram-desktop-bin 4.2.4-r1 4.3.1 4.3.4: Official desktop client for Telegram (binary package)
+net-im/telegram-desktop-bin 4.2.4-r1 4.3.1 4.3.4 4.4.1: Official desktop client for Telegram (binary package)
 net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection Managers
 net-im/telepathy-logger 0.8.2-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
@@ -15563,7 +15563,7 @@ net-misc/httpstat 1.3.1: httpstat visualizes cURL statistics in a way of beauty 
 net-misc/httptype 1.3.9-r1: Returns the http host software of a website
 net-misc/hylafaxplus 7.0.6-r3: Enterprise client-server fax package for class 1 and 2 fax modems
 net-misc/iaxmodem 1.3.3: Software modem that uses an IAX channel instead of a traditional phone line
-net-misc/icaclient 22.5.0.16-r1 22.9.0.21-r2 22.11.0.19: ICA Client for Citrix Presentation servers
+net-misc/icaclient 22.5.0.16-r1 22.9.0.21-r2 22.11.0.19 22.12.0.12: ICA Client for Citrix Presentation servers
 net-misc/icecast 2.4.4-r1: Opensource alternative to shoutcast that supports mp3, ogg and aac streaming
 net-misc/ices 2.0.2-r2: Icecast OGG streaming client, supports on the fly re-encoding
 net-misc/icingadb 1.0.0 1.1.0: Icinga configuration and state database supporting multiple environments
@@ -15811,7 +15811,7 @@ net-nntp/brag 1.4.3: Brag collects and assembles multipart binary attachments fr
 net-nntp/leafnode 1.11.11-r1: A USENET software package designed for small sites
 net-nntp/newspost 2.1.1-r3: A usenet binary autoposter for unix
 net-nntp/nzbget 21.1-r1 21.1-r2: A command-line based binary newsgrabber supporting .nzb files
-net-nntp/sabnzbd 3.6.0-r1 3.6.1-r1 3.7.0: Binary newsgrabber with web-interface
+net-nntp/sabnzbd 3.6.0-r1 3.6.1-r1 3.7.0 3.7.1: Binary newsgrabber with web-interface
 net-nntp/slrn 1.0.3-r1: A s-lang based newsreader
 net-nntp/suck 4.3.3-r1 4.3.4: Grab news from a remote NNTP server and feed them to another
 net-nntp/tin 2.6.1: A threaded NNTP and spool based UseNet newsreader
@@ -16162,7 +16162,7 @@ sci-astronomy/swarp 2.41.5: Resample and coadd astronomical FITS images
 sci-astronomy/wcslib 7.3 7.3.1 7.11 7.12: Astronomical World Coordinate System transformations library
 sci-astronomy/wcstools 3.9.5: World Coordinate System library for astronomical FITS images
 sci-astronomy/weightwatcher 1.12: Combine weight maps and polygon for astronomical images weighting
-sci-astronomy/xephem 3.7.7-r1 4.1.0: Interactive tool for astronomical ephemeris and sky simulation
+sci-astronomy/xephem 3.7.7-r1 4.1.0-r1: Interactive tool for astronomical ephemeris and sky simulation
 sci-astronomy/xfitsview 2.2-r2: Viewer for astronomical images in FITS format
 sci-biology/HTSeq 2.0.2 9999: Python support for SAM/BAM/Bowtie/FASTA/Q/GFF/GTF files
 sci-biology/STAR 2.7.10a: STAR aligner: align RNA-seq reads to reference genome uncompressed suffix arrays
@@ -17016,7 +17016,7 @@ sec-keys/openpgp-keys-xpdf 20220515: OpenPGP key used to sign Xpdf releases
 sec-keys/openpgp-keys-yorhel 20221110: OpenPGP keys used by Yoran Heling
 sec-keys/openpgp-keys-yubico 20220824: OpenPGP keys used by Yubico's developers
 sec-keys/signify-keys-signify 30: Signify keys used to sign signify portable releases
-sec-policy/apparmor-profiles 3.0.3 3.0.4 9999: A collection of profiles for the AppArmor application security system
+sec-policy/apparmor-profiles 3.0.3 3.0.4 3.0.8 9999: A collection of profiles for the AppArmor application security system
 sec-policy/selinux-abrt 2.20221101-r2 2.20221101-r3 9999: SELinux policy for abrt
 sec-policy/selinux-accountsd 2.20221101-r2 2.20221101-r3 9999: SELinux policy for accountsd
 sec-policy/selinux-acct 2.20221101-r2 2.20221101-r3 9999: SELinux policy for acct
@@ -17277,8 +17277,8 @@ sys-apps/ack 3.5.0 3.6.0: ack is a tool like grep, optimized for programmers
 sys-apps/acl 2.3.1 2.3.1-r1: Access control list utilities, libraries, and headers
 sys-apps/agedu 20200617 20200705 20211129: A utility for tracking down wasted disk space
 sys-apps/apmd 3.2.2_p14-r3: Advanced Power Management Daemon
-sys-apps/apparmor 3.0.3 3.0.4: Userspace utils and init scripts for the AppArmor application security system
-sys-apps/apparmor-utils 3.0.3 3.0.4: Additional userspace utils to assist with AppArmor profile management
+sys-apps/apparmor 3.0.3 3.0.4 3.0.8: Userspace utils and init scripts for the AppArmor application security system
+sys-apps/apparmor-utils 3.0.3 3.0.4 3.0.8: Additional userspace utils to assist with AppArmor profile management
 sys-apps/apply-default-acl 0.4.4: Apply default POSIX ACLs to files and directories
 sys-apps/arrayprobe 2.0-r2: Utility to report status of an HP (Compaq) array controller (both IDA & CCISS)
 sys-apps/attr 2.5.1-r2 9999: Extended attributes tools
@@ -18071,7 +18071,7 @@ sys-libs/gwenhywfar 5.4.1-r1 5.10.1: Multi-platform helper library for other lib
 sys-libs/kpmcore 22.08.3 22.12.0: Library for managing partitions
 sys-libs/ldb 2.4.4 2.5.2 2.6.1: LDAP-like embedded database
 sys-libs/libaal 1.0.7-r2: library required by reiser4progs
-sys-libs/libapparmor 3.0.3-r1 3.0.4: Library to support AppArmor userspace utilities
+sys-libs/libapparmor 3.0.3-r1 3.0.4 3.0.8: Library to support AppArmor userspace utilities
 sys-libs/libavc1394 0.5.4-r2: Library for the 1394 AV/C (Audio/Video Control) Digital Interface Command Set
 sys-libs/libbacktrace 1.0_p20220226 1.0_p20220709: C library that may be linked into a C/C++ program to produce symbolic backtraces
 sys-libs/libblockdev 2.28 9999: A library for manipulating block devices
@@ -18809,7 +18809,7 @@ x11-libs/startup-notification 0.12-r1: Application startup notification and feed
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.68.0 0.70.1 0.70.2: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r5 3.0.5.1-r1: GTK+ version of wxWidgets, a cross-platform C++ GUI toolkit
-x11-libs/xapp 2.2.8 2.4.1: Cross-desktop libraries and common resources
+x11-libs/xapp 2.2.8 2.4.2: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-util 0.4.0-r2 0.4.1: X C-language Bindings sample implementations
 x11-libs/xcb-util-cursor 0.1.4: X C-language Bindings sample implementations
@@ -19455,7 +19455,7 @@ x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.26.0: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r2: Simple EWMH compatible window manager with titlebars and frames
 x11-wm/metacity 3.46.0: GNOME Flashback window manager
-x11-wm/muffin 5.2.1 5.6.0: Compositing window manager forked from Mutter for use with Cinnamon
+x11-wm/muffin 5.2.1 5.6.2: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 42.5 43.1 43.2: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 9999: Notion is a tiling, tabbed window manager for the X window system
