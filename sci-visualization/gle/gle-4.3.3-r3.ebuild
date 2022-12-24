@@ -11,6 +11,7 @@ IUSE="doc emacs"
 LIB_VERSION="d476418f006b001dc7f47dcafb413c0557fa44a7"
 SRC_URI="https://github.com/vlabella/GLE/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/vlabella/gle-library/archive/${LIB_VERSION}.tar.gz -> ${PN}-library.tar.gz
+	https://dev.gentoo.org/~grozin/gle-c++17.patch.gz
 	doc? ( https://dev.gentoo.org/~grozin/gle-manual.pdf.gz )
 	emacs? ( https://dev.gentoo.org/~grozin/gle-mode.el.gz )"
 S="${WORKDIR}"/GLE-${PV}/src
@@ -39,7 +40,16 @@ DEPEND="app-text/ghostscript-gpl
 RDEPEND="${DEPEND}
 	virtual/latex-base"
 
-PATCHES=( "${FILESDIR}"/${P}.patch )
+PATCHES=( \
+		"${WORKDIR}"/${PN}-c++17.patch \
+		"${FILESDIR}"/cairo-pixman.patch \
+		"${FILESDIR}"/ghostscript.patch \
+		"${FILESDIR}"/link.patch \
+		"${FILESDIR}"/array.patch \
+		"${FILESDIR}"/wayland.patch \
+		"${FILESDIR}"/install.patch \
+		"${FILESDIR}"/lic.patch \
+	)
 SITEFILE="64${PN}-gentoo.el"
 
 src_configure() {
