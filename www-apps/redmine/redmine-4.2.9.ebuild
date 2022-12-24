@@ -15,10 +15,6 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="fastcgi imagemagick ldap markdown +minimagick mysql passenger pdf postgres sqlite"
 
-PATCHES=(
-	"${FILESDIR}/${P}-rails-yaml-safe_load.patch"
-)
-
 ruby_add_bdepend "
 	fastcgi? ( dev-ruby/fcgi )
 	ldap? ( dev-ruby/ruby-net-ldap )

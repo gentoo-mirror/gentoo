@@ -60,10 +60,6 @@ RDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/redmine-4.2.7-rails-yaml-safe_load.patch"
-)
-
 REDMINE_DIR="/var/lib/${PN}"
 
 all_ruby_prepare() {
