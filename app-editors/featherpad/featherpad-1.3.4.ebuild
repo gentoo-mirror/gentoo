@@ -1,7 +1,7 @@
 # Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit xdg cmake
 
@@ -16,9 +16,9 @@ KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="+X"
 
 RDEPEND="app-text/hunspell:=
-	dev-qt/qtcore:5
+	>=dev-qt/qtcore-5.15.0:5
+	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
