@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install setup unpack
+DEPEND=>=sys-kernel/linux-headers-2.6.25 elibc_musl? ( net-libs/ppp-defs ) net-dialup/ppp:= sys-apps/iproute2 tk? ( dev-lang/tk:= )
+DESCRIPTION=A user-mode PPPoE client and server suite for Linux
+EAPI=8
+HOMEPAGE=https://dianne.skoll.ca/projects/rp-pppoe/
+INHERIT=readme.gentoo-r1 git-r3
+IUSE=tk
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=net-dialup/ppp:= sys-apps/iproute2 tk? ( dev-lang/tk:= )
+SLOT=0
+_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=8677aa52cdab7bf8667e5d25cc109469
