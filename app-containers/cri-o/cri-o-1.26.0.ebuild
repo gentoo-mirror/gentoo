@@ -3,7 +3,7 @@
 
 EAPI=7
 
-EGIT_COMMIT=315a0cb5b0abd15619384d7da7f3941714afcb8e
+EGIT_COMMIT=214b77367c48acd75a08610ac8d0941540347691
 
 inherit go-module
 
@@ -98,5 +98,5 @@ src_install() {
 	# Suppress crio "Missing CNI default network" log message.
 	keepdir /etc/cni/net.d
 	insinto /etc/cni/net.d
-	doins contrib/cni/99-loopback.conf
+	doins contrib/cni/99-loopback.conflist
 }
