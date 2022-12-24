@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://burp.grke.org/
 INHERIT=autotools systemd
 IUSE=acl ipv6 test xattr
-KEYWORDS=~amd64 ~arm x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=AGPL-3
 RDEPEND=acct-group/burp acct-user/burp dev-libs/uthash dev-libs/openssl:0= net-libs/librsync:= sys-libs/ncurses:0= sys-libs/libcap sys-libs/zlib virtual/libcrypt:= acl? ( sys-apps/acl ) xattr? ( sys-apps/attr ) virtual/logger
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/grke/burp/archive/3.1.2.tar.gz -> burp-3.1.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=d0d02dbc43c73776e64004e811542d3f
+_md5_=a585f84ac9c120e62418ebeef8742853
