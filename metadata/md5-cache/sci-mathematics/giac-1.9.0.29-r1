@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www-fourier.ujf-grenoble.fr/~parisse/giac.html
 INHERIT=autotools flag-o-matic xdg-utils
 IUSE=ao doc +ecm examples gc +glpk gui test l10n_el l10n_en l10n_es l10n_pt
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/gmp:=[cxx(+)] sys-libs/readline:= gui? ( x11-libs/fltk[opengl] media-libs/libpng:= ) ao? ( media-libs/libao ) dev-libs/mpfr:= sci-libs/mpfi sci-libs/gsl:= sci-mathematics/pari:=[threads] dev-libs/ntl:= virtual/lapack virtual/blas net-misc/curl sci-mathematics/cliquer sci-mathematics/nauty ecm? ( sci-mathematics/gmp-ecm ) glpk? ( sci-mathematics/glpk ) gc? ( dev-libs/boehm-gc )
 REQUIRED_USE=test? ( gui )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) mirror
 SLOT=0
 SRC_URI=https://www-fourier.ujf-grenoble.fr/~parisse/debian/dists/stable/main/source/giac_1.9.0-29.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395	xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=3efbc742d122943b37ba614ed6e2133e
+_md5_=54d2b659fd4a31314ef658cafc195c9f
