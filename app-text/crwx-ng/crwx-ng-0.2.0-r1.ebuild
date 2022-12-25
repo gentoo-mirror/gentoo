@@ -6,7 +6,7 @@ WX_GTK_VER="3.0-gtk3"
 inherit cmake wxwidgets
 
 DESCRIPTION="Cross-platform e-book reader"
-HOMEPAGE="https://gitlab.com/coolreader-ng/crqt-ng"
+HOMEPAGE="https://gitlab.com/coolreader-ng/crwx-ng"
 SRC_URI="https://gitlab.com/coolreader-ng/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -18,4 +18,4 @@ CDEPEND=">=app-text/crengine-ng-0.9.3[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuz
 	x11-libs/wxGTK:${WX_GTK_VER}"
 BDEPEND="${CDEPEND}"
 RDEPEND="${CDEPEND}
-	|| ( media-fonts/liberation-fonts media-fonts/corefonts )"
+	virtual/ttf-fonts"
