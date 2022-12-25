@@ -22,6 +22,8 @@ RDEPEND="${CDEPEND}"
 BDEPEND="${CDEPEND}
 	dev-qt/linguist-tools:5"
 
+PATCHES=( "${FILESDIR}"/${P}-typo.patch )
+
 src_prepare() {
 	cmake_src_prepare
 	xdg_environment_reset
