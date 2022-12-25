@@ -2,7 +2,7 @@ BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[cur
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=!libtomcrypt? ( dev-libs/openssl:0= ) libtomcrypt? ( dev-libs/libtomcrypt:0= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) postgres? ( dev-db/postgresql:* ) snmp? ( net-analyzer/net-snmp ) dev-libs/libpcre valgrind? ( dev-util/valgrind ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) kernel_linux? ( virtual/linux-sources virtual/libelf )
 DESCRIPTION=High performance PPTP, PPPoE and L2TP server
-EAPI=7
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/accel-ppp/
 INHERIT=cmake flag-o-matic git-r3 linux-info linux-mod lua-single
 IUSE=debug doc ipoe libtomcrypt lua postgres radius shaper snmp valgrind dist-kernel +lua_single_target_lua5-1
@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=!libtomcrypt? ( dev-libs/openssl:0= ) libtomcrypt? ( dev-libs/libtomcrypt:0= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) postgres? ( dev-db/postgresql:* ) snmp? ( net-analyzer/net-snmp ) dev-libs/libpcre kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) ) valgrind? ( debug )
 SLOT=0
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	git-r3	2347f8fe2d392b2a091191f94be37e6f	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	linux-mod	6b1798e63effe662e8a778c19fbe2107	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143
-_md5_=a907746a0e2eabd4ae88b642533d8b9e
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	git-r3	2347f8fe2d392b2a091191f94be37e6f	linux-info	7a3f8b289bc442b8151fb29bfefe3b76	linux-mod	6b1798e63effe662e8a778c19fbe2107	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143
+_md5_=b2bdbc63805ecf64b3379178643afa22
