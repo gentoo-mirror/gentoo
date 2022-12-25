@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl bios? ( app-arch/upx app-text/asciidoc dev-lang/nasm )
+BDEPEND=dev-lang/perl bios? ( dev-lang/nasm )
 DEFINED_PHASES=compile install prepare
 DEPEND=sys-apps/util-linux sys-fs/mtools dev-perl/Crypt-PasswdMD5 dev-perl/Digest-SHA1 efi? ( sys-boot/gnu-efi[abi_x86_32(-)?,abi_x86_64(-)?] ) virtual/os-headers
 DESCRIPTION=SYSLINUX, PXELINUX, ISOLINUX, EXTLINUX and MEMDISK bootloaders
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://git.zytor.com/syslinux/syslinux.git/snapshot/syslinux-6.04-pre3.tar.gz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=49efca2ffa3bd80cac8043d29beb84e2
+_md5_=318e1f92fa9f283d00deb20b365e7a7c
