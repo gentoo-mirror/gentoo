@@ -4,7 +4,7 @@ DEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_8? ( >=dev-l
 DESCRIPTION=C Library for NVM Express on Linux
 EAPI=8
 HOMEPAGE=https://github.com/linux-nvme/libnvme
-INHERIT=python-utils-r1 python-r1 meson
+INHERIT=python-r1 meson
 IUSE=+json python ssl +uuid python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
@@ -12,5 +12,5 @@ RDEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_8? ( >=dev-
 REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/linux-nvme/libnvme/archive/refs/tags/v1.2.tar.gz -> libnvme-1.2.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	2d51fd03931e743811ce30d198e4dcfd	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=a2d7f6e28c51e3b5f94aad7bbcd52b51
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-r1	2d51fd03931e743811ce30d198e4dcfd	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=48d783be78a04fe5764ce3185ae5041e
