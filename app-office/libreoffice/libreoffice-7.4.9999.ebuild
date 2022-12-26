@@ -293,6 +293,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.3.4.2-kioclient5.patch"
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-7.2.0.4-qt5detect.patch"
+
+	# 7.5 branch
+	"${FILESDIR}/${PN}-7.3.7.2-boost-1.81-locale.patch"
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"

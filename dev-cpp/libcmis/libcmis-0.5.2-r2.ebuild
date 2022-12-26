@@ -39,6 +39,14 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-icu-64.2.patch" # bug 674414
+	"${FILESDIR}/${P}-fix-onedrive.patch"
+	"${FILESDIR}/${P}-gdrive-do-not-allow-copying.patch"
+	"${FILESDIR}/${P}-onedrive-do-not-allow-copying.patch"
+	"${FILESDIR}/${P}-fix-gdrive-onedrive.patch"
+)
+
 src_prepare() {
 	default
 	eautoreconf
