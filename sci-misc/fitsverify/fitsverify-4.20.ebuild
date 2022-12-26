@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -12,23 +12,21 @@ SRC_URI="https://heasarc.gsfc.nasa.gov/docs/software/ftools/fitsverify/${P}.tar.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE=""
 
 RDEPEND="sci-libs/cfitsio:0="
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
-S="${WORKDIR}/${PN}"
+PATCHES=(
+	"${FILESDIR}"/${P}-makefile.patch
+	"${FILESDIR}"/${P}-Wimplicit-function-declaration.patch
+)
 
-src_compile() {
-	$(tc-getCC) ${CPPFLAGS} -DSTANDALONE ${CFLAGS} ${LDFLAGS} \
-		$($(tc-getPKG_CONFIG) --cflags cfitsio) \
-		ftverify.c fvrf*.c \
-		$($(tc-getPKG_CONFIG) --libs cfitsio) -o ${PN} \
-		|| die "compiled failed"
+src_configure() {
+	tc-export CC PKG_CONFIG
 }
 
 src_install() {
 	dobin fitsverify
-	dodoc README
+	einstalldocs
 }
