@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-QTMIN=5.15.1
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="Full featured educational application for children from 2 to 10"
@@ -21,29 +21,25 @@ LICENSE="GPL-3+"
 SLOT="0"
 IUSE="kiosk"
 
+DEPEND="
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qtsensors-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+"
+RDEPEND="${DEPEND}
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
+	>=dev-qt/qtquickcontrols-${QTMIN}:5
+"
 BDEPEND="
 	>=dev-qt/linguist-tools-${QTMIN}:5
 	test? (
 		dev-util/cppcheck
 		sys-devel/clang
 	)
-"
-COMMON_DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtsensors-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
-"
-DEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
-	>=dev-qt/qtxmlpatterns-${QTMIN}:5
-"
-RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
 "
 
 src_configure() {
