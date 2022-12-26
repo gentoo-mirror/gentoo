@@ -40,7 +40,7 @@ RDEPEND="
 	>=dev-python/virtualenv-20.17.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/hatch-vcs-0.2.1[${PYTHON_USEDEP}]
+	>=dev-python/hatch-vcs-0.3[${PYTHON_USEDEP}]
 	test? (
 		dev-python/build[${PYTHON_USEDEP}]
 		>=dev-python/distlib-0.3.6[${PYTHON_USEDEP}]
