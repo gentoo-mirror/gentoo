@@ -17,7 +17,7 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	sys-devel/bison
-	sys-devel/flex
+	>=sys-devel/flex-2.5.39
 	virtual/pkgconfig
 "
 RDEPEND="
@@ -45,6 +45,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# Doesn't work with reflex, bug #887049
+	export LEX=flex
+
 	tc-export CC
 
 	local myeconfargs=(
