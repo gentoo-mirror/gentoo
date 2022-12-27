@@ -8,8 +8,8 @@ INHERIT=systemd
 IUSE=+mbuffer +doc +lsbtr
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-lang/perl net-misc/openssh mbuffer? ( >=sys-block/mbuffer-20180505 ) >=sys-fs/btrfs-progs-4.12
+RDEPEND=dev-lang/perl net-misc/openssh mbuffer? ( >=sys-block/mbuffer-20180505 ) <sys-fs/btrfs-progs-6.1
 SLOT=0
 SRC_URI=https://digint.ch/download/btrbk/releases/btrbk-0.32.5.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=651224f301e0272241351223dac9c53e
+_md5_=1ec980cb8bb36b83fb9c101bcc162dbb
