@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig test? ( dev-ml/alcotest[ocamlopt?] ) dev-ml/dune dev-lang/ocaml
+BDEPEND=sys-devel/gnuconfig test? ( dev-ml/alcotest[ocamlopt?] ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install prepare test
 DEPEND=dev-lang/ocaml:=[ocamlopt?] dev-libs/libuv:= dev-ml/ocaml-ctypes:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/integers:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Binding to libuv: cross-platform asynchronous I/O
@@ -12,5 +12,5 @@ RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-libs/libuv:= dev-ml/ocaml-ctypes:=[ocaml
 RESTRICT=!test? ( test )
 SLOT=0/0.5.11
 SRC_URI=https://github.com/aantron/luv/releases/download/0.5.11/luv-0.5.11.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=febfcc5ec1784c8ecb4bbcaee181065c

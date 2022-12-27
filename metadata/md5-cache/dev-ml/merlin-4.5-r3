@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install postinst postrm prepare test unpack
 DEPEND=dev-ml/csexp:= <dev-ml/yojson-2:= dev-ml/menhir:= >=dev-ml/dune-2.9:= || ( dev-lang/ocaml:0/4.11 dev-lang/ocaml:0/4.12 dev-lang/ocaml:0/4.13 dev-lang/ocaml:0/4.14 ) emacs? ( >=app-editors/emacs-23.1:* app-emacs/auto-complete app-emacs/company-mode ) test? ( app-misc/jq ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Context sensitive completion for OCaml in Vim and Emacs
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/csexp:= <dev-ml/yojson-2:= dev-ml/menhir:= >=dev-ml/dune-2.9:= ||
 RESTRICT=!test? ( test )
 SLOT=0/4.5
 SRC_URI=https://github.com/ocaml/merlin/releases/download/v4.5-411/merlin-4.5-411.tbz https://github.com/ocaml/merlin/releases/download/v4.5-412/merlin-4.5-412.tbz https://github.com/ocaml/merlin/releases/download/v4.5-413/merlin-4.5-413.tbz https://github.com/ocaml/merlin/releases/download/v4.5-414/merlin-4.5-414.tbz
-_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=464fd6dd28b372dfb6408ae94afff8f6
