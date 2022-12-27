@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
-DISTUTILS_IN_SOURCE_BUILD=1
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 inherit elisp-common distutils-r1 optfeature
 
 if [[ ${PV} == *9999 ]] ; then
@@ -29,8 +29,8 @@ if [[ ${PV} == *9999 ]]; then
 		~sys-apps/pkgcore-9999[${PYTHON_USEDEP}]"
 else
 	RDEPEND="
-		>=dev-python/snakeoil-0.10.1[${PYTHON_USEDEP}]
-		>=sys-apps/pkgcore-0.12.15[${PYTHON_USEDEP}]"
+		>=dev-python/snakeoil-0.10.3[${PYTHON_USEDEP}]
+		~sys-apps/pkgcore-0.12.17[${PYTHON_USEDEP}]"
 fi
 RDEPEND+="
 	dev-libs/tree-sitter
@@ -46,8 +46,8 @@ RDEPEND+="
 		app-emacs/flycheck
 	)
 "
-BDEPEND="
-	${RDEPEND}
+BDEPEND="${RDEPEND}
+	dev-python/wheel
 	test? (
 		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
@@ -57,7 +57,11 @@ BDEPEND="
 
 SITEFILE="50${PN}-gentoo.el"
 
-distutils_enable_tests setup.py
+distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	tests/scripts/test_pkgcheck_replay.py::TestPkgcheckReplay::test_replay_pipe_stdin
+)
 
 export USE_SYSTEM_TREE_SITTER_BASH=1
 
@@ -69,11 +73,6 @@ src_compile() {
 	   elisp-compile *.el
 	   popd >/dev/null || die
 	fi
-}
-
-src_test() {
-	local -x PYTHONDONTWRITEBYTECODE=
-	distutils-r1_src_test
 }
 
 python_install_all() {
