@@ -1,5 +1,5 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
-DEFINED_PHASES=configure unpack
+DEFINED_PHASES=configure install unpack
 DESCRIPTION=Library for lzip compression
 EAPI=8
 HOMEPAGE=https://www.nongnu.org/lzip/lzlib.html
@@ -10,4 +10,4 @@ LICENSE=libstdc++
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.13.tar.gz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.13.tar.gz.sig )
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	verify-sig	afb98fe4696292e4234ce36713fd4e9e
-_md5_=fbaa3cb65bd6fd7f3f278f769d0d66bb
+_md5_=2352488575e687e3e71d030d8f4ab2cd
