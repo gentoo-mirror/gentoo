@@ -7,7 +7,7 @@
 # @AUTHOR:
 # Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 # Based on the work of: Michał Górny <mgorny@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: A simple eclass to build documentation.
 # @DESCRIPTION:
 # A simple eclass providing basic functions and variables to build
@@ -57,15 +57,9 @@
 # ...
 # @CODE
 
-case "${EAPI:-0}" in
-	0|1|2|3|4|5)
-		die "Unsupported EAPI=${EAPI:-0} (too old) for ${ECLASS}"
-		;;
-	6|7|8)
-		;;
-	*)
-		die "Unsupported EAPI=${EAPI} (unknown) for ${ECLASS}"
-		;;
+case ${EAPI} in
+	7|8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
 # @ECLASS_VARIABLE: DOCS_BUILDER
@@ -152,13 +146,14 @@ esac
 # will initialize a dummy git repository before compiling. A dependency
 # on dev-vcs/git is automatically added.
 
-if [[ ! ${_DOCS} ]]; then
+if [[ ! ${_DOCS_ECLASS} ]]; then
+_DOCS_ECLASS=1
 
 # For the python based DOCS_BUILDERS we need to inherit any python eclass
 case ${DOCS_BUILDER} in
 	"sphinx"|"mkdocs")
 		# We need the python_gen_any_dep function
-		if [[ ! ${_PYTHON_R1} && ! ${_PYTHON_ANY_R1} && ! ${_PYTHON_SINGLE_R1} ]]; then
+		if [[ ! ${_PYTHON_R1_ECLASS} && ! ${_PYTHON_ANY_R1_ECLASS} && ! ${_PYTHON_SINGLE_R1_ECLASS} ]]; then
 			die "distutils-r1, python-r1, python-single-r1 or python-any-r1 needs to be inherited to use python based documentation builders"
 		fi
 		;;
@@ -226,7 +221,7 @@ sphinx_deps() {
 	elif [[ ${DOCS_AUTODOC} != 0 && ${DOCS_AUTODOC} != 1 ]]; then
 		die "${FUNCNAME}: DOCS_AUTODOC should be set to 0 or 1"
 	fi
-	if [[ ${_PYTHON_SINGLE_R1} ]]; then
+	if [[ ${_PYTHON_SINGLE_R1_ECLASS} ]]; then
 		DOCS_DEPEND="$(python_gen_cond_dep "${deps}")"
 	else
 		DOCS_DEPEND="$(python_gen_any_dep "${deps}")"
@@ -289,7 +284,7 @@ mkdocs_deps() {
 	elif [[ ${DOCS_AUTODOC} != 0 && ${DOCS_AUTODOC} != 1 ]]; then
 		die "${FUNCNAME}: DOCS_AUTODOC should be set to 0 or 1"
 	fi
-	if [[ ${_PYTHON_SINGLE_R1} ]]; then
+	if [[ ${_PYTHON_SINGLE_R1_ECLASS} ]]; then
 		DOCS_DEPEND="$(python_gen_cond_dep "${deps}")"
 	else
 		DOCS_DEPEND="$(python_gen_any_dep "${deps}")"
@@ -423,11 +418,7 @@ esac
 
 [[ ${DOCS_INITIALIZE_GIT} ]] && DOCS_DEPEND+=" dev-vcs/git "
 
-if [[ ${EAPI} != 6 ]]; then
-	BDEPEND+=" doc? ( ${DOCS_DEPEND} )"
-else
-	DEPEND+=" doc? ( ${DOCS_DEPEND} )"
-fi
+BDEPEND+=" doc? ( ${DOCS_DEPEND} )"
 
 # If this is a python package using distutils-r1
 # then put the compile function in the specific
@@ -437,5 +428,4 @@ if [[ ${_DISTUTILS_R1} && ( ${DOCS_BUILDER}="mkdocs" || ${DOCS_BUILDER}="sphinx"
 	python_compile_all() { docs_compile; }
 fi
 
-_DOCS=1
 fi

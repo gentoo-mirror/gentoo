@@ -95,7 +95,7 @@ inherit multiprocessing
 
 SCONS_DEPEND=">=dev-util/scons-${SCONS_MIN_VERSION}"
 
-if [[ ${_PYTHON_ANY_R1} ]]; then
+if [[ ${_PYTHON_ANY_R1_ECLASS} ]]; then
 	# when using python-any-r1, use any-of dep API
 	BDEPEND="$(python_gen_any_dep "${SCONS_DEPEND}[\${PYTHON_USEDEP}]")"
 
@@ -103,12 +103,12 @@ if [[ ${_PYTHON_ANY_R1} ]]; then
 		python_has_version "${SCONS_DEPEND}[${PYTHON_USEDEP}]"
 	}
 	python_check_deps() { scons-utils_python_check_deps; }
-elif [[ ${_PYTHON_SINGLE_R1} ]]; then
+elif [[ ${_PYTHON_SINGLE_R1_ECLASS} ]]; then
 	# when using python-single-r1, use PYTHON_USEDEP API
 	BDEPEND="
 		$(python_gen_cond_dep "${SCONS_DEPEND}[\${PYTHON_USEDEP}]")
 		${PYTHON_DEPS}"
-elif [[ ${_PYTHON_R1} ]]; then
+elif [[ ${_PYTHON_R1_ECLASS} ]]; then
 	# when using python-r1, you need to depend on scons yourself
 	# (depending on whether you need any-r1 or full -r1 API)
 	# -- since this is a breaking API change, it applies to EAPI 7+ only
@@ -137,9 +137,9 @@ escons() {
 	if [[ ! ${EPYTHON} ]]; then
 		eerror "EPYTHON is unset while calling escons. This most likely means that"
 		eerror "the ebuild did not call the appropriate eclass function before calling scons."
-		if [[ ${_PYTHON_ANY_R1} ]]; then
+		if [[ ${_PYTHON_ANY_R1_ECLASS} ]]; then
 			eerror "Please ensure that python-any-r1_pkg_setup is called in pkg_setup()."
-		elif [[ ${_PYTHON_SINGLE_R1} ]]; then
+		elif [[ ${_PYTHON_SINGLE_R1_ECLASS} ]]; then
 			eerror "Please ensure that python-single-r1_pkg_setup is called in pkg_setup()."
 		else # python-r1
 			eerror "Please ensure that python_setup is called before escons, or that escons"

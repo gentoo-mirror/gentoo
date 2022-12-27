@@ -8,19 +8,22 @@
 # Original Author: Gilles Dartiguelongue <eva@gentoo.org>
 # Various improvements based on cmake-utils.eclass: Tomáš Chvátal <scarabeus@gentoo.org>
 # Proper prefix support: Jonathan Callen <jcallen@gentoo.org>
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: common ebuild functions for waf-based packages
 # @DESCRIPTION:
 # The waf-utils eclass contains functions that make creating ebuild for
 # waf-based packages much easier.
 # Its main features are support of common portage default settings.
 
-inherit multilib toolchain-funcs multiprocessing
-
-case ${EAPI:-0} in
-	6|7|8) EXPORT_FUNCTIONS src_configure src_compile src_install ;;
-	*) die "EAPI=${EAPI} is not supported" ;;
+case ${EAPI} in
+	7|8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
+
+if [[ ! ${_WAF_UTILS_ECLASS} ]]; then
+_WAF_UTILS_ECLASS=1
+
+inherit multilib toolchain-funcs multiprocessing
 
 # @ECLASS_VARIABLE: WAF_VERBOSE
 # @USER_VARIABLE
@@ -41,7 +44,7 @@ waf-utils_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	local fail
-	if [[ ! ${_PYTHON_ANY_R1} && ! ${_PYTHON_SINGLE_R1} && ! ${_PYTHON_R1} ]]; then
+	if [[ ! ${_PYTHON_ANY_R1_ECLASS} && ! ${_PYTHON_SINGLE_R1_ECLASS} && ! ${_PYTHON_R1_ECLASS} ]]; then
 		eerror "Using waf-utils.eclass without any python-r1 suite eclass is not supported."
 		eerror "Please make sure to configure and inherit appropriate -r1 eclass."
 		eerror "For more information and examples, please see:"
@@ -51,9 +54,9 @@ waf-utils_src_configure() {
 		if [[ ! ${EPYTHON} ]]; then
 			eerror "EPYTHON is unset while calling waf-utils. This most likely means that"
 			eerror "the ebuild did not call the appropriate eclass function before calling waf."
-			if [[ ${_PYTHON_ANY_R1} ]]; then
+			if [[ ${_PYTHON_ANY_R1_ECLASS} ]]; then
 				eerror "Please ensure that python-any-r1_pkg_setup is called in pkg_setup()."
-			elif [[ ${_PYTHON_SINGLE_R1} ]]; then
+			elif [[ ${_PYTHON_SINGLE_R1_ECLASS} ]]; then
 				eerror "Please ensure that python-single-r1_pkg_setup is called in pkg_setup()."
 			else # python-r1
 				eerror "Please ensure that python_setup is called before waf-utils_src_configure(),"
@@ -141,3 +144,7 @@ waf-utils_src_install() {
 	# Manual document installation
 	einstalldocs
 }
+
+fi
+
+EXPORT_FUNCTIONS src_configure src_compile src_install
