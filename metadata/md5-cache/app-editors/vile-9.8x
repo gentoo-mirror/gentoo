@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/lex virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install postinst postrm unpack
+DEPEND=>=sys-libs/ncurses-5.2:= virtual/libcrypt:= iconv? ( virtual/libiconv ) perl? ( dev-lang/perl:= )
+DESCRIPTION=VI Like Emacs -- yet another full-featured vi clone
+EAPI=8
+HOMEPAGE=https://invisible-island.net/vile/
+IDEPEND=app-eselect/eselect-vi
+INHERIT=verify-sig
+IUSE=perl iconv verify-sig
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=>=sys-libs/ncurses-5.2:= virtual/libcrypt:= iconv? ( virtual/libiconv ) perl? ( dev-lang/perl:= )
+SLOT=0
+SRC_URI=https://invisible-island.net/archives/vile/current/vile-9.8x.tgz verify-sig? ( https://invisible-island.net/archives/vile/current/vile-9.8x.tgz.asc )
+_eclasses_=verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=1ff7cf4ceeea105be3f6d3bddf877c1d
