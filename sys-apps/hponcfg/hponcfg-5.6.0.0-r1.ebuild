@@ -1,22 +1,20 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit pax-utils rpm
 
 MY_PV=$(ver_rs 3 '-')
 
 DESCRIPTION="HP Lights-Out Online Configuration Utility (HPONCFG)"
-HOMEPAGE="http://h20564.www2.hpe.com/hpsc/swd/public/detail?swItemId=MTX_5ab6295f49964f16a699064f29"
-SRC_URI="amd64? ( https://downloads.linux.hpe.com/SDR/repo/spp/RHEL/7/x86_64/current/${PN}-${MY_PV}.x86_64.rpm )"
+HOMEPAGE="https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00007610en_us"
+SRC_URI="https://downloads.linux.hpe.com/SDR/repo/spp/RHEL/7/x86_64/current/${PN}-${MY_PV}.x86_64.rpm"
 
 LICENSE="hpe"
 SLOT="0"
-KEYWORDS="-* amd64"
-IUSE=""
+KEYWORDS="-* ~amd64"
 
-DEPEND=""
 RDEPEND="elibc_glibc? ( >sys-libs/glibc-2.14 )"
 
 S="${WORKDIR}"
