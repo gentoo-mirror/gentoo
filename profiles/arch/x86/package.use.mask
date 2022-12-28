@@ -9,14 +9,6 @@
 # Here we prevent its only direct consumer from pulling it in.
 sci-mathematics/polymake lrs
 
-# Sam James <sam@gentoo.org> (2022-12-02)
-# Not keyworded here
-app-alternatives/lex reflex
-
-# Michał Górny <mgorny@gentoo.org> (2022-12-01)
-# Keyworded here.
-app-alternatives/awk -nawk
-
 # Michał Górny <mgorny@gentoo.org> (2022-11-16)
 # spirv-llvm-translator is not keyworded x86.
 dev-libs/libclc spirv
@@ -120,11 +112,6 @@ media-video/obs-studio browser
 # the last drivers to support x86 (needed here to override use.mask).
 x11-base/xwayland video_cards_nvidia
 x11-wm/mutter video_cards_nvidia
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-04-25)
-# Mask java on old bin-versions with it unavailable
-<app-office/libreoffice-bin-7.3.5 java
-<app-office/libreoffice-bin-debug-7.3.5 java
 
 # Daniel Novomesky <dnovomesky@gmail.com> (2021-02-24)
 # Depends on media-libs/svt-av1, which is unavailable on x86
@@ -351,12 +338,12 @@ www-client/vivaldi widevine
 www-client/vivaldi-snapshot widevine
 
 # Ian Delaney <idella4@gentoo.org> (2015-12-02)
-# mask revdeps of xen that emply a hypervisor in arch x86
+# mask revdeps of xen that imply a hypervisor in arch x86
 app-emulation/libvirt xen
 
 # Brian Evans <grknight@gentoo.org (2015-09-14)
 # Unmask new USE flags for mariadb on supported arches
->=dev-db/mariadb-10.1.0 -sst-xtrabackup -galera
+>=dev-db/mariadb-10.1.0 -galera
 
 # Mike Gilbert <floppym@gentoo.org> (2015-09-05)
 # sys-boot/gnu-efi is not supported on all archs.

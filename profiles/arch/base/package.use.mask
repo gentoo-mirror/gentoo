@@ -16,10 +16,6 @@ media-libs/gst-plugins-bad qsv
 sys-devel/clang ieee-long-double
 sys-devel/gcc ieee-long-double
 
-# Michał Górny <mgorny@gentoo.org> (2022-12-01)
-# Not widely keyworded.
-app-alternatives/awk nawk
-
 # Mike Gilbert <floppym@gentoo.org> (2022-10-16)
 # Only supported on MIPS.
 dev-lang/gnat-gpl fixed-point
@@ -313,7 +309,7 @@ media-video/mpv mmal
 
 # Brian Evans <grknight@gentoo.org (2015-09-14)
 # Mask new USE flags for mariadb which all arches do not yet have dependencies
->=dev-db/mariadb-10.1.0 mroonga sst-xtrabackup galera
+>=dev-db/mariadb-10.1.0 mroonga galera
 
 # Mike Gilbert <floppym@gentoo.org> (2015-09-05)
 # sys-boot/gnu-efi is not supported on all archs.

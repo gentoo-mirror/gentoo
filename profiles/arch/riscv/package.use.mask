@@ -1,25 +1,9 @@
 # Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Sam James <sam@gentoo.org> (2022-12-02)
-# Unkeyworded dependencies
-app-alternatives/bc gh
-
-# Sam James <sam@gentoo.org> (2022-12-02)
-# Not keyworded here
-app-alternatives/yacc reference
-
-# Sam James <sam@gentoo.org> (2022-12-02)
-# Not keyworded here
-app-alternatives/lex reflex
-
 # Mike Rivnak <rivnakm1@gmail.com> (2022-11-30)
 # luajit is currently not supported on riscv
 app-editors/neovim lua_single_target_luajit
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-30)
-# Mask unkeyworded providers.
-app-alternatives/bzip2 pbzip2
 
 # Yixun Lan <dlan@gentoo.org> (2022-11-24)
 # depend on dev-libs/libpcre2[jit] which not supported yet, bug #879511
@@ -46,7 +30,7 @@ sys-cluster/slurm nvml
 # Jakov Smolić <jsmolic@gentoo.org> (2022-09-07)
 # Unkeyworded dependencies (xen-tools, aws stack), masking to reduce
 # the dependency graph
-net-analyzer/netdata xen kinesis
+net-analyzer/netdata xen
 
 # Jakov Smolić <jsmolic@gentoo.org> (2022-08-27)
 # depends on <sys-libs/libfaketime-0.9.7 which is not available on riscv
@@ -101,7 +85,6 @@ app-containers/crun criu
 app-emulation/qemu xen
 # unkeyworded depdendency - sys-cluster/ceph
 app-emulation/qemu rbd
-sys-fs/multipath-tools rbd
 
 # Alexey Sokolov <alexey+gentoo@asokolov.org> (2012-12-25)
 # Requires dev-qt/qtwebengine
