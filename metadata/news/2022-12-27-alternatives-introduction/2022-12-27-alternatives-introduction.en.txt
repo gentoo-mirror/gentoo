@@ -32,7 +32,7 @@ The initial list of packages which support alternatives is as follows:
 The stabilization of these new ebuilds and packages depending
 on them is ongoing in bug 886017 [1].
 
-## Per-upgrade requirements
+## Pre-upgrade requirements
 
 The default configuration on Gentoo systems is FEATURES="protect-owned"
 which works similarly to FEATURES="collision-protect" but it allows
@@ -60,8 +60,9 @@ orphaned files where no package owns the file.
 To migrate your system, a standard world upgrade will suffice after
 deselecting eselect-awk and eselect-sh:
 1. # emerge --deselect app-eselect/eselect-awk app-eselect/eselect-sh
-2. # emerge --sync
-3. # emerge -a -uvDU @world (or other similar standard world upgrade command)
+2. # emerge --depclean app-eselect/eselect-awk app-eselect/eselect-sh
+3. # emerge --sync
+4. # emerge -a -uvDU @world (or other similar standard world upgrade command)
 
 ## Configuration
 
@@ -77,11 +78,11 @@ Going forward, /etc/portage/package.use will be used for this purpose.
 Users should review the USE flags available for the various app-alternatives
 ebuilds like app-alternatives/sh and adjust their configuration as desired.
 
-For example, to have /usr/bin/gzip be provided by app-arch/pigz for automatic
+For example, to have /bin/gzip be provided by app-arch/pigz for automatic
 parallelization of 'gzip', one would have the following in /etc/portage/package.use:
 ```
 # https://wiki.gentoo.org/wiki/Gzip#Parallelization
-# Make /usr/bin/gzip be a symlink to pigz for a speedup in compression
+# Make /bin/gzip be a symlink to pigz for a speedup in compression
 app-alternatives/gzip -reference pigz
 ```
 
