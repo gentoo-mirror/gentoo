@@ -6,13 +6,16 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Blocking, shuffling and lossless compression library"
-HOMEPAGE="https://www.blosc.org/"
+HOMEPAGE="
+	https://www.blosc.org/
+	https://github.com/Blosc/c-blosc/
+"
 SRC_URI="
 	https://github.com/Blosc/c-blosc/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
 
-LICENSE="MIT"
+LICENSE="BSD"
 SLOT="0/1"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="+lz4 +snappy test zlib zstd"
