@@ -3,14 +3,12 @@
 
 EAPI=8
 
-H=45778f5731c97a21a83e3b965cbde42018709afd
-
 inherit elisp
 
 DESCRIPTION="Completion back-ends for for math unicode symbols and latex tags"
 HOMEPAGE="https://github.com/vspinu/company-math/"
-SRC_URI="https://github.com/vspinu/${PN}/archive/${H}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${H}
+SRC_URI="https://github.com/vspinu/${PN}/archive/v${PV}.tar.gz
+	-> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -22,5 +20,5 @@ RDEPEND="
 "
 BDEPEND="${RDEPEND}"
 
-DOCS=( readme.md )
+DOCS=( readme.md img )
 SITEFILE="50${PN}-gentoo.el"

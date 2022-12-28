@@ -46,7 +46,10 @@ BDEPEND="
 "
 
 DOCS=( authors.txt bugs.txt changes.txt credits.txt readme.txt )
-
+PATCHES=(
+	"${FILESDIR}"/${P}-bash-completion.patch
+	"${FILESDIR}"/${P}-find-xxdate.patch
+)
 SITEFILE=50coccinelle-gentoo.el
 
 pkg_setup() {
@@ -101,7 +104,7 @@ src_test() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}" VERBOSE=yes install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}" VERBOSE=yes -j1 install
 
 	if use python ; then
 		python_optimize
@@ -114,6 +117,7 @@ src_install() {
 		elisp-site-file-install "${FILESDIR}"/${SITEFILE}
 	fi
 
+	einstalldocs
 	use doc && dodoc docs/manual/*.pdf
 
 	newdoc editors/vim/README README-vim
