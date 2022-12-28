@@ -82,11 +82,11 @@ FEATURES="-collision-protect". collision-protect находит конфликт
 app-alternatives, таких как app-alternatives/sh, и настройте их на ваше
 усмотрение.
 
-Например, чтобы /usr/bin/gzip был предоставлен пакетом app-arch/pigz, это
+Например, чтобы /bin/gzip был предоставлен пакетом app-arch/pigz, это
 автоматически параллелизует gzip, нужен такой текст в /etc/portage/package.use:
 ```
 # https://wiki.gentoo.org/wiki/Gzip#Parallelization
-# Пусть /usr/bin/gzip будет ссылкой на pigz для ускорения сжатия
+# Пусть /bin/gzip будет ссылкой на pigz для ускорения сжатия
 app-alternatives/gzip -reference pigz
 ```
 
