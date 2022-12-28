@@ -62,8 +62,9 @@ FEATURES="-collision-protect". collision-protect находит конфликт
 Для миграции достаточно убрать eselect-awk и eselect-sh из world, и обновить
 систему как обычно:
 1. # emerge --deselect app-eselect/eselect-awk app-eselect/eselect-sh
-2. # emerge --sync
-3. # emerge -a -uvDU @world (или похожая команда для стандартного обновления
+2. # emerge --depclean app-eselect/eselect-awk app-eselect/eselect-sh
+3. # emerge --sync
+4. # emerge -a -uvDU @world (или похожая команда для стандартного обновления
 системы)
 
 ## Конфигурация

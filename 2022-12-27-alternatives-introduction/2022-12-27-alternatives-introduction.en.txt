@@ -60,8 +60,9 @@ orphaned files where no package owns the file.
 To migrate your system, a standard world upgrade will suffice after
 deselecting eselect-awk and eselect-sh:
 1. # emerge --deselect app-eselect/eselect-awk app-eselect/eselect-sh
-2. # emerge --sync
-3. # emerge -a -uvDU @world (or other similar standard world upgrade command)
+2. # emerge --depclean app-eselect/eselect-awk app-eselect/eselect-sh
+3. # emerge --sync
+4. # emerge -a -uvDU @world (or other similar standard world upgrade command)
 
 ## Configuration
 
