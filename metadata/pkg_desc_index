@@ -1125,7 +1125,7 @@ app-admin/xkcdpass 1.19.3: Password generator inspired by XKCD 936
 app-admin/xstow 1.1.0: Replacement for GNU stow with extensions
 app-admin/xtail 2.1_p8: Tail multiple logfiles at once, even if rotated
 app-admin/yadm 3.2.1: Git based tool for managing dotfiles
-app-alternatives/awk 1 3 4: /bin/awk and /usr/bin/awk symlinks
+app-alternatives/awk 4: /bin/awk and /usr/bin/awk symlinks
 app-alternatives/bc 0: bc symlink
 app-alternatives/bzip2 1: bzip2 symlink
 app-alternatives/cpio 0: CPIO symlink
@@ -1133,7 +1133,7 @@ app-alternatives/gzip 0: gzip symlinks
 app-alternatives/lex 0-r1: lex symlinks
 app-alternatives/sh 0: /bin/sh (POSIX shell) symlink
 app-alternatives/tar 0: Tar symlink
-app-alternatives/yacc 0 1-r2: yacc symlinks
+app-alternatives/yacc 1-r2: yacc symlinks
 app-antivirus/clamav 0.103.6 0.103.7 0.103.7-r1 0.104.4-r1 0.105.1 1.0.0: Clam Anti-Virus Scanner
 app-antivirus/clamtk 6.14: A graphical front-end for ClamAV
 app-antivirus/fangfrisch 1.5.0 1.5.0-r1: Update and verify unofficial Clam Anti-Virus signatures
@@ -1146,13 +1146,13 @@ app-arch/arj 3.10.22-r8: Utility for opening arj archives
 app-arch/atool 0.39.0-r1: Script for managing file archives of various types
 app-arch/brotli 1.0.9-r3 1.0.9-r5 9999: Generic-purpose lossless compression algorithm
 app-arch/bsdsfv 1.18-r3: all-in-one SFV checksum utility
-app-arch/bzip2 1.0.8-r3 1.0.8-r4 9999: A high-quality data compressor used extensively by Gentoo Linux
+app-arch/bzip2 1.0.8-r4 9999: A high-quality data compressor used extensively by Gentoo Linux
 app-arch/bzip3 1.1.5 1.1.8 1.2.0 1.2.1: A better and stronger spiritual successor to BZip2
 app-arch/cabextract 1.9.1 9999: Extracts files from Microsoft cabinet archive files
 app-arch/cfv 3.0.0: Command-line File Verify - versatile file checksum creator and verifier
 app-arch/cksfv 1.3.15: SFV checksum utility (simple file verification)
 app-arch/clzip 1.13: C language version of lzip
-app-arch/cpio 2.12-r1 2.13-r3 2.13-r4: A file archival tool which can also read and write tar files
+app-arch/cpio 2.13-r4: A file archival tool which can also read and write tar files
 app-arch/createrepo_c 0.20.1: C implementation of createrepo
 app-arch/csnappy 0_pre20220804: Google's snappy compression library for the Linux Kernel
 app-arch/deb2targz 1-r3: Convert a .deb file to a .tar.gz archive
@@ -1165,7 +1165,7 @@ app-arch/funzix 1.0-r1: Unpacker for the bogus ZIX format
 app-arch/gcab 1.5: Library and tool for working with Microsoft Cabinet (CAB) files
 app-arch/gnome-autoar 0.4.3: Automatic archives creating and extracting library
 app-arch/gtk-splitter 2.2.1-r2: Split files into smaller pieces and combine them back together
-app-arch/gzip 1.12-r2 1.12-r3: Standard GNU compressor
+app-arch/gzip 1.12-r3: Standard GNU compressor
 app-arch/hardlink 0.3.2: A tool which replaces copies of a file with hardlinks
 app-arch/innoextract 1.9: A tool to unpack installers created by Inno Setup
 app-arch/lbzip2 2.5_p20181227-r1: Parallel bzip2 utility
@@ -1196,11 +1196,11 @@ app-arch/pbzip2 1.1.13: Parallel bzip2 (de)compressor using libbz2
 app-arch/pdlzip 1.12: Public-domain version of lzip compressor
 app-arch/pdv 1.5.1-r4: build a self-extracting and self-installing binary package
 app-arch/pet2tgz 0.3-r1: Puppy Linux .pet to .tar.gz converter
-app-arch/pigz 2.6 2.7: A parallel implementation of gzip
+app-arch/pigz 2.7: A parallel implementation of gzip
 app-arch/pixz 1.0.7-r1 9999: Parallel Indexed XZ compressor
 app-arch/plzip 1.10: Parallel lzip compressor
 app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par files
-app-arch/pxz 5.0_pre20220509 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
+app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
 app-arch/rar 6.12: RAR compressor/uncompressor
 app-arch/rpm 4.18.0: Red Hat Package Management Utils
@@ -1212,7 +1212,7 @@ app-arch/stenc 1.1.1: SCSI Tape Encryption Manager enables AES support for LTO d
 app-arch/stormlib 9.24: Library to read and write MPQ archives (Diablo, StarCraft)
 app-arch/stuffit 5.2.0.611-r1: Aladdin Software's StuffIt and StuffIt Expander
 app-arch/tapeutils 0.4-r1: Utilities for manipulation of tapes and tape image files
-app-arch/tar 1.34 1.34-r1 1.34-r2: Use this to make tarballs :)
+app-arch/tar 1.34-r2: Use this to make tarballs :)
 app-arch/tardelta 1.0.1: Generate a tarball of differences between two tarballs
 app-arch/tarlz 0.23: A parallel archiver combining tar and lzip
 app-arch/tarsync 0.2.3: Synchronize tarball content with file system content
@@ -3237,7 +3237,7 @@ app-misc/trash-cli 0.22.8.21 0.22.8.27: Python scripts to manipulate trash cans 
 app-misc/tty-clock 2.3: Displays a simple digital clock on the terminal
 app-misc/ttyload 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.0.8-r3: ttyrec provides tools to record and replay a terminal session
-app-misc/unfoo 1.0.8 1.0.8-r1: A simple bash driven frontend to simplify decompression of files
+app-misc/unfoo 1.0.8-r1: A simple bash driven frontend to simplify decompression of files
 app-misc/uptimed 0.4.6-r1: System uptime record daemon that keeps track of your highest uptimes
 app-misc/utimer 0.4-r1: A command line timer and stopwatch
 app-misc/vcontrold 0.98.11: Daemon for communication with Viessmann Vito heatings
@@ -11042,7 +11042,7 @@ dev-util/buildbot-waterfall-view 3.4.0 3.5.0 3.6.0 3.6.1: Buildbot waterfall-vie
 dev-util/buildbot-worker 3.4.0 3.5.0-r1 3.6.0 3.6.1 9999: BuildBot Worker (slave) Daemon
 dev-util/buildbot-wsgi-dashboards 3.4.0 3.5.0 3.6.0 3.6.1: Buildbot plugin to integrate flask or bottle dashboards to buildbot UI
 dev-util/buildbot-www 3.4.0 3.5.0 3.6.0 3.6.1: BuildBot base web interface, use with buildbot-{console-view,waterfall-view}...
-dev-util/byacc 20220128-r1 20221106: The best variant of the Yacc parser generator
+dev-util/byacc 20221106: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.17.0: Audit Cargo.lock for security vulnerabilities
 dev-util/cargo-c 0.9.14 0.9.15: Helper program to build and install c-like libraries
 dev-util/cargo-ebuild 0.5.2: Generates an ebuild for a package using the in-tree eclasses.
@@ -11401,7 +11401,7 @@ dev-util/xfce4-dev-tools 4.16.0 4.17.2 4.18.0: A set of scripts and m4/autoconf 
 dev-util/xmlindent 0.2.17-r2: XML stream reformatter for ASCII text, but not UTF-8, written in ANSI C
 dev-util/xxdi 1.0.0: Simple alternative to vim's 'xxd -i' mode
 dev-util/xxdiff 4.0.1_p20170622-r1: A graphical file and directories comparator and merge tool
-dev-util/yacc 1.9.1-r6 1.9.1-r7: Yacc: Yet Another Compiler-Compiler
+dev-util/yacc 1.9.1-r7: Yacc: Yet Another Compiler-Compiler
 dev-util/yamllint 1.28.0: A linter for YAML files
 dev-util/ydiff 1.2 1.2-r1: Colored, side-by-side diff terminal viewer (ex. cdiff)
 dev-vcs/bfg 1.13.0: A faster alternative to git-filter-branch for removing bad data from git repos
@@ -16288,7 +16288,7 @@ sci-biology/vcftools 0.1.16: Tools for working with VCF (Variant Call Format) fi
 sci-biology/velvet 1.2.10: A sequence assembler for very short reads
 sci-biology/wise 2.4.0_alpha-r1: Intelligent algorithms for DNA searches
 sci-biology/yass 1.14-r3: Genomic similarity search with multiple transition constrained spaced seeds
-sci-calculators/bc-gh 5.2.1 5.3.3 6.1.1-r1: Implementation of POSIX bc with GNU extensions
+sci-calculators/bc-gh 6.1.1-r1: Implementation of POSIX bc with GNU extensions
 sci-calculators/calcoo 1.3.18-r2: Scientific calculator designed to provide maximum usability
 sci-calculators/datamash 1.7-r1: command-line program for basic numeric, textual and statistical operations
 sci-calculators/galculator 2.1.4-r2: GTK+ based algebraic and RPN calculator
@@ -17301,7 +17301,7 @@ sys-apps/biosdisk 1.01: FreeDOS based BIOS updating utility for Dell machines
 sys-apps/bleachbit 4.4.2: Clean junk to free disk space and to maintain privacy
 sys-apps/bolt 0.9.1 0.9.2 0.9.3: Userspace system daemon to enable security levels for Thunderbolt 3
 sys-apps/bubblewrap 0.6.2-r1 0.7.0: Unprivileged sandboxing tool, namespaces-powered chroot-like solution
-sys-apps/busybox 1.34.1 1.34.1-r1 1.35.0 1.35.0-r1 9999: Utilities for rescue and embedded systems
+sys-apps/busybox 1.34.1-r1 1.35.0-r1 9999: Utilities for rescue and embedded systems
 sys-apps/byld 1.0.3-r1: Build a Linux distribution on a single floppy
 sys-apps/cciss_vol_status 1.12a: Shows status of logical drives attached to HP SmartArray controllers
 sys-apps/ccs-tools 1.8.3_p20130214: TOMOYO Linux tools
@@ -17362,7 +17362,7 @@ sys-apps/fwts 22.03.00: Firmware Test Suite
 sys-apps/fwupd 1.8.5 1.8.7 1.8.8-r1: Aims to make updating firmware on Linux automatic, safe and reliable
 sys-apps/fwupd-efi 1.3: EFI executable for fwupd
 sys-apps/fxload 20081013-r1: USB firmware uploader
-sys-apps/gawk 5.1.1-r2 5.2.1: GNU awk pattern-matching language
+sys-apps/gawk 5.2.1: GNU awk pattern-matching language
 sys-apps/gcp 0.2.1: File copying utility with progress and I/O indicator
 sys-apps/gentoo-functions 0.17 9999: Base functions required by all Gentoo systems
 sys-apps/gentoo-systemd-integration 9 9999: systemd integration files for Gentoo
@@ -17516,7 +17516,7 @@ sys-apps/salinfo 1.2: decode Itanium SAL records (e.g. various hardware errors)
 sys-apps/sandbox 2.24 2.25 2.26 2.27 2.28 2.29: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12: Utility to output and modify parameters on a SCSI device, like hdparm
 sys-apps/secilc 3.3 3.4 9999: SELinux Common Intermediate Language (CIL) Compiler
-sys-apps/sed 4.8 4.8-r1 4.9: Super-useful stream editor
+sys-apps/sed 4.9: Super-useful stream editor
 sys-apps/selinux-python 3.3 3.4 9999: SELinux core utilities
 sys-apps/semodule-utils 3.3 3.4 9999: SELinux policy module utilities
 sys-apps/sensei-raw-ctl 0.0_pre20180729-r1: SteelSeries Sensei Raw configuration tool
@@ -17807,13 +17807,13 @@ sys-devel/autoconf-wrapper 20220130 20221207 99999999: Wrapper for autoconf to m
 sys-devel/autogen 5.18.16-r1: Program and text file generation
 sys-devel/automake 1.11.6-r3 1.13.4-r2 1.15.1-r2 1.16.5 9999: Used to generate Makefile.in from Makefile.am
 sys-devel/automake-wrapper 11-r1 99999999: Wrapper for automake to manage multiple automake versions
-sys-devel/bc 1.07.1-r4 1.07.1-r5 1.07.1-r6: Handy console-based calculator utility
+sys-devel/bc 1.07.1-r6: Handy console-based calculator utility
 sys-devel/bin86 0.16.21-r1: Assembler and loader used to create kernel bootsector
 sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r4 9999: Tools necessary to build programs
 sys-devel/binutils-apple 3.2.6-r1 8.2.1-r2 8.2.1-r101: Darwin Xtools matching Xcode Tools binutils-apple
 sys-devel/binutils-config 5.4 5.4.1 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r4: Tools necessary to build programs
-sys-devel/bison 3.7.6 3.8.2 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
+sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
 sys-devel/bmake 20220901 20220924 20220928: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
 sys-devel/clang 13.0.1 14.0.6-r1 15.0.5 15.0.6 15.0.6.9999 16.0.0_pre20221217 16.0.0_pre20221226 16.0.0.9999: C language family frontend for LLVM
@@ -17828,7 +17828,7 @@ sys-devel/dev86 0.16.21-r3: Bruce's C compiler - Simple C compiler to generate 8
 sys-devel/distcc 3.3.3-r3 3.4 3.4-r1: Distribute compilation of C code across several machines on a network
 sys-devel/dwz 0.14: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
-sys-devel/flex 2.6.4-r2 2.6.4-r4 2.6.4-r5: The Fast Lexical Analyzer
+sys-devel/flex 2.6.4-r5: The Fast Lexical Analyzer
 sys-devel/gcc 8.5.0-r1 9.5.0 10.4.0 10.4.1_p20221208 10.4.1_p20221222 10.5.9999 11.3.0 11.3.1_p20221209 11.3.1_p20221223 11.4.9999 12.2.0 12.2.1_p20221210 12.2.1_p20221224 12.3.9999 13.0.0_pre20221218 13.0.0_pre20221225 13.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.4 2.5-r1 2.6 2.8 9999: Utility to manage compilers
