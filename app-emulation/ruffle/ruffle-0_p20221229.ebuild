@@ -13,19 +13,20 @@ CRATES="
 	alsa-0.6.0
 	alsa-sys-0.3.1
 	android_system_properties-0.1.5
-	anyhow-1.0.66
+	anyhow-1.0.68
 	approx-0.5.1
 	arboard-3.2.0
 	arrayref-0.3.6
 	arrayvec-0.5.2
 	arrayvec-0.7.2
 	ash-0.37.1+1.3.235
-	async-channel-1.7.1
+	async-channel-1.8.0
 	atk-sys-0.15.1
 	atty-0.2.14
 	autocfg-1.1.0
 	base-x-0.2.11
 	base64-0.13.1
+	base64-0.20.0
 	bindgen-0.61.0
 	bit-set-0.5.3
 	bit-vec-0.6.3
@@ -43,9 +44,8 @@ CRATES="
 	bytemuck_derive-1.3.0
 	byteorder-1.4.3
 	bytes-1.3.0
-	cache-padded-1.2.0
 	cairo-sys-rs-0.15.1
-	calloop-0.10.3
+	calloop-0.10.4
 	castaway-0.1.2
 	cc-1.0.77
 	cesu8-1.1.0
@@ -56,7 +56,7 @@ CRATES="
 	cfg_aliases-0.1.1
 	chrono-0.4.23
 	clang-sys-1.4.0
-	clap-4.0.27
+	clap-4.0.32
 	clap_derive-4.0.21
 	clap_lex-0.3.0
 	clipboard-win-4.4.2
@@ -67,7 +67,7 @@ CRATES="
 	color_quant-1.1.0
 	colored-2.0.0
 	combine-4.6.6
-	concurrent-queue-1.2.4
+	concurrent-queue-2.0.0
 	console-0.15.2
 	console_error_panic_hook-0.1.7
 	console_log-0.2.0
@@ -97,10 +97,10 @@ CRATES="
 	cty-0.2.2
 	curl-0.4.44
 	curl-sys-0.4.59+curl-7.86.0
-	cxx-1.0.82
-	cxx-build-1.0.82
-	cxxbridge-flags-1.0.82
-	cxxbridge-macro-1.0.82
+	cxx-1.0.83
+	cxx-build-1.0.83
+	cxxbridge-flags-1.0.83
+	cxxbridge-macro-1.0.83
 	d3d12-0.5.0
 	darling-0.13.4
 	darling-0.14.2
@@ -119,11 +119,11 @@ CRATES="
 	downcast-rs-1.2.0
 	dwrote-0.11.0
 	either-1.8.0
-	embed-resource-1.7.4
+	embed-resource-1.8.0
 	encode_unicode-0.3.6
 	encoding_rs-0.8.31
-	enum-map-2.4.1
-	enum-map-derive-0.10.0
+	enum-map-2.4.2
+	enum-map-derive-0.11.0
 	enumset-1.0.12
 	enumset_derive-0.6.1
 	env_logger-0.10.0
@@ -192,10 +192,10 @@ CRATES="
 	image-0.24.5
 	indexmap-1.9.2
 	indicatif-0.17.2
-	insta-1.22.0
+	insta-1.23.0
 	instant-0.1.12
-	io-lifetimes-1.0.1
-	is-terminal-0.4.0
+	io-lifetimes-1.0.3
+	is-terminal-0.4.1
 	isahc-1.7.2
 	itoa-0.4.8
 	itoa-1.0.4
@@ -210,7 +210,7 @@ CRATES="
 	lazycell-1.3.0
 	lebe-0.5.2
 	lexical-core-0.7.6
-	libc-0.2.137
+	libc-0.2.138
 	libflate-1.2.0
 	libflate_lz77-1.1.0
 	libloading-0.7.4
@@ -219,14 +219,14 @@ CRATES="
 	libz-sys-1.1.8
 	link-cplusplus-1.0.7
 	linked-hash-map-0.5.6
-	linux-raw-sys-0.1.3
+	linux-raw-sys-0.1.4
 	lock_api-0.4.9
 	log-0.4.17
 	lyon-1.0.1
 	lyon_algorithms-1.0.2
-	lyon_geom-1.0.3
-	lyon_path-1.0.2
-	lyon_tessellation-1.0.5
+	lyon_geom-1.0.4
+	lyon_path-1.0.3
+	lyon_tessellation-1.0.7
 	lzma-rs-0.2.0
 	mach-0.3.2
 	malloc_buf-0.0.6
@@ -237,8 +237,6 @@ CRATES="
 	metal-0.24.0
 	mime-0.3.16
 	minimal-lexical-0.2.1
-	minimp3-0.5.1
-	minimp3-sys-0.3.2
 	miniz_oxide-0.6.2
 	mio-0.8.5
 	naga-0.10.0
@@ -250,9 +248,9 @@ CRATES="
 	ndk-macro-0.3.0
 	ndk-sys-0.3.0
 	ndk-sys-0.4.1+23.1.7779620
-	nix-0.23.1
-	nix-0.24.2
-	nix-0.25.0
+	nix-0.23.2
+	nix-0.24.3
+	nix-0.25.1
 	nom-6.1.2
 	nom-7.1.1
 	num-bigint-0.4.3
@@ -273,7 +271,7 @@ CRATES="
 	oboe-sys-0.4.5
 	once_cell-1.16.0
 	openssl-probe-0.1.5
-	openssl-sys-0.9.78
+	openssl-sys-0.9.79
 	os_str_bytes-6.4.1
 	ouroboros-0.15.5
 	ouroboros_macro-0.15.5
@@ -281,7 +279,7 @@ CRATES="
 	pango-sys-0.15.10
 	parking-2.0.0
 	parking_lot-0.12.1
-	parking_lot_core-0.9.4
+	parking_lot_core-0.9.5
 	path-slash-0.2.1
 	peeking_take_while-0.1.2
 	percent-encoding-2.2.0
@@ -291,17 +289,17 @@ CRATES="
 	pin-utils-0.1.0
 	pkg-config-0.3.26
 	png-0.17.7
-	polling-2.4.0
-	portable-atomic-0.3.15
+	polling-2.5.2
+	portable-atomic-0.3.17
 	ppv-lite86-0.2.17
 	pretty_assertions-1.3.0
 	primal-check-0.3.3
 	proc-macro-crate-1.2.1
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.47
+	proc-macro2-1.0.49
 	profiling-1.0.7
-	quote-1.0.21
+	quote-1.0.23
 	radium-0.5.3
 	rand-0.8.5
 	rand_chacha-0.3.1
@@ -309,7 +307,7 @@ CRATES="
 	range-alloc-0.1.2
 	raw-window-handle-0.4.3
 	raw-window-handle-0.5.0
-	rayon-1.6.0
+	rayon-1.6.1
 	rayon-core-1.10.1
 	redox_syscall-0.2.16
 	redox_users-0.4.3
@@ -326,8 +324,8 @@ CRATES="
 	rustc_version-0.4.0
 	rustdct-0.7.1
 	rustfft-6.1.0
-	rustix-0.36.3
-	rustversion-1.0.9
+	rustix-0.36.5
+	rustversion-1.0.11
 	ryu-1.0.11
 	safe_arch-0.5.2
 	safe_arch-0.6.0
@@ -341,11 +339,11 @@ CRATES="
 	semver-0.9.0
 	semver-1.0.14
 	semver-parser-0.7.0
-	serde-1.0.149
+	serde-1.0.152
 	serde-wasm-bindgen-0.4.5
 	serde-xml-rs-0.6.0
-	serde_derive-1.0.149
-	serde_json-1.0.89
+	serde_derive-1.0.152
+	serde_json-1.0.91
 	servo-fontconfig-0.5.1
 	servo-fontconfig-sys-5.1.0
 	sha1-0.6.1
@@ -355,7 +353,6 @@ CRATES="
 	similar-2.2.1
 	simple_asn1-0.6.2
 	slab-0.4.7
-	slice-deque-0.3.0
 	slotmap-1.0.6
 	sluice-0.5.5
 	smallvec-1.10.0
@@ -375,16 +372,16 @@ CRATES="
 	symphonia-bundle-mp3-0.5.1
 	symphonia-core-0.5.1
 	symphonia-metadata-0.5.1
-	syn-1.0.105
+	syn-1.0.107
 	synstructure-0.12.6
 	system-deps-6.0.3
 	tap-1.0.1
 	termcolor-1.1.3
 	terminal_size-0.1.17
-	thiserror-1.0.37
-	thiserror-impl-1.0.37
+	thiserror-1.0.38
+	thiserror-impl-1.0.38
 	threadpool-1.8.1
-	tiff-0.8.0
+	tiff-0.8.1
 	time-0.3.17
 	time-core-0.1.0
 	time-macros-0.2.6
@@ -392,14 +389,14 @@ CRATES="
 	tiny-skia-path-0.7.0
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.0
-	toml-0.5.8
+	toml-0.5.10
 	tracing-0.1.37
 	tracing-attributes-0.1.23
 	tracing-core-0.1.30
 	tracing-futures-0.2.5
 	transpose-0.2.2
 	typed-arena-2.0.1
-	typenum-1.15.0
+	typenum-1.16.0
 	unicode-bidi-0.3.8
 	unicode-ident-1.0.5
 	unicode-normalization-0.1.22
@@ -412,7 +409,7 @@ CRATES="
 	version-compare-0.1.1
 	version_check-0.9.4
 	vswhom-0.1.0
-	vswhom-sys-0.1.1
+	vswhom-sys-0.1.2
 	waker-fn-1.1.0
 	walkdir-2.3.2
 	wasi-0.11.0+wasi-snapshot-preview1
@@ -433,8 +430,8 @@ CRATES="
 	webbrowser-0.8.2
 	weezl-0.1.7
 	wepoll-ffi-0.1.2
-	wgpu-0.14.0
-	wgpu-core-0.14.0
+	wgpu-0.14.2
+	wgpu-core-0.14.2
 	wgpu-hal-0.14.1
 	wgpu-types-0.14.1
 	wide-0.7.5

@@ -15,7 +15,7 @@ else
 		https://code.videolan.org/videolan/libplacebo/-/archive/v${PV}/libplacebo-v${PV}.tar.gz
 		opengl? ( https://github.com/Dav1dde/glad/archive/refs/tags/v${GLAD_PV}.tar.gz -> ${PN}-glad-${GLAD_PV}.tar.gz )"
 	S="${WORKDIR}/${PN}-v${PV}"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
+	KEYWORDS="amd64 ~ppc64 x86"
 fi
 
 DESCRIPTION="Reusable library for GPU-accelerated image processing primitives"
@@ -67,6 +67,14 @@ src_unpack() {
 			mv glad-${GLAD_PV} "${S}"/3rdparty/glad || die
 		fi
 	fi
+}
+
+src_prepare() {
+	default
+
+	# typically auto-skipped, but may assume usable opengl/vulkan then hang
+	sed -i "/tests += 'opengl_surfaceless.c'/d" src/opengl/meson.build || die
+	sed -i "/tests += 'vulkan.c'/d" src/vulkan/meson.build || die
 }
 
 multilib_src_configure() {
