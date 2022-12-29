@@ -1,15 +1,15 @@
 BDEPEND=dev-qt/linguist-tools:5
-DEFINED_PHASES=configure install prepare
+DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-libs/vitamtp:0 ffmpeg? ( media-video/ffmpeg:= ) x11-libs/libnotify:0
 DESCRIPTION=Cross-platform content manager assistant for the PS Vita
 EAPI=8
 HOMEPAGE=https://github.com/codestation/qcma
-INHERIT=qmake-utils
+INHERIT=qmake-utils xdg-utils
 IUSE=+ffmpeg
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-libs/vitamtp:0 ffmpeg? ( media-video/ffmpeg:= ) x11-libs/libnotify:0
 SLOT=0
 SRC_URI=https://github.com/codestation/qcma/archive/v0.4.1.tar.gz -> qcma-0.4.1.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
-_md5_=2314120dcee217313889089a4f030c2b
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=9b615d4796f60d944a6e304b3fc5d6de
