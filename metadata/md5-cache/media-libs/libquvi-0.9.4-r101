@@ -1,16 +1,16 @@
 BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare setup
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) >=dev-libs/glib-2.34.3:2 >=dev-libs/libgcrypt-1.5.3:0= >=media-libs/libquvi-scripts-0.9.20130903[lua_single_target_lua5-1(-)?] !<media-libs/quvi-0.4.0 >=net-libs/libproxy-0.4.11-r1 >=net-misc/curl-7.36.0 nls? ( >=virtual/libintl-0-r1 )
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:=[deprecated(+)] ) lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated(+)] ) lua_single_target_lua5-4? ( dev-lang/lua:5.4[deprecated(+)] ) >=dev-libs/glib-2.34.3:2 >=dev-libs/libgcrypt-1.5.3:0= >=media-libs/libquvi-scripts-0.9.20130903[lua_single_target_luajit(-)?,lua_single_target_lua5-1(-)?,lua_single_target_lua5-4(-)?] !<media-libs/quvi-0.4.0 >=net-libs/libproxy-0.4.11-r1 >=net-misc/curl-7.36.0 nls? ( >=virtual/libintl-0-r1 )
 DESCRIPTION=Library for parsing video download links
-EAPI=7
+EAPI=8
 HOMEPAGE=http://quvi.sourceforge.net/
 INHERIT=autotools lua-single
-IUSE=examples nls static-libs +lua_single_target_lua5-1
+IUSE=examples nls static-libs lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=AGPL-3
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) >=dev-libs/glib-2.34.3:2 >=dev-libs/libgcrypt-1.5.3:0= >=media-libs/libquvi-scripts-0.9.20130903[lua_single_target_lua5-1(-)?] !<media-libs/quvi-0.4.0 >=net-libs/libproxy-0.4.11-r1 >=net-misc/curl-7.36.0 nls? ( >=virtual/libintl-0-r1 )
-REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:=[deprecated(+)] ) lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated(+)] ) lua_single_target_lua5-4? ( dev-lang/lua:5.4[deprecated(+)] ) >=dev-libs/glib-2.34.3:2 >=dev-libs/libgcrypt-1.5.3:0= >=media-libs/libquvi-scripts-0.9.20130903[lua_single_target_luajit(-)?,lua_single_target_lua5-1(-)?,lua_single_target_lua5-4(-)?] !<media-libs/quvi-0.4.0 >=net-libs/libproxy-0.4.11-r1 >=net-misc/curl-7.36.0 nls? ( >=virtual/libintl-0-r1 )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-4 )
 SLOT=0/8
 SRC_URI=mirror://sourceforge/quvi/0.9/libquvi-0.9.4.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143
-_md5_=9d81aabdcf775a7e97e8a7ef36ec8c07
+_md5_=5f3ba94e825e5357d0fd2eb185ac9aa4
