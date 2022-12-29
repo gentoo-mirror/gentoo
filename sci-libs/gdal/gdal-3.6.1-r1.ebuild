@@ -170,6 +170,7 @@ src_configure() {
 		-DGDAL_USE_PCRE2=ON
 		-DGDAL_USE_PDFIUM=OFF
 		-DGDAL_USE_PNG=$(usex png)
+		-DGDAL_USE_PODOFO=OFF
 		-DGDAL_USE_POPPLER=$(usex pdf)
 		-DGDAL_USE_POSTGRESQL=$(usex postgres)
 		-DGDAL_USE_QHULL=OFF
