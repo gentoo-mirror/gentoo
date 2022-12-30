@@ -4,7 +4,7 @@
 EAPI=7
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/thomasdickey.asc
-inherit flag-o-matic toolchain-funcs multilib multilib-minimal preserve-libs usr-ldscript verify-sig
+inherit flag-o-matic toolchain-funcs multilib-minimal preserve-libs usr-ldscript verify-sig
 
 MY_PV="${PV:0:3}"
 MY_P="${PN}-${MY_PV}"
@@ -19,7 +19,7 @@ SRC_URI="
 "
 
 GENTOO_PATCH_DEV=sam
-GENTOO_PATCH_PV=6.3_p20220924
+GENTOO_PATCH_PV=6.3_p20221203
 GENTOO_PATCH_NAME=${PN}-${GENTOO_PATCH_PV}-patches
 
 # Populated below in a loop. Do not add patches manually here.
@@ -89,6 +89,16 @@ if [[ ${PV} == *_p* ]] ; then
 		20220903
 		20220910
 		20220917
+		20220924
+		20221001
+		20221008
+		20221015
+		20221023
+		20221029
+		20221105
+		20221112
+		20221119
+		20221126
 
 		# Latest patch is just _pN = $(ver_cut 4)
 		$(ver_cut 4)
@@ -133,7 +143,7 @@ fi
 LICENSE="MIT"
 # The subslot reflects the SONAME.
 SLOT="0/6"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="ada +cxx debug doc gpm minimal profile split-usr +stack-realign static-libs test tinfo trace"
 RESTRICT="!test? ( test )"
 
@@ -152,7 +162,7 @@ PATCHES=(
 	"${UPSTREAM_PATCHES[@]}"
 
 	# When rebasing Gentoo's patchset, please use git from a clean
-	# src_unpack with upstream patches already applied. git am --reject
+	# src_prepare with upstream patches already applied. git am --reject
 	# the existing patchset and rebase as required. This makes it easier
 	# to manage future rebasing & adding new patches.
 	#
@@ -183,7 +193,7 @@ src_configure() {
 	# bug #115036
 	unset TERMINFO
 
-	tc-export_build_env BUILD_{CC,CPP}
+	tc-export_build_env BUILD_{CC,CXX,CPP}
 
 	# bug #214642
 	BUILD_CPPFLAGS+=" -D_GNU_SOURCE"
@@ -220,6 +230,8 @@ src_configure() {
 		# We can't re-use the multilib BUILD_DIR because we run outside of it.
 		BUILD_DIR="${WORKDIR}" \
 		CC=${BUILD_CC} \
+		CXX=${BUILD_CXX} \
+		CPP=${BUILD_CPP} \
 		CHOST=${CBUILD} \
 		CFLAGS=${BUILD_CFLAGS} \
 		CXXFLAGS=${BUILD_CXXFLAGS} \
@@ -393,11 +405,6 @@ multilib_src_install() {
 			$(usex tinfo 'tinfow tinfo' '')
 	fi
 
-	if ! tc-is-static-only ; then
-		# Provide a link for -lcurses.
-		ln -sf libncurses$(get_libname) "${ED}"/usr/$(get_libdir)/libcurses$(get_libname) || die
-	fi
-
 	# Don't delete '*.dll.a', needed for linking, bug #631468
 	if ! use static-libs; then
 		find "${ED}"/usr/ -name '*.a' ! -name '*.dll.a' -delete || die
@@ -410,6 +417,13 @@ multilib_src_install() {
 	# -FIXME-
 	dosym $(sed 's@[^/]\+@..@g' <<< $(get_libdir))/share/terminfo \
 		/usr/$(get_libdir)/terminfo
+
+	# Remove obsolete libcurses symlink that is created by the build
+	# system. Technically, this could be also achieved
+	# via --disable-overwrite but it also moves headers implicitly,
+	# and we do not want to do this yet.
+	# bug #836696
+	rm "${ED}"/usr/$(get_libdir)/libcurses* || die
 }
 
 multilib_src_install_all() {
@@ -451,7 +465,7 @@ multilib_src_install_all() {
 	elif use minimal ; then
 		# Keep only the basic terminfo files
 		find "${ED}"/usr/share/terminfo/ \
-			-type f ${terms[*]/#/! -name } -delete , \
+			\( -type f -o -type l \) ${terms[*]/#/! -name } -delete , \
 			-type d -empty -delete || die
 	fi
 
