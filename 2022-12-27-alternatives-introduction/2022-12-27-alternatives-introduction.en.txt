@@ -66,6 +66,9 @@ deselecting eselect-awk and eselect-sh:
 2. # emerge --depclean app-eselect/eselect-awk app-eselect/eselect-sh
 3. # emerge --sync
 4. # emerge -a -uvDU @world (or other similar standard world upgrade command)
+5. # emerge --ask --depclean
+
+It's okay if nothing happens in Step 1 and Step 2 (no atoms to remove).
 
 ## Configuration
 
