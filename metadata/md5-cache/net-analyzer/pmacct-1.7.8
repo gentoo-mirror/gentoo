@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare unpack
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/libcdada net-libs/libpcap geoip? ( dev-libs/geoip ) geoipv2? ( dev-libs/libmaxminddb ) jansson? ( dev-libs/jansson:= ) kafka? ( dev-libs/librdkafka ) mysql? ( dev-db/mysql-connector-c:0= sys-process/numactl ) ndpi? ( >=net-libs/nDPI-3.2:= ) nflog? ( net-libs/libnetfilter_log ) postgres? ( dev-db/postgresql:* ) rabbitmq? ( net-libs/rabbitmq-c ) sqlite? ( =dev-db/sqlite-3* ) zmq? ( >=net-libs/zeromq-4.2.0:= )
 DESCRIPTION=A network tool to gather IP traffic information
 EAPI=8
 HOMEPAGE=http://www.pmacct.net/
-INHERIT=autotools toolchain-funcs systemd git-r3
+INHERIT=autotools toolchain-funcs systemd
 IUSE=+bgp-bins +bmp-bins geoip geoipv2 jansson kafka +l2 mysql ndpi nflog postgres rabbitmq sqlite +st-bins +traffic-bins zmq
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=dev-libs/libcdada net-libs/libpcap geoip? ( dev-libs/geoip ) geoipv2? ( dev-libs/libmaxminddb ) jansson? ( dev-libs/jansson:= ) kafka? ( dev-libs/librdkafka ) mysql? ( dev-db/mysql-connector-c:0= sys-process/numactl ) ndpi? ( >=net-libs/nDPI-3.2:= ) nflog? ( net-libs/libnetfilter_log ) postgres? ( dev-db/postgresql:* ) rabbitmq? ( net-libs/rabbitmq-c ) sqlite? ( =dev-db/sqlite-3* ) zmq? ( >=net-libs/zeromq-4.2.0:= )
 REQUIRED_USE=?? ( geoip geoipv2 ) kafka? ( jansson ) rabbitmq? ( jansson )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
+SRC_URI=https://github.com/pmacct/pmacct/releases/download/v1.7.8/pmacct-1.7.8.tar.gz http://www.pmacct.net/pmacct-1.7.8.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=c99b911d9af49ec99a061885f8023b7b
