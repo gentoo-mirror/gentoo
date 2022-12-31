@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
-inherit readme.gentoo-r1 distutils-r1
+inherit readme.gentoo-r1 systemd distutils-r1
 
 MY_V="${PV/_p/.post}"
 MY_P="${PN}-${MY_V}"
@@ -27,8 +27,7 @@ RDEPEND="
 	acct-user/buildbot
 	>=dev-python/autobahn-0.16.0[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-0.6.0[${PYTHON_USEDEP}]
-	>=dev-python/twisted-17.9.0[${PYTHON_USEDEP}]
-	dev-python/future[${PYTHON_USEDEP}]
+	>=dev-python/twisted-18.7.0[${PYTHON_USEDEP}]
 	!<dev-util/buildbot-1.0.0
 "
 BDEPEND="
@@ -48,17 +47,29 @@ resulting directories are owned by the \"buildbot\" user and point
 \"${ROOT}/etc/conf.d/buildbot_worker.myinstance\" at the right location.
 The scripts can	run as a different user if desired."
 
+src_prepare() {
+	# Remove shipped windows start script
+	sed -e "/'buildbot_worker_windows_service=buildbot_worker.scripts.windows_service:HandleCommandLine',/d" \
+		-i setup.py || die
+
+	distutils-r1_src_prepare
+}
+
 python_test() {
 	"${EPYTHON}" -m twisted.trial buildbot_worker || die "Tests failed with ${EPYTHON}"
 }
 
 python_install_all() {
+
 	distutils-r1_python_install_all
 
 	doman docs/buildbot-worker.1
 
 	newconfd "${FILESDIR}/buildbot_worker.confd2" buildbot_worker
 	newinitd "${FILESDIR}/buildbot_worker.initd2" buildbot_worker
+	systemd_dounit "${FILESDIR}/buildbot_worker.target"
+	systemd_newunit "${FILESDIR}/buildbot_worker_at.service" "buildbot_worker@.service"
+	systemd_install_serviced "${FILESDIR}/buildbot_worker_at.service.conf" "buildbot_worker@.service"
 
 	dodir /var/lib/buildbot_worker
 	cp "${FILESDIR}/buildbot.tac.sample" "${D}/var/lib/buildbot_worker"|| die "Install failed!"
