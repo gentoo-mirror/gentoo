@@ -14,15 +14,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+gif +svg +chm +harfbuzz +libunibreak +fribidi +zstd +libutf8proc"
 
-CDEPEND=">=app-text/crengine-ng-0.9.3[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=]
+CDEPEND=">=app-text/crengine-ng-0.9.4[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=]
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5"
 RDEPEND="${CDEPEND}"
 BDEPEND="${CDEPEND}
 	dev-qt/linguist-tools:5"
-
-PATCHES=( "${FILESDIR}"/${P}-typo.patch )
 
 src_prepare() {
 	cmake_src_prepare
