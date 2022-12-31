@@ -29,18 +29,18 @@ RDEPEND="
 	openssl? ( dev-libs/openssl:= )
 	zstd? ( app-arch/zstd:= )
 "
-DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-3.0.6-Switch-getrandom-and-arc4random_buf-usage-order.patch
-	"${FILESDIR}"/${P}-test-temporary.patch
-)
+DEPEND="
+	${RDEPEND}
+	test? ( dev-cpp/gtest )
+"
 
 src_configure() {
 	local mycmakeargs=(
 		-DMZ_COMPAT=$(usex compat)
+
 		-DMZ_BUILD_TESTS=$(usex test)
 		-DMZ_BUILD_UNIT_TESTS=$(usex test)
+
 		-DMZ_FETCH_LIBS=OFF
 		-DMZ_FORCE_FETCH_LIBS=OFF
 
@@ -55,8 +55,6 @@ src_configure() {
 		-DMZ_PKCRYPT=ON
 		-DMZ_WZAES=ON
 		-DMZ_OPENSSL=$(usex openssl)
-		# TODO: Re-enable, ideally unconditionally, for arc4random
-		# Revisit when https://github.com/zlib-ng/minizip-ng/pull/648 fixed
 		-DMZ_LIBBSD=ON
 		-DMZ_SIGNING=ON
 
@@ -81,6 +79,12 @@ src_test() {
 
 src_install() {
 	cmake_src_install
+
+	if use test ; then
+		# Test binaries, bug #874591
+		rm "${ED}"/usr/bin/minigzip || die
+		rm "${ED}"/usr/bin/minizip-ng || die
+	fi
 
 	if use compat ; then
 		ewarn "minizip-ng is experimental and replacing the system zlib[minizip] is dangerous"
