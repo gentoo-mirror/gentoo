@@ -1029,144 +1029,15 @@ dev-ruby/rspec-retry
 # no need for this package. Removal on 2023-01-03.
 x11-themes/mate-themes-meta
 
-# Hans de Graaff <graaff@gentoo.org> (2022-12-02)
-# Old cucumber slots and dependencies for already removed
-# cucumber-3. These have no value as standalone packages.
-# Removal in 14 days.
-dev-ruby/gherkin
-dev-util/cucumber-core:3.2
-dev-util/cucumber-expressions
-dev-util/cucumber-tag_expressions
-dev-util/cucumber-wire:0
-dev-util/protobuf-cucumber
-
-# Hans de Graaff <graaff@gentoo.org> (2022-12-01)
-# Old slot without dependencies on it. Blocks removal of
-# ruby27-only dev-util/cucumber-3.x. Use a newer slot instead.
-# Removal in 30 days.
-dev-util/aruba:1
-
-# Ulrich Müller <ulm@gentoo.org> (2022-11-30)
-# SLOTs 23 and 24 of app-editors/emacs, corresponding to GNU Emacs
-# versions 23.4 and 24.5. These versions were released in January 2012
-# and April 2015, respectively, and have a non-trivial security issue
-# with ctags. Please upgrade to >=app-editors/emacs-25 and update your
-# Emacs Lisp packages with emacs-updater.
-# Masked for removal in 30 days. Bugs #882347, #882349, #883687.
-app-editors/emacs:23
-app-editors/emacs:24
-
-# John Helmert III <ajak@gentoo.org> (2022-11-29)
-# Unmaintained and outdated in Gentoo, compatibility issues with
-# openssl-1.1. Removal in 30 days. Bug #696936.
-sys-apps/ucspi-ssl
-
-# John Helmert III <ajak@gentoo.org> (2022-11-29)
-# Authentication bypass vulnerability, unmaintained in Gentoo, source
-# package available. Use app-metrics/prometheus instead. Removal in 30
-# days. Bug #883637.
-app-metrics/prometheus-bin
-
 # Piotr Karbowski <slashbeast@gentoo.org> (2022-11-29)
 # Multiple stability issues, deadlocks on exit, broken API.
 # Bug #883559
 =net-p2p/qbittorrent-4.5.0
 
-# John Helmert III <ajak@gentoo.org> (2022-11-27)
-# Unmaintained upstream, several unresolved public vulnerabilities,
-# Removal in 30 days. Bug #882773.
-www-servers/boa
-
 # David Seifert <soap@gentoo.org> (2022-11-27)
 # Broke API for C++, causes massive carnage for consumers.
 # Bug #883223.
 ~dev-libs/glib-2.74.2
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-27)
-# Broken with OpenSSL-3.  Last upstream activity in 2021, no reply
-# to the bug.
-# Removal on 2022-12-27.  Bug #805233.
-net-dns/dog
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-27)
-# Broken with modern dev-python/setuptools versions.  Last upstream
-# commit in 2018.  No reverse dependencies.
-# Removal on 2022-12-27.  Bug #822840.
-dev-python/slimit
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-27)
-# Unmaintained.  HOMEPAGE is gone.  Uses GTK+2.
-# Removal on 2022-12-27.  Bug #821118.
-games-util/xgamer
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-27)
-# Unmaintained, ancient package.  x11-misc/unclutter-xfixes is
-# a superior replacement.
-# Removal on 2022-12-27.  Bug #880845.
-x11-misc/unclutter
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-27)
-# Unmaintained.  Last bumped in 2005.  Superseded by Python version
-# with last release in 2008, then by vnc2flv with last release in 2010.
-# Removal on 2022-12-27.  Bug #880927.
-x11-misc/vnc2swf
-
-# Michael Mair-Keimberger <mmk@levelnine.at> (2022-11-25)
-# Unmaintained, last release a decade ago, upstream declared it EOL
-# Removal in 30 days.
-net-analyzer/snortsam
-
-# John Helmert III <ajak@gentoo.org> (2022-11-24)
-# Binary package several releases behind the source-based package,
-# multiple vulnerabilities, unmaintained for several years. Removal in
-# 30 days. Bugs #849389, #882783.
-dev-db/percona-xtrabackup-bin
-
-# John Helmert III <ajak@gentoo.org> (2022-11-24)
-# Compatibility issues with openssl-1.1*, numerous build issues, version
-# in tree is EOL upstream. Removal in 30 days. Bug #882759.
-net-misc/cfengine
-
-# Pascal Jäger <pascal.jaeger@leimstift.de> (2022-11-24)
-# No maintainer, last release in 1994. Fails to build
-# with clang-16. Runtime crash in certain conditions.
-# Removal on 2022-12-23.
-# Bugs #549922 #713492 #731256 #875464 #882263
-# Removal Bug: #882631
-net-mail/metamail
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-23)
-# Unpredictable build failures reported.  No revdeps left.
-# dev-libs/opencl-icd-loader is a good replacement.
-# Removal on 2022-12-23.  Bug #733018.
-dev-libs/ocl-icd
-
-# Michał Górny <mgorny@gentoo.org> (2022-11-23)
-# Packages with no maintainer and major issues reported.
-#
-# app-cdr/xbiso: bug #882089, last release in 2005
-# app-emulation/dlx: bug #874933, last release in 2001
-# app-office/sc: bug #877051, last release in 2002
-# net-libs/ortp: bug #874003, last bumped in 2014
-# net-nntp/brag: revdep of app-text/uudeview
-# sys-apps/fakeroot-ng: bug #851543, last release in 2013
-# sys-apps/pmount-gui: bug #776397, last bumped in 2013, commit in 2019
-# www-apache/mod_common_redirect: bug #874660, bumped in 2010, repo gone
-#
-# Removal on 2022-12-23.
-app-cdr/xbiso
-app-emulation/dlx
-app-office/sc
-net-libs/ortp
-net-nntp/brag
-sys-apps/fakeroot-ng
-sys-apps/pmount-gui
-www-apache/mod_common_redirect
-
-# David Seifert <soap@gentoo.org> (2022-11-23)
-# EAPI 6, no revdeps in tree, never made it into upstream boost, library
-# only, last release 6 years ago. Removal on 2022-12-23.
-dev-libs/boost-mpl-cartesian_product
 
 # Matt Turner <mattst88@gentoo.org> (2022-11-16)
 # Packages or their dependencies have not been ported to libsoup:3.0, while
@@ -1175,11 +1046,6 @@ media-gfx/gnome-photos
 media-sound/gnome-music
 net-libs/libzapojit
 net-misc/gnome-online-miners
-
-# Jonas Stein <jstein@gentoo.org> (2022-11-13)
-# Dead upstream
-# Removal after 2023-01-01.  Bug #881249.
-net-mail/vchkuser
 
 # Jaco Kroon <jaco@uls.co.za> (2022-11-05)
 # Some potentially breaking changes here, please check the UPGRADE.txt file.
