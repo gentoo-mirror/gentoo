@@ -1855,7 +1855,6 @@ dev-libs/efl:efl-one - Combine multiple core libraries into one libefl.so
 dev-libs/efl:fribidi - Enable bidirectional text support
 dev-libs/efl:glib - Enable dev-libs/glib support
 dev-libs/efl:harfbuzz - Enable complex text shaping and layout support
-dev-libs/efl:heif - Enable HEIF image loader
 dev-libs/efl:hyphen - Enable text hyphenation support
 dev-libs/efl:ibus - Enable Intelligent Input Bus
 dev-libs/efl:ico - Enable Ico image loader
@@ -3506,7 +3505,6 @@ kde-frameworks/kglobalaccel:X - Build the kglobalacceld runtime needed for X
 kde-frameworks/kiconthemes:designer - Build plugins for dev-qt/designer
 kde-frameworks/kimageformats:avif - Support the AVIF image file format
 kde-frameworks/kimageformats:eps - Support the EPS graphics file format
-kde-frameworks/kimageformats:heif - Support for HEIF/HEIC images
 kde-frameworks/kimageformats:jpegxl - Support for JPEG XL image format
 kde-frameworks/kinit:caps - Capabilities support for improved security and better OOM handling
 kde-frameworks/kio:designer - Build plugins for dev-qt/designer
@@ -3904,14 +3902,12 @@ media-gfx/darktable:flickr - Add support for uploading photos to flickr
 media-gfx/darktable:gamepad - Support using game controllers as input devices
 media-gfx/darktable:geolocation - Enable geotagging support
 media-gfx/darktable:gmic - Use the G'MIC image-processing framework (media-gfx/gmic), e.g. to support Colour LUTs compressed using their compression scheme
-media-gfx/darktable:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/darktable:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 media-gfx/darktable:lto - Enable link-time optimisations in the RawSpeed library
 media-gfx/darktable:midi - Support using MIDI input devices such as Behringer X-Touch Mini, Arturia Beatstep or Korg nanoKONTROL2, as input devices
 media-gfx/darktable:opencl - Enable opencl support
 media-gfx/darktable:tools - Install tools for generating base curves and noise profiles
 media-gfx/digikam:addressbook - Enable akonadi contact integration
-media-gfx/digikam:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files using media-libs/x265
 media-gfx/digikam:imagemagick - Enable support for additional image formats such as XCF, FITS, HEIC etc.
 media-gfx/digikam:lensfun - Enable support for media-libs/lensfun
 media-gfx/digikam:marble - Enable support for geolocation using kde-apps/marble
@@ -3959,10 +3955,8 @@ media-gfx/freecad:techdraw - Build the techdraw module and workbench, a more adv
 media-gfx/freecad:tux - Build the Tux module
 media-gfx/geeqie:ffmpegthumbnailer - Enable video thumbnail support with media-video/ffmpegthumbnailer
 media-gfx/geeqie:gpu-accel - Enable GPU acceleration support - experimental
-media-gfx/geeqie:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/geeqie:jpegxl - Enable support for JPEG XL image format
 media-gfx/geeqie:map - Enable items GPS map display
-media-gfx/gimp:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/gimp:jpegxl - Enable support for JPEG XL image format
 media-gfx/gimp:vector-icons - Enable support for vector icons (experimental)
 media-gfx/gmic:cli - Build CLI interface
@@ -3970,7 +3964,6 @@ media-gfx/gmic:opencv - Enable support for webcams using the OpenCV library
 media-gfx/gnome-photos:flickr - Ensure runtime Flickr support
 media-gfx/graphicsmagick:dynamic-loading - Compile graphicsmagick with dynamically loadable modules
 media-gfx/graphicsmagick:fpx - Enable FlashPix support with media-libs/libfpx
-media-gfx/graphicsmagick:heif - Add HEIF/HEIC image support
 media-gfx/graphicsmagick:jpegxl - Enable support for JPEG XL image format
 media-gfx/graphicsmagick:q16 - Set storage quantum size to 16 (~2*memory)
 media-gfx/graphicsmagick:q32 - Set storage quantum size to 32 (~5*memory)
@@ -3979,7 +3972,6 @@ media-gfx/graphviz:devil - Enables DevIL output plugin -Tdevil
 media-gfx/graphviz:gtk2 - Enables gtk+ output plugin -Tgtk (needs cairo)
 media-gfx/graphviz:gts - Enables support for GNU Triangulated Surface Library (required for sfdp to work)
 media-gfx/graphviz:lasi - Enables PostScript output via media-libs/lasi, for plugin -Tlasi (needs cairo)
-media-gfx/gthumb:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/gthumb:http - Enable webservice integration through net-libs/webkit-gtk
 media-gfx/gthumb:jpegxl - Support for JPEG XL image format
 media-gfx/gthumb:slideshow - Enable slideshow plugin
@@ -3987,14 +3979,12 @@ media-gfx/hugin:sift - automatically align images with media-gfx/autopano-sift-C
 media-gfx/imagemagick:corefonts - Use media-fonts/corefonts which is required by some commands
 media-gfx/imagemagick:fpx - Enable media-libs/libfpx support
 media-gfx/imagemagick:hdri - Enable High Dynamic Range Images formats
-media-gfx/imagemagick:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/imagemagick:lqr - Enable experimental liquid rescale support using media-libs/liblqr
 media-gfx/imagemagick:opencl - Enable OpenCL support
 media-gfx/imagemagick:pango - Enable Pango support using x11-libs/pango
 media-gfx/imagemagick:q32 - Set quantum depth value to 32
 media-gfx/imagemagick:q8 - Set quantum depth value to 8
 media-gfx/imv:freeimage - Use media-libs/freeimage for additional image support
-media-gfx/imv:heif - Add HEIF/HEIC image support
 media-gfx/inkscape:cdr - Enable support for CorelDRAW files via media-libs/libcdr
 media-gfx/inkscape:dia - Enable DIA flow chart import via app-office/dia
 media-gfx/inkscape:inkjar - Enable support for OpenOffice.org SVG jar files
@@ -4008,7 +3998,6 @@ media-gfx/kphotoalbum:qtav - Enable media-libs/qtav video backend (audio and vid
 media-gfx/kphotoalbum:share - Enable support for a share menu using kde-frameworks/purpose
 media-gfx/kphotoalbum:vlc - Enable media-video/vlc video backend (recommended for X11)
 media-gfx/krita:color-management - Enable color management via media-libs/opencolorio
-media-gfx/krita:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 media-gfx/krita:jpegxl - Support for JPEG XL image format
 media-gfx/krita:mypaint-brush-engine - Enable MyPaint brush engine support media-libs/libmypaint
 media-gfx/krita:qtmedia - Enable sound support for animations via dev-qt/qtmultimedia
@@ -4112,7 +4101,6 @@ media-libs/freeverb3:forcefpu - Disable assembly code
 media-libs/freeverb3:plugdouble - Build plugins in double precision mode (default is float)
 media-libs/ganv:fdgl - Use experimental force-directed graph layout
 media-libs/gd:avif - Enable support for the avif format via media-libs/libavif
-media-libs/gd:heif - Enable support for the heif format via media-libs/libheif
 media-libs/gd:webp - Enable support for the webp format
 media-libs/gegl:lensfun - Enable support for media-libs/lensfun.
 media-libs/gegl:sdl2 - Add support for Simple Direct Layer 2.0 (media-libs/libsdl2)
@@ -7023,7 +7011,6 @@ sci-astronomy/predict:xplanet - Project predict data onto world maps generated b
 sci-astronomy/psfex:plplot - Build with sci-libs/plplot to allow diagnostic plots during processing
 sci-astronomy/scamp:plplot - Build with sci-libs/plplot to allow diagnostic plots during processing
 sci-astronomy/sextractor:modelfit - Enable profile model fitting, needs sci-libs/atlas and sci-libs/fftw
-sci-astronomy/siril:heif - Add support for the HEIF image format
 sci-astronomy/siril:libconfig - Require dev-libs/libconfig to read old configuration files
 sci-astronomy/siril:wcs - Add supprt astrometry features using sci-astronomy/wcslib
 sci-astronomy/stellarium:deep-sky - Install extra deep sky objects catalog (may affect performance)
@@ -7268,7 +7255,6 @@ sci-libs/gdal:armadillo - Use sci-libs/armadillo for faster TPS transform comput
 sci-libs/gdal:fits - Enable support for NASA's sci-libs/cfitsio library
 sci-libs/gdal:geos - Add support for geometry engine (sci-libs/geos)
 sci-libs/gdal:gml - Enable support for dev-libs/xerces-c C++ API
-sci-libs/gdal:heif - Enable support for ISO/IEC 23008-12:2017 HEIF/HEIC image format using media-libs/libheif
 sci-libs/gdal:ogdi - Enable support for the open geographic datastore interface (sci-libs/ogdi)
 sci-libs/gdal:opencl - Enable OpenCL support
 sci-libs/gdal:spatialite - Enable Spatial DBMS over sqlite dev-db/spatialite
