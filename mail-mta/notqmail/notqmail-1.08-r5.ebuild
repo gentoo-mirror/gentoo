@@ -56,7 +56,7 @@ SRC_URI="${SRC_URI}
 
 LICENSE="public-domain"
 SLOT="0"
-IUSE=" gencertdaily highvolume qmail-spp ssl test vanilla"
+IUSE=" gencertdaily highvolume pop3 qmail-spp ssl test vanilla"
 REQUIRED_USE="vanilla? ( !ssl !qmail-spp !highvolume !gencertdaily ) gencertdaily? ( ssl )"
 RESTRICT="!test? ( test )"
 
