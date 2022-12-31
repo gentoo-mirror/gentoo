@@ -1,24 +1,23 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# USE_{DRACO,FFMPEG,FREEIMAGE,FREETYPE,GLES2,OPENGL,OPENVR,RAPIDJSON,TBB,TK,VTK,XLIB}
-
 EAPI=8
 
 inherit cmake
 
 MY_SLOT="$(ver_cut 1-2)"
-MY_PV="$(ver_rs 3 '-')"
+COMMIT="b079fb9877ef64d4a8158a60fa157f59b096debb"
+COMMIT_SHORT="${COMMIT:0:7}"
 
 DESCRIPTION="Development platform for CAD/CAE, 3D surface/solid modeling and data exchange"
 HOMEPAGE="https://www.opencascade.com"
-SRC_URI="https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=185d29b92f6764ffa9fc195b7dbe7bba3c4ac855;sf=tgz -> ${P}.tar.gz"
-S="${WORKDIR}/occt-185d29b"
+SRC_URI="https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=${COMMIT};sf=tgz -> ${P}.tar.gz"
+S="${WORKDIR}/occt-${COMMIT_SHORT}"
 
 LICENSE="|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )"
 SLOT="0/${MY_SLOT}"
-KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
-IUSE="doc examples ffmpeg freeimage gles2 json optimize tbb vtk"
+KEYWORDS="amd64 ~arm64 ~riscv ~x86"
+IUSE="doc eigen examples ffmpeg freeimage gles2 json optimize tbb vtk"
 
 REQUIRED_USE="?? ( optimize tbb )"
 
@@ -26,15 +25,20 @@ REQUIRED_USE="?? ( optimize tbb )"
 # properly set up.
 RESTRICT="test"
 
-# ffmpeg: https://tracker.dev.opencascade.org/view.php?id=32871
+# ffmpeg: https://dev.opencascade.org/content/build-error-when-compiling-against-ffmpeg-5
 RDEPEND="
 	!app-eselect/eselect-opencascade
 	dev-lang/tcl:=
 	dev-lang/tk:=
+	dev-tcltk/itcl
+	dev-tcltk/itk
+	dev-tcltk/tix
 	media-libs/fontconfig
 	media-libs/freetype:2
+	media-libs/ftgl
+	virtual/glu
 	virtual/opengl
-	x11-libs/libXmu
+	x11-libs/libX11
 	examples? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -49,20 +53,22 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	eigen? ( dev-cpp/eigen )
 	json? ( dev-libs/rapidjson )
 	vtk? ( dev-libs/utfcpp )
 "
 BDEPEND="
-	doc? ( app-doc/doxygen )
+	doc? ( app-doc/doxygen[dot] )
 	examples? ( dev-qt/linguist-tools:5 )
 "
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-7.5.1-0004-fix-installation-of-cmake-config-files.patch
 	"${FILESDIR}"/${PN}-7.5.1-0005-fix-write-permissions-on-scripts.patch
 	"${FILESDIR}"/${PN}-7.5.1-0006-fix-creation-of-custom.sh-script.patch
-	"${FILESDIR}"/${PN}-7.7.0-add-missing-include-limits.patch
-	"${FILESDIR}"/${PN}-7.7.0-fix-installation-of-cmake-config-files.patch
-	"${FILESDIR}"/${PN}-7.7.0-avoid-pre-stripping-binaries.patch
+	"${FILESDIR}"/${PN}-7.6.2-avoid-pre-stripping-binaries.patch
+	"${FILESDIR}"/${PN}-7.5.3-tbb-2021.patch
+	"${FILESDIR}"/${PN}-7.7.0-build-against-vtk-9.2.patch
 )
 
 src_prepare() {
@@ -101,9 +107,7 @@ src_configure() {
 		-DUSE_D3D=NO
 		# no package yet in tree
 		-DUSE_DRACO=OFF
-		# has no function in 7.7.0_beta
-		# see https://dev.opencascade.org/content/occt-770-beta-version-available#comment-23733
-		-DUSE_EIGEN=OFF
+		-DUSE_EIGEN=$(usex eigen)
 		-DUSE_FFMPEG=$(usex ffmpeg)
 		-DUSE_FREEIMAGE=$(usex freeimage)
 		-DUSE_FREETYPE=ON
@@ -127,29 +131,17 @@ src_configure() {
 		)
 	fi
 
-	if use tbb; then
-		mycmakeargs+=( -D3RDPARTY_TBB_DIR="${ESYSROOT}"/usr )
-	fi
-
 	if use vtk; then
+		mycmakeargs+=(
+			-D3RDPARTY_VTK_DIR="${ESYSROOT}"/usr
+			-D3RDPARTY_VTK_LIBRARY_DIR="${ESYSROOT}"/usr/$(get_libdir)
+		)
 		if has_version ">=sci-libs/vtk-9.2.0"; then
-			mycmakeargs+=(
-				-D3RDPARTY_VTK_DIR="${ESYSROOT}"/usr
-				-D3RDPARTY_VTK_INCLUDE_DIR="${ESYSROOT}"/usr/include/vtk-9.2
-				-D3RDPARTY_VTK_LIBRARY_DIR="${ESYSROOT}"/usr/$(get_libdir)
-			)
+			mycmakeargs+=( -D3RDPARTY_VTK_INCLUDE_DIR="${ESYSROOT}"/usr/include/vtk-9.2 )
 		elif has_version ">=sci-libs/vtk-9.1.0"; then
-			mycmakeargs+=(
-				-D3RDPARTY_VTK_DIR="${ESYSROOT}"/usr
-				-D3RDPARTY_VTK_INCLUDE_DIR="${ESYSROOT}"/usr/include/vtk-9.1
-				-D3RDPARTY_VTK_LIBRARY_DIR="${ESYSROOT}"/usr/$(get_libdir)
-			)
+			mycmakeargs+=( -D3RDPARTY_VTK_INCLUDE_DIR="${ESYSROOT}"/usr/include/vtk-9.1 )
 		elif has_version ">=sci-libs/vtk-9.0.0"; then
-			mycmakeargs+=(
-				-D3RDPARTY_VTK_DIR="${ESYSROOT}"/usr
-				-D3RDPARTY_VTK_INCLUDE_DIR="${ESYSROOT}"/usr/include/vtk-9.0
-				-D3RDPARTY_VTK_LIBRARY_DIR="${ESYSROOT}"/usr/$(get_libdir)
-			)
+			mycmakeargs+=( -D3RDPARTY_VTK_INCLUDE_DIR="${ESYSROOT}"/usr/include/vtk-9.0 )
 		fi
 	fi
 
