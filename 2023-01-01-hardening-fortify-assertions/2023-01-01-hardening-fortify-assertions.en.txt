@@ -39,9 +39,10 @@ of these improvements early, before GCC 12 is marked stable.
 
 To fully take advantage of these new settings, GCC must first
 be upgraded, and then all packages must be re-emerged:
-1. emerge --sync
-2. emerge --verbose --oneshot ">=sys-devel/gcc-12.2.1_p20221231"
-3. emerge --verbose --emptytree @world
+1. # emerge --sync
+2. # emerge --verbose --oneshot ">=sys-devel/gcc-12.2.1_p20221231"
+3. # gcc-config latest
+4. # emerge --verbose --emptytree @world
 
 ## Troubleshooting
 
