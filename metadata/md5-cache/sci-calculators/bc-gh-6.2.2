@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure test
+DEPEND=!readline? ( libedit? ( dev-libs/libedit:= ) ) readline? ( sys-libs/readline:= sys-libs/ncurses:= )
+DESCRIPTION=Implementation of POSIX bc with GNU extensions
+EAPI=8
+HOMEPAGE=https://git.yzena.com/gavin/bc/ https://github.com/gavinhoward/bc/
+IUSE=libedit readline
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=BSD-2
+RDEPEND=!readline? ( libedit? ( dev-libs/libedit:= ) ) readline? ( sys-libs/readline:= sys-libs/ncurses:= )
+SLOT=0
+SRC_URI=https://github.com/gavinhoward/bc/releases/download/6.2.2/bc-6.2.2.tar.xz
+_md5_=35573a667b5c7b4146cd9fb90c0c5103

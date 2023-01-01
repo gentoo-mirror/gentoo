@@ -1,15 +1,16 @@
+BDEPEND=dev-ml/ocamlbuild
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-4.03:= dev-ml/ocamlbuild >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=>=dev-lang/ocaml-4.03:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Uchar compatibility library
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/ocaml/uchar
-INHERIT=findlib
+INHERIT=edo findlib
 IUSE=+ocamlopt +ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv x86
 LICENSE=LGPL-2-with-linking-exception
-RDEPEND=>=dev-lang/ocaml-4.03:= dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=>=dev-lang/ocaml-4.03:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=test
 SLOT=0/0.0.2
 SRC_URI=https://github.com/ocaml/uchar/archive/v0.0.2.tar.gz -> uchar-0.0.2.tar.gz
-_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9
-_md5_=3473ec7ad00112f6fbc14d18463c12e5
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	findlib	d8fa93cf137156660d0b72144b1e31d9
+_md5_=c6feab96bb138a6d2ecf8dc24c90a5ee
