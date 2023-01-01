@@ -26,12 +26,12 @@ techniques:
 2. libstdc++ assertions (-D_GLIBCXX_ASSERTIONS) [1]
 
 These will both be enabled by default with USE=hardened on sys-devel/gcc
-for >=sys-devel/gcc-12.2.1_p20221224-r1.
+for >=sys-devel/gcc-12.2.1_p20221231.
 
 To view the existing list of hardening changes applied by the profiles,
 see the wiki [2].
 
-Stable users may wish to add sys-devel/gcc-12.2.1_p20221224-r1 into
+Stable users may wish to add sys-devel/gcc-12.2.1_p20221231 into
 /etc/portage/package.accept_keywords if they wish to take advantage
 of these improvements early, before GCC 12 is marked stable.
 
@@ -40,7 +40,7 @@ of these improvements early, before GCC 12 is marked stable.
 To fully take advantage of these new settings, GCC must first
 be upgraded, and then all packages must be re-emerged:
 1. emerge --sync
-2. emerge --verbose --oneshot ">=sys-devel/gcc-12.2.1_p20221224-r1"
+2. emerge --verbose --oneshot ">=sys-devel/gcc-12.2.1_p20221231"
 3. emerge --verbose --emptytree @world
 
 ## Troubleshooting
