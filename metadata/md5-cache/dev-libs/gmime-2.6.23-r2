@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/gtk-doc-am-1.8 virtual/pkgconfig doc? ( app-text/docbook-sgml-utils ) test? ( app-crypt/gnupg ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2 sys-libs/zlib smime? ( >=app-crypt/gpgme-1.1.6:= ) vala? ( >=dev-libs/gobject-introspection-1.30.0:= ) virtual/libiconv
+DESCRIPTION=Library for creating and parsing MIME messages
+EAPI=8
+HOMEPAGE=http://spruce.sourceforge.net/gmime/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic gnome2 vala
+IUSE=doc smime test vala
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris ~x86-solaris
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/glib:2 sys-libs/zlib smime? ( >=app-crypt/gpgme-1.1.6:= ) vala? ( >=dev-libs/gobject-introspection-1.30.0:= )
+RESTRICT=!test? ( test )
+SLOT=2.6
+SRC_URI=mirror://gnome/sources/gmime/2.6/gmime-2.6.23.tar.xz
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f	vala	160a8a30a6cb9aa601e5441c643a7c61
+_md5_=8b3aa8b0d7e0aabb902d245897c0e6a3

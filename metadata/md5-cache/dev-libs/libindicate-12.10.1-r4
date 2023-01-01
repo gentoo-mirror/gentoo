@@ -1,0 +1,16 @@
+BDEPEND=app-text/gnome-doc-utils dev-util/gtk-doc-am gnome-base/gnome-common virtual/pkgconfig || ( dev-lang/vala:0.56[vapigen(+)] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/dbus-glib dev-libs/glib:2 dev-libs/libdbusmenu[introspection?] dev-libs/libxml2 gtk? ( dev-libs/libdbusmenu[gtk3] x11-libs/gtk+:3 ) introspection? ( >=dev-libs/gobject-introspection-1 )
+DESCRIPTION=Library to raise flags on DBus for other components of the desktop
+EAPI=8
+HOMEPAGE=https://launchpad.net/libindicate
+INHERIT=autotools vala
+IUSE=gtk +introspection
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv sparc x86
+LICENSE=LGPL-2.1 LGPL-3
+RDEPEND=dev-libs/dbus-glib dev-libs/glib:2 dev-libs/libdbusmenu[introspection?] dev-libs/libxml2 gtk? ( dev-libs/libdbusmenu[gtk3] x11-libs/gtk+:3 ) introspection? ( >=dev-libs/gobject-introspection-1 )
+RESTRICT=test
+SLOT=3
+SRC_URI=https://launchpad.net/libindicate/12.10/12.10.1/+download/libindicate-12.10.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	vala	160a8a30a6cb9aa601e5441c643a7c61
+_md5_=2eecf4f5a3ed828bc712e624b7afe043
