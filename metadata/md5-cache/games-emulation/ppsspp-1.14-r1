@@ -1,11 +1,11 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= dev-util/glslang:= media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/56.58.58 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
 DESCRIPTION=A PSP emulator written in C++
 EAPI=8
 HOMEPAGE=https://www.ppsspp.org/ https://github.com/hrydgard/ppsspp/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=xdg cmake
+INHERIT=python-any-r1 xdg cmake
 IUSE=discord qt5
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD BSD-2 GPL-2 JSON MIT
@@ -13,5 +13,5 @@ RDEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= dev-util/glslang:= m
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/hrydgard/ppsspp/releases/download/v1.14/ppsspp-1.14.tar.xz
-_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	cmake	646b7a2a63596361551a6c1fabf28057
-_md5_=a57fa83f5cf45789086db7b6b59af303
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	flag-o-matic	69394e25812406faa1f90edaf4969395	ninja-utils	38c85b725d0467e51954ea921b6c104b	cmake	646b7a2a63596361551a6c1fabf28057
+_md5_=6d6b2d71b408ffbdae614f1e8d8d066d
