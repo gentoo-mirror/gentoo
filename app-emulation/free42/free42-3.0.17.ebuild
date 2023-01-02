@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+alsa"
 
-DEPEND="dev-libs/atk
+DEPEND="app-accessibility/at-spi2-core
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
@@ -28,13 +28,9 @@ DOCS=( CREDITS HISTORY README )
 S="${WORKDIR}/${MY_PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.5.16-fix-makefile.patch"
-	"${FILESDIR}/${PN}-2.5.3-fix-build-intel-lib.patch"
+	"${FILESDIR}/${PN}-3.0.14-fix-makefile.patch"
+	"${FILESDIR}/${PN}-3.0.16-fix-build-intel-lib.patch"
 )
-
-src_prepare() {
-	default
-}
 
 src_compile() {
 	local myconf
