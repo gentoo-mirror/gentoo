@@ -1,10 +1,10 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: s6.eclass
 # @MAINTAINER:
 # William Hubbs <williamh@gentoo.org>
-# @SUPPORTED_EAPIS: 5 6 7 8
+# @SUPPORTED_EAPIS: 8
 # @BLURB: helper functions to install s6 services
 # @DESCRIPTION:
 # This eclass provides helpers to install s6 services.
@@ -26,7 +26,7 @@
 # @CODE
 
 case ${EAPI} in
-	5|6|7|8) ;;
+	8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -42,7 +42,7 @@ _s6_get_servicedir() {
 # @DESCRIPTION:
 # Output the path for the s6 service directory (not including ${D}).
 s6_get_servicedir() {
-	debug-print-function ${FUNCNAME} "${@}"
+	debug-print-function ${FUNCNAME} "$@"
 
 	echo "${EPREFIX}$(_s6_get_servicedir)"
 }
@@ -55,22 +55,22 @@ s6_get_servicedir() {
 # run is the run script for the service.
 # finish is the optional finish script for the service.
 s6_install_service() {
-	debug-print-function ${FUNCNAME} "${@}"
+	debug-print-function ${FUNCNAME} "$@"
 
 	local name="$1"
 	local run="$2"
 	local finish="$3"
 
-	[[ $name ]] ||
+	[[ -z ${name} ]] &&
 		die "${ECLASS}.eclass: you must specify the s6 service name"
-	[[ $run ]] ||
+	[[ -z ${run} ]] &&
 		die "${ECLASS}.eclass: you must specify the s6 service run script"
 
 	(
-	local servicepath="$(_s6_get_servicedir)/$name"
-	exeinto "$servicepath"
-	newexe "$run" run
-	[[ $finish ]] && newexe "$finish" finish
+		local servicepath="$(_s6_get_servicedir)/${name}"
+		exeinto "${servicepath}"
+		newexe "${run}" run
+		[[ -n ${finish} ]] && newexe "${finish}" finish
 	)
 }
 
@@ -81,18 +81,17 @@ s6_install_service() {
 # default.
 # servicename is the name of the service.
 s6_service_down() {
-	debug-print-function ${FUNCNAME} "${@}"
+	debug-print-function ${FUNCNAME} "$@"
 
 	local name="$1"
-
-	[[ $name ]] ||
+	[[ -z ${name} ]] &&
 		die "${ECLASS}.eclass: you must specify the s6 service name"
 
 	(
-	touch "$T"/down || die
-	local servicepath="$(_s6_get_servicedir)/$name"
-	insinto "$servicepath"
-	doins "$T"/down
+		touch "${T}"/down || die
+		local servicepath="$(_s6_get_servicedir)/${name}"
+		insinto "${servicepath}"
+		doins "${T}"/down
 	)
 }
 
@@ -103,17 +102,16 @@ s6_service_down() {
 # leader.
 # servicename is the name of the service.
 s6_service_nosetsid() {
-	debug-print-function ${FUNCNAME} "${@}"
+	debug-print-function ${FUNCNAME} "$@"
 
 	local name="$1"
-
-	[[ $name ]] ||
+	[[ -z ${name} ]] &&
 		die "${ECLASS}.eclass: you must specify the s6 service name"
 
 	(
-	touch "$T"/nosetsid || die
-	local servicepath="$(_s6_get_servicedir)/$name"
-	insinto "$servicepath"
-	doins "$T"/nosetsid
+		touch "${T}"/nosetsid || die
+		local servicepath="$(_s6_get_servicedir)/${name}"
+		insinto "${servicepath}"
+		doins "${T}"/nosetsid
 	)
 }
