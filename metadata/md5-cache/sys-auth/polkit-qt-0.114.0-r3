@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install nofetch prepare test unpack
-DEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 >=sys-auth/polkit-0.103
+DEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 >=sys-auth/polkit-0.103[daemon(+)]
 DESCRIPTION=Qt wrapper around polkit-1 client libraries
 EAPI=8
 HOMEPAGE=https://api.kde.org/polkit-qt-1/html/
 INHERIT=cmake kde.org
 KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
 LICENSE=LGPL-2
-RDEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 >=sys-auth/polkit-0.103
+RDEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 >=sys-auth/polkit-0.103[daemon(+)]
 SLOT=0
 SRC_URI=mirror://kde/stable/polkit-qt-1/polkit-qt-1-0.114.0.tar.xz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	kde.org	5dd311d12cdba33b446368fad288784d
-_md5_=e8a699af1c6b476ce5254e8e05ee9161
+_md5_=0bdf692abec68e0aec39b30c67aaaaf7
