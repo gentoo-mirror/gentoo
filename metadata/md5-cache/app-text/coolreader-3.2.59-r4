@@ -1,4 +1,4 @@
-BDEPEND=sys-libs/zlib app-arch/zstd:= media-libs/libpng:0 virtual/jpeg:0 media-libs/freetype dev-libs/fribidi media-libs/fontconfig media-libs/harfbuzz:= dev-libs/libunibreak:= dev-libs/libutf8proc:= wxwidgets? ( x11-libs/wxGTK:3.0-gtk3 ) !wxwidgets? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) !wxwidgets? ( dev-qt/linguist-tools:5 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=sys-libs/zlib app-arch/zstd:= media-libs/libpng:0 media-libs/libjpeg-turbo media-libs/freetype dev-libs/fribidi media-libs/fontconfig media-libs/harfbuzz:= dev-libs/libunibreak:= dev-libs/libutf8proc:= wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) !wxwidgets? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) !wxwidgets? ( dev-qt/linguist-tools:5 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=CoolReader - reader of eBook files (fb2,epub,htm,rtf,txt)
@@ -8,8 +8,8 @@ INHERIT=cmake plocale wxwidgets xdg
 IUSE=wxwidgets
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=sys-libs/zlib app-arch/zstd:= media-libs/libpng:0 virtual/jpeg:0 media-libs/freetype dev-libs/fribidi media-libs/fontconfig media-libs/harfbuzz:= dev-libs/libunibreak:= dev-libs/libutf8proc:= wxwidgets? ( x11-libs/wxGTK:3.0-gtk3 ) !wxwidgets? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) wxwidgets? ( || ( media-fonts/liberation-fonts media-fonts/corefonts ) )
+RDEPEND=sys-libs/zlib app-arch/zstd:= media-libs/libpng:0 media-libs/libjpeg-turbo media-libs/freetype dev-libs/fribidi media-libs/fontconfig media-libs/harfbuzz:= dev-libs/libunibreak:= dev-libs/libutf8proc:= wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) !wxwidgets? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) wxwidgets? ( || ( media-fonts/liberation-fonts media-fonts/corefonts ) )
 SLOT=0
 SRC_URI=https://github.com/buggins/coolreader/archive/cr3.2.59.tar.gz -> coolreader-3.2.59.tar.gz
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	plocale	950fbaec7deeba41b5bcc0572cca99b9	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	xdg	6024fbc93167fad782e2032933654857
-_md5_=13bd78abfbf12c4fe69812b97a27d5d3
+_md5_=bf8597b25a260ff9944845de774bb1f8
