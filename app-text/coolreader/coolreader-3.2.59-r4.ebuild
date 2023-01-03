@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,14 +21,14 @@ IUSE="wxwidgets"
 CDEPEND="sys-libs/zlib
 	app-arch/zstd:=
 	media-libs/libpng:0
-	virtual/jpeg:0
+	media-libs/libjpeg-turbo
 	media-libs/freetype
 	dev-libs/fribidi
 	media-libs/fontconfig
 	media-libs/harfbuzz:=
 	dev-libs/libunibreak:=
 	dev-libs/libutf8proc:=
-	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER} )
+	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER}[X] )
 	!wxwidgets? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )"
 BDEPEND="${CDEPEND}
 	!wxwidgets? ( dev-qt/linguist-tools:5 )"
