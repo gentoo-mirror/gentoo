@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,17 +10,17 @@ SRC_URI="mirror://debian/pool/main/d/${PN}/${P/-/_}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="+bzip2 libmd +lzma nls selinux static-libs test +update-alternatives +zlib"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="+bzip2 +lzma nls selinux static-libs test +update-alternatives +zlib"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-arch/gzip-1.7
 	>=app-arch/tar-1.34-r1
+	app-crypt/libmd
 	>=dev-lang/perl-5.14.2:=
 	sys-libs/ncurses:=[unicode(+)]
 	bzip2? ( app-arch/bzip2 )
-	libmd? ( app-crypt/libmd )
 	lzma? ( app-arch/xz-utils )
 	nls? ( virtual/libintl )
 	selinux? ( sys-libs/libselinux )
@@ -43,11 +43,7 @@ BDEPEND="
 		>=sys-devel/gettext-0.18.2
 	)
 "
-DOCS=(
-	ChangeLog
-	THANKS
-	TODO
-)
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.18.12-flags.patch
 )
@@ -57,25 +53,34 @@ src_prepare() {
 
 	sed -i -e 's|\<ar\>|${AR}|g' src/at/deb-format.at src/at/testsuite || die
 
+	# upstream sets 200, that's a bit too short.
+	# it may not fail in real usage, but fails with /var/tmp/portage/$cat/pkg added.
+	# on my system it's exactly 201 characters.
+	sed -i -e 's/char\ buf\[200\]/char\ buf\[300\]/' src/deb/extract.c || die
+
 	eautoreconf
 }
 
 src_configure() {
 	tc-export AR CC
 
-	econf \
-		$(use_enable nls) \
-		$(use_enable update-alternatives) \
-		$(use_with bzip2 libbz2) \
-		$(use_with libmd) \
-		$(use_with lzma liblzma) \
-		$(use_with selinux libselinux) \
-		$(use_with zlib libz) \
-		--enable-unicode \
-		--disable-compiler-warnings \
-		--disable-dselect \
-		--disable-start-stop-daemon \
+	local myconf=(
+		--disable-compiler-warnings
+		--disable-devel-docs
+		--disable-dselect
+		--disable-start-stop-daemon
+		--enable-unicode
 		--localstatedir="${EPREFIX}"/var
+		$(use_enable nls)
+		$(use_enable update-alternatives)
+		$(use_with bzip2 libbz2)
+		$(use_with lzma liblzma)
+		$(use_with selinux libselinux)
+		$(use_with zlib libz)
+
+	)
+
+	econf "${myconf[@]}"
 }
 
 src_compile() {
@@ -83,6 +88,7 @@ src_compile() {
 }
 
 src_install() {
+	local DOCS=( debian/changelog THANKS TODO )
 	default
 
 	keepdir \
