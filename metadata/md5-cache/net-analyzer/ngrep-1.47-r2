@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/
 DEFINED_PHASES=compile configure prepare
 DEPEND=dev-libs/libpcre net-libs/libpcap
 DESCRIPTION=A grep for network layers
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/jpr5/ngrep
 INHERIT=autotools
 IUSE=ipv6
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/libpcre net-libs/libpcap acct-group/ngrep acct-user/ngrep
 SLOT=0
 SRC_URI=https://github.com/jpr5/ngrep/archive/V1_47.tar.gz -> ngrep-1.47.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=f3b243dce21cfad325364c35635d8e6a
+_md5_=5e084b6c04c056960862422cea1e5bb2
