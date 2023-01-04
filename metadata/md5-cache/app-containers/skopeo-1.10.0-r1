@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-md2man >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=>=app-crypt/gpgme-1.5.5:= >=dev-libs/libassuan-2.4.3:= dev-libs/libgpg-error:= btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) >=sys-fs/lvm2-2.02.145:=
+DESCRIPTION=Command line utility foroperations on container images and image repositories
+EAPI=8
+HOMEPAGE=https://github.com/containers/skopeo
+INHERIT=go-module
+IUSE=btrfs
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT
+RDEPEND=>=app-crypt/gpgme-1.5.5:= >=dev-libs/libassuan-2.4.3:= dev-libs/libgpg-error:= btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) >=sys-fs/lvm2-2.02.145:=
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/containers/skopeo/archive/v1.10.0.tar.gz -> skopeo-1.10.0.tar.gz
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
+_md5_=f0a85a29954bf5ad03d81b6fbac574a0
