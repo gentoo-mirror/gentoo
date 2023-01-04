@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit flag-o-matic
 DESCRIPTION="Network performance benchmark"
 HOMEPAGE="http://www.netperf.org/"
 SRC_URI="ftp://ftp.netperf.org/${PN}/${P}.tar.bz2"
-KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc ~x86"
 
 LICENSE="netperf"
 SLOT="0"
@@ -47,6 +47,7 @@ src_prepare() {
 src_configure() {
 	# netlib.c:2292:5: warning: implicit declaration of function ‘sched_setaffinity’
 	# nettest_omni.c:2943:5: warning: implicit declaration of function ‘splice’
+	# TODO: drop once https://github.com/HewlettPackard/netperf/pull/73 merged
 	append-cppflags -D_GNU_SOURCE
 
 	econf \

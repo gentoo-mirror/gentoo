@@ -1,17 +1,16 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
-MY_PV="$(ver_rs 3 -)"
-MY_PF="${PN}-${MY_PV}"
-S=${WORKDIR}/${MY_PF}
+UPSTREAM_PF="${PN}-v${PV}"
+S=${WORKDIR}/${UPSTREAM_PF}
 
 DESCRIPTION="Use most socks-friendly applications with Tor"
-HOMEPAGE="https://github.com/dgoulet/torsocks"
-SRC_URI="https://github.com/dgoulet/torsocks/archive/v${MY_PV}.tar.gz -> ${MY_PF}.tar.gz"
+HOMEPAGE="https://gitlab.torproject.org/tpo/core/torsocks"
+SRC_URI="https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v${PV}/${UPSTREAM_PF}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,9 @@ IUSE="static-libs"
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-fix-syscall.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.4.0-clang16.patch
+)
 
 src_prepare() {
 	# Disable tests requiring network access.
