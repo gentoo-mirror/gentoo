@@ -3,11 +3,11 @@ DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=Emacs Interface to XClip
 EAPI=8
 HOMEPAGE=https://elpa.gnu.org/packages/xclip.html
-INHERIT=elisp readme.gentoo-r1
+INHERIT=elisp readme.gentoo-r1 optfeature
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=x11-misc/xclip >=app-editors/emacs-23.1:*
+RDEPEND=>=app-editors/emacs-23.1:*
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ulm/distfiles/xclip-1.11.el.xz
-_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
-_md5_=c51068e90e4201144b6006f51fd28e6c
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=cab39943e64314cce1da8e3831cfa543
