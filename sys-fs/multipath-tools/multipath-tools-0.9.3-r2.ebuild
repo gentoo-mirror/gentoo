@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -43,6 +43,7 @@ src_compile() {
 	# so force the test to go the way we want #411337.
 	emake \
 		prefix="${EPREFIX}/usr" \
+		plugindir="${EPREFIX}/$(get_libdir)/multipath" \
 		LIB="$(get_libdir)" \
 		LIBDM_API_FLUSH=1 \
 		PKGCONFIG="$(tc-getPKG_CONFIG)" \
@@ -61,6 +62,7 @@ src_install() {
 		prefix="${EPREFIX}" \
 		LIB="$(get_libdir)" \
 		RUN=run \
+		plugindir="${EPREFIX}/$(get_libdir)/multipath" \
 		unitdir="$(systemd_get_systemunitdir)" \
 		libudevdir="${EPREFIX}/$(get_udevdir)" \
 		pkgconfdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig" \
