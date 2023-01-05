@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,10 +34,6 @@ RDEPEND="
 	${DEPEND}
 	sys-devel/gdb
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-build-fixes.patch
-)
 
 src_install() {
 	cmake_src_install
