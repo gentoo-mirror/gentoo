@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_SUBMODULES=( '*' )
 else
 	# Upstream is often behind with doc updates
-	DOC_PV=1.8.1
+	DOC_PV=1.10.0
 	MY_PV=${PV/_rc/rc}
 	MY_P=${PN}-${MY_PV}
 
@@ -34,12 +34,11 @@ else
 		mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz
 		doc? (
 			https://docs.scipy.org/doc/${PN}-${DOC_PV}/${PN}-html-${DOC_PV}.zip
-			https://docs.scipy.org/doc/${PN}-${DOC_PV}/${PN}-ref-${DOC_PV}.pdf
 		)"
 	S="${WORKDIR}"/${MY_P}
 
 	if [[ ${PV} != *rc* ]] ; then
-		KEYWORDS="~amd64 ~arm ~arm64 -hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
+		KEYWORDS="~amd64 -hppa"
 	fi
 fi
 
@@ -49,7 +48,7 @@ IUSE="doc +fortran"
 
 # umfpack is technically optional but it's preferred to have it available.
 DEPEND="
-	>=dev-python/numpy-1.18.5[lapack,${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.19.5[lapack,${PYTHON_USEDEP}]
 	sci-libs/arpack:=
 	sci-libs/umfpack
 	virtual/cblas
@@ -69,11 +68,22 @@ BDEPEND="
 	virtual/pkgconfig
 	doc? ( app-arch/unzip )
 	fortran? ( dev-python/pythran[${PYTHON_USEDEP}] )
-	test? ( dev-python/pytest-xdist[${PYTHON_USEDEP}] )"
+	test? (
+		dev-python/pooch[${PYTHON_USEDEP}]
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_DESELECT=(
 	linalg/tests/test_decomp.py::TestSchur::test_sort
 	linalg/tests/test_solvers.py::test_solve_discrete_are
+	optimize/tests/test_milp.py::test_milp_timeout_16545
+
+	# Network
+	datasets/tests/test_data.py::TestDatasets::test_existence_all
+	datasets/tests/test_data.py::TestDatasets::test_ascent
+	datasets/tests/test_data.py::TestDatasets::test_face
+	datasets/tests/test_data.py::TestDatasets::test_electrocardiogram
 )
 
 distutils_enable_tests pytest
@@ -101,9 +111,7 @@ python_test() {
 }
 
 python_install_all() {
-	use doc && \
-		local DOCS=( "${DISTDIR}"/${PN}-ref-${DOC_PV}.pdf ) \
-		local HTML_DOCS=( "${WORKDIR}"/html/. )
+	use doc && local HTML_DOCS=( "${WORKDIR}"/html/. )
 
 	distutils-r1_python_install_all
 }
