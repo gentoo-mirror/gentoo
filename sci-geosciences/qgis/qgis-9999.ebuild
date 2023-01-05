@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ PYTHON_REQ_USE="sqlite"
 # We could package more but would ideally only stabilise the LTS ones
 # at least.
 
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN^^}.git"
 	inherit git-r3
 else
@@ -83,7 +83,6 @@ COMMON_DEPEND="
 		${PYTHON_DEPS}
 		>=sci-libs/gdal-2.2.3[python,${PYTHON_SINGLE_USEDEP}]
 		$(python_gen_cond_dep '
-			dev-python/future[${PYTHON_USEDEP}]
 			dev-python/httplib2[${PYTHON_USEDEP}]
 			dev-python/jinja[${PYTHON_USEDEP}]
 			dev-python/markupsafe[${PYTHON_USEDEP}]
@@ -97,7 +96,6 @@ COMMON_DEPEND="
 			>=dev-python/qscintilla-python-2.10.1[qt5(+),${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
 			dev-python/sip:=[${PYTHON_USEDEP}]
-			dev-python/six[${PYTHON_USEDEP}]
 			postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
 		')
 	)
