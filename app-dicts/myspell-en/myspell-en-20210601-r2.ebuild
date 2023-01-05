@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,16 +6,20 @@ EAPI=7
 inherit myspell-r2
 
 DESCRIPTION="English dictionaries for myspell/hunspell"
-HOMEPAGE="https://extensions.libreoffice.org/extensions/english-dictionaries"
+HOMEPAGE="
+	https://extensions.libreoffice.org/extensions/english-dictionaries
+	https://proofingtoolgui.org
+	https://github.com/marcoagpinto/aoo-mozilla-en-dict
+"
 SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/dict-en-${PV}.oxt"
 
 LICENSE="BSD MIT LGPL-3+"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x86-solaris"
 
-PLOCALES=( "en" "en-AU" "en-CA" "en-GB" "en-US" "en-ZA" )
-IUSE+="${PLOCALES[@]/#/l10n_}"
-REQUIRED_USE="|| ( ${IUSE[@]} )"
+PLOCALES=( "en-AU" "en-CA" "en-GB" "en-US" "en-ZA" )
+IUSE+="+l10n_en ${PLOCALES[@]/#/l10n_}"
+REQUIRED_USE="|| ( l10n_en ${PLOCALES[@]/#/l10n_} )"
 
 src_prepare() {
 	if use l10n_en-GB || use l10n_en; then
