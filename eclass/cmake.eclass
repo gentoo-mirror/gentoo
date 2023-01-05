@@ -1,9 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: cmake.eclass
 # @MAINTAINER:
 # kde@gentoo.org
+# base-system@gentoo.org
 # @AUTHOR:
 # Tomáš Chvátal <scarabeus@gentoo.org>
 # Maciej Mrozowski <reavertm@gentoo.org>
@@ -96,6 +97,7 @@ fi
 # By default it uses current working directory (in EAPI-7: ${S}).
 
 # @ECLASS_VARIABLE: CMAKE_VERBOSE
+# @USER_VARIABLE
 # @DESCRIPTION:
 # Set to OFF to disable verbose messages during compilation
 : ${CMAKE_VERBOSE:=ON}
