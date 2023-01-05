@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,6 +33,11 @@ BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 PDEPEND="wayland? ( >=kde-plasma/kwayland-integration-5.25.5-r1:5 )"
 
 DOCS=( docs/README.kstartupinfo )
+
+PATCHES=(
+	"${FILESDIR}/${P}-cmake.patch" # KF 5.102
+	"${FILESDIR}/${P}-always-provide-KX11Extras.patch" # bug 885525
+)
 
 src_configure() {
 	local mycmakeargs=(
