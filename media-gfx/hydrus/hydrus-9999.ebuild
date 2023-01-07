@@ -1,13 +1,13 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="sqlite"
 
 DOCS_BUILDER=mkdocs
-DOCS_DEPEND="dev-python/mkdocs-material"
+DOCS_DEPEND="dev-python/mkdocs-material dev-python/regex"
 
 inherit python-single-r1 desktop docs optfeature
 
@@ -58,6 +58,7 @@ RDEPEND="
 		dev-python/twisted[${PYTHON_USEDEP}]
 		media-libs/opencv[python,png,jpeg,${PYTHON_USEDEP}]
 		media-video/ffmpeg
+		media-video/mpv[libmpv,${PYTHON_USEDEP}]
 
 		>=dev-python/QtPy-1.9.0-r4[pyside2,${PYTHON_USEDEP}]
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
@@ -69,7 +70,6 @@ BDEPEND="
 		test? (
 			dev-python/httmock[${PYTHON_USEDEP}]
 			dev-python/mock[${PYTHON_USEDEP}]
-			dev-python/nose[${PYTHON_USEDEP}]
 		)
 	')
 "
@@ -83,10 +83,12 @@ src_prepare() {
 
 	# Contains pre-built binaries for other systems and a broken swf renderer for linux
 	rm -r bin/ || die
-	# Build files used for CI, not actually needed
-	rm -r static/build_files || die
-	# Python requirements files, not needed
-	rm requirements_*.txt || die
+	# Build files used for CI and development, not actually needed
+	rm -r static/build_files static/requirements || die
+	# Python requirements file, not needed
+	rm requirements.txt || die
+	# Remove unneeded additional scripts
+	rm *.command *.sh *.bat || die
 }
 
 src_compile() {
