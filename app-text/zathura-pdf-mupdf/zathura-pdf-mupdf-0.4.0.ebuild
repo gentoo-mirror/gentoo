@@ -34,7 +34,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.4.0-meson-mupdfthird.patch"
+	"${FILESDIR}/${P}-meson-mupdfthird.patch"
 )
 
 src_prepare() (
