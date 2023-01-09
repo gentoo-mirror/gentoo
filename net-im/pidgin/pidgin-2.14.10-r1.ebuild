@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,10 +16,11 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0/2" # libpurple version
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux"
 IUSE="aqua dbus debug doc eds gadu gnutls groupwise +gstreamer +gtk idn
 meanwhile ncurses networkmanager nls perl pie prediction python sasl spell tcl
-tk v4l +xscreensaver zephyr zeroconf"
+test tk v4l +xscreensaver zephyr zeroconf"
+RESTRICT="!test? ( test )"
 
 # dbus requires python to generate C code for dbus bindings (thus DEPEND only).
 # finch uses libgnt that links with libpython - {R,}DEPEND. But still there is
@@ -90,6 +91,7 @@ BDEPEND="
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 	!gtk? ( nls? ( ${NLS_DEPEND} ) )
+	test? ( >=dev-libs/check-0.9.4 )
 "
 
 DOCS=( AUTHORS HACKING NEWS README ChangeLog )
@@ -181,6 +183,8 @@ src_configure() {
 	local myconf=(
 		--disable-mono
 		--disable-static
+		# Don't downgrade F_S, we already set it in toolchain, bug #890276
+		--disable-fortify
 		--with-dynamic-prpls="${DEFAULT_PRPLS}"
 		--with-system-ssl-certs="${EPREFIX}/etc/ssl/certs/"
 		--x-includes="${EPREFIX}"/usr/include/X11
