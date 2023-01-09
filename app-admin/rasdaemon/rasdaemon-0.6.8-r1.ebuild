@@ -1,34 +1,32 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools flag-o-matic linux-info systemd
 
 DESCRIPTION="Reliability, Availability and Serviceability logging tool"
-HOMEPAGE="http://www.infradead.org/~mchehab/rasdaemon/"
-SRC_URI="http://www.infradead.org/~mchehab/${PN}/${P}.tar.bz2"
+HOMEPAGE="https://github.com/mchehab/rasdaemon"
+SRC_URI="https://github.com/mchehab/rasdaemon/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
-IUSE="sqlite"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
 
-DEPEND=""
-RDEPEND="
-	${DEPEND}
-	sys-devel/gettext
-	sys-apps/dmidecode
-	sqlite? (
-		dev-db/sqlite
-		dev-perl/DBD-SQLite
-	)
+DEPEND="
+	dev-db/sqlite
 	elibc_musl? ( sys-libs/argp-standalone )
 "
+RDEPEND="
+	${DEPEND}
+	dev-perl/DBI
+	dev-perl/DBD-SQLite
+	sys-apps/dmidecode
+"
+BDEPEND="sys-devel/gettext"
 
 PATCHES=(
-	"${FILESDIR}/sysconfig-fix-0.6.7.patch"
-	"${FILESDIR}"/${P}-musl.patch
+	"${FILESDIR}"/${PN}-0.6.8-bashisms-configure.patch
 )
 
 pkg_setup() {
@@ -40,13 +38,12 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	# avoid re-configure due to automake trigger
 	eautoreconf
 }
 
 src_configure() {
-	local myconf=(
-		$(use_enable sqlite sqlite3)
+	local myconfargs=(
+		--enable-sqlite3
 		--enable-abrt-report
 		--enable-aer
 		--enable-arm
@@ -61,9 +58,9 @@ src_configure() {
 		--localstatedir=/var
 	)
 
-	use elibc_musl && append-libs argp
+	use elibc_musl && append-libs -largp
 
-	econf "${myconf[@]}"
+	econf "${myconfargs[@]}"
 }
 
 src_install() {
