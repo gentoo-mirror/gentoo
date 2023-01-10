@@ -1,17 +1,17 @@
-BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-python/setuptools-65.5.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-python/setuptools-65.5.1[python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/ldap3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pycurl[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] berkdb? ( dev-python/bsddb3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) s3? ( dev-python/boto3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+DEPEND=dev-python/ldap3[python_targets_python3_10(-)?] dev-python/pycurl[python_targets_python3_10(-)?] berkdb? ( dev-python/bsddb3[python_targets_python3_10(-)?] ) s3? ( dev-python/boto3[python_targets_python3_10(-)?] )
 DESCRIPTION=commandline tool to sync directory services to local cache
 EAPI=7
 HOMEPAGE=https://github.com/google/nsscache
 INHERIT=distutils-r1
-IUSE=berkdb nsscache s3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=berkdb nsscache s3 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-python/ldap3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pycurl[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] berkdb? ( dev-python/bsddb3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) s3? ( dev-python/boto3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) nsscache? ( >=sys-auth/libnss-cache-0.10 ) python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-python/ldap3[python_targets_python3_10(-)?] dev-python/pycurl[python_targets_python3_10(-)?] berkdb? ( dev-python/bsddb3[python_targets_python3_10(-)?] ) s3? ( dev-python/boto3[python_targets_python3_10(-)?] ) nsscache? ( >=sys-auth/libnss-cache-0.10 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_10 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/google/nsscache/archive/version/0.39.tar.gz -> nsscache-0.39.tar.gz https://dev.gentoo.org/~robbat2/nsscache-0.30-r3-gentoo-authorized-keys-command.py
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365
-_md5_=a3bf892ea66642ad368ae6206ff715aa
+_md5_=ed398879f21893d701a67d6187b90e8a
