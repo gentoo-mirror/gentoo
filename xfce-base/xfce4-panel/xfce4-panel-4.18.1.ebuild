@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,10 +18,10 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv 
 IUSE="+dbusmenu introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 
-RDEPEND="
-	>=dev-libs/glib-2.66
-	>=x11-libs/cairo-1
-	>=x11-libs/gtk+-3.22:3[introspection?]
+DEPEND="
+	>=dev-libs/glib-2.66.0
+	>=x11-libs/cairo-1.16.0
+	>=x11-libs/gtk+-3.24.0:3[introspection?]
 	x11-libs/libX11
 	x11-libs/libwnck:3
 	>=xfce-base/exo-0.11.2:=
@@ -32,8 +32,8 @@ RDEPEND="
 	dbusmenu? ( >=dev-libs/libdbusmenu-16.04.0[gtk3] )
 	introspection? ( >=dev-libs/gobject-introspection-1.66:= )
 "
-DEPEND="
-	${RDEPEND}
+RDEPEND="
+	${DEPEND}
 "
 BDEPEND="
 	vala? ( $(vala_depend) )
