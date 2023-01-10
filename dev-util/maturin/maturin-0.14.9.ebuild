@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,19 +24,19 @@ CRATES="
 	block-buffer-0.9.0
 	block-modes-0.8.1
 	block-padding-0.2.1
-	bstr-0.2.17
+	bstr-1.1.0
 	bumpalo-3.11.1
 	byteorder-1.4.3
 	bytes-1.3.0
 	bytesize-1.1.0
-	bzip2-0.4.3
+	bzip2-0.4.4
 	bzip2-sys-0.1.11+1.0.8
 	cab-0.4.1
-	camino-1.1.1
+	camino-1.1.2
 	cargo-options-0.5.3
 	cargo-platform-0.1.2
 	cargo-xwin-0.13.3
-	cargo-zigbuild-0.14.2
+	cargo-zigbuild-0.14.3
 	cargo_metadata-0.15.2
 	cbindgen-0.24.3
 	cc-1.0.78
@@ -44,21 +44,19 @@ CRATES="
 	cfg-if-1.0.0
 	charset-0.1.3
 	chumsky-0.8.0
-	chunked_transfer-1.4.0
 	cipher-0.3.0
-	clap-4.0.29
-	clap_complete-4.0.6
+	clap-4.0.32
+	clap_complete-4.0.7
 	clap_complete_command-0.4.0
 	clap_complete_fig-4.0.2
 	clap_derive-4.0.21
 	clap_lex-0.3.0
 	cli-table-0.4.7
-	combine-4.6.6
 	concolor-0.0.11
 	concolor-query-0.1.0
 	concurrent-queue-2.0.0
 	configparser-3.0.2
-	console-0.15.2
+	console-0.15.4
 	const-random-0.1.15
 	const-random-macro-0.1.15
 	content_inspector-0.2.4
@@ -119,12 +117,11 @@ CRATES="
 	futures-util-0.3.25
 	generic-array-0.14.6
 	getrandom-0.2.8
-	glob-0.3.0
-	globset-0.4.9
+	glob-0.3.1
+	globset-0.4.10
 	goblin-0.6.0
 	hashbrown-0.12.3
 	heck-0.4.0
-	hermit-abi-0.1.19
 	hermit-abi-0.2.6
 	hkdf-0.11.0
 	hmac-0.11.0
@@ -137,14 +134,14 @@ CRATES="
 	indoc-1.0.8
 	instant-0.1.12
 	io-lifetimes-1.0.3
-	is-terminal-0.4.1
+	is-terminal-0.4.2
 	itertools-0.10.5
 	itoa-1.0.5
 	js-sys-0.3.60
 	keyring-1.2.0
 	lazy_static-1.4.0
 	lddtree-0.3.2
-	libc-0.2.138
+	libc-0.2.139
 	linux-raw-sys-0.1.4
 	lock_api-0.4.9
 	log-0.4.17
@@ -156,7 +153,7 @@ CRATES="
 	memoffset-0.7.1
 	mime-0.3.16
 	mime_guess-2.0.4
-	minijinja-0.27.0
+	minijinja-0.28.0
 	minimal-lexical-0.2.1
 	miniz_oxide-0.6.2
 	msi-0.5.0
@@ -164,7 +161,8 @@ CRATES="
 	native-tls-0.2.11
 	nb-connect-1.2.0
 	nix-0.22.3
-	nom-7.1.1
+	nom-7.1.2
+	nom8-0.2.0
 	normalize-line-endings-0.3.0
 	normpath-1.0.1
 	nu-ansi-term-0.46.0
@@ -175,15 +173,15 @@ CRATES="
 	num-iter-0.1.43
 	num-rational-0.4.1
 	num-traits-0.2.15
-	num_cpus-1.14.0
+	num_cpus-1.15.0
 	number_prefix-0.4.0
-	once_cell-1.16.0
+	once_cell-1.17.0
 	opaque-debug-0.3.0
-	openssl-0.10.44
+	openssl-0.10.45
 	openssl-macros-0.1.0
 	openssl-probe-0.1.5
 	openssl-src-111.24.0+1.1.1s
-	openssl-sys-0.9.79
+	openssl-sys-0.9.80
 	os_pipe-1.1.2
 	os_str_bytes-6.4.1
 	output_vt100-0.1.3
@@ -199,9 +197,9 @@ CRATES="
 	pin-utils-0.1.0
 	pkg-config-0.3.26
 	plain-0.2.3
-	platform-info-1.0.1
+	platform-info-1.0.2
 	polling-2.5.2
-	portable-atomic-0.3.18
+	portable-atomic-0.3.19
 	ppv-lite86-0.2.17
 	pretty_assertions-1.3.0
 	proc-macro-crate-0.1.5
@@ -221,21 +219,21 @@ CRATES="
 	rayon-core-1.10.1
 	redox_syscall-0.2.16
 	redox_users-0.4.3
-	regex-1.7.0
+	regex-1.7.1
 	regex-automata-0.1.10
 	regex-syntax-0.6.28
 	remove_dir_all-0.5.3
-	rfc2047-decoder-0.2.0
+	rfc2047-decoder-0.2.1
 	ring-0.16.20
 	rpassword-7.2.0
 	rtoolbox-0.0.1
 	rustc_version-0.4.0
-	rustix-0.36.5
+	rustix-0.36.6
 	rustls-0.20.7
 	rustversion-1.0.11
 	ryu-1.0.12
 	same-file-1.0.6
-	schannel-0.1.20
+	schannel-0.1.21
 	scoped-tls-1.0.1
 	scopeguard-1.1.0
 	scroll-0.11.0
@@ -245,8 +243,8 @@ CRATES="
 	security-framework-2.7.0
 	security-framework-sys-2.6.1
 	semver-1.0.16
-	serde-1.0.151
-	serde_derive-1.0.151
+	serde-1.0.152
+	serde_derive-1.0.152
 	serde_json-1.0.91
 	serde_repr-0.1.10
 	sha2-0.10.6
@@ -258,7 +256,7 @@ CRATES="
 	slab-0.4.7
 	smallvec-1.10.0
 	smawk-0.3.1
-	snapbox-0.4.3
+	snapbox-0.4.4
 	snapbox-macros-0.3.1
 	socket2-0.4.7
 	socks-0.3.4
@@ -271,7 +269,6 @@ CRATES="
 	target-lexicon-0.12.5
 	tempfile-3.3.0
 	termcolor-1.1.3
-	terminal_size-0.1.17
 	terminal_size-0.2.3
 	textwrap-0.16.0
 	thiserror-1.0.38
@@ -285,14 +282,14 @@ CRATES="
 	tinyvec_macros-0.1.0
 	toml-0.5.10
 	toml_datetime-0.5.0
-	toml_edit-0.15.0
+	toml_edit-0.17.1
 	tracing-0.1.37
 	tracing-attributes-0.1.23
 	tracing-core-0.1.30
 	tracing-log-0.1.3
 	tracing-serde-0.1.3
 	tracing-subscriber-0.3.16
-	trycmd-0.14.5
+	trycmd-0.14.10
 	twox-hash-1.6.3
 	typenum-1.16.0
 	unicase-2.6.0
@@ -306,7 +303,7 @@ CRATES="
 	uniffi_meta-0.22.0
 	uniffi_testing-0.22.0
 	untrusted-0.7.1
-	ureq-2.5.0
+	ureq-2.6.1
 	url-2.3.1
 	uuid-1.2.2
 	valuable-0.1.0
@@ -332,19 +329,13 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-sys-0.36.1
 	windows-sys-0.42.0
 	windows_aarch64_gnullvm-0.42.0
-	windows_aarch64_msvc-0.36.1
 	windows_aarch64_msvc-0.42.0
-	windows_i686_gnu-0.36.1
 	windows_i686_gnu-0.42.0
-	windows_i686_msvc-0.36.1
 	windows_i686_msvc-0.42.0
-	windows_x86_64_gnu-0.36.1
 	windows_x86_64_gnu-0.42.0
 	windows_x86_64_gnullvm-0.42.0
-	windows_x86_64_msvc-0.36.1
 	windows_x86_64_msvc-0.42.0
 	xattr-0.2.3
 	xwin-0.2.10
@@ -358,13 +349,17 @@ CRATES="
 # `grep test-crates tests/run.rs` to see which are needed
 CRATES_TEST="
 	anyhow-1.0.66
+	camino-1.1.1
 	cc-1.0.73
 	cc-1.0.74
+	glob-0.3.0
 	indoc-1.0.7
 	itoa-1.0.4
 	libc-0.2.134
 	libc-0.2.137
+	nom-7.1.1
 	once_cell-1.15.0
+	once_cell-1.16.0
 	parking_lot_core-0.9.3
 	parking_lot_core-0.9.4
 	paste-1.0.10
@@ -379,6 +374,8 @@ CRATES_TEST="
 	quote-1.0.21
 	ryu-1.0.11
 	semver-1.0.14
+	serde-1.0.151
+	serde_derive-1.0.151
 	serde_json-1.0.89
 	syn-1.0.102
 	syn-1.0.103
@@ -390,7 +387,13 @@ CRATES_TEST="
 	uniffi-0.22.0
 	uniffi_build-0.22.0
 	uniffi_macros-0.22.0
-	unindent-0.1.10"
+	unindent-0.1.10
+	windows-sys-0.36.1
+	windows_aarch64_msvc-0.36.1
+	windows_i686_gnu-0.36.1
+	windows_i686_msvc-0.36.1
+	windows_x86_64_gnu-0.36.1
+	windows_x86_64_msvc-0.36.1"
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{8..11} )
 inherit cargo distutils-r1 flag-o-matic
