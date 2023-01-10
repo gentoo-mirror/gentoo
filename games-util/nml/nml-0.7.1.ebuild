@@ -23,6 +23,10 @@ RDEPEND="
 	')
 "
 
+python_test() {
+	emake regression
+}
+
 src_install() {
 	local DOCS=( README.md docs/changelog.txt )
 	distutils-r1_src_install
