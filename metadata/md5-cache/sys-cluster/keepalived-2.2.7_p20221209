@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/libnl:= dev-libs/openssl:= dev-libs/popt net-libs/libnfnetlink sys-apps/iproute2 regex? ( >=dev-libs/libpcre2-8:= ) dbus? ( sys-apps/dbus dev-libs/glib:2 ) json? ( dev-libs/json-c:= ) snmp? ( net-analyzer/net-snmp:= ) systemd? ( sys-apps/systemd ) >=sys-kernel/linux-headers-4.4
+DESCRIPTION=A strong & robust keepalive facility to the Linux Virtual Server project
+EAPI=8
+HOMEPAGE=https://www.keepalived.org/
+INHERIT=autotools systemd
+IUSE=+bfd dbus json regex snmp systemd
+KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/libnl:= dev-libs/openssl:= dev-libs/popt net-libs/libnfnetlink sys-apps/iproute2 regex? ( >=dev-libs/libpcre2-8:= ) dbus? ( sys-apps/dbus dev-libs/glib:2 ) json? ( dev-libs/json-c:= ) snmp? ( net-analyzer/net-snmp:= ) systemd? ( sys-apps/systemd )
+SLOT=0
+SRC_URI=https://github.com/acassen/keepalived/archive/fbd699fac85d768c3ddab048a8f9d3dfaec7eaad.tar.gz -> keepalived-2.2.7_p20221209.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=bc67c3750ded9a900105c8b201e6dd76
