@@ -83,7 +83,8 @@ RESTRICT="test"
 GOPATH="${S}/_dist"
 
 PATCHES=( "${DISTDIR}"/lxd-5.0.2-move-shellcheck-version-call-into-static-analysis.patch
-	"${DISTDIR}"/lxd-5.8-add-tcp-keepalives-to-exec-channels.patch )
+	"${DISTDIR}"/lxd-5.8-add-tcp-keepalives-to-exec-channels.patch
+	"${FILESDIR}"/lxd-5.0.2-fix-btrfs-driver-to-support-btrfs-6.0.patch )
 
 src_unpack() {
 	if use verify-sig; then
