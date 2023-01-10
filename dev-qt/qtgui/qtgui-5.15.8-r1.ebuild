@@ -4,7 +4,7 @@
 EAPI=8
 
 if [[ ${PV} != *9999* ]]; then
-	QT5_KDEPATCHSET_REV=1
+	QT5_KDEPATCHSET_REV=2
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
@@ -124,11 +124,6 @@ QT5_GENTOO_CONFIG=(
 
 QT5_GENTOO_PRIVATE_CONFIG=(
 	:gui
-)
-
-PATCHES=(
-	# https://invent.kde.org/qt/qt/qtbase/-/merge_requests/211
-	"${FILESDIR}/${PN}-5.15.7-xcb-correctly-disconnect-xsettings-callbacks.patch"
 )
 
 src_prepare() {
