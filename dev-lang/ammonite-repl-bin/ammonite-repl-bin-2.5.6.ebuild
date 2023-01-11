@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="
 	scala3-1? ( https://github.com/com-lihaoyi/Ammonite/releases/download/${PV}/3.1-${PV} -> ${P}-3.1 )
 "
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"
 SLOT="0"
 
