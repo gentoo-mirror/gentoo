@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202301-04">
+    <title>jupyter_core: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in jupyter_core which could allow for the execution of code as another user.</synopsis>
+    <product type="ebuild">jupyter_core</product>
+    <announced>2023-01-11</announced>
+    <revised count="1">2023-01-11</revised>
+    <bug>878497</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/jupyter_core" auto="yes" arch="*">
+            <unaffected range="ge">4.11.2</unaffected>
+            <vulnerable range="lt">4.11.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>jupyter_core contains core Jupyter functionality.</p>
+    </background>
+    <description>
+        <p>jupyter_core trusts files for execution in the current working directory without validating ownership of those files.</p>
+    </description>
+    <impact type="high">
+        <p>By writing to a directory that is used a the current working directory for jupyter_core by another user, users can elevate privileges to those of another user.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All jupyter_core users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/jupyter_core-4.11.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39286">CVE-2022-39286</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-01-11T05:17:05.951365Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-01-11T05:17:05.954259Z">ajak</metadata>
+</glsa>
