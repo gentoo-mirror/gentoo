@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202301-07">
+    <title>Alpine: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Alpine, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">alpine</product>
+    <announced>2023-01-11</announced>
+    <revised count="1">2023-01-11</revised>
+    <bug>807613</bug>
+    <access>remote</access>
+    <affected>
+        <package name="mail-client/alpine" auto="yes" arch="*">
+            <unaffected range="ge">2.25</unaffected>
+            <vulnerable range="lt">2.25</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Alpine is an easy to use text-based based mail and news client.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Alpine. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Alpine users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/alpine-2.25"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38370">CVE-2021-38370</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46853">CVE-2021-46853</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-01-11T05:18:50.361361Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-01-11T05:18:50.363738Z">ajak</metadata>
+</glsa>
