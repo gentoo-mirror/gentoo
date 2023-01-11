@@ -2,13 +2,13 @@ BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815
 DEFINED_PHASES=compile configure install postinst postrm prepare unpack
 DEPEND=emacs? ( >=app-editors/emacs-23.1:* ) history? ( sys-libs/readline:= ) xft? ( x11-libs/libXft ) xrandr? ( x11-libs/libXrandr ) dev-perl/Pod-Parser x11-libs/libX11 x11-libs/libXtst x11-base/xorg-proto
 DESCRIPTION=window manager without mouse dependency
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.nongnu.org/ratpoison/
 INHERIT=autotools elisp-common git-r3 toolchain-funcs
 IUSE=debug emacs +history sloppy +xft +xrandr
-LICENSE=GPL-2
+LICENSE=GPL-2+ || ( GPL-2+ FDL-1.2+ )
 PROPERTIES=live
 RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) history? ( sys-libs/readline:= ) xft? ( x11-libs/libXft ) xrandr? ( x11-libs/libXrandr ) dev-perl/Pod-Parser x11-libs/libX11 x11-libs/libXtst
 SLOT=0
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=7c417b5cfeb38de16b221e5427c0e14e
+_md5_=1be8590b138ef0e9470afb4b62a558d5
