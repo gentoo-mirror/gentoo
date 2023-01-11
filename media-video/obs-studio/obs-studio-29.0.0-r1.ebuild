@@ -65,6 +65,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	media-libs/libglvnd
+	media-libs/libva
 	media-libs/x264:=
 	media-video/ffmpeg:=[nvenc?,x264]
 	net-misc/curl
