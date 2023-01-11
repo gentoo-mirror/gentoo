@@ -3388,7 +3388,7 @@ app-portage/tatt 0.9 0.10 9999: Arch testing tool
 app-portage/ufed 0.96 9999: Gentoo Linux USE flags editor
 app-portage/unsymlink-lib 20: Convert your system to SYMLINK_LIB=no
 app-shells/autojump 22.5.3-r1: change directory command that learns
-app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18 5.1_p16-r2 5.2_p15 9999: The standard GNU Bourne again shell
+app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18 5.1_p16-r2 5.2_p15 5.2_p15-r1 9999: The standard GNU Bourne again shell
 app-shells/bash-completion 2.11 9999: Programmable Completion for bash
 app-shells/bashdb 5.0.1.1.2: bash source code debugging
 app-shells/bashish 2.2.4: Text console theme engine
@@ -15674,7 +15674,7 @@ net-misc/rdesktop 1.9.0 1.9.0-r1 1.9.0-r2: A Remote Desktop Protocol Client
 net-misc/redir 3.2 3.3: Redir is a port redirector
 net-misc/remmina 1.4.27 1.4.29: A GTK+ RDP, SPICE, VNC and SSH client
 net-misc/rinetd 0.62-r3 0.73: redirects TCP connections from one IP address and port to another
-net-misc/rsync 3.2.4-r3 3.2.7-r1 9999: File transfer program to keep remote files into sync
+net-misc/rsync 3.2.4-r3 3.2.7-r1 3.2.7-r2 9999: File transfer program to keep remote files into sync
 net-misc/rsync-bpc 3.1.3.0: Rsync-bpc is a customized version of rsync that is used as part of BackupPC
 net-misc/rwbs 0.27-r2: Roger Wilco base station
 net-misc/rwhoisd 1.5.9.6-r2: ARIN rwhois daemon
@@ -17344,7 +17344,7 @@ sys-apps/fd 8.4.0: Alternative to find that provides sensible defaults for 80% o
 sys-apps/file 5.43-r2 5.44-r1 9999: Identify a file's format by scanning binary data for patterns
 sys-apps/findutils 4.9.0-r2: GNU utilities for finding files
 sys-apps/firejail 0.9.70: Security sandbox for any type of processes
-sys-apps/fix-gnustack 0.1: Utility to report and remove the executable flag from an ELF object's GNU_STACK
+sys-apps/fix-gnustack 0.1 0.1-r1: Utility to report and remove the executable flag from an ELF object's GNU_STACK
 sys-apps/flashrom 1.2-r4: Utility for reading, writing, erasing and verifying flash ROM chips
 sys-apps/flatpak 1.12.3-r1 1.14.1: Linux application sandboxing and distribution framework
 sys-apps/fwts 22.03.00: Firmware Test Suite
@@ -17384,7 +17384,7 @@ sys-apps/ifd-gempc 1.0.7 1.0.8: GemCore based PC/SC reader drivers for pcsc-lite
 sys-apps/ifplugd 0.28-r11: Brings up/down ethernet ports automatically with cable detection
 sys-apps/init-system-helpers 1.60: Helper scripts useful for both OpenRC and systemd
 sys-apps/input-utils 1.3: Small collection of linux input layer utils
-sys-apps/install-xattr 0.8 9999: Wrapper to coreutil's install to preserve Filesystem Extended Attributes
+sys-apps/install-xattr 0.8 0.8-r1 9999: Wrapper to coreutils install to preserve Filesystem Extended Attributes
 sys-apps/intel-sa-00075-tools 1.0: Tools from Intel to detect and mitigate the AMT/MEI vulnerability
 sys-apps/inxi 3.3.17.1 3.3.20.1: The CLI inxi collects and prints hardware and system information
 sys-apps/iotools 1.5: Simple commands to access hardware device registers
@@ -17523,10 +17523,10 @@ sys-apps/superdiag 1.6.0.20211224: Provides the capability to determine the heal
 sys-apps/superiotool 6637 99999999: util to detect Super I/O chips and functionality
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/systemd 251.8 251.9 251.10 252.3 252.4 9999: System and service manager for Linux
+sys-apps/systemd 251.8 251.10 252.4 252.4-r1 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-tmpfiles 250: Virtual package to depend on sys-apps/systemd-utils
-sys-apps/systemd-utils 251.7 251.8-r1 251.9 251.10: Utilities split out from systemd for OpenRC users
+sys-apps/systemd-utils 251.8-r1 251.10 251.10-r1: Utilities split out from systemd for OpenRC users
 sys-apps/sysvinit 3.05 3.06-r1: /sbin/init - parent of all processes
 sys-apps/tas 1.7.0.220503-r1: Supermicro Thin-Agent Service for monitoring through the BMC/IPMI
 sys-apps/tcp-wrappers 7.6.31: TCP Wrappers
@@ -17816,7 +17816,7 @@ sys-devel/distcc 3.3.3-r3 3.4 3.4-r1: Distribute compilation of C code across se
 sys-devel/dwz 0.14: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r5: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.4.0 10.4.1_p20221208 10.4.1_p20221222 10.4.1_p20221229 10.4.1_p20230105 10.5.9999 11.3.0 11.3.1_p20221209 11.3.1_p20221223 11.3.1_p20221230 11.3.1_p20230106 11.4.9999 12.2.0 12.2.1_p20221126 12.2.1_p20221210 12.2.1_p20221224 12.2.1_p20221231 12.2.1_p20230107 12.3.9999 13.0.0_pre20221218 13.0.0_pre20221225 13.0.0_pre20230101 13.0.0_pre20230108 13.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.4.0 10.4.1_p20221208 10.4.1_p20221222 10.4.1_p20230105 10.5.9999 11.3.0 11.3.1_p20221209 11.3.1_p20221223 11.3.1_p20230106 11.4.9999 12.2.0 12.2.1_p20221126 12.2.1_p20221231 12.2.1_p20230107 12.3.9999 13.0.0_pre20230108 13.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.8 2.9 2.10 9999: Utility to manage compilers
 sys-devel/gdb 12.1-r2 12.1-r3 13.0.50_p20221217 13.0.90_p20230110 9999: GNU debugger
