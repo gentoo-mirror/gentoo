@@ -26,14 +26,14 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~riscv"
 
 RDEPEND="
-	>=dev-python/cachetools-5.2[${PYTHON_USEDEP}]
+	>=dev-python/cachetools-5.2.1[${PYTHON_USEDEP}]
 	>=dev-python/chardet-5.1[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.4.6[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.8.2[${PYTHON_USEDEP}]
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2.6[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1[${PYTHON_USEDEP}]
-	>=dev-python/pyproject-api-1.2.1[${PYTHON_USEDEP}]
+	>=dev-python/pyproject-api-1.4[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	' 3.8 3.9 3.10)
@@ -62,7 +62,7 @@ export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 src_prepare() {
 	# the minimal bounds in tox are entirely meaningless and new packaging
 	# breaks setuptools
-	sed -i -e '/packaging/s:>=22::' pyproject.toml || die
+	sed -i -e '/packaging/s:>=[0-9]\+::' pyproject.toml || die
 	distutils-r1_src_prepare
 }
 
