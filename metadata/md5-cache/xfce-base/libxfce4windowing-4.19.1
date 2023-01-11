@@ -8,6 +8,7 @@ IUSE=+introspection wayland X
 KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.68.0 >=x11-libs/gtk+-3.24.0:3[X?,introspection?,wayland?] >=x11-libs/gdk-pixbuf-2.40.0[introspection?] wayland? ( >=dev-libs/wayland-1.15 ) X? ( >=x11-libs/libwnck-3.14:3 )
+REQUIRED_USE=|| ( wayland X )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/xfce/libxfce4windowing/4.19/libxfce4windowing-4.19.1.tar.bz2
-_md5_=d020b2a8890e8e980a79bde137049664
+_md5_=ecdfdc4ff6d08f3ad7aba1c9bdc9ce56
