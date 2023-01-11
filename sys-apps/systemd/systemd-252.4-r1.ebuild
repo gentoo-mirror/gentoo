@@ -1,8 +1,17 @@
-# Copyright 2011-2022 Gentoo Authors
+# Copyright 2011-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 PYTHON_COMPAT=( python3_{8..11} )
+
+if [[ ${PV} != 252.* ]] ; then
+	# The F_S=3 issues should be fixed in 253.
+	# - https://github.com/systemd/systemd/issues/22801
+	# - https://github.com/systemd/systemd/pull/25967
+	# - https://github.com/systemd/systemd/commit/7929e180aa47a2692ad4f053afac2857d7198758
+	# - https://github.com/systemd/systemd/commit/4f79f545b3c46c358666c9f5f2b384fe50aac4b4
+	die "Please remove the FORTIFY_SOURCE hacks in src_configure."
+fi
 
 # Avoid QA warnings
 TMPFILES_OPTIONAL=1
@@ -231,6 +240,7 @@ src_unpack() {
 
 src_prepare() {
 	local PATCHES=(
+		"${FILESDIR}/252-tmpfiles-ub.patch"
 	)
 
 	if ! use vanilla; then

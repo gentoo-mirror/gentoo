@@ -1,8 +1,17 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 PYTHON_COMPAT=( python3_{8..11} )
+
+if [[ ${PV} != 25[12].* ]] ; then
+	# The F_S=3 issues should be fixed in 253.
+	# - https://github.com/systemd/systemd/issues/22801
+	# - https://github.com/systemd/systemd/pull/25967
+	# - https://github.com/systemd/systemd/commit/7929e180aa47a2692ad4f053afac2857d7198758
+	# - https://github.com/systemd/systemd/commit/4f79f545b3c46c358666c9f5f2b384fe50aac4b4
+	die "Please remove the FORTIFY_SOURCE hacks in src_configure."
+fi
 
 QA_PKGCONFIG_VERSION=$(ver_cut 1)
 
@@ -26,7 +35,7 @@ SRC_URI+=" elibc_musl? ( https://dev.gentoo.org/~floppym/dist/${MUSL_PATCHSET}.t
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+acl boot +kmod selinux split-usr sysusers +tmpfiles test +udev"
 REQUIRED_USE="|| ( boot tmpfiles sysusers udev )"
 RESTRICT="!test? ( test )"
@@ -105,10 +114,8 @@ QA_FLAGS_IGNORED="usr/lib/systemd/boot/efi/.*"
 
 src_prepare() {
 	local PATCHES=(
-		# Breaks Clang. Revert the commit for now and force off F_S=3.
-		"${FILESDIR}/251-revert-fortify-source-3-fix.patch"
 		"${FILESDIR}/251-gpt-auto-no-cryptsetup.patch"
-		"${FILESDIR}/251-meson-0.64.patch"
+		"${FILESDIR}/251-tmpfiles-ub.patch"
 	)
 
 	if use elibc_musl; then
@@ -125,9 +132,7 @@ src_prepare() {
 }
 
 src_configure() {
-	# Broken with FORTIFY_SOURCE=3 without a patch. And the patch
-	# wasn't backported to 250.x, but it turns out to break Clang
-	# anyway:  bug #841770.
+	# Broken with FORTIFY_SOURCE=3: bug #841770.
 	#
 	# Our toolchain sets F_S=2 by default w/ >= -O2, so we need
 	# to unset F_S first, then explicitly set 2, to negate any default
@@ -473,6 +478,8 @@ multilib_src_install_all() {
 	if use tmpfiles; then
 		doinitd "${FILESDIR}"/systemd-tmpfiles-setup
 		doinitd "${FILESDIR}"/systemd-tmpfiles-setup-dev
+		exeinto /etc/cron.daily
+		doexe "${FILESDIR}"/systemd-tmpfiles-clean
 		insinto /usr/share/zsh/site-functions
 		doins shell-completion/zsh/_systemd-tmpfiles
 	fi
