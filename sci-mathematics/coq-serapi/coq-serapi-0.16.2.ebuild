@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COQV=8.15.0
+COQV=8.16.0
 
 inherit elisp-common dune
 
@@ -21,11 +21,13 @@ IUSE="emacs +ocamlopt test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=sci-mathematics/coq-${COQV}:= <sci-mathematics/coq-8.16:=
+	>=sci-mathematics/coq-${COQV}:= <sci-mathematics/coq-8.17:=
 	>=dev-ml/ppx_sexp_conv-0.13.0:= <dev-ml/ppx_sexp_conv-0.15.0:=
 	dev-ml/cmdliner:=
+	dev-ml/ppx_compare:=
 	dev-ml/ppx_deriving:=
 	dev-ml/ppx_deriving_yojson:=
+	dev-ml/ppx_hash:=
 	dev-ml/ppx_import:=
 	dev-ml/sexplib:=
 	dev-ml/yojson:=
