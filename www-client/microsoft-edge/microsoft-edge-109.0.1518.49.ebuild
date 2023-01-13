@@ -116,7 +116,7 @@ src_install() {
 	fi
 
 	if ! use qt5; then
-		rm "${EDGE_HOME}"/libqt5_shim.so || die
+		rm "${EDGE_HOME}/libqt5_shim.so" || die
 	fi
 
 	pax-mark m "${EDGE_HOME}/msedge"
