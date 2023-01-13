@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,15 +24,15 @@ CRATES="
 	block-buffer-0.9.0
 	block-modes-0.8.1
 	block-padding-0.2.1
-	bstr-0.2.17
+	bstr-1.1.0
 	bumpalo-3.11.1
 	byteorder-1.4.3
 	bytes-1.3.0
 	bytesize-1.1.0
-	bzip2-0.4.3
+	bzip2-0.4.4
 	bzip2-sys-0.1.11+1.0.8
 	cab-0.4.1
-	camino-1.1.1
+	camino-1.1.2
 	cargo-options-0.5.3
 	cargo-platform-0.1.2
 	cargo-xwin-0.13.3
@@ -44,7 +44,6 @@ CRATES="
 	cfg-if-1.0.0
 	charset-0.1.3
 	chumsky-0.8.0
-	chunked_transfer-1.4.1
 	cipher-0.3.0
 	clap-4.0.32
 	clap_complete-4.0.7
@@ -57,7 +56,7 @@ CRATES="
 	concolor-query-0.1.0
 	concurrent-queue-2.0.0
 	configparser-3.0.2
-	console-0.15.3
+	console-0.15.4
 	const-random-0.1.15
 	const-random-macro-0.1.15
 	content_inspector-0.2.4
@@ -118,8 +117,8 @@ CRATES="
 	futures-util-0.3.25
 	generic-array-0.14.6
 	getrandom-0.2.8
-	glob-0.3.0
-	globset-0.4.9
+	glob-0.3.1
+	globset-0.4.10
 	goblin-0.6.0
 	hashbrown-0.12.3
 	heck-0.4.0
@@ -134,7 +133,7 @@ CRATES="
 	indicatif-0.17.2
 	indoc-1.0.8
 	instant-0.1.12
-	io-lifetimes-1.0.3
+	io-lifetimes-1.0.4
 	is-terminal-0.4.2
 	itertools-0.10.5
 	itoa-1.0.5
@@ -154,7 +153,7 @@ CRATES="
 	memoffset-0.7.1
 	mime-0.3.16
 	mime_guess-2.0.4
-	minijinja-0.27.0
+	minijinja-0.28.0
 	minimal-lexical-0.2.1
 	miniz_oxide-0.6.2
 	msi-0.5.0
@@ -162,7 +161,7 @@ CRATES="
 	native-tls-0.2.11
 	nb-connect-1.2.0
 	nix-0.22.3
-	nom-7.1.1
+	nom-7.1.2
 	nom8-0.2.0
 	normalize-line-endings-0.3.0
 	normpath-1.0.1
@@ -189,7 +188,7 @@ CRATES="
 	overload-0.1.1
 	parking-2.0.0
 	parking_lot-0.12.1
-	parking_lot_core-0.9.5
+	parking_lot_core-0.9.6
 	paste-1.0.11
 	path-slash-0.2.1
 	pep440-0.2.0
@@ -198,7 +197,7 @@ CRATES="
 	pin-utils-0.1.0
 	pkg-config-0.3.26
 	plain-0.2.3
-	platform-info-1.0.1
+	platform-info-1.0.2
 	polling-2.5.2
 	portable-atomic-0.3.19
 	ppv-lite86-0.2.17
@@ -220,21 +219,21 @@ CRATES="
 	rayon-core-1.10.1
 	redox_syscall-0.2.16
 	redox_users-0.4.3
-	regex-1.7.0
+	regex-1.7.1
 	regex-automata-0.1.10
 	regex-syntax-0.6.28
 	remove_dir_all-0.5.3
-	rfc2047-decoder-0.2.0
+	rfc2047-decoder-0.2.1
 	ring-0.16.20
 	rpassword-7.2.0
 	rtoolbox-0.0.1
 	rustc_version-0.4.0
 	rustix-0.36.6
-	rustls-0.20.7
+	rustls-0.20.8
 	rustversion-1.0.11
 	ryu-1.0.12
 	same-file-1.0.6
-	schannel-0.1.20
+	schannel-0.1.21
 	scoped-tls-1.0.1
 	scopeguard-1.1.0
 	scroll-0.11.0
@@ -257,7 +256,7 @@ CRATES="
 	slab-0.4.7
 	smallvec-1.10.0
 	smawk-0.3.1
-	snapbox-0.4.3
+	snapbox-0.4.4
 	snapbox-macros-0.3.1
 	socket2-0.4.7
 	socks-0.3.4
@@ -283,14 +282,14 @@ CRATES="
 	tinyvec_macros-0.1.0
 	toml-0.5.10
 	toml_datetime-0.5.0
-	toml_edit-0.16.2
+	toml_edit-0.17.1
 	tracing-0.1.37
 	tracing-attributes-0.1.23
 	tracing-core-0.1.30
 	tracing-log-0.1.3
 	tracing-serde-0.1.3
 	tracing-subscriber-0.3.16
-	trycmd-0.14.6
+	trycmd-0.14.10
 	twox-hash-1.6.3
 	typenum-1.16.0
 	unicase-2.6.0
@@ -304,7 +303,7 @@ CRATES="
 	uniffi_meta-0.22.0
 	uniffi_testing-0.22.0
 	untrusted-0.7.1
-	ureq-2.5.0
+	ureq-2.6.1
 	url-2.3.1
 	uuid-1.2.2
 	valuable-0.1.0
@@ -330,20 +329,14 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-sys-0.36.1
 	windows-sys-0.42.0
-	windows_aarch64_gnullvm-0.42.0
-	windows_aarch64_msvc-0.36.1
-	windows_aarch64_msvc-0.42.0
-	windows_i686_gnu-0.36.1
-	windows_i686_gnu-0.42.0
-	windows_i686_msvc-0.36.1
-	windows_i686_msvc-0.42.0
-	windows_x86_64_gnu-0.36.1
-	windows_x86_64_gnu-0.42.0
-	windows_x86_64_gnullvm-0.42.0
-	windows_x86_64_msvc-0.36.1
-	windows_x86_64_msvc-0.42.0
+	windows_aarch64_gnullvm-0.42.1
+	windows_aarch64_msvc-0.42.1
+	windows_i686_gnu-0.42.1
+	windows_i686_msvc-0.42.1
+	windows_x86_64_gnu-0.42.1
+	windows_x86_64_gnullvm-0.42.1
+	windows_x86_64_msvc-0.42.1
 	xattr-0.2.3
 	xwin-0.2.10
 	yansi-0.5.1
@@ -356,12 +349,15 @@ CRATES="
 # `grep test-crates tests/run.rs` to see which are needed
 CRATES_TEST="
 	anyhow-1.0.66
+	camino-1.1.1
 	cc-1.0.73
 	cc-1.0.74
+	glob-0.3.0
 	indoc-1.0.7
 	itoa-1.0.4
 	libc-0.2.134
 	libc-0.2.137
+	nom-7.1.1
 	once_cell-1.15.0
 	once_cell-1.16.0
 	parking_lot_core-0.9.3
@@ -391,7 +387,20 @@ CRATES_TEST="
 	uniffi-0.22.0
 	uniffi_build-0.22.0
 	uniffi_macros-0.22.0
-	unindent-0.1.10"
+	unindent-0.1.10
+	windows-sys-0.36.1
+	windows_aarch64_gnullvm-0.42.0
+	windows_aarch64_msvc-0.36.1
+	windows_aarch64_msvc-0.42.0
+	windows_i686_gnu-0.36.1
+	windows_i686_gnu-0.42.0
+	windows_i686_msvc-0.36.1
+	windows_i686_msvc-0.42.0
+	windows_x86_64_gnu-0.36.1
+	windows_x86_64_gnu-0.42.0
+	windows_x86_64_gnullvm-0.42.0
+	windows_x86_64_msvc-0.36.1
+	windows_x86_64_msvc-0.42.0"
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{8..11} )
 inherit cargo distutils-r1 flag-o-matic
