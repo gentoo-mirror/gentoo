@@ -4,11 +4,11 @@ DESCRIPTION=The Great Internet Mersenne Prime Search
 EAPI=8
 HOMEPAGE=https://www.mersenne.org/
 INHERIT=pax-utils readme.gentoo-r1 systemd tmpfiles
-KEYWORDS=-* ~amd64 ~x86
+KEYWORDS=-* amd64 x86
 LICENSE=GIMPS
 RDEPEND=net-misc/curl >=dev-libs/gmp-6.1.2 virtual/tmpfiles
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=amd64? ( https://www.mersenne.org/ftp_root/gimps/p95v308b15.linux64.tar.gz -> gimps-30.8.15.linux64.tar.gz ) x86? ( https://www.mersenne.org/ftp_root/gimps/p95v308b15.linux32.tar.gz -> gimps-30.8.15.linux32.tar.gz )
 _eclasses_=pax-utils	91d47e5d20627c717aa878b9167c62a8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=ea1e600acc965c7b2d35992b64b0b951
+_md5_=a50f98c05b035137eae53eda71dffde0
