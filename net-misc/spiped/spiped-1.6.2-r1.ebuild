@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,8 +6,8 @@ EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="secure pipe daemon"
-HOMEPAGE="http://www.tarsnap.com/spiped.html"
-SRC_URI="http://www.tarsnap.com/${PN}/${P}.tgz"
+HOMEPAGE="https://www.tarsnap.com/spiped.html"
+SRC_URI="https://www.tarsnap.com/${PN}/${P}.tgz"
 
 LICENSE="BSD"
 SLOT="0"
