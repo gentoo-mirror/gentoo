@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,7 +21,8 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	app-arch/xz-utils
-	test? ( dev-vcs/git )"
+	test? ( dev-vcs/git )
+"
 DEPEND="
 	!build? ( $(python_gen_impl_dep 'ssl(+)') )
 	>=app-arch/tar-1.27
@@ -72,8 +73,8 @@ PDEPEND="
 	!build? (
 		>=net-misc/rsync-2.6.4
 		|| (
-			>=sys-apps/file-5.44-r1
-			=sys-apps/file-5.43-r2
+			>=sys-apps/file-5.44-r3
+			=sys-apps/file-5.43-r3
 		)
 		>=sys-apps/coreutils-6.4
 	)
@@ -93,7 +94,6 @@ pkg_pretend() {
 
 python_prepare_all() {
 	local PATCHES=(
-		"${FILESDIR}"/${P}-xz-32-bit.patch
 	)
 
 	distutils-r1_python_prepare_all
@@ -169,7 +169,7 @@ python_prepare_all() {
 	fi
 
 	cd "${S}/cnf" || die
-	if [ -f "make.conf.example.${ARCH}".diff ]; then
+	if [[ -f "make.conf.example.${ARCH}".diff ]] ; then
 		patch make.conf.example "make.conf.example.${ARCH}".diff || \
 			die "Failed to patch make.conf.example"
 	else
