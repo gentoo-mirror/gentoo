@@ -1,4 +1,4 @@
-BDEPEND=dev-util/patchutils || ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) dev-python/docutils
+BDEPEND=dev-util/patchutils || ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) app-arch/tar dev-python/docutils
 DEFINED_PHASES=compile install postinst prepare setup unpack
 DEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= ) >=sys-kernel/linux-headers-5.8
 DESCRIPTION=Tool for inspection and simple manipulation of eBPF programs and maps
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-li
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.0.12.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	optfeature	1a2157392a869265b2afcb63a26c12ac	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=7d0754a78eeb5bc7a407a613d0034621
+_md5_=a6b297d200ea1453af0a414ec9bb4297
