@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/ocamlbuild dev-ml/findlib dev-ml/topkg dev-ml/opam-installer dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cmdliner:= dev-ml/uucp:= dev-ml/uutf:= >=dev-lang/ocaml-4:=
+DESCRIPTION=Unicode text segmentation for OCaml
+EAPI=8
+HOMEPAGE=https://erratique.ch/software/uuseg/ https://github.com/dbuenzli/uuseg/
+INHERIT=opam
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=dev-ml/cmdliner:= dev-ml/uucp:= dev-ml/uutf:= >=dev-lang/ocaml-4:=
+RESTRICT=!test? ( test )
+SLOT=0/15.0.0
+SRC_URI=https://github.com/dbuenzli/uuseg/archive/v15.0.0.tar.gz -> uuseg-15.0.0.tar.gz
+_eclasses_=opam	42c5d48985d3f77484fe405cfc69356d
+_md5_=74feef1b8eea1a72089016f0c4afc8a7
