@@ -1,5 +1,5 @@
 BDEPEND=kernel_linux? ( virtual/pkgconfig ) virtual/pkgconfig
-DEFINED_PHASES=compile configure install
+DEFINED_PHASES=compile configure install postinst postrm
 DEPEND=>=sys-apps/pcsc-lite-1.8.3 usb? ( virtual/libusb:1 )
 DESCRIPTION=CCID free software driver
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=>=sys-apps/pcsc-lite-1.8.3 usb? ( virtual/libusb:1 )
 SLOT=0
 SRC_URI=https://ccid.apdu.fr/files/ccid-1.5.0.tar.bz2
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=73596fa7a173478f05ba2161d876d999
+_md5_=bcab0b9c25c12f87f98e753467a4f894
