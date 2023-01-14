@@ -25,10 +25,6 @@ SLOT="0"
 
 distutils_enable_tests pytest
 
-EPYTEST_IGNORE=(
-	tests/pylint
-)
-
 src_prepare() {
 	distutils-r1_src_prepare
 
