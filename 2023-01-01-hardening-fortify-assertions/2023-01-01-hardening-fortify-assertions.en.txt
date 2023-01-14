@@ -5,21 +5,29 @@ Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: sys-devel/gcc[hardened]
 Display-If-Profile: features/hardened
-Display-If-Profile: default/linux/ppc64le/17.0/musl/hardened
-Display-If-Profile: default/linux/ppc/17.0/musl/hardened
-Display-If-Profile: default/linux/amd64/17.0/no-multilib/hardened
-Display-If-Profile: default/linux/amd64/17.0/hardened
 Display-If-Profile: default/linux/amd64/17.0/musl/hardened
+Display-If-Profile: default/linux/amd64/17.0/musl/hardened/selinux
 Display-If-Profile: default/linux/amd64/17.1/hardened
+Display-If-Profile: default/linux/amd64/17.1/hardened/selinux
 Display-If-Profile: default/linux/amd64/17.1/no-multilib/hardened
-Display-If-Profile: default/linux/x86/17.0/hardened
-Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened
-Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened
-Display-If-Profile: default/linux/arm/17.0/armv7a/hardened
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/hardened/selinux
 Display-If-Profile: default/linux/arm/17.0/armv6j/hardened
-Display-If-Profile: default/linux/ppc64/17.0/musl/hardened
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened
+Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened
+Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened/selinux
 Display-If-Profile: default/linux/arm64/17.0/hardened
+Display-If-Profile: default/linux/arm64/17.0/hardened/selinux
 Display-If-Profile: default/linux/arm64/17.0/musl/hardened
+Display-If-Profile: default/linux/arm64/17.0/musl/hardened/selinux
+Display-If-Profile: default/linux/ppc/17.0/musl/hardened
+Display-If-Profile: default/linux/ppc64/17.0/musl/hardened
+Display-If-Profile: default/linux/ppc64le/17.0/musl/hardened
+Display-If-Profile: default/linux/x86/17.0/hardened
+Display-If-Profile: default/linux/x86/17.0/hardened/selinux
 
 Gentoo's hardened profiles are adopting two new modern toolchain hardening
 techniques:
