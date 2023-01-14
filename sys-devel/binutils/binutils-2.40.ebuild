@@ -19,7 +19,7 @@ IUSE="cet doc gold gprofng multitarget +nls pgo +plugins static-libs test vanill
 # PATCH_DEV          - Use download URI https://dev.gentoo.org/~{PATCH_DEV}/distfiles/...
 #                      for the patchsets
 
-PATCH_VER=0
+PATCH_VER=1
 PATCH_DEV=dilfridge
 
 if [[ ${PV} == 9999* ]]; then
@@ -28,7 +28,7 @@ if [[ ${PV} == 9999* ]]; then
 else
 	PATCH_BINUTILS_VER=${PATCH_BINUTILS_VER:-${PV}}
 	PATCH_DEV=${PATCH_DEV:-dilfridge}
-	SRC_URI="mirror://gnu/binutils/binutils-${PV}.tar.xz https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PV}.tar.xz"
+	SRC_URI="mirror://gnu/binutils/binutils-${PV}.tar.xz https://sourceware.org/pub/binutils/releases/binutils-${PV}.tar.xz https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PV}.tar.xz"
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
