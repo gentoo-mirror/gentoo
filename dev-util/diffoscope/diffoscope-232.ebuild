@@ -55,7 +55,7 @@ RDEPEND="
 	pdf? (
 		app-text/pdftk
 		app-text/poppler
-		dev-python/PyPDF2[${PYTHON_USEDEP}]
+		dev-python/pypdf[${PYTHON_USEDEP}]
 	)
 	postscript? ( app-text/ghostscript-gpl )
 	R? ( dev-lang/R )
