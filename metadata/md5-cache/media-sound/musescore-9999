@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
-DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
+DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
 DESCRIPTION=WYSIWYG Music Score Typesetter
 EAPI=8
 HOMEPAGE=https://musescore.org/
@@ -9,10 +9,10 @@ INHERIT=cmake qmake-utils xdg check-reqs git-r3
 IUSE=alsa debug jack mp3 osc omr portaudio portmidi pulseaudio +sf3 sfz test webengine
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
+RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
 REQUIRED_USE=portmidi? ( portaudio )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~fordfrog/distfiles/MuseScore_General-0.2.0.tar.bz2
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	qmake-utils	59420c906278d16deaaa629f9d115707	xdg	6024fbc93167fad782e2032933654857	check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=bd4320fc5220f472900bc54ff7297e90
+_md5_=6c3c72797062472941816430a8b6d1c7
