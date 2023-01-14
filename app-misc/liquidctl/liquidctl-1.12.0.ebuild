@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,8 +16,10 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/colorlog[${PYTHON_USEDEP}]
+	dev-python/crcmod[${PYTHON_USEDEP}]
 	dev-python/docopt[${PYTHON_USEDEP}]
 	dev-python/hidapi[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pyusb[${PYTHON_USEDEP}]
 	sys-apps/i2c-tools[${PYTHON_USEDEP},python]
 "
