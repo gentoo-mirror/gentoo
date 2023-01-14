@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,13 +23,16 @@ KEYWORDS="~amd64"
 # except raycast (tools-only heavy dependency), and deprecated.
 IUSE="
 	+dbus debug deprecated +fontconfig +gui pulseaudio raycast
-	+runner speech test +theora +tools +udev +upnp +webp"
+	+runner speech test +theora +tools +udev +upnp +vulkan +webp"
 # disable tests until out of beta, tests themselves are new and can be volatile
 RESTRICT="test"
 
 # libX11 range is temporary while this is being looked into:
 # - https://github.com/godotengine/godot/issues/69352
 # - https://gitlab.freedesktop.org/xorg/lib/libx11/-/issues/170
+# Should in theory be at least improved for 1.8.4, so allowed preemptively.
+# 1.8.2 caused other issues (i.e. with firefox), fallback to 1.8.1 otherwise.
+
 # dlopen: alsa-lib,dbus,fontconfig,libX*,pulseaudio,speech-dispatcher,udev
 RDEPEND="
 	app-arch/zstd:=
@@ -48,10 +51,9 @@ RDEPEND="
 	gui? (
 		media-libs/alsa-lib
 		media-libs/libglvnd[X]
-		media-libs/vulkan-loader[X]
 		|| (
 			>x11-libs/libX11-1.8.3
-			<x11-libs/libX11-1.8.2-r1
+			<x11-libs/libX11-1.8.2
 		)
 		x11-libs/libXcursor
 		x11-libs/libXext
@@ -63,6 +65,7 @@ RDEPEND="
 		pulseaudio? ( media-libs/libpulse )
 		tools? ( raycast? ( media-libs/embree:3 ) )
 		udev? ( virtual/udev )
+		vulkan? ( media-libs/vulkan-loader[X] )
 	)
 	speech? ( app-accessibility/speech-dispatcher )
 	theora? ( media-libs/libtheora )
@@ -128,7 +131,7 @@ src_compile() {
 		udev=$(usex gui $(usex udev))
 		use_dbus=$(usex gui $(usex dbus))
 		use_volk=no # unnecessary when linking directly to libvulkan
-		vulkan=$(usex gui) # hard-required and favored by upstream over gles3
+		vulkan=$(usex gui $(usex vulkan))
 		x11=$(usex gui)
 
 		system_certs_path="${EPREFIX}"/etc/ssl/certs/ca-certificates.crt
