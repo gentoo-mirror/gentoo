@@ -20,14 +20,15 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv ~x86"
 
 RDEPEND="
 	dev-libs/wayland
 	virtual/python-cffi[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-libs/wayland-protocols"
+BDEPEND="dev-libs/wayland-protocols
+	dev-util/wayland-scanner"
 
 distutils_enable_tests pytest
 
