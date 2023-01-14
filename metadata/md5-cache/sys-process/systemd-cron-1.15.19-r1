@@ -5,13 +5,13 @@ DESCRIPTION=systemd units to create timers for cron directories and crontab
 EAPI=8
 HOMEPAGE=https://github.com/systemd-cron/systemd-cron/
 INHERIT=python-single-r1 systemd
-IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid test yearly python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid test yearly python_single_target_pypy3 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
-RDEPEND=>=sys-apps/systemd-217 sys-apps/debianutils !sys-process/cronie[anacron] !etc-crontab-systemd? ( !sys-process/dcron ) python_single_target_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) sys-process/cronbase acct-user/_cron-failure acct-group/_cron-failure
-REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RDEPEND=>=sys-apps/systemd-217 sys-apps/debianutils !sys-process/cronie[anacron] !etc-crontab-systemd? ( !sys-process/dcron ) python_single_target_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0= ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) sys-process/cronbase acct-user/_cron-failure acct-group/_cron-failure
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd-cron/systemd-cron/archive/v1.15.19.tar.gz -> systemd-cron-1.15.19.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=6bee6712d7cf1c8902ccc0afb678463c

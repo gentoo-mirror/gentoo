@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/gettext virtual/pkgconfig test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=configure postinst postrm preinst prepare setup test
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_8? ( app-i18n/ibus[python(+),python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( app-i18n/ibus[python(+),python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( app-i18n/ibus[python(+),python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) >=app-i18n/libhangul-0.1 nls? ( virtual/libintl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_9? ( app-i18n/ibus[python(+),python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( app-i18n/ibus[python(+),python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) >=app-i18n/libhangul-0.1 nls? ( virtual/libintl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Korean Hangul engine for IBus
 EAPI=7
 HOMEPAGE=https://github.com/libhangul/ibus-hangul/wiki
 INHERIT=gnome2-utils python-single-r1 xdg virtualx
-IUSE=nls python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 test
+IUSE=nls python_single_target_python3_9 python_single_target_python3_10 test
 KEYWORDS=amd64 x86
 LICENSE=GPL-2+
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_8? ( app-i18n/ibus[python(+),python_targets_python3_8(-)] dev-python/pygobject:3[python_targets_python3_8(-)] ) python_single_target_python3_9? ( app-i18n/ibus[python(+),python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( app-i18n/ibus[python(+),python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) >=app-i18n/libhangul-0.1 nls? ( virtual/libintl )
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_9? ( app-i18n/ibus[python(+),python_targets_python3_9(-)] dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( app-i18n/ibus[python(+),python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) >=app-i18n/libhangul-0.1 nls? ( virtual/libintl )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/libhangul/ibus-hangul/releases/download/1.5.4/ibus-hangul-1.5.4.tar.gz
-_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	6024fbc93167fad782e2032933654857	virtualx	644887c82aefdf12001489391fca4f02
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	6024fbc93167fad782e2032933654857	virtualx	644887c82aefdf12001489391fca4f02
 _md5_=c0e6e6e488b9a1ee1ca4dbef97174c6b

@@ -1,16 +1,16 @@
 BDEPEND=dev-lang/swig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
+DEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
 DESCRIPTION=C Library for NVM Express on Linux
 EAPI=8
 HOMEPAGE=https://github.com/linux-nvme/libnvme
 INHERIT=python-r1 meson
-IUSE=+json python ssl +uuid python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+IUSE=+json python ssl +uuid python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
-RDEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
-REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
+RDEPEND=json? ( dev-libs/json-c:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/linux-nvme/libnvme/archive/refs/tags/v1.2.tar.gz -> libnvme-1.2.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-r1	666be58f658d6b32affe30f80e39a49e	ninja-utils	38c85b725d0467e51954ea921b6c104b	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e	ninja-utils	38c85b725d0467e51954ea921b6c104b	meson	1994a5aef5d4f5798b92f64d6f9a6003
 _md5_=48d783be78a04fe5764ce3185ae5041e

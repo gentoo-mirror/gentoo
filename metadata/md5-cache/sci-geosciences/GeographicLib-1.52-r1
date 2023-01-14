@@ -1,17 +1,17 @@
-BDEPEND=doc? ( >=app-doc/doxygen-1.8.7 >=dev-lang/perl-5.26.1-r1 >=dev-python/sphinx-1.6.3-r2 >=sys-apps/util-linux-2.31 ) test? ( python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) ) doc? ( || ( ( >=dev-lang/python-3.10.9:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 >=dev-python/sphinx-5.3.0[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 >=dev-python/sphinx-5.3.0[python_targets_python3_8(-)] ) ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-python/setuptools-65.5.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=doc? ( >=app-doc/doxygen-1.8.7 >=dev-lang/perl-5.26.1-r1 >=dev-python/sphinx-1.6.3-r2 >=sys-apps/util-linux-2.31 ) test? ( python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) ) doc? ( || ( ( >=dev-lang/python-3.10.9:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 >=dev-python/sphinx-5.3.0[python_targets_python3_9(-)] ) ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-python/setuptools-65.5.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) )
+DEPEND=python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) )
 DESCRIPTION=C++ library for converting geographic coordinate systems
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/geographiclib/
 INHERIT=cmake distutils-r1
-IUSE=doc examples python test doc python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=doc examples python test doc python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~arm
 LICENSE=MIT
-RDEPEND=python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
-REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 ) ) || ( python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0/19
 SRC_URI=mirror://sourceforge/geographiclib/GeographicLib-1.52.tar.gz
-_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365
 _md5_=6b4e51db5fd851c9dc0332b0c021fec1

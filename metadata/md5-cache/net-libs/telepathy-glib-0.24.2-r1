@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11[xml(+)] >=dev-lang/python-3.10.9:3.10[xml(+)] >=dev-lang/python-3.9.16:3.9[xml(+)] >=dev-lang/python-3.8.16:3.8[xml(+)] ) dev-libs/libxslt dev-util/glib-utils dev-util/gtk-doc-am virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11[xml(+)] >=dev-lang/python-3.10.9:3.10[xml(+)] >=dev-lang/python-3.9.16:3.9[xml(+)] ) dev-libs/libxslt dev-util/glib-utils dev-util/gtk-doc-am virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=app-portage/elt-patches-20170815 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=>=dev-libs/glib-2.36:2 >=dev-libs/dbus-glib-0.90 introspection? ( >=dev-libs/gobject-introspection-1.30 )
 DESCRIPTION=GLib bindings for the Telepathy D-Bus protocol
@@ -15,5 +15,5 @@ REQUIRED_USE=vala? ( introspection )
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.2.tar.gz
-_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	vala	2633382950a3a9ce912c9258150d5db8	virtualx	644887c82aefdf12001489391fca4f02
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	vala	2633382950a3a9ce912c9258150d5db8	virtualx	644887c82aefdf12001489391fca4f02
 _md5_=8c5d131a3880543f0217cf78f72eec19

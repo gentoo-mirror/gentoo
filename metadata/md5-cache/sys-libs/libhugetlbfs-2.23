@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) )
+BDEPEND=test? ( || ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 ) )
 DEFINED_PHASES=compile install prepare setup test
 DESCRIPTION=Easy hugepage access
 EAPI=7
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/libhugetlbfs/libhugetlbfs/archive/2.23.tar.gz -> libhugetlbfs-2.23.tar.gz
-_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
 _md5_=ec4e14803cca590387fdb647e16d484e

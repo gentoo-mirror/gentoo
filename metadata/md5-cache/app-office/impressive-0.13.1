@@ -3,12 +3,12 @@ DESCRIPTION=Stylish way of giving presentations with Python
 EAPI=8
 HOMEPAGE=http://impressive.sourceforge.net/
 INHERIT=optfeature python-r1
-IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) app-text/mupdf dev-python/pygame[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pillow[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] x11-apps/xrandr || ( media-fonts/dejavu media-fonts/corefonts )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) app-text/mupdf dev-python/pygame[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pillow[python_targets_python3_9(-)?,python_targets_python3_10(-)?] x11-apps/xrandr || ( media-fonts/dejavu media-fonts/corefonts )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=mirror://sourceforge/impressive/Impressive/0.13.1/Impressive-0.13.1.tar.gz
-_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-r1	666be58f658d6b32affe30f80e39a49e
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e
 _md5_=828c68ebc9d3f248f60316eaeb58b97a

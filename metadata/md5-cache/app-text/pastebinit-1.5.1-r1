@@ -4,12 +4,12 @@ DESCRIPTION=A software that lets you send anything you want directly to a pasteb
 EAPI=8
 HOMEPAGE=https://launchpad.net/pastebinit
 INHERIT=optfeature python-single-r1
-IUSE=man python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+IUSE=man python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8[xml(+)] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9[xml(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10[xml(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11[xml(+)] ) python_single_target_python3_8? ( dev-python/configobj[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/configobj[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/configobj[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/configobj[python_targets_python3_11(-)] )
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9[xml(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10[xml(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11[xml(+)] ) python_single_target_python3_9? ( dev-python/configobj[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/configobj[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/configobj[python_targets_python3_11(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=mirror://ubuntu/pool/main/p/pastebinit/pastebinit_1.5.1.orig.tar.gz
-_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=ed44682d18c8404e21a0613a38bf11fb

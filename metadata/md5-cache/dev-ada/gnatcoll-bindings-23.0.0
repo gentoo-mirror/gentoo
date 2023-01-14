@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare setup
-DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
 DESCRIPTION=GNAT Component Collection
 EAPI=7
 HOMEPAGE=http://libre.adacore.com
 INHERIT=ada multiprocessing python-single-r1
-IUSE=gmp iconv lzma openmp python readline +shared static-libs static-pic syslog ada_target_gnat_2021 ada_target_gcc_12_2_0 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+IUSE=gmp iconv lzma openmp python readline +shared static-libs static-pic syslog ada_target_gnat_2021 ada_target_gcc_12_2_0 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] )
-REQUIRED_USE=|| ( shared static-libs static-pic ) || ( gmp iconv lzma openmp python readline syslog ) ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) || ( gmp iconv lzma openmp python readline syslog ) ^^ ( python_single_target_python3_9 python_single_target_python3_10 ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v23.0.0.tar.gz -> gnatcoll-bindings-23.0.0.tar.gz
-_eclasses_=ada	492e700cbeece78fe1a7e23be17a4ba8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=ada	492e700cbeece78fe1a7e23be17a4ba8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=b61a1c908a241a4d996f842bb3c7f476

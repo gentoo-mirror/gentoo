@@ -1,17 +1,17 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) python? ( dev-lang/swig:0 )
+DEPEND=python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) python? ( dev-lang/swig:0 )
 DESCRIPTION=vendor and platform neutral SDR support library
 EAPI=8
 HOMEPAGE=https://github.com/pothosware/SoapySDR
 INHERIT=cmake python-r1
-IUSE=bladerf hackrf python rtlsdr plutosdr uhd python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=bladerf hackrf python rtlsdr plutosdr uhd python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~arm ~riscv ~x86
 LICENSE=Boost-1.0
 PDEPEND=bladerf? ( net-wireless/soapybladerf ) hackrf? ( net-wireless/soapyhackrf ) rtlsdr? ( net-wireless/soapyrtlsdr ) plutosdr? ( net-wireless/soapyplutosdr ) uhd? ( net-wireless/soapyuhd )
-RDEPEND=python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) )
+RDEPEND=python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 ) )
 SLOT=0/0.7.2
 SRC_URI=https://github.com/pothosware/SoapySDR/archive/soapy-sdr-0.7.2.tar.gz -> soapysdr-0.7.2.tar.gz
-_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-r1	666be58f658d6b32affe30f80e39a49e
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e
 _md5_=454e0b0972a3fe0026313f127b1bcbef

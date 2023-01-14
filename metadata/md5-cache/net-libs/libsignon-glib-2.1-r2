@@ -1,17 +1,17 @@
-BDEPEND=|| ( ( >=dev-lang/python-3.11.1:3.11 ) ( >=dev-lang/python-3.10.9:3.10 ) ( >=dev-lang/python-3.9.16:3.9 ) ( >=dev-lang/python-3.8.16:3.8 ) ) || ( dev-lang/vala:0.56 ) dev-util/gdbus-codegen dev-util/glib-utils doc? ( dev-util/gtk-doc ) test? ( dev-libs/check ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( ( >=dev-lang/python-3.11.1:3.11 ) ( >=dev-lang/python-3.10.9:3.10 ) ( >=dev-lang/python-3.9.16:3.9 ) ) || ( dev-lang/vala:0.56 ) dev-util/gdbus-codegen dev-util/glib-utils doc? ( dev-util/gtk-doc ) test? ( dev-libs/check ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
+DEPEND=dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) dev-python/pygobject:3[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 DESCRIPTION=GLib binding for the D-Bus API provided by signond
 EAPI=8
 HOMEPAGE=https://accounts-sso.gitlab.io/
 INHERIT=meson python-r1 vala
-IUSE=debug doc +introspection python test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+IUSE=debug doc +introspection python test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 arm64 ~riscv x86
 LICENSE=LGPL-2.1
-RDEPEND=dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:= ) python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) dev-python/pygobject:3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
-REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) introspection )
+RDEPEND=dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) dev-python/pygobject:3[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) introspection )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/libsignon-glib/-/archive/VERSION_2.1/libsignon-glib-VERSION_2.1.tar.gz -> libsignon-glib-2.1.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	meson	1994a5aef5d4f5798b92f64d6f9a6003	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-r1	666be58f658d6b32affe30f80e39a49e	vala	2633382950a3a9ce912c9258150d5db8
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	meson	1994a5aef5d4f5798b92f64d6f9a6003	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-r1	666be58f658d6b32affe30f80e39a49e	vala	2633382950a3a9ce912c9258150d5db8
 _md5_=09da632f77c17f543b73a264c79a3ac5

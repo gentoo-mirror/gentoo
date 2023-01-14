@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) || ( ( >=dev-lang/python-3.11.1:3.11 dev-ada/langkit[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9:3.10 dev-ada/langkit[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 dev-ada/langkit[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 dev-ada/langkit[python_targets_python3_8(-)] ) )
+BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 ) || ( ( >=dev-lang/python-3.11.1:3.11 dev-ada/langkit[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9:3.10 dev-ada/langkit[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 dev-ada/langkit[python_targets_python3_9(-)] ) )
 DEFINED_PHASES=compile configure install setup
 DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] shared? ( dev-ada/xmlada[shared,static-pic] ) dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] shared? ( dev-ada/gnatcoll-core[shared,static-pic] ) dev-ada/gnatcoll-bindings[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,iconv,gmp] shared? ( dev-ada/gnatcoll-bindings[shared,static-pic] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
 DESCRIPTION=LibGPR2 - Parser for GPR Project files
@@ -12,5 +12,5 @@ RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gpr/archive/refs/tags/v23.0.0.tar.gz -> gpr-23.0.0.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ada	492e700cbeece78fe1a7e23be17a4ba8
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ada	492e700cbeece78fe1a7e23be17a4ba8
 _md5_=36543af0ca5f6f60c4adb8960b8859f4

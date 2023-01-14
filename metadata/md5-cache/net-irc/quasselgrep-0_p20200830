@@ -1,15 +1,15 @@
-BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8[sqlite] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[sqlite] ) >=dev-python/setuptools-65.5.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[sqlite] ) >=dev-python/setuptools-65.5.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install postinst prepare test
 DESCRIPTION=Tool for searching quassel logs from the commandline
 EAPI=8
 HOMEPAGE=https://github.com/fish-face/quasselgrep
 INHERIT=distutils-r1 optfeature
-IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=GPL-2
-RDEPEND=dev-python/future[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pycryptodome[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-dateutil[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8[sqlite] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[sqlite] )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-python/future[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pycryptodome[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-dateutil[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[sqlite] )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/fish-face/quasselgrep/archive/9b6b0bc1252daa6e574363d87d04eebd981215a5.tar.gz -> quasselgrep-0_p20200830.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365	optfeature	1a2157392a869265b2afcb63a26c12ac
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365	optfeature	1a2157392a869265b2afcb63a26c12ac
 _md5_=cbb3ca5e45e88d0a43ca702e626b7c13
