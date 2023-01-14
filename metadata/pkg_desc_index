@@ -3382,7 +3382,7 @@ app-portage/porticron 0.7.1-r1: cron script to sync portage and send update mail
 app-portage/portpeek 3.2.3: A helper program for maintaining the package.keyword and package.unmask files
 app-portage/pram 10: Tool to ease merging Pull Requests and git patches
 app-portage/prefix-toolkit 8 9: Utilities for users of Gentoo Prefix
-app-portage/pycargoebuild 0.5.1 0.5.2 0.5.3 0.5.4 0.6: A generator for Rust/Cargo ebuilds written in Python
+app-portage/pycargoebuild 0.5.1 0.5.2 0.5.3 0.5.4 0.6 0.6.1: A generator for Rust/Cargo ebuilds written in Python
 app-portage/recover-broken-vdb 1.0.0-r2 9999: Check Portage's VDB for internal inconsistency on ELF metadata
 app-portage/repo-commit 0.4.1-r1 9999: A repository commit helper
 app-portage/smart-live-rebuild 1.4.0 9999: Check live packages for updates and emerge them as necessary
@@ -8748,7 +8748,7 @@ dev-python/loguru 0.6.0: Python logging made (stupidly) simple
 dev-python/logutils 0.3.5-r1: The logutils package provides a set of handlers for the Python standard
 dev-python/loky 3.3.0: Robust and reusable Executor for joblib
 dev-python/lunr 0.6.2: A Python implementation of Lunr.js
-dev-python/lxml 4.9.1 4.9.2: A Pythonic binding for the libxml2 and libxslt libraries
+dev-python/lxml 4.9.2: A Pythonic binding for the libxml2 and libxslt libraries
 dev-python/lz4 4.0.2 4.3.1 4.3.2: LZ4 Bindings for Python
 dev-python/m2crypto 0.38.0: A Python crypto and SSL toolkit
 dev-python/makefun 1.15.0: Small library to dynamically create Python functions
@@ -17809,7 +17809,7 @@ sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r4: Tools necessary to build p
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
 sys-devel/bmake 20220928: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
-sys-devel/clang 13.0.1 14.0.6-r1 15.0.6-r1 15.0.7 16.0.0_pre20230101 16.0.0_pre20230107 16.0.0.9999: C language family frontend for LLVM
+sys-devel/clang 13.0.1 14.0.6-r1 15.0.6-r1 15.0.7-r1 16.0.0_pre20230101 16.0.0_pre20230107 16.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 13.0.1 14.0.6 15.0.6 15.0.6-r1 15.0.7 16.0.0_pre20230101 16.0.0_pre20230101-r1 16.0.0_pre20230107 16.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-runtime 13.0.1 14.0.6 15.0.6 15.0.7 16.0.0_pre20230101 16.0.0_pre20230107 16.0.0.9999: Meta-ebuild for clang runtime libraries
 sys-devel/clang-toolchain-symlinks 14-r2 15-r2 16-r2: Symlinks to use Clang on GCC-free system
@@ -18032,8 +18032,8 @@ sys-kernel/cryptodev 1.11 1.12 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 057-r3 059 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.6-r6 4.2.6-r8 4.3.1-r1 4.3.2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.228 5.10.161 5.10.162 5.15.85 5.15.86 5.15.87 6.0.15 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1 6.1.2 6.1.3 6.1.4 6.1.5: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.228-r1 5.10.161-r1 5.10.162 5.15.85-r1 5.15.86 5.15.87 6.0.15-r1 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1-r1 6.1.2 6.1.3 6.1.4 6.1.5: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.228 5.10.161 5.10.162 5.10.163 5.15.85 5.15.86 5.15.87 5.15.88 6.0.15 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1 6.1.2 6.1.3 6.1.4 6.1.5 6.1.6: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.228-r1 5.10.161-r1 5.10.162 5.10.163 5.15.85-r1 5.15.86 5.15.87 5.15.88 6.0.15-r1 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1-r1 6.1.2 6.1.3 6.1.4 6.1.5 6.1.6: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.9.334 4.9.337 4.14.300 4.14.301 4.14.302 4.19.267 4.19.268 4.19.269 5.4.225 5.4.226 5.4.227 5.4.228 5.10.155 5.10.156 5.10.157 5.10.158 5.10.159 5.10.160 5.10.161 5.10.162 5.10.163 5.15.80 5.15.84 5.15.85 5.15.86 5.15.87 5.15.88 6.0.16 6.0.17 6.0.18 6.0.19 6.1.2 6.1.3 6.1.4 6.1.5 6.1.5-r1 6.1.6: Full sources including the Gentoo patchset for the 6.1 kernel tree
 sys-kernel/git-sources 6.2_rc1 6.2_rc2 6.2_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5 6: Gentoo fork of installkernel script from debianutils
@@ -18049,7 +18049,7 @@ sys-kernel/pf-sources 5.18_p5 5.19_p6 6.0_p1 6.0_p2 6.0_p3 6.0_p4 6.0_p5 6.0_p6 
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.15.61_p20220830 5.15.76_p20221104: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.9.327_p197 4.14.301_p141 4.19.269_p119 5.4.221_p79 5.10.158_p77 5.15.86_p56 6.0.5_p14: Full Linux 6.0 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.228 5.4.9999 5.10.161 5.10.162 5.10.9999 5.15.85 5.15.86 5.15.87 5.15.9999 5.19.9999 6.0.15 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1 6.1.2 6.1.3 6.1.4 6.1.5: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.228 5.4.9999 5.10.161 5.10.162 5.10.163 5.10.9999 5.15.85 5.15.86 5.15.87 5.15.88 5.15.9999 5.19.9999 6.0.15 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1 6.1.2 6.1.3 6.1.4 6.1.5 6.1.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.9.337 4.14.302 4.19.269 5.4.228 5.10.163 5.15.88 6.0.19 6.1.6: Full sources for the Linux kernel
 sys-kernel/zen-sources 5.15.10 5.19.13 6.0.12: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -18235,7 +18235,7 @@ virtual/commonlisp 0: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.228 5.10.161 5.10.162 5.15.85 5.15.86 5.15.87 6.0.15 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1 6.1.2 6.1.3 6.1.4 6.1.5: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.228 5.10.161 5.10.162 5.10.163 5.15.85 5.15.86 5.15.87 5.15.88 6.0.15 6.0.16 6.0.17 6.0.18 6.0.19 6.1.1 6.1.2 6.1.3 6.1.4 6.1.5 6.1.6: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1-r1 5.0-r1 6.0-r1 7.0: Virtual for .NET SDK
 virtual/editor 0-r4: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
