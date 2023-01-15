@@ -1,6 +1,17 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# There are many slots for this package because people in the community
+# like to play old versions.  Every release includes content changes
+# where species/spells/monsters are added or removed.  The public
+# servers (e.g. http://crawl.akrasiac.org:8080) usually support playing
+# versions back to 0.11.
+
+# It's not necessary for Gentoo to support these old version but it's
+# something nice that our distro can offer that others don't.  If the
+# maintenance burden becomes excessive than we can revisit that
+# position.
+
 EAPI=8
 
 LUA_COMPAT=( lua5-1 )
@@ -40,7 +51,7 @@ SRC_URI="
 # Public Domain|CC0: most of tiles
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
