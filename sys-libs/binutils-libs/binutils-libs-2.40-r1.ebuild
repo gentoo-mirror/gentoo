@@ -58,7 +58,7 @@ src_prepare() {
 	# See https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html
 	# Avoid really confusing logs from subconfigure spam, makes logs far
 	# more legible.
-	MAKEOPTS="--output-sync=line ${MAKEOPTS}"
+	export MAKEOPTS="--output-sync=line ${MAKEOPTS}"
 
 	default
 }
@@ -105,6 +105,9 @@ multilib_src_configure() {
 		# systems with debuginfod library, bug #754753
 		--without-debuginfod
 
+		# Revisit if it's useful, we do have binutils[zstd] though
+		--without-zstd
+
 		# Allow user to opt into CET for host libraries.
 		# Ideally we would like automagic-or-disabled here.
 		# But the check does not quite work on i686: bug #760926.
@@ -143,6 +146,9 @@ multilib_src_compile() {
 
 multilib_src_install() {
 	emake V=1 DESTDIR="${D}" install
+
+	# Provided by sys-devel/gdb instead
+	rm "${ED}"/usr/share/info/sframe-spec.info || die
 
 	# Provide libiberty.h directly.
 	dosym libiberty/libiberty.h /usr/include/libiberty.h
