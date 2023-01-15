@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=gmp? ( dev-libs/gmp:0= ) mpi? ( virtual/mpi ) zlib? ( sys-libs/zlib ) devref? ( dev-texlive/texlive-latexrecommended ) doc? ( dev-texlive/texlive-latexrecommended ) doxygen? ( app-doc/doxygen ) emacs? ( app-editors/emacs:* )
+DESCRIPTION=Symbolic Manipulation System
+EAPI=8
+HOMEPAGE=https://www.nikhef.nl/~form/ https://github.com/vermaseren/form/
+INHERIT=autotools toolchain-funcs elisp-common
+IUSE=devref doc doxygen emacs gmp mpi threads zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=gmp? ( dev-libs/gmp:0= ) mpi? ( virtual/mpi ) zlib? ( sys-libs/zlib )
+SLOT=0
+SRC_URI=https://github.com/vermaseren/form/releases/download/v4.3.0/form-4.3.0.tar.gz emacs? ( https://dev.gentoo.org/~grozin/form-mode.el.gz )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b
+_md5_=d9013c96d87eca2c4b98de9f31e8521c
