@@ -216,6 +216,8 @@ src_install() {
 
 	dodoc "${FILESDIR}"/config.toml
 	docompress -x "/usr/share/doc/${PF}/config.toml"
+
+	dodoc -r "${S}"/filter-script-examples
 }
 
 pkg_postinst() {
