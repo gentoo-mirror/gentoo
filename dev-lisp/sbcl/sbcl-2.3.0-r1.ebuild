@@ -46,6 +46,7 @@ CDEPEND=">=dev-lisp/asdf-3.3:= \
 	prefix? ( dev-util/patchelf )"
 # bug #843851
 BDEPEND="${CDEPEND}
+		dev-util/strace
 		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )"
 RDEPEND="${CDEPEND}
 		zstd? ( app-arch/zstd )
