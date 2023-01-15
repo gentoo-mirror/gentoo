@@ -25,6 +25,11 @@ SLOT="0"
 
 CONFIG_CHECK="~NUMA ~CPUSETS"
 
+PATCHES=(
+	# https://pagure.io/numad/pull-request/3
+	"${FILESDIR}/${PN}-0.5-fix-sparse-node-ids.patch"
+)
+
 src_configure() {
 	tc-export AR CC RANLIB
 
