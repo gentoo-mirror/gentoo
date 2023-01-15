@@ -4,11 +4,11 @@ DESCRIPTION=HDX RealTime Media Engine plugin for Citrix Workspace App
 EAPI=8
 HOMEPAGE=https://www.citrix.com/
 INHERIT=unpacker
-KEYWORDS=~amd64 ~x86
+KEYWORDS=-* ~amd64 ~x86
 LICENSE=icaclient
 RDEPEND=>=net-misc/icaclient-20.12.0.12-r1 || ( media-video/pipewire media-sound/pulseaudio media-sound/apulse )
 RESTRICT=fetch mirror strip
 SLOT=0
 SRC_URI=amd64? ( HDX_RealTime_Media_Engine_2.9.500_for_Linux_x64.zip ) x86? ( HDX_RealTime_Media_Engine_2.9.500_for_Linux.zip )
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	unpacker	8bbea377a8dd2b5d5c8bc0d834ae6157
-_md5_=ba2d1e8deb0c92d306863da856abf022
+_md5_=5f54fd977965cea83ff2ba8a38388fd0
