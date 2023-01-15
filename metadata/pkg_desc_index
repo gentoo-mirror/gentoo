@@ -4062,8 +4062,8 @@ app-xemacs/zenirc 1.18: ZENIRC IRC Client
 dev-ada/VSS 22.0.0 23.0.0: A high level string and text processing library
 dev-ada/ada_language_server 22.0.0 23.0.10: an implementation of the Microsoft Language Server Protocol for Ada/SPARK
 dev-ada/ada_libfswatch 20201105: Ada binding to the libfswatch library
-dev-ada/aunit 22.0.0 23.0.0 2021: Ada unit testing framework
-dev-ada/aws 22.0.0 23.0.0 2021: A complete Web development framework
+dev-ada/aunit 22.0.0 23.0.0: Ada unit testing framework
+dev-ada/aws 22.0.0 23.0.0: A complete Web development framework
 dev-ada/e3-core 22.1.0-r1 22.2.0: Ease the development of portable automated build systems
 dev-ada/e3-testsuite 24.0 25.0: Generic testsuite framework in Python
 dev-ada/gnatcoll-bindings 22.0.0-r1 23.0.0 2021: GNAT Component Collection
@@ -4876,7 +4876,7 @@ dev-java/ant-commons-logging 1.10.9: Apache Ant's optional tasks depending on co
 dev-java/ant-commons-net 1.10.9: Apache Ant's optional tasks depending on commons-net
 dev-java/ant-contrib 1.0_beta6_pre20201123-r1: Ant-contrib tasks for Apache Ant
 dev-java/ant-core 1.10.9-r5: Java-based build tool similar to 'make' that uses XML configuration files
-dev-java/ant-eclipse-ecj 4.15-r1 4.22-r2 4.25: Ant Compiler Adapter for Eclipse Java Compiler
+dev-java/ant-eclipse-ecj 4.15-r1 4.22-r2 4.25 4.26: Ant Compiler Adapter for Eclipse Java Compiler
 dev-java/ant-ivy 2.5.0-r1: Ivy is a free java based dependency manager
 dev-java/ant-jai 1.10.9: Apache Ant's optional tasks depending on sun-jai-bin
 dev-java/ant-javamail 1.10.9-r1: Apache Ant's optional tasks depending on gnu-jaf-1
@@ -4949,7 +4949,7 @@ dev-java/coursier-bin 2.1.0_rc2 2.1.0_rc3: Java/Scala artifact fetching, bundlin
 dev-java/cpptasks 1.0_beta5-r1: Ant-tasks to compile various source languages and produce executables
 dev-java/dom4j 2.1.3: flexible XML framework for Java
 dev-java/easymock 2.5.2 3.3.1-r1: Mock Objects for interfaces in JUnit tests by generating them on the fly
-dev-java/eclipse-ecj 4.15 4.22-r1 4.25: Eclipse Compiler for Java
+dev-java/eclipse-ecj 4.15 4.22-r1 4.25 4.26: Eclipse Compiler for Java
 dev-java/emma 2.0.5312-r4: Free Java code coverage tool
 dev-java/error-prone-annotations 2.7.1 2.16: Java annotations for the Error Prone static analysis tool
 dev-java/failureaccess 30.1.1: Guava's InternalFutureFailureAccess and InternalFutures classes.
@@ -5177,10 +5177,10 @@ dev-java/swingx-ws 1.0_p20110515-r2: Utilities and widgets to integrate Swing GU
 dev-java/swt 3.7.2-r3 3.8.2-r4 4.10-r2: GTK based SWT Library
 dev-java/system-rules 1.19.0: A collection of JUnit rules for testing code which uses java.lang.System.
 dev-java/testng 6.9.10-r1: Testing framework inspired by JUnit and NUnit with new features
-dev-java/tomcat-el-api 8.5.84 9.0.70 10.1.4: Tomcat's EL API 5.0 implementation
-dev-java/tomcat-jsp-api 8.5.84 9.0.70 10.1.4: Tomcat's JSP API 3.1 implementation
+dev-java/tomcat-el-api 8.5.84 9.0.70 9.0.71 10.1.4 10.1.5: Tomcat's EL API 5.0 implementation
+dev-java/tomcat-jsp-api 8.5.84 9.0.70 9.0.71 10.1.4 10.1.5: Tomcat's JSP API 3.1 implementation
 dev-java/tomcat-native 1.2.35 2.0.2: Allows Tomcat to use certain native resources for better performance
-dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.109 8.5.84 9.0.70 10.1.4: Tomcat's Servlet API 6.0 implementation
+dev-java/tomcat-servlet-api 4.1.40 5.5.36 6.0.53-r1 7.0.109 8.5.84 9.0.70 9.0.71 10.1.4 10.1.5: Tomcat's Servlet API 6.0 implementation
 dev-java/treelayout 1.0.3-r1: Efficient and customizable TreeLayout Algorithm in Java.
 dev-java/typesafe-config 1.4.2: A library of arguably useful Java utilities
 dev-java/unbescape 1.1.6: Advanced yet easy-to-use escape/unescape library for Java
@@ -16918,7 +16918,7 @@ sec-keys/openpgp-keys-alexbarton 20210416: OpenPGP keys used by Alex Barton
 sec-keys/openpgp-keys-antoniodiazdiaz 20220406: OpenPGP keys used by Antonio Diaz Diaz
 sec-keys/openpgp-keys-apache-commons 20221022: OpenPGP keys used by commons.apache.org
 sec-keys/openpgp-keys-apache-logging 20220918: OpenPGP keys used by logging.apache.org
-sec-keys/openpgp-keys-apache-tomcat 8.5.84 9.0.70 10.1.4: OpenPGP keys used by tomcat.apache.org
+sec-keys/openpgp-keys-apache-tomcat 8.5.84 9.0.70 9.0.71 10.1.4 10.1.5: OpenPGP keys used by tomcat.apache.org
 sec-keys/openpgp-keys-apache-tomcat-connectors 20141023: OpenPGP keys used by commons.apache.org
 sec-keys/openpgp-keys-apache-xalan-c 20221123: OpenPGP keys used to sign Apache Xalan-C
 sec-keys/openpgp-keys-apache-xmlgraphics-commons 20150603: OpenPGP keys used by xmlgraphics.apache.org/commons
@@ -18584,7 +18584,7 @@ www-servers/servefile 0.5.3 0.5.3-r1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.0-r1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1: A fast and very simple Ruby web server
-www-servers/tomcat 8.5.84 9.0.70 10.1.4: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+www-servers/tomcat 8.5.84 9.0.70 9.0.71 10.1.4 10.1.5: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
 www-servers/uwsgi 2.0.19.1-r109: uWSGI server for Python web applications
 www-servers/varnish 7.1.1-r1 7.1.2-r1: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
