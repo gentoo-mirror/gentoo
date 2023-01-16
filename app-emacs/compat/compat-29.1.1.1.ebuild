@@ -3,16 +3,15 @@
 
 EAPI=8
 
-H=8a32564247ad3baee571252a2004c3d347962d01
-NEED_EMACS=24
+NEED_EMACS=24.4
 
 inherit elisp
 
 DESCRIPTION="Compatibility libraries for Emacs"
-HOMEPAGE="https://git.sr.ht/~pkal/compat/"
-SRC_URI="https://git.sr.ht/~pkal/${PN}/archive/${H}.tar.gz
+HOMEPAGE="https://github.com/emacs-compat/compat/
+	https://git.sr.ht/~pkal/compat/"
+SRC_URI="https://github.com/emacs-compat/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${H}
 
 LICENSE="GPL-3+"
 SLOT="0"
