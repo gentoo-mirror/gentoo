@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,25 +9,25 @@ DESCRIPTION="Inspire IRCd - The Stable, High-Performance Modular IRCd"
 HOMEPAGE="https://www.inspircd.org/"
 SRC_URI="
 	https://github.com/inspircd/inspircd/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/clinew/gentoo-distfiles/raw/master/inspircd-${PV}-fix-path-builds.patch.bz2
-	https://github.com/clinew/gentoo-distfiles/raw/master/inspircd-${PV}-fix-template-files.patch.bz2
-	https://github.com/clinew/gentoo-distfiles/raw/master/inspircd-${PV}-fix-logrotate-conf.patch.bz2"
+	https://github.com/clinew/gentoo-distfiles/raw/master/inspircd-${PV}-fix-build-paths.patch.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
-IUSE="debug gnutls ldap maxminddb mbedtls mysql pcre postgres re2 regex-posix regex-stdlib sqlite ssl sslrehashsignal tre"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="argon2 debug gnutls ldap maxminddb mbedtls mysql pcre pcre2 postgres re2 regex-posix regex-stdlib sqlite ssl sslrehashsignal tre"
 
 RDEPEND="
 	acct-group/inspircd
 	acct-user/inspircd
 	dev-lang/perl
+	argon2? ( app-crypt/argon2 )
 	gnutls? ( net-libs/gnutls:= dev-libs/libgcrypt:0 )
 	ldap? ( net-nds/openldap:= )
 	maxminddb? ( dev-libs/libmaxminddb:= )
 	mbedtls? ( net-libs/mbedtls:= )
 	mysql? ( dev-db/mysql-connector-c:= )
 	pcre? ( dev-libs/libpcre )
+	pcre2? ( dev-libs/libpcre2 )
 	postgres? ( dev-db/postgresql:= )
 	re2? ( dev-libs/re2:= )
 	sqlite? ( >=dev-db/sqlite-3.0 )
@@ -36,20 +36,19 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=( docs/. .configure/apparmor )
-PATCHES=(
-	"${WORKDIR}"/${P}-fix-path-builds.patch
-	"${WORKDIR}"/${P}-fix-template-files.patch
-	"${WORKDIR}"/${P}-fix-logrotate-conf.patch)
+PATCHES=( "${WORKDIR}"/${P}-fix-build-paths.patch )
 
 src_configure() {
 	local extras=""
 
+	use argon2 && extras+="argon2,"
 	use gnutls && extras+="ssl_gnutls,"
 	use ldap && extras+="ldap,"
 	use maxminddb && extras+="geo_maxmind,"
 	use mbedtls && extras+="ssl_mbedtls,"
 	use mysql && extras+="mysql,"
 	use pcre && extras+="regex_pcre,"
+	use pcre2 && extras+="regex_pcre2,"
 	use postgres && extras+="pgsql,"
 	use re2 && extras+="regex_re2,"
 	use regex-posix && extras+="regex_posix,"
@@ -69,6 +68,8 @@ src_configure() {
 		--disable-auto-extras
 		--disable-ownership
 		--system
+		--uid ${PN}
+		--gid ${PN}
 		--binary-dir="/usr/bin"
 		--data-dir="/var/lib/${PN}/data"
 		--example-dir="/usr/share/doc/${PV}"
