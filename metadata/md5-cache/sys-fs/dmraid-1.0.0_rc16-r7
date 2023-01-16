@@ -1,6 +1,6 @@
 BDEPEND=app-arch/tar virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst prepare setup
-DEPEND=>=sys-fs/lvm2-2.02.45[lvm] static? ( sys-fs/lvm2[static-libs] )
+DEPEND=>=sys-fs/lvm2-2.02.45[lvm(+)] static? ( sys-fs/lvm2[static-libs] )
 DESCRIPTION=Device-mapper RAID tool and library
 EAPI=7
 HOMEPAGE=https://people.redhat.com/~heinzm/sw/dmraid/
@@ -8,8 +8,8 @@ INHERIT=autotools linux-info
 IUSE=intel-led led mini static
 KEYWORDS=~alpha amd64 arm arm64 ~ia64 ~loong ppc ppc64 ~riscv sparc x86
 LICENSE=GPL-2
-RDEPEND=>=sys-fs/lvm2-2.02.45[lvm]
+RDEPEND=>=sys-fs/lvm2-2.02.45[lvm(+)]
 SLOT=0
 SRC_URI=https://people.redhat.com/~heinzm/sw/dmraid/src/dmraid-1.0.0.rc16-3.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22
-_md5_=4cc72bdcdf6cf8163dbb4a177b72186a
+_md5_=d70f27d88e3655e95c68e39a14d50f63
