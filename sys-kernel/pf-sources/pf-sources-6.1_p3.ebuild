@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ ETYPE="sources"
 K_EXP_GENPATCHES_NOUSE="1"
 
 # Just get basic genpatches, -pf patch set already includes vanilla-linux updates
-K_GENPATCHES_VER="1"
+K_GENPATCHES_VER="8"
 
 # -pf already sets EXTRAVERSION to kernel Makefile
 K_NOSETEXTRAVERSION="1"
@@ -65,6 +65,11 @@ src_unpack() {
 }
 
 src_prepare() {
+	# When genpatches basic version is bumped, it also includes vanilla linux updates. Those are also included
+	# in the -pf patch set, so need to remove the vanilla linux patches.
+	find "${WORKDIR}"/ -type f -name '100*linux*patch' -delete ||
+		die "Failed to delete vanilla linux patches in src_prepare."
+
 	# kernel-2_src_prepare doesn't apply PATCHES(). After pf-sources moved to Codeberg, we need
 	# to manually eapply the genpatches too.
 	eapply "${WORKDIR}"/*.patch
