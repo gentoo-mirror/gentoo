@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,10 +11,10 @@ SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="+execline"
 
-RDEPEND="dev-libs/skalibs:=
+RDEPEND=">=dev-libs/skalibs-2.13.0.0:=
 	execline? ( dev-lang/execline:= )
 "
 DEPEND="${RDEPEND}"
@@ -43,6 +43,7 @@ src_configure() {
 		--with-sysdeps=/usr/$(get_libdir)/skalibs
 		--enable-shared
 		--disable-allstatic
+		--disable-static
 		--disable-static-libc
 		$(use_enable execline)
 	)
