@@ -6,9 +6,9 @@ EAPI=8
 inherit systemd
 
 SRC_URI="
-	amd64? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-x64.tar.gz )
-	arm? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-arm.tar.gz )
-	arm64? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-arm64.tar.gz )
+	amd64? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-x64.tar.gz )
+	arm? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-arm.tar.gz )
+	arm64? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-arm64.tar.gz )
 "
 
 DESCRIPTION="An indexer manager/proxy to integrate with your various PVR apps"
