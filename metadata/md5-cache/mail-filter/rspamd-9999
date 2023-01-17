@@ -1,4 +1,4 @@
-BDEPEND=dev-util/ragel virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-lang/perl dev-util/ragel virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) lua_single_target_luajit? ( dev-lua/LuaBitOp[lua_targets_luajit(-)] dev-lua/lua-argparse[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] dev-lua/lua-argparse[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/LuaBitOp[lua_targets_lua5-3(-)] dev-lua/lua-argparse[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/LuaBitOp[lua_targets_lua5-4(-)] dev-lua/lua-argparse[lua_targets_lua5-4(-)] ) acct-group/rspamd acct-user/rspamd app-arch/zstd:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/icu:= dev-libs/libev dev-libs/libfmt:= dev-libs/libpcre2:=[jit=] dev-libs/libsodium:= dev-libs/openssl:0=[-bindist(-)] dev-libs/snowball-stemmer:= >=dev-libs/xxhash-0.8.0 sys-apps/file sys-libs/zlib blas? ( virtual/blas virtual/lapack ) cpu_flags_x86_ssse3? ( dev-libs/hyperscan ) jemalloc? ( dev-libs/jemalloc:= ) selinux? ( sec-policy/selinux-spamassassin ) dev-cpp/doctest
 DESCRIPTION=Rapid spam filtering system
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_t
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	pax-utils	91d47e5d20627c717aa878b9167c62a8	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=58e597a6e3312568dfdf7000f98b572a
+_md5_=e8ffd7088eb884e5ecf80069f78676a6
