@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/groff rpc? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure postinst prepare
+DEPEND=rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux )
+DESCRIPTION=Lists open files for running Unix processes
+EAPI=8
+HOMEPAGE=https://github.com/lsof-org/lsof
+INHERIT=autotools flag-o-matic
+IUSE=rpc selinux
+KEYWORDS=~amd64
+LICENSE=lsof
+RDEPEND=rpc? ( net-libs/libtirpc ) selinux? ( sys-libs/libselinux )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/lsof-org/lsof/archive/4.97.0.tar.gz -> lsof-4.97.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395
+_md5_=d96e11e0b68a5cb0fc4d7a6dca87770e
