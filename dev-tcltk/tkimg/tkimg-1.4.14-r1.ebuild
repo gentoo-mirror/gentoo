@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}/$(ver_cut 1-2)/${PN}%20${PV}/${MYP}.ta
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc test static-libs"
 
 RDEPEND="
@@ -55,7 +55,7 @@ src_prepare() {
 
 	eautoreconf
 	for dir in zlib libpng libtiff libjpeg base bmp gif ico jpeg pcx pixmap png\
-		ppm ps sgi sun tga tiff window xbm xpm dted raw flir ; do
+		ppm ps sgi sun tga tiff window xbm xpm dted raw flir compat/libtiff ; do
 		(cd ${dir}; AT_NOELIBTOOLIZE=yes eautoreconf)
 	done
 
