@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -84,7 +84,7 @@ RDEPEND="${DEPEND}
 		!pulseaudio? ( media-sound/apulse )
 	)
 	ffmpeg? ( media-video/ffmpeg )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	selinux? ( sec-policy/selinux-mozilla )
 "
 
