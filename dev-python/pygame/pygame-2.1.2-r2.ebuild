@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -15,24 +15,25 @@ SRC_URI="
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="examples midi opengl test X"
 RESTRICT="!test? ( test )"
 
-RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]
+RDEPEND="
+	dev-python/numpy[${PYTHON_USEDEP}]
 	media-libs/freetype
-	media-libs/libpng:0=
-	>=media-libs/sdl2-image-1.2.2
-	>=media-libs/sdl2-mixer-1.2.4
-	>=media-libs/sdl2-ttf-2.0.6
-	>=media-libs/smpeg2-0.4.4-r1
-	virtual/jpeg
+	media-libs/libjpeg-turbo:=
+	media-libs/libpng:=
+	media-libs/sdl2-image
+	media-libs/sdl2-mixer
+	media-libs/sdl2-ttf
 	midi? ( media-libs/portmidi )
-	X? ( >=media-libs/libsdl2-1.2.5[opengl?,threads,video,X] )
-	!X? ( >=media-libs/libsdl2-1.2.5[threads] )"
-DEPEND="${RDEPEND}
+	X? ( media-libs/libsdl2[opengl?,threads,video,X] )
+	!X? ( media-libs/libsdl2[threads] )"
+DEPEND="
+	${RDEPEND}
 	test? (
-		media-libs/sdl2-image[gif,jpeg,png,tiff]
+		media-libs/sdl2-image[gif,jpeg,png,tiff,webp]
 		media-libs/sdl2-mixer[mp3,vorbis,wav]
 	)"
 # fontconfig used for fc-list
@@ -40,6 +41,7 @@ RDEPEND+="
 	media-libs/fontconfig"
 # util-linux provides script
 BDEPEND="
+	dev-python/cython[${PYTHON_USEDEP}]
 	test? (
 		media-libs/fontconfig
 		sys-apps/util-linux
@@ -47,13 +49,15 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${P}-libsdl2-2.26-tests.patch
+	"${FILESDIR}"/${P}-cython_only.patch
 )
 
 src_prepare() {
+	distutils-r1_src_prepare
+
 	if ! use midi; then
 		rm test/midi_test.py || die
 	fi
-	distutils-r1_src_prepare
 }
 
 python_configure() {
@@ -62,8 +66,13 @@ python_configure() {
 
 	# Disable automagic dependency on PortMidi.
 	if ! use midi; then
-		sed -e "s:^pypm :#&:" -i Setup || die "sed failed"
+		sed -e "s:^pypm :#&:" -i Setup || die
 	fi
+}
+
+python_configure_all() {
+	find src_c/cython -name '*.pyx' -exec touch {} + || die
+	"${EPYTHON}" setup.py cython_only || die
 }
 
 python_test() {
