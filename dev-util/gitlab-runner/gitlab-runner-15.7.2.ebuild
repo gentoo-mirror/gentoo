@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit go-module systemd tmpfiles
 
 # make sure this gets updated for every bump
-GIT_COMMIT=133d7e76
+GIT_COMMIT=0e7679e6
 
 DESCRIPTION="The official GitLab Runner, written in Go"
 HOMEPAGE="https://gitlab.com/gitlab-org/gitlab-runner"
@@ -23,11 +23,6 @@ RDEPEND="${COMMON_DEPEND}"
 BDEPEND="dev-go/gox"
 
 DOCS=( docs CHANGELOG.md README.md config.toml.example )
-
-PATCHES=(
-	# https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/3498
-	"${FILESDIR}"/build-for-arm64.patch
-	)
 
 S="${WORKDIR}/${PN}-v${PV}"
 
