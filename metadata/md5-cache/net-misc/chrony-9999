@@ -5,11 +5,11 @@ DESCRIPTION=NTP client and server programs
 EAPI=8
 HOMEPAGE=https://chrony.tuxfamily.org/ https://git.tuxfamily.org/chrony/chrony.git
 INHERIT=edo systemd tmpfiles toolchain-funcs git-r3
-IUSE=+caps +cmdmon debug html ipv6 libtomcrypt +nettle nss +ntp +nts +phc pps +readline +refclock +rtc samba +seccomp +sechash selinux
+IUSE=+caps +cmdmon debug html libtomcrypt +nettle nss +ntp +nts +phc pps +readline +refclock +rtc samba +seccomp +sechash selinux
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) readline? ( dev-libs/libedit ) seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-chronyd ) virtual/tmpfiles
 REQUIRED_USE=sechash? ( || ( nettle nss libtomcrypt ) ) nettle? ( !nss ) nss? ( !nettle ) libtomcrypt? ( !nettle !nss ) !sechash? ( !nss ) !sechash? ( !nts? ( !nettle ) ) html
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=3e36011c5b6977f391ef3f882b9f3140
+_md5_=791d4ce93a38a03ff2c2178215989e4a
