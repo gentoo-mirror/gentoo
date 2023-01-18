@@ -1,11 +1,10 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
-
-inherit cmake desktop python-any-r1
+PYTHON_COMPAT=( python3_{9..11} )
+inherit cmake desktop flag-o-matic python-any-r1
 
 DESCRIPTION="Online multi-player platform 2D shooter"
 HOMEPAGE="https://www.teeworlds.com/"
@@ -17,30 +16,30 @@ S="${WORKDIR}/${P}-src"
 LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="debug dedicated"
+IUSE="dedicated"
 
 RDEPEND="
 	!dedicated? (
-		app-arch/bzip2:=
 		media-libs/freetype
-		media-libs/libsdl2[X,sound,opengl,video]
+		media-libs/libglvnd[X]
+		media-libs/libsdl2[sound,opengl,video]
 		media-libs/pnglite
 		media-sound/wavpack
-		virtual/glu
-		virtual/opengl
-		x11-libs/libX11
 	)
-	dev-libs/openssl:0=
-	sys-libs/zlib"
+	dev-libs/openssl:=
+	sys-libs/zlib:="
 DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
 
 src_configure() {
+	append-flags -fno-strict-aliasing #858524
+
 	local mycmakeargs=(
-		-DCLIENT=$(usex dedicated OFF ON)
-		-DDEV=$(usex debug ON OFF)
+		-DCLIENT=$(usex !dedicated)
+		-DCMAKE_DISABLE_FIND_PACKAGE_X11=yes # unused
 		-DPYTHON_EXECUTABLE="${PYTHON}"
 	)
+
 	cmake_src_configure
 }
 
