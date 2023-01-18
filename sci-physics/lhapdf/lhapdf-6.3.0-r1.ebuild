@@ -12,7 +12,9 @@ DOCS_DEPEND="
 	dev-texlive/texlive-latex
 	dev-texlive/texlive-latexextra
 "
-inherit python-single-r1 docs
+DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_SINGLE_IMPL=1
+inherit distutils-r1 docs
 
 MY_PV=$(ver_cut 1-3)
 MY_PF=LHAPDF-${MY_PV}
@@ -24,28 +26,38 @@ S="${WORKDIR}/${MY_PF}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="
-	dev-libs/boost:=
-	${PYTHON_DEPS}"
+BDEPEND="
+	$(python_gen_cond_dep '
+	     >=dev-python/cython-0.19[${PYTHON_USEDEP}]
+	')
+"
+RDEPEND="${PYTHON_DEPS}"
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.5.2-py.patch
-)
+src_prepare() {
+	default
+	# Let cython reproduce this for more recent python versions
+	rm wrappers/python/lhapdf.cpp || die
+}
 
 src_configure() {
-	CONFIG_SHELL="${EPREFIX}/bin/bash" \
 	econf \
 		--disable-static \
 		--enable-python
+
+	cd "${S}"/wrappers/python || die
+	distutils-r1_src_prepare
 }
 
 src_compile() {
 	emake all $(use doc && echo doxy)
+
+	cd "${S}"/wrappers/python || die
+	distutils-r1_src_compile
 }
 
 src_test() {
@@ -57,7 +69,8 @@ src_install() {
 	use doc && dodoc -r doc/doxygen/.
 	use examples && dodoc examples/*.cc
 
-	python_optimize
+	cd "${S}"/wrappers/python || die
+	distutils-r1_src_install
 
 	find "${ED}" -name '*.la' -delete || die
 }
