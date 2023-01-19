@@ -5,8 +5,8 @@ EAPI=7
 
 inherit toolchain-funcs
 
-DESCRIPTION="CamlIDL is a stub code generator for using C/C++ libraries from O'Caml"
-HOMEPAGE="http://caml.inria.fr/camlidl/"
+DESCRIPTION="Stub code generator for OCaml"
+HOMEPAGE="https://github.com/xavierleroy/camlidl"
 SRC_URI="https://github.com/xavierleroy/${PN}/archive/${PN}$(ver_rs 0-1 '').tar.gz"
 
 LICENSE="QPL-1.0 LGPL-2"
@@ -20,7 +20,6 @@ S="${WORKDIR}"/${PN}-${PN}$(ver_rs 0-1 '')
 
 PATCHES=(
 	"${FILESDIR}/nowarn.patch"
-	"${FILESDIR}"/${P}.parallelMake.patch
 )
 
 src_prepare() {
