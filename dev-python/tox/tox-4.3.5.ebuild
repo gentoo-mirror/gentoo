@@ -33,7 +33,7 @@ RDEPEND="
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2.6[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1[${PYTHON_USEDEP}]
-	>=dev-python/pyproject-api-1.4[${PYTHON_USEDEP}]
+	>=dev-python/pyproject-api-1.5[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	' 3.8 3.9 3.10)
