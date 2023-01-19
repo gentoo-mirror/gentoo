@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/s app-emacs/dash app-emacs/f test? ( app-emacs/buttercup ) >=app-editors/emacs-24:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Fish-style path truncation for GNU Emacs
+EAPI=8
+HOMEPAGE=https://gitlab.com/bennya/shrink-path.el/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=app-emacs/s app-emacs/dash app-emacs/f >=app-editors/emacs-24:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/bennya/shrink-path.el/-/archive/v0.3.1/shrink-path.el-v0.3.1.tar.bz2
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=4e80445a8c4dbe00427b86a5ba0a7784
