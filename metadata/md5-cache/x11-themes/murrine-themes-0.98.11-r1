@@ -1,10 +1,12 @@
-DEFINED_PHASES=install prepare
+DEFINED_PHASES=install postinst postrm prepare
 DESCRIPTION=Themes for the Murrine GTK+2 Cairo Engine
 EAPI=8
 HOMEPAGE=https://tracker.debian.org/pkg/murrine-themes
+INHERIT=xdg-utils
 KEYWORDS=amd64 ~arm ~arm64 ~loong ppc ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=>=x11-themes/gtk-engines-murrine-0.98.0
 SLOT=0
 SRC_URI=mirror://debian/pool/main/m/murrine-themes/murrine-themes_0.98.11.tar.xz
-_md5_=bb645f042d46f02a2aaaaa0b6036c852
+_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=eb97dbc950ccda0b75f76a19bf8302da
