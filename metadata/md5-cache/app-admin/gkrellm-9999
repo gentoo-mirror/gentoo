@@ -1,8 +1,8 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare pretend unpack
-DEPEND=acct-group/gkrellmd acct-user/gkrellmd dev-libs/glib:2 hddtemp? ( app-admin/hddtemp ) ssl? ( gnutls? ( net-libs/gnutls ) !gnutls? ( dev-libs/openssl:0= ) ) lm-sensors? ( sys-apps/lm-sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm ) X? ( x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/pango ) nls? ( sys-devel/gettext )
+DEPEND=acct-group/gkrellmd acct-user/gkrellmd dev-libs/glib:2 hddtemp? ( app-admin/hddtemp ) ssl? ( gnutls? ( net-libs/gnutls ) !gnutls? ( dev-libs/openssl:0= ) ) lm-sensors? ( sys-apps/lm-sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm ) X? ( x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/pango ) x11-base/xorg-proto nls? ( sys-devel/gettext )
 DESCRIPTION=Single process stack of various system monitors
-EAPI=7
+EAPI=8
 HOMEPAGE=http://www.gkrellm.net/
 INHERIT=desktop systemd toolchain-funcs git-r3
 IUSE=gnutls hddtemp lm-sensors nls ntlm ssl X
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=acct-group/gkrellmd acct-user/gkrellmd dev-libs/glib:2 hddtemp? ( app-admin/hddtemp ) ssl? ( gnutls? ( net-libs/gnutls ) !gnutls? ( dev-libs/openssl:0= ) ) lm-sensors? ( sys-apps/lm-sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm ) X? ( x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/pango )
 SLOT=2
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=0a7ee77e7e81bfa03d4ec74a70f863be
+_md5_=14ed62384b8c8e7acdc58c05c4bdcd53
