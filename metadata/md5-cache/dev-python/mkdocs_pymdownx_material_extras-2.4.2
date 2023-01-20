@@ -1,16 +1,15 @@
 BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) >=dev-python/gpep517-9[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-65.5.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=sys-apps/util-linux-2.20
-DESCRIPTION=Python extension module to (re)mount /boot
+DESCRIPTION=Custom alterations based on Mkdocs-Material
 EAPI=8
-HOMEPAGE=https://github.com/mgorny/pymountboot/
+HOMEPAGE=https://github.com/facelessuser/mkdocs_pymdownx_material_extras/ https://pypi.org/project/mkdocs-pymdownx-material-extras/
 INHERIT=distutils-r1
 IUSE=python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=amd64 ~riscv x86
-LICENSE=BSD
-RDEPEND=>=sys-apps/util-linux-2.20 python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 )
+KEYWORDS=~amd64 ~ppc ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=dev-python/mkdocs-material-8.3.3[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
-SRC_URI=https://github.com/mgorny/pymountboot/archive/v0.2.3.tar.gz -> pymountboot-0.2.3.tar.gz
+SRC_URI=mirror://pypi/m/mkdocs_pymdownx_material_extras/mkdocs_pymdownx_material_extras-2.4.2.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365
-_md5_=ad49ca089cbfd61962cf038507100ed9
+_md5_=bce3d4b6c8d71f0f40c6bc779a642bac

@@ -947,7 +947,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.12.0 1.13.0 1.14.0-r1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.27.45 1.27.50 1.27.52: Universal Command Line Environment for AWS
+app-admin/awscli 1.27.45 1.27.50 1.27.52 1.27.53: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28: command line interface for Amazon Web Services
 app-admin/bastille 3.0.9-r3: Bastille-Linux is a security hardening tool
 app-admin/bitwarden-desktop-bin 2022.9.1-r1 2022.12.0: Bitwarden password manager desktop client
@@ -8274,10 +8274,10 @@ dev-python/boltons 21.0.0-r1: Pure-python utilities in the same spirit as the st
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r5: Amazon Web Services API
-dev-python/boto3 1.26.45 1.26.50 1.26.52 9999: The AWS SDK for Python
-dev-python/botocore 1.29.45 1.29.50 1.29.52 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.26.45 1.26.50 1.26.52 1.26.53 9999: The AWS SDK for Python
+dev-python/botocore 1.29.45 1.29.50 1.29.52 1.29.53 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
-dev-python/bottleneck 1.3.5-r1: Fast NumPy array functions written in C
+dev-python/bottleneck 1.3.5-r1 1.3.6: Fast NumPy array functions written in C
 dev-python/bpython 0.23-r1 0.24: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.3_p1: Bash style brace expansion for Python
 dev-python/braintree 4.18.0: Braintree Python Library
@@ -8529,7 +8529,7 @@ dev-python/fritzconnection 1.10.3: Lib/tool to communicate with AVM FRITZ! devic
 dev-python/frozendict 2.3.4: A simple immutable mapping for python
 dev-python/frozenlist 1.3.3: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
-dev-python/fsspec 2022.11.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2022.11.0 2023.1.0: A specification that python filesystems should adhere to
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
 dev-python/funcy 1.17: A collection of fancy functional tools focused on practicality
 dev-python/furo 2022.12.7: Clean customisable Sphinx documentation theme
@@ -8647,7 +8647,7 @@ dev-python/itypes 1.2.0-r1: basic immutable container types for python
 dev-python/jack-client 0.5.4: JACK Audio Connection Kit client for Python
 dev-python/jaraco-classes 3.2.3: Classes used by other projects by developer jaraco
 dev-python/jaraco-collections 3.8.0: Models and classes to supplement the stdlib collections module
-dev-python/jaraco-context 4.2.0 4.2.1: Context managers by jaraco
+dev-python/jaraco-context 4.2.0 4.2.1 4.3.0: Context managers by jaraco
 dev-python/jaraco-envs 2.4.0: Classes for orchestrating Python (virtual) environments
 dev-python/jaraco-functools 3.5.2: Additional functions used by other projects by developer jaraco
 dev-python/jaraco-itertools 6.2.1: Tools for working with iterables. Complements itertools and more_itertools
@@ -8795,11 +8795,11 @@ dev-python/mkdocs-bootswatch 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-git-authors-plugin 0.7.0: Mkdocs plugin to display git authors of a page
 dev-python/mkdocs-git-revision-date-localized-plugin 1.1.0: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-i18n 0.4.4: MkDocs i18n plugin
-dev-python/mkdocs-material 8.5.11 9.0.1 9.0.2 9.0.3 9.0.4 9.0.5: A Material Design theme for MkDocs
+dev-python/mkdocs-material 8.5.11 9.0.1 9.0.2 9.0.3 9.0.4 9.0.5 9.0.6: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.1.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.6.2: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-redirects 1.2.0: Plugin for Mkdocs page redirects
-dev-python/mkdocs_pymdownx_material_extras 2.3.1 2.4 2.4.1: Custom alterations based on Mkdocs-Material
+dev-python/mkdocs_pymdownx_material_extras 2.3.1 2.4 2.4.1 2.4.2: Custom alterations based on Mkdocs-Material
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 4.0.3-r1 5.0.0-r1 5.0.1: Rolling backport of unittest.mock for all Pythons
 dev-python/more-itertools 9.0.0: More routines for operating on iterables, beyond itertools
@@ -8827,7 +8827,7 @@ dev-python/nbclient 0.7.2: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.1.0 7.2.7 7.2.8: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.1-r1: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.4.0 5.7.1 5.7.2 5.7.3: Reference implementation of the Jupyter Notebook format
-dev-python/nbsphinx 0.8.10 0.8.11: Jupyter Notebook Tools for Sphinx
+dev-python/nbsphinx 0.8.10 0.8.11 0.8.12: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.9.6: A py.test plugin to validate Jupyter notebooks
 dev-python/ndg-httpsclient 0.5.1: Provides enhanced HTTPS support for httplib and urllib2 using PyOpenSSL
 dev-python/neovim-remote 2.5.1 9999: A tool that helps control neovim processes
@@ -9111,7 +9111,7 @@ dev-python/pypng 0.20220715.0: Pure Python PNG image encoder/decoder
 dev-python/pyprof2calltree 1.4.5-r1: convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.4.1: Python interface to the PROJ library
 dev-python/pyproject-api 1.4.0 1.5.0: API to interact with the python pyproject.toml based projects
-dev-python/pyproject-fmt 0.4.1: Format your pyproject.toml file
+dev-python/pyproject-fmt 0.4.1 0.5.0: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.0.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pyproject-metadata 0.5.0 0.6.1: PEP 621 metadata parsing
 dev-python/pypugjs 5.9.12: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
@@ -9374,7 +9374,7 @@ dev-python/rfc3339-validator 0.1.4-r1: A pure python RFC3339 validator
 dev-python/rfc3986 2.0.0-r1: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1-r1: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r2: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
-dev-python/rich 12.6.0 13.0.0 13.0.1 13.1.0: Python library for rendering rich text, tables, etc. to the terminal
+dev-python/rich 12.6.0 13.0.0 13.0.1 13.1.0 13.2.0: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/roman 3.3-r1: An Integer to Roman numerals converter
 dev-python/rope 1.6.0 1.7.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
@@ -9398,7 +9398,7 @@ dev-python/sabyenc 5.4.4: Module providing raw yEnc encoding/decoding for SABnzb
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif_om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/scandir 1.10.0-r3: A better directory iterator and faster os.walk()
-dev-python/scikit-build 0.16.4: Improved build system generator for Python C/C++/Fortran/Cython extensions
+dev-python/scikit-build 0.16.4 0.16.5: Improved build system generator for Python C/C++/Fortran/Cython extensions
 dev-python/scipy 1.9.2 1.9.3 1.10.0: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
 dev-python/scrypt 0.8.20: Bindings for the scrypt key derivation function library
@@ -9457,7 +9457,7 @@ dev-python/speg 0.3_p20180819-r1: A PEG-based parser interpreter with memoizatio
 dev-python/sphinx 4.5.0-r1 5.3.0 6.0.0 6.1.1 6.1.2 6.1.3: Python documentation generator
 dev-python/sphinx-aiohttp-theme 0.1.6-r1: Sphinx theme for aiohttp
 dev-python/sphinx-autoapi 2.0.0: A new approach to API documentation in Sphinx
-dev-python/sphinx-autodoc-typehints 1.19.5 1.20.1 1.21.3 1.21.4: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 1.19.5 1.20.1 1.21.3 1.21.4 1.21.5: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-basic-ng 0.0.1_alpha12: A modern skeleton for Sphinx themes
 dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-epytext 0.0.4: Sphinx epytext extension
@@ -9593,7 +9593,7 @@ dev-python/treq 22.2.0-r1: A requests-like API built on top of twisted.web's Age
 dev-python/trimesh 3.17.1 3.18.0 3.18.1: Python library for loading and using triangular meshes
 dev-python/trio 0.21.0 0.22.0-r1: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0-r1: a re-implementation of the asyncio mainloop on top of Trio
-dev-python/trove-classifiers 2022.12.22 2023.1.12: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2022.12.22 2023.1.12 2023.1.20: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 0.9.0-r1: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
 dev-python/tweedledum 1.1.1-r1: Library for analysis, compilation, synthesis, optimization of quantum circuits
@@ -15596,7 +15596,7 @@ net-misc/midentd 2.3.1-r2: ident daemon with masquerading and fake replies suppo
 net-misc/mikutter 4.1.7 9999: Simple, powerful and moeful twitter client
 net-misc/minidlna 1.3.1-r1 1.3.2-r1: DLNA/UPnP-AV compliant media server
 net-misc/minissdpd 1.5.20211105 1.6.0: MiniSSDP Daemon
-net-misc/miniupnpd 2.3.1: MiniUPnP IGD Daemon
+net-misc/miniupnpd 2.3.1 2.3.2: MiniUPnP IGD Daemon
 net-misc/mobile-broadband-provider-info 20221107: Database of mobile broadband service providers
 net-misc/modemmanager 1.18.12: Modem and mobile broadband management libraries
 net-misc/monmotha 2.3.8-r1: MonMotha IPTables-based firewall script
