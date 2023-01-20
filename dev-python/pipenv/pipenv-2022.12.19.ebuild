@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1 multiprocessing
 
@@ -20,6 +20,7 @@ KEYWORDS="~amd64 ~riscv ~x86"
 
 PATCHES=(
 	"${FILESDIR}/pipenv-2022.9.24-inject-site-packages.patch"
+	"${FILESDIR}/pipenv-2022.12.19-append-always-install.patch"
 )
 
 RDEPEND="
