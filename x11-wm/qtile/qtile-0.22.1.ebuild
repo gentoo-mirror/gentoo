@@ -61,7 +61,7 @@ python_test() {
 	# Force usage of built module
 	rm -rf "${S}"/libqtile || die
 
-	epytest || die "Tests failed with ${EPYTHON}"
+	epytest -p no:xdist || die "Tests failed with ${EPYTHON}"
 }
 
 python_install_all() {
