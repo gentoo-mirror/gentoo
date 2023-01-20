@@ -1225,7 +1225,7 @@ app-arch/unrar 6.1.7 6.2.1 6.2.3: Uncompress rar files
 app-arch/unrpa 2.3.0: Ren'Py's RPA data file extractor
 app-arch/unshield 1.4.3: InstallShield CAB file extractor
 app-arch/unzip 6.0_p27-r1: unzipper for pkzip-compressed files
-app-arch/upx 4.0.0 4.0.1 4.0.1-r1: Ultimate Packer for eXecutables (free version using UCL compression and not NRV)
+app-arch/upx 4.0.1-r1: Ultimate Packer for eXecutables (free version using UCL compression and not NRV)
 app-arch/upx-bin 4.0.0 4.0.1: Ultimate Packer for eXecutables, binary version with proprietary NRV compression
 app-arch/vimball 0.5.1 9999: a command-line vimball archive extractor
 app-arch/wimlib 1.13.4-r1: The open source Windows Imaging (WIM) library
@@ -5322,8 +5322,8 @@ dev-lang/whitespace 0.4: Whitespace, an esoteric programming language
 dev-lang/xsb 3.8.0 4.0.0: XSB is a logic programming and deductive database system
 dev-lang/yap 7.0.1 7.1.0: YAP is a high-performance Prolog compiler
 dev-lang/yasm 1.3.0-r1: An assembler for x86 and x86_64 instruction sets
-dev-lang/zig 0.10.0-r1 9999: A robust, optimal, and maintainable programming language
-dev-lang/zig-bin 0.10.0: A robust, optimal, and maintainable programming language
+dev-lang/zig 0.10.0-r1 0.10.0-r2 0.10.1 9999: A robust, optimal, and maintainable programming language
+dev-lang/zig-bin 0.10.0 0.10.1: A robust, optimal, and maintainable programming language
 dev-libs/9libs 1.0-r5: Plan 9 compatibility libraries
 dev-libs/FBGEMM 2022.01.13-r1 2022.07.16: Facebook GEneral Matrix Multiplication
 dev-libs/FP16 2021.03.20-r2: conversion to/from half-precision floating point formats
@@ -11057,7 +11057,7 @@ dev-util/clinfo 3.0.21.02.21 3.0.21.02.21-r1 9999: A tool to display info about 
 dev-util/clion 2022.1.3-r1 2022.2.1-r2 2022.2.4 2022.3.1: A complete toolset for C and C++ development
 dev-util/clippy 8.2.2-r1 8.4.1: Standalone clippy tool built from FRR sources
 dev-util/cloc 1.88 1.90: Count Lines of Code
-dev-util/cmake 3.23.3 3.24.3 3.25.1 9999: Cross platform Make
+dev-util/cmake 3.23.3 3.24.3 3.25.1 3.25.2 9999: Cross platform Make
 dev-util/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-util/cmocka 1.1.5: Unit testing framework for C
 dev-util/coccigrep 1.20: A semantic grep for the C language
@@ -14321,7 +14321,7 @@ media-sound/mp3val 0.1.8-r1: Validate and fix MPEG audio files
 media-sound/mp3wrap 0.5: Command-line utility that wraps multiple mp3 files into one large playable mp3
 media-sound/mpc 0.34: Commandline client for Music Player Daemon (media-sound/mpd)
 media-sound/mpck 0.15-r1: Checks MP3s for errors
-media-sound/mpd 0.23.11: The Music Player Daemon (mpd)
+media-sound/mpd 0.23.11 0.23.12: The Music Player Daemon (mpd)
 media-sound/mpdas 0.4.5: AudioScrobbler client for MPD written in C++
 media-sound/mpdscribble 0.24: An MPD client that submits information to Audioscrobbler
 media-sound/mpfc 1.3.8.1-r4: Music Player For Console
@@ -14517,7 +14517,7 @@ media-video/bashnapi 2.0.0: Napiprojekt.pl subtitle downloader in bash
 media-video/bbtools 1.9: bbdmux, bbinfo, bbvinfo and bbainfo from Brent Beyeler
 media-video/bdsup2sub 4.0.0-r3: A tool to convert and tweak bitmap based subtitle streams
 media-video/binkplayer 1.99w: Bink Video! Player
-media-video/bino 1.6.7 1.6.8: Stereoscopic and multi-display media player
+media-video/bino 1.6.7 1.6.8 2.0: Stereoscopic and multi-display media player
 media-video/blind 1.1: a collection of command line video editing utilities
 media-video/blinkensim 2.7-r2: Graphical Blinkenlights simulator with networking support
 media-video/blinkenthemes 0.10-r1: Themes for blinkensim
@@ -16667,7 +16667,7 @@ sci-libs/p4est 2.3.1-r1 2.3.3 2.8-r1 9999: Scalable Algorithms for Parallel Adap
 sci-libs/parmetis 4.0.3-r2: Parallel (MPI) unstructured graph partitioning library
 sci-libs/pastix 5.2.3 6.0.3: Parallel solver for very large sparse linear systems
 sci-libs/pcl 1.12.0 1.12.1 1.12.1-r2 9999: 2D/3D image and point cloud processing
-sci-libs/pdal 2.4.0-r1 2.4.3: A C++ library for translating and manipulating point cloud data
+sci-libs/pdal 2.4.0-r1 2.4.3 2.5.0: A C++ library for translating and manipulating point cloud data
 sci-libs/pgplot 5.2.2-r7: FORTRAN/C device-independent scientific graphic library
 sci-libs/plplot 5.15.0-r104: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r2: Small, fast library to generate primes in order
@@ -17978,7 +17978,7 @@ sys-fs/mtd-utils 2.1.5: MTD userspace tools (NFTL, JFFS2, NAND, FTL, UBI)
 sys-fs/mtools 4.0.42: Utilities to access MS-DOS disks from Unix without mounting them
 sys-fs/mtpfs 1.1-r6: A FUSE filesystem providing access to MTP devices
 sys-fs/multipath-tools 0.9.3-r2: Device mapper target autoconfig
-sys-fs/ncdu 1.17 1.18 2.2.1: NCurses Disk Usage
+sys-fs/ncdu 1.17 1.18 2.2.1 2.2.2: NCurses Disk Usage
 sys-fs/ncdu-bin 2.1.2 2.2 2.2.1: NCurses Disk Usage
 sys-fs/nilfs-utils 2.2.2-r1 2.2.8: A New Implementation of a Log-structured File System for Linux
 sys-fs/ntfs3g 2022.10.3: Open source read-write NTFS driver that runs under FUSE
