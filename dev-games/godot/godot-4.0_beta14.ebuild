@@ -27,12 +27,6 @@ IUSE="
 # disable tests until out of beta, tests themselves are new and can be volatile
 RESTRICT="test"
 
-# libX11 range is temporary while this is being looked into:
-# - https://github.com/godotengine/godot/issues/69352
-# - https://gitlab.freedesktop.org/xorg/lib/libx11/-/issues/170
-# Should in theory be at least improved for 1.8.4, so allowed preemptively.
-# 1.8.2 caused other issues (i.e. with firefox), fallback to 1.8.1 otherwise.
-
 # dlopen: alsa-lib,dbus,fontconfig,libX*,pulseaudio,speech-dispatcher,udev
 RDEPEND="
 	app-arch/zstd:=
@@ -51,10 +45,7 @@ RDEPEND="
 	gui? (
 		media-libs/alsa-lib
 		media-libs/libglvnd[X]
-		|| (
-			>x11-libs/libX11-1.8.3
-			<x11-libs/libX11-1.8.2
-		)
+		x11-libs/libX11
 		x11-libs/libXcursor
 		x11-libs/libXext
 		x11-libs/libXi
@@ -164,7 +155,7 @@ src_compile() {
 		builtin_zlib=no
 		builtin_zstd=no
 		# also bundled but lacking a builtin_* switch:
-		#	amd-fsr, basis_universal, cvtt, etcpak, fonts, glad,
+		#	amd-fsr, astcenc, basis_universal, cvtt, etcpak, fonts, glad,
 		#	jpeg-compressor, meshoptimizer, minimp3, minizip (patched to
 		#	seek in archives), noise, oidn, openxr, spirv-reflect, thorvg,
 		#	tinyexr, vhacd, vulkan, and the misc directory.
