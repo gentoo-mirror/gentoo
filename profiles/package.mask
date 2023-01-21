@@ -754,17 +754,6 @@ sci-chemistry/votca-csgapps
 sci-chemistry/votca-xtp
 sci-libs/votca-tools
 
-# Matt Turner <mattst88@gentoo.org> (2022-12-21)
-# Archived upstream, now that fwupd can handle updates.
-# Removal on 2023-01-20.
-media-gfx/colorhug-client
-
-# Matt Turner <mattst88@gentoo.org> (2022-12-21)
-# No reverse dependencies. GTK 4 doesn't use it.
-# See https://gitlab.gnome.org/GNOME/atkmm/-/issues/4
-# Removal on 2023-01-20.
-dev-cpp/atkmm:2.36
-
 # Michał Górny <mgorny@gentoo.org> (2022-12-21)
 # The mauve project is no longer maintained upstream, and the actual
 # program has been removed from Gentoo in 2016.  These are leftover
@@ -789,12 +778,6 @@ dev-php/phptal
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2022-12-19)
 # This version currently is not compatible with kernel build (yet)
 ~dev-util/bindgen-0.63.0
-
-# Matt Turner <mattst88@gentoo.org> (2022-12-19)
-# Only reverse dependency was x11-terms/eterm which was removed almost a year
-# ago.
-# Removal on 2023-01-20. Bug #875143.
-x11-libs/libast
 
 # Jaco Kroon <jaco@uls.co.za> (2022-12-14)
 # Multiple open bugs (bug #870910, bug #877731, bug #884815), only one of which
