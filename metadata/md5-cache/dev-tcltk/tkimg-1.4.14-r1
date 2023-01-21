@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://tkimg.sourceforge.net/
 INHERIT=autotools edos2unix prefix toolchain-funcs virtualx
 IUSE=doc test static-libs test
-KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=dev-lang/tk:= dev-tcltk/tcllib media-libs/tiff:= media-libs/libpng:0= sys-libs/zlib:= x11-libs/libX11 media-libs/libjpeg-turbo:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/tkimg/tkimg/1.4/tkimg%201.4.14/Img-1.4.14-Source.tar.gz https://dev.gentoo.org/~tupone/distfiles/tkimg-1.4.14-patchset-1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773	prefix	eab3c99d77fe00506c109c8a736186f7	virtualx	644887c82aefdf12001489391fca4f02
-_md5_=3813dd7ab2ceff7824e25e3289a319f7
+_md5_=1f3a0eedad539ac9872dec65a9c07180
