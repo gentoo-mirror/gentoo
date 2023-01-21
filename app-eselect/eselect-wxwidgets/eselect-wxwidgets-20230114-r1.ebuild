@@ -22,7 +22,6 @@ src_prepare() {
 		-e "/^LIBDIR=/s:lib:$(get_libdir):" \
 		-e "/^EPREFIX=/s:'':'${EPREFIX}':" \
 		-i {wx-config,wxrc}-"${WXWRAP_VER}" || die
-	sed -i '34s/^/exec/' "wx-config-${WXWRAP_VER}" || die
 	eapply_user
 }
 
