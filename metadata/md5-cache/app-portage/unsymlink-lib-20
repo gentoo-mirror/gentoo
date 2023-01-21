@@ -3,13 +3,13 @@ DESCRIPTION=Convert your system to SYMLINK_LIB=no
 EAPI=7
 HOMEPAGE=https://github.com/projg2/unsymlink-lib
 INHERIT=python-single-r1
-IUSE=python_single_target_python3_9 python_single_target_python3_10
+IUSE=python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ppc64
 LICENSE=BSD-2
-RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_9? ( sys-apps/portage[python_targets_python3_9(-)] ) python_single_target_python3_10? ( sys-apps/portage[python_targets_python3_10(-)] )
-REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) python_single_target_python3_9? ( sys-apps/portage[python_targets_python3_9(-)] ) python_single_target_python3_10? ( sys-apps/portage[python_targets_python3_10(-)] ) python_single_target_python3_11? ( sys-apps/portage[python_targets_python3_11(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/projg2/unsymlink-lib/archive/v20.tar.gz -> unsymlink-lib-20.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=eb8cdc7f42300c6273a2fcbe4ff85df0
+_md5_=8f53517ffb2b12b42fe6f05274963b0c
