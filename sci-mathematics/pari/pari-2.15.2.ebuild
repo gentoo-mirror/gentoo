@@ -32,11 +32,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}"-2.9.4-strip.patch
 	"${FILESDIR}/${PN}"-2.9.4-ppc.patch
 	"${FILESDIR}/${PN}"-2.11.2-no-automagic.patch
 	"${FILESDIR}/${PN}"-2.9.4-fltk-detection.patch
-	"${FILESDIR}/${PN}"-2.11.2-Makefile-LDFLAGS.patch
 	"${FILESDIR}/${PN}"-2.11.2-Makefile-docinstall.patch
 	"${FILESDIR}/${PN}"-2.15.2-ellsea.patch
 )
@@ -81,7 +79,9 @@ src_configure() {
 	# always gets set to the value of the compiler used. Pari's build
 	# system does not cope very well with a naked linker, it is
 	# expecting a compiler driver. See bugs 722090 and 871117.
-	LD="" DLLD="$(tc-getCC)" ./Configure \
+	# DLLDFLAGS, on the other hand, is used exactly like LDFLAGS would
+	# be in a less-weird build system.
+	LD="" DLLD="$(tc-getCC)" DLLDFLAGS="${LDFLAGS}" ./Configure \
 		--prefix="${EPREFIX}"/usr \
 		--datadir="${EPREFIX}/usr/share/${PN}" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)" \
@@ -114,7 +114,11 @@ src_test() {
 
 src_install() {
 	DOCS=( AUTHORS CHANGES* COMPAT NEW README* )
-	default
+
+	# Use "true" in place of "strip" to sabotage the unconditional
+	# binary stripping.
+	emake DESTDIR="${D}" STRIP="true" install
+	einstalldocs
 
 	if use doc; then
 		docompress -x "/usr/share/doc/${PF}"
