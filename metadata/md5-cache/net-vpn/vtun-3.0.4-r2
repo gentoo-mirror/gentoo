@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://vtun.sourceforge.net/
 INHERIT=linux-info
 IUSE=lzo socks5 ssl zlib
-KEYWORDS=~alpha ~amd64 ~ppc ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ppc ~sparc x86
 LICENSE=GPL-2
 RDEPEND=lzo? ( dev-libs/lzo:2 ) socks5? ( net-proxy/dante ) ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib ) dev-libs/libbsd
 SLOT=0
 SRC_URI=https://sourceforge.net/projects/vtun/files/vtun/3.0.4/vtun-3.0.4.tar.gz
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e
-_md5_=37089a6886cf99f2f61d17fa8b26d371
+_md5_=c0f638d84cb3c1b3cbba2e32b3d0ac51
