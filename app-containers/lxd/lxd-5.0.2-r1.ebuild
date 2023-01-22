@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,26 +10,26 @@ HOMEPAGE="https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/l
 SRC_URI="https://linuxcontainers.org/downloads/lxd/${P}.tar.gz
 	verify-sig? ( https://linuxcontainers.org/downloads/lxd/${P}.tar.gz.asc )"
 
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 BSD LGPL-3 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
-IUSE="apparmor ipv6 nls verify-sig"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="apparmor nls"
 
 DEPEND="acct-group/lxd
 	app-arch/xz-utils
-	>=app-containers/lxc-3.0.0[apparmor?,seccomp(+)]
+	>=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)]
 	dev-db/sqlite:3
-	dev-libs/dqlite:=
+	>=dev-libs/dqlite-1.13.0:=
 	dev-libs/lzo
-	dev-libs/raft[lz4]
+	>=dev-libs/raft-0.17.1:=[lz4]
 	>=dev-util/xdelta-3.0[lzma(+)]
-	net-dns/dnsmasq[dhcp,ipv6(+)?]
+	net-dns/dnsmasq[dhcp]
 	sys-libs/libcap
 	virtual/udev"
 RDEPEND="${DEPEND}
 	net-firewall/ebtables
-	net-firewall/iptables[ipv6(+)?]
-	sys-apps/iproute2[ipv6(+)?]
+	net-firewall/iptables
+	sys-apps/iproute2
 	sys-fs/fuse:*
 	>=sys-fs/lxcfs-5.0.0
 	sys-fs/squashfs-tools[lzma]
@@ -79,6 +79,8 @@ VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/linuxcontainers.asc
 RESTRICT="test"
 
 GOPATH="${S}/_dist"
+
+PATCHES=( "${FILESDIR}"/lxd-5.0.2-remove-shellcheck-buildsystem-checks.patch )
 
 src_prepare() {
 	export GOPATH="${S}/_dist"
@@ -151,7 +153,7 @@ src_install() {
 	newbashcomp scripts/bash/lxd-client lxc
 
 	newconfd "${FILESDIR}"/lxd-4.0.0.confd lxd
-	newinitd "${FILESDIR}"/lxd-4.0.9.initd lxd
+	newinitd "${FILESDIR}"/lxd-5.0.2-r1.initd lxd
 
 	systemd_dounit "${T}"/lxd.service
 	systemd_newunit "${FILESDIR}"/lxd-containers-4.0.0.service lxd-containers.service
@@ -173,12 +175,15 @@ pkg_postinst() {
 	elog
 	optfeature "virtual machine support" app-emulation/qemu[spice,usbredir,virtfs]
 	optfeature "btrfs storage backend" sys-fs/btrfs-progs
+	optfeature "ipv6 support" net-dns/dnsmasq[ipv6] net-firewall/iptables[ipv6] sys-apps/iproute2[ipv6]
 	optfeature "lvm2 storage backend" sys-fs/lvm2
 	optfeature "zfs storage backend" sys-fs/zfs
 	elog
 	elog "Be sure to add your local user to the lxd group."
 
-	if [[ -n ${REPLACING_VERSIONS} ]] && has_version app-emulation/qemu[spice,usbredir,virtfs]; then
+	if [[ ${REPLACING_VERSIONS} ]] &&
+	ver_test ${REPLACING_VERSIONS} -lt 5.0.1 &&
+	has_version app-emulation/qemu[spice,usbredir,virtfs]; then
 		ewarn ""
 		ewarn "You're updating from <5.0.1. Due to incompatible API updates in the lxd-agent"
 		ewarn "product, you'll have to restart any running virtual machines before they work"
@@ -186,5 +191,15 @@ pkg_postinst() {
 		ewarn ""
 		ewarn "Run: 'lxc restart your-vm' after the update for your vm's managed by lxd."
 		ewarn ""
+	fi
+
+	if [[ ${REPLACING_VERSIONS} ]] &&
+	has_version "sys-apps/openrc"; then
+		elog ""
+		elog "The new init.d script will attempt to mount "
+		elog "  /sys/fs/cgroup/systemd"
+		elog "by default, which is needed to run systemd containers with openrc host."
+		elog "See the /etc/init.d/lxd file for requirements."
+		elog ""
 	fi
 }
