@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -108,6 +108,9 @@ src_install() {
 
 	pax-mark m "${ED}"/usr/$(get_libdir)/valgrind/*-*-linux
 
+	# See README_PACKAGERS
+	dostrip -x /usr/libexec/valgrind/vgpreload* /usr/$(get_libdir)/valgrind/*
+
 	if [[ ${CHOST} == *-darwin* ]] ; then
 		# fix install_names on shared libraries, can't turn them into bundles,
 		# as dyld won't load them any more then, bug #306467
@@ -119,9 +122,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Valgrind will not work if glibc does not have debug symbols."
+	elog "Valgrind will not work if libc (e.g. glibc) does not have debug symbols."
 	elog "To fix this you can add splitdebug to FEATURES in make.conf"
-	elog "and remerge glibc.  See:"
+	elog "and remerge glibc. See:"
 	elog "https://bugs.gentoo.org/show_bug.cgi?id=214065"
 	elog "https://bugs.gentoo.org/show_bug.cgi?id=274771"
 	elog "https://bugs.gentoo.org/show_bug.cgi?id=388703"
