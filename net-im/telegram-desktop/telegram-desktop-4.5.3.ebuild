@@ -41,11 +41,11 @@ RDEPEND="
 	dev-libs/xxhash
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo:=
-	~media-libs/libtgvoip-2.4.4_p20220503
+	~media-libs/libtgvoip-2.4.4_p20221208
 	media-libs/openal
 	media-libs/opus:=
 	media-libs/rnnoise
-	~media-libs/tg_owt-0_pre20220507:=[screencast=,X=]
+	~media-libs/tg_owt-0_pre20230105:=[screencast=,X=]
 	media-video/ffmpeg:=[opus]
 	sys-libs/zlib:=[minizip]
 	virtual/opengl
@@ -88,10 +88,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram.patch"
-	"${FILESDIR}/tdesktop-3.3.0-fix-enchant.patch"
-	"${FILESDIR}/tdesktop-4.3.4-fix-disabling-spellcheck.patch"
-	"${FILESDIR}/tdesktop-4.3.4-qt5-incompatibility-1.patch"
-	"${FILESDIR}/tdesktop-4.3.4-qt5-incompatibility-2.patch"
 	"${FILESDIR}/tdesktop-4.4.1-fix-dupe-main-decl.patch"
 )
 
