@@ -35,10 +35,11 @@ src_prepare() {
 	# Don't force multiarch stuff on OSX, bug #306467
 	sed -i -e 's:-arch \(i386\|x86_64\)::g' Makefile.all.am || die
 
-	# Conditionally copy musl specific suppressions && apply patch
 	if use elibc_musl ; then
-		cp "${FILESDIR}/musl.supp" "${S}" || die
-		PATCHES+=( "${FILESDIR}"/valgrind-3.13.0-malloc.patch )
+		PATCHES+=(
+			"${FILESDIR}"/${PN}-3.13.0-malloc.patch
+			"${FILESDIR}"/${PN}-3.20.0-musl-interpose.patch
+		)
 	fi
 
 	if [[ ${CHOST} == *-solaris* ]] ; then
