@@ -8,7 +8,7 @@ EAPI=8
 #	properly before building.
 # - replace usex by usev where applicable
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 WEBAPP_OPTIONAL=yes
 WEBAPP_MANUAL_SLOT=yes
 
@@ -251,7 +251,6 @@ pkg_setup() {
 #	and can currently not unbundled:
 #	diy2, exodusII, fides, h5part, kissfft, loguru, verdict, vpic,
 #	vtkm, xdmf{2,3}, zfp
-# Note: no valid mpi4py target found with system library --> CHECK!!
 # TODO: cli11 (::guru), exprtk, ioss
 # Note: As of v9.2.2 we no longer drop bundled libraries, when using system
 # libraries. This just saves a little space. CMake logic of VTK on ThirdParty
@@ -303,6 +302,9 @@ src_configure() {
 		-DVTK_ENABLE_LOGGING=$(usex logging ON OFF)
 		# defaults to ON: USE flag for this?
 		-DVTK_ENABLE_REMOTE_MODULES=OFF
+
+		# disable fetching files during build
+		-DVTK_FORBID_DOWNLOADS=ON
 
 		-DVTK_GROUP_ENABLE_Imaging=$(usex imaging "YES" "DEFAULT")
 		-DVTK_GROUP_ENABLE_Rendering=$(usex rendering "YES" "DEFAULT")
@@ -411,6 +413,9 @@ src_configure() {
 	# the list of available arches if necessary, i.e. add new arches
 	# once they are released at the end of the list before all.
 	# See https://en.wikipedia.org/wiki/CUDA#GPUs_supported
+	# CUDA 11.8 supports Ada Lovelace and Hopper arches, but cmake,
+	# as of 3.25.1 doesn't recognize these keywords.
+	# FIXME: better use numbers than names?
 	if use cuda; then
 		local cuda_arch=
 		case ${VTK_CUDA_ARCH:-native} in
@@ -614,13 +619,13 @@ src_configure() {
 		use web && mycmakeargs+=( -DVTK_MODULE_ENABLE_VTK_RenderingVtkJS="WANT" )
 	fi
 
+	# Testing has been changed in 9.2.5: it is now allowed without
+	# requiring to download, if the data files are available locally!
 	if use test; then
-		ewarn "Testing requires VTK_FORBID_DOWNLOADS=OFF by upstream."
-		ewarn "Care has been taken to pre-download all required files."
-		ewarn "In case you find missing files, please inform me."
 		mycmakeargs+=(
 			-DVTK_BUILD_TESTING=ON
-			-DVTK_FORBID_DOWNLOADS=OFF
+			# disable fetching data files for the default 'all' target
+			-DVTK_DATA_EXCLUDE_FROM_ALL=ON
 
 			# requested even if all use flags are off
 			-DVTK_MODULE_ENABLE_VTK_octree="WANT"
@@ -630,10 +635,7 @@ src_configure() {
 			-DVTK_MODULE_USE_EXTERNAL_VTK_cli11=OFF
 		)
 	else
-		mycmakeargs+=(
-			-DVTK_BUILD_TESTING=OFF
-			-DVTK_FORBID_DOWNLOADS=ON
-		)
+		mycmakeargs+=( -DVTK_BUILD_TESTING=OFF )
 	fi
 
 	# FIXME: upstream provides 4 threading models, as of 9.1.0. These are
@@ -667,9 +669,6 @@ src_configure() {
 			-DVTK_MODULE_ENABLE_VTK_AcceleratorsVTKmDataModel="WANT"
 			-DVTK_MODULE_ENABLE_VTK_AcceleratorsVTKmFilters="WANT"
 
-#			-DVTKm_ENABLE_DEVELOPER_FLAGS=OFF
-#			-DVTKm_ENABLE_HDF5_IO=ON
-
 			-DVTKm_NO_INSTALL_README_LICENSE=ON # bug #793221
 			-DVTKm_Vectorization=native
 		)
@@ -685,16 +684,12 @@ src_configure() {
 
 	use java && export JAVA_HOME="${EPREFIX}/etc/java-config-2/current-system-vm"
 
-# FIXME: looks like it's not needed, builts with USE=mpi and gcc
-#	if use mpi; then
-#		export CC=mpicc
-#		export CXX=mpicxx
-#		export FC=mpif90
-#		export F90=mpif90
-#		export F77=mpif77
-#	fi
-
 	cmake_src_configure
+}
+
+src_compile() {
+	use test && cmake_build VTKData
+	cmake_src_compile
 }
 
 # FIXME: avoid nonfatal?
