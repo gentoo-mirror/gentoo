@@ -152,7 +152,7 @@ CRATES+="
 	pkgcraft-c-${PV}
 "
 
-inherit edo cargo
+inherit edo cargo toolchain-funcs
 
 DESCRIPTION="C library for pkgcraft"
 HOMEPAGE="https://pkgcraft.github.io/"
@@ -178,10 +178,10 @@ SLOT="0/${PV}"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-# TODO: drop cargo-nextest, it's mostly used for testing the other crates, not
-# pkgcraft-c.
+# clang needed for bindgen
 BDEPEND+="
 	dev-util/cargo-c
+	sys-devel/clang
 	>=virtual/rust-1.65
 "
 
@@ -203,6 +203,10 @@ src_compile() {
 		--libdir="/usr/$(get_libdir)"
 	)
 
+	# For scallop building bash
+	tc-export AR CC
+
+	# Can pass -vv if need more output from e.g. scallop configure
 	edo cargo cbuild "${cargoargs[@]}"
 }
 
