@@ -8162,29 +8162,29 @@ sys-devel/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all 
 sys-devel/clang-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'cc' and 'c++', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/gcc-config but they can be helpful for GCC-free setups.
 sys-devel/distcc:gssapi - Enable support for net-libs/libgssglue
 sys-devel/gcc:ada - Build the ADA language (GNAT) frontend
-sys-devel/gcc:cet - Enable support for Intel Control Flow Enforcement Technology (CET)
+sys-devel/gcc:cet - Enable support for Intel Control Flow Enforcement Technology (CET). Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either. When combined with USE=hardened, GCC will set -fcf-protection by default when building software. The effect is minimal on systems which do not support it, other than a possible small increase in codesize for the NOPs.
 sys-devel/gcc:d - Enable support for the D programming language
-sys-devel/gcc:default-stack-clash-protection - Build packages with stack clash protection on by default
-sys-devel/gcc:default-znow - Request full relocation on start from ld.so by default
+sys-devel/gcc:default-stack-clash-protection - Build packages with stack clash protection on by default as a hardening measure. This enables -fstack-clash-protection by default which protects against large memory allocations allowing stack smashing. May cause slightly increased codesize, but modern compilers have been adapted to optimize well for this case, as this mitigation is now quite common. See https://developers.redhat.com/blog/2020/05/22/stack-clash-mitigation-in-gcc-part-3 and https://www.qualys.com/2017/06/19/stack-clash/stack-clash.txt.
+sys-devel/gcc:default-znow - Request full relocation on start from ld.so by default. This sets the -z,now (BIND_NOW) flag by default on all linker invocations. By resolving all dynamic symbols at application startup, parts of the program can be made read-only as a hardening measure. This is closely related to RELRO which is also separately enabled by default. In some applications with many unresolved symbols (heavily plugin based, for example), startup time may be impacted.
 sys-devel/gcc:fixed-point - Enable fixed-point arithmetic support for MIPS targets in gcc (Warning: significantly increases compile time!)
 sys-devel/gcc:go - Build the GCC Go language frontend.
 sys-devel/gcc:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 sys-devel/gcc:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
 sys-devel/gcc:jit - Enable libgccjit so other applications can embed gcc for Just-In-Time compilation.
 sys-devel/gcc:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
-sys-devel/gcc:lto - Build using Link Time Optimizations (LTO)
+sys-devel/gcc:lto - Build using Link Time Optimizations (LTO). Note that GCC is always built with support for building other programs with LTO. This USE flag is for whether GCC itself is built and optimized with LTO.
 sys-devel/gcc:mpx - Enable support for Intel Memory Protection Extensions (MPX)
 sys-devel/gcc:nptl - Enable support for Native POSIX Threads Library, the new threading module (requires linux-2.6 or better usually)
 sys-devel/gcc:objc - Build support for the Objective C code language
 sys-devel/gcc:objc++ - Build support for the Objective C++ language
 sys-devel/gcc:objc-gc - Build support for the Objective C code language Garbage Collector
-sys-devel/gcc:pgo - Build GCC using Profile Guided Optimization (PGO)
+sys-devel/gcc:pgo - Build GCC using Profile Guided Optimization (PGO). GCC will build itself and then analyze the just-built binary and then rebuild itself using the data obtained from analysis of codepaths taken. It does not affect whether GCC itself supports PGO when building other software. This substantially increases the build time needed for building GCC itself.
 sys-devel/gcc:rust - Build support for the Rust language, installs gccrs.
-sys-devel/gcc:sanitize - Build support for various sanitizer functions (ASAN/TSAN/etc...)
-sys-devel/gcc:ssp - Build packages with stack smashing protector on by default
+sys-devel/gcc:sanitize - Build support for various sanitizer functions (ASAN/TSAN/etc...) to find runtime problems in applications.
+sys-devel/gcc:ssp - Build packages with stack smashing protection on by default
 sys-devel/gcc:systemtap - enable systemtap static probe points
 sys-devel/gcc:valgrind - Enable valgrind annotations for gcc internals (useful for gcc debugging).
-sys-devel/gcc:vtv - Build support for virtual table verification (a C++ hardening feature)
+sys-devel/gcc:vtv - Build support for virtual table verification (a C++ hardening feature). This does not control whether GCC defaults to using VTV> Note that actually using VTV breaks ABI and hence the whole system must be built with -fvtable-verify.
 sys-devel/gcc-apple:bootstrap - !DO NOT SET THIS FLAG YOURSELF! avoids need for autoconf during bootstrap stage2
 sys-devel/gcc-apple:objc - Build support for the Objective C code language
 sys-devel/gcc-apple:objc++ - Build support for the Objective C++ language
