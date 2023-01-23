@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://unkrig.de/w/Commons.unkrig.de
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=BSD
 RDEPEND=>=virtual/jre-1.8:* ~dev-java/commons-nullanalysis-1.2.17:0 dev-java/junit:4 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aunkrig/commons/archive/V1.2.17.tar.gz -> unkrig-commons1.2.17.tar.gz
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	257a59d157060d7bd51a13e68c614dd5
-_md5_=cb35de1a12cf3cb00dfdf093102be3cc
+_md5_=524befffd438ca5ee9307f079f8edf13
