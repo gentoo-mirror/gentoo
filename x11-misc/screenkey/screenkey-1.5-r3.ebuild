@@ -3,8 +3,8 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
-DISTUTILS_USE_SETUPTOOLS=bdepend
 
 inherit distutils-r1 xdg
 
@@ -16,7 +16,7 @@ if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/screenkey/${PN}.git"
 else
 	SRC_URI="https://gitlab.com/screenkey/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
@@ -30,6 +30,7 @@ BDEPEND="
 	dev-python/wheel[${PYTHON_USEDEP}]
 "
 RDEPEND="
+	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject[${PYTHON_USEDEP}]
 	media-fonts/fontawesome

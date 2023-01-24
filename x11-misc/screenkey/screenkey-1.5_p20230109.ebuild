@@ -3,32 +3,36 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
-DISTUTILS_USE_SETUPTOOLS=bdepend
 
 inherit distutils-r1 xdg
 
 DESCRIPTION="A screencast tool to display your keys inspired by Screenflick"
 HOMEPAGE="https://www.thregr.org/~wavexx/software/screenkey/"
 
-if [[ "${PV}" == *9999* ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/screenkey/${PN}.git"
 else
-	SRC_URI="https://gitlab.com/screenkey/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64"
-	S="${WORKDIR}/${PN}-v${PV}"
+	if [[ ${PV} == *_p20230109 ]] ; then
+		H=7bdba66574244061c6e1934c4f204d02d570f182
+		SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/${H}/${PN}-${H}.tar.bz2
+			-> ${P}.tar.bz2"
+		S="${WORKDIR}"/${PN}-${H}
+	else
+		SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
+			-> ${P}.tar.bz2"
+		S="${WORKDIR}"/${PN}-v${PV}
+	fi
+	KEYWORDS="~amd64"
 fi
 
-RESTRICT="test"
 LICENSE="GPL-3+"
 SLOT="0"
 IUSE="appindicator"
+RESTRICT="test"
 
-BDEPEND="
-	dev-python/Babel[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
-"
 RDEPEND="
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
@@ -36,7 +40,11 @@ RDEPEND="
 	media-fonts/fontawesome
 	x11-libs/gtk+:3[X,introspection]
 	x11-misc/slop
-	appindicator? ( dev-libs/libappindicator:3[introspection] )
+	appindicator? ( dev-libs/libayatana-appindicator )
+"
+BDEPEND="
+	dev-python/Babel[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 "
 
 src_prepare() {
