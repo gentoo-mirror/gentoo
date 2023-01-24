@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ SRC_URI="https://github.com/neffo/bing-wallpaper-gnome-extension/archive/v${PV}.
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
@@ -23,6 +23,11 @@ BDEPEND=""
 
 S="${WORKDIR}/bing-wallpaper-gnome-extension-${PV}"
 extension_uuid="BingWallpaper@ineffable-gmail.com"
+
+PATCHES=(
+	# https://github.com/neffo/bing-wallpaper-gnome-extension/issues/113
+	"${FILESDIR}/${PN}-44-unlock-screen.patch"
+)
 
 src_install() {
 	einstalldocs
