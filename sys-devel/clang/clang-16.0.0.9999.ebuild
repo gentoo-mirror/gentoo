@@ -51,7 +51,7 @@ LLVM_COMPONENTS=(
 )
 LLVM_MANPAGES=1
 LLVM_TEST_COMPONENTS=(
-	llvm/lib/Testing/Support
+	llvm/lib/Testing
 	llvm/utils
 	third-party
 )
@@ -187,6 +187,7 @@ get_distribution_components() {
 			libclang-python-bindings
 
 			# tools
+			amdgpu-arch
 			c-index-test
 			clang
 			clang-format
@@ -198,6 +199,7 @@ get_distribution_components() {
 			clang-scan-deps
 			diagtool
 			hmaptool
+			nvptx-arch
 
 			# needed for cross-compiling Clang
 			clang-tblgen
