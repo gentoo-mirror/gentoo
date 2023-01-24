@@ -1,0 +1,13 @@
+DEFINED_PHASES=install nofetch unpack
+DESCRIPTION=Binary plugins from Google Chrome for use in Chromium
+EAPI=8
+HOMEPAGE=https://www.google.com/chrome
+INHERIT=unpacker
+KEYWORDS=-* amd64
+LICENSE=google-chrome
+RDEPEND=dev-libs/glib:2 dev-libs/nspr dev-libs/nss sys-libs/glibc !www-plugins/chrome-binary-plugins:0 !www-plugins/chrome-binary-plugins:beta !www-plugins/chrome-binary-plugins:unstable
+RESTRICT=bindist mirror strip
+SLOT=stable
+SRC_URI=https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_109.0.5414.119-1_amd64.deb
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	unpacker	fdd15d854bf5e84f82d35524ab8ca6ba
+_md5_=56740527e70db7fbbcef87ad68552159
