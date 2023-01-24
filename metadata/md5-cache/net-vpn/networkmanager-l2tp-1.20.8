@@ -1,0 +1,15 @@
+BDEPEND=dev-util/gdbus-codegen dev-util/intltool sys-devel/gettext virtual/pkgconfig app-arch/xz-utils
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/openssl:= net-dialup/ppp:=[eap-tls] net-dialup/xl2tpd >=net-misc/networkmanager-1.20[ppp] || ( net-vpn/strongswan net-vpn/libreswan ) gtk? ( app-crypt/libsecret gnome-extra/nm-applet media-libs/harfbuzz:= net-libs/libnma x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango ) x11-base/xorg-proto
+DESCRIPTION=NetworkManager L2TP plugin
+EAPI=8
+HOMEPAGE=https://github.com/nm-l2tp/NetworkManager-l2tp
+INHERIT=gnome.org
+IUSE=gtk
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/openssl:= net-dialup/ppp:=[eap-tls] net-dialup/xl2tpd >=net-misc/networkmanager-1.20[ppp] || ( net-vpn/strongswan net-vpn/libreswan ) gtk? ( app-crypt/libsecret gnome-extra/nm-applet media-libs/harfbuzz:= net-libs/libnma x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango ) dev-libs/dbus-glib
+SLOT=0
+SRC_URI=https://github.com/nm-l2tp/NetworkManager-l2tp/releases/download/1.20.8/NetworkManager-l2tp-1.20.8.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a
+_md5_=58a0d66fb7422cbb9f9f2ab109c6d5a9
