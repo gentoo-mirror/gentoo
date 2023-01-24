@@ -7,12 +7,9 @@ LUA_COMPAT=( lua5-3 )
 PYTHON_COMPAT=( python3_{9..11} )
 inherit lua-single python-any-r1 xdg
 
-MY_PV=$(ver_rs 2 '')
-
 DESCRIPTION="Modification of the classical Freedroid engine into an RPG"
 HOMEPAGE="https://www.freedroid.org/"
-SRC_URI="https://ftp.osuosl.org/pub/freedroid/freedroidRPG-$(ver_cut 1-2)/freedroidRPG-${MY_PV}.tar.gz"
-S="${WORKDIR}/${PN}-${MY_PV^^}"
+SRC_URI="https://ftp.osuosl.org/pub/freedroid/freedroidRPG-${PV}/freedroidRPG-${PV}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -22,7 +19,6 @@ REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 RDEPEND="
 	${LUA_DEPS}
-	media-libs/libjpeg-turbo
 	media-libs/libpng:=
 	media-libs/libsdl[opengl?,sound?,video]
 	media-libs/sdl-gfx:=
@@ -32,13 +28,9 @@ RDEPEND="
 	devtools? ( media-libs/sdl-ttf )
 	opengl? (
 		media-libs/glew:0=
-		virtual/opengl
+		media-libs/libglvnd[X]
 	)
-	sound? (
-		media-libs/libogg
-		media-libs/libvorbis
-		media-libs/sdl-mixer[vorbis]
-	)"
+	sound? ( media-libs/sdl-mixer[vorbis] )"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
@@ -54,8 +46,8 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	python_fix_shebang src/gen_savestruct.py # build only
-	rm data/sound/speak.py || die # unused, skip install / python rdep
+	python_fix_shebang src/gen_savestruct.py
+	rm data/sound/speak.py || die # unused, skip install + python rdep
 }
 
 src_configure() {
