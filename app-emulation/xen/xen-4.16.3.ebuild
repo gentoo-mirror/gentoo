@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit flag-o-matic mount-boot python-any-r1 toolchain-funcs
 
@@ -12,11 +12,12 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm -x86"
+	KEYWORDS="~amd64 ~arm -x86"
 
-	XEN_PRE_PATCHSET_NUM=1
-	XEN_GENTOO_PATCHSET_NUM=
-	XEN_PRE_VERSION_BASE=4.15.3
+	XEN_GENTOO_PATCHSET_NUM=2
+	XEN_GENTOO_PATCHSET_BASE=4.16.1
+	XEN_PRE_PATCHSET_NUM=
+	XEN_PRE_VERSION_BASE=
 
 	XEN_BASE_PV="${PV}"
 	if [[ -n "${XEN_PRE_VERSION_BASE}" ]]; then
@@ -32,7 +33,7 @@ else
 		XEN_UPSTREAM_PATCHES_DIR="${WORKDIR}/${XEN_UPSTREAM_PATCHES_NAME}"
 	fi
 	if [[ -n "${XEN_GENTOO_PATCHSET_NUM}" ]]; then
-		XEN_GENTOO_PATCHES_TAG="$(ver_cut 1-3 ${XEN_BASE_PV})-gentoo-patchset-${XEN_GENTOO_PATCHSET_NUM}"
+		XEN_GENTOO_PATCHES_TAG="$(ver_cut 1-3 ${XEN_GENTOO_PATCHSET_BASE})-gentoo-patchset-${XEN_GENTOO_PATCHSET_NUM}"
 		XEN_GENTOO_PATCHES_NAME="xen-gentoo-patches-${XEN_GENTOO_PATCHES_TAG}"
 		SRC_URI+=" https://gitweb.gentoo.org/proj/xen-gentoo-patches.git/snapshot/${XEN_GENTOO_PATCHES_NAME}.tar.bz2"
 		XEN_GENTOO_PATCHES_DIR="${WORKDIR}/${XEN_GENTOO_PATCHES_NAME}"
@@ -46,7 +47,7 @@ S="${WORKDIR}/xen-$(ver_cut 1-3 ${XEN_BASE_PV})"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug efi flask"
+IUSE="+boot-symlinks debug efi flask"
 REQUIRED_USE="arm? ( debug )"
 
 DEPEND="${PYTHON_DEPS}
@@ -88,10 +89,10 @@ src_prepare() {
 		eapply "${XEN_GENTOO_PATCHES_DIR}"
 	fi
 
-	eapply "${FILESDIR}"/${PN}-4.15-efi.patch
-
-	# Enable XSM-FLASK
-	use flask && eapply "${FILESDIR}"/${PN}-4.15-flask.patch
+	# Symlinks do not work on fat32 volumes # 829765
+	if ! use boot-symlinks || use efi; then
+		eapply "${XEN_GENTOO_PATCHES_DIR}"/no-boot-symlinks/${PN}-4.16-no-symlinks.patch
+	fi
 
 	# Workaround new gcc-11 options
 	sed -e '/^CFLAGS/s/-Werror//g' -i xen/Makefile || die
@@ -121,6 +122,12 @@ xen_make() {
 		LDFLAGS="$(raw-ldflags)" \
 		HOSTCC="$(tc-getBUILD_CC)" \
 		HOSTCXX="$(tc-getBUILD_CXX)" \
+		CC="$(tc-getCC)" \
+		CXX="$(tc-getCXX)" \
+		LD="$(tc-getLD)" \
+		AR="$(tc-getAR)" \
+		OBJDUMP="$(tc-getOBJDUMP)" \
+		RANLIB="$(tc-getRANLIB)" \
 		clang="${clang}" \
 		"$@"
 }
@@ -164,20 +171,4 @@ src_install() {
 
 	# make install likes to throw in some extra EFI bits if it built
 	use efi || rm -rf "${D}/usr/$(get_libdir)/efi"
-}
-
-pkg_postinst() {
-	elog "Official Xen Guide:"
-	elog " https://wiki.gentoo.org/wiki/Xen"
-
-	use efi && einfo "The efi executable is installed in /boot/efi/gentoo"
-
-	ewarn
-	ewarn "Xen 4.12+ changed the default scheduler to credit2 which can cause"
-	ewarn "domU lockups on multi-cpu systems. The legacy credit scheduler seems"
-	ewarn "to work fine."
-	ewarn
-	ewarn "Add sched=credit to xen command line options to use the legacy scheduler."
-	ewarn
-	ewarn "https://wiki.gentoo.org/wiki/Xen#Xen_domU_hanging_with_Xen_4.12.2B"
 }
