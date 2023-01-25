@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.101.0
+KFMIN=5.96.0
 QTMIN=5.15.5
 inherit ecm gear.kde.org optfeature
 
@@ -74,6 +74,11 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kimageformats-${KFMIN}:5
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-without_x11.patch"
+	"${FILESDIR}/${P}-fix-raw-plugin-coexistence.patch" # KDE-bug 463132
+)
+
 src_prepare() {
 	ecm_src_prepare
 	if ! use mpris; then
@@ -96,7 +101,7 @@ src_configure() {
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "SVG support" "kde-apps/svgpart:${SLOT}"
+		optfeature "SVG support" kde-apps/svgpart:${SLOT}
 	fi
 	ecm_pkg_postinst
 }
