@@ -1,10 +1,10 @@
-BDEPEND=virtual/pkgconfig emacs? ( >=app-editors/emacs-23.1:* ) test? ( dev-util/dejagnu nbd? ( sys-block/nbdkit ) )
-DEFINED_PHASES=compile configure install postinst postrm prepare setup
+BDEPEND=virtual/pkgconfig pvm-profiling? ( sys-devel/gcc ) emacs? ( >=app-editors/emacs-23.1:* ) test? ( dev-util/dejagnu nbd? ( sys-block/nbdkit ) )
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup
 DEPEND=dev-libs/boehm-gc:= dev-libs/libatomic_ops sys-devel/gettext sys-libs/readline:= emacs? ( >=app-editors/emacs-23.1:* ) nbd? ( sys-libs/libnbd ) test? ( nbd? ( sys-libs/libnbd[uri-support] ) )
 DESCRIPTION=Extensible editor for structured binary data
 EAPI=8
 HOMEPAGE=https://www.jemarch.net/poke
-INHERIT=elisp-common flag-o-matic
+INHERIT=elisp-common flag-o-matic toolchain-funcs
 IUSE=emacs pvm-profiling nbd nls test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/poke/poke-2.4.tar.gz
 _eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=46d08571e905e7adca051483b765f10e
+_md5_=cc023521af86395b4dbcdcf3104d2cbb
