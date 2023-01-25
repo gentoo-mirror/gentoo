@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst prepare test unpack
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=dev-libs/libev dev-libs/libpcre2 dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:= x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config test? ( dev-perl/AnyEvent dev-perl/ExtUtils-PkgConfig dev-perl/Inline dev-perl/Inline-C dev-perl/IPC-Run dev-perl/local-lib dev-perl/X11-XCB virtual/perl-Test-Simple x11-base/xorg-server[xephyr] x11-misc/xvfb-run ) doc? ( app-text/asciidoc app-text/xmlto dev-lang/perl )
 DESCRIPTION=An improved dynamic tiling window manager
-EAPI=7
+EAPI=8
 HOMEPAGE=https://i3wm.org/
-INHERIT=meson optfeature virtualx git-r3
+INHERIT=meson optfeature virtualx
 IUSE=doc test test
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=BSD
-PROPERTIES=live
 RDEPEND=dev-libs/libev dev-libs/libpcre2 dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:= x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config dev-lang/perl dev-perl/AnyEvent-I3 dev-perl/JSON-XS
-RESTRICT=!test? ( test )
+RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac	virtualx	644887c82aefdf12001489391fca4f02	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=2065486d66a01680ac7ec4f40ac54961
+SRC_URI=https://i3wm.org/downloads/i3-4.22.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac	virtualx	644887c82aefdf12001489391fca4f02
+_md5_=c40caaf8aab8409df2930ae32019162c
