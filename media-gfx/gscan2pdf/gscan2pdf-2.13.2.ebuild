@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -65,7 +65,7 @@ BDEPEND="
 		media-gfx/sane-frontends
 	)"
 
-PERL_RM_FILES=( t/{90_MANIFEST,91_critic,99_pod}.t )
+PERL_RM_FILES=( t/{90_MANIFEST,91_critic,99_pod,169_import_scan}.t )
 
 mydoc="History"
 

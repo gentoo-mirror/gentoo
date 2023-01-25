@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_SINGLE_IMPL=true
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 readme.gentoo-r1 virtualx xdg-utils
@@ -39,10 +39,8 @@ BDEPEND="sys-devel/gettext
 	")
 "
 
-# right now, dev-python/jaraco-packaging is mask, so we cannot generate docs
-#distutils_enable_sphinx docs \
-#	'>=dev-python/jaraco-packaging-9' \
-#	'dev-python/rst-linker'
+distutils_enable_sphinx docs \
+	'dev-python/rst-linker'
 distutils_enable_tests pytest
 
 src_prepare() {
