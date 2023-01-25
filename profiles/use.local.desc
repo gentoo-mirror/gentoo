@@ -6914,15 +6914,15 @@ net-wireless/gnuradio:vocoder - enable blocks for audio voice encoders
 net-wireless/gnuradio:wavelet - enable wavelet signal processing blocks
 net-wireless/gnuradio:zeromq - enable zeromq message passing blocks
 net-wireless/gqrx:gr-audio - Use audio support from net-wireless/gnuradio
-net-wireless/gr-osmosdr:airspy - Build with Airspy support
-net-wireless/gr-osmosdr:bladerf - Build with Nuand BladeRF support
-net-wireless/gr-osmosdr:hackrf - Build with Great Scott Gadgets HackRF support
-net-wireless/gr-osmosdr:iqbalance - Enable support for I/Q balancing using gr-iqbal
-net-wireless/gr-osmosdr:rtlsdr - Build with Realtek RTL2832U (rtlsdr) support
+net-wireless/gr-osmosdr:airspy - Build with Airspy support through net-wireless/airspy
+net-wireless/gr-osmosdr:bladerf - Build with Nuand BladeRF support through net-wireless/bladerf
+net-wireless/gr-osmosdr:hackrf - Build with Great Scott Gadgets HackRF support through net-libs/libhackrf
+net-wireless/gr-osmosdr:iqbalance - Enable support for I/Q balancing using gr-iqbal through net-wireless/gr-iqbal
+net-wireless/gr-osmosdr:rtlsdr - Build with Realtek RTL2832U support through net-wireless/rtl-sdr
 net-wireless/gr-osmosdr:sdrplay - Enable support for SDRplay devices through net-wireless/sdrplay
-net-wireless/gr-osmosdr:soapy - Build with SoapySDR support
-net-wireless/gr-osmosdr:uhd - Build with Ettus Research USRP Hardware Driver support
-net-wireless/gr-osmosdr:xtrx - Build with xtrx Hardware Driver support
+net-wireless/gr-osmosdr:soapy - Build with SoapySDR support through net-wireless/soapysdr
+net-wireless/gr-osmosdr:uhd - Build with Ettus Research USRP Hardware Driver support through net-wireless/uhd
+net-wireless/gr-osmosdr:xtrx - Build with xtrx Hardware Driver support through net-wireless/libxtrx
 net-wireless/horst:pcap - Add support for network packet capture via net-libs/libpcap
 net-wireless/hostapd:crda - Add CRDA support
 net-wireless/hostapd:internal-tls - Use internal TLSv1 implementation instead of depending on OpenSSL or GnuTLS
