@@ -4,7 +4,8 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
-inherit bash-completion-r1 desktop python-any-r1 scons-utils toolchain-funcs xdg
+inherit bash-completion-r1 desktop optfeature python-any-r1
+inherit scons-utils toolchain-funcs xdg
 
 MY_P="${PN}-$(ver_rs 2 -)"
 
@@ -15,19 +16,17 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="
 	MIT
-	Apache-2.0 BSD Boost-1.0 CC0-1.0 Unlicense ZLIB
+	AFL-2.1 Apache-2.0 BSD Boost-1.0 CC0-1.0 LGPL-2.1+ Unlicense ZLIB
 	gui? ( CC-BY-4.0 ) tools? ( OFL-1.1 )"
 SLOT="4"
 KEYWORDS="~amd64"
 # Enable roughly same as upstream by default so it works as expected,
 # except raycast (tools-only heavy dependency), and deprecated.
-IUSE="
-	+dbus debug deprecated +fontconfig +gui pulseaudio raycast
-	+runner speech test +theora +tools +udev +upnp +vulkan +webp"
+IUSE="debug deprecated +gui raycast +runner test +theora +tools +upnp +vulkan +webp"
 # disable tests until out of beta, tests themselves are new and can be volatile
 RESTRICT="test"
 
-# dlopen: alsa-lib,dbus,fontconfig,libX*,pulseaudio,speech-dispatcher,udev
+# dlopen: libX*,libglvnd
 RDEPEND="
 	app-arch/zstd:=
 	dev-games/recastnavigation:=
@@ -41,9 +40,7 @@ RDEPEND="
 	<net-libs/mbedtls-3:=
 	net-libs/wslay
 	sys-libs/zlib:=
-	fontconfig? ( media-libs/fontconfig )
 	gui? (
-		media-libs/alsa-lib
 		media-libs/libglvnd[X]
 		x11-libs/libX11
 		x11-libs/libXcursor
@@ -52,20 +49,15 @@ RDEPEND="
 		x11-libs/libXinerama
 		x11-libs/libXrandr
 		x11-libs/libXrender
-		dbus? ( sys-apps/dbus )
-		pulseaudio? ( media-libs/libpulse )
 		tools? ( raycast? ( media-libs/embree:3 ) )
-		udev? ( virtual/udev )
 		vulkan? ( media-libs/vulkan-loader[X] )
 	)
-	speech? ( app-accessibility/speech-dispatcher )
 	theora? ( media-libs/libtheora )
 	tools? ( app-misc/ca-certificates )
 	upnp? ( net-libs/miniupnpc:= )
 	webp? ( media-libs/libwebp:= )"
 DEPEND="
 	${RDEPEND}
-	gui? ( x11-base/xorg-proto )
 	tools? ( test? ( dev-cpp/doctest ) )"
 BDEPEND="virtual/pkgconfig"
 
@@ -91,6 +83,10 @@ src_prepare() {
 		libpng libtheora libvorbis libwebp mbedtls miniupnpc
 		pcre2 recastnavigation volk wslay zlib zstd
 		# certs: unused by generated header, but scons panics if not found
+		# linuxbsd_headers: would /want/ to unbundle these, but it is rather
+		# messy given godot has dropped all the pkg-config calls and uses
+		# hardcoded paths on top -- on the plus side, removes a real need
+		# to have IUSE="alsa dbus fontconfig pulseaudio speech udev" (dlopen)
 	)
 	rm -r "${unbundle[@]/#/thirdparty/}" || die
 
@@ -114,13 +110,7 @@ src_compile() {
 
 		deprecated=$(usex deprecated)
 		#execinfo=$(usex !elibc_glibc) # libexecinfo is not packaged
-		fontconfig=$(usex fontconfig)
-		minizip=yes # uses a modified bundled copy
 		opengl3=$(usex gui)
-		pulseaudio=$(usex gui $(usex pulseaudio))
-		speechd=$(usex speech)
-		udev=$(usex gui $(usex udev))
-		use_dbus=$(usex gui $(usex dbus))
 		use_volk=no # unnecessary when linking directly to libvulkan
 		vulkan=$(usex gui $(usex vulkan))
 		x11=$(usex gui)
@@ -154,11 +144,7 @@ src_compile() {
 		builtin_xatlas=yes # not wired for unbundling nor packaged
 		builtin_zlib=no
 		builtin_zstd=no
-		# also bundled but lacking a builtin_* switch:
-		#	amd-fsr, basis_universal, cvtt, etcpak, fonts, glad,
-		#	jpeg-compressor, meshoptimizer, minimp3, minizip (patched to
-		#	seek in archives), noise, oidn, openxr, spirv-reflect, thorvg,
-		#	tinyexr, vhacd, vulkan, and the misc directory.
+		# (more is bundled in third_party/ but they lack builtin_* switches)
 
 		# modules with optional dependencies, "possible" to disable more but
 		# gets messy and breaks all sorts of features (expected enabled)
@@ -242,9 +228,13 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	if [[ ! ${REPLACING_VERSIONS} ]] && has_version ${CATEGORY}/${PN}:3; then
-		elog
-		elog "Remember to make backups before opening any Godot <=3.x projects in Godot 4."
-		elog "Automated migration is only partial, and it would be difficult to revert."
+	# these use bundled headers then get dlopen()'ed if available, USE=gui
+	# itself could technically be a optfeature too but it'd be messy here
+	if use gui; then
+		optfeature "gamepad connection detection support" virtual/libudev
+		optfeature "screensaver and portal desktop handling" sys-apps/dbus
+		optfeature "sound support" media-libs/alsa-lib media-libs/libpulse
 	fi
+	optfeature "system fonts support" media-libs/fontconfig
+	optfeature "text-to-speech support" app-accessibility/speech-dispatcher
 }
