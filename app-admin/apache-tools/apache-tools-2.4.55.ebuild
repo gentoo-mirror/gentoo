@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,14 +11,14 @@ SRC_URI="mirror://apache/httpd/httpd-${PV}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc64-solaris ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc64-solaris ~x64-solaris"
 IUSE="ssl"
 RESTRICT="test"
 
 RDEPEND=">=dev-libs/apr-1.5.0:1=
 	dev-libs/apr-util:1=
 	dev-libs/expat
-	dev-libs/libpcre
+	dev-libs/libpcre2
 	virtual/libcrypt:=
 	kernel_linux? ( sys-apps/util-linux )
 	ssl? ( dev-libs/openssl:0= )"
@@ -40,8 +40,8 @@ src_prepare() {
 	default
 
 	# This package really should upgrade to using pcre's .pc file.
-	cat <<-\EOF >"${T}"/pcre-config
-	#!/bin/bash
+	cat <<-\EOF > "${T}"/pcre2-config
+	#!/usr/bin/env bash
 	flags=()
 	for flag; do
 		if [[ ${flag} == "--version" ]]; then
@@ -50,19 +50,21 @@ src_prepare() {
 			flags+=( "${flag}" )
 		fi
 	done
-	exec ${PKG_CONFIG} libpcre "${flags[@]}"
+	exec ${PKG_CONFIG} libpcre2-8 "${flags[@]}"
 	EOF
-	chmod a+x "${T}"/pcre-config || die
+	chmod a+x "${T}"/pcre2-config || die
 
 	# Only here for libtool and which patches
 	eautoreconf
 }
 
 src_configure() {
-	# Brain dead check.
+	# Silly check.
 	tc-is-cross-compiler && export ap_cv_void_ptr_lt_long="no"
 
 	tc-export PKG_CONFIG
+	export ac_cv_path_PKGCONFIG="${PKG_CONFIG}"
+	export ac_cv_prog_ac_ct_PCRE_CONFIG="${T}"/pcre2-config
 
 	local myeconfargs=(
 		--libexecdir="${EPREFIX}"/usr/$(get_libdir)/apache2/modules
@@ -70,13 +72,15 @@ src_configure() {
 		--with-z="${EPREFIX}"/usr
 		--with-apr="${ESYSROOT}"/usr
 		--with-apr-util="${ESYSROOT}"/usr
-		--with-pcre="${T}"/pcre-config
+		--without-pcre
+		--with-pcre2="${T}"/pcre2-config
 		$(use_enable ssl)
 		$(usex ssl '--with-ssl="${EPREFIX}"/usr' '')
 	)
+
 	# econf overwrites the stuff from config.layout.
-	ac_cv_path_PKGCONFIG="${PKG_CONFIG}" \
 	econf "${myeconfargs[@]}"
+
 	sed -i \
 		-e '/^LTFLAGS/s:--silent::' \
 		build/rules.mk build/config_vars.mk || die
