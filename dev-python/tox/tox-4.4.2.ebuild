@@ -33,7 +33,7 @@ RDEPEND="
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2.6[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1[${PYTHON_USEDEP}]
-	>=dev-python/pyproject-api-1.4[${PYTHON_USEDEP}]
+	>=dev-python/pyproject-api-1.5[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	' 3.8 3.9 3.10)
@@ -80,6 +80,15 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		# requires devpi*
 		tests/test_provision.py
+	)
+
+	[[ ${EPYTHON} == pypy3 ]] && EPYTEST_DESELECT+=(
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[explicit-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[requirements-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[constraints-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[explicit+requirements-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[requirements_indirect-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[requirements_constraints_indirect-True-True]'
 	)
 
 	epytest
