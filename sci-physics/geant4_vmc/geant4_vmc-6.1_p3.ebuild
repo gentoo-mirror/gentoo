@@ -1,15 +1,15 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake virtualx
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/vmc-project/${PN}.git"
 else
-	MY_PV=$(ver_rs 1- -)
+	MY_PV=$(ver_rs 1-2 -)
 	SRC_URI="https://github.com/vmc-project/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 	KEYWORDS="~amd64 ~x86"
@@ -20,20 +20,20 @@ HOMEPAGE="https://github.com/vmc-project/geant4_vmc"
 
 LICENSE="GPL-3"
 SLOT="4"
-IUSE="doc examples geant3 +g4root +mtroot vgm test"
+IUSE="doc examples geant3 +g4root vgm test"
 
 RDEPEND="
-	<sci-physics/geant-4.11[c++17,opengl,geant3?]
+	>=sci-physics/geant-4.11[c++17,opengl,geant3?]
 	sci-physics/root:=[c++17,-vmc(-)]
-	<sci-physics/vmc-2.0:=[c++17]
-	vgm? ( sci-physics/vgm:= )"
-DEPEND="${RDEPEND}"
+	>=sci-physics/vmc-2.0:=[c++17]
+	vgm? ( <=sci-physics/vgm-5.0:= )"
+DEPEND="${RDEPEND}
+	test? ( >=sci-physics/geant-4.11[gdml] )"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 RESTRICT="
 	!examples? ( test )
 	!geant3? ( test )
 	!g4root? ( test )
-	!mtroot? ( test )
 	!test? ( test )
 	!vgm? ( test )"
 
@@ -44,9 +44,9 @@ src_configure() {
 		-DGeant4VMC_USE_VGM="$(usex vgm)"
 		-DGeant4VMC_USE_GEANT4_G3TOG4="$(usex geant3)"
 		-DGeant4VMC_USE_G4Root="$(usex g4root)"
-		-DGeant4VMC_BUILD_MTRoot="$(usex mtroot)"
 		-DGeant4VMC_BUILD_EXAMPLES="$(usex test)"
 		-DGeant4VMC_INSTALL_EXAMPLES="$(usex examples)"
+		-DGeant4VMC_BUILD_G4Root_TEST="$(usex test)"
 	)
 	cmake_src_configure
 }
@@ -57,22 +57,20 @@ src_compile() {
 		local dirs=(
 			source
 			$(usev g4root)
-			$(usev mtroot)
 			$(usev examples)
 		)
 		local d
 		for d in "${dirs[@]}"; do
-			pushd "${d}" > /dev/null || die
-			doxygen || die
-			popd > /dev/null || die
+			doxygen "${d}"/Doxyfile || die
 		done
 	fi
 }
 
 src_test() {
+	export QT_DEBUG_PLUGINS=1
 	cd examples || die
-	./test_suite.sh --debug --g3=off --garfield=off --builddir="${BUILD_DIR}" || die
-	./test_suite_exe.sh --g3=off --garfield=off --garfield=off --builddir="${BUILD_DIR}" || die
+	virtx ./test_suite.sh --debug --g3=off --garfield=off --builddir="${BUILD_DIR}" || die
+	virtx ./test_suite_exe.sh --g3=off --garfield=off --garfield=off --builddir="${BUILD_DIR}" || die
 }
 
 src_install() {
