@@ -16,7 +16,7 @@ SRC_URI="https://brltty.app/archive/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+api +beeper bluetooth doc +fm gpm iconv icu
 		java louis +midi ncurses nls ocaml +pcm policykit python
 		usb systemd +speech tcl xml X"
@@ -49,7 +49,7 @@ DEPEND="
 		app-accessibility/speech-dispatcher
 	)
 	systemd? ( sys-apps/systemd )
-	tcl? ( >=dev-lang/tcl-8.4.15:0= )
+	tcl? ( >=dev-lang/tcl-8.6.13-r1:= )
 	usb? ( virtual/libusb:1 )
 	xml? ( dev-libs/expat )
 	X? (
