@@ -46,6 +46,10 @@ BDEPEND="
 	introspection? ( dev-util/glib-utils )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-gcc-13.patch
+)
+
 pkg_setup() {
 	python-any-r1_pkg_setup
 	if ! use debug ; then
@@ -63,9 +67,6 @@ src_prepare() {
 		-e '/tests\/macos\.tests/d' \
 		test/shape/data/in-house/Makefile.sources \
 		|| die
-
-	# bug #618772
-	append-cxxflags -std=c++14
 
 	# bug #790359
 	filter-flags -fexceptions -fthreadsafe-statics
