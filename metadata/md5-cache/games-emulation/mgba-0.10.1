@@ -7,7 +7,7 @@ HOMEPAGE=https://mgba.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake lua-single xdg
 IUSE=debug discord elf ffmpeg gles2 gles3 gui libretro lua +opengl +sdl +sqlite test lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=MPL-2.0 BSD LGPL-2.1+ public-domain discord? ( MIT )
 RDEPEND=media-libs/libpng:= sys-libs/zlib:=[minizip] debug? ( dev-libs/libedit ) elf? ( dev-libs/elfutils ) ffmpeg? ( media-video/ffmpeg:= ) gles2? ( media-libs/libglvnd ) gles3? ( media-libs/libglvnd ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) opengl? ( media-libs/libglvnd ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) sdl? ( media-libs/libsdl2[sound,joystick,gles2?,opengl?,video] ) sqlite? ( dev-db/sqlite:3 )
 REQUIRED_USE=gui? ( || ( gles2 gles3 opengl ) sqlite ) lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.10
 SRC_URI=https://github.com/mgba-emu/mgba/archive/0.10.1.tar.gz -> mgba-0.10.1.tar.gz
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	xdg	6024fbc93167fad782e2032933654857
-_md5_=ae630d2b411808cba4e0e725861820d9
+_md5_=5e07b73e80e3f51f8254d521861a193b
