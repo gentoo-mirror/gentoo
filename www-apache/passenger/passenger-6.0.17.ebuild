@@ -1,18 +1,19 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-USE_RUBY="ruby26 ruby27 ruby30"
+USE_RUBY="ruby27 ruby30 ruby31"
 
-inherit apache-module flag-o-matic multilib ruby-ng toolchain-funcs
+inherit apache-module flag-o-matic ruby-ng toolchain-funcs
 
 DESCRIPTION="Passenger makes deployment of Ruby on Rails applications a breeze"
 HOMEPAGE="https://www.phusionpassenger.com/"
 SRC_URI="https://s3.amazonaws.com/phusion-passenger/releases/${P}.tar.gz"
 
+# Passenger is licensed MIT, but vendored code licenses should also be taken into account.
 LICENSE="Boost-1.0 MIT BSD"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="apache2 debug"
 
 ruby_add_bdepend "dev-ruby/rake"
@@ -57,7 +58,8 @@ all_ruby_prepare() {
 	sed -i -e "s:/usr/share/doc/passenger:/usr/share/doc/${P}:" \
 		-e "s:/usr/lib/phusion-passenger/agents:/usr/libexec/phusion-passenger/agents:" \
 		src/ruby_supportlib/phusion_passenger.rb || die
-	sed -i -e "s:/usr/lib/phusion-passenger/agents:/usr/libexec/phusion-passenger/agents:" src/cxx_supportlib/ResourceLocator.h || die
+	sed -e "s:/usr/lib/phusion-passenger/agents:/usr/libexec/phusion-passenger/agents:" \
+		-i src/cxx_supportlib/ResourceLocator.h || die
 
 	# Don't install a tool that won't work in our setup.
 	sed -i -e '/passenger-install-apache2-module/d' src/ruby_supportlib/phusion_passenger/packaging.rb || die
