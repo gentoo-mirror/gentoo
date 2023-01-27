@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=player? ( alsa? ( media-libs/alsa-lib ) openal? ( media-libs/openal ) )
+DESCRIPTION=MIDI processing library and player using the GUS patch set
+EAPI=8
+HOMEPAGE=http://www.mindwerks.net/projects/wildmidi/
+INHERIT=cmake readme.gentoo-r1
+IUSE=+alsa openal oss +player
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+ LGPL-3+
+RDEPEND=player? ( alsa? ( media-libs/alsa-lib ) openal? ( media-libs/openal ) ) media-sound/timidity-freepats
+REQUIRED_USE=player? ( ^^ ( alsa oss openal ) )
+SLOT=0
+SRC_URI=https://github.com/Mindwerks/wildmidi/archive/wildmidi-0.4.5.tar.gz
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_md5_=c7ab01b09382b67b14d5f53e9a2fc09d
