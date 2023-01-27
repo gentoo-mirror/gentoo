@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=command line interface for the Sourcegraph code search tool
+EAPI=8
+HOMEPAGE=https://sourcegraph.com https://docs.sourcegraph.com/cli
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/sourcegraph/src-cli/archive/4.4.0.tar.gz -> src-cli-4.4.0.tar.gz https://dev.gentoo.org/~williamh/dist/src-cli-4.4.0-deps.tar.xz
+_eclasses_=go-module	75029f071ebc843223233ab1b0a2d4a5
+_md5_=6fb1211ec58b0e6a5869615c640fc6ef
