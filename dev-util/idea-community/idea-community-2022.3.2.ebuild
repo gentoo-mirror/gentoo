@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,8 +19,8 @@ KEYWORDS="~amd64 ~arm64"
 
 DEPEND="
 	|| (
-		>=dev-java/openjdk-17.0.3_p7-r1:17
-		>=dev-java/openjdk-bin-17.0.3_p7:17
+		>=dev-java/openjdk-17.0.6_p10:17
+		>=dev-java/openjdk-bin-17.0.6_p10:17
 	)"
 
 RDEPEND="${DEPEND}
