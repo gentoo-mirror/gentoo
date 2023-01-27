@@ -21,13 +21,13 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="cli ncurses qrcode +qt5"
 REQUIRED_USE="|| ( cli ncurses qt5 )"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-libs/libsecp256k1
+	<dev-libs/libsecp256k1-0.2
 	>=dev-python/aiohttp-socks-0.3[${PYTHON_USEDEP}]
 	=dev-python/aiorpcX-0.22*[${PYTHON_USEDEP}]
 	>=dev-python/attrs-19.2.0[${PYTHON_USEDEP}]
@@ -87,6 +87,20 @@ src_install() {
 pkg_postinst() {
 	xdg_icon_cache_update
 	xdg_desktop_database_update
+
+	local v
+	for v in ${REPLACING_VERSIONS}; do
+		ver_test "${v}" -ge 4.3.4 && return
+	done
+
+	ewarn "If you are new to BitCoin, please be aware that:"
+	ewarn "1. Cryptocurrencies are volatile.  BTC has been subject to rapid"
+	ewarn "   changes of value in the past."
+	ewarn "2. Cryptocurrency ownership is determined solely by the access to"
+	ewarn "   the private key.  If the key is lost or stolen, BTC are unrevocably"
+	ewarn "   lost."
+	ewarn "3. Proof-of-work based cryptocurrencies have negative environmental"
+	ewarn "   impact.  BTC mining is consuming huge amounts of electricity."
 }
 
 pkg_postrm() {

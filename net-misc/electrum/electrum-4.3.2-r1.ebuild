@@ -21,13 +21,13 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="cli ncurses qrcode +qt5"
 REQUIRED_USE="|| ( cli ncurses qt5 )"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-libs/libsecp256k1
+	<dev-libs/libsecp256k1-0.2
 	>=dev-python/aiohttp-socks-0.3[${PYTHON_USEDEP}]
 	=dev-python/aiorpcX-0.22*[${PYTHON_USEDEP}]
 	>=dev-python/attrs-19.2.0[${PYTHON_USEDEP}]
