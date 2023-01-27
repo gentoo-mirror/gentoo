@@ -1,17 +1,17 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit flag-o-matic lua-single
+inherit lua-single
 
 DESCRIPTION="A highly DNS-, DoS- and abuse-aware loadbalancer"
 HOMEPAGE="https://dnsdist.org"
 
 SRC_URI="https://downloads.powerdns.com/releases/${P}.tar.bz2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,12 +26,12 @@ RDEPEND="acct-group/dnsdist
 	acct-user/dnsdist
 	dev-libs/boost:=
 	dev-libs/libedit:=
-	>=dev-libs/protobuf-3:=
-	dnscrypt? ( dev-libs/libsodium:= )
+	dev-libs/libsodium:=
 	dnstap? ( dev-libs/fstrm:= )
 	doh? ( www-servers/h2o:=[libh2o] )
 	lmdb? ( dev-db/lmdb:= )
 	regex? ( dev-libs/re2:= )
+	remote-logging? ( >=dev-libs/protobuf-3:= )
 	snmp? ( net-analyzer/net-snmp:= )
 	ssl? (
 		gnutls? ( net-libs/gnutls:= )
@@ -44,6 +44,10 @@ RDEPEND="acct-group/dnsdist
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+src_prepare() {
+	default
+}
+
 src_configure() {
 	econf \
 		--sysconfdir=/etc/dnsdist \
@@ -53,6 +57,7 @@ src_configure() {
 		$(use_enable dnstap) \
 		$(use_with lmdb ) \
 		$(use_with regex re2) \
+		$(use_with remote-logging protobuf) \
 		$(use_with snmp net-snmp) \
 		$(use ssl && { echo "--enable-dns-over-tls" && use_with gnutls && use_with !gnutls libssl;} || echo "--without-gnutls --without-libssl") \
 		$(use_enable systemd) \

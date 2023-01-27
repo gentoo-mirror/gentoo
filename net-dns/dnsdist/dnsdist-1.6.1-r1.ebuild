@@ -1,17 +1,17 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit flag-o-matic lua-single
+inherit lua-single
 
 DESCRIPTION="A highly DNS-, DoS- and abuse-aware loadbalancer"
 HOMEPAGE="https://dnsdist.org"
 
 SRC_URI="https://downloads.powerdns.com/releases/${P}.tar.bz2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,8 +26,8 @@ RDEPEND="acct-group/dnsdist
 	acct-user/dnsdist
 	dev-libs/boost:=
 	dev-libs/libedit:=
+	dev-libs/libsodium:=
 	>=dev-libs/protobuf-3:=
-	dnscrypt? ( dev-libs/libsodium:= )
 	dnstap? ( dev-libs/fstrm:= )
 	doh? ( www-servers/h2o:=[libh2o] )
 	lmdb? ( dev-db/lmdb:= )
@@ -39,16 +39,12 @@ RDEPEND="acct-group/dnsdist
 	)
 	systemd? ( sys-apps/systemd:0= )
 	${LUA_DEPS}
-	net-libs/nghttp2
 "
 
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-	# bug #822855
-	append-lfs-flags
-
 	econf \
 		--sysconfdir=/etc/dnsdist \
 		--with-lua="${ELUA}" \
