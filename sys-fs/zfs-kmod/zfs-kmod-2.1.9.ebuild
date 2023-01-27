@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools dist-kernel-utils flag-o-matic linux-mod toolchain-funcs
 
@@ -19,14 +19,14 @@ else
 	SRC_URI="https://github.com/openzfs/zfs/releases/download/zfs-${MY_PV}/zfs-${MY_PV}.tar.gz"
 	SRC_URI+=" verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-${MY_PV}/zfs-${MY_PV}.tar.gz.asc )"
 	S="${WORKDIR}/zfs-${PV%_rc?}"
-	ZFS_KERNEL_COMPAT="5.19"
+	ZFS_KERNEL_COMPAT="6.1"
 
-	#  increments minor eg 5.14 -> 5.15, and still supports override.
+	# increments minor eg 5.14 -> 5.15, and still supports override.
 	ZFS_KERNEL_DEP="${ZFS_KERNEL_COMPAT_OVERRIDE:-${ZFS_KERNEL_COMPAT}}"
 	ZFS_KERNEL_DEP="${ZFS_KERNEL_DEP%%.*}.$(( ${ZFS_KERNEL_DEP##*.} + 1))"
 
 	if [[ ${PV} != *_rc* ]]; then
-		KEYWORDS="amd64 arm64 ppc64 ~riscv ~sparc"
+		KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~sparc"
 	fi
 fi
 
@@ -59,10 +59,6 @@ PDEPEND="dist-kernel? ( ~sys-fs/zfs-${PV}[dist-kernel] )"
 RESTRICT="debug? ( strip ) test"
 
 DOCS=( AUTHORS COPYRIGHT META README.md )
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.1.6-fgrep.patch
-)
 
 pkg_pretend() {
 	use rootfs || return 0
