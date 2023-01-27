@@ -1,15 +1,19 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
-
+PYTHON_COMPAT=( python3_{9..11} )
 inherit desktop python-single-r1
 
+HASH_BWORKSHOP=31b125162c63c111358ead73d9c02905363c8c1c
+
 DESCRIPTION="Short-term-memory training N-Back game"
-HOMEPAGE="https://github.com/brain-workshop/brainworkshop"
-SRC_URI="https://github.com/brain-workshop/brainworkshop/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/brain-workshop/brainworkshop/"
+SRC_URI="
+	https://github.com/brain-workshop/brainworkshop/archive/${HASH_BWORKSHOP}.tar.gz
+		-> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${HASH_BWORKSHOP}"
 
 LICENSE="CC-Sampling-Plus-1.0 GPL-2+"
 SLOT="0"
@@ -18,9 +22,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	$(python_gen_cond_dep '
-		>=dev-python/pyglet-1.5[${PYTHON_USEDEP},sound]
-	')"
+	$(python_gen_cond_dep 'dev-python/pyglet[${PYTHON_USEDEP},sound]')"
 BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
