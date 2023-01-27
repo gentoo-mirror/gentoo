@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://logging.apache.org/log4j/2.x/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source test verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=2
 SRC_URI=mirror://apache/logging/log4j/2.19.0/apache-log4j-2.19.0-src.tar.gz verify-sig? ( https://www.apache.org/dist/logging/log4j/2.19.0/apache-log4j-2.19.0-src.tar.gz.asc )
 _eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	257a59d157060d7bd51a13e68c614dd5	verify-sig	afb98fe4696292e4234ce36713fd4e9e
-_md5_=cdf37e8ce469d169a7b82613c41b8a05
+_md5_=27aa05fa1790c2623c6d60c4cd05d99b
