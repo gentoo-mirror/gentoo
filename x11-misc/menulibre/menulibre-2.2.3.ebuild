@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="xml(+)"
 inherit distutils-r1 xdg
 
@@ -27,7 +27,8 @@ RDEPEND="
 	x11-themes/hicolor-icon-theme"
 BDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/python-distutils-extra[${PYTHON_USEDEP}]')"
+		dev-python/python-distutils-extra[${PYTHON_USEDEP}]')
+	dev-util/intltool"
 
 python_prepare_all() {
 	distutils-r1_python_prepare_all
