@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.monitoring-plugins.org/
 INHERIT=flag-o-matic
 IUSE=curl gnutls ipv6 ldap mysql dns fping game postgres radius samba snmp ssh +ssl
-KEYWORDS=amd64 ~arm ~arm64 ~sparc x86
+KEYWORDS=amd64 ~arm ~arm64 sparc x86
 LICENSE=GPL-3
 RDEPEND=dev-lang/perl curl? ( dev-libs/uriparser net-misc/curl ) ldap? ( net-nds/openldap:= ) mysql? ( || ( dev-db/mysql-connector-c dev-db/mariadb-connector-c ) ) postgres? ( dev-db/postgresql:= ) ssl? ( !gnutls? ( dev-libs/openssl:0= ) gnutls? ( net-libs/gnutls ) ) radius? ( net-dialup/freeradius-client ) dns? ( net-dns/bind-tools ) game? ( games-util/qstat ) fping? ( net-analyzer/fping ) samba? ( net-fs/samba ) ssh? ( net-misc/openssh ) snmp? ( dev-perl/Net-SNMP net-analyzer/net-snmp[-minimal] ) acct-group/nagios acct-user/nagios !net-analyzer/nagios-plugins
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.monitoring-plugins.org/download/monitoring-plugins-2.3.2.tar.gz
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=61fbbecc9d01738dd1594cc7f6dbc25a
+_md5_=e3eb8aa142ef5ee9f5adea57d39cbe36
