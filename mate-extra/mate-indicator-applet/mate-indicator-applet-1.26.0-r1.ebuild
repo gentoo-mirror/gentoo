@@ -6,7 +6,7 @@ EAPI=7
 inherit mate
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 fi
 
 DESCRIPTION="MATE indicator applet"
@@ -16,7 +16,7 @@ SLOT="0"
 IUSE=""
 
 COMMON_DEPEND="
-	>=dev-libs/libindicator-0.4:3
+	dev-libs/libayatana-indicator:3
 	>=mate-base/mate-panel-1.17.0
 	>=x11-libs/gtk+-3.22:3
 "
@@ -32,5 +32,5 @@ BDEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	mate_src_configure \
-		--with-ubuntu-indicators
+		--with-ayatana-indicators
 }
