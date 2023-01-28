@@ -5,10 +5,10 @@ EAPI=8
 
 inherit desktop
 
-DESCRIPTION="Aleph One - Marathon 2 (Durandal)"
-HOMEPAGE="http://marathon.sourceforge.net/"
-SRC_URI="https://github.com/Aleph-One-Marathon/alephone/releases/download/release-${PV}/Marathon2-${PV}-Data.zip"
-S="${WORKDIR}/Marathon 2"
+DESCRIPTION="Aleph One - Marathon Infinity"
+HOMEPAGE="https://alephone.lhowon.org/"
+SRC_URI="https://github.com/Aleph-One-Marathon/alephone/releases/download/release-${PV}/MarathonInfinity-${PV}-Data.zip"
+S="${WORKDIR}/Marathon Infinity"
 
 LICENSE="bungie-marathon"
 SLOT="0"
@@ -18,7 +18,7 @@ RESTRICT="mirror"
 RDEPEND="games-fps/alephone"
 BDEPEND="app-arch/unzip"
 
-MY_NAME="durandal"
+MY_NAME="infinity"
 MY_DIR="/usr/share/alephone-${MY_NAME}"
 
 src_install() {

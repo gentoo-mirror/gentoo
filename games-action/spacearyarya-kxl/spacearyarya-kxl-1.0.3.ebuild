@@ -5,14 +5,12 @@ EAPI=8
 
 inherit autotools desktop
 
-MY_P="SpaceAryarya-KXL-${PV}"
-
 DESCRIPTION="2D/3D shooting game"
 HOMEPAGE="http://triring.net/ps2linux/games/kxl/kxlgames.html"
 SRC_URI="
-	mirror://gentoo/${MY_P}.tar.gz
+	https://gitlab.com/oss-abandonware/games-action/space-aryarya/-/archive/${PV}/space-aryarya-${PV}.tar.bz2
 	https://dev.gentoo.org/~ionen/distfiles/${PN}.png"
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/space-aryarya-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -25,11 +23,6 @@ RDEPEND="
 	${DEPEND}
 	media-fonts/font-adobe-100dpi
 	media-fonts/font-bitstream-100dpi"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-cflags.patch
-	"${FILESDIR}"/${P}-clang.patch
-)
 
 src_prepare() {
 	default
