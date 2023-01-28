@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.101.0
+KFMIN=5.96.0
 QTMIN=5.15.5
 VIRTUALX_REQUIRED="test"
 inherit ecm gear.kde.org optfeature
@@ -17,7 +17,7 @@ https://kontact.kde.org/components/kmail/"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 IUSE="pch speech telemetry"
 
 RESTRICT="test" # bug 616878
@@ -88,6 +88,14 @@ BDEPEND="
 	dev-libs/libxslt
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-open-detailed-progress-bar.patch" # bug 891509
+	"${FILESDIR}/${P}-fix-random-text-in-config-settings.patch"
+	"${FILESDIR}/${P}-remove-removed-ShowUserAgent.patch"
+	"${FILESDIR}/${P}-fix-crash-on-startup.patch"
+	"${FILESDIR}/${P}-fix-crash-on-replay-msg-w-user-template.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare
