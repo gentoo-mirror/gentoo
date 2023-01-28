@@ -719,6 +719,19 @@ toolchain_src_prepare() {
 	einfo "Remove texinfo (bug #198182, bug #464008)"
 	eapply "${FILESDIR}"/gcc-configure-texinfo.patch
 
+	if ! use prefix-guest && [[ -n ${EPREFIX} ]] ; then
+		einfo "Prefixifying dynamic linkers..."
+		for f in gcc/config/*/*linux*.h ; do
+			ebegin "  Updating ${f}"
+			if [[ ${f} == gcc/config/rs6000/linux*.h ]]; then
+				sed -i -r "s,(DYNAMIC_LINKER_PREFIX\s+)\"\",\1\"${EPREFIX}\",g" "${f}" || die
+			else
+				sed -i -r "/_DYNAMIC_LINKER/s,([\":])(/lib),\1${EPREFIX}\2,g" "${f}" || die
+			fi
+			eend $?
+		done
+	fi
+
 	# >=gcc-4
 	if [[ -x contrib/gcc_update ]] ; then
 		einfo "Touching generated files"
@@ -1200,6 +1213,21 @@ toolchain_src_configure() {
 				confgcc+=( --enable-threads=posix )
 				;;
 		esac
+
+		if ! use prefix-guest ; then
+			# GNU ld scripts, such as those in glibc, reference unprefixed paths
+			# as the sysroot given here is automatically prepended. For
+			# prefix-guest, we use the host's libc instead.
+			if [[ -n ${EPREFIX} ]] ; then
+				confgcc+=( --with-sysroot="${EPREFIX}" )
+			fi
+
+			# We need to build against the right headers and libraries. Again,
+			# for prefix-guest, this is the host's.
+			if [[ -n ${ESYSROOT} ]] ; then
+				confgcc+=( --with-build-sysroot="${ESYSROOT}" )
+			fi
+		fi
 	fi
 
 	# __cxa_atexit is "essential for fully standards-compliant handling of
