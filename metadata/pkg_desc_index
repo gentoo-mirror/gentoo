@@ -2230,7 +2230,7 @@ app-editors/qemacs 0.4.1_pre20170225: QEmacs is a very small but powerful UNIX e
 app-editors/qhexedit2 0.8.9_p20210525-r2: Hex editor library, Qt application written in C++ with Python bindings
 app-editors/qxmledit 0.9.12: Simple Qt-based XML editor
 app-editors/remarkable 1.9.0_pre20210320-r1: Fully featured markdown editor, supports github markdown dialect
-app-editors/retext 7.2.2 7.2.3 9999: Simple editor for Markdown and reStructuredText
+app-editors/retext 7.2.3 8.0.0 9999: Simple editor for Markdown and reStructuredText
 app-editors/sandy 0.4-r1: an ncurses text editor with an easy-to-read, hackable C source
 app-editors/scite 5.1.3 5.2.4 5.3.0: A very powerful, highly configurable, small editor with syntax coloring
 app-editors/shed 1.15: Simple Hex EDitor
@@ -5021,7 +5021,7 @@ dev-java/janino 3.1.7 3.1.8: An embedded compiler for run-time compilation purpo
 dev-java/jansi 1.13 2.4.0-r1: Jansi is a java library for generating and interpreting ANSI escape sequences.
 dev-java/jansi-native 1.8: Native JNI component for dev-java/jansi
 dev-java/java-config 2.3.1 9999: Java environment configuration query tool
-dev-java/java-dep-check 0.5: Java Dependency checker
+dev-java/java-dep-check 0.5 0.5-r1: Java Dependency checker
 dev-java/java-diff-utils 1.3.0: Library for computing diffs, applying patches, generationg side-by-side view
 dev-java/java-getopt 1.0.14-r1: Java command line option parser
 dev-java/java-service-wrapper 3.5.50: A wrapper that makes it possible to install a Java Application as daemon
@@ -10273,7 +10273,7 @@ dev-ruby/rubytest-cli 0.2.0-r1: Rubytest CLI is a command-line interface for Rub
 dev-ruby/rubytter 1.5.1-r2: Rubytter is a simple twitter library
 dev-ruby/rubyzip 1.3.0 2.3.2-r1: A ruby library for reading and writing zip files
 dev-ruby/safe_yaml 1.0.5-r1: Parse YAML safely, alternative implementation of YAML.load
-dev-ruby/sanitize 6.0.0: Sanitize is a whitelist-based HTML sanitizer
+dev-ruby/sanitize 6.0.0 6.0.1: Sanitize is a whitelist-based HTML sanitizer
 dev-ruby/sass 3.7.4-r1: An extension of CSS3, adding nested rules, variables, mixins, and more
 dev-ruby/sass-listen 4.0.0-r1: Fork of guard/listen provides a stable API for users of the ruby Sass CLI
 dev-ruby/sass-rails 5.0.8 5.1.0: Official Ruby-on-Rails Integration with Sass
@@ -10394,7 +10394,7 @@ dev-ruby/vlad 2.7.1: Pragmatic application deployment automation, without mercy
 dev-ruby/warden 1.2.9-r1: General Rack Authentication Framework
 dev-ruby/web-console 4.2.0: A debugging tool for your Ruby on Rails applications
 dev-ruby/webmock 3.14.0 3.14.0-r1 3.15.0 3.17.1 3.18.1: Allows stubbing HTTP requests and setting expectations on HTTP requests
-dev-ruby/webrick 1.7.0 1.7.0-r1 1.8.0: An HTTP server toolkit
+dev-ruby/webrick 1.7.0 1.7.0-r1 1.8.0 1.8.1: An HTTP server toolkit
 dev-ruby/webrobots 0.1.2-r2: A library to help write robots.txt compliant web robots
 dev-ruby/websocket 1.2.9-r1: Universal Ruby library to handle WebSocket protocol
 dev-ruby/websocket-driver 0.6.5-r1 0.7.5: A complete implementation of the WebSocket protocols
@@ -14683,7 +14683,7 @@ net-im/mattermost-desktop-bin 5.2.2: Mattermost Desktop application
 net-im/mcabber 1.1.2-r1 9999: A small Jabber console client with various features, like MUC, SSL, PGP
 net-im/neochat 22.11-r2: Client for Matrix, the decentralized communication protocol
 net-im/openmittsu 0.9.15.0: Open source chat client for Threema-style end-to-end encrypted chat networks
-net-im/pidgin 2.14.10-r1: GTK Instant Messenger client
+net-im/pidgin 2.14.10-r1 2.14.12: GTK Instant Messenger client
 net-im/poezio 0.14 9999: Console XMPP client that looks like most famous IRC clients
 net-im/profanity 0.13.1: A console based XMPP client inspired by Irssi
 net-im/prosody 0.12.1 0.12.2: Prosody is a modern XMPP communication server
@@ -17572,7 +17572,7 @@ sys-kernel/linux-firmware 20220209 20220310 20220411 20220509 20220610 20220708 
 sys-kernel/linux-headers 3.18-r1 4.4-r1 4.9-r1 4.14-r2 4.19-r1 5.4-r2 5.10-r2 5.15-r3 5.19 6.0 6.1: Linux system headers
 sys-kernel/linux-next 9999: Linux kernel and patches aimed at the next kernel merge window
 sys-kernel/mips-sources 4.14.294 4.19.259 5.4.214: Kernel.org sources for MIPS-based machines
-sys-kernel/pf-sources 5.18_p5 5.19_p6 6.0_p6 6.1_p1 6.1_p2 6.1_p3: Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
+sys-kernel/pf-sources 5.18_p5 5.19_p6 6.0_p6 6.1_p1 6.1_p2 6.1_p3 6.1_p4: Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.10.63_p20211029 5.15.61_p20220830 5.15.76_p20221104: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.9.327_p197 4.14.302_p142 4.19.269_p119 5.4.221_p79 5.10.162_p79 5.15.86_p56 6.0.5_p14: Full Linux 6.0 kernel sources with the CONFIG_PREEMPT_RT patch
