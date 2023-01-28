@@ -5,24 +5,20 @@ EAPI=8
 
 inherit dune
 
-DESCRIPTION="Jane Street's alternative to the standard library"
-HOMEPAGE="https://github.com/janestreet/core"
+DESCRIPTION="Cram like framework for OCaml"
+HOMEPAGE="https://github.com/janestreet/ppx_expect"
 SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+ocamlopt"
-
-# TODO: Wants quickcheck_deprecated?
+# https://bugs.gentoo.org/749291#c2
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-lang/ocaml-4.11
-	dev-ml/base_bigstring:${SLOT}
-	dev-ml/ppx_jane:${SLOT}
-	dev-ml/ppx_pipebang:=
 	dev-ml/ppxlib:=
-	>=dev-ml/base-0.15.1:${SLOT}
+	dev-ml/ppx_inline_test:${SLOT}
+	dev-ml/re:=
 "
 DEPEND="${RDEPEND}"
