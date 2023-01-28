@@ -5841,7 +5841,7 @@ dev-libs/tlsh 4.8.2: Fuzzy matching library
 dev-libs/tntnet 3.0: Modular, multithreaded web application server extensible with C++
 dev-libs/tomsfastmath 0.13.1-r1: Fast public domain large integer arithmetic library
 dev-libs/totem-pl-parser 3.26.6: Playlist parsing library
-dev-libs/tre 0.8.0_p20210321-r1 0.8.0_p20210321-r2: Lightweight, robust, and efficient POSIX compliant regexp matching library
+dev-libs/tre 0.8.0_p20210321-r1 0.8.0_p20210321-r2 0.8.0_p20210321-r3: Lightweight, robust, and efficient POSIX compliant regexp matching library
 dev-libs/tree-sitter 0.20.6 0.20.7 9999: Tree-sitter is a parser generator tool and an incremental parsing library
 dev-libs/tree-sitter-bash 0.19.0: Bash grammar for Tree-sitter
 dev-libs/tree-sitter-c 0.20.2: C grammar for Tree-sitter
@@ -6119,14 +6119,14 @@ dev-ml/ppx_deriving 5.2 5.2.1: Type-driven code generation for OCaml
 dev-ml/ppx_deriving_yojson 3.6.1-r1 3.7.0: JSON codec generator for OCaml
 dev-ml/ppx_disable_unused_warnings 0.15.0-r1: Expands [@disable_unused_warnings]
 dev-ml/ppx_enumerate 0.14.0 0.15.0: Generate a list containing all values of a finite type
-dev-ml/ppx_expect 0.14.0 0.14.1 0.14.2 0.15.0-r1: Cram like framework for OCaml
+dev-ml/ppx_expect 0.14.0 0.14.1 0.14.2 0.15.0-r1 0.15.1: Cram like framework for OCaml
 dev-ml/ppx_fail 0.14.0: Add location to calls to failwiths
 dev-ml/ppx_fields_conv 0.14.1 0.14.2 0.15.0: Generation of accessor and iteration functions for ocaml records
 dev-ml/ppx_fixed_literal 0.14.0 0.15.0: Simpler notation for fixed point literals
 dev-ml/ppx_hash 0.14.0 0.15.0: PPX rewriter that generates hash functions from type expressions and definitions
 dev-ml/ppx_here 0.14.0 0.15.0: Expands [%here] into its location
 dev-ml/ppx_ignore_instrumentation 0.15.0-r1: Ignore Jane Street specific instrumentation extensions
-dev-ml/ppx_import 1.9.1: A syntax extension for importing declarations from interface files
+dev-ml/ppx_import 1.9.1-r1 1.10.0: A syntax extension for importing declarations from interface files
 dev-ml/ppx_inline_test 0.14.1 0.15.0-r1: Syntax extension for writing in-line tests in ocaml code
 dev-ml/ppx_jane 0.14.0 0.15.0: Standard Jane Street ppx rewriters
 dev-ml/ppx_js_style 0.14.0 0.14.1 0.15.0: Code style checker for Jane Street Packages
@@ -6136,12 +6136,12 @@ dev-ml/ppx_module_timer 0.14.0 0.15.0: Ppx rewriter that records top-level modul
 dev-ml/ppx_optcomp 0.14.0 0.14.3 0.15.0: Optional compilation for OCaml
 dev-ml/ppx_optional 0.14.0 0.15.0: Pattern matching on flat options
 dev-ml/ppx_pipebang 0.14.0 0.15.0-r1: A ppx rewriter that inlines reverse application operators |> and |!
-dev-ml/ppx_sexp_conv 0.14.1 0.14.2-r1 0.14.3 0.15.0-r1: Support Library for type-driven code generators
+dev-ml/ppx_sexp_conv 0.14.1 0.14.2-r1 0.14.3 0.15.0-r2 0.15.1: Support Library for type-driven code generators
 dev-ml/ppx_sexp_message 0.14.0 0.14.1-r1 0.15.0: A ppx rewriter for easy construction of s-expressions
 dev-ml/ppx_sexp_value 0.14.0 0.15.0: Standard library for ppx rewriters
 dev-ml/ppx_stable 0.14.1 0.15.0: Stable types conversions generator
 dev-ml/ppx_string 0.14.1 0.15.0: Ppx extension for string interpolation
-dev-ml/ppx_tools 6.2 6.3 6.4 6.5: Tools for authors of ppx rewriters
+dev-ml/ppx_tools 6.2 6.3 6.4 6.5 6.6: Tools for authors of ppx rewriters
 dev-ml/ppx_typerep_conv 0.14.1-r1 0.14.2 0.15.0: Generation of runtime types from type declarations
 dev-ml/ppx_variants_conv 0.14.1 0.14.1-r2 0.14.2-r1 0.15.0: Generation of accessor and iteration functions for ocaml variant types
 dev-ml/ppxfind 1.4: ocamlfind ppx tool
@@ -6149,7 +6149,7 @@ dev-ml/ppxlib 0.18.0 0.20.0-r1 0.21.0-r3 0.22.0-r3 0.22.2-r2 0.23.0-r1 0.24.0 0.
 dev-ml/protocol_version_header 0.14.0 0.15.0: Protocol aware version negotiation for OCaml
 dev-ml/ptime 1.0.0: POSIX time for OCaml
 dev-ml/ptmap 2.0.5-r2: Maps of integers implemented as Patricia trees
-dev-ml/qcheck 0.18: QuickCheck inspired property-based testing for OCaml
+dev-ml/qcheck 0.18 0.20: QuickCheck inspired property-based testing for OCaml
 dev-ml/qtest 2.11.2: Inline (Unit) Tests for OCaml
 dev-ml/re 1.9.0 1.10.3 1.10.4-r2: Regular expression library for OCaml
 dev-ml/react 1.2.1-r1 1.2.2-r1: OCaml module for functional reactive programming
@@ -6157,11 +6157,11 @@ dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental chan
 dev-ml/reason 3.8.0 3.8.1 3.8.2: Simple, fast & type safe language that leverages JavaScript and OCaml
 dev-ml/result 1.5: Compat result type
 dev-ml/rresult 0.6.0 0.7.0: Result value combinators for OCaml
-dev-ml/sedlex 2.3-r1 2.5: An OCaml lexer generator for Unicode
+dev-ml/sedlex 2.3-r1 2.5-r1 3.0: An OCaml lexer generator for Unicode
 dev-ml/seq 0.2 0.2.2 0.3: Compatibility package for the standard OCaml iterator type
-dev-ml/sexp_pretty 0.15.0: S-expression pretty-printer
-dev-ml/sexplib 0.14.0 0.15.0-r2: Library for automated conversion of OCaml-values to and from S-expressions
-dev-ml/sexplib0 0.14.0 0.15.0-r1: Library for automated conversion of OCaml-values to and from S-expressions
+dev-ml/sexp_pretty 0.15.0-r1 0.15.1: S-expression pretty-printer
+dev-ml/sexplib 0.14.0 0.15.0-r2 0.15.1: Library for automated conversion of OCaml-values to and from S-expressions
+dev-ml/sexplib0 0.14.0 0.15.0-r1 0.15.1: Library for automated conversion of OCaml-values to and from S-expressions
 dev-ml/spawn 0.13.0 0.15.0-r1 0.15.1: Spawning sub-processes
 dev-ml/splittable_random 0.14.0 0.15.0: PRNG that can be split into independent streams
 dev-ml/stdcompat 19: Compatibility module for OCaml standard library
@@ -12581,7 +12581,7 @@ mate-extra/caja-admin 0.0.5: Caja Admin Extension
 mate-extra/caja-dropbox 1.26.0-r1: Store, Sync and Share Files Online
 mate-extra/caja-extensions 1.26.0: Several Caja extensions
 mate-extra/mate-calc 1.26.0: Calculator for MATE
-mate-extra/mate-indicator-applet 1.26.0: MATE indicator applet
+mate-extra/mate-indicator-applet 1.26.0 1.26.0-r1: MATE indicator applet
 mate-extra/mate-media 1.26.0: Multimedia related programs for the MATE desktop
 mate-extra/mate-netbook 1.26.0: MATE utilities for netbooks
 mate-extra/mate-polkit 1.26.0: A MATE specific DBUS service that is used to bring up authentication dialogs
@@ -13964,7 +13964,7 @@ media-sound/pianobar 2022.04.01 9999: A console-based replacement for Pandora's 
 media-sound/picard 2.8.5 9999: Cross-platform music tagger
 media-sound/picoxine 0.0.7: Very small xine frontend for playing audio events
 media-sound/pitchtune 0.0.4: Precise Instrument Tweaking for Crispy Harmony - tuner
-media-sound/pithos 1.5.1-r1: Pandora.com client for the GNOME desktop
+media-sound/pithos 1.5.1-r1 1.6.0: Pandora.com client for the GNOME desktop
 media-sound/playerctl 2.3.1: A CLI utility to control media players over MPRIS
 media-sound/pms 0.42_p20170508-r1: Practical Music Search: an open source ncurses client for mpd, written in C++
 media-sound/pnmixer 0.7.2-r1: Volume mixer for the system tray
@@ -15281,7 +15281,7 @@ net-misc/rclone 1.59.2 1.60.0 1.60.1 1.61.1: A program to sync files to and from
 net-misc/rdate 1.10 1.10.2 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0 1.9.0-r1 1.9.0-r2: A Remote Desktop Protocol Client
 net-misc/redir 3.2 3.3: Redir is a port redirector
-net-misc/remmina 1.4.27 1.4.29: A GTK+ RDP, SPICE, VNC and SSH client
+net-misc/remmina 1.4.27 1.4.29 1.4.29-r1: A GTK+ RDP, SPICE, VNC and SSH client
 net-misc/rinetd 0.62-r3 0.73: redirects TCP connections from one IP address and port to another
 net-misc/rsync 3.2.4-r3 3.2.7-r2 9999: File transfer program to keep remote files into sync
 net-misc/rsync-bpc 3.1.3.0: Rsync-bpc is a customized version of rsync that is used as part of BackupPC
@@ -15851,7 +15851,7 @@ sci-chemistry/dssp 2.2.1-r3 3.0.11 4.0.4 4.2.0: The protein secondary structure 
 sci-chemistry/easychem 0.6-r1: Chemical structure drawing program - focused on presentation
 sci-chemistry/elem 1.0.3-r2: periodic table of the elements
 sci-chemistry/gelemental 2.0.0-r1 2.0.1: Periodic table viewer with detailed information on the chemical elements
-sci-chemistry/gnome-chemistry-utils 0.14.17_p6-r1: Programs and library containing GTK widgets and C++ classes related to chemistry
+sci-chemistry/gnome-chemistry-utils 0.14.17_p6-r2: Programs and library containing GTK widgets and C++ classes related to chemistry
 sci-chemistry/gperiodic 3.0.3: Periodic table application for Linux
 sci-chemistry/gromacs 2018.8-r1 2019.6-r1 2019.6-r2 2020.4-r1 2020.7 2021.3-r1 2021.5 2021.6 2021.9999 2022.3 2022.4 2022.9999 2023_rc1 2023.9999 9999: The ultimate molecular dynamics simulation package
 sci-chemistry/ksdssp 040728-r1: An open source implementation of sci-chemistry/dssp
