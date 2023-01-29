@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=|| ( >=dev-python/pypy3-exe-7.3.11:3.9-7.3.11[bzip2(+),ncurses?] >=dev-python/pypy3-exe-bin-7.3.11:3.9-7.3.11 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= )
+DEPEND=|| ( >=dev-python/pypy3-exe-7.3.11:3.9-7.3.11[bzip2(+),ncurses?] >=dev-python/pypy3-exe-bin-7.3.11:3.9-7.3.11 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= )
 DESCRIPTION=A fast, compliant alternative implementation of the Python (3.9) language
 EAPI=8
 HOMEPAGE=https://www.pypy.org/ https://foss.heptapod.net/pypy/pypy/
@@ -7,9 +7,9 @@ INHERIT=pax-utils python-utils-r1 toolchain-funcs
 IUSE=+ensurepip gdbm +jit ncurses sqlite tk
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
-RDEPEND=|| ( >=dev-python/pypy3-exe-7.3.11:3.9-7.3.11[bzip2(+),ncurses?] >=dev-python/pypy3-exe-bin-7.3.11:3.9-7.3.11 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= )
+RDEPEND=|| ( >=dev-python/pypy3-exe-7.3.11:3.9-7.3.11[bzip2(+),ncurses?] >=dev-python/pypy3-exe-bin-7.3.11:3.9-7.3.11 ) dev-lang/python-exec[python_targets_pypy3(-)] dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= )
 RESTRICT=test
 SLOT=0/pypy39-pp73-336
 SRC_URI=https://buildbot.pypy.org/pypy/pypy3.9-v7.3.11-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.9-gentoo-patches-7.3.11.tar.xz
 _eclasses_=pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d
-_md5_=b0090d114f21dc37b59f7585ad62a6c2
+_md5_=107c77518d7abb2e0fafcf1df1ee9d99
