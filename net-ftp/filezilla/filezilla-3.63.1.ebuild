@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-WX_GTK_VER="3.0-gtk3"
+WX_GTK_VER="3.2-gtk3"
 
 inherit autotools wxwidgets xdg
 
@@ -23,13 +23,12 @@ RESTRICT="!test? ( test )"
 
 # pugixml 1.7 minimal dependency is for c++11 proper configuration
 RDEPEND="
-	>=app-eselect/eselect-wxwidgets-0.7-r1
 	>=dev-libs/nettle-3.1:=
 	>=dev-db/sqlite-3.7
-	>=dev-libs/libfilezilla-0.39.2:=
+	>=dev-libs/libfilezilla-0.40.0:=
 	>=dev-libs/pugixml-1.7
 	>=net-libs/gnutls-3.5.7
-	>=x11-libs/wxGTK-3.0.4:${WX_GTK_VER}[X]
+	x11-libs/wxGTK:${WX_GTK_VER}[X]
 	x11-misc/xdg-utils
 	dbus? ( sys-apps/dbus )"
 DEPEND="${RDEPEND}
