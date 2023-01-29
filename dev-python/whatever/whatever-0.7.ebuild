@@ -8,21 +8,18 @@ PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
-DESCRIPTION="A collection of fancy functional tools focused on practicality"
+DESCRIPTION="Easy anonymous functions by partial application of operators"
 HOMEPAGE="
-	https://github.com/Suor/funcy/
-	https://pypi.org/project/funcy/
+	https://github.com/Suor/whatever/
+	https://pypi.org/project/whatever/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="
+	https://github.com/Suor/whatever/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz
+"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-BDEPEND="
-	test? (
-		dev-python/whatever[${PYTHON_USEDEP}]
-	)
-"
 
 distutils_enable_tests pytest
