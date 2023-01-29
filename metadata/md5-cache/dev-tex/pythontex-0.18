@@ -1,16 +1,16 @@
 BDEPEND=virtual/latex-base >=sys-apps/texinfo-4.2-r5
 DEFINED_PHASES=compile install postinst postrm
-DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf
+DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf
 DESCRIPTION=Fast Access to Python from within LaTeX
 EAPI=7
 HOMEPAGE=https://github.com/gpoore/pythontex
 INHERIT=latex-package python-r1
-IUSE=doc highlighting python_targets_python3_9 python_targets_python3_10
+IUSE=doc highlighting python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~ppc ~riscv ~x86
 LICENSE=LPPL-1.3 BSD
-RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf dev-python/pygments[python_targets_python3_9(-)?,python_targets_python3_10(-)?] virtual/latex-base
-REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf dev-python/pygments[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] virtual/latex-base
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/gpoore/pythontex/archive/v0.18.tar.gz -> pythontex-0.18.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	latex-package	c20e442c3953c765f636630631c96194	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-r1	666be58f658d6b32affe30f80e39a49e
-_md5_=044a58d56cc412dc7ee206526f4ca3d8
+_md5_=cff08234e1c450a9d5e1fca35bbdd69f
