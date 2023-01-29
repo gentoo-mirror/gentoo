@@ -1,4 +1,4 @@
-# Copyright 2018-2022 Gentoo Authors
+# Copyright 2018-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,7 +38,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch
-	"${FILESDIR}"/${PN}-0.104.3-skip-some-tests.patch
+	"${FILESDIR}"/${PN}-0.110.0-skip-some-tests.patch
 	"${FILESDIR}"/${PN}-0.99.1-test-timeout.patch
 )
 
@@ -72,6 +72,9 @@ src_compile() {
 }
 
 src_test() {
+	# workaround for mysteriously added -buildmode=pie
+	# <https://github.com/gentoo/gentoo/pull/29069#discussion_r1085026796>
+	MY_BUILDFLAGS="-buildmode=exe ${MY_BUILDFLAGS}"
 	ego test -race "./..." ${MY_BUILDFLAGS}
 }
 
