@@ -1,33 +1,34 @@
 # Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-LLVM_MAX_SLOT=15
+LLVM_MAX_SLOT=16
 
-inherit llvm linux-info cmake toolchain-funcs
+inherit llvm linux-info cmake
 
 DESCRIPTION="High-level tracing language for eBPF"
 HOMEPAGE="https://github.com/iovisor/bpftrace"
 MY_PV="${PV//_/}"
-SRC_URI="
-	https://github.com/iovisor/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~chutzpah/dist/bpftrace/bpftrace-0.14.1-llvm14.patch.gz
-"
+SRC_URI="https://github.com/iovisor/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${MY_PV:-${PV}}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+
+# remove keywords until build works:
+# https://github.com/iovisor/bpftrace/issues/2349
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="fuzzing test"
+
 # lots of fixing needed
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/libbpf-0.8:=
-	<dev-libs/libbpf-1.0:=
-	>=dev-util/bcc-0.13.0:=
-	dev-util/systemtap
+	>=dev-libs/libbpf-1.0:=
+	>=dev-util/bcc-0.25.0:=
+	>=sys-devel/llvm-10:=[llvm_targets_BPF(+)]
+	>=sys-devel/clang-10:=
 	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
 	sys-libs/binutils-libs:=
@@ -45,15 +46,15 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-QA_DT_NEEDED="/usr/lib.*/libbpftraceresources.so"
+QA_DT_NEEDED="
+	/usr/lib.*/libbpftraceresources.so
+	/usr/lib.*/libcxxdemangler_llvm.so
+"
 
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.15.0-install-libs.patch"
+	"${FILESDIR}/bpftrace-0.17.0-install-libs.patch"
 	"${FILESDIR}/bpftrace-0.15.0-dont-compress-man.patch"
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
-	"${FILESDIR}/bpftrace-0.15.0-bcc-025.patch"
-	"${FILESDIR}/bpftrace-0.15.0-binutils-2.39.patch"
-	"${FILESDIR}/bpftrace-0.15.0-llvm-15-pointers.patch"
 )
 
 pkg_pretend() {
@@ -77,11 +78,10 @@ src_configure() {
 	local mycmakeargs=(
 		-DSTATIC_LINKING:BOOL=OFF
 		# bug 809362, 754648
-		-DBUILD_SHARED_LIBS:=OFF
-		-DBUILD_TESTING:BOOL=OFF
+		-DBUILD_TESTING:BOOL=$(usex test)
 		-DBUILD_FUZZ:BOOL=$(usex fuzzing)
 		-DENABLE_MAN:BOOL=OFF
-		-DLIBBPF_INCLUDE_DIRS="$($(tc-getPKG_CONFIG) --cflags-only-I libbpf | sed 's:-I::g')"
+		-DUSE_SYSTEM_BPF_BCC:BOOL=ON
 	)
 
 	cmake_src_configure
