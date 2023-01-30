@@ -1,4 +1,4 @@
-# Copyright 2002-2022 Gentoo Authors
+# Copyright 2002-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: toolchain-funcs.eclass
@@ -422,19 +422,19 @@ tc-env_build() {
 # src_configure() {
 # 	ECONF_SOURCE=${S}
 # 	if tc-is-cross-compiler ; then
-# 		mkdir "${WORKDIR}"/${CBUILD}
-# 		pushd "${WORKDIR}"/${CBUILD} >/dev/null
+# 		mkdir "${WORKDIR}"/${CBUILD} || die
+# 		pushd "${WORKDIR}"/${CBUILD} >/dev/null || die
 # 		econf_build --disable-some-unused-stuff
-# 		popd >/dev/null
+# 		popd >/dev/null || die
 # 	fi
 # 	... normal build paths ...
 # }
 # src_compile() {
 # 	if tc-is-cross-compiler ; then
-# 		pushd "${WORKDIR}"/${CBUILD} >/dev/null
+# 		pushd "${WORKDIR}"/${CBUILD} >/dev/null || die
 # 		emake one-or-two-build-tools
-# 		ln/mv build-tools to normal build paths in ${S}/
-# 		popd >/dev/null
+# 		ln/mv build-tools to normal build paths in ${S}/ || die
+# 		popd >/dev/null || die
 # 	fi
 # 	... normal build paths ...
 # }
@@ -676,7 +676,7 @@ tc-has-tls() {
 # Parse information from CBUILD/CHOST/CTARGET rather than
 # use external variables from the profile.
 tc-ninja_magic_to_arch() {
-ninj() { [[ ${type} == "kern" ]] && echo $1 || echo $2 ; }
+	ninj() { [[ ${type} == "kern" ]] && echo $1 || echo $2 ; }
 
 	local type=$1
 	local host=$2
@@ -815,8 +815,8 @@ tc-get-compiler-type() {
 	case ${res} in
 		*HAVE_PATHCC*)	echo pathcc;;
 		*HAVE_CLANG*)	echo clang;;
-		*HAVE_GCC*)		echo gcc;;
-		*)				echo unknown;;
+		*HAVE_GCC*)	echo gcc;;
+		*)		echo unknown;;
 	esac
 }
 
@@ -834,11 +834,11 @@ tc-is-clang() {
 
 # Internal func.  The first argument is the version info to expand.
 # Query the preprocessor to improve compatibility across different
-# compilers rather than maintaining a --version flag matrix. #335943
+# compilers rather than maintaining a --version flag matrix, bug #335943.
 _gcc_fullversion() {
 	local ver="$1"; shift
 	set -- $($(tc-getCPP "$@") -E -P - <<<"__GNUC__ __GNUC_MINOR__ __GNUC_PATCHLEVEL__")
-	eval echo "$ver"
+	eval echo "${ver}"
 }
 
 # @FUNCTION: gcc-fullversion
@@ -871,7 +871,7 @@ gcc-micro-version() {
 _clang_fullversion() {
 	local ver="$1"; shift
 	set -- $($(tc-getCPP "$@") -E -P - <<<"__clang_major__ __clang_minor__ __clang_patchlevel__")
-	eval echo "$ver"
+	eval echo "${ver}"
 }
 
 # @FUNCTION: clang-fullversion
@@ -996,6 +996,15 @@ gcc-specs-stack-check() {
 	[[ "${directive/\{!fno-stack-check:}" != "${directive}" ]]
 }
 
+# @FUNCTION: tc-enables-cxx-assertions
+# @RETURN: Truth if the current compiler enables assertions in the C++ standard library
+# @DESCRIPTION:
+# Return truth if the current compiler enables assertions in the C++ standard
+# library. For libstdc++, this is -D_GLIBCXX_ASSERTIONS, and for libcxx/libc++,
+# this is -D_LIBCPP_ENABLE_ASSERTIONS.
+tc-enables-cxx-assertions() {
+	tc-cpp-is-true "defined(_GLIBCXX_ASSERTIONS) || defined(_LIBCPP_ENABLE_ASSERTIONS)" ${CPPFLAGS} ${CXXFLAGS}
+}
 
 # @FUNCTION: tc-enables-pie
 # @RETURN: Truth if the current compiler generates position-independent code (PIC) which can be linked into executables
@@ -1003,7 +1012,16 @@ gcc-specs-stack-check() {
 # Return truth if the current compiler generates position-independent code (PIC)
 # which can be linked into executables.
 tc-enables-pie() {
-	tc-cpp-is-true "defined(__PIE__)" ${CPPFLAGS} ${CFLAGS}
+	tc-cpp-is-true "defined(__PIE__)" ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS}
+}
+
+# @FUNCTION: tc-enables-fortify-source
+# @RETURN: Truth if the current compiler enables FORTIFY_SOURCE at any level
+# @DESCRIPTION:
+# Return truth if the current compiler enables fortification (FORTIFY_SOURCE)
+# at any level (-D_FORTIFY_SOURCE).
+tc-enables-fortify-source() {
+	tc-cpp-is-true "defined(_FORTIFY_SOURCE)" ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS}
 }
 
 # @FUNCTION: tc-enables-ssp
@@ -1015,7 +1033,7 @@ tc-enables-pie() {
 #  -fstack-protector-strong
 #  -fstack-protector-all
 tc-enables-ssp() {
-	tc-cpp-is-true "defined(__SSP__) || defined(__SSP_STRONG__) || defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS}
+	tc-cpp-is-true "defined(__SSP__) || defined(__SSP_STRONG__) || defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS}
 }
 
 # @FUNCTION: tc-enables-ssp-strong
@@ -1026,7 +1044,7 @@ tc-enables-ssp() {
 #  -fstack-protector-strong
 #  -fstack-protector-all
 tc-enables-ssp-strong() {
-	tc-cpp-is-true "defined(__SSP_STRONG__) || defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS}
+	tc-cpp-is-true "defined(__SSP_STRONG__) || defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS}
 }
 
 # @FUNCTION: tc-enables-ssp-all
@@ -1036,7 +1054,7 @@ tc-enables-ssp-strong() {
 # on level corresponding to any of the following options:
 #  -fstack-protector-all
 tc-enables-ssp-all() {
-	tc-cpp-is-true "defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS}
+	tc-cpp-is-true "defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS}
 }
 
 
@@ -1080,7 +1098,7 @@ gen_usr_ldscript() {
 	# is referenced ... makes multilib saner
 	local flags=( ${CFLAGS} ${LDFLAGS} -Wl,--verbose )
 	if $(tc-getLD) --version | grep -q 'GNU gold' ; then
-		# If they're using gold, manually invoke the old bfd. #487696
+		# If they're using gold, manually invoke the old bfd, bug #487696
 		local d="${T}/bfd-linker"
 		mkdir -p "${d}"
 		ln -sf $(type -P ${CHOST}-ld.bfd) "${d}"/ld
@@ -1193,7 +1211,7 @@ tc-get-cxx-stdlib() {
 #endif
 '
 	local res=$(
-		$(tc-getCXX) ${CXXFLAGS} ${CPPFLAGS} -x c++ -E -P - \
+		$(tc-getCXX) ${CPPFLAGS} ${CXXFLAGS} -x c++ -E -P - \
 			<<<"${code}" 2>/dev/null
 	)
 
@@ -1221,7 +1239,7 @@ tc-get-cxx-stdlib() {
 # If the runtime is not recognized, the function returns 1.
 tc-get-c-rtlib() {
 	local res=$(
-		$(tc-getCC) ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} \
+		$(tc-getCC) ${CPPFLAGS} ${CFLAGS} ${LDFLAGS} \
 			-print-libgcc-file-name 2>/dev/null
 	)
 
