@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prepare prerm setup
+DEPEND=app-admin/webapp-config
+DESCRIPTION=The Moodle Course Management System
+EAPI=7
+HOMEPAGE=https://moodle.org
+INHERIT=webapp
+IUSE=mysqli mssql postgres imap ldap odbc vhosts vhosts
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-lang/php:7.4[mysqli?,mssql?,postgres?,imap?,ldap?,odbc?,ctype,curl,iconv,json(+),session,simplexml,xml,zip,gd,intl,soap,ssl,tokenizer,xmlrpc] virtual/httpd-php virtual/cron app-admin/webapp-config
+SLOT=4.1.1
+SRC_URI=https://download.moodle.org/download.php/direct/stable401/moodle-4.1.1.tgz
+_eclasses_=webapp	67df5bab481d0b9428f9ab7b3de690e4
+_md5_=5169a7389524f296d31b2229c7064a76
