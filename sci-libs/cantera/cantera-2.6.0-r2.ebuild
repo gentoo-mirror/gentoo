@@ -1,9 +1,9 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 FORTRAN_NEEDED=fortran
 FORTRAN_STANDARD="77 90"
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/Cantera/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+cti fortran lapack +python test"
 RESTRICT="!test? ( test )"
 
@@ -39,32 +39,38 @@ RDEPEND="
 		')
 	)
 	dev-cpp/yaml-cpp
-	!lapack? ( <sci-libs/sundials-5.9.0:0= )
-	lapack? ( <sci-libs/sundials-5.3.0:0=[lapack] )
+	!lapack? ( sci-libs/sundials:0= )
+	lapack? ( >=sci-libs/sundials-6.5.0:0=[lapack?] )
 "
 
 DEPEND="
 	${RDEPEND}
 	dev-cpp/eigen:3
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/libfmt
 	python? (
 		$(python_gen_cond_dep '
 			dev-python/cython[${PYTHON_USEDEP}]
+			dev-python/pip[${PYTHON_USEDEP}]
 		')
 	)
 	test? (
-		>=dev-cpp/gtest-1.8.0
+		>=dev-cpp/gtest-1.11.0
 		python? (
 			$(python_gen_cond_dep '
 				dev-python/h5py[${PYTHON_USEDEP}]
 				dev-python/pandas[${PYTHON_USEDEP}]
+				dev-python/pytest[${PYTHON_USEDEP}]
+				dev-python/scipy[${PYTHON_USEDEP}]
 			')
 		)
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}_env.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}_env.patch"
+	"${FILESDIR}/${P}_drop_deprecated_open_U_option.patch"
+)
 
 pkg_setup() {
 	fortran-2_pkg_setup
@@ -79,7 +85,7 @@ src_configure() {
 		CC="$(tc-getCC)"
 		CXX="$(tc-getCXX)"
 		cc_flags="${CXXFLAGS}"
-		cxx_flags="-std=c++11"
+		cxx_flags="-std=c++14"
 		debug="no"
 		FORTRAN="$(tc-getFC)"
 		FORTRANFLAGS="${FCFLAGS}"
@@ -118,7 +124,7 @@ src_test() {
 }
 
 src_install() {
-	escons install stage_dir="${D}" libdirname="$(get_libdir)" python_prefix="$(python_get_sitedir)"
+	escons install stage_dir="${D}" libdirname="$(get_libdir)"
 	if ! use cti ; then
 		rm -r "${D}/usr/share/man" || die "Can't remove man files."
 	else
