@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ SRC_URI="https://github.com/prusa3d/PrusaSlicer/archive/refs/tags/version_${MY_P
 
 LICENSE="AGPL-3 Boost-1.0 GPL-2 LGPL-3 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 RESTRICT="test"
@@ -37,7 +37,7 @@ RDEPEND="
 	media-libs/qhull:=
 	sci-libs/libigl
 	sci-libs/nlopt
-	=sci-libs/opencascade-7.6*:=
+	>=sci-libs/opencascade-7.6.2:=
 	>=sci-mathematics/cgal-5.0:=
 	sys-apps/dbus
 	sys-libs/zlib:=
@@ -53,6 +53,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.5.0_alpha2-boost-fixes.patch"
 	"${FILESDIR}/${PN}-2.5.0_rc1-cereal-1.3.1.patch"
 	"${FILESDIR}/${PN}-2.5.0_rc1-fix-tests.patch"
+	"${FILESDIR}/${PN}-2.5.0_boost-1.81-std-wxString-to-std-wstring.patch"
 )
 
 S="${WORKDIR}/${MY_PN}-version_${MY_PV}"
