@@ -31,6 +31,8 @@ DEPEND="${RDEPEND}
 
 DOCS=( src/imageformats/AUTHORS )
 
+PATCHES=( "${FILESDIR}/${P}-heif-reject-invalid-files-w-0-size.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIMAGEFORMATS_JXL=$(usex jpegxl)
