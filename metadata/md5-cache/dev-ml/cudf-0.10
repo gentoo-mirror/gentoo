@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/extlib:= dev-ml/findlib:= dev-libs/glib:2 llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) sys-libs/ncurses:= test? ( dev-ml/ounit2 ) dev-ml/ocamlbuild dev-lang/perl >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Library to parse, pretty print, and evaluate CUDF documents
+EAPI=7
+HOMEPAGE=http://www.mancoosi.org/cudf/
+INHERIT=dune toolchain-funcs
+IUSE=+ocamlopt llvm-libunwind test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-3
+RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/extlib:= dev-ml/findlib:= dev-libs/glib:2 llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) sys-libs/ncurses:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.10
+SRC_URI=https://gitlab.com/irill/cudf/-/archive/v0.10/cudf-v0.10.tar.bz2
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=9f6f35bcb62850baff3cf2964daab5e8
