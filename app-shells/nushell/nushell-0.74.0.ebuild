@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,19 +7,22 @@ CRATES="
 	Inflector-0.11.4
 	adler-1.0.2
 	ahash-0.7.6
+	ahash-0.8.1
 	aho-corasick-0.7.19
 	alloc-no-stdlib-2.0.4
 	alloc-stdlib-0.2.2
 	alphanumeric-sort-1.4.4
 	android_system_properties-0.1.5
+	anes-0.1.6
 	ansi-str-0.5.0
+	ansi-str-0.7.2
 	ansitok-0.2.0
-	anyhow-1.0.65
+	anyhow-1.0.66
 	array-init-cursor-0.2.0
 	arrayvec-0.5.2
 	arrayvec-0.7.2
 	arrow-format-0.7.0
-	arrow2-0.13.1
+	arrow2-0.14.2
 	assert_cmd-2.0.4
 	async-stream-0.3.3
 	async-stream-impl-0.3.3
@@ -37,7 +40,6 @@ CRATES="
 	bit_field-0.10.1
 	bitfield-0.13.2
 	bitflags-1.3.2
-	bitpacking-0.8.4
 	block-buffer-0.10.3
 	brotli-3.3.4
 	brotli-decompressor-2.3.2
@@ -51,20 +53,25 @@ CRATES="
 	byteorder-1.4.3
 	bytes-1.2.1
 	bytesize-1.1.0
-	calamine-0.18.0
+	calamine-0.19.1
+	cassowary-0.3.0
 	cast-0.3.0
 	cc-1.0.73
 	cexpr-0.6.0
 	cfg-if-0.1.10
 	cfg-if-1.0.0
-	chrono-0.4.22
+	chrono-0.4.23
 	chrono-humanize-0.2.2
 	chrono-tz-0.6.3
 	chrono-tz-build-0.0.3
+	ciborium-0.2.0
+	ciborium-io-0.2.0
+	ciborium-ll-0.2.0
 	clang-sys-1.4.0
-	clap-2.34.0
+	clap-3.2.23
+	clap_lex-0.2.4
 	codepage-0.1.1
-	comfy-table-5.0.1
+	comfy-table-6.1.2
 	console-0.15.2
 	const_format-0.2.26
 	const_format_proc_macros-0.2.22
@@ -74,17 +81,16 @@ CRATES="
 	cortex-m-0.7.6
 	cpufeatures-0.2.5
 	crc32fast-1.3.2
-	criterion-0.3.6
-	criterion-plot-0.4.5
+	criterion-0.4.0
+	criterion-plot-0.5.0
 	critical-section-0.2.7
 	crossbeam-channel-0.5.6
 	crossbeam-deque-0.8.2
 	crossbeam-epoch-0.9.11
 	crossbeam-utils-0.8.12
-	crossterm-0.23.2
 	crossterm-0.24.0
+	crossterm-0.25.0
 	crossterm_winapi-0.9.0
-	crunchy-0.2.2
 	crypto-common-0.1.6
 	cssparser-0.27.2
 	cssparser-macros-0.6.0
@@ -114,10 +120,12 @@ CRATES="
 	eml-parser-0.1.3
 	encode_unicode-0.3.6
 	encoding_rs-0.8.31
+	enum_dispatch-0.3.8
 	env_logger-0.8.4
 	erased-serde-0.3.23
 	errno-0.2.8
 	errno-dragonfly-0.1.2
+	ethnum-1.3.0
 	fallible-iterator-0.2.0
 	fallible-streaming-iterator-0.1.9
 	fancy-regex-0.10.0
@@ -126,6 +134,7 @@ CRATES="
 	filesize-0.2.0
 	filetime-0.2.17
 	flate2-1.0.24
+	float-cmp-0.9.0
 	fnv-1.0.7
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
@@ -134,7 +143,6 @@ CRATES="
 	fs_extra-1.2.0
 	fsevent-0.4.0
 	fsevent-sys-2.0.1
-	fuchsia-cprng-0.1.1
 	fuchsia-zircon-0.3.3
 	fuchsia-zircon-sys-0.3.3
 	futf-0.1.5
@@ -150,7 +158,6 @@ CRATES="
 	fuzzy-matcher-0.3.7
 	fxhash-0.2.1
 	generic-array-0.14.6
-	getopts-0.2.21
 	getrandom-0.1.16
 	getrandom-0.2.7
 	getset-0.1.2
@@ -160,13 +167,13 @@ CRATES="
 	glob-0.3.0
 	h2-0.3.14
 	half-1.8.2
+	halfbrown-0.1.15
 	hamcrest2-0.3.0
 	hash32-0.2.1
 	hash_hasher-2.0.3
 	hashbrown-0.12.3
 	hashlink-0.8.1
 	heapless-0.7.16
-	heck-0.3.3
 	heck-0.4.0
 	hermit-abi-0.1.19
 	hex-0.4.3
@@ -186,7 +193,6 @@ CRATES="
 	inotify-0.7.1
 	inotify-sys-0.1.5
 	instant-0.1.12
-	integer-encoding-3.0.4
 	inventory-0.2.3
 	io-lifetimes-0.7.3
 	iovec-0.1.4
@@ -201,8 +207,8 @@ CRATES="
 	jobserver-0.1.25
 	joinery-2.1.0
 	js-sys-0.3.60
-	json-deserializer-0.3.1
-	json_to_table-0.2.0
+	json-deserializer-0.4.2
+	json_to_table-0.3.1
 	kernel32-sys-0.2.2
 	lazy_static-1.4.0
 	lazycell-1.3.0
@@ -225,6 +231,7 @@ CRATES="
 	linux-raw-sys-0.0.46
 	lock_api-0.4.9
 	log-0.4.17
+	lru-0.8.1
 	lscolors-0.12.0
 	lz4-1.24.0
 	lz4-sys-1.9.4
@@ -237,10 +244,10 @@ CRATES="
 	memchr-2.5.0
 	memmap2-0.5.7
 	memoffset-0.6.5
-	meval-0.2.0
 	miette-5.3.0
 	miette-derive-5.3.0
 	mime-0.3.16
+	mime_guess-2.0.4
 	minimal-lexical-0.2.1
 	miniz_oxide-0.5.4
 	mio-0.6.23
@@ -256,7 +263,6 @@ CRATES="
 	new_debug_unreachable-1.0.4
 	nix-0.25.0
 	nodrop-0.1.14
-	nom-1.2.4
 	nom-7.1.1
 	nom-supreme-0.8.0
 	notify-4.0.17
@@ -278,21 +284,23 @@ CRATES="
 	num_threads-0.1.6
 	objc-0.2.7
 	omnipath-0.1.1
-	once_cell-1.15.0
+	once_cell-1.16.0
 	oorandom-11.1.3
+	open-3.2.0
 	openssl-0.10.42
 	openssl-macros-0.1.0
 	openssl-probe-0.1.5
 	openssl-src-111.22.0+1.1.1q
 	openssl-sys-0.9.76
+	os_str_bytes-6.4.1
 	output_vt100-0.1.3
 	overload-0.1.1
 	owo-colors-3.5.0
 	papergrid-0.7.1
 	parking_lot-0.12.1
 	parking_lot_core-0.9.3
-	parquet-format-async-temp-0.3.1
-	parquet2-0.14.3
+	parquet-format-safe-0.2.4
+	parquet2-0.16.3
 	parse-zoneinfo-0.3.0
 	paste-1.0.9
 	pathdiff-0.2.1
@@ -320,16 +328,18 @@ CRATES="
 	plotters-0.3.4
 	plotters-backend-0.3.4
 	plotters-svg-0.3.3
-	polars-0.23.2
-	polars-arrow-0.23.2
-	polars-core-0.23.2
-	polars-io-0.23.2
-	polars-lazy-0.23.2
-	polars-ops-0.23.2
-	polars-time-0.23.2
-	polars-utils-0.23.2
+	polars-0.25.1
+	polars-arrow-0.25.1
+	polars-core-0.25.1
+	polars-io-0.25.1
+	polars-lazy-0.25.1
+	polars-ops-0.25.1
+	polars-pipe-0.25.1
+	polars-plan-0.25.1
+	polars-time-0.25.1
+	polars-utils-0.25.1
 	pori-0.0.0
-	powierza-coefficient-1.0.1
+	powierza-coefficient-1.0.2
 	ppv-lite86-0.2.16
 	precomputed-hash-0.1.1
 	predicates-2.1.1
@@ -346,18 +356,14 @@ CRATES="
 	pwd-1.4.0
 	quick-error-1.2.3
 	quick-error-2.0.1
-	quick-xml-0.19.0
-	quick-xml-0.23.1
+	quick-xml-0.25.0
 	quickcheck-1.0.3
 	quickcheck_macros-1.0.0
 	quote-1.0.21
-	rand-0.4.6
 	rand-0.7.3
 	rand-0.8.5
 	rand_chacha-0.2.2
 	rand_chacha-0.3.1
-	rand_core-0.3.1
-	rand_core-0.4.2
 	rand_core-0.5.1
 	rand_core-0.6.4
 	rand_distr-0.4.3
@@ -366,7 +372,6 @@ CRATES="
 	rand_xorshift-0.3.0
 	rayon-1.5.3
 	rayon-core-1.9.3
-	rdrand-0.4.0
 	redox_syscall-0.2.16
 	redox_users-0.4.3
 	reedline-0.14.0
@@ -380,7 +385,7 @@ CRATES="
 	riscv-target-0.1.2
 	rmp-0.8.11
 	rmp-serde-1.1.1
-	roxmltree-0.14.1
+	roxmltree-0.16.0
 	rstest-0.15.0
 	rstest_macros-0.14.0
 	rusqlite-0.28.0
@@ -407,8 +412,8 @@ CRATES="
 	semver-1.0.14
 	semver-parser-0.7.0
 	semver-parser-0.10.2
+	seq-macro-0.3.1
 	serde-1.0.145
-	serde_cbor-0.11.2
 	serde_derive-1.0.145
 	serde_ini-0.2.0
 	serde_json-1.0.85
@@ -423,6 +428,7 @@ CRATES="
 	signal-hook-0.3.14
 	signal-hook-mio-0.2.3
 	signal-hook-registry-1.4.0
+	simd-json-0.6.0
 	simdutf8-0.1.4
 	simplelog-0.12.0
 	siphasher-0.3.10
@@ -442,9 +448,7 @@ CRATES="
 	string_cache-0.8.4
 	string_cache_codegen-0.5.2
 	strip-ansi-escapes-0.1.1
-	strum-0.23.0
 	strum-0.24.1
-	strum_macros-0.23.1
 	strum_macros-0.24.3
 	supports-color-1.3.0
 	supports-hyperlinks-1.2.0
@@ -456,15 +460,14 @@ CRATES="
 	sysinfo-0.26.4
 	tabled-0.10.0
 	tabled_derive-0.5.0
-	tempdir-0.3.7
 	tempfile-3.3.0
 	tendril-0.4.3
 	termcolor-1.1.3
 	terminal_size-0.1.17
 	terminal_size-0.2.1
 	termtree-0.2.4
-	textwrap-0.11.0
 	textwrap-0.15.1
+	textwrap-0.16.0
 	thin-slice-0.1.1
 	thiserror-1.0.37
 	thiserror-impl-1.0.37
@@ -476,15 +479,16 @@ CRATES="
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.0
 	titlecase-2.2.0
-	tokio-1.21.2
+	tokio-1.24.1
 	tokio-native-tls-0.3.0
 	tokio-util-0.7.4
 	toml-0.5.9
 	tower-service-0.3.2
 	tracing-0.1.36
 	tracing-core-0.1.29
-	trash-2.1.5
+	trash-3.0.0
 	try-lock-0.2.3
+	tui-0.19.0
 	typed-arena-1.7.0
 	typenum-1.15.0
 	typetag-0.1.8
@@ -492,6 +496,7 @@ CRATES="
 	ucd-trie-0.1.5
 	umask-2.0.0
 	uncased-0.9.7
+	unicase-2.6.0
 	unicode-bidi-0.3.8
 	unicode-ident-1.0.4
 	unicode-linebreak-0.1.4
@@ -507,6 +512,7 @@ CRATES="
 	utf8-width-0.1.6
 	utf8parse-0.2.0
 	uuid-1.1.2
+	value-trait-0.4.0
 	vcell-0.1.3
 	vcpkg-0.2.15
 	version_check-0.9.4
@@ -535,33 +541,27 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-0.37.0
-	windows-0.42.0
+	windows-0.43.0
 	windows-sys-0.36.1
+	windows-sys-0.42.0
 	windows_aarch64_gnullvm-0.42.0
 	windows_aarch64_msvc-0.36.1
-	windows_aarch64_msvc-0.37.0
 	windows_aarch64_msvc-0.42.0
 	windows_i686_gnu-0.36.1
-	windows_i686_gnu-0.37.0
 	windows_i686_gnu-0.42.0
 	windows_i686_msvc-0.36.1
-	windows_i686_msvc-0.37.0
 	windows_i686_msvc-0.42.0
 	windows_x86_64_gnu-0.36.1
-	windows_x86_64_gnu-0.37.0
 	windows_x86_64_gnu-0.42.0
 	windows_x86_64_gnullvm-0.42.0
 	windows_x86_64_msvc-0.36.1
-	windows_x86_64_msvc-0.37.0
 	windows_x86_64_msvc-0.42.0
 	winreg-0.10.1
 	winres-0.1.12
 	ws2_32-sys-0.2.1
-	xmlparser-0.13.3
+	xmlparser-0.13.5
 	yansi-0.5.1
-	zeroize-1.5.7
-	zip-0.5.13
+	zip-0.6.3
 	zstd-0.11.2+zstd.1.5.2
 	zstd-safe-5.0.2+zstd.1.5.2
 	zstd-sys-2.0.1+zstd.1.5.2

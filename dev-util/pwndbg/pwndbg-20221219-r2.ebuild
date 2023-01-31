@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit python-single-r1 wrapper
 
@@ -15,12 +15,12 @@ if [[ ${PV} == "99999999" ]]; then
 	EGIT_REPO_URI="https://github.com/pwndbg/pwndbg"
 else
 	MY_PV="${PV:0:4}.${PV:4:2}.${PV:6:2}"
-	GDB_PT_DUMP_COMMIT="f25898adc61d60e5f30c6452b15700bbf1bd630c"
+	GDB_PT_DUMP_COMMIT="ebdc24573a4bf075cf3ab6016add9db6baacf977"
 	SRC_URI="
 		https://github.com/pwndbg/pwndbg/archive/${MY_PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/martinradev/gdb-pt-dump/archive/${GDB_PT_DUMP_COMMIT}.tar.gz -> gdb-pt-dump-${GDB_PT_DUMP_COMMIT}.tar.gz
 	"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 fi
 
@@ -32,17 +32,14 @@ RDEPEND="
 	${PYTHON_DEPS}
 	sys-devel/gdb[python,${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
-		dev-libs/capstone[python,${PYTHON_USEDEP}]
-		dev-python/future[${PYTHON_USEDEP}]
-		dev-python/isort[${PYTHON_USEDEP}]
-		dev-python/psutil[${PYTHON_USEDEP}]
-		dev-python/pycparser[${PYTHON_USEDEP}]
-		dev-python/pyelftools[${PYTHON_USEDEP}]
-		dev-python/python-ptrace[${PYTHON_USEDEP}]
-		dev-python/six[${PYTHON_USEDEP}]
-		dev-python/pygments[${PYTHON_USEDEP}]
-		dev-util/ROPgadget[${PYTHON_USEDEP}]
-		dev-util/unicorn[python,${PYTHON_USEDEP}]
+		>=dev-libs/capstone-4.0.2[python,${PYTHON_USEDEP}]
+		>=dev-python/psutil-5.9.2[${PYTHON_USEDEP}]
+		>=dev-python/pycparser-2.21[${PYTHON_USEDEP}]
+		>=dev-python/pyelftools-0.29[${PYTHON_USEDEP}]
+		>=dev-python/pygments-2.13.0[${PYTHON_USEDEP}]
+		>=dev-util/pwntools-4.8.0[${PYTHON_USEDEP}]
+		>=dev-util/ROPgadget-7.1[${PYTHON_USEDEP}]
+		>=dev-util/unicorn-2.0.1[python,${PYTHON_USEDEP}]
 	')"
 
 src_prepare() {
@@ -50,7 +47,7 @@ src_prepare() {
 		rm -r gdb-pt-dump/.git || die
 	else
 		sed -e "s/__version__ = '\(.*\)'/__version__ = '${PV}'/" \
-			-i pwndbg/version.py || die
+			-i pwndbg/lib/version.py || die
 
 		rm -r gdb-pt-dump || die
 		mv "${WORKDIR}/gdb-pt-dump-${GDB_PT_DUMP_COMMIT}" gdb-pt-dump || die
