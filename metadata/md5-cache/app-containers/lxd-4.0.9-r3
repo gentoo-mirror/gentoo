@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/go nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=acct-group/lxd app-arch/xz-utils >=app-containers/lxc-3.0.0[apparmor?,seccomp(+)] dev-db/sqlite:3 dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6(+)?] sys-libs/libcap virtual/udev
+DESCRIPTION=Fast, dense and secure container management
+EAPI=7
+HOMEPAGE=https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd
+INHERIT=bash-completion-r1 go-module linux-info optfeature systemd verify-sig
+IUSE=apparmor ipv6 nls verify-sig verify-sig
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=acct-group/lxd app-arch/xz-utils >=app-containers/lxc-3.0.0[apparmor?,seccomp(+)] dev-db/sqlite:3 dev-libs/dqlite dev-libs/lzo dev-libs/raft[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp,ipv6(+)?] sys-libs/libcap virtual/udev net-firewall/ebtables net-firewall/iptables[ipv6(+)?] sys-apps/iproute2[ipv6(+)?] sys-fs/fuse:* sys-fs/lxcfs sys-fs/squashfs-tools[lzma] virtual/acl
+RESTRICT=test
+SLOT=0
+SRC_URI=https://linuxcontainers.org/downloads/lxd/lxd-4.0.9.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxd/lxd-4.0.9.tar.gz.asc )
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	75029f071ebc843223233ab1b0a2d4a5	linux-info	4b552625ebd741dfd2ac08637fd2436e	optfeature	1a2157392a869265b2afcb63a26c12ac	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=ca5cc5eccddfeb5d7ed15afddfe4b6fc
