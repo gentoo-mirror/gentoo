@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,8 @@ HOMEPAGE="https://github.com/intel/metee"
 SRC_URI="https://github.com/intel/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0/3.1.3"
-KEYWORDS="amd64"
+SLOT="0/${PV}"
+KEYWORDS="~amd64"
 IUSE="doc"
 
 BDEPEND="doc? ( app-doc/doxygen )"
