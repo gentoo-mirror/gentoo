@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/cppo-1.6.6
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-lang/ocaml:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=Standard library extensions for O'Caml
+EAPI=8
+HOMEPAGE=https://github.com/ygrek/ocaml-extlib
+INHERIT=findlib vcs-clean
+IUSE=doc +ocamlopt +ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=LGPL-2.1
+RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+SLOT=0/1.7.7
+SRC_URI=https://github.com/ygrek/ocaml-extlib/archive/1.7.7.tar.gz -> extlib-1.7.7.tar.gz
+_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3
+_md5_=bef8e5c08ad3f82466ab2fcb13c5187a
