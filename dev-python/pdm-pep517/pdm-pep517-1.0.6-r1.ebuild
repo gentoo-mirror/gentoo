@@ -8,28 +8,25 @@ PYTHON_COMPAT=( python3_{9..11} pypy3 )
 
 inherit distutils-r1
 
-# upstream has renamed the repo but the legacy branch is still published
-# as pdm-pep517, sigh
-MY_P=pdm-backend-${PV}
 DESCRIPTION="A PEP 517 backend for PDM that supports PEP 621 metadata"
 HOMEPAGE="
 	https://pypi.org/project/pdm-pep517/
-	https://github.com/pdm-project/pdm-backend/
+	https://github.com/pdm-project/pdm-pep517/
 "
 SRC_URI="
-	https://github.com/pdm-project/pdm-backend/archive/${PV}.tar.gz
+	https://github.com/pdm-project/pdm-pep517/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
-S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
 
 RDEPEND="
 	>=dev-python/cerberus-1.3.4[${PYTHON_USEDEP}]
 	dev-python/license-expression[${PYTHON_USEDEP}]
-	=dev-python/packaging-21*[${PYTHON_USEDEP}]
+	<dev-python/packaging-22[${PYTHON_USEDEP}]
+	>=dev-python/packaging-21.0[${PYTHON_USEDEP}]
 	>=dev-python/tomli-2[${PYTHON_USEDEP}]
 	dev-python/tomli-w[${PYTHON_USEDEP}]
 "
