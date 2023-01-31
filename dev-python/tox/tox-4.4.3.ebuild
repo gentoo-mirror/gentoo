@@ -82,5 +82,14 @@ python_test() {
 		tests/test_provision.py
 	)
 
+	[[ ${EPYTHON} == pypy3 ]] && EPYTEST_DESELECT+=(
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[explicit-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[requirements-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[constraints-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[explicit+requirements-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[requirements_indirect-True-True]'
+		'tests/tox_env/python/pip/test_pip_install.py::test_constrain_package_deps[requirements_constraints_indirect-True-True]'
+	)
+
 	epytest
 }
