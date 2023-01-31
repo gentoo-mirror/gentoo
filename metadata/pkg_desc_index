@@ -1200,7 +1200,7 @@ app-arch/plzip 1.10: Parallel lzip compressor
 app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par files
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
-app-arch/rar 6.12: RAR compressor/uncompressor
+app-arch/rar 6.12 6.20: RAR compressor/uncompressor
 app-arch/rpm 4.18.0: Red Hat Package Management Utils
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
@@ -1292,7 +1292,7 @@ app-benchmarks/cpuburn 1.4a-r4: CPU testing utilities in optimized assembler for
 app-benchmarks/dbench 4.0: Popular filesystem benchmark
 app-benchmarks/filebench 1.4.9.1-r1: Filebench - A Model Based File System Workload Generator
 app-benchmarks/forkbomb 1.4-r1: Controlled fork() bomber for testing heavy system load
-app-benchmarks/geekbench 2.4.2-r1 2.4.3-r1 3.4.2-r1 4.4.1-r1 5.4.6: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
+app-benchmarks/geekbench 2.4.2-r1 2.4.3-r1 3.4.2-r1 4.4.1-r1 5.4.6 5.5.0: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
 app-benchmarks/hey 0.1.2: HTTP load generator, ApacheBench (ab) replacement, formerly known as rakyll/boom
 app-benchmarks/httperf 0.9.1_p20181111 0.9.1_p20181111-r1: A tool from HP for measuring web server performance
 app-benchmarks/hyperfine 1.15.0: A command-line benchmarking tool (runs other benchmarks)
@@ -1306,8 +1306,8 @@ app-benchmarks/pipebench 0.40-r2: Measures the speed of stdin/stdout communicati
 app-benchmarks/pmbw 0.6.3: Parallel Memory Bandwidth Measurement / Benchmark Tool
 app-benchmarks/ramspeed 3.5.0-r2: Benchmarking for memory and cache
 app-benchmarks/siege 4.1.0 4.1.6: A HTTP regression testing and benchmarking utility
-app-benchmarks/stress 1.0.5: A deliberately simple workload generator for POSIX systems
-app-benchmarks/stress-ng 0.15.01: Stress test for a computer system with various selectable ways
+app-benchmarks/stress 1.0.5 1.0.7: A deliberately simple workload generator for POSIX systems
+app-benchmarks/stress-ng 0.15.03: Stress test for a computer system with various selectable ways
 app-benchmarks/sysbench 1.0.20-r101: A scriptable multi-threaded benchmark tool based on LuaJIT
 app-benchmarks/tiobench 0.5.0: Portable, robust, fully-threaded I/O benchmark program
 app-benchmarks/wrk 4.2.0: A HTTP benchmarking tool
@@ -1608,7 +1608,7 @@ app-dicts/aspell-no 0.50.2-r2: Aspell (Norwegian) language dictionary
 app-dicts/aspell-ny 0.01.0-r1: Aspell (Chichewa) language dictionary
 app-dicts/aspell-or 0.03.1-r1: Aspell (Oriya) language dictionary
 app-dicts/aspell-pa 0.01.1-r1: Aspell (Punjabi) language dictionary
-app-dicts/aspell-pl 6.0.20220601.0 6.0.20220801.0: Aspell (Polish) language dictionary
+app-dicts/aspell-pl 6.0.20220601.0 6.0.20220801.0 6.0.20230101.0: Aspell (Polish) language dictionary
 app-dicts/aspell-pt 20220621: Aspell (Portuguese) language dictionary
 app-dicts/aspell-pt-br 20131030.12.0-r1: Aspell (Brazilian Portuguese) language dictionary
 app-dicts/aspell-qu 0.02.0-r1: Aspell (Quechua Runasimi) language dictionary
@@ -5456,7 +5456,7 @@ dev-libs/imath 3.1.6: Imath basic math package
 dev-libs/inih 56-r1: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 22.43.24558 22.43.24595.35: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-compute-runtime 22.43.24595.35 22.49.25018.24: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-library 0_pre20220930: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.7.1-r1 0.8.1: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1: Intelligent Storage Acceleration Library
@@ -5488,7 +5488,7 @@ dev-libs/kreport 3.2.0-r3: Framework for creation and generation of reports in m
 dev-libs/kuserfeedback 1.2.0: Framework to collect user feedback for applications via telemetry and surveys
 dev-libs/kweathercore 0.7: Library for retrieval of weather information including forecasts and alerts
 dev-libs/leatherman 1.12.8 1.12.9: A C++ toolkit
-dev-libs/level-zero 1.8.8 1.8.12: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.8.12 1.9.4: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r4: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5608,7 +5608,7 @@ dev-libs/libmemcached 1.0.18-r4: a C client library to the memcached server
 dev-libs/libmemcached-awesome 1.1.2 1.1.3: a C/C++ memcached client library
 dev-libs/libmirage 3.2.6: CD and DVD image access library
 dev-libs/libmix 2.05-r7: Programs Crypto/Network/Multipurpose Library
-dev-libs/libmodbus 3.1.9 3.1.10: Modbus library which supports RTU communication over a serial line or a TCP link
+dev-libs/libmodbus 3.1.10: Modbus library which supports RTU communication over a serial line or a TCP link
 dev-libs/libmoe 1.5.8-r3: Multi octet character encoding handling library
 dev-libs/libmowgli 2.1.3-r3 9999: Useful set of performance and usability-oriented extensions to C
 dev-libs/libmpack 1.0.5-r3: Simple implementation of msgpack in C
@@ -5727,7 +5727,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.7: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/mdns 1.4.2: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 3.1.3 3.1.4: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 3.1.4 3.1.5: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.0.6 2.0.7 2.0.9: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.11: A single file library for audio playback and capture
@@ -5943,7 +5943,7 @@ dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
 dev-lua/lua_cliargs 3.0_p2-r1: A command-line argument parsing module for Lua
-dev-lua/luacheck 0.25.0 1.0.0 1.1.0: A tool for linting and static analysis of Lua code
+dev-lua/luacheck 1.1.0: A tool for linting and static analysis of Lua code
 dev-lua/luacov 0.15.0: A simple coverage analyzer for Lua scripts
 dev-lua/luadbi 0.7.2-r1: A database interface library for Lua
 dev-lua/luaevent 0.4.6-r1: Binding of libevent for Lua
@@ -5952,7 +5952,7 @@ dev-lua/luafilesystem 1.8.0-r101: File System Library for the Lua programming la
 dev-lua/luajson 1.3.4: JSON Parser/Constructor for Lua
 dev-lua/lualdap 1.3.0-r2: A lua binding for the OpenLDAP client libraries
 dev-lua/luaossl 20220711: Most comprehensive OpenSSL module in the Lua universe
-dev-lua/luaposix 35.1: Bindings for POSIX APIs
+dev-lua/luaposix 35.1 36.0: Bindings for POSIX APIs
 dev-lua/luarocks 3.9.1 3.9.2: A package manager for the Lua programming language
 dev-lua/luasec 1.2.0: Lua binding for OpenSSL library to provide TLS/SSL communication
 dev-lua/luasocket 3.1.0: Networking support for the Lua language
@@ -10802,8 +10802,8 @@ dev-util/ignition-cmake 2.14.0: CMake modules to be used by the Ignition project
 dev-util/imediff2 1.1.2.1: An interactive, user friendly 2-way merge tool in text mode
 dev-util/include-what-you-use 0.19: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.12: Indent program source files
-dev-util/intel-graphics-compiler 1.0.12260.1-r1 1.0.12504.5-r1: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
-dev-util/intel-graphics-system-controller 0.8.4 0.8.6: Intel graphics system controller firmware update library
+dev-util/intel-graphics-compiler 1.0.12260.1-r1 1.0.12504.5-r1 1.0.12812.26: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-system-controller 0.8.6 0.8.7: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
 dev-util/intltool 0.51.0-r3: Internationalization Tool Collection
 dev-util/its4 1.1.1-r2: ITS4: Software Security Tool
@@ -11437,7 +11437,7 @@ games-fps/doom-data-gog 1.9: Data files for The Ultimate DOOM from gog.com
 games-fps/doom2-data-gog 1.9: Data files for DOOM II and the Master Levels from gog.com
 games-fps/doomsday 2.3.1: A modern gaming engine for Doom, Heretic, and Hexen
 games-fps/duke3d-data 1.0-r5: Duke Nukem 3D (Atomic Edition) data files
-games-fps/eduke32 20221026.10165: An open source engine port of the classic PC first person shooter Duke Nukem 3D
+games-fps/eduke32 20230123.10167: An open source engine port of the classic PC first person shooter Duke Nukem 3D
 games-fps/etqw-bin 1.5-r4: Enemy Territory: Quake Wars
 games-fps/etqw-data 1.0-r1: Enemy Territory: Quake Wars data files
 games-fps/etqw-demo 2.0_p1-r4: Enemy Territory: Quake Wars demo
@@ -11735,7 +11735,7 @@ games-server/bedrock-server 1.19.51.01: The official bedrock (non-java) based se
 games-server/crossfire-server 1.71.0-r2: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r1: Server for Mednafen emulator
-games-server/minecraft-server 1.19.2 1.19.3: The official server for the sandbox video game
+games-server/minecraft-server 1.19.3: The official server for the sandbox video game
 games-server/monopd 0.10.2-r1: server for atlantik games
 games-server/mtavc 0.5-r2: dedicated server for GTA3 multiplayer
 games-server/pvpgn 1.8.5-r4 1.99.7.2.1-r1: A gaming server for Battle.Net compatible clients
@@ -11752,7 +11752,7 @@ games-simulation/gl117 1.3.2-r1: Action flight simulator
 games-simulation/lincity 1.13.1-r3: City simulation game for X
 games-simulation/lincity-ng 2.9_beta: City simulation game
 games-simulation/micropolis 1.0_p20180313: Free version of the well-known city building simulation
-games-simulation/openrct2 0.4.2 0.4.3 9999: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
+games-simulation/openrct2 0.4.3 9999: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
 games-simulation/openttd 12.2-r1: A clone of Transport Tycoon Deluxe
 games-simulation/pmars-sdl 0.9.2e-r1: Portable redcode simulator's sdl port for core war
 games-simulation/searchandrescue 1.7.0-r1: Helicopter based air rescue flight simulator
@@ -14695,7 +14695,7 @@ net-im/openmittsu 0.9.15.0: Open source chat client for Threema-style end-to-end
 net-im/pidgin 2.14.10-r1 2.14.12: GTK Instant Messenger client
 net-im/poezio 0.14 9999: Console XMPP client that looks like most famous IRC clients
 net-im/profanity 0.13.1: A console based XMPP client inspired by Irssi
-net-im/prosody 0.12.1 0.12.2: Prosody is a modern XMPP communication server
+net-im/prosody 0.12.2: Prosody is a modern XMPP communication server
 net-im/prosody-modules 0_pre20220319 9999: A collection of community-maintained modules for Prosody
 net-im/psi 1.5-r1 9999: Qt XMPP client
 net-im/psimedia 9999: Psi/Psi+ plugin for voice/video calls
@@ -16853,7 +16853,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 8.32-r1 9.1-r1 9.1-r2: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 4.5.1 4.5.2: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20221201: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20221201 20230120: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.9.8: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
@@ -17109,7 +17109,7 @@ sys-apps/xmbmon 2.0.5-r2: Mother Board Monitor Program for X Window System
 sys-apps/yarn 1.22.17 1.22.19: Fast, reliable, and secure node dependency management
 sys-apps/zorroutils 0.05: Zorro bus utility for Amigas running 2.1 and later kernels
 sys-apps/zram-generator 1.1.2: Systemd unit generator for zram swap devices
-sys-auth/AusweisApp2 1.24.4 1.26.1 9999: Official authentication app for German ID cards and residence permits
+sys-auth/AusweisApp2 1.26.1 1.26.2 9999: Official authentication app for German ID cards and residence permits
 sys-auth/docker_auth 1.9.0: Docker Registry 2 authentication server
 sys-auth/elogind 246.10-r1 246.10-r2: The systemd project's logind, extracted to a standalone package
 sys-auth/fprintd 1.94.1 1.94.2: D-Bus service to access fingerprint readers
@@ -17450,7 +17450,7 @@ sys-fs/compsize 1.3 1.4 1.5 9999: Utility to find btrfs compression type/ratio o
 sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration files
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.10.3-r1: Encrypted FUSE filesystem that conceals metadata
-sys-fs/cryptmount 6.1.0: A utility for management and user-mode mounting of encrypted filesystems
+sys-fs/cryptmount 6.1.0 6.2.0: A utility for management and user-mode mounting of encrypted filesystems
 sys-fs/cryptsetup 2.4.3-r2: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
