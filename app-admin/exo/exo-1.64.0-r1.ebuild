@@ -1,11 +1,11 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Command-line tool for everything at Exoscale: compute, storage, dns"
 HOMEPAGE="https://github.com/exoscale/cli"
-SRC_URI="https://github.com/exoscale/cli/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/exoscale/cli/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -19,7 +19,7 @@ QA_FLAGS_IGNORED=".*"
 S="${WORKDIR}/cli-${PV}"
 
 src_compile() {
-	go build -mod vendor -o ${PN} || die "build failed"
+	go build -mod vendor -o ${PN} -ldflags "-X main.version=${PVR}-gentoo -X main.commit=" || die "build failed"
 }
 
 src_test() {
