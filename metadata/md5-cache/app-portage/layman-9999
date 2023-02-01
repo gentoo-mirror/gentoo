@@ -1,15 +1,15 @@
-BDEPEND=test? ( dev-vcs/subversion ) app-text/asciidoc python_targets_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0=[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[xml(+),sqlite?] ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-vcs/subversion ) app-text/asciidoc python_targets_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0=[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[xml(+),sqlite?] ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11[xml(+),sqlite?] ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
 DESCRIPTION=Tool to manage Gentoo overlays
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Layman
 INHERIT=distutils-r1 linux-info prefix git-r3
-IUSE=cvs darcs +git gpg g-sorcery mercurial sqlite squashfs subversion sync-plugin-portage test python_targets_pypy3 python_targets_python3_9 python_targets_python3_10
+IUSE=cvs darcs +git gpg g-sorcery mercurial sqlite squashfs subversion sync-plugin-portage test python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=cvs? ( dev-vcs/cvs ) darcs? ( dev-vcs/darcs ) git? ( dev-vcs/git ) mercurial? ( dev-vcs/mercurial ) g-sorcery? ( app-portage/g-sorcery ) subversion? ( >=dev-vcs/subversion-1.5.4[http(+)] ) gpg? ( >=dev-python/pyGPG-0.2 ) sync-plugin-portage? ( >=sys-apps/portage-2.2.16[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) !sync-plugin-portage? ( sys-apps/portage[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-python/ssl-fetch-0.4[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0=[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[xml(+),sqlite?] )
-REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=cvs? ( dev-vcs/cvs ) darcs? ( dev-vcs/darcs ) git? ( dev-vcs/git ) mercurial? ( dev-vcs/mercurial ) g-sorcery? ( app-portage/g-sorcery ) subversion? ( >=dev-vcs/subversion-1.5.4[http(+)] ) gpg? ( >=dev-python/pyGPG-0.2 ) sync-plugin-portage? ( >=sys-apps/portage-2.2.16[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) !sync-plugin-portage? ( sys-apps/portage[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) >=dev-python/ssl-fetch-0.4[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0=[xml(+),sqlite?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9[xml(+),sqlite?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10[xml(+),sqlite?] ) python_targets_python3_11? ( >=dev-lang/python-3.11.1:3.11[xml(+),sqlite?] )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365	linux-info	4b552625ebd741dfd2ac08637fd2436e	prefix	eab3c99d77fe00506c109c8a736186f7	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=23fe92b2fade5103ea85ca42600b0e64
+_md5_=92dd4d5f7a63e6d9d1baab7f20527250
