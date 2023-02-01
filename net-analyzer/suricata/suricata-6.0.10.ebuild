@@ -38,7 +38,7 @@ RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
-	>=net-libs/libhtp-0.5.41
+	>=net-libs/libhtp-0.5.42
 	net-libs/libpcap
 	sys-apps/file
 	sys-libs/libcap-ng
@@ -205,11 +205,7 @@ pkg_postinst() {
 	elog
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "To download and install an initial set of rules, run:"
-		elog "    emerge --config =${CATEGORY}/${PF}"
+		elog "    suricata-update"
 	fi
 	elog
-}
-
-pkg_config() {
-	suricata-update
 }
