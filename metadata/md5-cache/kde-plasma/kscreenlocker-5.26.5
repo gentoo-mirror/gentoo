@@ -7,7 +7,7 @@ HOMEPAGE=https://kde.org/plasma-desktop
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm plasma.kde.org pam
 IUSE=test debug test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=GPL-2
 PDEPEND=>=kde-plasma/kde-cli-tools-5.26.5:5
 RDEPEND=dev-libs/wayland >=dev-qt/qtdbus-5.15.5:5 >=dev-qt/qtdeclarative-5.15.5:5 >=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtnetwork-5.15.5:5 >=dev-qt/qtwidgets-5.15.5:5 >=dev-qt/qtx11extras-5.15.5:5 >=kde-frameworks/kcmutils-5.99.0:5 >=kde-frameworks/kconfig-5.99.0:5[qml] >=kde-frameworks/kconfigwidgets-5.99.0:5 >=kde-frameworks/kcoreaddons-5.99.0:5 >=kde-frameworks/kcrash-5.99.0:5 >=kde-frameworks/kdeclarative-5.99.0:5 >=kde-frameworks/kglobalaccel-5.99.0:5 >=kde-frameworks/ki18n-5.99.0:5 >=kde-frameworks/kidletime-5.99.0:5 >=kde-frameworks/kio-5.99.0:5 >=kde-frameworks/knotifications-5.99.0:5 >=kde-frameworks/kpackage-5.99.0:5 >=kde-frameworks/kwayland-5.99.0:5 >=kde-frameworks/kwindowsystem-5.99.0:5 >=kde-frameworks/kxmlgui-5.99.0:5 >=kde-frameworks/solid-5.99.0:5 >=kde-plasma/layer-shell-qt-5.26.5:5 sys-libs/pam x11-libs/libX11 x11-libs/libXi x11-libs/libxcb x11-libs/xcb-util-keysyms >=dev-qt/qtquickcontrols2-5.15.5:5 >=kde-frameworks/kirigami-5.99.0:5 >=kde-frameworks/plasma-5.99.0:5 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
@@ -15,4 +15,4 @@ RESTRICT=test !test? ( test ) !test? ( test )
 SLOT=5
 SRC_URI=mirror://kde/stable/plasma/5.26.5/kscreenlocker-5.26.5.tar.xz
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857	ecm	f9903a91512290fdc47404898ba8a954	kde.org	5dd311d12cdba33b446368fad288784d	plasma.kde.org	9622322dda51d66780cf4cfd2b3351b8	pam	01b77091d5b6560b0aeafa7fbb1bd818
-_md5_=057d74ee847333d98ecb8f0a12c5bbe9
+_md5_=8809a8af52148693f56e2bb7c7e2e190
