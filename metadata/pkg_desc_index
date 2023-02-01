@@ -1531,7 +1531,7 @@ app-crypt/tpm2-abrmd 2.4.1-r1 3.0.0-r1: TPM2 Access Broker & Resource Manager
 app-crypt/tpm2-pkcs11 1.8.0: A PKCS#11 interface for TPM2 hardware
 app-crypt/tpm2-tools 5.2-r1 5.3 5.4: Tools for the TPM 2.0 TSS
 app-crypt/tpm2-totp 0.3.0-r1: Attest the trustworthiness of a device against a human using time-based OTP
-app-crypt/tpm2-tss 3.2.0-r4 3.2.1 4.0.0: TCG Trusted Platform Module 2.0 Software Stack
+app-crypt/tpm2-tss 3.2.0-r4 3.2.1 3.2.2 4.0.0 4.0.1: TCG Trusted Platform Module 2.0 Software Stack
 app-crypt/tpm2-tss-engine 1.2.0: OpenSSL Engine for TPM2 devices
 app-crypt/trousers 0.3.15: An open-source TCG Software Stack (TSS) v1.1 implementation
 app-crypt/ubuntu-keyring 2020.02.11.2 2020.06.17.1 2021.03.26: GnuPG archive keys of the Ubuntu archive
@@ -3613,13 +3613,13 @@ app-text/o3read 0.0.4: Converts OpenOffice formats to text or HTML
 app-text/ocrad 0.27: GNU Ocrad is an OCR (Optical Character Recognition) program
 app-text/odt2txt 0.5-r1: A simple converter from OpenDocument Text to plain text
 app-text/openjade 1.3.2-r9: Jade is an implementation of DSSSL for formatting SGML and XML documents
-app-text/openpaperwork-core 2.1.0 2.1.1: Core part of Paperwork (plugin management)
-app-text/openpaperwork-gtk 2.1.0-r1 2.1.1: Paperwork plugins
+app-text/openpaperwork-core 2.1.1 2.1.2: Core part of Paperwork (plugin management)
+app-text/openpaperwork-gtk 2.1.1 2.1.2: Paperwork plugins
 app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2: Conversion between markup formats
 app-text/pandoc-bin 2.19.2 3.0 3.0.1: Conversion between markup formats (binary package)
-app-text/paperwork 2.1.0 2.1.1-r1: a personal document manager for scanned documents (and PDFs)
-app-text/paperwork-backend 2.1.0 2.1.1-r1: Backend part of Paperwork (Python API, no UI)
+app-text/paperwork 2.1.1-r1 2.1.2: a personal document manager for scanned documents (and PDFs)
+app-text/paperwork-backend 2.1.1-r1 2.1.2: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
 app-text/par 1.53.0: a paragraph reformatter, vaguely similar to fmt, but better
 app-text/pastebinit 1.5.1-r1: A software that lets you send anything you want directly to a pastebin
@@ -8715,7 +8715,7 @@ dev-python/libarchive-c 4.0: A Python interface to libarchive
 dev-python/libcloud 3.6.1 3.7.0: Unified Interface to the Cloud - python support libs
 dev-python/liblarch 3.1.0-r1: Library to handle directed acyclic graphs
 dev-python/libnacl 1.8.0: Python ctypes wrapper for libsodium
-dev-python/libpillowfight 0.3.0_p20210816: Small library containing various image processing algorithms
+dev-python/libpillowfight 0.3.0_p20210816 0.3.0_p20210816-r1: Small library containing various image processing algorithms
 dev-python/libsass-python 0.21.0-r1 0.22.0-r1: A straightforward binding of libsass for Python
 dev-python/libtmux 0.15.10 0.18.3 0.19.1 0.20.0 0.21.0: Python API for tmux
 dev-python/libvirt-python 8.7.0 8.8.0 8.9.0 9999: libvirt Python bindings
@@ -15238,7 +15238,7 @@ net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3-r1: Small tool for altering forwarded network data in real time
 net-misc/netstat-nat 1.4.10: Display NAT connections
 net-misc/networkmanager 1.40.6 1.40.8 1.40.10 1.40.12: A set of co-operative tools that make networking simple and straightforward
-net-misc/nextcloud-client 3.6.1-r1 3.6.4-r3: Desktop Syncing Client for Nextcloud
+net-misc/nextcloud-client 3.6.1-r1 3.6.4-r3 3.6.6: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
 net-misc/ntp 4.2.8_p15 4.2.8_p15-r1 4.2.8_p15-r4: Network Time Protocol suite/programs
 net-misc/ntpsec 1.2.1-r6 1.2.2 9999: The NTP reference implementation, refactored
@@ -15257,7 +15257,7 @@ net-misc/openrdap 0.9.0_p20191017-r1: RDAP command line client
 net-misc/openrsync 0.5.0_p20220508: BSD-licensed implementation of rsync
 net-misc/openssh 9.1_p1 9.1_p1-r2 9.1_p1-r3: Port of OpenBSD's free SSH release
 net-misc/openvswitch 2.15.0 2.17.2-r1: Production quality, multilayer virtual switch
-net-misc/owncloud-client 2.11.1.8438 2.11.1.8946: Synchronize files from ownCloud Server with your computer
+net-misc/owncloud-client 2.11.1.8946 3.1.0.9872: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 2.1: Packet generator tool for ethernet
 net-misc/pcapfix 1.1.7: Repair and fix broken pcap files
 net-misc/pedro 1.6-r1 1.12: Pedro is a subscription/notification communications system
@@ -17980,7 +17980,7 @@ www-apps/davical 1.1.9.3 1.1.9.3-r1 1.1.10 1.1.11: A CalDAV and CardDAV Server
 www-apps/dokuwiki 20200729: DokuWiki is a simple to use Wiki aimed at a small company's documentation needs
 www-apps/dotproject 2.1.7-r2: dotProject is a PHP web-based project management framework
 www-apps/drupal 7.89 8.9.20 9.1.15 9.2.18: PHP-based open-source platform and content management system
-www-apps/element 1.11.17 1.11.20: A glossy Matrix collaboration client for the web
+www-apps/element 1.11.17 1.11.20 1.11.22: A glossy Matrix collaboration client for the web
 www-apps/gitea 1.18.3: A painless self-hosted Git service
 www-apps/grafana-bin 9.2.4 9.2.7 9.2.8 9.3.0 9.3.2: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
 www-apps/hugo 0.108.0 0.110.0: Fast static HTML and CSS website generator
@@ -18014,7 +18014,7 @@ www-apps/nanoc-cli 4.12.6 4.12.7 4.12.9 4.12.14: nanoc is a simple but very flex
 www-apps/nanoc-core 4.12.6 4.12.7 4.12.9 4.12.14: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-deploying 1.0.2: Provides deploying functionality for Nanoc
 www-apps/nanoc-spec 0.0.2: Provides Nanoc::Spec, containing functionality for writing tests for Nanoc
-www-apps/nextcloud 24.0.7 24.0.8 25.0.1 25.0.2: Personal cloud that runs on your own server
+www-apps/nextcloud 24.0.7 24.0.8 24.0.9 25.0.1 25.0.2 25.0.3: Personal cloud that runs on your own server
 www-apps/nextcloud-notify_push 0.1.7 0.2.0 0.2.1 0.2.2 0.2.4 0.3.0: Push daemon for Nextcloud clients
 www-apps/nikola 8.2.2-r1 8.2.2-r2: A static website and blog generator
 www-apps/novnc 1.2.0 9999: noVNC is a VNC client implemented using HTML5 technologies
