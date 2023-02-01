@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_{9..10} )
+
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -14,9 +15,11 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-RDEPEND="app-text/poppler[introspection]
+RDEPEND="
+	app-text/openpaperwork-core[${PYTHON_USEDEP}]
+	app-text/openpaperwork-gtk[${PYTHON_USEDEP}]
+	app-text/poppler[introspection]
 	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/Levenshtein[${PYTHON_USEDEP}]
 	dev-python/natsort[${PYTHON_USEDEP}]
@@ -28,5 +31,21 @@ RDEPEND="app-text/poppler[introspection]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-python/termcolor[${PYTHON_USEDEP}]
 	dev-python/whoosh[${PYTHON_USEDEP}]
-	sci-libs/scikit-learn[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}"
+	sci-libs/scikit-learn[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	${RDEPEND}
+	test? (
+		dev-python/libpillowfight[${PYTHON_USEDEP}]
+		media-libs/libinsane
+	)
+"
+
+distutils_enable_tests unittest
+
+src_prepare() {
+	# remove dep to allow both old python-Levenshtein and new
+	# Levenshtein packages
+	sed -i -e '/python-Levenshtein/d' setup.py || die
+	distutils-r1_src_prepare
+}

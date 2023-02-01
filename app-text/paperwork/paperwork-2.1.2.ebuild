@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..10} )
+
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1 xdg
 
@@ -24,11 +26,17 @@ RDEPEND="~app-text/openpaperwork-core-${PV}[${PYTHON_USEDEP}]
 	dev-python/pyenchant[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	>=dev-python/pyocr-0.3.0[${PYTHON_USEDEP}]
-	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/pyxdg[${PYTHON_USEDEP}]
 	media-libs/libinsane
 	x11-libs/libnotify[introspection]"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	# remove dep to allow both old python-Levenshtein and new
+	# Levenshtein packages
+	sed -i -e '/python-Levenshtein/d' setup.py || die
+	distutils-r1_src_prepare
+}
 
 python_install_all() {
 	distutils-r1_python_install_all
