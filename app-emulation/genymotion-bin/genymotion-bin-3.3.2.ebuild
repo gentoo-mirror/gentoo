@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit bash-completion-r1 desktop pax-utils
 
@@ -17,15 +17,37 @@ LICENSE="genymotion"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-RDEPEND="app-emulation/virtualbox
+RDEPEND="app-arch/lz4
+	app-crypt/mit-krb5
+	app-emulation/virtualbox
 	|| (
-		dev-libs/openssl-compat:1.0.0
-		=dev-libs/openssl-1.0*:0
+		dev-libs/openssl-compat:1.1.0
+		=dev-libs/openssl-1.1*:0
 	)
-	>=dev-libs/hiredis-1.0.0
-	sys-apps/util-linux
+	dev-libs/glib:2
+	=dev-libs/hiredis-1.0*
+	media-libs/alsa-lib
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/libpulse
+	media-libs/gst-plugins-base:1.0
+	media-libs/gstreamer:1.0
+	sys-apps/dbus
+	sys-libs/zlib
 	virtual/opengl
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXext
+	x11-libs/libXi
+	x11-libs/libxkbcommon
+	x11-libs/libXmu
+	x11-libs/xcb-util
+	x11-libs/xcb-util-image
+	x11-libs/xcb-util-keysyms
+	x11-libs/xcb-util-renderutil
+	x11-libs/xcb-util-wm
 "
+BDEPEND="x11-misc/xdg-utils"
 
 RESTRICT="bindist fetch"
 S="${WORKDIR}"
@@ -39,6 +61,7 @@ QA_PREBUILT="
 	opt/${MY_PN}/player
 	opt/${MY_PN}/${MY_PN}adbtunneld
 	opt/${MY_PN}/gmtool
+	opt/${MY_PN}/tools/*
 "
 
 pkg_nofetch() {
@@ -67,6 +90,12 @@ src_prepare() {
 
 	# removed windows line for bashcompletion
 	sed -i "/complete -F _gmtool gmtool.exe/d" "${MY_PN}/completion/bash/gmtool.bash" || die "sed failed"
+
+	# copy .desktop file in S directory
+	sed -i -e "s:Icon.*:Icon=/opt/${MY_PN}/icons/genymotion-logo.png:" \
+		-e "s:Exec.*:Exec=/opt/${MY_PN}/genymotion:" \
+		"${HOME}"/.local/share/applications/genymobile-genymotion.desktop || die "sed failed"
+	cp "${HOME}"/.local/share/applications/genymobile-genymotion.desktop "${S}" || die "copy .desktop file"
 }
 
 src_install() {
@@ -74,19 +103,26 @@ src_install() {
 	exeinto /opt/"${MY_PN}"
 
 	# Use qt bundled
-	doins -r "${MY_PN}"/{geoservices,Qt,QtGraphicalEffects,QtLocation,QtPositioning,QtQuick,QtQuick.2}
-	doins -r "${MY_PN}"/{icons,imageformats,platforms,plugins,sqldrivers,translations,xcbglintegrations}
+	doins -r "${MY_PN}"/{audio,geoservices,Qt,QtGraphicalEffects,QtLocation,QtPositioning,QtQuick,QtQuick.2}
+	doins -r "${MY_PN}"/{icons,imageformats,mediaservice,platforms,plugins,sqldrivers,translations,xcbglintegrations}
 	doins "${MY_PN}"/libQt*
 	doins "${MY_PN}"/qt.conf
 	doins "${MY_PN}"/libicu*
 
-	doexe "${MY_PN}"/{libcom,librendering,libswscale,libavutil}.so*
+	doexe "${MY_PN}"/{libcom,librendering,libshadertranslator,libswscale,libavutil}.so*
 	# android library
-	doexe "${MY_PN}"/{libEGL_translator,libGLES_CM_translator,libGLES_V2_translator,libOpenglRender,libemugl_logger}.so*
+	doexe "${MY_PN}"/{libOpenglRender,libemugl_logger,libemugl_common}.so*
 
 	find "${ED}/opt/${MY_PN}" -name "*.so*" -type f -exec chmod +x {} \; || die "Change .so permission failed"
 
 	doexe "${MY_PN}"/{genymotion,genyshell,player,gmtool}
+
+	# the android-sdk-update-manager have some bugs and lacks maintenance
+	# so installs bundled version
+	exeinto /opt/"${MY_PN}"/tools
+	doexe "${MY_PN}"/tools/{aapt,adb,glewinfo}
+	exeinto /opt/"${MY_PN}"/tools/lib64
+	doexe "${MY_PN}"/tools/lib64/libc++.so
 
 	pax-mark -m "${ED}/opt/${MY_PN}/genymotion"
 	pax-mark -m "${ED}/opt/${MY_PN}/gmtool"
@@ -100,17 +136,5 @@ src_install() {
 	insinto /usr/share/zsh/site-functions
 	doins "${MY_PN}/completion/zsh/_gmtool"
 
-	sed -i -e "s:Icon.*:Icon=/opt/${MY_PN}/icons/icon.png:" \
-		-e "s:Exec.*:Exec=/opt/${MY_PN}/genymotion:" \
-		"${HOME}"/.local/share/applications/genymobile-genymotion.desktop || die "sed failed"
-	domenu "${HOME}"/.local/share/applications/genymobile-genymotion.desktop
-}
-
-pkg_postinst() {
-	elog "Genymotion needs adb to work correctly: install with android-sdk-update-manager"
-	elog "'Android SDK Platform-tools' and 'Android SDK Tools'"
-	elog "Your user should also be in the android group to work correctly"
-	elog "Then in Genymotion set the android-sdk-update-manager directory: (Settings->ADB)"
-	elog
-	elog "      /opt/android-sdk-update-manager"
+	domenu genymobile-genymotion.desktop
 }
