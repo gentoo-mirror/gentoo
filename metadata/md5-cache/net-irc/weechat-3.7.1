@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://weechat.org/
 INHERIT=cmake lua-single python-single-r1 xdg-utils verify-sig
 IUSE=doc man nls selinux test guile lua +perl +python ruby tcl +alias +buflist +charset +exec +fifo +fset +logger +relay +scripts +spell +trigger +typing +xfer +irc lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 verify-sig
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos
+KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos
 LICENSE=GPL-3
 RDEPEND=app-arch/zstd:= dev-libs/libgcrypt:0= net-libs/gnutls:= sys-libs/ncurses:0= sys-libs/zlib:= net-misc/curl[ssl] charset? ( virtual/libiconv ) guile? ( >=dev-scheme/guile-2.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) nls? ( virtual/libintl ) perl? ( dev-lang/perl:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11 ) ) ruby? ( || ( dev-lang/ruby:3.1 dev-lang/ruby:3.0 dev-lang/ruby:2.7 ) ) selinux? ( sec-policy/selinux-irc ) spell? ( app-text/aspell ) tcl? ( >=dev-lang/tcl-8.4.15:0= )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ) test? ( nls )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3.7.1
 SRC_URI=https://weechat.org/files/src/weechat-3.7.1.tar.xz verify-sig? ( https://weechat.org/files/src/weechat-3.7.1.tar.xz.asc )
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-single-r1	75118e916668a74c660a13b0ecb22562	verify-sig	afb98fe4696292e4234ce36713fd4e9e
-_md5_=74b3a58c5eb0627e32c4b8c6d5f462d8
+_md5_=39a5cdf10367e6416f853e8f00bcaf3f
