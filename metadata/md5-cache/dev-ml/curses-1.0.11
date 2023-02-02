@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune-configurator dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Bindings to ncurses
+EAPI=8
+HOMEPAGE=https://github.com/mbacarella/curses
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0
+SRC_URI=https://github.com/mbacarella/curses/archive/refs/tags/1.0.11.tar.gz -> curses-1.0.11.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
+_md5_=30da532c4aab382daaac7f4e72ca7c03
