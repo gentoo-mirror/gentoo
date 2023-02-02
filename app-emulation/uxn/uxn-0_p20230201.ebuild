@@ -1,24 +1,23 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-H=cbc61578b77881232fda4cc42aa914a0806b786f
+[[ ${PV} == *_p20230201 ]] && COMMIT=0dcc3b4c2e12bf2a61e682e9168e8bdb469caae0
 
 inherit toolchain-funcs
 
 DESCRIPTION="An assembler and emulator for the Uxn stack-machine, written in ANSI C"
-HOMEPAGE="
-	https://wiki.xxiivv.com/site/uxn.html
-	https://git.sr.ht/~rabbits/uxn/
-"
+HOMEPAGE="https://wiki.xxiivv.com/site/uxn.html
+	https://git.sr.ht/~rabbits/uxn/"
 
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~rabbits/uxn.git"
 else
-	SRC_URI="https://git.sr.ht/~rabbits/uxn/archive/${H}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}"/${PN}-${H}
+	SRC_URI="https://git.sr.ht/~rabbits/uxn/archive/${COMMIT}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${COMMIT}
 	KEYWORDS="~amd64 ~x86"
 fi
 
