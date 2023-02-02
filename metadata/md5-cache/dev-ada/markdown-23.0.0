@@ -1,14 +1,14 @@
 DEFINED_PHASES=setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)]
 DESCRIPTION=Provides a markdown parser written in Ada
 EAPI=7
 HOMEPAGE=https://github.com/AdaCore/markdown
 INHERIT=ada
-IUSE=ada_target_gnat_2021 ada_target_gcc_12_2_0
+IUSE=ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)]
 SLOT=0
 SRC_URI=https://github.com/AdaCore/markdown/archive/refs/tags/v23.0.0.tar.gz -> markdown-23.0.0.tar.gz
-_eclasses_=ada	492e700cbeece78fe1a7e23be17a4ba8
+_eclasses_=ada	8af8cc9968a30d4ac8eb99aa6c62eeba
 _md5_=f8b7dffcba3cdbc196678aaf7d1a0918

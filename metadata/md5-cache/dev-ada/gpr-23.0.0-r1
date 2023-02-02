@@ -1,16 +1,16 @@
 BDEPEND=|| ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 ) || ( ( >=dev-lang/python-3.11.1:3.11 dev-ada/langkit[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9:3.10 dev-ada/langkit[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 dev-ada/langkit[python_targets_python3_9(-)] ) )
 DEFINED_PHASES=compile configure install setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] shared? ( dev-ada/xmlada[shared,static-pic] ) dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] shared? ( dev-ada/gnatcoll-core[shared,static-pic] ) dev-ada/gnatcoll-bindings[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,iconv,gmp] shared? ( dev-ada/gnatcoll-bindings[shared,static-pic] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] shared? ( dev-ada/xmlada[shared,static-pic] ) dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] shared? ( dev-ada/gnatcoll-core[shared,static-pic] ) dev-ada/gnatcoll-bindings[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),iconv,gmp] shared? ( dev-ada/gnatcoll-bindings[shared,static-pic] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)]
 DESCRIPTION=LibGPR2 - Parser for GPR Project files
 EAPI=7
 HOMEPAGE=https://github.com/AdaCore/gpr
 INHERIT=python-any-r1 ada multiprocessing
-IUSE=+shared ada_target_gnat_2021 ada_target_gcc_12_2_0
+IUSE=+shared ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] shared? ( dev-ada/xmlada[shared,static-pic] ) dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] shared? ( dev-ada/gnatcoll-core[shared,static-pic] ) dev-ada/gnatcoll-bindings[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,iconv,gmp] shared? ( dev-ada/gnatcoll-bindings[shared,static-pic] )
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] shared? ( dev-ada/xmlada[shared,static-pic] ) dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] shared? ( dev-ada/gnatcoll-core[shared,static-pic] ) dev-ada/gnatcoll-bindings[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),iconv,gmp] shared? ( dev-ada/gnatcoll-bindings[shared,static-pic] )
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gpr/archive/refs/tags/v23.0.0.tar.gz -> gpr-23.0.0.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ada	492e700cbeece78fe1a7e23be17a4ba8
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ada	8af8cc9968a30d4ac8eb99aa6c62eeba
 _md5_=6cd65e3e73cb52587c8e9a9f3ac38d32

@@ -1,17 +1,17 @@
-BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] test? ( dev-ada/e3-testsuite )
+BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] test? ( dev-ada/e3-testsuite )
 DEFINED_PHASES=compile install prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] ~dev-ada/libadalang-tools-22.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),shared] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] ~dev-ada/libadalang-tools-22.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)]
 DESCRIPTION=an implementation of the Microsoft Language Server Protocol for Ada/SPARK
 EAPI=7
 HOMEPAGE=https://github.com/AdaCore/ada_language_server
 INHERIT=ada multiprocessing toolchain-funcs
-IUSE=test ada_target_gnat_2021 ada_target_gcc_12_2_0
+IUSE=test ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?] ~dev-ada/libadalang-tools-22.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?]
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),shared] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)] ~dev-ada/libadalang-tools-22.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-),shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,-ada_target_gcc_12(-)]
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AdaCore/ada_language_server/archive/refs/tags/v22.0.0.tar.gz -> ada_language_server-22.0.0.tar.gz
-_eclasses_=ada	492e700cbeece78fe1a7e23be17a4ba8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=ada	8af8cc9968a30d4ac8eb99aa6c62eeba	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=1f9ad46fa503b655d603490af8c75024
