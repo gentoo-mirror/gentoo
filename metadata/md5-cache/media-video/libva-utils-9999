@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=x11-libs/libdrm wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 ) ~media-libs/libva-9999:=[drm(+),wayland?,X?]
+DEPEND=x11-libs/libdrm wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 ) ~media-libs/libva-9999:=[wayland?,X?]
 DESCRIPTION=Collection of utilities and tests for VA-API
 EAPI=8
 HOMEPAGE=https://01.org/linuxmedia/vaapi
@@ -8,9 +8,9 @@ INHERIT=meson git-r3
 IUSE=examples putsurface test +vainfo wayland X
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=x11-libs/libdrm wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 ) ~media-libs/libva-9999:=[drm(+),wayland?,X?]
+RDEPEND=x11-libs/libdrm wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 ) ~media-libs/libva-9999:=[wayland?,X?]
 REQUIRED_USE=putsurface? ( || ( wayland X ) ) || ( examples putsurface test vainfo )
 RESTRICT=test
 SLOT=0
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=884465de49c1893e798bfc3b7fa4df50
+_md5_=5719d6f22ecfb1cb51ab4ea9ec631a16
