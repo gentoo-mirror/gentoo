@@ -1,7 +1,7 @@
 Title: Breaking changes to the RAP Prefix toolchain
 Author: James Le Cuirot <chewi@gentoo.org>
 Posted: 2023-01-28
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Profile: default/linux/amd64/17.0/no-multilib/prefix/*
 Display-If-Profile: default/linux/amd64/17.1/no-multilib/prefix/*
@@ -28,7 +28,8 @@ If you using a non-RAP "Prefix Guest" or "Prefix Stack" variant (e.g. macOS)
 then this does not apply.
 
 If you're not sure what kind of prefix you have, then check whether the
-prefix-guest USE flag is enabled.
+prefix-guest USE flag is enabled. If the following command returns nothing, then
+you have a RAP prefix and this does apply.
 
   portageq envvar USE | grep prefix-guest
 
