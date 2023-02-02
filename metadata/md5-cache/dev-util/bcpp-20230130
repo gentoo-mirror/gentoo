@@ -1,0 +1,13 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=Indents C/C++ source code
+EAPI=8
+HOMEPAGE=https://invisible-island.net/bcpp/
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://invisible-island.net/archives/bcpp/bcpp-20230130.tgz verify-sig? ( https://invisible-island.net/archives/bcpp/bcpp-20230130.tgz.asc )
+_eclasses_=verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=6d5860deeefe718d882ae1e2c4434a74
