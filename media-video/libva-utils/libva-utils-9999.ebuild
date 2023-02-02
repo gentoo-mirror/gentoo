@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,9 +31,9 @@ DEPEND="
 	X? ( >=x11-libs/libX11-1.6.2 )
 "
 if [[ ${PV} = *9999 ]] ; then
-	DEPEND+="~media-libs/libva-${PV}:=[drm(+),wayland?,X?]"
+	DEPEND+="~media-libs/libva-${PV}:=[wayland?,X?]"
 else
-	DEPEND+=">=media-libs/libva-$(ver_cut 1-2).0:=[drm(+),wayland?,X?]"
+	DEPEND+=">=media-libs/libva-$(ver_cut 1-2).0:=[wayland?,X?]"
 fi
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -45,16 +45,16 @@ src_prepare() {
 
 	if ! use examples ; then
 		sed_args+=(
-			-e "/^subdir('decode')$/d"
-			-e "/^subdir('encode')$/d"
-			-e "/^subdir('videoprocess')$/d"
-			-e "/^subdir('vendor\/intel')$/d"
-			-e "/^subdir('vendor\/intel\/sfcsample')$/d"
+			-e "/^  subdir('decode')$/d"
+			-e "/^  subdir('encode')$/d"
+			-e "/^  subdir('videoprocess')$/d"
+			-e "/^  subdir('vendor\/intel')$/d"
+			-e "/^  subdir('vendor\/intel\/sfcsample')$/d"
 		)
 	fi
 
 	if ! use putsurface ; then
-		sed_args+=(-e "/^subdir('putsurface')$/d")
+		sed_args+=(-e "/^  subdir('putsurface')$/d")
 	fi
 
 	if ! use vainfo ; then
