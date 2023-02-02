@@ -44,14 +44,12 @@ otr pipes +privacy +statistics +texteffect translator +urlpicpreview webpresence
 #	gadu: net-libs/libgadu @since 4.3
 #	groupwise: app-crypt/qca:2
 #	irc: NO DEPS, probably will fail so inform user about it
-#	xmpp: net-dns/libidn app-crypt/qca:2 ENABLED BY DEFAULT NETWORK
 #	meanwhile: net-libs/meanwhile
-#	oscar: NO DEPS
 #	telepathy: net-libs/decibel
 #	testbed: NO DEPS
 #	winpopup: NO DEPS (we're adding samba as RDEPEND so it works)
 #	zeroconf (bonjour): NO DEPS
-PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp zeroconf"
+PROTOCOLS="gadu groupwise meanwhile testbed winpopup zeroconf"
 
 # disabled protocols
 #	irc: NO DEPS
@@ -59,8 +57,13 @@ PROTOCOLS="gadu groupwise meanwhile oscar testbed winpopup +xmpp zeroconf"
 #	qq: NO DEPS
 #	telepathy: net-libs/decibel
 #	skype, sms (until fixed)
+#	oscar (until fixed: KDE-bug #402647
+#	xmpp: continuously broken, KDE-bugs #304722, 412228, 457330, 410938, ...
 
 IUSE="${IUSE} ${PLUGINS} ${PROTOCOLS}"
+
+# tests hang, last checked for 4.2.96
+RESTRICT="test"
 
 COMMON_DEPEND="
 	app-crypt/gpgme:=[cxx,qt5]
@@ -96,11 +99,6 @@ COMMON_DEPEND="
 		dev-libs/libxml2
 		dev-libs/libxslt
 	)
-	xmpp? (
-		>=app-crypt/qca-2.3.0:2[qt5(+)]
-		net-dns/libidn:0=
-		sys-libs/zlib
-	)
 	zeroconf? (
 		>=kde-apps/kidentitymanagement-${PVCUT}:5
 		>=kde-frameworks/kdnssd-${KFMIN}:5
@@ -114,6 +112,11 @@ COMMON_DEPEND="
 #		net-libs/libsrtp:0=
 #		net-libs/ortp:=
 #	)
+#	xmpp? (
+#		>=app-crypt/qca-2.3.0:2[qt5(+)]
+#		net-dns/libidn:0=
+#		sys-libs/zlib
+#	)
 RDEPEND="${COMMON_DEPEND}
 	latex? (
 		|| (
@@ -123,17 +126,14 @@ RDEPEND="${COMMON_DEPEND}
 		virtual/latex-base
 	)
 	ssl? ( >=app-crypt/qca-2.3.0:2[qt5(+),ssl] )
-	xmpp? ( >=app-crypt/qca-2.3.0:2[qt5(+),ssl?] )
 "
 #	sms? ( app-mobilephone/smssend )
 #	winpopup? ( net-fs/samba )
+#	xmpp? ( >=app-crypt/qca-2.3.0:2[qt5(+),ssl?] )
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 #	jingle? ( dev-libs/jsoncpp )
-
-# tests hang, last checked for 4.2.96
-RESTRICT="test"
 
 src_configure() {
 	local x x2
@@ -158,7 +158,7 @@ src_configure() {
 	done
 
 	# disable until fixed:
-	mycmakeargs+=( -DWITH_{cryptography,libjingle,skype,sms}=OFF )
+	mycmakeargs+=( -DWITH_{cryptography,jabber,libjingle,oscar,skype,sms}=OFF )
 
 	# enable plugins
 	for x in ${PLUGINS}; do

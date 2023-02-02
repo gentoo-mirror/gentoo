@@ -45,5 +45,3 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=( "${FILESDIR}/${PN}-22.08.3-convert-event-start-time-to-local-tz.patch" )

@@ -70,8 +70,6 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
-PATCHES=( "${FILESDIR}/${PN}-22.08.3-qt-5.15.8.patch" ) # KDE-bug 464027
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package share KF5Purpose)

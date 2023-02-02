@@ -73,7 +73,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtimageformats-${QTMIN}:5
 	>=kde-frameworks/kimageformats-${KFMIN}:5
 "
-PATCHES=( "${FILESDIR}/${PN}-22.08.3-fix-raw-plugin-coexistence.patch" ) # KDE-bug 463132
 
 src_prepare() {
 	ecm_src_prepare

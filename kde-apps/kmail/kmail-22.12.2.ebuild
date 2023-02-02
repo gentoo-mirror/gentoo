@@ -89,10 +89,6 @@ BDEPEND="
 	test? ( >=kde-apps/akonadi-${PVCUT}:5[tools] )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-22.08.3-fix-crash-on-replay-msg-w-user-template.patch"
-)
-
 src_prepare() {
 	ecm_src_prepare
 	use handbook || cmake_run_in ktnef cmake_comment_add_subdirectory doc

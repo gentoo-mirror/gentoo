@@ -12,7 +12,7 @@ QTMIN=5.15.5
 inherit ecm gear.kde.org python-single-r1
 
 DESCRIPTION="Python plugin for KDevelop"
-HOMEPAGE="https://kdevelop.org/"
+HOMEPAGE="https://www.kdevelop.org/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"

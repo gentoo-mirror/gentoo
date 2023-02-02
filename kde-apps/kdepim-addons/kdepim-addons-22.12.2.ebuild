@@ -68,8 +68,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-22.08.3-spamassassin-4.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package importwizard KPimImportWizard)
