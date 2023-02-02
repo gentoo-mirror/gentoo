@@ -21,10 +21,8 @@ LICENSE="BSD-2"
 SLOT="0"
 IUSE="+dhcp"
 
-DEPEND="!<sys-fs/udev-172"
 RDEPEND="sys-apps/gentoo-functions
 	>=sys-apps/openrc-0.15
-	!<sys-fs/udev-init-scripts-27
 	dhcp? ( || ( net-misc/dhcpcd net-misc/dhcp[client] ) )"
 BDEPEND="kernel_linux? ( virtual/pkgconfig )"
 
@@ -40,25 +38,29 @@ src_prepare() {
 }
 
 src_compile() {
-	MAKE_ARGS="${MAKE_ARGS}
-		UDEVDIR=${EPREFIX}$(get_udevdir)
-		LIBEXECDIR=${EPREFIX}/lib/${PN} PF=${PF}"
+	MAKE_ARGS=(
+		PREFIX="${EPREFIX}"
+		UPREFIX="${EPREFIX}/usr"
+		UDEVDIR="${EPREFIX}$(get_udevdir)"
+		LIBEXECDIR="${EPREFIX}/lib/${PN}"
+		PF="${PF}"
+	)
 
-	use prefix && MAKE_ARGS+=" MKPREFIX=yes PREFIX=${EPREFIX}"
-
-	emake ${MAKE_ARGS} all
+	emake "${MAKE_ARGS[@]}" all
 }
 
 src_install() {
-	emake ${MAKE_ARGS} DESTDIR="${D}" install
+	emake "${MAKE_ARGS[@]}" DESTDIR="${D}" install
 	dodoc README CREDITS FEATURE-REMOVAL-SCHEDULE STYLE TODO
 
 	# Install the service file
-	LIBEXECDIR="${EPREFIX}/lib/${PN}"
-	UNIT_DIR="$(systemd_get_systemunitdir)"
+	local LIBEXECDIR="${EPREFIX}/lib/${PN}"
 	sed "s:@LIBEXECDIR@:${LIBEXECDIR}:" "${S}/systemd/net_at.service.in" > "${T}/net_at.service" || die
 	systemd_newunit "${T}/net_at.service" 'net@.service'
-	dosym "${UNIT_DIR#${EPREFIX}}/net@.service" "${UNIT_DIR#${EPREFIX}}/net@lo.service"
+
+	local UNIT_DIR="$(systemd_get_systemunitdir)"
+	UNIT_DIR="${UNIT_DIR#"${EPREFIX}"}"
+	dosym net@.service "${UNIT_DIR}/net@lo.service"
 }
 
 pkg_postinst() {
