@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
@@ -29,14 +29,9 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/cherrypy[${PYTHON_USEDEP}]
-		dev-python/filelock[${PYTHON_USEDEP}]
+		dev-python/lockfile[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	sed -e 's/setuptools.find_packages(/&exclude=["tests", "tests.*"]/' -i setup.py || die
-	distutils-r1_src_prepare
-}

@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,10 +18,15 @@ else
 fi
 
 PATCHES=(
+	"${FILESDIR}/${PN}-4.5.2-dependencies.patch"
 	"${FILESDIR}/${PN}-5.1.3-Find-CLANG_RESOURCE_DIR.patch"
+	"${FILESDIR}/${PN}-5.1.3-clang-link.patch"
 	"${FILESDIR}/${PN}-5.1.3-clang-fix-include.patch"
 	"${FILESDIR}/${PN}-5.1.3-rocm-path.patch"
+	"${FILESDIR}/0001-COMGR-changes-needed-for-upstream-llvm.patch"
 	"${FILESDIR}/${PN}-5.1.3-llvm-15-remove-zlib-gnu"
+	"${FILESDIR}/${PN}-5.1.3-llvm-15-args-changed"
+	"${FILESDIR}/${PN}-5.3.3-fno-stack-protector.patch"
 )
 
 DESCRIPTION="Radeon Open Compute Code Object Manager"
