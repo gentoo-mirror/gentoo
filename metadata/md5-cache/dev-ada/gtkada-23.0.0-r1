@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://libre.adacore.com//tools/gtkada/
 INHERIT=ada autotools multiprocessing
 IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/gtkada/archive/refs/tags/v23.0.0.tar.gz -> gtkada-23.0.0.tar.gz
 _eclasses_=ada	8af8cc9968a30d4ac8eb99aa6c62eeba	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=82dacd19788cccc1eb698c39f7f0edc7
+_md5_=d662bc16756fa22fd0a68c20797cefe3
