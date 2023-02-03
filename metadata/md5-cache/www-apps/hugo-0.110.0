@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.18 test? ( dev-python/docutils dev-ruby/asciidoctor virtual/pandoc ) >=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 <dev-lang/go-1.20 test? ( dev-python/docutils dev-ruby/asciidoctor virtual/pandoc ) >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile configure install test unpack
 DEPEND=>=media-libs/libwebp-1.2.3-r1:= sass? ( dev-libs/libsass:= )
 DESCRIPTION=Fast static HTML and CSS website generator
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) strip
 SLOT=0
 SRC_URI=https://github.com/gohugoio/hugo/archive/v0.110.0.tar.gz -> hugo-0.110.0.tar.gz https://tastytea.de/files/gentoo/hugo-0.110.0-vendor.tar.xz
 _eclasses_=go-module	75029f071ebc843223233ab1b0a2d4a5	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=59f77f075bd4521f537c6ff425055e9f
+_md5_=0546070a6bd9de63e0a0c46ef12064c5

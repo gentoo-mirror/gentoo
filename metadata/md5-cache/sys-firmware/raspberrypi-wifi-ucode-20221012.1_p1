@@ -1,4 +1,4 @@
-DEFINED_PHASES=install pretend
+DEFINED_PHASES=configure install pretend
 DESCRIPTION=Most up-to-date uCode for the Broadcom wifi chips on Raspberry Pi SBCs
 EAPI=8
 HOMEPAGE=https://github.com/RPi-Distro/firmware-nonfree https://archive.raspberrypi.org/debian/pool/main/f/firmware-nonfree
@@ -6,5 +6,5 @@ KEYWORDS=~arm ~arm64
 LICENSE=Broadcom
 RDEPEND=net-wireless/wireless-regdb !sys-kernel/linux-firmware[-savedconfig]
 SLOT=0
-SRC_URI=https://archive.raspberrypi.org/debian/pool/main/f/firmware-nonfree/firmware-nonfree_20210315-3+rpt5.debian.tar.xz
-_md5_=21fbf68d47b4eee8a1e5146de0faca8e
+SRC_URI=https://archive.raspberrypi.org/debian/pool/main/f/firmware-nonfree/firmware-nonfree_20221012-1~bpo11+1+rpt1.debian.tar.xz
+_md5_=7adb0bb7e175a8e58f4b8af0c1752edf
