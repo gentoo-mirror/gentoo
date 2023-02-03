@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit elisp
 
@@ -9,6 +9,7 @@ MY_P="${PN}-${PV#*_p}"
 DESCRIPTION="Message citation utilities for emacsen"
 HOMEPAGE="https://www.jpl.org/elips/mu/"
 SRC_URI="https://www.jpl.org/elips/mu/snapshots/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -18,9 +19,8 @@ IUSE="bbdb"
 RDEPEND="app-emacs/apel
 	app-emacs/flim
 	bbdb? ( app-emacs/bbdb )"
-DEPEND="${RDEPEND}"
+BDEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${MY_P}"
 SITEFILE="50${PN}-gentoo.el"
 DOCS="ChangeLog NEWS README.en"
 
