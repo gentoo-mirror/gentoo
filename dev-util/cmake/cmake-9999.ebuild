@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,8 @@ EAPI=8
 : ${CMAKE_DOCS_PREBUILT:=1}
 
 CMAKE_DOCS_PREBUILT_DEV=sam
-CMAKE_DOCS_VERSION=$(ver_cut 1-3)
+#CMAKE_DOCS_VERSION=$(ver_cut 1-3)
+CMAKE_DOCS_VERSION=${PV}
 # Default to generating docs (inc. man pages) if no prebuilt; overridden later
 # See bug #784815
 CMAKE_DOCS_USEFLAG="+doc"
@@ -133,7 +134,7 @@ cmake_src_bootstrap() {
 src_unpack() {
 	if [[ ${PV} == 9999 ]] ; then
 		git-r3_src_unpack
-	elif ! use verify-sig || [[ ${PV} == *_rc* ]] ; then
+	elif [[ ${PV} == *_rc* ]] || ! use verify-sig ; then
 		default
 	else
 		cd "${DISTDIR}" || die
