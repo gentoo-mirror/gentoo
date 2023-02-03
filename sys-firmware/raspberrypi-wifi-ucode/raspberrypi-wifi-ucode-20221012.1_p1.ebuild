@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ HOMEPAGE="
 	https://github.com/RPi-Distro/firmware-nonfree
 	https://archive.raspberrypi.org/debian/pool/main/f/firmware-nonfree"
 MY_PN=firmware-nonfree
-SRC_URI="https://archive.raspberrypi.org/debian/pool/main/f/${MY_PN}/${MY_PN}_$(ver_cut 1)-$(ver_cut 2)+rpt$(ver_cut 4).debian.tar.xz"
+SRC_URI="https://archive.raspberrypi.org/debian/pool/main/f/${MY_PN}/${MY_PN}_$(ver_cut 1)-$(ver_cut 2)~bpo11+1+rpt$(ver_cut 4).debian.tar.xz"
 S="${WORKDIR}"
 
 LICENSE="Broadcom"
@@ -58,6 +58,25 @@ pkg_pretend() {
 	fi
 }
 
+src_configure() {
+	unlink "${S}"/debian/config/brcm80211/brcm/brcmfmac43455-sdio.bin || die
+	ln -rs \
+		"${S}"/debian/config/brcm80211/cypress/cyfmac43455-sdio-standard.bin \
+		"${S}"/debian/config/brcm80211/brcm/brcmfmac43455-sdio.bin || die
+
+	ln -frs \
+		"${S}"/debian/config/brcm80211/cypress/cyfmac43455-sdio-standard.bin \
+		"${S}"/debian/config/brcm80211/brcm/brcmfmac43455-sdio.raspberrypi,3-model-a-plus.bin
+
+	ln -frs \
+		"${S}"/debian/config/brcm80211/cypress/cyfmac43455-sdio-standard.bin \
+		"${S}"/debian/config/brcm80211/brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.bin
+
+	ln -frs \
+		"${S}"/debian/config/brcm80211/cypress/cyfmac43455-sdio-standard.bin \
+		"${S}"/debian/config/brcm80211/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.bin
+}
+
 src_install() {
 	insinto /lib/firmware/brcm
 	doins debian/config/brcm80211/brcm/*
@@ -65,5 +84,5 @@ src_install() {
 	insinto /lib/firmware/cypress
 	doins debian/config/brcm80211/cypress/*
 
-	dodoc debian/config/brcm80211/LICENSE debian/changelog
+	dodoc debian/changelog
 }

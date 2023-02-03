@@ -21,7 +21,7 @@ case ${PV}  in
 	case ${PV} in
 	*_beta*|*_rc*) ;;
 	*)
-		KEYWORDS="-* ~amd64 ~arm arm64 ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+		KEYWORDS="-* ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 		;;
 	esac
 esac
@@ -31,7 +31,7 @@ HOMEPAGE="https://go.dev"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-IUSE="cpu_flags_x86_sse2"
+IUSE="abi_mips_o32 abi_mips_n64 cpu_flags_x86_sse2"
 
 BDEPEND="|| (
 		dev-lang/go
@@ -55,11 +55,10 @@ QA_PREBUILT='.*'
 RESTRICT+=" strip"
 
 DOCS=(
-AUTHORS
-CONTRIBUTING.md
-CONTRIBUTORS
-PATENTS
-README.md
+	CONTRIBUTING.md
+	PATENTS
+	README.md
+	SECURITY.md
 )
 
 go_arch() {
@@ -68,6 +67,12 @@ go_arch() {
 	case "${tc_arch}" in
 		x86)	echo 386;;
 		x64-*)	echo amd64;;
+		loong)	echo loong64;;
+		mips) if use abi_mips_o32; then
+				[[ $(tc-endian $@) = big ]] && echo mips || echo mipsle
+			elif use abi_mips_n64; then
+				[[ $(tc-endian $@) = big ]] && echo mips64 || echo mips64le
+			fi ;;
 		ppc64) [[ $(tc-endian $@) = big ]] && echo ppc64 || echo ppc64le ;;
 		riscv) echo riscv64 ;;
 		s390) echo s390x ;;
