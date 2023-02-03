@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare test
+DEPEND=dev-libs/json-c:= dev-libs/libgcrypt:= dev-libs/libgpg-error net-libs/libpcap
+DESCRIPTION=Open Source Deep Packet Inspection Software Toolkit
+EAPI=8
+HOMEPAGE=https://www.ntop.org/
+INHERIT=autotools edo
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3+
+RDEPEND=dev-libs/json-c:= dev-libs/libgcrypt:= dev-libs/libgpg-error net-libs/libpcap
+SLOT=0/4
+SRC_URI=https://github.com/ntop/nDPI/archive/4.6.tar.gz -> nDPI-4.6.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3
+_md5_=0f6e4ff0d8a402165c84276180939256
