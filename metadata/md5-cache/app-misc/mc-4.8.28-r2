@@ -1,5 +1,5 @@
 BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-libs/check ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=configure install postinst prepare pretend test
+DEFINED_PHASES=configure install postinst prepare test
 DEPEND=>=dev-libs/glib-2.30.0:2 gpm? ( sys-libs/gpm ) kernel_linux? ( sys-fs/e2fsprogs[tools(+)] ) sftp? ( net-libs/libssh2 ) slang? ( >=sys-libs/slang-2 ) !slang? ( sys-libs/ncurses:=[unicode(+)?] ) spell? ( app-text/aspell ) X? ( x11-libs/libX11 x11-libs/libICE x11-libs/libXau x11-libs/libXdmcp x11-libs/libSM )
 DESCRIPTION=GNU Midnight Commander is a text based file manager
 EAPI=8
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://ftp.midnight-commander.org/mc-4.8.28.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=05c80cbffc75e627d35e9a526d5081e6
+_md5_=293c12285f160d51ca7b07b3a7d345b6

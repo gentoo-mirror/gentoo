@@ -1,5 +1,5 @@
 BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-libs/check ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install postinst prepare pretend test unpack
+DEFINED_PHASES=configure install postinst prepare test unpack
 DEPEND=>=dev-libs/glib-2.30.0:2 gpm? ( sys-libs/gpm ) kernel_linux? ( sys-fs/e2fsprogs[tools(+)] ) sftp? ( net-libs/libssh2 ) slang? ( >=sys-libs/slang-2 ) !slang? ( sys-libs/ncurses:=[unicode(+)?] ) spell? ( app-text/aspell ) X? ( x11-libs/libX11 x11-libs/libICE x11-libs/libXau x11-libs/libXdmcp x11-libs/libSM )
 DESCRIPTION=GNU Midnight Commander is a text based file manager
 EAPI=8
@@ -13,4 +13,4 @@ REQUIRED_USE=spell? ( edit )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=88b30298a78a43b9f56bd794216726b6
+_md5_=1100feb864a65e9ce9ffad8be327627d
