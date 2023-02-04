@@ -13,9 +13,9 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/google/googletest"
 else
 	if [[ -z ${GOOGLETEST_COMMIT} ]]; then
-		SRC_URI="https://github.com/google/googletest/archive/refs/tags/release-${PV}.tar.gz
+		SRC_URI="https://github.com/google/googletest/archive/refs/tags/v${PV}.tar.gz
 			-> ${P}.tar.gz"
-		S="${WORKDIR}"/googletest-release-${PV}
+		S="${WORKDIR}"/googletest-${PV}
 	else
 		SRC_URI="https://github.com/google/googletest/archive/${GOOGLETEST_COMMIT}.tar.gz
 			-> ${P}.tar.gz"
@@ -60,7 +60,7 @@ multilib_src_configure() {
 
 multilib_src_test() {
 	# Exclude tests that fail with FEATURES="usersandbox"
-	cmake_src_test -E "googletest-death-test-test"
+	cmake_src_test -E "googletest-(death-test|port)-test"
 }
 
 multilib_src_install_all() {
