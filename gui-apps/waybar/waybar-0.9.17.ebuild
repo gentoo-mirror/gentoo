@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,10 +19,11 @@ S="${WORKDIR}/${PN^}-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="mpd network +popups pulseaudio sndio tray +udev wifi"
+IUSE="experimental mpd network +popups pulseaudio sndio tray +udev wifi"
 
 BDEPEND="
 	>=app-text/scdoc-1.9.2
+	>=dev-cpp/catch-3.0.1
 	dev-util/gdbus-codegen
 	virtual/pkgconfig
 "
@@ -35,7 +36,6 @@ DEPEND="
 	dev-libs/libinput:=
 	dev-libs/libsigc++:2
 	>=dev-libs/libfmt-7.0.0:=
-	<dev-libs/libfmt-9.0.0:=
 	>=dev-libs/spdlog-1.8.5:=
 	dev-libs/date:=
 	dev-libs/wayland
@@ -57,6 +57,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/waybar-0.9.17-wireplumber.patch"
+)
+
 src_configure() {
 	local emesonargs=(
 		$(meson_feature mpd)
@@ -67,6 +71,7 @@ src_configure() {
 		$(meson_feature tray dbusmenu-gtk)
 		$(meson_feature udev libudev)
 		$(meson_feature wifi rfkill)
+		$(meson_use experimental)
 	)
 	meson_src_configure
 }
