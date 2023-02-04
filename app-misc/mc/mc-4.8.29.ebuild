@@ -14,7 +14,7 @@ HOMEPAGE="https://midnight-commander.org"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+edit gpm nls sftp slang spell test unicode X"
+IUSE="+edit gpm nls sftp +slang spell test unicode X"
 
 REQUIRED_USE="spell? ( edit )"
 
@@ -51,12 +51,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.8.26-ncurses-mouse.patch
 	"${FILESDIR}"/${PN}-4.8.29-gentoo-tools.patch
 )
-
-pkg_pretend() {
-	if use slang && use unicode ; then
-		ewarn "\"unicode\" USE flag only takes effect when the \"slang\" USE flag is disabled."
-	fi
-}
 
 src_prepare() {
 	default
