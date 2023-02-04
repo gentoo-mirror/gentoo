@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9[ncurses(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10[ncurses(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11[ncurses(+)] ) python_single_target_python3_9? ( >=dev-python/gpep517-9[python_targets_python3_9(-)] >=dev-python/setuptools-65.5.1[python_targets_python3_9(-)] >=dev-python/wheel-0.38.4[python_targets_python3_9(-)] ) python_single_target_python3_10? ( >=dev-python/gpep517-9[python_targets_python3_10(-)] >=dev-python/setuptools-65.5.1[python_targets_python3_10(-)] >=dev-python/wheel-0.38.4[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/gpep517-9[python_targets_python3_11(-)] >=dev-python/setuptools-65.5.1[python_targets_python3_11(-)] >=dev-python/wheel-0.38.4[python_targets_python3_11(-)] )
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DESCRIPTION=Top-like UI used to show which process is using the I/O
+EAPI=8
+HOMEPAGE=http://guichaz.free.fr/iotop/
+INHERIT=distutils-r1 linux-info
+IUSE=python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=!sys-process/iotop-c python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9[ncurses(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10[ncurses(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1:3.11[ncurses(+)] )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://repo.or.cz/iotop.git/snapshot/a14256a3ff74eeee59493ac088561f1bafab85a7.tar.gz -> iotop-0.6_p20230124.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-single-r1	75118e916668a74c660a13b0ecb22562	distutils-r1	dcd5f48510105eb95e550ab968147365	linux-info	4b552625ebd741dfd2ac08637fd2436e
+_md5_=a5aec35c3d15ff6fe6dfdb94771b8c24
