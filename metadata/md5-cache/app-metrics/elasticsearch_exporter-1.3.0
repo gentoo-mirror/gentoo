@@ -1,5 +1,5 @@
 BDEPEND=dev-util/promu >=dev-lang/go-1.18 app-arch/unzip
-DEFINED_PHASES=compile install prepare unpack
+DEFINED_PHASES=compile install prepare test unpack
 DEPEND=acct-group/elasticsearch_exporter acct-user/elasticsearch_exporter
 DESCRIPTION=Elasticsearch stats exporter for Prometheus
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/justwatchcom/elasticsearch_exporter/archive/v1.3.0.tar.gz -> elasticsearch_exporter-1.3.0.tar.gz https://dev.gentoo.org/~williamh/dist/elasticsearch_exporter-1.3.0-deps.tar.xz
 _eclasses_=go-module	75029f071ebc843223233ab1b0a2d4a5
-_md5_=9a32330fdbef15f06d625464afa06fbf
+_md5_=3ad70b210ef1694e9c32eb6032919902
