@@ -3583,7 +3583,7 @@ app-text/libmspub 0.1.4 9999: Library parsing Microsoft Publisher documents
 app-text/libmwaw 0.3.21 9999: Library parsing many pre-OSX MAC text formats
 app-text/libnumbertext 1.0.11: Number to number name and money text conversion libraries
 app-text/libodfgen 0.1.8 9999: Library to generate ODF documents from libwpd and libwpg
-app-text/libpaper 1.1.28 2.0.3 2.0.4 2.0.5: Library for handling paper characteristics
+app-text/libpaper 1.1.28 2.0.4 2.0.5 2.0.7: Library for handling paper characteristics
 app-text/libqxp 0.0.2: Library parsing QuarkXpress documents
 app-text/libspectre 0.2.10 0.2.11: Library for rendering Postscript documents
 app-text/libstaroffice 0.0.7 9999: Import filter for old StarOffice documents
@@ -5367,7 +5367,7 @@ dev-libs/cJSON 1.7.15: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2: RPC/Serialization system with capabilities support
 dev-libs/capstone 4.0.2-r2 5.0_rc2-r2 9999: disassembly/disassembler framework + bindings
 dev-libs/castxml 0.4.5 0.5.1: C-family abstract syntax tree XML output tool
-dev-libs/cdk 5.0.20210324-r2 5.0.20211216 5.0.20221025: A library of curses widgets
+dev-libs/cdk 5.0.20210324-r2 5.0.20221025 5.0.20230201: A library of curses widgets
 dev-libs/cereal 1.3.2-r2: Header-only C++11 serialization library
 dev-libs/cgilib 0.7-r1: A simple and lightweight interface to the CGI for C and C++ programs
 dev-libs/cgreen 1.3.0: Unit test and mocking framework for C and C++
@@ -8808,7 +8808,7 @@ dev-python/munch 2.5.0-r2: A dot-accessible dictionary (a la JavaScript objects)
 dev-python/munkres 1.1.4-r1: Module implementing munkres algorithm for the Assignment Problem
 dev-python/mygpoclient 1.9: A gpodder.net client library
 dev-python/mypy 0.991: Optional static typing for Python
-dev-python/mypy_extensions 0.4.3-r2 0.4.4: Optional static typing for Python
+dev-python/mypy_extensions 0.4.3-r2 0.4.4 1.0.0: Type system extensions for programs checked with mypy
 dev-python/mysqlclient 2.1.1: Python interface to MySQL
 dev-python/myst_parser 0.18.1-r1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plugins
@@ -10644,7 +10644,7 @@ dev-util/buildbot-waterfall-view 3.6.1: Buildbot waterfall-view plugin
 dev-util/buildbot-worker 3.6.1-r2 9999: BuildBot Worker (slave) Daemon
 dev-util/buildbot-wsgi-dashboards 3.6.1: Buildbot plugin to integrate flask or bottle dashboards to buildbot UI
 dev-util/buildbot-www 3.6.1: BuildBot base web interface, use with buildbot-{console-view,waterfall-view}...
-dev-util/byacc 20221106 20221229: The best variant of the Yacc parser generator
+dev-util/byacc 20221229 20230201: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.17.0: Audit Cargo.lock for security vulnerabilities
 dev-util/cargo-c 0.9.14 0.9.15: Helper program to build and install c-like libraries
 dev-util/cargo-ebuild 0.5.2 0.5.4: Generates an ebuild for a package using the in-tree eclasses.
@@ -16968,7 +16968,7 @@ sys-apps/man-db 2.10.2-r1 2.11.1 2.11.2 9999: A man replacement that utilizes db
 sys-apps/man-pages 5.12-r3 5.13-r2 6.01 6.02-r1 9999: A somewhat comprehensive collection of Linux man pages
 sys-apps/man-pages-posix 2013a 2017a-r1: POSIX man-pages (0p, 1p, 3p)
 sys-apps/man2html 1.6g 1.6g-r2: Standard commands to read man pages
-sys-apps/mawk 1.3.4_p20200120-r1: An (often faster than gawk) awk-interpreter
+sys-apps/mawk 1.3.4_p20200120-r1 1.3.4_p20230203: An (often faster than gawk) awk-interpreter
 sys-apps/mcstrans 3.3 3.4 9999: SELinux context translation to human readable names
 sys-apps/memtest86 4.3.7-r2: A stand alone memory test for x86 computers
 sys-apps/memtest86+ 5.31b-r3 6.00 6.01 6.10: Memory tester based on PCMemTest
@@ -18139,7 +18139,7 @@ x11-apps/iceauth 1.0.9: ICE authority file utility
 x11-apps/ico 1.0.6: animate an icosahedron or other polyhedron
 x11-apps/igt-gpu-tools 1.26-r2 9999: Intel GPU userland tools
 x11-apps/listres 1.0.5: list resources in widgets
-x11-apps/luit 20221028: Locale and ISO 2022 support for Unicode terminals
+x11-apps/luit 20221028 20230201: Locale and ISO 2022 support for Unicode terminals
 x11-apps/mesa-progs 8.5.0 9999: Mesa's OpenGL utility and demo programs (glxgears and glxinfo)
 x11-apps/mkfontscale 1.2.2: create an index of scalable font files for X
 x11-apps/oclock 1.0.5: round X clock
@@ -18829,7 +18829,7 @@ x11-terms/terminology 1.13.0: Feature rich terminal emulator using the Enlighten
 x11-terms/tilda 1.5.4: A drop down terminal, similar to the consoles found in first person shooters
 x11-terms/wezterm 20221119.145034: A GPU-accelerated cross-platform terminal emulator and multiplexer
 x11-terms/xfce4-terminal 1.0.4: A terminal emulator for the Xfce desktop environment
-x11-terms/xterm 376 377-r1 378: Terminal Emulator for X Windows
+x11-terms/xterm 377-r1 378: Terminal Emulator for X Windows
 x11-terms/yeahconsole 0.3.4-r1: yeahconsole turns an xterm or rxvt-unicode into a game-like console
 x11-terms/zutty 0.13: X terminal emulator rendering through OpenGL ES Compute Shaders
 x11-themes/QGnomePlatform 0.8.4-r1 0.9.0: A Qt Platform Theme aimed to accommodate GNOME settings
