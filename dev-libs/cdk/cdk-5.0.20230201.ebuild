@@ -1,23 +1,30 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_P="${PN}-$(ver_rs 2 -)"
 
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/thomasdickey.asc
+inherit verify-sig
+
 DESCRIPTION="A library of curses widgets"
 HOMEPAGE="https://dickey.his.com/cdk/cdk.html https://github.com/ThomasDickey/cdk-snapshots"
-SRC_URI="ftp://ftp.invisible-island.net/cdk/${MY_P}.tgz"
+SRC_URI="https://invisible-island.net/archives/${PN}/${MY_P}.tgz"
+SRC_URI+=" verify-sig? ( https://invisible-island.net/archives/${PN}/${MY_P}.tgz.asc )"
 S="${WORKDIR}"/${MY_P}
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0/6" # subslot = soname version
 KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 IUSE="examples unicode"
 
 DEPEND="sys-libs/ncurses:=[unicode(+)?]"
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	verify-sig? ( sec-keys/openpgp-keys-thomasdickey )
+"
 
 src_configure() {
 	if [[ ${CHOST} == *-*-darwin* ]] ; then
