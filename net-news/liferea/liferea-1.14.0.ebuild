@@ -4,16 +4,12 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
-MY_PV="${PV/_/-}"
-MY_PV="${MY_PV^^}"
-MY_P="${PN}-${MY_PV}"
 
 inherit autotools gnome2-utils optfeature python-single-r1 xdg
 
 DESCRIPTION="News Aggregator for RDF/RSS/CDF/Atom/Echo feeds"
 HOMEPAGE="https://lzone.de/liferea/"
-SRC_URI="https://github.com/lwindolf/${PN}/releases/download/v${MY_PV}/${MY_P}.tar.bz2"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="https://github.com/lwindolf/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
