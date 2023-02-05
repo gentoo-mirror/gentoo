@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="A high-throughput distributed messaging system"
 HOMEPAGE="https://kafka.apache.org/"
@@ -21,7 +21,7 @@ IUSE="internal-zookeeper connect"
 
 COMMON_DEPEND="acct-group/kafka
 	acct-user/kafka
-	virtual/jre:1.8"
+	virtual/jre:="
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
