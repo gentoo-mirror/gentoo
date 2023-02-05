@@ -4,16 +4,15 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} )
-DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=poetry
 
 CRATES="
 	aho-corasick-0.7.19
-	anyhow-1.0.66
+	anyhow-1.0.68
 	arc-swap-1.5.1
 	autocfg-1.1.0
 	bitflags-1.3.2
-	blake2-0.10.5
+	blake2-0.10.6
 	block-buffer-0.10.3
 	cfg-if-1.0.0
 	crypto-common-0.1.6
@@ -45,12 +44,12 @@ CRATES="
 	regex-syntax-0.6.27
 	ryu-1.0.11
 	scopeguard-1.1.0
-	serde-1.0.147
-	serde_derive-1.0.147
-	serde_json-1.0.87
+	serde-1.0.152
+	serde_derive-1.0.152
+	serde_json-1.0.91
 	smallvec-1.10.0
 	subtle-2.4.1
-	syn-1.0.102
+	syn-1.0.104
 	target-lexicon-0.12.4
 	typenum-1.15.0
 	unicode-ident-1.0.5
@@ -82,9 +81,11 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="Apache-2.0"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 MIT Unicode-DFS-2016 Unlicense"
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016
+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -93,47 +94,44 @@ DEPEND="
 	acct-group/synapse
 "
 RDEPEND="${DEPEND}
-	$(python_gen_cond_dep '
-		dev-python/attrs[${PYTHON_USEDEP}]
-		dev-python/bcrypt[${PYTHON_USEDEP}]
-		dev-python/bleach[${PYTHON_USEDEP}]
-		dev-python/canonicaljson[${PYTHON_USEDEP}]
-		dev-python/cryptography[${PYTHON_USEDEP}]
-		dev-python/frozendict[${PYTHON_USEDEP}]
-		dev-python/ijson[${PYTHON_USEDEP}]
-		>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
-		dev-python/jsonschema[${PYTHON_USEDEP}]
-		>=dev-python/matrix-common-1.3.0[${PYTHON_USEDEP}]
-		dev-python/msgpack[${PYTHON_USEDEP}]
-		dev-python/netaddr[${PYTHON_USEDEP}]
-		dev-python/packaging[${PYTHON_USEDEP}]
-		dev-python/phonenumbers[${PYTHON_USEDEP}]
-		dev-python/pillow[${PYTHON_USEDEP},webp]
-		dev-python/prometheus_client[${PYTHON_USEDEP}]
-		dev-python/pyasn1-modules[${PYTHON_USEDEP}]
-		dev-python/pyasn1[${PYTHON_USEDEP}]
-		dev-python/pydantic[${PYTHON_USEDEP}]
-		dev-python/pymacaroons[${PYTHON_USEDEP}]
-		dev-python/pyopenssl[${PYTHON_USEDEP}]
-		dev-python/pyyaml[${PYTHON_USEDEP}]
-		dev-python/service_identity[${PYTHON_USEDEP}]
-		dev-python/signedjson[${PYTHON_USEDEP}]
-		dev-python/sortedcontainers[${PYTHON_USEDEP}]
-		dev-python/treq[${PYTHON_USEDEP}]
-		dev-python/twisted[${PYTHON_USEDEP}]
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-		dev-python/unpaddedbase64[${PYTHON_USEDEP}]
-		postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
-		systemd? ( dev-python/python-systemd[${PYTHON_USEDEP}] )
-	')
+	dev-python/attrs[${PYTHON_USEDEP}]
+	dev-python/bcrypt[${PYTHON_USEDEP}]
+	dev-python/bleach[${PYTHON_USEDEP}]
+	dev-python/canonicaljson[${PYTHON_USEDEP}]
+	dev-python/cryptography[${PYTHON_USEDEP}]
+	dev-python/frozendict[${PYTHON_USEDEP}]
+	dev-python/ijson[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
+	dev-python/jsonschema[${PYTHON_USEDEP}]
+	>=dev-python/matrix-common-1.3.0[${PYTHON_USEDEP}]
+	dev-python/msgpack[${PYTHON_USEDEP}]
+	dev-python/netaddr[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]
+	dev-python/phonenumbers[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP},webp]
+	dev-python/prometheus_client[${PYTHON_USEDEP}]
+	dev-python/pyasn1-modules[${PYTHON_USEDEP}]
+	dev-python/pyasn1[${PYTHON_USEDEP}]
+	dev-python/pydantic[${PYTHON_USEDEP}]
+	dev-python/pymacaroons[${PYTHON_USEDEP}]
+	dev-python/pyopenssl[${PYTHON_USEDEP}]
+	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/service_identity[${PYTHON_USEDEP}]
+	dev-python/signedjson[${PYTHON_USEDEP}]
+	dev-python/sortedcontainers[${PYTHON_USEDEP}]
+	dev-python/treq[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
+	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
+	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
+	systemd? ( dev-python/python-systemd[${PYTHON_USEDEP}] )
 "
 BDEPEND="
-	$(python_gen_cond_dep 'dev-python/setuptools-rust[${PYTHON_USEDEP}]')
+	<dev-python/poetry-core-1.5.0[${PYTHON_USEDEP}]
+	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	test? (
-		$(python_gen_cond_dep '
-			dev-python/idna[${PYTHON_USEDEP}]
-			dev-python/parameterized[${PYTHON_USEDEP}]
-		')
+		dev-python/idna[${PYTHON_USEDEP}]
+		dev-python/parameterized[${PYTHON_USEDEP}]
 		postgres? ( dev-db/postgresql[server] )
 	)
 "
@@ -178,6 +176,7 @@ python_install() {
 }
 
 pkg_postinst() {
+	optfeature "Improve user search for international display names" dev-python/pyicu
 	optfeature "VoIP relaying on your homeserver with turn" net-im/coturn
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
