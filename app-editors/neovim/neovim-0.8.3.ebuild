@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/neovim/neovim.git"
 else
 	SRC_URI="https://github.com/neovim/neovim/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm arm64 ~riscv x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86 ~x64-macos"
 fi
 
 LICENSE="Apache-2.0 vim"
@@ -68,18 +68,14 @@ BDEPEND="
 	)
 "
 
-PATCHES=()
+PATCHES=(
+	"${FILESDIR}/${PN}-9999-cmake_lua_version.patch"
+	"${FILESDIR}/${PN}-9999-cmake-darwin.patch"
+)
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} != 9999 ]]; then
 	PATCHES+=(
-		"${FILESDIR}/${PN}-9999-cmake_lua_version.patch"
-		"${FILESDIR}/${PN}-9999-cmake-darwin.patch"
-	)
-else
-	PATCHES+=(
-		"${FILESDIR}/${PN}-9999-cmake_lua_version.patch"
 		"${FILESDIR}/${PN}-0.8.0-cmake-release-type.patch"
-		"${FILESDIR}/${PN}-9999-cmake-darwin.patch"
 	)
 fi
 
