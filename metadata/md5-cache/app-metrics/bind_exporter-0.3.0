@@ -1,5 +1,5 @@
 BDEPEND=dev-util/promu >=dev-lang/go-1.18 app-arch/unzip
-DEFINED_PHASES=compile install postinst prepare unpack
+DEFINED_PHASES=compile install postinst prepare test unpack
 DEPEND=acct-group/bind_exporter acct-user/bind_exporter
 DESCRIPTION=Prometheus exporter for BIND
 EAPI=7
@@ -12,4 +12,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/digitalocean/bind_exporter/archive/v0.3.0.tar.gz -> bind_exporter-0.3.0.tar.gz
 _eclasses_=go-module	75029f071ebc843223233ab1b0a2d4a5
-_md5_=85db8a3df1d1f4d3612aff1c1d891de2
+_md5_=4adddd425849870e27fe8225a5b89ec5
