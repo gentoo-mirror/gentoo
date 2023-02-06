@@ -4,8 +4,8 @@
 EAPI=8
 
 # Disabled for now: bug #850628
-#DISTUTILS_USE_PEP517=setuptools
 # https://bugs.launchpad.net/cloud-init/+bug/1978328
+#DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_11 )
 
 inherit distutils-r1 udev
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://git.launchpad.net/cloud-init"
 else
 	SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 arm64 ppc64 x86"
 fi
 
 DESCRIPTION="Cloud instance initialisation magic"
@@ -23,7 +23,8 @@ HOMEPAGE="https://launchpad.net/cloud-init"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="selinux"
+IUSE="selinux test"
+RESTRICT="!test? ( test )"
 
 CDEPEND="
 	dev-python/jinja[${PYTHON_USEDEP}]
@@ -64,7 +65,6 @@ python_prepare_all() {
 	if [[ ${PV} == *9999 ]] ; then
 		sed -i 's/version=get_version(),/version=9999,/g' setup.py || die
 	fi
-
 	distutils-r1_python_prepare_all
 }
 
