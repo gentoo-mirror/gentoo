@@ -1,0 +1,14 @@
+BDEPEND=test? ( sys-devel/clang:* )
+DEFINED_PHASES=compile install test
+DEPEND=>=virtual/jdk-17:*
+DESCRIPTION=A language with a focus on simplicity, safety and correctness
+EAPI=8
+HOMEPAGE=https://flang.dev/ https://github.com/tokiwa-software/fuzion/
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=>=virtual/jre-17:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tokiwa-software/fuzion/archive/v0.080.tar.gz -> fuzion-0.080.tar.gz
+_md5_=60830cce4d1bab14b6a5abdbd1096920

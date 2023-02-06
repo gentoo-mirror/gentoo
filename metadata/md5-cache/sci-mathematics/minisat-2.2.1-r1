@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=sys-libs/zlib:=
 DESCRIPTION=Small yet efficient SAT solver with reference paper
 EAPI=8
-HOMEPAGE=http://minisat.se/Main.html
+HOMEPAGE=http://minisat.se/Main.html https://github.com/stp/minisat/
 INHERIT=cmake
 IUSE=doc
 KEYWORDS=~amd64 ~x86
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/zlib:=
 SLOT=0/2.2.1
 SRC_URI=https://github.com/stp/minisat/archive/releases/2.2.1.tar.gz -> minisat-2.2.1.tar.gz doc? ( http://minisat.se/downloads/MiniSat.pdf )
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
-_md5_=fac114018ca9b6d7e277dee1812172a1
+_md5_=5ea1be27bc65784e2692a2a88abe2b96
