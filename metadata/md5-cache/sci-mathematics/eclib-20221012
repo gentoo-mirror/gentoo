@@ -4,10 +4,10 @@ DESCRIPTION=Programs for elliptic curves defined over the rational numbers
 EAPI=8
 HOMEPAGE=https://github.com/JohnCremona/eclib
 IUSE=boost flint minimal test
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=sci-mathematics/pari:= dev-libs/ntl:= boost? ( dev-libs/boost:= ) flint? ( sci-mathematics/flint:= )
 RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://github.com/JohnCremona/eclib/releases/download/20221012/eclib-20221012.tar.bz2
-_md5_=a95c493b3ff31e7f1552f3ea3261aac7
+_md5_=caa877f4a878ee13f6566b32067b95a7
