@@ -1,6 +1,6 @@
 BDEPEND=dev-util/cmake sys-apps/which virtual/pkgconfig virtual/fortran
 DEFINED_PHASES=configure install setup
-DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-python/pypy3-7.3.10-r1:0 ) virtual/fortran
+DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 >=dev-python/pypy3-7.3.11-r1:0 ) virtual/fortran
 DESCRIPTION=Portable, Extensible Toolkit for Scientific Computation
 EAPI=8
 HOMEPAGE=https://www.mcs.anl.gov/petsc
@@ -12,5 +12,5 @@ RDEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boo
 REQUIRED_USE=afterimage? ( X ) complex-scalars? ( !hypre !superlu ) hdf5? ( mpi ) hypre? ( mpi !superlu ) mumps? ( mpi scotch ) scotch? ( mpi ) superlu? ( !hypre )
 SLOT=0
 SRC_URI=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.17.1.tar.gz
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
 _md5_=5c6795d0639270af3541a8c88c5f6fe0

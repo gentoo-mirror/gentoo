@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= ) dev-cpp/eigen:3 test? ( dev-cpp/gtest ) virtual/fortran
+DEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= ) dev-cpp/eigen:3 test? ( dev-cpp/gtest ) virtual/fortran
 DESCRIPTION=Large-scale Atomic/Molecular Massively Parallel Simulator
 EAPI=8
 HOMEPAGE=https://lammps.sandia.gov/
@@ -8,10 +8,10 @@ INHERIT=cmake fortran-2 distutils-r1
 IUSE=cuda examples gzip hip lammps-memalign mpi opencl python test python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= ) dev-cpp/eigen:3 virtual/fortran
+RDEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= ) dev-cpp/eigen:3 virtual/fortran
 REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 ) ) ?? ( cuda opencl hip )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://download.lammps.org/tars/lammps-17Feb2022.tar.gz
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	dcd5f48510105eb95e550ab968147365
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	5805686d488d821ed8d8d9367942c0f3
 _md5_=b9043e745c815a7bc77c1c1e9fd3439d
