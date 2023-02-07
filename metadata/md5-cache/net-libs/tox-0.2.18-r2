@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=dev-libs/libsodium:=[asm,urandom,-minimal] dev-libs/msgpack av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= )
+DEPEND=dev-libs/libsodium:=[asm,urandom,-minimal] av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= )
 DESCRIPTION=Encrypted P2P, messaging, and audio/video calling platform
 EAPI=8
 HOMEPAGE=https://tox.chat https://github.com/TokTok/c-toxcore
@@ -8,10 +8,10 @@ INHERIT=cmake systemd
 IUSE=+av debug daemon dht-node ipv6 key-utils log-debug +log-error log-info log-trace log-warn test
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/libsodium:=[asm,urandom,-minimal] dev-libs/msgpack av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= ) daemon? ( acct-group/tox acct-user/tox ) key-utils? ( || ( sys-devel/gcc[openmp] sys-devel/clang-runtime[openmp] ) )
+RDEPEND=dev-libs/libsodium:=[asm,urandom,-minimal] av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= ) daemon? ( acct-group/tox acct-user/tox ) key-utils? ( || ( sys-devel/gcc[openmp] sys-devel/clang-runtime[openmp] ) )
 REQUIRED_USE=?? ( log-debug log-error log-info log-trace log-warn ) daemon? ( dht-node )
 RESTRICT=!test? ( test )
 SLOT=0/0.2
 SRC_URI=https://github.com/TokTok/c-toxcore/releases/download/v0.2.18/c-toxcore-0.2.18.tar.gz
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=81348fb5a2e15e8c456e5526318f2579
+_md5_=872d652c3e0a4ea8d6465fc61ed093b0
