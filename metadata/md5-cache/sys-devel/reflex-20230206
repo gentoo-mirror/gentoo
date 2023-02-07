@@ -1,0 +1,13 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=install unpack
+DESCRIPTION=This is a variant of the flex fast lexical scanner
+EAPI=8
+HOMEPAGE=https://invisible-island.net/reflex/
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=FLEX
+SLOT=0
+SRC_URI=https://invisible-island.net/archives/reflex/reflex-20230206.tgz verify-sig? ( https://invisible-island.net/archives/reflex/reflex-20230206.tgz.asc )
+_eclasses_=verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=ec3b21cfedce9785b8b1e96813e059e9
