@@ -12,7 +12,7 @@ DESCRIPTION="i18n and l10n support for Flask based on Babel and pytz"
 HOMEPAGE="
 	https://python-babel.github.io/flask-babel/
 	https://github.com/python-babel/flask-babel/
-	https://pypi.org/project/Flask-Babel/
+	https://pypi.org/project/flask-babel/
 "
 SRC_URI="
 	https://github.com/python-babel/flask-babel/archive/v${PV}.tar.gz
@@ -39,3 +39,9 @@ BDEPEND="
 distutils_enable_sphinx docs \
 	dev-python/pallets-sphinx-themes
 distutils_enable_tests pytest
+
+src_prepare() {
+	# https://github.com/python-babel/flask-babel/pull/215
+	sed -i -e 's:^include:exclude:' pyproject.toml || die
+	distutils-r1_src_prepare
+}

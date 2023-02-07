@@ -171,7 +171,7 @@ esac
 
 if [[ ! ${_DISTUTILS_R1} ]]; then
 
-inherit multibuild multiprocessing ninja-utils toolchain-funcs
+inherit multibuild multilib multiprocessing ninja-utils toolchain-funcs
 
 if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
 	inherit python-r1
@@ -195,7 +195,7 @@ _distutils_set_globals() {
 		fi
 
 		bdep='
-			>=dev-python/gpep517-9[${PYTHON_USEDEP}]
+			>=dev-python/gpep517-13[${PYTHON_USEDEP}]
 		'
 		case ${DISTUTILS_USE_PEP517} in
 			flit)
@@ -210,7 +210,7 @@ _distutils_set_globals() {
 				;;
 			hatchling)
 				bdep+='
-					>=dev-python/hatchling-1.11.1[${PYTHON_USEDEP}]
+					>=dev-python/hatchling-1.12.2[${PYTHON_USEDEP}]
 				'
 				;;
 			jupyter)
@@ -220,7 +220,7 @@ _distutils_set_globals() {
 				;;
 			maturin)
 				bdep+='
-					>=dev-util/maturin-0.13.7[${PYTHON_USEDEP}]
+					>=dev-util/maturin-0.14.10[${PYTHON_USEDEP}]
 				'
 				;;
 			no)
@@ -229,33 +229,33 @@ _distutils_set_globals() {
 				;;
 			meson-python)
 				bdep+='
-					>=dev-python/meson-python-0.11.0[${PYTHON_USEDEP}]
+					>=dev-python/meson-python-0.12.0[${PYTHON_USEDEP}]
 				'
 				;;
 			pbr)
 				bdep+='
-					>=dev-python/pbr-5.11.0[${PYTHON_USEDEP}]
+					>=dev-python/pbr-5.11.1[${PYTHON_USEDEP}]
 				'
 				;;
 			pdm)
 				bdep+='
-					>=dev-python/pdm-pep517-1.0.5[${PYTHON_USEDEP}]
+					>=dev-python/pdm-pep517-1.0.6[${PYTHON_USEDEP}]
 				'
 				;;
 			poetry)
 				bdep+='
-					>=dev-python/poetry-core-1.3.2[${PYTHON_USEDEP}]
+					>=dev-python/poetry-core-1.4.0[${PYTHON_USEDEP}]
 				'
 				;;
 			setuptools)
 				bdep+='
-					>=dev-python/setuptools-65.5.1[${PYTHON_USEDEP}]
+					>=dev-python/setuptools-65.7.0[${PYTHON_USEDEP}]
 					>=dev-python/wheel-0.38.4[${PYTHON_USEDEP}]
 				'
 				;;
 			sip)
 				bdep+='
-					>=dev-python/sip-6.7.5[${PYTHON_USEDEP}]
+					>=dev-python/sip-6.7.5-r1[${PYTHON_USEDEP}]
 				'
 				;;
 			standalone)
@@ -270,7 +270,7 @@ _distutils_set_globals() {
 			eqawarn "is enabled."
 		fi
 	else
-		local setuptools_dep='>=dev-python/setuptools-65.5.1[${PYTHON_USEDEP}]'
+		local setuptools_dep='>=dev-python/setuptools-65.7.0[${PYTHON_USEDEP}]'
 
 		case ${DISTUTILS_USE_SETUPTOOLS:-bdepend} in
 			no|manual)
@@ -582,7 +582,7 @@ distutils_enable_tests() {
 			test_pkg=">=dev-python/nose-1.3.7_p20221026"
 			;;
 		pytest)
-			test_pkg=">=dev-python/pytest-7.1.3"
+			test_pkg=">=dev-python/pytest-7.2.1"
 			;;
 		setup.py)
 			;;
@@ -647,7 +647,13 @@ esetup.py() {
 
 	local setup_py=( setup.py )
 	if [[ ! -f setup.py ]]; then
-		if [[ ! -f setup.cfg ]]; then
+		# The following call can succeed even if the package does not
+		# feature any setuptools configuration.  In non-PEP517 mode this
+		# could lead to installing an "empty" package.  In PEP517 mode,
+		# we verify the build system when invoking the backend,
+		# rendering this check redundant (and broken for projects using
+		# pyproject.toml configuration).
+		if [[ ! ${DISTUTILS_USE_PEP517} && ! -f setup.cfg ]]; then
 			die "${FUNCNAME}: setup.py nor setup.cfg not found"
 		fi
 		setup_py=( -c "from setuptools import setup; setup()" )
@@ -1033,11 +1039,6 @@ distutils-r1_python_prepare_all() {
 	python_export_utf8_locale
 	_distutils-r1_print_package_versions
 
-	if [[ -n ${SYSROOT} ]] && ! has_version -b ">=dev-python/gpep517-12"; then
-		ewarn ">=dev-python/gpep517-12 features cross-compilation fixes."
-		ewarn "Please consider upgrading to avoid issues."
-	fi
-
 	_DISTUTILS_DEFAULT_CALLED=1
 }
 
@@ -1220,7 +1221,7 @@ _distutils-r1_get_backend() {
 		if [[ -n ${new_backend} ]]; then
 			if [[ ! -f ${T}/.distutils_deprecated_backend_warned ]]; then
 				eqawarn "${build_backend} backend is deprecated.  Please see:"
-				eqawarn "https://projects.gentoo.org/python/guide/distutils.html#deprecated-pep-517-backends"
+				eqawarn "https://projects.gentoo.org/python/guide/qawarn.html#deprecated-pep-517-backends"
 				eqawarn "The eclass will be using ${new_backend} instead."
 				> "${T}"/.distutils_deprecated_backend_warned || die
 			fi
@@ -1267,6 +1268,8 @@ distutils_wheel_install() {
 		-o -path '*.dist-info/LICENSE*' \
 		-o -path '*.dist-info/license_files/*' \
 		-o -path '*.dist-info/license_files' \
+		-o -path '*.dist-info/licenses/*' \
+		-o -path '*.dist-info/licenses' \
 		\) -delete || die
 }
 
@@ -1370,7 +1373,7 @@ distutils_pep517_install() {
 	if [[ -n ${config_settings} ]]; then
 		cmd+=( --config-json "${config_settings}" )
 	fi
-	if [[ -n ${SYSROOT} ]] && has_version -b ">=dev-python/gpep517-12"; then
+	if [[ -n ${SYSROOT} ]]; then
 		cmd+=( --sysroot "${SYSROOT}" )
 	fi
 	printf '%s\n' "${cmd[*]}"
@@ -1985,12 +1988,34 @@ _distutils-r1_post_python_install() {
 			examples test tests
 			.pytest_cache .hypothesis _trial_temp
 		)
+		local strays=()
 		local p
+		mapfile -d $'\0' -t strays < <(
+			find "${sitedir}" -maxdepth 1 -type f '!' '(' \
+					-name '*.egg-info' -o \
+					-name '*.pth' -o \
+					-name '*.py' -o \
+					-name '*.pyi' -o \
+					-name "*$(get_modname)" \
+				')' -print0
+		)
 		for p in "${forbidden_package_names[@]}"; do
-			if [[ -d ${sitedir}/${p} ]]; then
-				die "Package installs '${p}' package which is forbidden and likely a bug in the build system."
-			fi
+			[[ -d ${sitedir}/${p} ]] && strays+=( "${sitedir}/${p}" )
 		done
+
+		if [[ -n ${strays[@]} ]]; then
+			eerror "The following unexpected files/directories were found top-level"
+			eerror "in the site-packages directory:"
+			eerror
+			for p in "${strays[@]}"; do
+				eerror "  ${p#${ED}}"
+			done
+			eerror
+			eerror "This is most likely a bug in the build system.  More information"
+			eerror "can be found in the Python Guide:"
+			eerror "https://projects.gentoo.org/python/guide/qawarn.html#stray-top-level-files-in-site-packages"
+			die "Failing install because of stray top-level files in site-packages"
+		fi
 	fi
 }
 
