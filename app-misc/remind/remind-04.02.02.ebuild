@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,6 +22,8 @@ DEPEND="${RDEPEND}
 	virtual/perl-Getopt-Long
 "
 DOCS="docs/* examples/defs.rem "
+
+PATCHES=( "${FILESDIR}"/${PN}-include-fix.patch )
 
 src_test() {
 	if [[ ${EUID} -eq 0 ]] ; then
