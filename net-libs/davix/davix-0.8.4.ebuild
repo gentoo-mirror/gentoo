@@ -1,24 +1,27 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake
+PYTHON_COMPAT=( python3_{9..11} )
+
+inherit cmake python-any-r1
 
 DESCRIPTION="High-performance file management over WebDAV/HTTP"
-HOMEPAGE="https://dmc.web.cern.ch/projects/davix"
-SRC_URI="http://grid-deployment.web.cern.ch/grid-deployment/dms/lcgutil/tar/${PN}/${PV}/${P}.tar.gz -> ${P}.tar"
+HOMEPAGE="https://github.com/cern-fts/davix"
+SRC_URI="https://github.com/cern-fts/${PN}/releases/download/R_${PV//./_}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="doc ipv6 test tools"
+KEYWORDS="~amd64 ~x86"
+IUSE="doc test tools"
 RESTRICT="!test? ( test )"
 
 CDEPEND="
 		dev-libs/libxml2:2=
 		dev-libs/openssl:0=
 		net-libs/gsoap[ssl,-gnutls]
+		net-misc/curl:0=
 		kernel_linux? ( sys-apps/util-linux )
 "
 
@@ -29,6 +32,7 @@ BDEPEND="
 			dev-python/sphinx
 		)
 		virtual/pkgconfig
+		${PYTHON_DEPS}
 "
 
 RDEPEND="${CDEPEND}"
@@ -47,9 +51,12 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DPython_EXECUTABLE="${PYTHON}"
 		-DDOC_INSTALL_DIR="${EPREFIX}/usr/share/doc/${P}"
+		-DEMBEDDED_LIBCURL=OFF
+		-DLIBCURL_BACKEND_BY_DEFAULT=OFF
 		-DENABLE_HTML_DOCS=$(usex doc)
-		-DENABLE_IPV6=$(usex ipv6)
+		-DENABLE_IPV6=TRUE
 		-DENABLE_TCP_NODELAY=TRUE
 		-DENABLE_THIRD_PARTY_COPY=TRUE
 		-DENABLE_TOOLS=$(usex tools)
@@ -71,12 +78,8 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-
-	if ! use tools; then
-		rm -rf "${ED}/usr/share/man/man1"
-	fi
-
 	if use test; then
-		rm -rf "${ED}/usr/bin/davix-unit-tests"
+		rm "${ED}/usr/bin/davix-unit-tests" || die
+		rm "${ED}/usr/bin/davix-tester" || die
 	fi
 }
