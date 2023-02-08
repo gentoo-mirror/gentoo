@@ -23,7 +23,7 @@ KEYWORDS="~amd64"
 # Enable roughly same as upstream by default so it works as expected,
 # except raycast (tools-only heavy dependency), and deprecated.
 IUSE="debug deprecated +gui raycast +runner test +theora +tools +upnp +vulkan +webp"
-# disable tests until out of beta, tests themselves are new and can be volatile
+# tests need more figuring out, they are still somewhat new and volatile
 RESTRICT="test"
 
 # dlopen: libX*,libglvnd
