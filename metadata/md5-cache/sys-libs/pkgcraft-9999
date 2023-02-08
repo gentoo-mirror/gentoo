@@ -1,13 +1,13 @@
 BDEPEND=test? ( dev-util/cargo-nextest ) dev-util/cargo-c sys-devel/clang >=virtual/rust-1.65 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
+DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=C library for pkgcraft
 EAPI=8
 HOMEPAGE=https://pkgcraft.github.io/
 INHERIT=edo cargo toolchain-funcs git-r3
 IUSE=test debug
-LICENSE=MIT Apache-2.0 BSD GPL-3+ ISC MIT Unicode-DFS-2016
+LICENSE=MIT Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016
 PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	cf36a86462551b403389835d930587fc	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=2d01e7e806845006806187e8ccfbccf7
+_md5_=53fe6143a4ef3d1c5f1a6dd539268782
