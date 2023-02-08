@@ -22,10 +22,6 @@ SLOT="0"
 DEPEND="virtual/libcrypt:="
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-verbose-build-fix.patch
-)
-
 src_prepare() {
 	default
 	restore_config .config
@@ -53,7 +49,7 @@ src_compile() {
 }
 
 src_test() {
-	emake V=1 test
+	emake V=1 tests
 }
 
 src_install() {
