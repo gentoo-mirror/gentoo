@@ -23,13 +23,13 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	>=dev-python/cachetools-5.2.1[${PYTHON_USEDEP}]
+	>=dev-python/cachetools-5.3[${PYTHON_USEDEP}]
 	>=dev-python/chardet-5.1[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.4.6[${PYTHON_USEDEP}]
-	>=dev-python/filelock-3.8.2[${PYTHON_USEDEP}]
+	>=dev-python/filelock-3.9[${PYTHON_USEDEP}]
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2.6[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1[${PYTHON_USEDEP}]
@@ -42,7 +42,7 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/hatch-vcs-0.3[${PYTHON_USEDEP}]
 	test? (
-		dev-python/build[${PYTHON_USEDEP}]
+		>=dev-python/build-0.10[${PYTHON_USEDEP}]
 		>=dev-python/distlib-0.3.6[${PYTHON_USEDEP}]
 		>=dev-python/flaky-3.7[${PYTHON_USEDEP}]
 		>=dev-python/psutil-5.9.4[${PYTHON_USEDEP}]
@@ -50,7 +50,7 @@ BDEPEND="
 		>=dev-python/pytest-xdist-3.1[${PYTHON_USEDEP}]
 		>=dev-python/re-assert-1.1[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
-			>=dev-python/time-machine-2.8.2[${PYTHON_USEDEP}]
+			>=dev-python/time-machine-2.9[${PYTHON_USEDEP}]
 		' 'python*')
 	)
 "
