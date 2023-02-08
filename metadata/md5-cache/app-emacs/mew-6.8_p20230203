@@ -1,0 +1,16 @@
+BDEPEND=>=app-editors/emacs-24:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEPEND=sys-libs/zlib
+DESCRIPTION=Great MIME mail reader for Emacs/XEmacs
+EAPI=8
+HOMEPAGE=https://www.mew.org/
+INHERIT=elisp readme.gentoo-r1
+IUSE=ssl l10n_ja
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=BSD
+RDEPEND=sys-libs/zlib ssl? ( net-misc/stunnel ) >=app-editors/emacs-24:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/kazu-yamamoto/Mew/archive/f96266240586898ea44256f6b24743a50e1113cb.tar.gz -> mew-6.8_p20230203.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_md5_=273ce6a8047a35e9aebf9aea621f8944
