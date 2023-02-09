@@ -27,7 +27,7 @@ RDEPEND="
 	<dev-python/boto3-2[${PYTHON_USEDEP}]
 	>=dev-python/boto3-1.19.5[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2[${PYTHON_USEDEP}]
-	>=dev-python/pydantic-1.10.2[${PYTHON_USEDEP}]
+	>=dev-python/pydantic-1.8[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 "
@@ -40,19 +40,9 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	tests/validator/test_validator_api.py::TestValidatorApi::test_errors_13_error_definitionuri
-	tests/unit/test_region_configuration.py::TestRegionConfiguration::test_is_service_supported_positive_4_ec2
-	tests/plugins/application/test_serverless_app_plugin.py::TestServerlessAppPlugin_on_before_transform_template_translate::test_sar_success_one_app
-	tests/plugins/application/test_serverless_app_plugin.py::TestServerlessAppPlugin_on_before_transform_template_translate::test_sar_throttling_doesnt_stop_processing
-	tests/plugins/application/test_serverless_app_plugin.py::TestServerlessAppPlugin_on_before_transform_template_translate::test_sleep_between_sar_checks
-	tests/plugins/application/test_serverless_app_plugin.py::TestServerlessAppPlugin_on_before_transform_template_translate::test_unexpected_sar_error_stops_processing
-	tests/plugins/application/test_serverless_app_plugin.py::TestServerlessAppPlugin_on_before_and_on_after_transform_template::test_time_limit_exceeds_between_combined_sar_calls
-)
-
 python_prepare_all() {
-	# remove pytest-cov dependency
-	sed -i -e '/addopts/d' pytest.ini || die
+	# so much noise...
+	sed -i -e '/log_cli/d' pytest.ini || die
 
 	# deps are installed by ebuild, don't try to reinstall them via pip
 	truncate --size=0 requirements/*.txt || die
@@ -62,5 +52,6 @@ python_prepare_all() {
 
 python_test() {
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
+	local -x AWS_DEFAULT_REGION=us-east-1
+	epytest -o addopts=
 }
