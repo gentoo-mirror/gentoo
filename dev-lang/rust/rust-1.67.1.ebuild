@@ -163,7 +163,6 @@ VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/rust.asc
 PATCHES=(
 	"${FILESDIR}"/1.65.0-ignore-broken-and-non-applicable-tests.patch
 	"${FILESDIR}"/1.62.1-musl-dynamic-linking.patch
-	"${FILESDIR}"/1.67.0-bootstrap.patch
 	"${FILESDIR}"/1.67.0-doc-wasm.patch
 )
 
