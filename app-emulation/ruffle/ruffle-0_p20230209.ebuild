@@ -11,7 +11,7 @@ CRATES="
 	ahash-0.7.6
 	aho-corasick-0.7.20
 	aliasable-0.1.3
-	alsa-0.6.0
+	alsa-0.7.0
 	alsa-sys-0.3.1
 	android_system_properties-0.1.5
 	anyhow-1.0.68
@@ -22,11 +22,10 @@ CRATES="
 	arrayvec-0.7.2
 	ash-0.37.2+1.3.238
 	async-channel-1.8.0
-	atk-sys-0.15.1
+	atk-sys-0.16.0
 	atty-0.2.14
 	autocfg-1.1.0
 	backtrace-0.3.67
-	base-x-0.2.11
 	base64-0.13.1
 	base64-0.21.0
 	bindgen-0.61.0
@@ -35,19 +34,18 @@ CRATES="
 	bit_field-0.10.1
 	bitflags-1.3.2
 	bitstream-io-1.6.0
-	bitvec-0.19.6
 	block-0.1.6
 	block-buffer-0.10.3
 	bstr-0.2.17
-	bumpalo-3.11.1
-	bytemuck-1.12.3
-	bytemuck_derive-1.3.0
+	bumpalo-3.12.0
+	bytemuck-1.13.0
+	bytemuck_derive-1.4.0
 	byteorder-1.4.3
 	bytes-1.3.0
-	cairo-sys-rs-0.15.1
-	calloop-0.10.4
+	cairo-sys-rs-0.16.3
+	calloop-0.10.5
 	castaway-0.1.2
-	cc-1.0.77
+	cc-1.0.78
 	cesu8-1.1.0
 	cexpr-0.6.0
 	cfg-expr-0.11.0
@@ -55,10 +53,10 @@ CRATES="
 	cfg-if-1.0.0
 	chrono-0.4.23
 	clang-sys-1.4.0
-	clap-4.0.32
-	clap_derive-4.0.21
-	clap_lex-0.3.0
-	clipboard-win-4.4.2
+	clap-4.1.4
+	clap_derive-4.1.0
+	clap_lex-0.3.1
+	clipboard-win-4.5.0
 	cmake-0.1.49
 	cocoa-0.24.1
 	cocoa-foundation-0.1.0
@@ -67,22 +65,23 @@ CRATES="
 	colored-2.0.0
 	com-rs-0.2.1
 	combine-4.6.6
-	concurrent-queue-2.0.0
-	console-0.15.4
+	concurrent-queue-2.1.0
+	console-0.15.5
 	console_error_panic_hook-0.1.7
 	convert_case-0.6.0
 	cookie-factory-0.3.2
 	core-foundation-0.9.3
+	core-foundation-sys-0.6.2
 	core-foundation-sys-0.8.3
 	core-graphics-0.22.3
 	core-graphics-types-0.1.1
 	core-text-19.2.0
-	coreaudio-rs-0.10.0
+	coreaudio-rs-0.11.2
 	coreaudio-sys-0.2.11
-	cpal-0.14.2
+	cpal-0.15.0
 	cpufeatures-0.2.5
 	crc-3.0.0
-	crc-catalog-2.1.0
+	crc-catalog-2.2.0
 	crc32fast-1.3.2
 	crossbeam-channel-0.5.6
 	crossbeam-deque-0.8.2
@@ -97,23 +96,23 @@ CRATES="
 	cty-0.2.2
 	curl-0.4.44
 	curl-sys-0.4.59+curl-7.86.0
-	cxx-1.0.83
-	cxx-build-1.0.83
-	cxxbridge-flags-1.0.83
-	cxxbridge-macro-1.0.83
+	cxx-1.0.87
+	cxx-build-1.0.87
+	cxxbridge-flags-1.0.87
+	cxxbridge-macro-1.0.87
 	darling-0.13.4
 	darling-0.14.2
 	darling_core-0.13.4
 	darling_core-0.14.2
 	darling_macro-0.13.4
 	darling_macro-0.14.2
+	dasp_sample-0.11.0
 	data-encoding-2.3.3
 	derive-try-from-primitive-1.0.0
 	diff-0.1.13
 	digest-0.10.6
 	dirs-4.0.0
 	dirs-sys-0.3.7
-	discard-1.0.4
 	dispatch-0.2.0
 	dlib-0.5.0
 	downcast-rs-1.2.0
@@ -147,20 +146,19 @@ CRATES="
 	form_urlencoded-1.1.0
 	freetype-rs-0.26.0
 	freetype-sys-0.13.1
-	funty-1.1.0
-	futures-0.3.25
-	futures-channel-0.3.25
-	futures-core-0.3.25
-	futures-executor-0.3.25
-	futures-io-0.3.25
+	futures-0.3.26
+	futures-channel-0.3.26
+	futures-core-0.3.26
+	futures-executor-0.3.26
+	futures-io-0.3.26
 	futures-lite-1.12.0
-	futures-macro-0.3.25
-	futures-sink-0.3.25
-	futures-task-0.3.25
-	futures-util-0.3.25
+	futures-macro-0.3.26
+	futures-sink-0.3.26
+	futures-task-0.3.26
+	futures-util-0.3.26
 	fxhash-0.2.1
-	gdk-pixbuf-sys-0.15.10
-	gdk-sys-0.15.1
+	gdk-pixbuf-sys-0.16.3
+	gdk-sys-0.16.0
 	generational-arena-0.2.8
 	generator-0.7.2
 	generic-array-0.14.6
@@ -168,18 +166,18 @@ CRATES="
 	getrandom-0.2.8
 	gif-0.11.4
 	gif-0.12.0
-	gimli-0.27.0
-	gio-sys-0.15.10
-	glib-sys-0.15.10
-	glob-0.3.0
-	gobject-sys-0.15.10
+	gimli-0.27.1
+	gio-sys-0.16.3
+	glib-sys-0.16.3
+	glob-0.3.1
+	gobject-sys-0.16.3
 	gpu-alloc-0.5.3
 	gpu-alloc-types-0.2.0
 	gpu-allocator-0.21.0
 	gpu-descriptor-0.2.3
 	gpu-descriptor-types-0.1.1
-	gtk-sys-0.15.3
-	half-2.1.0
+	gtk-sys-0.16.0
+	half-2.2.1
 	hashbrown-0.12.3
 	hassle-rs-0.9.0
 	heck-0.4.0
@@ -194,14 +192,14 @@ CRATES="
 	idna-0.3.0
 	image-0.24.5
 	indexmap-1.9.2
-	indicatif-0.17.2
+	indicatif-0.17.3
 	insta-1.26.0
 	instant-0.1.12
-	io-lifetimes-1.0.3
-	is-terminal-0.4.1
+	io-lifetimes-1.0.4
+	is-terminal-0.4.2
 	isahc-1.7.2
 	itoa-0.4.8
-	itoa-1.0.4
+	itoa-1.0.5
 	jni-0.19.0
 	jni-0.20.0
 	jni-sys-0.3.0
@@ -212,16 +210,18 @@ CRATES="
 	lazy_static-1.4.0
 	lazycell-1.3.0
 	lebe-0.5.2
-	lexical-core-0.7.6
-	libc-0.2.138
+	libc-0.2.139
 	libflate-1.2.0
 	libflate_lz77-1.1.0
 	libloading-0.7.4
 	libm-0.2.6
 	libnghttp2-sys-0.1.7+1.45.0
+	libtest-mimic-0.6.0
 	libz-sys-1.1.8
-	link-cplusplus-1.0.7
+	link-cplusplus-1.0.8
 	linked-hash-map-0.5.6
+	linkme-0.3.7
+	linkme-impl-0.3.7
 	linux-raw-sys-0.1.4
 	lock_api-0.4.9
 	log-0.4.17
@@ -230,7 +230,7 @@ CRATES="
 	lyon_algorithms-1.0.2
 	lyon_geom-1.0.4
 	lyon_path-1.0.3
-	lyon_tessellation-1.0.7
+	lyon_tessellation-1.0.8
 	lzma-rs-0.3.0
 	mach-0.3.2
 	malloc_buf-0.0.6
@@ -245,49 +245,46 @@ CRATES="
 	miniz_oxide-0.6.2
 	mio-0.8.5
 	nanorand-0.7.0
-	ndk-0.6.0
 	ndk-0.7.0
 	ndk-context-0.1.1
 	ndk-glue-0.7.0
 	ndk-macro-0.3.0
-	ndk-sys-0.3.0
 	ndk-sys-0.4.1+23.1.7779620
-	nix-0.23.2
 	nix-0.24.3
 	nix-0.25.1
-	nom-6.1.2
-	nom-7.1.1
+	nom-7.1.3
+	nom8-0.2.0
 	nu-ansi-term-0.46.0
 	num-bigint-0.4.3
-	num-complex-0.4.2
+	num-complex-0.4.3
 	num-derive-0.3.3
 	num-integer-0.1.45
 	num-rational-0.4.1
 	num-traits-0.2.15
-	num_cpus-1.14.0
-	num_enum-0.5.7
-	num_enum_derive-0.5.7
+	num_cpus-1.15.0
+	num_enum-0.5.9
+	num_enum_derive-0.5.9
 	number_prefix-0.4.0
 	objc-0.2.7
 	objc-foundation-0.1.1
 	objc_exception-0.1.2
 	objc_id-0.1.1
-	object-0.30.1
-	oboe-0.4.6
-	oboe-sys-0.4.5
+	object-0.30.3
+	oboe-0.5.0
+	oboe-sys-0.5.0
 	once_cell-1.17.0
 	openssl-probe-0.1.5
-	openssl-sys-0.9.79
+	openssl-sys-0.9.80
 	os_info-3.5.1
 	os_str_bytes-6.4.1
 	ouroboros-0.15.5
 	ouroboros_macro-0.15.5
 	output_vt100-0.1.3
 	overload-0.1.1
-	pango-sys-0.15.10
+	pango-sys-0.16.3
 	parking-2.0.0
 	parking_lot-0.12.1
-	parking_lot_core-0.9.5
+	parking_lot_core-0.9.6
 	path-slash-0.2.1
 	peeking_take_while-0.1.2
 	percent-encoding-2.2.0
@@ -298,19 +295,18 @@ CRATES="
 	pkg-config-0.3.26
 	png-0.17.7
 	polling-2.5.2
-	portable-atomic-0.3.17
+	portable-atomic-0.3.19
 	pp-rs-0.2.1
 	ppv-lite86-0.2.17
 	pretty_assertions-1.3.0
 	primal-check-0.3.3
-	proc-macro-crate-1.2.1
+	proc-macro-crate-1.3.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.49
+	proc-macro2-1.0.50
 	profiling-1.0.7
 	profiling-procmacros-1.0.7
 	quote-1.0.23
-	radium-0.5.3
 	rand-0.8.5
 	rand_chacha-0.3.1
 	rand_core-0.6.4
@@ -318,7 +314,7 @@ CRATES="
 	raw-window-handle-0.4.3
 	raw-window-handle-0.5.0
 	rayon-1.6.1
-	rayon-core-1.10.1
+	rayon-core-1.10.2
 	redox_syscall-0.2.16
 	redox_users-0.4.3
 	regex-1.7.1
@@ -326,30 +322,27 @@ CRATES="
 	regex-syntax-0.6.28
 	regress-0.4.1
 	renderdoc-sys-0.7.1
-	rfd-0.10.0
+	rfd-0.11.0
 	rle-decode-fast-1.0.3
 	ron-0.8.0
 	rustc-demangle-0.1.21
 	rustc-hash-1.1.0
-	rustc_version-0.2.3
 	rustc_version-0.4.0
 	rustdct-0.7.1
 	rustfft-6.1.0
-	rustix-0.36.5
+	rustix-0.36.7
 	rustversion-1.0.11
-	ryu-1.0.11
+	ryu-1.0.12
 	safe_arch-0.5.2
 	safe_arch-0.6.0
 	same-file-1.0.6
-	schannel-0.1.20
+	schannel-0.1.21
 	scoped-tls-1.0.1
 	scoped_threadpool-0.1.9
 	scopeguard-1.1.0
-	scratch-1.0.2
+	scratch-1.0.3
 	sctk-adwaita-0.4.3
-	semver-0.9.0
-	semver-1.0.14
-	semver-parser-0.7.0
+	semver-1.0.16
 	serde-1.0.152
 	serde-wasm-bindgen-0.4.5
 	serde-xml-rs-0.6.0
@@ -357,8 +350,6 @@ CRATES="
 	serde_json-1.0.91
 	servo-fontconfig-0.5.1
 	servo-fontconfig-sys-5.1.0
-	sha1-0.6.1
-	sha1_smol-1.0.0
 	sha2-0.10.6
 	sharded-slab-0.1.4
 	shlex-1.1.0
@@ -373,22 +364,17 @@ CRATES="
 	spin-0.9.4
 	spirv-0.2.0+1.5.4
 	static_assertions-1.1.0
-	stdweb-0.4.20
-	stdweb-derive-0.5.3
-	stdweb-internal-macros-0.2.9
-	stdweb-internal-runtime-0.1.5
 	str-buf-1.0.6
 	strength_reduce-0.2.4
 	strsim-0.10.0
-	symphonia-0.5.1
-	symphonia-bundle-mp3-0.5.1
-	symphonia-core-0.5.1
-	symphonia-metadata-0.5.1
+	symphonia-0.5.2
+	symphonia-bundle-mp3-0.5.2
+	symphonia-core-0.5.2
+	symphonia-metadata-0.5.2
 	syn-1.0.107
 	synstructure-0.12.6
 	system-deps-6.0.3
-	tap-1.0.1
-	termcolor-1.1.3
+	termcolor-1.2.0
 	thiserror-1.0.38
 	thiserror-impl-1.0.38
 	thread_local-1.1.4
@@ -401,7 +387,9 @@ CRATES="
 	tiny-skia-path-0.7.0
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.0
-	toml-0.5.10
+	toml-0.5.11
+	toml_datetime-0.5.1
+	toml_edit-0.18.0
 	tracing-0.1.37
 	tracing-attributes-0.1.23
 	tracing-core-0.1.30
@@ -415,8 +403,8 @@ CRATES="
 	transpose-0.2.2
 	typed-arena-2.0.2
 	typenum-1.16.0
-	unicode-bidi-0.3.8
-	unicode-ident-1.0.5
+	unicode-bidi-0.3.10
+	unicode-ident-1.0.6
 	unicode-normalization-0.1.22
 	unicode-segmentation-1.10.0
 	unicode-width-0.1.10
@@ -446,7 +434,7 @@ CRATES="
 	wayland-sys-0.29.5
 	weak-table-0.3.2
 	web-sys-0.3.60
-	webbrowser-0.8.4
+	webbrowser-0.8.7
 	weezl-0.1.7
 	wepoll-ffi-0.1.2
 	wide-0.7.5
@@ -456,38 +444,33 @@ CRATES="
 	winapi-util-0.1.5
 	winapi-wsapoll-0.1.1
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-0.37.0
 	windows-0.39.0
 	windows-0.43.0
+	windows-0.44.0
 	windows-sys-0.36.1
 	windows-sys-0.42.0
-	windows_aarch64_gnullvm-0.42.0
+	windows-targets-0.42.1
+	windows_aarch64_gnullvm-0.42.1
 	windows_aarch64_msvc-0.36.1
-	windows_aarch64_msvc-0.37.0
 	windows_aarch64_msvc-0.39.0
-	windows_aarch64_msvc-0.42.0
+	windows_aarch64_msvc-0.42.1
 	windows_i686_gnu-0.36.1
-	windows_i686_gnu-0.37.0
 	windows_i686_gnu-0.39.0
-	windows_i686_gnu-0.42.0
+	windows_i686_gnu-0.42.1
 	windows_i686_msvc-0.36.1
-	windows_i686_msvc-0.37.0
 	windows_i686_msvc-0.39.0
-	windows_i686_msvc-0.42.0
+	windows_i686_msvc-0.42.1
 	windows_x86_64_gnu-0.36.1
-	windows_x86_64_gnu-0.37.0
 	windows_x86_64_gnu-0.39.0
-	windows_x86_64_gnu-0.42.0
-	windows_x86_64_gnullvm-0.42.0
+	windows_x86_64_gnu-0.42.1
+	windows_x86_64_gnullvm-0.42.1
 	windows_x86_64_msvc-0.36.1
-	windows_x86_64_msvc-0.37.0
 	windows_x86_64_msvc-0.39.0
-	windows_x86_64_msvc-0.42.0
+	windows_x86_64_msvc-0.42.1
 	winit-0.27.5
 	winreg-0.10.1
 	wio-0.2.2
-	wyz-0.2.0
-	x11-dl-2.20.1
+	x11-dl-2.21.0
 	x11rb-0.10.1
 	x11rb-protocol-0.10.0
 	xcursor-0.3.4
@@ -497,11 +480,11 @@ CRATES="
 declare -A GIT_CRATES=(
 	[d3d12]="https://github.com/gfx-rs/d3d12-rs;a990c93ec64eeab78f2292763d0715da9dba1d59;d3d12-rs-%commit%"
 	[dasp]="https://github.com/RustAudio/dasp;f05a703d247bb504d7e812b51e95f3765d9c5e94;dasp-%commit%/dasp"
-	[flash-lso]="https://github.com/ruffle-rs/rust-flash-lso;19fecd07b9888c4bdaa66771c468095783b52bed;rust-flash-lso-%commit%/flash-lso"
+	[flash-lso]="https://github.com/ruffle-rs/rust-flash-lso;8376453eddddbe701031a091c0eed94068fa5649;rust-flash-lso-%commit%/flash-lso"
 	[gc-arena]="https://github.com/kyren/gc-arena;318b2ea594dcdadd01f7789025e3b3940be96b2c;gc-arena-%commit%/src/gc-arena"
 	[glow]="https://github.com/grovesNL/glow;c8a011fcd57a5c68cc917ed394baa484bdefc909"
-	[h263-rs-yuv]="https://github.com/ruffle-rs/h263-rs;023e14c73e565c4c778d41f66cfbac5ece6419b2;h263-rs-%commit%/yuv"
-	[h263-rs]="https://github.com/ruffle-rs/h263-rs;023e14c73e565c4c778d41f66cfbac5ece6419b2;h263-rs-%commit%/h263"
+	[h263-rs-yuv]="https://github.com/ruffle-rs/h263-rs;f0083f5933f173798dd308d1678f06d181a99975;h263-rs-%commit%/yuv"
+	[h263-rs]="https://github.com/ruffle-rs/h263-rs;f0083f5933f173798dd308d1678f06d181a99975;h263-rs-%commit%/h263"
 	[naga]="https://github.com/gfx-rs/naga;1be8024bda3594987b417bead5024b98be9ab521"
 	[naga_oil]="https://github.com/Aaron1011/naga_oil;f4474b53285a85fe67cc35372c9d7ff4517cb556"
 	[nellymoser-rs]="https://github.com/ruffle-rs/nellymoser;4a33521c29a918950df8ae9fe07e527ac65553f5;nellymoser-%commit%"
@@ -511,7 +494,7 @@ declare -A GIT_CRATES=(
 	[quick-xml]="https://github.com/ruffle-rs/quick-xml;8496365ec1412eb5ba5de350937b6bce352fa0ba"
 	[wgpu]="https://github.com/gfx-rs/wgpu;c5851275c59b1d5d949b142d6aa973d0bb638181;wgpu-%commit%/wgpu"
 )
-inherit cargo desktop flag-o-matic xdg
+inherit cargo desktop flag-o-matic virtualx xdg
 
 MY_PV="nightly-${PV:3:4}-${PV:7:2}-${PV:9:2}"
 MY_P="${PN}-${MY_PV}"
@@ -546,18 +529,26 @@ DEPEND="
 BDEPEND="
 	virtual/jre:*
 	virtual/pkgconfig
-	>=virtual/rust-1.64"
+	>=virtual/rust-1.64
+	test? (
+		media-libs/mesa[llvm]
+		x11-base/xorg-server[-minimal]
+	)"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}.*"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-no-patch-naga.patch
+	"${FILESDIR}"/${PN}-0_p20230125-no-patch-naga.patch
 )
 
 src_compile() {
 	filter-lto # does not play well with C code in crates
 
 	cargo_src_compile --bins # note: configure --bins would skip tests
+}
+
+src_test() {
+	virtx cargo_src_test
 }
 
 src_install() {
