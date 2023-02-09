@@ -1,0 +1,17 @@
+BDEPEND=kde-frameworks/extra-cmake-modules:5 !qt6? ( dev-qt/linguist-tools:5 dev-qt/qtwaylandscanner:5 ) qt6? ( dev-qt/qttools:6[linguist] dev-qt/qtwayland:6 dev-util/wayland-scanner ) test? ( app-crypt/gnupg x11-wm/icewm ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-libs/wayland x11-libs/libX11 x11-libs/libXfixes x11-libs/libXtst !qt6? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwayland:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 kde? ( kde-frameworks/knotifications:5 ) test? ( dev-qt/qttest:5 ) ) qt6? ( dev-qt/qtbase:6=[X,gui,network,test?,widgets,xml(+)] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 dev-qt/qtwayland:6 ) x11-base/xorg-proto
+DESCRIPTION=Clipboard manager with advanced features
+EAPI=8
+HOMEPAGE=https://github.com/hluk/CopyQ
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake edo optfeature virtualx xdg
+IUSE=debug kde qt6 test test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3+
+RDEPEND=dev-libs/wayland x11-libs/libX11 x11-libs/libXfixes x11-libs/libXtst !qt6? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwayland:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 kde? ( kde-frameworks/knotifications:5 ) test? ( dev-qt/qttest:5 ) ) qt6? ( dev-qt/qtbase:6=[X,gui,network,test?,widgets,xml(+)] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 dev-qt/qtwayland:6 )
+RESTRICT=qt6? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hluk/copyq/archive/v6.4.0.tar.gz -> copyq-6.4.0.tar.gz
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	optfeature	1a2157392a869265b2afcb63a26c12ac	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857
+_md5_=a08cc34d72a60f996315b475a70581c0
