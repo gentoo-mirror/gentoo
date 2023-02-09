@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/intltool-0.35 sys-devel/gettext >=sys-devel/libtool-2.2.6 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=>=dev-libs/glib-2.58.0 >=dev-libs/libical-3.0.16:= >=x11-libs/gtk+-3.24.0:3= x11-libs/libX11 >=xfce-base/libxfce4ui-4.16.0:= >=xfce-base/libxfce4util-4.16.0:= libnotify? ( >=x11-libs/libnotify-0.7.0:= )
+DESCRIPTION=A calendar application for Xfce
+EAPI=8
+HOMEPAGE=https://docs.xfce.org/apps/orage/start https://gitlab.xfce.org/apps/orage/
+INHERIT=xdg-utils
+IUSE=libnotify
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.58.0 >=dev-libs/libical-3.0.16:= >=x11-libs/gtk+-3.24.0:3= x11-libs/libX11 >=xfce-base/libxfce4ui-4.16.0:= >=xfce-base/libxfce4util-4.16.0:= libnotify? ( >=x11-libs/libnotify-0.7.0:= )
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/apps/orage/4.18/orage-4.18.0.tar.bz2
+_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=89359143dfc6d49e2639d8f315f9ed7e
