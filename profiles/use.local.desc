@@ -1530,6 +1530,7 @@ dev-haskell/dlist:werror - Enable -Werror
 dev-haskell/entropy:halvm - Build for the HaLVM.
 dev-haskell/foundation:experimental - enable building experimental features, known as highly unstable or without good support cross-platform
 dev-haskell/hackage-security:lukko - Use @lukko@ for file-locking, otherwise use @GHC.IO.Handle.Lock@
+dev-haskell/hashable:random-initial-seed - Randomly initialize the seed on every executable invocation. This is not a security feature and is intended only for testing (it can affect legitimate use cases).
 dev-haskell/haskeline:terminfo - Use the terminfo package for POSIX consoles.
 dev-haskell/hdbc-sqlite3:splitbase - Choose the new smaller, split-up package.
 dev-haskell/http-api-data:text-show - Use text-show library for efficient ToHttpApiData implementation.
