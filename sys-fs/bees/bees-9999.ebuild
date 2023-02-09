@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit linux-info systemd toolchain-funcs
 
@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="tools"
+IUSE=""
 
 DEPEND="
 	>=sys-apps/util-linux-2.30.2
@@ -70,7 +70,7 @@ pkg_pretend() {
 			ewarn "With kernel version 5.4 or later, the kernel may hang when multiple threads"
 			ewarn "are running LOGICAL_INO and dedupe ioctl. This is not exclusively triggered"
 			ewarn "by bees but also other software running such operations, bees will just more"
-			ewarn "likely to trigger the bug. You can work around this issue by reducing the"
+			ewarn "likely trigger this bug. You can work around this issue by reducing the"
 			ewarn "thread count of bees to 1."
 			ewarn
 		fi
@@ -96,9 +96,6 @@ src_configure() {
 	EOF
 	if [[ ${PV} != "9999" ]] ; then
 		echo BEES_VERSION=v${PV} >>localconf || die
-	fi
-	if use tools; then
-		echo OPTIONAL_INSTALL_TARGETS=install_tools >>localconf || die
 	fi
 }
 
