@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,13 @@ SRC_URI="https://github.com/janestreet/${PN}/archive/refs/tags/v${PV}.tar.gz
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~riscv"
 IUSE="+ocamlopt"
 
 DEPEND="
 	dev-ml/ppx_sexp_message:${SLOT}
 	dev-ml/sexplib:${SLOT}
+	>=dev-ml/ppxlib-0.23.0:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
