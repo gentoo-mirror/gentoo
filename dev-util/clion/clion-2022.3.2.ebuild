@@ -19,8 +19,6 @@ RESTRICT="bindist mirror splitdebug"
 
 BDEPEND="dev-util/patchelf"
 
-# RDEPENDS may cause false positives in repoman.
-# clion requires cmake and gdb at runtime to build and debug C/C++ projects
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
@@ -36,9 +34,9 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	sys-devel/gdb
-	x11-libs/cairo
-	x11-libs/pango
 	sys-libs/zlib
+	x11-libs/cairo
+	x11-libs/libdrm
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
@@ -50,57 +48,59 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/libXxf86vm
-	x11-libs/libdrm
 	x11-libs/libxcb
-	x11-libs/libxkbcommon"
+	x11-libs/libxkbcommon
+	x11-libs/pango"
 
-QA_PREBUILT="opt/${P}/*"
+QA_PREBUILT="opt/${PN}/*"
 
 src_prepare() {
 	default
 
 	local remove_me=(
+		help/ReferenceCardForMac.pdf
 		bin/cmake
-		bin/lldb/linux
 		bin/gdb/linux
+		bin/lldb/linux
 		bin/ninja
 		license/CMake*
-		plugins/remote-dev-server/selfcontained
 		plugins/cwm-plugin/quiche-native/darwin-aarch64
 		plugins/cwm-plugin/quiche-native/darwin-x86-64
 		plugins/cwm-plugin/quiche-native/linux-aarch64
 		plugins/cwm-plugin/quiche-native/win32-x86-64
+		plugins/remote-dev-server/selfcontained
 	)
 
 	rm -rv "${remove_me[@]}" || die
 
-	for file in "jbr/lib/"/{libjcef.so,jcef_helper}
+	for file in "jbr/lib/{libjcef.so,jcef_helper}"
 	do
 		if [[ -f "${file}" ]]; then
-			patchelf --set-rpath '$ORIGIN' ${file} || die
+			patchelf --set-rpath '$ORIGIN' "${file}" || die
 		fi
 	done
 }
 
 src_install() {
-	local dir="/opt/${P}"
+	local dir="/opt/${PN}"
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}"/bin/{clion.sh,fsnotifier,inspect.sh,ltedit.sh,repair,restart.py,clang/linux/{clangd,clang-tidy,clazy-standalone,llvm-symbolizer}}
+	fperms 755 "${dir}"/bin/{clion.sh,fsnotifier,inspect.sh,ltedit.sh,repair,restart.py,clang/linux/x64/{clangd,clang-tidy,clazy-standalone,llvm-symbolizer}}
 
 	if [[ -d jbr ]]; then
 		fperms 755 "${dir}"/jbr/bin/{java,javac,jdb,jrunscript,keytool,rmiregistry,serialver}
 		# Fix #763582
 		fperms 755 "${dir}"/jbr/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
 	fi
-	dosym -r "${EPREFIX}/usr/bin/ninja" "${dir}"/bin/ninja/linux/ninja
+
+	dosym -r "${EPREFIX}/usr/bin/ninja" "${dir}"/bin/ninja/linux/x64/ninja
 
 	make_wrapper "${PN}" "${dir}/bin/${PN}.sh"
 	newicon "bin/${PN}.svg" "${PN}.svg"
 	make_desktop_entry "${PN}" "CLion" "${PN}" "Development;IDE;"
 
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
-	dodir /usr/lib/sysctl.d/
-	echo "fs.inotify.max_user_watches = 524288" > "${D}/usr/lib/sysctl.d/30-clion-inotify-watches.conf" || die
+	insinto /usr/lib/sysctl.d
+	newins - 30-"${PN}"-inotify-watches.conf <<<"fs.inotify.max_user_watches = 524288"
 }
