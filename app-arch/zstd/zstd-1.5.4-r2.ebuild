@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson-multilib toolchain-funcs usr-ldscript
+inherit meson-multilib usr-ldscript
 
 DESCRIPTION="zstd fast compression library"
 HOMEPAGE="https://facebook.github.io/zstd/"
@@ -14,6 +14,7 @@ S="${WORKDIR}"/${P}/build/meson
 
 LICENSE="|| ( BSD GPL-2 )"
 SLOT="0/1"
+# TODO: wire up static-libs
 #KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="+lzma lz4 static-libs test zlib"
 RESTRICT="!test? ( test )"
@@ -43,6 +44,8 @@ multilib_src_configure() {
 	EOF
 
 	local emesonargs=(
+		-Ddefault_library=$(multilib_native_usex static-libs both shared)
+
 		$(meson_native_true bin_programs)
 		$(meson_native_true bin_contrib)
 		$(meson_use test bin_tests)
@@ -55,4 +58,10 @@ multilib_src_configure() {
 	)
 
 	meson_src_configure
+}
+
+multilib_src_install() {
+	meson_src_install
+
+	multilib_is_native_abi && gen_usr_ldscript -a zstd
 }
