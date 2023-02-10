@@ -43,7 +43,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.1-gentoo-webkit-4.1.patch"
+	"${FILESDIR}/${P}-gentoo-webkit-4.1.patch"
 )
 
 pkg_setup() {
