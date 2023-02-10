@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Display buffers as PNG images using ansilove in GNU Emacs
+EAPI=8
+HOMEPAGE=https://gitlab.com/xgqt/emacs-ansilove/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-26.1[imagemagick] media-gfx/ansilove media-gfx/imagemagick[png] >=app-editors/emacs-26.1:*
+SLOT=0
+SRC_URI=https://gitlab.com/xgqt/emacs-ansilove/-/archive/2.0.0/emacs-ansilove-2.0.0.tar.bz2
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=f70c66f8b6cc475eb3dda89c785590c2
