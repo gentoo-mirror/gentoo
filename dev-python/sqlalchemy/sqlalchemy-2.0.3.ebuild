@@ -7,19 +7,17 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{9..11} )
 PYTHON_REQ_USE="sqlite?"
 
-inherit distutils-r1 optfeature
+inherit distutils-r1 optfeature pypi
 
 MY_PN="SQLAlchemy"
-MY_P="${MY_PN}-${PV/_beta/b}"
-
 DESCRIPTION="Python SQL toolkit and Object Relational Mapper"
 HOMEPAGE="
 	https://www.sqlalchemy.org/
 	https://pypi.org/project/SQLAlchemy/
 	https://github.com/sqlalchemy/sqlalchemy/
 "
-SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="$(pypi_sdist_url "${MY_PN}")"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
