@@ -1,21 +1,21 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
-COMMIT_HASH="a17dd3248a666d01be75f6b16be37e80e20b0954"
+COMMIT_HASH="cff5336ec71b6fee396a95bb0e4bea365e0cd1e8"
 
 DESCRIPTION="A lightweight and flexible command-line JSON processor"
 HOMEPAGE="https://stedolan.github.io/jq/"
 #SRC_URI="https://github.com/stedolan/jq/releases/download/${P}/${P}.tar.gz"
-SRC_URI="https://github.com/stedolan/jq/archive/${COMMIT_HASH}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/stedolan/jq/archive/${COMMIT_HASH}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT_HASH}"
 
 LICENSE="MIT CC-BY-3.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ~ppc ppc64 ~riscv x86 ~amd64-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos"
 IUSE="+oniguruma static-libs test"
 
 ONIGURUMA_MINPV='>=dev-libs/oniguruma-6.1.3' # Keep this in sync with bundled modules/oniguruma/
@@ -32,10 +32,11 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}"/jq-1.6-r3-never-bundle-oniguruma.patch
 	"${FILESDIR}"/jq-1.7-runpath.patch
-	"${FILESDIR}"/jq-1.7-warnings.patch
+	"${FILESDIR}"/jq-1.7-warnings-r1.patch
 	"${FILESDIR}"/jq-1.7-visible-null.patch
 	# https://bugs.gentoo.org/776385
 	"${FILESDIR}"/jq-1.7_pre20201109-no-git-bdep.patch
+	"${FILESDIR}"/jq-1.7_pre20201109-fix-configure-test.patch
 )
 
 RESTRICT="!test? ( test )"
