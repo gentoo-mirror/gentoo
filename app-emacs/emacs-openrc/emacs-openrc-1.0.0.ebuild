@@ -1,14 +1,14 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-NEED_EMACS=25.1
+NEED_EMACS=24.3
 
 inherit elisp
 
-DESCRIPTION="Company backend for editing Ebuild files"
-HOMEPAGE="https://gitweb.gentoo.org/proj/company-ebuild.git"
+DESCRIPTION="OpenRC integration for GNU Emacs"
+HOMEPAGE="https://gitweb.gentoo.org/proj/emacs-openrc.git"
 
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
@@ -23,8 +23,7 @@ SLOT="0"
 
 SITEFILE="50${PN}-gentoo.el"
 
-RDEPEND="
-	app-emacs/company-mode
-	app-emacs/ebuild-mode
-"
-BDEPEND="${RDEPEND}"
+src_compile() {
+	elisp_src_compile
+	elisp-make-autoload-file
+}
