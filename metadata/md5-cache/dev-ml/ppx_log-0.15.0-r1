@@ -1,15 +1,15 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/ppx_sexp_message:0/0.15 dev-ml/sexplib:0/0.15 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/ppx_sexp_message:0/0.15 dev-ml/sexplib:0/0.15 >=dev-ml/ppxlib-0.23.0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Lazily rendering log messages
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/ppx_log
 INHERIT=dune
 IUSE=+ocamlopt
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=MIT
-RDEPEND=dev-ml/ppx_sexp_message:0/0.15 dev-ml/sexplib:0/0.15 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/ppx_sexp_message:0/0.15 dev-ml/sexplib:0/0.15 >=dev-ml/ppxlib-0.23.0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.15
 SRC_URI=https://github.com/janestreet/ppx_log/archive/refs/tags/v0.15.0.tar.gz -> ppx_log-0.15.0.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
-_md5_=8a6b970417872033fa74eb6db9e7f7a5
+_md5_=1326f501540900a1db26bb96072882f1
