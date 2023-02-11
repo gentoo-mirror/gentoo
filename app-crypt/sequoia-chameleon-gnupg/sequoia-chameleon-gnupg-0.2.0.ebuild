@@ -307,7 +307,10 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-# https://gitlab.com/sequoia-pgp/sequoia-chameleon-gnupg/-/issues/8
+# See e.g. https://gitlab.com/sequoia-pgp/sequoia-chameleon-gnupg/-/issues/8
+# Even though that's fixed as of >0.2.0, tests still completely fail inside
+# Portage. Not yet sure why/how. They do better outside, although some fail
+# still then.
 RESTRICT="test"
 
 DEPEND="
@@ -315,14 +318,14 @@ DEPEND="
 	dev-libs/nettle:=
 "
 RDEPEND="${DEPEND}"
+# Needed for bindgen
+BDEPEND="sys-devel/clang"
 
 QA_FLAGS_IGNORED="usr/bin/gpg-sq usr/bin/gpgv-sq"
 
-src_configure() {
-	export OPENSSL_NO_VENDOR=true
-
-	cargo_src_configure
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-tests.patch
+)
 
 src_test() {
 	export GNUPGHOME="${T}"/.gnupg
