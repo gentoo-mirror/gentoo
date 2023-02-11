@@ -13,7 +13,7 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_MIN_CLONE_TYPE="single+tags"
 else
 	SRC_URI="http://www.sndio.org/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 LICENSE="ISC"
@@ -29,6 +29,8 @@ RDEPEND="
 	acct-user/sndiod
 "
 
+PATCHES=( "${FILESDIR}"/sndio-1.8.0-fix-hardcoded-pkgconfdir.patch )
+
 src_prepare() {
 	default
 	multilib_copy_sources
@@ -37,7 +39,7 @@ src_prepare() {
 multilib_src_configure() {
 	tc-export CC
 
-	# Not autotools-based but a custom one.
+	# Not autotools-based but a custom script.
 	./configure \
 		--prefix="${EPREFIX}"/usr \
 		--libdir="${EPREFIX}"/usr/$(get_libdir) \
