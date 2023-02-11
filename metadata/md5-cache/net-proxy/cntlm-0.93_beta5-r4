@@ -1,7 +1,7 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile configure install prepare
+DEFINED_PHASES=compile configure install
 DESCRIPTION=Cntlm is an NTLM/NTLMv2 authenticating HTTP proxy
-EAPI=7
+EAPI=8
 HOMEPAGE=http://cntlm.sourceforge.net/
 INHERIT=systemd toolchain-funcs
 KEYWORDS=~amd64 ~x86
@@ -10,4 +10,4 @@ RDEPEND=acct-group/cntlm acct-user/cntlm
 SLOT=0
 SRC_URI=http://ftp.awk.cz/pub/cntlm-0.93beta5.tar.gz
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=8d95cf5f48dc96acfefbeacb2f061371
+_md5_=c03d05695f631c41e638100065522fb9
