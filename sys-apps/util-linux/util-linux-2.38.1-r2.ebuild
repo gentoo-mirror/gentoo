@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit toolchain-funcs libtool flag-o-matic bash-completion-r1 usr-ldscript \
+inherit toolchain-funcs autotools flag-o-matic bash-completion-r1 usr-ldscript \
 	pam python-r1 multilib-minimal multiprocessing systemd
 
 MY_PV="${PV/_/-}"
@@ -93,6 +93,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-more-posix-exit-on-eof.patch
+	"${FILESDIR}"/util-linux-2.38.1-check-for-sys-pidfd.h.patch
 )
 
 pkg_pretend() {
@@ -153,27 +154,7 @@ src_prepare() {
 
 	fi
 
-	if [[ ${PV} == 9999 ]] ; then
-		po/update-potfiles
-		eautoreconf
-	else
-		elibtoolize
-	fi
-}
-
-lfs_fallocate_test() {
-	# Make sure we can use fallocate with LFS, bug #300307
-	cat <<-EOF > "${T}"/fallocate.${ABI}.c
-		#define _GNU_SOURCE
-		#include <fcntl.h>
-		main() { return fallocate(0, 0, 0, 0); }
-	EOF
-
-	append-lfs-flags
-
-	$(tc-getCC) ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} "${T}"/fallocate.${ABI}.c -o /dev/null >/dev/null 2>&1 \
-		|| export ac_cv_func_fallocate=no
-	rm -f "${T}"/fallocate.${ABI}.c
+	eautoreconf
 }
 
 python_configure() {
@@ -195,8 +176,6 @@ python_configure() {
 }
 
 multilib_src_configure() {
-	lfs_fallocate_test
-
 	# The scanf test in a run-time test which fails while cross-compiling.
 	# Blindly assume a POSIX setup since we require libmount, and libmount
 	# itself fails when the scanf test fails. bug #531856
@@ -299,6 +278,11 @@ multilib_src_configure() {
 	if multilib_is_native_abi && use python ; then
 		python_foreach_impl python_configure
 	fi
+}
+
+src_configure() {
+	append-lfs-flags
+	multilib-minimal_src_configure
 }
 
 python_compile() {
