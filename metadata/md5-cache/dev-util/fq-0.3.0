@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-tcltk/expect ) >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=Tool for working with binary data (app-misc/jq for binary formats)
+EAPI=8
+HOMEPAGE=https://github.com/wader/fq
+INHERIT=go-module
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=MIT BSD-2
+RESTRICT=!test? ( test ) strip
+SLOT=0
+SRC_URI=https://github.com/wader/fq/archive/v0.3.0.tar.gz -> fq-0.3.0.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-util/fq/fq-0.3.0-deps.tar.xz
+_eclasses_=go-module	75029f071ebc843223233ab1b0a2d4a5
+_md5_=c6020108d890b7dd8dd694cbce1e9ade
