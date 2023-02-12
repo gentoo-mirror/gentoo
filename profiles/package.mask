@@ -763,56 +763,9 @@ dev-python/pkgutil_resolve_name
 # Removal after 2023-03-01.  Bug #890244.
 www-client/dillo
 
-# John Helmert III <ajak@gentoo.org> (2023-01-08)
-# Multiple vulnerabilities include remote code execution, maintainer
-# needed, removal in 30 days. Bug #834501
-dev-util/artifactory-bin
-
-# Michael Mair-Keimberger <mmk@levelnine.at> (2023-01-08)
-# Broken since many years, no reverse dependencies, last release from 2000
-# Bug #678518. Removal on 2023-02-08.
-net-dns/dnswalk
-
-# Michael Mair-Keimberger <mmk@levelnine.at> (2023-01-08)
-# EAPI=6, Installs only card pictures and has no reverse dependencies.
-# Bug #805278. Removal on 2023-02-08.
-dev-games/cardpics
-
-# Michael Mair-Keimberger <mmk@levelnine.at> (2023-01-08)
-# Dependencies of games-server/cyphesis, which got removed ~4 years ago, no
-# other reverse dependencies. Bug #728230
-# Removal on 2023-02-08.
-dev-games/mercator
-dev-games/wfmath
-
 # Sam James <sam@gentoo.org> (2023-01-05)
 # Breaks reverse dependencies: bug #889694, bug #888579.
 =sys-fs/btrfs-progs-6.1.1
-
-# David Seifert <soap@gentoo.org> (2023-01-02)
-# EAPI 6, pretty much no upstream activity, outdated, last upstream
-# release over 3 years ago, no revdeps. Removal on 2023-02-01.
-dev-cpp/pngpp
-
-# Jonas Stein <jstein@gentoo.org> (2023-01-01)
-# Package is broken and unusable, no activity upstream.
-# Removal after 2023-02-01.  Bug #722568.
-net-analyzer/chaosreader
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2022-12-31)
-# EAPI=6 ebuild, live only packages for 1 year! maintainer-needed package.
-# Removal: 2023-01-30.  Bug #889200.
-app-containers/docker-gc
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2022-12-31)
-# Live only packages for 4 years!
-# Removal: 2023-01-30.  Bug #889196.
-sys-auth/google-authenticator-libpam-hardened
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2022-12-31)
-# EAPI=6 ebuild, live only packages for 6 years!
-# Removal: 2023-01-30.  Bug #889194.
-x11-plugins/pidgin-funyahoo-plusplus
 
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2022-12-29)
 # Upstream is dead, last activity in Nov 2017. Does not
@@ -838,12 +791,6 @@ net-p2p/vuze-coreplugins
 # Georgy Yakovlev <gyakovlev@gentoo.org> (2022-12-19)
 # This version currently is not compatible with kernel build (yet)
 ~dev-util/bindgen-0.63.0
-
-# Jonas Stein <jstein@gentoo.org> (2022-12-11)
-# Unfetchable and mirror-restricted.
-# Upstream discontinued
-# Removal after 2023-02-01.  Bug #884715.
-dev-cpp/sourcetrail
 
 # Sam James <sam@gentoo.org> (2022-12-09)
 # Breaks compilation of reverse dependencies with broken pkgconfig (pc) file
