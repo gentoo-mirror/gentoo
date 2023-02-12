@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-gnupg ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=sys-devel/gettext virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-gnupg ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
 DEFINED_PHASES=configure install postinst postrm prepare unpack
 DEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
 DESCRIPTION=Simple passphrase entry dialogs which utilize the Assuan protocol
@@ -12,5 +12,5 @@ LICENSE=GPL-2
 RDEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) gnome-keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) gtk? ( app-crypt/gcr:0[gtk] )
 SLOT=0
 SRC_URI=mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2 verify-sig? ( mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2.sig )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	qmake-utils	59420c906278d16deaaa629f9d115707	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	qmake-utils	59420c906278d16deaaa629f9d115707	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
 _md5_=cb8f8ee4b7785644f8a97222348100a8

@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-voikko ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-voikko ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
 DEFINED_PHASES=configure install unpack
 DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) hfst? ( >=dev-util/hfstospell-0.5.0 )
 DESCRIPTION=Spell checking, hyphenation and morphological analysis tool for Finnish language
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targ
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.1.tar.gz verify-sig? ( https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.1.tar.gz.asc )
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
 _md5_=1f1a5e50774031ebe9342957b1f85180

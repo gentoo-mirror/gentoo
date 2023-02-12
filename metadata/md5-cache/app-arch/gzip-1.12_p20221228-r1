@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gzip ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gzip ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
 DEFINED_PHASES=configure install postinst unpack
 DESCRIPTION=Standard GNU compressor
 EAPI=8
@@ -10,5 +10,5 @@ PDEPEND=app-alternatives/gzip
 RDEPEND=!app-arch/pigz[symlink(-)]
 SLOT=0
 SRC_URI=https://meyering.net/gzip/gzip-1.12.31-7553.tar.xz -> gzip-1.12_p20221228.tar.xz verify-sig? ( https://meyering.net/gzip/gzip-1.12.31-7553.tar.xz.sig -> gzip-1.12_p20221228.tar.xz.sig )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
 _md5_=8fd47bd50438a68dab3d28609abecc67

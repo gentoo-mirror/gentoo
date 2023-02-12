@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-grep ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-grep ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=!static? ( pcre? ( >=dev-libs/libpcre2-7.8-r1 ) sparc? ( dev-libs/libsigsegv ) ) nls? ( virtual/libintl ) virtual/libiconv static? ( pcre? ( >=dev-libs/libpcre2-7.8-r1[static-libs(+)] ) sparc? ( dev-libs/libsigsegv ) )
 DESCRIPTION=GNU regular expression matcher
@@ -11,5 +11,5 @@ RDEPEND=!static? ( pcre? ( >=dev-libs/libpcre2-7.8-r1 ) sparc? ( dev-libs/libsig
 REQUIRED_USE=static? ( !sparc )
 SLOT=0
 SRC_URI=https://meyering.net/grep/grep-3.8.11-908f.tar.xz verify-sig? ( https://meyering.net/grep/grep-3.8.11-908f.tar.xz.sig )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
 _md5_=bb8dc245b0174010a06d5a24b978dd3c
