@@ -9,7 +9,7 @@ CRATES="
 	ahash-0.3.8
 	ahash-0.7.6
 	aho-corasick-0.7.20
-	anyhow-1.0.68
+	anyhow-1.0.69
 	askama-0.11.1
 	askama_derive-0.11.2
 	askama_escape-0.10.3
@@ -24,10 +24,10 @@ CRATES="
 	block-buffer-0.9.0
 	block-modes-0.8.1
 	block-padding-0.2.1
-	bstr-1.1.0
+	bstr-1.2.0
 	bumpalo-3.12.0
 	byteorder-1.4.3
-	bytes-1.3.0
+	bytes-1.4.0
 	bytesize-1.1.0
 	bzip2-0.4.4
 	bzip2-sys-0.1.11+1.0.8
@@ -90,7 +90,7 @@ CRATES="
 	encoding-index-singlebyte-1.20141219.5
 	encoding-index-tradchinese-1.20141219.5
 	encoding_index_tests-0.1.4
-	encoding_rs-0.8.31
+	encoding_rs-0.8.32
 	enumflags2-0.6.4
 	enumflags2_derive-0.6.4
 	errno-0.2.8
@@ -121,7 +121,7 @@ CRATES="
 	globset-0.4.10
 	goblin-0.6.0
 	hashbrown-0.12.3
-	heck-0.4.0
+	heck-0.4.1
 	hermit-abi-0.2.6
 	hkdf-0.11.0
 	hmac-0.11.0
@@ -137,7 +137,7 @@ CRATES="
 	is-terminal-0.4.2
 	itertools-0.10.5
 	itoa-1.0.5
-	js-sys-0.3.60
+	js-sys-0.3.61
 	keyring-1.2.1
 	lazy_static-1.4.0
 	lddtree-0.3.2
@@ -180,7 +180,7 @@ CRATES="
 	openssl-0.10.45
 	openssl-macros-0.1.0
 	openssl-probe-0.1.5
-	openssl-src-111.24.0+1.1.1s
+	openssl-src-111.25.0+1.1.1t
 	openssl-sys-0.9.80
 	os_pipe-1.1.2
 	os_str_bytes-6.4.1
@@ -207,7 +207,7 @@ CRATES="
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
 	proc-macro-hack-0.5.20+deprecated
-	proc-macro2-1.0.50
+	proc-macro2-1.0.51
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.5
 	quote-1.0.23
@@ -245,7 +245,7 @@ CRATES="
 	semver-1.0.16
 	serde-1.0.152
 	serde_derive-1.0.152
-	serde_json-1.0.91
+	serde_json-1.0.93
 	serde_repr-0.1.10
 	sha2-0.10.6
 	sha2-0.9.9
@@ -267,7 +267,7 @@ CRATES="
 	subtle-2.4.1
 	syn-1.0.107
 	tar-0.4.38
-	target-lexicon-0.12.5
+	target-lexicon-0.12.6
 	tempfile-3.3.0
 	termcolor-1.2.0
 	terminal_size-0.2.3
@@ -306,7 +306,7 @@ CRATES="
 	untrusted-0.7.1
 	ureq-2.6.2
 	url-2.3.1
-	uuid-1.2.2
+	uuid-1.3.0
 	valuable-0.1.0
 	vcpkg-0.2.15
 	version_check-0.9.4
@@ -315,11 +315,11 @@ CRATES="
 	waker-fn-1.1.0
 	walkdir-2.3.2
 	wasi-0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-0.2.83
-	wasm-bindgen-backend-0.2.83
-	wasm-bindgen-macro-0.2.83
-	wasm-bindgen-macro-support-0.2.83
-	wasm-bindgen-shared-0.2.83
+	wasm-bindgen-0.2.84
+	wasm-bindgen-backend-0.2.84
+	wasm-bindgen-macro-0.2.84
+	wasm-bindgen-macro-support-0.2.84
+	wasm-bindgen-shared-0.2.84
 	web-sys-0.3.60
 	webpki-0.22.0
 	webpki-roots-0.22.6
@@ -350,10 +350,12 @@ CRATES="
 # `grep test-crates tests/run.rs` to see which are needed
 CRATES_TEST="
 	anyhow-1.0.66
+	bytes-1.3.0
 	camino-1.1.1
 	cc-1.0.73
 	cc-1.0.74
 	glob-0.3.0
+	heck-0.4.0
 	indoc-1.0.7
 	itoa-1.0.4
 	libc-0.2.134
@@ -422,7 +424,7 @@ LICENSE="
 	CC0-1.0 ISC MIT MPL-2.0 SSLeay Unicode-DFS-2016 openssl
 	doc? ( CC-BY-4.0 OFL-1.1 )"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
