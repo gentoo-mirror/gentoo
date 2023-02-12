@@ -79,12 +79,6 @@ SRC_URI+=" ${ADDONS_SRC[*]}"
 unset ADDONS_URI
 unset ADDONS_SRC
 
-LICENSE="|| ( LGPL-3 MPL-1.1 )"
-SLOT="0"
-
-#[[ ${MY_PV} == *9999* ]] || \
-#KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux"
-
 # Extensions that need extra work:
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
@@ -103,6 +97,12 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 "
 
 RESTRICT="!test? ( test )"
+
+LICENSE="|| ( LGPL-3 MPL-1.1 )"
+SLOT="0"
+
+[[ ${MY_PV} == *9999* ]] || \
+KEYWORDS=""
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-arch/unzip
@@ -149,7 +149,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	media-gfx/graphite2
 	media-libs/fontconfig
 	>=media-libs/freetype-2.11.0-r1:2
-	>=media-libs/harfbuzz-2.6.0:=[graphite,icu]
+	>=media-libs/harfbuzz-2.6.8:=[graphite,icu]
 	media-libs/lcms:2
 	>=media-libs/libcdr-0.1.0
 	>=media-libs/libepoxy-1.3.1[X]
@@ -231,7 +231,6 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-util/gperf-3.1
 	dev-util/mdds:1/2.0
 	media-libs/glm
-	sys-devel/ucpp
 	x11-base/xorg-proto
 	x11-libs/libXt
 	x11-libs/libXtst
@@ -265,6 +264,9 @@ BDEPEND="
 	virtual/pkgconfig
 	clang? (
 		|| (
+			(	sys-devel/clang:16
+				sys-devel/llvm:16
+				=sys-devel/lld-16*	)
 			(	sys-devel/clang:15
 				sys-devel/llvm:15
 				=sys-devel/lld-15*	)
@@ -290,10 +292,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.3.4.2-kioclient5.patch"
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-7.2.0.4-qt5detect.patch"
-
-	# 7.5 branch
-	"${FILESDIR}/${PN}-7.3.7.2-boost-1.81-locale.patch"
-	"${FILESDIR}/${PN}-7.3.7.2-zxing-cpp-1.4.0.patch"
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
@@ -496,7 +494,6 @@ src_configure() {
 		--with-parallelism=$(makeopts_jobs)
 		--with-system-abseil
 		--with-system-openjpeg
-		--with-system-ucpp
 		--with-tls=nss
 		--with-vendor="Gentoo Foundation"
 		--with-webdav="neon"
