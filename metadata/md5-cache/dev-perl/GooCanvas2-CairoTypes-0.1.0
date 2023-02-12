@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://metacpan.org/release/GooCanvas2-CairoTypes
 INHERIT=perl-module
 IUSE=test
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~riscv x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=x11-libs/goocanvas:2.0[introspection] dev-perl/Cairo dev-perl/glib-perl dev-perl/Gtk3 dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AS/ASOKOLOV/GooCanvas2-CairoTypes-0.001.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	21a0cb6221498d0e7894bdf445b79887
-_md5_=d88f03276a80ece311a98f25914aab7d
+_md5_=90bb3f44a82ce2abc58198748911475f
