@@ -104,7 +104,6 @@ CRATES="
 	mime_guess-2.0.4
 	mio-0.8.5
 	new_debug_unreachable-1.0.4
-	nom8-0.2.0
 	normalize-line-endings-0.3.0
 	notify-5.1.0
 	notify-debouncer-mini-0.2.1
@@ -159,7 +158,6 @@ CRATES="
 	serde-1.0.152
 	serde_derive-1.0.152
 	serde_json-1.0.93
-	serde_spanned-0.6.1
 	serde_urlencoded-0.7.1
 	sha-1-0.10.1
 	sha1-0.10.5
@@ -186,9 +184,7 @@ CRATES="
 	tokio-stream-0.1.11
 	tokio-tungstenite-0.17.2
 	tokio-util-0.7.4
-	toml-0.7.2
-	toml_datetime-0.6.1
-	toml_edit-0.19.3
+	toml-0.5.10
 	topological-sort-0.2.2
 	tower-service-0.3.2
 	tracing-0.1.37
