@@ -6,11 +6,9 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9..11} )
 inherit python-any-r1 cmake
 
-CommitId=659a7f99ee737103273ef60551bfe1611c2d2cba
-
 DESCRIPTION="part of the PyTorch Profiler"
 HOMEPAGE="https://github.com/pytorch/kineto"
-SRC_URI="https://github.com/pytorch/${PN}/archive/${CommitId}.tar.gz
+SRC_URI="https://github.com/pytorch/${PN}/archive/refs/tags/v${PV}.tar.gz
 	-> ${P}.tar.gz"
 
 LICENSE="BSD"
@@ -28,10 +26,8 @@ BDEPEND="
 "
 RESTRICT="!test? ( test )"
 
-S="${WORKDIR}"/${PN}-${CommitId}
-
 src_prepare() {
-	eapply "${FILESDIR}"/${P}-gentoo.patch
+	eapply "${FILESDIR}"/${PN}-2021.11.17-gentoo.patch
 	cd libkineto
 	cmake_src_prepare
 }
