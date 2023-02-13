@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/wayland-protocols virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( >=gui-libs/wf-config-0.7.1 <gui-libs/wf-config-0.8.0 ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( >=gui-libs/wlroots-0.16.0:0/16[X?] ) !system-wlroots? ( !gui-libs/wlroots )
+DESCRIPTION=compiz like 3D wayland compositor
+EAPI=8
+HOMEPAGE=https://github.com/WayfireWM/wayfire
+INHERIT=meson toolchain-funcs
+IUSE=debug +gles +system-wfconfig +system-wlroots X
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( >=gui-libs/wf-config-0.7.1 <gui-libs/wf-config-0.8.0 ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( >=gui-libs/wlroots-0.16.0:0/16[X?] ) !system-wlroots? ( !gui-libs/wlroots ) x11-misc/xkeyboard-config
+SLOT=0
+SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.7.5/wayfire-0.7.5.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=a01617ca0f09c47f7c574e2d229a33ee

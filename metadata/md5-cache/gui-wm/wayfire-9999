@@ -1,14 +1,14 @@
 BDEPEND=dev-libs/wayland-protocols virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst test unpack
-DEPEND=dev-libs/libevdev dev-libs/libinput dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo media-libs/libpng media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo:=[X?,svg(+)] x11-libs/libxkbcommon:=[X?] x11-libs/pixman X? ( x11-libs/libxcb x11-base/xwayland ) system-wfconfig? ( ~gui-libs/wf-config-9999:= ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( ~gui-libs/wlroots-9999:=[X?] ) !system-wlroots? ( !gui-libs/wlroots )
+DEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( ~gui-libs/wf-config-9999:= ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( ~gui-libs/wlroots-9999:=[X?] ) !system-wlroots? ( !gui-libs/wlroots )
 DESCRIPTION=compiz like 3D wayland compositor
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/WayfireWM/wayfire
 INHERIT=meson toolchain-funcs git-r3
 IUSE=debug +gles +system-wfconfig +system-wlroots X
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/libevdev dev-libs/libinput dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo media-libs/libpng media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo:=[X?,svg(+)] x11-libs/libxkbcommon:=[X?] x11-libs/pixman X? ( x11-libs/libxcb x11-base/xwayland ) system-wfconfig? ( ~gui-libs/wf-config-9999:= ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( ~gui-libs/wlroots-9999:=[X?] ) !system-wlroots? ( !gui-libs/wlroots ) x11-misc/xkeyboard-config
+RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( ~gui-libs/wf-config-9999:= ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( ~gui-libs/wlroots-9999:=[X?] ) !system-wlroots? ( !gui-libs/wlroots ) x11-misc/xkeyboard-config
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=aa06f1e4425c26edc2567917c2689095
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=a01617ca0f09c47f7c574e2d229a33ee
