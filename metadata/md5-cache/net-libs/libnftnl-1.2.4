@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install prepare setup unpack
 DEPEND=>=net-libs/libmnl-1.0.4:=
 DESCRIPTION=Netlink API to the in-kernel nf_tables subsystem
@@ -12,5 +12,5 @@ RDEPEND=>=net-libs/libmnl-1.0.4:=
 RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2 verify-sig? ( https://netfilter.org/projects/libnftnl/files/libnftnl-1.2.4.tar.bz2.sig )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	usr-ldscript	cd36f6d91e8173d95e25b0e0cf036960	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	usr-ldscript	cd36f6d91e8173d95e25b0e0cf036960	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=283c55fdb7d651d7d67f722460891aa8

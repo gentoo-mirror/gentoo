@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install unpack
 DEPEND=sys-libs/ncurses:=[unicode(+)] sys-libs/zlib bzip2? ( app-arch/bzip2 ) idn? ( net-dns/libidn:= ) nls? ( virtual/libintl ) ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( dev-libs/libgcrypt:= >=net-libs/gnutls-2.6.4:= ) )
 DESCRIPTION=An excellent console-based web browser with ssl support
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:=[unicode(+)] sys-libs/zlib bzip2? ( app-arch/bzip2 ) idn? ( net-dns/libidn:= ) nls? ( virtual/libintl ) ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( dev-libs/libgcrypt:= >=net-libs/gnutls-2.6.4:= ) )
 SLOT=0
 SRC_URI=https://invisible-mirror.net/archives/lynx/tarballs/lynx2.9.0dev.10.tar.bz2 verify-sig? ( https://invisible-mirror.net/archives/lynx/tarballs/lynx2.9.0dev.10.tar.bz2.asc )
-_eclasses_=verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=ee4e9f628c9962edd45986334098a782

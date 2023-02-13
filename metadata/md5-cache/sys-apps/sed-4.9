@@ -1,4 +1,4 @@
-BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-sed ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-sed ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install unpack
 DEPEND=!static? ( acl? ( virtual/acl ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) ) static? ( acl? ( virtual/acl[static-libs(+)] ) nls? ( virtual/libintl[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) )
 DESCRIPTION=Super-useful stream editor
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=!static? ( acl? ( virtual/acl ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) )
 SLOT=0
 SRC_URI=mirror://gnu/sed/sed-4.9.tar.xz verify-sig? ( mirror://gnu/sed/sed-4.9.tar.xz.sig )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=fd3fbd7fe43794f3d7615b00f8d188c9

@@ -1,4 +1,4 @@
-BDEPEND=doc? ( dev-ruby/asciidoctor ) verify-sig? ( sec-keys/openpgp-keys-joelrosdahl ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=doc? ( dev-ruby/asciidoctor ) verify-sig? ( sec-keys/openpgp-keys-joelrosdahl ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst prepare prerm test unpack
 DEPEND=app-arch/zstd:= redis? ( dev-libs/hiredis:= ) test? ( dev-libs/elfutils )
 DESCRIPTION=Fast compiler cache
@@ -13,5 +13,5 @@ RDEPEND=app-arch/zstd:= redis? ( dev-libs/hiredis:= ) dev-util/shadowman sys-app
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ccache/ccache/releases/download/v4.6.3/ccache-4.6.3.tar.xz verify-sig? ( https://github.com/ccache/ccache/releases/download/v4.6.3/ccache-4.6.3.tar.xz.asc )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=aa2a620d2694f7044d397907a7de7dff

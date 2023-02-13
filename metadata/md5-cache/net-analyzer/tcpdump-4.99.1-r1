@@ -1,4 +1,4 @@
-BDEPEND=drop-root? ( virtual/pkgconfig ) verify-sig? ( sec-keys/openpgp-keys-tcpdump ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=drop-root? ( virtual/pkgconfig ) verify-sig? ( sec-keys/openpgp-keys-tcpdump ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install postinst prepare test unpack
 DEPEND=>=net-libs/libpcap-1.10.1 drop-root? ( acct-group/pcap acct-user/pcap sys-libs/libcap-ng ) smi? ( net-libs/libsmi ) ssl? ( >=dev-libs/openssl-0.9.6m:0= ) suid? ( acct-group/pcap acct-user/pcap ) test? ( dev-lang/perl )
 DESCRIPTION=A tool for network monitoring and data acquisition
@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( samba )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.tcpdump.org/release/tcpdump-4.99.1.tar.gz -> tcpdump-4.99.1-upstream.tar.gz verify-sig? ( https://www.tcpdump.org/release/tcpdump-4.99.1.tar.gz.sig -> tcpdump-4.99.1-upstream.tar.gz.sig )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=571323fda23322a76979a62fa49675b9

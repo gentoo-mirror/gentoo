@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure unpack
 DESCRIPTION=Lziprecover is a data recovery tool and decompressor for lzip compressed files
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=amd64 x86
 LICENSE=GPL-2+
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.23.tar.gz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.23.tar.gz.sig )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=27f9ec51e6a6bdebe0d44e77c00f3325

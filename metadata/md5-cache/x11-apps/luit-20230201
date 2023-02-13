@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/groff verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=sys-apps/groff verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure unpack
 DEPEND=sys-libs/zlib virtual/libiconv
 DESCRIPTION=Locale and ISO 2022 support for Unicode terminals
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=sys-libs/zlib virtual/libiconv
 SLOT=0
 SRC_URI=https://invisible-mirror.net/archives/luit/luit-20230201.tgz verify-sig? ( https://invisible-island.net/archives/luit/luit-20230201.tgz.asc )
-_eclasses_=verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=3251e49a70a76ee0ae07a2bf4a113776

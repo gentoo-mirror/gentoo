@@ -1,4 +1,4 @@
-BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-tar ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-tar ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install postinst unpack
 DEPEND=acl? ( virtual/acl ) selinux? ( sys-libs/libselinux ) xattr? ( elibc_glibc? ( sys-apps/attr ) )
 DESCRIPTION=Use this to make tarballs :)
@@ -12,5 +12,5 @@ PDEPEND=app-alternatives/tar
 RDEPEND=acl? ( virtual/acl ) selinux? ( sys-libs/libselinux )
 SLOT=0
 SRC_URI=mirror://gnu/tar/tar-1.34.tar.xz https://alpha.gnu.org/gnu/tar/tar-1.34.tar.xz verify-sig? ( mirror://gnu/tar/tar-1.34.tar.xz.sig https://alpha.gnu.org/gnu/tar/tar-1.34.tar.xz.sig )
-_eclasses_=verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=c8daa96ab184add7acd064e6cff2c979

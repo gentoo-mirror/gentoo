@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-teemutoivola ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-teemutoivola ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile install postinst unpack
 DEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png] ) test? ( dev-libs/check )
 DESCRIPTION=Console-based network traffic monitor that keeps statistics of network usage
@@ -12,5 +12,5 @@ RDEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://humdi.net/vnstat/vnstat-2.10.tar.gz https://github.com/vergoh/vnstat/releases/download/v2.10/vnstat-2.10.tar.gz verify-sig? ( https://humdi.net/vnstat/vnstat-2.10.tar.gz.asc https://github.com/vergoh/vnstat/releases/download/v2.10/vnstat-2.10.tar.gz.asc )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=3b3cc317e0c5afffbb9905628b186f87

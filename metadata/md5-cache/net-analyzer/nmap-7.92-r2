@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-nmap ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-nmap ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=dev-libs/liblinear:= dev-libs/libpcre net-libs/libpcap libssh2? ( net-libs/libssh2[zlib] sys-libs/zlib ) nse? ( sys-libs/zlib ) ssl? ( dev-libs/openssl:0= ) symlink? ( !net-analyzer/netcat !net-analyzer/openbsd-netcat ) system-lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3[deprecated] ) )
 DESCRIPTION=Network exploration tool and security / port scanner
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/liblinear:= dev-libs/libpcre net-libs/libpcap libssh2? ( net-li
 REQUIRED_USE=system-lua? ( nse ^^ ( lua_single_target_lua5-3 ) ) symlink? ( ncat )
 SLOT=0
 SRC_URI=https://nmap.org/dist/nmap-7.92.tar.bz2 verify-sig? ( https://nmap.org/dist/sigs/nmap-7.92.tar.bz2.asc )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=29a9bf66c991f5cf3c6b37e38d63beeb

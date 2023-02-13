@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-oletange-20210423 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-oletange-20210423 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure unpack
 DEPEND=dev-lang/perl dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-IO
 DESCRIPTION=A shell tool for executing jobs in parallel locally or on remote machines
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=dev-lang/perl dev-perl/Devel-Size dev-perl/Text-CSV virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-IO
 SLOT=0
 SRC_URI=mirror://gnu/parallel/parallel-20221122.tar.bz2 verify-sig? ( mirror://gnu/parallel/parallel-20221122.tar.bz2.sig )
-_eclasses_=verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=9ac9c1b38bfa689bed61a81e0663fdf9

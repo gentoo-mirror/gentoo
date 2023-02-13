@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/go nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-18.0 )
+BDEPEND=dev-lang/go nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=acct-group/lxd app-arch/xz-utils >=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)] dev-db/sqlite:3 >=dev-libs/dqlite-1.13.0:= dev-libs/lzo >=dev-libs/raft-0.17.1:=[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp] sys-libs/libcap virtual/udev
 DESCRIPTION=Modern, secure and powerful system container and virtual machine manager
@@ -12,5 +12,5 @@ RDEPEND=acct-group/lxd app-arch/xz-utils >=app-containers/lxc-5.0.0:=[apparmor?,
 RESTRICT=test strip
 SLOT=0
 SRC_URI=https://linuxcontainers.org/downloads/lxd/lxd-5.0.2.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxd/lxd-5.0.2.tar.gz.asc )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	75029f071ebc843223233ab1b0a2d4a5	linux-info	4b552625ebd741dfd2ac08637fd2436e	optfeature	1a2157392a869265b2afcb63a26c12ac	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	b4c85caec7a10c3bd60a51de932bbfab
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	75029f071ebc843223233ab1b0a2d4a5	linux-info	4b552625ebd741dfd2ac08637fd2436e	optfeature	1a2157392a869265b2afcb63a26c12ac	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	85e14d0a93afa75c621382409ada8732
 _md5_=3b603b570d0b57e994e8c7c58f48705b
