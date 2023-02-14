@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="This package contains tools for authenticating to an OpenStack-based cloud"
 HOMEPAGE="https://github.com/openstack/keystoneauth"
@@ -15,12 +15,10 @@ HOMEPAGE="
 	https://github.com/openstack/keystoneauth/
 	https://pypi.org/project/keystoneauth1/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}1/${PN}1-${PV}.tar.gz"
-S="${WORKDIR}/${PN}1-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
