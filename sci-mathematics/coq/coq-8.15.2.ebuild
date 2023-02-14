@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -37,7 +37,7 @@ BDEPEND="
 		dev-python/antlr4-python3-runtime
 		dev-python/beautifulsoup4
 		dev-python/pexpect
-		dev-python/sphinx_rtd_theme
+		dev-python/sphinx-rtd-theme
 		dev-python/sphinxcontrib-bibtex
 		dev-tex/latexmk
 		dev-texlive/texlive-fontsextra
