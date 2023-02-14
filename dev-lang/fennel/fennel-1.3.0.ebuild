@@ -1,15 +1,16 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-# Fails to build with with lua5-1
+# Fails to build with with "lua5-1".
 LUA_COMPAT=( lua5-{3,4} luajit )
 
 inherit lua-single
 
 DESCRIPTION="Lisp-like language that compiles to Lua"
-HOMEPAGE="https://fennel-lang.org/"
+HOMEPAGE="https://fennel-lang.org/
+	https://sr.ht/~technomancy/fennel/"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
@@ -24,7 +25,7 @@ SLOT="0/${PV}"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 RDEPEND="${LUA_DEPS}"
-DEPEND="${RDEPEND}"
+BDEPEND="${RDEPEND}"
 
 src_install() {
 	emake LUA_LIB_DIR="${ED}/$(lua_get_lmod_dir)" PREFIX="${ED}/usr" install
