@@ -125,13 +125,15 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.6.0
+	>=dev-libs/wayland-protocols-1.31
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-util/wayland-scanner-1.19.0
 	x11-base/xorg-proto
 	fontconfig? ( x11-libs/libXrender )
-	test? ( >=dev-libs/wayland-protocols-1.24 )
 "
 RDEPEND="${COMMON_DEPEND}
+	!<kde-plasma/breeze-5.22.90:5
+	!<kde-plasma/plasma-desktop-5.27.0:5
 	app-text/iso-codes
 	>=dev-qt/qdbus-${QTMIN}:*
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
@@ -148,8 +150,6 @@ RDEPEND="${COMMON_DEPEND}
 	x11-apps/xprop
 	x11-apps/xrdb
 	x11-apps/xsetroot
-	!<kde-plasma/breeze-5.22.90:5
-	!<kde-plasma/plasma-desktop-5.23.90:5
 	policykit? ( sys-apps/accountsservice )
 "
 BDEPEND="
