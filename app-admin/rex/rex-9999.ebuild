@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ ${PV} == 9999 ]]; then
 	GITHUB_USER=RexOps
@@ -21,7 +21,7 @@ fi
 inherit bash-completion-r1 perl-module ${VCS_ECLASS}
 
 DESCRIPTION="(R)?ex, the friendly automation framework"
-HOMEPAGE="https://metacpan.org/release/Rex https://www.rexify.org"
+HOMEPAGE="https://metacpan.org/dist/Rex https://www.rexify.org"
 
 SLOT="0"
 IUSE="minimal test"
@@ -94,7 +94,9 @@ BDEPEND="
 			dev-perl/File-LibMagic
 		)
 		virtual/perl-File-Temp
+		dev-perl/Sub-Override
 		dev-perl/Test-Deep
+		dev-perl/Test-Exception
 		dev-perl/Test-Output
 		dev-perl/Test-UseAllModules
 		virtual/perl-autodie
