@@ -4,16 +4,16 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..11} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Standard python logging to output log data as json objects"
 HOMEPAGE="
-	https://github.com/madzak/python-json-logger
+	https://github.com/madzak/python-json-logger/
 	https://pypi.org/project/python-json-logger/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

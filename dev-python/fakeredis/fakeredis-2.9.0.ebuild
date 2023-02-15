@@ -25,8 +25,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
+	<dev-python/redis-5[${PYTHON_USEDEP}]
 	>=dev-python/redis-4.2[${PYTHON_USEDEP}]
-	<dev-python/redis-4.5[${PYTHON_USEDEP}]
+	<dev-python/sortedcontainers-3[${PYTHON_USEDEP}]
 	>=dev-python/sortedcontainers-2.4.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -38,12 +39,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	# unpin redis
-	sed -i -e '/redis/s:<[0-9.]*:*:' pyproject.toml || die
-	distutils-r1_src_prepare
-}
 
 python_test() {
 	local EPYTEST_DESELECT=(
