@@ -5,10 +5,10 @@ EAPI=7
 HOMEPAGE=https://github.com/garrigue/lablgl
 INHERIT=toolchain-funcs
 IUSE=doc glut +ocamlopt tk
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ppc64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=>=dev-lang/ocaml-3.10.2:=[ocamlopt?] x11-libs/libXext x11-libs/libXmu x11-libs/libX11 virtual/opengl virtual/glu glut? ( media-libs/freeglut ) tk? ( >=dev-lang/tcl-8.3:0= >=dev-lang/tk-8.3:0= dev-ml/labltk:= )
 SLOT=0/1.06
 SRC_URI=https://github.com/garrigue/lablgl/archive/v1.06.tar.gz -> lablgl-1.06.tar.gz
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=e8bea4bc7e01a909898a2d151892c397
+_md5_=5e1d8166dcf0a62db631c9f77a2024fd

@@ -4,11 +4,11 @@ DESCRIPTION=Generic build tool with built-in rules for building OCaml library an
 EAPI=7
 HOMEPAGE=https://github.com/ocaml/ocamlbuild
 IUSE=+ocamlopt test
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1-with-linking-exception
 RDEPEND=>=dev-lang/ocaml-4.02.3-r1:=[ocamlopt?]
 REQUIRED_USE=test? ( ocamlopt )
 RESTRICT=!test? ( test )
 SLOT=0/0.14.0
 SRC_URI=https://github.com/ocaml/ocamlbuild/archive/0.14.0.tar.gz -> ocamlbuild-0.14.0.tar.gz
-_md5_=26ab0d2f4b329fe184cf948e67f4d609
+_md5_=40fc938242cb2507355eae1e0b341914
