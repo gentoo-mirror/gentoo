@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,7 +21,7 @@ case ${PV}  in
 	case ${PV} in
 	*_beta*|*_rc*) ;;
 	*)
-		KEYWORDS="-* amd64 arm arm64 ~loong ~mips ppc64 ~riscv ~s390 x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+		KEYWORDS="-* ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 		;;
 	esac
 esac
@@ -150,6 +150,10 @@ src_test() {
 	go_cross_compile && return 0
 
 	cd src
+
+	# https://github.com/golang/go/issues/42005
+	rm cmd/link/internal/ld/fallocate_test.go || true
+
 	PATH="${GOBIN}:${PATH}" \
 	./run.bash -no-rebuild || die "tests failed"
 	cd ..
