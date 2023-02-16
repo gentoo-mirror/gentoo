@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
 PLOCALES="ca cs da de el en es fi fr gl hu it ja kab nb pl pt_BR ru tr uk zh_CN zh_TW"
@@ -20,7 +20,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/libxml2:2
-	x11-libs/wxGTK:${WX_GTK_VER}"
+	x11-libs/wxGTK:${WX_GTK_VER}[webkit]"
 RDEPEND="${DEPEND}
 	media-fonts/jsmath
 	sci-visualization/gnuplot[wxwidgets]
