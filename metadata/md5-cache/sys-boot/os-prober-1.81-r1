@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install postinst prepare
+DESCRIPTION=Utility to detect other OSs on a set of drives
+EAPI=8
+HOMEPAGE=https://salsa.debian.org/installer-team/os-prober
+INHERIT=readme.gentoo-r1 toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=sys-boot/grub:2[mount]
+SLOT=0
+SRC_URI=mirror://debian/pool/main/o/os-prober/os-prober_1.81.tar.xz
+_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=e2a8aa3eed8288785a0fbdf58bc1e892
