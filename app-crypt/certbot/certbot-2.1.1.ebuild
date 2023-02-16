@@ -8,24 +8,21 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
-PARENT_PN="certbot"
-PARENT_P="${PARENT_PN}-${PV}"
-
 if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 
 	EGIT_REPO_URI="https://github.com/certbot/certbot.git"
 	EGIT_SUBMODULES=()
-	EGIT_CHECKOUT_DIR="${WORKDIR}/${PARENT_P}"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/${P}"
 else
 	SRC_URI="
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
-			-> ${PARENT_P}.gh.tar.gz
+			-> ${P}.gh.tar.gz
 	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-DESCRIPTION="An implementation of the ACME protocol"
+DESCRIPTION="Let’s Encrypt client to automate deployment of X.509 certificates"
 HOMEPAGE="
 	https://github.com/certbot/certbot
 	https://letsencrypt.org/
@@ -34,25 +31,30 @@ HOMEPAGE="
 LICENSE="Apache-2.0"
 SLOT="0"
 
-S="${WORKDIR}/${PARENT_P}/${PN}"
+IUSE="selinux"
+
+S="${WORKDIR}/${P}/${PN}"
 
 BDEPEND="
 	test? (
 		dev-python/pytest[${PYTHON_USEDEP}]
+		dev-python/pytest-cov[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
 	)
 "
 
 RDEPEND="
-	dev-python/chardet[${PYTHON_USEDEP}]
+	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
+	>=dev-python/ConfigArgParse-0.9.3[${PYTHON_USEDEP}]
+	>=dev-python/configobj-5.0.6[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/distro-1.0.1[${PYTHON_USEDEP}]
 	>=dev-python/josepy-1.13.0[${PYTHON_USEDEP}]
-	>=dev-python/pyopenssl-17.5.0[${PYTHON_USEDEP}]
+	>=dev-python/parsedatetime-2.4[${PYTHON_USEDEP}]
 	dev-python/pyrfc3339[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.20.0[${PYTHON_USEDEP}]
-	>=dev-python/requests-toolbelt-0.3.0[${PYTHON_USEDEP}]
+	selinux? ( sec-policy/selinux-certbot )
 "
 
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
