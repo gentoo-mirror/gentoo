@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure
+DEPEND=sys-libs/ncurses:= sys-libs/readline:= fam? ( virtual/fam ) pcre? ( dev-libs/libpcre2 )
+DESCRIPTION=A realtime Apache log analyzer
+EAPI=8
+HOMEPAGE=https://github.com/tessus/apachetop
+IUSE=fam pcre
+KEYWORDS=~amd64 ~hppa ~mips ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:= sys-libs/readline:= fam? ( virtual/fam ) pcre? ( dev-libs/libpcre2 )
+SLOT=0
+SRC_URI=https://github.com/tessus/apachetop/releases/download/0.23.2/apachetop-0.23.2.tar.gz
+_md5_=91d4e0534ba4164b14a90b90f1a713ea
