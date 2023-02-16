@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=.NET is a free, cross-platform, open-source developer platform
+EAPI=8
+HOMEPAGE=https://dotnet.microsoft.com/
+IUSE=+dotnet-symlink
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=MIT
+RDEPEND=app-crypt/mit-krb5:0/0 dev-libs/icu dev-util/lttng-ust:0/2.12 sys-libs/zlib:0/1 dotnet-symlink? ( !dev-dotnet/dotnet-sdk[dotnet-symlink(+)] !dev-dotnet/dotnet-sdk-bin:3.1[dotnet-symlink(+)] !dev-dotnet/dotnet-sdk-bin:5.0[dotnet-symlink(+)] !dev-dotnet/dotnet-sdk-bin:6.0[dotnet-symlink(+)] )
+RESTRICT=splitdebug
+SLOT=7.0
+SRC_URI=amd64? ( elibc_glibc? ( https://dotnetcli.azureedge.net/dotnet/Sdk/7.0.200/dotnet-sdk-7.0.200-linux-x64.tar.gz ) elibc_musl? ( https://dotnetcli.azureedge.net/dotnet/Sdk/7.0.200/dotnet-sdk-7.0.200-linux-musl-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://dotnetcli.azureedge.net/dotnet/Sdk/7.0.200/dotnet-sdk-7.0.200-linux-arm.tar.gz ) elibc_musl? ( https://dotnetcli.azureedge.net/dotnet/Sdk/7.0.200/dotnet-sdk-7.0.200-linux-musl-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://dotnetcli.azureedge.net/dotnet/Sdk/7.0.200/dotnet-sdk-7.0.200-linux-arm64.tar.gz ) elibc_musl? ( https://dotnetcli.azureedge.net/dotnet/Sdk/7.0.200/dotnet-sdk-7.0.200-linux-musl-arm64.tar.gz ) )
+_md5_=24c1b00450a313dcabbfc37706aa2ec9
