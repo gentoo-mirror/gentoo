@@ -3,7 +3,7 @@
 
 EAPI=8
 PLOCALES="cs de es eu fr id ie it ko nb nl nn pt_BR ru sv tr uk zh_CN zh_TW"
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit meson python-any-r1 plocale xdg gnome2-utils
 SRC_URI="https://github.com/johnfactotum/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="gtk ebook reader built with gjs"
