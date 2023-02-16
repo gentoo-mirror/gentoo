@@ -21,6 +21,7 @@ RDEPEND="dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtnetwork:5
+	dev-qt/qtserialport:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtsql:5
 	dev-qt/qtpositioning:5
