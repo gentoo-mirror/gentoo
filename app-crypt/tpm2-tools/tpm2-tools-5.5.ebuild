@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
-inherit autotools bash-completion-r1 flag-o-matic python-any-r1
+PYTHON_COMPAT=( python3_{9..11} )
+inherit bash-completion-r1 flag-o-matic python-any-r1
 
 DESCRIPTION="Tools for the TPM 2.0 TSS"
 HOMEPAGE="https://github.com/tpm2-software/tpm2-tools"
@@ -36,6 +36,14 @@ BDEPEND="virtual/pkgconfig
 	)
 	${PYTHON_DEPS}"
 
+python_check_deps() {
+	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
+
 src_configure() {
 	# tests fail with LTO enabbled. See bug 865275 and 865277
 	filter-lto
@@ -50,5 +58,9 @@ src_install() {
 	default
 	mv "${ED}"/$(get_bashcompdir)/tpm2{_completion.bash,} || die
 	local utils=( "${ED}"/usr/bin/tpm2_* )
-	bashcomp_alias tpm2 "${utils[@]##*/}"
+	utils=("${utils[@]##*/}")
+	# these utiltites don't have bash completions
+	local nobashcomp=( tpm2_encodeobject tpm2_getpolicydigest tpm2_sessionconfig )
+	mapfile -d $'\0' -t utils < <(printf '%s\0' "${utils[@]}" | grep -Ezvw "${nobashcomp[@]/#/-e}")
+	bashcomp_alias tpm2 "${utils[@]}"
 }
