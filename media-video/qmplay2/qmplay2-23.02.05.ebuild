@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -53,7 +53,7 @@ RDEPEND="
 	taglib? ( media-libs/taglib	)
 	vaapi? (
 		>=media-video/ffmpeg-4.1.3[vaapi]
-		media-libs/libva
+		media-libs/libva[X]
 	)
 	vdpau? ( media-video/ffmpeg[vdpau] )
 	videofilters? ( dev-qt/qtconcurrent:5 )
@@ -65,6 +65,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/linguist-tools:5"
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-includes.patch"
+)
 
 src_prepare() {
 	# disable compress man pages
