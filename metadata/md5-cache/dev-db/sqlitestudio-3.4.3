@@ -1,0 +1,18 @@
+BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
+DEPEND=dev-libs/openssl:= dev-db/sqlite:3 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtscript:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 cli? ( sys-libs/readline:= sys-libs/ncurses:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) cups? ( dev-qt/qtprintsupport:5 ) tcl? ( dev-lang/tcl:0= ) dev-qt/designer:5 dev-qt/qtconcurrent:5 test? ( dev-qt/qttest:5 )
+DESCRIPTION=Powerful cross-platform SQLite database manager
+EAPI=8
+HOMEPAGE=https://sqlitestudio.pl
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop plocale python-single-r1 qmake-utils xdg
+IUSE=cli cups python tcl test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/openssl:= dev-db/sqlite:3 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtscript:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 cli? ( sys-libs/readline:= sys-libs/ncurses:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) cups? ( dev-qt/qtprintsupport:5 ) tcl? ( dev-lang/tcl:0= )
+REQUIRED_USE=test? ( cli ) python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/pawelsalawa/sqlitestudio/archive/refs/tags/3.4.3.tar.gz -> sqlitestudio-3.4.3.tar.gz
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	plocale	950fbaec7deeba41b5bcc0572cca99b9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=63536cf46f1b5f19509203c02ba72802
