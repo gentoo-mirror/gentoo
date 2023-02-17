@@ -17,11 +17,11 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/osmocom/gr-osmosdr.git"
 else
 	#commit
-	COMMIT="a100eb024c0210b95e4738b6efd836d48225bd03"
-	SRC_URI="https://github.com/osmocom/gr-osmosdr/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${COMMIT}"
+	#COMMIT="a100eb024c0210b95e4738b6efd836d48225bd03"
+	#SRC_URI="https://github.com/osmocom/gr-osmosdr/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	#S="${WORKDIR}/${PN}-${COMMIT}"
 	#release
-	#SRC_URI="https://github.com/osmocom/gr-osmosdr/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/osmocom/gr-osmosdr/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~riscv ~x86"
 fi
 
