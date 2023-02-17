@@ -1,15 +1,16 @@
-BDEPEND=python_single_target_python3_9? ( dev-python/pybind11[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare setup test unpack
+BDEPEND=python_single_target_python3_9? ( dev-python/pybind11[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) dev-libs/boost:= dev-libs/log4cpp net-wireless/gnuradio:0=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] sci-libs/volk:= airspy? ( net-wireless/airspy ) bladerf? ( >=net-wireless/bladerf-2018.08_rc1:= ) hackrf? ( net-libs/libhackrf:= ) iqbalance? ( net-wireless/gr-iqbal:=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] ) rtlsdr? ( >=net-wireless/rtl-sdr-0.5.4:= ) sdrplay? ( net-wireless/sdrplay ) soapy? ( net-wireless/soapysdr:= ) uhd? ( net-wireless/uhd:=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] ) xtrx? ( net-wireless/libxtrx )
 DESCRIPTION=GNU Radio source block for OsmoSDR and rtlsdr and hackrf
 EAPI=8
 HOMEPAGE=https://sdr.osmocom.org/trac/wiki/GrOsmoSDR https://gitea.osmocom.org/sdr/gr-osmosdr
-INHERIT=cmake python-single-r1 git-r3
+INHERIT=cmake python-single-r1
 IUSE=airspy bladerf doc hackrf iqbalance python rtlsdr sdrplay soapy uhd xtrx python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm ~riscv ~x86
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) dev-libs/boost:= dev-libs/log4cpp net-wireless/gnuradio:0=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] sci-libs/volk:= airspy? ( net-wireless/airspy ) bladerf? ( >=net-wireless/bladerf-2018.08_rc1:= ) hackrf? ( net-libs/libhackrf:= ) iqbalance? ( net-wireless/gr-iqbal:=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] ) rtlsdr? ( >=net-wireless/rtl-sdr-0.5.4:= ) sdrplay? ( net-wireless/sdrplay ) soapy? ( net-wireless/soapysdr:= ) uhd? ( net-wireless/uhd:=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] ) xtrx? ( net-wireless/libxtrx )
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
-SLOT=0/9999
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=20653e02959940ce70e249a9372d0014
+SLOT=0/0.2.4
+SRC_URI=https://github.com/osmocom/gr-osmosdr/archive/v0.2.4.tar.gz -> gr-osmosdr-0.2.4.tar.gz
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=0679f7ec408a91109eb039a0f331591b
