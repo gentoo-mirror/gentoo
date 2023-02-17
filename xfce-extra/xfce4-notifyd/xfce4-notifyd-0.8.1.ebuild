@@ -18,7 +18,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="sound wayland X"
 
 DEPEND="
-	>=dev-libs/glib-2.56.0:2
+	>=dev-db/sqlite-3.34:3
+	>=dev-libs/glib-2.68.0:2
 	>=x11-libs/gtk+-3.22:3[wayland?,X?]
 	>=x11-libs/libnotify-0.7
 	>=xfce-base/libxfce4ui-4.12:=[gtk3(+)]

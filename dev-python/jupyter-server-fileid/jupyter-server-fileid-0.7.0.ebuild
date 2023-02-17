@@ -8,11 +8,11 @@ PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="A Jupyter Server Extension Providing Y Documents"
+DESCRIPTION="An extension that maintains file IDs for documents in a running Jupyter Server"
 HOMEPAGE="
 	https://jupyter.org/
-	https://github.com/jupyter-server/jupyter_server_ydoc/
-	https://pypi.org/project/jupyter-server-ydoc/
+	https://github.com/jupyter-server/jupyter_server_fileid/
+	https://pypi.org/project/jupyter-server-fileid/
 "
 
 LICENSE="BSD"
@@ -20,16 +20,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	<dev-python/jupyter_ydoc-0.4[${PYTHON_USEDEP}]
-	<dev-python/ypy-websocket-0.9.0[${PYTHON_USEDEP}]
-	<dev-python/jupyter-server-fileid-1[${PYTHON_USEDEP}]
-
+	dev-python/jupyter_server[${PYTHON_USEDEP}]
+	~dev-python/jupyter_events-0.5.0[${PYTHON_USEDEP}]
 "
+
 BDEPEND="
 	test? (
 		dev-python/pytest_jupyter[${PYTHON_USEDEP}]
-		dev-python/pytest-tornasync[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	)
 "
 
