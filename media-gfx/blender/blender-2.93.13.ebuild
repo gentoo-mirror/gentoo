@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -126,6 +126,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-2.93.13-openvdb-10.patch
 	"${FILESDIR}"/${PN}-3.0.0-intern-ghost-fix-typo-in-finding-XF86VMODE.patch
 	"${FILESDIR}"/${PN}-3.0.1-openexr.patch
 	"${FILESDIR}"/${PN}-3.0.1-openimageio-2.3.patch

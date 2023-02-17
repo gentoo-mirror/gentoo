@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,9 +13,9 @@ HOMEPAGE="https://www.blender.org"
 if [[ ${PV} = *9999* ]] ; then
 	# Subversion is needed for downloading unit test files
 	inherit git-r3 subversion
-	EGIT_REPO_URI="https://git.blender.org/blender.git"
+	EGIT_REPO_URI="https://projects.blender.org/blender/blender.git"
 else
-	SRC_URI="https://download.blender.org/source/${P}.tar.xz"
+	SRC_URI="https://projects.blender.org/blender/blender/archive/v${PV}.tar.gz"
 	# Update these between major releases.
 	TEST_TARBALL_VERSION="$(ver_cut 1-2).0"
 	SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.xz )"
@@ -80,7 +80,7 @@ RDEPEND="${PYTHON_DEPS}
 	nls? ( virtual/libiconv )
 	openal? ( media-libs/openal )
 	oidn? ( >=media-libs/oidn-1.4.1 )
-	openimageio? ( >=media-libs/openimageio-2.3.12.0-r3:= )
+	openimageio? ( >=media-libs/openimageio-2.4.6.0:= )
 	openexr? (
 		>=dev-libs/imath-3.1.4-r2:=
 		>=media-libs/openexr-3:0=

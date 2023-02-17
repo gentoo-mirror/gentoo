@@ -6,6 +6,10 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-02-09)
+# Bug #893686. Presently nothing depends on dev-java/swt built with this flag.
+dev-java/swt:4.10 webkit
+
 # Bernd Waibel <waebbl-gentoo@posteo.net> (2023-01-28)
 # Has some issues building and needs some love first.
 # Bug #891829
@@ -418,9 +422,6 @@ x11-libs/colord-gtk doc
 # Mask the experimental targets in release ebuilds.
 # Note to self: remember to move still-applicable masks to the newer
 # version when master is bumped.
-<dev-ml/llvm-ocaml-14 llvm_targets_VE
-<sys-devel/clang-14 llvm_targets_VE
-<sys-devel/llvm-14 llvm_targets_VE
 <dev-ml/llvm-ocaml-16 llvm_targets_ARC llvm_targets_CSKY
 <sys-devel/clang-16 llvm_targets_ARC llvm_targets_CSKY
 <sys-devel/llvm-16 llvm_targets_ARC llvm_targets_CSKY
