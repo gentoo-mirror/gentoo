@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,9 +9,10 @@ inherit elisp-common dune
 
 DESCRIPTION="Serialization library and protocol for interaction with the Coq proof assistant"
 HOMEPAGE="https://github.com/ejgallego/coq-serapi/"
+
 # The tarball in SRC_URI is comprised of <supported coq>+<package version>
 SRC_URI="https://github.com/ejgallego/${PN}/archive/${COQV}+${PV}.tar.gz
-		-> ${P}.tar.gz"
+	-> ${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${COQV}-${PV}
 
 LICENSE="GPL-3+"
@@ -22,7 +23,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=sci-mathematics/coq-${COQV}:= <sci-mathematics/coq-8.17:=
-	>=dev-ml/ppx_sexp_conv-0.13.0:= <dev-ml/ppx_sexp_conv-0.15.0:=
+	>=dev-ml/ppx_sexp_conv-0.13.0:=
 	dev-ml/cmdliner:=
 	dev-ml/ppx_compare:=
 	dev-ml/ppx_deriving:=
@@ -38,8 +39,9 @@ BDEPEND="
 	test? ( sci-mathematics/coq-mathcomp )
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-sertop.el-path.patch )
 SITEFILE="50sertop-gentoo.el"
+
+PATCHES=( "${FILESDIR}"/${PN}-sertop.el-path.patch )
 
 src_compile() {
 	dune_src_compile
@@ -51,6 +53,7 @@ src_install() {
 	dune_src_install
 
 	rm -r "${D}"/usr/share/emacs || die
+
 	if use emacs ; then
 		elisp-install ${PN} sertop.el{,c}
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
