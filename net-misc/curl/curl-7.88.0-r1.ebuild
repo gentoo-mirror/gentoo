@@ -92,8 +92,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-7.30.0-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
 
-	"${FILESDIR}"/${P}-test-gnuserv-tls-srp.patch
-	"${FILESDIR}"/${P}-test-uninitialised-value.patch
+	"${FILESDIR}"/${P}-http2.patch
+	"${FILESDIR}"/${P}-tests.patch
 )
 
 src_prepare() {
@@ -234,7 +234,7 @@ multilib_src_configure() {
 		--with-zlib
 		$(use_with zstd)
 	)
-	
+
 	# Do not supply a test httpd/caddy/etc
 	if use test; then
 		myconf+=(

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit bash-completion-r1 python-single-r1 udev
 
@@ -126,6 +126,17 @@ src_configure() {
 
 src_compile() {
 	emake V=1 all $(usev static)
+}
+
+src_test() {
+	default
+
+	if use python ; then
+		cd libbtrfsutil/python || die
+
+		local -x LD_LIBRARY_PATH="${S}:libbtrfsutil/python:${LD_LIBRARY_PATH}"
+		${EPYTHON} -m unittest tests/test_*.py || die
+	fi
 }
 
 src_install() {

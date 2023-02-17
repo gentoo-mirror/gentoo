@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 	# x11-misc-util/macros only required on live ebuilds
 	LIVE_DEPEND=">=x11-misc/util-macros-1.18"
 else
-	SRC_URI="https://gitlab.com/kicad/services/${PN}/-/archive/${PV}/${P}.tar.gz"
+	SRC_URI="https://gitlab.com/kicad/services/${PN}/-/archive/${PV}/${P}.tar.bz2"
 	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 fi
 
@@ -28,10 +28,14 @@ IUSE+=${LANG_USE}
 REQUIRED_USE="|| ( html pdf ) ^^ ( ${LANG_USE} )"
 unset LANG_USE
 
+PATCHES=(
+	"${FILESDIR}/${P}-eeschema_advanced.patch"
+)
+
 # TODO: need asciidoctor-pdf for pdf
 # bug #697450
 BDEPEND="
-	>=app-text/asciidoc-8.6.9
+	>=dev-ruby/asciidoctor-2.0.12
 	>=app-text/dblatex-0.3.10
 	>=app-text/po4a-0.45
 	>=sys-devel/gettext-0.18
@@ -50,10 +54,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		# May not always work?
-		# https://gitlab.com/kicad/services/kicad-doc/-/issues/808
-		-DADOC_TOOLCHAIN="ASCIIDOC"
-		# Note: need EAPI 8 usev here, not pre-EAPI 8 behaviour
+		-DPDF_GENERATOR="DBLATEX"
 		-DBUILD_FORMATS="$(usev html);$(usev pdf)"
 		-DSINGLE_LANGUAGE="${L10N}"
 		-DKICAD_DOC_PATH="${EPREFIX}"/usr/share/doc/${P}/help

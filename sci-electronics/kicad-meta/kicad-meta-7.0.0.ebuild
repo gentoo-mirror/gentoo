@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,9 +10,7 @@ SRC_URI=""
 LICENSE="metapackage"
 SLOT="0"
 
-if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
-fi
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 IUSE="doc minimal"
 
