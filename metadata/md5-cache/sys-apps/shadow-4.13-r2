@@ -11,6 +11,6 @@ LICENSE=BSD GPL-2
 RDEPEND=virtual/libcrypt:= acl? ( sys-apps/acl:0= ) audit? ( >=sys-process/audit-2.6:0= ) cracklib? ( >=sys-libs/cracklib-2.7-r3:0= ) nls? ( virtual/libintl ) pam? ( sys-libs/pam:0= ) skey? ( sys-auth/skey:0= ) selinux? ( >=sys-libs/libselinux-1.28:0= sys-libs/libsemanage:0= ) xattr? ( sys-apps/attr:0= ) !<sys-apps/man-pages-5.11-r1 !=sys-apps/man-pages-5.12-r0 !=sys-apps/man-pages-5.12-r1 nls? ( !<app-i18n/man-pages-it-5.06-r1 !<app-i18n/man-pages-ja-20180315-r1 !<app-i18n/man-pages-ru-5.03.2390.2390.20191017-r1 ) pam? ( >=sys-auth/pambase-20150213 ) su? ( !sys-apps/util-linux[su(-)] )
 REQUIRED_USE=?? ( cracklib pam )
 SLOT=0/4
-SRC_URI=https://github.com/shadow-maint/shadow/releases/download/4.12.3/shadow-4.12.3.tar.xz verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/4.12.3/shadow-4.12.3.tar.xz.asc )
+SRC_URI=https://github.com/shadow-maint/shadow/releases/download/4.13/shadow-4.13.tar.xz verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/4.13/shadow-4.13.tar.xz.asc )
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	flag-o-matic	69394e25812406faa1f90edaf4969395	pam	01b77091d5b6560b0aeafa7fbb1bd818	verify-sig	85e14d0a93afa75c621382409ada8732
-_md5_=52340d1b2d3b33b77d85e2fe6eb3e58c
+_md5_=39c7ef4e6a77a1f0f0bc33b84d151652
