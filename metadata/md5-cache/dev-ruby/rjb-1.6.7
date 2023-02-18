@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install preinst prepare setup test unpack
+DEPEND=>=virtual/jdk-1.8 hardened? ( sys-apps/paxctl ) >=dev-java/java-config-2.2.0-r3 ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+DESCRIPTION=Rjb is a Ruby-Java software bridge
+EAPI=8
+HOMEPAGE=https://github.com/arton/rjb
+INHERIT=java-pkg-2 ruby-fakegem
+IUSE=examples hardened ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://rubygems.org/gems/rjb-1.6.7.gem
+_eclasses_=java-utils-2	eefed04ac580a259ecda1fbd966640b7	java-pkg-2	a6b42ffd8b6827abbd8cf09329c2c8fb	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	1147c87e94def682fd485ce7a14a86c2	ruby-fakegem	b4704898f1b861fc19d465c8af7abe9c
+_md5_=47f29d965a132fab837adacddc66c9b3
