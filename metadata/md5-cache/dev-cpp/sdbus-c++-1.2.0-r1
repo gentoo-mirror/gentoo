@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) !systemd? ( || ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) || ( ( >=dev-lang/python-3.10.9-r1:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen[dot] ) !systemd? ( || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) || ( ( >=dev-lang/python-3.11.1-r1:3.11 dev-python/jinja[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 dev-python/jinja[python_targets_python3_9(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=!systemd? ( sys-libs/libcap ) systemd? ( >=sys-apps/systemd-236:= ) tools? ( dev-libs/expat ) !systemd? ( sys-apps/util-linux ) test? ( >=dev-cpp/gtest-1.10.0 )
 DESCRIPTION=High-level C++ D-Bus library
@@ -11,6 +11,6 @@ LICENSE=LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1
 RDEPEND=!systemd? ( sys-libs/libcap ) systemd? ( >=sys-apps/systemd-236:= ) tools? ( dev-libs/expat )
 RESTRICT=!test? ( test )
 SLOT=0/1
-SRC_URI=https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v1.2.0.tar.gz -> sdbus-c++-1.2.0.tar.gz !systemd? ( https://github.com/systemd/systemd-stable/archive/v251.4/systemd-stable-251.4.tar.gz elibc_musl? ( https://dev.gentoo.org/~floppym/distfiles/systemd-musl-patches-251.2.tar.gz https://dev.gentoo.org/~gyakovlev/distfiles/systemd-musl-patches-251.2.tar.gz https://dev.gentoo.org/~soap/distfiles/systemd-musl-patches-251.2.tar.gz ) )
+SRC_URI=https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v1.2.0.tar.gz -> sdbus-c++-1.2.0.tar.gz !systemd? ( https://github.com/systemd/systemd-stable/archive/v252.6/systemd-stable-252.6.tar.gz elibc_musl? ( https://dev.gentoo.org/~floppym/distfiles/systemd-musl-patches-252.4.tar.gz https://dev.gentoo.org/~gyakovlev/distfiles/systemd-musl-patches-252.4.tar.gz https://dev.gentoo.org/~soap/distfiles/systemd-musl-patches-252.4.tar.gz ) )
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ninja-utils	38c85b725d0467e51954ea921b6c104b	meson	1994a5aef5d4f5798b92f64d6f9a6003	flag-o-matic	69394e25812406faa1f90edaf4969395	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
-_md5_=42bab15c74de4a8d18434837fca0a805
+_md5_=737d5426c166fb4bfe8b573f43a2bd14
