@@ -18,7 +18,7 @@ HOMEPAGE="https://github.com/ngtcp2/nghttp3/"
 
 LICENSE="MIT"
 SLOT="0/0"
-IUSE="test"
+IUSE="static-libs test"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="test? ( >=dev-util/cunit-2.1[${MULTILIB_USEDEP}] )"
@@ -28,6 +28,7 @@ RESTRICT="!test? ( test )"
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_LIB_ONLY=ON
+		-DENABLE_STATIC_LIB=$(usex static-libs)
 		-DENABLE_EXAMPLES=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_CUnit=$(usex !test)
 	)

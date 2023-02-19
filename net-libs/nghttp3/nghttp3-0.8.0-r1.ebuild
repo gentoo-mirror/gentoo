@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake-multilib
 
@@ -9,9 +9,7 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/ngtcp2/nghttp3.git"
 	inherit git-r3
 else
-	GIT_COMMIT="51379a041174ad953dc6ad437712f3b279f81919"
-	SRC_URI="https://github.com/ngtcp2/nghttp3/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${GIT_COMMIT}"
+	SRC_URI="https://github.com/ngtcp2/nghttp3/releases/download/v${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~hppa"
 fi
 
@@ -20,7 +18,7 @@ HOMEPAGE="https://github.com/ngtcp2/nghttp3/"
 
 LICENSE="MIT"
 SLOT="0/0"
-IUSE="test"
+IUSE="static-libs test"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="test? ( >=dev-util/cunit-2.1[${MULTILIB_USEDEP}] )"
@@ -30,6 +28,7 @@ RESTRICT="!test? ( test )"
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_LIB_ONLY=ON
+		-DENABLE_STATIC_LIB=$(usex static-libs)
 		-DENABLE_EXAMPLES=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_CUnit=$(usex !test)
 	)
