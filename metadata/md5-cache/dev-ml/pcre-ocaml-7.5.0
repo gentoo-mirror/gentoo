@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune-configurator dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-libs/libpcre-4.5 dev-ml/stdio:= >=dev-lang/ocaml-4.12 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Perl Compatibility Regular Expressions for O'Caml
+EAPI=7
+HOMEPAGE=http://mmottl.github.io/pcre-ocaml/ https://github.com/mmottl/pcre-ocaml
+INHERIT=dune
+IUSE=examples +ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv ~x86
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=>=dev-libs/libpcre-4.5 dev-ml/stdio:= >=dev-lang/ocaml-4.12 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/7.5.0
+SRC_URI=https://github.com/mmottl/pcre-ocaml/releases/download/7.5.0/pcre-7.5.0.tbz -> pcre-ocaml-7.5.0.tbz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
+_md5_=bfffc4a55ca83067a0e115941da7987a
