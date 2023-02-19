@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.qt.io/ https://invent.kde.org/qt/qt/qtbase https://community.kde.org/Qt5PatchCollection
 INHERIT=linux-info flag-o-matic toolchain-funcs qt5-build
 IUSE=icu old-kernel systemd debug test
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc ~x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 RDEPEND=dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode] sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) systemd? ( sys-apps/systemd:= )
 RESTRICT=test
 SLOT=5/5.15.8
 SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.8/submodules/qtbase-everywhere-opensource-src-5.15.8.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15.8-gentoo-kde-5.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15-gentoo-patchset-3.tar.xz
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	flag-o-matic	69394e25812406faa1f90edaf4969395	estack	055c42df72f76a4f45ec92b35e83cd56	virtualx	644887c82aefdf12001489391fca4f02	qt5-build	2b5cd479b477d25eb6d67fcb61116c2b
-_md5_=6c7f21af36b7a9506a678b6fa5b234c3
+_md5_=6250ac65ce1ee7faa4cf597bd5f077a9
