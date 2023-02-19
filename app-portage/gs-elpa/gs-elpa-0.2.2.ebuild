@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9,10} )
-DISTUTILS_USE_SETUPTOOLS=no
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="app-portage/g-sorcery[${PYTHON_USEDEP}]
-	<dev-python/sexpdata-0.0.4[${PYTHON_USEDEP}]"
+	>=dev-python/sexpdata-0.0.4[${PYTHON_USEDEP}]"
 BDEPEND="${RDEPEND}"
 
 python_install_all() {
