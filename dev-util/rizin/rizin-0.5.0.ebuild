@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9..11} )
 
 # This is the commit that the CI for the release commit used
-BINS_COMMIT="aef7f7b714a696f382f55b8cbbf94c5b69518de3"
+BINS_COMMIT="0264ae4ee5bd606ec6c6a539255eeb57ce2c82c2"
 
 inherit meson python-any-r1
 
@@ -15,14 +15,14 @@ HOMEPAGE="https://rizin.re/"
 
 SRC_URI="mirror+https://github.com/rizinorg/rizin/releases/download/v${PV}/rizin-src-v${PV}.tar.xz
 	test? ( https://github.com/rizinorg/rizin-testbins/archive/${BINS_COMMIT}.tar.gz -> rizin-testbins-${BINS_COMMIT}.tar.gz )"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
 SLOT="0/${PV}"
 IUSE="test"
 
 # Need to audit licenses of the binaries used for testing
-RESTRICT="!test? ( test )"
+RESTRICT="test? ( fetch ) !test? ( test )"
 
 RDEPEND="
 	sys-apps/file
@@ -40,6 +40,7 @@ BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4.0-never-rebuild-parser.patch"
+	"${FILESDIR}/${PN}-0.5.0-capstone-include-path.patch"
 )
 
 S="${WORKDIR}/${PN}-v${PV}"
@@ -49,11 +50,6 @@ src_prepare() {
 
 	local py_to_mangle=(
 		librz/core/cmd_descs/cmd_descs_generate.py
-		subprojects/lz4-1.9.3/contrib/meson/meson/GetLz4LibraryVersion.py
-		subprojects/lz4-1.9.3/contrib/meson/meson/InstallSymlink.py
-		subprojects/lz4-1.9.3/tests/test-lz4-list.py
-		subprojects/lz4-1.9.3/tests/test-lz4-speed.py
-		subprojects/lz4-1.9.3/tests/test-lz4-versions.py
 		sys/clang-format.py
 		test/fuzz/scripts/fuzz_rz_asm.py
 		test/scripts/gdbserver.py
