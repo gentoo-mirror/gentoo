@@ -8183,7 +8183,6 @@ sys-devel/gdb:sim - Build gdb's simulators for various hardware platforms. See h
 sys-devel/gdb:source-highlight - Enable listing highlighting via dev-util/source-highlight
 sys-devel/gdb:xml - Support parsing XML data files needed (at least) for cpu features, memory maps, and syscall tracing
 sys-devel/gdb:xxhash - Use dev-libs/xxhash to speed up internal hashing.
-sys-devel/gettext:cvs - When running `autopoint`, use cvs to store the internal development files; this requires cvs at runtime, but will be faster/smaller than raw archives
 sys-devel/gettext:git - When running `autopoint`, use git to store the internal development files; this requires git at runtime, but will be faster/smaller than raw archives
 sys-devel/lld-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 sys-devel/lld-toolchain-symlinks:native-symlinks - Install generic 'ld' symlink, as well as ${CTARGET}-ld. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
