@@ -1,0 +1,14 @@
+BDEPEND=dev-util/cargo-c sys-devel/clang >=virtual/rust-1.65 >=virtual/rust-1.53
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=C library for pkgcraft
+EAPI=8
+HOMEPAGE=https://pkgcraft.github.io/
+INHERIT=edo cargo toolchain-funcs
+IUSE=test debug
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016
+RESTRICT=!test? ( test )
+SLOT=0/0.0.6
+SRC_URI=https://github.com/pkgcraft/pkgcraft/releases/download/pkgcraft-c-0.0.6/pkgcraft-c-0.0.6.tar.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	33a6fedd9e309870a65565d0b995fb41
+_md5_=645ea12f4974f241542c7048cb4b492c

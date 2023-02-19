@@ -1,5 +1,5 @@
 BDEPEND=test? ( dev-util/cargo-nextest ) dev-util/cargo-c sys-devel/clang >=virtual/rust-1.65 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+DEFINED_PHASES=compile configure install test unpack
 DESCRIPTION=C library for pkgcraft
 EAPI=8
 HOMEPAGE=https://pkgcraft.github.io/
@@ -9,5 +9,5 @@ LICENSE=MIT Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016
 PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0/9999
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	cf009a3ed4e5bef503e7a9f215791a78	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	33a6fedd9e309870a65565d0b995fb41	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=53fe6143a4ef3d1c5f1a6dd539268782
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	33a6fedd9e309870a65565d0b995fb41	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=645ea12f4974f241542c7048cb4b492c
