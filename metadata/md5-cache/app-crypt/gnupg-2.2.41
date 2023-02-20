@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gnupg.org/
 INHERIT=flag-o-matic out-of-source multiprocessing systemd toolchain-funcs verify-sig
 IUSE=bzip2 doc ldap nls readline selinux +smartcard ssl test tofu tools usb user-socket wks-server verify-sig
-KEYWORDS=~alpha ~amd64 arm arm64 hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=GPL-3+
 RDEPEND=>=dev-libs/libassuan-2.5.0 >=dev-libs/libgcrypt-1.8.0:= >=dev-libs/libgpg-error-1.29 >=dev-libs/libksba-1.3.5 >=dev-libs/npth-1.2 >=net-misc/curl-7.10 sys-libs/zlib bzip2? ( app-arch/bzip2 ) ldap? ( net-nds/openldap:= ) readline? ( sys-libs/readline:= ) smartcard? ( usb? ( virtual/libusb:1 ) ) ssl? ( >=net-libs/gnutls-3.0:= ) tofu? ( >=dev-db/sqlite-3.7 ) app-crypt/pinentry nls? ( virtual/libintl ) selinux? ( sec-policy/selinux-gpg ) wks-server? ( virtual/mta )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnupg/gnupg/gnupg-2.2.41.tar.bz2 verify-sig? ( mirror://gnupg/gnupg/gnupg-2.2.41.tar.bz2.sig )
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	out-of-source	9779900d240517b0631874f05d190aae	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	85e14d0a93afa75c621382409ada8732
-_md5_=649b6bf27981bf8282e50026e29b78a9
+_md5_=80981afb24de0a3d48fc43daf8a3ab8b
