@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/tpm2-software/tpm2-abrmd
 INHERIT=autotools flag-o-matic systemd
 IUSE=static-libs test
-KEYWORDS=~amd64 arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=BSD
 RDEPEND=acct-group/tss acct-user/tss sys-apps/dbus dev-libs/glib:= app-crypt/tpm2-tss:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tpm2-software/tpm2-abrmd/releases/download/3.0.0/tpm2-abrmd-3.0.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=92c51f10936085a537688003b9c1be6b
+_md5_=ec8630da3f46d32269fc0d3d8cc6ff3c
