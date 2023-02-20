@@ -1,16 +1,16 @@
 BDEPEND=app-text/yelp-tools dev-lang/perl dev-util/glib-utils dev-util/gtk-doc dev-util/itstool sys-devel/gettext virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm setup test
-DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-libs/glib-2.36:2 >=dev-libs/gobject-introspection-1.54.0 dev-libs/libgudev:= >=dev-libs/libpeas-1.2.0[gtk,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] >=media-libs/gexiv2-0.10[introspection] >=media-libs/libgphoto2-2.5.0:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/lcms:2 >=media-libs/libraw-0.9.0:= >=x11-libs/gdk-pixbuf-2.12.0:2 >=x11-libs/gtk+-3.22:3[X,introspection] >=x11-libs/libXext-1.3.0 >=x11-libs/pango-1.40.11 x11-themes/adwaita-icon-theme
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-libs/glib-2.36:2 >=dev-libs/gobject-introspection-1.54.0 dev-libs/libgudev:= >=dev-libs/libpeas-1.2.0[gtk,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] >=media-libs/gexiv2-0.10[introspection] >=media-libs/libgphoto2-2.5.0:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/lcms:2 >=media-libs/libraw-0.9.0:= >=x11-libs/gdk-pixbuf-2.12.0:2 >=x11-libs/gtk+-3.22:3[X,introspection] >=x11-libs/libXext-1.3.0 >=x11-libs/pango-1.40.11 x11-themes/adwaita-icon-theme
 DESCRIPTION=Tethered Camera Control & Capture
 EAPI=7
 HOMEPAGE=https://entangle-photo.org/
 INHERIT=gnome2-utils meson python-single-r1 xdg-utils
-IUSE=python_single_target_python3_9 python_single_target_python3_10
+IUSE=python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=GPL-3+
-RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-libs/glib-2.36:2 >=dev-libs/gobject-introspection-1.54.0 dev-libs/libgudev:= >=dev-libs/libpeas-1.2.0[gtk,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] >=media-libs/gexiv2-0.10[introspection] >=media-libs/libgphoto2-2.5.0:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/lcms:2 >=media-libs/libraw-0.9.0:= >=x11-libs/gdk-pixbuf-2.12.0:2 >=x11-libs/gtk+-3.22:3[X,introspection] >=x11-libs/libXext-1.3.0 >=x11-libs/pango-1.40.11 x11-themes/adwaita-icon-theme
-REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-libs/glib-2.36:2 >=dev-libs/gobject-introspection-1.54.0 dev-libs/libgudev:= >=dev-libs/libpeas-1.2.0[gtk,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] >=media-libs/gexiv2-0.10[introspection] >=media-libs/libgphoto2-2.5.0:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/lcms:2 >=media-libs/libraw-0.9.0:= >=x11-libs/gdk-pixbuf-2.12.0:2 >=x11-libs/gtk+-3.22:3[X,introspection] >=x11-libs/libXext-1.3.0 >=x11-libs/pango-1.40.11 x11-themes/adwaita-icon-theme
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://entangle-photo.org/download/sources/entangle-3.0.tar.xz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=c5ce187b4c300e24ade460bd00467fa9
+_md5_=0e3aba4c48becbd88b5d23b2e2b2211b

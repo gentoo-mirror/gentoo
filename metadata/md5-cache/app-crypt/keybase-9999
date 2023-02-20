@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst test unpack
+DESCRIPTION=Keybase client
+EAPI=8
+HOMEPAGE=https://keybase.io/
+INHERIT=go-module systemd git-r3
+LICENSE=Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0
+PROPERTIES=live
+RDEPEND=app-crypt/gnupg sys-fs/fuse:0=
+RESTRICT=strip
+SLOT=0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=c0752a94ca303819d5e608b049800237
