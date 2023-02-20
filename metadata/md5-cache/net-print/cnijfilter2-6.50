@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=virtual/libusb:1 dev-libs/libxml2 net-print/cups
+DESCRIPTION=IJ Printer Driver
+EAPI=7
+HOMEPAGE=https://asia.canon/en/support/0101163901?model=5777C
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=Canon-IJ
+RDEPEND=virtual/libusb:1 dev-libs/libxml2 net-print/cups
+SLOT=0
+SRC_URI=https://pdisp01.c-wss.com/gdl/WWUFORedirectTarget.do?id=MDEwMDAxMTYzOTAx&amp -> cnijfilter2-source-6.50-1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=4557ef66d2861e02aae24f2fbab040aa
