@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-inherit autotools prefix multilib-minimal verify-sig
+inherit autotools multilib-minimal prefix verify-sig
 
 DESCRIPTION="A Client that groks URLs"
 HOMEPAGE="https://curl.se/"
@@ -75,6 +75,8 @@ BDEPEND="dev-lang/perl
 	virtual/pkgconfig
 	test? (
 		sys-apps/diffutils
+		http2? ( net-libs/nghttp2:=[utils,${MULTILIB_USEDEP}] )
+		nghttp3? ( net-libs/nghttp2:=[utils,${MULTILIB_USEDEP}] )
 	)
 	verify-sig? ( sec-keys/openpgp-keys-danielstenberg )"
 
@@ -99,6 +101,10 @@ PATCHES=(
 src_prepare() {
 	default
 
+	# Some tests (HTTP/#) rely on ssl certificates that are stored VCS which breaks
+	# with out-of-tree builds.
+	sed -i "s:my \$path   = getcwd():my \$path   = \"${S}/tests\":" tests/http*-server.pl \
+		|| die "Unable to update test locations"
 	eprefixify curl-config.in
 	eautoreconf
 }
@@ -228,6 +234,9 @@ multilib_src_configure() {
 		$(use_with rtmp librtmp)
 		--without-schannel
 		--without-secure-transport
+		--without-test-caddy
+		--without-test-httpd
+		--without-test-nghttpx
 		$(use_enable websockets)
 		--without-winidn
 		--without-wolfssl
@@ -235,12 +244,9 @@ multilib_src_configure() {
 		$(use_with zstd)
 	)
 
-	# Do not supply a test httpd/caddy/etc
-	if use test; then
+	if use test && multilib_is_native_abi && ( use http2 || use nghttp3 ); then
 		myconf+=(
-			--without-test-caddy
-			--without-test-httpd
-			--without-test-nghttpx
+			--with-test-nghttpx="${BROOT}/usr/bin/nghttpx"
 		)
 	fi
 
