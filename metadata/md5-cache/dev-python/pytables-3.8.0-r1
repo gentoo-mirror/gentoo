@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.pytables.org/ https://github.com/PyTables/PyTables/ https://pypi.org/project/tables/
 INHERIT=distutils-r1 prefix
 IUSE=examples test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm64 ~ia64 ~riscv
+KEYWORDS=~amd64 ~arm64 ~ia64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=app-arch/bzip2:0= app-arch/lz4:0= >=app-arch/zstd-1.0.0:= >=dev-libs/c-blosc-1.11.1:0= dev-libs/c-blosc2:= dev-libs/lzo:2= >=dev-python/numpy-1.19[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=sci-libs/hdf5-1.8.4:= >=dev-python/numexpr-2.6.2[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/packaging[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/py-cpuinfo[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9[threads(+)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/t/tables/tables-3.8.0.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	a9f2e2ae24bd496873c092a94cae1539	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=4dda3e92bde1216e55cdbb6807f21343
+_md5_=88a0ffa88f45da444a52444dc288d441
