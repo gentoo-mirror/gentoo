@@ -2790,7 +2790,7 @@ app-forensics/afl 2.56b-r1 2.57b-r1 2.57b-r2: american fuzzy lop - compile-time 
 app-forensics/aflplusplus 4.03c 4.04c-r1 4.05c: A fork of AFL, the popular compile-time instrumentation fuzzer
 app-forensics/aide 0.17.4-r4 0.18: AIDE (Advanced Intrusion Detection Environment) is a file integrity checker
 app-forensics/air 2.0.0-r2: A GUI front-end to dd/dc3dd
-app-forensics/chkrootkit 0.54 0.55 0.55-r1: Tool to locally check for signs of a rootkit
+app-forensics/chkrootkit 0.54 0.55 0.55-r1 0.57: Tool to locally check for signs of a rootkit
 app-forensics/cmospwd 5.1-r1: CmosPwd decrypts password stored in cmos used to access BIOS SETUP
 app-forensics/dfxml 20170921-r1 99999999: Digital Forensics XML
 app-forensics/examiner 0.5-r3: Utilizes the objdump command to disassemble and comment foreign binaries
@@ -3427,7 +3427,7 @@ app-shells/mksh 59c 9999: MirBSD Korn Shell
 app-shells/mpibash 1.3-r1 9999: Parallel scripting right from the Bourne-Again Shell (Bash)
 app-shells/nushell 0.74.0-r1: A new type of shell, written in Rust
 app-shells/pdmenu 1.3.6: A simple console menu program
-app-shells/pdsh 2.26-r1 2.34 2.34-r1: A high-performance, parallel remote shell utility
+app-shells/pdsh 2.34-r1: A high-performance, parallel remote shell utility
 app-shells/peco 0.5.8 0.5.10 9999: Simplistic interactive filtering tool
 app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
@@ -10848,7 +10848,7 @@ dev-util/kup 0.3.6-r1: kernel.org uploader tool
 dev-util/kyua 0.13-r2: Testing framework for infrastructure software
 dev-util/lcov 1.15 9999: A graphical front-end for GCC's coverage testing tool gcov
 dev-util/leaktracer 2.4-r3: trace and analyze memory leaks in C++ programs
-dev-util/libabigail 2.1-r1 2.2 9999: Suite of tools for checking ABI differences between ELF objects
+dev-util/libabigail 2.2 9999: Suite of tools for checking ABI differences between ELF objects
 dev-util/librnp 0.16.2: High performance C++ OpenPGP library
 dev-util/libtree 3.1.1: ldd as a tree with an option to bundle dependencies into a single folder
 dev-util/linklint 2.3.5: A Perl program that checks links on web sites
@@ -15587,7 +15587,7 @@ net-vpn/strongswan 5.9.8 5.9.9: IPsec-based VPN solution, supporting IKEv1/IKEv2
 net-vpn/tailscale 1.22.0 1.22.2 1.24.2 1.26.2 1.32.0 1.32.2: Tailscale vpn client
 net-vpn/tinc 1.0.36 1.1_pre18: tinc is an easy to configure VPN implementation
 net-vpn/tor 0.4.7.13-r1: Anonymizing overlay network for TCP
-net-vpn/vpnc 0.5.3_p550-r3 0.5.3_p20220927 0.5.3_p20220927-r1 9999: Free client for Cisco VPN routing software
+net-vpn/vpnc 0.5.3_p20220927-r1 9999: Free client for Cisco VPN routing software
 net-vpn/vpnc-scripts 20210402-r1 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
 net-vpn/vpncloud 2.3.0: High performance peer-to-peer mesh VPN
 net-vpn/vpncwatch 1.8.1-r1: Keepalive daemon for vpnc on Linux systems
@@ -17791,7 +17791,7 @@ virtual/bitcoin-leveldb 0-r2: Virtual for LevelDB versions known to be compatibl
 virtual/blas 3.8: Virtual for FORTRAN 77 BLAS implementation
 virtual/cblas 3.8: Virtual for BLAS C implementation
 virtual/checkpassword 0-r1: Virtual for checkpassword compatible applications
-virtual/commonlisp 0: Virtual for Common Lisp
+virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
@@ -18248,7 +18248,7 @@ x11-drivers/xf86-input-elographics 1.4.3: Elographics input driver
 x11-drivers/xf86-input-evdev 2.10.6: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.4: X.Org driver for joystick input devices
 x11-drivers/xf86-input-libinput 1.2.1: X.org input driver based on libinput
-x11-drivers/xf86-input-mtrack 0.5.0: Xorg Driver for Multitouch Trackpads
+x11-drivers/xf86-input-mtrack 0.5.0-r1: Xorg Driver for Multitouch Trackpads
 x11-drivers/xf86-input-synaptics 1.9.2: Driver for Synaptics touchpads
 x11-drivers/xf86-input-vmmouse 13.2.0 9999: VMWare mouse input driver
 x11-drivers/xf86-input-void 1.4.2: null input driver
@@ -18275,7 +18275,7 @@ x11-libs/c++-gtk-utils 2.0.34 2.2.20: A number of classes and functions for prog
 x11-libs/cairo 1.17.6 1.17.6-r1 9999: A vector graphics library with cross-device output support
 x11-libs/cmrt 1.0.6-r2: Intel C for Media RunTime GPU kernel manager
 x11-libs/colord-gtk 0.2.0 0.3.0: GTK support library for colord
-x11-libs/dnd 1.1-r3: OffiX' Drag'n'drop library
+x11-libs/dnd 1.1-r4: OffiX' Drag'n'drop library
 x11-libs/fltk 1.3.5-r4 1.3.9999 1.4.9999: C++ user interface toolkit for X and OpenGL
 x11-libs/fox 1.6.57-r3 1.7.67-r1: C++ Toolkit for developing Graphical User Interfaces easily and effectively
 x11-libs/fox-wrapper 3: wrapper for fox-config to manage multiple versions
@@ -18288,7 +18288,7 @@ x11-libs/gtk+ 2.24.33-r2 3.24.35 3.24.36: Gimp ToolKit +
 x11-libs/gtk-mac-integration 2.0.5-r1: Menubar, doc and app bundle integration for GTK+
 x11-libs/gtkdatabox 1.0.0-r1: Gtk+ Widgets for live display of large amounts of fluctuating numerical data
 x11-libs/gtkglext 1.2.0-r5: GL extensions for Gtk+ 2.0
-x11-libs/gtkmathview 0.8.0-r4: Rendering engine for MathML documents
+x11-libs/gtkmathview 0.8.0-r5: Rendering engine for MathML documents
 x11-libs/gtksourceview 2.10.5-r3 3.24.11-r1 4.8.4: A text widget implementing syntax highlighting and other features
 x11-libs/libFS 1.0.9: X.Org FS library
 x11-libs/libGLw 8.0.0-r1: Mesa GLw library
@@ -18339,10 +18339,10 @@ x11-libs/libgxim 0.5.0: GObject-based XIM protocol library
 x11-libs/libnotify 0.8.1 0.8.2: A library for sending desktop notifications
 x11-libs/liboglappth 1.0.0-r1: Libary for OpenGL applications with easy-to-code scene setup and selection
 x11-libs/libpciaccess 0.17: Library providing generic access to the PCI bus and devices
-x11-libs/librfm 5.3.16.3-r1: The basic library used by some rfm applications, such as Rodent filemanager
+x11-libs/librfm 5.3.16.3-r2: The basic library used by some rfm applications, such as Rodent filemanager
 x11-libs/libtinynotify 0.2.1 9999: A lightweight implementation of Desktop Notification Spec
-x11-libs/libtinynotify-cli 1.2.1 9999: Common CLI routines for tinynotify-send & sw-notify-send
-x11-libs/libtinynotify-systemwide 0.1 9999: A system-wide notifications module for libtinynotify
+x11-libs/libtinynotify-cli 1.2.1-r1: Common CLI routines for tinynotify-send & sw-notify-send
+x11-libs/libtinynotify-systemwide 0.1-r1: A system-wide notifications module for libtinynotify
 x11-libs/libvdpau 1.5: VDPAU wrapper and trace libraries
 x11-libs/libwnck 2.31.0-r1 43.0-r1: A window navigation construction kit
 x11-libs/libxcb 1.15-r1: X C-language Bindings library
@@ -18380,18 +18380,18 @@ x11-libs/xforms 1.2.4-r1: A graphical user interface toolkit for X
 x11-libs/xosd 2.2.14_p2_p1: Library for overlaying text in X-Windows X-On-Screen-Display
 x11-libs/xpa 2.1.18: Messaging system providing communication between programs
 x11-libs/xtrans 1.4.0: X.Org xtrans library
-x11-misc/3dfm 1.0-r1: OpenGL-based 3D File Manager
+x11-misc/3dfm 1.0-r2: OpenGL-based 3D File Manager
 x11-misc/accessx 0951-r3: Interface to the XKEYBOARD extension in X11
 x11-misc/alacarte 3.44.2: Simple GNOME menu editor
 x11-misc/albert 0.17.2-r1 0.17.3 0.17.5 0.17.6: A fast and flexible keyboard launcher
 x11-misc/alock 1.0.0-r1: locks the local X display until a password is entered
 x11-misc/appmenu-gtk-module 0.7.6: Application menu module for GTK
-x11-misc/apwal 0.4.5-r2: A simple application launcher and combined editor
+x11-misc/apwal 0.4.5-r3: A simple application launcher and combined editor
 x11-misc/arandr 0.1.10-r3 0.1.11: Another XRandR GUI
 x11-misc/autocutsel 0.10.1: Synchronise the two copy/paste buffers mainly used by X applications
 x11-misc/autorandr 1.12.1-r2 1.13.3 9999: Automatically select a display configuration based on connected devices
 x11-misc/barrier 2.4.0: Share a mouse and keyboard between computers (fork of Synergy)
-x11-misc/bbacpi 0.1.5-r3: ACPI monitor for X11
+x11-misc/bbacpi 0.1.5-r4: ACPI monitor for X11
 x11-misc/bbcd 0.3.1-r4 0.3.1-r5: Basic CD Player for blackbox wm
 x11-misc/bbdate 0.2.4-r3: blackbox date display
 x11-misc/bbkeys 0.9.2: Use keyboard shortcuts in the blackbox wm
@@ -18408,7 +18408,7 @@ x11-misc/bumblebee 3.2.1_p20210112-r4 9999: Service providing elegant and stable
 x11-misc/cairo-clock 0.3.4-r2: An analog clock displaying the system-time
 x11-misc/cbatticon 1.6.13: A lightweight and fast battery icon that sits in your system tray
 x11-misc/cdm 0.7: The Console Display Manager
-x11-misc/chgres 0.1-r2: A very simple command line utility for changing X resolutions
+x11-misc/chgres 0.1-r3: A very simple command line utility for changing X resolutions
 x11-misc/clipmenu 6.2.0-r1: Clipboard management
 x11-misc/clipnotify 1.0.2: Notify on new X clipboard events
 x11-misc/colord 1.4.6-r1: System service to accurately color manage input and output devices
@@ -18947,14 +18947,14 @@ x11-themes/oxygen-gtk 1.4.1-r1 1.4.6-r1: Official GTK+:2 port of KDE's Oxygen wi
 x11-themes/papirus-icon-theme 20221201 20230104: Free and open source SVG icon theme
 x11-themes/pearlgrey-xcursors 1.0-r1: A simple crispy white-grey xcursor theme
 x11-themes/pidgin-penguins-smileys 1.0: Penguins pidgin smiley theme
-x11-themes/pulse-glass 20100616: The Pulse Glass x11 mouse cursor theme
+x11-themes/pulse-glass 20100616-r1: The Pulse Glass x11 mouse cursor theme
 x11-themes/qtcurve 1.9.0_p20210412 9999: Widget styles for Qt and GTK2
 x11-themes/shiki-colors 4.6: Mixes the elegance of a dark theme with the usability of a light theme
 x11-themes/silver-xcursors 0.4-r4: A high quality set of animated mouse cursors
 x11-themes/slim-themes 1.2.3a-r7: SLiM (Simple Login Manager) themes pack
 x11-themes/smplayer-skins 15.2.0-r1: Skins for SMPlayer
 x11-themes/smplayer-themes 18.6.0: Icon themes for smplayer
-x11-themes/solar-backgrounds 0.92.0.5-r1: Fedora 10 official background artwork
+x11-themes/solar-backgrounds 0.92.0.5-r2: Fedora 10 official background artwork
 x11-themes/sound-theme-freedesktop 0.8: Default freedesktop.org sound theme following the XDG theming specification
 x11-themes/tactile 0_pre20060612: Nice, calm and dark low contrast GTK+ theme
 x11-themes/tactile3 3.1: The third evolution of Tactile theme series
@@ -18966,22 +18966,20 @@ x11-themes/ubuntu-wallpapers 22.10.2 22.10.3: Ubuntu wallpapers
 x11-themes/vanilla-dmz-aa-xcursors 0.4.5-r1: Style neutral scalable cursor theme (black version)
 x11-themes/vanilla-dmz-xcursors 0.4.5-r1: Style neutral scalable cursor theme (black version)
 x11-themes/vdr-channel-logos 0.2-r3: Logos for vdr-skin*
-x11-themes/verne-backgrounds 15.91.0.1-r1: Fedora 16 official background artwork
-x11-themes/vertex-icon-theme 20150506: Vertex icon theme
-x11-themes/vertex-theme 20170128-r1: Vertex theme for GTK+ based desktops
+x11-themes/verne-backgrounds 15.91.0.1-r2: Fedora 16 official background artwork
+x11-themes/vertex-icon-theme 20150506-r1: Vertex icon theme
+x11-themes/vertex-theme 20170128-r2: Vertex theme for GTK+ based desktops
 x11-themes/windowmaker-themes 0.1-r1: Collection of Window Maker themes
 x11-themes/wm-icons 0.4.0: A Large Assortment of Beautiful Themed Icons, Created with FVWM in mind
 x11-themes/xcursor-themes 1.0.6-r1: X.Org cursor themes: whiteglass, redglass and handhelds
-x11-themes/xfce-gant-icon-theme 3.9_p6-r1: Xfce Gant Icon Theme
-x11-themes/xfwm4-themes 4.10.0-r1: Additional themes for the Xfce window manager
+x11-themes/xfce-gant-icon-theme 3.9_p6-r2: Xfce Gant Icon Theme
+x11-themes/xfwm4-themes 4.10.0-r2: Additional themes for the Xfce window manager
 x11-themes/yasis-icon-theme 0.4.2-r1: Scalable icon theme called Yasis
 x11-themes/zuki-themes 4.0: Zuki themes for GTK, gnome-shell and more
 x11-themes/zukini 20120817: Unified look for GTK+ 2.x, GTK+ 3.x, gnome-shell, metacity and more
-x11-themes/zukitwo 2016.08.08: Transition package to zuki-themes
-x11-themes/zukitwo-shell 2016.08.08: Transition package to zuki-themes
 x11-wm/2bwm 0.3 9999: A fast, floating window manager
 x11-wm/aewm 1.3.12-r1: A minimalistic X11 window manager
-x11-wm/aewm++ 1.1.5-r2: A window manager with more modern features than aewm
+x11-wm/aewm++ 1.1.5-r3: A window manager with more modern features than aewm
 x11-wm/amiwm 0.22.01_p20200826: Amiga Workbench inspired window manager for Xorg
 x11-wm/awesome 4.3-r102 9999: A dynamic floating and tiling window manager
 x11-wm/blackbox 0.77: A small, fast, full-featured window manager for X
@@ -18996,7 +18994,7 @@ x11-wm/evilwm 1.3.1: A minimalist, no frills window manager for X
 x11-wm/fluxbox 1.3.7-r4: X11 window manager featuring tabs and an iconbar
 x11-wm/fvwm 2.6.9 2.7.0: An extremely powerful ICCCM-compliant multiple virtual desktop window manager
 x11-wm/fvwm3 1.0.4-r2 9999: A multiple large virtual desktop window manager derived from fvwm
-x11-wm/goomwwm 1.0.0-r1 9999: Get out of my way, Window Manager!
+x11-wm/goomwwm 1.0.0-r2: Get out of my way, Window Manager!
 x11-wm/herbstluftwm 0.9.5-r1 9999: A manual tiling window manager for X
 x11-wm/i3 4.21.1 4.22 9999: An improved dynamic tiling window manager
 x11-wm/i3-gaps 4.20.1 4.21-r2 4.21.1: i3 fork with gaps and some more features
@@ -19013,7 +19011,7 @@ x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features
 x11-wm/mutter 43.2 43.3: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r3 9999: Standards compliant, fast, light-weight, extensible window manager
-x11-wm/oroborus 2.0.20-r1: Small and fast window manager
+x11-wm/oroborus 2.0.20-r2: Small and fast window manager
 x11-wm/page 1.9.10: A mouse friendly tiling window manager
 x11-wm/pekwm 0.1.18 0.2.1: A lightweight window manager initially based on aewm++
 x11-wm/qtile 0.21.0-r1 0.22.1 0.22.1-r1 9999: A full-featured, hackable tiling window manager written in Python

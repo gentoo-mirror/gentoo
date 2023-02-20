@@ -1,12 +1,13 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-util/gtk-doc )
 DEFINED_PHASES=configure install
-DEPEND=sys-process/procps:0= x11-libs/libtinynotify:0= virtual/pkgconfig doc? ( dev-util/gtk-doc )
+DEPEND=sys-process/procps:= x11-libs/libtinynotify:=
 DESCRIPTION=A system-wide notifications module for libtinynotify
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/mgorny/libtinynotify-systemwide/
-IUSE=doc static-libs
+IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=sys-process/procps:0= x11-libs/libtinynotify:0=
+RDEPEND=sys-process/procps:= x11-libs/libtinynotify:=
 SLOT=0
 SRC_URI=https://github.com/mgorny/libtinynotify-systemwide/releases/download/libtinynotify-systemwide-0.1/libtinynotify-systemwide-0.1.tar.bz2
-_md5_=c8f328d8e8064d879f7fee085ac2d8f1
+_md5_=89b7c343bdc6fad620eb86ef945e7cdd

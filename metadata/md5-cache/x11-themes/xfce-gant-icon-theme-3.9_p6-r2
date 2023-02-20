@@ -1,14 +1,15 @@
-DEFINED_PHASES=install postinst postrm
+DEFINED_PHASES=install postinst postrm preinst
 DEPEND=x11-themes/hicolor-icon-theme
 DESCRIPTION=Xfce Gant Icon Theme
-EAPI=6
+EAPI=8
 HOMEPAGE=https://www.xfce-look.org/content/show.php/GANT?content=23297
-INHERIT=gnome2-utils
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
 KEYWORDS=amd64 x86
 LICENSE=public-domain
 RDEPEND=x11-themes/hicolor-icon-theme
 RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=http://overlay.uberpenguin.net/icons-xfce-gant-3.9-6.tar.bz2
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3
-_md5_=40f283a88d6c3fb5827975ddbd1542c8
+_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=31ee5ca5d17b074768c9a01cd0f9a5c9

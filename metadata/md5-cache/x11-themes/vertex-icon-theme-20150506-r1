@@ -1,13 +1,14 @@
 DEFINED_PHASES=compile configure install postinst postrm preinst
 DESCRIPTION=Vertex icon theme
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/horst3180/vertex-icons
-INHERIT=gnome2-utils
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
 KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x64-solaris ~x86-solaris
 LICENSE=|| ( GPL-3 GPL-2 LGPL-3 CC-BY-SA-3.0 )
 RDEPEND=>=x11-themes/hicolor-icon-theme-0.10
 RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://github.com/horst3180/vertex-icons/archive/f27e47edf392596b7967b7d134d3c62ac3fda0c9.tar.gz -> vertex-icon-theme-20150506.tar.gz
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3
-_md5_=072fd2fcc7403c85fe51b1bfc783750b
+_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=fad97ae3d1d092a23b8446f1c74898bc

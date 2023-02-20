@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=x11-libs/libXft x11-libs/libX11 x11-libs/libXinerama x11-base/xorg-proto
+DESCRIPTION=Get out of my way, Window Manager!
+EAPI=8
+HOMEPAGE=https://github.com/seanpringle/goomwwm
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=debug
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=x11-libs/libXft x11-libs/libX11 x11-libs/libXinerama
+SLOT=0
+SRC_URI=https://github.com/seanpringle/goomwwm/archive/1.0.0.tar.gz -> goomwwm-1.0.0-github.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
+_md5_=c6bb6d568f1ea2760aff7951822e0b1e

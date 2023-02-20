@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare
+DESCRIPTION=Tool to locally check for signs of a rootkit
+EAPI=8
+HOMEPAGE=http://www.chkrootkit.org/
+INHERIT=systemd toolchain-funcs
+IUSE=+cron
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=BSD-2
+RDEPEND=cron? ( virtual/cron )
+SLOT=0
+SRC_URI=ftp://chkrootkit.org/pub/seg/pac/chkrootkit-0.57.tar.gz https://dev.gentoo.org/~tupone/distfiles/app-forensics/chkrootkit/chkrootkit-0.57-gentoo.patch.bz2
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=3fcedacb37c952de2f20870a42b03897
