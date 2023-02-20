@@ -1,5 +1,5 @@
 BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-diffutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
-DEFINED_PHASES=configure unpack
+DEFINED_PHASES=configure prepare unpack
 DESCRIPTION=Tools to make diffs and compare files
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/diffutils/
@@ -10,4 +10,4 @@ LICENSE=GPL-2
 SLOT=0
 SRC_URI=mirror://gnu/diffutils/diffutils-3.9.tar.xz verify-sig? ( mirror://gnu/diffutils/diffutils-3.9.tar.xz.sig )
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	verify-sig	85e14d0a93afa75c621382409ada8732
-_md5_=803b7c97a88fe8e5d2a7532039c93b3a
+_md5_=c8bd2500b1c9df15b5617c4fd8a76a48
