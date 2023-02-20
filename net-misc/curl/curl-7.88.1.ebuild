@@ -93,9 +93,6 @@ MULTILIB_CHOST_TOOLS=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.30.0-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
-
-	"${FILESDIR}"/${P}-http2.patch
-	"${FILESDIR}"/${P}-tests.patch
 )
 
 src_prepare() {
@@ -212,6 +209,7 @@ multilib_src_configure() {
 		--enable-netrc
 		$(use_enable progress-meter)
 		--enable-proxy
+		--enable-socketpair
 		--disable-sspi
 		$(use_enable static-libs static)
 		--enable-pthreads
