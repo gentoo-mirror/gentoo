@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst preinst prepare test unpack
 DEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) virtual/os-headers
 DESCRIPTION=Network monitoring tools including ping and ping6
@@ -13,4 +13,4 @@ RDEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libi
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=fcaps	da0130200e07aaecee121b85f4b9ea17	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	plocale	950fbaec7deeba41b5bcc0572cca99b9	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=fa5c1f838f2320f61106717af556f2c1
+_md5_=ab0b344559cf23c9236d9065d5bd6808
