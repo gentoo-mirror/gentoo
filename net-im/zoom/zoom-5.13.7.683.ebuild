@@ -113,7 +113,8 @@ src_install() {
 	dosym -r "/usr/$(get_libdir)/libquazip1-qt5.so" /opt/zoom/libquazip.so
 
 	if use opencl; then
-		doexe aomhost libaomagent.so libclDNN64.so libdvf.so libmkldnn.so
+		doexe aomhost libaomagent.so libclDNN64.so libdvf.so libmkldnn.so \
+			libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
 		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libOpenCL.so.1
 	fi
 
@@ -123,23 +124,22 @@ src_install() {
 		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libturbojpeg.so
 	fi
 
+	if ! use wayland; then
+		# soname dependency on libwayland-client.so.0
+		rm "${ED}"/opt/zoom/cef/libGLESv2.so || die
+	fi
+
 	if use bundled-qt; then
-		doexe libicu*.so.56 libQt5*.so.5
-		doins qt.conf
-
-		local dirs="Qt* bearer generic iconengines imageformats \
-			platforminputcontexts platforms wayland* xcbglintegrations"
-		doins -r ${dirs}
-		find ${dirs} -type f '(' -name '*.so' -o -name '*.so.*' ')' \
+		doins -r Qt
+		find Qt -type f '(' -name '*.so' -o -name '*.so.*' ')' \
 			-printf '/opt/zoom/%p\0' | xargs -0 -r fperms 0755 || die
-
 		(	# Remove libs and plugins with unresolved soname dependencies
-			cd "${ED}"/opt/zoom || die
-			rm -r Qt/labs/location QtQuick/LocalStorage QtQuick/Particles.2 \
-				QtQuick/Scene2D QtQuick/Scene3D QtQuick/XmlListModel \
-				platforms/libqeglfs.so platforms/libqlinuxfb.so || die
-			use wayland || rm -r libQt5Wayland*.so* QtWayland wayland* \
-				platforms/libqwayland*.so || die
+			cd "${ED}"/opt/zoom/Qt || die
+			rm -r qml/Qt/labs/lottieqt qml/QtQuick/Scene2D qml/QtQuick/Scene3D \
+				qml/QtQml/RemoteObjects	plugins/platforms/libqeglfs.so \
+				plugins/egldeviceintegrations || die
+			use wayland || rm -r lib/libQt5Wayland*.so* plugins/wayland* \
+				plugins/platforms/libqwayland*.so qml/QtWayland || die
 		)
 	else
 		local qtzoom="5.12" qtver=$(best_version dev-qt/qtcore:5)
