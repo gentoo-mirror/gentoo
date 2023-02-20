@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/rocm-cmake-5.3 media-libs/glew test? ( >=x11-apps/mesa-progs-8.5.0[X] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-libs/rocr-runtime-5.3 >=dev-libs/rocm-comgr-5.3 >=dev-libs/rocm-device-libs-5.3 >=virtual/opencl-3 media-libs/mesa
+DESCRIPTION=Radeon Open Compute OpenCL Compatible Runtime
+EAPI=8
+HOMEPAGE=https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime
+INHERIT=cmake edo flag-o-matic git-r3
+IUSE=debug test
+LICENSE=Apache-2.0 MIT
+PROPERTIES=live
+RDEPEND=>=dev-libs/rocr-runtime-5.3 >=dev-libs/rocm-comgr-5.3 >=dev-libs/rocm-device-libs-5.3 >=virtual/opencl-3 media-libs/mesa
+RESTRICT=!test? ( test )
+SLOT=0/9999
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=5a8171919b9e375cc532b4eca2d29c58
