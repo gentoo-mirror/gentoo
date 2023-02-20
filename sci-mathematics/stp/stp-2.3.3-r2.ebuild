@@ -41,9 +41,12 @@ DEPEND="${RDEPEND}"
 BDEPEND="test? ( dev-python/lit )"
 
 PATCHES=(
-	"${FILESDIR}"/stp-CMakeLists.txt-fix_cflags.patch
-	"${FILESDIR}"/stp-stp.py-library_path.patch
+	"${FILESDIR}"/${P}-CMakeLists.txt-fix_cflags.patch
+	"${FILESDIR}"/${P}-cstdint.patch
+	"${FILESDIR}"/${P}-stp.py-library_path.patch
 )
+
+#include <cstdint>
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup

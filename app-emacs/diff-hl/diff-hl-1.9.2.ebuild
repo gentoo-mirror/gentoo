@@ -3,16 +3,14 @@
 
 EAPI=8
 
-[[ ${PV} == *_p20220405 ]] && COMMIT=9d5dc2ffa1e4c7b43734b03dccb5ae6a80800569
 NEED_EMACS=25.1
 
 inherit elisp
 
 DESCRIPTION="Highlight uncommitted changes, jump between and revert them selectively"
 HOMEPAGE="https://github.com/dgutov/diff-hl/"
-SRC_URI="https://github.com/dgutov/${PN}/archive/${COMMIT}.tar.gz
+SRC_URI="https://github.com/dgutov/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -22,8 +20,7 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="test? ( dev-vcs/git )"
 
-DOCS=( README.md screenshot.png screenshot-dired.png screenshot-margin.png )
-ELISP_REMOVE=( .dir-locals.el )
+DOCS=( README.md screenshot{,-dired,-margin}.png )
 SITEFILE="50${PN}-gentoo.el"
 
 src_test() {
@@ -33,6 +30,7 @@ src_test() {
 		git config --local user.email "test@test" &&
 		git config --local user.name "test" &&
 		git commit --message "test" --quiet
-	eend $? || die
+	eend "${?}" || die
+
 	emake EMACS="${EMACS} ${EMACSFLAGS}" test
 }
