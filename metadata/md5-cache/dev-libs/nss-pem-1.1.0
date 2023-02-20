@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/nss virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/nss dev-libs/nspr
+DESCRIPTION=PEM file reader for Network Security Services (NSS)
+EAPI=8
+HOMEPAGE=https://github.com/kdudka/nss-pem
+INHERIT=cmake-multilib
+IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-solaris
+LICENSE=MPL-1.1
+RDEPEND=dev-libs/nss dev-libs/nspr
+SLOT=0
+SRC_URI=https://github.com/kdudka/nss-pem/releases/download/nss-pem-1.1.0/nss-pem-1.1.0.tar.xz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	cmake-multilib	57da9a64d1575fc2b54c50c26d033561
+_md5_=9ac8ee910676ea3f096082642384e39e
