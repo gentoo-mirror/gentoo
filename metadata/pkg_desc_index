@@ -937,7 +937,7 @@ app-admin/analog 6.0.13: A webserver log analyzer
 app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
 app-admin/ansible 5.10.0 6.7.0 7.2.0: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-core 2.12.10 2.13.7 2.14.2 9999: Model-driven deployment, config management, and command execution framework
-app-admin/ansible-lint 6.8.2 6.9.1 6.12.1: Checks ansible playbooks for practices and behaviour that can be improved
+app-admin/ansible-lint 6.8.2 6.9.1 6.12.1 6.13.1: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 4.6.2 4.6.8: Ansible module for hashicorp vault
 app-admin/ansible-molecule 4.0.1: A toolkit designed to aid in the development and testing of Ansible roles
 app-admin/apache-tools 2.4.54-r3 2.4.55: Useful Apache tools - htdigest, htpasswd, ab, htdbm
@@ -1247,7 +1247,7 @@ app-backup/backuppc 3.3.1-r6 4.4.0-r1: High-performance backups to a server's di
 app-backup/bacula 11.0.5 11.0.6-r1 11.0.6-r2 13.0.1: Featureful client/server network backup suite
 app-backup/bareos 20.0.8 21.1.2 21.1.5-r2: Featureful client/server network backup suite
 app-backup/borgbackup 1.1.17-r1 1.2.1-r2 1.2.2-r1 1.2.3 9999: Deduplicating backup program with compression and authenticated encryption
-app-backup/borgmatic 1.7.2 1.7.5 1.7.6: Automatically create, prune and verify backups with borgbackup
+app-backup/borgmatic 1.7.2 1.7.5 1.7.7: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.31.2 0.32.5-r1 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
 app-backup/burp 2.4.0-r2 3.1.2 3.1.4: Network backup and restore client and server for Unix and Windows
 app-backup/ccollect 0.8: Pseudo incremental backup with different exclude lists using hardlinks and rsync
@@ -1358,7 +1358,7 @@ app-cdr/tkdvd 4.0.9-r1: A Tcl/Tk GUI for writing DVDs and CDs
 app-cdr/uif2iso 0.1.7c-r2: Convert CD images from uif (MagicISO) to iso
 app-cdr/xcdroast 1.19-r1: Lightweight cdrtools front-end for CD and DVD writing
 app-cdr/xfburn 0.6.2: GTK+ based CD and DVD burning application
-app-containers/apptainer 1.1.2 1.1.5: The container system for secure high-performance computing
+app-containers/apptainer 1.1.2 1.1.6: The container system for secure high-performance computing
 app-containers/buildah 1.27.1 1.28.0 1.28.1: A tool that facilitates building OCI images
 app-containers/cadvisor 0.36.0: Analyzes resource usage and performance characteristics of running containers
 app-containers/catatonit 0.1.7: A container init that is so simple it's effectively brain-dead
@@ -1542,7 +1542,7 @@ app-crypt/ubuntu-keyring 2020.02.11.2 2020.06.17.1 2021.03.26: GnuPG archive key
 app-crypt/veracrypt 1.24_p8 1.25.7 1.25.9: Disk encryption with strong security based on TrueCrypt
 app-crypt/xca 2.4.0-r2: A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
 app-crypt/xor-analyze 0.5-r1: Program for cryptanalyzing xor 'encryption' with variable key length
-app-crypt/yubikey-manager 4.0.8 5.0.0 5.0.1: Python library and command line tool for configuring a YubiKey
+app-crypt/yubikey-manager 4.0.8-r1 5.0.0 5.0.1: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.5: Cross-platform application for configuring any YubiKey over all USB transports
 app-crypt/yubioath-desktop 5.1.0-r3: Library and tool for personalization of Yubico's YubiKey NEO
 app-crypt/zulucrypt 5.5.0_pre20180223: Front end to cryptsetup
@@ -5715,7 +5715,7 @@ dev-libs/libxdiff 0.23-r3: Library for creating diff files
 dev-libs/libxls 1.6.2: A library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.4-r1: Libxlsxwriter is a C library for creating Excel XLSX files
 dev-libs/libxml2 2.10.3-r1 9999: XML C parser and toolkit
-dev-libs/libxmlb 0.3.10: Library to help create and query binary XML blobs
+dev-libs/libxmlb 0.3.10 0.3.11: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.37-r1 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.34 4.36 4.37 4.39 4.40: Platform abstraction code for tucnak package
@@ -11050,7 +11050,7 @@ dev-vcs/git-extras 6.4.0 6.5.0: Git utilities -- repo summary, repl, changelog p
 dev-vcs/git-filter-repo 2.38.0-r1: Quickly rewrite git repository history (filter-branch replacement)
 dev-vcs/git-flow 1.12.3-r2: Git extensions to provide high-level repository operations
 dev-vcs/git-lfs 3.2.0 9999: Command line extension and specification for managing large files with git
-dev-vcs/git-machete 3.13.0 3.14.3: Probably the sharpest git repo organizer & rebase/merge workflow automation tool
+dev-vcs/git-machete 3.13.0 3.14.3 3.15.2: Probably the sharpest git repo organizer & rebase/merge workflow automation tool
 dev-vcs/git-mailz 0.14: Send a collection of patches as emails
 dev-vcs/git-mantle 0.6: Generate an overview of changes on a branch
 dev-vcs/git-merge-changelog 20170131 20221207: Git merge driver for GNU style ChangeLog files
@@ -17187,7 +17187,7 @@ sys-auth/sssd 2.5.2-r3 2.6.0-r2: System Security Services Daemon provides access
 sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader, common in Thinkpads
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's YubiKey
-sys-auth/yubico-piv-tool 2.3.0: Command-line tool and p11-kit module for the YubiKey PIV application
+sys-auth/yubico-piv-tool 2.3.0 2.3.1: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-auth/yubikey-personalization-gui 3.1.25: GUI for personalization of Yubico's YubiKey
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
 sys-block/arcconf 2.01.22270-r2 4.01.24763 4.09.00.25611: Microsemi Adaptec RAID Controller Command Line Utility
