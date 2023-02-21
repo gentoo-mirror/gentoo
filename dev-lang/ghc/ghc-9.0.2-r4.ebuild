@@ -29,19 +29,19 @@ BIN_PV=${PV}
 # Differentiate glibc/musl
 
 #glibc_binaries="$glibc_binaries alpha? ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-alpha.tbz2 )"
-glibc_binaries="$glibc_binaries amd64? ( https://eidetic.codes/ghc-bin-${PV}-x86_64-pc-linux-gnu-r1.tbz2 )"
+glibc_binaries="$glibc_binaries amd64? ( https://eidetic.codes/ghc-bin-${PV}-x86_64-pc-linux-gnu-r4.tbz2 )"
 #glibc_binaries="$glibc_binaries arm? ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-armv7a-hardfloat-linux-gnueabi.tbz2 )"
-glibc_binaries="$glibc_binaries arm64? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-aarch64-unknown-linux-gnu.tar.gz )"
+#glibc_binaries="$glibc_binaries arm64? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-aarch64-unknown-linux-gnu.tar.gz )"
 #glibc_binaries="$glibc_binaries ia64?  ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-ia64-fixed-fiw.tbz2 )"
 #glibc_binaries="$glibc_binaries ppc? ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-ppc.tbz2 )"
 #glibc_binaries="$glibc_binaries ppc64? ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-ppc64.tbz2 )"
-glibc_binaries="$glibc_binaries ppc64? (
-	big-endian? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-powerpc64-unknown-linux-gnu.tar.gz )
-	!big-endian? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-powerpc64le-unknown-linux-gnu.tar.gz )
-)"
-glibc_binaries="$glibc_binaries riscv? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-riscv64-unknown-linux-gnu.tar.gz )"
+#glibc_binaries="$glibc_binaries ppc64? (
+#	big-endian? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-powerpc64-unknown-linux-gnu.tar.gz )
+#	!big-endian? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-powerpc64le-unknown-linux-gnu.tar.gz )
+#)"
+#glibc_binaries="$glibc_binaries riscv? ( https://github.com/matoro/ghc/releases/download/${PV}/ghc-bin-${PV}-riscv64-unknown-linux-gnu.tar.gz )"
 #glibc_binaries="$glibc_binaries sparc? ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-sparc.tbz2 )"
-glibc_binaries="$glibc_binaries x86? ( https://eidetic.codes/ghc-bin-${PV}-i686-pc-linux-gnu.tbz2 )"
+glibc_binaries="$glibc_binaries x86? ( https://eidetic.codes/ghc-bin-${PV}-i686-pc-linux-gnu-r4.tbz2 )"
 
 #musl_binaries="$musl_binaries alpha? ( https://slyfox.uni.cx/~slyfox/distfiles/ghc-bin-${PV}-alpha.tbz2 )"
 #musl_binaries="$musl_binaries amd64? ( https://eidetic.codes/ghc-bin-${PV}-x86_64-pc-linux-musl.tbz2 )"
@@ -67,13 +67,13 @@ yet_binary() {
 		glibc)
 			case "${ARCH}" in
 				#alpha) return 0 ;;
-				arm64) return 0 ;;
+				#arm64) return 0 ;;
 				#arm) return 0 ;;
 				amd64) return 0 ;;
 				#ia64) return 0 ;;
 				#ppc) return 0 ;;
-				ppc64) return 0 ;;
-				riscv) return 0 ;;
+				#ppc64) return 0 ;;
+				#riscv) return 0 ;;
 				#sparc) return 0 ;;
 				x86) return 0 ;;
 				*) return 1 ;;
@@ -115,11 +115,12 @@ S="${WORKDIR}"/${GHC_P}
 
 BUMP_LIBRARIES=(
 	# "hackage-name          hackage-version"
+	"process          1.6.16.0"
 )
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="big-endian +doc elfutils ghcbootstrap ghcmakebinary +gmp llvm numa profile test unregisterised"
 IUSE+=" binary"
 RESTRICT="!test? ( test )"
@@ -502,9 +503,6 @@ src_prepare() {
 		[[ -e "${f}" ]] || ln -sf "$($(tc-getPKG_CONFIG) --cflags-only-I libffi | sed "s/-I//g" | tr -d " ")/$(basename "${f}")" "${f}" || die
 	done
 
-
-	eapply "${FILESDIR}"/${PN}-9.0.2-sphinx-6.patch
-
 	if use binary; then
 		if use prefix; then
 			relocate_ghc "${EPREFIX}"
@@ -591,6 +589,7 @@ src_prepare() {
 		eapply "${FILESDIR}"/latomic-subword
 		eapply "${WORKDIR}"/${P}-riscv64-llvm.patch
 		eapply "${FILESDIR}"/${PN}-9.0.2-fptools.patch # clang-16 workaround
+		eapply "${FILESDIR}"/${PN}-9.0.2-sphinx-6.patch
 
 		# mingw32 target
 		pushd "${S}/libraries/Win32"
