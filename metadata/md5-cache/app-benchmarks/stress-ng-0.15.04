@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile pretend setup
+DEPEND=dev-libs/libaio dev-libs/libbsd dev-libs/libgcrypt:0= sys-apps/attr sys-apps/keyutils:= sys-libs/libcap sys-libs/zlib virtual/libcrypt:= apparmor? ( sys-apps/apparmor-utils sys-libs/libapparmor ) sctp? ( net-misc/lksctp-tools )
+DESCRIPTION=Stress test for a computer system with various selectable ways
+EAPI=8
+HOMEPAGE=https://github.com/ColinIanKing/stress-ng
+INHERIT=linux-info toolchain-funcs
+IUSE=apparmor sctp
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libaio dev-libs/libbsd dev-libs/libgcrypt:0= sys-apps/attr sys-apps/keyutils:= sys-libs/libcap sys-libs/zlib virtual/libcrypt:= apparmor? ( sys-apps/apparmor-utils sys-libs/libapparmor ) sctp? ( net-misc/lksctp-tools )
+SLOT=0
+SRC_URI=https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.15.04.tar.gz -> stress-ng-0.15.04.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e
+_md5_=ef4fa910ed944d6dff8e61d3ab5e4bc2

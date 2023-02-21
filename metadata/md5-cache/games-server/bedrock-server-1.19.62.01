@@ -1,0 +1,12 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install
+DESCRIPTION=The official bedrock (non-java) based server for the sandbox video game
+EAPI=8
+HOMEPAGE=https://www.minecraft.net/
+KEYWORDS=-* ~amd64
+LICENSE=Mojang
+RDEPEND=acct-group/bedrock acct-user/bedrock app-misc/dtach dev-libs/openssl:0/1.1 sys-libs/zlib
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.62.01.zip
+_md5_=b0712d83157ce7b7cb53466d1d72950c
