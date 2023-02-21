@@ -11,11 +11,12 @@ SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
-RDEPEND="dev-lang/execline:=
+RDEPEND="
+	dev-lang/execline:=
 	dev-libs/skalibs:=
-	sys-apps/s6:=[execline]
+	>=sys-apps/s6-2.11.3.0:=[execline]
 "
 DEPEND="${RDEPEND}"
 
@@ -35,15 +36,17 @@ src_configure() {
 
 	local myconf=(
 		--bindir=/bin
-		--dynlibdir=/usr/$(get_libdir)
-		--libdir=/usr/$(get_libdir)/${PN}
-		--with-dynlib=/usr/$(get_libdir)
-		--with-lib=/usr/$(get_libdir)/execline
-		--with-lib=/usr/$(get_libdir)/s6
-		--with-lib=/usr/$(get_libdir)/skalibs
-		--with-sysdeps=/usr/$(get_libdir)/skalibs
+		--dynlibdir="/$(get_libdir)"
+		--libdir="/usr/$(get_libdir)/${PN}"
+		--libexecdir=/lib/s6
+		--with-dynlib="/$(get_libdir)"
+		--with-lib="/usr/$(get_libdir)/execline"
+		--with-lib="/usr/$(get_libdir)/s6"
+		--with-lib="/usr/$(get_libdir)/skalibs"
+		--with-sysdeps="/usr/$(get_libdir)/skalibs"
 		--enable-shared
 		--disable-allstatic
+		--disable-static
 		--disable-static-libc
 	)
 
@@ -52,10 +55,10 @@ src_configure() {
 
 pkg_postinst() {
 	for ver in ${REPLACING_VERSIONS}; do
-		if ver_test "${ver}" -ge "0.5.4.0"; then
+		if ver_test "${ver}" -lt "0.5.4.0"; then
 			elog "Location of helper utilities was changed from /usr/libexec to /lib/s6 in"
 			elog "version 0.5.4.0. It is necessary to recompile and update s6-rc database and"
-			elog "restart s6rc-oneshot-runner service because you are downgrading from newer"
+			elog "restart s6rc-oneshot-runner service because you are upgrading from older"
 			elog "version."
 		fi
 	done
