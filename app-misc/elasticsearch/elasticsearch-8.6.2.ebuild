@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,12 @@ src_prepare() {
 	default
 
 	rm -rf jdk || die
-	sed -i -e "s:logs/:/var/log/${PN}/:g" config/jvm.options || die
+	sed -i -e "s:logs/:${EPREFIX}/var/log/${PN}/:g" config/jvm.options || die "Unable to set Elasticsearch log location"
+	# elasticsearch-env sets the envvar for the config location if not specified elsewhere;
+	# certain utilities try and source this. Although we patch ES_JAVA_HOME for Gentoo slightly earlier,
+	# it's easier to respect EPREFIX for the config location using sed.
+	sed -i "s:ES_PATH_CONF=\"\$ES_HOME\"/config:ES_PATH_CONF=\"${EPREFIX}/etc/${PN}\":" bin/elasticsearch-env  \
+		|| die "Unable to set Elasticsearch config directory"
 	rm LICENSE.txt NOTICE.txt || die
 	rmdir logs || die
 }
@@ -76,7 +81,9 @@ src_install() {
 
 pkg_postinst() {
 	# Elasticsearch will choke on our keep file and dodir will not preserve the empty dir
-	rm /usr/share/${PN}/plugins/.keep* || die
+	local KEEPFILE
+	KEEPFILE=$(find "${EROOT}/usr/share/${PN}/plugins/" -type f -name '.keep*')
+	rm "${KEEPFILE}" || die
 	tmpfiles_process /usr/lib/tmpfiles.d/${PN}.conf
 	if ! systemd_is_booted ; then
 		elog "You may create multiple instances of ${PN} by"
