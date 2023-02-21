@@ -5235,7 +5235,7 @@ dev-lang/eisl 2.63 2.65 2.69 2.70 2.72: Interpreter and compiler compatible with
 dev-lang/elixir 1.12.3 1.13.4 1.14.0 1.14.1: Elixir programming language
 dev-lang/erlang 25.0.4-r1 25.1.1-r1 25.1.2-r1 25.2.2: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.512: Combine interpreter of esoteric languages
-dev-lang/execline 2.9.0.1 2.9.1.0: A non-interactive scripting language
+dev-lang/execline 2.9.0.1 2.9.1.0 2.9.2.0: A non-interactive scripting language
 dev-lang/f2c 20100827-r1: Fortran to C converter
 dev-lang/fennel 1.2.1 1.3.0: Lisp-like language that compiles to Lua
 dev-lang/ferite 1.1.17-r1: A clean, lightweight, object oriented scripting language
@@ -5829,7 +5829,7 @@ dev-libs/serdisplib 2.02-r2: Library to drive several displays with built-in con
 dev-libs/shhopt 1.1.7-r3: library for parsing command line options
 dev-libs/simdjson 3.0.0 3.1.0 3.1.1-r1: SIMD accelerated C++ JSON library
 dev-libs/sink 0.8.0-r3: Data access layer handling synchronization, caching and indexing
-dev-libs/skalibs 2.12.0.1 2.13.0.0: General-purpose libraries from skarnet.org
+dev-libs/skalibs 2.12.0.1 2.13.0.0 2.13.1.0: General-purpose libraries from skarnet.org
 dev-libs/sleef 3.5.1: Implements vectorized versions of C standard math functions
 dev-libs/snowball-stemmer 2.1.0-r1 2.2.0: Snowball compiler and stemming algorithms
 dev-libs/softhsm 2.6.1-r2: A software PKCS#11 implementation
@@ -8280,8 +8280,8 @@ dev-python/boto 2.49.0-r6: Amazon Web Services API
 dev-python/boto3 1.26.69 1.26.74 1.26.75 9999: The AWS SDK for Python
 dev-python/botocore 1.29.69 1.29.74 1.29.75 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.23: A fast and simple micro-framework for small web-applications
-dev-python/bottleneck 1.3.5-r1 1.3.6: Fast NumPy array functions written in C
-dev-python/bpython 0.23-r1 0.24: Syntax highlighting and autocompletion for the Python interpreter
+dev-python/bottleneck 1.3.6: Fast NumPy array functions written in C
+dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.3_p1: Bash style brace expansion for Python
 dev-python/braintree 4.18.1: Braintree Python Library
 dev-python/breathe 4.34.0: Sphinx Doxygen renderer
@@ -8361,7 +8361,7 @@ dev-python/cons 0.4.5: Implementation of Lisp/Scheme-like cons in Python
 dev-python/consonance 0.1.5-r1: WhatsApp's handshake implementation using Noise Protocol
 dev-python/constantly 15.1.0-r2: Symbolic constants in Python
 dev-python/construct 2.10.68: A powerful declarative parser for binary data
-dev-python/contourpy 1.0.6 1.0.7: Python library for calculating contours in 2D quadrilateral grids
+dev-python/contourpy 1.0.7: Python library for calculating contours in 2D quadrilateral grids
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
 dev-python/coreapi 2.3.3-r2: Python client library for Core API
 dev-python/coreschema 0.0.4-r1: Core Schema
@@ -8533,7 +8533,7 @@ dev-python/fritzconnection 1.10.3 1.11.0: Lib/tool to communicate with AVM FRITZ
 dev-python/frozendict 2.3.4 2.3.4-r1 2.3.5: A simple immutable mapping for python
 dev-python/frozenlist 1.3.3: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
-dev-python/fsspec 2022.11.0 2023.1.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2023.1.0: A specification that python filesystems should adhere to
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
 dev-python/funcy 1.17 1.18: A collection of fancy functional tools focused on practicality
 dev-python/furo 2022.12.7: Clean customisable Sphinx documentation theme
@@ -8737,7 +8737,7 @@ dev-python/libpillowfight 0.3.0_p20210816 0.3.0_p20210816-r1: Small library cont
 dev-python/libsass-python 0.21.0-r1 0.22.0-r1: A straightforward binding of libsass for Python
 dev-python/libtmux 0.15.10 0.18.3 0.19.1 0.20.0 0.21.0: Python API for tmux
 dev-python/libvirt-python 8.7.0 8.8.0 8.9.0 9999: libvirt Python bindings
-dev-python/license-expression 30.0.0 30.1.0: Parse, compare, simplify and normalize license expressions
+dev-python/license-expression 30.1.0: Parse, compare, simplify and normalize license expressions
 dev-python/line_profiler 4.0.2: Line-by-line profiler
 dev-python/linkify-it-py 2.0.0: Links recognition library with full unicode support
 dev-python/lit 14.0.6 15.0.7 16.0.0_rc2 16.0.0.9999 17.0.0_pre20230211 17.0.0_pre20230218 17.0.0.9999: A stand-alone install of the LLVM suite testing tool
@@ -9182,7 +9182,7 @@ dev-python/pytest-freezegun 0.4.2-r1: Easily freeze time in pytest test + fixtur
 dev-python/pytest-helpers-namespace 2021.12.29-r1: Provides a helpers pytest namespace
 dev-python/pytest-httpbin 1.0.2: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpserver 1.0.6: HTTP server for pytest to test HTTP clients
-dev-python/pytest-httpx 0.21.2 0.21.3: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.21.3: Send responses to HTTPX using pytest
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.1.4: A PyTest plugin which provides an FTP fixture for your tests
 dev-python/pytest-localserver 0.7.0 0.7.1: Pytest plugin to test server connections locally
@@ -9540,7 +9540,7 @@ dev-python/tabulate 0.9.0: Pretty-print tabular data
 dev-python/tagpy 2022.1: Python Bindings for TagLib
 dev-python/tappy 3.1-r1: Test Anything Protocol (TAP) tools
 dev-python/tavalidate 0.0.6-r1: Utities to validate Tavern responses
-dev-python/tavern 1.24.1 2.0.0-r1 2.0.1: A tool, library, and Pytest plugin for testing RESTful APIs
+dev-python/tavern 2.0.1: A tool, library, and Pytest plugin for testing RESTful APIs
 dev-python/tblib 1.7.0-r1: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.2-r1: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 4.5.0: Spotify Web API client
@@ -9662,7 +9662,7 @@ dev-python/watchfiles 0.18.1: Simple, modern file watching and code reload in Py
 dev-python/wcag-contrast-ratio 0.9-r1: A library for computing contrast ratios, as required by WCAG 2.0
 dev-python/wcmatch 8.4.1: Wildcard/glob file name matcher
 dev-python/wcwidth 0.2.6: Measures number of Terminal column cells of wide-character codes
-dev-python/weasyprint 57.1-r1 57.2-r1 58.0: Visual rendering engine for HTML and CSS that can export to PDF
+dev-python/weasyprint 57.2-r1 58.0: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webcolors 1.12: Color names and value formats defined by the HTML and CSS specifications
 dev-python/webencodings 0.5.1-r2: Character encoding aliases for legacy web content
 dev-python/webob 1.8.7-r1: WSGI request and response object
@@ -14625,7 +14625,7 @@ net-dns/pdnsd 1.2.9a-r2: Proxy DNS server with permanent caching
 net-dns/rbldnsd 0.998b-r2: DNS server designed to serve blacklist zones
 net-dns/resolv_wrapper 1.1.7 1.1.8: Wrapper for DNS name resolving or DNS faking
 net-dns/resolvconf-symlink 0: Make /etc/resolv.conf a symlink to a runtime-writable location
-net-dns/s6-dns 2.3.5.4 2.3.5.5: Suite of DNS client programs and libraries for Unix systems
+net-dns/s6-dns 2.3.5.4 2.3.5.5 2.3.5.5-r1: Suite of DNS client programs and libraries for Unix systems
 net-dns/smartdns 38.1 40: A local DNS server returns the fastest access results
 net-dns/totd 1.5.1: Trick Or Treat Daemon, a DNS proxy for 6to4
 net-dns/unbound 1.16.3 1.17.0: A validating, recursive and caching DNS resolver
@@ -15322,7 +15322,7 @@ net-misc/rwhoisd 1.5.9.6-r2: ARIN rwhois daemon
 net-misc/rygel 0.42.0 0.42.1: Rygel is an open source UPnP/DLNA MediaServer
 net-misc/s3cmd 2.2.0 2.3.0: Command line client for Amazon S3
 net-misc/s4cmd 2.1.0: Super S3 command line tool
-net-misc/s6-networking 2.5.1.1 2.5.1.2: Suite of small networking utilities for Unix systems
+net-misc/s6-networking 2.5.1.1 2.5.1.2 2.5.1.3: Suite of small networking utilities for Unix systems
 net-misc/samplicator 1.3.6-r1 1.3.8_rc1-r1: UDP packets forwarder and duplicator
 net-misc/scponly 4.8-r7: A tiny pseudoshell which only permits scp and sftp
 net-misc/seafile 8.0.5 8.0.6 8.0.7 8.0.8 8.0.9 8.0.10: File syncing and sharing software with file encryption and group sharing
@@ -17068,11 +17068,11 @@ sys-apps/rng-tools 6.15 6.16: Daemon to use hardware random number generators
 sys-apps/roccat-tools 5.9.0-r101: Utility for advanced configuration of Roccat devices
 sys-apps/rootlesskit 0.14.2: Linux-native "fake root" for implementing rootless containers
 sys-apps/s390-tools 2.9.0 2.12.0: User space utilities for the zSeries (s390) Linux kernel and device drivers
-sys-apps/s6 2.11.1.2-r1 2.11.2.0: skarnet.org's small and secure supervision software suite
-sys-apps/s6-linux-init 1.0.8.0-r1 1.0.8.1: Generates an init binary for s6-based init systems
-sys-apps/s6-linux-utils 2.6.0.0 2.6.0.1: Set of tiny linux utilities
-sys-apps/s6-portable-utils 2.2.5.0 2.2.5.1: Set of tiny portable unix utilities
-sys-apps/s6-rc 0.5.3.2 0.5.3.3: Service manager for the s6 supervision suite
+sys-apps/s6 2.11.1.2-r1 2.11.2.0 2.11.3.0: skarnet.org's small and secure supervision software suite
+sys-apps/s6-linux-init 1.0.8.0-r1 1.0.8.1 1.1.0.0: Generates an init binary for s6-based init systems
+sys-apps/s6-linux-utils 2.6.0.0 2.6.0.1 2.6.1.0: Set of tiny linux utilities
+sys-apps/s6-portable-utils 2.2.5.0 2.2.5.1 2.3.0.0: Set of tiny portable unix utilities
+sys-apps/s6-rc 0.5.3.2 0.5.3.3 0.5.4.0: Service manager for the s6 supervision suite
 sys-apps/salinfo 1.2: decode Itanium SAL records (e.g. various hardware errors)
 sys-apps/sandbox 2.29 2.30-r1: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12: Utility to output and modify parameters on a SCSI device, like hdparm

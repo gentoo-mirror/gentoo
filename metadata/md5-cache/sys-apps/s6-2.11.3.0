@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure prepare
+DEPEND=>=dev-libs/skalibs-2.13.1.0:= execline? ( dev-lang/execline:= )
+DESCRIPTION=skarnet.org's small and secure supervision software suite
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6/
+INHERIT=toolchain-funcs
+IUSE=+execline
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=ISC
+RDEPEND=>=dev-libs/skalibs-2.13.1.0:= execline? ( dev-lang/execline:= )
+SLOT=0/2.11
+SRC_URI=https://www.skarnet.org/software/s6/s6-2.11.3.0.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=ac578d5fcb604ed79d5107720411daef
