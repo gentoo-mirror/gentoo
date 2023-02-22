@@ -1,14 +1,14 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=bluez? ( net-wireless/bluez:= ) >=net-libs/libbtbb-9999:=[static-libs?] static-libs? ( dev-libs/libusb[static-libs] ) virtual/libusb:1=
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=bluez? ( net-wireless/bluez:= ) >=net-libs/libbtbb-9999:=[static-libs?] static-libs? ( dev-libs/libusb[static-libs] ) virtual/libusb:1
 DESCRIPTION=open source wireless development platform suitable for Bluetooth experimentation
-EAPI=7
+EAPI=8
 HOMEPAGE=http://ubertooth.sourceforge.net/
 INHERIT=cmake udev git-r3
 IUSE=+bluez static-libs +ubertooth1-firmware +udev
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=bluez? ( net-wireless/bluez:= ) >=net-libs/libbtbb-9999:=[static-libs?] static-libs? ( dev-libs/libusb[static-libs] ) virtual/libusb:1= udev? ( virtual/udev )
+RDEPEND=bluez? ( net-wireless/bluez:= ) >=net-libs/libbtbb-9999:=[static-libs?] static-libs? ( dev-libs/libusb[static-libs] ) virtual/libusb:1 udev? ( virtual/udev )
 SLOT=0
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	udev	eec0bbab06977f1cfc5597269c1fa152	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=b9e4f1957df8432243ad25efa9bb45fc
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	udev	eec0bbab06977f1cfc5597269c1fa152	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=33ef5b62e0615566f44a4468aef46fd8

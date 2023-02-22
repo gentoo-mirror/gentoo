@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=bluez? ( net-wireless/bluez:= ) >=net-libs/libbtbb-2020.12.1:=[static-libs?] static-libs? ( dev-libs/libusb[static-libs] ) virtual/libusb:1
+DESCRIPTION=open source wireless development platform suitable for Bluetooth experimentation
+EAPI=8
+HOMEPAGE=http://ubertooth.sourceforge.net/
+INHERIT=cmake udev
+IUSE=+bluez static-libs +ubertooth1-firmware +udev
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=bluez? ( net-wireless/bluez:= ) >=net-libs/libbtbb-2020.12.1:=[static-libs?] static-libs? ( dev-libs/libusb[static-libs] ) virtual/libusb:1 udev? ( virtual/udev )
+SLOT=0
+SRC_URI=https://github.com/greatscottgadgets/ubertooth/releases/download/2020-12-R1/ubertooth-2020-12-R1.tar.xz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=33ef5b62e0615566f44a4468aef46fd8
