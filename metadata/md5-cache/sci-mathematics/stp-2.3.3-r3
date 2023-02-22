@@ -1,17 +1,17 @@
-BDEPEND=test? ( dev-python/lit ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=sys-apps/help2man test? ( dev-python/lit ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-libs/boost:= sci-mathematics/minisat:= sys-libs/zlib:= cryptominisat? ( dev-db/sqlite:3 dev-libs/icu:= sci-mathematics/cryptominisat:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) )
+DEPEND=dev-libs/boost:= sci-mathematics/minisat:= sys-libs/zlib:= cryptominisat? ( dev-db/sqlite:3 dev-libs/icu:= sci-mathematics/cryptominisat:= ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
 DESCRIPTION=Simple Theorem Prover, an efficient SMT solver for bitvectors
 EAPI=8
 HOMEPAGE=https://stp.github.io/ https://github.com/stp/stp/
 INHERIT=flag-o-matic python-single-r1 cmake
-IUSE=cryptominisat debug +python test python_single_target_python3_9 python_single_target_python3_10
+IUSE=cryptominisat debug +python test python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+ MIT
-RDEPEND=dev-libs/boost:= sci-mathematics/minisat:= sys-libs/zlib:= cryptominisat? ( dev-db/sqlite:3 dev-libs/icu:= sci-mathematics/cryptominisat:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 ) )
+RDEPEND=dev-libs/boost:= sci-mathematics/minisat:= sys-libs/zlib:= cryptominisat? ( dev-db/sqlite:3 dev-libs/icu:= sci-mathematics/cryptominisat:= ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0/2.3.3
 SRC_URI=https://github.com/stp/stp/archive/2.3.3.tar.gz -> stp-2.3.3.tar.gz test? ( https://github.com/stp/OutputCheck/archive/119fe41a83bc455a24a11ecc9b78e7b13fcfcc45.tar.gz -> stp-2.3.3_OutputCheck.tar.gz https://github.com/stp/googletest/archive/2ad076167a676e3ed62f90b754b30fac5caa1f88.tar.gz -> stp-2.3.3_gtest.tar.gz )
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
-_md5_=d5f04c51f21ae00743b0486c322d52f0
+_md5_=9c4295d738ae3595f718058f0880b4df
