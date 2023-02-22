@@ -41,6 +41,8 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
+PATCHES=( "${FILESDIR}/${P}-wayland-baloo-crashfix.patch" ) # bug 895636
+
 src_prepare() {
 	ecm_src_prepare
 	if ! use xscreensaver; then

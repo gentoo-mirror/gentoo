@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/plasma/breeze"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="X"
+IUSE=""
 
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -31,9 +31,7 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
-	X? ( x11-libs/libxcb )
 "
 DEPEND="${RDEPEND}"
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
@@ -41,10 +39,3 @@ PDEPEND="
 	>=kde-frameworks/breeze-icons-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package X XCB)
-	)
-	ecm_src_configure
-}
