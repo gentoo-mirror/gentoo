@@ -1,0 +1,15 @@
+BDEPEND=app-editors/vim-core >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/elfutils >=dev-libs/roct-thunk-interface-5.4.3 >=dev-libs/rocm-device-libs-5.4.3 sys-devel/clang sys-devel/lld !!sys-devel/llvm:0
+DESCRIPTION=Radeon Open Compute Runtime
+EAPI=8
+HOMEPAGE=https://github.com/RadeonOpenCompute/ROCR-Runtime
+INHERIT=cmake flag-o-matic llvm
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/elfutils
+SLOT=0/5.4
+SRC_URI=https://github.com/RadeonOpenCompute/ROCR-Runtime/archive/rocm-5.4.3.tar.gz -> rocr-runtime-5.4.3.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	llvm	4cc6f8e29d24a8011266413e74c728bb
+_md5_=ba1cf8de442ddf59680635bd1b4903c2
