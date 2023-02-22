@@ -17,9 +17,8 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
-IUSE="+dbus enchant +fonts +hunspell +jemalloc screencast qt6 qt6-imageformats wayland +X"
+IUSE="+dbus enchant +fonts +jemalloc screencast qt6 qt6-imageformats wayland +X"
 REQUIRED_USE="
-	^^ ( enchant hunspell )
 	qt6-imageformats? ( qt6 )
 "
 
@@ -44,12 +43,12 @@ RDEPEND="
 	media-libs/opus:=
 	media-libs/rnnoise
 	~media-libs/tg_owt-0_pre20230105:=[screencast=,X=]
-	media-video/ffmpeg:=[opus]
+	media-video/ffmpeg:=[opus,vpx]
 	sys-libs/zlib:=[minizip]
 	virtual/opengl
 	dbus? ( dev-cpp/glibmm:2.68 )
+	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
-	hunspell? ( >=app-text/hunspell-1.7:= )
 	jemalloc? ( dev-libs/jemalloc:=[-lazy-lock] )
 	!qt6? (
 		>=dev-qt/qtcore-5.15:5
@@ -75,7 +74,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-cpp/range-v3
-	dev-cpp/ms-gsl
+	>=dev-cpp/ms-gsl-4
 "
 BDEPEND="
 	${PYTHON_DEPS}
@@ -87,7 +86,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram.patch"
 	"${FILESDIR}/tdesktop-4.4.1-fix-dupe-main-decl.patch"
-	"${FILESDIR}/tdesktop-4.6.2-fix-gcc12-optional.patch"
 )
 
 # Current desktop-file-utils-0.26 does not understand Version=1.5
