@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?]
+DESCRIPTION=GNAT Component Collection
+EAPI=8
+HOMEPAGE=http://libre.adacore.com
+INHERIT=ada multiprocessing python-single-r1
+IUSE=gmp iconv lzma openmp python readline +shared static-libs static-pic syslog ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=amd64 x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) || ( gmp iconv lzma openmp python readline syslog ) ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12 )
+SLOT=0/23.0.0
+SRC_URI=https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v23.0.0.tar.gz -> gnatcoll-bindings-23.0.0.tar.gz
+_eclasses_=ada	8af8cc9968a30d4ac8eb99aa6c62eeba	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=c2a6e2189f9b25b86a404e3cee093c3d
