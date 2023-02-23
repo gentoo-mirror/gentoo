@@ -52,10 +52,7 @@ src_prepare() {
 
 src_configure() {
 	# See https://github.com/intel/compute-runtime/issues/531
-	filter-flags -flto=* -flto
-
-	# See bug #893370 and https://github.com/intel/intel-graphics-compiler/issues/282
-	append-flags -U_GLIBCXX_ASSERTIONS
+	filter-lto
 
 	local mycmakeargs=(
 		-DCCACHE_ALLOWED="OFF"
