@@ -1,17 +1,17 @@
 BDEPEND=dev-lang/perl doc? ( app-doc/doxygen dev-texlive/texlive-latex ) perl? ( >=dev-lang/swig-2 ) python? ( >=dev-lang/swig-2 ) test? ( dev-lang/python ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
-DEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl )
+DEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl )
 DESCRIPTION=Interconverts file formats used in molecular modeling
 EAPI=8
 HOMEPAGE=https://openbabel.org/
 INHERIT=cmake desktop flag-o-matic perl-functions python-r1 toolchain-funcs wxwidgets xdg-utils
-IUSE=cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets python_targets_python3_9 python_targets_python3_10
+IUSE=cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
-RDEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl:= !sci-chemistry/openbabel-perl )
-REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 ) ) test? ( inchi json !minimal wxwidgets )
+RDEPEND=dev-cpp/eigen:3 dev-libs/libxml2:2 sys-libs/zlib:= inchi? ( sci-libs/inchi ) json? ( >=dev-libs/rapidjson-1.1.0 ) png? ( x11-libs/cairo ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] ) perl? ( dev-lang/perl:= !sci-chemistry/openbabel-perl )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) ) test? ( inchi json !minimal wxwidgets )
 RESTRICT=!test? ( test )
 SLOT=0/7.0.0
-SRC_URI=https://github.com/openbabel/openbabel/archive/08e23f39b0cc39b4eebd937a5a2ffc1a7bac3e1b.tar.gz -> openbabel-3.1.1_p20210225.tar.gz https://openbabel.org/docs/dev/_static/babel130.png -> openbabel.png http://openbabel.org/OBTitle.jpg -> openbabel.jpg
+SRC_URI=https://github.com/openbabel/openbabel/archive/08e23f39b0cc39b4eebd937a5a2ffc1a7bac3e1b.tar.gz -> openbabel-3.1.1_p20210225.tar.gz https://openbabel.org/docs/dev/_static/babel130.png -> openbabel.png https://openbabel.org/OBTitle.jpg -> openbabel.jpg
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	desktop	7eb20ad915a0a318176d51bc2508ff5c	perl-functions	c3fca037246e877693badea0df3b0ef8	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5
-_md5_=48dcd88dbac28436f16fde742da91c72
+_md5_=d569db4cd3e72f18afa12e1236e9fafb
