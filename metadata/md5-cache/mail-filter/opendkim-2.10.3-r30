@@ -1,17 +1,17 @@
 BDEPEND=acct-user/opendkim test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=compile config configure install postinst prepare setup test
-DEPEND=|| ( mail-filter/libmilter mail-mta/sendmail ) dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root ) !unbound? ( net-libs/ldns:= )
+DEPEND=mail-filter/libmilter:= dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root )
 DESCRIPTION=A milter providing DKIM signing and verification
 EAPI=7
 HOMEPAGE=http://opendkim.org/
 INHERIT=autotools db-use systemd tmpfiles lua-single
 IUSE=berkdb ldap lmdb lua memcached opendbx poll sasl selinux +ssl static-libs stats querycache test unbound +lua_single_target_lua5-1
-KEYWORDS=amd64 ~arm ~arm64 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=BSD GPL-2 Sendmail-Open-Source
-RDEPEND=|| ( mail-filter/libmilter mail-mta/sendmail ) dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root ) !unbound? ( net-libs/ldns:= ) acct-user/opendkim sys-process/psmisc selinux? ( sec-policy/selinux-dkim ) virtual/tmpfiles
+RDEPEND=mail-filter/libmilter:= dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root ) acct-user/opendkim sys-process/psmisc selinux? ( sec-policy/selinux-dkim ) virtual/tmpfiles
 REQUIRED_USE=sasl? ( ldap ) stats? ( opendbx ) querycache? ( berkdb ) lua? ( ^^ ( lua_single_target_lua5-1 ) ) test? ( ^^ ( lua_single_target_lua5-1 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/opendkim/opendkim-2.10.3.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143
-_md5_=22346391b5b1034f27bd948a407fa0b9
+_md5_=a8d6713aafbda22ef34e7d00dbadf8c0
