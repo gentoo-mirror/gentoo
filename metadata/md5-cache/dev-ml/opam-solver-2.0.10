@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
 INHERIT=dune
 IUSE=+ocamlopt test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=~dev-ml/opam-format-2.0.10:= dev-ml/opam-file-format:= dev-ml/re:= >=dev-ml/mccs-1.1.4:= >=dev-ml/dose3-6.0:= dev-ml/cudf:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/2.0.10
 SRC_URI=https://github.com/ocaml/opam/archive/2.0.10.tar.gz -> opam-2.0.10.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
-_md5_=081a9f2af39a1b60e3fb03eb6cbb370e
+_md5_=0fad18e19bdc1b53ea34b252988e6bf8
