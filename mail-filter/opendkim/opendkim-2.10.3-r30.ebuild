@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,13 +14,13 @@ SRC_URI="https://downloads.sourceforge.net/project/opendkim/${P}.tar.gz"
 # The GPL-2 is for the init script, bug 425960.
 LICENSE="BSD GPL-2 Sendmail-Open-Source"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="berkdb ldap lmdb lua memcached opendbx poll sasl selinux +ssl static-libs stats querycache test unbound"
 
 BDEPEND="acct-user/opendkim
 	test? ( ${LUA_DEPS} )"
 
-COMMON_DEPEND="|| ( mail-filter/libmilter mail-mta/sendmail )
+COMMON_DEPEND="mail-filter/libmilter:=
 	dev-libs/libbsd
 	sys-apps/grep
 	ssl? (
@@ -33,8 +33,7 @@ COMMON_DEPEND="|| ( mail-filter/libmilter mail-mta/sendmail )
 	lmdb? ( dev-db/lmdb:= )
 	memcached? ( dev-libs/libmemcached )
 	sasl? ( dev-libs/cyrus-sasl )
-	unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root )
-	!unbound? ( net-libs/ldns:= )"
+	unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root )"
 
 DEPEND="${COMMON_DEPEND}"
 
@@ -88,11 +87,6 @@ src_configure() {
 	if use berkdb ; then
 		myconf+=( --with-db-incdir=$(db_includedir) )
 	fi
-	if use unbound; then
-		myconf+=( --with-unbound )
-	else
-		myconf+=( --with-ldns )
-	fi
 	if use ldap; then
 		myconf+=( $(use_with sasl) )
 	fi
@@ -114,6 +108,7 @@ src_configure() {
 		$(use_enable static-libs static) \
 		$(use_enable stats) \
 		$(use_with memcached libmemcached) \
+		$(use_with unbound) \
 		"${myconf[@]}" \
 		--enable-filter \
 		--with-milter \
