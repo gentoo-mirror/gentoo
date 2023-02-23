@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ LICENSE="
 	wavpack? ( BSD )
 "
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="aac alsa cdda converter cover dts ffmpeg flac +hotkeys lastfm libsamplerate mp3 musepack nls notify +nullout opus oss pulseaudio sc68 shellexec +supereq threads vorbis wavpack"
 
 REQUIRED_USE="
@@ -53,7 +53,7 @@ DEPEND="
 	pulseaudio? ( media-sound/pulseaudio )
 	vorbis? ( media-libs/libvorbis )
 	wavpack? ( media-sound/wavpack )
-	dev-libs/libdispatch
+	dev-libs/libdispatch:=
 "
 
 RDEPEND="${DEPEND}"
@@ -66,10 +66,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/deadbeef-use-ffmpeg-plugin-for-ape-by-default.patch"
 	"${FILESDIR}/deadbeef-1.9.2-drop-Werror.patch"
-	"${FILESDIR}/deadbeef-1.9.1-ffmpeg-5.0-fixes.patch"
-	"${FILESDIR}/deadbeef-1.9.2-cdda-plugin-clang-16-fixes.patch"
 )
 
 src_prepare() {
@@ -94,8 +91,8 @@ src_prepare() {
 	eautopoint --force
 	eautoreconf
 
-	# Get rid of bundled gettext.
-	drop_and_stub "${S}/intl"
+	# Get rid of bundled gettext. (Avoid build failures with musl)
+	use elibc_musl || drop_and_stub "${S}/intl"
 
 	# Plugins that are undesired for whatever reason, candidates for unbundling and such.
 	for i in adplug alac dumb ffap mms gme mono2stereo psf shn sid soundtouch wma; do
