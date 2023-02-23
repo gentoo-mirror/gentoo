@@ -7,18 +7,17 @@ EAPI=7
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="C parser and AST generator written in Python"
 HOMEPAGE="
 	https://github.com/eliben/pycparser/
 	https://pypi.org/project/pycparser/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 RDEPEND="
 	dev-python/ply:=[${PYTHON_USEDEP}]
@@ -38,6 +37,11 @@ python_prepare_all() {
 
 	# Ensure we can find tests in our directory
 	sed -i -e 's/from tests.test_util/from test_util/g' tests/test_*.py || die
+
+	# unbundle ply
+	rm -r pycparser/ply || die
+	sed -i -e 's:\(from \)[.]\(ply\b\):\1\2:' pycparser/*.py || die
+	sed -i -e "s:'pycparser.ply'::" setup.py || die
 
 	ln -s "${S}"/examples tests/examples || die
 
