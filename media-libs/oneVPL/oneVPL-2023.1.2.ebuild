@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,8 +19,8 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	dri? ( X drm )
 	drm? ( tools )
-	X? ( tools )
-	wayland? ( tools )
+	X? ( tools vaapi )
+	wayland? ( tools drm )
 	vaapi? ( tools )
 "
 
