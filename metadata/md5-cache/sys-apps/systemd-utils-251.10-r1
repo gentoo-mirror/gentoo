@@ -4,7 +4,7 @@ DEPEND=elibc_musl? ( >=sys-libs/musl-1.2.3 ) selinux? ( sys-libs/libselinux:0= )
 DESCRIPTION=Utilities split out from systemd for OpenRC users
 EAPI=8
 HOMEPAGE=https://systemd.io/
-INHERIT=bash-completion-r1 flag-o-matic meson-multilib python-any-r1 toolchain-funcs udev usr-ldscript
+INHERIT=bash-completion-r1 flag-o-matic linux-info meson-multilib python-any-r1 toolchain-funcs udev usr-ldscript
 IUSE=+acl boot +kmod selinux split-usr sysusers +tmpfiles test +udev abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 split-usr
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2 LGPL-2.1 MIT public-domain
@@ -14,5 +14,5 @@ REQUIRED_USE=|| ( boot tmpfiles sysusers udev )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd-stable/archive/refs/tags/v251.10.tar.gz -> systemd-stable-251.10.tar.gz elibc_musl? ( https://dev.gentoo.org/~floppym/dist/systemd-musl-patches-251.2.tar.gz )
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	udev	eec0bbab06977f1cfc5597269c1fa152	usr-ldscript	cd36f6d91e8173d95e25b0e0cf036960
-_md5_=aa1a4cf485499fe815d5aa2222373de9
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	69394e25812406faa1f90edaf4969395	linux-info	4b552625ebd741dfd2ac08637fd2436e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	udev	eec0bbab06977f1cfc5597269c1fa152	usr-ldscript	cd36f6d91e8173d95e25b0e0cf036960
+_md5_=6a92b8241d6a8adea956975ce5751aad
