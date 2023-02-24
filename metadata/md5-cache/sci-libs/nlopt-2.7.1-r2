@@ -1,17 +1,17 @@
 BDEPEND=python? ( dev-lang/swig ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=guile? ( dev-scheme/guile:* ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) dev-python/numpy[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) virtual/fortran
+DEPEND=guile? ( dev-scheme/guile:* ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-python/numpy[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) virtual/fortran
 DESCRIPTION=Non-linear optimization library
 EAPI=8
 HOMEPAGE=https://github.com/stevengj/nlopt
 INHERIT=python-r1 cmake fortran-2
-IUSE=cxx guile octave python test python_targets_python3_9 python_targets_python3_10
+IUSE=cxx guile octave python test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1 MIT
-RDEPEND=guile? ( dev-scheme/guile:* ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) dev-python/numpy[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) virtual/fortran
-REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 ) )
+RDEPEND=guile? ( dev-scheme/guile:* ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-python/numpy[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) virtual/fortran
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/stevengj/nlopt/archive/v2.7.1.tar.gz -> nlopt-2.7.1.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	flag-o-matic	69394e25812406faa1f90edaf4969395	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=0ba5248b535035ac1955f3f2d2f2e6dc
+_md5_=78f45c36948c3cc4cf37d4dda9c1fd5a
