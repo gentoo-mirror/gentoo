@@ -12,25 +12,15 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="system-libs"
 
 DEPEND="system-libs? ( >=dev-libs/hiredis-1.0.0:= )"
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-CVE-2021-32765.patch
-)
-
 src_prepare() {
 	use system-libs && PATCHES+=(
 		"${FILESDIR}"/${P}-system-libs.patch
 	)
-	sed -i -e 's:description-file:description_file:' setup.cfg || die
 	default
-}
-
-python_test() {
-	cd test || die
-	"${EPYTHON}" -m unittest -v reader.ReaderTest || die "tests failed"
 }
