@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/libfprint/fprintd
 INHERIT=meson pam python-any-r1 systemd
 IUSE=doc pam systemd test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/dbus-glib dev-libs/glib:2 >=sys-auth/libfprint-1.94.0:2 sys-auth/polkit pam? ( sys-libs/pam systemd? ( sys-apps/systemd:= ) !systemd? ( sys-auth/elogind:= ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/libfprint/fprintd/-/archive/v1.94.2/fprintd-v1.94.2.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	flag-o-matic	69394e25812406faa1f90edaf4969395	pam	01b77091d5b6560b0aeafa7fbb1bd818	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=249038327e21e5fd12a62ee01ab4c757
+_md5_=e0ddd5959cf19d4f08963e4334af49c9
