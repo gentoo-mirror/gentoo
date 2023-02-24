@@ -1,0 +1,17 @@
+BDEPEND=app-arch/unzip test? ( dev-perl/App-cpanminus dev-perl/B-COW dev-perl/Clone dev-perl/Config-General dev-perl/File-Which dev-perl/local-lib dev-perl/Math-Random dev-perl/Test-Deep dev-perl/Text-Template )
+DEFINED_PHASES=compile install setup
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-lang/perl sys-libs/zlib
+DESCRIPTION=Popular short read aligner for Next-generation sequencing data
+EAPI=8
+HOMEPAGE=https://bowtie-bio.sourceforge.net/bowtie2/
+INHERIT=python-single-r1 toolchain-funcs
+IUSE=test cpu_flags_x86_sse2 examples python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-lang/perl sys-libs/zlib
+REQUIRED_USE=cpu_flags_x86_sse2 ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=test
+SLOT=2
+SRC_URI=mirror://sourceforge/project/bowtie-bio/bowtie2/2.5.1/bowtie2-2.5.1-source.zip
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=831933c38b43e507442ee567a3c3583f
