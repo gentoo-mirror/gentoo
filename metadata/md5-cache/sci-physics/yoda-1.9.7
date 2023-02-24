@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare setup test
+DEPEND=root? ( sci-physics/root:=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
+DESCRIPTION=Yet more Objects for (High Energy Physics) Data Analysis
+EAPI=8
+HOMEPAGE=https://yoda.hepforge.org/
+INHERIT=bash-completion-r1 autotools python-single-r1
+IUSE=root python python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=root? ( sci-physics/root:=[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ) root? ( python )
+SLOT=0/1.9.7
+SRC_URI=https://yoda.hepforge.org/downloads?f=YODA-1.9.7.tar.bz2 -> YODA-1.9.7.tar.bz2
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=eab984a50a0787fad1037274c8dab998
