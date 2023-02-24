@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-cpp/msgpack-cxx dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/msgpack[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-util/hip >=dev-util/rocm-smi-4.3.0 sys-devel/clang:15 !!sys-devel/llvm:0
+DESCRIPTION=Stretching GPU performance for GEMMs and tensor contractions
+EAPI=8
+HOMEPAGE=https://github.com/ROCmSoftwarePlatform/Tensile
+INHERIT=cmake distutils-r1 llvm prefix rocm
+IUSE=client python_targets_python3_10 python_targets_python3_11 +amdgpu_targets_gfx906 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx1030 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-cpp/msgpack-cxx dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/msgpack[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-util/hip >=dev-util/rocm-smi-4.3.0 sys-devel/clang:15 python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=client? ( || ( amdgpu_targets_gfx906 amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx1030 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 ) ) || ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=test
+SLOT=0/5.4
+SRC_URI=https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-5.4.2.tar.gz -> rocm-Tensile-5.4.2.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	a9f2e2ae24bd496873c092a94cae1539	llvm	4cc6f8e29d24a8011266413e74c728bb	prefix	eab3c99d77fe00506c109c8a736186f7	rocm	d027c5dabbfc98896a8fe0defa5a6c0a
+_md5_=8205fdc4414c772b63913f74c5336368

@@ -1,6 +1,6 @@
 BDEPEND=dev-util/rocm-cmake:0/5.1 dev-util/Tensile:0/5.1 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen media-gfx/graphviz )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-util/hip <dev-libs/msgpack-5.0.0 test? ( virtual/blas dev-cpp/gtest sys-libs/libomp ) benchmark? ( virtual/blas sys-libs/libomp )
+DEPEND=dev-cpp/msgpack-cxx dev-util/hip test? ( virtual/blas dev-cpp/gtest sys-libs/libomp ) benchmark? ( virtual/blas sys-libs/libomp )
 DESCRIPTION=AMD's library for BLAS on ROCm
 EAPI=8
 HOMEPAGE=https://github.com/ROCmSoftwarePlatform/rocBLAS
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/5.1
 SRC_URI=https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-5.1.3.tar.gz -> rocm-rocBLAS-5.1.3.tar.gz https://media.githubusercontent.com/media/littlewu2508/littlewu2508.github.io/main/gentoo-distfiles/rocBLAS-5.0.2-Tensile-asm_full-navi22.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	docs	314e509c51630fb75f120d62a77d008c	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	prefix	eab3c99d77fe00506c109c8a736186f7	rocm	d027c5dabbfc98896a8fe0defa5a6c0a
-_md5_=3090535e41374b3dde45c76e7eb51b9e
+_md5_=10feffdfe6bb828f9d8a346b9fd30bb8
