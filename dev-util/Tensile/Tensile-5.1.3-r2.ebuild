@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 llvm prefix
 
@@ -11,7 +11,8 @@ LLVM_MAX_SLOT=15
 
 DESCRIPTION="Stretching GPU performance for GEMMs and tensor contractions"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/Tensile"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz
+		https://github.com/littlewu2508/littlewu2508.github.io/raw/main/gentoo-distfiles/${PN}-5.0.2-PR1419.patch.gz"
 S="${WORKDIR}/${PN}-rocm-${PV}"
 
 LICENSE="MIT"
@@ -22,27 +23,27 @@ SLOT="0/$(ver_cut 1-2)"
 RESTRICT="test"
 
 RDEPEND="${PYTHON_DEPS}
-	sys-devel/clang:${LLVM_MAX_SLOT}
+	dev-cpp/msgpack-cxx
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/msgpack[${PYTHON_USEDEP}]
+	dev-util/hip
+	sys-devel/clang:${LLVM_MAX_SLOT}
 	>=dev-util/rocm-smi-4.3.0
 "
-DEPEND="${RDEPEND}
-	dev-util/hip
-"
+DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}"/${PN}-4.3.0-output-commands.patch
-		  "${FILESDIR}"/${PN}-5.4.2-gfx1031.patch
-		  "${FILESDIR}"/${PN}-5.4.2-fix-arch-parse.patch
-		  "${FILESDIR}"/${PN}-5.4.2-use-ninja.patch
+		  "${FILESDIR}"/${PN}-5.0.2-gfx1031.patch
+		  "${FILESDIR}"/${PN}-5.0.2-fix-arch-parse.patch
+		  "${FILESDIR}"/${PN}-5.0.2-use-ninja.patch
+		  "${FILESDIR}"/0001-Change-cmake-name-for-msgpack-5-release.patch
 	  )
 
 CMAKE_USE_DIR="${WORKDIR}/Source"
 
 src_prepare() {
 	distutils-r1_src_prepare
-	sed -e "s,\@LLVM_PATH\@,$(get_llvm_prefix ${LLVM_MAX_SLOT}),g" \
-		"${FILESDIR}"/${PN}-5.4.2-gentoopath.patch > "${S}"/gentoopath.patch || die
+	sed -e "s,\@LLVM_PATH\@,$(get_llvm_prefix ${LLVM_MAX_SLOT}),g" "${FILESDIR}"/${PN}-5.1.3-gentoopath.patch > "${S}"/gentoopath.patch || die
 	eapply $(prefixify_ro "${S}"/gentoopath.patch)
 
 	pushd ${PN} || die
@@ -52,15 +53,12 @@ src_prepare() {
 	sed -r -e "/TENSILE_USE_LLVM/s/ON/OFF/" \
 		-i Source/CMakeLists.txt || die
 	sed -e "/chmod 755/d" -i Source/TensileCreateLibrary.cmake || die # remove chmod 755 on
-
-	# ${Tensile_ROOT}/bin does not exists; call command directly
-	sed -e "s,\${Tensile_ROOT}/bin/,,g" -i Source/TensileCreateLibrary.cmake cmake/TensileConfig.cmake || die
+	sed -e "s,\${Tensile_ROOT}/bin/,,g" -i Source/TensileCreateLibrary.cmake cmake/TensileConfig.cmake || die # ${Tensile_ROOT}/bin does not exists; call command directly
 
 	local Tensile_share_dir="\"${EPREFIX}/usr/share/${PN}\""
-	sed -e "/HipClangVersion/s/0.0.0/$(hipconfig -v)/" -i Common.py || die
+	sed -e "/HipClangVersion/s/0,0,0/$(hipconfig -v)/" -i Common.py || die
 
-	sed -e "s,os.path.dirname(os.path.realpath(__file__)),${Tensile_share_dir},g" \
-		-i ReplacementKernels.py Common.py ${PN}.py || die
+	sed -e "s,os.path.dirname(os.path.realpath(__file__)),${Tensile_share_dir},g" -i ReplacementKernels.py Common.py ${PN}.py || die
 
 	sed -e "s|os\.path\.dirname.*$|\"${EPREFIX}/usr/share/Tensile/Source\", end='')|" -i __init__.py || die
 

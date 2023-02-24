@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="amt archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
@@ -24,7 +24,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	modemmanager? ( gusb )
 	spi? ( lzma )
 	synaptics? ( gnutls )
-	test? ( gusb )
+	test? ( archive gusb )
 	uefi? ( gnutls )
 "
 RESTRICT="!test? ( test )"
@@ -96,7 +96,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.6-installed_tests.patch
+	"${FILESDIR}"/${PN}-1.8.11-installed_tests.patch
 )
 
 src_prepare() {
