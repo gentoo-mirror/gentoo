@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit python-single-r1 unpacker
 
@@ -58,6 +58,7 @@ RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/dbus-python[${PYTHON_USEDEP}]
+		dev-python/pycairo[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
 	!prefix? ( sys-libs/glibc )
@@ -97,7 +98,7 @@ RDEPEND="${DEPEND}
 	media-libs/alsa-lib[abi_x86_32(-)]
 	media-libs/freetype:2[abi_x86_32(-)]
 	media-libs/mesa[abi_x86_32(-),osmesa?]
-	|| ( media-libs/tiff-compat:4[abi_x86_32(-)] media-libs/tiff:0/0[abi_x86_32(-)] )
+	media-libs/tiff-compat:4[abi_x86_32(-)]
 	sys-auth/nss-mdns[abi_x86_32(-)]
 	sys-apps/util-linux[abi_x86_32(-)]
 	sys-libs/libunwind[abi_x86_32(-)]
@@ -118,10 +119,7 @@ RDEPEND="${DEPEND}
 	x11-libs/gtk+:3[introspection]
 	x11-libs/pango[introspection]
 	x11-libs/vte:2.91[introspection]
-	|| (
-		sys-libs/libxcrypt[compat]
-		sys-libs/glibc[crypt(+)]
-	)
+	sys-libs/libxcrypt[compat]
 "
 
 src_unpack() {
@@ -195,7 +193,7 @@ src_install() {
 		-e "s:${ED}::" \
 		"${ED}/opt/cxoffice/lib/perl/CXMenuXDG.pm" \
 		|| die "Could not fix paths in ${ED}/opt/cxoffice/lib/perl/CXMenuXDG.pm"
-	sed -i -e "s:${ED}:/:" \
+	sed -i -e "s:${ED}::" \
 		"${ED}/usr/share/applications/"*"CrossOver.desktop" \
 		|| die "Could not fix paths of *.desktop files"
 
