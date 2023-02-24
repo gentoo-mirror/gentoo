@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Mail-DMARC
 INHERIT=perl-module
 IUSE=minimal test
-KEYWORDS=~amd64 ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!minimal? ( dev-perl/Mail-DKIM dev-perl/Net-IMAP-Simple dev-perl/Net-SMTPS ) virtual/perl-Carp dev-perl/Config-Tiny >=dev-perl/DBD-SQLite-1.310.0 >=dev-perl/DBIx-Simple-1.350.0 virtual/perl-Data-Dumper dev-perl/Email-MIME >=dev-perl/Email-Sender-1.300.32 dev-perl/Email-Simple virtual/perl-Encode dev-perl/File-ShareDir virtual/perl-Getopt-Long virtual/perl-HTTP-Tiny virtual/perl-IO virtual/perl-IO-Compress dev-perl/IO-Socket-SSL dev-perl/libwww-perl dev-perl/Mail-DKIM dev-perl/Net-DNS dev-perl/Net-HTTP dev-perl/Net-IDN-Encode dev-perl/Net-IP dev-perl/Net-SMTPS dev-perl/Net-SSLeay >=dev-perl/Net-Server-2 virtual/perl-Socket >=dev-perl/Socket6-0.230.0 virtual/perl-Sys-Syslog dev-perl/Test-File-ShareDir dev-perl/URI dev-perl/XML-LibXML virtual/perl-parent >=dev-perl/Regexp-Common-2013031301 dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MB/MBRADSHAW/Mail-DMARC-1.20210927.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	21a0cb6221498d0e7894bdf445b79887
-_md5_=792a0b3f4edb77247cf88ee8c07bd412
+_md5_=9520e0bc7b5fd5ff32de8a585b0743fe

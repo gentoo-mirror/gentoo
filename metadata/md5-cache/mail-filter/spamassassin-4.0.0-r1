@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://spamassassin.apache.org/
 INHERIT=perl-functions systemd toolchain-funcs verify-sig
 IUSE=berkdb cron ipv6 ldap mysql postgres qmail sqlite ssl test verify-sig
-KEYWORDS=~amd64 ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=Apache-2.0 GPL-2
 RDEPEND=acct-user/spamd acct-group/spamd dev-lang/perl:= dev-perl/HTML-Parser dev-perl/Net-DNS dev-perl/NetAddr-IP virtual/perl-Digest-SHA ssl? ( dev-libs/openssl:0= ) app-crypt/gnupg dev-perl/Archive-Zip dev-perl/BSD-Resource dev-perl/Digest-SHA1 dev-perl/Email-Address-XS dev-perl/Encode-Detect || ( dev-perl/GeoIP2 dev-perl/Geo-IP ) dev-perl/IO-String dev-perl/Mail-DKIM dev-perl/Mail-DMARC dev-perl/Mail-SPF dev-perl/Net-Patricia dev-perl/Net-LibIDN2 dev-util/re2c || ( net-misc/wget[ssl] net-misc/curl[ssl] ) virtual/perl-MIME-Base64 dev-perl/Pod-Parser berkdb? ( virtual/perl-DB_File ) ipv6? ( dev-perl/IO-Socket-INET6 ) ldap? ( dev-perl/perl-ldap ) mysql? ( dev-perl/DBI dev-perl/DBD-mysql ) postgres? ( dev-perl/DBI dev-perl/DBD-Pg ) sqlite? ( dev-perl/DBI dev-perl/DBD-SQLite ) ssl? ( dev-perl/IO-Socket-SSL )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/spamassassin/source/Mail-SpamAssassin-4.0.0.tar.bz2 verify-sig? ( https://downloads.apache.org/spamassassin/source/Mail-SpamAssassin-4.0.0.tar.bz2.asc )
 _eclasses_=perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	85e14d0a93afa75c621382409ada8732
-_md5_=ca6bb7fc228d106da702b300d2d2adfb
+_md5_=5b136c89e609b3a134130381bfa0e8c3
