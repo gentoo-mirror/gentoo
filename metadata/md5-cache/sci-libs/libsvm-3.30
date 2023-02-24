@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install preinst prepare pretend setup
+DEPEND=java? ( >=virtual/jdk-1.8:* ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=Library for Support Vector Machines
+EAPI=8
+HOMEPAGE=https://www.csie.ntu.edu.tw/~cjlin/libsvm/
+INHERIT=java-pkg-opt-2 python-r1 toolchain-funcs
+IUSE=java openmp python tools java python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD
+RDEPEND=java? ( >=virtual/jre-1.8:* ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) tools? ( sci-visualization/gnuplot ) java? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
+SLOT=0/2
+SRC_URI=https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.3.tar.gz
+_eclasses_=java-utils-2	eefed04ac580a259ecda1fbd966640b7	java-pkg-opt-2	4d26f2efd4c5ec82b66d1e8816f421b2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e
+_md5_=31abb9b0c15e4e5a432fce3769582e16
