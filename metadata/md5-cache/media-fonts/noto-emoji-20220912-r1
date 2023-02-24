@@ -1,0 +1,14 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=compile install postinst postrm prepare setup
+DESCRIPTION=Google Noto Emoji fonts
+EAPI=8
+HOMEPAGE=https://www.google.com/get/noto/ https://github.com/googlefonts/noto-emoji
+INHERIT=font
+IUSE=icons X
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0 OFL-1.1
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/googlefonts/noto-emoji/archive/e8073ab740292f8d5f19b5de144087ac58044d06.tar.gz -> noto-emoji-20220912.tar.gz
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_md5_=08bf33188291f42ad560bc6116aa7ff9
