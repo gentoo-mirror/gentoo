@@ -26,7 +26,7 @@ RDEPEND="
 	>=dev-python/distro-1.0.2[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.14.1[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
-	>=dev-python/node-semver-0.8[${PYTHON_USEDEP}]
+	>=dev-python/node-semver-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/patch-ng-1.17.4[${PYTHON_USEDEP}]
 	>=dev-python/pluginbase-0.5[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0[${PYTHON_USEDEP}]
@@ -43,6 +43,10 @@ RDEPEND="
 # Conan requires noumerous external toolchain dependencies with restricted
 # versions and cannot be managable outside of a pure CI environment.
 RESTRICT="test"
+
+PATCHES=(
+	"${FILESDIR}/${P}_nodesemver.patch"
+)
 
 src_prepare() {
 	default
