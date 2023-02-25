@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,8 +7,8 @@ inherit toolchain-funcs
 
 MY_PN=${PN%-*}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Jolly Good Fork of ProSystem"
-HOMEPAGE="https://gitlab.com/jgemu/prosystem"
+DESCRIPTION="Jolly Good Fork of bsnes"
+HOMEPAGE="https://gitlab.com/jgemu/bsnes"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
@@ -18,11 +18,12 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="BSD GPL-2+"
+LICENSE="ISC GPL-3+ LGPL-2.1+ MIT ZLIB"
 SLOT="1"
 
 DEPEND="
 	media-libs/jg:1=
+	media-libs/libsamplerate
 "
 RDEPEND="
 	${DEPEND}
@@ -33,7 +34,7 @@ BDEPEND="
 "
 
 src_compile() {
-	emake CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
+	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
