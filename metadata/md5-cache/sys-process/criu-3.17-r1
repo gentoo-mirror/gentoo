@@ -1,17 +1,17 @@
-BDEPEND=dev-python/setuptools[python_targets_python3_9(-)?,python_targets_python3_10(-)?] doc? ( app-text/asciidoc app-text/xmlto )
+BDEPEND=dev-python/setuptools[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] doc? ( app-text/asciidoc app-text/xmlto )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3= net-libs/libnet:1.1= sys-libs/libcap:= bpf? ( dev-libs/libbpf:= ) gnutls? ( net-libs/gnutls:= ) nftables? ( net-libs/gnutls:= ) selinux? ( sys-libs/libselinux:= ) setproctitle? ( dev-libs/libbsd:= ) video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] )
+DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3= net-libs/libnet:1.1= sys-libs/libcap:= bpf? ( dev-libs/libbpf:= ) gnutls? ( net-libs/gnutls:= ) nftables? ( net-libs/gnutls:= ) selinux? ( sys-libs/libselinux:= ) setproctitle? ( dev-libs/libbsd:= ) video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] )
 DESCRIPTION=utility to checkpoint/restore a process tree
 EAPI=8
 HOMEPAGE=https://criu.org/ https://github.com/checkpoint-restore/
 INHERIT=toolchain-funcs linux-info python-r1
-IUSE=bpf doc gnutls nftables selinux setproctitle static-libs test video_cards_amdgpu python_targets_python3_9 python_targets_python3_10
+IUSE=bpf doc gnutls nftables selinux setproctitle static-libs test video_cards_amdgpu python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm arm64 ppc64 -riscv
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3= net-libs/libnet:1.1= sys-libs/libcap:= bpf? ( dev-libs/libbpf:= ) gnutls? ( net-libs/gnutls:= ) nftables? ( net-libs/gnutls:= ) selinux? ( sys-libs/libselinux:= ) setproctitle? ( dev-libs/libbsd:= ) video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] ) dev-python/protobuf-python[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
-REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-libs/protobuf-c-1.4.0:= dev-libs/libnl:3= net-libs/libnet:1.1= sys-libs/libcap:= bpf? ( dev-libs/libbpf:= ) gnutls? ( net-libs/gnutls:= ) nftables? ( net-libs/gnutls:= ) selinux? ( sys-libs/libselinux:= ) setproctitle? ( dev-libs/libbsd:= ) video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] ) dev-python/protobuf-python[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/checkpoint-restore/criu/archive/v3.17/criu-3.17.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e
-_md5_=eaf0f76b0fded56f8e6a4849c44c424f
+_md5_=34efc8141be0f4c6dd91e41279278990
