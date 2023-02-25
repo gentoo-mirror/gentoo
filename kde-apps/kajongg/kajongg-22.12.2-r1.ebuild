@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 PYTHON_COMPAT=( python3_{9..11} )
 PVCUT=$(ver_cut 1-3)
-KFMIN=5.96.0
+KFMIN=5.101.0
 QTMIN=5.15.5
 inherit python-single-r1 ecm gear.kde.org
 
@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/kajongg/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -29,7 +29,7 @@ DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	$(python_gen_cond_dep '
-		dev-python/PyQt5[gui,svg,widgets,${PYTHON_USEDEP}]
+		dev-python/QtPy[gui,svg,widgets,${PYTHON_USEDEP}]
 		>=dev-python/twisted-16.6.0[${PYTHON_USEDEP}]
 	')
 "
