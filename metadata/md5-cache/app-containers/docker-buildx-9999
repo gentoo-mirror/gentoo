@@ -1,0 +1,15 @@
+BDEPEND=test? ( >=dev-lang/go-1.20 ) >=dev-lang/go-1.18 app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install test unpack
+DEPEND=app-containers/docker
+DESCRIPTION=Docker CLI plugin for extended build capabilities with BuildKit
+EAPI=8
+HOMEPAGE=https://github.com/docker/buildx
+INHERIT=go-module git-r3
+IUSE=test
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=app-containers/docker
+RESTRICT=!test? ( test ) strip
+SLOT=0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=5e53561615a2bdc4fdf5318009b784a3
