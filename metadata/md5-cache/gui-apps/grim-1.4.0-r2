@@ -1,0 +1,15 @@
+BDEPEND=man? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/wayland media-libs/libpng x11-libs/pixman jpeg? ( media-libs/libjpeg-turbo ) >=dev-libs/wayland-protocols-1.14
+DESCRIPTION=Grab images from a Wayland compositor
+EAPI=8
+HOMEPAGE=https://github.com/emersion/grim
+INHERIT=bash-completion-r1 meson
+IUSE=+man jpeg
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/wayland media-libs/libpng x11-libs/pixman jpeg? ( media-libs/libjpeg-turbo )
+SLOT=0
+SRC_URI=https://github.com/emersion/grim/archive/v1.4.0.tar.gz -> grim-1.4.0.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=1985d8b2b4567bc021e3c68c92737ad0
