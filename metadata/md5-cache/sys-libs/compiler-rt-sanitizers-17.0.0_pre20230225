@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/cmake-3.16 clang? ( sys-devel/clang ) elibc_glibc? ( net-libs/libtirpc ) test? ( || ( ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 >=dev-python/lit-15[python_targets_python3_9(-)] ) ) =sys-devel/clang-17.0.0*:17 sys-libs/compiler-rt:17 ) !test? ( || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=sys-devel/llvm:17 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?] !!sys-devel/llvm:0
+DESCRIPTION=Compiler runtime libraries for clang (sanitizers & xray)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=check-reqs cmake flag-o-matic llvm llvm.org python-any-r1
+IUSE=+abi_x86_32 abi_x86_64 +clang debug test +libfuzzer +memprof +orc +profile +xray +asan +dfsan +lsan +msan +hwasan +tsan +ubsan +safestack +cfi +scudo +shadowcallstack +gwp-asan test
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+REQUIRED_USE=|| ( asan dfsan lsan msan hwasan tsan ubsan safestack cfi scudo shadowcallstack gwp-asan libfuzzer orc profile xray ) test? ( cfi? ( ubsan ) gwp-asan? ( scudo ) )
+RESTRICT=!clang? ( test ) !test? ( test ) !test? ( test )
+SLOT=17
+SRC_URI=https://github.com/llvm/llvm-project/archive/b0676fb0fb0a44a4a1c4ec1f0270fef1f1842817.tar.gz -> llvm-project-b0676fb0fb0a44a4a1c4ec1f0270fef1f1842817.tar.gz
+_eclasses_=check-reqs	5e6dfbd7a8d3238a79f009fae7ac469c	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	llvm	4cc6f8e29d24a8011266413e74c728bb	llvm.org	7fc16ff522366c1da2ff13695cb44b72	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_md5_=049242e85f6315c7ba29f81552c29f36
