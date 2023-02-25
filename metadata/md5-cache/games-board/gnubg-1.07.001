@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/autoconf-archive sys-devel/gettext virtual/pkgconfig python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install postinst postrm preinst prepare setup
+DEPEND=dev-libs/cglm dev-libs/glib:2 dev-libs/gmp:= media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:= net-misc/curl sys-libs/readline:= virtual/libintl x11-libs/cairo[svg(+)] x11-libs/pango gui? ( media-libs/libcanberra[gtk3] x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 ) opengl? ( media-libs/libepoxy ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) sqlite? ( dev-db/sqlite:3 )
+DESCRIPTION=GNU BackGammon
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/gnubg/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools desktop python-single-r1 xdg
+IUSE=cpu_flags_x86_avx cpu_flags_x86_sse cpu_flags_x86_sse2 gui opengl python sqlite python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm ~ppc64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/cglm dev-libs/glib:2 dev-libs/gmp:= media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:= net-misc/curl sys-libs/readline:= virtual/libintl x11-libs/cairo[svg(+)] x11-libs/pango gui? ( media-libs/libcanberra[gtk3] x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 ) opengl? ( media-libs/libepoxy ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) sqlite? ( dev-db/sqlite:3 )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ) opengl? ( gui )
+SLOT=0
+SRC_URI=mirror://gnu/gnubg/gnubg-release-1.07.001-sources.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=ff493791a1864f749e490194e6bef8e8
