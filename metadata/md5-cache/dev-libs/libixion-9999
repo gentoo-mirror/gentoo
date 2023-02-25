@@ -1,15 +1,15 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare setup unpack
-DEPEND=dev-libs/boost:= dev-util/mdds:1/9999 python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) )
+DEPEND=dev-libs/boost:= dev-util/mdds:1/2.1 python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
 DESCRIPTION=General purpose formula parser & interpreter
 EAPI=8
 HOMEPAGE=https://gitlab.com/ixion/ixion
 INHERIT=python-single-r1 git-r3 autotools
-IUSE=debug python python_single_target_python3_9 python_single_target_python3_10
+IUSE=debug python python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/boost:= dev-util/mdds:1/9999 python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 ) )
+RDEPEND=dev-libs/boost:= dev-util/mdds:1/2.1 python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0/0.18
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	2347f8fe2d392b2a091191f94be37e6f	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=3dce0ae90d69c781f655023d24d28f47
+_md5_=606c258da0a82090f70a2e268ac7e6b5
