@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DESCRIPTION=Audio tag editor
+EAPI=8
+HOMEPAGE=http://docs.puddletag.net/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=distutils-r1 xdg
+IUSE=acoustid quodlibet python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 GPL-3
+RDEPEND=>=dev-python/configobj-5.0.6[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyparsing-3.0.9[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/PyQt5-5.15.7[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,svg] >=media-libs/mutagen-1.45.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] acoustid? ( >=dev-python/pyacoustid-1.2.2-r1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) quodlibet? ( >=media-sound/quodlibet-4.4.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) >=dev-python/PyQt5-sip-12.11.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/lxml-4.9.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/Levenshtein-0.18.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/puddletag/puddletag/archive/refs/tags/2.2.0.tar.gz -> puddletag-2.2.0.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	b69cca67d4bf504984c07366f8d3cac4	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=e677f02c9c1f18047ddc5f28e8cc4f26
