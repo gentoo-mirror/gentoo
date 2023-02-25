@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/asciidoc app-text/docbook2X app-text/xmlto sys-apps/texinfo ) gnome-keyring? ( virtual/pkgconfig ) nls? ( sys-devel/gettext ) test? ( app-crypt/gnupg ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=dev-libs/openssl:= sys-libs/zlib curl? ( net-misc/curl webdav? ( dev-libs/expat ) ) gnome-keyring? ( app-crypt/libsecret dev-libs/glib:2 ) iconv? ( virtual/libiconv ) pcre? ( dev-libs/libpcre2:= ) perl? ( dev-lang/perl:=[-build(-)] ) tk? ( dev-lang/tk:= )
+DESCRIPTION=Stupid content tracker: distributed VCS designed for speed and efficiency
+EAPI=8
+HOMEPAGE=https://www.git-scm.com/
+INHERIT=toolchain-funcs perl-module bash-completion-r1 optfeature plocale python-single-r1 systemd
+IUSE=+blksha1 +curl cgi doc gnome-keyring +gpg highlight +iconv mediawiki mediawiki-experimental +nls +pcre perforce +perl +safe-directory selinux subversion tk +webdav xinetd cvs test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+LICENSE=GPL-2
+RDEPEND=dev-libs/openssl:= sys-libs/zlib curl? ( net-misc/curl webdav? ( dev-libs/expat ) ) gnome-keyring? ( app-crypt/libsecret dev-libs/glib:2 ) iconv? ( virtual/libiconv ) pcre? ( dev-libs/libpcre2:= ) perl? ( dev-lang/perl:=[-build(-)] ) tk? ( dev-lang/tk:= ) gpg? ( app-crypt/gnupg ) perl? ( dev-perl/Error dev-perl/MailTools dev-perl/Authen-SASL >=virtual/perl-libnet-3.110.0-r4[ssl] cgi? ( dev-perl/CGI highlight? ( app-text/highlight ) ) cvs? ( >=dev-vcs/cvsps-2.1:0 dev-perl/DBI dev-perl/DBD-SQLite ) mediawiki? ( dev-perl/DateTime-Format-ISO8601 dev-perl/HTML-Tree dev-perl/MediaWiki-API ) subversion? ( dev-vcs/subversion[-dso(-),perl] dev-perl/libwww-perl dev-perl/TermReadKey ) ) perforce? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) selinux? ( sec-policy/selinux-git )
+REQUIRED_USE=cgi? ( perl ) cvs? ( perl ) mediawiki? ( perl ) mediawiki-experimental? ( mediawiki ) perforce? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ) subversion? ( perl ) webdav? ( curl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/software/scm/git/testing/git-2.40.0.rc0.tar.xz https://www.kernel.org/pub/software/scm/git/testing/git-manpages-2.40.0.rc0.tar.xz doc? ( https://www.kernel.org/pub/software/scm/git/testing/git-htmldocs-2.40.0.rc0.tar.xz )
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	perl-module	21a0cb6221498d0e7894bdf445b79887	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	optfeature	1a2157392a869265b2afcb63a26c12ac	plocale	950fbaec7deeba41b5bcc0572cca99b9	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=8f9e5bcc93de2efed07a03004fdf2eab
