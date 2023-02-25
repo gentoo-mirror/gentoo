@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[sqlite] ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Distributed C/C++ package manager
+EAPI=8
+HOMEPAGE=https://conan.io/
+INHERIT=distutils-r1
+IUSE=python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=>=dev-python/bottle-0.12.8[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/colorama-0.3.3[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/distro-1.0.2[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/fasteners-0.14.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/jinja-3.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/node-semver-0.9.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/patch-ng-1.17.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pluginbase-0.5[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pygments-2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyjwt-2.4.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/python-dateutil-2.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyyaml-5.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/requests-2.25[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/six-1.12.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/tqdm-4.28.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/urllib3-1.26.6[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9[sqlite] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[sqlite] )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/conan-io/conan/archive/1.59.0.tar.gz -> conan-1.59.0.gh.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	b69cca67d4bf504984c07366f8d3cac4
+_md5_=dc237aa2b324b496b2801d31c2847009
