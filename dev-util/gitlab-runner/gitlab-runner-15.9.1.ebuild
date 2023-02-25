@@ -5,7 +5,7 @@ EAPI=8
 inherit go-module systemd tmpfiles
 
 # make sure this gets updated for every bump
-GIT_COMMIT=c081f284
+GIT_COMMIT=d540b510
 
 DESCRIPTION="The official GitLab Runner, written in Go"
 HOMEPAGE="https://gitlab.com/gitlab-org/gitlab-runner"
@@ -23,11 +23,6 @@ RDEPEND="${COMMON_DEPEND}"
 BDEPEND="dev-go/gox"
 
 DOCS=( docs CHANGELOG.md README.md config.toml.example )
-
-PATCHES=(
-	# https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/3498
-	"${FILESDIR}"/build-for-arm64.patch
-	)
 
 S="${WORKDIR}/${PN}-v${PV}"
 
