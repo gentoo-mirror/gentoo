@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,8 +19,7 @@ RDEPEND="
 	>=gnome-extra/gnome-shell-extension-alphabetical-grid-26.0
 	>=gnome-extra/gnome-shell-extension-appindicator-46
 	>=gnome-extra/gnome-shell-extension-applications-overview-tooltip-16
-	>=gnome-extra/gnome-shell-extension-bing-wallpaper-43
-	>=gnome-extra/gnome-shell-extension-control-blur-effect-on-lock-screen-20220323-r1
+	>=gnome-extra/gnome-shell-extension-bing-wallpaper-44
 	>=gnome-extra/gnome-shell-extension-dash-to-panel-52
 	>=gnome-extra/gnome-shell-extension-desktop-icons-ng-47
 	>=gnome-extra/gnome-shell-extension-gsconnect-54
@@ -28,7 +27,6 @@ RDEPEND="
 	>=gnome-extra/gnome-tweaks-40.10
 
 	>=gnome-extra/gnome-clocks-43.0
-	>=gnome-extra/seahorse-nautilus-3.11.92_p20220906
 	>=media-fonts/fonts-meta-2
 	x11-themes/papirus-icon-theme
 
