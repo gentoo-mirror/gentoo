@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_SINGLE_IMPL="yes"
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -27,13 +27,13 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/asteval-0.9.25[${PYTHON_USEDEP}]
 		>=dev-python/cachetools-5.2.0[${PYTHON_USEDEP}]
-		>=dev-python/lmfit-1.0.3[${PYTHON_USEDEP}]
-		>=dev-python/matplotlib-3.5.3[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.23.3[${PYTHON_USEDEP}]
-		>=dev-python/pydantic-1.10.2[${PYTHON_USEDEP}]
-		>=dev-python/rapidfuzz-2.8.0[${PYTHON_USEDEP}]
-		>=dev-python/rich-12.5.1[${PYTHON_USEDEP}]
-		>=dev-python/scipy-1.9.1[${PYTHON_USEDEP}]
+		>=dev-python/lmfit-1.1.0[${PYTHON_USEDEP}]
+		>=dev-python/matplotlib-3.6.2[${PYTHON_USEDEP}]
+		>=dev-python/numpy-1.24.1[${PYTHON_USEDEP}]
+		>=dev-python/pydantic-1.10.4[${PYTHON_USEDEP}]
+		>=dev-python/rapidfuzz-2.13.7[${PYTHON_USEDEP}]
+		>=dev-python/rich-13.0.0[${PYTHON_USEDEP}]
+		>=dev-python/scipy-1.10.0[${PYTHON_USEDEP}]
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	')
 "
