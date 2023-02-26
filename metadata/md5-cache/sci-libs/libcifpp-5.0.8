@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/boost:=
+DESCRIPTION=Code to work with mmCIF and PDB files
+EAPI=8
+HOMEPAGE=https://github.com/PDB-REDO/libcifpp
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=dev-libs/boost:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/PDB-REDO/libcifpp/archive/refs/tags/v5.0.8.tar.gz -> libcifpp-5.0.8.tar.gz https://dev.gentoo.org/~pacho/libcifpp/libcifpp-5.0.8-components.cif.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
+_md5_=68667b23e90b7aeb3d505b44efd83a34
