@@ -1,0 +1,16 @@
+BDEPEND=nls? ( sys-devel/gettext ) test? ( sys-apps/ed )
+DEFINED_PHASES=configure
+DEPEND=sys-libs/ncurses:= nls? ( virtual/libintl )
+DESCRIPTION=Yash is a POSIX-compliant command line shell
+EAPI=8
+HOMEPAGE=https://yash.osdn.jp/
+INHERIT=flag-o-matic plocale toolchain-funcs
+IUSE=nls test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=sys-libs/ncurses:= nls? ( virtual/libintl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge.jp/yash/78345/yash-2.54.tar.xz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	plocale	950fbaec7deeba41b5bcc0572cca99b9
+_md5_=ed2c091e6bf3d051641ee5ec12612910
