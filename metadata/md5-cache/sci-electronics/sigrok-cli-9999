@@ -2,7 +2,7 @@ BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patche
 DEFINED_PHASES=configure postinst postrm prepare unpack
 DEPEND=>=dev-libs/glib-2.32.0 >=sci-libs/libsigrok-0.5.0:= decode? ( >=sci-libs/libsigrokdecode-0.5.0:= ) virtual/pkgconfig
 DESCRIPTION=Command-line client for the sigrok logic analyzer software
-EAPI=7
+EAPI=8
 HOMEPAGE=https://sigrok.org/wiki/Sigrok-cli
 INHERIT=xdg-utils git-r3 autotools
 IUSE=+decode
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=>=dev-libs/glib-2.32.0 >=sci-libs/libsigrok-0.5.0:= decode? ( >=sci-libs/libsigrokdecode-0.5.0:= )
 SLOT=0
 _eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a	git-r3	2347f8fe2d392b2a091191f94be37e6f	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=5f58df3c7b6c2134a1a02477972e9938
+_md5_=077d3b80fc81c05338c0541a0b46c71c
