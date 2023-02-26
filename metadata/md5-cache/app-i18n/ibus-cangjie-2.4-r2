@@ -1,16 +1,16 @@
 BDEPEND=dev-util/intltool nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) app-i18n/ibus[python(+),python_targets_python3_9(-)?,python_targets_python3_10(-)?] app-i18n/libcangjie dev-python/cangjie[python_targets_python3_9(-)?,python_targets_python3_10(-)?] nls? ( virtual/libintl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) app-i18n/ibus[python(+),python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] app-i18n/libcangjie dev-python/cangjie[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] nls? ( virtual/libintl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Chinese Cangjie and Quick engines for IBus
 EAPI=7
 HOMEPAGE=http://cangjians.github.io/
 INHERIT=autotools gnome2-utils python-r1 xdg
-IUSE=nls python_targets_python3_9 python_targets_python3_10
+IUSE=nls python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) app-i18n/ibus[python(+),python_targets_python3_9(-)?,python_targets_python3_10(-)?] app-i18n/libcangjie dev-python/cangjie[python_targets_python3_9(-)?,python_targets_python3_10(-)?] nls? ( virtual/libintl )
-REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) app-i18n/ibus[python(+),python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] app-i18n/libcangjie dev-python/cangjie[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] nls? ( virtual/libintl )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/Cangjians/ibus-cangjie/releases/download/v2.4/ibus-cangjie-2.4.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	xdg	6024fbc93167fad782e2032933654857
-_md5_=82bdacc4a8a056195284de645e387313
+_md5_=bb46421b5cb7c3ff2779f42ed96983f5
