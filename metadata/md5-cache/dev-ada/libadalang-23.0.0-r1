@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-ml/dune dev-ml/zarith dev-ml/camomile dev-ml/ocaml-ctypes dev-ada/e3-testsuite <dev-lang/ocaml-4.14 )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-python/pyyaml <dev-ada/gnatcoll-bindings-2021 >=dev-ada/gnatcoll-bindings-23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?,gmp,iconv] dev-ada/gnatcoll-bindings[shared,static-libs?,static-pic?] ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-ada/langkit[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?,shared,static-libs?,static-pic?] python_single_target_python3_10? ( dev-ada/langkit[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-ada/langkit[python_targets_python3_11(-)] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?]
+DESCRIPTION=high performance semantic engine for the Ada programming language
+EAPI=8
+HOMEPAGE=https://libre.adacore.com/
+INHERIT=ada python-single-r1 multiprocessing
+IUSE=test +static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-python/pyyaml <dev-ada/gnatcoll-bindings-2021 >=dev-ada/gnatcoll-bindings-23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?,gmp,iconv] dev-ada/gnatcoll-bindings[shared,static-libs?,static-pic?] ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-ada/langkit[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?,shared,static-libs?,static-pic?] python_single_target_python3_10? ( dev-ada/langkit[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-ada/langkit[python_targets_python3_11(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12 )
+RESTRICT=!test? ( test )
+SLOT=0/23.0.0
+SRC_URI=https://github.com/AdaCore/libadalang/archive/refs/tags/v23.0.0.tar.gz -> libadalang-23.0.0.tar.gz
+_eclasses_=ada	8af8cc9968a30d4ac8eb99aa6c62eeba	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=cf24ade2d22378f480789524d7a61bd0
