@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://tdb.samba.org/
 INHERIT=waf-utils multilib-minimal python-single-r1
 IUSE=python abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3
 RDEPEND=dev-libs/libbsd[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9[threads(+)] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://samba.org/ftp/tdb/tdb-1.4.8.tar.gz
 _eclasses_=multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	waf-utils	44f2c60168a3ec2c5fb661d45c1cf397	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=ec320db950dea98698e87973f356847d
+_md5_=088f1aa197cea88e0fa9c8d578027dac
