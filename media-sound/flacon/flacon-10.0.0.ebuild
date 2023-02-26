@@ -80,8 +80,6 @@ pkg_postinst() {
 	optfeature 'AAC output support' media-libs/faac
 	optfeature 'MP3 output support' media-sound/lame
 	optfeature 'Vorbis output support' media-sound/vorbis-tools
-	optfeature 'MP3 Replay Gain support' media-sound/mp3gain
-	optfeature 'Vorbis Replay Gain support' media-sound/vorbisgain
 
 	xdg_icon_cache_update
 	xdg_desktop_database_update
