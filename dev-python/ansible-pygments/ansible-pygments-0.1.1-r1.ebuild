@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517="poetry"
 
 inherit distutils-r1
@@ -16,7 +16,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 ~riscv"
 
-# 2.11.0+ needed in order for tests to pass
-RDEPEND=">=dev-python/pygments-2.11.0[${PYTHON_USEDEP}]"
+# 2.14.0+ needed in order for tests to pass
+RDEPEND=">=dev-python/pygments-2.14.0[${PYTHON_USEDEP}]"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.1.1-tests_pygments2_14.patch
+)
 
 distutils_enable_tests pytest
