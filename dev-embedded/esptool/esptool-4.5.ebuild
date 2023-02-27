@@ -15,9 +15,7 @@ SRC_URI="https://github.com/espressif/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -34,26 +32,24 @@ BDEPEND="
 	')
 	test? ( $(python_gen_cond_dep '
 		dev-python/cffi[${PYTHON_USEDEP}]
-		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/pyelftools[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 	') )
 "
 
-python_test() {
-	"${EPYTHON}" test/test_imagegen.py || die "test_imagegen.py failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espsecure.py || die "test_espsecure.py failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_merge_bin.py || die "test_merge_bin.py failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_image_info.py || die "test_image_info.py failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_modules.py || die "test_modules.py failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32|| die "test_espefuse_host.py esp32 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32c2 || die "test_espefuse_host.py esp32c2 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32c3 || die "test_espefuse_host.py esp32c3 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32s2 || die "test_espefuse_host.py esp32s2 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32s3 || die "test_espefuse_host.py esp32s3 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32s3beta2 || die "test_espefuse_host.py esp32s3beta2 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32h2beta1 || die "test_espefuse_host.py esp32h2beta1 failed with ${EPYTHON}"
-	"${EPYTHON}" test/test_espefuse_host.py esp32c6 || die "test_espefuse_host.py esp32c6 failed with ${EPYTHON}"
+distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
 	# test/test_esptool.py and test/test_espefuse.py need real hardware connected
+	test/test_esptool.py
+	test/test_espefuse.py
+)
+
+src_prepare() {
+	default
+
+	# test_espsecure_hsm.py calls unavailable python modules and is broken anyway
+	rm test/test_espsecure_hsm.py || die
 }
 
 pkg_postinst() {
