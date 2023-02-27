@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,20 +17,18 @@ KEYWORDS="-* ~amd64"
 IUSE="appindicator +seccomp suid wayland"
 RESTRICT="bindist mirror"
 
-RDEPEND="
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+RDEPEND="app-accessibility/at-spi2-atk:2[${MULTILIB_USEDEP}]
+	app-accessibility/at-spi2-core:2[${MULTILIB_USEDEP}]
+	dev-libs/atk:0[${MULTILIB_USEDEP}]
 	dev-libs/expat:0[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
 	dev-libs/nspr:0[${MULTILIB_USEDEP}]
 	dev-libs/nss:0[${MULTILIB_USEDEP}]
+	dev-libs/wayland[${MULTILIB_USEDEP}]
 	media-libs/alsa-lib:0[${MULTILIB_USEDEP}]
 	media-libs/mesa:0[${MULTILIB_USEDEP}]
 	net-print/cups:0[${MULTILIB_USEDEP}]
 	sys-apps/dbus:0[${MULTILIB_USEDEP}]
-	sys-libs/glibc
 	x11-libs/cairo:0[${MULTILIB_USEDEP}]
 	x11-libs/gdk-pixbuf:2[${MULTILIB_USEDEP}]
 	x11-libs/gtk+:3[${MULTILIB_USEDEP}]
