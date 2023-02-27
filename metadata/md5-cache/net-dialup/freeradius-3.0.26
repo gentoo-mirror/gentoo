@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=compile config configure install preinst prepare setup
+DEPEND=acct-group/radius acct-user/radius !net-dialup/cistronradius dev-lang/perl:= sys-libs/gdbm:= sys-libs/talloc virtual/libcrypt:= firebird? ( dev-db/firebird ) iodbc? ( dev-db/libiodbc ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) memcached? ( dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c:= ) mongodb? ( >=dev-libs/mongo-c-driver-1.13.0-r1 ) odbc? ( dev-db/unixODBC ) oracle? ( dev-db/oracle-instantclient[sdk] ) pam? ( sys-libs/pam ) pcap? ( net-libs/libpcap ) postgres? ( dev-db/postgresql:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) readline? ( sys-libs/readline:0= ) redis? ( dev-libs/hiredis:= ) rest? ( dev-libs/json-c:= ) samba? ( net-fs/samba ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) systemd? ( sys-apps/systemd )
+DESCRIPTION=Highly configurable free RADIUS server
+EAPI=7
+HOMEPAGE=https://freeradius.org/
+INHERIT=autotools pam python-single-r1 systemd
+IUSE=debug firebird iodbc kerberos ldap memcached mysql mongodb odbc oracle pam pcap postgres python readline redis rest samba sqlite ssl systemd python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/radius acct-user/radius !net-dialup/cistronradius dev-lang/perl:= sys-libs/gdbm:= sys-libs/talloc virtual/libcrypt:= firebird? ( dev-db/firebird ) iodbc? ( dev-db/libiodbc ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) memcached? ( dev-libs/libmemcached ) mysql? ( dev-db/mysql-connector-c:= ) mongodb? ( >=dev-libs/mongo-c-driver-1.13.0-r1 ) odbc? ( dev-db/unixODBC ) oracle? ( dev-db/oracle-instantclient[sdk] ) pam? ( sys-libs/pam ) pcap? ( net-libs/libpcap ) postgres? ( dev-db/postgresql:= ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) readline? ( sys-libs/readline:0= ) redis? ( dev-libs/hiredis:= ) rest? ( dev-libs/json-c:= ) samba? ( net-fs/samba ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) systemd? ( sys-apps/systemd )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 ) )
+RESTRICT=test firebird? ( bindist )
+SLOT=0
+SRC_URI=https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_26.tar.gz -> freeradius-3.0.26.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	pam	01b77091d5b6560b0aeafa7fbb1bd818	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=abb76326388851961671fc23753b7cff
