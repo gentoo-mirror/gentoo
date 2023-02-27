@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure
+DEPEND=dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:= clang? ( >=sys-devel/clang-3.1 ) dev-lang/perl
+DESCRIPTION=A 6model-based VM for NQP and Raku
+EAPI=8
+HOMEPAGE=http://moarvm.org
+IUSE=asan clang debug doc +jit optimize static-libs ubsan
+KEYWORDS=~amd64 ~x86
+LICENSE=Artistic-2
+RDEPEND=dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:=
+RESTRICT=test
+SLOT=0
+SRC_URI=http://moarvm.org/releases/MoarVM-2023.02.tar.gz
+_md5_=c4caa6a114ce28b11bc033bfde829f5e
