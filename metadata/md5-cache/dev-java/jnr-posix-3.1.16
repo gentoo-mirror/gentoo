@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=dev-java/jnr-ffi-2.2.12:2 dev-java/jnr-constants:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Common cross-project/cross-platform POSIX APIs
+EAPI=8
+HOMEPAGE=https://github.com/jnr/jnr-posix
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=EPL-2.0 GPL-2 LGPL-2.1
+RDEPEND=>=dev-java/jnr-ffi-2.2.12:2 dev-java/jnr-constants:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=3.0
+SRC_URI=https://github.com/jnr/jnr-posix/archive/jnr-posix-3.1.16.tar.gz
+_eclasses_=java-utils-2	eefed04ac580a259ecda1fbd966640b7	java-pkg-2	a6b42ffd8b6827abbd8cf09329c2c8fb	java-pkg-simple	0389d2b96f7da44c3dbabe920bbe5531
+_md5_=259b90296ca349f3611c1e75ae18f3fe
