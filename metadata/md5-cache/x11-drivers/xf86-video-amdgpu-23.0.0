@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare unpack
+DEPEND=>=x11-libs/libdrm-2.4.89[video_cards_amdgpu] x11-base/xorg-server[-minimal] udev? ( virtual/libudev:= ) x11-base/xorg-proto x11-base/xorg-server[-minimal] x11-libs/libdrm >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+DESCRIPTION=Accelerated Open Source driver for AMDGPU cards
+EAPI=7
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/driver/xf86-video-amdgpu
+INHERIT=xorg-3
+IUSE=udev
+KEYWORDS=~amd64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=x11-libs/libdrm-2.4.89[video_cards_amdgpu] x11-base/xorg-server[-minimal] udev? ( virtual/libudev:= ) x11-base/xorg-server:= x11-base/xorg-server[-minimal] x11-libs/libdrm >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+SLOT=0
+SRC_URI=https://www.x.org/releases/individual/driver/xf86-video-amdgpu-23.0.0.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	xorg-3	d594392da077c1ccd08dc6e48e18c78a
+_md5_=6138570688c6b38961ddc02680cd0e88
