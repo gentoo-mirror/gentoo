@@ -10559,7 +10559,7 @@ dev-util/ropper 1.13.8 9999: Use to display information about binary files in di
 dev-util/rpmdevtools 9.5: Collection of rpm packaging related utilities
 dev-util/rr 5.6.0-r2: Record and Replay Framework
 dev-util/rt-tests 2.5: A collection of latency testing tools for the linux(-rt) kernel
-dev-util/ruff 0.0.247 0.0.252: An extremely fast Python linter, written in Rust
+dev-util/ruff 0.0.252 0.0.253: An extremely fast Python linter, written in Rust
 dev-util/rustup 1.25.2 9999: Rust toolchain installer
 dev-util/samurai 1.2-r2 9999: ninja-compatible build tool written in C
 dev-util/sasm 3.10.1: Simple crossplatform IDE for NASM assembly language
@@ -10590,7 +10590,7 @@ dev-util/spirv-tools 1.3.236 1.3.239 99999999: Provides an API and commands for 
 dev-util/splint 3.1.2-r2: Check C programs for vulnerabilities and programming mistakes
 dev-util/squashdelta 0.1.1 0.1.2 9999: Efficient (partially uncompressed) SquashFS binary delta tool
 dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
-dev-util/src-cli 4.0.0 4.3.0 4.4.0: command line interface for the Sourcegraph code search tool
+dev-util/src-cli 4.3.0 4.4.0 4.5.0: command line interface for the Sourcegraph code search tool
 dev-util/statifier 1.7.4-r2: Statifier is a tool for creating portable, self-containing Linux executables
 dev-util/stepman 0.10.5: Step collection manager for Bitrise CLI
 dev-util/strace 5.17 5.18 5.19 6.0 6.1 6.2 9999: A useful diagnostic, instructional, and debugging tool
@@ -16839,7 +16839,7 @@ sys-block/ms-sys 2.7.0: A command-line program for writing Microsoft compatible 
 sys-block/mtx 1.3.12: Utilities for controlling SCSI media changers and tape drives
 sys-block/nbd 3.21-r1 3.24 9999: Userland client/server for kernel network block device
 sys-block/nbdkit 1.32.4: NBD server with stable plugin ABI and permissive license
-sys-block/ndctl 71.1-r2 72.1 75: Helper tools and libraries for managing non-volatile memory on Linux
+sys-block/ndctl 71.1-r2 72.1 75 76.1: Helper tools and libraries for managing non-volatile memory on Linux
 sys-block/noflushd 2.8-r1: A daemon to spin down your disks and force accesses to be cached
 sys-block/open-iscsi 2.1.8: A performant, transport independent, multi-platform implementation of RFC3720
 sys-block/open-isns 0.101: iSNS server and client for Linux
@@ -17211,7 +17211,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.6-r6 4.2.6-r8 4.3.1-r1 4.3.2 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.231 5.4.232 5.4.233 5.10.167 5.10.168 5.10.169 5.10.170 5.15.94 5.15.95 5.15.96 6.1.12 6.1.13 6.1.14 6.2.1: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.231 5.4.232 5.4.233 5.10.167 5.10.168 5.10.169 5.10.170 5.15.94 5.15.95 5.15.96 6.1.12 6.1.13 6.1.14 6.2.1: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 4.14.302 4.14.304 4.14.305 4.14.306 4.14.307 4.19.269 4.19.271 4.19.272 4.19.273 4.19.274 5.4.228 5.4.230 5.4.231 5.4.232 5.4.233 5.10.163 5.10.166 5.10.167 5.10.168 5.10.169 5.10.170 5.15.88 5.15.92 5.15.93 5.15.94 5.15.95 5.15.96 6.1.10 6.1.11 6.1.12 6.1.13 6.1.14 6.2.0 6.2.1: Full sources including the Gentoo patchset for the 6.2 kernel tree
+sys-kernel/gentoo-sources 4.14.302 4.14.305 4.14.306 4.14.307 4.19.269 4.19.271 4.19.272 4.19.273 4.19.274 5.4.228 5.4.230 5.4.231 5.4.232 5.4.233 5.10.163 5.10.166 5.10.167 5.10.168 5.10.169 5.10.170 5.15.88 5.15.92 5.15.93 5.15.94 5.15.95 5.15.96 6.1.10 6.1.11 6.1.12 6.1.13 6.1.14 6.2.0 6.2.1: Full sources including the Gentoo patchset for the 6.2 kernel tree
 sys-kernel/git-sources 6.2_rc1 6.2_rc2 6.2_rc3 6.2_rc4 6.2_rc5 6.2_rc6 6.2_rc7 6.2_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5 6: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 2: Wrap kernel-install from systemd-boot as installkernel

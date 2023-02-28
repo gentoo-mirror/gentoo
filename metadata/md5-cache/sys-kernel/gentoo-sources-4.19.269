@@ -4,11 +4,11 @@ EAPI=8
 HOMEPAGE=https://dev.gentoo.org/~mpagano/genpatches
 INHERIT=kernel-2
 IUSE=experimental symlink build
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~s390 sparc x86
+KEYWORDS=hppa sparc
 LICENSE=GPL-2
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=4.19.269
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-4.19-268.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-4.19-268.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-4.19-268.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-4.19-268.extras.tar.xz experimental? ( https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-4.19-268.experimental.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-4.19-268.experimental.tar.xz )
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	kernel-2	1e55bee3f3081b16ebc1ca0cf1264f6c
-_md5_=60a07a5fdb91f00b7df1503b35468fd4
+_md5_=07c5ea9ccc0115d21941a2d07a4537fb
