@@ -1,0 +1,15 @@
+BDEPEND=dev-util/bbe bundled-libjpeg-turbo? ( dev-util/patchelf )
+DEFINED_PHASES=install postinst postrm prepare setup
+DESCRIPTION=Video conferencing and web conferencing service
+EAPI=8
+HOMEPAGE=https://zoom.us/
+INHERIT=desktop linux-info readme.gentoo-r1 wrapper xdg-utils
+IUSE=bundled-libjpeg-turbo +bundled-qt opencl pulseaudio wayland
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=!games-engines/zoom >=app-accessibility/at-spi2-core-2.46.0:2 app-crypt/mit-krb5 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss >=dev-libs/quazip-1.0:0=[qt5(+)] media-libs/alsa-lib media-libs/fdk-aac:0/2 media-libs/fontconfig media-libs/freetype media-libs/mesa[gbm(+)] media-sound/mpg123 net-print/cups sys-apps/dbus sys-apps/util-linux sys-libs/glibc virtual/opengl x11-libs/cairo x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon[X] x11-libs/libXrandr x11-libs/libXrender x11-libs/libxshmfence x11-libs/libXtst x11-libs/pango x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm opencl? ( virtual/opencl ) pulseaudio? ( media-libs/libpulse ) wayland? ( dev-libs/wayland ) !bundled-libjpeg-turbo? ( >=media-libs/libjpeg-turbo-2.0.5 ) !bundled-qt? ( dev-libs/icu dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5[widgets] dev-qt/qtdiag:5 dev-qt/qtgraphicaleffects:5 dev-qt/qtgui:5 dev-qt/qtlocation:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols:5[widgets] dev-qt/qtquickcontrols2:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 wayland? ( dev-qt/qtwayland ) )
+RESTRICT=mirror bindist strip
+SLOT=0
+SRC_URI=https://zoom.us/client/5.13.10.1208/zoom_x86_64.tar.xz -> zoom-5.13.10.1208_x86_64.tar.xz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=26c132c3c064217afcc5a3c66063bb1b
