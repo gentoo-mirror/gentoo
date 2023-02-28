@@ -7,11 +7,11 @@ HOMEPAGE=https://remmina.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake optfeature python-single-r1 xdg
 IUSE=+appindicator crypt cups examples gnome-keyring gvnc kwallet nls python spice ssh rdp vnc wayland webkit zeroconf python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~riscv x86
 LICENSE=GPL-2+-with-openssl-exception
 RDEPEND=dev-libs/glib:2 dev-libs/json-glib dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:0= x11-libs/gdk-pixbuf x11-libs/gtk+:3[wayland?] x11-libs/libX11 x11-libs/libxkbfile appindicator? ( dev-libs/libayatana-appindicator ) crypt? ( dev-libs/libgcrypt:0= ) gnome-keyring? ( app-crypt/libsecret ) gvnc? ( net-libs/gtk-vnc ) kwallet? ( kde-frameworks/kwallet ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) rdp? ( >=net-misc/freerdp-2.0.0_rc4_p1129[X] <net-misc/freerdp-3[X] cups? ( net-print/cups:= ) ) spice? ( net-misc/spice-gtk[gtk3] ) ssh? ( net-libs/libssh:0=[sftp] x11-libs/vte:2.91 ) vnc? ( net-libs/libvncserver[jpeg] ) webkit? ( net-libs/webkit-gtk:4.1 ) zeroconf? ( >=net-dns/avahi-0.8-r2[dbus,gtk] ) virtual/freedesktop-icon-theme
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://gitlab.com/Remmina/Remmina/-/archive/v1.4.29/Remmina-v1.4.29.tar.bz2
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	optfeature	1a2157392a869265b2afcb63a26c12ac	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	6024fbc93167fad782e2032933654857
-_md5_=91c58850d3441f431900e2c7effc480d
+_md5_=9883b41e8fada42f309962c1fac32dac
