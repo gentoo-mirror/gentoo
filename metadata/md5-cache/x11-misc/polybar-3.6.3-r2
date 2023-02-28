@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/polybar/polybar
 INHERIT=cmake python-single-r1
 IUSE=alsa curl doc i3wm ipc mpd network pulseaudio python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~riscv x86
 LICENSE=MIT
 RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_9? ( x11-base/xcb-proto[python_targets_python3_9(-)] ) python_single_target_python3_10? ( x11-base/xcb-proto[python_targets_python3_10(-)] ) python_single_target_python3_11? ( x11-base/xcb-proto[python_targets_python3_11(-)] ) dev-libs/libuv:= media-libs/fontconfig media-libs/freetype x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:= x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-image x11-libs/xcb-util-wm x11-libs/xcb-util-xrm alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) doc? ( dev-python/sphinx ) i3wm? ( dev-libs/jsoncpp:= || ( x11-wm/i3 x11-wm/i3-gaps ) ) mpd? ( media-libs/libmpdclient ) network? ( dev-libs/libnl:3 ) pulseaudio? ( media-sound/pulseaudio )
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/polybar/polybar/releases/download/3.6.3/polybar-3.6.3.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=293e1e9ad9a7efc2f7a696c661ae58fb
+_md5_=b5f6824c012013b14f14cdd79ae8a3d3
