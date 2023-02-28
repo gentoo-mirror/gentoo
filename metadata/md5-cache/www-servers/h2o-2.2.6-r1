@@ -1,6 +1,6 @@
 BDEPEND=libh2o? ( virtual/pkgconfig ) mruby? ( sys-devel/bison virtual/pkgconfig ) sys-devel/make >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv ) dev-libs/openssl:0= mruby? ( || ( dev-lang/ruby:2.7 dev-lang/ruby:3.0 ) virtual/rubygems || ( dev-libs/onigmo dev-libs/oniguruma ) )
+DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv ) dev-libs/openssl:0= mruby? ( || ( dev-lang/ruby:3.0 dev-lang/ruby:2.7 ) virtual/rubygems || ( dev-libs/onigmo dev-libs/oniguruma ) )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
 EAPI=8
 HOMEPAGE=https://h2o.examp1e.net/
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv ) dev-libs/openssl:0=
 SLOT=0
 SRC_URI=https://github.com/h2o/h2o/archive/v2.2.6.tar.gz -> h2o-2.2.6.tar.gz
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-single	b9b5d136d97bf37058132e4231da02fa	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-single	b9b5d136d97bf37058132e4231da02fa	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=e49e9aca8445da28d2e7ff91f92dd8e6

@@ -1,5 +1,5 @@
 DEFINED_PHASES=install test
-DEPEND=ruby? ( || ( dev-lang/ruby:2.7 dev-lang/ruby:3.0 ) virtual/rubygems ) !ruby? ( dev-lang/perl )
+DEPEND=ruby? ( || ( dev-lang/ruby:3.0 dev-lang/ruby:2.7 ) virtual/rubygems ) !ruby? ( dev-lang/perl )
 DESCRIPTION=Reformat XML documents to your custom style
 EAPI=7
 HOMEPAGE=http://www.kitebird.com/software/xmlformat/
@@ -7,8 +7,8 @@ INHERIT=ruby-single
 IUSE=doc ruby
 KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=xmlformat
-RDEPEND=ruby? ( || ( dev-lang/ruby:2.7 dev-lang/ruby:3.0 ) virtual/rubygems ) !ruby? ( dev-lang/perl )
+RDEPEND=ruby? ( || ( dev-lang/ruby:3.0 dev-lang/ruby:2.7 ) virtual/rubygems ) !ruby? ( dev-lang/perl )
 SLOT=0
 SRC_URI=http://www.kitebird.com/software/xmlformat/xmlformat-1.04.tar.gz
-_eclasses_=ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-single	b9b5d136d97bf37058132e4231da02fa
+_eclasses_=ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-single	b9b5d136d97bf37058132e4231da02fa
 _md5_=892f2b99747c323f2db63c2717006e66

@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv ) mruby? ( || ( dev-lang/ruby:2.7 dev-lang/ruby:3.0 dev-lang/ruby:3.1 ) virtual/rubygems || ( dev-libs/onigmo dev-libs/oniguruma ) sys-devel/bison )
+DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv ) mruby? ( || ( dev-lang/ruby:3.0 dev-lang/ruby:2.7 dev-lang/ruby:3.1 ) virtual/rubygems || ( dev-libs/onigmo dev-libs/oniguruma ) sys-devel/bison )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
 EAPI=8
 HOMEPAGE=https://h2o.examp1e.net/
@@ -10,5 +10,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv )
 SLOT=0
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	git-r3	2347f8fe2d392b2a091191f94be37e6f	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-single	b9b5d136d97bf37058132e4231da02fa	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	git-r3	2347f8fe2d392b2a091191f94be37e6f	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-single	b9b5d136d97bf37058132e4231da02fa	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=148b78d0d30edf0a592a42478e153c84
