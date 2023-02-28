@@ -89,10 +89,11 @@ pkg_postinst() {
 		elog
 	fi
 
-	optfeature_header "AnyDesk uses additional tools to query information about the host:"
+	optfeature_header "AnyDesk additional tools:"
 	optfeature "lsb_release" sys-apps/lsb-release
 	optfeature "lspci" sys-apps/pciutils
 	optfeature "lsusb" sys-apps/usbutils
+	optfeature "sound support" media-libs/libcanberra[gtk2]
 }
 
 pkg_postrm() {
