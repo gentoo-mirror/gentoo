@@ -17,13 +17,15 @@ SRC_URI="https://github.com/pytorch/${MYPN}/archive/refs/tags/v${PV}.tar.gz
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cuda ffmpeg nnpack +numpy opencl opencv openmp qnnpack xnnpack"
+IUSE="cuda distributed ffmpeg mpi nnpack +numpy opencl opencv openmp qnnpack xnnpack"
 RESTRICT="test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	ffmpeg? ( opencv )
+	mpi? ( distributed )
 " # ?? ( cuda rocm )
 
+# CUDA 12 not supported yet: https://github.com/pytorch/pytorch/issues/91122
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-cpp/gflags:=
@@ -39,9 +41,10 @@ RDEPEND="
 	cuda? (
 		=dev-libs/cudnn-8*
 		dev-libs/cudnn-frontend:0/8
-		dev-util/nvidia-cuda-toolkit:=[profiler]
+		<dev-util/nvidia-cuda-toolkit-12:=[profiler]
 	)
 	ffmpeg? ( media-video/ffmpeg:= )
+	mpi? ( sys-cluster/openmpi )
 	nnpack? ( sci-libs/NNPACK )
 	numpy? ( $(python_gen_cond_dep '
 		dev-python/numpy[${PYTHON_USEDEP}]
@@ -107,7 +110,8 @@ src_configure() {
 		-DUSE_CUDNN=$(usex cuda)
 		-DUSE_FAST_NVCC=$(usex cuda)
 		-DTORCH_CUDA_ARCH_LIST="${TORCH_CUDA_ARCH_LIST:-3.5 7.0}"
-		-DUSE_DISTRIBUTED=OFF
+		-DUSE_DISTRIBUTED=$(usex distributed)
+		-DUSE_MPI=$(usex mpi)
 		-DUSE_FAKELOWP=OFF
 		-DUSE_FBGEMM=OFF # TODO
 		-DUSE_FFMPEG=$(usex ffmpeg)
@@ -131,6 +135,7 @@ src_configure() {
 		-DUSE_ROCM=OFF # TODO
 		-DUSE_SYSTEM_CPUINFO=ON
 		-DUSE_SYSTEM_PYBIND11=ON
+		-DUSE_UCC=OFF
 		-DUSE_VALGRIND=OFF
 		-DPYBIND11_PYTHON_VERSION="${EPYTHON#python}"
 		-DPYTHON_EXECUTABLE="${PYTHON}"
