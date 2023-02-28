@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/slim.berlios/
 INHERIT=cmake pam systemd
 IUSE=branding pam
-KEYWORDS=amd64 arm ~arm64 ~mips ppc ppc64 sparc x86
+KEYWORDS=amd64 arm ~arm64 ~mips ppc ppc64 ~riscv sparc x86
 LICENSE=GPL-2
 PDEPEND=branding? ( >=x11-themes/slim-themes-1.2.3a-r3 )
 RDEPEND=x11-libs/libXmu x11-libs/libX11 x11-libs/libXpm x11-libs/libXft x11-libs/libXrandr media-libs/libpng:0= virtual/jpeg:= x11-apps/sessreg pam? ( sys-libs/pam )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/slim.berlios/slim-1.3.6.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	pam	01b77091d5b6560b0aeafa7fbb1bd818	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=c075ffabab70c22aa4ac03df70d11d54
+_md5_=f375aa26eccce9348019d5d45b0f65f1
