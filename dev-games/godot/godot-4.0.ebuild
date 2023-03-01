@@ -6,12 +6,10 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9..11} )
 inherit bash-completion-r1 desktop python-any-r1 scons-utils toolchain-funcs xdg
 
-MY_P="${PN}-$(ver_rs 2 -)"
-
 DESCRIPTION="Multi-platform 2D and 3D game engine with a feature-rich editor"
 HOMEPAGE="https://godotengine.org/"
-SRC_URI="https://downloads.tuxfamily.org/godotengine/$(ver_rs 2 /)/${MY_P}.tar.xz"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="https://downloads.tuxfamily.org/godotengine/${PV}/${P}-stable.tar.xz"
+S="${WORKDIR}/${P}-stable"
 
 LICENSE="
 	MIT
@@ -24,7 +22,7 @@ KEYWORDS="~amd64"
 IUSE="
 	alsa +dbus debug deprecated +fontconfig +gui pulseaudio raycast
 	+runner speech test +theora +tools +udev +upnp +vulkan +webp"
-# tests need more figuring out, they are still somewhat new and volatile
+# TODO: tests still need more figuring out
 RESTRICT="test"
 
 # dlopen: libglvnd
@@ -100,7 +98,6 @@ src_prepare() {
 }
 
 src_compile() {
-	local -x GODOT_VERSION_STATUS=$(ver_cut 3-4) # for dev versions only
 	local -x BUILD_NAME=gentoo # replaces "custom_build" in version string
 
 	local esconsargs=(
@@ -132,7 +129,7 @@ src_compile() {
 		builtin_embree=$(usex !gui yes $(usex !tools yes $(usex !raycast)))
 		builtin_enet=yes # bundled copy is patched for IPv6+DTLS support
 		builtin_freetype=no
-		builtin_glslang=yes #879111
+		builtin_glslang=yes #879111 (for now, may revisit if more stable)
 		builtin_graphite=no
 		builtin_harfbuzz=no
 		builtin_icu4c=no
@@ -156,7 +153,6 @@ src_compile() {
 
 		# modules with optional dependencies, "possible" to disable more but
 		# gets messy and breaks all sorts of features (expected enabled)
-		module_gridmap_enabled=$(usex deprecated) # fails without deprecated
 		module_mono_enabled=no # unhandled
 		# note raycast is only enabled on amd64+arm64, see raycast/config.py
 		module_raycast_enabled=$(usex gui $(usex tools $(usex raycast)))
