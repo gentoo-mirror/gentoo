@@ -7,7 +7,7 @@ HOMEPAGE=https://sw.kovidgoyal.net/kitty/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=edo optfeature multiprocessing python-single-r1 toolchain-funcs xdg verify-sig
 IUSE=+X test wayland python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 verify-sig
-KEYWORDS=~amd64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-3 ZLIB Apache-2.0 BSD MIT
 RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-libs/openssl:= media-libs/fontconfig media-libs/harfbuzz:= media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= net-libs/librsync:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.27.1 ~x11-terms/kitty-terminfo-0.27.1 X? ( x11-libs/libX11 ) wayland? ( dev-libs/wayland ) !sci-mathematics/kissat
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) || ( X wayland ) test? ( X wayland )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.27.1/kitty-0.27.1.tar.xz https://dev.gentoo.org/~ionen/distfiles/kitty-0.27.1-vendor.tar.xz verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v0.27.1/kitty-0.27.1.tar.xz.sig )
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	optfeature	1a2157392a869265b2afcb63a26c12ac	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	verify-sig	85e14d0a93afa75c621382409ada8732
-_md5_=b454370c1e9300078c3a29ceb52ec0c4
+_md5_=379f1567ae9c2549411ba053f1ed36bf
