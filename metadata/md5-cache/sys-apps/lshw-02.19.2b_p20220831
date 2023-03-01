@@ -1,0 +1,16 @@
+BDEPEND=gtk? ( virtual/pkgconfig ) sqlite? ( virtual/pkgconfig )
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DESCRIPTION=Hardware Lister
+EAPI=8
+HOMEPAGE=https://www.ezix.org/project/wiki/HardwareLiSter
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop flag-o-matic plocale toolchain-funcs xdg
+IUSE=gtk sqlite static
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=sys-apps/hwdata gtk? ( x11-libs/gtk+:3 ) sqlite? ( dev-db/sqlite:3 )
+REQUIRED_USE=static? ( !gtk !sqlite )
+SLOT=0
+SRC_URI=https://ezix.org/src/pkg/lshw/archive/42fef565731411a784101de614a54bff79d1858e.tar.gz -> lshw-02.19.2b_p20220831-B.02.19.2_p20220831.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	plocale	950fbaec7deeba41b5bcc0572cca99b9	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=764470cd0da7a677fd156de5ab51546c
