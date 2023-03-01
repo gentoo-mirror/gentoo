@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -24,10 +24,10 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" LIBDIR=/usr/lib $(usex readline "" "WITHOUT_READLINE=1")
+	emake CC="$(tc-getCC)" LIBDIR=/usr/$(get_libdir) $(usex readline "" "WITHOUT_READLINE=1")
 }
 
 src_install() {
-	emake DESTDIR="${ED}" LIBDIR=/usr/lib PREFIX=/usr install
-	dodoc AUTHORS ChangeLog README
+	emake DESTDIR="${ED}" LIBDIR=/usr/$(get_libdir) PREFIX=/usr install
+	einstalldocs
 }
