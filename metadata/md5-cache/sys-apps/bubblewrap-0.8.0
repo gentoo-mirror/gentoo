@@ -1,0 +1,16 @@
+BDEPEND=app-text/docbook-xml-dtd:4.3 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=sys-libs/libseccomp sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.1.9 )
+DESCRIPTION=Unprivileged sandboxing tool, namespaces-powered chroot-like solution
+EAPI=8
+HOMEPAGE=https://github.com/containers/bubblewrap/
+INHERIT=linux-info meson
+IUSE=selinux suid
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=sys-libs/libseccomp sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.1.9 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/containers/bubblewrap/releases/download/v0.8.0/bubblewrap-0.8.0.tar.xz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=8e74873631a74b33cd123cfe282fdac1
