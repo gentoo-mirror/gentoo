@@ -93,3 +93,7 @@ src_install() {
 	newconfd "${FILESDIR}"/nginx-unit.confd nginx-unit
 	systemd_newunit "${FILESDIR}"/${PN}.service ${PN}.service
 }
+
+pkg_postinst() {
+	chown ${PN}:${PN} "${EROOT}"/var/lib/nginx-unit
+}
