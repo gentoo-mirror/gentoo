@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=A pager designed to do the right thing without any configuration
+EAPI=8
+HOMEPAGE=https://github.com/walles/moar
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=BSD-2 BSD MIT
+RDEPEND=!dev-lang/moarvm
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/walles/moar/archive/refs/tags/v1.12.0.tar.gz -> moar-1.12.0.tar.gz https://dev.gentoo.org/~sam/distfiles/sys-apps/moar/moar-1.12.0-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344
+_md5_=c10fc1c90c4e26f38f30f26d4cb1751c
