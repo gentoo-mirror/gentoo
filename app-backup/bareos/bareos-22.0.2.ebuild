@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 CMAKE_WARN_UNUSED_CLI=no
 #CMAKE_REMOVE_MODULES=yes
 
@@ -24,7 +24,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="X acl ceph clientonly +director glusterfs ipv6 lmdb
-	logwatch ndmp readline scsi-crypto
+	logwatch ndmp readline scsi-crypto split-usr
 	static +storage-daemon systemd tcpd test vim-syntax vmware xattr"
 
 # get cmake variables from core/cmake/BareosSetVariableDefaults.cmake
@@ -143,7 +143,7 @@ src_test() {
 src_prepare() {
 	# fix gentoo platform support
 	eapply -p1 "${FILESDIR}/${PN}-21-cmake-gentoo.patch"
-	eapply "${FILESDIR}/${PN}-21.1.2-werror.patch"
+	eapply "${FILESDIR}/${PN}-22.0.2-werror.patch"
 	eapply "${FILESDIR}/${PN}-21.1.2-no-automagic-ccache.patch"
 
 	# fix missing DESTDIR in symlink creation
@@ -233,6 +233,15 @@ src_install() {
 	# remove misc stuff we do not need in production
 	rm -f "${D}"/etc/bareos/bareos-regress.conf
 	rm -f "${D}"/etc/logrotate.d/bareos-dir
+
+	# remove duplicate binaries being installed in /usr/sbin and replace
+	# them by symlinks to not break systems that still use split-usr
+	if use split-usr; then
+		for f in bwild bregex bsmtp bconsole; do
+			rm -f "${D}/usr/sbin/$f" || die
+			ln -s "../bin/$f" "${D}/usr/sbin/$f" || die
+		done
+	fi
 
 	# get rid of py2 stuff
 	rm -rf "$D"/usr/lib64/python2.7 || die
@@ -342,14 +351,14 @@ src_install() {
 	fi
 	for script in ${myscripts}; do
 		# install init script and config
-		newinitd "${FILESDIR}/${script}-21".initd "${script}"
+		newinitd "${FILESDIR}/${script}-21-r1".initd "${script}"
 		newconfd "${FILESDIR}/${script}-21".confd "${script}"
 	done
 
 	# install systemd unit files
 	if use systemd; then
 		if ! use clientonly; then
-			use director && systemd_dounit "${FILESDIR}"/bareos-dir.service
+			use director && systemd_newunit "${FILESDIR}"/bareos-dir-21.service bareos-dir.service
 			use storage-daemon && systemd_dounit "${FILESDIR}"/bareos-sd.service
 		fi
 		systemd_dounit "${FILESDIR}"/bareos-fd.service
@@ -360,7 +369,10 @@ src_install() {
 	keepdir /var/lib/bareos
 	keepdir /var/lib/bareos/storage
 
-	diropts -m0755
+	# set log directory ownership
+	if ! use clientonly; then
+		diropts -m0755 -o bareos -g bareos
+	fi
 	keepdir /var/log/bareos
 
 	newtmpfiles "${FILESDIR}"/tmpfiles.d-bareos.conf bareos.conf
@@ -382,9 +394,20 @@ pkg_postinst() {
 		einfo
 		einfo "If this is a new install, you must create the database:"
 		einfo
-		einfo "  su postgres -c '/usr/libexec/bareos/create_bareos_database postgresql'"
-		einfo "  su postgres -c '/usr/libexec/bareos/make_bareos_tables postgresql'"
-		einfo "  su postgres -c '/usr/libexec/bareos/grant_bareos_privileges postgresql'"
+		einfo "  su postgres -c '/usr/libexec/bareos/create_bareos_database'"
+		einfo "  su postgres -c '/usr/libexec/bareos/make_bareos_tables'"
+		einfo "  su postgres -c '/usr/libexec/bareos/grant_bareos_privileges'"
 		einfo
+		einfo "or run"
+		einfo
+		einfo " emerge --config app-backup/bareos"
+		einfo
+		einfo "to do this"
 	fi
+}
+
+pkg_config() {
+	su postgres -c '/usr/libexec/bareos/create_bareos_database' || die "could not create bareos database"
+	su postgres -c '/usr/libexec/bareos/make_bareos_tables' || die "could not create bareos database tables"
+	su postgres -c '/usr/libexec/bareos/grant_bareos_privileges' || die "could not grant bareos database privileges"
 }
