@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools xdg-utils
 
@@ -13,12 +13,15 @@ SRC_URI="https://github.com/Xubuntu/${PN}/releases/download/${P}/${P}.tar.gz
 LICENSE="GPL-3 LGPL-3
 	branding? ( CC-BY-3.0 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="appindicator branding"
 
-DEPEND="appindicator? ( dev-libs/libindicator:3 )
-	x11-libs/gtk+:3
-	>=x11-misc/lightdm-1.2.2"
+DEPEND="x11-libs/gtk+:3
+	>=x11-misc/lightdm-1.2.2
+	appindicator? (
+		dev-libs/ayatana-ido
+		dev-libs/libayatana-indicator:3
+	)"
 
 BDEPEND="
 	dev-util/intltool
@@ -57,6 +60,7 @@ src_configure() {
 	local myeconfargs=(
 		--enable-kill-on-sigterm
 		--enable-at-spi-command="${EPREFIX}/usr/libexec/at-spi-bus-launcher --launch-immediately"
+		--with-libindicator=ayatana
 		$(use_enable appindicator libindicator)
 	)
 	econf "${myeconfargs[@]}"
