@@ -4,26 +4,28 @@
 EAPI=8
 
 MY_P="tinynotify-send-${PV}"
-
 DESCRIPTION="Common CLI routines for tinynotify-send & sw-notify-send"
-HOMEPAGE="https://github.com/mgorny/tinynotify-send/"
-SRC_URI="https://github.com/mgorny/tinynotify-send/releases/download/${MY_P}/${MY_P}.tar.bz2"
+HOMEPAGE="https://github.com/projg2/tinynotify-send/"
+SRC_URI="https://github.com/projg2/tinynotify-send/releases/download/${MY_P}/${MY_P}.tar.bz2"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc"
 
-RDEPEND="x11-libs/libtinynotify:="
-DEPEND="${RDEPEND}"
+DEPEND="
+	x11-libs/libtinynotify:=
+"
+RDEPEND="
+	${DEPEND}
+"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( dev-util/gtk-doc )"
+"
 
 src_configure() {
 	local myconf=(
-		$(use_enable doc gtk-doc)
+		--disable-gtk-doc
 		--disable-regular
 		--disable-system-wide
 	)
