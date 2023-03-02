@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/geiser >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DESCRIPTION=Chez Scheme's implementation of the Geiser protocols
+EAPI=8
+HOMEPAGE=https://gitlab.com/emacs-geiser/chez/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=app-emacs/geiser dev-scheme/chez >=app-editors/emacs-26.1:*
+SLOT=0
+SRC_URI=https://gitlab.com/emacs-geiser/chez/-/archive/0.18/chez-0.18.tar.bz2 -> geiser-chez-0.18.tar.bz2
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=0519a1b746815d2ab0f35aea2a3236f3
