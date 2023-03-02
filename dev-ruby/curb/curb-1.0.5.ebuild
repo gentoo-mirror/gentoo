@@ -16,7 +16,7 @@ HOMEPAGE="https://github.com/taf2/curb"
 
 LICENSE="Ruby"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND+=" net-misc/curl[ssl] test? ( net-misc/curl )"
@@ -42,4 +42,7 @@ all_ruby_prepare() {
 
 	# avoid test requiring ntlm support on curl which is no longer available in gentoo
 	sed -i -e '/test_username_password/aomit "ntlm support in curl needed"' -i tests/tc_curl_easy.rb || die
+
+	# Skip tests with currently unpackaged ruby_memcheck
+	sed -i -e '/ruby_memcheck/ s:^:#: ; /RubyMemcheck/,/^end/ s:^:#:' Rakefile
 }
