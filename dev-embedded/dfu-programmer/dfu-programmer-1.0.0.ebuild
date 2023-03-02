@@ -3,12 +3,16 @@
 
 EAPI=8
 
-inherit toolchain-funcs udev
+inherit autotools udev
 
 DESCRIPTION="A Device Firmware Update based USB programmer for Atmel chips"
-HOMEPAGE="https://dfu-programmer.github.io/ https://sourceforge.net/projects/dfu-programmer/"
+HOMEPAGE="
+	https://dfu-programmer.github.io/
+	https://sourceforge.net/projects/dfu-programmer/
+	https://github.com/dfu-programmer/dfu-programmer
+"
 
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,19 +21,15 @@ KEYWORDS="~amd64 ~arm ~arm64"
 RDEPEND="
 	acct-group/plugdev
 	virtual/libusb:1
-	virtual/udev"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+	virtual/udev
+"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	default
 
-	# Upstream has fixed this in their configure already.
-	tc-export CPP PKG_CONFIG
-	sed -i \
-		-e "/LIBUSB_1_0_CFLAGS=/s:=.*:='$(${PKG_CONFIG} --cflags libusb-1.0)':" \
-		-e "/LIBUSB_1_0_LIBS=/s:=.*:='$(${PKG_CONFIG} --libs libusb-1.0)':" \
-		configure || die
+	eautoreconf
 }
 
 src_install() {
