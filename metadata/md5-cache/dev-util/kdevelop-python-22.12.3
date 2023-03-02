@@ -1,0 +1,18 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.101.0:5
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtwidgets-5.15.5:5 dev-util/kdevelop:5= >=kde-frameworks/kcompletion-5.101.0:5 >=kde-frameworks/kconfig-5.101.0:5 >=kde-frameworks/kcoreaddons-5.101.0:5 >=kde-frameworks/ki18n-5.101.0:5 >=kde-frameworks/kio-5.101.0:5 >=kde-frameworks/kitemmodels-5.101.0:5 >=kde-frameworks/knewstuff-5.101.0:5 >=kde-frameworks/kparts-5.101.0:5 >=kde-frameworks/ktexteditor-5.101.0:5 >=kde-frameworks/kwidgetsaddons-5.101.0:5 >=kde-frameworks/kxmlgui-5.101.0:5 >=kde-frameworks/threadweaver-5.101.0:5 test? ( dev-qt/qttest:5 ) dev-qt/qtcore:5
+DESCRIPTION=Python plugin for KDevelop
+EAPI=8
+HOMEPAGE=https://www.kdevelop.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm gear.kde.org python-single-r1
+IUSE=debug test python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtwidgets-5.15.5:5 dev-util/kdevelop:5= >=kde-frameworks/kcompletion-5.101.0:5 >=kde-frameworks/kconfig-5.101.0:5 >=kde-frameworks/kcoreaddons-5.101.0:5 >=kde-frameworks/ki18n-5.101.0:5 >=kde-frameworks/kio-5.101.0:5 >=kde-frameworks/kitemmodels-5.101.0:5 >=kde-frameworks/knewstuff-5.101.0:5 >=kde-frameworks/kparts-5.101.0:5 >=kde-frameworks/ktexteditor-5.101.0:5 >=kde-frameworks/kwidgetsaddons-5.101.0:5 >=kde-frameworks/kxmlgui-5.101.0:5 >=kde-frameworks/threadweaver-5.101.0:5 python_single_target_python3_9? ( dev-python/pycodestyle[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pycodestyle[python_targets_python3_10(-)] ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test !test? ( test )
+SLOT=5
+SRC_URI=mirror://kde/stable/release-service/22.12.3/src/kdev-python-22.12.3.tar.xz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857	ecm	f9903a91512290fdc47404898ba8a954	kde.org	5dd311d12cdba33b446368fad288784d	gear.kde.org	aebcdbce229877667716707f608f9cc3	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=b5638386b17b44ecf9a1883857c81805
