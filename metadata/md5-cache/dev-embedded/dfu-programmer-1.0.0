@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=acct-group/plugdev virtual/libusb:1 virtual/udev
+DESCRIPTION=A Device Firmware Update based USB programmer for Atmel chips
+EAPI=8
+HOMEPAGE=https://dfu-programmer.github.io/ https://sourceforge.net/projects/dfu-programmer/ https://github.com/dfu-programmer/dfu-programmer
+INHERIT=autotools udev
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=GPL-2
+RDEPEND=acct-group/plugdev virtual/libusb:1 virtual/udev
+SLOT=0
+SRC_URI=https://github.com/dfu-programmer/dfu-programmer/archive/refs/tags/v1.0.0.tar.gz -> dfu-programmer-1.0.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=e01d660582922dccda8d9d34725b645e
