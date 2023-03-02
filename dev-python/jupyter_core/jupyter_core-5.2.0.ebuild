@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Core common functionality of Jupyter projects"
 HOMEPAGE="
@@ -14,7 +14,6 @@ HOMEPAGE="
 	https://github.com/jupyter/jupyter_core/
 	https://pypi.org/project/jupyter-core/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -31,7 +30,7 @@ BDEPEND="
 "
 
 distutils_enable_sphinx docs \
-	dev-python/myst_parser \
+	dev-python/myst-parser \
 	dev-python/sphinx-autodoc-typehints \
 	dev-python/sphinxcontrib-github-alt \
 	dev-python/sphinxcontrib-spelling \
