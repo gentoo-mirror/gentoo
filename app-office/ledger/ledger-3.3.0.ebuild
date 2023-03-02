@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="debug doc python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -27,7 +27,7 @@ RDEPEND="
 	dev-libs/mpfr:0=
 	python? (
 		$(python_gen_cond_dep '
-			dev-libs/boost:=[python,${PYTHON_USEDEP}]
+			dev-libs/boost:=[${PYTHON_USEDEP}]
 			dev-python/cheetah3:=[${PYTHON_USEDEP}]
 		')
 		${PYTHON_DEPS}
@@ -36,15 +36,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/utfcpp
 	doc? (
-		dev-texlive/texlive-fontsrecommended
+		app-text/texlive[extra]
 		sys-apps/texinfo
 		virtual/texi2dvi
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-3.2.1-fix-build-boost-1-76.patch
-)
 
 pkg_pretend() {
 	if use python; then
