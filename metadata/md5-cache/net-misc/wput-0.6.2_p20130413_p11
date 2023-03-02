@@ -3,13 +3,13 @@ DEFINED_PHASES=configure prepare
 DEPEND=ssl? ( net-libs/gnutls:= )
 DESCRIPTION=Tiny program like wget, to upload files/whole directories via FTP
 EAPI=8
-HOMEPAGE=http://wput.sourceforge.net/
+HOMEPAGE=https://wput.sourceforge.net/
 INHERIT=autotools
 IUSE=debug ssl
 KEYWORDS=amd64 ppc ~sparc x86
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=ssl? ( net-libs/gnutls:= )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/w/wput/wput_0.6.2+git20130413.orig.tar.bz2 mirror://debian/pool/main/w/wput/wput_0.6.2+git20130413-11.debian.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=2fa69bbdb86cd02abd635638bfa2d4ac
+_md5_=34d93f3f69331714869dc2af0a789d55

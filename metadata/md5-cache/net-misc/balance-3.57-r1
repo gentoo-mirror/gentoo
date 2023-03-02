@@ -1,13 +1,13 @@
 DEFINED_PHASES=install postinst prepare
 DESCRIPTION=TCP Load Balancing Port Forwarder
 EAPI=8
-HOMEPAGE=http://www.inlab.de/balance.html
+HOMEPAGE=https://balance.inlab.net
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=fcaps toolchain-funcs
 IUSE=+filecaps
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2
 SLOT=0
-SRC_URI=http://www.inlab.de/balance-3.57.tar.gz
+SRC_URI=https://download.inlab.net/Balance/3.57/balance-3.57.tar
 _eclasses_=fcaps	da0130200e07aaecee121b85f4b9ea17	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=b67d98100c9b09fb02330bafb17c9360
+_md5_=5cc94e97c94b6aaa377f0414c1a7c2de

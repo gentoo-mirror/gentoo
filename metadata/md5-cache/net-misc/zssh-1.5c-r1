@@ -1,8 +1,8 @@
 DEFINED_PHASES=configure install prepare
 DEPEND=readline? ( sys-libs/ncurses:0 sys-libs/readline:0 )
-DESCRIPTION=An ssh wrapper enabling zmodem up/download in ssh
+DESCRIPTION=SSH wrapper enabling zmodem up/download in ssh
 EAPI=8
-HOMEPAGE=http://zssh.sourceforge.net/
+HOMEPAGE=https://zssh.sourceforge.net/
 INHERIT=toolchain-funcs
 IUSE=nls readline
 KEYWORDS=amd64 ~ppc sparc x86
@@ -11,4 +11,4 @@ RDEPEND=readline? ( sys-libs/ncurses:0 sys-libs/readline:0 ) net-misc/openssh ne
 SLOT=0
 SRC_URI=mirror://sourceforge/zssh/zssh-1.5c.tgz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=34b3be62842e7944b02859b6f8d6e921
+_md5_=940a0289d98e588471f57f6955001575
