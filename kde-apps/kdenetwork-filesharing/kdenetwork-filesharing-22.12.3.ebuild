@@ -31,8 +31,6 @@ RDEPEND="${DEPEND}
 	net-fs/samba
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-22.12.0-gcc13.patch ) # bug 885315, git master
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt5=ON
