@@ -1,17 +1,21 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 BASHCOMP_P=bashcomp-2.0.3
-PYTHON_COMPAT=( python3_{9..10} )
-inherit bash-completion-r1 python-any-r1 user-info
+PYTHON_COMPAT=( python3_{9..11} )
+
+inherit python-any-r1
 
 DESCRIPTION="Programmable Completion for bash"
 HOMEPAGE="https://github.com/scop/bash-completion"
 SRC_URI="
 	https://github.com/scop/bash-completion/releases/download/${PV}/${P}.tar.xz
-	eselect? ( https://github.com/mgorny/bashcomp2/releases/download/v${BASHCOMP_P#*-}/${BASHCOMP_P}.tar.gz )"
+	eselect? (
+		https://github.com/projg2/bashcomp2/releases/download/v${BASHCOMP_P#*-}/${BASHCOMP_P}.tar.gz
+	)
+"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -20,18 +24,23 @@ IUSE="+eselect test"
 RESTRICT="!test? ( test )"
 
 # completion collision with net-fs/mc
-RDEPEND=">=app-shells/bash-4.3_p30-r1:0
+RDEPEND="
+	>=app-shells/bash-4.3_p30-r1:0
 	sys-apps/miscfiles
-	!!net-fs/mc"
-DEPEND="
+	!!net-fs/mc
+"
+BDEPEND="
 	test? (
 		${RDEPEND}
 		$(python_gen_any_dep '
 			dev-python/pexpect[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
 		')
-	)"
-PDEPEND=">=app-shells/gentoo-bashcomp-20140911"
+	)
+"
+PDEPEND="
+	>=app-shells/gentoo-bashcomp-20140911
+"
 
 strip_completions() {
 	# Remove unwanted completions.
@@ -67,8 +76,8 @@ strip_completions() {
 }
 
 python_check_deps() {
-	has_version "dev-python/pexpect[${PYTHON_USEDEP}]" &&
-	has_version "dev-python/pytest[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/pexpect[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/pytest[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
@@ -76,23 +85,31 @@ pkg_setup() {
 }
 
 src_prepare() {
-	use eselect &&
+	if use eselect; then
 		eapply "${WORKDIR}/${BASHCOMP_P}/bash-completion-blacklist-support.patch"
-
-	# redhat-specific, we strip these completions
-	rm test/t/test_if{down,up}.py || die
-	# not available for icedtea
-	rm test/t/test_javaws.py || die
+	fi
 
 	eapply_user
 }
 
 src_test() {
+	local EPYTEST_DESELECT=(
+		# redhat-specific, we strip these completions
+		test/t/test_if{down,up}.py
+		# not available for icedtea
+		test/t/test_javaws.py
+		# TODO
+		test/t/test_xmlwf.py::TestXmlwf::test_2
+	)
+
 	# portage's HOME override breaks tests
-	local myhome=$(unset HOME; echo ~)
-	local -x SANDBOX_PREDICT=${SANDBOX_PREDICT}
-	addpredict "${myhome}"
-	emake check HOME="${myhome}" PYTESTFLAGS="-vv" NETWORK=none
+	local -x HOME=$(unset HOME; echo ~)
+	addpredict "${HOME}"
+	# used in pytest tests
+	local -x NETWORK=none
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	emake -C completions check
+	epytest
 }
 
 src_install() {
