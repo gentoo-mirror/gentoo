@@ -8,9 +8,11 @@ EAPI=8
 CRATES="
 	aho-corasick-0.7.18
 	ansi_term-0.12.1
+	assert_cmd-2.0.5
 	atty-0.2.14
 	autocfg-1.1.0
 	bitflags-1.3.2
+	bstr-0.2.17
 	bumpalo-3.11.1
 	bytecount-0.6.2
 	cc-1.0.78
@@ -27,9 +29,12 @@ CRATES="
 	crossterm_winapi-0.9.0
 	ctor-0.1.22
 	diff-0.1.12
+	difflib-0.4.0
+	doc-comment-0.3.3
 	either-1.6.1
 	env_logger-0.7.1
 	fixedbitset-0.4.1
+	float-cmp-0.9.0
 	fnv-1.0.7
 	hashbrown-0.11.2
 	hermit-abi-0.1.19
@@ -47,14 +52,19 @@ CRATES="
 	minimal-lexical-0.2.1
 	mio-0.8.5
 	nom-7.1.1
+	normalize-line-endings-0.3.0
+	num-traits-0.2.15
 	num_cpus-1.13.1
-	once_cell-1.12.0
+	once_cell-1.17.1
 	os_str_bytes-6.0.1
 	output_vt100-0.1.3
 	owo-colors-3.4.0
 	parking_lot-0.12.1
 	parking_lot_core-0.9.6
 	petgraph-0.6.1
+	predicates-2.1.1
+	predicates-core-1.0.3
+	predicates-tree-1.0.5
 	pretty_assertions-1.2.1
 	pretty_env_logger-0.4.0
 	proc-macro2-1.0.39
@@ -65,6 +75,7 @@ CRATES="
 	rayon-core-1.10.1
 	redox_syscall-0.2.16
 	regex-1.5.6
+	regex-automata-0.1.10
 	regex-syntax-0.6.26
 	rustc-hash-1.1.0
 	same-file-1.0.6
@@ -77,6 +88,7 @@ CRATES="
 	syn-1.0.95
 	termcolor-1.1.3
 	terminal_size-0.1.17
+	termtree-0.2.4
 	textwrap-0.15.0
 	tree-sitter-0.20.9
 	typed-arena-2.0.1
@@ -84,6 +96,7 @@ CRATES="
 	unicode-width-0.1.9
 	unicode-xid-0.2.3
 	version_check-0.9.4
+	wait-timeout-0.2.0
 	walkdir-2.3.2
 	wasi-0.11.0+wasi-snapshot-preview1
 	winapi-0.3.9
@@ -101,17 +114,20 @@ CRATES="
 	wu-diff-0.1.2
 "
 
+TREE_MAGIC_COMMIT="13dd6dda15c7062bd8f7dd5bc9bb5b16ce9ee613"
+declare -A GIT_CRATES=(
+	[tree_magic_mini]="https://github.com/Wilfred/tree_magic;${TREE_MAGIC_COMMIT};tree_magic-%commit%"
+)
+
 inherit cargo
 
 DESCRIPTION="A structural diff that understands syntax."
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/wilfred/difftastic"
-TREE_MAGIC_COMMIT="13dd6dda15c7062bd8f7dd5bc9bb5b16ce9ee613"
 SRC_URI="
 	$(cargo_crate_uris ${CRATES})
 	https://github.com/Wilfred/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
-	https://github.com/Wilfred/tree_magic/archive/${TREE_MAGIC_COMMIT}.tar.gz -> tree_magic_mini-${TREE_MAGIC_COMMIT}.tar.gz
 "
 
 # License set may be more restrictive as OR is not respected
@@ -131,7 +147,7 @@ DOCS=(
 src_prepare() {
 	rm manual/.gitignore || die
 
-	# patch git dep to use pre-fetched tarball
+	# since upstream is using the patch syntax here, the patch syntax in the user cargo config isn't working
 	local tree_magic_path="tree_magic_mini = { path = '"${WORKDIR}/tree_magic-${TREE_MAGIC_COMMIT}"' }"
 	sed -i "s@^tree_magic_mini =.*@${tree_magic_path}@" "${S}/Cargo.toml" || die
 
