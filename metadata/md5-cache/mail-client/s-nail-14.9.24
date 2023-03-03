@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.sdaoden.eu/code.html
 INHERIT=toolchain-funcs flag-o-matic
 IUSE=idn kerberos net +split-usr ssl
-KEYWORDS=~amd64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD BSD-4 ISC RSA
 RDEPEND=sys-libs/ncurses:0= virtual/libiconv idn? ( net-dns/libidn2 ) net? ( ssl? ( dev-libs/openssl:0= ) kerberos? ( virtual/krb5 ) ) !mail-client/mailx !net-mail/mailutils !mail-client/nail
 SLOT=0
 SRC_URI=https://ftp.sdaoden.eu/s-nail-14.9.24.tar.xz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=c0014cdd4be04ae8ddbedee66b6a91cd
+_md5_=bb515c1f6ba261920fc11e106eac521e
