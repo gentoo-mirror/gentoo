@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://pypi.org/project/pytoolconfig/ https://github.com/bagel897/pytoolconfig/
 INHERIT=distutils-r1
 IUSE=test python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=LGPL-3+
 RDEPEND=>=dev-python/packaging-22.0[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/platformdirs-1.4.4[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_pypy3? ( >=dev-python/tomli-2.0.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-python/tomli-2.0.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_10? ( >=dev-python/tomli-2.0.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/pytoolconfig/pytoolconfig-1.2.5.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=812ea5c0b80a9d0f7136fc094125c631
+_md5_=4f41c1fb1ebcb5dbb6bd0cfa850fe4d4
