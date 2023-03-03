@@ -5,7 +5,7 @@ DESCRIPTION=Media player for the command line
 EAPI=8
 HOMEPAGE=https://mpv.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=edo flag-o-matic lua-single meson optfeature pax-utils python-single-r1 xdg git-r3
+INHERIT=flag-o-matic lua-single meson optfeature pax-utils python-single-r1 xdg git-r3
 IUSE=+X +alsa aqua archive bluray cdda +cli coreaudio debug +drm dvb dvd +egl gamepad +iconv jack javascript jpeg lcms libcaca +libmpv +libplacebo +lua mmal nvenc openal opengl pipewire pulseaudio raspberry-pi rubberband sdl selinux sixel sndio test tools +uchardet vaapi vdpau vulkan wayland +xv zimg zlib lua_single_target_luajit lua_single_target_lua5-1 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 LICENSE=LGPL-2.1+ GPL-2+ BSD ISC MIT
 PROPERTIES=live
@@ -13,5 +13,5 @@ RDEPEND=media-libs/libass:=[fontconfig] >=media-video/ffmpeg-4.4:=[encode,thread
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) || ( cli libmpv ) egl? ( || ( X drm wayland ) ) libplacebo? ( || ( egl opengl vulkan ) ) lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) ) nvenc? ( || ( egl opengl vulkan ) ) opengl? ( || ( X aqua ) ) test? ( cli ) tools? ( cli ) uchardet? ( iconv ) vaapi? ( || ( X egl libplacebo wayland ) wayland? ( drm ) ) vdpau? ( X ) vulkan? ( || ( X wayland ) libplacebo ) xv? ( X )
 RESTRICT=!test? ( test )
 SLOT=0/2
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=beaa08c94705e3f14f19a1609da8914a
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=0c79ed3b9ce7dbdb78b43929b6d9d32d
