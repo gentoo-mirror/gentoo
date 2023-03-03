@@ -15,7 +15,7 @@ CRATES="
 	askama_escape-0.10.3
 	askama_shared-0.12.2
 	async-io-1.12.0
-	async-lock-2.6.0
+	async-lock-2.7.0
 	autocfg-1.1.0
 	base64-0.13.1
 	bincode-1.3.3
@@ -28,16 +28,16 @@ CRATES="
 	bumpalo-3.12.0
 	byteorder-1.4.3
 	bytes-1.4.0
-	bytesize-1.1.0
+	bytesize-1.2.0
 	bzip2-0.4.4
 	bzip2-sys-0.1.11+1.0.8
 	cab-0.4.1
-	camino-1.1.2
+	camino-1.1.3
 	cargo-options-0.5.3
 	cargo-platform-0.1.2
 	cargo-xwin-0.13.3
 	cargo-zigbuild-0.14.3
-	cargo_metadata-0.15.2
+	cargo_metadata-0.15.3
 	cbindgen-0.24.3
 	cc-1.0.79
 	cfb-0.7.3
@@ -65,9 +65,9 @@ CRATES="
 	cpufeatures-0.2.5
 	crc32fast-1.3.2
 	crossbeam-channel-0.5.6
-	crossbeam-deque-0.8.2
-	crossbeam-epoch-0.9.13
-	crossbeam-utils-0.8.14
+	crossbeam-deque-0.8.3
+	crossbeam-epoch-0.9.14
+	crossbeam-utils-0.8.15
 	crunchy-0.2.2
 	crypto-common-0.1.6
 	crypto-mac-0.11.1
@@ -96,7 +96,7 @@ CRATES="
 	errno-0.2.8
 	errno-dragonfly-0.1.2
 	event-listener-2.5.3
-	fastrand-1.8.0
+	fastrand-1.9.0
 	fat-macho-0.4.6
 	filetime-0.2.19
 	flate2-1.0.25
@@ -119,7 +119,7 @@ CRATES="
 	getrandom-0.2.8
 	glob-0.3.1
 	globset-0.4.10
-	goblin-0.6.0
+	goblin-0.6.1
 	hashbrown-0.12.3
 	heck-0.4.1
 	hermit-abi-0.2.6
@@ -150,10 +150,10 @@ CRATES="
 	matchers-0.1.0
 	memchr-2.5.0
 	memoffset-0.6.5
-	memoffset-0.7.1
+	memoffset-0.8.0
 	mime-0.3.16
 	mime_guess-2.0.4
-	minijinja-0.30.2
+	minijinja-0.30.5
 	minimal-lexical-0.2.1
 	miniz_oxide-0.6.2
 	msi-0.5.0
@@ -175,7 +175,7 @@ CRATES="
 	num-traits-0.2.15
 	num_cpus-1.15.0
 	number_prefix-0.4.0
-	once_cell-1.17.0
+	once_cell-1.17.1
 	opaque-debug-0.3.0
 	openssl-0.10.45
 	openssl-macros-0.1.0
@@ -211,7 +211,7 @@ CRATES="
 	pyproject-toml-0.3.1
 	python-pkginfo-0.5.5
 	quote-1.0.23
-	quoted_printable-0.4.6
+	quoted_printable-0.4.7
 	rand-0.8.5
 	rand_chacha-0.3.1
 	rand_core-0.6.4
@@ -222,7 +222,6 @@ CRATES="
 	regex-1.7.1
 	regex-automata-0.1.10
 	regex-syntax-0.6.28
-	remove_dir_all-0.5.3
 	rfc2047-decoder-0.2.1
 	ring-0.16.20
 	rpassword-7.2.0
@@ -254,7 +253,7 @@ CRATES="
 	shlex-1.1.0
 	similar-2.2.1
 	siphasher-0.3.10
-	slab-0.4.7
+	slab-0.4.8
 	smallvec-1.10.0
 	smawk-0.3.1
 	snapbox-0.4.4
@@ -265,10 +264,10 @@ CRATES="
 	static_assertions-1.1.0
 	strsim-0.10.0
 	subtle-2.4.1
-	syn-1.0.107
+	syn-1.0.109
 	tar-0.4.38
 	target-lexicon-0.12.6
-	tempfile-3.3.0
+	tempfile-3.4.0
 	termcolor-1.2.0
 	terminal_size-0.2.3
 	textwrap-0.16.0
@@ -320,7 +319,7 @@ CRATES="
 	wasm-bindgen-macro-0.2.84
 	wasm-bindgen-macro-support-0.2.84
 	wasm-bindgen-shared-0.2.84
-	web-sys-0.3.60
+	web-sys-0.3.61
 	webpki-0.22.0
 	webpki-roots-0.22.6
 	weedle2-4.0.0
@@ -343,7 +342,7 @@ CRATES="
 	yansi-0.5.1
 	zbus-1.9.3
 	zbus_macros-1.9.3
-	zip-0.6.3
+	zip-0.6.4
 	zvariant-2.10.0
 	zvariant_derive-2.10.0"
 # additional crates used by test-crates/* test packages,
@@ -352,15 +351,16 @@ CRATES_TEST="
 	anyhow-1.0.66
 	bytes-1.3.0
 	camino-1.1.1
+	cargo_metadata-0.15.2
 	cc-1.0.73
 	cc-1.0.74
 	glob-0.3.0
+	goblin-0.6.0
 	heck-0.4.0
 	indoc-1.0.7
 	itoa-1.0.4
 	libc-0.2.134
 	libc-0.2.137
-	memoffset-0.8.0
 	nom-7.1.1
 	once_cell-1.15.0
 	once_cell-1.16.0
@@ -369,13 +369,11 @@ CRATES_TEST="
 	paste-1.0.10
 	proc-macro2-1.0.46
 	proc-macro2-1.0.47
-	pyo3-0.18.0
-	pyo3-build-config-0.17.3
-	pyo3-build-config-0.18.0
-	pyo3-ffi-0.17.3
-	pyo3-ffi-0.18.0
-	pyo3-macros-0.18.0
-	pyo3-macros-backend-0.18.0
+	pyo3-0.18.1
+	pyo3-build-config-0.18.1
+	pyo3-ffi-0.18.1
+	pyo3-macros-0.18.1
+	pyo3-macros-backend-0.18.1
 	python3-dll-a-0.2.6
 	quote-1.0.21
 	ryu-1.0.11
