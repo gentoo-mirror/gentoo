@@ -1,4 +1,4 @@
-BDEPEND=dev-python/setuptools_scm[python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/flask[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( >=dev-python/pytest-7.2.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=dev-python/setuptools-scm[python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/flask[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( >=dev-python/pytest-7.2.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Dependency injection framework designed with Python in mind
 EAPI=8
@@ -12,5 +12,5 @@ REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/picobox/picobox-2.2.0.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	b69cca67d4bf504984c07366f8d3cac4
-_md5_=48609eb1d094932adccfa129e6fc32a7
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
+_md5_=b9d489b28df2d2da751826c6c3387112
