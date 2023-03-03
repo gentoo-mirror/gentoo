@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,34 +6,37 @@ PYTHON_COMPAT=( python3_{9..11} )
 
 inherit meson python-single-r1 systemd
 
-DESCRIPTION="D-Bus service to check the availability of dual-GPU"
-HOMEPAGE="https://gitlab.freedesktop.org/hadess/switcheroo-control/"
-SRC_URI="https://gitlab.freedesktop.org/hadess/switcheroo-control/uploads/86ea54ac7ddb901b6bf6e915209151f8/${P}.tar.xz"
+DESCRIPTION="Makes power profiles handling available over D-Bus"
+HOMEPAGE="https://gitlab.freedesktop.org/hadess/power-profiles-daemon/"
+SRC_URI="https://gitlab.freedesktop.org/hadess/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
+KEYWORDS="~amd64"
+
 IUSE="gtk-doc test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-KEYWORDS="amd64"
+RESTRICT="!test? ( test )"
 
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/pygobject:3[${PYTHON_USEDEP}]')
-	>=dev-libs/glib-2.56.0:2
-	>=dev-libs/libgudev-232:=
+	dev-libs/glib:2
+	>=dev-libs/libgudev-234
+	>=sys-auth/polkit-0.114
+	sys-power/upower
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	$(python_gen_cond_dep 'dev-python/pygobject:3[${PYTHON_USEDEP}]')
-	dev-util/gdbus-codegen
-	gtk-doc? ( dev-util/gtk-doc )
+	gtk-doc? ( dev-util/gi-docgen )
 	test? (
-		$(python_gen_cond_dep 'dev-python/python-dbusmock[${PYTHON_USEDEP}]')
 		dev-util/umockdev
+		$(python_gen_cond_dep '
+			dev-python/pygobject:3[${PYTHON_USEDEP}]
+			dev-python/python-dbusmock[${PYTHON_USEDEP}]
+		')
 	)
 "
-
-RESTRICT="!test? ( test )"
 
 python_check_deps() {
 	if use test; then
@@ -55,17 +58,14 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	python_fix_shebang "${D}"/usr/bin/switcherooctl
-	newinitd "${FILESDIR}"/${PN}-init.d ${PN}
+	python_fix_shebang "${D}"/usr/bin/powerprofilesctl
 }
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "You need to enable the service:"
 		if systemd_is_booted; then
+			elog "You need to enable the service:"
 			elog "# systemctl enable ${PN}"
-		else
-			elog "# rc-update add ${PN} default"
 		fi
 	fi
 }
