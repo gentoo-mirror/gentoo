@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-ml/re:= dev-ml/opam-file-format:= ~dev-ml/opam-repository-2.1.3:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=opam state libraries
+EAPI=8
+HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-ml/re:= dev-ml/opam-file-format:= ~dev-ml/opam-repository-2.1.3:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/2.1.3
+SRC_URI=https://github.com/ocaml/opam/archive/2.1.3.tar.gz -> opam-2.1.3.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-ml/opam/opam-2.1.0-dose3-6.patch.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
+_md5_=0f2c0fce0116ab7bb57fa3c52ec18702
