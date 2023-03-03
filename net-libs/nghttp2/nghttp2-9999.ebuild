@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: Add python support.
@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/nghttp2/nghttp2.git"
 LICENSE="MIT"
 SLOT="0/1.14" # <C++>.<C> SONAMEs
 KEYWORDS=""
-IUSE="cxx debug hpack-tools jemalloc static-libs test utils xml"
+IUSE="cxx debug hpack-tools jemalloc static-libs systemd test utils xml"
 
 RESTRICT="!test? ( test )"
 
@@ -34,6 +34,7 @@ RDEPEND="
 		>=sys-libs/zlib-1.2.3[${MULTILIB_USEDEP}]
 		net-dns/c-ares:=[${MULTILIB_USEDEP}]
 	)
+	systemd? ( sys-apps/systemd )
 	xml? ( >=dev-libs/libxml2-2.7.7:2[${MULTILIB_USEDEP}] )"
 DEPEND="${RDEPEND}
 	test? ( >=dev-util/cunit-2.1[${MULTILIB_USEDEP}] )"
@@ -55,10 +56,12 @@ multilib_src_configure() {
 		$(use_enable cxx asio-lib)
 		$(use_enable debug)
 		$(multilib_native_use_enable hpack-tools)
+		$(multilib_native_use_with hpack-tools jansson)
+		$(multilib_native_use_with jemalloc)
 		$(use_enable static-libs static)
+		$(multilib_native_use_with systemd)
 		$(use_with test cunit)
 		$(multilib_native_use_enable utils app)
-		$(multilib_native_use_with jemalloc)
 		$(multilib_native_use_with xml libxml2)
 	)
 	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"

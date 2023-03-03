@@ -1,26 +1,21 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: Add python support.
 
 EAPI=8
 
-inherit multilib-minimal
-
-if [[ ${PV} == 9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/nghttp2/nghttp2.git"
-	inherit autotools git-r3
-else
-	SRC_URI="https://github.com/nghttp2/nghttp2/releases/download/v${PV}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-fi
+inherit autotools multilib-minimal
 
 DESCRIPTION="HTTP/2 C Library"
 HOMEPAGE="https://nghttp2.org/"
+SRC_URI="https://github.com/nghttp2/nghttp2/releases/download/v${PV}/${P}.tar.xz
+	https://dev.gentoo.org/~voyageur/distfiles/${PN}-1.51.0-pthread.patch"
 
 LICENSE="MIT"
 SLOT="0/1.14" # <C++>.<C> SONAMEs
-IUSE="cxx debug hpack-tools jemalloc static-libs test +threads utils xml"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="cxx debug hpack-tools jemalloc static-libs systemd test utils xml"
 
 RESTRICT="!test? ( test )"
 
@@ -40,14 +35,19 @@ RDEPEND="
 		>=sys-libs/zlib-1.2.3[${MULTILIB_USEDEP}]
 		net-dns/c-ares:=[${MULTILIB_USEDEP}]
 	)
+	systemd? ( sys-apps/systemd )
 	xml? ( >=dev-libs/libxml2-2.7.7:2[${MULTILIB_USEDEP}] )"
 DEPEND="${RDEPEND}
 	test? ( >=dev-util/cunit-2.1[${MULTILIB_USEDEP}] )"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${DISTDIR}"/${PN}-1.51.0-pthread.patch
+	)
+
 src_prepare() {
 	default
-	[[ ${PV} == 9999 ]] && eautoreconf
+	eautoreconf
 }
 
 multilib_src_configure() {
@@ -56,14 +56,17 @@ multilib_src_configure() {
 		--disable-failmalloc
 		--disable-python-bindings
 		--disable-werror
+		--enable-threads
 		--without-cython
 		$(use_enable cxx asio-lib)
 		$(use_enable debug)
 		$(multilib_native_use_enable hpack-tools)
-		$(use_enable static-libs static)
-		$(use_enable threads)
-		$(multilib_native_use_enable utils app)
+		$(multilib_native_use_with hpack-tools jansson)
 		$(multilib_native_use_with jemalloc)
+		$(use_enable static-libs static)
+		$(multilib_native_use_with systemd)
+		$(use_with test cunit)
+		$(multilib_native_use_enable utils app)
 		$(multilib_native_use_with xml libxml2)
 	)
 	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
