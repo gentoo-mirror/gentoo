@@ -1,10 +1,9 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !!net-fs/mc || ( ( >=dev-lang/python-3.11.1-r1:3.11 dev-python/pexpect[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 dev-python/pexpect[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 dev-python/pexpect[python_targets_python3_9(-)] dev-python/pytest[python_targets_python3_9(-)] ) ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install postinst prepare setup test unpack
-DEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !!net-fs/mc || ( ( >=dev-lang/python-3.10.9-r1:3.10 dev-python/pexpect[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 dev-python/pexpect[python_targets_python3_9(-)] dev-python/pytest[python_targets_python3_9(-)] ) ) )
 DESCRIPTION=Programmable Completion for bash
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/scop/bash-completion
-INHERIT=autotools git-r3 python-any-r1 user-info
+INHERIT=autotools git-r3 python-any-r1
 IUSE=+eselect test
 LICENSE=GPL-2+
 PDEPEND=>=app-shells/gentoo-bashcomp-20140911
@@ -12,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !!net-fs/mc
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	git-r3	2347f8fe2d392b2a091191f94be37e6f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	user-info	83547b4df3e1ba5a6bf91a0837eaa664
-_md5_=ce8949155415c1facb893126e40e619e
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	git-r3	2347f8fe2d392b2a091191f94be37e6f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_md5_=87b2115bf786e3dc7a341f00f9745b00
