@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ if [[ ${PV} == *9999 ]] ; then
 		https://github.com/pkgcore/pkgdev.git"
 	inherit git-r3
 else
-	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+	inherit pypi
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 fi
 
@@ -31,9 +31,9 @@ if [[ ${PV} == *9999 ]] ; then
 	"
 else
 	RDEPEND="
-		>=dev-python/snakeoil-0.10.3[${PYTHON_USEDEP}]
-		>=dev-util/pkgcheck-0.10.16[${PYTHON_USEDEP}]
+		>=dev-python/snakeoil-0.10.4[${PYTHON_USEDEP}]
 		>=sys-apps/pkgcore-0.12.16[${PYTHON_USEDEP}]
+		>=dev-util/pkgcheck-0.10.16[${PYTHON_USEDEP}]
 	"
 fi
 
@@ -69,4 +69,5 @@ python_install_all() {
 
 pkg_postinst() {
 	optfeature "sending email support" x11-misc/xdg-utils
+	optfeature "tatt subcommand" "app-portage/nattka dev-python/jinja"
 }
