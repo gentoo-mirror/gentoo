@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.atoptool.nl/ https://github.com/Atoptool/atop
 INHERIT=linux-info linux-mod systemd toolchain-funcs
 IUSE=dist-kernel modules
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:= >=sys-process/acct-6.6.4-r1 modules? ( sys-libs/zlib ) modules? ( kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) )
 SLOT=0
 SRC_URI=https://github.com/Atoptool/atop/archive/v2.8.1.tar.gz -> atop-2.8.1.tar.gz modules? ( https://www.atoptool.nl/download/netatop-3.1.tar.gz )
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	81807190d0c0076b69cb96b547e38681	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=b3c12321691d9d3e43a763bfbe6c3cac
+_md5_=97b1f8bacc3b49ca46fa2e8d0bb72281

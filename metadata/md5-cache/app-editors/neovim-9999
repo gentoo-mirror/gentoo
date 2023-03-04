@@ -1,4 +1,4 @@
-BDEPEND=test? ( lua_single_target_luajit? ( dev-lua/busted[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/busted[lua_targets_lua5-1(-)] ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) >=dev-util/gperf-3.1 >=sys-devel/gettext-0.20.1 virtual/libiconv virtual/libintl virtual/pkgconfig test? ( lua_single_target_luajit? ( dev-lua/busted[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/busted[lua_targets_lua5-1(-)] ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) >=dev-lua/luv-1.44.2[lua_single_target_luajit(-)?,lua_single_target_lua5-1(-)?] lua_single_target_luajit? ( dev-lua/lpeg[lua_targets_luajit(-)] dev-lua/mpack[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/lpeg[lua_targets_lua5-1(-)] dev-lua/mpack[lua_targets_lua5-1(-)] ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) >=dev-libs/libuv-1.44.2:= >=dev-libs/libvterm-0.3 >=dev-libs/msgpack-3.0.0:= >=dev-libs/tree-sitter-0.20.2:= tui? ( >=dev-libs/libtermkey-0.22 >=dev-libs/unibilium-2.0.0:0= )
 DESCRIPTION=Vim-fork focused on extensibility and agility
@@ -14,4 +14,4 @@ REQUIRED_USE=test? ( lua_single_target_luajit )
 RESTRICT=!test? ( test ) test
 SLOT=0
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg	6024fbc93167fad782e2032933654857	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=c22873d97a8a7bd4a752fcca7f4f7fc0
+_md5_=11bddbf3e25aec2e35e019883aaf0019
