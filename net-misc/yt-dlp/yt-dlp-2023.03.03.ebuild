@@ -6,10 +6,12 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..11} )
-inherit bash-completion-r1 distutils-r1 optfeature pypi wrapper
+inherit bash-completion-r1 distutils-r1 optfeature wrapper
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
 HOMEPAGE="https://github.com/yt-dlp/yt-dlp/"
+SRC_URI="https://github.com/yt-dlp/yt-dlp/releases/download/${PV}/${PN}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
