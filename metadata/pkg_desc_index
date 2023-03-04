@@ -3257,7 +3257,7 @@ app-text/pep 2.8-r2: General purpose filter and file cleaning program
 app-text/pinfo 0.6.13 99999: Hypertext info and man viewer based on (n)curses
 app-text/po4a 0.66 0.68 0.69: Tools to ease the translation of documentation
 app-text/podofo 0.9.8-r1: PoDoFo is a C++ library to work with the PDF file format
-app-text/poppler 23.01.0 23.02.0 9999: PDF rendering library based on the xpdf-3.0 code base
+app-text/poppler 23.01.0 23.02.0 23.03.0 9999: PDF rendering library based on the xpdf-3.0 code base
 app-text/poppler-data 0.4.11-r2 0.4.12: Data files for poppler to support uncommon encodings without xpdfrc
 app-text/ps2eps 1.68: Generate Encapsulated Postscript Format files from one-page Postscript documents
 app-text/ps2pkm 1.8_p20210325-r1: Tool that converts a PostScript type1 font into a corresponding TeX PK font
@@ -7900,7 +7900,7 @@ dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r6: Amazon Web Services API
 dev-python/boto3 1.26.74 1.26.79 1.26.84 9999: The AWS SDK for Python
 dev-python/botocore 1.29.74 1.29.79 1.29.84 9999: Low-level, data-driven core of boto 3
-dev-python/bottle 0.12.23 0.12.24: A fast and simple micro-framework for small web-applications
+dev-python/bottle 0.12.23 0.12.24 0.12.25: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.6: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.3_p1: Bash style brace expansion for Python
@@ -8106,7 +8106,7 @@ dev-python/executing 1.2.0: Get information about what a Python frame is current
 dev-python/expects 0.9.0 0.9.0-r1: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.7: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/fakeredis 2.6.0 2.9.0 2.9.1 2.9.2: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 2.6.0 2.9.0 2.9.1 2.9.2 2.10.0: Fake implementation of redis API for testing purposes
 dev-python/fasteners 0.18: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
 dev-python/fastjsonschema 2.16.2 2.16.3: Fast JSON schema validator for Python
@@ -8391,7 +8391,7 @@ dev-python/markdown2 2.4.8: Python Markdown language reimplementation
 dev-python/markups 3.1.3 4.0.0: A wrapper around various text markups
 dev-python/markupsafe 1.1.1-r1 2.1.1 2.1.2: Implements a XML/HTML/XHTML Markup safe string for Python
 dev-python/marshmallow 3.19.0: A library for converting to and from native Python datatypes
-dev-python/matplotlib 3.5.3 3.6.1 3.6.2 3.6.3 3.7.0: Pure python plotting library with matlab like syntax
+dev-python/matplotlib 3.5.3 3.6.1 3.6.2 3.6.3 3.7.0 3.7.1: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.6: Inline Matplotlib backend for Jupyter
 dev-python/matrix-common 1.2.1 1.3.0: Common code for Synapse, Sydent and Sygnal
 dev-python/matterhook 0.2-r2: Interact with Mattermost incoming webhooks easily
@@ -8750,7 +8750,7 @@ dev-python/pypy3 7.3.11_p1: A fast, compliant alternative implementation of the 
 dev-python/pypy3-exe 7.3.11: PyPy3 executable (build from source)
 dev-python/pypy3-exe-bin 7.3.11: PyPy3 executable (pre-built version)
 dev-python/pyqt-distutils 0.7.3: distutils extension to work with PyQt applications and UI files
-dev-python/pyqtgraph 0.13.1 0.13.1-r1: A pure-python graphics and GUI library built on PyQt and numpy
+dev-python/pyqtgraph 0.13.1 0.13.1-r1 0.13.2: A pure-python graphics and GUI library built on PyQt and numpy
 dev-python/pyquery 2.0.0: A jQuery-like library for python
 dev-python/pyrate-limiter 2.8.2 2.9.1 2.10.0: Python Rate-Limiter using Leaky-Bucket Algorimth Family
 dev-python/pyre2 1.0.7: Python bindings for dev-libs/re2
@@ -8997,7 +8997,7 @@ dev-python/rfc3339-validator 0.1.4-r1: A pure python RFC3339 validator
 dev-python/rfc3986 2.0.0-r1: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1-r1: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r2: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
-dev-python/rich 13.3.1: Python library for rendering rich text, tables, etc. to the terminal
+dev-python/rich 13.3.1 13.3.2: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/roman 3.3-r1 4.0: An Integer to Roman numerals converter
 dev-python/rope 1.7.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
@@ -10519,7 +10519,7 @@ dev-util/patdiff 0.14.0-r1 0.15.0: Colored patience diffs with word-level refine
 dev-util/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-util/peg 0.1.18: Recursive-descent parser generators for C
 dev-util/perf 5.19 6.0 6.2: Userland tools for Linux Performance Counters
-dev-util/pkgcheck 0.10.19-r1 0.10.19-r2 0.10.20 0.10.21 0.10.22 9999: pkgcore-based QA utility for ebuild repos
+dev-util/pkgcheck 0.10.19-r1 0.10.19-r2 0.10.20 0.10.21-r1 0.10.22-r1 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 1.8.0-r1 1.8.1 1.9.4 9999: pkg-config compatible replacement with no dependencies other than C99
 dev-util/pkgdev 0.2.4 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.7.2 9999: Package Changes Analyzer (pkgdiff)
