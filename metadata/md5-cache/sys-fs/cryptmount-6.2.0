@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://cryptmount.sourceforge.net/
 INHERIT=linux-info
 IUSE=argv0switch cswap fsck +gcrypt +largefile mount +nls +luks +openssl selinux systemd udev
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2+
 RDEPEND=sys-fs/lvm2 virtual/libiconv virtual/libintl gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
 REQUIRED_USE=luks? ( gcrypt ) openssl? ( gcrypt )
 SLOT=0
 SRC_URI=mirror://sourceforge/cryptmount/cryptmount-6.2.0.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e
-_md5_=7ae544388f7d04823e40edf0d47ec79b
+_md5_=d233fdea9571f14fc10ab2730325c6a8
