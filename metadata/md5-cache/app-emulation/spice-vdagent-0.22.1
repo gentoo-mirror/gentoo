@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst setup
-DEPEND=dev-libs/glib:2 >=app-emulation/spice-protocol-0.14.0 media-libs/alsa-lib sys-apps/dbus x11-libs/libdrm >=x11-libs/libpciaccess-0.10 x11-libs/libXfixes x11-libs/libXrandr x11-libs/libX11 x11-libs/libXinerama gtk? ( x11-libs/gtk+:3 ) systemd? ( sys-apps/systemd )
+DEPEND=dev-libs/glib:2 >=app-emulation/spice-protocol-0.14.0 media-libs/alsa-lib sys-apps/dbus x11-libs/libdrm >=x11-libs/libpciaccess-0.10 x11-libs/libXfixes x11-libs/libXrandr x11-libs/libX11 x11-libs/libXinerama gtk? ( x11-libs/gtk+:3 ) systemd? ( sys-apps/systemd ) x11-base/xorg-proto
 DESCRIPTION=SPICE VD Linux Guest Agent
 EAPI=8
 HOMEPAGE=https://www.spice-space.org/
 INHERIT=linux-info tmpfiles udev
 IUSE=gtk selinux systemd
-KEYWORDS=~amd64 ~arm64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/glib:2 >=app-emulation/spice-protocol-0.14.0 media-libs/alsa-lib sys-apps/dbus x11-libs/libdrm >=x11-libs/libpciaccess-0.10 x11-libs/libXfixes x11-libs/libXrandr x11-libs/libX11 x11-libs/libXinerama gtk? ( x11-libs/gtk+:3 ) systemd? ( sys-apps/systemd ) selinux? ( sec-policy/selinux-vdagent ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://www.spice-space.org/download/releases/spice-vdagent-0.22.1.tar.bz2
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=532cd48d5b4fff37665813b0203590f9
+_md5_=1244a08acba1140cceeaf267d07c9e82
