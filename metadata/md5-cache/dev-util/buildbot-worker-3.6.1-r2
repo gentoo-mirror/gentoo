@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://buildbot.net/ https://github.com/buildbot/buildbot https://pypi.org/project/buildbot-worker/
 INHERIT=readme.gentoo-r1 systemd distutils-r1
 IUSE=test python_targets_python3_10
-KEYWORDS=amd64 ~arm64 ~riscv ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm64 ~riscv ~sparc ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=acct-user/buildbot >=dev-python/autobahn-0.16.0[python_targets_python3_10(-)?] >=dev-python/msgpack-0.6.0[python_targets_python3_10(-)?] >=dev-python/twisted-18.7.0[python_targets_python3_10(-)?] dev-python/future[python_targets_python3_10(-)?] !<dev-util/buildbot-1.0.0 python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_10 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/b/buildbot-worker/buildbot-worker-3.6.1.tar.gz
 _eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=b4d1ad01b1148ab92bbf9091045377de
+_md5_=41593c3883891da3064900f4150eed21
