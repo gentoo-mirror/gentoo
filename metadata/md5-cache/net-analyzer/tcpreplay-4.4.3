@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://tcpreplay.appneta.com/ https://github.com/appneta/tcpreplay
 INHERIT=autotools flag-o-matic
 IUSE=debug pcapnav +tcpdump
-KEYWORDS=amd64 ~arm ~sparc ~x86
+KEYWORDS=amd64 ~arm ~sparc x86
 LICENSE=BSD GPL-3
 RDEPEND=dev-libs/libdnet >=net-libs/libpcap-0.9 elibc_musl? ( sys-libs/fts-standalone ) pcapnav? ( net-libs/libpcapnav ) tcpdump? ( net-analyzer/tcpdump )
 SLOT=0
 SRC_URI=https://github.com/appneta/tcpreplay/releases/download/v4.4.3/tcpreplay-4.4.3.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=c113b22b3b48351314bf55fedf0d777f
+_md5_=08c6f4cb451645a7898cc9222fcf7232
