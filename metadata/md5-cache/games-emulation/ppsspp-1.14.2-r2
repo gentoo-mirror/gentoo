@@ -1,6 +1,6 @@
 BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= dev-util/glslang:0/1 media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/56.58.58 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
+DEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/56.58.58 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
 DESCRIPTION=A PSP emulator written in C++
 EAPI=8
 HOMEPAGE=https://www.ppsspp.org/ https://github.com/hrydgard/ppsspp/
@@ -9,9 +9,9 @@ INHERIT=python-any-r1 xdg cmake
 IUSE=discord qt5
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD BSD-2 GPL-2 JSON MIT
-RDEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= dev-util/glslang:0/1 media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/56.58.58 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
+RDEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/56.58.58 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/hrydgard/ppsspp/releases/download/v1.14.2/ppsspp-1.14.2.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	flag-o-matic	69394e25812406faa1f90edaf4969395	ninja-utils	38c85b725d0467e51954ea921b6c104b	cmake	449b4785acace35308fe747fc939bde1
-_md5_=63cbb966c3b8816691806729649b5f24
+_md5_=ec28abe3bc1a0a8bd7a7dbbd1cf8f6cb
