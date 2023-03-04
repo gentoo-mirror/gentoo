@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby27? ( dev-ruby/execjs[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/execjs[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( >=dev-ruby/rails-5.0.0[ruby_targets_ruby27(-)] dev-ruby/rake[ruby_targets_ruby27(-)] dev-ruby/rspec-rails[ruby_targets_ruby27(-)] dev-ruby/sprockets-rails[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( >=dev-ruby/rails-5.0.0[ruby_targets_ruby30(-)] dev-ruby/rake[ruby_targets_ruby30(-)] dev-ruby/rspec-rails[ruby_targets_ruby30(-)] dev-ruby/sprockets-rails[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=test? ( net-libs/nodejs ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DESCRIPTION=Add vendor prefixes to CSS rules using values from the Can I Use website
+EAPI=8
+HOMEPAGE=https://github.com/ai/autoprefixer-rails
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 doc test test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby27? ( dev-ruby/execjs[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/execjs[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=10
+SRC_URI=https://github.com/ai/autoprefixer-rails/archive/10.4.13.0.tar.gz -> autoprefixer-rails-10.4.13.0.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	1147c87e94def682fd485ce7a14a86c2	ruby-fakegem	b4704898f1b861fc19d465c8af7abe9c
+_md5_=23e478f68b1c2ad979839f1e6814dcbf
