@@ -90,7 +90,6 @@ pkg_pretend() {
 
 python_prepare_all() {
 	local PATCHES=(
-		"${FILESDIR}"/${P}-qa-notice-configure-func-decl.patch
 	)
 
 	distutils-r1_python_prepare_all
