@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://cgns.github.io/ https://github.com/CGNS/CGNS
 INHERIT=cmake fortran-2
 IUSE=base-scope debug examples fortran hdf5 legacy mpi scoping szip test tools
-KEYWORDS=~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=ZLIB
 RDEPEND=hdf5? ( sci-libs/hdf5:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
 REQUIRED_USE=mpi? ( hdf5 ) szip? ( hdf5 )
@@ -14,4 +14,4 @@ RESTRICT=fortran? ( test ) !test? ( test )
 SLOT=0/4
 SRC_URI=https://github.com/CGNS/CGNS/archive/v4.3.0.tar.gz -> cgnslib-4.3.0.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=c2fa6669dab9eff314b986af12a9d4e6
+_md5_=78ea9c6ef9eac24d92a268f2feeaaea7

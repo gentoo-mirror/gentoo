@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://computing.llnl.gov/projects/sundials
 INHERIT=cmake flag-o-matic fortran-2 toolchain-funcs
 IUSE=doc examples fortran hypre +int64 lapack mpi openmp sparse +static-libs superlumt threads
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=lapack? ( virtual/lapack ) mpi? ( sci-libs/hypre:=[fortran?,mpi?] virtual/mpi[fortran?] ) sparse? ( sci-libs/klu ) superlumt? ( sci-libs/superlu_mt:=[int64=] ) fortran? ( virtual/fortran )
 REQUIRED_USE=fortran? ( static-libs ) hypre? ( mpi )
 SLOT=0/6
 SRC_URI=https://github.com/LLNL/sundials/releases/download/v6.5.0/sundials-6.5.0.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=d6317d49af8fbf6f66e6150d27657305
+_md5_=fd28ad8b083370072e6dcfad349122a6
