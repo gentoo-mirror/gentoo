@@ -1,0 +1,17 @@
+BDEPEND=vala? ( || ( dev-lang/vala:0.56 ) ) dev-util/glib-utils sys-devel/bison sys-devel/flex >=sys-devel/gettext-0.19.8 virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:=
+DESCRIPTION=Templating library for GLib
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/template-glib
+INHERIT=gnome.org meson vala
+IUSE=gtk-doc +introspection test vala
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:=
+REQUIRED_USE=vala? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=mirror://gnome/sources/template-glib/3.36/template-glib-3.36.1.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	vala	2633382950a3a9ce912c9258150d5db8
+_md5_=77f9554fa02d932cc589f349cf765855
