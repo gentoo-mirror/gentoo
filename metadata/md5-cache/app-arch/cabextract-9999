@@ -2,13 +2,13 @@ BDEPEND=sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/el
 DEFINED_PHASES=compile configure install prepare unpack
 DEPEND=~dev-libs/libmspack-9999:=
 DESCRIPTION=Extracts files from Microsoft cabinet archive files
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.cabextract.org.uk/
-INHERIT=autotools toolchain-funcs git-r3
+INHERIT=toolchain-funcs autotools git-r3
 IUSE=extras
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=~dev-libs/libmspack-9999:= extras? ( dev-lang/perl )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=65b5c3d6630ec29f17e2d9711ba12d87
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=0d400def7235e4ce3480f835cf0d9123

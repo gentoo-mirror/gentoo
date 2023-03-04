@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=dev-libs/libmspack-0.8_alpha:=
+DESCRIPTION=Extracts files from Microsoft cabinet archive files
+EAPI=8
+HOMEPAGE=https://www.cabextract.org.uk/
+INHERIT=toolchain-funcs
+IUSE=extras
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/libmspack-0.8_alpha:= extras? ( dev-lang/perl )
+SLOT=0
+SRC_URI=https://www.cabextract.org.uk/cabextract-1.11.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=0d400def7235e4ce3480f835cf0d9123
