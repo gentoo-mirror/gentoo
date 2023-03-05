@@ -30,16 +30,13 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/argcomplete-2.0.5-test-install.patch
+)
+
 src_prepare() {
 	sed -i -e 's:timeout=5:timeout=30:' test/test.py || die
 	distutils-r1_src_prepare
-}
-
-src_test() {
-	# workaround new readline defaults
-	echo "set enable-bracketed-paste off" > "${T}"/inputrc || die
-	local -x INPUTRC="${T}"/inputrc
-	distutils-r1_src_test
 }
 
 python_test() {
