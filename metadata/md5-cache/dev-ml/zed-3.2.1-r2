@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/react:= dev-ml/result:= dev-ml/uchar:= dev-ml/uucp:= dev-ml/uuseg:= dev-ml/uutf:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-ml/dune-3 dev-ml/react:= dev-ml/result:= dev-ml/uchar:= dev-ml/uucp:= dev-ml/uuseg:= dev-ml/uutf:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Abstract engine for text edition in OCaml
 EAPI=8
 HOMEPAGE=https://github.com/ocaml-community/zed
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-ml/react:= dev-ml/result:= dev-ml/uchar:= dev-ml/uucp:= dev-ml/uuseg:= dev-ml/uutf:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-ml/dune-3 dev-ml/react:= dev-ml/result:= dev-ml/uchar:= dev-ml/uucp:= dev-ml/uuseg:= dev-ml/uutf:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/3.2.1
 SRC_URI=https://github.com/ocaml-community/zed/archive/3.2.1.tar.gz -> zed-3.2.1.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
-_md5_=2ac7c2c5bc73793ddedcf577ae17a3ca
+_md5_=4508bf1b6e9d7a40525571105f58eaf9
