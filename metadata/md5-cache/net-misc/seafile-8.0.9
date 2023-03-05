@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.seafile.com/ https://github.com/haiwen/seafile/
 INHERIT=autotools python-single-r1 vala
 IUSE=python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2+-with-openssl-exception
 RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_9? ( dev-python/future[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/future[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/future[python_targets_python3_11(-)] ) dev-libs/openssl:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/libevent:= net-libs/libsearpc[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] net-misc/curl sys-apps/util-linux sys-libs/zlib elibc_musl? ( sys-libs/fts-standalone )
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/haiwen/seafile/archive/6bd36a957573eda6a53f3d1bc538dbfc001aa9fd.tar.gz -> seafile-8.0.9.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	vala	2633382950a3a9ce912c9258150d5db8
-_md5_=318e24f144affa9469e45df63960bf8a
+_md5_=0e73daf25673d9b30a9b4774368c15e4
