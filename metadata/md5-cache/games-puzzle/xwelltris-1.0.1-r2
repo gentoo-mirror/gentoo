@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=media-libs/libsdl[video] media-libs/sdl-image[gif]
+DESCRIPTION=2.5D tetris like game
+EAPI=8
+HOMEPAGE=http://xnc.jinr.ru/xwelltris/
+INHERIT=autotools toolchain-funcs prefix
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libsdl[video] media-libs/sdl-image[gif] acct-group/gamestat
+SLOT=0
+SRC_URI=http://xnc.jinr.ru/xwelltris/src/xwelltris-1.0.1.src.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	prefix	eab3c99d77fe00506c109c8a736186f7
+_md5_=01aebde5e2eabf4270216a88a55d75ed

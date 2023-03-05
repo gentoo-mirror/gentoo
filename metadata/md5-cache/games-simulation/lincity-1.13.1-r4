@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gettext sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=media-libs/libpng:= virtual/libintl x11-libs/libXext x11-base/xorg-proto
+DESCRIPTION=City simulation game for X
+EAPI=8
+HOMEPAGE=http://lincity.sourceforge.net/
+INHERIT=autotools desktop
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libpng:= virtual/libintl x11-libs/libXext
+SLOT=0
+SRC_URI=mirror://sourceforge/lincity/lincity-1.13.1.tar.gz https://dev.gentoo.org/~ionen/distfiles/lincity.png
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=c05d4ba0480e7f27c09b548931060179
