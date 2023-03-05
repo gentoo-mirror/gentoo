@@ -11,29 +11,33 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Shotwell"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv ~sparc x86"
-IUSE="opencv udev wayland"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
+IUSE="opencv udev"
 
 DEPEND="
-	>=x11-libs/gtk+-3.22.0:3[wayland?]
+	>=x11-libs/gtk+-3.22.0:3
 	>=dev-libs/glib-2.40.0:2
-	>=dev-libs/libgee-0.8.5:0.8
-	>=net-libs/webkit-gtk-2.26:4
+	>=dev-libs/libgee-0.8.5:0.8=
+	>=net-libs/webkit-gtk-2.26:4.1
+	net-libs/libsoup:3.0
 	>=dev-libs/json-glib-0.7.6
 	>=dev-libs/libxml2-2.6.32:2
 	x11-libs/gdk-pixbuf:2
 	>=dev-db/sqlite-3.5.9:3
-	media-libs/gstreamer:1.0
-	media-libs/gst-plugins-base:1.0
+	>=media-libs/gstreamer-1.20:1.0
+	>=media-libs/gst-plugins-base-1.20:1.0
 	>=media-libs/libgphoto2-2.5:=
 	udev? ( >=dev-libs/libgudev-145:= )
-	>=media-libs/gexiv2-0.10.4
+	>=media-libs/gexiv2-0.12.3
 	>=media-libs/libraw-0.13.2:=
-	>=media-libs/libexif-0.6.16:=
-	dev-libs/libgdata
+	>=media-libs/libexif-0.6.16
+	app-crypt/libsecret
+	>=dev-libs/libportal-0.5:=[gtk]
+	media-libs/libwebp:=
+
 	>=app-crypt/gcr-3:0=[gtk]
 	x11-libs/cairo
-	opencv? ( >=media-libs/opencv-2.3.0:= )
+	opencv? ( >=media-libs/opencv-4.0.0:= )
 "
 RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-gdkpixbuf:1.0
@@ -43,17 +47,18 @@ BDEPEND="
 	${PYTHON_DEPS}
 	$(vala_depend)
 	dev-libs/appstream-glib
+	dev-libs/glib
+	dev-util/gdbus-codegen
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
-	net-libs/libsoup:2.4[vala]
+	net-libs/libsoup:3.0[vala]
 	media-libs/gexiv2[vala]
 	app-crypt/gcr:0[vala]
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-gphoto2-Add-missing-cheader-attributes-of-delegate-s.patch
-	"${FILESDIR}"/0.30.16-optional-wayland.patch
 )
 
 src_prepare() {
@@ -64,17 +69,15 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
-		-Dunity-support=false
+		-Dunity_support=false
 		# -Dpublishers # In 0.30.2 all get compiled in anyways, even if restricted list, affects only runtime support
-		-Dextra-plugins=true
 		#trace
 		#measure
-		-Ddupe-detection=true
+		-Ddupe_detection=true
 		$(meson_use udev)
-		-Dinstall-apport-hook=false
-		$(meson_use opencv face-detection)
+		-Dinstall_apport_hook=false
+		$(meson_use opencv face_detection)
 		-Dfatal_warnings=false
-		$(meson_use wayland)
 	)
 	meson_src_configure
 }
