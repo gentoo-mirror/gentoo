@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KDE_ORG_CATEGORY="pim"
-KFMIN=5.82.0
-QTMIN=5.15.2
+KFMIN=5.102.0
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="Note taking utility by KDE"
@@ -13,7 +13,7 @@ HOMEPAGE="https://userbase.kde.org/KJots https://community.kde.org/PIM/KJots"
 
 if [[ ${KDE_BUILD_TYPE} != live ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-2"
@@ -26,11 +26,11 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-apps/akonadi-20.12.2:5
-	>=kde-apps/akonadi-notes-20.12.2:5
-	>=kde-apps/kmime-20.12.2:5
-	>=kde-apps/kontactinterface-20.12.2:5
-	>=kde-apps/kpimtextedit-20.12.2:5[speech(+)=]
+	>=kde-apps/akonadi-22.08.3:5
+	>=kde-apps/akonadi-notes-22.08.3:5
+	>=kde-apps/kmime-22.08.3:5
+	>=kde-apps/kontactinterface-22.08.3:5
+	>=kde-apps/kpimtextedit-22.08.3:5[speech(+)=]
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -43,7 +43,9 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/kdepim-runtime-22.08.3:5
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-unused-dep.patch"
