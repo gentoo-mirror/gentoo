@@ -4,7 +4,7 @@ DEPEND=>=media-libs/fontconfig-2.13 >=media-libs/freetype-2.10 sys-libs/zlib cai
 DESCRIPTION=PDF rendering library based on the xpdf-3.0 code base
 EAPI=8
 HOMEPAGE=https://poppler.freedesktop.org/
-INHERIT=cmake toolchain-funcs xdg-utils git-r3
+INHERIT=cmake flag-o-matic toolchain-funcs xdg-utils git-r3
 IUSE=boost cairo cjk curl +cxx debug doc +introspection +jpeg +jpeg2k +lcms nss png qt5 tiff +utils
 LICENSE=GPL-2
 PROPERTIES=live
@@ -12,4 +12,4 @@ RDEPEND=>=media-libs/fontconfig-2.13 >=media-libs/freetype-2.10 sys-libs/zlib ca
 RESTRICT=test
 SLOT=0/9999
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=898da044c14e9b064f3f3305248ba8f6
+_md5_=45ba1d839482ee2ab013991ab67ac557
