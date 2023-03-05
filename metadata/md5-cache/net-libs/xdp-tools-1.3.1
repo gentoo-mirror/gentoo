@@ -1,13 +1,13 @@
-BDEPEND=>=sys-devel/clang-10.0.0
+BDEPEND=sys-apps/grep[pcre] >=sys-devel/clang-11.0.0
 DEFINED_PHASES=configure install test
-DEPEND=dev-libs/libbpf:= sys-libs/zlib net-libs/libpcap virtual/libelf
+DEPEND=dev-libs/libbpf:= dev-util/bpftool net-libs/libpcap sys-libs/zlib virtual/libelf
 DESCRIPTION=The libxdp library and various tools for use with XDP
 EAPI=8
 HOMEPAGE=https://github.com/xdp-project/xdp-tools
 IUSE=+tools
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 LGPL-2.1 BSD-2
-RDEPEND=dev-libs/libbpf:= sys-libs/zlib net-libs/libpcap virtual/libelf
+RDEPEND=dev-libs/libbpf:= dev-util/bpftool net-libs/libpcap sys-libs/zlib virtual/libelf
 SLOT=0
 SRC_URI=https://github.com/xdp-project/xdp-tools/archive/refs/tags/v1.3.1.tar.gz -> xdp-tools-1.3.1.tar.gz
-_md5_=a0a96aa438186513db99bc043af4aeff
+_md5_=08b2f259e14d8075686444c64f6cf784
