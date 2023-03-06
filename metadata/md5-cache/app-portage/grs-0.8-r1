@@ -1,15 +1,15 @@
-BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Suite to build Gentoo Reference Systems
 EAPI=8
 HOMEPAGE=https://dev.gentoo.org/~blueness/grs
 INHERIT=distutils-r1 linux-info
-IUSE=server python_targets_python3_9 python_targets_python3_10
+IUSE=server python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
-RDEPEND=sys-apps/portage[python_targets_python3_9(-)?,python_targets_python3_10(-)?] server? ( app-arch/tar[xattr] app-cdr/cdrtools app-crypt/md5deep dev-libs/libcgroup dev-vcs/git net-misc/rsync sys-fs/squashfs-tools sys-kernel/genkernel ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=sys-apps/portage[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] server? ( app-arch/tar[xattr] app-cdr/cdrtools app-crypt/md5deep dev-libs/libcgroup dev-vcs/git net-misc/rsync sys-fs/squashfs-tools sys-kernel/genkernel ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~blueness/grs/grs-0.8.tar.gz https://dev.gentoo.org/~blueness/grs/ISO-1.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	linux-info	4b552625ebd741dfd2ac08637fd2436e
-_md5_=917b69dc9d1f0f0f881d5d7853e226bb
+_md5_=434ba9005a6ba43c05120f82c03f1312
