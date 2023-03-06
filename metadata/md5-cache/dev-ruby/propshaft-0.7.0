@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby27? ( >=dev-ruby/actionpack-7.0.0:*[ruby_targets_ruby27(-)] >=dev-ruby/activesupport-7.0.0:*[ruby_targets_ruby27(-)] dev-ruby/rack:*[ruby_targets_ruby27(-)] >=dev-ruby/railties-7.0.0:*[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/actionpack-7.0.0:*[ruby_targets_ruby30(-)] >=dev-ruby/activesupport-7.0.0:*[ruby_targets_ruby30(-)] dev-ruby/rack:*[ruby_targets_ruby30(-)] >=dev-ruby/railties-7.0.0:*[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( >=dev-ruby/rails-7.0.0[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( >=dev-ruby/rails-7.0.0[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rake[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DESCRIPTION=Deliver assets for Rails
+EAPI=8
+HOMEPAGE=https://github.com/rails/propshaft
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 doc test test
+KEYWORDS=~amd64 ~ppc64 ~riscv
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby27? ( >=dev-ruby/actionpack-7.0.0:*[ruby_targets_ruby27(-)] >=dev-ruby/activesupport-7.0.0:*[ruby_targets_ruby27(-)] dev-ruby/rack:*[ruby_targets_ruby27(-)] >=dev-ruby/railties-7.0.0:*[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/actionpack-7.0.0:*[ruby_targets_ruby30(-)] >=dev-ruby/activesupport-7.0.0:*[ruby_targets_ruby30(-)] dev-ruby/rack:*[ruby_targets_ruby30(-)] >=dev-ruby/railties-7.0.0:*[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/rails/propshaft/archive/v0.7.0.tar.gz -> propshaft-0.7.0-git.tgz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	1147c87e94def682fd485ce7a14a86c2	ruby-fakegem	b4704898f1b861fc19d465c8af7abe9c
+_md5_=adbbddfe1448848bb85177c94af82cb1
