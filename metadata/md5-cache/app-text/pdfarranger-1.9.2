@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=app-text/poppler[introspection,cairo] >=dev-python/pikepdf-6.0.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pycairo[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pygobject:3[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,cairo] dev-python/python-dateutil[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/gtk+:3[introspection] x11-libs/pango[introspection] dev-python/python-distutils-extra[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-util/intltool
+DESCRIPTION=Merge or split pdfs; rearrange, rotate, crop pages
+EAPI=8
+HOMEPAGE=https://github.com/jeromerobert/pdfarranger
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=distutils-r1 optfeature xdg desktop
+IUSE=python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-text/poppler[introspection,cairo] >=dev-python/pikepdf-6.0.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pycairo[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pygobject:3[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,cairo] dev-python/python-dateutil[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/gtk+:3[introspection] x11-libs/pango[introspection] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/jeromerobert/pdfarranger/archive/1.9.2.tar.gz -> pdfarranger-1.9.2.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=e584d71f8e5eba2ac293517a5b9f3342
