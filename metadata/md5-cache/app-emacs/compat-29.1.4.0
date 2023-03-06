@@ -1,0 +1,13 @@
+BDEPEND=sys-apps/texinfo >=app-editors/emacs-24.4:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Compatibility libraries for Emacs
+EAPI=8
+HOMEPAGE=https://github.com/emacs-compat/compat/ https://git.sr.ht/~pkal/compat/
+INHERIT=elisp
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-24.4:*
+SLOT=0
+SRC_URI=https://github.com/emacs-compat/compat/archive/29.1.4.0.tar.gz -> compat-29.1.4.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	8aab2c847b5894dc40503ae1d203abcf
+_md5_=5401721f664a5759663855532e3c68ce
