@@ -3,20 +3,19 @@
 
 EAPI=8
 
-COMMIT=2c3233c0e09ef34176787b6e3da4319751ad91e7
-NEED_EMACS=24
+NEED_EMACS=24.4
 
 inherit elisp
 
 DESCRIPTION="Compatibility libraries for Emacs"
-HOMEPAGE="https://git.sr.ht/~pkal/compat/"
-SRC_URI="https://git.sr.ht/~pkal/${PN}/archive/${COMMIT}.tar.gz
+HOMEPAGE="https://github.com/emacs-compat/compat/
+	https://git.sr.ht/~pkal/compat/"
+SRC_URI="https://github.com/emacs-compat/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 BDEPEND="sys-apps/texinfo"
 
