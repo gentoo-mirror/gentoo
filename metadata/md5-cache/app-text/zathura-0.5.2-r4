@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://pwmt.org/projects/zathura/
 INHERIT=meson virtualx xdg
 IUSE=seccomp sqlite synctex test test
-KEYWORDS=~amd64 arm ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 arm ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=ZLIB
 RDEPEND=>=dev-libs/girara-0.3.7 >=dev-libs/glib-2.50:2 >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 sys-apps/file seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core )
 RESTRICT=!test? ( test )
 SLOT=0/0.5
 SRC_URI=https://github.com/pwmt/zathura/archive/0.5.2.tar.gz -> zathura-0.5.2.tar.gz https://dev.gentoo.org/~slashbeast/distfiles/zathura/zathura-0.5.2-manpages.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	virtualx	644887c82aefdf12001489391fca4f02	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=b676bd9557f37b4b5f6c234841d36084
+_md5_=bda8f84672ce67fa94d32e0dd0137c56
