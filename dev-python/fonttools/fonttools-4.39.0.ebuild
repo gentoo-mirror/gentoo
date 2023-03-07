@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit distutils-r1 virtualx
@@ -33,10 +33,6 @@ BDEPEND="
 		app-arch/zopfli
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}/fonttools-4.38.0-pypy3.patch"
-)
 
 distutils_enable_tests pytest
 
