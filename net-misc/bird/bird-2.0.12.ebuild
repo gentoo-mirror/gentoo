@@ -1,9 +1,9 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit fcaps
+inherit autotools fcaps
 
 DESCRIPTION="A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 & IPv6"
 HOMEPAGE="https://bird.network.cz"
@@ -15,8 +15,10 @@ KEYWORDS="~amd64 ~arm64 ~x86 ~x64-macos"
 IUSE="+client debug libssh"
 
 RDEPEND="
-	client? ( sys-libs/ncurses:= )
-	client? ( sys-libs/readline:= )
+	client? (
+		sys-libs/ncurses:=
+		sys-libs/readline:=
+	)
 	filecaps? (
 		acct-group/bird
 		acct-user/bird
@@ -34,6 +36,15 @@ FILECAPS=(
 	CAP_NET_RAW				usr/sbin/bird
 )
 
+PATCHES=(
+	"${FILESDIR}/${P}-musl-tests.patch"
+)
+
+src_prepare() {
+	default
+	eautoreconf
+}
+
 src_configure() {
 	econf \
 		--localstatedir="${EPREFIX}/var" \
@@ -46,10 +57,13 @@ src_install() {
 	if use client; then
 		dobin birdc
 	fi
+
 	dobin birdcl
 	dosbin bird
+
 	newinitd "${FILESDIR}/initd-${PN}-2" ${PN}
 	newconfd "${FILESDIR}/confd-${PN}-2" ${PN}
+
 	dodoc doc/bird.conf.example
 }
 

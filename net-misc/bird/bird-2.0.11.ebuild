@@ -24,7 +24,6 @@ RDEPEND="
 		acct-user/bird
 	)
 	libssh? ( net-libs/libssh:= )"
-DEPEND="${RDEPEND}"
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
@@ -38,12 +37,11 @@ FILECAPS=(
 )
 
 PATCHES=(
-	"${FILESDIR}/${P}-musl-tests.patch"
+	"${FILESDIR}/${PN}-2.0.9-musl-tests.patch"
 )
 
 src_prepare() {
 	default
-
 	eautoreconf
 }
 
@@ -59,10 +57,13 @@ src_install() {
 	if use client; then
 		dobin birdc
 	fi
+
 	dobin birdcl
 	dosbin bird
+
 	newinitd "${FILESDIR}/initd-${PN}-2" ${PN}
 	newconfd "${FILESDIR}/confd-${PN}-2" ${PN}
+
 	dodoc doc/bird.conf.example
 }
 
