@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig || ( ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-util/scons-4.4.0[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-util/scons-4.4.0[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 >=dev-util/scons-4.4.0[python_targets_python3_9(-)] ) )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup
+DEPEND=app-arch/zstd:= dev-games/recastnavigation:= dev-libs/libpcre2:=[pcre32] media-libs/alsa-lib media-libs/freetype[brotli] media-libs/libpng:= <net-libs/mbedtls-3:= net-libs/wslay sys-libs/zlib:= bullet? ( sci-physics/bullet:= ) gui? ( media-libs/libglvnd x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender tools? ( raycast? ( media-libs/embree:3 ) ) ) pulseaudio? ( media-libs/libpulse ) theora? ( media-libs/libogg media-libs/libtheora media-libs/libvorbis ) tools? ( app-misc/ca-certificates ) udev? ( virtual/udev ) upnp? ( net-libs/miniupnpc:= ) webm? ( media-libs/libvorbis media-libs/libvpx:= media-libs/opus ) webp? ( media-libs/libwebp:= ) gui? ( x11-base/xorg-proto ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Multi-platform 2D and 3D game engine with a feature-rich editor
+EAPI=7
+HOMEPAGE=https://godotengine.org/
+INHERIT=bash-completion-r1 desktop python-any-r1 scons-utils toolchain-funcs xdg
+IUSE=+bullet debug deprecated +gui pulseaudio raycast +runner +theora +tools +udev +upnp +webm +webp
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 BSD Boost-1.0 CC0-1.0 Unlicense ZLIB gui? ( CC-BY-4.0 ) tools? ( BitstreamVera OFL-1.1 )
+RDEPEND=app-arch/zstd:= dev-games/recastnavigation:= dev-libs/libpcre2:=[pcre32] media-libs/alsa-lib media-libs/freetype[brotli] media-libs/libpng:= <net-libs/mbedtls-3:= net-libs/wslay sys-libs/zlib:= bullet? ( sci-physics/bullet:= ) gui? ( media-libs/libglvnd x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender tools? ( raycast? ( media-libs/embree:3 ) ) ) pulseaudio? ( media-libs/libpulse ) theora? ( media-libs/libogg media-libs/libtheora media-libs/libvorbis ) tools? ( app-misc/ca-certificates ) udev? ( virtual/udev ) upnp? ( net-libs/miniupnpc:= ) webm? ( media-libs/libvorbis media-libs/libvpx:= media-libs/opus ) webp? ( media-libs/libwebp:= )
+SLOT=3
+SRC_URI=https://downloads.tuxfamily.org/godotengine/3.5.2/godot-3.5.2-stable.tar.xz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	desktop	021728fdc1b03b36357dbc89489e0f0d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	scons-utils	03ca4edc3a0fdb533f0f358787059bdc	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=dc0d8bb610ebdab0a3be4a93e0a57e67
