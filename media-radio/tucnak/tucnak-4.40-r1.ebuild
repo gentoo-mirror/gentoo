@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,13 +10,13 @@ SRC_URI="http://tucnak.nagano.cz/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa fftw gpm hamlib suid"
 
 RDEPEND="dev-libs/glib:2
-	dev-libs/libzia
+	~dev-libs/libzia-4.40
 	media-libs/libsndfile
-	>=media-libs/libsdl-1.2
+	media-libs/libsdl2
 	alsa? ( media-libs/alsa-lib )
 	fftw? ( sci-libs/fftw:3.0 )
 	gpm? ( sys-libs/gpm )
@@ -24,8 +24,11 @@ RDEPEND="dev-libs/glib:2
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}"/${PN}-${PV}-configure.patch )
+
 src_prepare() {
 	eapply_user
+	eapply ${PATCHES[@]}
 	# fix destop file
 	sed -i -e "s/HamRadio/HamRadio;/" share/applications/tucnak.desktop || die
 	# fix doc install path
