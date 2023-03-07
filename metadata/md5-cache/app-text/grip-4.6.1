@@ -4,13 +4,13 @@ DEPEND=dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_9(-
 DESCRIPTION=Preview GitHub Markdown files like Readme locally before committing them
 EAPI=7
 HOMEPAGE=https://github.com/joeyespo/grip
-INHERIT=distutils-r1
+INHERIT=distutils-r1 pypi
 IUSE=python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64
 LICENSE=MIT
 RDEPEND=!media-sound/grip >=dev-python/docopt-0.4.0[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/flask-0.10.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/markdown-2.5.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/path-and-address-2.0.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pygments-1.6[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/requests-2.4.1[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
-SRC_URI=mirror://pypi/g/grip/grip-4.6.1.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=ddbe19fb6c93c9f133bc865fbf2ed849
+SRC_URI=https://files.pythonhosted.org/packages/source/g/grip/grip-4.6.1.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	pypi	1bc874ed4adb7d785e7201acbbb8347a
+_md5_=cb8883c063d1e3232b8cd4092bf1a72a
