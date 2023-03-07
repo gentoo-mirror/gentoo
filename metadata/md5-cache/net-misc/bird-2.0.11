@@ -1,6 +1,5 @@
 BDEPEND=sys-devel/bison sys-devel/flex sys-devel/m4 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= )
 DESCRIPTION=A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 & IPv6
 EAPI=8
 HOMEPAGE=https://bird.network.cz
@@ -11,6 +10,6 @@ KEYWORDS=~amd64 ~arm64 ~x86 ~x64-macos
 LICENSE=GPL-2
 RDEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= )
 SLOT=0
-SRC_URI=ftp://bird.network.cz/pub/bird/bird-2.0.9.tar.gz
+SRC_URI=ftp://bird.network.cz/pub/bird/bird-2.0.11.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	fcaps	da0130200e07aaecee121b85f4b9ea17
-_md5_=63e861d2df551374fdce8a4e25806bfd
+_md5_=78ec5aadc4d82aa168581a6ca3af57ec

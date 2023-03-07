@@ -6,10 +6,10 @@ HOMEPAGE=https://bird.network.cz
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=autotools fcaps
 IUSE=+client debug libssh +filecaps
-KEYWORDS=amd64 ~arm64 ~x86 ~x64-macos
+KEYWORDS=~amd64 ~arm64 ~x86 ~x64-macos
 LICENSE=GPL-2
 RDEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= )
 SLOT=0
-SRC_URI=ftp://bird.network.cz/pub/bird/bird-2.0.10.tar.gz
+SRC_URI=ftp://bird.network.cz/pub/bird/bird-2.0.12.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	fcaps	da0130200e07aaecee121b85f4b9ea17
-_md5_=b544916e3a7742cbc19b5e880c77cb02
+_md5_=e8ed0a60af94428c32d6bac8a73449d2
