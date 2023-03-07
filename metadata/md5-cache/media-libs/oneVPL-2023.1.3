@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=x11-libs/libpciaccess vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] ) drm? ( x11-libs/libdrm ) wayland? ( dev-libs/wayland dev-libs/wayland-protocols ) X? ( x11-libs/libX11 x11-libs/libxcb )
+DESCRIPTION=oneAPI Video Processing Library, dispatcher, tools, and examples
+EAPI=8
+HOMEPAGE=https://github.com/oneapi-src/oneVPL
+INHERIT=cmake optfeature
+IUSE=dri drm examples experimental +tools test vaapi wayland X
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=x11-libs/libpciaccess vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] ) drm? ( x11-libs/libdrm ) wayland? ( dev-libs/wayland dev-libs/wayland-protocols ) X? ( x11-libs/libX11 x11-libs/libxcb )
+REQUIRED_USE=dri? ( X drm ) drm? ( tools ) X? ( tools vaapi ) wayland? ( tools drm ) vaapi? ( tools )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/oneapi-src/oneVPL/archive/refs/tags/v2023.1.3.tar.gz -> oneVPL-2023.1.3.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=7bbaec4a0789508f93a35da9d95dd949

@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gettext sys-apps/texinfo sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=sys-libs/ncurses:= dev-libs/libbsd dev-libs/openssl:0= kerberos? ( virtual/krb5 ) readline? ( >=sys-libs/readline-6:0= ) socks5? ( net-proxy/dante ) ssh? ( net-libs/libssh )
+DESCRIPTION=Console ftp client with a lot of nifty features
+EAPI=8
+HOMEPAGE=https://github.com/sebastinas/yafc
+INHERIT=autotools bash-completion-r1
+IUSE=kerberos readline socks5 ssh
+KEYWORDS=~amd64 ~arm ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:= dev-libs/libbsd dev-libs/openssl:0= kerberos? ( virtual/krb5 ) readline? ( >=sys-libs/readline-6:0= ) socks5? ( net-proxy/dante ) ssh? ( net-libs/libssh )
+SLOT=0
+SRC_URI=https://github.com/sebastinas/yafc/archive/v1.3.7.tar.gz -> yafc-1.3.7.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=4871cb7e5ef9b4e444b1f6b33b10847f
