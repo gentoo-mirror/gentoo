@@ -1,0 +1,17 @@
+BDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-libs/gobject-introspection gtk-doc? ( dev-libs/glib[gtk-doc] dev-util/gtk-doc ) test? ( sys-libs/libmodulemd ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) app-arch/rpm sys-apps/file dev-libs/glib:2 dev-libs/libyaml python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] )
+DESCRIPTION=C Library for manipulating Fedora Modularity metadata files
+EAPI=8
+HOMEPAGE=https://github.com/fedora-modularity/libmodulemd
+INHERIT=meson python-single-r1
+IUSE=gtk-doc test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) app-arch/rpm sys-apps/file dev-libs/glib:2 dev-libs/libyaml python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/fedora-modularity/libmodulemd/archive/refs/tags/2.14.0.tar.gz -> libmodulemd-2.14.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=ba9ac30e2049c6ba5bdcec03c0fa35c3

@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libxml2 dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd sys-libs/zlib:=
+DESCRIPTION=C implementation of createrepo
+EAPI=8
+HOMEPAGE=https://github.com/rpm-software-management/createrepo_c
+INHERIT=cmake
+IUSE=legacy test
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libxml2 dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd sys-libs/zlib:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/rpm-software-management/createrepo_c/archive/0.20.1.tar.gz -> createrepo_c-0.20.1.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
+_md5_=a84f0ff4f51a66b513aa9c184fe5e809
