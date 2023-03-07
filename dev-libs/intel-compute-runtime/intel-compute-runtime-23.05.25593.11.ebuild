@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="+l0 +vaapi"
 
 RDEPEND=">=media-libs/gmmlib-22.1.7:="
@@ -26,11 +26,11 @@ DEPEND="
 	>=dev-libs/intel-metrics-library-0_pre20220930:=
 	dev-libs/libnl:3
 	dev-libs/libxml2:2
-	>=dev-util/intel-graphics-compiler-1.0.12149.1
-	>=dev-util/intel-graphics-system-controller-0.8.4:=
+	>=dev-util/intel-graphics-compiler-1.0.12812.26
+	>=dev-util/intel-graphics-system-controller-0.8.7:=
 	media-libs/mesa
 	>=virtual/opencl-3
-	l0? ( >=dev-libs/level-zero-1.8.5:= )
+	l0? ( >=dev-libs/level-zero-1.9.4:= )
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		media-libs/libva
@@ -41,7 +41,9 @@ BDEPEND="virtual/pkgconfig"
 
 DOCS=( "README.md" "FAQ.md" )
 
-PATCHES=( "${FILESDIR}/${PN}-22.24.23453-remove-fortify-sources.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-22.24.23453-remove-fortify-sources.patch"
+)
 
 src_prepare() {
 	# Remove '-Werror' from default
