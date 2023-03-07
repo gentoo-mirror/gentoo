@@ -7,11 +7,11 @@ HOMEPAGE=https://www.ppsspp.org/ https://github.com/hrydgard/ppsspp/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=python-any-r1 xdg cmake
 IUSE=discord qt5
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=Apache-2.0 BSD BSD-2 GPL-2 JSON MIT
 RDEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/56.58.58 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/hrydgard/ppsspp/releases/download/v1.14.2/ppsspp-1.14.2.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	flag-o-matic	69394e25812406faa1f90edaf4969395	ninja-utils	38c85b725d0467e51954ea921b6c104b	cmake	449b4785acace35308fe747fc939bde1
-_md5_=ec28abe3bc1a0a8bd7a7dbbd1cf8f6cb
+_md5_=a72a7500b76eac0b1aa7f0ef17292443
