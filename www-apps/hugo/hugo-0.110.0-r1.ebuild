@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT Unlicense"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="doc +sass test"
 
 BDEPEND="
@@ -38,7 +38,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch
-	"${FILESDIR}"/${PN}-0.104.3-skip-some-tests.patch
+	"${FILESDIR}"/${PN}-0.110.0-skip-some-tests.patch
 	"${FILESDIR}"/${PN}-0.99.1-test-timeout.patch
 )
 
@@ -48,8 +48,7 @@ src_configure() {
 	export CGO_CPPFLAGS="${CPPFLAGS}"
 	export CGO_CXXFLAGS="${CXXFLAGS}"
 	export CGO_LDFLAGS="${LDFLAGS}"
-
-	MY_BUILDFLAGS="$(usev sass "-tags extended")"
+	export EGO_BUILD_FLAGS="$(usev sass "-tags extended")"
 
 	default
 }
@@ -57,7 +56,7 @@ src_configure() {
 src_compile() {
 	mkdir -pv bin || die
 	ego build -ldflags "-X github.com/gohugoio/hugo/common/hugo.vendorInfo=gentoo:${PVR}" \
-		${MY_BUILDFLAGS} -o "${S}/bin/hugo"
+		-o "${S}/bin/hugo"
 
 	bin/hugo gen man --dir man || die
 
@@ -72,7 +71,7 @@ src_compile() {
 }
 
 src_test() {
-	ego test -race "./..." ${MY_BUILDFLAGS}
+	ego test "./..."
 }
 
 src_install() {
