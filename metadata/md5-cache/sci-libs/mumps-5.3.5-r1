@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://mumps.enseeiht.fr/
 INHERIT=fortran-2 flag-o-matic multilib toolchain-funcs
 IUSE=doc examples metis mpi +scotch static-libs
-KEYWORDS=~amd64 ~loong ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=public-domain
 RDEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) !mpi? ( virtual/lapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
 SLOT=0
 SRC_URI=http://mumps.enseeiht.fr/MUMPS_5.3.5.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=21d1430cd974631ae6926cb006bb8629
+_md5_=a9a58ec4fed4cc58267e49000463bdf8

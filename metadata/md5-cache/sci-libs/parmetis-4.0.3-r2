@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview
 INHERIT=cmake toolchain-funcs
 IUSE=doc examples openmp pcre
-KEYWORDS=amd64 arm64 x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=all-rights-reserved
 RDEPEND=>=sci-libs/metis-5.1.0-r5 virtual/mpi[fortran] pcre? ( dev-libs/libpcre:= ) !<sci-libs/metis-5.1.0-r5
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
-_md5_=f3ee6a25530b4716e57ad88affa9f4eb
+_md5_=320abb1918ffaa948b905c8e011f6229
