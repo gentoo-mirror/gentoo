@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure prepare
+DEPEND=sys-libs/ncurses:= dev-libs/glib:2 media-libs/hamlib:= media-sound/sox dev-libs/xmlrpc-c[curl] elibc_musl? ( sys-libs/argp-standalone ) test? ( dev-util/cmocka )
+DESCRIPTION=Console-mode amateur radio contest logger
+EAPI=7
+HOMEPAGE=http://home.iae.nl/users/reinc/TLF-0.2.html
+INHERIT=autotools flag-o-matic
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:= dev-libs/glib:2 media-libs/hamlib:= media-sound/sox dev-libs/xmlrpc-c[curl] elibc_musl? ( sys-libs/argp-standalone )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://nongnu/tlf/tlf-1.4.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	69394e25812406faa1f90edaf4969395
+_md5_=f64da32e8e0e3ed74cd658e27b6cfc48
