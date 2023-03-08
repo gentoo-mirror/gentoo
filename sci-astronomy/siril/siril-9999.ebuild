@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://gitlab.com/free-astro/${PN}.git"
 else
 	SRC_URI="https://gitlab.com/free-astro/siril/-/archive/${PV/_/-}/${PN}-${PV/_/-}.tar.bz2"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
 
@@ -24,6 +24,7 @@ IUSE="curl ffmpeg heif jpeg libconfig openmp png raw tiff wcs"
 DEPEND="
 	>=dev-libs/glib-2.56.0:2
 	>=dev-libs/json-glib-1.2.6
+	dev-libs/sleef:=
 	>=media-gfx/exiv2-0.25
 	media-libs/librtprocess:=
 	>=media-libs/opencv-4.4.0:=
@@ -45,6 +46,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+BDEPEND="x11-base/xorg-proto"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-docfiles.patch"
@@ -80,6 +82,7 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_desktop_database_update
+	xdg_icon_cache_update
 	xdg_mimeinfo_database_update
 	optfeature "gnuplot support" sci-visualization/gnuplot
 }

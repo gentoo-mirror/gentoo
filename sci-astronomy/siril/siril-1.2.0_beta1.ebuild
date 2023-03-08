@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,18 +13,18 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://gitlab.com/free-astro/${PN}.git"
 else
 	SRC_URI="https://gitlab.com/free-astro/siril/-/archive/${PV/_/-}/${PN}-${PV/_/-}.tar.bz2"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${PN}-${PV/_/-}"
 fi
 
 LICENSE="GPL-3+ Boost-1.0"
 SLOT="0"
-IUSE="curl ffmpeg heif jpeg openmp png raw tiff wcs"
+IUSE="curl ffmpeg heif jpeg libconfig openmp png raw tiff wcs"
 
 DEPEND="
 	>=dev-libs/glib-2.56.0:2
 	>=dev-libs/json-glib-1.2.6
-	>=dev-libs/libconfig-1.4[cxx]
+	dev-libs/sleef:=
 	>=media-gfx/exiv2-0.25
 	media-libs/librtprocess:=
 	>=media-libs/opencv-4.4.0:=
@@ -36,6 +36,7 @@ DEPEND="
 	curl? ( net-misc/curl )
 	ffmpeg? ( media-video/ffmpeg:= )
 	heif? ( media-libs/libheif )
+	libconfig? ( >=dev-libs/libconfig-1.4[cxx] )
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	png? ( >=media-libs/libpng-1.6.0 )
 	raw? ( media-libs/libraw )
@@ -45,11 +46,13 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+BDEPEND="x11-base/xorg-proto"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-docfiles.patch"
-	"${FILESDIR}/${PN}-$(ver_cut 1-2)-dependencies.patch"
-	"${FILESDIR}/${PN}-$(ver_cut 1-2)-execinfo-r1.patch"
+	"${FILESDIR}/${PN}-$(ver_cut 1-2)-htmesh.patch"
+	"${FILESDIR}/${PN}-$(ver_cut 1-2)-execinfo.patch"
+	"${FILESDIR}/${PN}-$(ver_cut 1-2)-prototypes.patch"
 )
 
 DOCS=( README.md NEWS ChangeLog AUTHORS )
@@ -69,6 +72,7 @@ src_configure() {
 		$(meson_use ffmpeg)
 		$(meson_use heif libheif)
 		$(meson_use jpeg libjpeg)
+		$(meson_use libconfig)
 		$(meson_use openmp)
 		$(meson_use png libpng)
 		$(meson_use raw libraw)
@@ -81,6 +85,7 @@ src_configure() {
 
 pkg_postinst() {
 	xdg_desktop_database_update
+	xdg_icon_cache_update
 	xdg_mimeinfo_database_update
 	optfeature "gnuplot support" sci-visualization/gnuplot
 }
