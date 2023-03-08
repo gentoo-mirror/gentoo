@@ -31,6 +31,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/wayland-scanner"
 
+PATCHES=( "${FILESDIR}/${P}-KDEBUG-466674.patch" )
+
 src_configure() {
 	local myqmakeargs=(
 		--
