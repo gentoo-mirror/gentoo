@@ -1,15 +1,15 @@
 BDEPEND=dev-ml/findlib sys-apps/gawk sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm prepare
-DEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] dev-ml/num:= emacs? ( >=app-editors/emacs-23.1:* )
+DEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt] dev-ml/num:= emacs? ( >=app-editors/emacs-23.1:* )
 DESCRIPTION=Model checker for verifying properties of array-based systems
 EAPI=8
 HOMEPAGE=https://cubicle.lri.fr/ https://github.com/cubicle-model-checker/cubicle/
 INHERIT=autotools elisp-common
-IUSE=emacs examples ocamlopt
+IUSE=emacs examples
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] dev-ml/num:= emacs? ( >=app-editors/emacs-23.1:* )
+RDEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt] dev-ml/num:= emacs? ( >=app-editors/emacs-23.1:* )
 SLOT=0/1.2.0
 SRC_URI=https://github.com/cubicle-model-checker/cubicle/archive/1.2.0.tar.gz -> cubicle-1.2.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b
-_md5_=e7bf82c53b1e66b0d21e76ac67159064
+_md5_=2b7622b8a6c6806f840896a8f6e6d82b
