@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="sqlite"
 
@@ -52,8 +53,6 @@ python_test() {
 		# Fails with network-sandbox (and even with it off but w/ softer fail)
 		'tests/xliff_conformance/test_xliff_conformance.py::test_open_office_to_xliff'
 		'tests/xliff_conformance/test_xliff_conformance.py::test_po_to_xliff'
-		# Apparently a change in line wrapping x_x
-		translate/storage/test_cpo.py::TestCPOFile::test_wrap_gettext
 	)
 	local EPYTEST_IGNORE=(
 		# unpackaged fluent.*
@@ -73,8 +72,7 @@ python_test() {
 		)
 	fi
 
-	# translate/storage/test_mo.py needs 'pocompile'
-	distutils_install_for_testing
+	local -x XDG_DATA_HOME=/usr/share
 	epytest
 }
 
