@@ -43,8 +43,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.0.9-no_Werror.patch"
 	"${FILESDIR}/${PN}-1.0.8173-opencl-clang_version.patch"
 	"${FILESDIR}/${PN}-1.0.8365-disable-git.patch"
-	"${FILESDIR}/${PN}-1.0.11485-include-opencl-c.patch"
-	"${FILESDIR}/${PN}-1.0.13230.7-spirv-tools.patch"
 )
 
 pkg_setup() {
@@ -67,7 +65,6 @@ src_configure() {
 	! use debug && append-cppflags -DNDEBUG
 
 	local mycmakeargs=(
-		-DCCLANG_INCLUDE_PREBUILDS_DIR="/usr/lib/clang/${llvm_version##*-}/include"
 		-DCCLANG_SONAME_VERSION="${LLVM_MAX_SLOT}"
 		-DCMAKE_LIBRARY_PATH="$(get_llvm_prefix ${LLVM_MAX_SLOT})/$(get_libdir)"
 		-DIGC_BUILD__VC_ENABLED="$(usex vc)"
@@ -78,6 +75,7 @@ src_configure() {
 		-DIGC_OPTION__LLDELF_H_DIR="${EPREFIX}/usr/include/lld/Common"
 		-DIGC_OPTION__LLVM_MODE="Prebuilds"
 		-DIGC_OPTION__LLVM_PREFERRED_VERSION="${llvm_version##*-}"
+		-DIGC_OPTION__OPENCL_HEADER_PATH="/usr/lib/clang/${llvm_version##*-}/include/opencl-c.h"
 		-DIGC_OPTION__SPIRV_TOOLS_MODE="Prebuilds"
 		-DIGC_OPTION__SPIRV_TRANSLATOR_MODE="Prebuilds"
 		$(usex vc '-DIGC_OPTION__VC_INTRINSICS_MODE=Prebuilds' '')
