@@ -25,7 +25,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/vobject[${PYTHON_USEDEP}]
 "
 BDEPEND="
