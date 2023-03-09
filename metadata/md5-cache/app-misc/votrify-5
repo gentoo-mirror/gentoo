@@ -1,7 +1,7 @@
 DEFINED_PHASES=configure install postinst setup
 DESCRIPTION=Tool for community verification of Gentoo elections
 EAPI=7
-HOMEPAGE=https://github.com/mgorny/votrify
+HOMEPAGE=https://github.com/projg2/votrify
 INHERIT=python-single-r1
 IUSE=+python_single_target_python3_9
 KEYWORDS=amd64 x86
@@ -9,6 +9,6 @@ LICENSE=BSD-2
 RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) app-misc/gentoo-elections
 REQUIRED_USE=^^ ( python_single_target_python3_9 )
 SLOT=0
-SRC_URI=https://github.com/mgorny/votrify/archive/v5.tar.gz -> votrify-5.tar.gz
+SRC_URI=https://github.com/projg2/votrify/archive/v5.tar.gz -> votrify-5.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=e7bd69a4b516ed5beed358879005c2da
+_md5_=ffba8537c2a48d33c9fc11f766364837

@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=sci-libs/libh2o-0.2.1:=
 DESCRIPTION=Python API for sci-libs/libh2o
 EAPI=8
-HOMEPAGE=https://github.com/mgorny/pyh2o/
+HOMEPAGE=https://github.com/projg2/pyh2o/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86
@@ -12,6 +12,6 @@ RDEPEND=>=sci-libs/libh2o-0.2.1:= python_targets_python3_9? ( >=dev-lang/python-
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/mgorny/pyh2o/archive/v1.tar.gz -> pyh2o-1.tar.gz
+SRC_URI=https://github.com/projg2/pyh2o/archive/v1.tar.gz -> pyh2o-1.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=5cf54e1529fe92665b4768f46ba446ec
+_md5_=97a3584ed1f7c08b6788f8a9e7125f8d

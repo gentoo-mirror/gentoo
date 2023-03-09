@@ -2,7 +2,7 @@ BDEPEND=dev-qt/linguist-tools:5 python_targets_python3_9? ( >=dev-lang/python-3.
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DESCRIPTION=A frontend for Mupen64Plus
 EAPI=8
-HOMEPAGE=http://m64py.sourceforge.net/ https://github.com/mupen64plus/mupen64plus-ui-python/
+HOMEPAGE=https://m64py.sourceforge.net/ https://github.com/mupen64plus/mupen64plus-ui-python/
 INHERIT=distutils-r1 qmake-utils xdg-utils
 IUSE=7z rar python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
@@ -12,4 +12,4 @@ REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/mupen64plus/mupen64plus-ui-python/archive/e24679436a93e8aae0aa664dc4b2dea40d8236c1.tar.gz -> mupen64plus-ui-python-e24679436a93e8aae0aa664dc4b2dea40d8236c1.gh.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a
-_md5_=85f8a045ef1569f922c22c4c30452033
+_md5_=78dd97d5b4a7c8a5d33d2ceebcbbdd63
