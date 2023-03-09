@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,10 +36,10 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/${PN}-r2.logrotate ${PN/-bin/}
 
-	newinitd "${FILESDIR}"/${PN}-r2.init jenkins
-	newconfd "${FILESDIR}"/${PN}.confd jenkins
+	newinitd "${FILESDIR}"/${PN}-r3.init jenkins
+	newconfd "${FILESDIR}"/${PN}-r1.confd jenkins
 
-	systemd_newunit "${FILESDIR}"/${PN}-r3.service jenkins.service
+	systemd_newunit "${FILESDIR}"/${PN}-r4.service jenkins.service
 
 	fowners jenkins:jenkins /var/log/jenkins ${JENKINS_DIR} ${JENKINS_DIR}/home ${JENKINS_DIR}/backup
 }
