@@ -1,9 +1,9 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_9 )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit python-r1
 
 DESCRIPTION="Assorted git-related scripts"
@@ -13,13 +13,14 @@ SRC_URI="https://github.com/MestreLion/git-tools/archive/v${PV}.tar.gz -> ${P}.t
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}"
-RDEPEND="${DEPEND}
+RDEPEND="
+	${DEPEND}
+	>=app-shells/bash-4.0
 	>=dev-vcs/git-2.5
-	>=app-shells/bash-4.0"
+"
 
 src_install() {
 	dobin git-branches-rename git-clone-subset git-find-uncommitted-repos
