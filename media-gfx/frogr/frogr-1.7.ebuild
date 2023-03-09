@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,33 +15,31 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-libs/glib-2.44:2
 	>=dev-libs/json-glib-1.2
-	>=x11-libs/gtk+-3.16:3[introspection]
-	>=media-libs/libexif-0.6.14
+	>=dev-libs/libgcrypt-1.5:=
 	>=dev-libs/libxml2-2.6.8:2
 	media-libs/gstreamer:1.0
+	>=media-libs/libexif-0.6.14
 	>=net-libs/libsoup-2.34:2.4
-	>=dev-libs/libgcrypt-1.5:*
+	>=x11-libs/gtk+-3.16:3[introspection]
+	x11-libs/gdk-pixbuf:2
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	x11-base/xorg-proto"
 BDEPEND="
+	dev-util/itstool
 	>=sys-devel/gettext-0.19.7
 	virtual/pkgconfig
 "
 # TODO add a useflag for enable-video or header-bar???
 
-PATCHES=(
-	"${FILESDIR}/frogr-1.5-warning-level.patch"
-	"${FILESDIR}/frogr-1.5-meson-0.61-build.patch"
-)
-
 pkg_postinst() {
 	xdg_pkg_postinst
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	gnome2_schemas_update
 }
