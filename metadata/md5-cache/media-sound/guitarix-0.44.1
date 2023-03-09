@@ -1,9 +1,10 @@
-BDEPEND=|| ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] >=dev-lang/python-3.9.16-r1:3.9[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc nls? ( dev-util/intltool sys-devel/gettext ) )
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
-DEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] >=dev-lang/python-3.10.9-r1:3.10[threads(+)] >=dev-lang/python-3.9.16-r1:3.9[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc nls? ( dev-util/intltool sys-devel/gettext ) )
+DEFINED_PHASES=compile configure install postinst postrm preinst setup
+DEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) )
 DESCRIPTION=Virtual guitar amplifier for Linux
-EAPI=7
+EAPI=8
 HOMEPAGE=https://guitarix.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=python-any-r1 waf-utils xdg
 IUSE=bluetooth debug lv2 nls nsm +standalone zeroconf
 KEYWORDS=amd64
@@ -11,6 +12,6 @@ LICENSE=GPL-2
 RDEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) standalone? ( media-fonts/roboto )
 REQUIRED_USE=|| ( lv2 standalone )
 SLOT=0
-SRC_URI=mirror://sourceforge/guitarix/guitarix/guitarix2-0.44.1.tar.xz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	waf-utils	44f2c60168a3ec2c5fb661d45c1cf397	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=7e101ac7f9e5a8e0fedb0c46aa37ce03
+SRC_URI=https://github.com/brummer10/guitarix/releases/download/V0.44.1/guitarix2-0.44.1.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	waf-utils	44f2c60168a3ec2c5fb661d45c1cf397	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=35c2bfd6199a947f3a0417c217f39468
