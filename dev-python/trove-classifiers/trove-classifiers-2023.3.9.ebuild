@@ -4,18 +4,15 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( pypy3 python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Canonical source for classifiers on PyPI (pypi.org)"
 HOMEPAGE="
 	https://github.com/pypa/trove-classifiers/
 	https://pypi.org/project/trove-classifiers/
-"
-SRC_URI="
-	https://github.com/pypa/trove-classifiers/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="Apache-2.0"
