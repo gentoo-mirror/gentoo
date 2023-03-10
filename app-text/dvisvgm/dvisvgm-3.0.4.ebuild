@@ -16,18 +16,12 @@ LICENSE="GPL-3 Boost-1.0 || ( public-domain BSD-1 )"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 IUSE="test"
-
-# Tests don't work from ${WORKDIR}: kpathsea tries to search in relative
-# directories from where the binary is executed.
-# We cannot really use absolute paths in the kpathsea configuration since that
-# would make it harder for prefix installs.
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=app-arch/brotli-1.0.5:=
 	app-text/ghostscript-gpl:=
 	dev-libs/kpathsea:=
-	dev-libs/openssl:=
 	>=dev-libs/xxhash-0.8.1
 	>=media-gfx/potrace-1.10-r1
 	media-libs/freetype:2
@@ -45,11 +39,6 @@ BDEPEND="
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-gcc-13.patch
-	"${FILESDIR}"/${P}-rendering.patch
-)
 
 src_configure() {
 	local myargs=(
