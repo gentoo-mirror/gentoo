@@ -1648,6 +1648,9 @@ dev-java/icedtea-bin:headless-awt - Don't install the X backend for AWT, needed 
 dev-java/jaxen:dom4j - Includes org.jaxen.dom4j package
 dev-java/jaxen:jdom - Includes org.jaxen.jdom package
 dev-java/jaxen:xom - Includes org.jaxen.xom package
+dev-java/junit:migration-support - Include the junit-jupiter-migrationsupport module, which helps with migration from JUnit 4 to JUnit Jupiter
+dev-java/junit:suite - Include the JUnit Platform Suite Engine, which adds test suite support
+dev-java/junit:vintage - Include JUnit Vintage, which allows JUnit 5 to run JUnit 3 and JUnit 4 tests
 dev-java/miglayout:swt - Add support for the SWT toolkit.
 dev-java/openjdk:headless-awt - Don't install the X backend for AWT, needed by some GUIs
 dev-java/openjdk:javafx - Import OpenJFX modules at build time, via dev-java/openjfx
@@ -4338,6 +4341,7 @@ media-libs/quarter:qthelp - Build API documentation in QtHelp format
 media-libs/raptor:json - Enable support for JSON parsing
 media-libs/raspberrypi-userland-bin:hardfp - Use armv6 hardfp ABI
 media-libs/rubberband:jni - Enables building of Java Native Interface library
+media-libs/rubberband:lv2 - Add support for Ladspa V2
 media-libs/rubberband:programs - Builds also executable applications
 media-libs/rubberband:vamp - Enables vamp plugins support (Audio analysing plugins)
 media-libs/sdl-mixer:fluidsynth - Use media-sound/fluidsynth for MIDI support
