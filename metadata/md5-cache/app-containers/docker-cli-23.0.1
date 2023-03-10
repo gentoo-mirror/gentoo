@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.16.6 dev-go/go-md2man >=dev-lang/go-1.10
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=the command line binary for docker
+EAPI=7
+HOMEPAGE=https://www.docker.com/
+INHERIT=bash-completion-r1 golang-vcs-snapshot
+IUSE=hardened selinux
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=!<app-containers/docker-20.10.1 selinux? ( sec-policy/selinux-docker )
+RESTRICT=installsources strip test
+SLOT=0
+SRC_URI=https://github.com/docker/cli/archive/v23.0.1.tar.gz -> docker-cli-23.0.1.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c
+_md5_=c368000962b4956e14e38e15c1766290
