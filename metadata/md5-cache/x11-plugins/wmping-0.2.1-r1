@@ -1,12 +1,15 @@
-DEFINED_PHASES=install postinst
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install postinst prepare
 DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-base/xorg-proto x11-libs/libICE x11-libs/libXt
 DESCRIPTION=a simple host status monitoring dockapp
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/wmping
+INHERIT=autotools
 IUSE=+suid
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm
 SLOT=0
 SRC_URI=mirror://sourceforge/wmping/wmping-0.2.1.tar.gz
-_md5_=6f103fc20af4f23a115830a0ab210d5f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=00c118c2ad19b1f2504a9b233b7f7874

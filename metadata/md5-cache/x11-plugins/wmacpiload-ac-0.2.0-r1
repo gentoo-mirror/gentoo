@@ -1,12 +1,15 @@
-DEFINED_PHASES=configure
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure prepare
 DEPEND=x11-libs/libX11 x11-libs/libXt x11-libs/libXext x11-libs/libXpm x11-base/xorg-proto
 DESCRIPTION=WMACPILoad based dockapp to monitor CPU temp and battery time on ACPI kernels
 EAPI=7
 HOMEPAGE=http://wmacpiload.tuxfamily.org/
+INHERIT=autotools
 IUSE=debug
 KEYWORDS=~amd64 x86
 LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 x11-libs/libXt x11-libs/libXext x11-libs/libXpm
 SLOT=0
 SRC_URI=http://wmacpiload.tuxfamily.org/download/wmacpiload-0.2.0.tar.bz2
-_md5_=4ad0265ac356802198d8ba49e58196df
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=eab71d765361baf9912890e1aa2c87d3
