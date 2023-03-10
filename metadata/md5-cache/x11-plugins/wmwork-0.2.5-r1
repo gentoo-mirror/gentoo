@@ -1,11 +1,14 @@
-DEFINED_PHASES=-
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=prepare
 DEPEND=>=x11-libs/libXext-1.0.3 >=x11-libs/libX11-1.1.1-r1 >=x11-libs/libXpm-3.5.6 x11-base/xorg-proto
 DESCRIPTION=a dockapp that lets you easily track time spent on different projects
 EAPI=7
 HOMEPAGE=https://www.dockapps.net/wmwork
+INHERIT=autotools
 KEYWORDS=~amd64 x86
 LICENSE=GPL-2
 RDEPEND=>=x11-libs/libXext-1.0.3 >=x11-libs/libX11-1.1.1-r1 >=x11-libs/libXpm-3.5.6
 SLOT=0
 SRC_URI=https://www.dockapps.net/download/wmwork-0.2.5.tar.gz
-_md5_=98994d543d71eb4b2dbd176d23aa6a7a
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=62e25f49947b4b9b11677287776f8320
