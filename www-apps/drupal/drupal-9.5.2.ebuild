@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit webapp
 
@@ -34,7 +34,7 @@ src_install() {
 		core/INSTALL.mysql.txt core/INSTALL.pgsql.txt core/INSTALL.sqlite.txt core/UPDATE.txt "
 
 	dodoc ${docs}
-	rm -f ${docs} core/INSTALL core/COPYRIGHT.txt core/LICENSE.txt || die
+	rm ${docs} core/COPYRIGHT.txt core/LICENSE.txt || die
 
 	cp sites/default/{default.settings.php,settings.php} || die
 	insinto "${MY_HTDOCSDIR}"
@@ -60,7 +60,7 @@ pkg_postinst() {
 	ewarn "If this is a new install, unless you want anyone with network access to your server to be"
 	ewarn "able to run the setup, you'll have to configure your web server to limit access to it."
 	echo
-	ewarn "If you're doing a new drupal-8 install, you'll have to copy /sites/default/default.services.yml"
+	ewarn "If you're doing a new drupal-9 install, you'll have to copy /sites/default/default.services.yml"
 	ewarn "to /sites/default/services.yml and grant it write permissions to your web server."
 	ewarn "Just follow the instructions of the drupal setup and be sure to resolve any permissions issue"
 	ewarn "reported by the setup."

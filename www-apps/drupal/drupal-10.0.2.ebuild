@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit webapp
 
@@ -17,10 +17,12 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE="+mysql postgres sqlite +uploadprogress"
 
+# upstream supports php 8.1+, but dev-php/pecl-uploadprogress does not have 8.2
+# limit php to 8.1 for now
 RDEPEND="
-	dev-lang/php[gd,hash(+),mysql?,pdo,postgres?,simplexml,sqlite?,xml]
+	dev-lang/php:8.1[gd,hash(+),mysql?,pdo,postgres?,simplexml,sqlite?,xml]
 	virtual/httpd-php
-	uploadprogress? ( dev-php/pecl-uploadprogress )
+	uploadprogress? ( dev-php/pecl-uploadprogress[php_targets_php8-1] )
 "
 
 need_httpd_cgi
@@ -30,11 +32,12 @@ REQUIRED_USE="|| ( mysql postgres sqlite )"
 src_install() {
 	webapp_src_preinst
 
-	local docs="LICENSE.txt README.txt core/MAINTAINERS.txt core/INSTALL.txt core/CHANGELOG.txt \
-		core/INSTALL.mysql.txt core/INSTALL.pgsql.txt core/INSTALL.sqlite.txt core/UPDATE.txt "
+	local docs="LICENSE.txt README.md core/MAINTAINERS.txt core/INSTALL.txt core/CHANGELOG.txt \
+		core/INSTALL.mysql.txt core/INSTALL.pgsql.txt core/INSTALL.sqlite.txt core/UPDATE.txt \
+		core/USAGE.txt "
 
 	dodoc ${docs}
-	rm -f ${docs} core/INSTALL core/COPYRIGHT.txt core/LICENSE.txt || die
+	rm ${docs} core/COPYRIGHT.txt core/LICENSE.txt || die
 
 	cp sites/default/{default.settings.php,settings.php} || die
 	insinto "${MY_HTDOCSDIR}"
@@ -60,7 +63,7 @@ pkg_postinst() {
 	ewarn "If this is a new install, unless you want anyone with network access to your server to be"
 	ewarn "able to run the setup, you'll have to configure your web server to limit access to it."
 	echo
-	ewarn "If you're doing a new drupal-8 install, you'll have to copy /sites/default/default.services.yml"
+	ewarn "If you're doing a new drupal-10 install, you'll have to copy /sites/default/default.services.yml"
 	ewarn "to /sites/default/services.yml and grant it write permissions to your web server."
 	ewarn "Just follow the instructions of the drupal setup and be sure to resolve any permissions issue"
 	ewarn "reported by the setup."
