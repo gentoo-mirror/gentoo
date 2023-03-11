@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/
 DEFINED_PHASES=configure install prepare
 DEPEND=>=net-libs/libvncserver-0.9.8[ssl=] x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext >=x11-libs/libXtst-1.1.0 virtual/libcrypt:= ssl? ( dev-libs/openssl:0= ) xcomposite? ( x11-libs/libXcomposite ) xdamage? ( x11-libs/libXdamage ) xfixes? ( x11-libs/libXfixes ) xinerama? ( x11-libs/libXinerama ) xrandr? ( x11-libs/libXrandr ) zeroconf? ( >=net-dns/avahi-0.6.4 ) x11-base/xorg-proto x11-libs/libXt
 DESCRIPTION=VNC server for real X displays
-EAPI=7
+EAPI=8
 HOMEPAGE=https://libvnc.github.io/
 INHERIT=autotools
 IUSE=crypt fbcon ssl +xcomposite +xdamage +xfixes xinerama +xrandr zeroconf
@@ -12,4 +12,4 @@ RDEPEND=>=net-libs/libvncserver-0.9.8[ssl=] x11-libs/libX11 x11-libs/libXcursor 
 SLOT=0
 SRC_URI=https://github.com/LibVNC/x11vnc/archive/0.9.16.tar.gz -> x11vnc-0.9.16.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=2d8f579111a3b2ffdf1d2e3f9ef5ed44
+_md5_=e04e0d39aa0ee64df1a422c15761bbbf
