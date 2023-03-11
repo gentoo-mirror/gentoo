@@ -1,14 +1,14 @@
-BDEPEND=virtual/pkgconfig app-text/scdoc >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-text/scdoc dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=dev-libs/wayland dev-util/wayland-scanner x11-libs/pango x11-libs/cairo || ( systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) sys-libs/basu ) sys-apps/dbus icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf )
+DEPEND=dev-libs/wayland x11-libs/pango x11-libs/cairo || ( systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) sys-libs/basu ) sys-apps/dbus icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf ) >=dev-libs/wayland-protocols-1.21
 DESCRIPTION=A lightweight notification daemon for Wayland. Works on Sway
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/emersion/mako
-INHERIT=meson git-r3
+INHERIT=meson systemd git-r3
 IUSE=elogind +icons systemd
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/wayland dev-util/wayland-scanner x11-libs/pango x11-libs/cairo || ( systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) sys-libs/basu ) sys-apps/dbus icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf ) >=dev-libs/wayland-protocols-1.21
+RDEPEND=dev-libs/wayland x11-libs/pango x11-libs/cairo || ( systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) sys-libs/basu ) sys-apps/dbus icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=8aeff1e78eed7cc26f65b31410206293
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=0000a10c921d307d211a087b29edf5f7
