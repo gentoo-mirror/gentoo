@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install test unpack
 DEPEND=dev-libs/wayland media-libs/libpng x11-libs/pixman jpeg? ( media-libs/libjpeg-turbo ) >=dev-libs/wayland-protocols-1.14
 DESCRIPTION=Grab images from a Wayland compositor
 EAPI=8
-HOMEPAGE=https://github.com/emersion/grim
+HOMEPAGE=https://sr.ht/~emersion/grim
 INHERIT=bash-completion-r1 meson git-r3
 IUSE=+man jpeg
 LICENSE=MIT
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=dev-libs/wayland media-libs/libpng x11-libs/pixman jpeg? ( media-libs/libjpeg-turbo )
 SLOT=0
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=0f0820bc4abac29544518675aa9900c8
+_md5_=e6668502e3d73b2bac2dbbe64a5026bf
