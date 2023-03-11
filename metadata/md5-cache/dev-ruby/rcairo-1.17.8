@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby27? ( dev-ruby/red-colors[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby27? ( >=dev-ruby/pkg-config-1.2.2[ruby_targets_ruby27(-)] dev-ruby/ruby-glib2[ruby_targets_ruby27(-)] test? ( >=dev-ruby/test-unit-2.1.0-r1:2[ruby_targets_ruby27(-)] dev-ruby/ruby-poppler[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ) virtual/pkgconfig
+BDEPEND=test? ( ruby_targets_ruby27? ( dev-ruby/red-colors[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/red-colors[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( dev-ruby/red-colors[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( >=dev-ruby/pkg-config-1.2.2[ruby_targets_ruby27(-)] dev-ruby/ruby-glib2[ruby_targets_ruby27(-)] test? ( >=dev-ruby/test-unit-2.1.0-r1:2[ruby_targets_ruby27(-)] dev-ruby/ruby-poppler[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( >=dev-ruby/pkg-config-1.2.2[ruby_targets_ruby30(-)] dev-ruby/ruby-glib2[ruby_targets_ruby30(-)] test? ( >=dev-ruby/test-unit-2.1.0-r1:2[ruby_targets_ruby30(-)] dev-ruby/ruby-poppler[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( >=dev-ruby/pkg-config-1.2.2[ruby_targets_ruby31(-)] dev-ruby/ruby-glib2[ruby_targets_ruby31(-)] test? ( >=dev-ruby/test-unit-2.1.0-r1:2[ruby_targets_ruby31(-)] dev-ruby/ruby-poppler[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=>=x11-libs/cairo-1.2.0[svg(+)] ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+DEPEND=>=x11-libs/cairo-1.2.0[svg(+)] ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 DESCRIPTION=Ruby bindings for cairo
 EAPI=8
 HOMEPAGE=https://cairographics.org/rcairo/
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby27 doc test
+IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test
 KEYWORDS=~amd64 ~ppc ~riscv ~x86
 LICENSE=|| ( Ruby-BSD GPL-2 )
-RDEPEND=>=x11-libs/cairo-1.2.0[svg(+)] ruby_targets_ruby27? ( dev-ruby/red-colors[ruby_targets_ruby27(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby27 )
+RDEPEND=>=x11-libs/cairo-1.2.0[svg(+)] ruby_targets_ruby27? ( dev-ruby/red-colors[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/red-colors[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( dev-ruby/red-colors[ruby_targets_ruby31(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/cairo-1.17.8.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	1147c87e94def682fd485ce7a14a86c2	ruby-fakegem	b4704898f1b861fc19d465c8af7abe9c
-_md5_=8ea3c653d30a3063a87526d72e51e0a0
+_md5_=28b8555a125bc80d52e4e0c7eac005dd
