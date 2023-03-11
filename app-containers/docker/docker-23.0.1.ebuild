@@ -253,14 +253,6 @@ src_compile() {
 		fi
 	done
 
-	if use hardened; then
-		sed -i "s/EXTLDFLAGS_STATIC='/&-fno-PIC /" hack/make.sh || die
-		grep -q -- '-fno-PIC' hack/make.sh || die 'hardened sed failed'
-		sed  "s/LDFLAGS_STATIC_DOCKER='/&-extldflags -fno-PIC /" \
-			-i hack/make/dynbinary-daemon || die
-		grep -q -- '-fno-PIC' hack/make/dynbinary-daemon || die 'hardened sed failed'
-	fi
-
 	# build daemon
 	./hack/make.sh dynbinary || die 'dynbinary failed'
 }
@@ -319,27 +311,6 @@ pkg_postinst() {
 		elog " ZFS storage driver is available"
 		elog " Check https://docs.docker.com/storage/storagedriver/zfs-driver for more info"
 		elog
-	fi
-
-	if use cli; then
-		ewarn "Starting with docker 20.10.2, docker has been split into"
-		ewarn "two packages upstream, so Gentoo has followed suit."
-		ewarn
-		ewarn "app-containers/docker contains the daemon and"
-		ewarn "app-containers/docker-cli contains the docker command."
-		ewarn
-		ewarn "docker currently installs docker-cli using the cli use flag."
-		ewarn
-		ewarn "This use flag is temporary, so you need to take the"
-		ewarn "following actions:"
-		ewarn
-		ewarn "First, disable the cli use flag for app-containers/docker"
-		ewarn
-		ewarn "Then, if you need docker-cli and docker on the same machine,"
-		ewarn "run the following command:"
-		ewarn
-		ewarn "# emerge --noreplace docker-cli"
-		ewarn
 	fi
 }
 
