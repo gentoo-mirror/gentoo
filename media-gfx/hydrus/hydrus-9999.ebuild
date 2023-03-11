@@ -18,12 +18,8 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 
 	EGIT_REPO_URI="https://github.com/hydrusnetwork/hydrus.git"
-	SRC_URI="https://github.com/vaartis/hydrus/commit/106a55b3aca945d047685eb53bd1d2aa8b8a7c50.diff -> ${PN}-3.11-test-fixes.patch"
 else
-	SRC_URI="
-		https://github.com/hydrusnetwork/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/vaartis/hydrus/commit/106a55b3aca945d047685eb53bd1d2aa8b8a7c50.diff -> ${PN}-3.11-test-fixes.patch
-	"
+	SRC_URI="https://github.com/hydrusnetwork/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 	KEYWORDS="~amd64"
 fi
@@ -79,7 +75,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/userpath-in-local-share.patch"
-	"${DISTDIR}/${PN}-3.11-test-fixes.patch"
 )
 
 src_prepare() {
