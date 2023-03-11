@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
+DESCRIPTION=Wordpress PHP and MySQL based content management system (CMS)
+EAPI=8
+HOMEPAGE=https://wordpress.org/
+INHERIT=webapp
+IUSE=+akismet examples +themes vhosts vhosts
+LICENSE=GPL-2+
+RDEPEND=virtual/httpd-php || ( dev-lang/php[mysql] dev-lang/php[mysqli] ) app-admin/webapp-config
+SLOT=6.2_rc1
+SRC_URI=https://wordpress.org/wordpress-6.2-RC1.tar.gz
+_eclasses_=webapp	67df5bab481d0b9428f9ab7b3de690e4
+_md5_=90f723f2a3581269d6e0943371e78afc
