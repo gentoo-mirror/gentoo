@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,6 +25,7 @@ RDEPEND="acct-group/kvm"
 
 QA_PREBUILT="usr/bin/firecracker
 	usr/bin/jailer
+	usr/bin/rebase-snap
 	usr/bin/seccompiler-bin"
 
 S="${WORKDIR}"
@@ -76,5 +77,6 @@ src_install() {
 
 	newbin "release-v${PV}-${my_arch}/firecracker-v${PV}-${my_arch}" firecracker
 	newbin "release-v${PV}-${my_arch}/jailer-v${PV}-${my_arch}" jailer
+	newbin "release-v${PV}-${my_arch}/rebase-snap-v${PV}-${my_arch}" rebase-snap
 	newbin "release-v${PV}-${my_arch}/seccompiler-bin-v${PV}-${my_arch}" seccompiler-bin
 }
