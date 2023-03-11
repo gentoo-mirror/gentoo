@@ -1,42 +1,46 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake
+PYTHON_COMPAT=( python3_{9..11} )
+
+inherit cmake python-any-r1
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/catchorg/Catch2.git"
-	EGIT_BRANCH="Catch1.x"
 else
-	MY_P=${PN^}-${PV}
+	MY_P=${PN^}2-${PV}
 	SRC_URI="https://github.com/catchorg/Catch2/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86"
+	S="${WORKDIR}/${MY_P}"
 
-	S="${WORKDIR}/${PN^}2-${PV}"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="Modern C++ header-only framework for unit-tests"
 HOMEPAGE="https://github.com/catchorg/Catch2"
 
 LICENSE="Boost-1.0"
-SLOT="1"
+SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.12.2-glibc-2.34-sigstksz.patch
-)
+BDEPEND="test? ( ${PYTHON_DEPS} )"
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_configure() {
 	local mycmakeargs=(
-		-DNO_SELFTEST=$(usex !test)
+		-DCATCH_DEVELOPMENT_BUILD=ON
+		-DCATCH_ENABLE_WERROR=OFF
+		-DCATCH_BUILD_TESTING=$(usex test)
 	)
-	cmake_src_configure
-}
+	use test && mycmakeargs+=(
+		-DPYTHON_EXECUTABLE="${PYTHON}"
+	)
 
-src_install() {
-	cmake_src_install
-	dodoc -r docs/.
+	cmake_src_configure
 }
