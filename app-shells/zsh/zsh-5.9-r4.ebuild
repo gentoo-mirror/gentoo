@@ -1,30 +1,26 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools flag-o-matic prefix
 
-if [[ ${PV} == 9999* ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://git.code.sf.net/p/zsh/code"
-else
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-	SRC_URI="https://www.zsh.org/pub/${P}.tar.xz
-		https://www.zsh.org/pub/old/${P}.tar.xz
-		mirror://sourceforge/${PN}/${P}.tar.xz
-		doc? (
-			https://www.zsh.org/pub/${P}-doc.tar.xz
-			mirror://sourceforge/${PN}/${P}-doc.tar.xz
-		)"
-fi
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+
+SRC_URI="https://www.zsh.org/pub/${P}.tar.xz
+	https://www.zsh.org/pub/old/${P}.tar.xz
+	mirror://sourceforge/${PN}/${P}.tar.xz
+	doc? (
+		https://www.zsh.org/pub/${P}-doc.tar.xz
+		mirror://sourceforge/${PN}/${P}-doc.tar.xz
+	)"
 
 DESCRIPTION="UNIX Shell similar to the Korn shell"
 HOMEPAGE="https://www.zsh.org/"
 
 LICENSE="ZSH gdbm? ( GPL-2 )"
 SLOT="0"
-IUSE="caps debug doc examples gdbm maildir pcre static unicode"
+IUSE="caps debug doc examples gdbm maildir pcre static"
 
 RDEPEND="
 	>=sys-libs/ncurses-5.1:0=
@@ -34,7 +30,10 @@ RDEPEND="
 		>=dev-libs/libpcre-3.9
 		static? ( >=dev-libs/libpcre-3.9[static-libs] )
 	)
-	gdbm? ( sys-libs/gdbm:= )
+	gdbm? (
+		sys-libs/gdbm:=
+		static? ( sys-libs/gdbm:=[static-libs] )
+	)
 "
 DEPEND="sys-apps/groff
 	${RDEPEND}"
@@ -57,6 +56,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.9-musl-V09datetime-test-fix.patch
 	# bug #869539
 	"${FILESDIR}"/${PN}-5.9-clang-15-configure.patch
+	"${FILESDIR}"/${PN}-5.9-do-not-use-egrep-in-tests.patch
 )
 
 src_prepare() {
@@ -86,11 +86,11 @@ src_configure() {
 		--enable-site-fndir="${EPREFIX}"/usr/share/zsh/site-functions
 		--enable-function-subdirs
 		--with-tcsetpgrp
-		--with-term-lib="$(usex unicode 'tinfow ncursesw' 'tinfo ncurses')"
+		--enable-multibyte
+		--with-term-lib='tinfow ncursesw'
 		$(use_enable maildir maildir-support)
 		$(use_enable pcre)
 		$(use_enable caps cap)
-		$(use_enable unicode multibyte)
 		$(use_enable gdbm)
 	)
 
@@ -151,6 +151,10 @@ src_test() {
 		unset LANG
 		rm "${S}"/Test/E02xtrace.ztst || die
 	fi
+
+	# Breaks tests if inherited from environment.
+	unset TMPPREFIX
+
 	addpredict /dev/ptmx
 	local i
 	for i in C02cond.ztst V08zpty.ztst X02zlevi.ztst Y01completion.ztst Y02compmatch.ztst Y03arguments.ztst ; do
