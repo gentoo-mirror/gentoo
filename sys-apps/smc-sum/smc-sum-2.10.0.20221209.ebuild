@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,8 @@ MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards"
 HOMEPAGE="https://www.supermicro.com"
-SRC_URI="${MY_PN}_${MY_PV}_Linux_x86_64_${MY_DATE}.tar.gz"
+#SRC_URI="${MY_PN}_${MY_PV}_Linux_x86_64_${MY_DATE}.tar.gz"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/527/${MY_PN}_${MY_PV}_Linux_x86_64_${MY_DATE}.tar.gz"
 S="${WORKDIR}/${MY_PN}_${MY_PV}_Linux_x86_64"
 
 LICENSE="supermicro"
@@ -25,7 +26,7 @@ RDEPEND="
 	module? ( !sys-apps/smc-sum-driver )
 "
 
-RESTRICT="bindist fetch mirror"
+RESTRICT="bindist mirror"
 
 DOCS=(
 	"PlatformFeatureSupportMatrix.pdf"
@@ -42,12 +43,6 @@ BUILD_TARGETS="default"
 MODULE_NAMES="sum_bios(misc:${S}/driver/Source/Linux)"
 
 QA_PREBUILT="usr/bin/smc-sum"
-
-pkg_nofetch() {
-	elog "Please download ${A} from"
-	elog "https://www.supermicro.com/SwDownload/UserInfo.aspx?sw=0&cat=SUM"
-	elog "and place it in your DISTDIR directory."
-}
 
 src_prepare() {
 	default
