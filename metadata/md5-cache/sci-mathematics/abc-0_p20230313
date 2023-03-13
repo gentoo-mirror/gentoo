@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install
+DEPEND=readline? ( sys-libs/readline:= )
+DESCRIPTION=System for sequential logic synthesis and formal verification
+EAPI=8
+HOMEPAGE=https://people.eecs.berkeley.edu/~alanmi/abc/ https://github.com/berkeley-abc/abc/
+INHERIT=toolchain-funcs
+IUSE=+readline +threads
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=readline? ( sys-libs/readline:= )
+SLOT=0
+SRC_URI=https://github.com/berkeley-abc/abc/archive/a5f4841486d4a491913943c5b92167a9e988abac.tar.gz -> abc-0_p20230313.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=29e2c9fa4c67a18a1b752daf80dcfb41
