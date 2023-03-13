@@ -8,7 +8,6 @@ inherit autotools elisp-common
 DESCRIPTION="Any to PostScript filter"
 HOMEPAGE="https://www.gnu.org/software/a2ps/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
-S="${WORKDIR}/${PN}-${PV:0:4}"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -22,6 +21,7 @@ RDEPEND="
 	>=app-text/psutils-1.17
 	app-text/wdiff
 	app-shells/bash:*
+	dev-libs/boehm-gc
 	>=sys-apps/coreutils-6.10-r1
 	emacs? ( >=app-editors/emacs-23.1:* )
 	latex? ( virtual/latex-base )
