@@ -4269,7 +4269,6 @@ media-libs/mesa:vulkan - Enable Vulkan drivers
 media-libs/mesa:vulkan-overlay - Build vulkan-overlay-layer which displays Frames Per Second and other statistics
 media-libs/mesa:wayland - Enable support for dev-libs/wayland
 media-libs/mesa:xa - Enable the XA (X Acceleration) API for Gallium3D.
-media-libs/mesa:xvmc - Enable the XvMC acceleration interface for the Gallium3D Video Layer.
 media-libs/mesa:zink - Enable the Zink OpenGL-over-Vulkan Gallium driver
 media-libs/mesa-amber:gles1 - Enable GLESv1 support.
 media-libs/mesa-amber:gles2 - Enable GLESv2 support.
@@ -8772,10 +8771,7 @@ x11-drivers/xf86-video-intel:xvmc - Enables X-Video Motion Compensation support
 x11-drivers/xf86-video-openchrome:viaregtool - Install registers dumper tool
 x11-drivers/xf86-video-qxl:xspice - Include Xspice, a standard X server that is also a Spice server
 x11-libs/agg:gpc - Enable gpc polygon clipper library
-x11-libs/cairo:gles2-only - Build the OpenGL ES 2 backend
-x11-libs/cairo:gles3 - Use OpenGL ES 3.0 features (instead of ES 2.0; requires USE=gles2-only)
 x11-libs/cairo:glib - Compile with GLib Object System support
-x11-libs/cairo:opengl - Build the OpenGL backend
 x11-libs/fltk:games - Builds and installs some extra games
 x11-libs/fox:tools - Install adie, calculator, shutterbug, and pathfinder apps.
 x11-libs/gtk+:broadway - Enable the GDK Broadway backend
