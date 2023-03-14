@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,6 +23,8 @@ DEPEND="media-libs/libsdl2[X]
 RDEPEND="${DEPEND}
 	!ppc64? ( dev-util/android-tools )"
 BDEPEND=""
+
+PATCHES=( "${FILESDIR}"/${P}-desktop.patch )
 
 src_configure() {
 	local emesonargs=(
