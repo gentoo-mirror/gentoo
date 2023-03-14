@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,11 +9,11 @@ DESCRIPTION="Video Disk Recorder - turns a pc into a powerful set top box for DV
 HOMEPAGE="http://www.tvdr.de/"
 SRC_URI="http://git.tvdr.de/?p=vdr.git;a=snapshot;h=refs/tags/${PV};sf=tbz2 -> ${P}.tbz2
 	menuorg? ( https://github.com/vdr-projects/vdr-plugin-menuorg/raw/master/vdr-patch/vdr-menuorg-2.3.x.diff )
-	ttxtsubs? ( https://md11.it.cx/download/${PN}/${PN}-2.6.1_ttxtsubs_v2.patch )"
+	ttxtsubs? ( https://md11.it.cx/download/${PN}/${P}_ttxtsubs_v2.patch )"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 IUSE="bidi debug demoplugins html keyboard mainmenuhooks menuorg naludump permashift pinplugin systemd ttxtsubs verbose"
 
 COMMON_DEPEND="
@@ -21,7 +21,7 @@ COMMON_DEPEND="
 	acct-user/vdr
 	media-libs/fontconfig
 	media-libs/freetype
-	media-libs/libjpeg-turbo
+	media-libs/libjpeg-turbo:=
 	sys-libs/libcap"
 DEPEND="${COMMON_DEPEND}
 	>=virtual/linuxtv-dvb-headers-5.3"
@@ -118,10 +118,10 @@ src_prepare() {
 	# fix clang/LLVM compile
 	eapply "${FILESDIR}/${PN}-2.4.6_clang.patch"
 
-	use naludump && eapply "${FILESDIR}/${P}_naludump.patch"
-	use permashift && eapply "${FILESDIR}/${P}-patch-for-permashift.patch"
-	use pinplugin && eapply "${FILESDIR}/${P}_pinplugin.patch"
-	use ttxtsubs && eapply "${DISTDIR}/${P}_ttxtsubs_v2.patch"
+	use naludump && eapply "${FILESDIR}/${PN}-2.6.1_naludump.patch"
+	use permashift && eapply "${FILESDIR}/${PN}-2.6.1-patch-for-permashift.patch"
+	use pinplugin && eapply "${FILESDIR}/${PN}-2.6.1_pinplugin.patch"
+	use ttxtsubs && eapply "${DISTDIR}/vdr-2.6.1_ttxtsubs_v2.patch"
 	use menuorg && eapply "${DISTDIR}/vdr-menuorg-2.3.x.diff"
 	use mainmenuhooks && eapply "${FILESDIR}/${PN}-2.4.1_mainmenuhook-1.0.1.patch"
 
