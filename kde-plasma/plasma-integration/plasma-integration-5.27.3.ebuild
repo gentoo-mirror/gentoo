@@ -36,7 +36,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kwayland-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -51,6 +50,4 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/hack
 	media-fonts/noto
 "
-BDEPEND="
-	>=dev-qt/qtwaylandscanner-${QTMIN}:5
-"
+BDEPEND=">=dev-qt/qtwaylandscanner-${QTMIN}:5"
