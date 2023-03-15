@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit autotools
 
@@ -26,7 +26,10 @@ RESTRICT="test"
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}"/${P}-ldflags.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-ldflags.patch
+	"${FILESDIR}"/${P}-gcc11.patch
+)
 
 src_prepare() {
 	default
@@ -35,6 +38,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		--disable-hardening \
 		--with-ssl-dir="${EPREFIX}/usr" \
 		--with-tcl="${EPREFIX}/usr/$(get_libdir)"
 }
