@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://eid.belgium.be
 INHERIT=autotools desktop gnome2-utils xdg-utils
 IUSE=+dialogs +gtk p11-kit
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=LGPL-3
 RDEPEND=>=sys-apps/pcsc-lite-1.2.9 gtk? ( x11-libs/gdk-pixbuf[jpeg] x11-libs/gtk+:3 dev-libs/libxml2 net-misc/curl[ssl] net-libs/libproxy >=app-crypt/pinentry-1.1.0-r4[gtk] ) p11-kit? ( app-crypt/p11-kit )
 REQUIRED_USE=dialogs? ( gtk )
 SLOT=0
 SRC_URI=https://codeload.github.com/fedict/eid-mw/tar.gz/v5.1.10 -> eid-mw-5.1.10.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3
-_md5_=4ee1c5c4434e00726ca02bb669a60c16
+_md5_=b17e6afee9c33ec2b292b34820456991
