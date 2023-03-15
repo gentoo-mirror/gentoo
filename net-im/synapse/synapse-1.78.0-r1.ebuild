@@ -34,7 +34,7 @@ CRATES="
 	pyo3-0.17.3
 	pyo3-build-config-0.17.3
 	pyo3-ffi-0.17.3
-	pyo3-log-0.7.0
+	pyo3-log-0.8.1
 	pyo3-macros-0.17.3
 	pyo3-macros-backend-0.17.3
 	pythonize-0.17.0
@@ -46,7 +46,7 @@ CRATES="
 	scopeguard-1.1.0
 	serde-1.0.152
 	serde_derive-1.0.152
-	serde_json-1.0.92
+	serde_json-1.0.93
 	smallvec-1.10.0
 	subtle-2.4.1
 	syn-1.0.104
@@ -85,7 +85,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -97,7 +97,7 @@ RDEPEND="${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/bcrypt[${PYTHON_USEDEP}]
 	dev-python/bleach[${PYTHON_USEDEP}]
-	dev-python/canonicaljson[${PYTHON_USEDEP}]
+	<dev-python/canonicaljson-2[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/frozendict[${PYTHON_USEDEP}]
 	dev-python/ijson[${PYTHON_USEDEP}]
@@ -134,6 +134,10 @@ BDEPEND="
 		postgres? ( dev-db/postgresql[server] )
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-frozendict-version.patch"
+)
 
 # Rust extension
 QA_FLAGS_IGNORED="usr/lib/python3.*/site-packages/synapse/synapse_rust.abi3.so"

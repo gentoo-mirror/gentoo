@@ -46,7 +46,7 @@ CRATES="
 	scopeguard-1.1.0
 	serde-1.0.152
 	serde_derive-1.0.152
-	serde_json-1.0.93
+	serde_json-1.0.94
 	smallvec-1.10.0
 	subtle-2.4.1
 	syn-1.0.104
@@ -97,7 +97,7 @@ RDEPEND="${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/bcrypt[${PYTHON_USEDEP}]
 	dev-python/bleach[${PYTHON_USEDEP}]
-	dev-python/canonicaljson[${PYTHON_USEDEP}]
+	<dev-python/canonicaljson-2[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/frozendict[${PYTHON_USEDEP}]
 	dev-python/ijson[${PYTHON_USEDEP}]
@@ -136,7 +136,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-frozendict-version.patch"
+	"${FILESDIR}/${PN}-1.78.0-frozendict-version.patch"
 )
 
 # Rust extension
