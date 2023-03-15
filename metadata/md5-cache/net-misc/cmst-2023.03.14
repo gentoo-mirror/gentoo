@@ -1,0 +1,14 @@
+BDEPEND=dev-qt/linguist-tools:5
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5
+DESCRIPTION=Qt GUI for Connman with system tray icon
+EAPI=7
+HOMEPAGE=https://github.com/andrew-bibb/cmst
+INHERIT=qmake-utils xdg-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 net-misc/connman
+SLOT=0
+SRC_URI=https://github.com/andrew-bibb/cmst/archive/cmst-2023.03.14.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=f098e6afc8ea3a2bfc655b3f3bc2c84d
