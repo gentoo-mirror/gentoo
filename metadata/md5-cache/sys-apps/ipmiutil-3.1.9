@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=dev-libs/openssl-1:= virtual/os-headers
+DESCRIPTION=IPMI Management Utilities
+EAPI=8
+HOMEPAGE=http://ipmiutil.sourceforge.net/
+INHERIT=autotools systemd
+IUSE=static-libs
+KEYWORDS=~amd64 ~hppa ~ppc ~x86
+LICENSE=BSD
+RDEPEND=>=dev-libs/openssl-1:=
+SLOT=0
+SRC_URI=mirror://sourceforge/ipmiutil/ipmiutil-3.1.9.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=fce60fb4b385da66cd4876226a463f6a
