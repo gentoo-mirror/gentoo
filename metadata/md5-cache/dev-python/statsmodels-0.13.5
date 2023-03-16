@@ -4,7 +4,7 @@ DEPEND=>=dev-python/numpy-1.17[python_targets_python3_9(-)?,python_targets_pytho
 DESCRIPTION=Statistical computations and models for use with SciPy
 EAPI=8
 HOMEPAGE=https://www.statsmodels.org/stable/index.html https://github.com/statsmodels/statsmodels/ https://pypi.org/project/statsmodels/
-INHERIT=distutils-r1 multiprocessing optfeature
+INHERIT=distutils-r1 multiprocessing optfeature pypi
 IUSE=examples doc test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
@@ -12,6 +12,6 @@ RDEPEND=>=dev-python/numpy-1.17[python_targets_python3_9(-)?,python_targets_pyth
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://pypi/s/statsmodels/statsmodels-0.13.5.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=2d3e2076e26c7698076bfe6c5197713e
+SRC_URI=https://files.pythonhosted.org/packages/source/s/statsmodels/statsmodels-0.13.5.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	optfeature	1a2157392a869265b2afcb63a26c12ac	pypi	1bc874ed4adb7d785e7201acbbb8347a
+_md5_=d77d789bf1193aa393295e8ffba24710

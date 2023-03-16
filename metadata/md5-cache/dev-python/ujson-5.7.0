@@ -4,7 +4,7 @@ DEPEND=dev-libs/double-conversion:=
 DESCRIPTION=Ultra fast JSON encoder and decoder for Python
 EAPI=8
 HOMEPAGE=https://github.com/ultrajson/ultrajson/ https://pypi.org/project/ujson/
-INHERIT=distutils-r1
+INHERIT=distutils-r1 pypi
 IUSE=test python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
@@ -12,6 +12,6 @@ RDEPEND=dev-libs/double-conversion:= python_targets_pypy3? ( >=dev-python/pypy3-
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://pypi/u/ujson/ujson-5.7.0.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=ba3a68b4756f84a781dacd9e396d935d
+SRC_URI=https://files.pythonhosted.org/packages/source/u/ujson/ujson-5.7.0.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	pypi	1bc874ed4adb7d785e7201acbbb8347a
+_md5_=46b12466f263c0cb395e3b5823c26d47
