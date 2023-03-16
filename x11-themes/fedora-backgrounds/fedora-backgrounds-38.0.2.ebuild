@@ -13,7 +13,7 @@ SRC_URI="https://github.com/fedoradesign/backgrounds/releases/download/v${PV}/${
 # Review on each bump, files Attribution*
 LICENSE="CC-BY-SA-4.0"
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 SLOT="$(ver_cut 1)"
 
@@ -22,9 +22,3 @@ DEPEND=""
 BDEPEND=""
 
 S="${WORKDIR}/${MY_PN}"
-
-src_install() {
-	default
-	# Don't change default MATE background
-	rm "${ED}"/usr/share/backgrounds/mate/default.xml || die
-}
