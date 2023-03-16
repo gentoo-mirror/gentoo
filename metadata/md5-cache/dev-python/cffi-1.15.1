@@ -4,7 +4,7 @@ DEPEND=dev-libs/libffi:=
 DESCRIPTION=Foreign Function Interface for Python calling C code
 EAPI=7
 HOMEPAGE=https://cffi.readthedocs.io/ https://pypi.org/project/cffi/
-INHERIT=distutils-r1 toolchain-funcs
+INHERIT=distutils-r1 toolchain-funcs pypi
 IUSE=doc test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
 LICENSE=MIT
@@ -12,6 +12,6 @@ RDEPEND=dev-libs/libffi:= dev-python/pycparser[python_targets_python3_9(-)?,pyth
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0/1.15.1
-SRC_URI=mirror://pypi/c/cffi/cffi-1.15.1.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=bea70644632b1522c7662bcc55e710a7
+SRC_URI=https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.15.1.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	pypi	1bc874ed4adb7d785e7201acbbb8347a
+_md5_=b134d0a29b319e16da229197e057b543
