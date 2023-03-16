@@ -3,13 +3,13 @@ DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Command-line TOML/JSON/INI/YAML/XML processor using jq c bindings
 EAPI=7
 HOMEPAGE=https://pypi.org/project/wildq/ https://github.com/ahmet2mir/wildq
-INHERIT=distutils-r1
+INHERIT=distutils-r1 pypi
 IUSE=hcl toml xml python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RDEPEND=dev-python/jq[python_targets_python3_9(-)?,python_targets_python3_10(-)?] hcl? ( dev-python/pyhcl[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) toml? ( dev-python/toml[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) xml? ( dev-python/xmltodict[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
-SRC_URI=mirror://pypi/w/wildq/wildq-1.1.11.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=a3efff7109de00f881f0337f9f868814
+SRC_URI=https://files.pythonhosted.org/packages/source/w/wildq/wildq-1.1.11.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	pypi	1bc874ed4adb7d785e7201acbbb8347a
+_md5_=6a487e8e0a051427ddea4982761744f7
