@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://ocaml.org/
 INHERIT=flag-o-matic
 IUSE=emacs flambda latex +ocamlopt xemacs
-KEYWORDS=~amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~x86-solaris
 LICENSE=QPL-1.0 LGPL-2
 PDEPEND=emacs? ( app-emacs/ocaml-mode ) xemacs? ( app-xemacs/ocaml )
 RDEPEND=sys-libs/binutils-libs:=
 SLOT=0/4.14
 SRC_URI=https://github.com/ocaml/ocaml/archive/4.14.0.tar.gz -> ocaml-4.14.0.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=fe0f58400db85a833066e7a467578b8f
+_md5_=4eac7267b92b7d8c3ea68e4c04d80067
