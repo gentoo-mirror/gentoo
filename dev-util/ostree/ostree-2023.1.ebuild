@@ -1,32 +1,34 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools systemd
+inherit autotools systemd tmpfiles
 
 DESCRIPTION="Operating system and container binary deployment and upgrades"
 HOMEPAGE="https://ostreedev.github.io/ostree/"
 SRC_URI="https://github.com/ostreedev/ostree/releases/download/v${PV}/lib${P}.tar.xz -> ${P}.tar.xz"
 
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 LICENSE="LGPL-2+"
 SLOT="0"
 
-IUSE="archive curl doc dracut gnutls +gpg grub http2 httpd introspection libmount selinux sodium ssl +soup systemd zeroconf"
+IUSE="archive +curl doc dracut gnutls +gpg grub +http2 httpd introspection libmount selinux sodium ssl +soup systemd zeroconf"
 RESTRICT="test"
 REQUIRED_USE="
 	dracut? ( systemd )
+	http2? ( curl )
 	httpd? ( || ( curl soup ) )
 "
 
 COMMON_DEPEND="
-	archive? ( app-arch/libarchive:= )
 	app-arch/xz-utils
-	curl? ( net-misc/curl )
-	soup? ( net-libs/libsoup:2.4 )
 	dev-libs/libassuan
 	dev-libs/glib:2
+	sys-fs/fuse:3
+	sys-libs/zlib
+	archive? ( app-arch/libarchive:= )
+	curl? ( net-misc/curl )
 	dracut? ( sys-kernel/dracut )
 	gpg? (
 		app-crypt/gpgme:=
@@ -34,17 +36,16 @@ COMMON_DEPEND="
 	)
 	grub? ( sys-boot/grub:2= )
 	introspection? ( dev-libs/gobject-introspection )
+	libmount? ( sys-apps/util-linux )
+	selinux? ( sys-libs/libselinux )
+	sodium? ( >=dev-libs/libsodium-1.0.14:= )
+	soup? ( net-libs/libsoup:2.4 )
 	ssl? (
 		gnutls? ( net-libs/gnutls:= )
 		!gnutls? (
 			dev-libs/openssl:0=
 		)
 	)
-	>=sys-fs/fuse-2.9.2:0
-	sys-libs/zlib
-	libmount? ( sys-apps/util-linux )
-	selinux? ( sys-libs/libselinux )
-	sodium? ( >=dev-libs/libsodium-1.0.14:= )
 	systemd? ( sys-apps/systemd:0= )
 	zeroconf? ( net-dns/avahi[dbus] )"
 
@@ -62,11 +63,17 @@ BDEPEND="
 
 S="${WORKDIR}/lib${P}"
 
+PATCHES=(
+	"${FILESDIR}"/ostree-2022.6-musl-allperms.patch
+)
+
 src_prepare() {
+	default
+
 	sed -Ee 's:(XSLT_STYLESHEET = ).*:\1/usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl:' \
 		-i Makefile.in Makefile-man.am || die
+
 	eautoreconf
-	default
 }
 
 src_configure() {
@@ -77,7 +84,7 @@ src_configure() {
 		--with-modern-grub
 		$(use_with archive libarchive)
 		$(use_with curl)
-		$(use_with dracut)
+		$(use_with dracut dracut yesbutnoconf) #816867
 		$(use_enable doc gtk-doc)
 		$(usex introspection --enable-introspection={,} yes no)
 		$(use_with gpg gpgme)
@@ -97,10 +104,14 @@ src_configure() {
 	fi
 
 	unset ${!XDG_*} #657346 g-ir-scanner sandbox violation
-	econf ${econfargs[*]}
+	econf "${econfargs[@]}"
 }
 
 src_install() {
 	default
 	find "${D}" -name '*.la' -delete || die
+}
+
+pkg_postinst() {
+	tmpfiles_process ostree-tmpfiles.conf
 }

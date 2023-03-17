@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/zlib-ng/minizip-ng/archive/refs/tags/${PV}.tar.gz ->
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="compat openssl test zstd"
 RESTRICT="!test? ( test )"
 
@@ -35,7 +35,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.0.7-system-gtest.patch
+	"${FILESDIR}"/minizip-3.0.9-strdup.patch
 )
 
 src_configure() {
@@ -59,8 +59,6 @@ src_configure() {
 		-DMZ_PKCRYPT=ON
 		-DMZ_WZAES=ON
 		-DMZ_OPENSSL=$(usex openssl)
-		# TODO: Re-enable, ideally unconditionally, for arc4random
-		# Revisit when https://github.com/zlib-ng/minizip-ng/pull/648 fixed
 		-DMZ_LIBBSD=ON
 		-DMZ_SIGNING=ON
 
@@ -85,6 +83,12 @@ src_test() {
 
 src_install() {
 	cmake_src_install
+
+	if use test ; then
+		# Test binaries, bug #874591
+		rm "${ED}"/usr/bin/minigzip || die
+		rm "${ED}"/usr/bin/minizip-ng || die
+	fi
 
 	if use compat ; then
 		ewarn "minizip-ng is experimental and replacing the system zlib[minizip] is dangerous"

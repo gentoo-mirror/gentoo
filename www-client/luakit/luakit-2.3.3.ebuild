@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
 
@@ -10,13 +10,8 @@ inherit lua-single toolchain-funcs xdg
 DESCRIPTION="A fast, extensible, and customizable web browser"
 HOMEPAGE="https://luakit.github.io/luakit"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/luakit/luakit.git"
-else
-	SRC_URI="https://github.com/luakit/luakit/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64"
-fi
+SRC_URI="https://github.com/luakit/luakit/archive/${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64 ~arm64"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -28,7 +23,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-db/sqlite:3
 	dev-libs/glib:2
-	net-libs/webkit-gtk:4=
+	net-libs/webkit-gtk:4.1=
 	x11-libs/gtk+:3
 	${LUA_DEPS}
 	$(lua_gen_cond_dep '
@@ -38,7 +33,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( app-doc/doxygen )
+	doc? (
+		dev-lua/luafilesystem
+		app-doc/doxygen
+		media-gfx/graphviz
+	)
 	test? (
 		$(lua_gen_cond_dep '
 			dev-lua/luassert[${LUA_USEDEP}]
@@ -47,10 +46,6 @@ BDEPEND="
 		x11-base/xorg-server[xvfb]
 	)
 "
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.2.1-make.patch
-)
-
 src_configure() {
 	export LUA_BIN_NAME=${ELUA}
 	export LUA_PKG_NAME=${ELUA}
