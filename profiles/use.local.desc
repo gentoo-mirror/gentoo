@@ -1751,40 +1751,40 @@ dev-lang/perl:ithreads - Enable Perl threads, has some compatibility problems
 dev-lang/perl:quadmath - Enable 128bit floating point arithmetic via libquadmath
 dev-lang/php:apparmor - Support FPM application confinement through sys-libs/libapparmor
 dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
-dev-lang/php:bcmath - Add support for libbcmath
-dev-lang/php:cli - Enable CLI SAPI
+dev-lang/php:bcmath - Enable the BCMath Arbitrary Precision Mathematics extension
+dev-lang/php:cli - Enable the Command-Line Interface (CLI) SAPI
 dev-lang/php:coverage - Include gcov symbols for test coverage and lcov reports. Only useful for extension developers, and requires GCC.
-dev-lang/php:ctype - Enable ctype functions
+dev-lang/php:ctype - Enable the Character type checking (ctype) extension
 dev-lang/php:embed - Enable embed SAPI
-dev-lang/php:enchant - Add supports Enchant spelling library
-dev-lang/php:ffi - Add foreign function interface (ffi extension) support
-dev-lang/php:fileinfo - Add fileinfo extension support
-dev-lang/php:filter - Add filter extension support
+dev-lang/php:enchant - Enable the Enchant spelling library extension using app-text/enchant
+dev-lang/php:ffi - Enable the Foreign Function Interface (FFI) extension using dev-libs/libffi
+dev-lang/php:fileinfo - Enable the File Information extension
+dev-lang/php:filter - Enable the Data Filtering extension
 dev-lang/php:flatfile - Add dbm support for flat files
 dev-lang/php:fpm - Enable the FastCGI Process Manager SAPI
-dev-lang/php:gd - Adds support for gd (bundled with PHP)
+dev-lang/php:gd - Enable the Image Processing and GD extension (requires media-libs/libjpeg-turbo and media-libs/libpng)
 dev-lang/php:inifile - Add dbm support for .ini files
 dev-lang/php:intl - Enables the intl extension for extended internalization support
 dev-lang/php:jit - Enable PCRE JIT support
-dev-lang/php:json - Enable JSON support
-dev-lang/php:ldap-sasl - Add SASL support for the PHP LDAP extension
+dev-lang/php:json - Enable the JavaScript Object Notation extension
+dev-lang/php:ldap-sasl - Add SASL support for the PHP LDAP extension using dev-libs/cyrus-sasl
 dev-lang/php:lmdb - Enable support for dev-db/lmdb db backend
 dev-lang/php:opcache - Enables built-in opcode cache, replacing pecl-apc et al.
-dev-lang/php:pcntl - Add support for process creation functions
-dev-lang/php:pdo - Enable the bundled PDO extensions
+dev-lang/php:pcntl - Enable the Process Control extension
+dev-lang/php:pdo - Enable the PHP Data Objects extension
 dev-lang/php:phar - Enables the phar extension to provide phar archive support
 dev-lang/php:phpdbg - Enable the PHP Debug Command Line SAPI (like gdb for php)
 dev-lang/php:session-mm - Include dev-libs/mm support for session storage
-dev-lang/php:sharedmem - Add support for shared memory use
-dev-lang/php:simplexml - Support for SimpleXML
+dev-lang/php:sharedmem - Enable the shmop extension
+dev-lang/php:simplexml - Enable the SimpleXML extension
 dev-lang/php:sodium - Enable support for crypto through dev-libs/libsodium
-dev-lang/php:sysvipc - Support for System V-compatible inter-process communication
+dev-lang/php:sysvipc - Enable the PHP System-V semaphore, shared memory and IPC extension
 dev-lang/php:tokenizer - Add support for the PHP file parser
 dev-lang/php:tokyocabinet - Enable support for dev-db/tokyocabinet db backend
 dev-lang/php:webp - Enable webp support for GD in php-7.x
-dev-lang/php:xmlreader - Enable XMLReader support
-dev-lang/php:xmlwriter - Enable XMLWriter support
-dev-lang/php:xslt - Enable the XSL extension
+dev-lang/php:xmlreader - Enable the XMLReader extension
+dev-lang/php:xmlwriter - Enable the XMLWriter extension
+dev-lang/php:xslt - Build the XSL extension
 dev-lang/polyml:portable - Build the portable interpreter version of Poly/ML instead of native
 dev-lang/python:bluetooth - Build Bluetooth protocol support in socket module
 dev-lang/python:ensurepip - Install the ensurepip module that uses bundled wheels to bootstrap pip and setuptools (if disabled, it will be only possible to use venv `--without-pip`)
