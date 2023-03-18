@@ -9,12 +9,7 @@ EAPI=7
 inherit libtool multilib multilib-minimal preserve-libs usr-ldscript
 
 if [[ ${PV} == 9999 ]] ; then
-	# Per tukaani.org, git.tukaani.org is a mirror of github and
-	# may be behind.
-	EGIT_REPO_URI="
-		https://github.com/tukaani-project/xz
-		https://git.tukaani.org/xz.git
-	"
+	EGIT_REPO_URI="https://git.tukaani.org/xz.git"
 	inherit git-r3 autotools
 
 	# bug #272880 and bug #286068
@@ -25,11 +20,9 @@ else
 
 	MY_P="${PN/-utils}-${PV/_}"
 	SRC_URI="
-		https://github.com/tukaani-project/xz/releases/download/v${PV}/${MY_P}.tar.gz
 		mirror://sourceforge/lzmautils/${MY_P}.tar.gz
 		https://tukaani.org/xz/${MY_P}.tar.gz
 		verify-sig? (
-			https://github.com/tukaani-project/xz/releases/download/v${PV}/${MY_P}.tar.gz.sig
 			https://tukaani.org/xz/${MY_P}.tar.gz.sig
 		)
 	"
@@ -47,11 +40,14 @@ HOMEPAGE="https://tukaani.org/xz/"
 # See top-level COPYING file as it outlines the various pieces and their licenses.
 LICENSE="public-domain LGPL-2.1+ GPL-2+"
 SLOT="0"
-IUSE="doc +extra-filters nls static-libs"
+IUSE="+extra-filters nls static-libs"
 
 if [[ ${PV} != 9999 ]] ; then
 	BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-lassecollin-20230213 )"
 fi
+
+# Tests currently do not account for smaller feature set
+RESTRICT="!extra-filters? ( test )"
 
 src_prepare() {
 	default
@@ -68,7 +64,6 @@ src_prepare() {
 multilib_src_configure() {
 	local myconf=(
 		--enable-threads
-		$(multilib_native_use_enable doc)
 		$(use_enable nls)
 		$(use_enable static-libs static)
 	)
