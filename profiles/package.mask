@@ -263,18 +263,6 @@ app-eselect/eselect-opencascade
 # Removal on 2023-03-21.  Bug #895342.
 dev-python/flask-script
 
-# Sam James <sam@gentoo.org> (2023-02-18)
-# Last release in 2018, needs porting to Python 3.11, and no reverse
-# dependencies. Removal on 2023-03-18. bug #895174.
-dev-python/setuptools_trial
-
-# Sam James <sam@gentoo.org> (2023-02-18)
-# Backport to Python 3.5(!) hence irrelevant for newer versions of Python
-# where os.scandir() and os.walk() improvements were integrated in the stdlib.
-# Incompatible with Python 3.11. No reverse dependencies.
-# Removal on 2023-03-18. bug #895198
-dev-python/scandir
-
 # Michał Górny <mgorny@gentoo.org> (2023-02-17)
 # Merged into dev-python/pytest-cov in 2020.  No revdeps left.
 # Removal on 2023-03-19.  Bug #895120.
@@ -285,12 +273,6 @@ dev-python/cov-core
 # inactive.  No revdeps.
 # Removal on 2023-03-19.  Bug #865931.
 dev-python/pytest-flake8
-
-# Michał Górny <mgorny@gentoo.org> (2023-02-15)
-# A number of test failures, and the test phase does not fail correctly.
-# Last release in 2019.  No revdeps.
-# Removal on 2023-03-17.  Bug #894606.
-dev-python/urlgrabber
 
 # Michał Górny <mgorny@gentoo.org> (2023-02-15)
 # Unmaintained.  Broken with current version of dev-python/pyglet.
