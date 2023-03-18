@@ -3,7 +3,7 @@
 
 EAPI=7
 
-USE_RUBY="ruby26 ruby27 ruby30"
+USE_RUBY="ruby27 ruby30"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 RUBY_FAKEGEM_GEMSPEC="vagrant.gemspec"
@@ -35,13 +35,14 @@ ruby_add_rdepend "
 	dev-ruby/erubi
 	>=dev-ruby/hashicorp-checkpoint-0.1.5
 	>=dev-ruby/i18n-1.8:1
-	>=dev-ruby/listen-3.1
+	>=dev-ruby/listen-3.6
 	<dev-ruby/log4r-1.1.11
 	>=dev-ruby/mime-types-3.3:*
 	>=dev-ruby/rubyzip-2.0
 	>=dev-ruby/net-scp-3.0.0
 	>=dev-ruby/net-sftp-3.0
-	>=dev-ruby/net-ssh-6.1.0
+	>=dev-ruby/net-ssh-6.1.0:6
+	<dev-ruby/net-ssh-6.2.0:6
 	dev-ruby/rest-client:2
 	>=dev-ruby/vagrant_cloud-3.0.5
 	>=dev-ruby/rexml-3.2.5
