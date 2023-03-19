@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst preinst prepare setup unpack
+DEPEND=>=dev-java/java-config-2.2.0-r3
+DESCRIPTION=The official server for the sandbox video game
+EAPI=8
+HOMEPAGE=https://www.minecraft.net/
+INHERIT=readme.gentoo-r1 java-pkg-2 systemd
+KEYWORDS=~amd64 ~arm64
+LICENSE=Mojang
+RDEPEND=acct-group/minecraft acct-user/minecraft app-misc/dtach || ( dev-java/openjdk:17 dev-java/openjdk-bin:17 ) >=dev-java/java-config-2.2.0-r3
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://launcher.mojang.com/v1/objects/8f3112a1049751cc472ec13e397eade5336ca7ae/server.jar -> minecraft-server-1.19.4.jar
+_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	java-utils-2	eefed04ac580a259ecda1fbd966640b7	java-pkg-2	a6b42ffd8b6827abbd8cf09329c2c8fb	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=e2eadbc965d8f12cfa81ff71a0741934
