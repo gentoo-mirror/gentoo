@@ -1,14 +1,13 @@
-BDEPEND=>=app-editors/emacs-24:*
+BDEPEND=app-emacs/queue >=app-editors/emacs-24:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DEPEND=app-emacs/queue
 DESCRIPTION=Undo trees and visualization
 EAPI=8
 HOMEPAGE=http://www.dr-qubit.org/undo-tree.html
 INHERIT=readme.gentoo-r1 elisp
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=app-emacs/queue >=app-editors/emacs-24:*
 SLOT=0
-SRC_URI=https://gitlab.com/tsc25/undo-tree/-/archive/release/0.8.1/undo-tree-release-0.8.1.tar.gz
+SRC_URI=https://dev.gentoo.org/~xgqt/distfiles/repackaged/undo-tree-0.8.2.tar.xz
 _eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	4d1c0e88698cac71b148578be8359db3
-_md5_=7f2127584c9057a5c04f9c6d9c01d5f9
+_md5_=3d123530ee5646279c1e2ea91762d883

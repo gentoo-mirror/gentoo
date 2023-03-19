@@ -1,6 +1,5 @@
-BDEPEND=>=app-editors/emacs-26:*
+BDEPEND=app-emacs/consult app-emacs/flycheck >=app-editors/emacs-26:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DEPEND=app-emacs/consult app-emacs/flycheck
 DESCRIPTION=Consult integration for Flycheck
 EAPI=8
 HOMEPAGE=https://github.com/minad/consult-flycheck
@@ -11,4 +10,4 @@ RDEPEND=app-emacs/consult app-emacs/flycheck >=app-editors/emacs-26:*
 SLOT=0
 SRC_URI=https://github.com/minad/consult-flycheck/archive/refs/tags/0.8.tar.gz -> consult-flycheck-0.8.tar.gz
 _eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	4d1c0e88698cac71b148578be8359db3
-_md5_=967d678526013fef237a8ac8663b007a
+_md5_=33db8826e1a789f158bcfc9eaf21600a

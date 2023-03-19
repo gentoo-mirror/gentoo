@@ -1,0 +1,16 @@
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* )
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=app-text/ghostscript-gpl media-gfx/imagemagick >=dev-scheme/guile-2.0.0:= dev-scheme/guile-lib dev-scheme/guile-reader
+DESCRIPTION=Document production tool written in Guile Scheme
+EAPI=8
+HOMEPAGE=https://www.nongnu.org/skribilo/
+INHERIT=elisp-common
+IUSE=emacs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=app-text/ghostscript-gpl media-gfx/imagemagick >=dev-scheme/guile-2.0.0:= dev-scheme/guile-lib dev-scheme/guile-reader
+RESTRICT=strip test
+SLOT=0
+SRC_URI=mirror://nongnu/skribilo/skribilo-0.10.0.tar.gz
+_eclasses_=elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b
+_md5_=ee2935bcacffebacb44edc1a123e5312
