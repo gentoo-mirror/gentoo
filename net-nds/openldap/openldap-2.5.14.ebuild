@@ -17,7 +17,7 @@ BIS_P="${BIS_PN}-${BIS_PV}"
 DESCRIPTION="LDAP suite of application and development tools"
 HOMEPAGE="https://www.openldap.org/"
 SRC_URI="
-	https://gitlab.com/openldap/${PN}/-/archive/OPENLDAP_REL_ENG_${MY_PV}/${PN}-OPENLDAP_REL_ENG_${MY_PV}.tar.gz
+	https://gitlab.com/openldap/${PN}/-/archive/OPENLDAP_REL_ENG_${MY_PV}/${PN}-OPENLDAP_REL_ENG_${MY_PV}.tar.bz2
 	mirror://gentoo/${BIS_P}
 "
 S="${WORKDIR}"/${PN}-OPENLDAP_REL_ENG_${MY_PV}
@@ -25,7 +25,7 @@ S="${WORKDIR}"/${PN}-OPENLDAP_REL_ENG_${MY_PV}
 LICENSE="OPENLDAP GPL-2"
 # Subslot added for bug #835654
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-solaris"
 
 IUSE_DAEMON="argon2 +cleartext crypt experimental minimal samba tcpd"
 IUSE_OVERLAY="overlays perl autoca"
@@ -38,11 +38,12 @@ RESTRICT="!test? ( test )"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="cxx? ( sasl )
 	pbkdf2? ( ssl )
-	test? ( cleartext sasl )
+	test? ( cleartext debug sasl )
 	autoca? ( !gnutls )
 	?? ( test minimal )
 	kerberos? ( ?? ( kinit smbkrb5passwd ) )"
 
+SYSTEM_LMDB_VER=0.9.30
 # openssl is needed to generate lanman-passwords required by samba
 COMMON_DEPEND="
 	kernel_linux? ( sys-apps/util-linux )
@@ -59,7 +60,7 @@ COMMON_DEPEND="
 	!minimal? (
 		dev-libs/libltdl
 		sys-fs/e2fsprogs
-		>=dev-db/lmdb-0.9.18:=
+		>=dev-db/lmdb-${SYSTEM_LMDB_VER}:=
 		argon2? ( app-crypt/argon2:= )
 		crypt? ( virtual/libcrypt:= )
 		tcpd? ( sys-apps/tcp-wrappers )
@@ -141,9 +142,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.1-system-mdb.patch
 	"${FILESDIR}"/${PN}-2.6.1-cloak.patch
 	"${FILESDIR}"/${PN}-2.6.1-flags.patch
-	"${FILESDIR}"/${PN}-2.6.1-fix-missing-mapping.patch
-	"${FILESDIR}"/${PN}-2.6.1-fix-bashism-configure.patch
-	"${FILESDIR}"/${PN}-2.6.3-clang16.patch
+	"${FILESDIR}"/${PN}-2.6.4-clang16.patch
 )
 
 openldap_filecount() {
@@ -336,11 +335,26 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# The system copy of dev-db/lmdb must match the version that this copy
+	# of OpenLDAP shipped with! See bug #588792.
+	#
+	# Fish out MDB_VERSION_MAJOR/MDB_VERSION_MINOR/MDB_VERSION_PATCH from
+	# the bundled lmdb's header to find out the version.
+	local bundled_lmdb_version=$(sed -En '/^#define MDB_VERSION_(MAJOR|MINOR|PATCH)(\s+)?/{s/[^0-9.]//gp}' libraries/liblmdb/lmdb.h || die)
+	bundled_lmdb_version=$(printf "%s." ${bundled_lmdb_version})
+
+	if [[ ${SYSTEM_LMDB_VER}. != ${bundled_lmdb_version} ]] ; then
+		eerror "Source lmdb version: ${bundled_lmdb_version}"
+		eerror "Ebuild lmdb version: ${SYSTEM_LMDB_VER}"
+		die "Ebuild needs to update SYSTEM_LMDB_VER!"
+	fi
+
 	rm -r libraries/liblmdb || die 'could not removed bundled lmdb directory'
 
+	local filename
 	for filename in doc/drafts/draft-ietf-ldapext-acl-model-xx.txt; do
-		iconv -f iso-8859-1 -t utf-8 "$filename" > "$filename.utf8"
-		mv "$filename.utf8" "$filename"
+		iconv -f iso-8859-1 -t utf-8 "${filename}" > "${filename}.utf8"
+		mv "${filename}.utf8" "${filename}"
 	done
 
 	default
@@ -355,8 +369,12 @@ src_prepare() {
 	einfo "Making sure upstream build strip does not do stripping too early"
 	sed -i.orig \
 		-e '/^STRIP/s,-s,,g' \
-		top.mk || die "Failed to remove to early stripping"
+		top.mk || die "Failed to remove too early stripping"
 	popd &>/dev/null || die
+
+	# Fails with OpenSSL 3, bug #848894
+	# https://bugs.openldap.org/show_bug.cgi?id=10009
+	rm tests/scripts/test076-authid-rewrite || die
 
 	eautoreconf
 	multilib_copy_sources
@@ -370,7 +388,7 @@ build_contrib_module() {
 	emake \
 		LDAP_BUILD="${BUILD_DIR}" prefix="${EPREFIX}/usr" \
 		CC="${CC}" libexecdir="${EPREFIX}/usr/$(get_libdir)/openldap" \
-		"$target"
+		"${target}"
 	popd &>/dev/null || die
 }
 
@@ -390,6 +408,14 @@ multilib_src_configure() {
 		--without-fetch
 	)
 
+	if use experimental ; then
+		# connectionless ldap per bug #342439
+		# connectionless is a unsupported feature according to Howard Chu
+		# see https://bugs.openldap.org/show_bug.cgi?id=9739
+		# (see also bug #892009)
+		append-flags -DLDAP_CONNECTIONLESS
+	fi
+
 	if ! use minimal && multilib_is_native_abi; then
 		# SLAPD (Standalone LDAP Daemon) Options
 		# overlay chaining requires '--enable-ldap' #296567
@@ -404,11 +430,6 @@ multilib_src_configure() {
 			$(use_enable tcpd wrappers)
 		)
 		if use experimental ; then
-			# connectionless ldap per bug #342439
-			# connectionless is a unsupported feature according to Howard Chu
-			# see https://bugs.openldap.org/show_bug.cgi?id=9739
-			append-cppflags -DLDAP_CONNECTIONLESS
-
 			myconf+=(
 				--enable-dynacl
 				# ACI build as dynamic module not supported (yet)
@@ -527,13 +548,14 @@ src_configure_cxx() {
 
 	mkdir -p "${BUILD_DIR}"/contrib/ldapc++ || die "could not create ${BUILD_DIR}/contrib/ldapc++ directory"
 	pushd "${BUILD_DIR}/contrib/ldapc++" &>/dev/null || die "pushd contrib/ldapc++"
-	local LDFLAGS=${LDFLAGS}
-	local CPPFLAGS=${CPPFLAGS}
-	append-ldflags -L"${BUILD_DIR}"/libraries/liblber/.libs \
-		-L"${BUILD_DIR}"/libraries/libldap/.libs
+
+	local LDFLAGS="${LDFLAGS}"
+	local CPPFLAGS="${CPPFLAGS}"
+
+	append-ldflags -L"${BUILD_DIR}"/libraries/liblber/.libs -L"${BUILD_DIR}"/libraries/libldap/.libs
 	append-cppflags -I"${BUILD_DIR}"/include
-	ECONF_SOURCE=${S}/contrib/ldapc++ \
-	econf "${myconf_ldapcpp[@]}"
+
+	ECONF_SOURCE="${S}"/contrib/ldapc++ econf "${myconf_ldapcpp[@]}"
 	popd &>/dev/null || die "popd contrib/ldapc++"
 }
 
@@ -624,6 +646,7 @@ multilib_src_compile() {
 		$(tc-getCC) -shared \
 			-I"${BUILD_DIR}"/include \
 			-I../../../include \
+			${CPPFLAGS} \
 			${CFLAGS} \
 			-fPIC \
 			${LDFLAGS} \
@@ -635,14 +658,23 @@ multilib_src_compile() {
 
 multilib_src_test() {
 	if multilib_is_native_abi; then
-		cd "tests"
+		cd tests || die
 		pwd
+
+		# Increase various test timeouts/delays, bug #894012
+		# We can't just double everything as there's a cumulative effect.
+		export SLEEP0=2 # originally 1
+		export SLEEP1=10 # originally 7
+		export SLEEP2=20 # originally 15
+		export TIMEOUT=16 # originally 8
+
 		# emake test => runs only lloadd & mdb, in serial; skips ldif,sql,wt,regression
 		# emake partests => runs ALL of the tests in parallel
 		# wt/WiredTiger is not supported in Gentoo
-		TESTS=( plloadd pmdb )
+		TESTS=( lloadd mdb )
 		#TESTS+=( pldif ) # not done by default, so also exclude here
 		#use odbc && TESTS+=( psql ) # not done by default, so also exclude here
+
 		emake "${TESTS[@]}"
 	fi
 }

@@ -3,20 +3,25 @@
 
 EAPI=8
 
-inherit cmake fcaps git-r3
+inherit cmake fcaps
 
 DESCRIPTION="Fast network scanner designed for Internet-wide network surveys"
 HOMEPAGE="https://zmap.io/"
-EGIT_REPO_URI="https://github.com/zmap/zmap.git"
+SRC_URI="https://github.com/zmap/zmap/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="redis"
+KEYWORDS="amd64 arm ~arm64 x86"
+IUSE="mongo redis"
 
 RDEPEND="
 	dev-libs/gmp:=
 	net-libs/libpcap
 	dev-libs/json-c:=
+	mongo? (
+		dev-db/mongodb
+		dev-libs/mongo-c-driver
+	)
 	redis? ( dev-libs/hiredis:= )
 "
 DEPEND="${RDEPEND}"
@@ -32,10 +37,18 @@ PATCHES=(
 
 FILECAPS=( cap_net_raw=ep usr/sbin/zmap )
 
+src_prepare() {
+	sed \
+		-e '/ggo/s:CMAKE_CURRENT_SOURCE_DIR}:CMAKE_BINARY_DIR}/src:g' \
+		-i src/CMakeLists.txt || die
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_DEVELOPMENT=OFF
 		-DWITH_WERROR=OFF
+		-DWITH_MONGO="$(usex mongo)"
 		-DWITH_REDIS="$(usex redis)"
 	)
 
