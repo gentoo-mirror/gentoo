@@ -1209,7 +1209,7 @@ app-arch/rpm 4.18.0: Red Hat Package Management Utils
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
 app-arch/sharutils 4.15.2-r2: Tools to deal with shar archives
-app-arch/snappy 1.1.9-r1: A high-speed compression/decompression library by Google
+app-arch/snappy 1.1.9-r1 1.1.10: A high-speed compression/decompression library by Google
 app-arch/stenc 1.1.1: SCSI Tape Encryption Manager enables AES support for LTO drives
 app-arch/stormlib 9.24: Library to read and write MPQ archives (Diablo, StarCraft)
 app-arch/stuffit 5.2.0.611-r1: Aladdin Software's StuffIt and StuffIt Expander
@@ -3731,7 +3731,7 @@ dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration fil
 dev-cpp/cpp-httplib 0.11.3 0.11.4 0.12.0 0.12.1: C++ HTTP/HTTPS server and client library
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
 dev-cpp/curlpp 0.8.1: C++ wrapper for libcURL
-dev-cpp/doctest 2.4.9 2.4.10: The fastest feature-rich C++11/14/17/20 single-header testing framework
+dev-cpp/doctest 2.4.9 2.4.10 2.4.11: The fastest feature-rich C++11/14/17/20 single-header testing framework
 dev-cpp/edencommon 2022.08.29.00 2023.02.06.00: Shared library for Watchman and Eden projects
 dev-cpp/eigen 3.4.0-r1: C++ template library for linear algebra
 dev-cpp/elfio 3.11: ELF reader/producer header-only C++ library
@@ -3872,7 +3872,7 @@ dev-db/sqlite 3.40.1 3.41.0 3.41.1 9999: SQL database engine
 dev-db/sqlitebrowser 3.12.2 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r5: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.3.3 3.4.3: Powerful cross-platform SQLite database manager
-dev-db/sqlmap 1.7 1.7.2 9999: An automatic SQL injection and database takeover tool
+dev-db/sqlmap 1.7.2 1.7.3 9999: An automatic SQL injection and database takeover tool
 dev-db/textsearch_ja 9.0.0: Integrated Full-Text-Search for Japanese language using morphological analyze
 dev-db/timescaledb 2.9.2 2.9.3 2.10.0 2.10.1: Open-source time-series SQL database
 dev-db/tinycdb 0.78: A very fast and simple package for creating and reading constant data bases
@@ -10222,7 +10222,7 @@ dev-texlive/texlive-publishers 2021: TeXLive Publisher styles, theses, etc.
 dev-texlive/texlive-xetex 2021-r1: TeXLive XeTeX and packages
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 1.0_p20220918 9999: Visualization of hierarchical data, especially profiled stack traces
-dev-util/ROPgadget 7.1 7.2 9999: Search for gadgets in binaries to facilitate your ROP exploitation
+dev-util/ROPgadget 7.2 7.3 9999: Search for gadgets in binaries to facilitate your ROP exploitation
 dev-util/Tensile 5.1.3-r2 5.4.2-r1: Stretching GPU performance for GEMMs and tensor contractions
 dev-util/abi-compliance-checker 2.3-r1 9999: A tool for checking backward compatibility of a C/C++ library
 dev-util/abi-dumper 1.2-r1: Dump ABI of an ELF object containing DWARF debug info
@@ -12180,7 +12180,7 @@ mail-filter/rblcheck 1.5-r2: Perform lookups in RBL-styles services
 mail-filter/rspamd 3.4-r2 9999: Rapid spam filtering system
 mail-filter/scmail 1.3: a mail filter written in Scheme
 mail-filter/sieve-connect 0.90: Sieve Command Line Interface
-mail-filter/spamassassin 3.4.6-r2 4.0.0 4.0.0-r1: An extensible mail filter which can identify and tag spam
+mail-filter/spamassassin 3.4.6-r2 4.0.0 4.0.0-r1 4.0.0-r2: An extensible mail filter which can identify and tag spam
 mail-filter/spamassassin-botnet 0.8-r1: SpamAssassin plugin that attempts to detect messages sent by a botnet
 mail-filter/spampd 2.61: A program to scan messages for Unsolicited Commercial E-mail content
 mail-filter/spamprobe 1.4d-r2: Fast, intelligent, automatic spam detector using Bayesian analysis
@@ -12674,7 +12674,7 @@ media-gfx/xfig 3.2.8b-r1: A menu-driven tool to draw and manipulate objects inte
 media-gfx/xli 1.17.0-r6: X Load Image: view images or load them to root window
 media-gfx/xloadimage 4.1-r14 4.1-r15: Utility to view many different types of images under X11
 media-gfx/xpaint 3.1.4-r4: Image editor with tiff, jpeg and png support
-media-gfx/xsane 0.999-r4: Graphical scanning frontend
+media-gfx/xsane 0.999-r5: Graphical scanning frontend
 media-gfx/xv 3.10a-r22: Interactive image manipulation program supporting a wide variety of formats
 media-gfx/yafaray 3.5.1-r4: A free open-source montecarlo raytracing engine
 media-gfx/zbar 0.23.90 0.23.92: Library and tools for reading barcodes from images or video
@@ -14151,7 +14151,7 @@ net-analyzer/xnetload 1.11.3-r1: Displays a count and a graph of the traffic ove
 net-analyzer/xprobe 0.3-r1: Active OS fingerprinting tool - this is Xprobe2
 net-analyzer/yersinia 0.8.2-r2: A framework for layer 2 attacks
 net-analyzer/zabbix 4.0.44 5.0.30 5.0.31 5.0.32 6.0.12 6.0.13 6.0.14 6.2.6 6.2.7 6.2.8 6.4.0: ZABBIX is software for monitoring of your applications, network and servers
-net-analyzer/zmap 2.1.1-r4 9999: Fast network scanner designed for Internet-wide network surveys
+net-analyzer/zmap 2.1.1-r5 9999: Fast network scanner designed for Internet-wide network surveys
 net-analyzer/zniper 1.0-r3: Displays and kill active TCP connections seen by the selected interface
 net-dialup/accel-ppp 1.12.0_p20220830-r1 9999: High performance PPTP, PPPoE and L2TP server
 net-dialup/cutecom 0.51.0-r1: A serial terminal, like minicom, written in Qt
@@ -14165,7 +14165,7 @@ net-dialup/linux-atm 2.5.2-r1: Tools for ATM
 net-dialup/lrzsz 0.12.20-r5: Communication package providing the X, Y, and ZMODEM file transfer protocols
 net-dialup/mgetty 1.2.1-r4: A programm for sending and receiving fax and voice
 net-dialup/mingetty 1.08-r3: A compact getty program for virtual consoles only
-net-dialup/minicom 2.7.1 2.8 2.8-r1: Serial Communication Program
+net-dialup/minicom 2.8-r1: Serial Communication Program
 net-dialup/moserial 3.0.21: A clean and friendly gtk-based serial terminal
 net-dialup/mwavem 2.0-r2: User level application for IBM Mwave modem
 net-dialup/neocon 20110228: A simple serial console utility that tries to open ttys repeatedly
@@ -14332,7 +14332,7 @@ net-im/rocketchat-desktop-bin 3.8.14 3.8.16: The Ultimate Open Source Web Chat P
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-amm 1.1.1 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.11.3 0.11.5.1: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 6.9.0: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 6.10.1: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/skypeforlinux 8.94.0.422 8.94.0.428: Instant messaging client, with support for audio and video
 net-im/slack 4.28.182 4.29.149: Team collaboration tool
 net-im/spectrum2 2.1.3-r1 2.1.3-r2: An open source instant messaging transport
@@ -14924,7 +14924,7 @@ net-misc/s4cmd 2.1.0: Super S3 command line tool
 net-misc/s6-networking 2.5.1.1 2.5.1.2 2.5.1.3: Suite of small networking utilities for Unix systems
 net-misc/samplicator 1.3.6-r1 1.3.8_rc1-r1: UDP packets forwarder and duplicator
 net-misc/scponly 4.8-r7: A tiny pseudoshell which only permits scp and sftp
-net-misc/seafile 8.0.5 8.0.6 8.0.7 8.0.8 8.0.9-r1 8.0.10-r2: File syncing and sharing software with file encryption and group sharing
+net-misc/seafile 8.0.9-r1 8.0.10-r3: File syncing and sharing software with file encryption and group sharing
 net-misc/seafile-client 8.0.5 8.0.6 8.0.7 8.0.8 8.0.9 8.0.10: Seafile desktop client
 net-misc/secpanel 0.6.1-r1: Graphical frontend for managing and running SSH and SCP connections
 net-misc/ser2net 2.10.0-r1: Serial To Network Proxy
@@ -15013,7 +15013,7 @@ net-nds/jxplorer 3.3.1.2-r1: Fully functional LDAP browser written in Java
 net-nds/ldapvi 1.7_p20101214-r4: Manage LDAP entries with a text editor
 net-nds/led 1.111: A general purpose LDAP editor
 net-nds/nsscache 0.39-r1 0.47: commandline tool to sync directory services to local cache
-net-nds/openldap 2.4.59-r2 2.6.3-r7 2.6.4-r1: LDAP suite of application and development tools
+net-nds/openldap 2.4.59-r2 2.5.14 2.6.3-r7 2.6.4-r1: LDAP suite of application and development tools
 net-nds/phpldapadmin 1.2.6.3: phpLDAPadmin is a web-based tool for managing all aspects of your LDAP server
 net-nds/rpcbind 1.2.6 9999: portmap replacement which supports RPC over various protocols
 net-nds/shelldap 1.5.1: A handy shell-like interface for browsing LDAP servers and editing their content
@@ -15442,7 +15442,7 @@ sci-biology/vcftools 0.1.16: Tools for working with VCF (Variant Call Format) fi
 sci-biology/velvet 1.2.10: A sequence assembler for very short reads
 sci-biology/wise 2.4.0_alpha-r1: Intelligent algorithms for DNA searches
 sci-biology/yass 1.14-r3: Genomic similarity search with multiple transition constrained spaced seeds
-sci-calculators/bc-gh 6.1.1-r1 6.4.0: Implementation of POSIX bc with GNU extensions
+sci-calculators/bc-gh 6.1.1-r1 6.4.0 6.5.0: Implementation of POSIX bc with GNU extensions
 sci-calculators/calcoo 1.3.18-r2: Scientific calculator designed to provide maximum usability
 sci-calculators/datamash 1.7-r1: command-line program for basic numeric, textual and statistical operations
 sci-calculators/galculator 2.1.4-r2: GTK+ based algebraic and RPN calculator
