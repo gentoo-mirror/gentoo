@@ -66,9 +66,9 @@ RDEPEND="acct-group/pcap
 	sbc? ( media-libs/sbc )
 	sdjournal? ( sys-apps/systemd )
 	smi? ( net-libs/libsmi )
-	snappy? ( app-arch/snappy )
+	snappy? ( app-arch/snappy:= )
 	spandsp? ( media-libs/spandsp )
-	sshdump? ( >=net-libs/libssh-0.6 )
+	sshdump? ( >=net-libs/libssh-0.6:= )
 	ssl? ( net-libs/gnutls:= )
 	zlib? ( sys-libs/zlib )
 	zstd? ( app-arch/zstd:= )"

@@ -18,7 +18,7 @@ else
 	SRC_URI="https://www.wireshark.org/download/src/all-versions/${P/_/}.tar.xz"
 	S="${WORKDIR}/${P/_/}"
 
-	KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -66,9 +66,9 @@ RDEPEND="acct-group/pcap
 	sbc? ( media-libs/sbc )
 	sdjournal? ( sys-apps/systemd )
 	smi? ( net-libs/libsmi )
-	snappy? ( app-arch/snappy )
+	snappy? ( app-arch/snappy:= )
 	spandsp? ( media-libs/spandsp )
-	sshdump? ( >=net-libs/libssh-0.6 )
+	sshdump? ( >=net-libs/libssh-0.6:= )
 	ssl? ( net-libs/gnutls:= )
 	zlib? ( sys-libs/zlib )
 	zstd? ( app-arch/zstd:= )"
