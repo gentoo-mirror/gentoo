@@ -1,0 +1,17 @@
+BDEPEND=vala? ( || ( dev-lang/vala:0.56 ) ) dev-util/glib-utils virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/glib-2.68:2 >=sys-libs/liburing-0.7:= introspection? ( dev-libs/gobject-introspection:= ) sysprof? ( dev-util/sysprof-capture:4 )
+DESCRIPTION=Deferred Execution library for GNOME and GTK
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/libdex
+INHERIT=gnome.org meson vala
+IUSE=gtk-doc +introspection sysprof test vala
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-libs/glib-2.68:2 >=sys-libs/liburing-0.7:= introspection? ( dev-libs/gobject-introspection:= ) sysprof? ( dev-util/sysprof-capture:4 )
+REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=mirror://gnome/sources/libdex/0.2/libdex-0.2.0.tar.xz
+_eclasses_=gnome.org	429073e99d7067d3462e875bf5c6e14a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	cd2865332c8d99e1da0655523ff4a28f	vala	2633382950a3a9ce912c9258150d5db8
+_md5_=a598e75bc0f74164bf89d59d18b66d9f
