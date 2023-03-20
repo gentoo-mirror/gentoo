@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit toolchain-funcs xdg-utils
 
 DESCRIPTION="A fast, lightweight imageviewer using imlib2"
@@ -10,18 +10,22 @@ SRC_URI="https://feh.finalrewind.org/${P}.tar.bz2"
 
 LICENSE="feh"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~mips ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~x86"
 IUSE="debug curl exif test xinerama inotify"
-RESTRICT="!test? ( test )"
+RESTRICT="test" # Tests are broken.
 
-COMMON_DEPEND="media-libs/imlib2[X]
+COMMON_DEPEND="
+	|| (
+		>=media-libs/imlib2-1.11.0[X,text]
+		<media-libs/imlib2-1.11.0[X]
+	)
 	>=media-libs/libpng-1.2:0=
 	x11-libs/libX11
 	curl? ( net-misc/curl )
 	exif? ( media-libs/libexif )
 	xinerama? ( x11-libs/libXinerama )"
 RDEPEND="${COMMON_DEPEND}
-	virtual/jpeg:0"
+	media-libs/libjpeg-turbo:0"
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 	x11-libs/libXt
