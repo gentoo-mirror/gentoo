@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_12_2_0(-)]
 DESCRIPTION=Multi-Language Management
 EAPI=8
 HOMEPAGE=http://libre.adacore.com/
@@ -7,9 +7,9 @@ INHERIT=ada multiprocessing
 IUSE=ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12_2_0? ( =sys-devel/gcc-12.2.0*[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12_2_0(-)?,ada_target_gcc_12(-)?]
-REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12 )
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_12_2_0(-)]
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gprbuild/archive/refs/tags/v23.0.0.tar.gz -> gprbuild-23.0.0.tar.gz https://github.com/AdaCore/xmlada/archive/refs/tags/v23.0.0.tar.gz -> xmlada-23.0.0.tar.gz
 _eclasses_=ada	16715c066d0691a4c61581d946cd3676	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=2909691f49c7e93114712f9dc283a212
+_md5_=7d80d1c3553795a8c6a222b5d07cff11
