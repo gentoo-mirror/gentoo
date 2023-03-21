@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/pbr-3.1.1[${PYTHON_USEDEP}]
@@ -45,12 +45,6 @@ distutils_enable_tests unittest
 distutils_enable_sphinx doc/source \
 	dev-python/openstackdocstheme \
 	dev-python/oslo-config
-
-src_prepare() {
-	distutils-r1_src_prepare
-	# this is used only for eventlet, and eventlet is masked for removal
-	rm oslo_log/tests/unit/test_pipe_mutex.py || die
-}
 
 python_test() {
 	eunittest -b
