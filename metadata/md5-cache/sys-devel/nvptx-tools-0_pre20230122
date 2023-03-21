@@ -1,0 +1,12 @@
+BDEPEND=test? ( dev-python/lit dev-util/dejagnu )
+DEFINED_PHASES=setup
+DESCRIPTION=Collection of tools for use with nvptx-none GCC toolchains
+EAPI=8
+HOMEPAGE=https://github.com/MentorEmbedded/nvptx-tools https://gcc.gnu.org/wiki/nvptx
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/MentorEmbedded/nvptx-tools/archive/93e00909ceb9cbbc104f0fcba56c0361ffb3ca4b.tar.gz -> nvptx-tools-0_pre20230122.tar.gz
+_md5_=ec1b3549cfac5635a36f11ed3ca8283d

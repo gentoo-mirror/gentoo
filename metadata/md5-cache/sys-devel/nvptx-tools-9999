@@ -1,0 +1,13 @@
+BDEPEND=test? ( dev-python/lit dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=setup unpack
+DESCRIPTION=Collection of tools for use with nvptx-none GCC toolchains
+EAPI=8
+HOMEPAGE=https://github.com/MentorEmbedded/nvptx-tools https://gcc.gnu.org/wiki/nvptx
+INHERIT=git-r3
+IUSE=test
+LICENSE=GPL-3
+PROPERTIES=live
+RESTRICT=!test? ( test )
+SLOT=0
+_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_md5_=ec1b3549cfac5635a36f11ed3ca8283d
