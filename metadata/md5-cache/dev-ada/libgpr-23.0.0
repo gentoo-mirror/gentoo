@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_12_2_0(-)] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_12_2_0(-)]
+DEPEND=dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
 DESCRIPTION=Ada library to handle GPRbuild project files
 EAPI=7
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing
-IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12_2_0 ada_target_gcc_12
+IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_12_2_0(-)]
+RDEPEND=dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ) || ( shared static-libs static-pic )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/gprbuild/archive/refs/tags/v23.0.0.tar.gz -> gprbuild-23.0.0.tar.gz
-_eclasses_=ada	16715c066d0691a4c61581d946cd3676	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
+_eclasses_=ada	33188d51f33988ee26c16ed566ce2494	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
 _md5_=a72589d1d049e55089520b992116b997
