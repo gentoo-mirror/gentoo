@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=log4j? ( dev-java/log4j-12-api:2 dev-java/log4j-api:2 dev-java/log4j-core:2 ) dev-java/javax-servlet-api:2.5 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=log4j? ( dev-java/log4j-12-api:2 dev-java/log4j-api:2 dev-java/log4j-core:2 ) dev-java/javax-servlet-api:2.5 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Thin adapter allowing configurable bridging to other well known logging systems
 EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-logging/
@@ -10,6 +10,6 @@ LICENSE=Apache-2.0
 RDEPEND=log4j? ( dev-java/log4j-12-api:2 dev-java/log4j-api:2 dev-java/log4j-core:2 ) >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/apache/commons-logging/archive/058cf5ee350cd83d1ab28b000ad6be903ca160c5.tar.gz -> commons-logging-1.3.0_pre20230317.tar.gz
+SRC_URI=https://github.com/apache/commons-logging/archive/d376d3128663e53de4af948e161291e7ec0c6ec1.tar.gz -> commons-logging-1.3.0_pre20230319.tar.gz
 _eclasses_=java-utils-2	eefed04ac580a259ecda1fbd966640b7	java-pkg-2	a6b42ffd8b6827abbd8cf09329c2c8fb	java-pkg-simple	0389d2b96f7da44c3dbabe920bbe5531
-_md5_=d26cd0032b5f7bd8ea7ed2d970da954f
+_md5_=0362c14ae56f7395b54bf824b9cdf29a
