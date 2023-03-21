@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=TXW is a library that allows you to write XML documents
+EAPI=8
+HOMEPAGE=https://eclipse-ee4j.github.io/jaxb-ri/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64
+LICENSE=EPL-1.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=2
+SRC_URI=https://github.com/eclipse-ee4j/jaxb-ri/archive/2.3.8-RI.tar.gz -> jaxb-ri-2.3.8.tar.gz
+_eclasses_=java-utils-2	eefed04ac580a259ecda1fbd966640b7	java-pkg-2	a6b42ffd8b6827abbd8cf09329c2c8fb	java-pkg-simple	0389d2b96f7da44c3dbabe920bbe5531
+_md5_=4c32592496bc140bb2f79f792dcd849b
