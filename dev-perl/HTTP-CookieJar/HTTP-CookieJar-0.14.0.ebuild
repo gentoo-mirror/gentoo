@@ -1,17 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DIST_AUTHOR=DAGOLDEN
-DIST_VERSION=0.010
+DIST_VERSION=0.014
 inherit perl-module
 
 DESCRIPTION="A minimalist HTTP user agent cookie jar"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test minimal"
-RESTRICT="!test? ( test )"
+IUSE="minimal"
 
 RDEPEND="
 	!minimal? ( dev-perl/Mozilla-PublicSuffix )
@@ -35,6 +34,3 @@ BDEPEND="${RDEPEND}
 		dev-perl/URI
 	)
 "
-
-# https://github.com/dagolden/HTTP-CookieJar/issues/11
-PERL_RM_FILES=( t/examples.t )
