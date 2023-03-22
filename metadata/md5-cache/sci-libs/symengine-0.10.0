@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-doc/doxygen[dot] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-libs/gmp:= sys-libs/binutils-libs:= arb? ( sci-mathematics/arb:= ) boost? ( dev-libs/boost:= ) ecm? ( sci-mathematics/gmp-ecm ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( <sys-devel/llvm-17:= ) tcmalloc? ( dev-util/google-perftools ) dev-libs/cereal !!sys-devel/llvm:0
+DESCRIPTION=Fast symbolic manipulation library, written in C++
+EAPI=8
+HOMEPAGE=https://github.com/symengine/symengine
+INHERIT=cmake llvm toolchain-funcs
+IUSE=arb benchmarks boost debug doc ecm +flint llvm +mpc +mpfr openmp test tcmalloc +threads
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=dev-libs/gmp:= sys-libs/binutils-libs:= arb? ( sci-mathematics/arb:= ) boost? ( dev-libs/boost:= ) ecm? ( sci-mathematics/gmp-ecm ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( <sys-devel/llvm-17:= ) tcmalloc? ( dev-util/google-perftools )
+RESTRICT=!test? ( test )
+SLOT=0/0.10
+SRC_URI=https://github.com/symengine/symengine/archive/v0.10.0.tar.gz -> symengine-0.10.0.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	2e47edc2986d4e1c0363867058cd4489	llvm	4cc6f8e29d24a8011266413e74c728bb
+_md5_=579982c2374471efd34bd6d616f1783b
