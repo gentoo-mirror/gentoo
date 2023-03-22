@@ -19,7 +19,7 @@ DEPEND="app-crypt/libsecret
 	dev-libs/libsodium:=
 	media-gfx/qrencode
 	net-libs/libmicrohttpd:=
-	net-libs/webkit-gtk:4=
+	net-libs/webkit-gtk:4.1=
 	net-misc/curl
 	elibc_musl? ( sys-libs/argp-standalone )"
 RDEPEND="${DEPEND}"
@@ -30,6 +30,7 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.4.0_deps-automagic.patch
 	"${FILESDIR}"/${PN}-4.4.0_install-perms.patch
+	"${FILESDIR}"/${PN}-4.5.0_webkit41.patch
 )
 
 src_prepare() {
