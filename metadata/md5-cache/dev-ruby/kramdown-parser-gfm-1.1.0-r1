@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby27? ( dev-ruby/kramdown:2[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/kramdown:2[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( dev-ruby/kramdown:2[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/kramdown[ruby_targets_ruby27(-),latex] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/kramdown[ruby_targets_ruby30(-),latex] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/kramdown[ruby_targets_ruby31(-),latex] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rake[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+DESCRIPTION=A kramdown parser for the GFM dialect of Markdown
+EAPI=8
+HOMEPAGE=https://github.com/kramdown/parser-gfm
+INHERIT=edo ruby-fakegem
+IUSE=doc test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test test
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby27? ( dev-ruby/kramdown:2[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-ruby/kramdown:2[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( dev-ruby/kramdown:2[ruby_targets_ruby31(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=1
+SRC_URI=https://rubygems.org/gems/kramdown-parser-gfm-1.1.0.gem
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	41693b3ee4cab79e287237b59f7e2184	ruby-fakegem	4bb1017b1ef0d5e0bdd1c7b040fccc0d
+_md5_=375c0a302b1f5201fc1527b1c73ac6cf
