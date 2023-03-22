@@ -4,10 +4,11 @@ DESCRIPTION=Keybase client
 EAPI=8
 HOMEPAGE=https://keybase.io/
 INHERIT=go-module systemd git-r3
+IUSE=fuse
 LICENSE=Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0
 PROPERTIES=live
-RDEPEND=app-crypt/gnupg sys-fs/fuse:0=
+RDEPEND=app-crypt/gnupg fuse? ( ~app-crypt/kbfs-9999 )
 RESTRICT=strip
 SLOT=0
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	go-module	f9700c7efec1fd4955363169e9930c1c	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	c57c50c922e121043788de0b40ada60a
-_md5_=c0752a94ca303819d5e608b049800237
+_md5_=cb27f35502d1cb641a9a46a50e1e2f04
