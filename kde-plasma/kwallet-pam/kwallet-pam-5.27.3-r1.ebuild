@@ -8,6 +8,7 @@ PVCUT=$(ver_cut 1-3)
 inherit ecm plasma.kde.org
 
 DESCRIPTION="PAM module to not enter KWallet password again after login"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
@@ -22,6 +23,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	net-misc/socat
 "
+
+PATCHES=( "${WORKDIR}/${P}-patchset-1" )
 
 src_configure() {
 	local mycmakeargs=(

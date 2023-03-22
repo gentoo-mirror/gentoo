@@ -127,6 +127,7 @@ BDEPEND="
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/${PN}-5.25.80-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${P}-kicker-hide-separators.patch" # KDE-bug 465865
 )
 
 src_prepare() {

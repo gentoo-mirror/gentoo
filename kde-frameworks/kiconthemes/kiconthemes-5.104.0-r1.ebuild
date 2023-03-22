@@ -31,3 +31,5 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 "
+
+PATCHES=( "${FILESDIR}/${P}-fix-typo.patch" )

@@ -9,6 +9,7 @@ inherit ecm plasma.kde.org python-any-r1
 
 DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
 HOMEPAGE="https://invent.kde.org/plasma/breeze-gtk"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-fix-menu-size-fractional-scaling.patch.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
@@ -20,6 +21,8 @@ BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
 	>=kde-plasma/breeze-${PVCUT}:5
 "
+
+PATCHES=( "${WORKDIR}/${P}-fix-menu-size-fractional-scaling.patch" )
 
 python_check_deps() {
 	python_has_version "dev-python/pycairo[${PYTHON_USEDEP}]"

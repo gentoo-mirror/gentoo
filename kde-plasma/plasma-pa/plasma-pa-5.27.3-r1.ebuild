@@ -34,3 +34,8 @@ RDEPEND="${DEPEND}
 	x11-themes/sound-theme-freedesktop
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-show-virtual-devices.patch" # KDE-bug 465996
+	"${FILESDIR}/${P}-improve-DeviceListItem-sizing.patch"
+)
