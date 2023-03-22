@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig doc? ( app-text/asciidoc >=app-text/docbook2X-0.8.8-r4 ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) sys-devel/flex virtual/pkgconfig doc? ( app-text/asciidoc >=app-text/docbook2X-0.8.8-r4 ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
 DEPEND=>=net-libs/libmnl-1.0.4:= >=net-libs/libnftnl-1.2.5:= gmp? ( dev-libs/gmp:= ) json? ( dev-libs/jansson:= ) python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) readline? ( sys-libs/readline:= ) xtables? ( >=net-firewall/iptables-1.6.1:= )
 DESCRIPTION=Linux kernel (3.13+) firewall, NAT and packet mangling tools
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://netfilter.org/projects/nftables/files/nftables-1.0.7.tar.xz verify-sig? ( https://netfilter.org/projects/nftables/files/nftables-1.0.7.tar.xz.sig )
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	ecb03306c95c6ccc55852c98abcfcc64	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	ad4c1e4ec8737eb363aacd638f6a513b	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	fef00f802a62a8d9e66affc69e141df0
-_md5_=e762bc7ce94345e373d79601ff84e820
+_md5_=cfabbad6acf57db8f5bc288fbdce66ed
