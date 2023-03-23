@@ -65,6 +65,8 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
+PATCHES=( "${FILESDIR}/${P}-renamefiledialog-fix-number-limit.patch" ) # KDE-bug 466636
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
