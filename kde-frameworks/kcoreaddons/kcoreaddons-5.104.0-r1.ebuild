@@ -23,6 +23,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
+PATCHES=( "${FILESDIR}/${P}-prevent-leak-signalfd-fds.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-D_KDE4_DEFAULT_HOME_POSTFIX=4
