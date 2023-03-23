@@ -1,6 +1,7 @@
 https://bugs.gentoo.org/887287
 https://github.com/curl/curl/pull/10705
 
+From e2bbd1adc22ec5033e2292b780e1790db93c3cb4 Mon Sep 17 00:00:00 2001
 From: Matt Jolly <Matt.Jolly@footclan.ninja>
 Date: Wed, 8 Mar 2023 02:16:45 +1100
 Subject: [PATCH] Refuse to resolve the .onion TLD.
@@ -15,6 +16,31 @@ Let's do that.
 
 See curl/curl#543
 https://www.rfc-editor.org/rfc/rfc7686#section-2
+--- a/docs/KNOWN_BUGS
++++ b/docs/KNOWN_BUGS
+@@ -80,7 +80,6 @@ problems may have been fixed or changed somewhat since this was written.
+  10.3 FTPS over SOCKS
+ 
+  11. Internals
+- 11.1 Curl leaks .onion hostnames in DNS
+  11.2 error buffer not set if connection to multiple addresses fails
+  11.4 HTTP test server 'connection-monitor' problems
+  11.5 Connection information when using TCP Fast Open
+@@ -525,14 +524,6 @@ problems may have been fixed or changed somewhat since this was written.
+ 
+ 11. Internals
+ 
+-11.1 Curl leaks .onion hostnames in DNS
+-
+- Curl sends DNS requests for hostnames with a .onion TLD. This leaks
+- information about what the user is attempting to access, and violates this
+- requirement of RFC7686: https://datatracker.ietf.org/doc/html/rfc7686
+-
+- Issue: https://github.com/curl/curl/issues/543
+-
+ 11.2 error buffer not set if connection to multiple addresses fails
+ 
+  If you ask libcurl to resolve a hostname like example.com to IPv6 addresses
 --- a/lib/hostip.c
 +++ b/lib/hostip.c
 @@ -652,6 +652,14 @@ enum resolve_t Curl_resolv(struct Curl_easy *data,
@@ -38,9 +64,9 @@ https://www.rfc-editor.org/rfc/rfc7686#section-2
  test1440 test1441 test1442 test1443 test1444 test1445 test1446 test1447 \
  test1448 test1449 test1450 test1451 test1452 test1453 test1454 test1455 \
  test1456 test1457 test1458 test1459 test1460 test1461 test1462 test1463 \
--test1464 test1465 test1466 test1467 test1468 test1469 \
+-test1464 test1465 test1466 test1467 test1468 test1469 test1470 \
 -\
-+test1464 test1465 test1466 test1467 test1468 test1469 test1471 \
++test1464 test1465 test1466 test1467 test1468 test1469 test1470 test1471 \
 +test1472 \
  test1500 test1501 test1502 test1503 test1504 test1505 test1506 test1507 \
  test1508 test1509 test1510 test1511 test1512 test1513 test1514 test1515 \
@@ -129,6 +155,4 @@ https://www.rfc-editor.org/rfc/rfc7686#section-2
 +</stderr>
 +</verify>
 +</testcase>
--- 
-2.39.2
 
