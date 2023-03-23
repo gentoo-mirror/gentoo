@@ -50,6 +50,11 @@ else
 	BDEPEND+=" app-arch/unzip"
 fi
 
+PATCHES=(
+	# Will be fixed in 3.42
+	"${FILESDIR}"/${PN}-3.41.2-perf-regression.patch
+)
+
 _fossil_fetch() {
 	local distdir="${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}"
 	local repo_id="${1}"
