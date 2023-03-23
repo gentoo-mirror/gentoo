@@ -7,7 +7,7 @@ inherit multilib prefix rust-toolchain toolchain-funcs verify-sig multilib-minim
 
 MY_P="rust-${PV}"
 # curl -L static.rust-lang.org/dist/channel-rust-${PV}.toml 2>/dev/null | grep "xz_url.*rust-src"
-MY_SRC_URI="${RUST_TOOLCHAIN_BASEURL%/}/2023-03-09/rust-src-${PV}.tar.xz"
+MY_SRC_URI="${RUST_TOOLCHAIN_BASEURL%/}/2023-02-09/rust-src-${PV}.tar.xz"
 GENTOO_BIN_BASEURI="https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}" # omit leading slash
 
 DESCRIPTION="Systems programming language from Mozilla"
@@ -32,6 +32,7 @@ RDEPEND="
 		<dev-libs/openssl-3
 	)
 	sys-apps/lsb-release
+	sys-devel/gcc:*
 "
 
 BDEPEND="
