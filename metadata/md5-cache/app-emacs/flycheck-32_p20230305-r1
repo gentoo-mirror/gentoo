@@ -2,7 +2,7 @@ BDEPEND=test? ( app-emacs/buttercup app-emacs/shut-up ) >=app-editors/emacs-24.3
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Modern on-the-fly syntax checking extension for GNU Emacs
 EAPI=8
-HOMEPAGE=https://www.flycheck.org/
+HOMEPAGE=https://www.flycheck.org/ https://github.com/flycheck/flycheck/
 INHERIT=edo elisp
 IUSE=test
 KEYWORDS=~amd64 ~arm ~ppc64
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/flycheck/flycheck/archive/5f2ef177cb21ae8b73714575802beef04abd0f5e.tar.gz -> flycheck-32_p20230305.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	elisp-common	79f8e13c80c89792e5c9b3fc8ef59f3b	elisp	4d1c0e88698cac71b148578be8359db3
-_md5_=30f2455ad0fa2c0047e92247d1f7627a
+_md5_=a9408cd8a0b2d228742b9a74ec6c30f5
