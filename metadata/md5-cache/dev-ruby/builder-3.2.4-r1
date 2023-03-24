@@ -1,7 +1,7 @@
 BDEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( test? ( dev-ruby/rake[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rake[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
-DESCRIPTION=A builder to facilitate programatic generation of XML markup
+DESCRIPTION=A builder to facilitate programmatic generation of XML markup
 EAPI=8
 HOMEPAGE=http://onestepback.org/
 INHERIT=ruby-fakegem
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=3.2
 SRC_URI=https://rubygems.org/gems/builder-3.2.4.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	41693b3ee4cab79e287237b59f7e2184	ruby-fakegem	4bb1017b1ef0d5e0bdd1c7b040fccc0d
-_md5_=15ca2f02ecb4fe8e00d732c962af3330
+_md5_=7265d37ff1fdf13a8856f5b9221e08ea
