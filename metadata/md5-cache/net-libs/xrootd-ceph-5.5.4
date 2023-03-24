@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-util/cppunit ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=~net-libs/xrootd-5.5.4 sys-cluster/ceph
+DESCRIPTION=xrootd OSS plug-in for interfacing with Ceph storage platform
+EAPI=8
+HOMEPAGE=https://xrootd.slac.stanford.edu/
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~amd64-linux
+LICENSE=LGPL-3+
+RDEPEND=~net-libs/xrootd-5.5.4 sys-cluster/ceph
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/xrootd/xrootd-ceph/archive/refs/tags/v5.5.4.tar.gz -> xrootd-ceph-5.5.4.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	2e47edc2986d4e1c0363867058cd4489
+_md5_=f78f7027e20c675201b0e00e08a110c1
