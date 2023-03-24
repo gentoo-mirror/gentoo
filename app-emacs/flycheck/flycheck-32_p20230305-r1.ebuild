@@ -15,7 +15,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~ppc64"
 IUSE="test"
 # Tests fail for now, need more investigation
 RESTRICT="!test? ( test ) test"
@@ -35,8 +35,8 @@ SITEFILE="50${PN}-gentoo-r1.el"
 DOCS=( README.md )
 
 src_compile() {
-        elisp_src_compile
-        elisp-make-autoload-file
+	elisp_src_compile
+	elisp-make-autoload-file
 }
 
 src_test() {
