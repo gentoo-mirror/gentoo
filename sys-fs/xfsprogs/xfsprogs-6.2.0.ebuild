@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic systemd usr-ldscript
 
@@ -11,7 +11,7 @@ SRC_URI="https://www.kernel.org/pub/linux/utils/fs/xfs/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="icu libedit nls selinux"
 
 RDEPEND="dev-libs/inih
@@ -26,7 +26,6 @@ RDEPEND+=" selinux? ( sec-policy/selinux-xfs )"
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.3.0-libdir.patch
 	"${FILESDIR}"/${PN}-5.18.0-docdir.patch
-	"${FILESDIR}"/${PN}-5.18.0-include.patch
 )
 
 src_prepare() {
@@ -66,6 +65,7 @@ src_configure() {
 	# https://www.spinics.net/lists/linux-xfs/msg30185.html
 	# https://www.spinics.net/lists/linux-xfs/msg30272.html
 	local myconf=(
+		--enable-static
 		--enable-blkid
 		--with-crond-dir="${EPREFIX}/etc/cron.d"
 		--with-systemd-unit-dir="$(systemd_get_systemunitdir)"
