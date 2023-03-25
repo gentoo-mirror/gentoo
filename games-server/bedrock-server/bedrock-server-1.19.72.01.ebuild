@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit systemd
+
 DESCRIPTION="The official bedrock (non-java) based server for the sandbox video game"
 HOMEPAGE="https://www.minecraft.net/"
 SRC_URI="https://minecraft.azureedge.net/bin-linux/${P}.zip"
@@ -48,6 +50,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/bedrock-server.initd-r4 bedrock-server
 	newconfd "${FILESDIR}"/bedrock-server.confd bedrock-server
+	systemd_newunit "${FILESDIR}"/bedrock-server.service bedrock-server@.service
 
 	einstalldocs
 }
