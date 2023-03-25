@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://sourceware.org/lvm2/
 INHERIT=autotools linux-info systemd toolchain-funcs tmpfiles udev flag-o-matic
 IUSE=lvm lvm2create-initrd readline sanlock selinux static static-libs systemd thin +udev
-KEYWORDS=~alpha ~amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio sys-apps/util-linux readline? ( sys-libs/readline:= ) sanlock? ( sys-cluster/sanlock ) systemd? ( sys-apps/systemd:= ) ) >=sys-apps/baselayout-2.2 lvm? ( virtual/tmpfiles lvm2create-initrd? ( sys-apps/makedev ) thin? ( sys-block/thin-provisioning-tools ) )
 REQUIRED_USE=static? ( !systemd !udev ) static-libs? ( static !udev ) systemd? ( udev ) thin? ( lvm )
 SLOT=0
 SRC_URI=https://sourceware.org/ftp/lvm2/LVM2.2.03.19.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	b5529dc611971a61a30153916014f616	linux-info	ecb03306c95c6ccc55852c98abcfcc64	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a
-_md5_=4dfb35d32fa7fbb87af9e086d498b650
+_md5_=0bdf02cb813f7cd05c7fc897e621f153
