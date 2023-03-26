@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/texinfo doc? ( virtual/texi2dvi ) >=app-editors/emacs-23.1:*
+BDEPEND=sys-apps/texinfo doc? ( virtual/texi2dvi ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=dev-lisp/asdf dev-lisp/sbcl
 DESCRIPTION=Sylvester the Cat's Common Lisp IDE for GNU Emacs
@@ -8,8 +8,8 @@ INHERIT=elisp
 IUSE=doc xref
 KEYWORDS=~amd64 ~x86
 LICENSE=public-domain GPL-2+ GPL-3+ LLGPL-2.1 ZLIB xref? ( xref.lisp )
-RDEPEND=dev-lisp/asdf dev-lisp/sbcl >=app-editors/emacs-23.1:*
+RDEPEND=dev-lisp/asdf dev-lisp/sbcl >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://github.com/joaotavora/sly/archive/1.0.43.tar.gz -> sly-1.0.43.tar.gz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
 _md5_=b61e87bdc835825131078807de4d6549

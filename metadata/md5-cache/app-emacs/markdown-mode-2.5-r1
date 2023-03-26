@@ -1,4 +1,4 @@
-BDEPEND=test? ( virtual/pandoc || ( app-text/aspell[l10n_en] app-text/hunspell[l10n_en] ) ) >=app-editors/emacs-25.1:*
+BDEPEND=test? ( virtual/pandoc || ( app-text/aspell[l10n_en] app-text/hunspell[l10n_en] ) ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=Major mode for editing Markdown-formatted text files
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3+
-RDEPEND=|| ( dev-python/markdown2 dev-python/markdown virtual/pandoc ) >=app-editors/emacs-25.1:*
+RDEPEND=|| ( dev-python/markdown2 dev-python/markdown virtual/pandoc ) >=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jrblevin/markdown-mode/archive/v2.5.tar.gz -> markdown-mode-2.5.tar.gz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
-_md5_=0f66367c60918bea95f6b1c240c657ea
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_md5_=476b3876841e45e4af47384b4007358e

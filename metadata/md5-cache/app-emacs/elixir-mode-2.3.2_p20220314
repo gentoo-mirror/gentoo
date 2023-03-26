@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/ert-runner dev-lang/elixir ) >=app-editors/emacs-25:*
+BDEPEND=test? ( app-emacs/ert-runner dev-lang/elixir ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs major mode for editing Elixir files
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=>=app-editors/emacs-25:*
+RDEPEND=>=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/elixir-editors/emacs-elixir/archive/e0d0466d83ec80ddb412bb1473908a21baad1ec3.tar.gz -> elixir-mode-2.3.2_p20220314.tar.gz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
-_md5_=ebe4fb5bd938401d2260d3d360b5a1a5
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_md5_=5b504aa74ab0c87113911f8e31e36fd6

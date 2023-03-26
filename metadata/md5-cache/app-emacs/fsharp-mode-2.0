@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-25:*
+BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Support for the F# programming language
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=>=app-editors/emacs-25:*
+RDEPEND=>=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fsharp/emacs-fsharp-mode/archive/2.0.tar.gz -> fsharp-mode-2.0.tar.gz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
-_md5_=1da56d6883dd20d3285ae3a127c6957c
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_md5_=153973a8e4e38d97397b72099c88a720

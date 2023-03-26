@@ -1,4 +1,4 @@
-BDEPEND=bbdb? ( app-emacs/bbdb ) sys-apps/texinfo >=app-editors/emacs-23.1:*
+BDEPEND=bbdb? ( app-emacs/bbdb ) sys-apps/texinfo >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=The VM mail reader for Emacs
 EAPI=7
@@ -7,8 +7,8 @@ INHERIT=elisp
 IUSE=bbdb ssl
 KEYWORDS=~alpha amd64 ~ia64 ppc ~ppc64 x86
 LICENSE=GPL-2+
-RDEPEND=bbdb? ( app-emacs/bbdb ) ssl? ( net-misc/stunnel ) >=app-editors/emacs-23.1:*
+RDEPEND=bbdb? ( app-emacs/bbdb ) ssl? ( net-misc/stunnel ) >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://launchpad.net/vm/8.2.x/8.2.0b/+download/vm-8.2.0b.tgz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
 _md5_=9bbe4b329ef0101820c50af46c7e1d1d

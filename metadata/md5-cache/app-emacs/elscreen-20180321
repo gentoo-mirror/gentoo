@@ -1,4 +1,4 @@
-BDEPEND=wanderlust? ( app-emacs/wanderlust ) >=app-editors/emacs-23.1:*
+BDEPEND=wanderlust? ( app-emacs/wanderlust ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=Frame configuration management for GNU Emacs modelled after GNU Screen
 EAPI=7
@@ -7,8 +7,8 @@ INHERIT=elisp
 IUSE=wanderlust
 KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 sparc x86
 LICENSE=GPL-2+ GPL-3+
-RDEPEND=wanderlust? ( app-emacs/wanderlust ) >=app-editors/emacs-23.1:*
+RDEPEND=wanderlust? ( app-emacs/wanderlust ) >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://github.com/knu/elscreen/archive/20180321.tar.gz -> elscreen-20180321.tar.gz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
 _md5_=762284baff9387cb5cc2ccad2a046618

@@ -1,4 +1,4 @@
-BDEPEND=bbdb? ( app-emacs/bbdb ) planner? ( app-emacs/planner ) sys-apps/texinfo >=app-editors/emacs-23.1:*
+BDEPEND=bbdb? ( app-emacs/bbdb ) planner? ( app-emacs/planner ) sys-apps/texinfo >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=Simplify writing short notes in emacs
 EAPI=7
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=bbdb planner
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-3+ FDL-1.2+
-RDEPEND=bbdb? ( app-emacs/bbdb ) planner? ( app-emacs/planner ) >=app-editors/emacs-23.1:*
+RDEPEND=bbdb? ( app-emacs/bbdb ) planner? ( app-emacs/planner ) >=app-editors/emacs-25.3:*
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/jwiegley/remember/archive/v2.0.tar.gz -> remember-2.0.tar.gz
-_eclasses_=elisp-common	4f91d24ccf86f94b3f28c6470aab24d3	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
 _md5_=10210f879c00a3cbf893a8599cc7f0d0
