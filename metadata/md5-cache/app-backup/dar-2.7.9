@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-doc/doxygen ) nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure install
+DEPEND=app-arch/bzip2:= app-arch/xz-utils app-arch/zstd:= dev-libs/libthreadar sys-libs/libcap >=sys-libs/zlib-1.2.3:= argon2? ( app-crypt/argon2:= ) curl? ( net-misc/curl ) gcrypt? ( dev-libs/libgcrypt:0= dev-libs/libgpg-error ) gpg? ( app-crypt/gpgme:= ) lz4? ( app-arch/lz4:= ) lzo? ( dev-libs/lzo:2 ) nls? ( virtual/libintl ) rsync? ( net-libs/librsync:= ) xattr? ( sys-apps/attr )
+DESCRIPTION=A full featured backup tool, aimed for disks
+EAPI=8
+HOMEPAGE=http://dar.linux.free.fr/
+INHERIT=flag-o-matic
+IUSE=argon2 curl dar32 dar64 doc gcrypt gpg lz4 lzo nls rsync xattr
+KEYWORDS=~amd64 ~ppc ~sparc ~x86 ~amd64-linux
+LICENSE=GPL-2+
+RDEPEND=app-arch/bzip2:= app-arch/xz-utils app-arch/zstd:= dev-libs/libthreadar sys-libs/libcap >=sys-libs/zlib-1.2.3:= argon2? ( app-crypt/argon2:= ) curl? ( net-misc/curl ) gcrypt? ( dev-libs/libgcrypt:0= dev-libs/libgpg-error ) gpg? ( app-crypt/gpgme:= ) lz4? ( app-arch/lz4:= ) lzo? ( dev-libs/lzo:2 ) nls? ( virtual/libintl ) rsync? ( net-libs/librsync:= ) xattr? ( sys-apps/attr )
+REQUIRED_USE=?? ( dar32 dar64 ) gpg? ( gcrypt )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/dar/dar/2.7.9/dar-2.7.9.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a
+_md5_=d88455cd1fb54ec70b023e0c1ecdf0cf

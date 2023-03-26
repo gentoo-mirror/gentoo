@@ -1175,7 +1175,7 @@ app-arch/libarchive 3.6.1-r1 3.6.2-r1: Multi-format archive and compression libr
 app-arch/libpar2 0.4: A library for par2, extracted from par2cmdline
 app-arch/lrzip 0.651: Long Range ZIP or Lzma RZIP optimized for compressing large files
 app-arch/lunzip 1.13: Decompressor for the lzip format, written in C
-app-arch/lxqt-archiver 0.6.0 0.7.0: Qt GUI File Archiver
+app-arch/lxqt-archiver 0.7.0: Qt GUI File Archiver
 app-arch/lz4 1.9.4: Extremely Fast Compression algorithm
 app-arch/lz5 2.0-r1: An efficient compressor with very fast decompression
 app-arch/lzip 1.23: Lossless data compressor based on the LZMA algorithm
@@ -1256,7 +1256,7 @@ app-backup/cdbackup 0.7.1-r1: Allows streaming backup utilities to dump/restore 
 app-backup/cdbkup 1.0-r4: Performs full/incremental backups of local/remote filesystems onto CD-R(W)s
 app-backup/consul-backinator 1.6.6: consul backup and restore utility
 app-backup/cpdup 1.18: A comprehensive filesystem mirroring program
-app-backup/dar 2.7.8: A full featured backup tool, aimed for disks
+app-backup/dar 2.7.8 2.7.9: A full featured backup tool, aimed for disks
 app-backup/deja-dup 42.8-r2 43.4-r1: Simple backup tool using duplicity back-end
 app-backup/dirvish 1.2.1-r1: Dirvish is a fast, disk based, rotating network backup system
 app-backup/duplicity 0.8.23-r1 1.0.0-r1 1.0.1-r1: Secure backup system using gnupg to encrypt data
@@ -11683,7 +11683,7 @@ gui-libs/wayfire-plugins-extra 0.7.0-r1 0.7.5 9999: extra plugins for wayfire
 gui-libs/wf-config 0.7.1-r1 9999: library for managing wayfire configuration files
 gui-libs/wlroots 0.14.0-r2 0.14.1-r1 0.15.1 0.15.1-r1 0.16.0 0.16.1 0.16.2 9999: Pluggable, composable, unopinionated modules for building a Wayland compositor
 gui-libs/wpebackend-fdo 1.14.0 1.14.1 1.14.2: WPE backend designed for Linux desktop systems
-gui-libs/xdg-desktop-portal-lxqt 0.2.0 0.3.0: Backend implementation for xdg-desktop-portal using Qt/KF5/libfm-qt
+gui-libs/xdg-desktop-portal-lxqt 0.3.0: Backend implementation for xdg-desktop-portal using Qt/KF5/libfm-qt
 gui-libs/xdg-desktop-portal-wlr 0.4.0 0.5.0 0.6.0 9999: xdg-desktop-portal backend for wlroots
 gui-wm/gamescope 3.11.51 3.11.52_beta6: Efficient micro-compositor for running games
 gui-wm/hikari 2.3.3: Wayland compositor inspired by CWM
@@ -12094,22 +12094,22 @@ lxde-base/lxsession 0.5.5: LXDE session manager
 lxde-base/lxtask 0.1.10: LXDE Task manager
 lxde-base/lxterminal 0.4.0: Lightweight vte-based tabbed terminal emulator for LXDE
 lxde-base/menu-cache 1.1.0-r1: Library to create and utilize caches to speed up freedesktop application menus
-lxqt-base/liblxqt 1.1.0 1.2.0: Common base library for the LXQt desktop environment
+lxqt-base/liblxqt 1.2.0: Common base library for the LXQt desktop environment
 lxqt-base/libsysstat 0.4.6: Qt GUI for System Statistics
-lxqt-base/lxqt-about 1.1.0 1.2.0: LXQt about dialog
-lxqt-base/lxqt-admin 1.1.0 1.2.0: LXQt system administration tool
-lxqt-base/lxqt-config 1.1.0 1.2.0 1.2.0-r1: LXQt system configuration control center
-lxqt-base/lxqt-globalkeys 1.1.0 1.2.0: Daemon and library for global keyboard shortcuts registration
-lxqt-base/lxqt-meta 1.1.0 1.2.0: Meta ebuild for LXQt, the Lightweight Desktop Environment
-lxqt-base/lxqt-notificationd 1.1.0 1.2.0: LXQt notification daemon and library
-lxqt-base/lxqt-openssh-askpass 1.1.0 1.2.0: LXQt OpenSSH user password prompt tool
-lxqt-base/lxqt-panel 1.1.0 1.2.0: LXQt desktop panel and plugins
-lxqt-base/lxqt-policykit 1.1.0 1.2.0: LXQt PolKit authentication agent
-lxqt-base/lxqt-powermanagement 1.1.0 1.2.0: LXQt daemon for power management and auto-suspend
-lxqt-base/lxqt-qtplugin 1.1.0 1.2.0: LXQt system integration plugin for Qt
-lxqt-base/lxqt-runner 1.1.0 1.2.0: LXQt quick launcher
-lxqt-base/lxqt-session 1.1.1 1.2.0: LXQt Session Manager
-lxqt-base/lxqt-sudo 1.1.0 1.2.0: LXQt GUI frontend for sudo
+lxqt-base/lxqt-about 1.2.0: LXQt about dialog
+lxqt-base/lxqt-admin 1.2.0: LXQt system administration tool
+lxqt-base/lxqt-config 1.2.0 1.2.0-r1: LXQt system configuration control center
+lxqt-base/lxqt-globalkeys 1.2.0: Daemon and library for global keyboard shortcuts registration
+lxqt-base/lxqt-meta 1.2.0: Meta ebuild for LXQt, the Lightweight Desktop Environment
+lxqt-base/lxqt-notificationd 1.2.0: LXQt notification daemon and library
+lxqt-base/lxqt-openssh-askpass 1.2.0: LXQt OpenSSH user password prompt tool
+lxqt-base/lxqt-panel 1.2.0: LXQt desktop panel and plugins
+lxqt-base/lxqt-policykit 1.2.0: LXQt PolKit authentication agent
+lxqt-base/lxqt-powermanagement 1.2.0: LXQt daemon for power management and auto-suspend
+lxqt-base/lxqt-qtplugin 1.2.0: LXQt system integration plugin for Qt
+lxqt-base/lxqt-runner 1.2.0: LXQt quick launcher
+lxqt-base/lxqt-session 1.2.0: LXQt Session Manager
+lxqt-base/lxqt-sudo 1.2.0: LXQt GUI frontend for sudo
 mail-client/aerc 0.12.0-r1 0.14.0 9999: Email client for your terminal
 mail-client/alot 0.10 9999: Experimental terminal UI for net-mail/notmuch written in Python
 mail-client/alpine 2.26-r1: An easy to use text-based based mail and news client
@@ -12567,7 +12567,7 @@ media-gfx/librecad 2.1.3-r7 2.2.0 9999: Generic 2D CAD program
 media-gfx/libredwg 0.12.5-r1: C library to handle DWG files
 media-gfx/llgal 0.13.19-r2: Command-line static web gallery generator
 media-gfx/luminance-hdr 2.6.1.1-r1: Graphical user interface that provides a workflow for HDR imaging
-media-gfx/lximage-qt 1.1.0 1.2.0: Qt Image Viewer
+media-gfx/lximage-qt 1.2.0: Qt Image Viewer
 media-gfx/maim 5.7.4: Commandline tool to take screenshots of the desktop
 media-gfx/mandelbulber 2.28-r1: Tool to render 3D fractals
 media-gfx/mcomix 1.3.0_pre20211015 2.0.2-r1 2.1.0 9999: GTK image viewer for comic book archives
@@ -17949,7 +17949,7 @@ x11-libs/neXtaw 0.15.1-r5: Athena Widgets with N*XTSTEP appearance
 x11-libs/pango 1.42.4-r2 1.50.12 1.50.13 1.50.14: Internationalized text layout and rendering library
 x11-libs/pixman 0.42.2 9999: Low-level pixel manipulation routines
 x11-libs/qscintilla 2.13.3: Qt port of Neil Hodgson's Scintilla C++ editor control
-x11-libs/qtermwidget 1.1.0 1.2.0 9999: Qt terminal emulator widget
+x11-libs/qtermwidget 1.2.0 9999: Qt terminal emulator widget
 x11-libs/qwt 5.2.3_p20210211 5.2.3_p20210828 6.1.5 6.2.0-r1 6.2.0-r2: 2D plotting library for Qt5
 x11-libs/qwtplot3d 0.2 0.2_p20210828: 3D plotting library for Qt5
 x11-libs/qwtpolar 1.1.1-r3: Library for displaying values on a polar coordinate system
@@ -18098,7 +18098,7 @@ x11-misc/oroborus-deskmenu 1.4.5-r1: root menu program for Oroborus
 x11-misc/oroborus-keylaunch 1.3.9-r1: utility for binding keys in Oroborus
 x11-misc/parcellite 1.2.1: A lightweight GTK+ based clipboard manager
 x11-misc/pcmanfm 1.3.2-r1: Fast lightweight tabbed filemanager
-x11-misc/pcmanfm-qt 1.1.0 1.2.0: Qt GUI Tabbed Filemanager
+x11-misc/pcmanfm-qt 1.2.0: Qt GUI Tabbed Filemanager
 x11-misc/peksystray 0.4.0: A system tray dockapp for window managers supporting docking
 x11-misc/picom 9.1 10.1 10.2 9999: A lightweight compositor for X11 (previously a compton fork)
 x11-misc/piedock 1.6.9: A little bit like the famous OS X dock but in shape of a pie menu
@@ -18110,7 +18110,7 @@ x11-misc/py3status 3.49: py3status is an extensible i3status wrapper written in 
 x11-misc/qarma 1: Zenity Clone for Qt5
 x11-misc/qcomicbook 0.9.1: Viewer for comic book archives containing jpeg/png images
 x11-misc/qlipper 5.1.2: Lightweight and cross-platform clipboard history applet
-x11-misc/qps 2.5.0 2.6.0: Qt GUI Process Manager
+x11-misc/qps 2.6.0: Qt GUI Process Manager
 x11-misc/qt5ct 1.5 1.6 1.7: Qt5 configuration tool, similar to qtconfig for Qt4
 x11-misc/qterm 0.7.3-r1: A BBS client based on Qt
 x11-misc/qtfm 6.2.1 99999: Small, lightweight file manager based on pure Qt
@@ -18127,7 +18127,7 @@ x11-misc/rofi-file-browser-extended 1.3.1-r1: A file browser for rofi
 x11-misc/rss-glx 0.9.1-r3: Really Slick OpenGL Screensavers for XScreenSaver
 x11-misc/safeeyes 2.1.3-r1 2.1.4 2.1.4-r1 2.1.5 2.1.5-r1: Linux alternative to EyeLeo
 x11-misc/screen-message 0.26: Display a multi-line message large, fullscreen, black on white
-x11-misc/screengrab 2.4.0 2.5.0: Qt GUI Screenshot Utility
+x11-misc/screengrab 2.5.0: Qt GUI Screenshot Utility
 x11-misc/screenkey 1.5-r3 1.5_p20230109 9999: A screencast tool to display your keys inspired by Screenflick
 x11-misc/sct 0.5-r1: Set color temperature of the screen
 x11-misc/sddm 0.18.1-r8: Simple Desktop Display Manager
@@ -18431,7 +18431,7 @@ x11-terms/kitty-terminfo 0.26.5 0.27.1 9999: Terminfo for kitty, a GPU-based ter
 x11-terms/kterm 6.2.0-r7: Japanese Kanji X Terminal
 x11-terms/mate-terminal 1.26.0: The MATE Terminal
 x11-terms/mlterm 3.9.2: A multi-lingual terminal emulator
-x11-terms/qterminal 1.1.0 1.2.0 9999: Qt-based multitab terminal emulator
+x11-terms/qterminal 1.2.0 9999: Qt-based multitab terminal emulator
 x11-terms/root-tail 1.2-r4: Terminal to display (multiple) log files on the root window
 x11-terms/roxterm 3.9.4: A terminal emulator designed to integrate with the ROX environment
 x11-terms/rxvt-unicode 9.30 9.31: rxvt clone with xft and unicode support
@@ -18519,7 +18519,7 @@ x11-themes/laughlin-backgrounds 14.1.0.3-r2: Fedora 14 official background artwo
 x11-themes/leonidas-backgrounds 11.0.0.2-r2: Fedora 11 official background artwork
 x11-themes/light-themes 20.10-r2: GTK2/GTK3 Ambiance and Radiance themes from Ubuntu
 x11-themes/lovelock-backgrounds 14.91.1.1-r2: Fedora 15 official background artwork
-x11-themes/lxqt-themes 1.1.0 1.2.0: LXQt Themes
+x11-themes/lxqt-themes 1.2.0: LXQt Themes
 x11-themes/mate-backgrounds 1.26.0: A set of backgrounds packaged with the MATE desktop
 x11-themes/mate-icon-theme 1.26.0: MATE default icon themes
 x11-themes/mate-icon-theme-faenza 1.20.0: Faenza icon theme that was adapted for MATE desktop
