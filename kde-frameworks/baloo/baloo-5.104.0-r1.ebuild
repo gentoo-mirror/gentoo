@@ -33,3 +33,5 @@ DEPEND="
 	=kde-frameworks/solid-${PVCUT}*:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-skip-all-unprintable-chars.patch" )

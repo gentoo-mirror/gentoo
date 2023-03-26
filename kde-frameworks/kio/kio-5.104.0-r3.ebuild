@@ -65,7 +65,11 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${P}-renamefiledialog-fix-number-limit.patch" ) # KDE-bug 466636
+PATCHES=(
+	"${FILESDIR}/${P}-renamefiledialog-fix-number-limit.patch" # KDE-bug 466636
+	"${FILESDIR}/${P}-handle-copy_file_range-failing-w-ENOENT.patch" # bug 885793
+	"${FILESDIR}/${P}-fix-kstart5-not-returning.patch" # KDE-bug 466359
+)
 
 src_configure() {
 	local mycmakeargs=(

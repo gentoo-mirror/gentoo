@@ -47,3 +47,5 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
+
+PATCHES=( "${FILESDIR}/${P}-display-connector-name.patch" ) # KDE-bug 466046

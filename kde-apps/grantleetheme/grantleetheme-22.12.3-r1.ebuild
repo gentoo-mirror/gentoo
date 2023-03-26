@@ -15,11 +15,15 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
+# fails if package not already installed
+RESTRICT="test"
+
 RDEPEND="
-	dev-libs/grantlee:5
+	>=dev-libs/grantlee-5.2.0:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
@@ -31,6 +35,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-qt/qtnetwork-${QTMIN}:5
 "
-
-# fails if package not already installed
-RESTRICT="test"

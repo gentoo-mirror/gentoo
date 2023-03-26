@@ -11,7 +11,7 @@ inherit ecm plasma.kde.org
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"
 HOMEPAGE="https://invent.kde.org/plasma/kde-gtk-config"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-read-kcmfonts-dpi-size.patch.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="5"
@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="dev-lang/sassc"
 
-PATCHES=( "${WORKDIR}/${P}-read-kcmfonts-dpi-size.patch" ) # KDE-bugs 461106, 466463
+PATCHES=( "${WORKDIR}/${P}-patchset-1" ) # KDE-bugs 461106, 466463
 
 src_configure() {
 	local mycmakeargs=(
