@@ -12,7 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm plasma.kde.org optfeature
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-2.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="5"
@@ -104,7 +104,7 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
-PATCHES=( "${WORKDIR}/${P}-patchset-1" ) # KDE-bugs 465790, 465775, 465740
+PATCHES=( "${WORKDIR}/${P}-patchset-2" ) # KDE-bugs 465790, 465775, 465740
 
 src_prepare() {
 	ecm_src_prepare
