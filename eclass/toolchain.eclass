@@ -53,9 +53,9 @@ if [[ ${CTARGET} = ${CHOST} ]] ; then
 		export CTARGET=${CATEGORY#cross-}
 	fi
 fi
-: ${TARGET_ABI:=${ABI}}
-: ${TARGET_MULTILIB_ABIS:=${MULTILIB_ABIS}}
-: ${TARGET_DEFAULT_ABI:=${DEFAULT_ABI}}
+: "${TARGET_ABI:=${ABI}}"
+: "${TARGET_MULTILIB_ABIS:=${MULTILIB_ABIS}}"
+: "${TARGET_DEFAULT_ABI:=${DEFAULT_ABI}}"
 
 is_crosscompile() {
 	[[ ${CHOST} != ${CTARGET} ]]
@@ -400,17 +400,17 @@ PDEPEND=">=sys-devel/gcc-config-2.3"
 # Used to override compression used for for patchsets.
 # Default is xz for EAPI 8+ and bz2 for older EAPIs.
 if [[ ${EAPI} == 8 ]] ; then
-	: ${TOOLCHAIN_PATCH_SUFFIX:=xz}
+	: "${TOOLCHAIN_PATCH_SUFFIX:=xz}"
 else
 	# Older EAPIs
-	: ${TOOLCHAIN_PATCH_SUFFIX:=bz2}
+	: "${TOOLCHAIN_PATCH_SUFFIX:=bz2}"
 fi
 
 # @ECLASS_VARIABLE: TOOLCHAIN_SET_S
 # @DESCRIPTION:
 # Used to override value of S for snapshots and such. Mainly useful
 # if needing to set GCC_TARBALL_SRC_URI.
-: ${TOOLCHAIN_SET_S:=yes}
+: "${TOOLCHAIN_SET_S:=yes}"
 
 # Set the source directory depending on whether we're using
 # a live git tree, snapshot, or release tarball.
@@ -1311,7 +1311,7 @@ toolchain_src_configure() {
 			[[ ${arm_arch} == armv7? ]] && arm_arch=${arm_arch/7/7-}
 			# See if this is a valid --with-arch flag
 			if (srcdir=${S}/gcc target=${CTARGET} with_arch=${arm_arch};
-			    . "${srcdir}"/config.gcc) &>/dev/null
+				. "${srcdir}"/config.gcc) &>/dev/null
 			then
 				confgcc+=( --with-arch=${arm_arch} )
 			fi
@@ -1349,7 +1349,7 @@ toolchain_src_configure() {
 			;;
 
 		amd64)
-			# drop the older/ABI checks once this get's merged into some
+			# drop the older/ABI checks once this gets merged into some
 			# version of gcc upstream
 			if tc_version_is_at_least 4.8 && has x32 $(get_all_abis TARGET) ; then
 				confgcc+=( --with-abi=$(gcc-abi-map ${TARGET_DEFAULT_ABI}) )
@@ -1964,7 +1964,7 @@ gcc_do_make() {
 			LIBPATH="${LIBPATH}" \
 			BOOT_CFLAGS="${BOOT_CFLAGS}"
 		popd > /dev/null || die
-        fi
+	fi
 
 	einfo "Compiling ${PN} (${GCC_MAKE_TARGET})..."
 
@@ -2419,7 +2419,7 @@ create_gcc_env_entry() {
 	local gcc_envd_file="${ED}${gcc_envd_base}"
 	if [[ -z $1 ]] ; then
 		# I'm leaving the following commented out to remind me that it
-		# was an insanely -bad- idea. Stuff broke. GCC_SPECS isnt unset
+		# was an insanely -bad- idea. Stuff broke. GCC_SPECS isn't unset
 		# on chroot or in non-toolchain.eclass gcc ebuilds!
 		#gcc_specs_file="${LIBPATH}/specs"
 		gcc_specs_file=""
@@ -2593,14 +2593,14 @@ do_gcc_config() {
 			ewarn "The currently selected specs-specific gcc config,"
 			ewarn "${current_specs}, doesn't exist anymore. This is usually"
 			ewarn "due to enabling/disabling hardened or switching to a version"
-			ewarn "of gcc that doesnt create multiple specs files. The default"
+			ewarn "of gcc that doesn't create multiple specs files. The default"
 			ewarn "config will be used, and the previous preference forgotten."
 			use_specs=""
 		fi
 
 		target="${CTARGET}-${GCC_CONFIG_VER}${use_specs}"
 	else
-		# The curent target is invalid.  Attempt to switch to a valid one.
+		# The current target is invalid.  Attempt to switch to a valid one.
 		# Blindly pick the latest version. bug #529608
 		# TODO: Should update gcc-config to accept `-l ${CTARGET}` rather than
 		# doing a partial grep like this.
@@ -2653,7 +2653,7 @@ should_we_gcc_config() {
 #---->> support and misc functions <<----
 
 # This is to make sure we don't accidentally try to enable support for a
-# language that doesnt exist. GCC 3.4 supports f77, while 4.0 supports f95, etc.
+# language that doesn't exist. GCC 3.4 supports f77, while 4.0 supports f95, etc.
 #
 # Also add a hook so special ebuilds (kgcc64) can control which languages
 # exactly get enabled
