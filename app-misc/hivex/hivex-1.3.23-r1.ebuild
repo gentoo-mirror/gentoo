@@ -3,9 +3,9 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30"
+USE_RUBY="ruby27 ruby30 ruby31 ruby32"
 RUBY_OPTIONAL=yes
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit perl-module ruby-ng python-single-r1 strip-linguas
 
 DESCRIPTION="Library for reading and writing Windows Registry 'hive' binary files"
@@ -31,24 +31,32 @@ RDEPEND="
 		dev-perl/IO-stringy
 	)
 	python? ( ${PYTHON_DEPS} )
-	readline? ( sys-libs/readline:0 )
+	readline? ( sys-libs/readline:= )
 	ruby? ( $(ruby_implementations_depend) )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	perl? (
 		test? (
 			dev-perl/Pod-Coverage
 			dev-perl/Test-Pod-Coverage
 		)
-	)"
+	)
+"
 
-ruby_add_bdepend "ruby? ( dev-ruby/rake
-			virtual/rubygems
-			dev-ruby/rdoc )"
+ruby_add_bdepend "
+	ruby? (
+		dev-ruby/rake
+		virtual/rubygems
+		dev-ruby/rdoc
+	)
+"
 ruby_add_rdepend "ruby? ( virtual/rubygems )"
 
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
-			ruby? ( || ( $(ruby_get_use_targets) ) )"
+REQUIRED_USE="
+	python? ( ${PYTHON_REQUIRED_USE} )
+	ruby? ( || ( $(ruby_get_use_targets) ) )
+"
 
 DOCS=( README )
 
@@ -87,8 +95,23 @@ src_configure() {
 		--disable-ruby
 		$(use_enable python)
 		--disable-rpath
-		--disable-static
 	)
+
+	econf "${myeconfargs[@]}"
+}
+
+each_ruby_configure() {
+	local myeconfargs=(
+		--without-readline
+		--disable-ocaml
+		--disable-perl
+		--enable-nls
+		--enable-ruby
+		--disable-python
+		--disable-rpath
+	)
+
+	export ac_cv_prog_RUBY="${RUBY}"
 
 	econf "${myeconfargs[@]}"
 }
@@ -97,6 +120,24 @@ src_compile() {
 	default
 
 	use ruby && ruby-ng_src_compile
+}
+
+each_ruby_compile() {
+	# -C ruby deliberately omitted as we need the library itself built too
+	emake
+}
+
+src_test() {
+	emake check
+
+	local dir
+	for dir in ocaml perl python ; do
+		use ${dir} && emake -C ${dir} check
+	done
+}
+
+each_ruby_test() {
+	emake -C ruby check
 }
 
 src_install() {
@@ -121,4 +162,8 @@ src_install() {
 	fi
 
 	find "${ED}" -name '*.la' -delete || die
+}
+
+each_ruby_install() {
+	emake -C ruby install DESTDIR="${ED}"
 }
