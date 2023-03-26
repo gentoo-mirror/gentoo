@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,14 +10,14 @@ SRC_URI="https://github.com/GSConnect/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="nautilus"
 
 COMMON_DEPEND="dev-libs/glib:2"
 RDEPEND="${COMMON_DEPEND}
 	app-eselect/eselect-gnome-shell-extensions
 	>=dev-libs/gjs-1.68
-	=gnome-base/gnome-shell-43*
+	=gnome-base/gnome-shell-44*
 	gnome-base/gvfs
 	gnome-extra/evolution-data-server
 	|| ( media-libs/libcanberra media-libs/gsound )
