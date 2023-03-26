@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,12 +8,12 @@ inherit go-module verify-sig
 DESCRIPTION="Secure Boot key manager"
 HOMEPAGE="https://github.com/Foxboron/sbctl"
 SRC_URI="https://github.com/Foxboron/${PN}/releases/download/${PV}/${P}.tar.gz
-	https://dev.gentoo.org/~ajak/dist/${P}-deps.tar.xz
+	https://dev.gentoo.org/~ajak/distfiles/${CATEGORY}/${PN}/${P}-deps.tar.xz
 	verify-sig? ( https://github.com/Foxboron/${PN}/releases/download/${PV}/${P}.tar.gz.sig )"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 BDEPEND="app-text/asciidoc
 	verify-sig? ( sec-keys/openpgp-keys-foxboron )"
