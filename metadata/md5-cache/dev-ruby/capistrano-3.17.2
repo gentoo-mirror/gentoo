@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://capistranorb.com/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 test test
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby27? ( >=dev-ruby/airbrussh-1.0.0[ruby_targets_ruby27(-)] >=dev-ruby/sshkit-1.9:0[ruby_targets_ruby27(-)] >=dev-ruby/rake-10.0.0[ruby_targets_ruby27(-)] dev-ruby/i18n:*[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/airbrussh-1.0.0[ruby_targets_ruby30(-)] >=dev-ruby/sshkit-1.9:0[ruby_targets_ruby30(-)] >=dev-ruby/rake-10.0.0[ruby_targets_ruby30(-)] dev-ruby/i18n:*[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/airbrussh-1.0.0[ruby_targets_ruby31(-)] >=dev-ruby/sshkit-1.9:0[ruby_targets_ruby31(-)] >=dev-ruby/rake-10.0.0[ruby_targets_ruby31(-)] dev-ruby/i18n:*[ruby_targets_ruby31(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=3
 SRC_URI=https://rubygems.org/gems/capistrano-3.17.2.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	41693b3ee4cab79e287237b59f7e2184	ruby-fakegem	4bb1017b1ef0d5e0bdd1c7b040fccc0d
-_md5_=12964ca7c096dee69f5d77f02775a2aa
+_md5_=1eb9695a99ca7e571b70a28c2249b98e
