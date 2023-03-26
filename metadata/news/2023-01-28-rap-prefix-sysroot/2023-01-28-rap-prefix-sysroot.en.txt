@@ -1,7 +1,7 @@
 Title: Breaking changes to the RAP Prefix toolchain
 Author: James Le Cuirot <chewi@gentoo.org>
 Posted: 2023-01-28
-Revision: 2
+Revision: 3
 News-Item-Format: 2.0
 Display-If-Profile: default/linux/amd64/17.0/no-multilib/prefix/*
 Display-If-Profile: default/linux/amd64/17.1/no-multilib/prefix/*
@@ -53,12 +53,15 @@ your toolchain will break when you next update your compiler or glibc.
 
   3. Update or rebuild sys-libs/glibc.
 
-  4. Run the following to remove the symlink:
+  4. Update sys-devel/binutils to at least 2.40-r2. This package is slotted, so
+     ensure at least this version is selected with binutils-config.
+
+  5. Run the following to remove the symlink:
 
      EPREFIX=$(portageq envvar EPREFIX)
      rm "${EPREFIX}${EPREFIX}"
 
-  5. If dev-libs/libbsd is installed, then update it to 0.11.7-r2 or later.
+  6. If dev-libs/libbsd is installed, then update it to 0.11.7-r2 or later.
 
 If you are reading this having updated glibc first and you are no longer able to
 build anything, then don't panic. Simply execute the lines below and then carry
