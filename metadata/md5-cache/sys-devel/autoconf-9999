@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/m4-1.4.16 >=dev-lang/perl-5.10 >=sys-apps/texinfo-4.3 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 >=sys-apps/texinfo-4.3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare test unpack
 DESCRIPTION=Used to create autoconfiguration files
 EAPI=7
@@ -8,7 +8,7 @@ IUSE=emacs
 LICENSE=GPL-3+
 PDEPEND=emacs? ( app-emacs/autoconf-mode )
 PROPERTIES=live
-RDEPEND=>=sys-devel/m4-1.4.16 >=dev-lang/perl-5.10 >=sys-devel/autoconf-wrapper-14 sys-devel/gnuconfig !~sys-devel/autoconf-9999:2.5
+RDEPEND=>=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 >=sys-devel/autoconf-wrapper-15 sys-devel/gnuconfig !~sys-devel/autoconf-9999:2.5
 SLOT=9999
 _eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676	toolchain-autoconf	35fbe7d944a1f2432d4481bcb0201f6f
-_md5_=c80fcb3c34a1e3ef8bd4401e39b3f8f8
+_md5_=3793fc5cdc91c3615541bcce97dc9b7c
