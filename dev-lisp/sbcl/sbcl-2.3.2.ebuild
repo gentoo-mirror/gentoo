@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.2.11
+BV_AMD64=2.3.2
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
@@ -46,6 +46,7 @@ CDEPEND=">=dev-lisp/asdf-3.3:= \
 	prefix? ( dev-util/patchelf )"
 # bug #843851
 BDEPEND="${CDEPEND}
+		dev-util/strace
 		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )"
 RDEPEND="${CDEPEND}
 		zstd? ( app-arch/zstd )
@@ -100,7 +101,7 @@ src_prepare() {
 	# bug #468482
 	eapply "${FILESDIR}"/concurrency-test-2.0.1.patch
 	# bugs #486552, #527666, #517004
-	eapply "${FILESDIR}"/bsd-sockets-test-2.0.5.patch
+	eapply "${FILESDIR}"/bsd-sockets-test-2.3.1.patch
 	# bugs #560276, #561018
 	eapply "${FILESDIR}"/sb-posix-test-2.2.9.patch
 	# bug #767742
