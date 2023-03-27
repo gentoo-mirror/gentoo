@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby26 ruby27"
+USE_RUBY="ruby30"
 
 # The software got renamed from kramdown-rfc2629 to kramdown-rfc,
 # however the gem coordinate is still kramdown-rfc2629.
@@ -11,6 +11,9 @@ RUBY_FAKEGEM_NAME="${PN}2629"
 RUBY_FAKEGEM_RECIPE_TEST="none"
 RUBY_FAKEGEM_EXTRADOC="README.md"
 RUBY_FAKEGEM_EXTRAINSTALL="data"
+# Explicitly use the gemspec file over the metadata file of the gem, as
+# the latter contains dependencies that we patched out.
+RUBY_FAKEGEM_GEMSPEC="${RUBY_FAKEGEM_NAME}.gemspec"
 
 inherit ruby-fakegem
 
@@ -19,15 +22,20 @@ HOMEPAGE="https://github.com/cabo/kramdown-rfc"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.6.27-Drop-dependency-on-certified.patch
+	"${FILESDIR}"/${PN}-1.6.27-Remove-bin-echars.patch
+)
 
 ruby_add_rdepend "
-	>=dev-ruby/certified-1.0.0
 	>=dev-ruby/json-2.0.0
 	>=dev-ruby/kramdown-2.4.0
 	>=dev-ruby/kramdown-parser-gfm-1.1.0
+	>=dev-ruby/net-http-persistent-4.0
 "
 
 all_ruby_prepare() {
-	sed -i 's/json_pure/json/' ../metadata || die
+	sed -i 's/json_pure/json/' "${RUBY_FAKEGEM_GEMSPEC}" || die
 }
