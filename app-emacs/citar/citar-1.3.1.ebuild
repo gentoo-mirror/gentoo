@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ BDEPEND="${RDEPEND}"
 # to split them. https://melpa.org/#/citar-embark
 ELISP_REMOVE="citar-embark.el"
 
-DOCS=( CHANGELOG.org CONTRIBUTING.org README.org images )
+DOCS=( CHANGELOG.md CONTRIBUTING.org README.org )
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {

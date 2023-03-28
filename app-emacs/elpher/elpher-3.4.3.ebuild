@@ -14,8 +14,8 @@ if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="git://thelambdalab.xyz/${PN}.git"
 else
-	if [[ ${PV} == 3.4.2 ]] ; then
-		COMMIT=f117f2f
+	if [[ ${PV} == 3.4.3 ]] ; then
+		COMMIT=2f66d41
 		SRC_URI="https://thelambdalab.xyz/gitweb/index.cgi?p=${PN}.git;a=snapshot;h=${COMMIT};sf=tgz
 			-> ${P}.tar.gz"
 		S="${WORKDIR}"/${PN}-${COMMIT}

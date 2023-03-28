@@ -8,7 +8,7 @@ inherit elisp
 DESCRIPTION="Flycheck checker for the GNU Guile Scheme implementation"
 HOMEPAGE="https://github.com/flatwhatson/flycheck-guile/"
 SRC_URI="https://github.com/flatwhatson/${PN}/archive/${PV}.tar.gz
-			-> ${P}.tar.gz"
+	-> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -24,5 +24,4 @@ RDEPEND="
 "
 
 DOCS=( README.md )
-ELISP_REMOVE=".dir-locals.el"
 SITEFILE="50${PN}-gentoo.el"
