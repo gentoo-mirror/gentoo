@@ -11,6 +11,7 @@ inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma screen management"
 HOMEPAGE="https://invent.kde.org/plasma/kscreen"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -48,4 +49,4 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
-PATCHES=( "${FILESDIR}/${P}-display-connector-name.patch" ) # KDE-bug 466046
+PATCHES=( "${WORKDIR}/${P}-patchset-1" )  # KDE-bugs 466046, 466914
