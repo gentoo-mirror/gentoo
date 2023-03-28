@@ -135,8 +135,8 @@ src_configure() {
 			-DUSE_XV=$(usex xv)
 
 			# this controls both vulkan output and shader support, could be
-			# behind USE=vulkan but it currently fails to build if disabled
-			# and adds no dependencies given they are bundled (for now)
+			# behind a USE but it currently fails to build if disabled and
+			# adds no dependencies given they are bundled (for now)
 			-DUSE_SLANG=yes
 
 			# gets used for LOCALE/DATADIR too early (installs to /usr//locale)
