@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9,10} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{9,10,11} )
+DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 optfeature pypi
+inherit bash-completion-r1 distutils-r1 optfeature pypi
 
 DESCRIPTION="A static website and blog generator"
 HOMEPAGE="https://getnikola.com/"
@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 RESTRICT="test" # needs coveralls
 
-DEPEND=">=dev-python/docutils-0.13[${PYTHON_USEDEP}]" # needs rst2man to build manpage
-RDEPEND="${DEPEND}
+BDEPEND=">=dev-python/docutils-0.13[${PYTHON_USEDEP}]" # needs rst2man to build manpage
+RDEPEND="${BDEPEND}
 	>=dev-python/Babel-2.6.0[${PYTHON_USEDEP}]
 	>=dev-python/blinker-1.3[${PYTHON_USEDEP}]
 	>=dev-python/doit-0.32[${PYTHON_USEDEP}]
@@ -31,10 +31,16 @@ RDEPEND="${DEPEND}
 	>=dev-python/PyRSS2Gen-1.1[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.6.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.2.0[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-67.2.0[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-0.04.16[${PYTHON_USEDEP}]
 	>=dev-python/yapsy-1.11.223[${PYTHON_USEDEP}]
 	dev-python/pillow[jpeg,${PYTHON_USEDEP}]
 	dev-python/cloudpickle[${PYTHON_USEDEP}]"
+
+python_compile_all() {
+	nikola tabcompletion --shell=bash > ${PN}.bashcomp || die
+	nikola tabcompletion --shell=zsh > ${PN}.zshcomp || die
+}
 
 src_install() {
 	distutils-r1_src_install
@@ -44,6 +50,10 @@ src_install() {
 
 	dodoc AUTHORS.txt CHANGES.txt README.rst docs/*.rst
 	gunzip "${ED}/usr/share/man/man1/${PN}.1.gz" || die
+
+	newbashcomp ${PN}.bashcomp ${PN}
+	insinto /usr/share/zsh/site-functions
+	newins ${PN}.zshcomp _${PN}
 }
 
 pkg_postinst() {
