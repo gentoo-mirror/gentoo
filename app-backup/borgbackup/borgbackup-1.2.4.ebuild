@@ -8,13 +8,8 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 bash-completion-r1
 
-if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/${PN}/borg.git"
-	inherit git-r3
-else
-	SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
-fi
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+inherit pypi
 
 DESCRIPTION="Deduplicating backup program with compression and authenticated encryption"
 HOMEPAGE="https://borgbackup.readthedocs.io/"
@@ -30,7 +25,7 @@ RDEPEND="
 	app-arch/lz4
 	virtual/acl
 	dev-python/pyfuse3[${PYTHON_USEDEP}]
-	~dev-python/msgpack-1.0.4[${PYTHON_USEDEP}]
+	~dev-python/msgpack-1.0.5[${PYTHON_USEDEP}]
 	dev-libs/openssl:0=
 "
 
