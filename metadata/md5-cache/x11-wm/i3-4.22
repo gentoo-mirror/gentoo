@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://i3wm.org/
 INHERIT=meson optfeature virtualx
 IUSE=doc test test
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=dev-libs/libev dev-libs/libpcre2 dev-libs/yajl x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:= x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-misc/xkeyboard-config dev-lang/perl dev-perl/AnyEvent-I3 dev-perl/JSON-XS
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://i3wm.org/downloads/i3-4.22.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	virtualx	817571665ee28575da44ee08135089e5
-_md5_=c40caaf8aab8409df2930ae32019162c
+_md5_=f360e87bcb266eb371c91613921615ea
