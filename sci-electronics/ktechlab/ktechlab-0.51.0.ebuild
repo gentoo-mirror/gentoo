@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,8 +7,8 @@ ECM_EXAMPLES="true"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="sdk"
-KFMIN=5.74.0
-QTMIN=5.15.1
+KFMIN=5.82.0
+QTMIN=5.15.5
 inherit ecm kde.org
 
 DESCRIPTION="IDE for microcontrollers and electronics"
@@ -24,6 +24,7 @@ DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
+	>=dev-qt/qtserialport-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kcompletion-${KFMIN}:5
@@ -43,8 +44,3 @@ DEPEND="
 	gpsim? ( dev-embedded/gpsim )
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-deps.patch
-	"${FILESDIR}"/${P}-crashfix{-propertyeditor,-connectors-diverging,}.patch
-)
