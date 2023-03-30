@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/whitequark/ocaml-expat
 INHERIT=findlib
 IUSE=doc +ocamlopt test +ocamlopt
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=dev-libs/expat >=dev-lang/ocaml-4.14.1:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/1.3.0
 SRC_URI=https://github.com/whitequark/ocaml-expat/archive/v1.3.0.tar.gz -> ocaml-expat-1.3.0.tar.gz
 _eclasses_=findlib	cc1c14904708a0a28bcb256b342a808c
-_md5_=2075c84229782b1b3e8baeaa4f0cf03a
+_md5_=63c3c0dc807c6c9e16f13257d032bc2e
