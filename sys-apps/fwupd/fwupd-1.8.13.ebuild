@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="amt archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma +man minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
+IUSE="amt +archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
 	dell? ( uefi )
@@ -40,10 +40,6 @@ BDEPEND="$(vala_depend)
 	)
 	bash-completion? ( >=app-shells/bash-completion-2.0 )
 	introspection? ( dev-libs/gobject-introspection )
-	man? (
-		app-text/docbook-sgml-utils
-		sys-apps/help2man
-	)
 	test? (
 		dev-util/umockdev
 		net-libs/gnutls[tools]
@@ -96,7 +92,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.11-installed_tests.patch
+	"${FILESDIR}"/${PN}-1.8.13-installed_tests.patch
 )
 
 src_prepare() {
@@ -143,6 +139,7 @@ src_configure() {
 		-Dconsolekit="disabled"
 		-Dcurl="enabled"
 		-Defi_binary="false"
+		-Dman="true"
 		-Dsupported_build="enabled"
 		-Dudevdir="${EPREFIX}$(get_udevdir)"
 		$(meson_feature archive libarchive)
@@ -154,7 +151,6 @@ src_configure() {
 		$(meson_feature gtk-doc docs)
 		$(meson_feature gusb)
 		$(meson_feature lzma)
-		$(meson_use man)
 		$(meson_feature introspection)
 		$(meson_feature policykit polkit)
 		$(meson_feature sqlite)
