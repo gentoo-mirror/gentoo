@@ -1,19 +1,28 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
+
 inherit distutils-r1 pypi
 
 DESCRIPTION="GenSON is a powerful, user-friendly JSON Schema generator built in Python"
-HOMEPAGE="https://pypi.org/project/genson/ https://github.com/wolverdude/GenSON/"
+HOMEPAGE="
+	https://github.com/wolverdude/GenSON/
+	https://pypi.org/project/genson/
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND="test? ( dev-python/jsonschema[${PYTHON_USEDEP}] )"
+BDEPEND="
+	test? (
+		dev-python/jsonschema[${PYTHON_USEDEP}]
+	)
+"
 
 distutils_enable_tests unittest
 
