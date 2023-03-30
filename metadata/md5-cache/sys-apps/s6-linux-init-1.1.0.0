@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://www.skarnet.org/software/s6-linux-init/
 INHERIT=toolchain-funcs
 IUSE=+sysv-utils
-KEYWORDS=~amd64 ~arm x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=ISC
 RDEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.13.0.0:= sys-apps/s6:=[execline] sysv-utils? ( !sys-apps/openrc[sysv-utils(-)] !sys-apps/systemd[sysv-utils] !sys-apps/sysvinit )
 SLOT=0/1.1
 SRC_URI=https://www.skarnet.org/software/s6-linux-init/s6-linux-init-1.1.0.0.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
-_md5_=534758b4b922fccb7b6206e88275c2ab
+_md5_=11d9af65023dfbf9ffe65a1cb6026d74
