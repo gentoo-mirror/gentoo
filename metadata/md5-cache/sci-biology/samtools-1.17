@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-lang/perl =sci-libs/htslib-1.17*:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib
+DESCRIPTION=Utilities for analysing and manipulating the SAM/BAM alignment formats
+EAPI=8
+HOMEPAGE=http://www.htslib.org/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=MIT
+RDEPEND=dev-lang/perl =sci-libs/htslib-1.17*:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib
+SLOT=0
+SRC_URI=https://github.com/samtools/samtools/releases/download/1.17/samtools-1.17.tar.bz2
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
+_md5_=d899fa7ac2ab4404dcca131cb83b93ab
