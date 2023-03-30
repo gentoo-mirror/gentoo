@@ -1086,7 +1086,7 @@ app-admin/sagan-rules 20210208 99999999: Rules for Sagan log analyzer
 app-admin/salt 3004.2-r2 3005-r1 3005.1 3005.1-r1: Salt is a remote execution and configuration manager
 app-admin/selint 1.2.0 1.2.1 9999: Static code analysis of refpolicy style SELinux policy
 app-admin/serf 0.9.8 0.10.0 0.10.1: Service orchestration and management tool
-app-admin/setools 4.4.0-r2 4.4.0-r3 9999: Policy Analysis Tools for SELinux
+app-admin/setools 4.4.0-r3 4.4.1 9999: Policy Analysis Tools for SELinux
 app-admin/socklog 2.1.0: Small secure replacement for syslogd with automatic log rotation
 app-admin/spectre-meltdown-checker 0.39 0.40 0.41 0.42 0.43 0.44 0.45 9999: Spectre & Meltdown vulnerability/mitigation checker for Linux
 app-admin/sshguard 2.4.2 99999: protects hosts from brute force attacks against ssh
@@ -16454,7 +16454,7 @@ sys-apps/busybox 1.34.1-r1 1.35.0-r1 9999: Utilities for rescue and embedded sys
 sys-apps/byld 1.0.3-r1: Build a Linux distribution on a single floppy
 sys-apps/cciss_vol_status 1.12a: Shows status of logical drives attached to HP SmartArray controllers
 sys-apps/ccs-tools 1.8.3_p20130214: TOMOYO Linux tools
-sys-apps/checkpolicy 3.3 3.4 9999: SELinux policy compiler
+sys-apps/checkpolicy 3.4 3.5 9999: SELinux policy compiler
 sys-apps/chname 1.1: Run a command with a new system hostname
 sys-apps/cinit 0.2.1: a fast, small and simple init with support for profiles
 sys-apps/ckbcomp 1.164 1.217: Compile an XKB keymap for loadkeys
@@ -16582,7 +16582,7 @@ sys-apps/man-pages 5.12-r3 5.13-r2 6.01 6.02-r1 6.03 9999: A somewhat comprehens
 sys-apps/man-pages-posix 2013a 2017a-r1: POSIX man-pages (0p, 1p, 3p)
 sys-apps/man2html 1.6g 1.6g-r2: Standard commands to read man pages
 sys-apps/mawk 1.3.4_p20200120-r1 1.3.4_p20230203 1.3.4_p20230322: An (often faster than gawk) awk-interpreter
-sys-apps/mcstrans 3.3 3.4 9999: SELinux context translation to human readable names
+sys-apps/mcstrans 3.4 3.5 9999: SELinux context translation to human readable names
 sys-apps/memtest86 4.3.7-r2: A stand alone memory test for x86 computers
 sys-apps/memtest86+ 5.31b-r3 6.00 6.01 6.10: Memory tester based on PCMemTest
 sys-apps/memtest86-bin 10.3: Stand alone memory testing software for x86 computers
@@ -16627,7 +16627,7 @@ sys-apps/pkgcore 0.12.19 0.12.20 9999: a framework for package management
 sys-apps/plocate 1.1.17 1.1.18: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r7: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
-sys-apps/policycoreutils 3.3 3.4 9999: SELinux core utilities
+sys-apps/policycoreutils 3.4 3.5 9999: SELinux core utilities
 sys-apps/polychromatic 0.7.3-r1 0.8.0 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
 sys-apps/portage 3.0.43-r1 3.0.44-r1 3.0.45.2-r1 3.0.45.3-r2 9999: The package management and distribution system for Gentoo
 sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld apps
@@ -16648,7 +16648,7 @@ sys-apps/readahead-list 1.20060421.1016-r4: Preloads files into the page cache t
 sys-apps/rename 1.3-r3: Easily rename files
 sys-apps/renameutils 0.12.0: Use your favorite text editor to rename files
 sys-apps/restartd 0.2.2-r1: A daemon for checking your running and not running processes
-sys-apps/restorecond 3.3 3.4 9999: Daemon to watch for creation and set default SELinux fcontexts
+sys-apps/restorecond 3.4 3.5 9999: Daemon to watch for creation and set default SELinux fcontexts
 sys-apps/ripgrep 13.0.0: a search tool that combines the usability of ag with the raw speed of grep
 sys-apps/ripgrep-all 0.9.6-r1: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/rkflashtool 6.1: Tool for flashing Rockchip devices
@@ -16664,10 +16664,10 @@ sys-apps/s6-rc 0.5.3.2 0.5.3.3 0.5.4.0 0.5.4.1: Service manager for the s6 super
 sys-apps/salinfo 1.2: decode Itanium SAL records (e.g. various hardware errors)
 sys-apps/sandbox 2.29 2.30-r1: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12: Utility to output and modify parameters on a SCSI device, like hdparm
-sys-apps/secilc 3.3 3.4 9999: SELinux Common Intermediate Language (CIL) Compiler
+sys-apps/secilc 3.4 3.5 9999: SELinux Common Intermediate Language (CIL) Compiler
 sys-apps/sed 4.9: Super-useful stream editor
-sys-apps/selinux-python 3.3 3.4 9999: SELinux core utilities
-sys-apps/semodule-utils 3.3 3.4 9999: SELinux policy module utilities
+sys-apps/selinux-python 3.4 3.5 9999: SELinux core utilities
+sys-apps/semodule-utils 3.4 3.5 9999: SELinux policy module utilities
 sys-apps/sensei-raw-ctl 0.0_pre20180729-r1: SteelSeries Sensei Raw configuration tool
 sys-apps/servicelog 1.1.15 1.1.16: Provides utilities for logging service-related events
 sys-apps/setserial 2.17-r6: Configure your serial ports with it
@@ -17247,9 +17247,9 @@ sys-libs/libosinfo 1.10.0-r1: GObject library for managing information about rea
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
 sys-libs/libseccomp 2.5.4 2.5.4-r1 9999: high level interface to Linux seccomp filter
-sys-libs/libselinux 3.3 3.4 9999: SELinux userland library
-sys-libs/libsemanage 3.3 3.4-r1 9999: SELinux kernel and policy management library
-sys-libs/libsepol 3.3 3.4 9999: SELinux binary policy representation library
+sys-libs/libselinux 3.4 3.5 9999: SELinux userland library
+sys-libs/libsemanage 3.4-r1 3.5 9999: SELinux kernel and policy management library
+sys-libs/libsepol 3.4 3.5 9999: SELinux binary policy representation library
 sys-libs/libservicelog 1.1.18 1.1.19: Provides a library for logging service-related events
 sys-libs/libsmbios 2.4.3: Provide access to (SM)BIOS information
 sys-libs/libstatgrab 0.92: A tool to provide access to statistics about the system on which it's run
