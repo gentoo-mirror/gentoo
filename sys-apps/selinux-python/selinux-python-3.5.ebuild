@@ -2,14 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_9 )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit python-r1 toolchain-funcs
 
-IUSE="test"
-RESTRICT="!test? ( test )"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+MY_PV="${PV//_/-}"
+MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="SELinux core utilities"
 HOMEPAGE="https://github.com/SELinuxProject/selinux/wiki"
@@ -19,12 +18,16 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/SELinuxProject/selinux.git"
 	S="${WORKDIR}/${P}/${PN#selinux-}"
 else
-	SRC_URI="https://github.com/SELinuxProject/selinux/releases/download/${PV}/${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~mips x86"
+	SRC_URI="https://github.com/SELinuxProject/selinux/releases/download/${MY_PV}/${MY_P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~mips ~x86"
+	S="${WORKDIR}/${MY_P}"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND=">=sys-libs/libselinux-${PV}:=[python]
 	>=sys-libs/libsemanage-${PV}:=[python(+)]
