@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig
+BDEPEND=app-alternatives/yacc virtual/pkgconfig
 DEFINED_PHASES=configure install
 DEPEND=acct-user/smtpd acct-user/smtpq <dev-libs/openssl-3:= elibc_musl? ( sys-libs/fts-standalone ) sys-libs/zlib pam? ( sys-libs/pam ) berkdb? ( sys-libs/db:= ) dev-libs/libevent:= app-misc/ca-certificates net-mail/mailbase net-libs/libasr virtual/libcrypt:= !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/mini-qmail !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/qmail-ldap !mail-mta/sendmail !mail-mta/ssmtp[mta]
 DESCRIPTION=Lightweight but featured SMTP daemon from OpenBSD
@@ -12,4 +12,4 @@ RDEPEND=acct-user/smtpd acct-user/smtpq <dev-libs/openssl-3:= elibc_musl? ( sys-
 SLOT=0
 SRC_URI=https://www.opensmtpd.org/archives/opensmtpd-6.8.0p2.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	pam	4efe951aa8ce2c16288d7c915196fe29	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=5aac3d7d6c2124c3b516decec4fb75f1
+_md5_=cfe5dfd136804e8c9208478fb6181517
