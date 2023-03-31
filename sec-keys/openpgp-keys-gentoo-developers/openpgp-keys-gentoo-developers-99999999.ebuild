@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,6 +29,7 @@ BDEPEND+="
 	sec-keys/openpgp-keys-gentoo-auth
 	test? (
 		app-crypt/gnupg
+		sys-apps/grep[pcre]
 	)
 "
 
@@ -213,6 +214,7 @@ src_test() {
 		| grep "^fpr" \
 		| sed -n 's/^fpr:::::::::\([[:alnum:]]\+\):/\1/p')
 
+	local key
 	for key in ${keys[@]} ; do
 		nonfatal edo gpg "${mygpgargs[@]}" --batch --yes --delete-secret-keys ${key}
 	done
