@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig
+BDEPEND=sys-apps/groff virtual/pkgconfig
 DEFINED_PHASES=configure install
 DEPEND=>=dev-libs/glib-2.6:2 aspell? ( app-text/aspell ) hunspell? ( >=app-text/hunspell-1.2.1:0= ) nuspell? ( >=app-text/nuspell-5.1.0:0= ) voikko? ( dev-libs/libvoikko ) test? ( >=dev-libs/unittest++-2.0.0-r2 )
 DESCRIPTION=Spellchecker wrapping library
@@ -12,4 +12,4 @@ REQUIRED_USE=|| ( aspell hunspell nuspell )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/AbiWord/enchant/releases/download/v2.3.4/enchant-2.3.4.tar.gz
-_md5_=790f3a7b4f3f2461bb4e1efe427aee69
+_md5_=05a432cea3f0259a3990f7f696a66bbd
