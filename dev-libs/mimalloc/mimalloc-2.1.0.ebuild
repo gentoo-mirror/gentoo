@@ -11,14 +11,13 @@ SRC_URI="https://github.com/microsoft/mimalloc/archive/refs/tags/v${PV}.tar.gz -
 
 LICENSE="MIT"
 SLOT="0/2"
-KEYWORDS="amd64 ~loong ~riscv ~x86"
+KEYWORDS="~amd64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="hardened test"
 RESTRICT="!test? ( test )"
 
 src_configure() {
 	local mycmakeargs=(
 		-DMI_SECURE=$(usex hardened)
-
 		-DMI_INSTALL_TOPLEVEL=ON
 		-DMI_BUILD_TESTS=$(usex test)
 
