@@ -26,10 +26,7 @@ RESTRICT="bindist mirror strip test"
 IUSE="+seccomp"
 
 RDEPEND="
-		|| (
-			>=app-accessibility/at-spi2-core-2.46.0:2
-			( app-accessibility/at-spi2-atk dev-libs/atk )
-		)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	app-crypt/libsecret
 	dev-libs/expat
 	dev-libs/glib:2
@@ -115,6 +112,10 @@ src_install() {
 	# see https://github.com/electron/electron/issues/17972
 	fowners root "${DESTDIR}/chrome-sandbox"
 	fperms 4711 "${DESTDIR}/chrome-sandbox"
+
+	# Crashpad is included in the package once in a while and when it does, it must be installed.
+	# See #903616 and #890595
+	[[ -x chrome_crashpad_handler ]] && doins chrome_crashpad_handler
 
 	dosym "${DESTDIR}/${MY_PN^}" "/usr/bin/${MY_PN}"
 }
