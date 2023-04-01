@@ -17,7 +17,6 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="virtual/pkgconfig"
 DEPEND="
 	media-libs/libva
 	x11-libs/libdrm[video_cards_intel]
@@ -30,6 +29,7 @@ RDEPEND="${DEPEND}
 		media-libs/intel-mediasdk
 	)
 "
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
