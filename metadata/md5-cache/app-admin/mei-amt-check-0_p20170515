@@ -1,11 +1,11 @@
 DEFINED_PHASES=compile install prepare setup unpack
 DESCRIPTION=AMT status checker
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/mjg59/mei-amt-check/
 INHERIT=vcs-snapshot linux-info toolchain-funcs
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2
+LICENSE=|| ( BSD GPL-2 )
 SLOT=0
 SRC_URI=https://github.com/mjg59/mei-amt-check/archive/d07672120ce7a0c79e949e537f3d19efecec1700.tar.gz -> mei-amt-check-0_p20170515.tar.gz
-_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
-_md5_=3f6b04ad07da6a35f46210f86ca75776
+_eclasses_=vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_md5_=23eb6e887aa98b532fe945fe822995d6
