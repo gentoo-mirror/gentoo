@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools findlib
 
@@ -12,14 +12,14 @@ SRC_URI="https://why3.gitlabpages.inria.fr/releases/${P}.tar.gz"
 LICENSE="LGPL-2"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="coq doc emacs gtk +ocamlopt re sexp +zarith zip"
+IUSE="coq doc emacs gtk +ocamlopt re sexp stackify +zarith zip"
 
 RDEPEND="
 	!sci-mathematics/why3-for-spark
 	>=dev-lang/ocaml-4.05.0:=[ocamlopt?]
 	>=dev-ml/menhir-20170418:=
 	dev-ml/num:=
-	coq? ( >=sci-mathematics/coq-8.6 )
+	coq? ( >=sci-mathematics/coq-8.7:= )
 	emacs? ( app-editors/emacs:* )
 	gtk? ( dev-ml/lablgtk:=[sourceview,ocamlopt?] )
 	re? ( dev-ml/re:= )
@@ -28,6 +28,7 @@ RDEPEND="
 		dev-ml/ppx_sexp_conv:=[ocamlopt?]
 		dev-ml/sexplib:=[ocamlopt?]
 	)
+	stackify? ( dev-ml/ocamlgraph:=[ocamlopt?] )
 	zarith? ( dev-ml/zarith:= )
 	zip? ( dev-ml/camlzip:= )
 "
@@ -47,23 +48,27 @@ DOCS=( CHANGES.md README.md )
 
 src_prepare() {
 	mv configure.in configure.ac || die
+
 	sed -i 's/configure\.in/configure.ac/g' Makefile.in || die
 	sed -e '/^lib\/why3[a-z]*\$(EXE):/{n;s/-Wall/$(CFLAGS) $(LDFLAGS)/}' \
 		-e '/^%.o: %.c/{n;s/\$(CC).*-o/$(CC) $(CFLAGS) -o/}' \
 		-e '/\$(SPHINX)/s/ -d doc\/\.doctrees / /' \
 		-i Makefile.in || die
 
+	# remove QA warning about duplicated compressed file:
+	rm examples/mlcfg/basic/why3shapes.gz || die
+
 	eautoreconf
 	default
 }
 
 src_configure() {
-	local myconf=(
-		--disable-hypothesis-selection
-		--disable-pvs-libs
-		--disable-isabelle-libs
+	local -a myconf=(
 		--disable-frama-c
+		--disable-hypothesis-selection
 		--disable-infer
+		--disable-isabelle-libs
+		--disable-pvs-libs
 		--disable-web-ide
 		$(use_enable coq coq-libs)
 		$(use_enable doc)
@@ -72,6 +77,7 @@ src_configure() {
 		$(use_enable ocamlopt native-code)
 		$(use_enable re)
 		$(use_enable sexp pp-sexp)
+		$(use_enable stackify)
 		$(use_enable zarith)
 		$(use_enable zip)
 	)
@@ -81,6 +87,7 @@ src_configure() {
 src_compile() {
 	emake
 	emake plugins
+
 	use doc && emake doc
 }
 
@@ -91,6 +98,7 @@ src_install(){
 	einstalldocs
 	docompress -x /usr/share/doc/${PF}/examples
 	dodoc -r examples
+
 	if use doc; then
 		dodoc doc/latex/manual.pdf
 		dodoc -r doc/html
