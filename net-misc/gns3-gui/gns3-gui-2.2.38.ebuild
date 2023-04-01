@@ -1,10 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{10..11} )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 virtualx xdg
 
@@ -19,9 +19,9 @@ KEYWORDS="~amd64 ~x86"
 #net-misc/gns3-server version should always match gns3-gui version
 RDEPEND="
 	>=dev-python/distro-1.7.0[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.1[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.9.5[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.4[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.12.1[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
 	dev-python/PyQt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "

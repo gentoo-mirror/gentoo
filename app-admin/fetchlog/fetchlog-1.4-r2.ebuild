@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/fetchlog/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="snmp"
 
 RDEPEND="
@@ -19,7 +19,6 @@ RDEPEND="
 		>=dev-perl/Net-SNMP-4.0.1-r2
 		>=net-analyzer/net-snmp-5.0.6
 	)"
-DEPEND=""
 
 PATCHES=( "${FILESDIR}"/${PN}-1.4-fix-build-system.patch )
 
@@ -39,7 +38,7 @@ pkg_preinst() {
 	elog "This utility can be used together with Nagios"
 	elog "To make use of these features you need to"
 	elog "install net-analyzer/nagios."
-	elog "This feature depends on SNMP, so make use you"
+	elog "This feature depends on SNMP, so make sure you"
 	elog "have 'snmp' in your USE flags"
 	elog
 }
