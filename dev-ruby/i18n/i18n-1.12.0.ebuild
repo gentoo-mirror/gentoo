@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby27 ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 
@@ -22,11 +22,12 @@ IUSE=""
 
 ruby_add_rdepend "dev-ruby/concurrent-ruby:1"
 
+# We need mocha:1.0 which corresponds to the Gemfiles used in each_ruby_test
 ruby_add_bdepend "test? (
 	>=dev-ruby/activesupport-5.1
 	dev-ruby/bundler
 	>=dev-ruby/minitest-5.14:5
-	>=dev-ruby/mocha-1.7.0
+	>=dev-ruby/mocha-1.7.0:1.0
 	dev-ruby/test_declarative )"
 
 all_ruby_prepare() {

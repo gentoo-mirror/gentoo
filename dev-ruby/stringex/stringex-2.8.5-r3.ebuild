@@ -4,6 +4,7 @@
 EAPI=8
 
 USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+RUBY_FAKEGEM_EXTRAINSTALL="locales"
 inherit ruby-fakegem
 
 DESCRIPTION="Extensions for Ruby's String class"
@@ -11,7 +12,7 @@ HOMEPAGE="https://github.com/rsl/stringex"
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 
 ruby_add_bdepend "
