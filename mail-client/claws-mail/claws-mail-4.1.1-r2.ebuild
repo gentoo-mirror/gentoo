@@ -15,7 +15,7 @@ if [[ "${PV}" == *9999 ]] ; then
 	EGIT_REPO_URI="https://git.claws-mail.org/readonly/claws.git"
 else
 	SRC_URI="https://www.claws-mail.org/download.php?file=releases/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 SLOT="0"
@@ -87,7 +87,7 @@ COMMONDEPEND="
 	startup-notification? ( x11-libs/startup-notification )
 	svg? ( >=gnome-base/librsvg-2.40.5 )
 	valgrind? ( dev-util/valgrind )
-	webkit? ( net-libs/webkit-gtk:4 )
+	webkit? ( net-libs/webkit-gtk:4.1 )
 "
 
 DEPEND="${COMMONDEPEND}
@@ -109,6 +109,7 @@ RDEPEND="${COMMONDEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-3.17.5-enchant-2_default.patch"
 	"${FILESDIR}/${PN}-4.1.1-fix_lto.patch"
+	"${FILESDIR}/${P}-webkitgtk4.1.patch"
 )
 
 src_prepare() {
@@ -117,9 +118,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# Don't use libsoup-gnome (bug #565924)
-	export HAVE_LIBSOUP_GNOME=no
-
 	local myeconfargs=(
 		--disable-bsfilter-plugin
 		--disable-dillo-plugin
