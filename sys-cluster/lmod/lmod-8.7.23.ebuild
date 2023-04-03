@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..3} )
 inherit autotools lua-single prefix
@@ -90,7 +90,6 @@ src_configure() {
 		--with-caseIndependentSorting
 		--without-hiddenItalic
 		--with-exportedModuleCmd
-		--with-useDotFiles
 		--without-redirect
 		--with-extendedDefault
 		$(use_with cache cachedLoads)
@@ -112,6 +111,10 @@ src_test() {
 }
 
 src_install() {
+	dosym ../../../usr/share/Lmod/init/profile /etc/bash/bashrc.d/z00_lmod.sh
+	dosym ../../usr/share/Lmod/init/profile /etc/profile.d/z00_lmod.sh
+	dosym ../../usr/share/Lmod/init/cshrc /etc/profile.d/z00_lmod.csh
+	dosym ../../../usr/share/Lmod/init/profile.fish /etc/fish/conf.d/z00_lmod.fish
 	default
 	newman "${FILESDIR}"/module.1-8.4.20 module.1
 	# not a real man page
@@ -119,6 +122,7 @@ src_install() {
 	doenvd "${FILESDIR}"/99lmod
 	keepdir /etc/modulefiles
 	keepdir /etc/lmod_cache
+
 }
 
 pkg_postinst() {
