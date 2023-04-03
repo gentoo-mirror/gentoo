@@ -2,7 +2,7 @@ BDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3?
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test
 DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-lang/tcl dev-lang/tk lua_single_target_lua5-1? ( >=dev-lua/luafilesystem-1.8.0[lua_targets_lua5-1(-)] dev-lua/luajson[lua_targets_lua5-1(-)] dev-lua/luaposix[lua_targets_lua5-1(-)] dev-lua/lua-term[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( >=dev-lua/luafilesystem-1.8.0[lua_targets_lua5-3(-)] dev-lua/luajson[lua_targets_lua5-3(-)] dev-lua/luaposix[lua_targets_lua5-3(-)] dev-lua/lua-term[lua_targets_lua5-3(-)] ) virtual/pkgconfig
 DESCRIPTION=Environment Module System based on Lua
-EAPI=7
+EAPI=8
 HOMEPAGE=https://lmod.readthedocs.io/en/latest https://github.com/TACC/Lmod
 INHERIT=autotools lua-single prefix
 IUSE=+auto-swap +cache duplicate-paths test lua_single_target_lua5-1 lua_single_target_lua5-3
@@ -12,6 +12,6 @@ RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3?
 REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/TACC/Lmod/archive/8.5.6.tar.gz -> lmod-8.5.6.tar.gz
+SRC_URI=https://github.com/TACC/Lmod/archive/8.7.23.tar.gz -> lmod-8.7.23.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=29dcb29e544e1007a362ac31bfa0cd69
+_md5_=499acab297fd422c699c6dfe921d5a61
