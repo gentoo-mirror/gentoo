@@ -19,13 +19,13 @@ HOMEPAGE="https://github.com/socketry/nio4r"
 
 LICENSE="MIT || ( BSD GPL-2 )"
 SLOT="2"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86 ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE=""
 
 # Note that nio4r bundles a patched copy of libev, and without these
 # patches the tests fail: https://github.com/celluloid/nio4r/issues/15
 
 all_ruby_prepare() {
-	sed -i -e '/[Cc]overalls/d' -e '/[Bb]undler/d' -e '1irequire "openssl"' spec/spec_helper.rb || die
+	sed -i -e '/[Bb]undler/d' spec/spec_helper.rb || die
 	sed -e '/extension/ s:^:#:' -i Rakefile || die
 }
