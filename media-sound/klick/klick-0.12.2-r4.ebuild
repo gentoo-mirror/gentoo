@@ -1,15 +1,15 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit python-any-r1 scons-utils toolchain-funcs
 
 DESCRIPTION="An advanced command-line based metronome for JACK"
-HOMEPAGE="http://das.nasophon.de/klick"
-SRC_URI="http://das.nasophon.de/download/${P}.tar.gz"
+HOMEPAGE="https://das.nasophon.de/klick/"
+SRC_URI="https://das.nasophon.de/download/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
