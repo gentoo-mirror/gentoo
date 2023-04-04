@@ -23,9 +23,13 @@ IUSE="graphviz"
 DEPEND=""
 RDEPEND="graphviz? ( >=media-gfx/graphviz-5.0.0 )"
 BDEPEND="${PYTHON_DEPS}
-	dev-python/sphinx
+	>=dev-python/sphinx-6
 	dev-python/sphinx-rtd-theme
 	media-libs/fontconfig"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-sphinx-6.0.patch"
+)
 
 src_prepare() {
 	default
