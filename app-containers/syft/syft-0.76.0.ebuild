@@ -1,9 +1,9 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit go-module
-GIT_COMMIT=21eb77206020c04c9ca5316562e32179c73926a9
+GIT_COMMIT=dfcc07e5122217ca9e2fc75817c593356fc0c405
 
 DESCRIPTION="Generate a Software Bill of Materials from container images and filesystems"
 HOMEPAGE="https://www.anchore.com"

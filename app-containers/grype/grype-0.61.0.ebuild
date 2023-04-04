@@ -1,10 +1,10 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit go-module
-GIT_COMMIT=4cda526992d5003dcbab68c9a7479a653dfde008
-SYFT_VERSION=0.59.0
+GIT_COMMIT=d8c0c0805b59659c4d6e49d6806a0eba11bdc2ee
+SYFT_VERSION=0.76.0
 
 DESCRIPTION="A vulnerability scanner for container images and filesystems"
 HOMEPAGE="https://www.anchore.com"
