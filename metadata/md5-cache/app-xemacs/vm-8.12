@@ -1,0 +1,12 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=An Emacs mailer
+EAPI=8
+HOMEPAGE=http://xemacs.org/
+INHERIT=xemacs-packages
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=app-xemacs/xemacs-base app-xemacs/mail-lib app-xemacs/gnus app-xemacs/pgg app-xemacs/ecrypto app-xemacs/xemacs-eterm app-xemacs/sh-script app-xemacs/net-utils app-xemacs/ps-print app-xemacs/os-utils app-xemacs/bbdb app-xemacs/fsf-compat app-editors/xemacs
+SLOT=0
+SRC_URI=http://ftp.xemacs.org/pub/xemacs/beta/experimental/packages/vm-8.12-pkg.tar.gz
+_eclasses_=xemacs-packages	2dd9abfafe67a3baec07d3972df93ec8
+_md5_=e7015a25c4c3c9c856b196dd14b3a22b
