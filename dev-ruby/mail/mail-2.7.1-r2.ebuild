@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 USE_RUBY="ruby27 ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -24,16 +25,13 @@ SLOT="$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE=""
 
-ruby_add_rdepend "
-	>=dev-ruby/mini_mime-0.1.1
-	dev-ruby/net-imap
-	dev-ruby/net-pop
-	dev-ruby/net-smtp
-"
+ruby_add_rdepend ">=dev-ruby/mini_mime-0.1.1"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-psych-4.patch
+)
 
 all_ruby_prepare() {
 	rm Gemfile || die
 	sed -i -e '/[Bb]undle/d' -e '6d' Rakefile || die "Unable to remove Bundler code."
-
-	sed -i -e '/benchmark/I s:^:#:' spec/spec_helper.rb || die
 }
