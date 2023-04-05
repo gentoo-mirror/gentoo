@@ -84,7 +84,7 @@ CHROMIUM_LANGS="
 	zh-TW
 "
 
-inherit chromium-2 desktop unpacker xdg
+inherit chromium-2 desktop linux-info unpacker xdg
 
 VIVALDI_PN="${PN/%vivaldi/vivaldi-stable}"
 VIVALDI_HOME="opt/${PN}"
@@ -97,7 +97,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
@@ -145,6 +145,7 @@ RDEPEND="
 "
 
 QA_PREBUILT="*"
+CONFIG_CHECK="~CPU_FREQ"
 S="${WORKDIR}"
 
 src_unpack() {
