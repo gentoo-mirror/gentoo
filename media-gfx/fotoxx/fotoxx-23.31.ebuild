@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit optfeature xdg-utils
 
 DESCRIPTION="Program for improving image files made with a digital camera"
 HOMEPAGE="https://kornelix.net/fotoxx/fotoxx.html"
-SRC_URI="https://kornelix.net/downloads/downloads/${P}.tar.gz"
+SRC_URI="https://kornelix.net/downloads/downloads/${P}-source.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -44,6 +44,7 @@ HTML_DOCS=()
 
 src_prepare() {
 	sed -i -e "/^DOCDIR/ s/${PN}$/${PF}/" Makefile || die
+	sed -i -e "/^Icon/ s/\.png$//" fotoxx.desktop || die
 	default
 }
 
@@ -56,7 +57,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	optfeature "HEIC file support" media-libs/libheif
+	optfeature "HEIC & AVIF file support" media-libs/libheif
 	optfeature "additional RAW file support" media-gfx/rawtherapee
 	optfeature "additional RAW file support" media-gfx/darktable
 	optfeature "video thumbnails & playback" media-video/ffmpeg
