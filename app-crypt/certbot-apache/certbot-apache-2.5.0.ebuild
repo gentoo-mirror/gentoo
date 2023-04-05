@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
-PARENT_PN="${PN%-nginx}"
+PARENT_PN="${PN%-apache}"
 PARENT_P="${PARENT_PN}-${PV}"
 
 if [[ "${PV}" == *9999 ]]; then
@@ -22,10 +22,11 @@ else
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
 			-> ${PARENT_P}.gh.tar.gz
 	"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	# Only for amd64, arm64 and x86 because of dev-python/python-augeas
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
-DESCRIPTION="Nginx plugin for Certbot (Let’s Encrypt client)"
+DESCRIPTION="Apache plugin for Certbot (Let’s Encrypt client)"
 HOMEPAGE="
 	https://github.com/certbot/certbot
 	https://letsencrypt.org/
@@ -43,9 +44,7 @@ BDEPEND="
 RDEPEND="
 	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
 	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
-	>=dev-python/pyopenssl-17.5.0[${PYTHON_USEDEP}]
-	!~dev-python/pyopenssl-23.1.0[${PYTHON_USEDEP}]
-	>=dev-python/pyparsing-2.2.1[${PYTHON_USEDEP}]
+	dev-python/python-augeas[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
