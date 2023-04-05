@@ -1709,7 +1709,7 @@ app-dicts/myspell-sv 2.42: Swedish dictionaries for myspell/hunspell
 app-dicts/myspell-sw 20130312: Kiswahili dictionaries for myspell/hunspell
 app-dicts/myspell-tn 20150904: Setswana dictionaries for myspell/hunspell
 app-dicts/myspell-tr 1.2: Turkish dictionaries for myspell/hunspell
-app-dicts/myspell-uk 6.0.1: Ukrainian dictionaries for myspell/hunspell
+app-dicts/myspell-uk 6.0.1 6.1.0: Ukrainian dictionaries for myspell/hunspell
 app-dicts/myspell-zu 20100126: Zulu dictionaries for myspell/hunspell
 app-dicts/prime-dict 1.0.0-r3: Dictionary files for PRIME input method
 app-dicts/stardict-cdict-en-zh-big5 2.4.2-r1: Stardict Dictionary English to Traditional Chinese (BIG5)
@@ -2426,7 +2426,7 @@ app-forensics/scalpel 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.10.1-r5 4.11.1-r1: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.0.1 2.4.0-r1: Framework for analyzing volatile memory
-app-forensics/yara 4.2.3: A malware identification and classification tool
+app-forensics/yara 4.2.3 4.3.0 9999: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -9304,7 +9304,7 @@ dev-python/yamlpath 3.7.0 3.8.0: Command-line processors for YAML/JSON/Compatibl
 dev-python/yapf 0.32.0-r1: A formatter for Python files
 dev-python/yappi 1.4.0: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r1: A fat-free DIY Python plugin management toolkit
-dev-python/yara-python 4.2.3: Python interface for a malware identification and classification tool
+dev-python/yara-python 4.2.3 4.3.0 9999: Python interface for a malware identification and classification tool
 dev-python/yarl 1.8.2: Yet another URL library
 dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yaxmldiff 0.1.0: Yet Another XML Differ
@@ -11648,7 +11648,7 @@ gui-apps/lavalauncher 1.7.1 2.0.0 2.1.0 9999: Simple launcher for wayland
 gui-apps/mako 1.7.1 1.7.1-r1 9999: A lightweight notification daemon for Wayland. Works on Sway
 gui-apps/nm-tray 0.5.0: A simple Qt-based NetworkManager front-end
 gui-apps/slurp 1.3.2 1.4.0 9999: Select a region in a Wayland compositor and print it to the standard output
-gui-apps/swappy 1.4.0 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
+gui-apps/swappy 1.4.0 1.5.1 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
 gui-apps/swaybg 1.2.0 9999: A wallpaper utility for Wayland
 gui-apps/swayidle 1.8.0 9999: Idle management daemon for Wayland
 gui-apps/swaylock 1.7 1.7.2 9999: Screen locker for Wayland
@@ -14333,7 +14333,7 @@ net-im/spectrum2 2.1.3-r2: An open source instant messaging transport
 net-im/swift 4.0.2-r102: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/synapse 1.77.0-r1 1.78.0-r1 1.79.0: Reference implementation of Matrix homeserver
 net-im/telegram-desktop 4.4.1 4.5.3 4.6.5: Official desktop client for Telegram
-net-im/telegram-desktop-bin 4.6.0 4.6.5: Official desktop client for Telegram (binary package)
+net-im/telegram-desktop-bin 4.6.0 4.6.5 4.7.1: Official desktop client for Telegram (binary package)
 net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection Managers
 net-im/telepathy-logger 0.8.2-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
@@ -17191,7 +17191,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.6-r6 4.2.6-r8 4.3.1-r1 4.3.2 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.231 5.4.234 5.4.236 5.4.237 5.4.238 5.4.239 5.10.167 5.10.172 5.10.174 5.10.175 5.10.176 5.15.94 5.15.102 5.15.103 5.15.104 5.15.105 6.1.12 6.1.15 6.1.19 6.1.20 6.1.21 6.1.22 6.2.6 6.2.7 6.2.8 6.2.9: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.231 5.4.234 5.4.236 5.4.237 5.4.238 5.4.239 5.10.167 5.10.172 5.10.174 5.10.175 5.10.176 5.15.94 5.15.98 5.15.102 5.15.103 5.15.104 5.15.105 6.1.12 6.1.15 6.1.19 6.1.20 6.1.21 6.1.22 6.2.6 6.2.7 6.2.8 6.2.9: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 4.14.302 4.14.305 4.14.308 4.14.309 4.14.310 4.14.311 4.19.269 4.19.272 4.19.276 4.19.277 4.19.278 4.19.279 5.4.228 5.4.231 5.4.235 5.4.236 5.4.237 5.4.238 5.4.239 5.10.163 5.10.167 5.10.173 5.10.174 5.10.175 5.10.176 5.15.88 5.15.94 5.15.101 5.15.102 5.15.103 5.15.104 5.15.105 6.1.12 6.1.18 6.1.19 6.1.20 6.1.21 6.1.22 6.2.4 6.2.5 6.2.6 6.2.7 6.2.8 6.2.9: Full sources including the Gentoo patchset for the 6.2 kernel tree
+sys-kernel/gentoo-sources 4.14.302 4.14.305 4.14.308 4.14.309 4.14.310 4.14.311 4.14.312 4.19.269 4.19.272 4.19.276 4.19.277 4.19.278 4.19.279 4.19.280 5.4.228 5.4.231 5.4.235 5.4.236 5.4.237 5.4.238 5.4.239 5.4.240 5.10.163 5.10.167 5.10.173 5.10.174 5.10.175 5.10.176 5.10.177 5.15.88 5.15.94 5.15.101 5.15.102 5.15.103 5.15.104 5.15.105 5.15.106 6.1.12 6.1.18 6.1.19 6.1.20 6.1.21 6.1.22 6.2.4 6.2.5 6.2.6 6.2.7 6.2.8 6.2.9: Full sources including the Gentoo patchset for the 6.2 kernel tree
 sys-kernel/git-sources 6.3_rc1 6.3_rc2 6.3_rc3 6.3_rc4 6.3_rc5: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 5 6: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 2: Wrap kernel-install from systemd-boot as installkernel
@@ -17692,7 +17692,7 @@ www-client/otter 1.0.03 9999: Project aiming to recreate classic Opera (12.x) UI
 www-client/pybugz 0.13-r2 9999: Command line interface to (Gentoo) Bugzilla
 www-client/qutebrowser 2.5.4 9999: Keyboard-driven, vim-like browser based on Python and Qt
 www-client/seamonkey 2.53.14-r2 2.53.15: Seamonkey Web Browser
-www-client/surf 2.1-r2 2.1-r3 9999: A simple web browser based on WebKit/GTK+
+www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
 www-client/tangram 2.0: Web browser designed to organize and run Web applications
 www-client/uget 2.2.1-r1 2.2.3 9999: Download manager using gtk+ and libcurl
