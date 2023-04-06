@@ -162,8 +162,13 @@ src_configure() {
 			-m test
 			"-j$(makeopts_jobs)"
 			--pgo-extended
-			-x test_gdb
 			-u-network
+
+			# We use a timeout because of how often we've had hang issues
+			# here. It also matches the default upstream PROFILE_TASK.
+			--timeout 1200
+
+			-x test_gdb
 
 			# All of these seem to occasionally hang for PGO inconsistently
 			# They'll even hang here but be fine in src_test sometimes.
@@ -174,6 +179,10 @@ src_configure() {
 			-x test_multiprocessing_fork
 			-x test_socket
 			-x test_xmlrpc
+
+			# Hangs (actually runs indefinitely executing itself w/ many cpython builds)
+			# bug #900429
+			-x test_tools
 		)
 
 		if has_version "app-arch/rpm" ; then
