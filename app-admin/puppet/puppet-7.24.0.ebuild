@@ -1,35 +1,34 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
-USE_RUBY="ruby26 ruby27"
-
+USE_RUBY="ruby27 ruby30 ruby31"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
-
 RUBY_FAKEGEM_TASK_DOC="doc:all"
-
 RUBY_FAKEGEM_EXTRAINSTALL="locales"
 
 inherit ruby-fakegem systemd tmpfiles
 
 DESCRIPTION="A system automation and configuration management software"
 HOMEPAGE="https://puppet.com/"
-SRC_URI="https://downloads.puppetlabs.com/puppet/${P}.tar.gz"
+SRC_URI="http://downloads.puppetlabs.com/puppet/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~hppa ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE="augeas diff doc emacs ldap rrdtool selinux shadow sqlite vim-syntax"
 RESTRICT="test"
 
+# <dev-ruby/concurrent-ruby-1.2 for bug #900206
+# - https://tickets.puppetlabs.com/browse/PUP-11722 (workaround, pinning)
+# - https://tickets.puppetlabs.com/browse/PUP-11723 (bug for fixing the pinning)
 ruby_add_rdepend "
-	>=dev-ruby/hiera-3.2.1:0
-	=dev-ruby/facter-3*
-	>=dev-ruby/fast_gettext-1.1.2:0
-	>=dev-ruby/locale-2.1:0
-	>=dev-ruby/multi_json-1.10:0
-	dev-ruby/sync
+	dev-ruby/hiera
+	dev-ruby/json:=
+	dev-ruby/semantic_puppet
+	>=dev-ruby/facter-3.0.0
+	<dev-ruby/concurrent-ruby-1.2
 	augeas? ( dev-ruby/ruby-augeas )
 	diff? ( dev-ruby/diff-lcs )
 	doc? ( dev-ruby/rdoc )
@@ -78,7 +77,8 @@ all_ruby_prepare() {
 
 each_ruby_install() {
 	each_fakegem_install
-#	dosym "/usr/$(get_libdir)/ruby/gems/$(ruby_get_version)/gems/${P}" "/usr/$(get_libdir)/ruby/gems/$(ruby_get_version)/gems/${PN}"
+#	dosym "/usr/$(get_libdir)/ruby/gems/$(ruby_get_version)/gems/${P}" \
+#	"/usr/$(get_libdir)/ruby/gems/$(ruby_get_version)/gems/${PN}"
 }
 
 all_ruby_install() {
@@ -88,12 +88,10 @@ all_ruby_install() {
 	systemd_dounit "${WORKDIR}/all/${P}/ext/systemd/puppet.service"
 
 	# tmpfiles stuff
-	newtmpfiles "${FILESDIR}/tmpfiles.d" "puppet.conf"
+	newtmpfiles "${FILESDIR}/tmpfiles.d-2" "puppet.conf"
 
 	# openrc init stuff
-	newinitd "${FILESDIR}"/puppet.init-4.x puppet
-	newinitd "${FILESDIR}"/puppetmaster.init-4.x puppetmaster
-	newconfd "${FILESDIR}"/puppetmaster.confd puppetmaster
+	newinitd "${FILESDIR}"/puppet.init puppet
 
 	keepdir /etc/puppetlabs/puppet/ssl
 
@@ -109,13 +107,10 @@ all_ruby_install() {
 	fowners -R :puppet /etc/puppetlabs
 	fowners -R :puppet /var/lib/puppet
 
-	if use ldap ; then
-		insinto /etc/openldap/schema; doins ext/ldap/puppet.schema
-	fi
-
 	# ext and examples files
 	for f in $(find ext examples -type f) ; do
-		docinto "$(dirname ${f})"; dodoc "${f}"
+		docinto "$(dirname ${f})"
+		dodoc "${f}"
 	done
 }
 
@@ -129,13 +124,8 @@ pkg_postinst() {
 	elog "Portage Puppet module with Gentoo-specific resources:"
 	elog "http://forge.puppetlabs.com/gentoo/portage"
 	elog
-
-	for v in ${REPLACING_VERSIONS}; do
-		if [ "$(ver_cut 1 "$v")" -eq "4" ]; then
-			elog
-			elog "Please see the following url for the release notes for puppet-5"
-			elog "https://docs.puppet.com/puppet/5.0/release_notes.html#if-youre-upgrading-from-puppet-4x"
-			elog
-		fi
-	done
+	elog "If updating from puppet 5 to 6, keep in mind that webrick (server/master)"
+	elog "suppert was removed for >=6.x, please migrate to puppetserver if you have"
+	elog "not already done so."
+	elog
 }
