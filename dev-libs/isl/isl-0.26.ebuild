@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools multilib multilib-minimal preserve-libs toolchain-funcs
 
@@ -11,9 +11,7 @@ SRC_URI="https://libisl.sourceforge.io/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0/23"
-# They haven't made a new release in a while until now and
-# a fair bit changed. Let's be cautious.
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 IUSE="static-libs"
 
 RDEPEND=">=dev-libs/gmp-5.1.3-r1:=[${MULTILIB_USEDEP}]"
