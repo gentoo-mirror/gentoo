@@ -33,8 +33,11 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	<dev-python/asgiref-4[${PYTHON_USEDEP}]
-	>=dev-python/asgiref-3.6.0[${PYTHON_USEDEP}]
-	>=dev-python/sqlparse-0.3.1[${PYTHON_USEDEP}]
+	>=dev-python/asgiref-3.5.2[${PYTHON_USEDEP}]
+	>=dev-python/sqlparse-0.2.2[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/backports-zoneinfo[${PYTHON_USEDEP}]
+	' 3.8)
 "
 BDEPEND="
 	test? (
