@@ -1,5 +1,5 @@
 DEFINED_PHASES=install test
-DEPEND=dev-lang/perl ruby? ( || ( dev-lang/ruby:3.0 dev-lang/ruby:2.7 dev-lang/ruby:3.1 dev-lang/ruby:3.2 ) virtual/rubygems )
+DEPEND=dev-lang/perl ruby? ( || ( ( dev-lang/ruby:3.0 virtual/rubygems[ruby_targets_ruby30(-)] ) ( dev-lang/ruby:2.7 virtual/rubygems[ruby_targets_ruby27(-)] ) ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) )
 DESCRIPTION=Reformat XML documents to your custom style
 EAPI=7
 HOMEPAGE=http://www.kitebird.com/software/xmlformat/
@@ -7,8 +7,8 @@ INHERIT=edo ruby-single
 IUSE=doc ruby
 KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=xmlformat
-RDEPEND=dev-lang/perl ruby? ( || ( dev-lang/ruby:3.0 dev-lang/ruby:2.7 dev-lang/ruby:3.1 dev-lang/ruby:3.2 ) virtual/rubygems )
+RDEPEND=dev-lang/perl ruby? ( || ( ( dev-lang/ruby:3.0 virtual/rubygems[ruby_targets_ruby30(-)] ) ( dev-lang/ruby:2.7 virtual/rubygems[ruby_targets_ruby27(-)] ) ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) )
 SLOT=0
 SRC_URI=http://www.kitebird.com/software/xmlformat/xmlformat-1.04.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-single	b9b5d136d97bf37058132e4231da02fa
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-single	291cec9036393ebb5b11a4199edce193
 _md5_=c1b33ddf7887434b398b2a84cbd8e1fd
