@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtcharts:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5
+DESCRIPTION=A GUI frontend to gdb
+EAPI=8
+HOMEPAGE=https://github.com/epasveer/seer
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake desktop xdg
+KEYWORDS=~amd64 ~ppc64
+LICENSE=GPL-3+ CC-BY-3.0 CC-BY-4.0
+RDEPEND=dev-qt/qtcharts:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 sys-devel/gdb
+SLOT=0
+SRC_URI=https://github.com/epasveer/seer/archive/refs/tags/v1.16.tar.gz -> seer-1.16.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=67c3fd40cab6687fbe51c34d0fb40098
