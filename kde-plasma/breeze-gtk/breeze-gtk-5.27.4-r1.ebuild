@@ -21,6 +21,8 @@ BDEPEND="${PYTHON_DEPS}
 	>=kde-plasma/breeze-${PVCUT}:5
 "
 
+PATCHES=( "${FILESDIR}/${P}-blurry-big-gtk3-window-buttons.patch" ) # KDE-bug 468203
+
 python_check_deps() {
 	python_has_version "dev-python/pycairo[${PYTHON_USEDEP}]"
 }
