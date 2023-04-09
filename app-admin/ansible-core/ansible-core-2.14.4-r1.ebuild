@@ -25,6 +25,10 @@ LICENSE="GPL-3"
 SLOT="0"
 RESTRICT="test"
 
+PATCHES=(
+	"${FILESDIR}/resolvelib.patch"
+)
+
 RDEPEND="
 	dev-python/paramiko[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
@@ -35,7 +39,7 @@ RDEPEND="
 	dev-python/netaddr[${PYTHON_USEDEP}]
 	dev-python/pexpect[${PYTHON_USEDEP}]
 	>=dev-python/resolvelib-0.5.3[${PYTHON_USEDEP}]
-	<dev-python/resolvelib-0.9.0[${PYTHON_USEDEP}]
+	<dev-python/resolvelib-1.1.0[${PYTHON_USEDEP}]
 	net-misc/sshpass
 	virtual/ssh
 "
