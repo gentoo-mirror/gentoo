@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp dev-perl/Moo dev-perl/MooX-TypeTiny virtual/perl-Scalar-List-Utils dev-perl/Try-Tiny dev-perl/Type-Tiny dev-perl/Module-Build-Tiny virtual/perl-ExtUtils-MakeMaker dev-lang/perl test? ( virtual/perl-Test-Simple )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Flexible and extensible dispatch
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Path-Dispatcher
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp dev-perl/Moo dev-perl/MooX-TypeTiny virtual/perl-Scalar-List-Utils dev-perl/Try-Tiny dev-perl/Type-Tiny dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Path-Dispatcher-1.08.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	perl-module	8c55459fea879ccdec282839a3b22f78
+_md5_=0c211dbef09f2d2fe2da16b65aef4bf0
