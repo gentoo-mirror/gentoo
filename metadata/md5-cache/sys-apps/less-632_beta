@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 sys-devel/automake >=sys-devel/autoconf-2.71-r5
+DEFINED_PHASES=configure install preinst prepare test
+DEPEND=>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:= pcre? ( dev-libs/libpcre2 )
+DESCRIPTION=Excellent text file viewer
+EAPI=8
+HOMEPAGE=https://www.greenwoodsoftware.com/less/
+INHERIT=autotools
+IUSE=pcre
+LICENSE=|| ( GPL-3 BSD-2 )
+RDEPEND=>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:= pcre? ( dev-libs/libpcre2 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.greenwoodsoftware.com/less/less-632-beta.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=3857f3c0dd67ed96b1d6d18d76b4007d
