@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=POSIX-compliant AWK interpreter written in Go, with CSV support
+EAPI=8
+HOMEPAGE=https://github.com/benhoyt/goawk
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/benhoyt/goawk/archive/v1.22.0.tar.gz -> goawk-1.22.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	f9700c7efec1fd4955363169e9930c1c
+_md5_=1e711223af2fda06f7affd361a142af4
