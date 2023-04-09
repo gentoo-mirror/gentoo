@@ -57,3 +57,5 @@ BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	virtual/pkgconfig
 "
+
+PATCHES=( "${FILESDIR}/${P}-dont-try-to-screencast-nullptr.patch" ) # KDE-bug 467622

@@ -47,3 +47,5 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
+
+PATCHES=( "${FILESDIR}/${P}-kcm-notify-changes-when-global-scale-changes.patch" ) # KDE-bug 468203

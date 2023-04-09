@@ -36,9 +36,9 @@ RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	x11-misc/xsettingsd
 "
-BDEPEND="
-	dev-lang/sassc
-"
+BDEPEND="dev-lang/sassc"
+
+PATCHES=( "${FILESDIR}/${P}-kded-dont-update-textscale.patch" ) # KDE-bug 468203
 
 src_configure() {
 	local mycmakeargs=(

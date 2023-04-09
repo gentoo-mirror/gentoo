@@ -39,3 +39,5 @@ BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	dev-util/wayland-scanner
 "
+
+PATCHES=( "${FILESDIR}/${P}-clear-edid.patch" )
