@@ -3203,6 +3203,7 @@ games-strategy/freeciv:modpack - Build the freeciv-modpack-program to download/i
 games-strategy/freeciv:server - Enable server support. Disabling this will also make it impossible to start local games.
 games-strategy/freeciv:sound - Add support for sound provided by media-libs/sdl-mixer
 games-strategy/freeciv:system-lua - Use dev-lang/lua instead of the bundled liblua
+games-strategy/freeorion:client - Build game client
 games-strategy/freesynd:devtools - Build development tools
 games-strategy/hedgewars:server - Enable local server
 games-strategy/ja2-stracciatella:editor - Adds necessary file to run the editor
@@ -3311,9 +3312,14 @@ gui-apps/mako:icons - Enable support for icons
 gui-apps/swaybg:gdk-pixbuf - Support image types other than PNG
 gui-apps/swayidle:elogind - Enable support for rootless session via elogind
 gui-apps/swaylock:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
-gui-apps/waybar:experimental - Enable experimental features
+gui-apps/waybar:evdev - Enable libevdev support for evdev related features
+gui-apps/waybar:experimental - Enable experimental features, such as Bluetooth battery reporting
+gui-apps/waybar:libinput - Enable libinput support for libinput related features
+gui-apps/waybar:logind - Enable support for logind
 gui-apps/waybar:mpd - Enable support for the Music Player Daemon
+gui-apps/waybar:mpris - Enable support for mpris
 gui-apps/waybar:network - Enable libnl support for network related features
+gui-apps/waybar:pipewire - Enable support for pipewire
 gui-apps/waybar:popups - Enable popup support with gtk-layer-shell
 gui-apps/waybar:pulseaudio - Enable support for volume control via PulseAudio
 gui-apps/waybar:sndio - Enable support for volume control via sndio
