@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 inherit multilib-minimal
 
@@ -14,8 +14,8 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="LGPL-2.1+"
 SLOT="0/12"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86"
-IUSE="+epoll ssl static-libs test thread-names"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="+epoll ssl static-libs test +thread-names"
 RESTRICT="!test? ( test )"
 
 RDEPEND="ssl? ( >net-libs/gnutls-2.12.20:=[${MULTILIB_USEDEP}] )"
@@ -24,12 +24,9 @@ DEPEND="${RDEPEND}
 	test? ( net-misc/curl[ssl?] )"
 BDEPEND="ssl? ( virtual/pkgconfig )"
 
-DOCS=( AUTHORS NEWS README ChangeLog )
+DOCS=( AUTHORS NEWS COPYING README ChangeLog )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.9.73-test-ssl3.patch
-	"${FILESDIR}"/${PN}-0.9.75-fix-testsuite-with-lto.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-0.9.75-fix-testsuite-with-lto.patch )
 
 multilib_src_configure() {
 	ECONF_SOURCE="${S}" \
