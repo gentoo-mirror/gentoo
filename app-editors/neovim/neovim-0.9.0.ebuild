@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/neovim/neovim.git"
 else
 	SRC_URI="https://github.com/neovim/neovim/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm arm64 ~riscv x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos"
 fi
 
 LICENSE="Apache-2.0 vim"
@@ -52,7 +52,7 @@ DEPEND="${LUA_DEPS}
 	>=dev-libs/libuv-1.44.2:=
 	>=dev-libs/libvterm-0.3
 	>=dev-libs/msgpack-3.0.0:=
-	>=dev-libs/tree-sitter-0.20.2:=
+	>=dev-libs/tree-sitter-0.20.8:=
 	tui? (
 		>=dev-libs/libtermkey-0.22
 		>=dev-libs/unibilium-2.0.0:0=
@@ -62,23 +62,17 @@ RDEPEND="
 	${DEPEND}
 	app-eselect/eselect-vi
 "
-BDEPEND="
+BDEPEND+="
 	test? (
 		$(lua_gen_cond_dep 'dev-lua/busted[${LUA_USEDEP}]')
 	)
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.8-cmake_lua_version.patch"
-	"${FILESDIR}/${PN}-0.8-cmake-darwin.patch"
-	"${FILESDIR}/${PN}-0.8-msgpack-6.0.0-fix.patch"
+	"${FILESDIR}/${PN}-0.9.0-cmake_lua_version.patch"
+	"${FILESDIR}/${PN}-0.9.0-cmake-darwin.patch"
+	"${FILESDIR}/${PN}-0.9.0-cmake-release-type.patch"
 )
-
-if [[ ${PV} != 9999 ]]; then
-	PATCHES+=(
-		"${FILESDIR}/${PN}-0.8.0-cmake-release-type.patch"
-	)
-fi
 
 src_prepare() {
 	# Use our system vim dir
