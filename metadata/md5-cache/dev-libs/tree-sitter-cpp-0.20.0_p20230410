@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-util/tree-sitter-cli )
+DEFINED_PHASES=compile install test
+DEPEND=dev-libs/tree-sitter
+DESCRIPTION=C++ grammar for Tree-sitter
+EAPI=8
+HOMEPAGE=https://github.com/tree-sitter/tree-sitter-cpp
+INHERIT=tree-sitter-grammar
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tree-sitter/tree-sitter-cpp/archive/0b6d0eb9abdf7cea31961cd903eeed5bbd0aae74.tar.gz -> tree-sitter-cpp-0.20.0_p20230410.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	tree-sitter-grammar	5e666521269350e8332bce7aed53a363
+_md5_=b26eecc095259588fdd696b2e27ababf
