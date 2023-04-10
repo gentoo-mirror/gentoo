@@ -1,0 +1,15 @@
+BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-lang/perl dev-perl/Expect dev-util/strace || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install postinst prepare setup test unpack
+DEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) static? ( acl? ( sys-apps/acl[static-libs] ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:=[static-libs] ) openssl? ( dev-libs/openssl:=[static-libs] ) xattr? ( sys-apps/attr[static-libs] ) )
+DESCRIPTION=Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/coreutils/
+INHERIT=flag-o-matic python-any-r1 toolchain-funcs verify-sig
+IUSE=acl caps gmp hostname kill multicall nls +openssl selinux +split-usr static test vanilla xattr verify-sig
+LICENSE=GPL-3+
+RDEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) hostname? ( !sys-apps/net-tools[hostname] ) kill? ( !sys-apps/util-linux[kill] !sys-process/procps[kill] ) !app-misc/realpath !<sys-apps/util-linux-2.13 !<sys-apps/sandbox-2.10-r4 !sys-apps/stat !net-mail/base64 !sys-apps/mktemp !<app-forensics/tct-1.18-r1 !<net-fs/netatalk-2.0.3-r4
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.pixelbeat.org/cu/coreutils-9.2.18-ffd62.tar.xz -> coreutils-9.2_p20230410.tar.xz verify-sig? ( https://www.pixelbeat.org/cu/coreutils-9.2.18-ffd62.tar.xz.sig -> coreutils-9.2_p20230410.tar.xz.sig ) !vanilla? ( https://dev.gentoo.org/~sam/distfiles/sys-apps/coreutils/coreutils-9.0_p20220409-patches-01.tar.xz )
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
+_md5_=8ef7b8bc7e056658bab9776ae48e062a

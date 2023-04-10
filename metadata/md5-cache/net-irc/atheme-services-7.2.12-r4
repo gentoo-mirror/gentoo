@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/atheme/atheme
 INHERIT=perl-functions systemd
 IUSE=cracklib largenet ldap nls +pcre perl profile ssl
-KEYWORDS=~amd64 ~arm ~arm64
+KEYWORDS=amd64 ~arm ~arm64
 LICENSE=BSD
 RDEPEND=acct-group/atheme-services acct-user/atheme-services >=dev-libs/libmowgli-2.1.0:2 virtual/libcrypt:= cracklib? ( sys-libs/cracklib ) ldap? ( net-nds/openldap:= ) perl? ( dev-lang/perl:= ) pcre? ( dev-libs/libpcre ) ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=https://github.com/atheme/atheme/releases/download/v7.2.12/atheme-services-v7.2.12.tar.xz -> atheme-services-7.2.12.tar.xz
 _eclasses_=perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=80af10a62c7b8c16781dc56edd5022be
+_md5_=805e83f883253ddac43c2aaf1eef217b
