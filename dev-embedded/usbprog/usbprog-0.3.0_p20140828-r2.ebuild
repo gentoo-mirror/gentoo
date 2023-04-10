@@ -1,15 +1,15 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake readme.gentoo-r1
 
-REV="293d559bac55"
+REV="293d559bac55f7c7130ea2769c703c68a19d62c2"
 
 DESCRIPTION="flashtool for the multi purpose programming adapter usbprog"
-HOMEPAGE="http://www.aaabbb.de/FirmwareUsbprog/FirmwareUsbprog_en.php https://bitbucket.org/bwalle/usbprog-tools/src/master/"
-SRC_URI="https://bitbucket.org/bwalle/usbprog-tools/get/${REV}.tar.bz2 -> ${P}.tar.bz2"
+HOMEPAGE="https://github.com/bwalle/usbprog-tools https://www.aaabbb.de/FirmwareUsbprog/FirmwareUsbprog_en.php"
+SRC_URI="https://github.com/bwalle/usbprog-tools/archive/${REV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -28,7 +28,7 @@ RDEPEND="
 	virtual/libusb:1
 "
 DEPEND="${RDEPEND}"
-S="${WORKDIR}/bwalle-usbprog-tools-${REV}"
+S="${WORKDIR}/usbprog-tools-${REV}"
 
 PATCHES=(
 	"${FILESDIR}/${P}_versions.xml.patch"
