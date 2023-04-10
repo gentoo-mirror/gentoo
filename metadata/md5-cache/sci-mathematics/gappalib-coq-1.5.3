@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/findlib
+DEFINED_PHASES=compile install test
+DEPEND=dev-lang/ocaml:=[ocamlopt?] >=sci-mathematics/coq-8.12:= sci-mathematics/flocq:= sci-mathematics/gappa
+DESCRIPTION=Allows the certificates Gappa generates to be imported by the Coq
+EAPI=8
+HOMEPAGE=https://gappa.gitlabpages.inria.fr/ https://gitlab.inria.fr/gappa/coq/
+INHERIT=multiprocessing
+IUSE=ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3+
+RDEPEND=dev-lang/ocaml:=[ocamlopt?] >=sci-mathematics/coq-8.12:= sci-mathematics/flocq:= sci-mathematics/gappa
+SLOT=0
+SRC_URI=https://gappa.gitlabpages.inria.fr/releases/gappalib-coq-1.5.3.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
+_md5_=eede2e3173501268addfc41b74909f4d
