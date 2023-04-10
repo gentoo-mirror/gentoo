@@ -3,8 +3,8 @@
 
 EAPI=8
 
-COQ_MIN_V=8.16.0
-COQ_MAX_V=8.17.0
+COQ_MIN_V=8.17.0
+COQ_MAX_V=8.18.0
 
 inherit elisp-common dune
 

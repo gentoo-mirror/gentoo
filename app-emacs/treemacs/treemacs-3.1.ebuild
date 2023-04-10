@@ -36,9 +36,9 @@ BDEPEND="
 
 BYTECOMPFLAGS="-L . -L src/elisp"
 PATCHES=(
+	"${FILESDIR}"/${PN}-2.9.5-tests.patch
 	"${FILESDIR}"/${PN}-async-scripts.patch
 	"${FILESDIR}"/${PN}-icons-icon-directory.patch
-	"${FILESDIR}"/${P}-tests.patch
 )
 
 DOCS=( Changelog.org Extensions.org README.org screenshots )
