@@ -1,14 +1,15 @@
 BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=install prepare unpack
+DEPEND=app-arch/bzip2 dev-libs/expat media-libs/fontconfig media-libs/freetype media-libs/libpng x11-libs/cairo x11-libs/libX11 x11-libs/libXau x11-libs/libxcb x11-libs/libXdmcp x11-libs/libXext x11-libs/libXrender x11-libs/pixman
 DESCRIPTION=High-performance Graphite front-end, Booking.com fork
 EAPI=8
 HOMEPAGE=https://github.com/bookingcom/carbonapi
 INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=BSD-2
-RDEPEND=acct-group/carbon acct-user/carbon
+RDEPEND=app-arch/bzip2 dev-libs/expat media-libs/fontconfig media-libs/freetype media-libs/libpng x11-libs/cairo x11-libs/libX11 x11-libs/libXau x11-libs/libxcb x11-libs/libXdmcp x11-libs/libXext x11-libs/libXrender x11-libs/pixman acct-group/carbon acct-user/carbon
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/bookingcom/carbonapi/archive/v0.3.0.tar.gz -> carbonapi-booking-0.3.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	f9700c7efec1fd4955363169e9930c1c
-_md5_=c3affb9130d1093af7069d999d52d797
+_md5_=125bba23fb6afc74668b9467bd8847c3
