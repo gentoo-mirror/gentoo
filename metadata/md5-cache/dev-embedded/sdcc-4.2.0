@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://sdcc.sourceforge.net/
 INHERIT=autotools
 IUSE=mcs51 z80 z180 r2k r2ka r3ka sm83 tlcs90 ez80-z80 z80n ds390 ds400 pic14 pic16 hc08 s08 stm8 pdk13 pdk14 pdk15 pdk16 mos6502 mos65c02 +boehm-gc device-lib doc non-free packihx sdcdb +sdcpp ucsim
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2 ZLIB non-free? ( MicroChip-SDCC ) packihx? ( public-domain )
 RDEPEND=dev-libs/boost:= sys-libs/zlib:= pic14? ( >=dev-embedded/gputils-0.13.7 ) pic16? ( >=dev-embedded/gputils-0.13.7 ) boehm-gc? ( dev-libs/boehm-gc:= ) sdcdb? ( sys-libs/readline:0= ) ucsim? ( sys-libs/ncurses:= )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/sdcc/sdcc/4.2.0/sdcc-src-4.2.0.tar.bz2 doc? ( https://downloads.sourceforge.net/project/sdcc/sdcc-doc/4.2.0/sdcc-doc-4.2.0.tar.bz2 )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
-_md5_=23eff577953c6f18420f4f01f41c8c9b
+_md5_=0a7fdd95ee0a970b10f1f3d679bac075
