@@ -11,6 +11,7 @@ inherit ecm plasma.kde.org
 
 DESCRIPTION="Syncs KDE Plasma theme settings to GTK applications"
 HOMEPAGE="https://invent.kde.org/plasma/kde-gtk-config"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="5"
@@ -38,7 +39,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="dev-lang/sassc"
 
-PATCHES=( "${FILESDIR}/${P}-kded-dont-update-textscale.patch" ) # KDE-bug 468203
+PATCHES=( "${WORKDIR}/${P}-patchset-1" ) # KDE-bugs 468203, 421745
 
 src_configure() {
 	local mycmakeargs=(
