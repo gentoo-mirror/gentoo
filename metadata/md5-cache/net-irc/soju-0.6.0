@@ -1,0 +1,16 @@
+BDEPEND=app-text/scdoc >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-user/soju acct-group/soju
+DESCRIPTION=soju is a user-friendly IRC bouncer
+EAPI=8
+HOMEPAGE=https://soju.im/
+INHERIT=go-module systemd
+IUSE=pam
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=AGPL-3
+RDEPEND=acct-user/soju acct-group/soju
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://git.sr.ht/~emersion/soju/refs/download/v0.6.0/soju-0.6.0.tar.gz https://github.com/alfredfo/soju-deps/raw/master/soju-0.6.0-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	f9700c7efec1fd4955363169e9930c1c	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=3f7a4e18669bf66468f12be46d20aa37
