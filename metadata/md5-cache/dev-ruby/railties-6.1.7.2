@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/rails/rails
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 test test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=>=app-eselect/eselect-rails-0.25 ruby_targets_ruby27? ( ~dev-ruby/activesupport-6.1.7.2[ruby_targets_ruby27(-)] ~dev-ruby/actionpack-6.1.7.2[ruby_targets_ruby27(-)] dev-ruby/thor:1[ruby_targets_ruby27(-)] >=dev-ruby/rake-0.8.7[ruby_targets_ruby27(-)] dev-ruby/method_source[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( ~dev-ruby/activesupport-6.1.7.2[ruby_targets_ruby30(-)] ~dev-ruby/actionpack-6.1.7.2[ruby_targets_ruby30(-)] dev-ruby/thor:1[ruby_targets_ruby30(-)] >=dev-ruby/rake-0.8.7[ruby_targets_ruby30(-)] dev-ruby/method_source[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( ~dev-ruby/activesupport-6.1.7.2[ruby_targets_ruby31(-)] ~dev-ruby/actionpack-6.1.7.2[ruby_targets_ruby31(-)] dev-ruby/thor:1[ruby_targets_ruby31(-)] >=dev-ruby/rake-0.8.7[ruby_targets_ruby31(-)] dev-ruby/method_source[ruby_targets_ruby31(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test ) !test? ( test ) !test? ( test )
 SLOT=6.1
 SRC_URI=https://github.com/rails/rails/archive/v6.1.7.2.tar.gz -> rails-6.1.7.2.tgz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	e68c3e575d599044297cb3253a2566d7	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
-_md5_=47c120c59e448798fcbd99a119a771a9
+_md5_=32767fd5054fb7a734f66cf1fcaeb391
