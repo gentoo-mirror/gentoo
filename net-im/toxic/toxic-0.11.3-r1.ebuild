@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{9,10,11} )
 
 inherit python-single-r1 xdg
 
@@ -101,7 +101,9 @@ src_configure() {
 	if ! use X; then
 		export DISABLE_X11=1
 	fi
-	export USER_CFLAGS="${CFLAGS}"
+	#Including strings.h fixes undefined reference to strcasecmp()
+	#Defining _GNU_SOURCE fixes undefined reference to strcasestr()
+	export USER_CFLAGS="${CFLAGS} -include strings.h -D _GNU_SOURCE"
 	export USER_LDFLAGS="${LDFLAGS}"
 	#set install directory to /usr.
 	sed -i -e "s,/usr/local,${EPREFIX}/usr,g" cfg/global_vars.mk || die "Failed to set install directory!"
