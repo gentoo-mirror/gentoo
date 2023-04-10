@@ -4,8 +4,9 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} pypy3 )
+DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit pypi distutils-r1
 
 DESCRIPTION="Command-line YAML processor - jq wrapper for YAML documents"
 HOMEPAGE="
@@ -13,7 +14,6 @@ HOMEPAGE="
 	https://github.com/kislyuk/yq/
 	https://pypi.org/project/yq/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -26,9 +26,7 @@ RDEPEND="
 	dev-python/argcomplete[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.3.1[${PYTHON_USEDEP}]
 	dev-python/xmltodict[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		dev-python/tomli[${PYTHON_USEDEP}]
-	' 3.{8..10})
+	>=dev-python/tomlkit-0.11.6[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
@@ -39,7 +37,6 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}/yq-2.13.0-tests.patch"
-	"${FILESDIR}/${P}-tomli.patch"
 )
 
 python_prepare_all() {
