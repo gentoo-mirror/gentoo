@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,15 +22,16 @@ REQUIRED_USE="${LUA_REQUIRED_USE}
 
 RESTRICT="!test? ( test )"
 
-RDEPEND="${LUA_DEPS}
-	$(lua_gen_impl_dep 'deprecated' lua5-1)
+# Use bundled PUC Lua if lua5-1 has been requested requested due to C++
+# interoperability issues, at least until Bug #825766 has been resolved anyway.
+RDEPEND="lua_single_target_luajit? ( ${LUA_DEPS} )
 	app-arch/zstd
 	dev-db/sqlite:3
 	dev-libs/gmp:0=
 	dev-libs/jsoncpp:=
 	sys-libs/zlib
 	client? (
-		>=dev-games/irrlicht-mt-1.9.0.8
+		~dev-games/irrlicht-mt-1.9.0.10
 		media-libs/freetype:2
 		media-libs/libpng:0=
 		media-libs/libjpeg-turbo
@@ -52,7 +53,7 @@ RDEPEND="${LUA_DEPS}
 	server? (
 		acct-group/minetest
 		acct-user/minetest
-		>=dev-games/irrlicht-mt-headers-1.9.0.8
+		~dev-games/irrlicht-mt-headers-1.9.0.10
 	)
 	spatial? ( sci-libs/libspatialindex:= )"
 DEPEND="${RDEPEND}"
@@ -64,15 +65,11 @@ BDEPEND="
 	nls? ( sys-devel/gettext )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-5.4.1-system_puc_lua.patch
-	"${FILESDIR}"/${PN}-5.6.0-no_upstream_optflags.patch
+	"${FILESDIR}"/${PN}-5.7.0-no_upstream_optflags.patch
 )
 
 src_prepare() {
 	cmake_src_prepare
-
-	# remove bundled libraries other than bitop
-	rm -rf lib/{gmp,jsoncpp,lua} || die
 
 	# To avoid TEXTRELs on riscv
 	append-flags -fPIC
@@ -121,21 +118,21 @@ src_install() {
 	cmake_src_install
 
 	if use server; then
-		keepdir /etc/minetest
-		fowners root:minetest /etc/minetest
-		fperms 2750 /etc/minetest
+		keepdir /etc/${PN}
+		fowners root:${PN} /etc/${PN}
+		fperms 2750 /etc/${PN}
 
-		keepdir /var/log/minetest
-		fowners minetest:minetest /var/log/minetest
+		keepdir /var/log/${PN}
+		fowners ${PN}:${PN} /var/log/${PN}
 
-		newconfd "${FILESDIR}"/minetestserver.confd minetest-server
-		newinitd "${FILESDIR}"/minetestserver.initd minetest-server
+		newconfd "${FILESDIR}"/${PN}server.confd ${PN}-server
+		newinitd "${FILESDIR}"/${PN}server.initd ${PN}-server
 
-		systemd_newunit "${FILESDIR}"/minetestserver_default.service minetest-server.service
-		systemd_newunit "${FILESDIR}"/minetestserver_template.service minetest-server@.service
+		systemd_newunit "${FILESDIR}"/${PN}server_default.service ${PN}-server.service
+		systemd_newunit "${FILESDIR}"/${PN}server_template.service ${PN}-server@.service
 
 		insinto /etc/logrotate.d
-		newins "${FILESDIR}"/minetestserver.logrotate minetest-server
+		newins "${FILESDIR}"/${PN}server.logrotate ${PN}-server
 	fi
 }
 
