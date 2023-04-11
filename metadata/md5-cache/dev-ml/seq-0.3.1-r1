@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/ocaml dev-ml/dune
+BDEPEND=>=dev-lang/ocaml-4.07 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Compatibility package for the standard OCaml iterator type
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-3
-RDEPEND=<dev-lang/ocaml-4.07 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.07 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0
-SRC_URI=https://github.com/c-cube/seq/archive/v0.3.tar.gz -> seq-0.3.tar.gz
+SRC_URI=https://github.com/c-cube/seq/archive/v0.3.1.tar.gz -> seq-0.3.1.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=ac268bda86fe07d7ab0df3541cf283cb
+_md5_=b3179d7deb845bfaa30ca31a2690c0d2
