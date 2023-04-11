@@ -1,13 +1,13 @@
 BDEPEND=>=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DESCRIPTION=Emacs major mode for editing Standard ML
-EAPI=7
-HOMEPAGE=https://elpa.gnu.org/packages/sml-mode.html http://www.iro.umontreal.ca/~monnier/elisp/
+EAPI=8
+HOMEPAGE=http://www.iro.umontreal.ca/~monnier/elisp/ https://elpa.gnu.org/packages/sml-mode.html
 INHERIT=elisp
-KEYWORDS=~alpha amd64 ppc x86
+KEYWORDS=~alpha ~amd64 ~ppc ~x86
 LICENSE=GPL-3+
 RDEPEND=>=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://dev.gentoo.org/~ulm/distfiles/sml-mode-6.9.el.xz
+SRC_URI=https://dev.gentoo.org/~xgqt/distfiles/repackaged/sml-mode-6.12.tar.xz
 _eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
-_md5_=bd137ea4fda89470becfa91b896143c3
+_md5_=2605edb86fe182b1ccdc82f7bf92c5e3
