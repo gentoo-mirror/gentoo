@@ -1,14 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare unpack
-DEPEND=selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone )
+DEPEND=app-arch/lz4:= dev-libs/lzo:2 sys-apps/util-linux selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone )
 DESCRIPTION=Tools for Flash-Friendly File System (F2FS)
 EAPI=8
-HOMEPAGE=https://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-tools.git/about/
-INHERIT=git-r3 autotools
+HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/about/
+INHERIT=autotools git-r3
 IUSE=selinux
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone )
-SLOT=0/9
-_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
-_md5_=b4d5750e9bf6ee08e2e708052f64ce49
+RDEPEND=app-arch/lz4:= dev-libs/lzo:2 sys-apps/util-linux selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone )
+SLOT=0/10
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_md5_=1f968768ef9074507fa10d06ed9e621f
