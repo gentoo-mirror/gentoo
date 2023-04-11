@@ -1,23 +1,24 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit elisp
 
 DESCRIPTION="Emacs major mode for editing Standard ML"
-HOMEPAGE="https://elpa.gnu.org/packages/sml-mode.html
-	http://www.iro.umontreal.ca/~monnier/elisp/"
-# taken from https://elpa.gnu.org/packages/${P}.el
-SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.el.xz"
+HOMEPAGE="http://www.iro.umontreal.ca/~monnier/elisp/
+	https://elpa.gnu.org/packages/sml-mode.html"
+SRC_URI="https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~x86"
 
+DOCS=( README TODO )
+ELISP_REMOVE="${PN}-pkg.el"
 SITEFILE="50${PN}-gentoo-6.1.el"
 
 src_compile() {
-	elisp-compile *.el
+	elisp_src_compile
 	elisp-make-autoload-file
 }
