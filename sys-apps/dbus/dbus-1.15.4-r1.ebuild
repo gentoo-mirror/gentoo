@@ -3,7 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+# Be careful with packaging odd-version-number branches.
+# See https://www.freedesktop.org/wiki/Software/dbus/#download.
+
+PYTHON_COMPAT=( python3_{9..11} )
 TMPFILES_OPTIONAL=1
 
 # From 1.15.0 release notes:
@@ -223,7 +226,7 @@ multilib_src_install() {
 	if multilib_is_native_abi; then
 		emake DESTDIR="${D}" install
 	else
-		emake DESTDIR="${D}" install-pkgconfigDATA
+		emake DESTDIR="${D}" install-pkgconfigDATA install-cmakeconfigDATA
 		emake DESTDIR="${D}" -C dbus \
 			install-libLTLIBRARIES install-dbusincludeHEADERS \
 			install-nodist_dbusarchincludeHEADERS
@@ -247,7 +250,7 @@ multilib_src_install_all() {
 	# machine-id symlink from pkg_postinst()
 	keepdir /var/lib/dbus
 	# Let the init script create the /var/run/dbus directory
-	rm -rf "${ED}"/var/run
+	rm -rf "${ED}"/{,var/}run
 
 	# bug #761763
 	rm -rf "${ED}"/usr/lib/sysusers.d
