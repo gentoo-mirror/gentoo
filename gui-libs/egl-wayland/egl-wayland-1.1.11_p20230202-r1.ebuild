@@ -1,20 +1,20 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit meson
 
-EGLWAYLAND_HASH="582b2d345abaa0e313cf16c902e602084ea59551"
+HASH_EGLWAYLAND=30c5a951a849f835acc9f11ea4ca4e1d3380b7eb
 
 DESCRIPTION="EGLStream-based Wayland external platform"
 HOMEPAGE="https://github.com/NVIDIA/egl-wayland"
-SRC_URI="https://github.com/NVIDIA/egl-wayland/archive/${EGLWAYLAND_HASH}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${EGLWAYLAND_HASH}"
+SRC_URI="https://github.com/NVIDIA/egl-wayland/archive/${HASH_EGLWAYLAND}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${HASH_EGLWAYLAND}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-libs/wayland
@@ -23,11 +23,13 @@ DEPEND="
 	${RDEPEND}
 	dev-libs/wayland-protocols
 	gui-libs/eglexternalplatform
-	>=media-libs/libglvnd-1.3.4"
+	media-libs/libglvnd
+	x11-libs/libdrm"
 BDEPEND="dev-util/wayland-scanner"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.1.6-remove-werror.patch
+	"${FILESDIR}"/${P}-destruction-order.patch
 )
 
 src_install() {
