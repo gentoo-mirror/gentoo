@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl] x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 virtual/pkgconfig
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 x86-winnt? ( >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 ) >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
 DEPEND=x11-libs/libXext x11-libs/libXfixes x11-libs/libXScrnSaver >=x11-libs/pixman-0.27.1 >=x11-libs/libdrm-2.4.52[video_cards_intel] >=x11-base/xorg-server-1.18 tools? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libxshmfence x11-libs/libXtst ) udev? ( virtual/libudev:= ) xvmc? ( >=x11-libs/libXvMC-1.0.12-r1 >=x11-libs/libxcb-1.5 x11-libs/xcb-util ) x11-base/xorg-proto x11-base/xorg-proto dri? ( x11-base/xorg-server[-minimal] x11-libs/libdrm ) >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
 DESCRIPTION=X.Org driver for Intel cards
@@ -6,10 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel
 INHERIT=linux-info xorg-3 flag-o-matic
 IUSE=debug +sna tools +udev uxa xvmc dri
+KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=x11-libs/libXext x11-libs/libXfixes x11-libs/libXScrnSaver >=x11-libs/pixman-0.27.1 >=x11-libs/libdrm-2.4.52[video_cards_intel] >=x11-base/xorg-server-1.18 tools? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libxshmfence x11-libs/libXtst ) udev? ( virtual/libudev:= ) xvmc? ( >=x11-libs/libXvMC-1.0.12-r1 >=x11-libs/libxcb-1.5 x11-libs/xcb-util ) x11-base/xorg-server:= dri? ( x11-base/xorg-server[-minimal] x11-libs/libdrm ) >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
 REQUIRED_USE=|| ( sna uxa )
 SLOT=0
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	git-r3	27e13c09a4c7e4c78ac812f74727e676	xorg-3	5a9d0eaf387b253edab4a38cd6cfdfe3
-_md5_=470b64c755e71acf45611de483d68f33
+SRC_URI=https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel/-/archive/b74b67f0f321875492968f7097b9d6e82a66d7df/xf86-video-intel-2.99.917_p20230201.tar.bz2
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	xorg-3	5a9d0eaf387b253edab4a38cd6cfdfe3
+_md5_=6e4795ddfa32d3f82e64a3885dc48f63
