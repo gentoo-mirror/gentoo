@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen[dot] virtual/latex-base ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install nofetch prepare test unpack
-DEPEND=>=dev-qt/qtcore-5.14:5 botan? ( dev-libs/botan:= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= ) test? ( dev-qt/qtnetwork:5 dev-qt/qttest:5 )
+DEPEND=>=dev-qt/qtcore-5.14:5 botan? ( dev-libs/botan:2= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= ) test? ( dev-qt/qtnetwork:5 dev-qt/qttest:5 )
 DESCRIPTION=Qt Cryptographic Architecture (QCA)
 EAPI=8
 HOMEPAGE=https://userbase.kde.org/QCA
@@ -8,9 +8,9 @@ INHERIT=cmake kde.org qmake-utils
 IUSE=botan debug doc examples gcrypt gpg logger nss pkcs11 sasl softstore +ssl test
 KEYWORDS=amd64 ~arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-qt/qtcore-5.14:5 botan? ( dev-libs/botan:= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= )
+RDEPEND=>=dev-qt/qtcore-5.14:5 botan? ( dev-libs/botan:2= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=mirror://kde/stable/qca/2.3.5/qca-2.3.5.tar.xz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	kde.org	dc60243572471279b11120514b85b558	qmake-utils	59420c906278d16deaaa629f9d115707
-_md5_=0419a67fd069b65448e23d61a40108bc
+_md5_=e5e97513c49b4b17cff09d8d08387265
