@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby27? ( >=dev-ruby/simpleidn-0.1:0[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/simpleidn-0.1:0[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/simpleidn-0.1:0[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( test? ( >=dev-ruby/minitest-5.4:5[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( >=dev-ruby/minitest-5.4:5[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( >=dev-ruby/minitest-5.4:5[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+DESCRIPTION=A pure Ruby DNS client library
+EAPI=8
+HOMEPAGE=https://github.com/alexdalitz/dnsruby
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=Apache-2.0
+RDEPEND=ruby_targets_ruby27? ( >=dev-ruby/simpleidn-0.1:0[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/simpleidn-0.1:0[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/simpleidn-0.1:0[ruby_targets_ruby31(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://rubygems.org/gems/dnsruby-1.70.0.gem
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	76a677328d71b04b457f26be67717028	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
+_md5_=4e0e27d77ec3f2c0072e6ecd88fe1927
