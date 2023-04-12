@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare
+DEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam ) static? ( virtual/libcrypt[static-libs] selinux? ( sys-libs/libselinux[static-libs(+)] ) ) sys-kernel/linux-headers
+DESCRIPTION=Utilities for rescue and embedded systems
+EAPI=7
+HOMEPAGE=https://www.busybox.net/
+INHERIT=eapi8-dosym flag-o-matic savedconfig toolchain-funcs
+IUSE=debug ipv6 livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd savedconfig
+LICENSE=GPL-2
+RDEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
+REQUIRED_USE=pam? ( !static )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.busybox.net/downloads/busybox-1.35.0.tar.bz2
+_eclasses_=eapi8-dosym	741bfa77afb2a9321261501aca58c208	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	portability	964493f201f557a5c6baccacccf45ee2	savedconfig	8b5f9d995a970e49cd427c55d5840285
+_md5_=7966ec783c01868113cb657345c17f57
