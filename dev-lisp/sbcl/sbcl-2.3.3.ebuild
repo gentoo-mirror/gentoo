@@ -7,12 +7,12 @@ inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.3.1
+BV_AMD64=2.3.2
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
 BV_ALPHA=1.0.28
-BV_ARM=1.4.11
+BV_ARM=2.3.3
 BV_ARM64=1.4.2
 BV_X64_MACOS=1.2.11
 BV_PPC_MACOS=1.0.47
