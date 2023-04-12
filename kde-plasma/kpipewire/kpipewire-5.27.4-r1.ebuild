@@ -9,6 +9,7 @@ QTMIN=5.15.7
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Components relating to Flatpak pipewire use in Plasma"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
@@ -39,3 +40,5 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/sound-theme-freedesktop
 "
 BDEPEND=">=dev-qt/qtwaylandscanner-${QTMIN}:5"
+
+PATCHES=( "${WORKDIR}/${P}-patchset-1" ) # KDE-bug 467593
