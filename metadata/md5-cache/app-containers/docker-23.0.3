@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.docker.com/
 INHERIT=linux-info systemd udev golang-vcs-snapshot
 IUSE=apparmor aufs btrfs +container-init device-mapper overlay seccomp selinux
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 dev-libs/libltdl >=app-containers/containerd-1.6.19[apparmor?,btrfs?,device-mapper?,seccomp?] ~app-containers/docker-proxy-0.8.0_p20230118 container-init? ( >=sys-process/tini-0.19.0[static] ) selinux? ( sec-policy/selinux-docker )
 RESTRICT=installsources strip test
 SLOT=0
 SRC_URI=https://github.com/moby/moby/archive/v23.0.3.tar.gz -> docker-23.0.3.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152	golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	80659643e60eb07e6df6ff936b7d5f66
-_md5_=f87d213e9f4716f4bf15f8a04156c608
+_md5_=4cd26b75cfa59022de3e9b9ee8fde804
