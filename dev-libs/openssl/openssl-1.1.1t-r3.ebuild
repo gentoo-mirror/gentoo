@@ -95,7 +95,6 @@ src_prepare() {
 		rm test/recipes/80-test_ssl_new.t || die
 	fi
 
-
 	# Remove test target when FEATURES=test isn't set
 	if ! use test ; then
 		sed \
@@ -140,6 +139,10 @@ src_configure() {
 	# Don't remove the no strict aliasing bits below!
 	filter-flags -fstrict-aliasing
 	append-flags -fno-strict-aliasing
+	# The OpenSSL developers don't test with LTO right now, it leads to various
+	# warnings/errors (which may or may not be false positives), it's considered
+	# unsupported, and it's not tested in CI: https://github.com/openssl/openssl/issues/18663.
+	filter-lto
 
 	append-cppflags -DOPENSSL_NO_BUF_FREELISTS
 
