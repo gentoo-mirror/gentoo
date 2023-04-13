@@ -9,6 +9,7 @@ inherit ecm plasma.kde.org python-any-r1
 
 DESCRIPTION="Official GTK+ port of Plasma's Breeze widget style"
 HOMEPAGE="https://invent.kde.org/plasma/breeze-gtk"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
@@ -21,7 +22,7 @@ BDEPEND="${PYTHON_DEPS}
 	>=kde-plasma/breeze-${PVCUT}:5
 "
 
-PATCHES=( "${FILESDIR}/${P}-blurry-big-gtk3-window-buttons.patch" ) # KDE-bug 468203
+PATCHES=( "${WORKDIR}/${P}-patchset-1" ) # KDE-bug 468203 (multiple commits)
 
 python_check_deps() {
 	python_has_version "dev-python/pycairo[${PYTHON_USEDEP}]"

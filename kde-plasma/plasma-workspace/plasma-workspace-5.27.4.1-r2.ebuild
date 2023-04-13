@@ -12,7 +12,7 @@ VIRTUALX_REQUIRED="test"
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma workspace"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-1.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset-2.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -163,7 +163,7 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 PATCHES=(
 	"${FILESDIR}/${PN}-5.24.80-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
-	"${WORKDIR}/${P}-patchset-1" # KDE-bugs 467416, 467979, 468013, 468084
+	"${WORKDIR}/${P}-patchset-2" # KDE-bugs 466362, 467416, 467979, 468013, 468084
 )
 
 src_prepare() {
