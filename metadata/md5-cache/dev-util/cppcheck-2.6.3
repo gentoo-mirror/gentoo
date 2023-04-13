@@ -1,6 +1,6 @@
 BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5 ) test? ( htmlreport? ( dev-python/unittest-or-fail[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/tinyxml2:= htmlreport? ( dev-python/pygments[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pcre? ( dev-libs/libpcre ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp dev-qt/qtprintsupport:5 ) z3? ( sci-mathematics/z3 )
+DEPEND=dev-libs/tinyxml2:= htmlreport? ( dev-python/pygments[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pcre? ( dev-libs/libpcre ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp dev-qt/qtprintsupport:5 ) z3? ( sci-mathematics/z3:= )
 DESCRIPTION=Static analyzer of C/C++ code
 EAPI=8
 HOMEPAGE=https://github.com/danmar/cppcheck
@@ -8,10 +8,10 @@ INHERIT=distutils-r1 cmake
 IUSE=htmlreport pcre qt5 test +z3 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=amd64 ~arm arm64 ~hppa ~ppc64 sparc x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/tinyxml2:= htmlreport? ( dev-python/pygments[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pcre? ( dev-libs/libpcre ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp dev-qt/qtprintsupport:5 ) z3? ( sci-mathematics/z3 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
+RDEPEND=dev-libs/tinyxml2:= htmlreport? ( dev-python/pygments[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) pcre? ( dev-libs/libpcre ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp dev-qt/qtprintsupport:5 ) z3? ( sci-mathematics/z3:= ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/danmar/cppcheck/archive/refs/tags/2.6.3.tar.gz -> cppcheck-2.6.3.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	05bcfd9823be251f6e9f211ca285094e	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
-_md5_=c0b894cb9ee2569f1ed4c4f4ddaf4357
+_md5_=0d62163dccbce5efc30954cfcd64b7e8
