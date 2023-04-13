@@ -3,19 +3,19 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit bash-completion-r1 gnome2-utils linux-info optfeature plocale python-single-r1 systemd xdg-utils
 
 DESCRIPTION="A firewall daemon with D-Bus interface providing a dynamic firewall"
 HOMEPAGE="https://firewalld.org/"
-SRC_URI="https://github.com/firewalld/firewalld/releases/download/v${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/firewalld/firewalld/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="gui +nftables +iptables test"
-# Tests previously restricted for bug #650760
-RESTRICT="!test? ( test ) test? ( userpriv ) test"
+# Tests are too unreliable in sandbox environment
+RESTRICT="!test? ( test ) test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -107,7 +107,6 @@ pkg_setup() {
 	~NETFILTER_XT_NAT
 	~NETFILTER_XT_TARGET_MASQUERADE
 	~NFT_COMPAT
-	~NFT_COUNTER
 	~NFT_CT
 	~NFT_FIB
 	~NFT_FIB_INET
@@ -140,6 +139,11 @@ pkg_setup() {
 	# bug #831259
 	if kernel_is -le 5 4 ; then
 		CONFIG_CHECK+=" ~NF_TABLES_SET"
+	fi
+
+	# bug #853055
+	if kernel_is -lt 5 18 ; then
+		CONFIG_CHECK+=" ~NFT_COUNTER"
 	fi
 
 	linux-info_pkg_setup
