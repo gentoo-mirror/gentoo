@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex || ( >=dev-lang/python-3.10.9-r1:3.10[xml(+)] >=dev-lang/python-3.9.16-r1:3.9[xml(+)] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=sys-devel/bison sys-devel/flex || ( >=dev-lang/python-3.11.1-r1:3.11[xml(+)] >=dev-lang/python-3.10.9-r1:3.10[xml(+)] >=dev-lang/python-3.9.16-r1:3.9[xml(+)] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=app-text/ghostscript-gpl dev-lang/perl media-libs/libpng:0= virtual/libiconv clang? ( >=sys-devel/clang-10:= ) dot? ( media-gfx/graphviz media-libs/freetype ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) sqlite? ( dev-db/sqlite:3 ) !!sys-devel/llvm:0
 DESCRIPTION=Documentation system for most programming languages
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://doxygen.nl/files/doxygen-1.9.5.src.tar.gz mirror://sourceforge/doxygen/rel-1.9.5/doxygen-1.9.5.src.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	llvm	4cc6f8e29d24a8011266413e74c728bb	eapi8-dosym	741bfa77afb2a9321261501aca58c208	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=41d9fee6a2895d1ee174cb3fd39ca2dd
+_md5_=9abb74b90d56fb56e36823a76c143f4e
