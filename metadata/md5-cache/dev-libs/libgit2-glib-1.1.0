@@ -1,5 +1,5 @@
 BDEPEND=dev-util/glib-utils virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
-DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=dev-libs/gobject-introspection-1.54:= >=dev-libs/glib-2.44.0:2 >=dev-libs/libgit2-0.26.0:0=[ssh?] python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-python/pygobject:3[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 DESCRIPTION=Git library for GLib
 EAPI=8
@@ -14,4 +14,4 @@ REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 p
 SLOT=0
 SRC_URI=mirror://gnome/sources/libgit2-glib/1.1/libgit2-glib-1.1.0.tar.xz
 _eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-r1	3c6cd0f418ba702c186a9865b85e704d	vala	1343f639cc74d2aa8b36fc08677da58d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=b047960fd8e3b2fc14347340544d0cf1
+_md5_=342dfbc8ad32a42fed9883617b5a2d5d
