@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=app-pda/libplist app-pda/libusbmuxd dev-libs/glib dev-libs/libayatana-appindicator dev-libs/libxml2 dev-util/android-tools media-libs/alsa-lib media-libs/libjpeg-turbo >=media-libs/speex-1.2.0-r1 media-video/ffmpeg gtk? ( x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=Use your phone or tablet as webcam with a v4l device driver and app
+EAPI=8
+HOMEPAGE=https://www.dev47apps.com/droidcam/linux/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop linux-mod xdg
+IUSE=gtk dist-kernel
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-pda/libplist app-pda/libusbmuxd dev-libs/glib dev-libs/libayatana-appindicator dev-libs/libxml2 dev-util/android-tools media-libs/alsa-lib media-libs/libjpeg-turbo >=media-libs/speex-1.2.0-r1 media-video/ffmpeg gtk? ( x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/dev47apps/droidcam/archive/v2.0.0.tar.gz -> droidcam-2.0.0.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	e02e2112f542b74962d5d264c60a08de	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=c3c419775252a81914e8cbabe5f64c22
