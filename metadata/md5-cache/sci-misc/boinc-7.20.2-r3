@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://boinc.berkeley.edu/
 INHERIT=autotools desktop flag-o-matic linux-info optfeature wxwidgets xdg-utils
 IUSE=X cuda curl_ssl_gnutls +curl_ssl_openssl opencl
-KEYWORDS=~amd64 ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~amd64 ~arm64 ~ia64 ~ppc ppc64 ~sparc ~x86
 LICENSE=LGPL-3
 RDEPEND=acct-user/boinc app-misc/ca-certificates cuda? ( x11-drivers/nvidia-drivers ) opencl? ( virtual/opencl ) dev-libs/openssl:= net-misc/curl[curl_ssl_gnutls(-)=,-curl_ssl_nss(-),curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-libs/zlib X? ( dev-libs/glib:2 media-libs/freeglut media-libs/libjpeg-turbo:= x11-libs/gtk+:3 x11-libs/libnotify x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxcb:= x11-libs/wxGTK:3.0-gtk3[X,opengl,webkit] x11-libs/xcb-util ) sys-apps/util-linux !app-admin/quickswitch
 REQUIRED_USE=^^ ( curl_ssl_gnutls curl_ssl_openssl )
 SLOT=0
 SRC_URI=X? ( https://boinc.berkeley.edu/logo/boinc_glossy2_512_F.tif -> boinc.tif ) https://github.com/BOINC/boinc/archive/client_release/7.20/7.20.2.tar.gz -> boinc-7.20.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	desktop	021728fdc1b03b36357dbc89489e0f0d	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=f1e46b0c88e579ea5166bd56874cbd85
+_md5_=e2ad57514bae77defebb720d182ad2aa
