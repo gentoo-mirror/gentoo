@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.unicorn-engine.org
 INHERIT=cmake distutils-r1
 IUSE=python static-libs python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
-KEYWORDS=amd64 ~arm ~ppc ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~riscv x86
 LICENSE=BSD-2 GPL-2 LGPL-2.1
 RDEPEND=python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0/2
 SRC_URI=https://github.com/unicorn-engine/unicorn/archive/2.0.1.tar.gz -> unicorn-2.0.1.gh.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	05bcfd9823be251f6e9f211ca285094e
-_md5_=32561a28b54921f8dc153e83fe12a035
+_md5_=21e6271573dc441d1c4d8951f2633ba5

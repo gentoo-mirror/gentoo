@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/xfce/xfce4-panel/start https://gitlab.xfce.org/xfce/xfce4-panel/
 INHERIT=vala xdg-utils
 IUSE=+dbusmenu introspection vala wayland X
-KEYWORDS=~amd64 ~arm ~hppa ~ia64 ~loong ~ppc ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.72.0 >=x11-libs/cairo-1.16.0 >=x11-libs/gtk+-3.24.0:3[X?,introspection?,wayland?] >=xfce-base/exo-0.11.2:= >=xfce-base/garcon-4.17.0:= >=xfce-base/libxfce4ui-4.17.1:= >=xfce-base/libxfce4util-4.17.2:=[introspection?,vala?] >=xfce-base/libxfce4windowing-4.19.1:= >=xfce-base/xfconf-4.13.2:= dbusmenu? ( >=dev-libs/libdbusmenu-16.04.0[gtk3] ) introspection? ( >=dev-libs/gobject-introspection-1.66:= ) wayland? ( >=dev-libs/wayland-1.15 >=gui-libs/gtk-layer-shell-0.7.0 ) X? ( >=x11-libs/libX11-1.6.7 x11-libs/libwnck:3 )
 REQUIRED_USE=|| ( wayland X ) vala? ( introspection )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/xfce/xfce4-panel/4.19/xfce4-panel-4.19.1.tar.bz2
 _eclasses_=vala	1343f639cc74d2aa8b36fc08677da58d	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=c923a12a969194561c4366c886f04ba8
+_md5_=c620b356544facbefac1f1387e88ed18
