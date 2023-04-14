@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.jwz.org/xscreensaver/
 INHERIT=autotools flag-o-matic font optfeature pam strip-linguas
 IUSE=elogind fonts +gdk-pixbuf gdm gles glx +gtk jpeg +locking new-login offensive pam +perl +png selinux suid systemd xinerama X
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ~arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD fonts? ( MIT Apache-2.0 )
 RDEPEND=>=dev-libs/libxml2-2.4.6 x11-apps/appres x11-apps/xwininfo x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXt x11-libs/libXxf86vm elogind? ( sys-auth/elogind ) gdk-pixbuf? ( x11-libs/gdk-pixbuf-xlib >=x11-libs/gdk-pixbuf-2.42.0:2 ) gtk? ( >=x11-libs/gtk+-2.22.0:3 ) jpeg? ( media-libs/libjpeg-turbo:= ) locking? ( virtual/libcrypt:= ) new-login? ( gdm? ( gnome-base/gdm ) !gdm? ( || ( x11-misc/lightdm lxde-base/lxdm ) ) ) virtual/glu virtual/opengl pam? ( sys-libs/pam ) png? ( media-libs/libpng:= ) systemd? ( >=sys-apps/systemd-221 ) >=x11-libs/libXft-2.1.0 xinerama? ( x11-libs/libXinerama ) media-gfx/fbida perl? ( dev-lang/perl dev-perl/libwww-perl virtual/perl-Digest-MD5 ) selinux? ( sec-policy/selinux-xscreensaver )
 REQUIRED_USE=gles? ( !glx ) ?? ( elogind systemd ) gtk? ( gdk-pixbuf ) pam? ( locking )
 SLOT=0
 SRC_URI=https://www.jwz.org/xscreensaver/xscreensaver-6.05.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	pam	4efe951aa8ce2c16288d7c915196fe29	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
-_md5_=ff32ce2223042155caf0f9c5715cd3eb
+_md5_=fee74b40ff6c22ac7e52286de28b7df1
