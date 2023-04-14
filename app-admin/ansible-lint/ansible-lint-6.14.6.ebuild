@@ -3,18 +3,18 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
+PYTHON_COMPAT=( python3_{10..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Checks ansible playbooks for practices and behaviour that can be improved"
 HOMEPAGE="https://github.com/ansible/ansible-lint"
-SRC_URI="mirror://pypi/${PN::1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 # Upstream has stated explicitly that all tests require Internet access
 PROPERTIES="test_network"
@@ -31,7 +31,7 @@ RDEPEND="
 	>=dev-python/rich-12.0.0[${PYTHON_USEDEP}]
 	>=dev-python/ruamel-yaml-0.17.21[${PYTHON_USEDEP}]
 	>=dev-python/wcmatch-8.3.2[${PYTHON_USEDEP}]
-	>=dev-util/yamllint-1.26.3[${PYTHON_USEDEP}]
+	>=dev-util/yamllint-1.30.0[${PYTHON_USEDEP}]
 	dev-vcs/git"
 BDEPEND="
 	>=dev-python/setuptools-scm-7.0.5[${PYTHON_USEDEP}]
