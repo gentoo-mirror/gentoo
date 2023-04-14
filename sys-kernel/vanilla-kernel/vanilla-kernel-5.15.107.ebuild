@@ -3,26 +3,26 @@
 
 EAPI=8
 
-inherit kernel-build toolchain-funcs
+inherit kernel-build toolchain-funcs verify-sig
 
-MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 9 ))
+MY_P=linux-${PV}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-CONFIG_VER=5.10.12
-CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
+CONFIG_VER=5.15.19
+CONFIG_HASH=ec69da7a42b5b7c3da91572ef22097b069ddbd01
 GENTOO_CONFIG_VER=g7
 
-DESCRIPTION="Linux kernel built with Gentoo patches"
+DESCRIPTION="Linux kernel built from vanilla upstream sources"
 HOMEPAGE="
 	https://wiki.gentoo.org/wiki/Project:Distribution_Kernel
 	https://www.kernel.org/
 "
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.base.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
+	verify-sig? (
+		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.sign
+	)
 	amd64? (
 		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-x86_64-fedora.config
 			-> kernel-x86_64-fedora.config.${CONFIG_VER}
@@ -43,30 +43,33 @@ SRC_URI+="
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="arm? ( savedconfig )"
 
-RDEPEND="
-	!sys-kernel/gentoo-kernel-bin:${SLOT}
-"
 BDEPEND="
 	debug? ( dev-util/pahole )
+	verify-sig? ( sec-keys/openpgp-keys-kernel )
 "
 PDEPEND="
 	>=virtual/dist-kernel-${PV}
 "
 
-QA_FLAGS_IGNORED="
-	usr/src/linux-.*/scripts/gcc-plugins/.*.so
-	usr/src/linux-.*/vmlinux
-"
+VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/kernel.org.asc
+
+src_unpack() {
+	if use verify-sig; then
+		einfo "Unpacking linux-${PV}.tar.xz ..."
+		verify-sig_verify_detached - "${DISTDIR}"/linux-${PV}.tar.sign \
+			< <(xz -cd "${DISTDIR}"/linux-${PV}.tar.xz | tee >(tar -x))
+		assert "Unpack failed"
+		unpack "gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz"
+	else
+		default
+	fi
+}
 
 src_prepare() {
-	local PATCHES=(
-		# meh, genpatches have no directory
-		"${WORKDIR}"/*.patch
-	)
 	default
 
 	local biendian=false
@@ -103,7 +106,7 @@ src_prepare() {
 			;;
 	esac
 
-	local myversion="-gentoo-dist"
+	local myversion="-dist"
 	use hardened && myversion+="-hardened"
 	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
 	local dist_conf_path="${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"

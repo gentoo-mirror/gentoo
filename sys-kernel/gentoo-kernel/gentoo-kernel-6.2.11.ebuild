@@ -6,10 +6,10 @@ EAPI=8
 inherit kernel-build toolchain-funcs
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 9 ))
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 2 ))
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-CONFIG_VER=5.10.12
-CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
+# forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
+CONFIG_VER=6.2.6-gentoo
 GENTOO_CONFIG_VER=g7
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
@@ -19,33 +19,35 @@ HOMEPAGE="
 "
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.base.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
 	amd64? (
-		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-x86_64-fedora.config
+		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-x86_64-fedora.config
 			-> kernel-x86_64-fedora.config.${CONFIG_VER}
 	)
 	arm64? (
-		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-aarch64-fedora.config
+		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-aarch64-fedora.config
 			-> kernel-aarch64-fedora.config.${CONFIG_VER}
 	)
 	ppc64? (
-		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-ppc64le-fedora.config
+		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-ppc64le-fedora.config
 			-> kernel-ppc64le-fedora.config.${CONFIG_VER}
 	)
 	x86? (
-		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-i686-fedora.config
+		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-i686-fedora.config
 			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE="debug hardened"
-REQUIRED_USE="arm? ( savedconfig )"
+REQUIRED_USE="arm? ( savedconfig )
+	hppa? ( savedconfig )
+	riscv? ( savedconfig )"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel-bin:${SLOT}
@@ -60,6 +62,7 @@ PDEPEND="
 QA_FLAGS_IGNORED="
 	usr/src/linux-.*/scripts/gcc-plugins/.*.so
 	usr/src/linux-.*/vmlinux
+	usr/src/linux-.*/arch/powerpc/kernel/vdso.*/vdso.*.so.dbg
 "
 
 src_prepare() {
@@ -94,6 +97,9 @@ src_prepare() {
 		ppc64)
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
+			;;
+		riscv)
+			return
 			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die

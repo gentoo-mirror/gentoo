@@ -6,10 +6,9 @@ EAPI=8
 inherit kernel-build toolchain-funcs
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 9 ))
-# https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-CONFIG_VER=5.10.12
-CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 5 ))
+CONFIG_VER=5.15.19
+CONFIG_HASH=ec69da7a42b5b7c3da91572ef22097b069ddbd01
 GENTOO_CONFIG_VER=g7
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
@@ -19,8 +18,8 @@ HOMEPAGE="
 "
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.base.tar.xz
-	https://dev.gentoo.org/~alicef/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
 	amd64? (
@@ -43,7 +42,7 @@ SRC_URI+="
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="arm? ( savedconfig )"
 
@@ -60,6 +59,7 @@ PDEPEND="
 QA_FLAGS_IGNORED="
 	usr/src/linux-.*/scripts/gcc-plugins/.*.so
 	usr/src/linux-.*/vmlinux
+	usr/src/linux-.*/arch/powerpc/kernel/vdso.*/vdso.*.so.dbg
 "
 
 src_prepare() {

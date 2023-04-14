@@ -6,7 +6,7 @@ EAPI=8
 inherit kernel-install toolchain-funcs unpacker
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 4 ))
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 5 ))
 BINPKG=${P/-bin}-1
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
@@ -35,7 +35,7 @@ SRC_URI+="
 S=${WORKDIR}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}
