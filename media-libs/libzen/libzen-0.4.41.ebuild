@@ -14,16 +14,17 @@ MY_PN="ZenLib"
 DESCRIPTION="Shared library for libmediainfo and mediainfo"
 HOMEPAGE="https://github.com/MediaArea/ZenLib"
 SRC_URI="https://mediaarea.net/download/source/${PN}/${PV}/${P/-/_}.tar.bz2"
+S="${WORKDIR}"/${MY_PN}/Project/GNU/Library
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc static-libs"
 
-BDEPEND="virtual/pkgconfig
-	doc? ( app-doc/doxygen )"
-
-S=${WORKDIR}/${MY_PN}/Project/GNU/Library
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
+"
 
 src_prepare() {
 	default
@@ -52,7 +53,7 @@ src_install() {
 	default
 
 	# remove since the pkgconfig file should be used instead
-	rm "${D}"/usr/bin/libzen-config
+	rm -f "${ED}"/usr/bin/libzen-config
 
 	insinto /usr/$(get_libdir)/pkgconfig
 	doins ${PN}.pc

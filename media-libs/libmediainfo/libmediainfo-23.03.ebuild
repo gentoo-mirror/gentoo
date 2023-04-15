@@ -18,20 +18,25 @@ S="${WORKDIR}"/${MY_PN}Lib/Project/GNU/Library
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="curl doc mms"
 
 # Tests try to fetch data from online sources
 RESTRICT="test"
 
-RDEPEND="dev-libs/tinyxml2:=
-	>=media-libs/libzen-0.4.37
+# The libzen dep usually needs to be bumped for each release!
+RDEPEND="
+	dev-libs/tinyxml2:=
+	>=media-libs/libzen-0.4.41
 	sys-libs/zlib
 	curl? ( net-misc/curl )
-	mms? ( >=media-libs/libmms-0.6.1 )"
+	mms? ( >=media-libs/libmms-0.6.1 )
+"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
-	doc? ( app-doc/doxygen )"
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
+"
 
 src_prepare() {
 	default
