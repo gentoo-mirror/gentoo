@@ -19,9 +19,7 @@ BUILD_TARGETS="modules"
 IUSE="+multi-tx-q ptp +rss use-firmware"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-9.008.00-linux-5.18.patch" # bug 852311
-	"${FILESDIR}/${PN}-9.009.01-linux-5.19.patch"
-	"${FILESDIR}/${PN}-9.011.00-linux-6.1.patch" # bug 890714
+	"${FILESDIR}/${P}-linux-6.1.patch" # bug 890714
 )
 
 CONFIG_CHECK="~!R8169"
@@ -34,6 +32,7 @@ pkg_setup() {
 	BUILD_PARAMS+=" ENABLE_RSS_SUPPORT=$(usex rss y n)"
 	BUILD_PARAMS+=" ENABLE_MULTIPLE_TX_QUEUE=$(usex multi-tx-q y n)"
 	BUILD_PARAMS+=" ENABLE_USE_FIRMWARE_FILE=$(usex use-firmware y n)"
+	BUILD_PARAMS+=" ENABLE_PAGE_REUSE=y ENABLE_RX_PACKET_FRAGMENT=y"
 }
 
 src_install() {
