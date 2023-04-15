@@ -4,7 +4,7 @@
 EAPI="8"
 
 # Patch version
-FIREFOX_PATCHSET="firefox-102esr-patches-09j.tar.xz"
+FIREFOX_PATCHSET="firefox-102esr-patches-10j.tar.xz"
 SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-05j.tar.xz"
 
 LLVM_MAX_SLOT=15
@@ -61,7 +61,7 @@ SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}
 DESCRIPTION="SpiderMonkey is Mozilla's JavaScript engine written in C and C++"
 HOMEPAGE="https://spidermonkey.dev https://firefox-source-docs.mozilla.org/js/index.html "
 
-KEYWORDS="amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 SLOT="$(ver_cut 1)"
 LICENSE="MPL-2.0"
@@ -364,13 +364,6 @@ src_test() {
 	fi
 
 	cp "${FILESDIR}"/spidermonkey-${SLOT}-known-test-failures.txt "${T}"/known_failures.list || die
-
-	if use x86; then
-		echo "test262/language/types/number/S8.5_A2.1.js" >> "${T}"/known_failures.list
-		echo "test262/language/types/number/S8.5_A2.2.js" >> "${T}"/known_failures.list
-		echo "test262/built-ins/Date/UTC/fp-evaluation-order.js" >> "${T}"/known_failures.list
-		echo "non262/Date/timeclip.js" >> "${T}"/known_failures.list
-	fi
 
 	if [[ $(tc-endian) == "big" ]] ; then
 		echo "non262/extensions/clone-errors.js" >> "${T}"/known_failures.list
