@@ -5,16 +5,13 @@ EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="A non-interactive scripting language"
-HOMEPAGE="https://www.skarnet.org/software/execline/"
+DESCRIPTION="General-purpose libraries from skarnet.org"
+HOMEPAGE="https://www.skarnet.org/software/skalibs/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~riscv ~x86"
-
-RDEPEND=">=dev-libs/skalibs-2.13.0.0:="
-DEPEND="${RDEPEND}"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 HTML_DOCS=( doc/. )
 
@@ -31,16 +28,15 @@ src_configure() {
 	tc-export AR CC RANLIB
 
 	local myconf=(
-		--bindir=/bin
-		--dynlibdir=/usr/$(get_libdir)
-		--libdir=/usr/$(get_libdir)/${PN}
-		--with-dynlib=/usr/$(get_libdir)
-		--with-lib=/usr/$(get_libdir)/skalibs
-		--with-sysdeps=/usr/$(get_libdir)/skalibs
-		--enable-shared
-		--disable-allstatic
+		--datadir=/etc
+		--dynlibdir="/$(get_libdir)"
+		--libdir="/usr/$(get_libdir)/${PN}"
+		--sysdepdir="/usr/$(get_libdir)/${PN}"
+
 		--disable-static
-		--disable-static-libc
+		--enable-clock
+		--enable-ipv6
+		--enable-shared
 	)
 
 	econf "${myconf[@]}"

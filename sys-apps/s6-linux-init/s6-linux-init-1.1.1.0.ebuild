@@ -14,7 +14,8 @@ SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="+sysv-utils"
 
-RDEPEND="dev-lang/execline:=
+RDEPEND="
+	dev-lang/execline:=
 	>=dev-libs/skalibs-2.13.0.0:=
 	sys-apps/s6:=[execline]
 	sysv-utils? (
@@ -41,13 +42,14 @@ src_configure() {
 
 	local myconf=(
 		--bindir=/bin
-		--dynlibdir=/usr/$(get_libdir)
+		--dynlibdir="/$(get_libdir)"
 		--skeldir=/etc/s6-linux-init/skel
-		--libdir=/usr/$(get_libdir)/${PN}
-		--with-dynlib=/usr/$(get_libdir)
-		--with-lib=/usr/$(get_libdir)/s6
-		--with-lib=/usr/$(get_libdir)/skalibs
-		--with-sysdeps=/usr/$(get_libdir)/skalibs
+		--libdir="/usr/$(get_libdir)/${PN}"
+		--libexecdir=/lib/s6
+		--with-dynlib="/$(get_libdir)"
+		--with-lib="/usr/$(get_libdir)/s6"
+		--with-lib="/usr/$(get_libdir)/skalibs"
+		--with-sysdeps="/usr/$(get_libdir)/skalibs"
 		--enable-shared
 		--disable-allstatic
 		--disable-static

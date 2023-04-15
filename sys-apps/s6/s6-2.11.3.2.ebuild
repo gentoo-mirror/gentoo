@@ -14,7 +14,8 @@ SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm ~riscv ~x86"
 IUSE="+execline"
 
-RDEPEND=">=dev-libs/skalibs-2.13.0.0:=
+RDEPEND="
+	>=dev-libs/skalibs-2.13.1.0:=
 	execline? ( dev-lang/execline:= )
 "
 DEPEND="${RDEPEND}"
@@ -35,12 +36,13 @@ src_configure() {
 
 	local myconf=(
 		--bindir=/bin
-		--dynlibdir=/usr/$(get_libdir)
-		--libdir=/usr/$(get_libdir)/${PN}
-		--with-dynlib=/usr/$(get_libdir)
-		--with-lib=/usr/$(get_libdir)/execline
-		--with-lib=/usr/$(get_libdir)/skalibs
-		--with-sysdeps=/usr/$(get_libdir)/skalibs
+		--dynlibdir="/$(get_libdir)"
+		--libdir="/usr/$(get_libdir)/${PN}"
+		--libexecdir=/lib/s6
+		--with-dynlib="/$(get_libdir)"
+		--with-lib="/usr/$(get_libdir)/execline"
+		--with-lib="/usr/$(get_libdir)/skalibs"
+		--with-sysdeps="/usr/$(get_libdir)/skalibs"
 		--enable-shared
 		--disable-allstatic
 		--disable-static

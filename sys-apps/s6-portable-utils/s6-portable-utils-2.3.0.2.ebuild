@@ -5,13 +5,13 @@ EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="Set of tiny linux utilities"
-HOMEPAGE="https://www.skarnet.org/software/s6-linux-utils/"
+DESCRIPTION="Set of tiny portable unix utilities"
+HOMEPAGE="https://www.skarnet.org/software/s6-portable-utils/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 RDEPEND=">=dev-libs/skalibs-2.13.0.0:="
 DEPEND="${RDEPEND}"
