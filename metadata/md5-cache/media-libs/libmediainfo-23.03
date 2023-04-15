@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-libs/tinyxml2:= >=media-libs/libzen-0.4.37 sys-libs/zlib curl? ( net-misc/curl ) mms? ( >=media-libs/libmms-0.6.1 )
+DEPEND=dev-libs/tinyxml2:= >=media-libs/libzen-0.4.41 sys-libs/zlib curl? ( net-misc/curl ) mms? ( >=media-libs/libmms-0.6.1 )
 DESCRIPTION=MediaInfo libraries
 EAPI=8
 HOMEPAGE=https://mediaarea.net/mediainfo/ https://github.com/MediaArea/MediaInfoLib
 INHERIT=autotools edos2unix flag-o-matic
 IUSE=curl doc mms
-KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=BSD-2
-RDEPEND=dev-libs/tinyxml2:= >=media-libs/libzen-0.4.37 sys-libs/zlib curl? ( net-misc/curl ) mms? ( >=media-libs/libmms-0.6.1 )
+RDEPEND=dev-libs/tinyxml2:= >=media-libs/libzen-0.4.41 sys-libs/zlib curl? ( net-misc/curl ) mms? ( >=media-libs/libmms-0.6.1 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://mediaarea.net/download/source/libmediainfo/22.09/libmediainfo_22.09.tar.xz
+SRC_URI=https://mediaarea.net/download/source/libmediainfo/23.03/libmediainfo_23.03.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	edos2unix	33e347e171066657f91f8b0c72ec8773	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a
-_md5_=b9700e5385a2d2f45c36f542d0778a90
+_md5_=544d354b50f059fe2bda47b6a44ad403

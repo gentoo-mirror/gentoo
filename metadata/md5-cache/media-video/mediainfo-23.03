@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
-DEPEND=~media-libs/libmediainfo-22.09[curl=,mms=] >=media-libs/libzen-0.4.37 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
+DEPEND=~media-libs/libmediainfo-23.03[curl=,mms=] >=media-libs/libzen-0.4.41 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
 DESCRIPTION=MediaInfo supplies technical and tag information about media files
 EAPI=8
 HOMEPAGE=https://mediaarea.net/mediainfo/ https://github.com/MediaArea/MediaInfo
 INHERIT=xdg-utils autotools wxwidgets
 IUSE=curl mms wxwidgets
-KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=BSD-2
-RDEPEND=~media-libs/libmediainfo-22.09[curl=,mms=] >=media-libs/libzen-0.4.37 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
+RDEPEND=~media-libs/libmediainfo-23.03[curl=,mms=] >=media-libs/libzen-0.4.41 sys-libs/zlib wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X] )
 SLOT=0
-SRC_URI=https://mediaarea.net/download/source/mediainfo/22.09/mediainfo_22.09.tar.xz
+SRC_URI=https://mediaarea.net/download/source/mediainfo/23.03/mediainfo_23.03.tar.xz
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5
-_md5_=20e77aa9978d4c56bb403be082fb1075
+_md5_=6bdab68933069e7fe39282f857d25938
