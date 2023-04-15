@@ -453,27 +453,10 @@ dev-ruby/six
 # Please upgrade to glib-2.76.0-r1.
 =dev-libs/glib-2.76.0
 
-# Alfredo Tupone <tupone@gentoo.org> (2023-03-14)
-# Masked for removal in 30 days.
-# Bug #895824, no rev dep
-dev-tcltk/tkzinc
-
-# David Seifert <soap@gentoo.org> (2023-03-12)
-# Qt-based application is EOL, Yubico has switched to a Flutter-based
-# Googleware framework. Switch to app-crypt/yubioath-flutter-bin or use
-# your phone for TOTP. Blocks app-crypt/yubikey-manager-4 cleanups.
-# Removal on 2023-04-11.
-app-crypt/yubioath-desktop
-
 # Mike Pagano <mpagano@gentoo.org> (2023-03-10)
 # Mask =sys-kernel/gentoo-sources-5.15.99 since it does
 # not include 5.15.99 and is misleading
 =sys-kernel/gentoo-sources-5.15.99
-
-# Matthew Smith <matthew@gentoo.org> (2023-03-08)
-# No longer works after Google shut down the Hangouts API.
-# Bug #900412, removal on 2023-04-08.
-x11-plugins/purple-hangouts
 
 # Mike Pagano <mpagano@gentoo.org> (2023-02-27)
 # Mask =www-servers/nginx-unit-1.29.0-r1 for testing
