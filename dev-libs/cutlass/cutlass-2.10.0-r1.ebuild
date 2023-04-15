@@ -18,13 +18,18 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/nvidia-cuda-toolkit"
 
+src_prepare() {
+	cmake_src_prepare
+	cuda_src_prepare
+}
+
 src_configure() {
 	mycmakeargs+=(
 		-DCMAKE_CUDA_FLAGS="$(cuda_gccdir -f | tr -d \")"
 		-DCUTLASS_ENABLE_HEADERS_ONLY=yes
 		-DCUTLASS_ENABLE_TESTS=no
 	)
-	addpredict /dev/nvidiactl
+	cuda_add_sandbox -w
 	cmake_src_configure
 }
 
