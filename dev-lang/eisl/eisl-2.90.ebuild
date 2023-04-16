@@ -12,7 +12,7 @@ SRC_URI="https://github.com/sasagawa888/eisl/archive/v${PV}.tar.gz
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 RESTRICT="test"  # Tests run cppcheck (and fail)
 
 DOCS=( README{,-ja}.md documents )
@@ -20,10 +20,7 @@ DOCS=( README{,-ja}.md documents )
 RDEPEND="sys-libs/ncurses:="
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.67-Makefile.patch
-	"${FILESDIR}"/${PN}-2.65-implicit.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-2.85-Makefile.patch )
 
 src_compile() {
 	emake CC="$(tc-getCC)" clean edlis eisl
