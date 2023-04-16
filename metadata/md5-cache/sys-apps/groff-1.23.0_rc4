@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl sys-apps/texinfo
+DEFINED_PHASES=compile configure install prepare
+DEPEND=uchardet? ( app-i18n/uchardet ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXt )
+DESCRIPTION=Text formatter used for man pages
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/groff/groff.html
+INHERIT=toolchain-funcs
+IUSE=examples uchardet X
+LICENSE=GPL-2
+RDEPEND=uchardet? ( app-i18n/uchardet ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXt )
+SLOT=0
+SRC_URI=https://alpha.gnu.org/gnu/groff/groff-1.23.0.rc4.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
+_md5_=09ccbbd575e497d7c71106feda6059a3
