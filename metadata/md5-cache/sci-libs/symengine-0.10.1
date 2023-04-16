@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/symengine/symengine
 INHERIT=cmake llvm toolchain-funcs
 IUSE=arb benchmarks boost debug doc ecm +flint llvm +mpc +mpfr openmp test tcmalloc +threads
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=dev-libs/gmp:= sys-libs/binutils-libs:= arb? ( sci-mathematics/arb:= ) boost? ( dev-libs/boost:= ) ecm? ( sci-mathematics/gmp-ecm ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( <sys-devel/llvm-17:= ) tcmalloc? ( dev-util/google-perftools )
 RESTRICT=!test? ( test )
 SLOT=0/0.10
 SRC_URI=https://github.com/symengine/symengine/archive/v0.10.1.tar.gz -> symengine-0.10.1.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	llvm	4cc6f8e29d24a8011266413e74c728bb
-_md5_=579982c2374471efd34bd6d616f1783b
+_md5_=437a00d9c851ce20e9d6b7bbe6694fb8

@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://www.sympy.org/
 INHERIT=distutils-r1 virtualx
 IUSE=aesara examples imaging ipython latex mathml opengl pdf png pyglet symengine test texmacs test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 test
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=BSD
 RDEPEND=dev-python/mpmath[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pexpect[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] aesara? ( python_targets_python3_9? ( dev-python/aesara[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_10? ( dev-python/aesara[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) ) imaging? ( dev-python/pillow[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ipython? ( dev-python/ipython[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) latex? ( virtual/latex-base dev-texlive/texlive-fontsextra png? ( app-text/dvipng ) pdf? ( app-text/ghostscript-gpl ) ) mathml? ( dev-python/lxml[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) opengl? ( dev-python/pyopengl[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) pyglet? ( dev-python/pyglet[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) symengine? ( dev-python/symengine[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) texmacs? ( app-office/texmacs ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sympy/sympy/archive/sympy-1.11.1.tar.gz -> sympy-1.11.1.gh.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	05bcfd9823be251f6e9f211ca285094e	virtualx	817571665ee28575da44ee08135089e5
-_md5_=517ba29e9f8b1f539cc16fc53ebff0b5
+_md5_=2aff0cbebfdff08e589563f4990ef414
