@@ -19,7 +19,11 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="evdev experimental jack libinput logind mpd mpris network +popups pipewire pulseaudio sndio test tray +udev upower wifi"
+IUSE="evdev experimental jack +libinput +logind mpd mpris network +popups pipewire pulseaudio sndio systemd test tray +udev upower wifi"
+REQUIRED_USE="
+	mpris? ( logind )
+	upower? ( logind )
+"
 
 RESTRICT="!test? ( test )"
 
@@ -55,8 +59,9 @@ RDEPEND="
 	network? ( dev-libs/libnl:3 )
 	popups? ( gui-libs/gtk-layer-shell )
 	pipewire? ( media-video/wireplumber:0/0.4 )
-	pulseaudio? ( media-sound/pulseaudio[daemon] )
+	pulseaudio? ( media-libs/libpulse )
 	sndio? ( media-sound/sndio:= )
+	systemd? ( sys-apps/systemd:= )
 	tray? (
 		dev-libs/libdbusmenu[gtk3]
 		dev-libs/libappindicator
@@ -73,13 +78,11 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}/waybar-0.9.17-wireplumber.patch"
 	"${FILESDIR}/waybar-0.9.17-gcc13.patch"
-	"${FILESDIR}/systemd-0.9.17.patch"
 )
 
 src_configure() {
 	local emesonargs=(
 		-Dman-pages=enabled
-		-Dsystemd=enabled
 		$(meson_feature evdev libevdev)
 		$(meson_feature jack)
 		$(meson_feature libinput)
@@ -91,6 +94,7 @@ src_configure() {
 		$(meson_feature pulseaudio)
 		$(meson_feature pipewire wireplumber)
 		$(meson_feature sndio)
+		$(meson_feature systemd)
 		$(meson_feature test tests)
 		$(meson_feature tray dbusmenu-gtk)
 		$(meson_feature udev libudev)
