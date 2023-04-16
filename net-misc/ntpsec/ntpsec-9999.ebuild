@@ -54,6 +54,7 @@ BDEPEND=">=app-text/asciidoc-8.6.8
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.9-remove-asciidoctor-from-config.patch"
+	"${FILESDIR}/${PN}-1.2.2-logrotate.patch"
 )
 
 WAF_BINARY="${S}/waf"

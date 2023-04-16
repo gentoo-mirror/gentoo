@@ -1,9 +1,9 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE='threads(+)'
 DISTUTILS_USE_SETUPTOOLS=no
 
@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/NTPsec/ntpsec.git"
 else
 	SRC_URI="ftp://ftp.ntpsec.org/pub/releases/${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
 DESCRIPTION="The NTP reference implementation, refactored"
@@ -34,7 +34,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE} nist? ( rclock_local )"
 
 # net-misc/pps-tools oncore,pps
 DEPEND="${PYTHON_DEPS}
-	<dev-libs/openssl-3:=
+	dev-libs/openssl:=
 	dev-python/psutil[${PYTHON_USEDEP}]
 	sys-libs/libcap
 	libbsd? ( dev-libs/libbsd:0= )
@@ -54,11 +54,7 @@ BDEPEND=">=app-text/asciidoc-8.6.8
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.9-remove-asciidoctor-from-config.patch"
-	"${FILESDIR}/${PN}-1.2.1-seccomp-rollup.patch"
-	"${FILESDIR}/${PN}-1.2.1-seccomp-rseq-glibc-2.35.patch"
-	"${FILESDIR}/${PN}-1.2.1-build-notests.patch"
-	"${FILESDIR}/${PN}-py3-test-clarify.patch"
-	"${FILESDIR}/${PN}-1.2.1-seccomp-nsd.patch"
+	"${FILESDIR}/${PN}-1.2.2-logrotate.patch"
 )
 
 WAF_BINARY="${S}/waf"
@@ -115,7 +111,6 @@ python_configure() {
 }
 
 python_compile() {
-	unset MAKEOPTS
 	waf-utils_src_compile --notests
 }
 
