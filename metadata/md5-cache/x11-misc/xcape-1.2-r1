@@ -1,7 +1,8 @@
-DEFINED_PHASES=compile install prepare
-DEPEND=x11-libs/libX11 x11-libs/libXtst virtual/pkgconfig
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure
+DEPEND=x11-libs/libX11 x11-libs/libXtst
 DESCRIPTION=Utility to make modifier keys send custom key events when pressed on their own
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/alols/xcape
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
@@ -10,4 +11,4 @@ RDEPEND=x11-libs/libX11 x11-libs/libXtst
 SLOT=0
 SRC_URI=https://github.com/alols/xcape/archive/v1.2.tar.gz -> xcape-1.2.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
-_md5_=1ed36cac0e3b96bb03cb30a6a8fa8436
+_md5_=6f11ae8964e0b41cc2d420f9c1e2cc73

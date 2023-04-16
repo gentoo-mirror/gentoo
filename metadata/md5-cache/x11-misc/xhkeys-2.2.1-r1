@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install prepare
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXt x11-base/xorg-proto
+DESCRIPTION=Assign particular actions to any key or key combination
+EAPI=8
+HOMEPAGE=http://wmalms.tripod.com/#XHKEYS
+INHERIT=autotools
+KEYWORDS=ppc x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXt
+SLOT=0
+SRC_URI=https://wmalms.tripod.com/xhkeys-2.2.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=aacdfbeae015c6e2782b22d3d910358f
