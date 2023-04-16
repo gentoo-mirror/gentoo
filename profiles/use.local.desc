@@ -3900,6 +3900,7 @@ media-gfx/blender:collada - Add support for Collada interchange format through m
 media-gfx/blender:color-management - Enable color management via media-libs/opencolorio.
 media-gfx/blender:cuda - Build cycles renderer with nVidia CUDA support.
 media-gfx/blender:cycles - Build cycles renderer (requires media-libs/openimageio and dev-libs/boost).
+media-gfx/blender:cycles-bin-kernels - Precompile the cycles render kernels for the CUDA/HIP/OneAPI backends, if they are enabled, at compile time. This makes it so that the user doesn't have to wait for the kernels to compile when they are used for the first time in Blender. If this option is not on, they will be built as needed at runtime.
 media-gfx/blender:dds - Adds DDS textures support to Blender.
 media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles render engine.
 media-gfx/blender:fluid - Adds fluid simulation support via the built-in Mantaflow library.
@@ -3909,6 +3910,7 @@ media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
 media-gfx/blender:oidn - Enable OpenImageDenoiser Support
 media-gfx/blender:opencl - Allow OpenCL Graphics Acceleration. This may require extra graphics card drivers.
 media-gfx/blender:openimageio - Enable OpenImageIO Support
+media-gfx/blender:openpgl - Enable path guiding support in Cycles
 media-gfx/blender:opensubdiv - Add rendering support form OpenSubdiv from Dreamworks Animation through media-libs/opensubdiv.
 media-gfx/blender:openvdb - Enable openvdb for volumetric processing, like the voxel remesher. Also enables volumetric GPU preview rendering for Nvidia cards.
 media-gfx/blender:optix - Add support for NVIDIA's OptiX Raytracing Engine.
