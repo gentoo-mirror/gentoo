@@ -46,7 +46,7 @@ COMMON_DEPEND="
 	>=media-libs/lcms-2.13.1:2
 	media-libs/libjpeg-turbo:=
 	>=media-libs/libmypaint-1.6.1:=
-	>=media-libs/libpng-1.6.37:=
+	>=media-libs/libpng-1.6.37:0=
 	>=media-libs/tiff-4.1.0:=
 	net-libs/glib-networking[ssl]
 	sys-libs/zlib
@@ -54,6 +54,7 @@ COMMON_DEPEND="
 	>=x11-libs/gdk-pixbuf-2.40.0:2[introspection]
 	>=x11-libs/gtk+-3.24.16:3[introspection]
 	>=x11-libs/pango-1.44.7
+	>=x11-libs/libXmu-1.1.4
 	aalib? ( media-libs/aalib )
 	alsa? ( >=media-libs/alsa-lib-1.0.0 )
 	heif? ( >=media-libs/libheif-1.13.0:= )
@@ -165,22 +166,22 @@ src_configure() {
 		$(meson_feature alsa)
 		$(meson_feature doc gi-docgen)
 		$(meson_feature heif)
+		$(meson_feature javascript)
 		$(meson_feature jpeg2k jpeg2000)
 		$(meson_feature jpegxl jpeg-xl)
+		$(meson_feature lua)
 		$(meson_feature mng)
 		$(meson_feature openexr)
 		$(meson_feature postscript ghostscript)
+		$(meson_feature python)
 		$(meson_feature test headless-tests)
 		$(meson_feature udev gudev)
-		$(meson_feature vala vala-plugins)
+		$(meson_feature vala)
 		$(meson_feature webp)
 		$(meson_feature wmf)
 		$(meson_feature X xcursor)
 		$(meson_feature xpm)
 		$(meson_use doc g-ir-doc)
-		$(meson_use javascript)
-		$(meson_use lua)
-		$(meson_use python)
 		$(meson_use unwind libunwind)
 		$(meson_use vector-icons)
 	)
