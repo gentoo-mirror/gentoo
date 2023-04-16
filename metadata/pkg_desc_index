@@ -2429,7 +2429,7 @@ app-forensics/rkhunter 1.4.6-r1 1.4.6-r2: Rootkit Hunter scans for known and unk
 app-forensics/scalpel 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.10.1-r5 4.11.1-r1: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
-app-forensics/volatility3 2.0.1 2.4.0-r1: Framework for analyzing volatile memory
+app-forensics/volatility3 2.0.1 2.4.0-r1 2.4.1: Framework for analyzing volatile memory
 app-forensics/yara 4.2.3 4.3.0 9999: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
@@ -10988,7 +10988,7 @@ games-emulation/advancemame 3.9: GNU/Linux port of the MAME emulator with GUI me
 games-emulation/advancescan 1.16-r1: A command line rom manager for MAME, MESS, AdvanceMAME, AdvanceMESS and Raine
 games-emulation/atari800 4.2.0-r1 5.0.0: Atari 800 emulator
 games-emulation/bsnes-jg 1.1.2 9999: Jolly Good Fork of bsnes
-games-emulation/cega-jg 0.5.2 9999: Jolly Good SG-1000, SMS, and Game Gear Emulator
+games-emulation/cega-jg 0.5.2 0.6.0 9999: Jolly Good SG-1000, SMS, and Game Gear Emulator
 games-emulation/desmume 0.9.13-r1: Nintendo DS emulator
 games-emulation/dgen-sdl 1.33-r1: A Linux/SDL-Port of the famous DGen MegaDrive/Genesis-Emulator
 games-emulation/dolphin 5.0_p20220520-r1 9999: Gamecube and Wii game emulator
@@ -11690,7 +11690,7 @@ gui-libs/eglexternalplatform 1.1: EGL External Platform interface
 gui-libs/gdk-pixbuf-loader-webp 0.0.7: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.8.0: ipc based login daemon
 gui-libs/gtk 4.8.3 4.10.1: GTK is a multi-platform toolkit for creating graphical user interfaces
-gui-libs/gtk-layer-shell 0.8.0: Library to create desktop components for Wayland using the Layer Shell protocol
+gui-libs/gtk-layer-shell 0.8.0 0.8.1: Library to create desktop components for Wayland using the Layer Shell protocol
 gui-libs/gtksourceview 5.6.2 5.8.0: A text widget implementing syntax highlighting and other features
 gui-libs/libadwaita 1.2.3 1.3.1: Building blocks for modern adaptive GNOME applications
 gui-libs/libhandy 1.8.2: Building blocks for modern adaptive GNOME apps
@@ -14609,7 +14609,7 @@ net-libs/wandio 4.2.3_p1-r1 4.2.3_p1-r2 4.2.4: C library for simple and efficien
 net-libs/webkit-gtk 2.38.5 2.38.5-r410 2.38.5-r500 2.40.0 2.40.0-r410 2.40.0-r600: Open source web browser engine
 net-libs/wslay 1.1.1_p20210115: WebSocket library in C
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
-net-libs/xdp-tools 1.2.8 1.3.1-r2: The libxdp library and various tools for use with XDP
+net-libs/xdp-tools 1.2.8 1.3.1-r3: The libxdp library and various tools for use with XDP
 net-libs/xrootd 5.4.3 5.4.3-r2 5.5.4-r1: Extended ROOT remote file server
 net-libs/xrootd-ceph 5.4.3 5.5.4: xrootd OSS plug-in for interfacing with Ceph storage platform
 net-libs/zeromq 4.3.3-r1 4.3.4-r1 4.3.4-r2: A brokerless kernel
@@ -17632,7 +17632,7 @@ www-apps/dokuwiki 20230404: DokuWiki is a simple to use Wiki aimed at a small co
 www-apps/dotproject 2.1.7-r2: dotProject is a PHP web-based project management framework
 www-apps/drupal 7.95 9.4.12 9.5.5 10.0.5: PHP-based open-source platform and content management system
 www-apps/element 1.11.24 1.11.29: A glossy Matrix collaboration client for the web
-www-apps/gitea 1.18.3 1.18.5: A painless self-hosted Git service
+www-apps/gitea 1.18.3 1.18.5 1.19.1: A painless self-hosted Git service
 www-apps/grafana-bin 9.3.11 9.4.7: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
 www-apps/hugo 0.110.0-r2 0.111.3: Fast static HTML and CSS website generator
 www-apps/icingadb-web 1.0.1 1.0.2: UI for Icinga DB
@@ -17769,7 +17769,7 @@ www-servers/pound 3.0.2: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.1: Pretty small HTTP server -- a command-line tool to share files
 www-servers/puma 5.6.4 5.6.5 6.0.0 6.0.1 6.0.2 6.1.0 6.1.1 6.1.1-r1: a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack
 www-servers/servefile 0.5.3 0.5.3-r1 0.5.4: Serve a single file via HTTP
-www-servers/sniproxy 0.6.0-r1: Proxies incoming HTTP and TLS connections based on the hostname
+www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1-r2 1.8.1-r3 1.8.2: A fast and very simple Ruby web server
 www-servers/tomcat 8.5.87 9.0.73 10.1.7: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
