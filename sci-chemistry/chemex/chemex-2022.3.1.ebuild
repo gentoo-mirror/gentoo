@@ -26,14 +26,14 @@ RESTRICT="test"
 RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/asteval-0.9.25[${PYTHON_USEDEP}]
-		>=dev-python/cachetools-5.2.0[${PYTHON_USEDEP}]
-		>=dev-python/lmfit-1.1.0[${PYTHON_USEDEP}]
-		>=dev-python/matplotlib-3.6.2[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.24.0[${PYTHON_USEDEP}]
-		>=dev-python/pydantic-1.10.4[${PYTHON_USEDEP}]
-		>=dev-python/rapidfuzz-2.13.7[${PYTHON_USEDEP}]
-		>=dev-python/rich-13.0.0[${PYTHON_USEDEP}]
-		>=dev-python/scipy-1.10.0[${PYTHON_USEDEP}]
+		>=dev-python/cachetools-5.3.0[${PYTHON_USEDEP}]
+		>=dev-python/lmfit-1.2.0[${PYTHON_USEDEP}]
+		>=dev-python/matplotlib-3.7.1[${PYTHON_USEDEP}]
+		>=dev-python/numpy-1.24.2[${PYTHON_USEDEP}]
+		>=dev-python/pydantic-1.10.7[${PYTHON_USEDEP}]
+		>=dev-python/rapidfuzz-2.15.1[${PYTHON_USEDEP}]
+		>=dev-python/rich-13.3.4[${PYTHON_USEDEP}]
+		>=dev-python/scipy-1.10.1[${PYTHON_USEDEP}]
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	')
 "
