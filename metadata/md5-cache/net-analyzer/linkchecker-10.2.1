@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/linkcheck/linkchecker
 INHERIT=bash-completion-r1 distutils-r1 multiprocessing optfeature
 IUSE=sqlite test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_9? ( dev-python/beautifulsoup4[python_targets_python3_9(-)] dev-python/dnspython[python_targets_python3_9(-)] dev-python/requests[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/beautifulsoup4[python_targets_python3_10(-)] dev-python/dnspython[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/beautifulsoup4[python_targets_python3_11(-)] dev-python/dnspython[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9[sqlite?] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[sqlite?] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[sqlite?] )
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linkchecker/linkchecker/releases/download/v10.2.1/LinkChecker-10.2.1.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	distutils-r1	05bcfd9823be251f6e9f211ca285094e	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=5861ea245b2d03a9b32d77fff4d8cfe7
+_md5_=c40295d3c854dd57e4e0471fb0ee9656
