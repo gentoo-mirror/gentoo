@@ -93,6 +93,7 @@ DEPEND="
 		x11-libs/libX11
 		>=x11-libs/libxcb-1.12:=
 		>=x11-libs/libxkbcommon-0.5.0[X]
+		x11-libs/xcb-util-cursor
 		x11-libs/xcb-util-image
 		x11-libs/xcb-util-keysyms
 		x11-libs/xcb-util-renderutil

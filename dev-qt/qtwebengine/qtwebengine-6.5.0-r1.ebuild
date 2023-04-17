@@ -51,6 +51,7 @@ RDEPEND="
 	media-libs/libpng:=
 	>=media-libs/libvpx-1.5:=[svc(+)]
 	media-libs/libwebp:=
+	media-libs/openjpeg:2=
 	media-libs/opus
 	sys-apps/dbus
 	sys-apps/pciutils
@@ -85,6 +86,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	media-libs/libglvnd
 "
+
+PATCHES=( "${FILESDIR}/${PN}-6.5.0-gcc-13-build.patch" )
 
 python_check_deps() {
 	python_has_version "dev-python/html5lib[${PYTHON_USEDEP}]"
@@ -228,6 +231,7 @@ src_configure() {
 		-DQT_FEATURE_webengine_system_ffmpeg=off # https://bugs.gentoo.org/831487
 		-DQT_FEATURE_webengine_system_icu=$(usex system-icu)
 		-DQT_FEATURE_webengine_system_libevent=on
+		-DQT_FEATURE_webengine-system-libopenjpeg2=on
 		-DQT_FEATURE_webengine_system_libpci=on
 		-DQT_FEATURE_webengine_system_libpng=on
 		-DQT_FEATURE_webengine_system_pulseaudio=$(usex pulseaudio on off)
