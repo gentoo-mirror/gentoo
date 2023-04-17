@@ -81,7 +81,7 @@ RDEPEND="
 		media-libs/freetype:2
 	)
 	v4l? ( media-libs/libv4l )
-	vaapi? ( media-libs/libva:=[opengl,X] )
+	vaapi? ( media-libs/libva:=[X] )
 	vcd? (
 		>=media-video/vcdimager-0.7.23
 		dev-libs/libcdio:=[-minimal]
@@ -120,6 +120,10 @@ BDEPEND="
 	>=sys-devel/libtool-2.2.6b
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.13-configure-clang16.patch
+)
 
 src_prepare() {
 	default
