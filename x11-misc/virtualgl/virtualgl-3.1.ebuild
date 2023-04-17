@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ else
 	MY_P="${MY_PN}-${PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="mirror://sourceforge/project/${PN}/${PV}/${MY_P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Run OpenGL applications remotely with full 3D hardware acceleration"
@@ -21,12 +21,9 @@ HOMEPAGE="https://www.virtualgl.org/"
 
 SLOT="0"
 LICENSE="LGPL-2.1 wxWinLL-3.1 FLTK"
-IUSE="ssl"
+IUSE=""
 
 RDEPEND="
-	ssl? (
-		dev-libs/openssl:0=[${MULTILIB_USEDEP}]
-	)
 	media-libs/libjpeg-turbo[${MULTILIB_USEDEP}]
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXext[${MULTILIB_USEDEP}]
@@ -50,11 +47,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	# https://github.com/VirtualGL/virtualgl/issues/205 (from 'master')
-	"${FILESDIR}"/${P}-libX11-1.8.patch
-)
-
 src_prepare() {
 	# Use /var/lib, bug #428122
 	sed -e "s#/etc/opt#/var/lib#g" -i doc/unixconfig.txt doc/index.html doc/advancedopengl.txt \
@@ -70,7 +62,6 @@ src_configure() {
 
 	abi_configure() {
 		local mycmakeargs=(
-			-DVGL_USESSL="$(usex ssl)"
 			-DCMAKE_INSTALL_DOCDIR=/usr/share/doc/"${PF}"
 			-DTJPEG_INCLUDE_DIR=/usr/include
 			-DCMAKE_INSTALL_LIBDIR=/usr/$(get_libdir)/VirtualGL
