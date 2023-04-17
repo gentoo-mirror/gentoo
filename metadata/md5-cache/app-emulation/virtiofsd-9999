@@ -1,0 +1,14 @@
+BDEPEND=>=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install test unpack
+DEPEND=sys-libs/libcap-ng sys-libs/libseccomp
+DESCRIPTION=Shared file system for virtual machines
+EAPI=8
+HOMEPAGE=https://virtio-fs.gitlab.io/
+INHERIT=cargo git-r3
+IUSE=debug
+LICENSE=Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016 Unlicense
+PROPERTIES=live
+RDEPEND=sys-libs/libcap-ng sys-libs/libseccomp
+SLOT=0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	cargo	2e0a4a329a7dc5dfe20dcb05e6c36935	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_md5_=ce929fd36ff570964f8324bbf70ba006
