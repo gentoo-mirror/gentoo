@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby30? ( dev-ruby/faraday:1[ruby_targets_ruby30(-)] >=dev-ruby/sawyer-0.9:0[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( dev-ruby/faraday:1[ruby_targets_ruby31(-)] >=dev-ruby/sawyer-0.9:0[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/jwt[ruby_targets_ruby30(-)] dev-ruby/mime-types[ruby_targets_ruby30(-)] >=dev-ruby/netrc-0.7.7[ruby_targets_ruby30(-)] >=dev-ruby/rbnacl-7.1.1:6[ruby_targets_ruby30(-)] dev-ruby/vcr[ruby_targets_ruby30(-),json] dev-ruby/webmock:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/jwt[ruby_targets_ruby31(-)] dev-ruby/mime-types[ruby_targets_ruby31(-)] >=dev-ruby/netrc-0.7.7[ruby_targets_ruby31(-)] >=dev-ruby/rbnacl-7.1.1:6[ruby_targets_ruby31(-)] dev-ruby/vcr[ruby_targets_ruby31(-),json] dev-ruby/webmock:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( doc? ( dev-ruby/yard[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/yard[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+DESCRIPTION=Ruby toolkit for the Github API
+EAPI=8
+HOMEPAGE=https://github.com/octokit/octokit.rb
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby30 ruby_targets_ruby31 doc test test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby30? ( dev-ruby/faraday:1[ruby_targets_ruby30(-)] >=dev-ruby/sawyer-0.9:0[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( dev-ruby/faraday:1[ruby_targets_ruby31(-)] >=dev-ruby/sawyer-0.9:0[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby31 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/octokit/octokit.rb/archive/v6.1.1.tar.gz -> octokit-6.1.1.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	76a677328d71b04b457f26be67717028	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
+_md5_=6a7fd24f6131cb18f7d34fed8fed2855
