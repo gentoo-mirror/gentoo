@@ -1,0 +1,14 @@
+BDEPEND=>=dev-qt/linguist-tools-5.15:5 >=dev-util/lxqt-build-tools-0.13.0 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-libs/glib:2 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5= >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtx11extras-5.15:5 >=lxde-base/menu-cache-1.1.0:= media-libs/libexif x11-libs/libxcb:=
+DESCRIPTION=Qt Library for Building File Managers
+EAPI=8
+HOMEPAGE=https://lxqt-project.org/
+INHERIT=cmake xdg-utils
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=BSD GPL-2+ LGPL-2.1+
+RDEPEND=dev-libs/glib:2 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5= >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtx11extras-5.15:5 >=lxde-base/menu-cache-1.1.0:= media-libs/libexif x11-libs/libxcb:=
+SLOT=0/7
+SRC_URI=https://github.com/lxqt/libfm-qt/releases/download/1.3.0/libfm-qt-1.3.0.tar.xz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
+_md5_=f87c2a1c9a2d62c83ea70829be448e5f

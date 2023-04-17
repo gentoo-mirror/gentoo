@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/lxqt-build-tools-0.13.0 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/glib:2 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtgui-5.15:5= >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtxml-5.15:5 x11-misc/xdg-utils test? ( >=dev-qt/qttest-5.15:5 )
+DESCRIPTION=Qt Implementation of XDG Standards
+EAPI=8
+HOMEPAGE=https://lxqt-project.org/
+INHERIT=cmake optfeature virtualx
+IUSE=test test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1
+RDEPEND=dev-libs/glib:2 >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtgui-5.15:5= >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtxml-5.15:5 x11-misc/xdg-utils
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/lxqt/libqtxdg/releases/download/3.11.0/libqtxdg-3.11.0.tar.xz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	virtualx	817571665ee28575da44ee08135089e5
+_md5_=c53c5db510e129832318678464314a83

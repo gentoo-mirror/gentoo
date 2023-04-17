@@ -1,0 +1,14 @@
+BDEPEND=>=dev-qt/linguist-tools-5.15:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-qt/qtcore-5.15:5 >=dev-qt/qtwidgets-5.15:5 =lxqt-base/liblxqt-1.3*:=
+DESCRIPTION=LXQt OpenSSH user password prompt tool
+EAPI=8
+HOMEPAGE=https://lxqt-project.org/
+INHERIT=cmake
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1 LGPL-2.1+
+RDEPEND=>=dev-qt/qtcore-5.15:5 >=dev-qt/qtwidgets-5.15:5 =lxqt-base/liblxqt-1.3*:=
+SLOT=0
+SRC_URI=https://github.com/lxqt/lxqt-openssh-askpass/releases/download/1.3.0/lxqt-openssh-askpass-1.3.0.tar.xz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
+_md5_=c0d3503c0c750452a9059770ee83378b
