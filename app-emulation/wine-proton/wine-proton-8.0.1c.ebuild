@@ -9,7 +9,7 @@ inherit autotools flag-o-matic multilib multilib-build python-any-r1
 inherit readme.gentoo-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.3
-WINE_MONO=7.4.0
+WINE_MONO=7.4.1
 WINE_PV=$(ver_rs 2 -)
 
 if [[ ${PV} == *9999 ]]; then
@@ -25,13 +25,13 @@ fi
 DESCRIPTION="Valve Software's fork of Wine"
 HOMEPAGE="https://github.com/ValveSoftware/wine/"
 
-LICENSE="LGPL-2.1+ BSD-2 IJG MIT ZLIB gsm libpng2 libtiff"
+LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
 IUSE="
 	+abi_x86_32 +abi_x86_64 +alsa crossdev-mingw custom-cflags debug
-	+fontconfig +gecko +gstreamer llvm-libunwind +mono nls openal
-	osmesa perl pulseaudio +sdl selinux +ssl udev udisks +unwind usb
-	v4l +vkd3d +xcomposite xinerama"
+	+fontconfig +gecko +gstreamer llvm-libunwind +mono nls osmesa
+	perl pulseaudio +sdl selinux +ssl udev udisks +unwind usb v4l
+	+xcomposite xinerama"
 
 # tests are non-trivial to run, can hang easily, don't play well with
 # sandbox, and several need real opengl/vulkan or network access
@@ -70,15 +70,13 @@ WINE_COMMON_DEPEND="
 		media-libs/gst-plugins-base:1.0[opengl,${MULTILIB_USEDEP}]
 		media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
 	)
-	openal? ( media-libs/openal[${MULTILIB_USEDEP}] )
 	pulseaudio? ( media-libs/libpulse[${MULTILIB_USEDEP}] )
 	udev? ( virtual/libudev:=[${MULTILIB_USEDEP}] )
 	unwind? (
 		llvm-libunwind? ( sys-libs/llvm-libunwind[${MULTILIB_USEDEP}] )
 		!llvm-libunwind? ( sys-libs/libunwind:=[${MULTILIB_USEDEP}] )
 	)
-	usb? ( dev-libs/libusb:1[${MULTILIB_USEDEP}] )
-	vkd3d? ( >=app-emulation/vkd3d-1.2[${MULTILIB_USEDEP}] )"
+	usb? ( dev-libs/libusb:1[${MULTILIB_USEDEP}] )"
 RDEPEND="
 	${WINE_COMMON_DEPEND}
 	app-emulation/wine-desktop-common
@@ -116,7 +114,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-7.0.4-musl.patch
 	"${FILESDIR}"/${PN}-7.0.4-noexecstack.patch
 	"${FILESDIR}"/${PN}-7.0.4-restore-menubuilder.patch
-	"${FILESDIR}"/${PN}-7.0.4-unwind.patch
+	"${FILESDIR}"/${PN}-8.0.1c-unwind.patch
 )
 
 pkg_pretend() {
@@ -190,7 +188,6 @@ src_configure() {
 		--without-gphoto
 		--without-gssapi
 		--without-krb5
-		--without-ldap
 		--without-netapi
 		--without-opencl
 		--without-pcap
@@ -204,7 +201,6 @@ src_configure() {
 		$(use_with fontconfig)
 		$(use_with gstreamer)
 		$(use_with nls gettext)
-		$(use_with openal)
 		$(use_with osmesa)
 		--without-oss # media-sound/oss is not packaged (OSSv4)
 		$(use_with pulseaudio pulse)
@@ -215,7 +211,6 @@ src_configure() {
 		$(use_with unwind)
 		$(use_with usb)
 		$(use_with v4l v4l2)
-		$(use_with vkd3d)
 		$(use_with xcomposite)
 		$(use_with xinerama)
 	)
@@ -240,8 +235,9 @@ src_configure() {
 		mkdir ../build${bits} || die
 		cd ../build${bits} || die
 
-		# CROSSCC_amd64/x86 are unused by Wine, but recognized here for users
+		pe_arch=i386
 		if (( bits == 64 )); then
+			pe_arch=x86_64
 			: "${CROSSCC:=${CROSSCC_amd64:-x86_64-w64-mingw32-gcc}}"
 			conf+=( --enable-win64 )
 		elif use amd64; then
@@ -254,8 +250,14 @@ src_configure() {
 		fi
 		: "${CROSSCC:=${CROSSCC_x86:-i686-w64-mingw32-gcc}}"
 
-		# use *FLAGS for mingw, but strip unsupported (e.g. --hash-style=gnu)
+		# CROSSCC is no longer recognized by Wine, but still use for now
+		# (future handling for CROSS* variables is subject to changes)
+		conf+=( ac_cv_prog_${pe_arch}_CC="${CROSSCC}" )
+
+		# use *FLAGS for mingw, but strip unsupported
 		: "${CROSSCFLAGS:=$(
+			# >=wine-7.21 configure.ac no longer adds -fno-strict by mistake
+			append-cflags '-fno-strict-aliasing'
 			filter-flags '-fstack-clash-protection' #758914
 			filter-flags '-fstack-protector*' #870136
 			filter-flags '-mfunction-return=thunk*' #878849
@@ -263,7 +265,7 @@ src_configure() {
 		: "${CROSSLDFLAGS:=$(
 			filter-flags '-fuse-ld=*'
 			CC=${CROSSCC} test-flags-CCLD ${LDFLAGS})}"
-		export CROSS{CC,{C,LD}FLAGS}
+		export CROSS{C,LD}FLAGS
 
 		ECONF_SOURCE=${S} econf "${conf[@]}"
 	)
