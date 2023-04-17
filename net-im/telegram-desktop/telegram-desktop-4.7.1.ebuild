@@ -17,11 +17,8 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
-IUSE="+dbus enchant +fonts +hunspell +jemalloc screencast +spell qt6 qt6-imageformats wayland +X"
+IUSE="+dbus enchant +fonts +jemalloc screencast qt6 qt6-imageformats wayland +X"
 REQUIRED_USE="
-	spell? (
-		^^ ( enchant hunspell )
-	)
 	qt6-imageformats? ( qt6 )
 "
 
@@ -38,6 +35,7 @@ RDEPEND="
 	dev-libs/libdispatch
 	dev-libs/libsigc++:2
 	dev-libs/openssl:=
+	dev-libs/protobuf
 	dev-libs/xxhash
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo:=
@@ -46,12 +44,12 @@ RDEPEND="
 	media-libs/opus:=
 	media-libs/rnnoise
 	~media-libs/tg_owt-0_pre20230105:=[screencast=,X=]
-	media-video/ffmpeg:=[opus]
+	media-video/ffmpeg:=[opus,vpx]
 	sys-libs/zlib:=[minizip]
 	virtual/opengl
-	dbus? ( dev-cpp/glibmm:2.68 )
+	dbus? ( >=dev-cpp/glibmm-2.76:2.68 )
+	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
-	hunspell? ( >=app-text/hunspell-1.7:= )
 	jemalloc? ( dev-libs/jemalloc:=[-lazy-lock] )
 	!qt6? (
 		>=dev-qt/qtcore-5.15:5
@@ -77,7 +75,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-cpp/range-v3
-	dev-cpp/ms-gsl
+	>=dev-cpp/ms-gsl-4
 "
 BDEPEND="
 	${PYTHON_DEPS}
@@ -109,7 +107,7 @@ src_prepare() {
 	if use qt6-imageformats; then
 		sed -e 's/DESKTOP_APP_USE_PACKAGED_LAZY/TRUE/' -i \
 			cmake/external/kimageformats/CMakeLists.txt || die
-		printf "%s\n" \
+		printf '%s\n' \
 			'Q_IMPORT_PLUGIN(QAVIFPlugin)' \
 			'Q_IMPORT_PLUGIN(HEIFPlugin)' \
 			'Q_IMPORT_PLUGIN(QJpegXLPlugin)' \
@@ -136,7 +134,6 @@ src_configure() {
 		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		-DDESKTOP_APP_DISABLE_WAYLAND_INTEGRATION=$(usex !wayland)
 		-DDESKTOP_APP_DISABLE_JEMALLOC=$(usex !jemalloc)
-		-DDESKTOP_APP_DISABLE_SPELLCHECK=$(usex !spell)  # enables hunspell (recommended)
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)  # enables enchant and disables hunspell
 		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)  # use system fonts instead of bundled ones
 	)
