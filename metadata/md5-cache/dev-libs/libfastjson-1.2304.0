@@ -1,0 +1,13 @@
+BDEPEND=>=sys-devel/autoconf-archive-2015.02.04 sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DESCRIPTION=Fork of the json-c library, which is optimized for liblognorm processing
+EAPI=8
+HOMEPAGE=https://www.rsyslog.com/tag/libfastjson/
+INHERIT=autotools
+IUSE=static-libs
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~sparc ~x86
+LICENSE=MIT
+SLOT=0/4.3.0
+SRC_URI=https://github.com/rsyslog/libfastjson/archive/v1.2304.0.tar.gz -> libfastjson-1.2304.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=a828d04235c0a354ed12fa5bb6cf3cf1
