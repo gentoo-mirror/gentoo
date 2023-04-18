@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.eclipse.org/swt/
 INHERIT=flag-o-matic java-pkg-2 java-pkg-simple toolchain-funcs
 IUSE=cairo opengl webkit doc source
-KEYWORDS=amd64 arm64 ~ppc64
+KEYWORDS=amd64 arm64 ppc64
 LICENSE=CPL-1.0 LGPL-2.1 MPL-1.1
 RDEPEND=app-accessibility/at-spi2-core:2 dev-libs/glib x11-libs/gtk+:2 x11-libs/libXtst cairo? ( x11-libs/cairo ) opengl? ( virtual/glu virtual/opengl ) webkit? ( net-libs/webkit-gtk:4.1 ) >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=4.27
 SRC_URI=amd64? ( https://download.eclipse.org/eclipse/downloads/drops4/R-4.27-202303020300/swt-4.27-gtk-linux-x86_64.zip ) arm64? ( https://download.eclipse.org/eclipse/downloads/drops4/R-4.27-202303020300/swt-4.27-gtk-linux-aarch64.zip ) ppc64? ( https://download.eclipse.org/eclipse/downloads/drops4/R-4.27-202303020300/swt-4.27-gtk-linux-ppc64le.zip )
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	7dacd744ab3fb5ec581318fefaa7a9e5
-_md5_=0ba4fc43a3b9b6f872f9d21fff57b2d5
+_md5_=5ce23b19ec778a3c2021c8981e94bdf6
