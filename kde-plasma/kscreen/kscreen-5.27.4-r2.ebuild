@@ -48,4 +48,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
-PATCHES=( "${FILESDIR}/${P}-kcm-notify-changes-when-global-scale-changes.patch" ) # KDE-bug 468203
+PATCHES=(
+	"${FILESDIR}/${P}-kcm-notify-changes-when-global-scale-changes.patch" # KDE-bug 468203
+	"${FILESDIR}/${P}-avoid-nullptrs-if-outputs-changed-during-saving.patch" # KDE-bug 466960
+)
