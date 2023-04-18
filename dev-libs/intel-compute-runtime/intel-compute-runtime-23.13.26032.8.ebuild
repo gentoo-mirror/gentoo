@@ -16,21 +16,22 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="+l0 +vaapi"
 
-RDEPEND=">=media-libs/gmmlib-22.1.7:="
+RDEPEND=">=media-libs/gmmlib-22.3.5:="
 
 DEPEND="
 	${DEPEND}
-	>=dev-libs/intel-metrics-library-0_pre20220930:=
+	dev-libs/intel-metrics-discovery:=
+	dev-libs/intel-metrics-library:=
 	dev-libs/libnl:3
 	dev-libs/libxml2:2
-	>=dev-util/intel-graphics-compiler-1.0.12812.26
+	>=dev-util/intel-graphics-compiler-1.0.12822.1
 	>=dev-util/intel-graphics-system-controller-0.8.7:=
 	media-libs/mesa
 	>=virtual/opencl-3
-	l0? ( >=dev-libs/level-zero-1.9.4:= )
+	l0? ( >=dev-libs/level-zero-1.10.0:= )
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		media-libs/libva
