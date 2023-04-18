@@ -1,5 +1,5 @@
 BDEPEND=virtual/w3m >=app-editors/emacs-25.3:* sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=emacs-w3m is an interface program of w3m on Emacs
 EAPI=7
 HOMEPAGE=http://emacs-w3m.namazu.org/
@@ -10,5 +10,5 @@ LICENSE=GPL-2+
 RDEPEND=virtual/w3m >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ulm/distfiles/emacs-w3m-1.4.632_pre20181112.tar.xz
-_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
 _md5_=bb29eb789e50daec73b475684b35cdbb

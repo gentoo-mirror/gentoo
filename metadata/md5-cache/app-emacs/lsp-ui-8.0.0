@@ -1,5 +1,5 @@
 BDEPEND=>=app-editors/emacs-26.1:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=>=app-emacs/dash-2.18.0 app-emacs/flycheck >=app-emacs/lsp-mode-6.0 >=app-emacs/markdown-mode-2.3
 DESCRIPTION=UI modules for lsp-mode
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=>=app-emacs/dash-2.18.0 app-emacs/flycheck >=app-emacs/lsp-mode-6.0 >=ap
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/emacs-lsp/lsp-ui/archive/8.0.0.tar.gz -> lsp-ui-8.0.0.tar.gz
-_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
 _md5_=dbd33199d6571199c5062e9086cbe88b

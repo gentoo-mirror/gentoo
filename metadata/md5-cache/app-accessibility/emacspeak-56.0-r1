@@ -1,5 +1,5 @@
 BDEPEND=>=app-editors/emacs-26.1:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=dev-lang/tcl:= espeak? ( app-accessibility/espeak-ng )
 DESCRIPTION=The emacspeak audio desktop
 EAPI=8
@@ -11,5 +11,5 @@ LICENSE=GPL-2+ GPL-3+
 RDEPEND=dev-lang/tcl:= espeak? ( app-accessibility/espeak-ng ) >=dev-tcltk/tclx-8.4 >=app-editors/emacs-26.1:*
 SLOT=0
 SRC_URI=https://github.com/tvraman/emacspeak/releases/download/56.0/emacspeak-56.0.tar.bz2
-_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
 _md5_=f6d4bb899dbbb6eff1dfe0b89b4ece37

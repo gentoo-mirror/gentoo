@@ -1,5 +1,5 @@
 BDEPEND=>=app-editors/emacs-25.3:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs web feeds client
 EAPI=8
 HOMEPAGE=https://github.com/skeeto/elfeed/
@@ -9,5 +9,5 @@ LICENSE=Unlicense
 RDEPEND=net-misc/curl[ssl] >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://github.com/skeeto/elfeed/archive/162d7d545ed41c27967d108c04aa31f5a61c8e16.tar.gz -> elfeed-3.4.1_p20210822.tar.gz
-_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
 _md5_=a72ef6e776a7bf760a2bc342de0e8845

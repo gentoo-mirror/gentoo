@@ -1,5 +1,5 @@
 BDEPEND=>=app-editors/emacs-25.3:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=>=app-eselect/eselect-emacs-1.15 X? ( x11-libs/libXau ) X? ( x11-base/xorg-proto )
 DESCRIPTION=Attach to an already running Emacs
 EAPI=7
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=>=app-eselect/eselect-emacs-1.15 X? ( x11-libs/libXau ) >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://web.archive.org/web/20150908031821/http://martin.meltin.net/sites/martin.meltin.net/files/hacks/gnuserv-3.12.8.tar.gz
-_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3	desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183	desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=557793878b3ae88060488483737e695b

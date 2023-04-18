@@ -1,5 +1,5 @@
 BDEPEND=app-emacs/tablist sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=app-editors/emacs-25.3:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:=
 DESCRIPTION=Emacs Lisp support library for PDF documents
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= me
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/vedang/pdf-tools/archive/fe42da60ad68e806af1677210249caccd7b99451.tar.gz -> pdf-tools-1.0.0_pre20220619.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
 _md5_=b75b0b6bba429d06e976bbcf4a0d5a9d
