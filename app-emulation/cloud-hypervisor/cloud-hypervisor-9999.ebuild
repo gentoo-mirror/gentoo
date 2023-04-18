@@ -23,7 +23,17 @@ src_unpack() {
 	cargo_live_src_unpack
 }
 
+src_prepare() {
+	default
+	sed -i 's/strip = true/strip = false/' Cargo.toml || die
+}
+
 src_configure() {
 	cargo_gen_config
 	cargo_src_configure --frozen
+}
+
+src_install() {
+	cargo_src_install
+	dodoc -r docs
 }
