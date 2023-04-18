@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) )
+DEFINED_PHASES=compile install setup test
+DEPEND=>=net-misc/curl-7.81.0
+DESCRIPTION=Command line tool for URL parsing and manipulation
+EAPI=8
+HOMEPAGE=https://curl.se/trurl/ https://daniel.haxx.se/blog/2023/04/03/introducing-trurl/
+INHERIT=toolchain-funcs python-any-r1
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=curl
+RDEPEND=>=net-misc/curl-7.81.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/curl/trurl/archive/refs/tags/trurl-0.5.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_md5_=fb46a50d1736735eac7256328075ea63
