@@ -1,5 +1,5 @@
 BDEPEND=dev-libs/libxml2 dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig
-DEFINED_PHASES=configure postinst postrm setup
+DEFINED_PHASES=configure install postinst postrm setup
 DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-libs/glib-2.66.0 >=media-libs/fontconfig-2.6.0 >=x11-libs/gtk+-3.24.0:3 >=x11-libs/libX11-1.6.7 >=x11-libs/libXcursor-1.1.0 >=x11-libs/libXi-1.2.0 >=x11-libs/libXrandr-1.2.0 >=xfce-base/garcon-0.1.10:= >=xfce-base/exo-0.11.0:= >=xfce-base/libxfce4ui-4.17.0:= >=xfce-base/libxfce4util-4.17.2:= >=xfce-base/xfconf-4.13.0:= colord? ( >=x11-misc/colord-1.0.2:= ) libcanberra? ( >=media-libs/libcanberra-0.25[sound] ) input_devices_libinput? ( >=x11-drivers/xf86-input-libinput-0.6.0 ) libnotify? ( >=x11-libs/libnotify-0.1.3 ) upower? ( >=sys-power/upower-0.9.8 ) xklavier? ( >=x11-libs/libxklavier-5.0 ) x11-base/xorg-proto
 DESCRIPTION=Configuration system for the Xfce desktop environment
 EAPI=8
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/xfce/xfce4-settings/4.19/xfce4-settings-4.19.0.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=aea22f8e3351aa7c6c81b302fcfb61eb
+_md5_=da1129cc0009cc4fb1e11a4f93ce838f
