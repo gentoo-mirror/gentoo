@@ -1,6 +1,6 @@
 BDEPEND=python? ( >=dev-lang/swig-3.0.8 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 fortran? ( virtual/fortran )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=!sci-libs/libmed dev-lang/tk:0= >=sci-libs/hdf5-1.10.2:=[fortran?,mpi(+)?] mpi? ( virtual/mpi[fortran?] ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) fortran? ( virtual/fortran )
+DEPEND=!sci-libs/libmed dev-lang/tk:0= <sci-libs/hdf5-1.14.0:=[fortran?,mpi(+)?] mpi? ( virtual/mpi[fortran?] ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) fortran? ( virtual/fortran )
 DESCRIPTION=A library to store and exchange meshed data or computation results
 EAPI=8
 HOMEPAGE=https://www.salome-platform.org/user-section/about/med
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic fortran-2 python-single-r1
 IUSE=doc fortran mpi python test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ~x86
 LICENSE=LGPL-3
-RDEPEND=!sci-libs/libmed dev-lang/tk:0= >=sci-libs/hdf5-1.10.2:=[fortran?,mpi(+)?] mpi? ( virtual/mpi[fortran?] ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) fortran? ( virtual/fortran )
+RDEPEND=!sci-libs/libmed dev-lang/tk:0= <sci-libs/hdf5-1.14.0:=[fortran?,mpi(+)?] mpi? ( virtual/mpi[fortran?] ) python? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) fortran? ( virtual/fortran )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!test? ( test ) python? ( test )
 SLOT=0
 SRC_URI=https://files.salome-platform.org/Salome/other/med-4.1.1.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=9e1fab4a59f0ec07ddd71fdbcb361d45
+_md5_=b06311f17b90dd57ddc97265d5cbc73a
