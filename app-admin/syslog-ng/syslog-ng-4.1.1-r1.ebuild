@@ -32,7 +32,12 @@ RDEPEND="
 	json? ( >=dev-libs/json-c-0.9:= )
 	kafka? ( >=dev-libs/librdkafka-1.0.0:= )
 	mongodb? ( >=dev-libs/mongo-c-driver-1.2.0 )
-	python? ( ${PYTHON_DEPS} )
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_cond_dep '
+			dev-python/setuptools[${PYTHON_USEDEP}]
+		')
+	)
 	redis? ( >=dev-libs/hiredis-0.11.0:= )
 	smtp? ( net-libs/libesmtp:= )
 	snmp? ( net-analyzer/net-snmp:0= )
