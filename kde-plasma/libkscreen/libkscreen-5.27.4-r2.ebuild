@@ -40,4 +40,7 @@ BDEPEND="
 	dev-util/wayland-scanner
 "
 
-PATCHES=( "${FILESDIR}/${P}-clear-edid.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-clear-edid.patch"
+	"${FILESDIR}/${P}-cleanup-dpms-obj-in-destructor.patch" # KDE-bug 466181
+)
