@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://maxima.sourceforge.net/
 INHERIT=autotools elisp-common flag-o-matic python-single-r1 xdg-utils
 IUSE=clisp clozurecl clozurecl64 cmucl ecls emacs gcl gui nls +sbcl vtk X test l10n_de l10n_es l10n_pt l10n_pt-BR python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2 GPL-2+
 RDEPEND=clisp? ( dev-lisp/clisp:= ) clozurecl? ( dev-lisp/clozurecl app-misc/rlwrap ) clozurecl64? ( dev-lisp/clozurecl app-misc/rlwrap ) cmucl? ( dev-lisp/cmucl app-misc/rlwrap ) ecls? ( dev-lisp/ecls:= app-misc/rlwrap ) gcl? ( <dev-lisp/gcl-2.6.14[ansi,readline] ) sbcl? ( dev-lisp/sbcl:= app-misc/rlwrap ) virtual/libcrypt:= emacs? ( >=app-editors/emacs-26:* ) gui? ( dev-lang/tk:0 ) X? ( x11-misc/xdg-utils sci-visualization/gnuplot[gd] vtk? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) sci-libs/vtk[python,rendering,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] ) ) emacs? ( virtual/latex-base app-emacs/auctex app-text/ghostscript-gpl dev-texlive/texlive-latexrecommended )
 REQUIRED_USE=vtk? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) ) || ( clisp clozurecl clozurecl64 cmucl ecls gcl sbcl ) gui? ( X )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/maxima/maxima-5.46.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	elisp-common	dcd21c5d379fc2217e95f529504c5fe0	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=01f2246376b0276971d939eaf4fb53de
+_md5_=6c8e458eaab9b79adac7dcee2a863f19
