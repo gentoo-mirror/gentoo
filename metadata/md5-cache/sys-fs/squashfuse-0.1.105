@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/vasi/squashfuse
 INHERIT=autotools flag-o-matic
 IUSE=lz4 lzma lzo static-libs +zlib zstd
-KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD-2
 RDEPEND=>=sys-fs/fuse-2.8.6:0= lzma? ( >=app-arch/xz-utils-5.0.4:= ) zlib? ( >=sys-libs/zlib-1.2.5-r2:= ) lzo? ( >=dev-libs/lzo-2.06:= ) lz4? ( >=app-arch/lz4-0_p106:= ) zstd? ( app-arch/zstd:= )
 REQUIRED_USE=|| ( lz4 lzma lzo zlib zstd )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/vasi/squashfuse/archive/refs/tags/0.1.105.tar.gz -> squashfuse-0.1.105.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a
-_md5_=3cb1ab838c58721623d22e0d691970f6
+_md5_=c42cde3d703231982d88cda61921af78
