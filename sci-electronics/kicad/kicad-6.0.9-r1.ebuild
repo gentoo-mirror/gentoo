@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-WX_GTK_VER="3.2-gtk3"
+PYTHON_COMPAT=( python3_9 )
+WX_GTK_VER="3.0-gtk3"
 
 inherit check-reqs cmake optfeature python-single-r1 toolchain-funcs wxwidgets xdg-utils
 
@@ -17,18 +17,18 @@ if [[ ${PV} == 9999 ]]; then
 else
 	MY_PV="${PV/_rc/-rc}"
 	MY_P="${PN}-${MY_PV}"
-	SRC_URI="https://gitlab.com/kicad/code/${PN}/-/archive/${MY_PV}/${MY_P}.tar.bz2 -> ${P}.tar.bz2"
+	SRC_URI="https://gitlab.com/kicad/code/${PN}/-/archive/${MY_PV}/${MY_P}.tar.bz2"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+		KEYWORDS="amd64 ~arm64 ~riscv ~x86"
 	fi
 fi
 
 # BSD for bundled pybind
 LICENSE="GPL-2+ GPL-3+ Boost-1.0 BSD"
 SLOT="0"
-IUSE="doc examples +ngspice nls openmp"
+IUSE="doc examples ngspice nls openmp +occ +pcm"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -36,21 +36,19 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # See https://gitlab.com/kicad/code/kicad/-/commit/74e4370a9b146b21883d6a2d1df46c7a10bd0424
 # Depend on opencascade:0 to get unslotted variant (so we know path to it), bug #833301
 COMMON_DEPEND="
-	dev-db/unixODBC
+	!sci-electronics/kicad-i18n
 	dev-libs/boost:=[context,nls]
+	<dev-python/wxpython-4.2.0
 	media-libs/freeglut
 	media-libs/glew:0=
 	>=media-libs/glm-0.9.9.1
 	media-libs/mesa[X(+)]
-	net-misc/curl
-	>=sci-libs/opencascade-7.3.0:0=
 	>=x11-libs/cairo-1.8.8:=
 	>=x11-libs/pixman-0.30
 	x11-libs/wxGTK:${WX_GTK_VER}[X,opengl]
-	sys-libs/zlib
 	$(python_gen_cond_dep '
 		dev-libs/boost:=[context,nls,python,${PYTHON_USEDEP}]
-		~dev-python/wxpython-4.2.0:*[${PYTHON_USEDEP}]
+		dev-python/wxpython:4.0[${PYTHON_USEDEP}]
 	')
 	${PYTHON_DEPS}
 	ngspice? (
@@ -59,12 +57,15 @@ COMMON_DEPEND="
 	nls? (
 		sys-devel/gettext
 	)
+	occ? (
+		>=sci-libs/opencascade-7.3.0:0=
+	)
 "
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}
 	sci-electronics/electronics-menu
 "
-BDEPEND=">=dev-lang/swig-4.0
+BDEPEND=">=dev-lang/swig-3.0
 	doc? ( app-doc/doxygen )"
 
 if [[ ${PV} == 9999 ]] ; then
@@ -75,7 +76,9 @@ fi
 CHECKREQS_DISK_BUILD="900M"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-7.0.0-werror.patch
+	"${FILESDIR}/${PN}-scripts-install-fix.patch"
+	"${FILESDIR}/${PN}-6.0.6-unitialized-variable-fix.patch"
+	"${FILESDIR}/${PN}-6.0.9-gcc-13.patch"
 )
 
 pkg_setup() {
@@ -101,8 +104,8 @@ src_configure() {
 		-DKICAD_DOCS="${EPREFIX}/usr/share/doc/${PN}-doc-${PV}"
 
 		-DKICAD_SCRIPTING_WXPYTHON=ON
-		-DKICAD_USE_EGL=ON
 
+		# Merged from separate -i18n package, bug #830274
 		-DKICAD_BUILD_I18N="$(usex nls)"
 		-DKICAD_I18N_UNIX_STRICT_PATH="$(usex nls)"
 
@@ -112,10 +115,14 @@ src_configure() {
 		-DPYTHON_LIBRARY="$(python_get_library_path)"
 
 		-DKICAD_SPICE="$(usex ngspice)"
+		-DKICAD_PCM="$(usex pcm)"
 
+		-DKICAD_USE_OCC="$(usex occ)"
 		-DKICAD_INSTALL_DEMOS="$(usex examples)"
 		-DCMAKE_SKIP_RPATH="ON"
+	)
 
+	use occ && mycmakeargs+=(
 		-DOCC_INCLUDE_DIR="${CASROOT}"/include/opencascade
 		-DOCC_LIBRARY_DIR="${CASROOT}"/$(get_libdir)/opencascade
 	)
@@ -142,11 +149,10 @@ src_install() {
 	cmake_src_install
 	python_optimize
 
-	dodoc doxygen/eagle-plugin-notes.txt
-
 	if use doc ; then
-		cd doxygen || die
-		dodoc -r out/html/.
+		dodoc uncrustify.cfg
+		cd Documentation || die
+		dodoc -r *.txt kicad_doxygen_logo.png notes_about_pcbnew_new_file_format.odt doxygen/.
 	fi
 }
 
@@ -155,7 +161,6 @@ pkg_postinst() {
 	optfeature "Component footprints library" sci-electronics/kicad-footprints
 	optfeature "3D models of components " sci-electronics/kicad-packages3d
 	optfeature "Project templates" sci-electronics/kicad-templates
-	optfeature "Different languages for GUI" sci-electronics/kicad-i18n
 	optfeature "Extended documentation" app-doc/kicad-doc
 	optfeature "Creating 3D models of components" media-gfx/wings
 
