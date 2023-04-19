@@ -5,10 +5,10 @@ DESCRIPTION=A Modern Linker
 EAPI=8
 HOMEPAGE=https://github.com/rui314/mold
 INHERIT=cmake toolchain-funcs
-KEYWORDS=~amd64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~ppc64 ~riscv ~x86
 LICENSE=AGPL-3 BSD-2
 RDEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= sys-libs/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= dev-libs/openssl:= )
 SLOT=0
 SRC_URI=https://github.com/rui314/mold/archive/refs/tags/v1.11.0.tar.gz -> mold-1.11.0.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
-_md5_=79c9ab581a0a51cb66383d81b4def837
+_md5_=4ffdacc67a7ce53ae521c996c5d24d0b

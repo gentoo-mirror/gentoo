@@ -1099,7 +1099,7 @@ app-admin/superadduser 1.15: Interactive adduser script from Slackware
 app-admin/supervisor 4.2.2 4.2.4 4.2.5: A system for controlling process state under UNIX
 app-admin/sxid 4.2-r2: suid, sgid file and directory checking
 app-admin/sysklogd 2.4.4 9999: Standard log daemons
-app-admin/syslog-ng 3.38.1 4.0.1 4.1.1: syslog replacement with advanced filtering features
+app-admin/syslog-ng 3.38.1 4.0.1 4.1.1-r1: syslog replacement with advanced filtering features
 app-admin/syslog-summary 1.14-r5: Summarizes the contents of a syslog log file
 app-admin/sysrqd 17-r2: Daemon providing access to the kernel sysrq functions via network
 app-admin/sysstat 12.6.2: System performance tools for Linux
@@ -5535,7 +5535,7 @@ dev-libs/xapian 1.4.19 1.4.21 1.4.21-r1 1.4.22: Xapian Probabilistic Information
 dev-libs/xapian-bindings 1.4.19 1.4.21 1.4.22: SWIG and JNI bindings for Xapian
 dev-libs/xbyak 5.73: JIT assembler for x86(IA-32)/x64(AMD64, x86-64)
 dev-libs/xerces-c 3.2.3-r2 3.2.4 9999: A validating XML parser written in a portable subset of C++
-dev-libs/xmlrpc-c 1.54.05-r2: A lightweight RPC library based on XML and HTTP
+dev-libs/xmlrpc-c 1.54.05-r2 1.54.06: A lightweight RPC library based on XML and HTTP
 dev-libs/xmlsec 1.2.36 1.2.37 1.3.0-r1: Command line tool for signing, verifying, encrypting and decrypting XML
 dev-libs/xxhash 0.7.3 0.8.0 0.8.1: Extremely fast non-cryptographic hash algorithm
 dev-libs/yajl 2.1.0-r3: Small event-driven (SAX-style) JSON parser
@@ -8131,7 +8131,7 @@ dev-python/ffmpeg-python 0.2.0: Python bindings for FFmpeg with complex filterin
 dev-python/fido2 0.9.3 0.9.3-r1 1.1.0 1.1.1: Python based FIDO 2.0 library
 dev-python/fields 5.0.0-r3: Container class boilerplate killer
 dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable files
-dev-python/filelock 3.9.0 3.9.1 3.10.6 3.10.7 3.11.0: A platform independent file lock for Python
+dev-python/filelock 3.9.0 3.9.1 3.10.6 3.10.7 3.11.0 3.12.0: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.3.0: Python module import analysis tool
 dev-python/fitsio 1.1.8: Python library to read from and write to FITS files
@@ -8558,7 +8558,7 @@ dev-python/pdm-pep517 1.1.3 1.1.4: A PEP 517 backend for PDM that supports PEP 6
 dev-python/pdoc3 0.10.0-r1: Auto-generate API documentation for Python projects
 dev-python/pebble 5.0.3: Threading and multiprocessing eye-candy
 dev-python/pecan 1.4.2: A WSGI object-dispatching web framework, lean, fast, with few dependencies
-dev-python/peewee 3.16.0-r1: Small Python ORM
+dev-python/peewee 3.16.0-r1 3.16.1: Small Python ORM
 dev-python/pefile 2023.2.7 9999: Module to read and work with Portable Executable (PE) files
 dev-python/pelican-minify 0.9-r2: An HTML minification plugin for Pelican, the static site generator
 dev-python/pendulum 2.1.2-r2: Drop-in replacement for the standard datetime class
@@ -9222,7 +9222,7 @@ dev-python/treq 22.2.0-r1: A requests-like API built on top of twisted.web's Age
 dev-python/trimesh 3.19.4 3.20.2 3.21.0 3.21.1 3.21.2 3.21.3 3.21.4 3.21.5: Python library for loading and using triangular meshes
 dev-python/trio 0.22.0-r1: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.10.2: WebSocket client and server implementation for Python Trio
-dev-python/trove-classifiers 2023.3.9: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2023.3.9 2023.4.18: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 0.9.0-r1: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
 dev-python/tweedledum 1.1.1-r1: Library for analysis, compilation, synthesis, optimization of quantum circuits
@@ -13963,7 +13963,7 @@ net-analyzer/ettercap 0.8.3.1-r3 9999: Suite for man in the middle attacks
 net-analyzer/fail2ban 1.0.2 1.0.2-r1 9999: Scans log files and bans IPs that show malicious signs
 net-analyzer/firewalk 5.0-r2: A tool for determining a firewall's rule set
 net-analyzer/flow-tools 0.68.6-r1: library and programs to process reports from NetFlow data
-net-analyzer/flowgrind 0.8.0-r2 0.8.2: Network performance measurement tool
+net-analyzer/flowgrind 0.8.2: Network performance measurement tool
 net-analyzer/fping 5.1: A utility to ping multiple hosts at once
 net-analyzer/fprobe 1.1-r6: libpcap-based tool to collect network traffic data and emit it as NetFlow flows
 net-analyzer/fragroute 1.2.6-r4: Testing of network intrusion detection systems, firewalls and TCP/IP stacks
@@ -14771,7 +14771,7 @@ net-misc/dropbox-cli 2022 2023: Cli interface for dropbox (python), part of naut
 net-misc/econnman 1.1_p20160305: ConnMan User Interface written with EFL & python
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electron-cash 4.2.9 4.2.10 4.2.11: Lightweight Bitcoin Cash client (BCH fork of Electrum)
-net-misc/electrum 4.3.4-r1: User friendly Bitcoin client
+net-misc/electrum 4.3.4-r1 4.4.0: User friendly Bitcoin client
 net-misc/electrum-ltc 4.2.2.1: User friendly Litecoin client
 net-misc/ena-driver 2.6.1 2.8.0 2.8.2 2.8.4: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r2 9999: SSH tarpit that slowly sends and endless banner
@@ -16504,7 +16504,7 @@ sys-apps/colorized-logs 2.6: Tools for logs with ANSI color
 sys-apps/config-site 0: config.site to load dropins from config.site.d
 sys-apps/consolation 0.0.7: libinput based console mouse daemon
 sys-apps/conspy 1.16: Remote control for Linux virtual consoles
-sys-apps/coreutils 8.32-r1 9.1-r2 9.2 9.2-r1 9.2-r2 9.3 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
+sys-apps/coreutils 8.32-r1 9.1-r2 9.2-r2 9.3 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 4.5.1 4.5.2 4.5.3: A Free software that gathers information on CPU, motherboard and more
 sys-apps/cpuid 20230120 20230406: Linux tool to dump x86 CPUID information about the CPUs
