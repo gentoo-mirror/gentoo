@@ -50,6 +50,7 @@ DEPEND="
 	designer? ( >=dev-qt/qttools-${QT_PV}[designer] )
 	help? ( >=dev-qt/qttools-${QT_PV}[assistant] )
 	multimedia? ( >=dev-qt/qtmultimedia-${QT_PV} )
+	opengl? ( gles2-only? ( media-libs/libglvnd ) )
 	positioning? ( >=dev-qt/qtpositioning-${QT_PV} )
 	qml? ( >=dev-qt/qtdeclarative-${QT_PV} )
 	quick3d? ( >=dev-qt/qtquick3d-${QT_PV} )
@@ -137,6 +138,7 @@ src_configure() {
 		$(usev !qml --no-qml-plugin)
 
 		$(usev !gles2-only --disabled-feature=PyQt_OpenGL_ES2)
+		$(usev !opengl --disabled-feature=PyQt_OpenGL)
 		$(usev !ssl --disabled-feature=PyQt_SSL)
 	)
 }
