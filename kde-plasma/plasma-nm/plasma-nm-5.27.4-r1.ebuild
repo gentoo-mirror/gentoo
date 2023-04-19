@@ -63,6 +63,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=( "${FILESDIR}/${P}-persist-imported-vpn-connections.patch" ) # KDE-bug 468666
+
 src_prepare() {
 	ecm_src_prepare
 
