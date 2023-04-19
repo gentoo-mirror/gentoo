@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) =dev-qt/qtbase-6.5*:6 <sys-devel/clang-16:= <sys-devel/clang-runtime-16:= docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 ) numpy? ( dev-python/numpy[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers ) test? ( =dev-qt/qtbase-6.5*:6[gui] ) !!sys-devel/llvm:0
+DESCRIPTION=Python binding generator for C++ libraries
+EAPI=8
+HOMEPAGE=https://wiki.qt.io/PySide6
+INHERIT=cmake llvm python-r1 toolchain-funcs
+IUSE=+docstrings numpy test vulkan python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64
+LICENSE=|| ( GPL-2 GPL-3+ LGPL-3 ) GPL-3
+RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) =dev-qt/qtbase-6.5*:6 <sys-devel/clang-16:= <sys-devel/clang-runtime-16:= docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 ) numpy? ( dev-python/numpy[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.5.0-src/pyside-setup-everywhere-src-6.5.0.tar.xz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	llvm	4cc6f8e29d24a8011266413e74c728bb	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_md5_=69a3c5855a8f7ba24e60b5eab454f124
