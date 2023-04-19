@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://firejail.wordpress.com/
 INHERIT=toolchain-funcs python-single-r1 linux-info
 IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home selinux test +userns X python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) selinux? ( sys-libs/libselinux )
 REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.72/firejail-0.9.72.tar.xz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
-_md5_=40f62a2b45e3b596e0c64a4fbc9bb04e
+_md5_=dbbf519e43b0fd1cc999367afbd1a759
