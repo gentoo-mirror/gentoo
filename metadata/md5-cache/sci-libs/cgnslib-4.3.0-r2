@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 fortran? ( virtual/fortran )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=hdf5? ( <sci-libs/hdf5-1.14.0:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
+DEPEND=hdf5? ( sci-libs/hdf5:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
 DESCRIPTION=CFD General Notation System standard library
 EAPI=8
 HOMEPAGE=https://cgns.github.io/ https://github.com/CGNS/CGNS
@@ -8,10 +8,10 @@ INHERIT=cmake fortran-2
 IUSE=base-scope debug examples fortran hdf5 legacy mpi scoping szip test tools
 KEYWORDS=amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=ZLIB
-RDEPEND=hdf5? ( <sci-libs/hdf5-1.14.0:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
+RDEPEND=hdf5? ( sci-libs/hdf5:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
 REQUIRED_USE=mpi? ( hdf5 ) szip? ( hdf5 )
 RESTRICT=fortran? ( test ) !test? ( test )
 SLOT=0/4
 SRC_URI=https://github.com/CGNS/CGNS/archive/v4.3.0.tar.gz -> cgnslib-4.3.0.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
-_md5_=a4b203acd54ef64ef234a120b2d62787
+_md5_=78ea9c6ef9eac24d92a268f2feeaaea7
