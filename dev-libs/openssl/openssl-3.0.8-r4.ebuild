@@ -54,6 +54,7 @@ PATCHES=(
 	"${FILESDIR}"/openssl-3.0.8-CVE-2023-0464.patch
 	"${FILESDIR}"/openssl-3.0.8-CVE-2023-0465.patch
 	"${FILESDIR}"/openssl-3.0.8-CVE-2023-0466.patch
+	"${FILESDIR}"/openssl-3.0.8-CVE-2023-1255.patch
 )
 
 pkg_setup() {
