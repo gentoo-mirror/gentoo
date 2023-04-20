@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/vala:0.56 ) app-text/docbook-xml-dtd:4.5 >=sys-devel/gettext-0.19.7 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=net-libs/gupnp-1.5.2:1.6=[vala] >=dev-libs/libgee-0.8:0.8= >=net-libs/gssdp-1.5.0:1.6=[vala] >=dev-libs/glib-2.62.0:2 >=dev-libs/libxml2-2.7:2 >=net-libs/gupnp-av-0.14.1:=[vala] >=media-libs/gupnp-dlna-0.9.4:2.0= >=net-libs/libsoup-3:3.0 sqlite? ( >=dev-db/sqlite-3.5:3 dev-libs/libunistring:= ) >=media-libs/gstreamer-1.20:1.0 >=media-libs/gst-plugins-base-1.20:1.0 media-libs/gstreamer-editing-services:1.0 >=media-libs/libmediaart-0.7:2.0[vala] media-plugins/gst-plugins-soup:1.0 x11-libs/gdk-pixbuf:2 >=sys-apps/util-linux-2.20 x11-misc/shared-mime-info introspection? ( >=dev-libs/gobject-introspection-1.33.4:= ) tracker? ( app-misc/tracker:3=[vala(+)] ) transcode? ( media-libs/gst-plugins-bad:1.0 media-plugins/gst-plugins-twolame:1.0 media-plugins/gst-plugins-libav:1.0 ) gtk? ( >=x11-libs/gtk+-3.22:3 ) x11-libs/libX11
+DESCRIPTION=Rygel is an open source UPnP/DLNA MediaServer
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/Rygel
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org meson systemd vala xdg
+IUSE=gtk gtk-doc +introspection +sqlite tracker test transcode
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1+ CC-BY-SA-3.0
+RDEPEND=>=net-libs/gupnp-1.5.2:1.6=[vala] >=dev-libs/libgee-0.8:0.8= >=net-libs/gssdp-1.5.0:1.6=[vala] >=dev-libs/glib-2.62.0:2 >=dev-libs/libxml2-2.7:2 >=net-libs/gupnp-av-0.14.1:=[vala] >=media-libs/gupnp-dlna-0.9.4:2.0= >=net-libs/libsoup-3:3.0 sqlite? ( >=dev-db/sqlite-3.5:3 dev-libs/libunistring:= ) >=media-libs/gstreamer-1.20:1.0 >=media-libs/gst-plugins-base-1.20:1.0 media-libs/gstreamer-editing-services:1.0 >=media-libs/libmediaart-0.7:2.0[vala] media-plugins/gst-plugins-soup:1.0 x11-libs/gdk-pixbuf:2 >=sys-apps/util-linux-2.20 x11-misc/shared-mime-info introspection? ( >=dev-libs/gobject-introspection-1.33.4:= ) tracker? ( app-misc/tracker:3=[vala(+)] ) transcode? ( media-libs/gst-plugins-bad:1.0 media-plugins/gst-plugins-twolame:1.0 media-plugins/gst-plugins-libav:1.0 ) gtk? ( >=x11-libs/gtk+-3.22:3 ) x11-libs/libX11
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/rygel/0.42/rygel-0.42.2.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	systemd	5f4bb0758df2e483babf68cd517078ca	vala	1343f639cc74d2aa8b36fc08677da58d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=35dbbece761a4f4e2f7c873f53de1481
