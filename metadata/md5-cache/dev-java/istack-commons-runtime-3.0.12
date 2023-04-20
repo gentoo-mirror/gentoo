@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://projects.eclipse.org/projects/ee4j/istack-commons/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 ~x86
 LICENSE=EPL-1.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=3
 SRC_URI=https://github.com/eclipse-ee4j/jaxb-istack-commons/archive/3.0.12.tar.gz -> jaxb-istack-commons-3.0.12.tar.gz
 _eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	7dacd744ab3fb5ec581318fefaa7a9e5
-_md5_=8e37b97c94e7d76c618bb50d25da6c88
+_md5_=c717e7988f60081f22ed22d7b1b41a29
