@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -11,7 +11,7 @@ HOMEPAGE="https://www.int21.de/huc"
 
 SLOT="0"
 LICENSE="GPL-2+"
-KEYWORDS="amd64 ppc sparc x86 ~x86-linux ~ppc-macos"
+KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~x86-linux ~ppc-macos"
 
 src_compile() {
 	$(tc-getCXX) \
