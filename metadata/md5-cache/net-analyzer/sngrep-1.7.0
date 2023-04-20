@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure prepare
+DEPEND=net-libs/libpcap sys-libs/ncurses:=[unicode(+)] ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) pcre? ( dev-libs/libpcre2 ) zlib? ( sys-libs/zlib )
+DESCRIPTION=Ncurses SIP Messages flow viewer
+EAPI=8
+HOMEPAGE=https://github.com/irontec/sngrep
+INHERIT=autotools
+IUSE=eep gnutls pcre ssl zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=net-libs/libpcap sys-libs/ncurses:=[unicode(+)] ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) pcre? ( dev-libs/libpcre2 ) zlib? ( sys-libs/zlib )
+SLOT=0
+SRC_URI=https://github.com/irontec/sngrep/releases/download/v1.7.0/sngrep-1.7.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=03f203be9fe7fe201e5bdc1531d248c5
