@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-info linux-mod
+inherit linux-mod
 
 DESCRIPTION="Amazon EC2 Elastic Network Adapter (ENA) kernel driver"
 HOMEPAGE="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html"
