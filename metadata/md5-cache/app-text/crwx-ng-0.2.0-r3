@@ -1,4 +1,4 @@
-BDEPEND=>=app-text/crengine-ng-0.9.3[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=] x11-libs/wxGTK:3.0-gtk3[X] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=>=app-text/crengine-ng-0.9.7:0=[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=] x11-libs/wxGTK:3.0-gtk3[X] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Cross-platform e-book reader
 EAPI=8
@@ -6,9 +6,9 @@ HOMEPAGE=https://gitlab.com/coolreader-ng/crwx-ng
 INHERIT=cmake wxwidgets
 IUSE=+gif +svg +chm +harfbuzz +libunibreak +fribidi +zstd +libutf8proc
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2
-RDEPEND=>=app-text/crengine-ng-0.9.3[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=] x11-libs/wxGTK:3.0-gtk3[X] virtual/ttf-fonts
+LICENSE=GPL-2+
+RDEPEND=>=app-text/crengine-ng-0.9.7:0=[png,jpeg,fontconfig,gif=,svg=,chm=,harfbuzz=,fribidi=,zstd=,libutf8proc=] x11-libs/wxGTK:3.0-gtk3[X] virtual/ttf-fonts
 SLOT=0
 SRC_URI=https://gitlab.com/coolreader-ng/crwx-ng/-/archive/0.2.0/crwx-ng-0.2.0.tar.bz2
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5
-_md5_=c9b31838f444b18a139fca03564c50f3
+_md5_=68aecebd19d43aaee16bb2a0b9110644
