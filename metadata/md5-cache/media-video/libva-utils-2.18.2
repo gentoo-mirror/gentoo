@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=x11-libs/libdrm wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 ) >=media-libs/libva-2.18.0:=[wayland?,X?]
+DESCRIPTION=Collection of utilities and tests for VA-API
+EAPI=8
+HOMEPAGE=https://01.org/linuxmedia/vaapi
+INHERIT=meson
+IUSE=examples putsurface test +vainfo wayland X
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=x11-libs/libdrm wayland? ( >=dev-libs/wayland-1.0.6 ) X? ( >=x11-libs/libX11-1.6.2 ) >=media-libs/libva-2.18.0:=[wayland?,X?]
+REQUIRED_USE=putsurface? ( || ( wayland X ) ) || ( examples putsurface test vainfo )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/intel/libva-utils/archive/2.18.2.tar.gz -> libva-utils-2.18.2.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=5719d6f22ecfb1cb51ab4ea9ec631a16
