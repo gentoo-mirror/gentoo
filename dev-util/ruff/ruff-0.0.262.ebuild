@@ -23,7 +23,6 @@ CRATES="
 	bit-set-0.5.3
 	bit-vec-0.6.3
 	bitflags-1.3.2
-	block-buffer-0.10.3
 	bstr-0.2.17
 	bstr-1.3.0
 	bumpalo-3.12.0
@@ -53,7 +52,6 @@ CRATES="
 	console_error_panic_hook-0.1.7
 	console_log-0.2.1
 	core-foundation-sys-0.8.3
-	cpufeatures-0.2.5
 	crc32fast-1.3.2
 	criterion-0.4.0
 	criterion-plot-0.5.0
@@ -62,7 +60,6 @@ CRATES="
 	crossbeam-epoch-0.9.13
 	crossbeam-utils-0.8.14
 	crunchy-0.2.2
-	crypto-common-0.1.6
 	ctor-0.1.26
 	cxx-1.0.91
 	cxx-build-1.0.91
@@ -70,7 +67,6 @@ CRATES="
 	cxxbridge-macro-1.0.91
 	diff-0.1.13
 	difflib-0.4.0
-	digest-0.10.6
 	dirs-4.0.0
 	dirs-next-2.0.0
 	dirs-sys-0.3.7
@@ -91,7 +87,6 @@ CRATES="
 	fnv-1.0.7
 	form_urlencoded-1.1.0
 	fsevent-sys-4.1.0
-	generic-array-0.14.6
 	getrandom-0.2.8
 	glob-0.3.1
 	globset-0.4.10
@@ -167,10 +162,6 @@ CRATES="
 	peg-runtime-0.8.1
 	pep440_rs-0.3.1
 	percent-encoding-2.2.0
-	pest-2.5.5
-	pest_derive-2.5.5
-	pest_generator-2.5.5
-	pest_meta-2.5.5
 	petgraph-0.6.3
 	phf-0.11.1
 	phf_codegen-0.11.1
@@ -231,7 +222,6 @@ CRATES="
 	serde_json-1.0.93
 	serde_spanned-0.6.1
 	serde_test-1.0.152
-	sha2-0.10.6
 	shellexpand-3.0.0
 	similar-2.2.1
 	siphasher-0.3.10
@@ -272,8 +262,6 @@ CRATES="
 	tracing-core-0.1.30
 	twox-hash-1.6.3
 	typed-arena-2.0.2
-	typenum-1.16.0
-	ucd-trie-0.1.5
 	unic-char-property-0.9.0
 	unic-char-range-0.9.0
 	unic-common-0.9.0
