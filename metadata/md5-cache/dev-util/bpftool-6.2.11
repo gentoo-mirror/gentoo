@@ -1,0 +1,15 @@
+BDEPEND=dev-util/patchutils || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) app-arch/tar dev-python/docutils
+DEFINED_PHASES=compile install postinst prepare setup unpack
+DEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= ) >=sys-kernel/linux-headers-5.8
+DESCRIPTION=Tool for inspection and simple manipulation of eBPF programs and maps
+EAPI=8
+HOMEPAGE=https://kernel.org/
+INHERIT=estack linux-info optfeature python-any-r1 bash-completion-r1 toolchain-funcs
+IUSE=caps
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/binutils-libs:= sys-libs/zlib:= virtual/libelf:= caps? ( sys-libs/libcap:= )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.2.11.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.2.tar.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=affe1fc8eff904046cc52ceb4297f610
