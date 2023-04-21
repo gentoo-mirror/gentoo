@@ -3834,7 +3834,7 @@ dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
 dev-db/mysql-connector-c 8.0.27-r1 8.0.31 8.0.32-r1: C client library for MariaDB/MySQL
 dev-db/mysql-connector-c++ 8.0.27 8.0.27-r1 8.0.31 8.0.32: MySQL database connector for C++ (mimics JDBC 4.0 API)
 dev-db/mysql-init-scripts 2.3-r6: Gentoo MySQL init scripts
-dev-db/mysql-workbench 8.0.31-r1 8.0.32: MySQL Workbench
+dev-db/mysql-workbench 8.0.32 8.0.33: MySQL Workbench
 dev-db/mysqltuner 1.9.9: Makes recommendations for increased performance and stability for MySQL
 dev-db/mytop 1.9.1-r1: mytop - a top clone for mysql
 dev-db/ocp 0.3 9999: Oracle copy tool
@@ -5007,7 +5007,7 @@ dev-libs/cgreen 1.3.0: Unit test and mocking framework for C and C++
 dev-libs/check 0.15.2-r1: A unit test framework for C
 dev-libs/chmlib 0.40-r1: Library for MS CHM (compressed html) file format
 dev-libs/cl 1.2.4-r2: OpenCL bindings for Erlang
-dev-libs/clhpp 2023.02.06: Khronos OpenCL C++ bindings
+dev-libs/clhpp 2023.02.06 2023.04.17: Khronos OpenCL C++ bindings
 dev-libs/clipper 6.4.2: Polygon and line clipping and offsetting library (C++, C#, Delphi)
 dev-libs/collada-dom 2.5.0-r1: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.1-r1: A library with concurrency related algorithms and data structures in C
@@ -5395,7 +5395,7 @@ dev-libs/nwjs 0.75.0: Framework that lets you call all Node.js modules directly 
 dev-libs/onigmo 6.2.0-r1: Onigmo is a regular expressions library forked from Oniguruma
 dev-libs/oniguruma 6.9.8 9999: Regular expression library for different character encodings
 dev-libs/opencl-clang 14.0.0 15.0.0: OpenCL-oriented thin wrapper library around clang
-dev-libs/opencl-icd-loader 2023.02.06: Official Khronos OpenCL ICD Loader
+dev-libs/opencl-icd-loader 2023.02.06 2023.04.17: Official Khronos OpenCL ICD Loader
 dev-libs/opencryptoki 3.6.1-r1: PKCS#11 provider cryptographic hardware
 dev-libs/openct 0.6.20-r5: library for accessing smart card terminals
 dev-libs/openobex 1.7.2-r3: Implementation of the OBEX protocol used for transferring data to mobile devices
@@ -7008,7 +7008,6 @@ dev-perl/PerlIO-gzip 0.200.0-r1: PerlIO layer to gzip/gunzip
 dev-perl/PerlIO-utf8_strict 0.8.0: Fast and correct UTF-8 IO
 dev-perl/PerlIO-via-Timeout 0.320.0-r1: PerlIO layer that adds read & write timeout to a handle
 dev-perl/PerlIO-via-dynamic 0.140.0-r2: Dynamic PerlIO layers
-dev-perl/PerlMol 0.3500: PerlMol - Perl modules for molecular chemistry
 dev-perl/Perlbal 1.800.0-r3: Reverse-proxy load balancer and webserver
 dev-perl/PlRPC 0.202.0-r4: The Perl RPC Module
 dev-perl/Plack 1.4.800: Perl Superglue for Web frameworks and Web Servers (PSGI toolkit)
@@ -9483,7 +9482,6 @@ dev-ruby/benchmark-ips 2.10.0 2.12.0: A iterations per second enhancement to Ben
 dev-ruby/bindata 2.4.14 2.4.15: Parsing Binary Data in Ruby
 dev-ruby/bindex 0.8.1-r1: Bindings for your Ruby exceptions
 dev-ruby/binding_of_caller 1.0.0-r1: Retrieve the binding of a method's caller
-dev-ruby/bit-struct 0.17: Library for packed binary data stored in ruby Strings
 dev-ruby/blankslate 3.1.3-r1 3.1.3-r2: Base class with almost all of the methods from Object and Kernel being removed
 dev-ruby/blinkstick 1.0.1_p20150901-r1: ruby interface for blinkstick via libusb
 dev-ruby/bogus 0.1.6-r1: Ensuring that the things you stub or mock actually exist
@@ -9572,7 +9570,7 @@ dev-ruby/ed25519 1.3.0: Library for the Ed25519 public-key signature system
 dev-ruby/elasticsearch 6.8.3: Ruby integrations for ES, elasticsearch module
 dev-ruby/elasticsearch-api 6.8.3: Ruby integrations for ES, elasticsearch-api module
 dev-ruby/elasticsearch-extensions 0.0.33: Ruby integrations for ES, elasticsearch-extensions module
-dev-ruby/elasticsearch-transport 6.8.1 6.8.3 6.8.3-r1: Ruby integrations for ES, elasticsearch-transport module
+dev-ruby/elasticsearch-transport 6.8.3 6.8.3-r1: Ruby integrations for ES, elasticsearch-transport module
 dev-ruby/em-websocket 0.5.3: EventMachine based WebSocket server
 dev-ruby/equalizer 0.0.11-r1: Module to define equality, equivalence and inspection methods
 dev-ruby/equatable 0.7.0: Allows ruby objects to implement equality comparison and inspection methods
@@ -9603,7 +9601,6 @@ dev-ruby/fiber-local 1.0.0: Provides a class-level mixin to make fiber local sta
 dev-ruby/file-tail 1.2.0-r1: A small ruby library that allows it to 'tail' files in Ruby
 dev-ruby/filesize 0.2.0-r1: Small class for handling filesizes with both the SI and binary prefixes
 dev-ruby/filigree 0.4.1: New classes and extensions to core library classes
-dev-ruby/fivemat 1.3.7: MiniTest/RSpec/Cucumber formatter that gives each test file its own line of dots
 dev-ruby/flexmock 2.3.6-r2: Simple mock object library for Ruby unit testing
 dev-ruby/flickraw 0.9.10: A library to access flickr api in a simple way
 dev-ruby/flog 4.6.6: Flog reports the most tortured code in an easy to read pain report
@@ -9921,7 +9918,6 @@ dev-ruby/ruby-romkan 0.4-r7: A Romaji <-> Kana conversion library for Ruby
 dev-ruby/ruby-shadow 2.5.1: ruby shadow bindings
 dev-ruby/ruby-shout 2.2.2-r2: A Ruby interface to libshout2
 dev-ruby/ruby-termios 1.1.0-r1 1.1.0-r2: A Ruby interface to termios
-dev-ruby/ruby-xslt 0.9.10-r1: A Ruby class for processing XSLT
 dev-ruby/ruby-yadis 0.3.4-r3: A ruby library for performing Yadis service discovery
 dev-ruby/ruby2_keywords 0.0.5 0.0.5-r1: Shim library for Module#ruby2_keywords
 dev-ruby/ruby2ruby 2.4.4: Generates readable ruby from ParseTree
@@ -9957,7 +9953,6 @@ dev-ruby/sexp_processor 4.16.1: Processor for s-expressions created as part of t
 dev-ruby/shoulda 2.11.3-r3 3.6.0-r2: Making tests easy on the fingers and eyes
 dev-ruby/shoulda-context 1.2.2-r1: Context framework extracted from Shoulda
 dev-ruby/shoulda-matchers 3.1.3-r2 4.5.1-r1 5.0.0 5.1.0 5.3.0: Making tests easy on the fingers and eyes
-dev-ruby/sigar 0.7.3-r1: System Information Gatherer And Reporter
 dev-ruby/sigdump 0.2.4-r1: Setup signal handler which dumps backtrace of threads and allocated objects
 dev-ruby/simple-rss 1.3.3-r1: A simple, flexible, extensible, and liberal RSS and Atom reader for Ruby
 dev-ruby/simple_oauth 0.3.1-r1: Simply builds and verifies OAuth headers
@@ -9968,7 +9963,6 @@ dev-ruby/simpleidn 0.2.1-r1: Allows easy conversion from punycode ACE to unicode
 dev-ruby/sinatra 2.2.3 3.0.2 3.0.4 3.0.5 3.0.5-r1: A DSL for quickly creating web applications in Ruby with minimal effort
 dev-ruby/sinatra-partial 1.0.1-r1: Just the partials helper in a gem
 dev-ruby/singleton 0.1.1: The Singleton module implements the Singleton pattern
-dev-ruby/six 0.2.0-r1: An ultra lite authorization library
 dev-ruby/slim 4.1.0-r4 5.1.0-r1: A template language aiming to reduce the syntax to the essential parts
 dev-ruby/slop 4.9.2 4.9.3 4.10.0 4.10.1: A simple option parser with an easy to remember syntax and friendly API
 dev-ruby/slow_enumerator_tools 1.1.0-r1: Transform Ruby enumerators that produce data slowly and unpredictably
@@ -10011,7 +10005,6 @@ dev-ruby/text-hyphen 1.4.1-r3 1.5.0: Hyphenates words according to the rules of 
 dev-ruby/thor 1.2.1 1.2.1-r1: Simple and efficient tool for building self-documenting command line utilities
 dev-ruby/thread_order 1.1.1: Test helper for ordering threaded code
 dev-ruby/thread_safe 0.3.6-r1: A collection of thread-safe versions of common core Ruby classes
-dev-ruby/tidy-ext 0.1.14-r4: W3C HTML Tidy library implemented as a Ruby extension
 dev-ruby/tidy_table 0.0.5-r6: Tool to convert an array of struct into an HTML table
 dev-ruby/tilt 2.0.11 2.1.0: Thin interface over template engines to make their usage as generic as possible
 dev-ruby/time 0.2.1 0.2.2: Extends the Time class with methods for parsing and conversion
@@ -10390,7 +10383,6 @@ dev-util/diffuse 0.7.5 0.7.7: A graphical tool to compare and merge text files
 dev-util/dirdiff 2.1-r4: A tool for differing and merging directories
 dev-util/directx-headers 1.608.2b 9999: DirectX header files and WSL stubs
 dev-util/dissembler 0.9-r1: polymorphs bytecode to a printable ASCII string
-dev-util/dmake 4.12.2 4.13.1: Improved make
 dev-util/docker-distribution-pruner 0_p20170401: Clean all old container revisions from registry
 dev-util/dogtail 0.9.11: GUI test tool and automation framework using accessibility framework
 dev-util/drone 2.11.1 2.13.0: A Continuous Delivery platform built on Docker, written in Go
@@ -10522,7 +10514,7 @@ dev-util/nvidia-cuda-toolkit 11.7.0-r4 11.8.0-r3 12.0.1-r1 12.1.0-r1: NVIDIA CUD
 dev-util/objconv 2.51: object code file converted (COFF, ELF, OMF, MACHO)
 dev-util/omake 0.10.3-r1: Make replacement
 dev-util/open-vcdiff 0.8.4-r1: An encoder/decoder for the VCDIFF (RFC3284) format
-dev-util/opencl-headers 2023.02.06: Unified C language headers for the OpenCL API
+dev-util/opencl-headers 2023.02.06 2023.04.17: Unified C language headers for the OpenCL API
 dev-util/oprofile 1.4.0: A transparent low-overhead system-wide profiler
 dev-util/ostree 2022.2 2022.5-r1 2022.6 2022.7-r1 2023.1: Operating system and container binary deployment and upgrades
 dev-util/packer 1.7.10 1.8.5: A tool to create identical machine images for multiple platforms
@@ -13344,7 +13336,6 @@ media-plugins/vdr-rcu 2.2.0: VDR plugin: Remote Control Unit consists mainly of 
 media-plugins/vdr-recsearch 0.3.7: VDR Plugin: Search through your recordings and find the one you are looking for
 media-plugins/vdr-remote 0.7.0-r1: VDR Plugin: use various devices for controlling vdr (keyboards, lirc...)
 media-plugins/vdr-remoteosd 1.0.0 1.0.0-r1 1.0.1: VDR Plugin: server/client remoteosd
-media-plugins/vdr-remotetimers 1.0.2 1.0.2-r1: VDR plugin: edit timers on remote vdr instances
 media-plugins/vdr-rpihddevice 1.0.3 1.0.5: VDR Plugin: Output Device for Raspberry Pi
 media-plugins/vdr-rssreader 2.4.0-r1: VDR Plugin: RSS reader
 media-plugins/vdr-satip 2.2.5 2.4.1: VDR Plugin: integrates SAT>IP network devices seamlessly into VDR
@@ -13934,7 +13925,6 @@ net-analyzer/arpwatch 3.1-r4: An ethernet monitor program that keeps track of et
 net-analyzer/authforce 0.9.9-r4: An HTTP authentication brute forcer
 net-analyzer/barnyard 0.2.0-r7: Fast output system for Snort
 net-analyzer/barnyard2 1.13: Parser for Snort unified/unified2 files
-net-analyzer/bigeye 0.3-r4: network utility dump and simple honeypot utility
 net-analyzer/bing 1.3.5: A point-to-point bandwidth measurement tool
 net-analyzer/bmon 4.0 999: Interface bandwidth monitor
 net-analyzer/braa 0.82-r1: Quick and dirty mass SNMP scanner
@@ -14165,7 +14155,6 @@ net-analyzer/tptest 3.1.7-r2: Internet bandwidth tester
 net-analyzer/tracebox 0.4.4-r100: A Middlebox Detection Tool
 net-analyzer/traceproto 1.1.2_beta1: A traceroute-like utility that sends packets based on protocol
 net-analyzer/traceroute 2.1.0-r2 2.1.1: Utility to trace the route of IP packets
-net-analyzer/traceroute-nanog 6.4.2_p1: Traceroute with AS lookup, TOS support, MTU discovery and other features
 net-analyzer/trafshow 5.2.3-r1: Full screen visualization of the network traffic
 net-analyzer/tsung 1.7.0: Erlang's multi-protocol distributed load testing tool
 net-analyzer/ttcp 1.12-r3: Tool to test TCP and UDP throughput
@@ -15289,7 +15278,6 @@ net-wireless/soapyrtlsdr 0.3.2 9999: SoapySDR RTL-SDR Support Module
 net-wireless/soapysdr 0.7.2 0.8.1 9999: vendor and platform neutral SDR support library
 net-wireless/soapysdrplay 9999 20220120: Soapy SDR plugin for SDRPlay
 net-wireless/soapyuhd 0.4.1 9999: Soapy SDR plugins for UHD supported SDR devices
-net-wireless/spectools 2016.01.1-r1 9999: Spectrum Analyzer for Meta-Geek Wi-Spy and GSG Ubertooth hardware
 net-wireless/suscan 0.1.0-r1: a realtime DSP processing library
 net-wireless/suwidgets 0.1.0-r1: graphical library containing all SigDigger's custom widgets
 net-wireless/tempestsdr 0.0_p20200221-r1 9999: Remote video eavesdropping using a software-defined radio platform
@@ -15526,7 +15514,6 @@ sci-chemistry/openbabel 3.1.1_p20210225 9999: Interconverts file formats used in
 sci-chemistry/pdbcat 1.3-r1: Manipulate and process PDB files using tools such as Perl, awk, etc
 sci-chemistry/pdbcns 2.0.010504: Convert atom names for amino acids/nucleic acid bases between PDB and CNS format
 sci-chemistry/pdbmat 3.89-r1: Calculate Tirion's model from pdb structures
-sci-chemistry/prekin 6.51.081122-r1: Prepares molecular kinemages from PDB-format coordinate files
 sci-chemistry/probe 2.13.110909: Evaluates atomic packing within or between molecules
 sci-chemistry/procheck 3.5.4-r3: Checks the stereochemical quality of a protein structure
 sci-chemistry/propka 3.4.0: pKa-value prediction of ionizable groups in protein and protein-ligand complexes
@@ -15925,7 +15912,6 @@ sci-libs/volk 2.5.1: vector optimized library of kernels
 sci-libs/voro++ 0.4.6-r1: 3D Voronoi cell software library
 sci-libs/vtk 9.2.5: The Visualization Toolkit
 sci-libs/xdmf2 1.0_p141226-r4: eXtensible Data Model and Format
-sci-libs/xdrfile 1.1.4-r1: Library to read gromacs trajectory and topology files
 sci-libs/xgks-pmel 2.5.5: PMEL fork of XGKS, an X11-based version of the ANSI Graphical Kernel System
 sci-libs/xylib 1.6: Experimental x-y data reading library
 sci-mathematics/4ti2 1.6.7-r1: Software package for algebraic, geometric and combinatorial problems
@@ -18656,7 +18642,6 @@ x11-wm/sithwm 1.2.3: Minimalist Window Manager for X
 x11-wm/spectrwm 3.4.1 3.4.1_p20221224: Small dynamic tiling window manager for X11
 x11-wm/stumpwm 22.05_p20220818: A Window Manager written entirely in Common Lisp
 x11-wm/stumpwm-contrib 20180128 99999999: Extension Modules for StumpWM
-x11-wm/subtle 0.11.3244-r2: A manual tiling window manager
 x11-wm/treewm 0.4.5-r2: WindowManager that arranges the windows in a tree (not in a list)
 x11-wm/twm 1.0.12: X.Org Tab Window Manager
 x11-wm/vtwm 5.4.7-r3: TWM descendant that implements a Virtual Desktop
