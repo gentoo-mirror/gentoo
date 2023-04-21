@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/jakartaee/rest
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 x86
 LICENSE=EPL-2.0 GPL-2-with-classpath-exception
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jakartaee/rest/archive/2.1.6.tar.gz -> jaxrs-api-2.1.6.tar.gz
 _eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	7dacd744ab3fb5ec581318fefaa7a9e5
-_md5_=0b370bfdd4437f0da11c745afcbf68f3
+_md5_=cf3deb65bbbc12d105f9be62a1882bb1
