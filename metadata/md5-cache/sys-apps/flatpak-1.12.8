@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://flatpak.org/
 INHERIT=linux-info python-any-r1
 IUSE=doc introspection policykit seccomp systemd X
-KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
 PDEPEND=sys-apps/xdg-desktop-portal
 RDEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arch/zstd:= >=app-crypt/gpgme-1.1.8:= >=dev-libs/appstream-glib-0.5.10:= >=dev-libs/glib-2.56:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= dev-libs/libassuan:= >=dev-util/ostree-2020.8:=[gpg(+)] || ( dev-util/ostree[curl] dev-util/ostree[soup] ) >=gnome-base/dconf-0.26:= gnome-base/gsettings-desktop-schemas >=net-libs/libsoup-2.4:2.4= >=sys-apps/bubblewrap-0.5.0 sys-apps/dbus >=sys-fs/fuse-2.9.9:0= sys-apps/xdg-dbus-proxy X? ( x11-apps/xauth x11-libs/libXau:= ) x11-libs/gdk-pixbuf:2= policykit? ( >=sys-auth/polkit-0.98:= ) seccomp? ( sys-libs/libseccomp:= ) systemd? ( sys-apps/systemd:= )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flatpak/flatpak/releases/download/1.12.8/flatpak-1.12.8.tar.xz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=99fbd60bf84c0f797da566f4a6cbe33c
+_md5_=8be11cd8abe5128d001b2a967bbe7fef
