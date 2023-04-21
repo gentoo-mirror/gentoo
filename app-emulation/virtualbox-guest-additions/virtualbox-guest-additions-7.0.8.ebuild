@@ -11,15 +11,18 @@ MY_P="${MY_PN}-${PV}"
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://download.virtualbox.org/virtualbox/${PV}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-6.1.36.tar.bz2"
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.0.8.tar.bz2"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-LICENSE="GPL-2"
+# Reminder: see the LICENSE related comment in app-emulation/virtualbox-additions ebuild
+LICENSE="GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 x86"
-IUSE="X +dbus"
+KEYWORDS="~amd64 ~x86"
+IUSE="+dbus gui"
 
 # automount Error: VBoxServiceAutoMountWorker: Group "vboxsf" does not exist
+# TODO: find out what this is, remove comment if obsolete
+
 RDEPEND="
 	acct-group/vboxguest
 	acct-group/vboxsf
@@ -27,7 +30,7 @@ RDEPEND="
 	sys-libs/pam
 	sys-libs/zlib
 	dbus? ( sys-apps/dbus )
-	X? (
+	gui? (
 		x11-apps/xrandr
 		x11-apps/xrefresh
 		x11-libs/libX11
@@ -36,24 +39,26 @@ RDEPEND="
 		x11-libs/libXt
 	)
 "
+# some libs here are indirect dependencies, and also needed at compile time.
+# keeping them in DEPEND to avoid warnings from qa-vdb.
 DEPEND="
 	${RDEPEND}
-	X? (
-		x11-base/xorg-proto
+	gui? (
 		x11-libs/libICE
 		x11-libs/libSM
 		x11-libs/libXau
 		x11-libs/libXdmcp
+		x11-base/xorg-proto
 	)
 "
 BDEPEND="
-	>=dev-util/kbuild-0.1.9998.3127
 	>=dev-lang/yasm-0.6.2
+	>=dev-util/kbuild-0.1.9998.3127
 	sys-devel/bin86
 	sys-power/iasl
 "
 PDEPEND="
-	X? ( x11-drivers/xf86-video-vboxvideo )
+	gui? ( x11-drivers/xf86-video-vboxvideo )
 "
 
 BUILD_TARGETS="all"
@@ -61,12 +66,13 @@ BUILD_TARGET_ARCH="${ARCH}"
 
 VBOX_MOD_SRC_DIR="${S}/out/linux.${ARCH}/release/bin/additions/src"
 MODULESD_VBOXSF_ALIASES=("fs-vboxsf vboxsf") # 485996
+CONFIG_CHECK="DRM_TTM"
 
 pkg_setup() {
 	export DISTCC_DISABLE=1 #674256
 	MODULE_NAMES="vboxguest(misc:${VBOX_MOD_SRC_DIR}/vboxguest:${VBOX_MOD_SRC_DIR}/vboxguest)
 		vboxsf(misc:${VBOX_MOD_SRC_DIR}/vboxsf:${VBOX_MOD_SRC_DIR}/vboxsf)"
-	use X && MODULE_NAMES+=" vboxvideo(misc:${VBOX_MOD_SRC_DIR}/vboxvideo::${VBOX_MOD_SRC_DIR}/vboxvideo)"
+	use gui && MODULE_NAMES+=" vboxvideo(misc:${VBOX_MOD_SRC_DIR}/vboxvideo::${VBOX_MOD_SRC_DIR}/vboxvideo)"
 
 	linux-mod_pkg_setup
 }
@@ -89,15 +95,17 @@ src_prepare() {
 
 	# Disable things unused or splitted into separate ebuilds
 	cp "${FILESDIR}/${PN}-5-localconfig" LocalConfig.kmk || die
-	use X || echo "VBOX_WITH_X11_ADDITIONS :=" >> LocalConfig.kmk
+	if ! use gui; then
+		echo "VBOX_WITH_X11_ADDITIONS :=" >> LocalConfig.kmk || die
+	fi
 
 	# Remove pointless GCC version check
-	sed -e '/^check_gcc$/d' -i configure || die
+	sed -e '/ check_gcc$/d' -i configure || die
 
 	# Respect LDFLAGS (bug #759100)
-	sed -i -e '/TEMPLATE_VBOXR3EXE_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk
+	sed -i -e '/TEMPLATE_VBoxR3Exe_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk || die
 
-	eapply "${WORKDIR}/virtualbox-patches-6.1.36/patches"
+	eapply "${WORKDIR}/virtualbox-patches-7.0.8/patches"
 	eapply_user
 }
 
@@ -180,7 +188,20 @@ src_compile() {
 	# we compiled the user-space tools as we need two of the
 	# automatically generated header files. (>=3.2.0)
 	# Move this here for bug 836037
-	BUILD_PARAMS="KERN_DIR=/lib/modules/${KV_FULL}/build KERNOUT=${KV_OUT_DIR} KBUILD_EXTRA_SYMBOLS=${S}/Module.symvers"
+	BUILD_PARAMS="CC=\"$(tc-getBUILD_CC)\" KERN_DIR=/lib/modules/${KV_FULL}/build \
+		KERNOUT=${KV_OUT_DIR} KBUILD_EXTRA_SYMBOLS=${S}/Module.symvers"
+	if linux_chkconfig_present CC_IS_CLANG; then
+		ewarn "Warning: building ${PN} with a clang-built kernel is experimental."
+
+		BUILD_PARAMS+=' CC=${CHOST}-clang'
+		if linux_chkconfig_present LD_IS_LLD; then
+			BUILD_PARAMS+=' LD=ld.lld'
+			if linux_chkconfig_present LTO_CLANG_THIN; then
+				# kernel enables cache by default leading to sandbox violations
+				BUILD_PARAMS+=' ldflags-y=--thinlto-cache-dir= LDFLAGS_MODULE=--thinlto-cache-dir='
+			fi
+		fi
+	fi
 	linux-mod_src_compile
 }
 
@@ -208,7 +229,7 @@ src_install() {
 	fperms 0755 /usr/bin/VBoxControl
 
 	# VBoxClient user service and xrandr wrapper
-	if use X ; then
+	if use gui ; then
 		doins VBoxClient
 		fperms 0755 /usr/bin/VBoxClient
 		doins VBoxDRMClient
@@ -244,8 +265,8 @@ src_install() {
 pkg_postinst() {
 	linux-mod_pkg_postinst
 	udev_reload
-	if ! use X ; then
-		elog "use flag X is off, enable it to install the"
+	if ! use gui ; then
+		elog "use flag gui is off, enable it to install the"
 		elog "X Window System video driver."
 	fi
 	elog ""
