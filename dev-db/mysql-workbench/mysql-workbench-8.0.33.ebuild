@@ -4,10 +4,10 @@
 EAPI=7
 GCONF_DEBUG="no"
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{9,10,11} )
 PYTHON_REQ_USE="sqlite"
 
-ANTLR_VERSION=4.9.1
+ANTLR_VERSION=4.11.1
 
 inherit gnome2 flag-o-matic python-single-r1 cmake
 
@@ -20,7 +20,7 @@ SRC_URI="https://cdn.mysql.com/Downloads/MySQLGUITools/${MY_P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug doc"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -28,7 +28,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 CDEPEND="${PYTHON_DEPS}
 		app-crypt/libsecret
 		dev-libs/glib:2
-		<dev-cpp/antlr-cpp-4.8:4
+		>=dev-cpp/antlr-cpp-4.11.1:4
 		dev-cpp/atkmm:*
 		dev-cpp/pangomm:1.4
 		>=dev-cpp/glibmm-2.14:2
@@ -83,6 +83,8 @@ src_prepare() {
 	sed -i -e 's/-Werror//' CMakeLists.txt || die
 	## Fix doc install directory
 	sed -i -e "/WB_INSTALL_DOC_DIR/ s/mysql-workbench/${P}/ ; /WB_INSTALL_DOC_DIR/ s/-community//" CMakeLists.txt || die
+	## Look for an existing header file
+	sed -i -e 's/unixodbc.h/unixodbc_conf.h/' build/cmake/Modules/FindUNIXODBC.cmake || die
 
 	## package is very fragile...
 	strip-flags
@@ -95,6 +97,10 @@ src_configure() {
 		IODBC="-DIODBC_CONFIG_PATH=/usr/bin/iodbc-config"
 	fi
 
+	if has_version dev-db/unixODBC ; then
+		UNIXODBC="-DUNIXODBC_CONFIG_PATH=/usr/bin/odbc_config"
+	fi
+
 	append-cxxflags -std=c++11
 	ANTLR_JAR_PATH="${DISTDIR}/antlr-${ANTLR_VERSION}-complete.jar"
 	local mycmakeargs=(
@@ -102,6 +108,7 @@ src_configure() {
 		-DLIB_INSTALL_DIR="/usr/$(get_libdir)"
 		-DIODBC_INCLUDE_PATH="/usr/include/iodbc"
 		${IODBC}
+		${UNIXODBC}
 		-DPYTHON_INCLUDE_DIR="$(python_get_includedir)"
 		-DPYTHON_LIBRARY="$(python_get_library_path)"
 		-DMySQL_CONFIG_PATH="/usr/bin/mysql_config"
