@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://openocd.sourceforge.io
 INHERIT=autotools udev
 IUSE=capstone +cmsis-dap dummy +ftdi +jlink parport +usb verbose-io
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm ~x86
 LICENSE=GPL-2+
 RDEPEND=acct-group/plugdev >=dev-lang/jimtcl-0.81:= capstone? ( dev-libs/capstone ) cmsis-dap? ( dev-libs/hidapi ) jlink? ( >=dev-embedded/libjaylink-0.2.0 ) usb? ( virtual/libusb:1 ) ftdi? ( dev-embedded/libftdi:= )
 RESTRICT=strip
 SLOT=0
 SRC_URI=mirror://sourceforge/project/openocd/openocd/0.12.0/openocd-0.12.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=868ede729d2b032f5b155dc782c25793
+_md5_=da886d6bd3c193cd7f6e2d758cd76fd0
