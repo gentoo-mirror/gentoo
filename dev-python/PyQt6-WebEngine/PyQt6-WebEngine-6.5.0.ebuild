@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=sip
 PYPI_NO_NORMALIZE=1
 PYPI_PN=${PN/-/_}
@@ -42,7 +43,9 @@ src_prepare() {
 }
 
 src_configure() {
+	append-cppflags $(usex debug -{U,D}NDEBUG) # not set by eclass "yet"
 	append-cxxflags -std=c++17 # for old gcc / clang that use <17 (bug #892331)
+	append-cxxflags ${CPPFLAGS} # respect CPPFLAGS
 
 	DISTUTILS_ARGS=(
 		--jobs=$(makeopts_jobs)
