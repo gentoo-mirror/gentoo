@@ -49,6 +49,23 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
+# @ECLASS_VARIABLE: DISTUTILS_EXT
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set this variable to a non-null value if the package (possibly
+# optionally) builds Python extensions (loadable modules written in C,
+# Cython, Rust, etc.).
+#
+# When enabled, the eclass:
+#
+# - adds PYTHON_DEPS to DEPEND (for cross-compilation support), unless
+#   DISTUTILS_OPTIONAL is used
+#
+# - adds `debug` flag to IUSE that controls assertions (i.e. -DNDEBUG)
+#
+# - calls `build_ext` command if setuptools build backend is used
+#   and there is potential benefit from parallel builds
+
 # @ECLASS_VARIABLE: DISTUTILS_OPTIONAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -310,6 +327,11 @@ _distutils_set_globals() {
 		RDEPEND="${PYTHON_DEPS} ${rdep}"
 		BDEPEND="${PYTHON_DEPS} ${bdep}"
 		REQUIRED_USE=${PYTHON_REQUIRED_USE}
+
+		if [[ ${DISTUTILS_EXT} ]]; then
+			DEPEND="${PYTHON_DEPS}"
+			IUSE="debug"
+		fi
 	fi
 }
 _distutils_set_globals
@@ -1433,12 +1455,14 @@ distutils-r1_python_compile() {
 				# .pyx is added for Cython
 				#
 				# esetup.py does not respect SYSROOT, so skip it there
-				if [[ -z ${SYSROOT} && 1 -ne ${jobs} && 2 -eq $(
-					find '(' -name '*.c' -o -name '*.cc' -o -name '*.cpp' \
-						-o -name '*.cxx' -o -name '*.c++' -o -name '*.m' \
-						-o -name '*.mm' -o -name '*.pyx' ')' -printf '\n' |
-						head -n 2 | wc -l
-				) ]]; then
+				if [[ -z ${SYSROOT} && ${DISTUTILS_EXT} && 1 -ne ${jobs}
+					&& 2 -eq $(
+						find '(' -name '*.c' -o -name '*.cc' -o -name '*.cpp' \
+							-o -name '*.cxx' -o -name '*.c++' -o -name '*.m' \
+							-o -name '*.mm' -o -name '*.pyx' ')' -printf '\n' |
+							head -n 2 | wc -l
+					)
+				]]; then
 					esetup.py build_ext -j "${jobs}" "${@}"
 				fi
 			else
@@ -1750,6 +1774,10 @@ distutils-r1_run_phase() {
 	local -x AR=${AR} CC=${CC} CPP=${CPP} CXX=${CXX}
 	tc-export AR CC CPP CXX
 
+	if [[ ${DISTUTILS_EXT} ]]; then
+		local -x CPPFLAGS="${CPPFLAGS} $(usex debug '-UNDEBUG' '-DNDEBUG')"
+	fi
+
 	# How to build Python modules in different worlds...
 	local ldopts
 	case "${CHOST}" in
@@ -2040,6 +2068,16 @@ _distutils-r1_post_python_install() {
 			eerror "can be found in the Python Guide:"
 			eerror "https://projects.gentoo.org/python/guide/qawarn.html#stray-top-level-files-in-site-packages"
 			die "Failing install because of stray top-level files in site-packages"
+		fi
+
+		if [[ ! ${DISTUTILS_EXT} && ! ${_DISTUTILS_EXT_WARNED} ]]; then
+			if [[ $(find "${sitedir}" -name "*$(get_modname)" | head -n 1) ]]
+			then
+				eqawarn "Python extension modules (*$(get_modname)) found installed. Please set:"
+				eqawarn "  DISTUTILS_EXT=1"
+				eqawarn "in the ebuild."
+				_DISTUTILS_EXT_WARNED=1
+			fi
 		fi
 	fi
 }
