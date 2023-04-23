@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_GEMSPEC="puma.gemspec"
 
@@ -25,7 +25,7 @@ DEPEND+=" dev-libs/openssl:0 test? ( net-misc/curl )"
 RDEPEND+=" dev-libs/openssl:0="
 
 ruby_add_bdepend "virtual/ruby-ssl
-	test? ( dev-ruby/localhost dev-ruby/rack >=dev-ruby/minitest-5.9:5 >=dev-ruby/test-unit-3.0:2 )"
+	test? ( dev-ruby/localhost dev-ruby/rack:2.2 >=dev-ruby/minitest-5.9:5 >=dev-ruby/test-unit-3.0:2 )"
 
 ruby_add_rdepend "dev-ruby/nio4r:2"
 
@@ -48,6 +48,9 @@ all_ruby_prepare() {
 	# Avoid test that uses unpackaged stub_const
 	sed -i -e '/test_shutdown_with_grace/,/^  end/ s:^:#:' test/test_thread_pool.rb || die
 
+	# Tries to call 'rackup' directly
+	sed -i -e '/def test_bin/,/^    end/ s:^:#:' test/test_rack_handler.rb || die
+
 	sed -e 's/git ls-files --/find/' \
 		-e 's:_relative ": "./:' \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
@@ -55,5 +58,7 @@ all_ruby_prepare() {
 
 each_ruby_test() {
 	einfo "Running test suite"
-	${RUBY} -Ilib:.:test -e "gem 'minitest', '~>5.9'; gem 'test-unit', '~>3.0'; require 'minitest/autorun'; Dir['test/**/*test_*.rb'].each{|f| require f}" || die
+	PUMA_CI_RACK_2=true \
+	${RUBY} -Ilib:.:test \
+		-e "gem 'rack', '<3'; require 'minitest/autorun'; Dir['test/**/*test_*.rb'].each{require _1}" || die
 }
