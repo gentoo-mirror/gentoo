@@ -17,7 +17,7 @@ HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect/"
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="bluetooth pulseaudio X"
+IUSE="bluetooth pulseaudio telephony X"
 
 RESTRICT="test"
 
@@ -53,12 +53,13 @@ DEPEND="
 	>=kde-frameworks/solid-${KFMIN}:5
 	x11-libs/libxkbcommon
 	bluetooth? ( >=dev-qt/qtbluetooth-${QTMIN}:5 )
+	pulseaudio? ( media-libs/pulseaudio-qt:= )
+	telephony? ( >=kde-frameworks/modemmanager-qt-${KFMIN}:5 )
 	X? (
 		x11-libs/libfakekey
 		x11-libs/libX11
 		x11-libs/libXtst
 	)
-	pulseaudio? ( media-libs/pulseaudio-qt:= )
 "
 RDEPEND="${DEPEND}
 	dev-libs/kpeoplevcard
@@ -72,12 +73,16 @@ BDEPEND="
 	dev-util/wayland-scanner
 "
 
-PATCHES=( "${FILESDIR}/${PN}-21.07.80-revert-disable-kpeople.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-21.07.80-revert-disable-kpeople.patch"
+	"${FILESDIR}/${PN}-23.04.0-telephony-optional.patch" # bug 904823
+)
 
 src_configure() {
 	local mycmakeargs=(
 		-DBLUETOOTH_ENABLED=$(usex bluetooth)
 		$(cmake_use_find_package pulseaudio KF5PulseAudioQt)
+		$(cmake_use_find_package telephony KF5ModemManagerQt)
 		$(cmake_use_find_package X LibFakeKey)
 	)
 	ecm_src_configure
