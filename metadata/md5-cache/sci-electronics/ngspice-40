@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=sys-libs/ncurses:= X? ( x11-libs/libXaw x11-libs/libXt x11-libs/libX11 ) fftw? ( sci-libs/fftw:3.0= ) readline? ( sys-libs/readline:= ) tcl? ( dev-lang/tcl:= dev-tcltk/blt )
+DESCRIPTION=The Next Generation Spice (Electronic Circuit Simulator)
+EAPI=8
+HOMEPAGE=http://ngspice.sourceforge.net
+INHERIT=autotools multibuild toolchain-funcs virtualx
+IUSE=X debug deprecated doc examples fftw openmp +readline +shared tcl test
+KEYWORDS=~amd64 ~arm64 ~ppc ~riscv ~sparc ~x86 ~x64-macos
+LICENSE=BSD GPL-2 MPL-2.0
+RDEPEND=sys-libs/ncurses:= X? ( x11-libs/libXaw x11-libs/libXt x11-libs/libX11 ) fftw? ( sci-libs/fftw:3.0= ) readline? ( sys-libs/readline:= ) tcl? ( dev-lang/tcl:= dev-tcltk/blt )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge/ngspice/ngspice-40.tar.gz doc? ( mirror://sourceforge/ngspice/ngspice-40-manual.pdf )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	virtualx	817571665ee28575da44ee08135089e5
+_md5_=630724e0fcaa1f0627a6b12810713020
