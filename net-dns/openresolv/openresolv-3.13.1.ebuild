@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="A framework for managing DNS information"
 HOMEPAGE="https://roy.marples.name/projects/openresolv"
-SRC_URI="https://github.com/NetworkConfiguration/openresolv/archive/${P}.tar.gz"
+SRC_URI="https://github.com/NetworkConfiguration/openresolv/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -14,8 +14,6 @@ IUSE="selinux"
 
 RDEPEND="!sys-apps/systemd[resolvconf]
 	selinux? ( sec-policy/selinux-resolvconf )"
-
-S="${WORKDIR}/${PN}-${P}"
 
 src_configure() {
 	local myeconfargs=(
