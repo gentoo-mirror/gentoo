@@ -18,8 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 # overly strict requirements?
-# https://github.com/conan-io/conan/blob/develop/conans/requirements.txt
-# https://github.com/conan-io/conan/blob/develop/conans/requirements_server.txt
+# https://github.com/conan-io/conan/blob/release/2.0/conans/requirements.txt
+# https://github.com/conan-io/conan/blob/release/2.0/conans/requirements_server.txt
 RDEPEND="
 	>=dev-python/bottle-0.12.8[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.4.3[${PYTHON_USEDEP}]
