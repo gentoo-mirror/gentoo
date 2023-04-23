@@ -10,7 +10,7 @@ inherit elisp
 DESCRIPTION="Pop up a frame at point"
 HOMEPAGE="https://github.com/tumashu/posframe/"
 SRC_URI="https://github.com/tumashu/${PN}/archive/refs/tags/v${PV}.tar.gz
-			-> ${P}.tar.gz"
+	-> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 KEYWORDS="~amd64 ~x86"
