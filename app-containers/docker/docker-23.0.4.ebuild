@@ -5,7 +5,7 @@ EAPI=7
 EGO_PN=github.com/docker/docker
 MY_PV=${PV/_/-}
 inherit linux-info systemd udev golang-vcs-snapshot
-GIT_COMMIT=59118bff500fc0d95d0560a9788735a8d89568ce
+GIT_COMMIT=cbce3319305c39df3405c969a12e0a5d2bad3f4f
 
 DESCRIPTION="The core functions you need to create Docker images and run Docker containers"
 HOMEPAGE="https://www.docker.com/"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/moby/moby/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="apparmor aufs btrfs +container-init device-mapper overlay seccomp selinux"
 
 DEPEND="
@@ -37,7 +37,7 @@ RDEPEND="
 	>=dev-vcs/git-1.7
 	>=app-arch/xz-utils-4.9
 	dev-libs/libltdl
-	>=app-containers/containerd-1.6.19[apparmor?,btrfs?,device-mapper?,seccomp?]
+	>=app-containers/containerd-1.6.20[apparmor?,btrfs?,device-mapper?,seccomp?]
 	~app-containers/docker-proxy-0.8.0_p20230118
 	container-init? ( >=sys-process/tini-0.19.0[static] )
 	selinux? ( sec-policy/selinux-docker )
