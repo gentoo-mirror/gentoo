@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,7 +23,7 @@ BDEPEND="${DEPEND}
 # In prefix-stack, these dependencies actually are the @system set,
 # as we rely on the base prefix anyway for package management,
 # which should have a proper @system set.
-# See als: pkg_preinst
+# See also: pkg_preinst
 RDEPEND="${DEPEND}
 	prefix-stack? (
 		>=sys-apps/baselayout-prefix-2.6
