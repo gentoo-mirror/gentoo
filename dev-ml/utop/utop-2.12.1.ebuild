@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,10 +21,11 @@ ELISP_DEPEND="
 	)
 "
 DEPEND="
-	dev-ml/camomile:=
 	dev-ml/lambda-term:=
+	dev-ml/logs:=
 	dev-ml/lwt:=
 	dev-ml/react:=
+	dev-ml/zed:=
 "
 RDEPEND="
 	${DEPEND}
