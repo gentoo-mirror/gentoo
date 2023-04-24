@@ -1,36 +1,38 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+COMMIT=efc458efa5730680a5ff3805f6cf9d88dc88748b
 inherit toolchain-funcs
 
 DESCRIPTION="Small dynamic tiling window manager for X11"
 HOMEPAGE="https://github.com/conformal/spectrwm"
-SRC_URI="https://github.com/conformal/spectrwm/archive/${PN^^}_${PV//./_}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/conformal/spectrwm/archive/${COMMIT}.tar.gz -> ${PN}-${COMMIT}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
-RDEPEND="
-	x11-misc/dmenu
-"
 DEPEND="
 	elibc_musl? ( sys-libs/queue-standalone )
-	virtual/pkgconfig
+	x11-libs/libxcb
 	x11-libs/libX11
 	x11-libs/libXcursor
-	x11-libs/libXrandr
-	x11-libs/libXt
+	x11-libs/libXft
 	x11-libs/xcb-util
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 "
+RDEPEND="
+	${DEPEND}
+	x11-misc/dmenu
+"
+BDEPEND="virtual/pkgconfig"
+
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.4.0-gentoo.patch
-	"${FILESDIR}"/${PN}-3.4.1-musl.patch
+	"${FILESDIR}"/spectrwm-3.4.1_p20221224-fix-cflags-ldflags.patch
 )
-S=${WORKDIR}/${PN}-${PN^^}_${PV//./_}
+S=${WORKDIR}/${PN}-${COMMIT}
 
 src_prepare() {
 	sed -i -e '/LICENSE.md/d' linux/Makefile || die
