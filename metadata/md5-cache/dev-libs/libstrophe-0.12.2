@@ -5,9 +5,9 @@ DESCRIPTION=A simple, lightweight C library for writing XMPP clients
 EAPI=7
 HOMEPAGE=https://strophe.im/libstrophe/
 IUSE=doc expat gnutls
-KEYWORDS=amd64
+KEYWORDS=amd64 ~arm64
 LICENSE=|| ( MIT GPL-3 )
 RDEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= )
 SLOT=0/0.1
 SRC_URI=https://github.com/strophe/libstrophe/releases/download/0.12.2/libstrophe-0.12.2.tar.xz https://github.com/strophe/libstrophe/commit/7352bd5cdbacf98771fdc0d32a606c4b6718077c.patch -> libstrophe-fix-configure-bashisms.patch
-_md5_=3ce9f23542a1d4633f13c2a15b0f2258
+_md5_=52732434ebf6c6a18d018d05c34cf709
