@@ -14,7 +14,7 @@ SRC_URI="https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-re
 
 LICENSE="CPL-1.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris"
 IUSE="+cairo devil doc examples gtk2 gts guile lasi nls pdf perl postscript python qt5 ruby svg tcl webp X"
 
 REQUIRED_USE="
@@ -29,7 +29,6 @@ RDEPEND="
 	>=dev-libs/expat-2
 	>=dev-libs/glib-2.11.1:2
 	dev-libs/libltdl
-	>=media-libs/fontconfig-2.3.95
 	>=media-libs/freetype-2.1.10
 	>=media-libs/gd-2.0.34:=[fontconfig,jpeg,png,truetype,zlib]
 	media-libs/libjpeg-turbo:=
@@ -163,7 +162,6 @@ src_configure() {
 		$(use_with webp)
 		$(use_with X x)
 		--with-digcola
-		--with-fontconfig
 		--with-freetype2
 		--with-ipsepcola
 		--with-libgd
@@ -172,7 +170,6 @@ src_configure() {
 		# New/experimental features, to be tested, disable for now
 		--without-ipsepcola
 		--without-smyrna
-		--without-visio
 		# Bindings
 		$(use_enable guile)
 		$(use_enable perl)
@@ -180,7 +177,6 @@ src_configure() {
 		$(use_enable ruby)
 		$(use_enable tcl)
 		--disable-go
-		--disable-io
 		--disable-lua
 		--disable-java
 		--disable-ocaml
