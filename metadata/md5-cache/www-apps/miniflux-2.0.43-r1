@@ -5,11 +5,11 @@ DESCRIPTION=Minimalist and opinionated feed reader
 EAPI=8
 HOMEPAGE=https://miniflux.app https://github.com/miniflux/v2
 INHERIT=go-module systemd
-KEYWORDS=~amd64 ~ppc64 ~riscv
+KEYWORDS=amd64 ppc64 ~riscv
 LICENSE=Apache-2.0 BSD BSD-2 MIT
 RDEPEND=acct-user/miniflux >=dev-db/postgresql-9.5
 RESTRICT=test strip
 SLOT=0
 SRC_URI=https://github.com/miniflux/v2/archive/2.0.43.tar.gz -> miniflux-2.0.43.tar.gz https://dev.gentoo.org/~concord/distfiles/miniflux-2.0.43-deps.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	9c75e51a48520b2f01471c1f91762882	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=8c52af3b503dc5a2a601b48235589766
+_md5_=fa3db32a5272d0cd5a4b77dd090ed7dc
