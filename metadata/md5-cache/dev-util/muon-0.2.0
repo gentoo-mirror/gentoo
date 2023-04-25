@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://muon.build/
 INHERIT=meson python-any-r1
 IUSE=+archive +curl +libpkgconf +man
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64
 LICENSE=GPL-3 man? ( Apache-2.0 )
 RDEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= ) man? ( app-text/scdoc )
 SLOT=0
 SRC_URI=https://git.sr.ht/~lattis/muon/archive/0.2.0.tar.gz -> muon-0.2.0.tar.gz man? ( https://mochiro.moe/wrap/meson-docs-0.64.1-19-g39c6fa4bc.tar.gz )
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=b1da5e39d6e2a72b68654c24ed50a6a8
+_md5_=1de30d9b9071008f4f818bd1315bd1e3
