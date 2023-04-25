@@ -4,6 +4,7 @@
 EAPI=8
 
 FORTRAN_NEEDED=fortran
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=meson-python
 PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="threads(+)"
@@ -96,10 +97,6 @@ python_test() {
 	cd "${T}" || die
 
 	local EPYTEST_DESELECT=(
-		linalg/tests/test_decomp.py::TestSchur::test_sort
-		linalg/tests/test_solvers.py::test_solve_discrete_are
-		optimize/tests/test_milp.py::test_milp_timeout_16545
-
 		# Network
 		datasets/tests/test_data.py::TestDatasets::test_existence_all
 		datasets/tests/test_data.py::TestDatasets::test_ascent
