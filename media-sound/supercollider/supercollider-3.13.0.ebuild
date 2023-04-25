@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake flag-o-matic readme.gentoo-r1 xdg-utils
+inherit cmake flag-o-matic xdg
 
 DESCRIPTION="Environment and programming language for real time audio synthesis"
 HOMEPAGE="https://supercollider.github.io/"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/supercollider/supercollider/releases/download/Versio
 LICENSE="GPL-2 gpl3? ( GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack qt5 server +sndfile static-libs vim webengine X zeroconf"
+IUSE="cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack qt5 server +sndfile static-libs vim webengine X +zeroconf"
 
 REQUIRED_USE="
 	qt5? ( X )
@@ -40,7 +40,6 @@ RDEPEND="
 		dev-qt/qtsvg:5
 		dev-qt/qtwidgets:5
 	)
-	server? ( !app-admin/supernova )
 	sndfile? ( media-libs/libsndfile )
 	webengine? (
 		dev-qt/qtwebchannel:5
@@ -61,17 +60,11 @@ DEPEND="${RDEPEND}
 	vim? ( app-editors/vim )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-3.10.2-no-ccache.patch
-	"${FILESDIR}"/${P}-fewer-qt-deps.patch # Upstream PR 4991
-	"${FILESDIR}"/${P}-fix-libscsynth-linker-issue.patch # Upstream issue 4992
-	"${FILESDIR}"/${P}-boost-1.74.patch # bug 760489
-)
-
 S="${WORKDIR}/SuperCollider-${PV}-Source"
 
 src_configure() {
 	local mycmakeargs=(
+		-DSC_CLANG_USES_LIBSTDCPP=ON
 		-DINSTALL_HELP=ON
 		-DSYSTEM_BOOST=ON
 		-DSYSTEM_YAMLCPP=ON
@@ -111,7 +104,7 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	use emacs && newdoc editors/scel/README.md README.emacs
+	use emacs && newdoc editors/sc-el/README.md README.emacs
 	use gedit && newdoc editors/sced/README.md README.gedit
 	use vim && newdoc editors/scvim/README.md README.vim
 }
@@ -121,17 +114,18 @@ src_test() {
 	cmake_src_test
 }
 
+pkg_preinst() {
+	xdg_pkg_preinst
+}
+
 pkg_postinst() {
 	einfo "Notice: SuperCollider is not very intuitive to get up and running."
 	einfo "The best course of action to make sure that the installation was"
 	einfo "successful and get you started with using SuperCollider is to take"
 	einfo "a look through ${EROOT}/usr/share/doc/${PF}/README.md.bz2"
-
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
+	xdg_pkg_postrm
 }
