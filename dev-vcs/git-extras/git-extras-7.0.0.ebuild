@@ -1,7 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+inherit bash-completion-r1
 
 DESCRIPTION="Git utilities -- repo summary, repl, changelog population, and many more"
 HOMEPAGE="https://github.com/tj/git-extras"
@@ -12,23 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x64-macos"
 
 RDEPEND="
-	app-shells/bash
+	>=app-shells/bash-4.0:*
 	dev-vcs/git
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.1.0-no-bash-completion-install.patch
-)
 
 src_prepare() {
 	default
 
 	# For now, don't force including the git completion
-	# sed -i -e "1 i source $(get_bashcompdir)\/git" etc/bash_completion.sh || die
-}
-
-src_configure() {
-	return
+	sed -i -e "1 i source $(get_bashcompdir)\/git" etc/bash_completion.sh || die
 }
 
 src_compile() {
@@ -40,6 +34,7 @@ src_install() {
 		DESTDIR="${D}" \
 		PREFIX="${EPREFIX}/usr" \
 		SYSCONFDIR="${EPREFIX}/etc" \
+		COMPL_DIR="${D}/$(get_bashcompdir)" \
 		install
 
 	# TODO: Unfortunately, none of the completion seems to
