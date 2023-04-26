@@ -28,10 +28,6 @@ IUSE+=${LANG_USE}
 REQUIRED_USE="|| ( html pdf ) ^^ ( ${LANG_USE} )"
 unset LANG_USE
 
-PATCHES=(
-	"${FILESDIR}/${P}-eeschema_advanced.patch"
-)
-
 # TODO: need asciidoctor-pdf for pdf
 # bug #697450
 BDEPEND="
