@@ -1765,7 +1765,7 @@ app-doc/gimp-help 2.10.0-r2: GNU Image Manipulation Program help files
 app-doc/gnucash-docs 4.12 4.13: Documentation package for GnuCash
 app-doc/halibut 1.3: yet another free document preparation system
 app-doc/jargon 4.4.7-r2: A compendium of hacker slang illuminating many aspects of hackish tradition
-app-doc/kicad-doc 6.0.9 6.0.11 7.0.0 7.0.1: Electronic Schematic and PCB design tools manuals
+app-doc/kicad-doc 6.0.9 6.0.11 7.0.1 7.0.2: Electronic Schematic and PCB design tools manuals
 app-doc/lapack-docs 3.1.1: Documentation reference and man pages for lapack implementations
 app-doc/linkers-and-loaders 1-r1: The Linkers and Loaders book
 app-doc/linux-device-drivers 2-r1 3-r1: Howto write linux device drivers (updated for Linux 2.6)
@@ -1800,7 +1800,7 @@ app-editors/emacs 18.59-r15 25.3-r15 25.3-r16 25.3-r18 26.3-r11 26.3-r13 26.3-r1
 app-editors/emact 2.58.0-r1: EmACT, a fork of Conroy's MicroEmacs
 app-editors/ersatz-emacs 20060515-r1: A very minimal imitation of the famous GNU Emacs editor
 app-editors/fe 2.0-r1: A small and easy to use folding editor
-app-editors/featherpad 1.3.1 1.3.4: Lightweight Qt5 Plain-Text Editor for Linux
+app-editors/featherpad 1.4.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/focuswriter 1.7.6: Fullscreen and distraction-free word processor
 app-editors/fte 20110708-r1: Lightweight text-mode editor
 app-editors/gedit 44.2: A text editor for the GNOME desktop
@@ -3826,7 +3826,7 @@ dev-db/mariadb-connector-c 3.1.13 3.2.5 3.2.7 9999: C client library for MariaDB
 dev-db/mariadb-connector-odbc 3.1.14: MariaDB Connector/ODBC
 dev-db/mongodb 4.4.10-r1 4.4.20 5.0.5-r2 5.0.16-r1: A high-performance, open source, schema-free document-oriented database
 dev-db/mycli 1.26.1 9999: CLI for MySQL Database with auto-completion and syntax highlighting
-dev-db/mydumper 0.12.5.3 0.12.7.3 0.13.1.2: A high-performance multi-threaded backup (and restore) toolset for MySQL
+dev-db/mydumper 0.12.5.3 0.12.7.3 0.13.1.2 0.14.4.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.27-r1: ODBC driver for MySQL
 dev-db/mysql 5.7.36-r1 5.7.40 5.7.41 8.0.27-r1 8.0.31-r2 8.0.32-r2: A fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
@@ -4013,7 +4013,7 @@ dev-games/poker-eval 138.0: Fast C library for evaluating poker hands
 dev-games/ps2-packer 0.4.4-r1: Another ELF packer for the PS2
 dev-games/quake4-sdk 1.4.2-r1: Quake4 SDK
 dev-games/recastnavigation 1.5.1_p20230102: Navigation mesh construction toolset for games
-dev-games/simgear 2020.3.17-r1 9999: Development library for simulation games
+dev-games/simgear 2020.3.17-r1 2020.3.18 9999: Development library for simulation games
 dev-games/t4k-common 0.1.1-r1: Library of code shared between tuxmath and tuxtype
 dev-games/tiled 1.8.6: A general purpose tile map editor
 dev-go/act 1.6.0: Automated Component Toolkit code generator
@@ -5370,7 +5370,7 @@ dev-libs/miniaudio 0.11.11: A single file library for audio playback and capture
 dev-libs/miniz 2.2.0-r1 3.0.1: A lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
 dev-libs/mmtf-cpp 1.0.0-r1 1.1.0-r1: The pure C++ implementation of the MMTF API, decoder and encoder
-dev-libs/modsecurity 3.0.8: Application firewall and intrusion detection
+dev-libs/modsecurity 3.0.8 3.0.9: Application firewall and intrusion detection
 dev-libs/mongo-c-driver 1.18.0-r1: Client library written in C for MongoDB
 dev-libs/mpc 1.2.1 1.3.1: A library for multiprecision complex arithmetic with exact rounding
 dev-libs/mpfr 4.1.0_p13-r1 4.1.1_p1 4.2.0 4.2.0_p4: Library for multiple-precision floating-point computations with exact rounding
@@ -10715,7 +10715,7 @@ dev-vcs/svneverever 1.7.1-r2 1.7.1-r3: Tool collecting path entries across SVN h
 dev-vcs/tig 2.5.7 2.5.8 9999: text mode interface for git
 dev-vcs/tkcvs 9.3.2: Tcl/Tk-based graphical interface to CVS with Subversion support
 dev-vcs/topgit 0.19.13: A different patch queue manager
-dev-vcs/tortoisehg 6.2.3 6.3.2 9999: Set of graphical tools for Mercurial
+dev-vcs/tortoisehg 6.2.3 6.3.2 6.4.2 9999: Set of graphical tools for Mercurial
 dev-vcs/vcsh 1.20190621.4 2.0.4: Manage config files in /tmp via fake bare git repositories
 games-action/0verkill 0.16-r4: A bloody 2D action deathmatch-like game in ASCII-ART
 games-action/a-story-about-my-uncle 5188: First person platforming adventure about a boy who searches for his lost uncle
@@ -11392,8 +11392,8 @@ games-simulation/cannonsmash 0.6.6-r1: 3D tabletennis game
 games-simulation/corsix-th 0.66-r1: Open source clone of Theme Hospital
 games-simulation/crashtest 1.1-r2: Educational car crash simulator
 games-simulation/crrcsim 0.9.13-r2: Model-airplane flight simulation program
-games-simulation/flightgear 2020.3.17-r1 9999: Open Source Flight Simulator
-games-simulation/flightgear-data 2020.3.17 9999: FlightGear data files
+games-simulation/flightgear 2020.3.17-r1 2020.3.18 9999: Open Source Flight Simulator
+games-simulation/flightgear-data 2020.3.17 2020.3.18 9999: FlightGear data files
 games-simulation/gl117 1.3.2-r1: Action flight simulator
 games-simulation/lincity 1.13.1-r4: City simulation game for X
 games-simulation/lincity-ng 2.9_beta: City simulation game
@@ -12520,7 +12520,7 @@ media-gfx/fdm-materials 4.13.0: FDM materials for media-gfx/cura
 media-gfx/feh 3.9.1 3.9.1-r1 3.10: A fast, lightweight imageviewer using imlib2
 media-gfx/figurine 1.0.5-r1: A vector based graphics editor similar to xfig, but simpler
 media-gfx/flam3 3.1.1: Tools and a library for creating flame fractal images
-media-gfx/flameshot 0.10.2 11.0.0 12.0.0-r1 12.1.0-r1: Powerful yet simple to use screenshot software
+media-gfx/flameshot 0.10.2 11.0.0 12.0.0-r2 12.1.0-r2: Powerful yet simple to use screenshot software
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20220308-r1 20230101: postscript font editor and converter
 media-gfx/fotowall 1.0: Qt5 tool for creating wallpapers
@@ -12736,7 +12736,7 @@ media-libs/elles_icc_profiles 20160501.0932-r1: Elle Stone's well-behaved RGB an
 media-libs/embree 3.13.4: Collection of high-performance ray tracing kernels
 media-libs/esdl 1.3.1: Erlang bindings for the SDL library
 media-libs/exempi 2.6.2 2.6.3: Port of the Adobe XMP SDK to work on UNIX
-media-libs/exiftool 12.42 12.50 12.59 12.60: Read and write meta information in image, audio and video files
+media-libs/exiftool 12.50 12.60 12.61: Read and write meta information in image, audio and video files
 media-libs/faac 1.30: Free MPEG-4 audio codecs by AudioCoding.com
 media-libs/faad2 2.10.1: AAC audio decoding library
 media-libs/fcft 3.1.2-r1 3.1.3 3.1.5: Simple library for font loading and glyph rasterization
@@ -14344,7 +14344,7 @@ net-im/rocketchat-desktop-bin 3.8.14 3.8.16: The Ultimate Open Source Web Chat P
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-amm 1.1.1 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.11.3 0.11.5.1: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 6.14.0: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 6.15.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/skypeforlinux 8.94.0.428 8.95.0.408 8.96.0.207 8.96.0.408: Instant messaging client, with support for audio and video
 net-im/slack 4.28.182 4.29.149: Team collaboration tool
 net-im/spectrum2 2.1.3-r2 2.2.0-r1: An open source instant messaging transport
@@ -14367,7 +14367,7 @@ net-im/yowsup 3.3.0: A library that enables you to build applications which use 
 net-im/ysm 2.9.9.1-r2: A console ICQ client supporting versions 7/8
 net-im/zoom 5.13.10.1208 5.14.2.2046 5.14.5.2430 5.14.5.2430-r1: Video conferencing and web conferencing service
 net-irc/anope 2.0.11: Anope IRC Services
-net-irc/atheme-services 7.2.12-r3 7.2.12-r4: A portable and secure set of open-source and modular IRC services
+net-irc/atheme-services 7.2.12-r4: A portable and secure set of open-source and modular IRC services
 net-irc/bnc 2.9.4-r2: BNC (BouNCe) is used as a gateway to an IRC Server
 net-irc/dccserver 0.5-r1 0.5-r2: Linux implementation of the mirc dccserver command
 net-irc/eggdrop 1.9.1 1.9.4 1.9.5: An IRC bot extensible with C or TCL
@@ -14405,7 +14405,7 @@ net-irc/rbot 0.9.15_p20160325-r3: A ruby IRC bot
 net-irc/rhapsody 0.28b: IRC client intended to be displayed on a text console
 net-irc/scrollz 2.3-r1 2.3.1: Advanced IRC client based on ircII
 net-irc/sic 1.2-r1: An extremely simple IRC client
-net-irc/soju 0.5.2 0.6.0: soju is a user-friendly IRC bouncer
+net-irc/soju 0.6.0 0.6.0-r1 0.6.1: soju is a user-friendly IRC bouncer
 net-irc/telepathy-idle 0.2.2: Full-featured IRC connection manager for Telepathy
 net-irc/unrealircd 5.2.4-r1 6.0.4.2: An advanced Internet Relay Chat daemon
 net-irc/weechat 3.7.1 3.8 9999: Portable and multi-interface IRC client
@@ -15036,7 +15036,7 @@ net-nds/yp-tools 4.2.3-r1: Network Information Service tools
 net-news/amphetadesk 0.93.1-r1: AmphetaDesk is a free syndicated news aggregator
 net-news/canto-curses 0.9.9: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
-net-news/liferea 1.12.10 1.14.5: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
+net-news/liferea 1.12.10 1.12.10-r1 1.14.5: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.21-r1 2.23-r1 2.28 2.29 2.30.1: An RSS/Atom feed reader for text terminals
 net-news/rssguard 4.2.5 4.2.7 4.3.2 4.3.3: Simple (yet powerful) feed reader
 net-news/rsstail 2.1 2.1_p20200310: A tail-like RSS-reader
@@ -15326,7 +15326,7 @@ sci-astronomy/pysiril 0.0.12: Python library to interface Python to a SiriL scri
 sci-astronomy/scamp 2.0.4: Astrometric and photometric solutions for astronomical images
 sci-astronomy/sextractor 2.19.5-r1: Extract catalogs of sources from astronomical FITS images
 sci-astronomy/siril 1.0.6-r2 1.2.0_beta1 9999: A free astronomical image processing software
-sci-astronomy/sirilic 1.14.3 1.14.3-r1 1.15.0: Preparing acquisition files for processing with the SiriL software
+sci-astronomy/sirilic 1.14.3 1.14.3-r1 1.15.0 1.15.2: Preparing acquisition files for processing with the SiriL software
 sci-astronomy/skymaker 3.10.5: Program that simulates astronomical images
 sci-astronomy/sofa_c 20170420: Library for algorithms for models in fundamental astronomy
 sci-astronomy/stellarium 1.2 23.1: 3D photo-realistic skies in real time
@@ -15549,12 +15549,12 @@ sci-electronics/gtkwave 3.3.106 3.3.111: A wave viewer for LXT, LXT2, VZT, GHW a
 sci-electronics/gwave 20190116: Analog waveform viewer for SPICE-like simulations
 sci-electronics/irsim 9.7.93: IRSIM is a "switch-level" simulator
 sci-electronics/iverilog 10.3 11.0 12.0 9999: A Verilog simulation and synthesis tool
-sci-electronics/kicad 6.0.9-r1 6.0.11 7.0.0-r1 7.0.1 9999: Electronic Schematic and PCB design tools
-sci-electronics/kicad-footprints 6.0.9 6.0.11 7.0.0 7.0.1 9999: Electronic Schematic and PCB design tools footprint libraries
-sci-electronics/kicad-meta 6.0.9 6.0.11 7.0.0 7.0.1: Electronic Schematic and PCB design tools (meta package)
-sci-electronics/kicad-packages3d 6.0.9 6.0.11 7.0.0 7.0.1 9999: Electronic Schematic and PCB design tools 3D package libraries
-sci-electronics/kicad-symbols 6.0.9 6.0.11 7.0.0 7.0.1 9999: Electronic Schematic and PCB design tools symbol libraries
-sci-electronics/kicad-templates 6.0.9 6.0.11 7.0.0 7.0.1 9999: Electronic Schematic and PCB design tools project templates
+sci-electronics/kicad 6.0.9-r1 6.0.11 7.0.1 7.0.2 9999: Electronic Schematic and PCB design tools
+sci-electronics/kicad-footprints 6.0.9 6.0.11 7.0.1 7.0.2 9999: Electronic Schematic and PCB design tools footprint libraries
+sci-electronics/kicad-meta 6.0.9 6.0.11 7.0.1 7.0.2: Electronic Schematic and PCB design tools (meta package)
+sci-electronics/kicad-packages3d 6.0.9 6.0.11 7.0.1 7.0.2 9999: Electronic Schematic and PCB design tools 3D package libraries
+sci-electronics/kicad-symbols 6.0.9 6.0.11 7.0.1 7.0.2 9999: Electronic Schematic and PCB design tools symbol libraries
+sci-electronics/kicad-templates 6.0.9 6.0.11 7.0.1 7.0.2 9999: Electronic Schematic and PCB design tools project templates
 sci-electronics/klayout 0.28.5 9999: Viewer and editor for GDS and OASIS integrated circuit layouts
 sci-electronics/ktechlab 0.51.0: IDE for microcontrollers and electronics
 sci-electronics/labone 21.08.20515-r2: Platform independent instrument control for Zurich Instruments devices

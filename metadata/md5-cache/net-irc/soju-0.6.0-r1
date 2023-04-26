@@ -1,0 +1,17 @@
+BDEPEND=app-text/scdoc >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-user/soju acct-group/soju sqlite? ( dev-db/sqlite:3 )
+DESCRIPTION=soju is a user-friendly IRC bouncer
+EAPI=8
+HOMEPAGE=https://soju.im/
+INHERIT=go-module systemd
+IUSE=moderncsqlite +sqlite pam
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=AGPL-3
+RDEPEND=acct-user/soju acct-group/soju sqlite? ( dev-db/sqlite:3 )
+REQUIRED_USE=?? ( moderncsqlite sqlite )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://git.sr.ht/~emersion/soju/refs/download/v0.6.0/soju-0.6.0.tar.gz https://github.com/alfredfo/soju-deps/raw/master/soju-0.6.0-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	9c75e51a48520b2f01471c1f91762882	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=92c4ae12bbcfec208b5a4b810d61cf1d
