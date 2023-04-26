@@ -1,8 +1,8 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit autotools
+EAPI=8
+inherit autotools bash-completion-r1
 
 DESCRIPTION="enhanced dd with features for forensics and security"
 HOMEPAGE="https://github.com/resurrecting-open-source-projects/dcfldd"
@@ -22,4 +22,9 @@ DOCS=(
 src_prepare() {
 	default
 	eautoreconf
+}
+
+src_install() {
+	default
+	newbashcomp doc/dcfldd-bash_completion dcfldd
 }
