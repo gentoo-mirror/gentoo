@@ -6,12 +6,11 @@ EAPI=8
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit edo flag-o-matic multilib-build toolchain-funcs
 
-# Pick versions known to work for Wine and use vanilla for simplicity,
-# ideally update only on mingw64-runtime bumps or if toolchain is getting
-# too outdated to avoid rebuilding the entire toolchain too often.
-# Do _p1++ rather than revbump if changing without bumping mingw64 itself.
+# Pick versions known to work for wine+dxvk, and avoid too frequent updates
+# due to slow rebuilds. Do _p1++ rather than revbump on changes (not using
+# Gentoo patchsets for simplicity, their changes are mostly unneeded here).
 BINUTILS_PV=2.40
-GCC_PV=12.2.0
+GCC_PV=13.1.0
 MINGW_PV=$(ver_cut 1-3)
 
 DESCRIPTION="All-in-one mingw64 toolchain intended for building Wine without crossdev"
@@ -21,8 +20,14 @@ HOMEPAGE="
 	https://sourceware.org/binutils/"
 SRC_URI="
 	mirror://sourceforge/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v${MINGW_PV}.tar.bz2
-	mirror://gnu/gcc/gcc-${GCC_PV}/gcc-${GCC_PV}.tar.xz
 	mirror://gnu/binutils/binutils-${BINUTILS_PV}.tar.xz"
+if [[ ${GCC_PV} == *-* ]]; then
+	SRC_URI+=" mirror://gcc/snapshots/${GCC_PV}/gcc-${GCC_PV}.tar.xz"
+else
+	SRC_URI+="
+		mirror://gcc/gcc-${GCC_PV}/gcc-${GCC_PV}.tar.xz
+		mirror://gnu/gcc/gcc-${GCC_PV}/gcc-${GCC_PV}.tar.xz"
+fi
 S="${WORKDIR}"
 
 # l1:binutils+gcc, l2:gcc(libraries), l3:mingw64-runtime
@@ -31,9 +36,7 @@ LICENSE="
 	LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 )
 	ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain"
 SLOT="0"
-# unkeyworded for testing new binutils, keywording may wait until can bump
-# either gcc or mingw64-runtime at same time given the long build time
-#KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="+abi_x86_32 custom-cflags debug"
 
 RDEPEND="
@@ -44,10 +47,14 @@ RDEPEND="
 	virtual/libiconv"
 DEPEND="${RDEPEND}"
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	strerror_r # libstdc++ test using -Wimplicit+error
+)
+
 PATCHES=(
 	"${FILESDIR}"/mingw64-runtime-10.0.0-msvcr-extra-race.patch
 	"${FILESDIR}"/mingw64-runtime-10.0.0-tmp-files-clash.patch
-	"${FILESDIR}"/gcc-11.3.0-plugin-objdump.patch
+	"${FILESDIR}"/binutils-2.40-import-lib.patch
 	"${FILESDIR}"/gcc-12.2.0-drop-cflags-sed.patch
 )
 
@@ -108,7 +115,7 @@ src_compile() {
 	)
 	mwt-binutils() {
 		# symlink gcc's lto plugin for AR (bug #854516)
-		ln -s ../../libexec/gcc/${CTARGET}/${GCC_PV%%.*}/liblto_plugin.so \
+		ln -s ../../libexec/gcc/${CTARGET}/${GCC_PV%%[.-]*}/liblto_plugin.so \
 			"${sysroot}"/lib/bfd-plugins || die
 	}
 
@@ -266,7 +273,7 @@ src_compile() {
 			bin32=${bin/x86_64-w64/i686-w64}
 			case ${bin#${CTARGET}-} in
 				as) mwt-i686_wrapper --32;;
-				cpp|gcc|gcc-${GCC_PV%%.*}|g++|widl) mwt-i686_wrapper -m32;;
+				cpp|gcc|gcc-${GCC_PV%%[.-]*}|g++|widl) mwt-i686_wrapper -m32;;
 				ld|ld.bfd) mwt-i686_wrapper -m i386pe;;
 				windres) mwt-i686_wrapper --target=pe-i386;;
 				*) ln -s ${bin} ${bin32} || die;;
