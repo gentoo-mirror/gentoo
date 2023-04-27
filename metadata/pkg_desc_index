@@ -4914,7 +4914,7 @@ dev-lang/ocaml 4.05.0-r9 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.0-r1 4
 dev-lang/orc 0.4.31 0.4.32 0.4.33: The Oil Runtime Compiler, a just-in-time compiler for array operations
 dev-lang/parrot 8.1.0-r4: Virtual machine designed to compile and execute bytecode for dynamic languages
 dev-lang/pcc 1.1.0-r1: pcc portable c compiler
-dev-lang/perl 5.34.1-r4 5.36.0-r1 5.36.0-r2: Larry Wall's Practical Extraction and Report Language
+dev-lang/perl 5.34.1-r4 5.36.0-r1 5.36.0-r2 5.36.1: Larry Wall's Practical Extraction and Report Language
 dev-lang/php 7.4.33 7.4.33-r1 7.4.33-r2 8.0.25 8.0.27 8.0.28 8.1.12 8.1.14 8.1.16 8.2.4: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r1: Poly/ML is a full implementation of Standard ML
@@ -16931,14 +16931,14 @@ sys-cluster/keepalived 2.2.4 2.2.7 2.2.7_p20221209: A strong & robust keepalive 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.23.2: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: Kubernetes API server
-sys-cluster/kube-controller-manager 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: Kubernetes Scheduler
-sys-cluster/kubeadm 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.23.17 1.24.11 1.24.12 1.25.7 1.25.8 1.26.2 1.26.3 1.27.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6: A client for kubelet
 sys-cluster/kubelogin 1.27.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.20.2: Client-side utility for one-way encrypted secrets in kubernetes
@@ -17511,7 +17511,7 @@ virtual/perl-Math-BigInt-FastCalc 0.500.900-r1 0.501.200: Virtual for Math-BigIn
 virtual/perl-Math-BigRat 0.261.400-r2 0.262.100: Virtual for Math-BigRat
 virtual/perl-Math-Complex 1.590.200-r1: Virtual for Math-Complex
 virtual/perl-Memoize 1.30.100_rc-r12: Virtual for Memoize
-virtual/perl-Module-CoreList 5.202.203.130 5.202.205.200-r1: Virtual for Module-CoreList
+virtual/perl-Module-CoreList 5.202.203.130 5.202.205.200-r1 5.202.304.230: Virtual for Module-CoreList
 virtual/perl-Module-Load 0.360.0-r2: Virtual for Module-Load
 virtual/perl-Module-Load-Conditional 0.740.0-r1: Virtual for Module-Load-Conditional
 virtual/perl-Module-Loaded 0.80.0-r15: Virtual for Module-Loaded
@@ -17862,7 +17862,7 @@ x11-base/xorg-proto 2022.2 9999: X.Org combined protocol headers
 x11-base/xorg-server 21.1.8 9999: X.Org X servers
 x11-base/xorg-sgml-doctools 1.12: SGML entities and XML/CSS stylesheets used in X.Org docs
 x11-base/xwayland 22.1.8 23.1.0 23.1.1 9999: Standalone X server running under Wayland
-x11-drivers/nvidia-drivers 390.157 470.182.03 515.105.01 525.47.18 525.105.17 525.116.03 530.41.03: NVIDIA Accelerated Graphics Driver
+x11-drivers/nvidia-drivers 390.157 470.182.03 515.105.01 525.47.22 525.105.17 525.116.03 530.41.03: NVIDIA Accelerated Graphics Driver
 x11-drivers/xf86-input-elographics 1.4.3: Elographics input driver
 x11-drivers/xf86-input-evdev 2.10.6: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.4: X.Org driver for joystick input devices
