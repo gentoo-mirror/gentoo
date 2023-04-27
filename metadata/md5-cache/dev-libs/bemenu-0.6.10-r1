@@ -1,15 +1,16 @@
-BDEPEND=doc? ( app-doc/doxygen ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+BDEPEND=doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile install
 DEPEND=ncurses? ( sys-libs/ncurses:= ) wayland? ( dev-libs/wayland x11-libs/cairo x11-libs/pango x11-libs/libxcb ) X? ( x11-libs/libxcb x11-libs/libXext x11-libs/libX11 x11-libs/cairo[X] x11-libs/pango[X] x11-libs/libXinerama ) wayland? ( dev-libs/wayland-protocols )
 DESCRIPTION=dmenu clone for wayland
 EAPI=8
 HOMEPAGE=https://github.com/Cloudef/bemenu
-INHERIT=toolchain-funcs git-r3
+INHERIT=toolchain-funcs
 IUSE=doc ncurses wayland X
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=ncurses? ( sys-libs/ncurses:= ) wayland? ( dev-libs/wayland x11-libs/cairo x11-libs/pango x11-libs/libxcb ) X? ( x11-libs/libxcb x11-libs/libXext x11-libs/libX11 x11-libs/cairo[X] x11-libs/pango[X] x11-libs/libXinerama )
 REQUIRED_USE=|| ( ncurses wayland X )
 SLOT=0
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=18eb5fef261e14e34c8bed2fa95e10a8
+SRC_URI=https://github.com/Cloudef/bemenu/archive/0.6.10.tar.gz -> bemenu-0.6.10.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
+_md5_=effee07192c141098d758bd795f06e2c
