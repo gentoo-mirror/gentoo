@@ -1896,8 +1896,8 @@ app-emacs/basic-toolkit 0.7: Basic edit toolkit
 app-emacs/bbdb 3.1.2-r2 3.2.2a-r1 3.2.2b: The Insidious Big Brother Database
 app-emacs/biblio 0.2_p20210418-r1 0.3: Browse and import bibliographic references with Emacs
 app-emacs/binclock 1.11: Display the current time using a binary clock
-app-emacs/bind-chord 2.4.1-r1 2.4.4: Key-chord binding helper for use-package-chords
-app-emacs/bind-key 2.4.1-r1 2.4.4: Simple way to manage personal keybindings
+app-emacs/bind-chord 2.4.4: Key-chord binding helper for use-package-chords
+app-emacs/bind-key 2.4.4: Simple way to manage personal keybindings
 app-emacs/bison-mode 0.3-r1: Emacs major mode for Bison, Yacc and Lex grammars
 app-emacs/blogmax 20170321: Blogging in Emacs
 app-emacs/bm 201905: Visible bookmarks in buffer
@@ -1929,7 +1929,7 @@ app-emacs/color-theme 6.6.0-r2: Install color themes (includes many themes)
 app-emacs/commander 0.7.0-r1: Emacs command line parser
 app-emacs/commenter 0.5.2: Set both single and multi line comment variables in Emacs Lisp
 app-emacs/company-coq 1.0.1_p20210708-r1 1.0.1_p20220314: Collection of extensions for Proof General's Coq mode
-app-emacs/company-ebuild 0.1.2 0.1.3 9999: Company backend for editing Ebuild files
+app-emacs/company-ebuild 0.1.3 9999: Company backend for editing Ebuild files
 app-emacs/company-math 1.5 1.5.1: Completion back-ends for for math unicode symbols and latex tags
 app-emacs/company-mode 0.9.10 0.9.13 0.9.13_p20220720 0.9.13_p20230306: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
@@ -1999,7 +1999,7 @@ app-emacs/emacs-ccls 0_pre20220510-r1 0_pre20230311: Emacs client for ccls, a C/
 app-emacs/emacs-common 1.8: Common files needed by all GNU Emacs versions
 app-emacs/emacs-crystal-mode 0.1.0_p20221008: GNU Emacs major mode for editing Crystal programming language files
 app-emacs/emacs-daemon 0.22-r1: Gentoo support for Emacs running as a server in the background
-app-emacs/emacs-ebuild-snippets 2.0.2 2.0.4 9999: Yasnippets for editing ebuilds and eclasses
+app-emacs/emacs-ebuild-snippets 2.0.4 9999: Yasnippets for editing ebuilds and eclasses
 app-emacs/emacs-eix 0.0.0 9999: Eix integration for GNU Emacs
 app-emacs/emacs-el-fetch 3.2.1 3.3.0 9999: Show system information in Neofetch-like style inside Emacs
 app-emacs/emacs-ipython-notebook 0.17.0_p20220419-r1: Jupyter notebook client in Emacs
@@ -2249,7 +2249,7 @@ app-emacs/uboat 1.2: Generate u-boat-death messages, patterned after Iron Coffin
 app-emacs/undercover 0.8.1: Test coverage library for Emacs
 app-emacs/undo-tree 0.6.6 0.8.1-r1 0.8.2-r1: Undo trees and visualization
 app-emacs/uptimes 3.7 3.8: Track and display emacs session uptimes
-app-emacs/use-package 2.4.4 2.4.5: Declaration macro for simplifying your Emacs configuration
+app-emacs/use-package 2.4.5: Declaration macro for simplifying your Emacs configuration
 app-emacs/uxntal-mode 0.2: GNU Emacs major mode for the uxntal assembly language
 app-emacs/vertico 1.1 1.2 1.3: Vertical interactive completion
 app-emacs/vhdl-mode 3.38.1 3.38.3: VHDL-mode for Emacs
@@ -8663,7 +8663,7 @@ dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
 dev-python/pycurl 7.45.2: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.7: Set of facilities to extend Python with C++
-dev-python/pydantic 1.10.6 1.10.7: Data parsing and validation using Python type hints
+dev-python/pydantic 1.10.7: Data parsing and validation using Python type hints
 dev-python/pydata-sphinx-theme 0.13.3: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -8977,7 +8977,7 @@ dev-python/recurring-ical-events 2.0.2: Repeat ICalendar events by RRULE, RDATE 
 dev-python/redis 4.5.4: Python client for Redis key-value store
 dev-python/reedsolomon 1.7.0 2.0.31_beta1 2.1.0_beta1: Python Reed Solomon encoder/decoder
 dev-python/reflink 0.2.1-r3: Python wrapper around the reflink system calls
-dev-python/regex 2022.10.31 2023.3.22 2023.3.23: Alternative regular expression module to replace re
+dev-python/regex 2023.3.23: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 4.0.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 3.6.13: Tools for generating printable PDF documents from any data source
@@ -12490,7 +12490,7 @@ media-gfx/cropgui 0.6-r1 0.6-r2: GUI for lossless cropping of jpeg images
 media-gfx/crwinfo 0.2: Canon raw image (CRW) information and thumbnail extractor
 media-gfx/cura 4.13.1-r1: A 3D model slicing application for 3D printing
 media-gfx/curaengine 4.13.1: A 3D model slicing engine for 3D printing
-media-gfx/curtail 1.3.1 1.6.0: Image compressor, supporting PNG, JPEG and WebP
+media-gfx/curtail 1.3.1 1.6.0 1.7.0: Image compressor, supporting PNG, JPEG and WebP
 media-gfx/darktable 4.2.1: A virtual lighttable and darkroom for photographers
 media-gfx/dawn 3.90b-r1: 3D geometrical postscript renderer
 media-gfx/dcraw 9.28.0-r2: Command-line decoder for raw digital photos
