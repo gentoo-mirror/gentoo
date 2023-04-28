@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare unpack
-DEPEND=dev-libs/libevent:= sys-libs/ncurses:= systemd? ( sys-apps/systemd:= ) utempter? ( sys-libs/libutempter ) kernel_Darwin? ( dev-libs/libutf8proc:= )
+DEPEND=dev-libs/libevent:= >=sys-libs/ncurses-6.4_p20230424:= systemd? ( sys-apps/systemd:= ) utempter? ( sys-libs/libutempter ) kernel_Darwin? ( dev-libs/libutf8proc:= )
 DESCRIPTION=Terminal multiplexer
 EAPI=8
 HOMEPAGE=https://tmux.github.io/
@@ -8,8 +8,8 @@ INHERIT=autotools flag-o-matic git-r3
 IUSE=debug selinux systemd utempter vim-syntax
 LICENSE=ISC
 PROPERTIES=live
-RDEPEND=dev-libs/libevent:= sys-libs/ncurses:= systemd? ( sys-apps/systemd:= ) utempter? ( sys-libs/libutempter ) kernel_Darwin? ( dev-libs/libutf8proc:= ) selinux? ( sec-policy/selinux-screen ) vim-syntax? ( app-vim/vim-tmux )
+RDEPEND=dev-libs/libevent:= >=sys-libs/ncurses-6.4_p20230424:= systemd? ( sys-apps/systemd:= ) utempter? ( sys-libs/libutempter ) kernel_Darwin? ( dev-libs/libutf8proc:= ) selinux? ( sec-policy/selinux-screen ) vim-syntax? ( app-vim/vim-tmux )
 SLOT=0
 SRC_URI=https://raw.githubusercontent.com/przepompownia/tmux-bash-completion/678a27616b70c649c6701cae9cd8c92b58cc051b/completions/tmux -> tmux-bash-completion-678a27616b70c649c6701cae9cd8c92b58cc051b
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=9bcbb51f3df63f36bc8ed54a91d3bfc6
+_md5_=53b1c5fabd56e8ce50fb117ad05843ea
