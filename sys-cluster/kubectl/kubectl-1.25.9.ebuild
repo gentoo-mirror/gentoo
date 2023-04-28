@@ -1,7 +1,7 @@
 # Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit bash-completion-r1 go-module
 
 DESCRIPTION="CLI to run commands against Kubernetes clusters"
@@ -10,10 +10,10 @@ SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kuber
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="hardened"
 
-BDEPEND=">=dev-lang/go-1.17"
+BDEPEND=">=dev-lang/go-1.19"
 
 RESTRICT+=" test"
 S="${WORKDIR}/kubernetes-${PV}"
