@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=poetry
 
 CRATES="
 	aho-corasick-0.7.19
-	anyhow-1.0.69
+	anyhow-1.0.70
 	arc-swap-1.5.1
 	autocfg-1.1.0
 	bitflags-1.3.2
@@ -30,7 +30,7 @@ CRATES="
 	once_cell-1.15.0
 	parking_lot-0.12.1
 	parking_lot_core-0.9.3
-	proc-macro2-1.0.46
+	proc-macro2-1.0.52
 	pyo3-0.17.3
 	pyo3-build-config-0.17.3
 	pyo3-ffi-0.17.3
@@ -38,18 +38,19 @@ CRATES="
 	pyo3-macros-0.17.3
 	pyo3-macros-backend-0.17.3
 	pythonize-0.17.0
-	quote-1.0.21
+	quote-1.0.26
 	redox_syscall-0.2.16
-	regex-1.7.1
-	regex-syntax-0.6.27
+	regex-1.7.3
+	regex-syntax-0.6.29
 	ryu-1.0.11
 	scopeguard-1.1.0
-	serde-1.0.152
-	serde_derive-1.0.152
-	serde_json-1.0.93
+	serde-1.0.160
+	serde_derive-1.0.160
+	serde_json-1.0.96
 	smallvec-1.10.0
 	subtle-2.4.1
 	syn-1.0.104
+	syn-2.0.10
 	target-lexicon-0.12.4
 	typenum-1.15.0
 	unicode-ident-1.0.5
@@ -65,19 +66,16 @@ CRATES="
 
 inherit cargo distutils-r1 multiprocessing optfeature systemd
 
-MY_PV="${PV/_rc/rc}"
-
 DESCRIPTION="Reference implementation of Matrix homeserver"
 HOMEPAGE="
 	https://matrix.org/
 	https://github.com/matrix-org/synapse/
 "
 SRC_URI="
-	https://github.com/matrix-org/${PN}/archive/v${MY_PV}.tar.gz
+	https://github.com/matrix-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	$(cargo_crate_uris)
 "
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="Apache-2.0"
 # Dependent crate licenses
@@ -85,7 +83,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -93,14 +91,15 @@ DEPEND="
 	acct-user/synapse
 	acct-group/synapse
 "
-RDEPEND="${DEPEND}
+RDEPEND="
+	${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/bcrypt[${PYTHON_USEDEP}]
 	dev-python/bleach[${PYTHON_USEDEP}]
-	<dev-python/canonicaljson-2[${PYTHON_USEDEP}]
+	>=dev-python/canonicaljson-2[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
-	dev-python/frozendict[${PYTHON_USEDEP}]
 	dev-python/ijson[${PYTHON_USEDEP}]
+	dev-python/immutabledict[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.0[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]
 	>=dev-python/matrix-common-1.3.0[${PYTHON_USEDEP}]
@@ -131,19 +130,17 @@ BDEPEND="
 	test? (
 		dev-python/idna[${PYTHON_USEDEP}]
 		dev-python/parameterized[${PYTHON_USEDEP}]
+		dev-python/pyicu[${PYTHON_USEDEP}]
 		postgres? ( dev-db/postgresql[server] )
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-frozendict-version.patch"
-)
 
 # Rust extension
 QA_FLAGS_IGNORED="usr/lib/python3.*/site-packages/synapse/synapse_rust.abi3.so"
 
 src_test() {
 	if use postgres; then
+		einfo "Preparing postgres test instance"
 		initdb --pgdata="${T}/pgsql" || die
 		pg_ctl --wait --pgdata="${T}/pgsql" start \
 			--options="-h '' -k '${T}'" || die
@@ -154,27 +151,31 @@ src_test() {
 		local -x SYNAPSE_POSTGRES_HOST="${T}"
 	fi
 
-	# This move is necessary otherwise python is not able to locate
+	# This remove is necessary otherwise python is not able to locate
 	# synapse_rust.abi3.so.
-	mv synapse{,.hidden} || die
+	rm -rf synapse || die
 
-	distutils-r1_src_test
+	nonfatal distutils-r1_src_test
+	local ret=${?}
 
 	if use postgres; then
+		einfo "Stopping postgres test instance"
 		pg_ctl --wait --pgdata="${T}/pgsql" stop || die
 	fi
+
+	[[ ${ret} -ne 0 ]] && die
 }
 
 python_test() {
-	"${EPYTHON}" -m twisted.trial -j "$(makeopts_jobs)" tests || die "Tests failed with ${EPYTHON}"
+	"${EPYTHON}" -m twisted.trial -j "$(makeopts_jobs)" tests
 }
 
-python_install() {
-	distutils-r1_python_install
+src_install() {
+	distutils-r1_python_install_all
 	keepdir /var/{lib,log}/synapse /etc/synapse
 	fowners synapse:synapse /var/{lib,log}/synapse /etc/synapse
 	fperms 0750 /var/{lib,log}/synapse /etc/synapse
-	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
+	newinitd "${FILESDIR}/${PN}.initd-r1" "${PN}"
 	systemd_dounit "${FILESDIR}/synapse.service"
 }
 
@@ -194,10 +195,10 @@ pkg_postinst() {
 		einfo
 	else
 		einfo
-		einfo "Please refer to upgrade notes if any special steps are required"
-		einfo "to upgrade from the version you currently have installed:"
-		einfo
-		einfo "  https://github.com/matrix-org/synapse/blob/develop/docs/upgrade.md"
+		elog "Please refer to upgrade notes if any special steps are required"
+		elog "to upgrade from the version you currently have installed:"
+		elog
+		elog "  https://github.com/matrix-org/synapse/blob/develop/docs/upgrade.md"
 		einfo
 	fi
 }
