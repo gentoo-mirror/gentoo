@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,17 +13,15 @@ S="${WORKDIR}/mingw-w64-v${PV}"
 LICENSE="ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain tools? ( GPL-3+ )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-# USE=libraries needs working stage2 compiler: bug #665512
-IUSE="headers-only idl libraries tools"
-RESTRICT="strip"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-7.0.0-fortify-only-ssp.patch
-)
+# default-ucrt: enabling requires to be done during the bootstrap process
+# or else will cause e.g. undefined reference to __intrinsic_setjmpex
+# libraries: needs working stage2 compiler (bug #665512)
+IUSE="default-ucrt headers-only idl libraries tools"
+RESTRICT="strip" # portage would use the wrong strip executable
 
 pkg_setup() {
-	: ${CBUILD:=${CHOST}}
-	: ${CTARGET:=${CHOST}}
+	: "${CBUILD:=${CHOST}}"
+	: "${CTARGET:=${CHOST}}"
 	[[ ${CTARGET} == ${CHOST} && ${CATEGORY} == cross-* ]] &&
 		CTARGET=${CATEGORY#cross-}
 
@@ -63,19 +61,17 @@ src_configure() {
 	# likely cross-compiling from here, update toolchain variables
 	if ${MW_CROSS} && [[ ! -v MINGW_BYPASS ]]; then
 		unset AR AS CC CPP CXX LD NM OBJCOPY OBJDUMP RANLIB RC STRIP
-		filter-flags '-fstack-clash-protection' #758914
-		filter-flags '-fstack-protector*' #870136
 		filter-flags '-fuse-ld=*'
 		filter-flags '-mfunction-return=thunk*' #878849
 	fi
 	local CHOST=${CTARGET}
 	strip-unsupported-flags
 
-	# Normally mingw64 does not use dynamic linker.
-	# But at configure time it uses $LDFLAGS.
-	# When default -Wl,--hash-style=gnu is passed
-	# __CTORS_LIST__ / __DTORS_LIST__ is mis-detected
-	# for target ld and binaries crash at shutdown.
+	# Normally mingw64 does not use dynamic linker, but at configure time it
+	# uses LDFLAGS. When -Wl,--hash-style=gnu is passed __CTORS_LIST__ /
+	# __DTORS_LIST__ is misdetected for target and binaries crash at shutdown.
+	# Note: typically also stripped by strip-unsupported-flags, but not during
+	# USE=headers-only and potentially other configurations (kept as safety).
 	filter-ldflags '-Wl,--hash-style=*'
 
 	local prefix=${EPREFIX}/usr
@@ -85,6 +81,7 @@ src_configure() {
 		--prefix="${prefix}"
 		--libdir="${prefix}"/lib
 		$(use_with !headers-only crt)
+		$(usev default-ucrt --with-default-msvcrt=ucrt)
 
 		# By default configure tries to set --sysroot=${prefix}. We disable
 		# this behaviour with --with-sysroot=no to use gcc's sysroot default.
