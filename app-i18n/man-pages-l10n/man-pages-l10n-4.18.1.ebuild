@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,22 +10,20 @@ S="${WORKDIR}/${P/-}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-MY_L10N=(cs da de el es fi fr hu id it mk nb nl pl pt-BR ro sr sv uk vi)
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+# fa and ko omitted because of build failures (patches are welcome!)
+MY_L10N=(cs da de el es fi fr hu id it mk nb nl pl pt-BR ro ru sr sv uk vi)
 IUSE="${MY_L10N[@]/#/l10n_}"
 REQUIRED_USE="|| ( ${MY_L10N[@]/#/l10n_} )"
 
 RDEPEND="virtual/man
-	l10n_de? ( !app-i18n/man-pages-de )
-	l10n_fr? ( !app-i18n/man-pages-fr )
 	l10n_it? ( !app-i18n/man-pages-it )
-	l10n_nl? ( !app-i18n/man-pages-nl )
-	l10n_pl? ( !app-i18n/man-pages-pl )"
+	l10n_ru? ( !app-i18n/man-pages-ru )"
 
 BDEPEND="app-text/po4a
 	dev-lang/perl"
 
-DOCS=(AUTHORS.md CHANGES.md CONTRIBUTING.md README.md)
+DOCS=(AUTHORS.md CHANGES.md CONTRIBUTING.md COPYRIGHT.md README.md)
 
 src_prepare() {
 	default
@@ -49,7 +47,6 @@ src_prepare() {
 		mountpoint.1
 		utmpdump.1
 		wall.1
-		bootlogd.8
 		halt.8
 		killall5.8
 		runlevel.8
