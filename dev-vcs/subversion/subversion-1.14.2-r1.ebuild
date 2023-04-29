@@ -76,7 +76,6 @@ DEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
-	!!<sys-apps/sandbox-1.6
 	doc? ( app-doc/doxygen )
 	nls? ( sys-devel/gettext )
 	perl? ( dev-lang/swig )
@@ -283,6 +282,11 @@ src_test() {
 	#	ewarn "before running the test suite."
 	#	ewarn "Test suite skipped."
 	#fi
+	if [[ -f "${S}/fails.log" ]] ; then
+		echo "====== contents of fails.log follow ======"
+		cat "${S}/fails.log"
+		echo "====== contents of fails.log end    ======"
+	fi
 }
 
 src_install() {
