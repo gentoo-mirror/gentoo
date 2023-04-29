@@ -14,6 +14,10 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~ppc ~x86"
 
+PATCHES=(
+	"${FILESDIR}/1.2.7-fix-revision.patch"
+)
+
 DOCS=( AUTHORS ChangeLog examples/example.conf NEWS README TODO )
 
 src_prepare() {
