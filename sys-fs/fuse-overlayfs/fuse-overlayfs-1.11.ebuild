@@ -1,24 +1,21 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
 DESCRIPTION="FUSE implementation for overlayfs"
 HOMEPAGE="https://github.com/containers/fuse-overlayfs"
-EGIT_COMMIT="v${PV}"
-SRC_URI="https://github.com/containers/fuse-overlayfs/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/containers/fuse-overlayfs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 
-RDEPEND=">=sys-fs/fuse-3:="
-DEPEND="${RDEPEND}"
+DEPEND="sys-fs/fuse:3"
+RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-S="${WORKDIR}/${PN}-${EGIT_COMMIT#v}"
 
 src_prepare() {
 	default
