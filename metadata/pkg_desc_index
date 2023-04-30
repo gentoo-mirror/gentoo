@@ -351,7 +351,6 @@ acct-group/seat 0: Group for sys-auth/seatd
 acct-group/serf 0: A group for app-admin/serf
 acct-group/sguil 0: A group for net-analyzer/sguil-sensor
 acct-group/sgx 0: System group: used for SGX enclaves
-acct-group/shellinaboxd 0-r1: shellinabox group
 acct-group/sigh 0: System group: sigh
 acct-group/simplevirt 0-r1: System group: simplevirt
 acct-group/sispmctl 0: Group for sys-power/sispmctl
@@ -804,7 +803,6 @@ acct-user/sddm 0: A user for x11-misc/sddm
 acct-user/sendpage 0: User for net-dialup/sendpage
 acct-user/serf 0: A user for app-admin/serf
 acct-user/sguil 0: A user for net-analyzer/sguil-sensor
-acct-user/shellinaboxd 0-r1: shellinabox user
 acct-user/sigh 0: System user: sigh
 acct-user/sks 0: User for the SKS OpenPGP keyserver
 acct-user/slurm 0-r1: User for the slurm - Highly Scalable Resource Manager
@@ -978,7 +976,6 @@ app-admin/doas 6.8.1-r1 6.8.2: Run commands as super/another user (alt sudo) (un
 app-admin/docker-bench 0.5.0: Docker Bench for Security runs the CIS Docker Benchmark
 app-admin/doctl 1.78.0 1.79.0 9999: A command line tool for DigitalOcean services
 app-admin/drush 6.7.0-r4: Command line shell and scripting interface for Drupal
-app-admin/ec2-ami-tools 1.5.7: Command-line tools that serve as client interface to the Amazon EC2 web service
 app-admin/eclean-kernel 2.99.3 2.99.4 9999: Remove outdated built kernels
 app-admin/emacs-updater 1.16: Rebuild Emacs packages
 app-admin/entr 5.3-r1: Run arbitrary commands when files change
@@ -1825,7 +1822,6 @@ app-editors/juffed 0.10_p20200103: QScintilla-based tabbed text editor with synt
 app-editors/jupp 3.1_p40 3.1_p41: Portable version of Joe's Own Editor
 app-editors/kakoune 2022.10.31: Modal editor inspired by vim
 app-editors/kile 2.9.93_p20221123: Latex Editor and TeX shell based on KDE Frameworks
-app-editors/le 1.16.5: Terminal text editor
 app-editors/leafpad 0.8.18.1-r1: Simple GTK2 text editor
 app-editors/levee 3.5a 4.0: Really tiny vi clone, for things like rescue disks
 app-editors/lpe 1.2.8_p20210401: A lightweight programmers editor
@@ -3290,7 +3286,6 @@ app-text/rman 3.2-r1: PolyGlotMan man page translator AKA RosettaMan
 app-text/rnc2rng 2.6.6-r3: RELAX NG Compact to regular syntax conversion library
 app-text/rnv 1.7.11-r1: A lightweight Relax NG Compact Syntax validator
 app-text/robodoc 4.99.43 4.99.43-r1: Automating Software Documentation
-app-text/ronn 0.7.3-r4: Converts simple, human readable textfiles to roff for terminal display, and HTML
 app-text/ronn-ng 0.9.1-r2 0.9.1-r3: Builds manuals in HTML and Unix man page format from Markdown
 app-text/rpl 1.9.1 1.15.2: Intelligent recursive search/replace utility
 app-text/rtf2html 0.2.0-r1: RTF to HTML converter
@@ -7908,7 +7903,6 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/booleanOperations 0.9.0-r1: Boolean operations on paths
 dev-python/boto 2.49.0-r6: Amazon Web Services API
 dev-python/boto3 1.26.114 1.26.118 1.26.119 1.26.120 1.26.121 1.26.122 1.26.123 9999: The AWS SDK for Python
 dev-python/botocore 1.29.114 1.29.118 1.29.119 1.29.120 1.29.121 1.29.122 1.29.123 9999: Low-level, data-driven core of boto 3
@@ -7973,7 +7967,6 @@ dev-python/clint 0.5.1-r4: Python Command-line Application Tools
 dev-python/cloudpickle 2.2.1: Extended pickling support for Python objects
 dev-python/cloudscraper 1.2.69: A Python module to bypass Cloudflare's anti-bot page
 dev-python/cmd2 2.4.3: Extra features for standard library's cmd module
-dev-python/collective-checkdocs 0.2-r1: Distutils command to view/validate packages's rst text long_descriptions
 dev-python/colorama 0.4.6: ANSI escape character sequences for colored terminal text & cursor positioning
 dev-python/colorclass 2.2.2-r1: Colorful worry-free console applications for multiple platforms
 dev-python/colored-traceback 0.3.0: Automatically color Python's uncaught exception tracebacks
@@ -8028,7 +8021,6 @@ dev-python/debtcollector 2.5.0: Python deprecation patterns and strategies that 
 dev-python/debugpy 1.6.6: An implementation of the Debug Adapter Protocol for Python
 dev-python/decorator 5.1.1-r1: Simplifies the usage of decorators for the average programmer
 dev-python/deepmerge 1.1.0: Tools to handle merging of nested data structures in python
-dev-python/defcon 0.10.2: A set of UFO based objects for use in font editing applications
 dev-python/defusedxml 0.7.1-r1: XML bomb protection for Python stdlib modules, an xml serialiser
 dev-python/denonavr 0.11.2: Automation Library for Denon AVR receivers
 dev-python/deprecated 1.2.13-r1: Python @deprecated decorator to deprecate old API
@@ -8486,7 +8478,6 @@ dev-python/nose2 0.12.0 0.13.0: Unittest with plugins
 dev-python/notebook 6.4.12 6.5.3 6.5.4: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.2-r1 0.2.3: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
-dev-python/nototools 0.2.17: Noto fonts support tools and scripts plus web site generation
 dev-python/nox 2022.11.21-r1 2023.04.22: Flexible test automation for Python
 dev-python/nptyping 2.3.1 2.5.0: Type hints for Numpy
 dev-python/nspektr 0.4.0: Distribution package dependency inspector
@@ -9497,13 +9488,11 @@ dev-ruby/c21e 2.0.0: Run cross-platform executables
 dev-ruby/capistrano 2.15.5-r3 3.17.2: A distributed application deployment system
 dev-ruby/capybara 3.38.0 3.39.0 3.39.0-r1: Capybara aims to simplify the process of integration testing Rack applications
 dev-ruby/certificate_authority 1.1.0: Managing the core functions outlined in RFC-3280 for PKI
-dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/charlock_holmes 0.7.7-r1: Character encoding detecting library for Ruby using ICU
 dev-ruby/childlabor 0.0.3-r2: Gem that helps manage child processes
 dev-ruby/childprocess 4.1.0: Solution for controlling external programs running in the background
 dev-ruby/chronic 0.10.2-r1: Chronic is a natural language date/time parser written in pure Ruby
 dev-ruby/chunky_png 1.4.0: Pure Ruby library that can read and write PNG images
-dev-ruby/classifier-reborn 2.3.0: Module to allow Bayesian and other types of classifications
 dev-ruby/climate_control 1.2.0: Easily manage your environment
 dev-ruby/cliver 0.3.2-r1 0.3.2-r2: An easy way to detect and use command-line dependencies
 dev-ruby/cmdparse 3.0.7-r1: Advanced command line parser supporting commands
@@ -9543,7 +9532,6 @@ dev-ruby/database_cleaner-core 2.0.1: Strategies for cleaning databases
 dev-ruby/date 3.3.3: A subclass of Object includes Comparable module for handling dates
 dev-ruby/date_validator 0.12.0: Simple, ORM agnostic, Ruby 1.9 compatible date validator for Rails
 dev-ruby/dbf 4.2.2: Small fast library for reading dBase, xBase, Clipper, FoxPro databases
-dev-ruby/ddmemoize 1.0.0-r1: Adds support for memoizing functions
 dev-ruby/ddmetrics 1.0.1-r1: Non-timeseries measurements for Ruby programs
 dev-ruby/ddplugin 1.0.3 1.0.3-r1: Provides plugin management for Ruby projects
 dev-ruby/debug 1.7.1 1.7.2: Debugging functionality for Ruby
@@ -9568,7 +9556,6 @@ dev-ruby/ecma-re-validator 0.4.0: Validate a regular expression string against w
 dev-ruby/ed25519 1.3.0: Library for the Ed25519 public-key signature system
 dev-ruby/elasticsearch 6.8.3: Ruby integrations for ES, elasticsearch module
 dev-ruby/elasticsearch-api 6.8.3: Ruby integrations for ES, elasticsearch-api module
-dev-ruby/elasticsearch-extensions 0.0.33: Ruby integrations for ES, elasticsearch-extensions module
 dev-ruby/elasticsearch-transport 6.8.3 6.8.3-r1: Ruby integrations for ES, elasticsearch-transport module
 dev-ruby/em-websocket 0.5.3: EventMachine based WebSocket server
 dev-ruby/equalizer 0.0.11-r1 0.0.11-r2: Module to define equality, equivalence and inspection methods
@@ -9601,7 +9588,6 @@ dev-ruby/file-tail 1.2.0-r1: A small ruby library that allows it to 'tail' files
 dev-ruby/filesize 0.2.0-r1: Small class for handling filesizes with both the SI and binary prefixes
 dev-ruby/filigree 0.4.1: New classes and extensions to core library classes
 dev-ruby/flexmock 2.3.6-r2: Simple mock object library for Ruby unit testing
-dev-ruby/flickraw 0.9.10: A library to access flickr api in a simple way
 dev-ruby/flog 4.6.6: Flog reports the most tortured code in an easy to read pain report
 dev-ruby/font-awesome-rails 4.7.0.8: Font-awesome for the asset pipeline
 dev-ruby/forgery 0.8.1: Easy and customizable generation of forged data
@@ -9636,7 +9622,6 @@ dev-ruby/histogram 0.2.4.1 0.2.4.1-r1: Gives objects the ability to 'histogram' 
 dev-ruby/hitimes 2.0.0-r1: A fast, high resolution timer library
 dev-ruby/hocon 1.3.1-r1 1.4.0: This is a port of the Typesafe Config library to Ruby
 dev-ruby/hoe 3.26.0: Hoe extends rake to provide full project automation
-dev-ruby/hpricot 0.8.6-r6: A fast and liberal HTML parser for Ruby
 dev-ruby/html-pipeline 2.14.2 2.14.3: GitHub HTML processing filters and utilities
 dev-ruby/html2haml 2.3.0: Convert HTML and HTML+Erb to Haml
 dev-ruby/htmlentities 4.3.4-r1: A simple library for encoding/decoding entities in (X)HTML documents
@@ -9828,7 +9813,6 @@ dev-ruby/rake-compiler 1.2.1: Provide a standard and simplified way to build and
 dev-ruby/rake-remote_task 2.4.4: Extends Rake with remote task goodness
 dev-ruby/rantly 2.0.0: Ruby Imperative Random Data Generator and Quickcheck
 dev-ruby/rash_alt 0.4.12: Rash alt version for Hashie's own Rash
-dev-ruby/rb-gsl 2.1.0.2-r1: Ruby interface to GNU Scientific Library
 dev-ruby/rb-inotify 0.10.1: A thorough inotify wrapper for Ruby using FFI
 dev-ruby/rb-readline 0.5.5-r1: Ruby implementation of the GNU readline C library
 dev-ruby/rbnacl 7.1.1 7.1.1-r1: Provides a high-level toolkit for building cryptographic systems and protocols
@@ -9868,16 +9852,16 @@ dev-ruby/rqrcode 2.1.2: Library for encoding QR Codes
 dev-ruby/rqrcode_core 1.2.0: Library for encoding QR Codes
 dev-ruby/rr 3.1.0: A double framework featuring a selection of double techniques and a terse syntax
 dev-ruby/rrdtool-bindings 1.8.0: Ruby bindings for rrdtool
-dev-ruby/rspec 2.99.0 3.11.0 3.12.0: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec 3.11.0 3.12.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-block_is_expected 1.0.5: Simplify testing of blocks in RSpec
 dev-ruby/rspec-collection_matchers 1.2.0: A Behaviour Driven Development (BDD) framework for Ruby
-dev-ruby/rspec-core 2.99.2-r2 3.11.0 3.12.1 3.12.2: A Behaviour Driven Development (BDD) framework for Ruby
-dev-ruby/rspec-expectations 2.99.2 3.11.0 3.11.1 3.12.0 3.12.1 3.12.2 3.12.3: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec-core 3.11.0 3.12.1 3.12.2: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec-expectations 3.11.0 3.11.1 3.12.0 3.12.1 3.12.2 3.12.3: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-files 1.1.2 1.1.3: RSpec helpers for buffering and detecting file descriptor leaks
 dev-ruby/rspec-its 1.3.0-r1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-json_expectations 2.2.0-r1: Set of matchers and helpers to allow you test your APIs responses
 dev-ruby/rspec-memory 1.0.3: RSpec helpers for checking memory allocations
-dev-ruby/rspec-mocks 2.99.2-r1 3.11.2 3.12.2 3.12.3: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec-mocks 3.11.2 3.12.2 3.12.3: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-pending_for 0.1.16: Mark specs pending or skipped for specific Ruby engine / version combinations
 dev-ruby/rspec-rails 5.1.2 6.0.0 6.0.1: RSpec's official Ruby on Rails plugin
 dev-ruby/rspec-stubbed_env 1.0.0-r1 1.0.1: Stub environment variables in a scoped context for testing
@@ -11339,7 +11323,6 @@ games-rpg/bass 1.3-r1: Beneath a Steel Sky: a SciFi thriller set in a bleak visi
 games-rpg/bastion 20161016: An original action role-playing game set in a lush imaginative world
 games-rpg/broken-age 2.4.800398: Point-and-click adventure from Tim Schafer's Double Fine Productions
 games-rpg/celeste 1.4.0.0: Narrative-driven, single-player adventure like mom used to make
-games-rpg/coe2 2007-r3: Precursor to the Dominions series
 games-rpg/comi 1: The Curse of Monkey Island, the third game in the series
 games-rpg/costume-quest 2.0.0.3: A Halloween adventure from Tim Schafer's Double Fine Productions
 games-rpg/crosscode 1.4.2.2-r1: Retro-inspired 2D Action RPG with a sci-fi story
@@ -14051,7 +14034,6 @@ net-analyzer/netcat 110-r9 110.20180111-r1 110.20180111-r2: The network swiss ar
 net-analyzer/netdata 1.38.0 9999: Linux real time system monitoring, done right!
 net-analyzer/netdiscover 0.7: An active/passive address reconnaissance tool
 net-analyzer/nethogs 0.8.7: A small 'net top' tool, grouping bandwidth by process
-net-analyzer/netio 1.33: Network benchmark using TCP and UDP protocols
 net-analyzer/netperf 2.7.0-r3 2.7.0-r4: Network performance benchmark
 net-analyzer/netpipe 3.7.2-r1: network protocol independent performance evaluator
 net-analyzer/netselect 0.4-r2 9999: Ultrafast implementation of ping
@@ -14481,7 +14463,6 @@ net-libs/libesmtp 1.1.0-r1 9999: Lib that implements the client side of the SMTP
 net-libs/libetpan 1.9.4-r1: A portable, efficient middleware for different kinds of mail access
 net-libs/libflowmanager 3.0.0-r1: A library that measures and reports on packet flows
 net-libs/libgadu 1.11.4 1.12.2-r1: Client-side library for the Gadu-Gadu protocol
-net-libs/libgfbgraph 0.2.5: A GObject library for Facebook Graph API
 net-libs/libgrss 0.7.0: Library for easy management of RSS/Atom/Pie feeds
 net-libs/libgsasl 1.10.0: The GNU SASL library
 net-libs/libgssglue 0.4-r1 0.7: Exports a gssapi interface which calls other random gssapi libraries
@@ -14557,7 +14538,6 @@ net-libs/libupnpp 0.22.4 0.22.5: The libupnpp C++ library wraps libupnp for easi
 net-libs/libvncserver 0.9.14 0.9.14-r1: library for creating vnc servers
 net-libs/libwebsockets 4.3.2-r1: A flexible pure-C library for implementing network protocols
 net-libs/libyang 2.0.194-r1 2.1.55: YANG data modeling language library
-net-libs/libzapojit 0.0.3-r2: GLib/GObject wrapper for the SkyDrive and Hotmail REST APIs
 net-libs/liquid-dsp 1.3.2 9999: digital signal processing library for software-defined radios
 net-libs/loudmouth 1.5.4: Lightweight C Jabber library
 net-libs/mbedtls 2.28.1 3.1.0 3.2.1: Cryptographic library for embedded systems
@@ -14785,7 +14765,6 @@ net-misc/geomyidae 0.34-r1: A daemon to serve the gopher protocol
 net-misc/gerbera 1.12.1 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 44.0 44.1: A remote desktop client for the GNOME desktop environment
-net-misc/gnome-online-miners 3.34.0-r2: Crawls through your online content
 net-misc/gnome-remote-desktop 44.0 44.1: Remote desktop daemon for GNOME using pipewire
 net-misc/gns3-gui 2.2.37 2.2.38: Graphical Network Simulator
 net-misc/gns3-server 2.2.37 2.2.38: GNS3 server to asynchronously manage emulators
@@ -17738,7 +17717,6 @@ www-misc/mergelog 4.5-r2: A utility to merge apache logs in chronological order
 www-misc/monitorix 3.14.0-r1 3.15.0: A lightweight system monitoring tool
 www-misc/multisort 1.1-r2: Merges httpd logfiles in the Common Log Format
 www-misc/profile-sync-daemon 5.75 6.31 6.35 9999: Symlinks and syncs browser profile dirs to RAM
-www-misc/shellinabox 2.20-r4: Export command line tools to a web based terminal emulator
 www-misc/urlwatch 2.24 2.25 2.26: A tool for monitoring webpages for updates
 www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
