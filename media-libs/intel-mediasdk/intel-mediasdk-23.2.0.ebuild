@@ -60,6 +60,11 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	# https://github.com/Intel-Media-SDK/MediaSDK/pull/2998
+	"${FILESDIR}/${P}-gcc13.patch"
+)
+
 multilib_src_configure() {
 	local mycmakeargs=(
 		# OpenCL only has an effect if we build kernels
