@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 inherit desktop libtool qmake-utils systemd
 
@@ -72,6 +72,13 @@ REQUIRED_USE="
 	static? ( bacula-clientonly )
 "
 
+# suppress warning wrt 'implicit function declaration' in config logs
+# bug 900663
+QA_CONFIG_IMPL_DECL_SKIP=(
+	makedev		# designed to check availability in
+				# used header file
+)
+
 S=${WORKDIR}/${MY_P}
 
 pkg_setup() {
@@ -130,6 +137,9 @@ src_prepare() {
 	sed -i -e "s/strip /# strip /" src/filed/Makefile.in || die
 	sed -i -e "s/strip /# strip /" src/console/Makefile.in || die
 
+	# fix 'implicit function declaration' bug 900663
+	eapply -p0 "${FILESDIR}/${PN}-11.0.2-fix-config.patch"
+
 	eapply_user
 
 	# Fix systemd unit files:
@@ -156,8 +166,7 @@ src_prepare() {
 	sed -i -e 's/ manpages//' Makefile.in || die
 
 	# correct installation for plugins to mode 0755 (bug #725946)
-	sed -i -e "s/(INSTALL_PROGRAM) /(INSTALL_LIB) /" src/plugins/fd/Makefile ||die
-	sed -i -e "s/(INSTALL_PROGRAM) /(INSTALL_LIB) /" src/plugins/fd/docker/Makefile ||die
+	sed -i -e "s/(INSTALL_PROGRAM) /(INSTALL_LIB) /" src/plugins/fd/Makefile.in ||die
 
 	# fix bundled libtool (bug 466696)
 	# But first move directory with M4 macros out of the way.
@@ -232,7 +241,6 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" install
 	doicon scripts/bacula.png
-	keepdir /var/lib/bacula/tmp
 
 	# remove not needed .la files #840957
 	find "${ED}" -name '*.la' -delete || die
