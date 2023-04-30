@@ -255,21 +255,6 @@ sci-biology/samtools:0.1-legacy
 dev-ruby/turbolinks
 dev-ruby/turbolinks-source
 
-# Michał Górny <mgorny@gentoo.org> (2023-03-31)
-# Packages with non-functional tests and no py3.11 support.  They were
-# only needed for media-fonts/noto-emoji[buildfont], and that variant
-# was removed, so they have no revdeps now.
-# Removal on 2023-04-30.  Bug #719882.
-dev-python/booleanOperations
-dev-python/defcon
-dev-python/nototools
-
-# Sam James <sam@gentoo.org> (2023-03-31)
-# Has suspicious test suite warnings with >=ruby31, no activity upstream, and
-# no reverse dependencies in Gentoo.
-# Removal on 2023-04-30.
-dev-ruby/ddmemoize
-
 # Ionen Wolkens <ionen@gentoo.org> (2023-03-30)
 # NVIDIA dropped support for the 390.xx branch in December 2022[1].
 #
@@ -292,60 +277,6 @@ dev-ruby/ddmemoize
 # [2] https://wiki.gentoo.org/wiki/Nouveau
 x11-drivers/nvidia-drivers:0/390
 
-# Matt Turner <mattst88@gentoo.org> (2023-03-30)
-# gnome-online-miners and libzapojit are archived upstream. All three packages
-# are stuck on libsoup-2.4. gnome-photos is the only reverse dependency of
-# gnome-online-miners, and it works without it.
-# Removal on 2023-04-30.
-net-libs/libgfbgraph
-net-libs/libzapojit
-net-misc/gnome-online-miners
-
-# Hans de Graaff <graaff@gentoo.org> (2023-03-30)
-# Deprecated upstream and ruby27-only. Masked for removal on 2023-04-30.
-dev-ruby/elasticsearch-extensions
-
-# Hans de Graaff <graaff@gentoo.org> (2023-03-30)
-# Ships a Certificate Authority bundle from 2014. Not needed on Gentoo
-# since we use ca-certificates. Masked for removal on 2023-04-30.
-dev-ruby/certified
-
-# Hans de Graaff <graaff@gentoo.org> (2023-03-30)
-# ruby27-only package. Last release 5 years ago. Does not build with
-# modern C compilers. classifier-reborn depends on this package, and is
-# itself a dependency for the now-masked jekyll. Masked for removal on
-# 2023-04-30.
-dev-ruby/rb-gsl
-dev-ruby/classifier-reborn
-
-# Hans de Graaff <graaff@gentoo.org> (2023-03-29)
-# ruby27-only slot of rspec. Please use rspec:3 instead. Masked for
-# removal on 2023-04-28.
-dev-ruby/rspec:2
-dev-ruby/rspec-core:2
-dev-ruby/rspec-expectations:2
-dev-ruby/rspec-mocks:2
-
-# Sam James <sam@gentoo.org> (2023-03-29)
-# Stuck on ruby27, low activity upstream, needs someone who actively uses it to
-# test it properly as automated tests require an API key.
-# Removal on 2023-04-28.  Bug #903542.
-dev-ruby/flickraw
-
-# Hans de Graaff <graaff@gentoo.org> (2023-03-29)
-# ruby27-only package. app-text/ronn-ng is a drop-in replacement.  it is
-# also the only consumer of dev-ruby/hpricot which has a ruby30 target
-# but is not actually compatible. Masked for removal on 2023-04-29.
-app-text/ronn
-dev-ruby/hpricot
-
-# Hans de Graaff <graaff@gentoo.org> (2023-03-29)
-# ruby27-only package without tests and without maintainer. Upstream
-# releases new versions in an unversioned zip file. This needs a
-# dedicated maintainer that can test this package.
-# Masked for removal on 2023-04-29.
-app-admin/ec2-ami-tools
-
 # Sam James <sam@gentoo.org> (2023-03-29)
 # Regressions in solving ability affecting e.g. igraph:
 # https://github.com/opencollab/arpack-ng/issues/401
@@ -354,42 +285,12 @@ app-admin/ec2-ami-tools
 # https://github.com/igraph/igraph/issues/2311
 =sci-libs/arpack-3.9.0
 
-# Michał Górny <mgorny@gentoo.org> (2023-03-28)
-# Unfetchable, the homepage is gone.  Last updated in 2020.
-# Removal on 2023-04-27.  Bug #831304.
-net-analyzer/netio
-
-# Michał Górny <mgorny@gentoo.org> (2023-03-28)
-# Unfetchable due to untrusted TLS certificate.  The game doesn't seem
-# to work anyway (displays blank window).
-# Removal on 2023-04-27.  Bug #835858.
-games-rpg/coe2
-
-# Michał Górny <mgorny@gentoo.org> (2023-03-28)
-# No upstream activity since Jan 2019.  The current version fails
-# to build.  Multiple other bugs reported.
-# Removal on 2023-04-27.  Bug #902069.
-acct-group/shellinaboxd
-acct-user/shellinaboxd
-www-misc/shellinabox
-
-# Michał Górny <mgorny@gentoo.org> (2023-03-28)
-# Unmaintained.  The current Gentoo version is from 2017 and has
-# multiple build failures reported.
-# Removal on 2023-04-27.  Bug #721816.
-app-editors/le
-
 # Sam James <sam@gentoo.org> (2023-03-27)
 # The upstream tzinfo maintainers recommend using 2023a for now because of the
 # disruption regarding Lebanon's DST change. See https://lore.kernel.org/distributions/87cz4u2gmj.fsf@gentoo.org/T/#u.
 =sys-libs/timezone-data-2023b
 =dev-python/pytz-2023.2-r1
 =dev-perl/DateTime-TimeZone-2.580.0
-
-# Michał Górny <mgorny@gentoo.org> (2023-03-26)
-# No py3.11.  Last release in 2014.  No revdeps.
-# Removal on 2023-04-25.  Bug #896762.
-dev-python/collective-checkdocs
 
 # Sam James <sam@gentoo.org> (2023-03-24)
 # Please upgrade to make-4.4.1 as make-4.4 has a bunch of issues.
