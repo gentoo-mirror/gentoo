@@ -1,17 +1,17 @@
-BDEPEND=python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) dev-util/gdbus-codegen gtk-doc? ( dev-util/gtk-doc ) test? ( python_single_target_python3_9? ( dev-python/python-dbusmock[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/python-dbusmock[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-dbusmock[python_targets_python3_11(-)] ) dev-util/umockdev ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) dev-util/gdbus-codegen gtk-doc? ( dev-util/gtk-doc ) test? ( python_single_target_python3_10? ( dev-python/python-dbusmock[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-dbusmock[python_targets_python3_11(-)] ) dev-util/umockdev ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
-DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) >=dev-libs/glib-2.56.0:2 >=dev-libs/libgudev-232:=
+DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) >=dev-libs/glib-2.56.0:2 >=dev-libs/libgudev-232:=
 DESCRIPTION=D-Bus service to check the availability of dual-GPU
 EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/hadess/switcheroo-control/
 INHERIT=meson python-single-r1 systemd
-IUSE=gtk-doc test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+IUSE=gtk-doc test python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_9? ( dev-python/pygobject:3[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) >=dev-libs/glib-2.56.0:2 >=dev-libs/libgudev-232:=
-REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) >=dev-libs/glib-2.56.0:2 >=dev-libs/libgudev-232:=
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/hadess/switcheroo-control/uploads/86ea54ac7ddb901b6bf6e915209151f8/switcheroo-control-2.6.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	meson	915ec7c25e08d7886558215e6809ca1e	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=6809cb91dbaff85218a0210986d4c201
