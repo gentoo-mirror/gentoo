@@ -1,13 +1,14 @@
-DEFINED_PHASES=install postinst
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install postinst prepare
 DEPEND=>=x11-libs/libnotify-0.7
 DESCRIPTION=Notifications for syslog entries via libnotify
 EAPI=7
 HOMEPAGE=https://jtniehof.github.io/syslog-notify/
-INHERIT=readme.gentoo-r1
+INHERIT=autotools readme.gentoo-r1
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=>=x11-libs/libnotify-0.7 || ( app-admin/syslog-ng app-admin/rsyslog )
 SLOT=0
-SRC_URI=https://github.com/downloads/jtniehof/syslog-notify/syslog-notify-0.2.tar.bz2
-_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
-_md5_=09d67a7a3b83bf11df9fdc897fffc5d0
+SRC_URI=https://github.com/jtniehof/syslog-notify/archive/refs/tags/v0.2.tar.gz -> syslog-notify-0.2.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_md5_=50f847841d517ae2a11a0005e139b5a7
