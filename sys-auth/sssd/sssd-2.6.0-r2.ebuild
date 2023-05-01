@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit autotools linux-info multilib-minimal optfeature python-single-r1 pam systemd toolchain-funcs
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/SSSD/sssd/releases/download/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc x86"
 IUSE="acl doc +locator +netlink nfsv4 nls +man pac python samba selinux sudo systemd systemtap test valgrind"
 REQUIRED_USE="
 	pac? ( samba )
