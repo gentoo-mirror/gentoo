@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.cgsecurity.org/wiki/TestDisk
 INHERIT=flag-o-matic qmake-utils xdg-utils
 IUSE=ewf jpeg ntfs gui reiserfs static zlib
-KEYWORDS=amd64 ~arm ~hppa ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=!static? ( static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( sys-libs/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( sys-libs/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) ) )
 REQUIRED_USE=static? ( !gui )
 SLOT=0
 SRC_URI=https://www.cgsecurity.org/testdisk-7.1.tar.bz2
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=cf651138d2559e0d8fcf97f6af51ac36
+_md5_=2edc14bf5b441f9fbb4f2853b0bdaa35
