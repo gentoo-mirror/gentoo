@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
-inherit cmake python-single-r1
+inherit fortran-2 cmake python-single-r1
 
 MYPN=HepMC3
 MYP=${MYPN}-${PV}
@@ -16,9 +16,8 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.cern.ch/hepmc/HepMC3"
 else
-	COMMIT="e05d32ebac8705c0097e9e7d00ce815a205110db"
-	SRC_URI="https://gitlab.cern.ch/${PN}/${MYPN}/-/archive/${COMMIT}/${MYPN}-${COMMIT}.tar.gz"
-	S="${WORKDIR}/${MYPN}-${COMMIT}"
+	SRC_URI="https://hepmc.web.cern.ch/hepmc/releases/${MYP}.tar.gz"
+	S="${WORKDIR}/${MYP}"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -28,7 +27,14 @@ IUSE="doc test examples python root"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="python? ( ${PYTHON_DEPS} )"
+RDEPEND="
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_cond_dep '
+			dev-python/numpy[${PYTHON_USEDEP}]
+		')
+	)
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	root? ( sci-physics/root:= )
@@ -54,5 +60,5 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	use examples && docompress -x /usr/share/doc/${PF}/examples
-	python_optimize
+	use python && python_optimize
 }
