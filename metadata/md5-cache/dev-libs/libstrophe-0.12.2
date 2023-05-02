@@ -1,13 +1,15 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen )
-DEFINED_PHASES=compile configure install
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
 DEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= )
 DESCRIPTION=A simple, lightweight C library for writing XMPP clients
 EAPI=7
 HOMEPAGE=https://strophe.im/libstrophe/
+INHERIT=autotools
 IUSE=doc expat gnutls
 KEYWORDS=amd64 ~arm64
 LICENSE=|| ( MIT GPL-3 )
 RDEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= )
 SLOT=0/0.1
 SRC_URI=https://github.com/strophe/libstrophe/releases/download/0.12.2/libstrophe-0.12.2.tar.xz https://github.com/strophe/libstrophe/commit/7352bd5cdbacf98771fdc0d32a606c4b6718077c.patch -> libstrophe-fix-configure-bashisms.patch
-_md5_=52732434ebf6c6a18d018d05c34cf709
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=bb586eaa4ffdca8dacf0e2e352fb34eb
