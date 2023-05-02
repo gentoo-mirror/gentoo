@@ -1,14 +1,13 @@
-BDEPEND=>=app-editors/emacs-25.3:*
+BDEPEND=>=app-editors/emacs-27.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=>=app-editors/emacs-23.1:*
 DESCRIPTION=Emacs mode to edit OpenSCAD files
 EAPI=8
 HOMEPAGE=https://github.com/openscad/emacs-scad-mode
 INHERIT=elisp
 KEYWORDS=~amd64
-LICENSE=GPL-3
-RDEPEND=>=app-editors/emacs-23.1:* >=app-editors/emacs-25.3:*
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-27.1:*
 SLOT=0
-SRC_URI=https://github.com/openscad/emacs-scad-mode/archive/refs/tags/93.2.tar.gz -> scad-mode-93.2.tar.gz
+SRC_URI=https://github.com/openscad/emacs-scad-mode/archive/93.2.tar.gz -> scad-mode-93.2.tar.gz
 _eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
-_md5_=6bb91d94190f3c7fde245f2f1a3c7a44
+_md5_=862529338c2a1a2d81c0f775c955a2fd
