@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
-PARENT_PN="certbot"
+PARENT_PN="${PN%-nginx}"
 PARENT_P="${PARENT_PN}-${PV}"
 
 if [[ "${PV}" == *9999 ]]; then
@@ -25,7 +25,7 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-DESCRIPTION="An implementation of the ACME protocol"
+DESCRIPTION="Nginx plugin for Certbot (Let’s Encrypt client)"
 HOMEPAGE="
 	https://github.com/certbot/certbot
 	https://letsencrypt.org/
@@ -37,24 +37,16 @@ SLOT="0"
 S="${WORKDIR}/${PARENT_P}/${PN}"
 
 BDEPEND="
-	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 "
 
+# The requirement is really 17.5.0 but easier to require latest stable >= 23.1.1
+# to avoid broken 23.1.0.
 RDEPEND="
-	dev-python/chardet[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-2.5.0[${PYTHON_USEDEP}]
-	>=dev-python/josepy-1.13.0[${PYTHON_USEDEP}]
-	>=dev-python/pyopenssl-17.5.0[${PYTHON_USEDEP}]
-	!~dev-python/pyopenssl-23.1.0[${PYTHON_USEDEP}]
-	dev-python/pyrfc3339[${PYTHON_USEDEP}]
-	>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.20.0[${PYTHON_USEDEP}]
-	>=dev-python/requests-toolbelt-0.3.0[${PYTHON_USEDEP}]
+	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
+	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
+	>=dev-python/pyopenssl-23.1.1[${PYTHON_USEDEP}]
+	>=dev-python/pyparsing-2.2.1[${PYTHON_USEDEP}]
 "
 
-distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
