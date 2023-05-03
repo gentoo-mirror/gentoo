@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-03">
+    <title>ProFTPd: Memory Disclosure</title>
+    <synopsis>A vulnerability has been discovered in ProFTPd which could result in memory disclosure.</synopsis>
+    <product type="ebuild">proftpd</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>811495</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-ftp/proftpd" auto="yes" arch="*">
+            <unaffected range="ge">1.3.7c</unaffected>
+            <vulnerable range="lt">1.3.7c</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ProFTPD is an advanced and very configurable FTP server.</p>
+    </background>
+    <description>
+        <p>ProFTPd unconditionally sends passwords to Radius servers for authentication in multiples of 16 bytes. If a password is not of a length that is a multiple of 16 bytes, ProFTPd will read beyond the end of the password string and send bytes beyond the end of the string buffer.</p>
+    </description>
+    <impact type="low">
+        <p>Radius servers used for authentication can receive the contents of the ProFTPd process&#39; memory.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ProFTPd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-ftp/proftpd-1.3.7c"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46854">CVE-2021-46854</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:13:03.619655Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:13:03.623017Z">sam</metadata>
+</glsa>
