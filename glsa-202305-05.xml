@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-05">
+    <title>xfce4-settings: Browser Argument Injection</title>
+    <synopsis>A vulnerability has been discovered in xfce4-settings which could result in universal cross site scripting (&#34;uXSS&#34;).</synopsis>
+    <product type="ebuild">xfce4-settings</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>880257</bug>
+    <access>remote</access>
+    <affected>
+        <package name="xfce-base/xfce4-settings" auto="yes" arch="*">
+            <unaffected range="ge">4.17.1</unaffected>
+            <vulnerable range="lt">4.17.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>xfce4-settings contains the configuration system for the Xfce desktop environment.</p>
+    </background>
+    <description>
+        <p>xfce4-settings does not sufficiently sanitize URLs opened via xdg4-mime-helper-tool (which is called when a user clicks a link in e.g. Firefox).</p>
+    </description>
+    <impact type="normal">
+        <p>The vulnerability can be leveraged into 1-click universal cross site scripting in some browsers, or potentially other unspecified impact.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All xfce4-settings users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=xfce-base/xfce4-settings-4.17.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45062">CVE-2022-45062</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:14:46.477138Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:14:46.480051Z">sam</metadata>
+</glsa>
