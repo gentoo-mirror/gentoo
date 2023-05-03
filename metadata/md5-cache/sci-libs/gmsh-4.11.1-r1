@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/fortran
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=virtual/fortran X? ( x11-libs/fltk:1[xft] ) alglib? ( sci-libs/alglib ) blas? ( virtual/blas virtual/lapack sci-libs/fftw:3.0 ) cgns? ( sci-libs/cgnslib sci-libs/hdf5[mpi=] ) eigen? ( dev-cpp/eigen ) gmm? ( sci-mathematics/gmm ) jpeg? ( media-libs/libjpeg-turbo ) med? ( sci-libs/med[mpi=] sci-libs/hdf5[mpi=] ) metis? ( >=sci-libs/metis-5.2.0 ) mpi? ( virtual/mpi[cxx] ) mumps? ( sci-libs/mumps[mpi=] ) opencascade? ( sci-libs/opencascade:* ) pdf? ( app-text/poppler:= ) png? ( media-libs/libpng:0 ) petsc? ( sci-mathematics/petsc[mpi=] ) slepc? ( sci-mathematics/slepc[mpi=] ) voro? ( sci-libs/voro++ ) zlib? ( sys-libs/zlib ) || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 ) virtual/pkgconfig python? ( dev-lang/swig:0 ) virtual/fortran
+DESCRIPTION=Three-dimensional finite element mesh generator
+EAPI=8
+HOMEPAGE=https://gmsh.info
+INHERIT=cmake desktop fortran-2 python-any-r1 toolchain-funcs xdg-utils
+IUSE=+alglib +blas cgns eigen examples +gmm jpeg med metis mpi mumps netgen opencascade petsc pdf png python shared slepc X voro zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ free-noncomm alglib? ( MIT ) gmm? ( LGPL-2.1+ ) metis? ( Apache-2.0 ) netgen? ( LGPL-2.1+ ) voro? ( BSD )
+RDEPEND=virtual/fortran X? ( x11-libs/fltk:1[xft] ) alglib? ( sci-libs/alglib ) blas? ( virtual/blas virtual/lapack sci-libs/fftw:3.0 ) cgns? ( sci-libs/cgnslib sci-libs/hdf5[mpi=] ) eigen? ( dev-cpp/eigen ) gmm? ( sci-mathematics/gmm ) jpeg? ( media-libs/libjpeg-turbo ) med? ( sci-libs/med[mpi=] sci-libs/hdf5[mpi=] ) metis? ( >=sci-libs/metis-5.2.0 ) mpi? ( virtual/mpi[cxx] ) mumps? ( sci-libs/mumps[mpi=] ) opencascade? ( sci-libs/opencascade:* ) pdf? ( app-text/poppler:= ) png? ( media-libs/libpng:0 ) petsc? ( sci-mathematics/petsc[mpi=] ) slepc? ( sci-mathematics/slepc[mpi=] ) voro? ( sci-libs/voro++ ) zlib? ( sys-libs/zlib ) virtual/fortran
+REQUIRED_USE=^^ ( blas eigen ) mumps? ( blas ) slepc? ( petsc )
+SLOT=0
+SRC_URI=https://gmsh.info/src/gmsh-4.11.1-source.tgz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_md5_=00979e8bf5cfc88d99c56183554364ec
