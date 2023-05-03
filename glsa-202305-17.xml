@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-17">
+    <title>libsdl: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in libsdl, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">libsdl</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>692388</bug>
+    <bug>836665</bug>
+    <bug>861809</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libsdl" auto="yes" arch="*">
+            <unaffected range="ge">1.2.15_p20221201</unaffected>
+            <vulnerable range="lt">1.2.15_p20221201</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in SDL. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libsdl users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libsdl-1.2.15_p20221201"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7572">CVE-2019-7572</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7573">CVE-2019-7573</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7574">CVE-2019-7574</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7575">CVE-2019-7575</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7576">CVE-2019-7576</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7577">CVE-2019-7577</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7578">CVE-2019-7578</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7635">CVE-2019-7635</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7636">CVE-2019-7636</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-7638">CVE-2019-7638</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-13616">CVE-2019-13616</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33657">CVE-2021-33657</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34568">CVE-2022-34568</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:04:10.572876Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:04:10.575693Z">sam</metadata>
+</glsa>
