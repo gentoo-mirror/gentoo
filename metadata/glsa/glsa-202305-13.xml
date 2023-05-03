@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-13">
+    <title>Mozilla Thunderbird: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Thunderbird, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">thunderbird,thunderbird-bin</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>885815</bug>
+    <bug>891217</bug>
+    <access>remote</access>
+    <affected>
+        <package name="mail-client/thunderbird" auto="yes" arch="*">
+            <unaffected range="ge">102.7.0</unaffected>
+            <vulnerable range="lt">102.7.0</vulnerable>
+        </package>
+        <package name="mail-client/thunderbird-bin" auto="yes" arch="*">
+            <unaffected range="ge">102.7.0</unaffected>
+            <vulnerable range="lt">102.7.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Thunderbird is a popular open-source email client from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Thunderbird. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Thunderbird binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-bin-102.7.0"
+        </code>
+        
+        <p>All Mozilla Thunderbird users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-102.7.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46871">CVE-2022-46871</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46872">CVE-2022-46872</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46874">CVE-2022-46874</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46875">CVE-2022-46875</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46877">CVE-2022-46877</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46878">CVE-2022-46878</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46880">CVE-2022-46880</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46881">CVE-2022-46881</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46882">CVE-2022-46882</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23598">CVE-2023-23598</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23599">CVE-2023-23599</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23601">CVE-2023-23601</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23602">CVE-2023-23602</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23603">CVE-2023-23603</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23605">CVE-2023-23605</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:03:08.414596Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:03:08.419037Z">sam</metadata>
+</glsa>

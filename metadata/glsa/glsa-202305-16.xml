@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-16">
+    <title>Vim, gVim: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Vim, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">gvim,vim,vim-core</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>851231</bug>
+    <bug>861092</bug>
+    <bug>869359</bug>
+    <bug>879257</bug>
+    <bug>883681</bug>
+    <bug>889730</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-editors/gvim" auto="yes" arch="*">
+            <unaffected range="ge">9.0.1157</unaffected>
+            <vulnerable range="lt">9.0.1157</vulnerable>
+        </package>
+        <package name="app-editors/vim" auto="yes" arch="*">
+            <unaffected range="ge">9.0.1157</unaffected>
+            <vulnerable range="lt">9.0.1157</vulnerable>
+        </package>
+        <package name="app-editors/vim-core" auto="yes" arch="*">
+            <unaffected range="ge">9.0.1157</unaffected>
+            <vulnerable range="lt">9.0.1157</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Vim is an efficient, highly configurable improved version of the classic ‘vi’ text editor. gVim is the GUI version of Vim.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Vim, gVim. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Vim users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/vim-9.0.1157"
+        </code>
+        
+        <p>All gVim users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/gvim-9.0.1157"
+        </code>
+        
+        <p>All vim-core users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/vim-core-9.0.1157"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1154">CVE-2022-1154</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1160">CVE-2022-1160</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1381">CVE-2022-1381</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1420">CVE-2022-1420</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1616">CVE-2022-1616</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1619">CVE-2022-1619</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1620">CVE-2022-1620</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1621">CVE-2022-1621</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1629">CVE-2022-1629</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1674">CVE-2022-1674</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1720">CVE-2022-1720</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1725">CVE-2022-1725</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1733">CVE-2022-1733</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1735">CVE-2022-1735</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1769">CVE-2022-1769</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1771">CVE-2022-1771</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1785">CVE-2022-1785</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1796">CVE-2022-1796</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1851">CVE-2022-1851</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1886">CVE-2022-1886</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1897">CVE-2022-1897</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1898">CVE-2022-1898</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1927">CVE-2022-1927</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1942">CVE-2022-1942</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1968">CVE-2022-1968</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2000">CVE-2022-2000</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2042">CVE-2022-2042</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2124">CVE-2022-2124</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2125">CVE-2022-2125</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2126">CVE-2022-2126</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2129">CVE-2022-2129</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2175">CVE-2022-2175</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2182">CVE-2022-2182</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2183">CVE-2022-2183</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2206">CVE-2022-2206</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2207">CVE-2022-2207</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2208">CVE-2022-2208</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2210">CVE-2022-2210</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2231">CVE-2022-2231</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2257">CVE-2022-2257</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2264">CVE-2022-2264</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2284">CVE-2022-2284</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2285">CVE-2022-2285</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2286">CVE-2022-2286</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2287">CVE-2022-2287</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2288">CVE-2022-2288</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2289">CVE-2022-2289</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2304">CVE-2022-2304</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2343">CVE-2022-2343</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2344">CVE-2022-2344</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2345">CVE-2022-2345</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2522">CVE-2022-2522</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2816">CVE-2022-2816</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2817">CVE-2022-2817</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2819">CVE-2022-2819</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2845">CVE-2022-2845</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2849">CVE-2022-2849</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2862">CVE-2022-2862</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2874">CVE-2022-2874</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2889">CVE-2022-2889</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2923">CVE-2022-2923</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2946">CVE-2022-2946</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2980">CVE-2022-2980</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2982">CVE-2022-2982</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3016">CVE-2022-3016</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3099">CVE-2022-3099</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3134">CVE-2022-3134</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3153">CVE-2022-3153</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3234">CVE-2022-3234</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3235">CVE-2022-3235</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3256">CVE-2022-3256</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3278">CVE-2022-3278</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3296">CVE-2022-3296</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3297">CVE-2022-3297</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3324">CVE-2022-3324</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3352">CVE-2022-3352</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3491">CVE-2022-3491</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3520">CVE-2022-3520</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3591">CVE-2022-3591</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3705">CVE-2022-3705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4141">CVE-2022-4141</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4292">CVE-2022-4292</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4293">CVE-2022-4293</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-47024">CVE-2022-47024</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0049">CVE-2023-0049</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0051">CVE-2023-0051</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0054">CVE-2023-0054</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:03:57.350349Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:03:57.353137Z">sam</metadata>
+</glsa>

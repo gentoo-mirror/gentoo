@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-14">
+    <title>uptimed: Root Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in uptimed which could result in root privilege escalation.</synopsis>
+    <product type="ebuild">uptimed</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>630810</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-misc/uptimed" auto="yes" arch="*">
+            <unaffected range="ge">0.4.6-r1</unaffected>
+            <vulnerable range="lt">0.4.6-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>uptimed is a system uptime record daemon that keeps track of your highest uptimes.</p>
+    </background>
+    <description>
+        <p>Via unnecessary file ownership modifications in the pkg_postinst ebuild phase, the uptimed user could change arbitrary files to be owned by the uptimed user at emerge-time.</p>
+    </description>
+    <impact type="high">
+        <p>The uptimed user could achieve root privileges when the uptimed package is emerged.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All uptimed users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-misc/uptimed-0.4.6-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36657">CVE-2020-36657</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:03:26.877508Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:03:26.880820Z">sam</metadata>
+</glsa>
