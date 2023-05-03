@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=Allow to connect bluetooth paired devices from gnome control panel
+EAPI=8
+HOMEPAGE=https://github.com/bjarosze/gnome-bluetooth-quick-connect
+INHERIT=gnome2-utils
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=net-wireless/bluez app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-44
+SLOT=0
+SRC_URI=https://github.com/bjarosze/gnome-bluetooth-quick-connect/archive/v36.tar.gz -> gnome-shell-extension-bluetooth-quick-connect-36.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116
+_md5_=3c537a33eb76433d51c6d30d1f6f22a5
