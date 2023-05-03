@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-02">
+    <title>Python, PyPy3: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Python and PyPy, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">pypy3,python</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>880629</bug>
+    <bug>878385</bug>
+    <bug>877851</bug>
+    <bug>876815</bug>
+    <bug>864747</bug>
+    <bug>838250</bug>
+    <bug>835443</bug>
+    <bug>834533</bug>
+    <bug>787260</bug>
+    <bug>811165</bug>
+    <bug>793833</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/python" auto="yes" arch="*">
+            <unaffected range="ge" slot="3.8">3.8.15_p3</unaffected>
+            <unaffected range="ge" slot="3.9">3.9.15_p3</unaffected>
+            <unaffected range="ge" slot="3.10">3.10.8_p3</unaffected>
+            <unaffected range="ge" slot="3.11">3.11.0_p2</unaffected>
+            <unaffected range="ge" slot="12">3.12.0_alpha1_p2</unaffected>
+            <vulnerable range="lt" slot="3.8">3.8.15_p3</vulnerable>
+            <vulnerable range="lt" slot="3.9">3.9.15_p3</vulnerable>
+            <vulnerable range="lt" slot="3.10">3.10.8_p3</vulnerable>
+            <vulnerable range="lt" slot="3.11">3.11.0_p2</vulnerable>
+            <vulnerable range="lt" slot="12">3.12.0_alpha1_p2</vulnerable>
+        </package>
+        <package name="dev-python/pypy3" auto="yes" arch="*">
+            <unaffected range="ge">7.3.9_p9</unaffected>
+            <vulnerable range="lt">7.3.9_p9</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Python is an interpreted, interactive, object-oriented, cross-platform programming language.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Python and PyPy3. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Python 3.8 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.8.15_p3:3.8"
+        </code>
+        
+        <p>All Python 3.9 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.9.15_p3:3.9"
+        </code>
+        
+        <p>All Python 3.10 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.10.8_p3:3.10"
+        </code>
+        
+        <p>All Python 3.11 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.11.0_p2:3.11"
+        </code>
+        
+        <p>All Python 3.12 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.12.0_alpha1_p2"
+        </code>
+        
+        <p>All PyPy3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pypy3-7.3.9_p9"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2015-20107">CVE-2015-20107</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3654">CVE-2021-3654</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28363">CVE-2021-28363</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28861">CVE-2021-28861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29921">CVE-2021-29921</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0391">CVE-2022-0391</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37454">CVE-2022-37454</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42919">CVE-2022-42919</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45061">CVE-2022-45061</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:12:43.325618Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:12:43.330732Z">sam</metadata>
+</glsa>
