@@ -1,15 +1,15 @@
 DEFINED_PHASES=install postinst preinst prerm
-DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
+DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
 DESCRIPTION=GNOME integration for Spotify
 EAPI=7
 HOMEPAGE=https://github.com/mrpdaemon/gnome-integration-spotify
 INHERIT=gnome2-utils python-r1
-IUSE=python_targets_python3_10
+IUSE=python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) dev-python/dbus-python[python_targets_python3_10(-)?] media-gfx/imagemagick x11-misc/wmctrl x11-misc/xautomation x11-misc/xdotool x11-apps/xwininfo
-REQUIRED_USE=|| ( python_targets_python3_10 )
+RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) dev-python/dbus-python[python_targets_python3_10(-)?,python_targets_python3_11(-)?] media-gfx/imagemagick x11-misc/wmctrl x11-misc/xautomation x11-misc/xdotool x11-apps/xwininfo
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/mrpdaemon/gnome-integration-spotify/archive/20140907.tar.gz -> gnome-integration-spotify-20140907.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	741bfa77afb2a9321261501aca58c208	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	python-r1	3c6cd0f418ba702c186a9865b85e704d
-_md5_=e781a2ec0785ca330ba6bd9e14751f60
+_md5_=4a8ac37355ab2c8856d6afbc9986535e
