@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-06">
+    <title>Mozilla Firefox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Firefox, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">firefox,firefox-bin</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>885813</bug>
+    <bug>891213</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/firefox" auto="yes" arch="*">
+            <unaffected range="ge" slot="esr">102.7.0</unaffected>
+            <unaffected range="ge" slot="rapid">109.0</unaffected>
+            <vulnerable range="lt" slot="esr">102.7.0</vulnerable>
+            <vulnerable range="lt" slot="rapid">109.0</vulnerable>
+        </package>
+        <package name="www-client/firefox-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="esr">102.7.0</unaffected>
+            <unaffected range="ge" slot="rapid">109.0</unaffected>
+            <vulnerable range="lt" slot="esr">102.7.0</vulnerable>
+            <vulnerable range="lt" slot="rapid">109.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Firefox is a popular open-source web browser from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Firefox ESR binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-102.7.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-102.7.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-109.0:rapid"
+        </code>
+        
+        <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-109.0:rapid"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46871">CVE-2022-46871</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46872">CVE-2022-46872</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46873">CVE-2022-46873</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46874">CVE-2022-46874</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46875">CVE-2022-46875</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46877">CVE-2022-46877</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46878">CVE-2022-46878</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46879">CVE-2022-46879</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46880">CVE-2022-46880</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46881">CVE-2022-46881</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46882">CVE-2022-46882</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23597">CVE-2023-23597</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23598">CVE-2023-23598</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23599">CVE-2023-23599</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23600">CVE-2023-23600</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23601">CVE-2023-23601</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23602">CVE-2023-23602</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23603">CVE-2023-23603</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23604">CVE-2023-23604</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23605">CVE-2023-23605</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23606">CVE-2023-23606</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:15:03.866930Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:15:03.869869Z">sam</metadata>
+</glsa>
