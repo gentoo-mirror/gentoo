@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-22">
+    <title>ISC DHCP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ISC DHCP, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">dhcp</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>875521</bug>
+    <bug>792324</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/dhcp" auto="yes" arch="*">
+            <unaffected range="ge">4.4.3_p1</unaffected>
+            <vulnerable range="lt">4.4.3_p1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ISC DHCP is ISC&#39;s reference implementation of all aspects of the Dynamic Host Configuration Protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ISC DHCP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ISC DHCP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/dhcp-4.4.3_p1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25217">CVE-2021-25217</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2928">CVE-2022-2928</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2929">CVE-2022-2929</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:32:25.223781Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:32:25.226672Z">sam</metadata>
+</glsa>
