@@ -4,7 +4,7 @@
 EAPI=8
 
 # Run cargo-build or cargo fetch in lib/mp4 to get this list
-# TODO: >0.3.4 should contain vendored crates in the tarball?
+# TODO: >0.3.4 contains vendor/ but doesn't seem to work for now?
 CRATES="
 ahash-0.7.6
 aho-corasick-0.7.18
@@ -66,10 +66,6 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( net-misc/curl )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-gcc13.patch
-)
 
 src_configure() {
 	econf \
