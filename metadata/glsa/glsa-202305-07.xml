@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-07">
+    <title>slixmpp: Insufficient Certificate Validation</title>
+    <synopsis>A vulnerability has been discovered in slixmpp which can result in successful man-in-the-middle attacks.</synopsis>
+    <product type="ebuild">slixmpp</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>881181</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/slixmpp" auto="yes" arch="*">
+            <unaffected range="ge">1.8.3</unaffected>
+            <vulnerable range="lt">1.8.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>slixmpp is a Python 3 library for XMPP.</p>
+    </background>
+    <description>
+        <p>slixmpp does not validate hostnames in certificates used by connected servers.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker could perform a man-in-the-middle attack on users&#39; connections to servers with slixmpp.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All slixmpp users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --upgrade --verbose ">=dev-python/slixmpp-1.8.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45197">CVE-2022-45197</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:47:07.895475Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:47:07.900775Z">sam</metadata>
+</glsa>
