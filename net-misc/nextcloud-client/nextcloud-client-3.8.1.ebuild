@@ -7,12 +7,14 @@ inherit cmake virtualx xdg
 
 DESCRIPTION="Desktop Syncing Client for Nextcloud"
 HOMEPAGE="https://github.com/nextcloud/desktop"
-SRC_URI="https://github.com/nextcloud/desktop/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/nextcloud/desktop/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+"
 S="${WORKDIR}/desktop-${PV/_/-}"
 
 LICENSE="CC-BY-3.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="doc dolphin nautilus test webengine"
 RESTRICT="!test? ( test )"
 
@@ -32,6 +34,7 @@ RDEPEND="
 	dev-qt/qtwebsockets:5
 	dev-qt/qtwidgets:5
 	net-libs/libcloudproviders
+	kde-frameworks/karchive:5
 	sys-libs/zlib
 	dolphin? (
 		kde-frameworks/kcoreaddons:5
