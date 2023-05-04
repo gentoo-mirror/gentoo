@@ -1,13 +1,14 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install
-DEPEND=>=x11-libs/gtk+-2.6:2 >=sys-fs/e2fsprogs-1.41.7-r1 virtual/pkgconfig
+DEPEND=>=x11-libs/gtk+-2.6:2 >=sys-fs/e2fsprogs-1.41.7-r1
 DESCRIPTION=Visualizes the fragmentation status of ext2/3 filesystems
-EAPI=6
-HOMEPAGE=http://davl.sourceforge.net/
+EAPI=8
+HOMEPAGE=https://davl.sourceforge.net/
 INHERIT=toolchain-funcs
 KEYWORDS=~x86
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=>=x11-libs/gtk+-2.6:2
 SLOT=0
 SRC_URI=mirror://sourceforge/davl/davl-1.2.4.tar.bz2
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
-_md5_=eed3bc2f410b4981c2b747b726a738ec
+_md5_=04d2120889f47b02ef90247d5f5eee03
