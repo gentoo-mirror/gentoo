@@ -26,7 +26,7 @@ inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 mult
 DESCRIPTION="A full office productivity suite"
 HOMEPAGE="https://www.libreoffice.org"
 SRC_URI="branding? ( https://dev.gentoo.org/~dilfridge/distfiles/${BRANDING} )"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-loong-buildsys-fix.patch.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-7.5.2.2-loong-buildsys-fix.patch.xz"
 [[ -n ${PATCHSET} ]] && SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}"
 
 # Split modules following git/tarballs; Core MUST be first!
@@ -180,7 +180,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	)
 	coinmp? ( sci-libs/coinor-mp )
 	cups? ( net-print/cups )
-	dbus? ( sys-apps/dbus[X] )
+	dbus? ( sys-apps/dbus )
 	eds? (
 		dev-libs/glib:2
 		gnome-base/dconf
@@ -293,7 +293,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-7.2.0.4-qt5detect.patch"
 
 	# git master
-	"${WORKDIR}"/${P}-loong-buildsys-fix.patch
+	"${WORKDIR}"/${PN}-7.5.2.2-loong-buildsys-fix.patch
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
