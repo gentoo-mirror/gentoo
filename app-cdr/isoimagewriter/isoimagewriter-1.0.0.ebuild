@@ -11,7 +11,7 @@ DESCRIPTION="Write hybrid ISO files onto a USB disk"
 HOMEPAGE="https://community.kde.org/ISOImageWriter"
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -24,6 +24,7 @@ DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
+	>=dev-qt/qttest-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/karchive-${KFMIN}:5
 	>=kde-frameworks/kcrash-${KFMIN}:5
