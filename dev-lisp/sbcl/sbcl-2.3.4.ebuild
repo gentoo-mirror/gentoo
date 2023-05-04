@@ -7,7 +7,7 @@ inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.3.2
+BV_AMD64=2.3.4
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
@@ -23,31 +23,34 @@ BV_SPARC_SOLARIS=1.0.23
 DESCRIPTION="Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp"
 HOMEPAGE="https://www.sbcl.org/ http://sbcl.sourceforge.net/"
 SRC_URI="mirror://sourceforge/sbcl/${P}-source.tar.bz2
-	x86? ( mirror://sourceforge/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
-	amd64? ( mirror://sourceforge/sbcl/${PN}-${BV_AMD64}-x86-64-linux-binary.tar.bz2 )
-	ppc? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC}-powerpc-linux-binary.tar.bz2 )
-	ppc64? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC64LE}-ppc64le-linux-binary.tar.bz2 )
-	sparc? ( mirror://sourceforge/sbcl/${PN}-${BV_SPARC}-sparc-linux-binary.tar.bz2 )
-	alpha? ( mirror://sourceforge/sbcl/${PN}-${BV_ALPHA}-alpha-linux-binary.tar.bz2 )
-	arm? ( mirror://sourceforge/sbcl/${PN}-${BV_ARM}-armhf-linux-binary.tar.bz2 )
-	arm64? ( mirror://sourceforge/sbcl/${PN}-${BV_ARM64}-arm64-linux-binary.tar.bz2 )
-	x64-macos? ( mirror://sourceforge/sbcl/${PN}-${BV_X64_MACOS}-x86-64-darwin-binary.tar.bz2 )
-	ppc-macos? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC_MACOS}-powerpc-darwin-binary.tar.bz2 )
-	x86-solaris? ( mirror://sourceforge/sbcl/${PN}-${BV_X86_SOLARIS}-x86-solaris-binary.tar.bz2 )
-	x64-solaris? ( mirror://sourceforge/sbcl/${PN}-${BV_X64_SOLARIS}-x86-64-solaris-binary.tar.bz2 )
-	sparc-solaris? ( mirror://sourceforge/sbcl/${PN}-${BV_SPARC_SOLARIS}-sparc-solaris-binary.tar.bz2 )"
+	!system-bootstrap? (
+		x86? ( mirror://sourceforge/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
+		amd64? ( mirror://sourceforge/sbcl/${PN}-${BV_AMD64}-x86-64-linux-binary.tar.bz2 )
+		ppc? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC}-powerpc-linux-binary.tar.bz2 )
+		ppc64? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC64LE}-ppc64le-linux-binary.tar.bz2 )
+		sparc? ( mirror://sourceforge/sbcl/${PN}-${BV_SPARC}-sparc-linux-binary.tar.bz2 )
+		alpha? ( mirror://sourceforge/sbcl/${PN}-${BV_ALPHA}-alpha-linux-binary.tar.bz2 )
+		arm? ( mirror://sourceforge/sbcl/${PN}-${BV_ARM}-armhf-linux-binary.tar.bz2 )
+		arm64? ( mirror://sourceforge/sbcl/${PN}-${BV_ARM64}-arm64-linux-binary.tar.bz2 )
+		x64-macos? ( mirror://sourceforge/sbcl/${PN}-${BV_X64_MACOS}-x86-64-darwin-binary.tar.bz2 )
+		ppc-macos? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC_MACOS}-powerpc-darwin-binary.tar.bz2 )
+		x86-solaris? ( mirror://sourceforge/sbcl/${PN}-${BV_X86_SOLARIS}-x86-solaris-binary.tar.bz2 )
+		x64-solaris? ( mirror://sourceforge/sbcl/${PN}-${BV_X64_SOLARIS}-x86-64-solaris-binary.tar.bz2 )
+		sparc-solaris? ( mirror://sourceforge/sbcl/${PN}-${BV_SPARC_SOLARIS}-sparc-solaris-binary.tar.bz2 )
+	)"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="-* ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
-IUSE="debug doc source +threads +unicode +zstd"
+IUSE="system-bootstrap debug doc source +threads +unicode +zstd"
 
 CDEPEND=">=dev-lisp/asdf-3.3:= \
 	prefix? ( dev-util/patchelf )"
 # bug #843851
 BDEPEND="${CDEPEND}
 		dev-util/strace
-		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )"
+		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )
+		system-bootstrap? ( || ( dev-lisp/clisp dev-lisp/sbcl ) )"
 RDEPEND="${CDEPEND}
 		zstd? ( app-arch/zstd )
 		!prefix? ( elibc_glibc? ( >=sys-libs/glibc-2.6 ) )"
@@ -93,7 +96,9 @@ sbcl_apply_features() {
 
 src_unpack() {
 	unpack ${A}
-	mv sbcl-*-* sbcl-binary || die
+	if ! use system-bootstrap ; then
+		mv sbcl-*-* sbcl-binary || die
+	fi
 	cd "${S}"
 }
 
@@ -166,6 +171,15 @@ src_configure() {
 
 src_compile() {
 	local bindir="${WORKDIR}"/sbcl-binary
+	local bootstrap_lisp="sh ${bindir}/run-sbcl.sh --no-sysinit --no-userinit --disable-debugger"
+
+	if use system-bootstrap ; then
+		if has_version "dev-lisp/sbcl" ; then
+			bootstrap_lisp="sbcl --no-sysinit --no-userinit --disable-debugger"
+		else
+			bootstrap_lisp="clisp"
+		fi
+	fi
 
 	# Bug #869434
 	append-cppflags -D_GNU_SOURCE
@@ -175,8 +189,9 @@ src_compile() {
 	env - HOME="${T}" PATH="${PATH}" \
 		CC="$(tc-getCC)" AS="$(tc-getAS)" LD="$(tc-getLD)" \
 		CPPFLAGS="${CPPFLAGS}" CFLAGS="${CFLAGS}" ASFLAGS="${ASFLAGS}" LDFLAGS="${LDFLAGS}" \
+		SBCL_HOME="/usr/$(get_libdir)/sbcl" SBCL_SOURCE_ROOT="/usr/$(get_libdir)/sbcl/src" \
 		GNUMAKE=make ./make.sh \
-		"sh ${bindir}/run-sbcl.sh --no-sysinit --no-userinit --disable-debugger" \
+		"${bootstrap_lisp}" \
 		|| die "make failed"
 
 	# need to set HOME because libpango(used by graphviz) complains about it
