@@ -1,10 +1,10 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) >=dev-util/ninja-1.8.2 sys-apps/coreutils virtual/pkgconfig test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
+BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) dev-util/ninja sys-apps/coreutils virtual/pkgconfig test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test
 DEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.17.2:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
 DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
 EAPI=8
 HOMEPAGE=https://nodejs.org/
-INHERIT=bash-completion-r1 check-reqs flag-o-matic linux-info ninja-utils pax-utils python-any-r1 toolchain-funcs xdg-utils
+INHERIT=bash-completion-r1 check-reqs flag-o-matic linux-info pax-utils python-any-r1 toolchain-funcs xdg-utils
 IUSE=cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl test
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos
 LICENSE=Apache-1.1 Apache-2.0 BSD BSD-2 MIT
@@ -13,5 +13,5 @@ REQUIRED_USE=inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl?
 RESTRICT=!test? ( test )
 SLOT=0/20
 SRC_URI=https://nodejs.org/dist/v20.1.0/node-v20.1.0.tar.xz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	bash-completion-r1	59cf54afadd3b37d31d9d85c7d7d8067	check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=1f7728eeff761b17264a7b64a39e0646
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	bash-completion-r1	59cf54afadd3b37d31d9d85c7d7d8067	check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=18171e1d7cc3d735bbe185b8b901817d
