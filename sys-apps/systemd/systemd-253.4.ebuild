@@ -1,8 +1,8 @@
 # Copyright 2011-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{9..11} )
+EAPI=8
+PYTHON_COMPAT=( python3_{10..11} )
 
 # Avoid QA warnings
 TMPFILES_OPTIONAL=1
@@ -23,7 +23,7 @@ else
 	MY_P=${MY_PN}-${MY_PV}
 	S=${WORKDIR}/${MY_P}
 	SRC_URI="https://github.com/systemd/${MY_PN}/archive/v${MY_PV}/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 inherit bash-completion-r1 linux-info meson-multilib pam
@@ -232,14 +232,13 @@ src_unpack() {
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}/252-no-stack-protector-bpf.patch"
+		"${FILESDIR}/systemd-253-initrd-generators.patch"
 	)
 
 	if ! use vanilla; then
 		PATCHES+=(
 			"${FILESDIR}/gentoo-generator-path-r2.patch"
-			"${FILESDIR}/gentoo-systemctl-disable-sysv-sync-r1.patch"
-			"${FILESDIR}/gentoo-journald-audit.patch"
+			"${FILESDIR}/gentoo-journald-audit-r1.patch"
 		)
 	fi
 
@@ -269,6 +268,9 @@ multilib_src_configure() {
 		$(meson_use split-usr split-bin)
 		-Drootprefix="$(usex split-usr "${EPREFIX:-/}" "${EPREFIX}/usr")"
 		-Drootlibdir="${EPREFIX}/usr/$(get_libdir)"
+		# Disable compatibility with sysvinit
+		-Dsysvinit-path=
+		-Dsysvrcnd-path=
 		# Avoid infinite exec recursion, bug 642724
 		-Dtelinit-path="${EPREFIX}/lib/sysvinit/telinit"
 		# no deps
@@ -344,6 +346,7 @@ multilib_src_configure() {
 
 multilib_src_test() {
 	unset DBUS_SESSION_BUS_ADDRESS XDG_RUNTIME_DIR
+	local -x COLUMNS=80
 	meson_src_test
 }
 
@@ -357,17 +360,17 @@ multilib_src_install_all() {
 	einstalldocs
 	dodoc "${FILESDIR}"/nsswitch.conf
 
+	insinto /usr/lib/tmpfiles.d
+	doins "${FILESDIR}"/legacy.conf
+
 	if ! use resolvconf; then
 		rm -f "${ED}${rootprefix}/${sbin}"/resolvconf || die
 	fi
 
-	rm "${ED}"/etc/init.d/README || die
-	rm "${ED}${rootprefix}"/lib/systemd/system-generators/systemd-sysv-generator || die
-
 	if ! use sysv-utils; then
-		rm "${ED}${rootprefix}/${sbin}"/{halt,init,poweroff,reboot,runlevel,shutdown,telinit} || die
+		rm "${ED}${rootprefix}/${sbin}"/{halt,init,poweroff,reboot,shutdown} || die
 		rm "${ED}"/usr/share/man/man1/init.1 || die
-		rm "${ED}"/usr/share/man/man8/{halt,poweroff,reboot,runlevel,shutdown,telinit}.8 || die
+		rm "${ED}"/usr/share/man/man8/{halt,poweroff,reboot,shutdown}.8 || die
 	fi
 
 	if ! use resolvconf && ! use sysv-utils && use split-usr; then

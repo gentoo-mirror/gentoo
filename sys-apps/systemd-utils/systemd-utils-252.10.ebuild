@@ -2,16 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
-
-if [[ ${PV} != 25[12].* ]] ; then
-	# The F_S=3 issues should be fixed in 253.
-	# - https://github.com/systemd/systemd/issues/22801
-	# - https://github.com/systemd/systemd/pull/25967
-	# - https://github.com/systemd/systemd/commit/7929e180aa47a2692ad4f053afac2857d7198758
-	# - https://github.com/systemd/systemd/commit/4f79f545b3c46c358666c9f5f2b384fe50aac4b4
-	die "Please remove the FORTIFY_SOURCE hacks in src_configure."
-fi
+PYTHON_COMPAT=( python3_{10..11} )
 
 QA_PKGCONFIG_VERSION=$(ver_cut 1)
 
@@ -31,12 +22,12 @@ else
 	SRC_URI="https://github.com/systemd/systemd/archive/refs/tags/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 fi
 
-MUSL_PATCHSET="systemd-musl-patches-251.2"
+MUSL_PATCHSET="systemd-musl-patches-252.4"
 SRC_URI+=" elibc_musl? ( https://dev.gentoo.org/~floppym/dist/${MUSL_PATCHSET}.tar.gz )"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+acl boot +kmod selinux split-usr sysusers +tmpfiles test +udev"
 REQUIRED_USE="|| ( boot tmpfiles sysusers udev )"
 RESTRICT="!test? ( test )"
@@ -72,6 +63,7 @@ RDEPEND="${COMMON_DEPEND}
 		acct-group/cdrom
 		acct-group/dialout
 		acct-group/disk
+		acct-group/floppy
 		acct-group/input
 		acct-group/kmem
 		acct-group/kvm
@@ -80,6 +72,7 @@ RDEPEND="${COMMON_DEPEND}
 		acct-group/sgx
 		acct-group/tape
 		acct-group/tty
+		acct-group/usb
 		acct-group/video
 		!sys-apps/gentoo-systemd-integration
 		!sys-apps/hwids[udev]
@@ -124,39 +117,17 @@ pkg_setup() {
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}/251-gpt-auto-no-cryptsetup.patch"
-		"${FILESDIR}/251-tmpfiles-ub.patch"
 	)
 
 	if use elibc_musl; then
 		PATCHES+=( "${WORKDIR}/${MUSL_PATCHSET}" )
-		# Applied upstream in 251.3
-		rm "${WORKDIR}/${MUSL_PATCHSET}/0001-Add-sys-file.h-for-LOCK_.patch" || die
 	fi
 	default
 
 	# Remove install_rpath; we link statically
-	local rpath_pattern="install_rpath : rootlibexecdir,"
+	local rpath_pattern="install_rpath : rootpkglibdir,"
 	grep -q -e "${rpath_pattern}" meson.build || die
 	sed -i -e "/${rpath_pattern}/d" meson.build || die
-}
-
-src_configure() {
-	# Broken with FORTIFY_SOURCE=3: bug #841770.
-	#
-	# Our toolchain sets F_S=2 by default w/ >= -O2, so we need
-	# to unset F_S first, then explicitly set 2, to negate any default
-	# and anything set by the user if they're choosing 3 (or if they've
-	# modified GCC to set 3).
-	#
-	if is-flagq '-O[23]' || is-flagq '-Ofast' ; then
-		# We can't unconditionally do this b/c we fortify needs
-		# some level of optimisation.
-		filter-flags -D_FORTIFY_SOURCE=3
-		append-cppflags -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
-	fi
-
-	multilib-minimal_src_configure
 }
 
 src_configure() {
@@ -322,6 +293,7 @@ multilib_src_compile() {
 				systemd-tmpfiles.standalone
 				man/tmpfiles.d.5
 				man/systemd-tmpfiles.8
+				tmpfiles.d/{etc,static-nodes-permissions,var}.conf
 			)
 			if use test; then
 				targets+=( test-tmpfiles )
@@ -359,7 +331,6 @@ multilib_src_compile() {
 					test-fido-id-desc
 					test-udev-builtin
 					test-udev-event
-					test-udev-netlink
 					test-udev-node
 					test-udev-util
 				)
@@ -450,6 +421,8 @@ multilib_src_install() {
 			into "${rootprefix:-/}"
 			newbin systemd-tmpfiles{.standalone,}
 			doman man/{systemd-tmpfiles.8,tmpfiles.d.5}
+			insinto /usr/lib/tmpfiles.d
+			doins tmpfiles.d/{etc,static-nodes-permissions,var}.conf
 		fi
 		if use udev; then
 			into "${rootprefix:-/}"
@@ -497,6 +470,9 @@ multilib_src_install_all() {
 		doexe "${FILESDIR}"/systemd-tmpfiles-clean
 		insinto /usr/share/zsh/site-functions
 		doins shell-completion/zsh/_systemd-tmpfiles
+		insinto /usr/lib/tmpfiles.d
+		doins tmpfiles.d/{tmp,x11}.conf
+		doins "${FILESDIR}"/legacy.conf
 	fi
 	if use udev; then
 		doheader src/libudev/libudev.h
