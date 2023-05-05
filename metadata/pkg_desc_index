@@ -1228,7 +1228,7 @@ app-arch/wimlib 1.13.4-r1 1.14.1: The open source Windows Imaging (WIM) library
 app-arch/xar 1.8.0.0.487.100.1: An easily extensible archive format
 app-arch/xarchiver 0.5.4.20 0.5.4.21: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
-app-arch/xz-utils 5.2.10 5.2.11 5.4.1 5.4.2 9999: Utils for managing LZMA compressed files
+app-arch/xz-utils 5.2.11 5.2.12 5.4.2 5.4.3 9999: Utils for managing LZMA compressed files
 app-arch/zchunk 1.2.3 9999: File format designed for highly efficient deltas with good compression
 app-arch/zip 3.0-r7: Info ZIP (encryption support)
 app-arch/zoo 2.10-r5: Manipulate archives of files in compressed form
@@ -4912,7 +4912,7 @@ dev-lang/orc 0.4.31 0.4.32 0.4.33: The Oil Runtime Compiler, a just-in-time comp
 dev-lang/parrot 8.1.0-r4: Virtual machine designed to compile and execute bytecode for dynamic languages
 dev-lang/pcc 1.1.0-r1: pcc portable c compiler
 dev-lang/perl 5.34.1-r4 5.36.0-r1 5.36.0-r2 5.36.1 5.36.1-r1: Larry Wall's Practical Extraction and Report Language
-dev-lang/php 7.4.33 7.4.33-r1 7.4.33-r2 8.0.25 8.0.27 8.0.28 8.1.12 8.1.14 8.1.16 8.2.4 8.2.5: The PHP language runtime engine
+dev-lang/php 7.4.33 7.4.33-r1 7.4.33-r2 8.0.25 8.0.27 8.0.28 8.1.12 8.1.14 8.1.16 8.1.18 8.2.4 8.2.5: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r1: Poly/ML is a full implementation of Standard ML
 dev-lang/python 2.7.18_p16-r1 3.8.16_p4 3.9.16_p3-r1 3.10.10_p3 3.10.11 3.11.2_p2 3.11.3 3.12.0_alpha6 3.12.0_alpha7: An interpreted, interactive, object-oriented programming language
@@ -12685,10 +12685,10 @@ media-libs/a52dec 0.7.4-r8: library for decoding ATSC A/52 streams used in DVD
 media-libs/aalib 1.4_rc5-r10: A ASCII-Graphics Library
 media-libs/aften 0.0.8-r2: A/52 (AC-3) audio encoder
 media-libs/allegro 4.4.3.1-r1 5.2.7.0-r1: Cross-platform library aimed at video game and multimedia programming
-media-libs/alsa-lib 1.2.7.2 1.2.7.2-r1 1.2.8-r1: Advanced Linux Sound Architecture Library
+media-libs/alsa-lib 1.2.8-r1: Advanced Linux Sound Architecture Library
 media-libs/alsa-oss 1.1.8: Advanced Linux Sound Architecture OSS compatibility layer
 media-libs/alsa-topology-conf 1.2.5.1: ALSA topology configuration files
-media-libs/alsa-ucm-conf 1.2.7.2 1.2.8: ALSA ucm configuration files
+media-libs/alsa-ucm-conf 1.2.8: ALSA ucm configuration files
 media-libs/alure 1.2-r3: The OpenAL Utility Toolkit
 media-libs/amdgpu-pro-vulkan 21.50.1.1376756 21.50.2.1384496 22.10.0.1395274 22.10.3.1420322 22.20.0.1438747 22.20.3.1462318: AMD's closed source vulkan driver, from Radeon Software for Linux
 media-libs/amf-headers 1.4.23 1.4.24 1.4.26: The Advanced Media Framework (AMF) SDK
@@ -13092,7 +13092,7 @@ media-libs/zita-resampler 1.8.0 1.10.1: C++ library for real-time resampling of 
 media-libs/zmusic 1.1.4: GZDoom's music system as a standalone library
 media-libs/zvbi 0.2.35-r2: VBI Decoding Library for Zapping
 media-libs/zxing-cpp 2.0.0: C++ Multi-format 1D/2D barcode image processing library
-media-plugins/alsa-plugins 1.2.7.1 1.2.7.1-r1: ALSA extra plugins
+media-plugins/alsa-plugins 1.2.7.1-r1: ALSA extra plugins
 media-plugins/alsaequal 0.7.1: A real-time adjustable equalizer plugin for ALSA
 media-plugins/amb-plugins 0.8.1-r1: AMB-plugins ladspa plugin package. Filters by Fons Adriaensen
 media-plugins/ams-lv2 1.2.2-r1: A port of the AMS internal modules to LV2 plugins to create modular synthesizers
@@ -13387,7 +13387,7 @@ media-sound/abcmidi 2023.03.24: Programs for processing ABC music notation files
 media-sound/aeolus 0.10.4: A synthesised pipe organ emulator
 media-sound/alac_decoder 0.2.0-r2: Basic decoder for Apple Lossless Audio Codec files (ALAC)
 media-sound/alsa-tools 1.2.5: Advanced Linux Sound Architecture tools
-media-sound/alsa-utils 1.2.7-r1 1.2.8 1.2.8-r2: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
+media-sound/alsa-utils 1.2.8-r2: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
 media-sound/alsamixer-app 0.1-r1: simple alsa mixer dockapp
 media-sound/alsamixergui 0.9.0.1.2-r4: FLTK based amixer Frontend
 media-sound/alsaplayer 0.99.81-r4: A heavily multi-threaded pluggable audio player
@@ -14551,7 +14551,7 @@ net-libs/netwib 5.39.0-r1: Library of Ethernet, IP, UDP, TCP, ICMP, ARP and RARP
 net-libs/nghttp2 1.51.0 1.51.0-r1 1.52.0 9999: HTTP/2 C Library
 net-libs/nghttp3 0.11.0 9999: HTTP/3 library written in C
 net-libs/ngtcp2 0.14.1 0.15.0 9999: Implementation of the IETF QUIC Protocol
-net-libs/nodejs 14.21.3 16.20.0 18.16.0 20.0.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
+net-libs/nodejs 14.21.3 16.20.0 18.16.0 20.0.0 20.1.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
 net-libs/ntirpc 4.2 4.3: Transport Independent RPC library for nfs-ganesha
 net-libs/pacparser 1.4.0: Library to parse proxy auto-config files
 net-libs/phodav 3.0: WebDav server implementation using libsoup
@@ -16118,6 +16118,7 @@ sec-keys/openpgp-keys-guillemjover 20220331: OpenPGP keys used by Guillem Jover
 sec-keys/openpgp-keys-gzip 20220406: OpenPGP keys used by GNU Gzip
 sec-keys/openpgp-keys-icu 20220408 20221020: OpenPGP keys used by ICU
 sec-keys/openpgp-keys-jedisct1 20210416: OpenPGP keys used by Frank Denis (jedisct1)
+sec-keys/openpgp-keys-jiatan 20230505: OpenPGP keys used by Jia Tan
 sec-keys/openpgp-keys-joelrosdahl 20220409: OpenPGP keys used by Joel Rosdahl
 sec-keys/openpgp-keys-kamildudka 20220525: OpenPGP keys used by Kamil Dudka
 sec-keys/openpgp-keys-karelzak 20220331 20230110: OpenPGP keys used by Karel Zak
