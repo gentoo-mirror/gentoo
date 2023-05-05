@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install
+DEPEND=dev-libs/openssl:= sys-fs/e2fsprogs sys-libs/zlib acl? ( sys-apps/acl ) bzip2? ( app-arch/bzip2 ) lzma? ( app-arch/xz-utils ) xattr? ( sys-apps/attr ) virtual/os-headers
+DESCRIPTION=Online backups for the truly paranoid
+EAPI=8
+HOMEPAGE=https://www.tarsnap.com/
+INHERIT=bash-completion-r1 toolchain-funcs
+IUSE=acl bzip2 lzma xattr
+KEYWORDS=~amd64 ~x86
+LICENSE=tarsnap
+RDEPEND=dev-libs/openssl:= sys-fs/e2fsprogs sys-libs/zlib acl? ( sys-apps/acl ) bzip2? ( app-arch/bzip2 ) lzma? ( app-arch/xz-utils ) xattr? ( sys-apps/attr )
+SLOT=0
+SRC_URI=https://www.tarsnap.com/download/tarsnap-autoconf-1.0.40.tgz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	bash-completion-r1	59cf54afadd3b37d31d9d85c7d7d8067
+_md5_=2e9853206286367359d9dad8de2f1def
