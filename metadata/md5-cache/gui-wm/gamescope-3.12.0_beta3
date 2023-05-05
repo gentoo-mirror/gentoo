@@ -1,0 +1,16 @@
+BDEPEND=dev-util/glslang dev-util/wayland-scanner >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND==dev-libs/libliftoff-0.4* >=dev-libs/wayland-1.21 >=dev-libs/wayland-protocols-1.17 =gui-libs/wlroots-0.16*[X] >=media-libs/libdisplay-info-0.1.1 media-libs/libsdl2[video,vulkan] media-libs/vulkan-loader sys-apps/hwdata sys-libs/libcap >=x11-libs/libdrm-2.4.109 x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrender x11-libs/libXres x11-libs/libXtst x11-libs/libXxf86vm pipewire? ( >=media-video/pipewire-0.3:= ) wsi-layer? ( x11-libs/libxcb ) dev-libs/stb dev-util/vulkan-headers wsi-layer? ( >=media-libs/vkroots-0_p20230103 )
+DESCRIPTION=Efficient micro-compositor for running games
+EAPI=8
+HOMEPAGE=https://github.com/ValveSoftware/gamescope
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps meson
+IUSE=pipewire +wsi-layer +filecaps
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND==dev-libs/libliftoff-0.4* >=dev-libs/wayland-1.21 >=dev-libs/wayland-protocols-1.17 =gui-libs/wlroots-0.16*[X] >=media-libs/libdisplay-info-0.1.1 media-libs/libsdl2[video,vulkan] media-libs/vulkan-loader sys-apps/hwdata sys-libs/libcap >=x11-libs/libdrm-2.4.109 x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrender x11-libs/libXres x11-libs/libXtst x11-libs/libXxf86vm pipewire? ( >=media-video/pipewire-0.3:= ) wsi-layer? ( x11-libs/libxcb )
+SLOT=0
+SRC_URI=https://github.com/ValveSoftware/gamescope/archive/refs/tags/3.12.0-beta3.tar.gz -> gamescope-3.12.0_beta3.tar.gz
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=c604fb1d3941bd11c7bc1bbf3894ca64
