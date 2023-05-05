@@ -3,29 +3,39 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/torproject.org.asc
-inherit autotools python-any-r1 readme.gentoo-r1 systemd verify-sig
+inherit python-any-r1 readme.gentoo-r1 systemd verify-sig
 
 MY_PV="$(ver_rs 4 -)"
 MY_PF="${PN}-${MY_PV}"
 DESCRIPTION="Anonymizing overlay network for TCP"
 HOMEPAGE="https://www.torproject.org/ https://gitlab.torproject.org/tpo/core/tor/"
-SRC_URI="
-	https://www.torproject.org/dist/${MY_PF}.tar.gz
-	https://archive.torproject.org/tor-package-archive/${MY_PF}.tar.gz
-	verify-sig? (
-		https://dist.torproject.org/${MY_PF}.tar.gz.sha256sum
-		https://dist.torproject.org/${MY_PF}.tar.gz.sha256sum.asc
-	)
-"
-S="${WORKDIR}/${MY_PF}"
+
+if [[ ${PV} == 9999 ]] ; then
+	EGIT_REPO_URI="https://gitlab.torproject.org/tpo/core/tor"
+	inherit autotools git-r3
+else
+	SRC_URI="
+		https://www.torproject.org/dist/${MY_PF}.tar.gz
+		https://archive.torproject.org/tor-package-archive/${MY_PF}.tar.gz
+		verify-sig? (
+			https://dist.torproject.org/${MY_PF}.tar.gz.sha256sum
+			https://dist.torproject.org/${MY_PF}.tar.gz.sha256sum.asc
+		)
+	"
+
+	S="${WORKDIR}/${MY_PF}"
+
+	if [[ ${PV} != *_alpha* && ${PV} != *_beta* && ${PV} != *_rc* ]]; then
+		KEYWORDS="amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~sparc x86 ~ppc-macos"
+	fi
+
+	BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-tor-20220216 )"
+fi
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-if [[ ${PV} != *_alpha* && ${PV} != *_beta* && ${PV} != *_rc* ]]; then
-	KEYWORDS="amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~sparc x86 ~ppc-macos"
-fi
 IUSE="caps doc lzma +man scrypt seccomp selinux +server systemd tor-hardening test zstd"
 RESTRICT="!test? ( test )"
 
@@ -53,13 +63,11 @@ DEPEND+="
 		${PYTHON_DEPS}
 	)
 "
-BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-tor-20221213 )"
 
 DOCS=()
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2.7.4-torrc.sample.patch
-	"${FILESDIR}"/${PN}-0.4.7.13-libressl.patch
 )
 
 pkg_setup() {
@@ -67,15 +75,19 @@ pkg_setup() {
 }
 
 src_unpack() {
-	if use verify-sig; then
-		cd "${DISTDIR}" || die
-		verify-sig_verify_detached ${MY_PF}.tar.gz.sha256sum{,.asc}
-		verify-sig_verify_unsigned_checksums \
-			${MY_PF}.tar.gz.sha256sum sha256 ${MY_PF}.tar.gz
-		cd "${WORKDIR}" || die
-	fi
+	if [[ ${PV} == 9999 ]] ; then
+		git-r3_src_unpack
+	else
+		if use verify-sig; then
+			cd "${DISTDIR}" || die
+			verify-sig_verify_detached ${MY_PF}.tar.gz.sha256sum{,.asc}
+			verify-sig_verify_unsigned_checksums \
+				${MY_PF}.tar.gz.sha256sum sha256 ${MY_PF}.tar.gz
+			cd "${WORKDIR}" || die
+		fi
 
-	default
+		default
+	fi
 }
 
 src_prepare() {
@@ -84,8 +96,9 @@ src_prepare() {
 	# Running shellcheck automagically isn't useful for ebuild testing.
 	echo "exit 0" > scripts/maint/checkShellScripts.sh || die
 
-	# Only needed for libressl patch
-	eautoreconf
+	if [[ ${PV} == 9999 ]] ; then
+		eautoreconf
+	fi
 }
 
 src_configure() {
