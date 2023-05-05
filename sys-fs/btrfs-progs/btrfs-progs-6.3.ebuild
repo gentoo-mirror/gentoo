@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit bash-completion-r1 python-single-r1 udev
 
@@ -52,7 +52,8 @@ RDEPEND="
 	udev? ( virtual/libudev:= )
 	zstd? ( app-arch/zstd:= )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	>=sys-kernel/linux-headers-5.10
 	convert? ( sys-apps/acl )
 	python? (
@@ -73,18 +74,16 @@ DEPEND="${RDEPEND}
 		zstd? ( app-arch/zstd[static-libs(+)] )
 	)
 "
-BDEPEND="virtual/pkgconfig
-	man? ( dev-python/sphinx )"
+BDEPEND="
+	virtual/pkgconfig
+	man? ( dev-python/sphinx )
+"
 
 if [[ ${PV} == 9999 ]]; then
 	BDEPEND+=" sys-devel/gnuconfig"
 fi
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-ioctl-fix.patch
-)
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -130,6 +129,17 @@ src_configure() {
 
 src_compile() {
 	emake V=1 all $(usev static)
+}
+
+src_test() {
+	emake -j1 -C tests V=1 test
+
+	if use python ; then
+		cd libbtrfsutil/python || die
+
+		local -x LD_LIBRARY_PATH="${S}:libbtrfsutil/python:${LD_LIBRARY_PATH}"
+		${EPYTHON} -m unittest tests/test_*.py || die
+	fi
 }
 
 src_install() {
