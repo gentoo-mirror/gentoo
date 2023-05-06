@@ -3874,8 +3874,8 @@ dev-db/sqldeveloper 22.2.1.234.1810: Oracle SQL Developer is a graphical tool fo
 dev-db/sqlite 3.41.2-r1 9999: SQL database engine
 dev-db/sqlitebrowser 3.12.2 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r5: Powerful GUI manager for the Sqlite3 database
-dev-db/sqlitestudio 3.3.3 3.4.3: Powerful cross-platform SQLite database manager
-dev-db/sqlmap 1.7.2 1.7.3 1.7.4 9999: An automatic SQL injection and database takeover tool
+dev-db/sqlitestudio 3.3.3 3.4.3 3.4.3-r1 3.4.4: Powerful cross-platform SQLite database manager
+dev-db/sqlmap 1.7.3 1.7.4 1.7.5 9999: An automatic SQL injection and database takeover tool
 dev-db/textsearch_ja 9.0.0: Integrated Full-Text-Search for Japanese language using morphological analyze
 dev-db/timescaledb 2.9.3 2.10.0 2.10.1 2.10.3: Open-source time-series SQL database
 dev-db/tinycdb 0.78: A very fast and simple package for creating and reading constant data bases
@@ -4977,7 +4977,7 @@ dev-libs/aws-c-io 0.7.0-r1 0.9.2: AWS SDK for C module, handles IO and TLS work 
 dev-libs/aws-checksums 0.1.10: Cross-Platform HW accelerated CRC32c and CRC32 with software fallbacks
 dev-libs/ayatana-ido 0.9.2 0.9.3: Ayatana Application Indicators (Shared Library)
 dev-libs/bcm2835 1.68-r1 1.71: Provides access to GPIO and other IO functions on the Broadcom BCM2835
-dev-libs/bemenu 0.6.10-r1 9999: dmenu clone for wayland
+dev-libs/bemenu 0.6.10-r1 0.6.14 9999: dmenu clone for wayland
 dev-libs/bglibs 2.04-r1 2.04-r2: Bruce Guenter's Libraries Collection
 dev-libs/bitset 2.8.4-r3: A compressed bitset with supporting data structures and algorithms
 dev-libs/bitshuffle 0.3.5: Bitshuffle C library
@@ -6881,7 +6881,7 @@ dev-perl/Net-SSH-Any 0.100.0-r1: Use any SSH module
 dev-perl/Net-SSH-AuthorizedKeysFile 0.180.0-r1 0.180.0-r2: Read and modify ssh's authorized_keys files
 dev-perl/Net-SSH-Perl 2.140.0-r1: Perl client Interface to SSH
 dev-perl/Net-SSH2 0.720.0 0.730.0: Support for the SSH 2 protocol via libssh2
-dev-perl/Net-SSLeay 1.900.0 1.920.0: Perl extension for using OpenSSL
+dev-perl/Net-SSLeay 1.900.0 1.920.0 1.920.0-r1: Perl extension for using OpenSSL
 dev-perl/Net-Server 2.10.0 2.14.0: Extensible, general Perl server engine
 dev-perl/Net-Server-Coro 1.300.0-r2: A co-operative multithreaded server using Coro
 dev-perl/Net-Server-Mail 0.280.0-r1: Class to easily create a mail server
@@ -8471,6 +8471,7 @@ dev-python/netaddr 0.8.0-r1: Network address representation and manipulation lib
 dev-python/netcdf4 1.6.3: Python/numpy interface to the netCDF C library
 dev-python/netifaces 0.11.0-r1: Portable network interface information
 dev-python/networkx 3.1: Python tools to manipulate graphs and complex networks
+dev-python/nextinspace 2.0.5 9999: A command-line tool for seeing the latest in space
 dev-python/nnpy 1.4.2-r1: cffi-based Python bindings for nanomsg
 dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versioner for npm
 dev-python/nodeenv 1.7.0: Node.js virtual environment builder
@@ -15558,6 +15559,7 @@ sci-electronics/vbs 1.4.0: vbs - the Verilog Behavioral Simulator
 sci-electronics/voacapl 0.7.6-r1: HF propagation prediction tool
 sci-electronics/xcircuit 3.10.30-r1: Circuit drawing and schematic capture program
 sci-electronics/xnec2c 4.4.12: A GTK+ graphical interactive version of nec2c
+sci-electronics/xnecview 1.37: A program for visualizing NEC2 input and output data
 sci-electronics/xoscope 2.3: Soundcard Oscilloscope for X
 sci-geosciences/GeographicLib 1.52-r2: C++ library for converting geographic coordinate systems
 sci-geosciences/bt747 2.1.7-r2: MTK GPS Datalogger Device Control
@@ -15577,7 +15579,7 @@ sci-geosciences/gpsprune-bin 20.4: An application for viewing, editing and conve
 sci-geosciences/gpx-viewer 0.4.0-r1: Simple program to visualize a gpx file
 sci-geosciences/gpxlab 0.7.0: An application to display and manage GPS tracks
 sci-geosciences/gpxsee 11.11 12.4 13.0: A viewer and analyzer that supports gpx, tcx, kml, fit, igc and nmea files
-sci-geosciences/grass 8.2.0-r7 8.2.0-r8 8.2.1-r2 9999: A free GIS with raster and vector functionality, as well as 3D vizualization
+sci-geosciences/grass 8.2.0-r7 8.2.1-r2 9999: A free GIS with raster and vector functionality, as well as 3D vizualization
 sci-geosciences/gshhg-gmt 2.3.7: Global Self-consistent, Hierarchical, High-resolution Geography Database
 sci-geosciences/gshhs 1.13-r1: Global Self-consistent, Hierarchical, High-resolution Shoreline programs
 sci-geosciences/gshhs-data 2.2.0: Global Self-consistent, Hierarchical, High-resolution Shoreline programs data
@@ -15832,7 +15834,7 @@ sci-libs/p4est 2.8-r1 9999: Scalable Algorithms for Parallel Adaptive Mesh Refin
 sci-libs/parmetis 4.0.3-r2 4.0.3_p20230326-r1: Parallel (MPI) unstructured graph partitioning library
 sci-libs/pastix 5.2.3 6.0.3: Parallel solver for very large sparse linear systems
 sci-libs/pcl 1.12.1-r2 9999: 2D/3D image and point cloud processing
-sci-libs/pdal 2.4.0-r1 2.4.3 2.5.0: A C++ library for translating and manipulating point cloud data
+sci-libs/pdal 2.4.0-r1 2.4.3 2.5.0 2.5.3: A C++ library for translating and manipulating point cloud data
 sci-libs/pgplot 5.2.2-r7: FORTRAN/C device-independent scientific graphic library
 sci-libs/plplot 5.15.0-r105: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r2: Small, fast library to generate primes in order
