@@ -1,16 +1,16 @@
-BDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) ) virtual/pkgconfig
+BDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) virtual/pkgconfig
 DEFINED_PHASES=install postinst prepare setup test
 DESCRIPTION=Performance analysis and visualization of the system boot process
 EAPI=8
 HOMEPAGE=https://github.com/xrmx/bootchart
 INHERIT=linux-info python-single-r1 systemd toolchain-funcs
-IUSE=+cairo python_single_target_pypy3 python_single_target_python3_10
+IUSE=+cairo python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_pypy3? ( dev-python/pycairo[python_targets_pypy3(-)] ) python_single_target_python3_10? ( dev-python/pycairo[python_targets_python3_10(-)] ) ) sys-apps/lsb-release
-REQUIRED_USE=cairo? ( ^^ ( python_single_target_pypy3 python_single_target_python3_10 ) )
+RDEPEND=cairo? ( python_single_target_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_pypy3? ( dev-python/pycairo[python_targets_pypy3(-)] ) python_single_target_python3_10? ( dev-python/pycairo[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pycairo[python_targets_python3_11(-)] ) ) sys-apps/lsb-release
+REQUIRED_USE=cairo? ( ^^ ( python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!cairo? ( test )
 SLOT=0
 SRC_URI=https://github.com/xrmx/bootchart/archive/0.14.9.tar.gz -> bootchart2-0.14.9.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=fd352fd52e207e1ef9fed20a9c78e15d
+_md5_=5a4aa57bbc3678c05837ca9b1f87ef0c
