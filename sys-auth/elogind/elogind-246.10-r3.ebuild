@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 fi
 
 inherit linux-info meson pam udev xdg-utils
@@ -19,14 +19,14 @@ HOMEPAGE="https://github.com/elogind/elogind"
 
 LICENSE="CC0-1.0 LGPL-2.1+ public-domain"
 SLOT="0"
-IUSE="+acl audit debug doc +pam +policykit selinux"
+IUSE="+acl audit +cgroup-hybrid debug doc +pam +policykit selinux test"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	dev-util/gperf
-	dev-util/intltool
 	virtual/pkgconfig
 "
 DEPEND="
@@ -52,6 +52,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-243.7-nodocs.patch"
 	"${FILESDIR}/${PN}-241.4-broken-test.patch" # bug 699116
 	"${FILESDIR}/${P}-revert-polkit-automagic.patch"
+	"${FILESDIR}/${P}-clang-undefined-symbol.patch"
+	"${FILESDIR}/${P}-loong.patch"
 )
 
 pkg_setup() {
@@ -66,12 +68,9 @@ src_prepare() {
 }
 
 src_configure() {
-	local rccgroupmode="$(grep rc_cgroup_mode "${EPREFIX}"/etc/rc.conf | cut -d '"' -f 2)"
-	local cgroupmode="legacy"
-
-	if [[ "xhybrid" = "x${rccgroupmode}" ]] ; then
+	if use cgroup-hybrid; then
 		cgroupmode="hybrid"
-	elif [[ "xunified" = "x${rccgroupmode}" ]] ; then
+	else
 		cgroupmode="unified"
 	fi
 
@@ -96,6 +95,7 @@ src_configure() {
 		-Dhtml=$(usex doc auto false)
 		-Dpam=$(usex pam true false)
 		-Dselinux=$(usex selinux true false)
+		-Dtests=$(usex test true false)
 		-Dutmp=$(usex elibc_musl false true)
 	)
 
