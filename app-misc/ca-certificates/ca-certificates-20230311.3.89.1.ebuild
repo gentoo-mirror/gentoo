@@ -44,22 +44,24 @@ NMU_PR=""
 if ${PRECOMPILED} ; then
 	SRC_URI="mirror://debian/pool/main/c/${PN}/${PN}_${PV}${NMU_PR:++nmu}${NMU_PR}_all.deb"
 else
-	SRC_URI="mirror://debian/pool/main/c/${PN}/${PN}_${DEB_VER}${NMU_PR:++nmu}${NMU_PR}.tar.xz
+	SRC_URI="
+		mirror://debian/pool/main/c/${PN}/${PN}_${DEB_VER}${NMU_PR:++nmu}${NMU_PR}.tar.xz
 		https://archive.mozilla.org/pub/security/nss/releases/${RTM_NAME}/src/nss-${NSS_VER}.tar.gz
 		cacert? (
 			https://dev.gentoo.org/~whissi/dist/ca-certificates/nss-cacert-class1-class3-r2.patch
-		)"
+		)
+	"
 fi
 
 LICENSE="MPL-1.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-cygwin ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
 IUSE=""
 ${PRECOMPILED} || IUSE+=" cacert"
 
 # c_rehash: we run `c_rehash`
 # debianutils: we run `run-parts`
-CDEPEND="app-misc/c_rehash
+CDEPEND="
 	sys-apps/debianutils"
 
 BDEPEND="${CDEPEND}"
@@ -112,7 +114,7 @@ src_prepare() {
 
 	if ! ${PRECOMPILED} ; then
 		mkdir -p usr/sbin || die
-		cp -p "${S}"/${PN}-${DEB_VER}/sbin/update-ca-certificates \
+		cp -p "${S}"/${PN}/sbin/update-ca-certificates \
 			usr/sbin/ || die
 
 		if use cacert ; then
@@ -125,15 +127,16 @@ src_prepare() {
 	default
 	eapply -p2 "${FILESDIR}"/${PN}-20150426-root.patch
 
-	pushd "${S}/${PN}-${DEB_VER}" >/dev/null || die
-	eapply "${FILESDIR}"/${PN}-20211016.3.72-no-cryptography.patch
+	pushd "${S}/${PN}" >/dev/null || die
+	# We patch out the dep on cryptography as it's not particularly useful
+	# for us. Please see the discussion in bug #821706. Not to be removed lightly!
+	eapply "${FILESDIR}"/${PN}-20230311.3.89-no-cryptography.patch
 	popd >/dev/null || die
 
 	local relp=$(echo "${EPREFIX}" | sed -e 's:[^/]\+:..:g')
 	sed -i \
 		-e '/="$ROOT/s:ROOT:ROOT'"${EPREFIX}"':' \
 		-e '/RELPATH="\.\./s:"$:'"${relp}"'":' \
-		-e 's/openssl rehash/c_rehash/' \
 		usr/sbin/update-ca-certificates || die
 }
 
@@ -141,7 +144,7 @@ src_compile() {
 	cd "image/${EPREFIX}" || die
 
 	if ! ${PRECOMPILED} ; then
-		local d="${S}/${PN}-${DEB_VER}/mozilla" c="usr/share/${PN}"
+		local d="${S}/${PN}/mozilla" c="usr/share/${PN}"
 
 		# Grab the database from the nss sources.
 		cp "${S}"/nss-${NSS_VER}/nss/lib/ckfw/builtins/{certdata.txt,nssckbi.h} "${d}" || die
@@ -178,7 +181,7 @@ src_compile() {
 src_install() {
 	cp -pPR image/* "${D}"/ || die
 	if ! ${PRECOMPILED} ; then
-		cd ${PN}-${DEB_VER} || die
+		cd ${PN} || die
 		doman sbin/*.8
 		dodoc debian/README.* examples/ca-certificates-local/README
 	fi
