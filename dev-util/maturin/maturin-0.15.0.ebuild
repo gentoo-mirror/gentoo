@@ -215,9 +215,9 @@ CRATES="
 	thiserror-1.0.39
 	thiserror-impl-1.0.39
 	thread_local-1.1.7
-	time-0.3.21
-	time-core-0.1.1
-	time-macros-0.2.9
+	time-0.3.20
+	time-core-0.1.0
+	time-macros-0.2.8
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.1
 	toml-0.5.11
@@ -365,19 +365,17 @@ inherit bash-completion-r1 cargo distutils-r1 edo flag-o-matic toolchain-funcs
 DESCRIPTION="Build and publish crates with pyo3, rust-cpython and cffi bindings"
 HOMEPAGE="https://www.maturin.rs/"
 SRC_URI="
-	https://github.com/PyO3/maturin/archive/refs/tags/v${PV/_beta/-beta.}.tar.gz
+	https://github.com/PyO3/maturin/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	$(cargo_crate_uris)
 	test? ( $(cargo_crate_uris ${CRATES_TEST}) )"
-S="${WORKDIR}/${P/_beta/-beta.}"
 
 # note: ring is unused, so SSLeay+openssl licenses can be skipped
 LICENSE="
 	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 ISC
 	MIT MPL-2.0 Unicode-DFS-2016 doc? ( CC-BY-4.0 OFL-1.1 )"
 SLOT="0"
-# unkeyworded beta for testing
-#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc +ssl test"
 RESTRICT="!test? ( test )"
 
