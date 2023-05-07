@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,10 +12,10 @@ KEYWORDS="amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0/${PV}"
-IUSE="opengl"
+IUSE="opengl icu"
 
 RDEPEND="
-	dev-libs/icu:=
+	icu? ( dev-libs/icu:= )
 	x11-libs/libX11
 	x11-libs/libXext
 	opengl? (
@@ -37,6 +37,9 @@ DEPEND="
 PATCHES=( "${FILESDIR}/${PN}"-7.5-missing-header.patch )
 
 src_configure() {
-	local mycmakeargs=( -DSLOP_OPENGL=$(usex opengl) )
+	local mycmakeargs=(
+		-DSLOP_OPENGL=$(usex opengl)
+		-DSLOP_UNICODE=$(usex icu)
+	)
 	cmake_src_configure
 }
