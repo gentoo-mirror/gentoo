@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/ansi app-emacs/ecukes app-emacs/ecukes app-emacs/f ) >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Minor mode for God-like command entering in GNU Emacs
+EAPI=8
+HOMEPAGE=https://github.com/emacsorphanage/god-mode/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=>=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/emacsorphanage/god-mode/archive/2.18.0.tar.gz -> god-mode-2.18.0.tar.gz
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
+_md5_=180e3d62cf7fc2f371d7069c0031280d
