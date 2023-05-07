@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils meson xdg-utils virtualx
+inherit gnome2-utils meson virtualx
 
 DESCRIPTION="Compositing window manager forked from Mutter for use with Cinnamon"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/muffin"
@@ -21,7 +21,7 @@ COMDEPEND="
 	>=x11-libs/gtk+-3.19.8:3[X,introspection?]
 	x11-libs/gdk-pixbuf:2[introspection?]
 	>=x11-libs/pango-1.20.0[introspection?]
-	>=x11-libs/cairo-1.10.0:=[X]
+	>=x11-libs/cairo-1.10.0[X]
 	>=dev-libs/fribidi-1.0.0
 	>=dev-libs/glib-2.61.1:2
 	>=dev-libs/json-glib-0.12.0[introspection?]
@@ -48,7 +48,8 @@ COMDEPEND="
 	media-libs/libglvnd[X]
 	media-libs/mesa[X(+),egl(+)]
 	x11-libs/libSM
-	>=x11-libs/startup-notification-0.7:=
+	>=x11-libs/startup-notification-0.7
+	media-libs/fontconfig
 
 	input_devices_wacom? ( >=dev-libs/libwacom-0.13:= )
 	introspection? ( >=dev-libs/gobject-introspection-1.41.3:= )
@@ -71,10 +72,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.6.2-clang16.patch
-)
 
 # Wayland is not supported upstream.
 src_configure() {

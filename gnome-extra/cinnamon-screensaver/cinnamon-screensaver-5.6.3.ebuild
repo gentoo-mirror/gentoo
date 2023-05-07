@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit meson python-single-r1 xdg
 
@@ -15,19 +15,20 @@ LICENSE="GPL-2+ LGPL-2+ MIT"
 SLOT="0"
 IUSE="systemd xinerama"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
-	>=dev-libs/dbus-glib-0.78
 	>=dev-libs/glib-2.37.3:2[dbus]
-	>=gnome-extra/cinnamon-desktop-5.2:0=
-	sys-apps/dbus
+	>=gnome-extra/cinnamon-desktop-5.6
 	sys-libs/pam
 	>=x11-libs/gtk+-3.22:3[introspection]
+	x11-libs/cairo
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXrandr
+	x11-libs/pango
+	x11-misc/xdotool
 	x11-themes/adwaita-icon-theme
 
 	xinerama? ( x11-libs/libXinerama )
@@ -40,7 +41,7 @@ RDEPEND="
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]
-		>=dev-python/python3-xapp-2.2.1-r1[${PYTHON_USEDEP}]
+		>=dev-python/python3-xapp-2.4.0[${PYTHON_USEDEP}]
 	')
 
 	systemd? ( >=sys-apps/systemd-31 )
@@ -52,6 +53,7 @@ DEPEND="
 "
 BDEPEND="
 	dev-util/gdbus-codegen
+	sys-apps/dbus
 	sys-devel/gettext
 	virtual/pkgconfig
 "

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit meson gnome2-utils pax-utils python-single-r1 xdg
@@ -12,36 +12,33 @@ DESCRIPTION="A fork of GNOME Shell with layout similar to GNOME 2"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon"
 SRC_URI="https://github.com/linuxmint/cinnamon/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2+ GPL-3 LGPL-2.1"
+LICENSE="BSD GPL-2+ GPL-3+ GPL-3-with-openssl-exception LGPL-2+ LGPL-2.1 LGPL-2.1+ MIT"
 SLOT="0"
 IUSE="+eds +gstreamer gtk-doc +nls +networkmanager"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 DEPEND="
 	${PYTHON_DEPS}
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	>=dev-libs/glib-2.52.0:2[dbus]
 	>=dev-libs/gobject-introspection-1.29.15:=
 	dev-libs/libxml2:2
-	>=gnome-extra/cinnamon-desktop-5.2:0=
-	>=gnome-extra/cinnamon-menus-5.2
-	>=gnome-extra/cjs-5.2[cairo]
-	net-libs/libsoup:2.4[introspection]
+	>=gnome-extra/cinnamon-desktop-5.6:0=
+	>=gnome-extra/cinnamon-menus-5.6
+	>=gnome-extra/cjs-5.6[cairo]
 	sys-apps/dbus
 	>=sys-auth/polkit-0.100[introspection]
 	virtual/opengl
+	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2[introspection]
 	>=x11-libs/gtk+-3.12.0:3[introspection]
 	>=x11-libs/libnotify-0.7.3:0=[introspection]
 	x11-libs/libX11
 	>=x11-libs/libXfixes-5.0
 	x11-libs/pango[introspection]
-	>=x11-libs/startup-notification-0.11
-	>=x11-wm/muffin-5.2[introspection]
+	>=x11-libs/xapp-2.4.1[introspection]
+	>=x11-wm/muffin-5.6[introspection]
 
 	eds? (
 		gnome-extra/evolution-data-server
@@ -75,27 +72,31 @@ RDEPEND="
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]
 		dev-python/tinycss2[${PYTHON_USEDEP}]
-		>=dev-python/python3-xapp-2.2.1-r1[${PYTHON_USEDEP}]
+		>=dev-python/python3-xapp-2.4.0[${PYTHON_USEDEP}]
 	')
 	>=gnome-base/dconf-0.4.1
 	>=gnome-base/gsettings-desktop-schemas-2.91.91
 	>=gnome-base/libgnomekbd-2.91.4
-	>=gnome-extra/cinnamon-control-center-5.2[networkmanager=]
-	>=gnome-extra/cinnamon-screensaver-5.2
-	>=gnome-extra/cinnamon-session-5.2
-	>=gnome-extra/cinnamon-settings-daemon-5.2
-	>=gnome-extra/nemo-5.2
+	>=gnome-extra/cinnamon-control-center-5.6[networkmanager=]
+	>=gnome-extra/cinnamon-screensaver-5.6
+	>=gnome-extra/cinnamon-session-5.6
+	>=gnome-extra/cinnamon-settings-daemon-5.6
+	>=gnome-extra/nemo-5.6
 	gnome-extra/polkit-gnome
+	media-libs/gsound
+	net-libs/libsoup:2.4[introspection]
 	net-misc/wget
 	sys-apps/accountsservice[introspection]
+	sys-apps/coreutils
+	sys-apps/pciutils
+	sys-apps/util-linux
 	sys-power/upower[introspection]
-	>=x11-libs/xapp-2.2.8[introspection]
 	x11-misc/xdg-utils
 	x11-themes/adwaita-icon-theme
 	x11-themes/gnome-themes-standard
 
 	nls? (
-		>=gnome-extra/cinnamon-translations-5.2
+		>=gnome-extra/cinnamon-translations-5.6
 	)
 "
 BDEPEND="
@@ -114,13 +115,6 @@ PATCHES=(
 	# Use wheel group instead of sudo (from Fedora/Arch)
 	# https://github.com/linuxmint/Cinnamon/issues/3576
 	"${FILESDIR}"/${PN}-3.6.6-wheel-sudo.patch
-
-	# Make evolution-data-server integration optional
-	"${FILESDIR}"/${PN}-5.2.7-eds-detection.patch
-
-	# Meson fixes
-	"${FILESDIR}"/${PN}-5.2.7-revert-meson-0.60-fix.patch
-	"${FILESDIR}"/${PN}-5.2.7-meson-0.61-fix.patch
 )
 
 src_prepare() {

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit meson gnome2-utils python-single-r1 readme.gentoo-r1 virtualx xdg
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/linuxmint/nemo/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2+ LGPL-2.1+ FDL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="exif gtk-doc +nls selinux test xmp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -22,22 +22,20 @@ RESTRICT="test"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
-	dev-libs/atk
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	>=dev-libs/glib-2.45.7:2[dbus]
 	>=dev-libs/gobject-introspection-0.9.12:=
 	>=dev-libs/libxml2-2.7.8:2
-	gnome-base/dconf:0=
-	>=gnome-extra/cinnamon-desktop-5.2:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 	gnome-extra/libgsf:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.10.0:3[introspection]
-	>=x11-libs/libnotify-0.7
 	x11-libs/libX11
 	>=x11-libs/pango-1.40.0
-	>=x11-libs/xapp-2.2.8
+	>=x11-libs/xapp-2.4.1
 
-	exif? ( >=media-libs/libexif-0.6.20:= )
+	exif? ( >=media-libs/libexif-0.6.20 )
 	selinux? ( sys-libs/libselinux )
 	xmp? ( >=media-libs/exempi-2.2.0:= )
 "
@@ -48,7 +46,7 @@ RDEPEND="
 	')
 	x11-themes/adwaita-icon-theme
 
-	nls? ( >=gnome-extra/cinnamon-translations-5.2 )
+	nls? ( >=gnome-extra/cinnamon-translations-5.6 )
 "
 PDEPEND="
 	>=gnome-base/gvfs-0.1.2
@@ -83,6 +81,7 @@ ${PN} search capabilities can be extended through external
 helpers. Install any of the following packages to make
 their associated file types searchable.
 
+epub                     - app-arch/unzip and app-text/html2text
 Image metadata           - media-gfx/exif
 MP3 tags                 - media-sound/id3
 Microsoft Office .doc    - app-text/catdoc

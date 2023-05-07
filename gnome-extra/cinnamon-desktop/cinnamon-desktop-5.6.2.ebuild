@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit meson gnome2-utils python-any-r1
 
@@ -13,15 +13,16 @@ SRC_URI="https://github.com/linuxmint/cinnamon-desktop/archive/${PV}.tar.gz -> $
 
 LICENSE="GPL-1 GPL-2+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0/4" # subslot = libcinnamon-desktop soname version
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.37.3:2[dbus]
 	>=dev-libs/gobject-introspection-0.10.2:=
 	>=gnome-base/gsettings-desktop-schemas-3.5.91
-	media-sound/pulseaudio[glib]
+	>=media-libs/libpulse-12.99.3[glib]
 	sys-apps/accountsservice
-	x11-libs/cairo:=[X]
+	sys-apps/hwdata
+	x11-libs/cairo[X]
 	>=x11-libs/gdk-pixbuf-2.22:2[introspection]
 	>=x11-libs/gtk+-3.3.16:3[introspection]
 	x11-libs/libX11
@@ -44,6 +45,13 @@ BDEPEND="
 src_prepare() {
 	default
 	python_fix_shebang install-scripts
+}
+
+src_configure() {
+	local emesonargs=(
+		-Dpnp_ids="${EPREFIX}/usr/share/hwdata/pnp.ids"
+	)
+	meson_src_configure
 }
 
 pkg_postinst() {

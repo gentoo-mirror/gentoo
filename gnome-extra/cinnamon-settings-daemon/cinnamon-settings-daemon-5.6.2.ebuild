@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit meson gnome2-utils python-any-r1 xdg
 
@@ -13,30 +13,30 @@ SRC_URI="https://github.com/linuxmint/cinnamon-settings-daemon/archive/${PV}.tar
 
 LICENSE="GPL-2+ LGPL-2+ LGPL-2.1 LGPL-2.1+ MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="+colord cups input_devices_wacom smartcard systemd"
 
 RDEPEND="
-	>=dev-libs/glib-2.40.0:2
-	dev-libs/libgudev:=
-	>=gnome-base/libgnomekbd-3.6
-	>=gnome-extra/cinnamon-desktop-5.2:0=
+	>=dev-libs/glib-2.40.0:2[dbus]
+	dev-libs/libgudev
+	>=gnome-base/libgnomekbd-3.6:=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
 	media-libs/fontconfig
 	>=media-libs/lcms-2.2:2
-	media-libs/libcanberra:0=[gtk3,pulseaudio]
-	>=media-sound/pulseaudio-0.9.16[glib]
-	>=sys-apps/dbus-1.1.2
-	dev-libs/dbus-glib
+	media-libs/libcanberra[gtk3,pulseaudio]
+	>=media-libs/libpulse-0.9.16[glib]
 	>=sys-auth/polkit-0.97
+	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-3.14.0:3
-	>=x11-libs/libnotify-0.7.3:0=
+	>=x11-libs/libnotify-0.7.3
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXi
-	>=x11-libs/libxklavier-5.0
-	>=sys-power/upower-0.9.11
+	>=x11-libs/libxklavier-5.0:=
+	>=x11-libs/pango-1.20.0
+	>=sys-power/upower-0.9.11:=
 
 	colord? ( >=x11-misc/colord-0.1.27:= )
 	cups? (
@@ -45,12 +45,10 @@ RDEPEND="
 		net-print/cups-pk-helper )
 	input_devices_wacom? (
 		>=dev-libs/libwacom-0.7:=
-		>=gnome-base/librsvg-2.36.2
-		x11-drivers/xf86-input-wacom
-		x11-libs/libXtst )
+		>=gnome-base/librsvg-2.36.2 )
 	smartcard? ( >=dev-libs/nss-3.11.2 )
 	systemd? ( sys-apps/systemd:0= )
-	!systemd? ( sys-auth/elogind:0= )
+	!systemd? ( sys-auth/elogind )
 "
 DEPEND="
 	${RDEPEND}

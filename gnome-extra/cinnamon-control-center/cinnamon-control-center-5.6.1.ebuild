@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit meson gnome2-utils python-any-r1 xdg virtualx
 
@@ -15,31 +15,35 @@ LICENSE="GPL-2+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
 IUSE="+colord input_devices_wacom +networkmanager +modemmanager gnome-online-accounts systemd test"
 REQUIRED_USE="modemmanager? ( networkmanager )"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 RESTRICT="test"
 
 COMMON_DEPEND="
+	app-accessibility/at-spi2-core:2
 	>=dev-libs/glib-2.44.0:2
 	>=gnome-base/libgnomekbd-3.0.0:0=
-	>=gnome-extra/cinnamon-desktop-5.2:0=
-	>=gnome-extra/cinnamon-menus-5.2:0=
+	>=gnome-extra/cinnamon-desktop-5.6:0=
+	>=gnome-extra/cinnamon-menus-5.6
 	media-libs/fontconfig
 	>=sys-auth/polkit-0.103
+	>=sys-power/upower-0.99.8:=
 	>=x11-libs/gdk-pixbuf-2.23.0:2
 	>=x11-libs/gtk+-3.16.0:3
-	>=x11-libs/libnotify-0.7.3:0=
+	>=dev-libs/libgudev-232
+	>=x11-libs/libnotify-0.7.3
+	x11-libs/cairo
 	x11-libs/libX11
-	>=x11-libs/libxklavier-5.1
+	>=x11-libs/libxklavier-5.1:=
+	x11-libs/pango
 
 	colord? ( >=x11-misc/colord-0.1.14:0= )
 	input_devices_wacom? (
 		>=dev-libs/libwacom-0.7:=
-		>=gnome-extra/cinnamon-settings-daemon-5.2:0=
 		>=x11-libs/libXi-1.2 )
 	networkmanager? (
 		>=gnome-extra/nm-applet-1.2.0
 		>=net-libs/libnma-1.8.34
-		>=net-misc/networkmanager-1.2.0:=[modemmanager?]
+		>=net-misc/networkmanager-1.2.0[modemmanager?]
 
 		modemmanager? ( >=net-misc/modemmanager-0.7 )
 	)
@@ -67,12 +71,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	# Fix >=libnma-1.8.34
-	# https://github.com/linuxmint/cinnamon-control-center/commit/0f4d212874c4fbee18b860963d0a5c7bd54dcfd1
-	"${FILESDIR}"/${PN}-5.2.1-fix-libnma.patch
-)
 
 src_prepare() {
 	default
