@@ -12,7 +12,7 @@ if [[ ${PV} == *9999 ]] ; then
 else
 	SRC_URI="https://github.com/netdata/${PN}/releases/download/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-v${PV}"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
+	KEYWORDS="~amd64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Linux real time system monitoring, done right!"
@@ -136,7 +136,10 @@ src_install() {
 	fowners -Rc root:netdata /usr/share/${PN}
 
 	newinitd system/openrc/init.d/netdata ${PN}
+	newconfd system/openrc/conf.d/netdata ${PN}
 	systemd_dounit system/systemd/netdata.service
+	systemd_dounit system/systemd/netdata-updater.service
+	systemd_dounit system/systemd/netdata-updater.timer
 	insinto /etc/netdata
 	doins system/netdata.conf
 }
