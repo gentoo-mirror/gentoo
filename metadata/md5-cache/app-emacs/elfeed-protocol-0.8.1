@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/elfeed test? ( app-emacs/ert-runner ) >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Provide extra news client subscription protocols for elfeed
+EAPI=8
+HOMEPAGE=https://github.com/fasheng/elfeed-protocol/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/elfeed >=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/fasheng/elfeed-protocol/archive/0.8.1.tar.gz -> elfeed-protocol-0.8.1.tar.gz
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
+_md5_=1d4046287680e9364909b06a8309af32

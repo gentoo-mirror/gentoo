@@ -1,0 +1,14 @@
+BDEPEND=app-emacs/external-completion >=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=A minimal Emacs LSP client for GNU Emacs
+EAPI=8
+HOMEPAGE=https://github.com/joaotavora/eglot/ https://elpa.gnu.org/packages/eglot.html
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=app-emacs/external-completion >=app-editors/emacs-26.3:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/joaotavora/eglot/archive/8b5532dd32b25276c1857508030b207f765ef9b6.tar.gz -> eglot-1.15.tar.gz
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
+_md5_=7afdc52099e88bb448020b7a82601714
