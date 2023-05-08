@@ -19,7 +19,7 @@ SRC_URI="
 "
 
 GENTOO_PATCH_DEV=sam
-GENTOO_PATCH_PV=6.4_p20230408
+GENTOO_PATCH_PV=6.4_p20230506
 GENTOO_PATCH_NAME=${PN}-${GENTOO_PATCH_PV}-patches
 
 # Populated below in a loop. Do not add patches manually here.
@@ -49,6 +49,12 @@ if [[ ${PV} == *_p* ]] ; then
 		20230225
 		20230311
 		20230401
+		20230408
+		20230415
+		20230418
+		20230423
+		20230424
+		20230429
 
 		# Latest patch is just _pN = $(ver_cut 4)
 		$(ver_cut 4)

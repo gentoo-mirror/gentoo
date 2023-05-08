@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake optfeature xdg
 
-DESCRIPTION="Simple (yet powerful) feed reader"
+DESCRIPTION="Simple (yet powerful) news feed reader"
 HOMEPAGE="https://github.com/martinrotter/rssguard"
 SRC_URI="https://github.com/martinrotter/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -21,6 +21,7 @@ BDEPEND="
 "
 DEPEND="
 	!qt6? (
+		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
 		dev-qt/qtdbus:5
 		dev-qt/qtdeclarative:5
@@ -33,7 +34,7 @@ DEPEND="
 		webengine? ( dev-qt/qtwebengine:5[widgets(+)] )
 	)
 	qt6? (
-		dev-qt/qtbase:6[dbus,gui,mysql?,network,sql,sqlite?,ssl,widgets]
+		dev-qt/qtbase:6[concurrent,dbus,gui,mysql?,network,sql,sqlite?,ssl,widgets]
 		dev-qt/qtdeclarative:6
 		dev-qt/qtmultimedia:6[gstreamer]
 		dev-qt/qt5compat:6
@@ -58,7 +59,5 @@ src_configure() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	if use webengine; then
-		optfeature "ad blocking functionality" net-libs/nodejs[npm]
-	fi
+	optfeature "ad blocking functionality" net-libs/nodejs[npm]
 }
