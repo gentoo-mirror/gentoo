@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit check-reqs cmake optfeature python-single-r1 xdg
 
@@ -47,7 +47,6 @@ RDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/OpenNI2[opengl(+)]
 	dev-libs/boost:=
-	dev-libs/libfmt:=
 	dev-libs/libspnav[X]
 	dev-libs/xerces-c[icu]
 	dev-qt/qtconcurrent:5
@@ -59,7 +58,7 @@ RDEPEND="
 	media-libs/qhull:=
 	sci-libs/hdf5:=[fortran,zlib]
 	>=sci-libs/med-4.0.0-r1
-	sci-libs/opencascade:=[json,vtk]
+	<sci-libs/opencascade-7.7.0:=[json,vtk]
 	sci-libs/orocos_kdl:=
 	sys-libs/zlib
 	virtual/libusb:1
@@ -135,12 +134,14 @@ REQUIRED_USE="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9999-Gentoo-specific-don-t-check-vcs.patch
+	"${FILESDIR}"/${PN}-0.19.4-Gentoo-specific-don-t-check-vcs.patch
 	"${FILESDIR}"/${PN}-0.19.1-0001-Gentoo-specific-Remove-ccache-usage.patch
-	"${FILESDIR}"/${PN}-9999-tests-src-Qt-only-build-test-for-BUILD_GUI-ON.patch
+	"${FILESDIR}"/${PN}-0.20.2-Netgen-add-headers-to-support-recent-Netgen.patch
+	"${FILESDIR}"/${PN}-0.20.2-Fixes-8206-FreeCAD-segfaults-being-run-with-paramete.patch
+	"${FILESDIR}"/${PN}-0.20.2-libE57Format-fix-compile-using-gcc13.patch
 )
 
-DOCS=( CODE_OF_CONDUCT.md README.md )
+DOCS=( CODE_OF_CONDUCT.md ChangeLog.txt README.md )
 
 CHECKREQS_DISK_BUILD="2G"
 
@@ -169,7 +170,7 @@ src_configure() {
 		-DBUILD_DRAFT=ON
 		-DBUILD_DESIGNER_PLUGIN=$(usex designer)
 		-DBUILD_DRAWING=ON
-		-DBUILD_ENABLE_CXX_STD:STRING="C++17"	# needed for current git master
+		-DBUILD_ENABLE_CXX_STD:STRING="C++17"	# needed for >=boost-1.77.0
 		-DBUILD_FEM=$(usex fem)
 		-DBUILD_FEM_NETGEN=$(usex netgen)
 		-DBUILD_FLAT_MESH=ON
@@ -280,7 +281,6 @@ src_install() {
 	dosym -r /usr/$(get_libdir)/${PN}/bin/FreeCADCmd /usr/bin/freecadcmd
 
 	rm -r "${ED}"/usr/$(get_libdir)/${PN}/include/E57Format || die "failed to drop unneeded include directory E57Format"
-	use test && (rm -r "${ED}"/usr/include/${PN}/{gmock,gtest} || die)
 
 	python_optimize "${ED}"/usr/share/${PN}/data/Mod/Start/StartPage "${ED}"/usr/$(get_libdir)/${PN}{/Ext,/Mod}/
 	# compile main package in python site-packages as well
