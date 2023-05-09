@@ -4969,7 +4969,7 @@ dev-libs/appstream 0.15.6: Cross-distro effort for providing metadata for softwa
 dev-libs/appstream-glib 0.8.2: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.2 1.7.2-r1 1.7.3 1.7.4: Apache Portable Runtime Library
 dev-libs/apr-util 1.6.3: Apache Portable Runtime Utility Library
-dev-libs/argtable 2.13-r3: An ANSI C library for parsing GNU-style command-line options with minimal fuss
+dev-libs/argtable 2.13-r3 2.13-r4: An ANSI C library for parsing GNU-style command-line options with minimal fuss
 dev-libs/asmjit 2021.11.13 2022.07.02: Machine code generation for C++
 dev-libs/atcore 1.0.0: API to manage the serial connection between the computer and 3D Printers
 dev-libs/atf 0.21-r2: Libraries to write tests in C, C++ and shell
@@ -12231,7 +12231,7 @@ mate-extra/mate-netbook 1.26.0: MATE utilities for netbooks
 mate-extra/mate-polkit 1.26.0 1.26.0-r1: A MATE specific DBUS service that is used to bring up authentication dialogs
 mate-extra/mate-power-manager 1.26.0: A session daemon for MATE that makes it easy to manage your laptop or desktop
 mate-extra/mate-screensaver 1.26.1-r1: Replaces xscreensaver, integrating with the MATE desktop
-mate-extra/mate-sensors-applet 1.26.0: MATE panel applet to display readings from hardware sensors
+mate-extra/mate-sensors-applet 1.26.0 1.26.0-r1: MATE panel applet to display readings from hardware sensors
 mate-extra/mate-system-monitor 1.26.0: The MATE System Monitor
 mate-extra/mate-user-guide 1.26.0: User documentation for MATE Desktop
 mate-extra/mate-user-share 1.26.0: Personal file sharing for the MATE desktop
@@ -15931,7 +15931,7 @@ sci-mathematics/diagrtb 2.64: Calculation of some eigenvectors of a large real, 
 sci-mathematics/dsfmt 2.2.4: Double precision SIMD-oriented Fast Mersenne Twister library
 sci-mathematics/dunshire 0.1.1-r3: Python library to solve linear games over symmetric cones
 sci-mathematics/easycrypt 2022.04_p20220505 2022.04_p20230324: Computer-Aided Cryptographic Proofs
-sci-mathematics/eclib 20221012: Programs for elliptic curves defined over the rational numbers
+sci-mathematics/eclib 20221012 20230424: Programs for elliptic curves defined over the rational numbers
 sci-mathematics/ent 101202: Random number sequence test and entropy calculation
 sci-mathematics/eprover 3.0_pre008: Automated theorem prover for full first-order logic with equality
 sci-mathematics/euler 1.61.0-r1: Mathematical programming environment
@@ -16904,7 +16904,7 @@ sys-boot/yaboot 1.3.17-r4: PPC Bootloader
 sys-boot/yaboot-static 1.3.17-r2: Static yaboot ppc boot loader for machines with open firmware
 sys-cluster/ampi 0_pre20140616: MPI library for algorithmic differentiation
 sys-cluster/c3 4.0.1: The Cluster Command and Control (C3) tool suite
-sys-cluster/ceph 16.2.12 17.2.5-r4 17.2.6-r1: Ceph distributed filesystem
+sys-cluster/ceph 16.2.12 17.2.5-r6 17.2.6-r2: Ceph distributed filesystem
 sys-cluster/charliecloud 0.30 0.31-r1 0.32 9999: Lightweight user-defined software stacks for high-performance computing
 sys-cluster/charm 6.8.2: Message-passing parallel language and runtime system
 sys-cluster/charmdebug 6.2.0-r1: A debugger for Charm++ applications
@@ -17211,7 +17211,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.0.10 4.2.6-r6 4.2.6-r8 4.3.1-r1 4.3.2 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.4.240 5.4.242 5.10.177 5.10.179 5.15.107 5.15.109 5.15.110 6.1.24 6.1.26 6.1.27 6.2.13 6.2.14: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.4.240 5.4.242 5.10.177 5.10.179 5.15.98 5.15.107 5.15.109 5.15.110 6.1.24 6.1.26 6.1.27 6.2.13 6.2.14: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 4.14.302 4.14.305 4.14.309 4.14.311 4.14.312 4.14.313 4.14.314 4.19.269 4.19.272 4.19.277 4.19.279 4.19.280 4.19.281 4.19.282 5.4.228 5.4.231 5.4.236 5.4.239 5.4.240 5.4.241 5.4.242 5.10.163 5.10.167 5.10.174 5.10.176 5.10.177 5.10.178 5.10.179 5.15.88 5.15.94 5.15.102 5.15.107 5.15.108 5.15.109 5.15.110 6.1.12 6.1.19 6.1.24 6.1.25 6.1.26 6.1.27 6.2.11 6.2.12 6.2.13 6.2.14 6.3.0 6.3.1: Full sources including the Gentoo patchset for the 6.3 kernel tree
+sys-kernel/gentoo-sources 4.14.309 4.14.312 4.14.313 4.14.314 4.19.277 4.19.280 4.19.281 4.19.282 5.4.236 5.4.240 5.4.241 5.4.242 5.10.174 5.10.177 5.10.178 5.10.179 5.15.102 5.15.108 5.15.109 5.15.110 6.1.19 6.1.25 6.1.26 6.1.27 6.2.12 6.2.13 6.2.14 6.3.0 6.3.1: Full sources including the Gentoo patchset for the 6.3 kernel tree
 sys-kernel/git-sources 6.4_rc1: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 7: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd-boot 2: Wrap kernel-install from systemd-boot as installkernel
@@ -18167,7 +18167,7 @@ x11-misc/slim 1.3.6-r5 1.3.9 1.4.0 9999: Simple Login Manager resurrected
 x11-misc/slock 1.4-r1 1.5: simple X display locker
 x11-misc/slop 7.6-r1: Application that queries the user for a selection for printing
 x11-misc/snixembed 0.2.2 0.3.0: Proxy StatusNotifierItems as XEmbedded systemtray-spec icons
-x11-misc/spacefm 1.0.6-r1 9999: A multi-panel tabbed file manager
+x11-misc/spacefm 1.0.6-r1 1.0.6-r2: A multi-panel tabbed file manager
 x11-misc/splatmoji 1.1.1 1.2.0: Quickly look up and input emoji and/or emoticons
 x11-misc/spnavcfg 0.3.1 1.0 1.1: Qt-based GUI to configure a space navigator device
 x11-misc/sprop 0.1-r1: a simple X property utility
