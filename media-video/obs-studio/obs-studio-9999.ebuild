@@ -11,7 +11,7 @@ inherit cmake lua-single optfeature python-single-r1 xdg
 
 CEF_DIR="cef_binary_5060_linux64"
 OBS_BROWSER_COMMIT="594115a27d40f0916e55db97cb61f7c7130cbe28"
-OBS_WEBSOCKET_COMMIT="6ef055a369249f6d7b008914fe2bc360c96f23dc"
+OBS_WEBSOCKET_COMMIT="57a9c19f2ccf4e5452baeffd78014579622b9f3a"
 QR_COMMIT="8518684c0f33d004fa93971be2c6a8eca3167d1e"
 
 if [[ ${PV} == 9999 ]]; then
