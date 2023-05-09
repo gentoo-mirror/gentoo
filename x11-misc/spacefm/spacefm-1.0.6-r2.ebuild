@@ -1,9 +1,9 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit linux-info optfeature xdg
+inherit autotools linux-info optfeature xdg
 
 DESCRIPTION="A multi-panel tabbed file manager"
 HOMEPAGE="https://ignorantguru.github.io/spacefm/"
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_BRANCH="next"
 	inherit git-r3
 else
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 	SRC_URI="https://github.com/IgnorantGuru/spacefm/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
@@ -41,7 +41,13 @@ BDEPEND="dev-util/intltool
 PATCHES=(
 	"${FILESDIR}"/${PN}-9999-include-sysmacros.patch
 	"${FILESDIR}"/${PN}-fno-common.patch
+	"${FILESDIR}"/${PN}-dash.patch #891181
 )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf \
