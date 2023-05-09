@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-text/scdoc doc? ( app-doc/doxygen ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
 DEPEND=ncurses? ( sys-libs/ncurses:= ) wayland? ( dev-libs/wayland x11-libs/cairo x11-libs/pango x11-libs/libxcb ) X? ( x11-libs/libxcb x11-libs/libXext x11-libs/libX11 x11-libs/cairo[X] x11-libs/pango[X] x11-libs/libXinerama ) wayland? ( dev-libs/wayland-protocols )
 DESCRIPTION=dmenu clone for wayland
@@ -12,4 +12,4 @@ RDEPEND=ncurses? ( sys-libs/ncurses:= ) wayland? ( dev-libs/wayland x11-libs/cai
 REQUIRED_USE=|| ( ncurses wayland X )
 SLOT=0
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=18eb5fef261e14e34c8bed2fa95e10a8
+_md5_=66762deefbc49ee54a17fe3a148bd935
