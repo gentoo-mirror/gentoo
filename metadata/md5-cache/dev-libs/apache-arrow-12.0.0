@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) compute? ( dev-libs/libutf8proc ) dataset? ( dev-libs/libutf8proc re2? ( dev-libs/re2 ) ) lz4? ( app-arch/lz4 ) parquet? ( dev-libs/libutf8proc dev-libs/thrift ssl? ( dev-libs/openssl ) ) snappy? ( app-arch/snappy ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) dev-cpp/xsimd json? ( dev-libs/rapidjson ) test? ( dev-libs/boost dev-cpp/gflags dev-cpp/gtest )
+DEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) compute? ( dev-libs/libutf8proc ) dataset? ( dev-libs/libutf8proc re2? ( dev-libs/re2 ) ) lz4? ( app-arch/lz4 ) parquet? ( dev-libs/libutf8proc dev-libs/thrift ssl? ( dev-libs/openssl ) ) snappy? ( app-arch/snappy ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd ) dev-cpp/xsimd >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
 DESCRIPTION=A cross-language development platform for in-memory data.
 EAPI=8
 HOMEPAGE=https://arrow.apache.org/
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/b2e7cc755159196e3a068c8594f7acbaecfdaaac.tar.gz -> apache-arrow-parquet-data-12.0.0.tar.gz https://github.com/apache/arrow-testing/archive/d2c73bf78246331d8e58b6f11aa8aa199cbb5929.tar.gz -> apache-arrow-arrow-data-12.0.0.tar.gz )
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
-_md5_=45c9bc24b2a8ea0621981eb96cc1ef10
+_md5_=5193745c50fd6ccf802872a8b044e1e9
