@@ -1,13 +1,15 @@
 BDEPEND=>=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DESCRIPTION=A websocket implementation in elisp
+DESCRIPTION=Create local package repository from installed Emacs Lisp packages
 EAPI=8
-HOMEPAGE=https://github.com/ahyatt/emacs-websocket
+HOMEPAGE=https://github.com/redguardtoo/elpa-mirror/
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
+PROPERTIES=test_network
 RDEPEND=>=app-editors/emacs-25.3:*
+RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/ahyatt/emacs-websocket/archive/1.13.tar.gz -> websocket-1.13.tar.gz
+SRC_URI=https://github.com/redguardtoo/elpa-mirror/archive/2.2.2.tar.gz -> elpa-mirror-2.2.2.tar.gz
 _eclasses_=elisp-common	01bc6dc778b74a9deebe4e419a3b790e	elisp	7190c722d9e06fabcae26ef1e1dc9183
-_md5_=10c9f981b5b797644aa84e412494f321
+_md5_=88d1bbcc1c5e97317dae329b6187facf
