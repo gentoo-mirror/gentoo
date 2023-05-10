@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop linux-info readme.gentoo-r1 wrapper xdg-utils
+inherit desktop linux-info readme.gentoo-r1 xdg-utils
 
 DESCRIPTION="Video conferencing and web conferencing service"
 HOMEPAGE="https://zoom.us/"
@@ -160,8 +160,7 @@ src_install() {
 		fi
 	fi
 
-	make_wrapper zoom /opt/zoom/zoom /opt/zoom \
-		/opt/zoom:/opt/zoom/Qt/lib:/opt/zoom/cef
+	dosym -r /opt/zoom/ZoomLauncher /usr/bin/zoom
 	make_desktop_entry "zoom %U" Zoom videoconference-zoom \
 		"Network;VideoConference;" \
 		"MimeType=$(printf '%s;' \
