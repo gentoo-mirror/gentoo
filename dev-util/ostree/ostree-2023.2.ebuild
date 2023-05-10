@@ -1,27 +1,31 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools systemd
+inherit autotools systemd tmpfiles
 
 DESCRIPTION="Operating system and container binary deployment and upgrades"
 HOMEPAGE="https://ostreedev.github.io/ostree/"
-SRC_URI="https://github.com/ostreedev/ostree/releases/download/v${PV}/lib${P}.tar.xz -> ${P}.tar.xz"
+SRC_URI="
+	https://github.com/ostreedev/ostree/releases/download/v${PV}/lib${P}.tar.xz
+		-> ${P}.tar.xz
+"
+S="${WORKDIR}/lib${P}"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 LICENSE="LGPL-2+"
 SLOT="0"
 
 IUSE="archive +curl doc dracut gnutls +gpg grub +http2 httpd introspection libmount selinux sodium ssl +soup systemd zeroconf"
-RESTRICT+=" test"
+RESTRICT="test"
 REQUIRED_USE="
 	dracut? ( systemd )
 	http2? ( curl )
 	httpd? ( || ( curl soup ) )
 "
 
-COMMON_DEPEND="
+RDEPEND="
 	app-arch/xz-utils
 	dev-libs/libassuan
 	dev-libs/glib:2
@@ -47,32 +51,26 @@ COMMON_DEPEND="
 		)
 	)
 	systemd? ( sys-apps/systemd:0= )
-	zeroconf? ( net-dns/avahi[dbus] )"
-
-DEPEND="${COMMON_DEPEND}
+	zeroconf? ( net-dns/avahi[dbus] )
+"
+DEPEND="${RDEPEND}
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
-	doc? ( dev-util/gtk-doc )"
-
-RDEPEND="${COMMON_DEPEND}"
+	doc? ( dev-util/gtk-doc )
+"
 BDEPEND="
 	dev-util/glib-utils
 	sys-devel/flex
 	sys-devel/bison
-	virtual/pkgconfig"
-
-S="${WORKDIR}/lib${P}"
+	virtual/pkgconfig
+"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-musl-allperms.patch
+	"${FILESDIR}"/ostree-2022.6-musl-allperms.patch
 )
 
 src_prepare() {
 	default
-
-	sed -Ee 's:(XSLT_STYLESHEET = ).*:\1/usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl:' \
-		-i Makefile.in Makefile-man.am || die
-
 	eautoreconf
 }
 
@@ -103,7 +101,7 @@ src_configure() {
 	)
 
 	if use systemd; then
-		econfargs+=(--with-systemdsystemunitdir="$(systemd_get_systemunitdir)")
+		econfargs+=( --with-systemdsystemunitdir="$(systemd_get_systemunitdir)" )
 	fi
 
 	unset ${!XDG_*} #657346 g-ir-scanner sandbox violation
@@ -113,4 +111,8 @@ src_configure() {
 src_install() {
 	default
 	find "${D}" -name '*.la' -delete || die
+}
+
+pkg_postinst() {
+	tmpfiles_process ostree-tmpfiles.conf
 }
