@@ -1,4 +1,4 @@
-BDEPEND=test? ( sys-block/tgt ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+BDEPEND=test? ( >=sys-block/tgt-1.0.58 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare test unpack
 DEPEND=dev-libs/libgcrypt:= rdma? ( sys-cluster/rdma-core ) test? ( dev-util/cunit )
 DESCRIPTION=iscsi client library and utilities
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sahlberg/libiscsi/archive/22f7b26567760921fa1aad77cca642153123ea8c.tar.gz -> libiscsi-1.19.0_p20230208.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
-_md5_=90a9621f0f79d64de32d37e1f71fae1e
+_md5_=c94b2bdfeaafb5437353c53ab69a4f07
