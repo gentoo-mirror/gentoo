@@ -87,6 +87,8 @@ multilib_src_configure() {
 
 		$(meson_native_use_feature doc docs)
 		$(meson_native_use_feature introspection)
+		# Breaks building tests..
+		#$(meson_native_use_feature utilities)
 
 		$(meson_use experimental experimental_api)
 	)

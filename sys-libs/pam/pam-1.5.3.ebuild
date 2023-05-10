@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_P="Linux-${PN^^}-${PV}"
 
@@ -9,54 +9,49 @@ MY_P="Linux-${PN^^}-${PV}"
 # Can reconsider w/ EAPI 8 and IDEPEND, bug #810979
 TMPFILES_OPTIONAL=1
 
-inherit autotools db-use fcaps flag-o-matic toolchain-funcs usr-ldscript multilib-minimal
+inherit db-use fcaps flag-o-matic toolchain-funcs usr-ldscript multilib-minimal
 
 DESCRIPTION="Linux-PAM (Pluggable Authentication Modules)"
 HOMEPAGE="https://github.com/linux-pam/linux-pam"
-
-SRC_URI="https://github.com/linux-pam/linux-pam/releases/download/v${PV}/${MY_P}.tar.xz
-	https://github.com/linux-pam/linux-pam/releases/download/v${PV}/${MY_P}-docs.tar.xz"
+SRC_URI="
+	https://github.com/linux-pam/linux-pam/releases/download/v${PV}/${MY_P}.tar.xz
+	https://github.com/linux-pam/linux-pam/releases/download/v${PV}/${MY_P}-docs.tar.xz
+"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="|| ( BSD GPL-2 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="audit berkdb debug nis selinux"
 
 BDEPEND="
+	app-alternatives/yacc
 	dev-libs/libxslt
 	sys-devel/flex
 	sys-devel/gettext
 	virtual/pkgconfig
-	app-alternatives/yacc
 "
-
 DEPEND="
 	virtual/libcrypt:=[${MULTILIB_USEDEP}]
 	>=virtual/libintl-0-r1[${MULTILIB_USEDEP}]
 	audit? ( >=sys-process/audit-2.2.2[${MULTILIB_USEDEP}] )
 	berkdb? ( >=sys-libs/db-4.8.30-r1:=[${MULTILIB_USEDEP}] )
 	selinux? ( >=sys-libs/libselinux-2.2.2-r4[${MULTILIB_USEDEP}] )
-	nis? ( net-libs/libnsl:=[${MULTILIB_USEDEP}]
-	>=net-libs/libtirpc-0.2.4-r2:=[${MULTILIB_USEDEP}] )"
-
+	nis? (
+		net-libs/libnsl:=[${MULTILIB_USEDEP}]
+		>=net-libs/libtirpc-0.2.4-r2:=[${MULTILIB_USEDEP}]
+	)
+"
 RDEPEND="${DEPEND}"
-
 PDEPEND=">=sys-auth/pambase-20200616"
-
-S="${WORKDIR}/${MY_P}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.5.1-musl.patch
-)
 
 src_prepare() {
 	default
 	touch ChangeLog || die
-	eautoreconf
 }
 
 multilib_src_configure() {
-	# Do not let user's BROWSER setting mess us up. #549684
+	# Do not let user's BROWSER setting mess us up, bug #549684
 	unset BROWSER
 
 	# This whole weird has_version libxcrypt block can go once
@@ -86,13 +81,23 @@ multilib_src_configure() {
 		--disable-regenerate-docu
 		--disable-static
 		--disable-Werror
+		# TODO: wire this up now it's more useful as of 1.5.3
+		--disable-econf
+
+		# TODO: add elogind support
+		# lastlog is enabled again for now by us until logind support
+		# is handled. Even then, disabling lastlog will probably need
+		# a news item.
+		--disable-logind
+		--enable-lastlog
+
 		$(use_enable audit)
 		$(use_enable berkdb db)
 		$(use_enable debug)
 		$(use_enable nis)
 		$(use_enable selinux)
-		--enable-isadir='.' #464016
-		)
+		--enable-isadir='.' # bug #464016
+	)
 	ECONF_SOURCE="${S}" econf "${myconf[@]}"
 }
 
@@ -112,7 +117,6 @@ multilib_src_install_all() {
 
 	# tmpfiles.eclass is impossible to use because
 	# there is the pam -> tmpfiles -> systemd -> pam dependency loop
-
 	dodir /usr/lib/tmpfiles.d
 
 	cat ->>  "${D}"/usr/lib/tmpfiles.d/${CATEGORY}-${PN}.conf <<-_EOF_
