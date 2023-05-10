@@ -15,7 +15,7 @@ HOMEPAGE="https://userbase.kde.org/Discover"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="+firmware flatpak telemetry webengine"
+IUSE="+firmware flatpak snap telemetry webengine"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
@@ -45,11 +45,13 @@ DEPEND="
 	>=kde-frameworks/purpose-${KFMIN}:5
 	firmware? ( >=sys-apps/fwupd-1.5.0 )
 	flatpak? ( sys-apps/flatpak )
+	snap? ( sys-libs/snapd-glib:=[qt5] )
 	telemetry? ( dev-libs/kuserfeedback:5 )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	snap? ( app-containers/snapd )
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
@@ -67,11 +69,17 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# TODO: Port PackageKit's portage back-end to python3
 		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt5=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Snapd=ON
+		# Automated updates will not work for us
+		# https://invent.kde.org/plasma/discover/-/merge_requests/142
 		-DWITH_KCM=OFF
+		-DBUILD_DummyBackend=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		-DBUILD_FwupdBackend=$(usex firmware)
+		-DBUILD_RpmOstreeBackend=OFF
+		-DBUILD_SnapBackend=$(usex snap)
+		-DBUILD_SteamOSBackend=OFF
 		$(cmake_use_find_package telemetry KUserFeedback)
 		$(cmake_use_find_package webengine Qt5WebView)
 	)
