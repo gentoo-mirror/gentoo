@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit autotools elisp-common python-single-r1 tmpfiles systemd
 
@@ -13,11 +13,12 @@ SRC_URI="https://download.gluster.org/pub/gluster/${PN}/$(ver_cut 1)/${PV}/${P}.
 
 LICENSE="|| ( GPL-2 LGPL-3+ )"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
-IUSE="debug emacs +fuse +georeplication ipv6 +libtirpc rsyslog selinux static-libs tcmalloc test +xml"
+IUSE="debug emacs +fuse georeplication ipv6 +libtirpc rsyslog selinux static-libs tcmalloc test +uring xml"
 
-REQUIRED_USE="georeplication? ( ${PYTHON_REQUIRED_USE} xml )
+REQUIRED_USE="${PYTHON_REQUIRED_USE}
+	georeplication? ( xml )
 	ipv6? ( libtirpc )"
 
 # the tests must be run as root
@@ -32,7 +33,6 @@ RDEPEND="
 	net-libs/rpcsvc-proto
 	dev-libs/userspace-rcu:=
 	sys-apps/util-linux
-	sys-libs/liburing:=
 	sys-libs/readline:=
 	!elibc_glibc? ( sys-libs/argp-standalone )
 	emacs? ( >=app-editors/emacs-23.1:* )
@@ -42,29 +42,31 @@ RDEPEND="
 	!libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) )
 	selinux? ( sec-policy/selinux-glusterfs )
 	tcmalloc? ( dev-util/google-perftools )
+	uring? ( sys-libs/liburing:= )
 	xml? ( dev-libs/libxml2 )
 "
 DEPEND="
 	${RDEPEND}
-	sys-devel/bison
-	sys-devel/flex
 	virtual/acl
 	test? ( >=dev-util/cmocka-1.0.1
 		app-benchmarks/dbench
 		dev-vcs/git
-		net-fs/nfs-utils
 		virtual/perl-Test-Harness
 		dev-libs/yajl
 		sys-fs/xfsprogs
 		sys-apps/attr )
 "
 BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
 	virtual/pkgconfig
 "
 
 SITEFILE="50${PN}-mode-gentoo.el"
 
 DOCS=( AUTHORS ChangeLog NEWS README.md THANKS )
+
+QA_PKGCONFIG_VERSION=7.10.2
 
 # Maintainer notes:
 # * The build system will always configure & build argp-standalone but it'll never use it
@@ -91,6 +93,8 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		YACC=yacc.bison \
+		LEX=flex \
 		--disable-fusermount \
 		--disable-lto \
 		$(use_enable debug) \
@@ -98,6 +102,7 @@ src_configure() {
 		$(use_enable georeplication) \
 		$(use_enable static-libs static) \
 		$(use_enable test cmocka) \
+		$(use_enable uring linux-io-uring) \
 		$(use_enable xml xml-output) \
 		$(usex ipv6 --with-ipv6-default "") \
 		$(usex libtirpc "" --without-libtirpc) \
@@ -150,8 +155,8 @@ src_install() {
 	# fperms 0755 /usr/share/glusterfs/scripts/*.sh
 	chmod 0755 "${ED}"/usr/share/glusterfs/scripts/*.sh || die
 
-	newinitd "${FILESDIR}/${PN}-r1.initd" glusterfsd
-	newinitd "${FILESDIR}/glusterd-r4.initd" glusterd
+	newinitd "${FILESDIR}/glusterfsd-10.2.initd" glusterfsd
+	newinitd "${FILESDIR}/glusterd-10.2-r2.initd" glusterd
 	newconfd "${FILESDIR}/${PN}.confd" glusterfsd
 
 	keepdir /var/log/${PN}
