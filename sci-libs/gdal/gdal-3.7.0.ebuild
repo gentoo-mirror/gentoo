@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit cmake java-pkg-opt-2 python-single-r1
 
 DESCRIPTION="Translator library for raster geospatial data formats (includes OGR support)"
@@ -12,7 +12,7 @@ SRC_URI="https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz"
 SRC_URI+=" test? ( https://download.osgeo.org/${PN}/${PV}/${PN}autotest-${PV}.tar.gz )"
 
 LICENSE="BSD Info-ZIP MIT"
-SLOT="0/32" # subslot is libgdal.so.<SONAME>
+SLOT="0/33" # subslot is libgdal.so.<SONAME>
 KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="armadillo +curl cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_x86_ssse3 doc fits geos gif gml hdf5 heif java jpeg jpeg2k lzma mysql netcdf odbc ogdi opencl oracle pdf png postgres python spatialite sqlite test webp xls zstd"
 RESTRICT="!test? ( test )"
@@ -20,22 +20,30 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 	spatialite? ( sqlite )
+	test? ( ${PYTHON_REQUIRED_USE} )
 "
 
-BDEPEND="virtual/pkgconfig
+BDEPEND="
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 	java? (
 		dev-java/ant-core
-		dev-lang/swig:0
+		dev-lang/swig
 		>=virtual/jdk-1.8:*
 	)
 	python? (
-		dev-lang/swig:0
+		dev-lang/swig
 		$(python_gen_cond_dep '
 			dev-python/setuptools[${PYTHON_USEDEP}]
 		')
-	)"
-DEPEND="dev-libs/expat
+	)
+	test? (
+		${PYTHON_DEPS}
+		dev-cpp/gtest
+	)
+"
+DEPEND="
+	dev-libs/expat
 	dev-libs/json-c:=
 	dev-libs/libpcre2
 	dev-libs/libxml2:2
@@ -77,12 +85,27 @@ DEPEND="dev-libs/expat
 	sqlite? ( dev-db/sqlite:3 )
 	webp? ( media-libs/libwebp:= )
 	xls? ( dev-libs/freexl )
-	zstd? ( app-arch/zstd:= )"
-RDEPEND="${DEPEND}
-	java? ( >=virtual/jre-1.8:* )"
+	zstd? ( app-arch/zstd:= )
+"
+RDEPEND="
+	${DEPEND}
+	java? ( >=virtual/jre-1.8:* )
+"
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	_wstat64 # Windows LFS
+)
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.6.4-abseil-cpp-20230125.2-c++17.patch
+	"${FILESDIR}"/${PN}-3.7.0-zlib-OF.patch
+)
 
 pkg_setup() {
-	use python && python-single-r1_pkg_setup
+	if use python || use test ; then
+		python-single-r1_pkg_setup
+	fi
+
 	use java && java-pkg-opt-2_pkg_setup
 }
 
@@ -99,6 +122,8 @@ src_configure() {
 		-DENABLE_IPO=OFF
 		-DGDAL_USE_EXTERNAL_LIBS=ON
 		-DGDAL_USE_INTERNAL_LIBS=OFF
+		-DUSE_EXTERNAL_GTEST=ON
+		-DBUILD_TESTING=$(usex test)
 
 		# bug #844874 and bug #845150
 		-DCMAKE_INSTALL_INCLUDEDIR="include/gdal"
