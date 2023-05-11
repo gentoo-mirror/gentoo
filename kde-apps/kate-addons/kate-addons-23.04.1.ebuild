@@ -13,6 +13,7 @@ inherit ecm flag-o-matic gear.kde.org optfeature
 
 DESCRIPTION="Addons used by Kate"
 HOMEPAGE="https://kate-editor.org/ https://apps.kde.org/kate/"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${KDE_ORG_NAME}-23.04.1-cmake.patch.xz"
 
 LICENSE="LGPL-2 LGPL-2+ MIT"
 SLOT="5"
@@ -62,6 +63,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<kde-apps/kate-22.08.0:5
 "
+
+PATCHES=( "${WORKDIR}/${KDE_ORG_NAME}-23.04.1-cmake.patch" ) # KDE-bug 905709
 
 src_prepare() {
 	ecm_src_prepare

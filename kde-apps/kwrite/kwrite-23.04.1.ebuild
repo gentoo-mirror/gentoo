@@ -11,6 +11,7 @@ inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Simple text editor based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/kwrite/"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${KDE_ORG_NAME}-23.04.1-cmake.patch.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -27,6 +28,8 @@ RDEPEND="
 	virtual/libintl
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${WORKDIR}/${KDE_ORG_NAME}-23.04.1-cmake.patch" ) # KDE-bug 905709
 
 src_prepare() {
 	ecm_src_prepare

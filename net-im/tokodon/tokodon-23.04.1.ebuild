@@ -42,7 +42,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${P}-tokodon-not-neochat.patch" ) # git master
+PATCHES=( "${FILESDIR}/${PN}-23.04.0-tokodon-not-neochat.patch" ) # git master
 
 src_test() {
 	local -x QT_QPA_PLATFORM=offscreen

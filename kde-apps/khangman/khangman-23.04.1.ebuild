@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5

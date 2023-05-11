@@ -8,11 +8,12 @@ HOMEPAGE="https://apps.kde.org/categories/utilities/"
 
 LICENSE="metapackage"
 SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="7zip cups floppy gpg lrz rar +webengine"
 
 RDEPEND="
 	>=app-cdr/dolphin-plugins-mountiso-${PV}:${SLOT}
+	>=app-crypt/keysmith-${PV}
 	>=kde-apps/ark-${PV}:${SLOT}
 	>=kde-apps/filelight-${PV}:${SLOT}
 	>=kde-apps/kate-${PV}:${SLOT}
@@ -26,6 +27,7 @@ RDEPEND="
 	>=kde-apps/kwalletmanager-${PV}:${SLOT}
 	>=kde-apps/sweeper-${PV}:${SLOT}
 	>=kde-apps/yakuake-${PV}:${SLOT}
+	>=kde-misc/kweather-${PV}:${SLOT}
 	>=kde-misc/markdownpart-${PV}:${SLOT}
 	>=sys-block/partitionmanager-${PV}:${SLOT}
 	>=sys-libs/kpmcore-${PV}:${SLOT}

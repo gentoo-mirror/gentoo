@@ -56,6 +56,8 @@ RDEPEND="${DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:5
 "
 
+PATCHES=( "${FILESDIR}/${PN}-23.04.0-unused-dep.patch" ) # git master
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package telemetry KUserFeedback)
@@ -63,8 +65,6 @@ src_configure() {
 
 	ecm_src_configure
 }
-
-PATCHES=( "${FILESDIR}/${P}-unused-dep.patch" )
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then

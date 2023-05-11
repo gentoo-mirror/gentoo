@@ -11,6 +11,7 @@ inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Multi-document editor with network transparency, Plasma integration and more"
 HOMEPAGE="https://kate-editor.org/ https://apps.kde.org/kate/"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${KDE_ORG_NAME}-23.04.1-cmake.patch.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
@@ -33,6 +34,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	~kde-apps/kate-addons-${PV}:5
 "
+
+PATCHES=( "${WORKDIR}/${KDE_ORG_NAME}-23.04.1-cmake.patch" ) # KDE-bug 905709
 
 src_prepare() {
 	ecm_src_prepare
