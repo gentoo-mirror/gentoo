@@ -1,0 +1,8 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual for net-misc/openssh and variants
+EAPI=8
+IUSE=ssl
+KEYWORDS=amd64 arm arm64 hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 sparc x86
+RDEPEND=|| ( >=net-misc/openssh-9.3_p1-r1[ssl?] >=net-misc/openssh-contrib-9.3_p1[ssl?] )
+SLOT=0
+_md5_=e7cbb857b59225bb9c2e92e27325cd6f
