@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,6 @@ SLOT="0/${PV%%.*}"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
-	+voicemail_storage_file
 	voicemail_storage_odbc
 	voicemail_storage_imap
 )
@@ -23,12 +22,12 @@ IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster 
 IUSE_EXPAND="VOICEMAIL_STORAGE"
 REQUIRED_USE="gtalk? ( xmpp )
 	lua? ( ${LUA_REQUIRED_USE} )
-	^^ ( ${IUSE_VOICEMAIL_STORAGE[*]//+/} )
 	voicemail_storage_odbc? ( odbc )
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-16.16.2-no-var-run-install.patch"
+	"${FILESDIR}/asterisk-16.16.2-no-var-run-install.patch"
+	"${FILESDIR}/asterisk-18.17.1-20.2.1-configure-fix-test-code-to-match-gethostbyname_r-pro.patch"
 )
 
 DEPEND="acct-user/asterisk
@@ -68,7 +67,7 @@ DEPEND="acct-user/asterisk
 	mysql? ( dev-db/mysql-connector-c:= )
 	newt? ( dev-libs/newt )
 	odbc? ( dev-db/unixODBC )
-	pjproject? ( >=net-libs/pjproject-2.9:= )
+	pjproject? ( >=net-libs/pjproject-2.12:= )
 	portaudio? ( media-libs/portaudio )
 	postgres? ( dev-db/postgresql:* )
 	radius? ( net-dialup/freeradius-client )
@@ -90,7 +89,7 @@ DEPEND="acct-user/asterisk
 		media-libs/libogg
 		media-libs/libvorbis
 	)
-	voicemail_storage_imap? ( virtual/imap-c-client )
+	voicemail_storage_imap? ( net-libs/c-client[ssl=] )
 	xmpp? ( dev-libs/iksemel )
 "
 
@@ -116,6 +115,7 @@ _make_args=(
 	"DESTDIR=${D}"
 	"CONFIG_SRC=configs/samples"
 	"CONFIG_EXTEN=.sample"
+	"AST_FORTIFY_SOURCE="
 )
 
 pkg_pretend() {
@@ -149,7 +149,6 @@ src_configure() {
 	local copt cstate
 
 	econf \
-		SED=sed \
 		LUA_VERSION="${ELUA#lua}" \
 		--libdir="/usr/$(get_libdir)" \
 		--localstatedir="/var" \
@@ -194,6 +193,11 @@ src_configure() {
 
 	# Compile menuselect binary for optional components
 	emake "${_make_args[@]}" menuselect.makeopts
+
+	# Disable astdb2* tools.  We've been on sqlite long enough
+	# that this should really no longer be a problem (bug #https://bugs.gentoo.org/872194)
+	_menuselect --disable astdb2sqlite3 menuselect.makeopts
+	_menuselect --disable astdb2bdb menuselect.makeopts
 
 	# Disable BUILD_NATIVE (bug #667498)
 	_menuselect --disable build_native menuselect.makeopts
@@ -257,9 +261,10 @@ src_configure() {
 	_use_select xmpp         res_xmpp
 
 	# Voicemail storage ...
+	_menuselect --enable app_voicemail menuselect.makeopts
 	for vmst in "${IUSE_VOICEMAIL_STORAGE[@]}"; do
 		if use "${vmst#+}"; then
-			_menuselect --enable "$(echo "${vmst##*_}" | tr '[:lower:]' '[:upper:]')_STORAGE" menuselect.makeopts
+			_menuselect --enable "app_voicemail_${vmst##*_}" menuselect.makeopts
 		fi
 	done
 
@@ -292,7 +297,7 @@ src_install() {
 	diropts -m 0750 -o root -g asterisk
 	dodir /etc/asterisk
 
-	emake "${_make_args[@]}" install install-configs
+	emake "${_make_args[@]}" install install-headers install-configs
 
 	fowners asterisk: /var/lib/asterisk/astdb
 
@@ -307,8 +312,8 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newsbin "${FILESDIR}/asterisk_wrapper-16.26.1-18.12.1" asterisk_wrapper
-	newinitd "${FILESDIR}"/initd-16.26.1-18.12.1 asterisk
+	newsbin "${FILESDIR}/asterisk_wrapper-18.17.1-20.2.1" asterisk_wrapper
+	newinitd "${FILESDIR}"/initd-18.17.1-20.2.1 asterisk
 	newconfd "${FILESDIR}"/confd-16.26.1-18.12.1 asterisk
 
 	systemd_dounit "${FILESDIR}"/asterisk.service
