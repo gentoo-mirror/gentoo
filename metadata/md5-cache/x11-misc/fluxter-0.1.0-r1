@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure prepare
-DEPEND=media-libs/id3lib
-DESCRIPTION=An audio player, primarily for the console
+DEPEND=x11-libs/libX11 x11-libs/libSM x11-libs/libICE
+DESCRIPTION=Workspace pager dockapp, particularly useful with the Fluxbox window manager
 EAPI=8
-HOMEPAGE=http://splay.sourceforge.net/
+HOMEPAGE=http://www.isomedia.com/homes/stevencooper
 INHERIT=autotools flag-o-matic
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ~hppa ppc x86
 LICENSE=GPL-2
-RDEPEND=media-libs/id3lib
+RDEPEND=x11-libs/libX11 x11-libs/libSM x11-libs/libICE
 SLOT=0
-SRC_URI=http://splay.sourceforge.net/tgz/splay-0.9.5.2.tar.gz
+SRC_URI=http://www.isomedia.com/homes/stevencooper/files/fluxter-0.1.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
-_md5_=5fcfaad8aac93705db455e545d3f18ca
+_md5_=899288c8733b1ce7f4b8c6696d0f5832

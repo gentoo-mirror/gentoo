@@ -3,10 +3,12 @@ DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrender x11-
 DESCRIPTION=fluxbox-util application that creates and manage icons on your Fluxbox desktop
 EAPI=8
 HOMEPAGE=http://fluxbox.sourceforge.net/fbdesk/
+INHERIT=flag-o-matic
 IUSE=debug png
 KEYWORDS=amd64 ~ia64 ppc sparc x86
 LICENSE=MIT
 RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrender x11-libs/libXft media-libs/imlib2[X] png? ( media-libs/libpng:0= )
 SLOT=0
 SRC_URI=mirror://gentoo/fbdesk-1.4.1.tar.gz
-_md5_=22f15565274619ce38a6b653415e0d46
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
+_md5_=4b4218b4798d9332e6a5d89a2591fce2
