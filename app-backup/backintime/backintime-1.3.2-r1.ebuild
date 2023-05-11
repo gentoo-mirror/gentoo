@@ -3,59 +3,32 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..10} )
 inherit python-single-r1 xdg
 
 DESCRIPTION="Backup system inspired by TimeVault and FlyBack"
 HOMEPAGE="https://backintime.readthedocs.io/en/latest/ https://github.com/bit-team/backintime/"
-
-if [[ ${PV} == 9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/bit-team/backintime/"
-	inherit git-r3
-else
-	SRC_URI="https://github.com/bit-team/${PN}/releases/download/v${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+SRC_URI="https://github.com/bit-team/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="examples qt5 test"
-RESTRICT="!test? ( test )"
+KEYWORDS="amd64 x86"
+IUSE="examples qt5"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="
-	${PYTHON_DEPS}
+DEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		dev-python/keyring[${PYTHON_USEDEP}]
-	')
-"
-RDEPEND="
-	${DEPEND}
+	')"
+RDEPEND="${DEPEND}
 	virtual/openssh
 	net-misc/rsync[xattr,acl]
-	qt5? ( dev-python/PyQt5[gui,widgets] )
-"
-BDEPEND="
-	sys-devel/gettext
-	test? (
-		$(python_gen_cond_dep '
-			dev-python/pyfakefs[${PYTHON_USEDEP}]
-		')
-	)
-"
+	qt5? ( dev-python/PyQt5[gui,widgets] )"
+BDEPEND="sys-devel/gettext"
 
 PATCHES=( "${FILESDIR}/${PN}-1.2.1-no-compress-docs-examples.patch" )
-
-src_prepare() {
-	default
-
-	# Looks at host system too much, so too flaky
-	rm common/test/test_tools.py || die
-	# Fails with dbus/udev issue (likely sandbox)
-	rm common/test/test_snapshots.py || die
-}
 
 src_configure() {
 	pushd common > /dev/null || die
@@ -71,25 +44,26 @@ src_configure() {
 }
 
 src_compile() {
-	emake -C common
+	pushd common > /dev/null || die
+	emake
+	popd > /dev/null || die
 
 	if use qt5 ; then
-		emake -C qt
+		pushd qt > /dev/null || die
+		emake
+		popd > /dev/null || die
 	fi
 }
 
-src_test() {
-	# pytest should work but it can't find the backintime binary, so
-	# use the unittest-based runner instead.
-	# https://github.com/bit-team/backintime/blob/dev/CONTRIBUTING.md#how-to-contribute-to-back-in-time
-	emake -C common test-v
-}
-
 src_install() {
-	emake -C common DESTDIR="${D}" install
+	pushd common > /dev/null || die
+	emake DESTDIR="${D}" install
+	popd > /dev/null || die
 
 	if use qt5 ; then
-		emake -C qt DESTDIR="${D}" install
+		pushd qt > /dev/null || die
+		emake DESTDIR="${D}" install
+		popd > /dev/null || die
 	fi
 
 	einstalldocs
