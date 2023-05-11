@@ -253,20 +253,6 @@ x11-plugins/ascpu
 # Mask experimental software
 =mail-mta/postfix-3.9*
 
-# Matt Turner <mattst88@gentoo.org> (2023-04-10)
-# DMX support was dropped from the Xserver in v21.1.0 and had been broken for
-# 14 years previous to its removal. See
-# https://cgit.freedesktop.org/xorg/xserver/commit/?id=b3b81c8c2090cd49410960a021baf0d27fdd2ab3
-# Removal on 2023-05-10
-x11-libs/libdmx
-
-# Matt Turner <mattst88@gentoo.org> (2023-04-10)
-# speedo support was dropped from libXfont ~14 years ago. See
-# https://www.x.org/wiki/DeprecatedInX11R7/
-# https://gitlab.freedesktop.org/xorg/lib/libxfont/-/commit/85b66b8a7f3095f10437c8ecb3dcbfe68c9cfced
-# Removal on 2023-05-10
-media-fonts/font-bitstream-speedo
-
 # Ulrich Müller <ulm@gentoo.org> (2023-04-10)
 # Pretest versions, masked for testing.
 <app-editors/emacs-29.0.9999:29-vcs
@@ -278,42 +264,6 @@ dev-lang/ruby:2.7
 =dev-ruby/bundler-2.1.4
 =dev-ruby/rubygems-3.1.6
 =dev-ruby/contracts-0.16.1
-
-# Michał Górny <mgorny@gentoo.org> (2023-04-10)
-# Last release in 2016, carries a few patches already.  No revdeps.
-# dev-python/cbor2 is a more modern replacement.
-# Removal on 2023-05-10.  Bug #903261.
-dev-python/cbor
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2023-04-09)
-# Archived upstream, better alternatives available, try:
-# - net-im/whatsapp-desktop-bin (another electron based approach)
-# - net-im/whatsie (a simple yet configurable Qt based app)
-# - net-im/whatsapp-for-linux::guru (a simple app using webkit2gtk)
-# Removal on 2023-05-09
-net-im/wazzapp-bin
-
-# John Helmert III <ajak@gentoo.org> (2023-04-08)
-# i3-gaps has been meregd into upstream i3. Use x11-wm/i3 instead.
-# See also: https://github.com/i3/i3/issues/3724
-# Removal on 2023-05-08.
-x11-wm/i3-gaps
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-04-09)
-# Numerous vulnerabilities, bug #825486.
-# Nothing depends on it. Removal on 2023-05-09
-dev-java/jython
-
-# Hans de Graaff <graaff@gentoo.org> (2023-04-08)
-# Last release in 2008. Upstream is gone. No reverse dependencies. No tests.
-# Removal on 2023-05-08
-dev-ruby/allison
-
-# Michał Górny <mgorny@gentoo.org> (2023-04-07)
-# No Python 3.11 support and the ebuild is not running the test suite.
-# Still uses deprecated dev-python/toml (upstream).  No revdeps.
-# Removal on 2023-05-07.  Bug #878655.
-app-misc/wildq
 
 # Ionen Wolkens <ionen@gentoo.org> (2023-03-30)
 # NVIDIA dropped support for the 390.xx branch in December 2022[1].
