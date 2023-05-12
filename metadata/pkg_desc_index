@@ -2299,7 +2299,7 @@ app-emulation/diskimage-builder 3.26.0 3.27.0 3.28.0 3.29.0 3.30.0 9999: Golden 
 app-emulation/docker-machine 0.13.0: Machine management for a container-centric world
 app-emulation/docker-machine-kvm 0.10.0: KVM driver for docker-machine
 app-emulation/dosemu 1.4.1_pre20130107-r5: DOS Emulator
-app-emulation/dxvk 1.10.3 2.0 2.1 2.1_p20230207 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk 1.10.3 2.0 2.1 2.2 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
 app-emulation/faudio 23.02: Accuracy-focused XAudio reimplementation for open platforms
 app-emulation/firecracker-bin 1.2.0 1.3.1: Secure and fast microVMs for serverless computing (static build)
@@ -2363,7 +2363,7 @@ app-emulation/virtualbox-extpack-oracle 6.1.42 6.1.44 7.0.6 7.0.8: PUEL extensio
 app-emulation/virtualbox-guest-additions 6.1.42-r1 6.1.44 7.0.6 7.0.8-r1: VirtualBox kernel modules and user-space tools for Gentoo guests
 app-emulation/virtualbox-modules 6.1.42 6.1.42-r1 6.1.44 7.0.6 7.0.6-r1 7.0.8: Kernel Modules for Virtualbox
 app-emulation/vkd3d 1.7 1.7.1: D3D12 to Vulkan translation library
-app-emulation/vkd3d-proton 2.6 2.8 2.8_p20230207 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
+app-emulation/vkd3d-proton 2.6 2.8 2.8_p20230510 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.2 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
 app-emulation/wine-mono 7.0.0 7.4.0 7.4.1: Replacement for the .NET runtime and class libraries in Wine
@@ -17217,8 +17217,8 @@ sys-kernel/cryptodev 1.12 1.13 9999: device that allows access to Linux kernel c
 sys-kernel/dracut 057-r3 059 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.0.10 4.2.6-r6 4.2.6-r8 4.3.1-r1 4.3.2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.240 5.4.242 5.4.242-r2 5.10.177 5.10.179 5.10.179-r2 5.15.107 5.15.109 5.15.110 5.15.110-r2 6.1.24 6.1.26 6.1.27 6.1.27-r2 6.2.13 6.2.14 6.2.14-r2 6.3.1 6.3.1-r1: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.240 5.4.242 5.4.242-r2 5.10.177 5.10.179 5.10.179-r2 5.15.98 5.15.107 5.15.109 5.15.110 5.15.110-r2 6.1.24 6.1.26 6.1.27 6.1.27-r2 6.2.13 6.2.14 6.2.14-r2 6.3.1 6.3.1-r1: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.240 5.4.242 5.4.242-r2 5.10.177 5.10.179 5.10.179-r2 5.15.107 5.15.109 5.15.110 5.15.110-r2 5.15.111 6.1.24 6.1.26 6.1.27 6.1.27-r2 6.1.28 6.2.13 6.2.14 6.2.14-r2 6.2.15 6.3.1 6.3.1-r1 6.3.2: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.240 5.4.242 5.4.242-r2 5.10.177 5.10.179 5.10.179-r2 5.15.98 5.15.107 5.15.109 5.15.110 5.15.110-r2 5.15.111 6.1.24 6.1.26 6.1.27 6.1.27-r2 6.1.28 6.2.13 6.2.14 6.2.14-r2 6.2.15 6.3.1 6.3.1-r1 6.3.2: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.14.309 4.14.312 4.14.313 4.14.314 4.19.282-r1 5.4.242-r1 5.10.179-r1 5.15.110-r1 5.15.111 6.1.27-r1 6.1.28 6.2.14-r1 6.2.15 6.3.1-r1 6.3.2: Full sources including the Gentoo patchset for the 6.3 kernel tree
 sys-kernel/git-sources 6.4_rc1: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 7: Gentoo fork of installkernel script from debianutils
@@ -17234,7 +17234,7 @@ sys-kernel/pf-sources 6.1_p6 6.2_p7: Linux kernel fork that includes the pf-kern
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.9.327_p197 4.14.311_p146 4.19.280_p123 5.4.242_p81 5.10.176_p86 5.15.107_p62 6.0.5_p14 6.1.26_p8: Full Linux 6.1 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.240 5.4.242 5.4.9999 5.10.177 5.10.179 5.10.9999 5.15.107 5.15.109 5.15.110 5.19.9999 6.1.24 6.1.26 6.1.27 6.2.13 6.2.14 6.3.1: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.240 5.4.242 5.4.9999 5.10.177 5.10.179 5.10.9999 5.15.107 5.15.109 5.15.110 5.15.111 5.19.9999 6.1.24 6.1.26 6.1.27 6.1.28 6.2.13 6.2.14 6.2.15 6.3.1 6.3.2: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.14.314 4.19.282 5.4.242 5.10.179 5.15.111 6.1.28 6.2.15 6.3.2: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.2.11: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17423,7 +17423,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.240 5.4.242 5.10.177 5.10.179 5.15.107 5.15.109 5.15.110 6.1.24 6.1.26 6.1.27 6.2.13 6.2.14 6.3.1: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.240 5.4.242 5.10.177 5.10.179 5.15.107 5.15.109 5.15.110 5.15.111 6.1.24 6.1.26 6.1.27 6.1.28 6.2.13 6.2.14 6.2.15 6.3.1 6.3.2: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 3.1-r1 5.0-r1 6.0-r1 7.0: Virtual for .NET SDK
 virtual/editor 0-r5: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
