@@ -21,9 +21,9 @@ HOMEPAGE="https://neomutt.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="autocrypt berkdb doc gdbm gnutls gpgme idn kerberos kyotocabinet
-	lmdb lz4 nls notmuch pgp-classic qdbm sasl selinux slang smime-classic
-	ssl tokyocabinet test zlib zstd"
+IUSE="autocrypt berkdb doc gdbm gnutls gpgme idn kerberos kyotocabinet lmdb
+	lz4 nls notmuch pgp-classic qdbm sasl selinux smime-classic ssl tokyocabinet
+	test zlib zstd"
 REQUIRED_USE="
 	autocrypt? ( gpgme )"
 
@@ -48,8 +48,6 @@ CDEPEND="
 	kerberos? ( virtual/krb5 )
 	notmuch? ( net-mail/notmuch:= )
 	sasl? ( >=dev-libs/cyrus-sasl-2 )
-	!slang? ( sys-libs/ncurses:0= )
-	slang? ( sys-libs/slang )
 	ssl? ( >=dev-libs/openssl-1.0.2u:0= )
 	lz4? ( app-arch/lz4 )
 	zlib? ( sys-libs/zlib )
@@ -112,7 +110,6 @@ src_configure() {
 		"$(use_enable kerberos gss)"
 		"$(use_enable lmdb)"
 		"$(use_enable sasl)"
-		"--with-ui=$(usex slang slang ncurses)"
 		"--sysconfdir=${EPREFIX}/etc/${PN}"
 		"$(use_enable ssl)"
 		"$(use_enable gnutls)"
