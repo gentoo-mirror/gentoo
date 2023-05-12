@@ -53,7 +53,10 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
 
-PATCHES=( "${FILESDIR}/${PN}-5.12.80-tests-optional.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.12.80-tests-optional.patch"
+	"${FILESDIR}/${P}-kcmshell5.patch" # bug 906198
+)
 
 src_configure() {
 	local mycmakeargs=(
