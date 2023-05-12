@@ -103,7 +103,10 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${P}-fix-xcbutils-nativeFloor.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-fix-xcbutils-nativeFloor.patch" #KDE-bug 459373
+	"${FILESDIR}/${P}-revert-7c91c4ba.patch" #KDE-bug 469555
+)
 
 src_prepare() {
 	ecm_src_prepare
