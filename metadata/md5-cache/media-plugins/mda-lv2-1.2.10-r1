@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig test? ( dev-util/lv2lint ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/lv2
+DESCRIPTION=LV2 port of the MDA plugins by Paul Kellett
+EAPI=8
+HOMEPAGE=https://drobilla.net/software/mda-lv2.html
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=|| ( GPL-2+ MIT )
+RDEPEND=media-libs/lv2
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://download.drobilla.net/mda-lv2-1.2.10.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	4544ab96b58e177dc52d75e42f5ee307	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=aab3e2ab8bd35d5674fc0a423a4edf10
