@@ -16,19 +16,17 @@ if [[ ${PV} == 9999 ]]; then
 		subprojects/libdisplay-info
 	)
 else
-	HASH_DXVK=caf31033d711460e86781b16a4d9b0f41fa9e817 # matches proton-8.0.1c
 	HASH_SPIRV=0bcc624926a25a2a273d07877fd25a6ff5ba1cfb
 	HASH_VULKAN=98f440ce6868c94f5ec6e198cc1adda4760e8849
 	HASH_DISPLAYINFO=d39344f466caae0495ebac4d49b03a886d83ba3a
 	SRC_URI="
-		https://github.com/doitsujin/dxvk/archive/${HASH_DXVK}.tar.gz
-			-> ${PN}-${HASH_DXVK::10}.tar.gz
+		https://github.com/doitsujin/dxvk/archive/refs/tags/v${PV}.tar.gz
+			-> ${P}.tar.gz
 		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV}.tar.gz
 			-> ${PN}-spirv-headers-${HASH_SPIRV::10}.tar.gz
 		https://github.com/KhronosGroup/Vulkan-Headers/archive/${HASH_VULKAN}.tar.gz
 			-> ${PN}-vulkan-headers-${HASH_VULKAN::10}.tar.gz
 		https://gitlab.freedesktop.org/JoshuaAshton/libdisplay-info/-/archive/${HASH_DISPLAYINFO}/${PN}-libdisplay-info-${HASH_DISPLAYINFO::10}.tar.bz2"
-	S="${WORKDIR}/${PN}-${HASH_DXVK}"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
 # setup_dxvk.sh is no longer provided, fetch old until a better solution
@@ -49,10 +47,6 @@ BDEPEND="
 	${PYTHON_DEPS}
 	dev-util/glslang
 	!crossdev-mingw? ( dev-util/mingw64-toolchain[${MULTILIB_USEDEP}] )"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.10.3-gcc13.patch
-)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} == binary ]] && return

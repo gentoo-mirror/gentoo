@@ -17,14 +17,15 @@ if [[ ${PV} == 9999 ]]; then
 		subprojects/dxil-spirv/third_party/spirv-headers # skip cross/tools
 	)
 else
-	HASH_VKD3D=08909d98565065994612e529feb0cad04e498a8e # matches proton-8.0.1c
-	HASH_DXIL=9e2c26d15c0eeac91fb8c6dda3aff8f6a602c0b6
+	# snapshot used for d3d11on12 for use with >=dxvk-2.2, scarcely tested
+	HASH_VKD3D=f125062ee1278ac8508ab5561e289ec4ce0f406e
+	HASH_DXIL=830106bc2393ba7e7af67863e1c7cfa856432ec5
 	HASH_SPIRV=1d31a100405cf8783ca7a31e31cdd727c9fc54c3
-	HASH_SPIRV_DXIL=87d5b782bec60822aa878941e6b13c0a9a954c9b
-	HASH_VULKAN=9f93cbe76abe9f6cb4a36df10b08fa3b78ae0027
+	HASH_SPIRV_DXIL=aa331ab0ffcb3a67021caa1a0c1c9017712f2f31
+	HASH_VULKAN=bd6443d28f2ebecedfb839b52d612011ba623d14
 	SRC_URI="
 		https://github.com/HansKristian-Work/vkd3d-proton/archive/${HASH_VKD3D}.tar.gz
-			-> ${PN}-${HASH_VKD3D::10}.tar.gz
+			-> ${P}.tar.gz
 		https://github.com/HansKristian-Work/dxil-spirv/archive/${HASH_DXIL}.tar.gz
 			-> ${PN}-dxil-spirv-${HASH_DXIL::10}.tar.gz
 		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV}.tar.gz
@@ -171,13 +172,18 @@ pkg_postinst() {
 		elog "	WINEPREFIX=/path/to/prefix setup_vkd3d_proton.sh install --symlink"
 		elog
 		elog "See ${EROOT}/usr/share/doc/${PF}/README.md* for details."
-	fi
+	elif [[ ${REPLACING_VERSIONS##* } ]]; then
+		if ver_test ${REPLACING_VERSIONS##* } -lt 2.7; then
+			elog
+			elog ">=${PN}-2.7 requires drivers and Wine to support vulkan-1.3, meaning:"
+			elog ">=wine-*-7.1 (or >=wine-proton-7.0), and >=mesa-22.0 (or >=nvidia-drivers-510)"
+		fi
 
-	if [[ ! ${REPLACING_VERSIONS##* } ]] ||
-		ver_test ${REPLACING_VERSIONS##* } -lt 2.7
-	then
-		elog
-		elog ">=${PN}-2.7 requires drivers and Wine to support vulkan-1.3, meaning:"
-		elog ">=wine-*-7.1 (or >=wine-proton-7.0), and >=mesa-22.0 (or >=nvidia-drivers-510)"
+		if ver_test ${REPLACING_VERSIONS##* } -lt 2.8_p20230510; then
+			elog
+			elog ">=${PN}-2.8_p20230510 has a new file to install (d3d12core.dll), old"
+			elog "Wine prefixes that relied on '--symlink' may need updates by using the"
+			elog "setup_vkd3d_proton.sh script again."
+		fi
 	fi
 }
