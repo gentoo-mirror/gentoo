@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/avy app-emacs/embark >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Use avy to jump to Embark Collect entries
+EAPI=8
+HOMEPAGE=https://github.com/oantolin/embark/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/avy app-emacs/embark >=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://github.com/oantolin/embark/archive/0.21.tar.gz -> embark-0.21.tar.gz
+_eclasses_=elisp-common	01bc6dc778b74a9deebe4e419a3b790e	elisp	7190c722d9e06fabcae26ef1e1dc9183
+_md5_=de641482aeb191635204d4427c160c55
