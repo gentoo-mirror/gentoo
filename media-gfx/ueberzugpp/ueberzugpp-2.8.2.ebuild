@@ -11,8 +11,7 @@ SRC_URI="https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${PV}.tar.gz -
 
 LICENSE="GPL-3+"
 SLOT="0"
-# unkeyworded for testing, contains code refactoring and seem to have issues
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="X opencv"
 
 RDEPEND="
@@ -33,6 +32,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-cpp/cli11
+	dev-cpp/ms-gsl
 	dev-cpp/nlohmann_json
 	net-libs/cppzmq
 	X? ( x11-base/xorg-proto )"
