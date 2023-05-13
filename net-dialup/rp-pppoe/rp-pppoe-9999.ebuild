@@ -17,20 +17,16 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="tk"
 
 S="${S}/src"
 
 RDEPEND="
 	net-dialup/ppp:=
 	sys-apps/iproute2
-	tk? ( dev-lang/tk:= )
 "
 DEPEND=">=sys-kernel/linux-headers-2.6.25
 	elibc_musl? ( net-libs/ppp-defs )
 	${RDEPEND}"
-
-DOC_CONTENTS="Use pppoe-setup to configure your dialup connection"
 
 pkg_setup() {
 	# This is needed in multiple phases
@@ -49,10 +45,6 @@ src_configure() {
 
 src_compile() {
 	emake PLUGIN_PATH=rp-pppoe.so PLUGIN_DIR="${PPPD_PLUGIN_DIR}"
-
-	if use tk ; then
-		emake -C "${S}/../gui"
-	fi
 }
 
 src_install() {
@@ -60,14 +52,6 @@ src_install() {
 
 	# We don't need this README file here.
 	rm "${ED}${PPPD_PLUGIN_DIR}/README" || die "Error removing ${PPPD_PLUGIN_DIR}/README from installation"
-
-	if use tk ; then
-		emake -C "${S}/../gui" \
-			DESTDIR="${D}" \
-			datadir=/usr/share/doc/${PF}/ \
-			install
-		dosym doc/${PF}/tkpppoe /usr/share/tkpppoe
-	fi
 
 	newinitd "${FILESDIR}"/pppoe-server.initd pppoe-server
 	newconfd "${FILESDIR}"/pppoe-server.confd pppoe-server
