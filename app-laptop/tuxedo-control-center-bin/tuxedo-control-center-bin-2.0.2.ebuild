@@ -9,7 +9,7 @@ MY_PN="${PN/-bin/}"
 
 DESCRIPTION="Tool to control performance, energy, fan and comfort settings on TUXEDO laptops"
 HOMEPAGE="https://github.com/tuxedocomputers/tuxedo-control-center"
-SRC_URI="https://rpm.tuxedocomputers.com/opensuse/15.2/x86_64/${MY_PN}_${PV}.rpm"
+SRC_URI="https://rpm.tuxedocomputers.com/opensuse/15.4/x86_64/${MY_PN}_${PV}.rpm"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,12 +17,13 @@ KEYWORDS="-* ~amd64"
 
 RESTRICT="strip splitdebug"
 
-DEPEND=">=app-laptop/tuxedo-keyboard-3.0.0"
+DEPEND=">=app-laptop/tuxedo-keyboard-3.1.3"
 RDEPEND="${DEPEND}"
 # See bug #827729
 BDEPEND="app-arch/xz-utils[extra-filters]"
 
 S="${WORKDIR}"
+QA_PREBUILT="opt/tuxedo-control-center/*"
 
 src_prepare() {
 	default
@@ -43,7 +44,7 @@ src_install() {
 	doins opt/tuxedo-control-center/resources/dist/tuxedo-control-center/data/dist-data/com.tuxedocomputers.tccd.conf
 
 	insinto /usr/share/polkit-1/actions
-	doins opt/tuxedo-control-center/resources/dist/tuxedo-control-center/data/dist-data/de.tuxedocomputers.tcc.policy
+	doins opt/tuxedo-control-center/resources/dist/tuxedo-control-center/data/dist-data/com.tuxedocomputers.tccd.policy
 
 	systemd_dounit opt/tuxedo-control-center/resources/dist/tuxedo-control-center/data/dist-data/tccd.service
 	systemd_dounit opt/tuxedo-control-center/resources/dist/tuxedo-control-center/data/dist-data/tccd-sleep.service
