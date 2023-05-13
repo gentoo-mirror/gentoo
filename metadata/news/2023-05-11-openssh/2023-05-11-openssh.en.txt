@@ -3,7 +3,7 @@ Author: Sam James <sam@gentoo.org>
 Posted: 2023-05-11
 Revision: 1
 News-Item-Format: 2.0
-Display-If-Installed: >=net-misc/openssh-9.3_p1-r1
+Display-If-Installed: net-misc/openssh
 
 Gentoo's OpenSSH package will start using the /etc/ssh/sshd_config.d
 and /etc/ssh/ssh_config.d directories for both Gentoo default settings
@@ -24,4 +24,4 @@ number in the filename.
 
 For example, if the system administrator has commented out 'AcceptEnv COLORTERM'
 in /etc/ssh/sshd_config, they will need to do the same in the new
-/etc/ssh/sshd_config.d/90gentoo.conf file.
+/etc/ssh/sshd_config.d/9999999gentoo.conf file.
