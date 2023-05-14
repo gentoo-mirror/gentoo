@@ -1,6 +1,6 @@
 BDEPEND=games-util/deutex >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=client? ( media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl !hidpi? ( x11-libs/fltk:1 ) portmidi? ( media-libs/portmidi ) X? ( x11-libs/libX11 ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3[X] ) server? ( dev-libs/jsoncpp:= upnp? ( net-libs/miniupnpc:= ) )
+DEPEND=client? ( media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl !hidpi? ( x11-libs/fltk:1 ) portmidi? ( media-libs/portmidi ) X? ( x11-libs/libX11 ) ) odalaunch? ( x11-libs/wxGTK:3.0-gtk3[X] ) server? ( dev-libs/jsoncpp:= upnp? ( net-libs/miniupnpc:= ) )
 DESCRIPTION=Online multiplayer free software engine for DOOM
 EAPI=8
 HOMEPAGE=https://odamex.net/
@@ -9,9 +9,9 @@ INHERIT=cmake desktop prefix wxwidgets xdg
 IUSE=+client hidpi master +odalaunch portmidi server upnp X
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2+ MIT
-RDEPEND=client? ( media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl !hidpi? ( x11-libs/fltk:1 ) portmidi? ( media-libs/portmidi ) X? ( x11-libs/libX11 ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3[X] ) server? ( dev-libs/jsoncpp:= upnp? ( net-libs/miniupnpc:= ) )
+RDEPEND=client? ( media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl !hidpi? ( x11-libs/fltk:1 ) portmidi? ( media-libs/portmidi ) X? ( x11-libs/libX11 ) ) odalaunch? ( x11-libs/wxGTK:3.0-gtk3[X] ) server? ( dev-libs/jsoncpp:= upnp? ( net-libs/miniupnpc:= ) )
 REQUIRED_USE=|| ( client master server )
 SLOT=0
 SRC_URI=https://github.com/odamex/odamex/releases/download/10.3.0/odamex-src-10.3.0.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d	prefix	eab3c99d77fe00506c109c8a736186f7	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=f00c8e38cc3665d38fce5dc1f1a56052
+_md5_=c9e85f2ae25a7e52297820c82c1baea5
