@@ -1,18 +1,18 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit font
 
 DESCRIPTION="Google's font family that aims to support all the world's languages"
-HOMEPAGE="https://www.google.com/get/noto/ https://github.com/googlefonts/noto-fonts"
+HOMEPAGE="https://www.google.com/get/noto/ https://github.com/notofonts/notofonts.github.io"
 
-COMMIT="2b1fbc36600ccd8becb9f894922f644bff2cbc9b"
-SRC_URI="https://github.com/googlei18n/noto-fonts/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+COMMIT="8f03a57b371df199e1c73b2bd5d342fbbe4ce840"
+SRC_URI="https://github.com/notofonts/notofonts.github.io/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 # Extra allows to optionally reduce disk usage even returning to tofu
 # issue as described in https://www.google.com/get/noto/
 IUSE="cjk +extra"
@@ -22,7 +22,7 @@ DEPEND=""
 
 RESTRICT="binchecks strip"
 
-S="${WORKDIR}/${PN}-fonts-${COMMIT}"
+S="${WORKDIR}/notofonts.github.io-${COMMIT}"
 
 FONT_SUFFIX="ttf"
 FONT_CONF=(
@@ -33,14 +33,12 @@ FONT_CONF=(
 )
 
 src_install() {
-	mkdir install-unhinted install-hinted || die
-	mv unhinted/ttf/Noto*/*.tt[fc] install-unhinted/. ||  die
-	mv hinted/ttf/Noto*/*.tt[fc] install-hinted/. || die
+	mkdir install-hinted || die
+	mv fonts/*/hinted/ttf/*.tt[fc] install-hinted/. || die
 
-	FONT_S="${S}/install-unhinted/" font_src_install
 	FONT_S="${S}/install-hinted/" font_src_install
 
 	# Allow to drop some fonts optionally for people that want to save
 	# disk space. Following ArchLinux options.
-	use extra || rm -rf "${ED}"/usr/share/fonts/noto/Noto*{Condensed,SemiBold,Extra}*.ttf
+	use extra || rm -rf "${ED}"/usr/share/fonts/noto/Noto*{Condensed,SemiBold,Extra}*.tt[f,c]
 }
