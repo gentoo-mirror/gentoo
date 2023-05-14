@@ -1,15 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure prepare test
-DEPEND=test? ( valgrind? ( dev-util/valgrind ) )
 DESCRIPTION=The GNU Project's replacement for SCCS
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/cssc/
 INHERIT=autotools
-IUSE=test valgrind
+IUSE=test
 KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/cssc/CSSC-1.4.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
-_md5_=f2c252d8227e89fa33b8c616f780ef6b
+_md5_=5785a18f86958dc4229f6142d560be2f

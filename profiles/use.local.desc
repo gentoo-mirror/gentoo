@@ -2000,6 +2000,7 @@ dev-libs/libpcre2:bzip2 - Add support for pcregrep command to search within bzip
 dev-libs/libpcre2:pcre16 - Build PCRE library for 16 bit characters (e.g. UTF-16).
 dev-libs/libpcre2:pcre32 - Build PCRE library for 32 bit characters (e.g. UTF-32).
 dev-libs/libpcre2:readline - Add support for command line editing to pcretest, through sys-libs/readline.
+dev-libs/libpcre2:valgrind - Support Valgrind for dev-util/valgrind annotations to improve results for memcheck.
 dev-libs/libpcre2:zlib - Add support for pcregrep command to search within gzip-compressed files (via sys-libs/zlib).
 dev-libs/libpeas:glade - Install the glade catalog
 dev-libs/libpeas:python - Build support for loading dev-lang/python plugins
@@ -2863,7 +2864,6 @@ dev-util/trace-cmd:udis86 - Enable support for dev-libs/udis86 disassembler libr
 dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without recompilation
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos
 dev-util/watchman:python - Install pywatchman bindings and the watchman-{wait,make} utils
-dev-vcs/cssc:valgrind - Enable usage of dev-util/valgrind in tests
 dev-vcs/cvs:server - Enable server support
 dev-vcs/cvsync:gcrypt - Use dev-libs/libgcrypt for hash functions.
 dev-vcs/cvsync:mhash - Use app-crypt/mhash for hash functions.
@@ -4408,7 +4408,6 @@ media-libs/suil:gtk2 - Enable GTK2 based GUI support
 media-libs/svgalib:kernel-helper - Build the helper kernel module
 media-libs/tremor:low-accuracy - enable 32bit only multiply operations
 media-libs/urt:tools - Install tools
-media-libs/vigra:valgrind - Enable valgrind in make check
 media-libs/vips:deprecated - Enable deprecated components
 media-libs/vips:fits - Enable support for the Flexible Image Transport System data format using sci-libs/cfitsio
 media-libs/vips:gsf - Enable support for structured files using gnome-extra/libgsf
@@ -6194,7 +6193,6 @@ net-mail/notmuch:doc - Install API documentation
 net-mail/notmuch:emacs - Install Emacs UI (the main one)
 net-mail/notmuch:mutt - Install helper script for Mutt
 net-mail/notmuch:nmbug - Install experimental tag sharing / pseudo-bug-tracking script for Notmuch (see http://notmuchmail.org/nmbug/)
-net-mail/notmuch:valgrind - Depend on dev-util/valgrind for test suite
 net-mail/qmailadmin:maildrop - Filter spam using maildrop
 net-mail/tpop3d:authexternal - Enable authentication by an external program
 net-mail/tpop3d:flatfile - Enable authentication against /etc/passwd-style flat files
@@ -6645,7 +6643,6 @@ net-misc/wget2:http2 - Enable HTTP/2.0 support via net-libs/nghttp2
 net-misc/wget2:lzip - Enable app-arch/lzip support via app-arch/lzlib
 net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
-net-misc/wget2:valgrind - Depend on dev-util/valgrind for test suite
 net-misc/whois:xcrypt - Enable crypt through sys-libs/libxcrypt package
 net-misc/x2goserver:fuse - Use net-fs/sshfs to allow shared folders
 net-misc/xmrig:donate - Set the default donation level to 1% instead of 0
@@ -7715,6 +7712,7 @@ sys-apps/cpu-x:pci - Use the sys-apps/pciutils library for PCI info
 sys-apps/cpu-x:vulkan - Enable vulkan support
 sys-apps/dbus:elogind - Use sys-auth/elogind for session tracking.
 sys-apps/dbus:systemd - Build with sys-apps/systemd at_console support
+sys-apps/dbus:valgrind - Support Valgrind for dev-util/valgrind annotations to improve results for memcheck.
 sys-apps/dbus-broker:launcher - dbus-daemon compatibility launcher
 sys-apps/debianutils:installkernel - Install /sbin/installkernel script (for Linux). installkernel is required whenever a kernel will be installed via make install
 sys-apps/dtc:yaml - support .yaml-encoded device trees
@@ -7990,7 +7988,6 @@ sys-auth/sssd:nfsv4 - Add support for the nfsv4 idmapd plugin provided by net-fs
 sys-auth/sssd:pac - Add Privileged Attribute Certificate Support for Kerberos
 sys-auth/sssd:sudo - Build helper to let app-admin/sudo use sssd provided information
 sys-auth/sssd:systemtap - Enable SystemTAP/DTrace tracing
-sys-auth/sssd:valgrind - Depend on dev-util/valgrind for test suite
 sys-block/f3:extra - Build the additional f3probe, f3brew and f3fix utility (requires sys-block/parted and virtual/udev)
 sys-block/fio:aio - Enable AIO ioengine
 sys-block/fio:curl - Enable HTTP engine for S3 and WebDav support support via net-misc/curl
@@ -8338,6 +8335,7 @@ sys-fs/lvm2:lvm - Build all of LVM2 including daemons and tools like lvchange, n
 sys-fs/lvm2:lvm2create-initrd - Install lvm2create_initrd script and pull in sys-apps/makedev for the /sbin/MAKEDEV command
 sys-fs/lvm2:sanlock - Enable lvmlockd with support for sanlock
 sys-fs/lvm2:thin - Support for thin volumes
+sys-fs/lvm2:valgrind - Make Valgrind (dev-util/valgrind) aware of LVM2's pool allocator.
 sys-fs/mtpfs:mad - Enable handling of MP3's metadata
 sys-fs/ntfs3g:fuse - Enable ntfs-3g FUSE driver
 sys-fs/ntfs3g:mount-ntfs - Install mount.ntfs symlink
