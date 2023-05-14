@@ -1,0 +1,12 @@
+BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-diffutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure prepare unpack
+DESCRIPTION=Tools to make diffs and compare files
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/diffutils/
+INHERIT=verify-sig
+IUSE=nls verify-sig
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://meyering.net/diff/diffutils-3.9.17-cc36.tar.xz verify-sig? ( https://meyering.net/diff/diffutils-3.9.17-cc36.tar.xz.sig )
+_eclasses_=verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
+_md5_=8935456b033f1d8766325b260a57237f
