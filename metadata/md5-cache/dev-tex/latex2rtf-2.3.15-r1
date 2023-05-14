@@ -1,7 +1,7 @@
+BDEPEND=virtual/latex-base media-gfx/imagemagick virtual/texi2dvi test? ( dev-texlive/texlive-langgerman dev-texlive/texlive-fontsrecommended dev-texlive/texlive-latexextra dev-tex/latex2html )
 DEFINED_PHASES=compile install
-DEPEND=virtual/latex-base media-gfx/imagemagick virtual/texi2dvi test? ( dev-texlive/texlive-langgerman dev-texlive/texlive-fontsrecommended dev-texlive/texlive-latexextra dev-tex/latex2html )
 DESCRIPTION=LaTeX to RTF converter
-EAPI=6
+EAPI=8
 HOMEPAGE=http://latex2rtf.sourceforge.net/
 INHERIT=toolchain-funcs
 IUSE=test
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/latex2rtf/latex2rtf-2.3.15.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1
-_md5_=47b521789fcc03bdfac56bfded9fb903
+_md5_=1a9376f3f5d05e4ead201d4190ccefc7
