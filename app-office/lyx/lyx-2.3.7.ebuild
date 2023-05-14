@@ -1,21 +1,20 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
 MY_P="${P/_}"
-inherit desktop font python-single-r1 qmake-utils toolchain-funcs xdg-utils
+inherit desktop font optfeature python-single-r1 qmake-utils toolchain-funcs xdg-utils
 
-DESCRIPTION="WYSIWYM frontend for LaTeX, DocBook, etc"
+DESCRIPTION="WYSIWYM (What You See Is What You Mean) document processor based on LaTeX"
 HOMEPAGE="https://www.lyx.org/"
-SRC_URI="ftp://ftp.lyx.org/pub/lyx/stable/2.3.x/${MY_P}.tar.xz
-	ftp://ftp.lyx.org/pub/lyx/devel/lyx-2.3/${MY_P}/${MY_P}.tar.xz"
+SRC_URI="http://ftp.lyx.org/pub/lyx/stable/$(ver_cut 1-2).x/${MY_P}-1.tar.xz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 IUSE="aspell cups debug dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -33,7 +32,6 @@ RDEPEND="${PYTHON_DEPS}
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	dev-texlive/texlive-fontsextra
 	sys-apps/file
 	sys-libs/zlib
 	virtual/imagemagick-tools[png,svg?]
@@ -90,8 +88,9 @@ PATCHES=(
 	# Patch from Debian using a similar approach to Fedora
 	"${FILESDIR}"/${PN}-prefer-xdg-open.patch
 
-	"${FILESDIR}"/${P}-python.patch
-	"${FILESDIR}"/${P}-gcc12.patch
+	# Already part of 2.4.x (from Fedora)
+	# https://bugzilla.redhat.com/show_bug.cgi?id=1965118
+	"${FILESDIR}"/${PN}-2.3.6.1-python.patch
 )
 
 pkg_setup() {
@@ -175,6 +174,8 @@ pkg_postinst() {
 		elog "and make sure the \"Right-to-left language support\" is checked"
 		elog
 	fi
+
+	optfeature "handling more fonts" dev-texlive/texlive-fontsextra
 }
 
 pkg_postrm() {
