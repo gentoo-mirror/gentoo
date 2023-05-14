@@ -1084,6 +1084,7 @@ app-shells/nushell:dataframe - Dataframe feature for nushell
 app-shells/pdsh:rsh - This allows the use of rsh (remote shell) and rcp (remote copy) for authoring websites. sftp is a much more secure protocol and is preferred.
 app-shells/pwsh-bin:pwsh-symlink - Install a pwsh symlink that points to pwsh-bin.
 app-shells/shish:diet - Use dev-libs/dietlibc
+app-shells/zsh:valgrind - Support Valgrind (dev-util/valgrind) with annotations to improve results for memcheck.
 app-text/atril:caja - Enable property page extension in mate-base/caja
 app-text/atril:dvi - Enable build-in DVI viewer
 app-text/atril:epub - Enable build-in DVI viewer using net-libs/webkit-gtk
@@ -1995,12 +1996,13 @@ dev-libs/libpcre:bzip2 - Add support for pcregrep command to search within bzip2
 dev-libs/libpcre:pcre16 - Build PCRE library for 16 bit characters (e.g. UTF-16).
 dev-libs/libpcre:pcre32 - Build PCRE library for 32 bit characters (e.g. UTF-32).
 dev-libs/libpcre:readline - Add support for command line editing to pcretest, through sys-libs/readline.
+dev-libs/libpcre:valgrind - Support Valgrind (dev-util/valgrind) with annotations to improve results for memcheck.
 dev-libs/libpcre:zlib - Add support for pcregrep command to search within gzip-compressed files (via sys-libs/zlib).
 dev-libs/libpcre2:bzip2 - Add support for pcregrep command to search within bzip2-compressed files (via app-arch/bzip2).
 dev-libs/libpcre2:pcre16 - Build PCRE library for 16 bit characters (e.g. UTF-16).
 dev-libs/libpcre2:pcre32 - Build PCRE library for 32 bit characters (e.g. UTF-32).
 dev-libs/libpcre2:readline - Add support for command line editing to pcretest, through sys-libs/readline.
-dev-libs/libpcre2:valgrind - Support Valgrind for dev-util/valgrind annotations to improve results for memcheck.
+dev-libs/libpcre2:valgrind - Support Valgrind (dev-util/valgrind) with annotations to improve results for memcheck.
 dev-libs/libpcre2:zlib - Add support for pcregrep command to search within gzip-compressed files (via sys-libs/zlib).
 dev-libs/libpeas:glade - Install the glade catalog
 dev-libs/libpeas:python - Build support for loading dev-lang/python plugins
@@ -7712,7 +7714,7 @@ sys-apps/cpu-x:pci - Use the sys-apps/pciutils library for PCI info
 sys-apps/cpu-x:vulkan - Enable vulkan support
 sys-apps/dbus:elogind - Use sys-auth/elogind for session tracking.
 sys-apps/dbus:systemd - Build with sys-apps/systemd at_console support
-sys-apps/dbus:valgrind - Support Valgrind for dev-util/valgrind annotations to improve results for memcheck.
+sys-apps/dbus:valgrind - Support Valgrind (dev-util/valgrind) with annotations to improve results for memcheck.
 sys-apps/dbus-broker:launcher - dbus-daemon compatibility launcher
 sys-apps/debianutils:installkernel - Install /sbin/installkernel script (for Linux). installkernel is required whenever a kernel will be installed via make install
 sys-apps/dtc:yaml - support .yaml-encoded device trees
