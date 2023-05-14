@@ -1,12 +1,13 @@
 DEFINED_PHASES=configure install
-DEPEND=sys-libs/ncurses
+DEPEND=sys-libs/ncurses:=
 DESCRIPTION=A tool to provide access to statistics about the system on which it's run
 EAPI=7
 HOMEPAGE=https://www.i-scream.org/libstatgrab/
-IUSE=examples
+IUSE=examples test
 KEYWORDS=amd64 ~arm arm64 ~ia64 ~loong ppc ~riscv x86
 LICENSE=|| ( GPL-2 LGPL-2.1 )
-RDEPEND=sys-libs/ncurses
+RDEPEND=sys-libs/ncurses:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz
-_md5_=7b5450d9cf90ceb37ad9d7f7b18e6ee3
+_md5_=b185ed98316400f51999567cc965c609
