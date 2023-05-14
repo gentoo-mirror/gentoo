@@ -1,7 +1,7 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake udev linux-info
 
@@ -11,19 +11,23 @@ SRC_URI="https://github.com/Yubico/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0/1"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="nfc static-libs"
 
-DEPEND="dev-libs/libcbor:=
+DEPEND="
+	dev-libs/libcbor:=
 	dev-libs/openssl:=
 	sys-libs/zlib:=
-	virtual/libudev:="
-RDEPEND="${DEPEND}
-	acct-group/plugdev"
+	virtual/libudev:=
+"
+RDEPEND="
+	${DEPEND}
+	acct-group/plugdev
+"
+BDEPEND="app-text/mandoc"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.7.0-cmakelists.patch
-	"${FILESDIR}"/${PN}-1.11.0-regress-tests.patch
+	"${FILESDIR}"/${PN}-1.12.0-cmakelists.patch
 )
 
 pkg_pretend() {
@@ -38,8 +42,8 @@ pkg_pretend() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLES=OFF
-		-DBUILD_STATIC_LIBS=$(usex static-libs ON OFF)
-		-DNFC_LINUX=$(usex nfc ON OFF)
+		-DBUILD_STATIC_LIBS=$(usex static-libs)
+		-DNFC_LINUX=$(usex nfc)
 	)
 
 	cmake_src_configure
@@ -52,5 +56,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
 	udev_reload
 }
