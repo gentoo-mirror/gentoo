@@ -1266,7 +1266,7 @@ app-backup/mkstage4 0.3.1 0.4 0.4.2 9999: Bash Utility for Creating Stage 4 Tarb
 app-backup/mylvmbackup 0.14: Tool for creating backups of MySQL server's data files using LVM snapshots
 app-backup/pdumpfs 1.3-r3: A daily backup system similar to Plan9's dumpfs
 app-backup/rdedup 1.0.2: data deduplication with compression and public key encryption
-app-backup/rdiff-backup 2.0.5-r1 2.2.4-r1: Local/remote mirroring+incremental backup
+app-backup/rdiff-backup 2.0.5-r1 2.2.4-r1 2.2.5: Local/remote mirroring+incremental backup
 app-backup/rdumpfs 0.1: a rsync-based dump file system backup tool
 app-backup/rdup 1.1.15: Generate a file list suitable for full or incremental backups
 app-backup/rear 2.6 2.7: Relax-and-Recover is a setup-and-forget bare metal disaster recovery solution
@@ -5196,7 +5196,7 @@ dev-libs/libfastjson 0.99.8-r1 0.99.9-r1 0.99.9.1 1.2304.0: Fork of the json-c l
 dev-libs/libffi 3.4.4 3.4.4-r1: a portable, high level programming interface to various calling conventions
 dev-libs/libffi-compat 3.2.1-r3 3.3-r2: a portable, high level programming interface to various calling conventions
 dev-libs/libfido2 1.11.0 1.12.0: Provides library functionality for FIDO 2.0
-dev-libs/libfilezilla 0.39.1-r1 0.39.2 0.41.0 0.41.1: C++ library offering some basic functionality for platform-independent programs
+dev-libs/libfilezilla 0.39.1-r1 0.39.2 0.41.0 0.41.1 0.42.2: C++ library offering some basic functionality for platform-independent programs
 dev-libs/libflatarray 0.4.0_pre20201009: Struct of arrays library with object oriented interface for C++
 dev-libs/libfmt 8.1.1-r1 9.1.0-r1 10.0.0 9999: Small, safe and fast formatting library
 dev-libs/libfstrcmp 0.7 0.7-r1 0.7-r3: Make fuzzy comparisons of strings and byte arrays
@@ -12350,7 +12350,7 @@ media-fonts/inconsolata 20140821: Sans-serif monotype font for code listings
 media-fonts/inconsolata-hellenic 1.19-r1: Hellenisation of the wonderful, monospace, open/free font Inconsolata
 media-fonts/inconsolata-lgc 1.3.0: Modified version of Inconsolata Hellenic adding the Cyrillic alphabet
 media-fonts/intlfonts 1.4.1: International X11 fixed fonts
-media-fonts/iosevka 15.0.1 19.0.1 22.1.0 22.1.1: Slender typeface for code, from code
+media-fonts/iosevka 15.0.1 19.0.1 22.1.0 22.1.1 22.1.2: Slender typeface for code, from code
 media-fonts/ipaex 004.01: Japanese IPA extended TrueType fonts
 media-fonts/ipamonafont 1.0.8: Hacked version of IPA fonts, which is suitable for browsing 2ch
 media-fonts/ja-ipafonts 003.03: TrueType fonts developed by Japanese Information-technology Promotion Agency
@@ -14297,7 +14297,7 @@ net-fs/sshfs 3.7.3-r1: Fuse-filesystem utilizing the sftp service
 net-fs/wdfs 1.4.2-r2: WebDAV filesystem with special features for accessing subversion repositories
 net-ftp/atftp 0.7.5 0.8.0: Advanced TFTP implementation client/server
 net-ftp/cmdftp 0.9.8: Light weight, yet robust command line FTP client with shell-likefunctions
-net-ftp/filezilla 3.61.0 3.62.2 3.63.0 3.63.1 3.63.2.1: FTP client with lots of useful features and an intuitive interface
+net-ftp/filezilla 3.61.0 3.62.2 3.63.0 3.63.1 3.63.2.1 3.64.0: FTP client with lots of useful features and an intuitive interface
 net-ftp/frox 0.7.18-r8: A transparent ftp proxy
 net-ftp/ftp 0.17.34.0.2.5.1: Standard Linux FTP client
 net-ftp/ftpbase 0.01-r6: File Transfer Protocol (FTP) base layout
@@ -14696,7 +14696,7 @@ net-mail/tnef 1.4.18: Decodes MS-TNEF MIME attachments
 net-mail/tpop3d 1.5.5-r5: An extensible POP3 server with vmail-sql/MySQL support
 net-mail/vpopmail 5.4.33-r9: Collection of programs to manage virtual email on Qmail servers
 net-mail/vqadmin 2.3.7-r1: A web based control pannel to manage Virtual Qmail Domains
-net-mail/ytnef 2.0: Yeraze's TNEF Stream Reader - for winmail.dat files
+net-mail/ytnef 2.0 2.1.1: Yeraze's TNEF Stream Reader - for winmail.dat files
 net-misc/AQtion 2.2.7-r1 2.3.1-r1 2.3.4-r1: Aquantia AQC multigigabit NIC linux driver (atlantic) - development preview
 net-misc/adjtimex 1.29-r3: Display or set the kernel time variables
 net-misc/aget 0.4.1-r2: multithreaded HTTP download accelerator
@@ -17635,7 +17635,7 @@ www-apps/davical 1.1.9.3 1.1.9.3-r1 1.1.10 1.1.11: A CalDAV and CardDAV Server
 www-apps/dokuwiki 20230404: DokuWiki is a simple to use Wiki aimed at a small company's documentation needs
 www-apps/dotproject 2.1.7-r2: dotProject is a PHP web-based project management framework
 www-apps/drupal 7.97 9.4.14 9.5.8 10.0.8: PHP-based open-source platform and content management system
-www-apps/element 1.11.24 1.11.29: A glossy Matrix collaboration client for the web
+www-apps/element 1.11.24 1.11.29 1.11.31: A glossy Matrix collaboration client for the web
 www-apps/gitea 1.18.3 1.18.5 1.19.1: A painless self-hosted Git service
 www-apps/grafana-bin 9.3.13 9.4.9 9.5.1: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
 www-apps/hugo 0.110.0-r2 0.111.3: Fast static HTML and CSS website generator
@@ -17669,11 +17669,11 @@ www-apps/nanoc-cli 4.12.6 4.12.7 4.12.9 4.12.14 4.12.15: nanoc is a simple but v
 www-apps/nanoc-core 4.12.6 4.12.7 4.12.9 4.12.14 4.12.15: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-deploying 1.0.2: Provides deploying functionality for Nanoc
 www-apps/nanoc-spec 0.0.2: Provides Nanoc::Spec, containing functionality for writing tests for Nanoc
-www-apps/nextcloud 24.0.10 24.0.11 25.0.4 25.0.5 26.0.0: Personal cloud that runs on your own server
+www-apps/nextcloud 25.0.4 25.0.5 25.0.6 26.0.0 26.0.1: Personal cloud that runs on your own server
 www-apps/nextcloud-notify_push 0.1.7 0.2.0 0.2.1 0.2.2 0.2.4 0.3.0: Push daemon for Nextcloud clients
 www-apps/nikola 8.2.3-r1 8.2.3-r2: A static website and blog generator
 www-apps/novnc 1.2.0 9999: noVNC is a VNC client implemented using HTML5 technologies
-www-apps/owncloud 10.10.0 10.11.0: Web-based storage application where all your data is under your own control
+www-apps/owncloud 10.10.0 10.11.0 10.12.1: Web-based storage application where all your data is under your own control
 www-apps/phpBB 3.3.10: An open-source PHP-based bulletin board package
 www-apps/phpsysinfo 3.4.2: A customizable PHP script that displays information about your system nicely
 www-apps/piwigo 13.7.0: a photo gallery software for the web
