@@ -259,16 +259,6 @@ x11-misc/sprop
 # See https://github.com/openzfs/zfs/issues/14753.
 =sys-fs/zfs-kmod-2.1.10
 
-# Sam James <sam@gentoo.org> (2023-04-14)
-# Fails with modern C, no upstream activity since 2005.
-# Removal on 2023-05-14.  Bug #778506, bug #881205.
-www-apache/mod_log_sql
-
-# Sam James <sam@gentoo.org> (2023-04-14)
-# Obsolete because of Twitter API changes. Archived upstream.
-# Removal on 2023-05-14.  Bug #904296.
-net-im/cawbird
-
 # Sam James <sam@gentoo.org> (2023-04-13)
 # Leads to broken terminal output in e.g. vim and openrc and other applications
 # like joe crashing.
@@ -278,40 +268,6 @@ net-im/cawbird
 # - sys-apps/openrc: https://github.com/OpenRC/openrc/issues/619
 =sys-libs/ncurses-6.4_p20230424
 =sys-libs/ncurses-6.4_p20230506
-
-# Michał Górny <mgorny@gentoo.org> (2023-04-13)
-# Lack of support for Python 3.11.  The current version is from 2016.
-# No revdeps.  Removal on 2023-05-13.
-dev-python/picklemagic
-
-# Michał Górny <mgorny@gentoo.org> (2023-04-13)
-# django-tagging is broken on Python 3.11 and unmaintained upstream
-# (last commit in 2020).  Graphite-web is its only revdep and it is
-# replaced by app-metrics/carbonapi-web.
-# Removal on 2023-05-13.  Bug #897056.
-dev-python/django-tagging
-net-analyzer/graphite-web
-
-# Michał Górny <mgorny@gentoo.org> (2023-04-13)
-# No Python 3.11 support.  The package has been discontinued upstream
-# (in favor of pyro5 that we do not package at the moment).  It was only
-# used as an optional dependency of dev-python/kombu, and it has
-# no revdeps anymore.
-# Removal on 2023-05-13.  Bug #896744.
-dev-python/Pyro4
-
-# Michał Górny <mgorny@gentoo.org> (2023-04-13)
-# Broken tests and no Python 3.11 support.  Upstream has discontinued
-# the package, dev-python/mistune is suggested as a replacement.
-# No reverse dependencies.
-# Removal on 2023-05-13.  Bug #798066.
-dev-python/misaka
-
-# David Seifert <soap@gentoo.org> (2023-04-13)
-# Unmaintained, implicit declarations, last release over 17 years ago,
-# no other distro still packages this.
-# Removal on 2023-05-13. Bug #874522, #898456.
-x11-plugins/ascpu
 
 # Eray Aslan <eras@gentoo.org> (2023-04-12)
 # Mask experimental software
