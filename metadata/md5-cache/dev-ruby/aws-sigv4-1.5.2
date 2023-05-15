@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby27? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
+BDEPEND=test? ( ruby_targets_ruby30? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+DEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 DESCRIPTION=Amazon Web Services Signature Version 4 signing library
 EAPI=8
 HOMEPAGE=https://aws.amazon.com/sdk-for-ruby/
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 doc test
+IUSE=test ruby_targets_ruby30 ruby_targets_ruby31 doc test
 KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0
-RDEPEND=ruby_targets_ruby27? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby31(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 ruby_targets_ruby31 )
+RDEPEND=ruby_targets_ruby30? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/aws-eventstream-1.0.2:1[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby31 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=1
 SRC_URI=https://rubygems.org/gems/aws-sigv4-1.5.2.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	104e1332efb829e2f7cbf89307a474f1	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	76a677328d71b04b457f26be67717028	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	104e1332efb829e2f7cbf89307a474f1	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	ded1d92dc7636277a04b01f3b3cb7e26	ruby-ng	af08d2b1445bef89013607f69330a791	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
 _md5_=9d6c7f09d862cf4414aad5d5ce8eaa00
