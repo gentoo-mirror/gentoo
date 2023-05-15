@@ -3,10 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-
-inherit cmake llvm.org multilib-minimal pax-utils python-any-r1
-inherit toolchain-funcs
+PYTHON_COMPAT=( python3_{9..10} )
+inherit cmake llvm.org multilib-minimal pax-utils python-any-r1 \
+	toolchain-funcs
 
 DESCRIPTION="Low Level Virtual Machine"
 HOMEPAGE="https://llvm.org/"
@@ -18,12 +17,9 @@ HOMEPAGE="https://llvm.org/"
 # 4. ConvertUTF.h: TODO.
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
-SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS=""
-IUSE="
-	+binutils-plugin debug doc exegesis libedit +libffi ncurses test xar
-	xml z3 zstd
-"
+SLOT="$(ver_cut 1)"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
+IUSE="+binutils-plugin debug doc exegesis libedit +libffi ncurses test xar xml z3"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -35,7 +31,6 @@ RDEPEND="
 	xar? ( app-arch/xar )
 	xml? ( dev-libs/libxml2:2=[${MULTILIB_USEDEP}] )
 	z3? ( >=sci-mathematics/z3-4.7.1:0=[${MULTILIB_USEDEP}] )
-	zstd? ( app-arch/zstd:=[${MULTILIB_USEDEP}] )
 "
 DEPEND="
 	${RDEPEND}
@@ -47,7 +42,7 @@ BDEPEND="
 	>=dev-util/cmake-3.16
 	sys-devel/gnuconfig
 	kernel_Darwin? (
-		<sys-libs/libcxx-${LLVM_VERSION}.9999
+		<sys-libs/libcxx-$(ver_cut 1-3).9999
 		>=sys-devel/binutils-apple-5.1
 	)
 	doc? ( $(python_gen_any_dep '
@@ -55,6 +50,9 @@ BDEPEND="
 		dev-python/sphinx[${PYTHON_USEDEP}]
 	') )
 	libffi? ( virtual/pkgconfig )
+	test? (
+		sys-apps/which
+	)
 "
 # There are no file collisions between these versions but having :0
 # installed means llvm-config there will take precedence.
@@ -64,13 +62,12 @@ RDEPEND="
 "
 PDEPEND="
 	sys-devel/llvm-common
-	sys-devel/llvm-toolchain-symlinks:${LLVM_MAJOR}
-	binutils-plugin? ( >=sys-devel/llvmgold-${LLVM_MAJOR} )
+	binutils-plugin? ( >=sys-devel/llvmgold-${SLOT} )
 "
 
-LLVM_COMPONENTS=( llvm cmake )
-LLVM_TEST_COMPONENTS=( third-party )
+LLVM_COMPONENTS=( llvm cmake third-party )
 LLVM_MANPAGES=1
+LLVM_PATCHSET=${PV}-r4
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals
 
@@ -182,6 +179,10 @@ src_prepare() {
 	check_uptodate
 
 	llvm.org_src_prepare
+
+	# remove regressing test
+	# https://github.com/llvm/llvm-project/issues/55761
+	rm test/Other/ChangePrinters/DotCfg/print-changed-dot-cfg.ll || die
 }
 
 get_distribution_components() {
@@ -215,7 +216,6 @@ get_distribution_components() {
 			count
 			not
 			yaml-bench
-			UnicodeNameMappingGenerator
 
 			# tools
 			bugpoint
@@ -237,14 +237,11 @@ get_distribution_components() {
 			llvm-cxxdump
 			llvm-cxxfilt
 			llvm-cxxmap
-			llvm-debuginfo-analyzer
-			llvm-debuginfod
 			llvm-debuginfod-find
 			llvm-diff
 			llvm-dis
 			llvm-dlltool
 			llvm-dwarfdump
-			llvm-dwarfutil
 			llvm-dwp
 			llvm-exegesis
 			llvm-extract
@@ -277,8 +274,6 @@ get_distribution_components() {
 			llvm-readelf
 			llvm-readobj
 			llvm-reduce
-			llvm-remark-size-diff
-			llvm-remarkutil
 			llvm-rtdyld
 			llvm-sim
 			llvm-size
@@ -330,13 +325,12 @@ multilib_src_configure() {
 		ffi_cflags=$($(tc-getPKG_CONFIG) --cflags-only-I libffi)
 		ffi_ldflags=$($(tc-getPKG_CONFIG) --libs-only-L libffi)
 	fi
-
 	local libdir=$(get_libdir)
 	local mycmakeargs=(
 		# disable appending VCS revision to the version to improve
 		# direct cache hit ratio
 		-DLLVM_APPEND_VC_REV=OFF
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}"
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/${SLOT}"
 		-DLLVM_LIBDIR_SUFFIX=${libdir#lib}
 
 		-DBUILD_SHARED_LIBS=OFF
@@ -348,8 +342,6 @@ multilib_src_configure() {
 		# is that the former list is explicitly verified at cmake time
 		-DLLVM_TARGETS_TO_BUILD=""
 		-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD="${LLVM_TARGETS// /;}"
-		-DLLVM_INCLUDE_BENCHMARKS=OFF
-		-DLLVM_INCLUDE_TESTS=$(usex test)
 		-DLLVM_BUILD_TESTS=$(usex test)
 
 		-DLLVM_ENABLE_FFI=$(usex libffi)
@@ -361,7 +353,6 @@ multilib_src_configure() {
 		-DLLVM_ENABLE_EH=ON
 		-DLLVM_ENABLE_RTTI=ON
 		-DLLVM_ENABLE_Z3_SOLVER=$(usex z3)
-		-DLLVM_ENABLE_ZSTD=$(usex zstd)
 
 		-DLLVM_HOST_TRIPLE="${CHOST}"
 
@@ -376,24 +367,23 @@ multilib_src_configure() {
 		-DOCAMLFIND=NO
 	)
 
-	local suffix=
-	if [[ -n ${EGIT_VERSION} && ${EGIT_BRANCH} != release/* ]]; then
-		# the ABI of the main branch is not stable, so let's include
-		# the commit id in the SOVERSION to contain the breakage
-		suffix+="git${EGIT_VERSION::8}"
-	fi
 	if [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
 		# Smart hack: alter version suffix -> SOVERSION when linking
 		# against libc++. This way we won't end up mixing LLVM libc++
 		# libraries with libstdc++ clang, and the other way around.
-		suffix+="+libcxx"
 		mycmakeargs+=(
+			-DLLVM_VERSION_SUFFIX="libcxx"
 			-DLLVM_ENABLE_LIBCXX=ON
 		)
 	fi
-	mycmakeargs+=(
-		-DLLVM_VERSION_SUFFIX="${suffix}"
-	)
+
+#	Note: go bindings have no CMake rules at the moment
+#	but let's kill the check in case they are introduced
+#	if ! multilib_is_native_abi || ! use go; then
+		mycmakeargs+=(
+			-DGO_EXECUTABLE=GO_EXECUTABLE-NOTFOUND
+		)
+#	fi
 
 	use test && mycmakeargs+=(
 		-DLLVM_LIT_ARGS="$(get_lit_flags)"
@@ -404,7 +394,7 @@ multilib_src_configure() {
 		if llvm_are_manpages_built; then
 			build_docs=ON
 			mycmakeargs+=(
-				-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}/share/man"
+				-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/llvm/${SLOT}/share/man"
 				-DLLVM_INSTALL_SPHINX_HTML_DIR="${EPREFIX}/usr/share/doc/${PF}/html"
 				-DSPHINX_WARNINGS_AS_ERRORS=OFF
 			)
@@ -419,6 +409,16 @@ multilib_src_configure() {
 		)
 		use binutils-plugin && mycmakeargs+=(
 			-DLLVM_BINUTILS_INCDIR="${EPREFIX}"/usr/include
+		)
+	fi
+
+	if tc-is-cross-compiler; then
+		local tblgen="${BROOT}/usr/lib/llvm/${SLOT}/bin/llvm-tblgen"
+		[[ -x "${tblgen}" ]] \
+			|| die "${tblgen} not found or usable"
+		mycmakeargs+=(
+			-DCMAKE_CROSSCOMPILING=ON
+			-DLLVM_TABLEGEN="${tblgen}"
 		)
 	fi
 
@@ -440,14 +440,14 @@ multilib_src_configure() {
 	use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
 	cmake_src_configure
 
-	grep -q -E "^CMAKE_PROJECT_VERSION_MAJOR(:.*)?=${LLVM_MAJOR}$" \
+	grep -q -E "^CMAKE_PROJECT_VERSION_MAJOR(:.*)?=$(ver_cut 1)$" \
 			CMakeCache.txt ||
 		die "Incorrect version, did you update _LLVM_MASTER_MAJOR?"
 	multilib_is_native_abi && check_distribution_components
 }
 
 multilib_src_compile() {
-	tc-env_build cmake_build distribution
+	cmake_build distribution
 
 	pax-mark m "${BUILD_DIR}"/bin/llvm-rtdyld
 	pax-mark m "${BUILD_DIR}"/bin/lli
@@ -468,7 +468,7 @@ multilib_src_test() {
 
 src_install() {
 	local MULTILIB_CHOST_TOOLS=(
-		/usr/lib/llvm/${LLVM_MAJOR}/bin/llvm-config
+		/usr/lib/llvm/${SLOT}/bin/llvm-config
 	)
 
 	local MULTILIB_WRAPPED_HEADERS=(
@@ -479,7 +479,7 @@ src_install() {
 	multilib-minimal_src_install
 
 	# move wrapped headers back
-	mv "${ED}"/usr/include "${ED}"/usr/lib/llvm/${LLVM_MAJOR}/include || die
+	mv "${ED}"/usr/include "${ED}"/usr/lib/llvm/${SLOT}/include || die
 }
 
 multilib_src_install() {
@@ -487,28 +487,28 @@ multilib_src_install() {
 
 	# move headers to /usr/include for wrapping
 	rm -rf "${ED}"/usr/include || die
-	mv "${ED}"/usr/lib/llvm/${LLVM_MAJOR}/include "${ED}"/usr/include || die
+	mv "${ED}"/usr/lib/llvm/${SLOT}/include "${ED}"/usr/include || die
 
-	LLVM_LDPATHS+=( "${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}/$(get_libdir)" )
+	LLVM_LDPATHS+=( "${EPREFIX}/usr/lib/llvm/${SLOT}/$(get_libdir)" )
 }
 
 multilib_src_install_all() {
-	local revord=$(( 9999 - ${LLVM_MAJOR} ))
+	local revord=$(( 9999 - ${SLOT} ))
 	newenvd - "60llvm-${revord}" <<-_EOF_
-		PATH="${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}/bin"
+		PATH="${EPREFIX}/usr/lib/llvm/${SLOT}/bin"
 		# we need to duplicate it in ROOTPATH for Portage to respect...
-		ROOTPATH="${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}/bin"
-		MANPATH="${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}/share/man"
+		ROOTPATH="${EPREFIX}/usr/lib/llvm/${SLOT}/bin"
+		MANPATH="${EPREFIX}/usr/lib/llvm/${SLOT}/share/man"
 		LDPATH="$( IFS=:; echo "${LLVM_LDPATHS[*]}" )"
 	_EOF_
 
-	docompress "/usr/lib/llvm/${LLVM_MAJOR}/share/man"
+	docompress "/usr/lib/llvm/${SLOT}/share/man"
 	llvm_install_manpages
 }
 
 pkg_postinst() {
 	elog "You can find additional opt-viewer utility scripts in:"
-	elog "  ${EROOT}/usr/lib/llvm/${LLVM_MAJOR}/share/opt-viewer"
+	elog "  ${EROOT}/usr/lib/llvm/${SLOT}/share/opt-viewer"
 	elog "To use these scripts, you will need Python along with the following"
 	elog "packages:"
 	elog "  dev-python/pygments (for opt-viewer)"
