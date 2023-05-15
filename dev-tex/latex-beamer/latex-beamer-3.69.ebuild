@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit latex-package
 
@@ -12,14 +12,13 @@ S="${WORKDIR}/beamer-${PV}"
 
 LICENSE="GPL-2 FDL-1.2 LPPL-1.3c"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc"
 
 BDEPEND="dev-texlive/texlive-latex"
 RDEPEND="
 	>=dev-tex/pgf-1.10
 	dev-texlive/texlive-latexrecommended
-	!dev-tex/translator
 "
 
 src_prepare() {
