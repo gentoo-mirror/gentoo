@@ -27,8 +27,8 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-libs/libbpf-1.1:=
 	>=dev-util/bcc-0.25.0:=
-	>=sys-devel/llvm-10:=[llvm_targets_BPF(+)]
-	>=sys-devel/clang-10:=
+	>=sys-devel/llvm-10[llvm_targets_BPF(+)]
+	>=sys-devel/clang-10
 	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
 	sys-libs/binutils-libs:=
@@ -52,11 +52,9 @@ QA_DT_NEEDED="
 "
 
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.17.0-install-libs.patch"
+	"${FILESDIR}/bpftrace-0.18.0-install-libs.patch"
 	"${FILESDIR}/bpftrace-0.15.0-dont-compress-man.patch"
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
-	"${FILESDIR}/bpftrace-0.17.0-llvm-16.patch"
-	"${FILESDIR}/bpftrace-0.17.0-use-std-optional.patch"
 )
 
 pkg_pretend() {
