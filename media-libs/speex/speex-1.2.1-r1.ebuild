@@ -14,7 +14,7 @@ SRC_URI="https://downloads.xiph.org/releases/speex/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~x86-solaris"
 IUSE="cpu_flags_arm_v4 cpu_flags_arm_v5 cpu_flags_arm_v6 cpu_flags_x86_sse utils valgrind +vbr"
 
 RDEPEND="
@@ -30,7 +30,10 @@ BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}"/${PN}-1.2.0-configure.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.0-configure.patch
+	"${FILESDIR}"/${P}-vla-detection.patch
+)
 
 src_prepare() {
 	default
@@ -44,6 +47,14 @@ src_prepare() {
 
 multilib_src_configure() {
 	append-lfs-flags
+
+	local myeconfargs=(
+		$(multilib_native_use_enable valgrind)
+		$(use_enable cpu_flags_x86_sse sse)
+		$(use_enable vbr)
+		$(multilib_native_use_with utils speexdsp)
+		$(multilib_native_use_enable utils binaries)
+	)
 
 	local FIXED_ARG="--disable-fixed-point"
 	local ARM4_ARG="--disable-arm4-asm"
@@ -59,14 +70,9 @@ multilib_src_configure() {
 		fi
 	fi
 
-	ECONF_SOURCE="${S}" econf \
-		--disable-static \
-		$(multilib_native_use_enable valgrind) \
-		$(use_enable cpu_flags_x86_sse sse) \
-		$(use_enable vbr) \
-		$(use_with utils speexdsp) \
-		$(use_enable utils binaries) \
-		${FIXED_ARG} ${ARM4_ARG} ${ARM5_ARG}
+	myeconfargs+=( ${FIXED_ARG} ${ARM4_ARG} ${ARM5_ARG} )
+
+	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
 multilib_src_install_all() {
