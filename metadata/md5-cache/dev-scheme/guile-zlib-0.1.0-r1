@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=prepare
-DEPEND=>=dev-scheme/guile-2.0.0:= >=app-arch/zstd-1.5.2-r2
-DESCRIPTION=GNU Guile bindings to the zstd compression library
+DEFINED_PHASES=configure install prepare
+DEPEND=>=dev-scheme/guile-2.0.0:= sys-libs/zlib
+DESCRIPTION=GNU Guile library providing bindings to zlib
 EAPI=8
-HOMEPAGE=https://notabug.org/guile-zstd/guile-zstd/
+HOMEPAGE=https://notabug.org/guile-zlib/guile-zlib/
 INHERIT=autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=>=dev-scheme/guile-2.0.0:= >=app-arch/zstd-1.5.2-r2
+RDEPEND=>=dev-scheme/guile-2.0.0:= sys-libs/zlib
 SLOT=0
-SRC_URI=https://notabug.org/guile-zstd/guile-zstd/archive/v0.1.1.tar.gz -> guile-zstd-0.1.1.tar.gz
+SRC_URI=https://notabug.org/guile-zlib/guile-zlib/archive/v0.1.0.tar.gz -> guile-zlib-0.1.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
-_md5_=261a9f097628e341f612ff10507cdc8b
+_md5_=f966da4671b5000d0428196d530f33e6
