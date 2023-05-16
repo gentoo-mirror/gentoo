@@ -115,7 +115,6 @@ BDEPEND="
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.5-no-service.patch
 	"${FILESDIR}"/${PN}-9999-xdummy.patch
 	"${FILESDIR}"/${PN}-9999-tests.patch
 )
@@ -163,10 +162,12 @@ python_configure_all() {
 		$(use_with jpeg jpeg_encoder)
 		$(use_with jpeg jpeg_decoder)
 		--without-mdns
+		--without-sd_listen
+		--without-service
 		$(use_with opengl)
 		$(use_with server shadow)
 		$(use_with server)
-		--with-strict
+		--without-strict
 		$(use_with vpx)
 		--with-warn
 		$(use_with webcam)
