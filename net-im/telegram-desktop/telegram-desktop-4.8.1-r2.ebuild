@@ -85,7 +85,7 @@ BDEPEND="
 # dev-libs/jemalloc:=[-lazy-lock] -> https://bugs.gentoo.org/803233
 
 PATCHES=(
-	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram.patch"
+	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram-r1.patch"
 	"${FILESDIR}/tdesktop-4.4.1-fix-dupe-main-decl.patch"
 )
 
