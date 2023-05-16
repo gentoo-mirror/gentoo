@@ -3,7 +3,7 @@
 
 EAPI=8
 inherit go-module
-GIT_COMMIT=e02b30c6e3ff7801f22d37ed63850211ca0c7bb6
+GIT_COMMIT=654ae7c117d2d93fc4621b58a8cfb5388ba485a0
 
 DESCRIPTION="the official gitlab command line interface"
 HOMEPAGE="https://gitlab.com/gitlab-org/cli"
