@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=media-libs/libaacs >=media-libs/libbluray-1.2.0[aacs] mpv? ( media-video/mpv[libmpv,bluray] )
+DESCRIPTION=Blu-ray utilities: bluray_info, bluray_copy, bluray_player
+EAPI=8
+HOMEPAGE=https://github.com/beandog/bluray_info https://dvds.beandog.org
+IUSE=+mpv
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libaacs >=media-libs/libbluray-1.2.0[aacs] mpv? ( media-video/mpv[libmpv,bluray] )
+SLOT=0
+SRC_URI=https://bluray.beandog.org/bluray_info/bluray_info-1.10.tar.gz
+_md5_=8919f5b6713c137731bfac9efd70b4e0
