@@ -48,8 +48,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}"/${P}-meson-version.patch )
-
 src_configure() {
 	local emesonargs=(
 		$(meson_use gtk-doc with_docs)

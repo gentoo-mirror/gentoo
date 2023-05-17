@@ -39,11 +39,6 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-Include-rpm-rpmstring.h-for-rasprintf.patch"
-	"${FILESDIR}/${P}-use-gio-instead-of-cp.patch"
-)
-
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_DRPM=ON
