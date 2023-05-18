@@ -63,7 +63,7 @@ _LLVM_MASTER_MAJOR=17
 # @INTERNAL
 # @DESCRIPTION:
 # The newest release of LLVM for which manpages were generated.
-_LLVM_NEWEST_MANPAGE_RELEASE=16.0.3
+_LLVM_NEWEST_MANPAGE_RELEASE=16.0.4
 
 # @ECLASS_VARIABLE: _LLVM_SOURCE_TYPE
 # @INTERNAL
@@ -248,7 +248,7 @@ llvm.org_set_globals() {
 			"
 			BDEPEND+="
 				verify-sig? (
-					>=sec-keys/openpgp-keys-llvm-15
+					>=sec-keys/openpgp-keys-llvm-16.0.4
 				)
 			"
 			VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/llvm.asc
