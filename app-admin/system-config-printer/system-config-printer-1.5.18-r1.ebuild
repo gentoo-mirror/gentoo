@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
 inherit python-single-r1 systemd udev xdg
 
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/OpenPrinting/${PN}/releases/download/v${PV}/${P}.tar
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ppc ppc64 ~riscv ~sparc x86"
-IUSE="gnome-keyring policykit"
+IUSE="keyring policykit"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Needs cups running, bug 284005
@@ -50,9 +50,11 @@ RDEPEND="${COMMON_DEPEND}
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/urllib3[${PYTHON_USEDEP}]
 	')
-	gnome-keyring? ( app-crypt/libsecret[introspection] )
+	keyring? ( app-crypt/libsecret[introspection] )
 	policykit? ( net-print/cups-pk-helper )
 "
+
+PATCHES=( "${FILESDIR}/${P}-fix-debugprint-exception.patch" ) # git master (1.5.19)
 
 pkg_setup() {
 	python-single-r1_pkg_setup

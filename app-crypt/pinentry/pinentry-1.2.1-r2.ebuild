@@ -13,8 +13,8 @@ SRC_URI+=" verify-sig? ( mirror://gnupg/${PN}/${P}.tar.bz2.sig )"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="arm hppa ppc ppc64"
-IUSE="caps efl emacs keyring gtk ncurses qt5"
+KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ~m68k ~mips ~ppc64 ~riscv ~s390 sparc x86 ~x64-cygwin ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+IUSE="caps efl emacs gtk keyring ncurses qt5"
 
 DEPEND="
 	>=dev-libs/libassuan-2.1
@@ -27,10 +27,12 @@ DEPEND="
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
+		kde-frameworks/kwayland:5
+		x11-libs/libX11
 	)
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
 	gtk? ( app-crypt/gcr:0[gtk] )
 "
 BDEPEND="
@@ -42,9 +44,7 @@ IDEPEND=">=app-eselect/eselect-pinentry-0.7.2"
 
 DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )
 
-PATCHES=(
-	"${FILESDIR}/${PN}-1.0.0-AR.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-1.0.0-AR.patch" )
 
 src_prepare() {
 	default
