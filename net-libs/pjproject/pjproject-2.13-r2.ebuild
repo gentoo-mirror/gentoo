@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # TODO: Figure out a way to disable SRTP from pjproject entirely.
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit autotools flag-o-matic toolchain-funcs
 
 DESCRIPTION="Open source SIP, Media, and NAT Traversal Library"
-HOMEPAGE="https://www.pjsip.org/"
+HOMEPAGE="https://github.com/pjsip/pjproject https://www.pjsip.org/"
 SRC_URI="https://github.com/pjsip/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
 
@@ -33,24 +33,22 @@ RDEPEND=">=net-libs/libsrtp-2.3.0:=
 	opus? ( media-libs/opus )
 	portaudio? ( media-libs/portaudio )
 	resample? ( media-libs/libsamplerate )
-	sdl? ( media-libs/libsdl )
+	sdl? ( media-libs/libsdl2 )
 	speex? (
 		media-libs/speex
 		media-libs/speexdsp
 	)
 	ssl? (
-		<dev-libs/openssl-3.0.0:0=
+		dev-libs/openssl:0=
 	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/pjproject-2.12.1-CVE-2022-31031.patch"
-	"${FILESDIR}/pjproject-2.12.1-r2-CVE-2022-39244.patch" # 875863
-	"${FILESDIR}/pjproject-2.12.1-r2-CVE-2022-39269.patch" # 875863
-	"${FILESDIR}/pjproject-2.12.1-r2-bashism.patch" # 865719
-	"${FILESDIR}/pjproject-2.12.1-r2-musl.patch" # 867343
+	"${FILESDIR}/pjproject-2.13-r1-Make-sure-that-NOTIFY-tdata-is-set-before-sending-it_new.patch"
+	"${FILESDIR}/pjproject-2.13-r1-CVE-2022-23537-buffer-overread-on-STUN-error-decode.patch"
+	"${FILESDIR}/pjproject-2.13-r1-CVE-2022-23547-buffer-overread-on-STUN-decode.patch"
 )
 
 src_prepare() {
