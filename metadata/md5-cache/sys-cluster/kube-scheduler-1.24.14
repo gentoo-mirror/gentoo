@@ -1,15 +1,16 @@
 BDEPEND=>=dev-lang/go-1.18.1 >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install unpack
-DESCRIPTION=Kubernetes Proxy service
+DEPEND=acct-group/kube-scheduler acct-user/kube-scheduler
+DESCRIPTION=Kubernetes Scheduler
 EAPI=7
-HOMEPAGE=https://github.com/kubernetes/kubernetes https://kubernetes.io
+HOMEPAGE=https://kubernetes.io
 INHERIT=go-module
 IUSE=hardened
-KEYWORDS=amd64 ~arm64
+KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0
-RDEPEND=net-firewall/conntrack-tools
+RDEPEND=acct-group/kube-scheduler acct-user/kube-scheduler
 RESTRICT=strip test
 SLOT=0
-SRC_URI=https://github.com/kubernetes/kubernetes/archive/v1.24.12.tar.gz -> kubernetes-1.24.12.tar.gz
+SRC_URI=https://github.com/kubernetes/kubernetes/archive/v1.24.14.tar.gz -> kubernetes-1.24.14.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	go-module	9c75e51a48520b2f01471c1f91762882
-_md5_=528423a95b0c1cb892fd67052bc580a3
+_md5_=f8c4b21f370d76e38c776fecb43d97bd
