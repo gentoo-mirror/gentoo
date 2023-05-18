@@ -11,7 +11,7 @@ SRC_URI="https://www.musicpd.org/download/${PN}/${PV%.*}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+alsa ao +audiofile bzip2 cdio chromaprint +cue +curl doc +dbus
 	+eventfd expat faad +ffmpeg +fifo flac fluidsynth gme +icu +id3tag +inotify
 	jack lame libmpdclient libsamplerate libsoxr +mad mikmod mms
@@ -119,7 +119,9 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-boost-1.81.patch
+	# Backported fixes for dev-libs/libfmt-10. Remove after 0.23.12.
+	"${FILESDIR}/${P}-stringview.patch"
+	"${FILESDIR}/${P}-libfmt10-906074.patch"
 )
 
 pkg_setup() {
