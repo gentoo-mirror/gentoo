@@ -1423,7 +1423,7 @@ app-crypt/certbot-nginx 2.5.0-r1 2.6.0 9999: Nginx plugin for Certbot (Let’s E
 app-crypt/cfssl 1.4.1 1.6.0: Cloudflare's PKI and TLS toolkit
 app-crypt/chntpw 140201-r1: Offline Windows NT Password & Registry Editor
 app-crypt/ckpass 0.2-r2: ncurses based password database client compatible with KeePass 1.x databases
-app-crypt/codecrypt 1.8-r2: Post-quantum cryptography tool
+app-crypt/codecrypt 1.8-r3: Post-quantum cryptography tool
 app-crypt/codegroup 20080907-r1: encode / decode binary file as five letter codegroups
 app-crypt/coolkey 1.1.0-r9: Linux Driver support for the CoolKey and CAC products
 app-crypt/crackpkcs12 0.2.10 0.2.11: Multithreaded program to crack PKCS#12 files
@@ -1463,7 +1463,7 @@ app-crypt/kali-archive-keyring 2020.2: GnuPG archive keys of the Kali archive
 app-crypt/kbfs 6.0.2 9999: Keybase Filesystem (KBFS)
 app-crypt/kencfs-plasma 2.0.2_alpha: GUI frontend for encfs
 app-crypt/keybase 6.0.2 9999: Keybase client
-app-crypt/keylookup 2.2: A tool to fetch PGP keys from keyservers
+app-crypt/keylookup 2.2-r1: A tool to fetch PGP keys from keyservers
 app-crypt/keysmith 23.04.1: OTP client for Plasma Mobile and Desktop
 app-crypt/kstart 4.3: Modified versions of kinit for refreshing kerberos tickets automatically
 app-crypt/libb2 0.98.1-r2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp
@@ -1521,11 +1521,11 @@ app-crypt/sequoia-sqv 1.1.0: A simple OpenPGP signature verification program
 app-crypt/shash 0.2.6-r4: Generate or check digests or MACs of files
 app-crypt/signify 31: Cryptographically sign and verify files
 app-crypt/signing-party 2.11: A collection of several tools related to OpenPGP
-app-crypt/simple-tpm-pk11 0.06-r1: Simple PKCS11 provider for TPM chips
+app-crypt/simple-tpm-pk11 0.06-r2: Simple PKCS11 provider for TPM chips
 app-crypt/ssdeep 2.14.1-r1: Computes context triggered piecewise hashes (fuzzy hashes)
 app-crypt/ssss 0.5.7-r1: Shamir's Secret Sharing Scheme
 app-crypt/stan 0.4.1-r1: Stan analyzes binary streams and calculates statistical information
-app-crypt/stoken 0.92-r2: Software Token for Linux/UNIX
+app-crypt/stoken 0.92-r3: Software Token for Linux/UNIX
 app-crypt/swtpm 0.7.3 0.8.0: Libtpms-based TPM emulator
 app-crypt/tc-play 2.0-r2 3.3: A free, pretty much fully featured and stable TrueCrypt implementation
 app-crypt/tpm-emulator 0.7.5-r3: Emulator driver for tpm
@@ -3883,7 +3883,7 @@ dev-db/spatialite-tools 5.0.1-r1: A collection of CLI tools supporting SpatiaLit
 dev-db/sqlcipher 4.5.1: Full Database Encryption for SQLite
 dev-db/sqlcl-bin 22.4.0.342.1212: Oracle SQLcl is the new SQL*Plus
 dev-db/sqldeveloper 22.2.1.234.1810: Oracle SQL Developer is a graphical tool for database development
-dev-db/sqlite 3.41.2-r1 9999: SQL database engine
+dev-db/sqlite 3.41.2-r1 3.42.0 9999: SQL database engine
 dev-db/sqlitebrowser 3.12.2 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r5: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.3.3 3.4.3 3.4.3-r1 3.4.4: Powerful cross-platform SQLite database manager
@@ -10278,7 +10278,7 @@ dev-util/bitrise 1.24.0: Run your Bitrise.io automations on any Mac or Linux mac
 dev-util/bloaty 1.1 9999: A size profiler for binaries
 dev-util/blueprint-compiler 0.6.0-r2: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/bootconfig 5.18: Bootconfig tools for kernel command line to support key-value
-dev-util/bpftool 6.2.1 6.2.11 6.3: Tool for inspection and simple manipulation of eBPF programs and maps
+dev-util/bpftool 6.2.1 6.3: Tool for inspection and simple manipulation of eBPF programs and maps
 dev-util/bpftrace 0.17.1 0.18.0: High-level tracing language for eBPF
 dev-util/breakpad 2022.07.12: implement a crash-reporting system.
 dev-util/bsdiff 4.3-r4: bsdiff: Binary Differencer using a suffix alg
@@ -16992,7 +16992,7 @@ sys-devel/binutils-apple 3.2.6-r1 8.2.1-r2 8.2.1-r101: Darwin Xtools matching Xc
 sys-devel/binutils-config 5.4.1 5.5 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r3 2.40-r4 2.40-r5: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
-sys-devel/bmake 20230303 20230321 20230414: NetBSD's portable make
+sys-devel/bmake 20230303 20230414 20230512: NetBSD's portable make
 sys-devel/boost-m4 0.4_p20160328: Another set of autoconf macros for compiling against boost
 sys-devel/clang 14.0.6-r1 14.0.6-r4 15.0.7-r1 15.0.7-r3 16.0.3 16.0.4 16.0.5.9999 17.0.0_pre20230502 17.0.0_pre20230512 17.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 14.0.6 15.0.7-r5 16.0.3 16.0.3-r1 16.0.4 16.0.5.9999 17.0.0_pre20230502 17.0.0_pre20230512 17.0.0.9999: Common files shared between multiple slots of clang
