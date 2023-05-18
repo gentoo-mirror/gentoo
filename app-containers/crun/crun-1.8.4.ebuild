@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 # Can drop autotools/eautoreconf after next release & glibc patch gone
 inherit autotools python-any-r1
@@ -14,10 +14,11 @@ SRC_URI="https://github.com/containers/${PN}/releases/download/${PV}/${P}.tar.xz
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv"
 IUSE="+bpf +caps criu +seccomp selinux systemd static-libs"
 
 DEPEND="
+	dev-libs/libgcrypt:=
 	dev-libs/yajl:=
 	sys-kernel/linux-headers
 	caps? ( sys-libs/libcap )
@@ -37,10 +38,6 @@ BDEPEND="
 # required to create linux "containers".
 RESTRICT="test"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.4.5-glibc-2.36.patch
-)
-
 src_prepare() {
 	default
 
@@ -57,12 +54,11 @@ src_configure() {
 		$(usex static-libs '--enable-shared --enable-static' '--enable-shared --disable-static' '' '')
 	)
 
-	# Need https://github.com/containers/libocispec/pull/107 to be merged & land in
-	# a crun release that syncs up w/ latest version, then can drop CONFIG_SHELL
-	CONFIG_SHELL="${BROOT}/bin/bash" econf "${myeconfargs[@]}"
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
+	emake git-version.h
 	emake -C libocispec
 	emake crun
 }
@@ -71,4 +67,7 @@ src_install() {
 	emake "DESTDIR=${D}" install-exec
 	doman crun.1
 	einstalldocs
+
+	einfo "Cleaning up .la files"
+	find "${ED}" -name '*.la' -delete || die
 }
