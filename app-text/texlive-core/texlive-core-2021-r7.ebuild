@@ -17,9 +17,12 @@ HOMEPAGE="https://tug.org/texlive/"
 SLOT="0"
 LICENSE="GPL-2 LPPL-1.3c TeX"
 
-SRC_URI="https://dev.gentoo.org/~sam/distfiles/texlive/${MY_P}.tar.xz
+SRC_URI="
+	https://dev.gentoo.org/~sam/distfiles/texlive/${MY_P}.tar.xz
 	https://dev.gentoo.org/~sam/distfiles/texlive/texlive-tlpdb-${PV}.tar.xz
-	https://dev.gentoo.org/~sam/distfiles/texlive/${PN}-patches-${PV}-${PATCHLEVEL}.tar.xz"
+	https://dev.gentoo.org/~sam/distfiles/texlive/${PN}-patches-${PV}-${PATCHLEVEL}.tar.xz
+	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/texlive-core-2021-CVE-2023-32700.patch.xz
+"
 
 # We ship binextra collection alongside
 TL_CORE_BINEXTRA_MODULES="
@@ -165,10 +168,15 @@ src_prepare() {
 
 	eapply "${WORKDIR}"/patches
 	eapply "${FILESDIR}"/${P}-cairo-strings.patch
+	eapply "${FILESDIR}"/${P}-slibtool.patch
+	eapply "${FILESDIR}"/${P}-clang-16.patch
+	eapply "${WORKDIR}"/${P}-CVE-2023-32700.patch
 
 	default
 
 	elibtoolize
+
+	# Drop this on 2022 bump!
 	"${B}"/reautoconf libs/cairo || die
 }
 
@@ -184,6 +192,9 @@ src_configure() {
 	# Disable freetype-config as this is considered obsolete.
 	# Also only pkg-config works for prefix as described in bug #690094
 	export ac_cv_prog_ac_ct_FT2_CONFIG=no
+
+	# revisit/upstream once we bupm to 2022, bug #882245
+	append-cppflags -D_GNU_SOURCE
 
 	tc-export CC CXX AR RANLIB
 	ECONF_SOURCE="${B}" \
@@ -266,6 +277,7 @@ src_configure() {
 
 src_compile() {
 	tc-export CC CXX AR RANLIB
+
 	emake AR="$(tc-getAR)" SHELL="${EPREFIX}"/bin/sh texmf="${EPREFIX}"${TEXMF_PATH:-/usr/share/texmf-dist}
 
 	cd "${B}" || die
@@ -285,6 +297,7 @@ src_compile() {
 
 src_install() {
 	dodir ${TEXMF_PATH:-/usr/share/texmf-dist}/web2c
+
 	emake DESTDIR="${D}" texmf="${ED}${TEXMF_PATH:-/usr/share/texmf-dist}" run_texlinks="true" run_mktexlsr="true" install
 
 	cd "${B}" || die
@@ -354,6 +367,24 @@ pkg_postinst() {
 	elog "If you have configuration files in ${EPREFIX}/etc/texmf to merge,"
 	elog "please update them and run ${EPREFIX}/usr/sbin/texmf-update."
 	elog
+
+	local display_migration_hint=false
+	if [[ -n ${REPLACING_VERSIONS} ]]; then
+		local new_texlive_ver=$(ver_cut 1)
+		local replaced_version
+		for replaced_version in ${REPLACING_VERSIONS}; do
+			replaced_version=$(ver_cut 1 ${replaced_version})
+			if (( replaced_version < new_texlive_version )); then
+				display_migration_hint=true
+				break
+			fi
+		done
+	fi
+
+	if ! ${display_migration_hint}; then
+		return
+	fi
+
 	ewarn "If you are migrating from an older TeX distribution"
 	ewarn "Please make sure you have read:"
 	ewarn "https://wiki.gentoo.org/wiki/Project:TeX/Tex_Live_Migration_Guide"

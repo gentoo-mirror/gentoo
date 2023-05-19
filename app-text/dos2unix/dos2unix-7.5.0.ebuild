@@ -1,23 +1,24 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PLOCALES="da de eo es fr fur hu ja nb nl pl pt_BR ru sr sv uk vi zh_CN zh_TW"
+PLOCALES="ca da de eo es fr fur hu ja ka ko nb nl pl pt_BR ro ru sr sv uk vi zh_CN zh_TW"
 
 inherit plocale toolchain-funcs
 
 DESCRIPTION="Convert DOS or MAC text files to UNIX format or vice versa"
-HOMEPAGE="http://www.xs4all.nl/~waterlan/dos2unix.html https://sourceforge.net/projects/dos2unix/"
+HOMEPAGE="https://www.xs4all.nl/~waterlan/dos2unix.html https://sourceforge.net/projects/dos2unix/"
 SRC_URI="
-	http://www.xs4all.nl/~waterlan/${PN}/${P/_/-}.tar.gz
-	mirror://sourceforge/${PN}/${P/_/-}.tar.gz"
+	https://www.xs4all.nl/~waterlan/${PN}/${P/_/-}.tar.gz
+	mirror://sourceforge/${PN}/${P/_/-}.tar.gz
+"
 S="${WORKDIR}/${P/_/-}"
 
 LICENSE="BSD-2"
 SLOT="0"
 [[ "${PV}" == *_beta* ]] || \
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris"
 IUSE="debug nls test"
 
 RDEPEND="
