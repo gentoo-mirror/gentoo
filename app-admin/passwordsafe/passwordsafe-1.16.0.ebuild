@@ -5,7 +5,7 @@ EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
 
-inherit cmake desktop flag-o-matic optfeature wxwidgets xdg
+inherit cmake desktop optfeature wxwidgets xdg
 
 MY_PV="${PV/_beta/BETA}"
 DESCRIPTION="Password manager with wxGTK based frontend"
@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="qr test +xml yubikey"
 RESTRICT="!test? ( test )"
 
-DEPEND="
+RDEPEND="
 	net-misc/curl
 	sys-apps/util-linux
 	x11-libs/libXt
@@ -28,12 +28,16 @@ DEPEND="
 	qr? ( media-gfx/qrencode )
 	xml? ( dev-libs/xerces-c )
 	yubikey? ( sys-auth/ykpers )"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	x11-base/xorg-proto"
 BDEPEND="
 	app-arch/zip
-	virtual/pkgconfig
+	dev-lang/perl
 	sys-devel/gettext
+	virtual/pkgconfig
 	test? ( dev-cpp/gtest )"
+
+PATCHES=( "${FILESDIR}"/${PN}-1.15.0-gtest-no-gnu++11.patch )
 
 src_configure() {
 	setup-wxwidgets
