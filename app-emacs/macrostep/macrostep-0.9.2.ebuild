@@ -6,15 +6,18 @@ EAPI=8
 inherit elisp
 
 DESCRIPTION="Interactive macro-expander for Emacs"
-HOMEPAGE="https://github.com/joddie/macrostep/"
-SRC_URI="https://github.com/joddie/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/joddie/macrostep/
+	https://github.com/emacsorphanage/macrostep/"
+SRC_URI="https://github.com/emacsorphanage/${PN}/archive/${PV}.tar.gz
+	-> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DOCS=( README.org )
 PATCHES=( "${FILESDIR}"/${PN}-test.patch )
+
+DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
 
 src_test() {
