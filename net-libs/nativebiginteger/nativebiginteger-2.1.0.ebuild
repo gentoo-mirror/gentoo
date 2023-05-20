@@ -1,7 +1,9 @@
-# Copyright 2018-2022 Gentoo Authors
+# Copyright 2018-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+JAVA_PKG_IUSE="test"
 
 inherit java-pkg-2 toolchain-funcs
 
@@ -12,20 +14,21 @@ SRC_URI="https://files.i2p-projekt.de/${PV}/i2psource_${PV}.tar.bz2"
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/gmp:0=
-	virtual/jdk:1.8
+	>=virtual/jdk-1.8:*
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	>=virtual/jre-1.8:*
+"
 
-S="${WORKDIR}/i2p-${PV}/core"
+S="${WORKDIR}/i2p-${PV}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-asmfix.patch"
-)
+src_prepare() {
+	java-pkg-2_src_prepare
+	java-pkg_clean
+}
 
 src_compile() {
 	local compile_lib
@@ -39,33 +42,30 @@ src_compile() {
 			"${file}" -o "lib${name}.so"
 	}
 
-	cd "${S}/c/jbigi/jbigi" || die "unable to cd to jbigi"
+	cd "${S}/core/c/jbigi/jbigi" || die "unable to cd to jbigi"
 	compile_lib jbigi src/jbigi.c -Iinclude -lgmp ||
 		die "unable to build jbigi"
 
 	if use amd64 || use x86; then
-		cd "${S}/c/jcpuid" || die "unable to cd to jcpuid"
+		cd "${S}/core/c/jcpuid" || die "unable to cd to jcpuid"
 		compile_lib jcpuid src/jcpuid.c -Iinclude ||
 			die "unable to build jcpuid"
-	fi
-
-	if use test; then
-		cd "${S}/java/src" || die "unable to cd to java/src"
-		ejavac -encoding UTF-8 net/i2p/util/NativeBigInteger.java ||
-			die "unable to build tests"
 	fi
 }
 
 src_test() {
-	cd "${S}/java/src" || die "unable to cd to java/src"
-	"$(java-config -J)" -Djava.library.path="${S}/c/jbigi/jbigi" net/i2p/util/NativeBigInteger ||
+	cd core/java/src || die "unable to cd to java/src"
+
+	ejavac -encoding UTF-8 net/i2p/util/NativeBigInteger.java ||
+		die "unable to build tests"
+	"$(java-config -J)" -Djava.library.path="${S}/core/c/jbigi/jbigi" net/i2p/util/NativeBigInteger ||
 		die "unable to pass tests"
 }
 
 src_install() {
-	dolib.so c/jbigi/jbigi/libjbigi.so
+	java-pkg_doso core/c/jbigi/jbigi/libjbigi.so
 
 	if use amd64 || use x86; then
-		dolib.so c/jcpuid/libjcpuid.so
+		java-pkg_doso core/c/jcpuid/libjcpuid.so
 	fi
 }
