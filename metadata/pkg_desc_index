@@ -944,7 +944,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.27.123 1.27.126 1.27.127 1.27.129 1.27.130 1.27.131 1.27.132 1.27.133 1.27.134 1.27.135 1.27.136: Universal Command Line Environment for AWS
+app-admin/awscli 1.27.123 1.27.126 1.27.127 1.27.129 1.27.130 1.27.131 1.27.132 1.27.133 1.27.134 1.27.135 1.27.136 1.27.137: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28 2.9.23 2.11.5 2.11.17: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2022.12.0 2023.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r1 3.2.60-r2: Distribution-independent installer framework
@@ -5351,7 +5351,7 @@ dev-libs/libxdg-basedir 1.2.3: Small library to access XDG Base Directories Spec
 dev-libs/libxdiff 0.23-r3: Library for creating diff files
 dev-libs/libxls 1.6.2-r1: A library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.4-r1 1.1.5 1.1.5-r1: C library for creating Excel XLSX files
-dev-libs/libxml2 2.10.4 2.11.2 2.11.2-r1 2.11.3 2.11.4 9999: XML C parser and toolkit
+dev-libs/libxml2 2.10.4 2.11.4 9999: XML C parser and toolkit
 dev-libs/libxmlb 0.3.11: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.37-r1 1.1.38 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
@@ -7916,8 +7916,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.26.123 1.26.126 1.26.127 1.26.129 1.26.130 1.26.131 1.26.132 1.26.133 1.26.134 1.26.135 1.26.136 9999: The AWS SDK for Python
-dev-python/botocore 1.29.123 1.29.126 1.29.127 1.29.129 1.29.130 1.29.131 1.29.132 1.29.133 1.29.134 1.29.135 1.29.136-r1 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.26.123 1.26.126 1.26.127 1.26.129 1.26.130 1.26.131 1.26.132 1.26.133 1.26.134 1.26.135 1.26.136 1.26.137 9999: The AWS SDK for Python
+dev-python/botocore 1.29.123 1.29.126 1.29.127 1.29.129 1.29.130 1.29.131 1.29.132 1.29.133 1.29.134 1.29.135 1.29.136-r1 1.29.137 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8667,7 +8667,7 @@ dev-python/pycodestyle 2.10.0: Python style guide checker (fka pep8)
 dev-python/pycollada 0.7.2: Python library for reading and writing COLLADA documents
 dev-python/pycountry 22.3.5: Database of countries, subdivisions, languages, currencies and script
 dev-python/pycparser 2.21-r2: C parser and AST generator written in Python
-dev-python/pycryptodome 3.17.0: A self-contained cryptographic library for Python
+dev-python/pycryptodome 3.17.0 3.18.0: A self-contained cryptographic library for Python
 dev-python/pycson 0.8-r3: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/pycuda 2021.1 2022.2.2: Python wrapper for NVIDIA CUDA
 dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
@@ -8847,7 +8847,7 @@ dev-python/pytest-subtests 0.10.0 0.11.0: Unittest subTest() support and subtest
 dev-python/pytest-sugar 0.9.6 0.9.7: Plugin that changes the default look and feel of pytest
 dev-python/pytest-system-statistics 1.0.2-r1: Pytest Plugin Which Reports System Usage Statistics
 dev-python/pytest-tempdir 2019.10.12-r1: Pytest plugin to support for a predictable and repeatable temporary directory
-dev-python/pytest-testinfra 7.0.0: Write unit tests in Python to test actual state of your servers
+dev-python/pytest-testinfra 7.0.0 8.0.0: Write unit tests in Python to test actual state of your servers
 dev-python/pytest-timeout 2.1.0: pytest plugin to abort hanging tests
 dev-python/pytest-tornado 0.8.1: Fixtures and markers to simplify testing of asynchronous tornado applications
 dev-python/pytest-tornasync 0.6.0_p2: Pytest plugin for testing Python 3.5+ Tornado code
@@ -9142,7 +9142,7 @@ dev-python/spyder-notebook 0.4.1: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 1.2.2: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.5.1: Plugin for Spyder to run tests and view the results
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
-dev-python/sqlalchemy 1.4.48 2.0.12 2.0.13: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.4.48 2.0.12 2.0.13 2.0.15: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.1.1-r1 1.2: A SQLAlchemy dialect for rqlite
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
@@ -9168,7 +9168,7 @@ dev-python/svg-path 6.2 6.3: SVG path objects and parser
 dev-python/svglib 1.5.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger_spec_validator 3.0.3: Validate Swagger specs against Swagger 1.1 or 2.0 specification
-dev-python/sybil 5.0.0 5.0.1: Automated testing for the examples in your documentation
+dev-python/sybil 5.0.0 5.0.1 5.0.2: Automated testing for the examples in your documentation
 dev-python/symengine 0.9.2-r3 0.10.0: Python wrappers to the symengine C++ library
 dev-python/sympy 1.11.1-r2: Computer Algebra System in pure Python
 dev-python/tabulate 0.9.0: Pretty-print tabular data
@@ -9323,7 +9323,7 @@ dev-python/wtforms 3.0.1-r1: Flexible forms validation and rendering library for
 dev-python/wurlitzer 3.0.3: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.0.7-r4 4.2.0: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 0.0.5: Convert calendars using X-WR-TIMEZONE to standard ones
-dev-python/xarray 2023.3.0 2023.4.2: N-D labeled arrays and datasets in Python
+dev-python/xarray 2023.3.0 2023.4.2 2023.5.0: N-D labeled arrays and datasets in Python
 dev-python/xcffib 1.2.0 1.3.0-r1: A drop in replacement for xpyb, an XCB python binding
 dev-python/xdoctest 1.1.1: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 0.8: Python bindings for libxkbcommon using cffi
@@ -16095,7 +16095,7 @@ sec-keys/openpgp-keys-alexbarton 20210416: OpenPGP keys used by Alex Barton
 sec-keys/openpgp-keys-antoniodiazdiaz 20220406: OpenPGP keys used by Antonio Diaz Diaz
 sec-keys/openpgp-keys-apache-commons 20221022: OpenPGP keys used by commons.apache.org
 sec-keys/openpgp-keys-apache-logging 20220918: OpenPGP keys used by logging.apache.org
-sec-keys/openpgp-keys-apache-tomcat 8.5.87 8.5.88 9.0.73 9.0.74 9.0.75 10.1.7 10.1.8: OpenPGP keys used by tomcat.apache.org
+sec-keys/openpgp-keys-apache-tomcat 8.5.87 8.5.88 8.5.89 9.0.73 9.0.74 9.0.75 10.1.7 10.1.8 10.1.9: OpenPGP keys used by tomcat.apache.org
 sec-keys/openpgp-keys-apache-tomcat-connectors 20141023: OpenPGP keys used by commons.apache.org
 sec-keys/openpgp-keys-apache-xalan-c 20221123: OpenPGP keys used to sign Apache Xalan-C
 sec-keys/openpgp-keys-apache-xmlgraphics-batik 20170410: OpenPGP keys used by xmlgraphics.apache.org/batik
@@ -17773,7 +17773,7 @@ www-servers/servefile 0.5.3 0.5.3-r1 0.5.4: Serve a single file via HTTP
 www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1-r2 1.8.1-r3 1.8.2: A fast and very simple Ruby web server
-www-servers/tomcat 8.5.87 8.5.88 9.0.73 9.0.74 9.0.75 10.1.7 10.1.8: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+www-servers/tomcat 8.5.87 8.5.88 8.5.89 9.0.73 9.0.74 9.0.75 10.1.7 10.1.8 10.1.9: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
 www-servers/uwsgi 2.0.19.1-r109 2.0.21: uWSGI server for Python web applications
 www-servers/varnish 7.1.1-r1 7.1.2-r1: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
