@@ -1,0 +1,15 @@
+BDEPEND=app-text/docbook-xml-dtd dev-libs/libxslt sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure prepare
+DEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm x11-base/xorg-proto
+DESCRIPTION=System tray utility including support for KDE system tray icons
+EAPI=8
+HOMEPAGE=https://kolbusa.github.io/stalonetray/
+INHERIT=autotools
+IUSE=debug +graceful-exit
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm
+SLOT=0
+SRC_URI=https://github.com/kolbusa/stalonetray/archive/v0.8.5.tar.gz -> stalonetray-0.8.5.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=ae25f5cd9607c40500f7f5d2085bd077
