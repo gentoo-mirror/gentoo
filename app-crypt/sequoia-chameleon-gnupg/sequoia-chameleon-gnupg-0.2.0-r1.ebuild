@@ -17,11 +17,12 @@ CRATES="
 	autocfg-1.1.0
 	backtrace-0.3.67
 	base64-0.13.1
+	base64-0.21.0
 	bindgen-0.63.0
 	bit-set-0.5.3
 	bit-vec-0.6.3
 	bitflags-1.3.2
-	buffered-reader-1.1.4
+	buffered-reader-1.2.0
 	bumpalo-3.12.0
 	bytes-1.4.0
 	bzip2-0.4.4
@@ -144,8 +145,8 @@ CRATES="
 	miniz_oxide-0.6.2
 	mio-0.8.5
 	native-tls-0.2.11
-	nettle-7.2.0
-	nettle-sys-2.1.1
+	nettle-7.3.0
+	nettle-sys-2.2.0
 	new_debug_unreachable-1.0.4
 	nibble_vec-0.1.0
 	nix-0.18.0
@@ -206,7 +207,7 @@ CRATES="
 	security-framework-sys-2.8.0
 	sequoia-ipc-0.30.1
 	sequoia-net-0.26.0
-	sequoia-openpgp-1.13.0
+	sequoia-openpgp-1.16.0
 	sequoia-openpgp-mt-0.1.0
 	sequoia-policy-config-0.5.0
 	sequoia-wot-0.4.1
@@ -288,7 +289,8 @@ CRATES="
 	zbase32-0.1.2
 "
 
-inherit cargo xdg-utils
+LLVM_MAX_SLOT=16
+inherit cargo llvm xdg-utils
 
 DESCRIPTION="Sequoia's reimplementation of the GnuPG interface"
 HOMEPAGE="https://sequoia-pgp.org/"
@@ -319,13 +321,18 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 # Needed for bindgen
-BDEPEND="sys-devel/clang"
+BDEPEND="<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1))"
 
 QA_FLAGS_IGNORED="usr/bin/gpg-sq usr/bin/gpgv-sq"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-tests.patch
+	"${FILESDIR}"/${P}-sec-fixes.patch
 )
+
+llvm_check_deps() {
+	has_version -b "sys-devel/clang:${LLVM_SLOT}"
+}
 
 src_test() {
 	export GNUPGHOME="${T}"/.gnupg
