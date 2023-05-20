@@ -48,25 +48,28 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}"
-# pyparsing version pinned for https://bugs.gentoo.org/825230
 BDEPEND="
 	>=sys-devel/automake-1.13.4
 	>=sys-devel/gettext-0.18.2
 	virtual/pkgconfig
 	dev-util/gdbus-codegen
 	sys-devel/bison
+	$(python_gen_any_dep 'dev-python/pyparsing[${PYTHON_USEDEP}]')
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
 	doc? (
 		app-text/xmlto
 		dev-libs/libxslt
 	)
-	$(python_gen_any_dep 'dev-python/pyparsing[${PYTHON_USEDEP}]')
 "
 
 PDEPEND="sys-apps/xdg-desktop-portal"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.14.4-fuse-3-slotted.patch
+)
+
 python_check_deps() {
-	has_version -b "dev-python/pyparsing[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/pyparsing[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {

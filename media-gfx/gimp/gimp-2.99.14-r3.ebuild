@@ -111,6 +111,10 @@ BDEPEND="
 
 DOCS=( "AUTHORS" "devel-docs/HACKING.md" "NEWS" "README" "README.i18n" )
 
+PATCHES=(
+	"${FILESDIR}/${PN}-2.10_fix_musl_backtrace_backend_switch.patch" #900148
+)
+
 pkg_setup() {
 	use lua && lua-single_pkg_setup
 
@@ -134,7 +138,7 @@ src_prepare() {
 	sed -i -e 's/@PYTHON_PATH@/'${EPYTHON}'/' plug-ins/python/pygimp.interp.in || die
 
 	# Set proper intallation path of documentation logo
-	sed -i -e "s/'gimp-@0@'.format(gimp_app_version)/'gimp-@0@.@1@'.format(gimp_app_version, gimp_app_version_micro)/" data/images/meson.build || die
+	sed -i -e "s/'gimp-@0@'.format(gimp_app_version)/'gimp-${PVR}'/" data/images/meson.build || die
 }
 
 _adjust_sandbox() {
@@ -242,9 +246,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
-	xdg_desktop_database_update
+	xdg_pkg_postrm
 }
