@@ -18,9 +18,14 @@ COMMON_DEPEND="acct-group/spire
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
+RESTRICT="test"
+
 src_prepare() {
 	default
 	sed -i -e 's/build:.*tidy/build:/' Makefile
+	set -- $(go version)
+	x=${3#go}
+	echo ${x} > .go-version
 }
 
 src_compile() {
