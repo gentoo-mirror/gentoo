@@ -5,7 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-4 )
 LUA_REQ_USE="deprecated"
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PLOCALES="de es fr hi hr hu id it ja pl pt_BR pt_PR ro ru sk zh"
 PLOCALE_BACKUP="en"
 inherit autotools lua-single plocale python-single-r1 toolchain-funcs
@@ -22,11 +22,12 @@ else
 	inherit verify-sig
 
 	SRC_URI="https://nmap.org/dist/${P}.tar.bz2"
-	SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-7.94-patches.tar.xz"
 	SRC_URI+=" verify-sig? ( https://nmap.org/dist/sigs/${P}.tar.bz2.asc )"
 
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
+
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-7.94-patches.tar.xz"
 
 # https://github.com/nmap/nmap/issues/2199
 LICENSE="NPSL-0.95"
@@ -89,7 +90,9 @@ pkg_setup() {
 }
 
 src_unpack() {
-	if use verify-sig ; then
+	if [[ ${PV} == *9999 ]] ; then
+		git-r3_src_unpack
+	elif use verify-sig ; then
 		# Needed for downloaded patch (which is unsigned, which is fine)
 		verify-sig_verify_detached "${DISTDIR}"/${P}.tar.bz2{,.asc}
 	fi
