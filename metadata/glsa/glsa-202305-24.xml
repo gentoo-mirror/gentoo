@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-24">
+    <title>MediaWiki: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in MediaWiki, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">mediawiki</product>
+    <announced>2023-05-21</announced>
+    <revised count="1">2023-05-21</revised>
+    <bug>815376</bug>
+    <bug>829302</bug>
+    <bug>836430</bug>
+    <bug>855965</bug>
+    <bug>873385</bug>
+    <bug>888041</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apps/mediawiki" auto="yes" arch="*">
+            <unaffected range="ge">1.38.5</unaffected>
+            <vulnerable range="lt">1.38.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>MediaWiki is a collaborative editing software, used by big projects like Wikipedia.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in MediaWiki. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All MediaWiki users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apps/mediawiki-1.38.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41798">CVE-2021-41798</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41799">CVE-2021-41799</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41800">CVE-2021-41800</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44854">CVE-2021-44854</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44855">CVE-2021-44855</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44856">CVE-2021-44856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44857">CVE-2021-44857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44858">CVE-2021-44858</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45038">CVE-2021-45038</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28202">CVE-2022-28202</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28205">CVE-2022-28205</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28206">CVE-2022-28206</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28209">CVE-2022-28209</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31090">CVE-2022-31090</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31091">CVE-2022-31091</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34911">CVE-2022-34911</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34912">CVE-2022-34912</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41765">CVE-2022-41765</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41766">CVE-2022-41766</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41767">CVE-2022-41767</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-47927">CVE-2022-47927</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-21T19:43:14.271112Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-21T19:43:14.304418Z">ajak</metadata>
+</glsa>
