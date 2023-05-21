@@ -65,19 +65,21 @@ BDEPEND="
 "
 
 src_configure() {
-	local backends="$(usex drm 'drm,' '')"
-	backends+="$(usex libinput 'libinput,' '')"
-	backends+="$(usex x11-backend 'x11,' '')"
-	# Get rid of a trailing comma
-	backends="${backends%,}"
+	local backends=(
+		$(usev drm)
+		$(usev libinput)
+		$(usev x11-backend 'x11')
+	)
+	# Separate values with a comma with this evil floating point bit hack
+	local meson_backends=$(IFS=','; echo "${backends[*]}")
 	# xcb-util-errors is not on Gentoo Repository (and upstream seems inactive?)
 	local emesonargs=(
-		-Dxcb-errors=$(usex xcb-errors enabled disabled)
+		$(meson_feature xcb-errors)
 		$(meson_use tinywl examples)
 		-Drenderers=$(usex vulkan 'gles2,vulkan' gles2)
-		-Dxwayland=$(usex X enabled disabled)
-		-Dbackends="${backends}"
-		-Dsession=$(usex session enabled disabled)
+		$(meson_feature X xwayland)
+		-Dbackends=${meson_backends}
+		$(meson_feature session)
 	)
 
 	meson_src_configure
