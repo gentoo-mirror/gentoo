@@ -20,6 +20,7 @@ RDEPEND="
 	dev-libs/libfmt:=
 	dev-libs/openssl:=
 	dev-libs/spdlog:=
+	media-gfx/chafa
 	media-libs/libsixel
 	media-libs/vips:=
 	net-libs/zeromq:=
