@@ -3,14 +3,22 @@
 
 EAPI=8
 
-inherit autotools git-r3 multilib-minimal
+inherit multilib-minimal verify-sig
 
+MY_P="${P}-alpha-dev"
 DESCRIPTION="Library to execute a function when a specific event occurs on a file descriptor"
 HOMEPAGE="
 	https://libevent.org/
 	https://github.com/libevent/libevent/
 "
-EGIT_REPO_URI="https://github.com/libevent/libevent.git"
+BASE_URI="https://github.com/libevent/libevent/releases/download/release-${PV}-alpha"
+SRC_URI="
+	${BASE_URI}/${MY_P}.tar.gz
+	verify-sig? (
+		${BASE_URI}/${MY_P}.tar.gz.asc
+	)
+"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0/2.2"
@@ -29,16 +37,17 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+BDEPEND="
+	verify-sig? (
+		sec-keys/openpgp-keys-libevent
+	)
+"
 
 DOCS=( README.md ChangeLog{,-1.4,-2.0} whatsnew-2.{0,1}.txt )
 MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/event2/event-config.h
 )
-
-src_prepare() {
-	default
-	eautoreconf
-}
+VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/libevent.asc
 
 multilib_src_configure() {
 	# fix out-of-source builds
