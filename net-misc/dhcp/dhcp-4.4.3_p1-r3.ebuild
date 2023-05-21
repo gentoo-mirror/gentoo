@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,7 @@ SRC_URI="ftp://ftp.isc.org/isc/dhcp/${MY_P}.tar.gz
 
 LICENSE="MPL-2.0 BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+client ipv6 ldap selinux +server ssl vim-syntax"
 
 BDEPEND="
@@ -76,6 +76,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.4.3-ldap-ipv6-client-id.patch"
 
 	# Possible upstream candidates
+	"${FILESDIR}/${PN}-4.4.3-configure-clang16.patch"
 )
 
 src_prepare() {
@@ -212,6 +213,7 @@ src_install() {
 	dodoc README RELNOTES doc/{api+protocol,IANA-arp-parameters}
 	docinto html
 	dodoc doc/References.html
+	newtmpfiles "${FILESDIR}"/dhcp.tmpfiles dhcp.conf
 
 	if [[ -e client/dhclient ]] ; then
 		# Move the client to /
@@ -240,7 +242,6 @@ src_install() {
 		newinitd "${FILESDIR}"/dhcrelay.init3 dhcrelay6
 		newconfd "${FILESDIR}"/dhcrelay6.conf dhcrelay6
 
-		newtmpfiles "${FILESDIR}"/dhcpd.tmpfiles dhcpd.conf
 		systemd_dounit "${FILESDIR}"/dhcpd4.service
 		systemd_dounit "${FILESDIR}"/dhcpd6.service
 		systemd_dounit "${FILESDIR}"/dhcrelay4.service
@@ -257,9 +258,6 @@ src_install() {
 		mv "${f}" "${f%.example}" || die
 	done
 	sed -i '/^[^#]/s:^:#:' "${ED}"/etc/dhcp/*.conf || die
-
-	diropts -m0750 -o dhcp -g dhcp
-	keepdir /var/lib/dhcp
 }
 
 pkg_preinst() {
@@ -279,9 +277,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	if use server ; then
-		tmpfiles_process dhcpd.conf
-	fi
+	tmpfiles_process dhcp.conf
 
 	if use client ; then
 		ewarn "The client and relay functionality will be removed in the next release!"
