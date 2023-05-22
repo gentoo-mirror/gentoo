@@ -24,8 +24,8 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="+gstreamer"
+KEYWORDS="~amd64 ~x86"
+IUSE="+gstreamer soup webkit"
 
 RDEPEND="
 	app-text/discount:=
@@ -34,7 +34,6 @@ RDEPEND="
 	dev-libs/json-glib
 	dev-libs/libgee:0.8=
 	gnome-base/librsvg
-	net-libs/webkit-gtk:4=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
@@ -43,9 +42,15 @@ RDEPEND="
 	gstreamer? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
+		media-libs/gst-plugins-good:1.0
 		media-plugins/gst-plugins-gtk:1.0=
 		media-plugins/gst-plugins-cairo:1.0=
 	)
+	webkit? ( net-libs/webkit-gtk:4.1= )
+	!webkit? ( soup? (
+		media-gfx/qrencode
+		net-libs/libsoup:2.4
+	) )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="$(vala_depend)"
@@ -58,6 +63,10 @@ DOCS=(
 )
 
 src_prepare() {
+	eapply "${FILESDIR}/${P}-no-movies.patch"
+	eapply "${FILESDIR}/${P}-vala-0.56.7.patch"
+	use webkit && eapply "${FILESDIR}/${P}-webkit2gtk-4.1.patch"
+
 	cmake_src_prepare
 	vala_setup
 	sed -i -e "/find_program/s/valac/& &-0.56 &-0.54 &-0.52 &-0.50/" \
@@ -67,7 +76,17 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DMOVIES=$(usex gstreamer on off)
+		-DMDVIEW=$(usex webkit on off)
 		-DCMAKE_VERBOSE_MAKEFILE=TRUE
 	)
+
+	if use webkit; then
+		use soup && ewarn \
+			"USE flag \"webkit\" overrides \"soup\"; disabling REST support."
+		mycmakeargs+=( -DREST=off )
+	else
+		mycmakeargs+=( -DREST=$(usex soup on off) )
+	fi
+
 	cmake_src_configure
 }
