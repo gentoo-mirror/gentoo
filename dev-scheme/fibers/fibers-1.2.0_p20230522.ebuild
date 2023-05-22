@@ -3,13 +3,16 @@
 
 EAPI=8
 
+[[ ${PV} == *_p20230522 ]] && COMMIT=83712f630a976e3084329c9917c40bde19fcc7e5
+
 inherit autotools
 
 DESCRIPTION="Lightweight concurrency facility for Guile Scheme"
 HOMEPAGE="https://github.com/wingo/fibers/
 	https://github.com/wingo/fibers/wiki/Manual/"
-SRC_URI="https://github.com/wingo/${PN}/archive/v${PV}.tar.gz
+SRC_URI="https://github.com/wingo/${PN}/archive/${COMMIT}.tar.gz
 	-> ${P}.tar.gz"
+S="${WORKDIR}"/${PN}-${COMMIT}
 
 LICENSE="LGPL-3+"
 SLOT="0"
