@@ -30,7 +30,10 @@ RDEPEND="${DEPEND}
 	networkmanager? ( net-misc/networkmanager )
 "
 
-PATCHES=( "${FILESDIR}/${P}-QDnsLookup-dont-overflow-the-buffer.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-QDnsLookup-dont-overflow-the-buffer.patch"
+	"${FILESDIR}/${P}-CVE-2023-32762.patch"
+)
 
 QT5_TARGET_SUBDIRS=(
 	src/network
