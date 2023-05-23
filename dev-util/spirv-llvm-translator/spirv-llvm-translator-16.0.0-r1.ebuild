@@ -17,21 +17,22 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="UoI-NCSA"
 SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~x86"
-IUSE="test +tools"
-REQUIRED_USE="test? ( tools )"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-util/spirv-headers
-	sys-devel/clang:${SLOT}
-	sys-devel/llvm:${SLOT}
+	dev-util/spirv-tools
+	sys-devel/llvm:${SLOT}=
 "
-
-DEPEND="${RDEPEND}"
-
+DEPEND="${RDEPEND}
+	dev-util/spirv-headers
+"
 BDEPEND="
 	virtual/pkgconfig
-	test? ( dev-python/lit )
+	test? (
+		dev-python/lit
+		sys-devel/clang:${SLOT}
+	)
 "
 
 PATCHES=(
@@ -48,8 +49,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCCACHE_ALLOWED="OFF"
 		-DCMAKE_INSTALL_PREFIX="$(get_llvm_prefix ${LLVM_MAX_SLOT})"
-		-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="${BROOT}/usr/include/spirv"
-		-DLLVM_BUILD_TOOLS=$(usex tools "ON" "OFF")
+		-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="${ESYSROOT}/usr/include/spirv"
 		-DLLVM_SPIRV_INCLUDE_TESTS=$(usex test "ON" "OFF")
 		-Wno-dev
 	)
