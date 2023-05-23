@@ -5,14 +5,20 @@
 EAPI=7
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1
 
 MY_P=${P/-/_}
 DESCRIPTION="Easy-to-use Python module for text parsing"
-HOMEPAGE="https://github.com/pyparsing/pyparsing https://pypi.org/project/pyparsing/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_P}.tar.gz"
+HOMEPAGE="
+	https://github.com/pyparsing/pyparsing/
+	https://pypi.org/project/pyparsing/
+"
+SRC_URI="
+	https://github.com/pyparsing/pyparsing/archive/${MY_P}.tar.gz
+		-> ${MY_P}.gh.tar.gz
+"
 S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="MIT"

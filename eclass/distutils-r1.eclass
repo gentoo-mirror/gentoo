@@ -605,7 +605,7 @@ distutils_enable_tests() {
 		setup.py)
 			;;
 		unittest)
-			test_pkg="dev-python/unittest-or-fail"
+			# dep handled below
 			;;
 		*)
 			die "${FUNCNAME}: unsupported argument: ${1}"
@@ -623,6 +623,13 @@ distutils_enable_tests() {
 				${test_pkg}[\${PYTHON_USEDEP}]
 			")"
 		fi
+	elif [[ ${1} == unittest ]]; then
+		# unittest-or-fail is needed in py<3.12
+		test_deps+="
+			$(python_gen_cond_dep '
+				dev-python/unittest-or-fail[${PYTHON_USEDEP}]
+			' 3.{9..11})
+		"
 	fi
 	if [[ -n ${test_deps} ]]; then
 		IUSE+=" test"
@@ -1318,6 +1325,28 @@ distutils_pep517_install() {
 
 	local config_settings=
 	case ${DISTUTILS_USE_PEP517} in
+		maturin)
+			# ebuild's DISTUTILS_ARGS are currently ignored if <1.0.0, ebuilds
+			# should set the dependency if used until this can be cleaned up
+			# (reminder to cleanup the old MATURIN_PEP517_ARGS block too)
+			if has_version -b '>=dev-util/maturin-1.0.0'; then
+				# `maturin pep517 build-wheel --help` for options
+				local maturin_args=(
+					"${DISTUTILS_ARGS[@]}"
+					--jobs="$(makeopts_jobs)"
+					--skip-auditwheel # see bug #831171
+					$(in_iuse debug && usex debug '--profile=dev' '')
+				)
+
+				config_settings=$(
+					"${EPYTHON}" - "${maturin_args[@]}" <<-EOF || die
+						import json
+						import sys
+						print(json.dumps({"build-args": sys.argv[1:]}))
+					EOF
+				)
+			fi
+			;;
 		meson-python)
 			local -x NINJAOPTS=$(get_NINJAOPTS)
 			if has_version -b '>=dev-python/meson-python-0.13'; then
@@ -1493,13 +1522,13 @@ distutils-r1_python_compile() {
 			fi
 			;;
 		maturin)
-			# auditwheel may auto-bundle libraries (bug #831171),
-			# also support cargo.eclass' IUSE=debug if available
-			local -x MATURIN_PEP517_ARGS="
-				--jobs=$(makeopts_jobs)
-				--skip-auditwheel
-				$(in_iuse debug && usex debug --profile=dev '')
-			"
+			if has_version -b '<dev-util/maturin-1.0.0'; then
+				local -x MATURIN_PEP517_ARGS="
+					--jobs=$(makeopts_jobs)
+					--skip-auditwheel
+					$(in_iuse debug && usex debug --profile=dev '')
+				"
+			fi
 			;;
 		no)
 			return
