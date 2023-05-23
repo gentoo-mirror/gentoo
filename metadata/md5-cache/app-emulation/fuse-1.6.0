@@ -10,8 +10,8 @@ IUSE=alsa ao backend-X backend-fbcon +backend-gtk3 backend-sdl backend-svga gpm 
 KEYWORDS=~amd64 ~ppc ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=>=app-emulation/libspectrum-1.5.0[zlib?] dev-libs/glib:2 alsa? ( media-libs/alsa-lib ) ao? ( media-libs/libao ) backend-X? ( x11-libs/libX11 x11-libs/libXext ) backend-gtk3? ( x11-libs/gtk+:3 ) backend-sdl? ( media-libs/libsdl[joystick,sound] ) backend-svga? ( media-libs/svgalib ) gpm? ( backend-fbcon? ( sys-libs/gpm ) ) joystick? ( !backend-sdl? ( media-libs/libjsw ) ) png? ( media-libs/libpng:0= ) pulseaudio? ( media-sound/pulseaudio ) xml? ( dev-libs/libxml2:2 ) zlib? ( sys-libs/zlib )
-REQUIRED_USE=?? ( alsa ao backend-sdl pulseaudio ) ?? ( backend-X backend-fbcon backend-gtk3 backend-sdl backend-svga )
+REQUIRED_USE=?? ( alsa ao backend-sdl pulseaudio ) ?? ( backend-X backend-fbcon backend-gtk3 backend-sdl backend-svga ) png? ( zlib )
 SLOT=0
 SRC_URI=mirror://sourceforge/fuse-emulator/fuse-1.6.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=7cc5ab373454ef994e76bfcec0fd1d9d
+_md5_=f8e7a6fccef6aef2c32cfaadf4cb1db3
