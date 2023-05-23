@@ -524,7 +524,6 @@ app-emulation/crossover-bin:capi - Enable ISDN support via CAPI
 app-emulation/crossover-bin:opencl - Enable OpenCL support
 app-emulation/crossover-bin:osmesa - Add support for OpenGL in bitmaps using libOSMesa
 app-emulation/crossover-bin:pcap - Support packet capture software (e.g. wireshark)
-app-emulation/crossover-bin:vulkan - Enable Vulkan drivers
 app-emulation/dosemu:fluidsynth - use media-sound/fluidsynth for MIDI emulation
 app-emulation/dxvk:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/dxvk:d3d10 - Enable support for DirectX 10 (d3d10.dll)
@@ -683,7 +682,6 @@ app-emulation/wine-staging:pcap - Support packet capture software (e.g. wireshar
 app-emulation/wine-staging:perl - Install helpers that require perl (winedump/winemaker)
 app-emulation/wine-staging:samba - Pull in net-fs/samba with winbind for NTLM auth support
 app-emulation/wine-staging:sdl - Enable gamepad support using media-libs/libsdl2
-app-emulation/wine-staging:vulkan - Enable Vulkan drivers
 app-emulation/wine-vanilla:capi - Enable ISDN support using net-libs/libcapi
 app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-vanilla:dos - Pull in games-emulation/dosbox to run DOS applications
@@ -698,7 +696,6 @@ app-emulation/wine-vanilla:perl - Install helpers that require perl (winedump/wi
 app-emulation/wine-vanilla:samba - Pull in net-fs/samba with winbind for NTLM auth support
 app-emulation/wine-vanilla:sdl - Enable gamepad support using media-libs/libsdl2
 app-emulation/wine-vanilla:vkd3d - Enable DirectX 12 support using app-emulation/vkd3d
-app-emulation/wine-vanilla:vulkan - Enable Vulkan drivers
 app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-compressed game files
 app-emulation/x48:readline - Enables support for libreadline
 app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools
@@ -1440,7 +1437,6 @@ dev-games/godot:raycast - Enable the raycast Editor module using media-libs/embr
 dev-games/godot:runner - Build an additional binary optimized for running games (only relevant with USE=tools)
 dev-games/godot:speech - Enable text-to-speech support
 dev-games/godot:tools - Enable the Godot Editor for game development
-dev-games/godot:vulkan - Enable support for Vulkan
 dev-games/godot:webm - Enable the WebM module
 dev-games/guichan:allegro - Build the Allegro frontend
 dev-games/mygui:l10n_ru - Install some additional russian docs if 'doc' useflag enabled
@@ -2053,7 +2049,6 @@ dev-libs/modsecurity:json - Suppose JSON in the request body parser through dev-
 dev-libs/modsecurity:lmdb - Add LMDB backend support
 dev-libs/modsecurity:pcre2 - Use dev-libs/libpcre2 as regex implementation
 dev-libs/ncnn:tools - Enable installation of various tools in addition to the library
-dev-libs/ncnn:vulkan - Enable vulkan compute support
 dev-libs/nettle:asm - Support assembly hand optimized crypto functions (i.e. faster run time)
 dev-libs/nss:cacert - Include root/class3 certs from CAcert (https://www.cacert.org/)
 dev-libs/nss:utils - Install utilities included with the library
@@ -2561,7 +2556,6 @@ dev-qt/qt-docs:x11extras - Install documentation for dev-qt/qtx11extras
 dev-qt/qt-docs:xmlpatterns - Install documentation for dev-qt/qtxmlpatterns
 dev-qt/qt3d:gamepad - Add support for gamepad hardware via dev-qt/qtgamepad
 dev-qt/qt3d:qml - Build QML/QtQuick bindings
-dev-qt/qt3d:vulkan - Enable support for Vulkan
 dev-qt/qtbase:X - Build the XCB platform plugin and enable X11 integration
 dev-qt/qtbase:brotli - Enable support for Brotli decompression
 dev-qt/qtbase:concurrent - Build Qt6Concurrent module
@@ -2579,7 +2573,6 @@ dev-qt/qtbase:sql - Build Qt6Sql module
 dev-qt/qtbase:systemd - Enable native journald logging support
 dev-qt/qtbase:tslib - Enable support for touchscreen devices via x11-libs/tslib
 dev-qt/qtbase:tuio - Build plugin to receive touch events over the TUIO protocol
-dev-qt/qtbase:vulkan - Enable support for Vulkan
 dev-qt/qtbase:widgets - Build Qt6Widgets module
 dev-qt/qtbluetooth:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtcharts:qml - Build QML/QtQuick bindings and imports
@@ -2589,7 +2582,6 @@ dev-qt/qtdatavis3d:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtdeclarative:localstorage - Build the LocalStorage import for QtQuick (requires QtSql)
 dev-qt/qtdeclarative:opengl - Enable OpenGL support
 dev-qt/qtdeclarative:sql - Enable QtSQL support
-dev-qt/qtdeclarative:vulkan - Enable support for Vulkan
 dev-qt/qtdeclarative:widgets - Enable QtWidgets support
 dev-qt/qtdiag:network - Report network information
 dev-qt/qtdiag:widgets - Report widget style information
@@ -2604,7 +2596,6 @@ dev-qt/qtgui:libinput - Enable support for input devices via dev-libs/libinput
 dev-qt/qtgui:linuxfb - Enable Linux framebuffer support for embedded devices
 dev-qt/qtgui:tslib - Enable support for touchscreen devices via x11-libs/tslib
 dev-qt/qtgui:tuio - Build plugin to receive touch events over the TUIO protocol
-dev-qt/qtgui:vulkan - Enable support for Vulkan
 dev-qt/qtgui:wayland - Provide dev-qt/qtwayland to ensure Qt applications can be run as Wayland clients
 dev-qt/qtmultimedia:gstreamer - Enable audio support via media-libs/gstreamer
 dev-qt/qtmultimedia:qml - Build QML/QtQuick bindings and imports
@@ -2983,7 +2974,6 @@ games-emulation/dolphin:discord-presence - Enables Discord Rich Presence, show t
 games-emulation/dolphin:evdev - Enable evdev input support
 games-emulation/dolphin:log - Increase logging output
 games-emulation/dolphin:mgba - Enables GBA controllers emulation using libmgba.
-games-emulation/dolphin:vulkan - Enable support for Vulkan-based video backend.
 games-emulation/dosbox:core-inline - Enable memory-increasing inlines for better performance but requiring more build time
 games-emulation/dosbox:glide - Enable unofficial Glide emulation via media-libs/openglide
 games-emulation/dosbox-staging:dynrec - Use recompiling cpu core instead of dynamic x86/x64 specific cpu core
@@ -3030,7 +3020,6 @@ games-emulation/mupen64plus-core:osd - Overlay emulator messages using on-screen
 games-emulation/mupen64plus-video-glide64mk2:hires - Support hi-resolution textures (requires dev-libs/boost)
 games-emulation/pcsx2:backtrace - Display a backtrace on crash using sys-libs/libbacktrace
 games-emulation/pcsx2:sndio - Enable support for the media-sound/sndio backend
-games-emulation/pcsx2:vulkan - Enable support for Vulkan
 games-emulation/pcsxr:archive - Support compressed files (via libarchive)
 games-emulation/pcsxr:ccdda - Support compressed CDDA (requires ffmpeg)
 games-emulation/pcsxr:cdio - Use libcdio for CD support
@@ -3094,7 +3083,6 @@ games-fps/eduke32:xmp - Enable support for media-libs/exempi.
 games-fps/gzdoom:gles2 - Enable GLES2 backend
 games-fps/gzdoom:non-free - Enable non-free components
 games-fps/gzdoom:swr - Enable software renderer
-games-fps/gzdoom:vulkan - Enable Vulkan support
 games-fps/nexuiz:maps - Install the community map pack
 games-fps/prboom-plus:dumb - Enable support for various tracker-style music formats via media-libs/dumb
 games-fps/prboom-plus:fluidsynth - Enable support for MIDI via media-sound/fluidsynth
@@ -3108,7 +3096,6 @@ games-fps/quake2-icculus:qmax - Build the pretty version (quake max)
 games-fps/quake2-icculus:rogue - Build support for the 'Ground Zero' Mission Pack (rogue)
 games-fps/quake2-icculus:xatrix - Build support for the 'The Reckoning' Mission Pack (xatrix)
 games-fps/quakeforge:client - Build Normal and QuakeWorld clients alongside the servers
-games-fps/quakeforge:vulkan - Enable vulkan renderer (experimental)
 games-fps/quakeforge:wildmidi - Use media-sound/wildmidi for midi support
 games-fps/redeclipse:dedicated - Install only as a dedicated game server
 games-fps/rott:demo - Install the shareware version
@@ -3225,7 +3212,6 @@ games-strategy/uqm:remix - download and install remixed music files (large)
 games-strategy/uqm:voice - download and install voice files (large)
 games-strategy/wargus:bne - Support extracting data from the Battle.net Edition
 games-strategy/warzone2100:discord - Enable Discord presence/join integration
-games-strategy/warzone2100:vulkan - Enable vulkan backend
 games-strategy/wesnoth:server - Enable compilation of server
 games-util/basis_universal:opencl - Enable OpenCL support
 games-util/gslist:web - Enable the web interface
@@ -3337,7 +3323,6 @@ gui-libs/gtk:broadway - Enable the GDK Broadway backend.
 gui-libs/gtk:cloudproviders - Enable GtkPlacesSidebar to access cloud services
 gui-libs/gtk:colord - Use x11-misc/colord for color management in printing
 gui-libs/gtk:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
-gui-libs/gtk:vulkan - Enable support for the Vulkan graphics API
 gui-libs/gtksourceview:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 gui-libs/libhandy:glade - Install module and catalog for dev-util/glade
 gui-libs/neatvnc:examples - Build and install examples
@@ -3354,7 +3339,6 @@ gui-libs/wlroots:libinput - Enable support for input devices via dev-libs/libinp
 gui-libs/wlroots:liftoff - Enable support for libliftoff KMS plane backend
 gui-libs/wlroots:session - Enable session support (is required for DRM and libinput)
 gui-libs/wlroots:tinywl - Install the minimal wayland client, tinywl
-gui-libs/wlroots:vulkan - Enable support for the vulkan backend renderer
 gui-libs/wlroots:x11-backend - Enable support for handling input/output devices through x11-libs/libxcb
 gui-libs/wlroots:xcb-errors - Better error reporting when using xwayland
 gui-libs/xdg-desktop-portal-wlr:elogind - Enable support for rootless session via elogind
@@ -4243,7 +4227,6 @@ media-libs/libpano13:suitesparse - Use Sparse Levenberg Marquardt algorithm inst
 media-libs/libplacebo:glslang - Use dev-util/glslang to compile GLSL
 media-libs/libplacebo:lcms - Add support for color management via media-libs/lcms
 media-libs/libplacebo:shaderc - Use media-libs/shaderc to compile GLSL
-media-libs/libplacebo:vulkan - Add support for the vulkan graphics API
 media-libs/libpng:apng - support unofficial APNG (Animated PNG) spec
 media-libs/libprojectm:gles2 - Provide support for OpenGL ES 2 and 3
 media-libs/libpulse:asyncns - Use libasyncns for asynchronous name resolution.
@@ -4264,7 +4247,6 @@ media-libs/libsdl2:pipewire - Enable support for the media-video/pipewire audio 
 media-libs/libsdl2:sndio - Enable support for the media-sound/sndio backend
 media-libs/libsdl2:sound - Control audio support (disable at your own risk)
 media-libs/libsdl2:video - Control video support (disable at your own risk)
-media-libs/libsdl2:vulkan - Enable Vulkan support
 media-libs/libtgvoip:dsp - Enable signal processing (echo cancellation, noise suppression, and automatic gain control)
 media-libs/libva-compat:drm - Enables VA/DRM API support.
 media-libs/libva-compat:egl - Enables EGL support.
@@ -4291,7 +4273,6 @@ media-libs/mesa:opencl - Enable the Rusticl Gallium OpenCL state tracker.
 media-libs/mesa:osmesa - Build the Mesa library for off-screen rendering.
 media-libs/mesa:proprietary-codecs - Enable codecs for patent-encumbered audio and video formats.
 media-libs/mesa:vdpau - Enable the VDPAU acceleration interface for the Gallium3D Video Layer.
-media-libs/mesa:vulkan - Enable Vulkan drivers
 media-libs/mesa:vulkan-overlay - Build vulkan-overlay-layer which displays Frames Per Second and other statistics
 media-libs/mesa:wayland - Enable support for dev-libs/wayland
 media-libs/mesa:xa - Enable the XA (X Acceleration) API for Gallium3D.
@@ -4995,7 +4976,6 @@ media-video/ffmpeg:twolame - Enables MP2 encoding via media-sound/twolame as an 
 media-video/ffmpeg:vidstab - Enables video stabilization filter using vid.stab library (media-libs/vidstab).
 media-video/ffmpeg:vmaf - Enables Netflix's perceptual video quality assessment filter using the library (media-libs/libvmaf).
 media-video/ffmpeg:vpx - Enables VP8 and VP9 codec support using libvpx: Decoding does not require this to be enabled but libvpx can also be used for decoding; encoding requires this useflag to be enabled though.
-media-video/ffmpeg:vulkan - Enables support for the vulkan API for GPU offload.
 media-video/ffmpeg:x265 - Enables HEVC encoding with media-libs/x265.
 media-video/ffmpeg:zeromq - Enables net-libs/zeromq support with the zmq/azmq filters.
 media-video/ffmpeg:zimg - Enables media-libs/zimg based scale filter.
@@ -5003,7 +4983,6 @@ media-video/ffmpeg:zvbi - Enables media-libs/zvbi based teletext decoder.
 media-video/ffmpeg-chromium:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
 media-video/ffmpeg-chromium:gpl - Build GPL code. Should be enabled unless you require LGPL binaries.
 media-video/ffmpeg-chromium:mmal - Enables Multi-Media Abstraction Layer (MMAL) decoding support: Available e.g. on the Raspberry Pi.
-media-video/ffmpeg-chromium:vulkan - Enables support for the vulkan API for GPU offload.
 media-video/guvcview:qt5 - Build with Qt5 interface instead Gtk+
 media-video/handbrake:fdk - Support for encoding AAC using media-libs/fdk-aac.
 media-video/handbrake:gstreamer - Support for the streaming media framework from media-libs/gstreamer.
@@ -5126,7 +5105,6 @@ media-video/qmplay2:shaders - Compile Vulkan shaders using media-libs/shaderc
 media-video/qmplay2:sid - Build Chiptune with SIDPLAY support
 media-video/qmplay2:videofilters - Build with VideoFilters module
 media-video/qmplay2:visualizations - Build with Visualizations module
-media-video/qmplay2:vulkan - Build with Vulkan support
 media-video/rav1e:capi - Build the C-API library and header file
 media-video/rtmpdump:gnutls - Use GnuTLS instead of OpenSSL for Cryptography
 media-video/rtmpdump:ssl - Enable Cryptographic features
@@ -7680,7 +7658,6 @@ sys-apps/cpu-x:force-libstatgrab - Use sys-libs/libstatgrab to instead of sys-pr
 sys-apps/cpu-x:gpu - Use the media-libs/glfw library for GPU info
 sys-apps/cpu-x:opencl - Use the virtual/opencl library
 sys-apps/cpu-x:pci - Use the sys-apps/pciutils library for PCI info
-sys-apps/cpu-x:vulkan - Enable vulkan support
 sys-apps/dbus:elogind - Use sys-auth/elogind for session tracking.
 sys-apps/dbus:systemd - Build with sys-apps/systemd at_console support
 sys-apps/dbus-broker:launcher - dbus-daemon compatibility launcher
@@ -8766,7 +8743,6 @@ x11-apps/igt-gpu-tools:runner - Build the test runner
 x11-apps/igt-gpu-tools:tests - Build and install tests
 x11-apps/igt-gpu-tools:xv - Enable intel-gpu-overlay xv backend
 x11-apps/mesa-progs:gles2 - Build OpenGL ES 2 utilities
-x11-apps/mesa-progs:vulkan - Build Vulkan utilities
 x11-apps/xdpyinfo:dmx - Builds support for Distributed Multiheaded X x11-base/xorg-server
 x11-apps/xinit:twm - Control dependencies on legacy apps (xterm, twm, ...). Safe to disable if you use a modern desktop environment.
 x11-base/xorg-server:elogind - Use elogind to get control over framebuffer when running as regular user
