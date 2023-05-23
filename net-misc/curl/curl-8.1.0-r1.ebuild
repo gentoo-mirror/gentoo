@@ -108,6 +108,9 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.30.0-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
+	### Backports
+	"${FILESDIR}"/${P}-numeric-hostname.patch
+	"${FILESDIR}"/${P}-header-length.patch
 )
 
 src_prepare() {
