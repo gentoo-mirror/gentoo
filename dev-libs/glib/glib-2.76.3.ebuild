@@ -16,7 +16,7 @@ IUSE="dbus debug +elf gtk-doc +mime selinux static-libs sysprof systemtap test u
 RESTRICT="!test? ( test )"
 REQUIRED_USE="gtk-doc? ( test )" # Bug #777636
 
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 # * elfutils (via libelf) does not build on Windows. gresources are not embedded
 # within ELF binaries on that platform anyway and inspecting ELF binaries from
@@ -99,7 +99,8 @@ src_prepare() {
 		#if ! has_version x11-terms/xterm && ! has_version x11-terms/gnome-terminal ; then
 		#	ewarn "Some tests will be skipped due to missing terminal program"
 		# These tests seem to sometimes fail even with a terminal; skip for now and reevulate with meson
-		# Also try https://gitlab.gnome.org/GNOME/glib/issues/1601 once ready for backport (or in a bump) and file new issue if still fails
+		# Also try https://gitlab.gnome.org/GNOME/glib/issues/1601 once ready
+		# for backport (or in a bump) and file new issue if still fails
 		sed -i -e "/appinfo\/launch/d" gio/tests/appinfo.c || die
 		# desktop-app-info/launch* might fail similarly
 		sed -i -e "/desktop-app-info\/launch-as-manager/d" gio/tests/desktop-app-info.c || die
@@ -165,10 +166,12 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	# TODO: figure a way to pass appropriate values for all cross properties that glib uses (search for get_cross_property)
+	# TODO: figure a way to pass appropriate values for all cross properties
+	# that glib uses (search for get_cross_property)
 	#if tc-is-cross-compiler ; then
 		# https://bugzilla.gnome.org/show_bug.cgi?id=756473
-		# TODO-meson: This should be in meson cross file as 'growing_stack' property; and more, look at get_cross_property
+		# TODO-meson: This should be in meson cross file as 'growing_stack'
+		# property; and more, look at get_cross_property
 		#case ${CHOST} in
 		#hppa*|metag*) export glib_cv_stack_grows=yes ;;
 		#*)            export glib_cv_stack_grows=no ;;
@@ -224,7 +227,9 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	# These are installed by dev-util/glib-utils
-	# TODO: With patching we might be able to get rid of the python-any deps and removals, and test depend on glib-utils instead; revisit now with meson
+	# TODO: With patching we might be able to get rid of the python-any deps
+	# and removals, and test depend on glib-utils instead; revisit now with
+	# meson
 	rm "${ED}/usr/bin/glib-genmarshal" || die
 	rm "${ED}/usr/share/man/man1/glib-genmarshal.1" || die
 	rm "${ED}/usr/bin/glib-mkenums" || die
