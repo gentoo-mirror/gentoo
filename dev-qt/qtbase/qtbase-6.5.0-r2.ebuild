@@ -103,7 +103,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-6.5.0-setActiveWindow-deprecated-version.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-6.5.0-setActiveWindow-deprecated-version.patch"
+	"${FILESDIR}/${PN}-6.5.0-CVE-2023-32762.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

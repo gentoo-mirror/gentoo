@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit cmake python-single-r1
 
@@ -27,9 +27,9 @@ SRC_URI="https://geant4-data.web.cern.ch/geant4-data/releases/${MY_P}.tar.gz"
 
 LICENSE="geant4"
 SLOT="4"
-KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+c++17 c++20 +data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl
-	python qt5 raytracerx static-libs tbb threads vtk"
+	python qt5 raytracerx static-libs tbb threads trajectories vtk"
 
 REQUIRED_USE="
 	^^ ( c++17 c++20 )
@@ -85,7 +85,7 @@ src_configure() {
 		-DCMAKE_CXX_STANDARD=$( (usev c++17 || usev c++20) | cut -c4-)
 		-DGEANT4_BUILD_BUILTIN_BACKTRACE=$(usex debug)
 		-DGEANT4_BUILD_MULTITHREADED=$(usex threads)
-		-DGEANT4_BUILD_STORE_TRAJECTORY=OFF
+		-DGEANT4_BUILD_STORE_TRAJECTORY=$(usex trajectories)
 		-DGEANT4_BUILD_TLS_MODEL=$(usex threads global-dynamic initial-exec)
 		-DGEANT4_BUILD_VERBOSE_CODE=$(usex debug)
 		-DGEANT4_INSTALL_DATA=OFF
@@ -117,8 +117,6 @@ src_configure() {
 		)
 	fi
 
-	[ -v EXTRA_ECONF ] && mycmakeargs+=( ${EXTRA_ECONF} )
-
 	cmake_src_configure
 }
 
@@ -129,6 +127,5 @@ src_install() {
 	cmake_src_install
 	use python && python_optimize
 	rm "${ED}"/usr/bin/*.{sh,csh} || die "failed to remove obsolete shell scripts"
-
 	einstalldocs
 }
