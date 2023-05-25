@@ -5,8 +5,8 @@ EAPI=8
 
 # Note: Please bump this in sync with dev-libs/libxml2.
 
-PYTHON_COMPAT=( python3_{10..11} )
-inherit python-r1 multilib-minimal
+PYTHON_COMPAT=( python3_{10..12} )
+inherit flag-o-matic python-r1 multilib-minimal
 
 DESCRIPTION="XSLT libraries and tools"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libxslt"
@@ -51,6 +51,10 @@ src_prepare() {
 }
 
 multilib_src_configure() {
+	# Remove this after upstream merge request to add AC_SYS_LARGEFILE lands:
+	# https://gitlab.gnome.org/GNOME/libxslt/-/merge_requests/55
+	append-lfs-flags
+
 	libxslt_configure() {
 		ECONF_SOURCE="${S}" econf \
 			--without-python \
@@ -90,7 +94,7 @@ multilib_src_test() {
 	default
 
 	if multilib_is_native_abi && use python ; then
-		python_foreach_impl run_in_build_dir libxslt_py_emake test
+		python_foreach_impl run_in_build_dir libxslt_py_emake check
 	fi
 }
 
