@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Net-SNMP
 INHERIT=perl-module
 IUSE=examples minimal test
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86 ~sparc-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!minimal? ( >=dev-perl/Crypt-DES-2.30.0 >=dev-perl/Crypt-Rijndael-1.20.0 >=dev-perl/Digest-HMAC-1.0 >=virtual/perl-Digest-MD5-2.110.0 >=dev-perl/Digest-SHA1-1.20.0 >=dev-perl/Socket6-0.230.0 ) virtual/perl-Carp virtual/perl-Exporter virtual/perl-IO virtual/perl-Math-BigInt dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DT/DTOWN/Net-SNMP-v6.0.1.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	perl-module	8c55459fea879ccdec282839a3b22f78
-_md5_=e0096efe23e3d319a3168e371fd38c61
+_md5_=679ec140d4b019078ccd994b2f352403

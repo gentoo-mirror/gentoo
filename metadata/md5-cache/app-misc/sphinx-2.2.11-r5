@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=http://www.sphinxsearch.com/
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=debug +id64 mariadb mysql odbc postgres stemmer syslog xml
-KEYWORDS=amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~ppc-macos ~x64-macos ~sparc-solaris ~sparc64-solaris
+KEYWORDS=amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~ppc-macos ~x64-macos
 LICENSE=GPL-2
 RDEPEND=mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) postgres? ( dev-db/postgresql:* ) odbc? ( dev-db/unixODBC ) stemmer? ( dev-libs/snowball-stemmer:= ) xml? ( dev-libs/expat ) virtual/libiconv
 REQUIRED_USE=mysql? ( !mariadb ) mariadb? ( !mysql )
 SLOT=0
 SRC_URI=http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
-_md5_=4b496e4df3f4825477942850e29c1019
+_md5_=542c02c573948fb8da6d32fe016ef8c2
