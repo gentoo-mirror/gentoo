@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ DEPEND="notmuch? ( net-mail/notmuch:= )"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	>=app-text/scdoc-1.9.7
-	>=dev-lang/go-1.13
+	>=dev-lang/go-1.16
 "
 
 src_unpack() {
