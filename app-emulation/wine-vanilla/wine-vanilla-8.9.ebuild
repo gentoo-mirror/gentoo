@@ -6,8 +6,8 @@ EAPI=8
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit autotools flag-o-matic multilib multilib-build toolchain-funcs wrapper
 
-WINE_GECKO=2.47.3
-WINE_MONO=7.4.0
+WINE_GECKO=2.47.4
+WINE_MONO=8.0.0
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -126,7 +126,8 @@ BDEPEND="
 	mingw? ( !crossdev-mingw? (
 		>=dev-util/mingw64-toolchain-10.0.0_p1-r2[${MULTILIB_USEDEP}]
 	) )
-	nls? ( sys-devel/gettext )"
+	nls? ( sys-devel/gettext )
+	wayland? ( dev-util/wayland-scanner )"
 IDEPEND=">=app-eselect/eselect-wine-2"
 
 QA_CONFIG_IMPL_DECL_SKIP=(
