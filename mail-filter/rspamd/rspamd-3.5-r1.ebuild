@@ -3,7 +3,10 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-{1..4} luajit )
+# lua5-{3,4} were dropped due to bug #903577. This issue has been resolved
+# upstream, see https://github.com/rspamd/rspamd/issues/4455. They will be
+# restored with the next version bump.
+LUA_COMPAT=( lua5-1 luajit )
 
 inherit cmake lua-single pax-utils systemd tmpfiles
 
@@ -30,6 +33,7 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}
 	test? ( lua_single_target_luajit )"
 
+# for <dev-libs/libfmt-10 see https://github.com/rspamd/rspamd/issues/4482
 RDEPEND="${LUA_DEPS}
 	$(lua_gen_cond_dep '
 		dev-lua/LuaBitOp[${LUA_USEDEP}]
@@ -42,7 +46,7 @@ RDEPEND="${LUA_DEPS}
 	dev-libs/glib:2
 	dev-libs/icu:=
 	dev-libs/libev
-	dev-libs/libfmt:=
+	<dev-libs/libfmt-10:=
 	dev-libs/libpcre2:=[jit=]
 	dev-libs/libsodium:=
 	dev-libs/openssl:0=[-bindist(-)]
