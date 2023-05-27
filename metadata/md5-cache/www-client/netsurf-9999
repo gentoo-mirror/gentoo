@@ -1,0 +1,15 @@
+BDEPEND=javascript? ( app-editors/vim-core ) dev-libs/check dev-perl/HTML-Parser dev-util/netsurf-buildsystem virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare test unpack
+DEPEND=>=dev-libs/libcss-9999 >=net-libs/libdom-9999 net-libs/libhubbub >=dev-libs/libnsutils-9999 dev-libs/libutf8proc dev-libs/libxml2:2 net-misc/curl bmp? ( media-libs/libnsbmp ) fbcon? ( dev-libs/libnsfb truetype? ( media-fonts/dejavu media-libs/freetype ) ) gif? ( >=media-libs/libnsgif-9999 ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) javascript? ( dev-libs/nsgenbind dev-lang/duktape:= ) jpeg? ( media-libs/libjpeg-turbo:= ) mng? ( media-libs/libmng:= ) png? ( media-libs/libpng:0= ) psl? ( media-libs/libnspsl ) rosprite? ( media-libs/librosprite ) svg? ( svgtiny? ( media-libs/libsvgtiny ) !svgtiny? ( gnome-base/librsvg:2 ) ) webp? ( media-libs/libwebp )
+DESCRIPTION=A free, open source web browser
+EAPI=7
+HOMEPAGE=https://www.netsurf-browser.org/
+INHERIT=desktop git-r3 netsurf toolchain-funcs
+IUSE=bmp fbcon truetype +gif +gtk +javascript +jpeg mng +png +psl rosprite +svg +svgtiny +webp
+LICENSE=GPL-2 MIT
+PROPERTIES=live
+RDEPEND=>=dev-libs/libcss-9999 >=net-libs/libdom-9999 net-libs/libhubbub >=dev-libs/libnsutils-9999 dev-libs/libutf8proc dev-libs/libxml2:2 net-misc/curl bmp? ( media-libs/libnsbmp ) fbcon? ( dev-libs/libnsfb truetype? ( media-fonts/dejavu media-libs/freetype ) ) gif? ( >=media-libs/libnsgif-9999 ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) javascript? ( dev-libs/nsgenbind dev-lang/duktape:= ) jpeg? ( media-libs/libjpeg-turbo:= ) mng? ( media-libs/libmng:= ) png? ( media-libs/libpng:0= ) psl? ( media-libs/libnspsl ) rosprite? ( media-libs/librosprite ) svg? ( svgtiny? ( media-libs/libsvgtiny ) !svgtiny? ( gnome-base/librsvg:2 ) ) webp? ( media-libs/libwebp )
+REQUIRED_USE=|| ( fbcon gtk )
+SLOT=0
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	27e13c09a4c7e4c78ac812f74727e676	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	netsurf	22b05643860c8bf01f0de1de8426b570
+_md5_=bf557b720919c2a12bb3c58ca066e889
