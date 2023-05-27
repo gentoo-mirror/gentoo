@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://feh.finalrewind.org/
 INHERIT=toolchain-funcs xdg-utils
 IUSE=debug curl exif test xinerama inotify
-KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ppc64 ~riscv x86
 LICENSE=feh
 RDEPEND=media-libs/imlib2[X,text(+)] >=media-libs/libpng-1.2:0= x11-libs/libX11 curl? ( net-misc/curl ) exif? ( media-libs/libexif ) xinerama? ( x11-libs/libXinerama ) media-libs/libjpeg-turbo:0
 RESTRICT=test
 SLOT=0
 SRC_URI=https://feh.finalrewind.org/feh-3.10.tar.bz2
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=9580293b2f6e6fd72c4419eb86b7f445
+_md5_=3a47285a20f7e73bc86418af0d115c7d
