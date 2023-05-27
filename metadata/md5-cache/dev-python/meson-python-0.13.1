@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://pypi.org/project/meson-python/ https://github.com/mesonbuild/meson-python/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=amd64 arm ~arm64 ~ia64 ~loong ppc ~ppc64 ~riscv ~s390 ~sparc x86
+KEYWORDS=amd64 arm arm64 ~ia64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=MIT
 RDEPEND=>=dev-python/pyproject-metadata-0.7.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-util/meson-0.63.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-util/patchelf python_targets_python3_10? ( >=dev-python/tomli-1.0.0[python_targets_python3_10(-)?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/mesonbuild/meson-python/archive/0.13.1.tar.gz -> meson-python-0.13.1.gh.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	104e1332efb829e2f7cbf89307a474f1	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	dc5ca9013da6279b2e24b0ae156f030e
-_md5_=7f65e829057b458e035948b26aba5209
+_md5_=950deb884577f2d2afa145bc9d24cf0a

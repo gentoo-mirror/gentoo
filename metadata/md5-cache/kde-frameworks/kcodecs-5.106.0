@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org
 IUSE=debug doc test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+
 RDEPEND=>=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 RESTRICT=!test? ( test )
 SLOT=5/5.106
 SRC_URI=mirror://kde/stable/frameworks/5.106/kcodecs-5.106.0.tar.xz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	virtualx	817571665ee28575da44ee08135089e5	ecm	76234c40ad6f38d0d48cb04228708c86	kde.org	dc60243572471279b11120514b85b558	frameworks.kde.org	6556398a532490b4d6d03158a82e455a
-_md5_=b60e32685f3c624dc45e0bbfea661217
+_md5_=ed0576047537c66a6cc03e0bb147946e
