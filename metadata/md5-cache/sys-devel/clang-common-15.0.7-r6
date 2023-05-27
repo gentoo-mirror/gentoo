@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-llvm-16.0.4 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=install preinst prepare pretend unpack
+DESCRIPTION=Common files shared between multiple slots of clang
+EAPI=8
+HOMEPAGE=https://llvm.org/
+IDEPEND=!default-compiler-rt? ( sys-devel/gcc-config ) !default-libcxx? ( sys-devel/gcc-config )
+INHERIT=bash-completion-r1 llvm.org
+IUSE=default-compiler-rt default-libcxx default-lld llvm-libunwind hardened stricter verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+PDEPEND=sys-devel/clang:* default-compiler-rt? ( sys-devel/clang-runtime[compiler-rt] llvm-libunwind? ( sys-libs/llvm-libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=sys-libs/libcxx-15.0.7 ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( sys-devel/lld ) !default-lld? ( sys-devel/binutils )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-project-15.0.7.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-project-15.0.7.src.tar.xz.sig )
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26	llvm.org	4de6b89952956dad186258dc1c9eccbe
+_md5_=1894f5b7b5a84bb9a81cbeec411726d8
