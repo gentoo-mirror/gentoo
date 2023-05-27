@@ -1,0 +1,16 @@
+BDEPEND=test? ( python_targets_python3_10? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) test? ( >=dev-python/pytest-7.2.1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) doc? ( || ( ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] dev-python/sphinx-bootstrap-theme[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] dev-python/sphinx-bootstrap-theme[python_targets_python3_10(-)] ) ( >=dev-python/pypy3-7.3.11-r1:0 >=dev-python/sphinx-5.3.0[python_targets_pypy3(-)] dev-python/sphinx-bootstrap-theme[python_targets_pypy3(-)] ) ) ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/gpep517-13[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.2.0[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/wheel-0.38.4[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Easy, clean, reliable Python 2/3 compatibility
+EAPI=8
+HOMEPAGE=https://python-future.org/ https://github.com/PythonCharmers/python-future/ https://pypi.org/project/future/
+INHERIT=distutils-r1 pypi
+IUSE=test doc python_targets_pypy3 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/f/future/future-0.18.3.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-python/future/future-0.18.3-tests.patch.xz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	104e1332efb829e2f7cbf89307a474f1	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	dc5ca9013da6279b2e24b0ae156f030e	pypi	3b6a844fbf71f1581992b44c78b549b7
+_md5_=f06649ddb8118a9182a8fb3ddeb94106

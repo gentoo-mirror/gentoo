@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://quvi.sourceforge.net/
 INHERIT=autotools lua-single
 IUSE=examples nls static-libs lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-4
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ppc64 sparc x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ppc ppc64 sparc x86
 LICENSE=AGPL-3
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:=[deprecated(+)] ) lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated(+)] ) lua_single_target_lua5-4? ( dev-lang/lua:5.4[deprecated(+)] ) >=dev-libs/glib-2.34.3:2 >=dev-libs/libgcrypt-1.5.3:0= >=media-libs/libquvi-scripts-0.9.20130903[lua_single_target_luajit(-)?,lua_single_target_lua5-1(-)?,lua_single_target_lua5-4(-)?] !<media-libs/quvi-0.4.0 >=net-libs/libproxy-0.4.11-r1 >=net-misc/curl-7.36.0 nls? ( >=virtual/libintl-0-r1 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-4 )
 SLOT=0/8
 SRC_URI=mirror://sourceforge/quvi/0.9/libquvi-0.9.4.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
-_md5_=8cbe24660dcf4e0a8674c97d84c45aca
+_md5_=4e784425c79fedb65cf59e663276c19a

@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://libmtp.sourceforge.net/
 INHERIT=udev libtool
 IUSE=+crypt doc examples static-libs
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ppc ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1
 RDEPEND=acct-group/plugdev virtual/libiconv virtual/libusb:1 crypt? ( dev-libs/libgcrypt:0= )
 SLOT=0/9
 SRC_URI=mirror://sourceforge/libmtp/libmtp-1.1.21.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	udev	eec0bbab06977f1cfc5597269c1fa152	libtool	9d3a9a889a6fa62ae794f817c156491b
-_md5_=51eec958e48339217b64724580ce7726
+_md5_=05e6741e3e111c9d25b36d2ed2134526
