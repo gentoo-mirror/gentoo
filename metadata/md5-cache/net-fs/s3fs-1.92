@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure prepare
+DEPEND=dev-libs/libxml2:2 net-misc/curl sys-fs/fuse:0 nss? ( dev-libs/nss ) !nss? ( gnutls? ( net-libs/gnutls:= nettle? ( dev-libs/nettle:= ) ) !gnutls? ( dev-libs/openssl:0= ) )
+DESCRIPTION=Amazon S3 mounting via fuse
+EAPI=8
+HOMEPAGE=https://github.com/s3fs-fuse/s3fs-fuse/
+INHERIT=autotools
+IUSE=gnutls nettle nss
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libxml2:2 net-misc/curl sys-fs/fuse:0 nss? ( dev-libs/nss ) !nss? ( gnutls? ( net-libs/gnutls:= nettle? ( dev-libs/nettle:= ) ) !gnutls? ( dev-libs/openssl:0= ) ) app-misc/mime-types
+REQUIRED_USE=nettle? ( gnutls !nss )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.92.tar.gz -> s3fs-1.92.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
+_md5_=943d379d19e84a29c869d37b2a8cab5b
