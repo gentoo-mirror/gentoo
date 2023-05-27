@@ -26,6 +26,7 @@ RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
 	dev-libs/libbsd
 	dev-libs/libdbusmenu
 	dev-libs/nss
+	dev-libs/wayland
 	dev-python/pip
 	media-fonts/dejavu
 	media-gfx/graphite2
