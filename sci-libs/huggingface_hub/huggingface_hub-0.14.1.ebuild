@@ -7,10 +7,9 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 inherit distutils-r1
 
-DESCRIPTION="State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow"
+DESCRIPTION="a client library to interact with the Hugging Face Hub"
 HOMEPAGE="
-	https://pypi.org/project/transformers/
-	https://huggingface.co/
+	https://pypi.org/project/huggingface_hub/
 "
 SRC_URI="https://github.com/huggingface/${PN}/archive/refs/tags/v${PV}.tar.gz
 	-> ${P}.gh.tar.gz"
@@ -18,18 +17,15 @@ SRC_URI="https://github.com/huggingface/${PN}/archive/refs/tags/v${PV}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="test" # Need some modules, not yet packaged
+RESTRICT="test" #Several modules not yet packaged
 
 RDEPEND="
 	dev-python/filelock[${PYTHON_USEDEP}]
-	sci-libs/huggingface_hub[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
-	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/regex[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	sci-libs/tokenizers[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
+	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
