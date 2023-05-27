@@ -81,6 +81,7 @@ src_configure() {
 		$(use_enable chm python-chm)
 		$(use_enable session x11mon)
 		$(use_enable qt5 qtgui)
+		$(use_enable spell python-aspell)
 		$(use_enable webengine)
 		$(use_with inotify)
 		$(use_with spell aspell)
