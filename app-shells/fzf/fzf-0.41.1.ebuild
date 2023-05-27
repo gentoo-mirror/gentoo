@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/junegunn/fzf"
 # For fancy versioning only. Bump on the next release!
 # MY_GIT_REV is the first 7 characters of release commit, we truncate it
 # after to make it easier to copy/paste.
-MY_GIT_REV=098ef4d7cfb5465e15b29fc087f9db0b81733eec
+MY_GIT_REV=6eb1874c5a919b63bfebeb9b41f6f004a03df0d7
 MY_GIT_REV=${MY_GIT_REV:0:7}
 
 SRC_URI="https://github.com/junegunn/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
