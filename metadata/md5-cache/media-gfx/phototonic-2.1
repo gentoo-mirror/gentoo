@@ -1,14 +1,15 @@
-DEFINED_PHASES=configure install postinst postrm
+DEFINED_PHASES=configure install postinst postrm preinst
 DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-gfx/exiv2:= svg? ( dev-qt/qtsvg:5 ) tiff? ( dev-qt/qtimageformats:5 )
 DESCRIPTION=Image viewer and organizer
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/oferkv/phototonic
-INHERIT=qmake-utils xdg-utils
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=qmake-utils xdg
 IUSE=svg tiff
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-gfx/exiv2:= svg? ( dev-qt/qtsvg:5 ) tiff? ( dev-qt/qtimageformats:5 )
 SLOT=0
 SRC_URI=https://github.com/oferkv/phototonic/archive/v2.1.tar.gz -> phototonic-2.1.tar.gz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=73bd864e46eb063a5823745e49c6949a
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=b0268520bf51d275d8ab851fc70e44e0
