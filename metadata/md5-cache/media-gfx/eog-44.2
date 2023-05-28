@@ -1,0 +1,17 @@
+BDEPEND=gtk-doc? ( dev-util/gi-docgen app-text/docbook-xml-dtd:4.1.2 ) dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=dev-libs/glib-2.53.4:2 >=dev-libs/libpeas-0.7.4[gtk] >=gnome-base/gnome-desktop-2.91.2:3= >=gnome-base/gsettings-desktop-schemas-42_beta >=x11-misc/shared-mime-info-0.20 >=x11-libs/gdk-pixbuf-2.36.5:2[jpeg?,tiff?] >=x11-libs/gtk+-3.24.15:3[introspection,X] >=gui-libs/libhandy-1.5.0:1 sys-libs/zlib exif? ( >=media-libs/libexif-0.6.14 ) lcms? ( media-libs/lcms:2 ) xmp? ( media-libs/exempi:2= ) jpeg? ( media-libs/libjpeg-turbo:= ) introspection? ( >=dev-libs/gobject-introspection-1.54:= ) svg? ( >=gnome-base/librsvg-2.44.0:2 ) x11-libs/libX11
+DESCRIPTION=The Eye of GNOME image viewer
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/EyeOfGnome https://gitlab.gnome.org/GNOME/eog
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson xdg
+IUSE=+exif gtk-doc +introspection +jpeg lcms +svg xmp tiff
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.53.4:2 >=dev-libs/libpeas-0.7.4[gtk] >=gnome-base/gnome-desktop-2.91.2:3= >=gnome-base/gsettings-desktop-schemas-42_beta >=x11-misc/shared-mime-info-0.20 >=x11-libs/gdk-pixbuf-2.36.5:2[jpeg?,tiff?] >=x11-libs/gtk+-3.24.15:3[introspection,X] >=gui-libs/libhandy-1.5.0:1 sys-libs/zlib exif? ( >=media-libs/libexif-0.6.14 ) lcms? ( media-libs/lcms:2 ) xmp? ( media-libs/exempi:2= ) jpeg? ( media-libs/libjpeg-turbo:= ) introspection? ( >=dev-libs/gobject-introspection-1.54:= ) svg? ( >=gnome-base/librsvg-2.44.0:2 ) x11-libs/libX11
+REQUIRED_USE=exif? ( jpeg ) gtk-doc? ( introspection )
+SLOT=1
+SRC_URI=mirror://gnome/sources/eog/44/eog-44.2.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	meson	915ec7c25e08d7886558215e6809ca1e	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=ca543141fc29254e33ccbdc0cd4781bc
