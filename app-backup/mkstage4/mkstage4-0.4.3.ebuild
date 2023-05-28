@@ -20,6 +20,8 @@ RDEPEND="
 "
 
 src_install() {
+	newbin cpstage4.sh cpstage4
+	newbin exstage4.sh exstage4
 	newbin mkstage4.sh mkstage4
 	einstalldocs
 }
