@@ -1,0 +1,15 @@
+BDEPEND=wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/tbb:= dev-libs/glib:2 dev-libs/libfmt:= dev-libs/openssl:= dev-libs/spdlog:= media-gfx/chafa media-libs/libsixel media-libs/vips:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-image ) opencv? ( media-libs/opencv:= ) wayland? ( dev-libs/wayland ) !media-gfx/ueberzug dev-cpp/cli11 dev-cpp/ms-gsl dev-cpp/nlohmann_json X? ( x11-base/xorg-proto ) wayland? ( dev-libs/wayland-protocols )
+DESCRIPTION=Drop in replacement for ueberzug written in C++
+EAPI=8
+HOMEPAGE=https://github.com/jstkdng/ueberzugpp/
+INHERIT=cmake
+IUSE=X opencv wayland
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-cpp/tbb:= dev-libs/glib:2 dev-libs/libfmt:= dev-libs/openssl:= dev-libs/spdlog:= media-gfx/chafa media-libs/libsixel media-libs/vips:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-image ) opencv? ( media-libs/opencv:= ) wayland? ( dev-libs/wayland ) !media-gfx/ueberzug
+SLOT=0
+SRC_URI=https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v2.8.6.tar.gz -> ueberzugpp-2.8.6.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
+_md5_=ed79adcabd7e2722e5548fe3bcb940cd
