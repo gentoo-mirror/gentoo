@@ -7,7 +7,7 @@ WANT_LIBTOOL="none"
 inherit autotools check-reqs flag-o-matic multiprocessing pax-utils
 inherit prefix python-utils-r1 toolchain-funcs verify-sig
 
-MY_PV=${PV/_alpha/a}
+MY_PV=${PV/_beta/b}
 MY_P="Python-${MY_PV%_p*}"
 PYVER=$(ver_cut 1-2)
 PATCHSET="python-gentoo-patches-${MY_PV}"
