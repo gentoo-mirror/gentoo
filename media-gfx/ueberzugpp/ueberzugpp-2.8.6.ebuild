@@ -23,7 +23,6 @@ RDEPEND="
 	media-gfx/chafa
 	media-libs/libsixel
 	media-libs/vips:=
-	sys-apps/util-linux
 	X? (
 		x11-libs/libxcb:=
 		x11-libs/xcb-util-image
@@ -45,12 +44,10 @@ BDEPEND="
 	)"
 
 src_configure() {
-	CMAKE_BUILD_TYPE=Release # install target wants this
-
 	local mycmakeargs=(
 		-DENABLE_OPENCV=$(usex opencv)
-		-DENABLE_SWAY=$(usex wayland)
 		-DENABLE_TURBOBASE64=no # not packaged
+		-DENABLE_WLROOTS=$(usex wayland)
 		-DENABLE_X11=$(usex X)
 		-DFETCHCONTENT_FULLY_DISCONNECTED=yes
 	)
@@ -59,9 +56,13 @@ src_configure() {
 }
 
 src_install() {
-	cmake_src_install
-
-	# not handled by cmake, but upstream creates the pp symlink in their
-	# self-maintained AUR package and some scripts like ytfzf look for it
+	# cmake install target is basic (misses the man page and symlinks) and
+	# is gated behind CMAKE_BUILD_TYPE, simpler to do manual for now
+	dobin "${BUILD_DIR}"/ueberzug
 	dosym ueberzug /usr/bin/${PN}
+
+	doman docs/${PN}.1
+	dosym ${PN}.1 /usr/share/man/man1/ueberzug.1
+
+	einstalldocs
 }
