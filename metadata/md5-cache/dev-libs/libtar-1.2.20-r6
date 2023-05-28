@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://repo.or.cz/w/libtar.git/
 INHERIT=autotools
 IUSE=zlib
-KEYWORDS=amd64 ~arm ~arm64 ~loong ppc ppc64 ~riscv sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~arm ~arm64 ~loong ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=zlib? ( sys-libs/zlib:= ) !zlib? ( app-arch/gzip )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~pinkbyte/distfiles/snapshots/libtar-1.2.20.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
-_md5_=de89380de8d2ebc7a2add16f4fafa28f
+_md5_=b12b53000cfe54a24c8d2535596411c2
