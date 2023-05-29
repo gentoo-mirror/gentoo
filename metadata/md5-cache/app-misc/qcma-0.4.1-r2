@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools:5
 DEFINED_PHASES=configure install postinst postrm prepare
-DEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-libs/vitamtp:0 ffmpeg? ( media-video/ffmpeg:= ) x11-libs/libnotify:0
+DEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-libs/vitamtp:0 ffmpeg? ( <media-video/ffmpeg-5:= ) x11-libs/libnotify:0
 DESCRIPTION=Cross-platform content manager assistant for the PS Vita
 EAPI=8
 HOMEPAGE=https://github.com/codestation/qcma
@@ -8,8 +8,8 @@ INHERIT=qmake-utils xdg-utils
 IUSE=+ffmpeg
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-libs/vitamtp:0 ffmpeg? ( media-video/ffmpeg:= ) x11-libs/libnotify:0
+RDEPEND=dev-libs/glib:2 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-libs/vitamtp:0 ffmpeg? ( <media-video/ffmpeg-5:= ) x11-libs/libnotify:0
 SLOT=0
 SRC_URI=https://github.com/codestation/qcma/archive/v0.4.1.tar.gz -> qcma-0.4.1.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=9b615d4796f60d944a6e304b3fc5d6de
+_md5_=61d082ec103b50b6d801fdf4d8251fed
