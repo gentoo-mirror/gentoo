@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -39,11 +39,13 @@ RDEPEND="
 	virtual/glu[${MULTILIB_USEDEP}]
 	jack? ( virtual/jack )
 	opengl? ( media-libs/libglvnd[${MULTILIB_USEDEP},X] )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	v4l? ( media-libs/libv4l )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/linguist-tools:5"
+
+PATCHES=( "${FILESDIR}"/${P}-ffmpeg5.patch )
 
 pkg_pretend() {
 	if [[ "${ABI}" == amd64 ]] ; then
