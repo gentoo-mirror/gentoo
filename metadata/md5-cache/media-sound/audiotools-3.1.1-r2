@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10[xml(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11[xml(+)] ) >=dev-python/setuptools-65.7.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=alsa? ( media-libs/alsa-lib ) cdda? ( dev-libs/libcdio-paranoia:0= ) dvda? ( media-libs/libdvd-audio ) twolame? ( media-sound/twolame ) mp3? ( || ( media-sound/mpg123 media-sound/lame ) ) opus? ( media-libs/opus media-libs/opusfile ) pulseaudio? ( media-libs/libpulse ) vorbis? ( media-libs/libvorbis ) wavpack? ( media-sound/wavpack )
+DESCRIPTION=A collection of command line audio tools
+EAPI=8
+HOMEPAGE=http://audiotools.sourceforge.net/
+INHERIT=distutils-r1
+IUSE=aac alsa cdda cdr cue dvda flac gui twolame mp3 opus pulseaudio vorbis wavpack python_targets_python3_10 python_targets_python3_11
+KEYWORDS=amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=alsa? ( media-libs/alsa-lib ) cdda? ( dev-libs/libcdio-paranoia:0= ) dvda? ( media-libs/libdvd-audio ) twolame? ( media-sound/twolame ) mp3? ( || ( media-sound/mpg123 media-sound/lame ) ) opus? ( media-libs/opus media-libs/opusfile ) pulseaudio? ( media-libs/libpulse ) vorbis? ( media-libs/libvorbis ) wavpack? ( media-sound/wavpack ) aac? ( media-libs/faad2 media-libs/faac ) cdr? ( app-cdr/cdrtools ) cue? ( app-cdr/cdrdao ) flac? ( media-libs/flac ) gui? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10[tk(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11[tk(+)] ) dev-python/pillow[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/urwid[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10[xml(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11[xml(+)] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://sourceforge/audiotools/audiotools-3.1.1.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	57f007adcdf3953627f14277c7eae6e0
+_md5_=9d9ffb21be6d693caf05fdf58fea6c41
