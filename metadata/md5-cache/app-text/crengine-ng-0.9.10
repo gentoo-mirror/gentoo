@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-libs/zlib png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) >=media-libs/freetype-2.10.0 harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libunibreak? ( dev-libs/libunibreak:= ) fribidi? ( dev-libs/fribidi ) zstd? ( app-arch/zstd:= ) libutf8proc? ( dev-libs/libutf8proc:= ) fontconfig? ( media-libs/fontconfig ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-libs/zlib png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) >=media-libs/freetype-2.10.0 harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libunibreak? ( dev-libs/libunibreak:= ) fribidi? ( dev-libs/fribidi ) zstd? ( app-arch/zstd:= ) libutf8proc? ( dev-libs/libutf8proc:= ) fontconfig? ( media-libs/fontconfig ) test? ( dev-cpp/gtest app-arch/zip )
+DESCRIPTION=Cross-platform library designed to implement e-book readers
+EAPI=8
+HOMEPAGE=https://gitlab.com/coolreader-ng/crengine-ng
+INHERIT=cmake
+IUSE=+png +jpeg +gif +svg +chm +harfbuzz +fontconfig +libunibreak +fribidi +zstd +libutf8proc lto static-libs test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2+
+RDEPEND=sys-libs/zlib png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) >=media-libs/freetype-2.10.0 harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libunibreak? ( dev-libs/libunibreak:= ) fribidi? ( dev-libs/fribidi ) zstd? ( app-arch/zstd:= ) libutf8proc? ( dev-libs/libutf8proc:= ) fontconfig? ( media-libs/fontconfig )
+RESTRICT=!test? ( test )
+SLOT=0/5
+SRC_URI=https://gitlab.com/coolreader-ng/crengine-ng/-/archive/0.9.10/crengine-ng-0.9.10.tar.bz2 test? ( mirror://gnu/freefont/freefont-otf-20120503.tar.gz )
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
+_md5_=3b0369038d2a6933c2312f62498455a7
