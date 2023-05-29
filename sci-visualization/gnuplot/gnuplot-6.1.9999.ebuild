@@ -4,7 +4,7 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{1,2,3,4} )
-WX_GTK_VER="3.0-gtk3"
+WX_GTK_VER="3.2-gtk3"
 
 inherit autotools lua-single readme.gentoo-r1 toolchain-funcs wxwidgets
 
@@ -27,7 +27,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="gnuplot"
 SLOT="0"
-IUSE="aqua bitmap cairo doc emacs examples +gd ggi latex libcaca libcerf lua qt5 readline regis wxwidgets X"
+IUSE="aqua bitmap cairo doc examples +gd latex libcaca libcerf lua qt5 readline regis wxwidgets X"
 REQUIRED_USE="
 	doc? ( gd )
 	lua? ( ${LUA_REQUIRED_USE} )"
@@ -36,9 +36,7 @@ RDEPEND="
 	cairo? (
 		x11-libs/cairo
 		x11-libs/pango )
-	emacs? ( !<app-emacs/gnuplot-mode-0.8.1 )
 	gd? ( >=media-libs/gd-2.0.35-r3:2=[png] )
-	ggi? ( media-libs/libggi )
 	latex? (
 		virtual/latex-base
 		lua? (
@@ -72,7 +70,6 @@ BDEPEND="
 		dev-texlive/texlive-langgreek
 		dev-texlive/texlive-mathscience
 		app-text/ghostscript-gpl )
-	emacs? ( app-editors/emacs )
 	qt5? ( dev-qt/linguist-tools:5 )"
 
 IDEPEND="latex? ( virtual/latex-base )"
@@ -81,7 +78,7 @@ GP_VERSION="${PV%.*}"
 TEXMF="${EPREFIX}/usr/share/texmf-site"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-5.0.6-no-picins.patch
+	"${FILESDIR}"/${PN}-6.1-no-picins.patch
 )
 
 pkg_setup() {
@@ -130,7 +127,6 @@ src_configure() {
 		$(use_with bitmap bitmap-terminals) \
 		$(use_with cairo) \
 		$(use_with gd) \
-		"$(use_with ggi ggi "${EPREFIX}/usr/$(get_libdir)")" \
 		"$(use_with libcaca caca "${EPREFIX}/usr/$(get_libdir)")" \
 		$(use_with libcerf) \
 		$(use_with lua) \
@@ -140,7 +136,7 @@ src_configure() {
 		$(use_with qt5 qt qt5) \
 		$(use_enable wxwidgets) \
 		DIST_CONTACT="https://bugs.gentoo.org/" \
-		EMACS=$(usex emacs "${EPREFIX}/usr/bin/emacs" no)
+		EMACS=no
 }
 
 src_compile() {
@@ -148,8 +144,6 @@ src_compile() {
 	export VARTEXFONTS="${T}/fonts"
 
 	emake all
-
-	use emacs && emake -C docs info
 
 	if use doc; then
 		if use cairo; then
@@ -188,11 +182,9 @@ src_install() {
 		rm "${ED}"/usr/share/${PN}/${GP_VERSION}/demo/plugin/*.{o,so} || die
 	fi
 
-	use emacs && doinfo docs/gnuplot.info
-
 	if use doc; then
 		# Manual, FAQ
-		dodoc docs/gnuplot.pdf FAQ.pdf
+		dodoc docs/gnuplot.pdf #FAQ.pdf
 		# Documentation for making PostScript files
 		docinto psdoc
 		dodoc docs/psdoc/{*.doc,*.tex,*.ps,*.gpi,README}
