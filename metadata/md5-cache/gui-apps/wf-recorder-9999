@@ -1,13 +1,13 @@
-BDEPEND=virtual/pkgconfig dev-libs/wayland-protocols >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=dev-libs/wayland media-sound/pulseaudio media-video/ffmpeg[pulseaudio,x264]
+DEPEND=dev-libs/wayland media-libs/libpulse media-video/ffmpeg[pulseaudio,x264]
 DESCRIPTION=Screen recorder for wlroots-based compositors
 EAPI=8
 HOMEPAGE=https://github.com/ammen99/wf-recorder
 INHERIT=meson git-r3
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/wayland media-sound/pulseaudio media-video/ffmpeg[pulseaudio,x264]
+RDEPEND=dev-libs/wayland media-libs/libpulse media-video/ffmpeg[pulseaudio,x264]
 SLOT=0
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	meson	915ec7c25e08d7886558215e6809ca1e	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=f1713a52f58e011eaa50bfeb180a9727
+_md5_=408832c3b3ae43f3faf3cf8db44d7d68
