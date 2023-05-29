@@ -70,8 +70,8 @@ DEPEND="
 	volume? (
 		alsa? ( media-libs/alsa-lib )
 		pulseaudio? (
+			media-libs/libpulse
 			media-sound/pavucontrol-qt
-			media-sound/pulseaudio
 		)
 	)
 "
