@@ -5,13 +5,13 @@
     <synopsis>An integer overflow vulnerability has been found in sysstat which could result in arbitrary code execution.</synopsis>
     <product type="ebuild">sysstat</product>
     <announced>2022-11-22</announced>
-    <revised count="1">2022-11-22</revised>
+    <revised count="2">2023-05-29</revised>
     <bug>880543</bug>
     <access>local</access>
     <affected>
         <package name="app-admin/sysstat" auto="yes" arch="*">
-            <unaffected range="ge">12.7.1</unaffected>
-            <vulnerable range="lt">12.7.1</vulnerable>
+            <unaffected range="ge">12.6.2-r1</unaffected>
+            <vulnerable range="lt">12.6.2-r1</vulnerable>
         </package>
     </affected>
     <background>
@@ -31,7 +31,7 @@
         
         <code>
           # emerge --sync
-          # emerge --ask --oneshot --verbose ">=app-admin/sysstat-12.7.1"
+          # emerge --ask --oneshot --verbose ">=app-admin/sysstat-12.6.2-r1"
         </code>
     </resolution>
     <references>
