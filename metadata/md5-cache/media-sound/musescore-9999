@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
-DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
+DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-libs/libpulse ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
 DESCRIPTION=WYSIWYG Music Score Typesetter
 EAPI=8
 HOMEPAGE=https://musescore.org/
@@ -9,10 +9,10 @@ INHERIT=cmake qmake-utils xdg check-reqs git-r3
 IUSE=alsa debug jack mp3 osc omr portaudio portmidi pulseaudio +sf3 sfz test webengine
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-sound/pulseaudio ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
+RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-libs/libpulse ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
 REQUIRED_USE=portmidi? ( portaudio )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~fordfrog/distfiles/MuseScore_General-0.2.0.tar.bz2
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	qmake-utils	59420c906278d16deaaa629f9d115707	xdg	4a14c5c24f121e7da66e5aab4a168c6e	check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=6c3c72797062472941816430a8b6d1c7
+_md5_=c4626a82ed2571c21cdfa98b141bffb8

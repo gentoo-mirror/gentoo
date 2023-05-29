@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.virtualbox.org/
 INHERIT=edo linux-mod systemd toolchain-funcs udev
 IUSE=+dbus gui dist-kernel
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )
 PDEPEND=gui? ( x11-drivers/xf86-video-vboxvideo )
 RDEPEND=acct-group/vboxguest acct-group/vboxsf acct-user/vboxguest sys-libs/pam sys-libs/zlib dbus? ( sys-apps/dbus ) gui? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0/7.0
 SRC_URI=https://download.virtualbox.org/virtualbox/7.0.8/VirtualBox-7.0.8a.tar.bz2 https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.0.8.tar.bz2
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	073dc5c9bc044e85d704b503ebc764a2	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=72b2cbaa2fe8a5951a41f242f20eec3f
+_md5_=f341926f5dc0b6f06a2cc0b919bea143
